@@ -3,21 +3,21 @@ title: "IdentityCredential: token-Eigenschaft"
 short-title: token
 slug: Web/API/IdentityCredential/token
 l10n:
-  sourceCommit: b64f587034fbb610fe12ad819b0384f4f4ce1d4f
+  sourceCommit: a6c32a2d0add510c95ef74e85bd8e17551d508b6
 ---
 
 {{APIRef("FedCM API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die schreibgeschützte Eigenschaft **`token`** des [`IdentityCredential`](/de/docs/Web/API/IdentityCredential)-Interfaces gibt das Token zurück, das verwendet wird, um die zugehörige Anmeldung zu validieren.
+Die schreibgeschützte **`token`**-Eigenschaft der [`IdentityCredential`](/de/docs/Web/API/IdentityCredential)-Schnittstelle gibt das Token zurück, das zur Validierung des zugehörigen Anmeldevorgangs verwendet wird.
 
-Das Token enthält Informationen zur Benutzeridentität, die mit dem {{Glossary("digital_certificate", "digitalen Zertifikat")}} des Identitätsanbieters (IdP) signiert wurden.
+Das Token enthält Benutzeridentitätsinformationen, die mit dem {{Glossary("digital_certificate", "digitalen Zertifikat")}} des Identity Providers (IdP) signiert wurden.
 
-Der verarbeitende Dienst (RP) sendet das Token an seinen Server, um das Zertifikat zu validieren, und kann im Erfolgsfall die (nun vertrauenswürdige) Identitätsinformation im Token verwenden, um den Benutzer in seinen Dienst einzuloggen (eine neue Sitzung zu starten), ihn für seinen Dienst zu registrieren, falls er ein neuer Benutzer ist, usw.
+Die vertrauende Partei (RP) sendet das Token an ihren Server, um das Zertifikat zu validieren, und im Erfolgsfall kann sie die (nun vertrauenswürdigen) Identitätsinformationen im Token verwenden, um den Benutzer in ihren Dienst anzumelden (eine neue Sitzung zu starten), ihn in ihren Dienst einzutragen, falls er ein neuer Benutzer ist, usw.
 
-Falls der Benutzer sich nie beim IdP angemeldet hat oder abgemeldet ist, wird der zugehörige [`get()`](/de/docs/Web/API/CredentialsContainer/get)-Aufruf mit einem Fehler abgelehnt, und der RP kann den Benutzer zur IdP-Loginseite weiterleiten, um sich anzumelden oder ein Konto zu erstellen.
+Wenn der Benutzer sich noch nie beim IdP angemeldet hat oder abgemeldet ist, lehnt der zugehörige [`get()`](/de/docs/Web/API/CredentialsContainer/get)-Aufruf mit einem Fehler ab und die RP kann den Benutzer zur IdP-Anmeldeseite leiten, um sich anzumelden oder ein Konto zu erstellen.
 
 > [!NOTE]
-> Die genaue Struktur und der Inhalt des Validierungstokens sind für die FedCM-API und den Browser undurchsichtig. Der IdP entscheidet über die Syntax und Verwendung, und der RP muss den Anweisungen des IdP folgen (siehe beispielsweise [Verify the Google ID token on your server side](https://developers.google.com/identity/gsi/web/guides/verify-google-id-token)), um sicherzustellen, dass er es korrekt verwendet.
+> Die genaue Struktur und der Inhalt des Validierungstokens sind für die FedCM-API und den Browser undurchsichtig. Der IdP entscheidet über die Syntax und Nutzung, und die RP muss den Anweisungen des IdP folgen (siehe z.B. [Verify the Google ID token on your server side](https://developers.google.com/identity/gsi/web/guides/verify-google-id-token)), um sicherzustellen, dass sie dieses korrekt verwenden.
 
 ## Wert
 
@@ -25,7 +25,7 @@ Ein String.
 
 ## Beispiele
 
-Verarbeitende Dienste (RPs) können `navigator.credentials.get()` mit der Option `identity` aufrufen, um eine Anfrage zu stellen, bei der sich Benutzer über einen Identitätsanbieter (IdP) über Identitätsföderation beim RP anmelden können. Eine typische Anfrage könnte so aussehen:
+Vertrauensparteien (RPs) können `navigator.credentials.get()` mit der `identity`-Option aufrufen, um eine Anfrage zu stellen, damit sich Benutzer über einen Identity Provider (IdP) mit Identitätsföderation beim RP anmelden. Eine typische Anfrage würde folgendermaßen aussehen:
 
 ```js
 async function signIn() {
@@ -47,7 +47,7 @@ async function signIn() {
 
 Ein erfolgreicher [`navigator.credentials.get()`](/de/docs/Web/API/CredentialsContainer/get)-Aufruf, der eine `identity`-Option enthält, wird mit einer `IdentityCredential`-Instanz erfüllt, die verwendet werden kann, um auf das Token zuzugreifen, das zur Validierung der Anmeldung verwendet wird.
 
-Sehen Sie sich die [Federated Credential Management API (FedCM)](/de/docs/Web/API/FedCM_API) an, um weitere Details darüber zu erfahren, wie dies funktioniert. Dieser Aufruf startet den in [FedCM sign-in flow](/de/docs/Web/API/FedCM_API/RP_sign-in#fedcm_sign-in_flow) beschriebenen Anmeldefluss.
+Sehen Sie sich die [Federated Credential Management API (FedCM)](/de/docs/Web/API/FedCM_API) an, um mehr darüber zu erfahren, wie dies funktioniert. Dieser Aufruf wird den in [FedCM-Anmeldefluss](/de/docs/Web/API/FedCM_API/RP_sign-in#fedcm_sign-in_flow) beschriebenen Anmeldefluss starten.
 
 ## Spezifikationen
 
@@ -59,4 +59,4 @@ Sehen Sie sich die [Federated Credential Management API (FedCM)](/de/docs/Web/AP
 
 ## Siehe auch
 
-- [Federated Credential Management API](https://developers.google.com/privacy-sandbox/cookies/fedcm)
+- [Federated Credential Management API](https://privacysandbox.google.com/cookies/fedcm)

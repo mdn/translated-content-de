@@ -1,20 +1,20 @@
 ---
-title: Registrierung für den Privacy Sandbox
+title: Anmeldung für Privacy Sandbox
 short-title: Enrollment
 slug: Web/Privacy/Guides/Privacy_sandbox/Enrollment
 l10n:
-  sourceCommit: 775df1c62a1cbe555c4374ff9122d4ef15bd6f60
+  sourceCommit: a6c32a2d0add510c95ef74e85bd8e17551d508b6
 ---
 
-Um auf bestimmte Funktionen der Privacy Sandbox zuzugreifen, müssen Entwickler in einigen Browsern einen **Registrierungsprozess** durchlaufen.
+Um auf bestimmte Funktionen der Privacy Sandbox zugreifen zu können, müssen Entwickler in einigen Browsern einen **Anmeldungsprozess** durchlaufen.
 
-Die Registrierung bietet einen Mechanismus zur Verifizierung der Entitäten, die Privacy Sandbox-Funktionen aufrufen, und zur Erfassung der entwicklerspezifischen Daten, die notwendig sind, um diese Funktionen ordnungsgemäß zu konfigurieren und zu nutzen. Der Registrierungsprozess fügt eine zusätzliche Schutzschicht zu den strukturellen Beschränkungen hinzu, die innerhalb jeder Funktion durchgesetzt werden, indem Transparenz darüber geschaffen wird, wer Daten sammelt, und indem Versuche, Funktionen zur Erfassung von mehr Daten als vorgesehen zu missbrauchen, abgeschwächt werden.
+Die Anmeldung bietet einen Mechanismus zur Überprüfung der Entitäten, die Privacy Sandbox-Funktionen aufrufen, und zum Sammeln der entwicklerspezifischen Daten, die für die ordnungsgemäße Konfiguration und Nutzung erforderlich sind. Der Anmeldeprozess fügt eine zusätzliche Schutzschicht zu den strukturellen Einschränkungen hinzu, die innerhalb jeder Funktion durchgesetzt werden, indem er Transparenz darüber schafft, wer Daten sammelt, und Versuche zur missbräuchlichen Nutzung der Funktionen zur Erfassung mehr Daten als beabsichtigt, mindert.
 
-Es ist beabsichtigt, die Informationen über jedes Unternehmen, das die Registrierung abschließt, öffentlich zu machen, um prüfbare Transparenz zu gewährleisten.
+Es ist beabsichtigt, dass Informationen über jedes Unternehmen, das die Anmeldung abgeschlossen hat, öffentlich gemacht werden, um eine überprüfbare Transparenz zu gewährleisten.
 
-## Funktionen, die eine Registrierung erfordern
+## Funktionen, die eine Anmeldung erfordern
 
-Die folgenden Funktionen erfordern eine Registrierung, um nutzbar zu sein:
+Für die Nutzung der folgenden Funktionen ist eine Anmeldung erforderlich:
 
 - [Attribution Reporting API](/de/docs/Web/API/Attribution_Reporting_API)
 - [Fenced Frame API](/de/docs/Web/API/Fenced_frame_API)
@@ -22,15 +22,15 @@ Die folgenden Funktionen erfordern eine Registrierung, um nutzbar zu sein:
 - [Shared Storage API](/de/docs/Web/API/Shared_Storage_API)
 - [Topics API](/de/docs/Web/API/Topics_API)
 
-Die Dokumentation jeder Funktion enthält detailliertere Informationen dazu, welche Teilfunktionen genau fehlschlagen, wenn die Registrierung nicht abgeschlossen wird, und wie dies geschieht.
+Die Dokumentation jeder Funktion enthält weitere Details darüber, welche Unterfunktionen genau fehlschlagen werden, wenn die Anmeldung nicht abgeschlossen ist, und wie dies geschieht.
 
-## Informationen zur Browservorregistrierung
+## Browser-Anmeldeinformationen
 
 ### Chrome
 
-- **Anweisungen**: [Für die Privacy Sandbox registrieren](https://github.com/privacysandbox/attestation/blob/main/how-to-enroll.md).
-- **Tests**: Sie müssen sich nicht registrieren, um Privacy Sandbox-Funktionen lokal zu testen. Um lokale Tests zu ermöglichen, aktivieren Sie das Entwickler-Flag `chrome://flags/#privacy-sandbox-enrollment-overrides`.
+- **Anleitung**: [Für die Privacy Sandbox anmelden](https://github.com/privacysandbox/attestation/blob/main/how-to-enroll.md).
+- **Testen**: Sie müssen sich nicht anmelden, um die Privacy Sandbox-Funktionen lokal zu testen. Um lokales Testen zu ermöglichen, aktivieren Sie das Entwicklerflag `chrome://flags/#privacy-sandbox-enrollment-overrides`.
 
 ## Siehe auch
 
-- [Die Privacy Sandbox](https://developers.google.com/privacy-sandbox) auf developers.google.com
+- [Die Privacy Sandbox](https://privacysandbox.google.com/) auf privacysandbox.google.com

@@ -1,25 +1,25 @@
 ---
-title: "<selectedcontent>: Das Anzeigeelement der ausgewählten Option"
+title: "<selectedcontent>: Das Anzeigefeld für die ausgewählte Option"
 slug: Web/HTML/Element/selectedcontent
 l10n:
-  sourceCommit: 44f398527f2b0195a7c3b35db0a53c80aebe8e48
+  sourceCommit: 20cff31570e35c6da44ddd84158fcebd9f4f42d9
 ---
 
 {{HTMLSidebar}}{{SeeCompatTable}}{{non-standard_header}}
 
-Das **`<selectedcontent>`** [HTML](/de/docs/Web/HTML)-Element kann verwendet werden, um den Inhalt der aktuell ausgewählten `<option>` in einem geschlossenen `<select>`-Element anzuzeigen.
+Das **`<selectedcontent>`** [HTML](/de/docs/Web/HTML)-Element kann verwendet werden, um den Inhalt der derzeit ausgewählten `<option>` innerhalb eines geschlossenen `<select>`-Elements anzuzeigen.
 
 ## Attribute
 
-Das `<selectedcontent>`-Element enthält die [globalen Attribute](/de/docs/Web/HTML/Global_attributes), diese werden jedoch im Wesentlichen ignoriert, da das Element, wenn es korrekt als Kind eines Auswahlknopfes verwendet wird, {{Glossary("inert", "inert")}} gerendert wird.
+Das `<selectedcontent>`-Element enthält die [globalen Attribute](/de/docs/Web/HTML/Global_attributes), diese werden jedoch im Wesentlichen ignoriert, da das Element, wenn es korrekt als untergeordnetes Element eines Select-Buttons verwendet wird, [träge](/de/docs/Web/HTML/Global_attributes/inert) dargestellt wird.
 
-Der Auswahlknopf und all sein Inhalt sind standardmäßig inert, sodass er wie ein einzelner Knopf behandelt wird, selbst wenn interaktive Kinder (z. B. Links oder Schaltflächen) darin enthalten sind.
+Der Select-Button und all sein Inhalt sind standardmäßig träge, sodass, wenn interaktive Kinder (zum Beispiel Links oder Buttons) darin enthalten sind, er weiterhin als einzelner Button zu Interaktionszwecken behandelt wird.
 
-Keine weiteren Attribute sind für `<selectedcontent>` definiert.
+Keine anderen Attribute sind auf `<selectedcontent>` definiert.
 
 ## Beschreibung
 
-Beim Erstellen eines [anpassbaren Auswahl-Elements](/de/docs/Learn_web_development/Extensions/Forms/Customizable_select) können Sie das `<selectedcontent>`-Element innerhalb eines {{htmlelement("button")}}-Elements einfügen, das wiederum das erste Kind des `<select>`-Elements sein muss:
+Beim Erstellen eines [anpassbaren Select-Elements](/de/docs/Learn_web_development/Extensions/Forms/Customizable_select) können Sie das `<selectedcontent>`-Element innerhalb eines {{htmlelement("button")}}-Elements einfügen, welches wiederum das erste Kind des `<select>`-Elements sein muss:
 
 ```html
 <select>
@@ -31,19 +31,19 @@ Beim Erstellen eines [anpassbaren Auswahl-Elements](/de/docs/Learn_web_developme
 </select>
 ```
 
-`<selectedcontent>` enthält eine Kopie des derzeit im {{htmlelement("select")}}-Element ausgewählten {{htmlelement("option")}}-Elementinhalts, erstellt mit [`cloneNode()`](/de/docs/Web/API/Node/cloneNode) im Hintergrund.
+`<selectedcontent>` enthält einen Klon des Inhalts des derzeit im {{htmlelement("select")}}-Element ausgewählten {{htmlelement("option")}}-Elements, erstellt mithilfe von [`cloneNode()`](/de/docs/Web/API/Node/cloneNode) im Hintergrund.
 
-Jeder nachfolgende `<select>`-Inhalt wird im Dropdown-Auswahlinstrument enthalten sein.
+Jeder weitere `<select>`-Inhalt wird im Dropdown-Auswahlelement enthalten sein.
 
-Wann immer das ausgewählte `<option>`-Element von einem `<select>`-Element von einer Option zu einer anderen wechselt, wird der Inhalt des `<selectedcontent>`-Elements entfernt und durch eine neue geklonte Kopie der DOM-Struktur der neu ausgewählten <code>option</code> ersetzt, erstellt mit [`cloneNode()`](/de/docs/Web/API/Node/cloneNode).
+Immer wenn das `<select>`-Element von einer `<option>` zur nächsten wechselt, wird der Inhalt des `<selectedcontent>`-Elements entfernt und durch eine neue geklonte Kopie der DOM-Struktur der neu ausgewählten <code>option</code> ersetzt, erstellt mit [`cloneNode()`](/de/docs/Web/API/Node/cloneNode).
 
-## Stilierung mit CSS
+## Gestaltung mit CSS
 
-Es ist nützlich, den Inhalt des aktuell ausgewählten `<option>`-Elements, wie er innerhalb des Auswahlknopfes erscheint, mit CSS-Stilen anzuvisieren, ohne die Stilierung des Inhalts innerhalb des Auswahlinstruments zu beeinflussen.
+Es ist nützlich, den Inhalt des derzeit ausgewählten `<option>`-Elements anzuvisieren, wie er innerhalb des Select-Buttons mit CSS-Stilen erscheint, ohne die Gestaltung des Inhalts zu beeinflussen, wie er im Auswahlelement erscheint.
 
-Ihre `<option>`-Elemente könnten beispielsweise Symbole, Bilder oder sogar Videos enthalten. Dieser Inhalt sieht möglicherweise innerhalb des Auswahlinstruments gut aus, könnte jedoch dazu führen, dass der Auswahlknopf größer wird, unordentlich aussieht und das umliegende Layout beeinträchtigt.
+Zum Beispiel können Ihre `<option>`-Elemente Symbole, Bilder oder sogar Videos enthalten. Dieser Inhalt könnte innerhalb des Auswahlelements schön aussehen, könnte jedoch dazu führen, dass der Select-Button größer wird, unordentlich aussieht und das umgebende Layout beeinflusst.
 
-Dies könnte behoben werden, indem der problematische Inhalt ausgeblendet wird, wenn er innerhalb von `<selectedcontent>` enthalten ist. Beispielsweise:
+Dies könnte behoben werden, indem der problematische Inhalt ausgeblendet wird, wenn er innerhalb von `<selectedcontent>` enthalten ist. Zum Beispiel:
 
 ```css
 selectedcontent img {
@@ -52,11 +52,11 @@ selectedcontent img {
 ```
 
 > [!NOTE]
-> Wenn die `<button>`- und/oder `<selectedcontent>`-Elemente nicht innerhalb des `<select>`-Markups enthalten sind, wird der ausgewählte Optionsinhalt implizit in den Auswahlknopf eingefügt, aber diese Zuordnung wird nicht möglich sein.
+> Wenn die `<button>`- und/oder `<selectedcontent>`-Elemente nicht innerhalb der `<select>`-Markup enthalten sind, platziert der Browser den ausgewählten Optionsinhalt implizit innerhalb des Select-Buttons, aber dieses Targeting wird nicht möglich sein.
 
 ## Beispiele
 
-Ein vollständiges Beispiel, das das `<selectedcontent>`-Element beinhaltet, finden Sie in unserem [Leitfaden für anpassbare Auswahl-Elemente](/de/docs/Learn_web_development/Extensions/Forms/Customizable_select).
+Sie können ein vollständiges Beispiel sehen, das das `<selectedcontent>`-Element in unserem [Leitfaden zu anpassbaren Select-Elementen](/de/docs/Learn_web_development/Extensions/Forms/Customizable_select) enthält.
 
 ## Technische Zusammenfassung
 
@@ -75,12 +75,12 @@ Ein vollständiges Beispiel, das das `<selectedcontent>`-Element beinhaltet, fin
     <tr>
       <th scope="row">Erlaubter Inhalt</th>
       <td>
-        Spiegelt den Inhalt des ausgewählten {{htmlelement("option")}} wider.
+        Spiegelt den Inhalt der ausgewählten {{htmlelement("option")}} wider.
       </td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl das Anfangs- als auch das End-Tag sind erforderlich.</td>
+      <td>Keine, sowohl der Start- als auch der End-Tag sind obligatorisch.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
@@ -109,7 +109,7 @@ Ein vollständiges Beispiel, das das `<selectedcontent>`-Element beinhaltet, fin
 
 ## Spezifikationen
 
-Gehört derzeit nicht zu einer Spezifikation. Siehe https://github.com/whatwg/html/pull/10633 für den relevanten Spezifikations-PR.
+Derzeit nicht Teil einer Spezifikation. Siehe https://github.com/whatwg/html/pull/10633 für den relevanten Spezifikations-PR.
 
 ## Browser-Kompatibilität
 
@@ -120,4 +120,4 @@ Gehört derzeit nicht zu einer Spezifikation. Siehe https://github.com/whatwg/ht
 - Das {{HTMLElement("select")}}-Element
 - Das {{HTMLElement("option")}}-Element
 - Das {{HTMLElement("optgroup")}}-Element
-- [Anpassbare Auswahl-Elemente](/de/docs/Learn_web_development/Extensions/Forms/Customizable_select)
+- [Anpassbare Select-Elemente](/de/docs/Learn_web_development/Extensions/Forms/Customizable_select)

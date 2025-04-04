@@ -2,21 +2,21 @@
 title: IdentityProvider
 slug: Web/API/IdentityProvider
 l10n:
-  sourceCommit: 0a9c10fc67901972221dc7b3d006334fbfa73dce
+  sourceCommit: a6c32a2d0add510c95ef74e85bd8e17551d508b6
 ---
 
 {{APIRef("FedCM API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Das **`IdentityProvider`** Interface der [Federated Credential Management (FedCM) API](/de/docs/Web/API/FedCM_API) repräsentiert einen Identitätsanbieter (IdP) und bietet Zugriff auf verwandte Informationen und Funktionen.
+Das **`IdentityProvider`**-Interface der [Federated Credential Management (FedCM) API](/de/docs/Web/API/FedCM_API) repräsentiert einen Identitätsanbieter (IdP) und bietet Zugriff auf damit zusammenhängende Informationen und Funktionen.
 
 {{InheritanceDiagram}}
 
 ## Statische Methoden
 
 - [`close()`](/de/docs/Web/API/IdentityProvider/close_static) {{experimental_inline}}
-  - : Bietet ein manuelles Signal an den Browser, dass ein Anmeldefluss eines IdPs abgeschlossen ist. Dies ist erforderlich, um beispielsweise den Anmeldedialog des IdP zu schließen, wenn die Anmeldung vollständig abgeschlossen ist und der IdP die Datenerfassung vom Nutzer beendet hat.
+  - : Gibt dem Browser ein manuelles Signal, dass ein Anmeldevorgang eines IdP beendet ist. Dies ist beispielsweise erforderlich, um den Anmeldedialog des IdP zu schließen, wenn die Anmeldung vollständig abgeschlossen ist und der IdP das Sammeln von Daten vom Nutzer beendet hat.
 - [`getUserInfo()`](/de/docs/Web/API/IdentityProvider/getUserInfo_static) {{experimental_inline}}
-  - : Gibt Informationen über einen zuvor angemeldeten Nutzer bei seiner Rückkehr zu einem IdP zurück, die verwendet werden können, um eine personalisierte Willkommensnachricht und Anmeldeschaltfläche bereitzustellen.
+  - : Gibt Informationen über einen zuvor angemeldeten Nutzer bei seiner Rückkehr zu einem IdP zurück, die genutzt werden können, um eine personalisierte Willkommensnachricht und Anmeldeschaltfläche bereitzustellen.
 
 ## Beispiele
 
@@ -53,4 +53,4 @@ if (user_info.length > 0) {
 
 ## Siehe auch
 
-- [Federated Credential Management API](https://developers.google.com/privacy-sandbox/cookies/fedcm) auf developers.google.com (2023)
+- [Federated Credential Management API](https://privacysandbox.google.com/cookies/fedcm) auf privacysandbox.google.com (2023)

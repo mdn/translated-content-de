@@ -1,36 +1,36 @@
 ---
-title: Verwandte Website-Sets
+title: Verwandte Websitemengen
 slug: Web/API/Storage_Access_API/Related_website_sets
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: a6c32a2d0add510c95ef74e85bd8e17551d508b6
 ---
 
 {{DefaultAPISidebar("Storage Access API")}}
 
 > [!WARNING]
-> Dieses Feature wird derzeit von zwei Browserherstellern abgelehnt. Siehe den Abschnitt [Standards-Positionen](#standards-positionen) unten für Details zur Ablehnung.
+> Diese Funktion wird derzeit von zwei Browseranbietern abgelehnt. Siehe den Abschnitt [Standardspositionen](#standardspositionen) weiter unten für Details zur Ablehnung.
 
-Verwandte Website-Sets sind ein Mechanismus zur Definition einer Reihe von verwandten Websites, die vertrauenswürdigen Inhalt teilen. Dadurch können Browser standardmäßig diesen Websites Zugriff auf [Drittanbietercookies](/de/docs/Web/Privacy/Guides/Third-party_cookies) und [unpartitionierten Zustand](/de/docs/Web/Privacy/Guides/State_Partitioning#state_partitioning) gewähren, wenn sie Inhalte in anderen Mitgliedern des Sets eingebettet haben, ohne dass die Nutzer den Zugang zur [Storage Access API](/de/docs/Web/API/Storage_Access_API) über eine Berechtigungsanfrage gewähren müssen.
+Verwandte Websitemengen sind ein Mechanismus zur Definition einer Menge verwandter Websites, die vertrauenswürdige Inhalte teilen. Dadurch können Browser diesen Websites standardmäßig Zugriff auf [Drittanbieter-Cookies](/de/docs/Web/Privacy/Guides/Third-party_cookies) und [unpartitionierten Zustand](/de/docs/Web/Privacy/Guides/State_Partitioning#state_partitioning) gewähren, wenn sie in anderen Mitgliedern des Sets eingebettet sind, ohne dass Benutzer den Zugriff auf die [Storage Access API](/de/docs/Web/API/Storage_Access_API) über eine Berechtigungsaufforderung gewähren müssen.
 
-## Konzepte und Verwendung
+## Konzepte und Nutzung
 
-Betrachten Sie Situationen, in denen Sie eine Reihe von verwandten Websites mit unterschiedlichen Domainnamen haben und den Zugriff auf Drittanbietercookies und unpartitionierten Zustand gewähren möchten, wenn diese in einem Drittanbieterkontext innerhalb anderer verwandter Sites geladen werden (z. B. eingebettet in einem {{htmlelement("iframe")}}). Typische Anwendungsfälle sind:
+Betrachten Sie Situationen, in denen Sie eine Reihe verwandter Websites mit unterschiedlichen Domainnamen haben und Sie möchten, dass Website-Inhalte Zugriff auf Drittanbieter-Cookies und unpartitionierten Zustand haben, wenn diese in einem Drittanbieterkontext innerhalb anderer verwandter Websites geladen werden (d.h. eingebettet in ein {{htmlelement("iframe")}}). Typische Anwendungsfälle sind:
 
-- App-Sites: Eine einzelne Anwendung kann über mehrere Sites bereitgestellt werden und so den Nutzern ermöglichen, nahtlos in einer einzigen Sitzung zwischen ihnen zu navigieren.
-- Marken-Sites: Eine Reihe von Markeninhalten kann in einer einzigen Site enthalten sein, wird dann jedoch über mehrere Domains bereitgestellt, einschließlich Sitzungsdaten in Bezug auf Benutzerpräferenzen, Anpassungen usw.
+- App-Websites: Eine einzige Anwendung kann über mehrere Sites bereitgestellt werden, um Benutzern zu ermöglichen, in einer einzigen Sitzung nahtlos zwischen ihnen zu navigieren.
+- Marken-Websites: Eine Sammlung von Markenressourcen kann in einer einzigen Site enthalten sein, die dann über mehrere Domains bereitgestellt wird, einschließlich Sitzungsdaten in Bezug auf Benutzerpräferenzen, Anpassungen usw.
 
-Der Zugriff auf Drittanbietercookies und unpartitionierten Zustand wird häufig durch Browser-Richtlinien blockiert. Sie können dies jedoch mithilfe der Storage Access API umgehen – siehe [Verwendung der Storage Access API](/de/docs/Web/API/Storage_Access_API/Using) für Details.
+Der Zugriff auf Drittanbieter-Cookies und unpartitionierten Zustand wird häufig durch Browser-Richtlinien blockiert. Dennoch können Sie es mithilfe der Storage Access API umgehen — siehe [Verwendung der Storage Access API](/de/docs/Web/API/Storage_Access_API/Using) für Details.
 
-Verwandte Website-Sets sind ein fortschreitender Verbesserungsmechanismus, der zusammen mit der Storage Access API funktioniert. Unterstützende Browser gewähren den Zugriff auf Drittanbietercookies und unpartitionierten Zustand zwischen Websites im selben Set _ohne_ den üblichen Workflow mit Benutzerberechtigungsanfragen durchlaufen zu müssen, sobald [`Document.requestStorageAccess()`](/de/docs/Web/API/Document/requestStorageAccess) (oder [`Document.requestStorageAccessFor()`](/de/docs/Web/API/Document/requestStorageAccessFor)) aufgerufen wird. Dies führt zu einem benutzerfreundlicheren Erlebnis für die Nutzer von Websites im Set.
+Verwandte Websitemengen sind ein progressiver Verbesserungsmechanismus, der zusammen mit der Storage Access API funktioniert. Unterstützende Browser gewähren Drittanbieter-Cookies und unpartitionierten Zustandszugriff zwischen Websites im gleichen Set _ohne_ den üblichen Workflow für Benutzerberechtigungsaufforderungen durchlaufen zu müssen, sobald [`Document.requestStorageAccess()`](/de/docs/Web/API/Document/requestStorageAccess) (oder [`Document.requestStorageAccessFor()`](/de/docs/Web/API/Document/requestStorageAccessFor)) aufgerufen wird. Dies führt zu einer benutzerfreundlicheren Erfahrung für Benutzer von Websites im Set.
 
 Sie sollten beachten, dass:
 
-- Die Chrome-exklusive Methode [`Document.requestStorageAccessFor()`](/de/docs/Web/API/Document/requestStorageAccessFor) — die es obersten Websites ermöglicht, im Namen eingebetteter Inhalte Speicherzugriff anzufordern — wird nur auf Domains innerhalb eines verwandten Website-Sets unterstützt. Siehe [Verwendung der Storage Access API](/de/docs/Web/API/Storage_Access_API/Using) für ein Beispiel.
-- Als Chrome zuerst die Standard-Storage Access API unterstützte (das heißt die Methoden [`Document.hasStorageAccess()`](/de/docs/Web/API/Document/hasStorageAccess) und [`Document.requestStorageAccess()`](/de/docs/Web/API/Document/requestStorageAccess)), erforderte es, dass aufrufende Websites Teil eines verwandten Website-Sets waren. Dies ist nun nicht mehr der Fall.
+- Die Chrome-exklusive Methode [`Document.requestStorageAccessFor()`](/de/docs/Web/API/Document/requestStorageAccessFor) — die es Top-Level-Sites ermöglicht, Speicherzugriff im Namen von eingebettetem Ursprungsinhalt anzufordern — wird nur auf Domains innerhalb eines verwandten Websitemengensets unterstützt. Siehe [Verwendung der Storage Access API](/de/docs/Web/API/Storage_Access_API/Using) für ein Beispiel.
+- Als Chrome erstmals die standardmäßige Storage Access API unterstützte (d.h. die Methoden [`Document.hasStorageAccess()`](/de/docs/Web/API/Document/hasStorageAccess) und [`Document.requestStorageAccess()`](/de/docs/Web/API/Document/requestStorageAccess)), erforderte es, dass aufrufende Websites Teil einer verwandten Websitemenge sind. Dies ist nicht mehr der Fall.
 
 ## Wie funktioniert RWS?
 
-Ein verwandtes Website-Set besteht aus einer primären Site und bis zu fünf zugehörigen Sites.
+Eine verwandte Websitemenge besteht aus einer primären Website und bis zu fünf assoziierten Websites.
 
 ### JSON-Struktur
 
@@ -71,15 +71,15 @@ Ein Set wird durch eine JSON-Struktur dargestellt. Ein hypothetisches Beispiel i
 ```
 
 > [!NOTE]
-> Die Erklärungen zur Zugehörigkeit müssen eine klare Beschreibung enthalten, wie die Zugehörigkeit zur primären Site den Nutzern dieser Sites präsentiert wird.
+> Die Erklärungen zur Zugehörigkeit müssen eine klare Beschreibung enthalten, wie die Zugehörigkeit zur primären Website den Benutzern dieser Websites präsentiert wird.
 
-Um ein Set zu verwenden, muss sein JSON zur `related_website_sets.JSON`-Datei hinzugefügt werden, die im [GitHub-Repository für verwandte Website-Sets](https://github.com/GoogleChrome/related-website-sets/blob/main/related_website_sets.JSON) verfügbar ist, die Chrome dann nutzt, um die Liste der Sets zu erhalten, auf die RWS-Verhalten angewendet werden soll.
+Um ein Set zu verwenden, muss dessen JSON der `related_website_sets.JSON`-Datei hinzugefügt werden, die im [Related Website Sets GitHub-Repository](https://github.com/GoogleChrome/related-website-sets/blob/main/related_website_sets.JSON) verfügbar ist, die Chrome dann verwendet, um die Liste der Sets abzurufen, auf die RWS-Verhalten angewendet werden soll.
 
 ### `.well-known`-Dateien
 
-Jede Site im Set muss auch eine [.well-known](https://en.wikipedia.org/wiki/Well-known_URI)-Datei unter `/.well-known/related-website-set.json` bereitstellen, die dazu dient, die Struktur des Sets und die Beziehung zwischen den Sites im Set zu verifizieren.
+Jede Site im Set muss auch eine [`.well-known`](https://en.wikipedia.org/wiki/Well-known_URI)-Datei unter `/.well-known/related-website-set.json` bereitstellen, die zur Überprüfung der Set-Struktur und der Beziehung zwischen den Sites im Set dient.
 
-Die `.well-known`-Datei der primären Site muss die vollständige Set-Struktur explizit auflisten. `https://primary1.com` im obigen Beispiel würde eine `https://primary1.com/.well-known/related-website-set.json`-Datei benötigen, die wie folgt aussieht:
+Die `.well-known`-Datei der primären Website muss die vollständige Set-Struktur explizit auflisten. `https://primary1.com` im obigen Beispiel würde eine `https://primary1.com/.well-known/related-website-set.json`-Datei benötigen, die der folgenden ähnelt:
 
 ```json
 {
@@ -110,7 +110,7 @@ Die `.well-known`-Datei der primären Site muss die vollständige Set-Struktur e
 }
 ```
 
-Jede zugehörige und Dienstsite muss ihre primäre Site in einer `.well-known`-Datei angeben. Jede nicht-primäre Site im obigen Beispiel (z. B. `https://associateA.com`) würde eine `/.well-known/related-website-set.json`-Datei wie diese benötigen:
+Jede assoziierte und Service-Site muss ihre primäre Site in einer `.well-known`-Datei angeben. Jede nicht-primäre Site im obigen Beispiel (z.B. `https://associateA.com`) würde eine `/.well-known/related-website-set.json`-Datei benötigen, die wie folgt aussieht:
 
 ```json
 {
@@ -118,39 +118,39 @@ Jede zugehörige und Dienstsite muss ihre primäre Site in einer `.well-known`-D
 }
 ```
 
-Für vollständige Details zum Prozess, zur JSON-Syntax und zu anderen Anforderungen für die Einreichung von Sets, siehe die [Einreichungsrichtlinien](https://github.com/GoogleChrome/related-website-sets/blob/main/RWS-Submission_Guidelines.md). Nur Domain-Administratoren können ein Set erstellen, das ihre Sites enthält.
+Für vollständige Details zum Prozess, zur JSON-Syntax und zu weiteren Anforderungen für die Einreichung von Sets siehe die [Einreichungsrichtlinien](https://github.com/GoogleChrome/related-website-sets/blob/main/RWS-Submission_Guidelines.md). Nur Domain-Administratoren können ein Set erstellen, das ihre Sites enthält.
 
-Beachten Sie, dass die `.well-known`-Dateien auch als Teil des Einreichungsprozesses verifiziert werden, daher müssen sie vorhanden sein, bevor das zugehörige Set eingereicht wird.
+Beachten Sie, dass die `.well-known`-Dateien auch als Teil des Einreichungsprozesses überprüft werden, so dass sie vorhanden sein müssen, bevor das zugehörige Set eingereicht wird.
 
-### Vorteile aktiver Sets
+### Vorteile eines aktiven Sets
 
 Sobald ein Set aktiv ist:
 
-- Anfragen von Sites im Set (über [`Document.requestStorageAccess()`](/de/docs/Web/API/Document/requestStorageAccess)) zum Zugriff auf Drittanbietercookies und unpartitionierten Zustand, die zu Sites im Set gehören, werden automatisch gewährt, und es ist kein Benutzergenehmigungsschritt erforderlich.
-- [`Document.requestStorageAccessFor()`](/de/docs/Web/API/Document/requestStorageAccessFor)-Aufrufe können von obersten Sites im Set gemacht werden, um Drittanbietercookie-Zugriff für andere Sites im Set anzufordern.
+- Anfragen von Sites im Set (über [`Document.requestStorageAccess()`](/de/docs/Web/API/Document/requestStorageAccess)), um auf Drittanbieter-Cookies und unpartitionierten Zustand zuzugreifen, die zu Sites im Set gehören, werden automatisch gewährt, und es ist kein Benutzerberechtigungsschritt erforderlich.
+- [`Document.requestStorageAccessFor()`](/de/docs/Web/API/Document/requestStorageAccessFor)-Aufrufe können von Top-Level-Sites im Set ausgeführt werden, um Drittanbieter-Cookie-Zugriff für andere Sites im Set anzufordern.
 
 ## RWS-Sicherheit
 
-RWS wurde mit Blick auf Sicherheit entworfen. Es wäre katastrophal, wenn eine schädliche Site behaupten könnte, Teil eines Sets zu sein und die damit verbundenen Privilegien zu erlangen. Lassen Sie uns eine theoretische schädliche Site, `evilsite.example.com`, betrachten und einige Beispiele für Angriffe ansehen, die sie versuchen könnte, alle davon würden scheitern:
+RWS wurde mit Blick auf die Sicherheit entworfen. Es wäre katastrophal, wenn eine bösartige Seite sich als Teil eines Sets ausgeben könnte und die damit verbundenen Privilegien erlangen würde. Lassen Sie uns eine theoretische bösartige Seite, `evilsite.example.com`, in Betracht ziehen und einige Beispiele für Angriffe untersuchen, die sie versuchen könnte, und die alle fehlschlagen würden:
 
-- **`evilsite.example.com` behauptet, eine zugehörige Site in einem anderen Set zu sein**: Wenn eine Site behauptet, in einem Set zu sein (d.h. indem sie eine primäre Site in einer `.well-known`-Datei auflistet) aber nicht in der Set-Einreichung und/oder der `.well-known`-Datei der primären Site enthalten ist, erhält sie nicht die Vorteile, Teil des Sets zu sein.
-- **`evilsite.example.com` behauptet, eine primäre Site zu sein, und reicht ein Set ein, das einige potenzielle Opfer-Sites enthält**: Der Einreichungsprozess erfordert, dass `.well-known`-Dateien, die von nicht-primären Sites gehostet werden, ihre primäre Site explizit auflisten. Wenn diese primäre Site nicht mit der Set-Einreichung übereinstimmt (d.h. wenn die zugehörigen/dienenden Sites erwarten, eine andere primäre Site zu haben, oder nicht erwarten, Teil eines Sets zu sein), wird die Einreichung abgelehnt.
-- **`site1.example.com` und `site2.example.com` sind absichtlich im selben Set, aber `site1.example.com` wird von `evilsite.example.com` gehijackt**: Die Auswirkungen eines Site-Hijacking-Angriffs innerhalb eines Sets sind nicht schlimmer, als sie normalerweise wären, sobald die anderen Sites entsprechend aktualisiert werden:
-  - Die reguläre [Storage Access API](/de/docs/Web/API/Storage_Access_API) erfordert eine aktive Einwilligung der eingebetteten Site, daher kann `site2.example.com` aufhören, `document.requestStorageAccess()` aufzurufen, wenn es in `site1.example.com` eingebettet ist, um einen {{Glossary("CSRF", "CSRF")}}-Angriff zu vermeiden.
-  - Die Verwendung von `requestStorageAccessFor()` erfordert [CORS](/de/docs/Web/HTTP/Guides/CORS), sodass `site2.example.com` sich entscheiden könnte, nicht mit den entsprechenden CORS-Headern zu antworten, wenn Netzwerkanfragen von `site1.example.com` kommen, um somit einen CSRF-Angriff zu vermeiden.
+- **`evilsite.example.com` behauptet, eine assoziierte Site in einem anderen Set zu sein**: Wenn eine Site, die behauptet, Teil eines Sets zu sein (d.h. indem sie ein Primärverzeichnis in einer `.well-known`-Datei auflistet), nicht in der Set-Einreichung und/oder der `.well-known`-Datei des primären Sites enthalten ist, erhält sie nicht die Vorteile einer Set-Mitgliedschaft.
+- **`evilsite.example.com` behauptet, eine primäre Site zu sein, und reicht ein Set ein, das einige potenzielle Opfer-Sites enthält**: Der Einreichungsprozess erfordert, dass `.well-known`-Dateien, die von nicht-primären Sites gehostet werden, ihren Primärverzeichnis explizit auflisten. Wenn dieser Primärverzeichnis nicht mit der Set-Einreichung übereinstimmt (d.h. wenn die assoziierten/Service-Sites erwarten, einen anderen Primärverzeichnis zu haben oder überhaupt nicht Teil eines Sets zu sein), wird die Einreichung abgelehnt.
+- **`site1.example.com` und `site2.example.com` sind beabsichtigt im gleichen Set, aber `site1.example.com` wird von `evilsite.example.com` gekapert**: Die Auswirkung eines Site-Hijacking-Angriffs innerhalb eines Sets wäre nicht schlimmer als üblich, sobald die anderen Sites entsprechend aktualisiert sind:
+  - Die reguläre [Storage Access API](/de/docs/Web/API/Storage_Access_API) erfordert eine aktive Zustimmung durch die eingebettete Site, sodass `site2.example.com` aufhören kann, `document.requestStorageAccess()` aufzurufen, wenn es in `site1.example.com` eingebettet ist, um einen {{Glossary("CSRF", "CSRF")}}-Angriff zu vermeiden.
+  - Die Verwendung von `requestStorageAccessFor()` erfordert [CORS](/de/docs/Web/HTTP/Guides/CORS), sodass `site2.example.com` sich entscheiden könnte, nicht mit den entsprechenden CORS-Headern zu antworten, wenn Netzwerk-Anfragen von `site1.example.com` kommen, um einen CSRF-Angriff zu vermeiden.
 
 ## Beispiele
 
-- Die [Related Website Sets-Demo](https://related-website-sets.glitch.me/) demonstriert, wie RWS verwendet wird.
+- Das [Related Website Sets Demo](https://related-website-sets.glitch.me/) zeigt, wie RWS verwendet wird.
 - Siehe auch [Verwendung der Storage Access API](/de/docs/Web/API/Storage_Access_API/Using).
 
 ## Spezifikationen
 
 {{Specifications}}
 
-### Standards-Positionen
+### Standardspositionen
 
-Zwei Browserhersteller {{Glossary("Web_standards#opposing_standards", "lehnen")}} diese Spezifikation ab. Bekannte Positionen sind wie folgt:
+Zwei Browseranbieter {{Glossary("Web_standards#opposing_standards", "lehnen")}} diese Spezifikation ab. Bekannte Positionen sind wie folgt:
 
 - Mozilla (Firefox): [Negativ](https://mozilla.github.io/standards-positions/#first-party-sets)
 - Apple (Safari): [Negativ](https://webkit.org/standards-positions/#position-93)
@@ -158,5 +158,5 @@ Zwei Browserhersteller {{Glossary("Web_standards#opposing_standards", "lehnen")}
 ## Siehe auch
 
 - [Storage Access API](/de/docs/Web/API/Storage_Access_API)
-- [Related Website Sets](https://developers.google.com/privacy-sandbox/cookies/related-website-sets) auf developers.google.com (2023)
-- [Related Website Sets: Entwicklerleitfaden](https://developers.google.com/privacy-sandbox/cookies/related-website-sets-integration) auf developers.google.com (2023)
+- [Related Website Sets](https://privacysandbox.google.com/cookies/related-website-sets) auf privacysandbox.google.com (2023)
+- [Related Website Sets: Entwicklerleitfaden](https://privacysandbox.google.com/cookies/related-website-sets-integration) auf privacysandbox.google.com (2023)

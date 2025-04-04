@@ -1,18 +1,18 @@
 ---
-title: "Navigator: deprecatedReplaceInURN()-Methode"
+title: "Navigator: deprecatedReplaceInURN() Methode"
 short-title: deprecatedReplaceInURN()
 slug: Web/API/Navigator/deprecatedReplaceInURN
 l10n:
-  sourceCommit: f430d277573ba0b06b1ac33ae8017fd90f170bef
+  sourceCommit: a6c32a2d0add510c95ef74e85bd8e17551d508b6
 ---
 
 {{APIRef("Fenced Frame API")}}{{seecompattable}}
 
-Die **`deprecatedReplaceInURN()`**-Methode der [`Navigator`](/de/docs/Web/API/Navigator)-Schnittstelle ersetzt bestimmte Zeichenfolgen innerhalb der abgebildeten URL, die einer gegebenen opaken URN oder der internen `url`-Eigenschaft von `FencedFrameConfig` entspricht.
+Die **`deprecatedReplaceInURN()`** Methode des [`Navigator`](/de/docs/Web/API/Navigator) Interfaces ersetzt angegebene Zeichenfolgen innerhalb der zugehörigen URL, die einer gegebenen opaken URN oder der internen `url`-Eigenschaft von `FencedFrameConfig` zugeordnet ist.
 
-Ein `FencedFrameConfig`-Objekt oder eine opake URN wird aus einer Quelle wie der [Protected Audience API](https://developers.google.com/privacy-sandbox/private-advertising/protected-audience) `runAdAuction()`-Methode zurückgegeben und dann als Wert von [`HTMLFencedFrameElement.config`](/de/docs/Web/API/HTMLFencedFrameElement/config) festgelegt. Die Inhalts-URL, die dem `FencedFrameConfig` oder der opaken URN zugeordnet ist, wird intern vom Browser abgebildet und kann nicht über JavaScript abgerufen werden.
+Eine `FencedFrameConfig` oder opake URN wird aus einer Quelle wie der `runAdAuction()` Methode der [Protected Audience API](https://privacysandbox.google.com/private-advertising/protected-audience) zurückgegeben und dann als Wert von [`HTMLFencedFrameElement.config`](/de/docs/Web/API/HTMLFencedFrameElement/config) gesetzt. Die Inhalts-URL, die mit der `FencedFrameConfig` oder opaken URN verknüpft ist, wird intern vom Browser abgebildet und kann nicht über JavaScript zugegriffen werden.
 
-Es kann jedoch gewünscht werden, Teile dieser internen URL zu ersetzen. Dies ist ein üblicher Ansatz, um Laufzeitdaten in Werbekreative zur Verwendung bei der Darstellung zu übergeben. `deprecatedReplaceInURN()` wurde als temporäre Maßnahme bereitgestellt, um dieses Ersetzen für Fenced-Frame-URLs zu ermöglichen und Werbetechnologie-Anbietern zu helfen, bestehende Implementierungen auf die [Privacy Sandbox](https://developers.google.com/privacy-sandbox)-APIs zu migrieren.
+Es kann jedoch gewünscht sein, Teile dieser internen URL zu ersetzen. Dies ist ein üblicher Ansatz, um Laufzeitdaten in Anzeigencreatives zum Rendern einzufügen. `deprecatedReplaceInURN()` wurde als vorübergehende Maßnahme bereitgestellt, um diesen Ersatz für fenced frame URLs zu ermöglichen, und hilft somit Ad-Tech-Anbietern, bestehende Implementierungen zu [Privacy Sandbox](https://privacysandbox.google.com/) APIs zu migrieren.
 
 ## Syntax
 
@@ -23,13 +23,13 @@ deprecatedReplaceInURN(UrnOrConfig, replacements)
 ### Parameter
 
 - `UrnOrConfig`
-  - : Ein `FencedFrameConfig`-Objekt oder eine opake URN, für die Sie Teile der entsprechenden internen URL ersetzen möchten.
+  - : Ein `FencedFrameConfig`-Objekt oder eine opake URN, für die Sie Teile der zugehörigen internen URL ersetzen möchten.
 - `replacements`
-  - : Ein Objekt, das eine oder mehrere Eigenschaften enthält, die die Ersetzungen darstellen, die Sie in der internen URL vornehmen möchten. Jeder Eigenschaftenschlüssel ist ein URL-Unterabschnitt, den Sie ersetzen möchten, und jeder Eigenschaftswert ist die Zeichenfolge, die ihn ersetzt. Beachten Sie, dass:
-    - Die zu ersetzenden URL-Unterabschnitte in einem der folgenden Formate sein müssen:
+  - : Ein Objekt, das eine oder mehrere Eigenschaften enthält, die die Ersetzungen darstellen, die Sie in der internen URL vornehmen möchten. Jeder Eigenschaftsschlüssel ist ein URL-Abschnitt, den Sie ersetzen möchten, und jeder Eigenschaftswert ist die Zeichenfolge, durch die er ersetzt werden soll. Beachten Sie:
+    - Die zu ersetzenden URL-Abschnitte müssen eines der folgenden Formate haben:
       - `${string}`
       - `%%string%%`
-    - Wenn ein URL-Unterabschnitt im richtigen Format vorliegt, der Unterabschnitt jedoch nicht in der URL gefunden wird, wird das zurückgegebene Promise trotzdem erfüllt, jedoch wird keine Ersetzung vorgenommen.
+    - Sollte ein URL-Abschnitt in einem korrekten Format vorliegen, aber im URL nicht gefunden werden, wird das zurückgegebene Versprechen dennoch erfüllt, jedoch wird kein Ersatz durchgeführt.
 
 ### Rückgabewert
 
@@ -38,9 +38,9 @@ Ein {{jsxref("Promise")}}, das mit {{jsxref("undefined")}} erfüllt wird.
 ### Ausnahmen
 
 - `TypeError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn:
+  - : Ausgelöst, wenn:
     - `UrnOrConfig` kein gültiges `FencedFrameConfig`-Objekt oder keine opake URN ist.
-    - Einer der angegebenen Ersetzungsschlüssel nicht mit den erlaubten Formaten übereinstimmt.
+    - Einer der angegebenen Ersatzschlüssel nicht den erlaubten Formaten entspricht.
 
 ## Beispiele
 
@@ -53,7 +53,7 @@ const exampleURN = await navigator.runAdAuction({
 });
 ```
 
-Sie können dann URL-Unterabschnitte mit einem `deprecatedReplaceInURN()`-Aufruf wie dem folgenden ersetzen:
+Sie können dann URL-Abschnitte mit einem `deprecatedReplaceInURN()`-Aufruf wie dem folgenden ersetzen:
 
 ```js
 await navigator.deprecatedReplaceInURN(exampleURN, {
@@ -63,13 +63,13 @@ await navigator.deprecatedReplaceInURN(exampleURN, {
 });
 ```
 
-Wenn die interne URL, die der URN zugeordnet ist, ursprünglich lautet:
+Wenn die interne URL, die mit der URN verknüpft ist, anfänglich lautet:
 
 ```http
 https://example.com/a=${foo}&b=${bar}&c=%%baz%%
 ```
 
-Nach der Ersetzung wird sie folgendermaßen aussehen:
+Nach dem Ersatz wird sie zu:
 
 ```http
 https://example.com/a=1&b=2&c=3

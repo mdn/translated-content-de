@@ -2,14 +2,14 @@
 title: SharedStorageOperation
 slug: Web/API/SharedStorageOperation
 l10n:
-  sourceCommit: f430d277573ba0b06b1ac33ae8017fd90f170bef
+  sourceCommit: a6c32a2d0add510c95ef74e85bd8e17551d508b6
 ---
 
 {{APIRef("Shared Storage API")}}{{SeeCompatTable}}
 
-Das **`SharedStorageOperation`**-Interface der [Shared Storage API](/de/docs/Web/API/Shared_Storage_API) stellt die Basisklasse für alle Output-Gate-Operationstypen dar.
+Das **`SharedStorageOperation`** Interface der [Shared Storage API](/de/docs/Web/API/Shared_Storage_API) repräsentiert die Basisklasse für alle Ausgabe-Gate-Operationstypen.
 
-Die Output-Gate-Typen sind nachfolgend aufgeführt:
+Die Ausgabe-Gate-Typen sind unten detailliert aufgeführt:
 
 <table class="no-markdown">
   <thead>
@@ -23,13 +23,13 @@ Die Output-Gate-Typen sind nachfolgend aufgeführt:
   <tbody>
     <tr>
       <td>URL-Auswahl</td>
-      <td>Wird verwendet, um eine URL auszuwählen, die dem Nutzer basierend auf den Shared-Storage-Daten angezeigt werden soll.</td>
+      <td>Wird verwendet, um basierend auf gemeinsamen Speicherinformationen eine URL zur Anzeige für den Benutzer auszuwählen.</td>
       <td>[`SharedStorageSelectURLOperation`](/de/docs/Web/API/SharedStorageSelectURLOperation)</td>
       <td>[`selectURL()`](/de/docs/Web/API/WindowSharedStorage/selectURL)</td>
     </tr>
     <tr>
       <td>Run</td>
-      <td>Eine generische Möglichkeit, einige Shared-Storage-Daten zu verarbeiten. Wird beispielsweise von der <a href="https://developers.google.com/privacy-sandbox/private-advertising/private-aggregation">Private Aggregation API</a> verwendet, um Shared-Storage-Daten zu verarbeiten und aggregierte Berichte zu erstellen.</td>
+      <td>Eine generische Methode zum Verarbeiten gemeinsamer Speicherinformationen. Wird beispielsweise von der <a href="https://privacysandbox.google.com/private-advertising/private-aggregation">Private Aggregation API</a> verwendet, um gemeinsame Speicherinformationen zu verarbeiten und aggregierte Berichte zu erstellen.</td>
       <td>[`SharedStorageRunOperation`](/de/docs/Web/API/SharedStorageRunOperation)</td>
       <td>[`run()`](/de/docs/Web/API/WindowSharedStorage/run)</td>
     </tr>
@@ -40,11 +40,11 @@ Die Output-Gate-Typen sind nachfolgend aufgeführt:
 
 ### Definition einzelner Operationen
 
-Viele Shared-Storage-Worklet-Modulscripte definieren und registrieren nur eine einzige Operation; Beispiele finden Sie auf den Seiten zu [`SharedStorageSelectURLOperation`](/de/docs/Web/API/SharedStorageSelectURLOperation) und [`SharedStorageRunOperation`](/de/docs/Web/API/SharedStorageRunOperation).
+Viele gemeinsamer Speicher-Worklet-Modulscripte definieren und registrieren nur eine einzelne Operation; Sie können Beispiele auf den Seiten [`SharedStorageSelectURLOperation`](/de/docs/Web/API/SharedStorageSelectURLOperation) und [`SharedStorageRunOperation`](/de/docs/Web/API/SharedStorageRunOperation) sehen.
 
 ### Definition mehrerer Operationen
 
-In fortgeschritteneren Fällen ist es möglich, mehrere Operationen im selben Shared-Storage-Worklet-Modulskript mit unterschiedlichen Namen zu definieren und zu registrieren. Im folgenden Worklet-Modulskript definieren wir eine URL-Auswahloperation namens `SelectURLOperation`, die eine URL für A/B-Tests auswählt, und eine Run-Operation namens `ExperimentGroupReportingOperation`, die einen Histogrammbericht basierend auf der A/B-Testgruppe des Nutzers ausführt:
+In fortgeschritteneren Fällen ist es möglich, mehrere Operationen im selben gemeinsamen Speicher-Worklet-Modulskript mit unterschiedlichen Namen zu definieren und zu registrieren. Im folgenden Worklet-Modulskript definieren wir eine URL-Auswahloperation namens `SelectURLOperation`, die eine URL für A/B-Testing auswählt, und eine Run-Operation namens `ExperimentGroupReportingOperation`, die einen Histogrammbericht basierend auf der A/B-Testgruppe des Benutzers ausführt:
 
 ```js
 // ab-testing-worklet.js
@@ -89,7 +89,7 @@ register("ab-testing", SelectURLOperation);
 register("experiment-group-reporting", ExperimentGroupReportingOperation);
 ```
 
-Im Hauptbrowsing-Kontext werden diese Operationen durch [`selectURL()`](/de/docs/Web/API/WindowSharedStorage/selectURL) und [`run()`](/de/docs/Web/API/WindowSharedStorage/run) aufgerufen. Die Operationen, die über diese Methoden aufgerufen werden sollen, werden anhand der Namen ausgewählt, mit denen sie registriert wurden, und sie müssen auch den Strukturen entsprechen, die von den Klassen [`SharedStorageSelectURLOperation`](/de/docs/Web/API/SharedStorageSelectURLOperation) und [`SharedStorageRunOperation`](/de/docs/Web/API/SharedStorageRunOperation) und deren `run()`-Methoden definiert werden.
+Im Haupt-Browsing-Kontext werden diese Operationen jeweils durch [`selectURL()`](/de/docs/Web/API/WindowSharedStorage/selectURL) und [`run()`](/de/docs/Web/API/WindowSharedStorage/run) aufgerufen. Die über diese Methoden aufzurufenden Operationen werden anhand der Namen ausgewählt, mit denen sie registriert wurden, und müssen auch den in den Klassen [`SharedStorageSelectURLOperation`](/de/docs/Web/API/SharedStorageSelectURLOperation) und [`SharedStorageRunOperation`](/de/docs/Web/API/SharedStorageRunOperation) und ihren `run()`-Methoden definierten Strukturen entsprechen.
 
 ```js
 // For demo purposes. The hostname is used to determine the usage of

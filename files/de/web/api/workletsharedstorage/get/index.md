@@ -1,9 +1,9 @@
 ---
-title: "WorkletSharedStorage: `get()` Methode"
+title: "WorkletSharedStorage: get()-Methode"
 short-title: get()
 slug: Web/API/WorkletSharedStorage/get
 l10n:
-  sourceCommit: 3fcc43c9a6dd8e2eac385da0496586105256a468
+  sourceCommit: a6c32a2d0add510c95ef74e85bd8e17551d508b6
 ---
 
 {{APIRef("Shared Storage API")}}{{SeeCompatTable}}
@@ -29,18 +29,18 @@ Ein {{jsxref("Promise")}}, das entweder mit einem String erfüllt wird, der dem 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn:
+  - : Ausgelöst, wenn:
     - Das Worklet-Modul noch nicht mit [`addModule()`](/de/docs/Web/API/Worklet/addModule) hinzugefügt wurde.
-    - `key` die vom Browser festgelegte maximale Länge überschreitet.
-    - Die aufrufende Stelle die Shared Storage API nicht in einem erfolgreichen [Datenschutz-Sandbox-Registrierungsprozess](/de/docs/Web/Privacy/Guides/Privacy_sandbox/Enrollment) enthalten hat.
+    - `key` die vom Browser definierte maximale Länge überschreitet.
+    - Die aufrufende Seite die Shared Storage API nicht in einem erfolgreichen [Datenschutz-Sandbox-Anmeldeverfahren](/de/docs/Web/Privacy/Guides/Privacy_sandbox/Enrollment) einbezogen hat.
 
 ## Beispiele
 
 ### Messung der K+-Frequenz
 
-Im folgenden Beispiel wird die K+-Frequenz von Inhaltsaufrufen gemessen. Manchmal als "effektive Frequenz" beschrieben, bezieht sich die K-Frequenz auf die minimale Anzahl von Ansichten, die erforderlich sind, bevor ein Benutzer bestimmte Inhalte erkennt oder sich daran erinnert (oft im Kontext von Anzeigenaufrufen verwendet).
+Im folgenden Beispiel wird die K+-Frequenz von Inhaltsaufrufen gemessen. Manchmal als "effektive Frequenz" beschrieben, bezieht sich die K-Frequenz auf die minimale Anzahl von Aufrufen, bevor ein Nutzer bestimmten Inhalt erkennt oder sich daran erinnert (oft im Kontext von Anzeigenaufrufen verwendet).
 
-Das Hauptseiten-Skript:
+Das Hauptseitenskript:
 
 ```js
 // k-frequency-measurement.js
@@ -115,7 +115,7 @@ class KFreqMeasurementOperation {
 register("k-freq-measurement", KFreqMeasurementOperation);
 ```
 
-Für weitere Details zu diesem Beispiel siehe [K+ Frequenzmessung](https://developers.google.com/privacy-sandbox/private-advertising/private-aggregation/k-freq-reach). Siehe die [Shared Storage API](/de/docs/Web/API/Shared_Storage_API)-Startseite für Links zu weiteren Beispielen.
+Weitere Einzelheiten zu diesem Beispiel finden Sie unter [K+-Frequenzmessung](https://privacysandbox.google.com/private-advertising/private-aggregation/k-freq-reach). Siehe die [Shared Storage API](/de/docs/Web/API/Shared_Storage_API)-Startseite für Links zu weiteren Beispielen.
 
 ## Spezifikationen
 
@@ -128,4 +128,4 @@ Für weitere Details zu diesem Beispiel siehe [K+ Frequenzmessung](https://devel
 ## Siehe auch
 
 - [Shared Storage API](/de/docs/Web/API/Shared_Storage_API)
-- [Rauschen und Skalierung](https://developers.google.com/privacy-sandbox/private-advertising/private-aggregation/fundamentals#noise_and_scaling) auf developers.google.com (2023)
+- [Rauschen und Skalierung](https://privacysandbox.google.com/private-advertising/private-aggregation/fundamentals#noise_and_scaling) auf privacysandbox.google.com (2023)

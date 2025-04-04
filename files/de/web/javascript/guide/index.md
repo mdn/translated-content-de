@@ -2,12 +2,12 @@
 title: JavaScript-Leitfaden
 slug: Web/JavaScript/Guide
 l10n:
-  sourceCommit: 8f10db5cabb50ee778f781f96adadc8cff98761a
+  sourceCommit: 20cff31570e35c6da44ddd84158fcebd9f4f42d9
 ---
 
 {{jsSidebar("JavaScript Guide")}}
 
-Der JavaScript-Leitfaden zeigt Ihnen, wie Sie [JavaScript](/de/docs/Web/JavaScript) verwenden, und bietet einen Überblick über die Sprache. Wenn Sie umfassende Informationen zu einem Sprachmerkmal benötigen, sehen Sie sich die [JavaScript-Referenz](/de/docs/Web/JavaScript/Reference) an.
+Der JavaScript-Leitfaden zeigt Ihnen, wie Sie [JavaScript](/de/docs/Web/JavaScript) verwenden, und gibt einen Überblick über die Sprache. Wenn Sie umfassende Informationen zu einem Sprachmerkmal benötigen, werfen Sie einen Blick auf die [JavaScript-Referenz](/de/docs/Web/JavaScript/Reference).
 
 Dieser Leitfaden ist in die folgenden Kapitel unterteilt.
 
@@ -20,15 +20,15 @@ Dieser Leitfaden ist in die folgenden Kapitel unterteilt.
 - [JavaScript und Java](/de/docs/Web/JavaScript/Guide/Introduction#javascript_and_java)
 - [ECMAScript](/de/docs/Web/JavaScript/Guide/Introduction#javascript_and_the_ecmascript_specification)
 - [Werkzeuge](/de/docs/Web/JavaScript/Guide/Introduction#getting_started_with_javascript)
-- [Hallo Welt](/de/docs/Web/JavaScript/Guide/Introduction#hello_world)
+- [Was kommt als Nächstes](/de/docs/Web/JavaScript/Guide/Introduction#whats_next)
 
-## Grammatik und Typen
+## Grammatik und Datentypen
 
-Überblick: [Grammatik und Typen](/de/docs/Web/JavaScript/Guide/Grammar_and_types)
+Überblick: [Grammatik und Datentypen](/de/docs/Web/JavaScript/Guide/Grammar_and_types)
 
-- [Grundsyntax & Kommentare](/de/docs/Web/JavaScript/Guide/Grammar_and_types#basics)
+- [Grundlegende Syntax & Kommentare](/de/docs/Web/JavaScript/Guide/Grammar_and_types#basics)
 - [Deklarationen](/de/docs/Web/JavaScript/Guide/Grammar_and_types#declarations)
-- [Variablenbereich](/de/docs/Web/JavaScript/Guide/Grammar_and_types#variable_scope)
+- [Variablenreichweite](/de/docs/Web/JavaScript/Guide/Grammar_and_types#variable_scope)
 - [Variablen-Hoisting](/de/docs/Web/JavaScript/Guide/Grammar_and_types#variable_hoisting)
 - [Datenstrukturen und Typen](/de/docs/Web/JavaScript/Guide/Grammar_and_types#data_structures_and_types)
 - [Literale](/de/docs/Web/JavaScript/Guide/Grammar_and_types#literals)
@@ -60,7 +60,7 @@ Dieser Leitfaden ist in die folgenden Kapitel unterteilt.
 
 - [Definieren von Funktionen](/de/docs/Web/JavaScript/Guide/Functions#defining_functions)
 - [Aufrufen von Funktionen](/de/docs/Web/JavaScript/Guide/Functions#calling_functions)
-- [Funktionsbereiche und Closures](/de/docs/Web/JavaScript/Guide/Functions#function_scopes_and_closures)
+- [Funktionsumfänge und Closures](/de/docs/Web/JavaScript/Guide/Functions#function_scopes_and_closures)
 - [Argumente](/de/docs/Web/JavaScript/Guide/Functions#using_the_arguments_object) & [Parameter](/de/docs/Web/JavaScript/Guide/Functions#function_parameters)
 - [Pfeilfunktionen](/de/docs/Web/JavaScript/Guide/Functions#arrow_functions)
 
@@ -68,21 +68,21 @@ Dieser Leitfaden ist in die folgenden Kapitel unterteilt.
 
 Überblick: [Ausdrücke und Operatoren](/de/docs/Web/JavaScript/Guide/Expressions_and_operators)
 
-- [Zuweisung](/de/docs/Web/JavaScript/Guide/Expressions_and_operators#assignment_operators) & [Vergleiche](/de/docs/Web/JavaScript/Guide/Expressions_and_operators#comparison_operators)
+- [Zuweisung](/de/docs/Web/JavaScript/Guide/Expressions_and_operators#assignment_operators) & [Vergleich](/de/docs/Web/JavaScript/Guide/Expressions_and_operators#comparison_operators)
 - [Arithmetische Operatoren](/de/docs/Web/JavaScript/Guide/Expressions_and_operators#arithmetic_operators)
 - [Bitweise](/de/docs/Web/JavaScript/Guide/Expressions_and_operators#bitwise_operators) & [logische Operatoren](/de/docs/Web/JavaScript/Guide/Expressions_and_operators#logical_operators)
-- [Bedingter (ternärer) Operator](</de/docs/Web/JavaScript/Guide/Expressions_and_operators#conditional_(ternary)_operator>)
+- [Bedingungsoperator (ternärer Operator)](/de/docs/Web/JavaScript/Guide/Expressions_and_operators#conditional_ternary_operator)
 
-## Zahlen und Zeichenfolgen
+## Zahlen und Zeichenketten
 
-Überblick: [Zahlen und Zeichenfolgen](/de/docs/Web/JavaScript/Guide/Numbers_and_strings)
+Überblick: [Zahlen und Zeichenketten](/de/docs/Web/JavaScript/Guide/Numbers_and_strings)
 
 - [Zahlen](/de/docs/Web/JavaScript/Guide/Numbers_and_strings#numbers)
 - [`Number`-Objekt](/de/docs/Web/JavaScript/Guide/Numbers_and_strings#number_object)
 - [`Math`-Objekt](/de/docs/Web/JavaScript/Guide/Numbers_and_strings#math_object)
-- [Zeichenfolgen](/de/docs/Web/JavaScript/Guide/Numbers_and_strings#strings)
+- [Zeichenketten](/de/docs/Web/JavaScript/Guide/Numbers_and_strings#strings)
 - [`String`-Objekt](/de/docs/Web/JavaScript/Guide/Numbers_and_strings#string_object)
-- [Template-Literale](/de/docs/Web/JavaScript/Guide/Numbers_and_strings#template_literals)
+- [Vorlagenliterale](/de/docs/Web/JavaScript/Guide/Numbers_and_strings#template_literals)
 
 ## Repräsentation von Daten & Zeiten
 
@@ -99,11 +99,11 @@ Dieser Leitfaden ist in die folgenden Kapitel unterteilt.
   - [Assertions](/de/docs/Web/JavaScript/Guide/Regular_expressions/Assertions)
   - [Zeichenklassen](/de/docs/Web/JavaScript/Guide/Regular_expressions/Character_classes)
   - [Gruppen und Rückverweise](/de/docs/Web/JavaScript/Guide/Regular_expressions/Groups_and_backreferences)
-  - [Quantoren](/de/docs/Web/JavaScript/Guide/Regular_expressions/Quantifiers)
+  - [Quantifizierer](/de/docs/Web/JavaScript/Guide/Regular_expressions/Quantifiers)
 
-## Indizierte Sammlungen
+## Indexierte Sammlungen
 
-Überblick: [Indizierte Sammlungen](/de/docs/Web/JavaScript/Guide/Indexed_collections)
+Überblick: [Indexierte Sammlungen](/de/docs/Web/JavaScript/Guide/Indexed_collections)
 
 ## Schlüsselbasierte Sammlungen
 
@@ -123,9 +123,9 @@ Dieser Leitfaden ist in die folgenden Kapitel unterteilt.
 - [Methoden definieren](/de/docs/Web/JavaScript/Guide/Working_with_objects#defining_methods)
 - [Getter und Setter](/de/docs/Web/JavaScript/Guide/Working_with_objects#defining_getters_and_setters)
 
-## Klassen verwenden
+## Verwenden von Klassen
 
-Überblick: [Klassen verwenden](/de/docs/Web/JavaScript/Guide/Using_classes)
+Überblick: [Verwenden von Klassen](/de/docs/Web/JavaScript/Guide/Using_classes)
 
 - [Deklarieren einer Klasse](/de/docs/Web/JavaScript/Guide/Using_classes#declaring_a_class)
 - [Verschiedene Klassenmerkmale](/de/docs/Web/JavaScript/Guide/Using_classes#constructor)
@@ -139,12 +139,12 @@ Dieser Leitfaden ist in die folgenden Kapitel unterteilt.
 - [Garantien](/de/docs/Web/JavaScript/Guide/Using_promises#guarantees)
 - [Verkettung](/de/docs/Web/JavaScript/Guide/Using_promises#chaining)
 - [Fehlerbehandlung](/de/docs/Web/JavaScript/Guide/Using_promises#error_handling)
-- [Komposition](/de/docs/Web/JavaScript/Guide/Using_promises#composition)
+- [Kombination](/de/docs/Web/JavaScript/Guide/Using_promises#composition)
 - [Timing](/de/docs/Web/JavaScript/Guide/Using_promises#timing)
 
-## Getypte Arrays
+## Typisierte Arrays
 
-Überblick: [Getypte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays)
+Überblick: [Typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays)
 
 ## Iteratoren und Generatoren
 
@@ -158,16 +158,16 @@ Dieser Leitfaden ist in die folgenden Kapitel unterteilt.
 
 Überblick: [Internationalisierung](/de/docs/Web/JavaScript/Guide/Internationalization)
 
-- [Datum- und Zeitformatierung](/de/docs/Web/JavaScript/Guide/Internationalization#date_and_time_formatting)
+- [Formatierung von Datum und Zeit](/de/docs/Web/JavaScript/Guide/Internationalization#date_and_time_formatting)
 - [Zahlenformatierung](/de/docs/Web/JavaScript/Guide/Internationalization#number_formatting)
-- [Sortierung](/de/docs/Web/JavaScript/Guide/Internationalization#collation)
+- [Kollation](/de/docs/Web/JavaScript/Guide/Internationalization#collation)
 
-## Metaprogrammierung
+## Meta-Programmierung
 
-Überblick: [Metaprogrammierung](/de/docs/Web/JavaScript/Guide/Meta_programming)
+Überblick: [Meta-Programmierung](/de/docs/Web/JavaScript/Guide/Meta_programming)
 
 - [`Proxy`](/de/docs/Web/JavaScript/Guide/Meta_programming#proxies)
-- [Handler und Traps](/de/docs/Web/JavaScript/Guide/Meta_programming#handlers_and_traps)
+- [Handler und Fallen](/de/docs/Web/JavaScript/Guide/Meta_programming#handlers_and_traps)
 - [Widerrufbarer Proxy](/de/docs/Web/JavaScript/Guide/Meta_programming#revocable_proxy)
 - [`Reflect`](/de/docs/Web/JavaScript/Guide/Meta_programming#reflection)
 
@@ -178,8 +178,8 @@ Dieser Leitfaden ist in die folgenden Kapitel unterteilt.
 - [Exportieren](/de/docs/Web/JavaScript/Guide/Modules#exporting_module_features)
 - [Importieren](/de/docs/Web/JavaScript/Guide/Modules#importing_features_into_your_script)
 - [Standardexports](/de/docs/Web/JavaScript/Guide/Modules#default_exports_versus_named_exports)
-- [Umbenennen von Merkmalen](/de/docs/Web/JavaScript/Guide/Modules#renaming_imports_and_exports)
-- [Module aggregieren](/de/docs/Web/JavaScript/Guide/Modules#aggregating_modules)
+- [Umbenennen von Features](/de/docs/Web/JavaScript/Guide/Modules#renaming_imports_and_exports)
+- [Aggregieren von Modulen](/de/docs/Web/JavaScript/Guide/Modules#aggregating_modules)
 - [Dynamisches Laden von Modulen](/de/docs/Web/JavaScript/Guide/Modules#dynamic_module_loading)
 
 {{Next("Web/JavaScript/Guide/Introduction")}}

@@ -2,30 +2,30 @@
 title: Anatomie und Format eines Profils
 slug: Web/API/JS_Self-Profiling_API/Profile_content_and_format
 l10n:
-  sourceCommit: 49f36838f402e87204234c21fa8a98002c7e7a42
+  sourceCommit: 20cff31570e35c6da44ddd84158fcebd9f4f42d9
 ---
 
 {{DefaultAPISidebar("JS Self-Profiling API")}}
 
-Auf dieser Seite beschreiben wir, wie man ein Profil interpretiert, das mit der Self-Profiling API erfasst wurde.
+Auf dieser Seite beschreiben wir, wie ein Profil, das mit der Self-Profiling API erfasst wurde, interpretiert werden kann.
 
-Das Format des Objekts, das von [`Profiler.stop()`](/de/docs/Web/API/Profiler/stop) zurückgegeben wird, ist so konzipiert, dass es speichereffizient ist: Das Format zielt zum Beispiel darauf ab, URL-Werte für Funktionen, die im gleichen Skript definiert sind, nicht zu duplizieren. Das bedeutet, dass eine Interpretation erforderlich ist, um zu verstehen, wie eine Probe im Profilobjekt auf einen Ort im Programm abgebildet wird. Diese Leitfadenseite zielt darauf ab, zu erklären, wie diese Interpretation durchgeführt wird.
+Das Format des von [`Profiler.stop()`](/de/docs/Web/API/Profiler/stop) zurückgegebenen Objekts ist platzsparend gestaltet: zum Beispiel soll das Format die Duplizierung von URL-Werten für Funktionen vermeiden, die im selben Skript definiert sind. Daher ist eine gewisse Interpretation erforderlich, um zu verstehen, wie ein Sample im Profilobjekt einer Stelle im Programm zugeordnet wird, und diese Leitfaden-Seite soll erklären, wie diese Interpretation vorgenommen wird.
 
-Im ersten Abschnitt beschreiben wir die [abstrakte Struktur eines Profils](#anatomie_eines_profils). Im nächsten Abschnitt beschreiben wir [das Format des Profilobjekts](#profilformat), das von [`Profiler.stop()`](/de/docs/Web/API/Profiler/stop) zurückgegeben wird. Schließlich werden wir [ein Beispiel durchgehen](#an_example), um zu zeigen, wie ein Profil für ein gegebenes Programm aussieht und wie es interpretiert werden kann.
+Im ersten Abschnitt beschreiben wir die [abstrakte Struktur eines Profils](#anatomie_eines_profils). Im nächsten Abschnitt beschreiben wir [das Format des Profilobjekts](#profilformat), das von [`Profiler.stop()`](/de/docs/Web/API/Profiler/stop) zurückgegeben wird. Schließlich werden wir [ein Beispiel durchgehen](#beispiel), um zu zeigen, wie ein Profil für ein gegebenes Programm aussieht und wie es interpretiert werden kann.
 
 ## Anatomie eines Profils
 
-In diesem Abschnitt beschreiben wir die abstrakte Struktur eines Profils. Beachten Sie, dass dies nicht dasselbe ist wie das Format des Objekts, das von [`Profiler.stop()`](/de/docs/Web/API/Profiler/stop) zurückgegeben wird: Wir beschreiben dieses Format im nächsten Abschnitt dieses Leitfadens.
+In diesem Abschnitt beschreiben wir die abstrakte Struktur eines Profils. Beachten Sie, dass dies nicht dasselbe ist wie das Format des von [`Profiler.stop()`](/de/docs/Web/API/Profiler/stop) zurückgegebenen Objekts: wir beschreiben dieses Format im nächsten Abschnitt dieses Leitfadens.
 
-Ein Profil besteht aus einer Liste von Proben. Jede Probe besteht aus einem Zeitstempel und einem Aufrufstapel. Jeder Aufrufstapel besteht aus einer Liste von Stack-Frames, und jeder Stack-Frame enthält Informationen über den Ort der entsprechenden Funktion im Programm:
+Ein Profil besteht aus einem Array von Samples. Jedes Sample besteht aus einem Zeitstempel und einem Aufrufstapel. Jeder Aufrufstapel besteht aus einem Array von Stack-Frames, und jeder Stack-Frame enthält Informationen über den Ort der entsprechenden Funktion im Programm:
 
 ![Diagramm eines Profils](profile.svg)
 
-Der Zeitstempel ist ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der Millisekunden seit dem _Zeitursprung_ misst: Für einen Fensterkontext ist dies die Zeit, zu der das Fenster erstellt wurde (wenn das Fenster neu ist) oder die Zeit, zu der der Browser begann, zu diesem Dokument zu navigieren.
+Der Zeitstempel ist ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der Millisekunden seit dem _Zeitursprung_ misst: für ein Fensterkontext ist dies der Zeitpunkt, zu dem das Fenster erstellt wurde (wenn das Fenster neu ist) oder der Zeitpunkt, zu dem der Browser mit der Navigation zu diesem Dokument begann.
 
-Der Aufrufstapel ist eine Darstellung des JavaScript-Aufrufstapels, die es Ihnen ermöglicht, den Ausführungspfad zur Position des Programms zu verstehen, an der die Probe entnommen wurde.
+Der Aufrufstapel ist eine Darstellung des JavaScript-Aufrufstapels, der es Ihnen ermöglicht, den Ausführungspfad bis zum Ort des Programms zu verstehen, an dem das Sample aufgenommen wurde.
 
-Der Aufrufstapel besteht aus einer Liste von Stack-Frames. Ein Stack-Frame stellt im Wesentlichen einen verschachtelten Funktionsaufruf dar, sodass, wenn Funktion `a()` Funktion `b()` aufruft, die wiederum Funktion `c()` aufruft und eine Probe entnommen wird, während der Browser `c()` ausführt, der Aufrufstapel aus den Frames `[a, b, c]` besteht:
+Der Aufrufstapel besteht aus einem Array von Stack-Frames. Ein Stack-Frame repräsentiert im Wesentlichen einen verschachtelten Funktionsaufruf. Wenn Funktion `a()` Funktion `b()` aufruft, die wiederum Funktion `c()` aufruft und ein Sample aufgenommen wird, während der Browser `c()` ausführt, dann besteht der Aufrufstapel aus den Frames `[a, b, c]`:
 
 ```js
 function c() {
@@ -50,31 +50,31 @@ Jeder Stack-Frame enthält Informationen über den Ort der entsprechenden Funkti
 
 ## Profilformat
 
-Obwohl der obige Abschnitt die _logische_ Struktur eines Profils beschreibt, ist das Format des Objekts, das von [`Profiler.stop()`](/de/docs/Web/API/Profiler/stop) zurückgegeben wird, anders. Der Grund dafür ist, dass das Format so konzipiert ist, dass es speichereffizient ist: Das Format zielt beispielsweise darauf ab, URL-Werte für Funktionen, die im gleichen Skript definiert sind, nicht zu duplizieren.
+Obwohl der obige Abschnitt die _logische_ Struktur eines Profils beschreibt, ist das Format des von [`Profiler.stop()`](/de/docs/Web/API/Profiler/stop) zurückgegebenen Objekts anders. Der Grund ist, dass das Format platzsparend gestaltet ist: zum Beispiel soll das Format die Duplizierung von URL-Werten für Funktionen vermeiden, die im selben Skript definiert sind.
 
-Das Profilobjekt enthält vier Eigenschaften, die alle Listen sind:
+Das Profilobjekt enthält vier Eigenschaften, allesamt Arrays:
 
 - `frames`
 
-  - : Eine Liste von Objekten, die jeweils Informationen über einen Stack-Frame enthalten:
+  - : Ein Array von Objekten, die Informationen über einen Stack-Frame enthalten:
 
     - `column`: die Spaltennummer der Funktionsdefinition.
     - `line`: die Zeilennummer der Funktionsdefinition.
     - `name`: der Name der Funktion.
-    - `resourceId`: der Index eines Elements in `resources`, das die URL des Skripts darstellt, in dem die Funktion definiert ist.
+    - `resourceId`: der Index eines Elements in `resources`, der die URL des Skripts repräsentiert, in dem die Funktion definiert ist.
 
-    Nur `name` ist immer vorhanden: Wenn die Funktion nicht in einem Skript definiert ist (zum Beispiel, wenn es sich um eine in den Browser integrierte Funktion handelt), werden die anderen drei Eigenschaften weggelassen.
+    Nur `name` ist immer vorhanden: Wenn die Funktion nicht in einem Skript definiert ist (zum Beispiel, wenn es sich um eine Funktion handelt, die im Browser integriert ist), werden die anderen drei Eigenschaften weggelassen.
 
 - `resources`
-  - : Eine Liste von Zeichenfolgen, die jeweils die URL eines Skripts darstellen.
+  - : Ein Array von Zeichenketten, die jeweils die URL eines Skripts repräsentieren.
 - `samples`
-  - : Eine Liste von Objekten, die jeweils zwei Eigenschaften enthalten:
-    - `timestamp`: die Zeit, zu der die Probe entnommen wurde.
-    - `stackId`: der Index eines Elements in der Liste `stacks`.
+  - : Ein Array von Objekten, die jeweils zwei Eigenschaften enthalten:
+    - `timestamp`: der Zeitpunkt, zu dem das Sample aufgenommen wurde.
+    - `stackId`: der Index eines Elements im `stacks`-Array.
 - `stacks`
-  - : Eine Liste von Objekten, die jeweils zwei Eigenschaften enthalten:
+  - : Ein Array von Objekten, die jeweils zwei Eigenschaften enthalten:
     - `frameId`: der Index eines Elements in `frames`, das den am tiefsten verschachtelten Frame im Stapel darstellt.
-    - `parentId`: der Index eines weiteren Eintrags in `stacks`, der den Aufrufstapel bis zu, aber nicht einschließlich, des durch `frameId` dargestellten Frames darstellt. Dies ist nicht vorhanden, wenn der durch `frameId` dargestellte Frame auf der obersten Ebene des Stapels war.
+    - `parentId`: der Index eines anderen Eintrags in `stacks`, der den Aufrufstapel bis zu, aber nicht einschließlich des durch `frameId` dargestellten Frames repräsentiert. Dies ist nicht vorhanden, wenn der durch `frameId` dargestellte Frame auf der obersten Ebene des Stapels war.
 
 ## Beispiel
 
@@ -86,7 +86,7 @@ Das HTML enthält nur den Button:
 <button id="generate">generate!</button>
 ```
 
-Das JavaScript ist auf zwei Dateien verteilt. Das Skript "main.js" enthält den Klick-Handler für den Button. Dieser startet ein Profil, ruft dann den Code zur Generierung der Primzahlen auf und protokolliert schließlich das resultierende Profil:
+Das JavaScript ist auf zwei Dateien aufgeteilt. Das Skript "main.js" enthält den Klick-Handler für den Button. Dieses startet ein Profil, ruft dann den Code zum Erzeugen der Primzahlen auf und protokolliert schließlich das resultierende Profil:
 
 ```js
 // main.js
@@ -106,7 +106,7 @@ async function handleClick() {
 document.querySelector("#generate").addEventListener("click", handleClick);
 ```
 
-Das Skript "generate.js" generiert die Primzahlen, organisiert in zwei Funktionen, `genPrimes()` und `isPrime()`:
+Das Skript "generate.js" erzeugt die Primzahlen, organisiert in zwei Funktionen, `genPrimes()` und `isPrime()`:
 
 ```js
 // generate.js
@@ -135,7 +135,7 @@ export function genPrimes() {
 }
 ```
 
-Wenn wir diesen Code ausführen, wird ein Profil wie das unten stehende im Entwicklertools-Console-Protokoll angezeigt:
+Wenn wir diesen Code ausführen, wird ein Profil wie das untenstehende an die Entwicklertools-Konsole ausgegeben:
 
 ```json
 {
@@ -170,18 +170,18 @@ Wenn wir diesen Code ausführen, wird ein Profil wie das unten stehende im Entwi
 }
 ```
 
-Dieses Profil erfasste 10 Proben, die in der Eigenschaft `samples` aufgelistet sind.
+Dieses Profil hat 10 Samples erfasst, die in der Eigenschaft `samples` aufgelistet sind.
 
-Die Eigenschaft `stackId` jeder Probe ermöglicht es uns zu verstehen, wo das Programm war, als die Probe entnommen wurde. In diesem Fall haben wir Proben an drei verschiedenen Stellen entnommen:
+Die `stackId`-Eigenschaft jedes Samples ermöglicht es uns zu verstehen, wo sich das Programm zum Zeitpunkt der Aufnahme des Samples befand, und in diesem Fall haben wir Samples an drei verschiedenen Stellen aufgenommen:
 
-- `stackId: 1`: eine Probe
-- `stackId: 3`: sieben Proben
-- `stackId: 2`: zwei Proben
+- `stackId: 1`: ein Sample
+- `stackId: 3`: sieben Samples
+- `stackId: 2`: zwei Samples
 
-Um den vollständigen Aufrufstapel für eine Probe zu finden, rufen wir den Stack über die angegebene `stackId` ab, verwenden dann den Wert `frameId` im Stack, um die am tiefsten verschachtelte Funktion zu finden, und rufen rekursiv Elternstapel mit `parentId` ab, bis wir die oberste Ebene erreichen, die keinen `parentId`-Wert hat.
+Um den vollständigen Aufrufstapel für ein Sample zu finden, rufen wir den Stapel mithilfe der `stackId`-Wert ab, verwenden dann den `frameId`-Wert im Stapel, um die am tiefsten verschachtelte Funktion zu finden, und holen dann rekursiv übergeordnete Stapel mithilfe der `parentId`-Werte, bis wir die oberste Ebene erreichen, die keinen `parentId`-Wert hat.
 
-Zum Beispiel zeigt das unten stehende Diagramm, wie wir den vollständigen Aufrufstapel für die sieben Proben ableiten könnten, deren `stackId` 3 ist:
+Zum Beispiel zeigt das untenstehende Diagramm, wie wir den vollständigen Aufrufstapel für die sieben Samples ableiten könnten, deren `stackId` 3 ist:
 
-![Ableiten eines Aufrufstapels aus einer Probe](profile-format.svg)
+![Ableitung eines Aufrufstapels aus einem Sample](profile-format.svg)
 
-Beachten Sie auch, dass der erste Eintrag in `frames`, der einen `name`-Wert von `Profiler` hat, eine Probe darstellt, die im [`Profiler()`](/de/docs/Web/API/Profiler/Profiler) Konstruktor genommen wurde: Da dies eine vom Browser bereitgestellte Funktion ist, enthält der Frame keine Skriptinformationen.
+Beachten Sie auch, dass das erste Element in `frames`, das einen `name`-Wert von `Profiler` hat, ein Sample im [`Profiler()`](/de/docs/Web/API/Profiler/Profiler) Konstruktor repräsentiert: Da dies eine vom Browser bereitgestellte Funktion ist, enthält der Frame keine Skriptinformationen.
