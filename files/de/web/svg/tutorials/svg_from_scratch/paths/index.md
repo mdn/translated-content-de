@@ -1,29 +1,29 @@
 ---
-title: Wege
+title: Pfade
 slug: Web/SVG/Tutorials/SVG_from_scratch/Paths
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: 725d22d1e78448d87c3138565e342a84d8a56515
 ---
 
 {{ PreviousNext("Web/SVG/Tutorials/SVG_from_scratch/Basic_shapes", "Web/SVG/Tutorials/SVG_from_scratch/Fills_and_strokes") }}
 
-Das {{SVGElement('path')}}-Element ist das leistungsfähigste Element in der SVG-Bibliothek der [Grundformen](/de/docs/Web/SVG/Tutorials/SVG_from_scratch/Basic_shapes). Es kann verwendet werden, um Linien, Kurven, Bögen und mehr zu erstellen.
+Das Element {{SVGElement('path')}} ist das mächtigste Element in der SVG-Bibliothek der [Grundformen](/de/docs/Web/SVG/Tutorials/SVG_from_scratch/Basic_shapes). Es kann verwendet werden, um Linien, Kurven, Bögen und mehr zu erstellen.
 
-Wege erzeugen komplexe Formen, indem sie mehrere gerade Linien oder gekrümmte Linien kombinieren. Komplexe Formen, die nur aus geraden Linien bestehen, können als [`<polyline>`](/de/docs/Web/SVG/Tutorials/SVG_from_scratch/Basic_shapes#polyline)-Elemente erstellt werden. Während `<polyline>`- und `<path>`-Elemente ähnliche Formen erzeugen können, erfordern `<polyline>`-Elemente viele kleine gerade Linien, um Kurven zu simulieren, und skalieren sich nicht gut auf größere Größen.
+Pfade erzeugen komplexe Formen, indem sie mehrere gerade Linien oder gekrümmte Linien kombinieren. Komplexe Formen, die nur aus geraden Linien bestehen, können als [`<polyline>`](/de/docs/Web/SVG/Tutorials/SVG_from_scratch/Basic_shapes#polyline)-Elemente erstellt werden. Während `<polyline>`- und `<path>`-Elemente ähnlich aussehende Formen erstellen können, erfordern `<polyline>`-Elemente viele kleine gerade Linien, um Kurven zu simulieren, und skalieren nicht gut auf größere Größen.
 
-Ein gutes Verständnis von Wegen ist wichtig beim Zeichnen von SVGs. Obwohl es nicht empfohlen wird, komplexe Wege mit einem XML-Editor oder Texteditor zu erstellen, erlaubt das Verständnis ihrer Funktionsweise, Darstellungsprobleme in SVGs zu identifizieren und zu beheben.
+Ein gutes Verständnis von Pfaden ist wichtig, wenn SVGs gezeichnet werden. Auch wenn es nicht empfohlen wird, komplexe Pfade mit einem XML- oder Texteditor zu erstellen, ermöglicht das Verständnis ihrer Funktionsweise, Anzeigeprobleme in SVGs zu identifizieren und zu beheben.
 
-Die Form eines `<path>`-Elements wird durch einen Parameter definiert: {{SVGAttr("d")}}. (Siehe mehr unter [Grundformen](/de/docs/Web/SVG/Tutorials/SVG_from_scratch/Basic_shapes).) Das `d`-Attribut enthält eine Reihe von Befehlen und Parametern, die von diesen Befehlen verwendet werden.
+Die Form eines `<path>`-Elements wird durch einen Parameter definiert: {{ SVGAttr("d") }}. (Siehe mehr in [Grundformen](/de/docs/Web/SVG/Tutorials/SVG_from_scratch/Basic_shapes).) Das Attribut `d` enthält eine Reihe von Befehlen und Parametern, die von diesen Befehlen verwendet werden.
 
-Jeder der Befehle wird durch einen spezifischen Buchstaben instanziiert (zum Beispiel, eine Klasse zu erstellen, zu benennen und zu lokalisieren). Nehmen wir zum Beispiel an, wir bewegen uns zu den x- und y-Koordinaten (`10`, `10`). Der "Move to"-Befehl wird mit dem Buchstaben `M` aufgerufen. Wenn der Parser auf diesen Buchstaben trifft, weiß er, dass er zu einem Punkt gehen muss. Um also zu (`10`, `10`) zu gelangen, lautet der Befehl `M 10 10`. Danach beginnt der Parser mit dem Lesen des nächsten Befehls.
+Jeder der Befehle wird durch einen bestimmten Buchstaben instanziiert (zum Beispiel durch das Erstellen einer Klasse, das Benennen und Lokalisieren). Zum Beispiel gehen wir zu den Koordinaten `x` und `y` (`10`, `10`). Der "Move To"-Befehl wird mit dem Buchstaben `M` aufgerufen. Wenn der Parser auf diesen Buchstaben stößt, weiß er, dass er zu einem Punkt wechseln muss. Um also zu (`10`, `10`) zu wechseln, würde der Befehl `M 10 10` lauten. Danach beginnt der Parser, nach dem nächsten Befehl zu suchen.
 
-Alle Befehle gibt es auch in zwei Varianten. Ein **Großbuchstabe** gibt absolute Koordinaten auf der Seite an, und ein **Kleinbuchstabe** gibt relative Koordinaten an (z. B. _bewege 10px nach oben und 7px nach links vom letzten Punkt_).
+Alle Befehle gibt es auch in zwei Varianten. Ein **Großbuchstabe** gibt absolute Koordinaten auf der Seite an, und ein **Kleinbuchstabe** gibt relative Koordinaten an (z. B. _10px nach oben und 7px nach links vom letzten Punkt bewegen_).
 
-Koordinaten im `d`-Parameter sind **immer einheitenlos** und daher im Benutzerskoordinatensystem. Später werden wir lernen, wie Wege transformiert werden können, um anderen Bedürfnissen gerecht zu werden.
+Koordinaten im `d`-Parameter sind **immer einheitslos** und daher im Benutzerkoordinatensystem. Später werden wir lernen, wie Pfade transformiert werden können, um anderen Bedürfnissen gerecht zu werden.
 
 ## Linienbefehle
 
-Es gibt fünf Linienbefehle für {{SVGElement("path")}}-Knoten. Der erste Befehl ist der "Move To" oder `M`, der oben beschrieben wurde. Er nimmt zwei Parameter, eine Koordinate (`x`) und eine Koordinate (`y`), zu der er sich bewegt. Wenn sich der Cursor bereits irgendwo auf der Seite befand, wird keine Linie gezogen, um die beiden Positionen zu verbinden. Der "Move To"-Befehl erscheint am Anfang von Wegen, um zu spezifizieren, wo die Zeichnung beginnen soll. Zum Beispiel:
+Es gibt fünf Linienbefehle für {{SVGElement("path")}}-Knoten. Der erste Befehl ist der "Move To" oder `M`, wie oben beschrieben. Er nimmt zwei Parameter, eine Koordinate (`x`) und eine Koordinate (`y`), zu der gewechselt werden soll. Wenn der Cursor bereits irgendwo auf der Seite war, wird keine Linie gezeichnet, um die beiden Positionen zu verbinden. Der "Move To"-Befehl erscheint am Anfang von Pfaden, um anzugeben, wo das Zeichnen beginnen soll. Zum Beispiel:
 
 ```plain
 M x y
@@ -31,20 +31,39 @@ M x y
 m dx dy
 ```
 
-Im folgenden Beispiel gibt es nur einen Punkt bei (`10`, `10`). Beachten Sie jedoch, dass er nicht erscheinen würde, wenn ein Pfad normal gezeichnet würde. Zum Beispiel:
+Im folgenden Beispiel gibt es nur einen Punkt bei (`10`, `10`). Beachten Sie jedoch, dass er nicht angezeigt wird, wenn ein Pfad nur normal gezeichnet wird. Zum Beispiel:
 
-![Ein roter Punkt wird auf einem weißen Quadrat 10 Pixel nach unten und 10 Pixel nach rechts gezeichnet. Dieser Punkt würde normalerweise nicht sichtbar sein, wird jedoch als Beispiel verwendet, wo der Cursor nach dem "Move To"-Befehl beginnen wird.](blank_path_area.png)
-
-```xml
-<svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
-
-  <path d="M10 10"/>
-
-  <!-- Points -->
-  <circle cx="10" cy="10" r="2" fill="red"/>
-
+```html live-sample___move-to
+<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg">
+  <path d="M10 10" />
 </svg>
 ```
+
+```html hidden live-sample___move-to
+<svg style="display:none" xmlns="http://www.w3.org/2000/svg">
+  <g id="reference">
+    <circle cx="10" cy="10" r="3" fill="red" />
+  </g>
+</svg>
+<button>Show/hide reference points and lines</button>
+```
+
+```js hidden live-sample___move-to
+const g = document.querySelector("#reference");
+const svg = document.querySelector("svg");
+const button = document.querySelector("button");
+let isHidden = true;
+button.addEventListener("click", () => {
+  isHidden = !isHidden;
+  if (isHidden) {
+    svg.querySelector("#reference").remove();
+  } else {
+    svg.appendChild(g.cloneNode(true));
+  }
+});
+```
+
+{{ EmbedLiveSample('move-to', 100, 130) }}
 
 Es gibt drei Befehle, die Linien zeichnen. Der allgemeinste ist der "Line To"-Befehl, der mit `L` aufgerufen wird. `L` nimmt zwei Parameter—x- und y-Koordinaten—und zeichnet eine Linie von der aktuellen Position zu einer neuen Position.
 
@@ -54,7 +73,7 @@ L x y
 l dx dy
 ```
 
-Es gibt zwei abgekürzte Formen zum Zeichnen von horizontalen und vertikalen Linien. `H` zeichnet eine horizontale Linie, und `V` zeichnet eine vertikale Linie. Beide Befehle nehmen nur einen Parameter, da sie sich nur in eine Richtung bewegen.
+Es gibt zwei abgekürzte Formen zum Zeichnen horizontaler und vertikaler Linien. `H` zeichnet eine horizontale Linie und `V` zeichnet eine vertikale Linie. Beide Befehle nehmen nur einen Parameter an, da sie sich nur in eine Richtung bewegen.
 
 ```plain
 H x
@@ -66,25 +85,44 @@ V y
 v dy
 ```
 
-Ein einfacher Einstieg ist das Zeichnen einer Form. Wir beginnen mit einem Rechteck (die gleiche Art, die einfacher mit einem {{SVGElement("rect")}}-Element erstellt werden könnte). Es besteht nur aus horizontalen und vertikalen Linien.
+Ein einfacher Ausgangspunkt ist das Zeichnen einer Form. Wir beginnen mit einem Rechteck (der gleiche Typ, der einfacher mit einem {{SVGElement("rect")}}-Element erstellt werden könnte). Es besteht nur aus horizontalen und vertikalen Linien.
 
-![Ein Quadrat mit schwarzer Füllung wird innerhalb eines weißen Quadrats gezeichnet. Die Kanten des schwarzen Quadrats beginnen bei der Position (10,10), bewegen sich horizontal zur Position (90,10), dann vertikal zur Position (90,90), bewegen sich dann horizontal zurück zur Position (10,90) und schließlich zurück zur Ausgangsposition (10, 10).](path_line_commands.png)
-
-```xml
+```html live-sample___rectangle-lines
 <svg width="100" height="100" xmlns="http://www.w3.org/2000/svg">
-
-  <path d="M 10 10 H 90 V 90 H 10 L 10 10"/>
-
-  <!-- Points -->
-  <circle cx="10" cy="10" r="2" fill="red"/>
-  <circle cx="90" cy="90" r="2" fill="red"/>
-  <circle cx="90" cy="10" r="2" fill="red"/>
-  <circle cx="10" cy="90" r="2" fill="red"/>
-
+  <path d="M 10 10 H 90 V 90 H 10 L 10 10" />
 </svg>
 ```
 
-Wir können die obige Pfaderklärung ein wenig verkürzen, indem wir den "Close Path"-Befehl verwenden, der mit `Z` aufgerufen wird. Dieser Befehl zeichnet eine gerade Linie von der aktuellen Position zurück zum ersten Punkt des Pfades. Er wird oft am Ende eines Pfadknotens platziert, aber nicht immer. Es gibt keinen Unterschied zwischen dem Groß- und dem Kleinbuchstabenbefehl.
+```html hidden live-sample___rectangle-lines
+<svg style="display:none" xmlns="http://www.w3.org/2000/svg">
+  <g id="reference">
+    <circle cx="10" cy="10" r="3" fill="red" />
+    <circle cx="90" cy="90" r="3" fill="red" />
+    <circle cx="90" cy="10" r="3" fill="red" />
+    <circle cx="10" cy="90" r="3" fill="red" />
+  </g>
+</svg>
+<button>Show/hide reference points and lines</button>
+```
+
+```js hidden live-sample___rectangle-lines
+const g = document.querySelector("#reference");
+const svg = document.querySelector("svg");
+const button = document.querySelector("button");
+let isHidden = true;
+button.addEventListener("click", () => {
+  isHidden = !isHidden;
+  if (isHidden) {
+    svg.querySelector("#reference").remove();
+  } else {
+    svg.appendChild(g.cloneNode(true));
+  }
+});
+```
+
+{{ EmbedLiveSample('rectangle-lines', 100, 130) }}
+
+Wir können die obige Pfaderklärung etwas verkürzen, indem wir den "Close Path"-Befehl verwenden, der mit `Z` aufgerufen wird. Dieser Befehl zeichnet eine gerade Linie von der aktuellen Position zurück zum ersten Punkt des Pfads. Er wird oft am Ende eines Pfadknotens platziert, jedoch nicht immer. Es gibt keinen Unterschied zwischen dem Großbuchstaben- und dem Kleinbuchstaben-Befehl.
 
 ```plain
 Z
@@ -92,29 +130,29 @@ Z
 z
 ```
 
-Unser obiger Pfad könnte also verkürzt werden zu:
+Unser oben genannter Pfad könnte also verkürzt werden zu:
 
 ```xml
- <path d="M 10 10 H 90 V 90 H 10 Z" fill="transparent" stroke="black"/>
+<path d="M 10 10 H 90 V 90 H 10 Z" fill="transparent" stroke="black" />
 ```
 
-Die relativen Formen dieser Befehle können ebenfalls verwendet werden, um das gleiche Bild zu zeichnen. Relative Befehle werden durch Kleinschreibung aufgerufen und bewegen den Cursor relativ zu seiner letzten Position anstatt zu einer genauen Koordinate. Zum Beispiel, da unser Rechteck 80×80 ist, könnte das `<path>`-Element wie folgt geschrieben werden:
+Auch die relativen Formen dieser Befehle können verwendet werden, um dasselbe Bild zu zeichnen. Relative Befehle werden durch die Verwendung von Kleinbuchstaben aufgerufen und bewegen den Cursor relativ zu seiner letzten Position, anstatt ihn zu einer genauen Koordinate zu verschieben. Da unser Rechteck 80×80 groß ist, könnte das `<path>`-Element folgendermaßen geschrieben werden:
 
 ```xml
- <path d="M 10 10 h 80 v 80 h -80 Z" fill="transparent" stroke="black"/>
+<path d="M 10 10 h 80 v 80 h -80 Z" fill="transparent" stroke="black" />
 ```
 
-Der Pfad bewegt sich zum Punkt (`10`, `10`) und dann horizontal 80 Punkte nach rechts, dann 80 Punkte nach unten, dann 80 Punkte nach links und schließlich zurück zum Anfang.
+Der Pfad wird zu Punkt (`10`, `10`) wechseln und sich dann horizontal um 80 Punkte nach rechts bewegen, dann 80 Punkte nach unten, dann 80 Punkte nach links und dann zurück zum Start.
 
-In diesen Beispielen wäre es wahrscheinlich intuitiver, die {{SVGElement("polygon")}}- oder {{SVGElement("polyline")}}-Elemente zu verwenden. Wegen werden jedoch so häufig beim Zeichnen von SVGs verwendet, dass Entwickler möglicherweise bequemer mit ihnen umgehen. Es gibt keinen echten Leistungsvorteil oder -nachteil bei der Verwendung des einen oder anderen.
+In diesen Beispielen wäre es wahrscheinlich intuitiver, die Elemente {{SVGElement("polygon")}} oder {{SVGElement("polyline")}} zu verwenden. Pfade werden jedoch so oft beim Zeichnen von SVGs verwendet, dass Entwickler möglicherweise bequemer mit ihnen umgehen. Es gibt keinen echten Leistungsvorteil oder Nachteil bei der Verwendung des einen oder anderen.
 
 ## Kurvenbefehle
 
-Es gibt drei verschiedene Befehle, die verwendet werden können, um glatte Kurven zu erzeugen. Zwei dieser Kurven sind {{Glossary("Bezier_curve", "Bézier-Kurven")}} und die dritte ist ein "Bogen" oder Teil eines Kreises. Möglicherweise haben Sie bereits praktische Erfahrungen mit Bézier-Kurven gemacht, indem Sie Pfadwerkzeuge in Inkscape, Illustrator oder Photoshop verwendet haben. Es gibt eine unendliche Anzahl von Bézier-Kurven, aber in `<path>`-Elementen sind nur zwei verfügbar: eine kubische, die mit `C` aufgerufen wird, und eine quadratische, die mit `Q` aufgerufen wird.
+Es gibt drei verschiedene Befehle, die verwendet werden können, um glatte Kurven zu erstellen. Zwei dieser Kurven sind {{Glossary("Bezier_curve", "Bézier-Kurven")}}, und die dritte ist ein "Arc" oder Teil eines Kreises. Möglicherweise haben Sie bereits praktische Erfahrung mit Bézier-Kurven gemacht, indem Sie Pfadwerkzeuge in Inkscape, Illustrator oder Photoshop verwendet haben. Es gibt eine unendliche Anzahl von Bézier-Kurven, aber nur zwei sind in `<path>`-Elementen verfügbar: eine kubische Kurve, die mit `C` aufgerufen wird, und eine quadratische, die mit `Q` aufgerufen wird.
 
 ### Bézier-Kurven
 
-Die kubische Kurve, `C`, ist die etwas komplexere Kurve. Kubische Bézier-Kurven erfordern zwei Kontrollpunkte für jeden Punkt. Daher müssen drei Koordinatensätze spezifiziert werden, um eine kubische Bézier-Kurve zu erstellen.
+Die kubische Kurve, `C`, ist die etwas komplexere Kurve. Kubische Bézier-Kurven nehmen zwei Kontrollpunkte für jeden Punkt auf. Daher müssen, um eine kubische Bézier zu erstellen, drei Koordinatensätze angegeben werden.
 
 ```plain
 C x1 y1, x2 y2, x y
@@ -122,29 +160,106 @@ C x1 y1, x2 y2, x y
 c dx1 dy1, dx2 dy2, dx dy
 ```
 
-Der letzte Satz von Koordinaten hier (`x`, `y`) gibt an, wo die Linie enden soll. Die anderen beiden sind Kontrollpunkte. (`x1`, `y1`) ist der Kontrollpunkt für den Anfang der Kurve und (`x2`, `y2`) ist der Kontrollpunkt für das Ende. Die Kontrollpunkte beschreiben im Wesentlichen die Neigung der Linie, die an jedem Punkt beginnt. Die Bézier-Funktion erzeugt dann eine glatte Kurve, die sich von der am Anfang der Linie festgelegten Neigung zur Neigung am anderen Ende überträgt.
+Der letzte Koordinatensatz hier (`x`, `y`) gibt an, wo die Linie enden soll. Die anderen beiden sind Kontrollpunkte. (`x1`, `y1`) ist der Kontrollpunkt für den Beginn der Kurve, und (`x2`, `y2`) ist der Kontrollpunkt für das Ende. Die Kontrollpunkte beschreiben im Wesentlichen die Steigung der Linie, die an jedem Punkt beginnt. Die Bézier-Funktion erzeugt dann eine glatte Kurve, die von der zu Beginn der Linie festgelegten Steigung zur Steigung am anderen Ende übergeht.
 
-![Kubische Bézier-Kurven mit Raster](cubic_bezier_curves_with_grid.png)
-
-```xml
+```html live-sample___cubic_bezier_curves
 <svg width="190" height="160" xmlns="http://www.w3.org/2000/svg">
-
-  <path d="M 10 10 C 20 20, 40 20, 50 10" stroke="black" fill="transparent"/>
-  <path d="M 70 10 C 70 20, 110 20, 110 10" stroke="black" fill="transparent"/>
-  <path d="M 130 10 C 120 20, 180 20, 170 10" stroke="black" fill="transparent"/>
-  <path d="M 10 60 C 20 80, 40 80, 50 60" stroke="black" fill="transparent"/>
-  <path d="M 70 60 C 70 80, 110 80, 110 60" stroke="black" fill="transparent"/>
-  <path d="M 130 60 C 120 80, 180 80, 170 60" stroke="black" fill="transparent"/>
-  <path d="M 10 110 C 20 140, 40 140, 50 110" stroke="black" fill="transparent"/>
-  <path d="M 70 110 C 70 140, 110 140, 110 110" stroke="black" fill="transparent"/>
-  <path d="M 130 110 C 120 140, 180 140, 170 110" stroke="black" fill="transparent"/>
-
+  <path d="M 10 10 C 20 20, 40 20, 50 10" stroke="black" fill="transparent" />
+  <path d="M 70 10 C 70 20, 110 20, 110 10" stroke="black" fill="transparent" />
+  <path
+    d="M 130 10 C 120 20, 180 20, 170 10"
+    stroke="black"
+    fill="transparent" />
+  <path d="M 10 60 C 20 80, 40 80, 50 60" stroke="black" fill="transparent" />
+  <path d="M 70 60 C 70 80, 110 80, 110 60" stroke="black" fill="transparent" />
+  <path
+    d="M 130 60 C 120 80, 180 80, 170 60"
+    stroke="black"
+    fill="transparent" />
+  <path
+    d="M 10 110 C 20 140, 40 140, 50 110"
+    stroke="black"
+    fill="transparent" />
+  <path
+    d="M 70 110 C 70 140, 110 140, 110 110"
+    stroke="black"
+    fill="transparent" />
+  <path
+    d="M 130 110 C 120 140, 180 140, 170 110"
+    stroke="black"
+    fill="transparent" />
 </svg>
 ```
 
-Das obige Beispiel erzeugt neun kubische Bézier-Kurven. Während sich die Kurven nach rechts bewegen, werden die Kontrollpunkte horizontal auseinandergezogen. Während sich die Kurven nach unten bewegen, werden sie weiter von den Endpunkten getrennt. Hier ist zu beachten, dass die Kurve in Richtung des ersten Kontrollpunkts beginnt und sich dann so biegt, dass sie in Richtung des zweiten Kontrollpunkts ankommt.
+```html hidden live-sample___cubic_bezier_curves
+<svg style="display:none" xmlns="http://www.w3.org/2000/svg">
+  <g id="reference"></g>
+</svg>
+<button>Show/hide reference points and lines</button>
+```
 
-Mehrere Bézier-Kurven können aneinandergereiht werden, um erweiterte, glatte Formen zu erzeugen. Häufig wird der Kontrollpunkt auf einer Seite eines Punktes eine Spiegelung des Kontrollpunkts auf der anderen Seite sein, um die Neigung konstant zu halten. In diesem Fall kann eine Abkürzung der kubischen Bézier-Kurve verwendet werden, die durch den Befehl `S` (oder `s`) bezeichnet wird.
+```js hidden live-sample___cubic_bezier_curves
+const g = document.querySelector("#reference");
+const svg = document.querySelector("svg");
+const button = document.querySelector("button");
+
+// prettier-ignore
+const points = [
+  [[10, 10], [20, 20], [40, 20], [50, 10]],
+  [[70, 10], [70, 20], [110, 20], [110, 10]],
+  [[130, 10], [120, 20], [180, 20], [170, 10]],
+  [[10, 60], [20, 80], [40, 80], [50, 60]],
+  [[70, 60], [70, 80], [110, 80], [110, 60]],
+  [[130, 60], [120, 80], [180, 80], [170, 60]],
+  [[10, 110], [20, 140], [40, 140], [50, 110]],
+  [[70, 110], [70, 140], [110, 140], [110, 110]],
+  [[130, 110], [120, 140], [180, 140], [170, 110]],
+];
+
+for (const curvePoints of points) {
+  for (const p of curvePoints) {
+    const circle = document.createElementNS(
+      "http://www.w3.org/2000/svg",
+      "circle",
+    );
+    circle.setAttribute("cx", p[0]);
+    circle.setAttribute("cy", p[1]);
+    circle.setAttribute("r", 1.5);
+    circle.setAttribute("fill", "red");
+    g.appendChild(circle);
+  }
+  const line1 = document.createElementNS("http://www.w3.org/2000/svg", "line");
+  line1.setAttribute("x1", curvePoints[0][0]);
+  line1.setAttribute("y1", curvePoints[0][1]);
+  line1.setAttribute("x2", curvePoints[1][0]);
+  line1.setAttribute("y2", curvePoints[1][1]);
+  line1.setAttribute("stroke", "red");
+  g.appendChild(line1);
+  const line2 = document.createElementNS("http://www.w3.org/2000/svg", "line");
+  line2.setAttribute("x1", curvePoints[2][0]);
+  line2.setAttribute("y1", curvePoints[2][1]);
+  line2.setAttribute("x2", curvePoints[3][0]);
+  line2.setAttribute("y2", curvePoints[3][1]);
+  line2.setAttribute("stroke", "red");
+  g.appendChild(line2);
+}
+
+let isHidden = true;
+button.addEventListener("click", () => {
+  isHidden = !isHidden;
+  if (isHidden) {
+    svg.querySelector("#reference").remove();
+  } else {
+    svg.appendChild(g.cloneNode(true));
+  }
+});
+```
+
+{{ EmbedLiveSample('cubic_bezier_curves', 190, 190) }}
+
+Das obige Beispiel erzeugt neun kubische Bézier-Kurven. Wenn sich die Kurven nach rechts bewegen, werden die Kontrollpunkte horizontal verteilt. Wenn sich die Kurven nach unten bewegen, werden sie weiter von den Endpunkten getrennt. Zu beachten ist, dass die Kurve in Richtung des ersten Kontrollpunkts beginnt und sich dann so biegt, dass sie entlang der Richtung des zweiten Kontrollpunkts ankommt.
+
+Mehrere Bézier-Kurven können zusammengefügt werden, um erweiterte, glatte Formen zu erstellen. Oft ist der Kontrollpunkt auf der einen Seite eines Punktes das Spiegelbild des auf der anderen Seite verwendeten Kontrollpunktes, um die Steigung konstant zu halten. In diesem Fall kann eine Abkürzungsvariante der kubischen Bézier verwendet werden, die mit dem Befehl `S` (oder `s`) bezeichnet wird.
 
 ```plain
 S x2 y2, x y
@@ -152,22 +267,59 @@ S x2 y2, x y
 s dx2 dy2, dx dy
 ```
 
-`S` erzeugt den gleichen Kurventyp wie zuvor—aber wenn es einem anderen `S`-Befehl oder einem `C`-Befehl folgt, wird der erste Kontrollpunkt als Spiegelung des zuvor verwendeten angenommen. Wenn der `S`-Befehl keinem weiteren `S`- oder `C`-Befehl folgt, wird die aktuelle Position des Cursors als erster Kontrollpunkt verwendet. Das Ergebnis ist nicht dasselbe wie das, was der `Q`-Befehl mit denselben Parametern erzeugt hätte, ist aber ähnlich.
+`S` erzeugt denselben Kurventyp wie zuvor—aber wenn es einem anderen `S`-Befehl oder einem `C`-Befehl folgt, wird der erste Kontrollpunkt als Spiegelbild des vorherigen angenommen. Wenn der `S`-Befehl nicht einem anderen `S`- oder `C`-Befehl folgt, wird die aktuelle Position des Cursors als erster Kontrollpunkt verwendet. Das Ergebnis ist nicht dasselbe, was der `Q`-Befehl mit denselben Parametern erzeugen würde, sondern ähnlich.
 
-Ein Beispiel für diese Syntax wird unten gezeigt, und in der Abbildung links sind die spezifizierten Kontrollpunkte in Rot und der abgeleitete Kontrollpunkt in Blau dargestellt.
+Ein Beispiel für diese Syntax ist unten gezeigt, und in der Abbildung links sind die angegebenen Kontrollpunkte in Rot und der abgeleitete Kontrollpunkt in Blau dargestellt.
 
-![Eine glatte S-förmige Kurve wird aus zwei Bézier-Kurven gezeichnet. Die zweite Kurve behält die gleiche Neigung der Kontrollpunkte wie die erste Kurve bei, die auf die andere Seite gespiegelt wird.](shortcut_cubic_bezier_with_grid.png)
-
-```xml
+```html live-sample___shortcut_cubic_bezier
 <svg width="190" height="160" xmlns="http://www.w3.org/2000/svg">
-  <path d="M 10 80 C 40 10, 65 10, 95 80 S 150 150, 180 80" stroke="black" fill="transparent"/>
+  <path
+    d="M 10 80 C 40 10, 65 10, 95 80 S 150 150, 180 80"
+    stroke="black"
+    fill="transparent" />
 </svg>
 ```
 
-Die andere Art der Bézier-Kurve, die quadratische Kurve, die mit `Q` aufgerufen wird, ist eigentlich eine einfachere Kurve als die kubische. Sie erfordert einen Kontrollpunkt, der die Neigung der Kurve sowohl am Start- als auch am Endpunkt bestimmt. Sie nimmt zwei Parameter: den Kontrollpunkt und den Endpunkt der Kurve.
+```html hidden live-sample___shortcut_cubic_bezier
+<svg style="display:none" xmlns="http://www.w3.org/2000/svg">
+  <g id="reference">
+    <line x1="10" y1="80" x2="40" y2="10" stroke="red" />
+    <line x1="65" y1="10" x2="95" y2="80" stroke="red" />
+    <line x1="95" y1="80" x2="125" y2="150" stroke="blue" />
+    <line x1="150" y1="150" x2="180" y2="80" stroke="red" />
+    <circle cx="10" cy="80" r="3" fill="red" />
+    <circle cx="40" cy="10" r="3" fill="red" />
+    <circle cx="65" cy="10" r="3" fill="red" />
+    <circle cx="95" cy="80" r="3" fill="red" />
+    <circle cx="125" cy="150" r="3" fill="blue" />
+    <circle cx="150" cy="150" r="3" fill="red" />
+    <circle cx="180" cy="80" r="3" fill="red" />
+  </g>
+</svg>
+<button>Show/hide reference points and lines</button>
+```
+
+```js hidden live-sample___shortcut_cubic_bezier
+const g = document.querySelector("#reference");
+const svg = document.querySelector("svg");
+const button = document.querySelector("button");
+let isHidden = true;
+button.addEventListener("click", () => {
+  isHidden = !isHidden;
+  if (isHidden) {
+    svg.querySelector("#reference").remove();
+  } else {
+    svg.appendChild(g.cloneNode(true));
+  }
+});
+```
+
+{{ EmbedLiveSample('shortcut_cubic_bezier', 190, 190) }}
+
+Der andere Typ der Bézier-Kurve, die quadratische Kurve, die mit `Q` aufgerufen wird, ist tatsächlich eine einfachere Kurve als die kubische. Sie erfordert einen Kontrollpunkt, der die Steigung der Kurve sowohl am Startpunkt als auch am Endpunkt bestimmt. Sie nimmt zwei Parameter: den Kontrollpunkt und den Endpunkt der Kurve.
 
 > [!NOTE]
-> Die Delta-Werte der Koordinaten für `q` beziehen sich beide auf den vorherigen Punkt (das heißt, `dx` und `dy` sind nicht relativ zu `dx1` und `dy1`).
+> Die Koordinatendeltas für `q` sind beide relativ zum vorherigen Punkt (das heißt, `dx` und `dy` sind nicht relativ zu `dx1` und `dy1`).
 
 ```plain
 Q x1 y1, x y
@@ -175,15 +327,43 @@ Q x1 y1, x y
 q dx1 dy1, dx dy
 ```
 
-![Quadratische Bézier mit Raster](quadratic_bezier_with_grid.png)
-
-```xml
+```html live-sample___quadratic_bezier
 <svg width="190" height="160" xmlns="http://www.w3.org/2000/svg">
-  <path d="M 10 80 Q 95 10 180 80" stroke="black" fill="transparent"/>
+  <path d="M 10 80 Q 95 10 180 80" stroke="black" fill="transparent" />
 </svg>
 ```
 
-Ebenso wie bei der kubischen Bézier-Kurve gibt es eine Abkürzung, um mehrere quadratische Béziers aneinanderzureihen, die mit `T` aufgerufen wird.
+```html hidden live-sample___quadratic_bezier
+<svg style="display:none" xmlns="http://www.w3.org/2000/svg">
+  <g id="reference">
+    <line x1="10" y1="80" x2="95" y2="10" stroke="red" />
+    <line x1="95" y1="10" x2="180" y2="80" stroke="red" />
+    <circle cx="10" cy="80" r="3" fill="red" />
+    <circle cx="180" cy="80" r="3" fill="red" />
+    <circle cx="95" cy="10" r="3" fill="red" />
+  </g>
+</svg>
+<button>Show/hide reference points and lines</button>
+```
+
+```js hidden live-sample___quadratic_bezier
+const g = document.querySelector("#reference");
+const svg = document.querySelector("svg");
+const button = document.querySelector("button");
+let isHidden = true;
+button.addEventListener("click", () => {
+  isHidden = !isHidden;
+  if (isHidden) {
+    svg.querySelector("#reference").remove();
+  } else {
+    svg.appendChild(g.cloneNode(true));
+  }
+});
+```
+
+{{ EmbedLiveSample('quadratic_bezier', 190, 190) }}
+
+Wie bei der kubischen Bézier-Kurve gibt es eine Abkürzung zum Verbinden mehrerer quadratischer Bézier, die mit `T` aufgerufen wird.
 
 ```plain
 T x y
@@ -191,98 +371,282 @@ T x y
 t dx dy
 ```
 
-Diese Abkürzung betrachtet den vorherigen verwendeten Kontrollpunkt und leitet einen neuen daraus ab. Dies bedeutet, dass nach dem ersten Kontrollpunkt ziemlich komplexe Formen erstellt werden können, indem nur Endpunkte spezifiziert werden.
+Diese Abkürzung betrachtet den vorher verwendeten Kontrollpunkt und leitet daraus einen neuen ab. Das bedeutet, dass nach dem ersten Kontrollpunkt ziemlich komplexe Formen erstellt werden können, indem nur Endpunkte angegeben werden.
 
-Dies funktioniert nur, wenn der vorherige Befehl ein `Q`- oder ein `T`-Befehl war. Wenn nicht, wird angenommen, dass der Kontrollpunkt mit dem vorherigen Punkt identisch ist, und es werden nur Linien gezeichnet.
+Dies funktioniert nur, wenn der vorherige Befehl ein `Q`- oder `T`-Befehl war. Andernfalls wird der Kontrollpunkt als derselbe wie der vorherige Punkt angenommen, und es werden nur Linien gezeichnet.
 
-![Zwei quadratische Kurven bilden eine glatte S-förmige Kurve. Die Kontrollpunkte der zweiten Kurve sind über die horizontale Achse gespiegelt.](shortcut_quadratic_bezier_with_grid.png)
-
-```xml
+```html live-sample___shortcut_quadratic_bezier
 <svg width="190" height="160" xmlns="http://www.w3.org/2000/svg">
-  <path d="M 10 80 Q 52.5 10, 95 80 T 180 80" stroke="black" fill="transparent"/>
+  <path
+    d="M 10 80 Q 52.5 10, 95 80 T 180 80"
+    stroke="black"
+    fill="transparent" />
 </svg>
 ```
 
-Beide Kurven erzeugen ähnliche Ergebnisse, obwohl die kubische Kurve größere Freiheit in der genauen Form der Kurve erlaubt. Die Entscheidung, welche Kurve zu verwenden ist, ist situationsabhängig und hängt vom Grad der Symmetrie der Linie ab.
+```html hidden live-sample___shortcut_quadratic_bezier
+<svg style="display:none" xmlns="http://www.w3.org/2000/svg">
+  <g id="reference">
+    <line x1="10" y1="80" x2="52.5" y2="10" stroke="red" />
+    <line x1="52.5" y1="10" x2="95" y2="80" stroke="red" />
+    <line x1="95" y1="80" x2="137.5" y2="150" stroke="blue" />
+    <line x1="137.5" y1="150" x2="180" y2="80" stroke="blue" />
+    <circle cx="10" cy="80" r="3" fill="red" />
+    <circle cx="52.5" cy="10" r="3" fill="red" />
+    <circle cx="95" cy="80" r="3" fill="red" />
+    <circle cx="137.5" cy="150" r="3" fill="blue" />
+    <circle cx="180" cy="80" r="3" fill="blue" />
+  </g>
+</svg>
+<button>Show/hide reference points and lines</button>
+```
+
+```js hidden live-sample___shortcut_quadratic_bezier
+const g = document.querySelector("#reference");
+const svg = document.querySelector("svg");
+const button = document.querySelector("button");
+let isHidden = true;
+button.addEventListener("click", () => {
+  isHidden = !isHidden;
+  if (isHidden) {
+    svg.querySelector("#reference").remove();
+  } else {
+    svg.appendChild(g.cloneNode(true));
+  }
+});
+```
+
+{{ EmbedLiveSample('shortcut_quadratic_bezier', 190, 190) }}
+
+Beide Kurven erzeugen ähnliche Ergebnisse, obwohl die kubische eine größere Freiheit beim genauen Aussehen der Kurve gewährt. Die Entscheidung, welche Kurve verwendet werden soll, ist situationsabhängig und hängt von der Menge der Symmetrie ab, die die Linie hat.
 
 ### Bögen
 
-Eine andere Art von Kurvenlinie, die mit SVG erstellt werden kann, ist der Bogen, der mit dem `A`-Befehl aufgerufen wird. Bögen sind Abschnitte von Kreisen oder Ellipsen.
+Der andere Typ der gekrümmten Linie, die mit SVG erstellt werden kann, ist der Bogen, der mit dem Befehl `A` aufgerufen wird. Bögen sind Abschnitte von Kreisen oder Ellipsen.
 
-Für einen gegebenen x-Radius und y-Radius gibt es zwei Ellipsen, die zwei beliebige Punkte verbinden können (solange sie sich innerhalb des Radius des Kreises befinden). Entlang eines dieser Kreise gibt es zwei mögliche Wege, die genommen werden können, um die Punkte zu verbinden - es gibt also in jeder Situation vier mögliche Bögen.
+Für einen gegebenen x-Radius und y-Radius gibt es zwei Ellipsen, die beliebige zwei Punkte verbinden können (solange sie innerhalb des Kreisradius liegen). Entlang einer dieser Kreise gibt es zwei mögliche Wege, um die Punkte zu verbinden—sodass es in jeder Situation vier mögliche Bögen gibt.
 
-Aus diesem Grund erfordern Bögen ziemlich viele Parameter:
+Aufgrund dessen erfordern Bögen ziemlich viele Parameter:
 
 ```plain
 A rx ry x-axis-rotation large-arc-flag sweep-flag x y
 a rx ry x-axis-rotation large-arc-flag sweep-flag dx dy
 ```
 
-Am Anfang nimmt das Bogenelement zwei Parameter für den x-Radius und den y-Radius. Wenn nötig, siehe {{SVGElement("ellipse")}}s und wie sie sich verhalten. Die letzten zwei Parameter bezeichnen die x- und y-Koordinaten, um den Strich zu beenden. Zusammen definieren diese vier Werte die Grundstruktur des Bogens.
+Zu Beginn nimmt das Bogenelement zwei Parameter für den x-Radius und den y-Radius auf. Falls erforderlich, sehen Sie sich {{SVGElement("ellipse")}}s an und wie sie sich verhalten. Die letzten beiden Parameter bestimmen die x- und y-Koordinaten, um den Strich zu beenden. Zusammen definieren diese vier Werte die Grundstruktur des Bogens.
 
-Der dritte Parameter beschreibt die Rotation des Bogens. Dies lässt sich am besten mit einem Beispiel erklären:
+Der dritte Parameter beschreibt die Drehung des Bogens. Dies wird am besten mit einem Beispiel erklärt:
 
-![SVGArcs_XAxisRotation_mit_Raster](svgarcs_xaxisrotation_with_grid.png)
-
-```xml
+```html live-sample___arcs_axis_rotation
 <svg width="320" height="320" xmlns="http://www.w3.org/2000/svg">
-  <path d="M 10 315
-           L 110 215
-           A 30 50 0 0 1 162.55 162.45
-           L 172.55 152.45
-           A 30 50 -45 0 1 215.1 109.9
-           L 315 10" stroke="black" fill="green" stroke-width="2" fill-opacity="0.5"/>
+  <path
+    d="M 10 315
+       L 110 215
+       A 30 50 0 0 1 162.55 162.45
+       L 172.55 152.45
+       A 30 50 -45 0 1 215.1 109.9
+       L 315 10"
+    stroke="black"
+    fill="green"
+    stroke-width="2"
+    fill-opacity="0.5" />
 </svg>
 ```
 
-Das Beispiel zeigt ein `<path>`-Element, das diagonal über die Seite geht. In dessen Mitte wurden zwei elliptische Bögen ausgeschnitten (x-Radius = `30`, y-Radius = `50`). Beim ersten wurde die x-Axis-Rotation auf `0` belassen, sodass die Ellipse, um die sich der Bogen bewegt (in Grau dargestellt), senkrecht ausgerichtet ist. Beim zweiten Bogen jedoch wurde die x-Axis-Rotation auf `-45` Grad eingestellt. Dadurch wird die Ellipse so gedreht, dass sie mit ihrer Nebenachse entlang der Pfadrichtung ausgerichtet ist, wie durch die zweite Ellipse im Beispielbild gezeigt.
+```html hidden live-sample___arcs_axis_rotation
+<svg style="display:none" xmlns="http://www.w3.org/2000/svg">
+  <g id="reference">
+    <ellipse
+      cx="136.225"
+      cy="188.275"
+      rx="30"
+      ry="50"
+      stroke="red"
+      fill="none" />
+    <ellipse
+      cx="193.5"
+      cy="131.5"
+      rx="30"
+      ry="50"
+      stroke="red"
+      fill="none"
+      transform="rotate(-45)"
+      transform-origin="193.5 131.5" />
+  </g>
+</svg>
+<button>Show/hide reference points and lines</button>
+```
 
-Für die ungedrehte Ellipse im obigen Bild gibt es nur zwei verschiedene Bögen und nicht vier zur Auswahl, weil die Linie, die vom Anfangs- bis zum Endpunkt des Bogens gezogen wird, durch das Zentrum der Ellipse geht. In einem leicht modifizierten Beispiel können die beiden Ellipsen gesehen werden, die die vier verschiedenen Bögen bilden:
+```js hidden live-sample___arcs_axis_rotation
+const g = document.querySelector("#reference");
+const svg = document.querySelector("svg");
+const button = document.querySelector("button");
+let isHidden = true;
+button.addEventListener("click", () => {
+  isHidden = !isHidden;
+  if (isHidden) {
+    svg.querySelector("#reference").remove();
+  } else {
+    svg.appendChild(g.cloneNode(true));
+  }
+});
+```
 
-![Demonstration der 4 Bögen auf dem Ellipsenbeispiel](svgarcs_xaxisrotation_with_grid_ellipses.png)
+{{ EmbedLiveSample('arcs_axis_rotation', 320, 350) }}
 
-```xml
+Das Beispiel zeigt ein `<path>`-Element, das diagonal über die Seite verläuft. In der Mitte wurden zwei elliptische Bögen ausgeschnitten (x-Radius = `30`, y-Radius = `50`). Beim ersten wurde die x-Achsen-Rotation auf `0` belassen, sodass die Ellipse, um die der Bogen verläuft (in Grau gezeigt), gerade auf und ab orientiert ist. Beim zweiten Bogen wurde die x-Achsen-Rotation jedoch auf `-45` Grad eingestellt. Dies dreht die Ellipse so, dass sie mit ihrer Nebenachse entlang der Pfadrichtung ausgerichtet ist, wie die zweite Ellipse im Beispielbild zeigt.
+
+Für die ungedrehte Ellipse im obigen Bild gibt es nur zwei verschiedene Bögen und nicht vier zur Auswahl, weil die Linie, die vom Anfang zum Ende des Bogens verläuft, durch das Zentrum der Ellipse geht. In einem leicht modifizierten Beispiel sind die beiden Ellipsen zu sehen, die die vier verschiedenen Bögen bilden:
+
+```html live-sample___arcs_axis_rotation_2
 <svg xmlns="http://www.w3.org/2000/svg" width="320" height="320">
-  <path d="M 10 315
-           L 110 215
-           A 36 60 0 0 1 150.71 170.29
-           L 172.55 152.45
-           A 30 50 -45 0 1 215.1 109.9
-           L 315 10" stroke="black" fill="green" stroke-width="2" fill-opacity="0.5"/>
-  <circle cx="150.71" cy="170.29" r="2" fill="red"/>
-  <circle cx="110" cy="215" r="2" fill="red"/>
-  <ellipse cx="144.931" cy="229.512" rx="36" ry="60" fill="transparent" stroke="blue"/>
-  <ellipse cx="115.779" cy="155.778" rx="36" ry="60" fill="transparent" stroke="blue"/>
+  <path
+    d="M 10 315
+       L 110 215
+       A 36 60 0 0 1 150.71 170.29
+       L 172.55 152.45
+       A 30 50 -45 0 1 215.1 109.9
+       L 315 10"
+    stroke="black"
+    fill="green"
+    stroke-width="2"
+    fill-opacity="0.5" />
 </svg>
 ```
 
-Beachten Sie, dass jede der blauen Ellipsen aus zwei Bögen besteht, abhängig davon, ob im Uhrzeigersinn oder gegen den Uhrzeigersinn gereist wird. Jede Ellipse hat einen kurzen Bogen und einen langen Bogen. Die zwei Ellipsen sind einfach Spiegelbilder voneinander. Sie sind entlang der Linie, die die Start-End-Punkte bildet, gespiegelt.
+```html hidden live-sample___arcs_axis_rotation_2
+<svg style="display:none" xmlns="http://www.w3.org/2000/svg">
+  <g id="reference">
+    <circle cx="150.71" cy="170.29" r="3" fill="red" />
+    <circle cx="110" cy="215" r="3" fill="red" />
+    <ellipse
+      cx="144.931"
+      cy="229.512"
+      rx="36"
+      ry="60"
+      fill="transparent"
+      stroke="red" />
+    <ellipse
+      cx="115.779"
+      cy="155.778"
+      rx="36"
+      ry="60"
+      fill="transparent"
+      stroke="red" />
+  </g>
+</svg>
+<button>Show/hide reference points and lines</button>
+```
 
-Wenn die Start-End-Punkte weiter entfernt sind, als der `x`- und `y`-Radius der Ellipse erreichen kann, werden die Radien der Ellipse minimal erweitert, damit sie die Start-End-Punkte erreichen können. Der interaktive Codepen am Ende dieser Seite demonstriert dies gut. Um zu bestimmen, ob die Radien einer Ellipse groß genug sind, um erweitert zu werden, müsste ein Gleichungssystem gelöst werden, wie [dieses auf Wolfram Alpha](<https://www.wolframalpha.com/input/?i=solve+((110+-+x)%5E2%2F36%5E2)+%2B+((215+-+y)%5E2%2F60%5E2)+%3D+1,+((150.71+-+x)%5E2%2F36%5E2)+%2B+((170.29+-+y)%5E2%2F60%5E2)+%3D+1>). Diese Berechnung bezieht sich auf die nicht-rotierte Ellipse mit Start-End (`110`, `215`)→(`150.71`, `170.29`). Die Lösung, (`x`, `y`), ist das Zentrum der Ellipse(n). Die Lösung wird [imaginär](<https://www.wolframalpha.com/input/?i=solve+((110+-+x)%5E2%2F30%5E2)+%2B+((215+-+y)%5E2%2F50%5E2)+%3D+1,+((162.55+-+x)%5E2%2F30%5E2)+%2B+((162.45+-+y)%5E2%2F50%5E2)+%3D+1>) sein, wenn die Radien der Ellipse zu klein sind. Diese zweite Berechnung bezieht sich auf die nicht-rotierte Ellipse mit Start-End (`110`, `215`)→(`162.55`, `162.45`). Die Lösung hat eine kleine imaginäre Komponente, weil die Ellipse nur knapp erweitert wurde.
+```js hidden live-sample___arcs_axis_rotation_2
+const g = document.querySelector("#reference");
+const svg = document.querySelector("svg");
+const button = document.querySelector("button");
+let isHidden = true;
+button.addEventListener("click", () => {
+  isHidden = !isHidden;
+  if (isHidden) {
+    svg.querySelector("#reference").remove();
+  } else {
+    svg.appendChild(g.cloneNode(true));
+  }
+});
+```
 
-Die vier oben erwähnten unterschiedlichen Wege werden durch die nächsten beiden Parameter-Flags bestimmt. Wie bereits erwähnt, gibt es noch zwei mögliche Ellipsen, um die der Pfad verlaufen kann, und zwei unterschiedliche mögliche Wege auf beiden Ellipsen, was vier mögliche Wege ergibt. Der erste Parameter ist der `large-arc-flag`. Er bestimmt, ob der Bogen größer oder kleiner als 180 Grad sein soll; letztlich bestimmt dieses Flag, in welche Richtung der Bogen um einen bestimmten Kreis verlaufen wird. Der zweite Parameter ist das `sweep-flag`. Er bestimmt, ob der Bogen bei positiven Winkeln oder negativen Winkeln beginnen soll, was im Wesentlichen festlegt, um welchen der beiden Kreise sich bewegt wird. Das folgende Beispiel zeigt alle vier möglichen Kombinationen, zusammen mit den beiden Kreisen für jeden Fall.
+{{ EmbedLiveSample('arcs_axis_rotation_2', 320, 350) }}
 
-![Vier Beispiele werden für jede Kombination aus large-arc-flag und sweep-flag für zwei überlappende Kreise gezeigt, einer im oberen rechten, der andere im unteren linken Bereich. Für sweep-flag = 0, wenn large-arc-flag = 0, wird der innere Bogen des oberen rechten Kreises gezeichnet, und wenn large-arc-flag = 1, wird der äußere Bogen des unteren linken Kreises gezeichnet. Für sweep-flag = 1, wenn large-arc-flag = 0, wird der innere Bogen des unteren linken Kreises gezeichnet, und wenn large-arc-flag = 1, wird der äußere Bogen des oberen rechten Kreises gezeichnet.](svgarcs_flags.png)
+Beachten Sie, dass jede der blauen Ellipsen aus zwei Bögen besteht, je nachdem, ob Sie im Uhrzeigersinn oder gegen den Uhrzeigersinn reisen. Jede Ellipse hat einen kurzen Bogen und einen langen Bogen. Die beiden Ellipsen sind einfach Spiegelbilder voneinander. Sie werden entlang der Linie gebildet, die von Start→Ende-Punkten gebildet wird.
 
-```xml
-<svg width="325" height="325" xmlns="http://www.w3.org/2000/svg">
-  <path d="M 80 80
-           A 45 45, 0, 0, 0, 125 125
-           L 125 80 Z" fill="green"/>
-  <path d="M 230 80
-           A 45 45, 0, 1, 0, 275 125
-           L 275 80 Z" fill="red"/>
-  <path d="M 80 230
-           A 45 45, 0, 0, 1, 125 275
-           L 125 230 Z" fill="purple"/>
-  <path d="M 230 230
-           A 45 45, 0, 1, 1, 275 275
-           L 275 230 Z" fill="blue"/>
+Wenn die Start→Ende-Punkte weiter entfernt sind, als der Ellipsen-`x`- und `y`-Radius erreichen kann, werden die Radii der Ellipse minimal erweitert, sodass sie die Start→Ende-Punkte erreichen könnten. Das interaktive Codepen am Ende dieser Seite veranschaulicht dies gut. Um festzustellen, ob die Radii einer Ellipse groß genug sind, um eine Erweiterung zu erfordern, müsste ein Gleichungssystem gelöst werden, wie [dieses auf wolfram alpha](<https://www.wolframalpha.com/input/?i=solve+((110+-+x)%5E2%2F36%5E2)+%2B+((215+-+y)%5E2%2F60%5E2)+%3D+1,+((150.71+-+x)%5E2%2F36%5E2)+%2B+((170.29+-+y)%5E2%2F60%5E2)+%3D+1>). Diese Berechnung ist für die nicht gedrehte Ellipse mit Start→Ende (`110`, `215`)→(`150.71`, `170.29`). Die Lösung, (`x`, `y`), ist das Zentrum der Ellipse(n). Die Lösung wird [imaginär](<https://www.wolframalpha.com/input/?i=solve+((110+-+x)%5E2%2F30%5E2)+%2B+((215+-+y)%5E2%2F50%5E2)+%3D+1,+((162.55+-+x)%5E2%2F30%5E2)+%2B+((162.45+-+y)%5E2%2F50%5E2)+%3D+1>) sein, wenn die Radii der Ellipse zu klein sind. Diese zweite Berechnung ist für die nicht gedrehte Ellipse mit Start→Ende (`110`, `215`)→(`162.55`, `162.45`). Die Lösung hat eine kleine imaginäre Komponente, weil die Ellipse gerade noch erweitert wurde.
+
+Die oben erwähnten vier verschiedenen Pfade werden durch die nächsten beiden Parameterflaggen bestimmt. Wie bereits erwähnt, gibt es immer noch zwei mögliche Ellipsen, um den Pfad zu umrunden, und zwei verschiedene mögliche Pfade auf beiden Ellipsen, sodass es vier mögliche Pfade gibt. Der erste Parameter ist das `large-arc-flag`. Es bestimmt, ob der Bogen größer oder kleiner als 180 Grad sein soll; letztlich bestimmt dieses Flag, in welche Richtung der Bogen um einen gegebenen Kreis verlaufen wird. Der zweite Parameter ist das `sweep-flag`. Es bestimmt, ob der Bogen bei positiven oder negativen Winkeln beginnen soll, was im Wesentlichen auswählt, um welchen der beiden Kreise gereist wird. Das folgende Beispiel zeigt alle vier möglichen Kombinationen sowie die beiden Kreise für jeden Fall.
+
+```html live-sample___arcs_flags
+<svg width="360" height="360" xmlns="http://www.w3.org/2000/svg">
+  <path
+    d="M 100 100
+       A 45 45, 0, 0, 0, 145 145
+       L 145 100 Z"
+    fill="#00FF00A0"
+    stroke="black"
+    stroke-width="2" />
+  <path
+    d="M 250 100
+       A 45 45, 0, 1, 0, 295 145
+       L 295 100 Z"
+    fill="#FF0000A0"
+    stroke="black"
+    stroke-width="2" />
+  <path
+    d="M 100 250
+       A 45 45, 0, 0, 1, 145 295
+       L 145 250 Z"
+    fill="#FF00FFA0"
+    stroke="black"
+    stroke-width="2" />
+  <path
+    d="M 250 250
+       A 45 45, 0, 1, 1, 295 295
+       L 295 250 Z"
+    fill="#0000FFA0"
+    stroke="black"
+    stroke-width="2" />
+  <path
+    d="M 45 45 L 345 45 L 345 345 L 45 345 Z M 195 45 L 195 345 M 45 195 L 345 195"
+    fill="none"
+    stroke="black" />
+  <text x="140" y="20" font-size="20" fill="black">Large arc flag</text>
+  <text
+    x="-15"
+    y="195"
+    font-size="20"
+    fill="black"
+    transform="rotate(-90)"
+    transform-origin="20 195">
+    Sweep flag
+  </text>
+  <text x="120" y="40" font-size="20" fill="black">0</text>
+  <text x="270" y="40" font-size="20" fill="black">1</text>
+  <text x="30" y="120" font-size="20" fill="black">0</text>
+  <text x="30" y="270" font-size="20" fill="black">1</text>
 </svg>
 ```
 
-Bögen sind ein einfacher Weg, um Teile von Kreisen oder Ellipsen in Zeichnungen zu erstellen. Beispielsweise würde ein Kuchendiagramm einen anderen Bogen für jedes Stück benötigen.
+```html hidden live-sample___arcs_flags
+<svg style="display:none" xmlns="http://www.w3.org/2000/svg">
+  <g id="reference">
+    <circle cx="145" cy="100" r="45" stroke="#888888E0" fill="none" />
+    <circle cx="100" cy="145" r="45" stroke="#888888E0" fill="none" />
+    <circle cx="295" cy="100" r="45" stroke="#888888E0" fill="none" />
+    <circle cx="250" cy="145" r="45" stroke="#888888E0" fill="none" />
+    <circle cx="145" cy="250" r="45" stroke="#888888E0" fill="none" />
+    <circle cx="100" cy="295" r="45" stroke="#888888E0" fill="none" />
+    <circle cx="295" cy="250" r="45" stroke="#888888E0" fill="none" />
+    <circle cx="250" cy="295" r="45" stroke="#888888E0" fill="none" />
+  </g>
+</svg>
+<button>Show/hide reference points and lines</button>
+```
 
-Wenn Sie von {{HTMLElement("canvas")}} zu SVG wechseln, können Bögen das Schwierigste sein, was man lernen muss, aber sie sind auch viel leistungsstärker. Ganze Kreise und Ellipsen sind die einzigen Formen, bei denen SVG-Bögen Schwierigkeiten haben. Da die Start- und Endpunkte für jeden Pfad, der um einen Kreis geht, derselbe Punkt sind, gibt es eine unendliche Anzahl von Kreisen, die gewählt werden könnten, und der tatsächliche Pfad ist undefiniert. Es ist möglich, sie zu approximieren, indem die Start- und Endpunkte des Pfades leicht verdreht werden und dann mit einem anderen Pfadsegment verbunden werden. Beispielsweise ist es möglich, einen Kreis mit einem Bogen für jeden Halbkreis zu erstellen. Zu diesem Zeitpunkt ist es oft einfacher, einen echten {{SVGElement("circle")}} oder {{SVGElement("ellipse")}}-Knoten zu verwenden. Dieses interaktive Demo könnte helfen, die Konzepte hinter SVG-Bögen zu verstehen: <https://codepen.io/lingtalfi/pen/yaLWJG> (getestet nur in Chrome und Firefox, funktioniert möglicherweise nicht in Ihrem Browser)
+```js hidden live-sample___arcs_flags
+const g = document.querySelector("#reference");
+const svg = document.querySelector("svg");
+const button = document.querySelector("button");
+let isHidden = true;
+button.addEventListener("click", () => {
+  isHidden = !isHidden;
+  if (isHidden) {
+    svg.querySelector("#reference").remove();
+  } else {
+    svg.appendChild(g.cloneNode(true));
+  }
+});
+```
+
+{{ EmbedLiveSample('arcs_flags', 360, 390) }}
+
+Bögen sind eine einfache Möglichkeit, Stücke von Kreisen oder Ellipsen in Zeichnungen zu erstellen. Zum Beispiel würde ein Kuchendiagramm einen anderen Bogen für jedes Stück erfordern.
+
+Bei der Umstellung auf SVG aus dem {{HTMLElement("canvas")}} können Bögen das Schwierigste sein, aber sie sind auch viel mächtiger. Vollständige Kreise und Ellipsen sind die einzigen Formen, die SVG-Bögen Schwierigkeiten haben, zu zeichnen. Da die Start- und Endpunkte für jeden Pfad, der um einen Kreis verläuft, derselbe Punkt sind, gibt es eine unendliche Anzahl von Kreisen, die gewählt werden könnten, und der tatsächliche Pfad ist undefiniert. Es ist möglich, sie zu approximieren, indem die Start- und Endpunkte des Pfades leicht versetzt werden und dann mit einem anderen Pfadsegment verbunden werden. Zum Beispiel ist es möglich, einen Kreis mit einem Bogen für jede Halbkreis zu erstellen. In diesem Fall ist es oft einfacher, einen echten {{SVGElement("circle")}}- oder {{SVGElement("ellipse")}}-Knoten zu verwenden. Dieses interaktive Demo könnte helfen, die Konzepte hinter SVG-Bögen zu verstehen: <https://codepen.io/lingtalfi/pen/yaLWJG> (getestet in Chrome und Firefox, funktioniert möglicherweise nicht in Ihrem Browser)
 
 {{ PreviousNext("Web/SVG/Tutorials/SVG_from_scratch/Basic_shapes", "Web/SVG/Tutorials/SVG_from_scratch/Fills_and_strokes") }}

@@ -2,12 +2,12 @@
 title: appearance
 slug: Web/CSS/appearance
 l10n:
-  sourceCommit: 2595b22899b54f079721069704128fb7f0451995
+  sourceCommit: 95b3a7c3d7c854feddb769922818f9d5a3abd500
 ---
 
 {{CSSRef}}
 
-Die **`appearance`** [CSS](/de/docs/Web/CSS) Eigenschaft wird verwendet, um UI-Elemente mit plattform-spezifischem Styling anzuzeigen, basierend auf dem Thema des Betriebssystems.
+Die **`appearance`** [CSS](/de/docs/Web/CSS)-Eigenschaft wird verwendet, um UI-Elemente mit plattformspezifischem Styling, basierend auf dem Theme des Betriebssystems, anzuzeigen.
 
 {{InteractiveExample("CSS Demo: appearance")}}
 
@@ -38,10 +38,10 @@ appearance: auto;
 }
 ```
 
-Vor der Standardisierung erlaubte diese Eigenschaft das Anzeigen von Elementen als Widgets, wie Schaltflächen oder Kontrollkästchen. Sie wurde als Fehlfunktion angesehen und Autoren wird empfohlen, jetzt nur standardisierte Schlüsselwörter zu verwenden.
+Vor der Standardisierung erlaubte diese Eigenschaft, Elemente als Widgets anzuzeigen, wie z.B. Schaltflächen oder Kontrollkästchen. Es wurde als Fehlfunktion angesehen, und Autoren werden ermutigt, jetzt nur noch standardmäßige Schlüsselwörter zu verwenden.
 
 > [!NOTE]
-> Wenn Sie diese Eigenschaft auf Websites verwenden möchten, sollten Sie sie sehr sorgfältig testen. Obwohl sie in den meisten modernen Browsern unterstützt wird, variiert ihre Implementierung. In älteren Browsern hat selbst das Schlüsselwort `none` nicht den gleichen Effekt auf alle Formularelemente in verschiedenen Browsern, und einige unterstützen es überhaupt nicht. Die Unterschiede sind in den neuesten Browsern geringer.
+> Wenn Sie diese Eigenschaft auf Websites verwenden möchten, sollten Sie sie sehr sorgfältig testen. Obwohl sie in den meisten modernen Browsern unterstützt wird, variiert ihre Implementierung. In älteren Browsern hat selbst das Schlüsselwort `none` nicht dieselbe Wirkung auf alle Formularelemente in verschiedenen Browsern, und einige unterstützen es überhaupt nicht. Die Unterschiede sind in den neuesten Browsern geringer.
 
 ## Syntax
 
@@ -67,48 +67,48 @@ appearance: checkbox;
 
 ### Werte
 
-Für die folgenden Schlüsselwörter wählt der Benutzeragent das passende Styling basierend auf dem Element.
-Es werden einige Beispiele bereitgestellt, aber die Liste ist nicht erschöpfend.
+Für die folgenden Schlüsselwörter wählt der Benutzeragent das passende Styling basierend auf dem Element aus.
+Einige Beispiele werden bereitgestellt, aber die Liste ist nicht vollständig.
 
 - `none`
 
-  - : Wenn das Element ein Widget (natürliches Formularelement) ist, wird es gezwungen, ein standardisiertes primitives Aussehen anstelle eines plattformnativen oder betriebssystemspezifischen Aussehens zu verwenden, unter Beachtung der üblichen CSS-Regeln. Dieser Wert hat keine Wirkung auf nicht-widget Elemente, einschließlich ersetzter Elemente wie {{htmlelement("img")}} und {{htmlelement("video")}}.
+  - : Wenn das Element ein Widget (native Formsteuerung) ist, wird es gezwungen, ein standardisiertes primitives Aussehen anstelle eines plattformeigenen oder betriebssystemspezifischen Aussehens zu verwenden, das die üblichen Regeln von CSS unterstützt. Dieser Wert hat keine Auswirkung auf Nicht-Widget-Elemente, einschließlich ersetzter Elemente wie {{htmlelement("img")}} und {{htmlelement("video")}}.
 
 - `auto`
 
-  - : Wirkt wie `none` bei Elementen ohne spezielle Gestaltung.
+  - : Wirkt wie `none` auf Elemente ohne spezielles Styling.
 
 - `base-select`
 
-  - : Wählt das {{htmlelement("select")}}-Element und das {{cssxref("::picker()", "::picker(select)")}} Pseudoelement in die browserdefinierten Standardstile (base) und das Verhalten für [anpassbare Select-Elemente](/de/docs/Learn_web_development/Extensions/Forms/Customizable_select).
+  - : Wählt das {{htmlelement("select")}}-Element und das {{cssxref("::picker()", "::picker(select)")}}-Pseudo-Element in die vom Browser definierten Standardstile und das Verhalten für [anpassbare Auswahl-Elemente](/de/docs/Learn_web_development/Extensions/Forms/Customizable_select) ein.
 
     > [!NOTE]
-    > Die Spezifikation definiert momentan den `base` Wert, der beabsichtigt ist, die grundlegenden Browserstile allgemeiner für UI-Elemente anzuwenden, für die sie verfügbar sind. Dies wird jedoch derzeit in keinem Browser unterstützt.
+    > Die Spezifikation definiert derzeit den `base`-Wert, der allgemeinere Basisstile des Browsers für UI-Elemente, bei denen sie verfügbar sind, anwenden soll. Dies wird jedoch derzeit in keinem Browser unterstützt.
 
 - `<compat-special>`
 
   - : Einer von `menulist-button` oder `textfield`.
-    Beide dieser Werte entsprechen `auto` bei Elementen ohne spezielle Gestaltung.
+    Beide dieser Werte sind gleichbedeutend mit `auto` auf Elementen ohne spezielles Styling.
 
 - `<compat-auto>`
 
   - : Mögliche Werte sind `button`, `checkbox`, `listbox`, `menulist`, `meter`, `progress-bar`, `push-button`, `radio`, `searchfield`, `slider-horizontal`, `square-button` und `textarea`.
-    Schlüsselwörter, die das Äquivalent von `auto` zur Aufrechterhaltung der Kompatibilität mit älteren Browsern sind.
+    Schlüsselwörter, die das Äquivalent zu `auto` für die Aufrechterhaltung der Kompatibilität mit älteren Browsern sind.
 
 #### Nicht standardisierte Werte
 
-Die folgenden Werte können in historischen Browserversionen mit dem **`-moz-appearance`** oder **`-webkit-appearance`** Präfix funktionieren, aber nicht mit der standardisierten **`appearance`** Eigenschaft.
+Die folgenden Werte können in historischen Browserversionen mit dem Präfix **`-moz-appearance`** oder **`-webkit-appearance`** funktionsfähig sein, aber nicht in der standardisierten **`appearance`**-Eigenschaft.
 
 <details>
 <summary>Nicht standardisierte Werte</summary>
 
-- Firefox-Einträge zeigen Unterstützung durch `-moz-appearance`.
-- Chrome-, Edge- und Safari-Einträge unten geben Versionsunterstützung für Werte an, die mit dem `-webkit-appearance` vendor-prefix Eigenschaft verwendet werden.
+- Firefox-Einträge zeigen Unterstützung mit `-moz-appearance`.
+- Chrome-, Edge- und Safari-Einträge unten zeigen die Versionsunterstützung für Werte, die mit der Eigenschaft `-webkit-appearance` verwendet werden.
 - Werte mit einem Sternchen (\*) haben klare Absichten zur Entfernung.
-- Für jede Zelle der Browserversion und Wert:
+- Für jede Zelle von Browserversion und Wert:
   - `Y{version}`: gibt an, dass ein Wert bis einschließlich `{version}` unterstützt wird.
-  - `N{version}`: Unterstützung wurde in einer früheren Version als `{version}` entfernt.
-  - eine leere Zelle zeigt an, dass Unterstützung nie hinzugefügt wurde.
+  - `N{version}`: Unterstützung wurde in einer früheren Veröffentlichung als `{version}` entfernt.
+  - Eine leere Zelle bedeutet, dass die Unterstützung nie hinzugefügt wurde.
 
 | Wert                                   | Safari  | Firefox | Chrome    | Edge   |
 | -------------------------------------- | ------- | ------- | --------- | ------ |
@@ -200,8 +200,8 @@ Die folgenden Werte können in historischen Browserversionen mit dem **`-moz-app
 
 ### Benutzerdefiniertes Styling anwenden
 
-Das folgende Beispiel zeigt, wie das Standardstyling von einem Kontrollkästchen und einem Select-Element entfernt und benutzerdefiniertes Styling angewendet wird.
-Das Aussehen des Kontrollkästchens wird in einen Kreis geändert, und das Select-Element zeigt, wie der Pfeil entfernt wird, der anzeigt, dass die Liste erweitert werden kann.
+Das folgende Beispiel zeigt, wie man das Standardstyling eines Kontrollkästchens und eines Auswahl-Elements entfernt und benutzerdefiniertes Styling anwendet.
+Das Aussehen des Kontrollkästchens wird in einen Kreis geändert, und das Auswahl-Element zeigt, wie man den Pfeil entfernt, der anzeigt, dass die Liste erweitert werden kann.
 
 #### HTML
 
@@ -248,9 +248,9 @@ select.none {
 
 {{EmbedLiveSample("Apply_custom_styling", 1050, 100)}}
 
-### Grundlegende Verwendung von benutzerdefinierten Select-Elementen
+### Grundlegende Benutzung eines benutzerdefinierten Auswahl-Elements
 
-Um die benutzerdefinierte Select-Funktionalität zu aktivieren, müssen sowohl das `<select>`-Element als auch sein Picker einen {{cssxref("appearance")}} Wert von `base-select` gesetzt haben:
+Um die Funktionalität eines benutzerdefinierten Auswahl-Elements zu aktivieren, müssen das `<select>`-Element und dessen Picker beide einen `appearance`-Wert von `base-select` setzen:
 
 ```css
 select,
@@ -259,7 +259,7 @@ select,
 }
 ```
 
-Sie könnten dann zum Beispiel den Standardnach {{cssxref("border")}} des Pickers entfernen:
+Sie könnten dann beispielsweise die Standard-Schwarz {{cssxref("border")}} des Pickers entfernen:
 
 ```css
 ::picker(select) {

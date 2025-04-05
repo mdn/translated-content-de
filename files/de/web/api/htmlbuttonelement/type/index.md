@@ -3,12 +3,12 @@ title: "HTMLButtonElement: type-Eigenschaft"
 short-title: type
 slug: Web/API/HTMLButtonElement/type
 l10n:
-  sourceCommit: 848771d9efdc57ad84d643081cf91e89355c751b
+  sourceCommit: 95b3a7c3d7c854feddb769922818f9d5a3abd500
 ---
 
 {{ApiRef("HTML DOM")}}
 
-Die **`type`**-Eigenschaft des [`HTMLButtonElement`](/de/docs/Web/API/HTMLButtonElement)-Interfaces ist ein String, der den Verhaltenstyp des {{HTMLElement("button")}}-Elements angibt.
+Die **`type`**-Eigenschaft der [`HTMLButtonElement`](/de/docs/Web/API/HTMLButtonElement)-Schnittstelle ist ein String, der den Verhaltenstyp des {{HTMLElement("button")}}-Elements angibt.
 
 Sie spiegelt das [`type`](/de/docs/Web/HTML/Element/button#type)-Attribut des {{HTMLElement("button")}}-Elements wider.
 
@@ -16,7 +16,7 @@ Sie spiegelt das [`type`](/de/docs/Web/HTML/Element/button#type)-Attribut des {{
 
 Ein String, der den Typ repräsentiert.
 
-Die möglichen Werte sind im Abschnitt [button types](/de/docs/Web/API/HTMLButtonElement/type) des Attributs aufgelistet.
+Die möglichen Werte sind in der [Button-Typen](/de/docs/Web/HTML/Element/button#type)-Sektion des Attributs aufgelistet.
 
 ## Beispiel
 
