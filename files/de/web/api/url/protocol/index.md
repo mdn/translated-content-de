@@ -1,20 +1,20 @@
 ---
-title: "URL: Protocol-Eigenschaft"
+title: "URL: protocol-Eigenschaft"
 short-title: protocol
 slug: Web/API/URL/protocol
 l10n:
-  sourceCommit: 8cc63f7e6619446ea38f6a38c457a597a9af564b
+  sourceCommit: 82acf2a065dc00a1bd0cbf5e73de696e1bedee91
 ---
 
 {{ApiRef("URL API")}} {{AvailableInWorkers}}
 
-Die **`protocol`**-Eigenschaft der [`URL`](/de/docs/Web/API/URL)-Schnittstelle ist eine Zeichenkette, die das Protokoll oder Schema der URL enthält, einschließlich des abschließenden `":"`. Wenn der Port der Standardwert für das Protokoll ist (`80` für `ws:` und `http:`, `443` für `wss:` und `https:`, und `21` für `ftp:`), enthält diese Eigenschaft eine leere Zeichenkette, `""`.
+Die **`protocol`**-Eigenschaft des [`URL`](/de/docs/Web/API/URL)-Interfaces ist ein String, der das Protokoll oder Schema der URL enthält, einschließlich des abschließenden `":"`.
 
-Diese Eigenschaft kann gesetzt werden, um das Protokoll der URL zu ändern. Ein `":"` wird an die angegebene Zeichenkette angehängt, falls es nicht angegeben ist. Das bereitgestellte Schema muss mit dem Rest der URL kompatibel sein, um als gültig zu gelten.
+Diese Eigenschaft kann festgelegt werden, um das Protokoll der URL zu ändern. Ein `":"` wird an den angegebenen String angehängt, falls nicht vorhanden. Das angegebene Schema muss mit dem Rest der URL kompatibel sein, um als gültig zu gelten.
 
 ## Wert
 
-Eine Zeichenkette.
+Ein String.
 
 ## Beispiele
 
@@ -35,4 +35,4 @@ console.log(url.protocol); // Logs "https:"
 
 ## Siehe auch
 
-- Die [`URL`](/de/docs/Web/API/URL)-Schnittstelle, zu der sie gehört.
+- Das [`URL`](/de/docs/Web/API/URL)-Interface, zu dem es gehört.
