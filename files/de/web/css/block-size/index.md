@@ -2,14 +2,12 @@
 title: block-size
 slug: Web/CSS/block-size
 l10n:
-  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
+  sourceCommit: 883491d47f6b764563aa825d9d56f83fb80c6fb9
 ---
 
 {{CSSRef}}
 
-Die **`block-size`**-[CSS](/de/docs/Web/CSS)-Eigenschaft definiert die horizontale oder vertikale Größe eines Blockelements, abhängig von seinem Schreibmodus. Sie entspricht entweder der {{cssxref("width")}}- oder der {{cssxref("height")}}-Eigenschaft, abhängig vom Wert des {{cssxref("writing-mode")}}.
-
-Wenn der Schreibmodus vertikal ausgerichtet ist, bezieht sich der Wert von `block-size` auf die Breite des Elements; andernfalls bezieht er sich auf die Höhe des Elements. Eine verwandte Eigenschaft ist {{cssxref("inline-size")}}, die die andere Dimension des Elements definiert.
+Die **`block-size`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert die Größe eines Elements entlang der {{Glossary("Grid_Axis", "Blockachse")}}. Wenn der {{cssxref("writing-mode")}} horizontal ist, entspricht es der {{cssxref("height")}}; ist der Schreibmodus vertikal, entspricht es der {{cssxref("width")}}. Eine verwandte Eigenschaft ist {{cssxref("inline-size")}}, die die andere Dimension des Elements definiert.
 
 {{InteractiveExample("CSS Demo: block-size")}}
 
@@ -80,9 +78,9 @@ block-size: unset;
 
 ### Werte
 
-Die `block-size`-Eigenschaft nimmt die gleichen Werte wie die {{cssxref("width")}}- und {{cssxref("height")}}-Eigenschaften an.
+Die `block-size` Eigenschaft nimmt die gleichen Werte an wie die Eigenschaften {{cssxref("width")}} und {{cssxref("height")}}.
 
-## Formaldefinition
+## Formale Definition
 
 {{cssinfo}}
 
@@ -124,5 +122,5 @@ Die `block-size`-Eigenschaft nimmt die gleichen Werte wie die {{cssxref("width")
 
 ## Siehe auch
 
-- Die abgebildeten physischen Eigenschaften: {{cssxref("width")}} und {{cssxref("height")}}
+- Die zugeordneten physikalischen Eigenschaften: {{cssxref("width")}} und {{cssxref("height")}}
 - {{cssxref("writing-mode")}}
