@@ -2,14 +2,14 @@
 title: field-sizing
 slug: Web/CSS/field-sizing
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: 9da2567689c0a4397b0d70efbbb878dec3115754
 ---
 
 {{CSSRef}}{{seecompattable}}
 
-Die **`field-sizing`** [CSS](/de/docs/Web/CSS) Eigenschaft ermöglicht es Ihnen, das Größenverhalten von Elementen zu steuern, die eine standardisierte bevorzugte Größe erhalten, wie z.B. Formularelemente. Diese Eigenschaft ermöglicht es Ihnen, das standardmäßige Größenverhalten zu überschreiben, sodass Formularelemente sich in ihrer Größe anpassen können, um ihren Inhalt aufzunehmen.
+Die **`field-sizing`** [CSS](/de/docs/Web/CSS)-Eigenschaft ermöglicht es Ihnen, das Größeverhalten von Elementen zu steuern, die eine standardmäßig bevorzugte Größe haben, wie z.B. Formularelemente. Diese Eigenschaft erlaubt es Ihnen, das Standardgrößenverhalten zu überschreiben, sodass Formularelemente ihre Größe anpassen können, um ihren Inhalt aufzunehmen.
 
-Diese Eigenschaft wird typischerweise verwendet, um Text-{{htmlelement("input")}} und {{htmlelement("textarea")}} Elemente zu stylen, sodass sie sowohl ihren Inhalt umschließen als auch wachsen können, wenn mehr Text in das Formularelement eingegeben wird.
+Diese Eigenschaft wird typischerweise verwendet, um Text-{{htmlelement("input")}} und {{htmlelement("textarea")}}-Elemente zu gestalten, sodass sie ihren Inhalt umschließen sowie wachsen können, wenn mehr Text in das Formularelement eingegeben wird.
 
 ## Syntax
 
@@ -29,36 +29,36 @@ field-sizing: unset;
 ### Werte
 
 - `content`
-  - : Ermöglicht es dem Element, seine Größe an den Inhalt anzupassen.
+  - : Ermöglicht es dem Element, seine Größe anzupassen, um seinen Inhalt aufzunehmen.
 - `fixed`
   - : Setzt eine feste Größe für das Element. Dies ist der Standardwert.
 
 ## Beschreibung
 
-`field-sizing: content` überschreibt die standardmäßige bevorzugte Größe von Formularelementen. Diese Einstellung bietet eine einfache Möglichkeit, Textfelder so zu konfigurieren, dass sie ihren Inhalt umschließen und wachsen, wenn mehr Text eingegeben wird. Sie hören auf zu expandieren, wenn sie maximale Größengrenzen erreichen (definiert durch die Größe ihres enthaltenden Elements oder über CSS festgelegt), an welchem Punkt ein Scrollen erforderlich ist, um allen Inhalt zu sehen.
+`field-sizing: content` überschreibt die standardmäßig bevorzugte Größe von Formularelementen. Diese Einstellung bietet eine einfache Möglichkeit, Texteingaben so zu konfigurieren, dass sie ihren Inhalt umschließen und wachsen, wenn mehr Text eingegeben wird. Sie hören auf zu wachsen, wenn sie maximale Größenlimits erreichen (definiert durch die Größe ihres umgebenden Elements oder festgelegt via CSS), zu diesem Zeitpunkt ist ein Scrollen erforderlich, um den gesamten Inhalt zu sehen.
 
 ### Elemente, die von `field-sizing: content` betroffen sind
 
-Speziell `field-sizing` auf `content` beeinflusst die folgenden Elemente:
+Insbesondere wirkt sich `field-sizing: content` auf die folgenden Elemente aus:
 
-- Formulareingabetypen, die direkte Texteingabe von Benutzern akzeptieren. Dies umfasst die Typen [`email`](/de/docs/Web/HTML/Element/input/email), [`number`](/de/docs/Web/HTML/Element/input/number), [`password`](/de/docs/Web/HTML/Element/input/password), [`search`](/de/docs/Web/HTML/Element/input/search), [`tel`](/de/docs/Web/HTML/Element/input/tel), [`text`](/de/docs/Web/HTML/Element/input/text) und [`url`](/de/docs/Web/HTML/Element/input/url).
-  - Wenn keine Mindestbreite auf das Steuerelement gesetzt wird, wird es nur so breit wie der Textcursor sein.
-  - Steuerelemente mit [`placeholder`](/de/docs/Web/HTML/Element/input#placeholder) Attributen werden groß genug gerendert, um den Platzhaltertext anzuzeigen.
-  - Das [`size`](/de/docs/Web/HTML/Element/input#size) Attribut ändert die standardmäßige bevorzugte Größe solcher `<input>` Elemente. Im Ergebnis hat `size` keine Wirkung auf `<input>` Elemente, bei denen `field-sizing: content` gesetzt ist.
-- [`file`](/de/docs/Web/HTML/Element/input/file) Eingaben. Direkte Texteingabe ist nicht möglich; jedoch ändert sich der angezeigte Dateiname, wenn der Benutzer eine neue Datei zum Hochladen auswählt. Wenn `field-sizing: content` gesetzt ist, wird sich das Steuerelement so ändern, dass es den Dateinamen umschließt.
-- {{htmlelement("textarea")}} Steuerelemente. Es ist erwähnenswert, dass `<textarea>` Elemente mit `field-sizing: content` sich ähnlich wie einzeilige Textsteuerelemente verhalten, mit den folgenden Ergänzungen:
-  - Wenn `<textarea>` Elemente nicht in der Lage sind, aufgrund einer Breitenbeschränkung zu wachsen, werden sie beginnen in der Höhe zu wachsen, um zusätzliche Zeilen des Inhalts darzustellen. Wenn dann eine Höhenbeschränkung erreicht wird, werden sie ein Rollbalken anzeigen, um den gesamten Inhalt sichtbar zu machen.
-  - [`rows`](/de/docs/Web/HTML/Element/textarea#cols) und [`cols`](/de/docs/Web/HTML/Element/textarea#cols) Attribute ändern die standardmäßig bevorzugte Größe eines `<textarea>`. Im Ergebnis haben `rows`/`cols` keine Wirkung auf `<textarea>` Elemente, bei denen `field-sizing: content` gesetzt ist.
-- {{htmlelement("select")}} Steuerelemente. Diese verhalten sich ein wenig anders, als Sie vielleicht erwarten würden, wenn `field-sizing: content` gesetzt ist. Die Wirkung hängt von der Art des `<select>` Steuerelements ab, das Sie erstellen:
-  - Reguläre Dropdown-Boxen werden ihre Breite ändern, um den angezeigten Wert immer anzupassen, wenn neue Werte ausgewählt werden. (Standardmäßig wird die Größe des Dropdowns so festgelegt, dass sie den längsten Optionswert anzeigt.)
-  - Listenfelder (`<select>` Elemente mit dem [`multiple`](/de/docs/Web/HTML/Element/select#multiple) oder [`size`](/de/docs/Web/HTML/Element/select#multiple) Attribut) werden groß genug sein, um alle Optionen ohne Scrollen anzuzeigen. (Standardmäßig erfordert die Dropdown-Box ein Scrollen, um alle Optionswerte anzuzeigen.)
-  - Das [`size`](/de/docs/Web/HTML/Element/select#size) Attribut hat sehr wenig Wirkung auf `<select>` Elemente, die `field-sizing: content` gesetzt haben. In solchen Fällen überprüft der Browser, ob die `size` gleich `1` ist, um zu bestimmen, ob das `<select>` Steuerelement als Dropdown oder Listenfeld erscheinen soll. Es wird jedoch immer alle Optionen eines Listenfelds anzeigen, auch wenn `size` kleiner als die Anzahl der Optionen ist.
+- Formulareingabentypen, die direkte Texteingaben von Benutzern annehmen. Dies schließt [`email`](/de/docs/Web/HTML/Element/input/email), [`number`](/de/docs/Web/HTML/Element/input/number), [`password`](/de/docs/Web/HTML/Element/input/password), [`search`](/de/docs/Web/HTML/Element/input/search), [`tel`](/de/docs/Web/HTML/Element/input/tel), [`text`](/de/docs/Web/HTML/Element/input/text) und [`url`](/de/docs/Web/HTML/Element/input/url)-Typen ein.
+  - Wenn keine Mindestbreite auf dem Steuerungselement festgelegt ist, wird es nur so breit sein wie der Textcursor.
+  - Steuerungselemente mit [`placeholder`](/de/docs/Web/HTML/Element/input#placeholder)-Attributen werden so groß dargestellt, dass sie den Platzhaltertext anzeigen können.
+  - Das [`size`](/de/docs/Web/HTML/Element/input#size)-Attribut ändert die standardmäßig bevorzugte Größe solcher `<input>`-Elemente. Daher hat `size` keinen Einfluss auf `<input>`-Elemente mit `field-sizing: content`.
+- [`file`](/de/docs/Web/HTML/Element/input/file)-Eingaben. Direkte Texteingabe ist nicht möglich; jedoch ändert sich der angezeigte Dateiname, wenn der Benutzer eine neue Datei zum Hochladen auswählt. Wenn `field-sizing: content` gesetzt ist, passt sich die Steuerung so an, dass der Dateiname umschlossen wird.
+- {{htmlelement("textarea")}}-Steuerungen. Es ist erwähnenswert, dass `<textarea>`-Elemente mit `field-sizing: content`-Einstellung sich ähnlich wie einzeilige Texteingaben verhalten, mit den folgenden Ergänzungen:
+  - Wenn `<textarea>`-Elemente aufgrund einer Breitenbeschränkung nicht wachsen können, werden sie in der Höhe wachsen, um zusätzliche Zeilen von Inhalten anzuzeigen. Wenn dann eine Höhenbeschränkung erreicht ist, wird ein Scrollbalken angezeigt, um den gesamten Inhalt betrachten zu können.
+  - [`rows`](/de/docs/Web/HTML/Element/textarea#cols) und [`cols`](/de/docs/Web/HTML/Element/textarea#cols) attribute ändern die standardmäßig bevorzugte Größe eines `<textarea>`. Folglich haben `rows`/`cols` keinen Einfluss auf `<textarea>`-Elemente mit `field-sizing: content`.
+- {{htmlelement("select")}}-Steuerungen. Diese verhalten sich etwas anders, als Sie es mit `field-sizing: content` erwarten würden. Die Wirkung hängt vom Typ der `<select>`-Steuerung ab, die Sie erstellen:
+  - Reguläre Drop-Down-Felder ändern ihre Breite so, dass sie immer den angezeigten Optionswert passen, während neue Werte ausgewählt werden. (Standardmäßig ist die Größe des Drop-Downs so eingestellt, dass der längste Optionswert angezeigt werden kann.)
+  - Listenfelder (`<select>`-Elemente mit dem [`multiple`](/de/docs/Web/HTML/Element/select#multiple)- oder [`size`](/de/docs/Web/HTML/Element/select#multiple)-Attribut) sind so groß, dass alle Optionen angezeigt werden können, ohne dass gescrollt werden muss. (Standardmäßig erfordert das Drop-Down-Feld Scrollen, um alle Optionswerte anzuzeigen.)
+  - Das [`size`](/de/docs/Web/HTML/Element/select#size)-Attribut hat nur einen geringen Einfluss auf `<select>`-Elemente, die `field-sizing: content` gesetzt haben. In solchen Fällen überprüft der Browser, ob die `size` gleich `1` ist, um zu bestimmen, ob die `<select>`-Steuerung als Drop-Down oder als Listenfeld angezeigt werden soll. Es werden jedoch immer alle Optionen eines Listenfelds angezeigt, selbst wenn `size` kleiner ist als die Anzahl der Optionen.
 
-### `field-sizing` Interaktion mit anderen Größeinstellungen
+### Interaktion von `field-sizing` mit anderen Größeneinstellungen
 
-Die durch `field-sizing: content` bereitgestellte Flexibilität zur Größenanpassung von Formularelementen kann überschrieben werden, wenn Sie andere CSS-Größeneigenschaften verwenden. Vermeiden Sie es, eine feste {{cssxref("width")}} und {{cssxref("height")}} zu verwenden, wenn Sie `field-sizing: content` verwenden, da sie eine feste Größe auf das Steuerelement zurücksetzen werden. Die Verwendung von Eigenschaften wie {{cssxref("min-width")}} und {{cssxref("max-width")}} zusammen mit `field-sizing: content` ist effektiv, da sie es dem Steuerelement ermöglichen, mit dem eingegebenen Text zu wachsen und zu schrumpfen und es auch daran hindern, zu groß oder zu klein zu werden.
+Die durch `field-sizing: content` bereitgestellte Größeneffizienz für Formularelemente kann überschrieben werden, wenn Sie andere CSS-Größeneigenschaften verwenden. Vermeiden Sie es, eine feste {{cssxref("width")}} und {{cssxref("height")}} festzulegen, wenn Sie `field-sizing: content` verwenden, da sie dann wieder eine feste Größe auf die Steuerung auferlegen. Die Verwendung von Eigenschaften wie {{cssxref("min-width")}} und {{cssxref("max-width")}} zusammen mit `field-sizing: content` ist jedoch sehr effektiv, da sie es der Steuerung ermöglichen, mit dem eingegebenen Text zu wachsen und zu schrumpfen und sie auch daran hindern, zu groß oder zu klein zu werden.
 
-Das [`maxlength`](/de/docs/Web/HTML/Element/input#maxlength) Attribut verursacht, dass das Steuerelement aufhört zu wachsen, wenn die maximale Zeichenanzahl erreicht ist.
+Das [`maxlength`](/de/docs/Web/HTML/Element/input#maxlength)-Attribut führt dazu, dass die Steuerung aufhört zu wachsen, wenn das maximale Zeichenlimit erreicht ist.
 
 ## Formale Definition
 
@@ -70,13 +70,13 @@ Das [`maxlength`](/de/docs/Web/HTML/Element/input#maxlength) Attribut verursacht
 
 ## Beispiele
 
-### Wachsender und schrumpfender Textfelder
+### Wachsende und schrumpfende Textfelder
 
-Dieses Beispiel zeigt die Wirkung von `field-sizing: content` auf einzeilige und mehrzeilige Textfelder. Die Felder passen ihre Größe an, während Text hinzugefügt oder entfernt wird, effektiv, bis eine untere oder obere Größengrenze erreicht wird.
+Dieses Beispiel veranschaulicht die Wirkung von `field-sizing: content` auf ein- und mehrzeilige Textfelder. Die Felder passen ihre Größe an, während Text hinzugefügt oder entfernt wird, und umschließen effektiv den Inhalt, bis eine untere oder obere Größenbeschränkung erreicht ist.
 
 #### HTML
 
-Das HTML in diesem Beispiel enthält drei Formularfelder, jedes mit einem zugehörigen {{htmlelement("label")}}: zwei `<input>` Elemente der Typen [`text`](/de/docs/Web/HTML/Element/input/text) und [`email`](/de/docs/Web/HTML/Element/input/email) und ein {{htmlelement("textarea")}} Element.
+Das HTML in diesem Beispiel enthält drei Formularfelder, jedes mit einem zugeordneten {{htmlelement("label")}}: zwei `<input>`-Elemente der Typen [`text`](/de/docs/Web/HTML/Element/input/text) und [`email`](/de/docs/Web/HTML/Element/input/email) und ein {{htmlelement("textarea")}}-Element.
 
 ```html
 <div>
@@ -93,17 +93,17 @@ Das HTML in diesem Beispiel enthält drei Formularfelder, jedes mit einem zugeh�
 </div>
 ```
 
-Beachten Sie die folgenden Punkte zum HTML:
+Beachten Sie die folgenden Punkte im HTML:
 
-- Die ersten beiden Felder haben ein [`maxlength`](/de/docs/Web/HTML/Element/input#maxlength) Attribut gesetzt, das das Wachstum der Feldgröße stoppt, wenn die Zeichenbegrenzung erreicht ist.
-- Das `<textarea>` wird in der Inline-Richtung wachsen, bis das Ende der {{cssxref("min-width")}} Einschränkung (im untenstehenden CSS-Code gesetzt) erreicht ist, und dann beginnen, neue Zeilen in der Blockrichtung hinzuzufügen, um nachfolgende Zeichen zu enthalten.
-- Das `email` Eingabefeld hat einen Platzhalter gesetzt. Dies verursacht, dass das Feld groß genug gerendert wird, um den gesamten Platzhalter anzuzeigen. Sobald das Feld fokussiert ist und der Benutzer beginnt, Text einzugeben, ändert das Feld seine Größe zum Wert von `min-width`. Das `text` Feld, das keinen Platzhalter hat, rendert initially bei `min-width`.
+- Die ersten beiden Felder haben ein [`maxlength`](/de/docs/Web/HTML/Element/input#maxlength)-Attribut, das verhindert, dass die Größe des Feldes zunimmt, wenn das Zeichenlimit erreicht ist.
+- Das `<textarea>` wird in Richtung der Linie wachsen, bis der Rand der {{cssxref("min-width")}}-Einschränkung (festgelegt im untenstehenden CSS-Code) erreicht ist, und dann beginnen, neue Zeilen in Blockrichtung hinzuzufügen, um nachfolgende Zeichen einzuschließen.
+- Das `email`-Eingabefeld hat einen Placeholder gesetzt. Dadurch wird das Feld groß genug angezeigt, um den gesamten Placeholder darzustellen. Sobald das Feld fokussiert wird und der Benutzer zu tippen beginnt, ändert das Feld seine Größe auf den `min-width`-Wert. Das `text`-Feld, das keinen Placeholder hat, wird initial bei `min-width` gerendert.
 
 #### CSS
 
-Im CSS setzen wir `field-sizing: content` auf die drei Formularfelder zusammen mit einer {{cssxref("min-width")}} und {{cssxref("max-width")}}, um die Eingabegröße einzuschränken. Es ist erwähnenswert, dass, wenn keine Mindestbreite auf den Feldern gesetzt wäre, sie nur so breit wie der Textcursor gerendert würden.
+Im CSS setzen wir `field-sizing: content` auf die drei Formularfelder sowie eine {{cssxref("min-width")}} und {{cssxref("max-width")}}, um die Eingabengröße zu beschränken. Es sei nochmals darauf hingewiesen, dass, wenn keine Mindestbreite auf den Feldern gesetzt war, diese nur so breit gerendert würden wie der Textcursor.
 
-Wir geben den `<label>`s auch ein rudimentäres Styling, damit sie ordentlich neben den Feldern sitzen.
+Wir geben den `<label>`s auch ein grundlegendes Styling, damit sie ordentlich neben den Feldern sitzen.
 
 ```css hidden
 body {
@@ -134,17 +134,17 @@ label {
 
 #### Ergebnis
 
-Versuchen Sie, Text in den Feldern einzugeben und zu entfernen, um die Effekte von `field-sizing: content` zusammen mit anderen Größeigenschaften zu erkunden.
+Versuchen Sie, Text in den Feldern einzugeben und zu entfernen, um die Auswirkungen von `field-sizing: content` zusammen mit anderen Größeneigenschaften zu erkunden.
 
 {{ EmbedLiveSample('Growing/shrinking text fields', '100%', '200') }}
 
-### Steuerung der `<select>` Elementanzeige
+### Steuerung der Anzeige von `<select>`-Elementen
 
-Dieses Beispiel zeigt die Wirkung von `field-sizing: content` auf {{htmlelement("select")}} Elemente, sowohl Dropdown-Menütypen als auch mehrzeilige Listenfeldtypen.
+Dieses Beispiel veranschaulicht die Auswirkungen von `field-sizing: content` auf {{htmlelement("select")}}-Elemente, sowohl für Drop-Down-Menü-Typen als auch für mehrzeilige Listenfeldtypen.
 
 #### HTML
 
-Das HTML enthält zwei Sätze von `<select>` Elementen: einen mit `field-sizing: content` angewandt, und einen ohne, um Ihnen den Unterschied zu zeigen (obwohl der Effekt weniger offensichtlich sein mag als bei Textfeldern). Jeder Satz enthält einen Dropdown-Menütyp und einen mehrzeiligen Listenfeldtyp (mit dem [`multiple`](/de/docs/Web/HTML/Element/select#multiple) Attribut gesetzt).
+Das HTML enthält zwei Sätze von `<select>`-Elementen: einen mit `field-sizing: content` angewendet und einen ohne, sodass Sie den Unterschied sehen können (obwohl der Effekt möglicherweise weniger offensichtlich ist als bei Textfeldern). Jeder Satz enthält einen Drop-Down-Menütyp und einen mehrzeiligen Listenfeldtyp (mit dem [`multiple`](/de/docs/Web/HTML/Element/select#multiple)-Attribut gesetzt).
 
 ```html
 <div class="field-sizing">
@@ -184,11 +184,11 @@ Das HTML enthält zwei Sätze von `<select>` Elementen: einen mit `field-sizing:
 ```
 
 > [!NOTE]
-> Es ist bewährte Praxis, ein {{htmlelement("label")}} Element für jedes Formularelement einzuschließen, um eine sinnvolle Textbeschreibung mit jedem Feld für Barrierefreiheitszwecke zu verknüpfen (siehe [Sinnvolle Textlabels](/de/docs/Learn_web_development/Core/Accessibility/HTML#meaningful_text_labels) für weitere Informationen). Wir haben dies in diesem Beispiel nicht gemacht, da es sich rein auf Aspekte der visuellen Darstellung der Formularelemente konzentriert, aber Sie sollten sicherstellen, dass Sie Formularlabels im Produktivcode einfügen.
+> Eine bewährte Methode ist es, für jede Formularsteuerung ein {{htmlelement("label")}}-Element hinzuzufügen, um eine aussagekräftige Textbeschreibung mit jedem Feld für Barrierefreiheitszwecke zu verbinden (siehe [Verwendung aussagekräftiger Textbeschriftungen](/de/docs/Learn_web_development/Core/Accessibility/HTML#use_meaningful_text_labels) für weitere Informationen). Wir haben dies in diesem Beispiel nicht getan, da es sich nur auf Aspekte der visuellen Darstellung der Formularsteuerelemente konzentriert, aber Sie sollten sicherstellen, dass Sie Formularbeschriftungen im Produktionscode einbeziehen.
 
 #### CSS
 
-Im CSS wird `field-sizing: content` nur auf den ersten Satz von `<select>` Elementen gesetzt.
+Im CSS wird `field-sizing: content` nur auf den ersten Satz von `<select>`-Elementen angewendet.
 
 ```css hidden
 body {
@@ -231,8 +231,8 @@ select {
 
 Beachten Sie die folgenden Effekte von `field-sizing: content`:
 
-- Das Dropdown-Menü passt immer die Größe des angezeigten Wertes an und ändert die Größe, sobald verschiedene Optionen ausgewählt werden. Ohne `field-sizing: content` ist die Größe so festgesetzt, dass sie so breit ist wie die längste Option.
-- Das Mehrfachauswahl-Listenfeld zeigt alle Optionen auf einmal. Ohne `field-sizing: content` muss der Benutzer das Feld scrollen, um alle Optionen zu sehen.
+- Das Drop-Down-Menü passt immer die Größe der angezeigten Option an und ändert die Größe, während verschiedene Optionen ausgewählt werden. Ohne `field-sizing: content` ist die Größe fest so breit wie die längste Option.
+- Das Mehrfachauswahl-Listenfeld zeigt alle Optionen auf einmal an. Ohne `field-sizing: content` muss der Benutzer durch das Feld scrollen, um alle Optionen anzuzeigen.
 
 ## Spezifikationen
 

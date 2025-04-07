@@ -1,43 +1,42 @@
 ---
-title: Feature-Status
+title: Funktionsstatus
 slug: MDN/Writing_guidelines/Page_structures/Feature_status
 l10n:
-  sourceCommit: a52689c74c6c89f45c54447bb148e54ed320db62
+  sourceCommit: af98ab1715ff54825888ef1f7f13d6e3e3bf90b8
 ---
 
 > [!WARNING]
-> Aktualisieren Sie die Feature-Status im `mdn/content` Repository nicht manuell.
-> Die Dokumentationsquelle wird [automatisch aktualisiert](#how_feature_statuses_are_added_or_updated) anhand von Informationen im GitHub `mdn/browser-compat-data` Repository.
+> Aktualisieren Sie nicht manuell die Funktionsstatus im `mdn/content` Repository.
+> Die Dokumentationsquelle wird [automatisch aktualisiert](#how_feature_statuses_are_added_or_updated) aus Informationen im GitHub `mdn/browser-compat-data` Repository.
 
-Ein Feature-Status zeigt im Allgemeinen den Stand der Browser-Implementierung und Standardisierung eines bestimmten Web-Plattform-Features an, wie zum Beispiel einer Web-API-Methode oder einer CSS-Eigenschaft. Er ist einer der folgenden:
+Ein Funktionsstatus gibt im Allgemeinen den Status der Implementierung und Standardisierung über verschiedene Browser hinweg für ein bestimmtes Feature der Webplattform an, wie zum Beispiel eine Web API-Methode oder eine CSS-Eigenschaft. Der Status kann einer der folgenden sein:
 
 - [`deprecated`](https://github.com/mdn/browser-compat-data/blob/main/docs/data-guidelines/index.md#setting-deprecated)
 - [`experimental`](https://github.com/mdn/browser-compat-data/blob/main/docs/data-guidelines/index.md#setting-experimental)
 - [`non-standard`](https://github.com/mdn/browser-compat-data/blob/main/schemas/compat-data-schema.md#status-information)
 
-Wenn keiner der oben genannten Status zutrifft, wird das Feature als _stabiles und standardkonformes Feature_ angesehen.
-Für weitere Informationen zu diesen Begriffen siehe die Seite ["Experimentell, veraltet und obsolet"](/de/docs/MDN/Writing_guidelines/Experimental_deprecated_obsolete).
+Wenn keiner der oben genannten Status zutrifft, wird das Feature als _stabiles und standardisiertes Feature_ betrachtet. Weitere Informationen zu diesen Begriffen finden Sie auf der Seite ["Experimentell, veraltet und obsolet"](/de/docs/MDN/Writing_guidelines/Experimental_deprecated_obsolete).
 
-Für Informationen darüber, wie der Status eines Features bestimmt wird, siehe den Abschnitt [Choosing Status Properties](https://github.com/mdn/browser-compat-data/blob/main/docs/data-guidelines/index.md#choosing-status-properties) im `@mdn/browser-compat-data` (BCD) Repository.
+Für Informationen darüber, wie der Status einer Funktion bestimmt wird, siehe den Abschnitt [Status-Eigenschaften wählen](https://github.com/mdn/browser-compat-data/blob/main/docs/data-guidelines/index.md#choosing-status-properties) im `@mdn/browser-compat-data` (BCD) Repository.
 
-## Wie werden Feature-Status hinzugefügt oder aktualisiert?
+## Wie werden Funktionsstatus hinzugefügt oder aktualisiert?
 
-Die Feature-Status aller Dokumentierten Features auf MDN werden im begleitenden [@mdn/browser-compat-data](https://github.com/mdn/browser-compat-data) (BCD) Repository verfolgt. Eine Automatisierung aktualisiert _automatisch_ die Status im `mdn/content` Repository, wann immer eine neue [Version von BCD veröffentlicht](https://github.com/mdn/browser-compat-data/releases) wird.
+Die Funktionsstatus aller auf MDN dokumentierten Funktionen werden im zugehörigen [@mdn/browser-compat-data](https://github.com/mdn/browser-compat-data) (BCD) Repository verfolgt. Eine Automatisierung _aktualisiert_ die Status im `mdn/content` Repository automatisch, wann immer eine neue [Version von BCD veröffentlicht](https://github.com/mdn/browser-compat-data/releases) wird.
 
-Die Automatisierung verwendet den `browser-compat` Schlüssel im Front-Matter. Der Schlüssel speichert BCD-Abfragen, die benötigt werden, um das Feature in den Kompatibilitätsdaten zu lokalisieren. Wenn der `browser-compat` Schlüssel mehrere Werte hat, verwendet die Automatisierung nur den ersten Wert, um Status-Makros darzustellen.
+Die Automatisierung verwendet den `browser-compat` Schlüssel in der Front-Matter. Der Schlüssel speichert die BCD-Abfrage, die erforderlich ist, um das Feature in den Kompatibilitätsdaten zu finden. Wenn der `browser-compat` Schlüssel mehrere Werte hat, verwendet die Automatisierung nur den ersten Wert, um Status-Makros zu rendern.
 
 > [!NOTE]
-> Um den Status eines Features im MDN-Inhalt zu aktualisieren, müssen Sie eine [Pull-Anfrage einreichen](https://github.com/mdn/browser-compat-data/blob/main/docs/contributing.md#updating-the-compat-data) im BCD-Repository. Nachdem Ihre Änderungen genehmigt und in BCD integriert wurden, gehen sie in eine wöchentliche Veröffentlichung, und eine automatisierte Pull-Anfrage aktualisiert die Status im `mdn/content` Repository für jede Veröffentlichung.
+> Um den Status einer Funktion im MDN-Inhalt zu aktualisieren, müssen Sie [einen Pull-Request einreichen](https://github.com/mdn/browser-compat-data/blob/main/docs/contributing.md#updating-the-compat-data) im BCD-Repository. Nachdem Ihre Änderungen genehmigt und im BCD zusammengeführt wurden, gehen sie in eine wöchentliche Veröffentlichung, und ein automatisierter Pull-Request aktualisiert die Status im `mdn/content` Repository für jede Veröffentlichung.
 
-## Wie werden Feature-Status im Inhalt angegeben?
+## Wie werden Funktionsstatus im Inhalt angegeben?
 
-Die folgenden Abschnitte dokumentieren die Mechanismen, die verwendet werden, um Informationen über den Feature-Status in MDN-Dokumenten einzufügen und darzustellen. Wie erwähnt, sollten diese als schreibgeschützt betrachtet werden, da ihre Aufnahme in den Inhalt automatisiert ist.
+Die folgenden Abschnitte dokumentieren die Mechanismen, die verwendet werden, um Statusinformationen von Funktionen in MDN-Dokumenten einzufügen und darzustellen. Wie bereits erwähnt, sollten diese als schreibgeschützt betrachtet werden, da ihre Einbindung in den Inhalt automatisiert ist.
 
-### Feature-Status-Symbole in Seitenleisten
+### Funktionsstatus-Icons in Seitenleisten
 
-Die `status`-Eigenschaft im Front-Matter der Seite wird verwendet, um Status-Symbole für Features zu generieren, wenn sie in Seitenleisten angezeigt werden.
+Die `status` Eigenschaft im Seiten-Frontmatter wird verwendet, um Status-Icons für Funktionen darzustellen, wenn sie in Seitenleisten angezeigt werden.
 
-```yml
+```yaml
 ---
 title: Feature name
 status:
@@ -48,34 +47,34 @@ browser-compat: api.feature
 ---
 ```
 
-### Feature-Status-Banner auf Seiten
+### Funktionsstatus-Seitenbanner
 
-Die folgenden Makros werden verwendet, um die Status-Banner in den Kopfzeilen der Seiten darzustellen:
+Die folgenden Makros werden verwendet, um die Statusbanner in Seitenüberschriften darzustellen:
 
 - `\{{Deprecated_Header}}`
 
-  - : Für den `deprecated` Status. Es generiert ein **Veralteter Status**-Banner:
+  - : Für den `deprecated` Status. Es generiert ein **Veraltet-Status** Banner:
     {{deprecated_header}}
 
 - `\{{SeeCompatTable}}`
 
-  - : Für den `experimental` Status. Es generiert ein **Experimenteller Status**-Banner:
+  - : Für den `experimental` Status. Es generiert ein **Experimentell-Status** Banner:
     {{SeeCompatTable}}
 
 - `\{{Non-standard_Header}}`
 
-  - : Für den `non-standard` Status. Es generiert ein **Nicht-Standardkonformer Status**-Banner:
+  - : Für den `non-standard` Status. Es generiert ein **Nicht standardisiert-Status** Banner:
     {{Non-standard_Header}}
 
-### Feature-Status-Symbole in Definitionslisten
+### Funktionsstatus-Icons in Definitionslisten
 
-Die folgenden Makros werden verwendet, um Inline-Status-Symbole neben Einträgen in Definitionslisten darzustellen:
+Die folgenden Makros werden verwendet, um Inline-Status-Icons neben Listeneinträgen in Definitionslisten darzustellen:
 
 - [`\{{Experimental_Inline}}`](https://github.com/mdn/rari/blob/main/crates/rari-doc/src/templ/templs/badges.rs) Icon: {{Experimental_Inline}}
 - [`\{{Non-standard_Inline}}`](https://github.com/mdn/rari/blob/main/crates/rari-doc/src/templ/templs/badges.rs) Icon: {{Non-standard_Inline}}
 - [`\{{Deprecated_Inline}}`](https://github.com/mdn/rari/blob/main/crates/rari-doc/src/templ/templs/badges.rs) Icon: {{Deprecated_Inline}}
 
-Wenn eine Web-Feature-Seite Status-Banner hat, werden die Inline-Makros der gleichen Status explizit für jedes Mitglied/Wert des Features in der Definitionsliste verwendet. Zum Beispiel, wenn eine Seite als experimentell mit `\{{SeeCompatTable}}` markiert ist, dann wird jedes Mitglied/Wert des Features explizit als experimentell markiert, indem das `\{{Experimental_Inline}}` Makro in der Definitionsliste verwendet wird.
+Wenn eine Web-Feature-Seite Statusbanner hat, dann werden die Inline-Makros mit denselben Status explizit für jedes Mitglied/Wert der Funktion in der Definitionsliste verwendet. Zum Beispiel, wenn eine Seite experimentell markiert ist mit `\{{SeeCompatTable}}`, dann wird jedes Mitglied/Wert der Funktion explizit als experimentell markiert mit dem `\{{Experimental_Inline}}` Makro in der Definitionsliste.
 
 ## Siehe auch
 

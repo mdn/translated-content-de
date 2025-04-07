@@ -1,42 +1,42 @@
 ---
-title: Schreibweisenrichtlinien für das Erlernen der Webentwicklung
+title: Richtlinien zum Schreiben von Lerninhalten für Webentwicklung
 short-title: Learning content
 slug: MDN/Writing_guidelines/Learning_content
 l10n:
-  sourceCommit: 0e7eafea05cd771c86e77947639f3396e7a59b2b
+  sourceCommit: af98ab1715ff54825888ef1f7f13d6e3e3bf90b8
 ---
 
 {{MDNSidebar}}
 
-Der Abschnitt [Webentwicklung lernen](/de/docs/Learn_web_development) auf MDN richtet sich speziell an Personen, die die grundlegenden Grundlagen der Webentwicklung lernen möchten, und erfordert daher einen anderen Ansatz als der Rest des MDN-Inhalts. Dieser Artikel bietet Richtlinien zum Verfassen von Lerninhalten.
+Der Abschnitt [Webentwicklung lernen](/de/docs/Learn_web_development) von MDN richtet sich speziell an Personen, die die grundlegenden Prinzipien der Webentwicklung erlernen. Daher erfordert er einen anderen Ansatz als der Rest der MDN-Inhalte. Dieser Artikel bietet Richtlinien für das Schreiben von Lerninhalten.
 
 ## Zielgruppe
 
-Die Zielgruppe von MDN Webentwicklung lernen (auch bekannt als Lernen) sind Personen, die keine Experten in der Frontend-Entwicklung sind – dazu gehören Studenten, Junior- oder Trainee-Webentwickler, Hobbyisten und Lehrer, die nach Best-Practice-Richtlinien suchen, was sie ihren Schülern beibringen sollen.
+Die Zielgruppe von MDN Learn Web Development (auch bekannt als Learn) sind Personen, die keine erfahrenen Frontend-Entwickler sind. Dazu gehören Studenten, Junior- oder Trainee-Webentwickler, Hobbyisten und Lehrer, die nach den besten Praktiken suchen, was sie ihren Studenten beibringen sollen.
 
 ## Themenabdeckung
 
-Lernen bietet einen strukturierten Pfad mit Lernzielen, der darauf ausgelegt ist, die grundlegenden Fähigkeiten und Praktiken zu lehren, die den Lernenden den Erfolg als Frontend-Entwickler ermöglichen. Lernende können darauf vertrauen, dass es die richtigen Informationen für ihr Studium liefert, und Lehrende können sich darauf verlassen, dass es die korrekten Ergebnisse liefert, auf denen sie ihre Kurse und Lehrpläne aufbauen können.
+Learn bietet einen strukturierten Pfad mit Lernzielen, der darauf ausgelegt ist, die grundlegenden Fähigkeiten und Praktiken zu lehren, die Leser benötigen, um als Frontend-Entwickler erfolgreich zu sein. Lernende können sich darauf verlassen, dass sie die richtigen Informationen für ihr Studium erhalten, und Lehrkräfte können sich darauf verlassen, dass sie die richtigen Ergebnisse bieten, auf denen sie ihre Kurse und Curricula aufbauen können.
 
-Daher beschränken wir den Umfang von Lernen streng auf:
+Deshalb streben wir an, den Umfang von Learn streng einzugrenzen auf:
 
-- Einrichtung, Soft Skills und Hintergrundwissen in unseren [Erste-Schritte-Modulen](/de/docs/Learn_web_development/Getting_started).
-- Die grundlegenden Technologien, die zu Beginn des Weges eines Webentwicklers erforderlich sind, in unseren [Kernmodulen](/de/docs/Learn_web_development/Core).
-- „Zweite Welle“-Themen, die als nützliche nächste Schritte für relative Anfänger dienen, um nach der Beherrschung der Kernmodule darauf aufzubauen, in unseren [Erweiterungsmodulen](/de/docs/Learn_web_development/Extensions).
+- Einrichtung, Soft Skills und Hintergrundwissen in unseren [Einsteigermodulen](/de/docs/Learn_web_development/Getting_started).
+- Die grundlegenden Technologien, die am Anfang der Reise eines Webentwicklers benötigt werden, in unseren [Kernmodulen](/de/docs/Learn_web_development/Core).
+- "Zweite Welle"-Themen, die nützliche nächste Schritte für relative Anfänger darstellen, um weiterzumachen, sobald sie die Kernmodule gemeistert haben, in unseren [Erweiterungsmodule](/de/docs/Learn_web_development/Extensions).
 
-Lernen ist nicht als Ort für Einführungsmaterialien zu _allen_ Themen auf MDN vorgesehen. Das bedeutet, dass Nischenthemen wie MathML und Web-Spiele sowie fortgeschrittene oder spezialisierte Themen wie reguläre Ausdrücke, Leistungstests, WebRTC und WebGPU nicht in Lernen gehören.
+Learn ist nicht der Ort auf MDN für einführende Inhalte zu _allen_ Themen. Das bedeutet, dass Nischenthemen wie MathML und Web Games sowie fortgeschrittene oder spezialisierte Themen wie reguläre Ausdrücke, Performance-Tests, WebRTC und WebGPU in Learn nicht dazugehören.
 
-Wenn Sie ein Thema vermissen und denken, dass es behandelt werden sollte, versuchen Sie nicht, es einfach hinzuzufügen – besprechen Sie es zuerst mit uns (siehe [Vorschlag von Inhalten](/de/docs/MDN/Writing_guidelines/What_we_write#suggesting_content)).
+Wenn Sie ein Thema nicht in Learn abgedeckt sehen und der Meinung sind, dass es abgedeckt werden sollte, versuchen Sie nicht einfach, es hinzuzufügen - diskutieren Sie es zuerst mit uns (siehe [Vorschlagen von Inhalten](/de/docs/MDN/Writing_guidelines/What_we_write#suggesting_content)).
 
 ## Ansatz
 
-Um Inhalte zur Webentwicklung auf MDN Learn zu erstellen und zu aktualisieren, sollten Sie in vielerlei Hinsicht denselben Ansatz wie für den Rest von MDN verfolgen. Dabei sollten Sie demselben allgemeinen [Schreibstil-Leitfaden](/de/docs/MDN/Writing_guidelines/Writing_style_guide), [Code-Stil](/de/docs/MDN/Writing_guidelines/Code_style_guide) und [Techniken](/de/docs/MDN/Writing_guidelines/Howto) folgen.
+Um Inhalte zur Webentwicklung für MDN Learn zu erstellen und zu aktualisieren, sollten Sie weitgehend denselben Ansatz wie für den Rest von MDN verfolgen. Sie sollten denselben allgemeinen [Schreibstil-Leitfaden](/de/docs/MDN/Writing_guidelines/Writing_style_guide), [Code-Stil](/de/docs/MDN/Writing_guidelines/Code_style_guide) und [Techniken](/de/docs/MDN/Writing_guidelines/Howto) befolgen.
 
 Es gibt jedoch einige Unterschiede:
 
-- **Anleitungsstil**: Die meisten MDN-Inhalte sind eine Mischung aus Referenzmaterial und Leitfäden; Lernen hingegen soll praxisnahe Anleitungen bieten. Wir haben keine strikte Vorlage für jede Seite, sie sollten jedoch so geschrieben sein, dass sie die Leser durch eine Kombination aus Schritt-für-Schritt-Abschnitten und „Probieren Sie es aus“-Abschnitten an die Hand nehmen. Diese sollten die Leser anleiten, einzutauchen, Dinge auszuprobieren und mit dem Schreiben von Code zu beginnen. Siehe den Abschnitt „Probieren Sie es aus“ am Ende unserer [Suchmaschine](/de/docs/Learn_web_development/Getting_started/Environment_setup/Browsing_the_web#search_engine)-Informationen zum Beispiel. Diese werden mit folgendem Markdown erstellt:
+- **Tutorialstil**: Die meisten MDN-Inhalte sind eine Mischung aus Referenzmaterial und Leitfäden; Learn hingegen soll praktische Tutorials bieten. Wir haben keine strikte Vorlage für jede Seite, aber sie sollten so geschrieben werden, dass sie die Leser an die Hand nehmen, durch eine Kombination aus schrittweisen Abschnitten und "Probieren Sie es aus"-Abschnitten. Diese sollten die Leser anleiten, einzusteigen, Dinge auszuprobieren und Code zu schreiben. Siehe beispielsweise den Abschnitt "Probieren Sie es aus" am Ende unserer [Suchmaschine](/de/docs/Learn_web_development/Getting_started/Environment_setup/Browsing_the_web#search_engine)-Informationen. Diese werden mit dem folgenden Markdown erstellt:
 
-  ```markdown
+  ```md
   > [!CALLOUT]
   >
   > **Try it out**
@@ -44,38 +44,38 @@ Es gibt jedoch einige Unterschiede:
   > Try this...
   ```
 
-- **Herausforderungen**: Lerninhalte enthalten regelmäßig Herausforderungen, um zu testen, ob der Leser die zuvor behandelten Themen verstanden hat, bevor er zum nächsten Artikel übergeht. Diese sind derzeit in einigen verschiedenen Stilen geschrieben, siehe zum Beispiel [Herausforderung: Strukturierung einer Inhaltsseite](/de/docs/Learn_web_development/Core/Structuring_content/Structuring_a_page_of_content) und [Testen Sie Ihre Fähigkeiten: HTML-Bilder](/de/docs/Learn_web_development/Core/Structuring_content/HTML_images/Test_your_skills:_HTML_images), aber wir beabsichtigen, die Konsistenz und das Erlebnis dieser in Zukunft zu verbessern.
-- **Dichte und Vollständigkeit**: MDN-Inhalte sind im Allgemeinen für ihre Vollständigkeit bekannt. Lerninhalte sind explizit nicht so erschöpfend vollständig wie der Rest des MDN-Inhalts. Sie sind weniger dicht und sanfter im Ansatz, um es den Lernenden zu ermöglichen, nützliche Fähigkeiten zu erwerben und regelmäßig Fortschritte zu machen, ohne sich überwältigt zu fühlen. Sie können später tiefer eintauchen. Lerninhalte können Details weglassen, um ein angenehmeres Lernerlebnis zu bieten, vorausgesetzt, es wird nichts Falsches oder Schlechte Praxis vermittelt.
-- **Stabile Lernergebnisse**: Die Lernergebnisse am Anfang jedes Tutorials bieten eine Zusammenfassung dessen, was jedes Tutorial lehrt, und zusammen bieten sie einen strukturierten Lehrplan für die Frontend-Webentwicklung. Es ist entscheidend, dass die Lernergebnisse mit den vermittelten Inhalten stabil und im Einklang bleiben, da der Inhalt sonst nicht als Grundlage für formales Lernen (zum Beispiel Bildungskurse oder Zertifikate) vertrauenswürdig ist. Änderungen an den Lernergebnissen sollten daher langsam erfolgen und nicht ohne guten Grund. Wenn Sie versuchen, Inhalte hinzuzufügen, die nicht in den zugehörigen Lernergebnissen abgedeckt sind (oder umgekehrt), wird Ihre Pull-Anfrage geschlossen. [Machen Sie einen Vorschlag](/de/docs/MDN/Writing_guidelines/What_we_write#suggesting_content) zuerst.
+- **Herausforderungen**: Lerninhalte beinhalten regelmäßig Herausforderungen, um zu testen, ob der Leser die Themen verstanden hat, bevor er zum nächsten Artikel übergeht. Diese sind derzeit in einigen verschiedenen Stilen geschrieben, zum Beispiel siehe [Herausforderung: Strukturieren einer Inhaltsseite](/de/docs/Learn_web_development/Core/Structuring_content/Structuring_a_page_of_content) und [Testen Sie Ihre Fähigkeiten: HTML-Bilder](/de/docs/Learn_web_development/Core/Structuring_content/HTML_images/Test_your_skills:_HTML_images), aber wir beabsichtigen, die Konsistenz und das Erlebnis dieser Inhalte in Zukunft zu verbessern.
+- **Dichte und Vollständigkeit**: MDN-Inhalte sind allgemein für ihre Umfassendheit bekannt. Lerninhalte sind ausdrücklich nicht so vollständig wie die übrigen MDN-Inhalte. Sie sind weniger dicht und sanfter im Ansatz, um es Lernenden zu ermöglichen, nützliche Fähigkeiten zu erlernen und regelmäßig Fortschritte zu erzielen, ohne sich überwältigt zu fühlen. Sie können später tiefer eintauchen. Lerninhalte können Details weglassen, um ein angenehmeres Lernerlebnis zu bieten, vorausgesetzt, es wird den Lesern nichts Falsches oder eine schlechte Praxis beigebracht.
+- **Stabile Lernziele**: Die Lernziele am Anfang jedes Tutorials bieten eine Zusammenfassung dessen, was jedes Tutorial lehrt, und zusammen bieten sie einen strukturierten Lehrplan für die Frontend-Webentwicklung. Es ist entscheidend, dass die Lernziele und das Gelehrte sowohl stabil bleiben als auch synchron sind, sonst kann der Inhalt nicht als Grundlage für formales Lernen (zum Beispiel Ausbildungskurse oder Zertifizierungen) vertraut werden. Änderungen an den Lernzielen sollten daher langsam und nur aus gutem Grund erfolgen. Wenn Sie versuchen, Inhalte hinzuzufügen, die nicht in den zugehörigen Lernzielen abgedeckt sind (oder umgekehrt), wird Ihre Pull-Anfrage geschlossen. [Machen Sie einen Vorschlag](/de/docs/MDN/Writing_guidelines/What_we_write#suggesting_content) zuerst.
 
 > [!NOTE]
-> Wir führen eine [Änderungsliste](/de/docs/Learn_web_development/Changelog), die alle bedeutenden Änderungen an den Lernergebnissen dokumentiert, sodass Lehrer alle auf MDN Learn basierenden Ressourcen auf dem Laufenden halten können.
+> Wir führen ein [Änderungsprotokoll](/de/docs/Learn_web_development/Changelog), das alle wesentlichen Änderungen an den Lernzielen dokumentiert, damit Bildungseinrichtungen alle auf MDN Learn basierenden Ressourcen pflegen können.
 
 ## Externe Links und Einbettungen
 
-Wie in unseren [Richtlinien für externe Links](/de/docs/MDN/Writing_guidelines/Writing_style_guide#external_links) dargelegt, erlaubt MDN im Allgemeinen keine externen Links (oder Einbettungen), die kommerzielle Produkte oder Dienstleistungen bewerben oder auf Inhalte hinter Bezahlschranken verweisen. Dies dient dazu, das Risiko zu mindern, dass der Inhalt von MDN das Vertrauen verliert und aufgrund von Spam-Links weniger nützlich wird.
+Wie in unseren [Externe Links](/de/docs/MDN/Writing_guidelines/Writing_style_guide#external_links) Richtlinien dargelegt, erlaubt MDN generell keine externen Links (oder Einbettungen), die kommerzielle Produkte oder Dienstleistungen unterstützen oder auf Inhalte hinter einer Bezahlschranke verweisen. Dies dient dazu, das Vertrauen in MDN's Inhalte zu wahren und deren Nützlichkeit zu gewährleisten, indem Spam-Links vermieden werden.
 
-Die MDN-Inhalte zum Lernen haben einige Ausnahmen davon. Wir erlauben Links zu externen Inhalten (die hinter Bezahlschranken sein können) von bestimmten vertrauenswürdigen Partnerseiten. Dies sind Seiten, mit denen MDN eine vertrauensvolle Beziehung aufgebaut hat, indem die Qualität, Ethik und das Engagement für Webstandards und Best Practices gründlich geprüft wurden, und ihnen geholfen wurde, ihre Inhalte zu aktualisieren, wenn sie unseren Standards nicht entsprachen. Wir vertrauen darauf, dass sie ihre Links nicht ohne Vorankündigung ändern, und wir vertrauen darauf, dass ihre Inhalte sicher zu verlinken sind.
+MDN's Lerninhalte haben hiervon einige Ausnahmen. Wir erlauben Links zu externen Inhalten (die möglicherweise hinter einer Bezahlschranke stehen) von spezifischen vertrauenswürdigen Partnerseiten. Dies sind Seiten, mit denen MDN eine vertrauensvolle Beziehung aufgebaut hat, indem wir deren Qualität, Ethik und Engagement für Webstandards und bewährte Praktiken gründlich geprüft haben und sie dabei helfen, ihre Inhalte zu aktualisieren, wenn sie nicht unseren Standards entsprechen. Wir vertrauen darauf, dass sie ihre Links nicht ohne Ankündigung ändern, und dass ihre Inhalte sicher sind, um darauf zu verlinken.
 
 Der Zweck dieser Partnerlinks ist wie folgt:
 
-- Zugang zu unterstützenden Inhalten zu bieten, die auf dem aufbauen, was auf unseren Seiten gelehrt wird.
-- Zugang zu multimedialen Lernerfahrungen (Videos, Diashows, andere interaktive Inhalte) zu bieten, die die MDN-Inhaltsteams nicht die Ressourcen haben zu produzieren. Auf MDN konzentrieren wir uns voll und ganz auf den Text, aber Menschen möchten oft verschiedene Lernansätze.
+- Zugang zu unterstützenden Inhalten zu bieten, die auf dem aufbauen, was in unseren Seiten gelehrt wird.
+- Zugang zu multimedialen Lernerfahrungen (Videos, Diashows, anderes interaktives Material) zu bieten, die die MDN-Inhaltsteams nicht die Ressourcen haben, um sie zu produzieren. Wir auf MDN sind hauptsächlich auf den Text fokussiert, aber Menschen möchten oft unterschiedliche Lernansätze.
 - Einnahmen durch Affiliate-Links zu kostenpflichtigen Inhalten zu erzielen, die wir investieren können, um MDN noch besser zu machen.
 
-Allerdings:
+Allerdings werden wir:
 
-- Werden wir diese Links nicht in einer Weise hinzufügen, die die Integrität des MDN-Inhalts gefährdet und offen spammy ist; nur wo wir sie wirklich nützlich finden.
-- Werden wir immer sicherstellen, dass eine kostenlose Option neben allem verfügbar ist, was hinter einer Bezahlschranke steckt. In vielen Fällen haben wir es geschafft, unsere Partner davon zu überzeugen, Inhalte kostenlos bereitzustellen, die zuvor hinter einer Bezahlschranke standen.
-- Werden wir Partnerinhalte deutlich mit einem „MDN-Lernpartner“-Label kennzeichnen, damit Sie sie klar von anderen Links unterscheiden können.
+- Diese Links nicht auf eine Weise hinzufügen, die die Integrität der MDN-Inhalte beeinträchtigt und offen spammig erscheint; nur dort, wo wir sie als wirklich nützlich empfinden.
+- Immer sicherstellen, dass neben allem, was hinter einer Bezahlschranke steht, eine kostenlose Option verfügbar ist. In vielen Fällen ist es uns gelungen, unsere Partner davon zu überzeugen, dass Inhalte, die zuvor kostenpflichtig waren, kostenlos zugänglich gemacht werden.
+- Partnerinhalte deutlich mit einem "MDN Lernpartner" Label kennzeichnen, damit Sie sie klar von anderen Links unterscheiden können.
 
-### Reihenfolge der „Siehe auch“-Links
+### Reihenfolge der "Siehe auch" Links
 
-Auf den Seiten mit Lerninhalten sollten die „Siehe auch“-Links, die am Ende erscheinen, in folgender Reihenfolge erscheinen:
+Auf den Lerninhaltsseiten sollten die "Siehe auch" Links am Ende in folgender Reihenfolge erscheinen:
 
 1. Interne Links.
 2. Links zu kostenlosen Inhalten.
-3. Links zu gemischten kostenlosen/inhaltsbezahlschranken Informationen.
+3. Links zu gemischten kostenlosen/kostenpflichtigen Inhalten.
 
 ### Aktuelle Bildungspartner
 

@@ -2,7 +2,7 @@
 title: browser_specific_settings
 slug: Mozilla/Add-ons/WebExtensions/manifest.json/browser_specific_settings
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: af98ab1715ff54825888ef1f7f13d6e3e3bf90b8
 ---
 
 {{AddonSidebar}}
@@ -16,11 +16,11 @@ l10n:
     <tr>
       <th scope="row">Verpflichtend</th>
       <td>
-        Normalerweise nein (aber siehe auch
+        Normalerweise nein (siehe auch
         <a
           href="https://extensionworkshop.com/documentation/develop/extensions-and-the-add-on-id/#when-do-you-need-an-add-on-id"
           >Wann benötigen Sie eine Add-on-ID?</a
-        >). Erforderlich, wenn die Erweiterungs-ID nicht bestimmt werden kann, siehe
+        >). Verpflichtend, wenn die Erweiterungs-ID nicht bestimmt werden kann, siehe
         <a href="#firefox_gecko_properties"
           ><code>browser_specific_settings.gecko.id</code></a
         >.
@@ -29,7 +29,7 @@ l10n:
     <tr>
       <th scope="row">Beispiel</th>
       <td>
-        <pre class="brush: json;">
+        <pre class="brush: json">
 "browser_specific_settings": {
   "gecko": {
     "id": "addon@example.com",
@@ -49,41 +49,41 @@ Der Schlüssel `browser_specific_settings` enthält Schlüssel, die spezifisch f
 
 ### Firefox (Gecko) Eigenschaften
 
-Firefox speichert browser-spezifische Einstellungen in diesen Unter-Schlüsseln:
+Firefox speichert browserspezifische Einstellungen in diesen Unterschlüsseln:
 
 - `gecko` für die Desktop-Version von Firefox.
 - `gecko_android` für die Android-Version von Firefox.
 
-Der Unter-Schlüssel `gecko` unterstützt diese Eigenschaften:
+Der Unterschlüssel `gecko` unterstützt folgende Eigenschaften:
 
 - `id`
-  - : Die Erweiterungs-ID. Diese Eigenschaft muss, wenn sie angegeben ist, maximal 80 Zeichen lang sein. Siehe [Erweiterungen und die Add-on-ID](https://extensionworkshop.com/documentation/develop/extensions-and-the-add-on-id/), um zu bestimmen, wann die ID anzugeben ist.
+  - : Die Erweiterungs-ID. Wenn angegeben, darf diese Eigenschaft nicht mehr als 80 Zeichen enthalten. Siehe [Extensions and the Add-on ID](https://extensionworkshop.com/documentation/develop/extensions-and-the-add-on-id/), um festzustellen, wann die ID angegeben werden muss.
 - `strict_min_version`
-  - : Minimale Version von Gecko, die unterstützt wird. Ist die Firefox-Version, auf der die Erweiterung installiert oder ausgeführt wird, niedriger, wird die Erweiterung nicht installiert oder ausgeführt. Wenn nicht angegeben, werden alle Versionen früher als `strict_max_version` unterstützt. "\*" ist in diesem Feld nicht gültig.
+  - : Mindestversion von Gecko zur Unterstützung. Wenn die Firefox-Version, auf der die Erweiterung installiert oder ausgeführt wird, unter dieser Version liegt, wird die Erweiterung nicht installiert oder ausgeführt. Wenn nicht angegeben, werden alle Versionen früher als `strict_max_version` unterstützt. "\*" ist in diesem Feld nicht zulässig.
 - `strict_max_version`
-  - : Maximale Version von Gecko, die unterstützt wird. Ist die Firefox-Version, auf der die Erweiterung installiert oder ausgeführt wird, höher, wird die Erweiterung nicht installiert oder ausgeführt. Standardmäßig ist "\*", was das Überprüfen auf eine maximale Version deaktiviert.
+  - : Höchstversion von Gecko zur Unterstützung. Wenn die Firefox-Version, auf der die Erweiterung installiert oder ausgeführt wird, über dieser Version liegt, wird die Erweiterung nicht installiert oder ausgeführt. Standardmäßig "\*", was die Prüfung auf eine Höchstversion deaktiviert.
 - `update_url`
-  - : Ein Link zu einem [Erweiterungs-Update-Manifest](https://extensionworkshop.com/documentation/manage/updating-your-extension/). Beachten Sie, dass der Link mit "https" beginnen muss. Dieser Schlüssel ist für die selbstständige Verwaltung von Erweiterungs-Updates vorgesehen (d.h. nicht über AMO).
+  - : Ein Link zu einem [Erweiterungs-Update-Manifest](https://extensionworkshop.com/documentation/manage/updating-your-extension/). Beachten Sie, dass der Link mit "https" beginnen muss. Dieser Schlüssel dient zur eigenständigen Verwaltung von Erweiterungs-Updates (d.h. nicht über AMO).
 
-Der Unter-Schlüssel `gecko_android` unterstützt diese Eigenschaften:
+Der Unterschlüssel `gecko_android` unterstützt folgende Eigenschaften:
 
 - `strict_min_version`
-  - : Minimale Version von Gecko, die auf Android unterstützt wird. Ist die Firefox für Android-Version, auf der die Erweiterung installiert oder ausgeführt wird, niedriger, wird die Erweiterung nicht installiert oder ausgeführt. Wenn nicht angegeben, wird die Version durch `gecko.strict_min_version` bestimmt. "\*" ist in diesem Feld nicht gültig.
+  - : Mindestversion von Gecko, die auf Android unterstützt wird. Wenn die Version von Firefox für Android, auf der die Erweiterung installiert oder ausgeführt wird, unter dieser Version liegt, wird die Erweiterung nicht installiert oder ausgeführt. Wenn nicht angegeben, wird standardmäßig die Version bestimmt durch `gecko.strict_min_version`. "\*" ist in diesem Feld nicht zulässig.
 - `strict_max_version`
-  - : Maximale Version von Gecko, die auf Android unterstützt wird. Ist die Firefox-Version, auf der die Erweiterung installiert oder ausgeführt wird, höher, wird die Erweiterung nicht installiert oder ausgeführt. Standardmäßig wird die Version durch `gecko.strict_max_version` bestimmt.
+  - : Höchstversion von Gecko, die auf Android unterstützt wird. Wenn die Firefox-Version, auf der die Erweiterung installiert oder ausgeführt wird, über dieser Version liegt, wird die Erweiterung nicht installiert oder ausgeführt. Standardmäßig wird die Version bestimmt durch `gecko.strict_max_version`.
 
 Siehe die Liste der [gültigen Gecko-Versionen](https://addons.mozilla.org/api/v5/applications/firefox/).
 
-Um Firefox für Android ohne Angabe eines Versionsbereichs zu unterstützen, muss der Unter-Schlüssel `gecko_android` ein leeres Objekt sein, d.h. `"gecko_android": {}`. Andernfalls wird die Erweiterung nur auf dem Desktop-Firefox verfügbar gemacht.
+Um Firefox für Android zu unterstützen, ohne einen Versionsbereich anzugeben, muss der Unterschlüssel `gecko_android` ein leeres Objekt sein, z. B. `"gecko_android": {}`. Andernfalls ist die Erweiterung nur auf dem Desktop-Firefox verfügbar.
 
 #### Format der Erweiterungs-ID
 
-Die Erweiterungs-ID muss eines der folgenden Formate haben:
+Die Erweiterungs-ID muss eine der folgenden sein:
 
 - [GUID](https://en.wikipedia.org/wiki/Universally_unique_identifier)
-- Eine Zeichenkette, die wie eine E-Mail-Adresse formatiert ist: `extensionname@example.org`
+- Eine Zeichenfolge im Format einer E-Mail-Adresse: `extensionname@example.org`
 
-Das letztgenannte Format ist einfacher zu generieren und zu verwenden. Beachten Sie, dass die Verwendung einer realen E-Mail-Adresse hier Spam anziehen könnte.
+Letzteres Format ist einfacher zu erstellen und zu bearbeiten. Beachten Sie, dass die Verwendung einer realen E-Mail-Adresse hier Spam anziehen kann.
 
 Zum Beispiel:
 
@@ -95,14 +95,14 @@ Zum Beispiel:
 "id": "{daf44bf7-a45e-4450-979c-91cf07434c3d}"
 ```
 
-### Safari-Eigenschaften
+### Safari Eigenschaften
 
-Safari speichert seine browser-spezifischen Einstellungen im Unter-Schlüssel `safari`, der folgende Eigenschaften hat:
+Safari speichert seine browserspezifischen Einstellungen im Unterschlüssel `safari`, der folgende Eigenschaften hat:
 
 - `strict_min_version`
-  - : Minimale Version von Safari, die unterstützt wird.
+  - : Mindestversion von Safari zur Unterstützung.
 - `strict_max_version`
-  - : Maximale Version von Safari, die unterstützt wird.
+  - : Höchstversion von Safari zur Unterstützung.
 
 ## Beispiele
 

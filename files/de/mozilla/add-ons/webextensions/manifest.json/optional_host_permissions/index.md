@@ -2,7 +2,7 @@
 title: optional_host_permissions
 slug: Mozilla/Add-ons/WebExtensions/manifest.json/optional_host_permissions
 l10n:
-  sourceCommit: 965d924679c5455c10615dbb7a5994f7a6b6ab15
+  sourceCommit: af98ab1715ff54825888ef1f7f13d6e3e3bf90b8
 ---
 
 {{AddonSidebar}}
@@ -14,7 +14,7 @@ l10n:
       <td><code>Array</code></td>
     </tr>
     <tr>
-      <th scope="row">Verpflichtend</th>
+      <th scope="row">Verbindlich</th>
       <td>Nein</td>
     </tr>
     <tr>
@@ -24,7 +24,7 @@ l10n:
     <tr>
       <th scope="row">Beispiel</th>
       <td>
-        <pre class="brush: json;">
+        <pre class="brush: json">
 "optional_host_permissions": [
   "*://developer.mozilla.org/*",
   "*://*.example.org/*"
@@ -35,11 +35,11 @@ l10n:
   </tbody>
 </table>
 
-Verwenden Sie den Schlüssel `optional_host_permissions`, um Laufzeitanfragen für Zugriff (Zugriff gewährt durch den Benutzer, nachdem Ihre Erweiterung installiert wurde) für die APIs in Ihrer Erweiterung zu aktivieren, die Host-Daten lesen oder ändern, wie {{WebExtAPIRef("cookies")}}, {{WebExtAPIRef("webRequest")}}, und {{WebExtAPIRef("tabs")}}. Dieser Schlüssel ist ein Array von Strings.
+Verwenden Sie den Schlüssel `optional_host_permissions`, um Laufzeitanfragen für den Zugriff (vom Benutzer nach der Installation Ihrer Erweiterung gewährt) für die APIs in Ihrer Erweiterung zu aktivieren, die Hostdaten lesen oder ändern, wie z.B. {{WebExtAPIRef("cookies")}}, {{WebExtAPIRef("webRequest")}} und {{WebExtAPIRef("tabs")}}. Dieser Schlüssel ist ein Array von Strings.
 
-Weitere Informationen zur Definition von Hosts finden Sie unter [`host_permissions`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/host_permissions).
+Lesen Sie [`host_permissions`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/host_permissions) für weitere Informationen zur Definition von Hosts.
 
-Verwenden Sie die {{webextapiref("permissions")}}-API, um zur Laufzeit eine optionale Host-Berechtigung anzufordern. Das Anfordern einer Host-Berechtigung kann dem Benutzer ein Dialogfeld präsentieren, in dem gefragt wird, ob er die Berechtigung für Ihre Erweiterung gewähren möchte.
+Verwenden Sie die {{webextapiref("permissions")}}-API, um eine optionale Hostberechtigung zur Laufzeit anzufordern. Das Anfordern einer Hostberechtigung kann dem Benutzer ein Dialogfeld anzeigen, in dem er gefragt wird, ob er die Berechtigung für Ihre Erweiterung erteilen möchte.
 
 ## Beispiel
 

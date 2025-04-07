@@ -3,57 +3,66 @@ title: "PushManager: supportedContentEncodings statische Eigenschaft"
 short-title: supportedContentEncodings
 slug: Web/API/PushManager/supportedContentEncodings_static
 l10n:
-  sourceCommit: 30b362d4dc01954b7303583cb6894649dd60f2c3
+  sourceCommit: 3c13d9a0c239ed31ae861486393952bc03e0b5bd
 ---
 
 {{APIRef("Push API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die schreibgeschützte statische Eigenschaft **`supportedContentEncodings`** der [`PushManager`](/de/docs/Web/API/PushManager)-Schnittstelle gibt ein Array von unterstützten Inhaltscodierungen zurück, die zur Verschlüsselung der Nutzlast einer Push-Nachricht verwendet werden können.
+Die **`supportedContentEncodings`** schreibgeschützte statische Eigenschaft des [`PushManager`](/de/docs/Web/API/PushManager)-Interfaces gibt ein Array von unterstützten Inhaltscodierungen zurück, die verwendet werden können, um die Nutzlast einer Push-Nachricht zu verschlüsseln.
 
-Benutzeragenten müssen die Inhaltscodierung `aes128gcm` unterstützen, wie sie in {{rfc("8291")}} definiert ist, und können auch Inhaltscodierungen unterstützen, die aus früheren Versionen der Spezifikation stammen. Das zurückgegebene Array ist eingefroren und kann vom Empfänger nicht modifiziert werden.
+Benutzeragenten müssen die `aes128gcm` Inhaltscodierung unterstützen, die in {{rfc("8291")}} definiert ist, und können auch Inhaltscodierungen aus früheren Versionen der Spezifikation unterstützen.
+Das zurückgegebene Array ist eingefroren und darf vom Empfänger nicht modifiziert werden.
 
-Der Anwendungsserver benötigt diese Codierung, um Push-Nachrichten für das Senden an den Push-Server zu verschlüsseln. Die für die Verschlüsselung verwendete Codierung wird vom App-Server auch im {{httpheader("Content-Encoding")}} HTTP-Header-Feld jeder Push-Nachricht angegeben.
+Der Anwendungserver benötigt diese Codierung, um Push-Nachrichten zur Versendung an den Push-Server zu verschlüsseln.
+Die für die Verschlüsselung verwendete Codierung wird ebenfalls vom Anwendungsserver im {{httpheader("Content-Encoding")}} HTTP-Headerfeld jeder Push-Nachricht aufgenommen.
 
-Die Spezifikation definiert nicht, wie der Client-Code dem Anwendungsserver die unterstützten Codierungen oder die Informationen in der [`PushSubscription`](/de/docs/Web/API/PushSubscription) übermitteln soll, die ebenfalls benötigt werden, um eine Push-Nachricht zu verschlüsseln und zu senden. Ein Ansatz wird im Abschnitt „Beispiele“ unten gezeigt.
+Die Spezifikation definiert nicht, wie der Client-Code dem Anwendungserver die unterstützten Codierungen oder die Informationen in der [`PushSubscription`](/de/docs/Web/API/PushSubscription) übermitteln soll, die er ebenfalls benötigt, um eine Push-Nachricht zu verschlüsseln und zu versenden.
+Ein Ansatz wird im Abschnitt Beispiele unten dargestellt.
 
 ## Wert
 
-Ein Array von Zeichenfolgen. Dieses enthält in der Regel nur einen Wert: `"aes128gcm"`.
+Ein Array von Zeichenfolgen.
+Dies enthält normalerweise nur einen Wert: `"aes128gcm"`.
 
 ## Ausnahmen
 
 - `TypeError`
-  - : Dieser Fehler wird ausgelöst, wenn versucht wird, einen Wert im zurückgegebenen Array zu setzen.
+  - : Dies wird ausgelöst, wenn versucht wird, einen Wert im zurückgegebenen Array festzulegen.
 
 ## Beispiele
 
-### Codierungsinformationen an den Server senden
+### Übermittlung von Codierungsinformationen an den Server
 
-Push-Nachrichten werden auf dem Anwendungsserver verschlüsselt, um sie an den Push-Server zu senden, und vom Browser entschlüsselt, bevor sie an den Anwendung-Service-Worker weitergeleitet werden. Die öffentlichen und privaten Schlüssel werden vom Browser generiert, und nur der öffentliche Schlüssel und ein zugehöriges Geheimnis werden mit der Web-App geteilt, und somit mit dem Anwendungsserver. Dies gewährleistet, dass Push-Nachrichten privat bleiben, während sie die Infrastruktur des Push-Servers durchlaufen.
+Push-Nachrichten werden auf dem Anwendungserver verschlüsselt, um an den Push-Server gesendet zu werden, und vom Browser entschlüsselt, bevor sie dem Anwendung-Service-Worker übergeben werden.
+Die verwendeten öffentlichen und privaten Schlüssel werden vom Browser generiert, und nur der öffentliche Schlüssel und ein zugehöriges Geheimnis werden mit der Web-App und somit dem Anwendungserver geteilt.
+Dies stellt sicher, dass Push-Nachrichten privat bleiben, während sie die Infrastruktur des Push-Servers durchlaufen.
 
-Der [`p256dh`](/de/docs/Web/API/PushSubscription/getKey#p256dh) öffentliche Schlüssel und das [`auth`](/de/docs/Web/API/PushSubscription/getKey#auth) Geheimnis, die zur Verschlüsselung der Nachricht verwendet werden, werden dem Service-Worker über seine Push-Abonnement mittels der Methode [`PushSubscription.getKey()`](/de/docs/Web/API/PushSubscription/getKey) bereitgestellt, zusammen mit dem Ziel-Endpunkt zum Senden von Push-Nachrichten in [`PushSubscription.endpoint`](/de/docs/Web/API/PushSubscription/endpoint). Die für die Verschlüsselung zu verwendende Codierung wird von `supportedContentEncodings` bereitgestellt.
+Der [`p256dh`](/de/docs/Web/API/PushSubscription/getKey#p256dh) öffentliche Schlüssel und das [`auth`](/de/docs/Web/API/PushSubscription/getKey#auth) Geheimnis, die zur Verschlüsselung der Nachricht verwendet werden, werden dem Service-Worker über seine Push-Subscription mithilfe der [`PushSubscription.getKey()`](/de/docs/Web/API/PushSubscription/getKey)-Methode zur Verfügung gestellt, zusammen mit dem Zielendpunkt für das Senden von Push-Nachrichten in [`PushSubscription.endpoint`](/de/docs/Web/API/PushSubscription/endpoint).
+Die Codierung, die für die Verschlüsselung verwendet werden soll, wird durch `supportedContentEncodings` bereitgestellt.
 
-Diese Informationen können dem Anwendungsserver über jeden beliebigen Mechanismus übermittelt werden. Ein Ansatz besteht darin, die benötigten Informationen aus [`PushSubscription`](/de/docs/Web/API/PushSubscription) und `supportedContentEncodings` in ein JSON-Objekt zu setzen, es mit [`JSON.stringify()`](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) zu serialisieren und das Ergebnis an den Anwendungsserver zu senden.
+Diese Informationen können mit jedem Mechanismus an den Anwendungserver gesendet werden.
+Ein Ansatz besteht darin, die benötigten Informationen von [`PushSubscription`](/de/docs/Web/API/PushSubscription) und `supportedContentEncodings` in ein JSON-Objekt zu legen, es mit [`JSON.stringify()`](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) zu serialisieren und das Ergebnis an den Anwendungserver zu senden.
 
 ```js
 // Get a PushSubscription object
-const pushSubscription = await serviceWorkerRegistration.pushManager.subscribe();
+const pushSubscription =
+  await serviceWorkerRegistration.pushManager.subscribe();
 
 // Create an object containing the information needed by the app server
 const subscriptionObject = {
   endpoint: pushSubscription.endpoint,
   keys: {
-    p256dh: pushSubscription.getKeys('p256dh'),
-    auth: pushSubscription.getKeys('auth'),
+    p256dh: pushSubscription.getKeys("p256dh"),
+    auth: pushSubscription.getKeys("auth"),
   },
   encoding: PushManager.supportedContentEncodings,
   /* other app-specific data, such as user identity */
 };
 
 // Stringify the object an post to the app server
-fetch(`https://example.com/push/`, {
-  method: "post",
-  body: JSON.stringify(pushSubscription);
+fetch("https://example.com/push/", {
+  method: "POST",
+  body: JSON.stringify(pushSubscription),
 });
 ```
 

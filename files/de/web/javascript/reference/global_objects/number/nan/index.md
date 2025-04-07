@@ -2,18 +2,17 @@
 title: Number.NaN
 slug: Web/JavaScript/Reference/Global_Objects/Number/NaN
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: 3c13d9a0c239ed31ae861486393952bc03e0b5bd
 ---
 
 {{JSRef}}
 
-Die statische Dateneigenschaft **`Number.NaN`** repräsentiert Not-A-Number (NaN), was gleichbedeutend mit {{jsxref("NaN")}} ist. Weitere Informationen über das Verhalten von `NaN` finden Sie in der [Beschreibung für die globale Eigenschaft](/de/docs/Web/JavaScript/Reference/Global_Objects/NaN).
+Die statische Dateneigenschaft **`Number.NaN`** repräsentiert "Not-A-Number", was gleichbedeutend mit {{jsxref("NaN")}} ist. Für weitere Informationen über das Verhalten von `NaN`, siehe die [Beschreibung für die globale Eigenschaft](/de/docs/Web/JavaScript/Reference/Global_Objects/NaN).
 
 {{InteractiveExample("JavaScript Demo: Number.NaN", "taller")}}
 
 ```js interactive-example
 function clean(x) {
-  // eslint-disable-next-line use-isnan
   if (x === Number.NaN) {
     // Can never be true
     return null;
@@ -35,7 +34,7 @@ Der Zahlenwert {{jsxref("NaN")}}.
 
 ## Beschreibung
 
-Da `NaN` eine statische Eigenschaft von {{jsxref("Number")}} ist, wird es stets als `Number.NaN` verwendet und nicht als Eigenschaft eines Zahlenwerts.
+Da `NaN` eine statische Eigenschaft von {{jsxref("Number")}} ist, verwendet man sie immer als `Number.NaN` und nicht als eine Eigenschaft eines Zahlenwerts.
 
 ## Beispiele
 

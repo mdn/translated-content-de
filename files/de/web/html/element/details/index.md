@@ -2,14 +2,14 @@
 title: "<details>: Das Details-Offenlegungselement"
 slug: Web/HTML/Element/details
 l10n:
-  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
+  sourceCommit: ad59de382f5a523bf5dbada344e669d3fd9d4f49
 ---
 
 {{HTMLSidebar}}
 
-Das **`<details>`** [HTML](/de/docs/Web/HTML)-Element erstellt ein Offenlegungs-Widget, bei dem Informationen nur sichtbar sind, wenn das Widget in den offenen Zustand umgeschaltet wird. Eine Zusammenfassung oder ein Label muss mit dem {{HTMLElement("summary")}}-Element bereitgestellt werden.
+Das **`<details>`** [HTML](/de/docs/Web/HTML) Element erstellt ein Offenlegungs-Widget, in dem Informationen nur sichtbar sind, wenn das Widget in einen offenen Zustand umgeschaltet wird. Eine Zusammenfassung oder Beschreibung muss mit dem {{HTMLElement("summary")}} Element bereitgestellt werden.
 
-Ein Offenlegungs-Widget wird typischerweise am Bildschirm mit einem kleinen Dreieck angezeigt, das sich dreht (oder wendet), um den geöffneten/geschlossenen Zustand anzuzeigen, mit einem Label neben dem Dreieck. Die Inhalte des `<summary>`-Elements werden als Label für das Offenlegungs-Widget verwendet. Die Inhalte des `<details>` bieten die {{Glossary("accessible_description", "zugängliche Beschreibung")}} für das `<summary>`.
+Ein Offenlegungs-Widget wird typischerweise auf dem Bildschirm mit einem kleinen Dreieck dargestellt, das sich dreht (oder dreht), um den offenen/geschlossenen Zustand anzuzeigen, zusammen mit einer Bezeichnung neben dem Dreieck. Der Inhalt des `<summary>`-Elements wird als Bezeichnung für das Offenlegungs-Widget verwendet. Der Inhalt des `<details>` liefert die {{Glossary("accessible_description", "zugängliche Beschreibung")}} für das `<summary>`.
 
 {{InteractiveExample("HTML Demo: &lt;details&gt;", "tabbed-shorter")}}
 
@@ -43,15 +43,15 @@ details[open] summary {
 }
 ```
 
-Ein `<details>`-Widget kann sich in einem von zwei Zuständen befinden. Der Standardzustand _geschlossen_ zeigt nur das Dreieck und das Label innerhalb von `<summary>` an (oder eine vom {{Glossary("user_agent", "User Agent")}} definierte Standardzeichenfolge, wenn kein `<summary>` vorhanden ist).
+Ein `<details>`-Widget kann in einem von zwei Zuständen sein. Der Standard-_geschlossene_ Zustand zeigt nur das Dreieck und die Bezeichnung innerhalb von `<summary>` an (oder einen {{Glossary("user_agent", "user agent")}}-definierten Standardtext, wenn kein `<summary>` vorhanden ist).
 
-Wenn der Benutzer auf das Widget klickt oder es fokussiert und dann die Leertaste drückt, "dreht" es sich und zeigt seinen Inhalt an. Der häufige Gebrauch eines Dreiecks, das sich dreht oder wendet, um das Öffnen oder Schließen des Widgets darzustellen, ist der Grund, warum diese manchmal "Twisty" genannt werden.
+Wenn der Benutzer auf das Widget klickt oder es fokussiert und dann die Leertaste drückt, "dreht" es sich auf und enthüllt seinen Inhalt. Die übliche Verwendung eines Dreiecks, das sich dreht oder dreht, um das Öffnen oder Schließen des Widgets darzustellen, ist der Grund, warum diese manchmal "Twisty" genannt werden.
 
-Sie können CSS verwenden, um das Offenlegungs-Widget zu gestalten, und Sie können das Widget programmatisch öffnen und schließen, indem Sie dessen [`open`](#open)-Attribut setzen oder entfernen. Leider gibt es derzeit keine eingebaute Möglichkeit, die Übergänge zwischen geöffnetem und geschlossenem Zustand zu animieren.
+Sie können CSS verwenden, um das Offenlegungs-Widget zu gestalten, und Sie können das Widget programmatisch öffnen und schließen, indem Sie das [`open`](#open) Attribut setzen/entfernen. Leider gibt es derzeit keine eingebaute Möglichkeit, den Übergang zwischen offen und geschlossen zu animieren.
 
-Standardmäßig ist das Widget, wenn es geschlossen ist, nur so hoch, dass es das Offenlegungsdreieck und die Zusammenfassung anzeigt. Wenn es geöffnet ist, erweitert es sich, um die darin enthaltenen Details anzuzeigen.
+Standardmäßig ist das Widget im geschlossenen Zustand nur hoch genug, um das Offenlegungsdreieck und die Zusammenfassung anzuzeigen. Im offenen Zustand wird es erweitert, um die darin enthaltenen Details anzuzeigen.
 
-Vollständig standardkonforme Implementierungen wenden automatisch das CSS `{{cssxref("display")}}: list-item` auf das {{HTMLElement("summary")}}-Element an. Sie können dies oder das {{cssxref("::marker")}} Pseudoelement verwenden, um das [Offenlegungs-Widget zu gestalten](/de/docs/Web/HTML/Element/summary#changing_the_summarys_icon).
+Vollständig standardkonforme Implementierungen wenden automatisch das CSS `{{cssxref("display")}}: list-item` auf das {{HTMLElement("summary")}} Element an. Sie können dies oder das {{cssxref("::marker")}} Pseudo-Element verwenden, um das [Offenlegungs-Widget anzupassen](/de/docs/Web/HTML/Element/summary#changing_the_summarys_icon).
 
 ## Attribute
 
@@ -59,24 +59,24 @@ Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Global_attrib
 
 - `open`
 
-  - : Dieses boolesche Attribut gibt an, ob die Details — also der Inhalt des `<details>`-Elements — derzeit sichtbar sind. Die Details werden angezeigt, wenn dieses Attribut existiert, oder ausgeblendet, wenn dieses Attribut fehlt. Standardmäßig fehlt dieses Attribut, was bedeutet, dass die Details nicht sichtbar sind.
+  - : Dieses boolesche Attribut gibt an, ob die Details – das heißt, der Inhalt des `<details>` Elements – derzeit sichtbar sind. Die Details werden angezeigt, wenn dieses Attribut vorhanden ist, oder versteckt, wenn dieses Attribut fehlt. Standardmäßig fehlt dieses Attribut, was bedeutet, dass die Details nicht sichtbar sind.
 
     > [!NOTE]
-    > Sie müssen dieses Attribut vollständig entfernen, um die Details auszublenden. `open="false"` macht die Details sichtbar, da dieses Attribut boolesch ist.
+    > Sie müssen dieses Attribut vollständig entfernen, um die Details zu verbergen. `open="false"` macht die Details sichtbar, weil dieses Attribut ein boolesches Attribut ist.
 
 - `name`
 
-  - : Dieses Attribut ermöglicht es, mehrere `<details>`-Elemente zu verbinden, wobei nur eines gleichzeitig geöffnet sein kann. Dies erlaubt es Entwicklern, UI-Features wie Akkordeons leicht ohne Skripting zu erstellen.
+  - : Dieses Attribut ermöglicht es, mehrere `<details>` Elemente zu verbinden, wobei immer nur eines offen sein kann. So können Entwickler einfach UI-Features wie Akkordeons ohne Skripting erstellen.
 
-    Das `name`-Attribut gibt einen Gruppennamen an — geben Sie mehreren `<details>`-Elementen denselben `name`-Wert, um sie zu gruppieren. Nur eines der gruppierten `<details>`-Elemente kann gleichzeitig geöffnet sein — das Öffnen eines wird ein anderes schließen. Wenn mehreren gruppierten `<details>`-Elementen das `open`-Attribut gegeben wird, wird nur das erste in der Quellreihenfolge geöffnet dargestellt.
+    Das `name` Attribut legt einen Gruppennamen fest — geben Sie mehreren `<details>` Elementen denselben `name` Wert, um sie zu gruppieren. Nur eines der gruppierten `<details>` Elemente kann gleichzeitig geöffnet sein — das Öffnen eines führt dazu, dass sich ein anderes schließt. Wenn mehreren gruppierten `<details>` Elementen das `open` Attribut gegeben wird, wird nur das erste in der Quellreihenfolge geöffnet dargestellt.
 
-    > **Hinweis:** `<details>`-Elemente müssen nicht aneinander angrenzen, um Teil derselben Gruppe zu sein.
+    > **Hinweis:** `<details>` Elemente müssen nicht nebeneinander im Quelltext stehen, um Teil derselben Gruppe zu sein.
 
 ## Ereignisse
 
-Zusätzlich zu den üblichen von HTML-Elementen unterstützten Ereignissen unterstützt das `<details>`-Element das [`toggle`](/de/docs/Web/API/HTMLElement/toggle_event)-Ereignis, das immer dann an das `<details>`-Element gesendet wird, wenn sich sein Zustand zwischen geöffnet und geschlossen ändert. Es wird _nach_ der Zustandsänderung gesendet, obwohl wenn sich der Zustand mehrmals ändert, bevor der Browser das Ereignis senden kann, die Ereignisse zusammengefasst werden, damit nur eines gesendet wird.
+Zusätzlich zu den üblichen Ereignissen, die von HTML-Elementen unterstützt werden, unterstützt das `<details>` Element das [`toggle`](/de/docs/Web/API/HTMLElement/toggle_event) Ereignis, das an das `<details>` Element gesendet wird, wann immer sich sein Zustand zwischen offen und geschlossen ändert. Es wird _nachdem_ sich der Zustand geändert hat gesendet, obwohl wenn sich der Zustand mehrmals ändert, bevor der Browser das Ereignis senden kann, die Ereignisse zusammengefasst werden, sodass nur eines gesendet wird.
 
-Sie können einen Ereignis-Listener für das `toggle`-Ereignis verwenden, um zu erkennen, wann sich der Zustand des Widgets ändert:
+Sie können einen Ereignis-Listener für das `toggle` Ereignis verwenden, um zu erkennen, wann sich der Zustand des Widgets ändert:
 
 ```js
 details.addEventListener("toggle", (event) => {
@@ -92,7 +92,7 @@ details.addEventListener("toggle", (event) => {
 
 ### Ein einfaches Offenlegungsbeispiel
 
-Dieses Beispiel zeigt ein einfaches `<details>`-Element mit einem `<summary>`.
+Dieses Beispiel zeigt ein einfaches `<details>` Element mit einem `<summary>`.
 
 ```html
 <details>
@@ -109,9 +109,9 @@ Dieses Beispiel zeigt ein einfaches `<details>`-Element mit einem `<summary>`.
 
 {{EmbedLiveSample("A_basic_disclosure_example", 650, 150)}}
 
-### Erstellen einer geöffneten Offenlegungsbox
+### Erstellen einer offenen Offenlegungsbox
 
-Um die `<details>`-Box im geöffneten Zustand zu starten, fügen Sie das boolesche `open`-Attribut hinzu:
+Um die `<details>` Box im bereits geöffneten Zustand zu starten, fügen Sie das boolesche `open` Attribut hinzu:
 
 ```html
 <details open>
@@ -130,7 +130,7 @@ Um die `<details>`-Box im geöffneten Zustand zu starten, fügen Sie das boolesc
 
 ### Mehrere benannte Offenlegungsboxen
 
-Wir fügen mehrere `<details>`-Boxen hinzu, alle mit dem gleichen Namen, sodass immer nur eine gleichzeitig geöffnet werden kann:
+Wir fügen mehrere `<details>` Boxen ein, alle mit demselben Namen, sodass immer nur eine geöffnet sein kann:
 
 ```html
 <details name="reqs">
@@ -162,11 +162,11 @@ Wir fügen mehrere `<details>`-Boxen hinzu, alle mit dem gleichen Namen, sodass 
 
 {{EmbedLiveSample("Multiple named disclosure boxes", 650, 150)}}
 
-Versuchen Sie, alle Offenlegungs-Widgets zu öffnen. Wenn Sie eines öffnen, schließen sich alle anderen automatisch.
+Versuchen Sie, alle Offenlegungs-Widgets zu öffnen. Wenn Sie eines öffnen, schließen sich automatisch alle anderen.
 
-### Anpassen des Aussehens
+### Anpassung des Erscheinungsbilds
 
-Nun wollen wir etwas CSS anwenden, um das Aussehen der Offenlegungsbox anzupassen.
+Lassen Sie uns nun etwas CSS anwenden, um das Erscheinungsbild der Offenlegungsbox anzupassen.
 
 #### CSS
 
@@ -201,10 +201,10 @@ details:open > summary {
 }
 ```
 
-Dieses CSS erzeugt ein Aussehen, das einer Registerkarte ähnlich ist, bei der das Klicken auf die Registerkarte sie öffnet, um ihren Inhalt anzuzeigen.
+Dieses CSS erzeugt ein Aussehen, das einer Registerkartenoberfläche ähnelt, bei der das Klicken auf die Registerkarte diese öffnet, um ihren Inhalt zu enthüllen.
 
 > [!NOTE]
-> In Browsern, die die {{cssxref(":open")}} Pseudo-Klasse nicht unterstützen, können Sie den Attribut-Selektor `details[open]` verwenden, um das `<details>`-Element im offenen Zustand zu gestalten.
+> In Browsern, die die {{cssxref(":open")}} Pseudo-Klasse nicht unterstützen, können Sie den Attributselektor `details[open]` verwenden, um das `<details>` Element zu gestalten, wenn es im offenen Zustand ist.
 
 #### HTML
 
@@ -223,7 +223,7 @@ Dieses CSS erzeugt ein Aussehen, das einer Registerkarte ähnlich ist, bei der d
 
 {{EmbedLiveSample("Customizing_the_appearance", 650, 150)}}
 
-Sehen Sie sich die Seite {{htmlelement("summary")}} für ein [Beispiel für die Anpassung des Offenlegungs-Widgets](/de/docs/Web/HTML/Element/summary#changing_the_summarys_icon) an.
+Sehen Sie sich die Seite {{htmlelement("summary")}} für ein [Beispiel zur Anpassung des Offenlegungs-Widgets](/de/docs/Web/HTML/Element/summary#changing_the_summarys_icon) an.
 
 ## Technische Zusammenfassung
 
@@ -231,40 +231,48 @@ Sehen Sie sich die Seite {{htmlelement("summary")}} für ein [Beispiel für die 
   <tbody>
     <tr>
       <th scope="row">
-        <a href="/de/docs/Web/HTML/Content_categories">Inhaltskategorien</a>
+        <a href="/de/docs/Web/HTML/Content_categories"
+          >Inhaltskategorien</a
+        >
       </th>
       <td>
-        <a href="/de/docs/Web/HTML/Content_categories#flow_content">Fließender Inhalt</a>, Abschnitts-Wurzel, interaktiver Inhalt, fühlbarer Inhalt.
+        <a href="/de/docs/Web/HTML/Content_categories#flow_content"
+          >Fließender Inhalt</a
+        >, Abschnittswurzel, interaktiver Inhalt, fühlbarer Inhalt.
       </td>
     </tr>
     <tr>
-      <th scope="row">Zulässiger Inhalt</th>
+      <th scope="row">Erlaubter Inhalt</th>
       <td>
-        Ein {{HTMLElement("summary")}}-Element gefolgt von
-        <a href="/de/docs/Web/HTML/Content_categories#flow_content">fließendem Inhalt</a>.
+        Ein {{HTMLElement("summary")}} Element gefolgt von
+        <a href="/de/docs/Web/HTML/Content_categories#flow_content"
+          >fließendem Inhalt</a
+        >.
       </td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl das startende als auch das endende Tag sind erforderlich.</td>
+      <td>Keine, sowohl das Start- als auch das End-Tag sind obligatorisch.</td>
     </tr>
     <tr>
-      <th scope="row">Zulässige Eltern</th>
+      <th scope="row">Erlaubte Eltern</th>
       <td>
         Jedes Element, das
-        <a href="/de/docs/Web/HTML/Content_categories#flow_content">fließenden Inhalt</a> akzeptiert.
+        <a href="/de/docs/Web/HTML/Content_categories#flow_content"
+          >fließenden Inhalt</a
+        > akzeptiert.
       </td>
     </tr>
     <tr>
-      <th scope="row">Implizierte ARIA-Rolle</th>
+      <th scope="row">Implizite ARIA-Rolle</th>
       <td><a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/group_role"><code>group</code></a></td>
     </tr>
     <tr>
-      <th scope="row">Zulässige ARIA-Rollen</th>
+      <th scope="row">Erlaubte ARIA-Rollen</th>
       <td>Keine <code>role</code> erlaubt</td>
     </tr>
     <tr>
-      <th scope="row">DOM-Interface</th>
+      <th scope="row">DOM-Schnittstelle</th>
       <td>[`HTMLDetailsElement`](/de/docs/Web/API/HTMLDetailsElement)</td>
     </tr>
   </tbody>
@@ -281,3 +289,4 @@ Sehen Sie sich die Seite {{htmlelement("summary")}} für ein [Beispiel für die 
 ## Siehe auch
 
 - {{HTMLElement("summary")}}
+- {{cssxref("::details-content")}}
