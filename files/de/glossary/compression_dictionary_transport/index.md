@@ -2,16 +2,16 @@
 title: Kompressionswörterbuch-Transport
 slug: Glossary/Compression_dictionary_transport
 l10n:
-  sourceCommit: 3b950288ff28e6984e35acd8fa56fa885a935978
+  sourceCommit: c7f9d9087cccd99d4e72cdf5488b7a4bc6963740
 ---
 
 {{GlossarySidebar}}
 
-**Kompressionswörterbuch-Transport** ist eine Methode, bei der ein gemeinsames Kompressionswörterbuch verwendet wird, anstatt des standardmäßigen statischen Wörterbuchs in der {{Glossary("Brotli_compression", "Brotli-Kompression")}} oder {{Glossary("Zstandard_compression", "Zstandard-Kompression")}}, um die Transportgröße von HTTP-Antworten drastisch zu reduzieren.
+**Kompressionswörterbuch-Transport** ist eine Methode zur Verwendung eines gemeinsamen Kompressionswörterbuchs anstelle des standardmäßigen statischen Wörterbuchs in {{Glossary("Brotli_compression", "Brotli-Kompression")}} oder {{Glossary("Zstandard_compression", "Zstandard-Kompression")}}, um die Transportgröße von HTTP-Antworten erheblich zu reduzieren.
 
-Beispielsweise kann beim Herunterladen von `app.v2.js`, wenn der Client bereits `app.v1.js` hat, auf Texte daraus verwiesen werden, indem es als Wörterbuch verwendet wird. Dadurch muss im Wesentlichen nur das Delta und eine kleine Menge an Verweisen auf die `v1`-Datei heruntergeladen werden.
+Beispielsweise, wenn `app.v2.js` heruntergeladen wird und der Client bereits `app.v1.js` hat, kann dieser Text daraus referenzieren, indem er es als Wörterbuch verwendet und effektiv nur das Delta und eine kleine Menge an Verweisen auf die `v1`-Datei herunterlädt.
 
-Lesen Sie den [Leitfaden zum Kompressionswörterbuch-Transport](/de/docs/Web/HTTP/Guides/Compression_dictionary_transport) für weitere Informationen.
+Weitere Informationen finden Sie im [Leitfaden zum Kompressionswörterbuch-Transport](/de/docs/Web/HTTP/Guides/Compression_dictionary_transport).
 
 ## Siehe auch
 
@@ -19,7 +19,7 @@ Lesen Sie den [Leitfaden zum Kompressionswörterbuch-Transport](/de/docs/Web/HTT
 - Verwandte Glossarbegriffe:
   - {{Glossary("Brotli_compression", "Brotli-Kompression")}}
   - {{Glossary("Zstandard_compression", "Zstandard-Kompression")}}
-- [&lt;link rel=&quot;compression-dictionary&quot;&gt;](/de/docs/Web/HTML/Attributes/rel/compression-dictionary) - {{HTTPHeader("Accept-encoding")}}
+- [&lt;link rel=&quot;compression-dictionary&quot;&gt;](/de/docs/Web/HTML/Attributes/rel/compression-dictionary)- {{HTTPHeader("Accept-encoding")}}
 - {{HTTPHeader("Content-encoding")}}
 - {{HTTPHeader("Available-Dictionary")}}
 - {{HTTPHeader("Dictionary-ID")}}
