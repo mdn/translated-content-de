@@ -2,15 +2,12 @@
 title: Error.captureStackTrace()
 slug: Web/JavaScript/Reference/Global_Objects/Error/captureStackTrace
 l10n:
-  sourceCommit: 1a6926fa459b62c69cc5bcab1d15f247a2bbdf7e
+  sourceCommit: 6607de0bd57056125e4ae227c4d54402286a423f
 ---
 
 {{JSRef}}{{Non-standard_Header}}
 
-> [!NOTE]
-> Dieses Feature ist Teil der nicht standardisierten [V8 Stack Trace API](https://v8.dev/docs/stack-trace-api). Aus Kompatibilitätsgründen wird es jedoch faktisch von allen großen JavaScript-Engines implementiert.
-
-Die statische Methode **`Error.captureStackTrace()`** installiert Stapelverfolgungsinformationen auf einem angegebenen Objekt als [`stack`](/de/docs/Web/JavaScript/Reference/Global_Objects/Error/stack)-Eigenschaft.
+Die statische Methode **`Error.captureStackTrace()`** installiert Stack-Trace-Informationen auf einem bereitgestellten Objekt als dessen [`stack`](/de/docs/Web/JavaScript/Reference/Global_Objects/Error/stack)-Eigenschaft.
 
 ## Syntax
 
@@ -24,19 +21,19 @@ Error.captureStackTrace(object, constructor)
 - `object`
   - : Das Objekt, dem die `stack`-Eigenschaft hinzugefügt wird.
 - `constructor` {{optional_inline}}
-  - : Eine Funktion, typischerweise der Konstruktor, in dem das `object` erstellt wurde. Beim Sammeln der Stapelverfolgung werden alle Rahmen über dem obersten Aufruf dieser Funktion, einschließlich dieses Aufrufs, aus der Stapelverfolgung ausgeschlossen.
+  - : Eine Funktion, typischerweise der Konstruktor, in dem das `object` erstellt wurde. Beim Erfassen der Stapelverfolgung werden alle Frames über dem obersten Aufruf dieser Funktion, einschließlich dieses Aufrufs, aus der Stapelverfolgung weggelassen.
 
 ### Rückgabewert
 
 Keiner ({{jsxref("undefined")}}).
 
-Das `object` wird direkt mit einer neuen eigenen Eigenschaft namens `stack` modifiziert, deren String-Wert dasselbe Format wie {{jsxref("Error.prototype.stack")}} hat. Diese Eigenschaft ist nicht aufzählbar und konfigurierbar. In V8 ist sie ein Getter-Setter-Paar. In SpiderMonkey und JavaScriptCore ist sie eine beschreibbare Dateneigenschaft.
+Das `object` wird vor Ort mit einer zusätzlichen eigenen Eigenschaft namens `stack` modifiziert, deren Stringwert dasselbe Format wie {{jsxref("Error.prototype.stack")}} hat. Diese Eigenschaft ist nicht aufzählbar und konfigurierbar. In V8 ist es ein Paar Getter und Setter. In SpiderMonkey und JavaScriptCore ist es eine Daten-Eigenschaft, die beschreibbar ist.
 
 ## Beispiele
 
 ### Verwendung von Error.captureStackTrace()
 
-Die Utility-Funktion `getStack()` liefert die aktuelle Stapelverfolgung an dem Punkt, an dem sie aufgerufen wird, und entfernt sich selbst aus dem Stapel. Dies dient demselben Debugging-Zweck wie [`console.trace()`](/de/docs/Web/API/console/trace_static), erlaubt es Ihnen jedoch, den String an anderer Stelle auszugeben. Beachten Sie, dass dafür keine `Error`-Instanz erstellt wird, sondern `stack` auf ein einfaches Objekt installiert wird, was für unsere Zwecke effizienter ist. Normalerweise würden Sie `Error.captureStackTrace` auf Objekte anwenden, die als Fehler geworfen werden sollen, wie im nächsten Beispiel gezeigt.
+Die `getStack()`-Hilfsfunktion gibt die aktuelle Stapelverfolgung an dem Punkt zurück, an dem sie aufgerufen wird, und entfernt sich selbst aus dem Stack. Dies dient dem gleichen Debugging-Zweck wie [`console.trace()`](/de/docs/Web/API/console/trace_static), ermöglicht es Ihnen jedoch, den String an anderer Stelle auszugeben. Beachten Sie, dass es zu diesem Zweck keine `Error`-Instanz erstellt, sondern `stack` auf einem einfachen Objekt installiert, was für unsere Zwecke effizienter wäre. Normalerweise würden Sie `Error.captureStackTrace` auf Objekten aufrufen, die als Fehler geworfen werden sollen, wie im nächsten Beispiel gezeigt.
 
 ```js
 function getStack() {
@@ -60,7 +57,7 @@ foo();
 
 ### Installation der Stapelverfolgung auf einem benutzerdefinierten Fehlerobjekt
 
-Der Hauptanwendungsfall für `Error.captureStackTrace()` ist die Installation einer Stapelverfolgung auf einem benutzerdefinierten Fehlerobjekt. Typischerweise definieren Sie [benutzerdefinierte Fehler](/de/docs/Web/JavaScript/Reference/Global_Objects/Error#custom_error_types), indem Sie die `Error`-Klasse erweitern, die automatisch die `stack`-Eigenschaft per Vererbung verfügbar macht. Das Problem bei der Standard-Stapelverfolgung ist jedoch, dass sie den Konstruktoraufruf selbst enthält, wodurch Implementierungsdetails preisgegeben werden. Dies können Sie vermeiden, indem Sie `Error.captureStackTrace()` verwenden, das ermöglicht, die Stapelverfolgung auch für benutzerdefinierte Fehler zu installieren, die nicht von `Error` erben.
+Der Hauptanwendungsfall für `Error.captureStackTrace()` besteht darin, eine Stapelverfolgung auf einem benutzerdefinierten Fehlerobjekt zu installieren. Typischerweise definieren Sie [benutzerdefinierte Fehler](/de/docs/Web/JavaScript/Reference/Global_Objects/Error#custom_error_types), durch Erweitern der `Error`-Klasse, wodurch die `stack`-Eigenschaft automatisch über die Vererbung verfügbar gemacht wird. Das Problem bei der Standard-Stapelverfolgung ist jedoch, dass sie den Konstruktoraufruf selbst umfasst, was Implementierungsdetails preisgibt. Dies können Sie vermeiden, indem Sie `Error.captureStackTrace()` verwenden, das es ermöglicht, die Stapelverfolgung auch für benutzerdefinierte Fehler zu installieren, die nicht von `Error` erben.
 
 ```js
 class MyError extends Error {
@@ -79,7 +76,7 @@ console.log(myError.stack);
 //     at <anonymous>:8:17
 ```
 
-Beachten Sie, dass einige Engines, selbst wenn Sie hier nicht `Error.captureStackTrace()` aufrufen, intelligent genug sind, `MyError` aus der Stapelverfolgung zu entfernen, wenn der Konstruktor von `Error` erbt. Der Aufruf von `Error.captureStackTrace()` ist wichtiger für benutzerdefinierte Fehler, die aus irgendeinem Grund nicht von `Error` erben.
+Beachten Sie, dass selbst wenn Sie hier `Error.captureStackTrace()` nicht aufrufen, einige Engines immer noch klug genug sind, `MyError` in der Stapelverfolgung zu vermeiden, wenn der Konstruktor von `Error` erbt. Der Aufruf von `Error.captureStackTrace()` ist wichtiger für benutzerdefinierte Fehler, die aus irgendeinem Grund nicht von `Error` erben.
 
 ```js
 class MyError {
@@ -110,4 +107,4 @@ console.log(myError.stack);
 
 - {{jsxref("Error.prototype.stack")}}
 - {{jsxref("Error.stackTraceLimit")}}
-- [Stack Trace API](https://v8.dev/docs/stack-trace-api) in den V8-Dokumenten
+- [Stack trace API](https://v8.dev/docs/stack-trace-api) in den V8-Dokumenten

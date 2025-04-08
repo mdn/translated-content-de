@@ -10148,8 +10148,9 @@
 /de/docs/Web/API/ServiceWorkerContainer.controller	/de/docs/Web/API/ServiceWorkerContainer/controller
 /de/docs/Web/API/ServiceWorkerContainer.getRegistration([scope])	/de/docs/Web/API/ServiceWorkerContainer/getRegistration
 /de/docs/Web/API/ServiceWorkerContainer.register	/de/docs/Web/API/ServiceWorkerContainer/register
+/de/docs/Web/API/ServiceWorkerContainer/error_event	/de/docs/Web/API/ServiceWorker/error_event
 /de/docs/Web/API/ServiceWorkerContainer/oncontrollerchange	/de/docs/Web/API/ServiceWorkerContainer/controllerchange_event
-/de/docs/Web/API/ServiceWorkerContainer/onerror	/de/docs/Web/API/ServiceWorkerContainer/error_event
+/de/docs/Web/API/ServiceWorkerContainer/onerror	/de/docs/Web/API/ServiceWorker/error_event
 /de/docs/Web/API/ServiceWorkerContainer/onmessage	/de/docs/Web/API/ServiceWorkerContainer/message_event
 /de/docs/Web/API/ServiceWorkerGlobalScope.skipWaiting	/de/docs/Web/API/ServiceWorkerGlobalScope/skipWaiting
 /de/docs/Web/API/ServiceWorkerGlobalScope/ServiceWorkerGlobalScope.onfetch	/de/docs/Web/API/ServiceWorkerGlobalScope/fetch_event
