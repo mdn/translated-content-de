@@ -2,19 +2,16 @@
 title: Set-Login
 slug: Web/HTTP/Reference/Headers/Set-Login
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: 57b01b603385ca121240d52d542adfa60da0f92e
 ---
 
-{{HTTPSidebar}}{{SeeCompatTable}}
+{{HTTPSidebar}}
 
-Der HTTP **`Set-Login`** {{Glossary("response_header", "Antwort-Header")}} wird von einem föderierten Identitätsanbieter (IdP) gesendet, um den Anmeldestatus festzulegen und anzugeben, ob Benutzer im aktuellen Browser beim IdP angemeldet sind oder nicht.
-Dieser wird vom Browser gespeichert und von der [FedCM API](/de/docs/Web/API/FedCM_API) verwendet, um die Anzahl der Anfragen an den IdP zu reduzieren, da der Browser keine Benutzerkonten anfordern muss, wenn keine Benutzer beim IdP angemeldet sind.
-Es mildert auch [mögliche Timing-Angriffe](https://github.com/w3c-fedid/FedCM/issues/447) ab.
+Der HTTP **`Set-Login`** {{Glossary("response_header", "Antwort-Header")}} wird von einem föderierten Identitätsanbieter (IdP) gesendet, um dessen Anmeldestatus festzulegen, und zeigt an, ob derzeit Benutzer beim IdP im aktuellen Browser angemeldet sind oder nicht. Dieser wird vom Browser gespeichert und von der [FedCM API](/de/docs/Web/API/FedCM_API) verwendet, um die Anzahl der Anfragen an den IdP zu reduzieren, da der Browser keine Konten anfordern muss, wenn keine Benutzer beim IdP angemeldet sind. Es mindert auch [mögliche Timing-Angriffe](https://github.com/w3c-fedid/FedCM/issues/447).
 
-Der Header kann auf jede Antwort gesetzt werden, die aus einer Navigation auf oberster Ebene oder einer gleichursprünglichen Unterressourcenanforderung auf der Ursprungsseite des IdP resultiert.
-Jede Interaktion mit der IdP-Site kann dazu führen, dass dieser Header gesetzt wird und der Anmeldestatus vom Browser gespeichert wird.
+Der Header kann in jeder Antwort gesetzt werden, die aus einer Navigation der obersten Ebene oder einer Subressourcenanfrage gleichen Ursprungs auf der Ursprungsseite des IdP resultiert. Jede Interaktion mit der IdP-Seite kann dazu führen, dass dieser Header gesetzt wird, und der Anmeldestatus wird vom Browser gespeichert.
 
-Siehe [Aktualisieren des Anmeldestatus mit der Login Status API](/de/docs/Web/API/FedCM_API/IDP_integration#update_login_status_using_the_login_status_api) für mehr Informationen über den FedCM-Anmeldestatus.
+Siehe [Aktualisierung des Anmeldestatus mit der Login Status API](/de/docs/Web/API/FedCM_API/IDP_integration#update_login_status_using_the_login_status_api) für weitere Informationen zum FedCM-Anmeldestatus.
 
 <table class="properties">
   <tbody>
@@ -23,7 +20,7 @@ Siehe [Aktualisieren des Anmeldestatus mit der Login Status API](/de/docs/Web/AP
       <td>{{Glossary("Response_header", "Antwort-Header")}}</td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Forbidden_request_header", "Verbotener Anforderungs-Header")}}</th>
+      <th scope="row">{{Glossary("Forbidden_request_header", "Unzulässiger Anforderungs-Header")}}</th>
       <td>Nein</td>
     </tr>
   </tbody>
@@ -35,14 +32,14 @@ Siehe [Aktualisieren des Anmeldestatus mit der Login Status API](/de/docs/Web/AP
 Set-Login: <status>
 ```
 
-## Richtlinien
+## Direktiven
 
 - `<status>`
 
-  - : Ein String, der den Anmeldestatus darstellt, der für den IdP festgelegt werden soll. Mögliche Werte sind:
+  - : Ein String, der den Anmeldestatus für den IdP darstellt. Mögliche Werte sind:
 
     - `logged-in`: Der IdP hat mindestens ein Benutzerkonto angemeldet.
-    - `logged-out`: Alle IdP-Benutzerkonten sind derzeit abgemeldet.
+    - `logged-out`: Alle Benutzerkonten des IdP sind derzeit abgemeldet.
 
     > [!NOTE]
     > Browser ignorieren diesen Header, wenn er einen anderen Wert enthält.
