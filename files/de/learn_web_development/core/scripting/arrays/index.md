@@ -676,7 +676,7 @@ textarea.onkeyup = () => {
 
 ## Testen Sie Ihr Wissen!
 
-Sie haben das Ende dieses Artikels erreicht, aber können Sie sich die wichtigsten Informationen merken? Sie finden einige weitere Tests, um zu überprüfen, ob Sie diese Informationen behalten haben, bevor Sie weitermachen — siehe [Testen Sie Ihr Wissen: Arrays](/de/docs/Learn_web_development/Core/Scripting/Test_your_skills:_Arrays).
+Sie haben das Ende dieses Artikels erreicht, aber können Sie sich die wichtigsten Informationen merken? Sie finden einige weitere Tests, um zu überprüfen, ob Sie diese Informationen behalten haben, bevor Sie weitermachen — siehe [Testen Sie Ihr Wissen: Arrays](/de/docs/Learn_web_development/Core/Scripting/Test_your_skills/Arrays).
 
 ## Fazit
 

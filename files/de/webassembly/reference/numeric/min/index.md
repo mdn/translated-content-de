@@ -2,10 +2,10 @@
 title: Min
 slug: WebAssembly/Reference/Numeric/Min
 l10n:
-  sourceCommit: 5af6da1da593fae9b3208eb9fd308213d5c3359c
+  sourceCommit: c0fc8c988385a0ce8ff63887f9a3263caf55a1f9
 ---
 
-Die **`min`**-Anweisungen werden verwendet, um die kleinere von zwei Zahlen zu ermitteln.
+Die **`min`** Anweisungen werden verwendet, um die kleinere von zwei Zahlen zu erhalten.
 
 {{InteractiveExample("Wat Demo: min", "tabbed-taller")}}
 
@@ -31,7 +31,7 @@ await WebAssembly.instantiateStreaming(fetch(url), { console });
 
 ## Syntax
 
-```wasm
+```wat
 ;; load two numbers onto the stack
 f32.const 10
 f32.const 3

@@ -1,11 +1,11 @@
 ---
-title: Lokale Zuweisung
+title: Lokales Setzen
 slug: WebAssembly/Reference/Variables/Local_set
 l10n:
-  sourceCommit: 5af6da1da593fae9b3208eb9fd308213d5c3359c
+  sourceCommit: c0fc8c988385a0ce8ff63887f9a3263caf55a1f9
 ---
 
-Die **`local.set`** Anweisung setzt die Werte einer lokalen Variable.
+Die **`local.set`** Anweisung setzt die Werte einer lokalen Variablen.
 
 {{InteractiveExample("Wat Demo: local", "tabbed-taller")}}
 
@@ -31,7 +31,7 @@ await WebAssembly.instantiateStreaming(fetch(url), { console });
 
 ## Syntax
 
-```wasm
+```wat
 ;; load the number 2 onto the stack
 i32.const 2
 

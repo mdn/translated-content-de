@@ -2,7 +2,7 @@
 title: br
 slug: WebAssembly/Reference/Control_flow/br
 l10n:
-  sourceCommit: 5af6da1da593fae9b3208eb9fd308213d5c3359c
+  sourceCommit: c0fc8c988385a0ce8ff63887f9a3263caf55a1f9
 ---
 
 Die **`br`**-Anweisung verzweigt zu einer Schleife, einem Block oder einem If.
@@ -52,7 +52,7 @@ await WebAssembly.instantiateStreaming(fetch(url), { console });
 
 ## Syntax
 
-```wasm
+```wat
 ;; label the loop so that it can be branched to
 (loop $my_loop
 

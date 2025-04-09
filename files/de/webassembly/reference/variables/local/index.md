@@ -2,7 +2,7 @@
 title: Local
 slug: WebAssembly/Reference/Variables/Local
 l10n:
-  sourceCommit: 5af6da1da593fae9b3208eb9fd308213d5c3359c
+  sourceCommit: c0fc8c988385a0ce8ff63887f9a3263caf55a1f9
 ---
 
 Die **`local`**-Anweisung deklariert eine neue lokale Variable.
@@ -31,7 +31,7 @@ await WebAssembly.instantiateStreaming(fetch(url), { console });
 
 ## Syntax
 
-```wasm
+```wat
 ;; declare new variable named $val of type i32
 (local $val i32)
 ```

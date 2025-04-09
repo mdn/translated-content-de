@@ -2,10 +2,10 @@
 title: AND
 slug: WebAssembly/Reference/Numeric/AND
 l10n:
-  sourceCommit: 5af6da1da593fae9b3208eb9fd308213d5c3359c
+  sourceCommit: c0fc8c988385a0ce8ff63887f9a3263caf55a1f9
 ---
 
-Die **`and`**-Anweisungen werden verwendet, um eine Bitweise-UND-Operation durchzuführen, ähnlich dem **`&`**-Operator in anderen Programmiersprachen.
+Die **`and`** Anweisungen werden verwendet, um eine bitweise UND-Operation durchzuführen, ähnlich dem **`&`** Operator in anderen Sprachen.
 
 {{InteractiveExample("Wat Demo: and", "tabbed-taller")}}
 
@@ -43,7 +43,7 @@ function numToBin(num) {
 
 ## Syntax
 
-```wasm
+```wat
 ;; load two numbers onto the stack
 i32.const 5   ;; 00000101
 i32.const 3   ;; 00000011
@@ -54,7 +54,7 @@ i32.and
 ;; the top item on the stack will now be 1 (00000001)
 ```
 
-| Anweisung | Binärer Opcode |
-| --------- | -------------- |
-| `i32.and` | `0x71`         |
-| `i64.and` | `0x83`         |
+| Anweisung | Binäre Opcode |
+| --------- | ------------- |
+| `i32.and` | `0x71`        |
+| `i64.and` | `0x83`        |

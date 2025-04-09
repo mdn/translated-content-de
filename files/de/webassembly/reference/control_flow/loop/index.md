@@ -2,12 +2,12 @@
 title: loop
 slug: WebAssembly/Reference/Control_flow/loop
 l10n:
-  sourceCommit: 5af6da1da593fae9b3208eb9fd308213d5c3359c
+  sourceCommit: c0fc8c988385a0ce8ff63887f9a3263caf55a1f9
 ---
 
-Die **`loop`**-Anweisung erstellt ein Label, zu dem später mit `br` verzweigt werden kann. Die Schleifeninstruktion läuft nicht von selbst; Sie müssen dorthin verzweigen, um tatsächlich eine Schleife zu erstellen.
+Die **`loop`**-Anweisung erstellt ein Label, zu dem später mit einem `br` verzweigt werden kann. Die Loop-Anweisung selbst führt keine Schleife aus; es ist erforderlich, zu ihr zu verzweigen, um tatsächlich eine Schleife zu erstellen.
 
-Die **`loop`**-Anweisung ist das Gegenteil der `block`-Anweisung, in dem Sinne, dass beim Verzweigen zu einer `loop` zum Anfang der Schleife gesprungen wird, während beim Verzweigen zu einem `block` zum Ende des Blocks gesprungen wird, das heißt, aus dem Block heraus.
+Die **`loop`**-Anweisung ist das Gegenteil der `block`-Anweisung, insofern das Verzweigen zu einer `loop` zum Anfang der Schleife springt, während das Verzweigen zu einem `block` zum Ende des Blocks springt, also aus dem Block heraus.
 
 {{InteractiveExample("Wat Demo: loop", "tabbed-taller")}}
 
@@ -52,7 +52,7 @@ await WebAssembly.instantiateStreaming(fetch(url), { console });
 
 ## Syntax
 
-```wasm
+```wat
 ;; label the loop so that it can be branched to
 (loop $my_loop
 

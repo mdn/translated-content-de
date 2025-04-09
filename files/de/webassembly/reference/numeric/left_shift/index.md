@@ -1,11 +1,11 @@
 ---
-title: Linksschiebung
+title: Linkssschiebung
 slug: WebAssembly/Reference/Numeric/Left_shift
 l10n:
-  sourceCommit: 5af6da1da593fae9b3208eb9fd308213d5c3359c
+  sourceCommit: c0fc8c988385a0ce8ff63887f9a3263caf55a1f9
 ---
 
-Die **`shl`**-Instruktionen, abgekürzt für _shift-left_, werden verwendet, um eine bitweise Linksschiebung durchzuführen, ähnlich dem **`<<`**-Operator in anderen Sprachen.
+Die **`shl`**-Anweisungen, abgekürzt für _shift-left_, werden für eine bitweise Linksverschiebung verwendet, ähnlich wie der **`<<`**-Operator in anderen Sprachen.
 
 {{InteractiveExample("Wat Demo: shl", "tabbed-taller")}}
 
@@ -47,7 +47,7 @@ function numToBin(num) {
 
 ## Syntax
 
-```wasm
+```wat
 ;; load two numbers onto the stack
 i32.const 7   ;; 00000111
 i32.const 1   ;; left shift one spot
@@ -58,7 +58,7 @@ i32.shl
 ;; the top item on the stack will now be 14 (00001110)
 ```
 
-| Instruktion | Binäroperand |
-| ----------- | ------------ |
-| `i32.shl`   | `0x74`       |
-| `i64.shl`   | `0x86`       |
+| Anweisung | Binärer Opcode |
+| --------- | -------------- |
+| `i32.shl` | `0x74`         |
+| `i64.shl` | `0x86`         |

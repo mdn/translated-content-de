@@ -991,7 +991,7 @@ do {
 
 ## Überprüfen Sie Ihr Wissen!
 
-Sie haben das Ende dieses Artikels erreicht, aber können Sie sich die wichtigsten Informationen merken? Sie können einige weitere Tests finden, um zu überprüfen, ob Sie diese Informationen behalten haben, bevor Sie weitermachen — siehe [Überprüfen Sie Ihr Wissen: Schleifen](/de/docs/Learn_web_development/Core/Scripting/Test_your_skills:_Loops).
+Sie haben das Ende dieses Artikels erreicht, aber können Sie sich die wichtigsten Informationen merken? Sie können einige weitere Tests finden, um zu überprüfen, ob Sie diese Informationen behalten haben, bevor Sie weitermachen — siehe [Überprüfen Sie Ihr Wissen: Schleifen](/de/docs/Learn_web_development/Core/Scripting/Test_your_skills/Loops).
 
 ## Zusammenfassung
 

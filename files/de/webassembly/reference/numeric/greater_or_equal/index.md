@@ -2,10 +2,10 @@
 title: Größer oder gleich
 slug: WebAssembly/Reference/Numeric/Greater_or_equal
 l10n:
-  sourceCommit: 5af6da1da593fae9b3208eb9fd308213d5c3359c
+  sourceCommit: c0fc8c988385a0ce8ff63887f9a3263caf55a1f9
 ---
 
-Die **`ge`**-Anweisungen, Abkürzung für _größer oder gleich_, überprüfen, ob eine Zahl größer oder gleich einer anderen Zahl ist. Wenn die erste Zahl größer oder gleich der zweiten Zahl ist, wird `1` auf den Stapel geschoben, andernfalls wird `0` auf den Stapel geschoben.
+Die **`ge`**-Anweisungen, kurz für _größer oder gleich_, überprüfen, ob eine Zahl größer oder gleich einer anderen Zahl ist. Wenn die erste Zahl größer oder gleich der zweiten Zahl ist, wird `1` auf den Stapel gelegt, andernfalls wird `0` auf den Stapel gelegt.
 
 Die Ganzzahltypen haben separate Anweisungen für größer oder gleich für vorzeichenbehaftete (**`ge_s`**) und vorzeichenlose (**`ge_u`**) Zahlen.
 
@@ -41,7 +41,7 @@ await WebAssembly.instantiateStreaming(fetch(url), {
 
 ## Syntax
 
-```wasm
+```wat
 ;; load 2 numbers on to the stack
 local.get $num
 i32.const 2

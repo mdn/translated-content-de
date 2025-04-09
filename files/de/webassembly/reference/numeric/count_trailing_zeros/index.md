@@ -1,11 +1,11 @@
 ---
-title: Zähle nachfolgende Nullen
+title: Zählen von nachfolgenden Nullen
 slug: WebAssembly/Reference/Numeric/Count_trailing_zeros
 l10n:
-  sourceCommit: 5af6da1da593fae9b3208eb9fd308213d5c3359c
+  sourceCommit: c0fc8c988385a0ce8ff63887f9a3263caf55a1f9
 ---
 
-Die **`ctz`**-Anweisungen, eine Abkürzung für _count trailing zeros_, werden verwendet, um die Anzahl der Nullen am Ende der binären Darstellung von Zahlen zu zählen.
+Die **`ctz`**-Anweisungen, abgekürzt für _count trailing zeros_, werden verwendet, um die Anzahl der Nullen am Ende der binären Darstellung einer Zahl zu zählen.
 
 {{InteractiveExample("Wat Demo: ctz", "tabbed-taller")}}
 
@@ -39,7 +39,7 @@ await WebAssembly.instantiateStreaming(fetch(url), { console }).then(
 
 ## Syntax
 
-```wasm
+```wat
 ;; load a number onto the stack
 i32.const 8388608 ;; 00000000_10000000_00000000_00000000
 

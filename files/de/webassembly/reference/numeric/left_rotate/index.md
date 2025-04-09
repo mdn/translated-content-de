@@ -2,10 +2,10 @@
 title: Left rotate
 slug: WebAssembly/Reference/Numeric/Left_rotate
 l10n:
-  sourceCommit: 5af6da1da593fae9b3208eb9fd308213d5c3359c
+  sourceCommit: c0fc8c988385a0ce8ff63887f9a3263caf55a1f9
 ---
 
-Die **`rotl`**-Anweisungen, Kurzform für _rotate-left_, werden verwendet, um eine bitweise Linksrotation durchzuführen.
+Die **`rotl`** Anweisungen, kurz für _rotate-left_, werden für die Durchführung einer bitweisen Linksrotation verwendet.
 
 {{InteractiveExample("Wat Demo: rotl", "tabbed-taller")}}
 
@@ -47,7 +47,7 @@ function numToBin(num) {
 
 ## Syntax
 
-```wasm
+```wat
 ;; load two numbers onto the stack
 i32.const 3758096384 ;; 11100000_00000000_00000000_00000000
 i32.const 1          ;; left rotate one spot

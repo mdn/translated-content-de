@@ -2,10 +2,10 @@
 title: Convert
 slug: WebAssembly/Reference/Numeric/Convert
 l10n:
-  sourceCommit: 5af6da1da593fae9b3208eb9fd308213d5c3359c
+  sourceCommit: c0fc8c988385a0ce8ff63887f9a3263caf55a1f9
 ---
 
-Die **`convert`** Anweisungen werden verwendet, um ganze Zahlen in Gleitkommazahlen zu konvertieren. Es gibt signierte und unsignierte Versionen dieser Anweisung.
+Die **`convert`**-Anweisungen werden verwendet, um ganze Zahlen in Gleitkommazahlen umzuwandeln. Es gibt signierte und unsignierte Versionen dieser Anweisung.
 
 {{InteractiveExample("Wat Demo: convert", "tabbed-taller")}}
 
@@ -32,7 +32,7 @@ await WebAssembly.instantiateStreaming(fetch(url), { console });
 
 ## Syntax
 
-```wasm
+```wat
 ;; push an i32 onto the stack
 i32.const 10
 

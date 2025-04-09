@@ -2,10 +2,10 @@
 title: Division
 slug: WebAssembly/Reference/Numeric/Division
 l10n:
-  sourceCommit: 5af6da1da593fae9b3208eb9fd308213d5c3359c
+  sourceCommit: c0fc8c988385a0ce8ff63887f9a3263caf55a1f9
 ---
 
-Die **`div`**-Anweisungen, kurz für _Division_, werden verwendet, um eine Zahl durch eine andere zu dividieren, ähnlich dem **`/`**-Operator in anderen Sprachen.
+Die **`div`** Anweisungen, abgekürzt für _division_, werden verwendet, um eine Zahl durch eine andere zu teilen, ähnlich dem **`/`** Operator in anderen Sprachen.
 
 {{InteractiveExample("Wat Demo: div", "tabbed-taller")}}
 
@@ -31,7 +31,7 @@ await WebAssembly.instantiateStreaming(fetch(url), { console });
 
 ## Syntax
 
-```wasm
+```wat
 ;; load two numbers onto the stack
 i32.const 12
 i32.const 3

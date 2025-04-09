@@ -1,14 +1,14 @@
 ---
-title: "XPathResult: snapshotItem()-Methode"
+title: "XPathResult: snapshotItem() Methode"
 short-title: snapshotItem()
 slug: Web/API/XPathResult/snapshotItem
 l10n:
-  sourceCommit: acfe8c9f1f4145f77653a2bc64a9744b001358dc
+  sourceCommit: b8cd964ef488e9691252e02f6ad1ebd3293b8eaa
 ---
 
 {{APIRef("DOM XPath")}}
 
-Die **`snapshotItem()`**-Methode der [`XPathResult`](/de/docs/Web/API/XPathResult)-Schnittstelle gibt ein Element der Snapshot-Sammlung oder `null` zurück, falls der Index nicht innerhalb des Bereichs der Knoten liegt. Im Gegensatz zum Iterator-Ergebnis wird der Snapshot nicht ungültig, kann jedoch nach einer Änderung des Dokuments möglicherweise nicht mehr mit diesem übereinstimmen.
+Die **`snapshotItem()`**-Methode der [`XPathResult`](/de/docs/Web/API/XPathResult)-Schnittstelle gibt ein Element der Snapshot-Sammlung zurück oder `null`, falls der Index nicht innerhalb des Bereichs der Knoten liegt. Im Gegensatz zum Iterator-Resultat wird der Snapshot nicht ungültig, kann jedoch nicht mehr dem aktuellen Dokument entsprechen, wenn es verändert wird.
 
 ## Syntax
 
@@ -23,13 +23,16 @@ snapshotItem(i)
 
 ### Rückgabewert
 
-Der [`Node`](/de/docs/Web/API/Node) mit dem angegebenen Index innerhalb der Knotensammlung des `XPathResult`.
+Der [`Node`](/de/docs/Web/API/Node) am angegebenen Index innerhalb des Knotensets des
+`XPathResult`.
 
 ### Ausnahmen
 
 #### TYPE_ERR
 
-Falls [`XPathResult.resultType`](/de/docs/Web/API/XPathResult/resultType) nicht `UNORDERED_NODE_SNAPSHOT_TYPE` oder `ORDERED_NODE_SNAPSHOT_TYPE` ist, wird eine [`XPathException`](/de/docs/Web/API/XPathException) vom Typ `TYPE_ERR` ausgelöst.
+Falls [`XPathResult.resultType`](/de/docs/Web/API/XPathResult/resultType) nicht
+`UNORDERED_NODE_SNAPSHOT_TYPE` oder `ORDERED_NODE_SNAPSHOT_TYPE` ist, wird eine
+[`DOMException`](/de/docs/Web/API/DOMException) vom Typ `TYPE_ERR` ausgelöst.
 
 ## Beispiele
 

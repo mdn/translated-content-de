@@ -1,11 +1,11 @@
 ---
-title: Neuinterpretieren
+title: Reinterpretieren
 slug: WebAssembly/Reference/Numeric/Reinterpret
 l10n:
-  sourceCommit: 5af6da1da593fae9b3208eb9fd308213d5c3359c
+  sourceCommit: c0fc8c988385a0ce8ff63887f9a3263caf55a1f9
 ---
 
-Die **`reinterpret`** Anweisungen werden verwendet, um die Bits einer Zahl als einen anderen Typ neu zu interpretieren.
+Die **`reinterpret`**-Anweisungen werden verwendet, um die Bits einer Zahl als einen anderen Typ neu zu interpretieren.
 
 {{InteractiveExample("Wat Demo: reinterpret", "tabbed-taller")}}
 
@@ -33,7 +33,7 @@ await WebAssembly.instantiateStreaming(fetch(url), { console });
 
 ## Syntax
 
-```wasm
+```wat
 ;; the value `10000000_00000000_00000000_00000000` in binary
 ;; maps to `-0` as a floating point and to `-2147483648` as an integer
 

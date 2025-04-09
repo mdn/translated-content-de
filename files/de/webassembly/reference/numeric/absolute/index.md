@@ -2,10 +2,10 @@
 title: Absolut
 slug: WebAssembly/Reference/Numeric/Absolute
 l10n:
-  sourceCommit: 5af6da1da593fae9b3208eb9fd308213d5c3359c
+  sourceCommit: c0fc8c988385a0ce8ff63887f9a3263caf55a1f9
 ---
 
-Die **`abs`** Anweisungen, abgekürzt für _absolut_, werden verwendet, um den Absolutwert einer Zahl zu erhalten. Das heißt, es gibt x zurück, wenn x positiv ist, und die Negation von x, wenn x negativ ist.
+Die **`abs`** Anweisungen, kurz für _absolute_, werden verwendet, um den Absolutwert einer Zahl zu erhalten. Das bedeutet, sie gibt x zurück, wenn x positiv ist, und die Negation von x, wenn x negativ ist.
 
 {{InteractiveExample("Wat Demo: abs", "tabbed-standard")}}
 
@@ -30,7 +30,7 @@ await WebAssembly.instantiateStreaming(fetch(url), { console });
 
 ## Syntax
 
-```wasm
+```wat
 ;; load a number onto the stack
 f32.const -2
 

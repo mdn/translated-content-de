@@ -2,7 +2,7 @@
 title: Global
 slug: WebAssembly/Reference/Variables/Global
 l10n:
-  sourceCommit: 5af6da1da593fae9b3208eb9fd308213d5c3359c
+  sourceCommit: c0fc8c988385a0ce8ff63887f9a3263caf55a1f9
 ---
 
 Die **`global`**-Anweisung deklariert eine neue globale Variable.
@@ -42,7 +42,7 @@ await WebAssembly.instantiateStreaming(fetch(url), {
 
 ## Syntax
 
-```wasm
+```wat
 ;; declare new variable named $val of type i32
 (global $val i32)
 ```

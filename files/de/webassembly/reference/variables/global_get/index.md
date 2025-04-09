@@ -2,10 +2,10 @@
 title: Global get
 slug: WebAssembly/Reference/Variables/Global_get
 l10n:
-  sourceCommit: 5af6da1da593fae9b3208eb9fd308213d5c3359c
+  sourceCommit: c0fc8c988385a0ce8ff63887f9a3263caf55a1f9
 ---
 
-Der **`global.get`**-Befehl lädt den Wert einer globalen Variablen auf den Stack.
+Die **`global.get`**-Anweisung lädt den Wert einer globalen Variable auf den Stapel.
 
 {{InteractiveExample("Wat Demo: global_get", "tabbed-standard")}}
 
@@ -30,7 +30,7 @@ await WebAssembly.instantiateStreaming(fetch(url), { console });
 
 ## Syntax
 
-```wasm
+```wat
 ;; load the value of a global variable onto the stack
 global.get $val
 ```

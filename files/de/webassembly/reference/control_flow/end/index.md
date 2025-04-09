@@ -2,10 +2,10 @@
 title: end
 slug: WebAssembly/Reference/Control_flow/end
 l10n:
-  sourceCommit: 5af6da1da593fae9b3208eb9fd308213d5c3359c
+  sourceCommit: c0fc8c988385a0ce8ff63887f9a3263caf55a1f9
 ---
 
-**`end`** wird verwendet, um einen `block`, eine `Schleife`, ein `if` oder ein `else` zu beenden. In den anderen Beispielen haben wir die S-Expression-Syntax verwendet, die `end` nicht erfordert, daher werden Sie es in den anderen Beispielen hier nicht finden. Es ist jedoch dennoch nützlich, davon zu wissen, da dies das ist, was die Browser in den DevTools anzeigen.
+**`end`** wird verwendet, um einen `block`, `loop`, `if` oder `else` zu beenden. In den anderen Beispielen haben wir die s-Expression-Syntax verwendet, die das `end` nicht benötigt, deshalb werden Sie es in den anderen Beispielen hier nicht finden. Es ist jedoch trotzdem nützlich, darüber Bescheid zu wissen, da dies in den Entwicklerwerkzeugen der Browser angezeigt wird.
 
 {{InteractiveExample("Wat Demo: end", "tabbed-taller")}}
 
@@ -33,7 +33,7 @@ await WebAssembly.instantiateStreaming(fetch(url), { console });
 
 ## Syntax
 
-```wasm
+```wat
 i32.const 0
 if
   ;; do something

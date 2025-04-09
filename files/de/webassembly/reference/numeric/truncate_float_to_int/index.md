@@ -1,13 +1,13 @@
 ---
-title: Truncate (float zu int)
+title: Truncate (float to int)
 slug: WebAssembly/Reference/Numeric/Truncate_float_to_int
 l10n:
-  sourceCommit: 5af6da1da593fae9b3208eb9fd308213d5c3359c
+  sourceCommit: c0fc8c988385a0ce8ff63887f9a3263caf55a1f9
 ---
 
-Die **`trunc`**-Anweisungen werden zum Konvertieren von Gleitkommazahlen in ganze Zahlen verwendet. Der Name "truncate" leitet sich davon ab, dass der Bruchteil der Zahl bei der Konvertierung abgeschnitten wird. Es gibt sowohl signierte als auch unsignierte Versionen dieser Anweisung.
+Die **`trunc`**-Anweisungen werden verwendet, um Gleitkommazahlen in Ganzzahlen zu konvertieren. Sie heißen "trunc", weil sie den Bruchteil der Zahl bei der Konvertierung abschneiden. Es gibt sowohl signierte als auch unsignierte Versionen dieser Anweisung.
 
-Es gibt eine andere [**`trunc`**](/de/docs/WebAssembly/Reference/Numeric/Truncate_float_to_float)-Anweisung, die den Bruchteil einer Gleitkommazahl abschneidet, ohne sie in eine ganze Zahl zu konvertieren.
+Es gibt eine andere [**`trunc`**](/de/docs/WebAssembly/Reference/Numeric/Truncate_float_to_float) Anweisung, die den Bruchteil eines Gleitkommazahlenwerts abschneidet, ohne ihn in eine Ganzzahl umzuwandeln.
 
 {{InteractiveExample("Wat Demo: trunc_float_to_int", "tabbed-taller")}}
 
@@ -34,7 +34,7 @@ await WebAssembly.instantiateStreaming(fetch(url), { console });
 
 ## Syntax
 
-```wasm
+```wat
 ;; push an f32 onto the stack
 f32.const 10.5
 

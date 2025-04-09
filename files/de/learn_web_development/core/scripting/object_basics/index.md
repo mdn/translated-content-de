@@ -409,7 +409,7 @@ const myNotification = new Notification("Hello!");
 
 ## Testen Sie Ihr Wissen!
 
-Sie haben das Ende dieses Artikels erreicht, aber können Sie sich an die wichtigsten Informationen erinnern? Sie können einige weitere Tests finden, um zu überprüfen, ob Sie diese Informationen behalten haben, bevor Sie fortfahren — siehe [Testen Sie Ihr Wissen: Objektgrundlagen](/de/docs/Learn_web_development/Core/Scripting/Test_your_skills:_Object_basics).
+Sie haben das Ende dieses Artikels erreicht, aber können Sie sich an die wichtigsten Informationen erinnern? Sie können einige weitere Tests finden, um zu überprüfen, ob Sie diese Informationen behalten haben, bevor Sie fortfahren — siehe [Testen Sie Ihr Wissen: Objektgrundlagen](/de/docs/Learn_web_development/Core/Scripting/Test_your_skills/Object_basics).
 
 ## Zusammenfassung
 

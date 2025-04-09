@@ -2,12 +2,12 @@
 title: Weniger als
 slug: WebAssembly/Reference/Numeric/Less_than
 l10n:
-  sourceCommit: 5af6da1da593fae9b3208eb9fd308213d5c3359c
+  sourceCommit: c0fc8c988385a0ce8ff63887f9a3263caf55a1f9
 ---
 
-Die **`lt`**-Anweisungen, kurz für _less than_ (weniger als), überprüfen, ob eine Zahl kleiner als eine andere Zahl ist. Ist die erste Zahl kleiner als die zweite Zahl, wird `1` auf den Stapel gelegt, andernfalls wird `0` auf den Stapel gelegt.
+Die **`lt`**-Anweisungen, kurz für _weniger als_, überprüfen, ob eine Zahl kleiner als eine andere Zahl ist. Wenn die erste Zahl kleiner als die zweite Zahl ist, wird `1` auf den Stapel gelegt, andernfalls wird `0` auf den Stapel gelegt.
 
-Die Ganzzahltypen haben separate Anweisungen für "weniger als" für vorzeichenbehaftete (**`lt_s`**) und vorzeichenlose (**`lt_u`**) Zahlen.
+Die Ganzzahltypen haben separate Anweisungen für „weniger als“ für vorzeichenbehaftete (**`lt_s`**) und vorzeichenlose (**`lt_u`**) Zahlen.
 
 {{InteractiveExample("Wat Demo: lt", "tabbed-taller")}}
 
@@ -41,7 +41,7 @@ await WebAssembly.instantiateStreaming(fetch(url), {
 
 ## Syntax
 
-```wasm
+```wat
 ;; load 2 numbers on to the stack
 local.get $num
 i32.const 2

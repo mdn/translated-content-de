@@ -2,14 +2,14 @@
 title: return
 slug: WebAssembly/Reference/Control_flow/return
 l10n:
-  sourceCommit: 5af6da1da593fae9b3208eb9fd308213d5c3359c
+  sourceCommit: c0fc8c988385a0ce8ff63887f9a3263caf55a1f9
 ---
 
 **`return`** kehrt aus einer Funktion zurück.
 
 - Wenn sich keine Werte mehr auf dem Stapel befinden, wird nichts/void zurückgegeben.
-- Wenn sich die gleiche Anzahl an Werten auf dem Stapel befindet, wie im Typsignatur der Funktion angegeben, werden diese Werte zurückgegeben.
-- Wenn mehr Werte vorhanden sind, als der Rückgabetyp der Funktion angibt, werden die obersten N Werte zurückgegeben und die übrigen Werte auf dem Stapel werden verworfen.
+- Wenn sich die gleiche Anzahl von Werten auf dem Stapel befindet, wie im Typensignatur der Funktion angegeben, werden diese Werte zurückgegeben.
+- Wenn es mehr Werte gibt, als der Rückgabetyp der Funktion angibt, werden die obersten N Werte zurückgegeben und die verbleibenden Werte auf dem Stapel verworfen.
 
 {{InteractiveExample("Wat Demo: return", "tabbed-taller")}}
 
@@ -37,17 +37,17 @@ await WebAssembly.instantiateStreaming(fetch(url)).then((result) => {
 
 ## Syntax
 
-```wasm
+```wat
 f32.const 4.3
 return
 ```
 
-```wasm
+```wat
 i32.const 7
 f32.const 4.3
 return
 ```
 
-| Anweisung | Binäres Opcode |
+| Anweisung | Binärer Opcode |
 | --------- | -------------- |
 | `return`  | `0x0f`         |

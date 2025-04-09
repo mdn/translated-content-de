@@ -1,24 +1,28 @@
 ---
-title: "XPathResult: booleanValue-Eigenschaft"
+title: "XPathResult: Eigenschaft booleanValue"
 short-title: booleanValue
 slug: Web/API/XPathResult/booleanValue
 l10n:
-  sourceCommit: 4de6f76bbfd76229db78ffb7d52cf6b4cb9f31f8
+  sourceCommit: b8cd964ef488e9691252e02f6ad1ebd3293b8eaa
 ---
 
 {{APIRef("DOM XPath")}} {{AvailableInWorkers}}
 
-Die schreibgeschützte **`booleanValue`**-Eigenschaft des [`XPathResult`](/de/docs/Web/API/XPathResult)-Interfaces gibt den booleschen Wert eines Ergebnisses zurück, wobei [`XPathResult.resultType`](/de/docs/Web/API/XPathResult/resultType) `BOOLEAN_TYPE` ist.
+Die schreibgeschützte **`booleanValue`**-Eigenschaft des
+[`XPathResult`](/de/docs/Web/API/XPathResult)-Interfaces gibt den Booleschen Wert eines Ergebnisses zurück, wenn
+[`XPathResult.resultType`](/de/docs/Web/API/XPathResult/resultType) `BOOLEAN_TYPE` ist.
 
 ## Wert
 
-Der Rückgabewert ist der boolesche Wert des `XPathResult`, das von [`Document.evaluate()`](/de/docs/Web/API/Document/evaluate) zurückgegeben wird.
+Der Rückgabewert ist der Boolesche Wert des `XPathResult`, der von
+[`Document.evaluate()`](/de/docs/Web/API/Document/evaluate) zurückgegeben wird.
 
 ### Ausnahmen
 
 #### TYPE_ERR
 
-Falls [`XPathResult.resultType`](/de/docs/Web/API/XPathResult/resultType) nicht `BOOLEAN_TYPE` ist, wird eine [`XPathException`](/de/docs/Web/API/XPathException) vom Typ `TYPE_ERR` ausgelöst.
+Falls [`XPathResult.resultType`](/de/docs/Web/API/XPathResult/resultType) nicht `BOOLEAN_TYPE` ist, wird eine
+[`DOMException`](/de/docs/Web/API/DOMException) vom Typ `TYPE_ERR` ausgelöst.
 
 ## Beispiele
 

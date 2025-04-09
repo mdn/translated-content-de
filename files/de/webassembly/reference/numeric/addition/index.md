@@ -2,10 +2,10 @@
 title: Addition
 slug: WebAssembly/Reference/Numeric/Addition
 l10n:
-  sourceCommit: 5af6da1da593fae9b3208eb9fd308213d5c3359c
+  sourceCommit: c0fc8c988385a0ce8ff63887f9a3263caf55a1f9
 ---
 
-Die **`add`**-Anweisungen werden verwendet, um zwei Zahlen zusammenzuzählen, ähnlich dem **`+`**-Operator in anderen Sprachen.
+Die **`add`**-Anweisungen werden verwendet, um zwei Zahlen zu addieren, ähnlich dem **`+`**-Operator in anderen Sprachen.
 
 {{InteractiveExample("Wat Demo: add", "tabbed-taller")}}
 
@@ -31,7 +31,7 @@ await WebAssembly.instantiateStreaming(fetch(url), { console });
 
 ## Syntax
 
-```wasm
+```wat
 ;; load two numbers onto the stack
 i32.const 10
 i32.const 3

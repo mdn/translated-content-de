@@ -1,32 +1,32 @@
 ---
-title: "XPathResult: stringValue Eigenschaft"
+title: "XPathResult: stringValue-Eigenschaft"
 short-title: stringValue
 slug: Web/API/XPathResult/stringValue
 l10n:
-  sourceCommit: 4de6f76bbfd76229db78ffb7d52cf6b4cb9f31f8
+  sourceCommit: b8cd964ef488e9691252e02f6ad1ebd3293b8eaa
 ---
 
 {{APIRef("DOM XPath")}} {{AvailableInWorkers}}
 
-Die schreibgeschützte **`stringValue`** Eigenschaft der
-[`XPathResult`](/de/docs/Web/API/XPathResult) Schnittstelle gibt den Zeichenfolgenwert eines Ergebnisses zurück, wenn
+Die schreibgeschützte **`stringValue`**-Eigenschaft des
+[`XPathResult`](/de/docs/Web/API/XPathResult)-Interfaces gibt den String-Wert eines Ergebnisses zurück, dessen
 [`XPathResult.resultType`](/de/docs/Web/API/XPathResult/resultType) `STRING_TYPE` ist.
 
 ## Wert
 
-Der Rückgabewert ist der Zeichenfolgenwert des `XPathResult`, der von
-[`Document.evaluate()`](/de/docs/Web/API/Document/evaluate) zurückgegeben wird.
+Der Rückgabewert ist der String-Wert des von
+[`Document.evaluate()`](/de/docs/Web/API/Document/evaluate) zurückgegebenen `XPathResult`.
 
 ### Ausnahmen
 
 #### TYPE_ERR
 
 Falls [`XPathResult.resultType`](/de/docs/Web/API/XPathResult/resultType) nicht `STRING_TYPE` ist, wird eine
-[`XPathException`](/de/docs/Web/API/XPathException) vom Typ `TYPE_ERR` ausgelöst.
+[`DOMException`](/de/docs/Web/API/DOMException) vom Typ `TYPE_ERR` ausgelöst.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt die Verwendung der `stringValue` Eigenschaft.
+Das folgende Beispiel zeigt die Verwendung der `stringValue`-Eigenschaft.
 
 ### HTML
 

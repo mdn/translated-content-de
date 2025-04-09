@@ -2,18 +2,20 @@
 title: <hue-interpolation-method>
 slug: Web/CSS/hue-interpolation-method
 l10n:
-  sourceCommit: a075805de90029b65fa5cfcc8ea43737728320f5
+  sourceCommit: d39b74c4aeaee039054533aed2e3098664bb2617
 ---
 
 {{CSSRef}}
 
-Der **`<hue-interpolation-method>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_data_types) repräsentiert den Algorithmus, der für die Interpolation zwischen {{CSSXref("&lt;hue&gt;")}}-Werten verwendet wird. Die Interpolationsmethode legt fest, wie ein Mittelpunkt zwischen zwei Farbtonwerten basierend auf einem Farbkreis gefunden wird. Sie wird als Bestandteil des Datentyps {{CSSXref("&lt;color-interpolation-method&gt;")}} verwendet.
+Der **`<hue-interpolation-method>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_data_types) repräsentiert den Algorithmus, der zur Interpolation zwischen {{CSSXref("&lt;hue&gt;")}} Werten verwendet wird.
+Die Interpolationsmethode gibt an, wie ein Mittelpunkt zwischen zwei Farbtonwerten basierend auf einem Farbkreis gefunden wird.
+Es wird als Komponente des {{CSSXref("&lt;color-interpolation-method&gt;")}} Datentyps verwendet.
 
-Bei der Interpolation von `<hue>`-Werten verwendet der Farbton-Interpolationsalgorithmus standardmäßig [`shorter`](#shorter).
+Bei der Interpolation von `<hue>` Werten ist der Standardalgorithmus zur Farbtoninterpolation [`shorter`](#shorter).
 
 ## Syntax
 
-Ein `<hue-interpolation-method>`-Wert besteht aus dem Namen eines Farbton-Interpolationsalgorithmus, gefolgt von einem literalen Token `hue`:
+Ein `<hue-interpolation-method>` Wert besteht aus dem Namen eines Farbtoninterpolations-Algorithmus, gefolgt von einem wörtlichen Token `hue`:
 
 ```plain
 shorter hue
@@ -24,19 +26,19 @@ decreasing hue
 
 ### Werte
 
-Jedes Paar von Farbtonwinkeln entspricht zwei Radien auf dem {{Glossary("color_wheel", "Farbkreis")}}, die den Umfang in zwei mögliche Bögen für die Interpolation aufteilen. Beide Bögen beginnen am ersten Radius und enden am zweiten Radius, wobei einer im Uhrzeigersinn und der andere gegen den Uhrzeigersinn verläuft.
+Jedes Paar von Farbtonwinkeln entspricht zwei Radien auf dem {{Glossary("color_wheel", "Farbkreis")}}, die den Umfang in zwei mögliche Bögen zur Interpolation teilen. Beide Bögen beginnen beim ersten Radius und enden beim zweiten Radius, jedoch geht einer im Uhrzeigersinn und der andere gegen den Uhrzeigersinn.
 
 > [!NOTE]
-> Die folgenden Beschreibungen und Abbildungen basieren auf Farbkreisen, bei denen Farbtonwinkel im Uhrzeigersinn zunehmen. Beachten Sie, dass es Farbkreise gibt, bei denen eine Zunahme der Winkel gegen den Uhrzeigersinn erfolgt.
+> Die folgenden Beschreibungen und Abbildungen basieren auf Farbkreisen, bei denen die Farbtonwinkel in Uhrzeigerrichtung zunehmen. Beachten Sie, dass es auch Farbkreise gibt, bei denen eine Zunahme der Winkel eine gegen den Uhrzeigersinn verlaufende Operation ist.
 
-Für ein Paar von Farbtonwinkeln `θ1` und `θ2`, die auf den Bereich `[0deg, 360deg)` normalisiert sind, gibt es vier Algorithmen, um zu bestimmen, welcher Bogen bei der Interpolation von `θ1` nach `θ2` verwendet wird:
+Für ein Paar von Farbtonwinkeln `θ1` und `θ2`, die im Bereich `[0deg, 360deg)` normalisiert sind, gibt es vier Algorithmen, um zu bestimmen, welcher Bogen verwendet wird, wenn von `θ1` nach `θ2` interpoliert wird:
 
 - `shorter`
 
-  - : Verwendet den kürzeren Bogen. Wenn die beiden Radien zusammenfallen, degeneriert der Bogen zu einem einzigen Punkt. Wenn beide Bögen gleich lang sind:
+  - : Verwenden Sie den kürzeren Bogen. Wenn die beiden Radien zusammenfallen, degeneriert der Bogen zu einem einzelnen Punkt. Wenn beide Bögen die gleiche Länge haben:
 
-    - Wenn `θ1 < θ2`, wird der Bogen im Uhrzeigersinn verwendet;
-    - Wenn `θ1 > θ2`, wird der Bogen gegen den Uhrzeigersinn verwendet.
+    - Wenn `θ1 < θ2`, verwenden Sie den Uhrzeigersinn-Bogen;
+    - Wenn `θ1 > θ2`, verwenden Sie den gegen den Uhrzeigersinn verlaufenden Bogen.
 
     | `θ1 = 45deg`, `θ2 = 135deg`                                       | `θ1 = 135deg`, `θ2 = 45deg`                                       |
     | ----------------------------------------------------------------- | ----------------------------------------------------------------- |
@@ -44,15 +46,15 @@ Für ein Paar von Farbtonwinkeln `θ1` und `θ2`, die auf den Bereich `[0deg, 36
 
 - `longer`
 
-  - : Verwendet den längeren Bogen. Wenn die beiden Radien zusammenfallen:
+  - : Verwenden Sie den längeren Bogen. Wenn die beiden Radien zusammenfallen:
 
-    - Wenn `θ1 ≤ θ2`, wird der Bogen zum gesamten Umfang mit Uhrzeigersinn-Orientierung.
-    - Wenn `θ1 > θ2`, wird der Bogen zum gesamten Umfang mit gegen den Uhrzeigersinn-Orientierung.
+    - Wenn `θ1 ≤ θ2`, wird der Bogen mit einer Uhrzeigerrichtung zum vollständigen Umfang.
+    - Wenn `θ1 > θ2`, wird der Bogen mit einer gegen den Uhrzeigersinn verlaufenden Richtung zum vollständigen Umfang.
 
-    Wenn beide Bögen gleich lang sind:
+    Wenn beide Bögen die gleiche Länge haben:
 
-    - Wenn `θ1 < θ2`, wird der Bogen im Uhrzeigersinn verwendet;
-    - Wenn `θ1 > θ2`, wird der Bogen gegen den Uhrzeigersinn verwendet.
+    - Wenn `θ1 < θ2`, verwenden Sie den Uhrzeigersinn-Bogen;
+    - Wenn `θ1 > θ2`, verwenden Sie den gegen den Uhrzeigersinn verlaufenden Bogen.
 
     | `θ1 = 45deg`, `θ2 = 135deg`                                     | `θ1 = 135deg`, `θ2 = 45deg`                                     |
     | --------------------------------------------------------------- | --------------------------------------------------------------- |
@@ -60,7 +62,7 @@ Für ein Paar von Farbtonwinkeln `θ1` und `θ2`, die auf den Bereich `[0deg, 36
 
 - `increasing`
 
-  - : Verwendet den Bogen im Uhrzeigersinn. Wenn die beiden Radien zusammenfallen, degeneriert der Bogen zu einem einzigen Punkt.
+  - : Verwenden Sie den Uhrzeigersinn-Bogen. Wenn die beiden Radien zusammenfallen, degeneriert der Bogen zu einem einzelnen Punkt.
 
     | `θ1 = 45deg`, `θ2 = 135deg`                                          | `θ1 = 135deg`, `θ2 = 45deg`                                         |
     | -------------------------------------------------------------------- | ------------------------------------------------------------------- |
@@ -68,18 +70,18 @@ Für ein Paar von Farbtonwinkeln `θ1` und `θ2`, die auf den Bereich `[0deg, 36
 
 - `decreasing`
 
-  - : Verwendet den Bogen gegen den Uhrzeigersinn. Wenn die beiden Radien zusammenfallen, degeneriert der Bogen zu einem einzigen Punkt.
+  - : Verwenden Sie den gegen den Uhrzeigersinn verlaufenden Bogen. Wenn die beiden Radien zusammenfallen, degeneriert der Bogen zu einem einzelnen Punkt.
 
     | `θ1 = 45deg`, `θ2 = 135deg`                                         | `θ1 = 135deg`, `θ2 = 45deg`                                          |
     | ------------------------------------------------------------------- | -------------------------------------------------------------------- |
     | ![decreasing mit θ1 = 45deg und θ2 = 135deg](longer_decreasing.png) | ![decreasing mit θ1 = 135deg und θ2 = 45deg](shorter_decreasing.png) |
 
-Da es nur zwei Bögen zur Auswahl gibt, sind diese Algorithmen unter bestimmten Umständen paarweise gleichwertig. Insbesondere:
+Da es nur zwei Bögen zur Auswahl gibt, sind diese Algorithmen paarweise unter bestimmten Umständen gleichwertig. Speziell:
 
 - Wenn `0deg < θ2 - θ1 < 180deg` oder `θ2 - θ1 < -180deg`, sind `shorter` und `increasing` gleichwertig, während `longer` und `decreasing` gleichwertig sind.
 - Wenn `-180deg < θ2 - θ1 < 0deg` oder `θ2 - θ1 > 180deg`, sind `shorter` und `decreasing` gleichwertig, während `longer` und `increasing` gleichwertig sind.
 
-Ein bemerkenswertes Merkmal von `increasing` und `decreasing` ist, dass, wenn der Farbtonwinkeldifferenz während einer Transition oder Animation durch `180deg` geht, der Bogen nicht wie bei `shorter` und `longer` auf die andere Seite wechselt.
+Eine bemerkenswerte Eigenschaft von `increasing` und `decreasing` ist, dass wenn der Farbtonwinkeldifferenz während einer Übergang oder Animation `180deg` durchläuft, der Bogen nicht wie bei `shorter` und `longer` auf die andere Seite umklappen wird.
 
 ## Formale Syntax
 

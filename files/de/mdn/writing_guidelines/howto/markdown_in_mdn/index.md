@@ -3,29 +3,29 @@ title: Anleitung zum Schreiben in Markdown
 short-title: Schreiben in Markdown
 slug: MDN/Writing_guidelines/Howto/Markdown_in_MDN
 l10n:
-  sourceCommit: af98ab1715ff54825888ef1f7f13d6e3e3bf90b8
+  sourceCommit: c0fc8c988385a0ce8ff63887f9a3263caf55a1f9
 ---
 
-Diese Seite beschreibt, wie wir Markdown verwenden, um Dokumentation auf MDN Web Docs zu schreiben. Wir haben uns für GitHub-Flavored Markdown (GFM) als Grundlage entschieden und Erweiterungen hinzugefügt, um die Anforderungen von MDN zu unterstützen.
+Diese Seite beschreibt, wie wir Markdown verwenden, um Dokumentation auf den MDN Web Docs zu schreiben. Wir haben uns für GitHub-Flavored Markdown (GFM) als Basis entschieden und Erweiterungen hinzugefügt, um die Anforderungen auf MDN zu erfüllen.
 
-## Grundlage: GitHub-Flavored Markdown
+## Basis: GitHub-Flavored Markdown
 
-Die Grundlage für MDN Markdown ist GitHub-Flavored Markdown (GFM): <https://github.github.com/gfm/>. Dies bedeutet, dass Sie sich auf die GFM-Spezifikation beziehen können, wenn etwas auf dieser Seite nicht ausdrücklich angegeben ist. GFM ist wiederum eine Erweiterung von CommonMark (<https://spec.commonmark.org/>).
+Die Basis für MDN Markdown ist GitHub-Flavored Markdown (GFM): <https://github.github.com/gfm/>. Das bedeutet, dass Sie sich auf die GFM-Spezifikation beziehen können für alles, was in dieser Seite nicht ausdrücklich festgelegt ist. GFM ist wiederum eine Obermenge von CommonMark (<https://spec.commonmark.org/>).
 
 ## Links
 
 Die GFM-Spezifikation definiert zwei grundlegende Arten von Links:
 
-- [Inline-Links](https://github.github.com/gfm/#inline-link), bei denen das Ziel unmittelbar nach dem Linktext angegeben wird.
-- [Referenz-Links](https://github.github.com/gfm/#reference-link), bei denen das Ziel an anderer Stelle im Dokument definiert wird.
+- [Inline-Links](https://github.github.com/gfm/#inline-link), bei denen das Ziel direkt nach dem Linktext angegeben wird.
+- [Referenz-Links](https://github.github.com/gfm/#reference-link), bei denen das Ziel an anderer Stelle im Dokument definiert ist.
 
-Auf MDN erlauben wir nur Inline-Links. Dies ist die korrekte Vorgehensweise, um GFM-Links auf MDN zu schreiben:
+Auf MDN erlauben wir nur Inline-Links. Dies ist der richtige Weg, um GFM-Links auf MDN zu schreiben:
 
 ```md example-good
 [Macarons](https://en.wikipedia.org/wiki/Macaron) are delicious but tricky to make.
 ```
 
-Dies ist eine inkorrekte Vorgehensweise, um Links auf MDN zu schreiben:
+Dies ist ein falscher Weg, um Links auf MDN zu schreiben:
 
 ```md example-bad
 [Macarons][macaron] are delicious but tricky to make.
@@ -35,7 +35,7 @@ Dies ist eine inkorrekte Vorgehensweise, um Links auf MDN zu schreiben:
 
 ## Beispiel-Codeblöcke
 
-In GFM und CommonMark können Autoren "Codezaun" verwenden, um `<pre>`-Blöcke zu markieren. Der öffnende Codezaun kann von einem Text gefolgt werden, der als "Info-String" bezeichnet wird. Die Sprache des Codebeispiels muss mit dem ersten Wort des Info-Strings angegeben werden, und diese wird verwendet, um die Syntaxhervorhebung für den Block bereitzustellen. Die folgenden Wörter werden unterstützt:
+In GFM und CommonMark können Autoren "Code-Zäune" verwenden, um `<pre>`-Blöcke zu kennzeichnen. Der öffnende Code-Zaun kann von einem Text gefolgt werden, der als "Info-String" bezeichnet wird. Die Sprache des Codebeispiels muss unter Verwendung des ersten Wortes des Info-Strings festgelegt werden, und dies wird verwendet, um Syntax-Highlighting für den Block bereitzustellen. Die folgenden Wörter werden unterstützt:
 
 - Programmiersprachen
   - JavaScript
@@ -54,7 +54,7 @@ In GFM und CommonMark können Autoren "Codezaun" verwenden, um `<pre>`-Blöcke z
     - `rust` - Rust
     - `glsl` - GLSL (OpenGL Shaders)
     - `sql` - SeQueL-Befehle
-    - `wasm` - WebAssembly
+    - `wat` - WebAssembly
     - `webidl` - Web Interface Definition Language
 - Styling
   - `css` - CSS
@@ -67,7 +67,7 @@ In GFM und CommonMark können Autoren "Codezaun" verwenden, um `<pre>`-Blöcke z
   - `mathml` - MathML
   - `md` - Markdown
   - `latex` - LaTeX
-- Kommandozeilen
+- Eingabeaufforderungen
   - `bash` - Bash/Shell
   - `batch` - Batch (Windows Shell)
   - `powershell` - PowerShell
@@ -76,17 +76,17 @@ In GFM und CommonMark können Autoren "Codezaun" verwenden, um `<pre>`-Blöcke z
   - `ini` - INI
   - `yaml` - YAML
   - `toml` - TOML
-  - `sql` - SQL Datenbank
-  - `ignore` - Gitignore Datei
+  - `sql` - SQL-Datenbank
+  - `ignore` - Gitignore-Datei
   - `apacheconf` - Apache-Konfiguration
   - `nginx` - NGINX-Konfiguration
 - Vorlagen
   - `django` - Django-Vorlagen
   - `svelte` - Svelte-Vorlagen
   - `hbs` - Handlebars-Vorlagen
-  - `pug` - [Pug-Vorlagen](https://pugjs.org/api/getting-started.html) (die von [Express](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/Displaying_data/Template_primer) verwendet werden können)
+  - `pug` - [Pug-Vorlagen](https://pugjs.org/api/getting-started.html) (die möglicherweise von [Express](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/Displaying_data/Template_primer) verwendet werden)
 - Andere
-  - `plain` - Klartext
+  - `plain` - Einfacher Text
   - `diff` - Diff-Datei
   - `http` - HTTP-Header
   - `regex` - Regex
@@ -100,14 +100,14 @@ const greeting = "I will get JavaScript syntax highlighting";
 ```
 ````
 
-Wenn die von Ihnen gewünschte Hervorhebung nicht in der obigen Liste enthalten ist, sollten Sie den Codeblock als `plain` markieren. Zusätzliche Sprachen können im Prozess [auf GitHub diskutiert](https://github.com/orgs/mdn/discussions/170#discussioncomment-3404366) werden.
+Wenn das gewünschte Highlighting nicht in der Liste aufgeführt ist, sollten Sie den Codeblock als `plain` markieren. Zusätzliche Sprachen können im Prozess [auf GitHub besprochen](https://github.com/orgs/mdn/discussions/170#discussioncomment-3404366) angefordert werden.
 
 > [!NOTE]
-> Verwenden Sie den Sprachidentifier genau wie oben aufgeführt. Zum Beispiel ist `javascript` nicht erlaubt, Sie müssen `js` schreiben.
+> Verwenden Sie die Sprachkennung genau wie oben aufgeführt. Zum Beispiel ist `javascript` nicht erlaubt und Sie müssen `js` schreiben.
 
 ### Linting unterdrücken
 
-Autoren können ein `-nolint`-Suffix zu jedem der Sprachidentifier hinzufügen:
+Autoren können ein `-nolint`-Suffix zu jeder der Sprachkennungen hinzufügen:
 
 ````md-nolint
 ```html-nolint
@@ -117,17 +117,17 @@ I will not be linted.
 ```
 ````
 
-Codeblöcke wie dieser erhalten eine entsprechende Syntaxhervorhebung und werden vom Live-Beispiel-System erkannt, aber von Lintern oder automatischen Formatierern wie Prettier ignoriert. Autoren sollten dieses Suffix verwenden, um ungültigen Code oder alternative Formatierungen anzuzeigen, die Linter oder Formatierer nicht beheben sollten.
+Solche Codeblöcke erhalten das entsprechende Syntax-Highlighting und werden vom Live-Beispielsystel erkannt, aber von Lintern oder automatischen Formatierern wie Prettier ignoriert. Autoren sollten dieses Suffix verwenden, um ungültigen Code oder alternative Formatierung darzustellen, die Linter oder Formatter nicht beheben sollten.
 
 ### Zusätzliche Klassen (Info-Strings)
 
-GFM unterstützt [Info-Strings](https://github.github.com/gfm/#info-string), die es Autoren ermöglichen, zusätzliche Informationen über einen Codeblock bereitzustellen. Auf MDN werden Info-Strings in Klassennamen umgewandelt.
+GFM unterstützt [Info-Strings](https://github.github.com/gfm/#info-string), mit denen Autoren zusätzliche Informationen zu einem Codeblock angeben können. Auf MDN werden Info-Strings in Klassennamen umgewandelt.
 
-Autoren können einen der folgenden Info-Strings bereitstellen:
+Autoren können einen der folgenden Info-Strings angeben:
 
-- `example-good`: Dieser Beispielstil wird als gutes Beispiel (zur Nachahmung) angezeigt.
-- `example-bad`: Dieser Beispielstil wird als schlechtes Beispiel (zu vermeiden) angezeigt.
-- `hidden`: Dieser Codeblock wird auf der Seite nicht gerendert. Dies wird für Live-Beispiele verwendet.
+- `example-good`: Dieses Beispiel als ein gutes Beispiel (nachzuahmen) gestalten
+- `example-bad`: Dieses Beispiel als ein schlechtes Beispiel (zu vermeiden) gestalten
+- `hidden`: Diesen Codeblock auf der Seite nicht rendern. Dies ist für die Verwendung in Live-Beispielen.
 
 Zum Beispiel:
 
@@ -145,7 +145,7 @@ const greeting = "I'm a secret greeting";
 ```
 ````
 
-Diese werden gerendert als:
+Diese werden wie folgt gerendert:
 
 ```js example-good
 const greeting = "I'm a good example";
@@ -155,7 +155,7 @@ const greeting = "I'm a good example";
 const greeting = "I'm a bad example";
 ```
 
-### Diskussionsreferenz
+### Diskussion Referenz
 
 Dieses Problem wurde gelöst in:
 
@@ -164,28 +164,28 @@ Dieses Problem wurde gelöst in:
 
 ## Hinweise, Warnungen und Hinweise
 
-Autoren können die [GFM-Alarm-Syntax](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#alerts) verwenden, um besonders auf Inhalte hinzuweisen. Es gibt drei Arten von Warnungen: Hinweise, Warnungen und Callouts.
+Autoren können die [GFM-Alerts-Syntax](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#alerts) verwenden, um besondere Aufmerksamkeit auf Inhalte zu lenken. Es gibt drei Arten von Alerts: Hinweise, Warnungen und Hinweise.
 
 > [!NOTE]
-> MDN Web Docs hat Alarme mit ihrer eigenen Syntax unterstützt, bevor es Unterstützung für GFM-Alarme gab, und sie als "Notizblöcke" bezeichnet.
-> MDN unterstützt die folgenden GFM-Alarme nicht: `[!TIP]`, `[!CAUTION]`, `[!IMPORTANT]`.
+> MDN Web Docs unterstützten Alerts mit eigener Syntax vor der Unterstützung für GFM-Alerts und bezeichneten sie als "Noteblocks".
+> MDN unterstützt nicht die folgenden GFM-Alerts: `[!TIP]`, `[!CAUTION]`, `[!IMPORTANT]`.
 > GFM unterstützt `[!CALLOUT]` nicht.
 
 - Um einen Hinweis hinzuzufügen, erstellen Sie ein Blockzitat, dessen erste Zeile `[!NOTE]` ist.
 - Um eine Warnung hinzuzufügen, erstellen Sie ein Blockzitat, dessen erste Zeile `[!WARNING]` ist.
-- Um einen Callout hinzuzufügen, erstellen Sie ein Blockzitat, dessen erste Zeile `[!CALLOUT]` ist.
+- Um einen Hinweis hinzuzufügen, erstellen Sie ein Blockzitat, dessen erste Zeile `[!CALLOUT]` ist.
 
-Hinweise und Warnungen fügen einen lokalisierten **Hinweis:** oder **Warnung:** am Anfang der Ausgabe hinzu, während Callouts dies nicht tun. Dies macht Callouts zu einer guten Wahl, wenn ein Autor einen benutzerdefinierten Titel bereitstellen möchte.
+Hinweise und Warnungen fügen dem Anfang der Ausgabe ein lokalisiertes **Hinweis:** oder **Warnung:** hinzu, während Hinweise dies nicht tun. Dies macht Hinweise zu einer guten Wahl, wenn ein Autor einen benutzerdefinierten Titel bereitstellen möchte.
 
 > [!WARNING]
-> In der älteren MDN-Syntax wurde der Typ lokalisiert und dem ersten Absatz in fettem Text hinzugefügt, also `**Hinweis:** Foo bar` statt `[!NOTE] ⏎ Foo bar`.
+> In der älteren MDN-Syntax wurde der Typ lokalisiert und dem ersten Absatz in Fettdruck hinzugefügt, z.B. `**Hinweis:** Foo bar` anstelle von `[!NOTE] ⏎ Foo bar`.
 >
-> Die ältere Syntax wird aus Migrationsgründen weiterhin unterstützt. Vermeiden Sie ihre Verwendung in neuer Dokumentation.
+> Die ältere Syntax wird aus Migrationsgründen weiterhin unterstützt. Vermeiden Sie die Verwendung in neuer Dokumentation.
 
 > [!WARNING]
-> Aufgrund eines [Prettier-Bugs](https://github.com/prettier/prettier/issues/15479) kann die GFM-Alarm-Syntax derzeit nicht verwendet werden, wenn das erste Zeichen eines Hinweises oder einer Warnung ein Formatierungssymbol ist, wie z.B. ein Backquote, Sternchen, eckige Klammer oder geschweifte Klammer. In diesem Fall verwenden Sie die alte Syntax `> **Hinweis:**` stattdessen. Autoren müssen den Inhalt nicht umformulieren, um die Einschränkung des Formatierers zu umgehen.
+> Aufgrund eines [Prettier-Bugs](https://github.com/prettier/prettier/issues/15479) kann die GFM-Alerts-Syntax derzeit nicht verwendet werden, wenn das erste Zeichen eines Hinweises oder einer Warnung ein Formatierungssymbol ist, wie beispielsweise ein Backquote, ein Sternchen, eine eckige oder geschweifte Klammer. In diesem Fall verwenden Sie die alte Syntax `> **Hinweis:**`. Autoren müssen den Inhalt nicht umformulieren, um den Formatter zu umgehen.
 
-Mehrere Zeilen werden wie bei normalen Absätzen durch eine leere Blockzitatzeile produziert. Außerdem werden mehrere Zeilen ohne Leerzeichen wie normale Markdown-Zeilen behandelt und verkettet.
+Mehrere Zeilen werden durch eine leere Blockzitatzeile auf die gleiche Weise wie normale Absätze erzeugt. Darüber hinaus werden mehrere Zeilen ohne Leerzeichen wie normale Markdown-Zeilen behandelt und verketten.
 
 Das Blockzitat kann Codeblöcke oder andere Blockelemente enthalten.
 
@@ -200,7 +200,7 @@ Das Blockzitat kann Codeblöcke oder andere Blockelemente enthalten.
 > It can have multiple lines.
 ```
 
-Dies erzeugt das folgende HTML:
+Dies wird das folgende HTML erzeugen:
 
 ```html
 <div class="notecard note">
@@ -209,12 +209,12 @@ Dies erzeugt das folgende HTML:
 </div>
 ```
 
-Dieses HTML wird als hervorgehobenes Kästchen gerendert:
+Dieses HTML wird als hervorgehobenes Feld gerendert:
 
 > [!NOTE]
 > So schreiben Sie einen Hinweis.
 >
-> Es kann mehrere Zeilen haben.
+> Er kann mehrere Zeilen haben.
 
 #### Warnungen
 
@@ -225,7 +225,7 @@ Dieses HTML wird als hervorgehobenes Kästchen gerendert:
 > It can have multiple paragraphs.
 ```
 
-Dies erzeugt das folgende HTML:
+Dies wird das folgende HTML erzeugen:
 
 ```html
 <div class="notecard warning">
@@ -234,14 +234,14 @@ Dies erzeugt das folgende HTML:
 </div>
 ```
 
-Dieses HTML wird als hervorgehobenes Kästchen gerendert:
+Dieses HTML wird als hervorgehobenes Feld gerendert:
 
 > [!WARNING]
 > So schreiben Sie eine Warnung.
 >
 > Es kann mehrere Absätze haben.
 
-#### Callouts
+#### Hinweise
 
 ```md
 > [!CALLOUT]
@@ -251,7 +251,7 @@ Dieses HTML wird als hervorgehobenes Kästchen gerendert:
 > It can have multiple paragraphs.
 ```
 
-Dies erzeugt das folgende HTML:
+Dies wird das folgende HTML erzeugen:
 
 ```html
 <div class="callout">
@@ -260,13 +260,13 @@ Dies erzeugt das folgende HTML:
 </div>
 ```
 
-Dieses HTML wird als hervorgehobenes Kästchen gerendert:
+Dieses HTML wird als hervorgehobenes Feld gerendert:
 
 > [!CALLOUT]
 >
-> **So schreiben Sie einen Callout.**
+> **So schreiben Sie einen Hinweis.**
 >
-> Es kann mehrere Absätze haben.
+> Er kann mehrere Absätze haben.
 
 #### Hinweis mit einem Codeblock
 
@@ -285,7 +285,7 @@ Dieses Beispiel enthält einen Codeblock.
 > Like that.
 ````
 
-Dies erzeugt das folgende HTML:
+Dies wird das folgende HTML erzeugen:
 
 ```html
 <div class="notecard note">
@@ -296,20 +296,20 @@ Dies erzeugt das folgende HTML:
 </div>
 ```
 
-Dieses HTML wird wie ein Codeblock gerendert:
+Dieses HTML wird als mit einem Codeblock gerendert:
 
 > [!NOTE]
 > So schreiben Sie einen Hinweis.
 >
-> Es kann Codeblöcke enthalten.
+> Er kann Codeblöcke enthalten.
 >
 > ```js
 > const s = "I'm in a code block";
 > ```
 >
-> So wie das.
+> So geht's.
 
-### Diskussionsreferenz
+### Diskussion Referenz
 
 Dieses Problem wurde gelöst in <https://github.com/mdn/content/issues/3483>.
 
@@ -317,16 +317,16 @@ Dieses Problem wurde gelöst in <https://github.com/mdn/content/issues/3483>.
 
 Definitionslisten werden häufig auf MDN verwendet, aber von GFM nicht unterstützt. MDN führt ein benutzerdefiniertes Format für Definitionslisten ein, das eine modifizierte Form einer GFM ungeordneten Liste ({{HTMLElement("ul")}}) ist. In diesem Format:
 
-- Die GFM `<ul>` enthält eine beliebige Anzahl von GFM `<li>`-Elementen auf oberster Ebene.
-- Jedes dieser GFM `<li>`-Elemente auf oberster Ebene muss am Ende ein GFM `<ul>`-Element enthalten.
-- Dieses letzte verschachtelte `<ul>` muss ein einzelnes GFM `<li>`-Element enthalten, dessen Textinhalt mit ": " (einem Doppelpunkt, gefolgt von einem Leerzeichen) beginnen muss. Dieses Element kann Blockelemente, einschließlich Absätze, Codeblöcke, eingebettete Listen und Notizen enthalten.
+- Das GFM `<ul>` enthält eine beliebige Anzahl von GFM `<li>`-Elementen auf oberster Ebene.
+- Jedes dieser GFM `<li>`-Elemente auf oberster Ebene muss als letztes Element ein GFM `<ul>`-Element enthalten.
+- Dieses letzte verschachtelte `<ul>` muss ein einziges GFM `<li>`-Element enthalten, dessen Textinhalt mit ": " beginnt (ein Doppelpunkt gefolgt von einem Leerzeichen). Dieses Element kann Blockelemente enthalten, einschließlich Absätzen, Codeblöcken, eingebetteten Listen und Hinweisen.
 
 Jedes dieser GFM `<li>`-Elemente auf oberster Ebene wird in ein `<dt>`/`<dd>`-Paar umgewandelt, wie folgt:
 
-- Das GFM `<li>`-Element auf oberster Ebene wird als GFM `<li>`-Element analysiert und sein interner Inhalt bildet den Inhalt des `<dt>`, mit Ausnahme des letzten verschachtelten `<ul>`, das nicht im `<dt>` enthalten sein wird.
-- Das `<li>`-Element im letzten verschachtelten `<ul>` wird als GFM `<li>`-Element analysiert und sein interner Inhalt bildet den Inhalt des `<dd>`, außer dem führenden ": ", das verworfen wird.
+- Das GFM `<li>`-Element auf oberster Ebene wird als GFM `<li>`-Element analysiert, und sein interner Inhalt wird den Inhalt des `<dt>` darstellen, mit Ausnahme des letzten verschachtelten `<ul>`, das nicht in das `<dt>` einbezogen wird.
+- Das `<li>`-Element im letzten verschachtelten `<ul>` wird als GFM `<li>`-Element analysiert, und sein interner Inhalt wird den Inhalt des `<dd>` darstellen, mit Ausnahme des führenden ": ", das verworfen wird.
 
-Beispielsweise ist dies ein `<dl>`:
+Zum Beispiel, dies ist ein `<dl>`:
 
 ````md
 - term1
@@ -388,9 +388,9 @@ Auf MDN würde dies das folgende HTML erzeugen:
 </dl>
 ```
 
-Mit diesem Syntax muss die Definitionsliste aus Paaren von `<dt>`/`<dd>`-Elementen bestehen. Mit dieser Syntax ist es nicht möglich, eine Liste mit mehr als einem aufeinanderfolgenden `<dt>`-Element oder mehr als einem aufeinanderfolgenden `<dd>`-Element zu schreiben: der Parser behandelt dies als Fehler. Wir erwarten, dass fast alle Definitionslisten auf MDN mit dieser Einschränkung funktionieren, und für solche, die dies nicht tun, können Autoren auf reines HTML zurückgreifen.
+Definitionslisten, die mit dieser Syntax geschrieben wurden, müssen aus Paaren von `<dt>`/`<dd>`-Elementen bestehen. Es ist nicht möglich, mit dieser Syntax eine Liste mit mehr als einem aufeinander folgenden `<dt>`-Element oder mehr als einem aufeinander folgenden `<dd>`-Element zu schreiben: der Parser behandelt dies als Fehler. Wir erwarten, dass fast alle Definitionslisten auf MDN mit dieser Einschränkung funktionieren, und für die, die dies nicht tun, können Autoren auf Roh-HTML zurückgreifen.
 
-Dies ist nicht zulässig:
+Dies ist nicht erlaubt:
 
 ```md example-bad
 - `param1`, `param2`, `param3`
@@ -399,32 +399,32 @@ Dies ist nicht zulässig:
   - : My description of `param3`
 ```
 
-Als Workaround für Fälle, in denen ein Autor mehrere `<dt>`-Elemente mit einem einzigen `<dd>`-Element verknüpfen muss, sollten diese als einzelnes `<dt>`-Element bereitgestellt werden, das mehrere Begriffe enthält, getrennt durch Kommas, so:
+Als Workaround für Fälle, in denen ein Autor mehrere `<dt>`-Elemente mit einem einzigen `<dd>`-Element verknüpfen muss, kann erwogen werden, diese als ein einziges `<dt>` bereitzustellen, das mehrere Begriffe enthält, getrennt durch Kommas, wie folgt:
 
 ```md example-good
 - `param1`, `param2`, `param3`
   - : My description of params 1, 2, and 3
 ```
 
-Der Grund für die hier beschriebene Syntax ist, dass sie gut mit Tools funktioniert, die CommonMark erwarten (zum Beispiel Prettier oder GitHub-Vorschauen), während sie relativ einfach zu schreiben und zu analysieren ist.
+Der Grund für die hier beschriebene Syntax ist, dass sie gut mit Tools funktioniert, die CommonMark erwarten (zum Beispiel Prettier oder GitHub-Previews), während sie sich relativ einfach schreiben und parsen lässt.
 
-### Diskussionsreferenz
+### Diskussion Referenz
 
 Dieses Problem wurde gelöst in <https://github.com/mdn/content/issues/4367>.
 
 ## Tabellen
 
-GFM bietet eine Syntax zum Erstellen von [Tabellen](https://github.github.com/gfm/#tables-extension-), die wir auf MDN verwenden. Es gibt jedoch Zeiten, in denen GFM-Tabellen nicht unseren Anforderungen entsprechen:
+GFM bietet eine Syntax zum Erstellen von [Tabellen](https://github.github.com/gfm/#tables-extension-), die wir auf MDN nutzen. Es gibt jedoch Zeiten, in denen GFM-Tabellen nicht unseren Anforderungen entsprechen:
 
-- Die GFM-Syntax unterstützt nur ein Unterset der in HTML verfügbaren Funktionen. Wenn Sie Tabellenfunktionen verwenden müssen, die in GFM nicht unterstützt werden, verwenden Sie HTML für die Tabelle.
+- Die GFM-Syntax unterstützt nur einen Teil der in HTML verfügbaren Funktionen. Wenn Sie Tabellenfunktionen verwenden müssen, die in GFM nicht unterstützt werden, verwenden Sie HTML für die Tabelle.
 - Wenn die GFM-Darstellung der Tabelle mehr als 150 Zeichen breit wäre, verwenden Sie HTML für die Tabelle.
-- Wir unterstützen eine spezielle Art von Tabelle, genannt "Eigenschaftstabelle", die ihre eigene CSS-Klasse hat und daher immer HTML ist.
+- Wir unterstützen eine spezielle Art von Tabelle, die als "Eigenschaftstabelle" bezeichnet wird und immer HTML ist.
 
-Das allgemeine Prinzip lautet, dass Autoren die GFM-Markdown-Syntax verwenden sollten, wann immer sie können, und auf HTML zurückgreifen sollten, wenn es notwendig ist oder wenn HTML besser lesbar ist. Für weitere Informationen siehe [Wann HTML-Tabellen verwenden](#wann_html-tabellen_verwenden).
+Das allgemeine Prinzip ist, dass Autoren die GFM-Markdown-Syntax verwenden sollten, wenn sie können, und auf Roh-HTML zurückgreifen sollten, wenn sie müssen oder wenn HTML lesbarer ist. Weitere Informationen finden Sie unter [Wann HTML-Tabellen verwenden](#wann_html-tabellen_verwenden).
 
-### GFM-Tabellensyntax-Stil
+### GFM-Tabellensyntax Stil
 
-In der GFM-Tabellensyntax können Autoren führende und abschließende senkrechte Striche für Zeilen weglassen. Aus Gründen der Lesbarkeit müssen MDN-Autoren diese senkrechten Striche jedoch einfügen. Darüber hinaus müssen Autoren Leerzeichen am Ende der Zeilen bereitstellen, damit alle Zellen in einer Spalte im Klartext die gleiche Länge haben.
+In der GFM-Tabellen-Syntax können Autoren führende und abschließende Pipes für Zeilen weglassen. Aus Gründen der Lesbarkeit müssen MDN-Autoren jedoch diese Pipes einschließen. Außerdem müssen Autoren in den Zeilen abschließende Leerzeichen bereitstellen, sodass alle Zellen in einer Spalte im Klartext gleich lang sind.
 
 Das heißt, MDN-Autoren müssen diesen Stil verwenden:
 
@@ -444,34 +444,34 @@ und nicht diesen Stil:
 cell 4 | cell 5 | cell 6
 ```
 
-Tabellen werden von Prettier formatiert, sodass Autoren sich auf Tools verlassen, um Tabellen korrekt zu formatieren.
+Tabellen werden von Prettier formatiert, sodass Autoren auf Tools zurückgreifen, um Tabellen ordnungsgemäß zu formatieren.
 
 ### Wann HTML-Tabellen verwenden
 
-Es gibt drei Hauptumstände, unter denen Autoren HTML-Tabellen anstelle von GFM-Syntax verwenden sollten:
+Es gibt drei Hauptumstände, unter denen Autoren HTML-Tabellen anstelle der GFM-Syntax verwenden sollten:
 
 1. Die Tabelle verwendet Funktionen, die in GFM nicht unterstützt werden (siehe unten).
 2. Die GFM-Tabelle wäre zu breit, um lesbar zu sein.
-3. Der Autor möchte eine spezielle Art von Tabelle namens "Eigenschaftstabelle".
+3. Der Autor möchte eine spezielle Art von Tabelle, die als "Eigenschaftstabelle" bezeichnet wird.
 
-#### Tabellenfunktionen, die in GFM nicht unterstützt werden
+#### Tabelleneigenschaften, die in GFM nicht unterstützt werden
 
 Die Hauptbeschränkungen der GFM-Tabellensyntax sind:
 
 - GFM-Tabellen müssen eine Kopfzeile haben.
 - GFM-Tabellen dürfen keine Kopfspalte haben.
-- GFM analysiert keine GFM-Blockelemente in Tabellenzellen. Beispielsweise können Sie keine Liste in einer Tabellenzelle haben.
+- GFM verarbeitet keine GFM-Blockelemente in Tabellenzellen. Zum Beispiel können Sie keine Liste in einer Tabellenzelle haben.
 - GFM-Tabellen können keine Klassen zugewiesen werden.
 - GFM unterstützt keine anderen Tabellenelemente als `<table>`, `<tr>`, `<th>` und `<td>`.
-- GFM unterstützt keine Tabellenelementattribute wie `colspan`, `rowspan` oder `scope`.
+- GFM unterstützt keine Tabellenattribut wie `colspan`, `rowspan` oder `scope`.
 
 Wenn ein Autor eine der nicht unterstützten Funktionen verwenden muss, sollte er die Tabelle in HTML schreiben.
 
-Beachten Sie, dass wir die allgemeine Verwendung von `<caption>`-Elementen in Tabellen nicht empfehlen, da dies auch die GFM-Syntax ausschließen würde.
+Beachten Sie, dass wir die allgemeine Verwendung von `<caption>`-Elementen auf Tabellen nicht empfehlen, da dies auch die GFM-Syntax ausschließen würde.
 
 #### Maximale Breite von GFM-Tabellen
 
-Selbst wenn eine Tabelle in GFM geschrieben werden könnte, ist es manchmal besser, HTML zu verwenden, weil GFM einen "{{Glossary("ASCII", "ASCII")}}-Art"-Ansatz für Tabellen verwendet, der nicht lesbar ist, wenn Tabellenzeilen lang werden. Betrachten Sie die folgende Tabelle:
+Selbst wenn eine Tabelle in GFM geschrieben werden könnte, ist es manchmal besser, HTML zu verwenden, da GFM einen "{{Glossary("ASCII", "ASCII")}}-Kunst"-Ansatz für Tabellen verwendet, der nicht lesbar ist, wenn Tabellenzeilen lang werden. Betrachten Sie die folgende Tabelle:
 
 ```html
 <table>
@@ -502,7 +502,7 @@ Selbst wenn eine Tabelle in GFM geschrieben werden könnte, ist es manchmal bess
 </table>
 ```
 
-In GFM wird sie so aussehen:
+In GFM sieht dies so aus:
 
 ```md
 | A heading 1        | A heading 2                                                                                                                                         | A heading 3        | A heading 4                                                                                                                                                              | A heading 5        | A heading 6        |
@@ -512,11 +512,11 @@ In GFM wird sie so aussehen:
 
 In einem solchen Fall wäre es besser, HTML zu verwenden.
 
-Dies führt uns zur folgenden Richtlinie: _Wenn die Markdown-Darstellung der Tabelle mehr als 150 Zeichen breit wäre, verwenden Sie HTML für die Tabelle._
+Dies führt zu der folgenden Richtlinie: _Wenn die Markdown-Darstellung der Tabelle mehr als 150 Zeichen breit wäre, verwenden Sie HTML für die Tabelle_.
 
 #### Eigenschaftstabellen
 
-Eigenschaftstabellen sind eine spezifische Art von Tabelle, die zum Anzeigen von strukturierten Eigenschaft-Wert-Inhalten über einen Satz von Seiten eines bestimmten Typs verwendet wird. Diese Tabellen haben zwei Spalten: Die erste Spalte ist die Kopfspalte und listet die Eigenschaften auf, und die zweite Spalte listet deren Werte für dieses bestimmte Element auf. Beispielsweise ist hier die Eigenschaftstabelle für die [`PannerNode`](/de/docs/Web/API/PannerNode)-Schnittstelle:
+Eigenschaftstabellen sind eine spezifische Art von Tabelle, die zum Anzeigen von strukturierten Eigenschaft-Wert-Inhalten auf einer Reihe von Seiten eines bestimmten Typs verwendet wird. Diese Tabellen haben zwei Spalten: die erste Spalte ist die Kopfspalte und listet die Eigenschaften auf, und die zweite Spalte listet ihre Werte für dieses bestimmte Element auf. Hier ist zum Beispiel die Eigenschaftstabelle für das [`PannerNode`](/de/docs/Web/API/PannerNode)-Interface:
 
 <table class="properties">
   <tbody>
@@ -529,8 +529,8 @@ Eigenschaftstabellen sind eine spezifische Art von Tabelle, die zum Anzeigen von
       <td><code>0</code></td>
     </tr>
     <tr>
-      <th scope="row">Kanalanzahl-Modus</th>
-      <td><code>"explicit"</code></td>
+      <th scope="row">Kanalzählmodus</th>
+      <td><code>"explizit"</code></td>
     </tr>
     <tr>
       <th scope="row">Kanalanzahl</th>
@@ -538,46 +538,46 @@ Eigenschaftstabellen sind eine spezifische Art von Tabelle, die zum Anzeigen von
     </tr>
     <tr>
       <th scope="row">Kanalinterpretation</th>
-      <td><code>"speakers"</code></td>
+      <td><code>"Lautsprecher"</code></td>
     </tr>
   </tbody>
 </table>
 
-Diese Seiten können in GFM nicht dargestellt werden, da sie eine Kopfspalte haben, daher sollten Autoren in diesem Fall HTML verwenden. Um das spezielle Styling zu erhalten, sollten Autoren die Klasse `"properties"` auf die Tabelle anwenden:
+Diese Seiten können nicht in GFM dargestellt werden, da sie eine Kopfspalte haben, daher sollten Autoren in diesem Fall HTML verwenden. Um das spezielle Styling zu erhalten, sollten Autoren die `"properties"`-Klasse auf die Tabelle anwenden:
 
 ```html
 <table class="properties"></table>
 ```
 
-### Diskussionsreferenz
+### Diskussion Referenz
 
 Dieses Problem wurde gelöst in <https://github.com/mdn/content/issues/4325>, <https://github.com/mdn/content/issues/7342>, und <https://github.com/mdn/content/issues/7898#issuecomment-913265900>.
 
-## Hoch- und Tiefstellung
+## Hoch- und Tiefstellen
 
-Autoren können bei Bedarf die HTML-Elemente {{HTMLElement("sup")}} und {{HTMLElement("sub")}} verwenden, sollten jedoch nach Möglichkeit Alternativen verwenden. Insbesondere:
+Autoren können die HTML {{HTMLElement("sup")}}- und {{HTMLElement("sub")}}-Elemente verwenden, falls erforderlich, sollten jedoch nach Möglichkeit Alternativen verwenden. Insbesondere:
 
-- Für Potenzierung verwenden Sie das Caret: `2^53`.
-- Für Ordnungszahlen wie 1<sup>st</sup> bevorzugen Sie Wörter wie "erste".
-- Für Fußnoten markieren Sie die Fußnotenreferenzen nicht, z.B. `<sup>[1]</sup>`.
+- Für Exponentialdarstellung nutzen Sie das Caret: `2^53`.
+- Für Ordnungsarten wie 1<sup>st</sup> bevorzugen Sie Wörter wie "erster".
+- Für Fußnoten markieren Sie die Fußnotenzitate nicht, z.B. `<sup>[1]</sup>`.
 
-### Diskussionsreferenz
+### Diskussion Referenz
 
 Dieses Problem wurde gelöst in <https://github.com/mdn/content/issues/4578>.
 
-## Seitenzusammenfassung
+## Seitenübersicht
 
-Die _Seitenzusammenfassung_ ist der erste "Inhalts"-Absatz auf einer Seite—der erste Text, der nach den Seitenmetadaten und den [Sidebar](/de/docs/MDN/Writing_guidelines/Page_structures/Macros/Commonly_used_macros)- oder [Seitenbanner](/de/docs/MDN/Writing_guidelines/Page_structures/Macros/Commonly_used_macros#page_or_section_header_indicators)-Macros erscheint.
+Die _Seitenübersicht_ ist der erste "Inhalt"-Absatz einer Seite—der erste Text, der nach der Seite-Metadatenvorlage und allen [Seitenleisten](/de/docs/MDN/Writing_guidelines/Page_structures/Macros/Commonly_used_macros) oder [Seitenbannern](/de/docs/MDN/Writing_guidelines/Page_structures/Macros/Commonly_used_macros#page_or_section_header_indicators) Makros erscheint.
 
-Diese Zusammenfassung wird für Suchmaschinenoptimierung (SEO) verwendet und auch automatisch neben Seitenauflistungen von einigen Makros aufgenommen. Der erste Absatz sollte daher sowohl prägnant als auch informativ sein.
+Diese Zusammenfassung wird für Suchmaschinenoptimierung (SEO) genutzt und auch automatisch zusammen mit Seitenlisten durch einige Makros eingebunden. Der erste Absatz sollte daher sowohl prägnant als auch informativ sein.
 
-### Diskussionsreferenz
+### Diskussion Referenz
 
 Dieses Problem wurde gelöst in <https://github.com/mdn/content/issues/3923>.
 
 ## Makros
 
-Autoren verwenden in der Prosa Makros zum Erstellen von Vorlagen für gängige Verlinkungsmuster oder zum Einfügen bestimmter Code- oder Textblöcke:
+Autoren verwenden Makros im Text, um geläufige Verlinkungsmuster zu templaten oder um spezifische Code- oder Textblöcke einzubinden:
 
 ```md
 The **`margin`** [CSS](/en-US/docs/Web/CSS) property sets the margin area on all four sides of an element.

@@ -1,14 +1,14 @@
 ---
-title: "XPathResult: singleNodeValue-Eigenschaft"
+title: "XPathResult: Eigenschaft singleNodeValue"
 short-title: singleNodeValue
 slug: Web/API/XPathResult/singleNodeValue
 l10n:
-  sourceCommit: acfe8c9f1f4145f77653a2bc64a9744b001358dc
+  sourceCommit: b8cd964ef488e9691252e02f6ad1ebd3293b8eaa
 ---
 
 {{APIRef("DOM XPath")}}
 
-Die schreibgeschützte **`singleNodeValue`**-Eigenschaft des [`XPathResult`](/de/docs/Web/API/XPathResult)-Interfaces gibt einen [`Node`](/de/docs/Web/API/Node)-Wert oder `null` zurück, falls bei einem Ergebnis mit [`XPathResult.resultType`](/de/docs/Web/API/XPathResult/resultType) `ANY_UNORDERED_NODE_TYPE` oder `FIRST_ORDERED_NODE_TYPE` kein Knoten übereinstimmte.
+Die schreibgeschützte Eigenschaft **`singleNodeValue`** des [`XPathResult`](/de/docs/Web/API/XPathResult)-Interfaces gibt einen [`Node`](/de/docs/Web/API/Node)-Wert oder `null` zurück, falls kein Knoten eines Ergebnisses mit [`XPathResult.resultType`](/de/docs/Web/API/XPathResult/resultType), das `ANY_UNORDERED_NODE_TYPE` oder `FIRST_ORDERED_NODE_TYPE` ist, übereinstimmt.
 
 ## Wert
 
@@ -18,11 +18,11 @@ Der Rückgabewert ist der [`Node`](/de/docs/Web/API/Node)-Wert des `XPathResult`
 
 #### TYPE_ERR
 
-Falls [`XPathResult.resultType`](/de/docs/Web/API/XPathResult/resultType) weder `ANY_UNORDERED_NODE_TYPE` noch `FIRST_ORDERED_NODE_TYPE` ist, wird eine [`XPathException`](/de/docs/Web/API/XPathException) des Typs `TYPE_ERR` ausgelöst.
+Falls [`XPathResult.resultType`](/de/docs/Web/API/XPathResult/resultType) nicht `ANY_UNORDERED_NODE_TYPE` oder `FIRST_ORDERED_NODE_TYPE` ist, wird eine [`DOMException`](/de/docs/Web/API/DOMException) vom Typ `TYPE_ERR` ausgelöst.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt die Verwendung der `singleNodeValue`-Eigenschaft.
+Das folgende Beispiel zeigt die Verwendung der Eigenschaft `singleNodeValue`.
 
 ### HTML
 

@@ -2,7 +2,7 @@
 title: Extend
 slug: WebAssembly/Reference/Numeric/Extend
 l10n:
-  sourceCommit: 5af6da1da593fae9b3208eb9fd308213d5c3359c
+  sourceCommit: c0fc8c988385a0ce8ff63887f9a3263caf55a1f9
 ---
 
 Die **`extend`**-Anweisungen werden verwendet, um Zahlen vom Typ `i32` in den Typ `i64` zu konvertieren (erweitern). Es gibt signierte und unsignierte Versionen dieser Anweisung.
@@ -32,7 +32,7 @@ await WebAssembly.instantiateStreaming(fetch(url), { console });
 
 ## Syntax
 
-```wasm
+```wat
 ;; push an i32 onto the stack
 i32.const 10
 
@@ -42,7 +42,7 @@ i64.extend_i32_s
 ;; the top item on the stack will now be the value 10 of type i64
 ```
 
-| Anweisung          | Binärer Opcode |
+| Anweisung          | Binäroperation |
 | ------------------ | -------------- |
 | `i64.extend_i32_s` | `0xac`         |
 | `i64.extend_i32_u` | `0xad`         |

@@ -2,14 +2,14 @@
 title: Use-As-Dictionary
 slug: Web/HTTP/Reference/Headers/Use-As-Dictionary
 l10n:
-  sourceCommit: dba7747cb88680a82b01d4a9ff02f38b5b230c53
+  sourceCommit: ae1d2366289e37ed587e24c2a02e4ec2fda6812c
 ---
 
 {{HTTPSidebar}}{{SeeCompatTable}}
 
-Der HTTP **`Use-As-Dictionary`** Antwort-Header listet die Kriterien auf, nach denen das {{Glossary("Compression_Dictionary_Transport", "Compression Dictionary Transport")}} Wörterbuch für zukünftige Anfragen verwendet werden kann.
+Der HTTP **`Use-As-Dictionary`** Antwort-Header listet die Übereinstimmungskriterien auf, nach denen das {{Glossary("Compression_Dictionary_Transport", "Kompressionswörterbuch-Transport")}} Wörterbuch für zukünftige Anfragen verwendet werden kann.
 
-Weitere Informationen finden Sie im [Compression Dictionary Transport Leitfaden](/de/docs/Web/HTTP/Guides/Compression_dictionary_transport).
+Weitere Informationen finden Sie im [Leitfaden zum Kompressionswörterbuch-Transport](/de/docs/Web/HTTP/Guides/Compression_dictionary_transport).
 
 ## Syntax
 
@@ -26,17 +26,17 @@ Content-Encoding: match="<urlpattern>", match-dest=("<destination1>")
 ## Direktiven
 
 - `match`
-  - : Ein Zeichenfolgenwert, der ein [URL Pattern](/de/docs/Web/API/URL_Pattern_API) enthält: Nur Ressourcen, deren URLs diesem Muster entsprechen, dürfen diese Ressource als Wörterbuch verwenden.
+  - : Ein Zeichenfolgenwert, der ein [URL-Muster](/de/docs/Web/API/URL_Pattern_API) enthält: Nur Ressourcen, deren URLs diesem Muster entsprechen, dürfen diese Ressource als Wörterbuch verwenden.
 - `match-dest`
-  - : Eine durch Leerzeichen getrennte Liste von Zeichenfolgen, wobei jede Zeichenfolge in Anführungszeichen steht und der gesamte Wert in Klammern eingeschlossen ist, welche eine Liste von [Fetch-Anfragezielen](/de/docs/Web/API/Request/destination) bereitstellt, die die Anfragen erfüllen müssen, um dieses Wörterbuch zu verwenden.
+  - : Eine durch Leerzeichen getrennte Liste von Zeichenfolgen, wobei jede Zeichenfolge in Anführungszeichen steht und der gesamte Wert in Klammern eingeschlossen ist. Diese Liste gibt die [Fetch-Anfrageziele](/de/docs/Web/API/Request/destination) an, die Anfragen erfüllen müssen, um dieses Wörterbuch zu verwenden.
 - `id`
-  - : Ein Zeichenfolgenwert, der eine Serverkennung für das Wörterbuch angibt. Dieser ID-Wert wird dann im {{HTTPHeader("Dictionary-ID")}} Anfrage-Header hinzugefügt, wenn der Browser eine Ressource anfordert, die dieses Wörterbuch verwenden kann.
+  - : Ein Zeichenfolgenwert, der eine Serverkennung für das Wörterbuch spezifiziert. Dieser ID-Wert wird dann im {{HTTPHeader("Dictionary-ID")}} Anfrage-Header hinzugefügt, wenn der Browser eine Ressource anfordert, die dieses Wörterbuch verwenden kann.
 - `type`
-  - : Ein Zeichenfolgenwert, der das Dateiformat des bereitgestellten Wörterbuchs beschreibt. Derzeit wird nur `raw` unterstützt (was der Standard ist), sodass dies mehr für zukünftige Kompatibilität gedacht ist.
+  - : Ein Zeichenfolgenwert, der das Dateiformat des bereitgestellten Wörterbuchs beschreibt. Derzeit wird nur `raw` unterstützt (was der Standard ist), dies dient daher mehr zur zukünftigen Kompatibilität.
 
 ## Beispiele
 
-### Pfadpräfix
+### Pfad-Präfix
 
 ```http
 Use-As-Dictionary: match="/product/*"
@@ -58,13 +58,13 @@ Dies verwendet ein Platzhalterzeichen, um mehrere Versionen einer Datei zu erfas
 Use-As-Dictionary: match="/product/*", match-dest=("document")
 ```
 
-Dies verwendet `match-dest`, um sicherzustellen, dass das Wörterbuch nur für `document` Anfragen verwendet wird, sodass beispielsweise `<script src="/product/js/app.js">` Ressourcenanfragen nicht übereinstimmen würden.
+Dies verwendet `match-dest`, um sicherzustellen, dass das Wörterbuch nur für `document`-Anfragen verwendet wird, sodass `<script src="/product/js/app.js">` Ressourcenanforderungen zum Beispiel nicht übereinstimmen würden.
 
 ```http
 Use-As-Dictionary: match="/product/*", match-dest=("document" "frame")
 ```
 
-Dies würde dem Wörterbuch erlauben, sowohl mit obersten Dokumenten als auch mit iframes übereinzustimmen.
+Dies würde es ermöglichen, dass das Wörterbuch sowohl mit obersten Dokumenten als auch mit iframes übereinstimmt.
 
 ### Id
 
@@ -72,7 +72,7 @@ Dies würde dem Wörterbuch erlauben, sowohl mit obersten Dokumenten als auch mi
 Use-As-Dictionary: match="/product/*", id="dictionary-12345"
 ```
 
-Wenn `Use-As-Dictionary` eine `id` Direktive enthält, wie in diesem Beispiel, wird der `id` Wert im {{HTTPHeader("Dictionary-ID")}} Anfrage-Header für Ressourcen aufgenommen, die dieses Wörterbuch verwenden können. Die Ressourcenanfrage enthält auch den SHA-256-Hash des Wörterbuchs, umgeben von Doppelpunkten im {{HTTPHeader("Available-Dictionary")}} Header:
+Wenn `Use-As-Dictionary` eine `id` Direktive enthält, wie in diesem Beispiel, wird der `id` Wert im {{HTTPHeader("Dictionary-ID")}} Anfrage-Header für Ressourcen enthalten, die dieses Wörterbuch verwenden können. Die Ressourcenanfrage wird auch den SHA-256-Hash des Wörterbuchs, umgeben von Doppelpunkten, im {{HTTPHeader("Available-Dictionary")}} Header enthalten:
 
 ```http
 Accept-Encoding: gzip, br, zstd, dcb, dcz
@@ -80,13 +80,15 @@ Available-Dictionary: :pZGm1Av0IEBKARczz7exkNYsZb8LzaMrV7J32a2fFG4=:
 Dictionary-ID: "dictionary-12345"
 ```
 
+Der Server muss immer noch den Hash aus dem `Available-Dictionary` Header überprüfen — die `Dictionary-ID` ist zusätzliche Information für den Server, um das Wörterbuch zu identifizieren, ersetzt aber nicht die Notwendigkeit für den `Available-Dictionary` Header.
+
 ### Typ
 
 ```http
 Use-As-Dictionary: match="/product/*", type="raw"
 ```
 
-Derzeit wird nur `raw` unterstützt (was der Standard ist), sodass dies mehr für zukünftige Kompatibilität gedacht ist.
+Derzeit wird nur `raw` unterstützt (was der Standard ist), daher dient dies mehr zur zukünftigen Kompatibilität.
 
 ## Spezifikationen
 
@@ -98,6 +100,6 @@ Derzeit wird nur `raw` unterstützt (was der Standard ist), sodass dies mehr fü
 
 ## Siehe auch
 
-- [Compression Dictionary Transport Leitfaden](/de/docs/Web/HTTP/Guides/Compression_dictionary_transport)
+- [Leitfaden zum Kompressionswörterbuch-Transport](/de/docs/Web/HTTP/Guides/Compression_dictionary_transport)
 - {{HTTPHeader("Available-Dictionary")}}
 - {{HTTPHeader("Dictionary-ID")}}

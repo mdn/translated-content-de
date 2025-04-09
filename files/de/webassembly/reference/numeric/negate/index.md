@@ -2,10 +2,10 @@
 title: Negate
 slug: WebAssembly/Reference/Numeric/Negate
 l10n:
-  sourceCommit: 5af6da1da593fae9b3208eb9fd308213d5c3359c
+  sourceCommit: c0fc8c988385a0ce8ff63887f9a3263caf55a1f9
 ---
 
-Die Anweisungen **`neg`**, kurz für _negate_, werden verwendet, um eine Zahl zu negieren. Das bedeutet, eine positive Zahl in eine negative Zahl und eine negative Zahl in eine positive Zahl zu verwandeln.
+Die **`neg`**-Anweisungen, als Abkürzung für _negieren_, werden verwendet, um eine Zahl zu negieren. Das bedeutet, eine positive Zahl in eine negative umzuwandeln und eine negative Zahl in eine positive.
 
 {{InteractiveExample("Wat Demo: neg", "tabbed-standard")}}
 
@@ -30,7 +30,7 @@ await WebAssembly.instantiateStreaming(fetch(url), { console });
 
 ## Syntax
 
-```wasm
+```wat
 ;; load a number onto the stack
 f32.const 2.7
 

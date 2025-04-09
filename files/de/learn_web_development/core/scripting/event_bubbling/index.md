@@ -418,7 +418,7 @@ Die `target`-Eigenschaft wird häufig in der Ereignisdelegation verwendet, wie i
 
 ## Testen Sie Ihr Wissen!
 
-Sie haben das Ende dieses Artikels erreicht, aber können Sie sich an die wichtigsten Informationen erinnern? Um zu überprüfen, ob Sie diese Informationen gespeichert haben, bevor Sie fortfahren — sehen Sie sich [Test your skills: Events](/de/docs/Learn_web_development/Core/Scripting/Test_your_skills:_Events) an.
+Sie haben das Ende dieses Artikels erreicht, aber können Sie sich an die wichtigsten Informationen erinnern? Um zu überprüfen, ob Sie diese Informationen gespeichert haben, bevor Sie fortfahren — sehen Sie sich [Test your skills: Events](/de/docs/Learn_web_development/Core/Scripting/Test_your_skills/Events) an.
 
 ## Zusammenfassung
 

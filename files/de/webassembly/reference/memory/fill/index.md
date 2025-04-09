@@ -3,19 +3,18 @@ title: "fill: Wasm-Textanweisung"
 short-title: fill
 slug: WebAssembly/Reference/Memory/Fill
 l10n:
-  sourceCommit: df9d06402163f77fc3e2d327ab63f9dd4af15b38
+  sourceCommit: c0fc8c988385a0ce8ff63887f9a3263caf55a1f9
 ---
 
-Die **`fill`**-[Speicheranweisung](/de/docs/WebAssembly/Reference/Memory) setzt alle Bytes in einem Speicherbereich auf ein bestimmtes Byte.
+Die **`fill`** [Speicheranweisung](/de/docs/WebAssembly/Reference/Memory) setzt alle Bytes in einem Speicherbereich auf ein angegebenes Byte.
 
-Die Anweisung gibt keinen Wert zurück.
-Sie wirft eine Ausnahme, wenn der angegebene Speicherbereich außerhalb der Grenzen liegt.
+Die Anweisung liefert keinen Wert zurück. Sie löst eine Ausnahme aus, wenn der angegebene Speicherbereich außerhalb der Grenzen liegt.
 
 ## Syntax
 
-Füllen im Standardspeicher
+Füllen innerhalb des Standardspeichers
 
-```wasm
+```wat
 ;; Fill region at offset/range in default memory with 255
 i32.const 200 ;; The pointer to the region to update
 i32.const 255 ;; The value to set each byte to (must be < 256)
@@ -26,9 +25,9 @@ memory.fill ;; Fill default memory
 (memory.fill (i32.const 200) (i32.const 255) (i32.const 100))
 ```
 
-Füllen angegebenen Speichers (falls Multi-Speicher unterstützt wird)
+Füllen des angegebenen Speichers (wenn Mehrfachspeicher unterstützt wird)
 
-```wasm
+```wat
 ;; Fill specific memory referenced by its index
 i32.const 200 ;; The pointer to the region to update
 i32.const 255 ;; The value to set each byte to (must be < 256)
@@ -58,7 +57,7 @@ memory.fill (memory $memoryName) ;; Fill memory with name "$memoryName"
 ## Browser-Kompatibilität
 
 > [!NOTE]
-> Die Speicherunterstützung in Wasm-Modulen entspricht der JavaScript-API [`WebAssembly.Memory`](/de/docs/WebAssembly/Reference/JavaScript_interface/Memory).
-> Der Schlüssel [multiMemory](#webassembly.multimemory) gibt die Versionen an, in denen `store` mit einem angegebenen Speicher verwendet werden kann.
+> Die Unterstützung von Speicher in Wasm-Modulen entspricht der [`WebAssembly.Memory`](/de/docs/WebAssembly/Reference/JavaScript_interface/Memory) JavaScript-API.
+> Der Schlüssel [multiMemory](#webassembly.multimemory) gibt Versionen an, in denen `store` mit einem angegebenen Speicher verwendet werden kann.
 
 {{Compat}}

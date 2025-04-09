@@ -3,21 +3,21 @@ title: "HTML: Erstellen des Inhalts"
 short-title: Erstellen des Inhalts
 slug: Learn_web_development/Getting_started/Your_first_website/Creating_the_content
 l10n:
-  sourceCommit: 9da2567689c0a4397b0d70efbbb878dec3115754
+  sourceCommit: 23b06a9d3f40b7515298a0e2e7ec6e2322b172fd
 ---
 
 {{LearnSidebar}}
 
 {{PreviousMenuNext("Learn_web_development/Getting_started/Your_first_website/What_will_your_website_look_like", "Learn_web_development/Getting_started/Your_first_website/Styling_the_content", "Learn_web_development/Getting_started/Your_first_website")}}
 
-HTML (**H**yper**T**ext **M**arkup **L**anguage) ist der Code, der verwendet wird, um eine Webseite und deren Inhalte zu strukturieren. Zum Beispiel könnten Inhalte innerhalb von Absätzen, einer Liste mit Aufzählungspunkten oder mit Bildern und Datentabellen strukturiert werden. Dieser Artikel bietet ein grundlegendes Verständnis von HTML und seinen Funktionen und zeigt Ihnen, wie Sie die grundlegenden Inhalte für Ihre erste Website erstellen.
+HTML (**H**yper**T**ext **M**arkup **L**anguage) ist der Code, der verwendet wird, um eine Webseite und deren Inhalte zu strukturieren. Dieser Artikel bietet ein grundlegendes Verständnis von HTML und dessen Funktionalität und zeigt Ihnen, wie Sie den grundlegenden Inhalt für Ihre erste Webseite erstellen können.
 
 <table>
   <tbody>
     <tr>
       <th scope="row">Voraussetzungen:</th>
       <td>
-        Grundlegende Vertrautheit mit Ihrem Computer-Betriebssystem, der grundlegenden Software, die Sie zum Erstellen einer Website verwenden, und Dateisystemen.
+        Grundlegende Vertrautheit mit Ihrem Betriebssystem, der grundlegenden Software, die Sie zum Erstellen einer Website verwenden werden, und Dateisysteme.
       </td>
     </tr>
     <tr>
@@ -25,8 +25,8 @@ HTML (**H**yper**T**ext **M**arkup **L**anguage) ist der Code, der verwendet wir
       <td>
         <ul>
           <li>Der Zweck und die Funktion von HTML.</li>
-          <li>Die grundlegenden Teile der HTML-Syntax – öffnende und schließende Tags, Elemente, Attribute, head, body.</li>
-          <li>Übliche HTML-Elemente einschließlich Absätzen, Überschriften, Bildern, Listen und Links.</li>
+          <li>Die grundlegenden Teile der HTML-Syntax — Eröffnungs- und Schlusstags, Elemente, Attribute, head, body.</li>
+          <li>Gängige HTML-Elemente, einschließlich Absätzen, Überschriften, Bildern, Listen und Links.</li>
         </ul>
       </td>
     </tr>
@@ -35,79 +35,41 @@ HTML (**H**yper**T**ext **M**arkup **L**anguage) ist der Code, der verwendet wir
 
 ## Was ist HTML?
 
-HTML ist eine _Auszeichnungssprache_, die die Struktur Ihres Inhalts definiert. HTML besteht aus einer Reihe von **{{Glossary("element", "Elementen")}}**, die Sie verwenden, um verschiedene Teile des Inhalts einzuschließen oder einzurahmen, damit sie auf eine bestimmte Weise erscheinen oder wirken. Die umschließenden {{Glossary("tag", "Tags")}} können ein Wort oder Bild zu einem Hyperlink machen, Wörter kursiv darstellen, die Schriftgröße ändern usw. Nehmen wir zum Beispiel die folgende Inhaltszeile:
+HTML ist eine _Auszeichnungssprache_, die aus einer Reihe von **{{Glossary("element", "Elementen")}}** besteht, die verwendet werden, um Textinhalte zu umschließen (oder zu umhüllen), um deren Struktur zu definieren und sie sich auf eine bestimmte Weise verhalten zu lassen.
+
+Betrachten wir ein Beispiel — der folgende Inhalt wird im Webbrowser auf der gleichen Linie angezeigt, da er in keiner Weise strukturiert ist:
 
 ```plain
-My cat is very grumpy
+Instructions for life:
+Eat
+Sleep
+Repeat
 ```
 
-Wenn wir möchten, dass die Zeile für sich allein steht, könnten wir angeben, dass es sich um einen Absatz handelt, indem wir ihn in Absatz-Tags einschließen:
+Wenn wir diesen Inhalt mit den folgenden HTML-Elementen umschließen, können wir diese einzelne Zeile in einen Absatz ({{htmlelement("p")}}) und drei Aufzählungspunkte ({{htmlelement("li")}}) umwandeln:
 
-```html
-<p>My cat is very grumpy</p>
+```html live-sample___basic-html
+<p>Instructions for life:</p>
+
+<ul>
+  <li>Eat</li>
+  <li>Sleep</li>
+  <li>Repeat</li>
+</ul>
 ```
 
-### Anatomie eines HTML-Elements
+Dieses HTML wird in einem Webbrowser wie folgt dargestellt:
 
-Lassen Sie uns dieses Absatz-Element etwas genauer untersuchen.
+{{EmbedLiveSample("basic-html", "100%", "140px")}}
 
-![paragraph element including opening tag, content reading 'my cat is very grumpy', and a closing tag](grumpy-cat-small.png)
-
-Die Hauptteile unseres Elements sind wie folgt:
-
-1. **Das öffnende Tag:** Besteht aus dem Namen des Elements (in diesem Fall p), umschlossen von öffnenden und schließenden **Winkelklammern**. Dies zeigt an, wo das Element beginnt oder zu wirken beginnt – in diesem Fall, wo der Absatz beginnt.
-2. **Das schließende Tag:** Dies ist dasselbe wie das öffnende Tag, außer dass es einen _Schrägstrich_ vor dem Elementnamen enthält. Dies gibt an, wo das Element endet – in diesem Fall, wo der Absatz endet. Das Fehlen eines schließenden Tags ist einer der häufigsten Anfängerfehler und kann zu seltsamen Ergebnissen führen.
-3. **Der Inhalt:** Dies ist der Inhalt des Elements, der in diesem Fall nur Text ist.
-4. **Das Element:** Das öffnende Tag, das schließende Tag und der Inhalt bilden zusammen das Element.
-
-Elemente können auch Attribute haben, die wie folgt aussehen:
-
-![Paragraph opening tag with a class attribute highlighted: class=editor-note](grumpy-cat-attribute-small.png)
-
-Attribute enthalten zusätzliche Informationen über das Element, die nicht im eigentlichen Inhalt erscheinen sollen. Hierbei ist `class` der Attribut*name* und `editor-note` der Attribut*wert*. Das `class`-Attribut ermöglicht es Ihnen, dem Element eine nicht eindeutige Kennung zu geben, die verwendet werden kann, um es (und alle anderen Elemente mit demselben `class`-Wert) mit Stilinformationen und anderen Dingen zu versehen.
-Einige Attribute haben keinen Wert, wie z.B. [`required`](/de/docs/Web/HTML/Attributes/required).
-
-Attribute, die einen Wert festlegen, haben immer:
-
-1. Ein Leerzeichen zwischen ihm und dem Elementnamen (oder dem vorherigen Attribut, wenn das Element bereits ein oder mehrere Attribute hat).
-2. Den Attributnamen gefolgt von einem Gleichheitszeichen.
-3. Den Attributwert in öffnende und schließende Anführungszeichen eingeschlossen.
-
-> [!NOTE]
-> Einfache Attributwerte, die keine {{Glossary("ASCII", "ASCII")}}-Leerzeichen enthalten (oder eines der Zeichen `"` `'` `` ` `` `=` `<` `>`) können unverzinkt bleiben, es wird jedoch empfohlen, alle Attributwerte in Anführungszeichen zu setzen, da dies den Code konsistenter und verständlicher macht.
-
-### Verschachtelung von Elementen
-
-Sie können auch Elemente innerhalb anderer Elemente platzieren – dies nennt man **Verschachtelung**. Wenn wir sagen wollten, dass unsere Katze _sehr_ mürrisch ist, könnten wir das Wort „sehr“ in ein {{htmlelement("strong")}}-Element einfügen, was bedeutet, dass das Wort stark betont werden soll:
-
-```html
-<p>My cat is <strong>very</strong> grumpy.</p>
-```
-
-Sie müssen jedoch sicherstellen, dass Ihre Elemente richtig verschachtelt sind. Im obigen Beispiel haben wir das {{htmlelement("p")}}-Element zuerst geöffnet und dann das {{htmlelement("strong")}}-Element; Daher müssen wir das {{htmlelement("strong")}}-Element zuerst schließen und dann das {{htmlelement("p")}}-Element. Folgendes ist falsch:
-
-```html-nolint example-bad
-<p>My cat is <strong>very grumpy.</p></strong>
-```
-
-Die Elemente müssen korrekt geöffnet und geschlossen werden, damit sie klar innerhalb oder außerhalb voneinander sind. Wenn sie sich wie oben gezeigt überlappen, versucht Ihr Webbrowser, das Beste aus dem zu machen, was Sie sagen wollten, was zu unerwarteten Ergebnissen führen kann. Also tun Sie es nicht!
-
-### Leere Elemente
-
-Einige Elemente haben keinen Inhalt und werden **{{Glossary("void_element", "leere Elemente")}}** genannt. Nehmen Sie das {{htmlelement("img")}}-Element, das wir bereits auf unserer HTML-Seite haben:
-
-```html
-<img src="images/firefox-icon.png" alt="My test image" />
-```
-
-Dies enthält zwei Attribute, aber es gibt kein schließendes `</img>`-Tag und keinen inneren Inhalt. Dies liegt daran, dass ein Bildelement keinen Inhalt einrahmt, um ihn zu beeinflussen. Sein Zweck ist es, ein Bild an der Stelle, an der es erscheint, in die HTML-Seite einzubetten.
+Neben der Strukturierung von Text hat HTML viele weitere Anwendungen — Text oder Bilder mit anderen Webseiten zu verlinken, Bilder oder Videos einzubetten, Datentabellen zu erstellen und vieles mehr.
 
 ## Erstellen Ihres ersten HTML-Dokuments
 
-Damit sind die Grundlagen der einzelnen HTML-Elemente abgeschlossen, aber sie sind allein nicht sehr nützlich. Jetzt schauen wir uns an, wie einzelne Elemente kombiniert werden, um eine ganze HTML-Seite zu bilden. Lassen Sie uns eine grundlegende HTML-Datei erstellen und schauen, woraus sie besteht:
+Sehen wir uns an, wie einzelne Elemente kombiniert werden, um eine HTML-Seite zu bilden. In diesem Abschnitt werden Sie eine grundlegende HTML-Datei erstellen und sich ansehen, woraus sie besteht.
 
-1. Erstellen Sie in Ihrem `web-projects` Ordner einen weiteren neuen Ordner mit dem Namen `first-website`.
-2. Erstellen Sie in `first-website` eine neue Datei mit dem Namen `index.html` und fügen Sie den folgenden Code genau wie gezeigt in die Datei ein:
+1. Erstellen Sie in Ihrem `web-projects` Ordner einen weiteren neuen Ordner namens `first-website`.
+2. Erstellen Sie innerhalb von `first-website` eine neue Datei namens `index.html` und fügen Sie den folgenden Code genau so ein, wie er gezeigt wird:
 
 ```html
 <!doctype html>
@@ -125,54 +87,58 @@ Damit sind die Grundlagen der einzelnen HTML-Elemente abgeschlossen, aber sie si
 
 Hier haben wir folgendes:
 
-- `<!doctype html>` — Der {{Glossary("Doctype", "doctype")}} ist eine erforderliche Präambel. In den Nebeln der Zeit, als HTML jung war (um 1991/92), sollten Doctypes als Links zu einer Reihe von Regeln dienen, denen die HTML-Seite folgen musste, um als gutes HTML zu gelten, was automatische Fehlerprüfung und andere nützliche Dinge bedeuten konnte. Heutzutage tun sie jedoch nicht viel und sind im Grunde nur notwendig, um sicherzustellen, dass Ihr Dokument korrekt funktioniert. Das ist vorerst alles, was Sie wissen müssen.
-- `<html></html>` — das {{htmlelement("html")}}-Element. Dieses Element umfasst den gesamten Inhalt der gesamten Seite und wird manchmal als Wurzelelement bezeichnet. Es enthält auch das `lang`-Attribut, das die Hauptsprache des Dokuments festlegt.
-- `<head></head>` — das {{htmlelement("head")}}-Element. Dieses Element fungiert als Container für all die Dinge, die Sie auf der HTML-Seite einfügen möchten, die _nicht_ der Inhalt sind, den Sie den Besuchern Ihrer Seite zeigen möchten. Dazu gehören Dinge wie {{Glossary("keyword", "Schlüsselwörter")}} und eine Seitenbeschreibung, die in den Suchergebnissen erscheinen soll, CSS, um unseren Inhalt zu gestalten, Zeichensatzdeklarationen und mehr.
-- `<meta charset="utf-8">` — Dieses Element legt den Zeichensatz fest, den Ihr Dokument verwenden soll, auf UTF-8, das die meisten Zeichen der überwiegenden Mehrheit der geschriebenen Sprachen umfasst. Im Wesentlichen kann es jetzt jeden Textinhalt behandeln, den Sie darauf setzen könnten. Es gibt keinen Grund, dies nicht zu setzen, und es kann helfen, später einige Probleme zu vermeiden.
-- `<meta name="viewport" content="width=device-width">` — Dieses [Viewport-Element](/de/docs/Web/CSS/CSSOM_view/Viewport_concepts#mobile_viewports) stellt sicher, dass die Seite in der Breite des Viewports gerendert wird, und verhindert, dass mobile Browser Seiten breiter als der Viewport rendern und sie dann verkleinern.
-- `<title></title>` — das {{htmlelement("title")}}-Element. Dies setzt den Titel Ihrer Seite, welchen Titel der Tab des Browsers zeigt, in dem die Seite geladen wird. Es wird auch verwendet, um die Seite zu beschreiben, wenn Sie sie als Lesezeichen/Favorit speichern.
-- `<body></body>` — das {{htmlelement("body")}}-Element. Dies enthält _alle_ Inhalte, die Sie Webnutzern zeigen möchten, wenn sie Ihre Seite besuchen, sei es Text, Bilder, Videos, Spiele, abspielbare Audiospuren oder was auch immer.
+- `<!doctype html>`: Der {{Glossary("Doctype", "DOCTYPE")}} ist ein erforderliches Vorspann. In den Anfängen der Zeit, als HTML jung war (um 1991/92), sollten Doctypes als Links zu einem Satz von Regeln fungieren, denen die HTML-Seite folgen musste, um als gutes HTML angesehen zu werden, was automatische Fehlerprüfung und andere nützliche Dinge bedeuten konnte. Heutzutage bewirken sie jedoch nicht viel und sind im Wesentlichen nur nötig, damit Ihr Dokument korrekt funktioniert. Das ist alles, was Sie jetzt wissen müssen.
+- `<html></html>`: Das {{htmlelement("html")}} Element umschließt alle Inhalte auf der gesamten Seite und wird manchmal als **Root-Element** bezeichnet. Es enthält auch das `lang` {{Glossary("Attribute", "Attribut")}}, welches die primäre Sprache des Dokuments festlegt.
+- `<head></head>`: Das {{htmlelement("head")}} Element dient als Container für alles, was Sie auf der HTML-Seite einbeziehen möchten, das _nicht_ der Inhalt ist, den Sie den Besuchern Ihrer Seite anzeigen möchten. Dazu gehören Dinge wie {{Glossary("keyword", "Stichwörter")}} und eine Seitenbeschreibung, die in den Suchergebnissen erscheinen soll, {{Glossary("CSS", "CSS")}} zur Gestaltung des Inhalts, Zeichensatzdeklarationen und mehr.
+- `<meta charset="utf-8">`: Dieses Element legt den Zeichensatz fest, den Ihr Dokument verwenden soll, auf {{Glossary("UTF-8", "UTF-8")}}, was die meisten Zeichen der großen Mehrheit der geschriebenen Sprachen umfasst. Grundsätzlich kann es jetzt jeden textlichen Inhalt behandeln, den Sie darauf stellen möchten. Es gibt keinen Grund, dies nicht festzulegen, und es kann helfen, einige Probleme später zu vermeiden.
+- `<meta name="viewport" content="width=device-width">`: Dieses [Viewport-Element](/de/docs/Web/CSS/CSSOM_view/Viewport_concepts#mobile_viewports) sorgt dafür, dass die Seite in der Breite des Browser-Viewports gerendert wird, wodurch verhindert wird, dass mobile Browser Seiten breiter als der Viewport rendern und dann verkleinern.
+- `<title></title>`: Das {{htmlelement("title")}} Element legt den Titel Ihrer Seite fest, welcher der Titel ist, der im Browser-Tab erscheint, in dem die Seite geladen ist. Er wird auch verwendet, um die Seite zu beschreiben, wenn Sie ein Lesezeichen oder Favorit hinzufügen.
+- `<body></body>`: Das {{htmlelement("body")}} Element enthält _alle_ Inhalte, die Sie den Webnutzern zeigen möchten, wenn sie Ihre Seite besuchen, sei es Text, Bilder, Videos, Spiele, abspielbare Audiospuren oder was auch immer. Im Moment enthält es nur ein einzelnes `<img>` Element, aber wir werden später mehr Inhalte hinzufügen.
 
-## Bilder
+> [!NOTE]
+> Die meisten HTML-Elemente bestehen aus einem **Öffnungstag** (zum Beispiel `<body>`), gefolgt vom Inhalt des Elements, gefolgt von einem **Schlusstag** (zum Beispiel `</body>`). Einige HTML-Elemente haben auch **Attribute**, die zusätzliche Einstellungen oder Informationen über das Element enthalten — siehe zum Beispiel `charset`, `name` und `src` in unserem Codebeispiel.
 
-Richten wir nun unsere Aufmerksamkeit auf das {{htmlelement("img")}}-Element:
+## Einbetten von Bildern
+
+Werfen wir einen Blick auf das {{htmlelement("img")}} Element:
 
 ```html
 <img src="" alt="My test image" />
 ```
 
-Dies bettet ein Bild auf unserer Seite an der Stelle, an der es erscheint, ein. Dies geschieht über das Attribut `src` (source), das den Pfad zu unserer Bilddatei enthält.
+Dies bettet ein Bild an der Position in unsere Seite ein, an der es erscheint. Dies geschieht über das `src` (Quelle) Attribut, welches den Pfad zur Bilddatei enthält, die wir einbetten möchten.
 
-Wir haben auch ein `alt` (alternatives) Attribut eingeschlossen. Im [`alt`-Attribut](/de/docs/Web/HTML/Element/img#authoring_meaningful_alternate_descriptions) geben Sie beschreibenden Text für Benutzer an, die das Bild möglicherweise aus folgenden Gründen nicht sehen können:
+Wir haben auch ein `alt` (alternativ) Attribut hinzugefügt. In dem [`alt` Attribut](/de/docs/Web/HTML/Element/img#authoring_meaningful_alternate_descriptions) geben Sie beschreibenden Text für Benutzer an, die das Bild möglicherweise nicht sehen können, möglicherweise aufgrund der folgenden Gründe:
 
-1. Sie sind sehbehindert. Benutzer mit erheblichen Sehbehinderungen verwenden oft Werkzeuge, die den Alt-Text für sie vorlesen.
-2. Etwas ist schiefgegangen, wodurch das Bild nicht angezeigt wird. Wenn das `src`-Attribut keinen gültigen Pfad zu einem Bild enthält, wird stattdessen der Alt-Text angezeigt:
+1. Sie sind sehbehindert. Benutzer mit erheblichen Sehbehinderungen verwenden häufig Werkzeuge, die als Bildschirmleser bezeichnet werden, um den Alternativtext vorzulesen.
+2. Etwas ist schief gelaufen, wodurch das Bild nicht angezeigt wird. Wenn das `src` Attribut keinen gültigen Pfad zu einem Bild enthält, wird der Alternativtext stattdessen angezeigt:
 
-![Die Worte: mein Testbild](alt-text-example.png)
+   ![Die Worte: mein Testbild](alt-text-example.png)
 
-Die Schlüsselbegriffe für Alt-Text sind "beschreibender Text". Der von Ihnen geschriebene Alt-Text sollte dem Leser genügend Informationen geben, um eine gute Vorstellung davon zu haben, was das Bild vermittelt. In diesem Beispiel ist unser derzeitiger Text "Mein Testbild" überhaupt nicht gut. Eine viel bessere Alternative für unser Firefox-Logo wäre "Das Firefox-Logo: ein flammender Fuchs, der die Erde umgibt."
-
-> [!NOTE]
-> Finden Sie mehr über Barrierefreiheit in unserem [Barrierefreiheits-Lernmodul](/de/docs/Learn_web_development/Core/Accessibility) heraus.
-
-Lassen Sie uns jetzt Ihr Bild anzeigen.
-
-1. Erstellen Sie im `first-website` Ordner einen neuen Ordner namens `images` und legen Sie das Bild, das Sie im vorherigen Beispiel ausgewählt haben, in diesen Ordner.
-2. Geben Sie im Wert des `src`-Attributs des `<img>`-Tags den Pfad zu Ihrem Bild ein. Es befindet sich in einem Ordner namens `images`, der sich im gleichen Verzeichnis wie Ihre `index.html` Datei befindet, daher ist der Pfad `images/` plus der Name Ihres Bildes. Zum Beispiel, wenn Ihr Bild `firefox-icon.png` hieß, würde Ihr `src`-Attribut so aussehen: `src="images/firefox-icon.png"`.
-3. Ersetzen Sie den Wert des `alt`-Attributs – `My test image` – durch einen Text, der Ihr Bild besser beschreibt.
-4. Öffnen Sie Ihre `index.html` Datei in einem Webbrowser. Sie sollten Ihr Bild angezeigt sehen. Wenn nicht, überprüfen Sie Ihr `<img>`-Element mit unserem obigen Code; stellen Sie sicher, dass keine Syntax fehlt, wie die Anführungszeichen. Vergewissern Sie sich, dass der Bilddateiname korrekt ist.
+Der von Ihnen geschriebene Alternativtext sollte dem Leser genügend Informationen bieten, um eine gute Vorstellung davon zu haben, was das Bild vermittelt. In diesem Beispiel ist unser aktueller Text "Mein Testbild" nicht gut, da er keine beschreibenden Informationen über das Bild liefert. Eine viel bessere Alternative für unser Firefox-Logo wäre "Das Firefox-Logo: ein brennender Fuchs, der die Erde umgibt."
 
 > [!NOTE]
-> Wenn das Bild sehr groß ist und daher nicht auf den Bildschirm passt, machen Sie sich darüber keine Sorgen. Wir werden dieses Problem im nächsten Artikel beheben.
-> Finden Sie mehr über die Verwendung eines `alt`-Attributs für Bilder in verschiedenen Situationen in unserem [zugänglichen Multimedia-Tutorial](/de/docs/Learn_web_development/Core/Accessibility/Multimedia) und [Ein Entscheidungsbaum für Alt-Text](https://www.w3.org/WAI/tutorials/images/decision-tree/) heraus.
+> Elemente wie `<img>` haben keinen Inhalt oder Schlusstag und werden daher **leere** (oder **{{Glossary("void_element", "void")}}**) Elemente genannt. Sie werden manchmal mit einem **nachgestellten Schrägstrich** am Ende ihres einzigen Tags (`<img />`) geschrieben, dies ist jedoch optional.
 
-## Text formatieren
+Lassen Sie nun Ihr Bild anzeigen.
 
-Dieser Abschnitt behandelt einige grundlegende HTML-Elemente, die Sie zum Formatieren von Text verwenden werden.
+1. Erstellen Sie innerhalb des Ordners `first-website` einen neuen Ordner namens `images` und legen Sie das Bild, das Sie im vorherigen Beispiel ausgewählt haben, in diesen Ordner.
+2. Geben Sie im Wert des `src` Attributs des `<img>` Tags den Pfad zu Ihrem Bild ein. Es befindet sich in einem Ordner namens `images`, welcher sich im gleichen Verzeichnis wie Ihre `index.html` Datei befindet, daher lautet der Pfad `images/` plus der Name Ihres Bildes. Zum Beispiel, wenn Ihr Bild `firefox-icon.png` hieße, würde Ihr `src` Attribut so aussehen: `src="images/firefox-icon.png"`.
+3. Ersetzen Sie den Wert des `alt` Attributs — `Mein Testbild` — durch einen Text, der Ihr Bild besser beschreibt.
+4. Öffnen Sie Ihre `index.html` Datei in einem Webbrowser. Sie sollten Ihr Bild angezeigt sehen. Wenn nicht, überprüfen Sie Ihr `<img>` Element mit unserem Code; Achten Sie darauf, dass die Syntax, wie die Anführungszeichen, nicht fehlt. Stellen Sie sicher, dass der Bilddateiname korrekt ist.
+
+Wenn das Bild wirklich groß ist und daher nicht auf den Bildschirm passt, machen Sie sich darüber keine Sorgen. Wir werden dieses Problem im nächsten Artikel beheben.
+
+> [!NOTE]
+> Informieren Sie sich über die Verwendung eines `alt` Attributs für Bilder in verschiedenen Situationen in unserem [barrierefreies Multimedia-Tutorial](/de/docs/Learn_web_development/Core/Accessibility/Multimedia) und [Ein alt Entscheidungsbaum](https://www.w3.org/WAI/tutorials/images/decision-tree/).
+
+## Textauszeichnung
+
+Dieser Abschnitt behandelt einige wesentliche HTML-Elemente, die Sie zur Textauszeichnung verwenden werden.
 
 ### Überschriften
 
-Überschriftselemente ermöglichen es Ihnen, anzugeben, dass bestimmte Teile Ihres Inhalts Überschriften – oder Unterüberschriften – sind. Genauso wie ein Buch einen Haupttitel, Kapitelüberschriften und Untertitel hat, kann auch ein HTML-Dokument dies haben. HTML enthält 6 Überschriftsstufen, {{htmlelement("Heading_Elements", "&lt;h1&gt; - &lt;h6&gt;")}}, obwohl Sie in der Regel nur 3 bis 4 verwenden werden:
+Überschriftselemente ermöglichen es Ihnen, zu spezifizieren, dass bestimmte Teile Ihres Inhalts Überschriften — oder Unterüberschriften sind. In der gleichen Weise, wie ein Buch einen Haupttitel, Kapitelüberschriften und Untertitel hat, kann ein HTML-Dokument das auch. HTML enthält 6 Überschriftenebenen, {{htmlelement("Heading_Elements", "&lt;h1&gt;–&lt;h6&gt;")}}, obwohl Sie normalerweise nur 3 bis 4 davon verwenden werden:
 
 ```html
 <!-- 4 heading levels: -->
@@ -183,33 +149,30 @@ Dieser Abschnitt behandelt einige grundlegende HTML-Elemente, die Sie zum Format
 ```
 
 > [!NOTE]
-> Alles zwischen `<!--` und `-->` in HTML ist ein **HTML-Kommentar**. Der Browser ignoriert Kommentare, während er den Code rendert. Mit anderen Worten, sie sind nicht auf der Seite sichtbar - nur im Code. HTML-Kommentare sind eine Möglichkeit, hilfreiche Notizen über Ihren Code oder Ihre Logik zu schreiben.
+> Alles in HTML, das zwischen `<!--` und `-->` steht, ist ein **HTML-Kommentar**. Der Browser ignoriert Kommentare beim Rendern des Codes. Mit anderen Worten, sie sind nicht auf der Seite sichtbar — nur im Code. HTML-Kommentare sind eine Möglichkeit für Sie, Notizen zu Ihrem Code oder Ihrer Logik hinzuzufügen, die für andere, die am gleichen Code arbeiten, nützlich sein könnten oder für Sie, falls Sie in 6 Monaten darauf zurückkommen und sich nicht erinnern können, was Sie gemacht haben.
 
-Versuchen Sie nun, Ihrer HTML-Seite einen geeigneten Haupttitel direkt über Ihrem {{htmlelement("img")}}-Element hinzuzufügen. Speichern Sie die Datei und sehen Sie sich den Effekt in einem Browser an.
-
-> [!NOTE]
-> Sie werden feststellen, dass Ihre Überschriftsebene 1 einen impliziten Stil hat. Verwenden Sie Überschriftselemente nicht, um Text einfach nur größer oder fett zu machen, da sie für [Barrierefreiheit](/de/docs/Learn_web_development/Core/Accessibility/HTML#use_well-structured_text_content) und [andere Gründe wie SEO](/de/docs/Learn_web_development/Core/Structuring_content/Headings_and_paragraphs#why_do_we_need_structure) verwendet werden. Versuchen Sie, auf Ihren Seiten eine sinnvolle Sequenz von Überschriften zu erstellen, ohne Ebenen zu überspringen.
+Versuchen Sie nun, Ihrem HTML-Dokument einen geeigneten Haupttitel direkt über Ihrem {{htmlelement("img")}} Element hinzuzufügen. Speichern Sie die Datei und sehen Sie sich den Effekt in einem Browser an.
 
 ### Absätze
 
-Wie oben erklärt, dienen {{htmlelement("p")}}-Elemente dazu, Textabsätze zu enthalten; Sie werden sie häufig verwenden, wenn Sie regulären Textinhalt markieren:
+Absatz {{htmlelement("p")}} Elemente sind zum Einschließen von Textabsätzen; Sie werden diese häufig verwenden, wenn Sie normalen Textinhalt auszeichnen:
 
 ```html
 <p>This is a single paragraph</p>
 ```
 
-Fügen Sie Ihren Beispieltext aus dem vorherigen Artikel in einen oder mehrere Absätze direkt unter Ihrem {{htmlelement("img")}} Element hinzu. Speichern Sie es und sehen Sie sich Ihre Seite in einem Browser an.
+Fügen Sie Ihren Beispieltext aus dem vorherigen Artikel in einem oder mehreren Absätzen hinzu, die direkt unter Ihrem {{htmlelement("img")}} Element platziert sind. Speichern Sie es und sehen Sie sich Ihre Seite in einem Browser an.
 
 ### Listen
 
-Ein Großteil des Webinhalts besteht aus Listen, und HTML hat spezielle Elemente dafür. Das Markieren von Listen besteht immer aus mindestens zwei Elementen. Die häufigsten Listentypen sind geordnete und ungeordnete Listen:
+Ein großer Teil der Webinhalte sind Listen, und HTML hat spezielle Elemente für diese. Das Markieren von Listen besteht immer aus mindestens 2 Elementen. Die gängigsten Listentypen sind geordnete und ungeordnete Listen:
 
-1. **Ungeordnete Listen** sind für Listen, bei denen die Reihenfolge der Elemente keine Rolle spielt, wie z.B. eine Einkaufsliste. Diese sind in einem {{htmlelement("ul")}}-Element eingeschlossen.
-2. **Geordnete Listen** sind für Listen, bei denen die Reihenfolge der Elemente wichtig ist, wie z.B. eine Liste von Kochanweisungen in einem Rezept. Diese sind in einem {{htmlelement("ol")}}-Element eingeschlossen.
+1. **Ungeordnete Listen** sind für Listen, bei denen die Reihenfolge der Elemente keine Rolle spielt, wie z. B. eine Einkaufsliste. Diese sind in ein {{htmlelement("ul")}} Element eingeschlossen.
+2. **Geordnete Listen** sind für Listen, bei denen die Reihenfolge der Elemente wichtig ist, wie z. B. eine Liste von Kochanweisungen in einem Rezept. Diese sind in ein {{htmlelement("ol")}} Element eingeschlossen.
 
-Jedes Element innerhalb der Listen wird in ein {{htmlelement("li")}} (Listenelement) gesetzt.
+Jedes Element innerhalb der Listen wird in ein {{htmlelement("li")}} (list item) Element gesetzt.
 
-Zum Beispiel, wenn wir aus dem folgenden Absatzfragment eine Liste machen wollten
+Wenn wir beispielsweise einen Teil des folgenden Fragment eines Absatzes in eine Liste umwandeln möchten:
 
 ```html
 <p>
@@ -218,7 +181,7 @@ Zum Beispiel, wenn wir aus dem folgenden Absatzfragment eine Liste machen wollte
 </p>
 ```
 
-Könnten wir das Markup in dieses ändern
+Könnten wir das Markup so ändern:
 
 ```html
 <p>At Mozilla, we're a global community of</p>
@@ -232,26 +195,26 @@ Könnten wir das Markup in dieses ändern
 <p>working together…</p>
 ```
 
-Versuchen Sie, Ihrer Beispielseite eine geordnete oder ungeordnete Liste hinzuzufügen und sehen Sie sich das Ergebnis in einem Browser an.
+Versuchen Sie, Ihrer Beispielseite eine geordnete oder ungeordnete Liste hinzuzufügen, und betrachten Sie das Ergebnis in einem Browser.
 
-## Links
+## Erstellen von Links
 
-Links sind sehr wichtig – sie machen das Web zu einem Netz! Um einen Link hinzuzufügen, benötigen wir ein spezifisches Element – {{htmlelement("a")}} – "a" ist die Kurzform für "anchor". Um Text in Ihrem Absatz in einen Link zu verwandeln, gehen Sie folgendermaßen vor:
+Links sind sehr wichtig — sie machen das Web zu einem Netz! Um einen Link hinzuzufügen, müssen wir ein {{htmlelement("a")}} Element verwenden, "a" steht für "Anker". Um ein Text innerhalb Ihres Absatzes in einen Link zu verwandeln, folgen Sie diesen Schritten:
 
-1. Wählen Sie einen Text aus. Wir haben den Text "Mozilla Manifesto" gewählt.
-2. Umschließen Sie den Text mit einem {{htmlelement("a")}}-Element, wie unten gezeigt:
+1. Wählen Sie einen Text aus. Wir wählten den Text "Mozilla Manifesto".
+2. Umschließen Sie den Text mit einem {{htmlelement("a")}} Element, wie unten gezeigt:
 
    ```html
    <a>Mozilla Manifesto</a>
    ```
 
-3. Geben Sie dem {{htmlelement("a")}}-Element ein `href`-Attribut, wie unten gezeigt:
+3. Geben Sie dem {{htmlelement("a")}} Element ein `href` Attribut, wie unten gezeigt:
 
    ```html
    <a href="">Mozilla Manifesto</a>
    ```
 
-4. Füllen Sie den Wert dieses Attributs mit der Webadresse aus, auf die der Link verweisen soll:
+4. Füllen Sie den Wert dieses Attributs mit der Webadresse aus, zu der der Link zeigen soll:
 
    ```html
    <a href="https://www.mozilla.org/en-US/about/manifesto/">
@@ -259,20 +222,20 @@ Links sind sehr wichtig – sie machen das Web zu einem Netz! Um einen Link hinz
    </a>
    ```
 
-Es könnten unerwartete Ergebnisse auftreten, wenn Sie den `https://` oder `http://` Teil, das sogenannte _Protokoll_, am Anfang der Webadresse weglassen. Nachdem Sie einen Link erstellt haben, klicken Sie darauf, um sicherzustellen, dass er Sie dorthin sendet, wo Sie es beabsichtigt haben.
+Sie könnten unerwartete Ergebnisse erhalten, wenn Sie den Teil `https://` oder `http://`, genannt das _Protokoll_, am Anfang der Webadresse weglassen. Nachdem Sie einen Link erstellt haben, klicken Sie darauf, um sicherzustellen, dass es Sie dorthin sendet, wo Sie hin wollten.
 
-> **Hinweis:** `href` mag anfangs wie eine ziemlich obskure Wahl für einen Attributnamen erscheinen. Wenn Sie Schwierigkeiten haben, es sich zu merken, denken Sie daran, dass es für _**h**ypertext **ref**erence_ steht.
+> **Hinweis:** `href` könnte auf den ersten Blick wie eine ziemlich obskure Wahl für einen Attributnamen erscheinen. Es steht für _**h**ypertext **ref**erenz_.
 
-Fügen Sie Ihrer Seite nun einen Link hinzu, falls Sie dies noch nicht getan haben.
+Fügen Sie jetzt, wenn noch nicht geschehen, Ihrer Seite einen Link hinzu.
 
 ## Fazit
 
-Wenn Sie alle Anweisungen in diesem Artikel befolgt haben, sollten Sie mit einer Seite enden, die in etwa so aussieht wie die unten gezeigte (Sie können sie auch [hier ansehen](https://mdn.github.io/beginner-html-site/)):
+Wenn Sie alle Anweisungen in diesem Artikel befolgt haben, sollten Sie mit einer Seite enden, die wie die unten stehende aussieht (Sie können sie auch [hier ansehen](https://mdn.github.io/beginner-html-site/)):
 
-![Ein Screenshot einer Webseite mit einem Firefox-Logo, einer Überschrift "Mozilla ist cool" und zwei Absätzen mit Fülltext](finished-test-page-small.png)
+![Eine Screenshot einer Webseite, auf der ein Firefox-Logo, eine Überschrift mit der Aufschrift Mozilla ist cool, und zwei Absätze mit Fülltext zu sehen sind](finished-test-page-small.png)
 
-Wenn Sie stecken bleiben, können Sie Ihre Arbeit immer mit unserem [fertigen Beispielcode](https://github.com/mdn/beginner-html-site/blob/main/index.html) auf GitHub vergleichen.
+Wenn Sie feststecken, können Sie Ihre Arbeit jederzeit mit unserem [fertigen Beispielcode](https://github.com/mdn/beginner-html-site/blob/main/index.html) auf GitHub vergleichen.
 
-Hier haben wir nur an der Oberfläche von HTML gekratzt. Sie werden viel mehr in unserem [Strukturieren von Inhalten mit HTML](/de/docs/Learn_web_development/Core/Structuring_content) Kernmodul lernen.
+Hier haben wir wirklich nur an der Oberfläche von HTML gekratzt. Sie werden viel mehr in unserem [Inhalt mit HTML strukturieren](/de/docs/Learn_web_development/Core/Structuring_content) Kernmodul später im Kurs lernen.
 
 {{PreviousMenuNext("Learn_web_development/Getting_started/Your_first_website/What_will_your_website_look_like", "Learn_web_development/Getting_started/Your_first_website/Styling_the_content", "Learn_web_development/Getting_started/Your_first_website")}}

@@ -1,11 +1,11 @@
 ---
-title: Rechtsverschiebung
+title: Rechtsschiebung
 slug: WebAssembly/Reference/Numeric/Right_shift
 l10n:
-  sourceCommit: 5af6da1da593fae9b3208eb9fd308213d5c3359c
+  sourceCommit: c0fc8c988385a0ce8ff63887f9a3263caf55a1f9
 ---
 
-Die **`shr`**-Anweisungen, kurz für _shift-right_, werden verwendet, um eine bitweise Rechtsverschiebung durchzuführen, ähnlich wie der **`>>>`**-Operator in anderen Sprachen.
+Die **`shr`**-Anweisungen, kurz für _shift-right_, werden verwendet, um eine bitweise Rechtsschiebung durchzuführen, ähnlich dem **`>>>`**-Operator in anderen Sprachen.
 
 {{InteractiveExample("Wat Demo: shr", "tabbed-taller")}}
 
@@ -47,7 +47,7 @@ function numToBin(num) {
 
 ## Syntax
 
-```wasm
+```wat
 ;; load two numbers onto the stack
 i32.const 7   ;; 00000111
 i32.const 1   ;; right shift one spot

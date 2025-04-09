@@ -1,8 +1,8 @@
 ---
-title: Vorzeichen kopieren
+title: Kopiere das Vorzeichen
 slug: WebAssembly/Reference/Numeric/Copy_sign
 l10n:
-  sourceCommit: 5af6da1da593fae9b3208eb9fd308213d5c3359c
+  sourceCommit: c0fc8c988385a0ce8ff63887f9a3263caf55a1f9
 ---
 
 Die **`copysign`**-Anweisungen werden verwendet, um nur das Vorzeichenbit von einer Zahl auf eine andere zu kopieren.
@@ -31,7 +31,7 @@ await WebAssembly.instantiateStreaming(fetch(url), { console });
 
 ## Syntax
 
-```wasm
+```wat
 ;; load two numbers onto the stack
 f32.const 10
 f32.const -1

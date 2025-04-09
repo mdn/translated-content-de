@@ -2,10 +2,10 @@
 title: XOR
 slug: WebAssembly/Reference/Numeric/XOR
 l10n:
-  sourceCommit: 5af6da1da593fae9b3208eb9fd308213d5c3359c
+  sourceCommit: c0fc8c988385a0ce8ff63887f9a3263caf55a1f9
 ---
 
-Die **`xor`**-Anweisungen werden verwendet, um ein bitweises XOR durchzuführen, ähnlich dem **`^`**-Operator in anderen Programmiersprachen.
+Die **`xor`** Anweisungen werden verwendet, um ein bitweises XOR durchzuführen, ähnlich dem **`^`** Operator in anderen Sprachen.
 
 {{InteractiveExample("Wat Demo: xor", "tabbed-taller")}}
 
@@ -43,7 +43,7 @@ function numToBin(num) {
 
 ## Syntax
 
-```wasm
+```wat
 ;; load two numbers onto the stack
 i32.const 5   ;; 00000101
 i32.const 3   ;; 00000011

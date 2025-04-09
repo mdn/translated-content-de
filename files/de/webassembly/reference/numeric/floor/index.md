@@ -2,12 +2,12 @@
 title: Floor
 slug: WebAssembly/Reference/Numeric/Floor
 l10n:
-  sourceCommit: 5af6da1da593fae9b3208eb9fd308213d5c3359c
+  sourceCommit: c0fc8c988385a0ce8ff63887f9a3263caf55a1f9
 ---
 
-Die **`floor`**-Anweisungen werden verwendet, um den Wert einer Zahl auf die nächste ganze Zahl abzurunden.
+Die **`floor`**-Anweisungen werden verwendet, um den Wert einer Zahl auf den nächsten ganzzahligen Wert abzurunden.
 
-**`floor`** unterscheidet sich von **`trunc`** bei negativen Zahlen. In diesen Fällen wird **`floor`** abrunden, während **`trunc`** aufrunden wird.
+**`floor`** unterscheidet sich von **`trunc`**, wenn sie bei negativen Zahlen verwendet werden. In diesen Fällen wird **`floor`** nach unten runden, während **`trunc`** nach oben runden wird.
 
 {{InteractiveExample("Wat Demo: floor", "tabbed-standard")}}
 
@@ -32,7 +32,7 @@ await WebAssembly.instantiateStreaming(fetch(url), { console });
 
 ## Syntax
 
-```wasm
+```wat
 ;; load a number onto the stack
 f32.const -2.7
 

@@ -2,7 +2,7 @@
 title: Const
 slug: WebAssembly/Reference/Numeric/Const
 l10n:
-  sourceCommit: 5af6da1da593fae9b3208eb9fd308213d5c3359c
+  sourceCommit: c0fc8c988385a0ce8ff63887f9a3263caf55a1f9
 ---
 
 Die **`const`** Anweisungen werden verwendet, um Zahlen zu deklarieren.
@@ -29,7 +29,7 @@ await WebAssembly.instantiateStreaming(fetch(url), { console });
 
 ## Syntax
 
-```wasm
+```wat
 ;; push `5` onto the stack
 i32.const 5
 ```

@@ -2,10 +2,10 @@
 title: Max
 slug: WebAssembly/Reference/Numeric/Max
 l10n:
-  sourceCommit: 5af6da1da593fae9b3208eb9fd308213d5c3359c
+  sourceCommit: c0fc8c988385a0ce8ff63887f9a3263caf55a1f9
 ---
 
-Die **`max`** Anweisungen werden verwendet, um die höhere der beiden Zahlen zu erhalten.
+Die **`max`** Anweisungen werden verwendet, um die größere von zwei Zahlen zu erhalten.
 
 {{InteractiveExample("Wat Demo: max", "tabbed-taller")}}
 
@@ -31,7 +31,7 @@ await WebAssembly.instantiateStreaming(fetch(url), { console });
 
 ## Syntax
 
-```wasm
+```wat
 ;; load two numbers onto the stack
 f32.const 10
 f32.const 3

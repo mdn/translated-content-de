@@ -2,10 +2,10 @@
 title: unreachable
 slug: WebAssembly/Reference/Control_flow/unreachable
 l10n:
-  sourceCommit: 5af6da1da593fae9b3208eb9fd308213d5c3359c
+  sourceCommit: c0fc8c988385a0ce8ff63887f9a3263caf55a1f9
 ---
 
-**`unreachable`** wird verwendet, um einen Punkt im Code zu kennzeichnen, der nicht erreichbar sein sollte. `unreachable` ist eine bedingungslose Falle: Wenn ein `unreachable` erreicht und ausgeführt wird, löst die Anweisung eine Falle aus.
+**`unreachable`** wird verwendet, um einen Punkt im Code zu kennzeichnen, der nicht erreicht werden sollte. `unreachable` ist eine bedingungslose Falle: Wenn ein `unreachable` erreicht und ausgeführt wird, erzeugt die Anweisung eine Falle.
 
 {{InteractiveExample("Wat Demo: unreachable", "tabbed-shorter")}}
 
@@ -27,7 +27,7 @@ await WebAssembly.instantiateStreaming(fetch(url)).then((result) => {
 
 ## Syntax
 
-```wasm
+```wat
 unreachable
 ```
 

@@ -1,13 +1,13 @@
 ---
-title: Größer als
+title: Greater than
 slug: WebAssembly/Reference/Numeric/Greater_than
 l10n:
-  sourceCommit: 5af6da1da593fae9b3208eb9fd308213d5c3359c
+  sourceCommit: c0fc8c988385a0ce8ff63887f9a3263caf55a1f9
 ---
 
-Die **`gt`**-Anweisungen, kurz für _greater than_, prüfen, ob eine Zahl größer als eine andere Zahl ist. Wenn die erste Zahl größer als die zweite Zahl ist, wird `1` auf den Stapel geschoben, andernfalls wird `0` auf den Stapel geschoben.
+Die **`gt`**-Anweisungen, kurz für _greater than_ (größer als), prüfen, ob eine Zahl größer als eine andere Zahl ist. Wenn die erste Zahl größer als die zweite Zahl ist, wird `1` auf den Stack geschoben, andernfalls wird `0` auf den Stack geschoben.
 
-Die Ganzzahltypen haben separate Anweisungen für größer als für vorzeichenbehaftete (**`gt_s`**) und vorzeichenlose (**`gt_u`**) Zahlen.
+Die Ganzzahl-Typen haben separate Greater-Than-Anweisungen für vorzeichenbehaftete (**`gt_s`**) und vorzeichenlose (**`gt_u`**) Zahlen.
 
 {{InteractiveExample("Wat Demo: gt", "tabbed-taller")}}
 
@@ -41,7 +41,7 @@ await WebAssembly.instantiateStreaming(fetch(url), {
 
 ## Syntax
 
-```wasm
+```wat
 ;; load 2 numbers on to the stack
 local.get $num
 i32.const 2

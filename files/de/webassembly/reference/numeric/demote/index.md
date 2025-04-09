@@ -1,11 +1,11 @@
 ---
-title: Herabstufen
+title: Demote
 slug: WebAssembly/Reference/Numeric/Demote
 l10n:
-  sourceCommit: 5af6da1da593fae9b3208eb9fd308213d5c3359c
+  sourceCommit: c0fc8c988385a0ce8ff63887f9a3263caf55a1f9
 ---
 
-Die **`demote`**-Anweisung wird verwendet, um Zahlen vom Typ `f64` in den Typ `f32` zu konvertieren (herabzustufen).
+Die Anweisung **`demote`** wird verwendet, um Zahlen des Typs `f64` in den Typ `f32` zu konvertieren (herabzustufen).
 
 {{InteractiveExample("Wat Demo: demote", "tabbed-taller")}}
 
@@ -32,7 +32,7 @@ await WebAssembly.instantiateStreaming(fetch(url), { console });
 
 ## Syntax
 
-```wasm
+```wat
 ;; push an f64 onto the stack
 f64.const 10.5
 

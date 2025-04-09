@@ -2,12 +2,12 @@
 title: Weniger oder gleich
 slug: WebAssembly/Reference/Numeric/Less_or_equal
 l10n:
-  sourceCommit: 5af6da1da593fae9b3208eb9fd308213d5c3359c
+  sourceCommit: c0fc8c988385a0ce8ff63887f9a3263caf55a1f9
 ---
 
-Die **`le`**-Anweisungen, kurz für _weniger oder gleich_, überprüfen, ob eine Zahl kleiner oder gleich einer anderen Zahl ist. Wenn die erste Zahl kleiner oder gleich der zweiten Zahl ist, wird `1` auf den Stapel geschoben, andernfalls wird `0` auf den Stapel geschoben.
+Die **`le`**-Anweisungen, kurz für _weniger oder gleich_, prüfen, ob eine Zahl kleiner oder gleich einer anderen Zahl ist. Wenn die erste Zahl kleiner oder gleich der zweiten Zahl ist, wird `1` auf den Stapel geschoben, andernfalls wird `0` auf den Stapel geschoben.
 
-Die Ganzzahltypen haben separate Anweisungen für weniger oder gleich für vorzeichenbehaftete (**`le_s`**) und vorzeichenlose (**`le_u`**) Zahlen.
+Die ganzzahligen Typen haben separate weniger oder gleich Anweisungen für vorzeichenbehaftete (**`le_s`**) und vorzeichenlose (**`le_u`**) Zahlen.
 
 {{InteractiveExample("Wat Demo: le", "tabbed-taller")}}
 
@@ -41,7 +41,7 @@ await WebAssembly.instantiateStreaming(fetch(url), {
 
 ## Syntax
 
-```wasm
+```wat
 ;; load 2 numbers on to the stack
 local.get $num
 i32.const 2

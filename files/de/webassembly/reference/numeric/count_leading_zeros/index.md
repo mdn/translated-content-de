@@ -1,11 +1,11 @@
 ---
-title: Führen Sie Nullen zählen
+title: Zählen führender Nullen
 slug: WebAssembly/Reference/Numeric/Count_leading_zeros
 l10n:
-  sourceCommit: 5af6da1da593fae9b3208eb9fd308213d5c3359c
+  sourceCommit: c0fc8c988385a0ce8ff63887f9a3263caf55a1f9
 ---
 
-Die **`clz`** Befehle, kurz für _count leading zeros_, werden verwendet, um die Anzahl der Nullen am Anfang der binären Darstellung einer Zahl zu zählen.
+Die **`clz`**-Anweisungen, kurz für _count leading zeros_, werden verwendet, um die Anzahl der Nullen am Anfang der binären Darstellung von Zahlen zu zählen.
 
 {{InteractiveExample("Wat Demo: clz", "tabbed-taller")}}
 
@@ -39,7 +39,7 @@ await WebAssembly.instantiateStreaming(fetch(url), { console }).then(
 
 ## Syntax
 
-```wasm
+```wat
 ;; load a number onto the stack
 i32.const 8388608 ;; 00000000_10000000_00000000_00000000
 
@@ -49,7 +49,7 @@ i32.clz
 ;; the top item on the stack will now be 8
 ```
 
-| Befehl    | Binärer Opcode |
+| Anweisung | Binärer Opcode |
 | --------- | -------------- |
 | `i32.clz` | `0x67`         |
 | `i64.clz` | `0x79`         |

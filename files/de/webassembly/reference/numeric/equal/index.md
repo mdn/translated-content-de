@@ -1,13 +1,13 @@
 ---
-title: Gleich
+title: Equal
 slug: WebAssembly/Reference/Numeric/Equal
 l10n:
-  sourceCommit: 5af6da1da593fae9b3208eb9fd308213d5c3359c
+  sourceCommit: c0fc8c988385a0ce8ff63887f9a3263caf55a1f9
 ---
 
-Die **`eq`**-Anweisungen, abgekürzt für _gleich_, prüfen, ob zwei Zahlen gleich sind. Wenn beide Zahlen gleich sind, wird `1` auf den Stack geschoben, andernfalls wird `0` auf den Stack geschoben.
+Die **`eq`**-Anweisungen, kurz für _equal_, prüfen, ob zwei Zahlen gleich sind. Wenn beide Zahlen gleich sind, wird `1` auf den Stapel gelegt, andernfalls wird `0` auf den Stapel gelegt.
 
-Ähnlich überprüfen die **`eqz`**-Anweisungen, ob eine Zahl gleich null ist. Die **`eqz`**-Anweisungen sind nur für die Ganzzahltypen erhältlich und nicht für die Gleitpunkttypen.
+Ähnlich prüfen die **`eqz`**-Anweisungen, ob eine Zahl gleich null ist. Die **`eqz`**-Anweisungen sind nur für die Ganzzahltypen verfügbar und nicht für die Gleitkommazahltypen.
 
 {{InteractiveExample("Wat Demo: eq", "tabbed-taller")}}
 
@@ -41,7 +41,7 @@ await WebAssembly.instantiateStreaming(fetch(url), {
 
 ## Syntax
 
-```wasm
+```wat
 ;; load 2 numbers on to the stack
 local.get $num
 i32.const 2

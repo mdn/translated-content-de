@@ -2,10 +2,10 @@
 title: Subtraktion
 slug: WebAssembly/Reference/Numeric/Subtraction
 l10n:
-  sourceCommit: 5af6da1da593fae9b3208eb9fd308213d5c3359c
+  sourceCommit: c0fc8c988385a0ce8ff63887f9a3263caf55a1f9
 ---
 
-Die **`sub`** Anweisungen, kurz für _Subtraktion_, werden verwendet, um eine Zahl von einer anderen zu subtrahieren, ähnlich dem **`-`** Operator in anderen Sprachen.
+Die **`sub`**-Instruktionen, kurz für _Subtraktion_, werden verwendet, um eine Zahl von einer anderen Zahl zu subtrahieren, ähnlich wie der **`-`**-Operator in anderen Sprachen.
 
 {{InteractiveExample("Wat Demo: sub", "tabbed-taller")}}
 
@@ -31,7 +31,7 @@ await WebAssembly.instantiateStreaming(fetch(url), { console });
 
 ## Syntax
 
-```wasm
+```wat
 ;; load two numbers onto the stack
 i32.const 10
 i32.const 3
@@ -42,9 +42,9 @@ i32.sub
 ;; the top item on the stack will now be 7 (10 - 3 = 7)
 ```
 
-| Anweisung | Binary-Opcode |
-| --------- | ------------- |
-| `i32.sub` | `0x6b`        |
-| `i64.sub` | `0x7d`        |
-| `f32.sub` | `0x93`        |
-| `f64.sub` | `0xa1`        |
+| Instruktion | Binärer Opcode |
+| ----------- | -------------- |
+| `i32.sub`   | `0x6b`         |
+| `i64.sub`   | `0x7d`         |
+| `f32.sub`   | `0x93`         |
+| `f64.sub`   | `0xa1`         |

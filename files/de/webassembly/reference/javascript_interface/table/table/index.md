@@ -2,10 +2,10 @@
 title: WebAssembly.Table()-Konstruktor
 slug: WebAssembly/Reference/JavaScript_interface/Table/Table
 l10n:
-  sourceCommit: df9d06402163f77fc3e2d327ab63f9dd4af15b38
+  sourceCommit: c0fc8c988385a0ce8ff63887f9a3263caf55a1f9
 ---
 
-Der **`WebAssembly.Table()`**-Konstruktor erstellt ein neues `Table`-Objekt mit der angegebenen Größe und dem angegebenen Elementtyp, gefüllt mit dem bereitgestellten Wert.
+Der **`WebAssembly.Table()`**-Konstruktor erstellt ein neues `Table`-Objekt mit der angegebenen Größe und dem Elementtyp, gefüllt mit dem bereitgestellten Wert.
 
 ## Syntax
 
@@ -25,7 +25,7 @@ new WebAssembly.Table(tableDescriptor, value)
     - `initial`
       - : Die anfängliche Anzahl der Elemente der WebAssembly-Tabelle.
     - `maximum` {{optional_inline}}
-      - : Die maximale Anzahl von Elementen, auf die die WebAssembly-Tabelle wachsen darf.
+      - : Die maximale Anzahl an Elementen, zu der die WebAssembly-Tabelle wachsen darf.
 
 - `value` {{optional_inline}}
 
@@ -40,14 +40,14 @@ new WebAssembly.Table(tableDescriptor, value)
 
 ## Beispiele
 
-### Erstellen einer neuen WebAssembly-Tabelle-Instanz
+### Erstellen einer neuen WebAssembly Table-Instanz
 
-Das folgende Beispiel erstellt eine `WebAssembly.Table`-Instanz mit einer anfänglichen Größe von 2 Elementen. Der Inhalt der `WebAssembly.Table` wird mit einem WebAssembly-Modul gefüllt und ist von JavaScript aus zugänglich. Beim Betrachten des [Live-Beispiels](https://mdn.github.io/webassembly-examples/js-api-examples/table2.html) öffnen Sie Ihre Entwicklerkonsole, um die Konsolenlog-Nachrichten aus den folgenden Codeausschnitten anzuzeigen.
+Das folgende Beispiel erstellt eine `WebAssembly.Table`-Instanz mit einer Anfangsgröße von 2 Elementen. Der Inhalt der `WebAssembly.Table` wird mit einem WebAssembly-Modul gefüllt und ist von JavaScript aus zugänglich. Beim Anzeigen des [Live-Beispiels](https://mdn.github.io/webassembly-examples/js-api-examples/table2.html) öffnen Sie Ihre Entwicklertools-Konsole, um Konsolenprotokollnachrichten der folgenden Code-Snippets anzuzeigen.
 
 Dieses Beispiel verwendet die folgenden Referenzdateien:
 
 1. `table2.html`: Eine HTML-Datei, die JavaScript enthält, das eine `WebAssembly.Table` erstellt ([Quellcode](https://github.com/mdn/webassembly-examples/blob/main/js-api-examples/table2.html))
-2. `table2.wasm`: Ein WebAssembly-Modul, das vom JavaScript-Code in `table2.html` importiert wird ([Quellcode](https://github.com/mdn/webassembly-examples/blob/main/js-api-examples/table2.wat))
+2. `table2.wasm`: Ein WebAssembly-Modul, das durch den JavaScript-Code in `table2.html` importiert wird ([Quellcode](https://github.com/mdn/webassembly-examples/blob/main/js-api-examples/table2.wat))
 
 In `table2.html` erstellen wir eine `WebAssembly.Table`:
 
@@ -58,7 +58,7 @@ const tbl = new WebAssembly.Table({
 });
 ```
 
-Wir können den Indexinhalt mit [`Table.prototype.get()`](/de/docs/WebAssembly/Reference/JavaScript_interface/Table/get) abrufen:
+Wir können die Indexinhalte mit [`Table.prototype.get()`](/de/docs/WebAssembly/Reference/JavaScript_interface/Table/get) abrufen:
 
 ```js
 console.log(tbl.length); // a table with 2 elements
@@ -74,9 +74,9 @@ const importObject = {
 };
 ```
 
-Als nächstes laden und instanziieren wir ein WebAssembly-Modul. Das Modul `table2.wasm` definiert eine Tabelle, die zwei Funktionen enthält. Die erste Funktion gibt 42 zurück und die zweite 83:
+Als nächstes laden und instanziieren wir ein WebAssembly-Modul. Das `table2.wasm`-Modul definiert eine Tabelle, die zwei Funktionen enthält. Die erste Funktion gibt 42 zurück, und die zweite 83:
 
-```wasm
+```wat
 (module
     (import "js" "tbl" (table 2 anyfunc))
     (func $f42 (result i32) i32.const 42)
@@ -94,13 +94,13 @@ const instantiating = WebAssembly.instantiateStreaming(
 );
 ```
 
-Nach dem Instantiieren von `table2.wasm` wird `tbl` wie folgt aktualisiert:
+Nach der Instanziierung von `table2.wasm` wird `tbl` wie folgt aktualisiert:
 
-- Die Tabellengröße ist weiterhin 2
-- Der Inhalt für Index 0 ist jetzt eine Funktion, die 42 zurückgibt
-- Der Inhalt für Index 1 ist jetzt eine Funktion, die 83 zurückgibt
+- Tabellenlänge bleibt 2
+- Der Inhalt für Index 0 ist nun eine Funktion, die 42 zurückgibt
+- Der Inhalt für Index 1 ist nun eine Funktion, die 83 zurückgibt
 
-Die Elemente an den Indizes 0 und 1 der Tabelle sind jetzt aufrufbare [Exportierte WebAssembly-Funktionen](/de/docs/WebAssembly/Guides/Exported_functions). Um sie aufzurufen, beachten Sie, dass wir dem `get()` Aufruf den Funktionsaufruf-Operator `()` hinzufügen müssen:
+Die Elemente an den Indizes 0 und 1 der Tabelle sind nun aufrufbare [Exportierte WebAssembly-Funktionen](/de/docs/WebAssembly/Guides/Exported_functions). Um sie aufzurufen, beachten Sie, dass der Funktionsaufrufsoperator `()` nach dem `get()`-Aufruf hinzugefügt werden muss:
 
 ```js
 instantiating.then((obj) => {
@@ -110,11 +110,11 @@ instantiating.then((obj) => {
 });
 ```
 
-Während wir die `WebAssembly.Table` von JavaScript aus erstellen und darauf zugreifen, ist dieselbe `Table` auch innerhalb der WebAssembly-Instanz sichtbar und aufrufbar.
+Während wir die `WebAssembly.Table` aus JavaScript erstellen und darauf zugreifen, ist dieselbe `Table` auch innerhalb der WebAssembly-Instanz sichtbar und aufrufbar.
 
-### Erstellen einer neuen WebAssembly-Tabelle-Instanz mit einem Wert
+### Erstellen einer neuen WebAssembly Table-Instanz mit einem Wert
 
-Das folgende Beispiel erstellt eine neue WebAssembly-Tabelle-Instanz mit 4 Elementen, die alle mit demselben Objekt gefüllt sind:
+Das folgende Beispiel erstellt eine neue WebAssembly Table-Instanz mit 4 Elementen, die alle das gleiche Objekt enthalten:
 
 ```js
 const myObject = { hello: "world" };
@@ -141,6 +141,6 @@ console.log(myObject === table.get(2)); // true
 
 ## Siehe auch
 
-- [WebAssembly](/de/docs/WebAssembly)-Übersichtsseite
+- [WebAssembly](/de/docs/WebAssembly) Übersichtseite
 - [WebAssembly-Konzepte](/de/docs/WebAssembly/Guides/Concepts)
 - [Verwendung der WebAssembly-JavaScript-API](/de/docs/WebAssembly/Guides/Using_the_JavaScript_API)

@@ -1,13 +1,13 @@
 ---
-title: Lokale tee
+title: Local tee
 slug: WebAssembly/Reference/Variables/Local_tee
 l10n:
-  sourceCommit: 5af6da1da593fae9b3208eb9fd308213d5c3359c
+  sourceCommit: c0fc8c988385a0ce8ff63887f9a3263caf55a1f9
 ---
 
-Die **`local.tee`**-Anweisung setzt den Wert einer lokalen Variable und lädt den Wert auf den Stapel.
+Die **`local.tee`** Anweisung setzt den Wert einer lokalen Variable und lädt den Wert auf den Stapel.
 
-Die Anweisung ist nach dem T-Abzweigstück aus der Klempnerei benannt.
+Die Anweisung ist nach dem T-Stück benannt, das in der Klempnerei verwendet wird.
 
 {{InteractiveExample("Wat Demo: local_tee", "tabbed-taller")}}
 
@@ -33,7 +33,7 @@ await WebAssembly.instantiateStreaming(fetch(url), { console });
 
 ## Syntax
 
-```wasm
+```wat
 ;; load the number 2 onto the stack
 i32.const 2
 

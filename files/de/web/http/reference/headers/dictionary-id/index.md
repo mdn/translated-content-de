@@ -2,16 +2,20 @@
 title: Dictionary-ID
 slug: Web/HTTP/Reference/Headers/Dictionary-ID
 l10n:
-  sourceCommit: 43f272adb6ac15537cff3728c78ddf234485fff8
+  sourceCommit: ae1d2366289e37ed587e24c2a02e4ec2fda6812c
 ---
 
 {{HTTPSidebar}}{{SeeCompatTable}}
 
-Der HTTP-Anforderungsheader **`Dictionary-ID`** verweist auf ein Wörterbuch, das im {{Glossary("Compression_Dictionary_Transport", "Compression Dictionary Transport")}} verwendet werden kann, um die Serverantwort zu komprimieren.
+Der HTTP **`Dictionary-ID`** Anforderungsheader verweist auf ein Wörterbuch, das im {{Glossary("Compression_Dictionary_Transport", "Komprimierungswörterbuch-Transport")}} verwendet werden kann, um die Antwort des Servers zu komprimieren.
 
-Im Compression Dictionary Transport kann ein Server angeben, dass eine Ressource als Wörterbuch verwendet werden kann, indem er den Header {{httpheader("Use-As-Dictionary")}} mit der Antwort sendet. Der Server kann eine `id`-Richtlinie im `Use-As-Dictionary`-Header aufnehmen und somit dem Wörterbuch einen ID-Wert zuweisen. Wenn der Server dies tut, muss bei einer Anfrage des Browsers auf eine Ressource, die mit dem Wörterbuch komprimiert werden kann, die Anforderungsheader `Dictionary-ID` enthalten, und dessen Wert muss die im `Use-As-Dictionary` angegebenen ID sein.
+Ein Server kann angeben, dass eine Ressource als Wörterbuch verwendet werden kann, indem er den {{httpheader("Use-As-Dictionary")}} Header mit der Antwort sendet. Der Server kann eine `id` Direktive im `Use-As-Dictionary` Header einschließen und damit dem Wörterbuch eine ID zuweisen. Wenn der Server dies tut, muss die Anfrage nach einer Ressource, die mithilfe des Wörterbuchs komprimiert werden kann, den `Dictionary-ID` Header enthalten und dessen Wert muss der ID entsprechen, die im `Use-As-Dictionary` angegeben wurde.
 
-Weitere Informationen finden Sie im [Leitfaden für Compression Dictionary Transport](/de/docs/Web/HTTP/Guides/Compression_dictionary_transport).
+Dies ermöglicht es dem Server, ein Wörterbuch anhand eines beliebigen Schlüssels zu identifizieren und zu finden, anstatt den {{Glossary("hash_function", "Wörterbuch-Hash")}} als Schlüssel zu verwenden (wenn dieser Ansatz verwendet wird, muss der Server jede Antwort hashen, die den `Use-As-Dictionary` Header enthält, nur für den Fall, dass die Ressource schließlich als Wörterbuch verwendet wird).
+
+Beachten Sie, dass der Server, obwohl er das Wörterbuch anhand seiner `Dictionary-ID` identifizieren und lokalisieren kann, den Hash aus dem `Available-Dictionary` Header überprüfen muss, um sicherzustellen, dass es eine korrekte Übereinstimmung ist.
+
+Weitere Informationen finden Sie im [Leitfaden für Komprimierungswörterbuch-Transport](/de/docs/Web/HTTP/Guides/Compression_dictionary_transport).
 
 ## Syntax
 
@@ -19,20 +23,20 @@ Weitere Informationen finden Sie im [Leitfaden für Compression Dictionary Trans
 Dictionary-ID: "<string-identifier>"
 ```
 
-## Richtlinien
+## Direktiven
 
 - `<string-identifier>`
-  - : Ein String, der die vom Server zugewiesene ID des Wörterbuchs darstellt.
+  - : Eine Zeichenfolge, die die vom Server zugewiesene ID des Wörterbuchs repräsentiert.
 
 ## Beispiele
 
-Angenommen, der Server hat einen `Use-As-Dictionary`-Header mit einer Direktive `id="dictionary-12345"` gesendet:
+Zum Beispiel, nehmen wir an, der Server hat einen `Use-As-Dictionary` Header mit einer `id="dictionary-12345"` Direktive gesendet:
 
 ```http
 Use-As-Dictionary: match="/js/app.*.js", id="dictionary-12345"
 ```
 
-Wenn der Client eine passende Ressource anfordert, wird er diesen `id`-Wert in einem `Dictionary-ID`-Header einschließen:
+Wenn der Client eine passende Ressource anfordert, wird er diesen `id` Wert in einem `Dictionary-ID` Header einschließen:
 
 ```http
 Accept-Encoding: gzip, br, zstd, dcb, dcz
@@ -50,6 +54,6 @@ Dictionary-ID: "dictionary-12345"
 
 ## Siehe auch
 
-- [Leitfaden für Compression Dictionary Transport](/de/docs/Web/HTTP/Guides/Compression_dictionary_transport)
+- [Leitfaden für Komprimierungswörterbuch-Transport](/de/docs/Web/HTTP/Guides/Compression_dictionary_transport)
 - {{HTTPHeader("Available-Dictionary")}}
 - {{HTTPHeader("Use-As-Dictionary")}}

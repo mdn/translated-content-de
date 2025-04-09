@@ -2,10 +2,10 @@
 title: Population count
 slug: WebAssembly/Reference/Numeric/Population_count
 l10n:
-  sourceCommit: 5af6da1da593fae9b3208eb9fd308213d5c3359c
+  sourceCommit: c0fc8c988385a0ce8ff63887f9a3263caf55a1f9
 ---
 
-Die **`popcnt`**-Anweisungen, kurz für _population count_, werden verwendet, um die Anzahl der `1`-Bits in der binären Darstellung einer Zahl zu zählen.
+Die **`popcnt`** Anweisungen, kurz für _population count_, werden verwendet, um die Anzahl der `1`en in der binären Darstellung einer Zahl zu zählen.
 
 {{InteractiveExample("Wat Demo: popcnt", "tabbed-taller")}}
 
@@ -37,7 +37,7 @@ await WebAssembly.instantiateStreaming(fetch(url), { console }).then(
 
 ## Syntax
 
-```wasm
+```wat
 ;; load a number onto the stack
 i32.const 130 ;; 10000010
 
@@ -47,7 +47,7 @@ i32.popcnt
 ;; the top item on the stack will now be 2
 ```
 
-| Anweisung    | Binäroperationscode |
-| ------------ | ------------------- |
-| `i32.popcnt` | `0x69`              |
-| `i64.popcnt` | `0x7b`              |
+| Anweisung    | Binär-Opcode |
+| ------------ | ------------ |
+| `i32.popcnt` | `0x69`       |
+| `i64.popcnt` | `0x7b`       |

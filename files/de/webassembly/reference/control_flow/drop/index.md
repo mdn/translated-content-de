@@ -2,7 +2,7 @@
 title: Drop
 slug: WebAssembly/Reference/Control_flow/Drop
 l10n:
-  sourceCommit: 5af6da1da593fae9b3208eb9fd308213d5c3359c
+  sourceCommit: c0fc8c988385a0ce8ff63887f9a3263caf55a1f9
 ---
 
 Die **`drop`**-Anweisung nimmt einen Wert vom Stapel und verwirft ihn.
@@ -33,7 +33,7 @@ await WebAssembly.instantiateStreaming(fetch(url), { console });
 
 ## Syntax
 
-```wasm
+```wat
 ;; push multiple values onto the stack
 i32.const 1
 i32.const 2

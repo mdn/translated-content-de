@@ -2,12 +2,12 @@
 title: block
 slug: WebAssembly/Reference/Control_flow/block
 l10n:
-  sourceCommit: 5af6da1da593fae9b3208eb9fd308213d5c3359c
+  sourceCommit: c0fc8c988385a0ce8ff63887f9a3263caf55a1f9
 ---
 
-Die **`block`**-Anweisung erstellt ein Label, das später mit einem `br` angesprungen werden kann.
+Die **`block`**-Anweisung erstellt ein Label, aus dem später mit einem `br` verzweigt werden kann.
 
-Die **`loop`**-Anweisung ist das Gegenteil der `block`-Anweisung, da das Springen zu einer `loop`-Anweisung zum Anfang der Schleife führt, während das Springen zu einer `block`-Anweisung zum Ende des Blocks führt; das heißt, aus dem Block heraus.
+Die **`loop`**-Anweisung ist das Gegenteil der `block`-Anweisung, insofern, dass bei einer Verzweigung zu einer `loop`-Schleife zum Anfang der Schleife gesprungen wird, während bei einer Verzweigung zu einem `block` ans Ende des Blocks gesprungen wird; das heißt, aus dem Block heraus.
 
 {{InteractiveExample("Wat Demo: block", "tabbed-taller")}}
 
@@ -62,7 +62,7 @@ await WebAssembly.instantiateStreaming(fetch(url), { console }).then(
 
 ## Syntax
 
-```wasm
+```wat
 ;; label the block so that it can be branched to.
 (block $my_block
 
