@@ -1,16 +1,14 @@
 ---
-title: Umgang mit Text — Zeichenfolgen in JavaScript
+title: Umgang mit Text — Strings in JavaScript
 short-title: Strings
 slug: Learn_web_development/Core/Scripting/Strings
 l10n:
-  sourceCommit: 6c58c5d4227a031105740b0e85acbc6178223d0a
+  sourceCommit: 48d220a8cffdfd5f088f8ca89724a9a92e34d8c0
 ---
-
-{{LearnSidebar}}
 
 {{PreviousMenuNext("Learn_web_development/Core/Scripting/Math", "Learn_web_development/Core/Scripting/Useful_string_methods", "Learn_web_development/Core/Scripting")}}
 
-Als Nächstes werden wir unsere Aufmerksamkeit auf Zeichenfolgen richten — so werden Textteile in der Programmierung genannt. In diesem Artikel werden wir alle gängigen Dinge untersuchen, die Sie über Zeichenfolgen wissen sollten, wenn Sie JavaScript lernen, wie das Erstellen von Zeichenfolgen, das Maskieren von Anführungszeichen in Zeichenfolgen und das Zusammenfügen von Zeichenfolgen.
+Als nächstes widmen wir uns den Strings — so werden Textstücke in der Programmierung genannt. In diesem Artikel werden wir uns alle gängigen Dinge ansehen, die Sie wirklich wissen sollten, wenn Sie JavaScript lernen, z.B. das Erstellen von Strings, das Maskieren von Anführungszeichen in Strings und das Zusammenfügen von Strings.
 
 <table>
   <tbody>
@@ -22,10 +20,10 @@ Als Nächstes werden wir unsere Aufmerksamkeit auf Zeichenfolgen richten — so 
       <th scope="row">Lernziele:</th>
       <td>
         <ul>
-          <li>Erstellen von Zeichenfolgenliteralen.</li>
+          <li>Erstellen von String-Literalen.</li>
           <li>Die Anforderung, dass Anführungszeichen übereinstimmen müssen.</li>
-          <li>Zeichenfolgenverkettung.</li>
-          <li>Maskierung von Zeichen in Zeichenfolgen.</li>
+          <li>String-Verkettung.</li>
+          <li>Maskieren von Zeichen in Strings.</li>
           <li>Template-Literale, einschließlich der Verwendung von Variablen und mehrzeiligen Template-Literalen.</li>
         </ul>
       </td>
@@ -35,24 +33,24 @@ Als Nächstes werden wir unsere Aufmerksamkeit auf Zeichenfolgen richten — so 
 
 ## Die Macht der Worte
 
-Worte sind für Menschen sehr wichtig — sie sind ein großer Teil unserer Kommunikation. Da das Web ein hauptsächlich textbasiertes Medium ist, das es Menschen ermöglicht, Informationen zu kommunizieren und zu teilen, ist es nützlich, die Kontrolle über die darauf erscheinenden Worte zu haben. {{Glossary("HTML", "HTML")}} bietet Struktur und Bedeutung für Text, {{Glossary("CSS", "CSS")}} erlaubt es uns, ihn präzise zu stylen, und JavaScript bietet viele Funktionen zur Manipulation von Zeichenfolgen. Dazu gehört das Erstellen von benutzerdefinierten Begrüßungsnachrichten und Eingabeaufforderungen, das Anzeigen der richtigen Textbeschriftungen bei Bedarf, das Sortieren von Begriffen in die gewünschte Reihenfolge und vieles mehr.
+Worte sind für Menschen sehr wichtig – sie sind ein großer Teil der Art, wie wir kommunizieren. Da das Web ein überwiegend textbasiertes Medium ist, das entwickelt wurde, um Menschen die Kommunikation und den Austausch von Informationen zu ermöglichen, ist es nützlich für uns, die Kontrolle über die auf ihm erscheinenden Worte zu haben. {{Glossary("HTML", "HTML")}} bietet Struktur und Bedeutung für Text, {{Glossary("CSS", "CSS")}} ermöglicht es uns, ihn präzise zu gestalten, und JavaScript bietet viele Funktionen zur Manipulation von Strings. Diese umfassen das Erstellen von benutzerdefinierten Willkommensnachrichten und Eingabeaufforderungen, das Anzeigen der richtigen Textetiketten bei Bedarf, das Sortieren von Begriffen in die gewünschte Reihenfolge und vieles mehr.
 
-So ziemlich alle Programme, die wir Ihnen bisher im Kurs gezeigt haben, haben eine gewisse Zeichenfolgenmanipulation beinhaltet.
+So ziemlich alle Programme, die wir Ihnen bisher im Kurs gezeigt haben, beinhalten einige String-Manipulationen.
 
-## Deklarieren von Zeichenfolgen
+## Deklarieren von Strings
 
-Zeichenfolgen werden auf den ersten Blick ähnlich wie Zahlen behandelt, aber wenn Sie tiefer graben, werden Sie einige bemerkenswerte Unterschiede feststellen. Beginnen wir, indem wir einige grundlegende Zeilen in die [Entwicklerkonsole des Browsers](/de/docs/Learn_web_development/Howto/Tools_and_setup/What_are_browser_developer_tools) eingeben, um uns vertraut zu machen.
+Strings werden zunächst ähnlich wie Zahlen behandelt, aber bei näherer Betrachtung werden Sie einige bemerkenswerte Unterschiede feststellen. Lassen Sie uns beginnen, indem wir einige grundlegende Zeilen in die [Browser-Entwickler-Konsole](/de/docs/Learn_web_development/Howto/Tools_and_setup/What_are_browser_developer_tools) eingeben, um uns vertraut zu machen.
 
-Geben Sie zunächst die folgenden Zeilen ein:
+Beginnen Sie, indem Sie die folgenden Zeilen eingeben:
 
 ```js
 const string = "The revolution will not be televised.";
 console.log(string);
 ```
 
-Genau wie bei Zahlen deklarieren wir eine Variable, initialisieren sie mit einem Zeichenfolgenwert und geben dann den Wert zurück. Der einzige Unterschied ist, dass Sie beim Schreiben einer Zeichenfolge den Wert in Anführungszeichen setzen müssen.
+Genau wie wir es mit Zahlen gemacht haben, deklarieren wir eine Variable, initialisieren sie mit einem String-Wert und geben dann den Wert zurück. Der einzige Unterschied hier ist, dass Sie bei der Eingabe eines Strings den Wert mit Anführungszeichen umgeben müssen.
 
-Wenn Sie dies nicht tun oder eines der Anführungszeichen fehlt, erhalten Sie einen Fehler. Versuchen Sie, die folgenden Zeilen einzugeben:
+Wenn Sie dies nicht tun oder eines der Anführungszeichen fehlen, erhalten Sie einen Fehler. Versuchen Sie, die folgenden Zeilen einzugeben:
 
 ```js example-bad
 const badString1 = This is a test;
@@ -60,20 +58,20 @@ const badString2 = 'This is a test;
 const badString3 = This is a test';
 ```
 
-Diese Zeilen funktionieren nicht, da jeder Text ohne Anführungszeichen als Variablenname, Eigenschaftsname, reserviertes Wort oder ähnliches interpretiert wird. Wenn der Browser den nicht gequoteten Text nicht erkennt, wird ein Fehler gemeldet (z. B. "fehlendes; vor Anweisung"). Wenn der Browser erkennen kann, wo eine Zeichenfolge beginnt, aber nicht, wo sie endet (aufgrund des fehlenden zweiten Anführungszeichens), wird ein Fehler "nicht abgeschlossene Zeichenfolgenliteral" gemeldet. Wenn Ihr Programm solche Fehler hervorruft, gehen Sie zurück und überprüfen Sie alle Ihre Zeichenfolgen, um sicherzustellen, dass keine Anführungszeichen fehlen.
+Diese Zeilen funktionieren nicht, da jeder Text ohne Anführungszeichen um ihn herum als Variablenname, Eigenschaftsname, reserviertes Wort oder ähnliches interpretiert wird. Wenn der Browser den unquotierten Text nicht erkennt, wird ein Fehler generiert (z.B. "missing; before statement"). Wenn der Browser erkennt, wo ein String beginnt, aber nicht, wo er endet (wegen des fehlenden zweiten Anführungszeichens), wird ein Fehler "unterbrochenes String-Literal" gemeldet. Wenn Ihr Programm solche Fehler meldet, gehen Sie zurück und überprüfen Sie alle Ihre Strings, um sicherzustellen, dass keine Anführungszeichen fehlen.
 
-Das Folgende funktioniert, wenn Sie vorher die Variable `string` definiert haben — versuchen Sie es jetzt:
+Das Folgende wird funktionieren, wenn Sie die Variable `string` vorher definiert haben — versuchen Sie es jetzt:
 
 ```js
 const badString = string;
 console.log(badString);
 ```
 
-`badString` ist jetzt auf denselben Wert wie `string` gesetzt.
+`badString` ist jetzt auf den gleichen Wert wie `string` gesetzt.
 
-### Einfache, doppelte und Backticks
+### Einzelne Anführungszeichen, doppelte Anführungszeichen und Backticks
 
-In JavaScript können Sie einfache Anführungszeichen (`'`), doppelte Anführungszeichen (`"`) oder Backticks (`` ` ``) verwenden, um Ihre Zeichenfolgen einzuschließen. Alle folgenden Beispiele funktionieren:
+In JavaScript können Sie einzelne Anführungszeichen (`'`), doppelte Anführungszeichen (`"`) oder Backticks (`` ` ``) verwenden, um Ihre Strings einzuschließen. Alle folgenden Beispiele funktionieren:
 
 ```js-nolint
 const single = 'Single quotes';
@@ -85,22 +83,22 @@ console.log(double);
 console.log(backtick);
 ```
 
-Sie müssen dasselbe Zeichen für den Anfang und das Ende einer Zeichenfolge verwenden, sonst erhalten Sie einen Fehler:
+Sie müssen dasselbe Zeichen für den Anfang und das Ende eines Strings verwenden, sonst erhalten Sie einen Fehler:
 
 ```js-nolint example-bad
 const badQuotes = 'This is not allowed!";
 ```
 
-Zeichenfolgen, die in einfachen Anführungszeichen deklariert sind, und Zeichenfolgen, die in doppelten Anführungszeichen deklariert sind, sind gleich, und welche Sie verwenden, liegt bei Ihnen — obwohl es eine gute Praxis ist, einen Stil auszuwählen und diesen konsistent in Ihrem Code zu verwenden.
+Strings, die mit einzelnen Anführungszeichen deklariert werden, und Strings, die mit doppelten Anführungszeichen deklariert werden, sind gleich, und welche Sie verwenden, hängt von der persönlichen Vorliebe ab — es ist jedoch eine gute Praxis, einen Stil zu wählen und ihn in Ihrem Code konsistent zu verwenden.
 
-Zeichenfolgen, die mit Backticks deklariert sind, sind eine spezielle Art von Zeichenfolge, die [_Template-Literale_](/de/docs/Web/JavaScript/Reference/Template_literals) genannt werden. In den meisten Aspekten sind Template-Literale wie normale Zeichenfolgen, aber sie haben einige spezielle Eigenschaften:
+Strings, die mit Backticks deklariert werden, sind eine spezielle Art von Strings, die als [_Template Literals_](/de/docs/Web/JavaScript/Reference/Template_literals) bezeichnet werden. In den meisten Fällen sind Template Literals wie normale Strings, aber sie haben einige spezielle Eigenschaften:
 
-- Sie können [JavaScript einbetten](#javascript_einbetten) in ihnen
-- Sie können Template-Literale über [mehrere Zeilen](#mehrzeilige_zeichenfolgen) deklarieren
+- Sie können [JavaScript einbetten](#einbetten_von_javascript) in ihnen
+- Sie können Template Literals über [mehrere Zeilen](#mehrzeilige_strings) deklarieren
 
-## JavaScript einbetten
+## Einbetten von JavaScript
 
-Innerhalb eines Template-Literals können JavaScript-Variablen oder -Ausdrücke mit `${ }` umschlossen werden, und das Ergebnis wird in die Zeichenfolge aufgenommen:
+Innerhalb eines Template-Literals können Sie JavaScript-Variablen oder -Ausdrücke in `${ }` einschließen, und das Ergebnis wird in den String aufgenommen:
 
 ```js
 const name = "Chris";
@@ -108,7 +106,7 @@ const greeting = `Hello, ${name}`;
 console.log(greeting); // "Hello, Chris"
 ```
 
-Sie können die gleiche Technik verwenden, um zwei Variablen zusammenzufügen:
+Sie können dieselbe Technik verwenden, um zwei Variablen zusammenzuführen:
 
 ```js
 const one = "Hello, ";
@@ -117,11 +115,11 @@ const joined = `${one}${two}`;
 console.log(joined); // "Hello, how are you?"
 ```
 
-Das Zusammenfügen von Zeichenfolgen wie diesem wird _Verkettung_ genannt.
+Das Zusammenfügen von Strings auf diese Weise wird _Verkettung_ genannt.
 
 ### Verkettung im Kontext
 
-Lassen Sie uns die Verkettung in Aktion betrachten:
+Sehen wir uns die Verkettung in Aktion an:
 
 ```html live-sample___string-concat
 <button>Press me</button>
@@ -142,11 +140,11 @@ button.addEventListener("click", greet);
 
 {{EmbedLiveSample('string-concat', , '50', , , , , 'allow-modals')}}
 
-Hier verwenden wir die Funktion [`window.prompt()`](/de/docs/Web/API/Window/prompt), die den Benutzer auffordert, eine Frage über ein Popup-Dialogfeld zu beantworten, und dann den Text, den er eingibt, in einer angegebenen Variablen speichert — in diesem Fall `name`. Wir zeigen dann eine Zeichenfolge an, die den Namen in eine allgemeine Begrüßungsnachricht einfügt.
+Hier verwenden wir die Funktion [`window.prompt()`](/de/docs/Web/API/Window/prompt), die den Benutzer auffordert, eine Frage über ein Popup-Dialogfeld zu beantworten und dann den eingegebenen Text in einer gegebenen Variablen speichert — in diesem Fall `name`. Anschließend wird ein String angezeigt, der den Namen in eine generische Begrüßungsnachricht einfügt.
 
 ### Verkettung mit "+"
 
-Sie können `${}` nur mit Template-Literalen verwenden, nicht mit normalen Zeichenfolgen. Sie können normale Zeichenfolgen mit dem Operator `+` verketten:
+Sie können `${}` nur mit Template Literals verwenden, nicht mit normalen Strings. Sie können normale Strings mit dem Operator `+` verketten:
 
 ```js
 const greeting = "Hello";
@@ -154,7 +152,7 @@ const name = "Chris";
 console.log(greeting + ", " + name); // "Hello, Chris"
 ```
 
-Template-Literale ermöglichen jedoch in der Regel besser lesbaren Code:
+Template Literals liefern in der Regel jedoch leichter lesbaren Code:
 
 ```js
 const greeting = "Hello";
@@ -162,9 +160,9 @@ const name = "Chris";
 console.log(`${greeting}, ${name}`); // "Hello, Chris"
 ```
 
-### Einschließen von Ausdrücken in Zeichenfolgen
+### Einfügen von Ausdrücken in Strings
 
-Sie können JavaScript-Ausdrücke in Template-Literalen einfügen, ebenso wie nur Variablen, und die Ergebnisse werden in das Ergebnis aufgenommen:
+Sie können in Template Literals nicht nur Variablen, sondern auch JavaScript-Ausdrücke hinzufügen, und die Ergebnisse werden in das Ergebnis aufgenommen:
 
 ```js
 const song = "Fight the Youth";
@@ -176,9 +174,9 @@ const output = `I like the song ${song}. I gave it a score of ${
 console.log(output); // "I like the song Fight the Youth. I gave it a score of 90%."
 ```
 
-## Mehrzeilige Zeichenfolgen
+## Mehrzeilige Strings
 
-Template-Literale respektieren die Zeilenumbrüche im Quellcode, sodass Sie Zeichenfolgen schreiben können, die sich über mehrere Zeilen erstrecken, wie diese:
+Template Literals respektieren die Zeilenumbrüche im Quellcode, so dass Sie Strings schreiben können, die sich über mehrere Zeilen erstrecken:
 
 ```js
 const newline = `One day you finally knew
@@ -191,7 +189,7 @@ what you had to do, and began,
 */
 ```
 
-Um die entsprechende Ausgabe mit einer normalen Zeichenfolge zu erhalten, müssten Sie Zeilenumbruchszeichen (`\n`) in die Zeichenfolge einfügen:
+Um die äquivalente Ausgabe mit einem normalen String zu haben, müssten Sie Zeilenumbruch-Zeichen (`\n`) in den String einfügen:
 
 ```js
 const newline = "One day you finally knew\nwhat you had to do, and began,";
@@ -203,35 +201,35 @@ what you had to do, and began,
 */
 ```
 
-Sehen Sie sich unsere Referenzseite [Template-Literale](/de/docs/Web/JavaScript/Reference/Template_literals) für weitere Beispiele und Details zu erweiterten Funktionen an.
+Weitere Beispiele und Details zu erweiterten Funktionen finden Sie auf unserer Referenzseite zu [Template Literals](/de/docs/Web/JavaScript/Reference/Template_literals).
 
-## Einschließen von Anführungszeichen in Zeichenfolgen
+## Einfügen von Anführungszeichen in Strings
 
-Da wir Anführungszeichen verwenden, um den Anfang und das Ende von Zeichenfolgen anzugeben, wie können wir tatsächliche Anführungszeichen in Zeichenfolgen einfügen? Wir wissen, dass dies nicht funktioniert:
+Da wir Anführungszeichen verwenden, um den Beginn und das Ende von Strings anzuzeigen, wie können wir tatsächliche Anführungszeichen in Strings einfügen? Wir wissen, dass dies nicht funktionieren wird:
 
 ```js-nolint example-bad
 const badQuotes = "She said "I think so!"";
 ```
 
-Eine gängige Option ist, eines der anderen Zeichen zu verwenden, um die Zeichenfolge zu deklarieren:
+Eine gängige Option ist, einen der anderen Charaktere zu verwenden, um den String zu deklarieren:
 
 ```js-nolint
 const goodQuotes1 = 'She said "I think so!"';
 const goodQuotes2 = `She said "I'm not going in there!"`;
 ```
 
-Eine andere Möglichkeit besteht darin, das problematische Anführungszeichen zu _maskieren_. Maskierung von Zeichen bedeutet, dass wir etwas mit ihnen machen, um sicherzustellen, dass sie als Text erkannt werden und nicht als Teil des Codes. In JavaScript machen wir dies, indem wir einen Backslash direkt vor dem Zeichen setzen. Versuchen Sie dies:
+Eine andere Option ist, das Problemzeichen zu _maskieren_. Maskieren von Zeichen bedeutet, dass wir etwas tun, damit sie als Text erkannt und nicht als Teil des Codes erkannt werden. In JavaScript machen wir dies, indem wir direkt vor dem Zeichen einen Backslash setzen. Versuchen Sie dies:
 
 ```js-nolint
 const bigmouth = 'I\'ve got no right to take my place…';
 console.log(bigmouth);
 ```
 
-Sie können die gleiche Technik verwenden, um andere Sonderzeichen einzufügen. Siehe [Escape-Sequenzen](/de/docs/Web/JavaScript/Reference/Lexical_grammar#escape_sequences) für weitere Details.
+Sie können dieselbe Technik verwenden, um andere Sonderzeichen zu inserieren. Weitere Details finden Sie unter [Escape-Sequenzen](/de/docs/Web/JavaScript/Reference/Lexical_grammar#escape_sequences).
 
-## Zahlen vs. Zeichenfolgen
+## Zahlen vs. Strings
 
-Was passiert, wenn wir versuchen, eine Zeichenfolge und eine Zahl zu verketten? Lassen Sie es uns in unserer Konsole ausprobieren:
+Was passiert, wenn wir versuchen, einen String und eine Zahl zu verketten? Versuchen wir es in unserer Konsole:
 
 ```js
 const name = "Front ";
@@ -239,11 +237,11 @@ const number = 242;
 console.log(name + number); // "Front 242"
 ```
 
-Sie könnten erwarten, dass dies einen Fehler zurückgibt, aber es funktioniert einwandfrei. Wie Zahlen als Zeichenfolgen angezeigt werden sollten, ist ziemlich gut definiert, sodass der Browser die Zahl automatisch in eine Zeichenfolge konvertiert und die beiden Zeichenfolgen verknüpft.
+Sie könnten erwarten, dass dies einen Fehler zurückgibt, aber es funktioniert einwandfrei. Wie Zahlen als Strings angezeigt werden sollten, ist ziemlich gut definiert, sodass der Browser die Zahl automatisch in einen String konvertiert und die beiden Strings verknüpft.
 
-Wenn Sie eine numerische Variable haben, die Sie in eine Zeichenfolge umwandeln möchten, oder eine Zeichenfolgenvariable, die Sie in eine Zahl umwandeln möchten, können Sie die folgenden zwei Konstruktionen verwenden:
+Wenn Sie eine numerische Variable haben, die Sie in einen String konvertieren möchten, oder eine String-Variable, die Sie in eine Zahl konvertieren möchten, können Sie die folgenden beiden Konstrukte verwenden:
 
-- Die Funktion {{jsxref("Number/Number", "Number()")}} konvertiert alles, was ihr übergeben wird, in eine Zahl, wenn möglich. Versuchen Sie Folgendes:
+- Die Funktion {{jsxref("Number/Number", "Number()")}} wandelt alles, was an sie übergeben wird, in eine Zahl um, wenn es möglich ist. Probieren Sie Folgendes aus:
 
   ```js
   const myString = "123";
@@ -252,7 +250,7 @@ Wenn Sie eine numerische Variable haben, die Sie in eine Zeichenfolge umwandeln 
   // number
   ```
 
-- Umgekehrt konvertiert die Funktion {{jsxref("String/String", "String()")}} ihr Argument in eine Zeichenfolge. Versuchen Sie dies:
+- Umgekehrt konvertiert die Funktion {{jsxref("String/String", "String()")}} ihr Argument in einen String. Probieren Sie dies:
 
   ```js
   const myNum2 = 123;
@@ -261,10 +259,10 @@ Wenn Sie eine numerische Variable haben, die Sie in eine Zeichenfolge umwandeln 
   // string
   ```
 
-Diese Konstruktionen können in einigen Situationen wirklich nützlich sein. Wenn ein Benutzer beispielsweise eine Zahl in ein Textfeld eines Formulars eingibt, ist es eine Zeichenfolge. Wenn Sie diese Zahl jedoch zu etwas addieren möchten, müssen Sie sie in eine Zahl umwandeln. Sie könnten sie also durch `Number()` leiten, um dies zu handhaben. Genau dies haben wir in unserem [Zahlenratespiel](https://github.com/mdn/learning-area/blob/main/javascript/introduction-to-js-1/first-splash/number-guessing-game.html) in der Funktion `checkGuess` gemacht.
+Diese Konstrukte können in einigen Situationen wirklich nützlich sein. Wenn ein Benutzer beispielsweise eine Zahl in ein Textfeld eines Formulars eingibt, ist es ein String. Wenn Sie diese Zahl jedoch zu etwas hinzufügen möchten, müssen Sie sie in eine Zahl umwandeln, sodass Sie sie durch `Number()` verarbeiten könnten, um dies zu handhaben. Genau dies haben wir in unserem [Number Guessing Game](https://github.com/mdn/learning-area/blob/main/javascript/introduction-to-js-1/first-splash/number-guessing-game.html), in der Funktion `checkGuess` gemacht.
 
 ## Zusammenfassung
 
-Das sind die Grundlagen von Zeichenfolgen in JavaScript. Im nächsten Artikel werden wir darauf aufbauen und einige der eingebauten Methoden untersuchen, die für Zeichenfolgen in JavaScript verfügbar sind und wie wir sie verwenden können, um unsere Zeichenfolgen in die gewünschte Form zu bringen.
+Damit haben wir die Grundlagen von Strings in JavaScript behandelt. Im nächsten Artikel werden wir darauf aufbauen und uns einige der eingebauten Methoden ansehen, die für Strings in JavaScript verfügbar sind, und wie wir sie nutzen können, um unsere Strings in genau die gewünschte Form zu bringen.
 
 {{PreviousMenuNext("Learn_web_development/Core/Scripting/Math", "Learn_web_development/Core/Scripting/Useful_string_methods", "Learn_web_development/Core/Scripting")}}

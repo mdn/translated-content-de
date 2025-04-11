@@ -2,18 +2,16 @@
 title: Klassen in JavaScript
 slug: Learn_web_development/Extensions/Advanced_JavaScript_objects/Classes_in_JavaScript
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: 48d220a8cffdfd5f088f8ca89724a9a92e34d8c0
 ---
-
-{{LearnSidebar}}
 
 {{PreviousMenuNext("Learn_web_development/Extensions/Advanced_JavaScript_objects/Object-oriented_programming", "Learn_web_development/Extensions/Advanced_JavaScript_objects/Object_building_practice", "Learn_web_development/Extensions/Advanced_JavaScript_objects")}}
 
-Im letzten Artikel haben wir einige grundlegende Konzepte der objektorientierten Programmierung (OOP) eingeführt und ein Beispiel diskutiert, bei dem wir OOP-Prinzipien verwendet haben, um Professoren und Studenten in einer Schule zu modellieren.
+Im letzten Artikel haben wir einige grundlegende Konzepte der objektorientierten Programmierung (OOP) vorgestellt und ein Beispiel besprochen, bei dem wir OOP-Prinzipien verwendet haben, um Professoren und Studenten in einer Schule zu modellieren.
 
-Wir haben auch darüber gesprochen, wie es möglich ist, [Prototypen](/de/docs/Learn_web_development/Extensions/Advanced_JavaScript_objects/Object_prototypes) und [Konstruktoren](/de/docs/Learn_web_development/Core/Scripting/Object_basics#introducing_constructors) zu verwenden, um ein solches Modell zu implementieren, und dass JavaScript auch Funktionen bietet, die klassischen OOP-Konzepten näher kommen.
+Wir haben auch darüber gesprochen, wie es möglich ist, [Prototypen](/de/docs/Learn_web_development/Extensions/Advanced_JavaScript_objects/Object_prototypes) und [Konstruktoren](/de/docs/Learn_web_development/Core/Scripting/Object_basics#introducing_constructors) zu verwenden, um ein solches Modell zu implementieren, und dass JavaScript auch Funktionen bietet, die eher den klassischen OOP-Konzepten entsprechen.
 
-In diesem Artikel werden wir diese Funktionen durchgehen. Es ist wichtig zu beachten, dass die hier beschriebenen Funktionen keine neue Art der Kombination von Objekten darstellen: unter der Oberfläche verwenden sie immer noch Prototypen. Sie sind einfach eine Möglichkeit, es einfacher zu machen, eine Prototypenkette einzurichten.
+In diesem Artikel werden wir diese Funktionen durchgehen. Es ist wichtig zu beachten, dass die hier beschriebenen Funktionen keine neue Möglichkeit darstellen, Objekte zu kombinieren: Im Hintergrund verwenden sie immer noch Prototypen. Sie sind nur ein Mittel, um es leichter zu machen, eine Prototypenkette einzurichten.
 
 <table>
   <tbody>
@@ -22,7 +20,7 @@ In diesem Artikel werden wir diese Funktionen durchgehen. Es ist wichtig zu beac
       <td>
         Vertrautheit mit den Grundlagen von JavaScript
         (insbesondere
-        <a href="/de/docs/Learn_web_development/Core/Scripting/Object_basics">Objektgrundlagen</a>) und objektorientierten JavaScript-Konzepten, die in den vorherigen Lektionen in diesem Modul behandelt wurden.
+        <a href="/de/docs/Learn_web_development/Core/Scripting/Object_basics">Objektgrundlagen</a>) und objektorientierte JavaScript-Konzepte, die in den vorherigen Lektionen dieses Moduls behandelt wurden.
       </td>
     </tr>
     <tr>
@@ -40,7 +38,7 @@ In diesem Artikel werden wir diese Funktionen durchgehen. Es ist wichtig zu beac
 
 ## Klassen und Konstruktoren
 
-Sie können eine Klasse mit dem {{jsxref("Statements/class", "class")}}-Schlüsselwort deklarieren. Hier ist eine Klassendeklaration für unsere `Person` aus dem vorherigen Artikel:
+Sie können eine Klasse mit dem {{jsxref("Statements/class", "class")}} Schlüsselwort deklarieren. Hier ist eine Klassendeklaration für unser `Person` aus dem vorherigen Artikel:
 
 ```js
 class Person {
@@ -59,21 +57,21 @@ class Person {
 Dies deklariert eine Klasse namens `Person`, mit:
 
 - einer `name`-Eigenschaft.
-- einem Konstruktor, der einen `name`-Parameter nimmt, um die `name`-Eigenschaft des neuen Objekts zu initialisieren.
-- einer `introduceSelf()`-Methode, die auf die Eigenschaften des Objekts mithilfe von `this` verweisen kann.
+- einem Konstruktor, der einen `name`-Parameter benötigt, der verwendet wird, um die `name`-Eigenschaft des neuen Objekts zu initialisieren
+- einer `introduceSelf()`-Methode, die auf die Eigenschaften des Objekts mit `this` verweisen kann.
 
-Die `name;`-Deklaration ist optional: Sie könnten sie weglassen, und die Zeile `this.name = name;` im Konstruktor wird die `name`-Eigenschaft vor ihrer Initialisierung erstellen. Allerdings könnte das explizite Auflisten der Eigenschaften in der Klassendeklaration es für Personen, die Ihren Code lesen, erleichtern, zu sehen, welche Eigenschaften Teil dieser Klasse sind.
+Die Deklaration `name;` ist optional: Sie könnten sie weglassen, und die Zeile `this.name = name;` im Konstruktor wird die `name`-Eigenschaft erstellen, bevor sie initialisiert wird. Allerdings kann es für Personen, die Ihren Code lesen, einfacher sein zu sehen, welche Eigenschaften Teil dieser Klasse sind, wenn die Eigenschaften explizit in der Klassendeklaration aufgelistet werden.
 
-Sie könnten die Eigenschaft auch auf einen Standardwert initialisieren, wenn Sie sie deklarieren, mit einer Zeile wie `name = '';`.
+Sie könnten die Eigenschaft auch mit einem Standardwert initialisieren, wenn Sie sie deklarieren, mit einer Zeile wie `name = '';`.
 
-Der Konstruktor wird mit dem {{jsxref("Classes/constructor", "constructor")}}-Schlüsselwort definiert. Genau wie ein [Konstruktor außerhalb einer Klassendefinition](/de/docs/Learn_web_development/Core/Scripting/Object_basics#introducing_constructors) wird er:
+Der Konstruktor wird mit dem {{jsxref("Classes/constructor", "constructor")}} Schlüsselwort definiert. Genau wie ein [Konstruktor außerhalb einer Klassendefinition](/de/docs/Learn_web_development/Core/Scripting/Object_basics#introducing_constructors) wird er:
 
 - ein neues Objekt erstellen
-- `this` an das neue Objekt binden, sodass Sie in Ihrem Konstruktionscode auf `this` verweisen können
+- `this` an das neue Objekt binden, sodass Sie in Ihrem Konstruktorcode auf `this` verweisen können
 - den Code im Konstruktor ausführen
 - das neue Objekt zurückgeben.
 
-Angesichts des obigen Klassendeklarationscodes können Sie eine neue `Person`-Instanz so erstellen und verwenden:
+Angesichts des oben stehenden Klassendeklarationscodes können Sie eine neue `Person`-Instanz wie folgt erstellen und verwenden:
 
 ```js
 const giles = new Person("Giles");
@@ -81,11 +79,11 @@ const giles = new Person("Giles");
 giles.introduceSelf(); // Hi! I'm Giles
 ```
 
-Beachten Sie, dass wir den Konstruktor mit dem Namen der Klasse, hier `Person`, aufrufen.
+Beachten Sie, dass wir den Konstruktor mit dem Namen der Klasse aufrufen, in diesem Beispiel `Person`.
 
 ### Konstruktoren weglassen
 
-Wenn Sie keine spezielle Initialisierung durchführen müssen, können Sie den Konstruktor weglassen, und ein Standardkonstruktor wird für Sie generiert:
+Wenn Sie keine spezielle Initialisierung benötigen, können Sie den Konstruktor weglassen, und ein Standardkonstruktor wird für Sie generiert:
 
 ```js
 class Animal {
@@ -101,7 +99,7 @@ spot.sleep(); // 'zzzzzzz'
 
 ## Vererbung
 
-Angenommen, wir haben unsere `Person`-Klasse oben definiert, lassen Sie uns die `Professor`-Unterklasse definieren.
+Angesichts unserer `Person`-Klasse oben, definieren wir das `Professor`-Unterklasse.
 
 ```js
 class Professor extends Person {
@@ -125,16 +123,16 @@ class Professor extends Person {
 }
 ```
 
-Wir verwenden das {{jsxref("Classes/extends", "extends")}}-Schlüsselwort, um zu sagen, dass diese Klasse von einer anderen Klasse erbt.
+Wir verwenden das {{jsxref("Classes/extends", "extends")}} Schlüsselwort, um zu sagen, dass diese Klasse von einer anderen Klasse erbt.
 
-Die Klasse `Professor` fügt eine neue Eigenschaft `teaches` hinzu, also deklarieren wir diese.
+Die `Professor`-Klasse fügt eine neue Eigenschaft `teaches` hinzu, also deklarieren wir diese.
 
-Da wir `teaches` setzen wollen, wenn ein neuer `Professor` erstellt wird, definieren wir einen Konstruktor, der `name` und `teaches` als Argumente nimmt. Das Erste, was dieser Konstruktor tut, ist, den Superklassen-Konstruktor mit {{jsxref("Operators/super", "super()")}} aufzurufen und den `name`-Parameter nach oben zu reichen. Der Superklassen-Konstruktor kümmert sich um das Setzen von `name`. Danach setzt der `Professor`-Konstruktor die `teaches`-Eigenschaft.
+Da wir `teaches` setzen möchten, wenn ein neuer `Professor` erstellt wird, definieren wir einen Konstruktor, der `name` und `teaches` als Argumente nimmt. Das Erste, was dieser Konstruktor tut, ist, den Konstruktor der Superklasse mit {{jsxref("Operators/super", "super()")}} aufzurufen und den `name`-Parameter weiterzugeben. Der Konstruktor der Superklasse kümmert sich um das Setzen von `name`. Danach setzt der `Professor`-Konstruktor die `teaches`-Eigenschaft.
 
 > [!NOTE]
-> Wenn eine Unterklasse eigene Initialisierungen durchzuführen hat, **muss** sie zuerst den Superklassen-Konstruktor mit `super()` aufrufen und dabei alle Parameter übergeben, die der Superklassen-Konstruktor erwartet.
+> Wenn eine Unterklasse eigene Initialisierungen vornehmen muss, **muss** sie zuerst den Konstruktor der Superklasse mit `super()` aufrufen und alle Parameter übergeben, die der Konstruktor der Superklasse erwartet.
 
-Wir haben auch die `introduceSelf()`-Methode aus der Superklasse überschrieben und eine neue Methode `grade()` hinzugefügt, um eine Arbeit zu benoten (unser Professor ist nicht besonders gut und vergibt einfach zufällige Noten für Arbeiten).
+Wir haben auch die `introduceSelf()`-Methode der Superklasse überschrieben und eine neue Methode `grade()` hinzugefügt, um eine Arbeit zu bewerten (unser Professor ist nicht sehr gut und vergibt einfach zufällige Noten für Arbeiten).
 
 Mit dieser Deklaration können wir nun Professoren erstellen und verwenden:
 
@@ -147,7 +145,7 @@ walsh.grade("my paper"); // some random grade
 
 ## Kapselung
 
-Schließlich wollen wir sehen, wie man Kapselung in JavaScript implementiert. Im letzten Artikel haben wir diskutiert, wie wir die `year`-Eigenschaft von `Student` privat machen könnten, damit wir die Regeln für Bogenschießkurse ändern können, ohne dass bestehender Code, der die `Student`-Klasse verwendet, kaputtgeht.
+Schließlich wollen wir sehen, wie man Kapselung in JavaScript implementiert. Im letzten Artikel haben wir darüber gesprochen, dass wir die `year`-Eigenschaft von `Student` privat machen möchten, damit wir die Regeln über Bogenschießklassen ändern können, ohne dass dabei ein Code, der die `Student`-Klasse verwendet, kaputtgeht.
 
 Hier ist eine Deklaration der `Student`-Klasse, die genau das tut:
 
@@ -182,7 +180,7 @@ summers.#year; // SyntaxError
 ```
 
 > [!NOTE]
-> Code, der in der Chrome-Konsole ausgeführt wird, kann auf private Eigenschaften außerhalb der Klasse zugreifen. Dies ist eine nur für DevTools geltende Lockerung der JavaScript-Syntaxeinschränkung.
+> Code, der in der Chrome-Konsole ausgeführt wird, kann auf private Eigenschaften außerhalb der Klasse zugreifen. Dies ist eine DevTools-spezifische Lockerung der JavaScript-Syntaxeinschränkung.
 
 Private Dateneigenschaften müssen in der Klassendeklaration deklariert werden, und ihre Namen beginnen mit `#`.
 
@@ -210,10 +208,10 @@ myExample.#somePrivateMethod(); // SyntaxError
 
 ## Testen Sie Ihre Fähigkeiten!
 
-Sie haben das Ende dieses Artikels erreicht. Können Sie sich noch an die wichtigsten Informationen erinnern? Sie können einige weitere Tests durchführen, um zu überprüfen, ob Sie diese Informationen behalten haben, bevor Sie weitermachen – siehe [Testen Sie Ihre Fähigkeiten: Objektorientiertes JavaScript](/de/docs/Learn_web_development/Extensions/Advanced_JavaScript_objects/Test_your_skills:_Object-oriented_JavaScript).
+Sie haben das Ende dieses Artikels erreicht, aber können Sie sich an die wichtigsten Informationen erinnern? Sie können einige weitere Tests finden, um zu überprüfen, ob Sie sich diese Informationen behalten haben, bevor Sie weitermachen — siehe [Testen Sie Ihre Fähigkeiten: Objektorientiertes JavaScript](/de/docs/Learn_web_development/Extensions/Advanced_JavaScript_objects/Test_your_skills:_Object-oriented_JavaScript).
 
 ## Zusammenfassung
 
-In diesem Artikel haben wir die wichtigsten Werkzeuge durchgearbeitet, die in JavaScript für das Schreiben objektorientierter Programme zur Verfügung stehen. Wir haben hier nicht alles abgedeckt, aber dies sollte ausreichen, um Ihnen den Einstieg zu erleichtern. Unser [Artikel über Klassen](/de/docs/Web/JavaScript/Reference/Classes) ist ein guter Ausgangspunkt, um mehr zu lernen.
+In diesem Artikel sind wir die wichtigsten Werkzeuge durchgegangen, die in JavaScript zum Schreiben objektorientierter Programme zur Verfügung stehen. Wir haben hier nicht alles abgedeckt, aber das sollte ausreichen, um Ihnen den Einstieg zu erleichtern. Unser [Artikel über Klassen](/de/docs/Web/JavaScript/Reference/Classes) ist ein guter Ort, um mehr zu lernen.
 
 {{PreviousMenuNext("Learn_web_development/Extensions/Advanced_JavaScript_objects/Object-oriented_programming", "Learn_web_development/Extensions/Advanced_JavaScript_objects/Object_building_practice", "Learn_web_development/Extensions/Advanced_JavaScript_objects")}}

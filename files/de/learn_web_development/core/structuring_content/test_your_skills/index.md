@@ -3,12 +3,10 @@ title: "Testen Sie Ihre Fähigkeiten: HTML"
 short-title: Testen Sie Ihre Fähigkeiten
 slug: Learn_web_development/Core/Structuring_content/Test_your_skills
 l10n:
-  sourceCommit: b679a45d0d6d524ce827cc1c7479321ed6a63c62
+  sourceCommit: 48d220a8cffdfd5f088f8ca89724a9a92e34d8c0
 ---
 
-{{learnsidebar}}
-
-Diese Seite listet HTML-Tests auf, die Sie ausprobieren können, um zu überprüfen, ob Sie den Inhalt in diesem Modul verstanden haben.
+Diese Seite listet HTML-Tests auf, die Sie ausprobieren können, um zu überprüfen, ob Sie den Inhalt dieses Moduls verstanden haben.
 
 ## Testen Sie Ihre HTML-Fähigkeiten nach Thema
 

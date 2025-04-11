@@ -2,30 +2,28 @@
 title: Design für Entwickler
 slug: Learn_web_development/Core/Design_for_developers
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: 48d220a8cffdfd5f088f8ca89724a9a92e34d8c0
 ---
-
-{{LearnSidebar}}
 
 {{NextMenu("Learn_web_development/Core/Version_control", "Learn_web_development/Core")}}
 
 > [!NOTE]
-> Wie Sie unten sehen werden, ist dieses Modul derzeit nur eine Curriculumübersicht bzw. ein Lehrplan. Wir beabsichtigen, dies in Zukunft, wenn die Zeit es erlaubt, in einen vollständigen Kurs umzuwandeln.
+> Wie Sie unten sehen werden, ist dieses Modul derzeit nur ein Lehrplan-/Lehrplanumriss. Wir beabsichtigen, dies in Zukunft in einen vollständigen Kurs umzuwandeln, sobald es die Zeit erlaubt.
 
-Die Idee dieses Moduls ist es, Entwicklern das Design Thinking (wieder) näherzubringen. Sie möchten vielleicht nicht als Designer arbeiten, aber ein grundlegendes Verständnis für Benutzererfahrung und Designtheorie ist für alle, die an der Erstellung von Websites beteiligt sind, von Vorteil, unabhängig von ihrer Rolle. Zumindest sollte selbst der technischste "Nicht-Designer"-Entwickler Designanweisungen verstehen, wissen, warum Dinge so gestaltet sind, wie sie sind, und in der Lage sein, sich in die Denkweise der Benutzer hineinzuversetzen. Und es wird ihnen helfen, ihre Portfolios besser aussehen zu lassen.
+Die Idee dieses Moduls ist es, Entwicklern das Design Thinking (wieder) näherzubringen. Sie möchten vielleicht nicht als Designer arbeiten, aber etwas grundlegende Benutzererfahrung und Designtheorie ist für alle, die an der Erstellung von Websites beteiligt sind, von Vorteil, unabhängig von ihrer Rolle. Zumindest sollte selbst der technischste „Nicht-Designer“-Entwickler Design-Briefs verstehen, warum Dinge so gestaltet sind, wie sie sind, und in der Lage sein, sich in die Denkweise der Nutzer hineinzuversetzen. Und es wird ihnen helfen, ihre Portfolios besser aussehen zu lassen.
 
-Darüber hinaus übernehmen Frontend-Entwickler oft verschiedene Designarbeiten in Projekten. Kunden und Arbeitgeber gehen oft davon aus, dass sie das können, weil sie mit den visuellen Elementen der Website zu tun haben. Historisch gesehen war die Rolle des "Webentwicklers" eher eine hybride Designer/Entwickler-Rolle als heute.
+Darüber hinaus müssen Frontend-Entwickler häufig verschiedene Designarbeiten an Projekten übernehmen. Kunden und Arbeitgeber gehen oft davon aus, dass sie dies tun können, da sie an den visuellen Elementen der Website beteiligt sind. Historisch gesehen war „Webentwickler“ mehr eine hybride Designer-/Entwicklerrolle, als es heute der Fall ist.
 
 ## Voraussetzungen
 
-Bevor Sie mit diesem Modul beginnen, sollten Sie mit [HTML](/de/docs/Learn_web_development/Core/Structuring_content) und [CSS](/de/docs/Learn_web_development/Core/Styling_basics) vertraut sein.
+Bevor Sie dieses Modul beginnen, sollten Sie mit [HTML](/de/docs/Learn_web_development/Core/Structuring_content) und [CSS](/de/docs/Learn_web_development/Core/Styling_basics) vertraut sein.
 
 > [!NOTE]
-> Wenn Sie an einem Computer/Tablet/anderen Gerät arbeiten, auf dem Sie keine eigenen Dateien erstellen können, könnten Sie (die meisten) der Codebeispiele in einem Online-Coding-Programm wie [JSBin](https://jsbin.com/) oder [Glitch](https://glitch.com/) ausprobieren.
+> Wenn Sie an einem Computer/Tablet/anderen Gerät arbeiten, auf dem Sie keine eigenen Dateien erstellen können, können Sie die meisten Code-Beispiele in einem Online-Coding-Programm wie [JSBin](https://jsbin.com/) oder [Glitch](https://glitch.com/) ausprobieren.
 
 ## Lektionen
 
-## Grundlagen der Designtheorie
+## Grundlegende Designtheorie
 
 Lernziele:
 
@@ -35,44 +33,44 @@ Lernziele:
   - Visuelle Hierarchie.
   - Maßstab.
   - Ausrichtung.
-  - Einsatz von Leerraum.
+  - Nutzung von Leerraum.
 - Farbtheorie.
-- Einsatz von Bildern.
+- Verwendung von Bildern.
 
 Ressourcen:
 
-- [Grundlegende Text- und Schriftgestaltung](/de/docs/Learn_web_development/Core/Text_styling/Fundamentals)
+- [Grundlegende Text- und Schriftstile](/de/docs/Learn_web_development/Core/Text_styling/Fundamentals)
 
-## Benutzerzentriertes Design
+## Nutzerzentriertes Design
 
 Lernziele:
 
 - Verstehen, dass alles, was wir tun, für den Benutzer ist.
 - Einführung in Benutzerforschung/-tests und Benutzeranforderungen.
-- Design für Barrierefreiheit — Berücksichtigen Sie die Zielgruppe und welche zusätzlichen Bedürfnisse sie haben könnte. Entwerfen Sie dafür von Anfang an.
-- Verstehen, was Designmuster sind und die gebräuchlichen Muster, die im Web verwendet werden, z. B.:
-  - Dunkler Modus.
+- Design für Barrierefreiheit - Berücksichtigen Sie die Zielgruppe und welche zusätzlichen Bedürfnisse sie haben könnten. Entwerfen Sie von Anfang an dafür.
+- Verstehen, was Designmuster sind, und die gängigen auf dem Web verwendeten Muster, zum Beispiel:
+  - Dunkelmodus.
   - Breadcrumbs.
   - Karten.
-  - Verzögerte/übersichtliche Registrierung.
+  - Verschobene/Lazy Registrierung.
   - Unendliches Scrollen.
   - Modale Dialoge.
-  - Fortschreitende Offenlegung.
-  - Fortschrittsanzeige bei Formularen/Registrierungen/Einrichtungen.
-  - Einkaufswagen.
+  - Progressive Offenlegung.
+  - Fortschrittsanzeige bei Formularen/Registrierung/Einrichtung.
+  - Einkaufskorb.
 
 Ressourcen:
 
-- [Übersicht zur Barrierefreiheit](/de/docs/Learn_web_development/Core/Accessibility)
-- [Inklusive Designprinzipien](https://inclusivedesignprinciples.info/)
+- [Barrierefreiheit Überblick](/de/docs/Learn_web_development/Core/Accessibility)
+- [Prinzipien des inklusiven Designs](https://inclusivedesignprinciples.info/)
 
-## Designanweisungen
+## Design Briefs
 
 Lernziele:
 
-- Design-Sprache sprechen, um mit Designern zu kommunizieren.
-- Anforderungen von Designanweisungen interpretieren, um eine Implementierung zu erstellen.
-- Typische Werkzeuge, die Designer verwenden, um ihre Botschaft an Entwickler zu vermitteln (z. B. Figma).
+- Die Designsprache sprechen, um mit Designern zu kommunizieren.
+- Anforderungen von Design-Briefs interpretieren, um eine Umsetzung zu produzieren.
+- Typische Werkzeuge, die Designer verwenden, um ihre Botschaft an Entwickler zu übermitteln (z.B. Figma).
 
 ## Siehe auch
 
@@ -82,7 +80,7 @@ Lernziele:
 - [Design for web](https://designforweb.org/), Prisca Schmarsow + andere Mitwirkende
 - [Practical Typography](https://practicaltypography.com/), Matthew Butterick
 - [Web Style Guide](https://webstyleguide.com/), Patrick J. Lynch und Sarah Horton
-- [Visuelle Designregeln, die Sie immer sicher befolgen können](https://anthonyhobday.com/sideprojects/saferules/), Anthony Hobday
-- [16 kleine UI-Design-Regeln, die einen großen Einfluss haben](https://www.adhamdannaway.com/blog/ui-design/ui-design-tips), Adham Dannaway
+- [Visual design rules you can safely follow every time](https://anthonyhobday.com/sideprojects/saferules/), Anthony Hobday
+- [16 little UI design rules that make a big impact](https://www.adhamdannaway.com/blog/ui-design/ui-design-tips), Adham Dannaway
 
 {{NextMenu("Learn_web_development/Core/Version_control", "Learn_web_development/Core")}}

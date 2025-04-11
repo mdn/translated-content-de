@@ -2,23 +2,21 @@
 title: Listen
 slug: Learn_web_development/Core/Structuring_content/Lists
 l10n:
-  sourceCommit: 960a94a198ca60fb04fe63857ea61d7306465791
+  sourceCommit: 48d220a8cffdfd5f088f8ca89724a9a92e34d8c0
 ---
-
-{{LearnSidebar}}
 
 {{PreviousMenuNext("Learn_web_development/Core/Structuring_content/Emphasis_and_importance", "Learn_web_development/Core/Structuring_content/Structuring_documents", "Learn_web_development/Core/Structuring_content")}}
 
-Nun richten wir unsere Aufmerksamkeit auf Listen. Listen sind überall im Leben zu finden – von Ihrer Einkaufsliste über die Liste von Anweisungen, denen Sie unbewusst folgen, um jeden Tag zu Ihrem Haus zu gelangen, bis hin zu den Anleitungslisten, denen Sie in diesen Tutorials folgen! Es wird Sie vielleicht nicht überraschen, dass HTML eine praktische Reihe von Elementen bietet, mit denen wir verschiedene Arten von Listen definieren können. Im Web gibt es drei Arten von Listen: ungeordnete, geordnete und Beschreibungslisten. Diese Lektion zeigt Ihnen, wie Sie die verschiedenen Typen verwenden.
+Wenden wir uns nun den Listen zu. Listen sind überall im Leben zu finden – von Ihrer Einkaufsliste bis zur Liste der Anweisungen, denen Sie unbewusst folgen, um jeden Tag zu Ihrem Haus zu gelangen, bis zu den Listen der Anweisungen, die Sie in diesen Tutorials befolgen! Es mag Sie nicht überraschen, dass HTML eine praktische Reihe von Elementen bietet, mit denen wir verschiedene Arten von Listen definieren können. Im Web gibt es drei Arten von Listen: ungeordnete Listen, geordnete Listen und Definitionslisten. Diese Lektion zeigt Ihnen, wie Sie die verschiedenen Arten verwenden.
 
 <table>
   <tbody>
     <tr>
       <th scope="row">Voraussetzungen:</th>
       <td>
-        Grundlegende HTML-Kenntnisse, wie im
+        Grundkenntnisse in HTML, wie im
         <a href="/de/docs/Learn_web_development/Core/Structuring_content/Basic_HTML_syntax"
-          >Grundlagen der HTML-Syntax</a
+          >Grundlegende HTML-Syntax</a
         > behandelt.
       </td>
     </tr>
@@ -26,9 +24,9 @@ Nun richten wir unsere Aufmerksamkeit auf Listen. Listen sind überall im Leben 
       <th scope="row">Lernziele:</th>
       <td>
         <ul>
-          <li>Die HTML-Struktur für die drei Arten von Listen – ungeordnet, geordnet und Beschreibung.</li>
+          <li>Die HTML-Struktur für die drei Arten von Listen — ungeordnet, geordnet und Beschreibung.</li>
           <li>Die korrekte Verwendung für jeden Listentyp.</li>
-          <li>Die breiteren Anwendungsfälle von Listen, wie z. B. Navigationsmenüs.</li>
+          <li>Die breiteren Anwendungsfälle von Listen, wie z.B. Navigationsmenüs.</li>
         </ul>
       </td>
     </tr>
@@ -37,7 +35,7 @@ Nun richten wir unsere Aufmerksamkeit auf Listen. Listen sind überall im Leben 
 
 ## Ungeordnete Listen
 
-Ungeordnete Listen werden verwendet, um Listen von Elementen zu kennzeichnen, bei denen die Reihenfolge der Elemente nicht wichtig ist. Nehmen wir als Beispiel eine Einkaufsliste:
+Ungeordnete Listen werden verwendet, um Listen von Elementen zu markieren, bei denen die Reihenfolge der Elemente keine Rolle spielt. Nehmen wir zum Beispiel eine Einkaufsliste:
 
 ```plain
 milk
@@ -57,7 +55,7 @@ Jede ungeordnete Liste beginnt mit einem {{htmlelement("ul")}}-Element – diese
 </ul>
 ```
 
-Der letzte Schritt besteht darin, jedes Listenelement in ein {{htmlelement("li")}} (Listenelement)-Element einzuschließen:
+Der letzte Schritt besteht darin, jedes Listenelement in ein {{htmlelement("li")}}-Element (Listenelement) einzuschließen:
 
 ```html
 <ul>
@@ -68,7 +66,7 @@ Der letzte Schritt besteht darin, jedes Listenelement in ein {{htmlelement("li")
 </ul>
 ```
 
-### Aktives Lernen: Markierung einer ungeordneten Liste
+### Aktives Lernen: Eine ungeordnete Liste markieren
 
 Versuchen Sie, das Live-Beispiel unten zu bearbeiten, um Ihre eigene HTML-ungeordnete Liste zu erstellen.
 
@@ -202,9 +200,9 @@ textarea.onkeyup = () => {
 
 {{ EmbedLiveSample('Active_learning_Marking_up_an_unordered_list', 700, 400, "", "") }}
 
-## Geordnete Listen
+## Geordnet
 
-Geordnete Listen sind Listen, in denen die Reihenfolge der Elemente wichtig ist. Nehmen wir als Beispiel ein Set von Anweisungen:
+Geordnete Listen sind Listen, in denen die Reihenfolge der Elemente _wichtig_ ist. Nehmen wir als Beispiel eine Reihe von Anweisungen:
 
 ```plain
 Drive to the end of the road
@@ -214,7 +212,7 @@ Turn left at the third roundabout
 The school is on your right, 300 meters up the road
 ```
 
-Die Markup-Struktur ist die gleiche wie bei ungeordneten Listen, außer dass Sie die Listenelemente in ein {{htmlelement("ol")}}-Element anstelle von `<ul>` einschließen müssen:
+Die Markup-Struktur ist dieselbe wie bei ungeordneten Listen, außer dass Sie die Listenelemente in ein {{htmlelement("ol")}}-Element einwickeln müssen, anstelle von `<ul>`:
 
 ```html
 <ol>
@@ -226,7 +224,7 @@ Die Markup-Struktur ist die gleiche wie bei ungeordneten Listen, außer dass Sie
 </ol>
 ```
 
-### Aktives Lernen: Markierung einer geordneten Liste
+### Aktives Lernen: Eine geordnete Liste markieren
 
 Versuchen Sie, das Live-Beispiel unten zu bearbeiten, um Ihre eigene HTML-geordnete Liste zu erstellen.
 
@@ -363,7 +361,7 @@ textarea.onkeyup = () => {
 
 ## Aktives Lernen: Markierung unserer Rezeptseite
 
-An diesem Punkt des Artikels haben Sie alle Informationen, die Sie benötigen, um unser Rezeptseiten-Beispiel zu markieren. Sie können sich entweder eine lokale Kopie unserer [text-start.html](https://github.com/mdn/learning-area/blob/main/html/introduction-to-html/html-text-formatting/text-start.html) Startdatei speichern und dort die Arbeit erledigen oder es im editierbaren Beispiel unten durchführen. Lokal zu arbeiten ist wahrscheinlich besser, da Sie die Arbeit, die Sie machen, speichern können, während sie im editierbaren Beispiel verloren geht, wenn Sie die Seite das nächste Mal öffnen. Beide Möglichkeiten haben Vor- und Nachteile.
+An diesem Punkt im Artikel haben Sie alle Informationen, die Sie benötigen, um unser Rezeptseiten-Beispiel zu markieren. Sie können wählen, ob Sie entweder eine lokale Kopie unserer [text-start.html](https://github.com/mdn/learning-area/blob/main/html/introduction-to-html/html-text-formatting/text-start.html)-Startdatei speichern und dort die Arbeit erledigen oder es im bearbeitbaren Beispiel unten tun. Es ist wahrscheinlich besser, dies lokal zu tun, da Sie dann die Arbeit, die Sie machen, speichern können, während sie im bearbeitbaren Beispiel beim nächsten Öffnen der Seite verloren geht. Beide Optionen haben Vor- und Nachteile.
 
 ```html hidden
 <h2>Live output</h2>
@@ -523,11 +521,11 @@ textarea.onkeyup = () => {
 
 {{ EmbedLiveSample('Active_learning_Marking_up_our_recipe_page', 900, 620, "", "") }}
 
-Wenn Sie stecken bleiben, können Sie immer die Schaltfläche _Lösung anzeigen_ drücken oder unser [text-complete.html](https://github.com/mdn/learning-area/blob/main/html/introduction-to-html/html-text-formatting/text-complete.html) Beispiel in unserem GitHub-Repo überprüfen.
+Wenn Sie nicht weiterkommen, können Sie jederzeit die _Lösung anzeigen_-Taste drücken oder unser [text-complete.html](https://github.com/mdn/learning-area/blob/main/html/introduction-to-html/html-text-formatting/text-complete.html) Beispiel in unserem GitHub-Repo überprüfen.
 
-## Verschachteln von Listen
+## Verschachtelung von Listen
 
-Es ist völlig in Ordnung, eine Liste in eine andere einzuschachteln. Sie möchten vielleicht einige Unterpunkte unter einem oberen Punkt haben. Nehmen wir die zweite Liste aus unserem Rezeptbeispiel:
+Es ist völlig in Ordnung, eine Liste in eine andere einzunisten. Möglicherweise möchten Sie einige Unterpunkte unter einem punktierten Hauptpunkt haben. Nehmen wir die zweite Liste aus unserem Rezeptbeispiel:
 
 ```html
 <ol>
@@ -540,7 +538,7 @@ Es ist völlig in Ordnung, eine Liste in eine andere einzuschachteln. Sie möcht
 </ol>
 ```
 
-Da die letzten beiden Punkte sehr eng mit dem vorhergehenden zusammenhängen (es handelt sich um Unteranweisungen oder Auswahlmöglichkeiten, die unter diesen Punkt passen), könnte es sinnvoll sein, sie in eine eigene ungeordnete Liste einzuschließen und diese Liste innerhalb des aktuellen vierten Punktes einzufügen. Dies würde so aussehen:
+Da die letzten beiden Punkte sehr eng mit dem davor verbunden sind (sie lesen sich wie Unteranweisungen oder Optionen, die unter diesen Punkt passen), könnte es sinnvoll sein, sie in ihre eigene ungeordnete Liste zu verschachteln und diese Liste in den aktuellen vierten Punkt einzufügen. Dies würde so aussehen:
 
 ```html
 <ol>
@@ -559,11 +557,11 @@ Da die letzten beiden Punkte sehr eng mit dem vorhergehenden zusammenhängen (es
 </ol>
 ```
 
-Versuchen Sie, zum vorherigen aktiven Lernbeispiel zurückzukehren und die zweite Liste entsprechend zu aktualisieren.
+Versuchen Sie, zum vorherigen aktiven Lernbeispiel zurückzukehren und die zweite Liste so zu aktualisieren.
 
-## Beschreibungslisten
+## Definitionslisten
 
-Der Zweck von Beschreibungslisten besteht darin, eine Reihe von Elementen und deren zugehörige Beschreibungen zu kennzeichnen, z. B. Begriffe und Definitionen oder Fragen und Antworten. Schauen wir uns ein Beispiel für eine Reihe von Begriffen und Definitionen an:
+Der Zweck von Definitionslisten besteht darin, eine Reihe von Elementen und ihre zugehörigen Beschreibungen zu markieren, wie Begriffe und Definitionen oder Fragen und Antworten. Schauen wir uns ein Beispiel für eine Reihe von Begriffen und Definitionen an:
 
 ```plain
 soliloquy
@@ -574,11 +572,11 @@ aside
 In drama, where a character shares a comment only with the audience for humorous or dramatic effect. This is usually a feeling, thought or piece of additional background information
 ```
 
-Beschreibungslisten verwenden eine andere Umhüllung als die anderen Listentypen — {{htmlelement("dl")}}; zudem wird jeder Begriff in ein {{htmlelement("dt")}} (Begriffsbeschreibung) Element eingeschlossen, und jede Beschreibung wird in ein {{htmlelement("dd")}} (Beschreibungsdefinition) Element eingeschlossen.
+Descriptionslisten verwenden eine andere Umschließung als die anderen Listentypen — {{htmlelement("dl")}}; zusätzlich wird jeder Begriff in ein {{htmlelement("dt")}} (description term) Element eingefasst, und jede Beschreibung wird in ein {{htmlelement("dd")}} (description definition) Element eingefasst.
 
-### Beispiel für eine Beschreibungslisten
+### Beispiel einer Definitionsliste
 
-Lassen Sie uns unser Beispiel fertigstellen:
+Lassen Sie uns das Beispiel komplett markieren:
 
 ```html
 <dl>
@@ -602,13 +600,13 @@ Lassen Sie uns unser Beispiel fertigstellen:
 </dl>
 ```
 
-Die Standardstile des Browsers werden Beschreibungslisten so anzeigen, dass die Beschreibungen etwas von den Begriffen eingerückt sind.
+Die Standardstile des Browsers zeigen Definitionslisten so an, dass die Beschreibungen etwas von den Begriffen eingerückt sind.
 
 {{EmbedLiveSample('Description_list_example', '100%', '285px')}}
 
 ### Mehrfache Beschreibungen für einen Begriff
 
-Es ist erlaubt, dass ein einzelner Begriff mehrere Beschreibungen hat, zum Beispiel:
+Beachten Sie, dass es erlaubt ist, einen einzigen Begriff mit mehreren Beschreibungen zu haben, zum Beispiel:
 
 ```html
 <dl>
@@ -628,11 +626,11 @@ Es ist erlaubt, dass ein einzelner Begriff mehrere Beschreibungen hat, zum Beisp
 
 {{EmbedLiveSample('Multiple_descriptions_for_one_term', '100%', '193px')}}
 
-### Aktives Lernen: Markierung eines Satzes von Definitionen
+### Aktives Lernen: Ein Set von Definitionen markieren
 
-Es ist Zeit, Ihr Können bei Beschreibungslisten zu testen; fügen Sie Elemente in das rohe Textfeld im _Input_-Feld ein, sodass es als Beschreibungslisten im _Output_-Feld erscheint. Sie können gerne Ihre eigenen Begriffe und Beschreibungen verwenden.
+Es ist Zeit, sich an Definitionslisten zu versuchen; fügen Sie dem Rohtext im Feld _Eingabe_ Elemente hinzu, sodass er im Feld _Ausgabe_ als Definitionsliste erscheint. Sie könnten versuchen, Ihre eigenen Begriffe und Beschreibungen zu verwenden, wenn Sie möchten.
 
-Wenn Sie einen Fehler machen, können Sie es jederzeit mit der _Zurücksetzen_-Schaltfläche zurücksetzen. Wenn Sie wirklich nicht weiterkommen, drücken Sie die _Lösung anzeigen_-Schaltfläche, um die Antwort zu sehen.
+Wenn Sie einen Fehler machen, können Sie ihn immer mit der _Zurücksetzen_-Taste zurücksetzen. Wenn Sie wirklich feststecken, drücken Sie die _Lösung anzeigen_-Taste, um die Antwort zu sehen.
 
 ```html hidden
 <h2>Live output</h2>
@@ -768,12 +766,12 @@ textarea.onkeyup = () => {
 
 {{ EmbedLiveSample('Active_learning_Marking_up_a_set_of_definitions', 700, 350) }}
 
-## Testen Sie Ihr Können!
+## Testen Sie Ihre Fähigkeiten!
 
-Sie haben das Ende dieses Sets von drei Artikeln über grundlegende HTML-Semantikelemente erreicht, aber können Sie sich die wichtigsten Informationen merken? Sie finden einige weitere Tests, um sicherzustellen, dass Sie diese Informationen gespeichert haben, bevor Sie weitermachen – siehe [Test your skills: HTML text basics](/de/docs/Learn_web_development/Core/Structuring_content/Test_your_skills/HTML_text_basics).
+Sie sind am Ende dieser Reihe von drei Artikeln über grundlegende HTML-Semantikelemente angelangt, aber können Sie sich die wichtigsten Informationen merken? Sie finden weitere Tests, um zu überprüfen, ob Sie diese Informationen behalten haben, bevor Sie weitermachen — siehe [Test your skills: HTML text basics](/de/docs/Learn_web_development/Core/Structuring_content/Test_your_skills/HTML_text_basics).
 
 ## Zusammenfassung
 
-Das war's für Listen. Als Nächstes gehen wir zu einer Diskussion auf höherer Ebene über. Wir haben gezeigt, wie man einige einzelne Seitenfunktionen implementiert, aber wie strukturiert man eine ganze HTML-Seite? Als Nächstes folgt die Strukturierung von Dokumenten.
+Das war's für Listen. Als nächstes werden wir uns einer Diskussion auf höherer Ebene zuwenden. Wir haben gezeigt, wie man einige einzelne Seitenelemente implementiert, aber was ist mit der Strukturierung einer ganzen HTML-Seite? Die Strukturierung von Dokumenten ist als nächstes an der Reihe.
 
 {{PreviousMenuNext("Learn_web_development/Core/Structuring_content/Emphasis_and_importance", "Learn_web_development/Core/Structuring_content/Structuring_documents", "Learn_web_development/Core/Structuring_content")}}

@@ -2,16 +2,16 @@
 title: animation-range-start
 slug: Web/CSS/animation-range-start
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: 5a195171d06aee3d9c1c78d71c7f0c3a060f5263
 ---
 
 {{CSSRef}}{{SeeCompatTable}}
 
-Die **`animation-range-start`** [CSS](/de/docs/Web/CSS)-Eigenschaft wird verwendet, um den Start des Anwendungsbereichs einer Animation entlang ihrer Zeitleiste festzulegen, d.h. wo auf der Zeitleiste eine Animation beginnt.
+Die **`animation-range-start`** [CSS](/de/docs/Web/CSS)-Eigenschaft wird verwendet, um den Startbereich einer Animation entlang ihrer Zeitachse festzulegen, d.h. wo entlang der Zeitachse eine Animation beginnt.
 
-Die Eigenschaften `animation-range-start` und {{cssxref("animation-range-end")}} können auch mit der [`animation-range`](/de/docs/Web/CSS/animation-range) Kurzform-Eigenschaft eingestellt werden.
+Die `animation-range-start`- und {{cssxref("animation-range-end")}}-Eigenschaften können auch unter Verwendung der [`animation-range`](/de/docs/Web/CSS/animation-range)-Kurzschreibweise festgelegt werden.
 
-> **Hinweis:** `animation-range-start` ist in der {{cssxref("animation")}} Kurzform als nur Rücksetz-Wert enthalten. Das bedeutet, dass das Einbeziehen von `animation` einen zuvor deklarierten `animation-range-start`-Wert auf `normal` zurücksetzt, aber ein spezifischer Wert kann nicht über `animation` festgelegt werden. Beim Erstellen von [CSS scroll-gesteuerten Animationen](/de/docs/Web/CSS/CSS_scroll-driven_animations) müssen Sie `animation-range-start` nach der Deklaration einer `animation`-Kurzform deklarieren, damit es wirksam wird.
+> **Note:** `animation-range-start` ist in der {{cssxref("animation")}}-Kurzschreibweise als reiner Reset-Wert enthalten. Das bedeutet, dass die Aufnahme von `animation` einen zuvor deklarierten `animation-range-start`-Wert auf `normal` zurücksetzt, aber ein spezifischer Wert kann nicht über `animation` festgelegt werden. Beim Erstellen von [CSS scroll-gesteuerten Animationen](/de/docs/Web/CSS/CSS_scroll-driven_animations) müssen Sie `animation-range-start` nach der Deklaration einer `animation`-Kurzschreibweise angeben, damit es wirksam wird.
 
 ## Syntax
 
@@ -30,9 +30,9 @@ animation-range-start: contain 100px;
 
 ### Werte
 
-Erlaubte Werte für `animation-range-start` sind `normal`, ein {{cssxref("length-percentage")}}, ein `<timeline-range-name>`, oder ein `<timeline-range-name>` mit einem folgenden `<length-percentage>`. Siehe [`animation-range`](/de/docs/Web/CSS/animation-range) für eine detaillierte Beschreibung der verfügbaren Werte.
+Zulässige Werte für `animation-range-start` sind `normal`, ein {{cssxref("length-percentage")}}, ein `<timeline-range-name>` oder ein `<timeline-range-name>` mit einem darauf folgenden `<length-percentage>`. Siehe [`animation-range`](/de/docs/Web/CSS/animation-range) für eine detaillierte Beschreibung der verfügbaren Werte.
 
-Sehen Sie sich auch den [View Timeline Ranges Visualizer](https://scroll-driven-animations.style/tools/view-timeline/ranges/) an, der genau zeigt, was die verschiedenen Werte in einem einfachen visuellen Format bedeuten.
+Schauen Sie sich auch den [View Timeline Ranges Visualizer](https://scroll-driven-animations.style/tools/view-timeline/ranges/) an, der genau zeigt, was die verschiedenen Werte in einem leicht verständlichen visuellen Format bedeuten.
 
 ## Formale Definition
 
@@ -44,15 +44,15 @@ Sehen Sie sich auch den [View Timeline Ranges Visualizer](https://scroll-driven-
 
 ## Beispiele
 
-### Erstellen einer benannten View-Progress-Zeitleiste mit Range-Start
+### Erstellen einer benannten Fortschrittszeitachse mit Startbereich
 
-Eine View-Progress-Zeitleiste namens `--subjectReveal` wird mithilfe der `view-timeline`-Eigenschaft an einem Element mit der `class` `animation` definiert. Diese wird dann als die Zeitleiste für dasselbe Element mit `animation-timeline: --subjectReveal;` festgelegt. Das Ergebnis ist, dass das Element animiert wird, während es beim Scrollen nach oben durch das Dokument bewegt wird.
+Eine Fortschrittszeitachse mit dem Namen `--subjectReveal` wird mittels der `view-timeline`-Eigenschaft an einem Subjektelement mit einer `class` von `animation` definiert. Diese wird dann als Zeitachse für dasselbe Element mit `animation-timeline: --subjectReveal;` festgelegt. Das Ergebnis ist, dass das Subjektelement animiert wird, während es sich beim Scrollen nach oben durch das Dokument bewegt.
 
-Auch eine `animation-range-start`-Deklaration wird gesetzt, um die Animation später beginnen zu lassen als erwartet.
+Eine `animation-range-start`-Deklaration wird ebenfalls festgelegt, um zu bewirken, dass die Animation später als erwartet beginnt.
 
 #### HTML
 
-Der HTML-Code für das Beispiel ist unten zu sehen.
+Das HTML für das Beispiel wird unten angezeigt.
 
 ```html
 <div class="content">
@@ -91,7 +91,7 @@ Der HTML-Code für das Beispiel ist unten zu sehen.
 
 #### CSS
 
-Das `subject`-Element und sein beinhaltendes `content`-Element werden minimal gestylt und der Textinhalt erhält einige grundlegende Schriftart-Einstellungen:
+Das `subject`-Element und sein enthaltendes `content`-Element werden minimal gestylt und der Textinhalt erhält einige grundlegende Schriftart-Einstellungen:
 
 ```css
 .subject {
@@ -122,9 +122,9 @@ p {
 }
 ```
 
-Das `<div>` mit der Klasse `subject` erhält auch die Klasse `animation` — hier wird `view-timeline` gesetzt, um eine benannte View-Progress-Zeitleiste zu definieren. Es erhält auch eine `animation-timeline`-Benennung mit demselben Wert, um zu deklarieren, dass dies das Element ist, das animiert wird, während die View-Progress-Zeitleiste fortschreitet. Wir geben ihm auch eine `animation-range-start`-Deklaration, um die Animation später als erwartet zu beginnen.
+Das `<div>` mit der Klasse `subject` erhält auch eine Klasse `animation` — hier wird `view-timeline` gesetzt, um eine benannte Fortschrittszeitachse festzulegen. Es wird auch ein `animation-timeline`-Name mit demselben Wert vergeben, um zu deklarieren, dass dies das Element ist, das animiert wird, wenn die Fortschrittszeitachse fortschreitet. Wir geben ihm auch eine `animation-range-start`-Deklaration, um zu bewirken, dass die Animation später als erwartet beginnt.
 
-Schließlich wird auf das Element eine Animation angewendet, die seine Deckkraft und Skalierung animiert und es beim Hochscrollen einblendet und vergrößert.
+Zuletzt wird eine Animation auf dem Element spezifiziert, die seine Opazität und Skalierung animiert, wodurch es beim Aufwärtsbewegen im Scroller verblasst und größer wird.
 
 ```css
 .animation {
@@ -144,7 +144,7 @@ Schließlich wird auf das Element eine Animation angewendet, die seine Deckkraft
   }
 
   to {
-    opacity: 1,
+    opacity: 1;
     transform: scaleX(1);
   }
 }
@@ -152,7 +152,7 @@ Schließlich wird auf das Element eine Animation angewendet, die seine Deckkraft
 
 #### Ergebnis
 
-Scrollen Sie, um zu sehen, wie das Element animiert wird.
+Scrollen Sie, um zu sehen, wie das Subjektelement animiert wird.
 
 {{EmbedLiveSample("Creating a named view progress timeline with range start", "100%", "480px")}}
 

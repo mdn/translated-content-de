@@ -1,48 +1,46 @@
 ---
-title: Komponentisierung unserer React-App
+title: Komponenten unserer React-App erstellen
 short-title: React components
 slug: Learn_web_development/Core/Frameworks_libraries/React_components
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: 48d220a8cffdfd5f088f8ca89724a9a92e34d8c0
 ---
-
-{{LearnSidebar}}
 
 {{PreviousMenuNext("Learn_web_development/Core/Frameworks_libraries/React_todo_list_beginning","Learn_web_development/Core/Frameworks_libraries/React_interactivity_events_state", "Learn_web_development/Core/Frameworks_libraries")}}
 
-Bis zu diesem Punkt ist unsere App ein Monolith. Bevor wir sie dazu bringen können, etwas zu tun, müssen wir sie in handhabbare, beschreibende Komponenten zerlegen. React hat keine strikten Regeln dafür, was eine Komponente ist oder nicht – das liegt bei Ihnen! In diesem Artikel zeigen wir Ihnen eine sinnvolle Möglichkeit, unsere App in Komponenten zu zerlegen.
+Derzeit ist unsere App ein Monolith. Bevor wir sie funktional gestalten können, müssen wir sie in handhabbare, beschreibende Komponenten unterteilen. React hat keine strikten Regeln dafür, was eine Komponente ist und was nicht – das bleibt Ihnen überlassen! In diesem Artikel zeigen wir Ihnen eine sinnvolle Möglichkeit, unsere App in Komponenten aufzuteilen.
 
 <table>
   <tbody>
     <tr>
       <th scope="row">Voraussetzungen:</th>
       <td>
-        Vertrautheit mit den grundlegenden <a href="/de/docs/Learn_web_development/Core/Structuring_content">HTML</a>,
-        <a href="/de/docs/Learn_web_development/Core/Styling_basics">CSS</a> und
-        <a href="/de/docs/Learn_web_development/Core/Scripting">JavaScript</a> Sprachen sowie dem <a href="/de/docs/Learn_web_development/Getting_started/Environment_setup/Command_line">Terminal/Befehlszeile</a>.
+        Vertrautheit mit den Kernsprachen <a href="/de/docs/Learn_web_development/Core/Structuring_content">HTML</a>,
+        <a href="/de/docs/Learn_web_development/Core/Styling_basics">CSS</a>, und
+        <a href="/de/docs/Learn_web_development/Core/Scripting">JavaScript</a> sowie mit der <a href="/de/docs/Learn_web_development/Getting_started/Environment_setup/Command_line">Terminal/Command Line</a>.
       </td>
     </tr>
     <tr>
-      <th scope="row">Lernziele:</th>
+      <th scope="row">Lernergebnisse:</th>
       <td>
-        Eine sinnvolle Methode, unsere Todo-Listen-App in Komponenten zu zerlegen.
+        Eine sinnvolle Möglichkeit, unsere To-Do-Liste-App in Komponenten zu unterteilen.
       </td>
     </tr>
   </tbody>
 </table>
 
-## Definieren unserer ersten Komponente
+## Unsere erste Komponente definieren
 
-Das Definieren einer Komponente kann schwierig erscheinen, bis Sie etwas Übung haben, aber das Wesentliche ist:
+Es kann zunächst schwierig erscheinen, eine Komponente zu definieren, bis Sie etwas Praxis haben, aber das Wesentliche ist:
 
-- Wenn es einen offensichtlichen "Teil" Ihrer App darstellt, ist es wahrscheinlich eine Komponente.
+- Wenn es einen offensichtlichen "Abschnitt" Ihrer App darstellt, ist es wahrscheinlich eine Komponente
 - Wenn es oft wiederverwendet wird, ist es wahrscheinlich eine Komponente.
 
-Dieser zweite Punkt ist besonders wertvoll: Aus häufig verwendeten UI-Elementen eine Komponente zu machen, ermöglicht es Ihnen, Ihren Code an einer Stelle zu ändern und diese Änderungen überall dort zu sehen, wo die Komponente verwendet wird. Sie müssen nicht sofort alles in Komponenten aufteilen. Lassen Sie uns den zweiten Punkt als Inspiration nehmen und eine Komponente aus dem am häufigsten wiederverwendeten, wichtigsten Teil der UI machen: einem Todo-Listen-Element.
+Dieser zweite Punkt ist besonders wertvoll: Aus häufig verwendeten UI-Elementen eine Komponente zu machen, ermöglicht es Ihnen, Ihren Code an einer Stelle zu ändern und diese Änderungen überall zu sehen, wo die Komponente verwendet wird. Sie müssen nicht sofort alles in Komponenten aufteilen. Lassen Sie uns den zweiten Punkt als Inspiration nehmen und eine Komponente aus dem am meisten wiederverwendeten, wichtigsten Teil der UI erstellen: ein To-Do-Listenelement.
 
 ## Erstellen eines `<Todo />`
 
-Bevor wir eine Komponente erstellen können, sollten wir eine neue Datei dafür erstellen. Tatsächlich sollten wir ein Verzeichnis nur für unsere Komponenten erstellen. Stellen Sie sicher, dass Sie sich im Stammverzeichnis Ihrer App befinden, bevor Sie diese Befehle ausführen!
+Bevor wir eine Komponente erstellen können, sollten wir eine neue Datei dafür erstellen. Tatsächlich sollten wir ein Verzeichnis nur für unsere Komponenten anlegen. Stellen Sie sicher, dass Sie sich im Stammverzeichnis Ihrer App befinden, bevor Sie diese Befehle ausführen!
 
 ```bash
 # create a `components` directory
@@ -51,9 +49,9 @@ mkdir src/components
 touch src/components/Todo.jsx
 ```
 
-Vergessen Sie nicht, Ihren Entwicklungsserver neu zu starten, wenn Sie ihn zum Ausführen der vorherigen Befehle gestoppt haben!
+Vergessen Sie nicht, Ihren Entwicklungsserver neu zu starten, wenn Sie ihn angehalten haben, um die vorherigen Befehle auszuführen!
 
-Lassen Sie uns eine `Todo()`-Funktion in `Todo.jsx` hinzufügen. Hier definieren wir eine Funktion und exportieren sie:
+Lassen Sie uns eine `Todo()` Funktion in `Todo.jsx` hinzufügen. Hier definieren wir eine Funktion und exportieren sie:
 
 ```jsx
 function Todo() {}
@@ -61,7 +59,7 @@ function Todo() {}
 export default Todo;
 ```
 
-Das ist bisher in Ordnung, aber unsere Komponente sollte etwas Nützliches zurückgeben! Gehen Sie zurück zu `src/App.jsx`, kopieren Sie das erste [`<li>`](/de/docs/Web/HTML/Reference/Elements/li) aus der ungeordneten Liste und fügen Sie es in `Todo.jsx` ein, sodass es so aussieht:
+Das ist soweit in Ordnung, aber unsere Komponente sollte etwas Nützliches zurückgeben! Gehen Sie zurück zu `src/App.jsx`, kopieren Sie das erste [`<li>`](/de/docs/Web/HTML/Reference/Elements/li) aus der ungeordneten Liste und fügen Sie es in `Todo.jsx` ein, sodass es so aussieht:
 
 ```jsx
 function Todo() {
@@ -88,13 +86,13 @@ function Todo() {
 export default Todo;
 ```
 
-Jetzt haben wir etwas, das wir verwenden können. Fügen Sie in `App.jsx` folgende Zeile am Anfang der Datei ein, um `Todo` zu importieren:
+Jetzt haben wir etwas, das wir verwenden können. Fügen Sie in `App.jsx` die folgende Zeile oben in die Datei ein, um `Todo` zu importieren:
 
 ```jsx
 import Todo from "./components/Todo";
 ```
 
-Mit dieser importierten Komponente können Sie alle `<li>`-Elemente in `App.jsx` durch `<Todo />`-Komponentenaufrufe ersetzen. Ihre `<ul>`-Liste sollte so aussehen:
+Mit dieser importierten Komponente können Sie alle `<li>` Elemente in `App.jsx` durch `<Todo />` Komponentenaufrufe ersetzen. Ihr `<ul>` sollte so aussehen:
 
 ```jsx
 <ul
@@ -107,21 +105,21 @@ Mit dieser importierten Komponente können Sie alle `<li>`-Elemente in `App.jsx`
 </ul>
 ```
 
-Wenn Sie zu Ihrer App zurückkehren, werden Sie etwas Unangenehmes bemerken: Ihre Liste wiederholt jetzt die erste Aufgabe dreimal!
+Wenn Sie zu Ihrer App zurückkehren, fällt Ihnen etwas Unangenehmes auf: Ihre Liste wiederholt jetzt die erste Aufgabe dreimal!
 
-![Unsere Todo-Listen-App, mit sich wiederholenden Todo-Komponenten, da das Label in der Komponente fest kodiert ist](todo-list-repeating-todos.png)
+![Unsere To-Do-Liste-App, mit sich wiederholenden To-Do-Komponenten, weil das Label fest in der Komponente codiert ist](todo-list-repeating-todos.png)
 
-Wir wollen nicht nur essen; wir haben noch andere Dinge zu – na ja – erledigen. Als nächstes schauen wir uns an, wie wir unterschiedliche Komponentenaufrufe einzigartigen Inhalt rendern lassen können.
+Wir wollen nicht nur essen; wir haben andere Dinge zu tun. Als nächstes sehen wir uns an, wie wir unterschiedliche Komponentenaufrufe dazu bringen können, einzigartigen Inhalt zu rendern.
 
-## Erstellen eines einzigartigen `<Todo />`
+## Eine einzigartige `<Todo />` erstellen
 
-Komponenten sind leistungsfähig, weil sie es uns ermöglichen, Teile unserer UI wiederzuverwenden und sich auf eine Stelle als Quelle dieser UI zu beziehen. Das Problem ist, dass wir normalerweise nicht alle Teile einer Komponente wiederverwenden wollen; wir wollen die meisten Teile wiederverwenden und kleine Teile ändern. Hier kommen Props ins Spiel.
+Komponenten sind mächtig, weil sie es uns ermöglichen, Teile unserer UI wiederzuverwenden und uns auf eine Quelle dieser UI zu beziehen. Das Problem ist, dass wir typischerweise nicht alle Teile jeder Komponente wiederverwenden wollen; wir wollen die meisten Teile wiederverwenden und kleine Stücke ändern. Hier kommen die Props ins Spiel.
 
 ### Was steckt in einem `name`?
 
-Um die Namen der Aufgaben zu verfolgen, die wir erledigen möchten, sollten wir sicherstellen, dass jede `<Todo />`-Komponente einen einzigartigen Namen rendert.
+Um die Namen der Aufgaben zu verfolgen, die wir erledigen möchten, sollten wir sicherstellen, dass jede `<Todo />` Komponente einen einzigartigen Namen rendert.
 
-Geben Sie in `App.jsx` jeder `<Todo />` einen Namens-Prop. Verwenden wir die Namen unserer vorherigen Aufgaben:
+Vergeben Sie in `App.jsx` jedem `<Todo />` ein `name` Prop. Verwenden Sie die Namen unserer bisherigen Aufgaben:
 
 ```jsx
 <Todo name="Eat" />
@@ -129,13 +127,13 @@ Geben Sie in `App.jsx` jeder `<Todo />` einen Namens-Prop. Verwenden wir die Nam
 <Todo name="Repeat" />
 ```
 
-Wenn Ihr Browser aktualisiert, sehen Sie… genau dasselbe wie vorher. Wir haben unserer `<Todo />` einige Props gegeben, aber wir verwenden sie noch nicht. Lassen Sie uns zurück zu `Todo.jsx` gehen und das korrigieren.
+Wenn sich Ihr Browser aktualisiert, sehen Sie... genau das Gleiche wie zuvor. Wir haben unserem `<Todo />` einige Props gegeben, aber wir verwenden sie noch nicht. Lassen Sie uns zu `Todo.jsx` zurückgehen und das beheben.
 
-Ändern Sie zuerst Ihre `Todo()`-Funktionsdefinition, damit sie `props` als Parameter nimmt. Sie können `console.log()` Ihre Props verwenden, wenn Sie überprüfen möchten, ob sie richtig von der Komponente empfangen werden.
+Ändern Sie zuerst Ihre `Todo()` Funktionsdefinition, damit sie `props` als Parameter akzeptiert. Sie können `console.log()` Ihre Props testen, um sicherzustellen, dass sie korrekt von der Komponente empfangen werden.
 
-Sobald Sie sich sicher sind, dass Ihre Komponente ihre Props erhält, können Sie jeden Auftritt von `Eat` durch Ihren `name`-Prop ersetzen, indem Sie `props.name` lesen. Denken Sie daran: `props.name` ist ein JSX-Ausdruck, also müssen Sie ihn in geschweifte Klammern setzen.
+Sobald Sie sicher sind, dass Ihre Komponente ihre Props erhält, können Sie jeden Vorkommen von `Eat` durch Ihr `name` Prop ersetzen, indem Sie `props.name` lesen. Denken Sie daran: `props.name` ist ein JSX-Ausdruck, daher müssen Sie ihn in geschweifte Klammern setzen.
 
-Wenn Sie all das zusammenfügen, sollte Ihre `Todo()`-Funktion so aussehen:
+Wenn Sie alles zusammenfügen, sollte Ihre `Todo()` Funktion so aussehen:
 
 ```jsx
 function Todo(props) {
@@ -162,13 +160,13 @@ function Todo(props) {
 export default Todo;
 ```
 
-_Jetzt_ sollte Ihr Browser drei einzigartige Aufgaben anzeigen. Ein weiteres Problem bleibt jedoch bestehen: Sie sind alle standardmäßig angekreuzt.
+_Jetzt_ sollte Ihr Browser drei einzigartige Aufgaben anzeigen. Ein weiteres Problem bleibt jedoch: Sie sind alle standardmäßig angekreuzt.
 
-![Unsere Todo-Liste, mit unterschiedlichen Todo-Labels, die jetzt in die Komponenten als Props übergeben werden](todo-list-unique-todos.png)
+![Unsere To-Do-Liste, mit unterschiedlichen To-Do-Labels, jetzt werden sie als Props an die Komponenten übergeben](todo-list-unique-todos.png)
 
 ### Ist es `completed`?
 
-In unserer ursprünglichen statischen Liste war nur `Eat` angekreuzt. Noch einmal wollen wir _die meisten_ UI-Elemente wiederverwenden, die eine `<Todo />`-Komponente ausmachen, aber eines ändern. Das ist ein guter Job für einen weiteren Prop! Geben Sie Ihrem ersten `<Todo />`-Aufruf einen booleschen Prop von `completed` und lassen Sie die anderen beiden wie sie sind.
+In unserer ursprünglichen statischen Liste war nur `Eat` angekreuzt. Wieder einmal wollen wir _den größten Teil_ der UI, die eine `<Todo />` Komponente ausmacht, wiederverwenden, aber eine Sache ändern. Das ist wieder eine gute Aufgabe für ein weiteres Prop! Geben Sie Ihrem ersten `<Todo />` Aufruf ein booleanes Prop von `completed` und lassen Sie die anderen beiden, wie sie sind.
 
 ```jsx
 <Todo name="Eat" completed />
@@ -176,28 +174,28 @@ In unserer ursprünglichen statischen Liste war nur `Eat` angekreuzt. Noch einma
 <Todo name="Repeat" />
 ```
 
-Wie zuvor müssen wir zu `Todo.jsx` zurückkehren, um diese Props tatsächlich zu verwenden. Ändern Sie das `defaultChecked`-Attribut im `<input />`, damit sein Wert dem `completed`-Prop entspricht. Sobald Sie fertig sind, wird das `<input />`-Element der Todo-Komponente so aussehen:
+Wie zuvor müssen wir zu `Todo.jsx` zurückkehren, um diese Props tatsächlich zu nutzen. Ändern Sie das `defaultChecked` Attribut des `<input />`, sodass sein Wert dem `completed` Prop entspricht. Sobald Sie fertig sind, liest das `<input />` Element der Todo-Komponente so:
 
 ```jsx
 <input id="todo-0" type="checkbox" defaultChecked={props.completed} />
 ```
 
-Und Ihr Browser sollte aktualisiert werden, um nur `Eat` als angekreuzt zu zeigen:
+Und Ihr Browser sollte aktualisiert werden, um nur `Eat` als angekreuzt anzuzeigen:
 
-![Unsere Todo-Listen-App, jetzt mit unterschiedlichen angekreuzten Zuständen - einige Checkboxen sind angekreuzt, andere nicht](todo-list-differing-checked-states.png)
+![Unsere To-Do-Liste-App, nun mit unterschiedlichen angekreuzten Zuständen - einige Kontrollkästchen sind angekreuzt, andere nicht](todo-list-differing-checked-states.png)
 
-Wenn Sie den `completed`-Prop jeder `<Todo />`-Komponente ändern, wird Ihr Browser die entsprechenden gerenderten Checkboxen entsprechend an- oder abkreuzen.
+Wenn Sie das `completed` Prop jeder `<Todo />` Komponente ändern, wird Ihr Browser die äquivalent gerenderten Kontrollkästchen entsprechend ankreuzen oder entkreuzen.
 
-### Gib mir bitte eine `id`
+### Geben Sie mir etwas `id`, bitte
 
-Wir haben noch _ein weiteres_ Problem: Unsere `<Todo />`-Komponente gibt jeder Aufgabe ein `id`-Attribut von `todo-0`. Das ist aus ein paar Gründen schlecht:
+Wir haben noch _ein anderes_ Problem: Unsere `<Todo />` Komponente gibt jeder Aufgabe ein `id` Attribut von `todo-0`. Das ist aus ein paar Gründen schlecht:
 
-- [`id`-Attribute](/de/docs/Web/HTML/Reference/Global_attributes/id) müssen einzigartig sein (sie werden als eindeutige Bezeichner für Dokumentfragmente, durch CSS, JavaScript usw. verwendet).
-- Wenn `id`s nicht einzigartig sind, kann die Funktionalität von [Label-Elementen](/de/docs/Web/HTML/Reference/Elements/label) brechen.
+- [`id` Attribute](/de/docs/Web/HTML/Reference/Global_attributes/id) müssen eindeutig sein (sie werden als eindeutige Bezeichner für Dokumentfragmente verwendet, von CSS, JavaScript usw.).
+- Wenn `id`s nicht eindeutig sind, kann die Funktionalität von [Label-Elementen](/de/docs/Web/HTML/Reference/Elements/label) beeinträchtigt werden.
 
-Das zweite Problem betrifft unsere App gerade jetzt. Wenn Sie auf das Wort "Sleep" neben der zweiten Checkbox klicken, werden Sie bemerken, dass die "Eat"-Checkbox umgeschaltet wird, anstatt der "Sleep"-Checkbox. Das liegt daran, dass jedes `<label>`-Element einer Checkbox ein `htmlFor`-Attribut von `todo-0` hat. Die `<label>`s erkennen nur das erste Element mit einem gegebenen `id`-Attribut an, was das Problem verursacht, das Sie sehen, wenn Sie auf die anderen Labels klicken.
+Das zweite Problem betrifft unsere App gerade. Wenn Sie auf das Wort "Sleep" neben dem zweiten Kontrollkästchen klicken, wird das "Eat"-Kontrollkästchen anstelle des "Sleep"-Kontrollkästchens umgeschaltet. Das liegt daran, dass jedes Label-Element des Kontrollkästchens ein `htmlFor` Attribut von `todo-0` hat. Die Labels erkennen nur das erste Element mit einem bestimmten `id` Attribut, was das Problem verursacht, das Sie beim Klicken auf die anderen Labels sehen.
 
-Vor der Erstellung der `<Todo />`-Komponente hatten wir einzigartige `id`-Attribute. Lassen Sie uns sie zurückbringen, indem wir dem Format `todo-i` folgen, wobei `i` jedes Mal um eins größer wird. Aktualisieren Sie die `Todo`-Komponenteninstanzen innerhalb von `App.jsx`, um `id`-Props hinzuzufügen, wie folgt:
+Wir hatten eindeutige `id` Attribute, bevor wir die `<Todo />` Komponente erstellt haben. Lassen Sie uns sie wiederherstellen und dem Format `todo-i` folgen, wobei `i` mit jeder Zunahme um eins größer wird. Aktualisieren Sie die `Todo` Komponenteninstanzen in `App.jsx`, um `id` Props hinzuzufügen, wie folgt:
 
 ```jsx
 <Todo name="Eat" id="todo-0" completed />
@@ -206,9 +204,9 @@ Vor der Erstellung der `<Todo />`-Komponente hatten wir einzigartige `id`-Attrib
 ```
 
 > [!NOTE]
-> Der `completed`-Prop ist hier zuletzt, weil er ein Boolean ohne Zuweisung ist. Das ist rein eine stilistische Konvention. Die Reihenfolge der Props spielt keine Rolle, da Props JavaScript-Objekte sind und JavaScript-Objekte ungeordnet sind.
+> Das `completed` Prop steht hier zuletzt, weil es ein boolesches ohne Zuweisung ist. Das ist rein eine stilistische Konvention. Die Reihenfolge der Props spielt keine Rolle, da Props JavaScript-Objekte sind, und JavaScript-Objekte ungeordnet sind.
 
-Kehren Sie nun zu `Todo.jsx` zurück und nutzen Sie den `id`-Prop. Er muss den Wert des `id`-Attributs des `<input />`-Elements sowie den Wert des `htmlFor`-Attributs seines `<label>` ersetzen:
+Geben Sie nun in `Todo.jsx` das `id` Prop an. Es muss den Wert des `id` Attributs des `<input />`-Elements ersetzen sowie den Wert des `htmlFor` Attributs des `<label>`:
 
 ```jsx
 <div className="c-cb">
@@ -219,19 +217,19 @@ Kehren Sie nun zu `Todo.jsx` zurück und nutzen Sie den `id`-Prop. Er muss den W
 </div>
 ```
 
-Mit diesen Korrekturen wird das Klicken auf die Labels neben jeder Checkbox das tun, was wir erwarten – die Checkboxen neben diesen Labels an- und abkreuzen.
+Mit diesen Korrekturen wird das Klicken auf die Labels neben jedem Kontrollkästchen das tun, was wir erwarten – die Kontrollkästchen neben diesen Labels an- und abkreuzen.
 
-## Alles in Ordnung bisher?
+## Bis jetzt alles gut?
 
-Wir machen bisher guten Gebrauch von React, aber wir könnten es besser machen! Unser Code ist repetitiv. Die drei Zeilen, die unsere `<Todo />`-Komponente rendern, sind fast identisch, mit nur einem Unterschied: dem Wert jedes Props.
+Wir machen bisher guten Gebrauch von React, aber wir könnten es besser machen! Unser Code ist wiederholend. Die drei Zeilen, die unsere `<Todo />` Komponente rendern, sind fast identisch, mit nur einem Unterschied: dem Wert jedes Props.
 
-Wir können unseren Code mit einer der Kernfähigkeiten von JavaScript aufräumen: Iteration. Um Iteration zu verwenden, sollten wir zuerst über unsere Aufgaben nachdenken.
+Wir können unseren Code mit einer der Grundfunktionen von JavaScript bereinigen: Iteration. Um Iteration zu verwenden, sollten wir zuerst über unsere Aufgaben nachdenken.
 
 ## Aufgaben als Daten
 
-Jede unserer Aufgaben enthält derzeit drei Informationen: ihren Namen, ob sie angekreuzt wurde, und ihre eindeutige ID. Diese Daten lassen sich gut in ein Objekt übersetzen. Da wir mehr als eine Aufgabe haben, würde ein Array von Objekten gut zur Darstellung dieser Daten passen.
+Jede unserer Aufgaben enthält derzeit drei Informationsstücke: ihren Namen, ob sie angekreuzt wurde, und ihre eindeutige ID. Diese Daten lassen sich gut auf ein Objekt abbilden. Da wir mehr als eine Aufgabe haben, würde ein Array von Objekten gut dazu dienen, diese Daten darzustellen.
 
-Deklarieren Sie in `src/main.jsx` eine neue `const` unterhalb des letzten Imports, aber oberhalb von `ReactDOM.createRoot()`:
+Deklarieren Sie in `src/main.jsx` eine neue `const` unterhalb des abschließenden Imports, aber über `ReactDOM.createRoot()`:
 
 ```jsx
 const DATA = [
@@ -242,29 +240,29 @@ const DATA = [
 ```
 
 > [!NOTE]
-> Wenn Ihr Texteditor ein [ESLint](https://eslint.org/)-Plugin hat, sehen Sie möglicherweise eine Warnung zu dieser `DATA`-Konstante. Diese Warnung stammt aus der ESLint-Konfiguration, die von der Vite-Vorlage bereitgestellt wird, die wir verwendet haben, und sie gilt nicht für diesen Code. Sie können die Warnung sicher unterdrücken, indem Sie `// eslint-disable-next-line` zur Zeile oberhalb der `DATA`-Konstante hinzufügen.
+> Wenn Ihr Texteditor ein [ESLint](https://eslint.org/) Plugin hat, sehen Sie möglicherweise eine Warnung zu dieser `DATA` Konstante. Diese Warnung stammt von der ESLint-Konfiguration, die von der Vite-Vorlage bereitgestellt wird, die wir verwendet haben, und sie gilt nicht für diesen Code. Sie können die Warnung sicher unterdrücken, indem Sie `// eslint-disable-next-line` in die Zeile über der `DATA` Konstante einfügen.
 
-Als Nächstes werden wir `DATA` an `<App />` als Prop namens `tasks` übergeben. Aktualisieren Sie Ihren `<App />`-Komponentenaufruf innerhalb von `src/main.jsx`, damit er so aussieht:
+Als nächstes werden wir `DATA` als Prop an `<App />` übergeben, genannt `tasks`. Aktualisieren Sie Ihre `<App />` Komponentenaufruf in `src/main.jsx`, sodass er so aussieht:
 
 ```jsx
 <App tasks={DATA} />
 ```
 
-Das `DATA`-Array ist nun innerhalb der App-Komponente als `props.tasks` verfügbar. Sie können `console.log()` verwenden, um es zu überprüfen, wenn Sie möchten.
+Das `DATA` Array ist nun innerhalb der App-Komponente als `props.tasks` verfügbar. Sie können `console.log()` verwenden, um zu überprüfen, wenn Sie möchten.
 
-> **Hinweis:** `ALL_CAPS`-Konstantennamen haben keine besondere Bedeutung in JavaScript; sie sind eine Konvention, die anderen Entwicklern sagt: "Diese Daten werden sich nach ihrer Definition hier nicht mehr ändern".
+> **Hinweis:** `ALL_CAPS` Konstantennamen haben keine besondere Bedeutung in JavaScript; sie sind eine Konvention, die anderen Entwicklern signalisiert "diese Daten werden sich nach ihrer Definition hier nie ändern".
 
 ## Rendering mit Iteration
 
-Um unser Array von Objekten zu rendern, müssen wir jedes Objekt in eine `<Todo />`-Komponente umwandeln. JavaScript gibt uns eine Array-Methode, um Elemente in etwas anderes zu transformieren: [`Array.prototype.map()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/map).
+Um unser Array von Objekten zu rendern, müssen wir jedes Objekt in eine `<Todo />` Komponente umwandeln. JavaScript gibt uns eine Array-Methode, um Elemente in etwas anderes zu transformieren: [`Array.prototype.map()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/map).
 
-Erstellen Sie innerhalb von `App.jsx` eine neue `const` oberhalb der `return`-Anweisung der `App()`-Funktion namens `taskList`. Beginnen wir damit, jede Aufgabe im `props.tasks`-Array in ihren `name` zu transformieren. Der `?.`-Operator erlaubt es uns, [Optional Chaining](/de/docs/Web/JavaScript/Reference/Operators/Optional_chaining) zu verwenden, um zu überprüfen, ob `props.tasks` `undefined` oder `null` ist, bevor wir versuchen, ein neues Array von Aufgabennamen zu erstellen:
+Erstellen Sie innerhalb `App.jsx` eine neue `const` über der `return` Anweisung der `App()` Funktion, die `taskList` genannt wird. Beginnen wir damit, jede Aufgabe im `props.tasks` Array in ihren Namen zu transformieren. Der `?.` Operator ermöglicht uns das [optionale Ketten](/de/docs/Web/JavaScript/Reference/Operators/Optional_chaining), um zu überprüfen, ob `props.tasks` `undefined` oder `null` ist, bevor versucht wird, ein neues Array von Aufgabennamen zu erstellen:
 
 ```jsx
 const taskList = props.tasks?.map((task) => task.name);
 ```
 
-Versuchen wir, alle Kinder der `<ul>` durch `taskList` zu ersetzen:
+Versuchen wir, alle Kinder des `<ul>` durch `taskList` zu ersetzen:
 
 ```jsx
 <ul
@@ -275,17 +273,17 @@ Versuchen wir, alle Kinder der `<ul>` durch `taskList` zu ersetzen:
 </ul>
 ```
 
-Das bringt uns ein Stück weiter, um alle Komponenten wieder anzuzeigen, aber wir haben noch mehr Arbeit zu leisten: Der Browser rendert derzeit den Namen jeder Aufgabe als reinen Text. Uns fehlt unsere HTML-Struktur – die `<li>` und ihre Checkboxen und Buttons!
+Das bringt uns ein Stück näher dahin, alle Komponenten wieder anzuzeigen, aber wir haben noch mehr zu tun: Der Browser rendert derzeit den Namen jeder Aufgabe als einfachen Text. Uns fehlt die HTML-Struktur – die `<li>` und ihre Kontrollkästchen und Schaltflächen!
 
-![Unsere Todo-Listen-App mit den Task-Namen, die nur gebündelt in einer Zeile angezeigt werden](todo-list-unstructured-names.png)
+![Unsere To-Do-Liste-App mit den To-Do-Bezeichnern, die einfach nur in einer Reihe bünden](todo-list-unstructured-names.png)
 
-Um dies zu beheben, müssen wir eine `<Todo />`-Komponente aus unserer `map()`-Funktion zurückgeben – erinnern Sie sich daran, dass JSX JavaScript ist, weshalb wir es zusammen mit jeder anderen, vertrauteren JavaScript-Syntax verwenden können. Lassen Sie uns folgendes ausprobieren, anstelle dessen, was wir bereits haben:
+Um dies zu beheben, müssen wir eine `<Todo />` Komponente aus unserer `map()` Funktion zurückgeben — denken Sie daran, dass JSX JavaScript ist, sodass wir es neben anderem, bekannteren JavaScript-Syntax verwenden können. Versuchen wir das Folgende statt dem, was wir bereits haben:
 
 ```jsx
 const taskList = props.tasks?.map((task) => <Todo />);
 ```
 
-Schauen Sie sich Ihre App erneut an; jetzt sehen unsere Aufgaben mehr so aus wie zuvor, aber ihnen fehlen die Namen der Aufgaben selbst. Denken Sie daran, dass jede Aufgabe, die wir durchgehen, die Eigenschaften `id`, `name` und `completed` enthält, die wir an unsere `<Todo />`-Komponente übergeben möchten. Wenn wir dieses Wissen zusammenfügen, erhalten wir Code wie diesen:
+Werfen Sie einen weiteren Blick auf Ihre App; jetzt sehen unsere Aufgaben mehr aus wie zuvor, aber sie fehlen die Bezeichnungen der Aufgaben. Denken Sie daran, dass jede Aufgabe, die wir drüber mappen, die Eigenschaften `id`, `name` und `completed` enthält, die wir in unsere `<Todo />` Komponente übergeben möchten. Wenn wir dieses Wissen zusammenfügen, erhalten wir Code wie diesen:
 
 ```jsx
 const taskList = props.tasks?.map((task) => (
@@ -293,13 +291,13 @@ const taskList = props.tasks?.map((task) => (
 ));
 ```
 
-Jetzt sieht die App so aus, wie sie es zuvor tat, und unser Code ist weniger repetitiv.
+Nun sieht die App aus wie zuvor, und unser Code ist weniger wiederholend.
 
-## Einzigartige Schlüssel
+## Eindeutige Schlüssel
 
-Jetzt, da React unsere Aufgaben aus einem Array rendert, muss es nachverfolgen, welche Aufgabe welche ist, um sie ordnungsgemäß zu rendern. React versucht, seine eigenen Vermutungen anzustellen, um die Dinge nachzuverfolgen, aber wir können ihm helfen, indem wir unseren `<Todo />`-Komponenten einen `key`-Prop übergeben. `key` ist ein spezieller Prop, der von React verwaltet wird – Sie können das Wort `key` nicht für einen anderen Zweck verwenden.
+Da React nun unsere Aufgaben aus einem Array rendert, muss es nachverfolgen, welche welche ist, um sie richtig darzustellen. React versucht, mit seinen eigenen Vermutungen die Dinge im Auge zu behalten, aber wir können ihm helfen, indem wir ein `key` Prop an unsere `<Todo />` Komponenten übergeben. `key` ist ein spezielles Prop, das von React verwaltet wird – Sie können das Wort `key` nicht für einen anderen Zweck verwenden.
 
-Da Schlüssel einzigartig sein sollten, werden wir die `id` jedes Aufgabenobjekts als seinen Schlüssel wiederverwenden. Aktualisieren Sie Ihre `taskList`-Konstante wie folgt:
+Da Schlüssel eindeutig sein sollten, werden wir die `id` jedes Aufgabenobjekts als dessen Schlüssel wiederverwenden. Aktualisieren Sie Ihre `taskList` Konstante so:
 
 ```jsx
 const taskList = props.tasks?.map((task) => (
@@ -312,16 +310,16 @@ const taskList = props.tasks?.map((task) => (
 ));
 ```
 
-**Sie sollten immer einen eindeutigen Schlüssel an alles übergeben, was Sie mit Iteration rendern.** Nichts Offensichtliches wird sich in Ihrem Browser ändern, aber wenn Sie keine eindeutigen Schlüssel verwenden, wird React Warnmeldungen in Ihre Konsole ausgeben und Ihre App kann sich seltsam verhalten!
+**Sie sollten immer einen eindeutigen Schlüssel an alles übergeben, das Sie mit Iteration rendern.** Im Browser ändert sich nichts Offensichtliches, aber wenn Sie keine eindeutigen Schlüssel verwenden, wird React Warnungen an Ihre Konsole ausgeben und Ihre App kann sich seltsam verhalten!
 
-## Die restliche App in Komponenten umwandeln
+## Den Rest der App in Komponenten aufteilen
 
-Jetzt, da wir unsere wichtigste Komponente sortiert haben, können wir den Rest unserer App in Komponenten umwandeln. Da Komponenten entweder offensichtliche UI-Teile, wiederverwendete UI-Teile oder beides sind, können wir zwei weitere Komponenten erstellen:
+Da wir unsere wichtigste Komponente sortiert haben, können wir den Rest unserer App in Komponenten umwandeln. Indem wir uns daran erinnern, dass Komponenten entweder offensichtliche Teile der UI, wiederverwendete Teile der UI oder beides sind, können wir zwei weitere Komponenten erstellen:
 
 - `<Form />`
 - `<FilterButton />`
 
-Da wir wissen, dass wir beide benötigen, können wir einige der Dateierstellungsarbeiten in einem Terminalbefehl zusammenfassen. Führen Sie diesen Befehl in Ihrem Terminal aus, achten Sie darauf, dass Sie sich im Stammverzeichnis Ihrer App befinden:
+Da wir wissen, dass wir beide brauchen, können wir einige der Dateien zusammen in einem Terminalbefehl erstellen. Führen Sie diesen Befehl in Ihrem Terminal aus und achten Sie darauf, dass Sie sich im Stammverzeichnis Ihrer App befinden:
 
 ```bash
 touch src/components/{Form,FilterButton}.jsx
@@ -331,10 +329,10 @@ touch src/components/{Form,FilterButton}.jsx
 
 Öffnen Sie `components/Form.jsx` und machen Sie Folgendes:
 
-- Deklarieren Sie eine `Form()`-Funktion und exportieren Sie sie am Ende der Datei.
-- Kopieren Sie die `<form>`-Tags und alles dazwischen aus `App.jsx` und fügen Sie sie in die `return`-Anweisung von `Form()` ein.
+- Deklarieren Sie eine `Form()` Funktion und exportieren Sie sie am Ende der Datei.
+- Kopieren Sie die `<form>` Tags und alles dazwischen aus `App.jsx` und fügen Sie sie in die `return` Anweisung von `Form()` ein.
 
-Ihre `Form.jsx`-Datei sollte so aussehen:
+Ihre `Form.jsx` Datei sollte so aussehen:
 
 ```jsx
 function Form() {
@@ -362,9 +360,9 @@ function Form() {
 export default Form;
 ```
 
-### Die `<FilterButton />`
+### Der `<FilterButton />`
 
-Machen Sie das gleiche wie bei `Form.jsx` in `FilterButton.jsx`, aber nennen Sie die Komponente `FilterButton()` und kopieren Sie den HTML-Code für den ersten Button innerhalb von `<div className="filters btn-group stack-exception">` von `App.jsx` in die `return`-Anweisung.
+Machen Sie dieselben Schritte, die Sie bei der Erstellung von `Form.jsx` gemacht haben, in `FilterButton.jsx`, aber benennen Sie die Komponente `FilterButton()` und kopieren Sie den HTML-Code für die erste Schaltfläche innerhalb von `<div className="filters btn-group stack-exception">` aus `App.jsx` in die `return` Anweisung.
 
 Die Datei sollte so aussehen:
 
@@ -383,13 +381,13 @@ export default FilterButton;
 ```
 
 > [!NOTE]
-> Sie könnten bemerken, dass wir denselben Fehler machen wie anfangs bei der `<Todo />`-Komponente, in dem jeder Button gleich ist. Das ist in Ordnung! Wir werden diese Komponente später korrigieren, in [Zurück zu den Filter-Buttons](/de/docs/Learn_web_development/Core/Frameworks_libraries/React_interactivity_filtering_conditional_rendering#back_to_the_filter_buttons).
+> Möglicherweise stellen Sie fest, dass wir hier denselben Fehler machen, den wir zuerst bei der `<Todo />` Komponente gemacht haben, indem jede Schaltfläche gleich ist. Das ist in Ordnung! Wir werden diese Komponente später in [Zurück zu den Filter-Schaltflächen](/de/docs/Learn_web_development/Core/Frameworks_libraries/React_interactivity_filtering_conditional_rendering#back_to_the_filter_buttons) beheben.
 
-## Importieren all unserer Komponenten
+## Alle unsere Komponenten importieren
 
-Lassen Sie uns unsere neuen Komponenten nutzen. Fügen Sie einige weitere `import`-Anweisungen am Anfang von `App.jsx` hinzu und verweisen Sie auf die Komponenten, die wir gerade erstellt haben. Aktualisieren Sie dann die `return`-Anweisung von `App()`, damit sie unsere Komponenten rendert.
+Lassen Sie uns unsere neuen Komponenten verwenden. Fügen Sie einige weitere `import` Anweisungen oben in `App.jsx` hinzu und referenzieren Sie die Komponenten, die wir gerade erstellt haben. Aktualisieren Sie dann die `return` Anweisung der `App()` Funktion, um unsere Komponenten zu rendern.
 
-Wenn Sie fertig sind, wird `App.jsx` so aussehen:
+Wenn Sie fertig sind, liest `App.jsx` so:
 
 ```jsx
 import Form from "./components/Form";
@@ -428,10 +426,10 @@ function App(props) {
 export default App;
 ```
 
-Mit diesem Schritt sollte Ihre React-App im Grunde genauso gerendert werden wie zuvor, aber unter Verwendung Ihrer neuen, glänzenden Komponenten.
+Damit sollte Ihre React-App im Grunde so rendern wie zuvor, aber mit Ihren glänzenden neuen Komponenten.
 
 ## Zusammenfassung
 
-Das war's für diesen Artikel — wir haben ausführlich behandelt, wie Sie Ihre App sinnvoll in Komponenten zerlegen und effizient rendern können. Als nächstes werden wir uns mit dem Umgang mit Ereignissen in React beschäftigen und anfangen, etwas Interaktivität hinzuzufügen.
+Und das war's für diesen Artikel — wir haben ausführlich behandelt, wie man seine App schön in Komponenten aufteilt und diese effizient rendert. Als nächstes schauen wir uns das Handling von Events in React an und beginnen mit dem Hinzufügen von Interaktivität.
 
 {{PreviousMenuNext("Learn_web_development/Core/Frameworks_libraries/React_todo_list_beginning","Learn_web_development/Core/Frameworks_libraries/React_interactivity_events_state", "Learn_web_development/Core/Frameworks_libraries")}}

@@ -1,33 +1,31 @@
 ---
-title: Die Informationen speichern, die Sie benötigen — Variablen
+title: Speichern der benötigten Informationen — Variablen
 short-title: Variables
 slug: Learn_web_development/Core/Scripting/Variables
 l10n:
-  sourceCommit: 5fad0829b5070d04993a57af8c276f5e35da3ed2
+  sourceCommit: 48d220a8cffdfd5f088f8ca89724a9a92e34d8c0
 ---
-
-{{LearnSidebar}}
 
 {{PreviousMenuNext("Learn_web_development/Core/Scripting/What_went_wrong", "Learn_web_development/Core/Scripting/Math", "Learn_web_development/Core/Scripting")}}
 
-Nach dem Lesen der letzten Artikel sollten Sie nun wissen, was JavaScript ist, was es für Sie tun kann, wie Sie es zusammen mit anderen Webtechnologien verwenden und wie seine Hauptmerkmale auf hoher Ebene aussehen. In diesem Artikel werden wir die grundlegenden Grundlagen behandeln und untersuchen, wie man mit den grundlegendsten Bausteinen von JavaScript arbeitet — Variablen.
+Nach dem Lesen der letzten Artikel sollten Sie nun wissen, was JavaScript ist, was es für Sie tun kann, wie Sie es neben anderen Webtechnologien verwenden und wie seine Hauptmerkmale aus einer höheren Perspektive aussehen. In diesem Artikel werden wir uns mit den Grundlagen befassen, indem wir uns anschauen, wie man mit den grundlegenden Bausteinen von JavaScript arbeitet — den Variablen.
 
 <table>
   <tbody>
     <tr>
       <th scope="row">Voraussetzungen:</th>
-      <td>Ein Verständnis von <a href="/de/docs/Learn_web_development/Core/Structuring_content">HTML</a> und den <a href="/de/docs/Learn_web_development/Core/Styling_basics">Grundlagen von CSS</a>.</td>
+      <td>Verständnis von <a href="/de/docs/Learn_web_development/Core/Structuring_content">HTML</a> und den <a href="/de/docs/Learn_web_development/Core/Styling_basics">Grundlagen von CSS</a>.</td>
     </tr>
     <tr>
       <th scope="row">Lernziele:</th>
       <td>
         <ul>
           <li>Was Variablen sind und warum sie so wichtig sind.</li>
-          <li>Deklarieren von Variablen mit <code>let</code>, Initialisieren mit Werten und erneutes Zuweisen neuer Werte.</li>
-          <li>Erstellen von Konstanten mit <code>const</code>.</li>
-          <li>Der Unterschied zwischen Variablen und Konstanten und wann man welche verwendet.</li>
-          <li>Best Practices zur Benennung von Variablen.</li>
-          <li>Die unterschiedlichen Arten von Werten, die in Variablen gespeichert werden können — Strings, Zahlen, Booleans, Arrays und Objekte.</li>
+          <li>Deklaration von Variablen mit <code>let</code>, Initialisierung mit Werten und Zuweisung neuer Werte.</li>
+          <li>Erstellung von Konstanten mit <code>const</code>.</li>
+          <li>Der Unterschied zwischen Variablen und Konstanten und wann jede verwendet wird.</li>
+          <li>Best Practices für die Benennung von Variablen.</li>
+          <li>Die verschiedenen Typen von Werten, die in Variablen gespeichert werden können — Strings, Zahlen, Booleans, Arrays und Objekte.</li>
         </ul>
       </td>
     </tr>
@@ -36,11 +34,11 @@ Nach dem Lesen der letzten Artikel sollten Sie nun wissen, was JavaScript ist, w
 
 ## Werkzeuge, die Sie benötigen
 
-Im Laufe dieses Artikels werden Sie aufgefordert, Codezeilen einzugeben, um Ihr Verständnis des Inhalts zu testen. Wenn Sie einen Desktop-Browser verwenden, ist der beste Ort, um Ihren Beispielcode einzugeben, die JavaScript-Konsole Ihres Browsers (siehe [Was sind Entwicklerwerkzeuge für Browser](/de/docs/Learn_web_development/Howto/Tools_and_setup/What_are_browser_developer_tools) für weitere Informationen, wie Sie auf dieses Werkzeug zugreifen können).
+In diesem Artikel werden Sie aufgefordert, Codezeilen einzugeben, um Ihr Verständnis des Inhalts zu überprüfen. Wenn Sie einen Desktop-Browser verwenden, ist die beste Stelle, um Ihren Beispielcode einzugeben, die JavaScript-Konsole Ihres Browsers (siehe [Was sind Browser-Entwicklertools](/de/docs/Learn_web_development/Howto/Tools_and_setup/What_are_browser_developer_tools), um mehr darüber zu erfahren, wie Sie auf dieses Tool zugreifen).
 
 ## Was ist eine Variable?
 
-Eine Variable ist ein Container für einen Wert, wie eine Zahl, die wir in einer Berechnung verwenden könnten, oder ein String, den wir als Teil eines Satzes verwenden könnten.
+Eine Variable ist ein Behälter für einen Wert, wie eine Zahl, die wir in einer Berechnung verwenden könnten, oder ein Zeichenfolge, die wir als Teil eines Satzes verwenden könnten.
 
 ### Beispiel für eine Variable
 
@@ -66,11 +64,11 @@ buttonA.onclick = () => {
 
 {{ EmbedLiveSample('Variable_example', '100%', 120) }}
 
-In diesem Beispiel führt das Drücken des Knopfes dazu, dass ein Code ausgeführt wird. Erstens wird der Text auf dem Knopf selbst geändert. Zweitens wird eine Nachricht darüber angezeigt, wie oft der Knopf gedrückt wurde. Die Zahl wird in einer Variablen gespeichert. Jedes Mal, wenn der Benutzer den Knopf drückt, wird die Zahl in der Variablen um eins erhöht.
+In diesem Beispiel wird beim Drücken des Knopfes ein Code ausgeführt. Erstens ändert es den Text auf dem Knopf selbst. Zweitens zeigt es eine Nachricht an, wie oft der Knopf gedrückt wurde. Die Zahl wird in einer Variablen gespeichert. Jedes Mal, wenn der Benutzer den Knopf drückt, erhöht sich die Zahl in der Variablen um eins.
 
 ### Ohne eine Variable
 
-Um zu verstehen, warum dies so nützlich ist, denken wir darüber nach, wie wir dieses Beispiel schreiben würden, ohne eine Variable zum Speichern der Anzahl zu verwenden. Es würde in etwa so aussehen:
+Um zu verstehen, warum dies so nützlich ist, überlegen wir, wie wir dieses Beispiel schreiben würden, ohne eine Variable zu verwenden, um die Zählung zu speichern. Es würde etwa so aussehen:
 
 ```html example-bad
 <button id="button_B">Press me</button>
@@ -89,57 +87,57 @@ buttonB.onclick = () => {
 
 {{ EmbedLiveSample('Without_a_variable', '100%', 120) }}
 
-Möglicherweise verstehen Sie die von uns verwendete Syntax (noch) nicht vollständig, aber Sie sollten eine Idee davon bekommen können. Ohne eine Variable haben wir keine Möglichkeit zu wissen, wie oft der Knopf geklickt wurde. Die Nachricht an den Benutzer wird schnell irrelevant, wenn keine Informationen gespeichert werden können.
+Sie verstehen den verwendeten Syntax möglicherweise noch nicht vollständig (noch nicht!), aber Sie sollten die Idee begreifen. Ohne eine Variable haben wir keine Möglichkeit zu wissen, wie oft der Knopf gedrückt wurde. Die Nachricht an den Benutzer wird schnell irrelevant, wenn keine Informationen gespeichert werden können.
 
-Variablen ergeben einfach Sinn, und wenn Sie mehr über JavaScript lernen, werden sie zur zweiten Natur.
+Variablen machen einfach Sinn und während Sie mehr über JavaScript lernen, werden sie Ihnen zur zweiten Natur werden.
 
-Eine besondere Sache an Variablen ist, dass sie fast alles enthalten können — nicht nur Strings und Zahlen. Variablen können auch komplexe Daten und sogar ganze Funktionen enthalten, um erstaunliche Dinge zu tun. Sie werden im Laufe der Zeit mehr darüber lernen.
+Eine besondere Sache an Variablen ist, dass sie nahezu alles enthalten können — nicht nur Strings und Zahlen. Variablen können auch komplexe Daten und sogar ganze Funktionen enthalten, um erstaunliche Dinge zu tun. Sie werden mehr darüber lernen, während Sie weitergehen.
 
 > [!NOTE]
-> Wir sagen, dass Variablen Werte enthalten. Dies ist ein wichtiger Unterschied. Variablen sind nicht die Werte selbst; sie sind Container für Werte. Sie können sich diese wie kleine Pappkartons vorstellen, in denen Sie Dinge aufbewahren können.
+> Wir sagen, Variablen enthalten Werte. Dies ist eine wichtige Unterscheidung. Variablen sind nicht die Werte selbst; sie sind Behälter für Werte. Sie können sie sich wie kleine Pappkartons vorstellen, in denen Sie Dinge aufbewahren können.
 
-![Ein Screenshot von drei dreidimensionalen Pappkartons, die Beispiele für JavaScript-Variablen anzeigen. Jeder Karton enthält hypothetische Werte, die verschiedene JavaScript-Datentypen repräsentieren. Die Beispielwerte sind "Bob", true und 35.](boxes.png)
+![Ein Screenshot von drei 3D-Pappkartons, die Beispiele für JavaScript-Variablen demonstrieren. Jeder Karton enthält hypothetische Werte, die verschiedene JavaScript-Datentypen repräsentieren. Die Beispielwerte sind "Bob", true und 35.](boxes.png)
 
-## Deklarieren einer Variable
+## Deklaration einer Variablen
 
-Um eine Variable zu verwenden, müssen Sie sie zuerst erstellen — genauer gesagt, wir nennen dies die Deklaration der Variable. Dazu tippen Sie das Schlüsselwort `let` gefolgt von dem Namen, den Sie Ihrer Variable geben möchten:
+Um eine Variable zu verwenden, müssen Sie sie zuerst erstellen — genauer gesagt, wir nennen dies die Deklaration der Variablen. Dazu tippen Sie das Schlüsselwort `let` gefolgt von dem Namen, den Sie Ihrer Variablen geben möchten:
 
 ```js
 let myName;
 let myAge;
 ```
 
-Hier erstellen wir zwei Variablen mit den Namen `myName` und `myAge`. Versuchen Sie, diese Zeilen in die Konsole Ihres Webbrowsers einzugeben. Danach versuchen Sie, eine (oder zwei) Variablen mit Ihren eigenen Namenswahlen zu erstellen.
+Hier erstellen wir zwei Variablen namens `myName` und `myAge`. Versuchen Sie, diese Zeilen in die Konsole Ihres Webbrowsers einzugeben. Danach versuchen Sie, eine Variable (oder zwei) mit eigenen Namen zu erstellen.
 
 > [!NOTE]
-> In JavaScript sollten alle Codeanweisungen mit einem Semikolon (`;`) enden — Ihr Code funktioniert möglicherweise korrekt für einzelne Zeilen, aber wahrscheinlich nicht, wenn Sie mehrere Zeilen Code zusammen schreiben. Versuchen Sie, sich an den Gebrauch zu gewöhnen.
+> In JavaScript sollten alle Codeanweisungen mit einem Semikolon (`;`) enden — Ihr Code könnte für einzelne Zeilen korrekt funktionieren, aber wahrscheinlich nicht, wenn Sie mehrere Zeilen Code zusammen schreiben. Versuchen Sie, sich anzugewöhnen, es einzufügen.
 
-Sie können testen, ob diese Werte jetzt in der Ausführungsumgebung existieren, indem Sie einfach den Namen der Variablen eingeben, z.B.
+Sie können testen, ob diese Werte jetzt in der Ausführungsumgebung existieren, indem Sie nur den Namen der Variablen eingeben, z.B.
 
 ```js
 myName;
 myAge;
 ```
 
-Sie haben derzeit keinen Wert; sie sind leere Container. Wenn Sie die Variablennamen eingeben, sollten Sie den Wert `undefined` zurückbekommen. Wenn sie nicht existieren, erhalten Sie eine Fehlermeldung — versuchen Sie Folgendes einzugeben:
+Derzeit haben sie keinen Wert; sie sind leere Behälter. Wenn Sie die Variablennamen eingeben, sollte ein Wert von `undefined` zurückgegeben werden. Wenn sie nicht existieren, erhalten Sie eine Fehlermeldung — versuchen Sie einzugeben
 
 ```js
 scoobyDoo;
 ```
 
 > [!NOTE]
-> Verwechseln Sie nicht eine Variable, die existiert, aber keinen definierten Wert hat, mit einer Variable, die gar nicht existiert — sie sind sehr unterschiedliche Dinge. Im oben gezeigten Boxenanalogon würde nicht existieren bedeuten, dass es keine Box (Variable) gibt, in die ein Wert hineingehen kann. Kein definierter Wert würde bedeuten, dass es eine Box gibt, aber sie hat keinen Wert darin.
+> Verwechseln Sie nicht eine Variable, die existiert, aber keinen definierten Wert hat, mit einer Variable, die überhaupt nicht existiert — sie sind sehr unterschiedliche Dinge. In der zuvor gezeigten Analogie mit Kartons würde das Nicht-Existieren bedeuten, dass es keinen Karton (Variable) gibt, um einen Wert hineinzulegen. Kein definierter Wert würde bedeuten, dass es einen Karton gibt, aber er hat keinen Wert darin.
 
-## Initialisieren einer Variable
+## Initialisierung einer Variablen
 
-Sobald Sie eine Variable deklariert haben, können Sie ihr einen Wert zuweisen. Sie machen dies, indem Sie den Variablennamen tippen, gefolgt von einem Gleichheitszeichen (`=`), gefolgt von dem Wert, den Sie ihr geben möchten. Zum Beispiel:
+Sobald Sie eine Variable deklariert haben, können Sie sie mit einem Wert initialisieren. Sie tun dies, indem Sie den Namen der Variablen eingeben, gefolgt von einem Gleichheitszeichen (`=`), gefolgt von dem Wert, den Sie ihr geben möchten. Zum Beispiel:
 
 ```js
 myName = "Chris";
 myAge = 37;
 ```
 
-Versuchen Sie jetzt, in die Konsole zurückzukehren und diese Zeilen einzugeben. Sie sollten den von Ihnen zugewiesenen Wert für jede Variable in der Konsole zurückgeben sehen, um dies in jedem Fall zu bestätigen. Auch können Sie Ihre Variablenwerte zurückgeben, indem Sie ihren Namen in die Konsole eingeben — versuchen Sie diese noch einmal:
+Versuchen Sie nun, in die Konsole zurückzugehen und diese Zeilen einzugeben. Sie sollten den Wert sehen, den Sie der Variablen zugewiesen haben, der in der Konsole bestätigt wird. Sie können erneut auf Ihre Variablenwerte zugreifen, indem Sie ihren Namen in die Konsole eingeben — versuchen Sie dies erneut:
 
 ```js
 myName;
@@ -152,22 +150,22 @@ Sie können eine Variable gleichzeitig deklarieren und initialisieren, so:
 let myDog = "Rover";
 ```
 
-Dies ist wahrscheinlich das, was Sie die meiste Zeit tun werden, da es schneller ist, als die beiden Aktionen auf zwei separate Zeilen zu verteilen.
+Dies ist wahrscheinlich das, was Sie die meiste Zeit tun werden, da es schneller ist, als die beiden Aktionen auf zwei separaten Zeilen auszuführen.
 
-## Eine Bemerkung zu var
+## Ein Hinweis zu var
 
-Sie werden wahrscheinlich auch eine andere Möglichkeit sehen, Variablen zu deklarieren, indem Sie das `var`-Schlüsselwort verwenden:
+Wahrscheinlich werden Sie auch eine andere Möglichkeit sehen, Variablen zu deklarieren, bei der das Schlüsselwort `var` verwendet wird:
 
 ```js
 var myName;
 var myAge;
 ```
 
-Als JavaScript erstmals erstellt wurde, war dies die einzige Möglichkeit, Variablen zu deklarieren. Das Design von `var` ist verwirrend und fehleranfällig. Daher wurde `let` in modernen Versionen von JavaScript eingeführt, ein neues Schlüsselwort zum Erstellen von Variablen, das etwas anders funktioniert als `var` und dessen Probleme im Prozess behebt.
+Als JavaScript zum ersten Mal erstellt wurde, war dies der einzige Weg, um Variablen zu deklarieren. Das Design von `var` ist verwirrend und fehleranfällig. Daher wurde `let` in modernen JavaScript-Versionen eingeführt, ein neues Schlüsselwort zum Erstellen von Variablen, das etwas anders arbeitet als `var` und dabei dessen Probleme behebt.
 
-Einige einfache Unterschiede werden unten erklärt. Wir werden jetzt nicht auf alle Unterschiede eingehen, aber Sie werden sie nach und nach entdecken, wenn Sie mehr über JavaScript lernen (wenn Sie jetzt wirklich darüber lesen möchten, können Sie gerne unsere [let-Referenzseite](/de/docs/Web/JavaScript/Reference/Statements/let) anschauen).
+Einige einfache Unterschiede werden unten erklärt. Wir werden jetzt nicht auf alle Unterschiede eingehen, aber Sie werden anfangen, sie zu entdecken, während Sie mehr über JavaScript lernen (wenn Sie wirklich jetzt darüber lesen möchten, können Sie gerne unsere [let Referenzseite](/de/docs/Web/JavaScript/Reference/Statements/let) besuchen).
 
-Anfangs, wenn Sie ein mehrzeiliges JavaScript-Programm schreiben, das eine Variable deklariert und initialisiert, können Sie tatsächlich eine Variable mit `var` deklarieren, nachdem Sie sie initialisiert haben, und es wird trotzdem funktionieren. Zum Beispiel:
+Zunächst einmal, wenn Sie ein mehrzeiliges JavaScript-Programm schreiben, das eine Variable deklariert und initialisiert, können Sie tatsächlich eine Variable mit `var` nach ihrer Initialisierung deklarieren und es wird immer noch funktionieren. Zum Beispiel:
 
 ```js
 myName = "Chris";
@@ -182,76 +180,73 @@ var myName;
 ```
 
 > [!NOTE]
-> Dies funktioniert nicht, wenn Sie einzelne Zeilen in eine JavaScript-Konsole eingeben, nur beim Ausführen mehrerer Zeilen von JavaScript in einem Webdokument.
+> Dies funktioniert nicht, wenn einzelne Zeilen in eine JavaScript-Konsole eingegeben werden, sondern nur beim Ausführen mehrerer JavaScript-Zeilen in einem Webdokument.
 
-Dies funktioniert wegen **Hoisting** — lesen Sie [var Hoisting](/de/docs/Web/JavaScript/Reference/Statements/var#hoisting) für mehr Details zu diesem Thema.
+Dies funktioniert wegen des **Hoisting** — lesen Sie [var Hoisting](/de/docs/Web/JavaScript/Reference/Statements/var#hoisting) für mehr Details zu diesem Thema.
 
-Hoisting funktioniert nicht mehr mit `let`. Wenn wir `var` in dem obigen Beispiel durch `let` ersetzen, würde es mit einem Fehler fehlschlagen. Das ist gut so — eine Variable zu deklarieren, nachdem Sie sie initialisiert haben, führt zu verwirrendem, schwerer verständlichen Code.
+Hoisting funktioniert nicht mehr mit `let`. Wenn wir `var` im obigen Beispiel in `let` ändern, würde es mit einem Fehler fehlschlagen. Das ist eine gute Sache — das Deklarieren einer Variablen nach ihrer Initialisierung führt zu verwirrendem, schwer nachvollziehbarem Code.
 
-Zweitens, wenn Sie `var` verwenden, können Sie die gleiche Variable so oft deklarieren, wie Sie möchten, aber mit `let` können Sie das nicht. Folgendes würde funktionieren:
+Zweitens, wenn Sie `var` verwenden, können Sie dieselbe Variable so oft deklarieren, wie Sie möchten, aber mit `let` können Sie das nicht. Folgendes würde funktionieren:
 
 ```js
 var myName = "Chris";
 var myName = "Bob";
 ```
 
-Aber das Folgende würde einen Fehler in der zweiten Zeile auslösen:
+Aber folgendes würde beim zweiten Versuch einen Fehler auslösen:
 
 ```js example-bad
 let myName = "Chris";
 let myName = "Bob";
 ```
 
-Sie müssten stattdessen dies tun:
+Stattdessen müssten Sie dies tun:
 
 ```js
 let myName = "Chris";
 myName = "Bob";
 ```
 
-Auch dies ist eine sinnvolle Sprachentscheidung. Es gibt keinen Grund, Variablen neu zu deklarieren — das macht die Sache nur verwirrender.
+Auch dies ist eine sinnvolle Sprachentscheidung. Es gibt keinen Grund, Variablen erneut zu deklarieren — es macht die Dinge nur verwirrender.
 
-Aus diesen und anderen Gründen empfehlen wir, `let` in Ihrem Code zu verwenden, anstelle von `var`. Es sei denn, Sie schreiben explizit Unterstützung für alte Browser, es gibt keinen Grund mehr, `var` zu verwenden, da alle modernen Browser `let` seit 2015 unterstützen.
+Aus diesen und weiteren Gründen empfehlen wir, in Ihrem Code `let` anstelle von `var` zu verwenden. Es sei denn, Sie schreiben ausdrücklich Unterstützung für alte Browser, es gibt keinen Grund mehr, `var` zu verwenden, da alle modernen Browser seit 2015 `let` unterstützen.
 
 > [!NOTE]
-> Wenn Sie diesen Code in der Konsole Ihres Browsers ausprobieren, kopieren und fügen Sie am besten jedes der Codeblöcke hier als Ganzes ein. Es gibt eine [Funktion in der Chrome-Konsole](https://docs.google.com/document/d/1NP_FnHr4WCZRp7exgUklvNiXrH3nujcfwvp2pzMQ8-0/edit#heading=h.7y5hynxk52e9), bei der variable Deklarationen mit `let` und `const` erlaubt sind:
+> Wenn Sie diesen Code in der Konsole Ihres Browsers ausprobieren, bevorzugen Sie es, jeden der hier aufgeführten Codeblöcke als Ganzes zu kopieren und einzufügen. Es gibt [ein Feature in der Konsole von Chrome](https://docs.google.com/document/d/1NP_FnHr4WCZRp7exgUklvNiXrH3nujcfwvp2pzMQ8-0/edit#heading=h.7y5hynxk52e9), wo Variablenneuerklärungen mit `let` und `const` erlaubt sind:
 >
 > ```plain
 > > let myName = "Chris";
 >   let myName = "Bob";
-> // Als eine Eingabe: SyntaxError: Identifier 'myName' has already been declared
+> // Als ein Input: SyntaxError: Identifier 'myName' has already been declared
 >
 > > let myName = "Chris";
 > > let myName = "Bob";
-> // Als zwei Eingaben: beide erfolgreich
+> // Als zwei Inputs: beide erfolgreich
 > ```
 
-## Aktualisieren einer Variablen
+## Aktualisierung einer Variablen
 
-Sobald eine Variable mit einem Wert initialisiert wurde, können Sie diesen Wert ändern (oder aktualisieren), indem Sie ihm einen anderen Wert zuweisen. Versuchen Sie, die folgenden Zeilen in Ihre Konsole einzugeben:
+Sobald eine Variable mit einem Wert initialisiert wurde, können Sie diesen Wert ändern (oder aktualisieren), indem Sie ihr einen anderen Wert zuweisen. Versuchen Sie, die folgenden Zeilen in Ihre Konsole einzugeben:
 
 ```js
 myName = "Bob";
 myAge = 40;
 ```
 
-### Eine Anmerkung zu den Regeln für die Variablenbenennung
+### Ein Exkurs zu Variablennamenregeln
 
-Sie können eine Variable so ziemlich nennen, wie Sie möchten, aber es gibt Einschränkungen. Im Allgemeinen sollten Sie sich auf die Verwendung von lateinischen Zeichen (0-9, a-z, A-Z) und dem Unterstrich beschränken.
+Sie können eine Variable fast beliebig benennen, aber es gibt Einschränkungen. Generell sollten Sie sich darauf beschränken, lateinische Zeichen (0-9, a-z, A-Z) und den Unterstrich zu verwenden.
 
-- Sie sollten keine anderen Zeichen verwenden, da sie Fehler verursachen oder von einem internationalen Publikum schwer zu verstehen sein könnten.
+- Sie sollten keine anderen Zeichen verwenden, da sie Fehler verursachen können oder für ein internationales Publikum schwer verständlich sein könnten.
 - Verwenden Sie keine Unterstriche am Anfang von Variablennamen — dies wird in bestimmten JavaScript-Konstrukten verwendet, um spezifische Dinge zu bedeuten und könnte verwirrend werden.
-- Verwenden Sie keine Zahlen am Anfang von Variablennamen. Dies ist nicht erlaubt und verursacht einen Fehler.
-- Ein sicheres Konventionsbeispiel ist {{Glossary("camel_case", "lower camel case")}}, bei dem Sie
-
-sonit zusammenhängend mehrere Wörter verwenden, indem Sie das gesamte erste Wort klein schreiben und dann die nachfolgenden Wörter großschreiben. Wir haben dies bisher für unsere Variablennamen im Artikel verwendet.
-
-- Machen Sie Variablennamen intuitiv, damit sie die Daten beschreiben, die sie enthalten. Verwenden Sie nicht nur einzelne Buchstaben/Zahlen oder lange Sätze.
-- Variablen sind case-sensitiv — daher ist `myage` eine andere Variable als `myAge`.
-- Ein letzter Punkt: Sie müssen auch vermeiden, JavaScript reservierte Wörter als Ihre Variablennamen zu verwenden — damit meinen wir die Wörter, die die eigentliche Syntax von JavaScript ausmachen! Also, Sie können keine Wörter wie `var`, `function`, `let`, und `for` als Variablennamen verwenden. Browser erkennen sie als unterschiedliche Codeelemente, daher bekommen Sie Fehler.
+- Verwenden Sie keine Zahlen am Anfang von Variablennamen. Dies ist nicht erlaubt und führt zu einem Fehler.
+- Eine sichere Konvention, die Sie befolgen können, ist das {{Glossary("camel_case", "kleine Kamelhöckerformat")}}, bei dem Sie mehrere Wörter zusammenfügen und dabei das ganze erste Wort in Kleinbuchstaben schreiben und dann nachfolgende Wörter groß schreiben. Wir haben dies bisher in unserem Artikel für die Variablennamen verwendet.
+- Machen Sie Variablennamen intuitiv, sodass sie die Daten, die sie enthalten, beschreiben. Verwenden Sie keine Einzelbuchstaben/-zahlen oder lange Phrasen.
+- Variablen sind case-sensitiv — `myage` ist also eine andere Variable als `myAge`.
+- Ein letzter Punkt: Sie müssen auch vermeiden, JavaScript reservierte Wörter als Variablennamen zu verwenden — damit meinen wir die Wörter, die die eigentliche Syntax von JavaScript ausmachen! Also, Sie können Wörter wie `var`, `function`, `let` und `for` nicht als Variablennamen verwenden. Browser erkennen diese als verschiedene Codeelemente und Sie werden Fehler erhalten.
 
 > [!NOTE]
-> Sie können eine relativ vollständige Liste reservierter Schlüsselwörter, die Sie vermeiden sollten, unter [Lexical grammar — keywords](/de/docs/Web/JavaScript/Reference/Lexical_grammar#keywords) finden.
+> Sie können eine ziemlich vollständige Liste von reservierten Schlüsselwörtern finden, die Sie vermeiden sollten, unter [Lexikalische Grammatik — Schlüsselwörter](/de/docs/Web/JavaScript/Reference/Lexical_grammar#keywords).
 
 Gute Namensbeispiele:
 
@@ -279,15 +274,15 @@ skjfndskjfnbdskjfb
 thisisareallylongvariablenameman
 ```
 
-Versuchen Sie, jetzt mit den obigen Richtlinien einige weitere Variablen zu erstellen.
+Versuchen Sie nun, ein paar weitere Variablen zu erstellen, und beachten Sie dabei die obigen Hinweise.
 
-## Variable Typen
+## Variablentypen
 
-Es gibt einige verschiedene Arten von Daten, die wir in Variablen speichern können. In diesem Abschnitt werden wir diese kurz beschreiben, bevor Sie in zukünftigen Artikeln mehr darüber erfahren.
+Es gibt einige verschiedene Arten von Daten, die wir in Variablen speichern können. In diesem Abschnitt werden wir diese kurz beschreiben, und in zukünftigen Artikeln werden Sie mehr darüber lernen.
 
 ### Zahlen
 
-Sie können Zahlen in Variablen speichern, entweder ganze Zahlen wie 30 (auch als Ganzzahlen bezeichnet) oder Dezimalzahlen wie 2.456 (auch als Fließkommazahlen oder Gleitkommazahlen bezeichnet). Im Gegensatz zu einigen anderen Programmiersprachen müssen Sie Variablentypen in JavaScript nicht deklarieren. Wenn Sie einer Variablen einen Zahlenwert zuweisen, benutzen Sie keine Anführungszeichen:
+Sie können Zahlen in Variablen speichern, entweder Ganzzahlen wie 30 (auch als ganze Zahlen bezeichnet) oder Dezimalzahlen wie 2.456 (auch als Fließkommazahlen bezeichnet). Sie müssen in JavaScript keine Variablentypen deklarieren, im Gegensatz zu einigen anderen Programmiersprachen. Wenn Sie einer Variablen einen Zahlenwert geben, schließen Sie keine Anführungszeichen ein:
 
 ```js
 let myAge = 17;
@@ -295,7 +290,7 @@ let myAge = 17;
 
 ### Strings
 
-Strings sind Textstücke. Wenn Sie einer Variablen einen string-Wert zuweisen, müssen Sie ihn in einfache oder doppelte Anführungszeichen setzen; andernfalls versucht JavaScript, ihn als anderen Variablennamen zu interpretieren.
+Strings sind Textstücke. Wenn Sie einer Variablen einen String-Wert geben, müssen Sie ihn in Einzel- oder Doppel-Anführungszeichen einschließen; andernfalls versucht JavaScript, ihn als anderen Variablennamen zu interpretieren.
 
 ```js
 let dolphinGoodbye = "So long and thanks for all the fish";
@@ -303,41 +298,41 @@ let dolphinGoodbye = "So long and thanks for all the fish";
 
 ### Booleans
 
-Booleans sind wahr/falsch-Werte — sie können zwei Werte haben, `true` oder `false`. Diese werden allgemein verwendet, um eine Bedingung zu testen, woraufhin entsprechender Code ausgeführt wird. Ein einfaches Beispiel wäre:
+Booleans sind Wahr/Falsch-Werte — sie können zwei Werte haben, `true` oder `false`. Diese werden im Allgemeinen verwendet, um eine Bedingung zu testen, nach der der Code entsprechend ausgeführt wird. Ein einfaches Beispiel wäre:
 
 ```js
 let iAmAlive = true;
 ```
 
-In der Realität würde es eher so verwendet werden:
+Realitynmäßig würde es jedoch eher so aussehen:
 
 ```js
 let test = 6 < 3;
 ```
 
-Dies verwendet den "kleiner als"-Operator (`<`), um zu testen, ob 6 kleiner als 3 ist. Wie Sie erwarten würden, gibt das `false` zurück, weil 6 nicht kleiner als 3 ist! Sie werden später im Kurs viel mehr über solche Operatoren erfahren.
+In diesem Fall wird der "kleiner als"-Operator (`<`) verwendet, um zu testen, ob 6 kleiner als 3 ist. Wie Sie vielleicht erwarten, gibt er `false` zurück, weil 6 nicht kleiner als 3 ist! Sie werden später im Kurs viel mehr über solche Operatoren lernen.
 
 ### Arrays
 
-Ein Array ist ein einzelnes Objekt, das mehrere Werte enthält, die in eckige Klammern eingeschlossen und durch Kommas getrennt sind. Versuchen Sie, die folgenden Zeilen in Ihre Konsole einzugeben:
+Ein Array ist ein einzelnes Objekt, das mehrere Werte enthält, die in eckige Klammern eingeschlossen und durch Kommata getrennt sind. Versuchen Sie, die folgenden Zeilen in Ihre Konsole einzugeben:
 
 ```js
 let myNameArray = ["Chris", "Bob", "Jim"];
 let myNumberArray = [10, 15, 40];
 ```
 
-Sobald diese Arrays definiert sind, können Sie auf jeden Wert durch deren Position im Array zugreifen. Versuchen Sie diese Zeilen:
+Sobald diese Arrays definiert sind, können Sie auf jeden Wert zugreifen, indem Sie ihre Position im Array verwenden. Versuchen Sie diese Zeilen:
 
 ```js
 myNameArray[0]; // should return 'Chris'
 myNumberArray[2]; // should return 40
 ```
 
-Die eckigen Klammern spezifizieren einen Indexwert, der der Position des Wertes entspricht, den Sie zurückgeben möchten. Sie haben vielleicht bemerkt, dass Arrays in JavaScript nullindiziert sind: das erste Element befindet sich bei Index 0.
+Die eckigen Klammern geben einen Indexwert an, der der Position des zurückgegebenen Wertes entspricht. Möglicherweise haben Sie bemerkt, dass Arrays in JavaScript nullbasiert sind: das erste Element befindet sich an Index 0.
 
 ### Objekte
 
-In der Programmierung ist ein Objekt eine Struktur von Code, die ein reales Objekt modelliert. Sie können ein Objekt haben, das eine Box darstellt und Informationen über dessen Breite, Länge und Höhe enthält, oder Sie könnten ein Objekt haben, das eine Person darstellt und Daten über ihren Namen, Größe, Gewicht, welche Sprache sie spricht, wie man sie begrüßt und mehr enthält.
+In der Programmierung ist ein Object eine Struktur von Code, die ein Objekt aus dem echten Leben modelliert. Sie können ein Object haben, das eine Box darstellt und Informationen über seine Breite, Länge und Höhe enthält, oder Sie könnten ein Object haben, das eine Person darstellt und Daten über deren Namen, Größe, Gewicht, gesprochene Sprache, Begrüßung und mehr enthält.
 
 Versuchen Sie, die folgende Zeile in Ihre Konsole einzugeben:
 
@@ -353,15 +348,15 @@ dog.name;
 
 ## Dynamische Typisierung
 
-JavaScript ist eine "dynamisch typisierte Sprache", was bedeutet, dass Sie im Gegensatz zu einigen anderen Sprachen nicht angeben müssen, welchen Datentyp eine Variable enthalten wird (Zahlen, strings, Arrays, usw.).
+JavaScript ist eine "dynamisch typisierte Sprache", was bedeutet, dass Sie im Gegensatz zu einigen anderen Sprachen nicht angeben müssen, welchen Datentyp eine Variable enthalten wird (Zahlen, Strings, Arrays, usw.).
 
-Zum Beispiel, wenn Sie eine Variable deklarieren und ihr einen Wert in Anführungszeichen zuweisen, behandelt der Browser die Variable als String:
+Zum Beispiel, wenn Sie eine Variable deklarieren und ihr einen Wert in Anführungszeichen geben, behandelt der Browser die Variable als String:
 
 ```js
 let myString = "Hello";
 ```
 
-Selbst wenn der Wert, der in Anführungszeichen eingeschlossen ist, nur Ziffern sind, ist es immer noch ein string — keine Zahl — also seien Sie vorsichtig:
+Selbst wenn der in Anführungszeichen eingeschlossene Wert nur Ziffern sind, ist es immer noch ein String — keine Zahl — also seien Sie vorsichtig:
 
 ```js
 let myNumber = "500"; // oops, this is still a string
@@ -370,71 +365,71 @@ myNumber = 500; // much better — now this is a number
 typeof myNumber;
 ```
 
-Versuchen Sie, die vier Zeilen oben nacheinander in Ihre Konsole einzugeben, und beobachten Sie die Ergebnisse. Sie werden bemerken, dass wir einen speziellen Operator namens [`typeof`](/de/docs/Web/JavaScript/Reference/Operators/typeof) verwenden — dieser gibt den Datentyp der Variable zurück, die Sie danach eingeben. Das erste Mal, dass er aufgerufen wird, sollte `string` zurückgeben, da zu diesem Zeitpunkt die Variable `myNumber` einen string, `'500'`, enthält. Sehen Sie nach, was er beim zweiten Mal zurückgibt, wenn Sie ihn aufrufen.
+Versuchen Sie, die obigen vier Zeilen nacheinander in Ihre Konsole einzugeben, und sehen Sie sich die Ergebnisse an. Sie werden bemerken, dass wir einen speziellen Operator namens [`typeof`](/de/docs/Web/JavaScript/Reference/Operators/typeof) verwenden — dieser gibt den Datentyp der Variablen zurück, die Sie danach eingeben. Beim ersten Aufruf sollte er `string` zurückgeben, da die Variable `myNumber` an diesem Punkt einen String, `'500'`, enthält. Sehen Sie nach, was er beim zweiten Aufruf zurückgibt.
 
 ## Konstanten in JavaScript
 
-Zusätzlich zu Variablen können Sie Konstanten deklarieren. Diese sind wie Variablen, außer dass:
+Neben Variablen können Sie auch Konstanten deklarieren. Diese sind ähnlich wie Variablen, außer dass:
 
-- Sie müssen sie initialisieren, wenn Sie sie deklarieren.
-- Sie können ihnen keinen neuen Wert zuweisen, nachdem Sie sie initialisiert haben.
+- Sie sie initialisieren müssen, wenn Sie sie deklarieren.
+- Sie ihnen keinen neuen Wert zuweisen können, nachdem Sie sie initialisiert haben.
 
-Beispielsweise können Sie mit `let` eine Variale deklarieren, ohne sie zu initialisieren:
+Zum Beispiel können Sie mit `let` eine Variable deklarieren, ohne sie zu initialisieren:
 
 ```js
 let count;
 ```
 
-Wenn Sie versuchen, dies mit `const` zu tun, werden Sie einen Fehler sehen:
+Wenn Sie dies mit `const` versuchen, erhalten Sie einen Fehler:
 
 ```js example-bad
 const count;
 ```
 
-In ähnlicher Weise können Sie mit `let` eine Variable initialisieren und dann einen neuen Wert zuweisen (dies wird auch _neu zuweisen_ der Variablen genannt):
+Ähnlich können Sie mit `let` eine Variable initialisieren und ihr dann einen neuen Wert zuweisen (dies wird auch als _Neuzuweisung_ der Variablen bezeichnet):
 
 ```js
 let count = 1;
 count = 2;
 ```
 
-Wenn Sie versuchen, dies mit `const` zu tun, werden Sie einen Fehler sehen:
+Wenn Sie dies mit `const` versuchen, erhalten Sie einen Fehler:
 
 ```js example-bad
 const count = 1;
 count = 2;
 ```
 
-Beachten Sie, dass, obwohl eine Konstante in JavaScript immer denselben Wert bezeichnen muss, Sie den Inhalt des Wertes, den sie bezeichnet, ändern können. Dies ist für einfachere Typen wie Zahlen oder Booleans nicht nützlich, aber überlegen Sie sich ein Objekt:
+Beachten Sie, dass obwohl eine Konstante in JavaScript immer denselben Wert bezeichnen muss, Sie den Inhalt des Wertes, den sie bezeichnet, ändern können. Dies ist keine nützliche Unterscheidung für einfache Typen wie Zahlen oder Booleans, aber betrachten Sie ein Objekt:
 
 ```js
 const bird = { species: "Kestrel" };
 console.log(bird.species); // "Kestrel"
 ```
 
-Sie können die Eigenschaften eines mit `const` deklarierten Objekts aktualisieren, hinzufügen oder entfernen, da, obwohl der Inhalt des Objekts sich geändert hat, die Konstante immer noch auf dasselbe Objekt zeigt:
+Sie können die Eigenschaften eines Objekts, das mit `const` deklariert wurde, aktualisieren, hinzufügen oder entfernen, weil obwohl sich der Inhalt des Objekts geändert hat, die Konstante immer noch auf dasselbe Objekt zeigt:
 
 ```js
 bird.species = "Striated Caracara";
 console.log(bird.species); // "Striated Caracara"
 ```
 
-## Wann sollte man const und wann sollte man let verwenden
+## Wann sollte man const und wann let verwenden
 
-Wenn Sie mit `const` nicht so viel tun können wie mit `let`, warum sollten Sie es dann lieber als `let` verwenden? Tatsächlich ist `const` sehr nützlich. Wenn Sie `const` verwenden, um einen Wert zu benennen, sagt es jedem, der Ihren Code betrachtet, dass dieser Name niemals einem anderen Wert zugewiesen wird. Jedes Mal, wenn sie diesen Namen sehen, werden sie wissen, worauf er sich bezieht.
+Wenn Sie mit `const` nicht so viel tun können wie mit `let`, warum sollten Sie es dann `let` vorziehen? Tatsächlich ist `const` sehr nützlich. Wenn Sie `const` verwenden, um einen Wert zu benennen, sagt es jedem, der Ihren Code ansieht, dass dieser Name nie einem anderen Wert zugewiesen wird. Wann immer sie diesen Namen sehen, wissen sie, worauf er sich bezieht.
 
-In diesem Kurs verfolgen wir das folgende Prinzip, wann `let` und wann `const` verwendet werden soll:
+In diesem Kurs wenden wir das folgende Prinzip an, wann `let` und wann `const` verwendet werden sollen:
 
-_Verwenden Sie `const`, wenn Sie können, und `let`, wenn Sie müssen._
+_Verwenden Sie `const`, wenn Sie können, und verwenden Sie `let`, wenn Sie müssen._
 
-Das bedeutet, wenn Sie eine Variable initialisieren können, wenn Sie sie deklarieren, und sie später nicht neu zuweisen müssen, machen Sie sie zu einer Konstanten.
+Das bedeutet, wenn Sie eine Variable initialisieren können, wenn Sie sie deklarieren, und sie später nicht neu zuweisen müssen, machen Sie sie zu einer Konstante.
 
 ## Testen Sie Ihre Fähigkeiten!
 
-Sie haben das Ende dieses Artikels erreicht, aber können Sie sich die wichtigsten Informationen merken? Sie können einige weitere Tests finden, um zu überprüfen, ob Sie diese Informationen behalten haben, bevor Sie weitermachen — siehe [Testen Sie Ihre Fähigkeiten: Variablen](/de/docs/Learn_web_development/Core/Scripting/Test_your_skills/Variables).
+Sie haben das Ende dieses Artikels erreicht, aber können Sie sich an die wichtigsten Informationen erinnern? Sie können einige weitere Tests finden, um zu überprüfen, ob Sie diese Informationen behalten haben, bevor Sie fortfahren — siehe [Testen Sie Ihre Fähigkeiten: Variablen](/de/docs/Learn_web_development/Core/Scripting/Test_your_skills/Variables).
 
 ## Zusammenfassung
 
-Bis jetzt sollten Sie eine angemessene Menge über JavaScript-Variablen wissen und wie man sie erstellt. Im nächsten Artikel konzentrieren wir uns auf Zahlen im Detail und schauen, wie man grundlegende Mathematik in JavaScript ausführt.
+Mittlerweile sollten Sie eine angemessene Menge über JavaScript-Variablen wissen und wie man sie erstellt. Im nächsten Artikel werden wir uns detaillierter mit Zahlen beschäftigen und uns anschauen, wie man grundlegende Mathematik in JavaScript durchführt.
 
 {{PreviousMenuNext("Learn_web_development/Core/Scripting/What_went_wrong", "Learn_web_development/Core/Scripting/Math", "Learn_web_development/Core/Scripting")}}

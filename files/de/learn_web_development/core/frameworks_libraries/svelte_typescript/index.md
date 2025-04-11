@@ -2,15 +2,14 @@
 title: TypeScript-Unterstützung in Svelte
 slug: Learn_web_development/Core/Frameworks_libraries/Svelte_TypeScript
 l10n:
-  sourceCommit: 3c13d9a0c239ed31ae861486393952bc03e0b5bd
+  sourceCommit: 48d220a8cffdfd5f088f8ca89724a9a92e34d8c0
 ---
 
-{{LearnSidebar}}
 {{PreviousMenuNext("Learn_web_development/Core/Frameworks_libraries/Svelte_stores","Learn_web_development/Core/Frameworks_libraries/Svelte_deployment_next", "Learn_web_development/Core/Frameworks_libraries")}}
 
-Im letzten Artikel haben wir über Svelte Stores gelernt und sogar unseren eigenen benutzerdefinierten Store implementiert, um die Informationen der App im Web Storage zu speichern. Wir haben uns auch angeschaut, wie man die `transition`-Direktive benutzt, um Animationen an DOM-Elementen in Svelte zu implementieren.
+Im letzten Artikel haben wir über Svelte-Stores gelernt und sogar unseren eigenen benutzerdefinierten Store implementiert, um die App-Informationen im Web Storage zu speichern. Wir haben uns auch angeschaut, wie man die Übergangsdirektive verwendet, um Animationen auf DOM-Elementen in Svelte zu implementieren.
 
-Jetzt werden wir lernen, wie man TypeScript in Svelte-Anwendungen verwendet. Zuerst lernen wir, was TypeScript ist und welche Vorteile es uns bringen kann. Dann sehen wir, wie wir unser Projekt konfigurieren können, um mit TypeScript-Dateien zu arbeiten. Schließlich gehen wir unsere App durch und sehen, welche Änderungen wir vornehmen müssen, um die Features von TypeScript voll auszunutzen.
+Jetzt werden wir lernen, wie man TypeScript in Svelte-Anwendungen verwendet. Zuerst werden wir erfahren, was TypeScript ist und welche Vorteile es uns bieten kann. Dann werden wir sehen, wie wir unser Projekt konfigurieren können, um mit TypeScript-Dateien zu arbeiten. Schließlich werden wir unsere App durchgehen und sehen, welche Änderungen wir vornehmen müssen, um die Vorteile der TypeScript-Funktionen voll auszunutzen.
 
 <table>
   <tbody>
@@ -18,43 +17,43 @@ Jetzt werden wir lernen, wie man TypeScript in Svelte-Anwendungen verwendet. Zue
       <th scope="row">Voraussetzungen:</th>
       <td>
         <p>
-          Es wird empfohlen, dass Sie mindestens mit den grundlegenden
+          Mindestens wird empfohlen, dass Sie mit den Kernsprachen
           <a href="/de/docs/Learn_web_development/Core/Structuring_content">HTML</a>,
           <a href="/de/docs/Learn_web_development/Core/Styling_basics">CSS</a> und
-          <a href="/de/docs/Learn_web_development/Core/Scripting">JavaScript</a>-Sprachen vertraut sind, und
-          über Kenntnisse des
+          <a href="/de/docs/Learn_web_development/Core/Scripting">JavaScript</a> vertraut sind, und
+          Kenntnisse über das
           <a
             href="/de/docs/Learn_web_development/Getting_started/Environment_setup/Command_line"
-            >Terminals/Befehlszeile</a
-          > verfügen.
+            >Terminal/Kommandozeile</a
+          >haben.
         </p>
         <p>
-          Sie benötigen ein Terminal mit installierten Node und npm, um Ihre App zu kompilieren und zu bauen.
+          Sie benötigen ein Terminal mit installiertem Node und NPM, um Ihre App zu kompilieren und zu bauen.
         </p>
       </td>
     </tr>
     <tr>
       <th scope="row">Ziel:</th>
       <td>
-        Lernen Sie, wie Sie TypeScript konfigurieren und verwenden, wenn Sie Svelte-Anwendungen entwickeln.
+        Lernen Sie, wie man TypeScript konfiguriert und verwendet, wenn man Svelte-Anwendungen entwickelt.
       </td>
     </tr>
   </tbody>
 </table>
 
-Beachten Sie, dass unsere Anwendung voll funktionsfähig ist und die Portierung zu TypeScript völlig optional ist. Es gibt verschiedene Meinungen dazu, und in diesem Kapitel werden wir kurz über die Vor- und Nachteile von TypeScript sprechen. Auch wenn Sie nicht planen, es zu übernehmen, wird dieser Artikel nützlich sein, um zu erfahren, was es zu bieten hat, und Ihnen helfen, Ihre eigene Entscheidung zu treffen. Wenn Sie sich überhaupt nicht für TypeScript interessieren, können Sie zum nächsten Kapitel springen, in dem wir uns verschiedene Optionen für die Bereitstellung unserer Svelte-Anwendungen, weitere Ressourcen und mehr ansehen.
+Beachten Sie, dass unsere Anwendung vollständig funktionsfähig ist und das Portieren zu TypeScript vollkommen optional ist. Es gibt unterschiedliche Meinungen dazu, und in diesem Kapitel werden wir kurz über die Vor- und Nachteile der Verwendung von TypeScript sprechen. Selbst wenn Sie nicht vorhaben, es einzuführen, wird dieser Artikel nützlich sein, um zu verstehen, was es zu bieten hat, und Ihnen helfen, Ihre eigene Entscheidung zu treffen. Wenn Sie überhaupt nicht an TypeScript interessiert sind, können Sie zum nächsten Kapitel übergehen, in dem wir uns verschiedene Optionen zur Bereitstellung unserer Svelte-Anwendungen, weitere Ressourcen und mehr ansehen.
 
-## Code mit uns zusammen
+## Machen Sie mit uns mit dem Code mit
 
 ### Git
 
-Klonen Sie das GitHub-Repository (falls Sie es noch nicht getan haben) mit:
+Klonen Sie das GitHub-Repo (wenn Sie es noch nicht getan haben) mit:
 
 ```bash
 git clone https://github.com/opensas/mdn-svelte-tutorial.git
 ```
 
-Um den aktuellen Zustand der App zu erreichen, führen Sie
+Um den aktuellen App-Status zu erhalten, führen Sie Folgendes aus:
 
 ```bash
 cd mdn-svelte-tutorial/07-typescript-support
@@ -72,45 +71,45 @@ Denken Sie daran, `npm install && npm run dev` auszuführen, um Ihre App im Entw
 
 Leider ist [TypeScript-Unterstützung im REPL noch nicht verfügbar](https://github.com/sveltejs/svelte.dev/issues/853).
 
-## TypeScript: optionale statische Typisierung für JavaScript
+## TypeScript: Optionale statische Typisierung für JavaScript
 
-[TypeScript](https://www.typescriptlang.org/) ist eine Obermenge von JavaScript, die Funktionen wie optionale statische Typisierung, Klassen, Schnittstellen und Generics bietet. Das Ziel von TypeScript ist es, Fehler frühzeitig durch sein Typsystem zu erkennen und die JavaScript-Entwicklung effizienter zu machen. Einer der großen Vorteile ist, dass IDEs eine reichhaltigere Umgebung für die Erkennung häufiger Fehler bieten können, während Sie den Code eingeben.
+[TypeScript](https://www.typescriptlang.org/) ist eine Obermenge von JavaScript, die Funktionen wie optionale statische Typisierung, Klassen, Schnittstellen und Generics bietet. Das Ziel von TypeScript ist es, Fehler frühzeitig durch sein Typsystem zu erkennen und die JavaScript-Entwicklung effizienter zu machen. Einer der großen Vorteile ist es, dass IDEs dadurch eine reichhaltigere Umgebung bieten können, um häufige Fehler zu erkennen, während Sie den Code schreiben.
 
-Am besten von allem ist, dass JavaScript-Code gültiger TypeScript-Code ist; TypeScript ist eine Obermenge von JavaScript. Sie können die meisten Ihrer `.js`-Dateien in `.ts`-Dateien umbenennen, und sie werden einfach funktionieren.
+Das Beste daran ist, dass JavaScript-Code auch gültiger TypeScript-Code ist; TypeScript ist eine Obermenge von JavaScript. Sie können die meisten Ihrer `.js`-Dateien in `.ts`-Dateien umbenennen, und sie funktionieren einfach.
 
-Unser TypeScript-Code kann überall ausgeführt werden, wo JavaScript ausgeführt werden kann. Wie ist das möglich? TypeScript "transpiliert" unseren Code zu Vanilla-JavaScript. Das bedeutet, dass es TypeScript-Code parst und den entsprechenden Vanilla-JavaScript-Code produziert, damit Browser diesen ausführen können.
+Unser TypeScript-Code wird überall dort laufen können, wo JavaScript laufen kann. Wie ist das möglich? TypeScript "kompiliert" unseren Code in Vanilla-JavaScript. Das bedeutet, dass es TypeScript-Code analysiert und den entsprechenden Vanilla-JavaScript-Code erzeugt, den Browser ausführen können.
 
 > [!NOTE]
-> Wenn Sie neugierig sind, wie TypeScript unseren Code in JavaScript transpiliert, können Sie sich den [TypeScript Playground](https://www.typescriptlang.org/play/?target=1&e=4#example/hello-world) ansehen.
+> Wenn Sie neugierig sind, wie TypeScript unseren Code in JavaScript umwandelt, können Sie sich den [TypeScript Playground](https://www.typescriptlang.org/play/?target=1&e=4#example/hello-world) ansehen.
 
-Die erstklassige TypeScript-Unterstützung war Sveltes am meisten angeforderte Funktion seit geraumer Zeit. Dank der harten Arbeit des Svelte-Teams zusammen mit vielen Mitwirkenden haben sie eine [offizielle Lösung](https://svelte.dev/blog/svelte-and-typescript) bereit, die getestet werden kann. In diesem Abschnitt zeigen wir Ihnen, wie Sie ein Svelte-Projekt mit TypeScript-Unterstützung einrichten, um es auszuprobieren.
+Die erstklassige Unterstützung von TypeScript war die am meisten nachgefragte Funktion für Svelte seit einiger Zeit. Dank der harten Arbeit des Svelte-Teams, zusammen mit vielen Mitwirkenden, haben sie eine [offizielle Lösung](https://svelte.dev/blog/svelte-and-typescript) bereit, um getestet zu werden. In diesem Abschnitt zeigen wir Ihnen, wie Sie ein Svelte-Projekt mit TypeScript-Unterstützung einrichten, um es auszuprobieren.
 
 ## Warum TypeScript?
 
 Die Hauptvorteile von TypeScript sind:
 
-- Frühzeitige Fehlererkennung: Der Compiler überprüft Typen zur Kompilierzeit und liefert Fehlermeldungen.
-- Lesbarkeit: Statische Typisierung gibt dem Code mehr Struktur, was ihn selbstdokumentierend und lesbarer macht.
-- Reichhaltige IDE-Unterstützung: Typinformationen ermöglichen es Code-Editoren und IDEs, Funktionen wie Codenavigation, Autovervollständigung und intelligentere Hinweise anzubieten.
-- Sicheres Refactoring: Typen ermöglichen es IDEs, mehr über Ihren Code zu wissen und Ihnen beim Refaktorisieren großer Teile Ihres Codes zu helfen.
+- Früh erkannte Bugs: Der Compiler überprüft Typen zur Kompilierzeit und bietet Fehlermeldungen.
+- Lesbarkeit: Statische Typisierung gibt dem Code mehr Struktur, wodurch er sich selbst dokumentiert und besser lesbar ist.
+- Umfangreiche IDE-Unterstützung: Typinformationen ermöglichen es Code-Editoren und IDEs, Funktionen wie Codenavigation, Autovervollständigung und intelligentere Hinweise zu bieten.
+- Sicherer Refactoring: Typen ermöglichen es IDEs, mehr über Ihren Code zu wissen und Sie beim Refactoring großer Teile Ihres Codegrundstocks zu unterstützen.
 - Typinferenz: Ermöglicht es Ihnen, viele TypeScript-Funktionen zu nutzen, auch ohne Variablentypen zu deklarieren.
-- Verfügbarkeit neuer und zukünftiger JavaScript-Funktionen: TypeScript transpiliert viele der neuesten JavaScript-Funktionen zu einfachem, altmodischem JavaScript, sodass Sie diese verwenden können, auch wenn Benutzeragenten sie noch nicht nativ unterstützen.
+- Verfügbarkeit neuer und zukünftiger JavaScript-Funktionen: TypeScript kompiliert viele der neuesten JavaScript-Funktionen zu einfachem, altmodischem JavaScript, sodass Sie sie auch auf Benutzeragenten verwenden können, die sie noch nicht nativ unterstützen.
 
 TypeScript hat auch einige Nachteile:
 
 - Keine echte statische Typisierung: Typen werden nur zur Kompilierzeit überprüft und aus dem generierten Code entfernt.
-- Hohe Lernkurve: Auch wenn TypeScript eine Obermenge von JavaScript und keine völlig neue Sprache ist, gibt es eine beträchtliche Lernkurve, besonders wenn Sie keinerlei Erfahrung mit statischen Sprachen wie Java oder C# haben.
+- Hohe Lernkurve: Auch wenn TypeScript eine Obermenge von JavaScript und keine völlig neue Sprache ist, gibt es eine erhebliche Lernkurve, insbesondere wenn Sie keinerlei Erfahrung mit statischen Sprachen wie Java oder C# haben.
 - Mehr Code: Sie müssen mehr Code schreiben und pflegen.
-- Kein Ersatz für automatische Tests: Auch wenn Typen Ihnen helfen könnten, mehrere Fehler zu erkennen, ist TypeScript kein echter Ersatz für eine umfassende Suite automatisierter Tests.
-- Boilerplate-Code: Arbeiten mit Typen, Klassen, Schnittstellen und Generics kann zu übermäßig komplexen Code-Basen führen.
+- Kein Ersatz für automatisierte Tests: Auch wenn Typen Ihnen helfen können, mehrere Fehler zu erkennen, ist TypeScript kein echter Ersatz für eine umfassende Suite automatisierter Tests.
+- Boilerplate-Code: Die Arbeit mit Typen, Klassen, Schnittstellen und Generics kann zu übermäßig ausgearbeiteten Codegrundstöcken führen.
 
-Es scheint einen breiten Konsens darüber zu geben, dass TypeScript besonders gut für große Projekte geeignet ist, bei denen viele Entwickler an derselben Codebasis arbeiten. Und es wird in der Tat von mehreren Großprojekten verwendet, wie Angular 2, Vue 3, Ionic, Visual Studio Code, Jest, und sogar dem Svelte-Compiler. Dennoch ziehen es einige Entwickler vor, es auch in kleinen Projekten wie dem, das wir entwickeln, zu verwenden.
+Es scheint eine breite Übereinstimmung zu geben, dass TypeScript besonders gut für groß angelegte Projekte geeignet ist, bei denen viele Entwickler am gleichen Codeprojekt arbeiten. Tatsächlich wird es von mehreren großflächigen Projekten wie Angular 2, Vue 3, Ionic, Visual Studio Code, Jest und sogar dem Svelte-Compiler verwendet. Dennoch bevorzugen einige Entwickler, es sogar bei kleinen Projekten zu verwenden, wie das, das wir gerade entwickeln.
 
-Am Ende liegt die Entscheidung bei Ihnen. In den folgenden Abschnitten hoffen wir, Ihnen mehr Beweise zu liefern, um Ihre Meinung darüber zu bilden.
+Letztendlich liegt die Entscheidung bei Ihnen. In den folgenden Abschnitten hoffen wir, Ihnen mehr Beweise zu liefern, um Ihre Meinung darüber zu bilden.
 
-## Ein Svelte-TypeScript-Projekt von Grund auf neu erstellen
+## Erstellen eines Svelte TypeScript-Projekts von Grund auf
 
-Sie können ein neues Svelte-TypeScript-Projekt mit dem [Standard-Template](https://github.com/sveltejs/template) starten. Alles, was Sie tun müssen, ist, die folgenden Terminalbefehle auszuführen (führen Sie sie an einem Ort aus, an dem Sie Ihre Svelte-Testprojekte speichern — es erstellt ein neues Verzeichnis):
+Sie können ein neues Svelte TypeScript-Projekt unter Verwendung der [Standardvorlage](https://github.com/sveltejs/template) starten. Alles, was Sie tun müssen, ist, folgende Terminalbefehle auszuführen (führen Sie sie an einem Ort aus, an dem Sie Ihre Svelte-Testprojekte speichern — es erstellt ein neues Verzeichnis):
 
 ```bash
 npx degit sveltejs/template svelte-typescript-app
@@ -120,9 +119,9 @@ cd svelte-typescript-app
 node scripts/setupTypeScript.js
 ```
 
-Dies erstellt ein Starter-Projekt, das TypeScript-Unterstützung enthält und das Sie nach Belieben ändern können.
+Dies erstellt ein Starterprojekt, das TypeScript-Unterstützung enthält, die Sie nach Belieben ändern können.
 
-Dann müssen Sie npm dazu bringen, Abhängigkeiten herunterzuladen und das Projekt im Entwicklungsmodus zu starten, wie wir es normalerweise tun:
+Dann müssen Sie npm sagen, dass es die Abhängigkeiten herunterladen und das Projekt im Entwicklungsmodus starten soll, wie wir es normalerweise tun:
 
 ```bash
 npm install
@@ -132,12 +131,12 @@ npm run dev
 
 ## Hinzufügen von TypeScript-Unterstützung zu einem bestehenden Svelte-Projekt
 
-Um einem bestehenden Svelte-Projekt TypeScript-Unterstützung hinzuzufügen, können Sie [diesen Anweisungen](https://svelte.dev/blog/svelte-and-typescript#Adding_TypeScript_to_an_existing_project) folgen. Alternativ können Sie die Datei [`setupTypeScript.js`](https://github.com/sveltejs/template/blob/master/scripts/setupTypeScript.js) in einen `scripts`-Ordner im Stammordner Ihres Projekts herunterladen und dann `node scripts/setupTypeScript.js` ausführen.
+Um TypeScript-Unterstützung zu einem bestehenden Svelte-Projekt hinzuzufügen, können Sie [diesen Anweisungen](https://svelte.dev/blog/svelte-and-typescript#Adding_TypeScript_to_an_existing_project) folgen. Alternativ können Sie die [`setupTypeScript.js`](https://github.com/sveltejs/template/blob/master/scripts/setupTypeScript.js) Datei in einen `scripts`-Ordner innerhalb des Stammverzeichnisses Ihres Projekts herunterladen und dann `node scripts/setupTypeScript.js` ausführen.
 
-Sie können sogar `degit` verwenden, um das Skript herunterzuladen. Das werden wir tun, um unsere Anwendung nach TypeScript zu portieren.
+Sie können sogar `degit` verwenden, um das Skript herunterzuladen. Das werden wir tun, um unsere Anwendung zu TypeScript zu portieren.
 
 > [!NOTE]
-> Denken Sie daran, dass Sie `npx degit opensas/mdn-svelte-tutorial/07-typescript-support svelte-todo-typescript` ausführen können, um die vollständige To-do-Liste-Anwendung in JavaScript zu erhalten, bevor Sie damit beginnen, sie nach TypeScript zu portieren.
+> Denken Sie daran, dass Sie `npx degit opensas/mdn-svelte-tutorial/07-typescript-support svelte-todo-typescript` ausführen können, um die vollständige To-do-Liste-Anwendung in JavaScript zu erhalten, bevor Sie sie nach TypeScript portieren.
 
 Gehen Sie in das Stammverzeichnis des Projekts und geben Sie diese Befehle ein:
 
@@ -148,7 +147,7 @@ node scripts/setupTypeScript.js                   # run it
 # Converted to TypeScript.
 ```
 
-Sie müssen Ihren Abhängigkeitsmanager erneut ausführen, um loszulegen.
+Sie müssen Ihren Abhängigkeitsmanager neu ausführen, um zu beginnen.
 
 ```bash
 npm install                                       # download new dependencies
@@ -156,83 +155,83 @@ npm install                                       # download new dependencies
 npm run dev                                       # start the app in development mode
 ```
 
-Diese Anweisungen gelten für jedes Svelte-Projekt, das Sie nach TypeScript konvertieren möchten. Beachten Sie einfach, dass die Svelte-Community ständig die TypeScript-Unterstützung für Svelte verbessert, sodass Sie regelmäßig `npm update` ausführen sollten, um die neuesten Änderungen zu nutzen.
+Diese Anweisungen gelten für jedes Svelte-Projekt, das Sie in TypeScript konvertieren möchten. Beachten Sie einfach, dass die Svelte-Community ständig die Unterstützung von Svelte TypeScript verbessert, daher sollten Sie regelmäßig `npm update` ausführen, um von den neuesten Änderungen zu profitieren.
 
 > [!NOTE]
-> Wenn Sie bei der Arbeit mit TypeScript in einer Svelte-Anwendung auf Probleme stoßen, werfen Sie einen Blick auf diesen [Troubleshooting/FAQ-Bereich zur TypeScript-Unterstützung](https://github.com/sveltejs/language-tools/blob/master/docs/preprocessors/typescript.md#troubleshooting--faq).
+> Wenn Sie Probleme haben, mit TypeScript in einer Svelte-Anwendung zu arbeiten, werfen Sie einen Blick auf diesen [Troubleshooting/FAQ-Abschnitt über TypeScript-Unterstützung](https://github.com/sveltejs/language-tools/blob/master/docs/preprocessors/typescript.md#troubleshooting--faq).
 
-Wie wir bereits gesagt haben, ist TypeScript eine Obermenge von JavaScript, sodass Ihre Anwendung ohne Änderungen ausgeführt wird. Derzeit werden Sie eine reguläre JavaScript-Anwendung mit aktivierter TypeScript-Unterstützung ausführen, ohne von den angebotenen Funktionen von TypeScript zu profitieren. Sie können jetzt damit beginnen, Typen schrittweise hinzuzufügen.
+Wie bereits erwähnt, ist TypeScript eine Obermenge von JavaScript, daher wird Ihre Anwendung ohne Änderungen laufen. Derzeit werden Sie eine reguläre JavaScript-Anwendung mit aktivierter TypeScript-Unterstützung ausführen, ohne die Vorteile der enthaltenen TypeScript-Funktionen zu nutzen. Sie können jetzt beginnen, Typen schrittweise hinzuzufügen.
 
-Sobald Sie TypeScript konfiguriert haben, können Sie es in einer Svelte-Komponente verwenden, indem Sie einfach ein `<script lang='ts'>` am Anfang des Skriptabschnitts hinzufügen. Um es aus regulären JavaScript-Dateien zu verwenden, müssen Sie einfach die Dateierweiterung von `.js` auf `.ts` ändern. Sie müssen auch jede entsprechende Importanweisung aktualisieren, um die `.ts` Dateierweiterung von allen `import`-Anweisungen zu entfernen.
-
-> [!NOTE]
-> TypeScript wirft einen Fehler aus, wenn Sie die `.ts` Dateierweiterung in einer `import`-Anweisung verwenden, also müssen Sie, wenn Sie eine Datei `./foo.ts` haben, sie als "./foo" importieren.
-> Siehe den Abschnitt [Modulauflösung für Bundler, TypeScript-Laufzeiten und Node.js-Loader](https://www.typescriptlang.org/docs/handbook/modules/theory.html#module-resolution-for-bundlers-typescript-runtimes-and-nodejs-loaders) des TypeScript-Handbuchs für weitere Informationen.
+Sobald Sie TypeScript konfiguriert haben, können Sie es in einer Svelte-Komponente verwenden, indem Sie einfach ein `<script lang='ts'>` am Anfang des Skriptabschnitts hinzufügen. Um es von regulären JavaScript-Dateien aus zu verwenden, ändern Sie einfach die Dateiendung von `.js` in `.ts`. Darüber hinaus müssen Sie alle entsprechenden `import`-Anweisungen aktualisieren, um die `.ts`-Dateiendung von allen `import`-Anweisungen zu entfernen.
 
 > [!NOTE]
-> Die Verwendung von TypeScript in Komponentenzeichenfolgenabschnitten wird in Svelte 4, auf dem dieser Leitfaden basiert, nicht unterstützt.
-> Während Sie JavaScript in der Markup verwenden können, müssen Sie TypeScript im `<script lang='ts'>`-Abschnitt verwenden.
-> TypeScript in Komponentenzeichenfolgen ist ab Svelte 5 erlaubt.
-
-## Verbesserte Entwicklererfahrung mit TypeScript
-
-TypeScript bietet Code-Editoren und IDEs viele Informationen, um ihnen zu ermöglichen, eine freundlichere Entwicklungsumgebung zu bieten.
-
-Wir werden [Visual Studio Code](https://code.visualstudio.com/) verwenden, um einen schnellen Test durchzuführen und zu sehen, wie wir Autovervollständigungs-Hinweise und Typüberprüfungen erhalten können, während wir Komponenten schreiben.
+> TypeScript wirft einen Fehler, wenn Sie die `.ts`-Dateiendung in einer `import`-Anweisung verwenden, also müssen Sie, wenn Sie eine Datei `./foo.ts` haben, sie als "./foo" importieren.
+> Siehe den Abschnitt [Modulauflösung für Bundler, TypeScript-Laufzeiten und Node.js-Loader](https://www.typescriptlang.org/docs/handbook/modules/theory.html#module-resolution-for-bundlers-typescript-runtimes-and-nodejs-loaders) im TypeScript-Handbuch für weitere Informationen.
 
 > [!NOTE]
-> Wenn Sie VS Code nicht verwenden möchten, bieten wir etwas später auch Anweisungen zur Verwendung der TypeScript-Fehlerüberprüfung aus dem Terminal an.
+> Die Verwendung von TypeScript in Markup-Abschnitten von Komponenten wird in Svelte 4, auf dem dieser Leitfaden basiert, nicht unterstützt.
+> Obwohl Sie JavaScript aus dem Markup verwenden können, müssen Sie TypeScript im `<script lang='ts'>`-Abschnitt verwenden.
+> TypeScript in Markup von Komponenten ist ab Svelte 5 erlaubt.
 
-Es laufen Arbeiten zur Unterstützung von TypeScript in Svelte-Projekten in mehreren Code-Editoren; die vollständigste Unterstützung ist bisher in der [Svelte für VS Code-Erweiterung](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode) verfügbar, die vom Svelte-Team entwickelt und gewartet wird. Diese Erweiterung bietet Typüberprüfung, Inspektion, Refactoring, Intellisense, Hover-Informationen, Autovervollständigung und andere Funktionen. Diese Art von Entwicklerunterstützung ist ein weiterer guter Grund, TypeScript in Ihren Projekten zu verwenden.
+## Verbessertes Entwicklererlebnis mit TypeScript
+
+TypeScript stellt Codeeditoren und IDEs viele Informationen zur Verfügung, die es ihnen ermöglichen, ein benutzerfreundlicheres Entwicklungserlebnis zu bieten.
+
+Wir werden [Visual Studio Code](https://code.visualstudio.com/) verwenden, um einen schnellen Test zu machen und zu sehen, wie wir Autovervollständigungs-Hinweise und Typüberprüfung erhalten können, während wir Komponenten schreiben.
 
 > [!NOTE]
-> Stellen Sie sicher, dass Sie [Svelte für VS Code](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode) und NICHT das alte "Svelte" von James Birtles verwenden, das eingestellt wurde. Falls Sie es installiert haben, sollten Sie es deinstallieren und stattdessen die offizielle Svelte-Erweiterung installieren.
+> Wenn Sie VS Code nicht verwenden möchten, bieten wir etwas später in diesem Artikel auch Anweisungen zur Verwendung der TypeScript-Fehlerüberprüfung über das Terminal.
 
-Angenommen, Sie befinden sich in der VS Code-Anwendung, geben Sie vom Stammordner Ihres Projekts aus `code .` ein (der Punkt am Ende weist VS Code an, den aktuellen Ordner zu öffnen), um den Code-Editor zu öffnen. VS Code wird Ihnen mitteilen, dass es empfohlene Erweiterungen zum Installieren gibt.
+Es wird daran gearbeitet, TypeScript in Svelte-Projekten in mehreren Codeeditoren zu unterstützen; die vollständigste Unterstützung gibt es bisher in der [Svelte for VS Code-Erweiterung](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode), die vom Svelte-Team entwickelt und gewartet wird. Diese Erweiterung bietet Typprüfung, Inspektion, Refactoring, Intellisense, Hover-Informationen, Autovervollständigung und andere Funktionen. Diese Art von Entwicklerunterstützung ist ein weiterer guter Grund, TypeScript in Ihren Projekten zu verwenden.
 
-![Dialogfeld, das besagt, dass dieser Arbeitsbereich Erweiterungsempfehlungen hat, mit Optionen zum Installieren oder Anzeigen einer Liste](01-vscode-extension-recommendations.png)
+> [!NOTE]
+> Stellen Sie sicher, dass Sie [Svelte for VS Code](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode) und NICHT das alte "Svelte" von James Birtles verwenden, das eingestellt wurde. Falls Sie es installiert haben, sollten Sie es deinstallieren und stattdessen die offizielle Svelte-Erweiterung installieren.
 
-Wenn Sie auf _Install all_ klicken, wird Svelte für VS Code installiert.
+Angenommen, Sie befinden sich in der VS Code-Anwendung, geben Sie vom Stammverzeichnis Ihres Projekts aus `code .` (der abschließende Punkt sagt VS Code, den aktuellen Ordner zu öffnen) ein, um den Code-Editor zu öffnen. VS Code wird Ihnen mitteilen, dass es empfohlene Erweiterungen gibt, die installiert werden sollen.
 
-![Informationen zur Svelte für VS Code-Erweiterung](02-svelte-for-vscode.png)
+![Dialogfeld, das anzeigt, dass dieser Arbeitsbereich Erweiterungsempfehlungen hat, mit Optionen zum Installieren oder Anzeigen einer Liste](01-vscode-extension-recommendations.png)
+
+Durch Klicken auf _Alles installieren_ wird Svelte for VS Code installiert.
+
+![Informationen zur Svelte for VS Code-Erweiterung](02-svelte-for-vscode.png)
 
 Wir können auch sehen, dass die Datei `setupTypeScript.js` einige Änderungen an unserem Projekt vorgenommen hat. Die Datei `main.js` wurde in `main.ts` umbenannt, was bedeutet, dass VS Code Hover-Informationen zu unseren Svelte-Komponenten bereitstellen kann:
 
-![VS Code-Screenshot, der zeigt, dass beim Hovern über eine Komponente Hinweise angezeigt werden](03-vscode-hints-in-main-ts.png)
+![VS Code Screenshot, der zeigt, dass beim Schweben über eine Komponente Ihnen Hinweise gegeben werden](03-vscode-hints-in-main-ts.png)
 
 <!-- cSpell:ignore traget -->
 
-Wir erhalten auch kostenlos eine Typüberprüfung. Wenn wir eine unbekannte Eigenschaft im Optionsparameter des `App`-Konstruktors übergeben (z. B. einen Tippfehler wie `traget` statt `target`), wird TypeScript beanstanden:
+Wir bekommen auch kostenlose Typenprüfung. Wenn wir eine unbekannte Eigenschaft im Optionsparameter des `App` Konstruktors übergeben (zum Beispiel einen Tippfehler wie `traget` anstelle von `target`), wird TypeScript sich beschweren:
 
-![Typüberprüfung in VS Code - App-Objekt wurde eine unbekannte Eigenschaft traget gegeben](04-vscode-type-checking-in-main-ts.png)
+![Typprüfung in VS Code - App-Objekt wurde eine unbekannte Eigenschaft traget hinzugefügt](04-vscode-type-checking-in-main-ts.png)
 
-In der `App.svelte`-Komponente hat das `setupTypeScript.js`-Skript das Attribut `lang="ts"` zum `<script>`-Tag hinzugefügt. Darüber hinaus werden wir dank der Typinferenz in vielen Fällen nicht einmal Typen angeben müssen, um Codeunterstützung zu erhalten. Wenn Sie beispielsweise beginnen, der `Alert`-Komponentenaufruf eine `ms`-Eigenschaft hinzuzufügen, wird TypeScript aus dem Standardwert ableiten, dass die `ms`-Eigenschaft eine Zahl sein sollte:
+In der `App.svelte`-Komponente hat das `setupTypeScript.js`-Skript das `lang="ts"`-Attribut zum `<script>`-Tag hinzugefügt. Dank der Typinferenz müssen wir in vielen Fällen nicht einmal Typen angeben, um Codeunterstützung zu erhalten. Wenn Sie zum Beispiel beginnen, eine `ms`-Eigenschaft zum `Alert`-Komponentenaufruf hinzuzufügen, wird TypeScript aufgrund des Standardwerts ableiten, dass die `ms`-Eigenschaft eine Zahl sein sollte:
 
-![VS Code Typinferenz und Code-Hinweise - ms-Variable sollte eine Zahl sein](05-vscode-type-inference-and-code-assistance.png)
+![VS Code Typinferenz und Code-Hinting - ms-Variable sollte eine Zahl sein](05-vscode-type-inference-and-code-assistance.png)
 
-Und wenn Sie etwas übergeben, das keine Zahl ist, wird es darüber ein Problem melden:
+Und wenn Sie etwas übergeben, das nicht eine Zahl ist, wird es sich darüber beschweren:
 
-![Typüberprüfung in VS Code - der ms-Variablen wurde ein nicht numerischer Wert zugewiesen](06-vscode-type-checking-in-components.png)
+![Typprüfung in VS Code - die ms-Variable wurde mit einem nicht-numerischen Wert versehen](06-vscode-type-checking-in-components.png)
 
-Das Anwendungsvorlage hat ein `check`-Skript konfiguriert, das `svelte-check` gegen Ihren Code ausführt. Dieses Paket ermöglicht es Ihnen, Fehler und Warnungen zu erkennen, die normalerweise von einem Code-Editor angezeigt werden, und zwar von der Befehlszeile aus, was es ziemlich nützlich macht, um es in einer Continuous Integration (CI)-Pipeline auszuführen. Führen Sie einfach `npm run check` aus, um ungenutztes CSS zu überprüfen und A11y-Hinweise und TypeScript-Kompilierfehler zurückzugeben.
+Das Anwendungsvorlage hat ein `check`-Skript konfiguriert, das `svelte-check` gegen Ihren Code ausführt. Dieses Paket ermöglicht es Ihnen, Fehler und Warnungen zu erkennen, die normalerweise von einem Code-Editor angezeigt werden, direkt über die Befehlszeile auszuführen, was es besonders nützlich macht, es in einer Continuous Integration (CI)-Pipeline auszuführen. Führen Sie einfach `npm run check` aus, um nach ungenutztem CSS zu suchen, und geben Sie A11y-Hinweise und TypeScript-Kompilierfehler zurück.
 
-In diesem Fall, wenn Sie `npm run check` ausführen (entweder in der VS Code-Konsole oder im Terminal), erhalten Sie den folgenden Fehler:
+In diesem Fall erhalten Sie, wenn Sie `npm run check` ausführen (entweder in der VS Code-Konsole oder im Terminal), den folgenden Fehler:
 
-![Check-Befehl, der in VS Code ausgeführt wird und einen Typfehler zeigt, die ms-Variable sollte eine Zahl zugewiesen bekommen](07-vscode-svelte-check.png)
+![Check-Befehl, der innerhalb von VS Code ausgeführt wird und einen Typfehler zeigt, ms-Variable sollte eine Zahl sein](07-vscode-svelte-check.png)
 
-Noch besser, wenn Sie es aus dem integrierten Terminal von VS Code ausführen (Sie können es mit der Tastenkombination <kbd>Ctrl</kbd> + <kbd>\`</kbd> öffnen), führt <kbd>Cmd</kbd>/<kbd>Ctrl</kbd> Klicken auf den Dateinamen Sie zur Zeile, die den Fehler enthält.
+Noch besser: Wenn Sie es vom integrierten Terminal von VS Code ausführen (Sie können es mit der Tastenkombination <kbd>Strg</kbd> + <kbd>\`</kbd> öffnen), führt <kbd>Cmd</kbd>/<kbd>Strg</kbd> das Klicken auf den Dateinamen Sie zur Zeile mit dem Fehler.
 
-Sie können das `check`-Skript auch im Überwachungsmodus mit `npm run check -- --watch` ausführen. In diesem Fall wird das Skript ausgeführt, wann immer Sie eine Datei ändern. Wenn Sie dies in Ihrem regulären Terminal ausführen, lassen Sie es im Hintergrund in einem separaten Terminalfenster laufen, damit es weiterhin Fehler melden kann, aber den anderen Terminalgebrauch nicht beeinträchtigt.
+Sie können das `check`-Skript auch im Überwachungsmodus mit `npm run check -- --watch` ausführen. In diesem Fall wird das Skript immer dann ausgeführt, wenn Sie eine Datei ändern. Wenn Sie dies in Ihrem normalen Terminal ausführen, lassen Sie es im Hintergrund in einem separaten Terminalfenster laufen, damit es weiterhin Fehler melden kann, ohne dass es andere Terminalsitzungen beeinflusst.
 
 ## Erstellen eines benutzerdefinierten Typs
 
-TypeScript unterstützt strukturelle Typisierung. Strukturelle Typisierung ist eine Möglichkeit, Typen ausschließlich auf der Grundlage ihrer Mitglieder in Beziehung zu setzen, auch wenn Sie den Typ nicht explizit definieren.
+TypeScript unterstützt strukturelle Typisierung. Strukturelle Typisierung ist eine Möglichkeit, Typen allein basierend auf ihren Mitgliedern zuzuordnen, auch wenn Sie den Typ nicht explizit definieren.
 
-Wir werden einen `TodoType`-Typ definieren, um zu sehen, wie TypeScript durchsetzt, dass alles, was an eine Komponente übergeben wird, die einen `TodoType` erwartet, strukturelle Kompatibilität mit diesem aufweist.
+Wir definieren einen `TodoType`-Typ, um zu sehen, wie TypeScript sicherstellt, dass alles, was an eine Komponente übergeben wird, die einen `TodoType` erwartet, strukturell damit kompatibel sein wird.
 
-1. Erstellen Sie im `src`-Ordner einen `types`-Ordner.
-2. Fügen Sie darin eine `todo.type.ts`-Datei hinzu.
-3. Geben Sie `todo.type.ts` den folgenden Inhalt:
+1. Erstellen Sie innerhalb des `src`-Ordners einen `types`-Ordner.
+2. Fügen Sie eine `todo.type.ts`-Datei darin hinzu.
+3. Geben Sie der Datei `todo.type.ts` folgenden Inhalt:
 
    ```ts
    export type TodoType = {
@@ -243,10 +242,10 @@ Wir werden einen `TodoType`-Typ definieren, um zu sehen, wie TypeScript durchset
    ```
 
    > [!NOTE]
-   > Die Svelte-Vorlage verwendet [svelte-preprocess](https://github.com/sveltejs/svelte-preprocess) 4.0.0, um TypeScript zu unterstützen. Ab dieser Version müssen Sie das `export`/`import` Typ-Syntax verwenden, um Typen und Schnittstellen zu importieren. Lesen Sie [diesen Abschnitt des Troubleshooting-Leitfadens](https://github.com/sveltejs/language-tools/blob/master/docs/preprocessors/typescript.md#how-do-i-import-interfaces-into-my-svelte-components-i-get-errors-after-transpilation) für weitere Informationen.
+   > Die Vorlage von Svelte verwendet [svelte-preprocess](https://github.com/sveltejs/svelte-preprocess) 4.0.0 zur Unterstützung von TypeScript. Ab dieser Version muss man `export`/`import`-Typ-Syntax verwenden, um Typen und Schnittstellen zu importieren. Weitere Informationen finden Sie in [diesem Abschnitt des Troubleshooting-Leitfadens](https://github.com/sveltejs/language-tools/blob/master/docs/preprocessors/typescript.md#how-do-i-import-interfaces-into-my-svelte-components-i-get-errors-after-transpilation).
 
-4. Jetzt werden wir `TodoType` aus unserer `Todo.svelte`-Komponente verwenden. Fügen Sie zuerst das `lang="ts"` zu unserem `<script>`-Tag hinzu.
-5. Lassen Sie uns den Typ `importieren` und verwenden, um die `todo`-Eigenschaft zu deklarieren. Ersetzen Sie die Zeile `export let todo` durch das Folgende:
+4. Jetzt werden wir `TodoType` von unserer `Todo.svelte`-Komponente aus verwenden. Fügen Sie zuerst das `lang="ts"` zu unserem `<script>`-Tag hinzu.
+5. Lassen Sie uns den Typ importieren und verwenden, um die `todo`-Eigenschaft zu deklarieren. Ersetzen Sie die Zeile `export let todo` mit der folgenden:
 
    ```ts
    import type { TodoType } from "../types/todo.type";
@@ -254,9 +253,9 @@ Wir werden einen `TodoType`-Typ definieren, um zu sehen, wie TypeScript durchset
    export let todo: TodoType;
    ```
 
-   Beachten Sie, dass die `.ts`-Dateierweiterung in der `import`-Anweisung nicht erlaubt ist und weggelassen wurde.
+   Beachten Sie, dass die `.ts`-Dateiendung nicht in der `import`-Anweisung erlaubt ist und weggelassen wurde.
 
-6. Jetzt werden wir aus `Todos.svelte` eine `Todo`-Komponente mit einem Literalen Objekt als Parameter instantiieren, bevor der Aufruf zur `MoreActions`-Komponente erfolgt, etwa so:
+6. Jetzt von `Todos.svelte` aus werden wir eine `Todo`-Komponente mit einem Objektliteral als Parameter instanziieren, bevor der Aufruf der `MoreActions`-Komponente, so:
 
    ```svelte
    <hr />
@@ -267,32 +266,32 @@ Wir werden einen `TodoType`-Typ definieren, um zu sehen, wie TypeScript durchset
    <MoreActions {todos}
    ```
 
-7. Fügen Sie das `lang='ts'` zum `<script>`-Tag der `Todos.svelte`-Komponente hinzu, damit es weiß, dass es die von uns angegebene Typüberprüfung verwenden soll.
+7. Fügen Sie das `lang='ts'` dem `<script>`-Tag der `Todos.svelte`-Komponente hinzu, damit es weiß, dass die Typprüfung genutzt werden soll, die wir angegeben haben.
 
    Wir werden den folgenden Fehler erhalten:
 
-   ![Typfehler in VS Code, Todo Type Objekt erfordert eine id-Eigenschaft.](08-vscode-structural-typing.png)
+   ![Typfehler in VS Code, Todo Type-Objekt erfordert eine id-Eigenschaft.](08-vscode-structural-typing.png)
 
-Bis jetzt sollten Sie eine Vorstellung davon bekommen, welche Art von Unterstützung wir von TypeScript beim Erstellen von Svelte-Projekten erhalten können.
+Sie sollten bis jetzt eine Vorstellung davon bekommen haben, welche Art von Unterstützung wir von TypeScript erhalten können, wenn wir Svelte-Projekte erstellen.
 
-Jetzt werden wir diese Änderungen rückgängig machen, um mit der Portierung unserer Anwendung nach TypeScript zu beginnen, damit wir nicht durch alle Prüfungswarnungen gestört werden.
+Jetzt machen wir diese Änderungen rückgängig, um mit dem Portieren unserer Anwendung zu TypeScript zu beginnen, damit wir nicht mit Warnungen von Checks belästigt werden.
 
-1. Entfernen Sie das fehlerhafte To-do und das `lang='ts'` Attribut aus der `Todos.svelte` Datei.
-2. Entfernen Sie außerdem den Import von `TodoType` und das `lang='ts'` aus `Todo.svelte`.
+1. Entfernen Sie das fehlerhafte To-do und das `lang='ts'`-Attribut aus der `Todos.svelte`-Datei.
+2. Entfernen Sie auch den Import von `TodoType` und das `lang='ts'` aus `Todo.svelte`.
 
-Wir werden uns später darum kümmern.
+Wir werden sie später richtig bearbeiten.
 
-## Portierung unserer To-do-Liste App nach TypeScript
+## Unsere To-do-List-Anwendung zu TypeScript portieren
 
-Jetzt sind wir bereit, mit der Portierung unserer To-do-Liste App zu beginnen, um alle Funktionen zu nutzen, die TypeScript uns bietet.
+Jetzt sind wir bereit, mit dem Portieren unserer To-do-Liste-Anwendung zu beginnen, um die Vorteile aller Features zu nutzen, die TypeScript uns bietet.
 
-Lassen Sie uns damit beginnen, das Check-Skript im Überwachungsmodus innerhalb des Projektstamms auszuführen:
+Beginnen wir, indem wir das Check-Skript im Überwachungsmodus innerhalb des Projektstamms ausführen:
 
 ```bash
 npm run check -- --watch
 ```
 
-Dies sollte etwas wie das Folgende ausgeben:
+Dies sollte etwa so etwas ausgeben:
 
 ```bash
 svelte-check "--watch"
@@ -303,15 +302,15 @@ Getting Svelte diagnostics...
 svelte-check found no errors and no warnings
 ```
 
-Beachten Sie, dass, wenn Sie einen unterstützenden Code-Editor wie VS Code verwenden, eine einfache Möglichkeit, mit der Portierung einer Svelte-Komponente zu beginnen, darin besteht, einfach das `<script lang='ts'>` oben in Ihrer Komponente hinzuzufügen und nach den drei gepunkteten Hinweisen zu suchen:
+Beachten Sie, dass, wenn Sie einen unterstützenden Code-Editor wie VS Code verwenden, eine einfache Möglichkeit, mit dem Portieren einer Svelte-Komponente zu beginnen, darin besteht, einfach das `<script lang='ts'>` oben in Ihre Komponente hinzuzufügen und nach den drei gepunkteten Hinweisen zu suchen:
 
-![VS Code-Screenshot, der zeigt, dass beim Hinzufügen von type="ts" zu einer Komponente, es Ihnen drei Punkte-Hinweise gibt](09-vscode-alert-hints.png)
+![VS Code-Screenshot, der zeigt, dass wenn Sie type="ts" zu einer Komponente hinzufügen, Ihnen drei-Punkte-Warnhinweise gegeben werden](09-vscode-alert-hints.png)
 
 ### Alert.svelte
 
-Lassen Sie uns mit unserer `Alert.svelte`-Komponente beginnen.
+Beginnen wir mit unserer `Alert.svelte`-Komponente.
 
-1. Fügen Sie `lang="ts"` zu Ihrem `<script>`-Tag der `Alert.svelte`-Komponente hinzu. Sie werden einige Warnungen in der Ausgabe des `check`-Skripts sehen:
+1. Fügen Sie `lang="ts"` in das `<script>`-Tag Ihrer `Alert.svelte`-Komponente ein. Sie werden einige Warnungen in der Ausgabe des `check`-Skripts sehen:
 
    ```bash
    npm run check -- --watch
@@ -341,7 +340,7 @@ Lassen Sie uns mit unserer `Alert.svelte`-Komponente beginnen.
    (message, ms) => {
    ```
 
-2. Sie können diese beheben, indem Sie die entsprechenden Typen, etwa so, angeben:
+2. Sie können diese beheben, indem Sie die entsprechenden Typen angeben, wie folgt:
 
    ```ts
    export let ms = 3000;
@@ -366,7 +365,7 @@ Lassen Sie uns mit unserer `Alert.svelte`-Komponente beginnen.
 
 Jetzt machen wir dasselbe für die `MoreActions.svelte`-Komponente.
 
-1. Fügen Sie das `lang='ts'`-Attribut hinzu, wie zuvor. TypeScript wird uns über die `todos`-Prop und die `t`-Variable im Aufruf von `todos.filter((t) =>...)` warnen.
+1. Fügen Sie das `lang='ts'`-Attribut hinzu, wie zuvor. TypeScript wird uns über die `todos`-Eigenschaft und die `t`-Variable im Aufruf von `todos.filter((t) =>...)` warnen.
 
    ```plain
    Warn: Variable 'todos' implicitly has an 'any' type, but a better type may be inferred from usage. (ts)
@@ -376,7 +375,7 @@ Jetzt machen wir dasselbe für die `MoreActions.svelte`-Komponente.
      $: completedTodos = todos.filter((t) => t.completed).length
    ```
 
-2. Wir werden den bereits definierten `TodoType` verwenden, um TypeScript mitzuteilen, dass `todos` ein `TodoType`-Array ist. Ersetzen Sie die Zeile `export let todos` durch das Folgende:
+2. Wir verwenden das bereits definierte `TodoType`, um TypeScript mitzuteilen, dass `todos` ein `TodoType`-Array ist. Ersetzen Sie die Zeile `export let todos` mit der folgenden:
 
    ```ts
    import type { TodoType } from "../types/todo.type";
@@ -384,27 +383,27 @@ Jetzt machen wir dasselbe für die `MoreActions.svelte`-Komponente.
    export let todos: TodoType[];
    ```
 
-Beachten Sie, dass TypeScript jetzt ableiten kann, dass die `t`-Variable in `todos.filter((t) => t.completed)` vom Typ `TodoType` ist. Dennoch, wenn wir denken, dass es unseren Code lesbarer macht, könnten wir es so angeben:
+Beachten Sie, dass TypeScript jetzt ableiten kann, dass die `t`-Variable in `todos.filter((t) => t.completed)` vom Typ `TodoType` ist. Dennoch würden wir es spezifizieren, wenn wir denken, dass es unseren Code leichter lesbar macht, wie folgt:
 
 ```ts
 $: completedTodos = todos.filter((t: TodoType) => t.completed).length;
 ```
 
-Die meiste Zeit wird TypeScript den Typ der reaktiven Variable korrekt ableiten können, aber manchmal könnten Sie einen "implizit hat einen 'any' Type"-Fehler bekommen, wenn Sie mit reaktiven Zuweisungen arbeiten. In diesen Fällen können Sie die getypte Variable in einer anderen Anweisung deklarieren, so:
+Meistens wird TypeScript in der Lage sein, den Typ der reaktiven Variable korrekt abzuleiten, aber manchmal können Sie einen "implizit hat einen 'any'-Typ"-Fehler erhalten, wenn Sie mit reaktiven Zuweisungen arbeiten. In diesen Fällen können Sie die getypte Variable in einer anderen Anweisung deklarieren, wie folgt:
 
 ```ts
 let completedTodos: number;
 $: completedTodos = todos.filter((t: TodoType) => t.completed).length;
 ```
 
-Sie können den Typ nicht in der reaktiven Zuweisung selbst angeben. Die Anweisung `$: completedTodos: number = todos.filter[...]` ist ungültig. Lesen Sie [Wie tippe ich reaktive Zuweisungen? / Ich bekomme einen "implizit hat Typ 'any' Fehler"](https://github.com/sveltejs/language-tools/blob/master/docs/preprocessors/typescript.md#how-do-i-type-reactive-assignments--i-get-an-implicitly-has-type-any-error).
+Sie können den Typ nicht in der reaktiven Zuweisung selbst angeben. Die Anweisung `$: completedTodos: number = todos.filter[...]` ist ungültig. Weitere Informationen finden Sie unter [How do I type reactive assignments? / I get an "implicitly has type 'any' error"](https://github.com/sveltejs/language-tools/blob/master/docs/preprocessors/typescript.md#how-do-i-type-reactive-assignments--i-get-an-implicitly-has-type-any-error).
 
 ### FilterButton.svelte
 
 Jetzt kümmern wir uns um die `FilterButton`-Komponente.
 
-1. Fügen Sie das `lang='ts'`-Attribut zum `<script>`-Tag hinzu, wie üblich. Sie werden feststellen, dass es keine Warnungen gibt — TypeScript leitet den Typ der Filtervariable aus dem Standardwert ab. Aber wir wissen, dass nur drei gültige Werte für den Filter existieren: all, active und completed. Wir können TypeScript darüber informieren, indem wir ein Enum Filter erstellen.
-2. Erstellen Sie eine Datei `filter.enum.ts` im `types`-Ordner.
+1. Fügen Sie das `lang='ts'`-Attribut dem `<script>`-Tag hinzu, wie üblich. Sie werden feststellen, dass es keine Warnungen gibt — TypeScript leitet den Typ der Filtervariable aus dem Standardwert ab. Aber wir wissen, dass es nur drei gültige Werte für den Filter gibt: all, active und completed. Wir können TypeScript darüber informieren, indem wir ein Enum Filter erstellen.
+2. Erstellen Sie eine `filter.enum.ts`-Datei im `types`-Ordner.
 3. Geben Sie ihr den folgenden Inhalt:
 
    ```ts
@@ -415,7 +414,7 @@ Jetzt kümmern wir uns um die `FilterButton`-Komponente.
    }
    ```
 
-4. Jetzt werden wir dies in der `FilterButton`-Komponente verwenden. Ersetzen Sie den Inhalt der `FilterButton.svelte`-Datei durch das Folgende:
+4. Jetzt werden wir dies in der `FilterButton`-Komponente verwenden. Ersetzen Sie den Inhalt der `FilterButton.svelte`-Datei durch den folgenden:
 
    ```svelte
    <!-- components/FilterButton.svelte -->
@@ -444,20 +443,20 @@ Jetzt kümmern wir uns um die `FilterButton`-Komponente.
    </div>
    ```
 
-Hier importieren wir einfach das `Filter` Enum und verwenden es anstelle der zuvor verwendeten Zeichenfolgenwerte.
+Hier importieren wir einfach das `Filter`-Enum und verwenden es anstelle der zuvor verwendeten String-Werte.
 
 ### Todos.svelte
 
-Wir werden auch das `Filter` Enum in der `Todos.svelte`-Komponente verwenden.
+Wir werden das `Filter`-Enum auch in der `Todos.svelte`-Komponente verwenden.
 
-1. Fügen Sie zuerst das `lang='ts'` Attribut hinzu, wie zuvor.
-2. Importieren Sie dann das `Filter` Enum. Fügen Sie die folgende `import`-Anweisung unter Ihren vorhandenen hinzu:
+1. Fügen Sie zuerst das `lang='ts'`-Attribut hinzu, wie zuvor.
+2. Importieren Sie als nächstes das `Filter`-Enum. Fügen Sie die folgende `import`-Anweisung unter Ihren vorhandenen hinzu:
 
    ```js
    import { Filter } from "../types/filter.enum";
    ```
 
-3. Jetzt verwenden wir es, wann immer wir auf den aktuellen Filter verweisen. Ersetzen Sie Ihre zwei filterbezogenen Blöcke durch das Folgende:
+3. Jetzt werden wir es jedes Mal verwenden, wenn wir auf den aktuellen Filter verweisen. Ersetzen Sie Ihre beiden filterbezogenen Blöcke durch die folgenden:
 
    ```ts
    let filter: Filter = Filter.ALL;
@@ -479,9 +478,9 @@ Wir werden auch das `Filter` Enum in der `Todos.svelte`-Komponente verwenden.
    }
    ```
 
-4. `check` gibt immer noch einige Warnungen von `Todos.svelte` aus. Lassen Sie uns sie beheben.
+4. `check` gibt uns immer noch einige Warnungen von `Todos.svelte`. Lassen Sie uns sie beheben.
 
-   Beginnen Sie mit dem Importieren des `TodoType` und informieren Sie TypeScript, dass unsere `todos`-Variable ein Array von `TodoType` ist. Ersetzen Sie `export let todos = []` durch die folgenden zwei Zeilen:
+   Beginnen Sie, indem Sie das `TodoType` importieren und TypeScript mitteilen, dass unsere `todos`-Variable ein `TodoType`-Array ist. Ersetzen Sie `export let todos = []` durch die folgenden zwei Zeilen:
 
    ```ts
    import type { TodoType } from "../types/todo.type";
@@ -489,9 +488,9 @@ Wir werden auch das `Filter` Enum in der `Todos.svelte`-Komponente verwenden.
    export let todos: TodoType[] = [];
    ```
 
-5. Als Nächstes geben wir alle fehlenden Typen an. Die Variable `todosStatus`, die wir verwendet haben, um programmgesteuert auf die von der `TodosStatus`-Komponente bereitgestellten Methoden zuzugreifen, ist vom Typ `TodosStatus`. Und jedes `todo` wird vom Typ `TodoType` sein.
+5. Als Nächstes geben wir alle fehlenden Typen an. Die Variable `todosStatus`, die wir verwendet haben, um auf die von der `TodosStatus`-Komponente bereitgestellten Methoden programmatisch zuzugreifen, ist vom Typ `TodosStatus`. Und jeder `todo` wird vom Typ `TodoType` sein.
 
-   Aktualisieren Sie Ihren `<script>` Abschnitt so, dass er wie folgt aussieht:
+   Aktualisieren Sie Ihren `<script>`-Abschnitt, um so auszusehen:
 
    ```ts
    import FilterButton from "./FilterButton.svelte";
@@ -564,7 +563,7 @@ Wir werden auch das `Filter` Enum in der `Todos.svelte`-Komponente verwenden.
 
 ### TodosStatus.svelte
 
-Wir stoßen auf die folgenden Fehler im Zusammenhang mit dem Übergeben von `todos` an die Komponenten `TodosStatus.svelte` (und `Todo.svelte`):
+Wir stoßen auf folgende Fehler im Zusammenhang mit dem Weitergeben von `todos` an die Komponenten `TodosStatus.svelte` (und `Todo.svelte`):
 
 ```plain
 ./src/components/Todos.svelte:70:39
@@ -576,12 +575,12 @@ Error: Type 'TodoType' is not assignable to type 'undefined'. (ts)
      <Todo {todo}
 ```
 
-Dies liegt daran, dass die `todos`-Prop in der `TodosStatus` Komponente keinen Standardwert hat, sodass TypeScript abgeleitet hat, dass sie vom Typ `undefined` ist, was nicht mit einem Array von `TodoType` kompatibel ist. Dasselbe passiert mit unserer Todo-Komponente.
+Der Grund dafür ist, dass die `todos`-Eigenschaft in der `TodosStatus`-Komponente keinen Standardwert hat, sodass TypeScript ableitet, dass sie vom Typ `undefined` ist, was nicht mit einem `TodoType`-Array kompatibel ist. Dasselbe passiert mit unserer Todo-Komponente.
 
 Lassen Sie uns das beheben.
 
-1. Öffnen Sie die Datei `TodosStatus.svelte` und fügen Sie das `lang='ts'` Attribut hinzu.
-2. Dann importieren Sie den `TodoType` und deklarieren die `todos` Prop als ein Array von `TodoType`. Ersetzen Sie die erste Zeile des `<script>` Abschnitts durch das Folgende:
+1. Öffnen Sie die Datei `TodosStatus.svelte` und fügen Sie das `lang='ts'`-Attribut hinzu.
+2. Importieren Sie dann das `TodoType` und deklarieren Sie die `todos`-Eigenschaft als `TodoType`-Array. Ersetzen Sie die erste Zeile des `<script>`-Abschnitts durch die folgende:
 
    ```ts
    import type { TodoType } from "../types/todo.type";
@@ -589,17 +588,17 @@ Lassen Sie uns das beheben.
    export let todos: TodoType[];
    ```
 
-3. Wir spezifizieren auch das `headingEl`, das wir verwendet haben, um es an das Heading-Tag zu binden, als `HTMLElement`. Aktualisieren Sie die Zeile `let headingEl` wie folgt:
+3. Wir geben auch das `headingEl`, das wir mit dem Überschriftstag verbunden haben, als `HTMLElement` an. Aktualisieren Sie die Zeile `let headingEl` mit der folgenden:
 
    ```ts
    let headingEl: HTMLElement;
    ```
 
-4. Schließlich werden Sie den folgenden Fehler bemerken, der sich auf das Setzen des `tabindex` Attributs bezieht. Das liegt daran, dass TypeScript den `<h2>`-Element Typ überprüft und erwartet, dass `tabindex` vom Typ `number` ist.
+4. Schließlich werden Sie den folgenden Fehler feststellen, der sich auf die Stelle bezieht, an der wir das `tabindex`-Attribut setzen. Das liegt daran, dass TypeScript das `<h2>`-Element typisiert und erwartet, dass `tabindex` vom Typ `number` ist.
 
-   ![Tabindex-Hinweis in VS Code, tabindex erwartet einen Typ von Nummer, nicht Zeichenfolge](10-vscode-tabindex-hint.png)
+   ![Tabindex-Hinweis in VS Code, tabindex erwartet einen Typ von Zahl, nicht String](10-vscode-tabindex-hint.png)
 
-   Um dies zu beheben, ersetzen Sie `tabindex="-1"` durch `tabindex={-1}`, so:
+   Um es zu beheben, ersetzen Sie `tabindex="-1"` durch `tabindex={-1}`, wie folgt:
 
    ```svelte
    <h2 id="list-heading" bind:this={headingEl} tabindex={-1}>
@@ -607,20 +606,20 @@ Lassen Sie uns das beheben.
    </h2>
    ```
 
-   Auf diese Weise kann TypeScript verhindern, dass wir es fälschlicherweise in eine Zeichenfolgenvariable zuweisen.
+   Auf diese Weise kann TypeScript verhindern, dass wir es einem String zuweisen.
 
 ### NewTodo.svelte
 
 Als nächstes kümmern wir uns um `NewTodo.svelte`.
 
-1. Wie üblich fügen Sie das `lang='ts'` Attribut hinzu.
-2. Die Warnung zeigt an, dass wir einen Typ für die `nameEl` Variable angeben müssen. Setzen Sie ihren Typ auf `HTMLElement` wie folgt:
+1. Fügen Sie wie gewohnt das `lang='ts'`-Attribut hinzu.
+2. Die Warnung wird darauf hinweisen, dass wir für die `nameEl`-Variable einen Typ angeben müssen. Setzen Sie ihren Typ auf `HTMLElement` wie folgt:
 
    ```ts
    let nameEl: HTMLElement; // reference to the name input DOM node
    ```
 
-3. Zuletzt in dieser Datei müssen wir den richtigen Typ für unsere `autofocus` Variable angeben. Aktualisieren Sie ihre Definition wie folgt:
+3. Zuletzt für diese Datei müssen wir den korrekten Typ für unsere `autofocus`-Variable angeben. Aktualisieren Sie ihre Definition wie folgt:
 
    ```ts
    export let autofocus: boolean = false;
@@ -628,10 +627,10 @@ Als nächstes kümmern wir uns um `NewTodo.svelte`.
 
 ### Todo.svelte
 
-Jetzt sind die einzigen Warnungen, die `npm run check` ausgibt, durch das Aufrufen der `Todo.svelte`-Komponente ausgelöst. Lassen Sie uns sie beheben.
+Jetzt sind die einzigen Warnungen, die `npm run check` ausgibt, von Aufrufen der `Todo.svelte`-Komponente ausgelöst. Lassen Sie uns das beheben.
 
-1. Öffnen Sie die Datei `Todo.svelte`, und fügen Sie das `lang='ts'` Attribut hinzu.
-2. Importieren Sie den `TodoType` und setzen Sie den Typ der `todo` Prop. Ersetzen Sie die Zeile `export let todo` durch das Folgende:
+1. Öffnen Sie die Datei `Todo.svelte` und fügen Sie das `lang='ts'`-Attribut hinzu.
+2. Lassen Sie uns `TodoType` importieren und den Typ der `todo`-Eigenschaft setzen. Ersetzen Sie die Zeile `export let todo` durch die folgende:
 
    ```ts
    import type { TodoType } from "../types/todo.type";
@@ -639,11 +638,11 @@ Jetzt sind die einzigen Warnungen, die `npm run check` ausgibt, durch das Aufruf
    export let todo: TodoType;
    ```
 
-3. Die erste Warnung, die wir erhalten, ist, dass TypeScript uns auffordert, den Typ der `update()`-Funktion `updatedTodo`-Variable zu definieren. Dies kann etwas knifflig sein, da `updatedTodo` nur die aktualisierten Attribute der `todo` enthält. Das bedeutet, dass es kein vollständiges `todo` ist — es hat nur eine Teilmenge der Eigenschaften eines `todo`.
+3. Die erste Warnung, die wir erhalten, ist TypeScript, das uns auffordert, den Typ der `update()`-Funktion `updatedTodo`-Variable zu definieren. Dies kann etwas knifflig sein, da `updatedTodo` nur die Attribute von `todo` enthält, die aktualisiert wurden. Das bedeutet, dass es kein vollständiges `todo` ist — es hat nur eine Teilmenge der Eigenschaften eines `todo`.
 
-   Für diese Art von Fällen bietet TypeScript mehrere [Utility-Typen](https://www.typescriptlang.org/docs/handbook/utility-types.html), um es einfacher zu machen, diese gängigen Transformationen anzuwenden. Was wir jetzt brauchen, ist das [`Partial<T>`](https://www.typescriptlang.org/docs/handbook/utility-types.html#partialt) Utility, das es uns ermöglicht, alle Teilmengen eines gegebenen Typs darzustellen. Das Partial Utility gibt einen neuen Typ zurück, basierend auf dem Typ `T`, bei dem jede Eigenschaft von `T` optional ist.
+   Für diese Art von Fällen stellt TypeScript mehrere [Utility-Typen](https://www.typescriptlang.org/docs/handbook/utility-types.html) zur Verfügung, um es Ihnen zu erleichtern, diese häufigen Transformationen anzuwenden. Was wir sofort benötigen, ist das [`Partial<T>`](https://www.typescriptlang.org/docs/handbook/utility-types.html#partialt)-Utility, das es uns erlaubt, alle Teilmengen eines bestimmten Typs darzustellen. Das partielle Utility gibt einen neuen Typ basierend auf dem Typ `T` zurück, bei dem jede Eigenschaft von `T` optional ist.
 
-   Wir verwenden es in der Funktion `update()` — aktualisieren Sie Ihre wie folgt:
+   Wir verwenden es in der `update()`-Funktion — aktualisieren Sie Ihre wie folgt:
 
    ```ts
    function update(updatedTodo: Partial<TodoType>) {
@@ -652,9 +651,9 @@ Jetzt sind die einzigen Warnungen, die `npm run check` ausgibt, durch das Aufruf
    }
    ```
 
-   Damit sagen wir TypeScript, dass die `updatedTodo` Variable eine Teilmenge der `TodoType` Eigenschaften enthält.
+   Damit teilen wir TypeScript mit, dass die `updatedTodo`-Variable eine Teilmenge der `TodoType`-Eigenschaften enthalten wird.
 
-4. Jetzt sagt uns svelte-check, dass wir den Typ unserer Aktionsfunktionsparameter definieren müssen:
+4. Jetzt teilt uns `svelte-check` mit, dass wir den Typ der Parameter der Aktionsfunktion definieren müssen:
 
    ```bash
    ./07-next-steps/src/components/Todo.svelte:45:24
@@ -666,13 +665,13 @@ Jetzt sind die einzigen Warnungen, die `npm run check` ausgibt, durch das Aufruf
      const focusEditButton = (node) => editButtonPressed && node.focus()
    ```
 
-   Wir müssen nur die Node-Variable als `HTMLElement` Typ definieren. Ersetzen Sie in den beiden oben genannten Zeilen die erste Instanz von `node` durch `node: HTMLElement`.
+   Wir müssen nur die Knotenvariable als `HTMLElement` definieren. Ersetzen Sie in den beiden oben angegebenen Zeilen das erste Vorkommen von `node` durch `node: HTMLElement`.
 
 ### actions.js
 
-Als nächstes kümmern wir uns um die `actions.js` Datei.
+Als nächstes kümmern wir uns um die Datei `actions.js`.
 
-1. Benennen Sie sie in `actions.ts` um und geben Sie den Typ des Node-Params an. Es sollte am Ende so aussehen:
+1. Benennen Sie es in `actions.ts` um und geben Sie den Typ der Knotenparameter an. Es sollte am Ende so aussehen:
 
    ```ts
    // actions.ts
@@ -688,7 +687,7 @@ Als nächstes kümmern wir uns um die `actions.js` Datei.
    }
    ```
 
-2. Aktualisieren Sie jetzt `Todo.svelte` und `NewTodo.svelte`, wo wir die actions-Datei importieren. Denken Sie daran, dass Importe in TypeScript die Dateierweiterung nicht enthalten. In jedem Fall sollte es am Ende so aussehen:
+2. Aktualisieren Sie nun `Todo.svelte` und `NewTodo.svelte`, in denen wir die Aktionsdatei importieren. Denken Sie daran, dass Importe in TypeScript die Dateiendung nicht enthalten. In jedem Fall sollte es am Ende so aussehen:
 
    ```js
    import { selectOnFocus } from "../actions";
@@ -696,14 +695,14 @@ Als nächstes kümmern wir uns um die `actions.js` Datei.
 
 ### Migration der Stores zu TypeScript
 
-Jetzt müssen wir die `stores.js` und `localStore.js` Dateie nach TypeScript migrieren.
+Jetzt müssen wir die Dateien `stores.js` und `localStore.js` zu TypeScript portieren.
 
-Tipp: das Skript `npm run check`, das das [`svelte-check`](https://github.com/sveltejs/language-tools/tree/master/packages/svelte-check) Werkzeug verwendet, überprüft nur die `.svelte` Dateien unserer Anwendung. Wenn Sie auch die `.ts`-Dateien überprüfen möchten, können Sie `npm run check && npx tsc --noEmit` ausführen, wodurch der TypeScript-Compiler angewiesen wird, nach Fehlern zu suchen, ohne die `.js`-Ausgabedateien zu generieren. Sie könnten sogar ein Skript zu Ihrer `package.json`-Datei hinzufügen, das diesen Befehl ausführt.
+Tipp: Das Skript `npm run check`, das das Werkzeug [`svelte-check`](https://github.com/sveltejs/language-tools/tree/master/packages/svelte-check) verwendet, überprüft nur die `.svelte`-Dateien unserer Anwendung. Wenn Sie auch die `.ts`-Dateien überprüfen möchten, können Sie `npm run check && npx tsc --noEmit` ausführen, was dem TypeScript-Compiler mitteilt, Fehler zu überprüfen, ohne die `.js`-Ausgabedateien zu generieren. Sie könnten sogar ein Skript zu Ihrer `package.json`-Datei hinzufügen, das diesen Befehl ausführt.
 
-Beginnen wir mit `stores.js`.
+Wir fangen bei `stores.js` an.
 
 1. Benennen Sie die Datei in `stores.ts` um.
-2. Setzen Sie den Typ unseres `initialTodos` Arrays auf `TodoType[]`. So sieht der Inhalt am Ende aus:
+2. Setzen Sie den Typ unseres `initialTodos`-Arrays zu `TodoType[]`. So sieht der Inhalt am Ende aus:
 
    ```ts
    // stores.ts
@@ -721,13 +720,13 @@ Beginnen wir mit `stores.js`.
    export const todos = localStore("mdn-svelte-todo", initialTodos);
    ```
 
-3. Denken Sie daran, die `import`-Anweisungen in `App.svelte`, `Alert.svelte` und `Todos.svelte` zu aktualisieren. Lassen Sie einfach die `.js`-Erweiterung weg, so:
+3. Denken Sie daran, die `import`-Anweisungen in `App.svelte`, `Alert.svelte` und `Todos.svelte` zu aktualisieren. Entfernen Sie einfach die `.js`-Erweiterung, wie folgt:
 
    ```js
    import { todos } from "../stores";
    ```
 
-Jetzt zu `localStore.js`.
+Nun zu `localStore.js`.
 
 Aktualisieren Sie die `import`-Anweisung in `stores.ts` so:
 
@@ -736,11 +735,11 @@ import { localStore } from "./localStore";
 ```
 
 1. Beginnen Sie, indem Sie die Datei in `localStore.ts` umbenennen.
-2. TypeScript sagt uns, dass wir den Typ der `key`, `initial` und `value`-Variablen angeben müssen. Die erste ist einfach: Der Schlüssel unseres lokalen Webspeichers sollte eine Zeichenfolge sein.
+2. TypeScript fordert uns auf, den Typ der Variablen `key`, `initial` und `value` anzugeben. Der erste ist einfach: der Schlüssel unseres lokalen Webspeichers sollte ein String sein.
 
-   Aber `initial` und `value` sollten jedes Objekt sein, das in eine gültige JSON-Zeichenfolge mit der Methode [`JSON.stringify`](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) konvertiert werden kann, was jedes JavaScript-Objekt mit ein paar Einschränkungen bedeutet: z.B. sind `undefined`, Funktionen und Symbole keine gültigen JSON-Werte.
+   Aber `initial` und `value` sollten ein beliebiges Objekt sein, das mit der Methode [`JSON.stringify`](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) in einen gültigen JSON-String konvertiert werden kann, was jedes JavaScript-Objekt mit ein paar Einschränkungen bedeutet: zum Beispiel sind `undefined`, Funktionen und Symbole keine gültigen JSON-Werte.
 
-   Also erstellen wir den Typ `JsonValue`, um diese Bedingungen anzugeben.
+   Deshalb werden wir den Typ `JsonValue` erstellen, um diese Bedingungen anzugeben.
 
    Erstellen Sie die Datei `json.type.ts` im `types`-Ordner.
 
@@ -756,9 +755,9 @@ import { localStore } from "./localStore";
      | { [key: string]: JsonValue };
    ```
 
-   Der `|`-Operator lässt uns Variablen deklarieren, die Werte von zwei oder mehr Typen speichern könnten. Ein `JsonValue` könnte eine Zeichenfolge, eine Zahl, ein Boolean usw. sein. In diesem Fall machen wir auch Gebrauch von rekursiven Typen, um anzugeben, dass ein `JsonValue` ein Array von `JsonValue` und auch ein Objekt mit Eigenschaften vom Typ `JsonValue` haben kann.
+   Der `|`-Operator erlaubt es uns, Variablen zu deklarieren, die Werte von zwei oder mehr Typen speichern können. Ein `JsonValue` könnte ein String, eine Zahl, ein Boolean und so weiter sein. In diesem Fall verwenden wir auch rekursive Typen, um anzugeben, dass ein `JsonValue` ein Array von `JsonValue` und auch ein Objekt mit Eigenschaften vom Typ `JsonValue` haben kann.
 
-4. Wir werden unseren `JsonValue`-Typ importieren und ihn entsprechend verwenden. Aktualisieren Sie Ihre `localStore.ts`-Datei so:
+4. Importieren wir unseren `JsonValue`-Typ und verwenden ihn entsprechend. Aktualisieren Sie Ihre `localStore.ts`-Datei so:
 
    ```ts
    // localStore.ts
@@ -792,11 +791,11 @@ import { localStore } from "./localStore";
    };
    ```
 
-Wenn wir jetzt versuchen, einen `localStore` mit etwas zu erstellen, das nicht in JSON über `JSON.stringify()` konvertiert werden kann, z.B. ein Objekt mit einer Funktion als Eigenschaft, wird VS Code/`validate` darüber beschweren:
+Wenn wir jetzt versuchen, einen `localStore` mit etwas zu erstellen, das nicht mit `JSON.stringify()` konvertiert werden kann, zum Beispiel ein Objekt mit einer Funktion als Eigenschaft, wird VS Code/`validate` sich darüber beschweren:
 
-![VS Code zeigt einen Fehler mit der Verwendung unseres Stores - es schlägt fehl, wenn versucht wird, einen lokalen Speicherwert auf etwas einzustellen, das nicht mit JSON stringify kompatibel ist](11-vscode-invalid-store.png)
+![VS Code zeigt einen Fehler bei der Verwendung unseres Stores — es scheitert beim Versuch, einen lokalen Speichernwert auf etwas zu setzen, das nicht mit JSON stringify kompatibel ist](11-vscode-invalid-store.png)
 
-Und das Beste von allem, es wird sogar mit der [`$store` Auto-Abonnement-Syntax](https://svelte.dev/docs/svelte-components#script-4-prefix-stores-with-$-to-access-their-values) funktionieren. Wenn wir versuchen, einen ungültigen Wert in unserem `todos` Store mit der `$store` Syntax zu speichern, etwa so:
+Und das Beste daran ist, es funktioniert sogar mit der [`$store`-Autoverknüpfungssyntax](https://svelte.dev/docs/svelte-components#script-4-prefix-stores-with-$-to-access-their-values). Wenn wir versuchen, einen ungültigen Wert in unseren `todos`-Store mit der `$store`-Syntax zu speichern, wie folgt:
 
 ```svelte
 <!-- App.svelte -->
@@ -828,19 +827,19 @@ Error: Argument of type '{ handler: () => void; }' is not assignable to paramete
  $todos = { handler: () => {} }
 ```
 
-Das ist ein weiteres Beispiel dafür, wie das Angeben von Typen unseren Code robuster machen kann und uns helfen kann, mehr Fehler zu erkennen, bevor sie in die Produktion gelangen.
+Das ist ein weiteres Beispiel, wie das Angeben von Typen unseren Code robuster machen und uns helfen kann, mehr Fehler zu fangen, bevor sie in die Produktion gelangen.
 
-Und das war's. Wir haben unsere ganze Anwendung so konvertiert, dass sie TypeScript verwendet.
+Und das war's. Wir haben unsere gesamte Anwendung so konvertiert, dass sie TypeScript verwendet.
 
 ## Unsere Stores mit Generics kugelsicher machen
 
-Unsere Stores wurden bereits auf TypeScript portiert, aber wir können besser werden. Wir sollten keinen beliebigen Wert speichern müssen — wir wissen, dass der Alert-Store Zeichenfolgen-Nachrichten enthalten sollte und der To-dos-Store ein Array von `TodoType`, usw. Wir können TypeScript dazu bringen, dies mit [TypeScript Generics](https://www.typescriptlang.org/docs/handbook/generics.html) durchzusetzen. Lassen Sie uns mehr herausfinden.
+Unsere Stores wurden bereits zu TypeScript portiert, aber wir können noch mehr tun. Wir sollten nicht jeden beliebigen Wert speichern müssen — wir wissen, dass der Alert-Store nur String-Nachrichten enthalten sollte, und der Todos-Store sollte ein Array von `TodoType` enthalten, usw. Wir können TypeScript erlauben, dies mit [TypeScript Generics](https://www.typescriptlang.org/docs/handbook/generics.html) zu erzwingen. Finden wir mehr heraus.
 
-### Verstehen von TypeScript Generics
+### TypeScript Generics verstehen
 
-Generics ermöglichen es Ihnen, wiederverwendbaren Code zu erstellen, der mit einer Vielzahl von Typen anstelle eines einzelnen Typs arbeitet. Sie können auf Schnittstellen, Klassen und Funktionen angewendet werden. Generische Typen werden als Parameter mit einer speziellen Syntax übergeben: sie werden in spitzen Klammern angegeben und konventionell mit einem einzelnen Großbuchstaben dargestellt. Generische Typen ermöglichen es Ihnen, die vom Benutzer bereitgestellten Typen zu erfassen und sicherzustellen, dass sie für zukünftige Verarbeitung verfügbar sind.
+Generics erlauben es Ihnen, wiederverwendbare Codekomponenten zu erstellen, die mit einer Vielzahl von Typen anstelle eines einzelnen Typs arbeiten. Sie können auf Schnittstellen, Klassen und Funktionen angewendet werden. Generische Typen werden als Parameter mit einer speziellen Syntax übergeben: sie werden mit Winkelklammern angegeben und konventionell mit einem einzelnen Großbuchstaben bezeichnet. Generische Typen erlauben es Ihnen, die von der Benutzer bereitgestellten Typen zu erfassen und sicherzustellen, dass sie für die zukünftige Verarbeitung verfügbar sind.
 
-Lassen Sie uns ein kurzes Beispiel sehen, eine einfache `Stack`-Klasse, die uns erlaubt, `push` und `pop` Elemente zu verwenden, etwa so:
+Lassen Sie uns ein kurzes Beispiel sehen, eine einfache `Stack`-Klasse, die uns erlaubt, Elemente mit `push` und `pop` zu verarbeiten, wie folgt:
 
 ```ts
 export class Stack {
@@ -855,7 +854,7 @@ export class Stack {
 }
 ```
 
-In diesem Fall ist `elements` ein Array vom Typ `any` und dementsprechend empfangen und geben die `push()` und `pop()`-Methoden beide eine Variable vom Typ `any` zurück. Es ist also vollkommen gültig, etwas wie das Folgende zu tun:
+In diesem Fall ist `elements` ein Array vom Typ `any`, und dementsprechend erhalten und geben die `push()`- und `pop()`-Methoden beide eine Variable vom Typ `any` zurück. Es ist also vollkommen gültig, etwas wie das Folgende zu tun:
 
 ```js
 const anyStack = new Stack();
@@ -864,7 +863,7 @@ anyStack.push(1);
 anyStack.push("hello");
 ```
 
-Aber was, wenn wir einen `Stack` hätten, der nur mit dem Typ `string` arbeiten würde? Wir könnten Folgendes tun:
+Aber was, wenn wir einen `Stack` haben wollten, der nur mit Typ `string` funktioniert? Wir könnten das Folgende tun:
 
 ```ts
 export class StringStack {
@@ -879,11 +878,11 @@ export class StringStack {
 }
 ```
 
-Das würde funktionieren. Aber wenn wir mit Zahlen arbeiten wollten, müssten wir dann unseren Code duplizieren und eine `NumberStack`-Klasse erstellen. Und wie könnten wir einen Stack mit Typen handhaben, die wir noch nicht kennen und die vom Verbraucher definiert werden sollten?
+Das würde funktionieren. Aber wenn wir mit Zahlen arbeiten wollten, müssten wir unseren Code duplizieren und eine `NumberStack`-Klasse erstellen. Und wie könnten wir einen Stack von Typen verarbeiten, die wir noch nicht kennen und die vom Verbraucher definiert werden sollten?
 
 Um all diese Probleme zu lösen, können wir Generics verwenden.
 
-Das ist unsere `Stack`-Klasse, neu implementiert unter Verwendung von Generics:
+Das ist unsere `Stack`-Klasse, die mit Generics neu implementiert wurde:
 
 ```ts
 export class Stack<T> {
@@ -898,7 +897,7 @@ export class Stack<T> {
 }
 ```
 
-Wir definieren einen generischen Typ `T` und verwenden ihn dann wie einen normalen spezifischen Typ. Jetzt ist `elements` ein Array vom Typ `T`, und `push()` und `pop()` empfangen und geben eine Variable vom Typ `T` zurück.
+Wir definieren einen generischen Typ `T` und verwenden ihn dann wie einen bestimmten Typ. Jetzt ist `elements` ein Array vom Typ `T`, und `push()` und `pop()` erhalten und geben beide eine Variable vom Typ `T` zurück.
 
 So würden wir unseren generischen `Stack` verwenden:
 
@@ -907,35 +906,29 @@ const numberStack = new Stack<number>();
 numberStack.push(1);
 ```
 
-Jetzt weiß TypeScript, dass unser Stack nur Zahlen akzeptieren kann, und wird einen Fehler ausgeben, wenn wir versuchen, etwas anderes zu pushen:
+Jetzt weiß TypeScript, dass unser Stack nur Zahlen akzeptieren kann, und gibt einen Fehler aus, wenn wir versuchen, etwas anderes zu pushen:
 
-![Argument von Typ hello ist nicht zuweisbar für Parameter von Typ Nummer](12-vscode-generic-stack-error.png)
+![Argument des Typs hello ist nicht zuweisbar an den Parameter des Typs number](12-vscode-generic-stack-error.png)
 
-TypeScript kann auch generische Typen anhand ihrer Verwendung ableiten. Generics unterstützen auch Standardwerte und Einschränkungen.
+TypeScript kann auch generische Typen durch ihre Verwendung ableiten. Generics unterstützen auch Standardwerte und Einschränkungen.
 
-Generics sind eine leistungsstarke Funktion, die es unserem Code ermöglicht, sich von den spezifischen verwendeten Typen zu abstrahieren, wodurch er wiederverwendbarer und generischer wird, ohne auf Typensicherheit zu verzichten. Um mehr darüber zu erfahren, sehen Sie sich die [TypeScript Einführung zu Generics](https://www.typescriptlang.org/docs/handbook/generics.html) an.
+Generics sind ein leistungsstarkes Feature, das es unserem Code ermöglicht, sich von den spezifischen verwendeten Typen zu abstrahieren, ihn wiederverwendbarer und generischer zu machen, ohne auf die Typensicherheit verzichten zu müssen. Um mehr darüber zu erfahren, lesen Sie die [Einführung zu Generics in TypeScript](https://www.typescriptlang.org/docs/handbook/generics.html).
 
-### Verwenden von Svelte Stores mit Generics
+### Verwendung von Svelte-Stores mit Generics
 
-Svelte-Stores unterstützen Generics von Haus aus. Und durch die generische Typinferenz können wir davon profitieren, ohne überhaupt unseren Code anfassen zu müssen.
+Svelte-Stores unterstützen standardmäßig Generics. Und aufgrund der generischen Typableitung können wir davon profitieren, ohne auch nur unseren Code zu berühren.
 
-Wenn Sie die Datei `Todos.svelte` öffnen und einen `number`-Typ unseren `$alert` Store zuweisen, erhalten Sie den folgenden Fehler:
+Wenn Sie die Datei `Todos.svelte` öffnen und einen `number`-Typ in unseren `$alert`-Store zuweisen, erhalten Sie den folgenden Fehler:
 
-![Argument von Typ 9999 ist nicht zuweisbar für Parameter von Typ string](13-vscode-generic-alert-error.png)
+![Argument des Typs 9999 ist nicht zuweisbar an den Parameter des Typs string](13-vscode-generic-alert-error.png)
 
-Das liegt daran, dass, als wir unseren Alert-Store in der `stores.ts`-Datei mit definiert haben:
-
-```js
-export const alert = writable("Welcome to the To-Do list app!");
-```
-
-TypeScript den generischen Typ auf `string` abgeleitet hat. Wenn wir darüber explizit sein wollten, könnten wir Folgendes tun:
+Das liegt daran, dass, als wir unseren Alert-Store in der Datei `stores.ts` definierten, TypeScript den generischen Typ auf `string` ableitete. Wenn wir darüber explizit sein wollten, könnten wir Folgendes tun:
 
 ```ts
 export const alert = writable<string>("Welcome to the To-Do list app!");
 ```
 
-Jetzt machen wir unseren `localStore` Store so, dass er Generics unterstützt. Denken Sie daran, dass wir den `JsonValue` Typ definiert haben, um die Verwendung unseres `localStore` Stores mit Werten zu verhindern, die nicht mit `JSON.stringify()` gespeichert werden können. Jetzt möchten wir den Verbrauchern von `localStore` erlauben, den Typ der zu speichernden Daten anzugeben, aber anstatt mit einem beliebigen Typ zu arbeiten, sollten sie mit dem `JsonValue` Typ übereinstimmen. Wir werden dies mit einer generischen Einschränkung angeben, etwa so:
+Jetzt werden wir unseren `localStore`-Store so anpassen, dass er Generics unterstützt. Erinnern Sie sich, dass wir den `JsonValue`-Typ definiert haben, um die Verwendung unseres `localStore`-Stores mit Werten zu verhindern, die nicht mit `JSON.stringify()` gespeichert werden können. Jetzt möchten wir den Verbrauchern von `localStore` erlauben, den Typ der gespeicherten Daten zu spezifizieren, aber anstelle von irgendwelchen Typen, sollten sie mit dem `JsonValue`-Typ kompatibel sein. Wir geben das mit einer generischen Einschränkung an, wie folgt:
 
 ```ts
 export const localStore = <T extends JsonValue>(key: string, initial: T) => {
@@ -943,9 +936,9 @@ export const localStore = <T extends JsonValue>(key: string, initial: T) => {
 };
 ```
 
-Wir definieren einen generischen Typ `T` und geben an, dass er mit dem `JsonValue` Typ kompatibel sein muss. Dann verwenden wir den `T` Typ entsprechend.
+Wir definieren einen generischen Typ `T` und geben an, dass er mit dem `JsonValue`-Typ kompatibel sein muss. Dann verwenden wir den Typ `T` entsprechend.
 
-Unsere `localStore.ts` Datei wird so enden — versuchen Sie nun den neuen Code in Ihrer Version:
+Unsere Datei `localStore.ts` wird den folgenden Inhalt haben — versuchen Sie den neuen Code jetzt in Ihrem Beispiel:
 
 ```ts
 // localStore.ts
@@ -979,11 +972,11 @@ export const localStore = <T extends JsonValue>(key: string, initial: T) => {
 };
 ```
 
-Und dank der generischen Typinferenz weiß TypeScript bereits, dass unser `$todos` Store ein Array von `TodoType` enthalten soll:
+Und dank der generischen Typableitung weiß TypeScript bereits, dass unser `$todos`-Store ein Array von `TodoType` enthalten sollte:
 
-![Todo Typ-Objekteigenschaft complete sollte completed sein](14-vscode-generic-localstore-error.png)
+![Todo Type-Objekteigenschaft complete sollte completed sein](14-vscode-generic-localstore-error.png)
 
-Ein weiteres Mal, wenn wir darüber explizit sein wollten, könnten wir das in der `stores.ts` Datei so tun:
+Nochmals, wenn wir darüber explizit sein wollten, könnten wir das in der Datei `stores.ts` tun, wie folgt:
 
 ```ts
 const initialTodos: TodoType[] = [
@@ -994,13 +987,13 @@ const initialTodos: TodoType[] = [
 export const todos = localStore<TodoType[]>("mdn-svelte-todo", initialTodos);
 ```
 
-Das reicht für unsere kurze Tour durch TypeScript Generics.
+Das sollte zu unserem kurzen Überblick über TypeScript Generics genügen.
 
-## Der Code bis jetzt
+## Der bisherige Code
 
 ### Git
 
-Um den Stand des Codes zu sehen, wie er am Ende dieses Artikels sein sollte, greifen Sie so auf Ihre Kopie unseres Repos zu:
+Um den Zustand des Codes zu sehen, wie er am Ende dieses Artikels sein sollte, greifen Sie auf Ihre Kopie unseres Repos zu, wie folgt:
 
 ```bash
 cd mdn-svelte-tutorial/08-next-steps
@@ -1016,16 +1009,16 @@ Denken Sie daran, `npm install && npm run dev` auszuführen, um Ihre App im Entw
 
 ### REPL
 
-Wie bereits gesagt, ist TypeScript noch nicht im REPL verfügbar.
+Wie bereits erwähnt, ist TypeScript im REPL noch nicht verfügbar.
 
 ## Zusammenfassung
 
-In diesem Artikel haben wir unsere To-do-Liste Anwendung genommen und auf TypeScript portiert.
+In diesem Artikel haben wir unsere To-do-Liste-Anwendung portiert, um sie TypeScript zu verwenden.
 
-Zuerst haben wir über TypeScript gelernt und welche Vorteile es uns bringen kann. Dann haben wir gesehen, wie man ein neues Svelte-Projekt mit TypeScript-Unterstützung erstellt. Wir haben auch gesehen, wie man ein bestehendes Svelte-Projekt konvertiert, um TypeScript zu nutzen — unsere To-do-Liste App.
+Wir haben zuerst gelernt, was TypeScript ist und welche Vorteile es uns bringen kann. Dann haben wir gesehen, wie man ein neues Svelte-Projekt mit TypeScript-Unterstützung erstellt. Wir haben auch gesehen, wie man ein bestehendes Svelte-Projekt so konvertiert, dass es TypeScript verwendet — Unsere To-do-Liste-App.
 
-Wir haben gesehen, wie man mit [Visual Studio Code](https://code.visualstudio.com/) und der [Svelte-Erweiterung](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode) arbeitet, um Funktionen wie Typüberprüfung und Autovervollständigung zu erhalten. Wir haben auch das `svelte-check` Werkzeug verwendet, um TypeScript-Problemen von der Befehlszeile aus zu überprüfen.
+Wir haben gesehen, wie wir mit [Visual Studio Code](https://code.visualstudio.com/) und der [Svelte-Erweiterung](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode) arbeiten können, um Funktionen wie Typprüfung und Autovervollständigung zu erhalten. Wir haben auch das Tool `svelte-check` verwendet, um TypeScript-Probleme von der Befehlszeile aus zu prüfen.
 
-Im nächsten Artikel lernen wir, wie man unsere App kompiliert und in die Produktion bereitstellt. Wir werden auch sehen, welche Ressourcen online verfügbar sind, um weiter über Svelte zu lernen.
+Im nächsten Artikel werden wir lernen, wie man unsere App kompiliert und in die Produktion bereitstellt. Wir werden auch sehen, welche Ressourcen online verfügbar sind, um weiter mit dem Lernen von Svelte fortzufahren.
 
 {{PreviousMenuNext("Learn_web_development/Core/Frameworks_libraries/Svelte_stores","Learn_web_development/Core/Frameworks_libraries/Svelte_deployment_next", "Learn_web_development/Core/Frameworks_libraries")}}

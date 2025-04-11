@@ -1,35 +1,33 @@
 ---
-title: Übermittlung von Formularen mit JavaScript
+title: Senden von Formularen über JavaScript
 slug: Learn_web_development/Extensions/Forms/Sending_forms_through_JavaScript
 l10n:
-  sourceCommit: 2595b22899b54f079721069704128fb7f0451995
+  sourceCommit: 48d220a8cffdfd5f088f8ca89724a9a92e34d8c0
 ---
 
-{{LearnSidebar}}
-
-Wenn ein Benutzer ein HTML-Formular absendet, zum Beispiel durch Klicken auf den {{Glossary("Submit_button", "Submit-Button")}}, sendet der Browser eine [HTTP](/de/docs/Web/HTTP) Anfrage, um die Daten im Formular zu übertragen. Anstelle dieses deklarativen Ansatzes verwenden Webanwendungen manchmal JavaScript-APIs wie [`fetch()`](/de/docs/Web/API/Window/fetch), um Daten programmgesteuert an einen Endpunkt zu senden, der eine Formularübertragung erwartet. Dieser Artikel erklärt, warum dies ein wichtiger Anwendungsfall ist und wie es gemacht wird.
+Wenn ein Benutzer ein HTML-Formular übermittelt, beispielsweise durch Klicken auf den {{Glossary("Submit_button", "Senden-Button")}}, sendet der Browser eine [HTTP](/de/docs/Web/HTTP)-Anfrage, um die Daten im Formular zu übertragen. Anstelle dieses deklarativen Ansatzes verwenden Web-Apps manchmal JavaScript-APIs wie [`fetch()`](/de/docs/Web/API/Window/fetch), um Daten programmatisch an ein Endpunkt zu senden, der eine Formularübertragung erwartet. Dieser Artikel erklärt, warum dies ein wichtiger Anwendungsfall ist und wie man es umsetzt.
 
 ## Warum JavaScript zur Übermittlung von Formulardaten verwenden?
 
-Die standardmäßige HTML-Formularübermittlung, wie in unserem Artikel über das [Senden von Formulardaten](/de/docs/Learn_web_development/Extensions/Forms/Sending_and_retrieving_form_data) beschrieben, lädt die URL, an die die Daten gesendet wurden, was bedeutet, dass das Browserfenster mit einem vollständigen Seitenaufruf navigiert.
+Die Standard-HTML-Formularübermittlung, wie in unserem Artikel über [Formulardaten senden](/de/docs/Learn_web_development/Extensions/Forms/Sending_and_retrieving_form_data) beschrieben, lädt die URL, an die die Daten gesendet wurden, was bedeutet, dass das Browserfenster mit einem vollständigen Seitenladevorgang navigiert.
 
-Viele Webanwendungen, insbesondere {{Glossary("progressive_web_apps", "progressive Web-Apps")}} und {{Glossary("SPA", "Single-Page-Anwendungen")}}, verwenden jedoch JavaScript-APIs, um Daten vom Server anzufordern und relevante Teile der Seite zu aktualisieren, wodurch der Overhead eines vollständigen Seitenaufrufs vermieden wird.
+Viele Web-Apps, insbesondere {{Glossary("progressive_web_apps", "Progressive Web Apps")}} und {{Glossary("SPA", "Single-Page-Apps")}}, verwenden jedoch JavaScript-APIs, um Daten vom Server anzufordern und die relevanten Teile der Seite zu aktualisieren, wobei der Aufwand eines vollständigen Seitenladevorgangs vermieden wird.
 
-Aus diesem Grund verwenden diese Webanwendungen HTML-Formulare nur zur Dateneingabe durch den Benutzer, jedoch nicht zur Datenübermittlung. Wenn der Benutzer versucht, die Daten zu senden, übernimmt die Anwendung die Kontrolle und sendet die Daten mithilfe einer JavaScript-API wie [`fetch()`](/de/docs/Web/API/Window/fetch).
+Aus diesem Grund verwenden diese Web-Apps, wenn sie Formulardaten übermitteln möchten, HTML-Formulare nur, um Eingaben vom Benutzer zu sammeln, aber nicht für die Datenübermittlung. Wenn der Benutzer versucht, die Daten zu senden, übernimmt die Anwendung die Kontrolle und sendet die Daten über eine JavaScript-API wie [`fetch()`](/de/docs/Web/API/Window/fetch).
 
-## Das Problem mit der JavaScript-Formularübermittlung
+## Das Problem mit JavaScript-Formularübermittlung
 
-Wenn der Serverendpunkt, an den die Webanwendung die Formulardaten sendet, unter der Kontrolle des Webanwendungsentwicklers steht, können sie die Formulardaten nach Belieben senden: zum Beispiel als JSON-Objekt.
+Wenn das Server-Endpunkt, an den die Web-App die Formulardaten sendet, unter der Kontrolle des Web-App-Entwicklers steht, können sie die Formulardaten auf jede gewünschte Weise senden: zum Beispiel als JSON-Objekt.
 
-Wenn der Serverendpunkt jedoch eine Formularübermittlung erwartet, muss die Webanwendung die Daten auf eine bestimmte Weise codieren. Zum Beispiel, wenn die Daten nur textuell sind, werden sie als URL-kodierte Listen von Schlüssel/Wert-Paaren erstellt und mit einem {{httpheader("Content-Type")}} von `application/x-www-form-urlencoded` gesendet. Wenn das Formular Binärdaten enthält, müssen diese mit dem `multipart/form-data` Inhaltstyp gesendet werden.
+Wenn der Server-Endpunkt jedoch eine Formularübermittlung erwartet, muss die Web-App die Daten auf eine bestimmte Weise kodieren. Beispielsweise, wenn die Daten nur aus Text bestehen, werden sie aus URL-kodierten Listen von Schlüssel/Wert-Paaren gebildet und mit einem {{httpheader("Content-Type")}} von `application/x-www-form-urlencoded` gesendet. Wenn das Formular Binärdaten enthält, müssen diese mit dem `multipart/form-data`-Content-Type gesendet werden.
 
-Das [`FormData`](/de/docs/Web/API/FormData)-Interface kümmert sich um den Prozess der Codierung von Daten auf diese Weise, und im Rest dieses Artikels geben wir eine kurze Einführung in `FormData`. Für weitere Details siehe unseren Leitfaden zur [Verwendung von FormData-Objekten](/de/docs/Web/API/XMLHttpRequest_API/Using_FormData_Objects).
+Das [`FormData`](/de/docs/Web/API/FormData)-Interface übernimmt den Prozess der Kodierung von Daten auf diese Weise, und im Rest dieses Artikels geben wir eine kurze Einführung in `FormData`. Für weitere Details siehe unseren Leitfaden zur [Verwendung von FormData-Objekten](/de/docs/Web/API/XMLHttpRequest_API/Using_FormData_Objects).
 
 ## Manuelles Erstellen eines `FormData`-Objekts
 
-Sie können ein `FormData`-Objekt befüllen, indem Sie die [`append()`](/de/docs/Web/API/FormData/append)-Methode des Objekts für jedes Feld aufrufen, das Sie hinzufügen möchten, und den Namen und Wert des Feldes übergeben. Der Wert kann ein Zeichenfolgenwert für Textfelder oder ein [`Blob`](/de/docs/Web/API/Blob) für Binärfelder, einschließlich [`File`](/de/docs/Web/API/File)-Objekten, sein.
+Sie können ein `FormData`-Objekt befüllen, indem Sie die [`append()`](/de/docs/Web/API/FormData/append)-Methode des Objekts für jedes hinzuzufügende Feld aufrufen und dabei den Feldnamen und den Wert übergeben. Der Wert kann ein String für Textfelder oder ein [`Blob`](/de/docs/Web/API/Blob) für Binärfelder, einschließlich [`File`](/de/docs/Web/API/File)-Objekten, sein.
 
-Im folgenden Beispiel senden wir Daten als Formularübermittlung, wenn der Benutzer auf eine Schaltfläche klickt:
+Im folgenden Beispiel senden wir Daten als Formularübermittlung, wenn der Benutzer auf einen Button klickt:
 
 ```js
 async function sendData(data) {
@@ -64,15 +62,15 @@ send.addEventListener("click", sendData);
 
 1. Wir erstellen zunächst ein neues, leeres `FormData`-Objekt.
 
-2. Als nächstes rufen wir `append()` zweimal auf, um zwei Elemente zum `FormData`-Objekt hinzuzufügen: ein Textfeld und eine Datei.
+2. Als Nächstes rufen wir `append()` zweimal auf, um zwei Elemente zum `FormData`-Objekt hinzuzufügen: ein Textfeld und eine Datei.
 
-3. Schließlich erstellen wir eine {{httpmethod("POST")}}-Anfrage unter Verwendung der `fetch()`-API und setzen das `FormData`-Objekt als Anfrageinhalt.
+3. Schließlich führen wir eine {{httpmethod("POST")}}-Anfrage mit der `fetch()`-API aus, wobei wir das `FormData`-Objekt als Anforderungskörper festlegen.
 
-Beachten Sie, dass wir den {{httpheader("Content-Type")}}-Header nicht einstellen müssen: Der korrekte Header wird automatisch festgelegt, wenn wir ein `FormData`-Objekt in `fetch()` übergeben.
+Beachten Sie, dass wir den {{httpheader("Content-Type")}}-Header nicht setzen müssen: Der korrekte Header wird automatisch gesetzt, wenn wir ein `FormData`-Objekt an `fetch()` übergeben.
 
-## Verknüpfung eines `FormData`-Objekts und eines `<form>`
+## Verknüpfen eines `FormData`-Objekts mit einem `<form>`
 
-Wenn die Daten, die Sie übermitteln, wirklich von einem {{htmlelement("form")}} stammen, können Sie die `FormData`-Instanz füllen, indem Sie das Formular in den `FormData`-Konstruktor übergeben.
+Wenn die Daten, die Sie senden, tatsächlich aus einem {{htmlelement("form")}} stammen, können Sie die `FormData`-Instanz befüllen, indem Sie das Formular in den `FormData`-Konstruktor übergeben.
 
 Angenommen, unser HTML deklariert ein `<form>`-Element:
 
@@ -90,7 +88,7 @@ Angenommen, unser HTML deklariert ein `<form>`-Element:
 </form>
 ```
 
-Das Formular enthält ein Texteingabefeld, ein Dateieingabefeld und einen Absenden-Button.
+Das Formular enthält eine Texteingabe, eine Dateieingabe und einen Senden-Button.
 
 Das JavaScript sieht wie folgt aus:
 
@@ -120,6 +118,6 @@ form.addEventListener("submit", (event) => {
 });
 ```
 
-Wir fügen einen Absendungs-Ereignishandler für das Formularelement hinzu. Dieser ruft zuerst [`preventDefault()`](/de/docs/Web/API/Event/preventDefault) auf, um die eingebaute Formularübermittlung des Browsers zu verhindern, damit wir übernehmen können. Dann rufen wir `sendData()` auf, das das Formularelement abruft und es in den `FormData`-Konstruktor übergibt.
+Wir fügen einen Submit-Event-Handler für das Formularelement hinzu. Dieser ruft zunächst [`preventDefault()`](/de/docs/Web/API/Event/preventDefault) auf, um die integrierte Formularübermittlung des Browsers zu verhindern, damit wir übernehmen können. Dann rufen wir `sendData()` auf, das das Formularelement abruft und es in den `FormData`-Konstruktor übergibt.
 
 Danach senden wir die `FormData`-Instanz als HTTP-`POST`-Anfrage unter Verwendung von `fetch()`.

@@ -1,25 +1,23 @@
 ---
-title: Erste Schritte mit Modulen
+title: Einstiegsmodule
 slug: Learn_web_development/Getting_started
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: 48d220a8cffdfd5f088f8ca89724a9a92e34d8c0
 ---
 
-{{LearnSidebar}}
-
-Willkommen bei **Erste Schritte**! Wenn Sie ein völliger Anfänger sind (d.h. Sie haben noch keinen Code-Editor installiert oder Code geschrieben), dann sind Sie hier richtig. Die Module "Erste Schritte" führen Sie durch die Installation der benötigten Software, das Kennenlernen Ihrer Entwicklungsumgebung, den ersten Versuch, eine einfache Website zu erstellen, und das Verständnis einiger wesentlicher Konzepte rund um die Webentwicklung.
+Willkommen zu **Einstieg**! Wenn Sie ein kompletter Anfänger sind (d.h. Sie haben noch keinen Code-Editor installiert oder Code geschrieben), dann sind Sie hier richtig. Die Einstiegsmodule führen Sie durch die Installation der benötigten Software, machen Sie mit Ihrer Entwicklungsumgebung vertraut, geben Ihnen die ersten Schritte beim Erstellen einer einfachen Website und vermitteln einige der wesentlichen Konzepte rund um die Webentwicklung.
 
 ## Voraussetzungen
 
-Es gibt kein erforderliches Vorwissen für den Beginn dieses Kurses. Beachten Sie auch, dass wir das Lernen dieser Themen nicht als Voraussetzung betrachten, um zu den [Kernmodulen](/de/docs/Learn_web_development/Core) überzugehen, aber wir glauben, dass es den Studenten leichter fallen wird, wenn sie sich zuerst mit diesen Themen beschäftigen.
+Es gibt keine erforderlichen Vorkenntnisse, um diesen Kurs zu beginnen. Beachten Sie auch, dass wir das Erlernen dieser Themen nicht als Voraussetzung ansehen, bevor Sie zu den [Kernmodulen](/de/docs/Learn_web_development/Core) übergehen. Wir glauben jedoch, dass es den Lernenden leichter fällt, wenn sie sich zunächst mit diesen Themen befassen.
 
 ## Module
 
-- [Einrichtung der Umgebung](/de/docs/Learn_web_development/Getting_started/Environment_setup)
-  - : Im Modul _Einrichtung der Umgebung_ zeigen wir Ihnen, welche Tools Sie für die einfache Webentwicklung benötigen und wie Sie diese richtig installieren. Wir helfen Ihnen auch, wichtige Aspekte Ihrer Umgebung zu verstehen, wie z. B. Dateisysteme und die Befehlszeile.
+- [Umgebungssetup](/de/docs/Learn_web_development/Getting_started/Environment_setup)
+  - : Im Modul _Umgebungssetup_ zeigen wir Ihnen, welche Werkzeuge Sie für einfache Webentwicklung benötigen, wie Sie diese korrekt installieren und helfen Ihnen, wichtige Aspekte Ihrer Umgebung wie Dateisysteme und die Kommandozeile zu verstehen.
 - [Ihre erste Website](/de/docs/Learn_web_development/Getting_started/Your_first_website)
-  - : Dieses Modul führt Sie in die praktische Webentwicklung ein. Sie sammeln die notwendigen Ressourcen und schreiben den Code, um eine einfache Webseite zu erstellen und zu veröffentlichen.
-- [Web-Standards](/de/docs/Learn_web_development/Getting_started/Web_standards)
-  - : Dieses Modul behandelt die Grundlagen, wie das Web auf einer höheren Ebene funktioniert — einschließlich des Modells für die Kommunikation, der eingesetzten Kerntechnologien, wie diese Technologien erstellt werden und wie ein Webbrowser Websites für den Benutzer rendert und anzeigt.
+  - : Dieses Modul führt Sie in die praktischen Aspekte der Webentwicklung ein. Sie sammeln die notwendigen Ressourcen und schreiben den Code, um eine einfache Webseite zu erstellen und zu veröffentlichen.
+- [Webstandards](/de/docs/Learn_web_development/Getting_started/Web_standards)
+  - : Dieses Modul behandelt die Grundlagen dessen, wie das Web auf hoher Ebene funktioniert — einschließlich des Kommunikationsmodells, der beteiligten Kerntechnologien, wie diese Technologien erstellt werden und wie ein Webbrowser Websites für einen Nutzer rendert und anzeigt.
 - [Soft Skills](/de/docs/Learn_web_development/Getting_started/Soft_skills)
-  - : Dieses Modul bietet Empfehlungen zu Soft Skills, die Sie verbessern können, während Sie Webentwicklung lernen, und die gute Eigenschaften darstellen, um in die Branche einzusteigen. Diese Fähigkeiten helfen enorm dabei, die richtige Einstellung für das Lernen, Recherchieren und Zusammenarbeiten zu entwickeln und erhöhen die Chancen, eingestellt zu werden.
+  - : Dieses Modul gibt Empfehlungen zu Soft Skills, die Sie während des Lernens der Webentwicklung verbessern können. Diese sind gute Eigenschaften, um in die Branche einzusteigen. Sie werden ungemein helfen, die richtige Einstellung zum Lernen, Forschen und Zusammenarbeiten zu entwickeln und die Chancen auf eine Anstellung zu erhöhen.

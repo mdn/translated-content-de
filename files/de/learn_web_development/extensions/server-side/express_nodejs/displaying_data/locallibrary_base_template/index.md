@@ -1,15 +1,13 @@
 ---
-title: LocalLibrary Basisvorlage
+title: LocalLibrary Basistemplate
 slug: Learn_web_development/Extensions/Server-side/Express_Nodejs/Displaying_data/LocalLibrary_base_template
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: 48d220a8cffdfd5f088f8ca89724a9a92e34d8c0
 ---
 
-{{LearnSidebar}}
+Jetzt, da wir verstanden haben, wie man Vorlagen mithilfe von Pug erweitert, beginnen wir damit, eine Basistemplate für das Projekt zu erstellen. Diese enthält eine Seitenleiste mit Links zu den Seiten, die wir im Verlauf der Tutorial-Artikel erstellen möchten (z.B. zur Anzeige und Erstellung von Büchern, Genres, Autoren, etc.) und einen Hauptinhaltsbereich, den wir auf jeder unserer individuellen Seiten überschreiben werden.
 
-Da wir nun verstehen, wie man Vorlagen mit Pug erweitert, beginnen wir mit der Erstellung einer Basisvorlage für das Projekt. Diese wird eine Sidebar mit Links zu den Seiten enthalten, die wir im Laufe der Tutorial-Artikel erstellen möchten (z.B. um Bücher, Genres, Autoren anzuzeigen und zu erstellen) und einen Hauptinhaltsbereich, den wir in jeder unserer individuellen Seiten überschreiben werden.
-
-Öffnen Sie **/views/layout.pug** und ersetzen Sie den Inhalt mit dem unten stehenden Code.
+Öffnen Sie **/views/layout.pug** und ersetzen Sie den Inhalt mit dem folgenden Code.
 
 ```pug
 doctype html
@@ -53,15 +51,15 @@ html(lang='en')
           block content
 ```
 
-Die Vorlage verwendet (und schließt ein) JavaScript und CSS von [Bootstrap](https://getbootstrap.com/), um das Layout und die Präsentation der HTML-Seite zu verbessern. Die Verwendung von Bootstrap oder einem anderen clientseitigen Web-Framework ist ein schneller Weg, um eine ansprechende Seite zu erstellen, die gut auf unterschiedliche Browsergrößen skalieren kann. Zudem können wir uns um die Seitendarstellung kümmern, ohne uns mit Einzelheiten beschäftigen zu müssen—wir wollen uns hier nur auf den serverseitigen Code konzentrieren!
+Die Vorlage verwendet (und inkludiert) JavaScript und CSS von [Bootstrap](https://getbootstrap.com/), um das Layout und die Präsentation der HTML-Seite zu verbessern. Die Verwendung von Bootstrap oder einem anderen Client-seitigen Web-Framework ist ein schneller Weg, um eine ansprechende Seite zu erstellen, die sich gut an verschiedene Browsergrößen anpassen lässt. Außerdem können wir uns so auf die Seitendarstellung konzentrieren, ohne in Details einsteigen zu müssen—wir wollen uns hier nur auf den Server-seitigen Code konzentrieren!
 
 > [!NOTE]
-> Die Skripte werden mit Cross-Origin geladen, daher müssen wir später im Tutorial, wenn wir Sicherheits-Middleware hinzufügen, explizit erlauben, dass diese Dateien geladen werden dürfen.
-> Weitere Informationen finden Sie unter [Bereitstellung > Verwenden Sie Helmet, um bekannte Schwachstellen zu schützen](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/deployment#use_helmet_to_protect_against_well_known_vulnerabilities).
+> Die Skripte werden cross-origin geladen, daher müssen wir später im Tutorial, wenn wir Sicherheits-Middleware hinzufügen, explizit erlauben, diese Dateien zu laden.
+> Weitere Informationen finden Sie unter [Deployment > Use Helmet to protect against well known vulnerabilities](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/deployment#use_helmet_to_protect_against_well_known_vulnerabilities).
 
-Das Layout sollte ziemlich offensichtlich sein, wenn Sie unser oben [Vorlagen-Leitfaden](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/Displaying_data/Template_primer) gelesen haben. Beachten Sie die Verwendung von `block content` als Platzhalter für den Bereich, in dem die Inhalte unserer individuellen Seiten platziert werden.
+Das Layout sollte ziemlich offensichtlich sein, wenn Sie unser obiges [Vorlagen-Einführung](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/Displaying_data/Template_primer) gelesen haben. Beachten Sie die Verwendung von `block content` als Platzhalter für den Bereich, in dem der Inhalt unserer individuellen Seiten platziert wird.
 
-Die Basisvorlage verweist auch auf eine lokale CSS-Datei (**style.css**), die einige zusätzliche Stilvorgaben bereitstellt. Öffnen Sie **/public/stylesheets/style.css** und ersetzen Sie den Inhalt durch den folgenden CSS-Code:
+Die Basistemplate verweist auch auf eine lokale CSS-Datei (**style.css**), die ein wenig zusätzliche Formatierung liefert. Öffnen Sie **/public/stylesheets/style.css** und ersetzen Sie deren Inhalt mit dem folgenden CSS-Code:
 
 ```css
 .sidebar-nav {
@@ -71,9 +69,9 @@ Die Basisvorlage verweist auch auf eine lokale CSS-Datei (**style.css**), die ei
 }
 ```
 
-Nun haben wir eine Basisvorlage für die Erstellung von Seiten mit einer Sidebar. In den nächsten Abschnitten werden wir diese nutzen, um die individuellen Seiten zu definieren.
+Jetzt haben wir eine Basistemplate zum Erstellen von Seiten mit einer Seitenleiste. In den nächsten Abschnitten werden wir diese nutzen, um die individuellen Seiten zu definieren.
 
 ## Nächste Schritte
 
-- Kehren Sie zurück zu [Express Tutorial Teil 5: Anzeigedaten der Bibliothek](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/Displaying_data).
-- Fahren Sie mit dem nächsten Unterartikel von Teil 5 fort: [Startseite](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/Displaying_data/Home_page).
+- Kehren Sie zurück zu [Express Tutorial Teil 5: Bibliotheksdaten anzeigen](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/Displaying_data).
+- Fahren Sie fort mit dem nächsten Unterartikel von Teil 5: [Startseite](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/Displaying_data/Home_page).

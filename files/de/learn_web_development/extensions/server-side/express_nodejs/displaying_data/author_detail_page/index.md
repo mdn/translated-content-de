@@ -1,25 +1,23 @@
 ---
-title: Autor-Detailseite
+title: Autorendetailseite
 slug: Learn_web_development/Extensions/Server-side/Express_Nodejs/Displaying_data/Author_detail_page
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: 48d220a8cffdfd5f088f8ca89724a9a92e34d8c0
 ---
 
-{{LearnSidebar}}
-
-Die Autor-Detailseite muss die Informationen über den angegebenen `Author` anzeigen, identifiziert anhand ihres (automatisch generierten) `_id` Feldwertes, zusammen mit einer Liste aller `Book` Objekte, die mit diesem `Author` verbunden sind.
+Die Autorendetailseite muss die Informationen über den angegebenen `Author` anzeigen, der über den (automatisch generierten) Wert des `_id`-Feldes identifiziert wird, zusammen mit einer Liste aller `Book`-Objekte, die mit diesem `Author` verbunden sind.
 
 ## Controller
 
 Öffnen Sie **/controllers/authorController.js**.
 
-Fügen Sie die folgenden Zeilen oben in die Datei ein, um das `Book`-Modul einzubinden, das von der Autor-Detailseite benötigt wird (andere Module wie "express-async-handler" sollten bereits vorhanden sein).
+Fügen Sie die folgenden Zeilen am Anfang der Datei hinzu, um das `Book`-Modul für die Autorendetailseite mit `require()` einzubinden (andere Module wie "express-async-handler" sollten bereits vorhanden sein).
 
 ```js
 const Book = require("../models/book");
 ```
 
-Finden Sie die exportierte `author_detail()` Controller-Methode und ersetzen Sie sie durch den folgenden Code.
+Suchen Sie die exportierte `author_detail()`-Controllermethode und ersetzen Sie sie durch den folgenden Code.
 
 ```js
 // Display detail page for a specific Author.
@@ -45,10 +43,7 @@ exports.author_detail = asyncHandler(async (req, res, next) => {
 });
 ```
 
-Der Ansatz ist genau der gleiche wie auf der [Genre-Detailseite](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/Displaying_data/Genre_detail_page) beschrieben.
-Die Routen-Controller-Funktion verwendet `Promise.all()`, um den angegebenen `Author` und die zugehörigen `Book`-Instanzen parallel abzufragen.
-Wenn kein passender Autor gefunden wird, wird ein Fehlerobjekt an die Express-Fehlerbehandlungsmiddleware gesendet.
-Wenn der Autor gefunden wird, werden die abgerufenen Datenbankinformationen mit der "author_detail"-Vorlage gerendert.
+Der Ansatz ist genau derselbe wie auf der [Genre-Detailseite](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/Displaying_data/Genre_detail_page) beschrieben. Die Routencontrollerfunktion verwendet `Promise.all()`, um den angegebenen `Author` und die zugehörigen `Book`-Instanzen parallel abzufragen. Wenn kein passender Autor gefunden wird, wird ein Error-Objekt an die Express-Fehlerbehandlungsmiddleware gesendet. Wenn der Autor gefunden wird, werden die abgerufenen Datenbankinformationen mit der Vorlage "author_detail" gerendert.
 
 ## Ansicht
 
@@ -75,18 +70,18 @@ block content
       p This author has no books.
 ```
 
-Alles in dieser Vorlage wurde in vorherigen Abschnitten demonstriert.
+Alles in dieser Vorlage wurde in früheren Abschnitten demonstriert.
 
-## Wie sieht das aus?
+## Wie sieht es aus?
 
-Führen Sie die Anwendung aus und öffnen Sie Ihren Browser unter `http://localhost:3000/`. Wählen Sie den Link _All Authors_ aus, und wählen Sie dann einen der Autoren aus. Wenn alles korrekt eingerichtet ist, sollte Ihre Seite ungefähr so aussehen wie der folgende Screenshot.
+Führen Sie die Anwendung aus und öffnen Sie Ihren Browser unter `http://localhost:3000/`. Wählen Sie den Link _All Authors_ und dann einen der Autoren. Wenn alles korrekt eingerichtet ist, sollte Ihre Seite ungefähr wie der folgende Screenshot aussehen.
 
-![Autor-Detailseite - Express Local Library Site](locallibary_express_author_detail.png)
+![Author Detail Page - Express Local Library site](locallibary_express_author_detail.png)
 
 > [!NOTE]
-> Das Erscheinungsbild der _Lebensspannen_-Daten des Autors ist unschön! Wir werden das in der letzten Herausforderung dieses Artikels ansprechen.
+> Das Erscheinungsbild der _Lebensspanne_-Daten des Autors ist unschön! Wir werden das im abschließenden Abschnitt dieses Artikels angehen.
 
 ## Nächste Schritte
 
-- Kehren Sie zurück zu [Express Tutorial Teil 5: Anzeigung von Bibliotheksdaten](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/Displaying_data).
-- Fahren Sie fort mit dem letzten Teilartikel von Teil 5: [BookInstance Detailseite und Herausforderung](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/Displaying_data/BookInstance_detail_page_and_challenge).
+- Kehren Sie zurück zu [Express Tutorial Teil 5: Bibliotheksdaten anzeigen](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/Displaying_data).
+- Fahren Sie fort mit dem letzten Unterartikel von Teil 5: [BookInstance-Detailseite und Herausforderung](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/Displaying_data/BookInstance_detail_page_and_challenge).

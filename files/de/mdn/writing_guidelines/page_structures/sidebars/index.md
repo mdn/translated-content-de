@@ -1,96 +1,67 @@
 ---
-title: Seitenleisten
+title: Sidebars
 slug: MDN/Writing_guidelines/Page_structures/Sidebars
 l10n:
-  sourceCommit: 269fa421f0a79b18f6000a26baebe30c74571b1f
+  sourceCommit: 48d220a8cffdfd5f088f8ca89724a9a92e34d8c0
 ---
 
-MDN-Seiten enthalten alle Seitenleisten. Die meisten davon werden mit einem Standardsystem erstellt, das Datenstrukturen in YAML-Dateien definiert und Seitenleisten mithilfe von Makroaufrufen auf Seiten einfügt.
+Alle MDN-Seiten sollten Sidebars haben. Die meisten von ihnen werden mit einem System erstellt, das Datenstrukturen in YAML-Dateien definiert und Sidebars über Front Matter oder ein Makro auf Seiten einfügt.
 
-In diesem Leitfaden lernen Sie, wie diese Seitenleisten funktionieren, damit Sie bestehende Seitenleisten bearbeiten und neue erstellen können, falls erforderlich. Außerdem erläutern wir jene Seitenleisten, die das Standardsystem noch nicht verwenden.
+In diesem Leitfaden lernen Sie, wie diese Sidebars funktionieren, damit Sie bestehende Sidebars bearbeiten und bei Bedarf neue erstellen können.
 
 > [!NOTE]
-> Wenn Sie Seitenleisten bearbeiten, können Sie `yarn tool`-Befehle für die Formatierung und die Synchronisierung mit Weiterleitungen verwenden.
-> Informationen dazu finden Sie in der Dokumentation zu [Yari's CLI Tool](https://github.com/mdn/yari/blob/main/docs/cli-tool.md).
+> Wenn Sie Sidebars bearbeiten, können Sie `yarn tool`-Befehle zum Formatieren und Synchronisieren mit Weiterleitungen verwenden.
+> Siehe die Dokumentation zum [Yari's CLI Tool](https://github.com/mdn/yari/blob/main/docs/cli-tool.md) für weitere Informationen.
 
-## Funktionsweise der Seitenleisten
+## Wie Sidebars funktionieren
 
-Jede Seitenleiste hat eine entsprechende YAML-Datei, die sich im Verzeichnis [`files/sidebars`](https://github.com/mdn/content/tree/main/files/sidebars) des MDN-`content`-Repositorys befindet. Diese definiert die hierarchische Struktur der Links in der Seitenleiste, die URLs, auf die jeder Link verweisen soll, und optional benutzerdefinierte Überschriften-/Linktexte, die bei Bedarf in verschiedene Sprachen lokalisiert werden können.
+Jede Sidebar hat eine entsprechende YAML-Datei, die sich im `content`-Repo von MDN im Verzeichnis [`files/sidebars`](https://github.com/mdn/content/tree/main/files/sidebars) befindet. Diese definiert die hierarchische Struktur der Sidebar-Links, die URLs, auf die jeder Link verweisen soll, und optional benutzerdefinierten Überschriften-/Linktext, der bei Bedarf in verschiedene Sprachen lokalisiert werden kann.
 
-Betrachten wir beispielsweise die Seite, die Sie gerade anzeigen, so ist die Struktur der Seitenleiste in der Datei [`mdnsidebar.yaml`](https://github.com/mdn/content/blob/main/files/sidebars/mdnsidebar.yaml) definiert.
+Die Seite, die Sie gerade lesen, hat eine Sidebar, die in der Datei [`mdnsidebar.yaml`](https://github.com/mdn/content/blob/main/files/sidebars/mdnsidebar.yaml) definiert ist.
 
-Die Seitenleiste wird auf der aktuellen Seite (sowie auf allen anderen Seiten im selben Dokumentbaum) angezeigt, indem ein entsprechender Makroaufruf — `\{{MDNSidebar}}` — direkt unterhalb des Frontmatters im [Quelltext der Seite](https://raw.githubusercontent.com/mdn/content/refs/heads/main/files/en-us/mdn/writing_guidelines/page_structures/sidebars/index.md) eingefügt wird:
+Die Sidebar wird auf der aktuellen Seite (und allen anderen im selben Dokumentenbaum) gerendert, indem ein `sidebar`-Eintrag in der [Dokumentenquelle](https://raw.githubusercontent.com/mdn/content/refs/heads/main/files/en-us/mdn/writing_guidelines/page_structures/sidebars/index.md) eingefügt wird:
 
 ```md
 ---
 title: Sidebars
 slug: MDN/Writing_guidelines/Page_structures/Sidebars
 page-type: mdn-writing-guide
+sidebar: mdnsidebar
 ---
 
-\{{MDNSidebar}}
+All MDN pages should have sidebars.
 ```
 
-Der Frontmatter ist der Inhalt zwischen den Bindestrichen. Das Einfügen des Makroaufrufs `\{{MDNSidebar}}` im Quelltext veranlasst das System, nach einer YAML-Datei mit demselben Namen innerhalb des Verzeichnisses `files/sidebars` zu suchen. Wenn eine solche Datei gefunden wird, kümmert sich das System automatisch um das Rendern der Seitenleiste und deren Platzierung auf der Seite als eine oder mehrere geordnete Listen ({{htmlelement("ol")}}-Elemente).
+Das Front Matter ist der Inhalt zwischen den Bindestrichen. Wenn `sidebar: mdnsidebar` im Front Matter enthalten ist, sucht das System nach einer YAML-Datei mit demselben Namen im Verzeichnis `files/sidebars`. Wenn es eine findet, kümmert es sich automatisch um das Rendern der Sidebar und das Platzieren auf der Seite als eine oder mehrere geordnete Listen ({{htmlelement("ol")}}-Elemente).
 
-Versuchen Sie, in der Seitenleiste zu navigieren, bevor Sie zu dieser Seite zurückkehren. Ihnen wird auffallen, dass beim Navigieren zu einer Seite in der Regel die Linkliste des aktuellen Bereichs erweitert wird, während die anderen Bereiche zusammengeklappt bleiben, und die derzeit angezeigte Seite hervorgehoben wird.
+Versuchen Sie, in der Sidebar zu navigieren, bevor Sie zu dieser Seite zurückkehren. Sie werden feststellen, dass im Allgemeinen beim Navigieren zu einer Seite die Linkliste für den Abschnitt, in dem Sie sich befinden, erweitert wird, während die anderen eingeklappt werden und die Seite, auf der Sie sich befinden, hervorgehoben wird.
 
-## Beispiele für standardisierte Seitenleisten
+## Erklärung der Sidebar-YAML-Syntax
 
-Einige der anderen standardisierten Seitenleisten, die Sie häufig antreffen, sind die folgenden:
+In diesem Abschnitt werden die verschiedenen Funktionen erklärt, die in MDN-Sidebars enthalten sein können, und die YAML-Syntax, die zur Generierung jeder dieser Funktionen verwendet wird. Während Sie diese Dokumentation durchgehen, vergleichen Sie die Funktionen mit der [bestehenden Sidebar-YAML](https://github.com/mdn/content/tree/main/files/sidebars).
 
-- `\{{CSSRef}}`
+### Start einer Sidebar-Definition
 
-  - : Auf jeder Seite zu [CSS](/de/docs/Web/CSS) vorhanden.
-
-- `\{{GlossarySidebar}}`
-
-  - : Auf jeder [Glossar](/de/docs/Glossary)-Seite vorhanden.
-
-- `\{{LearnSidebar}}`
-
-  - : Auf jeder Seite im Abschnitt [Lernen Sie Webentwicklung](/de/docs/Learn_web_development) vorhanden.
-
-- `\{{HTMLSidebar}}`
-
-  - : Generiert die Seitenleiste für die [HTML](/de/docs/Web/HTML)-Dokumentation.
-
-- `\{{HTTPSidebar}}`
-
-  - : Generiert die Seitenleiste für die [HTTP-Dokumentation](/de/docs/Web/HTTP).
-
-- `\{{PWASidebar}}`
-
-  - : Generiert die Seitenleiste für die Dokumentation zu [Progressive Web Apps (PWA)](/de/docs/Web/Progressive_web_apps).
-
-> [!NOTE]
-> Das passende Makro hängt vom [Seitentyp](/de/docs/MDN/Writing_guidelines/Page_structures/Page_types) ab. Die [Vorlage](/de/docs/MDN/Writing_guidelines/Page_structures/Page_types#page_templates) für jeden Seitentyp enthält das passende Makro für diesen Seitentyp.
-
-## Erläuterung der YAML-Syntax für Seitenleisten
-
-In diesem Abschnitt werden die verschiedenen Funktionen erklärt, die in MDN-Seitenleisten enthalten sein können, sowie die YAML-Syntax, die zur Generierung jeder Funktion verwendet wird. Während Sie diese Dokumentation durcharbeiten, sollten Sie die Funktionen mit der [vorhandenen YAML-Seitenleistenstruktur](https://github.com/mdn/content/tree/main/files/sidebars) abgleichen.
-
-### Beginn einer Seitenleistendefinition
-
-Der Anfang jeder YAML-Seitenleistendaten-Definition ist ein Schlüssel `sidebar`, dessen Wert eine Liste ist, die die Daten der Seitenleiste definiert:
+Der Beginn jeder YAML-Sidebar-Datendefinition ist ein `sidebar`-Schlüssel, dessen Wert eine Liste ist, die die Sidebar-Daten definiert:
 
 ```yaml
 sidebar:
   # sidebar definition goes here
 ```
 
-### Einfache Einzel-Links
+### Einzelne Links
 
-Um einen einfachen Einzel-Link in einer Seitenleiste zu erstellen, fügen Sie ein YAML-Listen-Item mit einer relativen URL hinzu:
+Um einen einzelnen Link in einer Sidebar zu erstellen, fügen Sie ein YAML-Listenelement ein, das eine relative URL enthält:
 
 ```yaml
 sidebar:
   - /MDN/Changelog
 ```
 
-Die URL ist relativ zum Verzeichnis `docs` im MDN-URL-System, sodass zum Beispiel `/MDN/Changelog` einen Link zu https://developer.mozilla.org/de/docs/MDN/Changelog generieren würde. Das System verwendet automatisch den Titel des verlinkten Dokuments als Linktext.
+Die URL ist relativ zum `docs`-Verzeichnis in der MDN-URL-Struktur. Zum Beispiel würde `/MDN/Changelog` einen Link zu https://developer.mozilla.org/de/docs/MDN/Changelog erzeugen. Das System verwendet automatisch den Dokumenttitel der verlinkten Seite als Linktext.
+Wenn die Seite einen `short-title`-Schlüssel im Front Matter hat, wird dieser anstelle des Dokumenttitels für die Anzeige des Sidebar-Links verwendet.
 
-Falls Sie benutzerdefinierten Linktext verwenden möchten, müssen Sie zwei Schlüssel im Listen-Item einfügen — `title`, das den benutzerdefinierten Linktext enthält, und `link`, das wie zuvor die relative URL enthält. Das folgende Beispiel würde wie zuvor einen Link zum MDN-Web-Docs-Änderungsprotokoll erstellen, jedoch mit dem benutzerdefinierten Linktext "Our changelog":
+Wenn Sie benutzerdefinierten Linktext verwenden möchten, der weder der `title` noch `short-title` eines Dokuments ist, müssen Sie zwei Schlüssel im Listenelement einfügen — `title`, der den benutzerdefinierten Linktext enthält, und `link`, der die relative URL wie zuvor enthält. Das folgende Beispiel würde wie zuvor einen Link zum MDN Web Docs-Changelog erstellen, jedoch mit dem benutzerdefinierten Linktext "Unser Changelog":
 
 ```yaml
 sidebar:
@@ -100,9 +71,9 @@ sidebar:
 
 ### Abschnittstitel
 
-Ein Abschnittstitel ist ein Element der Seitenleiste, das als Überschrift in einer größeren Schriftgröße als normale Seitenleistentexte dargestellt wird. Dies wird häufig als Titel am oberen Rand einer Seitenleiste verwendet, der auf die Einstiegsseite für diesen Dokumentenbereich verlinkt, oder als Trennelement in besonders großen Seitenleisten (z. B. im Abschnitt [Lernen Sie Webentwicklung](/de/docs/Learn_web_development)).
+Ein Abschnittstitel ist ein Sidebar-Element, das in einer größeren Schriftgröße als normale Sidebar-Elemente dargestellt wird. Dies wird üblicherweise als Titel oben in einer Sidebar verwendet, die zur Startseite für diesen Abschnitt der Dokumente verlinkt, oder als Abschnittsunterteiler im Fall von besonders großen Sidebars (wie im Abschnitt [Lernen Webentwicklung](/de/docs/Learn_web_development) zu sehen).
 
-Ein Abschnittstitel wird definiert, indem ein Schlüssel `type` mit dem Wert `section` im Listen-Item hinzugefügt wird. Beispiel:
+Ein Abschnittstitel wird definiert, indem ein `type`-Schlüssel mit einem Wert von `section` im Listenelement eingefügt wird. Zum Beispiel:
 
 ```yaml
 sidebar:
@@ -110,7 +81,7 @@ sidebar:
     link: /MDN
 ```
 
-Ein Abschnittstitel kann benutzerdefinierten Linktext enthalten:
+Ein Abschnittstitel kann einen benutzerdefinierten Linktext haben:
 
 ```yaml
 sidebar:
@@ -119,7 +90,7 @@ sidebar:
     link: /MDN
 ```
 
-Oder Sie können den Schlüssel `link` weglassen, um nur ein Textelement zu rendern, das keinen Link enthält:
+Oder Sie können den `link`-Schlüssel weglassen, um einfach ein Textelement darzustellen, das keinen Link enthält:
 
 ```yaml
 sidebar:
@@ -127,9 +98,9 @@ sidebar:
     title: Yay MDN!
 ```
 
-### Erstellen von expandierenden/zusammenklappenden Listen mit Links
+### Erstellen von erweiterbaren/einklappbaren Linklisten
 
-Um eine expandierende/zusammenklappende Liste mit Links zu erstellen, erstellen Sie ein Listen-Item wie zuvor, fügen jedoch einen Schlüssel `children` hinzu, dessen Wert eine Liste der Links ist, die Sie als untergeordnete Listen-Items unter dem übergeordneten Element anzeigen möchten. Jedes untergeordnete Listen-Item hat dieselbe Syntax wie das übergeordnete. Ein untergeordnetes Listen-Item kann sogar eigene `children` enthalten, sodass Sie mehrere Hierarchieebenen erstellen können. Hier ist ein Beispiel:
+Um eine erweiterbare/einklappbare Linkliste zu erstellen, erstellen Sie ein Listenelement wie zuvor, fügen jedoch einen `children`-Schlüssel hinzu, dessen Wert eine Liste enthält, die die Links enthält, die Sie als untergeordnete Listenelemente unter dem übergeordneten Element anzeigen möchten. Jedes untergeordnete Listenelement hat die gleiche Syntax wie das übergeordnete. Ein untergeordnetes Listenelement kann sogar eigene `children` enthalten, sodass Sie mehrere Hierarchieebenen erstellen können. Hier ist ein Beispiel:
 
 ```yaml
 sidebar:
@@ -142,28 +113,23 @@ sidebar:
         children:
           - /MDN/Community
           - /MDN/Community/Getting_started
-          - /MDN/Community/Our_repositories
-          - /MDN/Community/Translated_content
           - /MDN/Community/Security_vulnerability_response
       - /MDN/Community/Open_source_etiquette
       - /MDN/Community/Communication_channels
       - /MDN/Community/Discussions
-      - /MDN/Community/Learn_forum
-      - /MDN/Community/Issues
-      - /MDN/Community/Pull_requests
-      - /MDN/Community/Roles_teams
+# etc.
 ```
 
-Beachten Sie auch den Schlüssel `details` — dieser steuert, ob eine Liste von Unterelementen beim Laden der Seite geschlossen oder geöffnet dargestellt wird. Mögliche Werte sind:
+Beachten Sie auch den `details`-Schlüssel — dieser steuert, ob die Liste der untergeordneten Elemente eines Listenelements geschlossen oder geöffnet dargestellt wird, wenn die Seite das erste Mal geladen wird. Mögliche Werte sind wie folgt:
 
-- `closed`: Die Unterelemente werden geschlossen dargestellt, es sei denn, die aktuelle Seite ist von einem der Unterelemente verlinkt, in diesem Fall werden sie geöffnet dargestellt.
-- `open`: Die Unterelemente werden immer geöffnet dargestellt.
+- `closed`: Die untergeordneten Elemente werden geschlossen dargestellt, es sei denn, auf die aktuelle Seite wird von einem der untergeordneten Elemente verlinkt, in diesem Fall werden sie geöffnet dargestellt.
+- `open`: Die untergeordneten Elemente werden immer geöffnet dargestellt.
 
-Wenn ein Listen-Item `children` und `details` enthält, wird es mit einer Struktur aus {{htmlelement("details")}}/{{htmlelement("summary")}} dargestellt, die die Unterelemente enthält. Diese Struktur kann dann durch Klicken auf das Dreiecksymbol oder durch Fokussieren der Zusammenfassungszeile und Drücken von <kbd>Enter</kbd>/<kbd>Return</kbd> ein- oder ausgeklappt werden.
+Wenn ein Listenelement `children` und `details` enthält, wird es mit einer {{htmlelement("details")}}/{{htmlelement("summary")}}-Elementstruktur gerendert, die die untergeordnete Liste enthält. Diese kann dann durch Klicken auf das Offenlegungssymbol oder durch Fokussieren der Zusammenfassung und Drücken von <kbd>Enter</kbd>/<kbd>Return</kbd> erweitert/eingeklappt werden.
 
 ### Automatisches Rendern einer Unterseitenliste
 
-Falls Sie eine Liste erstellen möchten, die Links zu den Unterseiten einer bestimmten Seite enthält, können Sie dies generieren, indem Sie ein Listen-Item mit einem Schlüssel `type` und dem Wert `listSubPages` angeben sowie einen Schlüssel `path`, dessen Wert der Pfad zur Seite ist, deren Unterseiten Sie verlinken möchten. Beispielsweise sieht die komplette [Glossar](/de/docs/Glossary)-Seitenleistendefinition (siehe [`glossarysidebar.yaml`](https://github.com/mdn/content/blob/main/files/sidebars/glossarysidebar.yaml)) so aus:
+Wenn Sie eine Liste mit Links zu den Unterseiten einer bestimmten Seite erstellen möchten, können Sie dies erzeugen, indem Sie ein Listenelement mit einem `type`-Schlüssel von Wert `listSubPages` angeben, und einem `path`-Schlüssel, dessen Wert der Pfad zur Seite ist, deren Unterseiten Sie verlinken möchten. Zum Beispiel sieht die gesamte [Glossar](/de/docs/Glossary)-Sidebar-Definition (siehe [`glossarysidebar.yaml`](https://github.com/mdn/content/blob/main/files/sidebars/glossarysidebar.yaml)) so aus:
 
 ```yaml
 sidebar:
@@ -174,9 +140,9 @@ sidebar:
     path: /Glossary
 ```
 
-Dies rendert eine Seitenleiste mit einem Abschnittstitel, der zurück zur Einstiegsseite des Glossars verlinkt, sowie einer Liste von Links zu allen Glossar-Unterseiten.
+Dies rendert eine Sidebar mit einem Abschnittstitel, der zurück zur Glossar-Startseite verlinkt, und einer obersten Liste von Links zu allen Glossar-Unterseiten.
 
-Möchten Sie dies als übergeordnetes Listen-Item mit den Unterseiten als expandierende/zusammenklappende Unterelemente rendern, müssen Sie zusätzlich einen Schlüssel `title` mit dem Text für das übergeordnete Element sowie einen Schlüssel `details` für das Offen-/Schließen-Verhalten der `<details>`/`<summary>`-Struktur angeben.
+Wenn Sie dies als übergeordnetes Listenelement darstellen möchten, bei dem die Unterseiten als erweiterbare/einklappbare untergeordnete Liste erscheinen, müssten Sie zusätzlich einen `title`-Schlüssel hinzufügen, der den Text für das übergeordnete Element angibt, und einen `details`-Schlüssel, der das Öffnen/Schließen-Verhalten der `<details>`/`<summary>`-Struktur angibt.
 
 ```yaml
 sidebar:
@@ -186,17 +152,17 @@ sidebar:
     details: closed
 ```
 
-#### Gruppieren von Unterseitenlisten
+#### Gruppierung von Listenunterseiten
 
-Es gibt auch den `type`-Wert `listSubPagesGrouped`. Dieser sorgt dafür, dass jede Unterseite mit einem Titel, der mit demselben Präfix gefolgt von einem Bindestrich beginnt (z. B. `item-`), in einer Unterliste unter einem Listen-Item des Präfixes plus Bindestrich und Sternchen (z. B. `item-*`) zusammengefasst wird.
+Es gibt auch einen `type`-Wert von `listSubPagesGrouped`. Dies bewirkt, dass alle Unterseiten mit Titeln, die mit demselben Substring gefolgt von einem Bindestrich beginnen (zum Beispiel `item-`), in einer untergeordneten Liste unter einem Listenelement des Substrings plus einem Bindestrich und einem Stern (zum Beispiel `item-*`) aufgenommen werden.
 
-Beispiel: Zum Zeitpunkt des Schreibens enthält das MDN-Glossar drei CORS-bezogene Seiten:
+Zum Beispiel enthält das MDN Glossar zum Zeitpunkt dieses Schreibens drei CORS-bezogene Seiten:
 
 - CORS
 - CORS-safelisted request header
 - CORS-safelisted response header
 
-Wenn wir die Glossar-Seitenleistendefinition folgendermaßen aktualisieren:
+Wenn wir die Glossar-Sidebar-Definition auf Folgendes aktualisieren würden:
 
 ```yaml
 sidebar:
@@ -206,14 +172,14 @@ sidebar:
     details: closed
 ```
 
-Würden die Links zu diesen Seiten in eine Unterlistenstruktur wie diese gruppiert:
+Dann würden die Links zu diesen Seiten in einer Kinderlistenstruktur wie dieser gruppiert:
 
 - CORS-\*
   - CORS
   - CORS-safelisted request header
   - CORS-safelisted response header
 
-Realistischere Beispiele finden Sie in der [CSS](/de/docs/Web/CSS)-Seitenleistendefinition (siehe [`cssref.yaml`](https://github.com/mdn/content/blob/main/files/sidebars/cssref.yaml)), wo `listSubPagesGrouped` verwendet wird, um Links zu verwandten Kurzform- und Langform-Eigenschaften zu gruppieren. Das Listen-Item, das das Menü für die Eigenschaften-Seitenleiste generiert, sieht so aus:
+Realisierbare Beispiele finden Sie in der Sidebar-Definition [CSS](/de/docs/Web/CSS) (siehe [`cssref.yaml`](https://github.com/mdn/content/blob/main/files/sidebars/cssref.yaml)), wo `listSubPagesGrouped` verwendet wird, um Links zu verwandten abgekürzten und langformigen Eigenschaften zusammenzufassen. Das Listenelement, das das Eigenschaften-Sidebarmenu generiert, sieht so aus:
 
 ```yaml
 - type: listSubPagesGrouped
@@ -225,11 +191,11 @@ Realistischere Beispiele finden Sie in der [CSS](/de/docs/Web/CSS)-Seitenleisten
   details: closed
 ```
 
-Diese Listen-Item-Definition enthält auch `tags`, das Thema des nächsten Abschnitts.
+Diese Listenelementdefinition enthält auch `tags`, welches das Thema des nächsten Abschnitts ist.
 
-#### Filtern von Unterseitenlisten
+#### Filtern von Listenunterseiten
 
-Falls Sie mehrere unterschiedliche Seitentypen innerhalb desselben Verzeichnisses haben (wie durch den Schlüssel `page-type` im Frontmatter der Seite angegeben), können Sie die durch `listSubPages` und `listSubPagesGrouped` generierten Listen-Items nach Seitentyp filtern. Hierzu fügen Sie einen Schlüssel `tags` im Listen-Item hinzu, dessen Wert ein einzelner Seitentyp oder eine Liste der Seitentypen ist, die in den generierten Listen-Items enthalten sein sollen. Die CSS-Seitenleiste enthält mehrere solche Beispiele:
+Wenn Sie mehrere verschiedene Seitentypen im selben Verzeichnis haben (wie durch den `page-type`-Schlüssel im Front Matter der Seite angegeben), können Sie die durch `listSubPages` und `listSubPagesGrouped` generierten Listenelemente nach Seitentyp filtern. Dazu fügen Sie einen `tags`-Schlüssel innerhalb des Listenelements hinzu, dessen Wert ein einzelner Seitentyp oder eine Liste der Seitentypen ist, die Sie in den erzeugten Listenelementen einbeziehen möchten. Die CSS-Sidebar enthält mehrere solche Beispiele:
 
 ```yaml
 - type: listSubPages
@@ -249,43 +215,14 @@ Falls Sie mehrere unterschiedliche Seitentypen innerhalb desselben Verzeichnisse
   title: Selectors
   tags: css-selector
   details: closed
-- type: listSubPages
-  path: /Web/CSS
-  title: Combinators
-  tags: css-combinator
-  details: closed
-- type: listSubPages
-  path: /Web/CSS
-  title: Pseudo-classes
-  tags: css-pseudo-class
-  details: closed
-- type: listSubPages
-  path: /Web/CSS
-  title: Pseudo-elements
-  tags: css-pseudo-element
-  details: closed
-- type: listSubPages
-  path: /Web/CSS
-  title: At-rules
-  tags: css-at-rule
-  details: closed
-- type: listSubPages
-  path: /Web/CSS
-  title: Functions
-  tags: css-function
-  details: closed
-- type: listSubPages
-  path: /Web/CSS
-  title: Types
-  tags: css-type
-  details: closed
+# etc.
 ```
 
-### Lokalisierung von Textstrings
+### Lokalisieren von Textzeichenfolgen
 
-Wie oben erläutert, können Sie benutzerdefinierten Text für Ihre Linktexte oder Abschnittstitel in einem Schlüssel `title` einbinden. Möchten Sie diesen Text in mehrere Sprachen lokalisieren, können Sie einen Platzhalter im Schlüssel `title` einfügen und die Definitionen für diesen Platzhalter in den verschiedenen Sprachen unten in der YAML-Datei in einem `l10n`-Wörterbuch angeben.
+Wie oben erklärt, können Sie benutzerdefinierten Text einfügen, um Ihren Linktext oder Abschnittstitel in einen `title`-Schlüssel zu füllen. Wenn Sie diesen Text in mehrere Sprachen lokalisieren möchten, können Sie einen Platzhalter im `title`-Schlüssel einfügen und dann die Definitionen, was dieser Platzhalter in verschiedenen Sprachen sein soll, in ein `l10n`-Wörterbuch am Ende der YAML-Datei aufnehmen.
 
-Hier ein Beispiel, um zu zeigen, wie das aussieht. In der [HTML](/de/docs/Web/HTML)-Seitenleiste (siehe [`htmlsidebar.yaml`](https://github.com/mdn/content/blob/main/files/sidebars/htmlsidebar.yaml)) definieren wir ein Listen-Item, das eine Liste von Links zu allen {{htmlelement("input")}}-Typreferenzseiten generiert. Der Text des übergeordneten Listen-Items wird in dem Schlüssel `title` als Platzhalter `Input_types` definiert:
+Sehen wir uns ein Beispiel an, um zu zeigen, wie das aussieht. In der [HTML](/de/docs/Web/HTML) Sidebar (siehe [`htmlsidebar.yaml`](https://github.com/mdn/content/blob/main/files/sidebars/htmlsidebar.yaml)) definieren wir ein Listenelement, das eine Liste von Links zu allen {{htmlelement("input")}}-Typ-Referenzseiten generiert. Der Text des übergeordneten Listenelements wird im `title`-Schlüssel als Platzhalter `Input_types` definiert:
 
 ```yaml
 - type: listSubPages
@@ -295,9 +232,9 @@ Hier ein Beispiel, um zu zeigen, wie das aussieht. In der [HTML](/de/docs/Web/HT
   code: true
 ```
 
-Am unteren Rand der Datei definieren wir das Wörterbuch `l10n`. Jeder Schlüssel in `l10n` repräsentiert eine andere Locale — `en-US`, `fr`, `ja` usw. Der Wert jedes dieser Schlüssel ist ein Unterwörterbuch, dessen Schlüssel die in den Listen-Items definierten Platzhalter sind. Jeder Schlüsselwert ist der Wert dieses Platzhalters in der jeweiligen Locale.
+Ganz unten in der Datei definieren wir das `l10n`-Wörterbuch. Jeder Schlüssel innerhalb von `l10n` repräsentiert ein anderes Sprachgebietsschema — `en-US`, `fr`, `ja`, etc. Der Wert eines jeden dieser Schlüssel ist ein Unterwörterbuch, dessen Schlüssel die in den Listenelementdefinitionen definierten Platzhalter sind. Jeder Schlüsselwert ist der Wert dieses Platzhalters in dem jeweiligen Sprachgebietsschema.
 
-Beispiel:
+Zum Beispiel:
 
 ```yaml
 l10n:
@@ -317,32 +254,32 @@ l10n:
     Input_types: <code>&lt;input&gt;</code> 类型
 ```
 
-Wir haben hier nur die `Input_types`-Werte in jeder Locale zur Kürze angegeben.
+Wir haben nur die `Input_types`-Werte in jedem Sprachgebietsschema der Übersichtlichkeit halber eingefügt.
 
-Wenn die Seitenleiste gerendert wird, ersetzt das System den Text `Input_types` durch seinen definierten Wert in der jeweiligen Locale-Version der Website. Vergleichen Sie zum Beispiel:
+Wenn die Sidebar gerendert wird, ersetzt das System den `Input_types`-Text durch den definierten Wert im entsprechenden Sprachgebietsschema der Website. Vergleichen Sie beispielsweise Folgendes:
 
 - https://developer.mozilla.org/de/docs/Web/HTML
 - https://developer.mozilla.org/fr/docs/Web/HTML
 - https://developer.mozilla.org/ja/docs/Web/HTML
 
-Falls auf eine MDN-Locale zugegriffen wird, die keinen Wert für einen bestimmten Platzhalter definiert hat, wird standardmäßig die `en-US`-Version verwendet. Ist keine `en-US`-Version definiert, wird der Platzhaltertext wörtlich angezeigt (in diesem Fall `Input_types`).
+Wenn auf ein MDN-Sprachgebietsschema zugegriffen wird, das keinen definierten Wert für einen bestimmten Platzhalter hat, wird standardmäßig die `en-US`-Version verwendet. Wenn keine `en-US`-Version definiert ist, wird der literal Platzhaltertext angezeigt (was in diesem Fall `Input_types` wäre).
 
-## Nicht standardisierte Seitenleisten
+## Nicht Standard-Sidebars
 
-Es gibt einige Seitenleisten auf MDN, die das oben beschriebene Standardsystem nicht verwenden. Diese sind komplexe, vollständig automatisierte Makros, die selten geändert werden müssen:
+Es gibt einige Sidebars auf MDN, die nicht das oben beschriebene Standard-System verwenden. Diese sind komplexe, vollautomatisierte Makros, die nicht sehr oft geändert werden müssen:
 
 - `\{{APIRef("<API>")}}`
-  - : Die API-Seitenleiste, die auf [API-Referenzseiten](/de/docs/Web/API#interfaces) angezeigt wird. Für jede Schnittstelle generiert das Makro automatisch Links zu den auf der Schnittstelle definierten Elementen — Eigenschaften, Methoden, Events usw. Der einzige Parameter ist der Name der entsprechenden API-Gruppe, die in der Datei [`GroupData.json`](https://github.com/mdn/content/blob/main/files/jsondata/GroupData.json) definiert ist. Um die verwandten Seiten, die unten in der Seitenleiste angezeigt werden, zu bearbeiten, bearbeiten Sie den GroupData-Eintrag dieser API.
+  - : Die API-Sidebar, die auf [API-Referenzseiten](/de/docs/Web/API#interfaces) angezeigt wird. Für jedes Interface generiert das Makro automatisch Links zu Mitgliedern, die auf dem Interface definiert sind — Eigenschaften, Methoden, Ereignisse usw. Der einzelne Parameter ist der Name der relevanten API-Gruppe, die in der Datei [`GroupData.json`](https://github.com/mdn/content/blob/main/files/jsondata/GroupData.json) definiert ist. Um die verwandten Seiten zu bearbeiten, die unten in der Sidebar angezeigt werden, bearbeiten Sie den GroupData-Eintrag dieser API.
 - `\{{DefaultAPISidebar("<API>")}}`
-  - : Die API-Seitenleiste, die auf [API-Einstiegsseiten](/de/docs/Web/API#specifications) angezeigt wird. Der einzige Parameter ist der Name der entsprechenden API-Gruppe, die in der Datei [`GroupData.json`](https://github.com/mdn/content/blob/main/files/jsondata/GroupData.json) definiert ist. Um die Leitfäden, Schnittstellen usw., die in der Seitenleiste einer bestimmten API verlinkt sind, zu bearbeiten, bearbeiten Sie den GroupData-Eintrag dieser API.
+  - : Die API-Sidebar, die auf [API-Startseiten](/de/docs/Web/API#specifications) angezeigt wird. Der einzelne Parameter ist der Name der relevanten API-Gruppe, die in der Datei [`GroupData.json`](https://github.com/mdn/content/blob/main/files/jsondata/GroupData.json) definiert ist. Um die Leitfäden, Schnittstellen usw. zu bearbeiten, die in der Sidebar einer bestimmten API verlinkt sind, bearbeiten Sie den GroupData-Eintrag dieser API.
 - `\{{JSRef("<JS_topic>")}}`
-  - : Die Seitenleiste auf [JavaScript-Referenzseiten](/de/docs/Web/JavaScript/Reference). Der einzige Parameter ist das Verzeichnis, für das Sie die Links generieren möchten.
+  - : Die Sidebar auf [JavaScript-Referenzseiten](/de/docs/Web/JavaScript/Reference). Der einzelne Parameter ist das Verzeichnis, für das Sie die Links generieren möchten.
 
-Falls Sie der Meinung sind, dass eine dieser Seitenleisten aktualisiert werden sollte, kontaktieren Sie uns über die [üblichen Kanäle](/de/docs/MDN/Community/Communication_channels).
+Wenn Sie denken, dass eines davon aktualisiert werden sollte, kontaktieren Sie uns über die [üblichen Kanäle](/de/docs/MDN/Community/Communication_channels).
 
 ## Siehe auch
 
 - [Verwendung von Makros](/de/docs/MDN/Writing_guidelines/Page_structures/Macros)
-- [Makros für Inhaltslinks](/de/docs/MDN/Writing_guidelines/Page_structures/Links)
-- [Makros für Seitenabschnitte](/de/docs/MDN/Writing_guidelines/Page_structures/Macros/Commonly_used_macros)
-- [Makros für Banner und Hinweise](/de/docs/MDN/Writing_guidelines/Page_structures/Banners_and_notices)
+- [Inhaltslink-Makros](/de/docs/MDN/Writing_guidelines/Page_structures/Links)
+- [Seitensektion-Makros](/de/docs/MDN/Writing_guidelines/Page_structures/Macros/Commonly_used_macros)
+- [Banner- und Hinweis-Makros](/de/docs/MDN/Writing_guidelines/Page_structures/Banners_and_notices)

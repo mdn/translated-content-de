@@ -3,12 +3,12 @@ title: JavaScript-Leistungsoptimierung
 short-title: Performantes JavaScript
 slug: Learn_web_development/Extensions/Performance/JavaScript
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: 48d220a8cffdfd5f088f8ca89724a9a92e34d8c0
 ---
 
-{{LearnSidebar}}{{PreviousMenuNext("Learn_web_development/Extensions/Performance/video", "Learn_web_development/Extensions/Performance/HTML", "Learn_web_development/Extensions/Performance")}}
+{{PreviousMenuNext("Learn_web_development/Extensions/Performance/video", "Learn_web_development/Extensions/Performance/HTML", "Learn_web_development/Extensions/Performance")}}
 
-Es ist sehr wichtig, zu berücksichtigen, wie Sie JavaScript auf Ihren Websites verwenden, und darüber nachzudenken, wie Sie mögliche Leistungsprobleme mildern können, die es verursachen könnte. Während Bilder und Videos über 70 % der heruntergeladenen Bytes für die durchschnittliche Website ausmachen, hat JavaScript byteweise ein größeres Potenzial für negative Leistungsauswirkungen — es kann erheblich die Download-Zeiten, die Rendering-Performance und die CPU- und Batterienutzung beeinflussen. Dieser Artikel stellt Tipps und Techniken zur Optimierung von JavaScript vor, um die Leistung Ihrer Website zu verbessern.
+Es ist sehr wichtig, darüber nachzudenken, wie JavaScript auf Ihren Websites genutzt wird und wie mögliche Leistungsprobleme gemindert werden können. Während Bilder und Videos über 70% der heruntergeladenen Bytes einer durchschnittlichen Website ausmachen, hat JavaScript Byte für Byte ein größeres Potenzial für negative Leistungsauswirkungen — es kann signifikant die Download-Zeiten, die Rendering-Leistung und die CPU- und Batterienutzung beeinflussen. Dieser Artikel führt Tipps und Techniken zur JavaScript-Optimierung ein, um die Leistung Ihrer Website zu verbessern.
 
 <table>
   <tbody>
@@ -27,7 +27,7 @@ Es ist sehr wichtig, zu berücksichtigen, wie Sie JavaScript auf Ihren Websites 
     <tr>
       <th scope="row">Ziele:</th>
       <td>
-        Erlernen, wie sich JavaScript auf die Webleistung auswirkt
+        Lernen, welche Auswirkungen JavaScript auf die Web-Performance hat
         und wie man damit verbundene Probleme mindern oder beheben kann.
       </td>
     </tr>
@@ -36,48 +36,48 @@ Es ist sehr wichtig, zu berücksichtigen, wie Sie JavaScript auf Ihren Websites 
 
 ## Optimieren oder nicht optimieren
 
-Die erste Frage, die Sie beantworten sollten, bevor Sie mit der Optimierung Ihres Codes beginnen, lautet: "Was muss ich optimieren?". Einige der unten diskutierten Tipps und Techniken sind gute Praktiken, die so gut wie jedem Web-Projekt zugutekommen, während andere nur in bestimmten Situationen benötigt werden. Der Versuch, all diese Techniken überall anzuwenden, ist wahrscheinlich unnötig und könnte Zeitverschwendung sein. Sie sollten herausfinden, welche Leistungsoptimierungen in jedem Projekt tatsächlich benötigt werden.
+Die erste Frage, die Sie beantworten sollten, bevor Sie beginnen, Ihren Code zu optimieren, ist "Was muss ich optimieren?". Einige der unten diskutierten Tipps und Techniken sind gute Praktiken, die jedem Webprojekt nützen, während andere nur in bestimmten Situationen benötigt werden. Zu versuchen, all diese Techniken überall anzuwenden, ist wahrscheinlich unnötig und könnte Ihre Zeit verschwenden. Sie sollten herausfinden, welche Leistungsoptimierungen in jedem Projekt tatsächlich benötigt werden.
 
-Dazu müssen Sie die [Leistung Ihrer Website messen](/de/docs/Learn_web_development/Extensions/Performance/Measuring_performance). Wie der vorherige Link zeigt, gibt es mehrere verschiedene Möglichkeiten, die Leistung zu messen, einige davon basieren auf ausgeklügelten [Performance-APIs](/de/docs/Web/API/Performance_API). Der beste Weg, um zu beginnen, besteht jedoch darin, zu lernen, wie man Tools wie die integrierten Browser- [Netzwerk](/de/docs/Learn_web_development/Extensions/Performance/Measuring_performance#network_monitor_tools) und [Performance](/de/docs/Learn_web_development/Extensions/Performance/Measuring_performance#performance_monitor_tools)-Tools verwendet, um zu sehen, welche Teile des Seitenladens viel Zeit in Anspruch nehmen und optimiert werden müssen.
+Um dies zu tun, müssen Sie die [Performance Ihrer Website messen](/de/docs/Learn_web_development/Extensions/Performance/Measuring_performance). Wie der vorherige Link zeigt, gibt es mehrere verschiedene Wege, die Performance zu messen, einige davon beinhalten ausgeklügelte [Performance-APIs](/de/docs/Web/API/Performance_API). Der beste Weg, um zu beginnen, besteht allerdings darin, zu lernen, wie man Tools wie die eingebauten [Netzwerk-](/de/docs/Learn_web_development/Extensions/Performance/Measuring_performance#network_monitor_tools) und [Performance-Tools](/de/docs/Learn_web_development/Extensions/Performance/Measuring_performance#performance_monitor_tools) des Browsers nutzt, um zu sehen, welche Teile des Seitenladevorgangs lange dauern und optimiert werden müssen.
 
-## JavaScript-Downloads optimieren
+## Optimierung des JavaScript-Downloads
 
-Das am besten performante, am wenigsten blockierende JavaScript, das Sie verwenden können, ist JavaScript, das Sie überhaupt nicht verwenden. Sie sollten so wenig JavaScript wie möglich verwenden. Einige Tipps, die Sie beachten sollten:
+Das performanteste JavaScript, das am wenigsten blockiert, ist das JavaScript, das Sie überhaupt nicht verwenden. Sie sollten so wenig JavaScript wie möglich verwenden. Einige Tipps, die Sie beachten sollten:
 
-- **Sie brauchen nicht immer ein Framework**: Sie sind möglicherweise mit der Verwendung eines [JavaScript-Frameworks](/de/docs/Learn_web_development/Core/Frameworks_libraries) vertraut. Wenn Sie erfahren und zuversichtlich im Umgang mit diesem Framework sind und all die Tools mögen, die es bietet, dann könnte es Ihr bevorzugtes Werkzeug zum Erstellen der meisten Projekte sein. Frameworks sind jedoch schwer mit JavaScript. Wenn Sie eine ziemlich statische Erfahrung mit wenigen JavaScript-Anforderungen erstellen, benötigen Sie dieses Framework wahrscheinlich nicht. Möglicherweise können Sie das, was Sie benötigen, mit ein paar Zeilen Standard-JavaScript umsetzen.
-- **Überlegen Sie sich eine einfachere Lösung**: Sie könnten eine auffällige, interessante Lösung zur Implementierung haben, aber überlegen Sie, ob Ihre Benutzer dies zu schätzen wissen. Würden sie etwas Einfacheres bevorzugen?
-- **Entfernen Sie ungenutzten Code**: Dies mag offensichtlich klingen, aber es ist überraschend, wie viele Entwickler vergessen, ungenutzte Funktionen zu bereinigen, die während des Entwicklungsprozesses hinzugefügt wurden. Sie müssen vorsichtig und bewusst darüber sein, was hinzugefügt und entfernt wird. Alle Skripte werden analysiert, ob sie nun verwendet werden oder nicht; daher wäre ein schneller Weg zur Beschleunigung von Downloads, alle nicht verwendeten Funktionen zu entfernen. Denken Sie auch daran, dass Sie oft nur einen kleinen Teil der Funktionalitäten eines Frameworks nutzen. Ist es möglich, eine benutzerdefinierte Version des Frameworks zu erstellen, die nur den Teil enthält, den Sie benötigen?
-- **Erwägen Sie integrierte Browserfunktionen**: Möglicherweise können Sie eine Funktion verwenden, die der Browser bereits hat, anstatt Ihre eigene über JavaScript zu erstellen. Zum Beispiel:
+- **Sie benötigen nicht immer ein Framework**: Möglicherweise sind Sie mit der Verwendung eines [JavaScript-Frameworks](/de/docs/Learn_web_development/Core/Frameworks_libraries) vertraut. Wenn Sie Erfahrung und Vertrauen im Umgang mit diesem Framework haben und alle damit verbundenen Tools mögen, dann könnte es Ihr bevorzugtes Werkzeug sein, um die meisten Projekte zu entwickeln. Frameworks sind jedoch JavaScript-intensiv. Wenn Sie eine relativ statische Erfahrung mit wenigen JavaScript-Anforderungen erstellen, benötigen Sie wahrscheinlich kein Framework. Möglicherweise können Sie das, was Sie benötigen, mit ein paar Zeilen Standard-JavaScript umsetzen.
+- **Erwägen Sie eine einfachere Lösung**: Vielleicht haben Sie eine auffällige, interessante Lösung zu implementieren, aber überlegen Sie, ob Ihre Benutzer sie zu schätzen wissen werden. Würden sie vielleicht etwas Einfacheres bevorzugen?
+- **Entfernen Sie ungenutzten Code:** Das mag offensichtlich klingen, aber es ist erstaunlich, wie viele Entwickler vergessen, unbenutzte Funktionalitäten, die während des Entwicklungsprozesses hinzugefügt wurden, zu bereinigen. Sie müssen sorgfältig und bewusst darauf achten, was hinzugefügt und entfernt wird. Jeder Skript wird geparst, egal ob er genutzt wird oder nicht; daher wäre eine schnelle Möglichkeit, die Downloads zu beschleunigen, jegliche nicht genutzte Funktionalität zu entfernen. Bedenken Sie auch, dass Sie in einem Framework oft nur einen kleinen Teil der verfügbaren Funktionalität nutzen werden. Ist es möglich, einen benutzerdefinierten Build des Frameworks zu erstellen, der nur den Teil enthält, den Sie benötigen?
+- **Nutzen Sie eingebaute Funktionen des Browsers**: Es könnte sein, dass Sie eine Funktion verwenden können, die der Browser bereits hat, anstatt Ihre eigene über JavaScript zu erstellen. Zum Beispiel:
   - Verwenden Sie [eingebaute clientseitige Formularvalidierung](/de/docs/Learn_web_development/Extensions/Forms/Form_validation#using_built-in_form_validation).
-  - Verwenden Sie den eigenen {{htmlelement("video")}} Player des Browsers.
+  - Nutzen Sie den eigenen {{htmlelement("video")}}-Player des Browsers.
   - Verwenden Sie [CSS-Animationen](/de/docs/Web/CSS/CSS_animations/Using_CSS_animations) anstelle einer JavaScript-Animationsbibliothek (siehe auch [Umgang mit Animationen](#umgang_mit_javascript-animationen)).
 
-Sie sollten Ihr JavaScript auch in mehrere Dateien aufteilen, die kritische und nicht-kritische Teile darstellen. [JavaScript-Module](/de/docs/Web/JavaScript/Guide/Modules) ermöglichen es Ihnen, dies effizienter zu tun, als nur separate externe JavaScript-Dateien zu verwenden.
+Sie sollten auch Ihr JavaScript in mehrere Dateien aufteilen, die kritische und nicht-kritische Teile darstellen. [JavaScript-Module](/de/docs/Web/JavaScript/Guide/Modules) ermöglichen Ihnen dies effizienter als beim einfachen Einsatz separater externer JavaScript-Dateien.
 
-Dann können Sie diese kleineren Dateien optimieren. {{Glossary("Minification", "Minimierung")}} reduziert die Anzahl der Zeichen in Ihrer Datei und damit die Anzahl der Bytes oder das Gewicht Ihres JavaScripts. {{Glossary("Gzip_compression", "Gzipping")}} komprimiert die Datei weiter und sollte auch dann verwendet werden, wenn Sie Ihren Code nicht minimieren. {{Glossary("Brotli_compression", "Brotli")}} ist ähnlich wie Gzip, übertrifft jedoch im Allgemeinen die Gzip-Komprimierung.
+Dann können Sie diese kleineren Dateien optimieren. {{Glossary("Minification", "Minifizierung")}} reduziert die Anzahl der Zeichen in Ihrer Datei und damit die Anzahl der Bytes oder das Gewicht Ihres JavaScripts. {{Glossary("Gzip_compression", "Gzipping")}} komprimiert die Datei weiter und sollte auch dann verwendet werden, wenn Sie Ihren Code nicht minifizieren. {{Glossary("Brotli_compression", "Brotli")}} ist ähnlich wie Gzip, übertrifft jedoch in der Regel die Gzip-Komprimierung.
 
-Sie können Ihren Code manuell aufteilen und optimieren, aber oft erledigt ein Modulpaketierer wie [webpack](https://webpack.js.org/) diese Aufgabe besser.
+Sie können Ihren Code manuell aufteilen und optimieren, aber oft erledigt ein Modul-Bundler wie [webpack](https://webpack.js.org/) diese Aufgabe besser.
 
 ## Umgang mit Parsing und Ausführung
 
-Bevor wir uns die Tipps in diesem Abschnitt ansehen, ist es wichtig, darüber zu sprechen, _wo_ im Prozess der Browser-Seiten-Rendering JavaScript verarbeitet wird. Wenn eine Webseite geladen wird:
+Bevor Sie sich die Tipps in diesem Abschnitt ansehen, ist es wichtig zu klären, _wo_ im Prozess des Browser-Seiten-Renderings JavaScript behandelt wird. Wenn eine Webseite geladen wird:
 
-1. Das HTML wird im Allgemeinen zuerst in der Reihenfolge, in der es auf der Seite erscheint, analysiert.
-2. Immer wenn CSS auftritt, wird es analysiert, um zu verstehen, welche Stile auf die Seite angewendet werden müssen. Während dieser Zeit beginnen verknüpfte Assets wie Bilder und Webfonts, abgerufen zu werden.
-3. Immer wenn JavaScript auftritt, analysiert, bewertet und führt der Browser es gegen die Seite aus.
-4. Etwas später arbeitet der Browser aus, wie jedes HTML-Element gestylt werden soll, angesichts des darauf angewendeten CSS.
+1. Der HTML-Code wird in der Regel zuerst in der Reihenfolge, in der er auf der Seite erscheint, geparst.
+2. Wann immer CSS angetroffen wird, wird es geparst, um die zu formatierenden Styles zu verstehen. Während dieser Zeit beginnen verknüpfte Assets wie Bilder und Webfonts, abgerufen zu werden.
+3. Wann immer JavaScript angetroffen wird, wird es geparst, ausgewertet und gegen die Seite ausgeführt.
+4. Etwas später arbeitet der Browser aus, wie jedes HTML-Element gestylt werden sollte, betrachtet man das angewendete CSS.
 5. Das gestylte Ergebnis wird dann auf den Bildschirm gemalt.
 
 > [!NOTE]
 > Dies ist eine sehr vereinfachte Darstellung dessen, was passiert, aber es gibt Ihnen eine Idee.
 
-Der entscheidende Schritt hier ist Schritt 3. Standardmäßig sind JavaScript-Parsing und -Ausführung render-blockierend. Das bedeutet, dass der Browser das Parsing von HTML, das nach dem JavaScript-Abschnitt erscheint, bis zur vollständigen Verarbeitung des Skripts blockiert. Infolgedessen werden auch Styling und Malerei blockiert. Dies bedeutet, dass Sie sorgfältig darüber nachdenken müssen, was Sie herunterladen und wann und wie dieser Code ausgeführt wird.
+Der entscheidende Schritt hier ist Schritt 3. Standardmäßig sind das Parsen und die Ausführung von JavaScript render-blockierend. Das bedeutet, dass der Browser das Parsen des HTML, das nach dem JavaScript erscheint, blockiert, bis das Skript behandelt wurde. Infolgedessen sind auch das Styling und das Rendering blockiert. Das bedeutet, dass Sie sorgfältig darüber nachdenken müssen, nicht nur was Sie herunterladen, sondern auch wann und wie dieser Code ausgeführt wird.
 
-Die nächsten Abschnitte bieten nützliche Techniken, um das Parsing und die Ausführung Ihres JavaScripts zu optimieren.
+Die nächsten Abschnitte bieten nützliche Techniken zur Optimierung des Parsens und der Ausführung Ihres JavaScripts.
 
-## Laden kritischer Assets so früh wie möglich
+## Laden kritischer Assets so schnell wie möglich
 
-Wenn ein Skript wirklich wichtig ist und Sie besorgt sind, dass es die Leistung beeinträchtigt, weil es nicht schnell genug geladen wird, können Sie es im {{htmlelement("head")}} des Dokuments laden:
+Wenn ein Skript wirklich wichtig ist und Sie befürchten, dass seine langsame Ladegeschwindigkeit die Leistung beeinträchtigt, können Sie es im {{htmlelement("head")}} des Dokuments laden:
 
 ```html
 <head>
@@ -87,7 +87,7 @@ Wenn ein Skript wirklich wichtig ist und Sie besorgt sind, dass es die Leistung 
 </head>
 ```
 
-Dies funktioniert gut, ist aber render-blockierend. Eine bessere Strategie ist die Verwendung von [`rel="preload"`](/de/docs/Web/HTML/Reference/Attributes/rel/preload), um einen Preloader für kritisches JavaScript zu erstellen:
+Dies funktioniert, ist jedoch render-blockierend. Eine bessere Strategie ist es, [`rel="preload"`](/de/docs/Web/HTML/Reference/Attributes/rel/preload) zu verwenden, um einen Preloader für kritisches JavaScript zu erstellen:
 
 ```html
 <head>
@@ -100,7 +100,7 @@ Dies funktioniert gut, ist aber render-blockierend. Eine bessere Strategie ist d
 </head>
 ```
 
-Der Preload-{{htmlelement("link")}} ruft das JavaScript so schnell wie möglich ab, ohne das Rendering zu blockieren. Sie können es dann überall in Ihrer Seite verwenden:
+Das Preload-{{htmlelement("link")}} lädt das JavaScript so schnell wie möglich herunter, ohne das Rendering zu blockieren. Sie können es dann überall auf Ihrer Seite verwenden:
 
 ```html
 <!-- Include this wherever makes sense -->
@@ -114,13 +114,13 @@ import { someFunction } from "important-module.js";
 ```
 
 > [!NOTE]
-> Preloading garantiert nicht, dass das Skript geladen wird, wenn Sie es einfügen, aber es bedeutet, dass es früher heruntergeladen wird. Die Render-Blockierungszeit wird dennoch verkürzt, auch wenn sie nicht vollständig beseitigt wird.
+> Preloading garantiert nicht, dass das Skript geladen ist, wenn es eingebunden wird, aber es bedeutet, dass es früher heruntergeladen wird. Die Render-Blockierungszeit wird verkürzt, selbst wenn sie nicht vollständig entfernt wird.
 
-## Ausführung von nicht-kritischem JavaScript verzögern
+## Aufschieben der Ausführung von nicht-kritischem JavaScript
 
-Andererseits sollten Sie versuchen, das Parsing und die Ausführung von nicht-kritischem JavaScript auf später zu verschieben, wenn es benötigt wird. Alles sofort zu laden, blockiert das Rendering unnötig.
+Andererseits sollten Sie das Parsen und die Ausführung von nicht-kritischem JavaScript auf später verschieben, wenn es benötigt wird. Alles auf einmal zu laden blockiert das Rendering unnötig.
 
-Zunächst können Sie das `async` Attribut zu Ihren `<script>` Elementen hinzufügen:
+Zuerst können Sie das `async`-Attribut zu Ihren `<script>`-Elementen hinzufügen:
 
 ```html
 <head>
@@ -130,12 +130,12 @@ Zunächst können Sie das `async` Attribut zu Ihren `<script>` Elementen hinzuf�
 </head>
 ```
 
-Dies bewirkt, dass das Skript parallel zum DOM-Parsing abgerufen wird, sodass es zur gleichen Zeit bereit ist und das Rendering nicht blockiert.
+Dadurch wird das Skript parallel mit dem DOM-Parsen abgerufen, sodass es gleichzeitig bereit ist und das Rendering nicht blockiert.
 
 > [!NOTE]
-> Es gibt ein weiteres Attribut, `defer`, das bewirkt, dass das Skript nach dem Dokumenten-Parsing, aber vor dem Auslösen des [`DOMContentLoaded`](/de/docs/Web/API/Document/DOMContentLoaded_event)-Ereignisses ausgeführt wird. Dies hat einen ähnlichen Effekt wie `async`.
+> Es gibt ein anderes Attribut, `defer`, das das Skript nach dem Parsen des Dokuments, aber vor dem Auslösen des [`DOMContentLoaded`](/de/docs/Web/API/Document/DOMContentLoaded_event)-Ereignisses ausführt. Dieses hat eine ähnliche Wirkung wie `async`.
 
-Sie könnten das JavaScript auch einfach überhaupt nicht laden, bis ein Ereignis eintritt, bei dem es benötigt wird. Dies könnte über DOM-Scripting erfolgen, beispielsweise:
+Sie könnten auch einfach das JavaScript überhaupt nicht laden, bis ein Ereignis auftritt, bei dem es benötigt wird. Dies könnte über DOM-Scripting erfolgen, zum Beispiel:
 
 ```js
 const scriptElem = document.createElement("script");
@@ -147,7 +147,7 @@ scriptElem.addEventListener("load", () => {
 document.head.append(scriptElem);
 ```
 
-JavaScript-Module können dynamisch mit der Funktion {{jsxref("operators/import", "import()")}} geladen werden:
+JavaScript-Module können dynamisch mit der {{jsxref("operators/import", "import()")}}-Funktion geladen werden:
 
 ```js
 import("./modules/myModule.js").then((module) => {
@@ -155,15 +155,15 @@ import("./modules/myModule.js").then((module) => {
 });
 ```
 
-## Aufteilung langer Aufgaben
+## Lang andauernde Aufgaben aufteilen
 
-Wenn der Browser Ihr JavaScript ausführt, organisiert er das Skript in Aufgaben, die nacheinander ausgeführt werden, wie das Erstellen von Fetch-Anfragen, die Benutzerinteraktionen und Eingaben über Ereignis-Handler steuern, das Ausführen von JavaScript-gesteuerten Animationen und so weiter.
+Wenn der Browser Ihr JavaScript ausführt, organisiert er das Skript in aufeinanderfolgende Aufgaben, wie das Durchführen von Abrufanforderungen, die Benutzerinteraktionen und Eingaben durch Event-Handler, das Ausführen von JavaScript-gesteuerten Animationen und so weiter.
 
-Die meisten davon passieren im Hauptthread, mit Ausnahmen wie JavaScript, das in [Web Workern](/de/docs/Web/API/Web_Workers_API/Using_web_workers) läuft. Der Hauptthread kann nur eine Aufgabe auf einmal ausführen.
+Das meiste davon geschieht im Haupt-Thread, mit Ausnahmen wie JavaScript, das in [Web Workers](/de/docs/Web/API/Web_Workers_API/Using_web_workers) ausgeführt wird. Der Haupt-Thread kann immer nur eine Aufgabe auf einmal ausführen.
 
-Wenn eine einzige Aufgabe länger als 50 ms dauert, um ausgeführt zu werden, wird sie als lange Aufgabe klassifiziert. Wenn der Benutzer versucht, mit der Seite zu interagieren, oder eine wichtige UI-Aktualisierung angefordert wird, während eine lange Aufgabe ausgeführt wird, wird seine Erfahrung beeinträchtigt. Eine erwartete Antwort oder visuelle Aktualisierung wird verzögert, was dazu führt, dass die Benutzeroberfläche träge oder nicht reagierend erscheint.
+Wenn eine einzelne Aufgabe länger als 50 ms benötigt, wird sie als lange Aufgabe klassifiziert. Wenn der Benutzer versucht, mit der Seite zu interagieren oder ein wichtiger UI-Update angefordert wird, während eine lang andauernde Aufgabe ausgeführt wird, wird dies die Benutzererfahrung beeinträchtigen. Eine erwartete Antwort oder ein visueller Update wird verzögert, was dazu führt, dass die UI träge oder nicht reaktionsfähig erscheint.
 
-Um dieses Problem zu mindern, müssen Sie lange Aufgaben in kleinere Aufgaben aufteilen. Auf diese Weise hat der Browser mehr Chancen, wichtige Benutzerinteraktionen zu handhaben oder UI-Rendering-Aktualisierungen durchzuführen — der Browser kann sie potenziell zwischen jeder kleineren Aufgabe ausführen, anstatt nur vorher oder nachher. In Ihrem JavaScript könnten Sie dies tun, indem Sie Ihren Code in separate Funktionen aufteilen. Dies macht auch aus mehreren anderen Gründen Sinn, wie einfachere Wartung, Debugging und das Schreiben von Tests.
+Um dieses Problem zu mindern, müssen Sie lang andauernde Aufgaben in kleinere Aufgaben aufteilen. Dadurch hat der Browser mehr Gelegenheiten, wesentliche Benutzerinteraktionsbehandlungen oder UI-Rendering-Updates durchzuführen — der Browser kann sie potenziell zwischen jeder kleineren Aufgabe durchführen, anstatt nur vor oder nach der lang andauernden Aufgabe. In Ihrem JavaScript könnten Sie dies tun, indem Sie Ihren Code in separate Funktionen aufteilen. Das macht auch aus mehreren anderen Gründen Sinn, wie einfachere Wartung, Fehlerbehebung und Testentwicklung.
 
 Zum Beispiel:
 
@@ -177,9 +177,9 @@ function main() {
 }
 ```
 
-Diese Art von Struktur hilft jedoch nicht bei der Blockierung des Hauptthreads. Da alle fünf Funktionen in einer Hauptfunktion ausgeführt werden, führt der Browser sie alle als eine einzige lange Aufgabe aus.
+Diese Art von Struktur hilft jedoch nicht bei der Blockierung des Haupt-Threads. Da alle fünf Funktionen in einer Hauptfunktion ausgeführt werden, führt der Browser sie alle als eine einzige lang andauernde Aufgabe aus.
 
-Um dies zu handhaben, neigen wir dazu, regelmäßig eine "yield"-Funktion auszuführen, um den Code zum _Hauptthread freizugeben_. Das bedeutet, dass unser Code in mehrere Aufgaben unterteilt wird, zwischen deren Ausführung der Browser die Möglichkeit erhält, hochpriorisierte Aufgaben wie die Aktualisierung der Benutzeroberfläche zu behandeln. Ein häufiges Muster für diese Funktion verwendet [`setTimeout()`](/de/docs/Web/API/Window/setTimeout), um die Ausführung in eine separate Aufgabe zu verschieben:
+Um dies zu Handhaben, tendieren wir dazu, regelmäßig eine "Yield"-Funktion auszuführen, um den Code dazu zu bringen, _dem Haupt-Thread nachzugeben_. Das bedeutet, dass unser Code in mehrere Aufgaben aufgeteilt wird, zwischen deren Ausführung der Browser die Gelegenheit erhält, hochpriorisierte Aufgaben wie das Aktualisieren der UI zu behandeln. Ein gängiges Muster für diese Funktion verwendet [`setTimeout()`](/de/docs/Web/API/Window/setTimeout), um die Ausführung in eine separate Aufgabe zu verschieben:
 
 ```js
 function yield() {
@@ -189,7 +189,7 @@ function yield() {
 }
 ```
 
-Dies kann in einem Task-Runner-Muster wie folgt verwendet werden, um nach jeder ausgeführten Aufgabe zum Hauptthread freizugeben:
+Dies kann innerhalb eines Task-Runner-Musters wie folgt verwendet werden, um nach jeder ausgeführten Aufgabe dem Haupt-Thread nachzugeben:
 
 ```js
 async function main() {
@@ -210,7 +210,7 @@ async function main() {
 }
 ```
 
-Um dies weiter zu verbessern, können wir [`Scheduler.yield()`](/de/docs/Web/API/Scheduler/yield) verwenden, wo verfügbar, um diesem Code zu erlauben, vor anderen weniger kritischen Aufgaben in der Warteschlange weiterzulaufen:
+Um dies weiter zu verbessern, können wir [`Scheduler.yield()`](/de/docs/Web/API/Scheduler/yield) verwenden, wo verfügbar, um diesem Code zu ermöglichen, vor anderen weniger kritischen Aufgaben in der Warteschlange weiter ausgeführt zu werden:
 
 ```js
 function yield() {
@@ -228,13 +228,13 @@ function yield() {
 
 ## Umgang mit JavaScript-Animationen
 
-Animationen können die wahrgenommene Leistung verbessern, indem sie Schnittstellen schneller erscheinen lassen und Benutzern das Gefühl geben, dass Fortschritte erzielt werden, während sie darauf warten, dass eine Seite geladen wird (Ladespinner zum Beispiel). Größere Animationen und eine höhere Anzahl an Animationen erfordern jedoch natürlich mehr Rechenleistung, was die Leistung beeinträchtigen kann.
+Animationen können die wahrgenommene Performance verbessern, indem sie Schnittstellen flinker wirken lassen und den Benutzern das Gefühl geben, dass Fortschritte gemacht werden, wenn sie darauf warten, dass eine Seite geladen wird (zum Beispiel Lade-Spinnereien). Größere Animationen und eine höhere Anzahl von Animationen erfordern jedoch naturgemäß mehr Rechenleistung, was die Performance beeinträchtigen kann.
 
-Der offensichtlichste Ratschlag zu Animationen ist, weniger Animationen zu verwenden — alle nicht wesentlichen Animationen zu entfernen oder Ihren Benutzern eine Präferenz zu geben, die sie einstellen können, um Animationen auszuschalten, zum Beispiel, wenn sie ein leistungsschwaches Gerät oder ein Mobilgerät mit begrenzter Akkulaufzeit verwenden.
+Der offensichtlichste Ratschlag für Animationen ist, weniger Animationen zu verwenden — schneiden Sie alle nicht-essentiellen Animationen aus, oder überlegen Sie, Ihren Benutzern eine Präferenz anzubieten, die es ihnen ermöglicht, Animationen auszuschalten, wenn sie beispielsweise ein Gerät mit geringer Leistung oder ein Mobilgerät mit begrenzter Batterieleistung verwenden.
 
-Für wesentliche DOM-Animationen wird empfohlen, [CSS-Animationen](/de/docs/Web/CSS/CSS_animations/Using_CSS_animations) zu verwenden, wo möglich, anstatt von JavaScript-Animationen (die [Web Animations API](/de/docs/Web/API/Web_Animations_API) bietet einen Weg, direkt in CSS-Animationen mit JavaScript einzuschleusen). Den Browser zu verwenden, um direkt DOM-Animationen durchzuführen, anstatt Inline-Stile mit JavaScript zu manipulieren, ist viel schneller und effizienter. Siehe auch [CSS-Leistungsoptimierung > Umgang mit Animationen](/de/docs/Learn_web_development/Extensions/Performance/CSS#handling_animations).
+Für essentielle DOM-Animationen wird empfohlen, [CSS-Animationen](/de/docs/Web/CSS/CSS_animations/Using_CSS_animations) zu verwenden, wo möglich, anstelle von JavaScript-Animationen (die [Web Animations API](/de/docs/Web/API/Web_Animations_API) bietet eine Möglichkeit, direkt über JavaScript in CSS-Animationen einzugreifen). Den Browser selbst DOM-Animationen durchführen zu lassen, anstatt Inline-Stile mit JavaScript zu manipulieren, ist viel schneller und effizienter. Siehe auch [CSS-Leistungsoptimierung > Umgang mit Animationen](/de/docs/Learn_web_development/Extensions/Performance/CSS#handling_animations).
 
-Für Animationen, die nicht in JavaScript behandelt werden können, beispielsweise beim Animieren einer HTML {{htmlelement("canvas")}}, wird empfohlen, [`Window.requestAnimationFrame()`](/de/docs/Web/API/Window/requestAnimationFrame) anstelle älterer Optionen wie [`Window.setInterval()`](/de/docs/Web/API/Window/setInterval) zu verwenden. Die `requestAnimationFrame()`-Methode ist speziell dafür ausgelegt, Animationsrahmen effizient und konsistent zu handhaben, für eine reibungslose Benutzererfahrung. Das grundlegende Muster sieht so aus:
+Für Animationen, die nicht in JavaScript gehandhabt werden können, beispielsweise das Animieren eines HTML-{{htmlelement("canvas")}}, wird empfohlen, [`Window.requestAnimationFrame()`](/de/docs/Web/API/Window/requestAnimationFrame) anstelle älterer Optionen wie [`Window.setInterval()`](/de/docs/Web/API/Window/setInterval) zu verwenden. Die `requestAnimationFrame()`-Methode ist speziell für das effiziente und konsistente Handling von Animationsbildern entwickelt, um ein reibungsloses Benutzererlebnis zu gewährleisten. Das grundlegende Muster sieht so aus:
 
 ```js
 function loop() {
@@ -258,11 +258,11 @@ function loop() {
 loop();
 ```
 
-Eine gute Einführung in Canvas-Animationen finden Sie unter [Grafiken zeichnen > Animationen](/de/docs/Learn_web_development/Extensions/Client-side_APIs/Drawing_graphics#animations), und ein detaillierteres Beispiel unter [Objektbau-Praxis](/de/docs/Learn_web_development/Extensions/Advanced_JavaScript_objects/Object_building_practice). Eine vollständige Reihe von Canvas-Tutorials finden Sie auch unter [Canvas-Tutorial](/de/docs/Web/API/Canvas_API/Tutorial).
+Sie finden eine gute Einführung in Canvas-Animationen unter [Grafiken zeichnen > Animationen](/de/docs/Learn_web_development/Extensions/Client-side_APIs/Drawing_graphics#animations), und ein tiefergehendes Beispiel unter [Objektaufbau Praxis](/de/docs/Learn_web_development/Extensions/Advanced_JavaScript_objects/Object_building_practice). Sie finden auch eine vollständige Reihe von Canvas-Tutorials im [Canvas-Tutorial](/de/docs/Web/API/Canvas_API/Tutorial).
 
-## Optimierung der Ereignisleistung
+## Optimierung der Ereignis-Performance
 
-Ereignisse können für den Browser kostspielig sein, um sie nachzuverfolgen und zu handhaben, insbesondere wenn Sie ein Ereignis kontinuierlich ausführen. Beispielsweise könnten Sie die Position der Maus mithilfe des [`mousemove`](/de/docs/Web/API/Element/mousemove_event)-Ereignisses verfolgen, um zu überprüfen, ob sie sich noch in einem bestimmten Bereich der Seite befindet:
+Ereignisse können teuer für den Browser sein, um sie zu verfolgen und zu behandeln, besonders wenn Sie ein Ereignis kontinuierlich ausführen. Zum Beispiel könnten Sie die Position der Maus mit dem [`mousemove`](/de/docs/Web/API/Element/mousemove_event)-Ereignis verfolgen, um zu überprüfen, ob sie sich noch in einem bestimmten Bereich der Seite befindet:
 
 ```js
 function handleMouseMove() {
@@ -272,28 +272,28 @@ function handleMouseMove() {
 elem.addEventListener("mousemove", handleMouseMove);
 ```
 
-Möglicherweise führen Sie ein `<canvas>`-Spiel auf Ihrer Seite aus. Solange sich die Maus innerhalb der Leinwand befindet, möchten Sie ständig auf Mausbewegungen und die Position des Cursors achten und den Spielzustand aktualisieren — einschließlich der Punktzahl, der Zeit, der Position aller Sprites, der Kollisions-Detektionsinformationen usw. Nachdem das Spiel beendet ist, müssen Sie das alles nicht mehr tun, und es wäre tatsächlich eine Verschwendung von Rechenleistung, weiterhin auf dieses Ereignis zu lauschen.
+Möglicherweise führen Sie ein `<canvas>`-Spiel auf Ihrer Seite aus. Während sich die Maus im Canvas befindet, möchten Sie ständig die Mausbewegung und die Cursorposition überwachen und den Spielstatus aktualisieren — einschließlich des Punktestands, der Zeit, der Position aller Sprites, der Kollisionsdetektionsinformationen usw. Sobald das Spiel vorbei ist, benötigen Sie all das nicht mehr, und tatsächlich wäre es eine Verschwendung von Rechenleistung, weiterhin auf dieses Ereignis zu lauschen.
 
-Es ist daher eine gute Idee, Event-Listener zu entfernen, die nicht mehr benötigt werden. Dies kann mit [`removeEventListener()`](/de/docs/Web/API/EventTarget/removeEventListener) getan werden:
+Es ist daher eine gute Idee, nicht mehr benötigte Ereignis-Listener zu entfernen. Dies kann mit [`removeEventListener()`](/de/docs/Web/API/EventTarget/removeEventListener) geschehen:
 
 ```js
 elem.removeEventListener("mousemove", handleMouseMove);
 ```
 
-Ein weiterer Tipp ist die Verwendung von Ereignisdelegation, wo immer möglich. Wenn Sie einige Codes als Antwort auf eine Benutzerinteraktion mit einem von vielen untergeordneten Elementen ausführen möchten, können Sie einen Event-Listener auf ihrem übergeordneten Element setzen. Ereignisse, die an einem untergeordneten Element ausgelöst werden, werden zu ihrem Elternteil aufwärts gebubbelt, sodass Sie den Event-Listener nicht auf jedem untergeordneten Element einzeln setzen müssen. Weniger Event-Listener, die verfolgt werden müssen, bedeuten eine bessere Leistung.
+Ein weiterer Tipp ist, wann immer möglich, Ereignis-Delegation zu verwenden. Wenn Sie einen Code haben, der als Antwort auf die Interaktion eines Benutzers mit einem von vielen untergeordneten Elementen ausgeführt werden soll, können Sie das Ereignis auf deren Eltern-Element setzen. Ereignisse, die auf einem untergeordneten Element ausgelöst werden, steigen zu ihrem Elternteil auf, sodass Sie das Ereignis nicht auf jedem untergeordneten Element individuell setzen müssen. Weniger zu verfolgende Ereignis-Listener bedeuten eine bessere Performance.
 
-Details und ein nützliches Beispiel finden Sie unter [Event-Delegation](/de/docs/Learn_web_development/Core/Scripting/Event_bubbling#event_delegation).
+Siehe [Ereignis-Delegation](/de/docs/Learn_web_development/Core/Scripting/Event_bubbling#event_delegation) für weitere Details und ein nützliches Beispiel.
 
-## Tipps zum Schreiben effizienterer Codes
+## Tipps für effizientere Code-Schreibung
 
-Es gibt mehrere allgemeine Best Practices, die Ihren Code effizienter ausführen lassen.
+Es gibt mehrere allgemeine Best Practices, die Ihren Code effizienter machen.
 
-- **DOM-Manipulation reduzieren**: Der Zugriff und das Aktualisieren des DOM sind rechenintensiv, daher sollten Sie die Menge, die Ihr JavaScript tut, minimieren, insbesondere bei der Durchführung von ständigen DOM-Animationen (siehe [Umgang mit JavaScript-Animationen](#umgang_mit_javascript-animationen) oben).
-- **Änderungen im DOM bündeln**: Für wesentliche DOM-Änderungen sollten Sie diese in Gruppen bündeln, die zusammen durchgeführt werden, anstatt jede einzelne Änderung bei ihrem Auftreten abzufeuern. Dies kann die Menge der Arbeit, die der Browser real ausführt, reduzieren, aber auch die wahrgenommene Leistung verbessern. Es kann die Benutzeroberfläche flüssiger wirken lassen, mehrere Updates auf einmal zu erledigen, anstatt ständig kleine Updates durchzuführen. Ein nützlicher Tipp hier ist — wenn Sie einen großen HTML-Block zur Seite hinzufügen müssen, bauen Sie zuerst das gesamte Fragment (typischerweise innerhalb eines [`DocumentFragment`](/de/docs/Web/API/DocumentFragment)) und hängen Sie es dann in einem Schritt zum DOM hinzu, anstatt jedes Element einzeln hinzuzufügen.
-- **Ihr HTML vereinfachen**: Je einfacher Ihre DOM-Struktur ist, desto schneller kann sie mit JavaScript zugegriffen und manipuliert werden. Überlegen Sie genau, was Ihre Benutzeroberfläche benötigt und entfernen Sie unnötigen Ballast.
-- **Die Menge des Schleifen-Codes reduzieren**: Schleifen sind teuer, daher sollten Sie die Nutzung von Schleifen in Ihrem Code so weit wie möglich reduzieren. In Fällen, in denen Schleifen unumgänglich sind:
+- **Reduzieren Sie DOM-Manipulationen**: Der Zugriff auf und das Aktualisieren des DOM ist rechenintensiv, daher sollten Sie dies minimieren, insbesondere bei ständigem DOM-Animation (siehe oben [Umgang mit JavaScript-Animationen](#umgang_mit_javascript-animationen)).
+- **Batchen Sie DOM-Änderungen**: Für essentielle DOM-Änderungen sollten Sie diese in Gruppen zusammenfassen, die gemeinsam erfolgen, anstatt jede einzelne Änderung bei ihrem Auftreten auszulösen. Dies kann die tatsächliche Arbeitslast des Browsers reduzieren, aber auch die wahrgenommene Performance verbessern. Es kann die Benutzeroberfläche flüssiger erscheinen lassen, mehrere Updates gleichzeitig durchzuführen, anstatt ständig kleine Updates vorzunehmen. Ein nützlicher Tipp hier ist — wenn Sie ein großes HTML-Fragment zur Seite hinzufügen möchten, erstellen Sie das gesamte Fragment zuerst (typischerweise in einem [`DocumentFragment`](/de/docs/Web/API/DocumentFragment)) und fügen Sie es dann in einem Schritt dem DOM hinzu, anstatt jeden Artikel separat hinzuzufügen.
+- **Vereinfachen Sie Ihr HTML**: Je einfacher Ihre DOM-Struktur ist, desto schneller kann sie mit JavaScript abgerufen und manipuliert werden. Überlegen Sie genau, was Ihre Benutzeroberfläche benötigt, und entfernen Sie unnötigen Ballast.
+- **Reduzieren Sie die Menge an Schleifen-Code**: Schleifen sind kostspielig, also reduzieren Sie die Verwendung von Schleifen in Ihrem Code so weit wie möglich. In Fällen, in denen Schleifen unvermeidbar sind:
 
-  - Vermeiden Sie, dass die volle Schleife ausgeführt wird, wenn sie unnötig ist, indem Sie {{jsxref("Statements/break", "break")}}- oder {{jsxref("Statements/continue", "continue")}}-Anweisungen entsprechend verwenden. Wenn Sie beispielsweise Arrays nach einem bestimmten Namen durchsuchen, sollten Sie die Schleife beenden, sobald der Name gefunden wurde; es gibt keinen Grund, weitere Schleifeniterationen auszuführen:
+  - Vermeiden Sie die Durchführung der vollständigen Schleife, wenn dies nicht erforderlich ist, und verwenden Sie {{jsxref("Statements/break", "break")}}- oder {{jsxref("Statements/continue", "continue")}}-Anweisungen nach Bedarf. Wenn Sie beispielsweise Arrays nach einem bestimmten Namen durchsuchen, sollten Sie die Schleife beenden, sobald der Name gefunden wurde; es besteht keine Notwendigkeit, weitere Schleifendurchläufe durchzuführen:
 
     ```js
     function processGroup(array) {
@@ -307,7 +307,7 @@ Es gibt mehrere allgemeine Best Practices, die Ihren Code effizienter ausführen
     }
     ```
 
-  - Tun Sie Arbeiten, die nur einmal erforderlich sind, außerhalb der Schleife. Dies mag offensichtlich klingen, ist jedoch leicht zu übersehen. Betrachten Sie das folgende Snippet, das ein JSON-Objekt mit zu verarbeitenden Daten abruft. In diesem Fall wird der [`fetch()`](/de/docs/Web/API/Window/fetch)-Vorgang bei jeder Iteration der Schleife ausgeführt, was eine Verschwendung von Rechenleistung ist. Das Abrufen, das nicht von `i` abhängt, könnte außerhalb der Schleife durchgeführt werden, sodass es nur einmal erfolgt.
+  - Machen Sie Arbeiten, die nur einmal benötigt werden, außerhalb der Schleife. Dies mag offensichtlich klingen, aber es ist leicht zu übersehen. Nehmen Sie zum Beispiel den folgenden Code-Schnipsel, der ein JSON-Objekt abruft, das Daten enthält, die auf bestimmte Weise verarbeitet werden sollen. In diesem Fall wird die [`fetch()`](/de/docs/Web/API/Window/fetch)-Operation in jeder Iteration der Schleife durchgeführt, was eine Verschwendung von Rechenleistung ist. Das Abrufen, das nicht von `i` abhängt, könnte außerhalb der Schleife verschoben werden, sodass es nur einmal durchgeführt wird.
 
     ```js
     async function returnResults(number) {
@@ -319,15 +319,15 @@ Es gibt mehrere allgemeine Best Practices, die Ihren Code effizienter ausführen
     }
     ```
 
-- **Ausführungen vom Hauptthread ausführen**: Wir haben bereits darüber gesprochen, wie JavaScript im Allgemeinen Aufgaben auf dem Hauptthread ausführt, und wie lange Operationen den Hauptthread blockieren können, was möglicherweise zu schlechter UI-Performance führt. Wir haben auch gezeigt, wie lange Aufgaben in kleinere Aufgaben aufgeteilt werden können, um dieses Problem zu mindern. Eine andere Möglichkeit, solche Probleme zu behandeln, ist es, Aufgaben ganz vom Hauptthread zu verlagern. Es gibt einige Möglichkeiten, dies zu erreichen:
+- **Führen Sie Berechnungen außerhalb des Haupt-Threads aus**: Früher sprachen wir darüber, wie JavaScript im Allgemeinen Aufgaben im Haupt-Thread ausführt, und wie lang andauernde Operationen den Haupt-Thread blockieren können, was potenziell zu einer schlechten UI-Leistung führt. Wir zeigten auch, wie man lang andauernde Aufgaben in kleinere auftaile, um dieses Problem zu mindern. Eine weitere Möglichkeit, solche Probleme zu behandeln, besteht darin, Aufgaben vollständig vom Haupt-Thread zu verlagern. Es gibt ein paar Möglichkeiten, dies zu erreichen:
 
-  - **Verwenden Sie asynchronen Code**: [Asynchrones JavaScript](/de/docs/Learn_web_development/Extensions/Async_JS/Introducing) ist im Wesentlichen JavaScript, das den Hauptthread nicht blockiert. Asynchrone APIs neigen dazu, Funktionen wie das Abrufen von Ressourcen aus dem Netzwerk, den Zugriff auf eine Datei im lokalen Dateisystem oder das Öffnen eines Streams zur Webcam eines Benutzers zu behandeln. Da diese Operationen lange dauern könnten, wäre es schlecht, den Hauptthread einfach zu blockieren, während wir warten, dass sie abgeschlossen werden. Stattdessen führt der Browser diese Funktionen aus, hält den Hauptthread am Laufen für die nachfolgenden Codes, und diese Funktionen liefern Ergebnisse, sobald sie irgendwann in der Zukunft verfügbar sind. Moderne asynchrone APIs basieren auf {{jsxref("Promise")}}, einem JavaScript-Sprachmerkmal, das für die Behandlung asynchroner Operationen entworfen wurde. Es ist möglich, [Ihre eigenen Promise-basierten Funktionen](/de/docs/Learn_web_development/Extensions/Async_JS/Implementing_a_promise-based_API) zu schreiben, wenn Sie Funktionalitäten haben, die davon profitieren würden, asynchron ausgeführt zu werden.
-  - **Rechenoperationen in Web Worker ausführen**: [Web Worker](/de/docs/Web/API/Web_Workers_API/Using_web_workers) sind ein Mechanismus, der es Ihnen erlaubt, einen separaten Thread zu öffnen, um ein Stück JavaScript auszuführen, sodass es den Hauptthread nicht blockiert. Worker haben einige wesentliche Einschränkungen, die größte davon ist, dass Sie keine DOM-Scripting innerhalb eines Workers durchführen können. Sie können die meisten anderen Dinge tun, und Worker können Nachrichten zu und von dem Hauptthread senden und empfangen. Der Hauptanwendungsfall für Worker ist, wenn Sie viel Rechenleistung benötigen und nicht möchten, dass dies den Hauptthread blockiert. Führen Sie diese Berechnung in einem Worker aus, warten Sie auf das Ergebnis und senden Sie es an den Hauptthread zurück, wenn es bereit ist.
-  - **Verwenden Sie WebGPU**: [WebGPU](/de/docs/Web/API/WebGPU_API) ist eine Browser-API, die es Webentwicklern ermöglicht, die zugrunde liegende GPU (Graphics Processing Unit) des Systems für die Durchführung von Hochleistungsberechnungen zu verwenden und komplexe Bilder zu zeichnen, die im Browser dargestellt werden können. Es ist ziemlich komplex, aber es kann noch bessere Leistungsgewinne bieten als Web Worker.
+  - Verwenden Sie asynchronen Code: [Asynchrones JavaScript](/de/docs/Learn_web_development/Extensions/Async_JS/Introducing) ist im Grunde JavaScript, das den Haupt-Thread nicht blockiert. Asynchrone APIs neigen dazu, Operationen wie das Abrufen von Ressourcen aus dem Netzwerk, den Zugriff auf eine Datei auf dem lokalen Dateisystem oder das Öffnen eines Streams zu einer Webcam eines Benutzers zu behandeln. Da diese Operationen lange dauern könnten, wäre es schlecht, einfach den Haupt-Thread zu blockieren, während wir darauf warten, dass sie abgeschlossen sind. Stattdessen führt der Browser diese Funktionen aus, hält den Haupt-Thread weiter laufen, und diese Funktionen werden Ergebnisse zurückgeben, sobald sie _irgendwann in der Zukunft_ verfügbar sind. Moderne asynchrone APIs basieren auf {{jsxref("Promise")}}, das ist eine JavaScript-Sprachfunktion, die für die Behandlung asynchroner Operationen entwickelt wurde. Es ist möglich, [Ihre eigenen promise-basierten Funktionen zu schreiben](/de/docs/Learn_web_development/Extensions/Async_JS/Implementing_a_promise-based_API), wenn Sie Funktionalität haben, die davon profitieren würde, asynchron ausgeführt zu werden.
+  - Führen Sie Berechnungen in Web-Workern aus: [Web-Worker](/de/docs/Web/API/Web_Workers_API/Using_web_workers) sind ein Mechanismus, der Ihnen erlaubt, einen separaten Thread zu öffnen, um dort ein Stück JavaScript auszuführen, sodass es den Haupt-Thread nicht blockiert. Worker haben einige wesentliche Einschränkungen, die größte davon ist, dass Sie kein DOM-Scripting innerhalb eines Workers durchführen können. Sie können die meisten anderen Dinge tun, und Worker können Nachrichten an und von dem Haupt-Thread senden und empfangen. Das Hauptanwendungsfeld für Worker ist, wenn Sie viele Berechnungen durchführen müssen und nicht möchten, dass sie den Haupt-Thread blockieren. Führen Sie diese Berechnungen in einem Worker aus, warten Sie auf das Ergebnis und senden Sie es zurück an den Haupt-Thread, wenn es fertig ist.
+  - **Verwenden Sie WebGPU**: [WebGPU](/de/docs/Web/API/WebGPU_API) ist eine Browser-API, die es Webentwicklern ermöglicht, die GPU (Graphics Processing Unit) des zugrunde liegenden Systems zu verwenden, um Hochleistungsberechnungen durchzuführen und komplexe Bilder zu zeichnen, die im Browser gerendert werden können. Es ist ziemlich komplex, aber es kann sogar bessere Leistungsverbesserungen bieten als Web-Worker.
 
 ## Siehe auch
 
-- [Optimieren langer Aufgaben](https://web.dev/articles/optimize-long-tasks) auf web.dev (2022)
+- [Optimize long tasks](https://web.dev/articles/optimize-long-tasks) auf web.dev (2022)
 - [Canvas-Tutorial](/de/docs/Web/API/Canvas_API/Tutorial)
 
 {{PreviousMenuNext("Learn_web_development/Extensions/Performance/video", "Learn_web_development/Extensions/Performance/HTML", "Learn_web_development/Extensions/Performance")}}

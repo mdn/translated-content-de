@@ -2,34 +2,33 @@
 title: Web-Performance-Ressourcen
 slug: Learn_web_development/Extensions/Performance/Web_Performance_Basics
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: 48d220a8cffdfd5f088f8ca89724a9a92e34d8c0
 ---
 
-{{LearnSidebar}}{{PreviousMenu("Learn_web_development/Extensions/Performance/business_case_for_performance", "Learn_web_development/Extensions/Performance")}}
+{{PreviousMenu("Learn_web_development/Extensions/Performance/business_case_for_performance", "Learn_web_development/Extensions/Performance")}}
 
-Es gibt viele [Gründe](https://web.dev/learn/performance/why-speed-matters), warum Ihre Website so gut wie möglich funktionieren sollte.
-Im Folgenden finden Sie eine kurze Übersicht über Best Practices, Tools, APIs mit Links, die weitere Informationen zu jedem Thema bieten.
+Es gibt viele [Gründe](https://web.dev/learn/performance/why-speed-matters), warum Ihre Website so gut wie möglich funktionieren sollte. Im Folgenden finden Sie eine kurze Übersicht über bewährte Methoden, Tools und APIs mit Links, die zu weiteren Informationen über jedes Thema führen.
 
-## Best Practices
+## Bewährte Methoden
 
-- Beginnen Sie damit, den [kritischen Renderingpfad](/de/docs/Web/Performance/Guides/Critical_rendering_path) des Browsers zu erlernen. Wenn Sie diesen kennen, können Sie besser verstehen, wie Sie die Leistung der Website verbessern können.
-- Verwenden Sie _Resource Hints_ wie [`rel=preconnect`](/de/docs/Web/HTML/Reference/Attributes/rel/preconnect), [`rel=dns-prefetch`](/de/docs/Web/HTML/Reference/Attributes/rel/dns-prefetch), [`rel=prefetch`](/de/docs/Web/HTML/Reference/Attributes/rel/prefetch), [`rel=preload`](/de/docs/Web/HTML/Reference/Attributes/rel/preload).
-- Halten Sie die Größe von JavaScript auf einem [Minimum](https://medium.com/@addyosmani/the-cost-of-javascript-in-2018-7d8950fbb5d4). Verwenden Sie nur so viel JavaScript, wie für die aktuelle Seite erforderlich ist.
-- [CSS](/de/docs/Learn_web_development/Extensions/Performance/CSS)-Leistungsfaktoren
+- Beginnen Sie mit dem Erlernen des [kritischen Render-Pfades](/de/docs/Web/Performance/Guides/Critical_rendering_path) des Browsers. Diese Kenntnis wird Ihnen helfen, die Leistung der Website zu verbessern.
+- Verwenden Sie _Ressourcenhinweise_ wie [`rel=preconnect`](/de/docs/Web/HTML/Reference/Attributes/rel/preconnect), [`rel=dns-prefetch`](/de/docs/Web/HTML/Reference/Attributes/rel/dns-prefetch), [`rel=prefetch`](/de/docs/Web/HTML/Reference/Attributes/rel/prefetch), [`rel=preload`](/de/docs/Web/HTML/Reference/Attributes/rel/preload).
+- Halten Sie die Größe von JavaScript auf ein [Minimum](https://medium.com/@addyosmani/the-cost-of-javascript-in-2018-7d8950fbb5d4). Verwenden Sie nur so viel JavaScript, wie für die aktuelle Seite benötigt wird.
+- [CSS](/de/docs/Learn_web_development/Extensions/Performance/CSS)-Performance-Faktoren
 - Verwenden Sie {{Glossary("HTTP_2", "HTTP/2")}} auf Ihrem Server (oder CDN).
-- Nutzen Sie ein CDN für Ressourcen, das die Ladezeiten erheblich verkürzen kann.
+- Verwenden Sie ein CDN für Ressourcen, was die Ladezeiten erheblich reduzieren kann.
 - Komprimieren Sie Ihre Ressourcen mit [gzip](https://www.gnu.org/software/gzip/), [Brotli](https://github.com/google/brotli) und [Zopfli](https://github.com/google/zopfli).
 - Bildoptimierung (verwenden Sie CSS-Animationen oder SVG, wenn möglich).
-- Lazy Loading von Teilen Ihrer Anwendung außerhalb des Viewports. Falls ja, haben Sie einen Backup-Plan für SEO (z. B. vollständige Seite für Bot-Traffic rendern); beispielsweise durch Verwenden des [`loading`](/de/docs/Web/HTML/Reference/Elements/img#loading)-Attributs am {{HTMLElement("img")}}-Element.
-- Es ist auch wichtig zu erkennen, was für Ihre Benutzer wirklich wichtig ist. Es geht möglicherweise nicht um die absolute Zeit, sondern um die [Benutzerwahrnehmung](/de/docs/Learn_web_development/Extensions/Performance/Perceived_performance).
+- Verzögertes Laden von Teilen Ihrer Anwendung außerhalb des Viewports. Wenn Sie dies tun, haben Sie einen Backup-Plan für SEO (z.B. volle Seite für Bot-Traffic rendern); zum Beispiel durch Verwendung des [`loading`](/de/docs/Web/HTML/Reference/Elements/img#loading)-Attributs am {{HTMLElement("img")}}-Element.
+- Es ist auch wichtig zu erkennen, was für Ihre Nutzer wirklich wichtig ist. Es könnten nicht die absoluten Zeiten sein, sondern die [Wahrnehmung der Benutzer](/de/docs/Learn_web_development/Extensions/Performance/Perceived_performance).
 
-## Quick Wins
+## Schnelle Erfolge
 
 ### CSS
 
-Web-Performance dreht sich um Benutzererfahrung und wahrgenommene Leistung. Wie wir im Dokument zum [kritischen Renderingpfad](/de/docs/Web/Performance/Guides/Critical_rendering_path) gelernt haben, ist das Verknüpfen von CSS mit einem traditionellen Link-Tag mit rel="stylesheet" synchron und blockiert das Rendering. Optimieren Sie das Rendering Ihrer Seite, indem Sie blockierendes CSS entfernen.
+Web-Performance dreht sich um Benutzererfahrung und wahrgenommene Leistung. Wie wir im Dokument über den [kritischen Render-Pfad](/de/docs/Web/Performance/Guides/Critical_rendering_path) gelernt haben, ist das Verlinken von CSS mit einem traditionellen Link-Tag mit `rel="stylesheet"` synchron und blockiert das Rendering. Optimieren Sie das Rendering Ihrer Seite durch das Entfernen von blockierendem CSS.
 
-Um CSS asynchron zu laden, kann man den Medientyp auf Print setzen und dann nach dem Laden auf All ändern. Das folgende Codebeispiel beinhaltet ein onload-Attribut und erfordert JavaScript, sodass es wichtig ist, einen noscript-Tag mit einem traditionellen Fallback hinzuzufügen.
+Um CSS asynchron zu laden, kann man den Medientyp auf Druck setzen und dann auf Alle ändern, sobald es geladen ist. Das folgende Snippet enthält ein `onload`-Attribut, das JavaScript erfordert, daher ist es wichtig, ein `noscript`-Tag mit einem traditionellen Fallback einzuschließen.
 
 ```html
 <link
@@ -40,7 +39,7 @@ Um CSS asynchron zu laden, kann man den Medientyp auf Print setzen und dann nach
 <noscript><link rel="stylesheet" href="/path/to/my.css" /></noscript>
 ```
 
-Der Nachteil dieses Ansatzes ist der Flash von ungestaltetem Text (FOUT). Der einfachste Weg, dies zu beheben, besteht darin, CSS, das für Inhalte benötigt wird, die sich oberhalb der Falz befinden, oder was Sie im Browser-Viewport sehen, bevor Sie scrollen, inline einzubinden. Diese Stile werden die wahrgenommene Leistung verbessern, da das CSS keine Dateianforderung benötigt.
+Der Nachteil dieses Ansatzes ist das Blitzen von ungestyltem Text (FOUT). Der einfachste Weg, dies zu beheben, besteht darin, CSS in den Code einzubetten, das für alle Inhalte erforderlich ist, die über der Falzlinie gerendert werden, also das, was Sie im Browser-Viewport sehen, bevor Sie scrollen. Diese Styles verbessern die wahrgenommene Leistung, da das CSS keine Dateianforderung erfordert.
 
 ```html
 <style>
@@ -50,33 +49,33 @@ Der Nachteil dieses Ansatzes ist der Flash von ungestaltetem Text (FOUT). Der ei
 
 ### JavaScript
 
-Vermeiden Sie JavaScript-Blockierung, indem Sie die [async](/de/docs/Web/HTML/Reference/Elements/script)- oder [defer](/de/docs/Web/HTML/Reference/Elements/script)-Attribute verwenden oder JavaScript-Ressourcen nach den DOM-Elementen der Seite verlinken. JavaScript blockiert nur das Rendering für Elemente, die nach dem Skript-Tag im DOM-Baum erscheinen.
+Vermeiden Sie blockierendes JavaScript, indem Sie die Attribute [async](/de/docs/Web/HTML/Reference/Elements/script) oder [defer](/de/docs/Web/HTML/Reference/Elements/script) verwenden oder JavaScript-Ressourcen nach den DOM-Elementen der Seite verknüpfen. JavaScript blockiert nur das Rendering für Elemente, die nach dem `script`-Tag im DOM-Baum erscheinen.
 
-### Web Fonts
+### Web-Schriften
 
-EOT- und TTF-Formate sind standardmäßig nicht komprimiert. Wenden Sie Kompression wie GZIP oder Brotli auf diese Dateitypen an. Verwenden Sie WOFF und WOFF2. Diese Formate haben eine eingebaute Kompression.
+EOT- und TTF-Formate sind standardmäßig nicht komprimiert. Wenden Sie Komprimierung wie GZIP oder Brotli für diese Dateitypen an. Verwenden Sie WOFF und WOFF2. Diese Formate haben eingebaute Komprimierung.
 
-Innerhalb von @font-face verwenden Sie font-display: swap. Durch die Verwendung des Font-Display-Swap blockiert der Browser das Rendering nicht und verwendet die definierten Backup-Systemschriften. Optimieren Sie das [Schriftgewicht](/de/docs/Web/CSS/font-weight), um es so nah wie möglich an die Web-Schriftart anzupassen.
+Innerhalb von `@font-face` verwenden Sie `font-display: swap`. Durch die Verwendung von `font-display: swap` blockiert der Browser das Rendering nicht und verwendet die definierten Backup-Systemschriftarten. Optimieren Sie das [Schriftgewicht](/de/docs/Web/CSS/font-weight), um der Web-Schriftart möglichst nahe zu kommen.
 
-#### Icon Web Fonts
+#### Icon-Schriftarten
 
-Vermeiden Sie, wenn möglich, Icon-Web-Schriftarten und verwenden Sie komprimierte SVGs. Um weiter zu optimieren, fügen Sie Ihre SVG-Daten innerhalb des HTML-Markups ein, um HTTP-Anfragen zu vermeiden.
+Vermeiden Sie, wenn möglich, Icon-Schriftarten und verwenden Sie komprimierte SVGs. Um noch weiter zu optimieren, betten Sie Ihre SVG-Daten innerhalb des HTML-Markups ein, um HTTP-Anfragen zu vermeiden.
 
 ## Tools
 
-- Lernen Sie den Umgang mit den [Firefox Dev Tools](https://firefox-source-docs.mozilla.org/devtools-user/performance/index.html), um Ihr Site-Profil zu erstellen.
-- [PageSpeed Insights](https://pagespeed.web.dev/) kann Ihre Seite analysieren und gibt allgemeine Hinweise zur Leistungsverbesserung.
-- [Lighthouse](https://developer.chrome.com/docs/lighthouse/overview/) kann Ihnen eine detaillierte Aufschlüsselung vieler Aspekte Ihrer Seite einschließlich Leistung, SEO und Barrierefreiheit bieten.
+- Lernen Sie, die [Firefox Dev Tools](https://firefox-source-docs.mozilla.org/devtools-user/performance/index.html) zu verwenden, um Ihr Site-Profil zu erstellen.
+- [PageSpeed Insights](https://pagespeed.web.dev/) kann Ihre Seite analysieren und einige allgemeine Hinweise zur Leistungsverbesserung geben.
+- [Lighthouse](https://developer.chrome.com/docs/lighthouse/overview/) kann Ihnen einen detaillierten Überblick über viele Aspekte Ihrer Website geben, einschließlich Performance, SEO und Barrierefreiheit.
 - Testen Sie die Geschwindigkeit Ihrer Seite mit [WebPageTest.org](https://www.webpagetest.org/), wo Sie verschiedene reale Gerätetypen und Standorte verwenden können.
-- Probieren Sie den [Chrome User Experience Report](https://developer.chrome.com/docs/crux/) aus, der tatsächliche Benutzermesswerte quantifiziert.
+- Probieren Sie den [Chrome User Experience Report](https://developer.chrome.com/docs/crux/) aus, der reale Nutzermetriken quantifiziert.
 - Definieren Sie ein [Performance-Budget](/de/docs/Web/Performance/Guides/Performance_budgets).
 
 ### APIs
 
-- Sammeln Sie Benutzerkennzahlen mit der [boomerang](https://github.com/akamai/boomerang)-Bibliothek.
-- Oder sammeln Sie diese direkt mit [window.performance.timing](/de/docs/Web/API/Performance/timing)
+- Sammeln Sie Nutzermetriken mit der [boomerang](https://github.com/akamai/boomerang)-Bibliothek.
+- Oder sammeln Sie direkt mit [window.performance.timing](/de/docs/Web/API/Performance/timing)
 
-### Dinge, die Sie nicht tun sollten (schlechte Praktiken)
+### Dinge, die man vermeiden sollte (schlechte Praktiken)
 
 - Alles herunterladen
 - Unkomprimierte Mediendateien verwenden

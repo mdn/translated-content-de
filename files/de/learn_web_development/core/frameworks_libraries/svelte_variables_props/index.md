@@ -2,13 +2,12 @@
 title: "Dynamisches Verhalten in Svelte: Arbeiten mit Variablen und Props"
 slug: Learn_web_development/Core/Frameworks_libraries/Svelte_variables_props
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: 48d220a8cffdfd5f088f8ca89724a9a92e34d8c0
 ---
 
-{{LearnSidebar}}
 {{PreviousMenuNext("Learn_web_development/Core/Frameworks_libraries/Svelte_Todo_list_beginning","Learn_web_development/Core/Frameworks_libraries/Svelte_components", "Learn_web_development/Core/Frameworks_libraries")}}
 
-Da wir nun unser Markup und unsere Stile bereit haben, können wir mit der Entwicklung der benötigten Funktionen für unsere Svelte-To-Do-Liste-App beginnen. In diesem Artikel verwenden wir Variablen und Props, um unsere App dynamisch zu gestalten, damit wir To-Dos hinzufügen und löschen, sie als erledigt markieren und nach Status filtern können.
+Da wir nun unser Markup und unsere Stile bereit haben, können wir mit der Entwicklung der erforderlichen Funktionen für unsere Svelte-To-Do-Listen-App beginnen. In diesem Artikel werden wir Variablen und Props verwenden, um unsere App dynamisch zu gestalten, sodass wir To-Dos hinzufügen und löschen, als erledigt markieren und nach Status filtern können.
 
 <table>
   <tbody>
@@ -16,41 +15,41 @@ Da wir nun unser Markup und unsere Stile bereit haben, können wir mit der Entwi
       <th scope="row">Voraussetzungen:</th>
       <td>
         <p>
-          Es wird empfohlen, dass Sie mit den Kernsprachen
+          Es wird mindestens empfohlen, dass Sie mit den grundlegenden
           <a href="/de/docs/Learn_web_development/Core/Structuring_content">HTML</a>,
           <a href="/de/docs/Learn_web_development/Core/Styling_basics">CSS</a> und
-          <a href="/de/docs/Learn_web_development/Core/Scripting">JavaScript</a> vertraut sind und
+          <a href="/de/docs/Learn_web_development/Core/Scripting">JavaScript</a> Sprachen vertraut sind und
           Kenntnisse über die
           <a
             href="/de/docs/Learn_web_development/Getting_started/Environment_setup/Command_line"
-            >Terminal/Command Line</a
-          > besitzen.
+            >Terminal/Kommandozeile</a
+          > haben.
         </p>
         <p>
-          Sie benötigen ein Terminal mit installiertem Node und npm, um Ihre App zu kompilieren und zu erstellen.
+          Sie benötigen ein Terminal mit installierten Node und npm, um Ihre App zu kompilieren und zu bauen.
         </p>
       </td>
     </tr>
     <tr>
       <th scope="row">Ziel:</th>
       <td>
-        Lernen und Anwenden von grundlegenden Svelte-Konzepten wie das Erstellen von Komponenten, das Übergeben von Daten mit Props, das Rendern von JavaScript-Ausdrücken in unserem Markup, das Ändern des Komponentenstatus und das Iterieren über Listen.
+        Erlernen und praktizieren Sie einige grundlegende Svelte-Konzepte, wie z.B. das Erstellen von Komponenten, das Übergeben von Daten mithilfe von Props, das Rendern von JavaScript-Ausdrücken in unser Markup, das Ändern des Zustands der Komponenten und das Iterieren über Listen.
       </td>
     </tr>
   </tbody>
 </table>
 
-## Code mit uns
+## Code zusammen mit uns
 
 ### Git
 
-Klonen Sie das GitHub-Repo (falls Sie dies noch nicht getan haben) mit:
+Klonen Sie das GitHub-Repo (falls noch nicht geschehen) mit:
 
 ```bash
 git clone https://github.com/opensas/mdn-svelte-tutorial.git
 ```
 
-Um dann zum aktuellen App-Status zu gelangen, führen Sie aus:
+Um zum aktuellen App-Status zu gelangen, führen Sie aus:
 
 ```bash
 cd mdn-svelte-tutorial/03-adding-dynamic-behavior
@@ -62,21 +61,21 @@ Oder laden Sie direkt den Inhalt des Ordners herunter:
 npx degit opensas/mdn-svelte-tutorial/03-adding-dynamic-behavior
 ```
 
-Denken Sie daran, `npm install && npm run dev` auszuführen, um Ihre App im Entwicklungsmodus zu starten.
+Vergessen Sie nicht, `npm install && npm run dev` auszuführen, um Ihre App im Entwicklungsmodus zu starten.
 
 ### REPL
 
-Um mit uns über den REPL zu programmieren, beginnen Sie bei
+Um mit uns im REPL zusammen zu programmieren, beginnen Sie bei
 
 <https://svelte.dev/repl/c862d964d48d473ca63ab91709a0a5a0?version=3.23.2>
 
 ## Arbeiten mit To-Dos
 
-Unsere `Todos.svelte`-Komponente zeigt derzeit nur statisches Markup an; wir beginnen, es etwas dynamischer zu gestalten. Wir nehmen die Aufgabeninformationen aus dem Markup und speichern sie in einem `todos`-Array. Außerdem erstellen wir zwei Variablen, um die Gesamtzahl der Aufgaben und die erledigten Aufgaben zu verfolgen.
+Unsere `Todos.svelte`-Komponente zeigt derzeit nur statisches Markup an; beginnen wir, sie etwas dynamischer zu gestalten. Wir werden die Aufgabeninformationen aus dem Markup entnehmen und in einem `todos`-Array speichern. Außerdem erstellen wir zwei Variablen, um die Gesamtanzahl der Aufgaben und die erledigten Aufgaben zu verfolgen.
 
-Der Zustand unserer Komponente wird durch diese drei obersten Variablen dargestellt.
+Der Zustand unserer Komponente wird durch diese drei Top-Level-Variablen repräsentiert.
 
-1. Erstellen Sie einen `<script>`-Abschnitt oben in `src/components/Todos.svelte` und fügen Sie ihm folgenden Inhalt hinzu:
+1. Erstellen Sie einen `<script>` Abschnitt am Anfang von `src/components/Todos.svelte` und geben Sie ihm folgenden Inhalt:
 
    ```svelte
    <script>
@@ -90,26 +89,26 @@ Der Zustand unserer Komponente wird durch diese drei obersten Variablen dargeste
    </script>
    ```
 
-   Nun machen wir etwas mit diesen Informationen.
+   Nun wollen wir etwas mit diesen Informationen machen.
 
-2. Beginnen wir damit, eine Statusmeldung anzuzeigen. Suchen Sie die `<h2>`-Überschrift mit einer `id` von `list-heading` und ersetzen Sie die fest codierte Anzahl aktiver und abgeschlossener Aufgaben durch dynamische Ausdrücke:
+2. Beginnen wir mit der Anzeige einer Statusnachricht. Suchen Sie die `<h2>` Überschrift mit einer `id` von `list-heading` und ersetzen Sie die hartkodierte Anzahl der aktiven und erledigten Aufgaben durch dynamische Ausdrücke:
 
    ```svelte
    <h2 id="list-heading">{completedTodos} out of {totalTodos} items completed</h2>
    ```
 
-3. Gehen Sie zur App, und Sie sollten die Nachricht "2 von 3 Elementen erledigt" wie zuvor sehen, aber diesmal stammen die Informationen aus dem `todos`-Array.
-4. Um dies zu beweisen, gehen Sie zu diesem Array und versuchen Sie, einige der abgeschlossenen Eigenschaftenwerte des To-Do-Objekts zu ändern, und fügen Sie sogar ein neues To-Do-Objekt hinzu. Beobachten Sie, wie sich die Zahlen in der Nachricht entsprechend aktualisieren.
+3. Gehen Sie zur App, und Sie sollten die Nachricht "2 von 3 Aufgaben erledigt" wie zuvor sehen, aber diesmal kommen die Informationen aus dem `todos`-Array.
+4. Um dies zu beweisen, gehen Sie zu diesem Array und versuchen Sie, einige der abgeschlossenen Eigenschaftswerte der To-Do-Objekte zu ändern und sogar ein neues To-Do-Objekt hinzuzufügen. Beobachten Sie, wie die Zahlen in der Nachricht entsprechend aktualisiert werden.
 
 ## Dynamische Generierung der To-Dos aus den Daten
 
-Derzeit sind unsere angezeigten To-Do-Elemente alle statisch. Wir möchten jedes Element in unserem `todos`-Array durchlaufen und das Markup für jede Aufgabe rendern. Lassen Sie es uns jetzt tun.
+Derzeit sind unsere angezeigten To-Do-Elemente alle statisch. Wir möchten über jedes Element in unserem `todos`-Array iterieren und das Markup für jede Aufgabe rendern, also machen wir das jetzt.
 
-HTML hat keine Möglichkeit, Logik wie Bedingungen und Schleifen auszudrücken. Svelte schon. In diesem Fall verwenden wir die [`{#each}`](https://svelte.dev/docs/logic-blocks#each)-Direktive, um das `todos`-Array zu durchlaufen. Der zweite Parameter wird, falls angegeben, den Index des aktuellen Elements enthalten. Außerdem kann ein Schlüsselausdruck angegeben werden, der jedes Element eindeutig identifiziert. Svelte verwendet diesen, um die Liste zu differenzieren, wenn sich die Daten ändern, anstatt Elemente am Ende hinzuzufügen oder zu entfernen, und es ist eine gute Praxis, immer einen anzugeben. Schließlich kann ein `:else`-Block bereitgestellt werden, der gerendert wird, wenn die Liste leer ist.
+HTML hat keine Möglichkeit, Logik — wie Bedingungen und Schleifen — auszudrücken. Svelte schon. In diesem Fall verwenden wir die [`{#each}`](https://svelte.dev/docs/logic-blocks#each) Direktive, um über das `todos`-Array zu iterieren. Der zweite Parameter, falls angegeben, enthält den Index des aktuellen Elements. Außerdem kann ein Schlüssel-Ausdruck angegeben werden, der jedes Element eindeutig identifiziert. Svelte wird es verwenden, um die Liste zu differenzieren, wenn sich Daten ändern, anstatt Elemente am Ende hinzuzufügen oder zu entfernen, und es ist eine gute Praxis, immer einen anzugeben. Schließlich kann ein `:else` Block bereitgestellt werden, der gerendert wird, wenn die Liste leer ist.
 
-Probieren wir es aus.
+Lassen Sie es uns ausprobieren.
 
-1. Ersetzen Sie das vorhandene `<ul>`-Element durch die folgende vereinfachte Version, um eine Vorstellung davon zu bekommen, wie es funktioniert:
+1. Ersetzen Sie das bestehende `<ul>` Element durch die folgende vereinfachte Version, um eine Vorstellung davon zu bekommen, wie es funktioniert:
 
    ```svelte
    <ul>
@@ -123,11 +122,11 @@ Probieren wir es aus.
    </ul>
    ```
 
-2. Gehen Sie zurück zur App; Sie sehen etwas wie dies:
+2. Kehren Sie zur App zurück; Sie werden etwas in dieser Art sehen:
 
-   ![sehr einfache To-Do-Liste, die mit einem Each-Block erstellt wurde](01-each-block.png)
+   ![sehr einfache To-Do-Liste Ausgabe, die mit einem Each-Block erstellt wurde](01-each-block.png)
 
-3. Jetzt, da wir gesehen haben, dass dies funktioniert, generieren wir ein vollständiges To-Do-Element mit jeder Schleife der `{#each}`-Direktive und betten darin die Informationen aus dem `todos`-Array ein: `id`, `name` und `completed`. Ersetzen Sie Ihren vorhandenen `<ul>`-Block wie folgt:
+3. Da wir gesehen haben, dass dies funktioniert, lassen Sie uns ein vollständiges To-Do-Element mit jeder Schleife der `{#each}` Direktive generieren und die Informationen aus dem `todos`-Array einbetten: `id`, `name` und `completed`. Ersetzen Sie Ihren bestehenden `<ul>` Block durch den folgenden:
 
    ```svelte
    <!-- To-dos -->
@@ -158,28 +157,28 @@ Probieren wir es aus.
    </ul>
    ```
 
-   Beachten Sie, wie wir geschweifte Klammern verwenden, um JavaScript-Ausdrücke in HTML-Attribute einzubetten, so wie wir es mit den Attributen `checked` und `id` des Kontrollkästchens gemacht haben.
+   Beachten Sie, wie wir geschweifte Klammern verwenden, um JavaScript-Ausdrücke in HTML-Attributen einzubetten, so wie wir es bei den `checked` und `id` Attributen des Kontrollkästchens gemacht haben.
 
-Wir haben unser statisches Markup in eine dynamische Vorlage umgewandelt, die bereit ist, die Aufgaben aus dem Zustand unserer Komponente anzuzeigen. Großartig! Wir kommen der Sache näher.
+Wir haben unser statisches Markup in ein dynamisches Template verwandelt, das bereit ist, die Aufgaben aus dem Zustand unserer Komponente anzuzeigen. Großartig! Wir kommen voran.
 
 ## Arbeiten mit Props
 
-Mit einer fest codierten Liste von To-Dos ist unsere `Todos`-Komponente nicht sehr nützlich. Um unsere Komponente in einen Allgemeinzweck-To-Do-Editor zu verwandeln, sollten wir es dem Elternelement dieser Komponente ermöglichen, die Liste der zu bearbeitenden To-Dos zu übergeben. Dadurch könnten wir sie in einem Webdienst oder im lokalen Speicher speichern und später zur Aktualisierung abrufen. Lassen Sie uns das Array also in ein `prop` umwandeln.
+Mit einer hartkodierten Liste von To-Dos ist unsere `Todos` Komponente nicht sehr nützlich. Um unsere Komponente zu einem allgemeinen To-Do-Editor zu machen, sollten wir dem übergeordneten Element dieser Komponente erlauben, die Liste der zu bearbeitenden To-Dos zu übergeben. Dies würde es uns ermöglichen, sie in einem Webdienst oder lokalem Speicher zu speichern und später zur Aktualisierung abzurufen. Also lassen Sie uns das Array in ein `prop` verwandeln.
 
-1. Ersetzen Sie in `Todos.svelte` den vorhandenen `let todos = …`-Block durch `export let todos = []`.
+1. Ersetzen Sie in `Todos.svelte` den bestehenden `let todos = …` Block durch `export let todos = []`.
 
    ```js
    export let todos = [];
    ```
 
-   Das mag sich anfangs etwas seltsam anfühlen. So funktioniert `export` normalerweise nicht in JavaScript-Modulen! So 'erweitert' Svelte JavaScript, indem es die gültige Syntax aufnimmt und ihr einen neuen Zweck gibt. In diesem Fall verwendet Svelte das Schlüsselwort `export`, um eine Variablendeklaration als Eigenschaft oder Prop zu markieren, was bedeutet, dass sie für Verbraucher der Komponente zugänglich wird.
+   Dies mag sich zunächst etwas seltsam anfühlen. So funktioniert `export` normalerweise nicht in JavaScript-Modulen! So 'erweitert' Svelte JavaScript, indem es gültige Syntax nimmt und ihr einen neuen Zweck gibt. In diesem Fall verwendet Svelte das `export` Schlüsselwort, um eine Variablendeklaration als Eigenschaft oder Prop zu markieren, was bedeutet, dass es für Verbraucher der Komponente zugänglich wird.
 
-   Sie können auch einen Standard-Anfangswert für ein Prop angeben. Dieser wird verwendet, wenn der Verbraucher der Komponente das Prop bei der Instanziierung der Komponente nicht angibt – oder wenn sein Anfangswert undefiniert ist.
+   Sie können auch einen Standardanfangswert für ein Prop angeben. Dieser wird verwendet, wenn der Verbraucher der Komponente das Prop nicht auf der Komponente angibt — oder wenn sein Anfangswert undefiniert ist —, wenn die Komponente instanziiert wird.
 
-   Mit `export let todos = []` sagen wir Svelte, dass unsere `Todos.svelte`-Komponente ein `todos`-Attribut akzeptiert, das – wenn es weggelassen wird – auf ein leeres Array initialisiert wird.
+   Mit `export let todos = []` sagen wir Svelte, dass unsere `Todos.svelte`-Komponente ein `todos` Attribut akzeptieren wird, das, wenn weggelassen, auf ein leeres Array initialisiert wird.
 
-2. Schauen Sie sich die App an, und Sie sehen die Meldung "Nichts zu tun hier!". Das liegt daran, dass wir ihm momentan keinen Wert aus `App.svelte` übergeben, sodass der Standardwert verwendet wird.
-3. Verschieben wir nun unsere To-Dos nach `App.svelte` und übergeben sie als Prop an die `Todos.svelte`-Komponente. Aktualisieren Sie `src/App.svelte` wie folgt:
+2. Schauen Sie sich die App an, und Sie werden die Nachricht "Nichts zu tun hier!" sehen. Das liegt daran, dass wir derzeit keinen Wert aus `App.svelte` übergeben, daher wird der Standardwert verwendet.
+3. Lassen Sie uns nun unsere To-Dos zu `App.svelte` verschieben und sie als Prop an die `Todos.svelte`-Komponente übergeben. Aktualisieren Sie `src/App.svelte` wie folgt:
 
    ```svelte
    <script>
@@ -195,19 +194,19 @@ Mit einer fest codierten Liste von To-Dos ist unsere `Todos`-Komponente nicht se
    <Todos todos={todos} />
    ```
 
-4. Wenn der Attributname und der Variablenname übereinstimmen, erlaubt Svelte, die Variable als praktische Abkürzung einzutragen, sodass wir unsere letzte Zeile wie folgt umschreiben können. Probieren Sie dies jetzt aus.
+4. Wenn das Attribut und die Variable denselben Namen haben, erlaubt Ihnen Svelte, einfach die Variable als praktische Abkürzung anzugeben, sodass wir unsere letzte Zeile wie folgt umschreiben können. Probieren Sie dies jetzt aus.
 
    ```svelte
    <Todos {todos} />
    ```
 
-An diesem Punkt sollten Ihre To-Dos ebenso gerendert werden wie zuvor, außer dass wir sie jetzt von der `App.svelte`-Komponente übergeben.
+An diesem Punkt sollten Ihre To-Dos genau wie zuvor gerendert werden, außer dass wir sie jetzt von der `App.svelte` Komponente übergeben.
 
 ## Umschalten und Entfernen von To-Dos
 
-Fügen wir etwas Funktionalität hinzu, um den Aufgabenstatus umzuschalten. Svelte hat die `on:eventname`-Direktive, um DOM-Ereignissen zu lauschen. Fügen wir einen Handler zum `on:click`-Ereignis des Checkbox-Eingabes hinzu, um den abgeschlossenen Wert umzuschalten.
+Fügen wir etwas Funktionalität hinzu, um den Aufgabenstatus umzuschalten. Svelte hat die `on:eventname` Direktive, um auf DOM-Ereignisse zu hören. Fügen wir einen Handler zum `on:click` Event des Kontrollkästchen-Eingabeelements hinzu, um den abgeschlossenen Wert umzuschalten.
 
-1. Aktualisieren Sie das `<input type="checkbox">`-Element in `src/components/Todos.svelte` wie folgt:
+1. Aktualisieren Sie das `<input type="checkbox">` Element in `src/components/Todos.svelte` wie folgt:
 
    ```svelte
    <input type="checkbox" id="todo-{todo.id}"
@@ -216,7 +215,7 @@ Fügen wir etwas Funktionalität hinzu, um den Aufgabenstatus umzuschalten. Svel
    />
    ```
 
-2. Als Nächstes fügen wir eine Funktion hinzu, um ein To-Do aus unserem `todos`-Array zu entfernen. Am Ende des `<script>`-Abschnitts von `Todos.svelte`, fügen Sie die `removeTodo()`-Funktion wie folgt hinzu:
+2. Als nächstes fügen wir eine Funktion hinzu, um ein To-Do aus unserem `todos` Array zu entfernen. Am unteren Ende des `<script>` Bereichs von `Todos.svelte` fügen Sie die `removeTodo()` Funktion wie folgt hinzu:
 
    ```js
    function removeTodo(todo) {
@@ -224,7 +223,7 @@ Fügen wir etwas Funktionalität hinzu, um den Aufgabenstatus umzuschalten. Svel
    }
    ```
 
-3. Wir rufen sie über den _Löschen_-Button auf. Aktualisieren Sie ihn mit einem `click`-Event wie folgt:
+3. Wir werden es über die _Löschen_ Schaltfläche aufrufen. Aktualisieren Sie es mit einem `click` Ereignis wie folgt:
 
    ```svelte
    <button type="button" class="btn btn__danger"
@@ -234,68 +233,68 @@ Fügen wir etwas Funktionalität hinzu, um den Aufgabenstatus umzuschalten. Svel
    </button>
    ```
 
-   Ein sehr häufiger Fehler bei Handlern in Svelte ist es, das Ergebnis der Ausführung einer Funktion als Handler zu übergeben, anstatt die Funktion zu übergeben. Zum Beispiel, wenn Sie `on:click={removeTodo(todo)}}` angeben, wird `removeTodo(todo)` ausgeführt und das Ergebnis wird als Handler übergeben, was nicht das ist, was wir im Sinn hatten.
+   Ein sehr häufiger Fehler bei Handlers in Svelte ist, dass das Ergebnis der Ausführung einer Funktion als Handler übergeben wird, anstatt die Funktion selbst zu übergeben. Wenn Sie beispielsweise `on:click={removeTodo(todo)}}` angeben, wird `removeTodo(todo)` ausgeführt und das Ergebnis als Handler übergeben, was nicht das war, was wir beabsichtigt hatten.
 
-   In diesem Fall müssen Sie `on:click={() => removeTodo(todo)}}` als Handler angeben. Wenn `removeTodo()` keine Parameter empfängt, könnten Sie `on:event={removeTodo}` verwenden, aber nicht `on:event={removeTodo()}}`. Dies ist keine spezielle Svelte-Syntax – hier verwenden wir einfach reguläre JavaScript-[Arrow-Funktionen](/de/docs/Web/JavaScript/Reference/Functions/Arrow_functions).
+   In diesem Fall müssen Sie `on:click={() => removeTodo(todo)}}` als Handler angeben. Wenn `removeTodo()` keine Parameter erhalten hätte, könnten Sie `on:event={removeTodo}` verwenden, aber nicht `on:event={removeTodo()}}`. Dies ist keine spezielle Svelte-Syntax — hier verwenden wir nur reguläre JavaScript [Arrow-Funktionen](/de/docs/Web/JavaScript/Reference/Functions/Arrow_functions).
 
-Gut, das ist guter Fortschritt — an diesem Punkt können wir jetzt Aufgaben löschen. Wenn die _Löschen_-Schaltfläche eines To-Do-Elements gedrückt wird, wird das entsprechende To-Do aus dem `todos`-Array entfernt, und die UI wird aktualisiert, um es nicht mehr anzuzeigen. Zudem können wir jetzt die Checkboxen markieren, und der abgeschlossene Status der relevanten To-Dos wird nun im `todos`-Array aktualisiert.
+Wiederum ist dies ein guter Fortschritt — an diesem Punkt können wir jetzt Aufgaben löschen. Wenn die _Löschen_ Schaltfläche eines To-Do-Elements gedrückt wird, wird das entsprechende To-Do aus dem `todos` Array entfernt, und die Benutzeroberfläche wird aktualisiert, um es nicht mehr anzuzeigen. Darüber hinaus können wir jetzt die Kontrollkästchen aktivieren, und der abgeschlossene Status der entsprechenden To-Dos wird nun im `todos` Array aktualisiert.
 
-Das "x von y Elementen erledigt"-Überschrift wird allerdings nicht aktualisiert. Lesen Sie weiter, um herauszufinden, warum dies passiert und wie wir es lösen können.
+Allerdings wird die Überschrift "x out of y items completed" nicht aktualisiert. Lesen Sie weiter, um herauszufinden, warum dies geschieht und wie wir es lösen können.
 
 ## Reaktive To-Dos
 
-Wie wir bereits gesehen haben, weiß Svelte jedes Mal, wenn der Wert einer obersten Variablen einer Komponente geändert wird, wie die UI aktualisiert werden muss. In unserer App wird der Wert des `todos`-Arrays direkt jedes Mal aktualisiert, wenn ein To-Do umgeschaltet oder gelöscht wird, und so aktualisiert Svelte automatisch das DOM.
+Wie wir bereits gesehen haben, weiß Svelte jedes Mal, wenn der Wert einer Top-Level-Variablen einer Komponente geändert wird, wie die Benutzeroberfläche zu aktualisieren ist. In unserer App wird der Wert des `todos` Arrays direkt jedes Mal aktualisiert, wenn ein To-Do umgeschaltet oder gelöscht wird, und Svelte wird das DOM automatisch aktualisieren.
 
-Dasselbe gilt jedoch nicht für `totalTodos` und `completedTodos`. Im nächsten Code, der ihnen beim Instanziieren der Komponente und Ausführen des Skripts zugewiesen wird, werden ihre Werte nicht geändert:
+Dasselbe gilt jedoch nicht für `totalTodos` und `completedTodos`. Im folgenden Code werden sie beim Instanziieren der Komponente und beim Ausführen des Skripts ein Mal zugewiesen, danach jedoch nicht mehr geändert:
 
 ```js
 let totalTodos = todos.length;
 let completedTodos = todos.filter((todo) => todo.completed).length;
 ```
 
-Wir könnten sie nach Umschaltung und Entfernung der To-Dos neu berechnen, aber es gibt einen einfacheren Weg, es zu tun.
+Wir könnten sie nach dem Umschalten und Entfernen von To-Dos neu berechnen, aber es gibt einen einfacheren Weg.
 
-Wir können Svelte mitteilen, dass wir unsere `totalTodos`- und `completedTodos`-Variablen reaktiv gestalten möchten, indem wir sie mit `$:` voranstellen. Svelte generiert den Code, um sie automatisch zu aktualisieren, wenn sich die Daten, von denen sie abhängen, ändern.
+Wir können Svelte mitteilen, dass wir unsere `totalTodos` und `completedTodos` Variablen reaktiv machen möchten, indem wir ihnen `$:` voranstellen. Svelte wird den Code generieren, um sie automatisch zu aktualisieren, wann immer sich Daten, auf die sie angewiesen sind, ändern.
 
-> [!NOTE]
-> Svelte verwendet die `$:` [JavaScript-Label-Statement-Syntax](/de/docs/Web/JavaScript/Reference/Statements/label), um reaktive Anweisungen zu markieren. Ähnlich wie das Schlüsselwort `export`, das zur Deklaration von Props verwendet wird, mag dies etwas fremdartig aussehen. Dies ist ein weiteres Beispiel dafür, wie Svelte gültige JavaScript-Syntax nutzt und ihr einen neuen Zweck verleiht – in diesem Fall bedeutet es "Führen Sie diesen Code erneut aus, wenn sich einer der referenzierten Werte ändert". Sobald Sie sich daran gewöhnt haben, werden Sie es nicht mehr missen wollen.
+> [!HINWEIS]
+> Svelte verwendet die `$:` [JavaScript Label Statement Syntax](/de/docs/Web/JavaScript/Reference/Statements/label), um reaktive Anweisungen zu kennzeichnen. Genau wie das `export` Schlüsselwort, das verwendet wird, um Props zu deklarieren, mag dies ein wenig fremd aussehen. Dies ist ein weiteres Beispiel dafür, wie Svelte gültige JavaScript-Syntax nutzt und ihr einen neuen Zweck verleiht — in diesem Fall bedeutet es "Führen Sie diesen Code erneut aus, wann immer sich einer der referenzierten Werte ändert". Sobald Sie sich daran gewöhnt haben, gibt es kein Zurück mehr.
 
-Aktualisieren Sie Ihre `totalTodos`- und `completedTodos`-Variablendefinitionen in `src/components/Todos.svelte` wie folgt:
+Aktualisieren Sie Ihre `totalTodos` und `completedTodos` Variablendefinitionen in `src/components/Todos.svelte` wie folgt:
 
 ```js
 $: totalTodos = todos.length;
 $: completedTodos = todos.filter((todo) => todo.completed).length;
 ```
 
-Wenn Sie jetzt Ihre App überprüfen, sehen Sie, dass die Zahlen in der Überschrift aktualisiert werden, wenn To-Dos abgeschlossen oder gelöscht werden. Schön!
+Wenn Sie Ihre App jetzt überprüfen, werden die Zahlen der Überschrift aktualisiert, wenn To-Dos erledigt oder gelöscht werden. Schön!
 
-Hinter den Kulissen wird der Svelte-Compiler unseren Code analysieren und einen Abhängigkeitsbaum erstellen, und dann den JavaScript-Code generieren, um jede reaktive Anweisung neu zu bewerten, wenn eine ihrer Abhängigkeiten aktualisiert wird. Reaktivität in Svelte wird auf eine sehr leichte und performante Weise implementiert, ohne Zuhörer, Setter, Getter oder andere komplexe Mechanismen zu verwenden.
+Hinter den Kulissen wird der Svelte-Compiler unseren Code analysieren und einen Abhängigkeitsbaum erstellen, und dann den JavaScript-Code generieren, um jede reaktive Anweisung erneut auszuführen, wann immer eine ihrer Abhängigkeiten aktualisiert wird. Reaktivität in Svelte wird auf eine sehr leichte und leistungsstarke Weise implementiert, ohne Listener, Setter, Getter oder andere komplexe Mechanismen zu verwenden.
 
-## Neue To-Dos hinzufügen
+## Hinzufügen neuer To-Dos
 
-Nun zum nächsten großen Abschnitt dieses Artikels — wir fügen Funktionalitäten hinzu, um neue To-Dos hinzuzufügen.
+Kommen wir nun zur nächsten großen Aufgabe für diesen Artikel — fügen wir eine Funktionalität zum Hinzufügen neuer To-Dos hinzu.
 
-1. Zuerst erstellen wir eine Variable, um den Text des neuen To-Dos zu halten. Fügen Sie diese Deklaration dem `<script>`-Abschnitt von `Todos.svelte` hinzu:
+1. Zuerst erstellen wir eine Variable, um den Text des neuen To-Dos zu speichern. Fügen Sie diese Deklaration dem `<script>` Abschnitt der `Todos.svelte` Datei hinzu:
 
    ```js
    let newTodoName = "";
    ```
 
-2. Nun werden wir diesen Wert im `<input>` für das Hinzufügen neuer Aufgaben verwenden. Dazu müssen wir unsere `newTodoName`-Variable an die `todo-0` Eingabe binden, sodass der Wert der `newTodoName`-Variable synchron mit dem `value`-Eigenschaft des Eingabefeldes bleibt. Wir könnten etwas wie dies tun:
+2. Nun werden wir diesen Wert in den `<input>` für das Hinzufügen neuer Aufgaben verwenden. Dazu müssen wir unsere `newTodoName` Variable an die `todo-0` Eingabe binden, damit der Wert der `newTodoName` Variable mit der `value` Eigenschaft des Eingabeelements synchron bleibt. Wir könnten etwas Folgendes tun:
 
    ```svelte
    <input value={newTodoName} on:keydown={(e) => newTodoName = e.target.value} />
    ```
 
-   Wann immer sich der Wert der Variablen `newTodoName` ändert, wird er im `value`-Attribut des Eingabefeldes reflektiert, und wann immer eine Taste im Eingabefeld gedrückt wird, aktualisieren wir den Inhalt der Variablen `newTodoName`.
+   Wann immer sich der Wert der `newTodoName` Variable ändert, wird er im `value` Attribut des Eingabeelements reflektiert, und wann immer eine Taste im Eingabefeld gedrückt wird, werden wir den Inhalt der `newTodoName` Variable aktualisieren.
 
-   Dies ist eine manuelle Implementierung der Zwei-Wege-Datenbindung für ein Eingabefeld. Aber wir müssen dies nicht tun — Svelte bietet eine einfachere Möglichkeit, jede Eigenschaft mit einer Variablen zu binden, mit der [`bind:property`](https://svelte.dev/docs/element-directives#bind-property)-Direktive:
+   Dies ist eine manuelle Implementierung der Zwei-Wege-Datenbindung für ein Eingabefeld. Aber das müssen wir nicht tun — Svelte bietet einen einfacheren Weg, um jede Eigenschaft an eine Variable zu binden, indem die [`bind:property`](https://svelte.dev/docs/element-directives#bind-property) Direktive verwendet wird:
 
    ```svelte
    <input bind:value={newTodoName} />
    ```
 
-   Also, lassen Sie uns dies implementieren. Aktualisieren Sie die `todo-0` Eingabe wie folgt:
+   Also lassen Sie uns dies umsetzen. Aktualisieren Sie die `todo-0` Eingabe wie folgt:
 
    ```svelte
    <input
@@ -306,17 +305,17 @@ Nun zum nächsten großen Abschnitt dieses Artikels — wir fügen Funktionalit�
      class="input input__lg" />
    ```
 
-3. Eine einfache Möglichkeit, zu testen, ob dies funktioniert, besteht darin, eine reaktive Anweisung hinzuzufügen, um den Inhalt von `newTodoName` zu protokollieren. Fügen Sie diesen Code am Ende des `<script>`-Abschnitts hinzu:
+3. Ein einfacher Weg zu überprüfen, ob dies funktioniert, ist eine reaktive Anweisung hinzuzufügen, um den Inhalt von `newTodoName` zu protokollieren. Fügen Sie diesen Code-Schnipsel am Ende des `<script>` Abschnitts hinzu:
 
    ```js
    $: console.log("newTodoName: ", newTodoName);
    ```
 
-   > [!NOTE]
-   > Wie Sie vielleicht bemerkt haben, sind reaktive Anweisungen nicht auf Variablendeklarationen beschränkt. Sie können _jede_ JavaScript-Anweisung nach dem `$:`-Zeichen setzen.
+   > [!HINWEIS]
+   > Wie Sie vielleicht bemerkt haben, sind reaktive Anweisungen nicht auf Variablendeklarationen beschränkt. Sie können _jede_ JavaScript-Anweisung nach dem `$:` Zeichen setzen.
 
-4. Versuchen Sie jetzt, mit `localhost:5042` wieder zu laden, <kbd>Strg</kbd> + <kbd>Umschalt</kbd> + <kbd>K</kbd> zu drücken, um Ihre Browserkonsole zu öffnen, und etwas in das Eingabefeld einzugeben. Sie sollten Ihre Einträge protokolliert sehen. Zu diesem Zeitpunkt können Sie das reaktive `console.log()` löschen, wenn Sie möchten.
-5. Als nächstes erstellen wir eine Funktion, um das neue To-Do hinzuzufügen — `addTodo()` —, welche ein neues `todo`-Objekt zum `todos`-Array hinzufügt. Fügen Sie diese am Ende Ihres `<script>`-Blocks in `src/components/Todos.svelte` hinzu:
+4. Versuchen Sie nun zu `localhost:5042` zurückzukehren, <kbd>Strg</kbd> + <kbd>Shift</kbd> + <kbd>K</kbd> zu drücken, um Ihre Browserkonsole zu öffnen, und etwas in das Eingabefeld einzugeben. Ihre Eingaben sollten protokolliert werden. An diesem Punkt können Sie das reaktive `console.log()` löschen, wenn Sie möchten.
+5. Als nächstes werden wir eine Funktion zum Hinzufügen des neuen To-Dos erstellen — `addTodo()` — die ein neues `todo` Objekt in das `todos` Array pushen wird. Fügen Sie dies am Ende Ihres `<script>` Blocks in `src/components/Todos.svelte` ein:
 
    ```js
    function addTodo() {
@@ -325,24 +324,24 @@ Nun zum nächsten großen Abschnitt dieses Artikels — wir fügen Funktionalit�
    }
    ```
 
-   > [!NOTE]
-   > Zurzeit weisen wir jedem To-Do nur die gleiche `id` zu, aber keine Sorge, wir werden das gleich beheben.
+   > [!HINWEIS]
+   > Im Moment weisen wir nur jeder To-Do dieselbe `id` zu, aber keine Sorge, wir werden das bald beheben.
 
-6. Nun wollen wir unser HTML aktualisieren, damit wir `addTodo()` ausführen, wann immer das Formular abgeschickt wird. Aktualisieren Sie das NewTodo-Formular-Öffnungstag wie folgt:
+6. Jetzt wollen wir unser HTML so aktualisieren, dass wir `addTodo()` bei jeder Formularübermittlung aufrufen. Aktualisieren Sie den Opening-Tag des NewTodo Forms wie folgt:
 
    ```svelte
    <form on:submit|preventDefault={addTodo}>
    ```
 
-   Die [`on:eventname`](https://svelte.dev/docs/element-directives#on-eventname)-Direktive unterstützt das Hinzufügen von Modifikatoren zum DOM-Ereignis mit dem `|`-Zeichen. In diesem Fall teilt der Modifier `preventDefault` Svelte mit, den Code zu generieren, um `event.preventDefault()` vor dem Ausführen des Handlers aufzurufen. Erkunden Sie den vorherigen Link, um zu sehen, welche anderen Modifikatoren verfügbar sind.
+   Die [`on:eventname`](https://svelte.dev/docs/element-directives#on-eventname) Direktive unterstützt das Hinzufügen von Modifizierern zum DOM-Ereignis mit dem `|` Zeichen. In diesem Fall sagt der `preventDefault` Modifizierer Svelte, dass der generierte Code `event.preventDefault()` ausführt, bevor der Handler ausgeführt wird. Erkunden Sie den vorherigen Link, um zu sehen, welche anderen Modifizierer verfügbar sind.
 
-7. Wenn Sie versuchen, zu diesem Zeitpunkt neue To-Dos hinzuzufügen, werden die neuen To-Dos zum `todos`-Array hinzugefügt, aber unsere UI aktualisiert sich nicht. Denken Sie daran, dass in Svelte [Reaktivität durch Zuweisungen ausgelöst wird](https://svelte.dev/docs/svelte-components#script-2-assignments-are-reactive). Das bedeutet, dass die `addTodo()`-Funktion ausgeführt wird, das Element dem `todos`-Array hinzugefügt wird, aber Svelte das nicht als Modifikation erkennt und die Task-`<ul>` daher nicht aktualisiert.
+7. Wenn Sie zu diesem Zeitpunkt neue To-Dos hinzufügen möchten, werden die neuen To-Dos zum todos-Array hinzugefügt, aber unsere Benutzeroberfläche wird nicht aktualisiert. Denken Sie daran, dass in Svelte [Reaktivität durch Zuweisungen ausgelöst wird](https://svelte.dev/docs/svelte-components#script-2-assignments-are-reactive). Das bedeutet, dass die `addTodo()` Funktion ausgeführt wird, das Element zum `todos` Array hinzugefügt wird, aber Svelte nicht erkennt, dass die `push` Methode das Array modifiziert hat, sodass es die Aufgaben `<ul>` nicht aktualisiert.
 
-   Das Hinzufügen von `todos = todos` am Ende der `addTodo()`-Funktion würde das Problem lösen, aber es erscheint seltsam, dies am Ende der Funktion aufzunehmen. Stattdessen nehmen wir die `push()`-Methode heraus und verwenden [Spread-Syntax](/de/docs/Web/JavaScript/Reference/Operators/Spread_syntax), um dasselbe Ergebnis zu erzielen: wir weisen dem `todos`-Array einen Wert zu, der dem `todos`-Array plus dem neuen Objekt entspricht.
+   Ein einfaches Hinzufügen von `todos = todos` am Ende der `addTodo()` Funktion würde das Problem lösen, aber es scheint seltsam, das am Ende der Funktion einfügen zu müssen. Stattdessen nehmen wir die `push()` Methode heraus und verwenden die [Spread-Syntax](/de/docs/Web/JavaScript/Reference/Operators/Spread_syntax), um dasselbe Ergebnis zu erzielen: Wir ordnen dem `todos` Array einen Wert zu, der dem `todos` Array plus dem neuen Objekt entspricht.
 
-   > **Hinweis:** `Array` hat mehrere veränderliche Operationen: [`push()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/push), [`pop()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/pop), [`splice()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/splice), [`shift()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/shift), [`unshift()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/unshift), [`reverse()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/reverse) und [`sort()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/sort). Diese zu verwenden, führt oft zu Seiteneffekten und schwer nachvollziehbaren Fehlern. Indem wir die Spread-Syntax anstelle von `push()` verwenden, vermeiden wir das mutierende Array, was als gute Praxis angesehen wird.
+   > **Hinweis:** `Array` hat mehrere mutable Operationen: [`push()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/push), [`pop()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/pop), [`splice()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/splice), [`shift()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/shift), [`unshift()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/unshift), [`reverse()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/reverse) und [`sort()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/sort). Deren Verwendung führt häufig zu Nebeneffekten und schwer nachvollziehbaren Fehlern. Durch die Verwendung der Spread-Syntax anstelle von `push()` vermeiden wir die Veränderung des Arrays, was als gute Praxis gilt.
 
-   Aktualisieren Sie Ihre `addTodo()`-Funktion wie folgt:
+   Aktualisieren Sie Ihre `addTodo()` Funktion wie folgt:
 
    ```js
    function addTodo() {
@@ -353,9 +352,9 @@ Nun zum nächsten großen Abschnitt dieses Artikels — wir fügen Funktionalit�
 
 ## Jedem To-Do eine eindeutige ID geben
 
-Wenn Sie jetzt versuchen, neue To-Dos in Ihrer App hinzuzufügen, können Sie ein neues To-Do hinzufügen und es in der UI erscheinen lassen — einmal. Wenn Sie es ein zweites Mal versuchen, wird es nicht funktionieren, und Sie erhalten eine Konsolenmeldung, die besagt "Fehler: Doppelte Schlüssel in einem gekeyten Each sind nicht erlaubt". Wir benötigen eindeutige IDs für unsere To-Dos.
+Wenn Sie jetzt versuchen, neue To-Dos in Ihrer App hinzuzufügen, können Sie zunächst ein neues To-Do hinzufügen und es in der Benutzeroberfläche erscheinen lassen — einmal. Wenn Sie es ein zweites Mal versuchen, funktioniert es nicht und Sie erhalten eine Konsolenmeldung mit "Error: Cannot have duplicate keys in a keyed each". Wir benötigen eindeutige IDs für unsere To-Dos.
 
-1. Erklären wir eine `newTodoId`-Variable, die aus der Anzahl der To-Dos plus 1 berechnet wird, und machen wir sie reaktiv. Fügen Sie folgendes Snippet zum `<script>`-Abschnitt hinzu:
+1. Lassen Sie uns eine `newTodoId` Variable deklarieren, die aus der Anzahl der To-Dos plus 1 berechnet wird, und sie reaktiv machen. Fügen Sie das folgende Snippet zum `<script>` Abschnitt hinzu:
 
    ```js
    let newTodoId;
@@ -368,12 +367,12 @@ Wenn Sie jetzt versuchen, neue To-Dos in Ihrer App hinzuzufügen, können Sie ei
    }
    ```
 
-   > [!NOTE]
-   > Wie Sie sehen können, sind reaktive Anweisungen nicht auf Einzeiler beschränkt. Das Folgende würde auch funktionieren, ist aber etwas weniger lesbar: `$: newTodoId = totalTodos ? Math.max(...todos.map((t) => t.id)) + 1 : 1`
+   > [!HINWEIS]
+   > Wie Sie sehen können, sind reaktive Anweisungen nicht auf Einzeiler beschränkt. Das Folgende würde ebenfalls funktionieren, ist aber etwas weniger leserlich: `$: newTodoId = totalTodos ? Math.max(...todos.map((t) => t.id)) + 1 : 1`
 
-2. Wie erreicht Svelte dies? Der Compiler analysiert den gesamten reaktiven Ausdruck und erkennt, dass er von der `totalTodos` Variablen und dem `todos` Array abhängt. Sobald sich eine von ihnen ändert, wird dieser Code neu bewertet und `newTodoId` entsprechend aktualisiert.
+2. Wie erreicht Svelte das? Der Compiler analysiert die gesamte reaktive Anweisung und erkennt, dass sie von der Variable `totalTodos` und dem `todos` Array abhängt. Deshalb wird jedes Mal, wenn sich eine von beiden ändert, dieser Code neu evaluiert und `newTodoId` entsprechend aktualisiert.
 
-   Lassen Sie uns dies in unserer `addTodo()`-Funktion verwenden. Aktualisieren Sie es wie folgt:
+   Lassen Sie uns dies in unserer `addTodo()` Funktion verwenden. Aktualisieren Sie sie wie folgt:
 
    ```js
    function addTodo() {
@@ -382,11 +381,11 @@ Wenn Sie jetzt versuchen, neue To-Dos in Ihrer App hinzuzufügen, können Sie ei
    }
    ```
 
-## Filtern von To-Dos nach Status
+## To-Dos nach Status filtern
 
-Schließlich in diesem Artikel werden wir die Fähigkeit implementieren, unsere To-Dos nach Status zu filtern. Wir erstellen eine Variable, um den aktuellen Filter zu halten, und eine Hilfsfunktion, die die gefilterten To-Dos zurückgibt.
+Zum Schluss in diesem Artikel implementieren wir die Möglichkeit, unsere To-Dos nach Status zu filtern. Wir erstellen eine Variable, um den aktuellen Filter zu speichern, und eine Hilfsfunktion, die die gefilterten To-Dos zurückgibt.
 
-1. Fügen Sie am Ende unseres `<script>`-Abschnitts folgendes hinzu:
+1. Am unteren Ende unseres `<script>` Abschnitts fügen Sie Folgendes hinzu:
 
    ```js
    let filter = "all";
@@ -398,11 +397,11 @@ Schließlich in diesem Artikel werden wir die Fähigkeit implementieren, unsere 
          : todos;
    ```
 
-   Wir verwenden die `filter`-Variable, um den aktiven Filter zu steuern: _alle_, _aktiv_ oder _abgeschlossen_. Das Zuweisen eines dieser Werte zur Filtervariablen aktiviert den Filter und aktualisiert die Liste der To-Dos entsprechend. Lassen Sie uns sehen, wie das erreicht werden kann.
+   Wir verwenden die `filter` Variable, um den aktiven Filter zu steuern: _all_, _active_ oder _completed_. Das Zuweisen eines dieser Werte an die `filter` Variable aktiviert den Filter und aktualisiert die Liste der To-Dos. Lassen Sie uns sehen, wie wir das erreichen können.
 
-   Die `filterTodos()`-Funktion wird den aktuellen Filter und die Liste der To-Dos entgegennehmen und ein neues Array von gefilterten To-Dos zurückgeben.
+   Die Funktion `filterTodos()` erhält den aktuellen Filter und die Liste der To-Dos und gibt ein neues Array der To-Dos zurück, die entsprechend gefiltert sind.
 
-2. Aktualisieren wir das Filter-Button-Markup, um es dynamisch zu machen, und aktualisieren wir den aktuellen Filter, wenn der Benutzer einen der Filter-Buttons drückt. Aktualisieren Sie es wie folgt:
+2. Lassen Sie uns das Filter-Button-Markup aktualisieren, um es dynamisch zu gestalten und den aktuellen Filter zu aktualisieren, wenn der Benutzer einen der Filter-Buttons drückt. Aktualisieren Sie es wie folgt:
 
    ```svelte
    <div class="filters btn-group stack-exception">
@@ -424,18 +423,18 @@ Schließlich in diesem Artikel werden wir die Fähigkeit implementieren, unsere 
    </div>
    ```
 
-   In diesem Markup passieren einige Dinge.
+   Hier passieren ein paar Dinge in diesem Markup.
 
-   Wir zeigen den aktuellen Filter an, indem wir die `btn__primary`-Klasse auf den aktiven Filter-Button anwenden. Um Stilklassen bedingt auf ein Element anzuwenden, verwenden wir die `class:name={value}`-Direktive. Wenn der Wert-Ausdruck zu einem wahrheitsgemäßen Wert ausgewertet wird, wird der Klassenname angewendet. Sie können viele dieser Direktiven mit verschiedenen Bedingungen zu einem Element hinzufügen. Also wenn wir `class:btn__primary={filter === 'all'}` ausgeben, wird Svelte die `btn__primary`-Klasse anwenden, wenn filter gleich alle ist.
+   Wir zeigen den aktuellen Filter an, indem wir die `btn__primary` Klasse auf den aktiven Filter-Button anwenden. Um Style-Klassen bedingt auf ein Element anzuwenden, verwenden wir die `class:name={value}` Direktive. Wenn der Wert-Ausdruck als wahr ausgewertet wird, wird der Klassenname angewendet. Sie können viele dieser Direktiven mit unterschiedlichen Bedingungen auf dasselbe Element anwenden. Also, wenn wir `class:btn__primary={filter === 'all'}` ausgeben, wird Svelte die `btn__primary` Klasse anwenden, wenn der Filter `all` entspricht.
 
-   > [!NOTE]
-   > Svelte bietet eine Abkürzung, die es erlaubt, `<div class:active={active}>` auf `<div class:active>` zu verkürzen, wenn die Klasse mit dem Variablennamen übereinstimmt.
+   > [!HINWEIS]
+   > Svelte bietet eine Abkürzung, die es uns erlaubt, `<div class:active={active}>` zu `<div class:active>` zu verkürzen, wenn die Klasse mit dem Variablennamen übereinstimmt.
 
-   Etwas Ähnliches passiert bei `aria-pressed={filter === 'all'}`: Wenn der zwischen geschweiften Klammern eingefügte JavaScript-Ausdruck zu einem wahrheitsgemäßen Wert ausgewertet wird, wird das `aria-pressed`-Attribut auf den Button angewendet.
+   Etwas Ähnliches passiert mit `aria-pressed={filter === 'all'}`: Wenn der JavaScript-Ausdruck zwischen den geschweiften Klammern als wahr ausgewertet wird, wird das `aria-pressed` Attribut zum Button hinzugefügt.
 
-   Wann immer wir auf einen Button klicken, aktualisieren wir die Filter-Variable, indem wir `on:click={() => filter = 'all'}` ausgeben. Lesen Sie weiter, um herauszufinden, wie Svelte-Reaktivität den Rest erledigen wird.
+   Jedes Mal, wenn wir auf einen Button klicken, aktualisieren wir die `filter` Variable, indem wir `on:click={() => filter = 'all'}` ausgeben. Lesen Sie weiter, um zu erfahren, wie Svelte Reaktivität den Rest übernimmt.
 
-3. Jetzt müssen wir nur noch die Hilfsfunktion in die `{#each}`-Schleife einfügen; aktualisieren Sie sie wie folgt:
+3. Jetzt müssen wir nur noch die Hilfsfunktion in der `{#each}` Schleife verwenden; aktualisieren Sie sie so:
 
    ```svelte
    …
@@ -444,16 +443,16 @@ Schließlich in diesem Artikel werden wir die Fähigkeit implementieren, unsere 
    …
    ```
 
-   Nach Analyse unseres Codes erkennt Svelte, dass unsere `filterTodos()`-Funktion von den Variablen `filter` und `todos` abhängt. Und wie bei allen anderen dynamischen Ausdrücken, die im Markup eingebettet sind, wird jedesmal, wenn eine dieser Abhängigkeiten verändert wird, das DOM entsprechend aktualisiert. Also wird jedes Mal, wenn sich `filter` oder `todos` ändert, die `filterTodos()`-Funktion neu bewertet und die Elemente in der Schleife werden aktualisiert.
+   Nach der Analyse unseres Codes erkennt Svelte, dass unsere `filterTodos()` Funktion von den Variablen `filter` und `todos abhängt`. Und genau wie bei jedem anderen dynamischen Ausdruck, der in das Markup eingebettet ist, wird immer dann, wenn eine dieser Abhängigkeiten geändert wird, das DOM entsprechend aktualisiert. Also jedes Mal, wenn `filter` oder `todos` sich ändert, wird die `filterTodos()` Funktion neu bewertet, und die Elemente in der Schleife werden aktualisiert.
 
-> [!NOTE]
-> Reaktivität kann manchmal knifflig sein. Svelte erkennt `filter` als Abhängigkeit, weil wir es im `filterTodos(filter, todo)` Ausdruck referenzieren. `filter` ist eine oberste Variable, sodass wir versucht sein könnten, sie von den Hilfsfunktionen-Parametern zu entfernen und sie einfach so aufzurufen: `filterTodos(todo)`. Das würde funktionieren, aber jetzt hat Svelte keine Möglichkeit herauszufinden, dass `{#each filterTodos(todos)}}` von `filter` abhängt, und die Liste der gefilterten To-Dos wird nicht aktualisiert, wenn sich der Filter ändert. Denken Sie immer daran, dass Svelte unseren Code analysiert, um Abhängigkeiten herauszufinden; daher ist es besser, explizit darüber zu sein und nicht auf die Sichtbarkeit der obersten Variablen zu vertrauen. Außerdem ist es eine gute Praxis, unseren Code klar und explizit darüber zu machen, welche Informationen er verwendet.
+> [!HINWEIS]
+> Reaktivität kann manchmal knifflig sein. Svelte erkennt `filter` als eine Abhängigkeit, weil wir es im Ausdruck `filterTodos(filter, todo)` referenzieren. `filter` ist eine Top-Level-Variable, also könnten wir versucht sein, sie von den Parameters der Hilfsfunktion zu entfernen und einfach so aufzurufen: `filterTodos(todo)`. Das würde funktionieren, aber jetzt hat Svelte keine Möglichkeit festzustellen, dass `{#each filterTodos(todos) }` von `filter` abhängt, und die Liste der gefilterten To-Dos wird nicht aktualisiert, wenn sich der Filter ändert. Denken Sie immer daran, dass Svelte unseren Code analysiert, um Abhängigkeiten zu identifizieren; deshalb ist es besser, darüber explizit zu sein und sich nicht auf die Sichtbarkeit von Top-Level-Variablen zu verlassen. Außerdem ist es eine gute Praxis, unseren Code klar und explizit darüber zu machen, welche Informationen er verwendet.
 
-## Der Code bisher
+## Der bisherige Code
 
 ### Git
 
-Um den Stand des Codes zu sehen, wie er am Ende dieses Artikels sein sollte, greifen Sie auf Ihre Kopie unseres Repos wie folgt zu:
+Um den Zustand des Codes zu sehen, wie er am Ende dieses Artikels sein sollte, greifen Sie auf Ihre Kopie unseres Repos wie folgt zu:
 
 ```bash
 cd mdn-svelte-tutorial/04-componentizing-our-app
@@ -465,7 +464,7 @@ Oder laden Sie direkt den Inhalt des Ordners herunter:
 npx degit opensas/mdn-svelte-tutorial/04-componentizing-our-app
 ```
 
-Denken Sie daran, `npm install && npm run dev` auszuführen, um Ihre App im Entwicklungsmodus zu starten.
+Vergessen Sie nicht, `npm install && npm run dev` auszuführen, um Ihre App im Entwicklungsmodus zu starten.
 
 ### REPL
 
@@ -475,23 +474,23 @@ Um den aktuellen Stand des Codes in einem REPL zu sehen, besuchen Sie:
 
 ## Zusammenfassung
 
-Das ist es erst einmal! In diesem Artikel haben wir bereits die meiste gewünschte Funktionalität implementiert. Unsere App kann To-Dos anzeigen, hinzufügen und löschen, deren abgeschlossenen Status umschalten, zeigen, wie viele von ihnen erledigt sind, und Filter anwenden.
+Das wäre es für jetzt! In diesem Artikel haben wir bereits den Großteil der gewünschten Funktionalität implementiert. Unsere App kann To-Dos anzeigen, hinzufügen und löschen, ihren abgeschlossenen Status umschalten, anzeigen, wie viele von ihnen erledigt sind, und Filterapplikationen anwenden.
 
-Kurz zusammengefasst, haben wir die folgenden Themen behandelt:
+Zur Wiederholung haben wir folgende Themen behandelt:
 
 - Erstellen und Verwenden von Komponenten
-- Umwandeln von statischem Markup in eine lebendige Vorlage
+- Umwandeln von statischem Markup in ein lebendiges Template
 - Einbetten von JavaScript-Ausdrücken in unser Markup
-- Iterieren über Listen mit der `{#each}`-Direktive
+- Iteration über Listen mit der `{#each}` Direktive
 - Übergeben von Informationen zwischen Komponenten mit Props
-- Lauschen auf DOM-Ereignisse
-- Deklarieren reaktiver Anweisungen
+- Zuhören auf DOM-Ereignisse
+- Deklarieren von reaktiven Anweisungen
 - Grundlegendes Debugging mit `console.log()` und reaktiven Anweisungen
-- Binden von HTML-Eigenschaften mit der `bind:property`-Direktive
+- Binden von HTML-Eigenschaften mit der `bind:property` Direktive
 - Auslösen von Reaktivität mit Zuweisungen
-- Verwenden von reaktiven Ausdrücken zur Datenfilterung
-- Explizites Definieren unserer reaktiven Abhängigkeiten
+- Verwenden reaktiver Ausdrücke zum Filtern von Daten
+- Explizite Definition unserer reaktiven Abhängigkeiten
 
-Im nächsten Artikel werden wir weitere Funktionalitäten hinzufügen, die es Benutzern ermöglichen, To-Dos zu bearbeiten.
+Im nächsten Artikel werden wir weitere Funktionen hinzufügen, die es Benutzern ermöglichen, To-Dos zu bearbeiten.
 
 {{PreviousMenuNext("Learn_web_development/Core/Frameworks_libraries/Svelte_Todo_list_beginning","Learn_web_development/Core/Frameworks_libraries/Svelte_components", "Learn_web_development/Core/Frameworks_libraries")}}

@@ -1,13 +1,13 @@
 ---
-title: "Vue Bedingte Darstellung: Bearbeiten bestehender Todos"
+title: "Vue bedingte Darstellung: Bearbeiten bestehender Todos"
 slug: Learn_web_development/Core/Frameworks_libraries/Vue_conditional_rendering
 l10n:
-  sourceCommit: 3c13d9a0c239ed31ae861486393952bc03e0b5bd
+  sourceCommit: 48d220a8cffdfd5f088f8ca89724a9a92e34d8c0
 ---
 
-{{LearnSidebar}}{{PreviousMenuNext("Learn_web_development/Core/Frameworks_libraries/Vue_computed_properties","Learn_web_development/Core/Frameworks_libraries/Vue_refs_focus_management", "Learn_web_development/Core/Frameworks_libraries")}}
+{{PreviousMenuNext("Learn_web_development/Core/Frameworks_libraries/Vue_computed_properties","Learn_web_development/Core/Frameworks_libraries/Vue_refs_focus_management", "Learn_web_development/Core/Frameworks_libraries")}}
 
-Jetzt ist es an der Zeit, eine der Hauptfunktionen hinzuzufügen, die uns noch fehlt – die Möglichkeit, bestehende Todo-Elemente zu bearbeiten. Dazu nutzen wir Vues Fähigkeiten zur bedingten Darstellung, nämlich `v-if` und `v-else`, um zwischen der Ansicht des bestehenden Todo-Elements und einer Bearbeitungsansicht, in der Sie die Bezeichnungen der Todo-Elemente aktualisieren können, zu wechseln. Außerdem schauen wir uns an, wie man Funktionalitäten zum Löschen von Todo-Elementen hinzufügt.
+Jetzt ist es an der Zeit, eine der wichtigsten Funktionalitäten hinzuzufügen, die uns noch fehlt — die Möglichkeit, bestehende Todo-Elemente zu bearbeiten. Dazu nutzen wir die bedingte Darstellung von Vue — nämlich `v-if` und `v-else` — um zwischen der vorhandenen Todo-Elementansicht und einer Bearbeitungsansicht umzuschalten, in der Sie Todo-Elementbeschriftungen aktualisieren können. Außerdem werden wir uns mit der Funktionalität zum Löschen von Todo-Elementen befassen.
 
 <table>
   <tbody>
@@ -25,20 +25,20 @@ Jetzt ist es an der Zeit, eine der Hauptfunktionen hinzuzufügen, die uns noch f
           >.
         </p>
         <p>
-          Vue-Komponenten werden als Kombination von JavaScript-Objekten geschrieben, die die Daten der App verwalten, und einer HTML-basierten Templatesyntax, die auf die zugrunde liegende DOM-Struktur abbildet. Für die Installation und um einige der fortgeschritteneren Funktionen von Vue (wie Single File Components oder Renderfunktionen) zu nutzen, benötigen Sie ein Terminal mit installiertem Node + npm.
+          Vue-Komponenten werden als Kombination aus JavaScript-Objekten erstellt, die die Daten der App verwalten, und einer auf HTML basierenden Templatesyntax, die der zugrunde liegenden DOM-Struktur entspricht. Für die Installation und um einige der fortgeschritteneren Funktionen von Vue zu nutzen (wie Single File Components oder Renderfunktionen), benötigen Sie ein Terminal mit node + npm installiert.
         </p>
       </td>
     </tr>
     <tr>
       <th scope="row">Ziel:</th>
-      <td>Bedingte Darstellung in Vue zu lernen.</td>
+      <td>Lernen, wie man eine bedingte Darstellung in Vue durchführt.</td>
     </tr>
   </tbody>
 </table>
 
 ## Erstellen einer Bearbeitungskomponente
 
-Wir können damit beginnen, eine separate Komponente zur Verwaltung der Bearbeitungsfunktionalität zu erstellen. Erstellen Sie in Ihrem `components`-Verzeichnis eine neue Datei namens `ToDoItemEditForm.vue`. Kopieren Sie den folgenden Code in diese Datei:
+Wir können beginnen, indem wir eine separate Komponente erstellen, die die Bearbeitungsfunktionalität übernimmt. Erstellen Sie in Ihrem `components`-Verzeichnis eine neue Datei namens `ToDoItemEditForm.vue`. Kopieren Sie den folgenden Code in diese Datei:
 
 ```vue
 <template>
@@ -121,20 +121,20 @@ form > * {
 ```
 
 > [!NOTE]
-> Gehen Sie den obigen Code durch und lesen Sie die unten stehende Beschreibung, um sicherzustellen, dass Sie alles verstehen, was die Komponente macht, bevor Sie fortfahren. Dies ist eine nützliche Methode, um alles zu verstärken, was Sie bisher gelernt haben.
+> Gehen Sie den obigen Code durch und lesen Sie die untenstehende Beschreibung, um sicherzustellen, dass Sie alles verstehen, was die Komponente tut, bevor Sie fortfahren. Dies ist eine nützliche Methode, um alles, was Sie bisher gelernt haben, zu festigen.
 
-Dieser Code richtet den Kern der Bearbeitungsfunktion ein. Wir erstellen ein Formular mit einem `<input>`-Feld zum Bearbeiten des Namens unseres To-dos.
+Dieser Code legt den Kern der Bearbeitungsfunktionalität fest. Wir erstellen ein Formular mit einem `<input>`-Feld zum Bearbeiten des Namens unseres To-Dos.
 
 Es gibt einen "Speichern"-Button und einen "Abbrechen"-Button:
 
-- Wenn der "Speichern"-Button angeklickt wird, sendet die Komponente das neue Label über ein `item-edited`-Event.
-- Wenn der "Abbrechen"-Button angeklickt wird, signalisiert die Komponente dies durch Emittieren eines `edit-cancelled`-Events.
+- Wenn der "Speichern"-Button angeklickt wird, sendet die Komponente das neue Label über ein `item-edited`-Ereignis.
+- Wenn der "Abbrechen"-Button angeklickt wird, signalisiert die Komponente dies durch Auslösen eines `edit-cancelled`-Ereignisses.
 
-## Modifizieren unserer ToDoItem-Komponente
+## Ändern unserer ToDoItem-Komponente
 
-Bevor wir `ToDoItemEditForm` zu unserer App hinzufügen können, müssen wir einige Änderungen an unserer `ToDoItem`-Komponente vornehmen. Insbesondere müssen wir eine Variable hinzufügen, um nachzuverfolgen, ob das Element bearbeitet wird, und einen Button, um diese Variable umzuschalten. Wir fügen auch einen `Löschen`-Button hinzu, da das Löschen eng damit verbunden ist.
+Bevor wir `ToDoItemEditForm` zu unserer App hinzufügen können, müssen wir einige Änderungen an unserer `ToDoItem`-Komponente vornehmen. Insbesondere müssen wir eine Variable hinzufügen, um zu verfolgen, ob das Element bearbeitet wird, und einen Button, um diese Variable umzuschalten. Wir fügen auch einen `Delete`-Button hinzu, da die Löschung eng damit verbunden ist.
 
-Aktualisieren Sie das Template Ihres `ToDoItem` wie unten gezeigt.
+Aktualisieren Sie das Template Ihres `ToDoItem`, wie unten gezeigt.
 
 ```vue
 <template>
@@ -160,16 +160,16 @@ Aktualisieren Sie das Template Ihres `ToDoItem` wie unten gezeigt.
 </template>
 ```
 
-Wir haben ein umhüllendes `<div>` um das gesamte Template für Layoutzwecke hinzugefügt.
+Wir haben einen Wrapper-`<div>` um das gesamte Template für Layoutzwecke hinzugefügt.
 
 Wir haben auch "Bearbeiten"- und "Löschen"-Buttons hinzugefügt:
 
-- Der "Bearbeiten"-Button, wenn angeklickt, wird die Anzeige der `ToDoItemEditForm`-Komponente umschalten, sodass wir diese verwenden können, um unser Todo-Element über eine Event-Handler-Funktion namens `toggleToItemEditForm()` zu bearbeiten. Dieser Handler wird ein `isEditing`-Flag auf true setzen. Dazu müssen wir es zuerst in unserem `data()`-Eigenschaft definieren.
-- Der "Löschen"-Button, wenn angeklickt, wird das Todo-Element über eine Event-Handler-Funktion namens `deleteToDo()` löschen. In diesem Handler werden wir ein `item-deleted`-Event zu unserer übergeordneten Komponente senden, damit die Liste aktualisiert werden kann.
+- Der "Bearbeiten"-Button zeigt bei einem Klick das `ToDoItemEditForm`-Element an, sodass wir es verwenden können, um unser Todo-Element über eine Ereignishandlerfunktion namens `toggleToItemEditForm()` zu bearbeiten. Dieser Handler setzt ein `isEditing`-Flag auf true. Dazu definieren wir es zuerst innerhalb unserer `data()`-Eigenschaft.
+- Der "Löschen"-Button löscht bei einem Klick das Todo-Element über eine Ereignishandlerfunktion namens `deleteToDo()`. In diesem Handler senden wir ein `item-deleted`-Ereignis an unsere übergeordnete Komponente, damit die Liste aktualisiert werden kann.
 
-Lassen Sie uns unsere Click-Handler und das benötigte `isEditing`-Flag definieren.
+Definieren wir unsere Klick-Handler und das notwendige `isEditing`-Flag.
 
-Fügen Sie `isEditing` unter Ihrem bestehenden `isDone`-Datenpunkt hinzu:
+Fügen Sie `isEditing` unter Ihrem vorhandenen `isDone`-Datenpunkt hinzu:
 
 ```js
 export default {
@@ -184,7 +184,7 @@ export default {
 };
 ```
 
-Fügen Sie nun Ihre Methoden innerhalb einer methods-Eigenschaft direkt unter Ihrer `data()`-Eigenschaft hinzu:
+Fügen Sie nun Ihre Methoden innerhalb einer Methoden-Eigenschaft direkt unter Ihrer `data()`-Eigenschaft hinzu:
 
 ```js
 export default {
@@ -201,35 +201,35 @@ export default {
 };
 ```
 
-## Bedingte Anzeige von Komponenten mittels v-if und v-else
+## Bedingtes Anzeigen von Komponenten mit v-if und v-else
 
-Jetzt haben wir ein `isEditing`-Flag, das wir verwenden können, um zu kennzeichnen, dass das Element bearbeitet wird (oder nicht). Wenn `isEditing` wahr ist, möchten wir dieses Flag verwenden, um unsere `ToDoItemEditForm` anstelle des Kontrollkästchens anzuzeigen. Dazu verwenden wir eine weitere Vue-Direktive: [`v-if`](https://vuejs.org/api/built-in-directives.html#v-if).
+Jetzt haben wir ein `isEditing`-Flag, das wir verwenden können, um anzuzeigen, dass das Element bearbeitet wird (oder nicht). Wenn `isEditing` wahr ist, möchten wir dieses Flag verwenden, um unser `ToDoItemEditForm` anstelle des Kontrollkästchens anzuzeigen. Dazu verwenden wir eine weitere Vue-Direktive: [`v-if`](https://vuejs.org/api/built-in-directives.html#v-if).
 
-Die `v-if`-Direktive wird nur einen Block rendern, wenn der Wert, der ihr übergeben wurde, wahrheitsgemäß ist. Dies ist ähnlich wie bei einer `if`-Anweisung in JavaScript. `v-if` hat auch entsprechende [`v-else-if`](https://vuejs.org/api/built-in-directives.html#v-else-if) und [`v-else`](https://vuejs.org/api/built-in-directives.html#v-else) Direktiven, um das Äquivalent von JavaScript `else if` und `else` Logik innerhalb von Vue-Templates bereitzustellen.
+Die `v-if`-Direktive rendert einen Block nur, wenn der ihr übergebene Wert wahr ist. Dies ist ähnlich wie eine `if`-Anweisung in JavaScript funktioniert. `v-if` hat auch entsprechende [`v-else-if`](https://vuejs.org/api/built-in-directives.html#v-else-if) und [`v-else`](https://vuejs.org/api/built-in-directives.html#v-else)-Direktiven, um das Äquivalent von JavaScript `else if` und `else`-Logik in Vue-Templates zu bieten.
 
-Es ist wichtig zu beachten, dass `v-else` und `v-else-if` Blöcke das erste Geschwister eines `v-if`/`v-else-if` Blocks sein müssen, sonst wird Vue sie nicht erkennen. Sie können `v-if` auch an einem `<template>`-Tag anhängen, wenn Sie ein ganzes Template bedingt rendern müssen.
+Es ist wichtig zu beachten, dass `v-else` und `v-else-if`-Blöcke das erste Geschwister eines `v-if`/`v-else-if`-Blocks sein müssen, sonst werden sie von Vue nicht erkannt. Sie können `v-if` auch an eine `<template>`-Tag anfügen, wenn Sie ein ganzes Template bedingt rendern müssen.
 
-Schließlich können Sie ein `v-if` + `v-else` an der Wurzel Ihrer Komponente verwenden, um nur einen oder einen anderen Block anzuzeigen, da Vue nur einen dieser Blöcke gleichzeitig rendern wird. Wir werden dies in unserer App tun, da es uns ermöglicht, den Code zu ersetzen, der unser Todo-Element mit dem Bearbeitungsformular anzeigt.
+Schließlich können Sie ein `v-if` + `v-else` an der Wurzel Ihrer Komponente verwenden, um nur einen Block oder einen anderen anzuzeigen, da Vue immer nur einen dieser Blöcke auf einmal rendert. Wir werden dies in unserer App tun, da es uns ermöglicht, den Code, der unser Todo-Element anzeigt, mit dem Bearbeitungsformular zu ersetzen.
 
-Fügen Sie zuerst `v-if="!isEditing"` zum Wurzel-`<div>` in Ihrer `ToDoItem`-Komponente hinzu:
+Fügen Sie zunächst `v-if="!isEditing"` zur Wurzel-`<div>` in Ihrer `ToDoItem`-Komponente hinzu,
 
 ```vue
 <div class="stack-small" v-if="!isEditing"></div>
 ```
 
-Fügen Sie als nächstes unter dem schließenden Tag dieses `<div>` die folgende Zeile hinzu:
+Fügen Sie anschließend unterhalb dieses `<div>`-Abschlusstags die folgende Zeile hinzu:
 
 ```vue
 <to-do-item-edit-form v-else :id="id" :label="label"></to-do-item-edit-form>
 ```
 
-Wir müssen auch die `ToDoItemEditForm`-Komponente importieren und registrieren, damit wir sie innerhalb dieses Templates verwenden können. Fügen Sie diese Zeile oben in Ihrem `<script>`-Element hinzu:
+Wir müssen auch die `ToDoItemEditForm`-Komponente importieren und registrieren, damit wir sie in diesem Template verwenden können. Fügen Sie diese Zeile am Anfang Ihres `<script>`-Elements hinzu:
 
 ```js
 import ToDoItemEditForm from "./ToDoItemEditForm";
 ```
 
-Und fügen Sie eine `components`-Eigenschaft über der `props`-Eigenschaft im Komponentenobjekt hinzu:
+Und fügen Sie eine `components`-Eigenschaft oberhalb der `props`-Eigenschaft innerhalb des Komponentenobjekts hinzu:
 
 ```js
 export default {
@@ -241,17 +241,17 @@ export default {
 };
 ```
 
-Wenn Sie nun Ihre App öffnen und den "Bearbeiten"-Button eines Todo-Elements anklicken, sollten Sie sehen, dass das Kontrollkästchen durch das Bearbeitungsformular ersetzt wird.
+Wenn Sie jetzt zu Ihrer App gehen und auf den "Bearbeiten"-Button eines Todo-Elements klicken, sollten Sie sehen, dass das Kontrollkästchen durch das Bearbeitungsformular ersetzt wird.
 
-![Die Todo-Listen-App, mit angezeigten Bearbeiten- und Löschen-Buttons und einem der Todos im Bearbeitungsmodus, mit einem Bearbeitungs-Eingabefeld und angezeigten Speichern- und Abbrechen-Buttons](todo-edit-delete.png)
+![Die Todo-Listen-App, mit angezeigten Bearbeiten- und Löschen-Buttons, und einem der Todos im Bearbeitungsmodus, mit einem Bearbeitungseingabefeld und Speichern- und Abbrechen-Buttons angezeigt](todo-edit-delete.png)
 
-Derzeit gibt es jedoch keine Möglichkeit, zurückzugehen. Um dies zu beheben, müssen wir unserer Komponente einige zusätzliche Event-Handler hinzufügen.
+Es gibt jedoch derzeit keine Möglichkeit, zurückzugehen. Um das zu beheben, müssen wir einige weitere Ereignishandler zu unserer Komponente hinzufügen.
 
-## Zurück aus dem Bearbeitungsmodus
+## Aus dem Bearbeitungsmodus herauskommen
 
-Zuerst müssen wir eine `itemEdited()`-Methode zur `methods`-Eigenschaft unserer `ToDoItem`-Komponente hinzufügen. Diese Methode sollte das neue Item-Label als Argument nehmen, ein `itemEdited`-Event zur übergeordneten Komponente senden und `isEditing` auf `false` setzen.
+Zuerst müssen wir eine `itemEdited()`-Methode zur `methods`-Eigenschaft unserer `ToDoItem`-Komponente hinzufügen. Diese Methode sollte das neue Item-Label als Argument nehmen, ein `itemEdited`-Ereignis an die übergeordnete Komponente senden und `isEditing` auf `false` setzen.
 
-Fügen Sie sie jetzt unter Ihren vorhandenen Methoden hinzu:
+Fügen Sie dies jetzt unter Ihren vorhandenen Methoden hinzu:
 
 ```js
 export default {
@@ -268,7 +268,7 @@ export default {
 };
 ```
 
-Als nächstes benötigen wir eine `editCancelled()`-Methode. Diese Methode benötigt keine Argumente und dient lediglich dazu, `isEditing` wieder auf `false` zu setzen. Fügen Sie diese Methode unter der vorherigen hinzu:
+Als Nächstes benötigen wir eine `editCancelled()`-Methode. Diese Methode wird keine Argumente benötigen und dient nur dazu, `isEditing` wieder auf `false` zu setzen. Fügen Sie diese Methode unter der vorherigen hinzu:
 
 ```js
 export default {
@@ -284,9 +284,9 @@ export default {
 };
 ```
 
-Zuletzt für diesen Abschnitt fügen wir Event-Handler für die Events hinzu, die von der `ToDoItemEditForm`-Komponente gesendet werden, und verknüpfen die entsprechenden Methoden mit jedem Event.
+Zum Schluss in diesem Abschnitt fügen wir Ereignishandler für die von der `ToDoItemEditForm`-Komponente gesendeten Ereignisse hinzu und verknüpfen die entsprechenden Methoden mit jedem Ereignis.
 
-Aktualisieren Sie Ihren `<to-do-item-edit-form></to-do-item-edit-form>`-Aufruf, um so auszusehen:
+Aktualisieren Sie Ihren `<to-do-item-edit-form></to-do-item-edit-form>`-Aufruf, damit er folgendermaßen aussieht:
 
 ```vue
 <to-do-item-edit-form
@@ -300,7 +300,7 @@ Aktualisieren Sie Ihren `<to-do-item-edit-form></to-do-item-edit-form>`-Aufruf, 
 
 ## Aktualisieren und Löschen von Todo-Elementen
 
-Jetzt können wir zwischen dem Bearbeitungsformular und dem Kontrollkästchen umschalten. Allerdings haben wir das Aktualisieren des `ToDoItems`-Arrays in `App.vue` noch nicht behandelt. Um das zu beheben, müssen wir auf das `item-edited`-Event hören und die Liste entsprechend aktualisieren. Wir möchten auch das Löschen-Event behandeln, damit wir Todo-Elemente löschen können.
+Jetzt können wir zwischen Bearbeitungsformular und Kontrollkästchen umschalten. Wir haben jedoch noch nicht das `ToDoItems`-Array in `App.vue` aktualisiert. Um das zu beheben, müssen wir auf das `item-edited`-Ereignis hören und die Liste entsprechend aktualisieren. Wir möchten auch das Löschereignis behandeln, damit wir Todo-Elemente löschen können.
 
 Fügen Sie die folgenden neuen Methoden zum Komponentenobjekt Ihrer `App.vue` hinzu, unter den bestehenden Methoden innerhalb der `methods`-Eigenschaft:
 
@@ -323,12 +323,12 @@ export default {
 };
 ```
 
-Als nächstes fügen wir die Event-Listener für die `item-deleted` und `item-edited` Events hinzu:
+Als Nächstes fügen wir die Ereignislistener für die `item-deleted`- und `item-edited`-Ereignisse hinzu:
 
 - Für `item-deleted` müssen Sie die `item.id` an die Methode übergeben.
-- Für `item-edited` müssen Sie die `item.id` und die spezielle `$event`-Variable übergeben. Dies ist eine spezielle Vue-Variable, die verwendet wird, um Daten zu Methoden zu übergeben. Bei nativen HTML-Events (wie `click`) wird dadurch das native Event-Objekt an Ihre Methode übergeben.
+- Für `item-edited` müssen Sie die `item.id` und die spezielle `$event`-Variable übergeben. Dies ist eine spezielle Vue-Variable, die dazu verwendet wird, Ereignisdaten an Methoden zu übergeben. Bei der Verwendung von nativen HTML-Ereignissen (wie `click`) wird dadurch das native Ereignisobjekt an Ihre Methode übergeben.
 
-Aktualisieren Sie den `<to-do-item></to-do-item>`-Aufruf innerhalb des `App.vue`-Templates, um wie folgt auszusehen:
+Aktualisieren Sie den `<to-do-item></to-do-item>`-Aufruf im `App.vue`-Template, damit er so aussieht:
 
 ```vue
 <to-do-item
@@ -341,23 +341,23 @@ Aktualisieren Sie den `<to-do-item></to-do-item>`-Aufruf innerhalb des `App.vue`
 </to-do-item>
 ```
 
-Und da haben Sie es - Sie sollten nun in der Lage sein, Elemente in der Liste zu bearbeiten und zu löschen!
+Und da haben Sie es — Sie sollten jetzt in der Lage sein, Elemente aus der Liste zu bearbeiten und zu löschen!
 
-## Behebung eines kleinen Fehlers mit dem isDone-Status
+## Beheben eines kleinen Fehlers mit dem isDone-Status
 
-Das ist soweit großartig, aber durch das Hinzufügen der Bearbeitungsfunktion haben wir tatsächlich einen Fehler eingeführt. Versuchen Sie Folgendes:
+Das ist bisher großartig, aber wir haben tatsächlich einen Fehler eingeführt, indem wir die Bearbeitungsfunktionalität hinzugefügt haben. Versuchen Sie Folgendes:
 
-1. Überprüfen (oder deaktivieren) Sie eines der Todo-Kontrollkästchen.
+1. Markieren (oder demarkieren) Sie eines der Todo-Kontrollkästchen.
 2. Drücken Sie den "Bearbeiten"-Button für dieses Todo-Element.
 3. Brechen Sie die Bearbeitung ab, indem Sie den "Abbrechen"-Button drücken.
 
-Beachten Sie den Zustand des Kontrollkästchens, nachdem Sie abgebrochen haben – nicht nur hat die App den Zustand des Kontrollkästchens vergessen, sondern der Erledigt-Status dieses Todo-Elements ist jetzt aus dem Gleichgewicht geraten. Wenn Sie versuchen, es wieder zu überprüfen (oder zu deaktivieren), ändert sich die abgeschlossene Anzahl in die entgegengesetzte Richtung von dem, was Sie erwarten würden. Dies liegt daran, dass `isDone` innerhalb von `data` nur beim Laden der Komponente den Wert `this.done` erhält.
+Beachten Sie den Zustand des Kontrollkästchens, nachdem Sie abgebrochen haben — die App hat nicht nur den Zustand des Kontrollkästchens vergessen, sondern der Erledigt-Status dieses Todo-Elements ist jetzt durcheinander. Wenn Sie versuchen, es erneut zu markieren (oder zu demarkieren), ändert sich die Anzahl der erledigten Elemente in die entgegengesetzte Richtung zu dem, was Sie erwarten würden. Das liegt daran, dass `isDone` innerhalb von `data` nur beim Laden der Komponente den Wert `this.done` erhält.
 
-Die Behebung dieses Problems ist glücklicherweise recht einfach – wir können dies tun, indem wir unser `isDone`-Datenelement in eine [berechnete Eigenschaft](/de/docs/Learn_web_development/Core/Frameworks_libraries/Vue_computed_properties) umwandeln – ein weiterer Vorteil von berechneten Eigenschaften ist, dass sie [Reaktivität](https://vuejs.org/guide/essentials/reactivity-fundamentals.html) erhalten, was unter anderem bedeutet, dass ihr Zustand erhalten bleibt, wenn sich das Template ändert, wie es bei uns jetzt der Fall ist.
+Das zu beheben ist zum Glück recht einfach — wir können das tun, indem wir unser `isDone`-Datenobjekt in eine [berechnete Eigenschaft](/de/docs/Learn_web_development/Core/Frameworks_libraries/Vue_computed_properties) umwandeln — ein weiterer Vorteil von berechneten Eigenschaften ist, dass sie [Reaktivität](https://vuejs.org/guide/essentials/reactivity-fundamentals.html) beibehalten, was unter anderem bedeutet, dass ihr Zustand erhalten bleibt, wenn sich das Template ändert, wie es jetzt der Fall ist.
 
-Lassen Sie uns also die Lösung in `ToDoItem.vue` implementieren:
+Also, lassen Sie uns den Fix in `ToDoItem.vue` umsetzen:
 
-1. Entfernen Sie die folgende Zeile innerhalb unserer `data()`-Eigenschaft:
+1. Entfernen Sie die folgende Zeile aus unserem `data()`-Objekt:
 
    ```js
    export default {
@@ -381,61 +381,61 @@ Lassen Sie uns also die Lösung in `ToDoItem.vue` implementieren:
    };
    ```
 
-Wenn Sie jetzt speichern und neu laden, werden Sie feststellen, dass das Problem behoben ist – der Zustand des Kontrollkästchens bleibt erhalten, wenn Sie zwischen den Todo-Element-Templates umschalten.
+Wenn Sie jetzt speichern und neu laden, werden Sie feststellen, dass das Problem gelöst ist — der Zustand des Kontrollkästchens bleibt jetzt erhalten, wenn Sie zwischen Todo-Element-Templates umschalten.
 
-## Verständnis des Durcheinanders von Events
+## Das Gewirr von Ereignissen verstehen
 
-Eines der verwirrendsten Teile könnte das Durcheinander von Standard- und benutzerdefinierten Events sein, die wir verwendet haben, um die gesamte Interaktivität in unserer App auszulösen. Um dies besser zu verstehen, ist es eine gute Idee, ein Flussdiagramm, eine Beschreibung oder ein Diagramm darüber zu schreiben, welche Events wo gesendet werden, wo sie abgehört werden und was passiert, wenn sie ausgelöst werden.
+Einer der potenziell verwirrendsten Teile ist das Gewirr von Standard- und benutzerdefinierten Ereignissen, die wir verwendet haben, um die gesamte Interaktivität in unserer App auszulösen. Um dies besser zu verstehen, ist es eine gute Idee, ein Flussdiagramm, eine Beschreibung oder ein Diagramm zu erstellen, das darstellt, welche Ereignisse wo gesendet werden, wo sie empfangen werden und was als Ergebnis ihres Auslösens geschieht.
 
 ### App.vue
 
 `<to-do-form>` hört auf:
 
-- `todo-added`-Event, das von der `onSubmit()`-Methode innerhalb der `ToDoForm`-Komponente ausgelöst wird, wenn das Formular gesendet wird.
-  **Ergebnis**: `addToDo()`-Methode wird aufgerufen, um ein neues Todo-Element zum `ToDoItems`-Array hinzuzufügen.
+- `todo-added`-Ereignis, das von der `onSubmit()`-Methode innerhalb der `ToDoForm`-Komponente ausgelöst wird, wenn das Formular abgeschickt wird.
+  **Ergebnis**: `addToDo()`-Methode wird aufgerufen, um neues Todo-Element zum `ToDoItems`-Array hinzuzufügen.
 
 `<to-do-item>` hört auf:
 
-- `checkbox-changed`-Event, das vom Kontrollkästchen-`<input>` innerhalb der `ToDoItem`-Komponente ausgelöst wird, wenn es aktiviert oder deaktiviert wird.
+- `checkbox-changed`-Ereignis, das durch das Kontrollkästchen `<input>` in der `ToDoItem`-Komponente ausgelöst wird, wenn es markiert oder demarkiert wird.
   **Ergebnis**: `updateDoneStatus()`-Methode wird aufgerufen, um den Erledigt-Status des zugehörigen Todo-Elements zu aktualisieren.
-- `item-deleted`-Event, das von der `deleteToDo()`-Methode innerhalb der `ToDoItem`-Komponente ausgelöst wird, wenn der "Löschen"-Button gedrückt wird.
+- `item-deleted`-Ereignis, das durch die `deleteToDo()`-Methode innerhalb der `ToDoItem`-Komponente ausgelöst wird, wenn der "Löschen"-Button gedrückt wird.
   **Ergebnis**: `deleteToDo()`-Methode wird aufgerufen, um das zugehörige Todo-Element zu löschen.
-- `item-edited`-Event, das von der `itemEdited()`-Methode innerhalb der `ToDoItem`-Komponente ausgelöst wird, wenn das `item-edited`-Event, das von der `onSubmit()`-Methode innerhalb der `ToDoItemEditForm` erfolgreich behandelt wurde. Ja, dies ist eine Kette von zwei verschiedenen `item-edited`-Events!
+- `item-edited`-Ereignis, das durch die `itemEdited()`-Methode innerhalb der `ToDoItem`-Komponente ausgelöst wird, wenn das `item-edited`-Ereignis, das von der `onSubmit()`-Methode innerhalb der `ToDoItemEditForm` ausgelöst wurde, erfolgreich empfangen wurde. Ja, das ist eine Kette von zwei verschiedenen `item-edited`-Ereignissen!
   **Ergebnis**: `editToDo()`-Methode wird aufgerufen, um das Label des zugehörigen Todo-Elements zu aktualisieren.
 
 ### ToDoForm.vue
 
-`<form>` hört auf das `submit`-Event.
-**Ergebnis**: `onSubmit()`-Methode wird aufgerufen, die überprüft, dass das neue Label nicht leer ist, dann das `todo-added`-Event sendet (das dann innerhalb `App.vue` abgehört wird, siehe oben) und schließlich das neue Label-`<input>` löscht.
+`<form>` hört auf das `submit`-Ereignis.
+**Ergebnis**: `onSubmit()`-Methode wird aufgerufen, die überprüft, ob das neue Label nicht leer ist, dann das `todo-added`-Ereignis auslöst (das dann innerhalb `App.vue` empfangen wird, siehe oben), und schließlich das neue Label `<input>` leert.
 
 ### ToDoItem.vue
 
-Das `<input>` vom `type="checkbox"` hört auf `change`-Events.
-**Ergebnis**: `checkbox-changed`-Event wird ausgelöst, wenn das Kontrollkästchen aktiviert/deaktiviert wird (was dann in `App.vue` abgehört wird; siehe oben).
+Das `<input>` vom Typ `checkbox` hört auf `change`-Ereignisse.
+**Ergebnis**: `checkbox-changed`-Ereignis wird ausgelöst, wenn das Kontrollkästchen markiert/demarkiert wird (das dann innerhalb `App.vue` empfangen wird; siehe oben).
 
-"Bearbeiten"-`<button>` hört auf `click`-Event.
-**Ergebnis**: `toggleToItemEditForm()`-Methode wird aufgerufen, die `this.isEditing` auf `true` schaltet, was dazu führt, dass das Bearbeitungsformular des Todo-Elements beim Neurendering angezeigt wird.
+"Bearbeiten"-`<button>` hört auf das `click`-Ereignis.
+**Ergebnis**: `toggleToItemEditForm()`-Methode wird aufgerufen, die `this.isEditing` auf `true` umschaltet, was wiederum das Bearbeitungsformular des Todo-Elements bei der erneuten Darstellung anzeigt.
 
-"Löschen"-`<button>` hört auf `click`-Event.
-**Ergebnis**: `deleteToDo()`-Methode wird aufgerufen, die das `item-deleted`-Event sendet (was dann in `App.vue` abgehört wird; siehe oben).
+"Löschen"-`<button>` hört auf das `click`-Ereignis.
+**Ergebnis**: `deleteToDo()`-Methode wird aufgerufen, die das `item-deleted`-Ereignis auslöst (das dann innerhalb `App.vue` empfangen wird; siehe oben).
 
 `<to-do-item-edit-form>` hört auf:
 
-- `item-edited`-Event, das von der `onSubmit()`-Methode innerhalb der `ToDoItemEditForm`-Komponente ausgelöst wird, wenn das Formular erfolgreich gesendet wurde.
-  **Ergebnis**: `itemEdited()`-Methode wird aufgerufen, die das `item-edited`-Event sendet (was dann in `App.vue` abgehört wird, siehe oben) und `this.isEditing` wieder auf `false` setzt, sodass das Bearbeitungsformular beim Neurendering nicht mehr angezeigt wird.
-- `edit-cancelled`-Event, das von der `onCancel()`-Methode innerhalb der `ToDoItemEditForm`-Komponente ausgelöst wird, wenn der "Abbrechen"-Button geklickt wird.
-  **Ergebnis**: `editCancelled()`-Methode wird aufgerufen, die `this.isEditing` wieder auf `false` setzt, sodass das Bearbeitungsformular beim Neurendering nicht mehr angezeigt wird.
+- `item-edited`-Ereignis, das durch die `onSubmit()`-Methode innerhalb der `ToDoItemEditForm`-Komponente ausgelöst wird, wenn das Formular erfolgreich abgeschickt wird.
+  **Ergebnis**: `itemEdited()`-Methode wird aufgerufen, die das `item-edited`-Ereignis auslöst (das dann innerhalb `App.vue` empfangen wird, siehe oben), und `this.isEditing` wieder auf `false` setzt, sodass das Bearbeitungsformular bei der erneuten Darstellung nicht mehr angezeigt wird.
+- `edit-cancelled`-Ereignis, das durch die `onCancel()`-Methode innerhalb der `ToDoItemEditForm`-Komponente ausgelöst wird, wenn der "Abbrechen"-Button angeklickt wird.
+  **Ergebnis**: `editCancelled()`-Methode wird aufgerufen, die `this.isEditing` wieder auf `false` setzt, sodass das Bearbeitungsformular bei der erneuten Darstellung nicht mehr angezeigt wird.
 
 ### ToDoItemEditForm.vue
 
-`<form>` hört auf das `submit`-Event.
-**Ergebnis**: `onSubmit()`-Methode wird aufgerufen, die überprüft, ob der neue Label-Wert nicht leer ist und nicht dem alten entspricht, und wenn ja, das `item-edited`-Event sendet (was dann innerhalb `ToDoItem.vue` abgehört wird, siehe oben).
+`<form>` hört auf das `submit`-Ereignis.
+**Ergebnis**: `onSubmit()`-Methode wird aufgerufen, die überprüft, ob der neue Labelwert nicht leer und nicht derselbe wie der alte ist, und wenn ja, das `item-edited`-Ereignis auslöst (das dann innerhalb `ToDoItem.vue` empfangen wird, siehe oben).
 
-"Abbrechen"-`<button>` hört auf `click`-Event.
-**Ergebnis**: `onCancel()`-Methode wird aufgerufen, die das `edit-cancelled`-Event sendet (was dann innerhalb `ToDoItem.vue` abgehört wird, siehe oben).
+"Abbrechen"-`<button>` hört auf das `click`-Ereignis.
+**Ergebnis**: `onCancel()`-Methode wird aufgerufen, die das `edit-cancelled`-Ereignis auslöst (das dann innerhalb `ToDoItem.vue` empfangen wird, siehe oben).
 
 ## Zusammenfassung
 
-Dieser Artikel war ziemlich intensiv, und wir haben hier viel behandelt. Wir haben jetzt Bearbeitungs- und Löschfunktionen in unserer App, was ziemlich spannend ist. Wir nähern uns nun dem Ende unserer Vue-Serie. Der letzte Teil der Funktionalität, den wir uns ansehen, ist das Fokussierungsmanagement, oder anders gesagt, wie wir die Tastaturzugänglichkeit unserer App verbessern können.
+Dieser Artikel war ziemlich intensiv, und wir haben hier viel behandelt. Wir haben jetzt Bearbeitungs- und Löschfunktionalitäten in unserer App, was ziemlich aufregend ist. Wir nähern uns dem Ende unserer Vue-Serie. Der letzte zu betrachtende Aspekt ist das Fokusmanagement, oder anders ausgedrückt, wie wir die Tastaturzugänglichkeit unserer App verbessern können.
 
 {{PreviousMenuNext("Learn_web_development/Core/Frameworks_libraries/Vue_computed_properties","Learn_web_development/Core/Frameworks_libraries/Vue_refs_focus_management", "Learn_web_development/Core/Frameworks_libraries")}}

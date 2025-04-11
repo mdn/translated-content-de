@@ -2,45 +2,43 @@
 title: Ressourcen für Lehrkräfte
 slug: Learn_web_development/Educators
 l10n:
-  sourceCommit: 30bf998d2d87c97c2865d713ad5afc9c476264a0
+  sourceCommit: 48d220a8cffdfd5f088f8ca89724a9a92e34d8c0
 ---
 
-{{LearnSidebar}}
+Lehrkräfte können den Abschnitt "Webentwicklung lernen" von MDN als Leitfaden verwenden, um Programme, Einheiten und Bewertungsanforderungen für einen webbasierten Universitätsabschluss, College-Kurs, Programmierkurs oder Ähnliches zu erstellen. Jeder Artikel enthält oben einen Abschnitt "Lernziele", der die in diesem Artikel behandelten Themen beschreibt.
 
-Lehrkräfte können den Abschnitt "Lerne Webentwicklung" von MDN als Leitfaden nutzen, wenn sie Programme, Einheiten und Bewertungsspezifikationen für ein webbezogenes Universitätsstudium, ein Hochschulkurs, ein Programmierschulkurs oder Ähnliches erstellen. Jeder Artikel enthält am Anfang einen Abschnitt "Lernziele", der die in diesem Artikel behandelten Themen beschreibt.
+Das MDN-Team hat sich verpflichtet, das Material im Bereich "Webentwicklung lernen" jährlich zu überprüfen, um sicherzustellen, dass es aktuell mit den Best Practices der Front-End-Entwicklung bleibt. Indem sie ihre Kurse darauf basieren, können Lehrkräfte sicherstellen, dass ihr Unterricht aktuell ist.
 
-Das MDN-Team verpflichtet sich, das in "Lerne Webentwicklung" enthaltene Material jährlich zu überprüfen, um sicherzustellen, dass es den neuesten Best Practices der Frontend-Entwicklung entspricht. Indem Lehrkräfte ihre Kurse darauf basieren, können sie sicherstellen, dass ihr Unterricht aktuell ist.
-
-Diese Seite bietet Anleitung und Ressourcen, um es einfach zu machen, die Lerninhalte von MDN für Ihren Unterricht anzupassen.
+Diese Seite bietet Anleitungen und Ressourcen, um es einfach zu machen, die Lerninhalte von MDN für Ihren Unterricht anzupassen.
 
 ## Auswahl eines geeigneten Umfangs
 
-Unsere [Kernmodule](/de/docs/Learn_web_development/Core) umfassen grundlegende Konzepte zu Webstandards, HTML, CSS, JavaScript, Barrierefreiheit, Designtheorie und Versionskontrolle. Wir glauben, dass die enthaltenen Themen das Minimum darstellen, das jeder neue Webentwickler wissen sollte, bevor er in der Branche startet.
+Unsere [Kernmodule](/de/docs/Learn_web_development/Core) beinhalten grundlegende Konzepte zu Webstandards, HTML, CSS, JavaScript, Barrierefreiheit, Designtheorie und Versionskontrolle. Wir glauben, dass die enthaltenen Themen das Minimum sind, das jeder neue Webentwickler wissen sollte, bevor er in der Branche anfängt.
 
-Sie könnten jedoch zusätzliche Themenanforderungen für Ihren Kurs haben, in diesem Fall könnten Sie:
+Sollten Sie jedoch zusätzliche Themenanforderungen für Ihren Kurs haben, könnten Sie:
 
-- Erwägen, einige der Lernziele aus unseren [Einführungsmodulen](/de/docs/Learn_web_development/Getting_started) einzubeziehen, wie z.B. Soft Skills wie Teamarbeit, Recherche und Techniken für Bewerbungsgespräche, sowie die Vertrautheit mit einem typischen Webentwicklung-Toolset.
-- Die Technologieabdeckung in den Kernmodulen mit einigen [Erweiterungen](/de/docs/Learn_web_development/Extensions) erweitern. Wir werden bestrebt sein, im Laufe der Zeit mehr Erweiterungen zu veröffentlichen. Sie könnten erwägen, Ihre eigenen Erweiterungen zu schreiben und sie dem Curriculum beizusteuern, damit auch andere davon profitieren. Kontaktieren Sie uns, wenn Sie eine Erweiterung einreichen möchten!
+- Erwägen, einige der Lernziele aus unseren [Einstiegsmodulen](/de/docs/Learn_web_development/Getting_started) einzubeziehen, wie z. B. Soft Skills wie Teamarbeit, Recherche und Bewerbungstechniken sowie die Vertrautheit mit einem typischen Webentwicklungstoolset.
+- Die Technologieabdeckung in den Kernmodulen mit einigen [Erweiterungen](/de/docs/Learn_web_development/Extensions) erweitern. Wir werden anstreben, im Laufe der Zeit weitere Erweiterungen zu veröffentlichen. Sie könnten in Betracht ziehen, eigene Erweiterungen zu schreiben und sie dem Lehrplan beizutragen, damit andere davon profitieren können. Kontaktieren Sie uns, wenn Sie eine Erweiterung einreichen möchten!
 
 ## Nutzung eines effektiven Lernpfads
 
-Beim Unterrichten von Studierenden ist es wichtig, ihnen einen klaren Fortschritt durch die zu erlernenden Themen zu bieten, mit klaren Lernzielen und regelmäßigen Bewertungen, um sicherzustellen, dass sie auf dem richtigen Weg sind.
+Beim Unterrichten von Studierenden ist es entscheidend, ihnen eine klare Progression durch die zu erlernenden Themen zu bieten, mit klaren Lernzielen und regelmäßigen Bewertungen, um sicherzustellen, dass sie auf dem richtigen Weg sind.
 
-Unsere [Kernmodule](/de/docs/Learn_web_development/Core) bieten einen Pfad, dem man durch die Grundlagen der Frontend-Webentwicklung folgen kann und enthalten "Testen Sie Ihre Fähigkeiten"-Abschnitte und Herausforderungsartikel.
+Unsere [Kernmodule](/de/docs/Learn_web_development/Core) bieten einen Pfad durch die Grundlagen der Front-End-Webentwicklung und enthalten Abschnitte "Testen Sie Ihre Fähigkeiten" und Herausforderungsartikel.
 
-Sie könnten Ihre Studierenden den bereitgestellten Pfad so wie er ist durchlaufen lassen oder ihn für Ihre Bedürfnisse anpassen, indem Sie:
+Sie könnten Ihre Studierenden durch den bereitgestellten Pfad führen, wie er ist, oder Sie möchten ihn für Ihre Bedürfnisse anpassen durch:
 
-- An geeigneten Stellen Ihre eigenen Fähigkeitenstests/Bewertungen hinzufügen. Wir empfehlen, die Studierenden mit einer Kombination aus theoriebezogenen Prüfungen und praktischen, realen Projekten zu bewerten, damit sie ihr Wissen in die Praxis umsetzen können.
-- Die Lernziele anders gruppieren. Beispielsweise könnten Sie mit den Grundlagen der HTML-Dokumentenstruktur beginnen, dann schnell mit einigen CSS-Grundlagen wie dem Box-Modell und der Textgestaltung fortfahren. Im nächsten Schritt könnten Sie komplexere HTML-Features wie Bilder und Formularelemente einführen, das CSS mit flexbox und Medienabfragen erweitern und einige grundlegende DOM-Skripte einführen.
-- Den Studierenden ein Repository zur Verfügung stellen, das ihre Projektarbeiten enthält, die als Portfolio veröffentlicht werden können, um potenziellen Arbeitgebern ihre Fähigkeiten zu demonstrieren.
+- Ergänzen eigener Fähigkeitsprüfungen/Bewertungen an geeigneten Stellen. Wir empfehlen, Studierende durch eine Kombination aus theoriebasierten Prüfungen und praktischen realen Projekten zu bewerten, um das erworbene Wissen anzuwenden.
+- Gruppieren der Lernziele auf unterschiedliche Weise. Zum Beispiel möchten Sie vielleicht mit den Grundlagen der HTML-Dokumentenstruktur beginnen, gefolgt von grundlegenden CSS-Fundamenten wie Box-Modell und Textgestaltung. Im nächsten Schritt könnten Sie komplexere HTML-Features wie Bilder und Formulare einführen, das CSS mit Flexbox und Media Queries verstärken und grundlegende DOM-Skripte einführen.
+- Stellen Sie den Studierenden ein Repository mit ihrer Projektarbeit zur Verfügung, das als Portfolio veröffentlicht werden kann, um potenziellen Arbeitgebern ihre Fähigkeiten nachzuweisen.
 
-Sie könnten auch in Betracht ziehen, eine fortschrittliche schlüsselfertige Lösung wie einen interaktiven Videokurs zu verwenden. Wir empfehlen [The Frontend Developer Career Path](https://scrimba.com/the-frontend-developer-career-path-c0j?via=mdn) von unserem Lernpartner [Scrimba](https://scrimba.com/?via=mdn), der alle Lernziele im MDN Curriculum Core und mehr lehrt.
+Sie könnten auch eine fortschrittliche schlüsselfertige Lösung wie einen interaktiven Videokurs in Betracht ziehen. Wir empfehlen [Den Karriereweg des Frontend-Entwicklers](https://scrimba.com/the-frontend-developer-career-path-c0j?via=mdn) von unserem Lernpartner [Scrimba](https://scrimba.com/?via=mdn), der alle Lernziele des MDN-Curriculum-Kerns und mehr lehrt.
 
 > [!NOTE]
-> Scrimba bietet mehrere Lizenzvereinbarungen an — siehe [Scrimba for Teams](https://scrimba.com/teams?via=mdn-edu).
+> Scrimba bietet mehrere Lizenzangebote an — siehe [Scrimba for Teams](https://scrimba.com/teams?via=mdn-edu).
 
-Der Frontend Developer Career Path bietet unterhaltsame interaktive Lektionen und Herausforderungen, erfahrene Lehrkräfte und eine unterstützende Gemeinschaft; er zielt darauf ab, den Studierenden alles Wissenswerte zu vermitteln, um ihren ersten Job als Junior-Entwickler zu bekommen. Viele der Kurskomponenten sind als eigenständige, kostenlose Versionen verfügbar.
+Der Karriereweg des Frontend-Entwicklers bietet unterhaltsame interaktive Lektionen und Herausforderungen, fachkundige Lehrer und eine unterstützende Community; er zielt darauf ab, den Studierenden alles zu geben, was sie benötigen, um ihre erste Junior-Entwicklerstelle zu bekommen. Viele der Kurskomponenten sind als eigenständige kostenlose Versionen verfügbar.
 
 ## Ressourcen
 
-[Vollständiges MDN-Curriculum herunterladen](https://github.com/mdn/curriculum/releases/latest/download/MDN-Curriculum.pdf) (PDF)
+[Kompletter MDN-Curriculum-Download](https://github.com/mdn/curriculum/releases/latest/download/MDN-Curriculum.pdf) (PDF)

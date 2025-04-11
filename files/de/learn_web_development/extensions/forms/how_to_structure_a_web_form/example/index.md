@@ -2,10 +2,8 @@
 title: Beispiel
 slug: Learn_web_development/Extensions/Forms/How_to_structure_a_web_form/Example
 l10n:
-  sourceCommit: fc2dda92008a140acbe7b291c20388112580a6e2
+  sourceCommit: 48d220a8cffdfd5f088f8ca89724a9a92e34d8c0
 ---
-
-{{LearnSidebar}}
 
 Dies ist das Beispiel für ein grundlegendes Zahlungsformular für den Artikel [Anleitung zur Strukturierung eines HTML-Formulars](/de/docs/Learn_web_development/Extensions/Forms/How_to_structure_a_web_form).
 

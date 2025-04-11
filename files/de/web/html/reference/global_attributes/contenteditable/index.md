@@ -2,12 +2,12 @@
 title: contenteditable
 slug: Web/HTML/Reference/Global_attributes/contenteditable
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: 5a195171d06aee3d9c1c78d71c7f0c3a060f5263
 ---
 
 {{HTMLSidebar("Global_attributes")}}
 
-Das **`contenteditable`** [globale Attribut](/de/docs/Web/HTML/Reference/Global_attributes) ist ein aufgezähltes Attribut, das angibt, ob das Element vom Nutzer bearbeitbar sein soll. Wenn ja, ändert der Browser sein Widget, um die Bearbeitung zu ermöglichen.
+Das **`contenteditable`** [globale Attribut](/de/docs/Web/HTML/Reference/Global_attributes) ist ein aufgezähltes Attribut, das angibt, ob das Element vom Benutzer bearbeitbar sein soll. Falls ja, verändert der Browser sein Widget, um das Bearbeiten zu ermöglichen.
 
 {{InteractiveExample("HTML Demo: contenteditable", "tabbed-shorter")}}
 
@@ -54,25 +54,25 @@ Das Attribut muss einen der folgenden Werte annehmen:
 
 - `true` oder ein _leerer String_, was anzeigt, dass das Element bearbeitbar ist.
 - `false`, was anzeigt, dass das Element nicht bearbeitbar ist.
-- `plaintext-only`, was anzeigt, dass der rohe Text des Elements bearbeitet werden kann, jedoch Formatierungen von Rich Text deaktiviert sind.
+- `plaintext-only`, was anzeigt, dass der rohe Text des Elements bearbeitbar ist, aber die Formatierung von Rich-Text deaktiviert ist.
 
-Wenn das Attribut ohne Wert angegeben wird, wie `<label contenteditable>Beispielbeschriftung</label>`, wird sein Wert als leerer String behandelt.
+Wenn das Attribut ohne einen Wert angegeben wird, wie in `<label contenteditable>Example Label</label>`, wird sein Wert als leerer String betrachtet.
 
-Wenn dieses Attribut fehlt oder sein Wert ungültig ist, wird sein Wert vom übergeordneten Element _geerbt_: Das Element ist also bearbeitbar, wenn sein übergeordnetes Element bearbeitbar ist.
+Wenn dieses Attribut fehlt oder sein Wert ungültig ist, wird der Wert vom übergeordneten Element _geerbt_: das Element ist bearbeitbar, wenn sein Elternteil bearbeitbar ist.
 
-Beachten Sie, dass obwohl die erlaubten Werte `true` und `false` umfassen, dieses Attribut ein _{{Glossary("Enumerated", "aufgezähltes")}}_ und kein _Boolean_-Attribut ist.
+Beachten Sie, dass, obwohl die erlaubten Werte `true` und `false` umfassen, dieses Attribut ein _{{Glossary("Enumerated", "aufzählbares Attribut")}}_ und kein _Booleanisches_ ist.
 
-Sie können die Farbe einstellen, die zum Zeichnen des Texteingabe-{{Glossary("caret", "Carats")}} mit der CSS-Eigenschaft {{cssxref("caret-color")}} verwendet wird.
+Sie können die Farbe, die zum Zeichnen des Texteingabe-{{Glossary("caret", "Cursors")}} verwendet wird, mit der CSS-Eigenschaft {{cssxref("caret-color")}} festlegen.
 
-Elemente, die durch das `contenteditable`-Attribut bearbeitbar und daher interaktiv gemacht werden, können fokussiert werden. Sie nehmen an der sequentiellen Tastaturnavigation teil. Allerdings werden Elemente mit dem `contenteditable`-Attribut, die innerhalb anderer `contenteditable`-Elemente verschachtelt sind, standardmäßig nicht zur Tabulator-Reihenfolge hinzugefügt. Sie können die verschachtelten `contenteditable`-Elemente zur Tastaturnavigationsfolge hinzufügen, indem Sie den `tabindex`-Wert angeben ([`tabindex="0"`](/de/docs/Web/HTML/Reference/Global_attributes/tabindex)).
+Elemente, die durch die Verwendung des `contenteditable`-Attributs bearbeitbar und daher interaktiv gemacht werden, können fokussiert werden. Sie nehmen an der sequentiellen Tastaturnavigation teil. Allerdings werden Elemente mit dem `contenteditable`-Attribut, die innerhalb anderer `contenteditable`-Elemente verschachtelt sind, standardmäßig nicht zur Tabulatorfolge hinzugefügt. Sie können die verschachtelten `contenteditable`-Elemente zur Tastaturnavigationssequenz hinzufügen, indem Sie den `tabindex`-Wert spezifizieren ([`tabindex="0"`](/de/docs/Web/HTML/Reference/Global_attributes/tabindex)).
 
-Wenn Inhalt in ein Element mit `contenteditable="true"` eingefügt wird, bleibt die gesamte Formatierung erhalten. Wenn Inhalt in ein Element mit `contenteditable="plaintext-only"` eingefügt wird, wird die gesamte Formatierung entfernt.
+Wenn Inhalt in ein Element mit `contenteditable="true"` eingefügt wird, bleibt die gesamte Formatierung erhalten. Wird Inhalt in ein Element mit `contenteditable="plaintext-only"` eingefügt, wird die gesamte Formatierung entfernt.
 
 ## Beispiele
 
 ### Einfügen von Inhalten in contenteditable
 
-Dieses Beispiel enthält zwei {{HTMLElement("div")}}-Elemente mit `contenteditable`. Das erste hat den Wert `true` und das zweite `plaintext-only`. Kopieren Sie den untenstehenden Inhalt und fügen Sie ihn in jedes `div` ein, um ihre Effekte zu sehen.
+Dieses Beispiel hat zwei {{HTMLElement("div")}}-Elemente mit `contenteditable`, das erste mit dem Wert `true` und das zweite mit dem Wert `plaintext-only`. Kopieren Sie den folgenden Inhalt und fügen Sie ihn in jedes `div` ein, um deren Effekte zu sehen.
 
 #### HTML
 
@@ -131,7 +131,7 @@ h2 {
   width: 100%;
   .wrapper {
     flex: 1 1;
-    margin: 0
+    margin: 0;
     padding: 0;
   }
   h3 {
@@ -167,4 +167,4 @@ h2 {
 - Alle [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes)
 - [`HTMLElement.contentEditable`](/de/docs/Web/API/HTMLElement/contentEditable) und [`HTMLElement.isContentEditable`](/de/docs/Web/API/HTMLElement/isContentEditable)
 - Die CSS-Eigenschaft {{cssxref("caret-color")}}
-- [HTMLElement `input`-Ereignis](/de/docs/Web/API/Element/input_event)
+- [HTMLElement `input` Ereignis](/de/docs/Web/API/Element/input_event)

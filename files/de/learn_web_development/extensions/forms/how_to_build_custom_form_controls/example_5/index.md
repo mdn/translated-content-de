@@ -2,12 +2,10 @@
 title: Beispiel 5
 slug: Learn_web_development/Extensions/Forms/How_to_build_custom_form_controls/Example_5
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: 48d220a8cffdfd5f088f8ca89724a9a92e34d8c0
 ---
 
-{{LearnSidebar}}
-
-Dies ist das letzte Beispiel, das erklärt, [wie benutzerdefinierte Formular-Widgets erstellt werden](/de/docs/Learn_web_development/Extensions/Forms/How_to_build_custom_form_controls).
+Dies ist das letzte Beispiel, das erklärt, [wie man benutzerdefinierte Formular-Widgets erstellt](/de/docs/Learn_web_development/Extensions/Forms/How_to_build_custom_form_controls).
 
 ## Zustände ändern
 

@@ -1,28 +1,28 @@
 ---
-title: "Django Tutorial: Die lokale Bibliothekswebsite"
-short-title: "1: Lokale Bibliothekstutorial"
+title: "Django-Tutorial: Die Website der lokalen Bibliothek"
+short-title: "1: Tutorial zur lokalen Bibliothek"
 slug: Learn_web_development/Extensions/Server-side/Django/Tutorial_local_library_website
 l10n:
-  sourceCommit: 6c58c5d4227a031105740b0e85acbc6178223d0a
+  sourceCommit: 48d220a8cffdfd5f088f8ca89724a9a92e34d8c0
 ---
 
-{{LearnSidebar}}{{PreviousMenuNext("Learn_web_development/Extensions/Server-side/Django/development_environment", "Learn_web_development/Extensions/Server-side/Django/skeleton_website", "Learn_web_development/Extensions/Server-side/Django")}}
+{{PreviousMenuNext("Learn_web_development/Extensions/Server-side/Django/development_environment", "Learn_web_development/Extensions/Server-side/Django/skeleton_website", "Learn_web_development/Extensions/Server-side/Django")}}
 
-Der erste Artikel in unserer praktischen Tutorials-Serie erklärt, was Sie lernen werden, und bietet einen Überblick über die Beispiel-Website der "lokalen Bibliothek", die wir in den nachfolgenden Artikeln durcharbeiten und weiterentwickeln werden.
+Der erste Artikel unserer praktischen Tutorial-Serie erklärt, was Sie lernen werden, und gibt einen Überblick über die Beispiel-Website "Lokale Bibliothek", die wir in weiteren Artikeln durchlaufen und weiterentwickeln werden.
 
 <table>
   <tbody>
     <tr>
       <th scope="row">Voraussetzungen:</th>
       <td>
-        Lesen Sie die <a href="/de/docs/Learn_web_development/Extensions/Server-side/Django/Introduction">Django Einführung</a>.
-        Für die folgenden Artikel müssen Sie außerdem eine <a href="/de/docs/Learn_web_development/Extensions/Server-side/Django/development_environment">Django-Entwicklungsumgebung einrichten</a>.
+        Lesen Sie die <a href="/de/docs/Learn_web_development/Extensions/Server-side/Django/Introduction">Einführung in Django</a>.
+        Für die folgenden Artikel sollten Sie ebenfalls <a href="/de/docs/Learn_web_development/Extensions/Server-side/Django/development_environment">eine Django-Entwicklungsumgebung eingerichtet</a> haben.
       </td>
     </tr>
     <tr>
-      <th scope="row">Zielsetzung:</th>
+      <th scope="row">Ziel:</th>
       <td>
-        Einführung in die Beispielanwendung, die in diesem Tutorial verwendet wird, damit die Leser verstehen, welche Themen behandelt werden.
+        Die Einführung der Beispielanwendung, die in diesem Tutorial verwendet wird, damit die Leser verstehen, welche Themen abgedeckt werden.
       </td>
     </tr>
   </tbody>
@@ -30,43 +30,43 @@ Der erste Artikel in unserer praktischen Tutorials-Serie erklärt, was Sie lerne
 
 ## Übersicht
 
-Willkommen beim MDN "Lokale Bibliothek" Django-Tutorial, in dem wir eine Website entwickeln, die zur Verwaltung des Katalogs einer lokalen Bibliothek verwendet werden könnte.
+Willkommen beim MDN "Lokale Bibliothek" Django-Tutorial, in dem wir eine Website entwickeln, die verwendet werden könnte, um den Katalog einer lokalen Bibliothek zu verwalten.
 
 In dieser Serie von Tutorial-Artikeln werden Sie:
 
-- Die Werkzeuge von Django nutzen, um eine Grundstruktur für eine Website und Anwendung zu erstellen.
+- Djangos Werkzeuge nutzen, um eine Gerüst-Website und -Anwendung zu erstellen.
 - Den Entwicklungsserver starten und stoppen.
 - Modelle erstellen, um die Daten Ihrer Anwendung darzustellen.
-- Die Django-Administrationsseite nutzen, um die Daten Ihrer Website zu befüllen.
-- Ansichten erstellen, um spezifische Daten auf unterschiedliche Anfragen hin abzurufen, und Templates, um die Daten als HTML zu rendern, das im Browser angezeigt wird.
-- Mapper erstellen, um verschiedene URL-Muster mit spezifischen Ansichten zu verknüpfen.
-- Benutzerautorisierung und Sessions hinzufügen, um das Verhalten und den Zugriff der Website zu steuern.
+- Die Django-Admin-Site nutzen, um die Daten Ihrer Site zu füllen.
+- Ansichten erstellen, um spezifische Daten als Antwort auf verschiedene Anfragen abzurufen, und Vorlagen erstellen, die die Daten als HTML rendern, um sie im Browser anzuzeigen.
+- Zuordnungen erstellen, um verschiedene URL-Muster mit spezifischen Ansichten zu verknüpfen.
+- Benutzerautorisierung und Sitzungen hinzufügen, um das Verhalten und den Zugriff auf die Site zu steuern.
 - Mit Formularen arbeiten.
 - Testcode für Ihre App schreiben.
-- Die Sicherheitsfunktionen von Django effektiv nutzen.
-- Ihre Anwendung in die Produktion überführen.
+- Djangos Sicherheitsfunktionen effektiv nutzen.
+- Ihre Anwendung in der Produktion bereitstellen.
 
-Sie haben bereits über einige dieser Themen gelernt und andere kurz angerissen. Am Ende der Tutorials sollten Sie genug wissen, um einfache Django-Apps selbst zu entwickeln.
+Sie haben über einige dieser Themen bereits gelernt und andere kurz angesprochen. Am Ende der Tutorial-Serie sollten Sie genug wissen, um einfache Django-Anwendungen selbst zu entwickeln.
 
 ## Die LocalLibrary-Website
 
-_LocalLibrary_ ist der Name der Website, die wir im Verlauf dieser Tutorial-Serie erstellen und weiterentwickeln werden. Wie Sie erwarten würden, hat die Website das Ziel, einen Online-Katalog für eine kleine lokale Bibliothek bereitzustellen, in dem Benutzer verfügbare Bücher durchsuchen und ihre Konten verwalten können.
+_LocalLibrary_ ist der Name der Website, die wir im Laufe dieser Tutorial-Serie erstellen und weiterentwickeln werden. Wie Sie erwarten würden, ist der Zweck der Website, einen Online-Katalog für eine kleine lokale Bibliothek bereitzustellen, in dem Nutzer verfügbare Bücher durchsuchen und ihre Konten verwalten können.
 
-Dieses Beispiel wurde sorgfältig ausgewählt, da es skaliert werden kann, um so viel oder so wenig Detail zu zeigen, wie wir benötigen, und fast jedes Django-Feature zeigen kann. Noch wichtiger ist, dass es uns ermöglicht, einen _geführten_ Weg durch die wichtigsten Funktionalitäten im Django-Web-Framework zu bieten:
+Dieses Beispiel wurde sorgfältig ausgewählt, weil es sich auf eine Art skalieren lässt, die so detailliert oder einfach ist, wie wir es benötigen, und es fast jede Django-Funktion demonstrieren kann. Noch wichtiger ist, dass es uns ermöglicht, einen _geführten_ Weg durch die wichtigsten Funktionen des Django-Web-Frameworks zu bieten:
 
-- In den ersten paar Tutorials definieren wir eine einfache _Nur-Durchsuchen_-Bibliothek, die Bibliotheksbenutzer nutzen können, um herauszufinden, welche Bücher verfügbar sind. Dies ermöglicht es uns, die Operationen zu erkunden, die auf fast jeder Website üblich sind: Inhalte aus einer Datenbank lesen und anzeigen.
-- Während wir fortschreiten, erweitert sich das Bibliothek-Beispiel naturgemäß, um fortgeschrittenere Django-Funktionen zu demonstrieren. Zum Beispiel könnten wir die Bibliothek erweitern, um Benutzern zu ermöglichen, Bücher zu reservieren, und dies nutzen, um zu demonstrieren, wie man Formulare verwendet und die Benutzer-Authentifizierung unterstützt.
+- In den ersten wenigen Tutorial-Artikeln definieren wir eine einfache _nur-Durchsuchen_-Bibliothek, die Bibliotheksmitglieder verwenden können, um herauszufinden, welche Bücher verfügbar sind. Dadurch können wir die Operationen erkunden, die fast allen Websites gemeinsam sind: das Lesen und Anzeigen von Inhalten aus einer Datenbank.
+- Während wir fortschreiten, erweitert sich das Bibliotheksbeispiel natürlich, um fortgeschrittenere Django-Funktionen zu demonstrieren. Zum Beispiel können wir die Bibliothek erweitern, um es Nutzern zu ermöglichen, Bücher zu reservieren, und dies nutzen, um zu demonstrieren, wie man Formulare verwendet und die Benutzerauthentifizierung unterstützt.
 
-Auch wenn dies ein sehr erweiterbares Beispiel ist, heißt es _**Local**Library_ aus einem guten Grund — wir hoffen, die minimalen Informationen zu zeigen, die Ihnen helfen, schnell mit Django zu beginnen. Daher speichern wir Informationen über Bücher, Kopien von Büchern, Autoren und andere wichtige Informationen. Wir speichern jedoch keine Informationen über andere Gegenstände, die eine Bibliothek möglicherweise aufbewahrt, und bieten auch nicht die Infrastruktur, die benötigt wird, um mehrere Bibliotheksseiten oder andere "große Bibliothek"-Funktionen zu unterstützen.
+Obwohl dies ein sehr erweiterbares Beispiel ist, wird es _**Local**Library_ genannt — wir hoffen, die minimalen Informationen zu zeigen, die Ihnen helfen, schnell mit Django zu starten. Daher speichern wir Informationen über Bücher, Buchkopien, Autoren und andere Schlüsselinformationen. Wir werden jedoch keine Informationen über andere Gegenstände speichern, die eine Bibliothek speichern könnte, oder die Infrastruktur bereitstellen, die benötigt wird, um mehrere Bibliotheksstandorte oder andere "große Bibliothek"-Funktionen zu unterstützen.
 
-## Ich bin festgefahren, wo bekomme ich den Quellcode?
+## Ich komme nicht weiter, wo kann ich den Quellcode bekommen?
 
-Während Sie durch das Tutorial arbeiten, stellen wir Ihnen die entsprechenden Code-Snippets zur Verfügung, die Sie an jedem Punkt kopieren und einfügen können, und es wird anderen Code geben, den wir hoffen, dass Sie selbst (mit etwas Anleitung) erweitern.
+Während Sie das Tutorial durchlaufen, werden wir die entsprechenden Code-Snippets bereitstellen, die Sie an jedem Punkt kopieren und einfügen können, und es wird anderen Code geben, den wir hoffen, dass Sie selbst erweitern (mit einiger Anleitung).
 
-Wenn Sie feststecken, können Sie die vollständig entwickelte Version der Website [hier auf GitHub](https://github.com/mdn/django-locallibrary-tutorial) finden.
+Wenn Sie nicht weiterkommen, finden Sie die vollständig entwickelte Version der Website [hier auf GitHub](https://github.com/mdn/django-locallibrary-tutorial).
 
 ## Zusammenfassung
 
-Jetzt, da Sie ein bisschen mehr über die _LocalLibrary_ Website und über das, was Sie lernen werden, wissen, ist es an der Zeit, ein [Gerüstprojekt](/de/docs/Learn_web_development/Extensions/Server-side/Django/skeleton_website) zu erstellen, um unser Beispiel zu enthalten.
+Jetzt, da Sie ein bisschen mehr über die _LocalLibrary_-Website und das, was Sie lernen werden, wissen, ist es an der Zeit, ein [Gerüstprojekt](/de/docs/Learn_web_development/Extensions/Server-side/Django/skeleton_website) zu erstellen, um unser Beispiel zu enthalten.
 
 {{PreviousMenuNext("Learn_web_development/Extensions/Server-side/Django/development_environment", "Learn_web_development/Extensions/Server-side/Django/skeleton_website", "Learn_web_development/Extensions/Server-side/Django")}}

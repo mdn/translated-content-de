@@ -2,13 +2,12 @@
 title: "Fortgeschrittenes Svelte: Reaktivität, Lebenszyklus, Barrierefreiheit"
 slug: Learn_web_development/Core/Frameworks_libraries/Svelte_reactivity_lifecycle_accessibility
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: 48d220a8cffdfd5f088f8ca89724a9a92e34d8c0
 ---
 
-{{LearnSidebar}}
 {{PreviousMenuNext("Learn_web_development/Core/Frameworks_libraries/Svelte_components","Learn_web_development/Core/Frameworks_libraries/Svelte_stores", "Learn_web_development/Core/Frameworks_libraries")}}
 
-Im letzten Artikel haben wir unserer To-do-Liste weitere Funktionen hinzugefügt und angefangen, unsere App in Komponenten zu organisieren. In diesem Artikel werden wir die letzten Funktionen der App hinzufügen und unsere App weiter in Komponenten unterteilen. Wir werden lernen, wie man mit Reaktivitätsproblemen im Zusammenhang mit der Aktualisierung von Objekten und Arrays umgeht. Um häufige Stolperfallen zu vermeiden, müssen wir uns etwas tiefer in Sveltes Reaktivitätssystem einarbeiten. Außerdem werden wir einige Probleme mit der Barrierefreiheit im Fokus lösen und noch viel mehr.
+Im letzten Artikel haben wir unserer To-do-Liste weitere Funktionen hinzugefügt und begonnen, unsere App in Komponenten zu organisieren. In diesem Artikel werden wir die letzten Funktionen der App hinzufügen und unsere App weiter komponentenorientiert gestalten. Wir lernen, wie wir mit Reaktivitätsproblemen umgehen, die beim Aktualisieren von Objekten und Arrays auftreten können. Um häufige Fallstricke zu vermeiden, müssen wir etwas tiefer in das Reaktivitätssystem von Svelte eintauchen. Wir werden uns auch mit der Lösung einiger Fokusprobleme bezüglich der Barrierefreiheit beschäftigen und mehr.
 
 <table>
   <tbody>
@@ -20,55 +19,56 @@ Im letzten Artikel haben wir unserer To-do-Liste weitere Funktionen hinzugefügt
           <a href="/de/docs/Learn_web_development/Core/Structuring_content">HTML</a>,
           <a href="/de/docs/Learn_web_development/Core/Styling_basics">CSS</a> und
           <a href="/de/docs/Learn_web_development/Core/Scripting">JavaScript</a> vertraut sind und
-          Kenntnisse über die
+          über Kenntnisse im
           <a
             href="/de/docs/Learn_web_development/Getting_started/Environment_setup/Command_line"
-            >Terminal-/Kommandozeilenumgebung</a
-          >haben.
+            >Terminal/Befehlszeile</a
+          > verfügen.
         </p>
         <p>
-          Sie benötigen ein Terminal mit installiertem Node und npm, um Ihre App zu kompilieren und zu bauen.
+          Sie benötigen ein Terminal mit installierten Node und npm, um Ihre App zu kompilieren und zu bauen.
         </p>
       </td>
     </tr>
     <tr>
       <th scope="row">Ziel:</th>
       <td>
-        Lernen Sie einige fortgeschrittene Svelte-Techniken kennen, um Reaktivitätsprobleme, Tastaturzugänglichkeitsprobleme im Zusammenhang mit dem Lebenszyklus von Komponenten und mehr zu lösen.
+        Erlernen einiger fortgeschrittener Svelte-Techniken zur Lösung von Reaktivitätsproblemen,
+        Tastaturzugänglichkeitsproblemen im Zusammenhang mit dem Lebenszyklus von Komponenten und mehr.
       </td>
     </tr>
   </tbody>
 </table>
 
-Wir werden uns auf einige Barrierefreiheitsprobleme im Zusammenhang mit dem Fokusmanagement konzentrieren. Dazu werden wir einige Techniken zur Zugriff auf DOM-Knoten und zur Ausführung von Methoden wie [`focus()`](/de/docs/Web/API/HTMLElement/focus) und [`select()`](/de/docs/Web/API/HTMLInputElement/select) nutzen. Wir werden auch sehen, wie man Ereignis-Listener für DOM-Elemente deklariert und bereinigt.
+Wir konzentrieren uns auf einige Barrierefreiheitsprobleme im Zusammenhang mit der Fokusverwaltung. Dazu verwenden wir einige Techniken, um auf DOM-Knoten zuzugreifen und Methoden wie [`focus()`](/de/docs/Web/API/HTMLElement/focus) und [`select()`](/de/docs/Web/API/HTMLInputElement/select) auszuführen. Wir werden auch sehen, wie man Event-Listener auf DOM-Elementen deklariert und aufräumt.
 
-Wir müssen auch ein wenig über den Lebenszyklus von Komponenten lernen, um zu verstehen, wann diese DOM-Knoten im DOM montiert und demontiert werden und wie wir auf sie zugreifen können. Wir werden auch über die `action`-Direktive lernen, die es uns ermöglicht, die Funktionalität von HTML-Elementen in einer wiederverwendbaren und deklarativen Weise zu erweitern.
+Wir müssen auch ein wenig über den Lebenszyklus von Komponenten lernen, um zu verstehen, wann diese DOM-Knoten im DOM geladen und entladen werden und wie wir auf sie zugreifen können. Wir werden auch über die `action`-Direktive lernen, die es uns ermöglicht, die Funktionalität von HTML-Elementen auf eine wiederverwendbare und deklarative Weise zu erweitern.
 
-Schließlich werden wir noch ein wenig mehr über Komponenten lernen. Bisher haben wir gesehen, wie Komponenten Daten mithilfe von Props teilen und mit ihren Eltern durch Ereignisse und bidirektionale Datenbindung kommunizieren. Jetzt werden wir sehen, wie Komponenten auch Methoden und Variablen freigeben können.
+Letztendlich werden wir ein wenig mehr über Komponenten lernen. Bisher haben wir gesehen, wie Komponenten Daten über Props teilen und mit ihren Eltern über Ereignisse und bidirektionale Datenbindung kommunizieren können. Jetzt werden wir sehen, wie Komponenten auch Methoden und Variablen bereitstellen können.
 
-Die folgenden neuen Komponenten werden im Laufe dieses Artikels entwickelt:
+Die folgenden neuen Komponenten werden im Verlauf dieses Artikels entwickelt:
 
-- `MoreActions`: Stellt die Schaltflächen _Check All_ und _Remove Completed_ dar und sendet die entsprechenden Ereignisse, die erforderlich sind, um deren Funktionalität zu behandeln.
-- `NewTodo`: Zeigt das `<input>`-Feld und die _Add_-Schaltfläche zum Hinzufügen eines neuen To-dos an.
-- `TodosStatus`: Zeigt die Überschrift „x von y Elementen abgeschlossen“ an.
+- `MoreActions`: Zeigt die Schaltflächen _Alle prüfen_ und _Abgeschlossene entfernen_ an und gibt die entsprechenden Ereignisse aus, die für ihre Funktionalität erforderlich sind.
+- `NewTodo`: Zeigt das `<input>`-Feld und die _Hinzufügen_-Schaltfläche zum Hinzufügen eines neuen To-do an.
+- `TodosStatus`: Zeigt die Überschrift "x von y Elementen abgeschlossen" an.
 
-## Code entlang mit uns
+## Coden Sie mit uns
 
 ### Git
 
-Klonen Sie das GitHub-Repo (falls Sie es noch nicht getan haben) mit:
+Clonen Sie das GitHub-Repo (wenn Sie es noch nicht getan haben) mit:
 
 ```bash
 git clone https://github.com/opensas/mdn-svelte-tutorial.git
 ```
 
-Um den aktuellen Zustand der App zu erreichen, führen Sie aus:
+Um den aktuellen Status der App zu erreichen, führen Sie aus:
 
 ```bash
 cd mdn-svelte-tutorial/05-advanced-concepts
 ```
 
-Oder laden Sie direkt den Inhalt des Ordners herunter:
+Oder laden Sie den Inhalt des Ordners direkt herunter:
 
 ```bash
 npx degit opensas/mdn-svelte-tutorial/05-advanced-concepts
@@ -78,16 +78,16 @@ Denken Sie daran, `npm install && npm run dev` auszuführen, um Ihre App im Entw
 
 ### REPL
 
-Um mit uns im REPL zu programmieren, beginnen Sie bei
+Um mit der REPL gemeinsam mit uns zu coden, starten Sie unter:
 
 <https://svelte.dev/repl/76cc90c43a37452e8c7f70521f88b698?version=3.23.2>
 
-## Arbeit an der MoreActions-Komponente
+## Entwicklung der MoreActions-Komponente
 
-Jetzt werden wir die Schaltflächen _Check All_ und _Remove Completed_ angehen. Erstellen wir eine Komponente, die für die Darstellung der Schaltflächen und das Senden der entsprechenden Ereignisse verantwortlich ist.
+Nun werden wir uns um die Schaltflächen _Alle prüfen_ und _Abgeschlossene entfernen_ kümmern. Lassen Sie uns eine Komponente erstellen, die für das Anzeigen der Schaltflächen und das Ausgeben der entsprechenden Ereignisse zuständig ist.
 
-1. Erstellen Sie eine neue Datei `components/MoreActions.svelte`.
-2. Wenn die erste Schaltfläche angeklickt wird, senden wir ein `checkAll`-Ereignis, um anzugeben, dass alle To-dos überprüft/nicht überprüft werden sollen. Wenn die zweite Schaltfläche angeklickt wird, senden wir ein `removeCompleted`-Ereignis, um anzugeben, dass alle abgeschlossenen To-dos entfernt werden sollen. Fügen Sie den folgenden Inhalt in Ihre `MoreActions.svelte`-Datei ein:
+1. Erstellen Sie eine neue Datei, `components/MoreActions.svelte`.
+2. Beim Klick auf die erste Schaltfläche geben wir ein `checkAll`-Ereignis aus, um zu signalisieren, dass alle To-dos geprüft bzw. nicht geprüft werden sollen. Beim Klick auf die zweite Schaltfläche geben wir ein `removeCompleted`-Ereignis aus, um zu signalisieren, dass alle abgeschlossenen To-dos entfernt werden sollen. Fügen Sie folgenden Inhalt in Ihre `MoreActions.svelte`-Datei ein:
 
    ```svelte
    <script>
@@ -110,11 +110,11 @@ Jetzt werden wir die Schaltflächen _Check All_ und _Remove Completed_ angehen. 
    </div>
    ```
 
-   Wir haben auch eine `completed`-Variable enthalten, um zwischen dem Überprüfen und Nicht-Überprüfen aller Aufgaben zu wechseln.
+   Wir haben auch eine `completed`-Variable hinzugefügt, um das Abwechseln zwischen Überprüfen und Nicht-Überprüfen aller Aufgaben zu steuern.
 
-3. Zurück in `Todos.svelte` werden wir unsere `MoreActions`-Komponente importieren und zwei Funktionen erstellen, um die von der `MoreActions`-Komponente gesendeten Ereignisse zu behandeln.
+3. Zurück in `Todos.svelte`, wir importieren unsere `MoreActions`-Komponente und erstellen zwei Funktionen, um die von der `MoreActions`-Komponente emittierten Ereignisse zu verarbeiten.
 
-   Fügen Sie die folgende Importanweisung unterhalb der vorhandenen hinzu:
+   Fügen Sie die folgende Import-Anweisung unter den vorhandenen ein:
 
    ```js
    import MoreActions from "./MoreActions.svelte";
@@ -130,7 +130,7 @@ Jetzt werden wir die Schaltflächen _Check All_ und _Remove Completed_ angehen. 
      (todos = todos.filter((t) => !t.completed));
    ```
 
-5. Gehen Sie jetzt zum unteren Bereich des `Todos.svelte`-Markupabschnitts und ersetzen Sie das `<div class="btn-group">`-Element, das wir in `MoreActions.svelte` kopiert haben, durch einen Aufruf der `MoreActions`-Komponente, so:
+5. Gehen Sie nun zum unteren Ende des `Todos.svelte`-Markup-Abschnitts und ersetzen Sie das `<div class="btn-group">`-Element, das wir in `MoreActions.svelte` kopiert haben, durch einen Aufruf der `MoreActions`-Komponente, so:
 
    ```svelte
    <!-- MoreActions -->
@@ -140,15 +140,15 @@ Jetzt werden wir die Schaltflächen _Check All_ und _Remove Completed_ angehen. 
    />
    ```
 
-6. OK, gehen wir zurück in die App und probieren es aus. Sie werden feststellen, dass die _Remove Completed_-Schaltfläche einwandfrei funktioniert, aber die _Check All_/_Uncheck All_-Schaltfläche einfach stillschweigend scheitert.
+6. OK, gehen Sie zurück in die App und versuchen Sie es. Sie werden feststellen, dass die Schaltfläche _Abgeschlossene entfernen_ funktioniert, die Schaltfläche _Alle prüfen_/_Alle nicht prüfen_ jedoch einfach stillschweigend fehlschlägt.
 
-Um herauszufinden, was hier passiert, müssen wir uns etwas tiefer in die Reaktivität von Svelte einarbeiten.
+Um herauszufinden, was hier passiert, müssen wir etwas tiefer in die Svelte-Reaktivität eintauchen.
 
-## Reaktivitätsprobleme: Aktualisieren von Objekten und Arrays
+## Reaktivitätsfallstricke: Aktualisieren von Objekten und Arrays
 
-Um zu sehen, was passiert, können wir das `todos`-Array von der `checkAllTodos()`-Funktion aus in die Konsole protokollieren.
+Um zu sehen, was passiert, können wir das `todos`-Array von der `checkAllTodos()`-Funktion aus in der Konsole protokollieren.
 
-1. Aktualisieren Sie Ihre bestehende `checkAllTodos()`-Funktion wie folgt:
+1. Aktualisieren Sie Ihre vorhandene `checkAllTodos()`-Funktion wie folgt:
 
    ```js
    const checkAllTodos = (completed) => {
@@ -157,43 +157,43 @@ Um zu sehen, was passiert, können wir das `todos`-Array von der `checkAllTodos(
    };
    ```
 
-2. Gehen Sie zurück zu Ihrem Browser, öffnen Sie die Konsole der DevTools und klicken Sie mehrmals auf _Check All_/_Uncheck All_.
+2. Kehren Sie zu Ihrem Browser zurück, öffnen Sie Ihre DevTools-Konsole und klicken Sie ein paar Mal auf _Alle prüfen_/_Alle nicht prüfen_.
 
-Sie werden bemerken, dass das Array jedes Mal erfolgreich aktualisiert wird, wenn Sie die Schaltfläche drücken (die `completed`-Eigenschaften der `todo`-Objekte wechseln zwischen `true` und `false`), aber Svelte weiß das nicht. Das bedeutet auch, dass in diesem Fall eine reaktive Anweisung wie `$: console.log('todos', todos)` nicht sehr nützlich ist.
+Sie werden feststellen, dass das Array jedes Mal erfolgreich aktualisiert wird, wenn Sie die Schaltfläche drücken (die `todo`-Objekte `completed`-Eigenschaften werden zwischen `true` und `false` umgeschaltet), aber Svelte weiß nichts davon. Dies bedeutet auch, dass in diesem Fall eine reaktive Anweisung wie `$: console.log('todos', todos)` nicht sehr nützlich sein wird.
 
-Um herauszufinden, warum dies passiert, müssen wir verstehen, wie die Reaktivität in Svelte beim Aktualisieren von Arrays und Objekten funktioniert.
+Um herauszufinden, warum dies passiert, müssen wir verstehen, wie Reaktivität in Svelte funktioniert, wenn Arrays und Objekte aktualisiert werden.
 
-Viele Web-Frameworks verwenden die Virtual-DOM-Technik, um die Seite zu aktualisieren. Grundsätzlich ist der Virtual DOM eine im Speicher befindliche Kopie der Inhalte der Webseite. Das Framework aktualisiert diese virtuelle Darstellung, die dann mit dem "realen" DOM synchronisiert wird. Dies ist viel schneller als das direkte Aktualisieren des DOM und ermöglicht es dem Framework, viele Optimierungstechniken anzuwenden.
+Viele Web-Frameworks verwenden die Virtual DOM-Technik, um die Seite zu aktualisieren. Grundsätzlich ist der Virtual DOM eine Kopie des Inhalts der Webseite im Speicher. Das Framework aktualisiert diese virtuelle Darstellung, die dann mit dem "echten" DOM synchronisiert wird. Dies ist viel schneller als das direkte Aktualisieren des DOM und ermöglicht es dem Framework, viele Optimierungstechniken anzuwenden.
 
-Diese Frameworks führen standardmäßig im Grunde genommen unseren gesamten JavaScript-Code bei jeder Änderung gegen diesen Virtual DOM aus und wenden verschiedene Methoden an, um teure Berechnungen zwischenzuspeichern und die Ausführung zu optimieren. Sie versuchen kaum zu verstehen, was unser JavaScript-Code tatsächlich tut.
+Diese Frameworks führen standardmäßig unseren gesamten JavaScript-Code bei jeder Änderung gegen diesen Virtual DOM aus und wenden verschiedene Methoden an, um teure Berechnungen zwischenzuspeichern und die Ausführung zu optimieren. Sie machen kaum oder gar nicht den Versuch zu verstehen, was unser JavaScript-Code tut.
 
-Svelte verwendet keine Virtual-DOM-Darstellung. Stattdessen analysiert und interpretiert es unseren Code, erstellt einen Abhängigkeitsbaum und generiert dann den erforderlichen JavaScript-Code, um nur die Teile des DOM zu aktualisieren, die aktualisiert werden müssen. Dieser Ansatz erzeugt in der Regel optimalen JavaScript-Code mit minimalem Overhead, hat aber auch seine Einschränkungen.
+Svelte verwendet keine Virtual-DOM-Darstellung. Stattdessen analysiert es unseren Code, erstellt einen Abhängigkeitsbaum und generiert dann das benötigte JavaScript, um nur die Teile des DOM zu aktualisieren, die aktualisiert werden müssen. Dieser Ansatz generiert normalerweise optimales JavaScript mit minimalem Overhead, hat jedoch auch seine Einschränkungen.
 
-Manchmal kann Svelte keine Änderungen an überwachten Variablen erkennen. Denken Sie daran: Um Svelte mitzuteilen, dass sich eine Variable geändert hat, müssen Sie ihr einen neuen Wert zuweisen. Eine einfache Regel, die man im Kopf behalten sollte, lautet: **Der Name der aktualisierten Variable muss auf der linken Seite der Zuweisung stehen.**
+Manchmal kann Svelte nicht feststellen, dass sich Variablen, die beobachtet werden, geändert haben. Denken Sie daran, um Svelte zu sagen, dass sich eine Variable geändert hat, müssen Sie ihr einen neuen Wert zuweisen. Eine einfache Regel, die man im Kopf behalten sollte, ist, dass **Der Name der aktualisierten Variable muss auf der linken Seite der Zuweisung erscheinen.**
 
-Beispiel: In dem folgenden Code:
+Beispielsweise im folgenden Code:
 
 ```js
 const foo = obj.foo;
 foo.bar = "baz";
 ```
 
-Svelte wird Verweise auf `obj.foo.bar` nicht aktualisieren, es sei denn, Sie folgen mit `obj = obj`. Das liegt daran, dass Svelte keine Objektverweise verfolgen kann, deshalb müssen wir ihm ausdrücklich mitteilen, dass sich `obj` durch eine Zuweisung geändert hat.
+wird Svelte Referenzen zu `obj.foo.bar` nicht aktualisieren, es sei denn, Sie folgen ihm mit `obj = obj`. Das liegt daran, dass Svelte Objekt-Referenzen nicht nachverfolgen kann, sodass wir ihm explizit sagen müssen, dass `obj` sich geändert hat, indem wir eine Zuweisung ausführen.
 
 > [!NOTE]
-> Wenn `foo` eine Top-Level-Variable ist, können Sie Svelte leicht mitteilen, dass `obj` jedes Mal aktualisiert werden soll, wenn sich `foo` ändert, mit der folgenden reaktiven Anweisung: `$: foo, obj = obj`. Damit definieren wir `foo` als Abhängigkeit, und jedes Mal, wenn es sich ändert, wird Svelte `obj = obj` ausführen.
+> Wenn `foo` eine Variable auf oberster Ebene ist, können Sie Svelte leicht sagen, `obj` immer dann zu aktualisieren, wenn sich `foo` ändert, mit der folgenden reaktiven Anweisung: `$: foo, obj = obj`. Damit definieren wir `foo` als Abhängigkeit, und immer wenn es sich ändert, führt Svelte `obj = obj` aus.
 
-In unserer `checkAllTodos()`-Funktion, wenn wir ausführen:
+In unserer `checkAllTodos()` Funktion, wenn wir ausführen:
 
 ```js
 todos.forEach((t) => (t.completed = completed));
 ```
 
-wird Svelte `todos` nicht als geändert markieren, weil es nicht erkennt, dass wir unser `t`-Variable innerhalb der Methode `forEach()` aktualisieren und damit auch das `todos`-Array ändern. Und das macht Sinn, denn ansonsten müsste Svelte die Funktionsweise der Methode `forEach()` kennen; das Gleiche würde dann für beliebige Methoden gelten, die an ein beliebiges Objekt oder ein Array angehängt sind.
+wird Svelte `todos` nicht als geändert markieren, da es nicht weiß, dass, wenn wir unsere `t` Variable im `forEach()`-Methode aktualisieren, wir auch das `todos`-Array ändern. Und das macht Sinn, denn sonst wäre Svelte sich der inneren Abläufe der `forEach()`-Methode bewusst; das gleiche würde daher für jede Methode gelten, die an ein beliebiges Objekt oder Array angehängt ist.
 
-Es gibt jedoch verschiedene Techniken, die wir anwenden können, um dieses Problem zu lösen, und alle beinhalten die Zuweisung eines neuen Wertes zu der überwachten Variable.
+Dennoch gibt es verschiedene Techniken, die wir anwenden können, um dieses Problem zu lösen, und alle von ihnen beinhalten, dem zu beobachtenden Variable einen neuen Wert zuzuweisen.
 
-Wie wir bereits gesehen haben, können wir einfach Svelte anweisen, die Variable mit einer Selbstzuweisung zu aktualisieren, so:
+Wie wir bereits gesehen haben, könnten wir Svelte einfach anweisen, die Variable mit einer Selbstzuweisung zu aktualisieren, wie folgt:
 
 ```js
 const checkAllTodos = (completed) => {
@@ -202,9 +202,9 @@ const checkAllTodos = (completed) => {
 };
 ```
 
-Dies wird das Problem lösen. Intern wird Svelte `todos` als geändert markieren und die anscheinend redundante Selbstzuweisung entfernen. Abgesehen davon, dass es seltsam aussieht, ist es eine völlig akzeptable Technik, und manchmal ist es der kürzeste Weg, es zu tun.
+Dies wird das Problem lösen. Intern wird Svelte `todos` als geändert markieren und die scheinbar redundante Selbstzuweisung entfernen. Abgesehen davon, dass es seltsam aussieht, ist es völlig in Ordnung, diese Technik zu verwenden, und manchmal ist es der prägnanteste Weg, es zu tun.
 
-Wir könnten auch auf das `todos`-Array über den Index zugreifen, so:
+Wir könnten auch auf das `todos`-Array mit dem Index zugreifen, wie folgt:
 
 ```js
 const checkAllTodos = (completed) => {
@@ -212,9 +212,9 @@ const checkAllTodos = (completed) => {
 };
 ```
 
-Zuweisungen zu Eigenschaften von Arrays und Objekten — z. B. `obj.foo += 1` oder `array[i] = x` — wirken genauso wie Zuweisungen zu den Werten selbst. Wenn Svelte diesen Code analysiert, kann es erkennen, dass das `todos`-Array geändert wird.
+Zuweisungen an Eigenschaften von Arrays und Objekten — z.B., `obj.foo += 1` oder `array[i] = x` — funktionieren genauso wie Zuweisungen an die Werte selbst. Wenn Svelte diesen Code analysiert, kann es erkennen, dass das `todos`-Array geändert wird.
 
-Eine andere Lösung besteht darin, dem `todos`-Array ein neues Array zuzuweisen, das eine Kopie aller To-dos mit der `completed`-Eigenschaft enthält, die entsprechend aktualisiert ist, so:
+Eine andere Lösung besteht darin, dem `todos`-Array ein neues Array zuzuweisen, das eine Kopie aller To-dos mit der entsprechend aktualisierten `completed`-Eigenschaft enthält, wie folgt:
 
 ```js
 const checkAllTodos = (completed) => {
@@ -222,18 +222,18 @@ const checkAllTodos = (completed) => {
 };
 ```
 
-In diesem Fall verwenden wir die Methode [`map()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/map), die ein neues Array mit den Ergebnissen der Ausführung der bereitgestellten Funktion für jedes Element zurückgibt. Die Funktion gibt eine Kopie jedes To-dos mit der [Spread-Syntax](/de/docs/Web/JavaScript/Reference/Operators/Spread_syntax) zurück und überschreibt entsprechend die Eigenschaft des `completed`-Werts. Diese Lösung hat den zusätzlichen Vorteil, dass ein neues Array mit neuen Objekten zurückgegeben wird und die ursprüngliche `todos`-Array-Änderung vollständig vermieden wird.
+In diesem Fall verwenden wir die [`map()`]-Methode(/de/docs/Web/JavaScript/Reference/Global_Objects/Array/map), die ein neues Array mit den Ergebnissen der Ausführung der bereitgestellten Funktion für jedes Element zurückgibt. Die Funktion gibt eine Kopie jedes To-dos mit [Spread-Syntax](/de/docs/Web/JavaScript/Reference/Operators/Spread_syntax) zurück und überschreibt die Eigenschaft des vollständigen Wertes entsprechend. Diese Lösung bietet den zusätzlichen Vorteil, ein neues Array mit neuen Objekten zurückzugeben und das ursprüngliche `todos`-Array vollständig zu vermeiden.
 
 > [!NOTE]
-> Svelte erlaubt es uns, verschiedene Optionen anzugeben, die beeinflussen, wie der Compiler arbeitet. Die Option `<svelte:options immutable={true}/>` teilt dem Compiler mit, dass Sie versprechen, keine Objekte zu ändern. Dadurch kann es weniger konservativ prüfen, ob sich Werte geändert haben, und einfacheren und performanteren Code generieren. Für weitere Informationen zu `<svelte:options>` schauen Sie in der [Svelte-Options-Dokumentation](https://svelte.dev/docs/special-elements#svelte-options) nach.
+> Svelte ermöglicht es uns, verschiedene Optionen anzugeben, die beeinflussen, wie der Compiler arbeitet. Die Option `<svelte:options immutable={true}/>` teilt dem Compiler mit, dass Sie versprechen, keine Objekte zu verändern. Dadurch kann er weniger konservativ sein, wenn es darum geht zu überprüfen, ob sich Werte geändert haben und vereinfachten und leistungsfähigeren Code zu generieren. Weitere Informationen zu `<svelte:options>` finden Sie in der [Svelte-Options-Dokumentation](https://svelte.dev/docs/special-elements#svelte-options).
 
-Alle diese Lösungen beinhalten eine Zuweisung, bei der die aktualisierte Variable auf der linken Seite der Gleichung steht. Jede dieser Techniken ermöglicht es Svelte, zu erkennen, dass unser `todos`-Array geändert wurde.
+All diese Lösungen beinhalten eine Zuweisung, bei der die aktualisierte Variable auf der linken Seite der Gleichung steht. Jede dieser Techniken wird Svelte ermöglichen zu bemerken, dass unser `todos`-Array geändert wurde.
 
-**Wählen Sie eine aus und aktualisieren Sie Ihre `checkAllTodos()`-Funktion nach Bedarf. Jetzt sollten Sie in der Lage sein, alle Ihre To-dos auf einmal zu markieren und zu deaktivieren. Versuchen Sie es!**
+**Wählen Sie eine aus und aktualisieren Sie Ihre `checkAllTodos()`-Funktion entsprechend. Jetzt sollten Sie in der Lage sein, alle Ihre To-dos auf einmal zu prüfen und nicht zu prüfen. Probieren Sie es aus!**
 
-## Vervollständigen unserer MoreActions-Komponente
+## Fertigstellung unserer MoreActions-Komponente
 
-Wir werden unserem Component ein Usability-Detail hinzufügen. Wir deaktivieren die Schaltflächen, wenn keine Aufgaben zu bearbeiten sind. Um dies zu erstellen, empfangen wir das `todos`-Array als Prop und setzen die Eigenschaft `disabled` jeder Schaltfläche entsprechend.
+Wir werden unserer Komponente ein Detail zur Benutzerfreundlichkeit hinzufügen. Wir deaktivieren die Schaltflächen, wenn keine Aufgaben zu verarbeiten sind. Dazu werden wir das `todos`-Array als Prop empfangen und die `disabled`-Eigenschaft jeder Schaltfläche entsprechend setzen.
 
 1. Aktualisieren Sie Ihre `MoreActions.svelte`-Komponente wie folgt:
 
@@ -264,9 +264,9 @@ Wir werden unserem Component ein Usability-Detail hinzufügen. Wir deaktivieren 
    </div>
    ```
 
-   Wir haben auch eine reaktive `completedTodos`-Variable deklariert, um die _Remove Completed_-Schaltfläche zu aktivieren oder zu deaktivieren.
+   Wir haben auch eine reaktive `completedTodos`-Variable deklariert, um die _Abgeschlossene entfernen_ Schaltfläche zu aktivieren oder zu deaktivieren.
 
-2. Vergessen Sie nicht, das Prop innerhalb von `Todos.svelte`, wo die Komponente aufgerufen wird, an `MoreActions` zu übergeben:
+2. Vergessen Sie nicht, das Prop in `MoreActions` von `Todos.svelte` as Prop zu übergeben, wo die Komponente aufgerufen wird:
 
    ```svelte
    <MoreActions {todos}
@@ -275,36 +275,36 @@ Wir werden unserem Component ein Usability-Detail hinzufügen. Wir deaktivieren 
      />
    ```
 
-## Arbeiten mit dem DOM: Auf die Details fokussieren
+## Arbeiten mit dem DOM: Detailgenauigkeit fokussieren
 
-Jetzt, da wir alle erforderlichen Funktionalitäten der App abgeschlossen haben, werden wir uns auf einige Barrierefreiheitsfunktionen konzentrieren, die die Benutzbarkeit unserer App für sowohl Tastaturbenutzer als auch Bildschirmleser verbessern.
+Nachdem wir nun alle erforderlichen Funktionen der App abgeschlossen haben, konzentrieren wir uns auf einige Barrierefreiheitsfunktionen, die die Benutzerfreundlichkeit unserer App für sowohl Tastaturbenutzer als auch Bildschirmleser-Benutzer verbessern werden.
 
-Derzeit weist unsere App ein paar Probleme mit der Tastaturzugänglichkeit im Zusammenhang mit dem Fokusmanagement auf. Lassen Sie uns einen Blick auf diese Probleme werfen.
+Im aktuellen Zustand hat unsere App ein paar Probleme mit der Tastaturzugänglichkeit, die die Fokusverwaltung betreffen. Lassen Sie uns diese Probleme anschauen.
 
-## Untersuchung von Tastaturzugänglichkeitsproblemen in unserer To-do-App
+## Erkunden von Tastaturzugänglichkeitsproblemen in unserer To-do-App
 
-Derzeit wird die Fokus-Fluss unserer App für Tastaturnutzer nicht sehr vorhersagbar oder kohärent sein.
+Derzeit werden Tastaturbenutzer feststellen, dass der Fokusfluss unserer App nicht sehr vorhersehbar oder kohärent ist.
 
-Wenn Sie auf das Eingabefeld oben in unserer App klicken, sehen Sie eine dicke, gestrichelte Umrandung um dieses Eingabefeld. Diese Umrandung ist Ihr visuelles Indiz dafür, dass der Browser derzeit auf dieses Element fokussiert ist.
+Wenn Sie auf das Eingabefeld am oberen Rand unserer App klicken, sehen Sie eine dicke, gestrichelte Umrandung um dieses Eingabefeld. Diese Umrandung ist Ihr visueller Indikator dafür, dass der Browser derzeit auf dieses Element fokussiert ist.
 
-Wenn Sie ein Mausbenutzer sind, haben Sie diesen visuellen Hinweis möglicherweise übersprungen. Aber wenn Sie ausschließlich mit der Tastatur arbeiten, ist es von entscheidender Bedeutung zu wissen, welches Steuerungselement den Fokus hat. Es zeigt uns, welche Steuerung unsere Tastatureingaben erhält.
+Wenn Sie ein Mausbenutzer sind, haben Sie diesen visuellen Hinweis möglicherweise übersprungen. Aber wenn Sie ausschließlich mit der Tastatur arbeiten, ist es von entscheidender Bedeutung zu wissen, welches Steuerelement den Fokus hat. Es zeigt uns, welches Steuerelement unsere Tastatureingaben erhält.
 
-Wenn Sie die <kbd>Tab</kbd>-Taste wiederholt drücken, sehen Sie den gestrichelten Fokus-Indikator zwischen allen fokussierbaren Elementen auf der Seite zyklisch wechseln. Wenn Sie den Fokus auf die _Edit_-Schaltfläche bewegen und drücken Sie die <kbd>Enter</kbd>-Taste, verschwindet plötzlich der Fokus, und Sie können nicht mehr sagen, welche Steuerung unsere Tasteneingaben erhalten wird.
+Wenn Sie wiederholt die <kbd>Tab</kbd>-Taste drücken, sehen Sie den gestrichelten Fokus-Indikator zwischen allen fokussierbaren Elementen auf der Seite radfahren. Wenn Sie den Fokus auf die _Bearbeiten_-Schaltfläche bewegen und <kbd>Eingabetaste</kbd> drücken, verschwindet plötzlich der Fokus, und Sie können nicht mehr sagen, welches Steuerelement unsere Tastatureingaben erhalten wird.
 
-Darüber hinaus passiert nichts, wenn Sie die <kbd>Escape</kbd>- oder <kbd>Enter</kbd>-Taste drücken. Und wenn Sie auf _Cancel_ oder _Save_ klicken, verschwindet der Fokus erneut. Für einen Benutzer, der mit der Tastatur arbeitet, kann dieses Verhalten bestenfalls verwirrend sein.
+Darüber hinaus, wenn Sie die <kbd>Escape</kbd> oder <kbd>Eingabetaste</kbd> drücken, passiert nichts. Und wenn Sie auf _Abbrechen_ oder _Speichern_ klicken, verschwindet der Fokus wieder. Für einen Benutzer, der mit der Tastatur arbeitet, wird dieses Verhalten im besten Fall verwirrend sein.
 
-Wir möchten auch einige Usability-Funktionen hinzufügen, wie das Deaktivieren der _Save_-Schaltfläche, wenn erforderliche Felder leer sind, das Fokussieren bestimmter HTML-Elemente oder das automatische Auswählen von Inhalten, wenn ein Texteingabe-Feld den Fokus erhält.
+Wir möchten auch einige Benutzerfreundlichkeitsfunktionen hinzufügen, wie das Deaktivieren der _Speichern_-Schaltfläche, wenn erforderliche Felder leer sind, fokussierende bestimmten HTML-Elemente automatisch oder das automatische Auswählen von Inhalten, wenn ein Textfeld den Fokus erhält.
 
-Um all diese Funktionen zu implementieren, benötigen wir programmgesteuerten Zugriff auf DOM-Knoten, um Funktionen wie [`focus()`](/de/docs/Web/API/HTMLElement/focus) und [`select()`](/de/docs/Web/API/HTMLInputElement/select) auszuführen. Wir müssen auch [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) und [`removeEventListener()`](/de/docs/Web/API/EventTarget/removeEventListener) verwenden, um spezielle Aufgaben auszuführen, wenn die Steuerung den Fokus erhält.
+Um all diese Funktionen zu implementieren, benötigen wir programmgesteuerten Zugriff auf DOM-Knoten, um Funktionen wie [`focus()`](/de/docs/Web/API/HTMLElement/focus) und [`select()`](/de/docs/Web/API/HTMLInputElement/select) auszuführen. Wir müssen auch [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) und [`removeEventListener()`](/de/docs/Web/API/EventTarget/removeEventListener) verwenden, um spezifische Aufgaben auszuführen, wenn das Steuerelement den Fokus erhält.
 
-Das Problem ist, dass alle diese DOM-Knoten dynamisch von Svelte zur Laufzeit erstellt werden. Daher müssen wir warten, bis sie erstellt und dem DOM hinzugefügt werden, um sie verwenden zu können. Dazu müssen wir etwas über den [Lebenszyklus der Komponente](https://learn.svelte.dev/tutorial/onmount) lernen, um zu verstehen, wann wir auf sie zugreifen können - mehr dazu später.
+Das Problem ist, dass all diese DOM-Knoten von Svelte zur Laufzeit dynamisch erstellt werden. Deshalb müssen wir warten, bis sie erstellt und dem DOM hinzugefügt wurden, um sie zu verwenden. Dazu müssen wir über den [Lebenszyklus der Komponente](https://learn.svelte.dev/tutorial/onmount) lernen, um zu verstehen, wann wir auf sie zugreifen können — mehr dazu später.
 
-## Erstellung einer NewTodo-Komponente
+## Erstellen einer NewTodo-Komponente
 
-Beginnen wir mit der Auslagerung unseres neuen To-do-Formulars in eine eigene Komponente. Mit dem Wissen, das wir bisher haben, können wir eine neue Komponenten-Datei erstellen und den Code so anpassen, dass ein `addTodo`-Ereignis gesendet wird, wobei der Name des neuen To-dos zusammen mit den zusätzlichen Details übergeben wird.
+Lassen Sie uns beginnen, unser neues To-do-Formular in eine eigene Komponente auszulagern. Mit dem, was wir bisher wissen, können wir eine neue Komponenten-Datei erstellen und den Code anpassen, um ein `addTodo`-Ereignis auszugeben, bei dem der Name des neuen To-dos mit den zusätzlichen Details übergeben wird.
 
-1. Erstellen Sie eine neue Datei `components/NewTodo.svelte`.
-2. Fügen Sie die folgenden Inhalte hinein ein:
+1. Erstellen Sie eine neue Datei, `components/NewTodo.svelte`.
+2. Fügen Sie die folgenden Inhalte ein:
 
    ```svelte
    <script>
@@ -331,9 +331,9 @@ Beginnen wir mit der Auslagerung unseres neuen To-do-Formulars in eine eigene Ko
    </form>
    ```
 
-   Hier binden wir das `<input>` an die Variable `name` mit `bind:value={name}` und deaktivieren die _Add_-Schaltfläche, wenn das Feld leer ist (d.h. kein Textinhalt vorhanden) mit `disabled={!name}`. Wir kümmern uns auch um die <kbd>Escape</kbd>-Taste mit `on:keydown={(e) => e.key === 'Escape' && onCancel()}}`. Immer wenn die <kbd>Escape</kbd>-Taste gedrückt wird, führen wir `onCancel()` aus, das einfach die `name`-Variable bereinigt.
+   Hier binden wir das `<input>` mit der `name`-Variable mit `bind:value={name}` und deaktivieren die _Hinzufügen_-Schaltfläche, wenn sie leer ist (d.h. kein Textinhalt vorhanden) mit `disabled={!name}`. Wir kümmern uns auch um die <kbd>Escape</kbd>-Taste mit `on:keydown={(e) => e.key === 'Escape' && onCancel()}}`. Immer wenn die <kbd>Escape</kbd>-Taste gedrückt wird, führen wir `onCancel()` aus, das einfach die `name`-Variable leert.
 
-3. Jetzt müssen wir es innerhalb der `Todos`-Komponente `importieren` und nutzen und die `addTodo()`-Funktion aktualisieren, um den Namen des neuen To-dos zu erhalten.
+3. Jetzt müssen wir sie aus der `Todos`-Komponente `importieren` und verwenden und die `addTodo()`-Funktion aktualisieren, um den Namen des neuen To-dos zu empfangen.
 
    Fügen Sie die folgende `import`-Anweisung unter den anderen in `Todos.svelte` hinzu:
 
@@ -349,23 +349,23 @@ Beginnen wir mit der Auslagerung unseres neuen To-do-Formulars in eine eigene Ko
    }
    ```
 
-   `addTodo()` erhält jetzt den Namen des neuen To-dos direkt, wir benötigen also nicht mehr die `newTodoName`-Variable, um ihm seinen Wert zu geben. Unsere `NewTodo`-Komponente kümmert sich darum.
+   `addTodo()` empfängt jetzt direkt den Namen des neuen To-dos, sodass wir die Variable `newTodoName` nicht mehr benötigen, um ihr ihren Wert zuzuweisen. Unsere `NewTodo`-Komponente kümmert sich darum.
 
    > [!NOTE]
-   > Die `{ name }`-Syntax ist nur eine Abkürzung für `{ name: name }`. Diese stammt aus JavaScript selbst und hat mit Svelte nichts zu tun, außer dass sie etwas Inspiration für Sveltes eigene Kurzformen liefert.
+   > Die `{ name }`-Syntax ist einfach eine Kurzform für `{ name: name }`. Diese stammt direkt von JavaScript selbst und hat nichts mit Svelte zu tun, außer dass sie etwas Inspiration für Svelte-Eigene Kurzformen bietet.
 
-5. Schließlich ersetzen wir den NewTodo-Formular-Markup durch einen Aufruf der `NewTodo`-Komponente:
+5. Schließlich für diesen Abschnitt, ersetzen Sie das NewTodo-Formular-Markup mit einem Aufruf der `NewTodo`-Komponente, so:
 
    ```svelte
    <!-- NewTodo -->
    <NewTodo on:addTodo={(e) => addTodo(e.detail)} />
    ```
 
-## Arbeiten mit DOM-Knoten unter Verwendung der `bind:this={dom_node}`-Direktive
+## Arbeiten mit DOM-Knoten mit der `bind:this={dom_node}`-Direktive
 
-Jetzt möchten wir, dass das `<input>`-Element der `NewTodo`-Komponente immer wieder den Fokus erhält, wenn die _Add_-Schaltfläche gedrückt wird. Dafür benötigen wir eine Referenz auf den DOM-Knoten des Eingabefelds. Svelte bietet eine Möglichkeit, dies mit der `bind:this={dom_node}`-Direktive zu tun. Wenn diese spezifiziert ist, weist Svelte bei der Montage des Komponenten und der Erstellung des DOM-Knotens der spezifizierten Variable eine Referenz auf den DOM-Knoten zu.
+Jetzt möchten wir, dass das `<input>`-Element der `NewTodo`-Komponente jedes Mal wieder den Fokus erhält, wenn die _Hinzufügen_-Schaltfläche gedrückt wird. Dazu benötigen wir eine Referenz auf den DOM-Knoten des Eingabefeldes. Svelte stellt dafür einen Weg mit der `bind:this={dom_node}`-Direktive zur Verfügung. Wenn sie angegeben ist, weist Svelte sofort nach dem Erstellen der Komponente und dem Erstellen des DOM-Knotens eine Referenz auf den DOM-Knoten der angegebenen Variable zu.
 
-Wir erstellen eine `nameEl`-Variable und binden sie an das Eingabefeld mit `bind:this={nameEl}`. Dann innerhalb von `addTodo()`, nach dem Hinzufügen des neuen To-dos, rufen wir `nameEl.focus()` auf, um das `<input>`-Feld wieder zu fokussieren. Wir tun dasselbe, wenn der Benutzer die <kbd>Escape</kbd>-Taste drückt, in der `onCancel()`-Funktion.
+Wir erstellen eine `nameEl`-Variable und binden sie an das Eingabefeld mit `bind:this={nameEl}`. Dann rufen wir innerhalb `addTodo()`, nach dem Hinzufügen des neuen To-dos `nameEl.focus()`, um das `<input>` wieder zu fokussieren. Wir werden das gleiche machen, wenn der Benutzer die <kbd>Escape</kbd>-Taste drückt, mit der `onCancel()`-Funktion.
 
 Aktualisieren Sie die Inhalte von `NewTodo.svelte` wie folgt:
 
@@ -398,13 +398,13 @@ Aktualisieren Sie die Inhalte von `NewTodo.svelte` wie folgt:
 </form>
 ```
 
-Probieren Sie die App aus: Geben Sie einen neuen To-do-Namen in das `<input>`-Feld ein, drücken Sie <kbd>tab</kbd>, um den Fokus auf die _Add_-Schaltfläche zu verschieben, und dann drücken Sie <kbd>Enter</kbd> oder <kbd>Escape</kbd>, um zu sehen, wie das Eingabefeld den Fokus wiederherstellt.
+Probieren Sie die App aus: Geben Sie einen neuen To-do-Namen im `<input>`-Feld ein, drücken Sie <kbd>tab</kbd> um den Fokus auf die _Hinzufügen_-Schaltfläche zu legen, und drücken Sie dann <kbd>Eingabetaste</kbd> oder <kbd>Escape</kbd>, um zu sehen, wie das Eingabefeld wieder fokussiert wird.
 
-### Autofokussierung unseres Eingabefelds
+### Automatisches Fokussieren unseres Eingabefelds
 
-Die nächste Funktion, die wir unserer `NewTodo`-Komponente hinzufügen werden, ist eine `autofocus`-Prop, mit der wir angeben können, dass das `<input>`-Feld beim Laden der Seite fokussiert werden soll.
+Das nächste Feature, das wir zu unserer `NewTodo`-Komponente hinzufügen, ist ein `autofocus`-Prop, das uns ermöglicht anzugeben, dass das `<input>`-Feld beim Laden der Seite fokussiert werden soll.
 
-1. Unser erster Versuch sieht wie folgt aus: Lassen Sie uns versuchen, die `autofocus`-Prop hinzuzufügen und einfach `nameEl.focus()` aus dem `<script>`-Block aufzurufen. Aktualisieren Sie den ersten Abschnitt des `<script>`-Abschnitts von `NewTodo.svelte` (die ersten vier Zeilen) so:
+1. Unser erster Versuch sieht wie folgt aus: Versuchen wir, das `autofocus`-Prop hinzuzufügen und einfach `nameEl.focus()` aus dem `<script>`-Block aufzurufen. Aktualisieren Sie den ersten Teil des `<script>`-Abschnitts von `NewTodo.svelte` (die ersten vier Zeilen), um so auszusehen:
 
    ```svelte
    <script>
@@ -419,26 +419,26 @@ Die nächste Funktion, die wir unserer `NewTodo`-Komponente hinzufügen werden, 
      if (autofocus) nameEl.focus();
    ```
 
-2. Gehen Sie jetzt zurück zur `Todos`-Komponente und übergeben Sie die `autofocus`-Prop in den `<NewTodo>`-Komponentenaufruf, so:
+2. Gehen Sie jetzt zurück zur `Todos`-Komponente und geben Sie das `autofocus`-Prop in den `<NewTodo>`-Komponentenaufruf hinein, so:
 
    ```svelte
    <!-- NewTodo -->
    <NewTodo autofocus on:addTodo={(e) => addTodo(e.detail)} />
    ```
 
-3. Wenn Sie Ihre App jetzt ausprobieren, werden Sie sehen, dass die Seite jetzt leer ist und in Ihrer DevTools-Webkonsole ein Fehler angezeigt wird, der lautet: `TypeError: nameEl is undefined`.
+3. Wenn Sie Ihre App jetzt ausprobieren, sehen Sie, dass die Seite jetzt leer ist. In Ihrer Webkonsole von DevTools sehen Sie einen Fehler der Art: `TypeError: nameEl ist undefined`.
 
-Um zu verstehen, was hier passiert, sprechen wir noch etwas mehr über den erwähnten [Lebenszyklus der Komponenten](https://learn.svelte.dev/tutorial/onmount).
+Um zu verstehen, was hier passiert, sprechen wir ein wenig mehr über den [Lebenszyklus der Komponente](https://learn.svelte.dev/tutorial/onmount), den wir bereits erwähnt haben.
 
-## Lebenszyklus der Komponenten und die `onMount()`-Funktion
+## Lebenszyklus einer Komponente und die `onMount()`-Funktion
 
-Wenn eine Komponente instanziiert wird, führt Svelte den Initialisierungscode aus (d.h. den `<script>`-Abschnitt der Komponente). Aber zu diesem Zeitpunkt sind alle Knoten, die die Komponente darstellen, nicht an das DOM angefügt, sie existieren tatsächlich noch nicht einmal.
+Wenn eine Komponente instanziiert wird, führt Svelte den Initialisierungscode aus (das ist der `<script>`-Abschnitt der Komponente). Aber zu diesem Zeitpunkt sind alle Knoten, aus denen die Komponente besteht, noch nicht an das DOM angehängt, in der Tat existieren sie noch nicht einmal.
 
-Wie können Sie also wissen, wann die Komponente bereits erstellt und im DOM montiert wurde? Die Antwort ist, dass jede Komponente einen Lebenszyklus hat, der beginnt, wenn sie erstellt werdenund endet, wenn sie zerstört wird. Es gibt einige Funktionen, die es Ihnen ermöglichen, Code zu bestimmten Schlüsselmomenten während dieses Lebenszyklus zu laufen.
+Wie können Sie also wissen, wann die Komponente erstellt und im DOM montiert worden ist? Die Antwort ist, dass jede Komponente einen Lebenszyklus hat, der beginnt, wenn sie erstellt wird und endet, wenn sie zerstört wird. Es gibt eine Handvoll Funktionen, die es Ihnen ermöglichen, Code zu bestimmten Schlüsselmomenten während dieses Lebenszyklus auszuführen.
 
-Die am häufigsten verwendete Funktion ist `onMount()`, mit der wir einen Callback ausführen können, sobald die Komponente im DOM montiert wurde. Lassen Sie es uns ausprobieren und sehen, was mit der Variable `nameEl` passiert.
+Diejenige, die Sie am häufigsten verwenden werden, ist `onMount()`, die uns erlaubt, einen Rückruf auszuführen, sobald die Komponente im DOM montiert wurde. Lassen Sie es uns ausprobieren und sehen, was mit der `nameEl`-Variable passiert.
 
-1. Fügen Sie zu Beginn des `<script>`-Abschnitts von `NewTodo.svelte` folgende Zeile hinzu:
+1. Zuerst fügen Sie die folgende Linie am Anfang des `<script>`-Abschnitts von `NewTodo.svelte` hinzu:
 
    ```js
    import { onMount } from "svelte";
@@ -453,7 +453,7 @@ Die am häufigsten verwendete Funktion ist `onMount()`, mit der wir einen Callba
    });
    ```
 
-3. Entfernen Sie jetzt die Zeile `if (autofocus) nameEl.focus()`, um den Fehler zu vermeiden, den wir zuvor gesehen haben.
+3. Entfernen Sie jetzt die Zeile `if (autofocus) nameEl.focus()`, um den Fehler, den wir zuvor gesehen haben, zu vermeiden.
 4. Die App wird jetzt wieder funktionieren, und Sie werden das folgende in Ihrer Konsole sehen:
 
    ```plain
@@ -461,22 +461,22 @@ Die am häufigsten verwendete Funktion ist `onMount()`, mit der wir einen Callba
    mounted: <input id="todo-0" class="input input__lg" type="text" autocomplete="off">
    ```
 
-   Wie Sie sehen können, ist `nameEl` während der Initialisierung der Komponente undefiniert, was Sinn macht, da der `<input>`-Knoten noch nicht existiert. Sobald die Komponente montiert ist, weist Svelte die Referenz auf den `<input>`-DOM-Knoten der Variablen `nameEl` zu, dank der Direktive `bind:this={nameEl}`.
+   Wie Sie sehen können, während die Komponente initialisiert wird, ist `nameEl` undefiniert, was Sinn macht, da der `<input>`-Knoten noch nicht existiert. Nachdem die Komponente montiert wurde, hat Svelte eine Referenz auf den `<input>`-DOM-Knoten zu der `nameEl`-Variable zugewiesen, dank der `bind:this={nameEl} Direktive.
 
-5. Um die Autofokus-Funktionalität zum Laufen zu bringen, ersetzen Sie den vorherigen `console.log()`/`onMount()`-Block, den Sie hinzugefügt haben, durch diesen:
+5. Um die Autofokus-Funktionalität zum Laufen zu bringen, ersetzen Sie den vorherigen `console.log()`/`onMount()`-Block, den Sie hinzugefügt haben, mit diesem:
 
    ```js
    onMount(() => autofocus && nameEl.focus()); // if autofocus is true, we run nameEl.focus()
    ```
 
-6. Gehen Sie wieder in Ihre App, und Sie werden sehen, dass das `<input>`-Feld jetzt beim Laden der Seite fokussiert wird.
+6. Gehen Sie erneut zu Ihrer App, und Sie werden jetzt sehen, dass das `<input>`-Feld beim Laden der Seite fokussiert wird.
 
 > [!NOTE]
-> Sie können sich die anderen [Lebenszyklusfunktionen in den Svelte-Dokumenten](https://svelte.dev/docs/svelte) ansehen, und Sie können sie in Aktion im [interaktiven Tutorial](https://learn.svelte.dev/tutorial/onmount) sehen.
+> Sie können die anderen [Lebenszyklusfunktionen in der Svelte-Dokumentation](https://svelte.dev/docs/svelte) ansehen, und Sie können sie in Aktion im [interaktiven Tutorial](https://learn.svelte.dev/tutorial/onmount) sehen.
 
 ## Warten auf die Aktualisierung des DOM mit der `tick()`-Funktion
 
-Jetzt werden wir uns um die Fokusmanagement-Details der `Todo`-Komponente kümmern. Zuerst möchten wir, dass das Bearbeitungs-`<input>` einer `Todo`-Komponente den Fokus erhält, wenn wir in den Bearbeitungsmodus durch Drücken der _Edit_-Schaltfläche gelangen. In gleicher Weise wie wir es zuvor gesehen haben, erstellen wir eine `nameEl`-Variable innerhalb von `Todo.svelte` und rufen `nameEl.focus()` auf, nachdem wir die `editing`-Variable auf `true` gesetzt haben.
+Jetzt werden wir uns um die Fokussierungsdetails der `Todo`-Komponente kümmern. Zunächst einmal möchten wir, dass ein `Todo`-Komponenteneingabefeld den Fokus erhält, wenn wir den Bearbeitungsmodus betreten, indem wir auf seine _Bearbeiten_-Schaltfläche drücken. Ähnlich wie wir es bereits gesehen haben, erstellen wir eine `nameEl`-Variable innerhalb `Todo.svelte` und rufen `nameEl.focus()` auf, nachdem wir die `editing`-Variable auf `true` gesetzt haben.
 
 1. Öffnen Sie die Datei `components/Todo.svelte` und fügen Sie eine `nameEl`-Variablendeklaration direkt unter Ihren Bearbeitungs- und Namensdeklarationen hinzu:
 
@@ -484,7 +484,7 @@ Jetzt werden wir uns um die Fokusmanagement-Details der `Todo`-Komponente kümme
    let nameEl; // reference to the name input DOM node
    ```
 
-2. Aktualisieren Sie jetzt Ihre `onEdit()`-Funktion wie folgt:
+2. Aktualisieren Sie jetzt Ihre `onEdit()`-Funktion folgendermaßen:
 
    ```js
    function onEdit() {
@@ -505,15 +505,15 @@ Jetzt werden wir uns um die Fokusmanagement-Details der `Todo`-Komponente kümme
      class="todo-text" />
    ```
 
-4. Wenn Sie jedoch die aktualisierte App ausprobieren, erhalten Sie einen Fehler in der Konsole, der etwa "TypeError: nameEl is undefined" lautet, wenn Sie die _Edit_-Schaltfläche eines To-dos drücken.
+4. Wenn Sie aber die aktualisierte App ausprobieren, erhalten Sie einen Fehler der Art "TypeError: nameEl ist undefined" in der Konsole, wenn Sie eine To-do's _Bearbeiten_-Schaltfläche drücken.
 
-Also, was passiert hier? Beim Aktualisieren des Status einer Komponente in Svelte aktualisiert es das DOM nicht sofort. Stattdessen wartet es bis zur nächsten Mikroaufgabe, um zu sehen, ob es noch andere Änderungen gibt, die angewendet werden müssen, auch in anderen Komponenten. Dadurch wird unnötige Arbeit vermieden und der Browser kann Dinge effektiver bündeln.
+Also, was passiert hier? Wenn Sie den Zustand einer Komponente in Svelte aktualisieren, wird das DOM nicht sofort aktualisiert. Stattdessen wartet es bis zur nächsten Mikroaufgabe, um zu sehen, ob es noch andere Änderungen gibt, die angewendet werden müssen, einschließlich in anderen Komponenten. Dadurch wird unnötige Arbeit vermieden und dem Browser ermöglicht, Dinge effektiver zusammenzufassen.
 
-In diesem Fall, wenn `editing` `false` ist, ist das Bearbeitungs-`<input>` nicht sichtbar, weil es nicht im DOM existiert. Innerhalb der `onEdit()`-Funktion setzen wir `editing = true` und versuchen unmittelbar danach, auf die Variable `nameEl` zuzugreifen und `nameEl.focus()` auszuführen. Das Problem hier ist, dass Svelte das DOM noch nicht aktualisiert hat.
+In diesem Fall, wenn `editing` `false` ist, ist das Editier-`<input>` nicht sichtbar, da es im DOM nicht existiert. Innerhalb der `onEdit()`-Funktion setzen wir `editing = true` und versuchen sofort danach, auf die `nameEl`-Variable zuzugreifen und `nameEl.focus()` auszuführen. Das Problem hier ist, dass Svelte das DOM noch nicht aktualisiert hat.
 
-Eine Möglichkeit, dieses Problem zu lösen, besteht darin, [`setTimeout()`](/de/docs/Web/API/Window/setTimeout) zu verwenden, um den Aufruf von `nameEl.focus()` bis zur nächsten Ereignisschleife zu verzögern und Svelte die Möglichkeit zu geben, das DOM zu aktualisieren.
+Ein Weg, dieses Problem zu lösen, ist die Verwendung von [`setTimeout()`](/de/docs/Web/API/Window/setTimeout), um den Aufruf von `nameEl.focus()` bis zum nächsten Ereigniszyklus zu verzögern und Svelte die Gelegenheit zu geben, das DOM zu aktualisieren.
 
-Versuchen Sie das jetzt:
+Versuchen Sie dies jetzt:
 
 ```js
 function onEdit() {
@@ -522,15 +522,15 @@ function onEdit() {
 }
 ```
 
-Die obige Lösung funktioniert, aber sie ist eher unelegant. Svelte bietet eine bessere Möglichkeit, mit diesen Fällen umzugehen. Die [`tick()`-Funktion](https://learn.svelte.dev/tutorial/tick) gibt ein Versprechen zurück, das aufgelöst wird, sobald alle ausstehenden Statusänderungen am DOM angewendet wurden (oder sofort, wenn keine ausstehenden Statusänderungen vorliegen). Lassen Sie es uns jetzt ausprobieren.
+Die obige Lösung funktioniert, aber sie ist eher unelegant. Svelte bietet einen besseren Weg, um mit diesen Fällen umzugehen. Die [`tick()`-Funktion](https://learn.svelte.dev/tutorial/tick) gibt ein Versprechen zurück, das aufgelöst wird, sobald alle ausstehenden Statusänderungen am DOM angewendet wurden (oder sofort, wenn keine ausstehenden Statusänderungen vorliegen). Lassen Sie uns es jetzt ausprobieren.
 
-1. Importieren Sie zunächst `tick` am Anfang des `<script>`-Abschnitts neben Ihrem bestehenden Import:
+1. Zuerst importieren Sie `tick` an der Spitze des `<script>`-Abschnitts zusammen mit Ihrem vorhandenen Import:
 
    ```js
    import { tick } from "svelte";
    ```
 
-2. Als Nächstes rufen Sie `tick()` mit [`await`](/de/docs/Web/JavaScript/Reference/Operators/await) aus einer [asynchronen Funktion](/de/docs/Web/JavaScript/Reference/Statements/async_function) auf; aktualisieren Sie `onEdit()` so:
+2. Als nächstes rufen Sie `tick()` mit [`await`](/de/docs/Web/JavaScript/Reference/Operators/await) aus einer [async Funktion](/de/docs/Web/JavaScript/Reference/Statements/async_function); aktualisieren Sie `onEdit()` wie folgt:
 
    ```js
    async function onEdit() {
@@ -547,26 +547,26 @@ Die obige Lösung funktioniert, aber sie ist eher unelegant. Svelte bietet eine 
 
 ## Hinzufügen von Funktionalität zu HTML-Elementen mit der `use:action`-Direktive
 
-Als nächstes möchten wir, dass das Namens-`<input>` beim Fokussieren automatisch den gesamten Text auswählt. Darüber hinaus möchten wir dies auf eine Weise entwickeln, die es ermöglicht, dass es leicht auf jedes HTML-`<input>` wiederverwendet wird und auf eine deklarative Weise angewendet wird. Wir werden diese Anforderung als Entschuldigung nutzen, um eine sehr leistungsstarke Funktion zu zeigen, die Svelte uns bietet, um Funktionalität zu normalen HTML-Elementen hinzuzufügen: [Aktionen](https://svelte.dev/docs/svelte-action).
+Als nächstes möchten wir, dass das Name-`<input>` automatisch den gesamten Text bei Fokus auswählt. Darüber hinaus möchten wir dies so entwickeln, dass es leicht auf jedes HTML-`<input>` erneut verwendet und auf eine deklarative Weise angewendet werden kann. Wir werden diese Anforderung als Ausrede nutzen, um ein sehr leistungsfähiges Feature zu zeigen, das Svelte uns bietet, um Funktionalität zu regulären HTML-Elementen hinzuzufügen: [Aktionen](https://svelte.dev/docs/svelte-action).
 
-Um den Text eines DOM-Eingabeknotens auszuwählen, müssen wir [`select()`](/de/docs/Web/API/HTMLInputElement/select) aufrufen. Um diese Funktion aufzurufen, wann immer der Knoten fokussiert wird, brauchen wir einen Ereignis-Listener in etwa so:
+Um den Text eines DOM-Eingabeknotens auszuwählen, müssen wir [`select()`](/de/docs/Web/API/HTMLInputElement/select) aufrufen. Um diese Funktion jedes Mal aufzurufen, wenn der Knoten fokussiert wird, benötigen wir einen Ereignis-Listener, der in etwa so aussieht:
 
 ```js
 node.addEventListener("focus", (event) => node.select());
 ```
 
-Und um Speicherlecks zu vermeiden, sollten wir auch die Funktion [`removeEventListener()`](/de/docs/Web/API/EventTarget/removeEventListener) aufrufen, wenn der Knoten entfernt wird.
+Und um Speicherlecks zu vermeiden, sollten wir auch die Funktion [`removeEventListener()`](/de/docs/Web/API/EventTarget/removeEventListener) aufrufen, wenn der Knoten zerstört wird.
 
 > [!NOTE]
-> Dies alles ist nur standardmäßige WebAPI-Funktionalität; nichts hier ist spezifisch für Svelte.
+> All dies ist nur Standard-Web-API-Funktionalität; nichts hier ist spezifisch für Svelte.
 
-Wir könnten all dies in unserer `Todo`-Komponente erreichen, wann immer wir das `<input>` zum DOM hinzufügen oder daraus entfernen, aber wir müssten sehr sorgfältig vorgehen, um den Ereignis-Listener hinzuzufügen, nachdem der Knoten dem DOM hinzugefügt wurde, und den Listener zu entfernen, bevor der Knoten aus dem DOM entfernt wird. Darüber hinaus wäre unsere Lösung nicht sehr wiederverwendbar.
+Wir könnten dies alles in unserer `Todo`-Komponente erreichen, wenn wir das `<input>` zum DOM hinzufügen oder entfernen, aber wir müssten sehr darauf achten, den Ereignis-Listener hinzuzufügen, nachdem der Knoten dem DOM hinzugefügt wurde, und den Listener zu entfernen, bevor der Knoten entfernt wird. Darüber hinaus wäre unsere Lösung nicht sehr wiederverwendbar.
 
-Hier kommen Svelte-Aktionen ins Spiel. Im Grunde lassen sie uns eine Funktion ausführen, wann immer ein Element dem DOM hinzugefügt und danach wieder entfernt wird.
+Hier kommen Svelte-Aktionen ins Spiel. Grundsätzlich ermöglichen sie es uns, eine Funktion auszuführen, wann immer ein Element dem DOM hinzugefügt und wenn es vom DOM entfernt wird.
 
-In unserem unmittelbaren Anwendungsfall werden wir eine Funktion namens `selectOnFocus()` definieren, die einen Knoten als Parameter erhält. Die Funktion wird einen Ereignis-Listener zu diesem Knoten hinzufügen, sodass der Text jedes Mal, wenn der Knoten fokussiert wird, ausgewählt wird. Dann wird sie ein Objekt mit einer `destroy`-Eigenschaft zurückgeben. Die `destroy`-Eigenschaft ist das, was Svelte nach Entfernen des Knotens aus dem DOM ausführen wird. Hier werden wir den Listener entfernen, um sicherzustellen, dass wir kein Speicherleck hinterlassen.
+In unserem sofortigen Anwendungsfall definieren wir eine Funktion namens `selectOnFocus()`, die einen Knoten als Parameter empfängt. Die Funktion fügt diesem Knoten einen Ereignis-Listener hinzu, sodass der Text jedes Mal ausgewählt wird, wenn er fokussiert wird. Dann gibt sie ein Objekt mit einer `destroy`-Eigenschaft zurück. Die `destroy`-Eigenschaft ist das, was Svelte ausführen wird, nachdem der Knoten aus dem DOM entfernt wurde. Hier entfernen wir den Listener, um sicherzustellen, dass wir kein Speicherleck hinterlassen.
 
-1. Erstellen wir die Funktion `selectOnFocus()`. Fügen Sie das Folgende am Ende des `<script>`-Abschnitts von `Todo.svelte` hinzu:
+1. Erstellen wir die Funktion `selectOnFocus()`. Fügen Sie das Folgende am unteren Ende des `<script>`-Abschnitts von `Todo.svelte` hinzu:
 
    ```js
    function selectOnFocus(node) {
@@ -581,15 +581,15 @@ In unserem unmittelbaren Anwendungsfall werden wir eine Funktion namens `selectO
    }
    ```
 
-2. Jetzt müssen wir dem `<input>` sagen, dass es diese Funktion mit der [`use:action`](https://svelte.dev/docs/element-directives#use-action)-Direktive nutzen soll:
+2. Nun müssen wir dem `<input>` sagen, dass diese Funktion mit der [`use:action`](https://svelte.dev/docs/element-directives#use-action)-Direktive verwendet werden soll:
 
    ```svelte
    <input use:selectOnFocus />
    ```
 
-   Mit dieser Direktive sagen wir Svelte, diese Funktion auszuführen, wobei der DOM-Knoten des `<input>` als Parameter übergeben wird, sobald die Komponente im DOM montiert ist. Es wird auch für die Ausführung der `destroy`-Funktion verantwortlich sein, wenn die Komponente aus dem DOM entfernt wird. Mit der `use`-Direktive kümmert sich Svelte also um den Lebenszyklus der Komponente für uns.
+   Mit dieser Direktive sagen wir Svelte, diese Funktion auszuführen, den DOM-Knoten des `<input>` als Parameter zu übergeben, sobald die Komponente im DOM montiert ist. Es ist auch dafür verantwortlich, die `destroy`-Funktion auszuführen, wenn die Komponente aus dem DOM entfernt wird. Mit der `use`-Direktive kümmert sich Svelte um den Lebenszyklus der Komponente für uns.
 
-   In unserem Fall würde unser `<input>` am Ende folgendermaßen aussehen: Aktualisieren Sie das erste Label/Input-Paar in der Komponente (innerhalb der Bearbeitungsvorlage) wie folgt:
+   In unserem Fall würde unser `<input>` folgendermaßen aussehen: Aktualisieren Sie das erste Etikett/Eingabefeldpaar der Komponente (innerhalb des Bearbeitungstemplates) folgendermaßen:
 
    ```svelte
    <label for="todo-{todo.id}" class="todo-label">New name for '{todo.name}'</label>
@@ -603,14 +603,14 @@ In unserem unmittelbaren Anwendungsfall werden wir eine Funktion namens `selectO
      class="todo-text" />
    ```
 
-3. Probieren Sie es aus. Gehen Sie zu Ihrer App, drücken Sie die _Edit_-Schaltfläche eines To-dos und dann <kbd>Tab</kbd>, um den Fokus vom `<input>` zu entfernen. Klicken Sie jetzt auf das `<input>`, und Sie werden sehen, dass der gesamte Eingabetext ausgewählt wird.
+3. Versuchen Sie es aus. Gehen Sie zu Ihrer App, klicken Sie auf die _Bearbeiten_-Schaltfläche eines To-dos, dann drücken Sie <kbd>Tab</kbd>, um den Fokus vom `<input>` zu entfernen. Klicken Sie jetzt auf das `<input>`, und Sie werden sehen, dass der gesamte Eingabetext ausgewählt ist.
 
 ### Die Aktion wiederverwendbar machen
 
-Lassen Sie uns nun diese Funktion wirklich wiederverwendbar über mehrere Komponenten hinweg machen. `selectOnFocus()` ist einfach eine Funktion ohne Abhängigkeit von der `Todo.svelte`-Komponente, deshalb können wir sie einfach in eine Datei extrahieren und von dort aus verwenden.
+Lassen Sie uns diese Funktion jetzt wirklich wiederverwendbar machen über mehrere Komponenten hinweg. `selectOnFocus()` ist einfach eine Funktion ohne jegliche Abhängigkeit von der `Todo.svelte`-Komponente, sodass wir sie einfach in eine Datei auslagern und von dort verwenden können.
 
-1. Erstellen Sie eine neue Datei `actions.js` im `src`-Ordner.
-2. Geben Sie ihr den folgenden Inhalt:
+1. Erstellen Sie eine neue Datei, `actions.js`, im `src`-Ordner.
+2. Geben Sie ihm den folgenden Inhalt:
 
    ```js
    export function selectOnFocus(node) {
@@ -625,25 +625,25 @@ Lassen Sie uns nun diese Funktion wirklich wiederverwendbar über mehrere Kompon
    }
    ```
 
-3. Importieren Sie es nun von innerhalb `Todo.svelte`; fügen Sie die folgende Importanweisung direkt unter den anderen hinzu:
+3. Importieren Sie es jetzt innerhalb `Todo.svelte`; fügen Sie die folgende Import-Anweisung direkt unter den anderen hinzu:
 
    ```js
    import { selectOnFocus } from "../actions.js";
    ```
 
-4. Und entfernen Sie die Definition von `selectOnFocus()` aus `Todo.svelte`, da wir sie dort nicht mehr benötigen.
+4. Und entfernen Sie die `selectOnFocus()`-Definition aus `Todo.svelte`, da wir sie dort nicht mehr benötigen.
 
 ### Unsere Aktion wiederverwenden
 
-Um die Wiederverwendbarkeit unserer Aktion zu demonstrieren, lassen Sie uns sie in `NewTodo.svelte` verwenden.
+Um die Wiederverwendbarkeit unserer Aktion zu demonstrieren, nutzen wir sie in `NewTodo.svelte`.
 
-1. Importieren Sie `selectOnFocus()` von `actions.js` auch in dieser Datei, wie zuvor:
+1. Importieren Sie `selectOnFocus()` auch in dieser Datei aus `actions.js`, wie zuvor:
 
    ```js
    import { selectOnFocus } from "../actions.js";
    ```
 
-2. Fügen Sie die `use:selectOnFocus`-Direktive dem `<input>` hinzu, so:
+2. Fügen Sie die `use:selectOnFocus`-Direktive zum `<input>` hinzu, wie folgt:
 
    ```svelte
    <input
@@ -656,15 +656,15 @@ Um die Wiederverwendbarkeit unserer Aktion zu demonstrieren, lassen Sie uns sie 
      class="input input__lg" />
    ```
 
-Mit nur wenigen Zeilen Code können wir Funktionalität auf reguläre HTML-Elemente auf eine sehr wiederverwendbare und deklarative Weise hinzufügen. Es erfordert nur einen `import` und eine kurze Direktive wie `use:selectOnFocus`, die ihren Zweck klar beschreibt. Und wir können dies ohne die Notwendigkeit erreichen, ein benutzerdefiniertes Wrapper-Element wie `TextInput`, `MyInput` oder ähnliches zu erstellen. Darüber hinaus können Sie einem Element beliebig viele `use:action`-Direktiven hinzufügen.
+Mit nur wenigen Zeilen Code können wir Funktionalität zu regulären HTML-Elementen in einer sehr wiederverwendbaren und deklarativen Weise hinzufügen. Es erfordert nur einen `import` und eine kurze Direktive wie `use:selectOnFocus`, die ihr Ziel eindeutig beschreibt. Und wir können dies erreichen, ohne ein benutzerdefiniertes Wrapper-Element wie `TextInput`, `MyInput` oder ähnliches zu erstellen. Darüber hinaus können Sie einem Element so viele `use:action`-Direktiven hinzufügen, wie Sie möchten.
 
-Ebenso mussten wir uns nicht mit `onMount()`, `onDestroy()` oder `tick()` herumärgern – die `use`-Direktive übernimmt für uns den Lebenszyklus der Komponente.
+Außerdem mussten wir uns nicht mit `onMount()`, `onDestroy()` oder `tick()` beschäftigen — die `use`-Direktive kümmert sich um den Lebenszyklus der Komponente für uns.
 
-### Weitere Verbesserungen von Aktionen
+### Weitere Verbesserungen der Aktionen
 
-Im vorherigen Abschnitt, während der Arbeit mit den `Todo`-Komponenten, mussten wir uns mit `bind:this`, `tick()` und `async`-Funktionen herumschlagen, nur um unser `<input>` sofort zu fokussieren, sobald es zum DOM hinzugefügt wurde.
+Im vorangegangenen Abschnitt, während wir mit den `Todo`-Komponenten arbeiteten, mussten wir mit `bind:this`, `tick()` und `async`-Funktionen arbeiten, nur um dem `<input>` den Fokus zu geben, sobald er dem DOM hinzugefügt wurde.
 
-1. Dies ist, wie wir es stattdessen mit Aktionen implementieren können:
+1. So können wir es stattdessen mit Aktionen implementieren:
 
    ```js
    const focusOnInit = (node) =>
@@ -685,20 +685,20 @@ Im vorherigen Abschnitt, während der Arbeit mit den `Todo`-Komponenten, mussten
    }
    ```
 
-Als letztes Beispiel, bevor wir weitermachen, gehen wir zurück zu unserer `Todo.svelte`-Komponente und geben der _Edit_-Schaltfläche den Fokus, nachdem der Benutzer _Save_ oder _Cancel_ gedrückt hat.
+Als letztes Beispiel, bevor wir weitergehen, gehen wir zurück zu unserer `Todo.svelte`-Komponente und geben der _Bearbeiten_-Schaltfläche den Fokus, nachdem der Benutzer auf _Speichern_ oder _Abbrechen_ geklickt hat.
 
-Wir könnten versuchen, einfach unsere `focusOnInit`-Aktion erneut zu verwenden, indem wir der _Edit_-Schaltfläche `use:focusOnInit` hinzufügen. Aber wir würden einen subtilen Fehler einführen. Wenn Sie ein neues To-do hinzufügen, wird der Fokus auf die _Edit_-Schaltfläche des kürzlich hinzugefügten To-dos gelegt. Das liegt daran, dass die `focusOnInit`-Aktion ausgeführt wird, wenn die Komponente erstellt wird.
+Wir könnten einfach versuchen, unsere `focusOnInit`-Aktion erneut zu verwenden, indem wir `use:focusOnInit` zu _Bearbeiten_-Schaltfläche hinzufügen. Aber wir würden dabei einen subtilen Fehler einführen. Wenn Sie ein neues To-do hinzufügen, wird der Fokus auf die _Bearbeiten_-Schaltfläche des kürzlich hinzugefügten To-dos gelegt. Das ist, weil die `focusOnInit`-Aktion ausgeführt wird, wenn die Komponente erstellt wird.
 
-Das ist nicht das, was wir wollen – wir möchten, dass die _Edit_-Schaltfläche nur dann den Fokus erhält, wenn der Benutzer _Save_ oder _Cancel_ gedrückt hat.
+Das ist nicht das, was wir wollen — wir möchten, dass die _Bearbeiten_-Schaltfläche nur dann den Fokus erhält, wenn der Benutzer auf _Speichern_ oder _Abbrechen_ gedrückt hat.
 
-1. Gehen Sie also zurück in Ihre `Todo.svelte`-Datei.
-2. Zunächst erstellen wir ein Flag namens `editButtonPressed` und initialisieren es mit `false`. Fügen Sie dies direkt unter Ihren anderen Variablendefinitionen hinzu:
+1. Gehen Sie also zu Ihrer `Todo.svelte`-Datei zurück.
+2. Zuerst erstellen wir eine Flagge mit dem Namen `editButtonPressed` und initialisieren sie mit `false`. Fügen Sie dies direkt unter Ihren anderen Variablendeklarationen hinzu:
 
    ```js
    let editButtonPressed = false; // track if edit button has been pressed, to give focus to it after cancel or save
    ```
 
-3. Als Nächstes modifizieren wir die Funktionalität der _Edit_-Schaltfläche, um dieses Flag zu speichern, und erstellen die Aktion dafür. Aktualisieren Sie die `onEdit()`-Funktion so:
+3. Als nächstes werden wir die Funktionalität der _Bearbeiten_-Schaltfläche anpassen, um diese Flagge zu speichern, und die Aktion dafür erstellen. Aktualisieren Sie die `onEdit()`-Funktion, wie folgt:
 
    ```js
    function onEdit() {
@@ -707,13 +707,13 @@ Das ist nicht das, was wir wollen – wir möchten, dass die _Edit_-Schaltfläch
    }
    ```
 
-4. Darunter fügen Sie die folgende Definition für `focusEditButton()` hinzu:
+4. Fügen Sie darunter die folgende Definition für `focusEditButton()` hinzu:
 
    ```js
    const focusEditButton = (node) => editButtonPressed && node.focus();
    ```
 
-5. Schließlich `use`-die `focusEditButton`-Aktion in der _Edit_-Schaltfläche, so:
+5. Schließlich `use` die `focusEditButton`-Aktion auf der _Bearbeiten_-Schaltfläche, wie folgt:
 
    ```svelte
    <button type="button" class="btn" on:click={onEdit} use:focusEditButton>
@@ -721,23 +721,23 @@ Das ist nicht das, was wir wollen – wir möchten, dass die _Edit_-Schaltfläch
    </button>
    ```
 
-6. Gehen Sie zurück und probieren Sie Ihre App erneut aus. An diesem Punkt wird jede Neuangelegte `_Edit_-Schaltfläche, die zum DOM hinzugefügt wird, die`focusEditButton`-Aktion ausgeführt, aber sie wird nur dann den Fokus auf die Schaltfläche legen, wenn das `editButtonPressed`-Flag `true` ist.
+6. Gehen Sie zurück und versuchen Sie Ihre App erneut. Zu diesem Zeitpunkt wird bei jedem Hinzufügen der _Bearbeiten_-Schaltfläche zum DOM die `focusEditButton`-Aktion ausgeführt, sie wird jedoch nur dann den Fokus auf die Schaltfläche legen, wenn die `editButtonPressed`-Flagge `true` ist.
 
 > [!NOTE]
-> Wir haben hier nur an der Oberfläche von Aktionen gekratzt. Aktionen können auch reaktive Parameter haben, und Svelte ermöglicht es uns, zu erkennen, wann sich einer dieser Parameter ändert. So können wir Funktionalität hinzufügen, die sich nahtlos in das reaktive System von Svelte integriert. Für eine ausführlichere Einführung in Aktionen sollten Sie das [Svelte-Interaktive-Tutorial](https://learn.svelte.dev/tutorial/actions) oder die [Svelte-`use:action`-Dokumentation](https://svelte.dev/docs/element-directives#use-action) in Betracht ziehen.
+> Wir haben hier gerade die Oberfläche der Aktionen angekratzt. Aktionen können auch reaktive Parameter haben, und Svelte ermöglicht es uns, zu erkennen, wann einer dieser Parameter geändert wird. So können wir Funktionalität hinzufügen, die sich nahtlos in das Svelte-Reaktivsystem integriert. Für eine detailliertere Einführung in Aktionen, ziehen Sie in Betracht, das [Svelte-Interaktive Tutorial](https://learn.svelte.dev/tutorial/actions) oder die [Svelte `use:action`-Dokumentation](https://svelte.dev/docs/element-directives#use-action) zu lesen.
 
-## Komponentenbindung: Exposing von Komponentenmethoden und -variablen mit der `bind:this={component}`-Direktive
+## Komponentenbindung: Bereitstellen von Komponentenmethoden und Variablen mit der `bind:this={component}`-Direktive
 
-Es bleibt noch eine Barrierefreiheits-Ärgerlichkeit. Wenn der Benutzer die _Delete_-Schaltfläche drückt, verschwindet der Fokus.
+Es gibt immer noch eine ärgerliche Barrierefreiheit, die bleibt. Wenn der Benutzer die _Löschen_-Schaltfläche drückt, verschwindet der Fokus.
 
-Das letzte Feature, das wir in diesem Artikel betrachten werden, besteht darin, den Fokus nach dem Löschen eines To-dos auf die Statusüberschrift zu setzen.
+Die letzte Funktion, die wir in diesem Artikel betrachten werden, beinhaltet das Setzen des Fokus auf die Statusüberschrift, nachdem ein To-do gelöscht wurde.
 
-Warum die Statusüberschrift? In diesem Fall ist das Element, das den Fokus hatte, gelöscht worden, sodass es keinen klaren Kandidaten für den Empfang des Fokus gibt. Wir haben uns für die Statusüberschrift entschieden, weil sie in der Nähe der Liste der To-dos liegt und sie visuelles Feedback über die Entfernung der Aufgabe gibt, sowie für Bildschirmleser angibt, was passiert ist.
+Warum die Statusüberschrift? In diesem Fall wurde das Element, das den Fokus hatte, gelöscht, sodass es keinen klaren Kandidaten gibt, der den Fokus erhalten kann. Wir haben die Statusüberschrift ausgewählt, weil sie in der Nähe der Liste der To-dos liegt und es eine Möglichkeit ist, visuelles Feedback über die Entfernung der Aufgabe zu geben sowie Benutzern von Bildschirmlesern anzuzeigen, was passiert ist.
 
 Zuerst extrahieren wir die Statusüberschrift in ihre eigene Komponente.
 
-1. Erstellen Sie eine neue Datei `components/TodosStatus.svelte`.
-2. Fügen Sie ihr die folgenden Inhalte hinzu:
+1. Erstellen Sie eine neue Datei, `components/TodosStatus.svelte`.
+2. Fügen Sie die folgenden Inhalte hinzu:
 
    ```svelte
    <script>
@@ -758,27 +758,27 @@ Zuerst extrahieren wir die Statusüberschrift in ihre eigene Komponente.
    import TodosStatus from "./TodosStatus.svelte";
    ```
 
-4. Ersetzen Sie die `<h2>`-Statusüberschrift in `Todos.svelte` durch einen Aufruf der `TodosStatus`-Komponente und übergeben Sie `todos` als Prop, so:
+4. Ersetzen Sie die `<h2>`-Statusüberschrift innerhalb `Todos.svelte` mit einem Aufruf zur `TodosStatus`-Komponente, und übergeben Sie `todos` als Prop, wie folgt:
 
    ```svelte
    <TodosStatus {todos} />
    ```
 
-5. Sie können auch etwas aufräumen, indem Sie die Variablen `totalTodos` und `completedTodos` aus `Todos.svelte`entfernen. Lassen Sie einfach die Zeilen `$: totalTodos = …` und `$: completedTodos = …` weg, und entfernen Sie auch die Referenz zu `totalTodos`, wenn wir `newTodoId` berechnen, und verwenden Sie stattdessen `todos.length`. Um dies zu tun, ersetzen Sie den Block, der mit `let newTodoId` beginnt, durch diesen:
+5. Sie können auch ein wenig aufräumen, indem Sie die `totalTodos` und `completedTodos`-Variablen aus `Todos.svelte` entfernen. Entfernen Sie einfach die `$: totalTodos = …` und die `$: completedTodos = …`-Zeilen und entfernen Sie auch die Referenz zu `totalTodos`, wenn wir `newTodoId` berechnen und `todos.length` stattdessen verwenden. Um dies zu tun, ersetzen Sie den Block, der mit `let newTodoId` beginnt, mit diesem:
 
    ```js
    $: newTodoId = todos.length ? Math.max(...todos.map((t) => t.id)) + 1 : 1;
    ```
 
-6. Alles funktioniert wie erwartet - wir haben nur das letzte Stück Markup in seine eigene Komponente extrahiert.
+6. Alles funktioniert wie erwartet — wir haben gerade das letzte Stück Markup in eine eigene Komponente extrahiert.
 
-Jetzt müssen wir einen Weg finden, der `<h2>`-Statusüberschrift den Fokus zu geben, nachdem ein To-do entfernt wurde.
+Jetzt müssen wir einen Weg finden, dem `<h2>` Statuslabel den Fokus zu geben, nachdem ein To-do entfernt wurde.
 
-Soweit haben wir gesehen, wie man Informationen an eine Komponente über Props sendet, und wie eine Komponente mit ihrem Elternteil durch Ereignisse oder bidirektionale Datenbindung kommunizieren kann. Die untergeordnete Komponente könnte mit der Verwendung von `bind:this={dom_node}` eine Referenz auf den `<h2>`-Knoten erhalten und sie an das Äußere durch bidirektionale Datenbindung weitergeben. Aber damit würden wir die Kapselung der Komponente durchbrechen; das Setzen des Fokus sollte ihre eigene Verantwortung sein.
+Bisher haben wir gesehen, wie man Informationen an eine Komponente über Prop übergibt und wie eine Komponente mit ihrem Elternteil über Ereignisse oder bidirektionale Datenbindung kommunizieren kann. Das Kindkomponente könnte eine Referenz auf den `<h2>`-Knoten `using bind:this={dom_node}` erhalten und ihn nach außen über bidirektionale Datenbindung bereitstellen. Wenn wir dies tun würden, würde dies jedoch die Komponentenkapselung verletzen; das Setzen des Fokus darauf sollte seine eigene Verantwortung sein.
 
-Also brauchen wir, dass die `TodosStatus`-Komponente eine Methode zur Verfügung stellt, die ihr Elternteil aufrufen kann, um den Fokus darauf zu setzen. Ein sehr häufiges Szenario ist, dass eine Komponente ein Verhalten oder Informationen an den Verbraucher offen legen muss; lassen Sie uns sehen, wie man dies mit Svelte erreichen kann.
+Also müssen wir die `TodosStatus`-Komponente eine Methode bereitstellen lassen, die ihr Elternteil aufrufen kann, um ihr den Fokus zu geben. Es ist ein sehr häufiges Szenario, dass eine Komponente einige Verhalten oder Informationen an ihren Verbraucher bereitstellen muss; lassen Sie uns sehen, wie dies mit Svelte erreicht wird.
 
-Wir haben bereits gesehen, dass Svelte `export let varname = …` verwendet, um [Props zu deklarieren](https://svelte.dev/docs/svelte-components#script-1-export-creates-a-component-prop). Aber wenn Sie anstelle von `let` eine `const`, `class` oder `function` exportieren, ist es von außen schreibgeschützt. Funktionsausdrücke sind jedoch gültige Props. Im folgenden Beispiel sind die ersten drei Deklarationen Props, und der Rest sind exportierte Werte:
+Wir haben bereits gesehen, dass Svelte `export let varname = …` verwendet, um [Props zu deklarieren](https://svelte.dev/docs/svelte-components#script-1-export-creates-a-component-prop). Aber anstatt `let` zu verwenden, können Sie eine `const`, `class` oder `function` exportieren, die von außerhalb der Komponente schreibgeschützt ist. Funktionsausdrücke sind jedoch gültige Props. Im folgenden Beispiel sind die ersten drei Deklarationen Props und der Rest sind exportierte Werte:
 
 ```svelte
 <script>
@@ -798,9 +798,9 @@ Wir haben bereits gesehen, dass Svelte `export let varname = …` verwendet, um 
 </script>
 ```
 
-Mit diesem Wissen, zurück zu unserem Anwendungsfall. Wir erstellen eine Funktion namens `focus()`, die der `<h2>`-Überschrift den Fokus gibt. Dafür benötigen wir eine `headingEl`-Variable zur Speicherung der Referenz auf den DOM-Knoten und werden sie mit `bind:this={headingEl}` an das `<h2>`-Element binden. Unsere Fokusmethode wird einfach `headingEl.focus()` ausführen.
+Mit diesem Wissen kehren wir zu unserem Anwendungsfall zurück. Wir erstellen eine Funktion namens `focus()`, die den Fokus auf die `<h2>`-Überschrift gibt. Dafür benötigen wir eine `headingEl`-Variable, um die Referenz auf den DOM-Knoten zu halten, und wir müssen sie mit `bind:this={headingEl}` an das `<h2>`-Element binden. Unsere Fokusmethode wird einfach `headingEl.focus()` ausführen.
 
-1. Aktualisieren Sie die Inhalte von `TodosStatus.svelte` so:
+1. Aktualisieren Sie die Inhalte von `TodosStatus.svelte` wie folgt:
 
    ```svelte
    <script>
@@ -822,26 +822,26 @@ Mit diesem Wissen, zurück zu unserem Anwendungsfall. Wir erstellen eine Funktio
    </h2>
    ```
 
-   Beachten Sie, dass wir ein `tabindex`-Attribut an das `<h2>` hinzugefügt haben, um dem Element zu erlauben, den Fokus programmatisch zu erhalten.
+   Beachten Sie, dass wir einem `<h2>` ein Attribut `tabindex` hinzugefügt haben, um dem Element zu ermöglichen, den Fokus programmgesteuert zu erhalten.
 
-   Wie bereits gesehen, gibt uns die Verwendung der `bind:this={headingEl}`-Direktive eine Referenz auf den DOM-Knoten in der Variable `headingEl`. Dann verwenden wir `export function focus()`, um eine Funktion bereitzustellen, die der `<h2>`-Überschrift den Fokus gibt.
+   Wie wir bereits gesehen haben, gibt uns das Verwenden der `bind:this={headingEl}`-Direktive eine Referenz auf den DOM-Knoten in der Variable `headingEl`. Dann verwenden wir `export function focus()`, um eine Funktion bereitzustellen, die der `<h2>`-Überschrift den Fokus gibt.
 
-   Wie können wir auf diese exportierten Werte vom Elternteil aus zugreifen? Genauso wie Sie DOM-Elemente mit der `bind:this={dom_node}`-Direktive binden können, können Sie auch Component-Instanzen selbst mit `bind:this={component}` binden. Wenn Sie `bind:this` auf einem HTML-Element verwenden, erhalten Sie eine Referenz auf den DOM-Knoten, und wenn Sie es auf einer Svelte-Komponente anwenden, erhalten Sie eine Referenz auf die Instanz dieser Komponente.
+   Wie können wir auf diese exportierten Werte von der Elternkomponente aus zugreifen? So wie Sie sich mit der `bind:this={dom_node}`-Direktive auf DOM-Elemente binden können, können Sie sich auch mit `bind:this={component}` auf Komponenteninstanzen binden. Wenn Sie `bind:this` auf einem HTML-Element verwenden, erhalten Sie eine Referenz auf den DOM-Knoten, und wenn Sie es auf einer Svelte-Komponente tun, erhalten Sie eine Referenz auf die Instanz dieser Komponente.
 
-2. Um also die Instanz von `TodosStatus` zu binden, erstellen wir zuerst eine `todosStatus`-Variable in `Todos.svelte`. Fügen Sie die folgende Zeile unter Ihren `import`-Anweisungen hinzu:
+2. Um sich also auf die Instanz von `TodosStatus` zu binden, erstellen wir zunächst eine `todosStatus`-Variable in `Todos.svelte`. Fügen Sie die folgende Zeile unter Ihren `import`-Anweisungen hinzu:
 
    ```js
    let todosStatus; // reference to TodosStatus instance
    ```
 
-3. Fügen Sie als Nächstes eine `bind:this={todosStatus}`-Direktive hinzu, wie folgt:
+3. Als nächstes fügen Sie eine `bind:this={todosStatus}`-Direktive zum Aufruf hinzu, wie folgt:
 
    ```svelte
    <!-- TodosStatus -->
    <TodosStatus bind:this={todosStatus} {todos} />
    ```
 
-4. Jetzt können wir die exportierte `focus()`-Methode aus unserer `removeTodo()`-Funktion aufrufen:
+4. Jetzt können wir die `exportierte focus()`-Methode aus unserer `removeTodo()`-Funktion aufrufen:
 
    ```js
    function removeTodo(todo) {
@@ -850,22 +850,22 @@ Mit diesem Wissen, zurück zu unserem Anwendungsfall. Wir erstellen eine Funktio
    }
    ```
 
-5. Gehen Sie zurück in Ihre App. Wenn Sie jetzt ein beliebiges To-do löschen, wird die Statusüberschrift fokussiert. Dies ist nützlich, um die Änderung der Anzahl von To-dos sowohl den sehenden Benutzern als auch den Benutzern von Bildschirmlesern hervorzuheben.
+5. Gehen Sie zurück zu Ihrer App. Jetzt wird, wenn Sie ein To-do löschen, die Statusüberschrift fokussiert. Dies ist nützlich, um die Änderung der Anzahl der To-dos sowohl sichtbaren Benutzern als auch Benutzern von Bildschirmlesern hervorzuheben.
 
 > [!NOTE]
-> Vielleicht fragen Sie sich, warum wir eine neue Variable für die Komponentenbindung deklarieren müssen. Warum können wir nicht einfach `TodosStatus.focus()` aufrufen? Sie könnten über mehrere aktive `TodosStatus`-Instanzen verfügen, daher benötigen Sie eine Möglichkeit, auf jede spezifische Instanz zu verweisen. Deshalb müssen Sie eine Variable angeben, um jede spezifische Instanz zu binden.
+> Sie fragen sich vielleicht, warum wir eine neue Variable für die Komponentenbindung deklarieren müssen. Warum können wir `TodosStatus.focus()` nicht einfach aufrufen? Möglicherweise haben Sie mehrere `TodosStatus`-Instanzen aktiv, sodass Sie einen Weg benötigen, um jede bestimmte Instanz zu referenzieren. Deshalb müssen Sie eine Variable angeben, um jede spezifische Instanz zu binden.
 
-## Der Code bisher
+## Der bisherige Code
 
 ### Git
 
-Um den Zustand des Codes zum Ende dieses Artikels zu sehen, greifen Sie auf Ihre Kopie unseres Repos wie folgt zu:
+Um den Status des Codes am Ende dieses Artikels zu sehen, greifen Sie wie folgt auf Ihre Kopie unseres Repos zu:
 
 ```bash
 cd mdn-svelte-tutorial/06-stores
 ```
 
-Oder laden Sie direkt den Inhalt des Ordners herunter:
+Oder laden Sie den Ordnerinhalt direkt herunter:
 
 ```bash
 npx degit opensas/mdn-svelte-tutorial/06-stores
@@ -875,23 +875,23 @@ Denken Sie daran, `npm install && npm run dev` auszuführen, um Ihre App im Entw
 
 ### REPL
 
-Um den aktuellen Codezustand in einem REPL zu sehen, besuchen Sie:
+Um den aktuellen Stand des Codes in einem REPL zu sehen, besuchen Sie:
 
 <https://svelte.dev/repl/d1fa84a5a4494366b179c87395940039?version=3.23.2>
 
 ## Zusammenfassung
 
-In diesem Artikel haben wir alle erforderlichen Funktionalitäten unserer App abgeschlossen und einige Barrierefreiheits- und Benutzbarkeitsprobleme gelöst. Wir haben auch unsere App in handliche Komponenten aufgeteilt, von denen jede eine einzigartige Verantwortung hat.
+In diesem Artikel haben wir alle erforderlichen Funktionen in unserer App hinzugefügt, und wir haben auch eine Reihe von Barrierefreiheits- und Benutzerfreundlichkeitsproblemen behandelt. Wir haben auch unsere App in überschaubare Komponenten aufgeteilt, jede mit einer einzigartigen Verantwortung.
 
-Zwischendurch haben wir einige fortgeschrittene Svelte-Techniken gesehen, wie:
+In der Zwischenzeit haben wir einige fortgeschrittene Svelte-Techniken gesehen, wie zum Beispiel:
 
-- Das Umgang mit Reaktivitätsproblemen beim Aktualisieren von Objekten und Arrays
+- Umgang mit Reaktivitätsproblemen beim Aktualisieren von Objekten und Arrays
 - Arbeiten mit DOM-Knoten mit `bind:this={dom_node}` (Binden von DOM-Elementen)
-- Verwendung der `onMount()`-Funktion des Komponenten-Lebenszyklus
+- Verwenden der Komponentenlebenszyklusfunktion `onMount()`
 - Erzwingen, dass Svelte ausstehende Statusänderungen mit der `tick()`-Funktion auflöst
 - Hinzufügen von Funktionalität zu HTML-Elementen auf eine wiederverwendbare und deklarative Weise mit der `use:action`-Direktive
-- Zugriff auf Komponentenmethoden mit `bind:this={component}` (Binden von Komponenten)
+- Zugreifen auf Komponentenmethoden mit `bind:this={component}` (Binden von Komponenten)
 
-Im nächsten Artikel sehen wir, wie man Stores verwendet, um zwischen Komponenten zu kommunizieren, und wie man Animationen zu unseren Komponenten hinzufügt.
+Im nächsten Artikel werden wir sehen, wie man Stores verwendet, um zwischen Komponenten zu kommunizieren und Animationen zu unseren Komponenten hinzufügt.
 
 {{PreviousMenuNext("Learn_web_development/Core/Frameworks_libraries/Svelte_components","Learn_web_development/Core/Frameworks_libraries/Svelte_stores", "Learn_web_development/Core/Frameworks_libraries")}}

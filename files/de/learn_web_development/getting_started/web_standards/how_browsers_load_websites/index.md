@@ -1,22 +1,20 @@
 ---
-title: Wie Browser Websites laden
+title: Wie Browser Webseiten laden
 slug: Learn_web_development/Getting_started/Web_standards/How_browsers_load_websites
 l10n:
-  sourceCommit: bca4bdeae2c1e3e673c3c138b7003220b164596e
+  sourceCommit: 48d220a8cffdfd5f088f8ca89724a9a92e34d8c0
 ---
-
-{{LearnSidebar}}
 
 {{PreviousMenuNext("Learn_web_development/Getting_started/Web_standards/The_web_standards_model", "Learn_web_development/Getting_started/Soft_skills", "Learn_web_development/Getting_started/Web_standards")}}
 
-Im vorherigen Artikel haben wir einen [Überblick über die Technologien](/de/docs/Learn_web_development/Getting_started/Web_standards/The_web_standards_model#overview_of_modern_web_technologies) betrachtet, aus denen Websites bestehen. In diesem Artikel gehen wir den Prozess durch, wie diese Technologien gerendert werden – wenn ein Browser die Code-Dateien und andere Ressourcen erhalten hat, aus denen sich eine Webseite zusammensetzt (wie in [Wie das Web funktioniert](/de/docs/Learn_web_development/Getting_started/Web_standards/How_the_web_works) behandelt), wie werden sie zusammengefügt, um das fertige Erlebnis zu schaffen, mit dem der Benutzer interagiert?
+Im vorherigen Artikel haben wir uns einen [Überblick über die Technologien](/de/docs/Learn_web_development/Getting_started/Web_standards/The_web_standards_model#overview_of_modern_web_technologies) angesehen, aus denen Webseiten bestehen. In diesem Artikel gehen wir durch den Prozess, wie diese Technologien gerendert werden – wenn ein Browser die Code-Dateien und andere Ressourcen erhalten hat, die eine Webseite ausmachen (wie in [Wie das Web funktioniert](/de/docs/Learn_web_development/Getting_started/Web_standards/How_the_web_works) beschrieben), wie werden sie zusammengefügt, um das fertige Erlebnis zu schaffen, mit dem der Benutzer interagiert?
 
 <table>
   <tbody>
     <tr>
       <th scope="row">Voraussetzungen:</th>
       <td>
-        Grundkenntnisse über Ihr Betriebssystem, Webbrowser und Webtechnologien.
+        Grundkenntnisse Ihres Computerbetriebssystems, Webbrowser und Webtechnologien.
       </td>
     </tr>
     <tr>
@@ -34,23 +32,23 @@ Im vorherigen Artikel haben wir einen [Überblick über die Technologien](/de/do
 
 ## Welche Dateien werden in HTTP-Antworten zurückgegeben?
 
-Um die [Übersicht über Webtechnologien](/de/docs/Learn_web_development/Getting_started/Web_standards/The_web_standards_model#overview_of_modern_web_technologies) zusammenzufassen, die wir im letzten Artikel betrachtet haben, enthalten HTTP-Antworten (auf Anfragen für eine Webseite) in der Regel einige der folgenden Dateitypen:
+Um die [Übersicht über Web-Technologien](/de/docs/Learn_web_development/Getting_started/Web_standards/The_web_standards_model#overview_of_modern_web_technologies), die wir im letzten Artikel behandelt haben, zusammenzufassen, enthalten HTTP-Antworten (auf Anfragen nach einer Webseite) im Allgemeinen einige der folgenden Dateitypen:
 
 - HTML-Dateien, die den Inhalt und die Struktur der Webseite festlegen.
-- CSS-Dateien, die Styling- und Layoutinformationen festlegen.
-- JavaScript-Dateien, die das Verhalten von interaktiven Teilen der Webseite festlegen.
-- Medienressourcen wie Bilder, Videos, Audiodateien, {{Glossary("PDF", "PDFs")}} und {{Glossary("SVG", "SVGs")}}, die in Webseiten eingebettet oder anderweitig vom Browser angezeigt werden.
-- Andere Arten von Dateien, die der Browser nicht nativ verarbeiten kann und daher an eine relevante App auf dem Gerät weiterleitet, um sie darzustellen, zum Beispiel Word- oder Pages-Dokumente, PowerPoint-Präsentationen und Open-Office-Dateien.
+- CSS-Dateien, die Stil- und Layoutinformationen festlegen.
+- JavaScript-Dateien, die das Verhalten interaktiver Teile der Webseite spezifizieren.
+- Medienassets wie Bilder, Videos, Audiodateien, {{Glossary("PDF", "PDFs")}} und {{Glossary("SVG", "SVGs")}}, die in Webseiten eingebettet oder anderweitig vom Browser angezeigt werden.
+- Andere Dateitypen, die der Browser nicht nativ verarbeiten kann und daher an eine relevante App auf dem Gerät weitergibt, um sie zu rendern, zum Beispiel Word- oder Pages-Dokumente, PowerPoint-Präsentationen und Open-Office-Dateien.
 
-## Webseiten-Rendering
+## Rendern von Webseiten
 
-Wenn der Benutzer zu einer neuen Webseite navigiert (indem er auf einen Link klickt oder eine Webadresse in die Adressleiste des Browsers eingibt), werden mehrere HTTP-Anfragen gesendet und mehrere Dateien in HTTP-Antworten zurückgegeben. Die in diesen Antworten empfangenen Dateien werden vom Browser verarbeitet und zu einer Webseite zusammengefügt, mit der der Benutzer interagieren kann. Dieser Prozess des Zusammenfügens der Teile zu einer Webseite wird als **Rendering** bezeichnet.
+Wenn der Benutzer zu einer neuen Webseite navigiert (durch Klicken auf einen Link oder Eingeben einer Webadresse in die Adressleiste des Browsers), werden mehrere HTTP-Anfragen gesendet, und mehrere Dateien werden in HTTP-Antworten zurückgesendet. Die Dateien, die in diesen Antworten empfangen werden, werden vom Browser verarbeitet und zu einer Webseite zusammengesetzt, mit der der Benutzer interagieren kann. Dieser Prozess des Zusammenfügens der Teile zu einer Webseite wird **Rendering** genannt.
 
-Die untenstehenden Abschnitte bieten eine allgemeine Erklärung, wie ein Browser eine Webseite rendert. Beachten Sie, dass dies eine sehr vereinfachte Beschreibung ist und dass verschiedene Browser den Prozess auf unterschiedliche Weise handhaben werden. Dennoch erhalten Sie eine Vorstellung von den Grundlagen, wie die Dinge funktionieren.
+Die folgenden Abschnitte bieten eine allgemeine Erklärung, wie ein Browser eine Webseite rendert. Beachten Sie, dass dies eine sehr vereinfachte Beschreibung ist und dass verschiedene Browser den Prozess auf unterschiedliche Weise handhaben können. Dies wird Ihnen jedoch eine Vorstellung von den Grundlagen geben, wie alles funktioniert.
 
-## Verarbeitung von HTML
+## Handhabung von HTML
 
-Zunächst wird die HTML-Datei, die den Inhalt der Webseite enthält und ihre Struktur definiert, vom Browser empfangen und analysiert. Der Browser konvertiert sie in eine baumartige Struktur, die als **DOM-Baum** (**Document Object Model**) bezeichnet wird. Das DOM stellt die Struktur des HTML-Dokuments im Speicher des Computers dar. Nehmen Sie dieses grundlegende HTML-Snippet als Beispiel:
+Zunächst wird die HTML-Datei, die den Webseiteninhalt enthält und ihre Struktur definiert, vom Browser empfangen und analysiert. Der Browser wandelt sie in eine baumartige Struktur um, die als **DOM-Baum** (**Document Object Model**) bezeichnet wird. Das DOM repräsentiert die Struktur des HTML-Dokuments im Speicher des Computers. Nehmen Sie dieses einfache HTML-Snippet als Beispiel:
 
 ```html
 <p>
@@ -61,7 +59,7 @@ Zunächst wird die HTML-Datei, die den Inhalt der Webseite enthält und ihre Str
 </p>
 ```
 
-Jedes Element, Attribut und Textstück im HTML wird zu einem **DOM-Knoten** in der Baumstruktur. Die Knoten sind durch ihre Beziehung zu anderen DOM-Knoten definiert. Einige Elemente sind Eltern von Kindknoten, und Kindknoten haben Geschwister. Der Browser würde das obige HTML analysieren und den folgenden DOM-Baum daraus erstellen:
+Jedes Element, Attribut und jedes Textstück im HTML wird zu einem **DOM-Knoten** in der Baumstruktur. Die Knoten sind durch ihre Beziehung zu anderen DOM-Knoten definiert. Einige Elemente sind Eltern von Kindknoten, und Kindknoten haben Geschwister. Der Browser würde das obige HTML analysieren und den folgenden DOM-Baum daraus erstellen:
 
 ```plain
 P
@@ -74,7 +72,7 @@ P
     └─ "JavaScript"
 ```
 
-Im DOM ist der Knoten, der unserem `<p>`-Element entspricht, ein Elternteil. Seine Kinder sind ein Textknoten und die drei Knoten, die unseren `<span>`-Elementen entsprechen. Die `SPAN`-Knoten sind ebenfalls Elternteile, mit Textknoten als ihren Kindern. Wenn der Browser den obenstehenden DOM-Baum rendert, sieht er so aus:
+Im DOM ist der Knoten, der unserem `<p>`-Element entspricht, ein Elternteil. Seine Kinder sind ein Textknoten und die drei Knoten, die unseren `<span>`-Elementen entsprechen. Die `SPAN`-Knoten sind ebenfalls Elternteile mit Textknoten als ihren Kindern. Wenn der Browser den obigen DOM-Baum rendert, sieht er folgendermaßen aus:
 
 {{EmbedLiveSample('Handling the HTML', '100%', 55)}}
 
@@ -86,23 +84,23 @@ p {
 
 Bestimmte HTML-Elemente lösen beim Parsen weitere HTTP-Anfragen aus:
 
-- {{htmlelement("link")}}-Elemente, die auf externe [CSS](/de/docs/Learn_web_development/Core/Styling_basics)-Stylesheets verweisen.
-- {{htmlelement("script")}}-Elemente, die auf externe [JavaScript](/de/docs/Learn_web_development/Core/Scripting)-Dateien verweisen.
-- Elemente wie {{htmlelement("img")}}, {{htmlelement("video")}} und {{htmlelement("audio")}}, die auf Mediendateien verweisen, die Sie in die Webseite einbetten möchten.
+- {{htmlelement("link")}}-Elemente, die externe [CSS](/de/docs/Learn_web_development/Core/Styling_basics)-Stylesheets referenzieren.
+- {{htmlelement("script")}}-Elemente, die externe [JavaScript](/de/docs/Learn_web_development/Core/Scripting)-Dateien referenzieren.
+- Elemente wie {{htmlelement("img")}}, {{htmlelement("video")}} und {{htmlelement("audio")}}, die Mediendateien referenzieren, die Sie in die Webseite einbetten möchten.
 
-## Parsing von CSS und Rendering der Seite
+## Parsing von CSS und Rendern der Seite
 
-Als nächstes schauen wir uns an, wie das CSS verarbeitet wird.
+Als nächstes betrachten wir, wie das CSS gehandhabt wird.
 
-1. Der Browser analysiert das auf der Seite gefundene CSS (entweder im HTML-Dokument enthalten oder von externen Stylesheets abgerufen) und sortiert die verschiedenen CSS-Stilregeln in verschiedene "Eimer" basierend auf den HTML-Elementen (die im DOM als sogenannte **Knoten** dargestellt sind), auf die sie angewendet werden. Der Browser fügt dann Stile zu verschiedenen Elementen hinzu, wie erforderlich (dieser Zwischenschritt wird als Rendertree bezeichnet).
-2. Der Rendertree wird in die Struktur gebracht, wie er nach der Anwendung der Regeln erscheinen soll. Dies schließt alle Bilder und andere Mediendateien ein, die in die Seite eingebettet werden sollen.
-3. Die visuelle Darstellung der Seite wird auf dem Bildschirm gezeigt (dieser Schritt wird als Malen bezeichnet).
+1. Der Browser analysiert das auf der Seite gefundene CSS (entweder im HTML-Dokument enthalten oder aus externen Stylesheets abgerufen) und sortiert die verschiedenen CSS-Stilregeln in verschiedene "Buckets", basierend darauf, auf welche HTML-Elemente (im DOM als sogenannte **Knoten** dargestellt) sie angewendet werden sollen. Der Browser fügt dann bei Bedarf Stile zu verschiedenen Elementen hinzu (dieser Zwischenschritt wird als Renderbaum bezeichnet).
+2. Der Renderbaum wird in der Struktur angeordnet, in der er nach Anwendung der Regeln erscheinen sollte. Dies schließt alle Bilder und andere Medien ein, die in die Seite eingebettet werden sollen.
+3. Die visuelle Anzeige der Seite wird auf dem Bildschirm angezeigt (dieser Vorgang wird Painting genannt).
 
-Das folgende Diagramm bietet eine Visualisierung des bisher besprochenen Prozesses:
+Das folgende Diagramm bietet eine Visualisierung des Prozesses, den wir bisher besprochen haben:
 
-![Rendering-Prozess Übersicht](rendering.svg)
+![Überblick über den Rendering-Prozess](rendering.svg)
 
-Zurück zu unserem Beispiel, nehmen wir an, das folgende CSS befindet sich in der HTML-Datei:
+Zurück zu unserem Beispiel: Angenommen, das folgende CSS wird in der HTML-Datei gefunden:
 
 ```html hidden
 <p>
@@ -120,17 +118,17 @@ span {
 }
 ```
 
-Die einzige verfügbare Regel im CSS hat einen `span`-Selektor, daher kann der Browser das CSS sehr schnell sortieren! Er wendet diese Regel auf jeden der drei SPAN-Knoten im DOM-Baum an, gibt ihnen einen schwarzen Rand und einen limettengrünen Hintergrund, und malt dann die endgültige visuelle Darstellung auf den Bildschirm.
+Die einzige im CSS verfügbare Regel hat einen `span`-Selektor, sodass der Browser das CSS sehr schnell sortieren kann! Er wendet diese Regel auf jeden der drei SPAN-Knoten im DOM-Baum an und verleiht ihnen einen schwarzen Rahmen und einen limonengrünen Hintergrund, dann malt er die endgültige visuelle Darstellung auf den Bildschirm.
 
-Die aktualisierte Ausgabe ist wie folgt:
+Die aktualisierte Ausgabe sieht wie folgt aus:
 
 {{EmbedLiveSample('Parsing the CSS, and rendering the page', '100%', 90)}}
 
-## Verarbeitung von JavaScript
+## Handhabung von JavaScript
 
-Jedes auf der Seite gefundene JavaScript (entweder im HTML-Dokument enthalten oder von externen Skriptdateien abgerufen) wird analysiert, interpretiert, kompiliert und ausgeführt. Dies geschieht zu einem bestimmten Zeitpunkt vor dem Abschluss des endgültigen Seiten-Renderings – schließlich kann einiges JavaScript das Rendering beeinflussen, indem es zum Beispiel Knoten zum DOM hinzufügt oder bestehende modifiziert.
+Jedes auf der Seite gefundene JavaScript (entweder im HTML-Dokument enthalten oder aus externen Skriptdateien abgerufen) wird analysiert, interpretiert, kompiliert und ausgeführt. Dies geschieht zu einem bestimmten Zeitpunkt, bevor das endgültige Seitenrendering abgeschlossen ist – schließlich kann JavaScript das Rendering beeinflussen, indem es beispielsweise Knoten zum DOM hinzufügt oder vorhandene verändert.
 
-Zurück zu unserem Beispiel, nehmen wir an, das folgende JavaScript befindet sich in der HTML-Datei:
+Zurück zu unserem Beispiel: Angenommen, das folgende JavaScript wird in der HTML-Datei gefunden:
 
 ```html hidden
 <p>
@@ -156,29 +154,29 @@ spans.forEach((span) => {
 });
 ```
 
-Sie müssen nicht genau verstehen, wie dieses JavaScript funktioniert, aber auf einer hohen Ebene findet es jeden SPAN-Knoten im DOM und kehrt die Reihenfolge der Zeichen in ihren Kinder-Textknoten um.
+Sie müssen nicht genau verstehen, wie dieses JavaScript funktioniert, aber auf einem hohen Niveau findet es jeden SPAN-Knoten im DOM und kehrt die Reihenfolge der Zeichen in ihren Kindtextknoten um.
 
-Die endgültige Ausgabe ist wie folgt:
+Die endgültige Ausgabe sieht wie folgt aus:
 
 {{EmbedLiveSample('Handling the JavaScript', '100%', 90)}}
 
 ## Welche weiteren Rendering-Schritte gibt es?
 
-Während des Seiten-Renderings passieren noch einige andere Dinge, aber wir werden hier nicht alle besprechen. Eine bemerkenswerte zusätzliche Vorkommnis, die es wert ist erwähnt zu werden, ist, dass ein Barrierefreiheitsbaum basierend auf dem DOM erstellt wird, in den unterstützende Technologien (zum Beispiel Bildschirmleser) eingebunden werden können, was es Menschen, die den gerenderten Inhalt nicht sehen können, ermöglicht, mit ihm zu interagieren.
+Während des Seitenrenderings passieren noch mehrere andere Dinge, aber wir werden sie hier nicht alle besprechen. Eine bemerkenswerte zusätzliche Vorkommnis, die erwähnenswert ist, ist, dass ein Zugänglichkeitsbaum basierend auf dem DOM erstellt wird, damit unterstützende Technologien (z. B. Screenreader) darauf zugreifen können, was es Menschen ermöglicht, die den gerenderten Inhalt nicht sehen können, mit ihm zu interagieren.
 
-Sie werden mehr darüber in unserem [Barrierefreiheits](/de/docs/Learn_web_development/Core/Accessibility)-Modul lernen.
+Sie werden später in unserem [Barrierefreiheit](/de/docs/Learn_web_development/Core/Accessibility)-Modul mehr darüber erfahren.
 
-## Der Browser: eine feindliche und eine großartige Programmierumgebung
+## Der Browser: eine feindliche _und_ großartige Programmierumgebung
 
-Frontend-Webentwicklung kann manchmal frustrierend sein, und einige Leute betrachten den Browser als eine feindliche Programmierumgebung. Dies liegt daran, dass es im Gegensatz zu anderen Programmierumgebungen viel schwieriger ist, Garantien über die Umgebung zu treffen, in der Ihr Code laufen wird. Sie können nicht im Voraus alle verschiedenen Kombinationen von Betriebssystem, Browser, Sprache, Standort, Netzwerkverbindung, CPU, GPU, Speicher, Akkulaufzeit usw. kennen, die Ihre Benutzer haben werden. Daher können Sie nicht für alle eine perfekte Benutzererfahrung garantieren.
+Die Entwicklung von Frontend-Webseiten kann manchmal frustrierend sein, und einige Leute betrachten den Browser als feindliche Programmierumgebung. Das liegt daran, dass es im Gegensatz zu anderen Programmierumgebungen viel schwieriger ist, Garantien über die Umgebung zu machen, in der Ihr Code ausgeführt werden wird. Sie können nicht im Voraus alle verschiedenen Kombinationen von Betriebssystem, Browser, Sprache, Standort, Netzwerkverbindung, CPU, GPU, Speicher, Akkulaufzeit usw. kennen, die Ihre Benutzer haben werden, daher können Sie keine perfekte Benutzererfahrung für alle von ihnen garantieren.
 
-Moderne Browser neigen dazu, Webstandards ziemlich konsistent zu implementieren, aber es gibt immer noch viele Unsicherheiten, mit denen Sie umgehen müssen. Als Webentwickler müssen Sie diese Unsicherheit akzeptieren, defensiv programmieren und zurückhaltend mit den Funktionen sein, die Sie nutzen. Dies erfordert, dass Sie sich an die [besten Praktiken](/de/docs/Learn_web_development/Getting_started/Web_standards/The_web_standards_model#web_best_practices) halten, die im vorherigen Artikel beschrieben wurden.
+Moderne Browser neigen dazu, Webstandards ziemlich konsistent zu implementieren, aber es gibt immer noch viel Unsicherheit, die es zu navigieren gilt. Als Webentwickler müssen Sie diese Unsicherheit annehmen, defensiv programmieren und mit den Funktionen, die Sie verwenden, zurückhaltend sein. Dies stützt sich auf die [besten Praktiken](/de/docs/Learn_web_development/Getting_started/Web_standards/The_web_standards_model#web_best_practices), die im vorherigen Artikel umrissen wurden.
 
 Auf der anderen Seite ist das Web auch eine großartige Programmierumgebung, aus vielen Gründen.
 
-- Zunächst einmal ist es mit universellem Zugriff konzipiert. Der grundlegende Zustand des Webs ist zugänglich und verlinkbar. Einige dieser Grundlagen sind in anderen Umgebungen schwieriger zu erreichen.
-- Die Bereitstellung von Anwendungen über das Web ist einfach und leistungsstark. Sie müssen Ihre Benutzer nicht durch einen komplizierten Installationsprozess führen: Sie weisen sie einfach auf eine Webadresse und los geht's.
-- App-Updates sind in der Regel unkompliziert. In vielen Fällen können Besucher neue Versionen einer Anwendung sehen, wenn sie ihren Browser-Tab neu laden. Sie müssen sich keine Sorgen darüber machen, Besucher regelmäßig dazu zu bringen, Software-Updates herunterzuladen und zu installieren.
-- Die Web-Community ist lebendig und hilfsbereit. Wie wir später in unserem Artikel [Forschung und Lernen](/de/docs/Learn_web_development/Getting_started/Soft_skills/Research_and_learning) besprechen, gibt es viele Orte, an die Sie sich wenden können, um Hilfe zu bitten, und großartige Ressourcen, aus denen Sie lernen können.
+- Zunächst einmal ist es mit universellem Zugang im Hinterkopf gestaltet. Der grundlegende Zustand des Webs ist zugänglich und verlinkbar. Einige dieser Grundlagen sind in anderen Umgebungen schwerer zu erreichen.
+- Die Bereitstellung von Apps über das Web ist einfach und leistungsfähig. Sie müssen Ihre Benutzer nicht durch einen komplizierten Installationsprozess führen: Sie weisen sie einfach auf eine Webadresse hin und los geht's.
+- App-Updates sind in der Regel unkompliziert. In vielen Fällen können Besucher neue Versionen einer Anwendung sehen, wenn sie ihren Browser-Tab neu laden. Sie müssen sich keine Sorgen machen, dass Besucher regelmäßig Software-Updates herunterladen und installieren müssen.
+- Die Web-Community ist lebhaft und hilfsbereit. Wie wir später in unserem Artikel über [Recherche und Lernen](/de/docs/Learn_web_development/Getting_started/Soft_skills/Research_and_learning) besprechen, gibt es viele Orte, an denen Sie um Hilfe bitten können, und großartige Ressourcen, aus denen Sie lernen können.
 
 {{PreviousMenuNext("Learn_web_development/Getting_started/Web_standards/The_web_standards_model", "Learn_web_development/Getting_started/Soft_skills", "Learn_web_development/Getting_started/Web_standards")}}

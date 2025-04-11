@@ -2,16 +2,16 @@
 title: animation-range
 slug: Web/CSS/animation-range
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: 5a195171d06aee3d9c1c78d71c7f0c3a060f5263
 ---
 
 {{CSSRef}}{{SeeCompatTable}}
 
-Die **`animation-range`** [CSS](/de/docs/Web/CSS) [Kurzschreibweise](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties) wird verwendet, um den Start und das Ende des Anhangsbereichs einer Animation entlang ihrer Zeitleiste festzulegen, d.h. wo entlang der Zeitleiste eine Animation beginnt und endet.
+Die **`animation-range`** [CSS](/de/docs/Web/CSS) [Kurzform-Eigenschaft](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties) wird verwendet, um den Start- und Endpunkt des Anwendungsbereichs einer Animation entlang ihrer Zeitleiste festzulegen, d.h. wo entlang der Zeitleiste eine Animation beginnen und enden wird.
 
-## Bestandteileigenschaften
+## Bestandteile der Eigenschaften
 
-Diese Eigenschaft ist eine Kurzschreibweise für die folgenden CSS-Eigenschaften:
+Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
 
 - [`animation-range-start`](/de/docs/Web/CSS/animation-range-start)
 - [`animation-range-end`](/de/docs/Web/CSS/animation-range-end)
@@ -41,51 +41,51 @@ animation-range: 10% exit 90%;
 animation-range: entry 10% 90%;
 ```
 
-Die `animation-range` Kurzschreibweise kann auf ein Container-Element angewendet werden als Kombination der Werte `<animation-range-start>` und `<animation-range-end>`. Wenn beide Werte angegeben sind, werden sie in der Reihenfolge `<animation-range-start>` dann `<animation-range-end>` interpretiert.
+Die Kurzform-Eigenschaft `animation-range` kann auf ein Containerelement angewendet werden als eine Kombination der Werte `<animation-range-start>` und `<animation-range-end>`. Wenn beide Werte angegeben sind, werden sie in der Reihenfolge `<animation-range-start>` dann `<animation-range-end>` interpretiert.
 
-Wie durch die Kommentare im obigen Syntaxblock gezeigt, gibt es bei Angabe eines einzigen Wertes mehrere mögliche Interpretationen:
+Wie in den Kommentaren im Syntaxblock oben gezeigt, gibt es bei Angabe eines einzigen Wertes mehrere mögliche Interpretationen:
 
-- Wenn der Wert ein {{cssxref("length-percentage")}} oder `normal` ist, wird `<animation-range-start>` diesen Wert übernehmen und `<animation-range-end>` wird `normal` entsprechen.
-- Wenn der Wert ein benannter Zeitleistenbereich ohne nachfolgende `<length-percentage>` ist, liegt der Bereich zwischen diesem benannten Zeitleistenbereich bei 0% und 100%.
-- Wenn der Wert ein benannter Zeitleistenbereich mit einer nachfolgenden `<length-percentage>` ist, beginnt der Bereich bei diesem benannten Zeitleistenbereich und Prozentsatz und endet bei diesem benannten Zeitleistenbereich und 100%.
+- Wenn der Wert ein {{cssxref("length-percentage")}} oder `normal` ist, nimmt `<animation-range-start>` diesen Wert an, und `<animation-range-end>` entspricht `normal`.
+- Wenn der Wert ein benannter Zeitabschnitt ohne ein folgendes `<length-percentage>` ist, wird der Bereich zwischen diesem benannten Zeitabschnitt bei 0% und 100% liegen.
+- Wenn der Wert ein benannter Zeitabschnitt mit einem folgenden `<length-percentage>` ist, beginnt der Bereich bei diesem benannten Zeitabschnitt und Prozentsatz und endet bei diesem benannten Zeitabschnitt und 100%.
 
 ### Werte
 
-Ein oder zwei Werte, die [`animation-range-start`](/de/docs/Web/CSS/animation-range-start) und/oder [`animation-range-end`](/de/docs/Web/CSS/animation-range-end) darstellen. Diese Werte können einer der folgenden sein:
+Ein oder zwei Werte, die [`animation-range-start`](/de/docs/Web/CSS/animation-range-start) und/oder [`animation-range-end`](/de/docs/Web/CSS/animation-range-end) repräsentieren. Diese Werte können eines der folgenden sein:
 
 - `normal`
-  - : Repräsentiert den Beginn der Zeitleiste im Fall von `animation-range-start` und das Ende der Zeitleiste im Fall von `animation-range-end`. Dies ist der Standardwert.
+  - : Repräsentiert den Beginn der Zeitleiste bei `animation-range-start` und das Ende der Zeitleiste bei `animation-range-end`. Dies ist der Standardwert.
 - `<length-percentage>`
-  - : Ein Längen- oder Prozentwert, gemessen vom Beginn der Zeitleiste.
+  - : Ein Längen- oder Prozentwert, gemessen vom Anfang der Zeitleiste.
 - `<timeline-range-name>`
 
-  - : Ein spezifisch benannter Zeitleistenbereich innerhalb der gesamten Zeitleiste. Mögliche Werte sind:
+  - : Ein spezifischer benannter Zeitabschnitt innerhalb der gesamten Zeitleiste. Mögliche Werte sind:
 
     - `cover`
-      - : Repräsentiert den gesamten Bereich einer _benannten Sichtbarkeitsfortschrittszeitleiste_ (siehe [CSS scroll-driven animations](/de/docs/Web/CSS/CSS_scroll-driven_animations) für weitere Details), vom Punkt, an dem das Subjektelement zum ersten Mal beginnt, in den Sichtbarkeitsbereich des Scrollports einzutreten (0% Fortschritt), bis zu dem Punkt, an dem es ihn vollständig verlassen hat (100% Fortschritt).
+      - : Repräsentiert den gesamten Bereich einer _benannten Fortschrittszeitleiste_ (siehe [CSS scroll-gesteuerte Animationen](/de/docs/Web/CSS/CSS_scroll-driven_animations) für weitere Details), von dem Punkt, an dem das betreffenden Element beginnt, in den Sichtbarkeitsbereich des Scrollports einzutreten (0% Fortschritt), bis zu dem Punkt, an dem es vollständig verlassen hat (100% Fortschritt).
     - `contain`
-      - : Repräsentiert den Bereich einer _benannten Sichtbarkeitsfortschrittszeitleiste_, in dem das Subjektelement vollständig vom Sichtbarkeitsbereich des Scrollports umschlossen ist oder ihn vollständig enthält.
-        - Wenn das Subjektelement kleiner als der Scrollport ist, reicht es von dem Punkt, an dem das Subjektelement zum ersten Mal vollständig vom Scrollport umschlossen wird (0% Fortschritt), bis zu dem Punkt, an dem es nicht mehr vollständig umschlossen wird (100% Fortschritt).
-        - Wenn das Subjektelement größer als der Scrollport ist, reicht es von dem Punkt, an dem das Subjektelement zum ersten Mal den Scrollport vollständig abdeckt (0% Fortschritt), bis zu dem Punkt, an dem es ihn nicht mehr vollständig abdeckt (100% Fortschritt).
+      - : Repräsentiert den Bereich einer _benannten Fortschrittszeitleiste_, wo das betreffende Element vollständig vom, oder das vollständige, Sichtbarkeitsbereich des Scrollports enthält oder darin enthalten ist.
+        - Wenn das betreffende Element kleiner als der Scrollport ist, reicht es von dem Punkt, an dem das betreffende Element erstmals vollständig vom Scrollport enthalten ist (0% Fortschritt), bis zu dem Punkt, an dem es nicht mehr vollständig vom Scrollport enthalten ist (100% Fortschritt).
+        - Wenn das betreffende Element größer als der Scrollport ist, reicht es von dem Punkt, an dem das betreffende Element erstmals den Scrollport vollständig abdeckt (0% Fortschritt), bis zu dem Punkt, an dem es den Scrollport nicht mehr vollständig abdeckt (100% Fortschritt).
     - `entry`
-      - : Repräsentiert den Bereich einer _benannten Sichtbarkeitsfortschrittszeitleiste_ vom Punkt, an dem das Subjektelement zum ersten Mal beginnt, den Scrollport zu betreten (0% Fortschritt), bis zu dem Punkt, an dem es den Scrollport vollständig betreten hat (100%).
+      - : Repräsentiert den Bereich einer _benannten Fortschrittszeitleiste_ von dem Punkt, an dem das betreffende Element beginnt, in den Scrollport einzutreten (0% Fortschritt), bis zu dem Punkt, an dem es vollständig in den Scrollport eingetreten ist (100%).
     - `exit`
-      - : Repräsentiert den Bereich einer _benannten Sichtbarkeitsfortschrittszeitleiste_ vom Punkt, an dem das Subjektelement zum ersten Mal beginnt, den Scrollport zu verlassen (0% Fortschritt), bis zu dem Punkt, an dem es den Scrollport vollständig verlassen hat (100%).
+      - : Repräsentiert den Bereich einer _benannten Fortschrittszeitleiste_ von dem Punkt, an dem das betreffende Element beginnt, den Scrollport zu verlassen (0% Fortschritt), bis zu dem Punkt, an dem es vollständig aus dem Scrollport ausgetreten ist (100%).
     - `entry-crossing`
-      - : Repräsentiert den Bereich einer _benannten Sichtbarkeitsfortschrittszeitleiste_ vom Punkt, an dem das Subjektelement beginnt, die Startkante des Scrollports zu überqueren (0% Fortschritt), bis es sie vollständig überquert hat (100%).
+      - : Repräsentiert den Bereich einer _benannten Fortschrittszeitleiste_ von dem Punkt, an dem das betreffende Element beginnt, die Startrand des Scrollports zu überqueren (0% Fortschritt), bis zu dem Punkt, an dem es die Startrand des Scrollports vollständig überquert hat (100%).
     - `exit-crossing`
-      - : Repräsentiert den Bereich einer _benannten Sichtbarkeitsfortschrittszeitleiste_ vom Punkt, an dem das Subjektelement beginnt, die Endkante des Scrollports zu überqueren (0% Fortschritt), bis es sie vollständig überquert hat (100%).
+      - : Repräsentiert den Bereich einer _benannten Fortschrittszeitleiste_ von dem Punkt, an dem das betreffende Element beginnt, die Endrand des Scrollports zu überqueren (0% Fortschritt), bis zu dem Punkt, an dem es die Endrand des Scrollports vollständig überquert hat (100%).
 
-    Im Fall von `<timeline-range-name>`-Werten, die keine `<length-percentage>` enthalten, beträgt der Standardprozentsatz `0%`, wenn es sich um einen `animation-range-start`-Wert handelt, und `100%`, wenn es sich um einen `animation-range-end`-Wert handelt.
+    Im Fall von `<timeline-range-name>` Werten, die kein `<length-percentage>` beinhalten, wird der Prozentsatz auf `0%` als `animation-range-start` Wert und `100%` als `animation-range-end` Wert gesetzt.
 
     > [!NOTE]
-    > Es ist ziemlich schwer zu visualisieren, was diese Werte aus den obigen Beschreibungen bedeuten. Glücklicherweise zeigt der [View Timeline Ranges Visualizer](https://scroll-driven-animations.style/tools/view-timeline/ranges/) genau, was sie in einem leicht verständlichen visuellen Format bedeuten.
+    > Es ist recht schwer, sich vorzustellen, was diese Werte aus den obigen Beschreibungen bedeuten. Glücklicherweise zeigt der [View Timeline Ranges Visualizer](https://scroll-driven-animations.style/tools/view-timeline/ranges/) genau, was sie in einem leicht verständlichen visuellen Format bedeuten.
 
 - `<timeline-range-name> <length-percentage>`
-  - : Ein Kombinationswert, der dem angegebenen Prozentsatz oder der angegebenen Entfernung durch den spezifizierten benannten Zeitleistenbereich entspricht, gemessen vom Beginn dieses Zeitleistenbereichs.
+  - : Ein kombinierter Wert, der den angegebenen Prozentsatz oder die Entfernung durch den angegebenen benannten Zeitleistenbereich entspricht, gemessen vom Anfang dieses Zeitleistenbereichs.
 
 > [!NOTE]
-> Der Scrollport (siehe {{Glossary("Scroll_container", "Scroll container")}} für weitere Details) Bereich, der als Sichtbarkeitsbereich des Fortschritts bekannt ist, ist der Bereich, in dem das Subjektelement einer _benannten Sichtbarkeitsfortschrittszeitleisten_-Animation als sichtbar gilt. Standardmäßig ist dies der gesamte Bereich des Scrollports, aber er kann mit der Eigenschaft {{cssxref("view-timeline-inset")}} angepasst werden.
+> Der Scrollport (siehe {{Glossary("Scroll_container", "Scroll-Container")}} für mehr Details) Bereich, bekannt als der Sichtbarkeitsbereich des Fortschritts, ist der Bereich, in dem das betreffenden Element einer _benannten Fortschrittszeitleisten_-Animation als sichtbar gerendert wird. Standardmäßig ist dies der vollständige Bereich des Scrollports, kann aber mit der Eigenschaft {{cssxref("view-timeline-inset")}} angepasst werden.
 
 ## Formale Definition
 
@@ -99,17 +99,18 @@ Ein oder zwei Werte, die [`animation-range-start`](/de/docs/Web/CSS/animation-ra
 
 ### View Timeline Ranges Visualizer
 
-Sehen Sie sich den [View Timeline Ranges Visualizer](https://scroll-driven-animations.style/tools/view-timeline/ranges/) für eine einfache visuelle Erklärung an, was alle Werttypen bedeuten.
+Sehen Sie den [View Timeline Ranges Visualizer](https://scroll-driven-animations.style/tools/view-timeline/ranges/) für eine einfache visuelle Erklärung, was alle Werttypen bedeuten.
 
-### Erstellen einer benannten Sichtbarkeitsfortschrittszeitleiste mit Bereich
+### Erstellen einer benannten Fortschrittszeitleiste mit Bereich
 
-Eine Sichtbarkeitsfortschrittszeitleiste mit dem Namen `--subjectReveal` wird mit der Eigenschaft `view-timeline` auf einem Subjektelement mit der `class` von `animation` definiert. Diese wird dann als Zeitleiste für dasselbe Element mit `animation-timeline: --subjectReveal;` festgelegt. Das Ergebnis ist, dass das Subjektelement animiert wird, während es beim Scrollen nach oben durch das Dokument bewegt wird.
+Eine Fortschrittszeitleiste namens `--subjectReveal` wird mit der Eigenschaft `view-timeline` auf einem betreffenden Element mit einer `class` von `animation` definiert.
+Diese wird dann als die Zeitleiste für dasselbe Element mit `animation-timeline: --subjectReveal;` festgelegt. Das Ergebnis ist, dass das betreffende Element animiert, während es sich beim Scrollen durch das Dokument nach oben bewegt.
 
-Eine `animation-range`-Deklaration wird ebenfalls festgelegt, um die Animation später als erwartet beginnen und früher enden zu lassen.
+Eine `animation-range` Deklaration wird auch gesetzt, um die Animation später als erwartet beginnen und früher beenden zu lassen.
 
 #### HTML
 
-Der HTML-Code für das Beispiel wird unten angezeigt.
+Das HTML für das Beispiel ist unten gezeigt.
 
 ```html
 <div class="content">
@@ -148,7 +149,7 @@ Der HTML-Code für das Beispiel wird unten angezeigt.
 
 #### CSS
 
-Das `subject`-Element und das umgebende `content`-Element werden minimal gestylt und der Textinhalt erhält einige grundlegende Schriftarteinstellungen:
+Das `subject` Element und sein enthaltenes `content` Element werden minimal gestylt, und der Textinhalt erhält einige grundlegende Schriftarteneinstellungen:
 
 ```css
 .subject {
@@ -179,9 +180,9 @@ p {
 }
 ```
 
-Dem `<div>` mit der `class` `subject` wird auch die `class` `animation` hinzugefügt — hier wird `view-timeline` festgelegt, um eine benannte Sichtbarkeitsfortschrittszeitleiste zu definieren. Es wird auch ein `animation-timeline`-Name mit dem gleichen Wert vergeben, um zu deklarieren, dass dies das Element sein wird, das animiert wird, während die Sichtbarkeitsfortschrittszeitleiste voranschreitet. Außerdem geben wir ihm eine `animation-range`-Deklaration, um die Animation später als erwartet beginnen und früher enden zu lassen.
+Das `<div>` mit der Klasse `subject` erhält auch eine Klasse `animation` — hier wird `view-timeline` gesetzt, um eine benannte Fortschrittszeitleiste zu definieren. Es wird auch ein solcher `animation-timeline` Name mit demselben Wert gegeben, um zu erklären, dass dies das animierte Element sein wird, während die Fortschrittszeitleiste fortschreitet. Wir geben ihm auch eine `animation-range` Deklaration, um die Animation später als erwartet beginnen und früher beenden zu lassen.
 
-Zum Schluss wird eine Animation auf dem Element spezifiziert, die seine Opazität und Maßstab animiert und es beim Aufwärtsbewegen im Scroller einblenden und vergrößern lässt.
+Zuletzt wird eine Animation auf dem Element angegeben, die seine Deckkraft und Skalierung animiert und es beim Bewegen nach oben im Scrollbereich einblenden und vergrößern lässt.
 
 ```css
 .animation {
@@ -201,7 +202,7 @@ Zum Schluss wird eine Animation auf dem Element spezifiziert, die seine Opazitä
   }
 
   to {
-    opacity: 1,
+    opacity: 1;
     transform: scaleX(1);
   }
 }
@@ -209,7 +210,7 @@ Zum Schluss wird eine Animation auf dem Element spezifiziert, die seine Opazitä
 
 #### Ergebnis
 
-Scrollen Sie, um zu sehen, wie das Subjektelement animiert wird.
+Scrollen Sie, um zu sehen, wie das betreffende Element animiert wird.
 
 {{EmbedLiveSample("Creating a named view progress timeline with range", "100%", "480px")}}
 
@@ -228,4 +229,4 @@ Scrollen Sie, um zu sehen, wie das Subjektelement animiert wird.
 - [`scroll-timeline`](/de/docs/Web/CSS/scroll-timeline), [`scroll-timeline-axis`](/de/docs/Web/CSS/scroll-timeline-axis), [`scroll-timeline-name`](/de/docs/Web/CSS/scroll-timeline-name)
 - {{cssxref("timeline-scope")}}
 - [`view-timeline-inset`](/de/docs/Web/CSS/view-timeline-inset)
-- [CSS scroll-driven animations](/de/docs/Web/CSS/CSS_scroll-driven_animations)
+- [CSS scroll-gesteuerte Animationen](/de/docs/Web/CSS/CSS_scroll-driven_animations)

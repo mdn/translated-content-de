@@ -1,13 +1,13 @@
 ---
-title: Klassen-Selektoren
+title: Klassenselektoren
 slug: Web/CSS/Class_selectors
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: 5a195171d06aee3d9c1c78d71c7f0c3a060f5263
 ---
 
 {{CSSRef}}
 
-Der [CSS](/de/docs/Web/CSS) **Klassen-Selektor** wählt Elemente basierend auf dem Inhalt ihres [`class`](/de/docs/Web/HTML/Reference/Global_attributes/class)-Attributs aus.
+Der [CSS](/de/docs/Web/CSS) **Klassenselektor** stimmt mit Elementen basierend auf dem Inhalt ihres [`class`](/de/docs/Web/HTML/Reference/Global_attributes/class)-Attributs überein.
 
 ```css
 /* All elements with class="spacious" */
@@ -30,20 +30,24 @@ li.spacious.elegant {
 ## Syntax
 
 ```css
-.class_name { style properties }
+.class_name {
+  /* … */
+}
 ```
 
-Beachten Sie, dass dies äquivalent zum folgenden [Attributselektor](/de/docs/Web/CSS/Attribute_selectors) ist:
+Beachten Sie, dass dies dem folgenden [Attributselektor](/de/docs/Web/CSS/Attribute_selectors) entspricht:
 
 ```css
-[class~=class_name] { style properties }
+[class~="class_name"] {
+  /* … */
+}
 ```
 
-Der `class_name`-Wert muss ein gültiger [CSS-Bezeichner](/de/docs/Web/CSS/ident) sein. HTML-`class`-Attribute, die keine gültigen CSS-Bezeichner sind, müssen [maskiert](/de/docs/Web/CSS/ident#escaping_characters) werden, bevor sie in Klassen-Selektoren verwendet werden können.
+Der `class_name`-Wert muss ein gültiger [CSS-Bezeichner](/de/docs/Web/CSS/ident) sein. HTML-`class`-Attribute, die keine gültigen CSS-Bezeichner sind, müssen [escaped](/de/docs/Web/CSS/ident#escaping_characters) werden, bevor sie in Klassenselektoren verwendet werden können.
 
 ## Beispiele
 
-### Gültige Klassen-Selektoren
+### Gültige Klassenselektoren
 
 #### HTML
 
@@ -97,9 +101,9 @@ that contain characters which must be escaped in CSS -->
 
 {{EmbedLiveSample('Examples', "", 300)}}
 
-### Ungültige Klassen-Selektoren
+### Ungültige Klassenselektoren
 
-Die Klassen-Selektoren in den folgenden Regeln sind keine gültigen CSS-Bezeichner und werden ignoriert.
+Die Klassenselektoren in den folgenden Regeln sind keine gültigen CSS-Bezeichner und werden ignoriert.
 
 ```css example-bad
 .item?one {

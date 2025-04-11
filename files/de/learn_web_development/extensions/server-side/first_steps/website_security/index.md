@@ -2,12 +2,12 @@
 title: Website-Sicherheit
 slug: Learn_web_development/Extensions/Server-side/First_steps/Website_security
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: 48d220a8cffdfd5f088f8ca89724a9a92e34d8c0
 ---
 
-{{LearnSidebar}}{{PreviousMenu("Learn_web_development/Extensions/Server-side/First_steps/Web_frameworks", "Learn_web_development/Extensions/Server-side/First_steps")}}
+{{PreviousMenu("Learn_web_development/Extensions/Server-side/First_steps/Web_frameworks", "Learn_web_development/Extensions/Server-side/First_steps")}}
 
-Website-Sicherheit erfordert Wachsamkeit in allen Aspekten des Website-Designs und der Nutzung. Dieser einführende Artikel wird Sie nicht zu einem Experten für Website-Sicherheit machen, aber er wird Ihnen helfen zu verstehen, woher Bedrohungen kommen und was Sie tun können, um Ihre Webanwendung gegen die häufigsten Angriffe zu schützen.
+Website-Sicherheit erfordert Wachsamkeit in allen Aspekten des Website-Designs und der Nutzung. Dieser einführende Artikel wird Sie nicht zu einem Website-Security-Guru machen, aber er hilft Ihnen zu verstehen, woher Bedrohungen kommen und was Sie tun können, um Ihre Webanwendung gegen die häufigsten Angriffe zu härten.
 
 <table>
   <tbody>
@@ -18,9 +18,8 @@ Website-Sicherheit erfordert Wachsamkeit in allen Aspekten des Website-Designs u
     <tr>
       <th scope="row">Ziel:</th>
       <td>
-        Das Verständnis der häufigsten Bedrohungen für die Sicherheit von
-        Webanwendungen und was Sie tun können, um das Risiko zu verringern, dass
-        Ihre Website gehackt wird.
+        Verstehen der häufigsten Bedrohungen für die Sicherheit von Webanwendungen und
+        was Sie tun können, um das Risiko eines Hacks auf Ihrer Seite zu verringern.
       </td>
     </tr>
   </tbody>
@@ -28,129 +27,129 @@ Website-Sicherheit erfordert Wachsamkeit in allen Aspekten des Website-Designs u
 
 ## Was ist Website-Sicherheit?
 
-Das Internet ist ein gefährlicher Ort! Wir hören regelmäßig von Websites, die aufgrund von Denial-of-Service-Angriffen nicht verfügbar sind oder modifizierte (und oft schädliche) Informationen auf ihren Homepages anzeigen. In anderen prominenten Fällen sind Millionen von Passwörtern, E-Mail-Adressen und Kreditkartendaten in die Öffentlichkeit gelangt, was Nutzer der Website sowohl persönlichem Ärgernis als auch finanziellem Risiko aussetzt.
+Das Internet ist ein gefährlicher Ort! Mit großer Regelmäßigkeit hören wir von Websites, die aufgrund von „Denial of Service“-Angriffen nicht verfügbar sind oder auf ihren Startseiten geänderte (und oft schädliche) Informationen anzeigen. In anderen bekannten Fällen wurden Millionen von Passwörtern, E-Mail-Adressen und Kreditkartendaten in die Öffentlichkeit geleakt, was die Benutzer der Website sowohl persönlicher Peinlichkeit als auch finanzieller Risiken aussetzt.
 
-Der Zweck der Website-Sicherheit besteht darin, diese (oder andere) Arten von Angriffen zu verhindern. Die formale Definition von Website-Sicherheit _ist der Akt/die Praxis, Websites vor unbefugtem Zugriff, Nutzung, Modifikation, Zerstörung oder Störung zu schützen_.
+Zweck der Website-Sicherheit ist es, diese (oder andere) Arten von Angriffen zu verhindern. Die formellere Definition von Website-Sicherheit _ist die Handlung/Praxis, Websites vor unbefugtem Zugriff, Nutzung, Änderung, Zerstörung oder Unterbrechung zu schützen_.
 
-Effektive Website-Sicherheit erfordert Designanstrengungen in der gesamten Website: in Ihrer Webanwendung, der Konfiguration des Webservers, Ihren Richtlinien zur Erstellung und Erneuerung von Passwörtern und dem clientseitigen Code. Während all das sehr bedrohlich klingt, ist die gute Nachricht, dass, wenn Sie ein serverseitiges Web-Framework verwenden, es fast sicher "standardmäßig" robuste und gut durchdachte Verteidigungsmechanismen gegen eine Reihe der häufigsten Angriffe ermöglicht. Andere Angriffe können durch Ihre Webserver-Konfiguration gemildert werden, zum Beispiel durch Aktivieren von HTTPS. Schließlich gibt es öffentlich verfügbare Schwachstellenscanner-Tools, die Ihnen helfen können, herauszufinden, ob Sie offensichtliche Fehler gemacht haben.
+Effektive Website-Sicherheit erfordert Gestaltungsaufwand über die gesamte Website hinweg: in Ihrer Webanwendung, der Konfiguration des Webservers, Ihren Richtlinien für das Erstellen und Erneuern von Passwörtern und dem clientseitigen Code. Auch wenn all das sehr bedrohlich klingt, gibt es gute Nachrichten: Wenn Sie ein serverseitiges Web-Framework verwenden, wird es fast immer „standardmäßig“ robuste und gut durchdachte Abwehrmechanismen gegen eine Reihe der häufigeren Angriffe bieten. Andere Angriffe können durch Ihre Webserver-Konfiguration gemildert werden, zum Beispiel durch Aktivierung von HTTPS. Schließlich gibt es öffentlich verfügbare Tools zur Schwachstellenscanner, die Ihnen helfen können festzustellen, ob Sie offensichtliche Fehler gemacht haben.
 
-Der Rest dieses Artikels gibt Ihnen mehr Details über einige häufige Bedrohungen und einige der einfachen Schritte, die Sie unternehmen können, um Ihre Website zu schützen.
+Der Rest dieses Artikels gibt Ihnen weitere Details über einige häufige Bedrohungen und einige einfache Maßnahmen, die Sie ergreifen können, um Ihre Seite zu schützen.
 
 > [!NOTE]
-> Dies ist ein einführendes Thema, das Ihnen helfen soll, über Website-Sicherheit nachzudenken, aber es ist nicht erschöpfend.
+> Dies ist ein einführendes Thema, das Ihnen helfen soll, über Website-Sicherheit nachzudenken, es ist jedoch nicht erschöpfend.
 
-## Website-Sicherheitsbedrohungen
+## Bedrohungen der Website-Sicherheit
 
-Dieser Abschnitt listet nur einige der häufigsten Bedrohungen für Websites und deren Abwehrmaßnahmen auf. Beachten Sie beim Lesen, wie Bedrohungen am erfolgreichsten sind, wenn die Webanwendung den Daten aus dem Browser vertraut oder nicht _paranoid genug_ gegenüber diesen Daten ist.
+Dieser Abschnitt listet nur einige der häufigsten Website-Bedrohungen auf und wie sie abgemildert werden. Achten Sie beim Lesen darauf, wie erfolgreich Bedrohungen sind, wenn die Webanwendung entweder dem Browser vertraut oder nicht _paranoid genug_ bezüglich der Daten ist, die vom Browser kommen.
 
 ### Cross-Site Scripting (XSS)
 
-XSS ist ein Begriff, der eine Klasse von Angriffen beschreibt, die es einem Angreifer ermöglichen, clientseitige Skripte _über_ die Website in die Browser anderer Benutzer einzuschleusen. Da der eingefügte Code vom Browser von der Seite kommt, wird der Code _vertraut_ und kann Dinge tun wie das Senden des Autorisierungs-Cookies des Benutzers an den Angreifer. Wenn der Angreifer das Cookie hat, kann er sich auf einer Website einloggen, als wäre er der Benutzer, und alles tun, was der Benutzer kann, wie zum Beispiel auf Kreditkartendaten zugreifen, Kontaktdaten einsehen oder Passwörter ändern.
+XSS ist ein Begriff, der eine Klasse von Angriffen beschreibt, die es einem Angreifer ermöglichen, clientseitige Skripte _durch_ die Website in die Browser anderer Nutzer zu injizieren. Da der injizierte Code zusammen mit der Website zum Browser gelangt, wird er _vertraut_ und kann Dinge tun wie das Übertragen des Autorisierungs-Cookies des Nutzers an den Angreifer. Hat der Angreifer das Cookie, kann er sich als der Nutzer auf der Website anmelden und alles tun, was der Nutzer kann, etwa Kreditkartendetails einsehen, Kontaktdaten sehen oder Passwörter ändern.
 
 > [!NOTE]
-> XSS-Schwachstellen waren historisch gesehen häufiger als jede andere Art von Sicherheitsbedrohung.
+> XSS-Schwachstellen waren historisch häufiger als jede andere Art von Sicherheitsbedrohung.
 
-Die XSS-Schwachstellen werden in _reflektiert_ und _persistent_ unterteilt, je nachdem, wie die Seite die eingespritzten Skripte an einen Browser zurückgibt.
+Die XSS-Schwachstellen werden in _reflektierte_ und _persistente_ unterteilt, basierend darauf, wie die Seite die injizierten Skripte an einen Browser zurückgibt.
 
-- Eine _reflektierte_ XSS-Schwachstelle tritt auf, wenn Benutzerinhalte, die an den Server übergeben werden, _sofort_ und _unverändert_ zur Anzeige im Browser zurückgegeben werden. Alle Skripte im ursprünglichen Benutzerinhalt werden ausgeführt, wenn die neue Seite geladen wird.
-  Ein Beispiel ist eine Suchfunktion auf einer Website, bei der die Suchbegriffe als URL-Parameter kodiert sind und diese Begriffe zusammen mit den Ergebnissen angezeigt werden. Ein Angreifer kann einen Suchlink konstruieren, der ein bösartiges Skript als Parameter enthält (z.B. `https://developer.mozilla.org?q=beer<script%20src="http://example.com/tricky.js"></script>`) und ihn an einen anderen Benutzer senden. Wenn der Zielbenutzer auf diesen "interessanten Link" klickt, wird das Skript ausgeführt, wenn die Suchergebnisse angezeigt werden. Wie zuvor erläutert, gibt dies dem Angreifer alle Informationen, die er benötigt, um sich als der Zielbenutzer auf der Website anzumelden, Einkäufe als der Benutzer zu tätigen oder deren Kontaktdetails zu teilen.
-- Eine _persistente_ XSS-Schwachstelle tritt auf, wenn das bösartige Skript auf der Website _gespeichert_ und später unverändert für andere Benutzer ungewollt zur Ausführung erneut angezeigt wird.
-  Ein Beispiel ist ein Diskussionsforum, das Kommentare akzeptiert, die unmodifizierten HTML-Inhalt enthalten. Es könnte ein bösartiges Skript eines Angreifers gespeichert werden. Wenn die Kommentare angezeigt werden, wird das Skript ausgeführt und kann an den Angreifer die Informationen senden, die erforderlich sind, um auf das Benutzerkonto zuzugreifen. Diese Art von Angriff ist sehr beliebt und mächtig, da der Angreifer möglicherweise keinen direkten Kontakt zu den Opfern hat.
+- Eine _reflektierte_ XSS-Schwachstelle tritt auf, wenn Benutzerinhalte, die an den Server übergeben werden, _sofort_ und _unverändert_ zur Anzeige im Browser zurückgegeben werden. Alle Skripte in den ursprünglichen Benutzerdaten werden beim Laden der neuen Seite ausgeführt.
+  Ein Beispiel ist eine Suchfunktion auf einer Website, bei der die Suchbegriffe als URL-Parameter kodiert werden und diese Begriffe zusammen mit den Ergebnissen angezeigt werden. Ein Angreifer kann einen Suchlink konstruieren, der ein bösartiges Skript als Parameter enthält (z. B. `https://developer.mozilla.org?q=beer<script%20src="http://example.com/tricky.js"></script>`) und ihn an einen anderen Benutzer senden. Wenn der Zielbenutzer auf diesen "interessanten Link" klickt, wird das Skript ausgeführt, wenn die Suchergebnisse angezeigt werden. Wie bereits besprochen, erhält der Angreifer dadurch alle benötigten Informationen, um als Zielbenutzer auf die Seite zu gelangen, was potenziell Käufe als der Benutzer ermöglicht oder deren Kontaktdaten teilt.
+- Eine _persistente_ XSS-Schwachstelle tritt auf, wenn das bösartige Skript _auf der Website gespeichert_ und später unverändert für andere Benutzer zur unfreiwilligen Ausführung wieder angezeigt wird.
+  Ein Beispiel dafür ist ein Diskussionsforum, das Kommentare akzeptiert, welche unveränderten HTML-Code enthalten könnten und ein bösartiges Skript eines Angreifers speichert. Wenn die Kommentare angezeigt werden, wird das Skript ausgeführt und kann die Informationen übermitteln, die erforderlich sind, um auf das Benutzerkonto zuzugreifen. Diese Art von Angriff ist extrem populär und mächtig, weil der Angreifer möglicherweise nicht einmal direkten Kontakt zu den Opfern hat.
 
-Obwohl die Daten aus `POST`- oder `GET`-Anfragen die häufigste Quelle für XSS-Schwachstellen sind, sind alle Daten aus dem Browser potenziell anfällig, z.B. Cookie-Daten, die vom Browser gerendert werden, oder vom Benutzer hochgeladene und angezeigte Dateien.
+Obwohl Daten aus `POST`- oder `GET`-Anfragen die häufigste Quelle für XSS-Schwachstellen sind, sind alle Daten vom Browser potenziell anfällig, zum Beispiel von Cookies, die vom Browser gerendert wurden, oder von Benutzerdateien, die hochgeladen und angezeigt werden.
 
-Der beste Schutz gegen XSS-Schwachstellen besteht darin, jegliches Markup zu entfernen oder zu deaktivieren, das potenziell Anweisungen zum Ausführen von Code enthalten könnte. Für HTML gehören dazu Elemente wie `<script>`, `<object>`, `<embed>` und `<link>`.
+Der beste Schutz gegen XSS-Schwachstellen besteht darin, jegliche Markups, die potenziell Anweisungen zum Ausführen von Code enthalten könnten, zu entfernen oder zu deaktivieren. Für HTML gilt dies für Elemente wie `<script>`, `<object>`, `<embed>` und `<link>`.
 
-Der Prozess der Modifikation von Benutzerdaten, so dass sie nicht für Skriptausführung oder anderweitig zur Beeinflussung der Ausführung von Server-Code verwendet werden können, wird als Eingabesäuberung bezeichnet. Viele Web-Frameworks säubern automatisch Benutzereingaben aus HTML-Formularen standardmäßig.
+Der Vorgang des Änderens von Benutzerdaten, damit sie nicht zur Ausführung von Skripten oder zur Beeinflussung der Ausführung von Server-Code genutzt werden können, wird als Eingabesäuberung (Input-Sanitization) bezeichnet. Viele Web-Frameworks reinigen Benutzereingaben von HTML-Formularen standardmäßig automatisch.
 
-### SQL-Injektion
+### SQL-Injection
 
-SQL-Injektions-Schwachstellen ermöglichen es böswilligen Benutzern, beliebige SQL-Code auf einer Datenbank auszuführen, wodurch Daten unabhängig von den Benutzerberechtigungen abgerufen, geändert oder gelöscht werden können. Ein erfolgreicher Injektionsangriff könnte Identitäten vortäuschen, neue Identitäten mit Administrationsrechten schaffen, auf alle Daten auf dem Server zugreifen oder die Daten zerstören/modifizieren, um sie unbenutzbar zu machen.
+SQL-Injection-Schwachstellen ermöglichen es böswilligen Benutzern, willkürlichen SQL-Code auf einer Datenbank auszuführen, der Zugriff auf Daten ermöglicht, diese modifiziert oder löscht, ungeachtet der Berechtigungen des Benutzers. Ein erfolgreicher Injektionsangriff könnte Identitäten vortäuschen, neue Identitäten mit Administratorrechten erstellen, auf alle Daten auf dem Server zugreifen oder die Daten zerstören/verändern, um sie unbrauchbar zu machen.
 
-Zu den Arten der SQL-Injektion gehören Fehler-basierte SQL-Injektion, SQL-Injektion basierend auf booleschen Fehlern und zeitbasierte SQL-Injektion.
+SQL-Injection-Arten umfassen Fehlerbasierte SQL-Injection, SQL-Injection basierend auf booleschen Fehlern, und zeitbasierte SQL-Injection.
 
-Diese Schwachstelle ist vorhanden, wenn Benutzereingaben, die in eine darunter liegende SQL-Anweisung übergeben werden, die Bedeutung der Anweisung ändern können. Zum Beispiel soll der folgende Code alle Benutzer mit einem bestimmten Namen (`userName`) auflisten, der aus einem HTML-Formular übermittelt wurde:
+Diese Schwachstelle tritt auf, wenn Benutzereingaben, die an eine zugrunde liegende SQL-Anweisung übergeben werden, die Bedeutung der Anweisung ändern können. Zum Beispiel soll der folgende Code alle Benutzer mit einem bestimmten Namen (`userName`) auflisten, der aus einem HTML-Formular stammt:
 
 ```python
 statement = "SELECT * FROM users WHERE name = '" + userName + "';"
 ```
 
-Wenn der Benutzer einen echten Namen angibt, funktioniert die Anweisung wie beabsichtigt. Ein bösartiger Benutzer könnte jedoch das Verhalten dieser SQL-Anweisung vollständig ändern zur neuen Anweisung im folgenden Beispiel, indem er `a';DROP TABLE users; SELECT * FROM userinfo WHERE 't' = 't` für den `userName` spezifiziert.
+Wenn der Benutzer einen echten Namen angibt, funktioniert die Anweisung wie beabsichtigt. Ein böswilliger Benutzer könnte jedoch das Verhalten dieser SQL-Anweisung völlig ändern, indem er `a';DROP TABLE users; SELECT * FROM userinfo WHERE 't' = 't` für den `userName` angibt.
 
 ```sql
 SELECT * FROM users WHERE name = 'a';DROP TABLE users; SELECT * FROM userinfo WHERE 't' = 't';
 ```
 
-Die modifizierte Anweisung erstellt eine gültige SQL-Anweisung, die die `users`-Tabelle löscht und alle Daten aus der `userinfo`-Tabelle auswählt (was die Informationen jedes Benutzers offenbart). Dies funktioniert, weil der erste Teil des eingespritzten Textes (`a';`) die ursprüngliche Anweisung abschließt.
+Die geänderte Anweisung erstellt eine gültige SQL-Anweisung, die die Tabelle `users` löscht und alle Daten aus der Tabelle `userinfo` auswählt (was die Informationen jedes Benutzers offenlegt). Dies funktioniert, weil der erste Teil der eingefügten Zeichenfolge (`a';`) die ursprüngliche Anweisung vervollständigt.
 
-Um solche Angriffe zu vermeiden, besteht die beste Praxis darin, parametrisierte Abfragen (vorbereitete Anweisungen) zu verwenden. Dieser Ansatz stellt sicher, dass die Benutzereingabe als Datenzeichenfolge und nicht als ausführbares SQL behandelt wird, so dass der Benutzer keine speziellen SQL-Syntaxzeichen missbrauchen kann, um unbeabsichtigte SQL-Anweisungen zu erzeugen. Das folgende ist ein Beispiel:
+Um solche Angriffe zu vermeiden, ist es am besten, parametrisierte Abfragen (vorbereitete Statements) zu verwenden. Diese Methode stellt sicher, dass Benutzereingaben als Datenzeichenfolge behandelt werden und nicht als ausführbares SQL, sodass der Benutzer keine SQL-Sonderzeichensyntax missbrauchen kann, um unbeabsichtigte SQL-Anweisungen zu generieren. Das folgende Beispiel zeigt dies:
 
 ```sql
 SELECT * FROM users WHERE name = ? AND password = ?;
 ```
 
-Beim Ausführen der obigen Abfrage, zum Beispiel in Python, übergeben wir den `name` und `password` als Parameter, wie unten gezeigt.
+Beim Ausführen der obigen Abfrage, zum Beispiel in Python, übergeben wir den `name` und den `password` als Parameter, wie unten gezeigt.
 
 ```python
 cursor.execute("SELECT * FROM users WHERE name = ? AND password = ?", (name, password))
 ```
 
-Bibliotheken bieten oft gut abstrahierte APIs, die den Schutz vor SQL-Injektionen für den Entwickler handhaben, wie beispielsweise die Modelle von Django. Sie können SQL-Injektionen vermeiden, indem Sie gekapselte APIs verwenden anstelle von direktem Schreiben von rohem SQL.
+Bibliotheken bieten oft gut abstrahierte APIs, die den Schutz vor SQL-Injection für den Entwickler übernehmen, wie zum Beispiel die Modelle von Django. Man kann SQL-Injection vermeiden, indem man gekapselte APIs verwendet, anstatt rohe SQL-Befehle direkt zu schreiben.
 
 ### Cross-Site Request Forgery (CSRF)
 
-CSRF-Angriffe ermöglichen es einem bösartigen Benutzer, Aktionen mit den Anmeldedaten eines anderen Benutzers auszuführen, ohne dass dieser Benutzer davon weiß oder zustimmt.
+CSRF-Angriffe ermöglichen einem böswilligen Benutzer, Aktionen mit den Anmeldedaten eines anderen Benutzers ohne dessen Wissen oder Zustimmung auszuführen.
 
-Diese Art von Angriff wird am besten durch ein Beispiel erklärt. Josh ist ein bösartiger Benutzer, der weiß, dass eine bestimmte Site eingeloggt Benutzern erlaubt, Geld mit einer HTTP-`POST`-Anfrage, die den Kontonamen und einen Geldbetrag enthält, an ein bestimmtes Konto zu senden. Josh erstellt ein Formular, das seine Bankdaten und einen Geldbetrag als versteckte Felder enthält, und sendet es per E-Mail an andere Benutzer der Site (mit der _Absenden_-Schaltfläche, die als Link zu einer „schnell reich werden“-Site getarnt ist).
+Diese Art von Angriff lässt sich am besten anhand eines Beispiels erklären. Josh ist ein böswilliger Benutzer, der weiß, dass eine bestimmte Seite es eingeloggten Benutzern erlaubt, mit einer HTTP-`POST`-Anfrage Geld an ein bestimmtes Konto zu senden, das den Kontonamen und einen Geldbetrag enthält. Josh erstellt ein Formular, das seine Bankdaten und einen Geldbetrag als versteckte Felder enthält, und sendet es per E-Mail an andere Benutzer der Seite (mit dem _Absenden_-Button, der als Link zu einer "schnell reich werden"-Website getarnt ist).
 
-Wenn ein Benutzer auf die Absenden-Schaltfläche klickt, wird eine HTTP-`POST`-Anfrage mit den Transaktionsdetails und allen clientseitigen Cookies, die der Browser mit der Site assoziiert, an den Server gesendet (das Hinzufügen von zugehörigen Site-Cookies zu Anfragen ist normales Browserverhalten). Der Server überprüft die Cookies und verwendet sie, um festzustellen, ob der Benutzer eingeloggt ist und die Berechtigung hat, die Transaktion durchzuführen.
+Wenn ein Benutzer auf die Absenden-Schaltfläche klickt, wird eine HTTP-`POST`-Anfrage an den Server gesendet, die die Transaktionsdetails und alle clientseitigen Cookies enthält, die der Browser mit der Website assoziiert (das Hinzufügen assoziierter Seiten-Cookies zu Anfragen ist normales Browserverhalten). Der Server überprüft die Cookies und verwendet sie, um zu bestimmen, ob der Benutzer eingeloggt ist und die Berechtigung hat, die Transaktion auszuführen.
 
-Das Ergebnis ist, dass jeder Benutzer, der auf die _Absenden_-Schaltfläche klickt, während er bei der Handelsseite eingeloggt ist, die Transaktion ausführt. Josh wird reich.
+Das Ergebnis ist, dass jeder Benutzer, der auf die _Absenden_-Schaltfläche klickt, während er auf der Handelsseite eingeloggt ist, die Transaktion ausführt. Josh wird reich.
 
 > [!NOTE]
-> Die Tücke dabei ist, dass Josh keinen Zugriff auf die Cookies des Benutzers (oder Zugriffsdaten) benötigt. Informationen hierfür werden vom Benutzerbrowser gespeichert und automatisch in allen Anfragen an den assoziierten Server eingeschlossen.
+> Der Trick dabei ist, dass Josh keinen Zugriff auf die Cookies (oder Zugangsdaten) des Benutzers benötigt. Der Browser des Benutzers speichert diese Informationen und fügt sie automatisch in alle Anfragen an den zugehörigen Server ein.
 
-Eine Möglichkeit, diese Art von Angriff zu verhindern, besteht darin, dass der Server verlangt, dass `POST`-Anfragen ein benutzerspezifisches, von der Site generiertes Geheimnis enthalten. Das Geheimnis wird vom Server bereitgestellt, wenn das Webformular zum Bereitstellen von Überweisungen versendet wird. Dieser Ansatz verhindert, dass Josh sein eigenes Formular erstellen kann, da er das Geheimnis kennen müsste, das der Server für den Benutzer bereitstellt. Selbst wenn er das Geheimnis herausgefunden und ein Formular für einen bestimmten Benutzer erstellt hätte, könnte er dasselbe Formular nicht mehr verwenden, um jeden Benutzer anzugreifen.
+Eine Möglichkeit, diese Art von Angriff zu verhindern, besteht darin, dass der Server verlangt, dass `POST`-Anfragen ein benutzerspezifisches sitegeneriertes Geheimnis enthalten. Das Geheimnis wird vom Server bereitgestellt, wenn das Webformular, das für Überweisungen genutzt wird, gesendet wird. Dieser Ansatz verhindert, dass Josh sein eigenes Formular erstellt, da er das Geheimnis kennen müsste, das der Server für den Benutzer bereitstellt. Selbst wenn er das Geheimnis herausfindet und ein Formular für einen bestimmten Benutzer erstellt, könnte er dieses Formular nicht mehr nutzen, um jeden Benutzer anzugreifen.
 
-Web-Frameworks beinhalten oft solche CSRF-Schutzmechanismen.
+Web-Frameworks enthalten oft Mechanismen zum Schutz vor CSRF.
 
 ### Weitere Bedrohungen
 
-Weitere häufige Angriffe/Schwachstellen umfassen:
+Andere häufige Angriffe/Schwachstellen umfassen:
 
-- [Clickjacking](/de/docs/Web/Security/Attacks/Clickjacking). Bei diesem Angriff kapert ein bösartiger Benutzer Klicks, die für eine sichtbare Seite auf oberster Ebene gedacht sind und leitet sie auf eine versteckte Seite darunter um. Diese Technik könnte genutzt werden, um zum Beispiel eine legitime Bankseite anzuzeigen, aber die Anmeldedaten in einem unsichtbaren {{htmlelement("iframe")}} aufzufangen, das vom Angreifer kontrolliert wird. Clickjacking könnte auch verwendet werden, um den Benutzer einen sichtbaren Knopf auf der Webseite klicken zu lassen, wobei er unwissentlich tatsächlich einen völlig anderen Knopf klickt. Als Verteidigung kann Ihre Site verhindern, dass sie in einem iframe in einer anderen Site eingebettet wird, indem sie die entsprechenden HTTP-Header setzt.
-- {{Glossary("Distributed_Denial_of_Service", "Denial of Service")}} (DoS). DoS wird in der Regel erreicht, indem ein Zielort mit gefälschten Anfragen überflutet wird, so dass der Zugriff auf eine Site für legitime Benutzer gestört wird. Die Anfragen können zahlreich sein oder einzeln große Mengen an Ressourcen verbrauchen (z.B. langsame Lesevorgänge oder das Hochladen großer Dateien). DoS-Verteidigungen arbeiten normalerweise dadurch, dass sie "bösen" Datenverkehr identifizieren und blockieren, während legitime Nachrichten durchgelassen werden. Diese Abwehrmechanismen befinden sich in der Regel vor oder im Webserver (sie sind nicht Teil der Webanwendung selbst).
-- [Directory Traversal](https://de.wikipedia.org/wiki/Directory_Traversal-Angriff) (Datei- und Offenzlegung). Bei diesem Angriff versucht ein bösartiger Benutzer, Teile des Dateisystems des Webservers zuzugreifen, die sie nicht zugreifen dürfen. Diese Schwachstelle tritt auf, wenn der Benutzer Dateinamen übergeben kann, die Dateisystem-Navigationszeichen enthalten (z.B. `../../`). Die Lösung besteht darin, die Eingabe zu bereinigen, bevor sie verwendet wird.
-- [Datei-Einschluss](https://de.wikipedia.org/wiki/File_Inclusion_Schwachstelle). Bei diesem Angriff kann ein Benutzer eine „unerwünschte“ Datei zur Anzeige oder Ausführung in Daten angeben, die an den Server übergeben werden. Wenn geladen, könnte diese Datei auf dem Webserver oder dem Client (geführt zu einem XSS-Angriff) ausgeführt werden. Die Lösung besteht darin, die Eingabe zu bereinigen, bevor sie verwendet wird.
-- [Befehlseinschleusung](https://owasp.org/www-community/attacks/Command_Injection). Befehlseinschleusungs-Angriffe ermöglichen einem bösartigen Benutzer, beliebige Systembefehle auf dem Host-Betriebssystem auszuführen. Die Lösung besteht darin, die Benutzereingaben zu bereinigen, bevor sie möglicherweise in Systemaufrufen verwendet werden.
+- [Clickjacking](/de/docs/Web/Security/Attacks/Clickjacking). Bei diesem Angriff entführt ein böswilliger Benutzer Klicks, die für eine sichtbare oberste Website gedacht sind, und leitet sie an eine darunter liegende versteckte Seite um. Diese Technik könnte beispielsweise verwendet werden, um eine legitime Bankseite anzuzeigen, aber die Anmeldedaten in einem unsichtbaren {{htmlelement("iframe")}} zu erfassen, das vom Angreifer kontrolliert wird. Clickjacking könnte auch dazu verwendet werden, den Benutzer dazu zu bringen, auf eine Schaltfläche auf einer sichtbaren Website zu klicken, wobei er dabei unwissentlich auf eine völlig andere Schaltfläche klickt. Als Verteidigung kann Ihre Seite verhindern, dass sie in einem iframe in einer anderen Seite eingebettet wird, indem die entsprechenden HTTP-Header gesetzt werden.
+- {{Glossary("Distributed_Denial_of_Service", "Denial of Service")}} (DoS). DoS wird normalerweise durch das Überfluten einer Zielseite mit gefälschten Anfragen erreicht, sodass der Zugriff auf eine Seite für legitime Benutzer gestört wird. Die Anfragen können zahlreich sein oder einzeln große Mengen an Ressourcen verbrauchen (z.B. langsame Lesevorgänge oder Hochladen großer Dateien). DoS-Abwehrmechanismen arbeiten normalerweise, indem sie "schlechten" Traffic identifizieren und blockieren, während legitime Nachrichten durchgelassen werden. Diese Abwehrmechanismen befinden sich typischerweise vor oder im Webserver (sie sind nicht Teil der Webanwendung selbst).
+- [Directory Traversal](https://de.wikipedia.org/wiki/Directory_Traversal) (File and disclosure). Bei diesem Angriff versucht ein böswilliger Benutzer, auf Teile des Dateisystems des Webservers zuzugreifen, die sie nicht zugreifen können sollten. Diese Schwachstelle tritt auf, wenn der Benutzer in der Lage ist, Dateinamen zu übergeben, die Dateisystem-Navigationszeichen enthalten (zum Beispiel `../../`). Die Lösung besteht darin, Eingaben zu säubern, bevor sie verwendet werden.
+- [File Inclusion](https://de.wikipedia.org/wiki/Dateiinklusion). Bei diesem Angriff kann ein Benutzer eine "unerwünschte" Datei zur Anzeige oder Ausführung in Daten an den Server übergeben. Beim Laden könnte diese Datei auf dem Webserver oder clientseitig ausgeführt werden (was zu einem XSS-Angriff führt). Die Lösung besteht darin, Eingaben zu säubern, bevor sie verwendet werden.
+- [Command Injection](https://owasp.org/www-community/attacks/Command_Injection). Command-Injection-Angriffe ermöglichen es einem böswilligen Benutzer, beliebige Systembefehle auf dem Host-Betriebssystem auszuführen. Die Lösung besteht darin, Benutzereingaben zu säubern, bevor sie in Systemaufrufen verwendet werden könnten.
 
-Eine umfassende Auflistung von Website-Sicherheitsbedrohungen finden Sie unter [Kategorie: Web security exploits](https://de.wikipedia.org/wiki/Kategorie:Web_security_exploits) (Wikipedia) und [Kategorie: Attack](https://owasp.org/www-community/attacks/) (Open Web Application Security Project).
+Für eine umfassende Liste von Website-Sicherheitsbedrohungen siehe [Kategorie: Web-Sicherheitsexploits](https://de.wikipedia.org/wiki/Kategorie:Websicherheit) (Wikipedia) und [Kategorie: Angriff](https://owasp.org/www-community/attacks/) (Open Web Application Security Project).
 
-## Ein paar wichtige Botschaften
+## Einige Schlüsselbotschaften
 
-Fast alle Sicherheitslücken in den vorhergehenden Abschnitten sind erfolgreich, wenn die Webanwendung Daten aus dem Browser vertraut. Was auch immer Sie sonst tun, um die Sicherheit Ihrer Website zu verbessern, Sie sollten alle durch Benutzer stammenden Daten bereinigen, bevor sie im Browser angezeigt, in SQL-Abfragen verwendet oder an einen Betriebssystem- oder Dateisystemaufruf übergeben werden.
+Fast alle in den vorangegangenen Abschnitten beschriebenen Sicherheitsexploits sind erfolgreich, wenn die Webanwendung den Daten aus dem Browser vertraut. Was auch immer Sie tun, um die Sicherheit Ihrer Website zu verbessern, Sie sollten alle vom Benutzer stammenden Daten säubern, bevor sie im Browser angezeigt, in SQL-Abfragen verwendet oder an ein Betriebssystem oder einen Dateisystemaufruf übergeben werden.
 
 > [!WARNING]
-> Die wichtigste Lehre, die Sie über Website-Sicherheit lernen können, lautet, **vertrauen Sie niemals Daten aus dem Browser**. Dies schließt (aber beschränkt sich nicht auf) Daten in URL-Parametern von `GET`-Anfragen, `POST`-Anfragen, HTTP-Headern und Cookies sowie Benutzer hochgeladene Dateien ein. Überprüfen und bereinigen Sie immer alle eingehenden Daten. Gehen Sie immer vom Schlimmsten aus.
+> Die wichtigste Lektion, die Sie über Website-Sicherheit lernen können, ist **niemals den Daten aus dem Browser zu vertrauen**. Dies umfasst, aber beschränkt sich nicht auf Daten in URL-Parametern von `GET`-Anfragen, `POST`-Anfragen, HTTP-Headern und Cookies sowie von Benutzern hochgeladene Dateien. Überprüfen und säubern Sie immer alle eingehenden Daten. Gehen Sie immer vom Schlimmsten aus.
 
-Einige der weiteren konkreten Schritte, die Sie unternehmen können, sind:
+Einige weitere konkrete Schritte, die Sie unternehmen können, sind:
 
-- Effektivere Passwortverwaltung nutzen. Starke Passwörter fördern. Ziehen Sie eine Zwei-Faktor-Authentifizierung für Ihre Site in Betracht, so dass zusätzlich zu einem Passwort der Benutzer einen weiteren Authentifizierungscode eingeben muss (in der Regel einen, der über eine physische Hardware geliefert wird, die nur der Benutzer hat, wie z.B. ein Code in einer SMS an sein Telefon).
-- Konfigurieren Sie Ihren Webserver, um {{Glossary("HTTPS", "HTTPS")}} und [HTTP Strict Transport Security](/de/docs/Web/HTTP/Reference/Headers/Strict-Transport-Security) (HSTS) zu verwenden. HTTPS verschlüsselt Daten, die zwischen Ihrem Client und Server gesendet werden. Dies stellt sicher, dass Anmeldeinformationen, Cookies, `POST`-Anfragedaten und Header-Informationen nicht einfach für Angreifer zugänglich sind.
-- Halten Sie sich über die beliebtesten Bedrohungen auf dem Laufenden (die [aktuelle OWASP-Liste finden Sie hier](https://owasp.org/www-project-top-ten/)) und adressieren Sie die häufigsten Schwachstellen zuerst.
-- Verwenden Sie [Schwachstellenscanner-Werkzeuge](https://owasp.org/www-community/Vulnerability_Scanning_Tools), um automatisierte Sicherheitstests an Ihrer Seite durchzuführen. Später, wenn Ihre sehr erfolgreiche Website auch Fehler findet, indem Sie eine Bug-Bounty anbieten [wie Mozilla es hier tut](https://www.mozilla.org/en-US/security/bug-bounty/faq-webapp/).
-- Speichern und zeigen Sie nur Daten an, die Sie benötigen. Wenn Ihre Benutzer beispielsweise sensible Informationen wie Kreditkartendaten speichern müssen, zeigen Sie nur genug von der Kartennummer an, dass der Benutzer sie identifizieren kann, und nicht genug, dass sie von einem Angreifer kopiert und auf einer anderen Seite verwendet werden kann. Das häufigste Muster zu diesem Zeitpunkt ist, nur die letzten 4 Ziffern einer Kreditkartennummer anzuzeigen.
-- Halten Sie Software auf dem neuesten Stand.
-  Die meisten Server haben regelmäßige Sicherheitsupdates, die bekannte Schwachstellen beheben oder abschwächen.
-  Wenn möglich, planen Sie regelmäßige automatische Updates und idealerweise Updates während Zeiten, in denen Ihre Website das geringste Verkehrsaufkommen hat.
-  Es ist am besten, Ihre Daten vor Updates zu sichern und neue Softwareversionen zu testen, um sicherzustellen, dass es keine Kompatibilitätsprobleme auf Ihrem Server gibt.
+- Verwenden Sie effektivere Passwortmanagement-Praktiken. Fördern Sie starke Passwörter. Erwägen Sie die Implementierung einer Zwei-Faktor-Authentifizierung auf Ihrer Website, sodass ein zusätzliches Authentifizierungscode, der in der Regel über physische Hardware, die nur der Benutzer besitzt, geliefert wird, erforderlich ist (normalerweise ein Code, der per SMS an ihr Telefon gesendet wird).
+- Konfigurieren Sie Ihren Webserver, um {{Glossary("HTTPS", "HTTPS")}} und [HTTP Strict Transport Security](/de/docs/Web/HTTP/Reference/Headers/Strict-Transport-Security) (HSTS) zu verwenden. HTTPS verschlüsselt die zwischen Ihrem Client und Server gesendeten Daten. Dies stellt sicher, dass Anmeldeinformationen, Cookies, in `POST`-Anfragen enthaltene Daten und Header-Informationen nicht leicht für Angreifer zugänglich sind.
+- Behalten Sie die populärsten Bedrohungen im Blick (die [aktuelle OWASP-Liste finden Sie hier](https://owasp.org/www-project-top-ten/)) und beheben Sie die häufigsten Schwachstellen zuerst.
+- Verwenden Sie [Schwachstellen-Scanning-Tools](https://owasp.org/www-community/Vulnerability_Scanning_Tools), um automatisierte Sicherheitstests auf Ihrer Website durchzuführen. Später, wenn Ihre sehr erfolgreiche Webseite auch Fehler durch ein Bug-Bounty-Programm findet [wie Mozilla es hier tut](https://www.mozilla.org/en-US/security/bug-bounty/faq-webapp/).
+- Speichern und anzeigen Sie nur Daten, die Sie benötigen. Wenn Ihre Benutzer sensible Informationen wie Kreditkartendaten speichern müssen, zeigen Sie nur so viel der Kartennummer an, dass der Nutzer sie erkennen kann, aber nicht genug, dass ein Angreifer sie kopieren und auf einer anderen Webseite verwenden kann. Das häufigste Muster zurzeit ist, nur die letzten 4 Ziffern einer Kreditkartennummer anzuzeigen.
+- Halten Sie die Software aktuell.
+  Die meisten Server haben regelmäßige Sicherheitsupdates, die bekannte Schwachstellen beheben oder entschärfen.
+  Falls möglich, planen Sie regelmäßige automatisierte Updates und idealerweise, planen Sie Updates zu Zeiten, in denen Ihre Website das geringste Verkehrsaufkommen hat.
+  Am besten sichern Sie Ihre Daten vor dem Update und testen neue Softwareversionen, um sicherzugehen, dass es keine Kompatibilitätsprobleme auf Ihrem Server gibt.
 
-Web-Frameworks können helfen, viele der häufigsten Schwachstellen zu mildern.
+Web-Frameworks können dazu beitragen, viele der häufigsten Schwachstellen zu mindern.
 
 ## Zusammenfassung
 
-Dieser Artikel hat das Konzept der Websicherheit und einige der häufigsten Bedrohungen erklärt, gegen die Ihre Website versuchen sollte, sich zu schützen. Am wichtigsten ist, dass Sie verstehen, dass eine Webanwendung keinem Daten aus dem Webbrowser vertrauen kann. Alle Benutzerdaten sollten bereinigt werden, bevor sie angezeigt oder in SQL-Abfragen und Dateisystemaufrufen verwendet werden.
+Dieser Artikel hat das Konzept der Web-Sicherheit und einige der häufigeren Bedrohungen erklärt, gegen die Ihre Website versuchen sollte, sich zu schützen. Am wichtigsten sollten Sie verstehen, dass eine Webanwendung keine Daten aus dem Webbrowser vertrauen kann. Alle Benutzerdaten sollten gesäubert werden, bevor sie angezeigt oder in SQL-Abfragen und Dateisystemaufrufen verwendet werden.
 
-Mit diesem Artikel haben Sie das Ende [dieses Moduls](/de/docs/Learn_web_development/Extensions/Server-side/First_steps) erreicht, das Ihre ersten Schritte in der serverseitigen Webprogrammierung behandelt. Wir hoffen, dass Ihnen das Lernen dieser grundlegenden Konzepte Spaß gemacht hat und Sie jetzt bereit sind, ein Web-Framework auszuwählen und mit der Programmierung zu beginnen.
+Mit diesem Artikel haben Sie das Ende von [diesem Modul](/de/docs/Learn_web_development/Extensions/Server-side/First_steps) erreicht, das Ihre ersten Schritte in der serverseitigen Website-Programmierung abdeckt. Wir hoffen, dass Sie daran Gefallen gefunden haben, diese grundlegenden Konzepte zu lernen, und Sie nun bereit sind, ein Web-Framework auszuwählen und mit der Programmierung zu beginnen.
 
 {{PreviousMenu("Learn_web_development/Extensions/Server-side/First_steps/Web_frameworks", "Learn_web_development/Extensions/Server-side/First_steps")}}

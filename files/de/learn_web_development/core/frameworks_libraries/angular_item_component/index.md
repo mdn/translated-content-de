@@ -1,33 +1,36 @@
 ---
-title: Erstellen einer Elementkomponente
+title: Erstellen einer Item-Komponente
 slug: Learn_web_development/Core/Frameworks_libraries/Angular_item_component
 l10n:
-  sourceCommit: 3c13d9a0c239ed31ae861486393952bc03e0b5bd
+  sourceCommit: 48d220a8cffdfd5f088f8ca89724a9a92e34d8c0
 ---
 
-{{LearnSidebar}}{{PreviousMenuNext("Learn_web_development/Core/Frameworks_libraries/Angular_styling","Learn_web_development/Core/Frameworks_libraries/Angular_filtering", "Learn_web_development/Core/Frameworks_libraries")}}
+{{PreviousMenuNext("Learn_web_development/Core/Frameworks_libraries/Angular_styling","Learn_web_development/Core/Frameworks_libraries/Angular_filtering", "Learn_web_development/Core/Frameworks_libraries")}}
 
-Komponenten bieten eine Möglichkeit, Ihre Anwendung zu organisieren. Dieser Artikel führt Sie durch die Erstellung einer Komponente, die einzelne Elemente in der Liste verwaltet, und das Hinzufügen von Prüf-, Bearbeitungs- und Löschfunktionen. Das Angular-Ereignismodell wird hier behandelt.
+Komponenten bieten eine Möglichkeit, Ihre Anwendung zu organisieren. Dieser Artikel führt Sie durch das Erstellen einer Komponente, um die einzelnen Elemente in der Liste zu verwalten, und fügt Funktionen zum Überprüfen, Bearbeiten und Löschen hinzu. Das Angular-Ereignismodell wird hier behandelt.
 
 <table>
   <tbody>
     <tr>
       <th scope="row">Voraussetzungen:</th>
       <td>
-        Vertrautheit mit den Kernsprachen <a href="/de/docs/Learn_web_development/Core/Structuring_content">HTML</a>,
+        Vertrautheit mit den grundlegenden
+        <a href="/de/docs/Learn_web_development/Core/Structuring_content">HTML</a>,
         <a href="/de/docs/Learn_web_development/Core/Styling_basics">CSS</a> und
-        <a href="/de/docs/Learn_web_development/Core/Scripting">JavaScript</a>,
-        Kenntnisse des
+        <a href="/de/docs/Learn_web_development/Core/Scripting">JavaScript</a> Sprachen,
+        Kenntnis der
         <a
           href="/de/docs/Learn_web_development/Getting_started/Environment_setup/Command_line"
-          >Terminals/Befehlszeile</a>
-        .
+          >Terminal-/Kommandozeile</a
+        >.
       </td>
     </tr>
     <tr>
       <th scope="row">Ziel:</th>
       <td>
-        Mehr über Komponenten zu lernen, einschließlich der Funktionsweise von Ereignissen zur Verwaltung von Aktualisierungen. Prüfen, Bearbeiten und Löschen von Funktionen hinzufügen.
+        Mehr über Komponenten zu lernen, einschließlich wie Ereignisse funktionieren, um
+        Updates zu handhaben. Überprüfen, Bearbeiten und Löschen
+        hinzuzufügen.
       </td>
     </tr>
   </tbody>
@@ -35,15 +38,15 @@ Komponenten bieten eine Möglichkeit, Ihre Anwendung zu organisieren. Dieser Art
 
 ## Erstellen der neuen Komponente
 
-Erstellen Sie in der Befehlszeile eine Komponente namens `item` mit dem folgenden CLI-Befehl:
+Erstellen Sie in der Kommandozeile eine Komponente mit dem Namen `item` mit folgendem CLI-Befehl:
 
 ```bash
 ng generate component item
 ```
 
-Der Befehl `ng generate component` erstellt eine Komponente und einen Ordner mit dem Namen, den Sie angeben.
-Hier lautet der Ordner- und Komponentenname `item`.
-Sie finden das Verzeichnis `item` im Ordner `app`:
+Der Befehl `ng generate component` erstellt eine Komponente und einen Ordner mit dem angegebenen Namen.
+Hier ist der Ordner- und Komponentenname `item`.
+Sie finden das `item`-Verzeichnis innerhalb des `app`-Ordners:
 
 ```plain
 src/app/item
@@ -53,14 +56,14 @@ src/app/item
 └── item.component.ts
 ```
 
-Genauso wie beim `AppComponent` besteht das `ItemComponent` aus den folgenden Dateien:
+Genau wie bei der `AppComponent` besteht die `ItemComponent` aus den folgenden Dateien:
 
 - `item.component.html` für HTML
 - `item.component.ts` für Logik
-- `item.component.css` für Styles
-- `item.component.spec.ts` für Komponententests
+- `item.component.css` für Stile
+- `item.component.spec.ts` für das Testen der Komponente
 
-Sie sehen einen Hinweis auf die HTML- und CSS-Dateien in den Metadaten des `@Component()`-Dekorators in `item.component.ts`.
+Sie können im `@Component()` Dekoratormetadaten in `item.component.ts` einen Verweis auf die HTML- und CSS-Dateien sehen.
 
 ```ts
 @Component({
@@ -75,11 +78,11 @@ export class ItemComponent {
 }
 ```
 
-## HTML für das ItemComponent hinzufügen
+## HTML zur ItemComponent hinzufügen
 
-Das `ItemComponent` kann die Aufgabe übernehmen, dem Benutzer eine Möglichkeit zu geben, Elemente als erledigt abzuhaken, sie zu bearbeiten oder zu löschen.
+Die `ItemComponent` kann die Aufgabe übernehmen, dem Benutzer eine Möglichkeit zu geben, Elemente als erledigt abzuhaken, sie zu bearbeiten oder zu löschen.
 
-Fügen Sie Markup zum Verwalten von Elementen hinzu, indem Sie den Platzhalterinhalt in `item.component.html` mit dem folgenden ersetzen:
+Fügen Sie Markup zur Verwaltung von Elementen hinzu, indem Sie den Platzhalterinhalt in `item.component.html` durch Folgendes ersetzen:
 
 ```html
 <div class="item">
@@ -118,14 +121,14 @@ Fügen Sie Markup zum Verwalten von Elementen hinzu, indem Sie den Platzhalterin
 </div>
 ```
 
-Das erste Eingabefeld ist ein Kontrollkästchen, damit Benutzer Elemente abhaken können, wenn ein Element fertig ist.
-Die doppelten geschweiften Klammern, `\{{}}`, im `<label>` für das Kontrollkästchen zeigen die Interpolation von Angular an.
-Angular verwendet `\{{item.description}}`, um die Beschreibung des aktuellen `item` aus dem `items` Array abzurufen.
-Im nächsten Abschnitt wird ausführlich erklärt, wie Komponenten Daten gemeinsam nutzen.
+Das erste Eingabefeld ist ein Kontrollkästchen, damit Benutzer Elemente abhaken können, wenn ein Element abgeschlossen ist.
+Die doppelten geschweiften Klammern, `\{{}}`, im `<label>` für das Kontrollkästchen bezeichnen die Interpolation von Angular.
+Angular verwendet `\{{item.description}}`, um die Beschreibung des aktuellen `item` aus dem `items`-Array abzurufen.
+Im nächsten Abschnitt wird im Detail erklärt, wie Komponenten Daten teilen.
 
 Die nächsten beiden Schaltflächen zum Bearbeiten und Löschen des aktuellen Elements befinden sich innerhalb eines `<div>`.
-Auf diesem `<div>` befindet sich ein `@if`-Block, den Sie verwenden können, um Teile einer Vorlage basierend auf einer Bedingung zu rendern.
-Dieses `@if` bedeutet, dass dieses `<div>` in der Vorlage gerendert wird, wenn `editable` `false` ist. Wenn `editable` `true` ist, entfernt Angular dieses `<div>` vom DOM.
+Auf diesem `<div>` befindet sich ein `@if` Block, den Sie verwenden können, um Teile einer Vorlage basierend auf einer Bedingung zu rendern.
+Dieses `@if` bedeutet, dass, wenn `editable` `false` ist, dieses `<div>` in der Vorlage gerendert wird. Wenn `editable` `true` ist, entfernt Angular dieses `<div>` aus dem DOM.
 
 ```html
 @if (!editable) {
@@ -136,11 +139,11 @@ Dieses `@if` bedeutet, dass dieses `<div>` in der Vorlage gerendert wird, wenn `
 }
 ```
 
-Wenn ein Benutzer auf die **Bearbeiten**-Schaltfläche klickt, wird `editable` wahr, wodurch dieses `<div>` und seine Kinder aus dem DOM entfernt werden.
-Wenn der Benutzer stattdessen auf **Löschen** klickt, löst das `ItemComponent` ein Ereignis aus, das das `AppComponent` über die Löschung benachrichtigt.
+Wenn ein Benutzer auf die **Edit**-Schaltfläche klickt, wird `editable` true, wodurch dieses `<div>` und seine Kinder aus dem DOM entfernt werden.
+Wenn ein Benutzer anstelle von **Edit** auf **Delete** klickt, löst das `ItemComponent` ein Ereignis aus, das die `AppComponent` über das Löschen informiert.
 
-Ein `@if` befindet sich auch auf dem nächsten `<div>`, ist jedoch auf einen `editable`-Wert von `true` gesetzt.
-In diesem Fall, wenn `editable` `true` ist, fügt Angular das `<div>` und seine Kind-`<input>` und `<button>` Elemente in das DOM ein.
+Ein `@if` befindet sich ebenfalls auf dem nächsten `<div>`, ist aber auf einen `editable` Wert von `true` gesetzt.
+In diesem Fall, wenn `editable` `true` ist, fügt Angular das `<div>` und seine Kind-`<input>`- und `<button>`-Elemente in das DOM ein.
 
 ```html
 <!-- This section shows only if user clicks Edit button -->
@@ -165,29 +168,29 @@ In diesem Fall, wenn `editable` `true` ist, fügt Angular das `<div>` und seine 
 
 Mit `[value]="item.description"` ist der Wert des `<input>` an die `description` des aktuellen Elements gebunden.
 Diese Bindung macht die `description` des Elements zum Wert des `<input>`.
-Wenn die `description` also `essen` ist, befindet sich `description` bereits im `<input>`.
-So ist der Wert des `<input>` bereits `essen`, wenn der Benutzer das Element bearbeitet.
+Wenn die `description` also `eat` ist, ist die `description` bereits im `<input>`.
+Auf diese Weise, wenn der Benutzer das Element bearbeitet, ist der Wert des `<input>` bereits `eat`.
 
-Die Vorlagevariable, `#editedItem`, auf dem `<input>` bedeutet, dass Angular alles, was ein Benutzer in dieses `<input>` eingibt, in einer Variablen namens `editedItem` speichert.
-Das `keyup`-Ereignis ruft die Methode `saveItem()` auf und übergibt den `editedItem`-Wert, wenn der Benutzer die Eingabetaste anstelle des Klicks auf **Speichern** drückt.
+Die Template-Variable, `#editedItem`, auf dem `<input>` bedeutet, dass Angular alles, was ein Benutzer in dieses `<input>` eingibt, in einer Variablen namens `editedItem` speichert.
+Das `keyup`-Ereignis ruft die `saveItem()`-Methode auf und übergibt den `editedItem`-Wert, wenn der Benutzer die Eingabetaste anstelle von **Save** drückt.
 
-Wenn ein Benutzer auf die **Abbrechen**-Schaltfläche klickt, wechselt `editable` zu `false`, was das Eingabefeld und die Schaltflächen zum Bearbeiten aus dem DOM entfernt.
-Wenn `editable` `false` ist, fügt Angular `<div>` mit den **Bearbeiten**- und **Löschen**-Schaltflächen wieder in das DOM ein.
+Wenn ein Benutzer auf die **Cancel**-Schaltfläche klickt, wird `editable` auf `false` umgeschaltet, wodurch das Eingabefeld und die Schaltflächen zum Bearbeiten aus dem DOM entfernt werden.
+Wenn `editable` `false` ist, fügt Angular das `<div>` mit den **Edit**- und **Delete**-Schaltflächen wieder in das DOM ein.
 
-Klickt der Benutzer auf die **Speichern**-Schaltfläche, wird die Methode `saveItem()` aufgerufen.
-Die Methode `saveItem()` nimmt den Wert aus dem `#editedItem`-Element und ändert die `description` des Elements in den `editedItem.value`-String.
+Ein Klick auf die **Save**-Schaltfläche ruft die `saveItem()`-Methode auf.
+Die `saveItem()`-Methode nimmt den Wert aus dem `#editedItem`-Element und ändert die `description` des Elements in den `editedItem.value`-String.
 
-## Bereiten Sie das AppComponent vor
+## AppComponent vorbereiten
 
-Im nächsten Abschnitt fügen Sie Code hinzu, der sich auf die Kommunikation zwischen dem `AppComponent` und dem `ItemComponent` stützt.
-Fügen Sie die folgende Zeile in der Nähe des oberen Randes der Datei `app.component.ts` hinzu, um das `Item` zu importieren:
+Im nächsten Abschnitt fügen Sie Code hinzu, der auf Kommunikation zwischen der `AppComponent` und der `ItemComponent` basiert.
+Fügen Sie die folgende Zeile nahe dem Anfang der `app.component.ts`-Datei hinzu, um `Item` zu importieren:
 
 ```ts
 import { Item } from "./item";
 import { ItemComponent } from "./item/item.component";
 ```
 
-Konfigurieren Sie dann das AppComponent, indem Sie das Folgende zur gleichen Datei-Klasse hinzufügen:
+Konfigurieren Sie dann die AppComponent, indem Sie folgendes zur selben Datei-Klasse hinzufügen:
 
 ```ts
 export class AppComponent {
@@ -199,14 +202,14 @@ export class AppComponent {
 }
 ```
 
-Die `remove()`-Methode verwendet die JavaScript-Methode `Array.splice()`, um ein Element am `indexOf` des betreffenden Elements zu entfernen.
+Die Methode `remove()` verwendet die JavaScript-Methode `Array.splice()`, um ein Element an der `indexOf` des relevanten Elements zu entfernen.
 Einfach ausgedrückt bedeutet dies, dass die Methode `splice()` das Element aus dem Array entfernt.
 Weitere Informationen zur Methode `splice()` finden Sie in der [`Array.prototype.splice()` Dokumentation](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/splice).
 
-## Logik zum ItemComponent hinzufügen
+## Logik zur ItemComponent hinzufügen
 
-Um das `ItemComponent`-UI zu verwenden, müssen Sie Logik zur Komponente hinzufügen, wie z. B. Funktionen und Möglichkeiten, Daten rein und raus zu bewegen.
-Bearbeiten Sie in `item.component.ts` die JavaScript-Imports wie folgt:
+Um die Benutzeroberfläche der `ItemComponent` zu verwenden, müssen Sie der Komponente Logik wie Funktionen und Möglichkeiten zum Ein- und Ausgang von Daten hinzufügen.
+Bearbeiten Sie in `item.component.ts` die JavaScript-Importe wie folgt:
 
 ```ts
 import { Component, Input, Output, EventEmitter } from "@angular/core";
@@ -214,9 +217,9 @@ import { CommonModule } from "@angular/common";
 import { Item } from "../item";
 ```
 
-Die Ergänzung von `Input`, `Output` und `EventEmitter` ermöglicht es dem `ItemComponent`, Daten mit `AppComponent` zu teilen.
-Durch das Importieren von `Item` kann das `ItemComponent` verstehen, was ein `item` ist.
-Sie können das `@Component` aktualisieren, um [`CommonModule`](https://angular.dev/api/common/CommonModule) in `app/item/item.component.ts` zu verwenden, damit wir die `@if`-Blöcke verwenden können:
+Das Hinzufügen von `Input`, `Output` und `EventEmitter` ermöglicht es `ItemComponent`, Daten mit `AppComponent` zu teilen.
+Durch das Importieren von `Item` kann die `ItemComponent` verstehen, was ein `item` ist.
+Sie können das `@Component` aktualisieren, um [`CommonModule`](https://angular.dev/api/common/CommonModule) in `app/item/item.component.ts` zu verwenden, damit wir die `@if` Blöcke verwenden können:
 
 ```ts
 @Component({
@@ -231,7 +234,7 @@ export class ItemComponent {
 }
 ```
 
-Weiter unten in `item.component.ts`, ersetzen Sie die generierte `ItemComponent`-Klasse durch Folgendes:
+Weiter unten in `item.component.ts` ersetzen Sie die generierte `ItemComponent` Klasse durch folgende:
 
 ```ts
 export class ItemComponent {
@@ -249,39 +252,39 @@ export class ItemComponent {
 }
 ```
 
-Die Eigenschaft `editable` hilft dabei, einen Abschnitt der Vorlage zu togglen, in dem ein Benutzer ein Element bearbeiten kann.
-`editable` ist die gleiche Eigenschaft im HTML wie im `@if`-Statement, `@if(editable)`.
-Wenn Sie eine Eigenschaft in der Vorlage verwenden, müssen Sie sie auch in der Klasse deklarieren.
+Die `editable`-Eigenschaft hilft, einen Bereich der Vorlage umzuschalten, in dem ein Benutzer ein Element bearbeiten kann.
+`editable` ist dieselbe Eigenschaft im HTML wie in der `@if`-Anweisung, `@if(editable)`.
+Wenn Sie eine Eigenschaft in der Vorlage verwenden, müssen Sie diese auch in der Klasse deklarieren.
 
 `@Input()`, `@Output()` und `EventEmitter` erleichtern die Kommunikation zwischen Ihren beiden Komponenten.
-Ein `@Input()` dient als Eingang für Daten in die Komponente, und ein `@Output()` fungiert als Ausgang für Daten aus der Komponente.
-Ein `@Output()` muss vom Typ `EventEmitter` sein, damit eine Komponente ein Ereignis auslösen kann, wenn Daten bereit sind, um mit einer anderen Komponente geteilt zu werden.
+Ein `@Input()` dient als Durchgang für Daten, die in die Komponente kommen, und ein `@Output()` agiert als Durchgang für Daten, die die Komponente verlassen, damit eine andere Komponente diese Daten empfangen kann.
+Ein `@Output()` muss vom Typ `EventEmitter` sein, damit eine Komponente ein Ereignis auslösen kann, wenn Daten bereit sind, mit einer anderen Komponente geteilt zu werden.
 
 > [!NOTE]
-> Das `!` in der Klasseneigenschaftsdeklaration wird [definite assignment assertion](https://www.typescriptlang.org/docs/handbook/2/classes.html#--strictpropertyinitialization) genannt. Dieser Operator sagt TypeScript, dass das `item`-Feld immer initialisiert und nicht `undefined` ist, selbst wenn TypeScript dies aus der Konstruktorbeschreibung nicht feststellen kann. Wenn dieser Operator in Ihrem Code nicht enthalten ist und Sie strikte TypeScript-Kompilierungseinstellungen haben, schlägt die App-Kompilierung fehl.
+> Das `!` in der Eigenschaftsdeklaration der Klasse wird als [definite assignment assertion](https://www.typescriptlang.org/docs/handbook/2/classes.html#--strictpropertyinitialization) bezeichnet. Dieser Operator teilt TypeScript mit, dass das `item`-Feld immer initialisiert ist und nicht `undefined`, selbst wenn TypeScript dies von der Definition des Konstruktors nicht ableiten kann. Wenn dieser Operator nicht in Ihrem Code enthalten ist und Sie strenge TypeScript-Kompilierungseinstellungen haben, wird die App nicht kompiliert.
 
-Verwenden Sie `@Input()`, um anzugeben, dass der Wert einer Eigenschaft von außerhalb der Komponente stammen kann.
+Verwenden Sie `@Input()`, um anzugeben, dass der Wert einer Eigenschaft von außerhalb der Komponente kommen kann.
 Verwenden Sie `@Output()` in Verbindung mit `EventEmitter`, um anzugeben, dass der Wert einer Eigenschaft die Komponente verlassen kann, sodass eine andere Komponente diese Daten empfangen kann.
 
-Die `saveItem()`-Methode nimmt als Argument eine `description` vom Typ `string`.
+Die Methode `saveItem()` nimmt als Argument eine `description` vom Typ `string`.
 Die `description` ist der Text, den der Benutzer in das HTML-`<input>` eingibt, wenn er ein Element in der Liste bearbeitet.
-Diese `description` ist der gleiche String aus dem `<input>` mit der `#editedItem`-Vorlagenvariable.
+Diese `description` ist derselbe String aus dem `<input>` mit der `#editedItem` Template-Variablen.
 
-Wenn der Benutzer keinen Wert eingibt, aber auf **Speichern** klickt, gibt `saveItem()` nichts zurück und aktualisiert die `description` nicht.
-Wenn Sie diese `if`-Anweisung nicht hätten, könnte der Benutzer auf **Speichern** klicken, ohne dass etwas im HTML-`<input>` ist, und die `description` würde zu einem leeren String werden.
+Gibt der Benutzer keinen Wert ein, sondern klickt auf **Save**, gibt `saveItem()` nichts zurück und aktualisiert die `description` nicht.
+Wenn Sie diese `if`-Anweisung nicht hätten, könnte der Benutzer auf **Save** klicken, ohne etwas in das HTML-`<input>` einzugeben, und die `description` würde ein leerer String werden.
 
-Wenn ein Benutzer Text eingibt und auf Speichern klickt, setzt `saveItem()` `editable` auf false, wodurch das `@if` in der Vorlage die Bearbeitungsfunktion entfernt und die **Bearbeiten**- und **Löschen**-Schaltflächen erneut darstellt.
+Wenn ein Benutzer Text eingibt und auf Speichern klickt, setzt `saveItem()` `editable` auf false, wodurch das `@if` in der Vorlage die Bearbeitungsfunktion entfernt und erneut die **Edit**- und **Delete**-Schaltflächen rendert.
 
-Obwohl die Anwendung zu diesem Zeitpunkt kompiliert werden sollte, müssen Sie das `ItemComponent` im `AppComponent` verwenden, damit Sie die neuen Funktionen im Browser sehen können.
+Obwohl die Anwendung zu diesem Zeitpunkt kompiliert werden sollte, müssen Sie die `ItemComponent` in der `AppComponent` verwenden, damit Sie die neuen Funktionen im Browser sehen können.
 
-## Verwenden Sie das ItemComponent im AppComponent
+## Verwenden der ItemComponent in der AppComponent
 
-Das Einbinden einer Komponente in eine andere im Kontext einer Eltern-Kind-Beziehung gibt Ihnen die Flexibilität, Komponenten überall dort zu verwenden, wo Sie sie benötigen.
+Die Einbindung einer Komponente in eine andere im Kontext einer Eltern-Kind-Beziehung gibt Ihnen die Flexibilität, Komponenten überall dort zu verwenden, wo Sie sie benötigen.
 
-Das `AppComponent` dient als Hülle für die Anwendung, in die Sie andere Komponenten einbinden können.
+Die `AppComponent` dient als Hülle für die Anwendung, in der Sie andere Komponenten einbinden können.
 
-Um das `ItemComponent` im `AppComponent` zu verwenden, fügen Sie den `ItemComponent`-Selektor in die `AppComponent`-Vorlage ein.
-Angular gibt den Selektor einer Komponente in den Metadaten des `@Component()`-Dekorators an.
+Um die `ItemComponent` in der `AppComponent` zu verwenden, platzieren Sie den `ItemComponent`-Selektor in der `AppComponent`-Vorlage.
+Angular gibt den Selektor einer Komponente in den Metadaten des `@Component()` Dekorators an.
 In diesem Beispiel haben wir den Selektor als `app-item` definiert:
 
 ```ts
@@ -294,7 +297,7 @@ export class ItemComponent {
 }
 ```
 
-Um den `ItemComponent`-Selektor im `AppComponent` zu verwenden, fügen Sie das Element `<app-item>` hinzu, das dem Selektor entspricht, den Sie für die Komponentenklasse in `app.component.html` definiert haben.
+Um den `ItemComponent`-Selektor innerhalb der `AppComponent` zu verwenden, fügen Sie das Element `<app-item>`, das dem von Ihnen definierten Selektor für die Komponentenklasse entspricht, `app.component.html` hinzu.
 Ersetzen Sie die aktuelle ungeordnete Liste `<ul>` in `app.component.html` durch die folgende aktualisierte Version:
 
 ```html
@@ -312,7 +315,7 @@ Ersetzen Sie die aktuelle ungeordnete Liste `<ul>` in `app.component.html` durch
 </ul>
 ```
 
-Ändern Sie die `imports` in `app.component.ts`, um `ItemComponent` sowie `CommonModule` einzuschließen:
+Ändern Sie die `imports` in `app.component.ts`, um sowohl `ItemComponent` als auch `CommonModule` einzuschließen:
 
 ```ts
 @Component({
@@ -329,29 +332,29 @@ export class AppComponent {
 
 Die doppelte geschweifte Klammer-Syntax, `\{{}}`, im `<h2>` interpoliert die Länge des `items`-Arrays und zeigt die Anzahl an.
 
-Das `<span>` im `<h2>` verwendet ein `@if` und `@else`, um zu bestimmen, ob das `<h2>` "item" oder "items" sagen soll.
+Das `<span>` im `<h2>` verwendet ein `@if` und `@else`, um zu bestimmen, ob das `<h2>` "item" oder "items" sagen sollte.
 Wenn sich nur ein einzelnes Element in der Liste befindet, zeigt das `<span>` "item" an.
 Andernfalls, wenn die Länge des `items`-Arrays etwas anderes als `1` ist, zeigt das `<span>` "items" an.
 
-Das `@for` - Angular's Kontrollflussblock, der verwendet wird, um über alle Elemente im `items`-Array zu iterieren.
-Angular's `@for`, ähnlich wie `@if`, ist ein weiterer Block, der Ihnen hilft, die Struktur des DOMs zu ändern, während Sie weniger Code schreiben.
-Für jedes `item` wiederholt Angular das `<li>` und alles darin enthaltene, einschließlich `<app-item>`.
-Das bedeutet, dass Angular für jedes Element im Array eine weitere Instanz von `<app-item>` erstellt.
-Für jede Anzahl von Elementen im Array würde Angular so viele `<li>`-Elemente erstellen.
+Das `@for` - Angular's Kontrollflussblock, wird verwendet, um über alle Elemente im `items`-Array zu iterieren.
+Angulars `@for` ähnelt `@if`, ein weiterer Block, der Ihnen hilft, die Struktur des DOM zu ändern und weniger Code zu schreiben.
+Für jedes `item` wiederholt Angular das `<li>` und alles darin, einschließlich `<app-item>`.
+Dies bedeutet, dass Angular für jedes Element im Array eine weitere Instanz von `<app-item>` erstellt.
+Für jede Anzahl von Elementen im Array würde Angular diese Anzahl von `<li>`-Elementen erstellen.
 
-Sie können andere Elemente wie `<div>`, `<span>` oder `<p>` in einem `@for`-Block einfügen.
+Sie können andere Elemente wie `<div>`, `<span` oder `<p>` innerhalb eines `@for`-Blocks umschließen.
 
-Das `AppComponent` hat eine `remove()`-Methode zum Entfernen des Elements, das an die `remove`-Eigenschaft im `ItemComponent` gebunden ist.
-Die `item`-Eigenschaft in den eckigen Klammern, `[]`, bindet den Wert von `i` zwischen dem `AppComponent` und dem `ItemComponent`.
+Die `AppComponent` hat eine `remove()`-Methode zum Entfernen des Elements, das an die `remove`-Eigenschaft in der `ItemComponent` gebunden ist.
+Die `item`-Eigenschaft in den eckigen Klammern, `[]`, bindet den Wert von `i` zwischen der `AppComponent` und der `ItemComponent`.
 
 Jetzt sollten Sie in der Lage sein, Elemente in der Liste zu bearbeiten und zu löschen.
 Wenn Sie Elemente hinzufügen oder löschen, sollte sich auch die Anzahl der Elemente ändern.
-Um die Liste benutzerfreundlicher zu gestalten, fügen Sie einige Stile zum `ItemComponent` hinzu.
+Um die Liste benutzerfreundlicher zu gestalten, fügen Sie der `ItemComponent` einige Stile hinzu.
 
-## Stile zum ItemComponent hinzufügen
+## Stile zu ItemComponent hinzufügen
 
 Sie können das Stylesheet einer Komponente verwenden, um spezifische Stile für diese Komponente hinzuzufügen.
-Das folgende CSS fügt grundlegende Stile, Flexbox für die Schaltflächen und benutzerdefinierte Kontrollkästchen hinzu.
+Der folgende CSS-Code fügt grundlegende Stile, Flexbox für die Schaltflächen und benutzerdefinierte Kontrollkästchen hinzu.
 
 Fügen Sie die folgenden Stile in `item.component.css` ein.
 
@@ -477,7 +480,7 @@ Adapted from https://css-tricks.com/the-checkbox-hack/#custom-designed-radio-but
 
 ## Zusammenfassung
 
-Sie sollten jetzt eine gestylte Angular-To-Do-Listenanwendung haben, mit der Sie Elemente hinzufügen, bearbeiten und entfernen können.
-Der nächste Schritt ist das Hinzufügen von Filtern, sodass Sie sich Elemente ansehen können, die bestimmten Kriterien entsprechen.
+Jetzt sollten Sie eine gestylte Angular To-do-Liste-Anwendung haben, die Elemente hinzufügen, bearbeiten und entfernen kann.
+Der nächste Schritt ist, das Filtern hinzuzufügen, damit Sie Elemente anzeigen können, die bestimmten Kriterien entsprechen.
 
 {{PreviousMenuNext("Learn_web_development/Core/Frameworks_libraries/Angular_styling","Learn_web_development/Core/Frameworks_libraries/Angular_filtering", "Learn_web_development/Core/Frameworks_libraries")}}

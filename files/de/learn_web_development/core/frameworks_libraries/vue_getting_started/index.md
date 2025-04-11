@@ -2,14 +2,12 @@
 title: Einstieg in Vue
 slug: Learn_web_development/Core/Frameworks_libraries/Vue_getting_started
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: 48d220a8cffdfd5f088f8ca89724a9a92e34d8c0
 ---
-
-{{LearnSidebar}}
 
 {{NextMenu("Learn_web_development/Core/Frameworks_libraries/Vue_first_component", "Learn_web_development/Core/Frameworks_libraries")}}
 
-Nun stellen wir Vue vor, das dritte unserer Frameworks. In diesem Artikel werfen wir einen Blick auf einen kleinen Hintergrund zu Vue, lernen, wie man es installiert und ein neues Projekt erstellt, untersuchen die Struktur des gesamten Projekts und einer einzelnen Komponente auf hoher Ebene, sehen, wie man das Projekt lokal ausführt, und bereiten es darauf vor, unser Beispiel zu bauen.
+Nun lassen Sie uns Vue vorstellen, das dritte unserer Frameworks. In diesem Artikel werden wir ein wenig über den Hintergrund von Vue sprechen, lernen, wie man es installiert und ein neues Projekt erstellt, die übergeordnete Struktur des gesamten Projekts sowie eines einzelnen Komponenten studieren, sehen, wie man das Projekt lokal ausführt und es für den Aufbau unseres Beispiels vorbereitet.
 
 <table>
   <tbody>
@@ -20,62 +18,62 @@ Nun stellen wir Vue vor, das dritte unserer Frameworks. In diesem Artikel werfen
           Vertrautheit mit den Kernsprachen <a href="/de/docs/Learn_web_development/Core/Structuring_content">HTML</a>,
           <a href="/de/docs/Learn_web_development/Core/Styling_basics">CSS</a> und
           <a href="/de/docs/Learn_web_development/Core/Scripting">JavaScript</a>,
-          sowie Kenntnisse über die
+          sowie Kenntnisse über den
           <a
             href="/de/docs/Learn_web_development/Getting_started/Environment_setup/Command_line"
-            >Terminal-/Kommandozeile</a
+            >Terminal/Command Line</a
           >.
         </p>
         <p>
-          Vue-Komponenten werden als Kombination aus JavaScript-Objekten geschrieben, die die Daten der App verwalten, und einer HTML-basierten Template-Syntax, die der zugrunde liegenden DOM-Struktur entspricht. Für die Installation und Nutzung einiger der fortgeschritteneren Funktionen von Vue (wie Single File Components oder Renderfunktionen) benötigen Sie ein Terminal mit installiertem Node + npm.
+          Vue-Komponenten werden als Kombination von JavaScript-Objekten geschrieben, die die Daten der App verwalten, und einer auf HTML basierenden Templatesyntax, die auf die zugrunde liegende DOM-Struktur abgebildet wird. Für die Installation und um einige der fortschrittlicheren Funktionen von Vue (wie Single File Components oder Renderfunktionen) zu nutzen, benötigen Sie ein Terminal mit installiertem Node + npm.
         </p>
       </td>
     </tr>
     <tr>
-      <th scope="row">Zielsetzung:</th>
+      <th scope="row">Ziel:</th>
       <td>
-        Eine lokale Vue-Entwicklungsumgebung einzurichten, eine Starter-App zu erstellen und die Grundlagen zu verstehen, wie sie funktioniert.
+        Eine lokale Entwicklungsumgebung für Vue einrichten, eine Starter-App erstellen und die Grundlagen ihres Aufbaus verstehen.
       </td>
     </tr>
   </tbody>
 </table>
 
 > [!NOTE]
-> Dieses Tutorial zielt auf [Vue Version 3.4.21](https://github.com/vuejs/core/blob/main/CHANGELOG.md#3421-2024-02-28) ab, unter Verwendung von [`create-vue` 3.10.2](https://github.com/vuejs/create-vue/releases/tag/v3.10.3) (mit Node.js Version `v20.11.0`) und wurde zuletzt im Mai 2024 überarbeitet.
+> Diese Anleitung zielt auf [Vue Version 3.4.21](https://github.com/vuejs/core/blob/main/CHANGELOG.md#3421-2024-02-28) unter Verwendung von [`create-vue` 3.10.2](https://github.com/vuejs/create-vue/releases/tag/v3.10.3) (mit Node.js Version `v20.11.0`) und wurde zuletzt im Mai 2024 überarbeitet.
 
-## Ein klarer Blick auf Vue
+## Ein klareres Vue
 
-Vue ist ein modernes JavaScript-Framework, das nützliche Funktionen für progressive Verbesserung bietet — im Gegensatz zu vielen anderen Frameworks können Sie Vue verwenden, um bestehendes HTML zu verbessern. Dies ermöglicht Ihnen, Vue als Ersatzbibliothek für eine Bibliothek wie [jQuery](https://jquery.com/) zu verwenden.
+Vue ist ein modernes JavaScript-Framework, das nützliche Möglichkeiten für progressive Verbesserungen bietet — im Gegensatz zu vielen anderen Frameworks können Sie Vue verwenden, um vorhandenes HTML zu verbessern. Dies ermöglicht es Ihnen, Vue als Ersatz für eine Bibliothek wie [jQuery](https://jquery.com/) zu verwenden.
 
-Das heißt, Sie können Vue auch nutzen, um komplette Single Page Applications (SPAs) zu schreiben. Dadurch können Sie Markup erstellen, das vollständig von Vue verwaltet wird, was die Entwicklererfahrung und Leistung bei der Arbeit mit komplexen Anwendungen verbessern kann. Es erlaubt Ihnen auch, Bibliotheken für clientseitiges Routing und Statusverwaltung zu nutzen, wenn Sie diese benötigen. Darüber hinaus verfolgt Vue einen "Mittelweg" bei der Tooling wie clientseitigem Routing und Statusverwaltung. Während das Vue-Kernteam empfohlene Bibliotheken für diese Funktionen pflegt, sind sie nicht direkt in Vue integriert. Dies ermöglicht es Ihnen, eine andere Routing-/Statusverwaltungsbibliothek auszuwählen, wenn diese besser zu Ihrer Anwendung passen.
+Das gesagt, können Sie Vue auch verwenden, um vollständige Single Page Applications (SPAs) zu schreiben. Dies ermöglicht es Ihnen, Markup vollständig von Vue verwalten zu lassen, was die Entwicklererfahrung und Leistung bei der Arbeit mit komplexen Anwendungen verbessern kann. Sie können auch von Bibliotheken für clientseitiges Routing und Zustandsverwaltung profitieren, wenn Sie diese benötigen. Vue verfolgt zudem einen "Mittelweg"-Ansatz für Tools wie clientseitiges Routing und Zustandsverwaltung. Während das Vue-Kernteam empfohlene Bibliotheken für diese Funktionen pflegt, sind sie nicht direkt in Vue gebündelt. Dies ermöglicht es Ihnen, eine andere Routing-/Zustandsverwaltungsbibliothek auszuwählen, wenn diese besser zu Ihrer Anwendung passt.
 
-Zusätzlich zu der Möglichkeit, Vue progressiv in Ihre Anwendungen zu integrieren, bietet Vue auch einen progressiven Ansatz zur Erstellung von Markup. Wie die meisten Frameworks ermöglicht es Ihnen Vue, wiederverwendbare Markup-Blöcke über Komponenten zu erstellen. Meistens werden Vue-Komponenten mithilfe einer speziellen HTML-Template-Syntax geschrieben. Wenn Sie mehr Kontrolle benötigen, als die HTML-Syntax erlaubt, können Sie JSX oder einfache JavaScript-Funktionen verwenden, um Ihre Komponenten zu definieren.
+Neben der Möglichkeit, Vue progressiv in Ihre Anwendungen zu integrieren, bietet Vue auch einen progressiven Ansatz zur Markup-Erstellung. Wie die meisten Frameworks erlaubt es Ihnen Vue, wiederverwendbare Markup-Blöcke über Komponenten zu erstellen. Meistens werden Vue-Komponenten mit einer speziellen HTML-Templatesyntax geschrieben. Wenn Sie mehr Kontrolle benötigen, als die HTML-Syntax erlaubt, können Sie JSX oder einfache JavaScript-Funktionen verwenden, um Ihre Komponenten zu definieren.
 
-Während Sie durch dieses Tutorial arbeiten, möchten Sie vielleicht den [Vue-Leitfaden](https://vuejs.org/guide/introduction.html) und die [API-Dokumentation](https://vuejs.org/api/) in anderen Tabs offen halten, damit Sie nachschlagen können, wenn Sie mehr Informationen zu einem bestimmten Thema benötigen.
+Während Sie diesen Leitfaden durchgehen, möchten Sie vielleicht den [Vue-Leitfaden](https://vuejs.org/guide/introduction.html) und die [API-Dokumentation](https://vuejs.org/api/) in anderen Tabs geöffnet halten, um sich bei Bedarf über ein bestimmtes Thema weiter zu informieren.
 
 ## Installation
 
-Um Vue in einer bestehenden Website zu verwenden, können Sie eines der folgenden [`<script>`](/de/docs/Web/HTML/Reference/Elements/script)-Elemente auf eine Seite setzen. Dies ermöglicht Ihnen, Vue auf bestehenden Websites zu verwenden, weshalb Vue stolz darauf ist, ein progressives Framework zu sein. Dies ist eine großartige Option, wenn Sie ein bestehendes Projekt mit einer Bibliothek wie jQuery zu Vue migrieren. Mit dieser Methode können Sie viele der Kernfunktionen von Vue nutzen, wie die Attribute, benutzerdefinierte Komponenten und Datenverwaltung.
+Um Vue in einer vorhandenen Seite zu verwenden, können Sie eines der folgenden [`<script>`](/de/docs/Web/HTML/Reference/Elements/script)-Elemente in eine Seite einfügen. Dies ermöglicht es Ihnen, Vue auf bestehenden Websites zu verwenden, weshalb Vue stolz darauf ist, ein progressives Framework zu sein. Dies ist eine großartige Option, wenn ein vorhandenes Projekt, das eine Bibliothek wie jQuery verwendet, auf Vue migriert werden soll. Mit dieser Methode können Sie viele der Kernfunktionen von Vue nutzen, wie z.B. die Attribute, benutzerdefinierte Komponenten und Datenverwaltung.
 
-- Entwicklungsskript (nicht optimiert, aber einschließlich Konsolenwarnungen, was für die Entwicklung großartig ist.)
+- Entwicklungs-Script (nicht optimiert, aber beinhaltet Konsolenwarnungen, was für die Entwicklung großartig ist.)
 
   ```html
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   ```
 
-- Produktionsskript (Optimierte Version, minimale Konsolenwarnungen. Es wird empfohlen, eine Versionsnummer anzugeben, wenn Sie Vue auf Ihrer Website einbinden, damit eventuelle Framework-Updates Ihre Live-Site nicht ohne Ihr Wissen beeinträchtigen.)
+- Produktions-Script (Optimierte Version, minimale Konsolenwarnungen. Es wird empfohlen, eine Versionsnummer anzugeben, wenn Sie Vue auf Ihrer Website einbinden, damit eventuelle Framework-Updates Ihre Live-Site nicht ohne Ihr Wissen beeinträchtigen.)
 
   ```html
   <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
   ```
 
-Diese Vorgehensweise hat jedoch einige Einschränkungen. Um komplexere Apps zu erstellen, sollten Sie das [Vue npm-Paket](https://www.npmjs.com/package/vue) verwenden. Dadurch können Sie erweiterte Funktionen von Vue nutzen und Tools wie Vite oder webpack verwenden. Um das Erstellen von Apps mit Vue zu erleichtern, gibt es ein CLI-Scaffold-Tool [create-vue](https://github.com/vuejs/create-vue), um den Entwicklungsprozess zu straffen. Um `create-vue` zu verwenden, benötigen Sie:
+Diese Herangehensweise hat jedoch einige Einschränkungen. Um komplexere Apps zu erstellen, möchten Sie das [Vue npm-Paket](https://www.npmjs.com/package/vue) verwenden. Dies ermöglicht Ihnen die Nutzung fortgeschrittener Funktionen von Vue und die Verwendung von Tools wie Vite oder webpack. Um das Erstellen von Apps mit Vue zu erleichtern, gibt es ein CLI-Gerüsts, [create-vue](https://github.com/vuejs/create-vue), um den Entwicklungsprozess zu straffen. Um `create-vue` zu verwenden, benötigen Sie:
 
 1. Node.js 20 installiert.
 2. [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm/) oder [yarn](https://yarnpkg.com/).
 
 > [!NOTE]
-> Wenn Sie die obigen Werkzeuge nicht installiert haben, erfahren Sie [hier mehr über die Installation von npm und Node.js](/de/docs/Learn_web_development/Getting_started/Environment_setup/Command_line#adding_powerups).
+> Falls Sie die oben genannten nicht installiert haben, finden Sie [hier weitere Informationen zur Installation von npm und Node.js](/de/docs/Learn_web_development/Getting_started/Environment_setup/Command_line#adding_powerups).
 
 Um Vue zu installieren und ein neues Projekt zu initialisieren, führen Sie den folgenden Befehl in Ihrem Terminal aus:
 
@@ -83,20 +81,19 @@ Um Vue zu installieren und ein neues Projekt zu initialisieren, führen Sie den 
 npm create vue@latest
 ```
 
-Oder wenn Sie lieber Yarn verwenden möchten:
+Oder wenn Sie lieber yarn verwenden möchten:
 
 ```bash
 yarn create vue@latest
 ```
 
-Dieser Befehl wird Ihnen eine Liste von Projektkonfigurationen geben, die Sie verwenden können. Es gibt einige Standardoptionen, aber Sie können Ihre eigenen projektspezifischen Einstellungen auswählen. Diese Optionen ermöglichen es Ihnen, Dinge wie TypeScript, Linting, vue-router, Testen und mehr zu konfigurieren. Wir werden die Optionen in den Initialisierungsschritten unten durchgehen.
+Dieser Befehl bietet Ihnen eine Liste von Projektkonfigurationen, die Sie verwenden können. Es gibt einige Standardwerte, aber Sie können Ihre eigenen projektspezifischen Einstellungen auswählen. Diese Optionen erlauben es Ihnen, Dinge wie TypeScript, Linting, vue-router, Tests und mehr zu konfigurieren. Wir werden die Optionen in den Initialisierungsschritten unten durchgehen.
 
-## Initialisierung eines neuen Projekts
+## Ein neues Projekt initialisieren
 
-Um verschiedene Funktionen von Vue zu erforschen, werden wir eine Beispiel-To-Do-Listen-App entwickeln. Wir beginnen, indem wir `create-vue` verwenden, um ein neues Gerüst für unsere App zu erstellen.
-Im Terminal, navigieren Sie zu dem Ort, an dem Sie Ihre Beispiel-App erstellen möchten, und führen Sie dann `npm create vue@latest` (oder `yarn create vue@latest`, wenn Sie lieber Yarn verwenden) aus.
+Um die verschiedenen Funktionen von Vue zu erkunden, werden wir eine Beispiel-Task-Listen-App erstellen. Wir beginnen, indem wir `create-vue` verwenden, um ein neues Gerüst für unsere App zu erstellen. Im Terminal, wechseln Sie in das Verzeichnis, in dem Sie Ihre Beispiel-App erstellen möchten, und führen Sie `npm create vue@latest` aus (oder `yarn create vue@latest`, wenn Sie Yarn bevorzugen).
 
-Das interaktive Tool lässt Sie einige Optionen auswählen, und Sie können fortfahren, indem Sie <kbd>Enter</kbd> drücken.
+Das interaktive Tool lässt Sie einige Optionen wählen und Sie können mit <kbd>Enter</kbd> fortfahren.
 Für dieses Projekt verwenden wir die folgende Konfiguration:
 
 ```plain
@@ -111,8 +108,8 @@ Für dieses Projekt verwenden wir die folgende Konfiguration:
 ? Add Prettier for code formatting? › Yes
 ```
 
-Nachdem Sie diese Optionen ausgewählt haben, ist Ihre Projektstruktur jetzt konfiguriert und Abhängigkeiten sind in einer `package.json`-Datei definiert.
-Die nächsten Schritte sind das Installieren der Abhängigkeiten und das Starten des Servers, und das Tool druckt bequem die Befehle aus, die Sie dazu benötigen:
+Nachdem Sie diese Optionen gewählt haben, ist Ihre Projektstruktur jetzt konfiguriert und Abhängigkeiten sind in einer `package.json`-Datei definiert.
+Die nächsten Schritte sind das Installieren der Abhängigkeiten und das Starten des Servers, und das Tool gibt Ihnen bequem die Befehle aus, die Sie dafür benötigen:
 
 ```plain
 Scaffolding project in /path/to/todo-vue...
@@ -127,46 +124,45 @@ Done. Now run:
 
 ## Projektstruktur
 
-Wenn alles erfolgreich verlaufen ist, sollte die CLI eine Reihe von Dateien und Verzeichnissen für Ihr Projekt erstellt haben. Die wichtigsten sind:
+Wenn alles erfolgreich war, sollte die CLI eine Reihe von Dateien und Verzeichnissen für Ihr Projekt erstellt haben. Die wichtigsten davon sind die folgenden:
 
-- `package.json`: Diese Datei enthält die Liste der Abhängigkeiten für Ihr Projekt sowie einige Metadaten und `eslint`-Konfigurationen.
-- `yarn.lock`: Wenn Sie `yarn` als Ihr Paketmanager gewählt haben, wird diese Datei mit einer Liste aller Abhängigkeiten und Unterabhängigkeiten, die Ihr Projekt benötigt, generiert.
-- `jsconfig.json`: Dies ist eine Konfigurationsdatei für [Visual Studio Code](https://code.visualstudio.com/docs/languages/jsconfig) und gibt VS Code Kontext für Ihre Projektstruktur und unterstützt die Autovervollständigung.
-- `vite.config.js`: Dies ist die Konfigurationsdatei für den [Vite](https://vite.dev/)-Entwicklungsserver, der Ihr Projekt auf Ihrem lokalen Rechner baut und bereitstellt.
-  Der Vite-Server überwacht Quellcodedateien auf Änderungen und kann das Projekt hot-reloaden, während Sie Änderungen vornehmen.
-- `public`: Dieses Verzeichnis enthält statische Assets, die während des Builds veröffentlicht werden.
+- `package.json`: Diese Datei enthält die Liste der Abhängigkeiten für Ihr Projekt sowie einige Metadaten und `eslint`-Konfiguration.
+- `yarn.lock`: Wenn Sie `yarn` als Ihren Paketmanager gewählt haben, wird diese Datei mit einer Liste aller Abhängigkeiten und Unterabhängigkeiten generiert, die Ihr Projekt benötigt.
+- `jsconfig.json`: Dies ist eine Konfigurationsdatei für [Visual Studio Code](https://code.visualstudio.com/docs/languages/jsconfig), die Kontext für VS Code über Ihre Projektstruktur bietet und die Autovervollständigung unterstützt.
+- `vite.config.js`: Dies ist die Konfigurationsdatei für den [Vite](https://vite.dev/)-Entwicklungsserver, der Ihr Projekt auf Ihrer lokalen Maschine erstellt und bereitstellt. Der Vite-Server überwacht Quelldateien auf Änderungen und kann das Projekt bei Änderungen automatisch neu laden.
+- `public`: Dieses Verzeichnis enthält statische Assets, die während des Build-Prozesses veröffentlicht werden.
   - `favicon.ico`: Dies ist das Favicon für Ihre App. Derzeit ist es das Vue-Logo.
-- `index.html`: Ihre Vue-App wird von dieser HTML-Seite aus gestartet.
+- `index.html`: Ihre Vue-App wird von dieser HTML-Seite aus ausgeführt.
 - `src`: Dieses Verzeichnis enthält den Kern Ihrer Vue-App.
 
-  - `main.js`: Dies ist der Einstiegspunkt Ihrer Anwendung. Aktuell initialisiert diese Datei Ihre Vue-Anwendung und gibt an, an welches HTML-Element in der Datei `index.html` Ihre App angefügt werden soll. Diese Datei ist oft dort, wo Sie globale Komponenten oder zusätzliche Vue-Bibliotheken registrieren.
-  - `App.vue`: Dies ist die übergeordnete Komponente in Ihrer Vue-App. Sehen Sie unten für weitere Erklärungen zu Vue-Komponenten.
-  - `components`: Dieses Verzeichnis ist, wo Sie Ihre Komponenten aufbewahren. Derzeit enthält es nur eine Beispielkomponente.
-  - `assets`: Dieses Verzeichnis dient zur Speicherung statischer Assets wie CSS und Bilder. Da sich diese Dateien im Quellverzeichnis befinden, können sie von webpack verarbeitet werden. Das bedeutet, Sie können Präprozessoren wie [Sass/SCSS](https://sass-lang.com/) oder [Stylus](https://stylus-lang.com/) verwenden.
+  - `main.js`: Dies ist der Einstiegspunkt in Ihre Anwendung. Derzeit initialisiert diese Datei Ihre Vue-Anwendung und definiert, welchem HTML-Element in der `index.html`-Datei Ihre App zugeordnet werden soll. In dieser Datei registrieren Sie häufig globale Komponenten oder zusätzliche Vue-Bibliotheken.
+  - `App.vue`: Dies ist die übergeordnete Komponente in Ihrer Vue-App. Weitere Erklärungen zu Vue-Komponenten folgen unten.
+  - `components`: Dieses Verzeichnis ist, wo Sie Ihre Komponenten aufbewahren. Derzeit hat es nur eine Beispielkomponente.
+  - `assets`: Dieses Verzeichnis dient zur Speicherung statischer Assets wie CSS und Bilder. Da sich diese Dateien im Quellverzeichnis befinden, können sie von webpack verarbeitet werden. Das bedeutet, dass Sie Präprozessoren wie [Sass/SCSS](https://sass-lang.com/) oder [Stylus](https://stylus-lang.com/) verwenden können.
 
 > [!NOTE]
-> Abhängig von den Optionen, die Sie bei der Erstellung eines neuen Projekts auswählen, können andere Verzeichnisse vorhanden sein (zum Beispiel, wenn Sie einen Router wählen, werden Sie auch ein `views`-Verzeichnis haben).
+> Abhängig von den Optionen, die Sie beim Erstellen eines neuen Projekts ausgewählt haben, könnten weitere Verzeichnisse vorhanden sein (zum Beispiel, wenn Sie einen Router wählen, haben Sie auch ein `views`-Verzeichnis).
 
-## .vue-Dateien (Single File Components)
+## .vue Dateien (Single File Components)
 
-Wie in vielen Frontend-Frameworks sind Komponenten ein zentraler Bestandteil beim Bauen von Apps in Vue. Diese Komponenten ermöglichen es Ihnen, eine große Anwendung in eigenständige Bausteine aufzuteilen, die separat erstellt und verwaltet werden können, und die Daten nach Bedarf zwischen ihnen zu übertragen. Diese kleinen Blöcke können Ihnen helfen, Ihren Code zu verstehen und zu testen.
+Wie in vielen Frontend-Frameworks sind Komponenten ein zentraler Bestandteil des Aufbaus von Apps in Vue. Diese Komponenten ermöglichen es Ihnen, eine große Anwendung in diskrete Bausteine zu zerlegen, die separat erstellt und verwaltet werden können und bei Bedarf Daten untereinander übertragen. Diese kleinen Blöcke helfen Ihnen, Ihren Code zu verstehen und zu testen.
 
-Während einige Frameworks Sie ermutigen, Ihr Template, Ihre Logik und Ihre Style-Codes in separate Dateien zu trennen, verfolgt Vue den gegenteiligen Ansatz. Mithilfe von [Single File Components (SFC)](https://vuejs.org/guide/scaling-up/sfc.html) erlaubt es Ihnen Vue, Ihre Templates, das dazugehörige Skript und CSS gemeinsam in einer einzigen Datei mit der Endung `.vue` zu gruppieren. Diese Dateien werden von einem JS-Build-Tool (wie Vite oder webpack) verarbeitet, was bedeutet, dass Sie in Ihrem Projekt von Build-Tooling profitieren können. Auf diese Weise können Sie Tools wie Babel, TypeScript, SCSS und mehr verwenden, um anspruchsvollere Komponenten zu erstellen.
+Während einige Frameworks Sie dazu ermutigen, Ihre Template-, Logik- und Stilcode in separaten Dateien zu speichern, verfolgt Vue den entgegengesetzten Ansatz. Mit [Single File Components (SFC)](https://vuejs.org/guide/scaling-up/sfc.html) können Sie Ihre Templates, das entsprechende Skript und CSS alle zusammen in einer einzigen Datei mit der Endung `.vue` gruppieren. Diese Dateien werden von einem JS-Build-Tool (wie Vite oder webpack) verarbeitet, was bedeutet, dass Sie Build-Time-Tools in Ihrem Projekt nutzen können. Dies ermöglicht es Ihnen, Werkzeuge wie Babel, TypeScript, SCSS und mehr zu verwenden, um anspruchsvollere Komponenten zu erstellen.
 
-Schauen wir in das `src`-Verzeichnis des Projekts, das wir mit der CLI erstellt haben, und untersuchen wir Ihre erste `.vue`-Datei: `App.vue`.
+Schauen wir in den `src`-Ordner des Projekts, das wir mit der CLI erstellt haben, und inspizieren Sie Ihre erste `.vue`-Datei: `App.vue`.
 
 ### App.vue
 
-Öffnen Sie Ihre `App.vue`-Datei – Sie werden sehen, dass sie aus drei Teilen besteht: `<template>`, `<script>` und `<style>`, die die Template-, Skript- und Style-Informationen der Komponente enthalten. Alle Single File Components weisen dieselbe grundlegende Struktur auf.
+Öffnen Sie Ihre `App.vue`-Datei — Sie werden sehen, dass sie drei Teile hat: `<template>`, `<script>` und `<style>`, die die Template-, Skript- und Styling-Informationen der Komponente enthalten. Alle Single File Components haben diese grundlegende Struktur.
 
-`<template>` enthält die gesamte Markup-Struktur und Anzeigelogik Ihrer Komponente. Ihr Template kann jedes gültige HTML sowie einige Vue-spezifische Syntax enthalten, die wir später behandeln werden.
+`<template>` enthält die gesamte Markup-Struktur und Anzeige-Logik Ihrer Komponente. Ihr Template kann jedes gültige HTML sowie einige Vue-spezifische Syntax enthalten, die wir später besprechen werden.
 
 > [!NOTE]
-> Durch Einstellen des `lang`-Attributs im `<template>`-Tag können Sie die Pug-Template-Syntax anstelle von Standard-HTML verwenden — `<template lang="pug">`. Wir bleiben in diesem Tutorial bei Standard-HTML, aber es ist gut zu wissen, dass dies möglich ist.
+> Durch das Setzen des `lang`-Attributs auf dem `<template>`-Tag können Sie die Pug-Templatesyntax anstelle von standardmäßigem HTML verwenden — `<template lang="pug">`. Wir bleiben in diesem Tutorial bei standardmäßigem HTML, aber es ist gut zu wissen, dass dies möglich ist.
 
-`<script>` enthält die gesamte Nicht-Anzeigelogik Ihrer Komponente. Am wichtigsten ist, dass Ihr `<script>`-Tag dort ist, wo Sie Komponenten lokal registrieren, Komponenten-Eingaben (Props) definieren, den lokalen Status verwalten, Methoden definieren und mehr. Ihr Build-Schritt wird dieses Objekt verarbeiten und es (mit Ihrem Template) in eine Vue-Komponente mit einer `render()`-Funktion transformieren.
+`<script>` enthält die gesamte Nicht-Anzeige-Logik Ihrer Komponente. Am wichtigsten ist, dass Ihre `<script>`-Tag der Ort ist, an dem Sie Komponenten lokal registrieren, Komponenteneingaben (Props) definieren, den lokalen Zustand verwalten, Methoden definieren und mehr. Ihr Build-Schritt wird dieses Objekt verarbeiten und es (zusammen mit Ihrem Template) in eine Vue-Komponente mit einer `render()`-Funktion umwandeln.
 
-Im Fall von `App.vue` werden zwei Komponenten `TheWelcome` und `HelloWorld` durch Importe registriert. Wenn Sie eine Komponente auf diese Weise registrieren, registrieren Sie sie lokal. Lokal registrierte Komponenten können nur innerhalb der Komponenten verwendet werden, die sie registrieren, daher müssen Sie sie in jeder Komponentendatei importieren und registrieren, die sie verwendet. Dies ist nützlich für {{Glossary("Tree_shaking", "Tree shaking")}} (nicht geladenen Code nicht laden) und Bundle-Splitting (Code nur bei Bedarf laden), da nicht jede Seite in Ihrer App unbedingt jede Komponente benötigt.
+Im Fall von `App.vue` werden zwei Komponenten, `TheWelcome` und `HelloWorld`, durch Importe registriert. Wenn Sie auf diese Weise eine Komponente registrieren, registrieren Sie sie lokal. Lokal registrierte Komponenten können nur innerhalb der Komponenten verwendet werden, die sie registrieren, daher müssen Sie sie in jeder Komponenten-Datei importieren und registrieren, die sie verwendet. Dies ist nützlich für {{Glossary("Tree_shaking", "Tree shaking")}} (nicht geladenen Code nicht laden) und Bundle-Splitting (Code nur bei Bedarf laden), da nicht jede Seite in Ihrer App jede Komponente benötigt.
 
 ```vue
 <script setup>
@@ -176,18 +172,18 @@ import TheWelcome from "./components/TheWelcome.vue";
 ```
 
 > [!NOTE]
-> Wenn Sie die [TypeScript](https://www.typescriptlang.org/)-Syntax verwenden möchten, müssen Sie das `lang`-Attribut im `<script>`-Tag setzen, um dem Compiler zu signalisieren, dass Sie TypeScript verwenden — `<script lang="ts">`.
+> Wenn Sie die [TypeScript](https://www.typescriptlang.org/)-Syntax verwenden möchten, müssen Sie im `<script>`-Tag das `lang`-Attribut setzen, um dem Compiler mitzuteilen, dass Sie TypeScript verwenden — `<script lang="ts">`.
 
-`<style>` ist der Bereich, in dem Sie Ihr CSS für die Komponente schreiben. Wenn Sie ein `scoped`-Attribut hinzufügen — `<style scoped>` — wird Vue die Styles auf die Inhalte Ihrer SFC beschränken. Dies funktioniert ähnlich wie CSS-in-JS-Lösungen, ermöglicht es Ihnen jedoch, einfach plain CSS zu schreiben.
+`<style>` ist der Ort, an dem Sie Ihr CSS für die Komponente schreiben. Wenn Sie ein `scoped`-Attribut hinzufügen — `<style scoped>` — wird Vue die Stile auf den Inhalt Ihrer SFC beschränken. Dies funktioniert ähnlich wie CSS-in-JS-Lösungen, ermöglicht Ihnen aber einfaches Schreiben von normalem CSS.
 
 > [!NOTE]
-> Wenn Sie einen CSS-Präprozessor auswählen, wenn Sie das Projekt über die CLI erstellen, können Sie ein `lang`-Attribut zum `<style>`-Tag hinzufügen, sodass der Inhalt zur Build-Zeit verarbeitet werden kann. Zum Beispiel wird `<style lang="scss">` Ihnen ermöglichen, SCSS-Syntax in Ihren Styling-Informationen zu verwenden.
+> Wenn Sie einen CSS-Präprozessor beim Erstellen des Projekts über die CLI auswählen, können Sie dem `<style>`-Tag ein `lang`-Attribut hinzufügen, sodass der Inhalt zur Build-Zeit verarbeitet werden kann. Zum Beispiel ermöglicht `<style lang="scss">` Ihnen die Verwendung von SCSS-Syntax in Ihren Stilinformationen.
 
 ## Die App lokal ausführen
 
-Das `create-vue`-Tool wird mit Vite als integriertem Entwicklungsserver geliefert. Dadurch können Sie Ihre App lokal ausführen, sodass Sie sie leicht testen können, ohne einen Server von Grund auf neu konfigurieren zu müssen. Die CLI fügt Befehle zur `package.json`-Datei des Projekts als npm-Skripte hinzu, damit Sie sie einfach ausführen können.
+Das `create-vue`-Tool kommt mit Vite als integriertem Entwicklungsserver. Dies ermöglicht Ihnen, Ihre App lokal auszuführen, sodass Sie sie einfach testen können, ohne einen Server von Grund auf konfigurieren zu müssen. Die CLI fügt Befehle als npm-Skripte in die `package.json`-Datei des Projekts ein, sodass Sie sie einfach ausführen können.
 
-Versuchen Sie in Ihrem Terminal, `npm run dev` (oder `yarn dev`, wenn Sie lieber Yarn verwenden) auszuführen. Ihr Terminal sollte etwas Ähnliches ausgeben wie das Folgende:
+Versuchen Sie in Ihrem Terminal, `npm run dev` auszuführen (oder `yarn dev`, wenn Sie yarn bevorzugen). Ihr Terminal sollte etwas Folgendes ausgeben:
 
 ```plain
   VITE v5.0.11  ready in 312 ms
@@ -197,11 +193,11 @@ Versuchen Sie in Ihrem Terminal, `npm run dev` (oder `yarn dev`, wenn Sie lieber
   ➜  press h + enter to show help
 ```
 
-Wenn Sie in einem neuen Browser-Tab die Adresse "localhost" aufrufen, sollten Sie Ihre App sehen (diese Adresse sollte `http://localhost:5173/` sein, wie oben angegeben, kann aber je nach Konfiguration variieren). Derzeit sollte die App eine Willkommensnachricht, einen Link zur Vue-Dokumentation, Links zu den Plugins, die Sie bei der Initialisierung der App mit Ihrer CLI hinzugefügt haben, und einige andere nützliche Links zur Vue-Community und -Ökosystem enthalten.
+Wenn Sie sich in einem neuen Browser-Tab zum "localhost"-Adresse bewegen, sollten Sie Ihre App sehen (diese Adresse sollte `http://localhost:5173/` sein, wie oben angegeben, kann aber basierend auf Ihrer Einrichtung variieren). Im Moment sollte die App eine Willkommensnachricht, einen Link zur Vue-Dokumentation, Links zu den Plugins, die Sie beim Initialisieren der App mit Ihrem CLI hinzugefügt haben, und einige weitere nützliche Links zur Vue-Community und -Ökosystem enthalten.
 
-## Einige Änderungen vornehmen
+## Ein paar Änderungen vornehmen
 
-Lassen Sie uns unsere erste Änderung an der App vornehmen – wir werden das Vue-Logo entfernen. Öffnen Sie die `App.vue`-Datei und löschen Sie das [`<img>`](/de/docs/Web/HTML/Reference/Elements/img)-Element aus dem Vorlagenbereich:
+Lassen Sie uns die erste Änderung an der App vornehmen — wir entfernen das Vue-Logo. Öffnen Sie die `App.vue`-Datei und löschen Sie das [`<img>`](/de/docs/Web/HTML/Reference/Elements/img)-Element aus dem Template-Bereich:
 
 ```vue
 <img
@@ -212,25 +208,23 @@ Lassen Sie uns unsere erste Änderung an der App vornehmen – wir werden das Vu
   height="125" />
 ```
 
-Wenn Ihr Server noch läuft, sollten Sie das Logo fast sofort von der gerenderten Website entfernt sehen. Lassen Sie uns auch die `HelloWorld`-Komponente aus unserem Template entfernen.
+Wenn Ihr Server noch läuft, sollten Sie sehen, dass das Logo fast sofort von der gerenderten Seite entfernt wird. Lassen Sie uns auch die `HelloWorld`-Komponente aus unserem Template entfernen.
 
-Löschen Sie zunächst diese Zeile:
+Löschen Sie zuerst diese Zeile:
 
 ```vue
 <HelloWorld msg="You did it!" />
 ```
 
-Wenn Sie Ihre `App.vue`-Datei jetzt speichern, zeigt Ihr Editor möglicherweise einen Fehler an, weil wir die `HelloWorld`-Komponente registriert haben, sie aber nicht verwenden. Wir müssen auch die Zeilen aus dem `<script>`-Element entfernen, die die Komponente importieren und registrieren:
+Wenn Sie Ihre `App.vue`-Datei jetzt speichern, zeigt Ihr Editor möglicherweise einen Fehler an, da wir die `HelloWorld`-Komponente registriert haben, sie aber nicht verwenden. Wir müssen auch die Zeilen innerhalb des `<script>`-Elements entfernen, die die Komponente importieren und registrieren:
 
-Löschen Sie jetzt diese Zeilen:
+Löschen Sie nun diese Zeilen:
 
 ```js
 import HelloWorld from "./components/HelloWorld.vue";
 ```
 
-Wenn Sie alles innerhalb des `<template>`-Tags entfernen, sehen Sie einen Fehler, der besagt `Das Template benötigt ein Kindelement` in Ihrem Editor.
-Sie können dies beheben, indem Sie einige Inhalte innerhalb des `<template>`-Tags hinzufügen, und wir können mit einem neuen `<h1>`-Element innerhalb eines `<div>` beginnen.
-Da wir unten eine To-Do-Listen-App erstellen werden, legen wir unsere Überschrift auf "To-Do-Liste" fest, wie folgt:
+Wenn Sie alles innerhalb des `<template>`-Tags entfernen, sehen Sie einen Fehler in Ihrem Editor, der `Das Template benötigt ein Kindelement` besagt. Dies können Sie beheben, indem Sie etwas Inhalt innerhalb des `<template>`-Tags hinzufügen, und wir können mit einem neuen `<h1>`-Element innerhalb eines `<div>` beginnen. Da wir weiter unten eine Aufgabenlisten-App erstellen werden, setzen wir unsere Überschrift auf "To-Do Liste" so:
 
 ```vue
 <template>
@@ -240,14 +234,14 @@ Da wir unten eine To-Do-Listen-App erstellen werden, legen wir unsere Überschri
 </template>
 ```
 
-`App.vue` wird nun unsere Überschrift anzeigen, so wie Sie es erwarten würden.
+`App.vue` wird nun unsere Überschrift wie erwartet anzeigen.
 
 ## Zusammenfassung
 
-Lassen Sie uns dies für den Moment hier belassen. Wir haben einige der Ideen hinter Vue kennengelernt, ein Gerüst für unsere Beispiel-App erstellt, sie untersucht und einige vorläufige Änderungen vorgenommen.
+Lassen Sie uns hier vorerst Schluss machen. Wir haben einige Ideen hinter Vue kennengelernt, eine Struktur für unsere Beispiel-App geschaffen, sie inspiziert und einige vorläufige Änderungen vorgenommen.
 
-Mit einer grundlegenden Einführung abgeschlossen, werden wir nun weitergehen und unsere Beispiel-App aufbauen, eine einfache To-Do-Listen-Anwendung, die es uns ermöglicht, eine Liste von Elementen zu speichern, sie abzuhaken, wenn sie erledigt sind, und die Liste nach allen, abgeschlossenen und unvollständigen Aufgaben zu filtern.
+Mit einer grundlegenden Einführung können wir nun weitergehen und unsere Beispiel-App, eine grundlegende Aufgabenlistenanwendung, die es uns ermöglicht, eine Liste von Aufgaben zu speichern, sie bei Abschluss abzuhaken und die Liste nach allen, abgeschlossenen und unvollständigen Aufgaben zu filtern, aufbauen.
 
-Im nächsten Artikel werden wir unsere erste benutzerdefinierte Komponente erstellen und uns einige wichtige Konzepte ansehen, wie das Übergeben von Props an sie und das Speichern ihres Datenstatus.
+Im nächsten Artikel werden wir unsere erste benutzerdefinierte Komponente erstellen und uns einige wichtige Konzepte wie das Übergeben von Props an diese und das Speichern ihres Datenzustands anschauen.
 
 {{NextMenu("Learn_web_development/Core/Frameworks_libraries/Vue_first_component", "Learn_web_development/Core/Frameworks_libraries")}}

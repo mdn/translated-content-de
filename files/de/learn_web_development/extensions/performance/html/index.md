@@ -1,14 +1,14 @@
 ---
-title: Optimierung der HTML-Leistung
-short-title: Leistungsstarkes HTML
+title: HTML-Performanceoptimierung
+short-title: Performantes HTML
 slug: Learn_web_development/Extensions/Performance/HTML
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: 48d220a8cffdfd5f088f8ca89724a9a92e34d8c0
 ---
 
-{{LearnSidebar}} {{PreviousMenuNext("Learn_web_development/Extensions/Performance/Javascript", "Learn_web_development/Extensions/Performance/CSS", "Learn_web_development/Extensions/Performance")}}
+{{PreviousMenuNext("Learn_web_development/Extensions/Performance/Javascript", "Learn_web_development/Extensions/Performance/CSS", "Learn_web_development/Extensions/Performance")}}
 
-HTML ist von Natur aus schnell und zugänglich. Unsere Aufgabe als Entwickler ist es sicherzustellen, dass wir diese beiden Eigenschaften beibehalten, wenn wir HTML-Code erstellen oder bearbeiten. Komplikationen können auftreten, wenn zum Beispiel die Dateigröße eines eingebetteten {{htmlelement("video")}} zu groß ist oder wenn das Parsen von JavaScript das Rendering entscheidender Seitenelemente blockiert. Dieser Artikel führt Sie durch die wichtigsten Leistungsmerkmale von HTML, die die Qualität Ihrer Webseite erheblich verbessern können.
+HTML ist standardmäßig schnell und zugänglich. Es ist unsere Aufgabe als Entwickler, sicherzustellen, dass wir diese beiden Eigenschaften bewahren, wenn wir HTML-Code erstellen oder bearbeiten. Komplikationen können auftreten, wenn zum Beispiel die Dateigröße einer {{htmlelement("video")}}-Einbettung zu groß ist oder wenn das Parsen von JavaScript das Rendern kritischer Seitenelemente blockiert. Dieser Artikel führt Sie durch die wichtigsten HTML-Leistungsmerkmale, die die Qualität Ihrer Webseite drastisch verbessern können.
 
 <table>
   <tbody>
@@ -17,53 +17,53 @@ HTML ist von Natur aus schnell und zugänglich. Unsere Aufgabe als Entwickler is
       <td>
         <a
           href="/de/docs/Learn_web_development/Getting_started/Environment_setup/Installing_software"
-          >Basissoftware installiert</a
+          >Grundlegende Software installiert</a
         > und Grundkenntnisse in
         <a href="/de/docs/Learn_web_development/Getting_started/Your_first_website"
-          >Client-seitigen Webtechnologien</a
+          >clientseitigen Webtechnologien</a
         >.
       </td>
     </tr>
     <tr>
       <th scope="row">Ziel:</th>
       <td>
-        Lernen, wie sich HTML auf die Website-Leistung auswirkt
+        Um mehr über die Auswirkungen von HTML auf die Website-Performance zu erfahren
         und wie Sie Ihr HTML optimieren können, um die Leistung zu verbessern.
       </td>
     </tr>
   </tbody>
 </table>
 
-## Optimieren oder nicht optimieren?
+## Optimieren oder nicht optimieren
 
-Die erste Frage, die Sie sich stellen sollten, bevor Sie mit der Optimierung Ihres HTMLs beginnen, lautet: "Was muss ich optimieren?". Einige der unten diskutierten Tipps und Techniken sind gute Praktiken, die jedem Webprojekt zugutekommen, während andere nur in bestimmten Situationen erforderlich sind. Der Versuch, all diese Techniken überall anzuwenden, ist wahrscheinlich unnötig und könnte eine Verschwendung Ihrer Zeit sein. Sie sollten herausfinden, welche Leistungsoptimierungen für jedes Projekt tatsächlich benötigt werden.
+Die erste Frage, die Sie beantworten sollten, bevor Sie mit der Optimierung Ihres HTML beginnen, lautet: "Was muss ich optimieren?" Einige der unten besprochenen Tipps und Techniken sind gute Praktiken, die jedem Webprojekt zugutekommen, während einige nur in bestimmten Situationen erforderlich sind. Zu versuchen, alle diese Techniken überall anzuwenden, ist wahrscheinlich unnötig und könnte eine Verschwendung Ihrer Zeit sein. Sie sollten herausfinden, welche Leistungsoptimierungen tatsächlich in jedem Projekt benötigt werden.
 
-Dazu müssen Sie [die Leistung Ihrer Seite messen](/de/docs/Learn_web_development/Extensions/Performance/Measuring_performance). Wie dieser Link zeigt, gibt es verschiedene Möglichkeiten, die Leistung zu messen, einige davon sind mit anspruchsvollen [Leistungs-APIs](/de/docs/Web/API/Performance_API) verbunden. Der beste Weg, um anzufangen, besteht jedoch darin, zu lernen, wie man Tools wie eingebettete Browser-Netzwerk- und [Leistungstools](/de/docs/Learn_web_development/Extensions/Performance/Measuring_performance#performance_monitor_tools) verwendet, um die Teile der Seite zu untersuchen, die lange zum Laden benötigen und optimiert werden müssen.
+Dazu müssen Sie [die Leistung Ihrer Website messen](/de/docs/Learn_web_development/Extensions/Performance/Measuring_performance). Wie dieser Link zeigt, gibt es verschiedene Möglichkeiten, die Leistung zu messen, einige davon beinhalten ausgeklügelte [Performance-APIs](/de/docs/Web/API/Performance_API). Der beste Weg, um zu beginnen, ist jedoch, zu lernen, wie Sie Tools wie integrierte [Netzwerk-](/de/docs/Learn_web_development/Extensions/Performance/Measuring_performance#network_monitor_tools) und [Performance-](/de/docs/Learn_web_development/Extensions/Performance/Measuring_performance#performance_monitor_tools) Werkzeuge in Browsern verwenden, um die Teile der Seite zu untersuchen, die lange zum Laden brauchen und optimiert werden müssen.
 
-## Wichtige Leistungsprobleme mit HTML
+## Wichtige HTML-Performanceprobleme
 
-HTML ist leistungstechnisch einfach — es handelt sich größtenteils um Text, der klein ist und daher schnell heruntergeladen und gerendert werden kann. Die Hauptprobleme, die die Leistung einer Webseite beeinträchtigen können, sind:
+HTML ist in Bezug auf die Leistung einfach — es besteht hauptsächlich aus Text, der klein in der Größe ist und daher meist schnell heruntergeladen und gerendert wird. Die Hauptprobleme, die die Leistung einer Webseite beeinträchtigen können, umfassen:
 
-- Größe der Bild- und Videodateien: Es ist wichtig zu überlegen, wie man mit dem Inhalt von Ersatzelementen wie {{htmlelement("img")}} und {{htmlelement("video")}} umgeht. Bild- und Videodateien sind groß und können das Gewicht der Seite erheblich erhöhen. Es ist daher wichtig, die Menge der heruntergeladenen Bytes auf einem Benutzergerät zu minimieren (zum Beispiel kleinere Bilder für Mobilgeräte bereitzustellen). Sie müssen auch darüber nachdenken, die wahrgenommene Leistung zu verbessern, indem Sie Bilder und Videos auf einer Seite nur dann laden, wenn sie benötigt werden.
-- Bereitstellung eingebetteter Inhalte: Dies ist normalerweise der Inhalt, der in {{htmlelement("iframe")}}-Elementen eingebettet ist. Das Laden von Inhalten in `<iframe>`s kann die Leistung erheblich beeinträchtigen, daher sollte dies sorgfältig überlegt werden.
-- Reihenfolge des Ressourcenladens: Um die wahrgenommene und tatsächliche Leistung zu maximieren, sollte das HTML zuerst in der Reihenfolge geladen werden, in der es auf der Seite erscheint. Sie können dann verschiedene Funktionen verwenden, um die Reihenfolge des Ressourcenladens für eine bessere Leistung zu beeinflussen. Zum Beispiel können Sie kritische CSS und Schriftarten frühzeitig vorgeladen, aber nicht-kritisches JavaScript erst später laden.
+- Größe der Bild- und Videodateien: Es ist wichtig zu überlegen, wie der Inhalt von Ersetzungselementen wie {{htmlelement("img")}} und {{htmlelement("video")}} gehandhabt wird. Bild- und Videodateien sind groß und können erheblich zum Gewicht der Seite beitragen. Daher ist es wichtig, die Anzahl der Bytes zu minimieren, die auf ein Benutzersystem heruntergeladen werden (zum Beispiel kleinere Bilder für Mobilgeräte bereitstellen). Sie sollten auch erwägen, die wahrgenommene Leistung zu verbessern, indem Sie Bilder und Videos auf einer Seite nur laden, wenn sie benötigt werden.
+- Bereitstellung von eingebetteten Inhalten: Dies ist in der Regel der Inhalt, der in {{htmlelement("iframe")}}-Elementen eingebettet ist. Das Laden von Inhalten in `<iframe>`s kann die Leistung erheblich beeinflussen, daher sollte es sorgfältig abgewogen werden.
+- Reihenfolge der Ressourcennutzung: Um die wahrgenommene und tatsächliche Leistung zu maximieren, sollte das HTML zuerst in der Reihenfolge geladen werden, in der es auf der Seite erscheint. Sie können dann verschiedene Funktionen verwenden, um die Reihenfolge der Ressourcennutzung für eine bessere Leistung zu beeinflussen. Zum Beispiel können Sie kritisches CSS und Schriftarten frühzeitig vorladen, aber nicht-kritisches JavaScript auf später verschieben.
 
 > [!NOTE]
-> Es gibt ein Argument dafür, Ihre HTML-Struktur zu vereinfachen und Ihren Quellcode zu [minifizieren](<https://en.wikipedia.org/wiki/Minification_(programming)>), sodass das Rendering und der Download schneller sind. Jedoch ist die Dateigröße von HTML im Vergleich zu Bildern und Videos vernachlässigbar, und das Rendering durch den Browser ist heutzutage sehr schnell. Wenn Ihr HTML-Quellcode so groß und komplex ist, dass er die Rendering- und Download-Leistung beeinträchtigt, haben Sie wahrscheinlich größere Probleme und sollten anstreben, den Code zu vereinfachen und den Inhalt aufzuteilen.
+> Es gibt ein Argument dafür, die HTML-Struktur zu vereinfachen und Ihren Quellcode zu [minifizieren](<https://en.wikipedia.org/wiki/Minification_(programming)>), sodass das Rendern und der Download schneller sind. Allerdings ist die Dateigröße von HTML im Vergleich zu Bildern und Videos vernachlässigbar, und das Browser-Rendering ist heutzutage sehr schnell. Wenn Ihr HTML-Quellcode so groß und komplex ist, dass er Render- und Download-Leistungsprobleme verursacht, haben Sie wahrscheinlich größere Probleme und sollten daran arbeiten, ihn zu vereinfachen und den Inhalt aufzuteilen.
 
-## Responsiver Umgang mit Ersatzelementen
+## Responsiver Umgang mit Ersetzungselementen
 
-[Responsive Design](/de/docs/Learn_web_development/Core/CSS_layout/Responsive_Design) hat die Art und Weise revolutioniert, wie Webinhaltslayouts auf verschiedenen Geräten gehandhabt werden. Ein wesentlicher Vorteil, den es ermöglicht, ist das dynamische Umschalten von Layouts, die für verschiedene Bildschirmgrößen optimiert sind, zum Beispiel ein Breitbildlayout im Vergleich zu einem schmalen (mobilen) Bildschirmlayout. Es kann auch das dynamische Umschalten von Inhalten basierend auf anderen Geräteattributen wie Auflösung oder Vorliebe für ein helles oder dunkles Farbschema bewältigen.
+[Responsive Design](/de/docs/Learn_web_development/Core/CSS_layout/Responsive_Design) hat die Art revolutioniert, wie Webinhaltslayouts auf verschiedenen Geräten gehandhabt werden. Ein wesentlicher Vorteil, den es bietet, ist das dynamische Umschalten von Layouts, die für verschiedene Bildschirmgrößen optimiert sind, zum Beispiel ein Breitbildlayout versus ein schmales (mobiles) Bildschirmlayout. Es kann auch das dynamische Umschalten von Inhalten basierend auf anderen Geräteeigenschaften wie der Auflösung oder der Präferenz für helle oder dunkle Farbskalen bewerkstelligen.
 
-Die sogenannte "mobile first"-Technik kann sicherstellen, dass das Standardlayout für Geräte mit kleinem Bildschirm vorgesehen ist, sodass Mobilgeräte nur Bilder herunterladen, die für ihre Bildschirme geeignet sind, und nicht die Leistungseinbußen hinnehmen müssen, wenn größere Desktop-Bilder heruntergeladen werden. Da dies jedoch mit [Media Queries](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries) in Ihrem CSS gesteuert wird, kann dies nur die Leistung von in CSS geladenen Bildern positiv beeinflussen.
+Die sogenannte "Mobile-First"-Technik kann sicherstellen, dass das Standardlayout für kleine Bildschirme ausgelegt ist, sodass mobile Geräte nur für ihre Bildschirme geeignete Bilder herunterladen müssen und nicht die Leistungseinbußen haben, größere Desktop-Bilder herunterzuladen. Da dies jedoch mit [Medienabfragen](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries) in Ihrem CSS gesteuert wird, kann es nur die Leistung von in CSS geladenen Bildern positiv beeinflussen.
 
-In den folgenden Abschnitten fassen wir zusammen, wie Sie responsive Ersatzelemente implementieren. Sie finden viel detailliertere Informationen zu diesen Implementierungen in den [HTML Video- und Audio-](/de/docs/Learn_web_development/Core/Structuring_content/HTML_video_and_audio) und [Responsive-Bilder-](/de/docs/Web/HTML/Guides/Responsive_images) Leitfäden.
+In den folgenden Abschnitten fassen wir zusammen, wie Sie responsive Ersetzungselemente implementieren können. Sie finden viele weitere Details zu diesen Implementierungen in den Leitfäden zu [HTML-Videos und -Audios](/de/docs/Learn_web_development/Core/Structuring_content/HTML_video_and_audio) und [Responsiven Bildern](/de/docs/Web/HTML/Guides/Responsive_images).
 
-### Bereitstellung verschiedener Bildauflösungen über srcset
+### Bereitstellung unterschiedlicher Bildauflösungen über srcset
 
-Um je nach Auflösung des Geräts und Ansichtsfenstergröße unterschiedliche Auflösungen derselben Bilder anzubieten, können Sie die Attribute [`srcset`](/de/docs/Web/HTML/Reference/Elements/img#srcset) und [`sizes`](/de/docs/Web/HTML/Reference/Elements/img#sizes) verwenden.
+Um je nach Auflösung und Ansicht des Geräts verschiedene Auflösungsversionen desselben Bildes bereitzustellen, können Sie die Attribute [`srcset`](/de/docs/Web/HTML/Reference/Elements/img#srcset) und [`sizes`](/de/docs/Web/HTML/Reference/Elements/img#sizes) verwenden.
 
-Dieses Beispiel bietet unterschiedlich große Bilder für verschiedene Bildschirmbreiten an:
+Dieses Beispiel stellt für verschiedene Bildschirmbreiten unterschiedliche Bildgrößen bereit:
 
 ```html
 <img
@@ -74,9 +74,9 @@ Dieses Beispiel bietet unterschiedlich große Bilder für verschiedene Bildschir
   alt="Family portrait" />
 ```
 
-`srcset` bietet die intrinsische Größe der Quellbilder zusammen mit ihren Dateinamen und `sizes` bietet Media Queries zusammen mit Bildplatzbreiten, die jeweils ausgefüllt werden müssen. Der Browser entscheidet dann, welche Bilder für jeden Slot sinnvoll zu laden sind. Zum Beispiel, wenn die Bildschirmbreite `600px` oder weniger beträgt, dann ist `max-width: 600px` wahr, und daher wird der auszufüllende Slot als `480px` bezeichnet. In diesem Fall wird der Browser wahrscheinlich die 480w.jpg-Datei (480 Pixel breites Bild) laden. Dies hilft bei der Leistung, da Browser keine größeren Bilder laden als benötigt.
+`srcset` bietet die intrinsische Größe der Quellbilder zusammen mit ihren Dateinamen, und `sizes` stellt Medienabfragen mit den Bild-Slot-Breiten bereit, die in jedem Fall gefüllt werden müssen. Der Browser entscheidet dann, welche Bilder für jeden Slot geladen werden sollen. Als Beispiel: Wenn die Bildschirmbreite `600px` oder weniger beträgt, ist `max-width: 600px` wahr, und daher wird gesagt, dass der zu füllende Slot `480px` ist. In diesem Fall wählt der Browser wahrscheinlich die 480w.jpg-Datei (480px-breites Bild) zum Laden aus. Dies hilft bei der Leistung, da Browser keine größeren Bilder laden, als sie benötigen.
 
-Dieses Beispiel bietet unterschiedliche Auflösungsbilder für unterschiedliche Bildschirmauflösungen:
+Dieses Beispiel stellt für verschiedene Bildschirmauflösungen unterschiedliche Auflösungsbilder bereit:
 
 ```html
 <img
@@ -85,15 +85,15 @@ Dieses Beispiel bietet unterschiedliche Auflösungsbilder für unterschiedliche 
   alt="Family portrait" />
 ```
 
-`1.5x`, `2x`, usw. sind relative Auflösungsmarkierungen. Wenn das Bild mit `width: 320px` in CSS gestylt wird, lädt der Browser `320w.jpg`, wenn das Gerät eine niedrige Auflösung hat (ein {{Glossary("device_pixel", "Gerätepixel")}} pro CSS-Pixel) oder `640x.jpg`, wenn das Gerät eine hohe Auflösung hat (zwei Gerätepixel pro CSS-Pixel oder mehr).
+`1.5x`, `2x` usw. sind relative Auflösungsindikatoren. Wenn das Bild auf 320px Breite gestylt ist (zum Beispiel mit `width: 320px` in CSS), lädt der Browser `320w.jpg`, wenn das Gerät eine niedrige Auflösung hat (ein {{Glossary("device_pixel", "Device-Pixel")}} pro CSS-Pixel), oder `640x.jpg`, wenn das Gerät eine hohe Auflösung hat (zwei Device-Pixel pro CSS-Pixel oder mehr).
 
 In beiden Fällen bietet das `src`-Attribut ein Standardbild zum Laden, falls der Browser `src`/`srcset` nicht unterstützt.
 
-### Bereitstellung verschiedener Quellen für Bilder und Videos
+### Bereitstellung unterschiedlicher Quellen für Bilder und Videos
 
-Das {{htmlelement("picture")}}-Element baut auf dem traditionellen {{htmlelement("img")}}-Element auf und ermöglicht es, mehrere verschiedene Quellen für unterschiedliche Situationen bereitzustellen. Wenn das Layout beispielsweise breit ist, möchten Sie wahrscheinlich ein breites Bild und wenn es schmal ist, ein schmaleres Bild, das in diesem Kontext noch funktioniert.
+Das {{htmlelement("picture")}}-Element baut auf dem traditionellen {{htmlelement("img")}}-Element auf und ermöglicht es Ihnen, mehrere verschiedene Quellen für verschiedene Situationen bereitzustellen. Wenn das Layout zum Beispiel breit ist, möchten Sie wahrscheinlich ein breites Bild und wenn es schmal ist, ein engeres Bild, das in diesem Kontext funktioniert.
 
-Natürlich funktioniert dies auch, um auf mobilen Geräten einen kleineren Download von Informationen bereitzustellen, was zur Verbesserung der Leistung beiträgt.
+Natürlich funktioniert dies auch, um eine kleinere Datenmenge auf mobilen Geräten bereitzustellen, was der Leistung zugutekommt.
 
 Ein Beispiel ist wie folgt:
 
@@ -105,11 +105,11 @@ Ein Beispiel ist wie folgt:
 </picture>
 ```
 
-Die {{htmlelement("source")}}-Elemente enthalten Media Queries in den `media`-Attributen. Wenn eine Media Query wahr zurückgibt, wird das Bild geladen, das im `srcset`-Attribut seines `<source>`-Elements referenziert wird. Im obigen Beispiel wird, wenn die Ansichtsfensterbreite `799px` oder weniger beträgt, das Bild `narrow-banner-480w.jpg` geladen. Beachten Sie auch, wie das `<picture>`-Element ein `<img>`-Element enthält, das ein Standardbild zum Laden im Falle eines Browsers bereitstellt, der `<picture>` nicht unterstützt.
+Die {{htmlelement("source")}}-Elemente enthalten Medienabfragen innerhalb der `media`-Attribute. Wenn eine Medienabfrage wahr ist, wird das im `srcset`-Attribut seines `<source>`-Elements referenzierte Bild geladen. Im obigen Beispiel wird, wenn die Viewport-Breite `799px` oder weniger ist, das `narrow-banner-480w.jpg`-Bild geladen. Beachten Sie auch, wie das `<picture>`-Element ein `<img>`-Element umfasst, das ein Standardbild zum Laden im Fall von Browsern bereitstellt, die `<picture>` nicht unterstützen.
 
-Beachten Sie die Verwendung des `srcset`-Attributs in diesem Beispiel. Wie im vorherigen Abschnitt gezeigt, können Sie für jede Bildquelle verschiedene Auflösungen bereitstellen.
+Beachten Sie die Verwendung des `srcset`-Attributs in diesem Beispiel. Wie im vorherigen Abschnitt gezeigt, können Sie unterschiedliche Auflösungen für jede Bildquelle bereitstellen.
 
-`<video>`-Elemente funktionieren in Bezug auf die Bereitstellung verschiedener Quellen auf ähnliche Weise:
+`<video>`-Elemente funktionieren in Bezug auf die Bereitstellung verschiedener Quellen ähnlich:
 
 ```html
 <video controls>
@@ -126,25 +126,25 @@ Beachten Sie die Verwendung des `srcset`-Attributs in diesem Beispiel. Wie im vo
 </video>
 ```
 
-Es gibt jedoch einige wesentliche Unterschiede zwischen der Bereitstellung von Quellen für Bilder und Videos:
+Es gibt jedoch einige wichtige Unterschiede zwischen der Bereitstellung von Quellen für Bilder und Videos:
 
-- Im obigen Beispiel verwenden wir `src` und nicht `srcset`; Sie können keine unterschiedlichen Auflösungen für Videos über `srcset` angeben.
-- Stattdessen geben Sie unterschiedliche Auflösungen in den verschiedenen `<source>`-Elementen an.
-- Beachten Sie, dass wir auch verschiedene Videoformate in verschiedenen `<source>`-Elementen angeben, wobei jedes Format über seinen MIME-Typ im `type`-Attribut identifiziert wird. Browser laden das erste, das sie unterstützen und bei dem der Media-Query-Test wahr ist.
+- Im obigen Beispiel verwenden wir `src` anstelle von `srcset`; Sie können keine verschiedenen Auflösungen für Videos über `srcset` angeben.
+- Stattdessen geben Sie unterschiedliche Auflösungen innerhalb der verschiedenen `<source>`-Elemente an.
+- Beachten Sie, wie wir auch unterschiedliche Videoformate innerhalb verschiedener `<source>`-Elemente angeben, wobei jedes Format über seinen MIME-Typ im `type`-Attribut identifiziert wird. Browser laden das erste, das sie unterstützen, wo der Medienabfragetext wahr ist.
 
-### Lazy Loading von Bildern
+### Verzögertes Laden von Bildern
 
-Eine sehr nützliche Technik zur Leistungssteigerung ist **Lazy Loading**. Dies bezieht sich auf die Praxis, nicht alle Bilder sofort zu laden, wenn das HTML gerendert wird, sondern sie nur zu laden, wenn sie tatsächlich im Ansichtsfenster des Benutzers sichtbar (oder unmittelbar sichtbar) sind. Das bedeutet, dass der sofort sichtbare/nutzbare Inhalt schneller einsatzbereit ist, während nachfolgender Inhalt nur dann seine Bilder rendert, wenn er aufgerufen wird, und der Browser keine Bandbreite verschwendet, um Bilder zu laden, die der Benutzer niemals sehen wird.
+Eine sehr nützliche Technik zur Verbesserung der Leistung ist das **Lazy Loading**. Dies bezieht sich auf die Praxis, nicht alle Bilder sofort beim Rendern des HTML zu laden, sondern sie zu laden, wenn sie tatsächlich im Viewport des Benutzers sichtbar oder bald sichtbar sind. Dies bedeutet, dass der direkt sichtbare/verwendbare Inhalt schneller genutzt werden kann, während nachfolgender Inhalt nur seine Bilder rendert, wenn er gescrollt wird und der Browser keine Bandbreite auf Bilder verschwendet, die der Benutzer nie sehen wird.
 
-Lazy Loading wurde historisch mit JavaScript behandelt, aber Browser verfügen jetzt über ein `loading`-Attribut, das den Browser anweisen kann, Bilder automatisch lazy zu laden:
+Historisch wurde Lazy Loading mit JavaScript durchgeführt, aber Browser haben nun ein `loading`-Attribut, das den Browser anweisen kann, Bilder automatisch verzögert zu laden:
 
 ```html
 <img src="800w.jpg" alt="Family portrait" loading="lazy" />
 ```
 
-Lesen Sie [Lazy Loading von Bildern auf Browserebene für das Web](https://web.dev/articles/browser-level-image-lazy-loading) auf web.dev für detaillierte Informationen.
+Siehe [Browser-level image lazy loading for the web](https://web.dev/articles/browser-level-image-lazy-loading) auf web.dev für detaillierte Informationen.
 
-Sie können auch Video-Content lazy laden, indem Sie das `preload`-Attribut verwenden. Zum Beispiel:
+Sie können auch Videoinhalte per Lazy Load laden, indem Sie das `preload`-Attribut verwenden. Zum Beispiel:
 
 ```html
 <video controls preload="none" poster="poster.jpg">
@@ -153,63 +153,63 @@ Sie können auch Video-Content lazy laden, indem Sie das `preload`-Attribut verw
 </video>
 ```
 
-Wenn Sie `preload` den Wert `none` geben, weist dies den Browser an, keine Videodaten vorzuladen, bevor der Benutzer entscheidet, sie abzuspielen, was offensichtlich gut für die Leistung ist. Stattdessen wird nur das Bild angezeigt, das durch das `poster`-Attribut angegeben wird. Verschiedene Browser haben unterschiedliches Standardverhalten beim Laden von Videos, daher ist es gut, explizit zu sein.
+Ein Wert von `none` bei `preload` sagt dem Browser, dass er keine der Videodaten vorab laden soll, bevor der Benutzer entscheidet, es abzuspielen, was offensichtlich gut für die Leistung ist. Stattdessen wird nur das Bild angezeigt, das durch das `poster`-Attribut angegeben ist. Verschiedene Browser haben unterschiedliche Standardladeverhalten für Videos, daher ist es gut, explizit zu sein.
 
-Lesen Sie [Schnelle Wiedergabe mit Audio- und Videopreload](https://web.dev/articles/fast-playback-with-preload) auf web.dev für detaillierte Informationen.
+Siehe [Fast playback with audio and video preload](https://web.dev/articles/fast-playback-with-preload) auf web.dev für detaillierte Informationen.
 
 ## Umgang mit eingebetteten Inhalten
 
-Es ist sehr üblich, Inhalte aus anderen Quellen in Webseiten einzubetten. Dies geschieht am häufigsten beim Anzeigen von Werbung auf einer Seite, um Einnahmen zu generieren – die Anzeigen werden normalerweise von einer Drittanbieterfirma erzeugt und in Ihre Seite eingebettet. Andere Verwendungen könnten umfassen:
+Es ist sehr üblich, dass Inhalte von anderen Quellen in Webseiten eingebettet werden. Dies wird am häufigsten gemacht, wenn Werbung auf einer Seite angezeigt wird, um Einnahmen zu generieren — die Anzeigen werden in der Regel von einem Drittunternehmen irgendeiner Art generiert und auf Ihrer Seite eingebettet. Andere Verwendungszwecke könnten sein:
 
-- Anzeigen von geteilten Inhalten, die ein Benutzer auf mehreren Seiten benötigen könnte, wie z. B. ein Warenkorb oder Profilinformationen.
-- Anzeigen von Inhalten Dritter, die mit der Hauptseite der Organisation in Zusammenhang stehen, wie z. B. ein Social-Media-Feed.
+- Anzeigen von gemeinsam genutzten Inhalten, die ein Benutzer auf mehreren Seiten benötigt, wie ein Einkaufswagen oder Profilinformationen.
+- Anzeigen von Drittinhalten, die mit der Hauptseite der Organisation zusammenhängen, wie ein Feed mit sozialen Medienbeiträgen.
 
-Inhalte werden am häufigsten mit {{htmlelement("iframe")}}-Elementen eingebettet, obwohl es auch andere weniger häufig verwendete Einbettungselemente gibt, wie {{htmlelement("object")}} und {{htmlelement("embed")}}. Wir konzentrieren uns in diesem Abschnitt auf `<iframe>`s.
+Das Einbetten von Inhalten erfolgt am häufigsten mit {{htmlelement("iframe")}}-Elementen, obwohl auch andere weniger häufig verwendete Einbettungselemente wie {{htmlelement("object")}} und {{htmlelement("embed")}} existieren. In diesem Abschnitt konzentrieren wir uns auf `<iframe>`s.
 
-Der wichtigste und entscheidendste Ratschlag für die Verwendung von `<iframe>`s ist: "Verwenden Sie eingebettete `<iframe>`s nur, wenn es absolut notwendig ist". Wenn Sie eine Seite mit mehreren verschiedenen Informationsbereichen erstellen, könnte es organisatorisch sinnvoll erscheinen, diese in separate Seiten aufzuteilen und in verschiedene `<iframe>`s zu laden. Dies hat jedoch eine Reihe von Leistungsproblemen und anderen Nachteilen:
+Die wichtigste und entscheidende Empfehlung für die Verwendung von `<iframe>`s lautet: "Verwenden Sie eingebettete `<iframe>`s nur, wenn Sie absolut müssen". Wenn Sie eine Seite mit mehreren verschiedenen Informationsbereichen erstellen, könnte es organisatorisch sinnvoll erscheinen, diese in separate Seiten aufzubrechen und in verschiedenen `<iframe>`s zu laden. Dies hat jedoch ein Reihe von Problemen in Bezug auf Leistung und anderes:
 
-- Das Laden des Inhalts in ein `<iframe>` ist viel aufwendiger als das Laden des Inhalts als Teil derselben direkten Seite – es erfordert nicht nur zusätzliche HTTP-Anfragen, um den Inhalt zu laden, sondern der Browser muss auch eine separate Seiteninstanz für jedes einzelne erzeugen. Jeder ist im Wesentlichen eine separate Webseite, die in die übergeordnete Webseite eingebettet ist.
-- Im Anschluss an den vorherigen Punkt müssen Sie auch jedes CSS-Styling oder jede JavaScript-Manipulation separat für jede unterschiedliche `<iframe>` (es sei denn, die eingebetteten Seiten stammen von derselben Herkunft) behandeln, was viel komplizierter wird. Sie können keine eingebetteten Inhalte mit CSS und JavaScript anwenden, die auf die übergeordnete Seite angewendet werden, oder umgekehrt. Dies ist eine sinnvolle Sicherheitsmaßnahme, die für das Web grundlegend ist. Stellen Sie sich all die Probleme vor, auf die Sie stoßen könnten, wenn eingebettete Inhalte von Drittanbietern willkürlich Skripte gegen eine Seite ausführen könnten, in die sie eingebettet wurden!
-- Jedes `<iframe>` müsste auch alle gemeinsamen Daten und Mediendateien separat laden – Sie können keine zwischengespeicherten Assets über verschiedene Seitenembeds hinweg teilen (es sei denn, die eingebetteten Seiten stammen von derselben Herkunft). Dies kann dazu führen, dass eine Seite viel mehr Bandbreite verwendet, als Sie erwarten würden.
+- Das Laden des Inhalts in ein `<iframe>` ist viel teurer, als den Inhalt als Teil der direkten Seite zu laden — nicht nur erfordert es zusätzliche HTTP-Anfragen, um den Inhalt zu laden, sondern der Browser muss auch eine separate Seiteninstanz für jede erstellen. Jede ist effektiv eine separate Webseiteninstanz, die in die oberste Webseite eingebettet ist.
+- In Anknüpfung an den vorherigen Punkt, müssen Sie auch jede CSS-Stilierung oder JavaScript-Manipulation separat für jedes unterschiedliche `<iframe>` behandeln (es sei denn, die eingebetteten Seiten stammen aus der selben Herkunft), was viel komplexer wird. Sie können keine eingebetteten Inhalte mit CSS und JavaScript ansprechen, die auf die oberste Seite angewendet werden, oder umgekehrt. Dies ist eine sinnvolle Sicherheitsmaßnahme, die grundlegend für das Web ist. Stellen Sie sich all die Probleme vor, auf die Sie stoßen könnten, wenn eingebettete Drittinhalte beliebig Skripte gegen jede Seite ausführen könnten, in die sie eingebettet sind!
+- Jede `<iframe>` würde auch alle gemeinsam genutzten Daten und Mediendateien separat laden müssen — Sie können keine zwischengespeicherten Ressourcen über verschiedene Seiteneinbettungen hinweg teilen (wieder, es sei denn die eingebetteten Seiten stammen aus derselben Herkunft). Dies kann dazu führen, dass eine Seite viel mehr Bandbreite verwendet, als Sie erwarten könnten.
 
-Es wird empfohlen, den Inhalt auf eine einzelne Seite zu setzen. Wenn Sie neuen Inhalt dynamisch laden möchten, wenn sich die Seite ändert, ist es dennoch besser für die Leistung, ihn in dieselbe Seite zu laden, anstatt ihn in ein `<iframe>` zu setzen. Sie könnten die neuen Daten beispielsweise mit der [`fetch()`-Methode](/de/docs/Web/API/Window/fetch) abrufen und dann mit DOM-Scripting in die Seite einfügen. Siehe [Netzwerkanfragen mit JavaScript](/de/docs/Learn_web_development/Core/Scripting/Network_requests) und [DOM-Scripting-Einführung](/de/docs/Learn_web_development/Core/Scripting/DOM_scripting) für weitere Informationen.
+Es ist ratsam, den Inhalt in eine einzelne Seite zu setzen. Wenn Sie neue Inhalte dynamisch abrufen möchten, während sich die Seite ändert, ist es immer noch besser für die Leistung, sie in dieselbe Seite zu laden, anstatt sie in ein `<iframe>` zu setzen. Sie könnten die neuen Daten zum Beispiel mit der [`fetch()`](/de/docs/Web/API/Window/fetch)-Methode abrufen und dann mit etwas DOM-Scripting in die Seite einfügen. Siehe [Netzwerkanfragen mit JavaScript machen](/de/docs/Learn_web_development/Core/Scripting/Network_requests) und [Einführung ins DOM-Scripting](/de/docs/Learn_web_development/Core/Scripting/DOM_scripting) für weitere Informationen.
 
 > [!NOTE]
-> Wenn Sie den Inhalt steuern und er relativ einfach ist, könnten Sie erwägen, base-64 kodierten Inhalt im `src`-Attribut zu verwenden, um das `<iframe>` zu füllen, oder sogar direkten HTML in das `srcdoc`-Attribut einzufügen (siehe [Iframe Performance Part 2: The Good News](https://medium.com/slices-of-bread/iframe-performance-part-2-the-good-news-26eb53cea429) für weitere Informationen).
+> Wenn Sie die Kontrolle über den Inhalt haben und er relativ einfach ist, könnten Sie erwägen, base-64-kodierte Inhalte im `src`-Attribut zu verwenden, um das `<iframe>` zu füllen oder sogar rohes HTML in das `srcdoc`-Atribut einzufügen (siehe [Iframe Performance Part 2: The Good News](https://medium.com/slices-of-bread/iframe-performance-part-2-the-good-news-26eb53cea429) für weitere Informationen).
 
 Wenn Sie `<iframe>`s verwenden müssen, dann verwenden Sie sie sparsam.
 
-### Lazy Loading von iframes
+### Verzögertes Laden von iframes
 
-Genauso wie `<img>`-Elemente können Sie auch das `loading`-Attribut verwenden, um den Browser anzuweisen, `<iframe>`-Content lazy zu laden, der anfangs außerhalb des Bildschirms ist, und dadurch die Leistung zu verbessern:
+Genau wie `<img>`-Elemente können Sie auch das `loading`-Attribut verwenden, um dem Browser anzuweisen, `<iframe>`-Inhalte, die anfänglich außerhalb des Bildschirms sind, verzögert zu laden und so die Leistung zu verbessern:
 
 ```html
 <iframe src="https://example.com" loading="lazy" width="600" height="400">
 </iframe>
 ```
 
-Siehe [Es ist an der Zeit, Offscreen-iframes lazy zu laden!](https://web.dev/articles/iframe-lazy-loading) für mehr Informationen.
+Siehe [It's time to lazy-load offscreen iframes!](https://web.dev/articles/iframe-lazy-loading) für weitere Informationen.
 
-## Umgang mit der Ladeordnung von Ressourcen
+## Umgang mit der Reihenfolge der Ressourcennutzung
 
-Die Reihenfolge des Ladens von Ressourcen ist wichtig, um die wahrgenommene und tatsächliche Leistung zu maximieren. Wenn eine Webseite geladen wird:
+Die Reihenfolge der Ressourcennutzung ist wichtig, um die wahrgenommene und tatsächliche Leistung zu maximieren. Wenn eine Webseite geladen wird:
 
-1. Normalerweise wird zuerst das HTML in der Reihenfolge, in der es auf der Seite erscheint, geparst.
-2. Gefundene CSS-Dateien werden geparst, um die Stile zu verstehen, die auf die Seite angewendet werden müssen. Währenddessen beginnen verlinkte Ressourcen wie Bilder und Webschriftarten, abgerufen zu werden.
-3. Gefundene JavaScript-Dateien werden geparst, ausgewertet und auf die Seite angewendet. Standardmäßig blockiert dies das Parsen des HTML, das nach den {{htmlelement("script")}}-Elementen erscheint, wo das JavaScript gefunden wird.
-4. Etwas später berechnet der Browser, wie jedes HTML-Element gestylt werden sollte, basierend auf dem darauf angewendeten CSS.
-5. Das gestylte Ergebnis wird dann auf dem Bildschirm gerendert.
+1. Das HTML wird normalerweise zuerst in der Reihenfolge geparst, in der es auf der Seite erscheint.
+2. Jeder gefundene CSS wird geparst, um die Stile zu verstehen, die auf die Seite angewendet werden müssen. Während dieser Zeit beginnen verknüpfte Assets wie Bilder und Web-Fonts, abgerufen zu werden.
+3. Jeder gefundene JavaScript wird geparst, ausgewertet und gegen die Seite ausgeführt. Dies blockiert standardmäßig das Parsen des HTML, das nach den {{htmlelement("script")}}-Elementen erscheint, wo das JavaScript angetroffen wird.
+4. Etwas später analysiert der Browser, wie jedes HTML-Element gestylt werden sollte, basierend auf dem angewendeten CSS.
+5. Das gestylte Ergebnis wird dann auf den Bildschirm gezeichnet.
 
 > [!NOTE]
-> Dies ist eine stark vereinfachte Darstellung dessen, was passiert, vermittelt aber eine Vorstellung.
+> Dies ist eine sehr vereinfachte Darstellung dessen, was passiert, aber sie gibt Ihnen eine Vorstellung.
 
-Verschiedene HTML-Funktionen ermöglichen es Ihnen, zu beeinflussen, wie das Laden von Ressourcen geschieht, um die Leistung zu verbessern. Wir werden einige dieser Aspekte jetzt erkunden.
+Verschiedene HTML-Features erlauben es Ihnen, zu ändern, wie das Laden von Ressourcen passiert, um die Leistung zu verbessern. Wir werden nun einige davon erkunden.
 
-### Umgang mit der JavaScript-Ladung
+### Umgang mit JavaScript-Laden
 
-Das Parsen und Ausführen von JavaScript blockiert das Parsen nachfolgender DOM-Inhalte. Dies erhöht die Zeit, bis dieser Inhalt gerendert und für die Benutzer der Seite nutzbar ist. Ein kleines Skript macht dabei keinen großen Unterschied, aber moderne Webanwendungen sind normalerweise sehr JavaScript-lastig.
+Das Parsen und Ausführen von JavaScript blockiert das Parsen nachfolgenden DOM-Inhalts. Dies verlängert die Zeit, bis dieser Inhalt gerendert und von den Benutzern der Seite genutzt werden kann. Ein kleines Skript macht wahrscheinlich keinen großen Unterschied, aber bedenken Sie, dass moderne Webanwendungen dazu neigen, sehr JavaScript-lastig zu sein.
 
-Ein weiterer Nebeneffekt des Standard-Verhaltens beim Parsen von JavaScript ist, dass, wenn das zu rendernde Skript auf DOM-Inhalte angewiesen ist, die später auf der Seite erscheinen, Fehler auftreten können.
+Ein weiterer Nebeneffekt des Standardverhaltens bei JavaScript-Parsing ist, dass, wenn das gerenderte Skript auf DOM-Inhalt angewiesen ist, der später auf der Seite erscheint, Sie Fehler bekommen.
 
 Stellen Sie sich zum Beispiel einen einfachen Absatz auf einer Seite vor:
 
@@ -217,7 +217,7 @@ Stellen Sie sich zum Beispiel einen einfachen Absatz auf einer Seite vor:
 <p>My paragraph</p>
 ```
 
-Nun stellen Sie sich eine JavaScript-Datei vor, die folgenden Code enthält:
+Stellen Sie sich nun vor, dass eine JavaScript-Datei folgenden Code enthält:
 
 ```js
 const pElem = document.querySelector("p");
@@ -233,47 +233,47 @@ Wir können dieses Skript auf die Seite anwenden, indem wir es in einem `<script
 <script src="index.js"></script>
 ```
 
-Wenn wir dieses `<script>`-Element vor dem `<p>`-Element in der Quellreihenfolge platzieren (zum Beispiel im {{htmlelement("head")}}-Element), wird die Seite einen Fehler werfen (Chrome meldet zum Beispiel "Uncaught TypeError: Cannot read properties of null (reading 'addEventListener')" in der Konsole). Dies geschieht, weil das Skript von dem `<p>`-Element abhängt, um zu funktionieren, aber zu dem Zeitpunkt, an dem das Skript geparst wird, existiert das `<p>`-Element noch nicht auf der Seite. Es wurde noch nicht gerendert.
+Wenn wir dieses `<script>`-Element vor dem `<p>`-Element in der Quellreihenfolge platzieren (zum Beispiel im {{htmlelement("head")}}-Element), wird die Seite einen Fehler auswerfen (Chrome meldet zum Beispiel "Uncaught TypeError: Cannot read properties of null (reading 'addEventListener')" an die Konsole). Dies tritt auf, weil das Skript auf das `<p>`-Element angewiesen ist, um zu funktionieren, aber zu dem Zeitpunkt, an dem das Skript geparst wird, existiert das `<p>`-Element nicht auf der Seite. Es wurde noch nicht gerendert.
 
-Sie können das oben genannte Problem beheben, indem Sie das `<script>`-Element nach dem `<p>`-Element setzen (zum Beispiel am Ende des Document-Bodys) oder indem Sie den Code innerhalb eines geeigneten Ereignishandlers ausführen lassen (zum Beispiel können Sie es beim [`DOMContentLoaded`](/de/docs/Web/API/Document/DOMContentLoaded_event) ausführen lassen, das ausgelöst wird, wenn das DOM vollständig geparst wurde).
+Sie können das obige Problem beheben, indem Sie das `<script>`-Element nach dem `<p>`-Element platzieren (zum Beispiel am Ende des Dokumentkörpers) oder indem Sie den Code innerhalb eines geeigneten Ereignishandlers laufen lassen (zum Beispiel ihn beim [`DOMContentLoaded`](/de/docs/Web/API/Document/DOMContentLoaded_event) ausführen zu lassen, das ausgelöst wird, wenn das DOM vollständig geparst ist).
 
-Dies löst jedoch nicht das Problem des Wartens auf das Laden des Skripts. Eine bessere Leistung kann erzielt werden, indem Sie dem `<script>`-Element das `async`-Attribut hinzufügen:
+Dies löst jedoch nicht das Problem, dass das Skript geladen werden muss. Eine bessere Leistung kann erzielt werden, indem Sie das `async`-Attribut dem `<script>`-Element hinzufügen:
 
 ```html
 <script async src="index.js"></script>
 ```
 
-Dies führt dazu, dass das Skript parallel zum DOM-Parsing abgerufen wird, sodass es bereit ist, in dem Moment genutzt zu werden, und das Rendering nicht blockiert wird, wodurch die Leistung verbessert wird.
+Dies führt dazu, dass das Skript parallel zum Parsen des DOM abgerufen wird, sodass es gleichzeitig bereit ist und nicht das Rendering blockiert, wodurch die Leistung verbessert wird.
 
 > [!NOTE]
-> Es gibt ein weiteres Attribut, `defer`, das bewirkt, dass das Skript nach dem Parsen des Dokuments ausgeführt wird, jedoch vor dem Auslösen von `DOMContentLoaded`. Dies hat einen ähnlichen Effekt wie `async`.
+> Es gibt ein weiteres Attribut, `defer`, das bewirkt, dass das Skript ausgeführt wird, nachdem das Dokument geparst wurde, aber bevor `DOMContentLoaded` ausgelöst wird. Dies hat einen ähnlichen Effekt wie `async`.
 
-Ein weiterer Tipp zur JavaScript-Ladeoptimierung besteht darin, Ihr Skript in Codemodule aufzuteilen und jeden Teil bei Bedarf zu laden, anstatt all Ihren Code in ein riesiges Skript zu packen und alles am Anfang zu laden. Dies wird mit [JavaScript-Modulen](/de/docs/Web/JavaScript/Guide/Modules) durchgeführt. Lesen Sie den verlinkten Artikel für eine detaillierte Anleitung.
+Ein weiterer Tipp zum Umgang mit JavaScript-Laden ist, Ihr Skript in Code-Module aufzuteilen und jeden Teil bei Bedarf zu laden, anstatt Ihren gesamten Code in einem riesigen Skript zu haben und alles am Anfang zu laden. Dies geschieht mit [JavaScript-Modulen](/de/docs/Web/JavaScript/Guide/Modules). Lesen Sie den verlinkten Artikel für eine detaillierte Anleitung.
 
-### Vorladen von Inhalten mit rel="preload"
+### Inhaltsvorladung mit rel="preload"
 
-Das Abrufen anderer Ressourcen (wie Bilder, Videos oder Schriftdateien), auf die von Ihrem HTML, CSS und JavaScript zugegriffen wird, kann ebenfalls Leistungsprobleme verursachen, indem es den Code in der Ausführung blockiert und die Erfahrung verlangsamt. Eine Möglichkeit, solche Probleme zu mildern, besteht darin, `rel="preload"` zu verwenden, um {{htmlelement("link")}}-Elemente in Vorlader zu verwandeln. Zum Beispiel:
+Das Abrufen anderer Ressourcen (wie Bilder, Videos oder Schriftdateien), auf die aus Ihrem HTML, CSS und JavaScript verwiesen wird, kann ebenfalls Leistungsprobleme verursachen, indem Ihr Code blockiert und die Erfahrung verlangsamt wird. Eine Möglichkeit, solche Probleme zu mildern, besteht darin, `rel="preload"` zu verwenden, um {{htmlelement("link")}}-Elemente in Vorlader zu verwandeln. Zum Beispiel:
 
 ```html
 <link rel="preload" href="sintel-short.mp4" as="video" type="video/mp4" />
 ```
 
-Wenn der Browser auf einen Link mit `rel="preload"` stößt, wird die referenzierte Ressource so schnell wie möglich abgerufen und im Browser-Cache verfügbar gemacht, sodass sie bereit ist, schneller verwendet zu werden, wenn sie im nachfolgenden Code referenziert wird. Es ist nützlich, hochpriorisierte Ressourcen vorzuhalten, denen der Benutzer früh auf einer Seite begegnen wird, um sicherzustellen, dass die Erfahrung so reibungslos wie möglich verläuft.
+Sobald ein `rel="preload"`-Link aufgefunden wird, lädt der Browser die referenzierte Ressource so schnell wie möglich herunter und macht sie im Browsercache verfügbar, damit sie schneller verwendbar ist, wenn sie im nachfolgenden Code referenziert wird. Es ist nützlich, Ressourcen mit hoher Priorität vorzuladen, denen der Benutzer früh auf einer Seite begegnen wird, damit die Erfahrung so reibungslos wie möglich ist.
 
 Siehe die folgenden Artikel für detaillierte Informationen zur Verwendung von `rel="preload"`:
 
 - [`rel="preload"`](/de/docs/Web/HTML/Reference/Attributes/rel/preload)
-- [Kritische Assets vorladen, um die Ladegeschwindigkeit zu verbessern](https://web.dev/articles/preload-critical-assets) auf web.dev (2020)
+- [Preload critical assets to improve loading speed](https://web.dev/articles/preload-critical-assets) auf web.dev (2020)
 
 > [!NOTE]
-> Sie können `rel="preload"` auch nutzen, um CSS- und JavaScript-Dateien vorzuhalten.
+> Sie können `rel="preload"` auch verwenden, um CSS- und JavaScript-Dateien vorzudaden.
 
 > [!NOTE]
-> Es gibt andere [`rel`](/de/docs/Web/HTML/Reference/Attributes/rel)-Werte, die ebenfalls darauf ausgelegt sind, verschiedene Aspekte des Seitenladens zu beschleunigen: `dns-prefetch`, `preconnect`, `modulepreload`, `prefetch` und `prerender`. Gehen Sie zur verlinkten Seite und erfahren Sie, was sie tun.
+> Es gibt andere [`rel`](/de/docs/Web/HTML/Reference/Attributes/rel)-Werte, die ebenfalls dazu gedacht sind, verschiedene Aspekte des Seitenladens zu beschleunigen: `dns-prefetch`, `preconnect`, `modulepreload`, `prefetch` und `prerender`. Gehen Sie auf die verlinkte Seite und finden Sie heraus, was sie tun.
 
 ## Siehe auch
 
-- [Netzwerkanfragen mit JavaScript](/de/docs/Learn_web_development/Core/Scripting/Network_requests)
-- [DOM-Scripting-Einführung](/de/docs/Learn_web_development/Core/Scripting/DOM_scripting)
+- [Netzwerkanfragen mit JavaScript machen](/de/docs/Learn_web_development/Core/Scripting/Network_requests)
+- [Einführung ins DOM-Scripting](/de/docs/Learn_web_development/Core/Scripting/DOM_scripting)
 
 {{PreviousMenuNext("Learn_web_development/Extensions/Performance/Javascript", "Learn_web_development/Extensions/Performance/CSS", "Learn_web_development/Extensions/Performance")}}

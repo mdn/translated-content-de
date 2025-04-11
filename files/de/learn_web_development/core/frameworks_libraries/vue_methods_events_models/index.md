@@ -1,13 +1,13 @@
 ---
-title: "Hinzufügen eines neuen Todo-Formulars: Vue-Ereignisse, Methoden und Modelle"
+title: "Hinzufügen eines neuen To-Do-Formulars: Vue-Ereignisse, Methoden und Modelle"
 slug: Learn_web_development/Core/Frameworks_libraries/Vue_methods_events_models
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: 48d220a8cffdfd5f088f8ca89724a9a92e34d8c0
 ---
 
-{{LearnSidebar}}{{PreviousMenuNext("Learn_web_development/Core/Frameworks_libraries/Vue_rendering_lists","Learn_web_development/Core/Frameworks_libraries/Vue_styling", "Learn_web_development/Core/Frameworks_libraries")}}
+{{PreviousMenuNext("Learn_web_development/Core/Frameworks_libraries/Vue_rendering_lists","Learn_web_development/Core/Frameworks_libraries/Vue_styling", "Learn_web_development/Core/Frameworks_libraries")}}
 
-Wir haben nun Beispieldaten vorliegen und eine Schleife, die jedes Datenstück entnimmt und es innerhalb eines `ToDoItem` in unserer App rendert. Was wir als Nächstes wirklich benötigen, ist die Möglichkeit, unseren Nutzern zu erlauben, ihre eigenen Todo-Elemente in die App einzugeben. Dazu benötigen wir ein Text-`<input>`, ein Ereignis, das ausgelöst wird, wenn die Daten übermittelt werden, eine Methode, die bei der Übermittlung ausgeführt wird, um die Daten hinzuzufügen und die Liste neu zu rendern, sowie ein Modell zur Steuerung der Daten. Dies ist das Thema, das wir in diesem Artikel behandeln werden.
+Wir haben nun Beispieldaten bereitgestellt und eine Schleife, die jedes Datenstück nimmt und es in einem `ToDoItem` in unserer App rendert. Was wir als Nächstes wirklich brauchen, ist die Möglichkeit, unseren Benutzern zu erlauben, ihre eigenen To-Do-Elemente in die App einzugeben. Dafür benötigen wir ein Text-`<input>`, ein Ereignis, das ausgelöst wird, wenn die Daten übermittelt werden, eine Methode, die bei der Übermittlung ausgelöst wird, um die Daten hinzuzufügen und die Liste neu zu rendern, sowie ein Modell zur Steuerung der Daten. Das werden wir in diesem Artikel behandeln.
 
 <table>
   <tbody>
@@ -15,24 +15,28 @@ Wir haben nun Beispieldaten vorliegen und eine Schleife, die jedes Datenstück e
       <th scope="row">Voraussetzungen:</th>
       <td>
         <p>
-          Vertrautheit mit den Kernsprachen <a href="/de/docs/Learn_web_development/Core/Structuring_content">HTML</a>,
+          Vertrautheit mit den grundlegenden <a href="/de/docs/Learn_web_development/Core/Structuring_content">HTML</a>,
           <a href="/de/docs/Learn_web_development/Core/Styling_basics">CSS</a> und
-          <a href="/de/docs/Learn_web_development/Core/Scripting">JavaScript</a>,
-          sowie Kenntnis des
+          <a href="/de/docs/Learn_web_development/Core/Scripting">JavaScript</a> Sprachen,
+          Kenntnisse über das
           <a
             href="/de/docs/Learn_web_development/Getting_started/Environment_setup/Command_line"
-            >Terminals/Befehlszeile</a
+            >Terminal/Befehlszeile</a
           >.
         </p>
         <p>
-          Vue-Komponenten werden als Kombination aus JavaScript-Objekten, die die Daten der App verwalten, und einer auf HTML-basierenden Templatesyntax geschrieben, die der zugrunde liegenden DOM-Struktur zugeordnet ist. Für die Installation und um einige der fortschrittlicheren Funktionen von Vue (wie Single File Components oder Renderfunktionen) zu nutzen, benötigen Sie ein Terminal mit installierten Node + npm.
+          Vue-Komponenten werden als Kombination von JavaScript-Objekten geschrieben,
+          die die Daten der App verwalten, und einer HTML-basierten Templatesyntax,
+          die auf die zugrunde liegende DOM-Struktur abbildet. Für die Installation und
+          um einige der fortgeschritteneren Funktionen von Vue zu nutzen (wie Single File Components oder Renderfunktionen),
+          benötigen Sie ein Terminal mit installiertem Node + npm.
         </p>
       </td>
     </tr>
     <tr>
       <th scope="row">Ziel:</th>
       <td>
-        Sie lernen den Umgang mit Formularen in Vue, und damit verbunden Ereignisse, Modelle und Methoden kennen.
+        Erlernen, wie Formulare in Vue behandelt werden, und im weiteren Sinne, Ereignisse, Modelle und Methoden.
       </td>
     </tr>
   </tbody>
@@ -40,9 +44,9 @@ Wir haben nun Beispieldaten vorliegen und eine Schleife, die jedes Datenstück e
 
 ## Erstellen eines neuen To-Do-Formulars
 
-Wir haben nun eine App, die eine Liste von To-Do-Elementen anzeigt. Wir können unsere Liste von Elementen jedoch nicht aktualisieren, ohne unseren Code manuell zu ändern! Lassen Sie uns das beheben. Lassen Sie uns eine neue Komponente erstellen, die uns erlaubt, ein neues To-Do-Element hinzuzufügen.
+Wir haben nun eine App, die eine Liste von To-Do-Elementen anzeigt. Allerdings können wir unsere Liste nicht aktualisieren, ohne unseren Code manuell zu ändern! Lassen Sie uns das beheben. Erstellen wir eine neue Komponente, die es uns ermöglicht, ein neues To-Do-Element hinzuzufügen.
 
-1. Erstellen Sie in Ihrem Komponentenordner eine neue Datei mit dem Namen `ToDoForm.vue`.
+1. Erstellen Sie in Ihrem Komponentenordner eine neue Datei namens `ToDoForm.vue`.
 2. Fügen Sie wie zuvor einen leeren `<template>`- und einen `<script>`-Tag hinzu:
 
    ```vue
@@ -53,7 +57,7 @@ Wir haben nun eine App, die eine Liste von To-Do-Elementen anzeigt. Wir können 
    </script>
    ```
 
-3. Lassen Sie uns ein HTML-Formular hinzufügen, das es Uns erlaubt, ein neues To-Do-Element einzugeben und in die App zu übermitteln. Wir brauchen ein [`<form>`](/de/docs/Web/HTML/Reference/Elements/form) mit einem [`<label>`](/de/docs/Web/HTML/Reference/Elements/label), einem [`<input>`](/de/docs/Web/HTML/Reference/Elements/input) und einem [`<button>`](/de/docs/Web/HTML/Reference/Elements/button). Aktualisieren Sie Ihre Vorlage wie folgt:
+3. Fügen wir ein HTML-Formular hinzu, das es Ihnen ermöglicht, ein neues To-Do-Element einzugeben und in die App zu übermitteln. Wir benötigen ein [`<form>`](/de/docs/Web/HTML/Reference/Elements/form) mit einem [`<label>`](/de/docs/Web/HTML/Reference/Elements/label), einem [`<input>`](/de/docs/Web/HTML/Reference/Elements/input) und einem [`<button>`](/de/docs/Web/HTML/Reference/Elements/button). Aktualisieren Sie Ihr Template wie folgt:
 
    ```vue
    <template>
@@ -69,15 +73,15 @@ Wir haben nun eine App, die eine Liste von To-Do-Elementen anzeigt. Wir können 
    </template>
    ```
 
-   Wir haben jetzt eine Formularkomponente, in die wir den Titel eines neuen To-Do-Elements eingeben können (das beim Rendern zu einem Label für das entsprechende `ToDoItem` wird).
+   So haben wir nun eine Formular-Komponente, in die wir den Titel eines neuen To-Do-Elements eingeben können (dies wird später zu einem Label für das entsprechende `ToDoItem`, wenn es schließlich gerendert wird).
 
-4. Lassen Sie uns diese Komponente in unserer App laden. Gehen Sie zurück zu `App.vue` und fügen Sie die folgende `import`-Anweisung direkt unter der vorherigen im `<script>`-Element hinzu:
+4. Laden wir diese Komponente in unsere App. Gehen Sie zurück zu `App.vue` und fügen Sie die folgende `import`-Anweisung direkt unter der vorherigen in Ihr `<script>`-Element ein:
 
    ```js
    import ToDoForm from "./components/ToDoForm.vue";
    ```
 
-5. Sie müssen die neue Komponente auch in Ihrer `App`-Komponente registrieren – aktualisieren Sie die Eigenschaft `components` des Komponentenobjekts so, dass sie wie folgt aussieht:
+5. Sie müssen die neue Komponente auch in Ihrer `App`-Komponente registrieren — aktualisieren Sie die `components`-Eigenschaft des Komponenten-Objekts, sodass sie so aussieht:
 
    ```js
    components: {
@@ -85,7 +89,7 @@ Wir haben nun eine App, die eine Liste von To-Do-Elementen anzeigt. Wir können 
    }
    ```
 
-6. Schließlich rendern Sie Ihre `ToDoForm`-Komponente in Ihrer App, indem Sie das `<to-do-form />`-Element in Ihr `<template>` der `App` einfügen, wie folgt:
+6. Abschließend für diesen Abschnitt, rendern Sie Ihre `ToDoForm`-Komponente in Ihrer App, indem Sie das `<to-do-form />`-Element in das `<template>` Ihrer `App` einfügen, wie folgt:
 
    ```vue
    <template>
@@ -104,19 +108,19 @@ Wir haben nun eine App, die eine Liste von To-Do-Elementen anzeigt. Wir können 
    </template>
    ```
 
-Wenn Sie jetzt Ihre laufende Seite aufrufen, sollten Sie das neue Formular angezeigt sehen.
+Jetzt sollten Sie beim Betrachten Ihrer laufenden Seite das neue Formular angezeigt sehen.
 
-![Unsere To-Do-Listen-App gerendert mit einem Texteingabefeld zur Eingabe neuer Todos](rendered-form-with-text-input.png)
+![Unsere To-Do-Listen-App gerendert mit einem Texteingabefeld zum Eingeben neuer Todos](rendered-form-with-text-input.png)
 
-Wenn Sie es ausfüllen und auf die Schaltfläche "Add" klicken, wird die Seite das Formular zurück zum Server schicken, aber das ist nicht wirklich das, was wir wollen. Was wir eigentlich tun möchten, ist eine Methode beim [`submit`-Event](/de/docs/Web/API/HTMLFormElement/submit_event) auszuführen, die das neue Todo zu der in `App` definierten `ToDoItem`-Datenliste hinzufügt. Dazu müssen wir eine Methode zur Komponenteninstanz hinzufügen.
+Wenn Sie es ausfüllen und auf die Schaltfläche "Hinzufügen" klicken, sendet die Seite das Formular zurück an den Server, aber das ist nicht wirklich, was wir wollen. Wir möchten tatsächlich eine Methode beim [`submit`-Ereignis](/de/docs/Web/API/HTMLFormElement/submit_event) ausführen, die das neue Todo zur `ToDoItem`-Datenliste hinzufügt, die in `App` definiert ist. Dazu müssen wir der Komponenteninstanz eine Methode hinzufügen.
 
-## Erstellen einer Methode und Binden an ein Ereignis mit v-on
+## Erstellen einer Methode und deren Bindung an ein Ereignis mit v-on
 
-Um eine Methode in der `ToDoForm`-Komponente verfügbar zu machen, müssen wir sie dem Komponentenobjekt hinzufügen, und dies geschieht innerhalb einer `methods`-Eigenschaft unserer Komponente, die sich an derselben Stelle befindet wie `data()`, `props` usw. Die `methods`-Eigenschaft enthält alle Methoden, die wir möglicherweise in unserer Komponente aufrufen müssen. Bei Referenzierung werden Methoden vollständig ausgeführt, daher ist es keine gute Idee, sie zu nutzen, um Informationen in der Vorlage anzuzeigen. Zur Anzeige von Daten, die aus Berechnungen stammen, sollten Sie eine `computed`-Eigenschaft verwenden, die wir später behandeln werden.
+Um eine Methode in der `ToDoForm`-Komponente verfügbar zu machen, müssen wir sie dem Komponentenobjekt hinzufügen, und dies geschieht in einer `methods`-Eigenschaft unserer Komponente, die an derselben Stelle wie `data()`, `props` usw. eingefügt wird. Die `methods`-Eigenschaft enthält alle Methoden, die wir in unserer Komponente aufrufen müssen. Wenn sie referenziert werden, werden Methoden vollständig ausgeführt, daher ist es keine gute Idee, sie zur Anzeige von Informationen im Template zu verwenden. Zum Anzeigen von Daten, die aus Berechnungen stammen, sollten Sie eine `computed`-Eigenschaft verwenden, die wir später behandeln werden.
 
-1. In dieser Komponente müssen wir eine `onSubmit()`-Methode zu einer `methods`-Eigenschaft im `ToDoForm`-Komponentenobjekt hinzufügen. Wir verwenden diese, um die Übermittlungsaktion zu bearbeiten.
+1. In dieser Komponente müssen wir eine `onSubmit()`-Methode zu einer `methods`-Eigenschaft im `ToDoForm`-Komponentenobjekt hinzufügen. Wir werden dies verwenden, um die Übermittlungsaktion zu behandeln.
 
-   Fügen Sie dies wie folgt hinzu:
+   Fügen Sie dies so hinzu:
 
    ```js
    export default {
@@ -128,46 +132,46 @@ Um eine Methode in der `ToDoForm`-Komponente verfügbar zu machen, müssen wir s
    };
    ```
 
-2. Als nächstes müssen wir die Methode an den `submit`-Ereignis-Handler unseres `<form>`-Elements binden. Ähnlich wie Vue die [`v-bind`](https://vuejs.org/api/built-in-directives.html#v-bind)-Syntax zum Binden von Attributen verwendet, hat Vue eine spezielle Direktive für die Ereignisbehandlung: [`v-on`](https://vuejs.org/api/built-in-directives.html#v-on). Die `v-on`-Direktive funktioniert über die Syntax `v-on:event="method"`. Und ähnlich wie `v-bind` gibt es auch eine Kurzschreibweise: `@event="method"`.
+2. Als Nächstes müssen wir die Methode an den `submit`-Ereignishandler des `<form>`-Elements binden. Wie Vue das [`v-bind`](https://vuejs.org/api/built-in-directives.html#v-bind)-Syntax zum Binden von Attributen verwendet, hat Vue auch eine spezielle Direktive zur Ereignisbehandlung: [`v-on`](https://vuejs.org/api/built-in-directives.html#v-on). Die `v-on`-Direktive arbeitet über die `v-on:event="method"`-Syntax. Und ähnlich wie `v-bind` gibt es auch eine Verkürzungssyntax: `@event="method"`.
 
-   Wir verwenden hier die Kurzschreibweise für Konsistenz. Fügen Sie den `submit`-Handler zu Ihrem `<form>`-Element wie folgt hinzu:
+   Wir werden hier die Verkürzungssyntax verwenden, um Konsistenz zu bewahren. Fügen Sie den `submit`-Handler wie folgt zu Ihrem `<form>`-Element hinzu:
 
    ```vue
    <form @submit="onSubmit">…</form>
    ```
 
-3. Wenn Sie dies ausführen, sendet die App die Daten nach wie vor an den Server, was ein Neuladen verursacht. Da wir die gesamte Verarbeitung auf dem Client durchführen, gibt es keinen Server zur Bearbeitung der Rückgabe. Bei einem Seitenaktualisierung verlieren wir auch alle lokalen Zustände. Um zu verhindern, dass der Browser an den Server sendet, müssen wir die Standardaktion des Ereignisses stoppen, während es durch die Seite weitergegeben wird ([`Event.preventDefault()`](/de/docs/Web/API/Event/preventDefault) in Vanilla-JavaScript). Vue hat eine spezielle Syntax namens **Ereignismodifikatoren**, die dies für uns direkt in unserem Template behandeln kann.
+3. Wenn Sie dies ausführen, sendet die App weiterhin die Daten an den Server, was zu einer Aktualisierung der Seite führt. Da wir alle unsere Verarbeitung auf dem Client durchführen, gibt es keinen Server, um den Postback zu bearbeiten. Wir verlieren auch alle lokalen Zustände bei der Seitenaktualisierung. Um zu verhindern, dass der Browser auf den Server postet, müssen wir die Standardaktion des Ereignisses stoppen, während es durch die Seite aufsteigt ([`Event.preventDefault()`](/de/docs/Web/API/Event/preventDefault), in Vanilla JavaScript). Vue hat eine spezielle Syntax namens **Ereignismodifikatoren**, die das direkt in unserem Template für uns erledigen kann.
 
-   Modifikatoren werden am Ende eines Ereignisses mit einem Punkt wie folgt angehängt: `@event.modifier`. Hier ist eine Liste von Ereignismodifikatoren:
+   Modifikatoren werden am Ende eines Ereignisses mit einem Punkt angehängt, wie folgt: `@event.modifier`. Hier ist eine Liste von Ereignismodifikatoren:
 
-   - `.stop`: Stoppt die Weitergabe des Ereignisses. Entspricht [`Event.stopPropagation()`](/de/docs/Web/API/Event/stopPropagation) in regulären JavaScript-Ereignissen.
+   - `.stop`: Stoppt die Ausbreitung des Ereignisses. Entspricht [`Event.stopPropagation()`](/de/docs/Web/API/Event/stopPropagation) in regulären JavaScript-Ereignissen.
    - `.prevent`: Verhindert das Standardverhalten des Ereignisses. Entspricht [`Event.preventDefault()`](/de/docs/Web/API/Event/preventDefault).
-   - `.self`: Löst den Handler nur aus, wenn das Ereignis von genau diesem Element ausgelöst wurde.
-   - `{.key}`: Löst den Ereignishandler nur mit der angegebenen Taste aus. [MDN hat eine Liste gültiger Schlüsselwerte](/de/docs/Web/API/UI_Events/Keyboard_event_key_values); mehrwortige Schlüssel müssen in {{Glossary("kebab_case", "kebab-case")}} umgewandelt werden (z.B. `page-down`).
-   - `.native`: Hört auf ein natives Ereignis auf dem Root (äußerst umschließenden) Element auf Ihrer Komponente.
-   - `.once`: Hört auf das Ereignis, bis es einmal ausgelöst wurde, und dann nicht mehr.
-   - `.left`: Löst den Handler nur über das linke Maustastenevent aus.
-   - `.right`: Löst den Handler nur über das rechte Maustastenevent aus.
-   - `.middle`: Löst den Handler nur über das mittlere Maustastenevent aus.
-   - `.passive`: Entspricht der Verwendung des `{ passive: true }`-Parameters beim Erstellen eines Ereignislisteners in Vanilla-JavaScript mit [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener).
+   - `.self`: Löst den Handler nur aus, wenn das Ereignis von diesem genauen Element gesendet wurde.
+   - `{.key}`: Löst den Ereignishandler nur über die angegebene Taste aus. [MDN hat eine Liste gültiger Tastenkombinationen](/de/docs/Web/API/UI_Events/Keyboard_event_key_values); mehrwortige Tasten müssen einfach in {{Glossary("kebab_case", "kebab-case")}} konvertiert werden (z. B. `page-down`).
+   - `.native`: Lauscht auf ein natives Ereignis am Root-Element (äußerst umschließendes) Ihrer Komponente.
+   - `.once`: Lauscht auf das Ereignis, bis es einmal ausgelöst wurde, und dann nicht mehr.
+   - `.left`: Löst den Handler nur über das linke Maustasten-Ereignis aus.
+   - `.right`: Löst den Handler nur über das rechte Maustastenereignis aus.
+   - `.middle`: Löst den Handler nur über das mittlere Maustastenereignis aus.
+   - `.passive`: Entspricht der Verwendung des `{ passive: true }`-Parameters beim Erstellen eines Ereignis-Hörers in Vanilla JavaScript mithilfe von [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener).
 
-   In diesem Fall müssen wir den `.prevent`-Modifikator verwenden, um die Standard-Sendeaktion des Browsers zu stoppen. Fügen Sie `.prevent` zu Ihrem `@submit`-Handler in Ihrem Template wie folgt hinzu:
+   In diesem Fall müssen wir den `.prevent`-Modifikator verwenden, um die Standardübermittlungsaktion des Browsers zu stoppen. Fügen Sie `.prevent` dem `@submit`-Handler in Ihrem Template wie folgt hinzu:
 
    ```vue
    <form @submit.prevent="onSubmit">…</form>
    ```
 
-Wenn Sie jetzt versuchen, das Formular zu übermitteln, werden Sie feststellen, dass die Seite nicht neu lädt. Wenn Sie die Konsole öffnen, können Sie die Ergebnisse des von uns in unserer `onSubmit()`-Methode hinzugefügten [`console.log()`](/de/docs/Web/API/console/log_static) sehen.
+Wenn Sie jetzt versuchen, das Formular zu übermitteln, werden Sie feststellen, dass die Seite nicht neu geladen wird. Wenn Sie die Konsole öffnen, können Sie die Ergebnisse des [`console.log()`](/de/docs/Web/API/console/log_static) sehen, das wir in unserer `onSubmit()`-Methode hinzugefügt haben.
 
-## Datenbindung an Eingaben mit v-model
+## Binden von Daten an Eingaben mit v-model
 
 Als Nächstes benötigen wir eine Möglichkeit, den Wert aus dem `<input>` des Formulars zu erhalten, damit wir das neue To-Do-Element zu unserer `ToDoItems`-Datenliste hinzufügen können.
 
-Das Erste, was wir brauchen, ist eine `data`-Eigenschaft in unserem Formular, um den Wert des To-Dos zu verfolgen.
+Das Erste, was wir benötigen, ist eine `data`-Eigenschaft in unserem Formular, um den Wert des To-Do zu verfolgen.
 
-1. Fügen Sie dem `ToDoForm`-Komponentenobjekt eine `data()`-Methode hinzu, die ein `label`-Feld zurückgibt. Wir können den Anfangswert von `label` auf eine leere Zeichenkette setzen.
+1. Fügen Sie eine `data()`-Methode zu unserem `ToDoForm`-Komponentenobjekt hinzu, die ein `label`-Feld zurückgibt. Wir können den Anfangswert des `label` auf eine leere Zeichenfolge setzen.
 
-   Ihr Komponentenobjekt sollte nun so aussehen:
+   Ihr Komponentenobjekt sollte nun ungefähr so aussehen:
 
    ```js
    export default {
@@ -184,9 +188,9 @@ Das Erste, was wir brauchen, ist eine `data`-Eigenschaft in unserem Formular, um
    };
    ```
 
-2. Wir benötigen jetzt eine Möglichkeit, den Wert des `new-todo-input`-Elementfelds mit dem `label`-Feld zu verknüpfen. Vue hat eine spezielle Direktive dafür: [`v-model`](https://vuejs.org/api/built-in-directives.html#v-model). `v-model` bindet sich an die von Ihnen festgelegte Daten-Eigenschaft und hält sie mit dem `<input>` synchron. `v-model` funktioniert bei allen verschiedenen Eingabetypen, einschließlich Checkboxen, Radios und Auswahlfeldern. Um `v-model` zu verwenden, fügen Sie dem `<input>` ein Attribut mit der Struktur `v-model="variable"` hinzu.
+2. Wir benötigen jetzt eine Möglichkeit, den Wert des `new-todo-input`-Elementfelds mit dem `label`-Feld zu verbinden. Vue hat dafür eine spezielle Direktive: [`v-model`](https://vuejs.org/api/built-in-directives.html#v-model). `v-model` bindet sich an die von Ihnen festgelegte Dateneigenschaft und hält sie mit dem `<input>` synchron. `v-model` funktioniert über alle verschiedenen Eingabetypen, einschließlich Kontrollkästchen, Radios und Auswahlfelder. Um `v-model` zu verwenden, fügen Sie ein Attribut mit der Struktur `v-model="variable"` zu dem `<input>` hinzu.
 
-   In unserem Fall würden wir es zu unserem `new-todo-input`-Feld hinzufügen, wie unten gezeigt. Machen Sie dies jetzt:
+   In unserem Fall würden wir es zu unserem `new-todo-input`-Feld hinzufügen, wie unten zu sehen. Machen Sie das jetzt:
 
    ```vue
    <input
@@ -198,11 +202,11 @@ Das Erste, was wir brauchen, ist eine `data`-Eigenschaft in unserem Formular, um
    ```
 
    > [!NOTE]
-   > Sie können Daten auch mit `<input>`-Werten durch eine Kombination von Ereignissen und `v-bind`-Attributen synchronisieren. Tatsächlich macht `v-model` dies im Hintergrund. Der genaue Ereignis- und Attributkombinations-Ansatz variiert jedoch je nach Eingabetyp und erfordert mehr Code als nur die Verwendung der `v-model`-Abkürzung.
+   > Sie können Daten auch mit `<input>`-Werten über eine Kombination von Ereignissen und `v-bind`-Attributen synchronisieren. Tatsächlich ist dies, was `v-model` im Hintergrund tut. Die genaue Ereignis- und Attributkombination variiert jedoch je nach Eingabetyp und erfordert mehr Code als die Verwendung der `v-model`-Abkürzung.
 
-3. Testen wir unseren `v-model`-Einsatz, indem wir den Wert der in unserer `onSubmit()`-Methode übermittelten Daten protokollieren. In Komponenten werden Datenattribute mit dem Schlüsselwort `this` angesprochen. Also greifen wir mit `this.label` auf unser `label`-Feld zu.
+3. Testen wir unsere Verwendung von `v-model`, indem wir den Wert der im `onSubmit()`-Method übermittelten Daten protokollieren. In Komponenten werden Dateneigenschaften mit dem Schlüsselwort `this` abgerufen. Daher greifen wir auf unser `label`-Feld mit `this.label` zu.
 
-   Aktualisieren Sie Ihre `onSubmit()`-Methode wie folgt:
+   Aktualisieren Sie Ihre `onSubmit()`-Methode, um so auszusehen:
 
    ```js
    methods: {
@@ -212,7 +216,7 @@ Das Erste, was wir brauchen, ist eine `data`-Eigenschaft in unserem Formular, um
    },
    ```
 
-4. Gehen Sie nun zurück zu Ihrer laufenden App, fügen Sie dem `<input>`-Feld etwas Text hinzu und klicken Sie auf die Schaltfläche "Add". Sie sollten den von Ihnen eingegebenen Wert in Ihrer Konsole sehen, zum Beispiel:
+4. Gehen Sie nun zurück zu Ihrer laufenden App, fügen Sie dem `<input>`-Feld etwas Text hinzu und klicken Sie auf die Schaltfläche "Hinzufügen". Sie sollten den von Ihnen eingegebenen Wert in Ihrer Konsole sehen, zum Beispiel:
 
    ```plain
    Label value: My value
@@ -220,27 +224,27 @@ Das Erste, was wir brauchen, ist eine `data`-Eigenschaft in unserem Formular, um
 
 ## Ändern des v-model-Verhaltens mit Modifikatoren
 
-Ähnlich wie bei Ereignismodifikatoren können wir auch Modifikatoren hinzufügen, um das Verhalten von `v-model` zu verändern. In unserem Fall gibt es zwei Modifikatoren, die es sich lohnt zu überlegen. Der erste, `.trim`, entfernt Leerzeichen vor oder nach der Eingabe. Wir können den Modifikator zu unserer `v-model`-Anweisung hinzufügen: `v-model.trim="label"`.
+In ähnlicher Weise wie bei Ereignismodifikatoren können wir auch Modifikatoren hinzufügen, um das Verhalten von `v-model` zu ändern. In unserem Fall gibt es zwei, die wir berücksichtigen sollten. Der erste, `.trim`, entfernt Leerzeichen vor oder nach der Eingabe. Wir können den Modifikator zu unserer `v-model`-Anweisung wie folgt hinzufügen: `v-model.trim="label"`.
 
-Der zweite Modifikator, den wir in Betracht ziehen sollten, heißt `.lazy`. Dieser Modifikator ändert den Zeitpunkt, zu dem `v-model` den Wert für Texteingaben synchronisiert. Wie bereits erwähnt, funktioniert die `v-model`-Synchronisation durch Aktualisierung der Variablen mit Ereignissen. Bei Texteingaben erfolgt diese Synchronisation standardmäßig durch das [`input`-Ereignis](/de/docs/Web/API/Element/input_event). Oft bedeutet das, dass Vue die Daten nach jedem Tastendruck synchronisiert. Der `.lazy`-Modifikator bewirkt, dass `v-model` stattdessen das [`change`-Ereignis](/de/docs/Web/API/HTMLElement/change_event) verwendet. Das bedeutet, dass Vue Daten nur synchronisiert, wenn die Eingabe den Fokus verliert oder das Formular übermittelt wird. Für unsere Zwecke ist dies viel vernünftiger, da wir nur die endgültigen Daten benötigen.
+Der zweite zu berücksichtigende Modifikator ist `.lazy`. Dieser Modifikator ändert, wann `v-model` den Wert für Texteingaben synchronisiert. Wie bereits erwähnt, funktioniert die `v-model`-Synchronisation, indem die Variable über Ereignisse aktualisiert wird. Bei Texteingaben erfolgt diese Synchronisation über das [`input`-Ereignis](/de/docs/Web/API/Element/input_event). Oft bedeutet dies, dass Vue die Daten nach jedem Tastendruck synchronisiert. Der `.lazy`-Modifikator führt dazu, dass `v-model` stattdessen das [`change`-Ereignis](/de/docs/Web/API/HTMLElement/change_event) verwendet. Dies bedeutet, dass Vue Daten nur synchronisiert, wenn die Eingabe den Fokus verliert oder das Formular übermittelt wird. Für unsere Zwecke ist dies viel sinnvoller, da wir nur die endgültigen Daten benötigen.
 
-Um sowohl den `.lazy`-Modifikator als auch den `.trim`-Modifikator zusammen zu verwenden, können wir sie verkettet verwenden, z. B. `v-model.lazy.trim="label"`.
+Um sowohl den `.lazy`-Modifikator als auch den `.trim`-Modifikator zusammen zu verwenden, können wir sie verketten, z. B.: `v-model.lazy.trim="label"`.
 
-Aktualisieren Sie Ihr `v-model`-Attribut, um `lazy` und `trim` wie oben gezeigt zu verketten, und testen Sie Ihre App erneut. Versuchen Sie zum Beispiel, einen Wert mit Leerraum an beiden Enden einzugeben.
+Aktualisieren Sie Ihr `v-model`-Attribut, um `lazy` und `trim` wie oben gezeigt zu verketten, und testen Sie dann Ihre App erneut. Versuchen Sie beispielsweise, einen Wert mit Leerzeichen an beiden Enden einzugeben.
 
-## Datenübergabe an Eltern mit benutzerdefinierten Ereignissen
+## Übergeben von Daten an Eltern mit benutzerdefinierten Ereignissen
 
-Wir sind nun sehr nah dran, neue To-Do-Elemente zu unserer Liste hinzufügen zu können. Der nächste Schritt besteht darin, das neu erstellte To-Do-Element an unsere `App`-Komponente weiterzugeben. Dazu kann unser `ToDoForm` ein benutzerdefiniertes Ereignis auslösen, das die Daten übergibt, und `App` kann darauf hören. Das funktioniert sehr ähnlich wie native Ereignisse bei HTML-Elementen: Eine untergeordnete Komponente kann ein Ereignis auslösen, das über `v-on` abgehört werden kann.
+Wir sind nun sehr nah dran, neue To-Do-Elemente zu unserer Liste hinzufügen zu können. Das Nächste, was wir tun müssen, ist, das neu erstellte To-Do-Element an unsere `App`-Komponente zu übergeben. Dafür kann unsere `ToDoForm` ein benutzerdefiniertes Ereignis auslösen, das die Daten übergibt, und `App` kann darauf lauschen. Dies funktioniert ähnlich wie native Ereignisse bei HTML-Elementen: Eine Kindkomponente kann ein Ereignis auslösen, auf das über `v-on` gehorcht werden kann.
 
-Im `onSubmit`-Ereignishandler unseres `ToDoForm` fügen wir ein `todo-added`-Ereignis hinzu. Benutzerdefinierte Ereignisse werden so ausgelöst: `this.$emit("event-name")`. Es ist wichtig zu wissen, dass Ereignishandler case-sensitiv sind und keine Leerzeichen enthalten dürfen. Vue-Vorlagen werden auch in Kleinbuchstaben umgewandelt, was bedeutet, dass Vue-Vorlagen nicht auf Ereignisse hören können, die mit Großbuchstaben benannt sind.
+Im Ereignishandler `onSubmit` unseres `ToDoForm`, fügen wir ein `todo-added`-Ereignis hinzu. Benutzerdefinierte Ereignisse werden wie folgt ausgelöst: `this.$emit("event-name")`. Es ist wichtig zu wissen, dass Ereignishandler Groß- und Kleinschreibung beachten und keine Leerzeichen enthalten können. Vue-Templates werden auch in Kleinbuchstaben umgewandelt, was bedeutet, dass Vue-Templates nicht auf Großbuchstaben-Ereignisse lauschen können.
 
-1. Ersetzen Sie das `console.log()` in der `onSubmit()`-Methode durch Folgendes:
+1. Ersetzen Sie das `console.log()` in der `onSubmit()`-Methode durch das Folgende:
 
    ```js
    this.$emit("todo-added");
    ```
 
-2. Gehen Sie nun zurück zu `App.vue` und fügen Sie Ihrem Komponentenobjekt eine `methods`-Eigenschaft mit einer `addToDo()`-Methode hinzu, wie unten gezeigt. Für den Moment kann diese Methode einfach `To-do added` in die Konsole protokollieren.
+2. Gehen Sie als Nächstes zurück zu `App.vue` und fügen Sie Ihrem Komponentenobjekt eine `methods`-Eigenschaft hinzu, die eine `addToDo()`-Methode enthält, wie unten gezeigt. Vorläufig kann diese Methode einfach `To-do added` in die Konsole protokollieren.
 
    ```js
    export default {
@@ -275,17 +279,17 @@ Im `onSubmit`-Ereignishandler unseres `ToDoForm` fügen wir ein `todo-added`-Ere
    };
    ```
 
-3. Fügen Sie als nächstes einen Ereignislistener für das `todo-added`-Ereignis zum `<to-do-form></to-do-form>` hinzu, der die `addToDo()`-Methode aufruft, wenn das Ereignis ausgelöst wird. Verwenden Sie die `@`-Kurzschreibweise, würde der Listener so aussehen: `@todo-added="addToDo"`:
+3. Fügen Sie als Nächstes an `<to-do-form></to-do-form>` einen Ereignis-Listener für das `todo-added`-Ereignis hinzu, der die `addToDo()`-Methode aufruft, wenn das Ereignis ausgelöst wird. Mit der `@`-Abkürzung würde der Listener so aussehen: `@todo-added="addToDo"`:
 
    ```vue
    <to-do-form @todo-added="addToDo"></to-do-form>
    ```
 
-4. Wenn Sie Ihr `ToDoForm` einreichen, sollten Sie das Konsolenprotokoll der `addToDo()`-Methode sehen. Das ist gut, aber wir übergeben immer noch keine Daten zurück an die `App.vue`-Komponente. Wir können das tun, indem wir zusätzliche Argumente an die `this.$emit()`-Funktion im `ToDoForm`-Komponenten zurückgeben.
+4. Wenn Sie Ihr `ToDoForm` übermitteln, sollten Sie das Konsolenprotokoll aus der `addToDo()`-Methode sehen. Das ist gut, aber wir übergeben noch keine Daten zurück an die `App.vue`-Komponente. Das können wir tun, indem wir im `ToDoForm`-Komponente zusätzliche Argumente zur `this.$emit()`-Funktion übergeben.
 
-   In diesem Fall möchten wir beim Auslösen des Ereignisses die `label`-Daten mit übergeben. Dies geschieht, indem die Daten, die Sie übergeben möchten, als weiterer Parameter der `$emit()`-Methode hinzugefügt werden: `this.$emit("todo-added", this.label)`. Dies ist ähnlich wie native JavaScript-Ereignisse Daten enthalten, jedoch enthalten benutzerdefinierte Vue-Ereignisse standardmäßig kein Ereignisobjekt. Das bedeutet, dass das ausgelöste Ereignis direkt dem übergebenen Objekt entspricht. In unserem Fall wird unser Ereignisobjekt also nur eine Zeichenkette sein.
+   In diesem Fall möchten wir beim Auslösen des Ereignisses die `label`-Daten übergeben. Dies wird getan, indem Sie die Daten, die Sie übergeben wollen, als weiteren Parameter in die `this.$emit()`-Methode einfügen: `this.$emit("todo-added", this.label)`. Das ist ähnlich, wie native JavaScript-Ereignisse Daten enthalten, außer dass benutzerdefinierte Vue-Ereignisse standardmäßig kein Ereignisobjekt haben. Das bedeutet, dass das ausgelöste Ereignis das Objekt direkt ohne Anpassungen erhält, die Sie übergeben. In unserem Fall wird unser Ereignisobjekt also nur eine Zeichenkette sein.
 
-   Aktualisieren Sie Ihre `onSubmit()`-Methode so:
+   Aktualisieren Sie Ihre `onSubmit()`-Methode wie folgt:
 
    ```js
    export default {
@@ -301,9 +305,9 @@ Im `onSubmit`-Ereignishandler unseres `ToDoForm` fügen wir ein `todo-added`-Ere
    };
    ```
 
-5. Um diese Daten tatsächlich in `App.vue` zu erfassen, müssen wir unserer `addToDo()`-Methode ein Parameter hinzufügen, der das `label` des neuen To-Do-Elements enthält.
+5. Um diese Daten tatsächlich in `App.vue` abzurufen, müssen wir unserer `addToDo()`-Methode ein Parameter hinzufügen, das das `label` des neuen To-Do-Elements enthält.
 
-   Gehe zurück zu `App.vue` und aktualisieren Sie dies jetzt:
+   Gehen Sie jetzt zurück zu `App.vue` und aktualisieren Sie dies:
 
    ```js
    export default {
@@ -319,11 +323,11 @@ Im `onSubmit`-Ereignishandler unseres `ToDoForm` fügen wir ein `todo-added`-Ere
    };
    ```
 
-Wenn Sie Ihr Formular erneut testen, sehen Sie, dass der von Ihnen eingegebene Text bei der Übermittlung in Ihrer Konsole angezeigt wird. Vue übergibt automatisch die Argumente nach dem Ereignisnamen in `this.$emit()` an Ihren Ereignishandler.
+Wenn Sie Ihr Formular erneut testen, sehen Sie den Text, den Sie bei der Einreichung in Ihrer Konsole eingeben. Vue übergibt automatisch die Argumente, die nach dem Ereignisnamen in `this.$emit()` kommen, an Ihren Ereignishandler.
 
-## Hinzufügen des neuen To-Dos zu unseren Daten
+## Hinzufügen des neuen Todos zu unseren Daten
 
-Jetzt, da wir die Daten von `ToDoForm` in `App.vue` verfügbar haben, müssen wir ein Element hinzufügen, das es der `ToDoItems`-Array hinzufügt. Dies kann erreicht werden, indem Sie ein neues To-Do-Element-Objekt mit unseren neuen Daten an das Array anhängen.
+Jetzt, wo wir die Daten von `ToDoForm` in `App.vue` verfügbar haben, müssen wir ein Element erstellen, das es zur `ToDoItems`-Array hinzufügt. Dies kann geschehen, indem wir ein neues To-Do-Elementobjekt mit unseren neuen Daten an das Array anhängen.
 
 1. Aktualisieren Sie Ihre `addToDo()`-Methode wie folgt:
 
@@ -345,10 +349,10 @@ Jetzt, da wir die Daten von `ToDoForm` in `App.vue` verfügbar haben, müssen wi
    };
    ```
 
-2. Testen Sie Ihr Formular erneut, und Sie sollten sehen, wie neue To-Do-Elemente am Ende der Liste hinzugefügt werden.
-3. Lassen Sie uns, bevor wir weitermachen, eine weitere Verbesserung vornehmen. Wenn Sie das Formular senden, während die Eingabe leer ist, werden To-Do-Elemente ohne Text dennoch zur Liste hinzugefügt. Um das zu beheben, können wir verhindern, dass das todo-added Ereignis ausgelöst wird, wenn der Name leer ist. Da der Name durch den `.trim`-Modifikator bereits getrimmt wird, müssen wir nur auf die leere Zeichenkette testen.
+2. Testen Sie Ihr Formular erneut, und Sie sollten sehen, dass neue To-Do-Elemente am Ende der Liste angehängt werden.
+3. Lassen Sie uns eine weitere Verbesserung vornehmen, bevor wir weitermachen. Wenn Sie das Formular einreichen, während das Eingabefeld leer ist, werden To-Do-Elemente ohne Text trotzdem zur Liste hinzugefügt. Um das zu beheben, können wir verhindern, dass das todo-added-Ereignis ausgelöst wird, wenn der Name leer ist. Da der Name bereits durch den `.trim`-Modifikator getrimmt wird, müssen wir nur auf die leere Zeichenfolge testen.
 
-   Gehen Sie zu Ihrer Komponente `ToDoForm` zurück und aktualisieren Sie die `onSubmit()`-Methode wie folgt. Wenn der Label-Wert leer ist, sollten wir das `todo-added`-Ereignis nicht auslösen.
+   Gehen Sie zurück zu Ihrer `ToDoForm`-Komponente und aktualisieren Sie die `onSubmit()`-Methode wie folgt. Wenn der label-Wert leer ist, lassen wir das `todo-added`-Ereignis nicht auslösen.
 
    ```js
    export default {
@@ -367,15 +371,15 @@ Jetzt, da wir die Daten von `ToDoForm` in `App.vue` verfügbar haben, müssen wi
    };
    ```
 
-4. Versuchen Sie Ihr Formular erneut. Jetzt werden Sie keine leeren Elemente mehr zur To-Do-Liste hinzufügen können.
+4. Testen Sie Ihr Formular erneut. Jetzt können Sie keine leeren Elemente mehr zur To-Do-Liste hinzufügen.
 
-![Unsere To-Do-Listen-App gerendert mit einem Texteingabefeld zur Eingabe neuer Todos](rendered-form-with-new-items.png)
+![Unsere To-Do-Listen-App gerendert mit einem Texteingabefeld zum Eingeben neuer Todos](rendered-form-with-new-items.png)
 
-## Verwenden von v-model zur Aktualisierung eines Eingabewerts
+## Verwenden von v-model, um einen Eingabewert zu aktualisieren
 
-Es gibt noch etwas in unserer `ToDoForm`-Komponente zu beheben – nach dem Absenden enthält das `<input>` weiterhin den alten Wert. Aber das ist einfach zu beheben – da wir `v-model` verwenden, um die Daten in `ToDoForm` an das `<input>` zu binden, wird das Eingabefeld aktualisiert, wenn wir den Namen auf eine leere Zeichenkette setzen.
+Es gibt noch eine Sache, die in unserer `ToDoForm`-Komponente behoben werden muss – nach dem Absenden enthält das `<input>` immer noch den alten Wert. Aber das ist leicht zu beheben – da wir `v-model` verwenden, um die Daten an das `<input>` in `ToDoForm` zu binden, wird das Eingabefeld auch aktualisiert, wenn wir den Namen auf eine leere Zeichenfolge setzen.
 
-Aktualisieren Sie die `onSubmit()`-Methode Ihrer `ToDoForm`-Komponente so:
+Aktualisieren Sie Ihre `onSubmit()`-Methode der `ToDoForm`-Komponente so:
 
 ```js
 export default {
@@ -395,10 +399,10 @@ export default {
 };
 ```
 
-Jetzt, wenn Sie auf die Schaltfläche "Add" klicken, wird der "new-todo-input" sich selbst leeren.
+Nun, wenn Sie auf die Schaltfläche "Hinzufügen" klicken, wird sich die "new-todo-input" selbst leeren.
 
 ## Zusammenfassung
 
-Ausgezeichnet. Wir können nun Todo-Elemente zu unserem Formular hinzufügen! Unsere App beginnt jetzt, interaktiv zu wirken, aber ein Problem ist, dass wir bisher völlig das Aussehen und das Gefühl ignoriert haben. Im nächsten Artikel konzentrieren wir uns darauf, dies zu beheben und betrachten die verschiedenen Möglichkeiten, wie Vue das Styling von Komponenten ermöglicht.
+Ausgezeichnet. Wir können jetzt To-Do-Elemente zu unserem Formular hinzufügen! Unsere App beginnt jetzt, sich interaktiv anzufühlen, aber ein Problem ist, dass wir deren Erscheinungsbild bisher völlig ignoriert haben. Im nächsten Artikel werden wir uns darauf konzentrieren, dies zu beheben und die verschiedenen Wege untersuchen, die Vue bereitstellt, um Komponenten zu stylen.
 
 {{PreviousMenuNext("Learn_web_development/Core/Frameworks_libraries/Vue_rendering_lists","Learn_web_development/Core/Frameworks_libraries/Vue_styling", "Learn_web_development/Core/Frameworks_libraries")}}

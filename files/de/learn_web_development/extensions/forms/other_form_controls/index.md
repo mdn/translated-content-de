@@ -1,13 +1,13 @@
 ---
-title: Andere Formularelemente
+title: Weitere Formularsteuerungen
 slug: Learn_web_development/Extensions/Forms/Other_form_controls
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: 48d220a8cffdfd5f088f8ca89724a9a92e34d8c0
 ---
 
-{{LearnSidebar}}{{PreviousMenuNext("Learn_web_development/Extensions/Forms/HTML5_input_types","Learn_web_development/Extensions/Forms/Styling_web_forms", "Learn_web_development/Extensions/Forms")}}
+{{PreviousMenuNext("Learn_web_development/Extensions/Forms/HTML5_input_types","Learn_web_development/Extensions/Forms/Styling_web_forms", "Learn_web_development/Extensions/Forms")}}
 
-Wir schauen uns nun die Funktionalität von Formular-Elementen an, die keine `<input>`-Elemente sind, und zwar im Detail. Dazu gehören andere Steuerungstypen wie Dropdown-Listen und mehrzeilige Textfelder sowie andere nützliche Formularfunktionen wie das {{htmlelement('output')}}-Element (das wir im vorherigen Artikel in Aktion gesehen haben) und Fortschrittsbalken.
+Wir betrachten jetzt die Funktionalität von nicht-`<input>`-Formularelementen im Detail, von anderen Steuerungstypen wie Drop-down-Listen und mehrzeiligen Textfeldern bis hin zu anderen nützlichen Formularfunktionen wie dem {{htmlelement('output')}}-Element (das wir im vorherigen Artikel in Aktion gesehen haben) und Fortschrittsbalken.
 
 <table>
   <tbody>
@@ -23,8 +23,7 @@ Wir schauen uns nun die Funktionalität von Formular-Elementen an, die keine `<i
     <tr>
       <th scope="row">Ziel:</th>
       <td>
-        Um die nicht-<code>&#x3C;input></code>-Formularfunktionen zu verstehen und wie
-        man sie mit HTML implementiert.
+        Das Verständnis der nicht-<code>&#x3C;input></code>-Formularfunktionen und deren Implementierung mit HTML.
       </td>
     </tr>
   </tbody>
@@ -32,23 +31,23 @@ Wir schauen uns nun die Funktionalität von Formular-Elementen an, die keine `<i
 
 ## Mehrzeilige Textfelder
 
-Ein mehrzeiliges Textfeld wird durch ein {{HTMLElement("textarea")}}-Element angegeben, anstatt das {{HTMLElement("input")}}-Element zu verwenden.
+Ein mehrzeiliges Textfeld wird mit einem {{HTMLElement("textarea")}}-Element definiert, anstatt mit dem {{HTMLElement("input")}}-Element.
 
 ```html
 <textarea cols="30" rows="8"></textarea>
 ```
 
-Dies wird folgendermaßen dargestellt:
+So wird es dargestellt:
 
 {{EmbedLiveSample("Multi-line_text_fields", 120, 160)}}
 
-Der Hauptunterschied zwischen einem `<textarea>` und einem regulären einzeiligen Textfeld besteht darin, dass Benutzer harte Zeilenumbrüche einfügen können, die beim Absenden der Daten enthalten sind.
+Der Hauptunterschied zwischen einem `<textarea>` und einem regulären einzeiligen Textfeld ist, dass Benutzer harte Zeilenumbrüche (d.h. durch Drücken der Eingabetaste) einfügen können, die bei der Dateneinreichung enthalten bleiben.
 
-`<textarea>` hat auch einen abschließenden Tag; jeglicher Standardtext, den Sie enthalten möchten, sollte zwischen den öffnenden und schließenden Tags platziert werden. Im Gegensatz dazu ist das {{HTMLElement("input")}} ein {{Glossary("void_element", "leeres Element")}} ohne abschließenden Tag – ein Standardwert wird im [`value`](/de/docs/Web/HTML/Reference/Elements/input#value)-Attribut angegeben.
+`<textarea>` benötigt auch ein Abschluss-Tag; jeder Standardtext, den Sie enthalten möchten, sollte zwischen den Öffnungs- und Schlussetiketten platziert werden. Im Gegensatz dazu ist das {{HTMLElement("input")}} ein {{Glossary("void_element", "void element")}} ohne Abschluss-Tag – jeder Standardwert wird innerhalb des [`value`](/de/docs/Web/HTML/Reference/Elements/input#value)-Attributs gesetzt.
 
-Beachten Sie, dass Sie, obwohl Sie alles in ein `<textarea>`-Element einfügen können (einschließlich anderer HTML-Elemente, CSS und JavaScript), aufgrund seiner Natur alles als Klartextinhalt gerendert wird. (Die Verwendung von [`contenteditable`](/de/docs/Web/HTML/Reference/Global_attributes/contenteditable) auf Nicht-Formular-Steuerelementen bietet eine API zum Erfassen von HTML/"reichhaltigem" Inhalt anstelle von Klartext).
+Beachten Sie, dass Sie zwar alles in einem `<textarea>`-Element (einschließlich anderer HTML-Elemente, CSS und JavaScript) einfügen können, es aber aufgrund seiner Natur als reiner Text-Inhalt gerendert wird. (Mit [`contenteditable`](/de/docs/Web/HTML/Reference/Global_attributes/contenteditable) auf Nicht-Form-Steuerelementen steht eine API zur Verfügung, um HTML/"reichhaltigen" Inhalt anstelle von reinem Text zu erfassen).
 
-Visuell wird der eingegebene Text umgebrochen und das Formularelement ist standardmäßig anpassbar. Die meisten Browser bieten einen Ziehgriff, mit dem Sie die Größe des Textbereichs vergrößern/verkleinern können.
+Visuell wird der eingegebene Text umbrochen, und das Formular-Steuerelement ist standardmäßig skalierbar. Die meisten Browser bieten einen Ziehgriff, den Sie ziehen können, um die Größe des Textbereichs zu vergrößern/verkleinern.
 
 Ein Beispiel für die Verwendung eines Textbereichs finden Sie in dem [Beispiel](https://mdn.github.io/learning-area/html/forms/your-first-HTML-form/first-form-styled.html), das wir im ersten Artikel zusammengestellt haben.
 
@@ -57,36 +56,36 @@ Ein Beispiel für die Verwendung eines Textbereichs finden Sie in dem [Beispiel]
 {{htmlelement("textarea")}} akzeptiert drei Attribute zur Steuerung seiner Darstellung über mehrere Zeilen:
 
 - [`cols`](/de/docs/Web/HTML/Reference/Elements/textarea#cols)
-  - : Gibt die sichtbare Breite (in Spalten) des Textsteuerfeldes an, gemessen in durchschnittlichen Zeichenbreiten. Dies ist im Wesentlichen die Ausgangsbreite, da sie durch Ändern der Größe des `<textarea>` verändert werden kann und durch CSS überschrieben wird. Der Standardwert, wenn keiner angegeben ist, beträgt 20.
+  - : Gibt die sichtbare Breite (Spalten) des Text-Steuerelements an, gemessen in durchschnittlichen Zeichenbreiten. Dies ist effektiv die Startbreite, da sie durch Ändern der Größe des `<textarea>` geändert werden kann und mithilfe von CSS überschrieben werden kann. Der Standardwert, wenn keiner angegeben ist, beträgt 20.
 - [`rows`](/de/docs/Web/HTML/Reference/Elements/textarea#rows)
-  - : Gibt die Anzahl der sichtbaren Textzeilen für das Steuerfeld an. Dies ist im Wesentlichen die Ausgangshöhe, da sie durch Ändern der Größe des `<textarea>` verändert werden kann und durch CSS überschrieben wird. Der Standardwert, wenn keiner angegeben ist, beträgt 2.
+  - : Gibt die Anzahl der sichtbaren Textzeilen für das Steuerelement an. Dies ist effektiv die Starthöhe, da sie durch Ändern der Größe des `<textarea>` geändert werden kann und mithilfe von CSS überschrieben werden kann. Der Standardwert, wenn keiner angegeben ist, beträgt 2.
 - [`wrap`](/de/docs/Web/HTML/Reference/Elements/textarea#wrap)
-  - : Gibt an, wie das Steuerfeld Text umbricht. Die Werte sind `soft` (der Standardwert), was bedeutet, dass der übermittelte Text nicht umbrochen wird, aber der vom Browser gerenderte Text umbrochen wird; `hard` (das `cols`-Attribut muss bei Verwendung dieses Wertes angegeben werden), was bedeutet, dass sowohl der übermittelte als auch der gerenderte Text umbrochen werden, und `off`, das das Umbruch stoppen lässt.
+  - : Gibt an, wie das Steuerelement Text umbricht. Die Werte sind `soft` (der Standardwert), was bedeutet, dass der gesendete Text nicht umgebrochen wird, aber der von Browser gerenderte Text umbrochen ist; `hard` (das `cols`-Attribut muss bei Verwendung dieses Wertes angegeben werden), was bedeutet, dass sowohl der gesendete als auch der gerenderte Text umbrochen werden. `off` stoppt das Umbruchverhalten.
 
-### Steuerung der Änderbarkeit von Textarea-Größen
+### Steuerung der Skalierbarkeit von Textbereichen
 
-Die Fähigkeit, die Größe eines `<textarea>` zu ändern, wird mit der CSS-Eigenschaft `resize` gesteuert. Ihre möglichen Werte sind:
+Die Möglichkeit, ein `<textarea>` zu skalieren, wird mit der CSS-Eigenschaft `resize` gesteuert. Mögliche Werte sind:
 
-- `both`: Der Standard — erlaubt Größenänderung horizontal und vertikal.
-- `horizontal`: Erlaubt nur horizontale Größenänderung.
-- `vertical`: Erlaubt nur vertikale Größenänderung.
-- `none`: Erlaubt keine Größenänderung.
-- `block` und `inline`: Experimentelle Werte, die es erlauben, nur in `block`- oder `inline`-Richtung zu vergrößern (dies variiert je nach Richtung Ihres Textes; lesen Sie [Umgang mit verschiedenen Textrichtungen](/de/docs/Learn_web_development/Core/Styling_basics/Handling_different_text_directions), wenn Sie mehr darüber erfahren möchten.)
+- `both`: Der Standard – ermöglicht das horizontale und vertikale Skalieren.
+- `horizontal`: Ermöglicht nur das horizontale Skalieren.
+- `vertical`: Ermöglicht nur das vertikale Skalieren.
+- `none`: Ermöglicht kein Skalieren.
+- `block` und `inline`: Experimentelle Werte, die nur das Skalieren in der `block`- oder `inline`-Richtung erlauben (dies variiert je nach Textgerichtetheit; lesen Sie [Handling different text directions](/de/docs/Learn_web_development/Core/Styling_basics/Handling_different_text_directions), wenn Sie mehr erfahren möchten).
 
-Spielen Sie mit dem interaktiven Beispiel oben auf der {{cssxref("resize")}}-Referenzseite, um eine Demonstration zu sehen, wie diese funktionieren.
+Experimentieren Sie mit dem interaktiven Beispiel oben auf der {{cssxref("resize")}}-Referenzseite für eine Demonstration, wie diese funktionieren.
 
-## Dropdown-Steuerelemente
+## Drop-down-Steuerelemente
 
-Dropdown-Steuerelemente sind eine einfache Möglichkeit, Benutzern die Auswahl aus vielen Optionen zu ermöglichen, ohne viel Platz in der Benutzeroberfläche einzunehmen. HTML hat zwei Arten von Dropdown-Steuerelementen: das **Auswahlfeld** und das **Autocomplete-Feld**. Die Interaktion ist bei beiden Arten von Dropdown-Steuerelementen gleich — nach der Aktivierung des Steuerelements zeigt der Browser eine Liste von Werten an, aus denen der Benutzer auswählen kann.
+Drop-down-Steuerelemente sind eine einfache Möglichkeit, Benutzern das Auswählen aus vielen Optionen zu ermöglichen, ohne viel Platz in der Benutzeroberfläche einzunehmen. HTML hat zwei Arten von Drop-down-Steuerelementen: das **Auswahlfeld** und das **Autovervollständigungsfeld**. Die Interaktion ist bei beiden Arten von Drop-down-Steuerelementen gleich – nach der Aktivierung des Steuerelements zeigt der Browser eine Liste von Werten an, aus denen der Benutzer auswählen kann.
 
 > [!NOTE]
-> Sie können Beispiele für alle Arten von Dropdown-Feldern auf GitHub unter [drop-down-content.html](https://github.com/mdn/learning-area/blob/main/html/forms/native-form-widgets/drop-down-content.html) finden ([sehen Sie es auch live](https://mdn.github.io/learning-area/html/forms/native-form-widgets/drop-down-content.html)).
+> Sie können Beispiele aller Drop-down-Feldtypen auf GitHub unter [drop-down-content.html](https://github.com/mdn/learning-area/blob/main/html/forms/native-form-widgets/drop-down-content.html) finden ([siehe auch live](https://mdn.github.io/learning-area/html/forms/native-form-widgets/drop-down-content.html)).
 
 ### Auswahlfeld
 
-Ein einfaches Auswahlfeld wird mit einem {{HTMLElement("select")}}-Element erstellt, das ein oder mehrere {{HTMLElement("option")}}-Elemente als seine Kinder hat, von denen jedes einen seiner möglichen Werte angibt.
+Ein einfaches Auswahlfeld wird mit einem {{HTMLElement("select")}}-Element erstellt, das ein oder mehrere {{HTMLElement("option")}}-Elemente als Kinder enthält, von denen jedes einen seiner möglichen Werte angibt.
 
-#### Grundlegendes Beispiel
+#### Einfaches Beispiel
 
 ```html
 <select id="simple" name="simple">
@@ -98,11 +97,11 @@ Ein einfaches Auswahlfeld wird mit einem {{HTMLElement("select")}}-Element erste
 
 {{EmbedLiveSample("Basic_example", 120, 120)}}
 
-Falls erforderlich, kann der Standardwert für das Auswahlfeld mit dem [`selected`](/de/docs/Web/HTML/Reference/Elements/option#selected)-Attribut auf dem gewünschten {{HTMLElement("option")}}-Element festgelegt werden — diese Option ist dann voreingestellt, wenn die Seite geladen wird.
+Falls erforderlich, kann der Standardwert für das Auswahlfeld mit dem [`selected`](/de/docs/Web/HTML/Reference/Elements/option#selected)-Attribut auf dem gewünschten {{HTMLElement("option")}}-Element gesetzt werden – diese Option wird dann beim Laden der Seite vorausgewählt.
 
 #### Verwendung von optgroup
 
-Die {{HTMLElement("option")}}-Elemente können in {{HTMLElement("optgroup")}}-Elemente verschachtelt werden, um visuell verbundene Gruppen von Werten zu erstellen:
+Die {{HTMLElement("option")}}-Elemente können innerhalb von {{HTMLElement("optgroup")}}-Elementen verschachtelt werden, um visuell zugehörige Gruppen von Werten zu erstellen:
 
 ```html
 <select id="groups" name="groups">
@@ -121,11 +120,11 @@ Die {{HTMLElement("option")}}-Elemente können in {{HTMLElement("optgroup")}}-El
 
 {{EmbedLiveSample("Using_optgroup", 120, 120)}}
 
-Beim {{HTMLElement("optgroup")}}-Element wird der Wert des [`label`](/de/docs/Web/HTML/Reference/Elements/optgroup#label)-Attributs vor den Werten der verschachtelten Optionen angezeigt. Der Browser hebt sie normalerweise visuell von den Optionen ab (z. B. durch Fettschrift und auf einer anderen Verschachtelungsebene), damit sie weniger wahrscheinlich mit tatsächlichen Optionen verwechselt werden.
+Im {{HTMLElement("optgroup")}}-Element wird der Wert des [`label`](/de/docs/Web/HTML/Reference/Elements/optgroup#label)-Attributs vor den Werten der verschachtelten Optionen angezeigt. Der Browser hebt sie in der Regel visuell von den Optionen ab (d.h. fett gedruckt und auf einer anderen Verschachtelungsebene), damit sie weniger wahrscheinlich für tatsächliche Optionen gehalten werden.
 
-#### Verwendung des Value-Attributs
+#### Verwendung des value-Attributs
 
-Wenn ein {{HTMLElement("option")}}-Element ein explizites `value`-Attribut gesetzt hat, wird dieser Wert gesendet, wenn das Formular mit dieser Option ausgewählt übermittelt wird. Wenn das `value`-Attribut weggelassen wird, wie in den obigen Beispielen, wird der Inhalt des {{HTMLElement("option")}}-Elements als Wert verwendet. `value`-Attribute sind also nicht erforderlich, aber Sie könnten einen Grund haben, einen verkürzten oder anderen Wert an den Server senden zu wollen, als der, der visuell im Auswahlfeld angezeigt wird.
+Wenn ein {{HTMLElement("option")}}-Element ein explizit gesetztes `value`-Attribut hat, wird dieser Wert gesendet, wenn das Formular mit dieser ausgewählten Option eingereicht wird. Wenn das `value`-Attribut weggelassen wird, wie in den obigen Beispielen, wird der Inhalt des {{HTMLElement("option")}}-Elements als Wert verwendet. `value`-Attribute sind daher nicht erforderlich, aber es könnte Gründe geben, einen verkürzten oder anderen Wert an den Server zu senden als den, der visuell im Auswahlfeld angezeigt wird.
 
 Zum Beispiel:
 
@@ -137,11 +136,11 @@ Zum Beispiel:
 </select>
 ```
 
-Standardmäßig ist die Höhe des Auswahlfeldes so groß, dass ein einzelner Wert angezeigt wird. Das optionale [`size`](/de/docs/Web/HTML/Reference/Attributes/size)-Attribut bietet die Kontrolle darüber, wie viele Optionen angezeigt werden, wenn das Auswahlfeld keinen Fokus hat.
+Standardmäßig ist die Höhe des Auswahlfelds so eingestellt, dass sie einen einzigen Wert anzeigt. Das optionale [`size`](/de/docs/Web/HTML/Reference/Attributes/size)-Attribut bietet die Kontrolle darüber, wie viele Optionen sichtbar sind, wenn das Auswahlfeld nicht im Fokus steht.
 
-### Auswahlfeld mit Mehrfachauswahl
+### Mehrfachauswahl-Auswahlfeld
 
-Standardmäßig lässt ein Auswahlfeld einen Benutzer nur einen Wert auswählen. Durch Hinzufügen des [`multiple`](/de/docs/Web/HTML/Reference/Elements/select#multiple)-Attributs zum {{HTMLElement("select")}}-Element können Sie Benutzern erlauben, mehrere Werte auszuwählen. Benutzer können mehrere Werte auswählen, indem sie den Standardmechanismus des Betriebssystems verwenden (z. B. können auf dem Desktop mehrere Werte durch Klicken und Halten der <kbd>Cmd</kbd>/<kbd>Ctrl</kbd>-Tasten ausgewählt werden).
+Standardmäßig lässt ein Auswahlfeld nur die Auswahl eines Wertes zu. Durch Hinzufügen des [`multiple`](/de/docs/Web/HTML/Reference/Elements/select#multiple)-Attributs zu dem {{HTMLElement("select")}}-Element kann man es zulassen, dass Benutzer mehrere Werte auswählen. Benutzer können mehrere Werte auswählen, indem sie den Standardmechanismus des Betriebssystems verwenden (z. B. können auf dem Desktop mehrere Werte angeklickt werden, während die <kbd>Cmd</kbd>/<kbd>Strg</kbd>-Tasten gedrückt gehalten werden).
 
 ```html
 <select id="multi" name="multi" multiple size="2">
@@ -161,22 +160,22 @@ Standardmäßig lässt ein Auswahlfeld einen Benutzer nur einen Wert auswählen.
 {{EmbedLiveSample("Multiple_choice_select_box", 120, 120)}}
 
 > [!NOTE]
-> Im Fall von Auswahlfeldern mit Mehrfachauswahl werden Sie feststellen, dass das Auswahlfeld die Werte nicht mehr als Dropdown-Inhalt anzeigt — stattdessen werden alle Werte auf einmal in einer Liste angezeigt, wobei das optionale [`size`](/de/docs/Web/HTML/Reference/Attributes/size)-Attribut die Höhe des Widgets bestimmt.
+> Bei Mehrfachauswahl-Auswahlfeldern werden die Werte im Auswahlfeld nicht mehr als Drop-down-Inhalte angezeigt – stattdessen werden alle Werte gleichzeitig in einer Liste angezeigt, wobei das optionale [`size`](/de/docs/Web/HTML/Reference/Attributes/size)-Attribut die Höhe des Widgets bestimmt.
 
 > [!NOTE]
 > Alle Browser, die das {{HTMLElement("select")}}-Element unterstützen, unterstützen auch das [`multiple`](/de/docs/Web/HTML/Reference/Elements/select#multiple)-Attribut.
 
-### Autocomplete-Feld
+### Autovervollständigungsfeld
 
-Sie können vorgeschlagene, automatisch vervollständigte Werte für Formular-Widgets mit dem {{HTMLElement("datalist")}}-Element bereitstellen, das untergeordnete {{HTMLElement("option")}}-Elemente zur Spezifikation der anzuzeigenden Werte hat. Das `<datalist>` benötigt eine `id`.
+Sie können vorgeschlagene, automatisch vervollständigte Werte für Formular-Widgets bereitstellen, indem Sie das {{HTMLElement("datalist")}}-Element mit Kinder-{{HTMLElement("option")}}-Elementen verwenden, um die anzuzeigenden Werte anzugeben. Das `<datalist>` muss eine `id` erhalten.
 
-Die Datenliste wird dann mit einem {{htmlelement("input")}}-Element (z. B. ein `text`- oder `email`-Eingabetyp) unter Verwendung des [`list`](/de/docs/Web/HTML/Reference/Elements/input#list)-Attributs verknüpft, dessen Wert die `id` der zuzuordnenden Datenliste ist.
+Die Datenliste wird dann über das [`list`](/de/docs/Web/HTML/Reference/Elements/input#list)-Attribut, dessen Wert die `id` der zu bindenden Datenliste ist, mit einem {{htmlelement("input")}}-Element (z. B. ein `text`- oder `email`-Eingabetyp) verbunden.
 
-Sobald eine Datenliste mit einem Formular-Widget verbunden ist, werden ihre Optionen verwendet, um den vom Benutzer eingegebenen Text automatisch zu vervollständigen; typischerweise wird dies dem Benutzer als Dropdown-Liste möglicher Übereinstimmungen für das, was er in das Eingabefeld eingegeben hat, präsentiert.
+Sobald eine Datenliste einem Formular-Widget zugeordnet ist, werden ihre Optionen verwendet, um den vom Benutzer eingegebenen Text automatisch zu vervollständigen; typischerweise wird dies dem Benutzer als ein Drop-down-Feld mit möglichen Übereinstimmungen für das, was er in das Eingabefeld eingegeben hat, präsentiert.
 
-#### Grundlegendes Beispiel
+#### Einfaches Beispiel
 
-Sehen wir uns ein Beispiel an.
+Schauen wir uns ein Beispiel an.
 
 ```html
 <label for="myFruit">What's your favorite fruit?</label>
@@ -197,48 +196,48 @@ Sehen wir uns ein Beispiel an.
 
 #### Weniger offensichtliche Verwendungen von datalist
 
-Laut [der HTML-Spezifikation](https://html.spec.whatwg.org/multipage/input.html#attr-input-list) können das [`list`](/de/docs/Web/HTML/Reference/Elements/input#list)-Attribut und das {{HTMLElement("datalist")}}-Element mit jeder Art von Widget verwendet werden, das eine Benutzereingabe erfordert. Dies führt zu einigen Verwendungen, die etwas weniger offensichtlich erscheinen mögen.
+Nach [der HTML-Spezifikation](https://html.spec.whatwg.org/multipage/input.html#attr-input-list) können das [`list`](/de/docs/Web/HTML/Reference/Elements/input#list)-Attribut und das {{HTMLElement("datalist")}}-Element mit jeder Art von Widget verwendet werden, das eine Benutzereingabe erfordert. Dies führt zu einigen Verwendungen, die ein bisschen nicht offensichtlich erscheinen.
 
-Zum Beispiel wird in Browsern, die `{{htmlelement("datalist")}}` bei `range`-Eingabetypen unterstützen, eine kleine Markierung über dem Bereich für jeden `{{htmlelement("option")}}`-Wert der Datalist angezeigt. Sie können eine Implementierung [dieses Beispiels auf der `<input type="range">`-Referenzseite sehen](/de/docs/Web/HTML/Reference/Elements/input/range#adding_tick_marks).
+Zum Beispiel wird bei Browsern, die `{{htmlelement("datalist")}}` für `range`-Eingabetypen unterstützen, eine kleine Markierung über dem Bereich für jeden `{{htmlelement("option")}}`-Wert der Datenliste angezeigt. Sie können eine Implementierung [Beispiel davon auf der `<input type="range">`-Referenzseite](/de/docs/Web/HTML/Reference/Elements/input/range#adding_tick_marks) sehen.
 
-Und Browser, die {{htmlelement('datalist')}}s und [`<input type="color">`](/de/docs/Web/HTML/Reference/Elements/input/color) unterstützen, sollten eine angepasste Farbpalette als Standard anzeigen, während die vollständige Farbpalette weiterhin verfügbar ist.
+Und Browser, die {{htmlelement('datalist')}} und [`<input type="color">`](/de/docs/Web/HTML/Reference/Elements/input/color) unterstützen, sollten eine angepasste Farbpalette als Standard anzeigen, während die vollständige Farbpalette dennoch verfügbar bleibt.
 
-In diesem Fall verhalten sich verschiedene Browser unterschiedlich, so dass Sie solche Verwendungen als progressive Verbesserung betrachten und sicherstellen sollten, dass sie sich anpassen, wenn sie nicht unterstützt werden.
+In diesem Fall verhalten sich verschiedene Browser in verschiedenen Fällen unterschiedlich, daher sollten solche Verwendungen als progressive Verbesserung betrachtet werden, und es sollte sichergestellt werden, dass sie problemlos degradieren.
 
-## Andere Formularfunktionen
+## Weitere Formularfunktionen
 
-Es gibt noch einige andere Formularfunktionen, die nicht so offensichtlich sind wie die, die wir bereits erwähnt haben, aber dennoch in einigen Situationen nützlich sein können, daher hielten wir es für sinnvoll, sie kurz zu erwähnen.
+Es gibt noch einige weitere Formularfunktionen, die nicht so offensichtlich sind wie die, die wir bereits erwähnt haben, aber dennoch in einigen Situationen nützlich sind, daher dachten wir, es wäre es wert, ihnen einen kurzen Hinweis zu geben.
 
 > [!NOTE]
-> Sie finden die Beispiele aus diesem Abschnitt auf GitHub unter [other-examples.html](https://github.com/mdn/learning-area/blob/main/html/forms/native-form-widgets/other-examples.html) ([sehen Sie es auch live](https://mdn.github.io/learning-area/html/forms/native-form-widgets/other-examples.html)).
+> Sie können die Beispiele aus diesem Abschnitt auf GitHub unter [other-examples.html](https://github.com/mdn/learning-area/blob/main/html/forms/native-form-widgets/other-examples.html) finden ([siehe auch live](https://mdn.github.io/learning-area/html/forms/native-form-widgets/other-examples.html)).
 
 ### Messgeräte und Fortschrittsbalken
 
-Messgeräte und Fortschrittsbalken sind visuelle Darstellungen von Zahlenwerten. Unterstützung für {{HTMLElement("progress")}} und {{HTMLElement("meter")}} ist in allen modernen Browsern verfügbar.
+Messgeräte und Fortschrittsbalken sind visuelle Darstellungen numerischer Werte. Unterstützung für {{HTMLElement("progress")}} und {{HTMLElement("meter")}} ist in allen modernen Browsern verfügbar.
 
 #### Messgerät
 
-Ein Messbalken stellt einen festen Wert in einem durch [`max`](/de/docs/Web/HTML/Reference/Elements/meter#max) und [`min`](/de/docs/Web/HTML/Reference/Elements/meter#min) begrenzten Bereich dar. Dieser Wert wird visuell als Balken dargestellt, und um zu wissen, wie dieser Balken aussieht, vergleichen wir den Wert mit einigen anderen festgelegten Werten:
+Eine Messlatte stellt einen festen Wert in einem Bereich dar, der durch [`max`](/de/docs/Web/HTML/Reference/Elements/meter#max) und [`min`](/de/docs/Web/HTML/Reference/Elements/meter#min)-Werte begrenzt ist. Dieser Wert wird visuell als Leiste gerendert, und um zu wissen, wie diese Leiste aussieht, vergleichen wir den Wert mit einigen anderen festgelegten Werten:
 
 - Die Werte [`low`](/de/docs/Web/HTML/Reference/Elements/meter#low) und [`high`](/de/docs/Web/HTML/Reference/Elements/meter#high) teilen den Bereich in die folgenden drei Teile:
 
-  - Der untere Teil des Bereichs liegt zwischen den Werten [`min`](/de/docs/Web/HTML/Reference/Elements/meter#min) und [`low`](/de/docs/Web/HTML/Reference/Elements/meter#low), einschließlich.
-  - Der mittlere Teil des Bereichs liegt zwischen den Werten [`low`](/de/docs/Web/HTML/Reference/Elements/meter#low) und [`high`](/de/docs/Web/HTML/Reference/Elements/meter#high), ausschließlich.
-  - Der obere Teil des Bereichs liegt zwischen den Werten [`high`](/de/docs/Web/HTML/Reference/Elements/meter#high) und [`max`](/de/docs/Web/HTML/Reference/Elements/meter#max), einschließlich.
+  - Der untere Teil des Bereichs liegt zwischen den [`min`](/de/docs/Web/HTML/Reference/Elements/meter#min) und [`low`](/de/docs/Web/HTML/Reference/Elements/meter#low) Werten, einschließlich.
+  - Der mittlere Teil des Bereichs liegt zwischen den [`low`](/de/docs/Web/HTML/Reference/Elements/meter#low) und [`high`](/de/docs/Web/HTML/Reference/Elements/meter#high) Werten, ausschließlich.
+  - Der obere Teil des Bereichs liegt zwischen den [`high`](/de/docs/Web/HTML/Reference/Elements/meter#high) und [`max`](/de/docs/Web/HTML/Reference/Elements/meter#max) Werten, einschließlich.
 
-- Der [`optimum`](/de/docs/Web/HTML/Reference/Elements/meter#optimum)-Wert definiert den optimalen Wert für das {{HTMLElement("meter")}}-Element. Zusammen mit den Werten [`low`](/de/docs/Web/HTML/Reference/Elements/meter#low) und [`high`](/de/docs/Web/HTML/Reference/Elements/meter#high) definiert es, welcher Teil des Bereichs bevorzugt wird:
+- Der [`optimum`](/de/docs/Web/HTML/Reference/Elements/meter#optimum)-Wert definiert den optimalen Wert für das {{HTMLElement("meter")}}-Element. Zusammen mit den [`low`](/de/docs/Web/HTML/Reference/Elements/meter#low) und [`high`](/de/docs/Web/HTML/Reference/Elements/meter#high) Werten wird definiert, welcher Teil des Bereichs bevorzugt ist:
 
-  - Wenn der [`optimum`](/de/docs/Web/HTML/Reference/Elements/meter#optimum)-Wert im unteren Teil des Bereichs liegt, wird der untere Bereich als der bevorzugte Teil angesehen, der mittlere Bereich als der durchschnittliche Teil und der obere Bereich als der schlechteste Teil betrachtet.
-  - Wenn der [`optimum`](/de/docs/Web/HTML/Reference/Elements/meter#optimum)-Wert im mittleren Teil des Bereichs liegt, wird der untere Bereich als durchschnittlicher Teil angesehen, der mittlere Bereich als bevorzugter Teil und der obere Bereich ebenfalls als durchschnittlicher Teil betrachtet.
-  - Wenn der [`optimum`](/de/docs/Web/HTML/Reference/Elements/meter#optimum)-Wert im oberen Teil des Bereichs liegt, wird der untere Bereich als der schlechteste Teil angesehen, der mittlere Bereich als der durchschnittliche Teil und der obere Bereich als bevorzugter Teil betrachtet.
+  - Wenn der [`optimum`](/de/docs/Web/HTML/Reference/Elements/meter#optimum)-Wert im unteren Teil des Bereichs liegt, wird der untere Bereich als der bevorzugte Teil angesehen, der mittlere Bereich als durchschnittlicher Teil und der obere Bereich als der schlechteste Teil betrachtet.
+  - Wenn der [`optimum`](/de/docs/Web/HTML/Reference/Elements/meter#optimum)-Wert im mittleren Teil des Bereichs liegt, wird der untere Bereich als durchschnittlicher Teil angesehen, der mittlere Bereich als der bevorzugte Teil und der obere Bereich ebenfalls als durchschnittlich angesehen.
+  - Wenn der [`optimum`](/de/docs/Web/HTML/Reference/Elements/meter#optimum)-Wert im oberen Teil des Bereichs liegt, wird der untere Bereich als der schlechteste Teil angesehen, der mittlere Bereich als durchschnittlicher Teil und der obere Bereich als der bevorzugte Teil betrachtet.
 
-Alle Browser, die das {{HTMLElement("meter")}}-Element implementieren, verwenden diese Werte, um die Farbe des Messbalkens zu ändern:
+Alle Browser, die das {{HTMLElement("meter")}}-Element implementieren, verwenden diese Werte, um die Farbe der Messlatte zu ändern:
 
-- Wenn der aktuelle Wert im bevorzugten Teil des Bereichs liegt, ist der Balken grün.
-- Wenn der aktuelle Wert im durchschnittlichen Teil des Bereichs liegt, ist der Balken gelb.
-- Wenn der aktuelle Wert im schlechtesten Teil des Bereichs liegt, ist der Balken rot.
+- Wenn der aktuelle Wert im bevorzugten Teil des Bereichs liegt, ist die Leiste grün.
+- Wenn der aktuelle Wert im durchschnittlichen Teil des Bereichs liegt, ist die Leiste gelb.
+- Wenn der aktuelle Wert im schlechtesten Teil des Bereichs liegt, ist die Leiste rot.
 
-Ein solcher Balken wird durch das {{HTMLElement("meter")}}-Element erstellt. Dies dient zur Implementierung einer beliebigen Art von Messgerät; zum Beispiel ein Balken, der den insgesamt genutzten Speicherplatz auf einer Festplatte anzeigt, der rot wird, wenn er anfängt, voll zu werden.
+Eine solche Leiste wird durch Verwenden des {{HTMLElement("meter")}}-Elements erstellt. Dies ist für die Implementierung jeder Art von Messgerät, zum Beispiel einer Leiste, die den Gesamtspeicherplatz auf einer Festplatte anzeigt, die rot wird, wenn sie voll wird.
 
 ```html
 <meter min="0" max="100" value="75" low="33" high="66" optimum="0">75</meter>
@@ -246,11 +245,11 @@ Ein solcher Balken wird durch das {{HTMLElement("meter")}}-Element erstellt. Die
 
 {{EmbedLiveSample("Meter", 120, 120)}}
 
-Der Inhalt innerhalb des {{HTMLElement("meter")}}-Elements ist ein Fallback für Browser, die das Element nicht unterstützen, und für unterstützende Technologien, um es zu verlautbaren.
+Der Inhalt innerhalb des {{HTMLElement("meter")}}-Elements ist ein Fallback für Browser, die das Element nicht unterstützen, und für unterstützende Technologien zum Vorlesen.
 
 #### Fortschritt
 
-Ein Fortschrittsbalken stellt einen Wert dar, der im Laufe der Zeit bis zu einem durch das [`max`](/de/docs/Web/HTML/Reference/Elements/progress#max)-Attribut angegebenen Höchstwert ändert. Ein solcher Balken wird mit einem {{ HTMLElement("progress")}}-Element erstellt.
+Ein Fortschrittsbalken stellt einen Wert dar, der sich im Laufe der Zeit bis zu einem maximalen durch das [`max`](/de/docs/Web/HTML/Reference/Elements/progress#max)-Attribut spezifizierten Wert ändert. Ein solcher Balken wird mithilfe eines {{ HTMLElement("progress")}}-Elements erstellt.
 
 ```html
 <progress max="100" value="75">75/100</progress>
@@ -258,18 +257,18 @@ Ein Fortschrittsbalken stellt einen Wert dar, der im Laufe der Zeit bis zu einem
 
 {{EmbedLiveSample("Progress", 120, 120)}}
 
-Dies dient zur Implementierung von allem, was Fortschrittsberichte erfordert, wie beispielsweise dem Prozentsatz der heruntergeladenen Dateien oder der Anzahl der in einem Fragebogen ausgefüllten Fragen.
+Dies dient zur Implementierung von allem, das Fortschrittsberichte erfordert, wie der Prozentsatz der insgesamt heruntergeladenen Dateien oder die Anzahl der ausgefüllten Fragen in einem Fragebogen.
 
-Der Inhalt innerhalb des {{HTMLElement("progress")}}-Elements ist ein Fallback für Browser, die das Element nicht unterstützen, und für Screenreader, um es zu verlautbaren.
+Der Inhalt innerhalb des {{HTMLElement("progress")}}-Elements ist ein Fallback für Browser, die das Element nicht unterstützen, und für Bildschirmlesegeräte zum Vorlesen.
 
-## Testen Sie Ihre Fähigkeiten!
+## Testen Sie Ihr Wissen!
 
-Sie haben das Ende dieses Artikels erreicht, aber können Sie sich an die wichtigsten Informationen erinnern? Sie können einige weitere Tests finden, um zu überprüfen, dass Sie diese Informationen behalten haben, bevor Sie weitermachen — siehe [Testen Sie Ihre Fähigkeiten: Weitere Steuerungen](/de/docs/Learn_web_development/Extensions/Forms/Test_your_skills:_Other_controls).
+Sie haben das Ende dieses Artikels erreicht, aber können Sie sich an die wichtigsten Informationen erinnern? Sie können einige weitere Tests finden, um zu überprüfen, ob Sie diese Informationen behalten haben, bevor Sie fortfahren — siehe [Testen Sie Ihr Wissen: Andere Steuerungen](/de/docs/Learn_web_development/Extensions/Forms/Test_your_skills:_Other_controls).
 
 ## Zusammenfassung
 
-Wie Sie in den letzten Artikeln gesehen haben, gibt es viele Arten von Formularelementen. Sie müssen diese Details nicht sofort alle behalten und können so oft wie nötig zu diesen Artikeln zurückkehren, um Einzelheiten nachzuschlagen.
+Wie Sie in den letzten Artikeln gesehen haben, gibt es viele Arten von Formularsteuerungen. Sie müssen nicht alle diese Details auf einmal im Kopf behalten und können zu diesen Artikeln zurückkehren, so oft Sie möchten, um Details zu überprüfen.
 
-Nun, da Sie ein Verständnis des HTML hinter den verschiedenen verfügbaren Formularelementen haben, werden wir uns anschauen, [wie man sie stylt](/de/docs/Learn_web_development/Extensions/Forms/Styling_web_forms).
+Jetzt, da Sie ein Verständnis des HTMLs hinter den verschiedenen verfügbaren Formularsteuerungen haben, werden wir uns mit [deren Gestaltung](/de/docs/Learn_web_development/Extensions/Forms/Styling_web_forms) befassen.
 
 {{PreviousMenuNext("Learn_web_development/Extensions/Forms/HTML5_input_types","Learn_web_development/Extensions/Forms/Styling_web_forms", "Learn_web_development/Extensions/Forms")}}

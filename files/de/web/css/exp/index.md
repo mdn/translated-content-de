@@ -2,16 +2,16 @@
 title: exp()
 slug: Web/CSS/exp
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: 5a195171d06aee3d9c1c78d71c7f0c3a060f5263
 ---
 
 {{CSSRef}}
 
-Die **`exp()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) ist eine Exponentialfunktion, die eine Zahl als Argument annimmt und die mathematische Konstante `e` potenziert mit der gegebenen Zahl zurückgibt.
+Die **`exp()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) ist eine Exponentialfunktion, die eine Zahl als Argument annimmt und die mathematische Konstante `e` auf die Potenz der angegebenen Zahl erhöht zurückgibt.
 
 Die mathematische Konstante [`e`](<https://en.wikipedia.org/wiki/E_(mathematical_constant)>) ist die Basis der natürlichen Logarithmen und beträgt ungefähr `2.718281828459045`.
 
-Die Funktion `exp(number)` enthält eine Berechnung, die denselben Wert wie {{CSSxRef("pow", "pow(e, number)")}} zurückgibt.
+Die Funktion `exp(number)` enthält eine Berechnung, die denselben Wert zurückgibt wie {{CSSxRef("pow", "pow(e, number)")}}.
 
 ## Syntax
 
@@ -24,14 +24,14 @@ width: calc(100px * exp(1)); /* 100px * 2.718281828459045 = 217px */
 
 ### Parameter
 
-Die Funktion `exp(number)` akzeptiert nur einen Wert als Parameter.
+Die `exp(number)`-Funktion akzeptiert nur einen Wert als Parameter.
 
 - `number`
-  - : Eine Berechnung, die zu einer {{CSSxRef("number")}} führt. Repräsentiert den Wert, der mit einer Potenz von `e` erhoben wird.
+  - : Eine Berechnung, die zu einer {{CSSxRef("number")}} aufgelöst wird. Repräsentiert den Wert, der mit einer Potenz von `e` erhöht werden soll.
 
 ### Rückgabewert
 
-Gibt eine nicht-negative {{CSSxRef("number")}} zurück, die e<sup>number</sup> repräsentiert, was das Ergebnis der Berechnung von `e` potenziert mit der Zahl `number` ist.
+Gibt eine nicht-negative {{CSSxRef("number")}} zurück, die e<sup>number</sup> darstellt, was das Ergebnis der Berechnung von `e` ist, das auf die Potenz der `number` erhöht wurde.
 
 - Wenn `number` `-Infinity` ist, ist das Ergebnis `0`.
 - Wenn `number` `0` ist, ist das Ergebnis `1`.
@@ -46,7 +46,7 @@ Gibt eine nicht-negative {{CSSxRef("number")}} zurück, die e<sup>number</sup> r
 
 ### Elemente rotieren
 
-Die Funktion `exp()` kann verwendet werden, um Elemente zu {{CSSxRef("transform-function/rotate", "rotieren")}}, da sie eine {{CSSxRef("number")}} zurückgibt.
+Die `exp()`-Funktion kann verwendet werden, um Elemente zu {{CSSxRef("transform-function/rotate", "rotieren")}}, da sie eine {{CSSxRef("number")}} zurückgibt.
 
 #### HTML
 
@@ -97,9 +97,9 @@ div.box-5 {
 
 {{EmbedLiveSample('Rotate elements', '100%', '200px')}}
 
-### Überschriften mit festem Verhältnis skalieren
+### Überschriften im festen Verhältnis skalieren
 
-Die Funktion `exp()` kann nützlich sein für Strategien wie den CSS modularen Maßstab, der alle Schriftgrößen auf einer Seite durch ein festes Verhältnis zueinander in Beziehung setzt.
+Die `exp()`-Funktion kann nützlich für Strategien wie den CSS modularen Skalen sein, der alle Schriftgrößen auf einer Seite in einem festen Verhältnis miteinander in Beziehung setzt.
 
 #### HTML
 
@@ -116,22 +116,22 @@ Die Funktion `exp()` kann nützlich sein für Strategien wie den CSS modularen M
 
 ```css
 h1 {
-  font-size: calc(1rem * exp(1.25)); // 3.4903429574618414rem
+  font-size: calc(1rem * exp(1.25)); /* 3.4903429574618414rem */
 }
 h2 {
-  font-size: calc(1rem * exp(1)); // 2.718281828459045rem
+  font-size: calc(1rem * exp(1)); /* 2.718281828459045rem */
 }
 h3 {
-  font-size: calc(1rem * exp(0.75)); // 2.117000016612675rem
+  font-size: calc(1rem * exp(0.75)); /* 2.117000016612675rem */
 }
 h4 {
-  font-size: calc(1rem * exp(0.5)); // 1.6487212707001282rem
+  font-size: calc(1rem * exp(0.5)); /* 1.6487212707001282rem */
 }
 h5 {
-  font-size: calc(1rem * exp(0.25)); // 1.2840254166877414rem
+  font-size: calc(1rem * exp(0.25)); /* 1.2840254166877414rem */
 }
 h6 {
-  font-size: calc(1rem * exp(0)); // 1rem
+  font-size: calc(1rem * exp(0)); /* 1rem */
 }
 ```
 

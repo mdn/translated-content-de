@@ -1,42 +1,40 @@
 ---
-title: Erweitere Stileffekte
+title: Erweiterte Stil-Effekte
 slug: Learn_web_development/Core/Styling_basics/Advanced_styling_effects
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: 48d220a8cffdfd5f088f8ca89724a9a92e34d8c0
 ---
 
-{{LearnSidebar}}
-
-Dieser Artikel ist eine Trickkiste, die eine Einführung in einige interessante erweiterte Stileigenschaften wie Box-Schatten, Mischmodi und Filter bietet.
+Dieser Artikel dient als eine Art Trickkiste und bietet eine Einführung in einige interessante, erweiterte Stileigenschaften wie Box-Shadows, Blend-Modi und Filter.
 
 <table>
   <tbody>
     <tr>
       <th scope="row">Voraussetzungen:</th>
       <td>
-        Grundlagen von HTML (studieren Sie
+        Grundlagen von HTML (siehe
         <a href="/de/docs/Learn_web_development/Core/Structuring_content"
           >Einführung in HTML</a
-        >) und eine Vorstellung davon, wie CSS funktioniert (studieren Sie
-        <a href="/de/docs/Learn_web_development/Core/Styling_basics">CSS Styling-Grundlagen</a>.)
+        >) und Grundwissen, wie CSS funktioniert (siehe
+        <a href="/de/docs/Learn_web_development/Core/Styling_basics">CSS Styling Grundlagen</a>).
       </td>
     </tr>
     <tr>
       <th scope="row">Ziel:</th>
       <td>
-        Ein Gefühl dafür bekommen, wie einige der in modernen Browsern verfügbaren erweiterten Stileffekte verwendet werden können.
+        Eine Vorstellung davon zu bekommen, wie einige der in modernen Browsern verfügbaren erweiterten Stileffekte verwendet werden können.
       </td>
     </tr>
   </tbody>
 </table>
 
-## Box-Schatten
+## Box-Shadows
 
-{{cssxref("box-shadow")}} erlaubt es, einem Element im Box-Modell einen oder mehrere Schlagschatten hinzuzufügen. Wie Textschatten werden Box-Schatten gut über die Browser hinweg unterstützt, einschließlich IE9+ und Edge. Benutzer älterer IE-Versionen müssen möglicherweise ohne Schatten auskommen, testen Sie daher Ihre Designs, um sicherzustellen, dass Ihre Inhalte auch ohne Schatten lesbar sind.
+{{cssxref("box-shadow")}} ermöglicht es Ihnen, einem Elementrahmen einen oder mehrere Schlagschatten hinzuzufügen. Ähnlich wie Textschatten werden Box-Shadows gut in Browsern unterstützt, einschließlich IE9+ und Edge. Nutzer älterer IE-Versionen müssen möglicherweise ohne Schatten auskommen, daher sollten Sie Ihre Designs testen, um sicherzustellen, dass Ihre Inhalte auch ohne Schatten lesbar sind.
 
-### Ein einfacher Box-Schatten
+### Ein einfacher Box-Shadow
 
-Schauen wir uns ein einfaches Beispiel an, um den Einstieg zu erleichtern. Zuerst etwas HTML:
+Schauen wir uns ein einfaches Beispiel an, um den Anfang zu machen. Zuerst etwas HTML:
 
 ```html
 <article class="simple">
@@ -70,22 +68,22 @@ article {
 }
 ```
 
-Dies ergibt das folgende Ergebnis:
+Dies ergibt folgendes Ergebnis:
 
 {{EmbedLiveSample("A_simple_box_shadow", "", "100px")}}
 
-Sie werden sehen, dass wir vier Elemente im Wert der Eigenschaft `box-shadow` haben:
+Wie Sie sehen, haben wir vier Elemente im Wert der `box-shadow`-Eigenschaft:
 
-1. Der erste Längenwert ist der **horizontale Versatz** — der Abstand, um den der Schatten vom Originalkasten nach rechts (oder nach links, wenn der Wert negativ ist) versetzt ist.
-2. Der zweite Längenwert ist der **vertikale Versatz** — der nach unten verschobene Abstand des Schattens vom Originalkasten (oder nach oben, wenn der Wert negativ ist).
-3. Der dritte Längenwert ist der **Unschärferadius** — die Menge der auf den Schatten angewandten Unschärfe.
+1. Der erste Längenwert ist der **horizontale Versatz** — die Entfernung nach rechts, die der Schatten vom ursprünglichen Rahmen versetzt ist (oder nach links, wenn der Wert negativ ist).
+2. Der zweite Längenwert ist der **vertikale Versatz** — die Entfernung nach unten, die der Schatten vom ursprünglichen Rahmen versetzt ist (oder nach oben, wenn der Wert negativ ist).
+3. Der dritte Längenwert ist der **Unschärferadius** — die Menge der Unschärfe, die auf den Schatten angewendet wird.
 4. Der Farbwert ist die **Basisfarbe** des Schattens.
 
-Sie können beliebige Längen- und Farbeinheiten verwenden, die sinnvoll wären, um diese Werte zu definieren.
+Sie können beliebige Längen- und Farbeinheiten verwenden, die Sinn machen, um diese Werte zu definieren.
 
-### Mehrere Box-Schatten
+### Mehrere Box-Shadows
 
-Sie können auch mehrere Box-Schatten in einer einzigen `box-shadow`-Deklaration angeben, indem Sie sie mit Kommata trennen:
+Sie können auch mehrere Box-Shadows in einer einzigen `box-shadow`-Deklaration angeben, indem Sie sie mit Kommas trennen:
 
 ```html hidden
 <article class="multiple">
@@ -122,17 +120,17 @@ article {
 }
 ```
 
-Jetzt erhalten wir dieses Ergebnis:
+Nun erhalten wir dieses Ergebnis:
 
 {{EmbedLiveSample("Multiple_box_shadows", "", "100px")}}
 
-Wir haben etwas Spaß gemacht, indem wir einen erhöhten Kasten mit mehreren farbigen Ebenen erstellt haben, aber Sie könnten es auf jede gewünschte Weise verwenden, zum Beispiel um ein realistischeres Aussehen mit Schatten basierend auf mehreren Lichtquellen zu erzeugen.
+Wir haben hier etwas Spaß gehabt, indem wir eine hervorgehobene Box mit mehreren farbigen Schichten erstellt haben, aber Sie könnten es auf jede Weise verwenden, die Sie möchten, zum Beispiel um ein realistischeres Aussehen mit Schatten basierend auf mehreren Lichtquellen zu erzeugen.
 
-### Weitere Box-Schatten-Funktionen
+### Weitere Box-Shadow-Funktionen
 
-Im Gegensatz zu {{cssxref("text-shadow")}} verfügt {{cssxref("box-shadow")}} über ein `inset`-Schlüsselwort — durch das Platzieren zu Beginn einer Schattendeklaration wird dieser zu einem inneren Schatten anstelle eines äußeren Schattens. Lassen Sie uns dies ansehen und sehen, was wir damit meinen.
+Anders als {{cssxref("text-shadow")}} hat {{cssxref("box-shadow")}} ein `inset`-Schlüsselwort verfügbar — wenn Sie dies am Anfang einer Schatten-Deklaration platzieren, wird es zu einem inneren Schatten anstelle eines äußeren Schattens. Lassen Sie uns einen Blick darauf werfen, was wir meinen.
 
-Zuerst verwenden wir für dieses Beispiel ein anderes HTML:
+Erstmal verwenden wir für dieses Beispiel etwas anderes HTML:
 
 ```html
 <button>Press me!</button>
@@ -165,26 +163,26 @@ button:active {
 }
 ```
 
-Das ergibt das folgende Ergebnis:
+Dies ergibt folgendes Ergebnis:
 
 {{EmbedLiveSample("Other_box_shadow_features", "100%", "70px")}}
 
-Hier haben wir einige Button-Stilierungen mit Fokus/Hover/Aktive-Zuständen eingerichtet. Der Button hat standardmäßig einen einfachen schwarzen Box-Schatten, plus ein paar innenliegende Schatten, ein heller und ein dunkler, auf entgegengesetzten Ecken des Buttons platziert, um ihm einen schönen Schattierungseffekt zu verleihen.
+Hier haben wir einige Button-Stil-Funktionen zusammen mit Fokus/Hover/Aktiv-Zuständen eingerichtet. Der Button hat standardmäßig einen einfachen schwarzen Box-Shadow und zusätzlich ein paar eingesetzte Schatten, einen hellen und einen dunklen, die auf gegenüberliegenden Ecken des Buttons platziert sind, um einen schönen Schatteneffekt zu erzeugen.
 
-Wenn der Button gedrückt wird, wird im aktiven Zustand der erste Box-Schatten gegen einen sehr dunklen innenliegenden Schatten ausgetauscht, wodurch der Eindruck entsteht, dass der Button eingedrückt wird.
+Wenn der Button gedrückt wird, tauscht der aktive Zustand den ersten Box-Shadow gegen einen sehr dunklen Innen-Schatten aus, was den Eindruck vermittelt, dass der Button hineingedrückt wird.
 
 > [!NOTE]
-> Es gibt ein weiteres Element, das im `box-shadow`-Wert gesetzt werden kann — ein weiterer Längenwert kann optional direkt vor dem Farbwert gesetzt werden, der ein **Ausbreitungsradius** ist. Wenn gesetzt, wird dadurch der Schatten größer als der ursprüngliche Kasten. Es wird nicht sehr häufig verwendet, ist aber erwähnenswert.
+> Es gibt ein weiteres Element, das im `box-shadow`-Wert festgelegt werden kann — ein weiterer Längenwert kann optional direkt vor dem Farbwert festgelegt werden, der ein **Ausbreitungsradius** ist. Wenn festgelegt, wird der Schatten größer als der ursprüngliche Rahmen. Es wird nicht sehr häufig verwendet, aber es lohnt sich, es zu erwähnen.
 
 ## Filter
 
-Während Sie mit CSS die Struktur eines Bildes nicht ändern können, gibt es einige kreative Dinge, die Sie tun können. Eine sehr nette Eigenschaft, die Ihnen helfen kann, Interesse an Ihren Designs zu wecken, ist die {{cssxref("filter")}}-Eigenschaft. Diese Eigenschaft ermöglicht Photoshop-ähnliche Filter direkt aus CSS.
+Während Sie die Komposition eines Bildes nicht mit CSS ändern können, gibt es einige kreative Dinge, die Sie tun können. Eine sehr schöne Eigenschaft, die Ihnen helfen kann, Interesse an Ihren Designs zu wecken, ist die {{cssxref("filter")}}-Eigenschaft. Diese Eigenschaft ermöglicht Photoshop-ähnliche Filter direkt aus CSS.
 
-Im folgenden Beispiel haben wir zwei unterschiedliche Werte für den Filter verwendet. Der `erste` ist `blur()` — diese Funktion kann ein Wert übergeben werden, der angibt, wie stark das Bild verschwommen sein soll.
+Im folgenden Beispiel haben wir zwei verschiedene Werte für den Filter verwendet. Der `erste` ist `blur()` — dieser Funktion kann ein Wert übergeben werden, der angibt, wie stark das Bild verschwommen werden soll.
 
-Der zweite ist `grayscale()`; indem ein Prozentsatz verwendet wird, legen wir fest, wie viel Farbe entfernt werden soll.
+Der zweite ist `grayscale()`; indem wir einen Prozentsatz verwenden, setzen wir fest, wie viel Farbe entfernt werden soll.
 
-Spielen Sie mit den Prozent- und Pixelparametern im folgenden Beispiel, um zu sehen, wie sich die Bilder ändern. Sie könnten die Werte auch gegen andere austauschen. Versuchen Sie es mit `contrast(200%)`, `invert(100%)` oder `hue-rotate(20deg)` im obigen Live-Beispiel. Werfen Sie einen Blick auf die MDN-Seite für [`filter`](/de/docs/Web/CSS/filter), um viele andere Optionen zu sehen, die Sie ausprobieren könnten.
+Spielen Sie mit den Prozent- und Pixelparametern im Beispiel unten, um zu sehen, wie sich die Bilder verändern. Sie könnten die Werte auch gegen andere austauschen. Probieren Sie `contrast(200%)`, `invert(100%)` oder `hue-rotate(20deg)` im obigen Live-Beispiel aus. Werfen Sie einen Blick auf die MDN-Seite für [`filter`](/de/docs/Web/CSS/filter) für viele andere Optionen, die Sie ausprobieren könnten.
 
 ```html live-sample___filter
 <div class="wrapper">
@@ -238,9 +236,9 @@ img {
 
 {{EmbedLiveSample("filter", "", "260px")}}
 
-Sie können Filter auf jedes Element anwenden und nicht nur auf Bilder. Einige der verfügbaren Filteroptionen tun sehr ähnliche Dinge wie andere CSS-Funktionen, zum Beispiel funktioniert `drop-shadow()` sehr ähnlich und erzielt einen ähnlichen Effekt wie [`box-shadow`](/de/docs/Web/CSS/box-shadow) oder [`text-shadow`](/de/docs/Web/CSS/text-shadow). Das wirklich Schöne an Filtern ist jedoch, dass sie auf die exakten Formen des Inhalts innerhalb des Kastens einwirken, nicht nur auf den Kasten selbst als einen großen Block, daher ist es wert, den Unterschied zu kennen.
+Sie können Filter auf jedes Element anwenden und nicht nur auf Bilder. Einige der verfügbaren Filteroptionen erledigen sehr ähnliche Aufgaben wie andere CSS-Funktionen, zum Beispiel funktioniert `drop-shadow()` auf sehr ähnliche Weise und bietet einen ähnlichen Effekt wie [`box-shadow`](/de/docs/Web/CSS/box-shadow) oder [`text-shadow`](/de/docs/Web/CSS/text-shadow). Das wirklich Schöne an Filtern ist jedoch, dass sie auf die exakten Formen des Inhalts innerhalb der Box wirken, nicht nur auf die Box selbst als ein großer Block, daher ist es wichtig, den Unterschied zu kennen.
 
-Im nächsten Beispiel wenden wir unseren Filter auf einen Kasten an und vergleichen ihn mit einem Box-Schatten. Wie Sie sehen, folgt der Drop-Shadow-Filter exakt der Form des Textes und der gestrichelten Ränder. Der Box-Schatten folgt nur dem Quadrat des Kastens.
+Im nächsten Beispiel wenden wir unseren Filter auf eine Box an und vergleichen ihn mit einem Box-Shadow. Wie Sie sehen können, folgt der Drop-Shadow-Filter der genauen Form der Text- und Randstriche. Der Box-Shadow folgt einfach dem Quadrat der Box.
 
 ```html live-sample___filter-text
 <p class="filter">Filter</p>
@@ -270,23 +268,23 @@ p {
 
 {{EmbedLiveSample("filter-text")}}
 
-## Mischmodi
+## Blend-Modi
 
-CSS-Mischmodi ermöglichen es uns, Mischmodi zu Elementen hinzuzufügen, die einen Mischeffekt angeben, wenn zwei Elemente überlappen — die endgültige Farbe, die für jedes Pixel angezeigt wird, ist das Ergebnis einer Kombination der ursprünglichen Pixel-Farbe und derjenigen des darunter liegenden Pixels. Mischmodi sind erneut sehr vertraut für Benutzer von Grafikprogrammen wie Photoshop.
+CSS-Blend-Modi ermöglichen es uns, Elementen Blend-Modi hinzuzufügen, die einen Blending-Effekt angeben, wenn sich zwei Elemente überschneiden — die endgültige Farbe, die für jedes Pixel angezeigt wird, ist das Ergebnis einer Kombination aus der ursprünglichen Pixelfarbe und der des darunterliegenden Pixels. Blend-Modi sind wieder sehr vertraut für Benutzer von Grafikprogrammen wie Photoshop.
 
-Es gibt zwei Eigenschaften, die Mischmodi in CSS verwenden:
+Es gibt zwei Eigenschaften, die Blend-Modi in CSS verwenden:
 
-- {{cssxref("background-blend-mode")}}, das mehrere Hintergrundbilder und -farben auf einem einzelnen Element miteinander vermischt.
-- {{cssxref("mix-blend-mode")}}, das das Element, auf das es gesetzt ist, mit den Elementen, die es überlagert — sowohl Hintergrund als auch Inhalt — mischt.
+- {{cssxref("background-blend-mode")}}, das mehrere Hintergrundbilder und Farben, die auf ein einzelnes Element gesetzt sind, miteinander vermischt.
+- {{cssxref("mix-blend-mode")}}, das das Element, auf dem es gesetzt ist, mit den Elementen, die es überlappt — sowohl Hintergrund als auch Inhalt — miteinander vermischt.
 
-Sie finden viele weitere Beispiele als hier verfügbar auf unserer [blend-modes.html](https://mdn.github.io/learning-area/css/styling-boxes/advanced_box_effects/blend-modes.html)-Beispielseite (siehe [Quellcode](https://github.com/mdn/learning-area/blob/main/css/styling-boxes/advanced_box_effects/blend-modes.html)), und auf der {{cssxref("&lt;blend-mode&gt;")}}-Referenzseite.
+Sie finden viel mehr Beispiele als hier verfügbar auf unserer [blend-modes.html](https://mdn.github.io/learning-area/css/styling-boxes/advanced_box_effects/blend-modes.html) Beispielseite (siehe [Quellcode](https://github.com/mdn/learning-area/blob/main/css/styling-boxes/advanced_box_effects/blend-modes.html)) und auf der {{cssxref("&lt;blend-mode&gt;")}} Referenzseite.
 
 > [!NOTE]
-> Mischmodi sind ebenfalls sehr neu und etwas weniger gut unterstützt als Filter. Es gibt noch keine Unterstützung in Edge, und Safari unterstützt nur einige der Mischmodi-Optionen.
+> Blend-Modi sind noch sehr neu und werden etwas weniger gut unterstützt als Filter. Es gibt bisher keine Unterstützung in Edge, und Safari unterstützt nur einige der Blend-Modus-Optionen.
 
 ### background-blend-mode
 
-Sehen wir uns erneut einige Beispiele an, um dies besser zu verstehen. Zuerst {{cssxref("background-blend-mode")}} — hier zeigen wir ein paar einfache {{htmlelement("div")}}s, damit Sie das Original mit der gemischten Version vergleichen können:
+Schauen wir uns nun einige Beispiele an, um dies besser zu verstehen. Zuerst {{cssxref("background-blend-mode")}} — hier zeigen wir ein paar einfache {{htmlelement("div")}}s, sodass Sie das Original mit der blendeten Version vergleichen können:
 
 ```html
 <div></div>
@@ -311,13 +309,13 @@ div {
 }
 ```
 
-Das Ergebnis ist folgendes — Sie sehen das Original links und den Multiplikations-Mischmodus rechts:
+Das Ergebnis, das wir erhalten, ist folgendes — Sie können das Original auf der linken Seite und den Multiply-Blend-Modus auf der rechten Seite sehen:
 
 {{EmbedLiveSample("background-blend-mode", "", "220px")}}
 
 ### mix-blend-mode
 
-Nun werfen wir einen Blick auf {{cssxref("mix-blend-mode")}}. Hier präsentieren wir dieselben zwei `<div>`s, aber jedes sitzt nun auf einem einfachen `<div>` mit einem lila Hintergrund, um zu zeigen, wie die Elemente zusammen vermischt werden:
+Schauen wir uns nun {{cssxref("mix-blend-mode")}} an. Hier präsentieren wir die gleichen zwei `<div>`s, aber jedes sitzt nun auf einem einfachen `<div>` mit einem lila Hintergrund, um zu zeigen, wie die Elemente kombiniert werden:
 
 ```html
 <article>
@@ -333,7 +331,7 @@ Nun werfen wir einen Blick auf {{cssxref("mix-blend-mode")}}. Hier präsentieren
 </article>
 ```
 
-Hier ist das CSS, mit dem wir dies stylen werden:
+Hier ist das CSS, mit dem wir dies stylen:
 
 ```css
 article {
@@ -376,18 +374,18 @@ Dies ergibt die folgenden Ergebnisse:
 
 {{EmbedLiveSample("mix-blend-mode", "", "220px")}}
 
-Sie sehen hier, dass die Multiplikation im Mischmodus nicht nur die beiden Hintergrundbilder vermischt hat, sondern auch die Farbe des darunterliegenden `<div>`s.
+Hier können Sie sehen, dass das Multiply-Mix-Blend nicht nur die beiden Hintergrundbilder vermischt hat, sondern auch die Farbe des darunterliegenden `<div>`.
 
 > [!NOTE]
-> Keine Sorge, wenn Sie einige der oben stehenden Layout-Eigenschaften nicht verstehen, wie {{cssxref("position")}}, {{cssxref("top")}}, {{cssxref("bottom")}}, {{cssxref("z-index")}}, etc. Wir werden diese ausführlich in unserem [CSS-Layout](/de/docs/Learn_web_development/Core/CSS_layout)-Modul behandeln.
+> Keine Sorge, wenn Sie einige der oben genannten Layout-Eigenschaften nicht verstehen, wie {{cssxref("position")}}, {{cssxref("top")}}, {{cssxref("bottom")}}, {{cssxref("z-index")}}, usw. Wir werden diese im Detail in unserem [CSS Layout](/de/docs/Learn_web_development/Core/CSS_layout) Modul behandeln.
 
-## CSS Shapes
+## CSS-Formen
 
-Zwar ist es wahr, dass alles in CSS ein rechteckiger Kasten ist, und Bilder physisch rechteckige Kästen sind, aber wir können es so aussehen lassen, als ob unser Inhalt um nicht-rechteckige Dinge herumfließt, indem wir [CSS Shapes](/de/docs/Web/CSS/CSS_shapes) verwenden.
+Während es wahr ist, dass in CSS alles ein rechteckiger Block ist und Bilder physikalisch rechteckige Blöcke sind, können wir es so aussehen lassen, als ob unser Inhalt um nicht-rechteckige Dinge herum fließt, indem wir [CSS-Formen](/de/docs/Web/CSS/CSS_shapes) verwenden.
 
-Die CSS Shapes-Spezifikation ermöglicht das Umfließen von Text um eine nicht-rechteckige Form. Dies ist besonders nützlich, wenn Sie mit einem Bild arbeiten, das einige Leerstellen hat, um die Sie Text herumfließen lassen möchten.
+Die CSS-Formen-Spezifikation ermöglicht das Umfließen von Text um eine nicht-rechteckige Form. Dies ist besonders nützlich, wenn Sie mit einem Bild arbeiten, das einige Freiräume hat, um die Sie Text fließen lassen möchten.
 
-Im Bild unten haben wir einen angenehm runden Ballon. Die tatsächliche Datei ist rechteckig, aber durch das Schweben des Bildes (Shapes gelten nur für schwebende Elemente) und die Verwendung der {{cssxref("shape-outside")}}-Eigenschaft mit einem Wert von `circle(50%)`, können wir den Effekt erzeugen, dass der Text der Linie des Ballons folgt.
+Im Bild unten haben wir einen angenehm runden Ballon. Die eigentliche Datei ist rechteckig, aber indem wir das Bild floaten (Formen gelten nur für gefloatete Elemente) und die {{cssxref("shape-outside")}}-Eigenschaft mit einem Wert von `circle(50%)` verwenden, können wir den Effekt erzielen, dass der Text der Linie des Ballons folgt.
 
 ```html live-sample___shapes
 <div class="wrapper">
@@ -420,17 +418,17 @@ img {
 
 {{EmbedLiveSample("shapes", "", "200px")}}
 
-Die Form in diesem Beispiel reagiert nicht auf den Inhalt der Bilddatei. Stattdessen nimmt die Kreisfunktion ihren Mittelpunkt von der Mitte der Bilddatei ein, als hätten wir einen Zirkel in der Mitte der Datei platziert und einen Kreis gezeichnet, der in die Datei passt. Um diesen Kreis fließt der Text herum.
+Die Form in diesem Beispiel reagiert nicht auf den Inhalt der Bilddatei. Stattdessen nimmt die Kreisfunktion ihren Mittelpunkt aus der Mitte der Bilddatei, als ob wir einen Zirkel in die Mitte der Datei gesetzt und einen Kreis gezeichnet hätten, der in die Datei passt. Es ist dieser Kreis, um den der Text fließt.
 
 > [!NOTE]
-> In Firefox können Sie das DevTools [Shapes Inspector](https://firefox-source-docs.mozilla.org/devtools-user/page_inspector/how_to/edit_css_shapes/index.html) verwenden, um Shapes zu inspizieren.
+> In Firefox können Sie die DevTools [Shapes Inspector](https://firefox-source-docs.mozilla.org/devtools-user/page_inspector/how_to/edit_css_shapes/index.html) verwenden, um Formen zu inspizieren.
 
-Die `circle()`-Funktion ist nur eine von wenigen einfachen Formen, die definiert sind, es gibt jedoch mehrere verschiedene Möglichkeiten, Formen zu erstellen. Für weitere Informationen und Beispielcode zu CSS Shapes siehe die [Leitfäden zu CSS Shapes](/de/docs/Web/CSS/CSS_shapes/Overview_of_shapes) auf MDN.
+Die `circle()`-Funktion ist nur eine von wenigen grundlegenden Formen, die definiert sind. Es gibt jedoch eine Reihe von Möglichkeiten, um Formen zu erstellen. Für weitere Informationen und Beispielcode zu CSS-Formen siehe die [Leitfäden zu CSS-Formen](/de/docs/Web/CSS/CSS_shapes/Overview_of_shapes) auf MDN.
 
 ## -webkit-background-clip: text
 
-Eine weitere Funktion, die wir kurz erwähnen möchten, ist der `text`-Wert für {{cssxref("background-clip")}}. Wenn er zusammen mit der proprietären `-webkit-text-fill-color: transparent;`-Funktion verwendet wird, können Sie Hintergrundbilder an die Form des Textes des Elements anpassen und so einige nette Effekte erzielen. Dies ist kein offizieller Standard, wurde jedoch in mehreren Browsern implementiert, da es beliebt und von Entwicklern ziemlich weit verbreitet verwendet wird. Wenn es in diesem Zusammenhang verwendet wird, erfordern beide Eigenschaften einen `-webkit-`-Vendor-Präfix, selbst für nicht auf WebKit/Chrome basierende Browser.
-Sie können dies im folgenden Live-Beispiel in Aktion sehen:
+Ein weiteres Merkmal, das wir kurz erwähnen wollten, ist der `text` Wert für {{cssxref("background-clip")}}. Wenn Sie dies zusammen mit der proprietären `-webkit-text-fill-color: transparent;`-Funktion verwenden, ermöglicht dies, Hintergrundbilder auf die Form des Textelements zu beschneiden, was einige nette Effekte ergeben kann. Dies ist kein offizieller Standard, wurde jedoch von mehreren Browsern implementiert, da es populär ist und von Entwicklern relativ häufig verwendet wird. Wenn dies in diesem Kontext verwendet wird, benötigen beide Eigenschaften ein `-webkit-`-Vendor-Präfix, selbst für nicht-WebKit/Chrome-basierte Browser.
+Sie können dies im Live-Beispiel unten in Aktion sehen:
 
 ```html live-sample___webkit-background-clip
 <h2>WOW</h2>
@@ -466,10 +464,10 @@ h2 {
 
 {{EmbedLiveSample("webkit-background-clip", "", "340px")}}
 
-Warum haben also andere Browser ein `-webkit-`-Präfix implementiert? Hauptsächlich für die Browser-Kompatibilität — so viele Webentwickler haben begonnen, Websites mit `-webkit-`-Präfixen zu implementieren, dass es so aussah, als wären die anderen Browser kaputt, obwohl sie tatsächlich die Standards befolgten. Daher wurden sie gezwungen, einige solcher Funktionen zu implementieren. Dies zeigt die Gefahr auf, nicht standardisierte und/oder mit Präfixen versehene CSS-Funktionen in Ihrer Arbeit zu verwenden — sie verursachen nicht nur Browser-Kompatibilitätsprobleme, sondern können sich auch ändern, sodass Ihr Code jederzeit kaputtgehen kann. Es ist viel besser, sich an die Standards zu halten.
+Warum haben andere Browser ein `-webkit-` Präfix implementiert? Vor allem wegen der Browser-Kompatibilität — so viele Webentwickler haben begonnen, Websites mit `-webkit-` Präfixen zu implementieren, dass es aussah, als wären die anderen Browser defekt, während sie tatsächlich den Standards folgten. Sie waren gezwungen, einige dieser Funktionen zu implementieren. Dies zeigt die Gefahr der Verwendung von nicht standardisierten und/oder mit Präfixen versehenen CSS-Funktionen in Ihrer Arbeit — sie verursachen nicht nur Browser-Kompatibilitätsprobleme, sondern sie sind auch Änderungen unterworfen, sodass Ihr Code jederzeit brechen könnte. Es ist viel besser, sich an die Standards zu halten.
 
-Wenn Sie solche Funktionen in Ihrer Produktionsarbeit verwenden möchten, stellen Sie sicher, dass Sie gründlich über Browser hinweg testen und prüfen, dass, wenn diese Funktionen nicht funktionieren, die Website dennoch nutzbar bleibt.
+Wenn Sie solche Funktionen in Ihrer Produktion verwenden möchten, testen Sie gründlich über die Browser hinweg und überprüfen Sie, dass die Website dort, wo diese Funktionen nicht funktionieren, immer noch nutzbar ist.
 
 ## Zusammenfassung
 
-Wir hoffen, dieser Artikel hat Spaß gemacht — mit glänzenden Spielzeugen zu spielen ist im Allgemeinen spaßig und es ist immer interessant zu sehen, welche Arten von erweiterten Styling-Tools in modernen Browsern verfügbar werden.
+Wir hoffen, dieser Artikel hat Ihnen Spaß gemacht — mit glänzenden Spielzeugen zu spielen, macht allgemein Spaß, und es ist immer interessant zu sehen, welche Arten von erweiterten Stil-Tools in modernen Browsern verfügbar werden.

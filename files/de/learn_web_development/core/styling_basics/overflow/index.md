@@ -3,24 +3,22 @@ title: Überlaufender Inhalt
 short-title: Overflow
 slug: Learn_web_development/Core/Styling_basics/Overflow
 l10n:
-  sourceCommit: 6c58c5d4227a031105740b0e85acbc6178223d0a
+  sourceCommit: 48d220a8cffdfd5f088f8ca89724a9a92e34d8c0
 ---
-
-{{LearnSidebar}}
 
 {{PreviousMenuNext("Learn_web_development/Core/Styling_basics/Backgrounds_and_borders", "Learn_web_development/Core/Styling_basics/Images_media_forms", "Learn_web_development/Core/Styling_basics")}}
 
-Überlauf tritt auf, wenn zu viel Inhalt vorhanden ist, um in eine Elementbox zu passen. In dieser Lektion werden Sie lernen, wie man Überlauf mit CSS verwaltet.
+Überlauf ist das, was passiert, wenn zu viel Inhalt vorhanden ist, um in ein Elementbox zu passen. In dieser Lektion lernen Sie, wie Sie Überlauf mit CSS verwalten.
 
 <table>
   <tbody>
     <tr>
       <th scope="row">Voraussetzungen:</th>
       <td>
-        Grundlagen von HTML (studieren Sie
+        HTML Grundlagen (studieren Sie
         <a href="/de/docs/Learn_web_development/Core/Structuring_content/Basic_HTML_syntax"
           >Grundlegende HTML-Syntax</a
-        >), CSS <a href="/de/docs/Learn_web_development/Core/Styling_basics/Values_and_units">Werte und Einheiten</a> und <a href="/de/docs/Learn_web_development/Core/Styling_basics/Sizing">Größenanpassung</a>.
+        >), CSS <a href="/de/docs/Learn_web_development/Core/Styling_basics/Values_and_units">Werte und Einheiten</a> und <a href="/de/docs/Learn_web_development/Core/Styling_basics/Sizing">Größenbestimmung</a>.
       </td>
     </tr>
     <tr>
@@ -37,13 +35,13 @@ l10n:
 
 ## Was ist Überlauf?
 
-Alles in CSS ist eine Box. Sie können die Größe dieser Boxen einschränken, indem Sie Werte wie {{cssxref("width")}} und {{cssxref("height")}} zuweisen. **Überlauf tritt auf, wenn zu viel Inhalt in eine Box passt.** CSS bietet verschiedene Werkzeuge, um den Überlauf zu verwalten. Mit fortschreitendem CSS-Layout und CSS-Schreiben werden Sie auf mehr Überlaufsituationen stoßen.
+Alles in CSS ist eine Box. Sie können die Größe dieser Boxen durch Zuweisen von Werten wie {{cssxref("width")}} und {{cssxref("height")}} begrenzen. **Überlauf passiert, wenn zu viel Inhalt vorhanden ist, um in eine Box zu passen.** CSS bietet verschiedene Werkzeuge zur Verwaltung von Überlauf. Wenn Sie weiter mit CSS-Layout und CSS-Schreiben fortfahren, werden Sie auf mehr Überlaufsituationen stoßen.
 
-## CSS versucht, "Datenverlust" zu vermeiden
+## CSS versucht "Datenverlust" zu vermeiden
 
-Betrachten wir zwei Beispiele, die das Standardverhalten von CSS bei Überlauf verdeutlichen.
+Betrachten wir zwei Beispiele, die das Standardverhalten von CSS bei Überlauf demonstrieren.
 
-Das erste Beispiel ist eine Box, die durch Setzen einer `height` eingeschränkt wurde. Dann fügen wir Inhalt hinzu, der den zugewiesenen Raum überschreitet. Der Inhalt überläuft die Box und fällt in den darunterliegenden Absatz hinein.
+Das erste Beispiel ist eine Box, die durch Setzen einer `height` eingeschränkt wurde. Dann fügen wir Inhalt hinzu, der den zugewiesenen Raum überschreitet. Der Inhalt läuft aus der Box heraus und fällt in den darunter liegenden Absatz.
 
 ```html live-sample___block-overflow
 <div class="box">
@@ -65,7 +63,7 @@ Das erste Beispiel ist eine Box, die durch Setzen einer `height` eingeschränkt 
 
 {{EmbedLiveSample("block-overflow", "", "200px")}}
 
-Das zweite Beispiel ist ein Wort in einer Box. Die Box wurde zu klein für das Wort gemacht, und so bricht es aus der Box aus.
+Das zweite Beispiel ist ein Wort in einer Box. Die Box wurde zu klein für das Wort gemacht und es läuft aus der Box heraus.
 
 ```html live-sample___inline-overflow
 <div class="word">Overflow</div>
@@ -81,19 +79,19 @@ Das zweite Beispiel ist ein Wort in einer Box. Die Box wurde zu klein für das W
 
 {{EmbedLiveSample("inline-overflow")}}
 
-Sie könnten sich fragen, warum CSS auf so unordentliche Weise arbeitet und Inhalte außerhalb ihres vorgesehenen Containers anzeigt. Warum nicht überlaufenden Inhalt ausblenden? Warum nicht die Größe des Containers skalieren, um allen Inhalt aufzunehmen?
+Möglicherweise fragen Sie sich, warum CSS auf solch chaotische Weise funktioniert und Inhalte außerhalb ihres vorgesehenen Containers anzeigt. Warum nicht überlaufende Inhalte ausblenden? Warum nicht die Größe des Containers anpassen, um den gesamten Inhalt aufzunehmen?
 
-Sofern möglich, versteckt CSS keine Inhalte. Das würde zu Datenverlust führen. Das Problem bei Datenverlust ist, dass Sie ihn möglicherweise nicht bemerken. Website-Besucher bemerken ihn möglicherweise nicht. Wenn der Absende-Button in einem Formular verschwindet und niemand das Formular ausfüllen kann, könnte das ein großes Problem sein! Stattdessen zeigt CSS überlaufenden Inhalt auf sichtbare Weise an. So ist es wahrscheinlicher, dass Sie ein Problem bemerken. Im schlimmsten Fall wird Ihnen ein Seitenbesucher mitteilen, dass sich Inhalte überschneiden.
+Wo immer möglich, versteckt CSS keine Inhalte. Dies würde Datenverlust verursachen. Das Problem mit Datenverlust ist, dass Sie es möglicherweise nicht bemerken. Website-Besucher könnten es nicht bemerken. Wenn der Senden-Button in einem Formular verschwindet und niemand das Formular ausfüllen kann, könnte das ein großes Problem sein! Stattdessen überläuft CSS auf sichtbare Weise. Es ist wahrscheinlicher, dass Sie ein Problem bemerken. Im schlimmsten Fall wird ein Seitenbesucher Sie darauf hinweisen, dass Inhalte überlappen.
 
-Wenn Sie eine Box mit `width` oder `height` einschränken, vertraut CSS darauf, dass Sie wissen, was Sie tun. CSS geht davon aus, dass Sie das Potenzial für Überlauf steuern. Im Allgemeinen ist das Einschränken der Blockdimension problematisch, wenn die Box Text enthält. Es kann mehr Text geben, als Sie beim Entwerfen der Seite erwartet haben, oder der Text kann größer sein (zum Beispiel, wenn der Benutzer seine Schriftgröße erhöht hat).
+Wenn Sie eine Box mit einer `width` oder einer `height` einschränken, vertraut CSS darauf, dass Sie wissen, was Sie tun. CSS geht davon aus, dass Sie das Potenzial für Überlauf verwalten. Im Allgemeinen ist das Einschränken der Blockdimension problematisch, wenn die Box Text enthält. Es kann mehr Text vorhanden sein, als Sie beim Design der Seite erwartet haben, oder der Text kann größer sein (z.B. wenn der Benutzer seine Schriftgröße vergrößert hat).
 
-## Die overflow-Eigenschaft
+## Die Eigenschaft overflow
 
-Die {{cssxref("overflow")}}-Eigenschaft hilft Ihnen, den Überlauf des Inhalts eines Elements zu verwalten. Mit dieser Eigenschaft können Sie dem Browser vermitteln, wie er mit überlaufendem Inhalt umgehen soll. Der Standardwert des [`<overflow>`](/de/docs/Web/CSS/overflow_value)-Wertetyps ist `visible`. Mit dieser Standardeinstellung kann man den Inhalt sehen, wenn er überläuft.
+Die {{cssxref("overflow")}}-Eigenschaft hilft Ihnen, den Überlauf von Inhalten eines Elements zu verwalten. Mit dieser Eigenschaft können Sie einem Browser mitteilen, wie er mit Überlauf-Inhalten umgehen soll. Der Standardwert des [`<overflow>`](/de/docs/Web/CSS/overflow_value)-Wertetypen ist `visible`. Mit dieser Standardeinstellung kann man Inhalte sehen, wenn sie überlaufen.
 
 ### Überlaufende Inhalte ausblenden
 
-Um Inhalte auszublenden, wenn sie überlaufen, können Sie `overflow: hidden` setzen. Dies tut genau das, was es sagt: Es versteckt Überlauf. Beachten Sie, dass dadurch einige Inhalte unsichtbar werden können. Sie sollten dies nur tun, wenn das Ausblenden von Inhalten keine Probleme verursacht.
+Um Inhalte auszublenden, wenn sie überlaufen, können Sie `overflow: hidden` festlegen. Dies tut genau das: es blendet den Überlauf aus. Seien Sie sich bewusst, dass dadurch einige Inhalte unsichtbar werden können. Sie sollten dies nur tun, wenn das Ausblenden von Inhalten keine Probleme verursacht.
 
 ```html live-sample___hidden
 <div class="box">
@@ -116,15 +114,15 @@ Um Inhalte auszublenden, wenn sie überlaufen, können Sie `overflow: hidden` se
 
 {{EmbedLiveSample("hidden", "", "200px")}}
 
-### Scrollen bei überlaufendem Inhalt
+### Überlaufende Inhalte scrollen
 
-Vielleicht möchten Sie stattdessen Bildlaufleisten hinzufügen, wenn Inhalte überlaufen? Mit `overflow: scroll` zeigen Browser mit sichtbaren Bildlaufleisten diese immer an – selbst wenn nicht genug Inhalt vorhanden ist, um einen Überlauf zu verursachen. Dies bietet den Vorteil, das Layout konsistent zu halten, anstatt dass Bildlaufleisten je nach Inhalt im Container erscheinen oder verschwinden.
+Stattdessen möchten Sie vielleicht Scrollbalken hinzufügen, wenn Inhalte überlaufen? Mit `overflow: scroll` zeigen Browser mit sichtbaren Scrollleisten diese immer an — selbst wenn nicht genügend Inhalt zum Überlaufen vorhanden ist. Dies bietet den Vorteil, dass das Layout konsistent bleibt, anstatt dass Scrollleisten erscheinen oder verschwinden, abhängig von der Menge des Inhalts im Container.
 
-Entfernen Sie einige Inhalte aus der Box unten. Beachten Sie, wie die Bildlaufleisten bleiben, auch wenn kein Scrollen erforderlich ist:
+Entfernen Sie einige Inhalte aus der Box unten. Beachten Sie, wie die Scrollleisten bleiben, selbst wenn kein Scrollen erforderlich ist:
 
 > [!NOTE]
-> Die Sichtbarkeit der Bildlaufleisten hängt vom Betriebssystem ab.
-> Möglicherweise müssen Sie Ihre Browsereinstellungen ändern, um Bildlaufleisten immer anzuzeigen, damit sie in den folgenden Beispielen immer angezeigt werden.
+> Die Sichtbarkeit der Scrollleisten hängt vom Betriebssystem ab.
+> Möglicherweise müssen Sie Ihre Browsereinstellungen ändern, um Scrollleisten immer anzuzeigen, damit sie in den folgenden Beispielen immer angezeigt werden.
 
 ```html live-sample___scroll
 <div class="box">
@@ -147,7 +145,7 @@ Entfernen Sie einige Inhalte aus der Box unten. Beachten Sie, wie die Bildlaufle
 
 {{EmbedLiveSample("scroll", "", "200px")}}
 
-Im obigen Beispiel müssen wir nur auf der `y`-Achse scrollen, dennoch erhalten wir Bildlaufleisten auf beiden Achsen. Um nur auf der `y`-Achse zu scrollen, könnten Sie die {{cssxref("overflow-y")}}-Eigenschaft verwenden und `overflow-y: scroll` setzen.
+Im obigen Beispiel müssen wir nur auf der `y`-Achse scrollen, allerdings bekommen wir Scrollleisten auf beiden Achsen. Um nur auf der `y`-Achse zu scrollen, könnten Sie die {{cssxref("overflow-y")}}-Eigenschaft verwenden und `overflow-y: scroll` festlegen.
 
 ```html live-sample___scroll-y
 <div class="box">
@@ -170,7 +168,7 @@ Im obigen Beispiel müssen wir nur auf der `y`-Achse scrollen, dennoch erhalten 
 
 {{EmbedLiveSample("scroll-y", "", "200px")}}
 
-Sie können auch das Scrollen entlang der x-Achse aktivieren, indem Sie {{cssxref("overflow-x")}} verwenden, obwohl dies nicht die empfohlene Methode ist, um lange Wörter unterzubringen! Wenn Sie ein langes Wort in einer kleinen Box haben, sollten Sie die {{cssxref("word-break")}}- oder {{cssxref("overflow-wrap")}}-Eigenschaft in Betracht ziehen. Darüber hinaus können einige der in [Größenanpassung von Elementen in CSS](/de/docs/Learn_web_development/Core/Styling_basics/Sizing) diskutierten Methoden Ihnen helfen, Boxen zu erstellen, die besser mit unterschiedlichen Mengen an Inhalten skalieren.
+Sie können auch das Scrollen entlang der x-Achse aktivieren, indem Sie {{cssxref("overflow-x")}} verwenden, obwohl dies nicht empfohlen wird, um lange Wörter zu behandeln! Wenn Sie ein langes Wort in einer kleinen Box haben, ziehen Sie in Betracht, die {{cssxref("word-break")}}- oder {{cssxref("overflow-wrap")}}-Eigenschaft zu verwenden. Zusätzlich können einige der in [Größenbestimmung von Elementen in CSS](/de/docs/Learn_web_development/Core/Styling_basics/Sizing) diskutierten Methoden Ihnen helfen, Boxen zu erstellen, die besser mit unterschiedlichen Inhaltsmengen skalieren.
 
 ```html live-sample___scroll-x
 <div class="word">Overflow</div>
@@ -187,16 +185,16 @@ Sie können auch das Scrollen entlang der x-Achse aktivieren, indem Sie {{cssxre
 
 {{EmbedLiveSample("scroll-x")}}
 
-Wie bei `scroll` erhalten Sie eine Bildlaufleiste in der scrollenden Dimension, unabhängig davon, ob es genug Inhalt gibt, um eine Bildlaufleiste zu verursachen.
+Wie bei `scroll` erhalten Sie einen Scrollbalken in der Scroll-Dimension, unabhängig davon, ob genug Inhalt vorhanden ist, um einen Scrollbalken zu verursachen.
 
 > [!NOTE]
-> Sie können das Scrollen der x- und y-Achse mit der `overflow`-Eigenschaft spezifizieren, indem Sie zwei Werte angeben. Wenn zwei Schlüsselwörter angegeben sind, wird das erste auf `overflow-x` und das zweite auf `overflow-y` angewendet. Andernfalls werden sowohl `overflow-x` als auch `overflow-y` auf denselben Wert gesetzt. Zum Beispiel würde `overflow: scroll hidden` `overflow-x` auf `scroll` und `overflow-y` auf `hidden` setzen.
+> Sie können das Scrollen auf der x- und y-Achse mit der `overflow`-Eigenschaft angeben, indem Sie zwei Werte übergeben. Wenn zwei Schlüsselwörter angegeben sind, gilt das erste für `overflow-x` und das zweite für `overflow-y`. Andernfalls werden sowohl `overflow-x` als auch `overflow-y` auf denselben Wert gesetzt. Zum Beispiel würde `overflow: scroll hidden` `overflow-x` auf `scroll` und `overflow-y` auf `hidden` setzen.
 
-### Bildlaufleisten nur bei Bedarf anzeigen
+### Scrollleisten nur bei Bedarf anzeigen
 
-Wenn Sie möchten, dass Bildlaufleisten nur dann erscheinen, wenn mehr Inhalt vorhanden ist, als in die Box passt, verwenden Sie `overflow: auto`. Dadurch kann der Browser bestimmen, ob Bildlaufleisten angezeigt werden sollen.
+Wenn Sie möchten, dass Scrollleisten nur erscheinen, wenn mehr Inhalt vorhanden ist, als in die Box passt, verwenden Sie `overflow: auto`. Dies ermöglicht es dem Browser zu bestimmen, ob Scrollleisten angezeigt werden sollen.
 
-Im folgenden Beispiel entfernen Sie Inhalte, bis sie in die Box passen. Sie sollten sehen, wie die Bildlaufleisten verschwinden:
+Im folgenden Beispiel entfernen Sie so lange Inhalte, bis sie in die Box passen. Sie sollten sehen, wie die Scrollleisten verschwinden:
 
 ```html live-sample___auto
 <div class="box">
@@ -219,22 +217,22 @@ Im folgenden Beispiel entfernen Sie Inhalte, bis sie in die Box passen. Sie soll
 
 {{EmbedLiveSample("auto", "", "200px")}}
 
-## Unerwünschter Überlauf im Webdesign
+## Ungewollter Überlauf im Webdesign
 
-Moderne Layout-Methoden (die Sie später im [CSS-Layout](/de/docs/Learn_web_development/Core/CSS_layout)-Modul kennenlernen werden) verwalten Überlauf. Sie funktionieren weitgehend ohne Annahmen oder Abhängigkeiten davon, wie viel Inhalt auf einer Webseite vorhanden sein wird.
+Moderne Layout-Methoden (die Sie später im [CSS-Layout](/de/docs/Learn_web_development/Core/CSS_layout)-Modul kennenlernen werden) verwalten den Überlauf. Sie arbeiten weitgehend ohne Annahmen oder Abhängigkeiten darüber, wie viel Inhalt auf einer Webseite sein wird.
 
-Dies war nicht immer die Norm. In der Vergangenheit wurden einige Websites mit Containern fester Höhe gebaut, um die Unterseiten von Boxen auszurichten. Diese Boxen hatten ansonsten möglicherweise keine Beziehung zueinander. Dies war zerbrechlich. Wenn Sie auf eine Box stoßen, in der sich Inhalt in Legacy-Anwendungen überlagert, werden Sie jetzt erkennen, dass dies mit Überlauf zusammenhängt. Idealerweise werden Sie das Layout umstrukturieren, um nicht auf Container mit fester Höhe angewiesen zu sein.
+Dies war nicht immer die Norm. In der Vergangenheit wurden einige Websites mit Behältern fester Höhe gebaut, um die Unterseiten der Boxen auszurichten. Diese Boxen hatten ansonsten möglicherweise keine Beziehung zueinander. Dies war fragil. Wenn Sie auf eine Box stoßen, bei der Inhalte sich auf der Seite in Altsystemen überlappen, erkennen Sie jetzt, dass dies bei Überlauf passiert. Idealerweise werden Sie das Layout umgestalten, um nicht auf Container mit fester Höhe angewiesen zu sein.
 
-Beim Entwickeln einer Website sollten Sie Überlauf immer im Hinterkopf behalten. Testen Sie Designs mit großen und kleinen Mengen an Inhalten. Erhöhen und verringern Sie die Schriftgrößen um mindestens zwei Stufen. Stellen Sie sicher, dass Ihr CSS robust ist. Das Ändern von Überlaufwerten, um Inhalte auszublenden oder Bildlaufleisten hinzuzufügen, ist für einige ausgewählte Anwendungsfälle reserviert (zum Beispiel, wenn Sie beabsichtigen, eine scrollbare Box zu haben).
+Wenn Sie eine Website entwickeln, behalten Sie immer den Überlauf im Auge. Testen Sie Designs mit großen und kleinen Mengen an Inhalten. Erhöhen und verringern Sie die Schriftgrößen um mindestens zwei Stufen. Stellen Sie sicher, dass Ihr CSS robust ist. Das Ändern von Überlaufwerten zum Verstecken von Inhalten oder zum Hinzufügen von Scrollleisten ist auf einige ausgewählte Anwendungsfälle beschränkt (zum Beispiel, wenn Sie beabsichtigen, eine scrollbare Box zu haben).
 
-## Testen Sie Ihr Wissen!
+## Testen Sie Ihre Fähigkeiten!
 
-Sie haben das Ende dieses Artikels erreicht, aber können Sie sich an die wichtigsten Informationen erinnern? Sie können einige weitere Tests finden, um zu überprüfen, ob Sie diese Informationen behalten haben, bevor Sie fortfahren — siehe [Testen Sie Ihre Fähigkeiten: Überlauf](/de/docs/Learn_web_development/Core/Styling_basics/Overflow_Tasks).
+Sie haben das Ende dieses Artikels erreicht, aber können Sie sich an die wichtigsten Informationen erinnern? Sie finden einige weitere Tests, um zu überprüfen, ob Sie diese Informationen behalten haben, bevor Sie fortfahren — siehe [Testen Sie Ihre Fähigkeiten: Überlauf](/de/docs/Learn_web_development/Core/Styling_basics/Test_your_skills/Overflow).
 
 ## Zusammenfassung
 
-Diese Lektion führte das Konzept des Überlaufs ein. Sie sollten verstehen, dass CSS standardmäßig verhindert, dass überlaufender Inhalt unsichtbar wird. Sie haben entdeckt, dass Sie potenziellen Überlauf verwalten können, und auch, dass Sie Ihre Arbeit testen sollten, um sicherzustellen, dass sie nicht versehentlich problematischen Überlauf verursacht.
+Diese Lektion führte das Konzept des Überlaufs ein. Sie sollten verstehen, dass CSS standardmäßig vermeidet, überlaufende Inhalte unsichtbar zu machen. Sie haben entdeckt, dass Sie potenziellen Überlauf verwalten können und auch, dass Sie Ihre Arbeit testen sollten, um sicherzustellen, dass sie nicht versehentlich problematischen Überlauf verursacht.
 
-Im nächsten Artikel werden wir uns ansehen, wie man das Styling von speziellen Seitenelementen wie Bildern und Formularelementen behandelt.
+Im nächsten Artikel werden wir uns ansehen, wie Sie spezielle Seitenmerkmale wie Bilder und Formularelemente stylen können.
 
 {{PreviousMenuNext("Learn_web_development/Core/Styling_basics/Backgrounds_and_borders", "Learn_web_development/Core/Styling_basics/Images_media_forms", "Learn_web_development/Core/Styling_basics")}}
