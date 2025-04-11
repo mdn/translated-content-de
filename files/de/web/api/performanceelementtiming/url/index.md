@@ -3,22 +3,22 @@ title: "PerformanceElementTiming: url-Eigenschaft"
 short-title: url
 slug: Web/API/PerformanceElementTiming/url
 l10n:
-  sourceCommit: 312081aabba3885b35a81107b3c2fc53428896c5
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{APIRef("Performance API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte Eigenschaft **`url`** des [`PerformanceElementTiming`](/de/docs/Web/API/PerformanceElementTiming)-Interfaces gibt die ursprüngliche URL der Ressourcenanforderung zurück, wenn das Element ein Bild ist.
+Die **`url`**-Eigenschaft des [`PerformanceElementTiming`](/de/docs/Web/API/PerformanceElementTiming)-Interfaces, die nur lesbar ist, gibt die anfängliche URL der Ressourcenanforderung zurück, wenn das Element ein Bild ist.
 
 ## Wert
 
-Ein String, der die ursprüngliche URL der Ressourcenanforderung für Bilder oder `0` für Text darstellt.
+Ein String, der die anfängliche URL der Ressourcenanforderung für Bilder darstellt oder `0` für Text.
 
 ## Beispiele
 
-### `url` protokollieren
+### Protokollierung von `url`
 
-In diesem Beispiel wird ein {{HTMLElement("img")}}-Element durch Hinzufügen des [`elementtiming`](/de/docs/Web/HTML/Attributes/elementtiming)-Attributs beobachtet. Ein [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver) wird registriert, um alle Performance-Einträge des Typs `"element"` zu erfassen, und das `buffered`-Flag wird verwendet, um auf Daten vor der Erstellung des Observers zuzugreifen. Der Aufruf von `entry.url` liefert `https://example.com/image.jpg`.
+In diesem Beispiel wird ein {{HTMLElement("img")}}-Element beobachtet, indem das [`elementtiming`](/de/docs/Web/HTML/Reference/Attributes/elementtiming)-Attribut hinzugefügt wird. Ein [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver) wird registriert, um alle Performance-Einträge des Typs `"element"` zu erhalten, und das `buffered`-Flag wird verwendet, um auf Daten von vor der Erstellung des Observers zuzugreifen. Der Aufruf von `entry.url` gibt `https://example.com/image.jpg` zurück.
 
 ```html
 <img

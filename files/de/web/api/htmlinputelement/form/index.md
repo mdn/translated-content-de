@@ -3,12 +3,12 @@ title: "HTMLInputElement: form-Eigenschaft"
 short-title: form
 slug: Web/API/HTMLInputElement/form
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`form`**-Eigenschaft der [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Schnittstelle gibt ein [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement)-Objekt zurück, das dieses {{HTMLElement("input")}} besitzt, oder `null`, wenn dieses Eingabefeld zu keinem Formular gehört.
+Die **`form`**-Eigenschaft des interface [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement) gibt ein [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement)-Objekt zurück, das dieses {{HTMLElement("input")}} enthält, oder `null`, wenn dieses Eingabefeld zu keinem Formular gehört.
 
 ## Wert
 
@@ -27,5 +27,5 @@ Ein [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement) oder `null`.
 - [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)
 - [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement)
 - {{HTMLElement("input")}}
-- HTML [`form`](/de/docs/Web/HTML/Element/input#form)-Attribut
-- [Leitfaden zu HTML-Formularen](/de/docs/Learn_web_development/Extensions/Forms)
+- HTML [`form`](/de/docs/Web/HTML/Reference/Elements/input#form)-Attribut
+- [HTML-Formulare Leitfaden](/de/docs/Learn_web_development/Extensions/Forms)

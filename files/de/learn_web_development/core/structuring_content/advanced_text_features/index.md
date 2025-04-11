@@ -2,24 +2,24 @@
 title: Erweiterte Textmerkmale
 slug: Learn_web_development/Core/Structuring_content/Advanced_text_features
 l10n:
-  sourceCommit: 59d47ed0cbeddc78085980202279c9910b619794
+  sourceCommit: 960a94a198ca60fb04fe63857ea61d7306465791
 ---
 
 {{LearnSidebar}}
 
 {{PreviousMenuNext("Learn_web_development/Core/Structuring_content/Structuring_documents", "Learn_web_development/Core/Structuring_content/Creating_links", "Learn_web_development/Core/Structuring_content")}}
 
-Es gibt viele weitere Elemente in HTML zur Definition von Textsemantik, die wir im Artikel [Betonung und Wichtigkeit](/de/docs/Learn_web_development/Core/Structuring_content/Emphasis_and_importance) nicht behandelt haben. Die hier beschriebenen Elemente sind weniger bekannt, aber dennoch nützlich zu kennen (und dies ist bei weitem noch keine vollständige Liste). Hier lernen Sie das Markieren von Zitaten, Computercode und anderen verwandten Texten, Tief- und Hochstellen, Kontaktinformationen und mehr.
+Es gibt viele weitere Elemente in HTML zur Definition von Textsemantik, die im Artikel [Betonung und Wichtigkeit](/de/docs/Learn_web_development/Core/Structuring_content/Emphasis_and_importance) nicht behandelt wurden. Die in diesem Artikel beschriebenen Elemente sind weniger bekannt, aber dennoch nützlich zu kennen (und dies ist keineswegs eine vollständige Liste). Hier erfahren Sie, wie man Zitate, Computer-Code und andere verwandte Texte, Tief- und Hochstellen, Kontaktinformationen und mehr kennzeichnet.
 
 <table>
   <tbody>
     <tr>
       <th scope="row">Voraussetzungen:</th>
       <td>
-        Grundkenntnisse in HTML, wie sie in
+        Grundlegende HTML-Kenntnisse, wie in
         <a href="/de/docs/Learn_web_development/Core/Structuring_content/Basic_HTML_syntax"
           >Grundlegende HTML-Syntax</a
-        > behandelt werden. Textsemantik auf Ebene wie <a href="/de/docs/Learn_web_development/Core/Structuring_content/Headings_and_paragraphs"
+        > behandelt. Textuelle Semantik wie <a href="/de/docs/Learn_web_development/Core/Structuring_content/Headings_and_paragraphs"
           >Überschriften und Absätze</a
         > und <a href="/de/docs/Learn_web_development/Core/Structuring_content/Lists"
           >Listen</a
@@ -33,7 +33,7 @@ Es gibt viele weitere Elemente in HTML zur Definition von Textsemantik, die wir 
           <li>Zitate.</li>
           <li>Abkürzungen und Akronyme.</li>
           <li>Adressen.</li>
-          <li>Zeiten und Daten.</li>
+          <li>Uhrzeiten und Daten.</li>
           <li>Hoch- und Tiefstellen.</li>
         </ul>
       </td>
@@ -43,11 +43,11 @@ Es gibt viele weitere Elemente in HTML zur Definition von Textsemantik, die wir 
 
 ## Zitate
 
-HTML stellt Funktionen zum Markieren von Zitaten zur Verfügung; welches Element Sie verwenden, hängt davon ab, ob Sie ein Block- oder Inline-Zitat markieren.
+HTML enthält Funktionen zum Kennzeichnen von Zitaten; welches Element Sie verwenden, hängt davon ab, ob Sie ein Block- oder Inline-Zitat kennzeichnen.
 
 ### Blockzitate
 
-Wenn ein Abschnitt von Blockinhalt (sei es ein Absatz, mehrere Absätze, eine Liste usw.) aus einer anderen Quelle zitiert wird, sollten Sie ihn in ein {{htmlelement("blockquote")}}-Element einbetten, um dies zu kennzeichnen, und eine URL, die auf die Quelle des Zitats verweist, in einem [`cite`](/de/docs/Web/HTML/Element/blockquote#cite)-Attribut angeben. Das folgende Markup stammt zum Beispiel von der MDN-Seite zum `<blockquote>`-Element:
+Wenn ein Abschnitt auf Blockebene (sei es ein Absatz, mehrere Absätze, eine Liste usw.) von anderswo zitiert wird, sollten Sie diesen innerhalb eines {{htmlelement("blockquote")}}-Elements umschließen, um dies zu kennzeichnen, und eine URL angeben, die im `cite`-Attribut auf die Quelle des Zitats verweist. Beispielsweise stammt das folgende Markup von der MDN `<blockquote>`-Elementseite:
 
 ```html
 <p>
@@ -57,12 +57,12 @@ Wenn ein Abschnitt von Blockinhalt (sei es ein Absatz, mehrere Absätze, eine Li
 </p>
 ```
 
-Um dies in ein Blockzitat zu verwandeln, würden wir einfach Folgendes tun:
+Um dies in ein Blockzitat umzuwandeln, würden wir einfach Folgendes tun:
 
 ```html
 <p>Here is a blockquote:</p>
 <blockquote
-  cite="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/blockquote">
+  cite="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/blockquote">
   <p>
     The <strong>HTML <code>&lt;blockquote&gt;</code> Element</strong> (or
     <em>HTML Block Quotation Element</em>) indicates that the enclosed text is
@@ -71,42 +71,43 @@ Um dies in ein Blockzitat zu verwandeln, würden wir einfach Folgendes tun:
 </blockquote>
 ```
 
-Die Standard-Formatierung des Browsers wird dies als eingerückten Absatz darstellen, um anzuzeigen, dass es sich um ein Zitat handelt; der Absatz über dem Zitat dient dazu, dies zu demonstrieren.
+Die Standard-Browser-Styling wird dies als eingerückten Absatz anzeigen, als Hinweis darauf, dass es sich um ein Zitat handelt; der Absatz über dem Zitat dient zur Demonstration.
 
 {{EmbedLiveSample('Blockquotes', '100%', '200px')}}
 
 ### Inline-Zitate
 
-Inline-Zitate funktionieren auf genau dieselbe Weise, außer dass sie das {{htmlelement("q")}}-Element verwenden. Zum Beispiel enthält das untenstehende Markup ein Zitat von der MDN-Seite zum `<q>`:
+Inline-Zitate funktionieren genau gleich, außer dass sie das {{htmlelement("q")}}-Element verwenden. Zum Beispiel enthält das folgende Markup einen Abschnitt aus der MDN `<q>`-Seite:
 
 ```html
 <p>
   The quote element — <code>&lt;q&gt;</code> — is
-  <q cite="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/q">
+  <q
+    cite="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/q">
     intended for short quotations that don't require paragraph breaks.
   </q>
 </p>
 ```
 
-Die Standard-Formatierung des Browsers zeigt dies als normalen Text an, der in Anführungszeichen gesetzt wird, um ein Zitat zu kennzeichnen:
+Die Standard-Browser-Styling wird dies als normalen Text anzeigen, der in Anführungszeichen gesetzt ist, um auf ein Zitat hinzuweisen, wie folgt:
 
 {{EmbedLiveSample('Inline_quotations', '100%', '78px')}}
 
 ### Zitate
 
-Der Inhalt des [`cite`](/de/docs/Web/HTML/Element/blockquote#cite)-Attributs klingt nützlich, aber leider machen Browser, Bildschirmleser usw. nicht viel damit. Es gibt keine Möglichkeit, den Inhalt von `cite` im Browser anzuzeigen, ohne eine eigene Lösung mit JavaScript oder CSS zu schreiben. Wenn Sie die Quelle des Zitats auf der Seite verfügbar machen möchten, müssen Sie diese über einen Link oder auf eine andere geeignete Weise im Text zur Verfügung stellen.
+Der Inhalt des [`cite`](/de/docs/Web/HTML/Reference/Elements/blockquote#cite)-Attributs klingt nützlich, jedoch tun Browser, Bildschirmleser usw. damit leider nicht viel. Es gibt keine Möglichkeit, den Browser dazu zu bringen, die Inhalte von `cite` anzuzeigen, ohne eine eigene Lösung mit JavaScript oder CSS zu schreiben. Wenn Sie die Quelle des Zitats auf der Seite verfügbar machen möchten, müssen Sie sie im Text über einen Link oder auf eine andere geeignete Weise verfügbar machen.
 
-Es gibt ein {{htmlelement("cite")}}-Element, aber dieses soll den Titel der zitierten Ressource enthalten, z.B. den Namen des Buches. Es gibt jedoch keinen Grund, warum Sie den Text im `<cite>` nicht auf irgendeine Weise mit der Quelle des Zitats verlinken könnten:
+Es gibt ein {{htmlelement("cite")}}-Element, das jedoch dazu gedacht ist, den Titel der zitierten Ressource zu enthalten, z.B. den Namen des Buches. Es gibt jedoch keinen Grund, warum Sie den Text innerhalb von `<cite>` nicht auf irgendeine Weise mit der Zitatquelle verlinken können:
 
 ```html-nolint
 <p>
   According to the
-  <a href="/en-US/docs/Web/HTML/Element/blockquote">
+  <a href="/en-US/docs/Web/HTML/Reference/Elements/blockquote">
     <cite>MDN blockquote page</cite></a>:
 </p>
 
 <blockquote
-  cite="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/blockquote">
+  cite="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/blockquote">
   <p>
     The <strong>HTML <code>&lt;blockquote&gt;</code> Element</strong> (or
     <em>HTML Block Quotation Element</em>) indicates that the enclosed text is
@@ -116,14 +117,14 @@ Es gibt ein {{htmlelement("cite")}}-Element, aber dieses soll den Titel der ziti
 
 <p>
   The quote element — <code>&lt;q&gt;</code> — is
-  <q cite="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/q">
+  <q cite="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/q">
     intended for short quotations that don't require paragraph breaks.
   </q>
-  — <a href="/en-US/docs/Web/HTML/Element/q"><cite>MDN q page</cite></a>.
+  — <a href="/en-US/docs/Web/HTML/Reference/Elements/q"><cite>MDN q page</cite></a>.
 </p>
 ```
 
-Zitate werden standardmäßig in kursiver Schrift dargestellt.
+Standardmäßig sind Zitate kursiv formatiert.
 
 {{EmbedLiveSample('Citations', '100%', '179px')}}
 
@@ -131,16 +132,16 @@ Zitate werden standardmäßig in kursiver Schrift dargestellt.
 
 Zeit für ein weiteres aktives Lernbeispiel! In diesem Beispiel möchten wir, dass Sie:
 
-1. Den mittleren Absatz in ein Blockzitat verwandeln, das ein `cite`-Attribut enthält.
-2. "The Need To Eliminate Negative Self Talk" im dritten Absatz in ein Inline-Zitat verwandeln und ein `cite`-Attribut hinzufügen.
-3. Den Titel jeder Quelle in `<cite>`-Tags einfügen und jede in einen Link zu dieser Quelle verwandeln.
+1. Den mittleren Absatz in ein Blockzitat umwandeln, das ein `cite`-Attribut enthält.
+2. "The Need To Eliminate Negative Self Talk" im dritten Absatz in ein Inline-Zitat umwandeln und ein `cite`-Attribut hinzufügen.
+3. Den Titel jeder Quelle in `<cite>`-Tags einschließen und jede in einen Link zu dieser Quelle umwandeln.
 
-Die benötigten Zitatquellen sind:
+Die für die Zitate benötigten Quellen sind:
 
-- `http://www.brainyquote.com/quotes/authors/c/confucius.html` für das Zitat von Konfuzius
+- `http://www.brainyquote.com/quotes/authors/c/confucius.html` für das Konfuzius-Zitat
 - `http://example.com/affirmationsforpositivethinking` für "The Need To Eliminate Negative Self Talk".
 
-Sollten Sie einen Fehler machen, können Sie es jederzeit mit der _Zurücksetzen_-Schaltfläche zurücksetzen. Wenn Sie wirklich nicht weiterkommen, drücken Sie die _Lösung anzeigen_-Schaltfläche, um die Antwort zu sehen.
+Wenn Sie einen Fehler machen, können Sie ihn immer mit der _Zurücksetzen_-Schaltfläche zurücksetzen. Wenn Sie wirklich nicht weiterkommen, drücken Sie die _Lösung anzeigen_-Schaltfläche, um die Antwort zu sehen.
 
 ```html hidden
 <h2>Live output</h2>
@@ -273,11 +274,11 @@ textarea.onkeyup = () => {
 
 ## Abkürzungen
 
-Ein weiteres relativ häufiges Element, das Sie im Web antreffen werden, ist {{htmlelement("abbr")}} — dies wird verwendet, um eine Abkürzung oder ein Akronym zu umschließen. Wenn Sie eine von beiden angeben, geben Sie bei der ersten Verwendung eine vollständige Ausschreibung des Begriffs im Klartext zusammen mit dem `<abbr>` an, um die Abkürzung zu markieren. Dies gibt den Benutzeragenten einen Hinweis, wie sie den Inhalt ankündigen/darstellen sollen, während alle Benutzer informiert werden, was die Abkürzung bedeutet.
+Ein weiteres recht häufiges Element, das Sie beim Durchsuchen des Webs antreffen werden, ist {{htmlelement("abbr")}} — dieses wird verwendet, um eine Abkürzung oder ein Akronym zu umschließen. Wenn Sie eines von beiden einfügen, geben Sie bei der ersten Verwendung eine vollständige Entfaltung des Begriffs im Klartext an, zusammen mit dem `<abbr>`, um die Abkürzung zu kennzeichnen. Dies gibt den Benutzeragenten einen Hinweis darauf, wie der Inhalt angekündigt/angezeigt werden soll, und informiert alle Benutzer darüber, was die Abkürzung bedeutet.
 
-Wenn es wenig Sinn macht, die Ausschreibung zusätzlich zur Abkürzung anzugeben, und die Abkürzung oder das Akronym ein recht verkürzter Begriff ist, geben Sie die vollständige Ausschreibung als Wert des [`title`](/de/docs/Web/HTML/Global_attributes/title)-Attributs an:
+Wenn es wenig Sinn macht, die Erweiterung zusätzlich zur Abkürzung anzugeben, und die Abkürzung oder das Akronym ein recht kurzer Begriff ist, geben Sie die vollständige Entfaltung des Begriffs als Wert des [`title`](/de/docs/Web/HTML/Reference/Global_attributes/title)-Attributs an:
 
-### Beispiel für Abkürzungen
+### Abkürzungsbeispiel
 
 Schauen wir uns ein Beispiel an.
 
@@ -293,16 +294,16 @@ Schauen wir uns ein Beispiel an.
 </p>
 ```
 
-Diese werden etwa so aussehen:
+Diese werden ungefähr so aussehen:
 
 {{EmbedLiveSample('Abbreviation_example', '100%', '150')}}
 
 > [!NOTE]
-> Frühere Versionen von HTML enthielten auch Unterstützung für das {{htmlelement("acronym")}}-Element, aber es wurde aus der HTML-Spezifikation entfernt, zugunsten der Verwendung von `<abbr>` zur Darstellung sowohl von Abkürzungen als auch von Akronymen. `<acronym>` sollte nicht verwendet werden.
+> Frühere Versionen von HTML unterstützten auch das {{htmlelement("acronym")}}-Element, aber es wurde aus der HTML-Spezifikation entfernt zugunsten der Verwendung von `<abbr>`, um sowohl Abkürzungen als auch Akronyme darzustellen. `<acronym>` sollte nicht verwendet werden.
 
 ### Aktives Lernen: eine Abkürzung markieren
 
-Für diese einfache aktive Lernaufgabe möchten wir, dass Sie eine Abkürzung markieren. Sie können unser Beispiel unten verwenden oder es durch ein eigenes ersetzen.
+Für diese einfache aktive Lernaufgabe möchten wir, dass Sie eine Abkürzung kennzeichnen. Sie können unser untenstehendes Beispiel verwenden oder es durch ein eigenes ersetzen.
 
 ```html hidden
 <h2>Live output</h2>
@@ -431,9 +432,9 @@ textarea.onkeyup = () => {
 
 {{ EmbedLiveSample('Active_learning_marking_up_an_abbreviation', 700, 300) }}
 
-## Kontaktinformationen markieren
+## Kontaktinformationen kennzeichnen
 
-HTML verfügt über ein Element zum Markieren von Kontaktinformationen — {{htmlelement("address")}}. Dies wird um Ihre Kontaktdaten herum verwendet, zum Beispiel:
+HTML hat ein Element zum Kennzeichnen von Kontaktinformationen — {{htmlelement("address")}}. Dies umschließt Ihre Kontaktinformationen, zum Beispiel:
 
 ```html
 <address>Chris Mills, Manchester, The Grim North, UK</address>
@@ -457,7 +458,7 @@ Es könnte auch komplexeres Markup und andere Formen von Kontaktinformationen en
 </address>
 ```
 
-Beachten Sie, dass auch so etwas in Ordnung wäre, wenn die verlinkte Seite die Kontaktinformationen enthielte:
+Beachten Sie, dass so etwas auch in Ordnung wäre, wenn die verlinkte Seite die Kontaktdaten enthielte:
 
 ```html
 <address>
@@ -466,11 +467,11 @@ Beachten Sie, dass auch so etwas in Ordnung wäre, wenn die verlinkte Seite die 
 ```
 
 > [!NOTE]
-> Das {{htmlelement("address")}}-Element sollte nur verwendet werden, um Kontaktinformationen für das Dokument bereitzustellen, das im nächstgelegenen {{htmlelement("article")}}- oder {{htmlelement("body")}}-Element enthalten ist. Es wäre korrekt, es im Fußbereich einer Website zu verwenden, um die Kontaktinformationen der gesamten Website anzugeben, oder in einem Artikel, um die Kontaktdaten des Autors anzugeben, jedoch nicht, um eine Liste von Adressen zu markieren, die nicht im Zusammenhang mit dem Inhalt dieser Seite stehen.
+> Das {{htmlelement("address")}}-Element sollte nur verwendet werden, um Kontaktinformationen für das Dokument bereitzustellen, das im nächstgelegenen {{htmlelement("article")}}- oder {{htmlelement("body")}}-Element enthalten ist. Es wäre korrekt, es im Footer einer Seite zu benutzen, um die Kontaktdaten der gesamten Seite einzuschließen, oder innerhalb eines Artikels für die Kontaktdaten des Autors, aber nicht, um eine Liste von Adressen zu kennzeichnen, die mit den Inhalten dieser Seite nicht in Zusammenhang stehen.
 
 ## Hoch- und Tiefstellen
 
-Gelegentlich müssen Sie Hoch- und Tiefstellungen verwenden, wenn Sie Dinge wie Daten, chemische Formeln und mathematische Gleichungen markieren, damit sie die richtige Bedeutung haben. Die {{htmlelement("sup")}}- und {{htmlelement("sub")}}-Elemente erledigen diese Aufgabe. Zum Beispiel:
+Sie werden gelegentlich Hoch- und Tiefstellen verwenden müssen, wenn Sie Elemente wie Daten, chemische Formeln und mathematische Gleichungen kennzeichnen, damit sie die korrekte Bedeutung haben. Die {{htmlelement("sup")}}- und {{htmlelement("sub")}}-Elemente übernehmen diese Aufgabe. Zum Beispiel:
 
 ```html
 <p>My birthday is on the 25<sup>th</sup> of May 2001.</p>
@@ -481,23 +482,23 @@ Gelegentlich müssen Sie Hoch- und Tiefstellungen verwenden, wenn Sie Dinge wie 
 <p>If x<sup>2</sup> is 9, x must equal 3 or -3.</p>
 ```
 
-Die Ausgabe dieses Codes sieht so aus:
+Die Ausgabe dieses Codes sieht folgendermaßen aus:
 
 {{ EmbedLiveSample('Superscript_and_subscript', '100%', 160) }}
 
-## Computercode darstellen
+## Darstellung von Computer-Code
 
-Es gibt eine Reihe von Elementen, die zum Markieren von Computercode mit HTML zur Verfügung stehen:
+Es gibt eine Reihe von Elementen, die für die Kennzeichnung von Computer-Code mithilfe von HTML verfügbar sind:
 
-- {{htmlelement("code")}}: Zum Markieren von allgemeinen Teilen von Computercode.
-- {{htmlelement("pre")}}: Zum Beibehalten von Leerzeichen (allgemein für Codeblöcke) — wenn Sie Einrückungen oder überschüssige Leerzeichen in Ihrem Text verwenden, ignorieren Browser dies und Sie sehen es nicht auf Ihrer gerenderten Seite. Wenn Sie den Text jedoch in `<pre></pre>`-Tags einbetten, werden Ihre Leerzeichen genauso wiedergegeben, wie Sie sie in Ihrem Texteditor sehen.
-- {{htmlelement("var")}}: Speziell zum Markieren von Variablennamen.
-- {{htmlelement("kbd")}}: Zum Markieren von Tastatureingaben (und anderen Arten von Eingaben) in den Computer.
-- {{htmlelement("samp")}}: Zum Markieren der Ausgabe eines Computerprogramms.
+- {{htmlelement("code")}}: Zum Kennzeichnen generischer Teile von Computer-Code.
+- {{htmlelement("pre")}}: Zum Beibehalten von Leerzeichen (allgemein Code-Blöcke) — wenn Sie Einrückungen oder übermäßige Leerzeichen innerhalb Ihres Textes verwenden, ignorieren Browser dies und Sie werden es auf Ihrer gerenderten Seite nicht sehen. Wenn Sie den Text jedoch in `<pre></pre>`-Tags umschließen, werden Ihre Leerzeichen identisch mit der Anzeige in Ihrem Texteditor gerendert.
+- {{htmlelement("var")}}: Zum speziellen Kennzeichnen von Variablennamen.
+- {{htmlelement("kbd")}}: Zum Kennzeichnen von Tastatur- (und anderen Arten von) Eingaben, die in den Computer eingegeben werden.
+- {{htmlelement("samp")}}: Zum Kennzeichnen der Ausgabe eines Computerprogramms.
 
-Schauen wir uns Beispiele dieser Elemente an und wie sie verwendet werden, um Computercode darzustellen.
-Wenn Sie die vollständige Datei sehen möchten, schauen Sie sich die [other-semantics.html](https://github.com/mdn/learning-area/blob/main/html/introduction-to-html/advanced-text-formatting/other-semantics.html) Beispieldatei an.
-Sie können die Datei herunterladen und in Ihrem Browser öffnen, um sie selbst zu betrachten, aber hier ist ein Ausschnitt des Codes:
+Schauen wir uns Beispiele für diese Elemente an und wie sie zur Darstellung von Computer-Code verwendet werden.
+Wenn Sie die vollständige Datei sehen möchten, werfen Sie einen Blick auf die [other-semantics.html](https://github.com/mdn/learning-area/blob/main/html/introduction-to-html/advanced-text-formatting/other-semantics.html) Beispieldatei.
+Sie können die Datei herunterladen und in Ihrem Browser öffnen, um sie selbst zu sehen, aber hier ist ein Ausschnitt des Codes:
 
 ```html
 <pre><code>const para = document.querySelector('p');
@@ -523,25 +524,25 @@ para.onclick = function() {
 64 bytes from 63.245.215.20: icmp_seq=0 ttl=40 time=158.233 ms</samp></pre>
 ```
 
-Der obige Code wird ungefähr so aussehen:
+Der obige Code wird wie folgt aussehen:
 
 {{ EmbedLiveSample('Representing_computer_code','100%',350) }}
 
-## Zeiten und Daten markieren
+## Uhrzeiten und Daten kennzeichnen
 
-HTML bietet auch das {{htmlelement("time")}}-Element, um Zeiten und Daten in einem maschinenlesbaren Format zu markieren. Zum Beispiel:
+HTML bietet auch das {{htmlelement("time")}}-Element, um Zeiten und Daten in einem maschinenlesbaren Format zu kennzeichnen. Zum Beispiel:
 
 ```html
 <time datetime="2016-01-20">20 January 2016</time>
 ```
 
-Warum ist das nützlich? Nun, es gibt viele verschiedene Möglichkeiten, wie Menschen Daten aufschreiben. Das obige Datum könnte geschrieben werden als:
+Warum ist dies nützlich? Nun, es gibt viele unterschiedliche Möglichkeiten, wie Menschen Termine aufschreiben. Das obige Datum könnte geschrieben werden als:
 
 <!-- markdownlint-disable MD033 -->
 
 - 20\. Januar 2016
 - 20\. Januar 2016
-- 20\. Jan 2016
+- Jan 20 2016
 - 20/01/16
 - 01/20/16
 - Der 20. des nächsten Monats
@@ -551,9 +552,9 @@ Warum ist das nützlich? Nun, es gibt viele verschiedene Möglichkeiten, wie Men
 
 <!-- markdownlint-enable MD033 -->
 
-Aber diese verschiedenen Formen können von Computern nicht leicht erkannt werden — was, wenn Sie automatisch die Daten aller Ereignisse auf einer Seite erfassen und in einen Kalender einfügen möchten? Das {{htmlelement("time")}}-Element ermöglicht es, eine eindeutige, maschinenlesbare Zeit/Datum dafür anzuhängen.
+Aber diese unterschiedlichen Formen können von Computern nicht leicht erkannt werden — was, wenn Sie automatisch alle Eventdaten auf einer Seite erfassen und in einen Kalender einfügen wollten? Das {{htmlelement("time")}}-Element ermöglicht es Ihnen, eine eindeutige, maschinenlesbare Zeit/Datum für diesen Zweck anzuhängen.
 
-Das obige einfache Beispiel bietet nur ein einfaches maschinenlesbares Datum, aber es gibt viele andere mögliche Optionen:
+Das obige einfache Beispiel bietet nur ein einfaches maschinenlesbares Datum, aber es gibt viele weitere Optionen, die möglich sind, beispielsweise:
 
 ```html
 <!-- Standard simple date -->
@@ -576,12 +577,12 @@ Das obige einfache Beispiel bietet nur ein einfaches maschinenlesbares Datum, ab
 <time datetime="2016-W04">The fourth week of 2016</time>
 ```
 
-## Testen Sie Ihr Wissen!
+## Testen Sie Ihre Fähigkeiten!
 
-Sie haben das Ende dieses Artikels erreicht, aber können Sie sich an die wichtigsten Informationen erinnern? Sie können einige weitere Tests durchführen, um zu überprüfen, ob Sie diese Informationen behalten haben, bevor Sie weitermachen — siehe [Testen Sie Ihr Wissen: Erweiterter HTML-Text](/de/docs/Learn_web_development/Core/Structuring_content/Test_your_skills:_Advanced_HTML_text).
+Sie haben das Ende dieses Artikels erreicht, aber können Sie sich an die wichtigsten Informationen erinnern? Sie können einige weitere Tests finden, um zu überprüfen, ob Sie diese Informationen gespeichert haben, bevor Sie fortfahren — siehe [Testen Sie Ihre Fähigkeiten: Erweiterter HTML-Text](/de/docs/Learn_web_development/Core/Structuring_content/Test_your_skills/Advanced_HTML_text).
 
 ## Zusammenfassung
 
-Damit endet unser Studium der weniger häufigen HTML-Textsemantik. Was Sie in diesem Kurs gesehen haben, ist keine erschöpfende Liste von HTML-Text-Elementen — wir wollten versuchen, die wesentlichen und einige der häufigeren darzustellen, die Sie in freier Wildbahn sehen werden. Als nächstes beschäftigen wir uns mit Links, einem der wichtigsten Merkmale des Webs.
+Damit sind wir am Ende unseres Studiums der weniger verbreiteten HTML-Textsemantik angekommen. Was Sie während dieses Kurses gesehen haben, ist keine erschöpfende Liste von HTML-Text-Elementen — wir wollten versuchen, die wesentlichen und einige der häufigeren abzudecken, die Sie in der Praxis sehen werden. Als Nächstes werden wir uns Links ansehen, eine der wichtigsten Funktionen des Webs.
 
 {{PreviousMenuNext("Learn_web_development/Core/Structuring_content/Structuring_documents", "Learn_web_development/Core/Structuring_content/Creating_links", "Learn_web_development/Core/Structuring_content")}}

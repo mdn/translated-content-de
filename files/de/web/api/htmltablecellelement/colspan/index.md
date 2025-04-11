@@ -3,23 +3,23 @@ title: "HTMLTableCellElement: colSpan-Eigenschaft"
 short-title: colSpan
 slug: Web/API/HTMLTableCellElement/colSpan
 l10n:
-  sourceCommit: d16706e4e930c57161d473287374a9286c663147
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{ APIRef("HTML DOM") }}
 
-Die schreibgeschützte Eigenschaft **`colSpan`** der [`HTMLTableCellElement`](/de/docs/Web/API/HTMLTableCellElement)-Schnittstelle repräsentiert die Anzahl der Spalten, die diese Zelle umfassen muss; dies ermöglicht es der Zelle, Raum über mehrere Spalten der Tabelle hinweg einzunehmen. Sie spiegelt das [`colspan`](/de/docs/Web/HTML/Element/td#colspan)-Attribut wider.
+Die **`colSpan`** Eigenschaft des [`HTMLTableCellElement`](/de/docs/Web/API/HTMLTableCellElement) Schnittstelle gibt an, wie viele Spalten diese Zelle überspannen muss; dies ermöglicht es der Zelle, Platz über mehrere Spalten der Tabelle einzunehmen. Sie entspricht dem [`colspan`](/de/docs/Web/HTML/Reference/Elements/td#colspan) Attribut.
 
 ## Wert
 
-Eine positive Zahl, die die Anzahl der Spalten darstellt.
+Eine positive Zahl, die die Anzahl der Spalten repräsentiert.
 
 > [!NOTE]
-> Beim Festlegen eines neuen Wertes wird der Wert auf die nächste strikt positive Zahl _fixiert_.
+> Beim Setzen eines neuen Wertes wird der Wert auf die nächstgelegene streng positive Zahl _geklammert_.
 
 ## Beispiele
 
-Dieses Beispiel bietet zwei Schaltflächen, um die Spaltenanzahl der ersten Zelle des Körpers zu ändern.
+Dieses Beispiel bietet zwei Schaltflächen, um die Spaltenbreite der ersten Zelle des Körpers zu ändern.
 
 ### HTML
 
@@ -96,7 +96,7 @@ decreaseButton.addEventListener("click", () => {
 });
 ```
 
-### Resultat
+### Ergebnis
 
 {{EmbedLiveSample("Examples", "100%", 175)}}
 

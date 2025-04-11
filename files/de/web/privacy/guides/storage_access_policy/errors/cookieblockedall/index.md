@@ -2,10 +2,10 @@
 title: "Blockiert: Alle Speicherzugriffsanfragen"
 slug: Web/Privacy/Guides/Storage_Access_Policy/Errors/CookieBlockedAll
 l10n:
-  sourceCommit: 775df1c62a1cbe555c4374ff9122d4ef15bd6f60
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
-Eine Anfrage zum Zugriff auf Cookies oder Speicher wurde blockiert, da der Browser alle Speicherzugriffe blockiert.
+Eine Anfrage zum Zugriff auf Cookies oder Speicher wurde blockiert, weil der Browser alle Speicherzugriffe blockiert.
 
 ## Meldung
 
@@ -20,11 +20,11 @@ CookieBlockedAll=Request to access cookies or storage on "X" was blocked because
 Die Berechtigung kann geändert oder entfernt werden durch:
 
 - Gehen Sie zu _Einstellungen > Inhaltsblockierung_
-- Wählen Sie im Abschnitt _Benutzerdefinierte_ Inhaltsblockierung einen anderen Wert als _Alle Cookies_ für das Element _Cookies_
+- In der _Benutzerdefinierten_ Inhaltsblockierungssektion wählen Sie einen anderen Wert als _Alle Cookies_ für das _Cookies_-Element
 
-Wenn die Ressource, die blockiert wird, keine Authentifizierung erfordert, können Sie die Warnmeldung beheben, indem Sie Ihrem Element ein `crossorigin="anonymous"` Attribut hinzufügen.
+Wenn die Ressource, die blockiert wird, keine Authentifizierung benötigt, können Sie die Warnmeldung beheben, indem Sie Ihr Element um ein `crossorigin="anonymous"`-Attribut ergänzen.
 
 ## Siehe auch
 
 - [Inhaltsblockierung](https://support.mozilla.org/en-US/kb/content-blocking) auf [support.mozilla.org](https://support.mozilla.org/)
-- [Das `crossorigin` Attribut](/de/docs/Web/HTML/Attributes/crossorigin)
+- [Das `crossorigin`-Attribut](/de/docs/Web/HTML/Reference/Attributes/crossorigin)

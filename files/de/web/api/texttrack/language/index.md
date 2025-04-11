@@ -3,22 +3,22 @@ title: "TextTrack: language-Eigenschaft"
 short-title: language
 slug: Web/API/TextTrack/language
 l10n:
-  sourceCommit: 5026c14bd6d2b6b377289aadac7eceae9282e806
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{APIRef("WebVTT")}}
 
-Die schreibgeschützte Eigenschaft **`language`** der [`TextTrack`](/de/docs/Web/API/TextTrack)-Schnittstelle gibt die Sprache des Texttracks zurück.
+Die schreibgeschützte **`language`**-Eigenschaft des [`TextTrack`](/de/docs/Web/API/TextTrack)-Interfaces gibt die Sprache des Texttracks zurück.
 
-Dabei werden die gleichen Werte wie beim HTML-Attribut [`lang`](/de/docs/Web/HTML/Global_attributes/lang) verwendet. Diese Werte sind in {{RFC(5646, "Tags for Identifying Languages (auch bekannt als BCP 47)")}} dokumentiert.
+Diese verwendet dieselben Werte wie das HTML-Attribut [`lang`](/de/docs/Web/HTML/Reference/Global_attributes/lang). Diese Werte sind in {{RFC(5646, "Tags for Identifying Languages (auch bekannt als BCP 47)")}} dokumentiert.
 
 ## Wert
 
-Ein String, der einen Sprachcode enthält. Zum Beispiel `"en-US"` für Englisch in den USA oder `"pt-BR"` für Brasilianisches Portugiesisch.
+Ein String, der einen Sprach-Identifikator enthält. Zum Beispiel `"en-US"` für Englisch in den Vereinigten Staaten oder `"pt-BR"` für brasilianisches Portugiesisch.
 
 ## Beispiele
 
-Im folgenden Beispiel wird der Wert von `language` in der Konsole ausgegeben.
+Im folgenden Beispiel wird der Wert von `language` in die Konsole ausgegeben.
 
 ```js
 let video = document.querySelector("video");

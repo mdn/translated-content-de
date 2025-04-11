@@ -3,12 +3,12 @@ title: "HTMLInputElement: list-Eigenschaft"
 short-title: list
 slug: Web/API/HTMLInputElement/list
 l10n:
-  sourceCommit: 46bcde62d3767fdba91163dfa30fa4b9fdaac5a6
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{ApiRef("HTML DOM")}}
 
-Die schreibgeschützte **`list`**-Eigenschaft der [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Schnittstelle gibt das [`HTMLDataListElement`](/de/docs/Web/API/HTMLDataListElement)-Element zurück, auf das durch das [`list`](/de/docs/Web/HTML/Element/input#list)-Attribut des Elements verwiesen wird, oder `null`, wenn das `list`-Attribut nicht definiert ist oder der Wert des `list`-Attributs keinem `<datalist>` im gleichen Baum zugeordnet ist.
+Die **`list`**-Eigenschaft der Schnittstelle [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement) gibt das [`HTMLDataListElement`](/de/docs/Web/API/HTMLDataListElement) zurück, auf das durch das [`list`](/de/docs/Web/HTML/Reference/Elements/input#list)-Attribut des Elements verwiesen wird. Wenn das `list`-Attribut nicht definiert ist oder dessen Wert keinem `<datalist>` im gleichen Baum zugeordnet ist, ist der Wert `null`.
 
 > [!NOTE]
 > Dies ist eine schreibgeschützte Eigenschaft. Um ein `<datalist>` mit einem Element zu verknüpfen, setzen Sie den Wert des `list`-Attributs mit [`setAttribute()`](/de/docs/Web/API/Element/setAttribute).
@@ -19,7 +19,7 @@ Ein [`HTMLDataListElement`](/de/docs/Web/API/HTMLDataListElement) oder `null`.
 
 ## Beispiel
 
-Gegeben folgenden HTML-Code:
+Für das folgende HTML:
 
 ```html
 <label for="planet">Which planet are you from?</label>
@@ -31,7 +31,7 @@ Gegeben folgenden HTML-Code:
 </datalist>
 ```
 
-Sie können das `<datalist>`-Element abrufen, das mit dem `<input>` verknüpft ist:
+Können Sie das `<datalist>`-Element abrufen, das mit dem `<input>` verknüpft ist:
 
 ```js
 const inputElement = document.querySelector("#planet");

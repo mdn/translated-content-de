@@ -2,58 +2,58 @@
 title: HTMLDialogElement
 slug: Web/API/HTMLDialogElement
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{APIRef("HTML DOM")}}
 
-Das **`HTMLDialogElement`**-Interface bietet Methoden zur Manipulation von {{HTMLElement("dialog")}}-Elementen. Es erbt Eigenschaften und Methoden vom [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Interface.
+Die **`HTMLDialogElement`**-Schnittstelle stellt Methoden zum Manipulieren von {{HTMLElement("dialog")}}-Elementen bereit. Sie erbt Eigenschaften und Methoden von der [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Schnittstelle.
 
 {{InheritanceDiagram}}
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
-_Erbt auch Eigenschaften von seinem übergeordneten Interface, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
+_Erbt auch Eigenschaften von ihrer Elternschnittstelle, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
 - [`HTMLDialogElement.open`](/de/docs/Web/API/HTMLDialogElement/open)
-  - : Ein boolescher Wert, der das HTML-Attribut [`open`](/de/docs/Web/HTML/Element/dialog#open) widerspiegelt und angibt, ob der Dialog für Interaktionen verfügbar ist.
+  - : Ein boolescher Wert, der das HTML-Attribut [`open`](/de/docs/Web/HTML/Reference/Elements/dialog#open) widerspiegelt, welches anzeigt, ob der Dialog zur Interaktion verfügbar ist.
 - [`HTMLDialogElement.returnValue`](/de/docs/Web/API/HTMLDialogElement/returnValue)
-  - : Ein String, der den Rückgabewert für den Dialog festlegt oder zurückgibt.
+  - : Ein Zeichenfolgenwert, der den Rückgabewert für das Dialogfeld setzt oder zurückgibt.
 
-## Instanzmethoden
+## Instanz-Methoden
 
-_Erbt auch Methoden von seinem übergeordneten Interface, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
+_Erbt auch Methoden von ihrer Elternschnittstelle, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
 - [`HTMLDialogElement.close()`](/de/docs/Web/API/HTMLDialogElement/close)
-  - : Schließt den Dialog. Ein optionaler String kann als Argument übergeben werden, wodurch der `returnValue` des Dialogs aktualisiert wird.
+  - : Schließt den Dialog. Es kann optional eine Zeichenfolge als Argument übergeben werden, die den `returnValue` des Dialogs aktualisiert.
 - [`HTMLDialogElement.requestClose()`](/de/docs/Web/API/HTMLDialogElement/requestClose)
-  - : Fordert das Schließen des Dialogs an. Ein optionaler String kann als Argument übergeben werden, wodurch der `returnValue` des Dialogs aktualisiert wird.
+  - : Fordert das Schließen des Dialogs an. Es kann optional eine Zeichenfolge als Argument übergeben werden, die den `returnValue` des Dialogs aktualisiert.
 - [`HTMLDialogElement.show()`](/de/docs/Web/API/HTMLDialogElement/show)
-  - : Zeigt den Dialog ohne Modus an, d.h. Interaktionen mit Inhalten außerhalb des Dialogs sind weiterhin möglich.
+  - : Zeigt den Dialog modellfrei an, d.h. es ist weiterhin möglich, mit Inhalten außerhalb des Dialogs zu interagieren.
 - [`HTMLDialogElement.showModal()`](/de/docs/Web/API/HTMLDialogElement/showModal)
-  - : Zeigt den Dialog als Modal an, über jedem anderen möglicherweise vorhandenen Dialog. Alles außerhalb des Dialogs ist [inert](/de/docs/Web/API/HTMLElement/inert) und Interaktionen außerhalb des Dialogs werden blockiert.
+  - : Zeigt den Dialog als modales Fenster an, über allen anderen möglicherweise vorhandenen Dialogen. Alles außerhalb des Dialogs ist [inert](/de/docs/Web/API/HTMLElement/inert) und Interaktionen außerhalb des Dialogs werden blockiert.
 
 ## Ereignisse
 
-_Erbt auch Ereignisse von seinem übergeordneten Interface, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
+_Erbt auch Ereignisse von ihrer Elternschnittstelle, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
-Verwenden Sie diese Ereignisse mit [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder indem Sie dieser Schnittstelle einen Ereignislistener auf die `oneventname`-Eigenschaft zuweisen.
+Diese Ereignisse können Sie mit [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) abhören oder einen Ereignis-Listener der `oneventname`-Eigenschaft dieser Schnittstelle zuweisen.
 
 - [`cancel`](/de/docs/Web/API/HTMLDialogElement/cancel_event)
-  - : Wird ausgelöst, wenn das Schließen des Dialogs angefordert wird, sei es mit der Escape-Taste oder durch die Methode `HTMLDialogElement.requestClose()`.
+  - : Wird ausgelöst, wenn der Dialog das Schließen angefordert wird, sei es mit der Escape-Taste oder über die Methode `HTMLDialogElement.requestClose()`.
 - [`close`](/de/docs/Web/API/HTMLDialogElement/close_event)
-  - : Wird ausgelöst, wenn der Dialog geschlossen wird, sei es mit der Escape-Taste, der Methode `HTMLDialogElement.close()` oder durch die Übermittlung eines Formulars innerhalb des Dialogs mit [`method="dialog"`](/de/docs/Web/HTML/Element/form#method).
+  - : Wird ausgelöst, wenn der Dialog geschlossen wird, sei es mit der Escape-Taste, der Methode `HTMLDialogElement.close()` oder durch das Absenden eines Formulars innerhalb des Dialogs mit [`method="dialog"`](/de/docs/Web/HTML/Reference/Elements/form#method).
 
 ## Beispiele
 
-### Öffnen eines modalen Dialogs
+### Ein modaler Dialog öffnen
 
-Das folgende Beispiel zeigt eine Schaltfläche, die beim Klicken, die Funktion [`HTMLDialogElement.showModal()`](/de/docs/Web/API/HTMLDialogElement/showModal) verwendet, um einen modalen {{htmlelement("dialog")}} mit einem Formular zu öffnen.
+Das folgende Beispiel zeigt eine Schaltfläche, die beim Klicken die Funktion [`HTMLDialogElement.showModal()`](/de/docs/Web/API/HTMLDialogElement/showModal) verwendet, um ein modales {{htmlelement("dialog")}} mit einem Formular zu öffnen.
 
-Während der Dialog geöffnet ist, sind alle anderen Inhalte als der Inhalt des modalen Dialogs inert.
-Sie können auf die Schaltfläche _Abbrechen_ klicken, um den Dialog zu schließen (über die Funktion [`HTMLDialogElement.close()`](/de/docs/Web/API/HTMLDialogElement/close)), oder das Formular über die Schaltfläche _Bestätigen_ absenden.
+Während es geöffnet ist, ist alles andere als der Inhalt des modalen Dialogs inert.
+Sie können auf die _Abbrechen_-Schaltfläche klicken, um den Dialog über die Funktion [`HTMLDialogElement.close()`](/de/docs/Web/API/HTMLDialogElement/close) zu schließen, oder das Formular über die _Bestätigen_-Schaltfläche absenden.
 
-Das Beispiel zeigt, wie Sie alle "Zustandsänderungs"-Ereignisse verwenden könnten, die auf dem Dialog ausgelöst werden können: [`cancel`](/de/docs/Web/API/HTMLDialogElement/cancel_event) und [`close`](/de/docs/Web/API/HTMLDialogElement/close_event) sowie die geerbten Ereignisse [`beforetoggle`](/de/docs/Web/API/HTMLElement/beforetoggle_event) und [`toggle`](/de/docs/Web/API/HTMLElement/toggle_event).
+Das Beispiel demonstriert, wie Sie alle "Zustandsänderung"-Ereignisse nutzen können, die im Dialog ausgelöst werden können: [`cancel`](/de/docs/Web/API/HTMLDialogElement/cancel_event) und [`close`](/de/docs/Web/API/HTMLDialogElement/close_event), und die geerbten Ereignisse [`beforetoggle`](/de/docs/Web/API/HTMLElement/beforetoggle_event) und [`toggle`](/de/docs/Web/API/HTMLElement/toggle_event).
 
 #### HTML
 
@@ -105,10 +105,10 @@ function log(text) {
 
 #### JavaScript
 
-##### Anzeigen des Dialogs
+##### Den Dialog anzeigen
 
-Der Code erfasst zuerst Objekte für die {{htmlelement("button")}}-Elemente, das {{htmlelement("dialog")}}-Element und das {{htmlelement("select")}}-Element.
-Anschließend wird ein Listener hinzugefügt, um die Funktion [`HTMLDialogElement.showModal()`](/de/docs/Web/API/HTMLDialogElement/showModal) aufzurufen, wenn die Schaltfläche _Aktualisieren_ angeklickt wird.
+Der Code erhält zunächst Objekte für die {{htmlelement("button")}}-Elemente, das {{htmlelement("dialog")}}-Element und das {{htmlelement("select")}}-Element.
+Dann wird ein Listener hinzugefügt, der die Funktion [`HTMLDialogElement.showModal()`](/de/docs/Web/API/HTMLDialogElement/showModal) aufruft, wenn die _Aktualisieren_-Schaltfläche geklickt wird.
 
 ```js
 const updateButton = document.getElementById("updateDetails");
@@ -123,10 +123,10 @@ updateButton.addEventListener("click", () => {
 });
 ```
 
-##### Bestätigungs- und Abbruchs-Buttons
+##### Abbrechen- und Bestätigen-Schaltflächen
 
-Als nächstes fügen wir Listener für die `click`-Ereignisse der Schaltflächen _Bestätigen_ und _Abbrechen_ hinzu.
-Die Handler rufen [`HTMLDialogElement.close()`](/de/docs/Web/API/HTMLDialogElement/close) mit dem Auswahlwert (falls vorhanden) und ohne Wert auf, was wiederum den Rückgabewert des Dialogs ([`HTMLDialogElement.returnValue`](/de/docs/Web/API/HTMLDialogElement/returnValue)) auf den Auswahlwert und `null` festlegt.
+Als Nächstes fügen wir Listener für die `click`-Ereignisse der _Bestätigen_- und _Abbrechen_-Schaltflächen hinzu.
+Die Handler rufen [`HTMLDialogElement.close()`](/de/docs/Web/API/HTMLDialogElement/close) auf, mit dem Auswahlswert (falls vorhanden) und keinem Wert, wodurch der Rückgabewert des Dialogs ([`HTMLDialogElement.returnValue`](/de/docs/Web/API/HTMLDialogElement/returnValue)) auf den Auswahlswert bzw. `null` gesetzt wird.
 
 ```js
 // Confirm button closes dialog if there is a selection.
@@ -144,7 +144,7 @@ cancelButton.addEventListener("click", () => {
 ```
 
 Der Aufruf von `close()` löst auch das [`close`](/de/docs/Web/API/HTMLDialogElement/close_event)-Ereignis aus, das wir unten implementieren, indem wir den Rückgabewert des Dialogs protokollieren.
-Wenn die Schaltfläche _Bestätigen_ angeklickt wurde, sollte dies der im Dialog ausgewählte Wert sein, andernfalls sollte es `null` sein.
+Wenn die _Bestätigen_-Schaltfläche geklickt wurde, sollte dies der ausgewählte Wert im Dialog sein, andernfalls sollte es `null` sein.
 
 ```js
 dialog.addEventListener("close", (event) => {
@@ -152,12 +152,12 @@ dialog.addEventListener("close", (event) => {
 });
 ```
 
-##### Abbruchereignis
+##### Cancel-Ereignis
 
-Das [`cancel`](/de/docs/Web/API/HTMLDialogElement/cancel_event)-Ereignis wird ausgelöst, wenn "plattform-spezifische Methoden" verwendet werden, um den Dialog zu schließen, wie zum Beispiel die <kbd>Esc</kbd>-Taste.
+Das [`cancel`](/de/docs/Web/API/HTMLDialogElement/cancel_event)-Ereignis wird ausgelöst, wenn "plattform-spezifische Methoden" verwendet werden, um den Dialog zu schließen, wie die <kbd>Esc</kbd>-Taste.
 Es wird auch ausgelöst, wenn die Methode `HTMLDialogElement.requestClose()` aufgerufen wird.
-Das Ereignis ist "stornierbar", was bedeutet, dass wir es verwenden könnten, um zu verhindern, dass der Dialog geschlossen wird.
-Hier behandeln wir das Abbrechen einfach als eine "Schließen"-Operation und setzen den [`HTMLDialogElement.returnValue`](/de/docs/Web/API/HTMLDialogElement/returnValue) auf `""`, um alle möglicherweise festgelegten Werte zu löschen.
+Das Ereignis ist "cancelable", was bedeutet, dass wir es verwenden könnten, um das Schließen des Dialogs zu verhindern.
+Hier behandeln wir den Abbruch einfach als "Schließen"-Operation und setzen den [`HTMLDialogElement.returnValue`](/de/docs/Web/API/HTMLDialogElement/returnValue) auf `""`, um jeden Wert zu löschen, der möglicherweise gesetzt wurde.
 
 ```js
 dialog.addEventListener("cancel", (event) => {
@@ -166,15 +166,15 @@ dialog.addEventListener("cancel", (event) => {
 });
 ```
 
-##### Umschalt-Ereignis
+##### Toggle-Ereignis
 
-Das [`toggle` event](/de/docs/Web/API/HTMLElement/toggle_event) (geerbt von `HTMLElement`) wird direkt nach dem Öffnen oder Schließen eines Dialogs ausgelöst (aber vor dem `closed`-Ereignis).
+Das [`toggle`-Ereignis](/de/docs/Web/API/HTMLElement/toggle_event) (geerbt von `HTMLElement`) wird unmittelbar nach dem Öffnen oder Schließen eines Dialogs ausgelöst (aber vor dem `closed`-Ereignis).
 
 Hier fügen wir einen Listener hinzu, um zu protokollieren, wann der Dialog geöffnet und geschlossen wird.
 
 > [!NOTE]
-> Die `toggle`- und `beforetoggle`-Ereignisse werden möglicherweise nicht in allen Browsern auf Dialogelementen ausgelöst.
-> In diesen Browserversionen können Sie stattdessen die Eigenschaft [`HTMLDialogElement.open`](/de/docs/Web/API/HTMLDialogElement/open) prüfen, nachdem versucht wurde, den Dialog zu öffnen/schließen.
+> Die Ereignisse `toggle` und `beforetoggle` werden möglicherweise nicht auf allen Browsern bei Dialogelementen ausgelöst.
+> In diesen Browserversionen können Sie stattdessen die Eigenschaft [`HTMLDialogElement.open`](/de/docs/Web/API/HTMLDialogElement/open) nach dem Versuch, den Dialog zu öffnen/zu schließen, überprüfen.
 
 ```js
 dialog.addEventListener("toggle", (event) => {
@@ -184,10 +184,10 @@ dialog.addEventListener("toggle", (event) => {
 
 ##### Beforetoggle-Ereignis
 
-Das [`beforetoggle` event](/de/docs/Web/API/HTMLElement/beforetoggle_event) (geerbt von `HTMLElement`) ist ein stornierbares Ereignis, das direkt bevor ein Dialog geöffnet oder geschlossen wird, ausgelöst wird.
-Falls erforderlich, kann dies verwendet werden, um zu verhindern, dass ein Dialog angezeigt wird, oder um Aktionen für andere Elemente auszuführen, die vom Öffnungs-/Schließstatus des Dialogs beeinflusst werden, wie das Hinzufügen von Klassen auf ihnen, um Animationen auszulösen.
+Das [`beforetoggle`-Ereignis](/de/docs/Web/API/HTMLElement/beforetoggle_event) (geerbt von `HTMLElement`) ist ein abbrechbares Ereignis, das unmittelbar bevor ein Dialog geöffnet oder geschlossen wird, ausgelöst wird.
+Falls erforderlich, kann dies verwendet werden, um zu verhindern, dass ein Dialog angezeigt wird, oder um Aktionen auf anderen Elementen auszuführen, die vom Dialogzustand zum Öffnen/Schließen betroffen sind, wie z.B. das Hinzufügen von Klassen zu ihnen, um Animationen auszulösen.
 
-In diesem Fall protokollieren wir nur den alten und neuen Status.
+In diesem Fall protokollieren wir nur den alten und neuen Zustand.
 
 ```js
 dialog.addEventListener("beforetoggle", (event) => {
@@ -206,8 +206,8 @@ dialog.addEventListener("beforetoggle", (event) => {
 
 #### Ergebnis
 
-Probieren Sie das Beispiel unten aus.
-Beachten Sie, dass sowohl die Schaltflächen `Bestätigen` als auch `Abbrechen` das Auslösen des `close`-Ereignisses zur Folge haben, und dass das Ergebnis die ausgewählte Dialogoption widerspiegeln sollte.
+Probieren Sie das folgende Beispiel aus.
+Beachten Sie, dass sowohl die _Bestätigen_- als auch die _Abbrechen_-Schaltflächen das `close`-Ereignis auslösen und dass das Ergebnis die im Dialog ausgewählte Option widerspiegeln sollte.
 
 {{EmbedLiveSample("Opening a modal dialog", '100%', "250px")}}
 
@@ -221,4 +221,4 @@ Beachten Sie, dass sowohl die Schaltflächen `Bestätigen` als auch `Abbrechen` 
 
 ## Siehe auch
 
-- Das HTML-Element, das dieses Interface implementiert: {{ HTMLElement("dialog") }}.
+- Das HTML-Element, das diese Schnittstelle implementiert: {{HTMLElement("dialog")}}.

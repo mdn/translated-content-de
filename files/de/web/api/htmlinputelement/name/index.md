@@ -3,20 +3,20 @@ title: "HTMLInputElement: name-Eigenschaft"
 short-title: name
 slug: Web/API/HTMLInputElement/name
 l10n:
-  sourceCommit: bc141099823c9ae2e46f560ac674be2bc4118351
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{ApiRef("HTML DOM")}}
 
-Die **`name`**-Eigenschaft des [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Interfaces gibt den Namen des {{HTMLElement("input")}}-Elements an. Sie spiegelt das [`name`](/de/docs/Web/HTML/Element/input#name)-Attribut des Elements wider.
+Die **`name`**-Eigenschaft des [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Interfaces gibt den Namen des {{HTMLElement("input")}}-Elements an. Sie spiegelt das [`name`](/de/docs/Web/HTML/Reference/Elements/input#name)-Attribut des Elements wider.
 
 ## Wert
 
-Ein String, der den Namen des Elements repräsentiert.
+Ein String, der den Namen des Elements darstellt.
 
 ## Beispiel
 
-Gegeben folgendes HTML:
+Angenommen, Sie haben das folgende HTML:
 
 ```html
 <p>
@@ -25,7 +25,7 @@ Gegeben folgendes HTML:
 </p>
 ```
 
-Sie können die `name`-Eigenschaft verwenden, um den Namen des `<input>` zu erhalten oder festzulegen:
+Sie können die `name`-Eigenschaft verwenden, um den Namen des `<input>`-Elements abzurufen oder festzulegen:
 
 ```js
 const inputElement = document.querySelector("#planet");

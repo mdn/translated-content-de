@@ -1,20 +1,20 @@
 ---
-title: "HTMLButtonElement: Eigenschaft validationMessage"
+title: "HTMLButtonElement: validationMessage-Eigenschaft"
 short-title: validationMessage
 slug: Web/API/HTMLButtonElement/validationMessage
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`validationMessage`** schreibgeschützte Eigenschaft der [`HTMLButtonElement`](/de/docs/Web/API/HTMLButtonElement)-Schnittstelle gibt eine Zeichenkette zurück, die eine lokalisierte Nachricht darstellt, welche die Validierungsbeschränkungen beschreibt, die das {{htmlelement("button")}}-Steuerelement nicht erfüllt (falls vorhanden). Diese ist eine leere Zeichenkette, wenn das Steuerelement kein Kandidat für die Einschränkungsvalidierung ist (der `<button>`-[`type`](/de/docs/Web/HTML/Element/button#type) ist `button` oder `reset`) oder wenn es seine Einschränkungen erfüllt.
+Die schreibgeschützte Eigenschaft **`validationMessage`** des [`HTMLButtonElement`](/de/docs/Web/API/HTMLButtonElement)-Interfaces gibt eine Zeichenfolge zurück, die eine lokalisierte Nachricht beschreibt, welche die Validierungseinschränkungen des {{htmlelement("button")}}-Steuerungselements, die nicht erfüllt sind (falls vorhanden), darstellt. Dies ist eine leere Zeichenfolge, wenn das Steuerungselement kein Kandidat für die Einschränkungsvalidierung ist (der `<button>` [`type`](/de/docs/Web/HTML/Reference/Elements/button#type) ist `button` oder `reset`), oder wenn es seine Einschränkungen erfüllt.
 
-Wenn der `<button>` ein Kandidat für die Einschränkungsvalidierung ist (der `type` ist gesetzt oder standardmäßig `submit` und [`HTMLButtonElement.willValidate`](/de/docs/Web/API/HTMLButtonElement/willValidate) ist `true`) und die Einschränkungen nicht erfüllt sind (es gibt einen nicht-null [`ValidityState.customError`](/de/docs/Web/API/ValidityState/customError)), dann ist der Wert die Fehlermeldung, die dem Benutzer während der Elementvalidierung angezeigt werden würde.
+Wenn der `<button>` ein Kandidat für die Einschränkungsvalidierung ist (der `type` ist auf `submit` gesetzt oder hat diesen als Standardwert und [`HTMLButtonElement.willValidate`](/de/docs/Web/API/HTMLButtonElement/willValidate) ist `true`) und die Einschränkungen nicht erfüllt sind (es gibt einen nicht-null [`ValidityState.customError`](/de/docs/Web/API/ValidityState/customError)), ist der Wert die Fehlermeldung, die dem Benutzer während der Elementvalidierung angezeigt würde.
 
 ## Wert
 
-Eine Zeichenkette.
+Eine Zeichenfolge.
 
 ## Spezifikationen
 
@@ -33,6 +33,6 @@ Eine Zeichenkette.
 - [`HTMLButtonElement.checkValidity()`](/de/docs/Web/API/HTMLButtonElement/checkValidity)
 - [`HTMLButtonElement.reportValidity()`](/de/docs/Web/API/HTMLButtonElement/reportValidity)
 - [`HTMLButtonElement.setCustomValidity()`](/de/docs/Web/API/HTMLButtonElement/setCustomValidity)
-- [Erfahren Sie mehr: Client-seitige Formularvalidierung](/de/docs/Learn_web_development/Extensions/Forms/Form_validation)
-- [Leitfaden: Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation)
+- [Lernen: Validierung von Formularen auf der Client-Seite](/de/docs/Learn_web_development/Extensions/Forms/Form_validation)
+- [Leitfaden: Einschränkungsvalidierung](/de/docs/Web/HTML/Guides/Constraint_validation)
 - CSS {{cssxref(":valid")}} und {{cssxref(":invalid")}} Pseudoklassen

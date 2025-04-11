@@ -1,30 +1,33 @@
 ---
-title: "CSPViolationReportBody: originalPolicy-Eigenschaft"
+title: "CSPViolationReportBody: Eigenschaft originalPolicy"
 short-title: originalPolicy
 slug: Web/API/CSPViolationReportBody/originalPolicy
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{APIRef("Reporting API")}}
 
-Die schreibgeschützte Eigenschaft **`originalPolicy`** der Schnittstelle [`CSPViolationReportBody`](/de/docs/Web/API/CSPViolationReportBody) ist ein String, der die [Content Security Policy (CSP)](/de/docs/Web/HTTP/Guides/CSP) darstellt, deren Durchsetzung die Verletzung aufgedeckt hat.
+Die schreibgeschützte Eigenschaft **`originalPolicy`** der Schnittstelle [`CSPViolationReportBody`](/de/docs/Web/API/CSPViolationReportBody) ist ein String, der die [Content Security Policy (CSP)](/de/docs/Web/HTTP/Guides/CSP) darstellt, deren Durchsetzung den Verstoß aufgedeckt hat.
 
-Dies ist der String im {{HTTPHeader("Content-Security-Policy")}} HTTP-Antwortheader, der die Liste der [Direktiven](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy#directives) und deren Werte enthält, die die CSP-Policy ausmachen. Beachten Sie, dass dies sich von der [`effectiveDirective`](/de/docs/Web/API/CSPViolationReportBody/effectiveDirective) unterscheidet, die die spezifische Direktive ist, die tatsächlich verletzt wird (und die möglicherweise nicht explizit in der Richtlinie aufgeführt ist, wenn `default-src` verwendet wird).
+Dies ist der String im {{HTTPHeader("Content-Security-Policy")}} HTTP-Antwortheader, der die Liste von [Direktiven](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy#directives) und deren Werte enthält, die die CSP-Richtlinie bilden.
+Beachten Sie, dass sich dies von der [`effectiveDirective`](/de/docs/Web/API/CSPViolationReportBody/effectiveDirective) unterscheidet, welche die spezifische Direktive ist, die tatsächlich verletzt wird (und die möglicherweise nicht explizit in der Richtlinie aufgeführt ist, wenn `default-src` verwendet wird).
 
 ## Wert
 
-Ein String, der die Richtlinie darstellt, deren Durchsetzung die Verletzung aufgedeckt hat.
+Ein String, der die Richtlinie darstellt, deren Durchsetzung den Verstoß aufgedeckt hat.
 
 ## Beispiele
 
-### CSP-Verletzung durch Inline-Script
+### CSP-Verstoß durch Inline-Skript
 
-Dieses Beispiel löst eine CSP-Verletzung durch ein Inline-Script aus und meldet die Verletzung mit einem [`ReportingObserver`](/de/docs/Web/API/ReportingObserver). Dabei werden insbesondere die `effectiveDirective` und die `originalPolicy` protokolliert, um den Unterschied deutlich zu machen.
+Dieses Beispiel löst einen CSP-Verstoß durch ein Inline-Skript aus und meldet den Verstoß mithilfe eines [`ReportingObserver`](/de/docs/Web/API/ReportingObserver).
+Insbesondere werden die `effectiveDirective` und die `originalPolicy` protokolliert, um den Unterschied deutlich zu machen.
 
 #### HTML
 
-Die folgende HTML-Datei verwendet das [`<meta>`](/de/docs/Web/HTML/Element/meta)-Element, um die {{httpheader('Content-Security-Policy')}} `default-src` auf `self` zu setzen, was es ermöglicht, Skripte und andere Ressourcen von derselben Domain zu laden, aber Inline-Skripte nicht auszuführen. Das Dokument enthält auch ein Inline-Script, das eine CSP-Verletzung auslösen sollte.
+Die HTML-Datei unten verwendet das [`<meta>`](/de/docs/Web/HTML/Reference/Elements/meta)-Element, um den {{httpheader('Content-Security-Policy')}} `default-src` auf `self` zu setzen, was erlaubt, dass Skripte und andere Ressourcen von derselben Domain geladen werden, jedoch nicht zulässt, dass Inline-Skripte ausgeführt werden.
+Das Dokument enthält auch ein Inline-Skript, das einen CSP-Verstoß auslösen sollte.
 
 ```html
 <!doctype html>
@@ -51,9 +54,11 @@ Die folgende HTML-Datei verwendet das [`<meta>`](/de/docs/Web/HTML/Element/meta)
 
 #### JavaScript (main.js)
 
-Das oben genannte Dokument lädt auch das externe Skript `main.js`, welches unten gezeigt wird. Da es von derselben Domain wie das HTML geladen wird, wird es nicht von der CSP blockiert.
+Das obige Dokument lädt auch das externe Skript `main.js`, das unten gezeigt wird.
+Da dieses vom selben Domain wie das HTML geladen wird, wird es von der CSP nicht blockiert.
 
-Das Skript erstellt einen neuen [`ReportingObserver`](/de/docs/Web/API/ReportingObserver), um Berichte über Inhaltsverletzungen des Typs `"csp-violation"` zu beobachten. Jedes Mal, wenn die Callback-Funktion aufgerufen wird, erhalten wir den Körper des ersten Eintrags des Berichts-Arrays und verwenden ihn, um die `effectiveDirective` und `originalPolicy` der Verletzung in der Konsole zu protokollieren.
+Das Skript erstellt einen neuen [`ReportingObserver`](/de/docs/Web/API/ReportingObserver), um Berichte über Inhaltsverstöße des Typs `"csp-violation"` zu beobachten.
+Jedes Mal, wenn die Callback-Funktion aufgerufen wird, erhalten wir den Körper des ersten Eintrags des Berichtarrays und verwenden ihn, um die `effectiveDirective` und `originalPolicy` des Verstoßes in der Konsole zu protokollieren.
 
 ```js
 // main.js
@@ -73,20 +78,21 @@ const observer = new ReportingObserver(
 observer.observe();
 ```
 
-Beachten Sie, dass es mehrere Berichte im zurückgegebenen Array geben kann, aus Gründen der Kürze protokollieren wir jedoch nur die Werte des ersten Elements.
+Beachten Sie, dass es möglicherweise mehrere Berichte im zurückgegebenen Array geben könnte, wir jedoch der Kürze halber nur die Werte des ersten Elements protokollieren.
 
 #### Ergebnisse
 
-Die Konsolenausgabe für den obigen Code ist:
+Die Konsolenausgabe für den obigen Code lautet:
 
 ```plain
 effectiveDirective: script-src-elem
 originalPolicy: default-src 'self'; report-to csp-endpoint
 ```
 
-Beachten Sie, dass die `originalPolicy` dem `<meta>`-Inhalt der `Content-Security-Policy`-Direktive im HTML entspricht und angibt, dass die Richtlinie standardmäßig `self` ist (`default-src 'self'`).
+Beachten Sie, dass die `originalPolicy` dem `<meta>`-Inhalt der `Content-Security-Policy`-Direktive im HTML entspricht und festlegt, dass die Richtlinie standardmäßig `self` ist (`default-src 'self'`).
 
-Die `effectiveDirective` ist `script-src-elem`, die gültige Quellen für JavaScript {{htmlelement("script")}}-Elemente spezifiziert. Dies ist die spezifische Direktive, die tatsächlich verletzt wurde, obwohl `default-src` in der Richtlinie festgelegt wurde.
+Die `effectiveDirective` ist `script-src-elem`, die gültige Quellen für JavaScript-{{htmlelement("script")}}-Elemente spezifiziert.
+Dies ist die spezifische Direktive, die tatsächlich verletzt wurde, obwohl `default-src` in der Richtlinie festgelegt wurde.
 
 ## Spezifikationen
 

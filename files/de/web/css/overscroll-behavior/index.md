@@ -2,12 +2,12 @@
 title: overscroll-behavior
 slug: Web/CSS/overscroll-behavior
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{CSSRef}}
 
-Die **`overscroll-behavior`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt fest, was ein Browser tut, wenn er den Rand eines Scrollbereichs erreicht.
+Die **`overscroll-behavior`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, was ein Browser tut, wenn er das Ende eines Scrollbereichs erreicht.
 
 {{InteractiveExample("CSS Demo: overscroll-behavior")}}
 
@@ -82,7 +82,7 @@ overscroll-behavior: none;
 }
 ```
 
-## Bestandteilige Eigenschaften
+## Zukünftige Eigenschaften
 
 Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
 
@@ -108,26 +108,26 @@ overscroll-behavior: revert-layer;
 overscroll-behavior: unset;
 ```
 
-Die `overscroll-behavior`-Eigenschaft wird als eines oder zwei Schlüsselwörter aus der unten stehenden Werteliste angegeben.
+Die `overscroll-behavior` Eigenschaft wird als eines oder zwei Schlüsselwörter aus der unten stehenden Werteliste angegeben.
 
-Zwei Schlüsselwörter spezifizieren den `overscroll-behavior`-Wert auf den `x`- und `y`-Achsen respektive. Wenn nur ein Wert angegeben wird, wird für beide Achsen derselbe Wert angenommen.
+Zwei Schlüsselwörter spezifizieren den `overscroll-behavior` Wert auf der `x`- und `y`-Achse. Wenn nur ein Wert angegeben wird, haben sowohl x als auch y denselben Wert.
 
 ### Werte
 
 - `auto`
-  - : Das Standardverhalten bei Überlauf von Scrolls tritt wie gewohnt auf.
+  - : Das Standardverhalten für überlaufendes Scrollen erfolgt wie gewohnt.
 - `contain`
-  - : Das Standardverhalten bei Überlauf von Scrolls (z.B. „Bounce“-Effekte) wird innerhalb des Elements beobachtet, in dem dieser Wert gesetzt ist. Es tritt jedoch kein Scroll-Chaining bei angrenzenden Scrollbereichen auf; die darunter liegenden Elemente scrollen nicht. Der `contain`-Wert deaktiviert die native Browser-Navigation, einschließlich der vertikalen Pull-to-Refresh-Geste und der horizontalen Wischnavigation.
+  - : Standardmäßig wird das Verhalten für überlaufendes Scrollen (z.B. "Bounce"-Effekte) innerhalb des Elements beobachtet, auf dem dieser Wert gesetzt ist. Es findet jedoch keine Verkettung des Scrolls auf benachbarte Scrollbereiche statt; die zugrunde liegenden Elemente scrollen nicht. Der Wert `contain` deaktiviert die native Browser-Navigation, einschließlich der vertikalen Geste „pull-to-refresh“ und horizontaler Wischnavigation.
 - `none`
-  - : Es tritt kein Scroll-Chaining bei angrenzenden Scrollbereichen auf, und das Standardverhalten bei Überlauf von Scrolls wird verhindert.
+  - : Es findet keine Verkettung des Scrolls auf benachbarte Scrollbereiche statt, und das Standardverhalten für überlaufendes Scrollen wird verhindert.
 
 ## Beschreibung
 
-Standardmäßig neigen mobile Browser dazu, einen "Bounce"-Effekt oder sogar eine Seitenaktualisierung zu liefern, wenn der obere oder untere Rand einer Seite (oder eines anderen Scrollbereichs) erreicht wird. Sie haben vielleicht auch bemerkt, dass wenn Sie ein Dialogfeld mit scrollbarem Inhalt am oberen Rand einer Seite haben, die auch scrollbare Inhalte hat, sobald der {{Glossary("Scroll_boundary", "Scrollrand")}} des Dialogfeldes erreicht ist, die darunter liegende Seite zu scrollen beginnt – dies wird als {{Glossary("Scroll_chaining", "Scroll-Chaining")}} bezeichnet.
+Standardmäßig neigen mobile Browser dazu, einen "Bounce"-Effekt oder sogar eine Seitenaktualisierung anzubieten, wenn das obere oder untere Ende einer Seite (oder eines anderen Scrollbereichs) erreicht wird. Es ist Ihnen möglicherweise auch aufgefallen, dass, wenn Sie ein Dialogfeld mit scrollenden Inhalten oben auf einer Seite haben, die ebenfalls scrollenden Inhalte enthält, sobald das {{Glossary("Scroll_boundary", "Scroll-Limit")}} des Dialogfelds erreicht ist, die zugrunde liegende Seite zu scrollen beginnt — dies wird als {{Glossary("Scroll_chaining", "Scroll-Verkettung")}} bezeichnet.
 
-In einigen Fällen sind diese Verhaltensweisen nicht erwünscht. Sie können `overscroll-behavior` verwenden, um unerwünschtes Scroll-Chaining und das "Pull-to-Refresh"-Verhalten des Browsers, wie es bei der Facebook-/Twitter-App inspiriert ist, zu beseitigen.
+In einigen Fällen sind diese Verhaltensweisen nicht wünschenswert. Sie können `overscroll-behavior` verwenden, um unerwünschte Scroll-Verkettungen und das von den Apps von Facebook/Twitter inspirierte "pull-to-refresh"-Verhalten des Browsers zu beseitigen.
 
-Beachten Sie, dass diese Eigenschaft nur für {{Glossary("Scroll_container", "Scroll-Container")}} gilt. Insbesondere da ein [`<iframe>`](/de/docs/Web/HTML/Element/iframe) kein Scroll-Container ist, hat das Setzen dieser Eigenschaft auf einem iframe keinen Effekt. Um das Scroll-Chaining von einem iframe zu steuern, setzen Sie `overscroll-behavior` sowohl auf die [`<html>`](/de/docs/Web/HTML/Element/html)- als auch die [`<body>`](/de/docs/Web/HTML/Element/body)-Elemente des Dokuments des iframes.
+Beachten Sie, dass sich diese Eigenschaft nur auf {{Glossary("Scroll_container", "Scroll-Container")}} auswirkt. Insbesondere, da ein [`<iframe>`](/de/docs/Web/HTML/Reference/Elements/iframe) kein Scroll-Container ist, hat das Setzen dieser Eigenschaft auf einem iframe keine Wirkung. Um die Scroll-Verkettung von einem iframe zu steuern, setzen Sie `overscroll-behavior` auf die [`<html>`](/de/docs/Web/HTML/Reference/Elements/html) und die [`<body>`](/de/docs/Web/HTML/Reference/Elements/body) Elemente des Dokuments des iframes.
 
 ## Formale Definition
 
@@ -139,13 +139,13 @@ Beachten Sie, dass diese Eigenschaft nur für {{Glossary("Scroll_container", "Sc
 
 ## Beispiele
 
-### Verhindern, dass ein zugrundeliegendes Element scrollt
+### Verhindern, dass ein darunterliegendes Element scrollt
 
-In unserem [overscroll-behavior Beispiel](https://mdn.github.io/css-examples/overscroll-behavior/) (siehe auch den [Quellcode](https://github.com/mdn/css-examples/tree/main/overscroll-behavior)), präsentieren wir eine ganzseitige Liste von gefälschten Kontakten und ein Dialogfeld mit einem Chat-Fenster.
+In unserem [overscroll-behavior Beispiel](https://mdn.github.io/css-examples/overscroll-behavior/) (siehe auch den [Quellcode](https://github.com/mdn/css-examples/tree/main/overscroll-behavior)) präsentieren wir eine ganzseitige Liste von Fake-Kontakten und ein Dialogfeld mit einem Chatfenster.
 
-![Ein Popup-Chatfenster mit dem Titel 'Aktiver Chat', das ein Gespräch zwischen Chris und Bob zeigt. Hinter dem Chatfenster befindet sich eine Kontaktliste mit dem Titel 'overscroll-behavior demo'.](example.png)
+![Ein Popup-Chatfenster mit dem Titel 'Aktiver Chat', das ein Gespräch zwischen Chris und Bob zeigt. Hinter dem Chatfenster befindet sich eine Kontaktliste mit dem Titel 'overscroll-behavior Demo'.](example.png)
 
-Beide Bereiche sind scrollbar; normalerweise, wenn Sie das Chatfenster scrollen, bis Sie einen Scrollrand erreichen, würde das zugrundeliegende Kontaktefenster auch zu scrollen beginnen, was nicht wünschenswert ist. Dies kann durch die Verwendung von `overscroll-behavior-y` (`overscroll-behavior` würde auch funktionieren) auf dem Chatfenster gestoppt werden, wie folgt:
+Beide Bereiche scrollen; normalerweise, wenn Sie das Chatfenster scrollen, bis Sie ein Scroll-Limit erreichen, fängt das darunterliegende Kontaktfenster ebenfalls an zu scrollen, was nicht erwünscht ist. Dies kann gestoppt werden, indem `overscroll-behavior-y` (`overscroll-behavior` würde auch funktionieren) auf das Chatfenster angewendet wird, wie folgt:
 
 ```css
 .messages {
@@ -155,7 +155,7 @@ Beide Bereiche sind scrollbar; normalerweise, wenn Sie das Chatfenster scrollen,
 }
 ```
 
-Wir wollten auch die standardmäßigen Effekte des Überscrollens beseitigen, wenn die Kontakte an den oberen oder unteren Rand gescrollt werden (z.B. Chrome auf Android aktualisiert die Seite, wenn Sie den oberen Rand überschreiten). Dies kann verhindert werden, indem `overscroll-behavior: none` auf das {{htmlelement("html")}}-Element gesetzt wird:
+Wir wollten auch die standardmäßigen Overscroll-Effekte loswerden, wenn die Kontakte bis zum oberen oder unteren Ende gescrollt werden (z.B. aktualisiert Chrome auf Android die Seite, wenn Sie über das obere Limit hinaus scrollen). Dies kann verhindert werden, indem `overscroll-behavior: none` auf das {{htmlelement("html")}} Element gesetzt wird:
 
 ```css
 html {
@@ -176,4 +176,4 @@ html {
 
 - [CSS overscroll behavior](/de/docs/Web/CSS/CSS_overscroll_behavior) Modul
 - [CSS scroll anchoring](/de/docs/Web/CSS/CSS_scroll_anchoring) Modul
-- [Übernehmen Sie die Kontrolle über Ihr Scrollen: Anpassung von Pull-to-Refresh und Überlauf-Effekten](https://developer.chrome.com/blog/overscroll-behavior) auf developer.chrome.com (2017)
+- [Take control of your scroll: customizing pull-to-refresh and overflow effects](https://developer.chrome.com/blog/overscroll-behavior) auf developer.chrome.com (2017)

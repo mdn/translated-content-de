@@ -3,18 +3,18 @@ title: "Window: error event"
 short-title: error
 slug: Web/API/Window/error_event
 l10n:
-  sourceCommit: 19185ae9656a62e0b6527a54828e1200a827e3dd
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{APIRef}}
 
-Das `error` Ereignis wird auf einem [`Window`](/de/docs/Web/API/Window)-Objekt ausgelöst, wenn eine Ressource nicht geladen oder verwendet werden konnte — zum Beispiel, wenn ein Skript einen Ausführungsfehler hat.
+Das `error`-Ereignis wird auf einem [`Window`](/de/docs/Web/API/Window)-Objekt ausgelöst, wenn eine Ressource nicht geladen werden konnte oder nicht verwendet werden konnte – zum Beispiel, wenn ein Skript einen Ausführungsfehler hat.
 
-Dieses Ereignis wird nur für synchron ausgelöste Skriptfehler generiert, wie sie beim initialen Laden oder innerhalb von Event-Handlern auftreten. Wenn ein Versprechen abgelehnt wurde (einschließlich eines nicht abgefangenen `throw` in einer `async function`) und keine Ablehnungs-Handler angehängt wurden, wird stattdessen ein [`unhandledrejection`](/de/docs/Web/API/Window/unhandledrejection_event)-Ereignis ausgelöst.
+Dieses Ereignis wird nur für synchron geworfene Skriptfehler generiert, wie während des initialen Ladens oder innerhalb von Ereignis-Handlern. Wenn ein Promise abgelehnt wurde (einschließlich eines nicht abgefangenen `throw` innerhalb einer `async function`) und keine Ablehnungshandler angehängt wurden, wird stattdessen ein [`unhandledrejection`](/de/docs/Web/API/Window/unhandledrejection_event)-Ereignis ausgelöst.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("error", (event) => {});
@@ -23,55 +23,55 @@ onerror = (message, source, lineno, colno, error) => {};
 ```
 
 > [!NOTE]
-> Aus historischen Gründen ist `onerror` auf `Window`- und [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope)-Objekten die einzige Ereignishandler-Eigenschaft, die mehr als ein Argument empfängt.
+> Aus historischen Gründen empfängt `onerror` auf `Window`- und [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope)-Objekten als einzige Ereignis-Handler-Eigenschaft mehr als ein Argument.
 
-## Eventtyp
+## Ereignistyp
 
-Das Ereignisobjekt ist eine [`ErrorEvent`](/de/docs/Web/API/ErrorEvent)-Instanz, wenn es von einem Benutzeroberflächenelement erzeugt wurde, oder eine [`Event`](/de/docs/Web/API/Event)-Instanz anderweitig.
+Das Ereignisobjekt ist eine Instanz von [`ErrorEvent`](/de/docs/Web/API/ErrorEvent), wenn es von einem Benutzeroberflächenelement generiert wurde, oder eine Instanz von [`Event`](/de/docs/Web/API/Event) andernfalls.
 
 {{InheritanceDiagram("ErrorEvent")}}
 
 ## Beschreibung
 
-### Ereignishandler-Eigenschaft
+### Ereignis-Handler-Eigenschaft
 
-Aus historischen Gründen zeigt die `onerror`-Ereignishandler-Eigenschaft auf `Window`- und [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope)-Objekten ein anderes Verhalten als andere Ereignishandler-Eigenschaften.
+Aus historischen Gründen hat die `onerror`-Ereignis-Handler-Eigenschaft, nur auf `Window`- und [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope)-Objekten, ein anderes Verhalten als andere Ereignis-Handler-Eigenschaften.
 
-Beachten Sie, dass dies nur auf Handler zutrifft, die `onerror` zugewiesen sind, nicht auf Handler, die mit `addEventListener()` hinzugefügt werden.
+Beachten Sie, dass dies nur für Handler gilt, die `onerror` zugewiesen sind, nicht für Handler, die mit `addEventListener()` hinzugefügt wurden.
 
-#### Abbrechen
+#### Stornierung
 
-Die meisten Ereignishandler, die Ereignishandler-Eigenschaften zugewiesen sind, können das Standardverhalten des Ereignisses durch Rückgabe von `false` aus dem Handler abbrechen:
+Die meisten Ereignis-Handler, die zu Ereignis-Handler-Eigenschaften zugewiesen sind, können das Standardverhalten des Ereignisses abbrechen, indem sie `false` vom Handler zurückgeben:
 
 ```js
 textarea.onkeydown = () => false;
 ```
 
-Um jedoch das Standardverhalten des `error`-Ereignisses von `Window` abzubrechen, muss der Ereignishandler stattdessen `true` zurückgeben:
+Um jedoch das Standardverhalten des `error`-Ereignisses von `Window` zu stornieren, muss der Ereignis-Handler stattdessen `true` zurückgeben:
 
 ```js
 window.onerror = () => true;
 ```
 
-Wenn das Ereignis abgebrochen wurde, erscheint der Fehler nicht in der Konsole, aber das aktuelle Skript wird trotzdem nicht weiter ausgeführt.
+Wenn storniert, erscheint der Fehler nicht in der Konsole, aber das aktuelle Skript wird dennoch gestoppt.
 
 #### Argumente
 
-Die Signatur des Ereignishandlers ist asymmetrisch zwischen `addEventListener()` und `onerror`. Der Ereignishandler, der zu `Window.addEventListener()` übergeben wird, erhält ein einziges [`ErrorEvent`](/de/docs/Web/API/ErrorEvent)-Objekt, während der `onerror`-Handler fünf Argumente erhält, die den Eigenschaften des [`ErrorEvent`](/de/docs/Web/API/ErrorEvent)-Objekts entsprechen:
+Die Signatur des Ereignis-Handlers ist asymmetrisch zwischen `addEventListener()` und `onerror`. Der an `Window.addEventListener()` übergebene Ereignis-Handler erhält ein einzelnes [`ErrorEvent`](/de/docs/Web/API/ErrorEvent)-Objekt, während der `onerror`-Handler fünf Argumente erhält, die den Eigenschaften des [`ErrorEvent`](/de/docs/Web/API/ErrorEvent)-Objekts entsprechen:
 
 - `message`
 
-  - : Ein String, der eine lesbare Fehlermeldung enthält, welche das Problem beschreibt. Entspricht [`ErrorEvent.message`](/de/docs/Web/API/ErrorEvent/message).
+  - : Ein String, der eine menschenlesbare Fehlermeldung enthält, die das Problem beschreibt. Entspricht [`ErrorEvent.message`](/de/docs/Web/API/ErrorEvent/message).
 
     > [!NOTE]
-    > Im HTML wird mit dem [content event handler attribute](/de/docs/Web/HTML/Attributes#event_handler_attributes) `onerror` auf dem {{HTMLElement("body")}}-Element `error`-Ereignis-Hörer an den `window` (und _nicht_ an das `<body>`-Element) angehängt. Für diesen Ereignishandler wird der erste Parameter `event` genannt, nicht `message`, obwohl er weiterhin einen String enthält; das heißt, Sie würden `<body onerror="console.error(event)">` verwenden, um die Fehlermeldung zu protokollieren.
+    > In HTML hängt das [content event handler attribute](/de/docs/Web/HTML/Reference/Attributes#event_handler_attributes) `onerror` am {{HTMLElement("body")}}-Element `error`-Ereignis-Listener an `window` (nicht am `<body>`-Element). Für diesen Ereignishandler wird der erste Parameter `event` genannt, nicht `message`, obwohl er immer noch einen String enthält; das heißt, Sie würden `<body onerror="console.error(event)">` verwenden, um die Fehlermeldung zu protokollieren.
 
 - `source`
   - : Ein String, der die URL des Skripts enthält, das den Fehler generiert hat.
 - `lineno`
-  - : Eine ganze Zahl, die die Zeilennummer der Skriptdatei enthält, in der der Fehler aufgetreten ist.
+  - : Eine Ganzzahl, die die Zeilennummer der Skriptdatei enthält, in der der Fehler aufgetreten ist.
 - `colno`
-  - : Eine ganze Zahl, die die Spaltennummer der Skriptdatei enthält, in der der Fehler aufgetreten ist.
+  - : Eine Ganzzahl, die die Spaltennummer der Skriptdatei enthält, in der der Fehler aufgetreten ist.
 - `error`
   - : Der geworfene Fehler. Üblicherweise ein {{jsxref("Error")}}-Objekt.
 
@@ -88,9 +88,9 @@ window.onerror = (a, b, c, d, e) => {
 ```
 
 > [!NOTE]
-> Diese Parameternamen sind mit einem [HTML-Ereignishandler-Attribut](/de/docs/Web/HTML/Attributes#event_handler_attributes) beobachtbar, wobei der erste Parameter `event` genannt wird anstelle von `message`.
+> Diese Parameternamen sind mit einem [HTML event handler attribute](/de/docs/Web/HTML/Reference/Attributes#event_handler_attributes) beobachtbar, bei dem der erste Parameter `event` statt `message` genannt wird.
 
-Dieses spezielle Verhalten tritt nur für den `onerror`-Ereignishandler auf `window` auf. Der [`Element.onerror`](/de/docs/Web/API/HTMLElement/error_event)-Handler erhält weiterhin ein einzelnes [`ErrorEvent`](/de/docs/Web/API/ErrorEvent)-Objekt.
+Dieses spezielle Verhalten tritt nur für den `onerror`-Ereignis-Handler auf `window` auf. Der [`Element.onerror`](/de/docs/Web/API/HTMLElement/error_event)-Handler erhält immer noch ein einzelnes [`ErrorEvent`](/de/docs/Web/API/ErrorEvent)-Objekt.
 
 ## Beispiele
 
@@ -183,5 +183,5 @@ scriptError.addEventListener("click", () => {
 
 ## Siehe auch
 
-- Dieses Ereignis auf `Element`-Zielen: [`error`](/de/docs/Web/API/HTMLElement/error_event) Ereignis
+- Dieses Ereignis bei `Element`-Zielen: [`error`](/de/docs/Web/API/HTMLElement/error_event)-Ereignis
 - [`Window`: `unhandledrejection`-Ereignis](/de/docs/Web/API/Window/unhandledrejection_event)

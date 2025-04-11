@@ -284,7 +284,7 @@ Wenn Sie Erfahrung mit CSS haben, sollte der folgende Schnipsel Sinn ergeben:
 </style>
 ```
 
-Wir wenden einen Stil auf unser [`<h1>`](/de/docs/Web/HTML/Element/Heading_Elements) Element an. Was passiert mit anderen Komponenten, die `<h1>`-Elemente enthalten?
+Wir wenden einen Stil auf unser [`<h1>`](/de/docs/Web/HTML/Reference/Elements/Heading_Elements) Element an. Was passiert mit anderen Komponenten, die `<h1>`-Elemente enthalten?
 
 In Svelte werden die CSS innerhalb des `<style>`-Blocks einer Komponente nur auf diese Komponente beschränkt. Dies funktioniert durch das Hinzufügen einer Klasse zu ausgewählten Elementen, die auf einem Hash der Komponentenstile basiert.
 

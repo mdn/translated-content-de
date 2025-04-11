@@ -2,12 +2,12 @@
 title: accent-color
 slug: Web/CSS/accent-color
 l10n:
-  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{CSSRef}}
 
-Die **`accent-color`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt die {{Glossary("accent", "Akzentfarbe")}} für Benutzeroberflächen-Steuerelemente fest, die von einigen Elementen generiert werden.
+Die **`accent-color`** [CSS](/de/docs/Web/CSS) Eigenschaft setzt die {{Glossary("accent", "Akzentfarbe")}} für Benutzeroberflächen-Steuerelemente, die von einigen Elementen generiert werden.
 
 {{InteractiveExample("CSS Demo: accent-color")}}
 
@@ -53,14 +53,14 @@ accent-color: hsl(250, 100%, 34%);
 }
 ```
 
-Browser, die `accent-color` unterstützen, wenden diese derzeit auf die folgenden HTML-Elemente an:
+Browser, die `accent-color` unterstützen, wenden es derzeit auf folgende HTML-Elemente an:
 
-- [`<input type="checkbox">`](/de/docs/Web/HTML/Element/input/checkbox)
-- [`<input type="radio">`](/de/docs/Web/HTML/Element/input/radio)
-- [`<input type="range">`](/de/docs/Web/HTML/Element/input/range)
-- [`<progress>`](/de/docs/Web/HTML/Element/progress)
+- [`<input type="checkbox">`](/de/docs/Web/HTML/Reference/Elements/input/checkbox)
+- [`<input type="radio">`](/de/docs/Web/HTML/Reference/Elements/input/radio)
+- [`<input type="range">`](/de/docs/Web/HTML/Reference/Elements/input/range)
+- [`<progress>`](/de/docs/Web/HTML/Reference/Elements/progress)
 
-Jeder Benutzeragent hat eine Akzentfarbe mit Variationen, um Lesbarkeit und Kontrast zu gewährleisten. Diese Akzentfarbe wird nicht von jedem Benutzeroberflächen-Steuerelement verwendet und ist nicht in jedem Zustand des Steuerelements anwendbar. Die `accent-color`-Eigenschaft wird nur auf Benutzeroberflächen-Steuerelemente angewendet, die eine Akzentfarbe in den Zuständen verwenden, in denen sie anwendbar ist.
+Jeder User-Agent hat eine Akzentfarbe, mit Variationen, um Lesbarkeit und Kontrast zu gewährleisten. Diese Akzentfarbe wird nicht von jedem Benutzeroberflächen-Steuerelement oder in jedem Zustand des Steuerelements verwendet. Die `accent-color` wird nur auf Benutzeroberflächen-Steuerelemente angewendet, die eine Akzentfarbe in den Zuständen verwenden, in denen sie anwendbar ist.
 
 ## Syntax
 
@@ -85,7 +85,7 @@ accent-color: unset;
 ### Werte
 
 - `auto`
-  - : Repräsentiert eine vom UA gewählte Farbe, die, wenn vorhanden, der Akzentfarbe der Plattform entsprechen sollte.
+  - : Repräsentiert eine vom UA gewählte Farbe, die mit der Akzentfarbe der Plattform, falls vorhanden, übereinstimmen sollte.
 - {{cssxref("&lt;color&gt;")}}
   - : Gibt die Farbe an, die als Akzentfarbe verwendet werden soll.
 
@@ -99,7 +99,7 @@ accent-color: unset;
 
 ## Beispiele
 
-### Einstellen einer benutzerdefinierten Akzentfarbe
+### Eine benutzerdefinierte Akzentfarbe festlegen
 
 #### HTML
 

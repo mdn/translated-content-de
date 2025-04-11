@@ -3,19 +3,18 @@ title: "HTMLAnchorElement: relList-Eigenschaft"
 short-title: relList
 slug: Web/API/HTMLAnchorElement/relList
 l10n:
-  sourceCommit: acfe8c9f1f4145f77653a2bc64a9744b001358dc
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die schreibgeschützte Eigenschaft **`HTMLAnchorElement.relList`** spiegelt das [`rel`](/de/docs/Web/HTML/Attributes/rel)-Attribut wider. Es handelt sich um eine Live-[`DOMTokenList`](/de/docs/Web/API/DOMTokenList), die die Menge von Link-Typen enthält, welche die Beziehung zwischen der Ressource, die durch das {{HTMLElement("a")}}-Element dargestellt wird, und dem aktuellen Dokument anzeigen.
+Die schreibgeschützte **`HTMLAnchorElement.relList`**-Eigenschaft spiegelt das [`rel`](/de/docs/Web/HTML/Reference/Attributes/rel)-Attribut wider. Sie ist eine lebendige [`DOMTokenList`](/de/docs/Web/API/DOMTokenList), die die Menge der Link-Typen enthält, die die Beziehung zwischen der vom {{HTMLElement("a")}}-Element dargestellten Ressource und dem aktuellen Dokument anzeigen.
 
-Die Eigenschaft selbst ist schreibgeschützt, was bedeutet, dass Sie die
-[`DOMTokenList`](/de/docs/Web/API/DOMTokenList) nicht durch eine andere ersetzen können, aber deren Inhalte können dennoch verändert werden.
+Die Eigenschaft selbst ist schreibgeschützt, was bedeutet, dass Sie die [`DOMTokenList`](/de/docs/Web/API/DOMTokenList) nicht mit einer anderen austauschen können, aber deren Inhalt kann trotzdem geändert werden.
 
 ## Wert
 
-Eine Live-[`DOMTokenList`](/de/docs/Web/API/DOMTokenList) aus Zeichenfolgen.
+Eine lebendige [`DOMTokenList`](/de/docs/Web/API/DOMTokenList) von Zeichenfolgen.
 
 ## Beispiele
 
@@ -42,7 +41,7 @@ for (const anchor of anchors) {
 
 ## Siehe auch
 
-- Die äquivalente Eigenschaft bei {{HTMLElement("area")}} und {{HTMLElement("link")}},
+- Die gleichwertige Eigenschaft auf {{HTMLElement("area")}} und {{HTMLElement("link")}},
   [`HTMLAreaElement.relList`](/de/docs/Web/API/HTMLAreaElement/relList) und [`HTMLLinkElement.relList`](/de/docs/Web/API/HTMLLinkElement/relList).
-- Die gleiche Liste, aber als durch Leerzeichen getrennte Token in einem String:
+- Die gleiche Liste, aber als durch Leerzeichen getrennte Tokens in einer Zeichenfolge:
   [`HTMLAnchorElement.rel`](/de/docs/Web/API/HTMLAnchorElement/rel)

@@ -2,12 +2,12 @@
 title: caret-color
 slug: Web/CSS/caret-color
 l10n:
-  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{CSSRef}}
 
-Die **`caret-color`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Farbe des **Einfügemarkers** fest, des sichtbaren Markers, an dem das nächste getippte Zeichen eingefügt wird. Dieser wird manchmal als **Texteingabecursor** bezeichnet. Der Caret erscheint in Elementen wie {{HTMLElement("input")}} oder in solchen mit dem [`contenteditable`](/de/docs/Web/HTML/Global_attributes/contenteditable) Attribut. Der Caret ist typischerweise eine dünne vertikale Linie, die blinkt, um ihn besser erkennbar zu machen. Standardmäßig ist er schwarz, aber seine Farbe kann mit dieser Eigenschaft geändert werden.
+Die **`caret-color`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt die Farbe des **Einfügemarkers** fest, des sichtbaren Markers, an dem das nächste eingegebene Zeichen eingefügt wird. Dies wird manchmal als **Texteingabecursor** bezeichnet. Der Cursor erscheint in Elementen wie {{HTMLElement("input")}} oder in solchen mit dem Attribut [`contenteditable`](/de/docs/Web/HTML/Reference/Global_attributes/contenteditable). Der Cursor ist typischerweise eine dünne vertikale Linie, die blinkt, um besser sichtbar zu sein. Standardmäßig ist er schwarz, aber seine Farbe kann mit dieser Eigenschaft geändert werden.
 
 {{InteractiveExample("CSS Demo: caret-color")}}
 
@@ -38,7 +38,7 @@ caret-color: transparent;
 }
 ```
 
-Beachten Sie, dass der Einfügemarker nur eine Art von Caret ist. Viele Browser haben beispielsweise einen "Navigations-Caret", der ähnlich wie ein Einfügemarker funktioniert, aber in nicht editierbarem Text bewegt werden kann. Das Mauszeigerbild, das angezeigt wird, wenn über Text geschwebt wird, bei dem die {{cssxref("cursor")}} Eigenschaft `auto` ist, oder wenn über ein Element geschwebt wird, bei dem die `cursor` Eigenschaft `text` oder `vertical-text` ist, sieht manchmal aus wie ein Caret, ist aber kein Caret (es ist ein Cursor).
+Beachten Sie, dass der Einfügemarker nur eine Art von Cursor ist. Viele Browser haben beispielsweise einen "Navigationscursor", der ähnlich wie ein Einfügemarker funktioniert, sich aber in nicht bearbeitbarem Text bewegen lässt. Andererseits ist das Mauszeigersymbol, das angezeigt wird, wenn man über Text schwebt, bei dem die {{cssxref("cursor")}}-Eigenschaft `auto` ist, oder wenn man über ein Element schwebt, bei dem die `cursor`-Eigenschaft `text` oder `vertical-text` ist, kein Cursor (auch wenn er manchmal wie ein Marker aussieht).
 
 ## Syntax
 
@@ -66,13 +66,13 @@ caret-color: unset;
 
 - `auto`
 
-  - : Der User-Agent wählt eine geeignete Farbe für den Caret aus. Dies ist in der Regel {{cssxref("&lt;color&gt;","currentcolor","#currentcolor_keyword")}}, aber der User-Agent kann eine andere Farbe wählen, um eine gute Sichtbarkeit und Kontrast mit dem umgebenden Inhalt zu gewährleisten. Dabei wird der Wert von `currentcolor`, der Hintergrund, Schatten und andere Faktoren berücksichtigt.
+  - : Der Benutzeragent wählt eine geeignete Farbe für den Marker aus. Dies ist im Allgemeinen {{cssxref("&lt;color&gt;","currentcolor","#currentcolor_keyword")}}, aber der Benutzeragent kann eine andere Farbe wählen, um gute Sichtbarkeit und Kontrast zum umliegenden Inhalt zu gewährleisten, wobei er den Wert von `currentcolor`, den Hintergrund, Schatten und andere Faktoren berücksichtigt.
 
     > [!NOTE]
-    > Während User-Agents `currentcolor` (das üblicherweise animierbar ist) für den `auto` Wert verwenden können, wird `auto` bei Übergängen und Animationen nicht interpoliert.
+    > Auch wenn Benutzeragenten `currentcolor` (das normalerweise animierbar ist) für den `auto`-Wert verwenden können, wird `auto` nicht in Übergängen und Animationen interpoliert.
 
 - {{cssxref("&lt;color&gt;")}}
-  - : Die Farbe des Carets.
+  - : Die Farbe des Markers.
 
 ## Formale Definition
 
@@ -84,7 +84,7 @@ caret-color: unset;
 
 ## Beispiele
 
-### Eine benutzerdefinierte Caret-Farbe festlegen
+### Setzen einer benutzerdefinierten Markerfarbe
 
 #### HTML
 
@@ -128,7 +128,7 @@ p.custom {
 
 ## Siehe auch
 
-- Das {{HTMLElement("input")}} Element
-- Das HTML [`contenteditable`](/de/docs/Web/HTML/Global_attributes/contenteditable) Attribut, das verwendet werden kann, um den Text eines Elements bearbeitbar zu machen
+- Das {{HTMLElement("input")}}-Element
+- Das HTML-Attribut [`contenteditable`](/de/docs/Web/HTML/Reference/Global_attributes/contenteditable), das verwendet werden kann, um den Text jedes Elements bearbeitbar zu machen
 - Der {{cssxref("&lt;color&gt;")}} Datentyp
 - Andere farbbezogene Eigenschaften: {{cssxref("color")}}, {{cssxref("background-color")}}, {{cssxref("border-color")}}, {{cssxref("outline-color")}}, {{cssxref("text-decoration-color")}}, {{cssxref("text-emphasis-color")}}, {{cssxref("text-shadow")}}, und {{cssxref("column-rule-color")}}

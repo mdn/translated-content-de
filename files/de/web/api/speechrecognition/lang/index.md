@@ -3,12 +3,12 @@ title: "SpeechRecognition: lang-Eigenschaft"
 short-title: lang
 slug: Web/API/SpeechRecognition/lang
 l10n:
-  sourceCommit: 829720f86ce858b9bb8cbe7aa9e0bea148915f8c
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{APIRef("Web Speech API")}}
 
-Die **`lang`**-Eigenschaft des [`SpeechRecognition`](/de/docs/Web/API/SpeechRecognition)-Interfaces gibt die Sprache der aktuellen `SpeechRecognition` zurück und setzt diese. Wenn nicht angegeben, wird standardmäßig der Wert des HTML-`lang`-Attributs verwendet oder die Spracheinstellung des Benutzeragenten, falls auch diese nicht festgelegt ist.
+Die **`lang`**-Eigenschaft des [`SpeechRecognition`](/de/docs/Web/API/SpeechRecognition)-Interfaces gibt die Sprache der aktuellen `SpeechRecognition` zurück und legt sie fest. Falls nicht angegeben, wird standardmäßig der Wert des HTML-Attributes [`lang`](/de/docs/Web/HTML/Reference/Global_attributes/lang) verwendet oder die Spracheinstellung des Benutzeragenten, falls das auch nicht festgelegt ist.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein String, der den BCP 47-Sprachcode für die aktuelle `SpeechRecognition` dars
 
 ## Beispiele
 
-Dieser Code ist ein Ausschnitt aus unserem [Sprachfarbwechsler](https://github.com/mdn/dom-examples/blob/main/web-speech-api/speech-color-changer/script.js)-Beispiel.
+Dieser Code stammt aus unserem Beispiel [Speech color changer](https://github.com/mdn/dom-examples/blob/main/web-speech-api/speech-color-changer/script.js).
 
 ```js
 const grammar =

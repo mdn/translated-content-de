@@ -2,15 +2,15 @@
 title: "CSP: connect-src"
 slug: Web/HTTP/Reference/Headers/Content-Security-Policy/connect-src
 l10n:
-  sourceCommit: 31ba9f6da2dd1175250ece8d8d467d523e79b447
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{HTTPSidebar}}
 
-Die HTTP {{HTTPHeader("Content-Security-Policy")}} (CSP)
-**`connect-src`** Direktive schränkt die URLs ein, die über Skriptschnittstellen geladen werden können. Die folgenden APIs werden durch diese Direktive kontrolliert:
+Der HTTP-Header {{HTTPHeader("Content-Security-Policy")}} (CSP)
+**`connect-src`**-Direktive beschränkt die URLs, die mit Skriptschnittstellen geladen werden können. Die folgenden APIs werden durch diese Direktive gesteuert:
 
-- Das [`ping`](/de/docs/Web/HTML/Element/a#ping)-Attribut in {{htmlelement("a")}}-Elementen
+- Das [`ping`](/de/docs/Web/HTML/Reference/Elements/a#ping)-Attribut in {{htmlelement("a")}}-Elementen
 - [`fetch()`](/de/docs/Web/API/Window/fetch)
 - [`fetchLater()`](/de/docs/Web/API/Window/fetchLater) {{experimental_inline}}
 - [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest)
@@ -18,7 +18,7 @@ Die HTTP {{HTTPHeader("Content-Security-Policy")}} (CSP)
 - [`EventSource`](/de/docs/Web/API/EventSource)
 - [`Navigator.sendBeacon()`](/de/docs/Web/API/Navigator/sendBeacon)
 
-> **Note:** `connect-src 'self'` bezieht sich in allen Browsern nicht auf Websocket-Schemata, mehr Informationen in diesem [Issue](https://github.com/w3c/webappsec-csp/issues/7).
+> **Note:** `connect-src 'self'` bezieht sich nicht in allen Browsern auf WebSocket-Schemata, weitere Informationen in diesem [Issue](https://github.com/w3c/webappsec-csp/issues/7).
 
 <table class="properties">
   <tbody>
@@ -33,8 +33,8 @@ Die HTTP {{HTTPHeader("Content-Security-Policy")}} (CSP)
     <tr>
       <th scope="row">{{CSP("default-src")}} Fallback</th>
       <td>
-        Ja. Wenn diese Direktive fehlt, wird der User-Agent nach der
-        <code>default-src</code> Direktive suchen.
+        Ja. Wenn diese Direktive fehlt, wird der User Agent nach der
+        <code>default-src</code>-Direktive suchen.
       </td>
     </tr>
   </tbody>
@@ -50,10 +50,10 @@ Content-Security-Policy: connect-src <source-expression-list>;
 Diese Direktive kann einen der folgenden Werte haben:
 
 - `'none'`
-  - : Keine Ressourcen dieser Art dürfen geladen werden. Die einzelnen Anführungszeichen sind obligatorisch.
+  - : Keine Ressourcen dieses Typs dürfen geladen werden. Die Anführungszeichen sind erforderlich.
 - `<source-expression-list>`
 
-  - : Eine durch Leerzeichen getrennte Liste von _source expression_-Werten. Ressourcen dieser Art dürfen geladen werden, wenn sie mit einem der angegebenen Quellausdrücke übereinstimmen. Für diese Direktive sind die folgenden Quellausdruckswerte anwendbar:
+  - : Eine durch Leerzeichen getrennte Liste von _source expression_-Werten. Ressourcen dieses Typs dürfen geladen werden, wenn sie mit einem der angegebenen Quellausdrücke übereinstimmen. Für diese Direktive sind die folgenden Quellausdruckswerte anwendbar:
 
     - [`<host-source>`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy#host-source)
     - [`<scheme-source>`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy#scheme-source)
@@ -102,7 +102,7 @@ Die folgenden Verbindungen werden blockiert und nicht geladen:
 ## Siehe auch
 
 - {{HTTPHeader("Content-Security-Policy")}}
-- {{HTMLElement("a")}} [`ping`](/de/docs/Web/HTML/Element/a#ping)
+- {{HTMLElement("a")}} [`ping`](/de/docs/Web/HTML/Reference/Elements/a#ping)
 - [`fetch()`](/de/docs/Web/API/Window/fetch)
 - [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest)
 - [`WebSocket`](/de/docs/Web/API/WebSocket)

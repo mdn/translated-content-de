@@ -3,12 +3,12 @@ title: "HTMLTrackElement: default-Eigenschaft"
 short-title: default
 slug: Web/API/HTMLTrackElement/default
 l10n:
-  sourceCommit: 0bf15d029fb052d3b20a2f249d4a6de8e29ea774
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{ApiRef("HTML DOM")}}
 
-Die **`default`**-Eigenschaft des [`HTMLTrackElement`](/de/docs/Web/API/HTMLTrackElement)-Interfaces gibt an, ob der Track aktiviert wird, wenn die Benutzereinstellungen nicht darauf hinweisen, dass ein anderer Track angemessener wäre. Sie entspricht dem booleschen [`default`](/de/docs/Web/HTML/Element/track#default)-Attribut des {{htmlelement("track")}}-Elements und gibt `true` zurück, wenn vorhanden, und `false` andernfalls.
+Die **`default`**-Eigenschaft des [`HTMLTrackElement`](/de/docs/Web/API/HTMLTrackElement)-Interfaces gibt an, ob die Spur aktiviert wird, wenn die Benutzerpräferenzen nicht darauf hinweisen, dass eine andere Spur geeigneter wäre. Sie spiegelt das boolesche [`default`](/de/docs/Web/HTML/Reference/Elements/track#default)-Attribut des {{htmlelement("track")}}-Elements wider und gibt `true` zurück, wenn es vorhanden ist, und `false`, wenn nicht.
 
 ## Wert
 

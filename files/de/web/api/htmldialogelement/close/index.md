@@ -3,12 +3,12 @@ title: "HTMLDialogElement: close() Methode"
 short-title: close()
 slug: Web/API/HTMLDialogElement/close
 l10n:
-  sourceCommit: b71d118ffc6d72b77efad9661110fcc9ede464eb
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{ APIRef("HTML DOM") }}
 
-Die **`close()`**-Methode des [`HTMLDialogElement`](/de/docs/Web/API/HTMLDialogElement)-Interfaces schließt das {{htmlelement("dialog")}}. Ein optionaler String kann als Argument übergeben werden, um den `returnValue` des Dialogs zu aktualisieren.
+Die **`close()`** Methode der [`HTMLDialogElement`](/de/docs/Web/API/HTMLDialogElement) Schnittstelle schließt das {{htmlelement("dialog")}}. Ein optionaler String kann als Argument übergeben werden, um den `returnValue` des Dialogs zu aktualisieren.
 
 ## Syntax
 
@@ -28,7 +28,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Das folgende Beispiel zeigt einen einfachen Button, der, wenn er angeklickt wird, ein {{htmlelement("dialog")}} mit einem Formular über die `showModal()`-Methode öffnet. Von dort aus können Sie den _X_-Button anklicken, um den Dialog zu schließen (über die `HTMLDialogElement.close()`-Methode), oder das Formular über den Absenden-Button einreichen.
+Das folgende Beispiel zeigt einen einfachen Button, der beim Anklicken ein {{htmlelement("dialog")}} öffnet, das ein Formular über die `showModal()` Methode enthält. Danach können Sie auf den _X_ Button klicken, um den Dialog zu schließen (über die `HTMLDialogElement.close()` Methode), oder das Formular über den Senden-Button abschicken.
 
 ```html
 <!-- Simple pop-up dialog box, containing a form -->
@@ -87,7 +87,7 @@ Das folgende Beispiel zeigt einen einfachen Button, der, wenn er angeklickt wird
 </script>
 ```
 
-Wenn der "X"-Button den `type="submit"`-Attributwert hätte, würde der Dialog geschlossen, ohne dass JavaScript erforderlich wäre. Eine Formularübermittlung schließt das `<dialog>`, in dem es eingebettet ist, wenn die [Methode des Formulars `dialog`](/de/docs/Web/HTML/Element/form#method) ist, sodass kein "Schließen"-Button erforderlich ist.
+Wenn der "X" Button den `type="submit"` hätte, würde der Dialog geschlossen werden, ohne dass JavaScript erforderlich ist. Eine Formularübermittlung schließt das `<dialog>`, in dem es eingebettet ist, wenn [die `method` des Formulars `dialog` ist](/de/docs/Web/HTML/Reference/Elements/form#method), sodass kein "close" Button erforderlich ist.
 
 ### Ergebnis
 
@@ -103,4 +103,4 @@ Wenn der "X"-Button den `type="submit"`-Attributwert hätte, würde der Dialog g
 
 ## Siehe auch
 
-- Das HTML-Element, das dieses Interface implementiert: {{ HTMLElement("dialog") }}.
+- Das HTML-Element, das diese Schnittstelle implementiert: {{ HTMLElement("dialog") }}.

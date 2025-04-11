@@ -1,29 +1,29 @@
 ---
-title: Drag-Operationen
+title: Ziehvorgänge
 slug: Web/API/HTML_Drag_and_Drop_API/Drag_operations
 l10n:
-  sourceCommit: 93b34fcdb9cf91ff44f5dfe7f4dcd13e961962da
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{DefaultAPISidebar("HTML Drag and Drop API")}}
 
-Im Folgenden werden die Schritte beschrieben, die während einer Drag-and-Drop-Operation auftreten.
+Im Folgenden werden die Schritte beschrieben, die während eines Drag-and-Drop-Vorgangs auftreten.
 
-Die in diesem Dokument beschriebenen Drag-Operationen verwenden das [`DataTransfer`](/de/docs/Web/API/DataTransfer)-Interface. Dieses Dokument verwendet _nicht_ das [`DataTransferItem`](/de/docs/Web/API/DataTransferItem)-Interface oder das [`DataTransferItemList`](/de/docs/Web/API/DataTransferItemList)-Interface.
+Die in diesem Dokument beschriebenen Ziehvorgänge verwenden die Schnittstelle [`DataTransfer`](/de/docs/Web/API/DataTransfer). Dieses Dokument verwendet _nicht_ die Schnittstelle [`DataTransferItem`](/de/docs/Web/API/DataTransferItem) noch die Schnittstelle [`DataTransferItemList`](/de/docs/Web/API/DataTransferItemList).
 
-## Das `draggable` Attribut
+## Das draggable-Attribut
 
-Es gibt bestimmte Fälle, in denen ein Standard-Drag-Verhalten auf einer Webseite angewendet wird. Dazu gehören Textmarkierungen, Bilder und Links. Wenn ein Bild oder Link gezogen wird, wird die URL des Bildes oder Links als Drag-Daten festgelegt, und ein Drag beginnt. Bei anderen Elementen müssen sie Teil einer Auswahl sein, damit ein standardmäßiges Drag ausgeführt werden kann. Um dies in Aktion zu sehen, wählen Sie einen Bereich einer Webseite aus und klicken Sie dann mit der Maus darauf, halten Sie sie gedrückt und ziehen Sie die Auswahl. Eine betriebssystemspezifische Darstellung der Auswahl wird angezeigt und dem Mauszeiger folgen, wenn das Ziehen erfolgt. Dieses Verhalten tritt jedoch nur beim Standard-Drag auf, wenn keine Listener die zu ziehenden Daten anpassen.
+Auf einer Webseite gibt es bestimmte Fälle, in denen ein Standard-Ziehverhalten verwendet wird. Dazu gehören Textauswahlen, Bilder und Links. Wenn ein Bild oder Link gezogen wird, wird die URL des Bildes oder Links als Ziehdaten festgelegt, und ein Ziehen beginnt. Für andere Elemente müssen sie Teil einer Auswahl sein, damit ein Standard-Ziehen erfolgt. Um dies in Aktion zu sehen, wählen Sie einen Bereich einer Webseite aus und klicken und halten Sie dann die Maus gedrückt, während Sie die Auswahl ziehen. Eine betriebssystemspezifische Darstellung der Auswahl erscheint und folgt dem Mauszeiger, während das Ziehen erfolgt. Dieses Verhalten ist jedoch nur das Standard-Zieh-Verhalten, wenn keine Listener die zu ziehenden Daten anpassen.
 
-In HTML sind abgesehen vom Standardverhalten für Bilder, Links und Auswahlen keine anderen Elemente standardmäßig draggable.
+In HTML sind abgesehen vom Standardverhalten für Bilder, Links und Auswahlen keine anderen Elemente standardmäßig ziehbar.
 
-Um andere HTML-Elemente draggable zu machen, müssen drei Dinge getan werden:
+Um andere HTML-Elemente ziehbar zu machen, müssen drei Dinge getan werden:
 
-1. Setzen Sie das Attribut [`draggable`](/de/docs/Web/HTML/Global_attributes/draggable) auf `"true"` für das Element, das Sie draggable machen möchten.
-2. Fügen Sie einen Listener für das [`dragstart`](/de/docs/Web/API/HTMLElement/dragstart_event) Ereignis hinzu.
-3. [Setzen Sie die Drag-Daten](/de/docs/Web/API/DataTransfer/setData) im obigen Listener.
+1. Setzen Sie das [`draggable`](/de/docs/Web/HTML/Reference/Global_attributes/draggable)-Attribut auf `"true"` für das Element, das Sie ziehbar machen möchten.
+2. Fügen Sie einen Listener für das [`dragstart`](/de/docs/Web/API/HTMLElement/dragstart_event)-Ereignis hinzu.
+3. [Legen Sie die Ziehdaten fest](/de/docs/Web/API/DataTransfer/setData) in dem oben genannten Listener.
 
-Hier ist ein Beispiel, das es ermöglicht, einen Abschnitt des Inhalts zu ziehen.
+Hier ist ein Beispiel, das es erlaubt, einen Abschnitt von Inhalten zu ziehen.
 
 ```html
 <p draggable="true">This text <strong>may</strong> be dragged.</p>
@@ -37,16 +37,16 @@ draggableElement.addEventListener("dragstart", (event) =>
 );
 ```
 
-Das Attribut [`draggable`](/de/docs/Web/HTML/Global_attributes/draggable) ist auf `"true"` gesetzt, sodass dieses Element draggable wird. Wäre dieses Attribut weggelassen oder auf `"false"` gesetzt worden, würde das Element nicht gezogen werden, und stattdessen würde der Text ausgewählt.
+Das [`draggable`](/de/docs/Web/HTML/Reference/Global_attributes/draggable)-Attribut ist auf `"true"` gesetzt, sodass dieses Element ziehbar wird. Wenn dieses Attribut weggelassen oder auf `"false"` gesetzt würde, könnte das Element nicht gezogen werden, und stattdessen würde der Text ausgewählt werden.
 
-Das [`draggable`](/de/docs/Web/HTML/Global_attributes/draggable) Attribut kann auf jedem Element verwendet werden, einschließlich Bilder und Links. Bei diesen beiden ist der Standardwert jedoch `true`, sodass Sie das Attribut [`draggable`](/de/docs/Web/HTML/Global_attributes/draggable) nur mit einem Wert `false` verwenden würden, um das Ziehen dieser Elemente zu deaktivieren.
+Das [`draggable`](/de/docs/Web/HTML/Reference/Global_attributes/draggable)-Attribut kann auf jedes Element angewendet werden, einschließlich Bilder und Links. Für diese letzten beiden ist der Standardwert jedoch `true`, sodass Sie das [`draggable`](/de/docs/Web/HTML/Reference/Global_attributes/draggable)-Attribut nur mit einem Wert von `false` verwenden würden, um das Ziehen dieser Elemente zu deaktivieren.
 
 > [!NOTE]
-> Wenn ein Element draggable gemacht wird, können Text oder andere darin enthaltene Elemente nicht mehr auf die übliche Weise ausgewählt werden, indem mit der Maus geklickt und gezogen wird. Stattdessen muss der Benutzer die <kbd>Alt</kbd>-Taste gedrückt halten, um Text mit der Maus auszuwählen, oder die Tastatur verwenden.
+> Wenn ein Element ziehbar gemacht wird, können Text oder andere Elemente innerhalb des Elements nicht mehr auf die normale Weise durch Klicken und Ziehen mit der Maus ausgewählt werden. Stattdessen muss der Benutzer die <kbd>Alt</kbd>-Taste gedrückt halten, um Text mit der Maus auszuwählen, oder die Tastatur verwenden.
 
-## Eine Drag-Operation starten
+## Beginn eines Ziehvorgangs
 
-In diesem Beispiel fügen wir einen Listener für das [`dragstart`](/de/docs/Web/API/HTMLElement/dragstart_event) Ereignis mithilfe der Methode `addEventListener()` hinzu.
+In diesem Beispiel fügen wir einen Listener für das [`dragstart`](/de/docs/Web/API/HTMLElement/dragstart_event)-Ereignis hinzu, indem wir die Methode `addEventListener()` verwenden.
 
 ```html
 <p draggable="true">This text <strong>may</strong> be dragged.</p>
@@ -59,33 +59,33 @@ draggableElement.addEventListener("dragstart", (event) =>
 );
 ```
 
-Wenn ein Benutzer beginnt zu ziehen, wird das [`dragstart`](/de/docs/Web/API/HTMLElement/dragstart_event) Ereignis ausgelöst.
+Wenn ein Benutzer zu ziehen beginnt, wird das [`dragstart`](/de/docs/Web/API/HTMLElement/dragstart_event)-Ereignis ausgelöst.
 
-In diesem Beispiel wird der [`dragstart`](/de/docs/Web/API/HTMLElement/dragstart_event) Listener dem draggable Element selbst hinzugefügt. Sie könnten jedoch auch einem übergeordneten Element lauschen, da Drag-Ereignisse wie die meisten anderen Ereignisse nach oben blubbern.
+In diesem Beispiel wird der [`dragstart`](/de/docs/Web/API/HTMLElement/dragstart_event)-Listener dem ziehbaren Element selbst hinzugefügt. Sie könnten jedoch auch einem höheren Vorfahren lauschen, da Ziehereignisse wie die meisten anderen Ereignisse nach oben „blubbern“.
 
-Innerhalb des [`dragstart`](/de/docs/Web/API/HTMLElement/dragstart_event) Ereignisses können Sie die **Drag-Daten**, das **Feedback-Bild** und die **Drag-Effekte** angeben, die alle unten beschrieben sind. Jedoch sind nur die **Drag-Daten** erforderlich. (Das Standardbild und die Drag-Effekte sind in den meisten Situationen ausreichend.)
+Innerhalb des [`dragstart`](/de/docs/Web/API/HTMLElement/dragstart_event)-Ereignisses können Sie die **Ziehdaten**, das **Feedbackbild** und die **Zieheffekte** angeben, die alle unten beschrieben sind. Allerdings sind nur die **Ziehdaten** erforderlich. (Das Standardbild und die Zieheffekte sind in den meisten Situationen geeignet.)
 
-## Drag-Daten
+## Ziehdaten
 
-Alle [`DragEvent`](/de/docs/Web/API/DragEvent) Objekte haben eine Eigenschaft namens [`dataTransfer`](/de/docs/Web/API/DragEvent/dataTransfer), die die Drag-Daten enthält (`dataTransfer` ist ein [`DataTransfer`](/de/docs/Web/API/DataTransfer) Objekt).
+Alle [`DragEvent`](/de/docs/Web/API/DragEvent)-Objekte haben eine Eigenschaft namens [`dataTransfer`](/de/docs/Web/API/DragEvent/dataTransfer), die die Ziehdaten enthält (`dataTransfer` ist ein [`DataTransfer`](/de/docs/Web/API/DataTransfer)-Objekt).
 
-Wenn ein Drag auftritt, müssen Daten mit dem Drag verknüpft werden, die identifizieren, _was_ gezogen wird. Zum Beispiel, wenn der ausgewählte Text innerhalb eines Textfeldes gezogen wird, sind die mit dem _Drag-Datenelement_ verknüpften Daten der Text selbst. Ähnlich, wenn ein Link auf einer Webseite gezogen wird, ist das Drag-Datenelement die URL des Links.
+Wenn ein Ziehen erfolgt, müssen mit dem Ziehen Daten verknüpft sein, die identifizieren, _was_ gezogen wird. Wenn Sie beispielsweise den ausgewählten Text innerhalb eines Textfelds ziehen, sind die mit dem _Ziehdatenobjekt_ verknüpften Daten der Text selbst. Ebenso ist beim Ziehen eines Links auf einer Webseite das Ziehdatenobjekt die URL des Links.
 
-Das [`DataTransfer`](/de/docs/Web/API/DataTransfer) Objekt enthält zwei Informationen, den **Typ** (oder Format) der Daten und den **Wert** der Daten. Das Format ist ein Typ-String (wie [`text/plain`](/de/docs/Web/API/HTML_Drag_and_Drop_API/Recommended_drag_types#dragging_text) für Textdaten), und der Wert ist ein Text-String. Wenn das Ziehen beginnt, fügen Sie Daten hinzu, indem Sie einen Typ und die Daten bereitstellen. Während des Ziehens können Sie in einem Ereignis-Listener für die [`dragenter`](/de/docs/Web/API/HTMLElement/dragenter_event) und [`dragover`](/de/docs/Web/API/HTMLElement/dragover_event) Ereignisse die Datentypen der gezogenen Daten verwenden, um zu prüfen, ob ein Drop erlaubt ist. Beispielsweise würde ein Drop-Ziel, das Links akzeptiert, auf den Typ [`text/uri-list`](/de/docs/Web/API/HTML_Drag_and_Drop_API/Recommended_drag_types#dragging_links) prüfen. Während eines Drop-Ereignisses würde ein Listener die gezogenen Daten abrufen und an der Drop-Position einfügen.
+Der [`DataTransfer`](/de/docs/Web/API/DataTransfer) enthält zwei Informationen: den **Typ** (oder das Format) der Daten und den **Wert** der Daten. Das Format ist eine Typzeichenfolge (wie [`text/plain`](/de/docs/Web/API/HTML_Drag_and_Drop_API/Recommended_drag_types#dragging_text) für Textdaten) und der Wert ist eine Textzeichenfolge. Wenn das Ziehen beginnt, fügen Sie Daten hinzu, indem Sie einen Typ und die Daten angeben. Während des Ziehvorgangs können Sie in einem Ereignis-Listener für die Ereignisse [`dragenter`](/de/docs/Web/API/HTMLElement/dragenter_event) und [`dragover`](/de/docs/Web/API/HTMLElement/dragover_event) die Datentypen der gezogenen Daten verwenden, um zu überprüfen, ob ein Ablegen zulässig ist. Zum Beispiel würde ein Abgabeziel, das Links akzeptiert, nach dem Typ [`text/uri-list`](/de/docs/Web/API/HTML_Drag_and_Drop_API/Recommended_drag_types#dragging_links) suchen. Während eines Ablegevorgangs würde ein Listener die gezogenen Daten abrufen und an der Ablegeposition einfügen.
 
-Die [`types`](/de/docs/Web/API/DataTransfer/types) Eigenschaft von [`DataTransfer`](/de/docs/Web/API/DataTransfer) gibt eine Liste von MIME-ähnlichen Strings zurück, wie [`text/plain`](/de/docs/Web/API/HTML_Drag_and_Drop_API/Recommended_drag_types#dragging_text) oder [`image/jpeg`](/de/docs/Web/API/HTML_Drag_and_Drop_API/Recommended_drag_types#dragging_images). Sie können auch eigene Typen erstellen. Die am häufigsten verwendeten Typen sind im Artikel [Empfohlene Drag-Typen](/de/docs/Web/API/HTML_Drag_and_Drop_API/Recommended_drag_types) aufgeführt.
+Die [`types`](/de/docs/Web/API/DataTransfer/types)-Eigenschaft des [`DataTransfer`](/de/docs/Web/API/DataTransfer) gibt eine Liste von MIME-ähnlichen Typzeichenfolgen zurück, wie [`text/plain`](/de/docs/Web/API/HTML_Drag_and_Drop_API/Recommended_drag_types#dragging_text) oder [`image/jpeg`](/de/docs/Web/API/HTML_Drag_and_Drop_API/Recommended_drag_types#dragging_images). Sie können auch Ihre eigenen Typen erstellen. Die am häufigsten verwendeten Typen sind im Artikel [Empfohlene Ziehtypen](/de/docs/Web/API/HTML_Drag_and_Drop_API/Recommended_drag_types) aufgeführt.
 
-Ein Drag kann Datenobjekte von verschiedenen Typen enthalten. Dies ermöglicht es, Daten in spezifischeren, häufig benutzerdefinierten Typen bereitzustellen, und bietet dennoch Fallback-Daten für Drop-Ziele, die spezifischere Typen nicht unterstützen. Normalerweise ist der am wenigsten spezifische Typ normaler Text mit dem Typ [`text/plain`](/de/docs/Web/API/HTML_Drag_and_Drop_API/Recommended_drag_types#dragging_text).
+Ein Ziehen kann Datenobjekte verschiedener Typen enthalten. Dadurch können Daten in spezifischeren Typen bereitgestellt werden, häufig benutzerdefinierte Typen, aber auch Rückfalldaten für Abgabeziele, die spezifischere Typen nicht unterstützen. In der Regel wird der am wenigsten spezifische Typ normale Textdaten mit dem Typ [`text/plain`](/de/docs/Web/API/HTML_Drag_and_Drop_API/Recommended_drag_types#dragging_text) sein.
 
-Um ein Drag-Datenelement im [`dataTransfer`](/de/docs/Web/API/DragEvent/dataTransfer) zu setzen, verwenden Sie die Methode [`setData()`](/de/docs/Web/API/DataTransfer/setData). Sie nimmt zwei Argumente: den Typ der Daten und den Datenwert. Zum Beispiel:
+Um ein Ziehdatenobjekt innerhalb des [`dataTransfer`](/de/docs/Web/API/DragEvent/dataTransfer) festzulegen, verwenden Sie die Methode [`setData()`](/de/docs/Web/API/DataTransfer/setData). Sie nimmt zwei Argumente entgegen: den Typ der Daten und den Datenwert. Zum Beispiel:
 
 ```js
 event.dataTransfer.setData("text/plain", "Text to drag");
 ```
 
-In diesem Fall ist der Datenwert "Text to drag" und hat das Format [`text/plain`](/de/docs/Web/API/HTML_Drag_and_Drop_API/Recommended_drag_types#dragging_text).
+In diesem Fall ist der Datenwert "Text to drag" und im Format [`text/plain`](/de/docs/Web/API/HTML_Drag_and_Drop_API/Recommended_drag_types#dragging_text).
 
-Sie können Daten in mehreren Formaten bereitstellen. Um dies zu tun, rufen Sie die Methode [`setData()`](/de/docs/Web/API/DataTransfer/setData) mehrmals mit verschiedenen Formaten auf. Sie sollten sie mit Formaten von am spezifischsten zu am wenigsten spezifischen aufrufen.
+Sie können Daten in mehreren Formaten bereitstellen. Dafür rufen Sie die Methode [`setData()`](/de/docs/Web/API/DataTransfer/setData) mehrmals mit unterschiedlichen Formaten auf. Sie sollten es mit Formaten in der Reihenfolge von am spezifischsten zu am wenigsten spezifisch aufrufen.
 
 ```js
 const dt = event.dataTransfer;
@@ -94,33 +94,33 @@ dt.setData("text/uri-list", "https://www.mozilla.org");
 dt.setData("text/plain", "https://www.mozilla.org");
 ```
 
-Hier werden Daten in drei verschiedenen Typen hinzugefügt. Der erste Typ, `application/x.bookmark`, ist ein benutzerdefinierter Typ. Andere Anwendungen unterstützen diesen Typ nicht, aber Sie können einen benutzerdefinierten Typ für Drags zwischen Bereichen derselben Webseite oder Anwendung verwenden.
+Hier werden Daten in drei verschiedenen Typen hinzugefügt. Der erste Typ, `application/x.bookmark`, ist ein benutzerdefinierter Typ. Andere Anwendungen unterstützen diesen Typ nicht, aber Sie können einen benutzerdefinierten Typ für Ziehen zwischen Bereichen derselben Seite oder Anwendung verwenden.
 
-Indem Sie auch Daten in anderen Typen angeben, können wir Drags zu anderen Anwendungen in weniger spezifischen Formen unterstützen. Der Typ `application/x.bookmark` kann Daten mit mehr Details zur Verwendung innerhalb der Anwendung bereitstellen, während die anderen Typen nur eine einzelne URL oder Textversion enthalten können.
+Indem Sie Daten auch in anderen Typen bereitstellen, können wir auch Ziehen zu anderen Anwendungen in weniger spezifischen Formen unterstützen. Der Typ `application/x.bookmark` kann Daten mit mehr Details zur Verwendung innerhalb der Anwendung bereitstellen, während die anderen Typen nur eine einzelne URL oder Textversion enthalten können.
 
-Beachten Sie, dass in diesem Beispiel sowohl `text/uri-list` als auch `text/plain` dieselben Daten enthalten. Dies ist häufig der Fall, muss aber nicht so sein.
+Beachten Sie, dass sowohl [`text/uri-list`](/de/docs/Web/API/HTML_Drag_and_Drop_API/Recommended_drag_types#dragging_links) als auch [`text/plain`](/de/docs/Web/API/HTML_Drag_and_Drop_API/Recommended_drag_types#dragging_text) im selben Datenbeispiel enthalten sind. Dies ist oft der Fall, muss aber nicht so sein.
 
-Wenn Sie versuchen, Daten mit demselben Format zweimal hinzuzufügen, ersetzen die neuen Daten die alten Daten, aber in derselben Position innerhalb der Typenliste wie die alten Daten.
+Wenn Sie versuchen, Daten zweimal mit demselben Format hinzuzufügen, werden die neuen Daten die alten Daten ersetzen, jedoch an derselben Position in der Typenliste wie die alten Daten.
 
-Mithilfe der Methode [`clearData()`](/de/docs/Web/API/DataTransfer/clearData) können Sie die Daten löschen, indem Sie einen Argumenttyp für die zu entfernenden Daten angeben.
+Sie können die Daten mit der Methode [`clearData()`](/de/docs/Web/API/DataTransfer/clearData) löschen, die ein Argument erhält: den Typ der zu entfernenden Daten.
 
 ```js
 event.dataTransfer.clearData("text/uri-list");
 ```
 
-Das `type` Argument für die Methode [`clearData()`](/de/docs/Web/API/DataTransfer/clearData) ist optional. Wenn der `type` nicht angegeben ist, werden die mit allen Typen verknüpften Daten entfernt. Wenn der Drag keine Drag-Datenobjekte enthält oder alle Objekte anschließend gelöscht wurden, wird kein Drag ausgeführt.
+Das `type`-Argument für die Methode [`clearData()`](/de/docs/Web/API/DataTransfer/clearData) ist optional. Wenn kein `type` angegeben ist, werden die mit allen Typen verknüpften Daten entfernt. Wenn der Ziehvorgang keine Ziehdatenobjekte enthält oder alle Objekte anschließend gelöscht wurden, findet kein Ziehen statt.
 
-## Das Drag-Feedback-Bild einstellen
+## Festlegen des Ziehfeedbackbildes
 
-Wenn ein Drag stattfindet, wird automatisch ein durchscheinendes Bild vom Drag-Ziel (dem Element, bei dem das [`dragstart`](/de/docs/Web/API/HTMLElement/dragstart_event) Ereignis ausgelöst wird) erstellt und folgt dem Zeiger des Benutzers während des Drags. Dieses Bild wird automatisch erstellt, sodass Sie es nicht selbst erstellen müssen. Sie können jedoch [`setDragImage()`](/de/docs/Web/API/DataTransfer/setDragImage) verwenden, um ein benutzerdefiniertes Drag-Feedback-Bild anzugeben.
+Wenn ein Ziehen stattfindet, wird ein halbtransparentes Bild vom Ziehziel (dem Element, bei dem das [`dragstart`](/de/docs/Web/API/HTMLElement/dragstart_event)-Ereignis ausgelöst wird) erzeugt und folgt dem Zeiger des Benutzers während des Ziehens. Dieses Bild wird automatisch erzeugt, sodass Sie es nicht selbst erstellen müssen. Sie können jedoch [`setDragImage()`](/de/docs/Web/API/DataTransfer/setDragImage) verwenden, um ein benutzerdefiniertes Ziehfeedbackbild festzulegen.
 
 ```js
 event.dataTransfer.setDragImage(image, xOffset, yOffset);
 ```
 
-Es sind drei Argumente erforderlich. Das erste ist eine Referenz zu einem Bild. Diese Referenz wird typischerweise zu einem `<img>` Element sein, kann aber auch zu einem `<canvas>` oder einem anderen Element sein. Das Feedback-Bild wird aus dem erstellt, wie das Bild auf dem Bildschirm aussieht, obwohl Bilder in ihrer ursprünglichen Größe gezeichnet werden. Das zweite und dritte Argument für die Methode [`setDragImage()`](/de/docs/Web/API/DataTransfer/setDragImage) sind Offsets, bei denen das Bild relativ zum Mauszeiger erscheinen soll.
+Drei Argumente sind erforderlich. Das erste ist eine Referenz zu einem Bild. Diese Referenz wird typischerweise zu einem `<img>`-Element sein, kann aber auch zu einem `<canvas>` oder einem anderen Element sein. Das Feedbackbild wird aus dem erzeugt, wie das Bild auf dem Bildschirm aussieht, obwohl Bilder in ihrer Originalgröße dargestellt werden. Das zweite und dritte Argument für die Methode [`setDragImage()`](/de/docs/Web/API/DataTransfer/setDragImage) sind Offsets, wo das Bild relativ zum Mauszeiger erscheinen soll.
 
-Es ist auch möglich, Bilder und Canvas zu verwenden, die sich nicht in einem Dokument befinden. Diese Technik ist nützlich, wenn Sie benutzerdefinierte Drag-Bilder mit dem Canvas-Element zeichnen, wie im folgenden Beispiel:
+Es ist auch möglich, Bilder und Leinwände zu verwenden, die sich nicht in einem Dokument befinden. Diese Technik ist nützlich beim Zeichnen von benutzerdefinierten Ziehbildern mit dem Leinwand-Element, wie im folgenden Beispiel:
 
 ```js
 function dragWithCustomImage(event) {
@@ -141,21 +141,21 @@ function dragWithCustomImage(event) {
 }
 ```
 
-In diesem Beispiel machen wir ein Canvas zum Drag-Bild. Da das Canvas 50×50 Pixel groß ist, verwenden wir Offsets von der Hälfte davon (`25`), damit das Bild zentriert auf dem Mauszeiger erscheint.
+In diesem Beispiel verwenden wir eine Leinwand als Ziehbild. Da die Leinwand 50×50 Pixel groß ist, verwenden wir Offsets von der Hälfte davon (`25`), damit das Bild zentriert auf dem Mauszeiger erscheint.
 
-## Drag-Effekte
+## Zieheffekte
 
-Beim Ziehen gibt es mehrere Operationen, die durchgeführt werden können. Die `copy` Operation wird verwendet, um anzuzeigen, dass die gezogenen Daten von ihrem aktuellen Standort an den Zielort kopiert werden. Die `move` Operation wird verwendet, um anzuzeigen, dass die gezogenen Daten verschoben werden, und die `link` Operation wird verwendet, um anzuzeigen, dass irgendeine Form von Beziehung oder Verbindung zwischen den Quell- und Zielorten hergestellt wird.
+Beim Ziehen können mehrere Vorgänge ausgeführt werden. Der `copy`-Vorgang wird verwendet, um anzuzeigen, dass die gezogenen Daten von ihrem aktuellen Standort an den Zielort kopiert werden. Der `move`-Vorgang wird verwendet, um anzuzeigen, dass die gezogenen Daten bewegt werden, und der `link`-Vorgang wird verwendet, um anzuzeigen, dass eine Art Beziehung oder Verbindung zwischen dem Quell- und Zielort hergestellt wird.
 
-Sie können festlegen, welche der drei Operationen für eine Drag-Quelle zulässig sind, indem Sie die Eigenschaft [`effectAllowed`](/de/docs/Web/API/DataTransfer/effectAllowed) innerhalb eines [`dragstart`](/de/docs/Web/API/HTMLElement/dragstart_event) Ereignis-Listeners setzen.
+Sie können angeben, welche der drei Vorgänge für eine Ziehquelle zulässig sind, indem Sie die [`effectAllowed`](/de/docs/Web/API/DataTransfer/effectAllowed)-Eigenschaft innerhalb eines [`dragstart`](/de/docs/Web/API/HTMLElement/dragstart_event)-Ereignis-Listeners festlegen.
 
 ```js
 event.dataTransfer.effectAllowed = "copy";
 ```
 
-In diesem Beispiel ist nur ein **copy** zugelassen.
+In diesem Beispiel ist nur ein **Kopieren** erlaubt.
 
-Sie können die Werte auf verschiedene Arten kombinieren:
+Sie können die Werte auf verschiedene Weise kombinieren:
 
 - `none`
   - : keine Operation ist erlaubt
@@ -172,33 +172,33 @@ Sie können die Werte auf verschiedene Arten kombinieren:
 - `linkMove`
   - : nur `link` oder `move`
 - `all`
-  - : `copy`, `move`, oder `link`
+  - : `copy`, `move` oder `link`
 - `uninitialized`
-  - : der Standardwert, wenn der Effekt nicht gesetzt wurde, entspricht `all`
+  - : der Standardwert, wenn der Effekt nicht festgelegt wurde, entspricht `all`
 
-Beachten Sie, dass diese Werte genau so verwendet werden müssen, wie sie oben aufgeführt sind. Wenn Sie die Eigenschaft [`effectAllowed`](/de/docs/Web/API/DataTransfer/effectAllowed) auf `copyMove` setzen, wird eine Kopier- oder Verschiebeoperation erlaubt, das Herstellen einer Verbindung jedoch verhindert. Wenn Sie die Eigenschaft [`effectAllowed`](/de/docs/Web/API/DataTransfer/effectAllowed) nicht ändern, ist jede Operation erlaubt, genau wie beim Wert `all`. Daher müssen Sie diese Eigenschaft nur dann anpassen, wenn Sie bestimmte Typen ausschließen möchten.
+Beachten Sie, dass diese Werte genau wie oben aufgelistet verwendet werden müssen. Zum Beispiel verhindert das Festlegen der [`effectAllowed`](/de/docs/Web/API/DataTransfer/effectAllowed)-Eigenschaft auf `copyMove`, dass der Benutzer eine Verknüpfungsoperation ausführen kann. Wenn Sie die [`effectAllowed`](/de/docs/Web/API/DataTransfer/effectAllowed)-Eigenschaft nicht ändern, ist jede Operation erlaubt, genau wie mit dem `all`-Wert. Daher müssen Sie diese Eigenschaft nicht anpassen, es sei denn, Sie möchten bestimmte Typen ausschließen.
 
-Während einer Drag-Operation kann ein Listener für das [`dragenter`](/de/docs/Web/API/HTMLElement/dragenter_event) oder [`dragover`](/de/docs/Web/API/HTMLElement/dragover_event) Ereignis die Eigenschaft [`effectAllowed`](/de/docs/Web/API/DataTransfer/effectAllowed) prüfen, um herauszufinden, welche Operationen erlaubt sind. Eine verwandte Eigenschaft, [`dropEffect`](/de/docs/Web/API/DataTransfer/dropEffect), sollte innerhalb eines dieser Ereignisse gesetzt werden, um anzugeben, welche einzelne Operation durchgeführt werden soll. Gültige Werte für [`dropEffect`](/de/docs/Web/API/DataTransfer/dropEffect) sind `none`, `copy`, `move`, oder `link`. Die Kombinationswerte werden für diese Eigenschaft nicht verwendet.
+Während eines Ziehvorgangs kann ein Listener für die Ereignisse [`dragenter`](/de/docs/Web/API/HTMLElement/dragenter_event) oder [`dragover`](/de/docs/Web/API/HTMLElement/dragover_event) die [`effectAllowed`](/de/docs/Web/API/DataTransfer/effectAllowed)-Eigenschaft überprüfen, um festzustellen, welche Vorgänge erlaubt sind. Eine verwandte Eigenschaft, [`dropEffect`](/de/docs/Web/API/DataTransfer/dropEffect), sollte innerhalb eines dieser Ereignisse festgelegt werden, um anzugeben, welcher einzelne Vorgang ausgeführt werden soll. Gültige Werte für [`dropEffect`](/de/docs/Web/API/DataTransfer/dropEffect) sind `none`, `copy`, `move` oder `link`. Die Kombinationen sind für diese Eigenschaft nicht vorgesehen.
 
-Beim [`dragenter`](/de/docs/Web/API/HTMLElement/dragenter_event) und [`dragover`](/de/docs/Web/API/HTMLElement/dragover_event) Ereignis wird die Eigenschaft [`dropEffect`](/de/docs/Web/API/DataTransfer/dropEffect) auf den Effekt initialisiert, den der Benutzer wünscht. Der Benutzer kann den gewünschten Effekt durch Drücken von Modifikator-Tasten verändern. Obwohl die genauen Tasten je nach Plattform variieren, werden typischerweise die Tasten <kbd>Umschalt</kbd> und <kbd>Strg</kbd> verwendet, um zwischen Kopieren, Verschieben und Verknüpfen zu wechseln. Der Mauszeiger ändert sich, um anzuzeigen, welcher Vorgang gewünscht wird. Zum Beispiel könnte für eine `copy` ein Pluszeichen neben dem Cursor erscheinen.
+Bei den Ereignissen [`dragenter`](/de/docs/Web/API/HTMLElement/dragenter_event) und [`dragover`](/de/docs/Web/API/HTMLElement/dragover_event) ist die [`dropEffect`](/de/docs/Web/API/DataTransfer/dropEffect)-Eigenschaft auf den Effekt initialisiert, den der Benutzer anfordert. Der Benutzer kann den gewünschten Effekt durch Drücken von Modifikatortasten ändern. Obwohl sich die genaue Tastenbelegung je nach Plattform unterscheidet, werden typischerweise die <kbd>Shift</kbd> und <kbd>Control</kbd> Tasten verwendet, um zwischen Kopieren, Verschieben und Verknüpfen zu wechseln. Der Mauszeiger wird sich ändern, um anzuzeigen, welcher Vorgang gewünscht ist. Beispielsweise könnte der Cursor für ein `copy` mit einem Pluszeichen daneben erscheinen.
 
-Sie können die Eigenschaft [`dropEffect`](/de/docs/Web/API/DataTransfer/dropEffect) während der [`dragenter`](/de/docs/Web/API/HTMLElement/dragenter_event) oder [`dragover`](/de/docs/Web/API/HTMLElement/dragover_event) Ereignisse ändern, wenn beispielsweise ein bestimmtes Drop-Ziel nur bestimmte Operationen unterstützt. Sie können die Eigenschaft [`dropEffect`](/de/docs/Web/API/DataTransfer/dropEffect) ändern, um den Benutzereffekt zu überschreiben und eine bestimmte Drop-Operation zu erzwingen. Beachten Sie, dass dieser Effekt einer derjenigen sein muss, die innerhalb der Eigenschaft [`effectAllowed`](/de/docs/Web/API/DataTransfer/effectAllowed) aufgelistet sind. Andernfalls wird er auf einen alternativen Wert gesetzt, der erlaubt ist.
+Sie können die [`dropEffect`](/de/docs/Web/API/DataTransfer/dropEffect)-Eigenschaft während der Ereignisse [`dragenter`](/de/docs/Web/API/HTMLElement/dragenter_event) oder [`dragover`](/de/docs/Web/API/HTMLElement/dragover_event) ändern, wenn beispielsweise ein bestimmtes Ziel nur bestimmte Vorgänge unterstützt. Sie können die [`dropEffect`](/de/docs/Web/API/DataTransfer/dropEffect)-Eigenschaft ändern, um den Benutzereffekt zu überschreiben und einen bestimmten Ziehvorgang zu erzwingen. Beachten Sie, dass dieser Effekt einer der innerhalb der [`effectAllowed`](/de/docs/Web/API/DataTransfer/effectAllowed) aufgeführten Werte sein muss. Andernfalls wird er auf einen alternativen erlaubten Wert gesetzt.
 
 ```js
 event.dataTransfer.dropEffect = "copy";
 ```
 
-In diesem Beispiel ist Kopieren der Effekt, der ausgeführt wird.
+In diesem Beispiel ist das Kopieren der auszuführende Effekt.
 
-Sie können den Wert `none` verwenden, um anzugeben, dass an diesem Ort kein Drop erlaubt ist, obwohl es in diesem Fall besser ist, das Ereignis nicht abzubrechen.
+Sie können den Wert `none` verwenden, um anzuzeigen, dass an diesem Ort kein Ablegen erlaubt ist, obwohl es in diesem Fall bevorzugt wird, das Ereignis nicht abzubrechen.
 
-Innerhalb der [`drop`](/de/docs/Web/API/HTMLElement/drop_event) und [`dragend`](/de/docs/Web/API/HTMLElement/dragend_event) Ereignisse können Sie die Eigenschaft [`dropEffect`](/de/docs/Web/API/DataTransfer/dropEffect) prüfen, um festzustellen, welcher Effekt letztendlich gewählt wurde. Wenn der gewählte Effekt `move` war, sollten die ursprünglichen Daten aus der Quelle des Drags innerhalb des [`dragend`](/de/docs/Web/API/HTMLElement/dragend_event) Ereignisses entfernt werden.
+Innerhalb der Ereignisse [`drop`](/de/docs/Web/API/HTMLElement/drop_event) und [`dragend`](/de/docs/Web/API/HTMLElement/dragend_event) können Sie die [`dropEffect`](/de/docs/Web/API/DataTransfer/dropEffect)-Eigenschaft überprüfen, um festzustellen, welcher Effekt letztlich gewählt wurde. Wenn der gewählte Effekt `move` war, sollten die Originaldaten innerhalb des [`dragend`](/de/docs/Web/API/HTMLElement/dragend_event)-Ereignisses von der Quelle des Ziehens entfernt werden.
 
-## Festlegen von Drop-Zielen
+## Bestimmen von Ziehzielen
 
-Ein Listener für die [`dragenter`](/de/docs/Web/API/HTMLElement/dragenter_event) und [`dragover`](/de/docs/Web/API/HTMLElement/dragover_event) Ereignisse wird verwendet, um gültige Drop-Ziele anzuzeigen, das heißt, Orte, an denen gezogene Elemente abgelegt werden können. Die meisten Bereiche einer Webseite oder Anwendung sind keine gültigen Orte, um Daten abzulegen. Daher ist die Standardbearbeitung dieser Ereignisse, einen Drop nicht zuzulassen.
+Ein Listener für die Ereignisse [`dragenter`](/de/docs/Web/API/HTMLElement/dragenter_event) und [`dragover`](/de/docs/Web/API/HTMLElement/dragover_event) wird verwendet, um gültige Ziehziele anzugeben, das heißt, Orte, an denen gezogene Elemente abgelegt werden können. Die meisten Bereiche einer Webseite oder Anwendung sind keine gültigen Stellen, um Daten abzulegen. Daher ist die Standardverarbeitung dieser Ereignisse so eingestellt, dass kein Ablegen erlaubt ist.
 
-Wenn Sie einen Drop zulassen möchten, müssen Sie das Standardverhalten durch Abbrechen sowohl der `dragenter` als auch der `dragover` Ereignisse verhindern. Sie können dies tun, indem Sie ihre [`preventDefault()`](/de/docs/Web/API/Event/preventDefault) Methoden aufrufen:
+Wenn Sie ein Ablegen erlauben möchten, müssen Sie das Standardverhalten verhindern, indem Sie sowohl die Ereignisse `dragenter` als auch `dragover` abbrechen. Sie können dies tun, indem Sie deren Methode [`preventDefault()`](/de/docs/Web/API/Event/preventDefault) aufrufen:
 
 ```html
 <div id="drop-target">You can drag and then drop a draggable item here</div>
@@ -216,11 +216,11 @@ dropElement.addEventListener("dragover", (event) => {
 });
 ```
 
-Das Aufrufen der [`preventDefault()`](/de/docs/Web/API/Event/preventDefault) Methode während sowohl der [`dragenter`](/de/docs/Web/API/HTMLElement/dragenter_event) als auch der [`dragover`](/de/docs/Web/API/HTMLElement/dragover_event) Ereignisse zeigt an, dass an dieser Stelle ein Drop erlaubt ist. Sie möchten jedoch normalerweise die [`preventDefault()`](/de/docs/Web/API/Event/preventDefault) Methode nur unter bestimmten Umständen aufrufen (zum Beispiel nur, wenn ein Link gezogen wird).
+Der Aufruf der Methode [`preventDefault()`](/de/docs/Web/API/Event/preventDefault) während sowohl des Ereignisses [`dragenter`](/de/docs/Web/API/HTMLElement/dragenter_event) als auch des Ereignisses [`dragover`](/de/docs/Web/API/HTMLElement/dragover_event) wird anzeigen, dass an diesem Ort ein Ablegen erlaubt ist. Sie werden jedoch häufig die Methode [`preventDefault()`](/de/docs/Web/API/Event/preventDefault) nur unter bestimmten Bedingungen aufrufen wollen (zum Beispiel nur, wenn ein Link gezogen wird).
 
-Um dies zu tun, rufen Sie eine Funktion auf, die eine Bedingung prüft und das Ereignis nur dann abbricht, wenn die Bedingung erfüllt ist. Wenn die Bedingung nicht erfüllt ist, brechen Sie das Ereignis nicht ab, und es fällt kein Drop an dieser Stelle, wenn der Benutzer die Maustaste loslässt.
+Dazu rufen Sie eine Funktion auf, die eine Bedingung prüft und das Ereignis nur dann abbricht, wenn die Bedingung erfüllt ist. Wenn die Bedingung nicht erfüllt ist, wird das Ereignis nicht abgebrochen, und ein Ablegen wird nicht stattfinden, wenn der Benutzer die Maustaste loslässt.
 
-Es ist am häufigsten, einen Drop basierend auf dem Typ der Drag-Daten im data transfer zu akzeptieren oder abzulehnen — beispielsweise Bilder oder Links oder beides zuzulassen. Um dies zu tun, können Sie die [`types`](/de/docs/Web/API/DataTransfer/types) Eigenschaft des [`dataTransfer`](/de/docs/Web/API/DragEvent/dataTransfer) (Eigenschaft) des Ereignisses prüfen. Die [`types`](/de/docs/Web/API/DataTransfer/types) Eigenschaft gibt ein Array der String-Typen zurück, die beim Beginn des Drags hinzugefügt wurden, in der Reihenfolge von am bedeutendsten zu am wenigsten bedeutend.
+Am häufigsten wird ein Ablegen auf der Grundlage des Typs der Ziehdaten im Datentransfer akzeptiert oder abgelehnt — beispielsweise, wenn Bilder oder Links oder beides erlaubt sind. Hierzu können Sie die [`types`](/de/docs/Web/API/DataTransfer/types)-Eigenschaft des [`dataTransfer`](/de/docs/Web/API/DragEvent/dataTransfer) (der Eigenschaft) des Ereignisses überprüfen. Die [`types`](/de/docs/Web/API/DataTransfer/types)-Eigenschaft gibt ein Array der beim Beginn des Ziehens hinzugefügten Typzeichenfolgen in der Reihenfolge von am spezifischsten bis am wenigsten spezifisch zurück.
 
 ```js
 function doDragOver(event) {
@@ -231,31 +231,31 @@ function doDragOver(event) {
 }
 ```
 
-In diesem Beispiel verwenden wir die `includes` Methode, um zu überprüfen, ob der Typ [`text/uri-list`](/de/docs/Web/API/HTML_Drag_and_Drop_API/Recommended_drag_types#dragging_links) in der Liste der Typen vorhanden ist. Wenn ja, brechen wir das Ereignis ab, damit ein Drop erlaubt sein kann. Wenn die Drag-Daten keinen Link enthalten, wird das Ereignis nicht abgebrochen, und ein Drop kann an dieser Stelle nicht erfolgen.
+In diesem Beispiel verwenden wir die Methode `includes`, um zu überprüfen, ob der Typ [`text/uri-list`](/de/docs/Web/API/HTML_Drag_and_Drop_API/Recommended_drag_types#dragging_links) in der Typenliste vorhanden ist. Wenn dies der Fall ist, werden wir das Ereignis abbrechen, damit ein Ablegen erlaubt ist. Wenn die Ziehdaten keinen Link enthalten, wird das Ereignis nicht abgebrochen, und ein Ablegen kann an dieser Stelle nicht stattfinden.
 
-Möglicherweise möchten Sie auch gleichzeitig die [`effectAllowed`](/de/docs/Web/API/DataTransfer/effectAllowed) oder [`dropEffect`](/de/docs/Web/API/DataTransfer/dropEffect) Eigenschaft festlegen, wenn Sie spezifischer sein möchten, welche Art von Vorgang durchgeführt wird. Natürlich hat das Ändern einer dieser Eigenschaften keine Wirkung, wenn Sie das Ereignis nicht ebenfalls abbrechen.
+Sie möchten möglicherweise auch entweder die [`effectAllowed`](/de/docs/Web/API/DataTransfer/effectAllowed), die [`dropEffect`](/de/docs/Web/API/DataTransfer/dropEffect)-Eigenschaft oder beide gleichzeitig setzen, wenn Sie spezifischer sein möchten, welchen Vorgang das Ziel durchführt. Natürlich hat das Ändern einer der beiden Eigenschaften keinen Effekt, wenn Sie das Ereignis nicht ebenfalls abbrechen.
 
-## Drop-Rückmeldung
+## Rückmeldung beim Ablegen
 
-Es gibt mehrere Möglichkeiten, dem Benutzer anzuzeigen, dass an einem bestimmten Ort ein Drop erlaubt ist. Der Mauszeiger wird je nach Wert der [`dropEffect`](/de/docs/Web/API/DataTransfer/dropEffect) Eigenschaft nach Bedarf aktualisiert.
+Es gibt mehrere Möglichkeiten, dem Benutzer anzuzeigen, dass an einem bestimmten Ort ein Ablegen erlaubt ist. Der Mauszeiger wird je nach Wert der [`dropEffect`](/de/docs/Web/API/DataTransfer/dropEffect)-Eigenschaft entsprechend aktualisiert.
 
-Obwohl das genaue Erscheinungsbild von der Plattform des Benutzers abhängt, wird typischerweise ein Pluszeichen-Icon für eine `copy` angezeigt, und ein "hier kann nicht abgelegt werden" Icon, wenn ein Drop nicht erlaubt ist. Dieses Mauszeiger-Feedback ist in vielen Fällen ausreichend.
+Obwohl das genaue Erscheinungsbild von der Plattform des Benutzers abhängt, erscheint typischerweise ein Pluszeichen für ein `copy` zum Beispiel, und ein 'hier nicht ablegen'-Symbol, wenn ein Ablegen nicht erlaubt ist. Dieses Mauszeiger-Feedback ist in vielen Fällen ausreichend.
 
-Für komplexere visuelle Effekte können Sie während des [`dragenter`](/de/docs/Web/API/HTMLElement/dragenter_event) Ereignisses andere Operationen durchführen. Zum Beispiel durch Einfügen eines Elements an der Stelle, an der der Drop erfolgt. Dies könnte ein Einfügeindikator oder ein Element sein, das das gezogene Element an seinem neuen Ort darstellt. Dazu könnten Sie ein [`<img>`](/de/docs/Web/HTML/Element/img) Element erstellen und es während des [`dragenter`](/de/docs/Web/API/HTMLElement/dragenter_event) Ereignisses in das Dokument einfügen.
+Für komplexere visuelle Effekte können Sie andere Vorgänge während des Ereignisses [`dragenter`](/de/docs/Web/API/HTMLElement/dragenter_event) durchführen. Zum Beispiel durch Einfügen eines Elements an der Stelle, an der das Ablegen erfolgt. Dies könnte ein Einfügemarker oder ein Element sein, das das gezogene Element in seiner neuen Position darstellt. Um dies zu tun, könnten Sie ein [`<img>`](/de/docs/Web/HTML/Reference/Elements/img)-Element erstellen und es während des Ereignisses [`dragenter`](/de/docs/Web/API/HTMLElement/dragenter_event) in das Dokument einfügen.
 
-Das [`dragover`](/de/docs/Web/API/HTMLElement/dragover_event) Ereignis wird bei dem Element ausgelöst, auf das der Mauszeiger zeigt. Natürlich müssen Sie den Einfügemarker möglicherweise auch während eines [`dragover`](/de/docs/Web/API/HTMLElement/dragover_event) Ereignisses verschieben. Sie können die [`clientX`](/de/docs/Web/API/MouseEvent/clientX) und [`clientY`](/de/docs/Web/API/MouseEvent/clientY) Eigenschaften des Ereignisses wie bei anderen Mausereignissen verwenden, um die Position des Mauszeigers zu bestimmen.
+Das Ereignis [`dragover`](/de/docs/Web/API/HTMLElement/dragover_event) wird auf dem Element ausgelöst, auf das der Mauszeiger zeigt. Natürlich müssen Sie in einem [`dragover`](/de/docs/Web/API/HTMLElement/dragover_event) Ereignis den Einfügemarker möglicherweise ebenfalls verschieben. Sie können die [`clientX`](/de/docs/Web/API/MouseEvent/clientX) und [`clientY`](/de/docs/Web/API/MouseEvent/clientY)-Eigenschaften des Ereignisses wie bei anderen Mausereignissen verwenden, um den Standort des Mauszeigers zu bestimmen.
 
-Schließlich wird das [`dragleave`](/de/docs/Web/API/HTMLElement/dragleave_event) Ereignis bei einem Element ausgelöst, wenn der Drag das Element verlässt. Dies ist der Zeitpunkt, an dem Sie alle Einfügemarker oder Hervorhebungen entfernen sollten. Sie müssen dieses Ereignis nicht abbrechen. Das [`dragleave`](/de/docs/Web/API/HTMLElement/dragleave_event) Ereignis wird immer ausgelöst, auch wenn der Drag abgebrochen wird, sodass Sie jederzeit sicherstellen können, dass jede Einfügepunktbereinigung während dieses Ereignisses durchgeführt werden kann.
+Zuletzt wird das Ereignis [`dragleave`](/de/docs/Web/API/HTMLElement/dragleave_event) auf einem Element ausgelöst, wenn der Ziehvorgang das Element verlässt. Dies ist der Zeitpunkt, an dem Sie alle Einfügemarker oder Hervorhebungen entfernen sollten. Sie müssen dieses Ereignis nicht abbrechen. Das Ereignis [`dragleave`](/de/docs/Web/API/HTMLElement/dragleave_event) wird immer ausgelöst, selbst wenn das Ziehen abgebrochen wird, sodass Sie immer sicherstellen können, dass die Bereinigung von Einfügebereichen während dieses Ereignisses erfolgen kann.
 
-## Einen Drop durchführen
+## Durchführung eines Drops
 
-Wenn der Benutzer die Maus loslässt, endet die Drag-and-Drop-Operation.
+Wenn der Benutzer die Maus loslässt, endet der Ziehvorgang.
 
-Wenn die Maus über einem Element losgelassen wird, das ein gültiges Drop-Ziel ist, das heißt, eines, das die letzten [`dragenter`](/de/docs/Web/API/HTMLElement/dragenter_event) oder [`dragover`](/de/docs/Web/API/HTMLElement/dragover_event) Ereignisse abgeschlossen hat, dann wird der Drop erfolgreich sein, und ein [`drop`](/de/docs/Web/API/HTMLElement/drop_event) Ereignis wird am Ziel ausgelöst. Andernfalls wird die Drag-Operation abgebrochen, und kein [`drop`](/de/docs/Web/API/HTMLElement/drop_event) Ereignis wird ausgelöst.
+Wenn die Maus über einem Element losgelassen wird, das ein gültiges Ziehziel ist, also ein Ziel, das das letzte Ereignis [`dragenter`](/de/docs/Web/API/HTMLElement/dragenter_event) oder [`dragover`](/de/docs/Web/API/HTMLElement/dragover_event) abgebrochen hat, wird das Ablegen erfolgreich sein, und ein [`drop`](/de/docs/Web/API/HTMLElement/drop_event)-Ereignis wird am Ziel ausgelöst. Andernfalls wird der Ziehvorgang abgebrochen, und kein [`drop`](/de/docs/Web/API/HTMLElement/drop_event)-Ereignis wird ausgelöst.
 
-Während des [`drop`](/de/docs/Web/API/HTMLElement/drop_event) Ereignisses sollten Sie die Daten abrufen, die fallen gelassen wurden, und sie an der Drop-Position einfügen. Sie können die [`dropEffect`](/de/docs/Web/API/DataTransfer/dropEffect) Eigenschaft verwenden, um festzustellen, welcher Ziehvorgang gewünscht war.
+Während des [`drop`](/de/docs/Web/API/HTMLElement/drop_event)-Ereignisses sollten Sie die Daten, die abgelegt wurden, aus dem Ereignis abrufen und an der Ablegeposition einfügen. Sie können die [`dropEffect`](/de/docs/Web/API/DataTransfer/dropEffect)-Eigenschaft verwenden, um festzustellen, welcher Ziehvorgang gewünscht war.
 
-Wie bei allen Drag-bezogenen Ereignissen hält die [`dataTransfer`](/de/docs/Web/API/DataTransfer) Eigenschaft des Ereignisses die Daten, die gezogen werden. Die Methode [`getData()`](/de/docs/Web/API/DataTransfer/getData) kann verwendet werden, um die Daten erneut abzurufen.
+Wie bei allen ziehbezogenen Ereignissen enthält die [`dataTransfer`](/de/docs/Web/API/DataTransfer)-Eigenschaft des Ereignisses die Daten, die gezogen werden. Die Methode [`getData()`](/de/docs/Web/API/DataTransfer/getData) kann verwendet werden, um die Daten erneut abzurufen.
 
 ```js
 function onDrop(event) {
@@ -265,13 +265,13 @@ function onDrop(event) {
 }
 ```
 
-Die Methode [`getData()`](/de/docs/Web/API/DataTransfer/getData) nimmt ein Argument, den Datentyp, der abgerufen werden soll. Sie gibt den String-Wert zurück, der beim Aufruf von [`setData()`](/de/docs/Web/API/DataTransfer/setData) zu Beginn der Drag-Operation gesetzt wurde. Ein leerer String wird zurückgegeben, wenn Daten dieses Typs nicht existieren. (Natürlich würden Sie wahrscheinlich wissen, dass die richtigen Datentypen verfügbar waren, da dies zuvor während eines [`dragover`](/de/docs/Web/API/HTMLElement/dragover_event) Ereignisses geprüft wurde.)
+Die Methode [`getData()`](/de/docs/Web/API/DataTransfer/getData) benötigt ein Argument, den Typ der abzurufenden Daten. Sie gibt den Zeichenfolgenwert zurück, der gesetzt wurde, als [`setData()`](/de/docs/Web/API/DataTransfer/setData) zu Beginn des Ziehvorgangs aufgerufen wurde. Eine leere Zeichenfolge wird zurückgegeben, wenn keine Daten dieses Typs existieren. (Natürlich wüssten Sie vermutlich, dass die richtigen Daten verfügbar waren, da sie während eines [`dragover`](/de/docs/Web/API/HTMLElement/dragover_event)-Ereignisses bereits überprüft worden sind.)
 
-In dem hier gezeigten Beispiel, wenn die Daten abgerufen wurden, fügen wir den String als den Textinhalt des Ziels ein. Dies hat den Effekt, dass der gezogene Text dort eingefügt wird, wo er fallen gelassen wurde, sofern das Drop-Ziel ein Bereich von Text wie ein `p` oder `div` Element ist.
+Im hier dargestellten Beispiel wird, nachdem die Daten abgerufen wurden, die Zeichenfolge als Textinhalt des Ziels eingefügt. Dies hat den Effekt, den gezogenen Text dort einzufügen, wo er abgelegt wurde, vorausgesetzt, das Ziehziel ist ein Textbereich, wie ein `p`- oder `div`-Element.
 
-Auf einer Webseite sollten Sie die Methode [`preventDefault()`](/de/docs/Web/API/Event/preventDefault) des Ereignisses aufrufen, wenn Sie den Drop akzeptiert haben, damit das Standardverhalten des Browsers nicht durch die abgesetzten Daten ebenfalls ausgelöst wird. Beispielsweise wird, wenn ein Link auf eine Webseite gezogen wird, Firefox den Link öffnen. Durch das Abbrechen des Ereignisses wird dieses Verhalten verhindert.
+Auf einer Webseite sollten Sie die Methode [`preventDefault()`](/de/docs/Web/API/Event/preventDefault) des Ereignisses aufrufen, wenn Sie das Ablegen akzeptiert haben, damit das Standardverhalten des Browsers nicht auch durch die abgelegten Daten ausgelöst wird. Beispielsweise würde Firefox beim Ziehen eines Links zu einer Webseite den Link öffnen. Durch Abbrechen des Ereignisses wird dieses Verhalten verhindert.
 
-Sie können auch andere Datentypen abrufen. Wenn die Daten ein Link sind, sollte er den Typ [`text/uri-list`](/de/docs/Web/API/HTML_Drag_and_Drop_API/Recommended_drag_types#dragging_links) haben. Sie könnten dann einen Link in den Inhalt einfügen.
+Sie können auch andere Datentypen abrufen. Wenn die Daten ein Link sind, sollten sie den Typ [`text/uri-list`](/de/docs/Web/API/HTML_Drag_and_Drop_API/Recommended_drag_types#dragging_links) haben. Sie könnten dann einen Link in den Inhalt einfügen.
 
 ```js
 function doDrop(event) {
@@ -288,21 +288,21 @@ function doDrop(event) {
 }
 ```
 
-Dieses Beispiel fügt einen Link aus den gezogenen Daten ein. Wie der Name schon andeutet, kann der Typ [`text/uri-list`](/de/docs/Web/API/HTML_Drag_and_Drop_API/Recommended_drag_types#dragging_links) tatsächlich eine Liste von URLs enthalten, jeweils in einer separaten Zeile. Der obige Code verwendet [`split`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/split), um den String in Zeilen zu teilen, dann iteriert er über die Liste der Zeilen und fügt jede als Link in das Dokument ein. (Beachten Sie auch, dass Links, die mit einem Nummernzeichen (`#`) beginnen, übersprungen werden, da dies Kommentare sind.)
+Dieses Beispiel fügt einen Link aus den gezogenen Daten ein. Wie der Name schon impliziert, kann der Typ [`text/uri-list`](/de/docs/Web/API/HTML_Drag_and_Drop_API/Recommended_drag_types#dragging_links) tatsächlich eine Liste von URLs enthalten, jede in einer separaten Zeile. Der obige Code verwendet [`split`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/split), um die Zeichenfolge in Zeilen zu teilen, dann iteriert er über die Liste der Zeilen und fügt jede als Link in das Dokument ein. (Beachten Sie auch, dass Links, die mit einem Nummernzeichen (`#`) beginnen, übersprungen werden, da dies Kommentare sind.)
 
-Für einfache Fälle können Sie den speziellen Typ `URL` nur verwenden, um die erste gültige URL in der Liste abzurufen. Zum Beispiel:
+Für einfache Fälle können Sie den speziellen Typ `URL` verwenden, um nur die erste gültige URL in der Liste abzurufen. Zum Beispiel:
 
 ```js
 const link = event.dataTransfer.getData("URL");
 ```
 
-Dadurch entfällt die Notwendigkeit, Kommentare zu überprüfen oder die Zeilen selbst zu durchlaufen. Es ist jedoch auf die erste URL in der Liste beschränkt.
+Dies erspart Ihnen die Überprüfung von Kommentaren oder das Iterieren durch Zeilen. Es ist jedoch auf die erste URL in der Liste beschränkt.
 
-Der Typ `URL` ist ein spezieller Typ. Er wird nur als Abkürzung verwendet und erscheint nicht in der Liste der in der Eigenschaft [`types`](/de/docs/Web/API/DataTransfer/types) angegebenen Typen.
+Der `URL`-Typ ist ein spezieller Typ. Er wird nur als Abkürzung verwendet und erscheint nicht innerhalb der in der [`types`](/de/docs/Web/API/DataTransfer/types)-Eigenschaft angegebenen Liste der Typen.
 
-Manchmal unterstützen Sie möglicherweise verschiedene Formate, und Sie möchten die Daten abrufen, die am spezifischsten sind und unterstützt werden. Im folgenden Beispiel werden drei Formate von einem Drop-Ziel unterstützt.
+Manchmal unterstützen Sie einige unterschiedliche Formate, und Sie möchten die Daten abrufen, die am spezifischsten sind und unterstützt werden. Im folgenden Beispiel werden drei Formate von einem Ziehziel unterstützt.
 
-Das folgende Beispiel gibt die Daten zurück, die mit dem am besten unterstützten Format verbunden sind:
+Das folgende Beispiel gibt die Daten zurück, die mit dem am besten unterstützten Format verknüpft sind:
 
 ```js
 function doDrop(event) {
@@ -322,18 +322,18 @@ function doDrop(event) {
 }
 ```
 
-## Einen Drag beenden
+## Abschluss eines Ziehvorgangs
 
-Sobald das Ziehen abgeschlossen ist, wird ein [`dragend`](/de/docs/Web/API/HTMLElement/dragend_event) Ereignis an der Quelle des Ziehens (dem gleichen Element, das das [`dragstart`](/de/docs/Web/API/HTMLElement/dragstart_event) Ereignis erhalten hat) ausgelöst. Dieses Ereignis wird ausgelöst, unabhängig davon, ob das Ziehen erfolgreich war oder abgebrochen wurde. Sie können jedoch die Eigenschaft [`dropEffect`](/de/docs/Web/API/DataTransfer/dropEffect) verwenden, um festzustellen, welche Drop-Operation durchgeführt wurde.
+Sobald das Ziehen abgeschlossen ist, wird ein [`dragend`](/de/docs/Web/API/HTMLElement/dragend_event)-Ereignis an der Quelle des Ziehens ausgelöst (dasselbe Element, das das [`dragstart`](/de/docs/Web/API/HTMLElement/dragstart_event)-Ereignis empfangen hat). Dieses Ereignis wird ausgelöst, sowohl wenn das Ziehen erfolgreich war als auch wenn es abgebrochen wurde. Sie können jedoch die [`dropEffect`](/de/docs/Web/API/DataTransfer/dropEffect)-Eigenschaft verwenden, um festzustellen, welcher Ablegevorgang durchgeführt wurde.
 
-Wenn die Eigenschaft [`dropEffect`](/de/docs/Web/API/DataTransfer/dropEffect) während eines [`dragend`](/de/docs/Web/API/HTMLElement/dragend_event) den Wert `none` hat, wurde das Ziehen abgebrochen. Andernfalls gibt der Effekt an, welche Operation durchgeführt wurde. Die Quelle kann diese Information nach einer `move` Operation verwenden, um das gezogene Objekt von der alten Position zu entfernen.
+Wenn die [`dropEffect`](/de/docs/Web/API/DataTransfer/dropEffect)-Eigenschaft während eines [`dragend`](/de/docs/Web/API/HTMLElement/dragend_event) den Wert `none` hat, wurde das Ziehen abgebrochen. Andernfalls gibt der Effekt an, welcher Vorgang durchgeführt wurde. Die Quelle kann diese Informationen nach einem `move`-Vorgang verwenden, um das gezogene Element von der alten Position zu entfernen.
 
-Ein Drop kann innerhalb desselben Fensters oder über eine andere Anwendung hinweg erfolgen. Das [`dragend`](/de/docs/Web/API/HTMLElement/dragend_event) Ereignis wird in jedem Fall immer ausgelöst. Die Eigenschaften [`screenX`](/de/docs/Web/API/MouseEvent/screenX) und [`screenY`](/de/docs/Web/API/MouseEvent/screenY) des Ereignisses werden auf die Bildschirmkoordinaten gesetzt, an denen der Drop erfolgte.
+Ein Ablegen kann innerhalb desselben Fensters oder über eine andere Anwendung erfolgen. Das [`dragend`](/de/docs/Web/API/HTMLElement/dragend_event)-Ereignis wird immer ausgelöst, unabhängig davon. Die [`screenX`](/de/docs/Web/API/MouseEvent/screenX) und [`screenY`](/de/docs/Web/API/MouseEvent/screenY)-Eigenschaften des Ereignisses werden auf die Bildschirmkoordinaten gesetzt, an denen das Ablegen erfolgte.
 
-Nachdem das [`dragend`](/de/docs/Web/API/HTMLElement/dragend_event) Ereignis beendet ist, ist die Drag-and-Drop-Operation abgeschlossen.
+Nachdem das [`dragend`](/de/docs/Web/API/HTMLElement/dragend_event)-Ereignis die Propagierung abgeschlossen hat, ist der Drag-and-Drop-Vorgang abgeschlossen.
 
 ## Siehe auch
 
 - [HTML Drag and Drop API (Übersicht)](/de/docs/Web/API/HTML_Drag_and_Drop_API)
-- [Empfohlene Drag-Typen](/de/docs/Web/API/HTML_Drag_and_Drop_API/Recommended_drag_types)
+- [Empfohlene Ziehtypen](/de/docs/Web/API/HTML_Drag_and_Drop_API/Recommended_drag_types)
 - [HTML Living Standard: Drag and Drop](https://html.spec.whatwg.org/multipage/interaction.html#dnd)

@@ -3,16 +3,16 @@ title: "HTMLInputElement: step-Eigenschaft"
 short-title: step
 slug: Web/API/HTMLInputElement/step
 l10n:
-  sourceCommit: bc141099823c9ae2e46f560ac674be2bc4118351
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{ApiRef("HTML DOM")}}
 
-Die **`step`**-Eigenschaft des [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Interfaces gibt an, in welchen Schritten sich numerische oder datums- und uhrzeitbezogene {{HTMLElement("input")}}-Elemente ändern können. Sie spiegelt das [`step`](/de/docs/Web/HTML/Element/input#step)-Attribut des Elements wider. Gültige Werte umfassen die Zeichenkette `"any"` oder eine Zeichenkette mit einer positiven Gleitkommazahl. Wenn das Attribut nicht explizit gesetzt ist, ist die `step`-Eigenschaft eine leere Zeichenkette.
+Die **`step`**-Eigenschaft der [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Schnittstelle gibt an, in welchen Schritten numerische oder datumsbezogene {{HTMLElement("input")}}-Elemente geändert werden können. Sie spiegelt das [`step`](/de/docs/Web/HTML/Reference/Elements/input#step)-Attribut des Elements wider. Gültige Werte sind der String `"any"` oder ein String, der eine positive Gleitkommazahl enthält. Wenn das Attribut nicht explizit gesetzt ist, ist die `step`-Eigenschaft ein leerer String.
 
 ## Wert
 
-Eine Zeichenkette, die den `step`-Wert des Elements darstellt, oder eine leere Zeichenkette, wenn kein Schritt explizit gesetzt ist.
+Ein String, der den `step`-Wert des Elements repräsentiert oder ein leerer String, wenn kein Schritt explizit gesetzt ist.
 
 ## Beispiel
 

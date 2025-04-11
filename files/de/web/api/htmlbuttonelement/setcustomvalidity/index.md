@@ -1,14 +1,14 @@
 ---
-title: "HTMLButtonElement: setCustomValidity()-Methode"
+title: "HTMLButtonElement: setCustomValidity() Methode"
 short-title: setCustomValidity()
 slug: Web/API/HTMLButtonElement/setCustomValidity
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{ APIRef("HTML DOM") }}
 
-Die **`setCustomValidity()`**-Methode des [`HTMLButtonElement`](/de/docs/Web/API/HTMLButtonElement)-Interfaces setzt die benutzerdefinierte Fehlermeldung für das {{htmlelement("button")}}-Element. Verwenden Sie den leeren String, um anzuzeigen, dass das Element _keinen_ benutzerdefinierten Gültigkeitsfehler hat.
+Die **`setCustomValidity()`** Methode des [`HTMLButtonElement`](/de/docs/Web/API/HTMLButtonElement) Interfaces setzt die benutzerdefinierte Validierungsmeldung für das {{htmlelement("button")}}-Element. Verwenden Sie den leeren String, um anzugeben, dass das Element _keinen_ benutzerdefinierten Validierungsfehler hat.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ setCustomValidity(string)
 ### Parameter
 
 - `string`
-  - : Der String, der die Fehlermeldung enthält. Der leere String entfernt alle benutzerdefinierten Gültigkeitsfehler.
+  - : Der String, der die Fehlermeldung enthält. Der leere String entfernt alle benutzerdefinierten Validierungsfehler.
 
 ### Rückgabewert
 
@@ -52,7 +52,7 @@ if (errors) {
 - [`HTMLButtonElement.validity`](/de/docs/Web/API/HTMLButtonElement/validity)
 - [`HTMLButtonElement.checkValidity()`](/de/docs/Web/API/HTMLButtonElement/checkValidity)
 - [`HTMLButtonElement.reportValidity()`](/de/docs/Web/API/HTMLButtonElement/reportValidity)
-- [Form validation](/de/docs/Web/HTML/Constraint_validation).
-- [Learn: Client-side form validation](/de/docs/Learn_web_development/Extensions/Forms/Form_validation)
-- [Leitfaden: Constraint validation](/de/docs/Web/HTML/Constraint_validation)
-- CSS {{cssxref(":valid")}}- und {{cssxref(":invalid")}}-Pseudo-Klassen
+- [Formularvalidierung](/de/docs/Web/HTML/Guides/Constraint_validation).
+- [Lernen: Clientseitige Formularvalidierung](/de/docs/Learn_web_development/Extensions/Forms/Form_validation)
+- [Leitfaden: Einschränkungsvalidierung](/de/docs/Web/HTML/Guides/Constraint_validation)
+- CSS {{cssxref(":valid")}} und {{cssxref(":invalid")}} Pseudoklassen

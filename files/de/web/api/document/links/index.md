@@ -1,18 +1,18 @@
 ---
-title: "Document: links-Eigenschaft"
+title: "Dokument: links-Eigenschaft"
 short-title: links
 slug: Web/API/Document/links
 l10n:
-  sourceCommit: 41a8b9c9832359d445d136b6d7a8a28737badc6b
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{ APIRef("DOM") }}
 
-Die schreibgeschützte **`links`**-Eigenschaft der [`Document`](/de/docs/Web/API/Document)-Schnittstelle gibt eine Sammlung aller {{HTMLElement("area")}}-Elemente und {{HTMLElement("a")}}-Elemente in einem Dokument zurück, die einen Wert für das [href](/de/docs/Web/HTML/Element/a#href)-Attribut haben.
+Die **`links`**-Schreibgeschützte Eigenschaft des [`Document`](/de/docs/Web/API/Document)-Interfaces gibt eine Sammlung aller {{HTMLElement("area")}}-Elemente und {{HTMLElement("a")}}-Elemente in einem Dokument zurück, die einen Wert für das [href](/de/docs/Web/HTML/Reference/Elements/a#href)-Attribut haben.
 
 ## Wert
 
-Ein [`HTMLCollection`](/de/docs/Web/API/HTMLCollection).
+Eine [`HTMLCollection`](/de/docs/Web/API/HTMLCollection).
 
 ## Beispiele
 

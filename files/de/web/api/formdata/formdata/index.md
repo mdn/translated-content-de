@@ -3,12 +3,12 @@ title: "FormData: FormData() Konstruktor"
 short-title: FormData()
 slug: Web/API/FormData/FormData
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{APIRef("XMLHttpRequest API")}} {{AvailableInWorkers}}
 
-Der **`FormData()`** Konstruktor erstellt ein neues [`FormData`](/de/docs/Web/API/FormData)-Objekt.
+Der **`FormData()`** Konstruktor erstellt ein neues [`FormData`](/de/docs/Web/API/FormData) Objekt.
 
 ## Syntax
 
@@ -21,22 +21,22 @@ new FormData(form, submitter)
 ### Parameter
 
 - `form` {{optional_inline}}
-  - : Ein HTML {{HTMLElement("form")}} Element — wenn angegeben, wird das [`FormData`](/de/docs/Web/API/FormData)-Objekt mit den aktuellen Schlüssel/Wert-Paaren des `form` unter Verwendung der Namenseigenschaften jedes Elements für die Schlüssel und ihre übermittelten Werte für die Werte gefüllt. Es wird auch Dateieingabeinhalte kodieren. Ein [`formdata`](/de/docs/Web/API/HTMLFormElement/formdata_event) Ereignis wird ausgelöst, wenn das `FormData`-Objekt erstellt wird, was es dem Formular ermöglicht, die Formulardaten bei Bedarf zu ändern.
+  - : Ein HTML {{HTMLElement("form")}} Element – wenn angegeben, wird das [`FormData`](/de/docs/Web/API/FormData) Objekt mit den aktuellen Schlüsseln/Werten des `form` basierend auf dem Namen der Elemente für die Schlüssel und ihren übermittelten Werten für die Werte gefüllt. Es wird auch Dateieingaben kodieren. Ein [`formdata`](/de/docs/Web/API/HTMLFormElement/formdata_event) Ereignis wird auf dem Formular ausgelöst, wenn das `FormData` Objekt erstellt wird, damit das Formular die FormData bei Bedarf ändern kann.
 - `submitter` {{optional_inline}}
-  - : Ein {{Glossary("submit_button", "Submit-Button")}}, der Mitglied des `form` ist. Wenn der `submitter` ein `name`-Attribut hat oder ein `{{HtmlElement('input/image', '&lt;input type="image"&gt;')}}` ist, werden seine Daten {{Glossary("Submit_button#form_data_entries", "in das")}} [`FormData`](/de/docs/Web/API/FormData)-Objekt aufgenommen (z. B. `btnName=btnValue`).
+  - : Ein {{Glossary("submit_button", "Submit-Button")}}, der ein Mitglied des `form` ist. Wenn der `submitter` ein `name` Attribut hat oder ein `{{HtmlElement('input/image', '&lt;input type="image"&gt;')}}` ist, werden seine Daten {{Glossary("Submit_button#form_data_entries", "in das `FormData` Objekt einbezogen")}} (z.B. `btnName=btnValue`).
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
   - : Wird ausgelöst, wenn der angegebene `submitter` kein {{Glossary("submit_button", "Submit-Button")}} ist.
 - `NotFoundError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der angegebene `submitter` kein Mitglied des `form` ist. Der `submitter` muss entweder ein Nachfahre des Formularelements sein oder ein [`form`](/de/docs/Web/HTML/Element/input#form) Attribut haben, das auf das Formular verweist.
+  - : Wird ausgelöst, wenn der angegebene `submitter` kein Mitglied des `form` ist. Der `submitter` muss entweder ein Nachfahre des Formularelements sein oder ein [`form`](/de/docs/Web/HTML/Reference/Elements/input#form) Attribut haben, das auf das Formular verweist.
 
 ## Beispiele
 
 ### Erstellen eines leeren FormData
 
-Die folgende Zeile erstellt ein leeres [`FormData`](/de/docs/Web/API/FormData)-Objekt:
+Die folgende Zeile erstellt ein leeres [`FormData`](/de/docs/Web/API/FormData) Objekt:
 
 ```js
 const formData = new FormData();
@@ -48,12 +48,12 @@ Sie könnten ein Schlüssel/Wert-Paar mit [`append()`](/de/docs/Web/API/FormData
 formData.append("username", "Chris");
 ```
 
-### Vorbefüllung mit einem HTML-Form-Element
+### Vorbefüllen aus einem HTML-Formular-Element
 
-Sie können die optionalen Argumente `form` und `submitter` angeben, um das `FormData`-Objekt mit Werten aus dem angegebenen Formular vorab zu füllen.
+Sie können die optionalen Argumente `form` und `submitter` angeben, wenn Sie das `FormData` Objekt erstellen, um es mit Werten aus dem angegebenen Formular vorzufüllen.
 
 > [!NOTE]
-> Nur erfolgreiche Formularelemente werden in ein FormData-Objekt aufgenommen, d.h. solche mit einem Namen und die nicht deaktiviert sind.
+> Nur erfolgreiche Formularsteuerungen sind in einem FormData Objekt enthalten, d.h. solche mit einem Namen und nicht in einem deaktivierten Zustand.
 
 #### HTML
 
@@ -97,7 +97,7 @@ for (const [key, value] of formData) {
 
 #### Ergebnis
 
-Zur Übersichtlichkeit wird das `<form>` Element nicht angezeigt.
+Zur Kürze ist das `<form>` Element aus der Ansicht ausgeblendet.
 
 {{EmbedLiveSample("prepopulating_from_a_html_form_element", "", 150)}}
 
@@ -111,5 +111,5 @@ Zur Übersichtlichkeit wird das `<form>` Element nicht angezeigt.
 
 ## Siehe auch
 
-- [Verwendung von FormData-Objekten](/de/docs/Web/API/XMLHttpRequest_API/Using_FormData_Objects)
+- [Verwendung von FormData Objekten](/de/docs/Web/API/XMLHttpRequest_API/Using_FormData_Objects)
 - {{HTMLElement("Form")}}

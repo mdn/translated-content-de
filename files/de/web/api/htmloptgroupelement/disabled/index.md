@@ -1,16 +1,16 @@
 ---
-title: "HTMLOptGroupElement: disabled Eigenschaft"
+title: "HTMLOptGroupElement: disabled-Eigenschaft"
 short-title: disabled
 slug: Web/API/HTMLOptGroupElement/disabled
 l10n:
-  sourceCommit: c32a37ea5fdec8bd961573bdc7cb9c3625c237aa
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{ APIRef("HTML DOM") }}
 
-Die **`disabled`**-Eigenschaft der Schnittstelle [`HTMLOptGroupElement`](/de/docs/Web/API/HTMLOptGroupElement) ist ein boolescher Wert, der das Attribut [`disabled`](/de/docs/Web/HTML/Element/optgroup#disabled) des {{htmlelement("optgroup")}}-Elements widerspiegelt. Dieses Attribut gibt an, ob das Steuerelement deaktiviert ist.
+Die **`disabled`**-Eigenschaft der [`HTMLOptGroupElement`](/de/docs/Web/API/HTMLOptGroupElement)-Schnittstelle ist ein boolescher Wert, der das [`disabled`](/de/docs/Web/HTML/Reference/Elements/optgroup#disabled)-Attribut des {{htmlelement("optgroup")}}-Elements widerspiegelt. Dieses Attribut gibt an, ob das Steuerelement deaktiviert ist.
 
-Wenn es deaktiviert ist, sind die {{htmlelement("option")}}-Elementnachkommen des `<optgroup>`-Elements unbrauchbar, nicht anklickbar und nicht auswählbar. Diese deaktivierten `<option>`s entsprechen dem {{cssxref(":disabled")}}-Selektor, selbst wenn ihr `disabled`-Eigenschaftswert false ist.
+Wenn deaktiviert, sind die {{htmlelement("option")}}-Element-Nachkommen des `<optgroup>`-Elements nicht verwendbar, nicht anklickbar und nicht auswählbar. Diese deaktivierten `<option>` werden mit dem {{cssxref(":disabled")}}-Selektor übereinstimmen, selbst wenn ihr `disabled`-Eigenschaftswert falsch ist.
 
 ## Wert
 
@@ -34,5 +34,5 @@ optionGroup.disabled = true;
 
 ## Siehe auch
 
-- HTML-Attribut [`disabled`](/de/docs/Web/HTML/Attributes/disabled)
+- HTML [`disabled`](/de/docs/Web/HTML/Reference/Attributes/disabled) Attribut
 - CSS {{cssxref(":disabled")}} und {{cssxref(":enabled")}} Pseudoklassen

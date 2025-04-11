@@ -3,23 +3,23 @@ title: "HTMLInputElement: minLength-Eigenschaft"
 short-title: minLength
 slug: Web/API/HTMLInputElement/minLength
 l10n:
-  sourceCommit: 2d74302e9ea9c6aef27f02553fa1b421ef6a7e89
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{ApiRef("HTML DOM")}}
 
-Die **`minLength`**-Eigenschaft des [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Interfaces gibt die minimale Anzahl von Zeichen (in UTF-16 Code-Einheiten) an, die erforderlich sind, damit der Wert des {{HTMLElement("input")}}-Elements gültig ist. Sie spiegelt das [`minlength`](/de/docs/Web/HTML/Element/input#minlength)-Attribut des Elements wider. `-1` bedeutet, dass keine Mindestlängenanforderung besteht.
+Die **`minLength`**-Eigenschaft des [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Interfaces gibt die minimale Anzahl von Zeichen (in UTF-16-Codeeinheiten) an, die für den Wert des {{HTMLElement("input")}}-Elements erforderlich sind, um gültig zu sein. Sie spiegelt das [`minlength`](/de/docs/Web/HTML/Reference/Elements/input#minlength)-Attribut des Elements wider. Der Wert `-1` bedeutet, dass keine Mindestlängenanforderung besteht.
 
 > [!NOTE]
-> Wenn das Eingabefeld einen Wert hat und dieser Wert weniger Zeichen enthält als das `minlength`-Attribut erfordert, wird das Element als ungültig angesehen und die [`tooShort`](/de/docs/Web/API/ValidityState/tooShort)-Eigenschaft des [`ValidityState`](/de/docs/Web/API/ValidityState)-Objekts wird `true` sein.
+> Wenn das Eingabefeld einen Wert hat und dieser Wert weniger Zeichen als im `minlength`-Attribut erforderlich enthält, wird das Element als ungültig angesehen und die [`ValidityState`](/de/docs/Web/API/ValidityState)-Object-Eigenschaft [`tooShort`](/de/docs/Web/API/ValidityState/tooShort) wird `true` sein.
 
 ## Wert
 
-Eine Zahl, die das `minlength` des Elements darstellt, falls vorhanden, oder `-1`.
+Eine Zahl, die das `minlength`-Attribut des Elements darstellt, falls vorhanden, oder `-1`.
 
 ## Beispiel
 
-Gegeben ist folgendes HTML:
+Angenommen, folgendes HTML:
 
 ```html
 <p>
@@ -28,7 +28,7 @@ Gegeben ist folgendes HTML:
 </p>
 ```
 
-Sie können die `minLength`-Eigenschaft verwenden, um den `minlength`-Attributwert des `<input>`-Elements abzurufen oder festzulegen:
+Sie können die `minLength`-Eigenschaft verwenden, um den Wert des `minlength`-Attributs des `<input>`-Elements abzurufen oder festzulegen:
 
 ```js
 const inputElement = document.querySelector("#password");

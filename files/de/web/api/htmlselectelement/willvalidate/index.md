@@ -3,12 +3,12 @@ title: "HTMLSelectElement: willValidate-Eigenschaft"
 short-title: willValidate
 slug: Web/API/HTMLSelectElement/willValidate
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die schreibgeschützte Eigenschaft **`willValidate`** des [`HTMLSelectElement`](/de/docs/Web/API/HTMLSelectElement)-Interfaces gibt an, ob das {{htmlelement("select")}}-Element ein Kandidat für die [Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation) ist. Sie ist `false`, wenn Bedingungen vorliegen, die es von der Einschränkungsvalidierung ausschließen, zum Beispiel wenn die [`disabled`](/de/docs/Web/API/HTMLSelectElement/disabled)-Eigenschaft auf `true` gesetzt ist.
+Die **`willValidate`** schreibgeschützte Eigenschaft des [`HTMLSelectElement`](/de/docs/Web/API/HTMLSelectElement)-Interfaces gibt an, ob das {{htmlelement("select")}}-Element ein Kandidat für die [Einschränkungsvalidierung](/de/docs/Web/HTML/Guides/Constraint_validation) ist. Sie ist `false`, wenn Bedingungen vorliegen, die es von der Einschränkungsvalidierung ausschließen, wie zum Beispiel wenn die [`disabled`](/de/docs/Web/API/HTMLSelectElement/disabled)-Eigenschaft `true` ist.
 
 ## Wert
 
@@ -28,4 +28,4 @@ Ein boolescher Wert.
 - {{HTMLElement("select")}}
 - {{HTMLElement("form")}}
 - [Lernen: Client-seitige Formularvalidierung](/de/docs/Learn_web_development/Extensions/Forms/Form_validation)
-- [Leitfaden: Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation)
+- [Leitfaden: Einschränkungsvalidierung](/de/docs/Web/HTML/Guides/Constraint_validation)

@@ -3,12 +3,12 @@ title: "PerformanceElementTiming: identifier-Eigenschaft"
 short-title: identifier
 slug: Web/API/PerformanceElementTiming/identifier
 l10n:
-  sourceCommit: 312081aabba3885b35a81107b3c2fc53428896c5
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{APIRef("Performance API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte Eigenschaft **`identifier`** des [`PerformanceElementTiming`](/de/docs/Web/API/PerformanceElementTiming)-Interfaces gibt den Wert des [`elementtiming`](/de/docs/Web/HTML/Attributes/elementtiming)-Attributs des Elements zurück.
+Die schreibgeschützte **`identifier`**-Eigenschaft des [`PerformanceElementTiming`](/de/docs/Web/API/PerformanceElementTiming)-Interfaces gibt den Wert des [`elementtiming`](/de/docs/Web/HTML/Reference/Attributes/elementtiming)-Attributes am Element zurück.
 
 ## Wert
 
@@ -18,7 +18,7 @@ Ein String.
 
 ### Verwendung von `identifier`
 
-In diesem Beispiel wird ein {{HTMLElement("img")}}-Element beobachtet, indem das [`elementtiming`](/de/docs/Web/HTML/Attributes/elementtiming)-Attribut hinzugefügt wird. Ein [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver) wird registriert, um alle Leistungsdaten vom Typ `"element"` zu erhalten, und das `buffered`-Flag wird verwendet, um auf Daten zuzugreifen, die vor der Erstellung des Observers vorhanden sind. Der Wert von [`elementtiming`](/de/docs/Web/HTML/Attributes/elementtiming) ist `big-image`. Der Aufruf von `entry.identifier` gibt daher den String `big-image` zurück.
+In diesem Beispiel wird ein {{HTMLElement("img")}}-Element beobachtet, indem das [`elementtiming`](/de/docs/Web/HTML/Reference/Attributes/elementtiming)-Attribut hinzugefügt wird. Ein [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver) wird registriert, um alle Performance-Einträge des Typs `"element"` zu erhalten, und das `buffered`-Flag wird verwendet, um auf Daten vor der Erstellung des Observers zuzugreifen. Der Wert von [`elementtiming`](/de/docs/Web/HTML/Reference/Attributes/elementtiming) ist `big-image`. Der Aufruf von `entry.identifier` gibt daher den String `big-image` zurück.
 
 ```html
 <img

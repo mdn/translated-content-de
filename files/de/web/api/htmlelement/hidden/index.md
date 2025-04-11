@@ -1,35 +1,35 @@
 ---
-title: "HTMLElement: versteckte Eigenschaft"
+title: "HTMLElement: hidden-Eigenschaft"
 short-title: hidden
 slug: Web/API/HTMLElement/hidden
 l10n:
-  sourceCommit: 5026c14bd6d2b6b377289aadac7eceae9282e806
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{ APIRef("HTML DOM") }}
 
-Die [`HTMLElement`](/de/docs/Web/API/HTMLElement) Eigenschaft **`hidden`** spiegelt den Wert des `hidden` Attributs des Elements wider.
+Die [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Eigenschaft **`hidden`** spiegelt den Wert des [`hidden`](/de/docs/Web/HTML/Reference/Global_attributes/hidden)-Attributs des Elements wider.
 
 ## Wert
 
 Dieses Attribut kann einen von drei Werten haben:
 
 - `true`
-  - : Das Element ist verborgen.
+  - : Das Element ist versteckt.
 - `false`
-  - : Das Element ist nicht verborgen. Dies ist der Standardwert des Attributs.
+  - : Das Element ist nicht versteckt. Dies ist der Standardwert für das Attribut.
 - `"until-found"`
-  - : Das Element ist _verborgen, bis es gefunden wird_, was bedeutet, dass es versteckt ist, aber enthüllt wird, wenn es durch eine Seitensuche gefunden oder durch Fragmentnavigation erreicht wird.
+  - : Das Element ist _versteckt bis gefunden_, was bedeutet, dass es versteckt ist, aber angezeigt wird, wenn es durch eine Seitensuche gefunden oder durch Fragmentnavigation erreicht wird.
 
-Details zur Verwendung dieses Attributs finden Sie auf der Seite für das [`hidden`](/de/docs/Web/HTML/Global_attributes/hidden) HTML-Attribut, auf das sich diese Eigenschaft bezieht.
+Für Details zur Verwendung dieses Attributs siehe die Seite des [`hidden`](/de/docs/Web/HTML/Reference/Global_attributes/hidden)-HTML-Attributs, das diese Eigenschaft widerspiegelt.
 
 ## Beispiele
 
-Hier ist ein Beispiel, bei dem ein versteckter Block verwendet wird, um eine „Danke“-Nachricht zu enthalten, die angezeigt wird, nachdem ein Benutzer einer ungewöhnlichen Anfrage zugestimmt hat.
+Hier ist ein Beispiel, bei dem ein versteckter Block verwendet wird, um eine Dankesnachricht zu enthalten, die angezeigt wird, nachdem ein Benutzer einer ungewöhnlichen Anfrage zugestimmt hat.
 
 ### HTML
 
-Das HTML enthält zwei Bereiche: ein Willkommenspanel, das die Benutzer fragt, ob sie großartig sein möchten, und ein Folgepanel, das anfänglich versteckt ist.
+Das HTML enthält zwei Bereiche: einen Willkommensbereich, der die Benutzer fragt, ob sie großartig sein möchten, und einen Folge-Bereich, der zunächst versteckt ist.
 
 ```html
 <div id="welcome" class="panel">
@@ -46,7 +46,7 @@ Das HTML enthält zwei Bereiche: ein Willkommenspanel, das die Benutzer fragt, o
 
 ### CSS
 
-Der Inhalt wird mit dem folgenden CSS gestaltet.
+Der Inhalt wird mit dem unten stehenden CSS gestylt.
 
 ```css
 .panel {
@@ -78,7 +78,7 @@ h1 {
 
 ### JavaScript
 
-Das JavaScript fügt einen Event-Listener zum "OK"-Button hinzu, der das "Willkommen"-Panel ausblendet und das "Großartig"-Panel anzeigt:
+Das JavaScript fügt einen Event-Listener zum "OK"-Button hinzu, der das "Willkommen"-Panel versteckt und das "Großartig"-Panel anzeigt:
 
 ```js
 document.getElementById("okButton").addEventListener(
@@ -105,5 +105,5 @@ document.getElementById("okButton").addEventListener(
 
 ## Siehe auch
 
-- [hidden](/de/docs/Web/HTML/Global_attributes/hidden) Attribut
+- [hidden](/de/docs/Web/HTML/Reference/Global_attributes/hidden)-Attribut
 - {{cssxref("display")}}

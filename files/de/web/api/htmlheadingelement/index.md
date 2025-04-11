@@ -2,25 +2,25 @@
 title: HTMLHeadingElement
 slug: Web/API/HTMLHeadingElement
 l10n:
-  sourceCommit: b3e92f9e0724a177977560b51673b391bfdfc5e4
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{ APIRef("HTML DOM") }}
 
-Das **`HTMLHeadingElement`**-Interface repräsentiert die verschiedenen Überschriftselemente, [`<h1>` bis `<h6>`](/de/docs/Web/HTML/Element/Heading_Elements). Es erbt Methoden und Eigenschaften vom [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Interface.
+Die **`HTMLHeadingElement`**-Schnittstelle repräsentiert die verschiedenen Headelemente, [`<h1>` bis `<h6>`](/de/docs/Web/HTML/Reference/Elements/Heading_Elements). Sie erbt Methoden und Eigenschaften von der [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Schnittstelle.
 
 {{InheritanceDiagram}}
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
-_Erbt Eigenschaften von seinem Eltern-Interface, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
+_Erbt Eigenschaften von ihrem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
 - [`HTMLHeadingElement.align`](/de/docs/Web/API/HTMLHeadingElement/align) {{deprecated_inline}}
-  - : Ein String, der ein aufgezähltes Attribut darstellt, das die Ausrichtung der Überschrift in Bezug auf den umgebenden Kontext anzeigt. Die möglichen Werte sind `"left"`, `"right"`, `"justify"` und `"center"`.
+  - : Ein String, der ein aufgezähltes Attribut darstellt, das die Ausrichtung der Überschrift in Bezug auf den umgebenden Kontext angibt. Die möglichen Werte sind `"left"`, `"right"`, `"justify"` und `"center"`.
 
-## Instanzmethoden
+## Instanz-Methoden
 
-_Keine spezifische Methode; erbt Methoden von seinem Eltern-Interface, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
+_Keine spezifische Methode; erbt Methoden von ihrem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
 ## Spezifikationen
 
@@ -32,4 +32,4 @@ _Keine spezifische Methode; erbt Methoden von seinem Eltern-Interface, [`HTMLEle
 
 ## Siehe auch
 
-- Die {{HTMLElement("Heading_Elements", "HTML Heading Elements")}}, `<h1>` bis `<h6>`, die diesem Interface entsprechen.
+- Die {{HTMLElement("Heading_Elements", "HTML-Headelemente")}}, `<h1>` bis `<h6>`, die dieser Schnittstelle entsprechen.

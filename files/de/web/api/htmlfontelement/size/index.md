@@ -3,14 +3,14 @@ title: "HTMLFontElement: size-Eigenschaft"
 short-title: size
 slug: Web/API/HTMLFontElement/size
 l10n:
-  sourceCommit: b25d8774aa7bcc6a053e26cf804ad454f51e134b
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{deprecated_header}}{{ APIRef("HTML DOM") }}
 
-Die veraltete **`HTMLFontElement.size`**-Eigenschaft ist ein String, der das [`size`](/de/docs/Web/HTML/Element/font#size) HTML-Attribut widerspiegelt. Sie enthält entweder eine Schriftgröße im Bereich von 1 bis 7 oder eine Zahl relativ zum Standardwert 3, zum Beispiel -2 oder +1.
+Die veraltete **`HTMLFontElement.size`**-Eigenschaft ist ein String, der das [`size`](/de/docs/Web/HTML/Reference/Elements/font#size)-HTML-Attribut widerspiegelt. Es kann entweder eine Schriftgröße von 1 bis 7 oder eine Zahl relativ zum Standardwert 3 enthalten, zum Beispiel -2 oder +1.
 
-Das Format des Strings muss einen der folgenden HTML-Mikrosyntaxen befolgen:
+Das Format des Strings muss einem der folgenden HTML-Mikrosyntaxen entsprechen:
 
 <table class="no-markdown">
   <thead>
@@ -22,14 +22,14 @@ Das Format des Strings muss einen der folgenden HTML-Mikrosyntaxen befolgen:
   </thead>
   <tbody>
     <tr>
-      <td>Gültige Größen-Zeichenfolge</td>
+      <td>Gültiger Größenanzahl-String</td>
       <td><em>Ganzzahl im Bereich von 1-7</em></td>
       <td><code>6</code></td>
     </tr>
     <tr>
-      <td>Relative Größen-Zeichenfolge</td>
+      <td>Relativer Größenstring</td>
       <td>
-        <em>+x oder -x, wobei x eine Zahl relativ zu 3 ist (das Ergebnis sollte im Bereich von 1-7 liegen)</em>
+        <em>+x oder -x, wobei x eine Zahl ist, die sich relativ zu 3 verhält (das Ergebnis sollte im Bereich von 1-7 liegen)</em>
       </td>
       <td>
         <code>+2<br />-1</code>
@@ -61,4 +61,4 @@ f.size = "6";
 
 ## Siehe auch
 
-- Die [`HTMLFontElement`](/de/docs/Web/API/HTMLFontElement)-Schnittstelle, zu der es gehört.
+- Das [`HTMLFontElement`](/de/docs/Web/API/HTMLFontElement)-Interface, zu dem es gehört.

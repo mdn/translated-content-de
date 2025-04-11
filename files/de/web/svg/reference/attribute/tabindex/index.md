@@ -2,10 +2,10 @@
 title: tabindex
 slug: Web/SVG/Reference/Attribute/tabindex
 l10n:
-  sourceCommit: 05617e872df6d1c5b5d480eaa1b11852c1ce39f1
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
-Das **`tabindex`**-Attribut ermöglicht es Ihnen, zu steuern, ob ein Element fokussierbar ist und die relative Reihenfolge des Elements für die Zwecke der sequentiellen Fokussierung zu definieren.
+Das **`tabindex`**-Attribut ermöglicht es Ihnen, zu steuern, ob ein Element fokussierbar ist und die relative Reihenfolge des Elements für die Zwecke der sequentiellen Fokusnavigation festzulegen.
 
 Sie können dieses Attribut mit jedem SVG-Element verwenden.
 
@@ -53,7 +53,7 @@ svg {
 </table>
 
 - gültige Ganzzahl
-  - : Relative Reihenfolge des Elements für die Zwecke der sequentiellen Fokussierung.
+  - : Relative Reihenfolge des Elements für die Zwecke der sequentiellen Fokusnavigation.
 
 ## Spezifikationen
 
@@ -65,4 +65,4 @@ svg {
 
 ## Siehe auch
 
-- [HTML `tabindex`](/de/docs/Web/HTML/Global_attributes/tabindex)
+- [HTML `tabindex`](/de/docs/Web/HTML/Reference/Global_attributes/tabindex)

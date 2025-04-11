@@ -2,12 +2,12 @@
 title: Anleitung zur Strukturierung eines Webformulars
 slug: Learn_web_development/Extensions/Forms/How_to_structure_a_web_form
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{LearnSidebar}}{{PreviousMenuNext("Learn_web_development/Extensions/Forms/Your_first_form", "Learn_web_development/Extensions/Forms/Basic_native_form_controls", "Learn_web_development/Extensions/Forms")}}
 
-Nachdem wir die Grundlagen behandelt haben, schauen wir uns nun detaillierter die Elemente an, die verwendet werden, um den verschiedenen Teilen eines Formulars Struktur und Bedeutung zu verleihen.
+Nachdem wir die Grundlagen behandelt haben, werden wir uns nun genauer mit den Elementen befassen, die zur Strukturierung und Bedeutungszuweisung der verschiedenen Teile eines Formulars verwendet werden.
 
 <table>
   <tbody>
@@ -20,32 +20,32 @@ Nachdem wir die Grundlagen behandelt haben, schauen wir uns nun detaillierter di
     <tr>
       <th scope="row">Ziel:</th>
       <td>
-        Zu verstehen, wie HTML-Formulare strukturiert werden und wie ihnen Semantik gegeben wird, damit sie nutzbar und zugänglich sind.
+        Verstehen, wie man HTML-Formulare strukturiert und ihnen Semantik verleiht, sodass sie benutzbar und barrierefrei sind.
       </td>
     </tr>
   </tbody>
 </table>
 
-Die Flexibilität von Formularen macht sie zu einer der komplexesten Strukturen in [HTML](/de/docs/Learn_web_development/Core/Structuring_content); Sie können jede Art von grundlegenden Formularen mit speziellen Formularelementen und -attributen erstellen. Die Verwendung der richtigen Struktur beim Erstellen eines HTML-Formulars trägt dazu bei, dass das Formular sowohl nutzbar als auch [zugänglich](/de/docs/Learn_web_development/Core/Accessibility) ist.
+Die Flexibilität von Formularen macht sie zu einer der komplexesten Strukturen in [HTML](/de/docs/Learn_web_development/Core/Structuring_content); Sie können jede Art von Basisformular mit speziellen Formularelementen und -attributen erstellen. Die richtige Struktur bei der Erstellung eines HTML-Formulars hilft zu gewährleisten, dass das Formular sowohl benutzbar als auch [barrierefrei](/de/docs/Learn_web_development/Core/Accessibility) ist.
 
 ## Das \<form>-Element
 
-Das {{HTMLElement("form")}}-Element definiert formal ein Formular und Attribute, die das Verhalten des Formulars bestimmen. Jedes Mal, wenn Sie ein HTML-Formular erstellen möchten, müssen Sie es mit diesem Element starten und alle Inhalte darin verschachteln. Viele unterstützende Technologien und Browser-Plugins können {{HTMLElement("form")}}-Elemente entdecken und spezielle Hooks implementieren, um sie benutzerfreundlicher zu machen.
+Das {{HTMLElement("form")}}-Element definiert formal ein Formular und Attribute, die das Verhalten des Formulars bestimmen. Jedes Mal, wenn Sie ein HTML-Formular erstellen möchten, müssen Sie mit diesem Element beginnen und alle Inhalte darin verschachteln. Viele unterstützende Technologien und Browser-Plugins können {{HTMLElement("form")}}-Elemente entdecken und spezielle Hooks implementieren, um sie benutzerfreundlicher zu gestalten.
 
-Wir sind diesem bereits im vorherigen Artikel begegnet.
+Wir haben dies bereits im vorherigen Artikel angesprochen.
 
 > [!WARNING]
-> Es ist strengstens verboten, ein Formular innerhalb eines anderen Formulars zu verschachteln. Eine Verschachtelung kann dazu führen, dass Formulare unvorhersehbar reagieren, weshalb dies keine gute Idee ist.
+> Es ist strikt verboten, ein Formular innerhalb eines anderen Formulars zu verschachteln. Verschachtelungen können dazu führen, dass Formulare unvorhersehbar reagieren, daher ist es eine schlechte Idee.
 
-Es ist immer möglich, ein Formularsteuerelement außerhalb eines {{HTMLElement("form")}}-Elements zu verwenden. Wenn Sie dies tun, wird das Steuerelement standardmäßig mit keinem Formular in Verbindung gebracht, es sei denn, Sie verknüpfen es mit einem Formular durch sein [`form`](/de/docs/Web/HTML/Element/input#form)-Attribut. Dies wurde eingeführt, um Ihnen die Möglichkeit zu geben, ein Steuerelement explizit mit einem Formular zu verbinden, selbst wenn es nicht darin verschachtelt ist.
+Es ist immer möglich, ein Formularelement außerhalb eines {{HTMLElement("form")}}-Elements zu verwenden. Wenn Sie dies tun, hat dieses Element standardmäßig nichts mit einem Formular zu tun, es sei denn, Sie verbinden es explizit mit einem Formular über sein [`form`](/de/docs/Web/HTML/Reference/Elements/input#form)-Attribut. Dies wurde eingeführt, um Ihnen zu ermöglichen, ein Element explizit mit einem Formular zu verbinden, selbst wenn es nicht in diesem verschachtelt ist.
 
-Lassen Sie uns weitergehen und die Strukturelemente behandeln, die Sie in einem Formular verschachtelt finden.
+Gehen wir weiter zu den strukturellen Elementen, die Sie in einem Formular finden werden.
 
-## Die `<fieldset>` und `<legend>`-Elemente
+## Die `<fieldset>` und `<legend>` Elemente
 
-Das {{HTMLElement("fieldset")}}-Element ist eine bequeme Möglichkeit, Gruppen von Widgets zu erstellen, die denselben Zweck haben, für stilistische und semantische Zwecke. Sie können ein {{HTMLElement("fieldset")}}-Element beschriften, indem Sie ein {{HTMLElement("legend")}}-Element direkt unter dem öffnenden {{HTMLElement("fieldset")}}-Tag einfügen. Der Textinhalt des {{HTMLElement("legend")}} beschreibt formal den Zweck des {{HTMLElement("fieldset")}}, in dem es enthalten ist.
+Das {{HTMLElement("fieldset")}}-Element ist eine praktische Möglichkeit, Gruppen von Widgets zu erstellen, die denselben Zweck haben, sowohl aus stilistischen als auch aus semantischen Gründen. Sie können ein {{HTMLElement("fieldset")}} beschriften, indem Sie ein {{HTMLElement("legend")}}-Element direkt unter dem öffnenden {{HTMLElement("fieldset")}}-Tag hinzufügen. Der Textinhalt des {{HTMLElement("legend")}} beschreibt formal den Zweck des {{HTMLElement("fieldset")}}, in dem es enthalten ist.
 
-Viele unterstützende Technologien verwenden das {{HTMLElement("legend")}}-Element, als ob es ein Teil des Labels jedes Steuerelements innerhalb des entsprechenden {{HTMLElement("fieldset")}}-Elements wäre. Beispielsweise werden einige Screenreader wie [Jaws](https://www.freedomscientific.com/products/software/jaws/) und [NVDA](https://www.nvaccess.org/) den Inhalt der Legende aussprechen, bevor sie das Label jedes Steuerelements aussprechen.
+Viele unterstützende Technologien nutzen das {{HTMLElement("legend")}}-Element als Teil der Beschriftung jedes Steuerelements innerhalb des entsprechenden {{HTMLElement("fieldset")}}-Elements. Beispielsweise werden bei einigen Screenreadern wie [Jaws](https://www.freedomscientific.com/products/software/jaws/) und [NVDA](https://www.nvaccess.org/) der Inhalt der Legende vor der Beschriftung jedes Steuerelements ausgesprochen.
 
 Hier ist ein kleines Beispiel:
 
@@ -70,25 +70,25 @@ Hier ist ein kleines Beispiel:
 ```
 
 > [!NOTE]
-> Sie können dieses Beispiel in [fieldset-legend.html](https://github.com/mdn/learning-area/blob/main/html/forms/html-form-structure/fieldset-legend.html) finden ([auch live sehen](https://mdn.github.io/learning-area/html/forms/html-form-structure/fieldset-legend.html)).
+> Sie finden dieses Beispiel in [fieldset-legend.html](https://github.com/mdn/learning-area/blob/main/html/forms/html-form-structure/fieldset-legend.html) ([sehen Sie es sich auch live an](https://mdn.github.io/learning-area/html/forms/html-form-structure/fieldset-legend.html)).
 
-Beim Lesen des obigen Formulars wird ein Screenreader "Fruchtsaftgröße klein" für das erste Widget, "Fruchtsaftgröße mittel" für das zweite und "Fruchtsaftgröße groß" für das dritte sprechen.
+Beim Lesen des obigen Formulars wird ein Screenreader für das erste Widget "Fruchtsaftgröße klein", für das zweite "Fruchtsaftgröße mittel" und für das dritte "Fruchtsaftgröße groß" sprechen.
 
-Der Anwendungsfall in diesem Beispiel ist einer der wichtigsten. Jedes Mal, wenn Sie eine Gruppe von Radiobuttons haben, sollten Sie diese innerhalb eines {{HTMLElement("fieldset")}}-Elements verschachteln. Es gibt andere Anwendungsfälle, und im Allgemeinen kann das {{HTMLElement("fieldset")}}-Element auch verwendet werden, um ein Formular zu unterteilen. Idealerweise sollten lange Formulare auf mehrere Seiten verteilt sein, aber wenn ein Formular lang wird und auf einer einzigen Seite sein muss, verbessert das Platzieren der verschiedenen zugehörigen Abschnitte innerhalb verschiedener Fieldsets die Benutzerfreundlichkeit.
+Der Anwendungsfall in diesem Beispiel ist einer der wichtigsten. Immer wenn Sie eine Gruppe von Radio-Buttons haben, sollten Sie diese innerhalb eines {{HTMLElement("fieldset")}}-Elements verschachteln. Es gibt noch andere Anwendungsfälle, und im Allgemeinen kann das {{HTMLElement("fieldset")}}-Element auch verwendet werden, um ein Formular in Abschnitte zu unterteilen. Idealerweise sollten lange Formulare über mehrere Seiten verteilt werden, aber wenn ein Formular lang wird und auf einer einzigen Seite sein muss, verbessert das Platzieren der verschiedenen zusammengehörigen Abschnitte in verschiedenen Fieldsets die Benutzerfreundlichkeit.
 
-Aufgrund seines Einflusses auf unterstützende Technologien ist das {{HTMLElement("fieldset")}}-Element eines der Schlüsselelemente zum Erstellen von zugänglichen Formularen; jedoch liegt es in Ihrer Verantwortung, es nicht zu missbrauchen. Wenn möglich, versuchen Sie jedes Mal, wenn Sie ein Formular erstellen, [zu hören, wie ein Screenreader](/de/docs/Learn_web_development/Core/Accessibility/Tooling#screen_readers) es interpretiert. Wenn es seltsam klingt, versuchen Sie, die Formularstruktur zu verbessern.
+Aufgrund seines Einflusses auf unterstützende Technologien ist das {{HTMLElement("fieldset")}}-Element eines der Schlüsselelemente für den Aufbau barrierefreier Formulare; jedoch liegt es in Ihrer Verantwortung, es nicht zu missbrauchen. Wenn möglich, versuchen Sie jedes Mal, wenn Sie ein Formular erstellen, [zuzuhören, wie ein Screenreader](/de/docs/Learn_web_development/Core/Accessibility/Tooling#screen_readers) es interpretiert. Wenn es seltsam klingt, versuchen Sie, die Formularstruktur zu verbessern.
 
-## Das \<label>-Element
+## Das \<label> Element
 
-Wie wir im vorherigen Artikel gesehen haben, ist das {{HTMLElement("label")}}-Element der formale Weg, ein Label für ein HTML-Formular-Widget zu definieren. Dies ist das wichtigste Element, wenn Sie zugängliche Formulare erstellen möchten — wenn es ordnungsgemäß implementiert ist, sprechen Screenreader das Label eines Formularelements zusammen mit allen zugehörigen Anweisungen aus, und es ist auch für sehende Benutzer nützlich. Nehmen Sie dieses Beispiel, das wir im vorherigen Artikel gesehen haben:
+Wie wir im vorherigen Artikel gesehen haben, ist das {{HTMLElement("label")}}-Element der formale Weg, ein Label für ein HTML-Formular-Widget zu definieren. Dies ist das wichtigste Element, wenn Sie barrierefreie Formulare erstellen möchten - wenn es richtig implementiert ist, werden Screenreader das Label eines Formularelements zusammen mit allen zugehörigen Anweisungen vorlesen, zudem ist es für sehende Benutzer nützlich. Betrachten Sie dieses Beispiel, das wir im vorherigen Artikel gesehen haben:
 
 ```html
 <label for="name">Name:</label> <input type="text" id="name" name="user_name" />
 ```
 
-Wenn das `<label>` korrekt mit dem `<input>` über sein `for`-Attribut (das den `id`-Attribut des `<input>`-Elements enthält) verknüpft ist, wird ein Screenreader etwas wie "Name, Bearbeitungstext" vorlesen.
+Mit dem `<label>`, das korrekt über das `for`-Attribut, das das `id`-Attribut des `<input>`-Elements enthält, mit dem `<input>` verbunden ist, liest ein Screenreader etwas wie "Name, Text bearbeiten" vor.
 
-Es gibt eine andere Möglichkeit, ein Formularsteuerelement mit einem Label zu verknüpfen — das Formularsteuerelement innerhalb des `<label>` zu verschachteln und es implizit zu verknüpfen.
+Es gibt eine andere Möglichkeit, ein Steuerelement mit einem Label zu verbinden – indem das Steuerelement innerhalb des `<label>`-Elements verschachtelt und damit implizit verbunden wird.
 
 ```html
 <label for="name">
@@ -96,15 +96,15 @@ Es gibt eine andere Möglichkeit, ein Formularsteuerelement mit einem Label zu v
 </label>
 ```
 
-Auch in solchen Fällen gilt jedoch als Best Practice, das `for`-Attribut zu setzen, um sicherzustellen, dass alle unterstützenden Technologien die Beziehung zwischen Label und Widget verstehen.
+Auch in solchen Fällen ist es jedoch als Best Practice anzusehen, das `for`-Attribut zu setzen, um sicherzustellen, dass alle unterstützenden Technologien die Beziehung zwischen Label und Widget verstehen.
 
-Wenn es kein Label gibt oder wenn das Formularsteuerelement weder implizit noch explizit mit einem Label verknüpft ist, wird ein Screenreader etwas wie "Bearbeitungstext leer" vorlesen, was nicht sehr hilfreich ist.
+Wenn es kein Label gibt oder wenn das Steuerelement weder implizit noch explizit mit einem Label verbunden ist, liest ein Screenreader etwas wie "Text bearbeiten leer", was nicht sehr hilfreich ist.
 
-### Labels sind ebenfalls klickbar!
+### Labels sind auch anklickbar!
 
-Ein weiterer Vorteil von korrekt eingerichteten Labels ist, dass Sie auf das Label klicken oder tippen können, um das entsprechende Widget zu aktivieren. Dies ist nützlich für Steuerelemente wie Texteingaben, bei denen Sie auf das Label sowie auf die Eingabe klicken können, um es zu fokussieren, aber es ist besonders nützlich für Radiobuttons und Kontrollkästchen — die Trefferfläche eines solchen Steuerelements kann sehr klein sein, daher ist es hilfreich, es so einfach wie möglich zu aktivieren.
+Ein weiterer Vorteil korrekt eingerichteter Labels besteht darin, dass Sie auf das Label klicken oder tippen können, um das entsprechende Widget zu aktivieren. Dies ist nützlich für Bedienelemente wie Texteingaben, bei denen Sie auf das Label und das Eingabefeld klicken können, um den Fokus darauf zu legen, aber es ist besonders nützlich für Radio-Buttons und Checkboxes – der Trefferbereich eines solchen Steuerelements kann sehr klein sein, daher ist es nützlich, es so einfach wie möglich aktivierbar zu machen.
 
-Wenn Sie zum Beispiel auf den Text des Labels "I like cherry" im folgenden Beispiel klicken, wird der ausgewählte Zustand des _taste_cherry_ Kontrollkästchens umgeschaltet:
+Wenn Sie beispielsweise auf den Labeltext "I like cherry" im folgenden Beispiel klicken, wird der ausgewählte Zustand des _taste_cherry_ Checkboxes umgeschaltet:
 
 ```html
 <form>
@@ -120,11 +120,11 @@ Wenn Sie zum Beispiel auf den Text des Labels "I like cherry" im folgenden Beisp
 ```
 
 > [!NOTE]
-> Sie können dieses Beispiel in [checkbox-label.html](https://github.com/mdn/learning-area/blob/main/html/forms/html-form-structure/checkbox-label.html) finden ([auch live sehen](https://mdn.github.io/learning-area/html/forms/html-form-structure/checkbox-label.html)).
+> Sie finden dieses Beispiel in [checkbox-label.html](https://github.com/mdn/learning-area/blob/main/html/forms/html-form-structure/checkbox-label.html) ([sehen Sie es sich auch live an](https://mdn.github.io/learning-area/html/forms/html-form-structure/checkbox-label.html)).
 
 ### Mehrere Labels
 
-Streng genommen können Sie mehreren Labels für ein einzelnes Widget hinzufügen, aber das ist keine gute Idee, da einige unterstützende Technologien Schwierigkeiten damit haben. Bei mehreren Labels sollten Sie ein Widget und seine Labels innerhalb eines einzelnen {{htmlelement("label")}}-Elements verschachteln.
+Streng genommen können Sie mehrere Labels auf ein einzelnes Widget setzen, aber das ist keine gute Idee, da einige unterstützende Technologien Probleme damit haben können. Im Falle mehrerer Labels sollten Sie ein Widget und seine Labels innerhalb eines einzelnen {{htmlelement("label")}}-Elements verschachteln.
 
 Betrachten wir dieses Beispiel:
 
@@ -156,35 +156,35 @@ Betrachten wir dieses Beispiel:
 
 {{EmbedLiveSample("Multiple_labels", 120, 120)}}
 
-Der Absatz oben legt eine Regel für erforderliche Elemente fest. Die Regel muss _vor_ ihrer Verwendung inkludiert werden, damit sehende Benutzer und Benutzer unterstützender Technologien wie Screenreader erfahren, was sie bedeutet, bevor sie auf ein erforderliches Element stoßen. Während dies den Benutzern hilft zu verstehen, was ein Sternchen bedeutet, kann darauf nicht vollständig vertraut werden. Ein Screenreader wird ein Sternchen als "_Stern_" aussprechen, wenn er darauf stößt. Wenn ein sehender Benutzer mit der Maus darüber fährt, sollte "_erforderlich_" angezeigt werden, was durch Verwendung des `title`-Attributs erreicht wird. Das Vorlesen von Titeln hängt von den Einstellungen des Screenreaders ab, daher ist es zuverlässiger, auch das [`aria-label`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label)-Attribut zu verwenden, das immer von Screenreadern vorgelesen wird.
+Der Absatz oben beschreibt eine Regel für erforderliche Elemente. Die Regel muss _vor_ ihrer Verwendung eingefügt werden, damit sehende Benutzer und Benutzer von unterstützenden Technologien wie Screenreadern verstehen können, was sie bedeutet, bevor sie auf ein erforderliches Element stoßen. Während dies den Benutzern hilft zu verstehen, was ein Sternchen bedeutet, kann man sich nicht darauf verlassen. Ein Screenreader wird ein Sternchen als "_star_" lesen, wenn es angetroffen wird. Wenn ein sehender Benutzer mit der Maus darüberfährt, sollte "_erforderlich_" erscheinen, was mit Hilfe des `title`-Attributes erreicht wird. Das Vorlesen von Titeln hängt von den Screenreader-Einstellungen ab, daher ist es zuverlässiger, auch das [`aria-label`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label)-Attribut einzubeziehen, das von Screenreadern immer vorgelesen wird.
 
-Die oben genannten Varianten nehmen in ihrer Effektivität zu, wenn Sie sie durchgehen:
+Die obigen Varianten steigen in ihrer Effektivität, je weiter Sie gehen:
 
-- Im ersten Beispiel wird das Label überhaupt nicht zusammen mit der Eingabe vorgelesen — Sie hören nur "Bearbeitungstext leer", wobei die tatsächlichen Labels separat vorgelesen werden. Die mehrere `<label>`-Elemente verwirren den Screenreader.
-- Im zweiten Beispiel sind die Dinge etwas klarer — das Label, das zusammen mit der Eingabe vorgelesen wird, ist "Name Stern Name Bearbeitungstext erforderlich", und die Labels werden immer noch separat vorgelesen. Es ist immer noch etwas verwirrend, aber es ist diesmal etwas besser, weil das `<input>`-Element ein zugeordnetes Label hat.
-- Das dritte Beispiel ist am besten — das tatsächliche Label wird vollständig zusammenhängend vorgelesen, und das Label, das zusammen mit der Eingabe vorgelesen wird, ist "Name erforderlich Bearbeitungstext".
-
-> [!NOTE]
-> Sie könnten leicht unterschiedliche Ergebnisse erhalten, abhängig von Ihrem Screenreader. Dies wurde in VoiceOver getestet (und NVDA verhält sich ähnlich). Wir würden gerne Ihre Erfahrungen hören.
+- Im ersten Beispiel wird das Label überhaupt nicht mit der Eingabe vorgelesen – Sie erhalten nur "Text bearbeiten leer", und die tatsächlichen Labels werden separat vorgelesen. Die mehreren `<label>`-Elemente verwirren den Screenreader.
+- Im zweiten Beispiel ist die Aussage klarer – das Label, das zusammen mit der Eingabe vorgelesen wird, ist "Name Stern Name Text bearbeiten erforderlich", und die Labels werden immer noch separat vorgelesen. Es ist immer noch etwas verwirrend, aber dieses Mal ist es etwas besser, weil das `<input>` mit einem Label verbunden ist.
+- Das dritte Beispiel ist am besten – das tatsächliche Label wird vollständig vorgelesen, und das Label mit der Eingabe ist "Name erforderlich Text bearbeiten".
 
 > [!NOTE]
-> Sie können dieses Beispiel auf GitHub als [required-labels.html](https://github.com/mdn/learning-area/blob/main/html/forms/html-form-structure/required-labels.html) finden ([auch live sehen](https://mdn.github.io/learning-area/html/forms/html-form-structure/required-labels.html)). Testen Sie das Beispiel nicht mit 2 oder 3 der Versionen auskommentiert — Screenreader werden definitiv verwirrt sein, wenn Sie mehrere Labels UND mehrere Eingaben mit derselben ID haben!
+> Sie erhalten möglicherweise leicht unterschiedliche Ergebnisse, abhängig von Ihrem Screenreader. Dies wurde in VoiceOver getestet (und NVDA verhält sich ähnlich). Wir würden gerne auch Ihre Erfahrungen hören.
 
-## Häufig verwendete HTML-Strukturen mit Formularen
+> [!NOTE]
+> Sie finden dieses Beispiel auf GitHub als [required-labels.html](https://github.com/mdn/learning-area/blob/main/html/forms/html-form-structure/required-labels.html) ([sehen Sie es sich auch live an](https://mdn.github.io/learning-area/html/forms/html-form-structure/required-labels.html)). Testen Sie das Beispiel nicht mit 2 oder 3 der Versionen, die unverändert bleiben – Screenreader werden definitiv verwirrt, wenn Sie mehrere Labels UND mehrere Eingaben mit derselben ID haben!
 
-Abgesehen von den speziell für Webformulare vorgesehenen Strukturen ist es gut zu bedenken, dass das Formular-Markup nur HTML ist. Das bedeutet, dass Sie die gesamte Leistungsfähigkeit von HTML nutzen können, um ein Webformular zu strukturieren.
+## Übliche HTML-Strukturen, die mit Formularen verwendet werden
 
-Wie Sie in den Beispielen sehen können, ist es gängige Praxis, ein Label und sein Widget mit einem {{HTMLElement("li")}}-Element innerhalb einer {{HTMLElement("ul")}}- oder {{HTMLElement("ol")}}-Liste zu umgeben. {{HTMLElement("p")}}- und {{HTMLElement("div")}}-Elemente werden ebenfalls häufig verwendet. Listen werden empfohlen, um mehrere Kontrollkästchen oder Radiobuttons zu strukturieren.
+Neben den für Webformulare spezifischen Strukturen sollten Sie bedenken, dass das Formular-Markup nur HTML ist. Dies bedeutet, dass Sie die gesamte Macht von HTML nutzen können, um ein Webformular zu strukturieren.
 
-Zusätzlich zum {{HTMLElement("fieldset")}}-Element ist es auch gängige Praxis, HTML-Titel (z.B. {{htmlelement("Heading_Elements", "h1")}}, {{htmlelement("Heading_Elements", "h2")}}) und Unterteilung (z.B. {{htmlelement("section")}}) zu verwenden, um komplexe Formulare zu strukturieren.
+Wie in den Beispielen zu sehen ist, ist es gängige Praxis, ein Label und sein Widget mit einem {{HTMLElement("li")}}-Element innerhalb einer {{HTMLElement("ul")}}- oder {{HTMLElement("ol")}}-Liste zu umschließen. {{HTMLElement("p")}}- und {{HTMLElement("div")}}-Elemente werden ebenfalls häufig verwendet. Listen werden empfohlen, um mehrere Checkboxen oder Radiobuttons zu strukturieren.
 
-Vor allem liegt es an Ihnen, einen komfortablen Codierungsstil zu finden, der in zugänglichen, benutzbaren Formularen resultiert. Jede separate Funktionssektion sollte in einem separaten {{htmlelement("section")}}-Element enthalten sein, mit {{htmlelement("fieldset")}}-Elementen, um Radiobuttons zu enthalten.
+Zusätzlich zum {{HTMLElement("fieldset")}}-Element ist es auch gängige Praxis, HTML-Titel (z. B. {{htmlelement("Heading_Elements", "h1")}}, {{htmlelement("Heading_Elements", "h2")}}) und Abschnittsunterteilung (z. B. {{htmlelement("section")}}) zu verwenden, um komplexe Formulare zu strukturieren.
 
-### Aktives Lernen: eine Formularstruktur erstellen
+Vor allem liegt es an Ihnen, einen komfortablen Codierstil zu finden, der in zugänglichen, benutzbaren Formularen resultiert. Jede separate Funktionalität sollte in einem separaten {{htmlelement("section")}}-Element enthalten sein, mit {{htmlelement("fieldset")}}-Elementen, um Radiobuttons zu enthalten.
 
-Lasst uns diese Ideen in die Praxis umsetzen und ein etwas komplexeres Formular erstellen — ein Zahlungsformular. Dieses Formular wird eine Anzahl von Kontrolltypen enthalten, die Sie möglicherweise noch nicht verstehen. Machen Sie sich darüber jetzt keine Sorgen; Sie werden in dem nächsten Artikel herausfinden, wie sie funktionieren ([Basiskontrollen für Formulare](/de/docs/Learn_web_development/Extensions/Forms/Basic_native_form_controls)). Lesen Sie vorerst die Beschreibungen sorgfältig, während Sie den folgenden Anweisungen folgen, und beginnen Sie, ein Gespür dafür zu entwickeln, welche Wrapper-Elemente wir verwenden, um das Formular zu strukturieren, und warum.
+### Aktives Lernen: Eine Formularstruktur erstellen
 
-1. Erstellen Sie zunächst eine lokale Kopie unserer [leeren Vorlagendatei](https://github.com/mdn/learning-area/blob/main/html/introduction-to-html/getting-started/index.html) in einem neuen Verzeichnis auf Ihrem Computer.
+Lassen Sie uns diese Ideen in die Praxis umsetzen und ein etwas umfangreicheres Formular erstellen – ein Zahlungsformular. Dieses Formular enthält eine Reihe von Steuerelementtypen, die Sie möglicherweise noch nicht verstehen. Machen Sie sich darüber keine Sorgen; Sie werden in dem nächsten Artikel ([Basic native form controls](/de/docs/Learn_web_development/Extensions/Forms/Basic_native_form_controls)) herausfinden, wie sie funktionieren. Folgen Sie nun den Anweisungen unten sorgfältig und beginnen Sie, zu verstehen, welche Wrapper-Elemente wir zur Strukturierung des Formulars verwenden und warum.
+
+1. Um zu beginnen, machen Sie eine lokale Kopie unserer [leeren Vorlagendatei](https://github.com/mdn/learning-area/blob/main/html/introduction-to-html/getting-started/index.html) in einem neuen Verzeichnis auf Ihrem Computer.
 
 2. Erstellen Sie als Nächstes Ihr Formular, indem Sie ein {{htmlelement("form")}}-Element hinzufügen:
 
@@ -192,7 +192,7 @@ Lasst uns diese Ideen in die Praxis umsetzen und ein etwas komplexeres Formular 
    <form>
    ```
 
-3. Fügen Sie innerhalb des `<form>`-Elements eine Überschrift und einen Absatz hinzu, um Benutzer darauf hinzuweisen, wie erforderliche Felder gekennzeichnet sind:
+3. Fügen Sie innerhalb des `<form>`-Elements eine Überschrift und einen Absatz hinzu, um die Benutzer darüber zu informieren, wie erforderliche Felder gekennzeichnet sind:
 
    ```html-nolint
    <h1>Payment form</h1>
@@ -202,7 +202,7 @@ Lasst uns diese Ideen in die Praxis umsetzen und ein etwas komplexeres Formular 
    </p>
    ```
 
-4. Als Nächstes fügen wir einen größeren Codeabschnitt in das Formular ein, unterhalb unseres vorherigen Eintrags. Hier sehen Sie, dass wir die Kontaktinformationen in einem eigenständigen {{htmlelement("section")}}-Element umschließen. Außerdem haben wir eine Gruppe von drei Radiobuttons, von denen jeder in einem eigenen Listenelement ({{htmlelement("li")}}) platziert ist. Wir haben auch zwei Standardtexteingaben {{htmlelement("input")}}s und deren zugehörige {{htmlelement("label")}}-Elemente, jeweils in einem {{htmlelement("p")}} enthalten, und eine Passwort-Eingabe zum Eingeben eines Passworts. Fügen Sie diesen Code zu Ihrem Formular hinzu:
+4. Als Nächstes fügen wir einen größeren Abschnitt Code in das Formular unter unserem vorherigen Eintrag ein. Hier sehen Sie, dass wir die Kontaktdatenfelder innerhalb eines eigenen {{htmlelement("section")}}-Elements umschließen. Darüber hinaus haben wir eine Gruppe von drei Radio-Buttons, die wir jeweils in einem eigenen Listenelement ({{htmlelement("li")}}) unterbringen. Wir haben auch zwei Standard-Text-{{htmlelement("input")}}s und ihre zugehörigen {{htmlelement("label")}}-Elemente, die jeweils in einem {{htmlelement("p")}} untergebracht sind, und eine Passwort-Eingabe zum Eingeben eines Passworts. Fügen Sie diesen Code in Ihr Formular ein:
 
    ```html
    <section>
@@ -254,47 +254,52 @@ Lasst uns diese Ideen in die Praxis umsetzen und ein etwas komplexeres Formular 
    </section>
    ```
 
-5. Der zweite `<section>`-Abschnitt unseres Formulars enthält die Zahlungsinformationen. Wir haben drei separate Steuerelemente zusammen mit ihren Labels, jeweils in einem `<p>` enthalten. Das erste ist ein Dropdown-Menü ({{htmlelement("select")}}) zur Auswahl des Kreditkartentyps. Das zweite ist ein `<input>`-Element vom Typ `tel`, zum Eingeben einer Kreditkartennummer; obwohl wir den `number`-Typ verwenden könnten, möchten wir die Spinn-Benutzeroberfläche nicht. Das letzte ist ein `<input>`-Element vom Typ `text`, um das Ablaufdatum der Karte einzugeben; es enthält ein _placeholder_-Attribut zur Anzeige des korrekten Formats und ein _pattern_, das prüft, ob das eingegebene Datum das korrekte Format hat. Diese neueren Eingabetypen werden in [Die HTML5-Eingabetypen](/de/docs/Learn_web_development/Extensions/Forms/HTML5_input_types) wieder eingeführt.
+5. Der zweite `<section>` unseres Formulars ist die Zahlungsinformationen.
+   Wir haben drei verschiedene Steuerelemente mit ihren Labels, die jeweils in einem `<p>` untergebracht sind.
+   Das erste ist ein Dropdown-Menü ({{htmlelement("select")}}) zur Auswahl des Kreditkartentyps.
+   Das zweite ist ein `<input>`-Element vom Typ `tel` zum Eingeben einer Kreditkartennummer; während wir den `number`-Typ hätten verwenden können, wollen wir die Spinner-Benutzeroberfläche der Nummer nicht verwenden.
+   Das letzte ist ein `<input>`-Element vom Typ `text` zur Eingabe des Ablaufdatums der Karte; dies enthält ein _placeholder_-Attribut, das das richtige Format angibt, und ein _pattern_, das überprüft, ob das eingegebene Datum das richtige Format hat.
+   Diese neueren Eingabetypen werden in [The HTML5 input types](/de/docs/Learn_web_development/Extensions/Forms/HTML5_input_types) erneut vorgestellt.
 
-Fügen Sie den folgenden Code unter dem vorherigen Abschnitt ein:
+   Geben Sie den folgenden Code unter den vorherigen Abschnitt ein:
 
-```html
-<section>
-  <h2>Payment information</h2>
-  <p>
-    <label for="card">
-      <span>Card type:</span>
-    </label>
-    <select id="card" name="user-card">
-      <option value="visa">Visa</option>
-      <option value="mc">Mastercard</option>
-      <option value="amex">American Express</option>
-    </select>
-  </p>
-  <p>
-    <label for="number">
-      <span>Card number:</span>
-      <strong><span aria-label="required">*</span></strong>
-    </label>
-    <input type="tel" id="number" name="card-number" required />
-  </p>
-  <p>
-    <label for="expiration">
-      <span>Expiration date:</span>
-      <strong><span aria-label="required">*</span></strong>
-    </label>
-    <input
-      type="text"
-      id="expiration"
-      name="expiration"
-      required
-      placeholder="MM/YY"
-      pattern="^(0[1-9]|1[0-2])\/([0-9]{2})$" />
-  </p>
-</section>
-```
+   ```html
+   <section>
+     <h2>Payment information</h2>
+     <p>
+       <label for="card">
+         <span>Card type:</span>
+       </label>
+       <select id="card" name="user-card">
+         <option value="visa">Visa</option>
+         <option value="mc">Mastercard</option>
+         <option value="amex">American Express</option>
+       </select>
+     </p>
+     <p>
+       <label for="number">
+         <span>Card number:</span>
+         <strong><span aria-label="required">*</span></strong>
+       </label>
+       <input type="tel" id="number" name="card-number" required />
+     </p>
+     <p>
+       <label for="expiration">
+         <span>Expiration date:</span>
+         <strong><span aria-label="required">*</span></strong>
+       </label>
+       <input
+         type="text"
+         id="expiration"
+         name="expiration"
+         required
+         placeholder="MM/YY"
+         pattern="^(0[1-9]|1[0-2])\/([0-9]{2})$" />
+     </p>
+   </section>
+   ```
 
-6. Der letzte Abschnitt, den wir hinzufügen, ist viel einfacher, er enthält nur einen {{htmlelement("button")}} vom Typ `submit`, um die Formulardaten zu übermitteln. Fügen Sie dies jetzt unten an Ihrem Formular hinzu:
+6. Der letzte Abschnitt, den wir hinzufügen werden, ist viel einfacher und enthält nur einen {{htmlelement("button")}} vom Typ `submit`, um die Formulardaten zu übermitteln. Fügen Sie dies jetzt am Ende Ihres Formulars hinzu:
 
    ```html
    <section>
@@ -304,7 +309,7 @@ Fügen Sie den folgenden Code unter dem vorherigen Abschnitt ein:
    </section>
    ```
 
-7. Schließen Sie Ihr Formular schließlich mit dem schließenden {{htmlelement("form")}}-Tag ab:
+7. Abschließend vervollständigen Sie Ihr Formular, indem Sie das äußere {{htmlelement("form")}}-Schließungstag hinzufügen:
 
    ```html
    </form>
@@ -382,17 +387,17 @@ Fügen Sie den folgenden Code unter dem vorherigen Abschnitt ein:
    }
    ```
 
-Wir haben dem untenstehenden fertigen Formular einige zusätzliche CSS hinzugefügt. Wenn Sie Änderungen am Aussehen Ihres Formulars vornehmen möchten, können Sie Stile aus [dem Beispiel](/de/docs/Learn_web_development/Extensions/Forms/How_to_structure_a_web_form/Example) kopieren oder [Webformulare gestalten](/de/docs/Learn_web_development/Extensions/Forms/Styling_web_forms) besuchen.
+Wir haben dem fertigen Formular unten einige zusätzliche CSS hinzugefügt. Wenn Sie Änderungen am Erscheinungsbild Ihres Formulars vornehmen möchten, können Sie Stile aus [dem Beispiel](/de/docs/Learn_web_development/Extensions/Forms/How_to_structure_a_web_form/Example) kopieren oder [Styling web forms](/de/docs/Learn_web_development/Extensions/Forms/Styling_web_forms) besuchen.
 
 {{EmbedLiveSample("active_learning_building_a_form_structure","100%",620)}}
 
 ## Testen Sie Ihre Fähigkeiten!
 
-Sie haben das Ende dieses Artikels erreicht, aber können Sie sich die wichtigsten Informationen merken? Sie können einen weiteren Test finden, um zu überprüfen, ob Sie diese Informationen behalten haben, bevor Sie weitermachen — siehe [Testen Sie Ihre Fähigkeiten: Formularstruktur](/de/docs/Learn_web_development/Extensions/Forms/Test_your_skills:_Form_structure).
+Sie haben das Ende dieses Artikels erreicht, aber können Sie sich noch an die wichtigsten Informationen erinnern? Sie finden einen weiteren Test, um zu überprüfen, ob Sie diese Informationen behalten haben, bevor Sie weitermachen – siehe [Testen Sie Ihre Fähigkeiten: Formularstruktur](/de/docs/Learn_web_development/Extensions/Forms/Test_your_skills:_Form_structure).
 
 ## Zusammenfassung
 
-Sie verfügen nun über das notwendige Wissen, um Ihre Webformulare richtig zu strukturieren. Wir werden viele der hier vorgestellten Funktionen in den nächsten Artikeln behandeln, wobei der nächste Artikel ausführlicher auf die Verwendung aller verschiedenen Arten von Formular-Widgets eingeht, die Sie verwenden möchten, um Informationen von Ihren Benutzern zu sammeln.
+Sie haben jetzt das gesamte Wissen, das Sie benötigen, um Ihre Webformulare richtig zu strukturieren. Wir werden in den nächsten Artikeln viele der hier eingeführten Funktionen behandeln, wobei der nächste Artikel genauer auf die Verwendung aller verschiedenen Arten von Formular-Widgets eingeht, die Sie verwenden möchten, um Informationen von Ihren Benutzern zu sammeln.
 
 ## Siehe auch
 

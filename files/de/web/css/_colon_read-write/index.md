@@ -2,7 +2,7 @@
 title: :read-write
 slug: Web/CSS/:read-write
 l10n:
-  sourceCommit: 33a12980eb49cc795a41f15ec7a0181270ad3048
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{CSSRef}}
@@ -52,11 +52,11 @@ input[type="submit"] {
 
 ## Beispiele
 
-### Bestätigung von Formularinformationen in schreibgeschützten/schreibfähigen Steuerungen
+### Bestätigung von Formularinformationen in schreibgeschützten/schreibfähigen Steuerelementen
 
-Eine Verwendung von `readonly` Formularsteuerungen besteht darin, dem Benutzer zu ermöglichen, Informationen zu überprüfen und zu bestätigen, die er möglicherweise in einem früheren Formular eingegeben hat (zum Beispiel Versanddetails), während er weiterhin in der Lage ist, die Informationen zusammen mit dem Rest des Formulars zu übermitteln. Im folgenden Beispiel tun wir genau das.
+Eine Verwendung von `readonly` Formularsteuerungselementen besteht darin, dem Benutzer die Möglichkeit zu geben, Informationen zu überprüfen und zu bestätigen, die er möglicherweise in einem früheren Formular eingegeben hat (zum Beispiel Versanddetails), während er dennoch in der Lage ist, die Informationen zusammen mit dem Rest des Formulars zu übermitteln. Genau das machen wir im folgenden Beispiel.
 
-Die Pseudoklasse `:read-only` wird verwendet, um das gesamte Styling zu entfernen, das die Eingabefelder wie anklickbare Felder aussehen lässt, damit sie mehr wie schreibgeschützte Absätze erscheinen. Die Pseudoklasse `:read-write` dagegen wird genutzt, um dem bearbeitbaren `<textarea>` ein ansprechenderes Styling zu geben.
+Die Pseudoklasse `:read-only` wird verwendet, um das gesamte Styling zu entfernen, das die Eingabefelder wie anklickbare Felder aussehen lässt, sodass sie eher wie schreibgeschützte Absätze aussehen. Die Pseudoklasse `:read-write` hingegen wird verwendet, um dem bearbeitbaren `<textarea>` ein schöneres Styling zu geben.
 
 ```css
 input:-moz-read-only,
@@ -75,13 +75,13 @@ textarea:read-write {
 }
 ```
 
-Sie können den vollständigen Quellcode unter [readonly-confirmation.html](https://github.com/mdn/learning-area/blob/main/html/forms/pseudo-classes/readonly-confirmation.html) finden; dies wird folgendermaßen gerendert:
+Den vollständigen Quellcode finden Sie unter [readonly-confirmation.html](https://github.com/mdn/learning-area/blob/main/html/forms/pseudo-classes/readonly-confirmation.html); dies wird wie folgt gerendert:
 
 {{EmbedGHLiveSample("learning-area/html/forms/pseudo-classes/readonly-confirmation.html", '100%', 660)}}
 
-### Stilierung von schreibfähigen Nicht-Formularsteuerungen
+### Styling von schreibfähigen Nicht-Formularelementen
 
-Dieser Selektor wählt nicht nur {{htmlElement("input")}}/{{htmlElement("textarea")}} Elemente aus — er wählt _jedes_ Element, das vom Benutzer bearbeitet werden kann, wie ein {{htmlelement("p")}} Element mit dem [`contenteditable`](/de/docs/Web/HTML/Global_attributes/contenteditable) Attribut.
+Dieser Selektor wählt nicht nur {{htmlElement("input")}}/{{htmlElement("textarea")}}-Elemente aus — er wählt _jedes_ Element aus, das vom Benutzer bearbeitet werden kann, wie zum Beispiel ein {{htmlelement("p")}}-Element mit `contenteditable` darauf gesetzt.
 
 ```html
 <p contenteditable>This paragraph is editable; it is read-write.</p>
@@ -119,4 +119,4 @@ p:read-write {
 ## Siehe auch
 
 - {{cssxref(":read-only")}}
-- HTML [`contenteditable`](/de/docs/Web/HTML/Global_attributes/contenteditable) Attribut
+- HTML [`contenteditable`](/de/docs/Web/HTML/Reference/Global_attributes/contenteditable) Attribut

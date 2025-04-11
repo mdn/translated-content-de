@@ -1,18 +1,18 @@
 ---
-title: "HTMLMediaElement: disableRemotePlayback-Eigenschaft"
+title: "HTMLMediaElement: disableRemotePlayback Eigenschaft"
 short-title: disableRemotePlayback
 slug: Web/API/HTMLMediaElement/disableRemotePlayback
 l10n:
-  sourceCommit: 0b6bfb8a3a03de5956dd1cec4b47e5e37078149d
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{APIRef("Remote Playback API")}}
 
-Die **`disableRemotePlayback`**-Eigenschaft der [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement)-Schnittstelle bestimmt, ob das Medien-Element eine Remote-Wiedergabe-UI haben darf.
+Die **`disableRemotePlayback`** Eigenschaft des [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement) Interfaces bestimmt, ob das Media-Element eine Fernwiedergabe-UI haben darf.
 
 ## Wert
 
-Ein boolescher Wert, der angibt, ob das Medien-Element eine Remote-Wiedergabe-UI haben darf. (`false` bedeutet "nicht deaktiviert", was "aktiviert" bedeutet)
+Ein boolescher Wert, der anzeigt, ob das Media-Element eine Fernwiedergabe-UI haben darf. (`false` bedeutet "nicht deaktiviert", was "aktiviert" bedeutet)
 
 ## Beispiel
 
@@ -31,5 +31,5 @@ obj.disableRemotePlayback = true;
 
 ## Siehe auch
 
-- [Das `disableremoteplayback`-Attribut des `<audio>`-Elements](/de/docs/Web/HTML/Element/audio#disableremoteplayback)
-- [Das `disableremoteplayback`-Attribut des `<video>`-Elements](/de/docs/Web/HTML/Element/video#disableremoteplayback)
+- [Das `disableremoteplayback` Attribut des `<audio>` Elements](/de/docs/Web/HTML/Reference/Elements/audio#disableremoteplayback)
+- [Das `disableremoteplayback` Attribut des `<video>` Elements](/de/docs/Web/HTML/Reference/Elements/video#disableremoteplayback)

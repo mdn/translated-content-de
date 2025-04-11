@@ -2,12 +2,12 @@
 title: :modal
 slug: Web/CSS/:modal
 l10n:
-  sourceCommit: 33a12980eb49cc795a41f15ec7a0181270ad3048
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{CSSRef}}
 
-Die **`:modal`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) wählt ein Element aus, das sich in einem Zustand befindet, in dem es alle Interaktionen mit Elementen außerhalb von ihm ausschließt, bis die Interaktion beendet wurde. Mehrere Elemente können gleichzeitig von der `:modal` Pseudoklasse ausgewählt werden, aber nur eines von ihnen wird aktiv sein und Eingaben empfangen können.
+Die **`:modal`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) wählt ein Element aus, das sich in einem Zustand befindet, in dem es jegliche Interaktion mit außerhalb liegenden Elementen ausschließt, bis die Interaktion beendet wurde. Mehrere Elemente können gleichzeitig von der `:modal` Pseudoklasse ausgewählt werden, aber nur eines von ihnen wird aktiv sein und Eingaben empfangen können.
 
 {{InteractiveExample("CSS Demo: :modal", "tabbed-shorter")}}
 
@@ -61,18 +61,18 @@ showNumber.addEventListener("click", () => {
 }
 ```
 
-## Verwendungshinweise
+## Anwendungshinweise
 
-Beispiele von Elementen, die die Benutzerinteraktion mit dem Rest der Seite verhindern und von der `:modal` Pseudoklasse ausgewählt werden, sind:
+Beispiele für Elemente, die die Benutzerinteraktion mit dem Rest der Seite verhindern und von der `:modal` Pseudoklasse ausgewählt werden:
 
-- Das [`dialog`](/de/docs/Web/HTML/Element/dialog)-Element, das mit der `showModal()` API geöffnet wurde.
-- Das Element, das von der [`:fullscreen`](/de/docs/Web/CSS/:fullscreen) Pseudoklasse ausgewählt wurde, wenn es mit der `requestFullscreen()` API geöffnet wurde.
+- Das [`dialog`](/de/docs/Web/HTML/Reference/Elements/dialog) Element, das mit der `showModal()` API geöffnet wurde.
+- Das durch die [`:fullscreen`](/de/docs/Web/CSS/:fullscreen) Pseudoklasse ausgewählte Element, wenn es mit der `requestFullscreen()` API geöffnet wurde.
 
 ## Beispiele
 
 ### Styling eines modalen Dialogs
 
-Dieses Beispiel gestaltet einen modalen Dialog, der sich öffnet, wenn die Schaltfläche "Details aktualisieren" aktiviert wird. Dieses Beispiel wurde auf dem {{HTMLElement("dialog")}}-Element [Beispiel](/de/docs/Web/HTML/Element/dialog#handling_the_return_value_from_the_dialog) aufgebaut.
+Dieses Beispiel stylt einen modalen Dialog, der geöffnet wird, wenn die Schaltfläche "Update details" aktiviert wird. Dieses Beispiel basiert auf dem {{HTMLElement("dialog")}} Element [Beispiel](/de/docs/Web/HTML/Reference/Elements/dialog#handling_the_return_value_from_the_dialog).
 
 ```html hidden
 <!-- Basic modal dialog containing a form -->
@@ -158,6 +158,6 @@ favDialog.addEventListener("close", () => {
 
 ## Siehe auch
 
-- [`dialog`](/de/docs/Web/HTML/Element/dialog)-Element
-- Andere Element-Anzeigestatus-Pseudoklassen: {{CSSxRef(":fullscreen")}} und {{CSSxRef(":picture-in-picture")}}
+- [`dialog`](/de/docs/Web/HTML/Reference/Elements/dialog) Element
+- Andere Elementanzeigezustand-Pseudoklassen: {{CSSxRef(":fullscreen")}} und {{CSSxRef(":picture-in-picture")}}
 - Vollständige Liste der [Pseudoklassen](/de/docs/Web/CSS/Pseudo-classes)

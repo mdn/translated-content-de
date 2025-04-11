@@ -3,17 +3,17 @@ title: "javascript: URLs"
 short-title: "javascript:"
 slug: Web/URI/Reference/Schemes/javascript
 l10n:
-  sourceCommit: d54f8c9ecfbafc35915330ac4e26a09d93d814e8
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 > [!WARNING]
-> Die Verwendung von `javascript:` URLs im Web wird nicht empfohlen, da dies zur Ausführung beliebigen Codes führen kann, ähnlich den Auswirkungen der Verwendung von [`eval()`](/de/docs/Web/JavaScript/Reference/Global_Objects/eval). Dies kann auch die {{Glossary("accessibility", "Zugänglichkeit")}} verringern, da es vom normalen Link-Verhalten abweicht.
+> Die Verwendung von `javascript:`-URLs im Web wird nicht empfohlen, da sie zur Ausführung von beliebigem Code führen können, ähnlich wie die Verwendung von [`eval()`](/de/docs/Web/JavaScript/Reference/Global_Objects/eval). Sie kann auch die {{Glossary("accessibility", "Barrierefreiheit")}} verringern, da sie vom normalen Linkverhalten abweicht.
 
-**JavaScript-URLs**, URLs, die mit dem `javascript:` Schema beginnen, werden als Schein-Navigationsziele verwendet, die JavaScript ausführen, wenn der Browser den Versuch unternimmt, zu navigieren. Wird die URL als Zeichenfolge evaluiert, wird sie als HTML behandelt und vom Browser gerendert.
+**JavaScript-URLs**, URLs mit dem Präfix `javascript:`, werden als gefälschte Navigationsziele verwendet, die JavaScript ausführen, wenn der Browser versucht zu navigieren. Wenn die URL zu einem String ausgewertet wird, behandelt der Browser sie als HTML und rendert sie.
 
 ## Syntax
 
-JavaScript-URLs beginnen mit dem `javascript:` Schema und werden von JavaScript-Code gefolgt. Der Code wird als Skript geparst.
+JavaScript-URLs beginnen mit dem Schema `javascript:` und werden von JavaScript-Code gefolgt. Der Code wird als Skript geparst.
 
 ```url
 javascript:<script>
@@ -21,32 +21,32 @@ javascript:<script>
 
 ## Beschreibung
 
-`javascript:` URLs können überall dort verwendet werden, wo eine URL ein Navigationsziel ist. Dies schließt ein, ist aber nicht darauf beschränkt:
+`javascript:`-URLs können überall dort verwendet werden, wo eine URL ein Navigationsziel ist. Dazu gehören, aber sind nicht beschränkt auf:
 
-- Das [`href`](/de/docs/Web/HTML/Element/a#href) Attribut eines `<a>` oder `<area>` Elements.
-- Das [`action`](/de/docs/Web/HTML/Element/form#action) Attribut eines `<form>` Elements.
-- Das [`src`](/de/docs/Web/HTML/Element/iframe#src) Attribut eines `<iframe>` Elements.
-- Die [`window.location`](/de/docs/Web/API/Window/location) JavaScript Eigenschaft.
-- Die Browser-Adressleiste selbst.
+- Das [`href`](/de/docs/Web/HTML/Reference/Elements/a#href)-Attribut eines `<a>`- oder `<area>`-Elements.
+- Das [`action`](/de/docs/Web/HTML/Reference/Elements/form#action)-Attribut eines `<form>`-Elements.
+- Das [`src`](/de/docs/Web/HTML/Reference/Elements/iframe#src)-Attribut eines `<iframe>`-Elements.
+- Die JavaScript-Eigenschaft [`window.location`](/de/docs/Web/API/Window/location).
+- Die Adressleiste des Browsers selbst.
 
 > [!NOTE]
-> Einige andere Kontexte, die URLs verwenden, wie das [`href`](/de/docs/Web/HTML/Element/link#href) Attribut von `<link>` Elementen, erlauben keine `javascript:` URLs, da sie Ressourcenorte und keine Navigationsziele sind. In diesen Fällen, wenn Sie JavaScript inline schreiben möchten, verwenden Sie [`data:`](/de/docs/Web/URI/Reference/Schemes/data) URLs mit dem MIME-Typ `text/javascript`.
+> Einige andere Kontexte, die URLs verwenden, wie das [`href`](/de/docs/Web/HTML/Reference/Elements/link#href)-Attribut von `<link>`-Elementen, erlauben keine `javascript:`-URLs, da sie Ressourcenstandorte und keine Navigationsziele sind. Für diese Fälle, wenn Sie JavaScript inline schreiben möchten, verwenden Sie [`data:`](/de/docs/Web/URI/Reference/Schemes/data)-URLs mit dem MIME-Typ `text/javascript`.
 
-Wenn ein Browser versucht, zu einem solchen Ort zu navigieren, wird der Skriptkörper geparst und ausgeführt. Das Skript kann einen _Abschlusswert_ haben (kein Rückgabewert), der derselbe Wert ist, als ob das Skript mit [`eval()`](/de/docs/Web/JavaScript/Reference/Global_Objects/eval) ausgeführt würde. Wenn die letzte Anweisung ein [Ausdruck](/de/docs/Web/JavaScript/Reference/Statements/Expression_statement) ist, ist der Abschlusswert der Wert dieses Ausdrucks. Wenn dieser Abschlusswert eine Zeichenfolge ist, wird diese als HTML-Dokument behandelt, und der Browser navigiert zu einem neuen Dokument mit diesem Inhalt, wobei dieselbe URL wie die aktuelle Seite verwendet wird. Es wird kein Verlaufseintrag erstellt. Ist der Abschlusswert keine Zeichenfolge, führt der Browser nur den Code aus und navigiert nicht. Daher wird oft empfohlen, dass wenn das Skript mit einem Funktionsaufruf wie `javascript:foo()` endet, Sie es mit {{jsxref("Operators/void", "void")}} präfixieren, um versehentliche Navigationen zu verhindern, wenn die Funktion zufällig eine Zeichenfolge zurückgibt.
+Wenn ein Browser versucht, zu einem solchen Standort zu navigieren, parst und führt er den Skriptkörper aus. Das Skript kann einen _Kompletionswert_ haben (keinen Rückgabewert), der der gleiche Wert ist, als wäre das Skript mit [`eval()`](/de/docs/Web/JavaScript/Reference/Global_Objects/eval) ausgeführt worden. Wenn die letzte Anweisung ein [Ausdruck](/de/docs/Web/JavaScript/Reference/Statements/Expression_statement) ist, ist der Kompletionswert der Wert dieses Ausdrucks. Wenn dieser Kompletionswert ein String ist, wird dieser String als ein HTML-Dokument behandelt, und der Browser navigiert zu einem neuen Dokument mit diesem Inhalt, wobei die gleiche URL wie die aktuelle Seite verwendet wird. Es wird kein Verlaufs-Eintrag erstellt. Wenn der Kompletionswert kein String ist, führt der Browser nur den Code aus und navigiert nicht. Daher wird oft empfohlen, wenn das Skript mit einem Funktionsaufruf wie `javascript:foo()` endet, dass Sie es mit {{jsxref("Operators/void", "void")}} prefixen, um eine versehentliche Navigation zu verhindern, falls die Funktion zufällig einen String zurückgibt.
 
-`javascript:` Navigation kann durch [Content Security Policy](/de/docs/Web/HTTP/Guides/CSP) Einstellungen blockiert werden, insbesondere durch {{CSP("script-src")}}.
+Die `javascript:`-Navigation kann durch die Einstellung der [Content Security Policy](/de/docs/Web/HTTP/Guides/CSP), insbesondere {{CSP("script-src")}}, blockiert werden.
 
 ## Beispiele
 
-### Verwendung von `javascript:` URLs als href-Ziele
+### Verwendung von `javascript:`-URLs als href-Ziele
 
-In diesem Beispiel wird das `href` Attribut eines `<a>` Elements auf eine `javascript:` URL gesetzt, die beim Anklicken eine Nachricht anzeigt:
+In diesem Beispiel ist das `href`-Attribut eines `<a>`-Elements auf eine `javascript:`-URL gesetzt, die eine Nachricht ausgibt, wenn darauf geklickt wird:
 
 ```html example-bad
 <a href="javascript:alert('Hello, world!')">Click me</a>
 ```
 
-Da [`alert()`](/de/docs/Web/API/Window/alert) `undefined` zurückgibt, navigiert der Browser nicht zu einer neuen Seite. Dies ist eine schlechte Praxis, da der Link eigentlich kein Hyperlink ist. Ziehen Sie in Betracht, ihn stattdessen zu einem Button zu machen:
+Da [`alert()`](/de/docs/Web/API/Window/alert) `undefined` zurückgibt, navigiert der Browser nicht zu einer neuen Seite. Dies ist eine schlechte Praxis, weil der Link eigentlich kein Hyperlink ist. Erwägen Sie, ihn stattdessen zu einem Button zu machen:
 
 ```html example-good
 <button id="btn">Click me</button>
@@ -57,7 +57,7 @@ Da [`alert()`](/de/docs/Web/API/Window/alert) `undefined` zurückgibt, navigiert
 </script>
 ```
 
-In diesem Beispiel wird das `href` Attribut eines `<a>` Elements auf eine `javascript:` URL gesetzt, die zu einer neuen Seite mit dem Inhalt "Hello, world!" navigiert:
+In diesem Beispiel ist das `href`-Attribut eines `<a>`-Elements auf eine `javascript:`-URL gesetzt, die zu einer neuen Seite mit dem Inhalt "Hello, world!" navigiert:
 
 ```html example-bad
 <a href="javascript:pageContent">Click me</a>
@@ -67,11 +67,11 @@ In diesem Beispiel wird das `href` Attribut eines `<a>` Elements auf eine `javas
 </script>
 ```
 
-Beachten Sie, dass `javascript:` URLs keine Verlaufsdaten erzeugen, sodass es keinen Weg gibt, zur vorherigen Seite zurückzugehen, ohne zu aktualisieren.
+Beachten Sie, dass `javascript:`-URLs keine Verlaufs-Einträge erstellen, sodass es keinen Weg zurück zur vorherigen Seite gibt, ohne zu aktualisieren.
 
-### Verwendung von `javascript:` URLs als Formularaktionen
+### Verwendung von `javascript:`-URLs als Formularaktionen
 
-In diesem Beispiel wird das `action` Attribut eines `<form>` Elements auf eine `javascript:` URL gesetzt, die beim Absenden eine Nachricht anzeigt:
+In diesem Beispiel ist das `action`-Attribut eines `<form>`-Elements auf eine `javascript:`-URL gesetzt, die eine Nachricht ausgibt, wenn sie gesendet wird:
 
 ```html example-bad
 <form action="javascript:alert(myInput.value)">
@@ -80,7 +80,7 @@ In diesem Beispiel wird das `action` Attribut eines `<form>` Elements auf eine `
 </form>
 ```
 
-Statt dies zu tun, ziehen Sie in Betracht, das `submit`-Ereignis des Formulars zu beobachten und es mit JavaScript zu bearbeiten:
+Stattdessen sollten Sie das `submit`-Ereignis des Formulars überwachen und mit JavaScript bearbeiten:
 
 ```html example-good
 <form id="myForm">
@@ -95,9 +95,9 @@ Statt dies zu tun, ziehen Sie in Betracht, das `submit`-Ereignis des Formulars z
 </script>
 ```
 
-### Verwendung von `javascript:` URLs als iframe-Quellen
+### Verwendung von `javascript:`-URLs als iframe-Quellen
 
-In diesem Beispiel wird das `src` Attribut eines `<iframe>` Elements auf eine `javascript:` URL gesetzt, die zu einer neuen Seite mit dem Inhalt "Hello, world!" navigiert:
+In diesem Beispiel ist das `src`-Attribut eines `<iframe>`-Elements auf eine `javascript:`-URL gesetzt, die zu einer neuen Seite mit dem Inhalt "Hello, world!" navigiert:
 
 ```html example-bad
 <iframe src="javascript:pageContent"></iframe>
@@ -107,7 +107,7 @@ In diesem Beispiel wird das `src` Attribut eines `<iframe>` Elements auf eine `j
 </script>
 ```
 
-Ziehen Sie stattdessen in Betracht, das `srcdoc` Attribut zu setzen:
+Erwägen Sie stattdessen, das `srcdoc`-Attribut zu setzen:
 
 ```html example-good
 <iframe id="myFrame"></iframe>
@@ -116,15 +116,15 @@ Ziehen Sie stattdessen in Betracht, das `srcdoc` Attribut zu setzen:
 </script>
 ```
 
-### Verwendung von `javascript:` URLs mit window.location
+### Verwendung von `javascript:`-URLs mit window.location
 
-In diesem Beispiel wird die `window.location` Eigenschaft auf eine `javascript:` URL gesetzt, die zu einer neuen Seite mit dem Inhalt "Hello, world!" navigiert:
+In diesem Beispiel wird die `window.location`-Eigenschaft auf eine `javascript:`-URL gesetzt, die zu einer neuen Seite mit dem Inhalt "Hello, world!" navigiert:
 
 ```js example-bad
 window.location = "javascript:'Hello world!'";
 ```
 
-Ziehen Sie stattdessen in Betracht, [DOM-APIs](/de/docs/Web/API/HTML_DOM_API) zu verwenden, um den Seiteninhalt zu ändern. Zum Beispiel:
+Erwägen Sie stattdessen, [DOM-APIs](/de/docs/Web/API/HTML_DOM_API) zu verwenden, um den Seiteninhalt zu ändern. Zum Beispiel:
 
 ```js example-good
 document.body.textContent = "Hello, world!";
@@ -132,10 +132,10 @@ document.body.textContent = "Hello, world!";
 
 ## Spezifikationen
 
-{{Specifications}}
+{{Spezifikationen}}
 
 ## Siehe auch
 
 - [URIs](/de/docs/Web/URI)
 - [Content Security Policy (CSP)](/de/docs/Web/HTTP/Guides/CSP)
-- [IANA Liste der URI-Schemata](https://www.iana.org/assignments/uri-schemes/uri-schemes.xhtml)
+- [IANA-Liste der URI-Schemata](https://www.iana.org/assignments/uri-schemes/uri-schemes.xhtml)

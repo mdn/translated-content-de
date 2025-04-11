@@ -3,12 +3,12 @@ title: "HTMLAreaElement: shape-Eigenschaft"
 short-title: shape
 slug: Web/API/HTMLAreaElement/shape
 l10n:
-  sourceCommit: 03c277f7671929b70c8c634adc71ef871674f09b
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`shape`**-Eigenschaft der [`HTMLAreaElement`](/de/docs/Web/API/HTMLAreaElement)-Schnittstelle gibt die Form eines Bereichs in einer Bildkarte an. Sie spiegelt das [`shape`](/de/docs/Web/HTML/Element/area#shape)-Attribut des {{htmlelement("area")}}-Elements wider.
+Die **`shape`**-Eigenschaft der [`HTMLAreaElement`](/de/docs/Web/API/HTMLAreaElement)-Schnittstelle gibt die Form eines Bereichs einer Bildkarte an. Sie spiegelt das [`shape`](/de/docs/Web/HTML/Reference/Elements/area#shape)-Attribut des {{htmlelement("area")}}-Elements wider.
 
 ## Wert
 

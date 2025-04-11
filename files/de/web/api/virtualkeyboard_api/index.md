@@ -2,46 +2,46 @@
 title: VirtualKeyboard API
 slug: Web/API/VirtualKeyboard_API
 l10n:
-  sourceCommit: cc41ecd796870c2b6c77ad0b04fcb8d8c7d877d2
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{SeeCompatTable}}{{DefaultAPISidebar("VirtualKeyboard API")}}{{securecontext_header}}
 
-Die VirtualKeyboard-API bietet Entwicklern die Möglichkeit, die Anordnung ihrer Anwendungen zu steuern, wenn die virtuelle Bildschirmtastatur auf Geräten wie Tablets, Mobiltelefonen oder anderen Geräten erscheint oder verschwindet, auf denen möglicherweise keine Hardware-Tastatur verfügbar ist.
+Die VirtualKeyboard API bietet Entwicklern die Möglichkeit, das Layout ihrer Anwendungen zu kontrollieren, wenn die virtuelle Tastatur auf dem Bildschirm von Geräten wie Tablets, Mobiltelefonen oder anderen Geräten, bei denen möglicherweise keine Hardware-Tastatur verfügbar ist, erscheint und verschwindet.
 
-Webbrowser verarbeiten virtuelle Tastaturen normalerweise selbstständig, indem sie die Höhe des Viewports anpassen und bei Fokussierung zu Eingabefeldern scrollen.
+Webbrowser kümmern sich normalerweise selbst um virtuelle Tastaturen, indem sie die Höhe des Viewports anpassen und zu Eingabefeldern scrollen, wenn diese fokussiert sind.
 
-Die Abbildung unten verdeutlicht den Unterschied in der Viewport-Höhe und der Scroll-Position auf einer Webseite, wenn die Bildschirmtastatur des Geräts ausgeblendet ist und wenn sie angezeigt wird.
+Die Abbildung unten zeigt den Unterschied in der Höhe des Viewports und der Scrollposition auf einer Webseite, wenn die virtuelle Tastatur des Geräts ausgeblendet und angezeigt wird.
 
-![Zwei Geräte, eines ohne virtuelle Tastatur, das zeigt, dass die Webseite den größten Teil des vertikalen Raums des Geräts nutzen kann, und eines mit virtueller Tastatur, das zeigt, dass die Webseite nur im verbleibenden Raum angezeigt werden kann](viewport-height.png)
+![Zwei Geräte, eines ohne virtuelle Tastatur, zeigt, dass die Webseite den größten Teil des vertikalen Platzes des Geräts nutzen kann, und eines mit virtueller Tastatur, zeigt, dass die Webseite nur im verbleibenden Raum angezeigt werden kann](viewport-height.png)
 
-Komplexere Anwendungen oder spezielle Geräte wie Mobiltelefone mit mehreren Bildschirmen erfordern möglicherweise mehr Kontrolle über das Layout, wenn die virtuelle Tastatur erscheint.
+Komplexere Anwendungen oder spezielle Geräte wie Multiscreen-Mobiltelefone erfordern möglicherweise mehr Kontrolle über das Layout, wenn die virtuelle Tastatur erscheint.
 
-Die Abbildung unten zeigt, was auf einem Gerät mit zwei Bildschirmen passiert, wenn die virtuelle Tastatur nur auf einem der beiden Bildschirme erscheint. Der Viewport wird auf beiden Bildschirmen kleiner, um Platz für die virtuelle Tastatur zu schaffen, wodurch auf dem Bildschirm, auf dem die virtuelle Tastatur nicht angezeigt wird, ungenutzter Raum bleibt.
+Die Abbildung unten zeigt, was auf einem Gerät mit zwei Bildschirmen passiert, wenn die virtuelle Tastatur nur auf einem der beiden Bildschirme erscheint. Der Viewport wird auf beiden Bildschirmen kleiner, um Platz für die virtuelle Tastatur zu schaffen, wodurch auf dem Bildschirm, auf dem die virtuelle Tastatur nicht angezeigt wird, Platz verschwendet wird.
 
-![Ein Gerät mit zwei Bildschirmen, mit der virtuellen Tastatur auf einem Bildschirm angezeigt, das zeigt, dass die Webseite nur den vertikalen Raum nutzen kann, der nach dem Anzeigen der Tastatur verblieben ist, auch wenn dies leeren Raum auf dem anderen Bildschirm hinterlässt](dual-screen.png)
+![Ein Gerät mit zwei Bildschirmen, mit auf einem Bildschirm angezeigter virtueller Tastatur, zeigt, dass die Webseite nur den vertikalen Platz nutzen kann, der nach Einblenden der Tastatur verbleibt, selbst wenn dadurch auf dem anderen Bildschirm leerer Raum bleibt](dual-screen.png)
 
-Die VirtualKeyboard-API kann verwendet werden, um die automatische Behandlung der virtuellen Tastatur durch den Browser zu umgehen und stattdessen die vollständige Kontrolle zu übernehmen. Mit der VirtualKeyboard-API erscheint und verschwindet die Tastatur weiterhin, wenn Formularelemente fokussiert sind, aber der Viewport ändert sich nicht, und Sie können JavaScript und CSS verwenden, um Ihr Layout anzupassen.
+Die VirtualKeyboard API kann verwendet werden, um sich von der automatischen Handhabung der virtuellen Tastatur durch den Browser abzumelden und stattdessen die volle Kontrolle zu übernehmen. Mit der VirtualKeyboard API erscheint und verschwindet die Tastatur weiterhin wie nötig, wenn Formularelemente fokussiert sind, aber der Viewport ändert sich nicht, und Sie können JavaScript und CSS verwenden, um Ihr Layout anzupassen.
 
 ## Konzept
 
-Die VirtualKeyboard-API besteht aus drei Teilen:
+Die VirtualKeyboard API besteht aus drei Teilen:
 
-- Die [`VirtualKeyboard`](/de/docs/Web/API/VirtualKeyboard)-Schnittstelle, die über [`navigator.virtualKeyboard`](/de/docs/Web/API/Navigator/virtualKeyboard) zugänglich ist, wird verwendet, um die automatische virtuelle Tastaturverhalten zu umgehen, die virtuelle Tastatur programmatisch anzuzeigen oder auszublenden sowie die aktuelle Position und Größe der virtuellen Tastatur zu ermitteln.
-- Die `keyboard-inset-*` CSS-Umgebungsvariablen liefern Informationen über die Position und Größe der virtuellen Tastatur.
-- Das Attribut [`virtualkeyboardpolicy`](/de/docs/Web/HTML/Global_attributes/virtualkeyboardpolicy) gibt an, ob die virtuelle Tastatur auf `contenteditable`-Elementen erscheinen soll.
+- Das Interface [`VirtualKeyboard`](/de/docs/Web/API/VirtualKeyboard), das über [`navigator.virtualKeyboard`](/de/docs/Web/API/Navigator/virtualKeyboard) zugegriffen wird, wird verwendet, um aus dem automatischen Verhalten der virtuellen Tastatur auszusteigen, die virtuelle Tastatur programmatisch anzuzeigen oder zu verbergen sowie um die aktuelle Position und Größe der virtuellen Tastatur abzurufen.
+- Die CSS-Umgebungsvariablen `keyboard-inset-*` liefern Informationen über die Position und Größe der virtuellen Tastatur.
+- Das Attribut [`virtualkeyboardpolicy`](/de/docs/Web/HTML/Reference/Global_attributes/virtualkeyboardpolicy) gibt an, ob die virtuelle Tastatur bei `contenteditable` Elementen erscheinen soll.
 
-### Die automatische virtuelle Tastaturverhalten umgehen
+### Abmelden vom automatischen Verhalten der virtuellen Tastatur
 
-Um die automatische virtuelle Tastaturverhalten des Browsers zu umgehen, verwenden Sie `navigator.virtualKeyboard.overlaysContent = true`. Der Browser wird dann nicht mehr automatisch den Viewport anpassen, um Platz für die virtuelle Tastatur zu schaffen, die stattdessen Ihren Inhalt überlagert.
+Um sich vom automatischen Verhalten der virtuellen Tastatur des Browsers abzumelden, verwenden Sie `navigator.virtualKeyboard.overlaysContent = true`. Der Browser passt die Größe des Viewports nicht mehr automatisch an, um Platz für die virtuelle Tastatur zu schaffen, die stattdessen Ihre Inhalte überlagern wird.
 
 ### Die Geometrie der virtuellen Tastatur mit JavaScript erkennen
 
-Sobald Sie das Standardverhalten des Browsers umgangen haben, können Sie die aktuelle Geometrie der virtuellen Tastatur mit `navigator.virtualKeyboard.boundingRect` ermitteln und das Layout mit CSS und JavaScript entsprechend anpassen. Zusätzlich können Sie Geometrieänderungen wie das Anzeigen oder Ausblenden der Tastatur mit dem `geometrychange`-Event erkennen.
+Sobald Sie sich vom Standardverhalten des Browsers abgemeldet haben, können Sie die aktuelle Geometrie der virtuellen Tastatur mit `navigator.virtualKeyboard.boundingRect` erfassen und das Layout bei Bedarf mit CSS und JavaScript anpassen. Zusätzlich können Sie Geometrieänderungen, wie das Ein- oder Ausblenden der Tastatur, mit dem `geometrychange`-Event beobachten.
 
-Dies ist nützlich, um wichtige Benutzerschnittstellenelemente in dem Bereich zu positionieren, der nicht von der virtuellen Tastatur verdeckt wird.
+Dies ist nützlich, um wichtige UI-Elemente in dem Bereich zu positionieren, der nicht von der virtuellen Tastatur überdeckt wird.
 
-Der unten stehende Codeausschnitt verwendet das `geometrychange`-Event, um zu erkennen, wann sich die Geometrie der virtuellen Tastatur ändert; er greift dann auf die `boundingRect`-Eigenschaft zu, um die Größe und Position der virtuellen Tastatur abzufragen:
+Der folgende Code-Schnipsel nutzt das `geometrychange`-Event, um zu erkennen, wann sich die Geometrie der virtuellen Tastatur ändert; es wird anschließend auf die `boundingRect`-Eigenschaft zugegriffen, um die Größe und Position der virtuellen Tastatur abzufragen:
 
 ```js
 if ("virtualKeyboard" in navigator) {
@@ -55,11 +55,11 @@ if ("virtualKeyboard" in navigator) {
 
 ### Die Geometrie der virtuellen Tastatur mit CSS-Umgebungsvariablen erkennen
 
-Die VirtualKeyboard-API stellt ebenfalls folgende [CSS-Umgebungsvariablen](/de/docs/Web/CSS/env) bereit: `keyboard-inset-top`, `keyboard-inset-right`, `keyboard-inset-bottom`, `keyboard-inset-left`, `keyboard-inset-width` und `keyboard-inset-height`.
+Die VirtualKeyboard API stellt auch folgende [CSS-Umgebungsvariablen](/de/docs/Web/CSS/env) zur Verfügung: `keyboard-inset-top`, `keyboard-inset-right`, `keyboard-inset-bottom`, `keyboard-inset-left`, `keyboard-inset-width`, und `keyboard-inset-height`.
 
-Die `keyboard-inset-*` CSS-Umgebungsvariablen sind nützlich, um Ihr Layout an das Erscheinen der virtuellen Tastatur mit CSS anzupassen. Sie definieren ein Rechteck durch die Insets seiner Oberseite, rechten Seite, Unterseite und linken Seite vom Rand des Viewports. Die Variablen `width` und `height` sind ebenfalls verfügbar, wenn sie benötigt werden.
+Die `keyboard-inset-*` CSS-Umgebungsvariablen sind nützlich, um Ihr Layout bei Erscheinen der virtuellen Tastatur mittels CSS anzupassen. Sie definieren ein Rechteck mit ihren Einsätzen oben, rechts, unten und links von der Kante des Viewports. Die Variablen `width` und `height` sind ebenfalls verfügbar, falls benötigt.
 
-Der unten stehende Codeausschnitt verwendet die `keyboard-inset-height` CSS-Variable, um Platz für die virtuelle Tastatur unterhalb der Nachrichtenliste und dem Eingabefeld in einer chat-ähnlichen Anwendung zu reservieren. Wenn die virtuelle Tastatur ausgeblendet ist, gibt die `env()`-Funktion `0px` zurück und der `keyboard`-Rasterbereich wird ausgeblendet. Die Nachrichten und Eingabeelemente können die gesamte Höhe des Viewports einnehmen. Wenn die virtuelle Tastatur erscheint, erhält der `keyboard`-Rasterbereich die Höhe der virtuellen Tastatur.
+Der folgende Code-Schnipsel verwendet die CSS-Variable `keyboard-inset-height`, um Platz für das Erscheinen der virtuellen Tastatur unterhalb der Nachrichtenliste und dem Eingabefeld in einer chat-ähnlichen Anwendung zu reservieren. Wenn die virtuelle Tastatur ausgeblendet ist, gibt die `env()`-Funktion `0px` zurück und der `keyboard`-Gridbereich wird versteckt. Die Nachrichten- und Eingabeelemente können die gesamte Höhe des Viewports nutzen. Wenn die virtuelle Tastatur erscheint, erhält der `keyboard`-Gridbereich die Höhe der virtuellen Tastatur.
 
 ```html
 <style>
@@ -82,13 +82,13 @@ Der unten stehende Codeausschnitt verwendet die `keyboard-inset-height` CSS-Vari
 </script>
 ```
 
-### Die virtuelle Tastatur auf `contenteditable`-Elementen steuern
+### Steuerung der virtuellen Tastatur auf `contenteditable` Elementen
 
-Standardmäßig lösen Elemente, die das [`contenteditable`](/de/docs/Web/HTML/Global_attributes/contenteditable)-Attribut verwenden, ebenfalls die virtuelle Tastatur aus, wenn sie angetippt oder angeklickt werden. In bestimmten Situationen kann es wünschenswert sein, dieses Verhalten zu verhindern und stattdessen die virtuelle Tastatur nach einem anderen Ereignis anzuzeigen.
+Standardmäßig lösen Elemente, die das Attribut [`contenteditable`](/de/docs/Web/HTML/Reference/Global_attributes/contenteditable) verwenden, auch die virtuelle Tastatur aus, wenn sie angetippt oder angeklickt werden. In bestimmten Situationen kann es wünschenswert sein, dieses Verhalten zu verhindern und stattdessen die virtuelle Tastatur nach einem anderen Ereignis anzuzeigen.
 
-Setzen Sie das Attribut [`virtualkeyboardpolicy`](/de/docs/Web/HTML/Global_attributes/virtualkeyboardpolicy) auf `manual`, um die Standardverarbeitung der virtuellen Tastatur im Browser zu verhindern, und steuern Sie es stattdessen selbst, indem Sie die `show()`- und `hide()`-Methoden der [`VirtualKeyboard`](/de/docs/Web/API/VirtualKeyboard)-Schnittstelle verwenden.
+Setzen Sie das Attribut [`virtualkeyboardpolicy`](/de/docs/Web/HTML/Reference/Global_attributes/virtualkeyboardpolicy) auf `manual`, um die Standardbehandlung der virtuellen Tastatur im Browser zu unterbinden und stattdessen die Kontrolle selbst zu übernehmen, indem Sie die Methoden `show()` und `hide()` des [`VirtualKeyboard`](/de/docs/Web/API/VirtualKeyboard)-Interfaces verwenden.
 
-Der unten stehende Codeausschnitt zeigt, wie das `virtualkeyboardpolicy`-Attribut und die Methode `navigator.virtualKeyboard.show()` verwendet werden, um die virtuelle Tastatur stattdessen bei einem Doppelklick anzuzeigen:
+Der folgende Code-Schnipsel zeigt, wie das Attribut `virtualkeyboardpolicy` und die Methode `navigator.virtualKeyboard.show()` verwendet werden können, um die virtuelle Tastatur bei einem Doppelklick anzuzeigen:
 
 ```html
 <div contenteditable virtualkeyboardpolicy="manual" id="editor"></div>
@@ -108,14 +108,14 @@ if ("virtualKeyboard" in navigator) {
 ## Schnittstellen
 
 - [`VirtualKeyboard`](/de/docs/Web/API/VirtualKeyboard) {{experimental_inline}}
-  - : Bietet Funktionen, die Tastaturlayoutkarten abfragen und das Erfassen von Tastenanschlägen der physischen Tastatur umschalten.
+  - : Bietet Funktionen zum Abrufen von Tastaturlayout-Karten und zum Umschalten der Erfassung von Tastendrücken von der physischen Tastatur.
 
 ## Erweiterungen zu anderen Schnittstellen
 
 - [`Navigator.virtualKeyboard`](/de/docs/Web/API/Navigator/virtualKeyboard) {{ReadOnlyInline}} {{experimental_inline}}
-  - : Gibt eine Referenz zur [`VirtualKeyboard`](/de/docs/Web/API/VirtualKeyboard)-API zurück, um die Steuerung der virtuellen Bildschirmtastatur zu übernehmen.
+  - : Gibt einen Verweis auf die [`VirtualKeyboard`](/de/docs/Web/API/VirtualKeyboard) API zurück, um die Kontrolle über die virtuelle Bildschirmtastatur zu übernehmen.
 - [`HTMLElement.virtualkeyboardpolicy`](/de/docs/Web/API/HTMLElement/virtualKeyboardPolicy) {{experimental_inline}}
-  - : Ein String, der angibt, ob die Standardrichtlinie des Browsers für das Anzeigen der virtuellen Tastatur verwendet werden soll, wenn das Element fokussiert ist, oder ob das Anzeigen der virtuellen Tastatur manuell gesteuert werden soll.
+  - : Ein String, der angibt, ob die Standardrichtlinie des Browsers zum Anzeigen der virtuellen Tastatur verwendet werden soll, wenn das Element fokussiert ist, oder ob das Anzeigen der virtuellen Tastatur manuell gehandhabt werden soll.
 
 ## Spezifikationen
 
@@ -127,4 +127,4 @@ if ("virtualKeyboard" in navigator) {
 
 ## Siehe auch
 
-- [Volle Kontrolle mit der VirtualKeyboard-API](https://developer.chrome.com/docs/web-platform/virtual-keyboard/)
+- [Volle Kontrolle mit der VirtualKeyboard API](https://developer.chrome.com/docs/web-platform/virtual-keyboard/)

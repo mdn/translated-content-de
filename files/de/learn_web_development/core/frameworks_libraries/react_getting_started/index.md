@@ -1,16 +1,16 @@
 ---
-title: Einstieg in React
-short-title: Erster Schritt mit React
+title: Erste Schritte mit React
+short-title: React Erste Schritte
 slug: Learn_web_development/Core/Frameworks_libraries/React_getting_started
 l10n:
-  sourceCommit: 30bf998d2d87c97c2865d713ad5afc9c476264a0
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{LearnSidebar}}
 
 {{PreviousMenuNext("Learn_web_development/Core/Frameworks_libraries/Main_features","Learn_web_development/Core/Frameworks_libraries/React_todo_list_beginning", "Learn_web_development/Core/Frameworks_libraries")}}
 
-In diesem Artikel werden wir einen ersten Blick auf React werfen. Wir werden ein wenig über den Hintergrund und die Anwendungsfälle erfahren, ein einfaches React-Toolchain auf unserem lokalen Computer einrichten und eine einfache Starter-App erstellen und ausprobieren – dabei lernen wir ein bisschen darüber, wie React funktioniert.
+In diesem Artikel machen wir Bekanntschaft mit React. Wir entdecken ein wenig über seinen Hintergrund und seine Anwendungsfälle, richten eine grundlegende React-Toolchain auf unserem lokalen Computer ein und erstellen und experimentieren mit einer einfachen Starter-App – und lernen dabei etwas darüber, wie React funktioniert.
 
 <table>
   <tbody>
@@ -19,13 +19,14 @@ In diesem Artikel werden wir einen ersten Blick auf React werfen. Wir werden ein
       <td>
         Vertrautheit mit den Kernsprachen <a href="/de/docs/Learn_web_development/Core/Structuring_content">HTML</a>,
         <a href="/de/docs/Learn_web_development/Core/Styling_basics">CSS</a> und
-        <a href="/de/docs/Learn_web_development/Core/Scripting">JavaScript</a> sowie dem <a href="/de/docs/Learn_web_development/Getting_started/Environment_setup/Command_line">Terminal/der Befehlszeile</a>.
+        <a href="/de/docs/Learn_web_development/Core/Scripting">JavaScript</a> sowie der <a href="/de/docs/Learn_web_development/Getting_started/Environment_setup/Command_line">Terminal-/Befehlszeile</a>.
       </td>
     </tr>
     <tr>
-      <th scope="row">Lernziele:</th>
+      <th scope="row">Lernergebnisse:</th>
       <td>
-        Ein lokales React-Entwicklungsumfeld einrichten, eine Start-App erstellen und die Grundlagen verstehen, wie sie funktioniert.
+        Einrichten einer lokalen React-Entwicklungsumgebung, Erstellen einer Start-App und
+        Verstehen der Grundlagen, wie sie funktioniert.
       </td>
     </tr>
   </tbody>
@@ -33,33 +34,33 @@ In diesem Artikel werden wir einen ersten Blick auf React werfen. Wir werden ein
 
 ## Hallo React
 
-Wie das offizielle Schlagwort besagt, ist [React](https://react.dev/) eine Bibliothek zur Erstellung von Benutzeroberflächen. React ist kein Framework – es ist nicht einmal ausschließlich für das Web. Es wird mit anderen Bibliotheken verwendet, um in bestimmten Umgebungen zu rendern. Zum Beispiel kann [React Native](https://reactnative.dev/) verwendet werden, um mobile Anwendungen zu erstellen.
+Wie sein offizielles Motto besagt, ist [React](https://react.dev/) eine Bibliothek zum Erstellen von Benutzeroberflächen. React ist kein Framework – es ist nicht einmal exklusiv für das Web. Es wird mit anderen Bibliotheken verwendet, um in bestimmten Umgebungen zu rendern. Zum Beispiel kann [React Native](https://reactnative.dev/) verwendet werden, um mobile Anwendungen zu erstellen.
 
-Für den Webaufbau verwenden Entwickler React zusammen mit [ReactDOM](https://react.dev/reference/react-dom). React und ReactDOM werden oft in denselben Kontexten diskutiert und genutzt, um dieselben Probleme wie andere echte Webentwicklungsframeworks zu lösen. Wenn wir React als "Framework" bezeichnen, sprechen wir von diesem umgangssprachlichen Verständnis.
+Um für das Web zu entwickeln, verwenden Entwickler React zusammen mit [ReactDOM](https://react.dev/reference/react-dom). React und ReactDOM werden oft in denselben Kreisen diskutiert und werden genutzt, um dieselben Probleme zu lösen wie andere echte Webentwicklungsframeworks. Wenn wir React als "Framework" bezeichnen, gehen wir von diesem umgangssprachlichen Verständnis aus.
 
-Das Hauptziel von React ist es, die Fehler zu minimieren, die bei der Entwicklung von Benutzeroberflächen auftreten können. Dies wird durch die Verwendung von Komponenten erreicht — selbstständige, logische Codeeinheiten, die einen Teil der Benutzeroberfläche beschreiben. Diese Komponenten können zusammengefügt werden, um eine vollständige Benutzeroberfläche zu erstellen, und React abstrahiert viel der Rendering-Arbeit, sodass Sie sich auf das Design der Benutzeroberfläche konzentrieren können.
+React's Hauptziel ist es, die Anzahl der Fehler zu minimieren, die bei der Erstellung von Benutzeroberflächen durch Entwickler auftreten. Dies erreicht es durch die Verwendung von Komponenten – in sich geschlossene, logische Codeeinheiten, die einen Teil der Benutzeroberfläche beschreiben. Diese Komponenten können zusammengestellt werden, um eine vollständige Benutzeroberfläche zu erstellen, und React abstrahiert einen Großteil der Rendering-Arbeit, sodass Sie sich auf das UI-Design konzentrieren können.
 
 ## Anwendungsfälle
 
-Im Gegensatz zu den anderen in diesem Modul behandelten Frameworks erzwingt React keine strengen Regeln in Bezug auf Konventionen im Code oder die Dateiorganisation. Dies ermöglicht es Teams, Konventionen festzulegen, die am besten für sie funktionieren, und React auf beliebige Weise zu übernehmen. React kann einen einzelnen Knopf, einige Teile einer Benutzeroberfläche oder die gesamte Benutzeroberfläche einer App verarbeiten.
+Im Gegensatz zu den anderen in diesem Modul behandelten Frameworks erzwingt React keine strikten Regeln zu Codekonventionen oder Dateiorganisation. Dadurch können Teams Konventionen festlegen, die am besten zu ihnen passen, und React auf jede gewünschte Weise verwenden. React kann eine einzelne Schaltfläche, einige Teile einer Benutzeroberfläche oder die gesamte Benutzeroberfläche einer App handhaben.
 
-Während React _für [kleine Teile einer Benutzeroberfläche](https://react.dev/learn/add-react-to-an-existing-project)_ verwendet werden kann, ist es nicht so einfach, es "in" eine Anwendung zu integrieren wie eine Bibliothek wie jQuery oder sogar ein Framework wie Vue – es ist zugänglicher, wenn Sie Ihre gesamte App mit React erstellen.
+Obwohl React für [kleine Teile einer Schnittstelle](https://react.dev/learn/add-react-to-an-existing-project) verwendet werden _kann_, lässt es sich nicht so einfach wie eine Bibliothek wie jQuery oder sogar ein Framework wie Vue in eine Anwendung "einfügen" — es ist zugänglicher, wenn Sie Ihre gesamte App mit React erstellen.
 
-Darüber hinaus erfordern viele der Entwickler-Erlebnisvorteile einer React-App, wie das Schreiben von Benutzeroberflächen mit JSX, einen Kompilierungsprozess. Das Hinzufügen eines Compilers wie Babel zu einer Website lässt den Code auf dieser langsam laufen, daher richten Entwickler solche Werkzeuge oft mit einem Build-Schritt ein. React hat sicherlich eine hohe Anforderung an Werkzeuge, aber es kann erlernt werden.
+Darüber hinaus erfordern viele der Entwicklererfahrungs-Vorteile einer React-App, wie das Schreiben von Schnittstellen mit JSX, einen Kompilierungsprozess. Das Hinzufügen eines Compilers wie Babel zu einer Website verlangsamt den Code, daher richten Entwickler solche Tools oft mit einem Build-Schritt ein. React hat zwar einen hohen Werkzeuganforderungen, kann aber erlernt werden.
 
-Dieser Artikel konzentriert sich auf den Anwendungsfall, React zu verwenden, um die gesamte Benutzeroberfläche einer Anwendung mit der Unterstützung von [Vite](https://vite.dev/), einem modernen Front-End-Bauwerkzeug, zu rendern.
+Dieser Artikel konzentriert sich auf den Anwendungsfall, React zur Darstellung der gesamten Benutzeroberfläche einer Anwendung mit Vite, einem modernen Frontend-Build-Tool, zu verwenden.
 
-## Wie verwendet React JavaScript?
+## Wie nutzt React JavaScript?
 
-React nutzt Funktionen von modernem JavaScript für viele seiner Muster. Die größte Abweichung von JavaScript kommt mit der Verwendung der [JSX](https://react.dev/learn/writing-markup-with-jsx) Syntax. JSX erweitert die Syntax von JavaScript, sodass HTML-ähnlicher Code neben ihm existieren kann. Beispielsweise:
+React nutzt Funktionen moderner JavaScript-Sprachen für viele seiner Muster. Der größte Unterschied zu JavaScript besteht in der Verwendung der [JSX](https://react.dev/learn/writing-markup-with-jsx) Syntax. JSX erweitert die Syntax von JavaScript, sodass HTML-ähnlicher Code neben ihm existieren kann. Zum Beispiel:
 
 ```jsx
 const heading = <h1>Mozilla Developer Network</h1>;
 ```
 
-Diese Überschriften-Konstante wird als **JSX-Ausdruck** bezeichnet. React kann es verwenden, um dieses [`<h1>`](/de/docs/Web/HTML/Element/Heading_Elements)-Tag in unserer App zu rendern.
+Diese Überschriftskonstante ist als ein **JSX-Ausdruck** bekannt. React kann es verwenden, um dieses [`<h1>`](/de/docs/Web/HTML/Reference/Elements/Heading_Elements) Tag in unserer App zu rendern.
 
-Angenommen, wir wollten unsere Überschrift aus semantischen Gründen in ein [`<header>`](/de/docs/Web/HTML/Element/header)-Tag einwickeln? Der JSX-Ansatz erlaubt uns, unsere Elemente ineinander zu verschachteln, so wie wir es mit HTML tun:
+Angenommen, wir wollten unsere Überschrift aus semantischen Gründen in einem [`<header>`](/de/docs/Web/HTML/Reference/Elements/header) Tag einschließen? Der JSX-Ansatz erlaubt es uns, unsere Elemente ineinander zu schachteln, genau wie wir es mit HTML tun:
 
 ```jsx
 const header = (
@@ -70,7 +71,7 @@ const header = (
 ```
 
 > [!NOTE]
-> Die Klammern im vorherigen Codebeispiel sind nicht einzigartig für JSX und haben keine Auswirkung auf Ihre Anwendung. Sie sind ein Signal an Sie (und Ihren Computer), dass die mehreren Codezeilen darin zum selben Ausdruck gehören. Sie könnten den Header-Ausdruck ebenso gut so schreiben:
+> Die Klammern im vorherigen Snippet sind nicht einzigartig für JSX und haben keinen Einfluss auf Ihre Anwendung. Sie signalisieren Ihnen (und Ihrem Computer), dass die mehreren Zeilen Code innerhalb desselben Ausdrucks gehören. Sie könnten den Header-Ausdruck so schreiben:
 >
 > ```jsx-nolint
 > const header = <header>
@@ -78,9 +79,9 @@ const header = (
 > </header>;
 > ```
 >
-> Dies sieht jedoch etwas ungeschickt aus, da das [`<header>`](/de/docs/Web/HTML/Element/header)-Tag, das den Ausdruck beginnt, nicht an der gleichen Position eingerückt ist wie das dazugehörige abschließende Tag.
+> Dies sieht jedoch etwas merkwürdig aus, weil das [`<header>`](/de/docs/Web/HTML/Reference/Elements/header) Tag, das den Ausdruck beginnt, nicht auf dieselbe Position wie sein entsprechendes schließendes Tag eingerückt ist.
 
-Natürlich kann Ihr Browser JSX nicht ohne Unterstützung lesen. Wenn es kompiliert wird (zum Beispiel mit einem Tool wie [Babel](https://babeljs.io/) oder [Parcel](https://parceljs.org/)), würde unser Header-Ausdruck wie folgt aussehen:
+Natürlich kann Ihr Browser JSX nicht ohne Hilfe lesen. Wenn kompiliert (mit einem Tool wie [Babel](https://babeljs.io/) oder [Parcel](https://parceljs.org/)), würde unser Header-Ausdruck so aussehen:
 
 ```jsx
 const header = React.createElement(
@@ -90,62 +91,62 @@ const header = React.createElement(
 );
 ```
 
-Es ist _möglich_, den Kompilierungsschritt zu überspringen und [`React.createElement()`](https://react.dev/reference/react/createElement) zu verwenden, um Ihre Benutzeroberfläche selbst zu schreiben. Dadurch verlieren Sie jedoch den deklarativen Vorteil von JSX, und Ihr Code wird schwerer lesbar. Die Kompilierung ist ein zusätzlicher Schritt im Entwicklungsprozess, aber viele Entwickler in der React-Community finden, dass die Lesbarkeit von JSX lohnenswert ist. Außerdem beinhaltet die moderne Front-End-Entwicklung fast immer einen Build-Prozess – Sie müssen modernen Syntax abwärtskompatibel machen, um ihn mit älteren Browsern kompatibel zu machen, und Sie möchten möglicherweise Ihren Code {{Glossary("Minification", "minifizieren")}}, um die Ladeleistung zu optimieren. Beliebte Werkzeuge wie Babel bieten bereits von Hause aus Unterstützung für JSX, sodass Sie die Kompilierung nicht selbst konfigurieren müssen, es sei denn, Sie möchten dies.
+Es ist _möglich_, den Kompilierungsschritt zu überspringen und mit [`React.createElement()`](https://react.dev/reference/react/createElement) Ihre Benutzeroberfläche selbst zu schreiben. Dabei verlieren Sie jedoch den deklarativen Vorteil von JSX und Ihr Code wird schwerer lesbar. Kompilierung ist ein zusätzlicher Schritt im Entwicklungsprozess, aber viele Entwickler in der React-Community halten die Lesbarkeit von JSX für lohnenswert. Außerdem beinhaltet die moderne Frontend-Entwicklung fast immer einen Build-Prozess — man muss moderne Syntax abwärtskompatibel machen, um mit älteren Browsern kompatibel zu sein, und man möchte möglicherweise seinen Code {{Glossary("Minification", "minimieren")}}, um die Ladeleistung zu optimieren. Beliebte Tools wie Babel bieten bereits standardmäßig JSX-Unterstützung, sodass Sie die Kompilierung nicht selbst konfigurieren müssen, es sei denn, Sie möchten es.
 
-Da JSX eine Mischung aus HTML und JavaScript ist, finden einige Entwickler es intuitiv. Andere sagen, dass seine gemischte Natur es verwirrend macht. Sobald Sie sich damit vertraut gemacht haben, ermöglicht es Ihnen jedoch, Benutzeroberflächen schneller und intuitiver zu erstellen und es anderen, Ihren Code auf den ersten Blick besser zu verstehen.
+Da JSX eine Mischung aus HTML und JavaScript ist, finden es einige Entwickler intuitiv. Andere sagen, dass seine gemischte Natur verwirrend ist. Sobald Sie sich damit wohlfühlen, ermöglicht es Ihnen, Benutzerschnittstellen schneller und intuitiver zu gestalten und anderen ein besseres Verständnis Ihres Codebases auf einen Blick zu geben.
 
-Um mehr über JSX zu erfahren, lesen Sie den Artikel des React-Teams [Writing Markup with JSX](https://react.dev/learn/writing-markup-with-jsx).
+Um mehr über JSX zu erfahren, lesen Sie den Artikel [Writing Markup with JSX](https://react.dev/learn/writing-markup-with-jsx) des React-Teams.
 
-## Einrichtung Ihrer ersten React-App
+## Einrichten Ihrer ersten React App
 
 Es gibt viele Möglichkeiten, eine neue React-Anwendung zu erstellen. Wir werden Vite verwenden, um eine neue Anwendung über die Befehlszeile zu erstellen.
 
-Es ist möglich, [React zu einem bestehenden Projekt hinzuzufügen](https://react.dev/learn/add-react-to-an-existing-project), indem einige [`<script>`](/de/docs/Web/HTML/Element/script)-Elemente in eine HTML-Datei eingefügt werden, aber mit Vite können Sie mehr Zeit darauf verwenden, Ihre App zu bauen, und weniger Zeit mit der Einrichtung verbringen.
+Es ist möglich, [React zu einem bestehenden Projekt hinzuzufügen](https://react.dev/learn/add-react-to-an-existing-project), indem man einige [`<script>`](/de/docs/Web/HTML/Reference/Elements/script) Elemente in eine HTML-Datei kopiert, aber die Verwendung von Vite ermöglicht es Ihnen, mehr Zeit mit dem Erstellen Ihrer App zu verbringen und weniger mit dem Setup zu kämpfen.
 
 ### Anforderungen
 
-Um Vite verwenden zu können, müssen Sie [Node.js](https://nodejs.org/en/) installiert haben. Ab Vite 5.0 ist mindestens Node Version 18 oder höher erforderlich, und es ist ratsam, die neueste Long Term Support (LTS)-Version zu verwenden, wann immer Sie können. Ab dem 24. Oktober 2023 ist Node 20 die neueste LTS-Version. Node enthält npm (den Node-Paketmanager).
+Um Vite zu verwenden, müssen Sie [Node.js](https://nodejs.org/en/) installiert haben. Seit Vite 5.0 ist mindestens Node-Version 18 oder später erforderlich, und es ist eine gute Idee, die neueste Long Term Support (LTS) Version zu verwenden, wann immer Sie können. Am 24. Oktober 2023, ist Node 20 die neueste LTS-Version. Node enthält npm (den Node-Paketmanager).
 
-Um Ihre Node-Version zu überprüfen, führen Sie Folgendes in Ihrem Terminal aus:
+Um Ihre Version von Node zu überprüfen, führen Sie Folgendes in Ihrem Terminal aus:
 
 ```bash
 node -v
 ```
 
-Wenn Node installiert ist, sehen Sie eine Versionsnummer. Wenn nicht, sehen Sie eine Fehlermeldung. Um Node zu installieren, folgen Sie den Anweisungen auf der [Node.js-Website](https://nodejs.org/en/).
+Wenn Node installiert ist, sehen Sie eine Versionsnummer. Wenn nicht, sehen Sie eine Fehlermeldung. Um Node zu installieren, folgen Sie den Anweisungen auf der [Node.js Website](https://nodejs.org/en/).
 
-Sie können den Yarn-Paketmanager als Alternative zu npm verwenden, aber wir gehen davon aus, dass Sie npm in dieser Tutorial-Serie verwenden. Weitere Informationen zu npm und yarn finden Sie unter [Grundlagen des Paketmanagements](/de/docs/Learn_web_development/Extensions/Client-side_tools/Package_management).
+Sie können den Yarn Paketmanager als Alternative zu npm verwenden, aber wir gehen davon aus, dass Sie npm in diesem Tutorial verwenden. Siehe [Grundlagen des Paketmanagements](/de/docs/Learn_web_development/Extensions/Client-side_tools/Package_management) für weitere Informationen zu npm und yarn.
 
-Wenn Sie Windows verwenden, müssen Sie einige Software installieren, um Parität mit einem Unix/macOS-Terminal zu erhalten, um die in diesem Tutorial erwähnten Terminalbefehle verwenden zu können. **Gitbash** (die zum [Git for Windows-Toolset](https://gitforwindows.org/) gehört) oder das **[Windows-Subsystem für Linux](https://learn.microsoft.com/en-us/windows/wsl/about)** (**WSL**) eignen sich beide. Weitere Informationen dazu und zu Terminalbefehlen im Allgemeinen finden Sie im [Command line crash course](/de/docs/Learn_web_development/Getting_started/Environment_setup/Command_line).
+Wenn Sie Windows verwenden, müssen Sie einige Software installieren, um auf Unix/macOS Terminal Parität zu erreichen, um die in diesem Tutorial erwähnten Terminalbefehle zu verwenden. **Gitbash** (das Teil des [Git for Windows Toolsets](https://gitforwindows.org/) ist) oder **[Windows-Subsystem für Linux](https://learn.microsoft.com/en-us/windows/wsl/about)** (**WSL**) sind beide geeignet. Siehe [Einstiegskurs für die Befehlszeile](/de/docs/Learn_web_development/Getting_started/Environment_setup/Command_line) für mehr Informationen über diese und über Terminal-Befehle im Allgemeinen.
 
-Berücksichtigen Sie außerdem, dass React und ReactDOM Apps produzieren, die nur auf einer relativ modernen Reihe von Browsern wie Firefox, Microsoft Edge, Safari oder Chrome funktionieren, wenn Sie diese Tutorials durchgehen.
+Denken Sie auch daran, dass React und ReactDOM Anwendungen produzieren, die nur auf einer ziemlich modernen Reihe von Browsern wie Firefox, Microsoft Edge, Safari oder Chrome funktionieren, wenn Sie diese Tutorials durcharbeiten.
 
-Weitere Informationen finden Sie in folgenden Quellen:
+Siehe folgendes für mehr Informationen:
 
-- ["Über npm" auf dem npm-Blog](https://docs.npmjs.com/about-npm/)
-- ["npx vorstellen" auf dem npm-Blog](https://blog.npmjs.org/post/162869356040/introducing-npx-an-npm-package-runner)
-- [Vite-Dokumentation](https://vite.dev/guide/)
+- ["Über npm" auf dem npm Blog](https://docs.npmjs.com/about-npm/)
+- ["Einführung von npx" auf dem npm Blog](https://blog.npmjs.org/post/162869356040/introducing-npx-an-npm-package-runner)
+- [Die Dokumentation von Vite](https://vite.dev/guide/)
 
-### App initialisieren
+### Initialisieren Ihrer App
 
-Der npm-Paketmanager kommt mit einem `create`-Befehl, der es Ihnen ermöglicht, neue Projekte aus Vorlagen zu erstellen. Wir können ihn verwenden, um eine neue App aus Vites standardmäßiger React-Vorlage zu erstellen. Vergewissern Sie sich, dass Sie `cd` zu dem Ort auf Ihrem Computer, an dem Ihre App leben soll, und führen Sie dann Folgendes in Ihrem Terminal aus:
+Der npm Paketmanager kommt mit einem `create` Befehl, der es Ihnen ermöglicht, neue Projekte aus Vorlagen zu erstellen. Wir können es benutzen, um eine neue App aus Vites Standard-React Vorlage zu erstellen. Stellen Sie sicher, dass Sie `cd` an den Ort ausführen, an dem Ihre App auf Ihrer Maschine leben soll, und führen Sie dann Folgendes in Ihrem Terminal aus:
 
 ```bash
 npm create vite@latest moz-todo-react -- --template react
 ```
 
-Dies erstellt ein `moz-todo-react`-Verzeichnis mit Vites `react`-Vorlage.
+Dies erstellt ein `moz-todo-react` Verzeichnis mit Vites `react` Vorlage.
 
 > [!NOTE]
-> Das `--` ist notwendig, um Argumente an npm-Kommandos wie `create` zu übergeben, und das Argument `--template react` sagt Vite, seine React-Vorlage zu verwenden.
+> Das `--` ist notwendig, um Argumente an npm-Befehle wie `create` weiterzugeben, und das `--template react` Argument sagt Vite, dass seine React Vorlage verwendet werden soll.
 
-Ihr Terminal hat einige Nachrichten ausgegeben, wenn dieser Befehl erfolgreich war. Sie sollten einen Text sehen, der Sie dazu auffordert, in Ihr neues Verzeichnis zu `cd`, die Abhängigkeiten der App zu installieren und die App lokal auszuführen. Beginnen wir mit zwei dieser Befehle. Führen Sie Folgendes in Ihrem Terminal aus:
+Ihr Terminal wird einige Nachrichten drucken, wenn dieser Befehl erfolgreich war. Sie sollten Texte sehen, die Sie auffordern, zu Ihrem neuen Verzeichnis zu `cd`, die Abhängigkeiten der App zu installieren und die App lokal auszuführen. Lassen Sie uns mit zwei dieser Befehle anfangen. Führen Sie Folgendes in Ihrem Terminal aus:
 
 ```bash
 cd moz-todo-react && npm install
 ```
 
-Sobald der Prozess abgeschlossen ist, müssen wir einen lokalen Entwicklungsserver starten, um unsere App auszuführen. Hier fügen wir einige Befehlszeilen-Flags zu Vites Standardvorschlag hinzu, um die App in unserem Browser zu öffnen, sobald der Server startet, und verwenden den Port 3000.
+Sobald der Prozess abgeschlossen ist, müssen wir einen lokalen Entwicklungsserver starten, um unsere App auszuführen. Hier werden wir einige Befehlszeilen-Flags zu Vites Standardvorschlag hinzufügen, um die App in unserem Browser zu öffnen, sobald der Server startet, und Port 3000 zu verwenden.
 
 Führen Sie Folgendes in Ihrem Terminal aus:
 
@@ -153,13 +154,13 @@ Führen Sie Folgendes in Ihrem Terminal aus:
 npm run dev -- --open --port 3000
 ```
 
-Sobald der Server startet, sollten Sie ein neues Browser-Tab sehen, das Ihre React-App enthält:
+Sobald der Server startet, sollten Sie einen neuen Browser-Tab sehen, der Ihre React-App enthält:
 
-![Screenshot von Firefox macOS geöffnet auf localhost:3000, zeigt eine Anwendung aus Vites React-Vorlage](default-vite.png)
+![Screenshot von Firefox macOS, geöffnet bei localhost:3000, das eine Anwendung aus Vites React Vorlage zeigt](default-vite.png)
 
 ### Anwendungsstruktur
 
-Vite gibt uns alles, was wir brauchen, um eine React-Anwendung zu entwickeln. Die anfängliche Dateistruktur sieht folgendermaßen aus:
+Vite gibt uns alles, was wir brauchen, um eine React-Anwendung zu entwickeln. Seine anfängliche Dateistruktur sieht so aus:
 
 ```plain
 moz-todo-react
@@ -180,33 +181,33 @@ moz-todo-react
 └── vite.config.js
 ```
 
-**`index.html`** ist die wichtigste Datei der obersten Ebene. Vite injiziert Ihren Code in diese Datei, damit Ihr Browser ihn ausführen kann. Sie müssen diese Datei während unseres Tutorials nicht bearbeiten, sollten aber den Text innerhalb des [`<title>`](/de/docs/Web/HTML/Element/title)-Elements in dieser Datei ändern, um den Titel Ihrer Anwendung widerzuspiegeln. Akurate Seitentitel sind wichtig für die Zugänglichkeit.
+**`index.html`** ist die wichtigste Datei auf oberster Ebene. Vite injiziert Ihren Code in diese Datei, damit Ihr Browser ihn ausführen kann. Sie müssen diese Datei während unseres Tutorials nicht bearbeiten, aber Sie sollten den Text im [`<title>`](/de/docs/Web/HTML/Reference/Elements/title) Element dieser Datei ändern, um den Titel Ihrer Anwendung widerzuspiegeln. Korrekte Seitentitel sind wichtig für die Barrierefreiheit.
 
-Das **`public`**-Verzeichnis enthält statische Dateien, die direkt an Ihren Browser ausgeliefert werden, ohne von Vites Build-Tooling verarbeitet zu werden. Momentan enthält es nur ein Vite-Logo.
+Das **`public`** Verzeichnis enthält statische Dateien, die direkt an Ihren Browser geliefert werden, ohne von Vites Build-Tools verarbeitet zu werden. Derzeit enthält es nur ein Vite-Logo.
 
-Das **`src`**-Verzeichnis ist der Ort, an dem wir die meiste Zeit verbringen werden, da dort der Quellcode für unsere Anwendung lebt. Sie werden feststellen, dass einige JavaScript-Dateien in diesem Verzeichnis mit der Erweiterung `.jsx` enden. Diese Erweiterung ist notwendig für jede Datei, die JSX enthält – sie teilt Vite mit, dass die JSX-Syntax in JavaScript umgewandelt werden muss, das Ihr Browser verstehen kann. Das `src/assets`-Verzeichnis enthält das in dem Browser angezeigte React-Logo.
+Das **`src`** Verzeichnis ist, wo wir die meiste Zeit verbringen werden, da dort der Quellcode unserer Anwendung lebt. Sie werden bemerken, dass einige JavaScript-Dateien in diesem Verzeichnis mit der Erweiterung `.jsx` enden. Diese Erweiterung ist für jede Datei notwendig, die JSX enthält – sie sagt Vite, die JSX-Syntax in JavaScript zu verwandeln, die Ihr Browser verstehen kann. Das `src/assets` Verzeichnis enthält das React-Logo, das Sie im Browser gesehen haben.
 
-Die Datein package.json und package-lock.json enthalten Metadaten über unser Projekt. Diese Dateien sind nicht einzigartig für React-Anwendungen: Vite hat package.json für uns gefüllt, und npm hat package-lock.json für uns erstellt, als wir die Abhängigkeiten der App installiert haben. Sie müssen diese Dateien nicht verstehen, um dieses Tutorial abzuschließen. Wenn Sie jedoch mehr darüber erfahren möchten, können Sie in der npm-Dokumentation über [package.json](https://docs.npmjs.com/cli/v9/configuring-npm/package-json/) und [package-lock.json](https://docs.npmjs.com/cli/v9/configuring-npm/package-lock-json/) lesen. Wir sprechen auch über package.json in unserer [Grundlagen des Paketmanagements](/de/docs/Learn_web_development/Extensions/Client-side_tools/Package_management)-Anleitung.
+Die `package.json` und `package-lock.json` Dateien enthalten Metadaten über unser Projekt. Diese Dateien sind nicht einzigartig für React-Anwendungen: Vite hat `package.json` für uns gefüllt, und npm hat `package-lock.json` erstellt, als wir die Abhängigkeiten der App installiert haben. Sie müssen diese Dateien nicht verstehen, um dieses Tutorial abzuschließen. Wenn Sie jedoch mehr darüber erfahren möchten, können Sie über [`package.json`](https://docs.npmjs.com/cli/v9/configuring-npm/package-json/) und [`package-lock.json`](https://docs.npmjs.com/cli/v9/configuring-npm/package-lock-json/) in den npm-Dokumenten lesen. Wir sprechen auch über `package.json` in unserem [Grundlagen des Paketmanagements](/de/docs/Learn_web_development/Extensions/Client-side_tools/Package_management) Tutorial.
 
-### Anpassen unseres Dev-Skripts
+### Anpassen unseres Entwicklungs-Skripts
 
-Bevor wir fortfahren, möchten Sie möglicherweise Ihre package.json-Datei ein wenig ändern, sodass Sie die `--open` und `--port` Flags nicht jedes Mal übergeben müssen, wenn Sie `npm run dev` ausführen. Öffnen Sie package.json in Ihrem Texteditor und finden Sie das `scripts`-Objekt. Ändern Sie den `"dev"` Schlüssel, sodass er wie folgt aussieht:
+Bevor wir weitermachen, möchten Sie vielleicht Ihre `package.json` Datei ein wenig ändern, damit Sie nicht jeden Mal die `--open` und `--port` Flags angeben müssen, wenn Sie `npm run dev` ausführen. Öffnen Sie `package.json` in Ihrem Texteditor und finden Sie das `scripts` Objekt. Ändern Sie den `"dev"` Schlüssel, sodass er so aussieht:
 
 ```diff
 - "dev": "vite",
 + "dev": "vite --open --port 3000",
 ```
 
-Mit dieser Änderung wird Ihre App jedes Mal, wenn Sie `npm run dev` ausführen, unter `http://localhost:3000` in Ihrem Browser geöffnet.
+Damit wird Ihre App jedes Mal in Ihrem Browser bei `http://localhost:3000` geöffnet, wenn Sie `npm run dev` ausführen.
 
 > [!NOTE]
-> Sie _brauchen_ hier keine zusätzlichen `--`, da wir Argumente direkt an `vite` übergeben und nicht an ein vordefiniertes npm-Skript.
+> Sie _brauchen_ hier keine zusätzlichen `--`, da wir direkt Argumente an `vite` übergeben, anstatt an ein vordefiniertes npm-Skript.
 
-## Unseren ersten React-Komponenten erkunden — `<App />`
+## Erkunden unserer ersten React-Komponente — `<App />`
 
-In React ist eine **Komponente** ein wiederverwendbares Modul, das einen Teil unserer gesamten Anwendung rendert. Komponenten können groß oder klein sein, aber sie sind normalerweise klar definiert: Sie dienen einem einzigen, offensichtlichen Zweck.
+In React ist eine **Komponente** ein wiederverwendbares Modul, das einen Teil unserer gesamten Anwendung rendert. Komponenten können groß oder klein sein, aber sie sind normalerweise klar definiert: sie dienen einem einzigen, offensichtlichen Zweck.
 
-Öffnen wir `src/App.jsx`, da unser Browser uns auffordert, es zu bearbeiten. Diese Datei enthält unsere erste Komponente, `<App />`:
+Lassen Sie uns `src/App.jsx` öffnen, da unser Browser uns auffordert, es zu bearbeiten. Diese Datei enthält unsere erste Komponente, `<App />`:
 
 ```jsx
 import { useState } from "react";
@@ -246,11 +247,11 @@ function App() {
 export default App;
 ```
 
-Die `App.jsx`-Datei besteht aus drei Hauptteilen: einigen [`import`](/de/docs/Web/JavaScript/Reference/Statements/import)-Anweisungen oben, der `App()`-Funktion in der Mitte und einer [`export`](/de/docs/Web/JavaScript/Reference/Statements/export)-Anweisung unten. Die meisten React-Komponenten folgen diesem Muster.
+Die `App.jsx` Datei besteht aus drei Hauptteilen: ein paar [`import`](/de/docs/Web/JavaScript/Reference/Statements/import) Anweisungen oben, die `App()` Funktion in der Mitte und eine [`export`](/de/docs/Web/JavaScript/Reference/Statements/export) Anweisung am unteren Rand. Die meisten React-Komponenten folgen diesem Muster.
 
 ### Import-Anweisungen
 
-Die `import`-Anweisungen oben in der Datei ermöglichen es `App.jsx`, Code zu verwenden, der anderswo definiert wurde. Schauen wir uns diese Anweisungen genauer an.
+Die `import` Anweisungen oben in der Datei erlauben `App.jsx`, Code zu verwenden, der an anderer Stelle definiert wurde. Lassen Sie uns diese Anweisungen genauer ansehen.
 
 ```jsx
 import { useState } from "react";
@@ -259,17 +260,17 @@ import viteLogo from "/vite.svg";
 import "./App.css";
 ```
 
-Die erste Anweisung importiert den `useState` Hook aus der `react` Bibliothek. Hooks sind eine Möglichkeit, die Funktionen von React innerhalb einer Komponente zu verwenden. Wir werden später in diesem Tutorial mehr über Hooks sprechen.
+Die erste Anweisung importiert den `useState` Hook aus der `react` Bibliothek. Hooks sind ein Weg, Reacts Funktionen innerhalb einer Komponente zu nutzen. Wir werden später in diesem Tutorial mehr über Hooks sprechen.
 
-Danach importieren wir `reactLogo` und `viteLogo`. Beachten Sie, dass ihre Importpfade mit `./` und `/` beginnen und dass sie mit der `.svg`-Erweiterung enden. Dies sagt uns, dass diese Importe _lokal_ sind und sich auf unsere eigenen Dateien statt auf npm-Pakete beziehen.
+Danach importieren wir `reactLogo` und `viteLogo`. Beachten Sie, dass ihre Importpfade mit `./` und `/` beginnen und dass sie am Ende auf die `.svg` Erweiterung enden. Dies teilt uns mit, dass diese Importe _lokal_ sind und auf unsere eigenen Dateien verweisen, anstatt auf npm-Pakete.
 
-Die letzte Anweisung importiert das CSS, das mit unserer `<App />`-Komponente verbunden ist. Beachten Sie, dass es keinen Variablennamen und keine `from`-Anweisung gibt. Dies ist ein [_Side-Effekt Import_](/de/docs/Web/JavaScript/Reference/Statements/import#import_a_module_for_its_side_effects_only) — er importiert keinen Wert in die JavaScript-Datei, sondern sagt Vite, dass die referenzierte CSS-Datei zum endgültigen Code-Output hinzugefügt werden soll, sodass sie im Browser verwendet werden kann.
+Die letzte Anweisung importiert das CSS, das mit unserer `<App />` Komponente verknüpft ist. Beachten Sie, dass es keinen Variablennamen und keine `from` Direktive gibt. Dies wird als [_Nebeneffekt-Import_](/de/docs/Web/JavaScript/Reference/Statements/import#import_a_module_for_its_side_effects_only) bezeichnet – es importiert keinen Wert in die JavaScript-Datei, sagt aber Vite, die referenzierte CSS-Datei zum finalen Code-Output hinzuzufügen, damit sie im Browser verwendet werden kann.
 
-### Die `App()`-Funktion
+### Die `App()` Funktion
 
-Nach den Imports haben wir eine Funktion namens `App()`, die die Struktur der `App`-Komponente definiert. Während der Großteil der JavaScript-Community {{Glossary("camel_case", "lower camel case")}} Namen wie `helloWorld` bevorzugt, verwenden React-Komponenten Pascal Case (oder Upper Camel Case) Variablennamen, wie `HelloWorld`, um klar zu machen, dass ein gegebenes JSX-Element eine React-Komponente und kein reguläres HTML-Tag ist. Wenn Sie die `App()`-Funktion in `app()` umbenennen würden, würde Ihr Browser einen Fehler auswerfen.
+Nach den Importen haben wir eine Funktion namens `App()`, die die Struktur der `App` Komponente definiert. Während der größte Teil der JavaScript-Community Präferenzen für {{Glossary("camel_case", "lower Camel Case")}} Namen wie `helloWorld` hat, verwenden React-Komponenten Pascal Case (oder Upper Camel Case) Variablennamen wie `HelloWorld`, um klarzustellen, dass ein gegebenes JSX-Element eine React-Komponente und kein reguläres HTML-Tag ist. Wenn Sie die Funktion `App()` in `app()` umbenennen würden, würde Ihr Browser einen Fehler auslösen.
 
-Schauen wir uns die `App()`-Funktion genauer an.
+Lassen Sie uns `App()` genauer betrachten.
 
 ```jsx
 function App() {
@@ -302,23 +303,23 @@ function App() {
 }
 ```
 
-Die `App()`-Funktion gibt einen JSX-Ausdruck zurück. Dieser Ausdruck definiert, was Ihr Browser schließlich in den DOM rendert.
+Die `App()` Funktion gibt einen JSX-Ausdruck zurück. Dieser Ausdruck definiert, was Ihr Browser letztendlich in das DOM rendert.
 
-Direkt unter dem `return`-Schlüsselwort befindet sich eine spezielle Syntax: `<>`. Dies ist ein [Fragment](https://react.dev/reference/react/Fragment). React-Komponenten müssen ein einzelnes JSX-Element zurückgeben, und Fragmente ermöglichen es uns, dies zu tun, ohne willkürliche `<div>`s im Browser zu rendern. Sie werden Fragmente in vielen React-Anwendungen sehen.
+Direkt unter dem `return` Schlüsselwort befindet sich eine spezielle Syntax: `<>`. Dies ist ein [Fragment](https://react.dev/reference/react/Fragment). React-Komponenten müssen ein einziges JSX-Element zurückgeben, und Fragmente ermöglichen es uns, dies zu tun, ohne willkürliche `<div>`s im Browser zu rendern. Sie werden Fragmente in vielen React-Anwendungen sehen.
 
-### Die `export`-Anweisung
+### Die `export` Anweisung
 
-Es gibt noch eine Zeile Code nach der `App()`-Funktion:
+Es gibt noch eine Zeile Code nach der `App()` Funktion:
 
 ```jsx
 export default App;
 ```
 
-Diese Exportanweisung macht unsere `App()`-Funktion für andere Module verfügbar. Wir werden später mehr darüber sprechen.
+Diese Export-Anweisung macht unsere `App()` Funktion für andere Module verfügbar. Wir werden später mehr darüber sprechen.
 
 ## Weiter zu `main`
 
-Öffnen wir `src/main.jsx`, da dort die `<App />`-Komponente verwendet wird. Diese Datei ist der Einstiegspunkt für unsere App und sieht zunächst so aus:
+Lassen Sie uns `src/main.jsx` öffnen, weil dies der Ort ist, an dem die `<App />` Komponente verwendet wird. Diese Datei ist der Einstiegspunkt für unsere App und sieht anfänglich so aus:
 
 ```jsx
 import { StrictMode } from "react";
@@ -333,28 +334,28 @@ createRoot(document.getElementById("root")).render(
 );
 ```
 
-Wie bei `App.jsx` beginnt die Datei mit dem Import aller JavaScript-Module und anderer Assets, die sie benötigt, um ausgeführt zu werden.
+Wie bei `App.jsx` beginnt die Datei damit, alle JavaScript-Module und andere Assets zu importieren, die sie benötigt, um zu laufen.
 
-Die ersten beiden Anweisungen importieren `StrictMode` und `createRoot` aus den `react` und `react-dom` Bibliotheken, da sie später in der Datei referenziert werden. Wir schreiben keinen Pfad oder eine Erweiterung, wenn wir diese Bibliotheken importieren, da sie keine lokalen Dateien sind. Tatsächlich sind sie als Abhängigkeiten in unserer `package.json`-Datei aufgelistet. Achten Sie auf diesen Unterschied, während Sie durch diese Lektion arbeiten!
+Die ersten beiden Anweisungen importieren `StrictMode` und `createRoot` aus den `react` und `react-dom` Bibliotheken, weil sie später in der Datei referenziert werden. Wir schreiben keinen Pfad oder keine Erweiterung, wenn wir diese Bibliotheken importieren, weil sie keine lokalen Dateien sind. Tatsächlich sind sie als Abhängigkeiten in unserer `package.json` Datei aufgelistet. Achten Sie auf diesen Unterschied, während Sie diese Lektion durcharbeiten!
 
-Dann importieren wir unsere `App()`-Funktion und `index.css`, die globale Stile enthält, die auf unsere gesamte App angewendet werden.
+Wir importieren dann unsere `App()` Funktion und `index.css`, die globale Stile enthält, die auf unsere ganze App angewendet werden.
 
-Wir rufen dann die Funktion `createRoot()` auf, die das Wurzelelement unserer Anwendung definiert. Diese Funktion nimmt als Argument das DOM-Element, in das wir unsere React-App rendern möchten. In diesem Fall ist das das DOM-Element mit der ID `root`. Schließlich wird die Methode `render()` an den Aufruf von `createRoot()` angehängt, wobei der JSX-Ausdruck übergeben wird, den wir in unserem Wurzelelement rendern möchten. Indem wir `<App />` als diesen JSX-Ausdruck schreiben, sagen wir React, die Funktion `App()` aufzurufen, die die _Komponente_ `App` innerhalb des Wurzelelements rendert.
+Wir rufen dann die Funktion `createRoot()` auf, die das Wurzelelement unserer Anwendung definiert. Dies nimmt als Argument das DOM-Element, in dem wir unsere React-App rendern möchten. In diesem Fall ist das das DOM-Element mit einer ID von `root`. Schließlich ketten wir die `render()` Methode an den `createRoot()` Aufruf an, und übergeben den JSX-Ausdruck, den wir in unserem Root rendern möchten. Indem wir `<App />` als diesen JSX-Ausdruck schreiben, sagen wir React, die `App()` _Funktion_ aufzurufen, die die `App` _Komponente_ im Wurzelelement rendert.
 
-> **Achtung:** `<App />` wird innerhalb einer speziellen `<React.StrictMode>`-Komponente gerendert. Diese Komponente hilft Entwicklern, potenzielle Probleme im Code zu erkennen.
+> **Hinweis:** `<App />` wird innerhalb einer speziellen `<React.StrictMode>` Komponente gerendert. Diese Komponente hilft Entwicklern, potenzielle Probleme in ihrem Code zu erkennen.
 
-Sie können diese React-APIs nachlesen, wenn Sie möchten:
+Sie können diese React-APIs näher unter die Lupe nehmen, wenn Sie möchten:
 
 - [`ReactDOM.createRoot()`](https://react.dev/reference/react-dom/client/createRoot)
 - [`React.StrictMode`](https://react.dev/reference/react/StrictMode)
 
-## Neu anfangen
+## Neuer Start
 
-Bevor wir mit dem Bau unserer App beginnen, werden wir einige der Standardcodes, die Vite für uns bereitgestellt hat, löschen.
+Bevor wir mit dem Erstellen unserer App beginnen, löschen wir einige der Boilerplate-Codes, die Vite bereitgestellt hat.
 
-Ändern Sie zunächst als Experiment das [`<h1>`](/de/docs/Web/HTML/Element/Heading_Elements)-Element in `App.jsx`, sodass es "Hallo, Welt!" anzeigt, und speichern Sie dann Ihre Datei. Ihnen fällt wahrscheinlich auf, dass diese Änderung sofort auf dem Entwicklungsserver angezeigt wird, der unter `http://localhost:3000` in Ihrem Browser läuft. Merken Sie sich dies, während Sie an Ihrer App arbeiten.
+Ändern Sie zuerst, als Experiment, das [`<h1>`](/de/docs/Web/HTML/Reference/Elements/Heading_Elements) Element in `App.jsx`, sodass es "Hello, World!" liest, und speichern Sie dann Ihre Datei. Sie werden feststellen, dass diese Änderung sofort im Entwicklungsserver bei `http://localhost:3000` in Ihrem Browser gerendert wird. Beachten Sie dies, während Sie an Ihrer App arbeiten.
 
-Den Rest des Codes werden wir nicht verwenden! Ersetzen Sie den Inhalt von `App.jsx` durch das folgende:
+Wir werden den Rest des Codes nicht verwenden! Ersetzen Sie den Inhalt von `App.jsx` durch Folgendes:
 
 ```jsx
 import "./App.css";
@@ -374,19 +375,19 @@ export default App;
 
 ## Übung mit JSX
 
-Als nächstes werden wir unsere JavaScript-Kenntnisse einsetzen, um etwas vertrauter mit dem Schreiben von JSX und dem Arbeiten mit Daten in React zu werden. Wir werden darüber sprechen, wie man Attributen zu JSX-Elementen hinzufügt, wie man Kommentare schreibt, wie man Inhalte aus Variablen und anderen Ausdrücken rendert, und wie man Daten mit Props in Komponenten übergibt.
+Als nächstes werden wir unsere JavaScript-Fähigkeiten nutzen, um ein wenig komfortabler mit dem Schreiben von JSX und dem Arbeiten mit Daten in React zu werden. Wir sprechen darüber, wie man Attribute zu JSX-Elementen hinzufügt, Kommentare schreibt, Inhalte aus Variablen und anderen Ausdrücken rendert und Daten mithilfe von Props in Komponenten einfügt.
 
-### Attributen zu JSX-Elementen hinzufügen
+### Hinzufügen von Attributen zu JSX-Elementen
 
-JSX-Elemente können Attribute haben, genau wie HTML-Elemente. Versuchen Sie, unterhalb des `<h1>`-Elements in Ihrer `App.jsx`-Datei einen `<button>` hinzuzufügen, wie folgt:
+JSX-Elemente können Attribute haben, genau wie HTML-Elemente. Versuchen Sie, einen `<button>` unter dem `<h1>` Element in Ihrer `App.jsx` Datei hinzuzufügen, wie folgt:
 
 ```jsx
 <button type="button">Click me!</button>
 ```
 
-Wenn Sie Ihre Datei speichern, sehen Sie eine Schaltfläche mit den Worten `Click me!`. Die Schaltfläche tut noch nichts, aber wir werden bald lernen, wie wir unserer App Interaktivität hinzufügen.
+Wenn Sie Ihre Datei speichern, sehen Sie eine Schaltfläche mit den Worten "Click me!". Die Schaltfläche tut noch nichts, aber wir werden bald über das Hinzufügen von Interaktivität zu unserer App sprechen.
 
-Einige Attribute unterscheiden sich von ihren HTML-Gegenstücken. Zum Beispiel wird das `class`-Attribut in HTML zu `className` in JSX. Das liegt daran, dass `class` ein reserviertes Wort in JavaScript ist und JSX eine Erweiterung von JavaScript ist. Wenn Sie eine `primary`-Klasse zu Ihrer Schaltfläche hinzufügen wollten, würden Sie es so schreiben:
+Einige Attribute unterscheiden sich von ihren HTML-Gegenstücken. Zum Beispiel wird das `class` Attribut in HTML in JSX zu `className`. Dies ist, weil `class` ein reserviertes Wort in JavaScript ist, und JSX eine JavaScript-Erweiterung ist. Wenn Sie eine `primary` Klasse zu Ihrer Schaltfläche hinzufügen möchten, würden Sie sie folgendermaßen schreiben:
 
 ```jsx
 <button type="button" className="primary">
@@ -396,7 +397,7 @@ Einige Attribute unterscheiden sich von ihren HTML-Gegenstücken. Zum Beispiel w
 
 ### JavaScript-Ausdrücke als Inhalt
 
-Im Gegensatz zu HTML ermöglicht es JSX, Variablen und andere JavaScript-Ausdrücke direkt neben unseren anderen Inhalten zu schreiben. Erklär wir eine Variable namens `subject` direkt über der `App()`-Funktion in Ihrer `App.jsx`-Datei:
+Im Gegensatz zu HTML ermöglicht es uns JSX, Variablen und andere JavaScript-Ausdrücke direkt neben unserem anderen Inhalt zu schreiben. Deklarieren wir eine Variable namens `subject` über der `App()` Funktion in Ihrer `App.jsx` Datei:
 
 ```jsx
 const subject = "React";
@@ -405,15 +406,15 @@ function App() {
 }
 ```
 
-Ersetzen Sie dann das Wort "World" im `<h1>`-Element durch `{subject}`:
+Ersetzen Sie als nächstes das Wort "World" im `<h1>` Element durch `{subject}`:
 
 ```jsx
 <h1>Hello, {subject}!</h1>
 ```
 
-Speichern Sie Ihre Datei und überprüfen sie Ihren Browser. Sie sollten "Hello, React!" gerendert sehen.
+Speichern Sie Ihre Datei und überprüfen Sie Ihren Browser. Sie sollten "Hello, React!" gerendert sehen.
 
-Die geschweiften Klammern um `subject` sind ein weiteres Merkmal der JSX-Syntax. Die geschweiften Klammern signalisieren React, dass wir den Wert der Variablen `subject` lesen möchten, anstatt den Zeichenfolgenliteral `"subject"` zu rendern. Sie können jeden gültigen JavaScript-Ausdruck in geschweifte Klammern in JSX setzen; React wertet ihn aus und rendert das _Ergebnis_ des Ausdrucks als endgültigen Inhalt. Im Folgenden finden Sie eine Reihe von Beispielen mit Kommentaren darüber, was jeder Ausdruck rendert:
+Die geschweiften Klammern um `subject` sind ein weiteres Merkmal der JSX-Syntax. Die geschweiften Klammern sagen React, dass wir den Wert der `subject` Variable lesen möchten, anstatt die wörtliche Zeichenkette `"subject"` zu rendern. Sie können jeden gültigen JavaScript-Ausdruck in geschweifte Klammern in JSX setzen; React wird ihn auswerten und das _Ergebnis_ des Ausdrucks als finalen Inhalt rendern. Im Folgenden eine Reihe von Beispielen mit Kommentaren darüber, was jeder Ausdruck rendern wird:
 
 ```jsx-nolint
 {/* Hello, React :)! */}
@@ -424,23 +425,23 @@ Die geschweiften Klammern um `subject` sind ein weiteres Merkmal der JSX-Syntax.
 <h1>Hello, {2 + 2}!</h1>
 ```
 
-Selbst Kommentare in JSX werden innerhalb geschweifter Klammern geschrieben! Das liegt daran, dass Kommentare technisch gesehen auch JavaScript-Ausdrücke sind. Die `/* Block-Kommentar-Syntax */` ist notwendig, damit Ihr Programm weiß, wo der Kommentar beginnt und endet.
+Sogar Kommentare in JSX werden in geschweiften Klammern geschrieben! Dies liegt daran, dass auch Kommentare technisch JavaScript-Ausdrücke sind. Die `/* block comment syntax */` ist notwendig, damit Ihr Programm weiß, wo der Kommentar beginnt und endet.
 
 ### Komponenten-Props
 
-**Props** sind ein Mittel, um Daten in eine React-Komponente einzufügen. Ihre Syntax ist identisch mit der von Attributen: `prop="value"`. Der Unterschied besteht darin, dass während Attribute in einfache Elemente übergeben werden, Props in React-Komponenten übergeben werden.
+**Props** sind ein Mittel, um Daten in eine React-Komponente zu übergeben. Ihre Syntax ist identisch mit der von Attributen: `prop="value"`. Der Unterschied ist, dass Attribute in reguläre Elemente übergeben werden, während Props in React-Komponenten übergeben werden.
 
 In React ist der Datenfluss unidirektional: Props können nur von Eltern-Komponenten an Kinder-Komponenten übergeben werden.
 
-Öffnen wir `main.jsx` und geben unserer `<App />`-Komponente ihre ersten Props.
+Lassen wir `main.jsx` öffnen und unserer `<App />` Komponente ihren ersten Prop geben.
 
-Fügen Sie der `<App />`-Komponente einen Prop von `subject` hinzu, mit einem Wert von `Clarice`. Wenn Sie fertig sind, sollte es ungefähr so aussehen:
+Fügen Sie einen Prop namens `subject` zum `<App />` Komponentenaufruf hinzu, mit einem Wert von `Clarice`. Wenn Sie fertig sind, sollte es ungefähr so aussehen:
 
 ```jsx
 <App subject="Clarice" />
 ```
 
-Zurück in `App.jsx`, schauen wir uns noch einmal die `App()`-Funktion an. Ändern Sie die Signatur von `App()`, damit sie `props` als Parameter akzeptiert, und protokollieren Sie `props` in der Konsole, damit Sie es überprüfen können. Löschen Sie auch die `subject`-Konstante; wir brauchen sie nicht mehr. Ihre `App.jsx`-Datei sollte so aussehen:
+Zurück in `App.jsx`, lassen Sie uns die `App()` Funktion noch einmal ansehen. Ändern Sie die Signatur von `App()`, damit sie `props` als Parameter akzeptiert und `props` zur Konsole protokolliert, damit Sie es inspizieren können. Löschen Sie auch die `subject` Konstante; wir brauchen sie nicht mehr. Ihre `App.jsx` Datei sollte so aussehen:
 
 ```jsx
 function App(props) {
@@ -451,20 +452,20 @@ function App(props) {
 }
 ```
 
-Speichern Sie Ihre Datei und überprüfen Sie Ihren Browser. Sie sehen einen leeren Hintergrund ohne Inhalt. Das liegt daran, dass wir versuchen, eine nicht mehr definierte Variable `subject` zu lesen. Beheben Sie dies, indem Sie die Zeile `<h1>Hello {subject}!</h1>` auskommentieren.
+Speichern Sie Ihre Datei und überprüfen Sie Ihren Browser. Sie werden einen leeren Hintergrund ohne Inhalt sehen. Dies liegt daran, dass wir versuchen, eine `subject` Variable zu lesen, die nicht mehr definiert ist. Beheben Sie dies, indem Sie die Zeile `<h1>Hello {subject}!</h1>` auskommentieren.
 
 > [!NOTE]
-> Wenn Ihr Code-Editor versteht, wie man JSX parst (was die meisten modernen Editoren tun!), können Sie dessen integrierten Kommentar-Shortcut verwenden — `Ctrl + /` (unter Windows) oder `Cmd + /` (unter macOS) — um Kommentare schneller zu erstellen.
+> Wenn Ihr Code-Editor versteht, wie man JSX parst (was die meisten modernen Editoren tun!), können Sie dessen eingebauten Kommentieren-Shortcut verwenden — `Ctrl + /` (auf Windows) oder `Cmd + /` (auf macOS) — um Kommentare schneller zu erstellen.
 
-Speichern Sie die Datei mit der auskommentierten Zeile. Dieses Mal sollte nur Ihr "Click me!"-Button gerendert werden. Wenn Sie die Entwicklerkonsole Ihres Browsers öffnen, sehen Sie eine Nachricht, die so aussieht:
+Speichern Sie die Datei mit dieser auskommentierten Zeile. Dieses Mal sollten Sie Ihre "Click me!" Schaltfläche alleine gerendert sehen. Wenn Sie die Entwicklerkonsole Ihres Browsers öffnen, sehen Sie eine Nachricht, die so aussieht:
 
 ```plain
 Object { subject: "Clarice" }
 ```
 
-Die Objekteigenschaft `subject` entspricht dem `subject`-Prop, das wir zu unserem `<App />`-Komponentenaufruf hinzugefügt haben, und die Zeichenfolge `Clarice` entspricht dessen Wert. Komponenten-Props in React werden immer in dieser Art von Objekten gesammelt.
+Die Objekt-Eigenschaft `subject` entspricht dem Prop `subject`, das wir dem `<App />` Komponentenaufruf hinzugefügt haben, und die Zeichenkette `Clarice` entspricht seinem Wert. Komponenten-Props in React werden immer auf diese Weise in Objekte gesammelt.
 
-Lassen Sie uns dieses `subject`-Prop verwenden, um den Fehler in unserer App zu beheben. Kommentieren Sie die Zeile `<h1>Hello, {subject}!</h1>` aus und ändern Sie sie in `<h1>Hello, {props.subject}!</h1>`, dann löschen Sie die `console.log()`-Anweisung. Ihr Code sollte so aussehen:
+Lassen Sie uns diesen `subject` Prop verwenden, um den Fehler in unserer App zu beheben. Heben Sie die Kommentierung der Zeile `<h1>Hello, {subject}!</h1>` auf und ändern Sie sie zu `<h1>Hello, {props.subject}!</h1>`, dann löschen Sie die `console.log()` Anweisung. Ihr Code sollte so aussehen:
 
 ```jsx
 function App(props) {
@@ -481,25 +482,25 @@ function App(props) {
 }
 ```
 
-Wenn Sie speichern, sollte die App Sie jetzt mit "Hello, Clarice!" begrüßen. Wenn Sie zu `main.jsx` zurückkehren, den Wert von `subject` ändern und speichern, wird Ihr Text sich ändern.
+Wenn Sie speichern, sollte die App Sie nun mit "Hello, Clarice!" begrüßen. Wenn Sie zu `main.jsx` zurückkehren, den Wert von `subject` ändern und speichern, wird sich Ihr Text ändern.
 
-Für zusätzliche Übung könnten Sie versuchen, einen zusätzlichen `greeting`-Prop zum `<App />`-Komponentenaufruf innerhalb `main.jsx` hinzuzufügen und ihn zusammen mit dem `subject`-Prop innerhalb `App.jsx` zu verwenden.
+Zum zusätzlichen Üben könnten Sie versuchen, einen zusätzlichen `greeting` Prop zum `<App />` Komponentenaufruf in `main.jsx` hinzuzufügen und ihn zusammen mit dem `subject` Prop in `App.jsx` zu verwenden.
 
 ## Zusammenfassung
 
-Damit beenden wir unseren ersten Blick auf React, einschließlich der lokalen Installation, der Erstellung einer Starter-App und der Grundlagen, wie sie funktioniert. Im nächsten Artikel werden wir beginnen, unsere erste richtige Anwendung zu erstellen – eine Aufgabenliste. Bevor wir dies tun, lassen Sie uns einige der Dinge, die wir gelernt haben, rekapitulieren.
+Damit sind wir am Ende unseres ersten Einblicks in React angelangt, einschließlich der lokalen Installation, der Erstellung einer Start-App und wie die Grundlagen funktionieren. Im nächsten Artikel beginnen wir mit dem Aufbau unserer ersten richtigen Anwendung – einer Aufgabenliste. Bevor wir das tun, lassen Sie uns einige der Dinge zusammenfassen, die wir gelernt haben.
 
 In React:
 
-- Komponenten können benötigte Module importieren und müssen sich am Ende ihrer Dateien exportieren.
-- Komponentenfunktionen werden mit `PascalCase` benannt.
-- Sie können JavaScript-Ausdrücke in JSX rendern, indem Sie sie in geschweifte Klammern setzen, wie `{so}`.
-- Einige JSX-Attribute unterscheiden sich von HTML-Attributen, um Konflikte mit JavaScript-Reservierten Wörtern zu vermeiden. Zum Beispiel wird `class` in HTML zu `className` in JSX.
+- Komponenten können benötigte Module importieren und müssen sich am unteren Rand ihrer Dateien selbst exportieren.
+- Komponentenfunktionen sind mit `PascalCase` benannt.
+- Sie können JavaScript-Ausdrücke in JSX rendern, indem Sie sie zwischen geschweifte Klammern setzen, wie `{so}`.
+- Einige JSX Attribute unterscheiden sich von HTML Attributen, damit sie nicht mit JavaScript reservierten Wörtern in Konflikt geraten. Zum Beispiel wird `class` in HTML zu `className` in JSX.
 - Props werden wie Attribute innerhalb von Komponentenaufrufen geschrieben und in Komponenten übergeben.
 
 ## Siehe auch
 
-- [Learn React](https://scrimba.com/learn-react-c0e?via=mdn) <sup>_MDN Lernpartner_</sup>
-  - : [Scrimbas](https://scrimba.com/?via=mdn) _Learn React_ Kurs ist der ultimative React 101 – der perfekte Startpunkt für jeden React-Anfänger. Lernen Sie die Grundlagen von modernem React durch das Lösen von über 140 interaktiven Codierherausforderungen und dem Bauen von acht unterhaltsamen Projekten.
+- [React lernen](https://scrimba.com/learn-react-c0e?via=mdn) <sup>_MDN Lernpartner_</sup>
+  - : [Scrimba's](https://scrimba.com/?via=mdn) _Learn React_ Kurs ist der ultimative React 101 — der perfekte Ausgangspunkt für jeden React-Anfänger. Lernen Sie die Grundlagen des modernen React, indem Sie über 140 interaktive Programmierherausforderungen lösen und acht unterhaltsame Projekte erstellen.
 
 {{PreviousMenuNext("Learn_web_development/Core/Frameworks_libraries/Main_features","Learn_web_development/Core/Frameworks_libraries/React_todo_list_beginning", "Learn_web_development/Core/Frameworks_libraries")}}

@@ -2,42 +2,42 @@
 title: Progressives Laden
 slug: Web/Progressive_web_apps/Tutorials/js13kGames/Loading
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{PreviousMenu("Web/Progressive_web_apps/Tutorials/js13kGames/Re-engageable_Notifications_Push", "Web/Progressive_web_apps/Tutorials/js13kGames")}}
 
 {{PWASidebar}}
 
-In den vorherigen Schritten dieses Tutorials haben wir APIs behandelt, die uns helfen, unser [js13kPWA](https://mdn.github.io/pwa-examples/js13kpwa/) Beispiel zu einer Progressive Web App zu machen: [Service Workers](/de/docs/Web/Progressive_web_apps/Tutorials/js13kGames/Offline_Service_workers), [Web Manifeste](/de/docs/Web/Progressive_web_apps/Tutorials/js13kGames/Installable_PWAs), [Benachrichtigungen und Push](/de/docs/Web/Progressive_web_apps/Tutorials/js13kGames/Re-engageable_Notifications_Push). In diesem Artikel gehen wir einen Schritt weiter und verbessern die Leistung der App, indem wir ihre Ressourcen progressiv laden.
+In den bisherigen Schritten dieses Tutorials haben wir APIs behandelt, die uns helfen, unser [js13kPWA](https://mdn.github.io/pwa-examples/js13kpwa/) Beispiel zu einer Progressive Web App zu machen: [Service Worker](/de/docs/Web/Progressive_web_apps/Tutorials/js13kGames/Offline_Service_workers), [Web Manifests](/de/docs/Web/Progressive_web_apps/Tutorials/js13kGames/Installable_PWAs), [Benachrichtigungen und Push](/de/docs/Web/Progressive_web_apps/Tutorials/js13kGames/Re-engageable_Notifications_Push). In diesem Artikel gehen wir noch weiter und verbessern die Leistung der App, indem wir ihre Ressourcen progressiv laden.
 
-## Erster bedeutungsvoller Anstrich
+## Erster sinnvoller Anstrich
 
-Es ist wichtig, dem Benutzer so schnell wie möglich etwas Bedeutungsvolles zu liefern – je länger er darauf wartet, dass die Seite geladen wird, desto größer ist die Wahrscheinlichkeit, dass er geht, bevor alles fertig geladen ist. Wir sollten in der Lage sein, ihnen zumindest die Grundansicht der Seite zu zeigen, die sie sehen möchten, mit Platzhaltern an den Stellen, an denen mehr Inhalte geladen werden.
+Es ist wichtig, dem Benutzer so schnell wie möglich etwas Bedeutungsvolles zu liefern — je länger sie darauf warten, dass die Seite lädt, desto größer ist die Chance, dass sie gehen, bevor alles fertig geladen ist. Wir sollten ihnen zumindest die Grundansicht der Seite zeigen können, die sie sehen möchten, mit Platzhaltern an den Stellen, an denen später mehr Inhalt geladen wird.
 
-Dies könnte durch progressives Laden erreicht werden – auch bekannt als [Lazy Loading](https://en.wikipedia.org/wiki/Lazy_loading). Dabei geht es darum, das Laden so vieler Ressourcen wie möglich (HTML, CSS, JavaScript) zu verzögern und nur die sofort zu laden, die wirklich für das erste Erlebnis benötigt werden.
+Dies kann durch progressives Laden erreicht werden — auch bekannt als [Lazy Loading](https://en.wikipedia.org/wiki/Lazy_loading). Dabei geht es darum, das Laden von so vielen Ressourcen wie möglich (HTML, CSS, JavaScript) zu verschieben und nur die Ressourcen sofort zu laden, die für das erste Erlebnis wirklich notwendig sind.
 
 ## Bündelung versus Aufteilung
 
-Viele Besucher werden nicht jede einzelne Seite einer Website durchsuchen, dennoch ist der übliche Ansatz, alle Funktionen, die wir haben, in eine große Datei zu bündeln. Eine `bundle.js`-Datei kann viele Megabyte sein, und ein einzelnes `style.css`-Bündel kann alles von grundlegenden CSS-Strukturdefinitionen bis hin zu allen möglichen Stilen jeder Version der Website enthalten: mobil, Tablet, Desktop, nur Druck usw.
+Viele Besucher werden nicht jede einzelne Seite einer Website durchgehen, dennoch besteht der übliche Ansatz darin, jede Funktion, die wir haben, in eine große Datei zu bündeln. Eine `bundle.js`-Datei kann viele Megabyte groß sein und ein einziges `style.css`-Bündel kann alles von grundlegenden CSS-Strukturdefinitionen bis zu allen möglichen Stilen jeder Version der Site enthalten: mobil, Tablet, Desktop, nur drucken usw.
 
-Es ist schneller, all diese Informationen in einer Datei statt in vielen kleinen zu laden, aber wenn der Benutzer nicht alles von Anfang an benötigt, könnten wir nur das Notwendige laden und andere Ressourcen bei Bedarf verwalten.
+Es ist schneller, all diese Informationen als eine Datei zu laden, anstatt viele kleine, aber wenn der Benutzer nicht alles von Anfang an benötigt, könnten wir nur das laden, was wesentlich ist, und andere Ressourcen bei Bedarf verwalten.
 
 ## Render-blockierende Ressourcen
 
-Die Bündelung ist ein Problem, da der Browser HTML, CSS und JavaScript laden muss, bevor er ihre gerenderten Ergebnisse auf dem Bildschirm anzeigen kann. Während der wenigen Sekunden zwischen dem ersten Zugriff auf die Website und dem Abschluss des Ladens sieht der Benutzer eine leere Seite, was eine schlechte Erfahrung ist.
+Bündelung ist ein Problem, weil der Browser das HTML, CSS und JavaScript laden muss, bevor er ihre gerenderten Ergebnisse auf dem Bildschirm darstellen kann. Während der wenigen Sekunden zwischen dem anfänglichen Website-Zugriff und dem Abschluss des Ladens sieht der Benutzer eine leere Seite, was ein schlechtes Erlebnis ist.
 
-Um dies zu beheben, können wir beispielsweise `defer` zu JavaScript-Dateien hinzufügen:
+Um dies zu beheben, können wir zum Beispiel `defer` zu JavaScript-Dateien hinzufügen:
 
 ```html
 <script src="app.js" defer></script>
 ```
 
-Sie werden heruntergeladen und ausgeführt _nachdem_ das Dokument selbst geparst wurde, sodass es das Rendern der HTML-Struktur nicht blockiert.
+Sie werden heruntergeladen und _nachdem_ das Dokument selbst analysiert wurde ausgeführt, sodass sie das Rendern der HTML-Struktur nicht blockieren.
 
-Eine weitere Technik ist es, JavaScript-Module mit [dynamic import](/de/docs/Web/JavaScript/Reference/Operators/import) nur bei Bedarf zu laden.
+Eine weitere Technik ist das Laden von JavaScript-Modulen mit [dynamischem Import](/de/docs/Web/JavaScript/Reference/Operators/import) nur bei Bedarf.
 
-Zum Beispiel, wenn eine Website einen Suchknopf hat, können wir das JavaScript für die Suchfunktion erst laden, nachdem der Benutzer auf den Suchknopf geklickt hat:
+Zum Beispiel, wenn eine Website einen Suchbutton hat, können wir das JavaScript für die Suchfunktion laden, nachdem der Benutzer auf den Suchbutton geklickt hat:
 
 ```js
 document.getElementById("open-search").addEventListener("click", async () => {
@@ -46,38 +46,38 @@ document.getElementById("open-search").addEventListener("click", async () => {
 });
 ```
 
-Sobald der Benutzer auf den Knopf klickt, wird der asynchrone Klick-Handler aufgerufen. Die Funktion wartet, bis das Modul geladen ist, und ruft dann die `loadAutoComplete()`-Funktion auf, die aus diesem Modul exportiert wird. Das `search.js`-Modul wird also nur heruntergeladen, geparst und ausgeführt, wenn die Interaktion stattfindet.
+Sobald der Benutzer auf die Schaltfläche klickt, wird der asynchrone Klick-Handler aufgerufen. Die Funktion wartet, bis das Modul geladen ist, und ruft dann die `loadAutoComplete()`-Funktion auf, die von diesem Modul exportiert wird. Das `search.js`-Modul wird daher nur heruntergeladen, analysiert und ausgeführt, wenn die Interaktion stattfindet.
 
-Wir können auch CSS-Dateien aufteilen und ihnen Medientypen hinzufügen:
+Wir können auch CSS-Dateien aufteilen und Medientypen hinzufügen:
 
 ```html
 <link rel="stylesheet" href="style.css" />
 <link rel="stylesheet" href="print.css" media="print" />
 ```
 
-Dies informiert den Browser, sie nur zu laden, wenn die Bedingung erfüllt ist.
+Dadurch wird der Browser angewiesen, sie nur zu laden, wenn die Bedingung erfüllt ist.
 
-In unserer js13kPWA-Demo-App ist das CSS einfach genug, um alles in einer einzigen Datei zu belassen, ohne spezifische Regeln, wie sie geladen werden sollten. Wir könnten sogar noch weiter gehen und alles von `style.css` in das `<style>`-Tag im `<head>` von `index.html` verschieben – dies würde die Leistung noch weiter verbessern, aber um die Lesbarkeit des Beispiels zu wahren, werden wir diesen Ansatz ebenfalls überspringen.
+In unserer js13kPWA-Demo-App ist das CSS einfach genug, um alles in einer einzigen Datei ohne spezielle Regeln zu belassen, wann sie geladen werden sollen. Wir könnten sogar noch weiter gehen und alles von `style.css` in das `<style>`-Tag im `<head>` von `index.html` verschieben — das würde die Leistung noch weiter verbessern, aber um die Lesbarkeit des Beispiels zu erhöhen, werden wir diesen Ansatz überspringen.
 
 ## Bilder
 
-Neben JavaScript und CSS enthalten Websites wahrscheinlich eine Reihe von Bildern. Wenn Sie {{htmlelement("img")}}-Elemente in Ihr HTML einfügen, wird jedes referenzierte Bild beim ersten Zugriff auf die Website abgerufen und geladen. Es ist nicht ungewöhnlich, mehrere Megabyte an Bilddaten herunterzuladen, bevor angekündigt wird, dass die Website bereit ist, was erneut eine schlechte Wahrnehmung der Leistung schafft. Wir benötigen nicht alle Bilder in bestmöglicher Qualität gleich zu Beginn des Betrachtens der Website.
+Neben JavaScript und CSS werden Websites wahrscheinlich eine Reihe von Bildern enthalten. Wenn Sie {{htmlelement("img")}} Elemente in Ihrem HTML einfügen, wird jedes referenzierte Bild beim ersten Zugriff auf die Website abgerufen und heruntergeladen. Es ist nicht ungewöhnlich, dass Megabytes an Bilddaten heruntergeladen werden müssen, bevor die Seite als bereit angezeigt wird, aber dies schafft erneut eine schlechte Wahrnehmung der Leistung. Wir brauchen nicht alle Bilder in bester möglicher Qualität gleich zu Beginn des Betrachtens der Seite.
 
-Dies kann optimiert werden. Zuerst sollten Sie Werkzeuge oder Dienste ähnlich wie [TinyPNG](https://tinypng.com/) verwenden, die die Dateigröße Ihrer Bilder reduzieren, ohne die Qualität zu sehr zu verändern. Wenn Sie diesen Punkt überschritten haben, können Sie beginnen, über die Optimierung des Bildladens mit JavaScript nachzudenken. Wir erklären das unten genauer.
+Dies kann optimiert werden. Zuallererst sollten Sie Werkzeuge oder Dienste wie [TinyPNG](https://tinypng.com/) verwenden, die die Dateigröße Ihrer Bilder reduzieren, ohne die Qualität zu stark zu verändern. Wenn Sie diesen Punkt überschritten haben, können Sie darüber nachdenken, das Laden der Bilder mit JavaScript zu optimieren. Dies werden wir im Folgenden erklären.
 
 ### Platzhalterbild
 
-Anstatt alle Screenshots von Spielen in den `src`-Attributen der `<img>`-Elemente zu referenzieren, was den Browser zwingt, sie automatisch herunterzuladen, können wir es selektiv über JavaScript tun. Die js13kPWA-App verwendet stattdessen ein Platzhalterbild, das klein und leichtgewichtig ist, während die endgültigen Pfade zu den Zielbildern in `data-src`-Attributen gespeichert sind:
+Anstatt alle Screenshots von Spielen in `<img>`-Element-`src`-Attributen zu referenzieren, was den Browser dazu zwingen würde, sie automatisch herunterzuladen, können wir dies selektiv über JavaScript tun. Die js13kPWA-App verwendet stattdessen ein Platzhalterbild, das klein und leicht ist, während die endgültigen Pfade zu Zielbildern in `data-src`-Attributen gespeichert sind:
 
 ```html
 <img src="data/img/placeholder.png" data-src="data/img/SLUG.jpg" alt="NAME" />
 ```
 
-Diese Bilder werden über JavaScript geladen _nachdem_ die Seite die HTML-Struktur aufgebaut hat. Das Platzhalterbild wird auf dieselbe Weise skaliert wie die Originalbilder, sodass es denselben Platz einnimmt und beim Laden der Bilder kein Neuzeichnen des Layouts verursacht.
+Diese Bilder werden über JavaScript _nachdem_ die Seite die HTML-Struktur fertiggestellt hat, geladen. Das Platzhalterbild wird genauso skaliert wie die Originalbilder, sodass es denselben Platz einnimmt und beim Laden der Bilder keinen Neuanstrich des Layouts verursacht.
 
 ### Laden über JavaScript
 
-Die Datei `app.js` verarbeitet die `data-src`-Attribute wie folgt:
+Die `app.js`-Datei verarbeitet die `data-src`-Attribute wie folgt:
 
 ```js
 let imagesToLoad = document.querySelectorAll("img[data-src]");
@@ -89,7 +89,7 @@ const loadImages = (image) => {
 };
 ```
 
-Die Variable `imagesToLoad` enthält Referenzen auf alle Bilder, während die Funktion `loadImages` den Pfad aus `data-src` nach `src` verschiebt. Wenn jedes Bild tatsächlich geladen wird, entfernen wir sein `data-src`-Attribut, da es nicht mehr benötigt wird. Dann durchlaufen wir jedes Bild und laden es:
+Die `imagesToLoad`-Variable enthält Referenzen zu allen Bildern, während die `loadImages`-Funktion den Pfad von `data-src` zu `src` verschiebt. Wenn jedes Bild tatsächlich geladen ist, entfernen wir sein `data-src`-Attribut, da es nicht mehr benötigt wird. Dann durchlaufen wir jedes Bild und laden es:
 
 ```js
 imagesToLoad.forEach((img) => {
@@ -97,13 +97,13 @@ imagesToLoad.forEach((img) => {
 });
 ```
 
-### Blur in CSS
+### Verschwommen in CSS
 
-Um das ganze Prozess optisch ansprechender zu gestalten, wird der Platzhalter in CSS verschwommen dargestellt.
+Um den gesamten Prozess visuell ansprechender zu gestalten, wird der Platzhalter in CSS verschwommen dargestellt.
 
-![Screenshot von Platzhalterbildern in der js13kPWA-App.](js13kpwa-placeholders.png)
+![Screenshot der Platzhalterbilder in der js13kPWA-App.](js13kpwa-placeholders.png)
 
-Wir rendern die Bilder zu Beginn mit einem Weichzeichner, sodass ein Übergang zum scharfen Bild erreicht werden kann:
+Wir rendern die Bilder am Anfang mit einem Unschärfe-Effekt, sodass ein Übergang zum scharfen Bild erreicht werden kann:
 
 ```css
 article img[data-src] {
@@ -116,17 +116,17 @@ article img {
 }
 ```
 
-Dies wird den Unschärfeeffekt innerhalb einer halben Sekunde entfernen, was für den "Laden"-Effekt gut genug aussieht.
+Dieser entfernt den Unschärfe-Effekt innerhalb einer halben Sekunde, was gut genug für den "Ladeeffekt" aussieht.
 
 ## Laden auf Abruf
 
-Der im obigen Abschnitt diskutierte Mechanismus zum Laden von Bildern funktioniert gut – er lädt die Bilder nach dem Rendern der HTML-Struktur und wendet dabei einen schönen Übergangseffekt an. Das Problem besteht darin, dass es immer noch _alle_ Bilder auf einmal lädt, obwohl der Benutzer nur die ersten zwei oder drei beim Laden der Seite sehen wird.
+Der im obigen Abschnitt besprochene Bildlade-Mechanismus funktioniert gut — er lädt die Bilder nach dem Rendern der HTML-Struktur und wendet in diesem Prozess einen schönen Übergangseffekt an. Das Problem ist, dass er immer noch _alle_ Bilder auf einmal lädt, obwohl der Benutzer beim Laden der Seite nur die ersten zwei oder drei sieht.
 
-Dieses Problem kann gelöst werden, indem die Bilder nur bei Bedarf geladen werden: dies nennt man _Lazy Loading_. [Lazy Loading](/de/docs/Web/Performance/Guides/Lazy_loading) ist eine Technik, um Bilder nur dann zu laden, wenn sie im Viewport erscheinen. Es gibt mehrere Möglichkeiten, dem Browser mitzuteilen, dass er Bilder lazy loaden soll.
+Dieses Problem kann gelöst werden, indem die Bilder nur bei Bedarf geladen werden: Dies wird als _Lazy Loading_ bezeichnet. [Lazy Loading](/de/docs/Web/Performance/Guides/Lazy_loading) ist eine Technik, um Bilder nur dann zu laden, wenn sie im Viewport erscheinen. Es gibt mehrere Möglichkeiten, dem Browser mitzuteilen, dass Bilder Lazy Loaded werden sollen.
 
-### Das `loading`-Attribut auf \<img>
+### Das loading-Attribut auf \<img>
 
-Der einfachste Weg, dem Browser mitzuteilen, dass er verzögert laden soll, umfasst kein JavaScript. Sie fügen das [`loading`](/de/docs/Web/HTML/Element/img#loading)-Attribut einem {{HTMLElement("img")}}-Element mit dem Wert `lazy` hinzu, und der Browser wird wissen, dass dieses Bild nur bei Bedarf geladen werden soll.
+Die einfachste Möglichkeit, dem Browser zu sagen, er solle Lazy Loaded durchführen, erfordert kein JavaScript. Sie fügen das [`loading`](/de/docs/Web/HTML/Reference/Elements/img#loading)-Attribut einem {{HTMLElement("img")}}-Element mit dem Wert `lazy` hinzu, und der Browser weiß, dass dieses Bild nur bei Bedarf geladen werden soll.
 
 ```html
 <img
@@ -138,9 +138,9 @@ Der einfachste Weg, dem Browser mitzuteilen, dass er verzögert laden soll, umfa
 
 ### Intersection Observer
 
-Dies ist eine progressive Verbesserung des zuvor funktionierenden Beispiels – [Intersection Observer](/de/docs/Web/API/Intersection_Observer_API) wird Zielbilder nur laden, wenn der Benutzer nach unten scrollt, wodurch sie im Viewport angezeigt werden.
+Dies ist eine progressive Verbesserung zum zuvor funktionierenden Beispiel — [Intersection Observer](/de/docs/Web/API/Intersection_Observer_API) lädt Zielbilder nur, wenn der Benutzer nach unten scrollt, wodurch sie im Viewport angezeigt werden.
 
-So sieht der relevante Code aus:
+Hier ist, wie der relevante Code aussieht:
 
 ```js
 if ("IntersectionObserver" in window) {
@@ -162,30 +162,30 @@ if ("IntersectionObserver" in window) {
 }
 ```
 
-Wenn das [`IntersectionObserver`](/de/docs/Web/API/IntersectionObserver)-Objekt unterstützt wird, erstellt die App eine neue Instanz davon. Die als Parameter übergebene Funktion behandelt den Fall, wenn ein oder mehrere Elemente mit dem Beobachter geschnitten (d.h. im Viewport angezeigt) werden. Wir können jeden Fall durchlaufen und entsprechend reagieren – wenn ein Bild sichtbar ist, laden wir das korrekte Bild und hören auf, es zu beobachten, da wir es nicht mehr überwachen müssen.
+Wenn das [`IntersectionObserver`](/de/docs/Web/API/IntersectionObserver)-Objekt unterstützt wird, erstellt die App eine neue Instanz davon. Die als Parameter übergebene Funktion behandelt den Fall, in dem ein oder mehrere Elemente mit dem Observer geschnitten werden (d.h. im Viewport erscheinen). Wir können über jeden Fall iterieren und entsprechend reagieren — wenn ein Bild sichtbar ist, laden wir das richtige Bild und hören auf, es zu beobachten, da wir es nicht mehr beobachten müssen.
 
-Lassen Sie uns unser früheres Zitat zur progressiven Verbesserung wiederholen – der Code ist so geschrieben, dass die App funktioniert, egal ob Intersection Observer unterstützt wird oder nicht. Wenn nicht, laden wir die Bilder einfach mit dem zuvor beschriebenen grundlegenden Ansatz.
+Lassen Sie uns unsere frühere Erwähnung von progressiver Verbesserung wiederholen — der Code ist so geschrieben, dass die App funktioniert, unabhängig davon, ob Intersection Observer unterstützt wird oder nicht. Wenn nicht, laden wir die Bilder einfach mit dem zuvor behandelten einfacheren Ansatz.
 
 ## Verbesserungen
 
-Denken Sie daran, dass es viele Möglichkeiten gibt, Ladezeiten zu optimieren, und dieses Beispiel untersucht nur einen der Ansätze. Sie könnten versuchen, Ihre Apps robuster zu machen, indem Sie sie ohne JavaScript arbeiten lassen – entweder mit {{htmlelement("noscript")}}, um das Bild mit bereits zugewiesenem endgültigem `src` anzuzeigen, oder indem Sie `<img>`-Tags mit {{htmlelement("a")}}-Elementen umwickeln, die auf die Zielbilder verweisen, damit der Benutzer sie bei Bedarf anklicken und aufrufen kann.
+Denken Sie daran, dass es viele Möglichkeiten gibt, Ladezeiten zu optimieren, und dieses Beispiel untersucht nur einen der Ansätze. Sie könnten versuchen, Ihre Apps robuster zu machen, indem Sie sie ohne JavaScript arbeiten lassen — entweder mit {{htmlelement("noscript")}}, um das Bild mit bereits zugewiesenem finalem `src` anzuzeigen, oder indem Sie `<img>`-Tags mit {{htmlelement("a")}}-Elementen einwickeln, die auf die Zielbilder verweisen, sodass der Benutzer sie bei Bedarf anklicken und aufrufen kann.
 
-Das werden wir nicht tun, weil die App selbst von JavaScript abhängig ist – ohne JavaScript würde die Liste der Spiele nicht einmal geladen werden und der Service Worker-Code würde nicht ausgeführt.
+Wir werden das nicht tun, da die App selbst auf JavaScript angewiesen ist — ohne es würde die Spieleliste nicht einmal geladen, und der Service Worker-Code würde nicht ausgeführt.
 
-Wir könnten den Ladeprozess so umschreiben, dass nicht nur die Bilder, sondern vollständige Artikel mit vollständigen Beschreibungen und Links geladen werden. Dies würde wie ein unendliches Scrollen funktionieren – die Elemente auf der Liste würden erst geladen, wenn der Benutzer die Seite nach unten scrollt. Auf diese Weise wäre die anfängliche HTML-Struktur minimal, die Ladezeit noch kürzer und wir würden noch größere Leistungsverbesserungen erzielen.
+Wir könnten den Ladeprozess umschreiben, um nicht nur die Bilder, sondern die kompletten Elemente bestehend aus vollständigen Beschreibungen und Links zu laden. Es würde wie ein unendliches Scrollen funktionieren — die Elemente auf der Liste nur laden, wenn der Benutzer die Seite nach unten scrollt. Auf diese Weise wäre die anfängliche HTML-Struktur minimal, die Ladezeit noch kürzer, und wir würden noch größere Leistungsgewinne erzielen.
 
 ## Fazit
 
-Weniger zunächst zu ladende Dateien, kleinere in Module aufgeteilte Dateien, die Verwendung von Platzhaltern und das Laden weiterer Inhalte auf Abruf – dies hilft, schnellere erste Ladezeiten zu erreichen, was Vorteile für den Ersteller der App bringt und dem Benutzer ein reibungsloseres Erlebnis bietet.
+Weniger Dateien, die anfänglich geladen werden müssen, kleinere Dateien, die in Module aufgeteilt sind, Verwendung von Platzhaltern und das Laden weiterer Inhalte auf Abruf — dies wird helfen, schnellere anfängliche Ladezeiten zu erzielen, was dem App-Ersteller zugutekommt und dem Benutzer ein reibungsloseres Erlebnis bietet.
 
-Denken Sie an den Ansatz der progressiven Verbesserung – bieten Sie ein nutzbares Produkt, unabhängig vom Gerät oder der Plattform, und bereichern Sie das Erlebnis für diejenigen, die moderne Browser verwenden.
+Erinnern Sie sich an den Ansatz der progressiven Verbesserung — bieten Sie ein nutzbares Produkt unabhängig vom Gerät oder der Plattform, bereichern Sie jedoch das Erlebnis für diejenigen, die moderne Browser verwenden.
 
 ## Abschließende Gedanken
 
-Das war's für diese Tutorial-Serie – wir haben den [Quellcode der js13kPWA-Beispiel-App](https://github.com/mdn/pwa-examples/tree/main/js13kpwa) durchgegangen und über die [PWA-Struktur](/de/docs/Web/Progressive_web_apps/Tutorials/js13kGames/App_structure), [Offline-Verfügbarkeit mit Service Workers](/de/docs/Web/Progressive_web_apps/Tutorials/js13kGames/Offline_Service_workers), [installierbare PWAs](/de/docs/Web/Progressive_web_apps/Tutorials/js13kGames/Installable_PWAs) und schließlich [Benachrichtigungen](/de/docs/Web/Progressive_web_apps/Tutorials/js13kGames/Re-engageable_Notifications_Push) gelernt.
+Das war's für diese Tutorialserie — wir sind den [Quellcode der js13kPWA-Beispiel-App](https://github.com/mdn/pwa-examples/tree/main/js13kpwa) durchgegangen und haben die [PWA-Struktur](/de/docs/Web/Progressive_web_apps/Tutorials/js13kGames/App_structure), [Offline-Verfügbarkeit mit Service Workern](/de/docs/Web/Progressive_web_apps/Tutorials/js13kGames/Offline_Service_workers), [installierbare PWAs](/de/docs/Web/Progressive_web_apps/Tutorials/js13kGames/Installable_PWAs) und schließlich [Benachrichtigungen](/de/docs/Web/Progressive_web_apps/Tutorials/js13kGames/Re-engageable_Notifications_Push) kennengelernt.
 
-Und in diesem Artikel haben wir das Konzept des progressiven Ladens untersucht, einschließlich eines interessanten Beispiels, das die [Intersection Observer API](/de/docs/Web/API/Intersection_Observer_API) verwendet.
+Und in diesem Artikel haben wir das Konzept des progressiven Ladens beleuchtet, einschließlich eines interessanten Beispiels, das die [Intersection Observer API](/de/docs/Web/API/Intersection_Observer_API) nutzt.
 
-Fühlen Sie sich frei, mit dem Code zu experimentieren, Ihre vorhandene App mit PWA-Funktionen zu erweitern oder etwas völlig Neues selbst zu erstellen. PWAs bieten einen großen Vorteil gegenüber regulären Web-Apps.
+Experimentieren Sie gerne mit dem Code, erweitern Sie Ihre bestehende App mit PWA-Funktionen oder entwickeln Sie ganz alleine etwas Neues. PWAs bieten einen enormen Vorteil gegenüber regulären Web-Apps.
 
 {{PreviousMenu("Web/Progressive_web_apps/Tutorials/js13kGames/Re-engageable_Notifications_Push", "Web/Progressive_web_apps/Tutorials/js13kGames")}}

@@ -2,25 +2,25 @@
 title: HTMLQuoteElement
 slug: Web/API/HTMLQuoteElement
 l10n:
-  sourceCommit: 7e6e5f5d4c1c984af3d4ebf9399042d19eccea1e
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{APIRef("HTML DOM")}}
 
-Das **`HTMLQuoteElement`**-Interface bietet spezielle Eigenschaften und Methoden (über die regulären Eigenschaften und Methoden des [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Interfaces hinaus, die ebenfalls durch Vererbung verfügbar sind), um Zitat-Elemente wie {{HTMLElement("blockquote")}} und {{HTMLElement("q")}} zu manipulieren, jedoch nicht das {{HTMLElement("cite")}}-Element.
+Das **`HTMLQuoteElement`**-Interface bietet spezielle Eigenschaften und Methoden (zusätzlich zu den regulären [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Eigenschaften, die es ebenfalls durch Vererbung zur Verfügung hat) zum Manipulieren von Zitat-Elementen wie {{HTMLElement("blockquote")}} und {{HTMLElement("q")}}, jedoch nicht für das {{HTMLElement("cite")}}-Element.
 
 {{InheritanceDiagram}}
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-_Erbt Eigenschaften von seinem Eltern-Element, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
+_Erbt Eigenschaften von seinem Eltern-Interface, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
 - [`HTMLQuoteElement.cite`](/de/docs/Web/API/HTMLQuoteElement/cite)
-  - : Ein String, der das HTML-Attribut [`cite`](/de/docs/Web/HTML/Element/blockquote#cite) widerspiegelt und eine URL für die Quelle des Zitats enthält.
+  - : Ein String, der das HTML-Attribut [`cite`](/de/docs/Web/HTML/Reference/Elements/blockquote#cite) widerspiegelt und eine URL für die Quelle des Zitats enthält.
 
-## Instanz-Methoden
+## Instanzmethoden
 
-_Keine spezifische Methode; erbt Methoden von seinem Eltern-Element, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
+_Keine spezifischen Methoden; erbt Methoden von seinem Eltern-Interface, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
 ## Spezifikationen
 

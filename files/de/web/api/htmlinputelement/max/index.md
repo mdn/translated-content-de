@@ -1,18 +1,18 @@
 ---
-title: "HTMLInputElement: max Eigenschaft"
+title: "HTMLInputElement: max-Eigenschaft"
 short-title: max
 slug: Web/API/HTMLInputElement/max
 l10n:
-  sourceCommit: 97e0bb9c3087d24d09525a74619660c796cd635e
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{ApiRef("HTML DOM")}}
 
-Die **`max`**-Eigenschaft der [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Schnittstelle spiegelt das [`max`](/de/docs/Web/HTML/Element/input#max) Attribut des {{HTMLElement("input")}} Elements wider, welches im Allgemeinen den maximal gültigen Wert für eine numerische oder Datum-Zeit-Eingabe definiert. Wenn das Attribut nicht explizit gesetzt ist, ist die `max`-Eigenschaft ein leerer String.
+Die **`max`**-Eigenschaft des [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Interfaces spiegelt das [`max`](/de/docs/Web/HTML/Reference/Elements/input#max)-Attribut des {{HTMLElement("input")}}-Elements wider, welches im Allgemeinen den maximal gültigen Wert für eine numerische oder datumsbezogene Eingabe definiert. Wenn das Attribut nicht explizit gesetzt ist, ist die `max`-Eigenschaft ein leerer String.
 
 ## Wert
 
-Ein String, der den `max`-Wert des Elements repräsentiert, oder ein leerer String, wenn kein `max` explizit gesetzt ist.
+Ein String, der den `max`-Wert des Elements oder einen leeren String darstellt, wenn kein `max` explizit gesetzt ist.
 
 ## Beispiel
 

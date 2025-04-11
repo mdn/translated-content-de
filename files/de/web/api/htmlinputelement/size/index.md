@@ -3,14 +3,14 @@ title: "HTMLInputElement: size-Eigenschaft"
 short-title: size
 slug: Web/API/HTMLInputElement/size
 l10n:
-  sourceCommit: a242996610e5a3335fcd0c5ee3c84d5543b9b8dd
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`size`**-Eigenschaft des [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Interfaces definiert die Anzahl der sichtbaren Zeichen, die angezeigt werden. Sie spiegelt das `size`-Attribut des {{htmlelement("input")}}-Elements wider.
+Die **`size`**-Eigenschaft des [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Interfaces definiert die Anzahl der sichtbaren Zeichen, die angezeigt werden. Sie spiegelt das [`size`](/de/docs/Web/HTML/Reference/Elements/input#size)-Attribut des {{htmlelement("input")}}-Elements wider.
 
-Die `size`-Eigenschaft ist nur für die Eingabetypen [`text`](/de/docs/Web/HTML/Element/input/text), [`search`](/de/docs/Web/HTML/Element/input/search), [`tel`](/de/docs/Web/HTML/Element/input/tel), [`email`](/de/docs/Web/HTML/Element/input/email), [`url`](/de/docs/Web/HTML/Element/input/url) und [`password`](/de/docs/Web/HTML/Element/input/password) relevant. Der Wert ist eine nicht-negative ganze Zahl größer als null. Wenn weggelassen oder ungültig, beträgt der Wert `20`.
+Die `size`-Eigenschaft ist nur für die Eingabetypen [`text`](/de/docs/Web/HTML/Reference/Elements/input/text), [`search`](/de/docs/Web/HTML/Reference/Elements/input/search), [`tel`](/de/docs/Web/HTML/Reference/Elements/input/tel), [`email`](/de/docs/Web/HTML/Reference/Elements/input/email), [`url`](/de/docs/Web/HTML/Reference/Elements/input/url) und [`password`](/de/docs/Web/HTML/Reference/Elements/input/password) relevant. Der Wert ist eine nicht-negative ganze Zahl, die größer als null ist. Wenn der Wert weggelassen oder ungültig ist, beträgt er `20`.
 
 ## Wert
 

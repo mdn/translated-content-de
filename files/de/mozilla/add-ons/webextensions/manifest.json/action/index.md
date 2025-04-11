@@ -2,7 +2,7 @@
 title: action
 slug: Mozilla/Add-ons/WebExtensions/manifest.json/action
 l10n:
-  sourceCommit: 9c9be5239fe7fb2907784e8cace339d4910eb103
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{AddonSidebar}}
@@ -14,7 +14,7 @@ l10n:
       <td><code>Object</code></td>
     </tr>
     <tr>
-      <th scope="row">Obligatorisch</th>
+      <th scope="row">Verpflichtend</th>
       <td>Nein</td>
     </tr>
     <tr>
@@ -48,17 +48,17 @@ l10n:
   </tbody>
 </table>
 
-Eine Aktion ist ein Schaltfläche, die Ihre Erweiterung zur Symbolleiste des Browsers hinzufügt. Die Schaltfläche hat ein Symbol und kann optional ein Popup haben, dessen Inhalt mit HTML, CSS und JavaScript angegeben wird.
+Eine Aktion ist eine Schaltfläche, die Ihre Erweiterung zur Symbolleiste des Browsers hinzufügt. Die Schaltfläche hat ein Symbol und kann optional ein Popup haben, dessen Inhalt mit HTML, CSS und JavaScript spezifiziert wird.
 
 Dieser Schlüssel ersetzt [`browser_action`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action) in Manifest V3-Erweiterungen.
 
-Sie müssen diesen Schlüssel angeben, um eine Browser-Symbolleistenschaltfläche in Ihre Erweiterung aufzunehmen. Bei Angabe können Sie die Schaltfläche programmatisch mit der {{WebExtAPIRef("action")}} API manipulieren.
+Sie müssen diesen Schlüssel angeben, um eine Schaltfläche in der Browser-Symbolleiste in Ihre Erweiterung aufzunehmen. Sobald er angegeben ist, können Sie die Schaltfläche programmgesteuert mit der {{WebExtAPIRef("action")}} API manipulieren.
 
-Wenn Sie ein Popup bereitstellen, wird das Popup geöffnet, wenn der Benutzer die Schaltfläche anklickt, und Ihr JavaScript, das im Popup ausgeführt wird, kann die Benutzerinteraktion mit dem Popup verwalten. Wenn Sie kein Popup bereitstellen, wird beim Klick des Benutzers auf die Schaltfläche ein Klickereignis an die [Hintergrund-Skripte](/de/docs/Mozilla/Add-ons/WebExtensions/Background_scripts) Ihrer Erweiterung gesendet.
+Wenn Sie ein Popup bereitstellen, wird dieses geöffnet, wenn der Benutzer auf die Schaltfläche klickt, und Ihr JavaScript, das im Popup läuft, kann mit der Interaktion des Benutzers umgehen. Wenn Sie kein Popup bereitstellen, wird beim Klicken auf die Schaltfläche ein Klick-Ereignis an die [Hintergrundskripte](/de/docs/Mozilla/Add-ons/WebExtensions/Background_scripts) Ihrer Erweiterung gesendet.
 
 ## Syntax
 
-Der `action` Schlüssel ist ein Objekt, das eine beliebige dieser Eigenschaften haben kann, alle optional:
+Der `action` Schlüssel ist ein Objekt, das jede dieser Eigenschaften aufweisen kann, die alle optional sind:
 
 <table class="fullwidth-table standard-table">
   <thead>
@@ -81,10 +81,10 @@ Der `action` Schlüssel ist ein Objekt, das eine beliebige dieser Eigenschaften 
       </td>
       <td><code>Boolean</code></td>
       <td>
-        <p>Optional, Standardwert ist <code>false</code>.</p>
+        <p>Optional, standardmäßig <code>false</code>.</p>
         <div class="notecard warning">
           <p>
-            Setzen Sie <code>browser_style</code> nicht auf true: Seine Unterstützung in Manifest V3 wurde in Firefox 118 entfernt. Siehe <a href="/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Browser_styles#manifest_v3_migration">Manifest V3-Migration für <code>browser_style</code></a>.
+            Setzen Sie <code>browser_style</code> nicht auf true: Die Unterstützung dafür wurde in Manifest V3 in Firefox 118 entfernt. Siehe <a href="/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Browser_styles#manifest_v3_migration">Manifest V3 Migration für <code>browser_style</code></a>.
           </p>
         </div>
       </td>
@@ -95,27 +95,30 @@ Der `action` Schlüssel ist ein Objekt, das eine beliebige dieser Eigenschaften 
       <td><code>String</code></td>
       <td>
         <p>
-          Definiert den Bereich des Browsers, in dem die Schaltfläche anfänglich platziert wird. Dies ist ein String, der einen von vier Werten annehmen kann:
+          Definiert den Teil des Browsers, in dem die Schaltfläche zunächst platziert wird. Dies ist ein String, der einen von vier Werten annehmen kann:
         </p>
         <ul>
           <li>
-            "navbar": Die Schaltfläche wird in der Haupt-Symbolleiste des Browsers neben der URL-Leiste platziert.
+            "navbar": die Schaltfläche wird in der Haupt-Symbolleiste des Browsers, neben der URL-Leiste, platziert.
           </li>
-          <li>"menupanel": Die Schaltfläche wird in einem Popup-Panel platziert.</li>
+          <li>"menupanel": die Schaltfläche wird in einem Popup-Panel platziert.</li>
           <li>
-            "tabstrip": Die Schaltfläche wird in der Symbolleiste platziert, die die Browser-Tabs enthält.
+            "tabstrip": die Schaltfläche wird in der Symbolleiste platziert, die die Browser-Tabs enthält.
           </li>
           <li>
-            "personaltoolbar": Die Schaltfläche wird in der Lesezeichen-Symbolleiste platziert.
+            "personaltoolbar": die Schaltfläche wird in der Lesezeichen-Symbolleiste platziert.
           </li>
         </ul>
         <p>Diese Eigenschaft wird nur in Firefox unterstützt.</p>
         <p>Diese Eigenschaft ist optional und hat standardmäßig den Wert "menupanel".</p>
         <p>
-          Firefox merkt sich die <code>default_area</code>-Einstellung für eine Erweiterung, selbst wenn diese Erweiterung deinstalliert und anschließend erneut installiert wird. Um den Browser zu zwingen, einen neuen Wert für <code>default_area</code> zu erkennen, muss die ID der Erweiterung geändert werden.
+          Firefox merkt sich die <code>default_area</code>-Einstellung für eine
+          Erweiterung, auch wenn diese Erweiterung deinstalliert und anschließend
+          neu installiert wird. Um den Browser zu zwingen, einen neuen Wert für
+          <code>default_area</code> anzuerkennen, muss die ID der Erweiterung geändert werden.
         </p>
         <p>
-          Eine Erweiterung kann den Standort der Schaltfläche nach der Installation nicht mehr ändern, aber der Benutzer kann möglicherweise die Schaltfläche mithilfe des integrierten UI-Anpassungsmechanismus des Browsers verschieben.
+          Eine Erweiterung kann den Ort der Schaltfläche nicht ändern, nachdem sie installiert wurde, aber der Benutzer kann möglicherweise die Schaltfläche über den integrierten UI-Anpassungsmechanismus des Browsers verschieben.
         </p>
       </td>
     </tr>
@@ -125,15 +128,18 @@ Der `action` Schlüssel ist ein Objekt, das eine beliebige dieser Eigenschaften 
       <td><code>Object</code> oder <code>String</code></td>
       <td>
         <p>
-          Verwenden Sie dies, um eines oder mehrere Symbole für die Aktion anzugeben. Das Symbol wird standardmäßig in der Browser-Symbolleiste angezeigt.
+          Verwenden Sie dies, um ein oder mehrere Symbole für die Aktion anzugeben. Das Symbol
+          wird standardmäßig in der Browser-Symbolleiste angezeigt.
         </p>
         <p>
-          Symbole werden als URLs relativ zur Datei manifest.json selbst angegeben.
+          Symbole werden als URLs relativ zur manifest.json-Datei selbst angegeben.
         </p>
-        <p>Sie können eine einzelne Symboldatei angeben, indem Sie hier einen String angeben:</p>
+        <p>Sie können eine einzige Symboldatei angeben, indem Sie hier einen String angeben:</p>
         <pre class="brush: json">"default_icon": "path/to/geo.svg"</pre>
         <p>
-          Um mehrere Symbole in verschiedenen Größen anzugeben, geben Sie hier ein Objekt an. Der Name jeder Eigenschaft ist die Höhe des Symbols in Pixeln und muss in einen Integer umwandelbar sein. Der Wert ist die URL. Zum Beispiel:
+          Um mehrere Symbole in verschiedenen Größen anzugeben, geben Sie hier ein Objekt an.
+          Der Name jeder Eigenschaft ist die Höhe des Symbols in Pixeln und muss
+          in einen Integer umwandelbar sein. Der Wert ist die URL. Zum Beispiel:
         </p>
         <pre class="brush: json">
     "default_icon": {
@@ -142,7 +148,11 @@ Der `action` Schlüssel ist ein Objekt, das eine beliebige dieser Eigenschaften 
     }</pre
         >
         <p>
-          Sie können keine mehrfachen Symbole in derselben Größe angeben.<br /><br />Siehe <a href="#choosing_icon_sizes">Auswahl der Symbolgrößen</a> für weitere Hinweise zu diesem Thema.
+          Sie können nicht mehrere Symbole mit denselben Größen angeben.<br /><br />Siehe
+          <a href="#choosing_icon_sizes"
+            >Auswahl von Symbolgrößen</a
+          >
+          für weitere Anleitung dazu.
         </p>
       </td>
     </tr>
@@ -155,39 +165,49 @@ Der `action` Schlüssel ist ein Objekt, das eine beliebige dieser Eigenschaften 
           Der Pfad zu einer HTML-Datei, die die Spezifikation des Popups enthält.
         </p>
         <p>
-          Die HTML-Datei kann CSS- und JavaScript-Dateien mithilfe von
+          Die HTML-Datei kann CSS- und JavaScript-Dateien mit
           <code
-            ><a href="/de/docs/Web/HTML/Element/link">&#x3C;link></a></code
+            ><a href="/de/docs/Web/HTML/Reference/Elements/link">&#x3C;link></a></code
           >
           und
           <code
-            ><a href="/de/docs/Web/HTML/Element/script"
+            ><a href="/de/docs/Web/HTML/Reference/Elements/script"
               >&#x3C;script></a
             ></code
           >
-          -Elementen einbinden, genau wie eine normale Webseite. Allerdings
-          muss
+          -Elementen einbinden, genau wie eine normale Webseite. Allerdings muss
           <code
-            ><a href="/de/docs/Web/HTML/Element/script"
+            ><a href="/de/docs/Web/HTML/Reference/Elements/script"
               >&#x3C;script>
             </a></code
-          > das Attribut
-          <code><a href="/de/docs/Web/HTML/Element/script">src</a></code>
-          verwenden, um eine Datei zu laden. Verwenden Sie kein
+          > das
+          <code><a href="/de/docs/Web/HTML/Reference/Elements/script">src</a></code>
+          Attribut haben, um eine Datei zu laden. Verwenden Sie kein
           <code
-            ><a href="/de/docs/Web/HTML/Element/script"
+            ><a href="/de/docs/Web/HTML/Reference/Elements/script"
               >&#x3C;script></a
             ></code
-          > mit eingebettetem Code, da Sie sonst einen verwirrenden Content Security Policy-Fehler erhalten.
+          >
+          mit eingebettetem Code, da sonst ein verwirrender Fehler bei der Content Violation Policy auftritt.
         </p>
         <p>
-          Im Gegensatz zu einer normalen Webseite kann JavaScript, das im Popup ausgeführt wird, auf alle
-          <a href="/de/docs/Mozilla/Add-ons/WebExtensions/API">WebExtension-APIs</a> zugreifen (natürlich vorausgesetzt, dass die Erweiterung die entsprechenden
-          <a href="/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions">Berechtigungen</a> hat).
+          Anders als eine normale Webseite kann JavaScript, das im Popup läuft, auf
+          alle
+          <a href="/de/docs/Mozilla/Add-ons/WebExtensions/API"
+            >WebExtension APIs</a
+          >
+          zugreifen (natürlich vorbehaltlich, dass die Erweiterung über die entsprechenden
+          <a
+            href="/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions"
+            >Berechtigungen</a
+          > verfügt).
         </p>
         <p>
           Dies ist eine
-          <a href="/de/docs/Mozilla/Add-ons/WebExtensions/Internationalization#internationalizing_manifest.json">lokalisierbare Eigenschaft</a>.
+          <a
+            href="/de/docs/Mozilla/Add-ons/WebExtensions/Internationalization#internationalizing_manifest.json"
+            >lokalisierbare Eigenschaft</a
+          >.
         </p>
       </td>
     </tr>
@@ -197,11 +217,14 @@ Der `action` Schlüssel ist ein Objekt, das eine beliebige dieser Eigenschaften 
       <td><code>String</code></td>
       <td>
         <p>
-          Tooltip für die Schaltfläche, die angezeigt wird, wenn der Benutzer die Maus darüber bewegt. Wenn die Schaltfläche zum Menüpanel des Browsers hinzugefügt wird, wird sie auch unter dem App-Symbol angezeigt.
+          Tooltip für die Schaltfläche, das angezeigt wird, wenn der Benutzer den Mauszeiger darüber bewegt. Wenn die Schaltfläche zum Menüpanel des Browsers hinzugefügt wird, wird dies auch unter dem App-Symbol angezeigt.
         </p>
         <p>
           Dies ist eine
-          <a href="/de/docs/Mozilla/Add-ons/WebExtensions/Internationalization#internationalizing_manifest.json">lokalisierbare Eigenschaft</a>.
+          <a
+            href="/de/docs/Mozilla/Add-ons/WebExtensions/Internationalization#internationalizing_manifest.json"
+            >lokalisierbare Eigenschaft</a
+          >.
         </p>
       </td>
     </tr>
@@ -211,55 +234,63 @@ Der `action` Schlüssel ist ein Objekt, das eine beliebige dieser Eigenschaften 
       <td><code>Array</code></td>
       <td>
         <p>
-          Diese Eigenschaft ermöglicht es Ihnen, verschiedene Symbole für Themen anzugeben, je nachdem, ob Firefox erkennt, dass das Thema dunklen oder hellen Text verwendet.
+          Diese Eigenschaft ermöglicht es Ihnen, je nach Theme unterschiedliche Symbole
+          anzugeben, abhängig davon, ob Firefox erkennt, dass das Theme dunklen oder hellen
+          Text verwendet.
         </p>
         <p>
-          Wenn diese Eigenschaft vorhanden ist, handelt es sich um ein Array, das mindestens ein <code>ThemeIcons</code>-Objekt enthält. Ein <code>ThemeIcons</code>-Objekt enthält drei obligatorische Eigenschaften:
+          Wenn diese Eigenschaft vorhanden ist, ist es ein Array, das mindestens ein
+          <code>ThemeIcons</code> Objekt enthält. Ein <code>ThemeIcons</code> Objekt
+          enthält drei verpflichtende Eigenschaften:
         </p>
         <dl>
           <dt><code>"dark"</code></dt>
           <dd>
-            Eine URL, die auf ein Symbol zeigt. Dieses Symbol wird angezeigt, wenn ein Thema verwendet wird, das dunklen Text verwendet (z. B. das Firefox Light-Thema und das Standardthema, wenn kein default_icon angegeben ist).
+            Eine URL, die auf ein Symbol zeigt. Dieses Symbol wird angezeigt, wenn ein
+            Theme mit dunklem Text aktiv ist (wie z.B. das Firefox Light Theme, und das
+            Standard-Theme, wenn kein default_icon angegeben ist).
           </dd>
           <dt><code>"light"</code></dt>
           <dd>
-            Eine URL, die auf ein Symbol zeigt. Dieses Symbol wird angezeigt, wenn ein Thema verwendet wird, das hellen Text verwendet (z. B. das Firefox Dark-Thema).
+            Eine URL, die auf ein Symbol zeigt. Dieses Symbol wird angezeigt, wenn ein
+            Theme mit hellem Text aktiv ist (wie z.B. das Firefox Dark Theme).
           </dd>
           <dt><code>"size"</code></dt>
           <dd>Die Größe der beiden Symbole in Pixeln.</dd>
         </dl>
         <p>Symbole werden als URLs relativ zur manifest.json-Datei angegeben.</p>
         <p>
-          Sie sollten 16x16 und 32x32 (für Retina-Displays) <code>ThemeIcons</code> bereitstellen.
+          Sie sollten 16x16 und 32x32 (für Retina-Display)
+          <code>ThemeIcons</code> bereitstellen.
         </p>
       </td>
     </tr>
   </tbody>
 </table>
 
-## Auswahl der Symbolgrößen
+## Auswahl von Symbolgrößen
 
-Das Symbol der Aktion muss möglicherweise in verschiedenen Größen in unterschiedlichen Kontexten angezeigt werden:
+Das Aktionssymbol muss möglicherweise in unterschiedlichen Größen in verschiedenen Kontexten angezeigt werden:
 
-- Das Symbol wird in der Browser-Symbolleiste angezeigt. Ältere Versionen von Firefox unterstützten die Option, das Symbol im Menüpanel des Browsers zu platzieren (das Panel, das beim Klicken auf das "Hamburger"-Symbol öffnet). In diesen Firefox-Versionen war das Symbol im Menüpanel größer als das Symbol in der Symbolleiste.
-- Auf einem hochauflösenden Display wie einem Retina-Bildschirm müssen Symbole doppelt so groß sein.
+- Das Symbol wird in der Browser-Symbolleiste angezeigt. Ältere Versionen von Firefox unterstützten die Option, das Symbol im Menüpanel des Browsers (dem Panel, das sich öffnet, wenn der Benutzer auf das "Hamburger"-Symbol klickt) zu platzieren. In diesen Versionen von Firefox war das Symbol im Menüpanel größer als das Symbol in der Symbolleiste.
+- Auf einem hochauflösenden Bildschirm wie einem Retina-Display müssen Symbole doppelt so groß sein.
 
-Wenn der Browser in einer bestimmten Situation kein Symbol der richtigen Größe finden kann, wählt er den besten Übereinstimmung und skaliert es. Skalierung kann das Symbol unscharf erscheinen lassen, daher ist es wichtig, die Symbolgrößen sorgfältig auszuwählen.
+Wenn der Browser kein Symbol der richtigen Größe in einer bestimmten Situation finden kann, wählt er die am besten passende Option und skaliert sie. Eine Skalierung kann das Symbol verschwommen erscheinen lassen, daher ist es wichtig, Symbole sorgfältig auszuwählen.
 
-Es gibt zwei Hauptansätze dafür. Sie können ein einzelnes Symbol als SVG-Datei bereitstellen, und es wird korrekt skaliert:
+Es gibt zwei Hauptansätze. Sie können ein einzelnes Symbol als SVG-Datei liefern, und es wird korrekt skaliert:
 
 ```json
 "default_icon": "path/to/geo.svg"
 ```
 
-Alternativ können Sie mehrere Symbole in verschiedenen Größen bereitstellen, und der Browser wählt die beste Übereinstimmung.
+Alternativ können Sie mehrere Symbole in verschiedenen Größen bereitstellen, und der Browser wählt die am besten passende Option.
 
 In Firefox:
 
 - Die Standardhöhe und -breite für Symbole in der Symbolleiste beträgt 16 \* [`window.devicePixelRatio`](/de/docs/Web/API/Window/devicePixelRatio).
 - Die Standardhöhe und -breite für Symbole im Menüpanel beträgt 32 \* [`window.devicePixelRatio`](/de/docs/Web/API/Window/devicePixelRatio).
 
-So können Sie Symbole angeben, die genau übereinstimmen, sowohl auf normalen als auch auf Retina-Displays, indem Sie drei Symboldateien bereitstellen und sie so angeben:
+Sie können Symbole, die genau auf beiden normalen und Retina-Displays passen, festlegen, indem Sie drei Symboldateien bereitstellen und sie so spezifizieren:
 
 ```json
 "default_icon": {
@@ -269,7 +300,7 @@ So können Sie Symbole angeben, die genau übereinstimmen, sowohl auf normalen a
 }
 ```
 
-Wenn Firefox keine exakte Übereinstimmung für die gewünschte Größe findet, wählt es das kleinste angegebene Symbol, das größer als die ideale Größe ist. Wenn alle Symbole kleiner als die ideale Größe sind, wird das größte angegebene Symbol gewählt.
+Wenn Firefox keine exakte Übereinstimmung mit der gewünschten Größe finden kann, wählt es das kleinste angegebene Symbol, das größer als die ideale Größe ist. Wenn alle Symbole kleiner als die ideale Größe sind, wählt es das größte angegebene Symbol.
 
 ## Beispiel
 
@@ -282,7 +313,7 @@ Wenn Firefox keine exakte Übereinstimmung für die gewünschte Größe findet, 
 }
 ```
 
-Eine Aktion mit nur einem Symbol, angegeben in 2 Größen. Die Hintergrundskripte der Erweiterung können Klickereignisse empfangen, wenn der Benutzer auf das Symbol klickt, indem dieser Code verwendet wird:
+Eine Aktion mit nur einem Symbol, das in 2 Größen angegeben ist. Die Hintergrundskripte der Erweiterung können Klick-Ereignisse empfangen, wenn der Benutzer auf das Symbol klickt, mit einem Code wie diesem:
 
 ```js
 browser.action.onClicked.addListener(handleClick);

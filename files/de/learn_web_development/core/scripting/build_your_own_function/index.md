@@ -1,29 +1,29 @@
 ---
-title: Eigenen Funktionsprozess erstellen
+title: Erstellen Sie Ihre eigene Funktion
 slug: Learn_web_development/Core/Scripting/Build_your_own_function
 l10n:
-  sourceCommit: 3c13d9a0c239ed31ae861486393952bc03e0b5bd
+  sourceCommit: 5fad0829b5070d04993a57af8c276f5e35da3ed2
 ---
 
 {{LearnSidebar}}
 
 {{PreviousMenuNext("Learn_web_development/Core/Scripting/Functions","Learn_web_development/Core/Scripting/Return_values", "Learn_web_development/Core/Scripting")}}
 
-Mit den meisten der wesentlichen Theorien, die im vorherigen Artikel behandelt wurden, bietet dieser Artikel praktische Erfahrungen. Hier werden Sie praktische Übungen zum Erstellen Ihrer eigenen, angepassten Funktion erhalten. Unterwegs erklären wir auch einige nützliche Details zum Umgang mit Funktionen.
+Nachdem im vorherigen Artikel die wesentliche Theorie behandelt wurde, bietet dieser Artikel praktische Erfahrungen. Hier erhalten Sie einige Übungen zum Erstellen Ihrer eigenen benutzerdefinierten Funktion. Unterwegs werden wir auch einige nützliche Details zum Umgang mit Funktionen erklären.
 
 <table>
   <tbody>
     <tr>
       <th scope="row">Voraussetzungen:</th>
-      <td>Ein Verständnis von <a href="/de/docs/Learn_web_development/Core/Structuring_content">HTML</a> und den <a href="/de/docs/Learn_web_development/Core/Styling_basics">Grundlagen von CSS</a>, Vertrautheit mit den JavaScript-Funktionsgrundlagen wie im vorherigen Kurs behandelt.</td>
+      <td>Ein Verständnis von <a href="/de/docs/Learn_web_development/Core/Structuring_content">HTML</a> und den <a href="/de/docs/Learn_web_development/Core/Styling_basics">Grundlagen von CSS</a>, Vertrautheit mit JavaScript-Funktionsgrundlagen wie in der vorherigen Lektion behandelt.</td>
     </tr>
     <tr>
       <th scope="row">Lernziele:</th>
       <td>
         <ul>
-          <li>Erfahrungen mit dem Erstellen eigener benutzerdefinierter Funktionen.</li>
-          <li>Parameter zu Ihren Funktionen hinzufügen.</li>
-          <li>Ihre Funktion aufrufen.</li>
+          <li>Erfahrung im Erstellen eigener benutzerdefinierter Funktionen.</li>
+          <li>Hinzufügen von Parametern zu Ihren Funktionen.</li>
+          <li>Aufrufen Ihrer Funktion.</li>
         </ul>
       </td>
     </tr>
@@ -32,28 +32,28 @@ Mit den meisten der wesentlichen Theorien, die im vorherigen Artikel behandelt w
 
 ## Aktives Lernen: Lassen Sie uns eine Funktion erstellen
 
-Die benutzerdefinierte Funktion, die wir erstellen werden, heißt `displayMessage()`. Sie zeigt ein benutzerdefiniertes Nachrichtenfenster auf einer Webseite an und dient als angepasster Ersatz für die im Browser eingebaute [`alert()`](/de/docs/Web/API/Window/alert)-Funktion. Wir haben das schon einmal gesehen, aber lassen Sie uns das Gedächtnis auffrischen. Geben Sie Folgendes in die JavaScript-Konsole Ihres Browsers auf einer beliebigen Seite ein:
+Die benutzerdefinierte Funktion, die wir erstellen werden, wird `displayMessage()` genannt. Sie zeigt ein benutzerdefiniertes Nachrichtenfeld auf einer Webseite an und fungiert als personalisierter Ersatz für die in den Browser integrierte [`alert()`](/de/docs/Web/API/Window/alert)-Funktion. Das haben wir schon einmal gesehen, aber lassen Sie uns unser Gedächtnis auffrischen. Geben Sie Folgendes in die JavaScript-Konsole Ihres Browsers ein, auf einer beliebigen Seite:
 
 ```js
 alert("This is a message");
 ```
 
-Die `alert()`-Funktion nimmt ein einziges Argument — den String, der im Alert-Fenster angezeigt wird. Versuchen Sie, den String zu variieren, um die Nachricht zu ändern.
+Die `alert()`-Funktion nimmt ein einzelnes Argument - den String, der im Warnfeld angezeigt wird. Versuchen Sie, den String zu variieren, um die Nachricht zu ändern.
 
-Die `alert()`-Funktion ist begrenzt: Sie können die Nachricht ändern, aber Sie können nicht leicht etwas anderes variieren, wie die Farbe, das Icon oder andere Dinge. Wir bauen eine, die mehr Spaß machen wird.
+Die `alert()`-Funktion ist begrenzt: Sie können die Nachricht ändern, aber Sie können nicht einfach etwas anderes wie Farbe, Icon oder anderes variieren. Wir werden eine erstellen, die mehr Spaß macht.
 
 > [!NOTE]
-> Dieses Beispiel sollte in allen modernen Browsern problemlos funktionieren, aber das Styling könnte in etwas älteren Browsern etwas seltsam aussehen. Wir empfehlen, diese Übung in einem modernen Browser wie Firefox, Opera oder Chrome durchzuführen.
+> Dieses Beispiel sollte in allen modernen Browsern gut funktionieren, aber das Styling könnte in etwas älteren Browsern etwas seltsam aussehen. Wir empfehlen, diese Übung in einem modernen Browser wie Firefox, Opera oder Chrome durchzuführen.
 
 ## Die grundlegende Funktion
 
-Zu Beginn setzen wir eine grundlegende Funktion zusammen.
+Um zu beginnen, lassen Sie uns eine grundlegende Funktion zusammenstellen.
 
 > [!NOTE]
-> Für Funktionsbenennungskonventionen sollten Sie die gleichen Regeln wie bei [Variablenbenennungskonventionen](/de/docs/Learn_web_development/Core/Scripting/Variables#an_aside_on_variable_naming_rules) befolgen. Das ist in Ordnung, da Sie sie auseinanderhalten können — Funktionsnamen erscheinen mit Klammern danach und Variablen nicht.
+> Für die Namenskonventionen von Funktionen sollten Sie die gleichen Regeln wie [Variablennamenskonventionen](/de/docs/Learn_web_development/Core/Scripting/Variables#an_aside_on_variable_naming_rules) befolgen. Das ist in Ordnung, da Sie sie voneinander unterscheiden können - Funktionsnamen erscheinen mit Klammern dahinter, Variablen nicht.
 
-1. Beginnen Sie damit, die [function-start.html](https://github.com/mdn/learning-area/blob/main/javascript/building-blocks/functions/function-start.html)-Datei zu öffnen und eine lokale Kopie zu erstellen. Sie sehen, dass das HTML einfach ist — der Body enthält nur einen einzigen Button. Wir haben auch einige grundlegende CSS bereitgestellt, um das benutzerdefinierte Nachrichtenfenster zu stylen, und ein leeres {{htmlelement("script")}}-Element, um unser JavaScript hinzuzufügen.
-2. Fügen Sie als Nächstes das Folgende innerhalb des `<script>`-Elements hinzu:
+1. Beginnen Sie mit dem Zugriff auf die Datei [function-start.html](https://github.com/mdn/learning-area/blob/main/javascript/building-blocks/functions/function-start.html) und erstellen Sie eine lokale Kopie. Sie werden sehen, dass das HTML einfach ist - der Hauptteil enthält nur einen einzigen Button. Wir haben auch einige grundlegende CSS bereitgestellt, um das benutzerdefinierte Nachrichtenfeld zu stylen, und ein leeres {{htmlelement("script")}}-Element, um unser JavaScript einzufügen.
+2. Fügen Sie nun Folgendes in das `<script>`-Element ein:
 
    ```js
    function displayMessage() {
@@ -61,7 +61,7 @@ Zu Beginn setzen wir eine grundlegende Funktion zusammen.
    }
    ```
 
-   Wir beginnen mit dem Schlüsselwort `function`, was bedeutet, dass wir eine Funktion definieren. Dies wird gefolgt von dem Namen, den wir unserer Funktion geben möchten, einem Satz Klammern und einem Satz geschweifter Klammern. Alle Parameter, die wir unserer Funktion geben möchten, gehen in die Klammern, und der Code, der ausgeführt wird, wenn wir die Funktion aufrufen, geht in die geschweiften Klammern.
+   Wir beginnen mit dem Schlüsselwort `function`, was bedeutet, dass wir eine Funktion definieren. Danach folgt der Name, den wir unserer Funktion geben möchten, ein Satz von Klammern und ein Satz geschweifter Klammern. Jegliche Parameter, die wir unserer Funktion geben möchten, gehen innerhalb der Klammern, und der Code, der beim Aufruf der Funktion ausgeführt wird, geht innerhalb der geschweiften Klammern.
 
 3. Fügen Sie schließlich den folgenden Code innerhalb der geschweiften Klammern hinzu:
 
@@ -85,19 +85,19 @@ Zu Beginn setzen wir eine grundlegende Funktion zusammen.
    );
    ```
 
-Das ist eine Menge Code, um durchzugehen, also führen wir Sie Schritt für Schritt durch.
+Das ist eine Menge Code, den es zu durchgehen gilt, also werden wir es Ihnen Stück für Stück erklären.
 
-Die erste Zeile wählt das {{htmlelement("body")}}-Element aus, indem die [DOM API](/de/docs/Web/API/Document_Object_Model) verwendet wird, um die [`body`](/de/docs/Web/API/Document/body)-Eigenschaft des globalen [`document`](/de/docs/Web/API/Document/body)-Objekts zu erhalten, und weist dies einer Konstante namens `body` zu, damit wir später Aktionen darauf durchführen können:
+Die erste Zeile wählt das {{htmlelement("body")}}-Element aus, indem der [DOM API](/de/docs/Web/API/Document_Object_Model) verwendet wird, um die [`body`](/de/docs/Web/API/Document/body)-Eigenschaft des globalen [`document`](/de/docs/Web/API/Document/body)-Objekts zu erhalten und diese einer Konstante namens `body` zuzuweisen, damit wir später Dinge damit machen können:
 
 ```js
 const body = document.body;
 ```
 
-Der nächste Abschnitt verwendet eine DOM API-Funktion namens [`document.createElement()`](/de/docs/Web/API/Document/createElement), um ein {{htmlelement("div")}}-Element zu erstellen und einen Verweis darauf in einer Konstante namens `panel` zu speichern. Dieses Element wird der äußere Container unseres Nachrichtenfensters sein.
+Der nächste Abschnitt verwendet eine DOM-API-Funktion namens [`document.createElement()`](/de/docs/Web/API/Document/createElement), um ein {{htmlelement("div")}}-Element zu erstellen und eine Referenz darauf in einer Konstante namens `panel` zu speichern. Dieses Element wird der äußere Container unseres Nachrichtenfelds sein.
 
-Wir verwenden dann eine weitere DOM API-Funktion namens [`Element.setAttribute()`](/de/docs/Web/API/Element/setAttribute), um ein `class`-Attribut auf unserem Panel mit einem Wert von `msgBox` zu setzen. Dies soll es erleichtern, das Element zu stylen — wenn Sie sich das CSS auf der Seite ansehen, werden Sie sehen, dass wir einen `.msgBox`-Klassenselektor verwenden, um das Nachrichtenfenster und seinen Inhalt zu stylen.
+Wir verwenden dann noch eine weitere DOM-API-Funktion namens [`Element.setAttribute()`](/de/docs/Web/API/Element/setAttribute), um ein `class`-Attribut an unserem `panel` mit einem Wert von `msgBox` zu setzen. Dies erleichtert das Styling des Elements - wenn Sie sich das CSS auf der Seite ansehen, werden Sie sehen, dass wir einen `.msgBox`-Klassenselektor verwenden, um das Nachrichtenfeld und seinen Inhalt zu stylen.
 
-Schließlich rufen wir eine DOM-Funktion namens [`Node.appendChild()`](/de/docs/Web/API/Node/appendChild) auf der zuvor gespeicherten Konstante `body` auf, welches ein Element in einem anderen als dessen Kind verschachtelt. Wir geben das `panel`-`<div>` als das Kind an, das wir innerhalb des `<body>`-Elements anhängen möchten. Wir müssen dies tun, da das von uns erstellte Element nicht einfach auf der Seite erscheinen wird — wir müssen angeben, wo es platziert werden soll.
+Schließlich rufen wir eine DOM-Funktion namens [`Node.appendChild()`](/de/docs/Web/API/Node/appendChild) auf der zuvor gespeicherten `body`-Konstante auf, die ein Element als Kind in einem anderen Element verschachtelt. Wir spezifizieren das `panel`-`<div>` als das Kind, das wir innerhalb des `<body>`-Elements anfügen möchten. Wir müssen dies tun, da das erstellte Element nicht einfach von alleine auf der Seite erscheint - wir müssen angeben, wo es platziert werden soll.
 
 ```js
 const panel = document.createElement("div");
@@ -105,7 +105,7 @@ panel.setAttribute("class", "msgBox");
 body.appendChild(panel);
 ```
 
-Die nächsten zwei Abschnitte verwenden die gleichen `createElement()`- und `appendChild()`-Funktionen, die wir bereits gesehen haben, um zwei neue Elemente zu erstellen — ein {{htmlelement("p")}} und ein {{htmlelement("button")}} — und sie auf der Seite als Kinder des `panel`-`<div>` einzufügen. Wir verwenden deren [`Node.textContent`](/de/docs/Web/API/Node/textContent)-Eigenschaft — die den Textinhalt eines Elements darstellt — um eine Nachricht in das Absatz-Element einzufügen und ein "x" in den Button. Dieser Button muss geklickt/aktiviert werden, wenn der Benutzer das Nachrichtenfenster schließen möchte.
+Die nächsten beiden Abschnitte nutzen die bereits gesehenen `createElement()`- und `appendChild()`-Funktionen, um zwei neue Elemente zu erstellen - ein {{htmlelement("p")}} und ein {{htmlelement("button")}} - und sie als Kinder des `panel`-`<div>` in die Seite einzufügen. Wir verwenden ihre [`Node.textContent`](/de/docs/Web/API/Node/textContent)-Eigenschaft - die den Textinhalt eines Elements darstellt - um eine Nachricht innerhalb des Absatzes und ein "x" innerhalb des Buttons einzufügen. Dieser Button muss vom Benutzer angeklickt/aktiviert werden, wenn er das Nachrichtenfeld schließen möchte.
 
 ```js
 const msg = document.createElement("p");
@@ -117,15 +117,15 @@ closeBtn.textContent = "x";
 panel.appendChild(closeBtn);
 ```
 
-Schließlich rufen wir [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) auf, um eine Funktion hinzuzufügen, die aufgerufen wird, wenn der Benutzer den "Schließen"-Button klickt. Der Code wird das gesamte Panel von der Seite löschen, um das Nachrichtenfenster zu schließen.
+Schließlich rufen wir [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) auf, um eine Funktion hinzuzufügen, die aufgerufen wird, wenn der Benutzer den "Schließen"-Button klickt. Der Code wird das gesamte Panel von der Seite löschen - um das Nachrichtenfeld zu schließen.
 
-Kurz gesagt, die `addEventListener()`-Methode wird von dem Button (oder in der Tat einem beliebigen Element auf der Seite) bereitgestellt, dem eine Funktion und der Name eines Ereignisses übergeben werden können. In diesem Fall ist der Name des Ereignisses 'click', was bedeutet, dass wenn der Benutzer den Button klickt, die Funktion ausgeführt wird. Sie werden in unserem [Artikel über Ereignisse](/de/docs/Learn_web_development/Core/Scripting/Events) viel mehr über Ereignisse lernen. Die Zeile innerhalb der Funktion verwendet die [`Node.removeChild()`](/de/docs/Web/API/Node/removeChild)-DOM-API-Funktion, um anzugeben, dass wir ein bestimmtes Kindelement des HTML-Elements entfernen möchten — in diesem Fall das `panel`-`<div>`.
+Kurz gesagt, die `addEventListener()`-Methode wird vom Button bereitgestellt (oder genauer gesagt, von jedem Element auf der Seite), dem eine Funktion und der Name eines Ereignisses übergeben werden können. In diesem Fall ist der Name des Ereignisses 'click', was bedeutet, dass, wenn der Benutzer den Button klickt, die Funktion ausgeführt wird. Sie werden viel mehr über Ereignisse in unserem [Artikel über Ereignisse](/de/docs/Learn_web_development/Core/Scripting/Events) lernen. Die Zeile innerhalb der Funktion verwendet die [`Node.removeChild()`](/de/docs/Web/API/Node/removeChild)-DOM-API-Funktion, um zu spezifizieren, dass wir ein bestimmtes Kindelement des HTML-Elements entfernen möchten - in diesem Fall das `panel`-`<div>`.
 
 ```js
 closeBtn.addEventListener("click", () => panel.parentNode.removeChild(panel));
 ```
 
-Grundsätzlich generiert dieser gesamte Codeblock einen HTML-Block, der etwa so aussieht und in die Seite eingefügt wird:
+Im Grunde genommen generiert dieser gesamte Codeblock einen HTML-Block, der so aussieht, und fügt ihn in die Seite ein:
 
 ```html
 <div class="msgBox">
@@ -134,11 +134,11 @@ Grundsätzlich generiert dieser gesamte Codeblock einen HTML-Block, der etwa so 
 </div>
 ```
 
-Das war viel Code, um ihn durchzugehen — machen Sie sich keine Sorgen, wenn Sie sich nicht genau erinnern, wie jeder Teil davon jetzt funktioniert! Der Hauptteil, auf den wir uns hier konzentrieren möchten, ist die Struktur und Verwendung der Funktion, aber wir wollten etwas Interessantes für dieses Beispiel zeigen.
+Das war eine Menge Code, um ihn durchzuarbeiten - keine Sorge, wenn Sie sich nicht genau daran erinnern, wie jedes Stück davon jetzt funktioniert! Der Hauptteil, auf den wir uns hier konzentrieren möchten, ist die Struktur und Verwendung der Funktion, aber wir wollten etwas Interessantes für dieses Beispiel zeigen.
 
-## Die Funktion aufrufen
+## Aufrufen der Funktion
 
-Sie haben jetzt Ihre Funktionsdefinition in Ihr `<script>`-Element geschrieben, aber sie wird so wie sie ist nichts tun.
+Sie haben jetzt Ihre Funktionsdefinition in Ihrem `<script>`-Element gut geschrieben, aber sie wird nichts tun, so wie sie ist.
 
 1. Versuchen Sie, die folgende Zeile unter Ihrer Funktion hinzuzufügen, um sie aufzurufen:
 
@@ -146,16 +146,16 @@ Sie haben jetzt Ihre Funktionsdefinition in Ihr `<script>`-Element geschrieben, 
    displayMessage();
    ```
 
-   Diese Zeile ruft die Funktion auf, sodass sie sofort ausgeführt wird. Wenn Sie Ihren Code speichern und im Browser neu laden, sehen Sie, dass das kleine Nachrichtenfenster sofort erscheint, nur einmal. Schließlich rufen wir es nur einmal auf.
+   Diese Zeile ruft die Funktion auf, sodass sie sofort ausgeführt wird. Wenn Sie Ihren Code speichern und ihn im Browser neu laden, sehen Sie, dass das kleine Nachrichtenfeld sofort nur einmal erscheint. Wir rufen es ja nur einmal auf.
 
-2. Öffnen Sie nun die Entwicklertools Ihres Browsers auf der Beispielseite, gehen Sie zur JavaScript-Konsole und geben Sie die Zeile dort erneut ein, Sie werden es erneut erscheinen sehen! Das macht also Spaß — wir haben jetzt eine wiederverwendbare Funktion, die wir jederzeit aufrufen können.
+2. Öffnen Sie nun die Entwicklerwerkzeuge Ihres Browsers auf der Beispielseite, gehen Sie zur JavaScript-Konsole und geben Sie die Zeile dort erneut ein, und Sie werden sehen, dass es wieder erscheint! Das macht Spaß - wir haben jetzt eine wiederverwendbare Funktion, die wir jederzeit aufrufen können.
 
-   Aber wir möchten wahrscheinlich, dass es als Reaktion auf Benutzer- und Systemaktionen erscheint. In einer echten Anwendung würde ein solches Nachrichtenfenster wahrscheinlich als Reaktion auf neue verfügbare Daten, oder bei Auftreten eines Fehlers, oder wenn der Benutzer versucht, sein Profil zu löschen ("sind Sie sicher?"), oder wenn der Benutzer einen neuen Kontakt hinzufügt und die Operation erfolgreich abgeschlossen wurde, aufgerufen.
+   Aber wahrscheinlich möchten wir, dass sie in Reaktion auf Benutzer- und Systemaktionen erscheint. In einer echten Anwendung würde ein solches Nachrichtenfeld wahrscheinlich in Reaktion auf verfügbare neue Daten, ein aufgetretenes Fehlerereignis, den Versuch des Benutzers, sein Profil zu löschen („Sind Sie sich sicher?“) oder das erfolgreiche Hinzufügen eines neuen Kontakts und das erfolgreiche Abschließen der Operation aufgerufen werden, usw.
 
-   In dieser Demo werden wir das Nachrichtenfenster erscheinen lassen, wenn der Benutzer den Button klickt.
+   In dieser Demo lassen wir das Nachrichtenfeld erscheinen, wenn der Benutzer den Button klickt.
 
-3. Löschen Sie die zuvor hinzugefügte Zeile.
-4. Als nächstes werden wir den Button auswählen und eine Referenz darauf in einer Konstante speichern. Fügen Sie die folgende Zeile zu Ihrem Code hinzu, über der Funktionsdefinition:
+3. Löschen Sie die vorherige Zeile, die Sie hinzugefügt haben.
+4. Wir werden nun den Button auswählen und eine Referenz darauf in einer Konstante speichern. Fügen Sie die folgende Zeile zu Ihrem Code hinzu, über der Funktionsdefinition:
 
    ```js
    const btn = document.querySelector("button");
@@ -167,39 +167,39 @@ Sie haben jetzt Ihre Funktionsdefinition in Ihr `<script>`-Element geschrieben, 
    btn.addEventListener("click", displayMessage);
    ```
 
-   Ähnlich wie beim Klick-Ereignishandler von unserem `closeBtn` rufen wir hier einen Code als Reaktion auf einen Klick auf einen Button auf. Aber in diesem Fall rufen wir anstelle einer anonymen Funktion, die Code enthält, unsere `displayMessage()`-Funktion nach Namen auf.
+   Ähnlich wie bei unserem Click-Event-Handler des `closeBtn` rufen wir hier Code in Reaktion auf einen Klick auf einen Button auf. Aber in diesem Fall rufen wir anstelle einer anonymen Funktion mit Code darin unsere `displayMessage()`-Funktion beim Namen auf.
 
-6. Versuchen Sie, die Seite zu speichern und zu aktualisieren — jetzt sollten Sie sehen, dass das Nachrichtenfenster erscheint, wenn Sie den Button klicken.
+6. Versuchen Sie, die Seite zu speichern und zu aktualisieren - nun sollten Sie sehen, dass das Nachrichtenfeld erscheint, wenn Sie den Button klicken.
 
-Sie fragen sich vielleicht, warum wir die Klammern nach dem Funktionsnamen nicht eingefügt haben. Das liegt daran, dass wir die Funktion nicht sofort aufrufen möchten — nur nachdem der Button geklickt wurde. Wenn Sie versuchen, die Zeile zu ändern in
+Sie fragen sich vielleicht, warum wir die Klammern nach dem Funktionsnamen nicht eingeschlossen haben. Das liegt daran, dass wir die Funktion nicht sofort aufrufen möchten - nur nachdem der Button geklickt wurde. Wenn Sie versuchen, die Zeile zu ändern in
 
 ```js
 btn.addEventListener("click", displayMessage());
 ```
 
-und speichern und neu laden, sehen Sie, dass das Nachrichtenfenster erscheint, ohne dass der Button geklickt wurde! Klammern in diesem Kontext werden manchmal auch als "Funktionsaufrufoperator" bezeichnet. Sie verwenden sie nur, wenn Sie die Funktion sofort im aktuellen Gültigkeitsbereich ausführen möchten. In gleicher Weise wird der Code innerhalb der anonymen Funktion nicht sofort ausgeführt, da er sich innerhalb des Funktionsbereichs befindet.
+und speichern und neu laden, sehen Sie, dass das Nachrichtenfeld ohne Klick auf den Button erscheint! Die Klammern in diesem Kontext werden manchmal der "Funktionsaufruf-Operator" genannt. Sie verwenden sie nur, wenn Sie die Funktion sofort im aktuellen Geltungsbereich ausführen möchten. In gleicher Weise wird der Code innerhalb der anonymen Funktion nicht sofort ausgeführt, da er sich im Funktionsbereich befindet.
 
-Wenn Sie das letzte Experiment versucht haben, stellen Sie sicher, dass Sie die letzte Änderung rückgängig machen, bevor Sie weitermachen.
+Wenn Sie das letzte Experiment ausprobiert haben, stellen Sie sicher, dass Sie die letzte Änderung rückgängig machen, bevor Sie weitermachen.
 
 ## Verbesserung der Funktion mit Parametern
 
-In seinem aktuellen Zustand ist die Funktion immer noch nicht sehr nützlich — wir möchten nicht jedes Mal die gleiche Standardnachricht anzeigen. Lassen Sie uns unsere Funktion verbessern, indem wir einige Parameter hinzufügen, mit denen wir sie mit einigen verschiedenen Optionen aufrufen können.
+So wie sie jetzt ist, ist die Funktion immer noch nicht sehr nützlich - wir möchten nicht jedes Mal die gleiche Standardnachricht anzeigen. Lassen Sie uns unsere Funktion verbessern, indem wir einige Parameter hinzufügen, die es uns ermöglichen, sie mit unterschiedlichen Optionen aufzurufen.
 
-1. Zunächst einmal aktualisieren Sie die erste Zeile der Funktion:
+1. Aktualisieren Sie zunächst die erste Zeile der Funktion:
 
    ```js
    function displayMessage() {
    ```
 
-   zu
+   zu diesem:
 
    ```js
    function displayMessage(msgText, msgType) {
    ```
 
-   Jetzt können wir beim Aufruf der Funktion zwei Variablenwerte innerhalb der Klammern angeben, um die Nachricht zu spezifizieren, die im Nachrichtenfenster angezeigt wird, und die Art der Nachricht, die es ist.
+   Jetzt können wir, wenn wir die Funktion aufrufen, zwei Variablenwerte innerhalb der Klammern angeben, um die anzuzeigende Nachricht im Nachrichtenfeld und den Typ der Nachricht, die es ist, zu spezifizieren.
 
-2. Um den ersten Parameter zu nutzen, aktualisieren Sie die folgende Zeile in Ihrer Funktion:
+2. Um den ersten Parameter zu nutzen, aktualisieren Sie die folgende Zeile innerhalb Ihrer Funktion:
 
    ```js
    msg.textContent = "This is a message box";
@@ -211,13 +211,13 @@ In seinem aktuellen Zustand ist die Funktion immer noch nicht sehr nützlich —
    msg.textContent = msgText;
    ```
 
-3. Zuletzt aber nicht weniger wichtig müssen Sie jetzt Ihren Funktionsaufruf aktualisieren, um einen aktualisierten Nachrichtentext einzufügen. Ändern Sie die folgende Zeile:
+3. Last but not least, Sie müssen jetzt Ihren Funktionsaufruf aktualisieren, um einen aktuellen Nachrichtentext einzuschließen. Ändern Sie die folgende Zeile:
 
    ```js
    btn.addEventListener("click", displayMessage);
    ```
 
-   zu diesem Block:
+   in diesen Block:
 
    ```js
    btn.addEventListener("click", () =>
@@ -225,20 +225,20 @@ In seinem aktuellen Zustand ist die Funktion immer noch nicht sehr nützlich —
    );
    ```
 
-   Wenn wir Parameter in Klammern für die Funktion, die wir aufrufen, angeben möchten, können wir sie nicht direkt aufrufen — wir müssen sie in eine anonyme Funktion setzen, sodass sie sich nicht im unmittelbaren Gültigkeitsbereich befindet und daher nicht sofort aufgerufen wird. Jetzt wird sie erst aufgerufen, wenn der Button geklickt wurde.
+   Wenn wir Parameter innerhalb der Klammern für die Funktion angeben möchten, die wir aufrufen, können wir sie nicht direkt aufrufen - wir müssen sie in eine anonyme Funktion setzen, damit sie nicht im unmittelbaren Bereich liegt und daher nicht sofort aufgerufen wird. Jetzt wird sie nicht aufgerufen, bis der Button geklickt wird.
 
-4. Laden Sie den Code neu und versuchen Sie ihn aus, und Sie werden sehen, dass er immer noch einwandfrei funktioniert, aber jetzt können Sie auch die Nachricht innerhalb des Parameters variieren, um unterschiedliche Nachrichten im Fenster anzuzeigen!
+4. Laden Sie den Code erneut und versuchen Sie es, und Sie werden sehen, dass es immer noch einwandfrei funktioniert, außer dass Sie jetzt auch die Nachricht innerhalb des Parameters variieren können, um unterschiedliche Nachrichten in der Box anzuzeigen!
 
-### Ein komplexerer Parameter
+### Ein etwas komplexerer Parameter
 
-Weiter zum nächsten Parameter. Dieser wird etwas mehr Arbeit erfordern — wir werden es so einstellen, dass je nachdem, was der `msgType`-Parameter eingestellt ist, die Funktion ein anderes Icon und eine andere Hintergrundfarbe anzeigt.
+Weiter zum nächsten Parameter. Dieser wird etwas mehr Arbeit erfordern - wir werden ihn so einstellen, dass je nachdem, was im `msgType`-Parameter festgelegt ist, die Funktion ein anderes Icon und eine andere Hintergrundfarbe anzeigt.
 
-1. Laden Sie zunächst die benötigten Icons für diese Übung ([warning](https://github.com/mdn/learning-area/blob/main/javascript/building-blocks/functions/icons/warning.png) und [chat](https://github.com/mdn/learning-area/blob/main/javascript/building-blocks/functions/icons/chat.png)) von GitHub herunter. Speichern Sie sie in einem neuen Ordner namens `icons` am gleichen Ort wie Ihre HTML-Datei.
+1. Laden Sie zunächst die für diese Übung benötigten Icons herunter ([warning](https://github.com/mdn/learning-area/blob/main/javascript/building-blocks/functions/icons/warning.png) und [chat](https://github.com/mdn/learning-area/blob/main/javascript/building-blocks/functions/icons/chat.png)) von GitHub herunter. Speichern Sie sie in einem neuen Ordner namens `icons` am gleichen Ort wie Ihre HTML-Datei.
 
    > [!NOTE]
-   > Die Icons für Warning und Chat wurden ursprünglich auf [iconfinder.com](https://www.iconfinder.com/) gefunden und von [Nazarrudin Ansyari](https://www.iconfinder.com/nazarr) entworfen — Vielen Dank! (Die tatsächlichen Icon-Seiten wurden seitdem verschoben oder entfernt.)
+   > Die Warn- und Chat-Icons wurden ursprünglich auf [iconfinder.com](https://www.iconfinder.com/) gefunden und von [Nazarrudin Ansyari](https://www.iconfinder.com/nazarr) entworfen - Danke! (Die tatsächlichen Seiten der Icons wurden seitdem verschoben oder entfernt.)
 
-2. Suchen Sie als Nächstes das CSS innerhalb Ihrer HTML-Datei. Wir werden einige Änderungen vornehmen, um Platz für die Icons zu schaffen. Aktualisieren Sie zunächst die Breite der `.msgBox` von:
+2. Finden Sie als nächstes das CSS in Ihrer HTML-Datei. Wir werden ein paar Änderungen vornehmen, um Platz für die Icons zu schaffen. Aktualisieren Sie zunächst die `.msgBox`-Breite von:
 
    ```css
    width: 200px;
@@ -250,7 +250,7 @@ Weiter zum nächsten Parameter. Dieser wird etwas mehr Arbeit erfordern — wir 
    width: 242px;
    ```
 
-3. Fügen Sie als Nächstes die folgenden Zeilen innerhalb der `.msgBox p { }`-Regel hinzu:
+3. Fügen Sie als nächstes die folgenden Zeilen in die Regel `.msgBox p { }` ein:
 
    ```css
    padding-left: 82px;
@@ -258,7 +258,7 @@ Weiter zum nächsten Parameter. Dieser wird etwas mehr Arbeit erfordern — wir 
    background-repeat: no-repeat;
    ```
 
-4. Jetzt müssen wir unserem `displayMessage()`-Funktion Code hinzufügen, um das Anzeigen der Icons zu ermöglichen. Fügen Sie den folgenden Block direkt über der schließenden geschweiften Klammer (`}`) Ihrer Funktion hinzu:
+4. Nun müssen wir unserem `displayMessage()`-Funktionscode hinzufügen, um das Anzeigen der Icons zu steuern. Fügen Sie den folgenden Block kurz vor der schließenden geschweiften Klammer (`}`) Ihrer Funktion hinzu:
 
    ```js
    if (msgType === "warning") {
@@ -272,15 +272,15 @@ Weiter zum nächsten Parameter. Dieser wird etwas mehr Arbeit erfordern — wir 
    }
    ```
 
-   Hierdurch wird, wenn der `msgType` Parameter auf `'warning'` gesetzt ist, das Warnungs-Icon angezeigt und die Hintergrundfarbe des Panels auf Rot gesetzt. Wenn es auf `'chat'` gesetzt ist, wird das Chat-Icon angezeigt und die Hintergrundfarbe des Panels auf Aqua-Blau gesetzt. Wenn der `msgType`-Parameter überhaupt nicht (oder auf etwas anderes) gesetzt ist, dann tritt der `else { }`-Teil des Codes in Kraft, und dem Absatz wird standardmäßiges Padding zugewiesen und kein Icon, ohne dass eine Hintergrundfarbe für das Panel festgelegt wird. Dies stellt einen Standardzustand bereit, wenn kein `msgType`-Parameter bereitgestellt wird, was bedeutet, dass es sich um einen optionalen Parameter handelt!
+   Hier, wenn der `msgType`-Parameter als `'warning'` festgelegt ist, wird das Warn-Icon angezeigt und die Hintergrundfarbe des Panels wird auf Rot gesetzt. Wenn es als `'chat'` festgelegt ist, wird das Chat-Icon angezeigt und die Hintergrundfarbe des Panels wird auf Aquablau gesetzt. Wenn der `msgType`-Parameter überhaupt nicht (oder auf etwas anderes) gesetzt ist, dann kommt der `else { }`-Teil des Codes zum Tragen und der Absatz erhält standardmäßiges Padding und kein Icon, wobei auch keine Hintergrundfarbe für das Panel gesetzt ist. Dies bietet einen Standardzustand, wenn kein `msgType`-Parameter bereitgestellt wird, was bedeutet, dass es sich um einen optionalen Parameter handelt!
 
-5. Lassen Sie uns unsere aktualisierte Funktion testen, versuchen Sie, den `displayMessage()`-Aufruf von:
+5. Lassen Sie uns unsere aktualisierte Funktion testen, versuchen Sie, den `displayMessage()`-Aufruf von diesem:
 
    ```js
    displayMessage("Woo, this is a different message!");
    ```
 
-   in eine dieser Zeilen zu ändern:
+   zu einem dieser zu ändern:
 
    ```js
    displayMessage("Your inbox is almost full — delete some mails", "warning");
@@ -290,14 +290,14 @@ Weiter zum nächsten Parameter. Dieser wird etwas mehr Arbeit erfordern — wir 
    Sie können sehen, wie nützlich unsere (jetzt nicht mehr so) kleine Funktion wird.
 
 > [!NOTE]
-> Falls Sie Probleme haben, das Beispiel zum Laufen zu bringen, können Sie gern Ihren Code mit der [fertigen Version auf GitHub](https://github.com/mdn/learning-area/blob/main/javascript/building-blocks/functions/function-stage-4.html) vergleichen ([sehen Sie es auch live laufen](https://mdn.github.io/learning-area/javascript/building-blocks/functions/function-stage-4.html)), oder uns um Hilfe bitten.
+> Wenn Sie Probleme haben, das Beispiel zum Laufen zu bringen, können Sie gerne Ihren Code mit der [fertigen Version auf GitHub](https://github.com/mdn/learning-area/blob/main/javascript/building-blocks/functions/function-stage-4.html) vergleichen ([sehen Sie es auch live laufen](https://mdn.github.io/learning-area/javascript/building-blocks/functions/function-stage-4.html)), oder uns um Hilfe bitten.
 
 ## Testen Sie Ihre Fähigkeiten!
 
-Sie haben das Ende dieses Artikels erreicht, aber können Sie sich an die wichtigsten Informationen erinnern? Sie können einige weitere Tests finden, um zu überprüfen, ob Sie diese Informationen behalten haben, bevor Sie fortfahren — siehe [Testen Sie Ihre Fähigkeiten: Funktionen](/de/docs/Learn_web_development/Core/Scripting/Test_your_skills/Functions). Diese Tests erfordern Fähigkeiten, die im nächsten Artikel behandelt werden, daher möchten Sie diesen vielleicht zuerst lesen, bevor Sie den Test versuchen.
+Sie haben das Ende dieses Artikels erreicht, aber können Sie sich an die wichtigsten Informationen erinnern? Sie können einige weitere Tests finden, um zu überprüfen, dass Sie diese Informationen behalten haben, bevor Sie weitermachen - siehe [Testen Sie Ihre Fähigkeiten: Funktionen](/de/docs/Learn_web_development/Core/Scripting/Test_your_skills/Functions). Diese Tests erfordern Kenntnisse, die im nächsten Artikel behandelt werden, sodass Sie vielleicht erst diesen lesen möchten, bevor Sie den Test versuchen.
 
 ## Zusammenfassung
 
-Herzlichen Glückwunsch zum Erreichen des Endes! Dieser Artikel hat Sie durch den gesamten Prozess des Aufbauens einer praktischen benutzerdefinierten Funktion geführt, die mit ein bisschen mehr Arbeit in ein echtes Projekt transplantiert werden könnte. Im nächsten Artikel werden wir Funktionen abschließen, indem wir ein weiteres wesentliches verwandtes Konzept erklären — Rückgabewerte.
+Herzlichen Glückwunsch zum Erreichen des Endes! Dieser Artikel führte Sie durch den gesamten Prozess des Aufbaus einer praktischen benutzerdefinierten Funktion, die mit etwas mehr Arbeit in ein reales Projekt implementiert werden könnte. Im nächsten Artikel werden wir Funktionen abschließend behandeln, indem wir ein weiteres wesentliches verwandtes Konzept erklären - Rückgabewerte.
 
 {{PreviousMenuNext("Learn_web_development/Core/Scripting/Functions","Learn_web_development/Core/Scripting/Return_values", "Learn_web_development/Core/Scripting")}}

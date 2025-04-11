@@ -3,12 +3,12 @@ title: "HTMLMediaElement: defaultMuted-Eigenschaft"
 short-title: defaultMuted
 slug: Web/API/HTMLMediaElement/defaultMuted
 l10n:
-  sourceCommit: 595cba0e07c70eda7f08a12890e00ea0281933d3
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`HTMLMediaElement.defaultMuted`**-Eigenschaft entspricht dem HTML-Attribut [`muted`](/de/docs/Web/HTML/Element/video#muted), das angibt, ob die Audioausgabe des Medien-Elements standardmäßig stummgeschaltet sein soll. Diese Eigenschaft hat keine dynamische Wirkung. Um die Audioausgabe stummzuschalten oder zu aktivieren, verwenden Sie die [`muted`](/de/docs/Web/API/HTMLMediaElement/muted)-Eigenschaft.
+Die **`HTMLMediaElement.defaultMuted`**-Eigenschaft spiegelt das [`muted`](/de/docs/Web/HTML/Reference/Elements/video#muted) HTML-Attribut wider, welches angibt, ob die Audioausgabe des Media-Elements standardmäßig stummgeschaltet werden soll. Diese Eigenschaft hat keine dynamische Wirkung. Um die Audioausgabe stumm zu schalten oder die Stummschaltung aufzuheben, verwenden Sie die [`muted`](/de/docs/Web/API/HTMLMediaElement/muted)-Eigenschaft.
 
 ## Wert
 

@@ -3,21 +3,21 @@ title: "HTMLAnchorElement: target-Eigenschaft"
 short-title: target
 slug: Web/API/HTMLAnchorElement/target
 l10n:
-  sourceCommit: bb48907e64eb4bf60f17efd7d39b46c771d220a0
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{ApiRef("HTML DOM")}}
 
-Die **`target`**-Eigenschaft des [`HTMLAnchorElement`](/de/docs/Web/API/HTMLAnchorElement)-Interfaces ist eine Zeichenkette, die angibt, wo die verlinkte Ressource angezeigt werden soll.
+Die **`target`**-Eigenschaft des [`HTMLAnchorElement`](/de/docs/Web/API/HTMLAnchorElement)-Interfaces ist ein String, der angibt, wo die verlinkte Ressource angezeigt werden soll.
 
-Sie reflektiert das [`target`](/de/docs/Web/HTML/Element/a#target)-Attribut des {{HTMLElement("a")}}-Elements.
+Sie spiegelt das [`target`](/de/docs/Web/HTML/Reference/Elements/a#target)-Attribut des {{HTMLElement("a")}}-Elements wider.
 
 ## Wert
 
-Eine Zeichenkette, die das Ziel darstellt. Ihr Wert kann sein:
+Ein String, der das Ziel darstellt. Sein Wert kann sein:
 
 - Der Name eines {{HTMLElement("frame")}}.
-- Einer der [Schlüsselwörter mit spezifischen Werten](/de/docs/Web/HTML/Element/a#target): `_blank`, `_self`, `_parent`, oder `_top`.
+- Einer der [Schlüsselwörter mit spezifischen Werten](/de/docs/Web/HTML/Reference/Elements/a#target): `_blank`, `_self`, `_parent` oder `_top`.
 
 ## Beispiel
 

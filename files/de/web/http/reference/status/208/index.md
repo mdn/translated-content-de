@@ -2,31 +2,30 @@
 title: 208 Already Reported
 slug: Web/HTTP/Reference/Status/208
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: 975650c2f6ea843d6f7cbc721aee5dbc1db907b2
 ---
 
 {{HTTPSidebar}}
 
-Der HTTP-Statuscode **`208 Already Reported`** für [erfolgreiche Antworten](/de/docs/Web/HTTP/Reference/Status#successful_responses) wird in einer {{HTTPStatus("207", "207 Multi-Status")}}-Antwort verwendet, um Platz zu sparen und Konflikte zu vermeiden. Diese Antwort wird ausschließlich im Kontext von Web-basiertem verteilter Autorschaft und Versionierung ({{Glossary("WebDAV", "WebDAV")}}) genutzt.
+Der HTTP-Statuscode **`208 Already Reported`** für [erfolgreiche Antworten](/de/docs/Web/HTTP/Reference/Status#successful_responses) wird in einer {{HTTPStatus("207", "207 Multi-Status")}}-Antwort verwendet, um Platz zu sparen und Konflikte zu vermeiden. Diese Antwort wird ausschließlich im Kontext von Web Distributed Authoring and Versioning ({{Glossary("WebDAV", "WebDAV")}}) genutzt.
 
-Wenn dieselbe Ressource mehrmals (zum Beispiel als Teil einer Sammlung) mit unterschiedlichen Pfaden angefordert wird, wird nur die erste Anforderung mit {{HTTPStatus("200")}} gemeldet. Antworten für alle anderen Bindungen werden mit diesem `208`-Statuscode gemeldet, wodurch keine Konflikte entstehen und die Antwort kürzer bleibt.
+Wenn dieselbe Ressource mehrmals mit unterschiedlichen Pfaden angefordert wird (beispielsweise als Teil einer Sammlung), wird nur das erste Mal mit {{HTTPStatus("200")}} berichtet. Antworten für alle anderen Bindungen werden mit diesem `208`-Statuscode gemeldet, um keine Konflikte zu erzeugen und die Antwort kürzer zu halten.
 
 > [!NOTE]
-> Die Möglichkeit, eine Ressource an mehrere Pfade zu _binden_, ist eine Erweiterung des {{Glossary("WebDAV", "WebDAV")}}-Protokolls (es könnte von Webanwendungen empfangen werden, die auf einen WebDAV-Server zugreifen).
-> Browser, die auf Webseiten zugreifen, werden diesen Statuscode niemals sehen.
+> Die Fähigkeit, eine Ressource an mehrere Pfade zu _binden_, ist eine Erweiterung des {{Glossary("WebDAV", "WebDAV")}}-Protokolls (es kann von Webanwendungen empfangen werden, die auf einen WebDAV-Server zugreifen).
+> Browser, die auf Webseiten zugreifen, werden diesen Statuscode niemals antreffen.
 
 ## Status
 
-```plain
+```http
 208 Already Reported
 ```
 
 ## Beispiele
 
-### Empfang eines `208` in einer `207 Multi-Status`-Antwort
+### Empfang einer `208` in einer `207 Multi-Status` Antwort
 
-Im Folgenden ist ein Beispiel für eine `207 Multi-Status`-Antwort von einem WebDAV-Server, die eine `208`-Antwort einschließt.
-Beachten Sie den `208` im letzten `<D:status>`-Element, der darauf hinweist, dass die Ressource namens `Loop Demo` bereits früher in der `207`-Antwort gemeldet wurde.
+Das folgende ist eine Beispielantwort `207 Multi-Status` von einem WebDAV-Server, die eine `208`-Antwort beinhaltet. Beachten Sie das `208` im letzten `<D:status>`-Element, welches anzeigt, dass die Ressource mit dem Namen `Loop Demo` bereits früher in der `207`-Antwort berichtet wurde.
 
 ```http
 HTTP/1.1 207 Multi-Status

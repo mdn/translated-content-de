@@ -3,18 +3,18 @@ title: "HTMLOListElement: reversed-Eigenschaft"
 short-title: reversed
 slug: Web/API/HTMLOListElement/reversed
 l10n:
-  sourceCommit: 23ad4d2736b06fcd07a102ea4719ecfe590c33f5
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{ApiRef("HTML DOM")}}
 
-Die **`reversed`**-Eigenschaft der [`HTMLOListElement`](/de/docs/Web/API/HTMLOListElement)-Schnittstelle gibt die Ordnung einer Liste an.
+Die **`reversed`**-Eigenschaft des [`HTMLOListElement`](/de/docs/Web/API/HTMLOListElement)-Interfaces gibt die Reihenfolge einer Liste an.
 
-Sie spiegelt das [`reversed`](/de/docs/Web/HTML/Element/ol#reversed)-Attribut des {{HTMLElement("ol")}}-Elements wider.
+Sie spiegelt das [`reversed`](/de/docs/Web/HTML/Reference/Elements/ol#reversed)-Attribut des {{HTMLElement("ol")}}-Elements wider.
 
 ## Wert
 
-Ein `boolean`-Wert. Wenn `true`, gibt es an, dass die Liste eine absteigende Liste ist (..., 3, 2, 1).
+Ein `boolean`-Wert. Wenn `true`, zeigt dies an, dass die Liste eine absteigende Liste ist (..., 3, 2, 1).
 
 ## Beispiele
 

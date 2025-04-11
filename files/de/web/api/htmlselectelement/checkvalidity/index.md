@@ -3,15 +3,15 @@ title: "HTMLSelectElement: checkValidity()-Methode"
 short-title: checkValidity()
 slug: Web/API/HTMLSelectElement/checkValidity
 l10n:
-  sourceCommit: 879db96bee7cd8301bbc38d326d9b905ae4493d1
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`checkValidity()`**-Methode der [`HTMLSelectElement`](/de/docs/Web/API/HTMLSelectElement)-Schnittstelle gibt einen booleschen Wert zurück, der anzeigt, ob das Element irgendwelchen [Einschränkungsvalidierungsregeln](/de/docs/Web/HTML/Constraint_validation) entspricht, die darauf angewendet wurden. Ist der Wert falsch, löst die Methode außerdem ein [`invalid`](/de/docs/Web/API/HTMLInputElement/invalid_event)-Ereignis auf dem Element aus. Da es kein Standardverhalten des Browsers für `checkValidity()` gibt, hat das Abbrechen dieses `invalid`-Ereignisses keinen Effekt.
+Die **`checkValidity()`**-Methode des [`HTMLSelectElement`](/de/docs/Web/API/HTMLSelectElement)-Interfaces gibt einen booleschen Wert zurück, der angibt, ob das Element alle darauf angewendeten [Einschränkungsvalidierungsregeln](/de/docs/Web/HTML/Guides/Constraint_validation) erfüllt. Wenn `false`, löst die Methode auch ein [`invalid`](/de/docs/Web/API/HTMLInputElement/invalid_event)-Ereignis auf dem Element aus. Da es kein standardmäßiges Browserverhalten für `checkValidity()` gibt, hat das Abbrechen dieses `invalid`-Ereignisses keine Auswirkung.
 
 > [!NOTE]
-> Ein HTML-{{htmlelement("select")}}-Element mit einer nicht-null [`validationMessage`](/de/docs/Web/API/HTMLSelectElement/validationMessage) wird als ungültig betrachtet, wird die CSS-{{cssxref(":invalid")}}-Pseudo-Klasse erfüllen und führt dazu, dass `checkValidity()` false zurückgibt. Verwenden Sie die Methode [`HTMLSelectElement.setCustomValidity()`](/de/docs/Web/API/HTMLSelectElement/setCustomValidity), um die [`HTMLSelectElement.validationMessage`](/de/docs/Web/API/HTMLSelectElement/validationMessage) auf den leeren String zu setzen, um den [`validity`](/de/docs/Web/API/HTMLSelectElement/validity)-Zustand auf gültig zu setzen.
+> Ein HTML-{{htmlelement("select")}}-Element mit einer nicht-null [`validationMessage`](/de/docs/Web/API/HTMLSelectElement/validationMessage) wird als ungültig betrachtet, passt zur CSS-{{cssxref(":invalid")}}-Pseudoklasse und führt dazu, dass `checkValidity()` `false` zurückgibt. Verwenden Sie die [`HTMLSelectElement.setCustomValidity()`](/de/docs/Web/API/HTMLSelectElement/setCustomValidity)-Methode, um die [`HTMLSelectElement.validationMessage`](/de/docs/Web/API/HTMLSelectElement/validationMessage) auf den leeren String zu setzen und den [`validity`](/de/docs/Web/API/HTMLSelectElement/validity)-Zustand als gültig festzulegen.
 
 ## Syntax
 
@@ -50,5 +50,5 @@ console.log(element.checkValidity());
 - {{HTMLElement("textarea")}}
 - {{HTMLElement("form")}}
 - [Lernen: Client-seitige Formularvalidierung](/de/docs/Learn_web_development/Extensions/Forms/Form_validation)
-- [Leitfaden: Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation)
-- CSS-{{cssxref(":valid")}} und {{cssxref(":invalid")}}-Pseudo-Klassen
+- [Leitfaden: Einschränkungsvalidierung](/de/docs/Web/HTML/Guides/Constraint_validation)
+- CSS {{cssxref(":valid")}} und {{cssxref(":invalid")}} Pseudoklassen

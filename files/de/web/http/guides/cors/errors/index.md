@@ -2,25 +2,25 @@
 title: CORS-Fehler
 slug: Web/HTTP/Guides/CORS/Errors
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{HTTPSidebar}}
 
-[Cross-Origin Resource Sharing](/de/docs/Web/HTTP/Guides/CORS) ({{Glossary("CORS", "CORS")}}) ist ein Standard, der es einem Server erlaubt, die [Same-Origin-Policy](/de/docs/Web/Security/Same-origin_policy) zu lockern. Dies wird verwendet, um bestimmte Cross-Origin-Anfragen explizit zu erlauben, während andere abgelehnt werden. Wenn eine Webseite beispielsweise einen einbettbaren Dienst anbietet, kann es notwendig sein, bestimmte Beschränkungen zu lockern. Eine solche CORS-Konfiguration einzurichten, ist nicht unbedingt einfach und kann einige Herausforderungen mit sich bringen. In diesen Seiten werden wir einige häufige CORS-Fehlermeldungen betrachten und wie man sie behebt.
+[Cross-Origin Resource Sharing](/de/docs/Web/HTTP/Guides/CORS) ({{Glossary("CORS", "CORS")}}) ist ein Standard, der einem Server erlaubt, die [Same-Origin-Policy](/de/docs/Web/Security/Same-origin_policy) zu lockern. Dies wird verwendet, um bestimmte plattformübergreifende Anfragen explizit zu erlauben, während andere abgelehnt werden. Wenn eine Website beispielsweise einen einbettbaren Service anbietet, kann es notwendig sein, bestimmte Einschränkungen zu lockern. Die Einrichtung einer solchen CORS-Konfiguration ist nicht unbedingt einfach und kann einige Herausforderungen darstellen. Auf diesen Seiten werden wir einige häufige CORS-Fehlermeldungen und deren Behebung betrachten.
 
-Wenn die CORS-Konfiguration nicht korrekt eingerichtet ist, zeigt die Browser-Konsole eine Fehlermeldung wie `"Cross-Origin Request Blocked: The Same Origin Policy disallows reading the remote resource at [some site]"` an, die darauf hinweist, dass die Anfrage aufgrund der Verletzung der CORS-Sicherheitsregeln blockiert wurde. Dies muss jedoch nicht unbedingt ein Einrichtungsfehler sein. Es ist möglich, dass die Anfrage tatsächlich absichtlich von der Webanwendung des Nutzers und dem externen Dienst blockiert wird. Sollte der Endpunkt jedoch verfügbar sein, ist eine Fehlerbehebung erforderlich, um erfolg zu haben.
+Wenn die CORS-Konfiguration nicht korrekt eingerichtet ist, zeigt die Browser-Konsole einen Fehler wie `"Cross-Origin Request Blocked: The Same Origin Policy disallows reading the remote resource at [some site]"` an, der darauf hinweist, dass die Anfrage aufgrund der Verletzung der CORS-Sicherheitsregeln blockiert wurde. Dies muss jedoch nicht unbedingt ein Einrichtungsfehler sein. Es ist möglich, dass die Anfrage tatsächlich absichtlich durch die Webanwendung des Benutzers und den externen Dienst abgelehnt wird. Wenn der Endpunkt jedoch verfügbar sein soll, ist einige Fehlersuche erforderlich, um erfolgreich zu sein.
 
-## Identifikation eines CORS-Problems
+## Identifizieren eines CORS-Problems
 
 Um das zugrunde liegende Problem mit der CORS-Konfiguration zu verstehen, müssen Sie herausfinden, welche Anfrage fehlerhaft ist und warum. Diese Schritte können Ihnen dabei helfen:
 
-1. Navigieren Sie zur betreffenden Website oder Webanwendung und öffnen Sie die [Entwicklerwerkzeuge](https://firefox-source-docs.mozilla.org/devtools-user/index.html).
-2. Versuchen Sie nun, die fehlerhafte Transaktion zu reproduzieren, und prüfen Sie die [Konsole](https://firefox-source-docs.mozilla.org/devtools-user/web_console/index.html), ob eine CORS-Verletzungsfehlermeldung angezeigt wird. Diese sieht wahrscheinlich so aus:
+1. Navigieren Sie zur betreffenden Website oder Webanwendung und öffnen Sie die [Entwickler-Tools](https://firefox-source-docs.mozilla.org/devtools-user/index.html).
+2. Versuchen Sie nun, die fehlgeschlagene Transaktion zu reproduzieren, und prüfen Sie die [Konsole](https://firefox-source-docs.mozilla.org/devtools-user/web_console/index.html), ob Sie eine CORS-Verletzungs-Fehlermeldung sehen. Es wird wahrscheinlich wie folgt aussehen:
 
 ![Firefox-Konsole zeigt CORS-Fehler](cors-error2.png)
 
-Der Text der Fehlermeldung wird in etwa wie folgt aussehen:
+Der Fehlertext wird ungefähr wie folgt aussehen:
 
 ```plain
 Cross-Origin Request Blocked: The Same Origin Policy disallows
@@ -29,11 +29,11 @@ additional information here).
 ```
 
 > [!NOTE]
-> Aus Sicherheitsgründen sind spezifische Informationen darüber, was bei einer CORS-Anfrage schiefgelaufen ist, _für JavaScript-Code nicht verfügbar_. Der Code weiß nur, dass ein Fehler aufgetreten ist. Der einzige Weg, um festzustellen, was genau schiefgelaufen ist, besteht darin, die Einzelheiten in der Konsole des Browsers anzusehen.
+> Aus Sicherheitsgründen sind keine spezifischen Informationen darüber verfügbar, was bei einer CORS-Anfrage schiefgelaufen ist, _im JavaScript-Code_. Der Code weiß lediglich, dass ein Fehler aufgetreten ist. Der einzige Weg, um festzustellen, was genau schiefgelaufen ist, besteht darin, die Details in der Konsole des Browsers zu überprüfen.
 
 ## CORS-Fehlermeldungen
 
-Die Konsole von Firefox zeigt Nachrichten in ihrer Konsole an, wenn Anfragen aufgrund von CORS fehlschlagen. Ein Teil des Fehltextes ist eine "Reason"-Nachricht, die zusätzlichen Einblick in das Geschehene bietet. Die Grundmeldungen sind unten aufgelistet; klicken Sie die Nachricht an, um einen Artikel zu öffnen, der den Fehler ausführlicher erklärt und mögliche Lösungen anbietet.
+Die Konsole von Firefox zeigt Nachrichten in ihrer Konsole an, wenn Anfragen aufgrund von CORS fehlschlagen. Teil des Fehlertextes ist eine "Reason"-Nachricht, die zusätzliche Einblicke darüber bietet, was schiefgelaufen ist. Die Grundnachrichten sind unten aufgelistet; klicken Sie auf die Nachricht, um einen Artikel zu öffnen, der den Fehler detaillierter erklärt und mögliche Lösungen bietet.
 
 - [Reason: CORS disabled](/de/docs/Web/HTTP/Guides/CORS/Errors/CORSDisabled)
 - [Reason: CORS request did not succeed](/de/docs/Web/HTTP/Guides/CORS/Errors/CORSDidNotSucceed)
@@ -54,7 +54,7 @@ Die Konsole von Firefox zeigt Nachrichten in ihrer Konsole an, wenn Anfragen auf
 ## Siehe auch
 
 - Glossar: {{Glossary("CORS", "CORS")}}
-- [CORS Einführung](/de/docs/Web/HTTP/Guides/CORS)
+- [CORS-Einführung](/de/docs/Web/HTTP/Guides/CORS)
 - [Server-seitige CORS-Einstellungen](/de/docs/Web/HTTP/Guides/CORS)
-- [CORS-aktiviertes Bild](/de/docs/Web/HTML/CORS_enabled_image)
-- [CORS-Einstellungsattribute](/de/docs/Web/HTML/Attributes/crossorigin)
+- [CORS aktiviertes Bild](/de/docs/Web/HTML/How_to/CORS_enabled_image)
+- [CORS Einstellungen-Attribute](/de/docs/Web/HTML/Reference/Attributes/crossorigin)

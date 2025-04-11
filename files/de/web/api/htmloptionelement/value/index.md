@@ -3,16 +3,16 @@ title: "HTMLOptionElement: value-Eigenschaft"
 short-title: value
 slug: Web/API/HTMLOptionElement/value
 l10n:
-  sourceCommit: 45eeb37ecd89511a64b756af9469189d7a59b95e
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{ APIRef("HTML DOM") }}
 
-Die **`value`**-Eigenschaft der [`HTMLOptionElement`](/de/docs/Web/API/HTMLOptionElement)-Schnittstelle stellt den Wert des {{htmlelement("option")}}-Elements als Zeichenkette dar oder zeigt eine leere Zeichenkette an, wenn kein Wert festgelegt ist. Sie spiegelt das [`value`](/de/docs/Web/HTML/Element/option#value)-Attribut des Elements wider, falls vorhanden. Andernfalls gibt sie den Inhalt des Elements zurück oder setzt ihn, ähnlich wie die [`textContent`](/de/docs/Web/API/Node/textContent)-Eigenschaft.
+Die **`value`**-Eigenschaft des [`HTMLOptionElement`](/de/docs/Web/API/HTMLOptionElement)-Interfaces repräsentiert den Wert des {{htmlelement("option")}}-Elements als String oder den leeren String, wenn kein Wert gesetzt ist. Sie spiegelt das [`value`](/de/docs/Web/HTML/Reference/Elements/option#value)-Attribut des Elements wider, sofern vorhanden. Andernfalls gibt sie den Inhalt des Elements zurück oder setzt diesen, ähnlich der [`textContent`](/de/docs/Web/API/Node/textContent)-Eigenschaft.
 
 ## Wert
 
-Eine Zeichenkette, die den Wert des `value`-Attributs enthält, falls vorhanden, oder den Inhalt des Elements.
+Ein String, der den Wert des `value`-Attributs enthält, falls vorhanden, oder den Inhalt des Elements.
 
 ## Beispiele
 

@@ -2,14 +2,14 @@
 title: Temporal.PlainDateTime.prototype.withCalendar()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainDateTime/withCalendar
 l10n:
-  sourceCommit: d0b9cef0713eb263934a98e94202b97c143204a4
+  sourceCommit: 35512ec91d6a464ebee803d20c2d47464c9ce4e7
 ---
 
 {{JSRef}}{{SeeCompatTable}}
 
-Die **`withCalendar()`**-Methode von {{jsxref("Temporal.PlainDateTime")}}-Instanzen gibt ein neues `Temporal.PlainDateTime`-Objekt zurück, das dieses Datum und diese Uhrzeit im neuen Kalendersystem darstellt. Da alle `Temporal`-Objekte als unveränderlich konzipiert sind, fungiert diese Methode im Wesentlichen als Setter für die {{jsxref("Temporal/PlainDateTime/calendarId", "calendarId")}}-Eigenschaft der Datum-Uhrzeit.
+Die **`withCalendar()`**-Methode der Instanzen von {{jsxref("Temporal.PlainDateTime")}} gibt ein neues `Temporal.PlainDateTime`-Objekt zurück, das diesen Datums- und Uhrzeitpunkt interpretiert im neuen Kalendersystem darstellt. Da alle `Temporal`-Objekte so konzipiert sind, dass sie unveränderlich sind, fungiert diese Methode im Wesentlichen als Setter für die {{jsxref("Temporal/PlainDateTime/calendarId", "calendarId")}}-Eigenschaft des Datums- und Uhrzeitpunkts.
 
-Um die datumszeitlichen Komponenteneigenschaften zu ersetzen, verwenden Sie stattdessen die {{jsxref("Temporal/PlainDateTime/with", "with()")}}-Methode.
+Um die Datums- und Uhrzeitenkomponenten-Eigenschaften zu ersetzen, verwenden Sie stattdessen die {{jsxref("Temporal/PlainDateTime/with", "with()")}}-Methode.
 
 ## Syntax
 
@@ -24,14 +24,14 @@ withCalendar(calendar)
 
 ### Rückgabewert
 
-Ein neues `Temporal.PlainDateTime`-Objekt, das das durch den ursprünglichen `PlainDateTime` angegebene Datum und die Uhrzeit darstellt, interpretiert im neuen Kalendersystem.
+Ein neues `Temporal.PlainDateTime`-Objekt, das das durch das ursprüngliche `PlainDateTime` angegebene Datum und die Uhrzeit darstellt, interpretiert im neuen Kalendersystem.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
   - : Wird ausgelöst, wenn `calendar` kein String ist.
 - {{jsxref("RangeError")}}
-  - : Wird ausgelöst, wenn `calendar` kein gültiger Kalenderbezeichner ist.
+  - : Wird ausgelöst, wenn `calendar` keine gültige Kalenderkennung ist.
 
 ## Beispiele
 
@@ -39,8 +39,8 @@ Ein neues `Temporal.PlainDateTime`-Objekt, das das durch den ursprünglichen `Pl
 
 ```js
 const dt = Temporal.PlainDateTime.from("2021-07-01T12:34:56");
-const newDT = dt.withCalendar("islamic");
-console.log(newDT.toLocaleString("en-US", { calendar: "islamic" }));
+const newDT = dt.withCalendar("islamic-umalqura");
+console.log(newDT.toLocaleString("en-US", { calendar: "islamic-umalqura" }));
 // 11/21/1442 AH, 12:34:56 PM
 ```
 

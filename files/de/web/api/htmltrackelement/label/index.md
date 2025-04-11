@@ -3,12 +3,12 @@ title: "HTMLTrackElement: label-Eigenschaft"
 short-title: label
 slug: Web/API/HTMLTrackElement/label
 l10n:
-  sourceCommit: 0bf15d029fb052d3b20a2f249d4a6de8e29ea774
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{ApiRef("HTML DOM")}}
 
-Die **`label`**-Eigenschaft des [`HTMLTrackElement`](/de/docs/Web/API/HTMLTrackElement) stellt den für den Benutzer lesbaren Titel dar, der bei der Auflistung von Untertiteln, Untertitelungs- und Audiobeschreibungen für einen Track angezeigt wird. Sie spiegelt das [`label`](/de/docs/Web/HTML/Element/track#label)-Attribut des {{htmlelement("track")}}-Elements wider.
+Die **`label`**-Eigenschaft des [`HTMLTrackElement`](/de/docs/Web/API/HTMLTrackElement) stellt den für den Benutzer lesbaren Titel dar, der angezeigt wird, wenn Untertitel, Beschreibungen und Audiodeskriptionen für einen Track aufgelistet werden. Sie spiegelt das [`label`](/de/docs/Web/HTML/Reference/Elements/track#label)-Attribut des {{htmlelement("track")}}-Elements wider.
 
 ## Wert
 

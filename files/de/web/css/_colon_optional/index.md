@@ -2,12 +2,12 @@
 title: :optional
 slug: Web/CSS/:optional
 l10n:
-  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{CSSRef}}
 
-Die **`:optional`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert jedes {{HTMLElement("input")}}, {{HTMLElement("select")}} oder {{HTMLElement("textarea")}} Element, das nicht das [`required`](/de/docs/Web/HTML/Element/input#required) Attribut gesetzt hat.
+Die **`:optional`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert jedes {{HTMLElement("input")}}, {{HTMLElement("select")}}, oder {{HTMLElement("textarea")}} Element, das nicht das [`required`](/de/docs/Web/HTML/Reference/Elements/input#required) Attribut gesetzt hat.
 
 {{InteractiveExample("CSS Demo: :optional", "tabbed-standard")}}
 
@@ -46,7 +46,7 @@ label {
 </form>
 ```
 
-Diese Pseudoklasse ist nützlich für das Styling von Feldern, die nicht erforderlich sind, um ein Formular abzusenden.
+Diese Pseudoklasse ist nützlich, um Felder zu stylen, die nicht erforderlich sind, um ein Formular abzuschicken.
 
 > [!NOTE]
 > Die {{cssxref(":required")}} Pseudoklasse wählt _erforderliche_ Formularfelder aus.
@@ -61,16 +61,16 @@ Diese Pseudoklasse ist nützlich für das Styling von Feldern, die nicht erforde
 
 ## Barrierefreiheit
 
-Wenn ein [Formular](/de/docs/Web/HTML/Element/form) optionale {{htmlelement("input")}}-Elemente enthält, sollten erforderliche Eingaben mit dem [`required`](/de/docs/Web/HTML/Element/input#required) Attribut gekennzeichnet werden. Dies stellt sicher, dass Personen, die mit Hilfe von unterstützender Technologie wie einem Screenreader navigieren, verstehen können, welche Eingaben gültige Inhalte benötigen, um eine erfolgreiche Formularübermittlung zu gewährleisten.
+Wenn ein [Formular](/de/docs/Web/HTML/Reference/Elements/form) optionale {{htmlelement("input")}}s enthält, sollten erforderliche Eingaben mit dem [`required`](/de/docs/Web/HTML/Reference/Elements/input#required) Attribut gekennzeichnet werden. Dies stellt sicher, dass Personen, die sich mit Hilfe von unterstützender Technologie wie einem Screenreader bewegen, verstehen, welche Eingaben gültige Inhalte benötigen, um eine erfolgreiche Formularübermittlung sicherzustellen.
 
-Erforderliche Eingaben sollten auch visuell hervorgehoben werden, mit einer Darstellung, die sich nicht ausschließlich auf Farbe zur Bedeutungsvermittlung verlässt. Typischerweise werden beschreibende Texte und/oder ein Symbol verwendet.
+Erforderliche Eingaben sollten auch visuell angezeigt werden, und zwar so, dass sich die Anzeige nicht allein auf Farbe stützt, um Bedeutung zu vermitteln. Typischerweise werden beschreibender Text und/oder ein Symbol verwendet.
 
 - [MDN Verständnis von WCAG, Richtlinie 3.3 Erklärungen](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Understandable#guideline_3.3_%e2%80%94_input_assistance_help_users_avoid_and_correct_mistakes)
-- [Verständnis des Erfolgskriteriums 3.3.2 | W3C Verständnis von WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/minimize-error-cues.html)
+- [Verständnis des Erfolgskriteriums 3.3.2 | W3C Understanding WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/minimize-error-cues.html)
 
 ## Beispiele
 
-### Das optionale Feld hat einen lila Rahmen
+### Das optionale Feld hat einen violetten Rahmen
 
 #### HTML
 
@@ -123,4 +123,4 @@ input:optional {
 ## Siehe auch
 
 - Andere validierungsbezogene Pseudoklassen: {{ cssxref(":required") }}, {{ cssxref(":invalid") }}, {{ cssxref(":valid") }}
-- [Formulardatenvalidierung](/de/docs/Learn_web_development/Extensions/Forms/Form_validation)
+- [Datenvalidierung von Formularen](/de/docs/Learn_web_development/Extensions/Forms/Form_validation)

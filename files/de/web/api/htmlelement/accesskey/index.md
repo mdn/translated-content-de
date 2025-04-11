@@ -3,15 +3,15 @@ title: "HTMLElement: accessKey-Eigenschaft"
 short-title: accessKey
 slug: Web/API/HTMLElement/accessKey
 l10n:
-  sourceCommit: e9e2ec643ac69c132f31427a0b586ab2cf83ed58
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{APIRef("DOM")}}
 
-Die **`HTMLElement.accessKey`**-Eigenschaft legt die Tastenkombination fest, die ein Benutzer drücken kann, um zu einem bestimmten Element zu springen.
+Die **`HTMLElement.accessKey`**-Eigenschaft legt den Tastendruck fest, den ein Benutzer betätigen kann, um zu einem bestimmten Element zu springen.
 
 > [!NOTE]
-> Die `HTMLElement.accessKey`-Eigenschaft wird selten verwendet, da sie häufig mit bereits vorhandenen Tastenkombinationen in Browsern kollidiert. Um dies zu umgehen, implementieren Browser das Verhalten von accesskey, wenn die Tasten zusammen mit anderen "qualifizierenden" Tasten (wie <kbd>Alt</kbd> + accesskey) gedrückt werden.
+> Die `HTMLElement.accessKey`-Eigenschaft wird selten verwendet, da sie häufig mit bereits vorhandenen Tastenkombinationen in Browsern kollidiert. Um dies zu umgehen, implementieren Browser das `accesskey`-Verhalten, wenn die Tasten zusammen mit anderen „qualifizierenden“ Tasten gedrückt werden (wie <kbd>Alt</kbd> + `accesskey`).
 
 ## Spezifikationen
 
@@ -23,4 +23,4 @@ Die **`HTMLElement.accessKey`**-Eigenschaft legt die Tastenkombination fest, die
 
 ## Siehe auch
 
-- [HTML-Globaleigenschaft: accesskey](/de/docs/Web/HTML/Global_attributes/accesskey)
+- [HTML globales Attribut: accesskey](/de/docs/Web/HTML/Reference/Global_attributes/accesskey)

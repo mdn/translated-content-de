@@ -2,12 +2,12 @@
 title: ID-Selektoren
 slug: Web/CSS/ID_selectors
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{CSSRef}}
 
-Der CSS **ID-Selektor** wählt ein Element basierend auf dem Wert des [`id`](/de/docs/Web/HTML/Global_attributes/id)-Attributs des Elements aus. Damit das Element ausgewählt wird, muss sein `id`-Attribut genau dem im Selektor angegebenen Wert entsprechen.
+Der CSS **ID-Selektor** wählt ein Element basierend auf dem Wert des [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id)-Attributs des Elements aus. Damit das Element ausgewählt wird, muss sein `id`-Attribut genau dem im Selektor angegebenen Wert entsprechen.
 
 ```css
 /* The element with id="demo" */
@@ -22,13 +22,13 @@ Der CSS **ID-Selektor** wählt ein Element basierend auf dem Wert des [`id`](/de
 #id_value { style properties }
 ```
 
-Beachten Sie, dass dies syntaktisch (aber nicht in Bezug auf die Spezifität) dem folgenden [Attributselektor](/de/docs/Web/CSS/Attribute_selectors) entspricht:
+Beachten Sie, dass dies syntaktisch (aber nicht spezifitätstechnisch) dem folgenden [Attributselektor](/de/docs/Web/CSS/Attribute_selectors) entspricht:
 
 ```css
 [id=id_value] { style properties }
 ```
 
-Der `id_value`-Wert muss ein gültiger [CSS-Bezeichner](/de/docs/Web/CSS/ident) sein. HTML-`id`-Attribute, die keine gültigen CSS-Bezeichner sind, müssen [escaped](/de/docs/Web/CSS/ident#escaping_characters) werden, bevor sie in ID-Selektoren verwendet werden können.
+Der `id_value`-Wert muss ein gültiger [CSS-Bezeichner](/de/docs/Web/CSS/ident) sein. HTML-`id`-Attribute, die keine gültigen CSS-Bezeichner sind, müssen [escapet](/de/docs/Web/CSS/ident#escaping_characters) werden, bevor sie in ID-Selektoren verwendet werden können.
 
 ## Beispiele
 
@@ -98,4 +98,4 @@ Die ID-Selektoren in den folgenden Regeln sind keine gültigen CSS-Bezeichner un
 ## Siehe auch
 
 - [CSS-Selektoren](/de/docs/Web/CSS/CSS_selectors)
-- [CSS Lernen: Grundlegende Selektoren](/de/docs/Learn_web_development/Core/Styling_basics/Basic_selectors)
+- [CSS lernen: Basis-Selektoren](/de/docs/Learn_web_development/Core/Styling_basics/Basic_selectors)

@@ -3,14 +3,14 @@ title: "HTMLFieldSetElement: disabled-Eigenschaft"
 short-title: disabled
 slug: Web/API/HTMLFieldSetElement/disabled
 l10n:
-  sourceCommit: c32a37ea5fdec8bd961573bdc7cb9c3625c237aa
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{ APIRef("HTML DOM") }}
 
-Die **`disabled`**-Eigenschaft der Schnittstelle [`HTMLFieldSetElement`](/de/docs/Web/API/HTMLFieldSetElement) ist ein boolescher Wert, der das `disabled`-Attribut des {{htmlelement("fieldset")}}-Elements widerspiegelt. Dieses Attribut gibt an, ob die Steuerung deaktiviert ist.
+Die **`disabled`**-Eigenschaft des [`HTMLFieldSetElement`](/de/docs/Web/API/HTMLFieldSetElement)-Interfaces ist ein boolescher Wert, der das `disabled`-Attribut des {{htmlelement("fieldset")}}-Elements widerspiegelt. Dieses Attribut gibt an, ob das Steuerelement deaktiviert ist.
 
-Wenn deaktiviert, sind alle Formularsteuerelemente, die Nachkommen des `<fieldset>`-Elements sind, mit Ausnahme der Elemente, die Nachkommen des {{htmlelement("legend")}}-Kindes des `<fieldset>` sind, falls vorhanden, deaktiviert. Ein deaktiviertes Element ist nicht benutzbar und nicht anklickbar und entspricht dem {{cssxref(":disabled")}}-Selektor, selbst wenn der Wert ihrer `disabled`-Eigenschaft falsch ist.
+Wenn das `<fieldset>` deaktiviert ist, sind alle Formularelement-Nachkommen des `<fieldset>`-Elements deaktiviert, ausgenommen Elemente, die Nachkommen des optionalen {{htmlelement("legend")}}-Kindes des `<fieldset>` sind. Ein deaktiviertes Element ist nicht nutzbar und nicht anklickbar und entspricht dem {{cssxref(":disabled")}}-Selektor, selbst wenn der Wert der `disabled`-Eigenschaft falsch ist.
 
 ## Wert
 
@@ -34,5 +34,5 @@ fs.disabled = true;
 
 ## Siehe auch
 
-- HTML-Attribut [`disabled`](/de/docs/Web/HTML/Attributes/disabled)
-- CSS-Selektoren {{cssxref(":disabled")}} und {{cssxref(":enabled")}} Pseudoklassen
+- HTML [`disabled`](/de/docs/Web/HTML/Reference/Attributes/disabled)-Attribut
+- CSS {{cssxref(":disabled")}} und {{cssxref(":enabled")}} Pseudoklassen

@@ -3,19 +3,19 @@ title: "HTMLTableColElement: span-Eigenschaft"
 short-title: span
 slug: Web/API/HTMLTableColElement/span
 l10n:
-  sourceCommit: d16706e4e930c57161d473287374a9286c663147
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{ APIRef("HTML DOM") }}
 
-Die **`span`** Leseeigenschaft des [`HTMLTableColElement`](/de/docs/Web/API/HTMLTableColElement)-Interfaces stellt die Anzahl der Spalten dar, die dieses {{htmlelement("col")}} oder dieser {{htmlelement("colgroup")}} überspannen muss; dadurch kann die Spalte Platz über mehrere Spalten der Tabelle einnehmen. Sie spiegelt das [`span`](/de/docs/Web/HTML/Element/col#span)-Attribut wider.
+Die **`span`**-Eigenschaft des [`HTMLTableColElement`](/de/docs/Web/API/HTMLTableColElement)-Interfaces im Nur-Lese-Modus repräsentiert die Anzahl der Spalten, die dieses {{htmlelement("col")}}- oder {{htmlelement("colgroup")}}-Element überspannen muss; dies ermöglicht es, dass die Spalte Platz über mehrere Spalten der Tabelle hinweg einnimmt. Sie entspricht dem [`span`](/de/docs/Web/HTML/Reference/Elements/col#span)-Attribut.
 
 ## Wert
 
 Eine positive Zahl, die die Anzahl der Spalten darstellt.
 
 > [!NOTE]
-> Beim Setzen eines neuen Wertes wird der Wert auf die nächste streng positive Zahl (bis zu 1000) _begrenzt_.
+> Beim Festlegen eines neuen Wertes wird der Wert auf die nächste eindeutig positive Zahl (bis zu 1000) _geklammert_.
 
 ## Beispiele
 

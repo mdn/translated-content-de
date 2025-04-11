@@ -3,12 +3,12 @@ title: "HTMLObjectElement: reportValidity() Methode"
 short-title: reportValidity()
 slug: Web/API/HTMLObjectElement/reportValidity
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`reportValidity()`** Methode der [`HTMLObjectElement`](/de/docs/Web/API/HTMLObjectElement)-Schnittstelle führt dieselben Schritte zur Überprüfung der Gültigkeit aus wie die [`checkValidity()`](/de/docs/Web/API/HTMLObjectElement/checkValidity) Methode. Sie gibt immer `true` zurück, da {{HTMLElement("object")}}-Elemente niemals Kandidaten für die [Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation) sind.
+Die **`reportValidity()`** Methode der [`HTMLObjectElement`](/de/docs/Web/API/HTMLObjectElement) Schnittstelle führt die gleichen Gültigkeitsprüfungs-Schritte aus wie die [`checkValidity()`](/de/docs/Web/API/HTMLObjectElement/checkValidity) Methode. Sie gibt immer `true` zurück, da {{HTMLElement("object")}} Elemente niemals Kandidaten für die [Einschränkungsvalidierung](/de/docs/Web/HTML/Guides/Constraint_validation) sind.
 
 ## Syntax
 
@@ -38,4 +38,4 @@ Ein boolescher Wert, `true`.
 - {{HTMLElement("object")}}
 - {{HTMLElement("form")}}
 - [Lernen: Client-seitige Formularvalidierung](/de/docs/Learn_web_development/Extensions/Forms/Form_validation)
-- [Leitfaden: Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation)
+- [Leitfaden: Einschränkungsvalidierung](/de/docs/Web/HTML/Guides/Constraint_validation)

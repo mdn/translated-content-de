@@ -3,22 +3,22 @@ title: "HTMLElement: spellcheck-Eigenschaft"
 short-title: spellcheck
 slug: Web/API/HTMLElement/spellcheck
 l10n:
-  sourceCommit: 816cc4d4a5a318a23222946b6981bb92b499aebb
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`spellcheck`**-Eigenschaft des [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Interfaces repräsentiert einen booleschen Wert, der den Hinweis zur [Rechtschreibprüfung](/de/docs/Web/HTML/Global_attributes/spellcheck) steuert. Sie ist auf allen HTML-Elementen verfügbar, obwohl sie nicht alle betrifft.
+Die **`spellcheck`**-Eigenschaft des [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Interfaces repräsentiert einen booleschen Wert, der den Hinweis zum [Rechtschreibprüfen](/de/docs/Web/HTML/Reference/Global_attributes/spellcheck) steuert. Sie ist bei allen HTML-Elementen verfügbar, beeinflusst jedoch nicht alle von ihnen.
 
-Sie spiegelt den Wert des globalen HTML-Attributs [`spellcheck`](/de/docs/Web/HTML/Global_attributes/spellcheck) wider.
+Sie spiegelt den Wert des globalen HTML-Attributs [`spellcheck`](/de/docs/Web/HTML/Reference/Global_attributes/spellcheck) wider.
 
 ## Wert
 
-Ein boolescher Wert, der `true` ist, wenn die Rechtschreibung und Grammatik des Textinhalts im Element geprüft werden können, ansonsten `false`.
+Ein boolescher Wert, der `true` ist, wenn die Rechtschreibung und Grammatik des Textinhalts im Element überprüft werden können, andernfalls `false`.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt, wie man den Hinweis zur [Rechtschreibprüfung](/de/docs/Web/HTML/Global_attributes/spellcheck) über ein Skript steuert:
+Das folgende Beispiel zeigt, wie der Hinweis zum [Rechtschreibprüfen](/de/docs/Web/HTML/Reference/Global_attributes/spellcheck) über ein Skript gesteuert werden kann:
 
 ```html
 <div>
@@ -47,7 +47,7 @@ controller.addEventListener("change", (e) => {
 
 {{EmbedLiveSample('Examples', 600, 200)}}
 
-Beachten Sie, dass Sie die Browsereinstellung zur Prüfung von Rechtschreibung und Grammatik aktivieren müssen.
+Beachten Sie, dass Sie die Browsereinstellung aktivieren müssen, um Rechtschreibung und Grammatik zu überprüfen.
 
 ## Spezifikationen
 
@@ -59,4 +59,4 @@ Beachten Sie, dass Sie die Browsereinstellung zur Prüfung von Rechtschreibung u
 
 ## Siehe auch
 
-- [`spellcheck`](/de/docs/Web/HTML/Global_attributes/spellcheck) globales HTML-Attribut
+- [`spellcheck`](/de/docs/Web/HTML/Reference/Global_attributes/spellcheck) globales HTML-Attribut

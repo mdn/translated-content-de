@@ -2,39 +2,39 @@
 title: Invoker Commands API
 slug: Web/API/Invoker_Commands_API
 l10n:
-  sourceCommit: 3d1ad539dbce65e3cd7af4c24410d87fcfc5147c
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{DefaultAPISidebar("Invoker Commands API")}}{{SeeCompatTable}}
 
-Die **Invoker Commands API** bietet eine Möglichkeit, Schaltflächen deklarativ Verhaltensweisen zuzuweisen, um interaktive Elemente zu steuern, wenn die Schaltfläche betätigt wird (durch Klicken oder über eine Tasteneingabe, wie die Leertaste oder die Eingabetaste).
+Die **Invoker Commands API** bietet eine Möglichkeit, Schaltflächen deklarativ Verhaltensweisen zuzuweisen, um interaktive Elemente zu kontrollieren, wenn die Schaltfläche ausgeführt wird (z. B. durch Klicken oder Drücken einer Taste wie der Leertaste oder der Eingabetaste).
 
 ## Konzepte und Verwendung
 
-Ein häufiges Muster im Web ist es, {{HTMLElement("button")}}-Elemente zur Steuerung verschiedener Aspekte der Seite zu verwenden, wie z. B. das Öffnen und Schließen von [Popovers](/de/docs/Web/API/Popover_API) oder {{HTMLElement("dialog")}}-Elementen, das Formatieren von Text und mehr.
+Ein häufiges Muster im Web ist, dass {{HTMLElement("button")}}-Elemente verschiedene Aspekte der Seite steuern, wie das Öffnen und Schließen von [Popovers](/de/docs/Web/API/Popover_API) oder {{HTMLElement("dialog")}}-Elementen, das Formatieren von Text und mehr.
 
-Historisch gesehen erforderte die Erstellung dieser Art von Steuerungen JavaScript-Ereignislistener, die dem Button hinzugefügt wurden, um dann die APIs auf dem Element aufzurufen, das sie steuern. Die Eigenschaften [`commandForElement`](/de/docs/Web/API/HTMLButtonElement/commandForElement) und [`command`](/de/docs/Web/API/HTMLButtonElement/command) bieten eine Möglichkeit, dies für eine begrenzte Anzahl von Aktionen deklarativ zu tun. Dies kann vorteilhaft für eingebaute Befehle sein, da der Benutzer nicht darauf warten muss, dass JavaScript heruntergeladen und ausgeführt wird, um diese Schaltflächen interaktiv zu machen.
+Historisch gesehen erforderte die Erstellung dieser Art von Steuerungen das Hinzufügen von JavaScript-Event-Listenern zur Schaltfläche, die dann die APIs auf dem Element aufrufen können, das sie steuern. Die Eigenschaften [`commandForElement`](/de/docs/Web/API/HTMLButtonElement/commandForElement) und [`command`](/de/docs/Web/API/HTMLButtonElement/command) bieten eine Möglichkeit, dies deklarativ für eine begrenzte Anzahl von Aktionen zu tun. Dies kann für integrierte Befehle von Vorteil sein, da der Benutzer nicht darauf warten muss, dass JavaScript heruntergeladen und ausgeführt wird, um diese Schaltflächen interaktiv zu machen.
 
 ## HTML-Attribute
 
-- [`commandfor`](/de/docs/Web/HTML/Element/button#commandfor) {{experimental_inline}}
+- [`commandfor`](/de/docs/Web/HTML/Reference/Elements/button#commandfor) {{experimental_inline}}
   - : Wandelt ein {{htmlelement("button")}}-Element in eine Schaltfläche um, die das angegebene interaktive Element steuert; nimmt die ID des zu steuernden Elements als Wert.
-- [`command`](/de/docs/Web/HTML/Element/button#command) {{experimental_inline}}
-  - : Gibt die Aktion an, die auf einem durch eine Steuerungs-`<button>` gesteuerten Element ausgeführt werden soll, spezifiziert über das `commandfor`-Attribut.
+- [`command`](/de/docs/Web/HTML/Reference/Elements/button#command) {{experimental_inline}}
+  - : Gibt die Aktion an, die auf einem Element, das durch eine Steuer-`<button>`-Element gesteuert wird, ausgeführt werden soll, und wird über das `commandfor`-Attribut spezifiziert.
 
 ## Schnittstellen
 
 - [`CommandEvent`](/de/docs/Web/API/CommandEvent) {{experimental_inline}}
-  - : Stellt ein Ereignis dar, das den Benutzer darüber informiert, dass ein Befehl ausgegeben wurde. Es ist das Ereignisobjekt für das [`command`](/de/docs/Web/API/HTMLElement/command_event)-Ereignis. Das Ereignis wird auf dem Element ausgelöst, das durch [`commandForElement`](/de/docs/Web/API/HTMLButtonElement/commandForElement) referenziert wird.
+  - : Stellt ein Ereignis dar, das den Benutzer darüber informiert, dass ein Befehl ausgegeben wurde. Es ist das Ereignisobjekt für das [`command`](/de/docs/Web/API/HTMLElement/command_event) Ereignis. Das Ereignis wird auf dem durch [`commandForElement`](/de/docs/Web/API/HTMLButtonElement/commandForElement) referenzierten Element ausgelöst.
 
-## Erweiterungen zu anderen Schnittstellen
+## Erweiterungen für andere Schnittstellen
 
 ### Instanzeigenschaften
 
 - [`HTMLButtonElement.commandForElement`](/de/docs/Web/API/HTMLButtonElement/commandForElement)
-  - : Holt und setzt das von der Schaltfläche gesteuerte Element. Das JavaScript-Äquivalent des HTML-Attributs [`commandfor`](/de/docs/Web/HTML/Element/button#commandfor).
+  - : Ruft das durch die Schaltfläche gesteuerte Element ab und legt es fest. Das JavaScript-Äquivalent des HTML-Attributs [`commandfor`](/de/docs/Web/HTML/Reference/Elements/button#commandfor).
 - [`HTMLButtonElement.command`](/de/docs/Web/API/HTMLButtonElement/command)
-  - : Holt und setzt die Aktion, die auf dem von der Schaltfläche gesteuerten Element ausgeführt werden soll. Spiegelt den Wert des HTML-Attributs [`command`](/de/docs/Web/HTML/Element/button#command) wider.
+  - : Ruft die Aktion ab und legt sie fest, die auf dem durch die Schaltfläche gesteuerten Element ausgeführt werden soll. Bildet den Wert des HTML-Attributs [`command`](/de/docs/Web/HTML/Reference/Elements/button#command) ab.
 
 ### Ereignisse
 

@@ -3,20 +3,20 @@ title: "HTMLFormElement: relList-Eigenschaft"
 short-title: relList
 slug: Web/API/HTMLFormElement/relList
 l10n:
-  sourceCommit: b6a1290ec691116f79e10df990f9cee55c6991d2
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die schreibgeschützte Eigenschaft **`relList`** des [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement)-Interfaces spiegelt das [`rel`](/de/docs/Web/HTML/Attributes/rel)-Attribut wider. Es handelt sich um eine dynamische [`DOMTokenList`](/de/docs/Web/API/DOMTokenList), die die Menge von Link-Typen enthält, welche die Beziehung zwischen der Ressource, die durch das {{HTMLElement("form")}}-Element repräsentiert wird, und dem aktuellen Dokument angeben.
+Die **`relList`**-Schreibgeschützte Eigenschaft der [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement)-Schnittstelle spiegelt das [`rel`](/de/docs/Web/HTML/Reference/Attributes/rel)-Attribut wider. Es handelt sich um eine live-[`DOMTokenList`](/de/docs/Web/API/DOMTokenList), die den Satz von Linktypen enthält, der die Beziehung zwischen der durch das {{HTMLElement("form")}}-Element dargestellten Ressource und dem aktuellen Dokument angibt.
 
 Die Eigenschaft selbst ist schreibgeschützt, was bedeutet, dass Sie die Eigenschaft nicht mit einer anderen [`DOMTokenList`](/de/docs/Web/API/DOMTokenList) neu zuweisen können, aber der Inhalt der zurückgegebenen Liste kann geändert werden.
 
-Um einen String mit den Werten als leerzeichengetrennte Tokens zu erhalten, verwenden Sie [`HTMLFormElement.rel`](/de/docs/Web/API/HTMLFormElement/rel). Die `rel`-Eigenschaft kann auch verwendet werden, um den Wert des `rel`-Attributs festzulegen.
+Um eine Zeichenkette mit den Werten als leerzeichengetrennte Tokens abzurufen, verwenden Sie [`HTMLFormElement.rel`](/de/docs/Web/API/HTMLFormElement/rel). Die `rel`-Eigenschaft kann auch verwendet werden, um den `rel`-Attributwert festzulegen.
 
 ## Wert
 
-Eine dynamische [`DOMTokenList`](/de/docs/Web/API/DOMTokenList) von Strings.
+Eine live-[`DOMTokenList`](/de/docs/Web/API/DOMTokenList) von Zeichenfolgen.
 
 ## Beispiele
 

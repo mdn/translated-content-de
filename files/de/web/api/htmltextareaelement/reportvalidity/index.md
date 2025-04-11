@@ -1,14 +1,14 @@
 ---
-title: "HTMLTextAreaElement: reportValidity()-Methode"
+title: "HTMLTextAreaElement: reportValidity() Methode"
 short-title: reportValidity()
 slug: Web/API/HTMLTextAreaElement/reportValidity
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`reportValidity()`**-Methode des [`HTMLTextAreaElement`](/de/docs/Web/API/HTMLTextAreaElement)-Interfaces führt die gleichen Gültigkeitsüberprüfungen durch wie die [`checkValidity()`](/de/docs/Web/API/HTMLTextAreaElement/checkValidity)-Methode. Zusätzlich zeigt der Browser dem Benutzer das Problem an, wenn das [`invalid`](/de/docs/Web/API/HTMLInputElement/invalid_event)-Ereignis nicht abgebrochen wird.
+Die **`reportValidity()`** Methode des [`HTMLTextAreaElement`](/de/docs/Web/API/HTMLTextAreaElement) Interfaces führt dieselben Gültigkeitsprüfschritte aus wie die [`checkValidity()`](/de/docs/Web/API/HTMLTextAreaElement/checkValidity) Methode. Zusätzlich zeigt der Browser das Problem dem Benutzer an, sofern das [`invalid`](/de/docs/Web/API/HTMLInputElement/invalid_event) Ereignis nicht abgebrochen wird.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ Keine.
 
 ### Rückgabewert
 
-Gibt `true` zurück, wenn der Wert des Elements keine Gültigkeitsprobleme aufweist; andernfalls gibt er `false` zurück.
+Gibt `true` zurück, wenn der Wert des Elements keine Gültigkeitsprobleme aufweist; andernfalls wird `false` zurückgegeben.
 
 ## Spezifikationen
 
@@ -38,5 +38,5 @@ Gibt `true` zurück, wenn der Wert des Elements keine Gültigkeitsprobleme aufwe
 - {{HTMLElement("textarea")}}
 - {{HTMLElement("form")}}
 - [Lernen: Client-seitige Formularvalidierung](/de/docs/Learn_web_development/Extensions/Forms/Form_validation)
-- [Leitfaden: Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation)
-- CSS {{cssxref(":valid")}} und {{cssxref(":invalid")}} Pseudoklassen
+- [Leitfaden: Einschränkungsvalidierung](/de/docs/Web/HTML/Guides/Constraint_validation)
+- CSS {{cssxref(":valid")}} und {{cssxref(":invalid")}} Pseudo-Klassen

@@ -3,12 +3,12 @@ title: "HTMLButtonElement: willValidate-Eigenschaft"
 short-title: willValidate
 slug: Web/API/HTMLButtonElement/willValidate
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`willValidate`**-Eigenschaft (nur lesbar) des [`HTMLButtonElement`](/de/docs/Web/API/HTMLButtonElement)-Interfaces zeigt an, ob das {{htmlelement("button")}}-Element ein Kandidat für die [Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation) ist. Sie ist `false`, wenn Bedingungen bestehen, die es von der Einschränkungsvalidierung ausschließen, einschließlich:
+Die schreibgeschützte **`willValidate`**-Eigenschaft des [`HTMLButtonElement`](/de/docs/Web/API/HTMLButtonElement)-Interfaces zeigt an, ob das {{htmlelement("button")}}-Element ein Kandidat für die [Constraint-Validierung](/de/docs/Web/HTML/Guides/Constraint_validation) ist. Sie ist `false`, wenn eine der folgenden Bedingungen es von der Constraint-Validierung ausschließt:
 
 - Sein [`type`](/de/docs/Web/API/HTMLButtonElement/type) ist `reset` oder `button`;
 - Es hat einen {{HTMLElement("datalist")}}-Vorfahren;
@@ -31,5 +31,5 @@ Ein boolescher Wert.
 - [`HTMLButtonElement.checkValidity()`](/de/docs/Web/API/HTMLButtonElement/checkValidity)
 - {{HTMLElement("button")}}
 - {{HTMLElement("form")}}
-- [Lernen: Client-seitige Formularvalidierung](/de/docs/Learn_web_development/Extensions/Forms/Form_validation)
-- [Leitfaden: Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation)
+- [Erlernen: Client-seitige Formularvalidierung](/de/docs/Learn_web_development/Extensions/Forms/Form_validation)
+- [Leitfaden: Constraint-Validierung](/de/docs/Web/HTML/Guides/Constraint_validation)

@@ -1,25 +1,25 @@
 ---
-title: Timing element visibility with the Intersection Observer API
+title: Element-Sichtbarkeit mit der Intersection Observer API zeitlich steuern
 slug: Web/API/Intersection_Observer_API/Timing_element_visibility
 l10n:
-  sourceCommit: b795bc99fc5c5d8a96c1b202a12750404085c28a
+  sourceCommit: 960a94a198ca60fb04fe63857ea61d7306465791
 ---
 
 {{DefaultAPISidebar("Intersection Observer API")}}
 
-In diesem Artikel erstellen wir einen Mock-Blog, der eine Reihe von Anzeigen enthält, die über die Inhalte der Seite verteilt sind. Anschließend nutzen wir die [Intersection Observer API](/de/docs/Web/API/Intersection_Observer_API), um zu verfolgen, wie lange jede Anzeige für den Benutzer sichtbar ist. Wenn eine Anzeige eine sichtbare Zeit von einer Minute überschreitet, wird sie durch eine neue ersetzt.
+In diesem Artikel erstellen wir einen fiktiven Blog, der mehrere Anzeigen zwischen den Inhaltsbereichen der Seite platziert. Dann verwenden wir die [Intersection Observer API](/de/docs/Web/API/Intersection_Observer_API), um zu verfolgen, wie lange jede Anzeige für den Benutzer sichtbar ist. Sobald eine Anzeige mehr als eine Minute sichtbar war, wird sie durch eine neue ersetzt.
 
-Obwohl viele Aspekte dieses Beispiels nicht der realen Nutzung entsprechen (insbesondere verwenden alle Artikel denselben Text und werden nicht aus einer Datenbank geladen, und es gibt nur eine Handvoll einfacher textbasierter Anzeigen, die aus einem Array ausgewählt werden), sollte dies genug Verständnis der API vermitteln, um schnell zu lernen, wie man die Intersection Observer API auf Ihrer eigenen Website anwendet.
+Obwohl viele Aspekte dieses Beispiels nicht der realen Nutzung entsprechen (insbesondere haben alle Artikel denselben Text und werden nicht aus einer Datenbank geladen, und es gibt nur einige wenige einfache Textanzeigen, die aus einem Array ausgewählt werden), sollte dies ausreichen, um ein Verständnis der API zu erlangen und schnell zu lernen, wie man die Intersection Observer API auf Ihrer eigenen Seite anwendet.
 
-Es gibt einen guten Grund, warum das Konzept der Verfolgung der Sichtbarkeit von Anzeigen in diesem Beispiel verwendet wird. Es stellt sich heraus, dass eine der häufigsten Verwendungen von Flash oder anderen Skripten in der Web-Werbung darin besteht, die Sichtbarkeitsdauer jeder Anzeige zu protokollieren, um Abrechnung und Einnahmenzahlungen zu steuern. Ohne die Intersection Observer API wird dies in der Regel mithilfe von Intervallen und Timeouts für jede einzelne Anzeige durchgeführt oder mit anderen Techniken, die dazu neigen, die Seite zu verlangsamen. Mit dieser API kann alles vom Browser optimiert werden, um den Einfluss auf die Leistung erheblich zu reduzieren.
+Es gibt einen guten Grund, warum in diesem Beispiel die Sichtbarkeit von Anzeigen verfolgt wird. Es stellt sich heraus, dass eine der häufigsten Verwendungen von Flash oder anderen Skripten in der Werbung im Web darin besteht, aufzuzeichnen, wie lange jede Anzeige sichtbar ist, um die Abrechnung und Zahlung von Einnahmen zu ermöglichen. Ohne die Intersection Observer API wird dies in der Regel mit Intervallen und Zeitüberschreitungen für jede einzelne Anzeige durchgeführt oder mittels anderer Techniken, die die Seite verlangsamen können. Mit dieser API wird alles vom Browser optimiert, um den Einfluss auf die Leistung erheblich zu reduzieren.
 
 Lassen Sie uns beginnen!
 
-## Erstellen der Website
+## Aufbau der Seite
 
 ### Seitenstruktur: Das HTML
 
-Die Seitenstruktur ist nicht allzu kompliziert. Wir werden [CSS Grid](/de/docs/Web/CSS/CSS_grid_layout) verwenden, um die Seite zu stylen und zu layouten, daher können wir hier relativ einfach vorgehen:
+Die Struktur der Seite ist nicht zu kompliziert. Wir verwenden [CSS Grid](/de/docs/Web/CSS/CSS_grid_layout) zum Stylen und Layouten der Seite, daher können wir es hier ziemlich einfach halten:
 
 ```html
 <div class="wrapper">
@@ -42,17 +42,17 @@ Die Seitenstruktur ist nicht allzu kompliziert. Wir werden [CSS Grid](/de/docs/W
 </div>
 ```
 
-Dies ist das Grundgerüst für die gesamte Website. Oben befindet sich der Kopfbereich der Seite, der in einem {{HTMLElement("header")}}-Block enthalten ist. Darunter definieren wir die Seitenleiste der Website als eine Liste von Links innerhalb eines {{HTMLElement("aside")}}-Blocks.
+Dies ist das Grundgerüst der gesamten Seite. Oben befindet sich der Header-Bereich der Seite, eingeschlossen in einem {{HTMLElement("header")}} Block. Darunter definieren wir die Seitenleiste als eine Liste von Links innerhalb eines {{HTMLElement("aside")}} Blocks.
 
-Zuletzt kommt der Hauptteil. Wir beginnen hier mit einem leeren {{HTMLElement("main")}}-Element. Dieses Feld wird später mithilfe von Skripten gefüllt.
+Schließlich kommt der Hauptteil. Wir beginnen hier mit einem leeren {{HTMLElement("main")}} Element. Diese Box wird später mittels Skript befüllt.
 
-### Die Seite mit CSS stylen
+### Styling der Seite mit CSS
 
-Mit der definierten Struktur der Seite wenden wir uns nun dem Styling der Seite zu. Lassen Sie uns den Stil für jede Komponente der Seite einzeln betrachten.
+Mit der definierten Struktur der Seite wenden wir uns nun dem Styling zu. Schauen wir uns den Stil für jedes Komponente der Seite einzeln an.
 
 #### Die Grundlagen
 
-Wir bieten Stile für die Elemente {{HTMLElement("body")}} und {{HTMLElement("main")}}, um den Hintergrund der Website sowie das Raster zu definieren, in dem die verschiedenen Teile der Seite platziert werden.
+Wir legen Stile für die {{HTMLElement("body")}} und {{HTMLElement("main")}} Elemente fest, um den Hintergrund der Seite sowie das Raster, in dem die verschiedenen Teile der Seite platziert werden, zu definieren.
 
 ```css
 body {
@@ -70,17 +70,17 @@ body {
 }
 ```
 
-Das {{HTMLElement("body")}} der Website ist hier so konfiguriert, dass es eine der gängigen sans-serif-Schriftarten verwendet und `"aliceblue"` als Hintergrundfarbe festgelegt bekommt. Dann wird die Klasse `"wrapper"` definiert; sie umfasst den gesamten Blog, einschließlich des Headers, der Seitenleiste und des Hauptinhalts (Artikel und Anzeigen).
+Das {{HTMLElement("body")}} der Seite wird so konfiguriert, dass es eine der gebräuchlichen serifenlosen Schriftarten verwendet und `"aliceblue"` als Hintergrundfarbe setzt. Dann wird die `"wrapper"` Klasse definiert; sie umschließt den gesamten Blog, einschließlich des Headers, der Seitenleiste und des Hauptinhalts (Artikel und Anzeigen).
 
-Der Wrapper erstellt ein CSS-Raster mit zwei Spalten und zwei Zeilen. Die erste Spalte (automatisch basierend auf ihrem Inhalt dimensioniert) wird für die Seitenleiste verwendet und die zweite Spalte (die für den Hauptinhalt verwendet wird) wird so dimensioniert, dass sie mindestens die Breite des Inhalts der Spalte und höchstens den gesamten verbleibenden verfügbaren Platz einnimmt.
+Der Wrapper stellt ein CSS-Raster mit zwei Spalten und zwei Reihen her. Die erste Spalte (automatisch basierend auf ihrem Inhalt dimensioniert) wird für die Seitenleiste verwendet und die zweite Spalte (die für den Hauptinhalt verwendet wird) wird so dimensioniert, dass sie mindestens so breit wie der Inhalt der Spalte ist und höchstens den verbleibenden verfügbaren Platz einnimmt.
 
-Die erste Zeile wird speziell für den Seitenkopf verwendet. Die Zeilen sind genauso dimensioniert wie die Spalten: die erste wird automatisch dimensioniert und die zweite verwendet den restlichen Platz, jedoch mindestens so viel Platz, um Raum für alle darin enthaltenen Elemente zu bieten.
+Die erste Reihe wird speziell für den Seitenheader verwendet. Die Reihen werden auf die gleiche Weise wie die Spalten dimensioniert: die erste wird automatisch dimensioniert und die zweite nutzt den verbleibenden Platz, aber zumindest genug, um Platz für alle darin enthaltenen Elemente zu schaffen.
 
-Die Breite des Wrappers ist auf 700px festgelegt, damit er in den verfügbaren Raum passt, wenn er inline auf MDN unten dargestellt wird.
+Die Breite des Wrappers ist auf 700px festgelegt, sodass er in den verfügbaren Raum passt, wenn er inline auf MDN dargestellt wird.
 
 #### Der Header
 
-Der Header ist ziemlich einfach, da er in diesem Beispiel nur etwas Text enthält. Sein Stil sieht folgendermaßen aus:
+Der Header ist ziemlich einfach, da in diesem Beispiel nur etwas Text enthalten ist. Sein Stil sieht folgendermaßen aus:
 
 ```css
 header {
@@ -90,11 +90,11 @@ header {
 }
 ```
 
-{{cssxref("grid-row")}} ist auf 1 gesetzt, da wir den Header in der oberen Zeile des Rasters der Seite platzieren möchten. Interessanter ist unsere Verwendung von {{cssxref("grid-column")}} hier; hier geben wir an, dass wir möchten, dass die Spalte in der ersten Spalte beginnt und in der Spalte hinter der letzten Rasterlinie endet—in anderen Worten, der Header spannt sich über alle Spalten im Raster. Perfekt für unsere Bedürfnisse.
+{{cssxref("grid-row")}} ist auf 1 gesetzt, da wir möchten, dass der Header in der obersten Reihe des Seitengitters platziert wird. Interessanter ist die Nutzung von {{cssxref("grid-column")}} hier; hier geben wir an, dass wir möchten, dass die Spalte in der ersten Spalte startet und in der ersten Spalte nach der letzten Gitterlinie endet—mit anderen Worten, der Header erstreckt sich über alle Spalten innerhalb des Gitters. Perfekt für unsere Zwecke.
 
 #### Die Seitenleiste
 
-Unsere Seitenleiste wird verwendet, um Links zu anderen Seiten auf der Website zu präsentieren. Keiner von ihnen funktioniert in unserem Beispiel hier, aber sie sind vorhanden, um mit der Präsentation eines blogähnlichen Erlebnisses zu helfen. Die Seitenleiste wird mithilfe eines {{HTMLElement("aside")}}-Elements dargestellt und ist wie folgt gestylt:
+Unsere Seitenleiste wird verwendet, um Links zu anderen Seiten auf der Website zu präsentieren. In unserem Beispiel funktionieren sie nicht, aber sie existieren, um bei der Darstellung eines blog-ähnlichen Erlebnisses zu helfen. Die Seitenleiste wird durch ein {{HTMLElement("aside")}} Element dargestellt und wie folgt gestylt:
 
 ```css
 aside {
@@ -117,11 +117,11 @@ aside ul li a {
 }
 ```
 
-Das Wichtigste, das hier zu beachten ist, ist, dass {{cssxref("grid-column")}} auf 1 gesetzt ist, um die Seitenleiste auf der linken Seite des Bildschirms zu platzieren. Wenn Sie dies auf -1 ändern, erscheint sie auf der rechten Seite (obwohl einige andere Elemente leichte Anpassungen an ihren Rändern benötigen, um die Abstände korrekt einzustellen). {{cssxref("grid-row")}} ist auf 2 gesetzt, um es neben dem Inhaltsbereich der Seite zu platzieren.
+Das Wichtigste hier zu beachten ist, dass die {{cssxref("grid-column")}} auf 1 gesetzt ist, um die Seitenleiste auf der linken Seite des Bildschirms zu platzieren. Wenn Sie dies auf -1 ändern, erscheint sie auf der rechten Seite (obwohl einige andere Elemente einige Anpassungen an ihren Rändern benötigen, um den Abstand genau richtig zu setzen). Die {{cssxref("grid-row")}} ist auf 2 gesetzt, um sie neben den Hauptkörper der Seite zu platzieren.
 
-#### Der Inhaltsbereich
+#### Der Hauptinhalt
 
-Apropos das Inhaltsfeld der Seite: Der Hauptinhalt der Seite wird in einem {{HTMLElement("main")}}-Element gehalten. Folgender Stil wird darauf angewendet:
+Was den Hauptteil der Seite betrifft: der Hauptinhalt der Seite wird in einem {{HTMLElement("main")}} Element gehalten. Der folgende Stil wird darauf angewendet:
 
 ```css
 main {
@@ -133,11 +133,11 @@ main {
 }
 ```
 
-Das Hauptmerkmal hier ist, dass die Rasterposition gesetzt ist, um den Hauptinhalt in Spalte 2, Zeile 2 zu platzieren.
+Das Hauptelement hier ist, dass die Gitterposition festgelegt ist, um den Hauptinhalt in Spalte 2, Reihe 2 zu platzieren.
 
 #### Artikel
 
-Jeder Artikel ist in einem {{HTMLElement("article")}}-Element enthalten, das wie folgt gestylt ist:
+Jeder Artikel ist in einem {{HTMLElement("article")}} Element enthalten, das folgendermaßen gestylt ist:
 
 ```css
 article {
@@ -154,11 +154,11 @@ article h2 {
 }
 ```
 
-Dies erzeugt Artikelkästen mit einem weißen Hintergrund, die auf dem blauen Hintergrund schwimmen, mit einem kleinen Rand um den Artikel. Jeder Artikel, der nicht das letzte Element im Container ist, hat einen unteren Rand von 8 Pixeln, um die Dinge zu eröffnen.
+Dies erstellt Artikelfenster mit einem weißen Hintergrund, die auf dem blauen Hintergrund schweben, mit einem kleinen Rand um den Artikel. Jeder Artikel, der nicht das letzte Element im Container ist, hat einen 8px unteren Rand, um die Dinge auseinanderzuhalten.
 
 #### Anzeigen
 
-Schließlich haben die Anzeigen das folgende ursprüngliche Styling. Einzelne Anzeigen können den Stil etwas anpassen, wie wir später sehen werden.
+Schließlich haben die Anzeigen das folgende anfängliche Styling. Einzelne Anzeigen können den Stil teilweise anpassen, wie wir später sehen werden.
 
 ```css
 .ad {
@@ -190,11 +190,11 @@ Schließlich haben die Anzeigen das folgende ursprüngliche Styling. Einzelne An
 }
 ```
 
-Hier ist nichts Magisches. Es ist ziemlich einfaches CSS.
+Es gibt hier nichts Magisches. Es ist ziemlich grundlegendes CSS.
 
-### Alles mit JavaScript verknüpfen
+### Verknüpfen mit JavaScript
 
-Das bringt uns zu dem JavaScript-Code, der alles zum Laufen bringt. Beginnen wir mit den globalen Variablen:
+Das bringt uns zum JavaScript-Code, der alles zum Laufen bringt. Beginnen wir mit den globalen Variablen:
 
 ```js
 let contentBox;
@@ -210,21 +210,21 @@ let refreshIntervalID = 0;
 Diese werden wie folgt verwendet:
 
 - `contentBox`
-  - : Eine Referenz auf das Objekt des {{HTMLElement("main")}}-Elements im DOM. Hier werden wir die Artikel und Anzeigen einfügen.
+  - : Eine Referenz auf das {{HTMLElement("main")}} Element im DOM. Hier werden wir die Artikel und Anzeigen einfügen.
 - `nextArticleID`
-  - : Jeder Artikel erhält eine eindeutige ID-Nummer; diese Variable verfolgt die nächste zu verwendende ID, beginnend mit 1.
+  - : Jedem Artikel wird eine eindeutige ID-Nummer zugewiesen; diese Variable verfolgt die nächste zu verwendende ID, beginnend mit 1.
 - `visibleAds`
-  - : Ein {{jsxref("Set")}}, der verwendet wird, um die Anzeigen zu verfolgen, die derzeit auf dem Bildschirm sichtbar sind.
+  - : Ein {{jsxref("Set")}}, das wir verwenden, um die derzeit auf dem Bildschirm sichtbaren Anzeigen zu verfolgen.
 - `previouslyVisibleAds`
-  - : Dient zur temporären Speicherung der Liste sichtbarer Anzeigen, während das Dokument nicht sichtbar ist (zum Beispiel, wenn der Benutzer zu einer anderen Seite gewechselt hat).
+  - : Wird verwendet, um die Liste der sichtbaren Anzeigen vorübergehend zu speichern, während das Dokument nicht sichtbar ist (zum Beispiel, wenn der Benutzer zu einer anderen Seite gewechselt hat).
 - `adObserver`
-  - : Wird unseren [`IntersectionObserver`](/de/docs/Web/API/IntersectionObserver) halten, der die Schnittstelle zwischen den Anzeigen und den Abmessungen des `<main>`-Elements verfolgt.
+  - : Wird unseren [`IntersectionObserver`](/de/docs/Web/API/IntersectionObserver) halten, der die Schnittmenge zwischen den Anzeigen und den Grenzen des `<main>` Elements verfolgt.
 - `refreshIntervalID`
-  - : Wird verwendet, um die von [`setInterval()`](/de/docs/Web/API/Window/setInterval) zurückgegebene Intervall-ID zu speichern. Dieses Intervall wird verwendet, um unsere regelmäßigen Aktualisierungen des Anzeigeinhalts auszulösen.
+  - : Wird verwendet, um die Intervall-ID zu speichern, die von [`setInterval()`](/de/docs/Web/API/Window/setInterval) zurückgegeben wird. Dieses Intervall wird verwendet, um unsere periodischen Aktualisierungen des Anzeigeninhalts auszulösen.
 
-#### Einrichten
+#### Einrichtung
 
-Um alles einzurichten, führen wir die Funktion `startup()` aus, wenn die Seite geladen wird:
+Um alles einzurichten, führen wir die `startup()` Funktion unten aus, wenn die Seite geladen wird:
 
 ```js
 window.addEventListener("load", startup, false);
@@ -247,19 +247,19 @@ function startup() {
 }
 ```
 
-Zuerst wird eine Referenz auf das Wrapping-Element {{HTMLElement("main")}} im Inhalt erhalten, sodass wir unseren Inhalt darin einfügen können. Dann richten wir einen Event-Listener für das [`visibilitychange`](/de/docs/Web/API/Document/visibilitychange_event)-Ereignis ein. Dieses Ereignis wird gesendet, wenn das Dokument ausgeblendet oder sichtbar wird, z.B. wenn der Benutzer die Tabs im Browser wechselt. Die Intersection Observer API berücksichtigt dies nicht, wenn sie die Schnittstelle erkennt, da die Schnittstelle nicht von der Sichtbarkeit der Seite beeinflusst wird. Daher müssen wir unsere Timer anhalten, während die Seite nicht betrachte;, daher dieser Ereignis-Listener.
+Zuerst wird eine Referenz auf das `contentBox` Element erhalten, sodass wir darin unsere Inhalte einfügen können. Dann richten wir einen Event Listener für das [`visibilitychange`](/de/docs/Web/API/Document/visibilitychange_event) Ereignis ein. Dieses Ereignis wird gesendet, wenn das Dokument verborgen oder sichtbar wird, wie wenn der Benutzer in seinem Browser die Tabs wechselt. Die Intersection Observer API berücksichtigt dies nicht beim Erkennen von Schnittmengen, da Schnittmengen nicht von der Sichtbarkeit der Seite beeinflusst werden. Daher müssen wir unsere Timer anhalten, während die Seite ausgeblendet ist; daher dieser Event Listener.
 
-Als nächstes richten wir die Optionen für den [`IntersectionObserver`](/de/docs/Web/API/IntersectionObserver) ein, die die Zielelemente (in unserem Fall Anzeigen) auf Schnittstellenänderungen im Vergleich zum Dokument überwacht. Die Optionen sind so konfiguriert, dass sie Überkreuzungen mit dem Viewport des Dokuments überwachen (indem `root` auf `null` gesetzt wird). Wir haben keine Ränder, um das Rechteck der Schnittstellenwurzel zu erweitern oder zu verkleinern; wir wollen für die Schnittstellenzwecke genau die Grenzen des Viewports des Dokuments treffen. Und der `threshold` ist auf ein Array gesetzt, das die Werte 0.0 und 0.75 enthält; dies wird unseren Rückruf immer dann ausführen, wenn ein gezieltes Element vollständig verdeckt oder erstmals sichtbar wird (Schnittstellenverhältnis 0.0) oder in beide Richtungen mehr als 75% sichtbar wird (Schnittstellenverhältnis 0.75).
+Als nächstes richten wir die Optionen für den [`IntersectionObserver`](/de/docs/Web/API/IntersectionObserver) ein, der die Zielelemente (in unserem Fall Anzeigen) auf Änderungen der Schnittmenge mit dem Dokument überwachen wird. Die Optionen sind so konfiguriert, dass sie Schnittmengen mit der Ansicht des Dokuments überwachen (indem `root` auf `null` gesetzt wird). Wir haben keine Ränder, um das Rechteck des Übersichtspunktes zu erweitern oder zu verkleinern; wir möchten die Grenzen der Dokumentenansicht für Schnittzwecke genau treffen. Und das `threshold` ist auf ein Array mit den Werten 0.0 und 0.75 gesetzt; dies lässt unseren Callback jedes Mal ausführen, wenn ein Zielobjekt vollständig verdeckt wird oder zum ersten Mal beginnt, sichtbar zu werden (Schnittverhältnis 0.0) oder 75% sichtbar in irgendeiner Richtung durchläuft (Schnittverhältnis 0.75).
 
-Der Observer, `adObserver`, wird erstellt, indem der Konstruktor von `IntersectionObserver` mit der Rückruffunktion `intersectionCallback` und unseren Optionen aufgerufen wird.
+Der Beobachter, `adObserver`, wird als Ergebnis des Aufrufs des Konstruktors von `IntersectionObserver` erstellt, wobei die Callback-Funktion, `intersectionCallback`, und unsere Optionen übergeben werden.
 
-Dann rufen wir eine Funktion `buildContents()` auf, die wir später definieren, um tatsächlich die Artikel und Anzeigen zu generieren und in das Dokument einzufügen, die wir präsentieren möchten.
+Wir rufen dann eine Funktion `buildContents()` auf, die wir später definieren werden, um in das Dokument die Artikel und Anzeigen zu generieren und einzufügen, die wir präsentieren möchten.
 
-Schließlich richten wir ein Intervall ein, das einmal pro Sekunde ausgelöst wird, um alle notwendigen Aktualisierungen durchzuführen. Wir benötigen ein Refresh pro Sekunde, da wir in diesem Beispiel Timer in allen sichtbaren Anzeigen anzeigen. Möglicherweise benötigen Sie überhaupt kein Intervall oder richten es anders oder mit einem anderen Zeitintervall ein.
+Schließlich richten wir ein Intervall ein, das einmal pro Sekunde ausgelöst wird, um alle notwendigen Aktualisierungen durchzuführen. Wir benötigen eine einmal pro Sekunde Aktualisierung, da wir Timer in allen sichtbaren Anzeigen für die Zwecke dieses Beispiels anzeigen. Möglicherweise benötigen Sie gar kein Intervall, oder Sie könnten es anders oder mit einem anderen Zeitintervall tun.
 
-#### Umgang mit Sichtbarkeitsänderungen des Dokuments
+#### Umgang mit Sichtbarkeitsänderungen im Dokument
 
-Schauen wir uns den Handler für das [`visibilitychange`](/de/docs/Web/API/Document/visibilitychange_event)-Ereignis an. Unser Skript erhält dieses Ereignis, wenn das Dokument selbst sichtbar oder unsichtbar wird. Das wichtigste Szenario hier ist, wenn der Benutzer zwischen Tabs wechselt. Da der Intersection Observer nur an der Schnittstelle zwischen den gezielten Elementen und der Schnittstellenwurzel interessiert ist und nicht an der Sichtbarkeit der Tab (was ein völlig anderes Problem ist), müssen wir die [Page Visibility API](/de/docs/Web/API/Page_Visibility_API) verwenden, um diese Tab-Wechsel zu erkennen und unsere Timer für deren Dauer zu deaktivieren.
+Schauen wir uns den Handler für das [`visibilitychange`](/de/docs/Web/API/Document/visibilitychange_event) Ereignis an. Unser Skript erhält dieses Ereignis, wenn das Dokument selbst sichtbar oder unsichtbar wird. Das wichtigste Szenario hier ist, wenn der Benutzer die Tabs wechselt. Da der Intersection Observer nur an der Schnittmenge zwischen den Zielobjekten und dem Schnittwurzel interessiert ist und nicht an der Sichtbarkeit des Tabs (was ein völlig anderes Problem ist), müssen wir die [Page Visibility API](/de/docs/Web/API/Page_Visibility_API) verwenden, um diese Tab-Wechsel zu erkennen und unsere Timer für die Dauer zu deaktivieren.
 
 ```js
 function handleVisibilityChange() {
@@ -282,15 +282,15 @@ function handleVisibilityChange() {
 }
 ```
 
-Da das Ereignis selbst nicht angibt, ob das Dokument von sichtbar zu unsichtbar gewechselt hat oder umgekehrt, wird die [`document.hidden`](/de/docs/Web/API/Document/hidden)-Eigenschaft überprüft, um festzustellen, ob das Dokument derzeit nicht sichtbar ist. Da es theoretisch möglich ist, dass wir bei mehreren Anrufen benachrichtigt werden, fahren wir nur fort, wenn wir die Timer noch nicht angehalten und die Sichtbarkeitszustände der bestehenden Anzeigen gespeichert haben.
+Da das Ereignis selbst nicht angibt, ob das Dokument von sichtbar zu unsichtbar oder umgekehrt gewechselt hat, wird die [`document.hidden`](/de/docs/Web/API/Document/hidden) Eigenschaft überprüft, um zu sehen, ob das Dokument derzeit nicht sichtbar ist. Da es theoretisch möglich ist, mehrmals aufgerufen zu werden, fahren wir nur fort, wenn die Timer noch nicht angehalten und die Sichtbarkeitszustände der bestehenden Anzeigen noch nicht gespeichert wurden.
 
-Um die Timer anzuhalten, müssen wir nur die Anzeigen aus dem Set der sichtbaren Anzeigen (`visibleAds`) entfernen und sie als inaktiv markieren. Um dies zu tun, beginnen wir mit dem Speichern des Sets der sichtbaren Anzeigen in einer Variable namens `previouslyVisibleAds`, um sicherzustellen, dass wir sie wiederherstellen können, wenn der Benutzer auf das Dokument zurückwechselt, und leeren dann das `visibleAds`-Set, sodass sie nicht als sichtbar behandelt werden. Anschließend rufen wir für jede Anzeige, die ausgesetzt wird, unsere `updateAdTimer()`-Funktion auf, die das Aktualisieren des gesamten sichtbaren Zeitzählers der Anzeige übernimmt. Danach setzen wir ihre `dataset.lastViewStarted`-Eigenschaft auf 0, was anzeigt, dass der Timer der Anzeige nicht läuft.
+Um die Timer anzuhalten, müssen wir die Anzeigen nur aus dem Set der sichtbaren Anzeigen (`visibleAds`) entfernen und sie als inaktiv markieren. Um dies zu tun, speichern wir zunächst das Set der sichtbaren Anzeigen in einer Variablen namens `previouslyVisibleAds`, um sicherzustellen, dass wir sie wiederherstellen können, wenn der Benutzer wieder zum Dokument wechselt, und dann leeren wir das `visibleAds` Set, damit sie nicht als sichtbar behandelt werden. Dann, für jede der Anzeigen, die ausgesetzt werden, rufen wir unsere `updateAdTimer()` Funktion auf, die den Gesamt-Sichtbarkeitszähler der Anzeige aktualisiert, dann setzen wir das `dataset.lastViewStarted` Attribut ihrer Anzeigenelemente auf 0, was anzeigt, dass der Tab Timer nicht läuft.
 
-Wenn das Dokument gerade sichtbar geworden ist, kehren wir diesen Prozess um: Zuerst gehen wir durch `previouslyVisibleAds` und setzen die `dataset.lastViewStarted` jedes Elements auf die aktuelle Dokumentzeit (in Millisekunden seit der Dokumenterstellung) mit der Methode [`performance.now()`](/de/docs/Web/API/Performance/now). Dann setzen wir `visibleAds` zurück auf `previouslyVisibleAds` und setzen letzteres auf `null`. Nun werden alle Anzeigen neu gestartet und so konfiguriert, dass sie wissen, dass sie zum aktuellen Zeitpunkt sichtbar wurden, sodass sie beim nächsten Update nicht die Dauer addieren, während der die Seite nicht sichtbar war.
+Wenn das Dokument gerade sichtbar geworden ist, führen wir den umgekehrten Prozess durch: zunächst durchlaufen wir `previouslyVisibleAds` und setzen das `dataset.lastViewStarted` Attribut jedes Elements auf die aktuelle Zeit des Dokuments (in Millisekunden seit das Dokument erstellt wurde) mithilfe der [`performance.now()`](/de/docs/Web/API/Performance/now) Methode. Dann setzen wir `visibleAds` auf `previouslyVisibleAds` zurück und setzen Letzteres auf `null`. Jetzt sind alle Anzeigen wieder gestartet und so konfiguriert, dass sie wissen, dass sie zu diesem Zeitpunkt sichtbar wurden, damit sie nicht die Dauer der ausgeblendeten Seite zu ihrem nächsten Update in Betracht ziehen.
 
-#### Umgang mit Schnittstellenänderungen
+#### Umgang mit Schnittmengenänderungen
 
-Einmal pro Durchgang durch die Event-Schleife des Browsers überprüft jeder [`IntersectionObserver`](/de/docs/Web/API/IntersectionObserver), ob einer seiner Ziel-Elemente durch eines der Schnittstellenverhältnisse des Beobachters gegangen ist. Für jeden Beobachter wird eine Liste von Zielen erstellt, die dies getan haben, und an den Rückruf des Observers als Array von [`IntersectionObserverEntry`](/de/docs/Web/API/IntersectionObserverEntry)-Objekten gesendet. Unser Rückruf, `intersectionCallback()`, sieht wie folgt aus:
+Einmal pro Durchlauf der Ereignisschleife des Browsers überprüft jeder [`IntersectionObserver`](/de/docs/Web/API/IntersectionObserver), ob eines seiner Zielobjekte die Schnittverhältnisschwellen des Beobachters überschritten hat. Für jeden Beobachter wird eine Liste von Zielen, die dies getan haben, zusammengestellt und als Array von [`IntersectionObserverEntry`](/de/docs/Web/API/IntersectionObserverEntry) Objekten an den Callback des Beobachters gesendet. Unser Callback, `intersectionCallback()`, sieht folgendermaßen aus:
 
 ```js
 function intersectionCallback(entries) {
@@ -315,13 +315,13 @@ function intersectionCallback(entries) {
 }
 ```
 
-Wie bereits erwähnt, erhält der Rückruf des [`IntersectionObserver`](/de/docs/Web/API/IntersectionObserver) als Eingabe ein Array aller Ziel-Elemente des Beobachters, die entweder mehr oder weniger sichtbar als eines der Schnittstellenbeobachter-Verhältnisse geworden sind. Wir iterieren über jedes dieser Einträge, die vom Typ [`IntersectionObserverEntry`](/de/docs/Web/API/IntersectionObserverEntry) sind. Wenn das Ziel-Element mit der Wurzel übereinstimmt, wissen wir, dass es gerade von einem verdeckten Zustand in den sichtbaren Zustand übergegangen ist. Wenn es mindestens 75% sichtbar geworden ist, betrachten wir die Anzeige als sichtbar und wir starten den Timer, indem wir das Attribut `dataset.lastViewStarted` der Anzeige auf die Übergangszeit in [`entry.time`](/de/docs/Web/API/IntersectionObserverEntry/time) festlegen und die Anzeige anschließend dem Set `visibleAds` hinzufügen, damit wir sie im Laufe der Zeit verarbeiten können.
+Wie bereits erwähnt, erhält der [`IntersectionObserver`](/de/docs/Web/API/IntersectionObserver) Callback als Eingabearray alle Zielobjekte, die sich entweder mehr oder weniger sichtbar als einer der Schnittverhältnisschwellen der Beobachtung bewegt haben. Wir iterieren über die Einträge, die vom Typ [`IntersectionObserverEntry`](/de/docs/Web/API/IntersectionObserverEntry) sind. Wenn das Zielobjekt mit dem Wurzelobjekt überschneidend ist, wissen wir, dass es gerade von einem verdeckten Zustand in den sichtbaren Zustand übergegangen ist. Wenn es mindestens 75% sichtbar geworden ist, dann betrachten wir die Anzeige als sichtbar, und wir starten den Timer, indem wir das `dataset.lastViewStarted` Attribut der Anzeige auf die Übergangszeit in [`entry.time`](/de/docs/Web/API/IntersectionObserverEntry/time) setzen und die Anzeige dem Set `visibleAds` hinzufügen, sodass wir wissen, dass sie im Laufe der Zeit verarbeitet werden muss.
 
-Wenn die Anzeige in einen Zustand von "nicht übereinstimmend" übergegangen ist, entfernen wir sie aus dem Set der sichtbaren Anzeigen. Dann haben wir ein spezielles Verhalten: Wir überprüfen, ob [`entry.intersectionRatio`](/de/docs/Web/API/IntersectionObserverEntry/intersectionRatio) 0.0 ist; das bedeutet, dass das Element vollständig verdeckt wurde. Wenn dies der Fall ist und die Anzeige insgesamt mindestens eine Minute sichtbar war, rufen wir eine Funktion auf, die wir erstellen werden, und benennen sie `replaceAd()`, um die vorhandene Anzeige durch eine neue zu ersetzen. Auf diese Weise sieht der Benutzer im Laufe der Zeit eine Vielzahl von Anzeigen, aber die Anzeigen werden nur dann ersetzt, wenn sie nicht gesehen werden können, was zu einem nahtlosen Erlebnis führt.
+Wenn die Anzeige in den Nicht-Überschneidungs-Zustand übergegangen ist, entfernen wir die Anzeige aus der Menge der sichtbaren Anzeigen. Dann haben wir ein spezielles Verhalten: Wir prüfen, ob [`entry.intersectionRatio`](/de/docs/Web/API/IntersectionObserverEntry/intersectionRatio) gleich 0.0 ist; wenn das der Fall ist, bedeutet das, dass das Element vollständig verdeckt ist. Wenn das der Fall ist, und die Anzeige war insgesamt mindestens eine Minute lang sichtbar, rufen wir eine Funktion auf, die wir `replaceAd()` nennen werden, um die vorhandene Anzeige durch eine neue zu ersetzen. So sieht der Benutzer im Laufe der Zeit eine Vielzahl von Anzeigen, aber die Anzeigen werden nur dann ersetzt, wenn sie nicht gesehen werden können, was ein reibungsloses Benutzererlebnis ergibt.
 
 #### Umgang mit periodischen Aktionen
 
-Unser Intervall-Handler, `handleRefreshInterval()`, wird etwa einmal pro Sekunde durch den Aufruf von [`setInterval()`](/de/docs/Web/API/Window/setInterval) in der Funktion `startup()` [beschrieben oben](#einrichten) aufgerufen. Seine Hauptaufgabe besteht darin, die Timer jede Sekunde zu aktualisieren und einen Neuzeichnen-Zyklus für die Timer zu planen, die wir in jeder Anzeige zeichnen werden.
+Unser Intervallhandler, `handleRefreshInterval()`, wird ungefähr einmal pro Sekunde durch den Aufruf von [`setInterval()`](/de/docs/Web/API/Window/setInterval) in der `startup()` Funktion [wie oben beschrieben](#einrichtung) aufgerufen. Seine Hauptaufgabe ist es, die Timer jede Sekunde zu aktualisieren und eine Neuzeichnung einzuplanen, um die Timer zu aktualisieren, die wir in jeder Anzeige einzeichnen werden.
 
 ```js
 function handleRefreshInterval() {
@@ -346,15 +346,15 @@ function handleRefreshInterval() {
 }
 ```
 
-Das Array `redrawList` wird verwendet, um eine Liste aller Anzeigen zu führen, die während dieses Refresh-Zyklus neu gezeichnet werden müssen, da es nicht genau das gleiche wie die verstrichene Zeit aufgrund der Systemaktivität sein kann oder weil Sie das Intervall auf etwas anderes als jede 1000 Millisekunden gesetzt haben.
+Das Array `redrawList` wird verwendet, um eine Liste aller Anzeigen zu führen, die während dieses Auffrischungszyklus neu gezeichnet werden müssen, denn diese kann aufgrund der Systemaktivität oder weil Sie das Intervall auf etwas anderes als 1000 Millisekunden gesetzt haben, nicht genau mit der abgelaufenen Zeit übereinstimmen.
 
-Dann speichern wir den Wert von `dataset.totalViewTime` (die Gesamtanzahl der Millisekunden, in denen die Anzeige zuletzt sichtbar war, ab dem letzten Update) und rufen dann `updateAdTimer()` auf, um die Zeit zu aktualisieren. Wenn es sich geändert hat, schieben wir die Anzeige auf die `redrawList`, damit wir wissen, dass sie während des nächsten Animationsrahmens aktualisiert werden muss.
+Dann speichern wir für jede der sichtbaren Anzeigen den Wert von `dataset.totalViewTime` (die Gesamtzahl der Millisekunden, die die Anzeige derzeit sichtbar war, zum Zeitpunkt der letzten Aktualisierung) und rufen `updateAdTimer()` auf, um die Zeit zu aktualisieren. Wenn sie sich geändert hat, fügen wir die Anzeige zur `redrawList` hinzu, sodass sie während des nächsten Animationsrahmens aktualisiert wird.
 
-Schließlich, wenn es mindestens ein Element zu aktualisieren gibt, verwenden wir [`requestAnimationFrame()`](/de/docs/Web/API/Window/requestAnimationFrame), um eine Funktion zu planen, die jedes Element in der `redrawList` während des nächsten Animationsrahmens neu zeichnet.
+Schließlich verwenden wir [`requestAnimationFrame()`](/de/docs/Web/API/Window/requestAnimationFrame), um bei mindestens einem Element, das neu gezeichnet werden muss, eine Funktion zu planen, die während des nächsten Animationsrahmens jedes Element in der `redrawList` neu zeichnet.
 
-#### Aktualisieren des Sichtbarkeitstimers einer Anzeige
+#### Aktualisieren des Sichtbarkeits-Timers einer Anzeige
 
-Wie zuvor (siehe [Umgang mit Sichtbarkeitsänderungen des Dokuments](#umgang_mit_sichtbarkeitsänderungen_des_dokuments) und [Umgang mit periodischen Aktionen](#umgang_mit_periodischen_aktionen)) haben wir gesehen, dass, wenn wir den "gesamt sichtbaren Zeit"-Zähler einer Anzeige aktualisieren müssen, wir eine Funktion namens `updateAdTimer()` aufrufen, um dies zu tun. Diese Funktion erhält als Eingabe das Objekt eines `HTMLDivElement`s der Anzeige. Hier ist es:
+Wie bereits ([Umgang mit Dokumentensichtbarkeitsänderungen](#umgang_mit_sichtbarkeitsänderungen_im_dokument) und [Umgang mit periodischen Aktionen](#umgang_mit_periodischen_aktionen)) erwähnt, rufen wir eine Funktion namens `updateAdTimer()` auf, wenn wir den "Gesamt-Sichtbarkeitszeit"-Zähler einer Anzeige aktualisieren müssen. Diese Funktion nimmt das [`HTMLDivElement`](/de/docs/Web/API/HTMLDivElement) Objekt einer Anzeige als Eingabe. Hier ist sie:
 
 ```js
 function updateAdTimer(adBox) {
@@ -372,24 +372,24 @@ function updateAdTimer(adBox) {
 }
 ```
 
-Um die sichtbare Zeit eines Elements zu verfolgen, verwenden wir zwei benutzerdefinierte Datenattribute (siehe [`data-*`](/de/docs/Web/HTML/Global_attributes/data-*)) bei jeder Anzeige:
+Zur Verfolgung der sichtbaren Zeit eines Elements verwenden wir an allen Anzeigen zwei benutzerdefinierte Data-Attribute (siehe [`data-*`](/de/docs/Web/HTML/Reference/Global_attributes/data-*)):
 
 - `lastViewStarted`
-  - : Die Zeit in Millisekunden, relativ zur Zeit, zu der das Dokument erstellt wurde, bei der sich die Sichtbarkeit der Anzeige zuletzt geändert hat, oder die Anzeige zuletzt sichtbar wurde. 0, wenn das Element beim letzten Check nicht sichtbar war.
+  - : Die Zeit in Millisekunden im Verhältnis zur Zeit der Dokumenterstellung, zu der der Sichtbarkeitszähler der Anzeige das letzte Mal aktualisiert wurde oder die Anzeige das letzte Mal sichtbar wurde. 0, wenn die Anzeige zum letzten Prüfzeitpunkt nicht sichtbar war.
 - `totalViewTime`
-  - : Die Gesamtanzahl an Millisekunden, bei der die Anzeige sichtbar war.
+  - : Die Gesamtzahl der Millisekunden, die die Anzeige sichtbar war.
 
-Diese werden über das Attribut [`HTMLElement.dataset`](/de/docs/Web/API/HTMLElement/dataset) jede Anzeige aufgerufen, das eine [`DOMStringMap`](/de/docs/Web/API/DOMStringMap) bietet, welches jede benutzerdefinierte Attributnamen-Zuordnung zu seinem WertMapping bereitstellt. Die Werte sind Zeichenfolgen, aber wir können diese in Zahlen ganz einfach konvertieren—in der Tat macht JavaScript dies im Allgemeinen automatisch, obwohl wir eine Instanz haben, in der wir dies selbst tun müssen.
+Diese werden über das [`HTMLElement.dataset`](/de/docs/Web/API/HTMLElement/dataset) Attribut jedes Anzeigenobjekts aufgerufen, das eine [`DOMStringMap`](/de/docs/Web/API/DOMStringMap) bereitstellt, die jeden benutzerdefinierten Attributnamen seinem Wert zuordnet. Die Werte sind Strings, aber wir können sie leicht in Zahlen konvertieren—tatsächlich macht JavaScript dies in der Regel automatisch, obwohl wir in einem Fall dies selbst tun müssen.
 
-Wir starten, indem wir die letzte Sichtbarkeitsstatus-Überprüfungszeit (`adBox.dataset.lastViewStarted`) eines Elements in eine lokale Variable namens `lastStarted` bringen. Wir erhalten auch die aktuelle `Zeit-seit-Erstellung`-Werte mit [`performance.now()`](/de/docs/Web/API/Performance/now) in `currentTime`.
+Wir beginnen damit, die letzte vorherige Statusprüfzeit der Anzeige (`adBox.dataset.lastViewStarted`) in eine lokale Variable namens `lastStarted` zu holen. Wir erhalten auch den aktuellen Wert der Zeit-seit-Erstellung mit der [`performance.now()`](/de/docs/Web/API/Performance/now) Methode in `currentTime`.
 
-Wenn `lastStarted` ungleich Null ist—was bedeutet, dass der Timer derzeit läuft, berechnen wir den Unterschied zwischen der aktuellen Zeit und der Startzeit, um die Anzahl der Millisekunden zu bestimmen, in denen die Anzeige seit dem letzten sichtbaren Zeitpunkt sichtbar war. Dies wird dem aktuellen Wert der Anzeige `totalViewTime` hinzugefügt, um die Summe auf den aktuellen Wert zu bringen. Beachten Sie die Verwendung von {{jsxref("parseFloat", "parseFloat()")}} hier; da diese Werte Zeichenfolgen sind, versucht JavaScript, eine Zeichenfolgenverbindung anstelle von Addition durchzuführen, ohne dass es das vorher explizit konvertiert.
+Wenn `lastStarted` ungleich null ist—was bedeutet, dass der Timer derzeit läuft, berechnen wir die Differenz zwischen der aktuellen Zeit und der Startzeit, um die Anzahl der Millisekunden zu ermitteln, die die Timer seit dem letzten sichtbaren Zeitpunkt sichtbar war. Diese wird zum aktuellen Wert von `totalViewTime` der Anzeige hinzugefügt, um den Gesamtwert zu aktualisieren. Beachten Sie die Verwendung von {{jsxref("parseFloat", "parseFloat()")}} hier; weil diese Werte Strings sind, würde JavaScript ohne dies eine String-Verkettung anstelle einer Addition versuchen.
 
-Schließlich wird die Uhrzeitverschiebungszeit der Anzeige auf die aktuelle Zeit aktualisiert. Dies geschieht, ob der Timer lief, als diese Funktion aufgerufen wurde, oder nicht; Dies bewirkt, dass der Timer, wenn diese Funktion zurückkehrt, immer läuft. Dies ist sinnvoll, da diese Funktion nur aufgerufen wird, wenn die Anzeige sichtbar ist, auch wenn sie gerade jetzt sichtbar geworden ist.
+Schließlich wird die zuletzt gesehene Zeit für die Anzeige auf die aktuelle Zeit aktualisiert. Dies geschieht, egal ob der Timer aktiv war, als diese Funktion aufgerufen wurde oder nicht; dies führt dazu, dass der Timer der Anzeige immer läuft, wenn diese Funktion endet. Das ergibt Sinn, weil diese Funktion nur aufgerufen wird, wenn die Anzeige sichtbar ist, selbst wenn sie gerade erst sichtbar geworden ist.
 
 #### Zeichnen des Timers einer Anzeige
 
-In jede Anzeige wird zu Demonstrationszwecken der aktuelle Wert von `totalViewTime` in Minuten und Sekunden gezeichnet. Dies wird gehandhabt, indem das Anzeige-Element in die `drawAdTimer()`-Funktion übergeben wird:
+Innerhalb jeder Anzeige zeichnen wir zur Demonstration den aktuellen Wert ihrer `totalViewTime`, umgewandelt in Minuten und Sekunden. Das wird durch die Übergabe des Anzeigeelements an die `drawAdTimer()` Funktion gehandhabt:
 
 ```js
 function drawAdTimer(adBox) {
@@ -402,11 +402,11 @@ function drawAdTimer(adBox) {
 }
 ```
 
-Dieser Code sucht den Timer der Anzeige mithilfe ihrer ID `"timer"` und berechnet die Anzahl der verstrichenen Sekunden durch Teilen der `totalViewTime` der Anzeige durch 1000. Dann berechnet er die verstrichene Minuten- und Sekundenzahl, bevor er den [`innerText`](/de/docs/Web/API/HTMLElement/innerText) des Timers auf eine Zeichenfolge setzt, die diese Zeit in Form von m:ss darstellt. Die Methode {{jsxref("String.padStart()")}} wird verwendet, um sicherzustellen, dass die Anzahl der Sekunden auf zwei Stellen aufgefüllt wird, wenn sie kleiner als 10 ist.
+Dieser Code findet den Timer der Anzeige mit ihrer ID, `"timer"`, und berechnet die Anzahl der verstrichenen Sekunden, indem die `totalViewTime` der Anzeige durch 1000 geteilt wird. Anschließend werden die Anzahl der verstrichenen Minuten und Sekunden berechnet, bevor die [`innerText`](/de/docs/Web/API/HTMLElement/innerText) des Timers auf einen String gesetzt wird, der diese Zeit in der Form m:ss darstellt. Die {{jsxref("String.padStart()")}} Methode wird verwendet, um sicherzustellen, dass die Anzahl der Sekunden auf zwei Stellen gepolstert wird, wenn sie weniger als 10 beträgt.
 
-#### Die Seiteninhalte erstellen
+#### Erstellen des Seiteninhalts
 
-Die `buildContents()`-Funktion wird von dem [Startcode](#einrichten) aufgerufen, um die Artikel und Anzeigen auszuwählen und in das Dokument einzufügen, die präsentiert werden sollen:
+Die `buildContents()` Funktion wird vom [Startup Code](#einrichtung) aufgerufen, um die Artikel und Anzeigen auszuwählen und in das Dokument einzufügen, die präsentiert werden sollen:
 
 ```js
 const loremIpsum =
@@ -429,15 +429,15 @@ function buildContents() {
 }
 ```
 
-Die Variable `loremIpsum` enthält den Text, den wir für den Textkörper aller unserer Artikel verwenden. Offensichtlich hätten Sie in der realen Welt etwas Code, um Artikel aus einer Datenbank oder dergleichen abzurufen, aber das erfüllt die Aufgabe für unsere Zwecke. Jeder Artikel verwendet denselben Text; Sie könnten das natürlich leicht ändern.
+Die Variable `loremIpsum` enthält den Text, den wir für den Hauptteil aller unserer Artikel verwenden. Natürlich hätten Sie in der realen Welt einige Code, um Artikel aus einer Datenbank oder Ähnlichem zu holen, aber dies dient unseren Zwecken. Jeder Artikel verwendet denselben Text; Sie könnten dies natürlich leicht ändern.
 
-`buildContents()` erstellt eine Seite mit fünf Artikeln. Nach jedem ungeraden Artikel wird eine Anzeige "geladen" und in die Seite eingefügt. Artikel werden in das Inhaltsfeld (das heißt, das {{HTMLElement("main")}}-Element, das alle Website-Inhalte enthält) eingefügt, nachdem sie mithilfe einer Methode erstellt wurden, die `createArticle()` heißt, die wir uns als nächstes anschauen werden.
+`buildContents()` erstellt eine Seite mit fünf Artikeln. Nach jedem ungeradzahligen Artikel wird eine Anzeige "geladen" und auf der Seite eingefügt. Artikel werden in das `contentBox` eingefügt (das heißt, das {{HTMLElement("main")}} Element, das den gesamten Seitenelementinhalt enthält), nachdem sie mit einer Methode namens `createArticle()` erstellt wurden, die wir uns als nächstes ansehen werden.
 
-Die Anzeigen werden mithilfe einer Funktion namens `loadRandomAd()` erstellt, die sowohl die Anzeige erstellt als auch in die Seite einfügt. Wir werden später sehen, dass dieselbe Funktion auch eine bestehende Anzeige ersetzen kann, aber für den Moment fügen wir Anzeigen zum bestehenden Inhalt hinzu.
+Die Anzeigen werden mit einer Funktion namens `loadRandomAd()` erstellt, die sowohl die Anzeige erstellt als auch in die Seite einfügt. Wir werden später sehen, dass diese gleiche Funktion auch eine bestehende Anzeige ersetzen kann, aber jetzt hängen wir nur Anzeigen an die bestehenden Inhalte an.
 
-#### Einen Artikel erstellen
+#### Erstellung eines Artikels
 
-Um das {{HTMLElement("article")}}-Element für einen Artikel zu erstellen (sowie alle seine Inhalte), verwenden wir die Funktion `createArticle()`, die als Eingabe einen String nimmt, der den vollständigen Text des Artikels enthält, den es der Seite hinzufügt.
+Um das {{HTMLElement("article")}} Element für einen Artikel zu erstellen (sowie alle seine Inhalte), verwenden wir die `createArticle()` Funktion, die als Eingabe einen String erhält, der den vollständigen Text des Artikels enthält, der zur Seite hinzugefügt werden soll.
 
 ```js
 function createArticle(contents) {
@@ -455,11 +455,11 @@ function createArticle(contents) {
 }
 ```
 
-Zuerst wird das `<article>` Element erstellt und seine ID wird auf den eindeutigen Wert `nextArticleID` gesetzt (der bei 1 beginnt und für jeden Artikel steigt). Dann erstellen und fügen wir ein {{HTMLElement("Heading_Elements", "h2")}}-Element für den Artikeltitel ein und fügen anschließend das HTML aus `contents` hinzu. Schließlich wird `nextArticleID` inkrementiert (sodass das nächste Element eine neue eindeutige ID erhält), und wir geben das neue `<article>` Element an den Aufrufer zurück.
+Zuerst wird das `<article>` Element erstellt und seine ID auf den eindeutigen Wert `nextArticleID` gesetzt (der bei 1 beginnt und für jeden Artikel steigt). Dann wird ein {{HTMLElement("Heading_Elements", "h2")}} Element für den Artikeltitel erstellt und angehängt, und danach wird das HTML von `contents` hinzugefügt. Schließlich wird `nextArticleID` erhöht (damit das nächste Element eine neue eindeutige ID erhält) und wir geben das neue `<article>` Element an den Aufrufer zurück.
 
-#### Eine Anzeige erstellen
+#### Erstellung einer Anzeige
 
-Die `loadRandomAd()`-Funktion simuliert das Laden einer Anzeige und das Hinzufügen zur Seite. Wenn Sie keinen Wert für `replaceBox` angeben, wird ein neues Element erstellt, um die Anzeige zu enthalten; die Anzeige wird dann an die Seite angehängt. Wenn Sie eine `replaceBox` angeben, wird dieses Feld als bestehendes Anzeigen-Element behandelt; anstatt eine neue zu erstellen, wird das bestehende Element geändert, um den neuen Stil, den Inhalt und die anderen Daten der neuen Anzeige zu enthalten. Dadurch wird das Risiko von umfangreichen Layoutarbeiten beim Aktualisieren der Anzeige vermieden, die auftreten könnten, wenn Sie zuerst das alte Element löschen und dann ein neues einfügen.
+Die `loadRandomAd()` Funktion simuliert das Laden einer Anzeige und das Hinzufügen zur Seite. Wenn Sie keinen Wert für `replaceBox` angeben, wird ein neues Element erstellt, um die Anzeige zu enthalten; die Anzeige wird dann zur Seite hinzugefügt. Wenn Sie eine `replaceBox` angeben, wird dieser Kasten als bestehendes Anzeigenelement behandelt; anstelle einer Neuanlage wird das bestehende Element geändert, um den Stil, Inhalt und andere Daten der neuen Anzeige zu enthalten. Dies vermeidet das Risiko, dass bei einer Aktualisierung der Anzeige umfangreiche Layoutarbeiten durchgeführt werden, welche bei einem erstmaligen Löschen des alten Elements und anschließendem Einfügen eines neuen Elements auftreten könnten.
 
 ```js
 function loadRandomAd(replaceBox) {
@@ -527,36 +527,36 @@ function loadRandomAd(replaceBox) {
 }
 ```
 
-Zuerst kommt das Array `ads`. Dieses Array enthält die Daten, die zum Erstellen jeder Anzeige benötigt werden. Wir haben hier vier zur Auswahl. In einem realen Szenario würden die Anzeigen natürlich aus einer Datenbank stammen oder, wahrscheinlicher, von einem Werbedienst, von dem Sie Anzeigen mithilfe einer API abrufen. Allerdings sind unsere Anforderungen einfach: Jede Anzeige wird durch ein Objekt mit drei Eigenschaften dargestellt: einer Hintergrundfarbe (`bgcolor`), einem Titel (`title`) und einer Textzeichenfolge für den Körper (`body`).
+Das erste ist das Array `ads`. Dieses Array enthält die Daten, die benötigt werden, um jede Anzeige zu erstellen. Wir haben vier Anzeigen zur Auswahl per Zufall. In einem realen Szenario würden die Anzeigen natürlich aus einer Datenbank oder, noch wahrscheinlicher, einem Werbedienst kommen, von dem Sie Anzeigen über eine API abrufen. Unsere Anforderungen sind jedoch einfach: Jede Anzeige wird durch ein Objekt mit drei Eigenschaften dargestellt: einer Hintergrundfarbe (`bgcolor`), einem Titel (`title`) und einem Body-Text-String (`body`).
 
 Dann definieren wir mehrere Variablen:
 
 - `adBox`
-  - : Das wird auf das Element gesetzt, das die Anzeige darstellt. Für neue Anzeigen, die an die Seite angehängt werden, wird dieser mithilfe von [`Document.createElement()`](/de/docs/Web/API/Document/createElement) erstellt. Wenn eine bestehende Anzeige ersetzt wird, wird dies auf das angegebene Anzeigen-Element (`replaceBox`) gesetzt.
+  - : Dies wird auf das Element gesetzt, das die Anzeige darstellt. Bei neuen Anzeigen, die zur Seite hinzugefügt werden, wird dieses mit [`Document.createElement()`](/de/docs/Web/API/Document/createElement) erstellt. Bei einem Austausch einer bestehenden Anzeige wird dies auf das angegebene Anzeigenelement (`replaceBox`) gesetzt.
 - `title`
-  - : Wird das {{HTMLElement("Heading_Elements", "h2")}} Element enthalten, das den Titel der Anzeige darstellt.
+  - : Wird das {{HTMLElement("Heading_Elements", "h2")}} Element halten, das den Titel der Anzeige repräsentiert.
 - `body`
-  - : Wird das {{HTMLElement("p")}} enthalten, das den Text des Anzeigetextes darstellt.
+  - : Wird das {{HTMLElement("p")}} halten, das den Body-Text der Anzeige repräsentiert.
 - `timerElem`
-  - : Wird das {{HTMLElement("div")}} Element enthalten, das die Zeit darstellt, wie lange die Anzeige bisher sichtbar war.
+  - : Wird das {{HTMLElement("div")}} Element halten, das die Zeit enthält, wie lange die Anzeige bisher sichtbar war.
 
-Eine zufällige Anzeige wird ausgewählt, indem `Math.floor(Math.random() * ads.length)` berechnet wird; das Ergebnis ist ein Wert zwischen 0 und einer weniger als die Anzahl der Anzeigen. Die entsprechende Anzeige ist jetzt als `adBox` bekannt.
+Eine zufällige Anzeige wird ausgewählt, indem `Math.floor(Math.random() * ads.length)` berechnet wird; das Ergebnis ist ein Wert zwischen 0 und einer weniger als die Anzahl der Anzeigen. Die entsprechende Anzeige wird nun `adBox` genannt.
 
-Wenn ein Wert für `replaceBox` angegeben ist, verwenden wir diesen als Anzeigenelement. Um dies zu tun, beginnen wir mit der Beendigung der Beobachtung des Elements durch Aufruf von [`IntersectionObserver.unobserve()`](/de/docs/Web/API/IntersectionObserver/unobserve). Dann werden die lokalen Variablen für jeden der Elemente, die eine Anzeige umfassen: Die Anzeigebox selbst, der Titel, der Körper und die Timer-Box werden auf die jeweiligen Elemente der bestehenden Anzeige eingestellt.
+Wenn ein Wert für `replaceBox` angegeben ist, verwenden wir dieses als Anzeigenelement. Dazu beenden wir zuerst die Beobachtung des Elements, indem wir [`IntersectionObserver.unobserve()`](/de/docs/Web/API/IntersectionObserver/unobserve) aufrufen. Dann werden die lokalen Variablen für jedes der Elemente der Anzeige: die Anzeigebox selbst, der Titel, der Body und das Timerfeld, auf die entsprechenden Elemente in der bestehenden Anzeige gesetzt.
 
-Wenn kein Wert für `replaceBox` angegeben ist, erstellen wir ein neues Anzeigenelement. Das neue `{{HTMLElement("div")}}` Element der Anzeige wird erstellt und seine Eigenschaften durch Setzen seines Klassennamens auf `"ad"` festgelegt. Danach wird das Anzeigetitel-Element erstellt, sowie der Körper und der Sichtbarkeitstimer; diese sind ein `{{HTMLElement("Heading_Elements", "h2")}}`, ein `{{HTMLElement("p")}}` und ein `{{HTMLElement("div")}}` Element. Diese Elemente werden dem `adBox` Element hinzugefügt.
+Wenn kein Wert für `replaceBox` angegeben ist, erstellen wir ein neues Anzeigenelement. Das neue {{HTMLElement("div")}} Element der Anzeige wird erstellt und seine Eigenschaften werden durch das Setzen seines Klassennamens auf `"ad"` bestimmt. Als Nächstes werden das Anzeige-Titelelement erstellt, ebenso wie der Body und der Sichtbarkeitstimer; dies sind ein {{HTMLElement("Heading_Elements", "h2")}}, ein {{HTMLElement("p")}} und ein {{HTMLElement("div")}} Element. Diese Elemente werden an das `adBox` Element angefügt.
 
-Danach konvergieren die Code-Pfade wieder. Die Hintergrundfarbe der Anzeige wird auf den im neuen Anzeigen-Datensatz angegebenen Wert gesetzt und die Klassen und Inhalte der Elemente werden ebenfalls entsprechend gesetzt.
+Danach schließen sich die Codepfade wieder an. Die Hintergrundfarbe der Anzeige wird auf den in den neuen Anzeigendaten angegebenen Wert gesetzt, und die Klassen und Inhalte der Elemente werden entsprechend gesetzt.
 
-Anschließend ist es Zeit, die benutzerdefinierten Dateneigenschaften einzurichten, um die Sichtbarkeitsdaten der Anzeige zu verfolgen, indem `adBox.dataset.totalViewTime` und `adBox.dataset.lastViewStarted` auf 0 gesetzt werden.
+Als nächstes ist es an der Zeit, die benutzerdefinierten Datenattribute zu setzen, um die Sichtbarkeitsdaten der Anzeige zu tracken, indem `adBox.dataset.totalViewTime` und `adBox.dataset.lastViewStarted` auf 0 gesetzt werden.
 
-Schließlich setzen wir die ID des `<div>`, die den Timer anzeigen wird, den wir in der Anzeige zeigen möchten, um zu sehen, wie lange sie sichtbar war, und geben ihm die Klasse `"timer"`. Der anfängliche Text wird auf "0:00" gesetzt, um die Startzeit von 0 Minuten und 0 Sekunden darzustellen, und es wird der Anzeige hinzugefügt.
+Schließlich setzen wir die ID des `<div>`, der den Timer darstellen wird, den wir in der Anzeige zeigen, um anzuzeigen, wie lange er sichtbar war, indem wir ihm die Klasse `"timer"` geben. Der Anfangstext wird auf "0:00" gesetzt, um die Startzeit von 0 Minuten und 0 Sekunden darzustellen, und er wird an die Anzeige angehängt.
 
-Wenn wir keine bestehende Anzeige ersetzen, müssen wir das Element an den Inhaltsbereich der Seite mithilfe von [`Document.appendChild()`](/de/docs/Web/API/Node/appendChild) anhängen. Wenn wir eine Anzeige ersetzen, ist sie bereits vorhanden, mit ihren Inhalten, die durch die neue Anzeige ersetzt wurden. Dann rufen wir die [`observe()`](/de/docs/Web/API/IntersectionObserver/observe) Methode auf unserem Intersection Observer, `adObserver`, auf, um zu beginnen, die Anzeige auf Änderungen an ihren Schnittstellen mit dem Viewport zu beobachten. Von nun an wird jedes Mal, wenn die Anzeige zu 100% verdeckt oder sogar ein einzelnes Pixel sichtbar wird, oder die Anzeige durch 75% sichtbar in die eine oder andere Richtung verläuft, der [Rückruf des Observers](#umgang_mit_schnittstellenänderungen) ausgeführt.
+Wenn wir keine bestehende Anzeige ersetzen, müssen wir das Element mit [`Document.appendChild()`](/de/docs/Web/API/Node/appendChild) in den Inhaltsbereich der Seite einfügen. Wenn wir eine Anzeige ersetzen, ist sie bereits vorhanden, mit ihrem Inhalt, der durch die neue Anzeige ersetzt wurde. Dann rufen wir die [`observe()`](/de/docs/Web/API/IntersectionObserver/observe) Methode auf unserem Intersection Observer, `adObserver`, auf, um die Anzeige auf Änderungen ihrer Schnittmenge mit der Ansicht zu überwachen. Von diesem Zeitpunkt an wird der [Callback des Beobachters](#umgang_mit_schnittmengenänderungen) jedes Mal ausgeführt, wenn die Anzeige um 100% verdeckt wird oder auch nur ein Pixel sichtbar wird, oder wenn die Anzeige in irgendeine Richtung 75% sichtbar überschreitet.
 
-#### Eine bestehende Anzeige ersetzen
+#### Austausch einer bestehenden Anzeige
 
-Unser [Rückruf des Observers](#umgang_mit_schnittstellenänderungen) hält Ausschau nach Anzeigen, die vollständig verdeckt werden und mindestens eine Minute sichtbar waren. Wenn dies passiert, wird die `replaceAd()` Funktion mit diesem Anzeigenelement als Eingabe aufgerufen, sodass die alte Anzeige durch eine neue ersetzt werden kann.
+Unser [Callback des Beobachters](#umgang_mit_schnittmengenänderungen) hält Ausschau nach Anzeigen, die um 100% verdeckt werden und eine Gesamt-Sichtzeit von mindestens einer Minute haben. Wenn dies geschieht, wird die `replaceAd()` Funktion mit dem Element dieser Anzeige als Eingabe aufgerufen, damit die alte Anzeige durch eine neue ersetzt werden kann.
 
 ```js
 function replaceAd(adBox) {
@@ -573,15 +573,15 @@ function replaceAd(adBox) {
 }
 ```
 
-`replaceAd()` beginnt damit, `updateAdTimer()` auf die bestehende Anzeige aufzurufen, um sicherzustellen, dass ihr Timer auf dem aktuellen Stand ist. Dies stellt sicher, dass wir bei der Abfrage von `totalViewTime` den exakten Endwert sehen, wie lange die Anzeige für den Benutzer sichtbar war. Anschließend berichten wir diese Daten; in diesem Fall, indem wir sie an die Konsole protokollieren, aber in der realen Welt würden Sie die Informationen an die API eines Anzeigedienstes senden oder in einer Datenbank speichern.
+`replaceAd()` beginnt mit dem Aufrufen von `updateAdTimer()` auf der bestehenden Anzeige, um sicherzustellen, dass ihr Timer aktuell ist. Das sorgt dafür, dass wir beim Auslesen ihrer `totalViewTime` den exakten Endwert sehen, wie lange die Anzeige dem Benutzer sichtbar war. Wir berichten dann diese Daten; in diesem Fall durch das Protokollieren in der Konsole, aber in der realen Welt würden Sie die Informationen an die API eines Werbedienstes oder in eine Datenbank übermitteln.
 
-Dann laden wir eine neue Anzeige, indem wir [`loadRandomAd()`](#eine_anzeige_erstellen) aufrufen, wobei wir die zu ersetzende Anzeige als Eingabeparameter angeben. Wie wir zuvor gesehen haben, wird `loadRandomAd()` eine bestehende Anzeige mit den Inhalten und Daten einer neuen Anzeige ersetzen, wenn Sie ein bestehendes Element der Anzeige als Eingabeparameter angeben.
+Dann laden wir eine neue Anzeige, indem wir den [`loadRandomAd()`](#erstellung_einer_anzeige) aufrufen und die anzuzeigende Anzeige als Eingabeparameter angeben. Wie wir bereits gesehen haben, wird `loadRandomAd()` eine bestehende Anzeige mit dem Inhalt und den Daten einer neuen Anzeige ersetzen, wenn Sie eine bestehende Anzeigeelement als Eingabeparameter angeben.
 
-Das neue Element-Objekt der Anzeige wird an den Aufrufer zurückgegeben, falls es benötigt wird.
+Das neue Anzeigeelement wird an den Aufrufer zurückgegeben, falls es benötigt wird.
 
 ### Ergebnis
 
-Die resultierende Seite sieht so aus. Versuchen Sie zu experimentieren, indem Sie nach oben und unten scrollen und beachten Sie, wie Änderungen in der Sichtbarkeit die Timer in jeder Anzeige beeinflussen. Beachten Sie auch, dass jede Anzeige nach einer Minute Sichtbarkeit ersetzt wird (aber zuerst aus der Ansicht herausgescrollt werden muss, bevor es wieder erscheint), und wie die Timer pausieren, während das Dokument in den Hintergrund getabbt wird. Das Bedecken des Browsers mit einem anderen Fenster pausiert jedoch die Timer nicht.
+Die resultierende Seite sieht so aus. Versuchen Sie es mit dem Scrollen nach oben und unten und beachten Sie, wie Änderungen in der Sichtbarkeit die Timer in jeder Anzeige beeinflussen. Beachten Sie auch, dass jede Anzeige nach einer Minute Sichtbarkeit (die Anzeige muss jedoch zuerst aus dem Blickfeld gescrollt und wieder zurückgeklickt werden) ersetzt wird und wie die Timer anhalten, während das Dokument in den Hintergrund gedrückt wird. Das Abdecken des Browsers mit einem anderen Fenster pausiert jedoch die Timer nicht.
 
 {{EmbedLiveSample("Building_the_site", 750, 800)}}
 

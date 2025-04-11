@@ -3,12 +3,12 @@ title: "ShadowRoot: host-Eigenschaft"
 short-title: host
 slug: Web/API/ShadowRoot/host
 l10n:
-  sourceCommit: 5026c14bd6d2b6b377289aadac7eceae9282e806
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{APIRef("Shadow DOM")}}
 
-Die **`host`**-Eigenschaft, die nur gelesen werden kann, der [`ShadowRoot`](/de/docs/Web/API/ShadowRoot) gibt eine Referenz auf das DOM-Element zurück, an das das `ShadowRoot` angefügt ist.
+Die schreibgeschützte **`host`**-Eigenschaft des [`ShadowRoot`](/de/docs/Web/API/ShadowRoot) gibt eine Referenz auf das DOM-Element zurück, an das das `ShadowRoot` angehängt ist.
 
 ## Wert
 
@@ -36,7 +36,7 @@ let hostElem = shadow.host;
 
 ## Siehe auch
 
-- [`part`](/de/docs/Web/HTML/Global_attributes/part) und [`exportparts`](/de/docs/Web/HTML/Global_attributes/exportparts) HTML-Attribute
+- [`part`](/de/docs/Web/HTML/Reference/Global_attributes/part) und [`exportparts`](/de/docs/Web/HTML/Reference/Global_attributes/exportparts) HTML-Attribute
 - {{HTMLelement("template")}} und {{HTMLElement("slot")}} HTML-Elemente
-- {{CSSXref(":host")}}, {{CSSXref(":host_function", ":host()")}} und {{CSSXref(":host-context", ":host-context()")}} CSS-Pseudoklassen
+- {{CSSXref(":host")}}, {{CSSXref(":host_function", ":host()")}}, und {{CSSXref(":host-context", ":host-context()")}} CSS-Pseudoklassen
 - {{CSSXref("::part")}} und {{CSSXref("::slotted")}} CSS-Pseudoelemente

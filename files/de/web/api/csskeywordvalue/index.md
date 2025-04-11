@@ -2,34 +2,34 @@
 title: CSSKeywordValue
 slug: Web/API/CSSKeywordValue
 l10n:
-  sourceCommit: 930683b0618a36a5bb497cfaedced2f4de767889
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{APIRef("CSS Typed Object Model API")}}
 
-Die **`CSSKeywordValue`** Schnittstelle der [CSS Typed Object Model API](/de/docs/Web/API/CSS_Object_Model#css_typed_object_model) erstellt ein Objekt zur Darstellung von CSS-Schlüsselwörtern und anderen Identifikatoren.
+Die **`CSSKeywordValue`** Schnittstelle der [CSS Typed Object Model API](/de/docs/Web/API/CSS_Object_Model#css_typed_object_model) erstellt ein Objekt, um CSS-Schlüsselwörter und andere Bezeichner darzustellen.
 
-Der Name der Schnittstelleninstanz ist ein {{Glossary("stringifier", "stringifier")}}, was bedeutet, dass sie überall, wo ein String erwartet wird, den Wert von `CSSKeyword.value` zurückgeben wird.
+Der Instanzname der Schnittstelle ist ein {{Glossary("stringifier", "stringifier")}}, was bedeutet, dass er überall, wo ein String erwartet wird, den Wert von `CSSKeyword.value` zurückgibt.
 
 {{InheritanceDiagram}}
 
 ## Konstruktor
 
 - [`CSSKeywordValue()`](/de/docs/Web/API/CSSKeywordValue/CSSKeywordValue)
-  - : Erstellt ein neues `CSSKeywordValue`-Objekt.
+  - : Erstellt ein neues `CSSKeywordValue` Objekt.
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
 - [`CSSKeywordValue.value`](/de/docs/Web/API/CSSKeywordValue/value)
-  - : Gibt den Wert des `CSSKeywordValue` zurück oder setzt ihn.
+  - : Gibt den Wert von `CSSKeywordValue` zurück oder setzt ihn.
 
-## Instanzmethoden
+## Instanz-Methoden
 
 _Erbt Methoden von [`CSSStyleValue`](/de/docs/Web/API/CSSStyleValue)._
 
 ## Beispiele
 
-Das folgende Beispiel setzt die CSS-Eigenschaft {{cssxref('display')}} auf ihre Standardwerte zurück, indem das Inline-Attribut [`style`](/de/docs/Web/HTML/Global_attributes/style) auf `style="display: initial"` gesetzt wird, wenn es im [Entwicklertools-Inspektor](https://firefox-source-docs.mozilla.org/devtools-user/page_inspector/how_to/select_an_element/index.html) betrachtet wird.
+Das folgende Beispiel setzt die CSS-Eigenschaft {{cssxref('display')}} auf ihre Standardwerte zurück und setzt das inline [`style`](/de/docs/Web/HTML/Reference/Global_attributes/style) Attribut auf `style="display: initial"`, wenn es im [Entwicklerwerkzeuge-Inspektor](https://firefox-source-docs.mozilla.org/devtools-user/page_inspector/how_to/select_an_element/index.html) betrachtet wird.
 
 ```css hidden
 #myElement {

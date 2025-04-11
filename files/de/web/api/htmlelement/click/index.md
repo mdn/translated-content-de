@@ -1,14 +1,14 @@
 ---
-title: "HTMLElement: click()-Methode"
+title: "HTMLElement: click() Methode"
 short-title: click()
 slug: Web/API/HTMLElement/click
 l10n:
-  sourceCommit: bf0b6c9ae5845fdfca1398541ed26d9946db2495
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{ APIRef("HTML DOM") }}
 
-Die **`HTMLElement.click()`**-Methode simuliert einen Mausklick auf ein Element. Bei Aufruf auf einem Element wird das [`click`](/de/docs/Web/API/Element/click_event)-Ereignis des Elements ausgelöst (es sei denn, das Attribut [`disabled`](/de/docs/Web/HTML/Attributes/disabled) ist gesetzt).
+Die **`HTMLElement.click()`** Methode simuliert einen Mausklick auf ein Element. Wenn sie auf ein Element aufgerufen wird, wird das [`click`](/de/docs/Web/API/Element/click_event)-Ereignis des Elements ausgelöst (es sei denn, das Attribut [`disabled`](/de/docs/Web/HTML/Reference/Attributes/disabled) ist gesetzt).
 
 ## Syntax
 
@@ -26,7 +26,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Simulieren Sie einen Mausklick, wenn der Mauszeiger über ein Kontrollkästchen bewegt wird:
+Simuliert einen Mausklick, wenn der Mauszeiger über ein Kontrollkästchen bewegt wird:
 
 ### HTML
 
@@ -59,7 +59,7 @@ function myFunction() {
 
 ## Siehe auch
 
-- Verwandte Ereignis-Handler
+- Verwandte Ereignisbehandler
 
   - [`Element.onclick`](/de/docs/Web/API/Element/click_event)
   - [`Element.ondblclick`](/de/docs/Web/API/Element/dblclick_event)

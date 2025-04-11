@@ -2,12 +2,12 @@
 title: text-wrap-style
 slug: Web/CSS/text-wrap-style
 l10n:
-  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{CSSRef}}
 
-Die **`text-wrap-style`** [CSS](/de/docs/Web/CSS) Eigenschaft steuert, wie Text innerhalb eines Elements umbrochen wird. Die verschiedenen Werte bieten alternative Möglichkeiten, den Inhalt eines Blockelements umzubrechen. Diese Eigenschaft kann auch mit der {{CSSXRef("text-wrap")}} Kurzform gesetzt und zurückgesetzt werden.
+Die **`text-wrap-style`** [CSS](/de/docs/Web/CSS) Eigenschaft steuert, wie Text innerhalb eines Elements umbrochen wird. Die verschiedenen Werte bieten alternative Möglichkeiten, den Inhalt eines Blockelements umzubrechen. Sie kann auch gesetzt und zurückgesetzt werden, indem die {{CSSXRef("text-wrap")}} Kurzschreibweise verwendet wird.
 
 {{InteractiveExample("CSS Demo: text-wrap-style")}}
 
@@ -72,33 +72,33 @@ text-wrap-style: revert-layer;
 text-wrap-style: unset;
 ```
 
-Wenn ein Umbruch erlaubt ist (siehe {{CSSXRef("text-wrap-mode")}}), wird die `text-wrap-style` Eigenschaft als einzelnes Schlüsselwort festgelegt, das aus der unten stehenden Werteliste ausgewählt wird.
+Wenn Umbrüche erlaubt sind (siehe {{CSSXRef("text-wrap-mode")}}), wird die `text-wrap-style` Eigenschaft als einzelnes Schlüsselwort aus der untenstehenden Liste von Werten angegeben.
 
 ### Werte
 
 - `auto`
-  - : Der Text wird auf die für den Browser performanteste Weise umbrochen und berücksichtigt nicht die Anzahl der Zeichen.
+  - : Text wird auf die für den Browser performanteste Weise umbrochen und berücksichtigt nicht die Anzahl der Zeichen.
 - `balance`
-  - : Der Text wird so umgebrochen, dass die Anzahl der Zeichen auf jeder Zeile bestmöglich ausgeglichen ist, wodurch die Layoutqualität und Lesbarkeit verbessert wird. Da das Zählen der Zeichen und deren Ausgleich über mehrere Zeilen rechentechnisch aufwendig ist, wird dieser Wert nur für Textblöcke unterstützt, die eine begrenzte Anzahl an Zeilen umfassen (sechs oder weniger für Chromium und zehn oder weniger für Firefox).
+  - : Text wird so umbrochen, dass die Anzahl der Zeichen pro Zeile bestmöglich ausbalanciert wird, wodurch die Layoutqualität und Lesbarkeit verbessert wird. Da das Zählen von Zeichen und deren Ausbalancieren über mehrere Zeilen hinweg rechenintensiv ist, wird dieser Wert nur für Textblöcke unterstützt, die sich über eine begrenzte Anzahl von Zeilen erstrecken (sechs oder weniger für Chromium und zehn oder weniger für Firefox).
 - `pretty`
-  - : Der Text wird mit einem langsameren Algorithmus umbrochen, der ein besseres Layout gegenüber der Geschwindigkeit bevorzugt. Dies ist für Fließtext gedacht, bei dem gute Typografie über der Leistung steht (zum Beispiel, wenn die Anzahl von [orphans](/de/docs/Web/CSS/orphans) auf ein Minimum beschränkt werden soll).
+  - : Text wird unter Verwendung eines langsameren Algorithmus umbrochen, der eine bessere Layoutqualität gegenüber Geschwindigkeit bevorzugt. Dies ist für längere Texte gedacht, bei denen gute Typografie wichtiger als Leistung ist (zum Beispiel, wenn die Anzahl der [orphans](/de/docs/Web/CSS/orphans) minimal gehalten werden soll).
 - `stable`
-  - : Der Text wird so umbrochen, dass bei der Bearbeitung des Inhalts durch den Benutzer die Zeilen, die vor den bearbeiteten Zeilen liegen, statisch bleiben, anstatt dass der gesamte Textblock neu umbrochen wird.
+  - : Text wird so umbrochen, dass beim Bearbeiten des Inhalts von Benutzern die Zeilen, die vor den bearbeiteten Zeilen kommen, statisch bleiben und sich nicht der gesamte Textblock neu umbreicht.
 
 > [!NOTE]
-> Das [CSS text](/de/docs/Web/CSS/CSS_text) Modul definiert einen `avoid-orphans` Wert für die `text-wrap-style` Eigenschaft, um allzu kurze letzte Zeilen zu vermeiden und erwartet, dass der Benutzeragent bei der Entscheidungsfindung mehr als eine Zeile berücksichtigt. Dieser Wert wird derzeit von keinem Browser unterstützt.
+> Das [CSS Text](/de/docs/Web/CSS/CSS_text) Modul definiert einen `avoid-orphans` Wert für die `text-wrap-style` Eigenschaft, um übermäßig kurze letzte Zeilen zu vermeiden und erwartet, dass der Benutzeragent mehr als eine Zeile bei Entscheidungen über Umbrüche berücksichtigt. Dieser Wert wird bisher von keinem Browser unterstützt.
 
 ## Beschreibung
 
-Wenn der Inhalt umgebrochen werden darf, was standardmäßig der Fall ist, gibt es eine Reihe von Auswahlmöglichkeiten, die die Art des Umbruchs beeinflussen können.
+Wenn der Inhalt umbrochen werden darf, was standardmäßig der Fall ist, gibt es mehrere Möglichkeiten, die die Art des Umbruchs beeinflussen können.
 
-Der gewählte Wert für `text-wrap-style` hängt davon ab, wie viele Zeilen Text Sie stylingmäßig erwarten, ob der Text `contenteditable` ist und ob Sie das Erscheinungsbild oder die Leistung priorisieren müssen.
+Der gewählte Wert für `text-wrap-style` hängt davon ab, wie viele Textzeilen Sie stilisieren möchten, ob der Text `contenteditable` ist und ob Sie das Erscheinungsbild oder die Leistung priorisieren müssen.
 
-Wenn der gestylte Inhalt auf eine kurze Anzahl von Zeilen beschränkt ist, wie Überschriften, Bildunterschriften und Blockzitate, kann `text-wrap-style: balance` hinzugefügt werden, um die Anzahl der Zeichen auf jeder Zeile auszugleichen, wodurch die Layoutqualität und Lesbarkeit verbessert wird. Da Browser die Anzahl der von dieser Eigenschaft betroffenen Zeilen begrenzen, ist der Einfluss dieses Wertes auf die Leistung vernachlässigbar.
+Wenn der formatierte Inhalt auf eine geringe Anzahl von Zeilen beschränkt ist, wie z.B. Überschriften, Bildunterschriften und Zitate, kann `text-wrap-style: balance` hinzugefügt werden, um die Anzahl der Zeichen pro Zeile auszugleichen und die Layoutqualität und Lesbarkeit zu verbessern. Da Browser die Anzahl der Zeilen, die von dieser Eigenschaft betroffen sind, begrenzen, ist die Auswirkung auf die Leistung vernachlässigbar.
 
-Für längere Textabschnitte kann `text-wrap-style: pretty` verwendet werden. Beachten Sie, dass `pretty` negative Auswirkungen auf die Leistung hat, daher sollte es nur für längere Textblöcke verwendet werden, wenn das Layout wichtiger als die Geschwindigkeit ist.
+Für längere Textabschnitte kann `text-wrap-style: pretty` verwendet werden. Beachten Sie, dass `pretty` einen negativen Einfluss auf die Leistung hat und daher nur für längere Textblöcke verwendet werden sollte, bei denen das Layout wichtiger als die Geschwindigkeit ist.
 
-Der Wert `stable` verbessert das Benutzererlebnis bei Verwendung auf Inhalten, die [`contenteditable`](/de/docs/Web/HTML/Global_attributes/contenteditable) sind. Dieser Wert stellt sicher, dass, wenn der Benutzer Text bearbeitet, die vorherigen Zeilen im bearbeiteten Bereich stabil bleiben.
+Der `stable` Wert verbessert die Benutzererfahrung, wenn er auf Inhalte angewendet wird, die [`contenteditable`](/de/docs/Web/HTML/Reference/Global_attributes/contenteditable) sind. Dieser Wert sorgt dafür, dass beim Bearbeiten von Text durch den Benutzer die vorherigen Zeilen im bearbeiteten Bereich stabil bleiben.
 
 ## Formale Definition
 
@@ -110,9 +110,9 @@ Der Wert `stable` verbessert das Benutzererlebnis bei Verwendung auf Inhalten, d
 
 ## Beispiele
 
-### Ausgeglichener Text
+### Ausbalancierter Text
 
-Dieses Beispiel hat zwei Absätze, der erste ist der Standardwert `auto` und der zweite ist `balance`.
+Dieses Beispiel enthält zwei Absätze, der erste ist standardmäßig `auto` und der zweite ist `balance`.
 
 #### HTML
 

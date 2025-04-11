@@ -1,31 +1,31 @@
 ---
-title: "SVGElement: style Eigenschaft"
+title: "SVGElement: style-Eigenschaft"
 short-title: style
 slug: Web/API/SVGElement/style
 l10n:
-  sourceCommit: 22080a7cc403f7f45c8e85065b182c9f0d4d383c
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{APIRef("CSSOM")}}
 
-Die schreibgeschützte **`style`**-Eigenschaft des [`SVGElement`](/de/docs/Web/API/SVGElement) gibt den _inline_ Stil eines Elements in Form eines dynamischen [`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration)-Objekts zurück, das eine Liste aller Stil-Eigenschaften für dieses Element enthält, wobei Werte nur für die Attribute zugewiesen werden, die im Inline-`style`-Attribut des Elements definiert sind.
+Die schreibgeschützte **`style`**-Eigenschaft des [`SVGElement`](/de/docs/Web/API/SVGElement) gibt den _inline_ Stil eines Elements in Form eines dynamischen [`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration)-Objekts zurück, das eine Liste aller Stil-Eigenschaften für dieses Element enthält, mit Werten, die nur für die Attribute zugewiesen sind, die im Inline-[`style`](/de/docs/Web/HTML/Reference/Global_attributes/style)-Attribut des Elements definiert sind.
 
-Kurzschreibweisen werden erweitert. Wenn Sie `style="border-top: 1px solid black"` festlegen, werden die Langschreibweisen ({{cssxref("border-top-color")}}, {{cssxref("border-top-style")}} und {{cssxref("border-top-width")}}) stattdessen festgelegt.
+Kurzschreibweisen werden aufgeschlüsselt. Wenn Sie `style="border-top: 1px solid black"` setzen, werden die Langformen der Eigenschaften ({{cssxref("border-top-color")}}, {{cssxref("border-top-style")}} und {{cssxref("border-top-width")}}) stattdessen gesetzt.
 
-Diese Eigenschaft ist schreibgeschützt, das heißt, es ist nicht möglich, ein [`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration)-Objekt ihr zuzuweisen. Dennoch ist es möglich, einen Inline-Stil durch direkte Zuweisung eines _Strings_ zur `style`-Eigenschaft festzulegen. In diesem Fall wird der String an [`CSSStyleDeclaration.cssText`](/de/docs/Web/API/CSSStyleDeclaration/cssText) weitergeleitet. Die Verwendung von `style` in dieser Weise überschreibt alle Inline-Stile auf dem Element vollständig.
+Diese Eigenschaft ist schreibgeschützt, das heißt, es ist nicht möglich, ein [`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration)-Objekt zuzuweisen. Dennoch ist es möglich, einen Inline-Stil zu setzen, indem Sie direkt einen _string_ der `style`-Eigenschaft zuweisen. In diesem Fall wird der String an [`CSSStyleDeclaration.cssText`](/de/docs/Web/API/CSSStyleDeclaration/cssText) weitergeleitet. Die Verwendung von `style` auf diese Weise überschreibt alle inline Stile des Elements vollständig.
 
-Um spezifische Stile zu einem Element hinzuzufügen, ohne andere Stilwerte zu verändern, ist es daher allgemein vorzuziehen, einzelne Eigenschaften auf dem [`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration)-Objekt festzulegen. Zum Beispiel können Sie `element.style.backgroundColor = "red"` schreiben.
+Daher ist es im Allgemeinen vorzuziehen, einzelne Eigenschaften auf dem [`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration)-Objekt zu setzen, um einem Element spezifische Stile hinzuzufügen, ohne andere Stilwerte zu ändern. Zum Beispiel können Sie `element.style.backgroundColor = "red"` schreiben.
 
-Eine Stil-Deklaration wird zurückgesetzt, indem sie auf `null` oder einen leeren String gesetzt wird, z. B. `elt.style.color = null`.
+Eine Stil-Deklaration wird zurückgesetzt, indem sie auf `null` oder einen leeren String gesetzt wird, z.B. `elt.style.color = null`.
 
 > [!NOTE]
-> CSS-Eigenschaftsnamen werden mit diesen Regeln in JavaScript-Identifikatoren konvertiert:
+> CSS-Eigenschaftsnamen werden in JavaScript-Identifier mit diesen Regeln umgewandelt:
 >
 > - Wenn die Eigenschaft aus einem Wort besteht, bleibt sie unverändert: `height` bleibt unverändert (in Kleinbuchstaben).
 > - Wenn die Eigenschaft aus mehreren Wörtern besteht, die durch Bindestriche getrennt sind, werden die Bindestriche entfernt und sie wird in {{Glossary("camel_case", "camel case")}} umgewandelt: `background-attachment` wird zu `backgroundAttachment`.
-> - Die Eigenschaft `float`, ein reserviertes JavaScript-Schlüsselwort, wird in `cssFloat` umgewandelt.
+> - Die Eigenschaft `float`, da sie ein reserviertes JavaScript-Schlüsselwort ist, wird in `cssFloat` umgewandelt.
 >
-> Die `style`-Eigenschaft hat dieselbe Priorität in der CSS-Kaskade wie eine über das `style`-Attribut gesetzte Inline-Stil-Deklaration.
+> Die `style`-Eigenschaft hat in der CSS-Kaskade die gleiche Priorität wie eine Inline-Stil-Deklaration, die über das `style`-Attribut gesetzt wird.
 
 ## Wert
 

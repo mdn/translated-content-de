@@ -1,22 +1,22 @@
 ---
-title: "HTMLElement: toggle event"
+title: "HTMLElement: toggle Ereignis"
 slug: Web/API/HTMLElement/toggle_event
 l10n:
-  sourceCommit: a62600788f390d326859cfbf6171013a3f351690
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{APIRef("HTML DOM")}}
 
-Das **`toggle`**-Ereignis des [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Interfaces wird bei einem [Popover](/de/docs/Web/API/Popover_API)-Element, einem {{htmlelement("dialog")}}-Element oder einem {{htmlelement("details")}}-Element unmittelbar nach dessen Anzeige oder Ausblenden ausgelöst.
+Das **`toggle`** Ereignis der [`HTMLElement`](/de/docs/Web/API/HTMLElement) Schnittstelle wird bei einem [Popover](/de/docs/Web/API/Popover_API) Element, einem {{htmlelement("dialog")}} Element oder einem {{htmlelement("details")}} Element unmittelbar nach dessen Anzeige oder Ausblendung ausgelöst.
 
-- Wenn das Element vom Zustand "versteckt" zu "sichtbar" wechselt, wird die Eigenschaft [`event.oldState`](/de/docs/Web/API/ToggleEvent/oldState) auf `closed` und die Eigenschaft [`event.newState`](/de/docs/Web/API/ToggleEvent/newState) auf `open` gesetzt.
-- Falls das Element von "sichtbar" zu "versteckt" wechselt, wird `event.oldState` auf `open` und `event.newState` auf `closed` gesetzt.
+- Wenn das Element vom ausgeblendeten in den angezeigten Zustand wechselt, wird die Eigenschaft [`event.oldState`](/de/docs/Web/API/ToggleEvent/oldState) auf `closed` gesetzt und die Eigenschaft [`event.newState`](/de/docs/Web/API/ToggleEvent/newState) auf `open`.
+- Wenn das Element vom angezeigten in den ausgeblendeten Zustand wechselt, ist `event.oldState` `open` und `event.newState` `closed`.
 
-Dieses Ereignis ist nicht [cancelable](/de/docs/Web/API/Event/cancelable).
+Dieses Ereignis ist nicht [abbrechbar](/de/docs/Web/API/Event/cancelable).
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js
 addEventListener("toggle", (event) => {});
@@ -32,11 +32,11 @@ Ein [`ToggleEvent`](/de/docs/Web/API/ToggleEvent). Erbt von [`Event`](/de/docs/W
 
 ## Beispiele
 
-Der folgende Beispielcode zeigt, wie das `toggle`-Ereignis für ein [Popover](/de/docs/Web/API/Popover_API) verwendet werden kann. Der gleiche Code kann für ein {{htmlelement("dialog")}}- oder {{htmlelement("details")}}-Element auf die gleiche Weise verwendet werden.
+Der folgende Beispielcode demonstriert, wie das `toggle` Ereignis für ein [Popover](/de/docs/Web/API/Popover_API) verwendet werden kann. Der gleiche Code kann auf {{htmlelement("dialog")}} oder {{htmlelement("details")}} Elemente auf die gleiche Weise angewendet werden.
 
 ### Einfaches Beispiel
 
-Dieses Beispiel zeigt, wie man dem `toggle`-Ereignis zuhört und das Ergebnis protokolliert.
+Dieses Beispiel zeigt, wie Sie das `toggle` Ereignis überwachen und das Ergebnis protokollieren können.
 
 #### HTML
 
@@ -70,7 +70,7 @@ function log(text) {
 
 #### JavaScript
 
-Der Code fügt einen Ereignis-Listener für das `toggle`-Ereignis hinzu und protokolliert den Zustand.
+Der Code fügt einen Ereignislistener für das `toggle` Ereignis hinzu und protokolliert den Zustand.
 
 ```js
 const popover = document.getElementById("mypopover");
@@ -88,9 +88,9 @@ popover.addEventListener("toggle", (event) => {
 
 {{EmbedLiveSample("Basic example", '100%', "250px")}}
 
-### Eine Anmerkung zur Zusammenfassung von toggle-Ereignissen
+### Ein Hinweis zum Coalescing von toggle Ereignissen
 
-Wenn mehrere `toggle`-Ereignisse ausgelöst werden, bevor der Ereignisschleifen-Zyklus durchläuft, wird nur ein einziges Ereignis ausgelöst. Dies wird als "Ereignis-Zusammenfassung" bezeichnet.
+Wenn mehrere `toggle` Ereignisse ausgelöst werden, bevor der Ereignis-Loop die Chance hat, erneut zu durchlaufen, wird nur ein einziges Ereignis ausgelöst. Dies wird als "Ereignis-Coalescing" bezeichnet.
 
 Zum Beispiel:
 
@@ -118,6 +118,6 @@ popover.hidePopover();
 
 ## Siehe auch
 
-- [`popover`](/de/docs/Web/HTML/Global_attributes/popover) HTML Globales Attribut
+- [`popover`](/de/docs/Web/HTML/Reference/Global_attributes/popover) HTML-Globalattribut
 - [Popover API](/de/docs/Web/API/Popover_API)
 - Verwandtes Ereignis: [`beforetoggle`](/de/docs/Web/API/HTMLElement/beforetoggle_event)

@@ -2,16 +2,16 @@
 title: this
 slug: Web/JavaScript/Reference/Operators/this
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{jsSidebar("Operators")}}
 
-Das **`this`** Schlüsselwort bezieht sich auf den Kontext, in dem ein Codeabschnitt, wie der Körper einer Funktion, ausgeführt werden soll. Meistens wird es in Objektmethoden verwendet, wobei `this` sich auf das Objekt bezieht, an das die Methode angehängt ist, sodass dieselbe Methode auf verschiedenen Objekten erneut verwendet werden kann.
+Das Schlüsselwort **`this`** bezieht sich auf den Kontext, in dem ein Codeabschnitt, wie der Körper einer Funktion, ausgeführt werden soll. Es wird typischerweise in Objektmethoden verwendet, wo `this` auf das Objekt verweist, an das die Methode gebunden ist, was die Widerverwendung der gleichen Methode auf unterschiedlichen Objekten ermöglicht.
 
-Der Wert von `this` in JavaScript hängt davon ab, wie eine Funktion aufgerufen wird (Laufzeit-{{Glossary("binding", "Binding")}}), nicht davon, wie sie definiert ist. Wenn eine reguläre Funktion als Methode eines Objekts aufgerufen wird (`obj.method()`), verweist `this` auf dieses Objekt. Wird sie als eigenständige Funktion aufgerufen (nicht an ein Objekt angehängt: `func()`), verweist `this` typischerweise auf das {{Glossary("Global_object", "globale Objekt")}} (im nicht-strikten Modus) oder `undefined` (im [strikten Modus](/de/docs/Web/JavaScript/Reference/Strict_mode)). Die Methode {{jsxref("Function.prototype.bind()")}} kann eine Funktion erstellen, deren `this`-Binding sich nicht ändert, und die Methoden {{jsxref("Function.prototype.apply()")}} und {{jsxref("Function.prototype.call()")}} können ebenfalls den `this`-Wert für einen bestimmten Aufruf festlegen.
+Der Wert von `this` in JavaScript hängt davon ab, wie eine Funktion aufgerufen wird (Laufzeit-{{Glossary("binding", "Binding")}}), nicht wie sie definiert ist. Wenn eine reguläre Funktion als Methode eines Objekts aufgerufen wird (`obj.method()`), zeigt `this` auf dieses Objekt. Wenn sie als eigenständige Funktion aufgerufen wird (nicht an ein Objekt gebunden: `func()`), verweist `this` typischerweise auf das {{Glossary("Global_object", "globale Objekt")}} (im Nicht-strikten Modus) oder `undefined` (im [strikten Modus](/de/docs/Web/JavaScript/Reference/Strict_mode)). Die Methode {{jsxref("Function.prototype.bind()")}} kann eine Funktion erzeugen, deren `this`-Bindung sich nicht ändert und die Methoden {{jsxref("Function.prototype.apply()")}} und {{jsxref("Function.prototype.call()")}} können ebenfalls den `this`-Wert für einen bestimmten Aufruf festlegen.
 
-[Arrow-Funktionen](/de/docs/Web/JavaScript/Reference/Functions/Arrow_functions) unterscheiden sich im Umgang mit `this`: Sie erben `this` aus dem übergeordneten Bereich zum Zeitpunkt ihrer Definition. Dieses Verhalten macht Arrow-Funktionen insbesondere für Rückrufe und die Kontextbewahrung nützlich. Allerdings haben Arrow-Funktionen kein eigenes `this`-Binding. Daher kann ihr `this`-Wert nicht durch die Methoden `bind()`, `apply()` oder `call()` festgelegt werden, noch zeigt es auf das aktuelle Objekt in Objektmethoden.
+[Arrow-Funktionen](/de/docs/Web/JavaScript/Reference/Functions/Arrow_functions) unterscheiden sich in ihrer Handhabung von `this`: Sie erben `this` vom übergeordneten Gültigkeitsbereich zum Zeitpunkt ihrer Definition. Dieses Verhalten macht Arrow-Funktionen besonders nützlich für Rückrufe und die Erhaltung des Kontexts. Allerdings haben Arrow-Funktionen keine eigene `this`-Bindung. Daher kann ihr `this`-Wert nicht durch `bind()`, `apply()` oder `call()`-Methoden festgelegt werden, noch zeigt er in Objektmethoden auf das aktuelle Objekt.
 
 {{InteractiveExample("JavaScript Demo: this expression")}}
 
@@ -35,17 +35,17 @@ this
 
 ### Wert
 
-Im nicht-strikten Modus ist `this` immer eine Referenz auf ein Objekt. Im strikten Modus kann es jeden Wert annehmen. Weitere Informationen darüber, wie der Wert bestimmt wird, finden Sie in der Beschreibung unten.
+Im Nicht–strikten Modus ist `this` immer eine Referenz auf ein Objekt. Im strikten Modus kann es jeden Wert annehmen. Für weitere Informationen darüber, wie der Wert bestimmt wird, lesen Sie die untenstehende Beschreibung.
 
 ## Beschreibung
 
-Der Wert von `this` hängt vom Kontext ab, in dem es erscheint: Funktion, Klasse oder global.
+Der Wert von `this` hängt davon ab, in welchem Kontext es erscheint: Funktion, Klasse oder global.
 
 ### Funktionskontext
 
-Innerhalb einer Funktion hängt der Wert von `this` davon ab, wie die Funktion aufgerufen wird. Betrachten Sie `this` als einen versteckten Parameter einer Funktion — genau wie die im Funktionsdefinition deklarierten Parameter ist `this` ein Binding, das die Sprache für Sie erstellt, wenn der Funktionskörper ausgewertet wird.
+Innerhalb einer Funktion hängt der Wert von `this` davon ab, wie die Funktion aufgerufen wird. Stellen Sie sich `this` als einen versteckten Parameter einer Funktion vor — genau wie die Parameter, die in der Funktionsdefinition deklariert sind, ist `this` ein Binding, das die Sprache für Sie erstellt, wenn der Funktionskörper ausgewertet wird.
 
-Für eine reguläre Funktion (keine Arrow-Funktion, gebundene Funktion usw.) ist der Wert von `this` das Objekt, auf das die Funktion zugreift. In anderen Worten, wenn der Funktionsaufruf in der Form `obj.f()` erscheint, bezieht sich `this` auf `obj`. Zum Beispiel:
+Für eine normale Funktion (keine Arrow-Funktion, gebundene Funktion usw.) ist der Wert von `this` das Objekt, auf dem die Funktion aufgerufen wird. Anders ausgedrückt: Wenn der Funktionsaufruf in der Form `obj.f()` erfolgt, dann bezieht sich `this` auf `obj`. Zum Beispiel:
 
 ```js
 function getThis() {
@@ -62,9 +62,9 @@ console.log(obj1.getThis()); // { name: 'obj1', getThis: [Function: getThis] }
 console.log(obj2.getThis()); // { name: 'obj2', getThis: [Function: getThis] }
 ```
 
-Beachten Sie, wie die Funktion dieselbe ist, aber je nachdem, wie sie aufgerufen wird, ist der Wert von `this` unterschiedlich. Dies ist analog zu der Funktionsweise von Funktionsparametern.
+Beachten Sie, wie die Funktion die gleiche ist, aber basierend darauf, wie sie aufgerufen wird, der Wert von `this` unterschiedlich ist. Dies ist analog dazu, wie Funktionsparameter funktionieren.
 
-Der Wert von `this` ist nicht das Objekt, das die Funktion als eigene Eigenschaft besitzt, sondern das Objekt, das verwendet wird, um die Funktion aufzurufen. Sie können dies beweisen, indem Sie eine Methode eines Objekts in der [Prototypkette](/de/docs/Web/JavaScript/Guide/Inheritance_and_the_prototype_chain) aufrufen.
+Der Wert von `this` ist nicht das Objekt, das die Funktion als Eigenes-Eigentum hat, sondern das Objekt, das zum Aufrufen der Funktion verwendet wurde. Sie können dies beweisen, indem Sie eine Methode eines Objekts weiter oben in der [Prototypenkette](/de/docs/Web/JavaScript/Guide/Inheritance_and_the_prototype_chain) aufrufen.
 
 ```js
 const obj3 = {
@@ -75,7 +75,7 @@ const obj3 = {
 console.log(obj3.getThis()); // { name: 'obj3' }
 ```
 
-Der Wert von `this` ändert sich immer basierend darauf, wie eine Funktion aufgerufen wird, selbst wenn die Funktion bei der Erstellung an ein Objekt gebunden war:
+Der Wert von `this` ändert sich immer basierend darauf, wie eine Funktion aufgerufen wird, auch wenn die Funktion bei der Erstellung auf einem Objekt definiert wurde:
 
 ```js
 const obj4 = {
@@ -91,7 +91,7 @@ obj5.getThis = obj4.getThis;
 console.log(obj5.getThis()); // { name: 'obj5', getThis: [Function: getThis] }
 ```
 
-Wenn auf den Wert, über den die Methode zugegriffen wird, ein primitiver Wert ist, wird `this` ebenfalls ein primitiver Wert sein — aber nur, wenn die Funktion im strikten Modus ist.
+Wenn der Wert, auf den die Methode zugegriffen wird, ein primitiver Wert ist, wird `this` ebenfalls ein primitiver Wert sein — aber nur, wenn die Funktion im strikten Modus ist.
 
 ```js
 function getThisStrict() {
@@ -104,16 +104,16 @@ Number.prototype.getThisStrict = getThisStrict;
 console.log(typeof (1).getThisStrict()); // "number"
 ```
 
-Wenn die Funktion aufgerufen wird, ohne auf etwas zuzugreifen, wird `this` `undefined` sein — aber nur, wenn die Funktion im strikten Modus ist.
+Wenn die Funktion aufgerufen wird, ohne auf irgendetwas zuzugreifen, wird `this` `undefined` sein — aber nur, wenn die Funktion im strikten Modus ist.
 
 ```js
 console.log(typeof getThisStrict()); // "undefined"
 ```
 
-Im nicht-strikten Modus sorgt ein spezieller Prozess, der als [`this`-Substitution](/de/docs/Web/JavaScript/Reference/Strict_mode#no_this_substitution) bezeichnet wird, dafür, dass der Wert von `this` immer ein Objekt ist. Dies bedeutet:
+Im Nicht-strikten Modus sorgt ein spezieller Prozess namens [`this`-Substitution](/de/docs/Web/JavaScript/Reference/Strict_mode#no_this_substitution) dafür, dass der Wert von `this` immer ein Objekt ist. Das bedeutet:
 
-- Wenn eine Funktion mit `this` aufgerufen wird, das auf `undefined` oder `null` gesetzt ist, wird `this` durch {{jsxref("globalThis")}} ersetzt.
-- Wenn die Funktion mit `this` aufgerufen wird, das auf einen primitiven Wert gesetzt ist, wird `this` durch das Wrapper-Objekt des primitiven Werts ersetzt.
+- Wenn eine Funktion mit `this`, das auf `undefined` oder `null` gesetzt ist, aufgerufen wird, wird `this` durch {{jsxref("globalThis")}} ersetzt.
+- Wenn die Funktion mit `this`, das auf einen primitiven Wert gesetzt ist, aufgerufen wird, wird `this` durch das Wrapper-Objekt des primitiven Werts ersetzt.
 
 ```js
 function getThis() {
@@ -126,11 +126,11 @@ console.log(typeof (1).getThis()); // "object"
 console.log(getThis() === globalThis); // true
 ```
 
-In typischen Funktionsaufrufen wird `this` implizit wie ein Parameter durch das Präfix der Funktion (der Teil vor dem Punkt) übergeben. Sie können den Wert von `this` auch explizit mit den Methoden {{jsxref("Function.prototype.call()")}}, {{jsxref("Function.prototype.apply()")}} oder {{jsxref("Reflect.apply()")}} setzen. Mit {{jsxref("Function.prototype.bind()")}} können Sie eine neue Funktion mit einem bestimmten Wert von `this` erstellen, der sich unabhängig davon, wie die Funktion aufgerufen wird, nicht ändert. Wenn diese Methoden verwendet werden, gelten die oben genannten `this`-Substitutionsregeln immer noch, wenn die Funktion nicht strikt ist.
+In typischen Funktionsaufrufen wird `this` implizit wie ein Parameter durch das Präfix der Funktion (der Teil vor dem Punkt) übergeben. Sie können den Wert von `this` auch explizit mit den Methoden {{jsxref("Function.prototype.call()")}}, {{jsxref("Function.prototype.apply()")}}, oder {{jsxref("Reflect.apply()")}} festlegen. Mit {{jsxref("Function.prototype.bind()")}} können Sie eine neue Funktion mit einem bestimmten Wert von `this` erstellen, der sich nicht ändert, unabhängig davon, wie die Funktion aufgerufen wird. Bei der Verwendung dieser Methoden gelten die oben genannten `this`-Substitutionsregeln weiterhin, wenn die Funktion nicht im strikten Modus ist.
 
 #### Rückrufe
 
-Wenn eine Funktion als Rückruf übergeben wird, hängt der Wert von `this` davon ab, wie der Rückruf aufgerufen wird, was vom Implementator der API bestimmt wird. Rückrufe werden _normalerweise_ mit einem `this`-Wert von `undefined` aufgerufen (direkt ohne Anheftung an ein Objekt), was bedeutet, dass der Wert von `this`, wenn die Funktion nicht-strikt ist, das globale Objekt ist ({{jsxref("globalThis")}}). Dies gilt für [iterative Array-Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods), den [`Promise()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise/Promise)-Konstruktor usw.
+Wenn eine Funktion als Rückruf übergeben wird, hängt der Wert von `this` davon ab, wie der Rückruf aufgerufen wird, was vom Implementierer der API bestimmt wird. Rückrufe werden _typischerweise_ mit einem `this`-Wert von `undefined` aufgerufen (direkt aufgerufen, ohne es an ein Objekt zu binden), was bedeutet, wenn die Funktion nicht im strikten Modus ist, ist der Wert von `this` das globale Objekt ({{jsxref("globalThis")}}). Dies trifft beispielsweise auf [iterative Array-Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods), den [`Promise()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise/Promise)-Konstruktor usw. zu.
 
 ```js
 function logThis() {
@@ -141,20 +141,20 @@ function logThis() {
 [1, 2, 3].forEach(logThis); // undefined, undefined, undefined
 ```
 
-Einige APIs erlauben Ihnen, einen `this`-Wert für die Ausführungen der Rückruf-Methode festzulegen. Zum Beispiel akzeptieren alle iterativen Array-Methoden und verwandte wie {{jsxref("Set.prototype.forEach()")}} einen optionalen `thisArg`-Parameter.
+Einige APIs erlauben es Ihnen, einen `this`-Wert für die Aufrufe des Rückrufs festzulegen. Beispielsweise akzeptieren alle iterativen Array-Methoden und ähnliche Methoden wie {{jsxref("Set.prototype.forEach()")}} einen optionalen `thisArg`-Parameter.
 
 ```js
 [1, 2, 3].forEach(logThis, { name: "obj" });
 // { name: 'obj' }, { name: 'obj' }, { name: 'obj' }
 ```
 
-Gelegentlich wird ein Rückruf mit einem anderen `this`-Wert als `undefined` aufgerufen. Zum Beispiel werden die `reviver`-Parameter von {{jsxref("JSON.parse()")}} und der `replacer`-Parameter von {{jsxref("JSON.stringify()")}} beide mit `this` auf das Objekt gesetzt, zu dem die zu serialisierende Property gehört.
+Gelegentlich wird ein Rückruf mit einem `this`-Wert, der nicht `undefined` ist, aufgerufen. Zum Beispiel werden der `reviver`-Parameter von {{jsxref("JSON.parse()")}} und der `replacer`-Parameter von {{jsxref("JSON.stringify()")}} beide mit `this` auf das Objekt gesetzt, zu dem die zu parsende/serialisierende Eigenschaft gehört.
 
 #### Arrow-Funktionen
 
-In [Arrow-Funktionen](/de/docs/Web/JavaScript/Reference/Functions/Arrow_functions) behält `this` den Wert des umschließenden lexikalischen Kontextes. Mit anderen Worten, beim Auswerten des Körpers einer Arrow-Funktion erstellt die Sprache kein neues `this`-Binding.
+In [Arrow-Funktionen](/de/docs/Web/JavaScript/Reference/Functions/Arrow_functions) behält `this` den Wert des umgebenden lexikalischen Kontexts. Mit anderen Worten: Wenn der Körper einer Arrow-Funktion ausgewertet wird, erstellt die Sprache keine neue `this`-Bindung.
 
-Zum Beispiel ist in globalem Code `this` immer `globalThis`, unabhängig von der Striktheit, aufgrund der [globalen Kontext] (#globaler_kontext) Bindung:
+Zum Beispiel ist im globalen Code `this` immer `globalThis`, unabhängig von der Striktheit, aufgrund des [globalen Kontexts](#globaler_kontext) Bindung:
 
 ```js
 const globalObject = this;
@@ -162,9 +162,9 @@ const foo = () => this;
 console.log(foo() === globalObject); // true
 ```
 
-Arrow-Funktionen erstellen eine [Closure](/de/docs/Web/JavaScript/Guide/Closures) über den `this`-Wert ihres umgebenden Bereichs, was bedeutet, dass Arrow-Funktionen so arbeiten, als wären sie "automatisch gebunden" — egal, wie sie aufgerufen werden, `this` bleibt das, was es war, als die Funktion erstellt wurde (im obigen Beispiel das globale Objekt). Dasselbe gilt für Arrow-Funktionen, die innerhalb anderer Funktionen erstellt werden: ihr `this` bleibt das des umschließenden lexikalischen Kontexts. [Siehe Beispiel unten](#this_in_arrow-funktionen).
+Arrow-Funktionen erstellen eine [Schließung](/de/docs/Web/JavaScript/Guide/Closures) über den `this`-Wert ihres umgebenden Gültigkeitsbereichs, was bedeutet, dass Arrow-Funktionen so funktionieren, als wären sie "automatisch gebunden" — egal wie sie aufgerufen werden, `this` ist an das gebunden, was es war, als die Funktion erstellt wurde (im obigen Beispiel das globale Objekt). Das gleiche gilt für Arrow-Funktionen, die innerhalb anderer Funktionen erstellt werden: ihr `this` bleibt das des umgebenden lexikalischen Kontexts. [Siehe Beispiel unten](#this_in_arrow-funktionen).
 
-Darüber hinaus wird beim Aufrufen von Arrow-Funktionen mit `call()`, `bind()`, oder `apply()`, der `thisArg`-Parameter ignoriert. Sie können jedoch weiterhin andere Argumente mit diesen Methoden übergeben.
+Darüber hinaus wird der `thisArg`-Parameter beim Aufrufen von Arrow-Funktionen mit `call()`, `bind()` oder `apply()` ignoriert. Sie können jedoch weiterhin andere Argumente mit diesen Methoden übergeben.
 
 ```js
 const obj = { name: "obj" };
@@ -179,7 +179,7 @@ console.log(boundFoo() === globalObject); // true
 
 #### Konstruktoren
 
-Wenn eine Funktion als Konstruktor (mit dem {{jsxref("Operators/new", "new")}}-Schlüsselwort) verwendet wird, ist ihr `this` an das neue Objekt gebunden, das erstellt wird, unabhängig davon, auf welches Objekt die Konstruktionsfunktion zugreift. Der Wert von `this` wird zum Wert des `new`-Ausdrucks, es sei denn, der Konstruktor gibt einen anderen nicht-primitiven Wert zurück.
+Wird eine Funktion als Konstruktor (mit dem Schlüsselwort {{jsxref("Operators/new", "new")}}) verwendet, ist `this` an das neue Objekt gebunden, das konstruiert wird, unabhängig davon, auf welchem Objekt die Konstruktorfunktion aufgerufen wird. Der Wert von `this` wird der Wert des `new`-Ausdrucks, es sei denn, der Konstruktor gibt einen anderen nicht-primitiven Wert zurück.
 
 ```js
 function C() {
@@ -198,21 +198,21 @@ o = new C2();
 console.log(o.a); // 38
 ```
 
-Im zweiten Beispiel (`C2`), weil ein Objekt während der Konstruktion zurückgegeben wurde, wird das neue Objekt, an das `this` gebunden war, verworfen. (Dies macht die Anweisung `this.a = 37;` im Wesentlichen zu einem toten Code. Er ist nicht genau tot, da er ausgeführt wird, aber er kann ohne externe Effekte eliminiert werden.)
+Im zweiten Beispiel (`C2`), weil während der Konstruktion ein Objekt zurückgegeben wurde, wird das neue Objekt, an das `this` gebunden war, verworfen. (Dies macht im Wesentlichen die Anweisung `this.a = 37;` zu totem Code. Es ist nicht genau tot, weil es ausgeführt wird, aber es kann ohne äußere Effekte eliminiert werden.)
 
 #### super
 
-Wenn eine Funktion in der `super.method()`-Form aufgerufen wird, ist das `this` innerhalb der `method`-Funktion derselbe Wert wie der `this`-Wert um den `super.method()`-Aufruf und ist meistens nicht gleich dem Objekt, auf das `super` verweist. Dies liegt daran, dass `super.method` kein Objektzugriff wie die oben genannten darstellt — es ist eine spezielle Syntax mit anderen Binding-Regeln. Für Beispiele siehe die [`super`-Referenz](/de/docs/Web/JavaScript/Reference/Operators/super#calling_methods_from_super).
+Wird eine Funktion in der Form `super.method()` aufgerufen, ist das `this` innerhalb der `method`-Funktion der gleiche Wert wie der `this`-Wert um den `super.method()`-Aufruf herum und ist im Allgemeinen nicht gleich dem Objekt, auf das `super` verweist. Dies liegt daran, dass `super.method` kein Objektmitgliederzugriff wie die oben genannten ist - es handelt sich um eine spezielle Syntax mit unterschiedlichen Bindungsregeln. Beispiele hierzu finden Sie in der [`super`-Referenz](/de/docs/Web/JavaScript/Reference/Operators/super#calling_methods_from_super).
 
 ### Klassenkontext
 
-Eine [Klasse](/de/docs/Web/JavaScript/Reference/Classes) kann in zwei Kontexte geteilt werden: statisch und Instanz. [Konstruktoren](/de/docs/Web/JavaScript/Reference/Classes/constructor), Methoden und Instanz-Feldinitialisierer ([öffentlich](/de/docs/Web/JavaScript/Reference/Classes/Public_class_fields) oder [privat](/de/docs/Web/JavaScript/Reference/Classes/Private_properties)) gehören zum Instanz-Kontext. [Statische](/de/docs/Web/JavaScript/Reference/Classes/static) Methoden, statische Feldinitialisierer und [statische Initialisierungsblöcke](/de/docs/Web/JavaScript/Reference/Classes/Static_initialization_blocks) gehören zum statischen Kontext. Der `this`-Wert ist in jedem Kontext unterschiedlich.
+Eine [Klasse](/de/docs/Web/JavaScript/Reference/Classes) kann in zwei Kontexte aufgeteilt werden: statisch und instanziell. [Konstruktoren](/de/docs/Web/JavaScript/Reference/Classes/constructor), Methoden und Initialisierer für Instanzfelder ([öffentlich](/de/docs/Web/JavaScript/Reference/Classes/Public_class_fields) oder [privat](/de/docs/Web/JavaScript/Reference/Classes/Private_properties)) gehören zum instanziellen Kontext. [Statische](/de/docs/Web/JavaScript/Reference/Classes/static) Methoden, statische Initialisierungen, und [statische Initialisierungsblöcke](/de/docs/Web/JavaScript/Reference/Classes/Static_initialization_blocks) gehören zum statischen Kontext. Der `this`-Wert ist in jedem Kontext unterschiedlich.
 
-Klassenkonstruktoren werden immer mit `new` aufgerufen, sodass ihr Verhalten dem von [Funktionskonstruktoren](#konstruktoren) entspricht: Der `this`-Wert ist die neue Instanz, die erstellt wird. Klassenmethoden verhalten sich wie Methoden in Objektliteralen — der `this`-Wert ist das Objekt, auf dem die Methode aufgerufen wurde. Wenn die Methode nicht auf ein anderes Objekt übertragen wird, ist `this` in der Regel eine Instanz der Klasse.
+Klassenkonstruktoren werden immer mit `new` aufgerufen, daher ist ihr Verhalten das gleiche wie bei [Funktionenkonstruktoren](#konstruktoren): Der `this`-Wert ist die neue Instanz, die erstellt wird. Klassenmethoden verhalten sich wie Methoden in Objektliteralen – der `this`-Wert ist das Objekt, auf dem die Methode aufgerufen wurde. Wenn die Methode nicht auf ein anderes Objekt übertragen wird, ist `this` im Allgemeinen eine Instanz der Klasse.
 
-Statische Methoden sind keine Eigenschaften von `this`. Sie sind Eigenschaften der Klasse selbst. Daher werden sie in der Regel auf der Klasse aufgerufen und `this` ist der Wert der Klasse (oder einer Unterklasse). Statische Initialisierungsblöcke werden auch mit `this` ausgewertet, das auf die aktuelle Klasse gesetzt ist.
+Statische Methoden sind keine Eigenschaften von `this`. Sie sind Eigenschaften der Klasse selbst. Daher werden sie im Allgemeinen auf der Klasse aufgerufen, und `this` ist der Wert der Klasse (oder einer Unterklasse). Statische Initialisierungsblöcke werden ebenfalls mit `this` gesetzt auf die aktuelle Klasse ausgewertet.
 
-Feldinitialisierer werden ebenfalls im Kontext der Klasse ausgewertet. Instanzfelder werden mit `this` ausgewertet, das auf die instanziierte Konstruktion gesetzt ist. Statische Felder werden mit `this` bewertet, das auf die aktuelle Klasse festgelegt ist. Deshalb sind Arrow-Funktionen in Feldinitialisierern [an die Instanz für Instanzfelder und an die Klasse für statische Felder gebunden](/de/docs/Web/JavaScript/Reference/Functions/Arrow_functions#cannot_be_used_as_methods).
+Feldinitialisierer werden ebenfalls im Kontext der Klasse ausgewertet. Instanzfelder werden mit `this`, gesetzt auf die zu konstruierende Instanz, ausgewertet. Statische Felder werden mit `this`, gesetzt auf die aktuelle Klasse, ausgewertet. Dies erklärt, warum Arrow-Funktionen in Feldinitialisierern [an die Instanz für Instanzfelder und an die Klasse für statische Felder gebunden sind](/de/docs/Web/JavaScript/Reference/Functions/Arrow_functions#cannot_be_used_as_methods).
 
 ```js
 class C {
@@ -227,16 +227,16 @@ console.log(C.staticField === C); // true
 
 #### Abgeleitete Klassenkonstruktoren
 
-Anders als Basisklassenkonstruktoren haben abgeleitete Konstruktoren keine anfängliche `this`-Bindung. Der Aufruf von {{jsxref("Operators/super", "super()")}} erstellt eine `this`-Bindung im Konstruktor und hat im Wesentlichen die gleiche Wirkung, wie wenn die folgende Codezeile bewertet würde, wobei `Base` die Basisklasse ist:
+Anders als Basisklassenkonstruktoren haben abgeleitete Konstruktoren keine anfängliche `this`-Bindung. Ein Aufruf von {{jsxref("Operators/super", "super()")}} erstellt eine `this`-Bindung innerhalb des Konstruktors und hat im Wesentlichen die Wirkung, die folgende Codezeile zu evaluieren, wobei `Base` die Basisklasse ist:
 
 ```js-nolint
 this = new Base();
 ```
 
 > [!WARNING]
-> Das Referenzieren von `this` vor dem Aufruf von `super()` führt zu einem Fehler.
+> Wenn auf `this` verwiesen wird, bevor `super()` aufgerufen wird, wird ein Fehler ausgelöst.
 
-Abgeleitete Klassen müssen `super()` aufrufen, bevor sie zurückkehren, es sei denn, der Konstruktor gibt ein Objekt zurück (sodass der `this`-Wert überschrieben wird) oder die Klasse hat überhaupt keinen Konstruktor.
+Abgeleitete Klassen dürfen nicht zurückkehren, bevor `super()` aufgerufen wird, es sei denn, der Konstruktor gibt ein Objekt zurück (sodass der `this`-Wert überschrieben wird) oder die Klasse hat überhaupt keinen Konstruktor.
 
 ```js
 class Base {}
@@ -257,11 +257,11 @@ new Bad(); // ReferenceError: Must call super constructor in derived class befor
 
 ### Globaler Kontext
 
-Im globalen Ausführungskontext (außerhalb von Funktionen oder Klassen; kann sich innerhalb von [Blöcken](/de/docs/Web/JavaScript/Reference/Statements/block) oder [Arrow-Funktionen](#arrow-funktionen) befinden, die im globalen Bereich definiert sind), hängt der `this`-Wert davon ab, in welchem Ausführungskontext das Skript ausgeführt wird. Wie bei [Rückrufen](#rückrufe) wird der `this`-Wert durch die Laufzeitumgebung (den Aufrufer) bestimmt.
+Im globalen Ausführungskontext (außerhalb jeglicher Funktionen oder Klassen; möglicherweise innerhalb von [Blöcken](/de/docs/Web/JavaScript/Reference/Statements/block) oder [Arrow-Funktionen](#arrow-funktionen), die im globalen Geltungsbereich definiert sind), hängt der `this`-Wert davon ab, in welchem Ausführungskontext das Skript läuft. Ähnlich wie bei [Rückrufen](#rückrufe) wird der `this`-Wert von der Laufzeitumgebung bestimmt (dem Aufrufer).
 
-Auf der obersten Ebene eines Skripts bezieht sich `this` auf {{jsxref("globalThis")}}, egal ob im strengen Modus oder nicht. Dies ist im Allgemeinen dasselbe wie das globale Objekt – zum Beispiel, wenn die Quelle in ein HTML-[`<script>`](/de/docs/Web/HTML/Element/script)-Element eingefügt und als Skript ausgeführt wird, gilt `this === window`.
+Auf der obersten Ebene eines Skripts verweist `this` auf {{jsxref("globalThis")}}, unabhängig davon, ob im strikten Modus oder nicht. Dies entspricht im Allgemeinen dem globalen Objekt – beispielsweise zeigt, wenn der Quellcode in ein HTML-`<script>`-Element eingebettet und als Skript ausgeführt wird, `this === window`.
 
-> **Hinweis:** `globalThis` ist im Allgemeinen dasselbe Konzept wie das globale Objekt (d.h. das Hinzufügen von Eigenschaften zu `globalThis` macht sie zu globalen Variablen) – dies gilt für Browser und Node – aber Hosts dürfen einen anderen Wert für `globalThis` bereitstellen, der nichts mit dem globalen Objekt zu tun hat.
+> **Hinweis:** `globalThis` ist im Allgemeinen dasselbe Konzept wie das globale Objekt (d.h. das Hinzufügen von Eigenschaften zu `globalThis` macht sie zu globalen Variablen) – dies trifft auf Browser und Node zu – aber Hosts dürfen für `globalThis` einen anderen Wert bereitstellen, der nicht mit dem globalen Objekt in Zusammenhang steht.
 
 ```js
 // In web browsers, the window object is also the global object:
@@ -272,9 +272,9 @@ console.log(window.b); // "MDN"
 console.log(b); // "MDN"
 ```
 
-Wenn die Quelle als [Modul](/de/docs/Web/JavaScript/Guide/Modules) geladen wird (für HTML bedeutet dies das Hinzufügen von `type="module"` zum `<script>`-Tag), ist `this` immer `undefined` auf oberster Ebene.
+Wenn der Quellcode als [Modul](/de/docs/Web/JavaScript/Guide/Modules) geladen wird (für HTML bedeutet dies, `type="module"` zum `<script>`-Tag hinzuzufügen), ist `this` auf oberster Ebene immer `undefined`.
 
-Wenn die Quelle mit [`eval()`](/de/docs/Web/JavaScript/Reference/Global_Objects/eval) ausgeführt wird, ist `this` dasselbe wie der umgebende Kontext für [direktes eval](/de/docs/Web/JavaScript/Reference/Global_Objects/eval#direct_and_indirect_eval) oder `globalThis` (als ob es in einem separaten globalen Skript ausgeführt wurde) für indirektes eval.
+Wenn der Quellcode mit [`eval()`](/de/docs/Web/JavaScript/Reference/Global_Objects/eval) ausgeführt wird, ist `this` dasselbe wie der umschließende Kontext für [direktes Eval](/de/docs/Web/JavaScript/Reference/Global_Objects/eval#direct_and_indirect_eval), oder `globalThis` (als ob es in einem separaten globalen Skript ausgeführt wird) für indirektes Eval.
 
 ```js
 function test() {
@@ -289,9 +289,9 @@ function test() {
 test.call({ name: "obj" }); // Logs 3 "true"
 ```
 
-Beachten Sie, dass einige Quellcodes, obwohl sie wie der globale Geltungsbereich aussehen, tatsächlich in einer Funktion ausgeführt werden, wenn sie ausgeführt werden. Zum Beispiel werden Node.js-CommonJS-Module in eine Funktion eingebunden und mit dem `this`-Wert auf `module.exports` gesetzt. [Ereignishandler-Attribute](#this_in_inline-ereignishandlern) werden mit `this` auf das Element gesetzt, auf dem sie angebracht sind.
+Beachten Sie, dass einige Quellcodes, obwohl sie wie der globale Bereich aussehen, tatsächlich in einer Funktion ausgeführt werden. Beispielsweise werden Node.js CommonJS-Module in eine Funktion eingeschlossen und mit dem `this`-Wert, gesetzt auf `module.exports`, ausgeführt. [Ereignishandlereigenschaften](#this_in_inline-ereignishandlern) werden mit `this`, gesetzt auf das Element, an das sie gebunden sind, ausgeführt.
 
-Objektliterale erstellen keinen `this`-Geltungsbereich – nur Funktionen (Methoden), die innerhalb des Objekts definiert sind. Die Verwendung von `this` in einem Objektliteral erbt den Wert aus dem umgebenden Geltungsbereich.
+Objektliterale erzeugen keinen `this`-Gültigkeitsbereich – nur innerhalb des Objekts definierte Funktionen (Methoden) tun dies. Die Verwendung von `this` innerhalb eines Objektliterals erbt den Wert aus dem umliegenden Gültigkeitsbereich.
 
 ```js
 const obj = {
@@ -305,7 +305,7 @@ console.log(obj.a === window); // true
 
 ### this in Funktionskontexten
 
-Der Wert des `this`-Parameters hängt davon ab, wie die Funktion aufgerufen wird, nicht davon, wie sie definiert ist.
+Der Wert des `this`-Parameters hängt davon ab, wie die Funktion aufgerufen wird, nicht von ihrer Definition.
 
 ```js
 // An object can be passed as the first argument to 'call'
@@ -324,7 +324,7 @@ obj.whatsThis = whatsThis;
 obj.whatsThis(); // 'Custom'; the 'this' parameter is bound to obj
 ```
 
-Mit `call()` und `apply()` können Sie den Wert von `this` übergeben, als wäre es ein expliziter Parameter.
+Mit `call()` und `apply()` können Sie den Wert von `this` als expliziten Parameter übergeben.
 
 ```js
 function add(c, d) {
@@ -342,9 +342,9 @@ add.call(o, 5, 7); // 16
 add.apply(o, [10, 20]); // 34
 ```
 
-### this und Objektkonvertierung
+### this und Objektkonversion
 
-Im nicht-strikten Modus, wenn eine Funktion mit einem `this`-Wert aufgerufen wird, der kein Objekt ist, wird der `this`-Wert mit einem Objekt ersetzt. `null` und `undefined` werden `globalThis`. Primitive wie `7` oder `'foo'` werden mit dem zugehörigen Konstruktor in ein Objekt konvertiert, sodass die primitive Zahl `7` in eine {{jsxref("Number")}}-Wrapper-Klasse und der String `'foo'` in eine {{jsxref("String")}}-Wrapper-Klasse umgewandelt wird.
+Im Nicht–strikten Modus, wenn eine Funktion mit einem `this`-Wert aufgerufen wird, der kein Objekt ist, wird der `this`-Wert durch ein Objekt ersetzt. `null` und `undefined` werden zu `globalThis`. Primitive Werte wie `7` oder `'foo'` werden in ein Objekt umgewandelt, indem der zugehörige Konstruktor verwendet wird, sodass die primitive Zahl `7` in eine {{jsxref("Number")}}-Wrapper-Klasse und der String `'foo'` in eine {{jsxref("String")}}-Wrapper-Klasse umgewandelt wird.
 
 ```js
 function bar() {
@@ -358,7 +358,7 @@ bar.call(undefined); // [object Window]
 
 ### Die bind()-Methode
 
-Der Aufruf von [`f.bind(someObject)`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/bind) erstellt eine neue Funktion mit demselben Körper und Geltungsbereich wie `f`, aber der Wert von `this` ist dauerhaft an das erste Argument von `bind` gebunden, unabhängig davon, wie die Funktion aufgerufen wird.
+Ein Aufruf von [`f.bind(someObject)`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/bind) erstellt eine neue Funktion mit demselben Funktionstext und derselben Funktionsempfehlung wie `f`, jedoch wird der Wert von `this` dauerhaft an das erste Argument von `bind` gebunden, unabhängig davon, wie die Funktion aufgerufen wird.
 
 ```js
 function f() {
@@ -377,7 +377,7 @@ console.log(o.a, o.f(), o.g(), o.h()); // 37 37 azerty azerty
 
 ### this in Arrow-Funktionen
 
-Arrow-Funktionen erstellen Closures über den `this`-Wert des umschließenden Ausführungskontexts. Im folgenden Beispiel erstellen wir `obj` mit einer Methode `getThisGetter`, die eine Funktion zurückgibt, die den Wert von `this` zurückgibt. Die zurückgegebene Funktion wird als Arrow-Funktion erstellt, sodass ihr `this` dauerhaft an das `this` ihrer umgebenden Funktion gebunden ist. Der Wert von `this` innerhalb von `getThisGetter` kann im Aufruf festgelegt werden, was wiederum den Rückgabewert der zurückgegebenen Funktion festlegt. Wir nehmen an, dass `getThisGetter` eine nicht-strikte Funktion ist, was bedeutet, dass sie in einem nicht-strikten Skript enthalten ist und nicht weiter in einer Klasse oder strikten Funktion verschachtelt ist.
+Arrow-Funktionen erstellen Schließungen über den `this`-Wert ihres umgebenden Ausführungskontexts. Im folgenden Beispiel erstellen wir `obj` mit einer Methode `getThisGetter`, die eine Funktion zurückgibt, die den Wert von `this` zurückgibt. Die zurückgegebene Funktion wird als Arrow-Funktion erstellt, sodass ihr `this` dauerhaft an das `this` ihrer umgebenden Funktion gebunden ist. Der Wert von `this` innerhalb von `getThisGetter` kann im Aufruf festgelegt werden, was wiederum den Rückgabewert der zurückgegebenen Funktion festlegt. Wir gehen davon aus, dass `getThisGetter` eine nicht-strikte Funktion ist, was bedeutet, dass es in einem nicht-strikten Skript enthalten ist und nicht weiter in einer Klasse oder strikten Funktion eingebettet ist.
 
 ```js
 const obj = {
@@ -388,25 +388,25 @@ const obj = {
 };
 ```
 
-Wir können `getThisGetter` als eine Methode von `obj` aufrufen, die `this` innerhalb ihres Körpers an `obj` bindet. Die zurückgegebene Funktion wird einer Variablen `fn` zugewiesen. Wenn nun `fn` aufgerufen wird, bleibt der Wert von `this`, der durch den Aufruf von `getThisGetter` festgelegt wurde, gleich, was `obj` ist. Wenn die zurückgegebene Funktion keine Arrow-Funktion wäre, würden solche Aufrufe den `this`-Wert auf `globalThis` setzen, da `getThisGetter` nicht-strikt ist.
+Wir können `getThisGetter` als Methode von `obj` aufrufen, was `this` in seinem Körper an `obj` bindet. Die zurückgegebene Funktion wird einer Variablen `fn` zugewiesen. Wenn nun `fn` aufgerufen wird, bleibt der Wert von `this` immer noch derjenige, der durch den Aufruf von `getThisGetter` festgelegt wurde, nämlich `obj`. Wenn die zurückgegebene Funktion keine Arrow-Funktion wäre, würde dies dazu führen, dass der `this`-Wert `globalThis` ist, da `getThisGetter` nicht strikt ist.
 
 ```js
 const fn = obj.getThisGetter();
 console.log(fn() === obj); // true
 ```
 
-Aber Vorsicht, wenn Sie die Methode von `obj` lösen, ohne sie aufzurufen, denn `getThisGetter` ist immer noch eine Methode mit einem sich ändernden `this`-Wert. Die Verwendung von `fn2()()` im folgenden Beispiel gibt `globalThis` zurück, da es das `this` von `fn2()` folgt, das `globalThis` ist, weil es aufgerufen wird, ohne an ein Objekt gebunden zu sein.
+Aber Vorsicht, wenn Sie die Methode von `obj` ohne sie aufzurufen binden, denn `getThisGetter` ist immer noch eine Methode, die einen variierenden `this`-Wert hat. Ein Aufruf von `fn2()()` im folgenden Beispiel gibt `globalThis` zurück, weil es dem `this` von `fn2()` folgt, das `globalThis` ist, da es aufgerufen wird, ohne an ein Objekt gebunden zu sein.
 
 ```js
 const fn2 = obj.getThisGetter;
 console.log(fn2()() === globalThis); // true in non-strict mode
 ```
 
-Dieses Verhalten ist sehr nützlich beim Definieren von Rückrufen. Normalerweise erstellt jeder Funktionsausdruck sein eigenes `this`-Binding, das den `this`-Wert des oberen Bereichs überschattet. Jetzt können Sie Funktionen als Arrow-Funktionen definieren, wenn Ihnen der `this`-Wert egal ist, und nur `this`-Bindings dort erstellen, wo Sie es tun (z.B. in Klassenmethoden). Siehe [Beispiel mit `setTimeout()`](/de/docs/Web/JavaScript/Reference/Functions/Arrow_functions#using_call_bind_and_apply).
+Dieses Verhalten ist bei der Definition von Rückrufen sehr nützlich. Normalerweise erstellt jeder Funktionsausdruck seine ein eigenes `this`-Binding, das den `this`-Wert des übergeordneten Bereichs überschattet. Jetzt können Sie Funktionen als Arrow-Funktionen definieren, wenn Ihnen der `this`-Wert egal ist, und `this`-Bindings nur dort erstellen, wo es Ihnen wichtig ist (z.B. in Klassenmethoden). Siehe [Beispiel mit `setTimeout()`](/de/docs/Web/JavaScript/Reference/Functions/Arrow_functions#using_call_bind_and_apply).
 
 ### this mit einem Getter oder Setter
 
-`this` in Gettern und Settern basiert darauf, auf welchem Objekt auf die Eigenschaft zugegriffen wird, nicht auf welchem Objekt die Eigenschaft definiert ist. Eine Funktion, die als Getter oder Setter verwendet wird, hat ihr `this` an das Objekt gebunden, von dem die Eigenschaft gesetzt oder abgerufen wird.
+`this` in Gettern und Settern basiert darauf, auf welchem Objekt die Eigenschaft zugegriffen wird, nicht auf welchem Objekt die Eigenschaft definiert ist. Eine als Getter oder Setter verwendete Funktion hat ihr `this` an das Objekt gebunden, von dem die Eigenschaft festgelegt oder abgerufen wird.
 
 ```js
 function sum() {
@@ -433,7 +433,7 @@ console.log(o.average, o.sum); // 2 6
 
 ### this in DOM-Ereignishandlern
 
-Wenn eine Funktion als Ereignishandler verwendet wird, ist ihr `this`-Parameter an das DOM-Element gebunden, an dem der Listener angebracht ist (einige Browser folgen nicht dieser Konvention für Listener, die dynamisch mit anderen Methoden als [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) hinzugefügt werden).
+Wenn eine Funktion als Ereignishandler verwendet wird, wird ihr `this`-Parameter an das DOM-Element gebunden, auf dem der Listener platziert ist (einige Browser halten sich nicht an diese Konvention für Listener, die dynamisch mit anderen Methoden als [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) hinzugefügt werden).
 
 ```js
 // When called as a listener, turns the related element blue
@@ -457,13 +457,13 @@ for (const element of elements) {
 
 ### this in Inline-Ereignishandlern
 
-Wenn der Code von einem Inline-[Ereignishandler-Attribut](/de/docs/Web/HTML/Attributes#event_handler_attributes) aufgerufen wird, ist sein `this` an das DOM-Element gebunden, an dem der Listener angebracht ist:
+Wenn der Code von einem Inline-[Ereignishandlereigenschaft](/de/docs/Web/HTML/Reference/Attributes#event_handler_attributes) aufgerufen wird, ist `this` an das DOM-Element gebunden, auf dem der Listener platziert ist:
 
 ```html
 <button onclick="alert(this.tagName.toLowerCase());">Show this</button>
 ```
 
-Die obige Warnung zeigt `button`. Beachten Sie jedoch, dass nur der äußere Bereich auf diese Weise seinen `this` hat:
+Der obige Alert zeigt `button`. Beachten Sie jedoch, dass nur der äußere Bereich auf diese Weise gebunden ist:
 
 ```html
 <button onclick="alert((function () { return this; })());">
@@ -471,11 +471,11 @@ Die obige Warnung zeigt `button`. Beachten Sie jedoch, dass nur der äußere Ber
 </button>
 ```
 
-In diesem Fall ist der `this`-Parameter der inneren Funktion an `globalThis` gebunden (d.h. das Standardobjekt im nicht-strikten Modus, bei dem `this` nicht im Aufruf übergeben wird).
+In diesem Fall ist der `this`-Parameter der inneren Funktion an `globalThis` gebunden (d.h. das Standardobjekt im nicht-strikten Modus, wo `this` im Aufruf nicht übergeben wird).
 
 ### Gebundene Methoden in Klassen
 
-Genau wie bei regulären Funktionen hängt der Wert von `this` innerhalb von Methoden davon ab, wie sie aufgerufen werden. Manchmal ist es nützlich, dieses Verhalten zu überschreiben, sodass `this` in Klassen immer auf die Klasseninstanz verweist. Um dies zu erreichen, binden Sie die Klassenmethoden im Konstruktor:
+Genau wie bei regulären Funktionen hängt der Wert von `this` innerhalb von Methoden davon ab, wie sie aufgerufen werden. Manchmal ist es nützlich, dieses Verhalten zu überschreiben, sodass `this` innerhalb von Klassen immer auf die Klasseninstanz verweist. Um dies zu erreichen, binden Sie die Klassenmethoden im Konstruktor:
 
 ```js
 class Car {
@@ -517,18 +517,18 @@ bird.sayBye(); // Bye from Ferrari
 ```
 
 > [!NOTE]
-> Klassen sind immer im strikten Modus. Das Aufrufen von Methoden mit einem undefinierten `this` führt zu einem Fehler, wenn die Methode versucht, auf Eigenschaften von `this` zuzugreifen.
+> Klassen sind immer im strikten Modus. Das Aufrufen von Methoden mit einem undefinierten `this`-Wert führt zu einem Fehler, wenn die Methode versucht, auf Eigenschaften von `this` zuzugreifen.
 >
 > ```js example-bad
 > const carSayHi = car.sayHi;
-> carSayHi(); // TypeError weil die 'sayHi'-Methode versucht, auf 'this.name' zuzugreifen, aber 'this' im strikten Modus nicht definiert ist.
+> carSayHi(); // TypeError, weil die 'sayHi'-Methode versucht, auf 'this.name' zuzugreifen, aber 'this' im strikten Modus undefiniert ist.
 > ```
 
-Beachten Sie jedoch, dass automatisch gebundene Methoden dasselbe Problem haben wie [die Verwendung von Arrow-Funktionen für Klasse-Eigenschaften](/de/docs/Web/JavaScript/Reference/Functions/Arrow_functions#cannot_be_used_as_methods): Jede Instanz der Klasse hat ihre eigene Kopie der Methode, was den Speicherbedarf erhöht. Verwenden Sie es nur dort, wo es unbedingt notwendig ist. Sie können auch die Implementierung von [`Intl.NumberFormat.prototype.format()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/format#using_format_with_map) nachahmen: Definieren Sie die Eigenschaft als Getter, der eine gebundene Funktion zurückgibt, wenn sie aufgerufen wird, und speichert sie, sodass die Funktion nur einmal erstellt wird und nur dann, wenn es notwendig ist.
+Beachten Sie jedoch, dass automatisch gebundene Methoden das gleiche Problem haben wie [die Verwendung von Arrow-Funktionen für Klassen-Eigenschaften](/de/docs/Web/JavaScript/Reference/Functions/Arrow_functions#cannot_be_used_as_methods): Jede Instanz der Klasse wird ihre eigene Kopie der Methode haben, was den Speicherverbrauch erhöht. Verwenden Sie es nur, wo es absolut notwendig ist. Sie können auch die Implementierung von [`Intl.NumberFormat.prototype.format()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/format#using_format_with_map) nachahmen: Definieren Sie die Eigenschaft als Getter, der eine gebundene Funktion zurückgibt, wenn sie zugegriffen wird, und speichern Sie sie, sodass die Funktion nur einmal erstellt wird und nur erstellt wird, wenn es notwendig ist.
 
 ### this in with-Anweisungen
 
-Obwohl [`with`](/de/docs/Web/JavaScript/Reference/Statements/with)-Anweisungen veraltet sind und im strikten Modus nicht verfügbar sind, dienen sie immer noch als Ausnahme zu den normalen `this`-Binding-Regeln. Wenn eine Funktion innerhalb einer `with`-Anweisung aufgerufen wird und diese Funktion eine Eigenschaft des Geltungsobjekts ist, wird der `this`-Wert an das Geltungsobjekt gebunden, als ob das Präfix `obj1.` existiert.
+Obwohl [`with`](/de/docs/Web/JavaScript/Reference/Statements/with) Anweisungen veraltet sind und im strikten Modus nicht verfügbar sind, dienen sie immer noch als Ausnahme zu den normalen `this`-Bindungsregeln. Wenn eine Funktion innerhalb einer `with`-Anweisung aufgerufen wird und diese Funktion eine Eigenschaft des Gültigkeitsbereichs-Objekts ist, wird der `this`-Wert an das Gültigkeitsbereichs-Objekt gebunden, als ob das `obj1.` Präfix existiert.
 
 ```js
 const obj1 = {

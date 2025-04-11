@@ -3,22 +3,22 @@ title: "HTMLTrackElement: kind-Eigenschaft"
 short-title: kind
 slug: Web/API/HTMLTrackElement/kind
 l10n:
-  sourceCommit: 0bf15d029fb052d3b20a2f249d4a6de8e29ea774
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{ApiRef("HTML DOM")}}
 
-Die **`kind`**-Eigenschaft des [`HTMLTrackElement`](/de/docs/Web/API/HTMLTrackElement) Schnittstelle gibt den Typ des Tracks an oder wie der Texttrack verwendet werden soll. Sie spiegelt das aufgezählte [`kind`](/de/docs/Web/HTML/Element/track#kind) Attribut des {{htmlelement("track")}}-Elements wider.
+Die **`kind`**-Eigenschaft des [`HTMLTrackElement`](/de/docs/Web/API/HTMLTrackElement)-Interfaces repräsentiert den Typ des Tracks oder wie der Texttrack verwendet werden soll. Sie spiegelt das aufgezählte [`kind`](/de/docs/Web/HTML/Reference/Elements/track#kind)-Attribut des {{htmlelement("track")}}-Elements wider.
 
-Wenn kein `kind` festgelegt ist, wird `subtitles` verwendet. Wenn das Attribut nicht auf einen der gültigen aufgezählten Werte gesetzt ist, ist es ungültig und es wird `metadata` verwendet. Andere gültige Werte sind `captions`, `descriptions` und `chapters`.
+Wenn kein `kind` gesetzt ist, wird `subtitles` verwendet. Ist das Attribut nicht auf einen der gültigen aufgezählten Werte gesetzt, ist es ungültig und `metadata` wird verwendet. Andere gültige Werte sind `captions`, `descriptions` und `chapters`.
 
 ## Wert
 
-Ein String; klein geschrieben `captions`, `descriptions`, `chapters`, `subtitles` oder `metadata`.
+Ein String; Kleinbuchstaben `captions`, `descriptions`, `chapters`, `subtitles` oder `metadata`.
 
 ## Beispiel
 
-Basierend auf dem folgenden:
+Angenommen, folgendes:
 
 ```html
 <track src="track.vtt" id="exampleTrack" />

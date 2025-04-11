@@ -1,14 +1,14 @@
 ---
-title: "StylePropertyMap: set()-Methode"
+title: "StylePropertyMap: set() Methode"
 short-title: set()
 slug: Web/API/StylePropertyMap/set
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{APIRef("CSS Typed Object Model API")}}
 
-Die **`set()`**-Methode des [`StylePropertyMap`](/de/docs/Web/API/StylePropertyMap)-Interfaces ändert die CSS-Deklaration mit der angegebenen Eigenschaft.
+Die **`set()`** Methode der [`StylePropertyMap`](/de/docs/Web/API/StylePropertyMap)-Schnittstelle ändert die CSS-Deklaration mit der angegebenen Eigenschaft.
 
 ## Syntax
 
@@ -19,17 +19,17 @@ set(property, value)
 ### Parameter
 
 - `property`
-  - : Ein Bezeichner, der das stilistische Merkmal angibt (z.B. Schriftart, Breite, Hintergrundfarbe), das geändert werden soll.
+  - : Ein Bezeichner, der das stilistische Merkmal angibt (z. B. Schriftart, Breite, Hintergrundfarbe), das geändert werden soll.
 - `value`
   - : Der Wert, den die angegebene Eigenschaft haben soll.
 
 ### Rückgabewert
 
-Kein ({{jsxref("undefined")}}).
+Kein Wert ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Dieses Beispiel setzt die {{cssxref('padding-top')}}-Eigenschaft mit dem angegebenen Wert innerhalb des [style-Attributs](/de/docs/Web/HTML/Global_attributes/style) des Elements.
+Dieses Beispiel setzt die {{cssxref('padding-top')}}-Eigenschaft mit dem angegebenen Wert im [style-Attribut](/de/docs/Web/HTML/Reference/Global_attributes/style) des Elements.
 
 ```js
 // get the button element

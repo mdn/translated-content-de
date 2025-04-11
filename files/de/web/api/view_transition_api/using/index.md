@@ -1,45 +1,50 @@
 ---
-title: Verwendung der View Transition API
+title: Verwenden der View Transition API
 slug: Web/API/View_Transition_API/Using
 l10n:
-  sourceCommit: daa0f08c15e7626dd089a011b310a94db99dbfc1
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{DefaultAPISidebar("View Transition API")}}
 
-Dieser Artikel erklärt die Theorie hinter der Funktionsweise der [View Transition API](/de/docs/Web/API/View_Transition_API), wie man Ansichtsübergänge erstellt und die Übergangsanimationen anpasst und wie man aktive Ansichtsübergänge manipuliert. Dies umfasst Ansichtsübergänge sowohl für DOM-Zustandsaktualisierungen in einer Single-Page-Anwendung (SPA) als auch für die Navigation zwischen Dokumenten in einer Multi-Page-Anwendung (MPA).
+Dieser Artikel erklärt die Theorie hinter der Funktionsweise der [View Transition API](/de/docs/Web/API/View_Transition_API), wie man Ansichtsübergänge erstellt und die Übergangsanimationen anpasst sowie wie man aktive Ansichtsübergänge manipuliert. Dies umfasst Ansichtsübergänge sowohl für DOM-Zustandsaktualisierungen in einer Single-Page-App (SPA) als auch für das Navigieren zwischen Dokumenten in einer Multi-Page-App (MPA).
 
 ## Der Prozess des Ansichtsübergangs
 
-Lassen Sie uns den Prozess durchgehen, wie ein Ansichtsübergang funktioniert:
+Lassen Sie uns den Prozess durchgehen, durch den ein Ansichtsübergang funktioniert:
 
-1. Ein Ansichtsübergang wird ausgelöst. Wie dies geschieht, hängt vom Typ des Ansichtsübergangs ab:
-   - Im Fall von Übergängen im selben Dokument (SPAs) wird ein Ansichtsübergang durch das Übergeben der Funktion, die die DOM-Änderung für den Ansichtswechsel auslösen würde, als Callback an die Methode [`document.startViewTransition()`](/de/docs/Web/API/Document/startViewTransition) ausgelöst.
-   - Im Fall von dokumentübergreifenden Übergängen (MPAs) wird ein Ansichtsübergang durch die Initiierung einer Navigation zu einem neuen Dokument ausgelöst. Sowohl das aktuelle als auch das Ziel-Dokument der Navigation müssen auf demselben Ursprung sein und sich durch Einfügen einer {{cssxref("@view-transition")}} at-rule in ihrem CSS mit einem `navigation`-Deskriptor von `auto` für den Ansichtsübergang entscheiden.
+1. Ein Ansichtsübergang wird ausgelöst. Wie dies geschieht, hängt von der Art des Ansichtsübergangs ab:
+
+   - Im Fall von Übergängen im selben Dokument (SPAs) wird ein Ansichtsübergang ausgelöst, indem die Funktion, die die Ansichtsänderung auslösen würde, als Rückruf an die Methode [`document.startViewTransition()`](/de/docs/Web/API/Document/startViewTransition) übergeben wird.
+   - Bei Dokumenten übergreifenden Übergängen (MPAs) wird ein Ansichtsübergang durch die Navigation zu einem neuen Dokument ausgelöst. Sowohl das aktuelle als auch das Zieldokument der Navigation müssen sich im selben Ursprung befinden und in den Ansichtsübergang einwilligen, indem sie eine {{cssxref("@view-transition")}}-Regel in ihrem CSS mit einem `navigation`-Deskriptor von `auto` enthalten.
+
      > [!NOTE]
-     > Ein aktiver Ansichtsübergang hat eine zugehörige [`ViewTransition`](/de/docs/Web/API/ViewTransition) Instanz (zum Beispiel, zurückgegeben durch `startViewTransition()` im Fall von Übergängen im selben Dokument (SPA)). Das `ViewTransition`-Objekt enthält mehrere Promises, die es Ihnen ermöglichen, Code als Reaktion auf verschiedene Teile des Ansichtsübergangsprozesses zu schreiben. Siehe [Steuerung von Ansichtsübergängen mit JavaScript](#steuerung_von_ansichtsübergängen_mit_javascript) für weitere Informationen.
-2. Im aktuellen (alten Seiten-)Ansicht werden Schnappschüsse von Elementen aufgenommen, die eine {{cssxref("view-transition-name")}} deklariert haben.
-3. Der Ansichtswechsel erfolgt:
+     > Ein aktiver Ansichtsübergang hat eine zugehörige [`ViewTransition`](/de/docs/Web/API/ViewTransition)-Instanz (zum Beispiel zurückgegeben von `startViewTransition()` im Fall von Übergängen im selben Dokument (SPA)). Das `ViewTransition`-Objekt enthält mehrere Versprechen, die es Ihnen ermöglichen, Code als Reaktion auf verschiedene Teile des Ansichtsübergang-Prozesses auszuführen. Weitere Informationen finden Sie unter [Steuerung von Ansichtsübergängen mit JavaScript](#steuerung_von_ansichtsübergängen_mit_javascript).
 
-   - Im Fall von Übergängen im selben Dokument (SPAs) wird der an `startViewTransition()` übergebene Callback aufgerufen, was dazu führt, dass sich das DOM ändert.
+2. Auf der aktuellen (alten Seite) Ansicht erfasst die API Schnappschüsse von Elementen, auf denen ein {{cssxref("view-transition-name")}} deklariert ist.
 
-     Wenn der Callback erfolgreich ausgeführt wurde, wird das Promise [`ViewTransition.updateCallbackDone`](/de/docs/Web/API/ViewTransition/updateCallbackDone) erfüllt, was es Ihnen ermöglicht, auf die DOM-Aktualisierung zu reagieren.
+3. Die Ansichtsänderung erfolgt:
 
-   - Im Fall von dokumentübergreifenden Übergängen (MPAs) erfolgt die Navigation zwischen den aktuellen und Ziel-Dokumenten.
+   - Im Fall von Übergängen im selben Dokument (SPAs) wird der Rückruf, der an `startViewTransition()` übergeben wurde, ausgelöst, was dazu führt, dass sich das DOM ändert.
+
+     Wenn der Rückruf erfolgreich ausgeführt wurde, erfüllt sich das [`ViewTransition.updateCallbackDone`](/de/docs/Web/API/ViewTransition/updateCallbackDone)-Versprechen, sodass Sie auf die DOM-Aktualisierung reagieren können.
+
+   - Bei Dokumenten übergreifenden Übergängen (MPAs) erfolgt die Navigation zwischen den aktuellen und den Ziel-Dokumenten.
 
 4. Die API erfasst Schnappschüsse aus der neuen Ansicht als Live-Darstellung.
 
-   An diesem Punkt steht der Ansichtsübergang kurz vor der Ausführung und das Promise [`ViewTransition.ready`](/de/docs/Web/API/ViewTransition/ready) wird erfüllt, was es Ihnen ermöglicht, zum Beispiel durch Ausführung einer benutzerdefinierten JavaScript-Animation anstelle der Standardanimation zu reagieren.
+   Zu diesem Zeitpunkt steht der Ansichtsübergang kurz vor der Ausführung, und das Versprechen [`ViewTransition.ready`](/de/docs/Web/API/ViewTransition/ready) wird erfüllt, sodass Sie beispielsweise durch das Ausführen einer benutzerdefinierten JavaScript-Animation reagieren können, anstatt der Standardanimation.
 
-5. Die alten Seitenschnappschüsse animieren "hinaus", während die neuen Ansichts-Schnappschüsse "hinein" animieren. Standardmäßig animieren die alten Ansichts-Schnappschüsse von {{cssxref("opacity")}} 1 auf 0 und die neuen Ansichts-Schnappschüsse animieren von `opacity` 0 auf 1, was ein Überblenden erzeugt.
-6. Wenn die Übergangsanimationen ihre Endzustände erreicht haben, wird das Promise [`ViewTransition.finished`](/de/docs/Web/API/ViewTransition/finished) erfüllt, was es Ihnen erlaubt zu reagieren.
+5. Die alten Seiten-Schnappschüsse animieren „out“, während die neuen Ansichts-Schnappschüsse „in“ animieren. Standardmäßig animieren die alten Ansichts-Schnappschüsse von {{cssxref("opacity")}} 1 zu 0, und die neuen Ansichts-Schnappschüsse animieren von `opacity` 0 zu 1, was einen Kreuzblenden-Effekt erzeugt.
+
+6. Wenn die Übergangsanimationen ihre Endzustände erreicht haben, erfüllt sich das [`ViewTransition.finished`](/de/docs/Web/API/ViewTransition/finished)-Versprechen, sodass Sie reagieren können.
 
 > [!NOTE]
-> Wenn der [Sichtbarkeitszustand der Seite](/de/docs/Web/API/Page_Visibility_API) des Dokuments `hidden` ist (zum Beispiel, wenn das Dokument durch ein Fenster verdeckt ist, der Browser minimiert ist oder ein anderes Browser-Tab aktiv ist) während eines Anrufs von [`document.startViewTransition()`](/de/docs/Web/API/Document/startViewTransition), wird der Ansichtsübergang vollständig übersprungen.
+> Wenn der [Sichtbarkeitszustand](/de/docs/Web/API/Page_Visibility_API) des Dokuments `hidden` ist (zum Beispiel, wenn das Dokument durch ein Fenster verdeckt wird, der Browser minimiert ist oder ein anderer Browsertab aktiv ist) während eines Aufrufs von [`document.startViewTransition()`](/de/docs/Web/API/Document/startViewTransition), wird der Ansichtsübergang vollständig übersprungen.
 
-### Der pseudo-element Baum des Ansichtsübergangs
+### Der Pseudo-Element-Baum des Ansichtsübergangs
 
-Um die ausgehenden und eingehenden Übergangsanimationen zu erstellen, konstruiert die API einen Pseudo-Element-Baum mit der folgenden Struktur:
+Um die Erstellung der ausgehenden und eingehenden Übergangsanimationen zu handhaben, konstruiert die API einen Pseudo-Element-Baum mit der folgenden Struktur:
 
 ```plain
 ::view-transition
@@ -50,14 +55,14 @@ Um die ausgehenden und eingehenden Übergangsanimationen zu erstellen, konstruie
 ```
 
 > [!NOTE]
-> Ein {{cssxref("::view-transition-group")}} Unterbaum wird für jeden erfassten `view-transition-name` erstellt.
+> Ein {{cssxref("::view-transition-group")}}-Unterbaum wird für jeden erfassten `view-transition-name` erstellt.
 
 Im Fall von Übergängen im selben Dokument (SPAs) wird der Pseudo-Element-Baum im Dokument verfügbar gemacht. Im Fall von dokumentübergreifenden Übergängen (MPAs) wird der Pseudo-Element-Baum nur im Zieldokument verfügbar gemacht.
 
 Die interessantesten Teile der Baumstruktur sind wie folgt:
 
-- {{cssxref("::view-transition")}} ist die Wurzel des Ansichtsübergangs-Overlays, das alle Ansichtsübergangs-Schnappschuss-Gruppen enthält und über dem gesamten anderen Seiteninhalt liegt.
-- Eine {{cssxref("::view-transition-group")}} fungiert als Container für jede Ansichtsübergangs-Schnappschuss-Gruppe. Das `root`-Argument gibt die Standard-Schnappschussgruppe an — die Ansichtsübergangs-Animation wird auf den Schnappschuss angewendet, dessen `view-transition-name` `root` ist. Standardmäßig ist dies das {{cssxref(":root")}}-Element, da die Standard-Browser-Stile dies definieren:
+- {{cssxref("::view-transition")}} ist die Wurzel des Ansichtsübergangs-Overlays, das alle Ansichtsübergangs-Schnappschussgruppen enthält und über dem gesamten anderen Seiteninhalt liegt.
+- Ein {{cssxref("::view-transition-group")}} fungiert als Container für jede Ansichtsübergang-Schnappschussgruppe. Das Argument `root` spezifiziert die Standardschnappschussgruppe — die Ansichtsübergangsanimation wird auf den Schnappschuss angewendet, dessen `view-transition-name` `root` ist. Standardmäßig ist dies das {{cssxref(":root")}}-Element, da die Standard-Browser-Stile dies definieren:
 
   ```css
   :root {
@@ -65,23 +70,23 @@ Die interessantesten Teile der Baumstruktur sind wie folgt:
   }
   ```
 
-  Beachten Sie jedoch, dass Seitenautoren dies ändern können, indem sie das obige zurücksetzen und `view-transition-name: root` auf einem anderen Element setzen.
+  Seien Sie sich jedoch bewusst, dass Seitenautoren dies ändern können, indem sie das obige zurücksetzen und `view-transition-name: root` auf einem anderen Element setzen.
 
-- {{cssxref("::view-transition-old")}} zielt auf den statischen Schnappschuss des alten Seitenelements ab, und {{cssxref("::view-transition-new")}} zielt auf den Live-Schnappschuss des neuen Seitenelements ab. Beide werden als ersetzter Inhalt gerendert, auf die gleiche Weise wie ein {{htmlelement("img")}} oder {{htmlelement("video")}}, was bedeutet, dass sie mit nützlichen Eigenschaften wie {{cssxref("object-fit")}} und {{cssxref("object-position")}} gestylt werden können.
-
-> [!NOTE]
-> Es ist möglich, verschiedene DOM-Elemente mit verschiedenen benutzerdefinierten Ansichtsübergangs-Animationen zu zielen, indem man jedem ein anderes {{cssxref("view-transition-name")}} zuweist. In solchen Fällen wird eine `::view-transition-group` für jedes erstellt. Siehe [Verschiedene Animationen für verschiedene Elemente](#verschiedene_animationen_für_verschiedene_elemente) für ein Beispiel.
+- {{cssxref("::view-transition-old")}} zielt auf den statischen Schnappschuss des alten Seitenelements, und {{cssxref("::view-transition-new")}} zielt auf den Live-Schnappschuss des neuen Seitenelements. Beide werden als ersetzter Inhalt gerendert, ähnlich wie ein {{htmlelement("img")}} oder {{htmlelement("video")}}, was bedeutet, dass sie mit praktischen Eigenschaften wie {{cssxref("object-fit")}} und {{cssxref("object-position")}} gestylt werden können.
 
 > [!NOTE]
-> Wie Sie später sehen werden, müssen Sie zum Anpassen der ausgehenden und eingehenden Animationen die {{cssxref("::view-transition-old")}} und {{cssxref("::view-transition-new")}} Pseudo-Elemente ins Visier nehmen.
+> Es ist möglich, verschiedene DOM-Elemente mit unterschiedlichen benutzerdefinierten Ansichtsübergangsanimationen zu zielen, indem Sie jedem ein anderes {{cssxref("view-transition-name")}} zuweisen. In solchen Fällen wird für jedes ein `::view-transition-group` erstellt. Siehe [Unterschiedliche Animationen für verschiedene Elemente](#unterschiedliche_animationen_für_verschiedene_elemente) für ein Beispiel.
 
-## Erstellen eines grundlegenden Ansichtsübergangs
+> [!NOTE]
+> Wie Sie später sehen werden, müssen Sie, um die ausgehenden und eingehenden Animationen anzupassen, die Pseudo-Elemente {{cssxref("::view-transition-old")}} und {{cssxref("::view-transition-new")}} mit Ihren Animationen ansprechen.
 
-Dieser Abschnitt veranschaulicht, wie man einen grundlegenden Ansichtsübergang erstellt, sowohl im SPA- als auch im MPA-Fall.
+## Erstellen eines einfachen Ansichtsübergangs
 
-### Grundlegender SPA-Ansichtsübergang
+Dieser Abschnitt zeigt, wie man einen einfachen Ansichtsübergang sowohl im SPA- als auch im MPA-Fall erstellt.
 
-Ein Beispiel dafür ist eine SPA, die Funktionen zum Abrufen neuer Inhalte und zur Aktualisierung des DOM als Reaktion auf eine Art von Ereignis enthalten kann, beispielsweise das Anklicken eines Navigationslinks oder eine Aktualisierung vom Server. In unserem [View Transitions SPA Demo](https://mdn.github.io/dom-examples/view-transitions/spa/) haben wir das auf eine `displayNewImage()`-Funktion vereinfacht, die ein neues Vollbild anzeigt basierend auf dem Miniaturbild, das angeklickt wurde. Wir haben dies in eine `updateView()`-Funktion kapsuliert, die die View Transition API nur dann aufruft, wenn der Browser sie unterstützt:
+### Einfacher SPA-Ansichtsübergang
+
+Ein SPA könnte zum Beispiel Funktionalitäten umfassen, um neue Inhalte abzurufen und das DOM als Reaktion auf ein Ereignis zu aktualisieren, wie z.B. einem Klick auf einen Navigationslink oder einem Update vom Server. In unserem [View Transitions SPA-Demo](https://mdn.github.io/dom-examples/view-transitions/spa/) haben wir dies vereinfacht auf eine `displayNewImage()`-Funktion, die ein neues Bild in voller Größe zeigt, basierend auf dem geklickten Thumbnail. Wir haben dies in eine `updateView()`-Funktion gekapselt, die die View Transition API nur dann aufruft, wenn der Browser sie unterstützt:
 
 ```js
 function updateView(event) {
@@ -105,11 +110,11 @@ function updateView(event) {
 }
 ```
 
-Dieser Code reicht aus, um den Übergang zwischen angezeigten Bildern zu handhaben. Unterstützende Browser zeigen die Änderung von alten zu neuen Bildern und Bildunterschriften als sanftes Überblenden (den Standardansichtsübergang) an. In nicht unterstützenden Browsern funktioniert es immer noch, jedoch ohne die nette Animation.
+Dieser Code reicht aus, um den Übergang zwischen angezeigten Bildern zu handhaben. Unterstützende Browser zeigen den Wechsel von alten zu neuen Bildern und Untertiteln als sanfte Überblendung (der Standardansichtsübergang). In nicht unterstützenden Browsern funktioniert es weiterhin, jedoch ohne die schöne Animation.
 
-### Grundlegender MPA-Ansichtsübergang
+### Einfacher MPA-Ansichtsübergang
 
-Bei der Erstellung eines dokumentübergreifenden (MPA) Ansichtsübergangs ist der Prozess sogar einfacher als bei SPAs. Kein JavaScript ist erforderlich, da die Ansichtaktualisierung durch eine dokumentübergreifende, gleich-Ursprungsnavigation und nicht durch eine JavaScript-gestartete DOM-Änderung ausgelöst wird. Um einen grundlegenden MPA-Ansichtsübergang zu aktivieren, müssen Sie eine {{cssxref("@view-transition")}} at-rule in das CSS für beide, das aktuelle und das Zieldokument, einsetzen, um sie einzubeziehen, wie folgt:
+Wenn Sie einen Dokumenten übergreifenden (MPA) Ansichtsübergang erstellen, ist der Prozess sogar einfacher als bei SPAs. Es ist kein JavaScript erforderlich, da die Ansichtaktualisierung durch eine dokumentübergreifende, gleich-originäre Navigation ausgelöst wird, anstatt durch eine JavaScript-induzierte DOM-Änderung. Um einen grundlegenden MPA-Ansichtsübergang zu ermöglichen, müssen Sie eine {{cssxref("@view-transition")}}-Regel im CSS sowohl für das aktuelle als auch das Zieldokument angeben, um sie zu aktivieren, wie folgt:
 
 ```css
 @view-transition {
@@ -117,21 +122,21 @@ Bei der Erstellung eines dokumentübergreifenden (MPA) Ansichtsübergangs ist de
 }
 ```
 
-Unser [View Transitions MPA Demo](https://mdn.github.io/dom-examples/view-transitions/mpa/) zeigt diese at-rule in Aktion und demonstriert zusätzlich, wie man die [ausgehenden und eingehenden Animationen](#anpassen_ihrer_animationen) des Ansichtsübergangs anpasst.
+Unser [View Transitions MPA-Demo](https://mdn.github.io/dom-examples/view-transitions/mpa/) zeigt diese Regel in Aktion und demonstriert zusätzlich, wie man [die ausgehenden und eingehenden Animationen anpassen kann](#anpassen_ihrer_animationen) des Ansichtsübergangs.
 
 > [!NOTE]
-> Derzeit können MPA-Ansichtsübergänge nur zwischen Dokumenten desselben Ursprungs erstellt werden, aber diese Einschränkung könnte in zukünftigen Implementierungen gelockert werden.
+> Derzeit können MPA-Ansichtsübergänge nur zwischen gleich-originären Dokumenten erstellt werden, aber diese Einschränkung könnte in zukünftigen Implementierungen gelockert werden.
 
 ## Anpassen Ihrer Animationen
 
-Den pseudo-elementen der View Transitions werden standardmäßig [CSS-Animationen](/de/docs/Web/CSS/CSS_animations) zugewiesen (die in ihren [Referenzseiten](/de/docs/Web/API/View_Transition_API#pseudo-elements) detailliert sind).
+Die Ansichtsübergangs-Pseudo-Elemente haben standardmäßige [CSS-Animationen](/de/docs/Web/CSS/CSS_animations) angewandt (die auf ihren [Referenzseiten](/de/docs/Web/API/View_Transition_API#pseudo-elements) detailliert sind).
 
-Die meisten Erscheinungsübergänge erhalten standardmäßig eine sanfte Überblenden-Animation, wie oben erwähnt. Es gibt einige Ausnahmen:
+Die meisten Anzeigeübergänge erhalten eine standardmäßige sanfte Überblendungsanimation, wie oben erwähnt. Es gibt einige Ausnahmen:
 
-- `height` und `width` Übergänge haben eine sanfte Skalieranimation angewendet.
-- `position` und `transform` Übergänge haben eine sanfte Bewegungsanimation angewendet.
+- Übergänge von `height` und `width` haben eine sanfte Skalierungsanimation angewendet.
+- Übergänge von `position` und `transform` haben eine sanfte Bewegungsanimation angewendet.
 
-Sie können die Standardanimationen in beliebiger Weise mit regulärem CSS modifizieren — zielen Sie auf die "from"-Animation mit {{cssxref("::view-transition-old")}}, und die "to"-Animation mit {{cssxref("::view-transition-new")}}.
+Sie können die Standardanimationen in jeder gewünschten Weise mit gewöhnlichem CSS ändern — zielen Sie die "from"-Animation mit {{cssxref("::view-transition-old")}} und die "to"-Animation mit {{cssxref("::view-transition-new")}} an.
 
 Zum Beispiel, um die Geschwindigkeit beider zu ändern:
 
@@ -142,7 +147,7 @@ Zum Beispiel, um die Geschwindigkeit beider zu ändern:
 }
 ```
 
-Es wird empfohlen, dass Sie das `::view-transition-group()` mit solchen Stilen anvisieren, wenn Sie sie auf `::view-transition-old()` und `::view-transition-new()` anwenden möchten. Aufgrund der Pseudo-Element-Hierarchie und der standardmäßigen Benutzer-Agent-Stilisierung werden die Stile von beiden geerbt. Zum Beispiel:
+Es wird empfohlen, dass Sie das `::view-transition-group()` mit solchen Stilen ansprechen, in Fällen, in denen Sie sie auf `::view-transition-old()` und `::view-transition-new()` anwenden möchten. Aufgrund der Pseudo-Element-Hierarchie und des Standard-Benutzeragenten-Stylings werden die Stile von beiden geerbt. Zum Beispiel:
 
 ```css
 ::view-transition-group(root) {
@@ -151,11 +156,11 @@ Es wird empfohlen, dass Sie das `::view-transition-group()` mit solchen Stilen a
 ```
 
 > [!NOTE]
-> Dies ist auch eine gute Option, um Ihren Code zu sichern — `::view-transition-group()` animiert ebenfalls und Sie könnten am Ende unterschiedliche Dauern für die `group`/`image-pair` Pseudo-Elemente gegenüber den `old` und `new` Pseudo-Elementen haben.
+> Dies ist auch eine gute Option, um Ihren Code zu sichern — `::view-transition-group()` animiert ebenfalls und Sie könnten am Ende mit unterschiedlichen Dauern für die `group`/`image-pair` Pseudo-Elemente im Vergleich zu den `old` und `new` Pseudo-Elementen enden.
 
-Im Fall von dokumentübergreifenden (MPA) Übergängen müssen die Pseudo-Elemente nur im Zieldokument enthalten sein, damit der Ansichtsübergang funktioniert. Wenn Sie den Ansichtsübergang in beide Richtungen verwenden möchten, müssen Sie ihn natürlich in beide einfügen.
+Im Fall von dokumentübergreifenden (MPA) Übergängen müssen die Pseudo-Elemente nur im Zieldokument enthalten sein, damit der Ansichtsübergang funktioniert. Wenn Sie den Ansichtsübergang in beide Richtungen verwenden möchten, müssen Sie ihn natürlich in beiden dokumentieren.
 
-Unser [View Transitions MPA Demo](https://mdn.github.io/dom-examples/view-transitions/mpa/) enthält das oben genannte CSS, geht jedoch noch einen Schritt weiter und definiert benutzerdefinierte Animationen, die auf die `::view-transition-old(root)` und `::view-transition-new(root)` Pseudo-Elemente angewendet werden. Das Ergebnis ist, dass der Standardüberblendungsübergang durch einen "swipe up"-Übergang ersetzt wird, wenn eine Navigation erfolgt:
+Unser [View Transitions MPA-Demo](https://mdn.github.io/dom-examples/view-transitions/mpa/) enthält das oben angezeigte CSS, macht jedoch einen Schritt weiter, indem es benutzerdefinierte Animationen definiert und sie auf die `::view-transition-old(root)` und `::view-transition-new(root)` Pseudo-Elemente anwendet. Das Ergebnis ist, dass die Standard-Überblendungsübergänge durch einen "Wischen nach oben"-Übergang ausgetauscht werden, wenn die Navigation stattfindet:
 
 ```css
 /* Create a custom animation */
@@ -191,9 +196,9 @@ Unser [View Transitions MPA Demo](https://mdn.github.io/dom-examples/view-transi
 }
 ```
 
-## Verschiedene Animationen für verschiedene Elemente
+## Unterschiedliche Animationen für verschiedene Elemente
 
-Standardmäßig werden alle unterschiedlichen Elemente, die sich während der Ansichtaktualisierung ändern, mit der gleichen Animation übergegangen. Wenn Sie möchten, dass einige Elemente anders als die Standard-`root`-Animation animiert werden, können Sie sie durch die Verwendung der {{cssxref("view-transition-name")}}-Eigenschaft trennen. Zum Beispiel haben in unserem [View Transitions SPA Demo](https://mdn.github.io/dom-examples/view-transitions/spa/) die {{htmlelement("figcaption")}}-Elemente ein `view-transition-name` von `figure-caption`, um sie in Bezug auf Ansichtsübergänge vom Rest der Seite zu trennen:
+Standardmäßig werden alle verschiedenen Elemente, die während der Ansichtsaktualisierung geändert werden, mit derselben Animation übertragen. Wenn Sie möchten, dass einige Elemente anders als die Standardanimation `root` animiert werden, können Sie sie durch die Eigenschaft {{cssxref("view-transition-name")}} trennen. Zum Beispiel haben in unserem [View Transitions SPA-Demo](https://mdn.github.io/dom-examples/view-transitions/spa/) die {{htmlelement("figcaption")}}-Elemente einen `view-transition-name` von `figure-caption`, um sie vom Rest der Seite in Bezug auf Ansichtsübergänge zu trennen:
 
 ```css
 figcaption {
@@ -201,7 +206,7 @@ figcaption {
 }
 ```
 
-Mit diesem CSS angewandt, sieht der generierte Pseudo-Element-Baum jetzt so aus:
+Mit diesem angewendeten CSS sieht der generierte Pseudo-Element-Baum nun so aus:
 
 ```plain
 ::view-transition
@@ -215,12 +220,12 @@ Mit diesem CSS angewandt, sieht der generierte Pseudo-Element-Baum jetzt so aus:
       └─ ::view-transition-new(figure-caption)
 ```
 
-Das Vorhandensein des zweiten Satzes von Pseudo-Elementen ermöglicht es, separate Ansichtsübergangsstile nur auf das `<figcaption>` anzuwenden. Die unterschiedlichen alten und neuen Ansichtsaufnahmen werden getrennt voneinander behandelt.
+Das Vorhandensein des zweiten Satzes von Pseudo-Elementen ermöglicht, dass separat Ansichtsübergangstyling nur auf das `<figcaption>` angewendet wird. Die verschiedenen alten und neuen Erfassungen der Ansicht werden separat behandelt.
 
 > [!NOTE]
-> Der Wert von `view-transition-name` kann alles sein, außer `none` — der `none`-Wert bedeutet speziell, dass das Element nicht an einem Ansichtsübergang teilnehmen wird.
+> Der Wert von `view-transition-name` kann alles sein, was Sie möchten, außer `none` — der Wert `none` bedeutet speziell, dass das Element nicht an einem Ansichtsübergang teilnehmen wird.
 >
-> `view-transition-name`-Werte müssen ebenfalls einzigartig sein. Wenn zwei gerenderte Elemente zur gleichen Zeit denselben `view-transition-name` haben, wird [`ViewTransition.ready`](/de/docs/Web/API/ViewTransition/ready) abgelehnt und der Übergang wird übersprungen.
+> `view-transition-name`-Werte müssen ebenfalls einzigartig sein. Wenn zwei gerenderte Elemente gleichzeitig denselben `view-transition-name` haben, wird [`ViewTransition.ready`](/de/docs/Web/API/ViewTransition/ready) abgelehnt und der Übergang wird übersprungen.
 
 Der folgende Code wendet eine benutzerdefinierte Animation nur auf das `<figcaption>` an:
 
@@ -259,10 +264,10 @@ Der folgende Code wendet eine benutzerdefinierte Animation nur auf das `<figcapt
 }
 ```
 
-Hier haben wir eine benutzerdefinierte CSS-Animation erstellt und sie auf die `::view-transition-old(figure-caption)` und `::view-transition-new(figure-caption)` Pseudo-Elemente angewendet. Wir haben auch eine Reihe anderer Stile hinzugefügt, um sie an derselben Stelle zu halten und die Standardstilierung daran zu hindern, unsere benutzerdefinierten Animationen zu stören.
+Hier haben wir eine benutzerdefinierte CSS-Animation erstellt und auf die `::view-transition-old(figure-caption)` und `::view-transition-new(figure-caption)` Pseudo-Elemente angewendet. Wir haben auch eine Reihe anderer Stile zu beiden hinzugefügt, um sie an der gleichen Stelle zu halten und das Standardstyling daran zu hindern, unsere benutzerdefinierten Animationen zu stören.
 
 > [!NOTE]
-> Sie können `*` als Bezeichner in einem Pseudo-Element verwenden, um alle Schnappschuss-Pseudo-Elemente anzuzielen, unabhängig davon, welchen Namen sie haben. Zum Beispiel:
+> Sie können `*` als Identifikator in einem Pseudo-Element verwenden, um alle Schnappschuss-Pseudo-Elemente zu zielen, unabhängig davon, welchen Namen sie haben. Zum Beispiel:
 >
 > ```css
 > ::view-transition-group(*) {
@@ -270,9 +275,9 @@ Hier haben wir eine benutzerdefinierte CSS-Animation erstellt und sie auf die `:
 > }
 > ```
 
-### Nutzung der Standardanimationsstile
+### Nutzen Sie die Standardanimationsstile
 
-Beachten Sie, dass wir auch eine andere Übergangsoption entdeckten, die einfacher und ein angenehmeres Ergebnis als das obige produzierte. Unser endgültiger `<figcaption>`-Ansichtsübergang sah schließlich so aus:
+Beachten Sie, dass wir auch eine andere Übergangsoption entdeckt haben, die einfacher und ein schöneres Ergebnis als die obige erzeugt hat. Unsere endgültige `<figcaption>`-Ansichtsübergang sah schließlich so aus:
 
 ```css
 figcaption {
@@ -284,29 +289,31 @@ figcaption {
 }
 ```
 
-Dies funktioniert, weil `::view-transition-group` standardmäßig `width` und `height` zwischen den alten und neuen Ansichten mit einem sanften Skalieren übergeht. Wir mussten nur eine feste `height` auf beiden Zuständen festlegen, um es zum Laufen zu bringen.
+Dies funktioniert, weil standardmäßig `::view-transition-group` `Breite` und `Höhe` zwischen den alten und neuen Ansichten mit einer sanften Skalierung überträgt. Wir mussten nur eine feste `Höhe` auf beiden Zuständen setzen, um es zum Laufen zu bringen.
 
-> **Hinweis:** [Sanfte Übergänge mit der View Transition API](https://developer.chrome.com/docs/web-platform/view-transitions/) enthält mehrere weitere Beispiele zur Anpassung.
+> **Hinweis:** [Smooth transitions with the View Transition API](https://developer.chrome.com/docs/web-platform/view-transitions/) enthält mehrere andere Anpassungsbeispiele.
 
 ## Steuerung von Ansichtsübergängen mit JavaScript
 
-Ein Ansichtsübergang hat eine zugehörige [`ViewTransition`](/de/docs/Web/API/ViewTransition) Objektinstanz, die mehrere Promise-Mitglieder enthält, die es Ihnen ermöglichen, JavaScript als Reaktion auf verschiedene Zustände des Übergangs auszuführen. Zum Beispiel wird [`ViewTransition.ready`](/de/docs/Web/API/ViewTransition/ready) erfüllt, sobald der Pseudo-Element-Baum erstellt ist und die Animation kurz vor dem Start steht, während [`ViewTransition.finished`](/de/docs/Web/API/ViewTransition/finished) erfüllt wird, sobald die Animation abgeschlossen ist und die neue Seitenansicht für den Benutzer sichtbar und interaktiv ist.
+Ein Ansichtsübergang hat eine zugehörige [`ViewTransition`](/de/docs/Web/API/ViewTransition)-Objektinstanz, die mehrere Promise-Mitglieder enthält, die es Ihnen ermöglichen, JavaScript als Reaktion auf verschiedene Zustände des Übergangs auszuführen, die erreicht werden. Zum Beispiel erfüllt sich [`ViewTransition.ready`](/de/docs/Web/API/ViewTransition/ready), sobald der Pseudo-Element-Baum erstellt ist und die Animation kurz davor steht, zu starten, während [`ViewTransition.finished`](/de/docs/Web/API/ViewTransition/finished) sich erfüllt, sobald die Animation beendet ist, und die neue Seitenansicht sichtbar und interaktiv für den Benutzer ist.
 
-Der `ViewTransition` kann folgendermaßen zugegriffen werden:
+Das `ViewTransition`-Objekt kann wie folgt erreicht werden:
 
-1. Im Fall von Übergängen im selben Dokument (SPA), gibt die Methode [`document.startViewTransition()`](/de/docs/Web/API/Document/startViewTransition) den `ViewTransition` zurück, der mit dem Übergang verknüpft ist.
+1. Im Fall von gleich-dokumentierten (SPA) Übergängen gibt die Methode [`document.startViewTransition()`](/de/docs/Web/API/Document/startViewTransition) das mit dem Übergang assoziierte `ViewTransition` zurück.
 2. Im Fall von dokumentübergreifenden (MPA) Übergängen:
 
-   - Ein [`pageswap`](/de/docs/Web/API/Window/pageswap_event) Ereignis wird ausgelöst, wenn ein Dokument aufgrund einer Navigation entladen wird. Sein Ereignisobjekt ([`PageSwapEvent`](/de/docs/Web/API/PageSwapEvent)) ermöglicht den Zugriff auf den `ViewTransition` über die Eigenschaft [`PageSwapEvent.viewTransition`](/de/docs/Web/API/PageSwapEvent/viewTransition), sowie auf eine [`NavigationActivation`](/de/docs/Web/API/NavigationActivation) über [`PageSwapEvent.activation`](/de/docs/Web/API/PageSwapEvent/activation), die den Navigationstyp und die aktuellen und Ziel-Dokumenthistorieneinträge enthält.
+   - Ein [`pageswap`](/de/docs/Web/API/Window/pageswap_event)-Ereignis wird ausgelöst, wenn ein Dokument aufgrund einer Navigation entladen wird. Sein Ereignisobjekt ([`PageSwapEvent`](/de/docs/Web/API/PageSwapEvent)) bietet Zugriff auf das `ViewTransition` über die [`PageSwapEvent.viewTransition`](/de/docs/Web/API/PageSwapEvent/viewTransition)-Eigenschaft sowie eine [`NavigationActivation`](/de/docs/Web/API/NavigationActivation) über [`PageSwapEvent.activation`](/de/docs/Web/API/PageSwapEvent/activation), die den Navigationstyp und die aktuellen und Ziel-Dokumentverlaufseinträge enthält.
+
      > [!NOTE]
-     > Wenn die Navigation eine Cross-Origin-URL irgendwo in der Weiterleitungskette hat, gibt die `activation`-Eigenschaft `null` zurück.
-   - Ein [`pagereveal`](/de/docs/Web/API/Window/pagereveal_event) Ereignis wird ausgelöst, wenn ein Dokument erstmals gerendert wird, entweder beim Laden eines frischen Dokuments aus dem Netzwerk oder beim Aktivieren eines Dokuments (entweder aus dem {{Glossary("bfcache", "back/forward cache")}} (bfcache) oder aus dem {{Glossary("Prerender", "prerender")}}). Sein Ereignisobjekt ([`PageRevealEvent`](/de/docs/Web/API/PageRevealEvent)) ermöglicht den Zugriff auf den `ViewTransition` über die Eigenschaft [`PageRevealEvent.viewTransition`](/de/docs/Web/API/PageRevealEvent/viewTransition).
+     > Wenn die Navigation eine Cross-Origin-URL irgendwo in der Umleitungsreihe hat, gibt die `activation`-Eigenschaft `null` zurück.
 
-Lassen Sie uns einige Beispielcodes betrachten, um zu zeigen, wie diese Funktionen verwendet werden könnten.
+   - Ein [`pagereveal`](/de/docs/Web/API/Window/pagereveal_event)-Ereignis wird ausgelöst, wenn ein Dokument zum ersten Mal gerendert wird, entweder beim Laden eines frischen Dokuments aus dem Netzwerk oder bei der Aktivierung eines Dokuments (entweder aus dem {{Glossary("bfcache", "back/forward cache")}} (bfcache) oder dem {{Glossary("Prerender", "prerender")}}). Sein Ereignisobjekt ([`PageRevealEvent`](/de/docs/Web/API/PageRevealEvent)) bietet Zugriff auf das `ViewTransition` über die [`PageRevealEvent.viewTransition`](/de/docs/Web/API/PageRevealEvent/viewTransition)-Eigenschaft.
 
-### Ein JavaScript-gesteuerter benutzerdefinierter Übergang im gleichen Dokument (SPA)
+Lassen Sie uns einige Beispielcodes zeigen, wie diese Funktionen verwendet werden könnten.
 
-Der folgende JavaScript-Code könnte verwendet werden, um einen kreisförmigen Enthüllungs-Ansichtsübergang zu erstellen, der sich von der Position des Benutzermauszeigers aus entfaltet, mit einer Animation, die von der [Web Animations API](/de/docs/Web/API/Web_Animations_API) bereitgestellt wird.
+### Ein JavaScript-gesteuerter benutzerdefinierter gleich-dokumentierter (SPA) Übergang
+
+Das folgende JavaScript könnte verwendet werden, um einen Kreisfreigabe-Ansichtsübergang zu erstellen, der von der Position des Benutzercursors beim Klicken ausgeht, wobei die Animation von der [Web Animations API](/de/docs/Web/API/Web_Animations_API) bereitgestellt wird.
 
 ```js
 // Store the last click event
@@ -355,7 +362,7 @@ function spaNavigate(data) {
 }
 ```
 
-Diese Animation erfordert auch das folgende CSS, um die Standard-CSS-Animation auszuschalten und zu verhindern, dass die alten und neuen Anzeigestände in irgendeiner Weise vermischt werden (der neue Zustand "wischt" direkt über den alten Zustand, anstatt hinein zu übergehen):
+Diese Animation erfordert auch das folgende CSS, um die Standard-CSS-Animation auszuschalten und zu verhindern, dass die alten und neuen Ansichts-Zustände in irgendeiner Weise überblenden (der neue Zustand „wischt“ direkt über den alten Zustand, anstatt einzublenden):
 
 ```css
 ::view-transition-image-pair(root) {
@@ -372,9 +379,9 @@ Diese Animation erfordert auch das folgende CSS, um die Standard-CSS-Animation a
 
 ### Ein JavaScript-gesteuerter benutzerdefinierter dokumentübergreifender (MPA) Übergang
 
-Das [Verzeichnis der Chrome DevRel Teammitglieder](https://view-transitions.chrome.dev/profiles/mpa/) Demo bietet eine grundlegende Sammlung von Teamprofilseiten und zeigt, wie man die [`pageswap`](/de/docs/Web/API/Window/pageswap_event) und [`pagereveal`](/de/docs/Web/API/Window/pagereveal_event) Ereignisse nutzt, um die ausgehenden und eingehenden Animationen eines dokumentübergreifenden Ansichtsübergangs basierend auf den "von" und "zu" URLs anzupassen.
+Das [Liste der Chrome DevRel-Teammitglieder](https://view-transitions.chrome.dev/profiles/mpa/)-Demo bietet einen grundlegenden Satz von Teamprofilseiten und zeigt, wie man die [`pageswap`](/de/docs/Web/API/Window/pageswap_event)- und [`pagereveal`](/de/docs/Web/API/Window/pagereveal_event)-Ereignisse verwendet, um die ausgehenden und eingehenden Animationen eines dokumentübergreifenden Ansichtsübergangs basierend auf den „from“- und „to“-URLs anzupassen.
 
-Der [`pageswap`](/de/docs/Web/API/Window/pageswap_event) Ereignis-Listener sieht folgendermaßen aus. Dies setzt die Ansichtsübergangs-Namen auf den Elementen der ausgehenden Seite, die zu den Profilseiten verlinken. Wenn von der Startseite zu einer Profilseite navigiert wird, werden benutzerdefinierte Animationen _nur_ für das verlinkte Element bereitgestellt, das in jedem Fall geklickt wird.
+Der [`pageswap`](/de/docs/Web/API/Window/pageswap_event)-Ereignis-Listener sieht wie folgt aus. Dieser setzt Ansichtsübergangsnamen auf die ausgehenden Seitenelemente, die auf die Profilseiten verlinken. Beim Navigieren von der Startseite zu einer Profilseite werden benutzerdefinierte Animationen _nur_ für das in jedem Fall geklickte verlinkte Element bereitgestellt.
 
 ```js
 window.addEventListener("pageswap", async (e) => {
@@ -427,9 +434,9 @@ window.addEventListener("pageswap", async (e) => {
 ```
 
 > [!NOTE]
-> Wir entfernen die `view-transition-name`-Werte, nachdem in jedem Fall Schnappschüsse aufgenommen wurden. Würden wir sie gesetzt lassen, würden sie im beim Navigieren im {{Glossary("bfcache", "bfcache")}} gespeicherten Seitenzustand erhalten bleiben. Wenn dann die Rücktaste gedrückt wird, würde der `pagereveal` Ereignis-Handler der Seite, zu der zurücknavigiert wird, versuchen, dieselben `view-transition-name`-Werte auf verschiedene Elemente zu setzen. Wenn mehrere Elemente denselben `view-transition-name`haben, wird der Ansichtsübergang übersprungen.
+> Wir entfernen die `view-transition-name`-Werte, nachdem die Schnappschüsse in jedem Fall aufgenommen wurden. Wenn wir sie gesetzt lassen würden, würden sie im Seitenzustand gespeichert bleiben, der beim Navigieren im {{Glossary("bfcache", "bfcache")}} gespeichert wird. Wenn dann der Zurück-Button gedrückt wird, würde der `pagereveal`-Ereignis-Handler der Seite, zu der zurück navigiert wird, versuchen, dieselben `view-transition-name`-Werte auf verschiedenen Elementen zu setzen. Wenn mehrere Elemente denselben `view-transition-name` gesetzt haben, wird der Ansichtsübergang übersprungen.
 
-Der [`pagereveal`](/de/docs/Web/API/Window/pagereveal_event) Ereignis-Listener funktioniert ähnlich wie der `pageswap` Ereignis-Listener, wobei hier zu beachten ist, dass wir die "to"-Animation für Seitenelemente auf der neuen Seite anpassen.
+Der [`pagereveal`](/de/docs/Web/API/Window/pagereveal_event)-Ereignis-Listener sieht wie folgt aus. Dies funktioniert ähnlich wie der `pageswap`-Ereignis-Listener, obwohl hier zu beachten ist, dass wir die „to“-Animation für Seitenelemente auf der neuen Seite anpassen.
 
 ```js
 window.addEventListener("pagereveal", async (e) => {
@@ -482,23 +489,23 @@ window.addEventListener("pagereveal", async (e) => {
 });
 ```
 
-## Stabilisierung des Seitenzustands zur konsistenten Durchführung dokumentübergreifender Übergänge
+## Stabilisieren des Seitenszustands, um dokumentübergreifende Übergänge konsistent zu machen
 
-Vor der Ausführung eines dokumentübergreifenden Übergangs möchten Sie idealerweise warten, bis der Zustand der Seite stabilisiert ist und sich auf {{Glossary("Render_blocking", "Renderblocking")}} verlassen, um sicherzustellen, dass:
+Bevor Sie einen dokumentübergreifenden Übergang ausführen, möchten Sie idealerweise warten, bis der Zustand der Seite stabilisiert ist, indem Sie {{Glossary("Render_blocking", "Rendering-Blockierung")}} nutzen, um sicherzustellen, dass:
 
 1. Kritische Stile geladen und angewendet sind.
-2. Kritische Skripte geladen und ausgeführt wurden.
-3. Das HTML, das für die erste Ansicht der Seite des Benutzers sichtbar ist, analysiert wurde, um konsistent gerendert zu werden.
+2. Kritische Skripte geladen und ausgeführt sind.
+3. Der sichtbare HTML-Code für die anfängliche Ansicht des Benutzers der Seite analysiert wurde, damit er konsistent gerendert wird.
 
-Stile werden standardmäßig, gerendert blockiert, und Skripte können durch das Attribut [`blocking="render"`](/de/docs/Web/HTML/Element/script#blocking) gerendert blockiert werden.
+Stile werden standardmäßig blockiert, und Skripte können mit dem Attribut [`blocking="render"`](/de/docs/Web/HTML/Reference/Elements/script#blocking) blockiert werden.
 
-Um sicherzustellen, dass Ihr anfängliches HTML analysiert wurde und immer konsistent rendert, bevor die Übergangsanimation ausgeführt wird, können Sie [`<link rel="expect">`](/de/docs/Web/HTML/Attributes/rel#expect) verwenden. In diesem Element enthalten Sie die folgenden Attribute:
+Um sicherzustellen, dass Ihr anfängliches HTML analysiert wurde und immer konsistent angezeigt wird, bevor die Übergangsanimation ausgeführt wird, können Sie [`<link rel="expect">`](/de/docs/Web/HTML/Reference/Attributes/rel#expect) verwenden. In diesem Element schließen Sie die folgenden Attribute ein:
 
-- `rel="expect"` um anzugeben, dass Sie dieses `<link>`-Element verwenden möchten, um etwas HTML auf der Seite zu renderblockieren.
-- `href="#element-id"` um die ID des Elements anzugeben, das Sie renderblockieren möchten.
-- `blocking="render"` um das angegebene HTML zu renderblockieren.
+- `rel="expect"`, um anzugeben, dass Sie dieses `<link>`-Element verwenden möchten, um einige HTML auf der Seite zu blockieren.
+- `href="#element-id"`, um anzugeben, welches Element Sie blockieren möchten.
+- `blocking="render"`, um das angegebene HTML zu blockieren.
 
-Sehen wir uns an, wie dies mit einem Beispiel-HTML-Dokument aussieht:
+Lassen Sie uns sehen, wie das mit einem Beispiel-HTML-Dokument aussieht:
 
 ```html-nolint
 <!doctype html>
@@ -527,11 +534,11 @@ Sehen wir uns an, wie dies mit einem Beispiel-HTML-Dokument aussieht:
 </html>
 ```
 
-Das Ergebnis ist, dass das Rendern des Dokuments blockiert wird, bis das Leitende-Inhalt-`<div>` analysiert wurde, was einen konsistenten Ansichtsübergang sicherstellt.
+Das Ergebnis ist, dass das Dokument-Rendering blockiert wird, bis das Hauptinhalts-`<div>` analysiert wurde, was einen konsistenten Ansichtsübergang gewährleistet.
 
-Sie können auch ein [`media`](/de/docs/Web/HTML/Element/link#media) Attribut auf `<link rel="expect">` Elementen angeben. Zum Beispiel könnten Sie beim Laden der Seite auf einem Gerät mit schmalem Bildschirm weniger Inhalt rendern blocken wollen als auf einem Gerät mit großem Bildschirm. Dies ist sinnvoll — auf einem Mobilgerät wird beim ersten Laden der Seite weniger Inhalt sichtbar sein als bei einem Desktop.
+Sie können auch ein [`media`](/de/docs/Web/HTML/Reference/Elements/link#media)-Attribut auf `<link rel="expect">`-Elementen spezifizieren. Zum Beispiel möchten Sie möglicherweise das Rendering bei einem schmaleren Gerät auf eine kleinere Menge Inhalt blockieren, als bei einem breiteren Gerät. Dies macht Sinn — auf einem mobilen Gerät wird weniger Inhalt sichtbar sein, wenn die Seite zum ersten Mal geladen wird, als im Fall eines Desktops.
 
-Dies könnte mit dem folgenden HTML erreicht werden:
+Dies könnte mit folgendem HTML erreicht werden:
 
 ```html
 <link

@@ -2,24 +2,24 @@
 title: "Beispiel und Anleitung: Einfaches Synthesizer-Keyboard"
 slug: Web/API/Web_Audio_API/Simple_synth
 l10n:
-  sourceCommit: 3c13d9a0c239ed31ae861486393952bc03e0b5bd
+  sourceCommit: 960a94a198ca60fb04fe63857ea61d7306465791
 ---
 
 {{DefaultAPISidebar("Web Audio API")}}
 
-Dieser Artikel präsentiert den Code und eine funktionierende Demo eines Video-Keyboards, das Sie mit der Maus spielen können. Das Keyboard ermöglicht es, zwischen den standardmäßigen Wellenformen sowie einer benutzerdefinierten Wellenform zu wechseln, und Sie können die Hauptlautstärke mithilfe eines Lautstärkereglers unter dem Keyboard steuern. Dieses Beispiel nutzt die folgenden Web-API-Schnittstellen: [`AudioContext`](/de/docs/Web/API/AudioContext), [`OscillatorNode`](/de/docs/Web/API/OscillatorNode), [`PeriodicWave`](/de/docs/Web/API/PeriodicWave) und [`GainNode`](/de/docs/Web/API/GainNode).
+Dieser Artikel präsentiert den Code und eine funktionierende Demo eines Video-Keyboards, das Sie mit der Maus spielen können. Das Keyboard ermöglicht es Ihnen, zwischen den Standardwellenformen sowie einer benutzerdefinierten Wellenform zu wechseln, und Sie können die Hauptverstärkung mit einem Lautstärkeregler unterhalb des Keyboards steuern. Dieses Beispiel nutzt die folgenden Web-API-Schnittstellen: [`AudioContext`](/de/docs/Web/API/AudioContext), [`OscillatorNode`](/de/docs/Web/API/OscillatorNode), [`PeriodicWave`](/de/docs/Web/API/PeriodicWave) und [`GainNode`](/de/docs/Web/API/GainNode).
 
-Da [`OscillatorNode`](/de/docs/Web/API/OscillatorNode) auf [`AudioScheduledSourceNode`](/de/docs/Web/API/AudioScheduledSourceNode) basiert, ist dies bis zu einem gewissen Grad auch ein Beispiel dafür.
+Da [`OscillatorNode`](/de/docs/Web/API/OscillatorNode) auf [`AudioScheduledSourceNode`](/de/docs/Web/API/AudioScheduledSourceNode) basiert, ist dies in gewissem Maße ebenfalls ein Beispiel dafür.
 
 ## Das Video-Keyboard
 
 ### HTML
 
-Es gibt drei hauptsächliche Komponenten für die Darstellung unseres virtuellen Keyboards. Die erste ist das musikalische Keyboard selbst. Wir zeichnen dies in einem Paar verschachtelter {{HTMLElement("div")}}-Elemente, damit wir das Keyboard horizontal scrollen können, wenn nicht alle Tasten auf den Bildschirm passen, ohne dass sie umbricht.
+Es gibt drei Hauptkomponenten für die Anzeige unseres virtuellen Keyboards. Die erste ist das Keyboard selbst. Wir zeichnen es in einem Paar verschachtelter {{HTMLElement("div")}}-Elemente, sodass wir das Keyboard horizontal scrollbar machen können, wenn nicht alle Tasten auf den Bildschirm passen, ohne dass sie umgebrochen werden.
 
 #### Das Keyboard
 
-Zuerst schaffen wir Platz, um das Keyboard zu integrieren. Wir werden das Keyboard programmatisch erstellen, da dies uns die Flexibilität gibt, jede Taste zu konfigurieren, während wir die passenden Daten für die entsprechende Note ermitteln. In unserem Fall erhalten wir die Frequenz jeder Taste aus einer Tabelle, aber sie könnte auch algorithmisch berechnet werden.
+Zuerst schaffen wir Platz, um das Keyboard zu bauen. Wir werden das Keyboard programmatisch konstruieren, da uns dies die Flexibilität gibt, jede Taste so zu konfigurieren, wie wir die entsprechenden Daten für die jeweilige Note bestimmen. In unserem Fall erhalten wir die Frequenz jeder Taste aus einer Tabelle, sie könnte jedoch auch algorithmisch berechnet werden.
 
 ```html
 <div class="container">
@@ -27,15 +27,15 @@ Zuerst schaffen wir Platz, um das Keyboard zu integrieren. Wir werden das Keyboa
 </div>
 ```
 
-Das {{HTMLElement("div")}}, benannt `"container"`, ist das scrollbare Feld, das es ermöglicht, das Keyboard horizontal zu scrollen, wenn es zu breit für den verfügbaren Platz ist. Die Tasten selbst werden in den Block der Klasse `"keyboard"` eingefügt.
+Das {{HTMLElement("div")}} mit dem Namen `"container"` ist das scrollbare Feld, das es ermöglicht, das Keyboard horizontal zu scrollen, wenn es für den verfügbaren Platz zu breit ist. Die Tasten selbst werden in den Block der Klasse `"keyboard"` eingefügt.
 
 #### Die Einstellungsleiste
 
-Unter dem Keyboard platzieren wir einige Steuerungen zur Konfiguration der Ebene. Für den Moment haben wir zwei Steuerungen: eine zur Einstellung der Hauptlautstärke und eine andere zur Auswahl der periodischen Wellenform, die bei der Erzeugung der Noten verwendet werden soll.
+Unterhalb des Keyboards fügen wir einige Steuerungen zum Konfigurieren der Ebene hinzu. Für den Moment haben wir zwei Steuerungen: eine, um die Hauptlautstärke einzustellen, und eine andere, um auszuwählen, welche periodische Wellenform beim Erzeugen von Noten verwendet werden soll.
 
 ##### Die Lautstärkeregelung
 
-Zuerst erstellen wir das `<div>`, um die Einstellungsleiste zu enthalten, damit es nach Bedarf gestaltet werden kann. Dann richten wir ein Feld ein, das auf der linken Seite der Leiste angezeigt wird und platzieren ein Label und ein {{HTMLElement("input")}}-Element vom Typ `"range"`. Das Range-Element wird typischerweise als Schieberegler präsentiert; wir konfigurieren es so, dass es beliebige Werte zwischen 0,0 und 1,0 erlaubt, wobei es mit 0,01 pro Position schrittweise verläuft.
+Zuerst erstellen wir das `<div>`, das die Einstellungsleiste enthalten soll, damit sie nach Bedarf gestaltet werden kann. Dann richten wir eine Box ein, die auf der linken Seite der Leiste angezeigt wird, und platzieren ein Label und ein {{HTMLElement("input")}}-Element des Typs `"range"`. Das Range-Element wird typischerweise als Schieberegler dargestellt; wir konfigurieren es so, dass jeder Wert zwischen 0,0 und 1,0 zulässig ist, wobei bei jeder Position um 0,01 gestuft wird.
 
 ```html
 <div class="settingsBar">
@@ -57,11 +57,11 @@ Zuerst erstellen wir das `<div>`, um die Einstellungsleiste zu enthalten, damit 
 </div>
 ```
 
-Wir geben einen Standardwert von 0,5 an und bieten ein {{HTMLElement("datalist")}}-Element, das mit dem Range durch das [`list`](/de/docs/Web/HTML/Element/input#list)-Attribut verbunden ist, um eine Optionsliste zu finden, deren ID übereinstimmt; in diesem Fall ist das Datenset mit `"volumes"` benannt. Dies erlaubt uns, eine Reihe gängiger Werte und spezieller Zeichenfolgen bereitzustellen, die der Browser optional anzeigen kann. Wir geben Namen für die Werte 0,0 ("Mute") und 1,0 ("100%") an.
+Wir spezifizieren einen Standardwert von 0,5 und stellen ein {{HTMLElement("datalist")}}-Element bereit, das unter Verwendung des [`list`](/de/docs/Web/HTML/Reference/Elements/input#list)-Attributes mit dem Bereich verbunden ist, um eine Optionsliste zu finden, deren ID übereinstimmt; in diesem Fall wird der Datensatz "`volumes`" genannt. Dadurch können wir eine Reihe von häufigen Werten und speziellen Strings bereitstellen, die der Browser optional in irgendeiner Weise anzeigen kann; wir geben Namen für die Werte 0,0 ("Stumm") und 1,0 ("100%") an.
 
-##### Der Wellenformauswähler
+##### Der Wellenformauswahl
 
-Auf der rechten Seite der Einstellungsleiste platzieren wir ein Label und ein {{HTMLElement("select")}}-Element, benannt `"waveform"`, dessen Optionen den verfügbaren Wellenformen entsprechen.
+Auf der rechten Seite der Einstellungsleiste platzieren wir ein Label und ein {{HTMLElement("select")}}-Element mit dem Namen "`waveform`", dessen Optionen den verfügbaren Wellenformen entsprechen.
 
 ```html
   <div class="right">
@@ -190,7 +190,7 @@ Auf der rechten Seite der Einstellungsleiste platzieren wir ein Label und ein {{
 
 ### JavaScript
 
-Der JavaScript-Code beginnt mit der Initialisierung einer Anzahl von Variablen.
+Der JavaScript-Code beginnt mit der Initialisierung einer Reihe von Variablen.
 
 ```js
 const audioContext = new AudioContext();
@@ -199,8 +199,8 @@ let mainGainNode = null;
 ```
 
 1. `audioContext` wird als Instanz von [`AudioContext`](/de/docs/Web/API/AudioContext) erstellt.
-2. `oscList` wird eingerichtet, um bereit zu sein, eine Liste aller momentan spielenden Oszillatoren zu enthalten. Es beginnt leer, da noch keine spielen.
-3. `mainGainNode` wird auf null gesetzt; während des Einrichtungsprozesses wird es konfiguriert, um einen [`GainNode`](/de/docs/Web/API/GainNode) zu enthalten, an den alle spielenden Oszillatoren angeschlossen sind und durch den sie spielen, um die Gesamtlautstärke mit einem einzelnen Schieberegler steuern zu können.
+2. `oscList` wird eingerichtet, um bereit zu sein, eine Liste aller derzeit spielenden Oszillatoren zu enthalten. Es beginnt leer, da noch keine spielen.
+3. `mainGainNode` wird auf null gesetzt; während des Einrichtungsvorgangs wird es so konfiguriert, dass es ein [`GainNode`](/de/docs/Web/API/GainNode) enthält, an das alle spielenden Oszillatoren angeschlossen werden und durch das sie spielen, um die Gesamtlautstärke mit einem einzigen Schieberegler steuern zu können.
 
 ```js
 const keyboard = document.querySelector(".keyboard");
@@ -208,11 +208,11 @@ const wavePicker = document.querySelector("select[name='waveform']");
 const volumeControl = document.querySelector("input[name='volume']");
 ```
 
-Referenzen auf Elemente, auf die wir zugreifen müssen, werden erhalten:
+Die Referenzen zu Elementen, auf die wir Zugriff benötigen, werden abgerufen:
 
 - `keyboard` ist das Containerelement, in das die Tasten platziert werden.
-- `wavePicker` ist das {{HTMLElement("select")}}-Element, das verwendet wird, um die zu verwendende Wellenform für die Noten auszuwählen.
-- `volumeControl` ist das {{HTMLElement("input")}}-Element (vom Typ `"range"`), das verwendet wird, um die Hauptlautstärke zu steuern.
+- `wavePicker` ist das {{HTMLElement("select")}}-Element, das zum Auswählen der Wellenform verwendet wird, die für die Noten verwendet werden soll.
+- `volumeControl` ist das {{HTMLElement("input")}}-Element (vom Typ `"range"`), das zur Steuerung der Hauptaudio-Lautstärke verwendet wird.
 
 ```js
 let noteFreq = null;
@@ -221,15 +221,15 @@ let sineTerms = null;
 let cosineTerms = null;
 ```
 
-Schließlich werden globale Variablen erstellt, die beim Erstellen der Wellenformen verwendet werden:
+Schließlich werden globale Variablen erstellt, die beim Erstellen von Wellenformen verwendet werden:
 
-- `noteFreq` wird ein Array von Arrays sein; jedes Array repräsentiert eine Oktave, die jeweils einen Eintrag für jede Note in dieser Oktave enthält. Der Wert für jede Note ist die Frequenz dieser Note, in Hertz.
-- `customWaveform` wird als [`PeriodicWave`](/de/docs/Web/API/PeriodicWave) eingerichtet, die die zu verwendende Wellenform beschreibt, wenn der Benutzer "Benutzerdefiniert" aus dem Wellenformauswähler auswählt.
-- `sineTerms` und `cosineTerms` werden verwendet, um die Daten zur Erzeugung der Wellenform zu speichern; jede wird ein Array enthalten, das generiert wird, wenn der Benutzer "Benutzerdefiniert" auswählt.
+- `noteFreq` wird ein Array von Arrays sein; jedes Array repräsentiert eine Oktave, von denen jede einen Eintrag für jede Note in dieser Oktave enthält. Der Wert für jede ist die Frequenz, in Hertz, des Tons der Note.
+- `customWaveform` wird als ein [`PeriodicWave`](/de/docs/Web/API/PeriodicWave) eingerichtet, das die Wellenform beschreibt, die verwendet werden soll, wenn der Benutzer "Custom" aus dem Wellenformauswahl auswählt.
+- `sineTerms` und `cosineTerms` werden verwendet, um die Daten zum Generieren der Wellenform zu speichern; jede wird ein Array enthalten, das generiert wird, wenn der Benutzer "Custom" auswählt.
 
 ### Erstellen der Notentabelle
 
-Die Funktion `createNoteTable()` erstellt das Array `noteFreq`, um ein Array von Objekten zu enthalten, das jeweils eine Oktave darstellt. Jede Oktave hat wiederum eine benannte Eigenschaft für jede Note in dieser Oktave; der Name der Eigenschaft ist der Name der Note (wie "C#" für Cis), und der Wert ist die Frequenz dieser Note, in Hertz.
+Die Funktion `createNoteTable()` baut das Array `noteFreq`, um ein Array von Objekten zu enthalten, die jede Oktave darstellen. Jede Oktave hat wiederum eine benannte Eigenschaft für jede Note in dieser Oktave; der Name der Eigenschaft ist der Name der Note (wie beispielsweise "C#" für Cis) und der Wert ist die Frequenz, in Hertz, dieses Tons.
 
 ```js
 function createNoteTable() {
@@ -257,7 +257,7 @@ function createNoteTable() {
   // …
 ```
 
-Mehrere Oktaven werden aus Gründen der Übersichtlichkeit nicht gezeigt.
+Mehrere Oktaven werden aus Gründen der Kürze nicht gezeigt.
 
 ```js hidden
 noteFreq[2]["C"] = 65.406391325149658;
@@ -345,7 +345,7 @@ noteFreq[6]["B"] = 1975.533205024496447;
 }
 ```
 
-Das Ergebnis ist ein Array, `noteFreq`, mit einem Objekt für jede Oktave. Jedes Oktavobjekt hat benannte Eigenschaften, bei denen der Name der Eigenschaft der Name der Note ist (wie "C#" für Cis), und der Wert der Eigenschaft ist die Frequenz der Note in Hertz. Teilweise sieht das resultierende Objekt so aus:
+Das Ergebnis ist ein Array, `noteFreq`, mit einem Objekt für jede Oktave. Jedes Oktavenobjekt hat benannte Eigenschaften, wobei der Name der Eigenschaft der Name der Note ist (z.B. "C#" für Cis) und der Wert der Eigenschaft die Frequenz der Note in Hertz ist. Teilweise sieht das resultierende Objekt so aus:
 
 <table class="standard-table">
   <tbody>
@@ -394,10 +394,10 @@ Das Ergebnis ist ein Array, `noteFreq`, mit einem Objekt für jede Oktave. Jedes
   </tbody>
 </table>
 
-Mit dieser Tabelle können wir die Frequenz einer bestimmten Note in einer gegebenen Oktave ziemlich leicht herausfinden. Wenn wir die Frequenz der Note Gis in der Oktave 1 wollen, verwenden wir `noteFreq[1]["G#"]` und erhalten den Wert 51,9.
+Mit dieser Tabelle können wir die Frequenz für eine bestimmte Note in einer bestimmten Oktave ganz einfach herausfinden. Wenn wir die Frequenz für die Note G# in Oktave 1 möchten, verwenden wir `noteFreq[1]["G#"]` und erhalten den Wert 51,9 als Ergebnis.
 
 > [!NOTE]
-> Die Werte in der Beispieltabelle oben wurden auf zwei Dezimalstellen gerundet.
+> Die Werte in der obigen Beispielstabelle wurden auf zwei Dezimalstellen gerundet.
 
 ```js hidden
 if (!Object.entries) {
@@ -415,9 +415,9 @@ if (!Object.entries) {
 }
 ```
 
-### Das Keyboard aufbauen
+### Aufbau des Keyboards
 
-Die Funktion `setup()` ist verantwortlich für den Aufbau des Keyboards und die Vorbereitung der App, Musik zu spielen.
+Die Funktion `setup()` ist dafür verantwortlich, das Keyboard zu bauen und die App vorzubereiten, Musik zu spielen.
 
 ```js
 function setup() {
@@ -463,19 +463,19 @@ function setup() {
 setup();
 ```
 
-1. Die Tabelle, die Notennamen und Oktaven ihren Frequenzen zuordnet, wird durch den Aufruf von `createNoteTable()` erstellt.
-2. Ein Event-Handler wird eingerichtet (durch den Aufruf unseres alten Freundes [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener)), um [`change`](/de/docs/Web/API/HTMLElement/change_event)-Ereignisse am Haupt-Gain-Regler zu behandeln. Dies wird den Wert des Haupt-Gain-Nodes zur neuen Regelwert verändern.
-3. Als nächstes iterieren wir über jede Oktave in der Notenfrequenzen-Tabelle. Für jede Oktave verwenden wir {{jsxref("Object.entries()")}}, um eine Liste der Noten in dieser Oktave zu erhalten.
-4. Erstellen Sie ein {{HTMLElement("div")}}, um die Noten dieser Oktave zu enthalten (damit wir ein kleines bisschen Raum zwischen den Oktaven zeichnen können), und setzen Sie seinen Klassennamen auf "octave".
-5. Für jede Taste in der Oktave überprüfen wir, ob der Name der Note mehr als ein Zeichen hat. Wir überspringen diese, da wir in diesem Beispiel die scharfen Noten weglassen. Wenn der Name der Note nur ein Zeichen hat, rufen wir `createKey()` auf, spezifizieren den Notenstring, die Oktave und die Frequenz. Das zurückgegebene Element wird an das in Schritt 4 erstellte Oktave-Element angehängt.
-6. Wenn jedes Oktavenelement gebaut wurde, wird es an das Keyboard angehängt.
-7. Nachdem das Keyboard konstruiert wurde, scrollen wir die Note "B" in der Oktave 5 in den Blick; dies bewirkt, dass sowohl das mittlere C als auch die umgebenden Tasten sichtbar sind.
-8. Dann wird eine neue benutzerdefinierte Wellenform mit [`BaseAudioContext.createPeriodicWave()`](/de/docs/Web/API/BaseAudioContext/createPeriodicWave) erstellt. Diese Wellenform wird jedes Mal verwendet, wenn der Benutzer "Benutzerdefiniert" in der Wellenformauswahlsteuerung auswählt.
-9. Schließlich wird die Oszillatorenliste initialisiert, um sicherzustellen, dass sie bereit ist, Informationen zu empfangen, welche Oszillatoren mit welchen Tasten verbunden sind.
+1. Die Tabelle, die Notennamen und Oktaven mit ihren Frequenzen zuordnet, wird erstellt, indem `createNoteTable()` aufgerufen wird.
+2. Ein Ereignishandler wird etabliert (indem unser alter Freund [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) verwendet wird), um [`change`](/de/docs/Web/API/HTMLElement/change_event)-Ereignisse am Hauptverstärkungsregler zu behandeln. Dies aktualisiert das Volumen des Hauptverstärknodes auf den neuen Wert der Steuerung.
+3. Als Nächstes iterieren wir über jede Oktave in der Notenfrequenztabelle. Für jede Oktave verwenden wir {{jsxref("Object.entries()")}}, um eine Liste der Noten in dieser Oktave zu erhalten.
+4. Ein {{HTMLElement("div")}} wird erstellt, um die Noten dieser Oktave zu enthalten (sodass ein kleiner Abstand zwischen den Oktaven gezeichnet werden kann) und sein Klassenname wird auf "octave" gesetzt.
+5. Für jede Taste in der Oktave überprüfen wir, ob der Notenname mehr als ein Zeichen hat. Wir überspringen diese, da wir die Kreuznotizen in diesem Beispiel auslassen. Wenn der Notenname nur ein Zeichen hat, rufen wir `createKey()` auf und geben die Zeichenfolge der Note, die Oktave und die Frequenz an. Das zurückgegebene Element wird dem in Schritt 4 erstellten Oktavelement hinzugefügt.
+6. Wenn jedes Oktavelement erstellt wurde, wird es dem Keyboard hinzugefügt.
+7. Sobald das Keyboard erstellt ist, scrollen wir die Note "B" in Oktave 5 in den sichtbaren Bereich; dies hat den Effekt, dass das mittlere C zusammen mit seinen umliegenden Tasten sichtbar ist.
+8. Dann wird eine neue benutzerdefinierte Wellenform erstellt unter Verwendung von [`BaseAudioContext.createPeriodicWave()`](/de/docs/Web/API/BaseAudioContext/createPeriodicWave). Diese Wellenform wird jedes Mal verwendet, wenn der Benutzer "Custom" im Wellenformauswahlsteuerelement auswählt.
+9. Schließlich wird die Oszillatorliste initialisiert, um sicherzustellen, dass sie bereit ist, Informationen zu empfangen, die identifizieren, welche Oszillatoren mit welchen Tasten verbunden sind.
 
-#### Erstellen einer Taste
+#### Eine Taste erstellen
 
-Die Funktion `createKey()` wird einmal für jede Taste aufgerufen, die wir im virtuellen Keyboard darstellen möchten. Sie erstellt die Elemente, die die Taste und ihr Label ausmachen, fügt einige Datenattribute für die spätere Verwendung hinzu und weist Event-Handler für die Ereignisse zu, die uns interessieren.
+Die Funktion `createKey()` wird einmal für jede Taste aufgerufen, die wir im virtuellen Keyboard darstellen möchten. Sie erstellt die Elemente, die die Taste und ihr Label bilden, fügt einige Datenattribute für die spätere Verwendung hinzu und weist Ereignishandler für die Ereignisse zu, die uns interessieren.
 
 ```js
 function createKey(note, octave, freq) {
@@ -499,13 +499,13 @@ function createKey(note, octave, freq) {
 }
 ```
 
-Nachdem die Elemente erstellt wurden, die die Taste und ihr Label darstellen, konfigurieren wir das Tasten-Element, indem wir seine Klasse auf "key" setzen (was sein Erscheinungsbild festlegt). Dann fügen wir [`data-*`](/de/docs/Web/HTML/Global_attributes/data-*)-Attribute hinzu, die die Oktave der Taste (Attribut `data-octave`), den String, der die zu spielende Note repräsentiert (Attribut `data-note`), und die Frequenz (Attribut `data-frequency`) in Hertz enthalten. Dies ermöglicht es uns, diese Informationen bei Bedarf beim Handling von Ereignissen leicht abzurufen.
+Nachdem die Elemente erstellt wurden, die die Taste und ihr Label darstellen sollen, konfigurieren wir das Element der Taste, indem wir ihre Klasse auf "key" setzen (was ihr Erscheinungsbild festlegt). Dann fügen wir [`data-*`](/de/docs/Web/HTML/Reference/Global_attributes/data-*)-Attribute hinzu, die die Oktave der Taste (Attribut `data-octave`), die Zeichenfolge, die die zu spielende Note repräsentiert (Attribut `data-note`) und die Frequenz in Hertz (Attribut `data-frequency`) enthalten. Dies wird es uns ermöglichen, diese Informationen beim Behandeln von Ereignissen leicht abzurufen.
 
 ### Musik machen
 
-#### Ein Ton abspielen
+#### Einen Ton spielen
 
-Die Funktion `playTone()` hat die Aufgabe, einen Ton bei der angegebenen Frequenz abzuspielen. Dies wird vom Handler für Ereignisse verwendet, die Tasten auf dem Keyboard auslösen, um die entsprechenden Noten zu spielen.
+Die Aufgabe der Funktion `playTone()` ist es, einen Ton mit der gegebenen Frequenz zu spielen. Diese wird vom Handler für Ereignisse verwendet, um die entsprechenden Noten auf dem Keyboard zu starten.
 
 ```js
 function playTone(freq) {
@@ -527,15 +527,15 @@ function playTone(freq) {
 }
 ```
 
-`playTone()` beginnt mit der Erstellung eines neuen [`OscillatorNode`](/de/docs/Web/API/OscillatorNode), indem die Methode [`BaseAudioContext.createOscillator()`](/de/docs/Web/API/BaseAudioContext/createOscillator) aufgerufen wird. Wir verbinden es dann mit dem Haupt-Gain-Node, indem wir die Methode [`connect()`](/de/docs/Web/API/AudioNode/connect) des neuen Oszillators aufrufen, die dem Oszillator mitteilt, wohin er seine Ausgabe senden soll. Indem wir dies tun, wird durch das Ändern des Haupt-Gain-Nodes die Lautstärke aller generierten Töne beeinflusst.
+`playTone()` beginnt mit der Erstellung eines neuen [`OscillatorNode`](/de/docs/Web/API/OscillatorNode), indem die Methode [`BaseAudioContext.createOscillator()`](/de/docs/Web/API/BaseAudioContext/createOscillator) aufgerufen wird. Wir verbinden diesen dann mit dem Hauptverstärkernode, indem wir die Methode [`connect()`](/de/docs/Web/API/AudioNode/connect) des neuen Oszillators aufrufen, die dem Oszillator mitteilt, wohin er seinen Ausgang senden soll. Indem wir dies tun, beeinflusst die Änderung der Verstärkung des Hauptverstärkers alle erzeugten Töne im Volumen.
 
-Dann holen wir die Art der Wellenform, die verwendet werden soll, indem wir den Wert der Wellenformauswahlsteuerung in der Einstellungsleiste überprüfen. Wenn der Benutzer es auf `"custom"` eingestellt hat, rufen wir [`OscillatorNode.setPeriodicWave()`](/de/docs/Web/API/OscillatorNode/setPeriodicWave) auf, um den Oszillator zu konfigurieren, unsere benutzerdefinierte Wellenform zu verwenden. Dies setzt automatisch den Typ des Oszillators [`type`](/de/docs/Web/API/OscillatorNode/type) auf `custom`. Wenn eine andere Wellenformart in der Wellenauswahl ausgewählt ist, setzen wir den Typ des Oszillators auf den Wert der Auswahl; dieser Wert wird einer von `sine`, `square`, `triangle` und `sawtooth` sein.
+Dann holen wir den Typ der zu verwendenden Wellenform, indem wir den Wert des Wellenformauswahlsteuerelements in der Einstellungsleiste überprüfen. Wenn der Benutzer es auf `"custom"` gesetzt hat, rufen wir [`OscillatorNode.setPeriodicWave()`](/de/docs/Web/API/OscillatorNode/setPeriodicWave) auf, um den Oszillator zu konfigurieren, unsere benutzerdefinierte Wellenform zu verwenden. Dies setzt automatisch den Typ des Oszillators auf `custom`. Wenn im Wellenformauswahl eine andere Wellenform ausgewählt ist, setzen wir den Typ des Oszillators auf den Wert des Auswahlsteuerelements; dieser Wert wird einer von `sine`, `square`, `triangle` und `sawtooth` sein.
 
-Die Frequenz des Oszillators wird auf den im Parameter `freq` angegebenen Wert gesetzt, indem der Wert des [`OscillatorNode.frequency`](/de/docs/Web/API/OscillatorNode/frequency) [`AudioParam`](/de/docs/Web/API/AudioParam)-Objekts gesetzt wird. Schließlich wird der Oszillator gestartet, damit er beginnt, Ton zu produzieren, indem die Methode [`AudioScheduledSourceNode.start()`](/de/docs/Web/API/AudioScheduledSourceNode/start) des Oszillators aufgerufen wird.
+Die Frequenz des Oszillators wird auf den im `freq` Parameter angegebenen Wert gesetzt, indem der Wert des [`OscillatorNode.frequency`](/de/docs/Web/API/OscillatorNode/frequency) [`AudioParam`](/de/docs/Web/API/AudioParam)-Objekts festgelegt wird. Schließlich wird der Oszillator gestartet, sodass er beginnt, Klang zu erzeugen, indem die Methode [`AudioScheduledSourceNode.start()`](/de/docs/Web/API/AudioScheduledSourceNode/start) des geerbten Oszillators aufgerufen wird.
 
-#### Eine Note abspielen
+#### Einen Ton abspielen
 
-Wenn das Ereignis [`mousedown`](/de/docs/Web/API/Element/mousedown_event) oder [`mouseover`](/de/docs/Web/API/Element/mouseover_event) auf einer Taste eintritt, möchten wir die entsprechende Note zu spielen beginnen. Die Funktion `notePressed()` wird als der Event-Handler für diese Ereignisse verwendet.
+Wenn das [`mousedown`](/de/docs/Web/API/Element/mousedown_event) oder [`mouseover`](/de/docs/Web/API/Element/mouseover_event)-Ereignis auf einer Taste auftritt, möchten wir die entsprechende Note abspielen. Die Funktion `notePressed()` wird als Ereignishandler für diese Ereignisse verwendet.
 
 ```js
 function notePressed(event) {
@@ -551,13 +551,13 @@ function notePressed(event) {
 }
 ```
 
-Wir beginnen damit, zu überprüfen, ob die primäre Maustaste gedrückt ist, aus zwei Gründen. Erstens wollen wir nur die primäre Maustaste das Spielen von Noten erlauben. Zweitens, und noch wichtiger, verwenden wir dies, um [`mouseover`](/de/docs/Web/API/Element/mouseover_event) in Fällen zu behandeln, in denen der Benutzer von Note zu Note zieht, und wir wollen die Note nur dann zu spielen beginnen, wenn die Maus gedrückt ist, wenn sie in das Element eintritt.
+Wir beginnen damit, zu überprüfen, ob die Primärtaste der Maus gedrückt ist, aus zwei Gründen. Erstens wollen wir nur die Primärtaste der Maus zulassen, um das Spielen von Noten auszulösen. Zweitens, und noch wichtiger, verwenden wir dies, um [`mouseover`](/de/docs/Web/API/Element/mouseover_event) für Fälle zu behandeln, in denen der Benutzer von Note zu Note zieht, und wir möchten die Note nur starten, wenn die Maus beim Betreten des Elements gedrückt ist.
 
-Wenn die Maustaste tatsächlich gedrückt ist, holen wir das [`dataset`](/de/docs/Web/API/HTMLElement/dataset)-Attribut der gedrückten Taste; das macht es einfach, auf die benutzerdefinierten Datenattribute auf dem Element zuzugreifen. Wir suchen nach einem `data-pressed`-Attribut; wenn es keines gibt (was darauf hinweist, dass die Note noch nicht gespielt wird), rufen wir `playTone()` auf, um die Note zu spielen zu beginnen, und geben den Wert des `data-frequency`-Attributs des Elements weiter. Der zurückgegebene Oszillator wird in `oscList` für zukünftige Referenz gespeichert, und `data-pressed` wird auf `yes` gesetzt, um anzuzeigen, dass die Note spielt, damit wir sie nicht erneut starten, wenn dies das nächste Mal aufgerufen wird.
+Wenn die Maustaste tatsächlich gedrückt ist, erhalten wir das [`dataset`](/de/docs/Web/API/HTMLElement/dataset)-Attribut der gedrückten Taste; dies macht es einfach, auf die benutzerdefinierten Datenattribute des Elements zuzugreifen. Wir suchen nach einem `data-pressed`-Attribut; wenn es keines gibt (was anzeigt, dass die Note nicht bereits spielt), rufen wir `playTone()` auf, um die Note zu spielen, und geben den Wert des `data-frequency`-Attributs des Elements an. Der zurückgegebene Oszillator wird zur späteren Referenz in `oscList` gespeichert und `data-pressed` wird auf `yes` gesetzt, um anzuzeigen, dass die Note spielt, damit sie nicht erneut gestartet wird, wenn dies das nächste Mal aufgerufen wird.
 
 #### Einen Ton stoppen
 
-Die Funktion `noteReleased()` ist der Event-Handler, der aufgerufen wird, wenn der Benutzer die Maustaste loslässt oder die Maus aus der Taste bewegt, die gerade spielt.
+Die Funktion `noteReleased()` ist der Ereignishandler, der aufgerufen wird, wenn der Benutzer die Maustaste loslässt oder die Maus aus der Taste herausbewegt, die gerade gespielt wird.
 
 ```js
 function noteReleased(event) {
@@ -575,11 +575,11 @@ function noteReleased(event) {
 }
 ```
 
-`noteReleased()` verwendet die benutzerdefinierten Attribute `data-octave` und `data-note`, um den Oszillator der Taste nachzuschlagen, und ruft dann die geerbte Methode [`stop()`](/de/docs/Web/API/AudioScheduledSourceNode/stop) des Oszillators auf, um die Note zu stoppen. Schließlich wird der Eintrag `oscList` für die Note gelöscht und das `data-pressed`-Attribut vom Tasten-Element entfernt (wie durch [`event.target`](/de/docs/Web/API/Event/target) identifiziert), um anzuzeigen, dass die Note nicht gerade spielt.
+`noteReleased()` verwendet die benutzerdefinierten Attribute `data-octave` und `data-note`, um den Oszillator der Taste nachzuschlagen, und ruft dann die geerbte Methode [`stop()`](/de/docs/Web/API/AudioScheduledSourceNode/stop) des Oszillators auf, um die Note zu stoppen. Schließlich wird der `oscList`-Eintrag für die Note gelöscht und das `data-pressed`-Attribut vom Element der Taste (wie durch [`event.target`](/de/docs/Web/API/Event/target) identifiziert) entfernt, um anzuzeigen, dass die Note nicht aktuell spielt.
 
-#### Ändern der Hauptlautstärke
+#### Die Hauptlautstärke ändern
 
-Der Lautstärkeregler in der Einstellungsleiste bietet eine Schnittstelle zum Ändern des Gain-Wertes am Haupt-Gain-Node, wodurch die Lautstärke aller spielenden Noten geändert wird. Die Methode `changeVolume()` ist der Handler für das Ereignis [`change`](/de/docs/Web/API/HTMLElement/change_event) am Schieberegler.
+Der Lautstärkeregler in der Einstellungsleiste bietet eine Schnittstelle, um den Verstärkungswert am Hauptverstärkernode zu ändern und dadurch die Lautstärke aller spielenden Noten zu ändern. Die Methode `changeVolume()` ist der Handler für das [`change`](/de/docs/Web/API/HTMLElement/change_event)-Ereignis am Schieberegler.
 
 ```js
 function changeVolume(event) {
@@ -587,11 +587,11 @@ function changeVolume(event) {
 }
 ```
 
-Dies setzt den Wert des `gain` [`AudioParam`](/de/docs/Web/API/AudioParam) des Haupt-Gain-Nodes auf den neuen Wert des Schiebereglers.
+Dies setzt den Wert des `gain`-[`AudioParam`](/de/docs/Web/API/AudioParam) des Hauptverstärkernodes auf den neuen Wert des Schiebereglers.
 
-#### Tastaturunterstützung
+#### Unterstützung für die Tastatur
 
-Der folgende Code fügt Event-Listener für [`keydown`](/de/docs/Web/API/Element/keydown_event) und [`keyup`](/de/docs/Web/API/Element/keyup_event) hinzu, um Tastatureingaben zu verarbeiten. Der `keydown`-Event-Handler ruft `notePressed()` auf, um die Note zu spielen, die der gedrückten Taste entspricht, und der `keyup`-Event-Handler ruft `noteReleased()` auf, um die Note zu stoppen, die der losgelassenen Taste entspricht.
+Der untenstehende Code fügt [`keydown`](/de/docs/Web/API/Element/keydown_event)- und [`keyup`](/de/docs/Web/API/Element/keyup_event)-Ereignislistener hinzu, um Tastatureingaben zu verarbeiten. Der `keydown`-Ereignishandler ruft `notePressed()` auf, um die Note zu spielen, die der gedrückten Taste entspricht, und der `keyup`-Ereignishandler ruft `noteReleased()` auf, um die Note zu stoppen, die der freigegebenen Taste entspricht.
 
 ```js-nolint
 const synthKeys = document.querySelectorAll(".key");
@@ -624,7 +624,7 @@ addEventListener("keyup", keyNote);
 
 ### Ergebnis
 
-Alles zusammen ergibt ein einfaches, aber funktionierendes Point-and-Click-Musikkeyboard:
+Insgesamt ergibt sich ein einfaches, aber funktionierendes Point-and-Click-Musikkeyboard:
 
 {{ EmbedLiveSample('The_video_keyboard', 680, 200) }}
 

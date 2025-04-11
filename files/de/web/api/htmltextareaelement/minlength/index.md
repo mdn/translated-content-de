@@ -3,15 +3,15 @@ title: "HTMLTextAreaElement: minLength-Eigenschaft"
 short-title: minLength
 slug: Web/API/HTMLTextAreaElement/minLength
 l10n:
-  sourceCommit: 8cf200c4039f6399b6696fc710bee1c4b395d401
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{ApiRef("HTML DOM")}}
 
-Die **`minLength`**-Eigenschaft des [`HTMLTextAreaElement`](/de/docs/Web/API/HTMLTextAreaElement)-Interfaces gibt die minimale Anzahl von Zeichen (in UTF-16 Code-Einheiten) an, die erforderlich sind, damit der Wert des {{HTMLElement("textarea")}}-Elements gültig ist. Sie spiegelt das [`minlength`](/de/docs/Web/HTML/Element/textarea#minlength)-Attribut des Elements wider. `-1` bedeutet, dass keine Mindestlängenanforderung besteht.
+Die **`minLength`**-Eigenschaft der [`HTMLTextAreaElement`](/de/docs/Web/API/HTMLTextAreaElement)-Schnittstelle gibt die minimale Anzahl von Zeichen (in UTF-16-Codeeinheiten) an, die für den Wert des {{HTMLElement("textarea")}}-Elements erforderlich ist, um gültig zu sein. Sie spiegelt das [`minlength`](/de/docs/Web/HTML/Reference/Elements/textarea#minlength)-Attribut des Elements wider. `-1` bedeutet, dass es keine Mindestlängenanforderung gibt.
 
 > [!NOTE]
-> Wenn das `<textarea>`-Element einen Wert hat und dieser Wert weniger Zeichen enthält als das `minlength`-Attribut erfordert, wird das Element als ungültig angesehen und die [`ValidityState`](/de/docs/Web/API/ValidityState)-Objekt-Eigenschaft [`tooShort`](/de/docs/Web/API/ValidityState/tooShort) wird `true` sein.
+> Wenn das Textarea einen Wert hat und dieser Wert weniger Zeichen als das `minlength`-Attribut erfordert, wird das Element als ungültig betrachtet und die [`ValidityState`](/de/docs/Web/API/ValidityState)-Objekteigenschaft [`tooShort`](/de/docs/Web/API/ValidityState/tooShort) wird `true` sein.
 
 ## Wert
 
@@ -19,7 +19,7 @@ Eine Zahl, die das `minlength` des Elements darstellt, falls vorhanden, oder `-1
 
 ## Beispiel
 
-Mit folgendem HTML:
+Bei folgendem HTML:
 
 ```html
 <p>
@@ -28,7 +28,7 @@ Mit folgendem HTML:
 </p>
 ```
 
-Sie können die `minLength`-Eigenschaft verwenden, um den Wert des `minlength`-Attributs des `<textarea>` zu erhalten oder festzulegen:
+Sie können die `minLength`-Eigenschaft verwenden, um den `minlength`-Attributwert des `<textarea>` abzurufen oder festzulegen:
 
 ```js
 const textareaElement = document.querySelector("#comment");

@@ -19,7 +19,7 @@ Alle modernen Browser unterstützen Modul-Features nativ ohne die Notwendigkeit 
 
 ## Einführung eines Beispiels
 
-Um die Verwendung von Modulen zu demonstrieren, haben wir eine [Reihe von Beispielen](https://github.com/mdn/js-examples/tree/main/module-examples) erstellt, die Sie auf GitHub finden können. Diese Beispiele demonstrieren eine Reihe von Modulen, die ein [`<canvas>`](/de/docs/Web/HTML/Element/canvas)-Element auf einer Webseite erstellen und dann verschiedene Formen auf das Canvas zeichnen (und Informationen darüber berichten).
+Um die Verwendung von Modulen zu demonstrieren, haben wir eine [Reihe von Beispielen](https://github.com/mdn/js-examples/tree/main/module-examples) erstellt, die Sie auf GitHub finden können. Diese Beispiele demonstrieren eine Reihe von Modulen, die ein [`<canvas>`](/de/docs/Web/HTML/Reference/Elements/canvas)-Element auf einer Webseite erstellen und dann verschiedene Formen auf das Canvas zeichnen (und Informationen darüber berichten).
 
 Diese sind ziemlich trivial, wurden aber absichtlich einfach gehalten, um Module klar zu demonstrieren.
 
@@ -152,9 +152,9 @@ import { name as squareName, draw } from "./shapes/square.js";
 import { name as circleName } from "https://example.com/shapes/circle.js";
 ```
 
-[Importkarten](/de/docs/Web/HTML/Element/script/type/importmap) ermöglichen es Entwicklern, stattdessen fast jeden Text zu spezifizieren, den sie im Modulspezifizierer verwenden möchten; die Karte bietet einen entsprechenden Wert, der den Text ersetzt, wenn die Moduledaten -URL aufgelöst wird.
+[Importkarten](/de/docs/Web/HTML/Reference/Elements/script/type/importmap) ermöglichen es Entwicklern, stattdessen fast jeden Text zu spezifizieren, den sie im Modulspezifizierer verwenden möchten; die Karte bietet einen entsprechenden Wert, der den Text ersetzt, wenn die Moduledaten -URL aufgelöst wird.
 
-Zum Beispiel definiert der Schlüssel `imports` in der folgenden Importkarte ein „Modulspezifizierer-Karten“-JSON-Objekt, bei dem die Eigenschaftsnamen als Modulspezifizierer verwendet werden können und die entsprechenden Werte beim Auflösen der Moduledaten -URL ersetzt werden. Die Werte müssen absolute oder relative URLs sein. Relative URLs werden in absolute URL-Adressen aufgelöst, indem die [Basis-URL](/de/docs/Web/HTML/Element/base) des Dokuments, das die Importkarte enthält, verwendet wird.
+Zum Beispiel definiert der Schlüssel `imports` in der folgenden Importkarte ein „Modulspezifizierer-Karten“-JSON-Objekt, bei dem die Eigenschaftsnamen als Modulspezifizierer verwendet werden können und die entsprechenden Werte beim Auflösen der Moduledaten -URL ersetzt werden. Die Werte müssen absolute oder relative URLs sein. Relative URLs werden in absolute URL-Adressen aufgelöst, indem die [Basis-URL](/de/docs/Web/HTML/Reference/Elements/base) des Dokuments, das die Importkarte enthält, verwendet wird.
 
 ```html
 <script type="importmap">
@@ -170,7 +170,7 @@ Zum Beispiel definiert der Schlüssel `imports` in der folgenden Importkarte ein
 </script>
 ```
 
-Die Importkarte wird mit einem [JSON-Objekt](/de/docs/Web/HTML/Element/script/type/importmap#import_map_json_representation) in einem `<script>`-Element mit dem Typattribut, das auf [`importmap`](/de/docs/Web/HTML/Element/script/type/importmap) gesetzt ist, definiert. Beachten Sie, dass eine Importkarte nur für das Dokument gilt - die Spezifikation behandelt nicht, wie eine Importkarte in einem Arbeiter- oder Worklet-Kontext angewendet werden kann. <!-- https://github.com/WICG/import-maps/issues/2 -->
+Die Importkarte wird mit einem [JSON-Objekt](/de/docs/Web/HTML/Reference/Elements/script/type/importmap#import_map_json_representation) in einem `<script>`-Element mit dem Typattribut, das auf [`importmap`](/de/docs/Web/HTML/Reference/Elements/script/type/importmap) gesetzt ist, definiert. Beachten Sie, dass eine Importkarte nur für das Dokument gilt - die Spezifikation behandelt nicht, wie eine Importkarte in einem Arbeiter- oder Worklet-Kontext angewendet werden kann. <!-- https://github.com/WICG/import-maps/issues/2 -->
 
 Mit dieser Karte können Sie jetzt die oben genannten Eigenschaftsnamen als Modulspezifizierer verwenden. Wenn kein Schrägstrich am Ende des Modulspezifizierer-Schlüssels vorhanden ist, wird der gesamte Modulspezifizierer-Schlüssel abgeglichen und ersetzt. Zum Beispiel werden unten nackte Modulnamen abgeglichen, und eine URL wird auf einen anderen Pfad umgeleitet.
 
@@ -342,7 +342,7 @@ document.adoptedStyleSheets = [styles];
 
 Nun müssen wir nur noch das `main.js`-Modul auf unsere HTML-Seite anwenden. Dies ähnelt sehr der Weise, wie wir ein reguläres Skript auf eine Seite anwenden, mit einigen bemerkenswerten Unterschieden.
 
-Zuerst müssen Sie `type="module"` im [`<script>`](/de/docs/Web/HTML/Element/script)-Element einschließen, um dieses Skript als Modul zu deklarieren. Um das `main.js`-Skript zu importieren, verwenden wir dies:
+Zuerst müssen Sie `type="module"` im [`<script>`](/de/docs/Web/HTML/Reference/Elements/script)-Element einschließen, um dieses Skript als Modul zu deklarieren. Um das `main.js`-Skript zu importieren, verwenden wir dies:
 
 ```html
 <script type="module" src="main.js"></script>
@@ -370,14 +370,14 @@ Sie können nur `import`- und `export`-Anweisungen innerhalb von Modulen verwend
 Sie sollten im Allgemeinen alle Module in separaten Dateien definieren. Inline in HTML deklarierte Module können nur andere Module importieren, aber alles, was sie exportieren, wird von anderen Modulen nicht zugänglich sein (weil sie keine URL haben).
 
 > [!NOTE]
-> Module und ihre Abhängigkeiten können vorab geladen werden, indem sie in [`<link>`](/de/docs/Web/HTML/Element/link)-Elementen mit [`rel="modulepreload"`](/de/docs/Web/HTML/Attributes/rel/modulepreload) spezifiziert werden.
+> Module und ihre Abhängigkeiten können vorab geladen werden, indem sie in [`<link>`](/de/docs/Web/HTML/Reference/Elements/link)-Elementen mit [`rel="modulepreload"`](/de/docs/Web/HTML/Reference/Attributes/rel/modulepreload) spezifiziert werden.
 > Dies kann die Ladezeit erheblich reduzieren, wenn die Module verwendet werden.
 
 ## Weitere Unterschiede zwischen Modulen und klassischen Skripten
 
 - Sie müssen auf lokales Testen achten — wenn Sie die HTML-Datei lokal laden (i.e., mit einer `file://` URL), stoßen Sie aufgrund von JavaScript-Modulsicherheitsanforderungen auf CORS-Fehler. Sie müssen Ihr Testen durch einen Server durchführen.
 - Beachten Sie auch, dass Sie möglicherweise unterschiedliches Verhalten von Skriptabschnitten erhalten, die in Modulen im Gegensatz zu klassischen Skripten definiert sind. Dies liegt daran, dass Module automatisch den {{jsxref("Strict_mode", "strict mode", "", 1)}} verwenden.
-- Es ist nicht erforderlich, das `defer`-Attribut zu verwenden (siehe [`<script>` attributes](/de/docs/Web/HTML/Element/script#attributes)) beim Laden eines Modulscripts; Module werden automatisch verzögert.
+- Es ist nicht erforderlich, das `defer`-Attribut zu verwenden (siehe [`<script>` attributes](/de/docs/Web/HTML/Reference/Elements/script#attributes)) beim Laden eines Modulscripts; Module werden automatisch verzögert.
 - Module werden nur einmal ausgeführt, selbst wenn sie in mehrere `<script>`-Tags referenziert werden.
 - Last but not least, lassen Sie uns das klarstellen - Modulfunktionen werden in den Gültigkeitsbereich eines einzelnen Skripts importiert - sie sind nicht im globalen Bereich verfügbar. Daher können Sie auf importierte Funktionen nur in dem Skript zugreifen, in das sie importiert werden, und Sie können nicht über die JavaScript-Konsole darauf zugreifen. Sie erhalten trotzdem Syntaxfehler, die in den DevTools angezeigt werden, aber Sie können möglicherweise nicht einige der Debugg-Techniken verwenden, die Sie erwartet haben zu verwenden.
 

@@ -2,20 +2,20 @@
 title: "SVG-Attribut: crossorigin"
 slug: Web/SVG/Reference/Attribute/crossorigin
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
-Das crossorigin-Attribut, gültig für die {{SVGElement("image")}} und {{SVGElement("feImage")}} Elemente, ermöglicht die Konfiguration von Cross-Origin Resource Sharing ([CORS](/de/docs/Web/HTTP/Guides/CORS)) Anfragen für die vom Element abgerufenen Daten.
+Das Attribut `crossorigin`, gültig für die {{SVGElement("image")}}- und {{SVGElement("feImage")}}-Elemente, bietet Unterstützung für die Konfiguration von Cross-Origin Resource Sharing ([CORS](/de/docs/Web/HTTP/Guides/CORS))-Anfragen für die vom Element abgerufenen Daten.
 
-Diese Tabelle zeigt die möglichen Schlüsselwörter und ihre Bedeutung:
+Diese Tabelle zeigt mögliche Schlüsselwörter und ihre Bedeutung:
 
 | Schlüsselwort     | Beschreibung                                                                                                          |
 | ----------------- | --------------------------------------------------------------------------------------------------------------------- |
-| `anonymous`       | Client-CORS-Anfragen für dieses Element werden das Credentials-Flag auf 'same-origin' gesetzt haben.                  |
-| `use-credentials` | Client-CORS-Anfragen für dieses Element werden das Credentials-Flag auf 'include' gesetzt haben.                      |
+| `anonymous`       | Bei CORS-Anfragen des Clients für dieses Element wird das `credentials`-Flag auf 'same-origin' gesetzt.               |
+| `use-credentials` | Bei CORS-Anfragen des Clients für dieses Element wird das `credentials`-Flag auf 'include' gesetzt.                   |
 | `""`              | Das Setzen des Attributnamens auf einen leeren Wert, wie `crossorigin` oder `crossorigin=""`, entspricht `anonymous`. |
 
-Es folgt denselben Verarbeitungsregeln wie das HTML-Attribut [`crossorigin`](/de/docs/Web/HTML/Attributes/crossorigin).
+Es folgt den gleichen Verarbeitungsregeln wie das HTML-Attribut [`crossorigin`](/de/docs/Web/HTML/Reference/Attributes/crossorigin).
 
 ## Beispiel
 

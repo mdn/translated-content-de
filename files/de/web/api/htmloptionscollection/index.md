@@ -2,12 +2,12 @@
 title: HTMLOptionsCollection
 slug: Web/API/HTMLOptionsCollection
 l10n:
-  sourceCommit: a5e089d79bf681e27fc6bdb9e4026b2489ffa4d9
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{ APIRef("HTML DOM") }}
 
-Die **`HTMLOptionsCollection`**-Schnittstelle repräsentiert eine Sammlung von [`<option>`](/de/docs/Web/HTML/Element/option)-HTML-Elementen (in Dokumentreihenfolge) und bietet Methoden und Eigenschaften zur Auswahl aus der Liste sowie optional zur Änderung ihrer Elemente. Dieses Objekt wird nur von der `options`-Eigenschaft von [select](/de/docs/Web/API/HTMLSelectElement) zurückgegeben.
+Das **`HTMLOptionsCollection`**-Interface repräsentiert eine Sammlung von [`<option>`](/de/docs/Web/HTML/Reference/Elements/option)-HTML-Elementen (in Dokumentreihenfolge) und bietet Methoden und Eigenschaften zum Auswählen aus der Liste sowie optional zum Ändern ihrer Elemente. Dieses Objekt wird nur durch die `options`-Eigenschaft von [select](/de/docs/Web/API/HTMLSelectElement) zurückgegeben.
 
 {{InheritanceDiagram}}
 
@@ -20,12 +20,12 @@ Die **`HTMLOptionsCollection`**-Schnittstelle repräsentiert eine Sammlung von [
 
 ## Instanzmethoden
 
-_Diese Schnittstelle erbt die Methoden ihres Elternteils, [`HTMLCollection`](/de/docs/Web/API/HTMLCollection)._
+_Dieses Interface erbt die Methoden seines Elternteils, [`HTMLCollection`](/de/docs/Web/API/HTMLCollection)._
 
 - [`HTMLOptionsCollection.add()`](/de/docs/Web/API/HTMLOptionsCollection/add)
-  - : Fügt ein [`HTMLOptionElement`](/de/docs/Web/API/HTMLOptionElement)- oder [`HTMLOptGroupElement`](/de/docs/Web/API/HTMLOptGroupElement)-Element zur Sammlung der `option`-Elemente hinzu oder fügt es vor einer angegebenen Option hinzu.
+  - : Fügt ein [`HTMLOptionElement`](/de/docs/Web/API/HTMLOptionElement) oder [`HTMLOptGroupElement`](/de/docs/Web/API/HTMLOptGroupElement)-Element zur Sammlung von `option`-Elementen hinzu oder fügt es vor einer angegebenen Option hinzu.
 - [`HTMLOptionsCollection.remove()`](/de/docs/Web/API/HTMLOptionsCollection/remove)
-  - : Entfernt das Element an der angegebenen Stelle aus der Optionssammlung.
+  - : Entfernt das Element an dem angegebenen Index aus der Optionssammlung.
 
 ## Spezifikationen
 
@@ -41,4 +41,4 @@ _Diese Schnittstelle erbt die Methoden ihres Elternteils, [`HTMLCollection`](/de
 - [`HTMLCollection`](/de/docs/Web/API/HTMLCollection)
 - [`HTMLOptGroupElement`](/de/docs/Web/API/HTMLOptGroupElement)
 - [`HTMLSelectElement`](/de/docs/Web/API/HTMLSelectElement)
-- [Indexierte Sammlungen Leitfaden](/de/docs/Web/JavaScript/Guide/Indexed_collections)
+- [Leitfaden für indizierte Kollektionen](/de/docs/Web/JavaScript/Guide/Indexed_collections)

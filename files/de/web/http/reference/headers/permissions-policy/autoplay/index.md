@@ -2,17 +2,22 @@
 title: "Permissions-Policy: autoplay"
 slug: Web/HTTP/Reference/Headers/Permissions-Policy/autoplay
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{HTTPSidebar}} {{SeeCompatTable}}
 
-Die HTTP-Anweisung {{HTTPHeader("Permissions-Policy")}} `autoplay` steuert, ob das aktuelle Dokument Medien, die über das [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement)-Interface angefordert werden, automatisch abspielen darf.
+Der HTTP-{{HTTPHeader("Permissions-Policy")}}-Header
+`autoplay`-Direktive steuert, ob das aktuelle Dokument berechtigt ist,
+Medien automatisch wiederzugeben, die über das [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement)-Interface angefordert werden.
 
-Insbesondere, wenn eine definierte Richtlinie die Nutzung dieses Features blockiert und keine Benutzerinteraktionen stattgefunden haben, wird das von [`HTMLMediaElement.play()`](/de/docs/Web/API/HTMLMediaElement/play) zurückgegebene {{jsxref("Promise")}} mit einer [`DOMException`](/de/docs/Web/API/DOMException) abgelehnt. Das [`autoplay`](/de/docs/Web/HTML/Element/audio#autoplay)-Attribut auf {{HTMLElement("audio")}}- und {{HTMLElement("video")}}-Elementen wird ignoriert.
+Insbesondere, wenn eine definierte Richtlinie die Verwendung dieses Features blockiert und es keine Benutzeraktionen gab, wird das {{jsxref("Promise")}},
+das von [`HTMLMediaElement.play()`](/de/docs/Web/API/HTMLMediaElement/play) zurückgegeben wird, mit
+einer [`DOMException`](/de/docs/Web/API/DOMException) abgelehnt. Das [`autoplay`](/de/docs/Web/HTML/Reference/Elements/audio#autoplay)-Attribut auf
+{{HTMLElement("audio")}}- und {{HTMLElement("video")}}-Elementen wird ignoriert.
 
 > [!NOTE]
-> Weitere Informationen zu Autoplay und Autoplay-Blockierung finden Sie im Artikel [Autoplay-Leitfaden für Media- und Web-Audio-APIs](/de/docs/Web/Media/Guides/Autoplay).
+> Für weitere Details zu Autoplay und Autoplay-Blockierung lesen Sie den Artikel [Autoplay-Leitfaden für Media- und Web-Audio-APIs](/de/docs/Web/Media/Guides/Autoplay).
 
 ## Syntax
 
@@ -21,11 +26,11 @@ Permissions-Policy: autoplay=<allowlist>;
 ```
 
 - `<allowlist>`
-  - : Eine Liste von Ursprüngen, für die die Erlaubnis zur Nutzung des Features erteilt wird. Weitere Details finden Sie unter [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Reference/Headers/Permissions-Policy#syntax).
+  - : Eine Liste von Ursprüngen, für die die Erlaubnis erteilt wird, das Feature zu nutzen. Siehe [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Reference/Headers/Permissions-Policy#syntax) für weitere Details.
 
 ## Standardrichtlinie
 
-Die Standard-Whitelist für `autoplay` ist `self`.
+Die Standard-Urheberliste für `autoplay` ist `self`.
 
 ## Spezifikationen
 

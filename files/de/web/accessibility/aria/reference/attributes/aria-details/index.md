@@ -2,32 +2,32 @@
 title: aria-details
 slug: Web/Accessibility/ARIA/Reference/Attributes/aria-details
 l10n:
-  sourceCommit: 1779345247e7fb1d7987ba3b51b18d9b0187d576
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
-Das globale `aria-details` Attribut identifiziert das Element (oder die Elemente), das zusätzliche Informationen in Bezug auf das Objekt bereitstellt.
+Das globale `aria-details`-Attribut identifiziert das Element (oder die Elemente), die zusätzliche Informationen im Zusammenhang mit dem Objekt bereitstellen.
 
 ## Beschreibung
 
-Das `aria-details` Attribut kann verwendet werden, um einem Objekt zusätzliche Informationen oder komplexe Beschreibungen hinzuzufügen. Es wird verwendet, um Benutzer von unterstützenden Technologien über den Inhalt zu informieren, indem es detailliertere Informationen bereitstellt, unabhängig davon, ob dieser Inhalt innerhalb des aktuellen Dokuments liegt oder ein Link zu zusätzlichen Ressourcen ist.
+Das `aria-details`-Attribut kann verwendet werden, um zusätzliche Informationen oder komplexe Beschreibungen zu einem Objekt bereitzustellen. Es dient der Information von Benutzern unterstützender Technologien über den Inhalt, indem es detaillierte Informationen bietet, unabhängig davon, ob dieser Inhalt im aktuellen Dokument enthalten ist oder ein Link zu zusätzlichen Ressourcen ist.
 
-Es gibt weitere HTML- und WAI-ARIA-Eigenschaften mit ähnlichen Zwecken. Das HTML {{HTMLElement('label')}} Element sowie die Eigenschaften [`aria-label`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label) und [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby) werden verwendet, um kurze Beschriftungen für ein Objekt bereitzustellen. Das HTML `title` Attribut und die Eigenschaften [`aria-description`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-description) und [`aria-describedby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-describedby) ermöglichen längere Fließtext-Beschreibungen eines Objekts. Wenn jedoch zusätzliche Informationen, komplexe Beschreibungen oder navigierbare Inhalte in Bezug auf das Objekt erforderlich und verfügbar sind, sollte das `aria-details` Attribut verwendet werden.
+Es gibt andere HTML- und WAI-ARIA-Eigenschaften, die ähnliche Zwecke erfüllen. Das HTML-{{HTMLElement('label')}}-Element und die Eigenschaften [`aria-label`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label) und [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby) werden verwendet, um kurze Bezeichnungen für ein Objekt bereitzustellen. Das HTML-`title`-Attribut sowie die Eigenschaften [`aria-description`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-description) und [`aria-describedby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-describedby) bieten längere Klartextbeschreibungen eines Objekts. Wenn jedoch zusätzliche Informationen, komplexe Beschreibungen oder navigierbarer Inhalt erforderlich und verfügbar sind, sollte das `aria-details`-Attribut verwendet werden.
 
-Das `aria-details` Attribut erfüllt einen ähnlichen Zweck wie das HTML `longdesc` Attribut, das nie vollständig unterstützt wurde － eine URL einer langen Beschreibung zu einem ersetzten Inhaltselement －, das aufgrund mangelnder Unterstützung und Missbrauch veraltet ist.
+Das `aria-details`-Attribut dient einem ähnlichen Zweck wie das nie vollständig unterstützte HTML-`longdesc`-Attribut － eine URL einer langen Beschreibung für den Inhalt eines ersetzten Elements －, das aufgrund mangelnder Unterstützung und Fehlgebrauchs veraltet ist.
 
-Das `aria-details` Attribut nimmt die [`id`](/de/docs/Web/HTML/Global_attributes/id) oder eine durch Leerzeichen getrennte Liste von `id`s der Elemente als Werte, um detailliertere Informationen zu erhalten. Wenn `aria-details` auf einem Element enthalten ist, informieren unterstützende Technologien die Benutzer über die Verfügbarkeit erweiterter Informationen und ermöglichen es dem Benutzer, zu dem referenzierten Inhalt zu navigieren.
+Das `aria-details`-Attribut nimmt die [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id) oder eine durch Leerzeichen getrennte Liste von `id`s der Elemente, um detailliertere Informationen zu erhalten, als seine Werte an. Wenn `aria-details` auf einem Element enthalten ist, informieren unterstützende Technologien die Benutzer über die Verfügbarkeit erweiterter Informationen und ermöglichen dem Benutzer, zu dem referenzierten Inhalt zu navigieren.
 
-Elemente, auf die `aria-details` verweist, sollen mehr Informationen enthalten, als normalerweise über [`aria-describedby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-describedby) bereitgestellt würden.
+Elemente, die durch `aria-details` referenziert werden, sollen mehr Informationen enthalten, als normalerweise über [`aria-describedby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-describedby) bereitgestellt würden.
 
-Die Elemente, auf die durch `aria-details` verwiesen wird, sollten für alle Benutzer sichtbar sein. `aria-details` informiert Benutzer, die andernfalls möglicherweise nicht in der Lage sind, schnell den Bildschirm zu scannen und zu erkennen, dass erklärende Inhalte verfügbar sind.
+Die durch `aria-details` referenzierten Elemente sollten für alle Benutzer sichtbar sein. `aria-details` informiert Benutzer, die ansonsten möglicherweise nicht in der Lage sind, einen Bildschirm zu scannen und schnell zu erkennen, dass der erklärende Inhalt verfügbar ist.
 
-> **Note:** `aria-details` hat keinen Einfluss auf die zugängliche Beschreibung.
+> **Hinweis:** `aria-details` hat keine Auswirkungen auf die zugängliche Beschreibung.
 
-Im Gegensatz zu `aria-describedby` werden Elemente, auf die durch `aria-details` verwiesen wird, nicht in zugänglichen Beschreibungen verwendet und nicht in eine einfache Zeichenkette umgewandelt, wenn sie Benutzern von unterstützenden Technologien präsentiert werden. Wenn der zugehörige Inhalt nicht zu lang ist und die Reduzierung des Inhalts des referenzierten Elements zu einem einfachen Textstrang keinen Informationsverlust verursachen würde, sollten Sie stattdessen `aria-describedby` in Betracht ziehen. Dennoch ist es gültig, dass ein Element sowohl `aria-details` als auch eine Beschreibung entweder mit `aria-describedby` oder `aria-description` spezifiziert hat.
+Im Gegensatz zu `aria-describedby` werden Elemente, die durch `aria-details` referenziert werden, nicht in zugänglichen Beschreibungen verwendet und nicht in eine einfache Zeichenkette umgewandelt, wenn sie Benutzern unterstützender Technologien präsentiert werden. Sollte der zugehörige Inhalt nicht zu lang sein und das Reduzieren des Inhalts des referenzierten Elements auf einen einfachen Textstring keinen Informationsverlust verursachen, sollten Sie stattdessen `aria-describedby` verwenden. Es ist jedoch gültig, dass ein Element sowohl `aria-details` als auch eine Beschreibung mit entweder `aria-describedby` oder `aria-description` spezifiziert besitzt.
 
 ## Beispiel
 
-Bei Definitionen und Rollen für Begriffe würde `aria-details` auf dem [`term`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/term_role) Element mit der `id` des Elements mit einer [`definition`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/definition_role) Rolle enthalten sein.
+Bei Definitions- und Begriffrollen würde `aria-details` am [`term`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/term_role)-Element mit der `id` des Elements mit einer [`definition`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/definition_role)-Rolle enthalten sein.
 
 ```html
 <p>
@@ -57,11 +57,11 @@ Bei Definitionen und Rollen für Begriffe würde `aria-details` auf dem [`term`]
 ## Werte
 
 - ID-Referenzliste
-  - : Eine `id` oder durch Leerzeichen getrennte Liste von ids von Elementen, die zusätzliche verwandte Informationen bereitstellen oder verlinken.
+  - : Eine `id` oder eine durch Leerzeichen getrennte Liste von ids der Elemente, die zusätzliche verwandte Informationen bereitstellen oder darauf verlinken.
 
 ## Zugehörige Rollen
 
-Wird in **ALLEN** Rollen verwendet.
+Verwendet in **ALLEN** Rollen.
 
 ## Spezifikationen
 
@@ -69,9 +69,9 @@ Wird in **ALLEN** Rollen verwendet.
 
 ## Siehe auch
 
-- HTML [id](/de/docs/Web/HTML/Global_attributes/id) Attribut
+- HTML [id](/de/docs/Web/HTML/Reference/Global_attributes/id) Attribut
 - [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby)
 - [`aria-describedby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-describedby)
 - [`aria-description`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-description)
-- [Das Bild `alt` Attribut](/de/docs/Web/API/HTMLImageElement/alt)
-- HTML [title](/de/docs/Web/HTML/Global_attributes/title) Attribut
+- [Das `alt`-Attribut von Bildern](/de/docs/Web/API/HTMLImageElement/alt)
+- HTML [title](/de/docs/Web/HTML/Reference/Global_attributes/title) Attribut

@@ -1,26 +1,26 @@
 ---
-title: "ValidityState: tooShort-Eigenschaft"
+title: "ValidityState: tooShort Eigenschaft"
 short-title: tooShort
 slug: Web/API/ValidityState/tooShort
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die schreibgeschützte **`tooShort`**-Eigenschaft der [`ValidityState`](/de/docs/Web/API/ValidityState)-Schnittstelle gibt an, ob der Wert eines {{HTMLElement("input")}}, {{HTMLElement("button")}}, {{HTMLElement("select")}}, {{HTMLElement("output")}}, {{HTMLElement("fieldset")}} oder {{HTMLElement("textarea")}}, nachdem er vom Benutzer bearbeitet wurde, kürzer ist als die durch das `minlength`-Attribut des Elements festgelegte minimale Code-Einheitenlänge.
+Die schreibgeschützte **`tooShort`** Eigenschaft des [`ValidityState`](/de/docs/Web/API/ValidityState) Interfaces zeigt an, ob der Wert eines {{HTMLElement("input")}}, {{HTMLElement("button")}}, {{HTMLElement("select")}}, {{HTMLElement("output")}}, {{HTMLElement("fieldset")}} oder {{HTMLElement("textarea")}}, nachdem er vom Benutzer bearbeitet wurde, kürzer ist als die minimale Codeeinheitlänge, die durch das `minlength` Attribut des Elements festgelegt wurde.
 
 ## Wert
 
-Ein boolescher Wert, der `true` ist, wenn der `ValidityState` nicht den Beschränkungen entspricht.
+Ein boolescher Wert, der `true` ist, wenn der `ValidityState` nicht den Bedingungen entspricht.
 
 ## Beispiele
 
 ### Eingabe mit zu kurzem Zeichenfolgenwert
 
-Im folgenden Beispiel wird die Gültigkeit eines [Text-Eingabeelements](/de/docs/Web/HTML/Element/input/text) überprüft.
-Eine Einschränkung wurde mit dem [`minlength`-Attribut](/de/docs/Web/HTML/Element/input/text#minlength) hinzugefügt, sodass die Eingabe eine Zeichenfolge mit mindestens 4 Zeichen erwartet.
-Wenn der Benutzer eine zu kurze Zeichenfolge eingibt, schlägt die Beschränkungsprüfung des Elements fehl und die Stile, die der {{cssxref(":invalid")}} CSS-Pseudoklasse entsprechen, werden angewendet.
+Das folgende Beispiel überprüft die Gültigkeit eines [Text-Eingabeelements](/de/docs/Web/HTML/Reference/Elements/input/text).
+Ein Zwang wurde mit dem [`minlength` Attribut](/de/docs/Web/HTML/Reference/Elements/input/text#minlength) hinzugefügt, sodass die Eingabe eine Zeichenkette mit mindestens 4 Zeichen erwartet.
+Wenn der Benutzer eine zu kurze Zeichenkette eingibt, schlägt die Validierung der Bedingung fehl und die Stile, die der {{cssxref(":invalid")}} CSS-Pseudoklasse entsprechen, werden angewendet.
 
 ```css
 input:invalid {
@@ -75,5 +75,5 @@ userInput.addEventListener("input", () => {
 
 ## Siehe auch
 
-- [Leitfaden: Validierung von Einschränkungen](/de/docs/Web/HTML/Constraint_validation)
-- [Anleitung: Formular-Datenvalidierung](/de/docs/Learn_web_development/Extensions/Forms/Form_validation)
+- [Leitfaden: Beschränkungsüberprüfung](/de/docs/Web/HTML/Guides/Constraint_validation)
+- [Anleitung: Formular-Datenüberprüfung](/de/docs/Learn_web_development/Extensions/Forms/Form_validation)

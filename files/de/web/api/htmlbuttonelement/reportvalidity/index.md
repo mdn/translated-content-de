@@ -3,12 +3,12 @@ title: "HTMLButtonElement: reportValidity()-Methode"
 short-title: reportValidity()
 slug: Web/API/HTMLButtonElement/reportValidity
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`reportValidity()`**-Methode des [`HTMLButtonElement`](/de/docs/Web/API/HTMLButtonElement)-Interfaces führt dieselben Gültigkeitsprüfungen durch wie die [`checkValidity()`](/de/docs/Web/API/HTMLButtonElement/checkValidity)-Methode. Zusätzlich zeigt der Browser, falls das [`invalid`](/de/docs/Web/API/HTMLInputElement/invalid_event)-Ereignis nicht abgebrochen wird, das Problem dem Benutzer an.
+Die **`reportValidity()`**-Methode des [`HTMLButtonElement`](/de/docs/Web/API/HTMLButtonElement) Interfaces führt die gleichen Gültigkeitsprüfungen durch wie die [`checkValidity()`](/de/docs/Web/API/HTMLButtonElement/checkValidity)-Methode. Zusätzlich zeigt der Browser dem Benutzer das Problem an, wenn das [`invalid`](/de/docs/Web/API/HTMLInputElement/invalid_event)-Ereignis nicht abgebrochen wird.
 
 ## Syntax
 
@@ -26,11 +26,11 @@ Gibt `true` zurück, wenn der Wert des Elements keine Gültigkeitsprobleme aufwe
 
 ### Beispiele
 
-Dieses weit hergeholte Beispiel demonstriert, wie ein Button ungültig gemacht werden kann.
+Dieses weit hergeholte Beispiel zeigt, wie ein Button ungültig gemacht werden kann.
 
 #### HTML
 
-Wir erstellen ein Formular, das nur wenige Schaltflächen enthält:
+Wir erstellen ein Formular, das nur einige Buttons enthält:
 
 ```html
 <form action="#" id="form" method="post">
@@ -48,7 +48,7 @@ Wir erstellen ein Formular, das nur wenige Schaltflächen enthält:
 
 #### CSS
 
-Wir fügen etwas CSS hinzu, einschließlich `:valid` und `:invalid` Styles für unseren Button:
+Wir fügen ein wenig CSS hinzu, einschließlich `:valid` und `:invalid` Stilen für unseren Button:
 
 ```css
 input[type="submit"],
@@ -69,7 +69,7 @@ button:valid {
 
 #### JavaScript
 
-Wir fügen eine Funktion hinzu, um den Wert, den Inhalt und die Validierungsnachricht des Beispiel-Buttons zu toggeln:
+Wir fügen eine Funktion hinzu, um den Wert, Inhalt und die Fehlermeldung des Beispiel-Buttons zu wechseln:
 
 ```js
 const reportButton = document.querySelector("#report");
@@ -118,9 +118,9 @@ const toggleButton = () => {
 
 #### Ergebnisse
 
-{{EmbedLiveSample("Eigenes Fehlermeldung", "100%", 220)}}
+{{EmbedLiveSample("Custom error message", "100%", 220)}}
 
-Der Button ist standardmäßig gültig. Aktivieren Sie "THIS BUTTON", um den Wert, den Inhalt zu ändern und eine eigene Fehlermeldung hinzuzufügen. Durch Aktivieren der "reportValidity()"-Schaltfläche wird die Gültigkeit des Buttons überprüft, die eigene Fehlermeldung dem Benutzer gemeldet und ein `invalid`-Ereignis ausgelöst, wenn der Button aufgrund der Nachricht die Gültigkeitsprüfung nicht besteht.
+Der Button ist standardmäßig gültig. Aktivieren Sie "THIS BUTTON", um den Wert und den Inhalt zu ändern und eine benutzerdefinierte Fehlermeldung hinzuzufügen. Durch Aktivieren des "reportValidity()"-Buttons wird die Gültigkeit des Buttons geprüft, die benutzerdefinierte Fehlermeldung dem Benutzer gemeldet und ein `invalid`-Ereignis ausgelöst, wenn der Button die Einschränkungsvalidierung aufgrund der Meldung nicht besteht.
 
 ## Spezifikationen
 
@@ -136,5 +136,5 @@ Der Button ist standardmäßig gültig. Aktivieren Sie "THIS BUTTON", um den Wer
 - {{HTMLElement("button")}}
 - {{HTMLElement("form")}}
 - [Lernen: Client-seitige Formularvalidierung](/de/docs/Learn_web_development/Extensions/Forms/Form_validation)
-- [Leitfaden: Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation)
-- CSS {{cssxref(":valid")}} und {{cssxref(":invalid")}} Pseudo-Klassen
+- [Leitfaden: Einschränkungsvalidierung](/de/docs/Web/HTML/Guides/Constraint_validation)
+- CSS {{cssxref(":valid")}} und {{cssxref(":invalid")}} Pseudoklassen

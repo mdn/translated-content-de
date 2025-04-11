@@ -1,14 +1,14 @@
 ---
-title: "HTMLButtonElement: name Eigenschaft"
+title: "HTMLButtonElement: name-Eigenschaft"
 short-title: name
 slug: Web/API/HTMLButtonElement/name
 l10n:
-  sourceCommit: d064784c78ec30c87ec3c3d9681b147999fd782f
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{ApiRef("HTML DOM")}}
 
-Die **`name`** Eigenschaft des [`HTMLButtonElement`](/de/docs/Web/API/HTMLButtonElement) Interfaces gibt den Namen des {{HTMLElement("button")}} Elements an oder den leeren String, falls das Element keinen Namen hat. Sie spiegelt das [`name`](/de/docs/Web/HTML/Element/button#name) Attribut des Elements wider.
+Die **`name`**-Eigenschaft der [`HTMLButtonElement`](/de/docs/Web/API/HTMLButtonElement)-Schnittstelle gibt den Namen des {{HTMLElement("button")}}-Elements oder den leeren String an, wenn das Element keinen Namen hat. Sie spiegelt das [`name`](/de/docs/Web/HTML/Reference/Elements/button#name)-Attribut des Elements wider.
 
 ## Wert
 

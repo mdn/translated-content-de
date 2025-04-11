@@ -1,18 +1,18 @@
 ---
-title: "InputEvent: Methode getTargetRanges()"
+title: "InputEvent: getTargetRanges() Methode"
 short-title: getTargetRanges()
 slug: Web/API/InputEvent/getTargetRanges
 l10n:
-  sourceCommit: 2a0b3558b384452e4d0798874e2c1244829bf03a
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{APIRef("UI Events")}}
 
-Die Methode **`getTargetRanges()`** der [`InputEvent`](/de/docs/Web/API/InputEvent)-Schnittstelle gibt ein Array von [`StaticRange`](/de/docs/Web/API/StaticRange)-Objekten zurück, die von einer Änderung des DOM betroffen sein werden, wenn das Eingabeereignis nicht abgebrochen wird.
+Die **`getTargetRanges()`**-Methode der [`InputEvent`](/de/docs/Web/API/InputEvent)-Schnittstelle gibt ein Array von [`StaticRange`](/de/docs/Web/API/StaticRange)-Objekten zurück, die von einer Änderung des DOM betroffen sein werden, wenn das Eingabeereignis nicht abgebrochen wird.
 
-Dies ermöglicht es Webanwendungen, das Textbearbeitungsverhalten zu überschreiben, bevor der Browser den DOM-Baum ändert, und bietet mehr Kontrolle über Eingabeereignisse, um die Leistung zu verbessern.
+Dies ermöglicht es Webanwendungen, das Textbearbeitungsverhalten zu überschreiben, bevor der Browser den DOM-Baum ändert, und bietet mehr Kontrolle über Eingabeereignisse zur Verbesserung der Leistung.
 
-Je nach Wert von `inputType` und dem aktuellen Bearbeitungshost variiert der erwartete Rückgabewert dieser Methode:
+Abhängig vom Wert von `inputType` und dem aktuellen Bearbeitungshost variiert der erwartete Rückgabewert dieser Methode:
 
 <table>
   <thead>
@@ -29,19 +29,19 @@ Je nach Wert von `inputType` und dem aktuellen Bearbeitungshost variiert der erw
       <td>leeres Array</td>
     </tr>
     <tr>
-      <td>Alle übrigen</td>
+      <td>Alle verbleibenden</td>
       <td><code>contenteditable</code></td>
       <td>
         ein Array von
-        [`StaticRange`](/de/docs/Web/API/StaticRange)-
+        [`StaticRange`](/de/docs/Web/API/StaticRange)
         Objekten, die mit dem Ereignis verbunden sind
       </td>
     </tr>
     <tr>
-      <td>Alle übrigen</td>
+      <td>Alle verbleibenden</td>
       <td>
-        <a href="/de/docs/Web/HTML/Element/input"><code>input</code></a>
-        oder <a href="/de/docs/Web/HTML/Element/textarea"><code>textarea</code></a>
+        <a href="/de/docs/Web/HTML/Reference/Elements/input"><code>input</code></a>
+        oder <a href="/de/docs/Web/HTML/Reference/Elements/textarea"><code>textarea</code></a>
       </td>
       <td>
         ein leeres Array
@@ -66,10 +66,10 @@ Ein Array von [`StaticRange`](/de/docs/Web/API/StaticRange)-Objekten.
 
 ## Beispiele
 
-### Merkmals-Erkennung
+### Feature-Erkennung
 
-Die folgende Funktion gibt `true` zurück, wenn `beforeinput` und damit
-`getTargetRanges` unterstützt wird.
+Die folgende Funktion gibt `true` zurück, wenn `beforeinput`, und somit
+`getTargetRanges`, unterstützt wird.
 
 ```js
 function isBeforeInputEventAvailable() {
@@ -82,8 +82,9 @@ function isBeforeInputEventAvailable() {
 
 ### Grundlegende Verwendung
 
-Das folgende Beispiel wählt ein `contenteditable`-Element aus und nutzt das
-[`beforeinput`](/de/docs/Web/API/Element/beforeinput_event)-Ereignis, um das Ergebnis von `getTargetRanges()` zu protokollieren.
+Das folgende Beispiel wählt ein `contenteditable` Element aus und verwendet das
+[`beforeinput`](/de/docs/Web/API/Element/beforeinput_event)
+Ereignis, um das Ergebnis von `getTargetRanges()` zu protokollieren.
 
 ```js
 const editableElem = document.querySelector('[contenteditable="true"]');

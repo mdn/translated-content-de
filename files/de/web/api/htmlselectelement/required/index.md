@@ -3,12 +3,12 @@ title: "HTMLSelectElement: required-Eigenschaft"
 short-title: required
 slug: Web/API/HTMLSelectElement/required
 l10n:
-  sourceCommit: 92d955aff6f18961777d0b5a9ba01b8431a64131
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{ APIRef("HTML DOM") }}
 
-Die **`required`**-Eigenschaft des [`HTMLSelectElement`](/de/docs/Web/API/HTMLSelectElement)-Interfaces gibt an, dass der Benutzer eine Option mit einem nicht-leeren Zeichenfolgenwert auswählen muss, bevor ein Formular abgeschickt wird. Sie spiegelt das [`required`](/de/docs/Web/HTML/Element/select#required)-Attribut des {{htmlelement("select")}}-Elements wider.
+Die **`required`**-Eigenschaft der [`HTMLSelectElement`](/de/docs/Web/API/HTMLSelectElement)-Schnittstelle gibt an, dass der Benutzer eine Option mit einem nicht-leeren Zeichenfolgenwert auswählen muss, bevor ein Formular abgeschickt wird. Sie spiegelt das [`required`](/de/docs/Web/HTML/Reference/Elements/select#required)-Attribut des {{htmlelement("select")}}-Elements wider.
 
 ## Wert
 

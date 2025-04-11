@@ -3,12 +3,14 @@ title: "HTMLElement: title-Eigenschaft"
 short-title: title
 slug: Web/API/HTMLElement/title
 l10n:
-  sourceCommit: a3d9f61a8990ba7b53bda9748d1f26a9e9810b18
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{ APIRef("HTML DOM") }}
 
-Die **`HTMLElement.title`**-Eigenschaft repräsentiert den Titel des Elements: den Text, der normalerweise in einem 'Tooltip'-Popup angezeigt wird, wenn die Maus über dem Knoten schwebt.
+Die **`HTMLElement.title`**-Eigenschaft
+repräsentiert den Titel des Elements: den Text, der normalerweise in einem "Tooltip"-Popup angezeigt wird,
+wenn sich die Maus über dem Knoten befindet.
 
 ## Wert
 
@@ -33,4 +35,5 @@ link.title = "Wikipedia page on grapes";
 
 ## Siehe auch
 
-- Das HTML [**title**](/de/docs/Web/HTML/Global_attributes/title) globale Attribut.
+- Das HTML [**title**](/de/docs/Web/HTML/Reference/Global_attributes/title)
+  Globale Attribut.

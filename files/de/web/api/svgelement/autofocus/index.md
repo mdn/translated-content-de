@@ -3,12 +3,12 @@ title: "SVGElement: autofocus-Eigenschaft"
 short-title: autofocus
 slug: Web/API/SVGElement/autofocus
 l10n:
-  sourceCommit: 1cab31db3620a464407d48c964fab850213e3d30
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{APIRef("SVG")}}
 
-Die **`autofocus`**-Eigenschaft des [`SVGElement`](/de/docs/Web/API/SVGElement)-Interfaces enthält einen booleschen Wert, der das [`autofocus`](/de/docs/Web/HTML/Global_attributes/autofocus) HTML-Globale Attribut widerspiegelt. Sie gibt an, ob das SVG-Element fokussiert werden soll, wenn die Seite geladen wird oder wenn das Element angezeigt wird, falls sich das SVG-Element in einem {{htmlelement("dialog")}} oder einem [popover](/de/docs/Web/HTML/Global_attributes/popover) befindet.
+Die **`autofocus`**-Eigenschaft des [`SVGElement`](/de/docs/Web/API/SVGElement)-Interfaces enthält einen booleschen Wert, der das [`autofocus`](/de/docs/Web/HTML/Reference/Global_attributes/autofocus)-HTML-Globalattribut widerspiegelt. Sie gibt an, ob das SVG-Element fokussiert werden soll, wenn die Seite geladen wird oder wenn das Element angezeigt wird, falls sich das SVG-Element in einem {{htmlelement("dialog")}} oder einem [Popover](/de/docs/Web/HTML/Reference/Global_attributes/popover) befindet.
 
 ## Wert
 

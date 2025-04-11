@@ -2,14 +2,16 @@
 title: 413 Content Too Large
 slug: Web/HTTP/Reference/Status/413
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{HTTPSidebar}}
 
-Der HTTP-Statuscode **`413 Content Too Large`** [Client-Fehlerantwort](/de/docs/Web/HTTP/Reference/Status#client_error_responses) zeigt an, dass die Anforderungsentität größer war als die vom Server definierten Grenzen. Der Server könnte die Verbindung schließen oder ein {{HTTPHeader("Retry-After")}}-Headerfeld zurückgeben.
+Der HTTP-Statuscode für den Fehler **`413 Content Too Large`** [Clientfehlerantwort](/de/docs/Web/HTTP/Reference/Status#client_error_responses) zeigt an, dass die Anforderungseinheit größer war als die vom Server festgelegten Grenzen.
+Der Server könnte die Verbindung schließen oder ein {{HTTPHeader("Retry-After")}}-Headerfeld zurückgeben.
 
-Vor {{rfc("9110")}} lautete der Antwortsatz für den Status **`Payload Too Large`**. Diese Nachricht wird weiterhin häufig verwendet.
+Vor {{rfc("9110")}} war die Antwortphrase für den Status **`Payload Too Large`**.
+Diese Nachricht wird immer noch häufig verwendet.
 
 ## Status
 
@@ -21,7 +23,7 @@ Vor {{rfc("9110")}} lautete der Antwortsatz für den Status **`Payload Too Large
 
 ### Dateiupload-Limit überschritten
 
-Das folgende Beispiel zeigt, was der Client senden kann, wenn ein [`<input type="file">`](/de/docs/Web/HTML/Element/input/file)-Element bei der Formularübertragung mit `method="post"` ein Bild enthält:
+Das folgende Beispiel zeigt, was der Client senden kann, wenn ein [`<input type="file">`](/de/docs/Web/HTML/Reference/Elements/input/file)-Element ein Bild bei der Formularübermittlung mit `method="post"` beinhaltet:
 
 ```http
 POST /upload HTTP/1.1
@@ -37,7 +39,7 @@ Content-Type: image/jpeg
 ------Boundary1234--
 ```
 
-Der Server kann den Upload ablehnen, wenn eine Beschränkung auf die maximale Dateigröße besteht, die er verarbeiten wird, und der Antworttext enthält eine `message` mit etwas Kontext:
+Der Server kann den Upload ablehnen, wenn es eine Beschränkung der maximalen Dateigröße gibt, die er verarbeiten wird, und der Antwortkörper enthält eine `message` mit etwas Kontext:
 
 ```http
 HTTP/1.1 413 Content Too Large

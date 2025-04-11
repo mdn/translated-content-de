@@ -61,7 +61,7 @@ Zum Beispiel enthält die BBC-Homepage viele Links, die nicht nur auf mehrere Na
 
 ## Anatomie eines Links
 
-Ein einfacher Link wird erstellt, indem der Text oder andere Inhalte in ein {{htmlelement("a")}}-Element eingebettet und das [`href`](/de/docs/Web/HTML/Element/a#href)-Attribut verwendet wird, das auch als **Hypertext-Referenz** oder **Ziel** bekannt ist und die Webadresse enthält.
+Ein einfacher Link wird erstellt, indem der Text oder andere Inhalte in ein {{htmlelement("a")}}-Element eingebettet und das [`href`](/de/docs/Web/HTML/Reference/Elements/a#href)-Attribut verwendet wird, das auch als **Hypertext-Referenz** oder **Ziel** bekannt ist und die Webadresse enthält.
 
 ```html
 <p>
@@ -189,7 +189,7 @@ Schauen wir uns einige Beispiele für Links zwischen verschiedenen Dateien in di
 
 ### Dokumentfragmente
 
-Es ist möglich, auf einen bestimmten Teil eines HTML-Dokuments zu verlinken, bekannt als **Dokumentfragment**, anstatt nur auf den oberen Teil des Dokuments zu verlinken. Dazu müssen Sie zuerst einem Element, auf das Sie verlinken möchten, ein [`id`](/de/docs/Web/HTML/Global_attributes/id) Attribut zuweisen. Es ist normalerweise sinnvoll, auf eine bestimmte Überschrift zu verlinken, also würde dies in etwa folgendermaßen aussehen:
+Es ist möglich, auf einen bestimmten Teil eines HTML-Dokuments zu verlinken, bekannt als **Dokumentfragment**, anstatt nur auf den oberen Teil des Dokuments zu verlinken. Dazu müssen Sie zuerst einem Element, auf das Sie verlinken möchten, ein [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id) Attribut zuweisen. Es ist normalerweise sinnvoll, auf eine bestimmte Überschrift zu verlinken, also würde dies in etwa folgendermaßen aussehen:
 
 ```html
 <h2 id="Mailing_address">Mailing address</h2>
@@ -301,7 +301,7 @@ Wenn Sie auf eine Ressource verlinken, die heruntergeladen und nicht im Browser 
 
 ### Wann Links in einem neuen Tab öffnen
 
-Links öffnen standardmäßig im gleichen Tab wie die Seite, auf der sie sich befinden, was es dem Benutzer ermöglicht, mit der Zurück-Schaltfläche des Browsers zur vorherigen Seite zu navigieren. Dennoch entscheiden sich viele Websites (einschließlich MDN) dafür, bestimmte Links, insbesondere externe Links, in einem neuen Tab zu öffnen. Dies wird erreicht, indem das [`target`](/de/docs/Web/HTML/Element/a#target)-Attribut auf `"_blank"` gesetzt wird.
+Links öffnen standardmäßig im gleichen Tab wie die Seite, auf der sie sich befinden, was es dem Benutzer ermöglicht, mit der Zurück-Schaltfläche des Browsers zur vorherigen Seite zu navigieren. Dennoch entscheiden sich viele Websites (einschließlich MDN) dafür, bestimmte Links, insbesondere externe Links, in einem neuen Tab zu öffnen. Dies wird erreicht, indem das [`target`](/de/docs/Web/HTML/Reference/Elements/a#target)-Attribut auf `"_blank"` gesetzt wird.
 
 ```html
 Firefox is developed by the
@@ -359,7 +359,7 @@ In seiner grundlegendsten und am häufigsten verwendeten Form gibt ein `mailto:`
 
 Dies ergibt einen Link, der so aussieht: [E-Mail an nowhere senden](mailto:nowhere@mozilla.org).
 
-Tatsächlich ist die E-Mail-Adresse optional. Wenn Sie sie weglassen und Ihr [`href`](/de/docs/Web/HTML/Element/a#href) "mailto:" ist, wird von der E-Mail-Anwendung des Benutzers ein neues ausgehendes E-Mail-Fenster eröffnet, ohne dass eine Zieladresse angegeben wird.
+Tatsächlich ist die E-Mail-Adresse optional. Wenn Sie sie weglassen und Ihr [`href`](/de/docs/Web/HTML/Reference/Elements/a#href) "mailto:" ist, wird von der E-Mail-Anwendung des Benutzers ein neues ausgehendes E-Mail-Fenster eröffnet, ohne dass eine Zieladresse angegeben wird.
 Dies wird oft als "Teilen"-Links verwendet, die Benutzer anklicken können, um eine E-Mail an eine Adresse ihrer Wahl zu senden.
 
 ### Details angeben
@@ -393,7 +393,7 @@ Hier sind einige weitere Beispiele für `mailto`-URLs:
 
 ## Testen Sie Ihr Können!
 
-Sie haben das Ende dieses Artikels erreicht, aber können Sie sich die wichtigsten Informationen merken? Sie können einige weitere Tests finden, um zu überprüfen, ob Sie diese Informationen behalten haben, bevor Sie fortfahren – siehe [Testen Sie Ihr Können: Links](/de/docs/Learn_web_development/Core/Structuring_content/Test_your_skills:_Links).
+Sie haben das Ende dieses Artikels erreicht, aber können Sie sich die wichtigsten Informationen merken? Sie können einige weitere Tests finden, um zu überprüfen, ob Sie diese Informationen behalten haben, bevor Sie fortfahren – siehe [Testen Sie Ihr Können: Links](/de/docs/Learn_web_development/Core/Structuring_content/Test_your_skills/Links).
 
 ## Zusammenfassung
 

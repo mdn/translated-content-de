@@ -2,16 +2,16 @@
 title: "Permissions-Policy: deferred-fetch-minimal"
 slug: Web/HTTP/Reference/Headers/Permissions-Policy/deferred-fetch-minimal
 l10n:
-  sourceCommit: 31ba9f6da2dd1175250ece8d8d467d523e79b447
+  sourceCommit: 5fad0829b5070d04993a57af8c276f5e35da3ed2
 ---
 
 {{HTTPSidebar}}{{SeeCompatTable}}
 
-Die Direktiven `deferred-fetch` und {{HTTPHeader("Permissions-Policy/deferred-fetch-minimal", "deferred-fetch-minimal")}} {{HTTPHeader("Permissions-Policy")}} sind Teil der [`fetchLater()` API](/de/docs/Web/API/fetchLater_API).
+Die **`deferred-fetch-minimal`**-Richtlinie im {{HTTPHeader("Permissions-Policy")}} ist Teil der [`fetchLater()`-API](/de/docs/Web/API/fetchLater_API).
 
-Sie bestimmen, wie das gesamte Quotenlimit von 640KiB zwischen dem Ursprungsdokument der obersten Ebene und seinen Subframes mit Cross-Origin aufgeteilt wird. Standardmäßig erhält der Ursprung der obersten Ebene 512KiB und jedes Subframe mit Cross-Origin erhält 8KiB von den verbleibenden 128KiB. Die `deferred-fetch-minimal` Berechtigungspolitik kann auch alle Ursprünge blockieren; dies wird das geteilte Limit von 128KiB dem Quotenlimit der obersten Ebene zuweisen, wodurch es auf das volle Limit von 640KiB zugreifen kann.
+Diese Richtlinie bestimmt zusammen mit {{HTTPHeader("Permissions-Policy/deferred-fetch", "deferred-fetch")}}, wie das gesamte Quotalimit von 640 KiB zwischen dem Top-Level-Ursprung und seinen Cross-Origin-Subframes verteilt wird. Standardmäßig erhält der Top-Level-Ursprung 512 KiB, und jedes Cross-Origin-Subframe erhält 8 KiB von den verbleibenden 128 KiB. Die `deferred-fetch-minimal`-Richtlinie kann auch alle Ursprünge blockieren; dadurch wird das geteilte 128 KiB-Limit dem Top-Level-Quota umverteilt, wodurch es Zugang zum vollständigen 640 KiB-Limit erhält.
 
-Siehe den Leitfaden zu [`fetchLater()` Quoten](/de/docs/Web/API/fetchLater_API/fetchLater_quotas) für weitere Details und Beispiele.
+Sehen Sie sich den [`fetchLater()`-Quotenleitfaden](/de/docs/Web/API/fetchLater_API/fetchLater_quotas) für weitere Details und Beispiele an.
 
 ## Syntax
 
@@ -23,61 +23,61 @@ Permissions-policy: deferred-fetch-minimal=(<urllist>)
 ```
 
 - `<urllist>`
-  - : Eine durch Leerzeichen getrennte Liste von Ursprüngen, denen es erlaubt ist, die sekundäre 128KiB-Quote zu nutzen (mit einem Maximum von 8KiB pro Subframe).
+  - : Eine durch Leerzeichen getrennte Liste von Ursprüngen, denen erlaubt wird, das sekundäre 128 KiB-Quota zu nutzen (mit maximal 8 KiB pro Subframe).
 
-Ein Frame auf oberster Ebene mit der Berechtigung `deferred-fetch-minimal`, die auf `self` oder `()` gesetzt ist, erlaubt nicht, dass das standardmäßige geteilte Quotenlimit von 128kb von Subframes mit Cross-Origin verwendet wird. Stattdessen wird die 128KiB-Quote für Subframes zu seiner normalen Quote hinzugefügt.
+Ein Top-Level-Frame mit der `deferred-fetch-minimal`-Erlaubnis, die auf `self` oder `()` gesetzt ist, erlaubt nicht, dass das standardmäßige geteilte 128 kb-Quota von Cross-Origin-Subframes genutzt wird. Stattdessen wird das 128 KiB-Quota für Subframes zu seinem normalen Quota hinzugefügt.
 
 ## Standardrichtlinie
 
-Die Standard-Einschlussliste für `deferred-fetch-minimal` ist `*`.
+Die Standard-Whitelist für `deferred-fetch-minimal` ist `*`.
 
 ## Beispiele
 
-Siehe die [`fetchLater()` Quoten](/de/docs/Web/API/fetchLater_API/fetchLater_quotas) für weitere Beispiele.
+Sehen Sie sich den [`fetchLater()`-Quotenleitfaden](/de/docs/Web/API/fetchLater_API/fetchLater_quotas) für weitere Beispiele an.
 
-### Nutzung der minimalen Quote
+### Verwendung des minimalen Quotas
 
 ```http
 Permissions-Policy: deferred-fetch=(self "https://b.com")
 ```
 
-1. Ein Subframe von `b.com` erhält bei der Erstellung 64KiB aus dem 512KiB-Limit der obersten Ebene.
-2. Ein Subframe von `c.com` ist nicht aufgeführt und erhält daher bei der Erstellung 8KiB aus dem geteilten 128KiB-Limit.
-3. 15 weitere Subframes würden bei der Erstellung jeweils 8KiB erhalten (ähnlich wie `c.com`, und ein weiteres `c.com` Subframe würde ebenfalls eine weitere 8KiB-Quote erhalten).
-4. Das nächste Subframe würde keine Quote erhalten.
-5. Wenn eines der Subframes entfernt wird, werden seine aufgeschobenen Abrufe gesendet.
-6. Das nächste Subframe würde eine 8KiB-Quote erhalten, da wieder eine Quote verfügbar ist.
+1. Ein Subframe von `b.com` erhält bei Erstellung 64 KiB vom 512 KiB-Limit des Top-Levels.
+2. Ein Subframe von `c.com` ist nicht gelistet und erhält somit bei Erstellung 8 KiB vom 128 KiB-geteilten Limit.
+3. 15 weitere Subframes würden bei ihrer Erstellung 8 KiB erhalten (ähnlich wie `c.com`, und ein weiteres `c.com`-Subframe würde ebenfalls ein weiteres 8 KiB-Quota erhalten).
+4. Dem nächsten Subframe wird kein Quota gewährt.
+5. Wenn eines der Subframes entfernt wird, werden seine verzögerten Abrufe gesendet.
+6. Dem nächsten Subframe würde ein 8 KiB-Quota zugewiesen, da wieder Quota verfügbar ist.
 
-## Das minimalen Quotenlimit insgesamt mit Ausnahmen widerrufen
+## Völliges Zurückziehen des minimalen Quotas mit Ausnahmen
 
 ```http
 Permissions-Policy: deferred-fetch=(self "https://b.com")
 Permissions-Policy: deferred-fetch-minimal=()
 ```
 
-1. Ein Subframe von `b.com` erhält bei der Erstellung 64KiB.
-2. Ein Subframe von `c.com` erhält bei der Erstellung keine Quote.
-3. Das Dokument der obersten Ebene und seine Nachkommen mit demselben Ursprung können das volle 640KiB nutzen, das jedoch auf 574KiB reduziert wird, wenn ein `b.com` Subframe erstellt wird.
+1. Ein Subframe von `b.com` erhält bei Erstellung 64 KiB.
+2. Ein Subframe von `c.com` erhält bei Erstellung kein Quota.
+3. Das Top-Level-Dokument und seine gleichartigen Nachkommen können bis zu 640 KiB verwenden, aber das wird auf 574 KiB reduziert, wenn ein `b.com`-Subframe erstellt wird.
 
-## Das minimalen Quotenlimit insgesamt ohne Ausnahmen widerrufen
+## Völliges Zurückziehen des minimalen Quotas ohne Ausnahmen
 
 ```http
 Permissions-Policy: deferred-fetch-minimal=()
 ```
 
-1. Das Dokument der obersten Ebene und seine Nachkommen mit demselben Ursprung können das volle 640KiB nutzen.
-2. Subframes wird keine Quote zugewiesen und sie können `fetchLater()` nicht verwenden.
+1. Das Top-Level-Dokument und seine gleichartigen Nachkommen können das volle 640 KiB-Quota nutzen.
+2. Subframes erhalten kein Quota und können `fetchLater()` nicht verwenden.
 
-## Die minimale Quote auf benannte Ursprünge beschränken
+## Einschränkung des minimalen Quotas auf benannte Ursprünge
 
 ```http
 Permissions-Policy: deferred-fetch=(self "https://b.com")
 Permissions-Policy: deferred-fetch-minimal=("https://c.com")
 ```
 
-1. Ein Subframe von `b.com` erhält bei der Erstellung 64KiB.
-2. Ein Subframe von `c.com` erhält bei der Erstellung 8KiB.
-3. Ein Subframe von `d.com` erhält bei der Erstellung keine Quote.
+1. Ein Subframe von `b.com` erhält bei Erstellung 64 KiB.
+2. Ein Subframe von `c.com` erhält bei Erstellung 8 KiB.
+3. Ein Subframe von `d.com` erhält bei Erstellung kein Quota.
 
 ## Spezifikationen
 
@@ -89,7 +89,7 @@ Permissions-Policy: deferred-fetch-minimal=("https://c.com")
 
 ## Siehe auch
 
-- [`fetchLater()` Quoten](/de/docs/Web/API/fetchLater_API/fetchLater_quotas)
-- [`fetchLater()` API](/de/docs/Web/API/fetchLater_API)
-- {{HTTPHeader("Permissions-Policy")}} Header
-- [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Guides/Permissions_Policy)
+- [`fetchLater()`-Quoten](/de/docs/Web/API/fetchLater_API/fetchLater_quotas)
+- [`fetchLater()`-API](/de/docs/Web/API/fetchLater_API)
+- {{HTTPHeader("Permissions-Policy")}}-Header
+- [Permissions Policy](/de/docs/Web/HTTP/Guides/Permissions_Policy)

@@ -1,15 +1,15 @@
 ---
-title: CSS Generierte Inhalte
+title: CSS generierte Inhalte
 slug: Web/CSS/CSS_generated_content
 l10n:
-  sourceCommit: c8ff2398fa61950fe46f2d9155a105c125bfea83
+  sourceCommit: 960a94a198ca60fb04fe63857ea61d7306465791
 ---
 
 {{CSSRef}}
 
-Das **CSS-Generierte-Inhalte**-Modul definiert, wie der Inhalt eines Elements ersetzt werden kann und Inhalte mit CSS zu einem Dokument hinzugefügt werden können.
+Das Modul **CSS generierte Inhalte** definiert, wie der Inhalt eines Elements ersetzt werden kann und wie Inhalte mit CSS zu einem Dokument hinzugefügt werden können.
 
-Generierte Inhalte können für Inhaltsersetzungen verwendet werden, wobei der Inhalt eines DOM-Knotens durch ein CSS-`<image>` ersetzt wird. Das CSS-Generierte-Inhalte-Modul ermöglicht auch das Generieren von sprachspezifischen Anführungszeichen, das Erstellen benutzerdefinierter Listenpositionsnummern und Aufzählungspunkte und das visuelle Hinzufügen von Inhalten durch Generierung von Inhalten auf ausgewählten Pseudoelementen als anonyme ersetzte Elemente.
+Generierte Inhalte können für Inhaltsersetzung verwendet werden, wobei der Inhalt eines DOM-Knotens durch ein CSS `<image>` ersetzt wird. Das CSS-Modul für generierte Inhalte ermöglicht zudem das Generieren von sprachspezifischen Anführungszeichen, das Erstellen von benutzerdefinierten Listenelementnummern und -punkten sowie das visuelle Hinzufügen von Inhalten durch Generieren von Inhalten auf ausgewählten Pseudoelementen als anonyme ersetzte Elemente.
 
 ### Generierte Inhalte in Aktion
 
@@ -100,9 +100,9 @@ div::before {
 
 {{EmbedLiveSample("generated_content", "", "400px")}}
 
-Das HTML für dieses Beispiel ist ein einziges, leeres {{HTMLElement("div")}} innerhalb eines ansonsten leeren {{HTMLElement("body")}}. Der Schneemann wurde mit [CSS images](/de/docs/Web/CSS/CSS_images) und [CSS backgrounds and borders](/de/docs/Web/CSS/CSS_backgrounds_and_borders) erstellt. Die Möhrennase wurde durch generierte Inhalte hinzugefügt: eine leere Box mit einem breiten orangen [left border](/de/docs/Web/CSS/border-left), die zum {{cssxref("::before")}}-Pseudoelement hinzugefügt wurde. Der Text ist auch generierter Inhalt: "only one &lt;div>" wurde mit der {{cssxref("content")}}-Eigenschaft erstellt, die auf das {{cssxref("::after")}}-Pseudoelement angewendet wurde.
+Das HTML für dieses Beispiel ist ein einzelnes, leeres {{HTMLElement("div")}} innerhalb eines ansonsten leeren {{HTMLElement("body")}}. Der Schneemann wurde mit [CSS-Bildern](/de/docs/Web/CSS/CSS_images) und [CSS-Hintergründen und -Rahmen](/de/docs/Web/CSS/CSS_backgrounds_and_borders) erstellt. Die Karottennase wurde mit generierten Inhalten hinzugefügt: eine leere Box mit einem breiten orangefarbenen [linken Rahmen](/de/docs/Web/CSS/border-left) wurde dem {{cssxref("::before")}} Pseudoelement hinzugefügt. Der Text ist ebenfalls generierter Inhalt: "only one &lt;div>" wurde mit der {{cssxref("content")}} Eigenschaft angewendet auf das {{cssxref("::after")}} Pseudoelement generiert.
 
-Klicken Sie im obigen Beispiel auf "Abspielen", um den Code im MDN Playground zu sehen oder zu bearbeiten.
+Klicken Sie auf "Play" im obigen Beispiel, um den Code im MDN Playground zu sehen oder zu bearbeiten.
 
 ## Referenz
 
@@ -112,11 +112,11 @@ Klicken Sie im obigen Beispiel auf "Abspielen", um den Code im MDN Playground zu
 - {{cssxref("quotes")}}
 
 > [!NOTE]
-> Das CSS-Generierte-Inhalte-Modul führt vier riskante Eigenschaften ein, die noch nicht implementiert wurden: `string-set`, `bookmark-label`, `bookmark-level` und `bookmark-state`.
+> Das CSS-Modul für generierte Inhalte führt vier gefährdete Eigenschaften ein, die noch nicht implementiert wurden: `string-set`, `bookmark-label`, `bookmark-level` und `bookmark-state`.
 
 ### Funktionen
 
-Das CSS-Generierte-Inhalte-Modul führt sechs noch zu implementierende CSS-Funktionen ein, darunter `content()`, `string()` und `leader()`, und die drei [`<target>`](/de/docs/Web/CSS/content#target) Funktionen `target-counter()`, `target-counters()` und `target-text()`.
+Das CSS-Modul für generierte Inhalte führt sechs noch nicht implementierte CSS-Funktionen ein, darunter `content()`, `string()` und `leader()`, sowie die drei [`<target>`](/de/docs/Web/CSS/content#target) Funktionen `target-counter()`, `target-counters()` und `target-text()`.
 
 ### Datentypen
 
@@ -131,28 +131,34 @@ Das CSS-Generierte-Inhalte-Modul führt sechs noch zu implementierende CSS-Funkt
 
 - ["Anleitung" für generierte Inhalte](/de/docs/Learn_web_development/Howto/Solve_CSS_problems/Generated_content)
 
-  - : Erfahren Sie, wie Sie Text oder Bildinhalte zu einem Dokument mithilfe der {{cssxref("content")}}-Eigenschaft hinzufügen können.
+  - : Lernen Sie, wie Sie Text- oder Bildinhalte mit der {{cssxref("content")}} Eigenschaft zu einem Dokument hinzufügen können.
 
-- [Erstellen von stilvollen Boxen mit generierten Inhalten](/de/docs/Learn_web_development/Howto/Solve_CSS_problems/Create_fancy_boxes)
+- [Erstellen Sie dekorative Boxen mit generierten Inhalten](/de/docs/Learn_web_development/Howto/Solve_CSS_problems/Create_fancy_boxes)
 
-  - : Beispiel zum Styling von generierten Inhalten für visuelle Effekte.
+  - : Beispiel für das Styling von generierten Inhalten für visuelle Effekte.
 
 ## Verwandte Konzepte
 
-- [CSS Pseudoelemente](/de/docs/Web/CSS/CSS_pseudo-elements) Modul
+- [CSS-Pseudoelemente](/de/docs/Web/CSS/CSS_pseudo-elements) Modul
 
   - {{cssxref("::before")}} Pseudoelement
   - {{cssxref("::after")}} Pseudoelement
   - {{cssxref("::marker")}} Pseudoelement
 
-- [CSS Listen und Zähler](/de/docs/Web/CSS/CSS_lists) Modul
+- [CSS-Listen und -Zähler](/de/docs/Web/CSS/CSS_lists) Modul
 
   - {{cssxref("counter", "counter()")}} Funktion
   - {{cssxref("counters", "counters()")}} Funktion
   - {{cssxref("counter-increment")}} Eigenschaft
   - {{cssxref("counter-reset")}} Eigenschaft
 
-- [CSS Werte und Einheiten](/de/docs/Web/CSS/CSS_Values_and_Units) Modul
+- [CSS-Überlauf](/de/docs/Web/CSS/CSS_overflow) Modul
+
+  - {{cssxref("::scroll-button()")}} Pseudoelement
+  - {{cssxref("::scroll-marker")}} Pseudoelement
+  - {{cssxref(":target-current")}} Pseudoklasse
+
+- [CSS-Werte und -Einheiten](/de/docs/Web/CSS/CSS_Values_and_Units) Modul
 
   - {{cssxref("attr", "attr()")}} Funktion
   - {{cssxref("string")}} Datentyp
@@ -164,6 +170,6 @@ Das CSS-Generierte-Inhalte-Modul führt sechs noch zu implementierende CSS-Funkt
 
 ## Siehe auch
 
-- [CSS Pseudoelemente](/de/docs/Web/CSS/CSS_pseudo-elements) Modul
-- [CSS Listen und Zähler](/de/docs/Web/CSS/CSS_lists) Modul
+- [CSS-Pseudoelemente](/de/docs/Web/CSS/CSS_pseudo-elements) Modul
+- [CSS-Listen und -Zähler](/de/docs/Web/CSS/CSS_lists) Modul
 - {{Glossary("Replaced_elements", "Ersetzte Elemente")}}

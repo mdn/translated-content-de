@@ -3,42 +3,42 @@ title: "HTMLElement: popover-Eigenschaft"
 short-title: popover
 slug: Web/API/HTMLElement/popover
 l10n:
-  sourceCommit: 60cdc2e5149038d2fd27ec0f9531cafdecc6e757
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{APIRef("Popover API")}}
 
-Die **`popover`**-Eigenschaft der [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Schnittstelle erhält und setzt den Popover-Zustand eines Elements über JavaScript (`"auto"`, `"hint"` oder `"manual"`) und kann zur Feature-Erkennung verwendet werden.
+Die **`popover`**-Eigenschaft der [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Schnittstelle ruft den Popover-Zustand eines Elements ab und setzt ihn über JavaScript (`"auto"`, `"hint"` oder `"manual"`). Sie kann auch zur Feature-Erkennung verwendet werden.
 
-Sie spiegelt den Wert des globalen HTML-Attributs [`popover`](/de/docs/Web/HTML/Global_attributes/popover) wider.
+Sie spiegelt den Wert des globalen HTML-Attributs [`popover`](/de/docs/Web/HTML/Reference/Global_attributes/popover) wider.
 
 ## Wert
 
-Ein aufgezählter Wert; mögliche Werte sind:
+Ein enumerierter Wert; mögliche Werte sind:
 
 - `"auto"`
 
-  - : [`auto`](/de/docs/Web/API/Popover_API/Using#auto_state_and_light_dismiss)-Popover können "leicht verworfen" werden – das bedeutet, dass Sie das Popover ausblenden können, indem Sie außerhalb davon klicken oder die <kbd>Esc</kbd>-Taste drücken.
+  - : [`auto`](/de/docs/Web/API/Popover_API/Using#auto_state_and_light_dismiss) Popovers können "leicht verworfen" werden — das bedeutet, dass Sie das Popover durch Klicken außerhalb oder durch Drücken der <kbd>Esc</kbd>-Taste ausblenden können.
 
-    Normalerweise kann nur ein `auto`-Popover gleichzeitig angezeigt werden – das Anzeigen eines zweiten Popovers, während eines bereits angezeigt wird, blendet das erste aus. Die Ausnahme von dieser Regel ist, wenn Sie verschachtelte auto Popovers haben. Weitere Details finden Sie unter [Verschachtelte Popovers](/de/docs/Web/API/Popover_API/Using#nested_popovers).
+    Normalerweise kann nur ein `auto`-Popover gleichzeitig angezeigt werden — wenn ein zweites Popover angezeigt wird, während eines bereits gezeigt wird, wird das erste ausgeblendet. Die Ausnahme von dieser Regel besteht, wenn Sie verschachtelte `auto`-Popovers haben. Weitere Informationen finden Sie unter [Verschachtelte Popovers](/de/docs/Web/API/Popover_API/Using#nested_popovers).
 
 - `"hint"` {{experimental_inline}}
 
-  - : [`hint`](/de/docs/Web/API/Popover_API/Using#using_hint_popover_state)-Popover schließen keine `auto`-Popover, wenn sie angezeigt werden, schließen jedoch andere Hint-Popover.
+  - : [`hint`](/de/docs/Web/API/Popover_API/Using#using_hint_popover_state) Popovers schließen keine `auto`-Popovers, wenn sie angezeigt werden, schließen jedoch andere `hint`-Popovers.
     Sie können leicht verworfen werden und reagieren auf Schließanforderungen.
 
-    Normalerweise werden sie als Reaktion auf nicht-klick-basierte JavaScript-Ereignisse wie [`mouseover`](/de/docs/Web/API/Element/mouseover_event)/[`mouseout`](/de/docs/Web/API/Element/mouseout_event) und [`focus`](/de/docs/Web/API/Element/focus_event)/[`blur`](/de/docs/Web/API/Element/blur_event) angezeigt und ausgeblendet.
-    Wenn Sie auf einen Button klicken, um ein `hint`-Popover zu öffnen, wird ein geöffnetes `auto`-Popover leicht verworfen.
+    Normalerweise werden sie als Reaktion auf nicht-klickbare JavaScript-Ereignisse wie [`mouseover`](/de/docs/Web/API/Element/mouseover_event)/[`mouseout`](/de/docs/Web/API/Element/mouseout_event) und [`focus`](/de/docs/Web/API/Element/focus_event)/[`blur`](/de/docs/Web/API/Element/blur_event) angezeigt und versteckt.
+    Ein Klick auf eine Schaltfläche, um ein `hint`-Popover zu öffnen, würde ein geöffnetes `auto`-Popover leicht verwerfen.
 
 - `"manual"`
 
-  - : [`manual`](/de/docs/Web/API/Popover_API/Using#using_manual_popover_state)-Popover können nicht "leicht verworfen" werden und werden nicht automatisch geschlossen. Popover müssen explizit angezeigt und geschlossen werden, indem deklarative Show/Hide/Toggle-Buttons oder JavaScript verwendet werden. Mehrere unabhängige `manual`-Popovers können gleichzeitig angezeigt werden.
+  - : [`manual`](/de/docs/Web/API/Popover_API/Using#using_manual_popover_state) Popovers können nicht "leicht verworfen" werden und werden nicht automatisch geschlossen. Popovers müssen explizit angezeigt und geschlossen werden, indem deklarative Schaltflächen zum Anzeigen/Verstecken/Umschalten oder JavaScript verwendet werden. Mehrere unabhängige `manual`-Popovers können gleichzeitig angezeigt werden.
 
 ## Beispiele
 
-### Feature-Erkennung
+### Merkmals-Erkennung
 
-Sie können das `popover`-Attribut verwenden, um die [Popover API](/de/docs/Web/API/Popover_API) zu erkennen:
+Sie können das `popover`-Attribut verwenden, um die [Popover-API](/de/docs/Web/API/Popover_API) zu erkennen:
 
 ```js
 function supportsPopover() {
@@ -46,7 +46,7 @@ function supportsPopover() {
 }
 ```
 
-### Einrichten eines Popovers programmgesteuert
+### Ein Popover programmatisch einrichten
 
 ```js
 const popover = document.getElementById("mypopover");
@@ -73,5 +73,5 @@ if (popoverSupported) {
 
 ## Siehe auch
 
-- [`popover`](/de/docs/Web/HTML/Global_attributes/popover) globales HTML-Attribut
-- [Popover API](/de/docs/Web/API/Popover_API)
+- [`popover`](/de/docs/Web/HTML/Reference/Global_attributes/popover) globales HTML-Attribut
+- [Popover-API](/de/docs/Web/API/Popover_API)

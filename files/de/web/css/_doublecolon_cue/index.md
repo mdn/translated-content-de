@@ -2,12 +2,12 @@
 title: ::cue
 slug: Web/CSS/::cue
 l10n:
-  sourceCommit: 33a12980eb49cc795a41f15ec7a0181270ad3048
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{CSSRef}}
 
-Das **`::cue`** [CSS](/de/docs/Web/CSS) [Pseudoelement](/de/docs/Web/CSS/Pseudo-elements) entspricht den [WebVTT](/de/docs/Web/API/WebVTT_API) Cues innerhalb eines ausgewählten Elements. Dies kann verwendet werden, um [Untertitel und andere Cues zu stylen](/de/docs/Web/API/WebVTT_API#styling_webvtt_in_html_or_a_stylesheet) in Medien mit VTT-Tracks.
+Das **`::cue`** [CSS](/de/docs/Web/CSS) [Pseudo-Element](/de/docs/Web/CSS/Pseudo-elements) nimmt [WebVTT](/de/docs/Web/API/WebVTT_API)-Hinweise innerhalb eines ausgewählten Elements ins Visier. Dies kann verwendet werden, um [Untertitel und andere Hinweise](/de/docs/Web/API/WebVTT_API#styling_webvtt_in_html_or_a_stylesheet) in Medien mit VTT-Spuren zu gestalten.
 
 {{InteractiveExample("CSS Demo: ::cue", "tabbed-shorter")}}
 
@@ -37,9 +37,9 @@ video::cue {
 </video>
 ```
 
-Die Eigenschaften werden auf das gesamte Set von Cues angewendet, als ob sie eine einzelne Einheit wären. Die einzige Ausnahme ist, dass `background` und seine Langformen-Eigenschaften auf jedes Cue einzeln angewendet werden, um das Erstellen von Boxen und das unerwartete Verdecken großer Bereiche des Mediums zu vermeiden.
+Die Eigenschaften werden auf das gesamte Set von Hinweisen so angewendet, als ob sie eine einzige Einheit wären. Die einzige Ausnahme ist, dass `background` und dessen detaillierte Eigenschaften auf jeden einzelnen Hinweis angewendet werden, um zu vermeiden, dass Boxen entstehen und unerwartet große Bereiche des Mediums verdeckt werden.
 
-Im obigen Beispiel wählt der `::cue(u)`-Selektor alle [`<u>`](/de/docs/Web/HTML/Element/u) Elemente innerhalb [des Cue-Textes](https://raw.githubusercontent.com/mdn/interactive-examples/main/live-examples/media/examples/friday.vtt) aus.
+Im obigen Beispiel wählt der `::cue(u)` Selektor alle [`<u>`](/de/docs/Web/HTML/Reference/Elements/u) Elemente innerhalb [des Hinweistextes](https://raw.githubusercontent.com/mdn/interactive-examples/main/live-examples/media/examples/friday.vtt) aus.
 
 ## Syntax
 
@@ -51,7 +51,7 @@ Im obigen Beispiel wählt der `::cue(u)`-Selektor alle [`<u>`](/de/docs/Web/HTML
 
 ## Erlaubte Eigenschaften
 
-Regeln, deren Selektoren dieses Element enthalten, dürfen nur die folgenden CSS-Eigenschaften verwenden:
+Regeln, deren Selektoren dieses Element einbeziehen, dürfen nur die folgenden CSS-Eigenschaften verwenden:
 
 - [`background`](/de/docs/Web/CSS/background)
 - [`background-attachment`](/de/docs/Web/CSS/background-attachment)
@@ -89,9 +89,9 @@ Regeln, deren Selektoren dieses Element enthalten, dürfen nur die folgenden CSS
 
 ## Beispiele
 
-### WebVTT-Cues als Weiß-auf-Schwarz stylen
+### WebVTT-Hinweise als Weiß-auf-Schwarz gestalten
 
-Der folgende CSS-Code setzt den Cue-Stil so, dass der Text weiß ist und der Hintergrund eine transluzente schwarze Box.
+Das folgende CSS setzt den Stil der Hinweise so, dass der Text weiß ist und der Hintergrund eine transparente schwarze Box ist.
 
 ```css
 ::cue {
@@ -100,16 +100,16 @@ Der folgende CSS-Code setzt den Cue-Stil so, dass der Text weiß ist und der Hin
 }
 ```
 
-### WebVTT-interne Knotenobjekte stylen
+### Styling von inneren Knotenelementen in WebVTT
 
-Der Cue-Text kann _interne Knotenobjekte_ als Tags (ähnlich wie HTML-Elemente) enthalten: `<c>`, `<i>`, `<b>`, `<u>`, `<ruby>`, `<rt>`, `<v>`, und `<lang>`. Der `::cue()`-Selektor kann verwendet werden, um Stile auf den Inhalt innerhalb dieser Tags anzuwenden, um anzupassen, wie der WebVTT-Track angezeigt wird. Betrachten Sie den folgenden Cue-Text, der das `<u>`-Tag verwendet, um Text zu unterstreichen:
+Hinweistext kann _interne Knotenelemente_ enthalten, wie die Tags (ähnlich wie HTML-Elemente) `<c>`, `<i>`, `<b>`, `<u>`, `<ruby>`, `<rt>`, `<v>` und `<lang>`. Der `::cue()`-Selektor kann verwendet werden, um Stile auf Inhalte innerhalb dieser Tags anzuwenden, um anzupassen, wie die WebVTT-Spur angezeigt wird. Betrachten Sie den folgenden Hinweistext, der das `<u>`-Tag verwendet, um Text zu unterstreichen:
 
 ```plain
 00:00:01.500 --> 00:00:02.999 line:80%
 Tell me, is the <u>lord of the universe</u> in?
 ```
 
-Die folgende CSS-Regel passt den Text innerhalb des `<u>`-Tags mit einer Farbe und einer [text-decoration](/de/docs/Web/CSS/text-decoration) an:
+Die folgende CSS-Regel individualisiert den Text innerhalb des `<u>`-Tags mit einer Farbe und einer [text-decoration](/de/docs/Web/CSS/text-decoration):
 
 ```css
 ::cue(u) {
@@ -128,5 +128,5 @@ Die folgende CSS-Regel passt den Text innerhalb des `<u>`-Tags mit einer Farbe u
 
 ## Siehe auch
 
-- [Web Video Text Tracks Format (WebVTT)](/de/docs/Web/API/WebVTT_API)
+- [Web Video Tracks Format (WebVTT)](/de/docs/Web/API/WebVTT_API)
 - {{HTMLElement("track")}}, {{HTMLElement("video")}}

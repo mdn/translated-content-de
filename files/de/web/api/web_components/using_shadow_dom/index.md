@@ -2,18 +2,18 @@
 title: Verwendung von Shadow DOM
 slug: Web/API/Web_components/Using_shadow_DOM
 l10n:
-  sourceCommit: 9d76a1d4601c8e0042732899a99b6fecde2c919d
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{DefaultAPISidebar("Web Components")}}
 
-Ein wichtiger Aspekt von benutzerdefinierten Elementen ist die Kapselung, da ein benutzerdefiniertes Element per Definition ein Stück wiederverwendbarer Funktionalität ist: Es könnte in eine beliebige Webseite eingebunden werden und dort funktionieren. Deshalb ist es wichtig, dass der Code, der auf der Seite ausgeführt wird, ein benutzerdefiniertes Element nicht versehentlich durch die Änderung seiner internen Implementierung beschädigen kann. Shadow DOM ermöglicht Ihnen, einen DOM-Baum an ein Element anzuhängen und die internen Strukturen dieses Baums vor JavaScript und CSS, die auf der Seite ausgeführt werden, zu verbergen.
+Ein wichtiger Aspekt von benutzerdefinierten Elementen ist die Kapselung, da ein benutzerdefiniertes Element definitionsgemäß ein Stück wiederverwendbarer Funktionalität ist: Es könnte in jede Webseite eingefügt werden und soll dort funktionieren. Deshalb ist es wichtig, dass der Code, der auf der Seite läuft, ein benutzerdefiniertes Element nicht versehentlich durch Modifizieren seiner internen Implementierung beschädigen kann. Shadow DOM ermöglicht es, einem Element ein DOM-Baum anzuhängen und die Interna dieses Baums vor JavaScript und CSS, die auf der Seite laufen, zu verbergen.
 
 Dieser Artikel behandelt die Grundlagen der Verwendung von Shadow DOM.
 
-## Übergeordnete Ansicht
+## Überblick
 
-Dieser Artikel setzt voraus, dass Sie bereits mit dem Konzept des [DOM (Document Object Model)](/de/docs/Web/API/Document_Object_Model/Introduction) vertraut sind — einer baumartigen Struktur von verbundenen Knoten, die die verschiedenen Elemente und Textzeichenfolgen darstellt, die in einem Markupdokument (in der Regel ein HTML-Dokument im Fall von Webdokumenten) erscheinen. Betrachten Sie als Beispiel das folgende HTML-Fragment:
+Dieser Artikel geht davon aus, dass Sie bereits mit dem Konzept des [DOM (Document Object Model)](/de/docs/Web/API/Document_Object_Model/Introduction) vertraut sind — einer baumartigen Struktur von verbundenen Knoten, die die verschiedenen Elemente und Textstränge eines Markup-Dokuments (in der Regel ein HTML-Dokument im Fall von Web-Dokumenten) darstellt. Betrachten Sie zum Beispiel den folgenden HTML-Fragment:
 
 ```html
 <html lang="en-US">
@@ -33,7 +33,7 @@ Dieser Artikel setzt voraus, dass Sie bereits mit dem Konzept des [DOM (Document
 </html>
 ```
 
-Dieses Fragment erzeugt die folgende DOM-Struktur (nur Textknoten, die nicht nur aus Leerzeichen bestehen, werden angezeigt):
+Dieses Fragment erzeugt die folgende DOM-Struktur (ohne nur aus Leerzeichen bestehende Textknoten):
 
 ```plain
 - HTML
@@ -50,37 +50,37 @@ Dieses Fragment erzeugt die folgende DOM-Struktur (nur Textknoten, die nicht nur
                     - #text: Mozilla homepage
 ```
 
-_Shadow_ DOM ermöglicht das Anfügen versteckter DOM-Bäume an Elemente im regulären DOM-Baum — dieser Shadow-DOM-Baum beginnt mit einer Shadow-Root, unterhalb derer Sie jedes Element anhängen können, genauso wie im normalen DOM.
+_Shadow_ DOM ermöglicht es, versteckte DOM-Bäume an Elemente im regulären DOM-Baum anzuhängen — dieser Shadow DOM-Baum beginnt mit einer Shadow-Root, unter der Sie jedes Element anhängen können, auf die gleiche Weise wie im normalen DOM.
 
-![SVG-Version des Diagramms, das die Interaktion von Dokument, Shadow-Root und Shadow-Host veranschaulicht.](shadowdom.svg)
+![SVG-Version des Diagramms, das die Interaktion von Dokument, Shadow-Root und Shadow-Host zeigt.](shadowdom.svg)
 
-Es gibt einige Begriffe der Shadow-DOM-Terminologie, die zu beachten sind:
+Es gibt einige Begriffe des Shadow DOM, die zu beachten sind:
 
 - **Shadow-Host**: Der reguläre DOM-Knoten, an den das Shadow DOM angehängt ist.
 - **Shadow-Baum**: Der DOM-Baum innerhalb des Shadow DOM.
-- **Shadow-Grenze**: Der Punkt, an dem das Shadow DOM endet und das reguläre DOM beginnt.
+- **Shadow-Grenze**: Der Ort, an dem das Shadow DOM endet und das reguläre DOM beginnt.
 - **Shadow-Root**: Der Wurzelknoten des Shadow-Baums.
 
-Sie können die Knoten im Shadow DOM auf die gleiche Weise beeinflussen wie Nicht-Shadow-Knoten — zum Beispiel durch Anfügen von Kindern oder Einstellen von Attributen, durch Styling einzelner Knoten mit `element.style.foo` oder durch Hinzufügen von Style zum gesamten Shadow-DOM-Baum innerhalb eines {{htmlelement("style")}}-Elements. Der Unterschied besteht darin, dass kein Code innerhalb eines Shadow DOM irgendetwas außerhalb davon beeinflussen kann, was eine praktische Kapselung ermöglicht.
+Sie können die Knoten im Shadow DOM auf genau die gleiche Weise beeinflussen wie Nicht-Shadow-Knoten — z.B. durch Anfügen von Kindern oder Setzen von Attributen, Stilrichtung individueller Knoten mithilfe von element.style.foo, oder Hinzufügen von Stil zu dem gesamten Shadow DOM-Baum innerhalb eines {{htmlelement("style")}}-Elements. Der Unterschied ist, dass keiner des Codes innerhalb eines Shadow DOM irgendetwas außerhalb dessen beeinflussen kann, was eine nützliche Kapselung ermöglicht.
 
-Bevor Shadow DOM Webentwicklern zur Verfügung gestellt wurde, nutzten Browser es bereits, um die innere Struktur eines Elements zu kapseln. Denken Sie zum Beispiel an ein {{htmlelement("video")}}-Element mit den standardmäßigen Browser-Steuerelementen. Im DOM sehen Sie nur das `<video>`-Element, aber es enthält eine Reihe von Tasten und anderen Steuerelementen innerhalb seines Shadow DOMs. Die Shadow-DOM-Spezifikation ermöglicht es Ihnen, das Shadow DOM Ihrer eigenen benutzerdefinierten Elemente zu manipulieren.
+Bevor Shadow DOM Webentwicklern zur Verfügung gestellt wurde, verwendeten Browser es bereits, um die innere Struktur eines Elements zu kapseln. Denken Sie zum Beispiel an ein {{htmlelement("video")}}-Element, mit den standardmäßigen Browser-Steuerelementen. Alles, was Sie im DOM sehen, ist das `<video>`-Element, aber es enthält eine Reihe von Schaltflächen und anderen Bedienelementen innerhalb seines Shadow DOM. Die Shadow DOM-Spezifikation ermöglicht es Ihnen, das Shadow DOM Ihrer eigenen benutzerdefinierten Elemente zu manipulieren.
 
 ### Attributvererbung
 
-Der Shadow-Baum und {{ HTMLElement("slot") }}-Elemente erben die [`dir`](/de/docs/Web/HTML/Global_attributes/dir) und [`lang`](/de/docs/Web/HTML/Global_attributes/lang) Attribute von ihrem Shadow-Host.
+Der Shadow-Baum und die {{HTMLElement("slot")}}-Elemente erben die [`dir`](/de/docs/Web/HTML/Reference/Global_attributes/dir)- und [`lang`](/de/docs/Web/HTML/Reference/Global_attributes/lang)-Attribute von ihrem Shadow-Host.
 
 ## Erstellen eines Shadow DOM
 
-### Imperativ mit JavaScript
+### Programmgesteuert mit JavaScript
 
-Die folgende Seite enthält zwei Elemente, ein {{htmlelement("div")}}-Element mit einer [`id`](/de/docs/Web/HTML/Global_attributes/id) von `"host"` und ein {{htmlelement("span")}}-Element, das etwas Text enthält:
+Die folgende Seite enthält zwei Elemente, ein {{htmlelement("div")}}-Element mit einer [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id) von `"host"` und ein {{htmlelement("span")}}-Element, das etwas Text enthält:
 
 ```html
 <div id="host"></div>
 <span>I'm not in the shadow DOM</span>
 ```
 
-Wir verwenden das `"host"`-Element als Shadow-Host. Wir rufen [`attachShadow()`](/de/docs/Web/API/Element/attachShadow) am Host auf, um das Shadow DOM zu erstellen, und können dann Knoten zum Shadow DOM hinzufügen, so wie wir es im Haupt-DOM tun würden. In diesem Beispiel fügen wir ein einzelnes `<span>`-Element hinzu:
+Wir werden das `"host"`-Element als Shadow-Host verwenden. Wir rufen [`attachShadow()`](/de/docs/Web/API/Element/attachShadow) am Host auf, um das Shadow DOM zu erstellen, und können dann Knoten zum Shadow DOM genauso hinzufügen, wie wir es zum Haupt-DOM tun würden. In diesem Beispiel fügen wir ein einzelnes `<span>`-Element hinzu:
 
 ```js
 const host = document.querySelector("#host");
@@ -90,13 +90,13 @@ span.textContent = "I'm in the shadow DOM";
 shadow.appendChild(span);
 ```
 
-Das Ergebnis sieht folgendermaßen aus:
+Das Ergebnis sieht so aus:
 
-{{EmbedLiveSample("Imperativ mit JavaScript")}}
+{{EmbedLiveSample("Imperatively with JavaScript")}}
 
 ### Deklarativ mit HTML
 
-Die Erstellung eines Shadow DOM über die JavaScript-API könnte eine gute Option für clientseitig gerenderte Anwendungen sein. Für andere Anwendungen könnte eine serverseitig gerenderte Benutzeroberfläche eine bessere Leistung und damit ein besseres Benutzererlebnis bieten. In solchen Fällen können Sie das {{htmlelement("template")}}-Element verwenden, um das Shadow DOM deklarativ zu definieren. Der Schlüssel zu diesem Verhalten ist das {{Glossary("enumerated", "aufgezählte")}} `shadowrootmode`-Attribut, das auf `open` oder `closed` gesetzt werden kann, dieselben Werte wie die `mode`-Option der [`attachShadow()`](/de/docs/Web/API/Element/attachShadow)-Methode.
+Das Erstellen eines Shadow DOM über die JavaScript-API könnte eine gute Option für clientseitig gerenderte Anwendungen sein. Für andere Anwendungen könnte ein serverseitig gerendertes UI eine bessere Leistung und damit eine bessere Benutzererfahrung bieten. In solchen Fällen können Sie das {{htmlelement("template")}}-Element verwenden, um das Shadow DOM deklarativ zu definieren. Der Schlüssel zu diesem Verhalten ist das {{Glossary("enumerated", "enumerierte")}} `shadowrootmode`-Attribut, das entweder auf `open` oder `closed` gesetzt werden kann, die gleichen Werte wie die `mode`-Option der [`attachShadow()`](/de/docs/Web/API/Element/attachShadow)-Methode.
 
 ```html
 <div id="host">
@@ -109,9 +109,9 @@ Die Erstellung eines Shadow DOM über die JavaScript-API könnte eine gute Optio
 {{EmbedGHLiveSample("dom-examples/shadow-dom/shadowrootmode/simple.html", "", "")}}
 
 > [!NOTE]
-> Standardmäßig werden die Inhalte von `<template>` nicht angezeigt. In diesem Fall wird, da `shadowrootmode="open"` enthalten war, die Shadow-Root gerendert. In unterstützenden Browsern werden die sichtbaren Inhalte innerhalb dieser Shadow-Root angezeigt.
+> Standardmäßig werden die Inhalte von `<template>` nicht angezeigt. In diesem Fall, da `shadowrootmode="open"` enthalten war, wird die Shadow-Root gerendert. In unterstützenden Browsern werden die sichtbaren Inhalte innerhalb dieser Shadow-Root angezeigt.
 
-Nachdem der Browser das HTML analysiert hat, ersetzt er das {{htmlelement("template")}}-Element mit seinem Inhalt, der in einer {{Glossary("Shadow_tree", "shadow root")}} verpackt ist, die an das übergeordnete Element angefügt ist, das `<div id="host">` in unserem Beispiel. Der resultierende DOM-Baum sieht so aus (es gibt kein `<template>`-Element im DOM-Baum):
+Nachdem der Browser das HTML parst, ersetzt er das {{htmlelement("template")}}-Element durch seinen Inhalt, der in eine {{Glossary("Shadow_tree", "Shadow-Root")}} gewrappt ist, die an das Elternelement angehängt ist, das `<div id="host">` in unserem Beispiel. Der resultierende DOM-Baum sieht so aus (es gibt kein `<template>`-Element im DOM-Baum):
 
 ```plain
 - DIV id="host"
@@ -120,13 +120,13 @@ Nachdem der Browser das HTML analysiert hat, ersetzt er das {{htmlelement("templ
       - #text: I'm in the shadow DOM
 ```
 
-Beachten Sie, dass Sie zusätzlich zum `shadowrootmode` auch `<template>`-Attribute wie `shadowrootclonable` und `shadowrootdelegatesfocus` verwenden können, um andere Eigenschaften der erzeugten Shadow-Root festzulegen.
+Beachten Sie, dass Sie zusätzlich zum `shadowrootmode` auch `<template>`-Attribute wie `shadowrootclonable` und `shadowrootdelegatesfocus` verwenden können, um andere Eigenschaften der generierten Shadow-Root zu spezifizieren.
 
 ## Kapselung vor JavaScript
 
-Bisher mag dies nicht nach viel aussehen. Aber sehen wir, was passiert, wenn Code, der auf der Seite läuft, versucht, auf Elemente im Shadow DOM zuzugreifen.
+Bis hierher mag das nicht viel erscheinen. Lassen Sie uns jedoch sehen, was passiert, wenn Code, der auf der Seite läuft, versucht, auf Elemente im Shadow DOM zuzugreifen.
 
-Diese Seite ist genau wie die letzte, mit Ausnahme dass wir zwei {{htmlelement("button")}}-Elemente hinzugefügt haben.
+Diese Seite ist genau wie die letzte, außer dass wir zwei {{htmlelement("button")}}-Elemente hinzugefügt haben.
 
 ```html
 <div id="host"></div>
@@ -137,7 +137,8 @@ Diese Seite ist genau wie die letzte, mit Ausnahme dass wir zwei {{htmlelement("
 <button id="reload" type="button">Reload</button>
 ```
 
-Durch Klicken auf die Schaltfläche „Span-Elemente in Großbuchstaben“ werden alle `<span>`-Elemente auf der Seite gefunden und deren Text in Großbuchstaben umgewandelt. Durch Klicken auf die Schaltfläche „Neu laden“ wird die Seite einfach neu geladen, sodass Sie es erneut versuchen können.
+Ein Klick auf die Schaltfläche "Uppercase span elements" findet alle `<span>`-Elemente auf der Seite und ändert ihren Text in Großbuchstaben.
+Ein Klick auf die Schaltfläche "Reload" lädt die Seite einfach neu, damit Sie es erneut versuchen können.
 
 ```js
 const host = document.querySelector("#host");
@@ -158,15 +159,15 @@ const reload = document.querySelector("#reload");
 reload.addEventListener("click", () => document.location.reload());
 ```
 
-Wenn Sie auf „Span-Elemente in Großbuchstaben“ klicken, sehen Sie, dass [`Document.querySelectorAll()`](/de/docs/Web/API/Document/querySelectorAll) die Elemente in unserem Shadow DOM nicht findet: Sie sind effektiv vor dem JavaScript auf der Seite verborgen:
+Wenn Sie auf "Uppercase span elements" klicken, werden Sie sehen, dass [`Document.querySelectorAll()`](/de/docs/Web/API/Document/querySelectorAll) die Elemente in unserem Shadow DOM nicht findet: Sie sind effektiv vor JavaScript auf der Seite versteckt:
 
-{{EmbedLiveSample("Kapselung vor JavaScript")}}
+{{EmbedLiveSample("Encapsulation from JavaScript")}}
 
-## Element.shadowRoot und die „mode“-Option
+## Element.shadowRoot und die "mode" Option
 
-Im obigen Beispiel übergeben wir ein Argument `{ mode: "open" }` an `attachShadow()`. Mit `mode` auf `"open"` gesetzt, kann das JavaScript auf der Seite über die [`shadowRoot`](/de/docs/Web/API/Element/shadowRoot)-Eigenschaft des Shadow-Hosts auf die Interna Ihres Shadow DOM zugreifen.
+Im obigen Beispiel geben wir ein Argument `{ mode: "open" }` an `attachShadow()` weiter. Mit `mode` auf `"open"` gesetzt, kann das JavaScript auf der Seite auf die Interna Ihres Shadow DOM über die [`shadowRoot`](/de/docs/Web/API/Element/shadowRoot)-Eigenschaft des Shadow-Hosts zugreifen.
 
-In diesem Beispiel enthält die HTML wie zuvor den Shadow-Host, ein `<span>`-Element im Haupt-DOM-Baum und zwei Buttons:
+In diesem Beispiel enthält das HTML wie zuvor den Shadow-Host, ein `<span>`-Element im Haupt-DOM-Baum und zwei Schaltflächen:
 
 ```html
 <div id="host"></div>
@@ -177,7 +178,7 @@ In diesem Beispiel enthält die HTML wie zuvor den Shadow-Host, ein `<span>`-Ele
 <button id="reload" type="button">Reload</button>
 ```
 
-Dieses Mal verwendet der „Großbuchstaben“-Button `shadowRoot`, um die `<span>`-Elemente im DOM zu finden:
+Dieses Mal verwendet die "Uppercase"-Schaltfläche `shadowRoot`, um die `<span>`-Elemente im DOM zu finden:
 
 ```js
 const host = document.querySelector("#host");
@@ -198,13 +199,13 @@ const reload = document.querySelector("#reload");
 reload.addEventListener("click", () => document.location.reload());
 ```
 
-Dieses Mal kann das JavaScript, das auf der Seite ausgeführt wird, auf die internen Shadow DOM zugreifen:
+Dieses Mal kann das auf der Seite laufende JavaScript auf die Interna des Shadow DOM zugreifen:
 
-{{EmbedLiveSample("Element.shadowRoot und die „mode“-Option")}}
+{{EmbedLiveSample("Element.shadowRoot and the \"mode\" option")}}
 
-Das `{mode: "open"}`-Argument gibt der Seite eine Möglichkeit, die Kapselung Ihres Shadow DOM zu brechen. Wenn Sie der Seite diese Möglichkeit nicht geben möchten, übergeben Sie stattdessen `{mode: "closed"}`. In diesem Fall gibt `shadowRoot` `null` zurück.
+Das `{mode: "open"}`-Argument gibt der Seite eine Möglichkeit, die Kapselung Ihres Shadow DOM zu durchbrechen. Wenn Sie der Seite diese Fähigkeit nicht geben möchten, übergeben Sie stattdessen `{mode: "closed"}`, und dann gibt `shadowRoot` `null` zurück.
 
-Sie sollten dies jedoch nicht als starkes Sicherheitsmechanismus betrachten, da es Möglichkeiten gibt, es zu umgehen, zum Beispiel durch in der Seite laufende Browsererweiterungen. Es ist mehr ein Hinweis darauf, dass die Seite nicht auf die Interna Ihres Shadow-DOM-Baums zugreifen sollte.
+Sie sollten dies jedoch nicht als starkes Sicherheitsmechanismus betrachten, da es Möglichkeiten gibt, dies zu umgehen, zum Beispiel durch Browser-Erweiterungen, die auf der Seite laufen. Es ist eher ein Hinweis darauf, dass die Seite nicht auf die Interna Ihres Shadow DOM zugreifen sollte.
 
 ## Kapselung vor CSS
 
@@ -225,7 +226,7 @@ span.textContent = "I'm in the shadow DOM";
 shadow.appendChild(span);
 ```
 
-Diesmal haben wir einige CSS, die auf `<span>`-Elemente auf der Seite zielen:
+Dieses Mal haben wir etwas CSS, das auf `<span>`-Elemente auf der Seite abzielt:
 
 ```css
 span {
@@ -234,37 +235,37 @@ span {
 }
 ```
 
-Das Seiten-CSS beeinflusst keine Knoten im Shadow DOM:
+Das Seiten-CSS wirkt sich nicht auf die Knoten innerhalb des Shadow DOM aus:
 
-{{EmbedLiveSample("Kapselung vor CSS")}}
+{{EmbedLiveSample("Encapsulation from CSS")}}
 
-## Anwenden von Stilen innerhalb des Shadow DOM
+## Anwendung von Stilen innerhalb des Shadow DOM
 
-In diesem Abschnitt betrachten wir zwei verschiedene Möglichkeiten, Stile innerhalb eines Shadow-DOM-Baumes anzuwenden:
+In diesem Abschnitt betrachten wir zwei verschiedene Möglichkeiten, Stile innerhalb eines Shadow DOM-Baums anzuwenden:
 
-- [_Programmatisch_](#konstruierbare_stylesheets), indem wir ein [`CSSStyleSheet`](/de/docs/Web/API/CSSStyleSheet)-Objekt erstellen und es an die Shadow-Root anhängen.
-- [_Deklarativ_](#adding_style_elements_in_template_declarations), indem wir ein {{htmlelement("style")}}-Element in einer Deklaration eines {{htmlelement("template")}}-Elements hinzufügen.
+- [_Programmgesteuert_](#konstruktive_stylesheets), durch das Erstellen eines [`CSSStyleSheet`](/de/docs/Web/API/CSSStyleSheet)-Objekts und Anschließen an die Shadow-Root.
+- [_Deklarativ_](#adding_style_elements_in_template_declarations), durch das Hinzufügen eines {{htmlelement("style")}}-Elements in der Deklaration eines {{htmlelement("template")}}-Elements.
 
-In beiden Fällen sind die im Shadow-DOM-Baum definierten Stile auf diesen Baum beschränkt, sodass Seiten-Stile keine Elemente im Shadow DOM beeinflussen und Shadow-DOM-Stile keine Elemente im Rest der Seite beeinflussen.
+In beiden Fällen sind die im Shadow DOM-Baum definierten Stile auf diesen Baum beschränkt, sodass Seitenstile Elemente im Shadow DOM nicht beeinflussen, und umgekehrt beeinflussen Shadow DOM-Stile keine Elemente auf der restlichen Seite.
 
-### Konstruierbare Stylesheets
+### Konstruktive Stylesheets
 
-Um Seitenelemente im Shadow DOM mit konstruierbaren Stylesheets zu stylen, können wir:
+Um Seitenelemente im Shadow DOM mit konstruktiven Stylesheets zu gestalten, können wir:
 
 1. Ein leeres [`CSSStyleSheet`](/de/docs/Web/API/CSSStyleSheet)-Objekt erstellen
-2. Dessen Inhalt mit [`CSSStyleSheet.replace()`](/de/docs/Web/API/CSSStyleSheet/replace) oder [`CSSStyleSheet.replaceSync()`](/de/docs/Web/API/CSSStyleSheet/replaceSync) festlegen
-3. Es der Shadow-Root hinzufügen, indem es zu [`ShadowRoot.adoptedStyleSheets`](/de/docs/Web/API/ShadowRoot/adoptedStyleSheets) zugewiesen wird
+2. Seinen Inhalt mit [`CSSStyleSheet.replace()`](/de/docs/Web/API/CSSStyleSheet/replace) oder [`CSSStyleSheet.replaceSync()`](/de/docs/Web/API/CSSStyleSheet/replaceSync) festlegen
+3. Es der Shadow-Root durch Zuweisung zu [`ShadowRoot.adoptedStyleSheets`](/de/docs/Web/API/ShadowRoot/adoptedStyleSheets) hinzufügen
 
-Die im `CSSStyleSheet` definierten Regeln sind auf den Shadow-DOM-Baum beschränkt, ebenso wie auf alle anderen DOM-Bäume, denen wir es zugewiesen haben.
+Regeln, die im `CSSStyleSheet` definiert sind, werden auf den Shadow DOM-Baum beschränkt, sowie auf andere DOM-Bäume, denen wir es zugewiesen haben.
 
-Hier nochmals das HTML mit unserem Host und einem `<span>`:
+Hier ist wieder das HTML, das unseren Host und ein `<span>` enthält:
 
 ```html
 <div id="host"></div>
 <span>I'm not in the shadow DOM</span>
 ```
 
-Dieses Mal erstellen wir das Shadow DOM und weisen ihm ein `CSSStyleSheet`-Objekt zu:
+Dieses Mal werden wir das Shadow DOM erstellen und ein `CSSStyleSheet`-Objekt zuweisen:
 
 ```js
 const sheet = new CSSStyleSheet();
@@ -280,15 +281,15 @@ span.textContent = "I'm in the shadow DOM";
 shadow.appendChild(span);
 ```
 
-Die im Shadow-DOM-Baum definierten Stile werden nicht auf den Rest der Seite angewandt:
+Die im Shadow DOM-Baum definierten Stile werden nicht im Rest der Seite angewendet:
 
-{{EmbedLiveSample("Konstruierbare Stylesheets")}}
+{{EmbedLiveSample("Constructable stylesheets")}}
 
 ### Hinzufügen von `<style>`-Elementen in `<template>`-Deklarationen
 
-Eine Alternative zum Konstruieren von `CSSStyleSheet`-Objekten ist das Einschließen eines {{htmlelement("style")}}-Elements innerhalb des {{htmlelement("template")}}-Elements, das ein Web-Komponente definiert.
+Eine Alternative zur Konstruktion von `CSSStyleSheet`-Objekten besteht darin, ein {{htmlelement("style")}}-Element innerhalb des {{htmlelement("template")}}-Elements einzuschließen, das verwendet wird, um ein Webkomponent zu definieren.
 
-In diesem Fall umfasst das HTML die `<template>`-Deklaration
+In diesem Fall enthält das HTML die `<template>`-Deklaration
 
 ```html
 <template id="my-element">
@@ -315,25 +316,25 @@ const template = document.getElementById("my-element");
 shadow.appendChild(template.content);
 ```
 
-Erneut werden die im `<template>` definierten Stile nur innerhalb des Shadow-DOM-Baums angewendet und nicht im Rest der Seite:
+Wieder werden die im `<template>` definierten Stile nur innerhalb des Shadow DOM-Baums angewendet und nicht im Rest der Seite:
 
-{{EmbedLiveSample("Hinzufügen von Style-Elementen in Template-Deklarationen")}}
+{{EmbedLiveSample("adding_style_elements_in_template_declarations")}}
 
-### Entscheidung zwischen programmatischen und deklarativen Optionen
+### Wahl zwischen programmatischer und deklarativer Option
 
-Welche dieser Optionen zu verwenden ist, hängt von Ihrer Anwendung und Ihren persönlichen Vorlieben ab.
+Welche dieser Optionen verwendet wird, hängt von Ihrer Anwendung und Ihren persönlichen Vorlieben ab.
 
-Das Erstellen eines `CSSStyleSheet` und dessen Zuweisen zur Shadow-Root mit `adoptedStyleSheets` ermöglicht Ihnen, ein einziges Stylesheet zu erstellen und es unter vielen DOM-Bäumen zu teilen. Zum Beispiel könnte eine Komponentenbibliothek ein einziges Stylesheet erstellen und es dann unter allen zur Bibliothek gehörenden benutzerdefinierten Elementen teilen. Der Browser wird dieses Stylesheet einmal parsen. Außerdem können Sie dynamische Änderungen am Stylesheet vornehmen und diese auf alle Komponenten ausweiten, die das Stylesheet verwenden.
+Das Erstellen eines `CSSStyleSheet` und das Zuweisen zu der Shadow-Root mit `adoptedStyleSheets` ermöglicht es Ihnen, ein einzelnes Stylesheet zu erstellen und es für viele DOM-Bäume zu teilen. Beispielsweise könnte eine Komponentenbibliothek ein einziges Stylesheet erstellen und es dann mit allen benutzerdefinierten Elementen dieser Bibliothek teilen. Der Browser wird dieses Stylesheet einmal parsen. Außerdem können Sie dynamische Änderungen am Stylesheet vornehmen und sie werden an alle Komponenten weitergegeben, die das Stylesheet verwenden.
 
-Der Ansatz des Anfügens eines `<style>`-Elements ist großartig, wenn Sie deklarativ sein möchten, wenig Stile haben und keine Stile über verschiedene Komponenten hinweg teilen müssen.
+Der Ansatz, ein `<style>`-Element anzuhängen, ist großartig, wenn Sie deklarativ sein möchten, wenige Stile haben und keine Stile über verschiedene Komponenten hinweg teilen müssen.
 
 ## Shadow DOM und benutzerdefinierte Elemente
 
-Ohne die durch Shadow DOM bereitgestellte Kapselung wären [benutzerdefinierte Elemente](/de/docs/Web/API/Web_components/Using_custom_elements) unglaublich fragil. Es wäre zu einfach für eine Seite, das Verhalten oder Layout eines benutzerdefinierten Elements durch die Ausführung von JavaScript oder CSS auf der Seite versehentlich zu beschädigen. Als Entwickler eines benutzerdefinierten Elements wüssten Sie nie, ob die innerhalb Ihres benutzerdefinierten Elements anwendbaren Selektoren mit denen einer Seite, die sich entschieden hat, Ihr benutzerdefiniertes Element zu verwenden, in Konflikt stehen.
+Ohne die Kapselung, die das Shadow DOM bietet, wären [benutzerdefinierte Elemente](/de/docs/Web/API/Web_components/Using_custom_elements) unmöglich fragil. Es wäre zu einfach für eine Seite, das Verhalten oder das Layout eines benutzerdefinierten Elements versehentlich durch das Ausführen von Seiten-JavaScript oder -CSS zu beschädigen. Als Entwickler eines benutzerdefinierten Elements würden Sie nie wissen, ob die in Ihrem benutzerdefinierten Element anwendbaren Selektoren mit denen einer Seite, die Ihr benutzerdefiniertes Element verwendet, in Konflikt stehen.
 
-Benutzerdefinierte Elemente werden als eine Klasse implementiert, die entweder die Basisklasse [`HTMLElement`](/de/docs/Web/API/HTMLElement) oder ein eingebautes HTML-Element wie [`HTMLParagraphElement`](/de/docs/Web/API/HTMLParagraphElement) erweitert. Typischerweise ist das benutzerdefinierte Element selbst ein Shadow-Host, und das Element erstellt mehrere Elemente unter dieser Root, um die interne Implementierung des Elements bereitzustellen.
+Benutzerdefinierte Elemente werden als Klasse implementiert, die entweder die Basis [`HTMLElement`](/de/docs/Web/API/HTMLElement) oder ein integriertes HTML-Element wie [`HTMLParagraphElement`](/de/docs/Web/API/HTMLParagraphElement) erweitert. Typischerweise ist das benutzerdefinierte Element selbst ein Shadow-Host, und das Element erstellt mehrere Elemente unter dieser Wurzel, um die interne Implementierung des Elements bereitzustellen.
 
-Das folgende Beispiel erstellt ein `<filled-circle>`-benutzerdefiniertes Element, das lediglich einen mit einer Volltonfarbe gefüllten Kreis rendert.
+Das Beispiel unten erstellt ein benutzerdefiniertes `<filled-circle>`-Element, das einfach einen mit einer Vollfarbe gefüllten Kreis rendert.
 
 ```js
 class FilledCircle extends HTMLElement {
@@ -368,9 +369,9 @@ customElements.define("filled-circle", FilledCircle);
 <filled-circle color="blue"></filled-circle>
 ```
 
-{{EmbedLiveSample("Shadow DOM und benutzerdefinierte Elemente", 100, 160)}}
+{{EmbedLiveSample("Shadow DOM and custom elements", 100, 160)}}
 
-Weitere Beispiele, die verschiedene Aspekte der Implementierung benutzerdefinierter Elemente veranschaulichen, finden Sie in unserem [Leitfaden zu benutzerdefinierten Elementen](/de/docs/Web/API/Web_components/Using_custom_elements).
+Für weitere Beispiele, die verschiedene Aspekte der Implementierung benutzerdefinierter Elemente veranschaulichen, siehe unseren [Leitfaden zu benutzerdefinierten Elementen](/de/docs/Web/API/Web_components/Using_custom_elements).
 
 ## Siehe auch
 
@@ -386,5 +387,5 @@ Weitere Beispiele, die verschiedene Aspekte der Implementierung benutzerdefinier
 - {{CSSXref(":host_function", ":host()")}}
 - {{CSSXref(":host-context", ":host-context()")}}
 - {{CSSXref("::slotted", "::slotted()")}}
-- [CSS Shadow Parts](/de/docs/Web/CSS/CSS_shadow_parts) Modul
+- [CSS-Shadow-Parts](/de/docs/Web/CSS/CSS_shadow_parts) Modul
 - {{CSSXref("::part")}}

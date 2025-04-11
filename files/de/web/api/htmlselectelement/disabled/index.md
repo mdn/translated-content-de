@@ -3,14 +3,12 @@ title: "HTMLSelectElement: disabled-Eigenschaft"
 short-title: disabled
 slug: Web/API/HTMLSelectElement/disabled
 l10n:
-  sourceCommit: acfe8c9f1f4145f77653a2bc64a9744b001358dc
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{ APIRef("HTML DOM") }}
 
-Die **`HTMLSelectElement.disabled`**-Eigenschaft ist ein boolescher Wert, der das
-[`disabled`](/de/docs/Web/HTML/Element/select#disabled)
-HTML-Attribut widerspiegelt, welches anzeigt, ob das Steuerelement deaktiviert ist. Wenn es deaktiviert ist, nimmt es keine Klicks an. Ein deaktiviertes Element ist unbenutzbar und nicht anklickbar.
+Die **`HTMLSelectElement.disabled`**-Eigenschaft ist ein boolescher Wert, der das [`disabled`](/de/docs/Web/HTML/Reference/Elements/select#disabled) HTML-Attribut widerspiegelt, welches angibt, ob das Steuerelement deaktiviert ist. Wenn es deaktiviert ist, akzeptiert es keine Klicks. Ein deaktiviertes Element ist nicht benutzbar und nicht anklickbar.
 
 ## Wert
 

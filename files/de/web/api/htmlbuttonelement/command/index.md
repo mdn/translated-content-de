@@ -3,18 +3,18 @@ title: "HTMLButtonElement: command-Eigenschaft"
 short-title: command
 slug: Web/API/HTMLButtonElement/command
 l10n:
-  sourceCommit: 3556f7aca5478c222368dba8a7bd6a007898b36a
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{APIRef("Invoker Commands API")}}{{SeeCompatTable}}
 
-Die **`command`**-Eigenschaft der [`HTMLButtonElement`](/de/docs/Web/API/HTMLButtonElement)-Schnittstelle ruft die Aktion ab und legt sie fest, die auf einem Element ausgeführt werden soll, das von dieser Schaltfläche gesteuert wird. Damit dies Wirkung zeigt, muss [`commandfor`](/de/docs/Web/HTML/Element/button#commandfor) gesetzt sein.
+Die **`command`**-Eigenschaft des [`HTMLButtonElement`](/de/docs/Web/API/HTMLButtonElement)-Interfaces setzt und erhält die Aktion, die auf einem Element ausgeführt werden soll, das durch diesen Button gesteuert wird. Damit dies Wirkung zeigt, muss [`commandfor`](/de/docs/Web/HTML/Reference/Elements/button#commandfor) gesetzt sein.
 
-Sie spiegelt das [`command`](/de/docs/Web/HTML/Element/button#command)-HTML-Attribut wider.
+Sie spiegelt das [`command`](/de/docs/Web/HTML/Reference/Elements/button#command)-HTML-Attribut wider.
 
 ## Wert
 
-Ein String. Siehe das [`command`](/de/docs/Web/HTML/Element/button#command)-Attribut für gültige Werte.
+Ein String. Siehe das [`command`](/de/docs/Web/HTML/Reference/Elements/button#command)-Attribut für gültige Werte.
 
 ## Beispiele
 
@@ -37,7 +37,7 @@ const toggleBtn = document.getElementById("toggleBtn");
 toggleBtn.command = "show-popover";
 ```
 
-### Benutzerdefiniertes Beispiel mit Events
+### Benutzerdefiniertes Beispiel unter Verwendung von Ereignissen
 
 ```html
 <button commandfor="the-image" command="--rotate-left">Rotate Left</button>

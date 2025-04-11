@@ -2,17 +2,17 @@
 title: 414 URI Too Long
 slug: Web/HTTP/Reference/Status/414
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{HTTPSidebar}}
 
-Der HTTP-Statuscode **`414 URI Too Long`** [Client-Fehlerantwort](/de/docs/Web/HTTP/Reference/Status#client_error_responses) zeigt an, dass ein vom Client angefordertes URI länger ist, als der Server bereit ist zu interpretieren.
+Der HTTP-Statuscode **`414 URI Too Long`** [Client-Fehlerantwort](/de/docs/Web/HTTP/Reference/Status#client_error_responses) zeigt an, dass eine vom Client angeforderte URI länger war, als der Server bereit ist zu interpretieren.
 
-Es gibt einige seltene Bedingungen, unter denen dieser Fehler auftreten könnte:
+Es gibt einige seltene Bedingungen, unter denen dieser Fehler auftreten kann:
 
 - ein Client hat eine {{HTTPMethod("POST")}}-Anfrage unsachgemäß in eine {{HTTPMethod("GET")}}-Anfrage mit langen Abfrageinformationen umgewandelt,
-- ein Client hat sich in eine Umleitungsschleife begeben (zum Beispiel ein umgeleiteter URI-Präfix, der auf ein Suffix von sich selbst zeigt), oder
+- ein Client ist in eine Umleitungsschleife geraten (zum Beispiel, ein umgeleiteter URI-Präfix, der auf einen Suffix von sich selbst zeigt), oder
 - der Server wird von einem Client angegriffen, der versucht, potenzielle Sicherheitslücken auszunutzen.
 
 Einige Systeme implementieren `414 URI Too Long` als `414 Request-URI Too Large`.
@@ -27,7 +27,7 @@ Einige Systeme implementieren `414 URI Too Long` als `414 Request-URI Too Large`
 
 ### Formularübermittlung mit GET
 
-Im folgenden Beispiel verwendet ein HTML-[`<form>`-Element](/de/docs/Web/HTML/Element/form#method) versehentlich `get` statt `post`.
+Im folgenden Beispiel verwendet ein HTML-[`<form>`-Method](/de/docs/Web/HTML/Reference/Elements/form#method) versehentlich `get` anstelle von `post`.
 Eine große Menge an Formulardaten wird an die im `action`-Attribut des Formulars angegebene URL angehängt und als GET-Anfrage gesendet:
 
 ```http
@@ -35,7 +35,7 @@ GET /search?feedback=it+was+the+best+of+times+it+was+the+worst+of+times… HTTP/
 Host: example.com
 ```
 
-Das spezifische URI-Längenlimit des Servers wird mit dieser Anfrage erreicht, und es wird ein 414 als Antwort gesendet:
+Das URI-Längenlimit dieses bestimmten Servers wird mit dieser Anfrage erreicht und es wird eine 414 als Antwort gesendet:
 
 ```http
 HTTP/1.1 414 URI Too Long

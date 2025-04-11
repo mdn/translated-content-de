@@ -2,178 +2,178 @@
 title: Sicherheit im Web
 slug: Web/Security
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
-Websites enthalten verschiedene Arten von Informationen. Einige davon sind nicht sensibel, wie zum Beispiel der Text, der auf öffentlichen Seiten angezeigt wird. Andere Informationen sind sensibel, wie zum Beispiel Benutzernamen, Passwörter und Bankinformationen von Kunden oder interne Algorithmen und private Produktinformationen.
+Websites enthalten verschiedene Arten von Informationen. Einige davon sind nicht sensibel, wie beispielsweise der Text, der auf öffentlichen Seiten gezeigt wird. Andere hingegen sind sensibel, wie zum Beispiel Benutzernamen, Passwörter und Bankinformationen von Kunden oder interne Algorithmen und vertrauliche Produktinformationen.
 
-Sensibile Informationen müssen geschützt werden, und das ist der Fokus der Websicherheit. Wenn diese Informationen in die falschen Hände geraten würden, könnten sie verwendet werden, um:
+Sensible Informationen müssen geschützt werden, und das ist der Schwerpunkt der Web-Sicherheit. Wenn diese Informationen in die falschen Hände geraten, könnten sie verwendet werden, um:
 
-- Unternehmen durch die Weitergabe ihrer Informationen an Wettbewerber einen wettbewerblichen Nachteil zu verschaffen.
-- Ihre Dienste zu deaktivieren oder zu kapern, was erneut ernste Probleme mit ihrem Betrieb verursacht.
-- Die [Privatsphäre](/de/docs/Web/Privacy) ihrer Kunden zu gefährden, wodurch sie anfällig für Profiling, zielgerichtete Angriffe, Datenverluste, Identitätsdiebstahl oder sogar finanziellen Verlust werden.
+- Unternehmen einen Wettbewerbsnachteil zu verschaffen, indem ihre Informationen mit Konkurrenten geteilt werden.
+- Ihre Dienste lahmzulegen oder zu kapern und somit ernsthafte Probleme in ihrem Betrieb zu verursachen.
+- Die [Privatsphäre](/de/docs/Web/Privacy) ihrer Kunden zu gefährden, wodurch diese anfällig für Profilbildung, gezielte Angriffe, Datenverlust, Identitätsdiebstahl oder sogar finanzielle Verluste werden.
 
-Moderne Browser bieten bereits mehrere Funktionen, um die Sicherheit der Benutzer im Web zu schützen, aber Entwickler müssen auch Best Practices befolgen und sorgfältig programmieren, um sicherzustellen, dass ihre Websites sicher sind. Sogar einfache Fehler im Code können zu Schwachstellen führen, die von böswilligen Akteuren ausgenutzt werden können, um Daten zu stehlen oder unbefugte Kontrolle über Dienste zu erlangen.
+Moderne Browser verfügen bereits über mehrere Funktionen, um die Sicherheit der Nutzer im Web zu schützen. Entwickler müssen jedoch auch bewährte Verfahren anwenden und sorgfältig programmieren, um sicherzustellen, dass ihre Websites sicher sind. Sogar einfache Fehler im Code können Schwachstellen verursachen, die von böswilligen Akteuren ausgenutzt werden könnten, um Daten zu stehlen und unbefugten Zugriff auf Dienste zu erlangen.
 
-Dieser Artikel bietet eine Einführung in die Websicherheit, einschließlich konzeptioneller Informationen, die Ihnen helfen, Schwachstellen von Websites zu verstehen, sowie praktischer Leitfäden zur Sicherung dieser.
+Dieser Artikel bietet eine Einführung in die Web-Sicherheit, einschließlich konzeptioneller Informationen, die Ihnen helfen, die Anfälligkeiten von Websites zu verstehen, sowie praktischer Leitfäden zur Sicherung dieser.
 
-## Beziehungen zwischen Sicherheit und Privatsphäre
+## Beziehung zwischen Sicherheit und Privatsphäre
 
-Sicherheit und Privatsphäre sind unterschiedliche, aber eng verwandte Themen. Es lohnt sich, die Unterschiede zwischen den beiden zu kennen und zu verstehen, wie sie zusammenhängen.
+Sicherheit und Privatsphäre sind unterschiedliche, aber eng miteinander verbundene Themen. Es lohnt sich, die Unterschiede zwischen den beiden zu kennen und zu verstehen, wie sie zusammenhängen.
 
-- **Sicherheit** bedeutet, private Daten und Systeme vor unbefugtem Zugriff zu schützen. Dies umfasst sowohl Unternehmensdaten (intern) als auch Benutzerdaten und Partnerdaten (extern).
+- **Sicherheit** ist der Akt, private Daten und Systeme vor unbefugtem Zugriff zu schützen. Dazu gehören sowohl unternehmensinterne (interne) Daten als auch Nutzer- und Partnerdaten (externe).
 
-- **Privatsphäre** bezieht sich darauf, den Benutzern die Kontrolle darüber zu geben, wie ihre Daten gesammelt, gespeichert und verwendet werden, und sicherzustellen, dass sie nicht unverantwortlich verwendet werden. Beispielsweise sollten Sie Ihren Benutzern mitteilen, welche Daten Sie von ihnen sammeln, mit welchen Parteien sie geteilt werden und wie sie verwendet werden. Benutzer müssen die Möglichkeit haben, Ihrer Datenschutzrichtlinie zuzustimmen, Zugang zu ihren gespeicherten Daten zu haben und diese bei Bedarf zu löschen.
+- **Privatsphäre** bezieht sich darauf, den Nutzern die Kontrolle darüber zu geben, wie ihre Daten erfasst, gespeichert und verwendet werden, während es gleichzeitig sichergestellt wird, dass sie nicht unangemessen verwendet werden. Zum Beispiel sollten Sie Ihre Nutzer darüber informieren, welche Daten Sie von ihnen sammeln, mit welchen Parteien diese geteilt werden und wie sie verwendet werden. Den Nutzern muss die Möglichkeit gegeben werden, Ihrer Datenschutzerklärung zuzustimmen, Zugriff auf die von Ihnen gespeicherten Daten zu erhalten und diese, falls gewünscht, zu löschen.
 
-Gute Sicherheit ist entscheidend für gute Privatsphäre. Sie könnten alle Ratschläge in unserem [Leitfaden zur Privatsphäre im Web](/de/docs/Web/Privacy) befolgen, aber auch das Handeln mit Integrität und das Vorhandensein einer robusten Datenschutzrichtlinie sind nutzlos, wenn Ihre Website nicht sicher ist und Angreifer dennoch Daten stehlen können.
+Eine gute Sicherheit ist essenziell für eine gute Privatsphäre. Sie könnten allen Rat aus unserem [Privatsphäre im Web](/de/docs/Web/Privacy)-Leitfaden befolgen, aber Integrität walten zu lassen und eine robuste Datenschutzrichtlinie zu haben, ist sinnlos, wenn Ihre Seite nicht sicher ist und Angreifer die Daten dennoch stehlen können.
 
-## Sicherheitsfunktionen, die von Browsern bereitgestellt werden
+## Von Browsern bereitgestellte Sicherheitsfunktionen
 
-Webbrowser folgen einem strikten Sicherheitsmodell, das starke Sicherheit für Inhalte, Verbindungen zwischen dem Browser und dem Server und die Datenübertragung erzwingt. Dieser Abschnitt befasst sich mit den Funktionen, die diesem Modell zugrunde liegen.
+Webbrowser folgen einem strengen Sicherheitsmodell, das starke Sicherheit für Inhalte, Verbindungen zwischen dem Browser und dem Server sowie für die Datenübertragung durchsetzt. Dieser Abschnitt betrachtet die Funktionen, die dieses Modell untermauern.
 
 ### Same-Origin-Policy und CORS
 
-Die [Same-Origin-Policy](/de/docs/Web/Security/Same-origin_policy) ist ein grundlegender Sicherheitsmechanismus des Webs, der einschränkt, wie ein Dokument oder ein Skript, das von einem {{Glossary("origin", "Ursprung")}} geladen wird, mit einer Ressource eines anderen Ursprungs interagieren kann. Sie hilft, möglicherweise schädliche Dokumente zu isolieren und reduziert mögliche Angriffspunkte.
+Die [Same-Origin-Policy](/de/docs/Web/Security/Same-origin_policy) ist ein fundamentales Sicherheitsmechanismus des Webs, das einschränkt, wie ein Dokument oder Skript, das von einem {{Glossary("origin", "Ursprung")}} geladen wurde, mit einer Ressource von einem anderen Ursprung interagieren kann. Sie hilft, potenziell bösartige Dokumente zu isolieren und mögliche Angriffsvektoren zu reduzieren.
 
-Im Allgemeinen können Dokumente von einem Ursprung keine Anfragen an andere Ursprünge stellen. Dies ist sinnvoll, denn Sie möchten nicht, dass Websites miteinander in Konflikt geraten und unbefugten Zugriff auf Daten erhalten.
+Im Allgemeinen können Dokumente von einem Ursprung keine Anfragen an andere Ursprünge senden. Dies ist sinnvoll, da Sie nicht möchten, dass Seiten in der Lage sind, gegenseitig zu stören und unautorisierte Daten zuzugreifen.
 
-Es kann jedoch Situationen geben, in denen Sie diese Einschränkung lockern möchten; Beispielsweise, wenn Sie mehrere Websites haben, die miteinander interagieren, können Sie ihnen erlauben, Ressourcen voneinander anzufordern, indem Sie [`fetch()`](/de/docs/Web/API/Window/fetch) verwenden. Dies kann durch [Cross-Origin Resource Sharing (CORS)](/de/docs/Web/HTTP/Guides/CORS) ermöglicht werden, einem mechanismenbasierten HTTP-Header, der es einem Server ermöglicht, beliebige Ursprünge (Domäne, Schema oder Port) als andere als seine eigenen anzugeben, von denen ein Browser das Laden von Ressourcen zulassen sollte.
+Jedoch könnte es in einigen Fällen sinnvoll sein, diese Einschränkung zu lockern; zum Beispiel wenn Sie mehrere Websites haben, die miteinander interagieren, könnten Sie es ihnen erlauben, Ressourcen voneinander anzufordern, indem Sie [`fetch()`](/de/docs/Web/API/Window/fetch) verwenden. Dies kann durch [Cross-Origin Resource Sharing (CORS)](/de/docs/Web/HTTP/Guides/CORS) gestattet werden, einen auf HTTP-Headern basierenden Mechanismus, der einem Server erlaubt anzugeben, von welchen Ursprüngen (Domain, Schema oder Port) ein Browser Ressourcen laden darf.
 
 ### HTTP-Modell für die Kommunikation
 
-Das [HTTP](/de/docs/Web/HTTP)-Protokoll wird von Webbrowsern und Servern genutzt, um miteinander zu kommunizieren, Ressourcen anzufordern, Antworten bereitzustellen (zum Beispiel eine angeforderte Ressource oder warum eine Anforderung fehlgeschlagen ist) und Sicherheitsfunktionen für diese Kommunikation bereitzustellen.
+Das [HTTP](/de/docs/Web/HTTP) Protokoll wird von Webbrowsern und Servern verwendet, um miteinander zu kommunizieren, Ressourcen anzufordern, Antworten zu liefern (zum Beispiel eine angeforderte Ressource oder darzulegen, warum eine Anforderung gescheitert ist) und Sicherheitsfunktionen für diese Kommunikation bereitzustellen.
 
-Transport Layer Security (TLS) bietet Sicherheit und Privatsphäre, indem es Daten während des Transports über das Netzwerk verschlüsselt und ist die Technologie hinter dem {{Glossary("HTTPS", "HTTPS")}}-Protokoll. TLS ist gut für die Privatsphäre, da es Dritte daran hindert, übermittelte Daten abzufangen und sie missbräuchlich zu verwenden.
+Transport Layer Security (TLS) bietet Sicherheit und Privatsphäre, indem es Daten beim Transport über das Netzwerk verschlüsselt und ist die Technologie hinter dem {{Glossary("HTTPS", "HTTPS")}} Protokoll. TLS ist gut für die Privatsphäre, da es Dritten untersagt, übermittelte Daten abzufangen und missbräuchlich zu verwenden.
 
-Alle Browser bewegen sich in Richtung einer standardmäßigen Anforderung von HTTPS; dies ist praktisch bereits der Fall, da Sie ohne dieses Protokoll kaum etwas im Web tun können.
+Alle Browser bewegen sich in Richtung der Standard-Anforderung von HTTPS; dies ist praktisch schon der Fall, da Sie im Web nicht viel ohne dieses Protokoll tun können.
 
 Verwandte Themen:
 
 - [Transport Layer Security](/de/docs/Web/Security/Transport_Layer_Security) (TLS)
-  - : Das TLS-Protokoll ist der Standard für die sichere und zuverlässige Übertragung von Informationen zwischen zwei vernetzten Anwendungen oder Geräten. Anwendungen, die TLS nutzen, können ihre Sicherheitsparameter wählen, die einen erheblichen Einfluss auf die Sicherheit und Zuverlässigkeit der Daten haben können.
+  - : Das TLS-Protokoll ist der Standard für die Aktivierung von sicheren und robusten Informationsaustauschen zwischen zwei vernetzten Anwendungen oder Geräten. Anwendungen, die TLS verwenden, können ihre Sicherheitsparameter wählen, was erhebliche Auswirkungen auf die Sicherheit und Zuverlässigkeit der Daten haben kann.
 - [HTTP Strict-Transport-Security](/de/docs/Web/HTTP/Reference/Headers/Strict-Transport-Security)
-  - : Der `Strict-Transport-Security` [HTTP](/de/docs/Web/HTTP)-Header ermöglicht es einer Website, anzugeben, dass sie nur mit HTTPS erreichbar sein darf.
+  - : Der `Strict-Transport-Security` [HTTP](/de/docs/Web/HTTP)-Header ermöglicht es einer Website anzugeben, dass sie nur über HTTPS aufgerufen werden darf.
 - [Certificate Transparency](/de/docs/Web/Security/Certificate_Transparency)
-  - : Certificate Transparency (CT) ist ein offenes Framework, das dazu entwickelt wurde, gegen unrechtmäßige Ausstellung von Zertifikaten zu schützen und diese zu überwachen. Neu ausgestellte Zertifikate werden in öffentlich betriebenen, oft unabhängigen CT-Protokollen protokolliert. Diese bieten nur anhängbare, kryptografisch gesicherte Aufzeichnungen von ausgestellten TLS-Zertifikaten.
+  - : Certificate Transparency (CT) ist ein offener Rahmen, der dazu konzipiert ist, gegen Fehlzertifizierung zu schützen und diese zu überwachen. Neu ausgestellte Zertifikate werden in häufig unabhängig betriebenen, öffentlichen CT-Logs 'geloggt'. Diese Log-Files bieten append-only, kryptografisch abgesicherte Aufzeichnungen über ausgestellte TLS-Zertifikate.
 - [Mixed Content](/de/docs/Web/Security/Mixed_content)
-  - : Eine HTTPS-Seite, die Inhalte enthält, die unter Verwendung von {{Glossary("Plaintext", "Klartext")}} HTTP abgerufen wurden, wird als **Mixed Content**-Seite bezeichnet. Solche Seiten sind nur teilweise verschlüsselt, was den unverschlüsselten Inhalt für Lauschangriffe und Man-in-the-Middle-Angreifer zugänglich macht.
+  - : Eine HTTPS-Seite, die Inhalte enthält, die über {{Glossary("Plaintext", "Klartext")}} HTTP abgerufen werden, wird als **Mixed Content**-Seite bezeichnet. Solche Seiten sind nur teilweise verschlüsselt, wodurch der unverschlüsselte Inhalt für Sniffer und Man-in-the-Middle-Angreifer zugänglich bleibt.
 - [Schwache Signaturalgorithmen](/de/docs/Web/Security/Weak_Signature_Algorithm)
-  - : Die Stärke des Hash-Algorithmus, der bei der {{Glossary("Signature/Security", "Signierung")}} eines {{Glossary("digital_certificate", "digitalen Zertifikats")}} verwendet wird, ist ein kritisches Element für dessen Sicherheit. Einige Signaturalgorithmen sind als schwach bekannt und sollten vermieden werden, wenn dies angebracht ist.
+  - : Die Stärke des Hash-Algorithmus, der zur Signierung eines {{Glossary("digital_certificate", "digitalen Zertifikats")}} verwendet wird, ist ein entscheidendes Element der Sicherheit des Zertifikats. Einige Signaturalgorithmen sind bekannt dafür, schwach zu sein und sollten, sofern angebracht, vermieden werden.
 
-### Sichere Kontexte und Funktionsberechtigungen
+### Sichere Kontexte und Feature-Berechtigungen
 
-Browser kontrollieren die Nutzung von "leistungsstarken Funktionen" auf verschiedene Weise. Diese "leistungsstarken Funktionen" umfassen das Generieren von Systembenachrichtigungen auf einer Website, die Nutzung der Webcam eines Benutzers zum Zugang zu einem Medienstream, die Manipulation der System-GPU und das Verwenden von Webzahlungen. Wenn ein Website einfach die APIs, die solche Funktionen kontrollieren, ohne jede Einschränkung nutzen könnte, könnten böswillige Entwickler versuchen, folgendes zu tun:
+Browser steuern die Nutzung von "leistungsstarken Funktionen" auf verschiedene Arten. Diese "leistungsstarken Funktionen" umfassen die Erzeugung von Systembenachrichtigungen auf einer Website, die Nutzung der Webcam eines Nutzers zur Erlangung eines Medienstreams, die Manipulation der System-GPU und die Nutzung von Web-Zahlungen. Könnte eine Seite die APIs, die solche Funktionen steuern, einfach ohne Einschränkung nutzen, könnten bösartige Entwickler versuchen, folgendes zu tun:
 
-- Benutzer mit unnötigen Benachrichtigungen und anderen UI-Funktionen zu belästigen.
-- Ihre Webcam einzuschalten, ohne Vorwarnung, um sie auszuspionieren.
-- Ihren Browser / Ihr System zu überlasten, um {{Glossary("denial_of_service", "Denial-of-Service")}} (DoS)-Angriffe zu erzeugen.
+- Nutzer mit unnötigen Benachrichtigungen und anderen UI-Funktionen zu belästigen.
+- Ihre Webcam ohne Warnung einzuschalten, um sie auszuspionieren.
+- Ihren Browser/Ihr System zu überlasten, um {{Glossary("denial_of_service", "Denial of Service")}} (DoS)-Angriffe zu erzeugen.
 - Daten oder Geld zu stehlen.
 
 Diese "leistungsstarken Funktionen" werden auf folgende Weise kontrolliert:
 
-- Die Nutzung solcher Funktionen ist nur in [sicheren Kontexte](/de/docs/Web/Security/Secure_Contexts) gestattet. Ein sicherer Kontext ist ein [`window`](/de/docs/Web/API/Window) oder ein [`worker`](/de/docs/Web/API/WorkerGlobalScope), bei dem mit hinreichender Sicherheit davon ausgegangen wird, dass die Inhalte sicher (über HTTPS/TLS) bereitgestellt wurden. In einem sicheren Kontext gibt es nur begrenzte Möglichkeiten zur Kommunikation mit Kontexten, die **nicht** sicher sind. Sichere Kontexte helfen auch dabei, [Man-in-the-Middle-Angreifer](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) daran zu hindern, auf leistungsstarke Funktionen zuzugreifen.
+- Die Nutzung solcher Funktionen ist nur in [sicheren Kontexten](/de/docs/Web/Security/Secure_Contexts) gestattet. Ein sicherer Kontext ist ein [`window`](/de/docs/Web/API/Window) oder ein [`worker`](/de/docs/Web/API/WorkerGlobalScope), für den es ein vernünftiges Vertrauen gibt, dass die Inhalte sicher (über HTTPS/TLS) bereitgestellt wurden. In einem sicheren Kontext ist das Potenzial für Kommunikation mit Kontexten, die **nicht** sicher sind, begrenzt. Sichere Kontexte tragen auch dazu bei, zu verhindern, dass [Man-in-the-Middle-Angreifer](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) auf leistungsstarke Features zugreifen können.
 
-  Für eine Liste von Web-Plattform-Funktionen, die nur in sicheren Kontexten verfügbar sind, siehe [Funktionen, die auf sichere Kontexte beschränkt sind](/de/docs/Web/Security/Secure_Contexts/features_restricted_to_secure_contexts).
+  Um eine Liste von Web-Features zu sehen, die nur in sicheren Kontexten verfügbar sind, lesen Sie [Features restricted to secure contexts](/de/docs/Web/Security/Secure_Contexts/features_restricted_to_secure_contexts).
 
-- Die Nutzung dieser Funktionen erfordert ein System von Benutzerberechtigungen: Benutzer müssen ausdrücklich zustimmen, Zugriff auf solche Funktionen zu gewähren, was bedeutet, dass sie nicht automatisch genutzt werden können. Berechtigungsanfragen zur Erteilung geschehen automatisch, und Sie können den Status einer API-Berechtigung mittels der [Permissions API](/de/docs/Web/API/Permissions_API) abfragen.
+- Die Nutzung dieser Funktionen ist hinter einem System von Benutzerberechtigungen geschützt: Benutzer müssen explizit zustimmen, Zugang zu solchen Funktionen zu gewähren, was bedeutet, dass sie nicht automatisch verwendet werden können. Benutzerberechtigungen-Anfragen passieren automatisch, und Sie können den Status einer API-Berechtigung mit der [Permissions API](/de/docs/Web/API/Permissions_API) abfragen.
 
-- Mehrere andere Browser-Funktionen können nur in Reaktion auf eine Benutzeraktion, zum Beispiel einem Klick auf einen Button, verwendet werden, das heißt, sie müssen aus einem geeigneten Ereignishandler aufgerufen werden. Dies wird **transiente Aktivierung** genannt. Siehe [Funktionen, die eine Benutzeraktivierung erfordern](/de/docs/Web/Security/User_activation) für weitere Informationen.
+- Mehrere andere Browser-Funktionen können nur als Reaktion auf eine Benutzeraktion wie das Drücken eines Knopfes genutzt werden, was bedeutet, dass sie von einem angemessenen Ereignishandler aufgerufen werden müssen. Dies wird als **transiente Aktivierung** bezeichnet. Für weitere Informationen siehe [Features, die durch Benutzeraktivierung eingeschränkt werden](/de/docs/Web/Security/User_activation).
 
-## Sicherheitsbetrachtungen auf hoher Ebene
+## Hochrangige Sicherheitsüberlegungen
 
-Es gibt viele Aspekte der Websicherheit, die sowohl auf der Server- als auch auf der Clientseite bedacht werden müssen. Dieser Abschnitt konzentriert sich hauptsächlich auf clientseitige Sicherheitsbetrachtungen. Einen nützlichen Überblick über die Sicherheit aus einer serverseitigen Perspektive, der auch Beschreibungen häufiger Angriffe beinhaltet, auf die Sie achten sollten, finden Sie unter [Website-Sicherheit](/de/docs/Learn_web_development/Extensions/Server-side/First_steps/Website_security) (Teil unseres [Lernmoduls zur Programmierung von serverseitigen Websites](/de/docs/Learn_web_development/Extensions/Server-side)).
+Es gibt viele Aspekte der Web-Sicherheit, über die sowohl auf Server- als auch auf Client-Seite nachgedacht werden muss. Dieser Abschnitt konzentriert sich hauptsächlich auf Sicherheitsüberlegungen auf der Client-Seite. Sie finden eine nützliche Zusammenfassung der Sicherheit aus einer Server-Perspektive, die auch Beschreibungen von häufigen Angriffen enthält, auf die man achten sollte, unter [Sicherheit von Websites](/de/docs/Learn_web_development/Extensions/Server-side/First_steps/Website_security) (Teil unseres [Serverseitige Webprogrammierung](/de/docs/Learn_web_development/Extensions/Server-side) Lernmoduls).
 
-### Verantwortungsbewusstes Speichern von clientseitigen Daten
+### Verantwortungsvolle Speicherung von daten auf der Client-Seite
 
-Der verantwortungsvolle Umgang mit Daten bezieht sich größtenteils auf die Reduzierung der Verwendung von [Drittanbieter-Cookies](/de/docs/Web/Privacy/Guides/Third-party_cookies) und die Achtsamkeit bezüglich der Daten, die Sie speichern und mit diesen teilen. Traditionell haben Webentwickler Cookies verwendet, um alle Arten von Daten zu speichern, und es war für Angreifer einfach, diese Tendenz auszunutzen. Daher haben Browser begonnen einzuschränken, was Sie mit domainsübergreifenden Cookies tun können, mit dem Ziel, den Zugriff auf sie in Zukunft ganz zu entfernen.
+Verantwortungsvoller Umgang mit Daten betrifft hauptsächlich die Beschränkung der Verwendung von [Drittanbieter-Cookies](/de/docs/Web/Privacy/Guides/Third-party_cookies) und die Vorsicht bei den Daten, die Sie speichern und weitergeben. Traditionell haben Webentwickler Cookies verwendet, um alle möglichen Daten zu speichern, und es war einfach für Angreifer, diese Angewohnheit auszunutzen. Infolgedessen haben Browser begonnen, zu beschränken, was Sie mit seitenübergreifenden Cookies tun können, mit dem Ziel, den Zugriff darauf insgesamt in der Zukunft zu entfernen.
 
-Sie sollten sich auf die Entfernung von domainsübergreifenden Cookies vorbereiten, indem Sie die Anzahl der Tracking-Aktivitäten, auf die Sie sich verlassen, begrenzen und/oder die Persistenz der gewünschten Informationen auf andere Weise implementieren. Siehe [Übergang von Drittanbieter-Cookies](/de/docs/Web/Privacy/Guides/Third-party_cookies#transitioning_from_third-party_cookies) und [Ersatz von Drittanbieter-Cookies](/de/docs/Web/Privacy/Guides/Third-party_cookies#replacing_third-party_cookies) für weitere Informationen.
+Sie sollten sich auf die Entfernung von seitenübergreifenden Cookies vorbereiten, indem Sie die Menge der Tracking-Aktivitäten beschränken, auf die Sie sich verlassen, und/oder durch Implementierung der Persistenz der gewünschten Informationen auf anderen Wegen. Siehe [Übergang weg von Drittanbieter-Cookies](/de/docs/Web/Privacy/Guides/Third-party_cookies#transitioning_from_third-party_cookies) und [Verschiebung von Drittanbieter-Cookies](/de/docs/Web/Privacy/Guides/Third-party_cookies#replacing_third-party_cookies) für mehr Informationen.
 
-### Benutzeridentität schützen und Logins verwalten
+### Schutz von Benutzeridentität und Verwaltung von Logins
 
-Wenn Sie eine sichere Lösung implementieren, die Datenerfassung beinhaltet, insbesondere wenn die Daten sensibel sind wie Anmeldedaten, ist es sinnvoll, eine renommierte Lösung zu verwenden. Zum Beispiel hat jedes respektable serverseitige Framework eingebaute Funktionen, um vor gängigen Schwachstellen zu schützen. Sie könnten auch in Erwägung ziehen, ein spezialisiertes Produkt für Ihren Zweck zu nutzen, zum Beispiel eine Identitätsanbieter-Lösung oder einen sicheren Online-Umfrageanbieter.
+Beim Implementieren einer sicheren Lösung, die Datenerhebung beinhaltet, insbesondere wenn es sich um sensible Daten wie Login-Daten handelt, ist es sinnvoll, eine seriöse Lösung zu verwenden. Zum Beispiel hat jedes respektable serverseitige Framework eingebaute Funktionen, um gegen gängige Sicherheitslücken zu schützen. Sie könnten auch erwägen, ein spezialisiertes Produkt für Ihren Zweck zu verwenden, zum Beispiel eine Identity-Provider-Lösungen oder ein sicherer Online-Umfrageanbieter.
 
-Wenn Sie eine eigene Lösung zum Sammeln von Benutzerdaten erstellen möchten, stellen Sie sicher, dass Sie alle Aspekte und Anforderungen verstehen. Engagieren Sie einen erfahrenen serverseitigen Entwickler und/oder Sicherheitsingenieur, um das System zu implementieren, und stellen Sie sicher, dass es gründlich getestet wird. Nutzen Sie Multi-Faktor-Authentifizierung (MFA) für besseren Schutz. Erwägen Sie die Verwendung einer dedizierten API wie [Web Authentication](/de/docs/Web/API/Web_Authentication_API) oder [Federated Credential Management](/de/docs/Web/API/FedCM_API), um die clientseitige App zu optimieren.
+Wenn Sie Ihre eigene Lösung für die Erfassung von Benutzerdaten entwickeln möchten, stellen Sie sicher, dass Sie alle Aspekte und Anforderungen verstehen. Beauftragen Sie einen erfahrenen Server-seitigen Entwickler und/oder Sicherheitstechniker zur Implementierung des Systems und stellen Sie sicher, dass es gründlich getestet wird. Verwenden Sie Mehrfaktor-Authentifizierung (MFA) für besseren Schutz. Erwägen Sie die Nutzung einer dedizierten API, wie zum Beispiel [Web Authentication](/de/docs/Web/API/Web_Authentication_API) oder [Federated Credential Management](/de/docs/Web/API/FedCM_API), um den Client-Teil der App zu optimieren.
 
-Hier sind einige weitere Tipps für sichere Logins:
+Hier sind einige weitere Tipps für die Bereitstellung sicherer Logins:
 
-- Beim Sammeln von Benutzeranmeldeinformationen, erzwingen Sie starke Passwörter, damit die Kontodaten Ihrer Benutzer nicht einfach erraten werden können. Schwache Passwörter sind einer der Hauptursachen für Sicherheitsverstöße. Darüber hinaus ermutigen Sie Ihre Benutzer, einen Passwort-Manager zu verwenden, damit sie komplexere Passwörter verwenden können, sich keine Sorgen um das Erinnern machen müssen und kein Sicherheitsrisiko durch das Aufschreiben der Passwörter entsteht. Siehe auch unseren Artikel über [Unsichere Passwörter](/de/docs/Web/Security/Insecure_passwords).
-- Sie sollten Ihre Benutzer auch über **Phishing** aufklären. Phishing ist der Vorgang, eine Nachricht an einen Benutzer zu senden (zum Beispiel eine E-Mail oder eine SMS), die einen Link zu einer Website enthält, die wie eine Website aussieht, die sie täglich verwenden, es aber nicht ist. Der Link ist begleitet von einer Nachricht, die darauf abzielt, Benutzer zu täuschen, sodass sie ihren Benutzernamen und ihr Passwort auf der Seite eingeben, damit es gestohlen und dann von einem Angreifer für böswillige Zwecke verwendet werden kann.
+- Beim Sammeln von Benutzer-Login-Informationen, erzwingen Sie starke Passwörter, damit die Kontodetails Ihrer Benutzer nicht einfach erraten werden können. Schwache Passwörter sind eine der Hauptursachen von Sicherheitsverletzungen. Darüber hinaus ermutigen Sie Ihre Benutzer, einen Passwort-Manager zu verwenden, damit sie komplexere Passwörter nutzen können, sich keine Sorgen machen müssen, sie sich zu merken und kein Sicherheitsrisiko schaffen, indem sie sie aufschreiben. Siehe auch unseren Artikel über [Unsichere Passwörter](/de/docs/Web/Security/Insecure_passwords).
+- Sie sollten Ihre Benutzer auch über **Phishing** aufklären. Phishing ist der Akt, einem Nutzer eine Nachricht zu senden (zum Beispiel eine E-Mail oder eine SMS), die einen Link zu einer Seite enthält, die wie eine Seite aussieht, die sie täglich verwenden, es aber nicht ist. Der Link wird von einer Nachricht begleitet, die darauf abzielt, Nutzer dazu zu bringen, ihren Benutzernamen und ihr Passwort auf der Seite einzugeben, damit es gestohlen werden kann und dann von einem Angreifer für böswillige Zwecke verwendet werden kann.
 
   > [!NOTE]
-  > Einige Phishing-Seiten können sehr raffiniert sein und schwer von einer echten Website zu unterscheiden sein. Sie sollten daher Ihre Benutzer aufklären, zufälligen Links in E-Mails und SMS-Nachrichten nicht zu vertrauen. Wenn sie eine Nachricht erhalten, die in etwa lautet "Dringend, Sie müssen sich jetzt anmelden, um ein Problem zu lösen", sollten sie direkt in einem neuen Tab zur Website gehen und versuchen, sich direkt anzumelden, anstatt auf den Link in der Nachricht zu klicken. Oder sie könnten Sie telefonisch oder per E-Mail kontaktieren, um über die empfangene Nachricht zu sprechen.
+  > Einige Phishing-Seiten können sehr ausgeklügelt und schwer von einer echten Website zu unterscheiden sein. Daher sollten Sie Ihre Benutzer dazu erziehen, zufälligen Links in E-Mails und SMS-Nachrichten nicht zu vertrauen. Wenn sie eine Nachricht in dem Sinne von "Dringend, Sie müssen sich jetzt einloggen, um ein Problem zu lösen" erhalten, sollten sie zur Seite direkt in einem neuen Tab gehen und versuchen, sich direkt einzuloggen, anstatt den Link in der Nachricht zu klicken. Oder sie könnten Sie anrufen oder per E-Mail kontaktieren, um die erhaltene Nachricht zu besprechen.
 
-- Schützen Sie vor Brute-Force-Angriffen auf Anmeldeseiten durch {{Glossary("rate_limit", "Ratenbegrenzung")}}, Kontosperrungen nach einer bestimmten Anzahl erfolgloser Versuche und [CAPTCHA-Herausforderungen](https://en.wikipedia.org/wiki/CAPTCHA).
-- Verwalten Sie Benutzersitzungen mit eindeutigen [Sitzungs-IDs](https://en.wikipedia.org/wiki/Session_ID) und melden Sie Benutzer automatisch ab, nachdem sie längere Zeit inaktiv waren.
+- Schützen Sie sich gegen Brute-Force-Angriffe auf Login-Seiten mit {{Glossary("rate_limit", "Rate-Limiting")}}, Sperrung des Kontos nach einer bestimmten Anzahl von erfolglosen Versuchen und [CAPTCHA-Herausforderungen](https://en.wikipedia.org/wiki/CAPTCHA).
+- Verwalten Sie Benutzer-Login-Sitzungen mit einzigartigen [Session-IDs](https://en.wikipedia.org/wiki/Session_ID) und loggen Sie Benutzer nach Zeiten von Inaktivität automatisch aus.
 
-### Keine sensiblen Daten in URL-Query-Strings einfügen
+### Sensible Daten nicht in URL-Query-Strings einfügen
 
-Als allgemeine Regel sollten Sie [keine sensiblen Daten in URL-Query-Strings einfügen](https://owasp.org/www-community/vulnerabilities/Information_exposure_through_query_strings_in_url), denn wenn eine dritte Partei die URL abfängt (zum Beispiel über den {{httpheader("Referer")}} HTTP-Header), könnten diese Informationen gestohlen werden. Noch ernster ist die Tatsache, dass diese URLs von öffentlichen Webcrawlern, HTTP-Proxies und Archivierungs-Tools wie dem [Internet-Archiv](https://web.archive.org/) indexiert werden können, was bedeutet, dass Ihre sensiblen Daten auf öffentlich zugänglichen Ressourcen bestehen könnten.
+Als generelle Regel sollten Sie [sensible Daten nicht in URL-Query-Strings einfügen](https://owasp.org/www-community/vulnerabilities/Information_exposure_through_query_strings_in_url), da falls ein Dritter die URL abfängt (zum Beispiel über den {{httpheader("Referer")}} HTTP-Header), er diese Informationen stehlen könnte. Noch ernster ist die Tatsache, dass diese URLs von öffentlichen Web-Crawlern, HTTP-Proxies und Archivierwerkzeugen wie dem [Internet Archive](https://web.archive.org/) indexiert werden können, was bedeutet, dass Ihre sensiblen Daten auf öffentlich zugänglichen Ressourcen bestehen könnten.
 
-Nutzen Sie `POST`-Anfragen anstelle von `GET`-Anfragen, um diese Probleme zu vermeiden. Unser Artikel [Referer-Header-Richtlinie: Datenschutz- und Sicherheitsbedenken](/de/docs/Web/Security/Referer_header:_privacy_and_security_concerns) beschreibt ausführlicher die Datenschutz- und Sicherheitsrisiken, die mit dem `Referer`-Header verbunden sind, und bietet Ratschläge zur Minderung dieser Risiken.
-
-> [!NOTE]
-> Das Vermeiden der Übermittlung sensibler Daten in URLs über `GET`-Anfragen kann auch helfen, sich gegen {{Glossary("CSRF", "Cross-Site Request Forgery")}} und [Replay-Angriffe](https://en.wikipedia.org/wiki/Replay_attack) zu schützen.
-
-### Nutzungsrichtlinien durchsetzen
-
-Erwägen Sie den Einsatz von Web-Plattform-Funktionen wie der [Content Security Policy](/de/docs/Web/HTTP/Guides/CSP) (CSP) und der [Permissions Policy](/de/docs/Web/HTTP/Guides/Permissions_Policy), um eine Reihe von Regeln zur Funktions- und Ressourcennutzung auf Ihrer Website durchzusetzen, die es schwieriger machen, Schwachstellen einzuführen.
-
-CSP ermöglicht es Ihnen, eine Sicherheitsschicht hinzuzufügen, indem Sie beispielsweise nur das Laden von Bildern oder Skripten von bestimmten vertrauenswürdigen Ursprüngen erlauben. Dies hilft, bestimmte Arten von Angriffen zu erkennen und zu mindern, einschließlich Cross-Site Scripting ({{Glossary("Cross-site_scripting", "XSS")}}) und Dateninjektionsangriffen. Diese Angriffe sind mit einer Reihe von böswilligen Aktivitäten verbunden, einschließlich Datendiebstahl, Verunstaltung von Websites und Verteilung von Malware.
-
-Die Berechtigungspolitik funktioniert ähnlich, außer dass sie sich mehr auf das Erlauben oder Blockieren des Zugriffs auf spezifische "leistungsstarke Funktionen" konzentriert ([wie bereits erwähnt](#sichere_kontexte_und_funktionsberechtigungen)).
+Verwenden Sie `POST`-Anfragen anstelle von `GET`-Anfragen, um diese Probleme zu vermeiden. Unser Artikel [Referer-Header-Richtlinie: Datenschutz- und Sicherheitsbedenken](/de/docs/Web/Security/Referer_header:_privacy_and_security_concerns) beschreibt die Datenschutz- und Sicherheitsrisiken im Zusammenhang mit dem `Referer`-Header detaillierter und bietet Ratschläge zur Minderung dieser Risiken.
 
 > [!NOTE]
-> Solche Richtlinien sind sehr nützlich, um Websites sicher zu halten, besonders wenn Sie viel Drittanbieter-Code auf Ihrer Seite verwenden. Beachten Sie jedoch, dass wenn Sie die Nutzung einer Funktion blockieren, auf die sich ein Drittanbieter-Skript stützt, um zu funktionieren, Sie möglicherweise die Funktionalität Ihrer Website beeinträchtigen.
+> Das Fernhalten von sensiblen Daten in URLs durch `GET`-Anfragen kann auch helfen, sich gegen {{Glossary("CSRF", "Cross-Site-Request-Forgery")}} und [Replay-Angriffe](https://en.wikipedia.org/wiki/Replay_attack) zu schützen.
 
-### Datenintegrität aufrechterhalten
+### Nutzungspolitiken durchsetzen
 
-Anknüpfend an den vorherigen Abschnitt sollten Sie, wenn Sie die Nutzung von Funktionen und Ressourcen auf Ihrer Seite erlauben, versuchen sicherzustellen, dass die Ressourcen nicht manipuliert wurden.
+Erwägen Sie die Verwendung von Webplattform-Features wie [Content Security Policy](/de/docs/Web/HTTP/Guides/CSP) (CSP) und [Permissions Policy](/de/docs/Web/HTTP/Guides/Permissions_Policy), um eine Reihe von Feature- und Ressourcennutzungsregeln auf Ihrer Website durchzusetzen, die es erschweren, Schwachstellen zu schaffen.
+
+CSP ermöglicht es Ihnen, eine Sicherheitssschicht hinzuzufügen, indem Sie, zum Beispiel, erlauben, dass Bilder oder Skripte nur von bestimmten vertrauenswürdigen Ursprüngen geladen werden dürfen. Dies hilft, bestimmte Arten von Angriffen zu erkennen und abzuwehren, einschließlich Cross-Site-Scripting ({{Glossary("Cross-site_scripting", "XSS")}}) und Dateninjektionsangriffe. Diese Angriffe umfassen eine Reihe von bösartigen Aktivitäten, einschließlich Datendiebstahl, Website-Verunstaltung und Verbreitung von Malware.
+
+Die Berechtigungspolitik arbeitet auf ähnliche Weise, ist jedoch mehr darauf konzentriert, den Zugriff auf bestimmte "leistungsstarke Funktionen" zu erlauben oder zu blockieren ([wie bereits erwähnt](#sichere_kontexte_und_feature-berechtigungen)).
+
+> [!NOTE]
+> Solche Richtlinien sind sehr nützlich, um Websites sicher zu halten, insbesondere wenn Sie viel Drittanbieter-Code auf Ihrer Seite verwenden. Bedenken Sie jedoch, dass wenn Sie die Nutzung eines Features blockieren, auf das ein Drittanbieter-Skript angewiesen ist, um zu funktionieren, könnte dies die Funktionalität Ihrer Seite beeinträchtigen.
+
+### Datenintegrität gewährleisten
+
+Fortführend vom vorhergehenden Abschnitt, wenn Sie Feature- und Ressourcennutzung auf Ihrer Seite erlauben, sollten Sie versuchen sicherzustellen, dass die Ressourcen nicht manipuliert wurden.
 
 Verwandte Themen:
 
-- [Subresource Integrity](/de/docs/Web/Security/Subresource_Integrity)
-  - : **Subresource Integrity** (SRI) ist eine Sicherheitsfunktion, die es Browsern ermöglicht, zu überprüfen, dass die von ihnen abgerufenen Ressourcen (z.B. von einem {{Glossary("CDN", "CDN")}}) ohne unvorhergesehene Manipulation ausgeliefert wurden. Sie funktioniert, indem Sie einen kryptografischen Hash angeben, den eine abgerufene Ressource entsprechen muss.
+- [Subresource-Integrität](/de/docs/Web/Security/Subresource_Integrity)
+  - : **Subresource-Integrität** (SRI) ist ein Sicherheits-Feature, das es Browsern ermöglicht sicherzustellen, dass die Ressourcen, die sie abrufen (zum Beispiel von einem {{Glossary("CDN", "CDN")}}), ohne unerwartete Manipulation geliefert wurden. Es funktioniert, indem Sie einen kryptografischen Hash bereitstellen, den eine abgerufene Ressource entsprechen muss.
 - [HTTP Access-Control-Allow-Origin](/de/docs/Web/HTTP/Reference/Headers/Access-Control-Allow-Origin)
-  - : Der **`Access-Control-Allow-Origin`** Antwort-Header gibt an, ob die Antwort mit dem anfragenden Code des angegebenen {{Glossary("origin", "Ursprungs")}} geteilt werden kann.
+  - : Der **`Access-Control-Allow-Origin`** Antwort-Header gibt an, ob die Antwort mit anforderndem Code von dem gegebenen {{Glossary("origin", "Ursprung")}} geteilt werden kann.
 - [HTTP X-Content-Type-Options](/de/docs/Web/HTTP/Reference/Headers/X-Content-Type-Options)
-  - : Der **`X-Content-Type-Options`** Antwort-Header ist ein Indikator, der vom Server verwendet wird, um anzugeben, dass die in den {{HTTPHeader("Content-Type")}} Headers beworbenen [MIME-Typen](/de/docs/Web/HTTP/Guides/MIME_types) nicht geändert werden sollten und eingehalten werden müssen. Dieser Header ist eine Möglichkeit, sich von [MIME-Typ-Sniffing](/de/docs/Web/HTTP/Guides/MIME_types#mime_sniffing) abzumelden, oder mit anderen Worten, anzugeben, dass die MIME-Typen absichtlich konfiguriert sind.
+  - : Der **`X-Content-Type-Options`** Antwort-Header ist ein Marker, der vom Server verwendet wird, um anzugeben, dass die [MIME-Typen](/de/docs/Web/HTTP/Guides/MIME_types), die in den {{HTTPHeader("Content-Type")}}-Headern beworben werden, nicht geändert und eingehalten werden müssen. Dieser Header ist eine Möglichkeit, das [MIME-Typen-Sniffing](/de/docs/Web/HTTP/Guides/MIME_types#mime_sniffing) abzuwählen oder, mit anderen Worten, um zu spezifizieren, dass die MIME-Typen absichtlich konfiguriert wurden.
 
-### Formular-Eingaben bereinigen
+### Formulareingaben sanitieren
 
-Als allgemeine Regel gilt: Vertrauen Sie nichts, was Benutzer in Formulare eingeben. Das Ausfüllen von Formularen online ist kompliziert und mühsam, und es ist einfach für Benutzer, falsche Daten oder Daten im falschen Format einzugeben. Darüber hinaus sind böswillige Akteure geschickt darin, spezifische Zeichenfolgen von ausführbarem Code in Formularfelder einzufügen (zum Beispiel SQL oder JavaScript). Wenn Sie beim Umgang mit solchen Eingaben nicht vorsichtig sind, könnten sie entweder schädlichen Code auf Ihrer Website ausführen oder Ihre Datenbanken löschen. Siehe [SQL-Injection](/de/docs/Learn_web_development/Extensions/Server-side/First_steps/Website_security#sql_injection) für ein gutes Beispiel, wie dies passieren könnte.
+Als allgemeine Regel gilt, vertrauen Sie nichts, was Nutzer in Formulare eingeben. Formulare online auszufüllen ist kompliziert und mühsam, und es ist leicht für Nutzer, falsche Daten einzugeben oder Daten im falschen Format einzugeben. Darüber hinaus sind bösartige Leute darin geschult, bestimmte Strings von ausführbarem Code in Formularfelder einzugeben (zum Beispiel SQL oder JavaScript). Wenn Sie nicht sorgfältig mit solchen Eingaben umgehen, könnten sie entweder schädlichen Code auf Ihrer Website ausführen oder Ihre Datenbanken löschen. Siehe [SQL Injection](/de/docs/Learn_web_development/Extensions/Server-side/First_steps/Website_security#sql_injection) für ein gutes Beispiel dafür, wie dies geschehen könnte.
 
-Um sich davor zu schützen, sollten Sie die in Ihre Formulare eingegebenen Daten gründlich bereinigen:
+Um sich dagegen zu schützen, sollten Sie eingegebene Daten in Ihren Formularen gründlich reinigen:
 
-- Sie sollten eine clientseitige Validierung implementieren, um Benutzer zu informieren, wenn sie Daten im falschen Format eingegeben haben. Sie können dies durch die eingebauten HTML-Formularvalidierungsfunktionen tun oder Ihre eigene Validierung schreiben. Siehe [Clientseitige Formularvalidierung](/de/docs/Learn_web_development/Extensions/Forms/Form_validation) für weitere Informationen.
-- Sie sollten Ausgabecodierung verwenden, wenn Benutzer-Eingaben in einer Anwendungsoberfläche angezeigt werden, um die Daten sicher genau so anzuzeigen, wie ein Benutzer sie eingegeben hat, und zu verhindern, dass sie als Code ausgeführt werden. Siehe [Ausgabecodierung](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html#output-encoding) für weitere Informationen.
+- Sie sollten eine clientseitige Validierung implementieren, um Nutzer zu informieren, wenn sie Daten im falschen Format eingegeben haben. Sie können dies mit eingebauten HTML-Formular-Validierungsfunktionen tun oder Ihren eigenen Validierungscode schreiben. Siehe [Client-seitige Formularvalidierung](/de/docs/Learn_web_development/Extensions/Forms/Form_validation) für mehr Informationen.
+- Sie sollten Ausgabe-Encoding verwenden, wenn Sie Benutzereingaben in einer Anwendungs-UI anzeigen, um Daten sicher genauso anzuzeigen, wie ein Nutzer sie eingetippt hat, und zu verhindern, dass sie als Code ausgeführt werden. Siehe [Ausgabe-Encoding](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html#output-encoding) für mehr Informationen.
 
-Sie können sich nicht allein auf clientseitige Validierung für die Sicherheit verlassen – diese sollte mit einer serverseitigen Validierung kombiniert werden. Die clientseitige Validierung verbessert die Benutzererfahrung, indem sie sofortiges Validierungsfeedback bereitstellt, ohne auf eine Rückantwort vom Server warten zu müssen. Allerdings ist die clientseitige Validierung für böswillige Parteien einfach zu umgehen (zum Beispiel durch Deaktivierung von JavaScript im Browser, um eine JavaScript-basierte Validierung zu umgehen).
+Sie können sich nicht allein auf die clientseitige Validierung für die Sicherheit verlassen — es sollte mit Server-seitiger Validierung kombiniert werden. Client-seitige Validierung verbessert das Benutzererlebnis, indem es sofortiges Validierungs-Feedback gibt, ohne auf eine Server-Rundreise warten zu müssen. Jedoch ist die Client-seitige Validierung leicht für eine bösartige Partei zu umgehen (zum Beispiel durch Ausschalten von JavaScript im Browser, um JavaScript-basierte Validierung zu umgehen).
 
-Jedes angesehene serverseitige Framework wird Funktionalität für die Validierung von Formulareingaben bieten. Darüber hinaus ist es eine gängige Best Practice, alle Sonderzeichen, die Teil der ausführbaren Syntax sind, zu maskieren, wobei eingegebener Code nicht mehr ausführbar und als normaler Text behandelt wird.
+Jedes seriöse Server-seitige Framework bietet Funktionalitäten zur Validierung von Formulareinsendungen. Darüber hinaus ist eine häufige bewährte Praxis, alle Sonderzeichen zu maskieren, die Teil der ausführbaren Syntax sind, und somit jeden eingegebenen Code nicht mehr ausführbar zu machen, sodass er als Klartext behandelt wird.
 
-### Schutz vor Clickjacking
+### Schutz gegen Clickjacking
 
-Bei einem [Clickjacking](/de/docs/Web/Security/Attacks/Clickjacking)-Angriff wird ein Benutzer getäuscht, einen UI-Element anzuklicken, das eine andere Aktion ausführt als die, die der Benutzer erwartet, oft mit dem Ergebnis, dass die vertraulichen Informationen des Benutzers an einen böswilligen Dritten weitergegeben werden. Dieses Risiko ist bei eingebettetem Drittanbieterinhalt vorhanden, stellen Sie also sicher, dass Sie dem vertrauen, was in Ihre Site eingebettet wird. Seien Sie sich außerdem bewusst, dass Clickjacking mit Phishing-Techniken kombiniert werden kann. Sie können über Phishing im vorherigen Abschnitt [Benutzeridentität schützen und Logins verwalten](#benutzeridentität_schützen_und_logins_verwalten) lesen.
+In einem [Clickjacking](/de/docs/Web/Security/Attacks/Clickjacking)-Angriff wird ein Nutzer dazu gebracht, ein UI-Element zu klicken, das eine andere Aktion ausführt, als der Nutzer erwartet, was oft dazu führt, dass vertrauliche Informationen des Nutzers an einen böswilligen Dritten weitergegeben werden. Dieses Risiko ist inhärent in eingebetteten Drittanbieter-Inhalten, daher stellen Sie sicher, dass Sie dem, was auf Ihrer Seite eingebettet wird, vertrauen. Zusätzlich sollten Sie sich bewusst sein, dass Clickjacking mit Phishing-Techniken kombiniert werden kann. Sie können über Phishing im vorherigen Abschnitt [Benutzeridentität schützen und Logins verwalten](#schutz_von_benutzeridentität_und_verwaltung_von_logins) lesen.
 
-Die folgenden Funktionen können helfen, sich gegen Clickjacking zu schützen:
+Die folgenden Funktionen können helfen, gegen Clickjacking zu schützen:
 
 - [HTTP X-Frame-Options](/de/docs/Web/HTTP/Reference/Headers/X-Frame-Options)
-  - : Der **`X-Frame-Options`** [HTTP](/de/docs/Web/HTTP) Antwort-Header kann verwendet werden, um anzugeben, ob ein Browser berechtigt ist, eine Seite in einem [`<frame>`](/de/docs/Web/HTML/Element/frame), [`<iframe>`](/de/docs/Web/HTML/Element/iframe), [`<embed>`](/de/docs/Web/HTML/Element/embed) oder [`<object>`](/de/docs/Web/HTML/Element/object) wiederzugeben. Websites können dies verwenden, um Clickjacking-Angriffe zu vermeiden, indem sie sicherstellen, dass ihre Inhalte nicht in andere Sites eingebettet werden.
+  - : Der **`X-Frame-Options`** [HTTP](/de/docs/Web/HTTP)-Antwort-Header kann verwendet werden, um anzugeben, ob ein Browser in der Lage sein soll, eine Seite in einem [`<frame>`](/de/docs/Web/HTML/Reference/Elements/frame), [`<iframe>`](/de/docs/Web/HTML/Reference/Elements/iframe), [`<embed>`](/de/docs/Web/HTML/Reference/Elements/embed) oder [`<object>`](/de/docs/Web/HTML/Reference/Elements/object) darzustellen. Seiten können dies nutzen, um Clickjacking-Angriffe zu vermeiden, indem sie sicherstellen, dass ihre Inhalte nicht in andere Seiten eingebettet werden.
 - [CSP: frame-ancestors](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/frame-ancestors)
-  - : Die HTTP {{HTTPHeader("Content-Security-Policy")}} (CSP) **`frame-ancestors`** Direktive gibt gültige übergeordnete Elemente an, die eine Seite unter Verwendung von {{HTMLElement("frame")}}, {{HTMLElement("iframe")}}, {{HTMLElement("object")}} oder {{HTMLElement("embed")}} einbetten dürfen.
+  - : Die HTTP {{HTTPHeader("Content-Security-Policy")}} (CSP) **`frame-ancestors`** Direktive spezifiziert gültige Eltern, die eine Seite unter Verwendung von {{HTMLElement("frame")}}, {{HTMLElement("iframe")}}, {{HTMLElement("object")}}, oder {{HTMLElement("embed")}} einbetten dürfen.
 
-## Praktische Anleitungen zur Sicherheitsimplementierung
+## Praktische Leitfäden zur Sicherheitsimplementierung
 
-Um umfassende Anweisungen zur effektiven Implementierung von Sicherheitsfunktionen auf Websites zu erhalten und sicherzustellen, dass Sie Best Practices befolgen, sehen Sie sich unser Set von [Praktischen Anleitungen zur Sicherheitsimplementierung](/de/docs/Web/Security/Practical_implementation_guides) an.
+Um umfassende Anleitungen zur effektiven Implementierung von Sicherheitsfunktionen auf Websites zu erhalten und sicherzustellen, dass Sie den besten Praktiken folgen, lesen Sie unsere Reihe von [Praktische Leitfäden zur Sicherheitsimplementierung](/de/docs/Web/Security/Practical_implementation_guides).
 
-Einige dieser Leitfäden hängen direkt mit dem [HTTP Observatory](/en-US/observatory)-Tool zusammen. Observatory führt Sicherheitsüberprüfungen auf einer Website durch und liefert zusammen mit Empfehlungen zur Behebung der gefundenen Sicherheitsprobleme eine Bewertung und Punktzahl. Diese Leitfäden erklären, wie man die vom MDN Observatory Test aufgedeckten Problem löst: Das Tool verlinkt den passenden Leitfaden für jedes Problem, um sie effektiv zu einer Lösung zu lenken. Interessanterweise nutzen die internen Entwicklerteams von Mozilla diese Richtlinien beim Erstellen von Websites, um sicherzustellen, dass Sicherheitsbest-Practices angewendet werden.
+Einige dieser Leitfäden stehen direkt im Zusammenhang mit dem [HTTP Observatory](/en-US/observatory)-Tool. Observatory führt Sicherheitsprüfungen auf einer Website durch und liefert eine Bewertung und Punktzahl zusammen mit Empfehlungen zur Behebung der gefundenen Sicherheitsprobleme. Diese Leitfäden erklären, wie Probleme gelöst werden können, die von den MDN Observatory-Tests aufgedeckt wurden: das Tool verweist auf den entsprechenden Leitfaden für jedes Problem, um Sie bei einer effektiven Lösung zu unterstützen. Interessanterweise verwendet die interne Entwicklerteams von Mozilla diese Anleitung beim Implementieren von Websites, um sicherzustellen, dass Sicherheitspraktiken angewendet werden.
 
 ## Siehe auch
 
 - [Privatsphäre im Web](/de/docs/Web/Privacy)
-- [Lernen: Website-Sicherheit](/de/docs/Learn_web_development/Extensions/Server-side/First_steps/Website_security)
-- [Mozilla Security Blog](https://blog.mozilla.org/security/)
+- [Lernen: Sicherheit von Websites](/de/docs/Learn_web_development/Extensions/Server-side/First_steps/Website_security)
+- [Mozilla Sicherheits-Blog](https://blog.mozilla.org/security/)
 - [OWASP Cheat Sheet-Serie](https://cheatsheetseries.owasp.org/index.html)
 
 <section id="Quick_links">

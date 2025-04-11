@@ -3,22 +3,22 @@ title: "PerformanceElementTiming: loadTime-Eigenschaft"
 short-title: loadTime
 slug: Web/API/PerformanceElementTiming/loadTime
 l10n:
-  sourceCommit: 312081aabba3885b35a81107b3c2fc53428896c5
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{APIRef("Performance API")}}{{SeeCompatTable}}
 
-Die **`loadTime`**-Eigenschaft des [`PerformanceElementTiming`](/de/docs/Web/API/PerformanceElementTiming)-Interfaces gibt für Text immer `0` zurück. Bei Bildern gibt sie die Zeit zurück, die die späteste zwischen der Zeit ist, zu der die Bildressource geladen wird, und der Zeit, zu der sie dem Element angehängt wird.
+Die **`loadTime`**-Eigenschaft (nur lesbar) der [`PerformanceElementTiming`](/de/docs/Web/API/PerformanceElementTiming)-Schnittstelle gibt für Text immer `0` zurück. Für Bilder gibt sie die Zeit zurück, die am spätesten zwischen dem Zeitpunkt liegt, an dem die Bildressource geladen wird, und dem Zeitpunkt, an dem sie an das Element angehängt wird.
 
 ## Wert
 
-Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) mit dem `loadTime` des Elements. Immer `0` für Text.
+Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) mit der `loadTime` des Elements. Für Text immer `0`.
 
 ## Beispiele
 
-### Protokollierung der `loadTime`
+### `loadTime` protokollieren
 
-In diesem Beispiel wird ein {{HTMLElement("img")}}-Element durch Hinzufügen des [`elementtiming`](/de/docs/Web/HTML/Attributes/elementtiming)-Attributs beobachtet. Ein [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver) wird registriert, um alle Performance-Einträge des Typs `"element"` zu erhalten. Das `buffered`-Flag wird verwendet, um auf Daten zuzugreifen, die vor der Erstellung des Beobachters vorhanden waren. Der Aufruf von `entry.loadTime` gibt die `loadTime` des Bildelements zurück.
+In diesem Beispiel wird ein {{HTMLElement("img")}}-Element beobachtet, indem das [`elementtiming`](/de/docs/Web/HTML/Reference/Attributes/elementtiming)-Attribut hinzugefügt wird. Ein [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver) wird registriert, um alle Performance-Einträge des Typs `"element"` zu erhalten. Das `buffered`-Flag wird verwendet, um auf Daten zuzugreifen, die vor der Erstellung des Observers vorhanden waren. Der Aufruf von `entry.loadTime` gibt die `loadTime` des Bild-Elements zurück.
 
 ```html
 <img

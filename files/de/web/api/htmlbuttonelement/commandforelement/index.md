@@ -3,18 +3,18 @@ title: "HTMLButtonElement: commandForElement-Eigenschaft"
 short-title: commandForElement
 slug: Web/API/HTMLButtonElement/commandForElement
 l10n:
-  sourceCommit: 3556f7aca5478c222368dba8a7bd6a007898b36a
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{APIRef("Invoker Commands API")}}{{SeeCompatTable}}
 
-Die **`commandForElement`**-Eigenschaft der [`HTMLButtonElement`](/de/docs/Web/API/HTMLButtonElement)-Schnittstelle ruft das Element ab und setzt es, das über einen Button gesteuert wird.
+Die **`commandForElement`**-Eigenschaft des [`HTMLButtonElement`](/de/docs/Web/API/HTMLButtonElement)-Interfaces ruft das zu steuernde Element über eine Schaltfläche ab und setzt dieses.
 
-Es ist das JavaScript-Äquivalent des [`commandfor`](/de/docs/Web/HTML/Element/button#commandfor)-HTML-Attributs.
+Es ist das JavaScript-Äquivalent des [`commandfor`](/de/docs/Web/HTML/Reference/Elements/button#commandfor)-HTML-Attributes.
 
 ## Wert
 
-Ein Verweis auf ein vorhandenes [`Element`](/de/docs/Web/API/Element), das der Button steuert.
+Ein Verweis auf ein existierendes [`Element`](/de/docs/Web/API/Element), das durch die Schaltfläche kontrolliert wird.
 
 ## Beispiele
 

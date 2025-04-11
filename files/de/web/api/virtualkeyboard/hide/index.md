@@ -3,16 +3,16 @@ title: "VirtualKeyboard: hide() Methode"
 short-title: hide()
 slug: Web/API/VirtualKeyboard/hide
 l10n:
-  sourceCommit: cc41ecd796870c2b6c77ad0b04fcb8d8c7d877d2
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{APIRef("VirtualKeyboard API")}}{{SeeCompatTable}}{{securecontext_header}}
 
-Die **`hide()`**-Methode der [`VirtualKeyboard`](/de/docs/Web/API/VirtualKeyboard)-Schnittstelle blendet programmatisch die Bildschirmtastatur aus. Dies ist nützlich, wenn die Seite ihre eigene virtuelle Tastaturlogik mithilfe der [VirtualKeyboard API](/de/docs/Web/API/VirtualKeyboard_API) implementieren muss.
+Die **`hide()`** Methode des [`VirtualKeyboard`](/de/docs/Web/API/VirtualKeyboard) Interfaces blendet die virtuelle Bildschirmtastatur programmatisch aus. Dies ist nützlich, wenn die Seite ihre eigene Logik für die virtuelle Tastatur mithilfe der [VirtualKeyboard API](/de/docs/Web/API/VirtualKeyboard_API) implementieren muss.
 
-Diese Methode funktioniert nur, wenn das aktuell fokussierte Element das Attribut [`virtualKeyboardPolicy`](/de/docs/Web/HTML/Global_attributes/virtualkeyboardpolicy) auf `manual` gesetzt hat und [`inputmode`](/de/docs/Web/HTML/Global_attributes/inputmode) nicht auf `none` gesetzt ist.
+Diese Methode funktioniert nur, wenn das Attribut [`virtualKeyboardPolicy`](/de/docs/Web/HTML/Reference/Global_attributes/virtualkeyboardpolicy) des aktuell fokussierten Elements auf `manual` gesetzt ist und [`inputmode`](/de/docs/Web/HTML/Reference/Global_attributes/inputmode) nicht auf `none` festgelegt ist.
 
-Die `hide()`-Methode gibt immer `undefined` zurück und löst ein [`geometrychange`](/de/docs/Web/API/VirtualKeyboard/geometrychange_event)-Ereignis aus.
+Die `hide()` Methode gibt immer `undefined` zurück und löst ein [`geometrychange`](/de/docs/Web/API/VirtualKeyboard/geometrychange_event) Ereignis aus.
 
 ## Syntax
 
@@ -30,7 +30,7 @@ Undefined.
 
 ## Beispiel
 
-Der folgende Codeausschnitt zeigt, wie das `virtualkeyboardpolicy`-Attribut verwendet wird, um den Browser daran zu hindern, die virtuelle Tastatur bei einem Klick oder Tippen anzuzeigen. Der Code verwendet ebenfalls die `navigator.virtualKeyboard.show()` und `navigator.virtualKeyboard.hide()`-Methoden, um die virtuelle Tastatur anzuzeigen oder auszublenden, wenn ein Button geklickt wird:
+Der folgende Code-Schnipsel zeigt, wie das `virtualkeyboardpolicy` Attribut verwendet wird, um zu verhindern, dass der Browser beim Klicken oder Tippen die virtuelle Tastatur anzeigt. Der Code verwendet auch die Methoden `navigator.virtualKeyboard.show()` und `navigator.virtualKeyboard.hide()`, um die virtuelle Tastatur anzuzeigen und auszublenden, wenn eine Schaltfläche angeklickt wird:
 
 ```html
 <div contenteditable virtualkeyboardpolicy="manual" id="editor"></div>
@@ -69,4 +69,4 @@ if ("virtualKeyboard" in navigator) {
 ## Siehe auch
 
 - [Die VirtualKeyboard API](/de/docs/Web/API/VirtualKeyboard_API)
-- [Volle Kontrolle mit der VirtualKeyboard API](https://developer.chrome.com/docs/web-platform/virtual-keyboard/)
+- [Vollständige Kontrolle mit der VirtualKeyboard API](https://developer.chrome.com/docs/web-platform/virtual-keyboard/)

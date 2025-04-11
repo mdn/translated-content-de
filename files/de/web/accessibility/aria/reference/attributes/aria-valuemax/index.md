@@ -2,21 +2,21 @@
 title: aria-valuemax
 slug: Web/Accessibility/ARIA/Reference/Attributes/aria-valuemax
 l10n:
-  sourceCommit: 8941e7636bfc91985ca5a486e7228b681e1aa272
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
-Das `aria-valuemax`-Attribut definiert den maximal zulässigen Wert für ein Bereichs-Widget.
+Das Attribut `aria-valuemax` definiert den maximal zulässigen Wert für ein Bereichs-Widget.
 
 ## Beschreibung
 
-Das `aria-valuemax`-Attribut definiert den maximal zulässigen Wert für Bereichs-Widgets. Es ist ähnlich dem `max`-Attribut von {{HTMLElement('progress')}}, {{HTMLElement('meter')}} und {{HTMLElement('input')}} des Typs [`range`](/de/docs/Web/HTML/Element/input/range), [`number`](/de/docs/Web/HTML/Element/input/number) und allen Datums-/Zeittypen.
+Das Attribut `aria-valuemax` definiert den maximal zulässigen Wert für Bereichs-Widgets. Es ist ähnlich dem `max`-Attribut von {{HTMLElement('progress')}}, {{HTMLElement('meter')}} und {{HTMLElement('input')}} vom Typ [`range`](/de/docs/Web/HTML/Reference/Elements/input/range), [`number`](/de/docs/Web/HTML/Reference/Elements/input/number) und allen Datums-Zeit-Typen.
 
-Bei der Erstellung einer Bereichsrolle, einschließlich [`meter`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/meter_role), [`scrollbar`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/scrollbar_role), [`slider`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/slider_role) und [`spinbutton`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/spinbutton_role) auf einem nicht-semantischen Element, ermöglicht `aria-valuemax` die Definition eines Maximums, das über dem Minimalwert liegt und ist ein erforderliches Attribut von `slider`, `scrollbar` und `spinbutton`.
+Beim Erstellen einer Rolle für Typbereiche, einschließlich [`meter`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/meter_role), [`scrollbar`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/scrollbar_role), [`slider`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/slider_role) und [`spinbutton`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/spinbutton_role) auf einem nicht-semantischen Element, ermöglicht `aria-valuemax` die Definition eines Maximums, das mehr als der Mindestwert ist und ein erforderliches Attribut von `slider`, `scrollbar` und `spinbutton` ist.
 
-Durch die Angabe der Minimal- und Maximalwerte können unterstützende Technologien die Größe des Bereichs an die Benutzer übermitteln. Der Minimalwert wird mit [`aria-valuemin`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-valuemin) definiert.
+Die Angabe von Mindest- und Höchstwerten ermöglicht es unterstützenden Technologien, die Größe des Bereichs für Benutzer zu vermitteln. Der Mindestwert wird mit [`aria-valuemin`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-valuemin) definiert.
 
 > [!WARNING]
-> Die Rolle [`range`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/range_role) selbst sollte **NICHT** verwendet werden, da sie eine ["abstrakte"](/de/docs/Web/Accessibility/ARIA/Reference/Roles#6._abstract_roles) Rolle ist. Das `aria-valuemax`-Attribut wird in allen Untertypen der Rollenbereich verwendet.
+> Die Rolle [`range`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/range_role) selbst sollte **NICHT** verwendet werden, da sie eine ["abstrakte"](/de/docs/Web/Accessibility/ARIA/Reference/Roles#6._abstract_roles) Rolle ist. Das Attribut `aria-valuemax` wird bei allen Untertypen der Bereichsrollen verwendet.
 
 ## Beispiel
 
@@ -36,14 +36,14 @@ Der folgende Code zeigt einen Slider mit einem Maximalwert von 9.
 ## Werte
 
 - `<number>`
-  - : Eine ganze Zahl oder Dezimalzahl, die größer als der Minimalwert ist.
+  - : Eine ganze oder dezimale Zahl, die größer als der Mindestwert ist.
 
 ## Zugehörige Schnittstellen
 
 - [`Element.ariaValueMax`](/de/docs/Web/API/Element/ariaValueMax)
-  - : Die [`ariaValueMax`](/de/docs/Web/API/Element/ariaValueMax)-Eigenschaft, Teil der [`Element`](/de/docs/Web/API/Element)-Schnittstelle, spiegelt den Wert des `aria-valuemax`-Attributs wider.
+  - : Die [`ariaValueMax`](/de/docs/Web/API/Element/ariaValueMax) Eigenschaft, Teil der [`Element`](/de/docs/Web/API/Element) Schnittstelle, spiegelt den Wert des `aria-valuemax`-Attributs wider.
 - [`ElementInternals.ariaValueMax`](/de/docs/Web/API/ElementInternals/ariaValueMax)
-  - : Die [`ariaValueMax`](/de/docs/Web/API/ElementInternals/ariaValueMax)-Eigenschaft, Teil der [`ElementInternals`](/de/docs/Web/API/ElementInternals)-Schnittstelle, spiegelt den Wert des `aria-valuemax`-Attributs wider.
+  - : Die [`ariaValueMax`](/de/docs/Web/API/ElementInternals/ariaValueMax) Eigenschaft, Teil der [`ElementInternals`](/de/docs/Web/API/ElementInternals) Schnittstelle, spiegelt den Wert des `aria-valuemax`-Attributs wider.
 
 ## Zugehörige Rollen
 
@@ -70,6 +70,6 @@ Vererbt in Rollen:
 ## Siehe auch
 
 - [`range` Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles/range_role)
-- [`<input type="range>` Element `max` Attribut](/de/docs/Web/HTML/Element/input/range#max)
+- [`<input type="range>` Element `max` Attribut](/de/docs/Web/HTML/Reference/Elements/input/range#max)
 - [`aria-valuemin`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-valuemin)
 - [`aria-valuenow`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-valuenow)

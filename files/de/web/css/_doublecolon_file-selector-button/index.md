@@ -2,12 +2,12 @@
 title: ::file-selector-button
 slug: Web/CSS/::file-selector-button
 l10n:
-  sourceCommit: 33a12980eb49cc795a41f15ec7a0181270ad3048
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{CSSRef}}
 
-Das **`::file-selector-button`** [CSS](/de/docs/Web/CSS) [Pseudo-Element](/de/docs/Web/CSS/Pseudo-elements) repräsentiert den Knopf eines {{HTMLElement("input") }}-Elements vom [`type="file"`](/de/docs/Web/HTML/Element/input/file).
+Das **`::file-selector-button`** [CSS](/de/docs/Web/CSS) [Pseudo-Element](/de/docs/Web/CSS/Pseudo-elements) repräsentiert den Button eines {{HTMLElement("input") }} mit [`type="file"`](/de/docs/Web/HTML/Reference/Elements/input/file).
 
 {{InteractiveExample("CSS Demo: ::file-selector-button", "tabbed-shorter")}}
 
@@ -79,7 +79,7 @@ input[type="file"]::file-selector-button:hover {
 
 {{EmbedLiveSample("Basic_example", "100%", 150)}}
 
-Beachten Sie, dass `::file-selector-button` ein ganzes Element darstellt und daher den Regeln des UA-Stylesheets folgt. Insbesondere werden Schriftarten und Farben nicht unbedingt vom `input`-Element geerbt.
+Beachten Sie, dass `::file-selector-button` ein ganzes Element ist und somit die Regeln des UA-Stylesheets erfüllt. Insbesondere werden Schriftarten und Farben nicht unbedingt vom `input`-Element übernommen.
 
 ### Rückfallbeispiel
 
@@ -143,4 +143,4 @@ input[type="file"]::file-selector-button:hover {
 
 - [WebKit CSS-Erweiterungen](/de/docs/Web/CSS/WebKit_Extensions)
 - [File and Directory Entries API](/de/docs/Web/API/File_and_Directory_Entries_API)
-- [`<input type="file">`](/de/docs/Web/HTML/Element/input/file)
+- [`<input type="file">`](/de/docs/Web/HTML/Reference/Elements/input/file)

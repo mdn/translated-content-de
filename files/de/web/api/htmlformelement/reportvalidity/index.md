@@ -3,12 +3,12 @@ title: "HTMLFormElement: reportValidity() Methode"
 short-title: reportValidity()
 slug: Web/API/HTMLFormElement/reportValidity
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`reportValidity()`** Methode des [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement) Interfaces führt die gleichen Gültigkeitsprüfschritte aus wie die [`checkValidity()`](/de/docs/Web/API/HTMLFormElement/checkValidity) Methode. Zusätzlich zeigt der Browser bei jedem ausgelösten und nicht abgebrochenen [`invalid`](/de/docs/Web/API/HTMLInputElement/invalid_event)-Ereignis das Problem dem Benutzer an.
+Die **`reportValidity()`** Methode des [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement) Interfaces führt die gleichen Gültigkeitsüberprüfungen durch wie die [`checkValidity()`](/de/docs/Web/API/HTMLFormElement/checkValidity) Methode. Zusätzlich zeigt der Browser für jedes ausgelöste und nicht abgebrochene [`invalid`](/de/docs/Web/API/HTMLInputElement/invalid_event) Ereignis das Problem dem Benutzer an.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ Keine.
 
 ### Rückgabewert
 
-Gibt `true` zurück, wenn die Werte der zugehörigen Steuerungen keine Gültigkeitsprobleme aufweisen; andernfalls `false`.
+Gibt `true` zurück, wenn die Werte der zugehörigen Steuerelemente keine Gültigkeitsprobleme haben; andernfalls `false`.
 
 ## Beispiel
 
@@ -48,5 +48,5 @@ document.forms["my-form"].addEventListener(
 
 - [`HTMLFormElement.checkValidity()`](/de/docs/Web/API/HTMLFormElement/checkValidity)
 - {{HTMLElement("form")}}
-- [Erfahren Sie mehr: Client-seitige Formularvalidierung](/de/docs/Learn_web_development/Extensions/Forms/Form_validation)
-- [Leitfaden: Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation)
+- [Lernen: Client-seitige Formularvalidierung](/de/docs/Learn_web_development/Extensions/Forms/Form_validation)
+- [Leitfaden: Einschränkungsvalidierung](/de/docs/Web/HTML/Guides/Constraint_validation)

@@ -1,13 +1,13 @@
 ---
-title: Klassenselektoren
+title: Klassen-Selektoren
 slug: Web/CSS/Class_selectors
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{CSSRef}}
 
-Der [CSS](/de/docs/Web/CSS) **Klassenselektor** wählt Elemente basierend auf dem Inhalt ihres [`class`](/de/docs/Web/HTML/Global_attributes/class)-Attributs aus.
+Der [CSS](/de/docs/Web/CSS) **Klassen-Selektor** wählt Elemente basierend auf dem Inhalt ihres [`class`](/de/docs/Web/HTML/Reference/Global_attributes/class)-Attributs aus.
 
 ```css
 /* All elements with class="spacious" */
@@ -33,17 +33,17 @@ li.spacious.elegant {
 .class_name { style properties }
 ```
 
-Beachten Sie, dass dies dem folgenden [Attributselektor](/de/docs/Web/CSS/Attribute_selectors) entspricht:
+Beachten Sie, dass dies äquivalent zum folgenden [Attributselektor](/de/docs/Web/CSS/Attribute_selectors) ist:
 
 ```css
 [class~=class_name] { style properties }
 ```
 
-Der Wert `class_name` muss ein gültiger [CSS-Identifikator](/de/docs/Web/CSS/ident) sein. HTML-`class`-Attribute, die keine gültigen CSS-Identifikatoren sind, müssen [escaped](/de/docs/Web/CSS/ident#escaping_characters) werden, bevor sie in Klassenselektoren verwendet werden können.
+Der `class_name`-Wert muss ein gültiger [CSS-Bezeichner](/de/docs/Web/CSS/ident) sein. HTML-`class`-Attribute, die keine gültigen CSS-Bezeichner sind, müssen [maskiert](/de/docs/Web/CSS/ident#escaping_characters) werden, bevor sie in Klassen-Selektoren verwendet werden können.
 
 ## Beispiele
 
-### Gültige Klassenselektoren
+### Gültige Klassen-Selektoren
 
 #### HTML
 
@@ -97,9 +97,9 @@ that contain characters which must be escaped in CSS -->
 
 {{EmbedLiveSample('Examples', "", 300)}}
 
-### Ungültige Klassenselektoren
+### Ungültige Klassen-Selektoren
 
-Die Klassenselektoren in den folgenden Regeln sind keine gültigen CSS-Identifikatoren und werden ignoriert.
+Die Klassen-Selektoren in den folgenden Regeln sind keine gültigen CSS-Bezeichner und werden ignoriert.
 
 ```css example-bad
 .item?one {

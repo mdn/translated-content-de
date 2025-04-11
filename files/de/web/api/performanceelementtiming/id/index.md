@@ -3,12 +3,12 @@ title: "PerformanceElementTiming: id-Eigenschaft"
 short-title: id
 slug: Web/API/PerformanceElementTiming/id
 l10n:
-  sourceCommit: 5026c14bd6d2b6b377289aadac7eceae9282e806
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{APIRef("Performance API")}}{{SeeCompatTable}}
 
-Die **`id`**-Schreibgeschützte Eigenschaft des [`PerformanceElementTiming`](/de/docs/Web/API/PerformanceElementTiming)-Interfaces gibt die [`id`](/de/docs/Web/HTML/Global_attributes/id) des zugehörigen Elements zurück.
+Die schreibgeschützte **`id`**-Eigenschaft der [`PerformanceElementTiming`](/de/docs/Web/API/PerformanceElementTiming)-Schnittstelle gibt die [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id) des zugehörigen Elements zurück.
 
 ## Wert
 
@@ -18,7 +18,7 @@ Ein String.
 
 ### Verwendung von `id`
 
-In diesem Beispiel wird ein {{HTMLElement("img")}}-Element beobachtet, indem das [`elementtiming`](/de/docs/Web/HTML/Attributes/elementtiming)-Attribut hinzugefügt wird. Ein [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver) wird registriert, um alle Performance-Einträge vom Typ `"element"` zu erhalten, und das `buffered`-Flag wird verwendet, um auf Daten zuzugreifen, die vor der Erstellung des Observers vorhanden waren. Es wird `myImage` in die Konsole ausgegeben, welches die [`id`](/de/docs/Web/HTML/Global_attributes/id) des Bild-Elements ist.
+In diesem Beispiel wird ein {{HTMLElement("img")}}-Element beobachtet, indem das [`elementtiming`](/de/docs/Web/HTML/Reference/Attributes/elementtiming)-Attribut hinzugefügt wird. Ein [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver) wird registriert, um alle Leistungsdateneinträge des Typs `"element"` zu erhalten, und das `buffered`-Flag wird verwendet, um auf Daten von vor der Erstellung des Observers zuzugreifen. Es wird `myImage` in die Konsole protokollieren, was der [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id) des Bild-Elements entspricht.
 
 ```html
 <img

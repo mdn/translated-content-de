@@ -3,22 +3,22 @@ title: "HTMLImageElement: useMap-Eigenschaft"
 short-title: useMap
 slug: Web/API/HTMLImageElement/useMap
 l10n:
-  sourceCommit: 8b02826c79b090b5af0d68ae1ef39f932a66a7f1
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`useMap`**-Eigenschaft des [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement)-Interfaces spiegelt den Wert des {{Glossary("HTML", "HTML")}} [`usemap`](/de/docs/Web/HTML/Element/img#usemap)-Attributs wider, das einen String darstellt, welcher den Namen der clientseitigen Bildkarte angibt, die auf das Bild angewendet werden soll.
+Die **`useMap`**-Eigenschaft des [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement)-Interfaces spiegelt den Wert des [`usemap`](/de/docs/Web/HTML/Reference/Elements/img#usemap)-Attributs von {{Glossary("HTML", "HTML")}} wider. Diese Eigenschaft ist ein String, der den Namen der clientseitigen Bildkarte angibt, die auf das Bild angewendet werden soll.
 
 ## Wert
 
-Ein String, der die seitenlokale URL angibt (das heißt, eine URL, die mit dem Rautezeichen oder Pfundzeichen, `#`, beginnt) des {{HTMLElement("map")}}-Elements, das die Bildkarte definiert, die auf das Bild angewendet werden soll.
+Ein String, der die seitenlokale URL angibt (das heißt, eine URL, die mit dem Hash- oder Pfund-Symbol `#` beginnt) des {{HTMLElement("map")}}-Elements, das die Bildkarte definiert, die auf das Bild angewandt werden soll.
 
-Sie können mehr über clientseitige Bildkarten in unserem Lernartikel [Fügen Sie eine Trefferkarte über ein Bild hinzu](/de/docs/Learn_web_development/Howto/Solve_HTML_problems/Add_a_hit_map_on_top_of_an_image) erfahren.
+Sie können mehr über clientseitige Bildkarten in unserem Lernartikel [Fügen Sie eine Treffermaske auf ein Bild hinzu](/de/docs/Learn_web_development/Howto/Solve_HTML_problems/Add_a_hit_map_on_top_of_an_image) erfahren.
 
 ## Verwendungshinweise
 
-Der Stringwert von `useMap` muss ein gültiger Anker für ein {{HTMLElement("map")}}-Element sein. Mit anderen Worten, dieser String sollte der Wert des entsprechenden `<map>`-Elements [`name`](/de/docs/Web/HTML/Element/map#name)-Attributs sein, dem ein Pfundzeichen oder Hash-Symbol vorangestellt ist.
+Der Stringwert von `useMap` muss ein gültiger Anker für ein {{HTMLElement("map")}}-Element sein. Mit anderen Worten, dieser String sollte der Wert des entsprechenden `\<map>`-Attributs `name` sein, dem ein Pfund- oder Hash-Symbol vorangestellt ist.
 
 Betrachten Sie ein `<map>`, das so aussieht:
 
@@ -33,13 +33,13 @@ Betrachten Sie ein `<map>`, das so aussieht:
 </map>
 ```
 
-Angesichts der Bildkarte mit dem Namen `mainmenu-map` sollte das Bild, das sie verwendet, etwa wie folgt aussehen:
+Angenommen, die Bildkarte heißt `mainmenu-map`, sollte das Bild, das sie verwendet, etwa so aussehen:
 
 ```html
 <img src="menubox.png" usemap="#mainmenu-map" />
 ```
 
-Weitere Beispiele (einschließlich interaktiver) finden Sie in den Artikeln über die {{HTMLElement("map")}}- und {{HTMLElement("area")}}-Elemente sowie im [Leitfaden zur Verwendung von Bildkarten](/de/docs/Learn_web_development/Howto/Solve_HTML_problems/Add_a_hit_map_on_top_of_an_image).
+Für zusätzliche Beispiele (einschließlich interaktiver) sehen Sie sich die Artikel über die {{HTMLElement("map")}}- und {{HTMLElement("area")}}-Elemente an, sowie den [Leitfaden zur Verwendung von Bildkarten](/de/docs/Learn_web_development/Howto/Solve_HTML_problems/Add_a_hit_map_on_top_of_an_image).
 
 ## Beispiele
 

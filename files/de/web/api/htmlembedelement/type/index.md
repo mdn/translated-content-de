@@ -1,14 +1,14 @@
 ---
-title: "HTMLEmbedElement: type Eigenschaft"
+title: "HTMLEmbedElement: type-Eigenschaft"
 short-title: type
 slug: Web/API/HTMLEmbedElement/type
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`type`**-Eigenschaft der [`HTMLEmbedElement`](/de/docs/Web/API/HTMLEmbedElement)-Schnittstelle gibt einen String zurück, der das `type`-Attribut des {{HTMLElement("embed")}}-Elements widerspiegelt und den {{Glossary("MIME_type", "MIME-Typ")}} der Ressource angibt. Es spiegelt das [`type`](/de/docs/Web/HTML/Element/embed#type)-Attribut des {{htmlelement("embed")}}-Elements wider.
+Die **`type`**-Eigenschaft des [`HTMLEmbedElement`](/de/docs/Web/API/HTMLEmbedElement)-Interfaces gibt einen String zurück, der das `type`-Attribut des {{HTMLElement("embed")}}-Elements widerspiegelt und den {{Glossary("MIME_type", "MIME-Typ")}} der Ressource angibt. Sie spiegelt das [`type`](/de/docs/Web/HTML/Reference/Elements/embed#type)-Attribut des {{htmlelement("embed")}}-Elements wider.
 
 ## Wert
 
@@ -33,5 +33,5 @@ console.log(el.type); // Output: "video/webp"
 
 - [`HTMLObjectElement.type`](/de/docs/Web/API/HTMLObjectElement/type)
 - [`HTMLSourceElement.type`](/de/docs/Web/API/HTMLSourceElement/type)
-- [Medientypen, die im Web zu finden sind](/de/docs/Web/Media/Guides/Formats)
+- [Medientypen im Web](/de/docs/Web/Media/Guides/Formats)
 - [Wichtige MIME-Typen für Webentwickler](/de/docs/Web/HTTP/Guides/MIME_types#important_mime_types_for_web_developers)

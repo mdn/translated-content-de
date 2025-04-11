@@ -3,14 +3,14 @@ title: "Dokument: DOMContentLoaded-Ereignis"
 short-title: DOMContentLoaded
 slug: Web/API/Document/DOMContentLoaded_event
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{APIRef}}
 
-Das **`DOMContentLoaded`**-Ereignis wird ausgelöst, wenn das HTML-Dokument vollständig geparst wurde und alle verzögerten Skripte ([`<script defer src="…">`](/de/docs/Web/HTML/Element/script#defer) und [`<script type="module">`](/de/docs/Web/HTML/Element/script#module)) heruntergeladen und ausgeführt wurden. Es wartet nicht darauf, dass andere Elemente wie Bilder, Unterrahmen und asynchrone Skripte fertig geladen sind.
+Das **`DOMContentLoaded`**-Ereignis wird ausgelöst, wenn das HTML-Dokument vollständig geparst wurde und alle verzögerten Skripte ([`<script defer src="…">`](/de/docs/Web/HTML/Reference/Elements/script#defer) und [`<script type="module">`](/de/docs/Web/HTML/Reference/Elements/script#module)) heruntergeladen und ausgeführt wurden. Es wartet nicht darauf, dass andere Dinge wie Bilder, Subframes und asynchrone Skripte das Laden abgeschlossen haben.
 
-`DOMContentLoaded` wartet nicht auf das Laden von Stylesheets, jedoch warten verzögerte Skripte _auf_ Stylesheets, und das `DOMContentLoaded`-Ereignis wird nach verzögerten Skripten in die Warteschlange gestellt. Auch Skripte, die weder verzögert noch asynchron sind (z.B. `<script>`), warten darauf, dass bereits geparste Stylesheets geladen werden.
+`DOMContentLoaded` wartet nicht darauf, dass Stylesheets geladen werden; verzögerte Skripte _warten_ jedoch auf Stylesheets, und das `DOMContentLoaded`-Ereignis wird nach verzögerten Skripten in die Warteschlange gestellt. Auch Skripte, die weder verzögert noch asynchron sind (z.B. `<script>`), warten auf bereits geparste Stylesheets.
 
 Ein anderes Ereignis, [`load`](/de/docs/Web/API/Window/load_event), sollte nur verwendet werden, um eine vollständig geladene Seite zu erkennen. Es ist ein häufiger Fehler, `load` zu verwenden, wo `DOMContentLoaded` angemessener wäre.
 
@@ -18,7 +18,7 @@ Dieses Ereignis ist nicht abbrechbar.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Event-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js
 addEventListener("DOMContentLoaded", (event) => {});
@@ -52,9 +52,9 @@ document.addEventListener("DOMContentLoaded", (event) => {
 </script>
 ```
 
-### Überprüfung ob die Ladephase bereits abgeschlossen ist
+### Überprüfung, ob das Laden bereits abgeschlossen ist
 
-`DOMContentLoaded` kann ausgelöst werden, bevor Ihr Skript die Chance hat, ausgeführt zu werden. Es ist daher ratsam, dies zu überprüfen, bevor Sie einen Listener hinzufügen.
+`DOMContentLoaded` kann ausgelöst werden, bevor Ihr Skript die Chance hat, ausgeführt zu werden, daher ist es ratsam, dies zu überprüfen, bevor ein Listener hinzugefügt wird.
 
 ```js
 function doSomething() {
@@ -71,7 +71,7 @@ if (document.readyState === "loading") {
 ```
 
 > [!NOTE]
-> Hier gibt es keine Race-Bedingung – es ist nicht möglich, dass das Dokument zwischen der `if`-Überprüfung und dem `addEventListener()`-Aufruf geladen wird. JavaScript hat Semantiken zur Fertigstellung, was bedeutet, dass, wenn sich das Dokument in einem bestimmten Tick der Ereignisschleife im Ladevorgang befindet, es erst im nächsten Zyklus geladen werden kann, zu welchem Zeitpunkt der `doSomething`-Handler bereits angefügt ist und ausgeführt wird.
+> Es gibt hier keine Race-Condition — es ist nicht möglich, dass das Dokument zwischen der `if`-Prüfung und dem `addEventListener()`-Aufruf geladen wird. JavaScript hat Run-to-Completion-Semantik, was bedeutet, dass wenn das Dokument zu einem bestimmten Tick der Ereignisschleife geladen wird, es nicht vor dem nächsten Zyklus geladen werden kann, zu welchem Zeitpunkt der `doSomething`-Handler bereits angehängt ist und ausgelöst wird.
 
 ### Live-Beispiel
 

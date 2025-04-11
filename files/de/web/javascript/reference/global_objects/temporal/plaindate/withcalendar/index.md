@@ -2,12 +2,12 @@
 title: Temporal.PlainDate.prototype.withCalendar()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainDate/withCalendar
 l10n:
-  sourceCommit: d0b9cef0713eb263934a98e94202b97c143204a4
+  sourceCommit: 35512ec91d6a464ebee803d20c2d47464c9ce4e7
 ---
 
 {{JSRef}}{{SeeCompatTable}}
 
-Die **`withCalendar()`** Methode von {{jsxref("Temporal.PlainDate")}} Instanzen gibt ein neues `Temporal.PlainDate` Objekt zurück, das dieses Datum im neuen Kalendersystem interpretiert. Da alle `Temporal` Objekte darauf ausgelegt sind, unveränderlich zu sein, fungiert diese Methode im Wesentlichen als Setter für die {{jsxref("Temporal/PlainDate/calendarId", "calendarId")}} Eigenschaft des Datums.
+Die Methode **`withCalendar()`** von {{jsxref("Temporal.PlainDate")}} Instanzen gibt ein neues `Temporal.PlainDate` Objekt zurück, das dieses Datum im neuen Kalendersystem interpretiert. Da alle `Temporal` Objekte unveränderlich gestaltet sind, fungiert diese Methode im Wesentlichen als der Setter für die {{jsxref("Temporal/PlainDate/calendarId", "calendarId")}} Eigenschaft des Datums.
 
 Um die Datumsbestandteile zu ersetzen, verwenden Sie stattdessen die {{jsxref("Temporal/PlainDate/with", "with()")}} Methode.
 
@@ -20,18 +20,18 @@ withCalendar(calendar)
 ### Parameter
 
 - `calendar`
-  - : Ein Zeichenfolge, die der {{jsxref("Temporal/PlainDate/calendarId", "calendarId")}} Eigenschaft entspricht.
+  - : Ein String, der der {{jsxref("Temporal/PlainDate/calendarId", "calendarId")}} Eigenschaft entspricht.
 
 ### Rückgabewert
 
-Ein neues `Temporal.PlainDate` Objekt, das das von dem originalen `PlainDate` angegebene Datum im neuen Kalendersystem darstellt.
+Ein neues `Temporal.PlainDate` Objekt, das das durch das ursprüngliche `PlainDate` angegebene Datum repräsentiert, interpretiert im neuen Kalendersystem.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn `calendar` keine Zeichenfolge ist.
+  - : Ausgelöst, wenn `calendar` kein String ist.
 - {{jsxref("RangeError")}}
-  - : Wird ausgelöst, wenn `calendar` keine gültige Kalenderkennung ist.
+  - : Ausgelöst, wenn `calendar` keine gültige Kalenderkennung ist.
 
 ## Beispiele
 
@@ -39,8 +39,8 @@ Ein neues `Temporal.PlainDate` Objekt, das das von dem originalen `PlainDate` an
 
 ```js
 const date = Temporal.PlainDate.from("2021-07-01");
-const newDate = date.withCalendar("islamic");
-console.log(newDate.toLocaleString("en-US", { calendar: "islamic" }));
+const newDate = date.withCalendar("islamic-umalqura");
+console.log(newDate.toLocaleString("en-US", { calendar: "islamic-umalqura" }));
 // 11/21/1442 AH
 ```
 

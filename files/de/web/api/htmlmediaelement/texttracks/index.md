@@ -3,28 +3,42 @@ title: "HTMLMediaElement: textTracks-Eigenschaft"
 short-title: textTracks
 slug: Web/API/HTMLMediaElement/textTracks
 l10n:
-  sourceCommit: 7972ac25580ffbfb160e6d40013bbab3013d7cbe
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die schreibgeschützte **`textTracks`**-Eigenschaft von [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement)-Objekten gibt ein [`TextTrackList`](/de/docs/Web/API/TextTrackList)-Objekt zurück, das alle [`TextTrack`](/de/docs/Web/API/TextTrack)-Objekte auflistet, die die Textspuren des Medienelements darstellen, in der gleichen Reihenfolge wie in der Liste der Textspuren.
+Die schreibgeschützte **`textTracks`**
+Eigenschaft von [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement)-Objekten gibt ein
+[`TextTrackList`](/de/docs/Web/API/TextTrackList)-Objekt zurück, das alle [`TextTrack`](/de/docs/Web/API/TextTrack)
+Objekte auflistet, die die Textspuren des Medienelements darstellen, in derselben Reihenfolge wie in
+der Liste der Textspuren.
 
-Sie können erkennen, wann Spuren zu einem [`<audio>`](/de/docs/Web/HTML/Element/audio) oder [`<video>`](/de/docs/Web/HTML/Element/video)-Element hinzugefügt oder daraus entfernt werden, indem Sie die `addtrack`- und `removetrack`-Ereignisse verwenden. Diese Ereignisse werden jedoch nicht direkt an das Medienelement selbst gesendet. Stattdessen werden sie an das Spurlistenobjekt des [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement) gesendet, das dem Typ der hinzugefügten Spur entspricht.
+Sie können erkennen, wann Spuren zu einem
+[`<audio>`](/de/docs/Web/HTML/Reference/Elements/audio)- oder
+[`<video>`](/de/docs/Web/HTML/Reference/Elements/video)-Element hinzugefügt oder entfernt werden,
+indem Sie die `addtrack`- und `removetrack`-Ereignisse verwenden. Diese
+Ereignisse werden jedoch nicht direkt an das Medienelement selbst gesendet. Stattdessen werden sie an das
+Tracklisten-Objekt des entsprechenden [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement)
+gesendet, das zum Typ der hinzugefügten Spur passt.
 
-Die zurückgegebene Liste ist _live_; das bedeutet, dass sich der Inhalt der Liste dynamisch ändert, wenn Spuren zu dem Medienelement hinzugefügt oder aus diesem entfernt werden. Sobald Sie eine Referenz auf die Liste haben, können Sie diese überwachen, um Änderungen zu erkennen, wenn neue Textspuren hinzugefügt oder vorhandene entfernt werden.
+Die zurückgegebene Liste ist _live_; das heißt, während Spuren zum Medienelement hinzugefügt oder daraus entfernt werden, ändert sich der Inhalt der Liste dynamisch. Sobald Sie eine Referenz auf
+die Liste haben, können Sie sie überwachen, um Veränderungen zu erkennen, wenn neue Textspuren hinzugefügt oder bestehende entfernt werden.
 
-Sehen Sie [TextTrackList-Ereignisse](/de/docs/Web/API/TextTrackList#events), um mehr darüber zu erfahren, wie Sie Änderungen in der Spurliste eines Medienelements beobachten können.
+Siehe [TextTrackList-Ereignisse](/de/docs/Web/API/TextTrackList#events), um mehr darüber zu erfahren, wie Sie Veränderungen in der Spurenliste eines Medienelements beobachten können.
 
 ## Wert
 
-Ein [`TextTrackList`](/de/docs/Web/API/TextTrackList)-Objekt, das die Liste der im Medienelement enthaltenen Textspuren repräsentiert. Auf die Liste der Spuren kann mit `textTracks[n]` zugegriffen werden, um die n-te Textspur aus der Objektliste der Textspuren zu erhalten, oder mit der Methode [`textTracks.getTrackById()`](/de/docs/Web/API/TextTrackList/getTrackById).
+Ein [`TextTrackList`](/de/docs/Web/API/TextTrackList)-Objekt, das die Liste der im Medienelement enthaltenen Textspuren darstellt. Auf die Liste der Spuren kann mithilfe von `textTracks[n]` zugegriffen werden, um die n-te Textspur aus der Spurenliste des Objekts zu erhalten, oder mithilfe der [`textTracks.getTrackById()`](/de/docs/Web/API/TextTrackList/getTrackById)-Methode.
 
-Jede Spur wird durch ein [`TextTrack`](/de/docs/Web/API/TextTrack)-Objekt dargestellt, das Informationen über die Spur liefert.
+Jede Spur wird durch ein [`TextTrack`](/de/docs/Web/API/TextTrack)-Objekt repräsentiert, das Informationen über die Spur bereitstellt.
 
 ## Beispiele
 
-Wir beginnen mit einem [`<video>`](/de/docs/Web/HTML/Element/video), das mehrere [`<track>`](/de/docs/Web/HTML/Element/track)-Kinder hat.
+Wir beginnen mit einem
+[`<video>`](/de/docs/Web/HTML/Reference/Elements/video), das
+mehrere [`<track>`](/de/docs/Web/HTML/Reference/Elements/track)-
+Kinder hat.
 
 ```html
 <video controls poster="/images/sample.gif">
@@ -43,7 +57,9 @@ Wir beginnen mit einem [`<video>`](/de/docs/Web/HTML/Element/video), das mehrere
 </video>
 ```
 
-Das `HTMLMediaElement.textTracks` gibt ein `textTracksList` zurück, durch das wir iterieren können. Hier drucken wir alle Eigenschaften jeder englischen Spur auf die Konsole.
+`HTMLMediaElement.textTracks` gibt eine
+`textTracksList` zurück, durch die wir iterieren können. Hier drucken wir alle Eigenschaften
+jedes englischen Tracks in die Konsole.
 
 ```js
 const tracks = document.querySelector("video").textTracks;

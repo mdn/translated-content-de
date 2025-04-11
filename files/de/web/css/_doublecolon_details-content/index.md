@@ -2,12 +2,12 @@
 title: ::details-content
 slug: Web/CSS/::details-content
 l10n:
-  sourceCommit: b7d66867262bcc6a7097d54afd95765d5a43c6c0
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{CSSRef}}
 
-Das **`::details-content`** [CSS](/de/docs/Web/CSS) [Pseudo-Element](/de/docs/Web/CSS/Pseudo-elements) repräsentiert den erweiterbaren/einklappbaren Inhalt eines {{HTMLElement("details")}} Elements.
+Das **`::details-content`** [CSS](/de/docs/Web/CSS) [Pseudoelement](/de/docs/Web/CSS/Pseudo-elements) repräsentiert die erweiterbaren/zusammenklappbaren Inhalte eines {{HTMLElement("details")}}-Elements.
 
 {{InteractiveExample("CSS Demo: ::details-content", "tabbed-shorter")}}
 
@@ -40,7 +40,7 @@ selector::details-content
 
 ### Einfaches Beispiel
 
-In diesem Beispiel wird das `::details-content` Pseudo-Element verwendet, um eine {{cssxref("background-color")}} auf den Inhalt des {{HTMLElement("details")}} Elements zu setzen.
+In diesem Beispiel wird das `::details-content`-Pseudoelement verwendet, um eine {{cssxref("background-color")}} auf den Inhalt des {{HTMLElement("details")}}-Elements zu setzen.
 
 #### HTML
 
@@ -63,12 +63,12 @@ details::details-content {
 
 {{EmbedLiveSample("Basic_example", "100%", 150)}}
 
-### Übergangsbeispiel
+### Transition-Beispiel
 
-In diesem Beispiel wird das `::details-content` Pseudo-Element verwendet, um eine {{cssxref("transition")}} auf den Inhalt des {{HTMLElement("details")}} Elements zu setzen, sodass es beim Erweitern sanft eingeblendet und beim Einklappen wieder ausgeblendet wird. Um dies zu erreichen, werden zwei separate Übergänge innerhalb der `transition` Kurzform-Eigenschaft festgelegt:
+In diesem Beispiel wird das `::details-content`-Pseudoelement verwendet, um eine {{cssxref("transition")}} auf den Inhalt des {{HTMLElement("details")}}-Elements zu setzen, sodass es beim Erweitern sanft eingeblendet und beim Zusammenklappen wieder ausgeblendet wird. Um dies zu erreichen, werden zwei separate Übergänge innerhalb der `transition`-Kurzschreibweise spezifiziert:
 
-- Die {{cssxref("opacity")}} Eigenschaft erhält einen einfachen Übergang über `600ms`, um den Ein-/Ausblendeffekt zu erzeugen.
-- Die {{cssxref("content-visibility")}} Eigenschaft (die zwischen `hidden` und `visible` umgeschaltet wird, wenn der `<details>` Inhalt erweitert/eingeklappt wird) erhält ebenfalls einen einfachen `600ms` Übergang, jedoch mit dem {{cssxref("transition-behavior")}} Wert `allow-discrete`. Dies ermöglicht dem Browser, einen Übergang bei `content-visibility` zu starten, dessen Animationsverhalten [diskret](/de/docs/Web/CSS/CSS_animated_properties#discrete) ist. Der Effekt ist, dass der Inhalt für die gesamte Dauer des Übergangs sichtbar ist, sodass andere Übergänge sichtbar sind. Wenn dieser Übergang nicht enthalten wäre, würde der Inhalt sofort verschwinden, wenn der `<details>` Inhalt eingeklappt wird – man würde das sanfte Ausblenden nicht sehen.
+- Die {{cssxref("opacity")}}-Eigenschaft erhält einen einfachen Übergang über `600ms`, um den Ein- und Ausblendeffekt zu erzeugen.
+- Die {{cssxref("content-visibility")}}-Eigenschaft (die zwischen `hidden` und `visible` umgeschaltet wird, wenn der `<details>`-Inhalt erweitert/zusammengeklappt wird) erhält ebenfalls einen einfachen `600ms` Übergang, jedoch mit dem Wert {{cssxref("transition-behavior")}} `allow-discrete` angegeben. Dies ermöglicht dem Browser, einen Übergang auf `content-visibility` zu starten, dessen Animationsverhalten [diskret](/de/docs/Web/CSS/CSS_animated_properties#discrete) ist. Der Effekt ist, dass der Inhalt für die gesamte Dauer des Übergangs sichtbar ist und andere Übergänge gesehen werden können. Wenn dieser Übergang nicht eingeschlossen wäre, würde der Inhalt sofort verschwinden, wenn der `<details>`-Inhalt zusammengeklappt wird — Sie würden das sanfte Ausblenden nicht sehen.
 
 #### HTML
 
@@ -108,5 +108,5 @@ details[open]::details-content {
 
 ## Siehe auch
 
-- [`<details>`](/de/docs/Web/HTML/Element/details)
-- [`<summary>`](/de/docs/Web/HTML/Element/summary)
+- [`<details>`](/de/docs/Web/HTML/Reference/Elements/details)
+- [`<summary>`](/de/docs/Web/HTML/Reference/Elements/summary)

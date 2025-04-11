@@ -1,20 +1,20 @@
 ---
-title: "ValidityState: typeMismatch Eigenschaft"
+title: "ValidityState: typeMismatch-Eigenschaft"
 short-title: typeMismatch
 slug: Web/API/ValidityState/typeMismatch
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die schreibgeschützte **`typeMismatch`**-Eigenschaft der [`ValidityState`](/de/docs/Web/API/ValidityState)-Schnittstelle zeigt an, ob der Wert eines {{HTMLElement("input")}}, nachdem er vom Benutzer bearbeitet wurde, nicht den durch das [`type`](/de/docs/Web/HTML/Element/input#input_types)-Attribut des Elements festgelegten Einschränkungen entspricht.
+Die schreibgeschützte **`typeMismatch`**-Eigenschaft des [`ValidityState`](/de/docs/Web/API/ValidityState)-Interfaces zeigt an, ob der Wert eines vom Benutzer bearbeiteten {{HTMLElement("input")}} nicht den durch das [`type`](/de/docs/Web/HTML/Reference/Elements/input#input_types)-Attribut des Elements festgelegten Einschränkungen entspricht.
 
-Wenn das `type`-Attribut spezifische Zeichenfolgen erwartet, wie die Typen {{HTMLElement("input/email", "email")}} und {{HTMLElement("input/url", "url")}}, und der Wert nicht den durch den Typ festgelegten Einschränkungen entspricht, wird die `typeMismatch`-Eigenschaft auf true gesetzt.
+Wenn das `type`-Attribut bestimmte Strings erwartet, wie bei den Typen {{HTMLElement("input/email", "email")}} und {{HTMLElement("input/url", "url")}}, und der Wert nicht den durch den Typ festgelegten Einschränkungen entspricht, wird die `typeMismatch`-Eigenschaft wahr sein.
 
-Der {{HTMLElement("input/email", "email")}} Eingabetyp erwartet eine oder mehrere gültige E-Mail-Adressen, abhängig davon, ob das [`multiple`](/de/docs/Web/HTML/Attributes/multiple)-Attribut vorhanden ist. Eine gültige E-Mail-Adresse umfasst ein E-Mail-Präfix und eine Domain, mit oder ohne Top-Level-Domain. Wenn der Wert des E-Mail-Eingabefelds nicht eine leere Zeichenfolge, eine einzelne gültige E-Mail-Adresse oder eine oder mehrere kommagetrennte E-Mail-Adressen ist, sofern das [`multiple`](/de/docs/Web/HTML/Attributes/multiple)-Attribut vorhanden ist, liegt ein `typeMismatch` vor.
+Der {{HTMLElement("input/email", "email")}}-Eingabetyp erwartet je nach Vorhandensein des [`multiple`](/de/docs/Web/HTML/Reference/Attributes/multiple)-Attributs eine oder mehrere gültige E-Mail-Adressen. Eine gültige E-Mail-Adresse enthält ein E-Mail-Präfix und eine Domain, mit oder ohne Top-Level-Domain. Wenn der Wert der E-Mail-Eingabe nicht eine leere Zeichenkette, eine einzelne gültige E-Mail-Adresse oder eine oder mehrere durch Kommas getrennte E-Mail-Adressen ist, gibt es einen `typeMismatch`.
 
-Der {{HTMLElement("input/url", "url")}} Eingabetyp erwartet eine oder mehrere gültige URLs, abhängig davon, ob das [`multiple`](/de/docs/Web/HTML/Attributes/multiple)-Attribut vorhanden ist. Eine gültige URL umfasst ein Protokoll, optional mit einer IP-Adresse oder einer optionalen Kombination aus Subdomain, Domain und Top-Level-Domain. Wenn der Wert des URL-Eingabefelds nicht eine leere Zeichenfolge, eine einzelne gültige URL oder eine oder mehrere kommagetrennte URLs ist, sofern das [`multiple`](/de/docs/Web/HTML/Attributes/multiple)-Attribut vorhanden ist, liegt ein `typeMismatch` vor.
+Der {{HTMLElement("input/url", "url")}}-Eingabetyp erwartet je nach Vorhandensein des [`multiple`](/de/docs/Web/HTML/Reference/Attributes/multiple)-Attributs eine oder mehrere gültige URLs. Eine gültige URL enthält ein Protokoll, optional mit einer IP-Adresse, oder eine optionale Subdomain, Domain und Top-Level-Domain-Kombination. Wenn der Wert der URL-Eingabe nicht eine leere Zeichenkette, eine einzelne gültige URL oder eine oder mehrere durch Kommas getrennte URLs ist, gibt es einen `typeMismatch`.
 
 | Eingabetyp                              | Wert                | Erwarteter Wert                                          |
 | --------------------------------------- | ------------------- | -------------------------------------------------------- |
@@ -23,17 +23,17 @@ Der {{HTMLElement("input/url", "url")}} Eingabetyp erwartet eine oder mehrere g�
 
 ## Wert
 
-Ein boolescher Wert, der `true` ist, wenn das `ValidityState` nicht den Einschränkungen entspricht.
+Ein Boolean, der `true` ist, wenn der `ValidityState` nicht den Einschränkungen entspricht.
 
 ## Beispiele
 
-### Typmismatch bei Eingabeelement
+### Typenfehlanpassung bei Input-Elementen
 
-Der `typeMismatch` tritt auf, wenn eine Diskrepanz zwischen dem über das [`type`](/de/docs/Web/HTML/Element/input#input_types)-Attribut erwarteten [`value`](/de/docs/Web/HTML/Element/input#value) und den tatsächlich vorhandenen Daten besteht.
+Der `typeMismatch` tritt auf, wenn es eine Diskrepanz zwischen dem über das [`type`](/de/docs/Web/HTML/Reference/Elements/input#input_types)-Attribut erwarteten [`value`](/de/docs/Web/HTML/Reference/Elements/input#value) und den tatsächlich vorhandenen Daten gibt.
 Der `typeMismatch` ist nur einer von vielen möglichen Fehlern und ist nur relevant für die Typen {{HTMLElement("input/email", "email")}} und {{HTMLElement("input/url", "url")}}.
 Wenn der bereitgestellte Wert nicht dem erwarteten Wert basierend auf dem Typ für andere Eingabetypen entspricht, treten verschiedene Fehler auf.
-Zum Beispiel, wenn der Wert des {{HTMLElement("input/number", "number")}} Eingabefelds keine Gleitkommazahl ist, ist `badInput` `true`.
-Wenn die E-Mail [`required`](/de/docs/Web/HTML/Attributes/required) ist, aber leer bleibt, wird [`valueMissing`](/de/docs/Web/API/ValidityState/valueMissing) `true` sein.
+Zum Beispiel, wenn der {{HTMLElement("input/number", "number")}}-Eingabewert keine Gleitkommazahl ist, wird `badInput` `true`.
+Wenn die E-Mail [`required`](/de/docs/Web/HTML/Reference/Attributes/required) ist, aber leer bleibt, wird [`valueMissing`](/de/docs/Web/API/ValidityState/valueMissing) `true` sein.
 
 ```html
 <pre id="log">Validation logged here...</pre>
@@ -96,6 +96,6 @@ emailInput.addEventListener("input", () => {
 ## Siehe auch
 
 - ValidityState [badInput](/de/docs/Web/API/ValidityState/badInput), [valid](/de/docs/Web/API/ValidityState/valid), [customError](/de/docs/Web/API/ValidityState/customError)-Eigenschaften.
-- [Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation)
-- [Formulare: Datenformularvalidierung](/de/docs/Learn_web_development/Extensions/Forms/Form_validation)
+- [Constraint validation](/de/docs/Web/HTML/Guides/Constraint_validation)
+- [Formulare: Datenvalidierung in Formularen](/de/docs/Learn_web_development/Extensions/Forms/Form_validation)
 - [Reguläre Ausdrücke](/de/docs/Web/JavaScript/Guide/Regular_expressions)

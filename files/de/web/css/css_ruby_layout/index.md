@@ -2,12 +2,12 @@
 title: CSS-Ruby-Layout
 slug: Web/CSS/CSS_ruby_layout
 l10n:
-  sourceCommit: f731452fabde211bee55aedd39fc83d60c4e4918
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{CSSRef}}
 
-Das **CSS-Ruby-Layout** Modul bietet das Modell zur Darstellung und Formatierungssteuerungen im Zusammenhang mit der Anzeige von Ruby-Annotationen. Ruby-Annotationen sind eine Form der interlinearen Annotation, bestehend aus kurzen Textabschnitten neben dem Basistext. Sie werden typischerweise in ostasiatischen Dokumenten verwendet, um Aussprache anzuzeigen oder Bedeutung zu erklären.
+Das **CSS-Ruby-Layout**-Modul bietet das Rendering-Modell und Formatsteuerungen im Zusammenhang mit der Anzeige von Ruby-Anmerkungen. Ruby-Anmerkungen sind eine Form von interlinearen Anmerkungen, die aus kurzen Textabschnitten neben dem Basistext bestehen. Sie werden typischerweise in ostasiatischen Dokumenten verwendet, um die Aussprache anzugeben oder die Bedeutung zu definieren.
 
 ## Referenz
 
@@ -19,9 +19,9 @@ Das **CSS-Ruby-Layout** Modul bietet das Modell zur Darstellung und Formatierung
 > [!NOTE]
 > Das CSS-Ruby-Layout-Modul führt zwei Eigenschaften ein, `ruby-merge` und `ruby-overhang`, die noch in keinem Browser implementiert wurden.
 
-### Display-Werte
+### Anzeige-Werte
 
-Das CSS-Ruby-Layout-Modul fügt der {{cssxref("display")}} Eigenschaft folgende Werte hinzu:
+Das CSS-Ruby-Layout-Modul fügt der {{cssxref("display")}}-Eigenschaft die folgenden Werte hinzu:
 
 - `ruby`
 - `ruby-base`
@@ -35,15 +35,15 @@ Das CSS-Ruby-Layout-Modul fügt der {{cssxref("display")}} Eigenschaft folgende 
 
 ## Verwandte Konzepte
 
-- [CSS-Display](/de/docs/Web/CSS/CSS_display) Modul
+- [CSS Display](/de/docs/Web/CSS/CSS_display)-Modul
   - {{cssxref("display")}}
   - {{CSSxRef("&lt;display-internal&gt;")}}
-- [CSS-Textdekoration](/de/docs/Web/CSS/CSS_text_decoration) Modul
+- [CSS Textdekoration](/de/docs/Web/CSS/CSS_text_decoration)-Modul
   - {{cssxref("text-emphasis-color")}}
   - {{cssxref("text-emphasis-position")}}
   - {{cssxref("text-emphasis-style")}}
   - {{cssxref("text-emphasis")}} Kurzform
-- [HTML-Elemente](/de/docs/Web/HTML/Element)
+- [HTML-Elemente](/de/docs/Web/HTML/Reference/Elements)
   - {{HTMLElement("rb")}}
   - {{HTMLElement("rp")}}
   - {{HTMLElement("rt")}}
@@ -60,4 +60,4 @@ Das CSS-Ruby-Layout-Modul fügt der {{cssxref("display")}} Eigenschaft folgende 
 - {{cssxref("unicode-bidi")}}
 - {{cssxref("font-variant-east-asian")}}
 - {{cssxref(":lang()")}}
-- HTML [`lang`](/de/docs/Web/HTML/Global_attributes/lang) Attribut
+- HTML-Attribut [`lang`](/de/docs/Web/HTML/Reference/Global_attributes/lang)

@@ -2,53 +2,53 @@
 title: Zugängliche Beschreibung
 slug: Glossary/Accessible_description
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{GlossarySidebar}}
 
-Eine **zugängliche Beschreibung** ist die Beschreibung eines Benutzeroberflächenelements, das zusätzliche Informationen bereitstellt, um Benutzern von unterstützenden Technologien zu helfen, das UI-Element und seinen Kontext zu verstehen. Es ist einem HTML- oder SVG-Element zugeordnet und gibt den Benutzern zusätzlichen Kontext zu seinem Zweck, über das hinaus, was durch den {{Glossary("accessible_name", "zugänglichen Namen")}} des Elements bereitgestellt wird. Dies ist besonders wichtig für Benutzer, die auf unterstützende Technologien wie {{Glossary("Screen_reader", "Screenreader")}} angewiesen sind. Die zugängliche Beschreibung eines Elements ist Teil der {{Glossary("accessibility_tree", "Barrierefreiheitsbaum")}}.
+Eine **zugängliche Beschreibung** ist die Beschreibung eines Benutzeroberflächenelements, die zusätzliche Informationen bietet, um Benutzern von unterstützenden Technologien zu helfen, das UI-Element und seinen Kontext zu verstehen. Sie ist mit einem HTML- oder SVG-Element verknüpft und gibt Benutzern zusätzlichen Kontext über den Zweck des Elements, der über das hinausgeht, was durch den {{Glossary("accessible_name", "zugänglichen Namen")}} des Elements bereitgestellt wird. Dies ist besonders wichtig für Benutzer, die sich auf unterstützende Technologien wie {{Glossary("Screen_reader", "Screenreader")}} verlassen. Eine zugängliche Beschreibung eines Elements ist Teil des {{Glossary("accessibility_tree", "Zugänglichkeitsbaums")}}.
 
-Zum Beispiel wird der zugängliche Name einer {{htmlelement("table")}} durch seine erste {{htmlelement("caption")}} bereitgestellt. Im Fall von komplexen Datentabellen kann ein Satz oder zwei, die die Tabelle beschreiben, eine Beschreibung liefern. Dies kann ein Absatz direkt vor oder nach der Tabelle sein, sowohl visuell als auch in der Quellcode-Reihenfolge. Wenn anderswo in der Quellcode-Reihenfolge oder um die Zuordnung explizit zu machen, kann das [`aria-describedby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-describedby)-Attribut verwendet werden, um die Tabelle mit ihrer Beschreibung zu verknüpfen.
+Zum Beispiel wird der zugängliche Name eines {{htmlelement("table")}} durch dessen erstes {{htmlelement("caption")}} bereitgestellt. Im Fall von komplexen Datentabellen kann ein Satz oder zwei, die die Tabelle beschreiben, eine Beschreibung liefern. Dies kann ein Absatz direkt vor oder nach der Tabelle sein, sowohl visuell als auch in der Quellcode-Reihenfolge. Wenn es sich anderswo in der Quellcode-Reihenfolge befindet oder um die Zuordnung explizit zu machen, kann das Attribut [`aria-describedby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-describedby) verwendet werden, um die Tabelle mit ihrer Beschreibung zu verknüpfen.
 
-Ähnlich dazu, wenn ein Benutzer aufgefordert wird, ein Passwort zu erstellen, bietet das `<label>` für das {{htmlelement("input")}} vom Typ `password` seinen zugänglichen Namen. Eine gute zugängliche Beschreibung beinhaltet die Anforderungen an das Passwort auf eine Weise, die für alle Benutzer sichtbar ist. Es kann explizit mit der Eingabe über das `aria-describedby`-Attribut verknüpft werden, das es dem Barrierefreiheitsbaum als 'Beschreibung' für diesen Knoten hinzufügt.
+Ähnlich, wenn ein Benutzer aufgefordert wird, ein Passwort zu erstellen, stellt das `<label>` für das {{htmlelement("input")}} vom Typ `password` seinen zugänglichen Namen bereit. Eine gute zugängliche Beschreibung umfasst die Anforderungen für das Passwort auf eine Weise, die für alle Benutzer sichtbar ist. Sie kann explizit mit dem Eingabefeld über dessen `aria-describedby`-Attribut verknüpft werden, das es dem Zugänglichkeitsbaum als 'Beschreibung' für diesen Knoten hinzufügt.
 
-Beschreibungen werden auf Textketten reduziert. In unserem Passwortbeispiel, wenn der Wert des `aria-describedby`-Attributs der `id` eines HTML-{{htmlelement("ul")}} mit einer Liste von Anforderungen ist, wird die Beschreibung als zusammengefasster Text und Textequivalente aller Listenelemente aufgelöst.
+Beschreibungen werden auf Textstrings reduziert. In unserem Passwortbeispiel, wenn der Wert des `aria-describedby`-Attributs des Eingabefeldes die `id` eines HTML-{{htmlelement("ul")}} mit einer Liste von Anforderungen ist, ist die Beschreibung verketteter Text und Textequivalente aller Listenelemente.
 
-Sie können die zugängliche Beschreibung für jedes Element auf Ihrer Seite überprüfen: Schauen Sie in den Barrierefreiheits-Tab der Entwicklerwerkzeuge Ihres Browsers, der die Barrierefreiheitsinformationen für das aktuell ausgewählte Element bereitstellt.
+Sie können die zugängliche Beschreibung für jedes Element auf Ihrer Seite überprüfen: Schauen Sie sich den Accessibility-Tab der Entwicklertools Ihres Browsers an, der die Zugänglichkeitsinformationen für das derzeit ausgewählte Element bereitstellt.
 
 ## Berechnung der zugänglichen Beschreibung
 
-Bei HTML-Elementen, wenn ein Element keine zugängliche Beschreibung hat, muss die Beschreibung programmatisch mit dem verwandten Element verknüpft werden. Das Accessibility Object Model (AOM) berechnet die zugängliche Beschreibung, indem es diese Eigenschaften in der Reihenfolge überprüft, bis sie definiert ist:
+Für HTML-Elemente, wenn ein Element keine zugängliche Beschreibung hat, muss die Beschreibung programmatisch mit dem zugehörigen Element verknüpft werden. Das Accessibility Object Model (AOM) berechnet die zugängliche Beschreibung, indem es diese Funktionen in der Reihenfolge überprüft, bis sie definiert ist:
 
-1. [`aria-describedby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-describedby) Attribut.
+1. [`aria-describedby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-describedby)-Attribut.
 
-2. [`aria-description`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-description) Attribut.
+2. [`aria-description`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-description)-Attribut.
 
-3. Sprachspezifische Funktionen, die an der Beschreibungsberechnung teilnehmen, wenn die Funktion nicht bereits verwendet wird, um den {{Glossary("accessible_name", "zugänglichen Namen")}} zu definieren. Zum Beispiel:
+3. Sprachspezifische Merkmale, die an der Beschreibungsteilnahme teilnehmen, sofern das Merkmal nicht bereits verwendet wird, um den {{Glossary("accessible_name", "zugänglichen Namen")}} zu definieren. Zum Beispiel:
 
-   - Ein {{htmlelement("summary")}} wird durch den Inhalt des {{htmlelement("details")}}, in dem es verschachtelt ist, beschrieben.
+   - Ein {{htmlelement("summary")}} wird durch den Inhalt des {{htmlelement("details")}} beschrieben, in dem es verschachtelt ist.
    - {{htmlelement("input")}}-Buttons (mit dem Typ-Attribut `button`, `submit` oder `reset`) werden durch den Wert ihres `value`-Attributs beschrieben.
-   - In SVG, der Inhalt des [`<desc>`](/de/docs/Web/SVG/Reference/Element/desc)-Elements, falls vorhanden, ansonsten der Text, der in nachfolgenden Textcontainerelementen enthalten ist (d.h. [`<text>`](/de/docs/Web/SVG/Reference/Element/text)), wenn sie nicht bereits für den {{Glossary("accessible_name", "zugänglichen Namen")}} verwendet werden.
+   - In SVG der Inhalt des [`<desc>`](/de/docs/Web/SVG/Reference/Element/desc)-Elements, falls vorhanden, andernfalls der Text, der in nachfolgenden Textelementen (d.h. [`<text>`](/de/docs/Web/SVG/Reference/Element/text)) enthalten ist, sofern sie nicht bereits für den {{Glossary("accessible_name", "zugänglichen Namen")}} verwendet werden.
 
-4. Wenn keiner der oben genannten eine Beschreibung liefert, wird das [`title`](/de/docs/Web/HTML/Global_attributes/title)-Attribut verwendet, wenn der `title` nicht der {{Glossary("accessible_name", "zugängliche Name")}} für dieses Element ist.
+4. Wenn keine der oben genannten eine Beschreibung liefert, wird das [`title`](/de/docs/Web/HTML/Reference/Global_attributes/title)-Attribut verwendet, sofern der `title` nicht der {{Glossary("accessible_name", "zugängliche Name")}} für dieses Element ist.
 
-5. Wenn keiner der oben genannten eine zugängliche Beschreibung liefert, ist die zugängliche Beschreibung leer.
+5. Wenn keine der oben genannten Definitionen eine zugängliche Beschreibung bietet, ist die zugängliche Beschreibung leer.
 
-Die Schritte zur Definition der zugänglichen Beschreibung in HTML sind im [HTML-AAM Accessible Description](https://www.w3.org/TR/html-aam-1.0/#accdesc-computation)) definiert. Die zugängliche Beschreibung für SVG-Elemente folgt denselben Schritten mit kleinen Unterschieden, die unter [SVG-AAM Accessible Description](https://www.w3.org/TR/svg-aam-1.0/#mapping_additional_nd)) aufgelistet sind.
+Die Schritte zur Definition einer zugänglichen Beschreibung in HTML sind im [HTML-AAM Accessible Description](https://www.w3.org/TR/html-aam-1.0/#accdesc-computation) festgelegt. Die zugängliche Beschreibung für SVG-Elemente folgt den gleichen Schritten mit kleinen Unterschieden, die im [SVG-AAM Accessible Description](https://www.w3.org/TR/svg-aam-1.0/#mapping_additional_nd) aufgezählt sind.
 
 ## Siehe auch
 
 - [Accessible Name and Description Computation 1.2 (accname)](https://w3c.github.io/accname/#mapping_additional_nd_description)
-- [Barrierefreiheit](/de/docs/Web/Accessibility)
+- [Accessibility](/de/docs/Web/Accessibility)
 - [Barrierefreiheit lernen](/de/docs/Learn_web_development/Core/Accessibility)
-- [Web-Barrierefreiheit](https://en.wikipedia.org/wiki/Web_accessibility) auf Wikipedia
+- [Web-Zugänglichkeit](https://en.wikipedia.org/wiki/Web_accessibility) auf Wikipedia
 - [Web Accessibility In Mind](https://webaim.org/)
 - [ARIA](/de/docs/Web/Accessibility/ARIA)
 - [Die W3C Web Accessibility Initiative (WAI)](https://www.w3.org/WAI/)
 - [Accessible Rich Internet Applications (WAI-ARIA)](https://w3c.github.io/aria/)
 - Verwandte Glossarbegriffe:
-  - {{Glossary("Accessibility", "Barrierefreiheit")}}
-  - {{Glossary("Accessibility_tree", "Barrierefreiheitsbaum")}}
+  - {{Glossary("Accessibility", "Accessibility")}}
+  - {{Glossary("Accessibility_tree", "Zugänglichkeitsbaum")}}
   - {{Glossary("Accessible_name", "Zugänglicher Name")}}
   - {{Glossary("ARIA", "ARIA")}}

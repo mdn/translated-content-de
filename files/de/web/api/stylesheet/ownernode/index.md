@@ -3,17 +3,14 @@ title: "StyleSheet: ownerNode-Eigenschaft"
 short-title: ownerNode
 slug: Web/API/StyleSheet/ownerNode
 l10n:
-  sourceCommit: 101ffc9479db6aaa530f2aac3992734dd97d1b86
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{APIRef("CSSOM")}}
 
-Die **`ownerNode`**-Eigenschaft des
-[`StyleSheet`](/de/docs/Web/API/StyleSheet)-Interfaces gibt den Knoten zurück, der dieses Stylesheet mit dem Dokument verknüpft.
+Die **`ownerNode`**-Eigenschaft des [`StyleSheet`](/de/docs/Web/API/StyleSheet)-Interfaces gibt den Knoten zurück, der dieses Stylesheet mit dem Dokument verbindet.
 
-Dies ist in der Regel ein HTML
-[`<link>`](/de/docs/Web/HTML/Element/link)- oder
-[`<style>`](/de/docs/Web/HTML/Element/style)-Element, kann aber auch einen [Verarbeitungshinweis-Knoten](/de/docs/Web/API/ProcessingInstruction) im Fall von `<?xml-stylesheet ?>` zurückgeben.
+Dies ist normalerweise ein HTML-[`<link>`](/de/docs/Web/HTML/Reference/Elements/link)- oder [`<style>`](/de/docs/Web/HTML/Reference/Elements/style)-Element, kann aber im Falle von `<?xml-stylesheet ?>` auch einen [Verarbeitungsanweisungs-Knoten](/de/docs/Web/API/ProcessingInstruction) zurückgeben.
 
 ## Wert
 
@@ -35,11 +32,9 @@ Ein [`Node`](/de/docs/Web/API/Node)-Objekt.
 // Displays "object HTMLLinkElement"
 ```
 
-## Hinweise
+## Anmerkungen
 
-Für Stylesheets, die von anderen Stylesheets einbezogen werden, wie etwa mit
-[`@import`](/de/docs/Web/CSS/@import), ist der Wert dieser
-Eigenschaft `null`.
+Für Stylesheets, die von anderen Stylesheets eingebunden werden, beispielsweise mit [`@import`](/de/docs/Web/CSS/@import), ist der Wert dieser Eigenschaft `null`.
 
 ## Spezifikationen
 

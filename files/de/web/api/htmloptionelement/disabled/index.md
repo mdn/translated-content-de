@@ -1,16 +1,16 @@
 ---
-title: "HTMLOptionElement: disabled Eigenschaft"
+title: "HTMLOptionElement: disabled-Eigenschaft"
 short-title: disabled
 slug: Web/API/HTMLOptionElement/disabled
 l10n:
-  sourceCommit: 9a1384feb06620002bbb01e8085c0d9f1e30df4f
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{ APIRef("HTML DOM") }}
 
-Die **`disabled`** Eigenschaft des [`HTMLOptionElement`](/de/docs/Web/API/HTMLOptionElement) ist ein boolescher Wert, der angibt, ob das {{htmlelement("option")}} Element nicht zur Auswahl zur Verfügung steht. Die Eigenschaft spiegelt den Wert des [`disabled`](/de/docs/Web/HTML/Element/option#disabled) HTML-Attributs wider.
+Die **`disabled`**-Eigenschaft des [`HTMLOptionElement`](/de/docs/Web/API/HTMLOptionElement) ist ein boolescher Wert, der anzeigt, ob das {{htmlelement("option")}}-Element nicht ausgewählt werden kann. Die Eigenschaft spiegelt den Wert des HTML-Attributs [`disabled`](/de/docs/Web/HTML/Reference/Elements/option#disabled) wider.
 
-Die Eigenschaft spiegelt den Wert des `disabled` Attributs des `<option>` Elements wider. Wenn eine Option deaktiviert ist, weil sie ein Kind eines deaktivierten {{HTMLElement("optgroup")}} Elements ist, wird das `true` der [`HTMLOptGroupElement.disabled`](/de/docs/Web/API/HTMLOptGroupElement/disabled) Eigenschaft nicht von der Option selbst geerbt.
+Die Eigenschaft spiegelt den Wert des `disabled`-Attributs des `<option>`-Elements selbst wider. Wenn eine Option deaktiviert ist, weil sie ein Kind eines deaktivierten {{HTMLElement("optgroup")}}-Elements ist, wird das `true` der [`HTMLOptGroupElement.disabled`](/de/docs/Web/API/HTMLOptGroupElement/disabled)-Eigenschaft nicht von der Option selbst geerbt.
 
 ## Wert
 

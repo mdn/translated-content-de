@@ -2,27 +2,27 @@
 title: HTMLDetailsElement
 slug: Web/API/HTMLDetailsElement
 l10n:
-  sourceCommit: e2ac6a94e71034b56a74142619e75e44140918e9
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{APIRef("HTML DOM")}}
 
-Das **`HTMLDetailsElement`**-Interface bietet spezielle Eigenschaften (zusätzlich zu den Eigenschaften des regulären [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Interfaces, die es durch Vererbung ebenfalls zur Verfügung hat) zur Manipulation von {{HTMLElement("details")}}-Elementen.
+Das **`HTMLDetailsElement`**-Interface bietet spezielle Eigenschaften (zusätzlich zu den regulären Eigenschaften, die es durch Vererbung auch vom [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Interface hat) zur Manipulation von {{HTMLElement("details")}}-Elementen.
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
-_Erbt Eigenschaften von seinem Eltern-Interface, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
+_Erbt Eigenschaften von seinem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
 - [`HTMLDetailsElement.name`](/de/docs/Web/API/HTMLDetailsElement/name)
-  - : Ein String, der das HTML-Attribut [`name`](/de/docs/Web/HTML/Element/details#name) widerspiegelt, das es ermöglicht, eine Gruppe von gegenseitig ausschließenden {{htmlelement("details")}}-Elementen zu erstellen. Das Öffnen eines der benannten `<details>`-Elemente dieser Gruppe führt dazu, dass andere Elemente der Gruppe geschlossen werden.
+  - : Ein String, der das [`name`](/de/docs/Web/HTML/Reference/Elements/details#name)-HTML-Attribut wiedergibt, das es Ihnen ermöglicht, eine Gruppe von sich gegenseitig ausschließenden {{htmlelement("details")}}-Elementen zu erstellen. Das Öffnen eines der benannten `<details>`-Elemente dieser Gruppe führt dazu, dass andere Elemente der Gruppe geschlossen werden.
 - [`HTMLDetailsElement.open`](/de/docs/Web/API/HTMLDetailsElement/open)
-  - : Ein boolescher Wert, der das HTML-Attribut [`open`](/de/docs/Web/HTML/Element/details#open) widerspiegelt und angibt, ob die Inhalte des Elements (ohne das {{HTMLElement("summary")}}) dem Benutzer angezeigt werden sollen oder nicht.
+  - : Ein boolescher Wert, der das [`open`](/de/docs/Web/HTML/Reference/Elements/details#open)-HTML-Attribut wiedergibt und angibt, ob die Inhalte des Elements (ausgenommen das {{HTMLElement("summary")}}) dem Benutzer angezeigt werden sollen oder nicht.
 
 ## Instanz-Methoden
 
-_Keine spezifische Methode; erbt Methoden von seinem Eltern-Interface, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
+_Keine spezifische Methode; erbt Methoden von seinem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
 ## Ereignisse
 
@@ -32,7 +32,7 @@ _Erbt Ereignisse von seinem Eltern-Interface, [`HTMLElement`](/de/docs/Web/API/H
 
 ### Kapitel protokollieren, wenn sie geöffnet und geschlossen werden
 
-Dieses Beispiel verwendet das `HTMLElement`-Ereignis [`toggle`](/de/docs/Web/API/HTMLElement/toggle_event), um Kapitel zu einem Log hinzuzufügen und zu entfernen, wenn sie geöffnet und geschlossen werden.
+Dieses Beispiel verwendet das `HTMLElement`-[`toggle`](/de/docs/Web/API/HTMLElement/toggle_event)-Ereignis, um Kapitel beim Öffnen und Schließen einem Protokoll aside hinzuzufügen und daraus zu entfernen.
 
 #### HTML
 
@@ -97,7 +97,7 @@ chapters.forEach((chapter) => {
 
 #### Ergebnis
 
-{{EmbedLiveSample("Log chapters as they are opened and closed", 700, 200)}}
+{{EmbedLiveSample("Kapitel protokollieren, wenn sie geöffnet und geschlossen werden", 700, 200)}}
 
 ## Spezifikationen
 

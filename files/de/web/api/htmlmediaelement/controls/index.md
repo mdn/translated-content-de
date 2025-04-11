@@ -1,15 +1,14 @@
 ---
-title: "HTMLMediaElement: controls Eigenschaft"
+title: "HTMLMediaElement: controls-Eigenschaft"
 short-title: controls
 slug: Web/API/HTMLMediaElement/controls
 l10n:
-  sourceCommit: 595cba0e07c70eda7f08a12890e00ea0281933d3
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`HTMLMediaElement.controls`**-Eigenschaft spiegelt das
-[`controls`](/de/docs/Web/HTML/Element/video#controls) HTML-Attribut wider, das steuert, ob Benutzeroberflächen-Steuerelemente für die Wiedergabe des Medieninhalts angezeigt werden.
+Die **`HTMLMediaElement.controls`**-Eigenschaft spiegelt das [`controls`](/de/docs/Web/HTML/Reference/Elements/video#controls) HTML-Attribut wider, das steuert, ob Benutzeroberflächen-Steuerelemente zur Wiedergabe des Medienelements angezeigt werden.
 
 ## Wert
 

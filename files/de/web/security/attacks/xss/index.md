@@ -1,43 +1,43 @@
 ---
-title: Cross-site scripting (XSS)
+title: Cross-site Scripting (XSS)
 slug: Web/Security/Attacks/XSS
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
-Ein Cross-Site-Scripting (XSS) Angriff ist eine Angriffsart, bei der ein Angreifer es schafft, eine Zielseite dazu zu bringen, bösartigen Code auszuführen, als ob er Teil der Website wäre.
+Ein Cross-site Scripting (XSS) Angriff ist ein Angriff, bei dem ein Angreifer in der Lage ist, eine Zielwebsite dazu zu bringen, bösartigen Code auszuführen, als ob er Teil der Website wäre.
 
-## Übersicht
+## Überblick
 
-Ein Webbrowser lädt Code von vielen verschiedenen Websites herunter und führt ihn auf dem Computer des Benutzers aus. Einige dieser Websites sind sehr vertrauenswürdig, und der Benutzer nutzt sie möglicherweise für sensible Vorgänge, wie finanzielle Transaktionen oder medizinische Beratung. Bei anderen, wie zum Beispiel einer Casual-Gaming-Seite, hat der Benutzer möglicherweise keine solche Vertrauensbeziehung. Das Fundament des Sicherheitsmodells des Browsers besteht darin, dass diese Seiten voneinander getrennt bleiben sollen, sodass Code von einer Seite nicht auf Objekte oder {{Glossary("credential", "Anmeldeinformationen")}} auf einer anderen Seite zugreifen kann. Dies wird die [Same-Origin-Policy](/de/docs/Web/Security/Same-origin_policy) genannt.
+Ein Webbrowser lädt Code von vielen verschiedenen Websites herunter und führt ihn auf dem Computer des Benutzers aus. Einige dieser Websites sind sehr vertrauenswürdig, und der Benutzer kann sie für sensible Operationen verwenden, wie z.B. Finanztransaktionen oder medizinische Beratung. Bei anderen, wie z.B. einer Casual-Gaming-Website, besteht möglicherweise keine solche Vertrauensbeziehung. Die Grundlage des Sicherheitsmodells des Browsers ist, dass diese Websites voneinander getrennt gehalten werden, sodass Code von einer Website keine Objekte oder {{Glossary("credential", "Anmeldedaten")}} auf einer anderen Website zugreifen kann. Dies wird als [Same-Origin-Policy](/de/docs/Web/Security/Same-origin_policy) bezeichnet.
 
-![Diagramm von 2 Seiten im Browser, in getrennten Welten](same-origin.svg)
+![Diagramm von 2 Seiten im Browser, in separaten Welten](same-origin.svg)
 
-Bei einem erfolgreichen XSS-Angriff kann der Angreifer die Same-Origin-Policy umgehen, indem er die Zielseite dazu bringt, bösartigen Code in ihrem eigenen Kontext auszuführen, als ob er vom gleichen Ursprung käme. Der Code kann dann alles tun, was der eigene Code der Seite tun kann, einschließlich beispielsweise:
+In einem erfolgreichen XSS-Angriff ist der Angreifer in der Lage, die Same-Origin-Policy zu untergraben, indem er die Zielwebsite dazu bringt, bösartigen Code innerhalb ihres eigenen Kontexts auszuführen, als ob er im gleichen Ursprung wäre. Der Code kann dann alles tun, was der eigene Code der Website tun kann, einschließlich:
 
-- Zugriff auf oder Änderung des gesamten Inhalts der geladenen Seiten der Seite und jeglichen Inhalts im lokalen Speicher
-- HTTP-Anfragen mit den Anmeldeinformationen des Benutzers ausführen, wodurch sie den Benutzer imitieren oder auf sensible Daten zugreifen können
+- Zugriff auf und/oder Änderung aller Inhalte der geladenen Seiten der Website und jeglicher Inhalte im lokalen Speicher
+- HTTP-Anfragen mit den Anmeldedaten des Benutzers erstellen, wodurch sie den Benutzer imitieren oder auf sensible Daten zugreifen können
 
-![Diagramm von Angreifercode, der auf der Zielwebsite ausgeführt wird](xss.svg)
+![Diagramm von Angreifercode, der auf einer Zielwebsite ausgeführt wird](xss.svg)
 
 Alle XSS-Angriffe hängen davon ab, dass eine Website zwei Dinge tut:
 
-1. Eingaben akzeptiert, die von einem Angreifer manipuliert worden sein könnten
-2. Diese Eingaben in eine Seite einfügt, ohne sie zu _sanitisieren_: also ohne sicherzustellen, dass sie nicht als JavaScript ausführbar sind.
+1. Eingaben akzeptiert, die von einem Angreifer erstellt worden sein könnten
+2. Diese Eingaben in eine Seite aufnimmt, ohne sie zu _sanitisieren_: also ohne sicherzustellen, dass sie nicht als JavaScript ausführbar werden.
 
 ## Zwei XSS-Beispiele
 
-In diesem Abschnitt gehen wir über zwei Beispielseiten hinweg, die anfällig für XSS-Angriffe sind.
+In diesem Abschnitt gehen wir durch zwei Beispielseiten, die für einen XSS-Angriff anfällig sind.
 
-### Code-Injektion im Browser
+### Code Injection im Browser
 
-In diesem Beispiel nehmen wir an, dass die Website der Bank des Benutzers `my-bank.example.com` lautet. Der Benutzer ist in der Regel dort angemeldet, und Code auf der Website kann auf die Kontodetails des Benutzers zugreifen und Transaktionen durchführen. Die Website möchte eine Willkommensnachricht anzeigen, die für den aktuellen Benutzer personalisiert ist. Sie zeigt das Willkommen in einem {{htmlelement("Heading_Elements", "heading")}}-Element an:
+In diesem Beispiel nehmen wir an, die Website der Bank des Benutzers ist `my-bank.example.com`. Der Benutzer ist typischerweise dort angemeldet, und der Code auf der Website kann auf die Kontodaten des Benutzers zugreifen und Transaktionen durchführen. Die Website möchte eine Begrüßungsnachricht anzeigen, die für den aktuellen Benutzer personalisiert ist. Sie zeigt die Begrüßung in einem {{htmlelement("Heading_Elements", "heading")}}-Element an:
 
 ```html
 <h1 id="welcome"></h1>
 ```
 
-Die Seite erwartet, den Namen des aktuellen Benutzers in einem [URL-Parameter](/de/docs/Learn_web_development/Howto/Web_mechanics/What_is_a_URL#parameters) zu finden. Sie extrahiert den Parameterwert und verwendet diesen Wert, um eine personalisierte Begrüßungsnachricht zu erstellen:
+Die Seite erwartet, den Namen des aktuellen Benutzers in einem [URL-Parameter](/de/docs/Learn_web_development/Howto/Web_mechanics/What_is_a_URL#parameters) zu finden. Sie extrahiert den Parameterwert und verwendet ihn, um eine personalisierte Begrüßungsnachricht zu erstellen:
 
 ```js
 const params = new URLSearchParams(window.location.search);
@@ -58,16 +58,16 @@ Angenommen, diese Seite wird von `https://my-bank.example.com/welcome` bereitges
 
 Wenn der Benutzer auf den Link klickt:
 
-1. Der Browser lädt die Seite.
+1. Lädt der Browser die Seite.
 2. Die Seite extrahiert den URL-Parameter mit dem Namen `user`, dessen Wert `<img src=x onerror=alert("hello!")>` ist.
-3. Die Seite weist dann diesen Wert der `innerHTML`-Eigenschaft des `welcome`-Elements zu, wodurch ein neues {{htmlelement("img")}}-Element erstellt wird, das einen `src`-Attributwert von `x` hat.
-4. Da der `src`-Wert einen Fehler erzeugt, wird die `onerror` [Event-Handler-Eigenschaft](/de/docs/Learn_web_development/Core/Scripting/Events#inline_event_handlers_%e2%80%94_dont_use_these) ausgeführt, und der Angreifer kann seinen Code auf der Seite ausführen.
+3. Die Seite weist dann diesen Wert der `innerHTML`-Eigenschaft des `welcome`-Elements zu, was ein neues {{htmlelement("img")}}-Element erstellt, das einen `src`-Attributwert von `x` hat.
+4. Da der `src`-Wert einen Fehler generiert, wird die `onerror`-[Ereignis-Handler-Eigenschaft](/de/docs/Learn_web_development/Core/Scripting/Events#inline_event_handlers_%E2%80%94_dont_use_these) ausgeführt, und der Angreifer kann seinen Code in der Seite ausführen lassen.
 
-In diesem Fall zeigt der Code nur eine Warnmeldung an, aber auf einer echten Banking-Website könnte der Angreifercode alles tun, was der eigene Frontend-Code der Bank könnte.
+In diesem Fall zeigt der Code nur eine Warnung an, aber auf einer echten Banking-Website könnte der Angreifercode alles tun, was der Front-End-Code der Bank tun könnte.
 
-### Code-Injektion auf dem Server
+### Code Injection auf dem Server
 
-In diesem Beispiel betrachten wir eine Website mit einer Suchfunktion. Das HTML der Suchseite könnte so aussehen:
+In diesem Beispiel betrachten wir eine Website mit einer Suchfunktion. Das HTML für die Suchseite könnte so aussehen:
 
 ```html
 <h1>Search</h1>
@@ -79,13 +79,13 @@ In diesem Beispiel betrachten wir eine Website mit einer Suchfunktion. Das HTML 
 </form>
 ```
 
-Wenn der Benutzer einen Suchbegriff eingibt und auf "Submit" klickt, führt der Browser eine GET-Anfrage an "/results" aus und übergibt den Suchbegriff als URL-Parameter, etwa so:
+Wenn der Benutzer einen Suchbegriff eingibt und "Submit" klickt, macht der Browser eine GET-Anfrage an "/results", einschließlich des Suchbegriffs als URL-Parameter, wie folgt:
 
 ```plain
 https://example.org/results?search=bananas
 ```
 
-Der Server möchte eine Liste der Suchergebnisse anzeigen, mit einem Titel, der angibt, nach was der Benutzer gesucht hat. Er extrahiert den Suchbegriff aus dem URL-Parameter. So könnte dies in [Express](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs) aussehen:
+Der Server möchte eine Liste von Suchergebnissen anzeigen, mit einem Titel, der angibt, wonach der Benutzer gesucht hat. Er extrahiert den Suchbegriff aus dem URL-Parameter. So könnte dies in [Express](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs) aussehen:
 
 ```js
 app.get("/results", (req, res) => {
@@ -107,55 +107,55 @@ Um diese Schwachstelle auszunutzen, sendet ein Angreifer dem Benutzer einen Link
 
 Wenn der Benutzer auf den Link klickt:
 
-1. Der Browser sendet eine GET-Anfrage an den Server. Der URL-Parameter der Anfrage enthält den bösartigen Code.
-2. Der Server extrahiert den URL-Parameterwert und bettet ihn in die Seite ein.
-3. Der Server gibt die Seite an den Browser zurück, der sie dann ausführt.
+1. Sendet der Browser eine GET-Anfrage an den Server. Der URL-Parameter des Requests enthält den bösartigen Code.
+2. Der Server extrahiert den Wert des URL-Parameters und bettet ihn in die Seite ein.
+3. Der Server gibt die Seite an den Browser zurück, der sie ausführt.
 
 ## Anatomie eines XSS-Angriffs
 
-Wie alle XSS-Angriffe sind auch diese beiden Beispiele möglich, weil die Website:
+Wie alle XSS-Angriffe sind diese beiden Beispiele möglich, weil die Website:
 
-1. Eingaben verwendet, die von einem Angreifer manipuliert worden sein könnten
-2. Die Eingabe einfügt, ohne sie zu sanitisieren.
+1. Eingaben verwendet, die von einem Angreifer erstellt worden sein könnten
+2. Die Eingabe in die Seite aufnimmt, ohne sie zu sanitisieren.
 
-Beide Beispiele verwenden den gleichen Vektor für die bösartige Eingabe: den URL-Parameter. Es gibt jedoch auch andere Vektoren, die Angreifer nutzen können.
+Beide Beispiele verwenden denselben Vektor für die bösartige Eingabe: den URL-Parameter. Es gibt jedoch auch andere Vektoren, die Angreifer verwenden können.
 
-Betrachten Sie zum Beispiel ein Blog mit Kommentaren. In einem solchen Fall erlaubt die Website:
+Zum Beispiel, betrachten Sie einen Blog mit Kommentaren. In einem Fall wie diesem:
 
-1. Jedem, Kommentare über ein {{htmlelement("form")}}-Element einzureichen
-2. Die Speicherung der Kommentare in einer Datenbank
-3. Die Einbindung der Kommentare in Seiten, die die Website anderen Nutzern zur Verfügung stellt.
+1. Erlaubt die Website jedem, Kommentare über ein {{htmlelement("form")}}-Element einzureichen
+2. Speichert die Kommentare in einer Datenbank
+3. Nimmt die Kommentare in Seiten auf, die die Website an andere Benutzer liefert.
 
-Wenn die Kommentare nicht sanitiert sind, sind sie potenzielle Vektoren für XSS. Diese Art von Angriff wird manchmal als _gespeichertes_ oder _persistentes_ XSS bezeichnet und ist besonders schwerwiegend, da der infizierte Inhalt an alle Benutzer, die die Seite aufrufen, jedes Mal ausgeliefert wird, wenn sie darauf zugreifen.
+Sind die Kommentare nicht saniert, dann sind sie potenzielle Vektoren für XSS. Diese Art von Angriff wird manchmal als _gespeichertes_ oder _persistentes_ XSS bezeichnet und ist besonders schwerwiegend, weil der infizierte Inhalt allen Benutzern, die die Seite aufrufen, jedes Mal, wenn sie zugegriffen wird, ausgeliefert wird.
 
 ### Client- und Server-XSS
 
-Ein wesentlicher Unterschied zwischen den beiden Beispielen ist, dass der bösartige Code in unterschiedlichen Teilen des Codes der Website injiziert wird, was die Architektur der jeweiligen Website widerspiegelt.
+Ein großer Unterschied zwischen den beiden Beispielen ist, dass der bösartige Code an verschiedenen Stellen im Codebase der Website injiziert wird, was die Architektur jeder Website widerspiegelt.
 
-Eine Website, die clientseitiges Rendering verwendet, wie eine {{Glossary("SPA", "Single-Page-App")}}, ändert Seiten im Browser mit Web-APIs wie [`document.createElement()`](/de/docs/Web/API/Document/createElement), entweder direkt oder indirekt über ein Framework wie React. In diesem Prozess tritt XSS-Injektion auf. Das sehen wir im ersten Beispiel: der bösartige Code wird im Browser injiziert, indem ein Skript, das auf der Seite läuft, den URL-Parameterwert der [`Element.innerHTML`](/de/docs/Web/API/Element/innerHTML)-Eigenschaft zuweist, die ihren Wert als HTML-Code interpretiert.
+Eine Website, die Client-side Rendering verwendet, wie z.B. eine {{Glossary("SPA", "Single-Page-App")}}, modifiziert Seiten im Browser, indem sie Web-APIs wie [`document.createElement()`](/de/docs/Web/API/Document/createElement) direkt oder indirekt über ein Framework wie React verwendet. Im Laufe dieses Prozesses erfolgt die XSS-Injektion. Das sehen wir im ersten Beispiel: Der bösartige Code wird im Browser injiziert, indem ein Script, das in der Seite läuft, den Wert des URL-Parameters der [`Element.innerHTML`](/de/docs/Web/API/Element/innerHTML)-Eigenschaft zuweist, die ihren Wert als HTML-Code interpretiert.
 
-Eine Website, die serverseitiges Rendering verwendet, baut Seiten auf dem Server mit einem Framework wie Django oder Express auf, meist durch das Einfügen von Werten in Seitentemplates. XSS-Injektion, wenn sie passiert, geschieht auf dem Server während des Templating-Prozesses. Das sehen wir im zweiten Beispiel: der Code wird auf dem Server injiziert, indem der Express-Code den URL-Parameterwert in das Dokument einfügt, das er zurückgibt. Der XSS-Angriffscode wird dann ausgeführt, wenn der Browser die Seite auswertet.
+Eine Website, die Server-side Rendering verwendet, baut Seiten auf dem Server auf, indem sie ein Framework wie Django oder Express verwendet, meistens indem Werte in Seitenschablonen eingesetzt werden. XSS-Injektionen, falls sie auftreten, geschehen auf dem Server während des Schablonenprozesses. Das sehen wir im zweiten Beispiel: Der Code wird auf dem Server injiziert, indem der Express-Code den Wert des URL-Parameters in das Dokument einfügt, das er zurückgibt. Der XSS-Angriffscode wird dann ausgeführt, wenn der Browser die Seite auswertet.
 
-In beiden Fällen ist das allgemeine Vorgehen zur Verteidigung dasselbe, und wir werden dies im nächsten Abschnitt detailliert erläutern. Die spezifischen Werkzeuge und APIs, die Sie verwenden werden, unterscheiden sich jedoch.
+In beiden Fällen ist der allgemeine Ansatz zur Abwehr derselbe, und wir werden im nächsten Abschnitt ausführlich darauf eingehen. Die spezifischen Tools und APIs, die Sie verwenden, werden jedoch unterschiedlich sein.
 
-## Verteidigungen gegen XSS
+## Abwehrmaßnahmen gegen XSS
 
-Wenn Sie externe Eingaben in die Seiten Ihrer Website einfügen müssen, gibt es zwei Hauptverteidigungsmechanismen gegen XSS:
+Wenn Sie externe Eingaben in die Seiten Ihrer Website einfügen müssen, gibt es zwei Hauptabwehrmaßnahmen gegen XSS:
 
-1. Verwenden Sie _Ausgabe-Codierung_ und _Sanitization_, um zu verhindern, dass die Eingaben ausführbar werden. Wenn Sie Inhalte im Browser rendern, können Sie die [Trusted Types API](/de/docs/Web/API/Trusted_Types_API) verwenden, um sicherzustellen, dass die Eingaben durch eine Sanitization-Funktion geleitet werden, bevor sie in die Seite aufgenommen werden.
-2. Verwenden Sie eine [Content Security Policy (CSP)](/de/docs/Web/HTTP/Guides/CSP), um dem Browser mitzuteilen, welche JavaScript- oder CSS-Ressourcen es ausführen darf. Dies ist eine Backup-Verteidigung: Wenn die erste Verteidigung fehlschlägt und ausführbarer Input in eine Seite gelangt, sollte eine ordnungsgemäß konfigurierte CSP verhindern, dass der Browser ihn ausführt.
+1. Verwenden Sie _Ausgabe-Codierung_ und _Sanitisierung_, um zu verhindern, dass Eingaben ausführbar werden. Wenn Sie Inhalte im Browser rendern, können Sie die [Trusted Types API](/de/docs/Web/API/Trusted_Types_API) verwenden, um sicherzustellen, dass Eingaben durch eine Sanitisierungsfunktion geleitet werden, bevor sie in die Seite aufgenommen werden.
+2. Verwenden Sie eine [Content Security Policy](/de/docs/Web/HTTP/Guides/CSP) (CSP), um dem Browser mitzuteilen, welche JavaScript- oder CSS-Ressourcen ausgeführt werden dürfen. Dies ist eine Backup-Abwehr: Wenn die erste Abwehr versagt und ausführbare Eingaben in eine Seite gelangen, sollte eine richtig konfigurierte CSP den Browser daran hindern, sie auszuführen.
 
 ### Ausgabe-Codierung
 
-_Ausgabe-Codierung_ ist der Prozess, bei dem Zeichen in der Eingabestring, die möglicherweise gefährlich sind, maskiert werden, sodass sie als Text behandelt werden, anstatt als Teil einer Sprache wie HTML.
+_Ausgabe-Codierung_ ist der Prozess, bei dem Zeichen in der Eingabezeichenfolge, die potenziell gefährlich sein könnten, maskiert werden, sodass sie als Text behandelt werden, anstatt als Teil einer Sprache wie HTML behandelt zu werden.
 
-Dies ist die angemessene Wahl, wenn Sie Eingaben als Text behandeln möchten, beispielsweise weil Ihre Website Templates verwendet, die Eingaben in Inhalte interpolieren. Zum Beispiel, im folgenden [Django-Template](https://docs.djangoproject.com/en/5.1/ref/templates/language/)-Auszug:
+Dies ist die passende Wahl, wenn Sie Eingaben als Text behandeln möchten, zum Beispiel, weil Ihre Website Schablonen verwendet, die Eingaben in Inhalt interpolieren, wie in diesem [Django Template](https://docs.djangoproject.com/en/5.1/ref/templates/language/) Ausschnitt:
 
 ```django
 <p>You searched for \{{ search_term }}.</p>
 ```
 
-Die meisten modernen Templating-Engines führen die Ausgabe-Codierung automatisch aus. Zum Beispiel führt die Templating-Engine von Django die folgenden Umwandlungen durch:
+Die meisten modernen Schablonen-Engines führen automatisch eine Ausgabe-Codierung durch. Zum Beispiel führt die Schablonen-Engine von Django folgende Konvertierungen durch:
 
 - `<` wird in `&lt;` umgewandelt
 
@@ -167,11 +167,11 @@ Die meisten modernen Templating-Engines führen die Ausgabe-Codierung automatisc
 
 - `&` wird in `&amp;` umgewandelt
 
-Das bedeutet, dass wenn Sie `<img src=x onerror=alert('XSS!')>` in das oben genannte Django-Template einfügen, es in `&lt;img src=x onerror=alert(&#x27;XSS!&#x27;)&gt;` umgewandelt wird, was als folgender Text angezeigt wird:
+Das bedeutet, dass wenn Sie `<img src=x onerror=alert('XSS!')>` in das oben genannte Django Template einfügen, es in `&lt;img src=x onerror=alert(&#x27;XSS!&#x27;)&gt;` umgewandelt wird, was als folgender Text angezeigt wird:
 
 > Sie haben nach &lt;img src=x onerror=alert('XSS!')&gt; gesucht.
 
-Ähnlich, wenn Sie clientseitiges Rendering mit React durchführen, werden Werte in JSX automatisch kodiert. Betrachten Sie beispielsweise eine JSX-Komponente wie diese:
+Ähnlich, wenn Sie Client-side Rendering mit React durchführen, werden in JSX eingebettete Werte automatisch codiert. Betrachten Sie zum Beispiel eine JSX-Komponente wie diese:
 
 ```jsx
 import React from "react";
@@ -181,60 +181,60 @@ export function App(props) {
 }
 ```
 
-Wenn wir `<img src=x onerror=alert('XSS!')>` in `props.name` übergeben, wird es gerendert als:
+Wenn wir `<img src=x onerror=alert('XSS!')>` in `props.name` einfügen, wird es gerendert als:
 
 > Hallo, &lt;img src=x onerror=alert('XSS!')&gt;!
 
-Einer der wichtigsten Teile zur Verhinderung von XSS-Angriffen ist die Verwendung einer anerkannten Templating-Engine, die eine robuste Ausgabe-Codierung durchführt, und die Dokumentation zu lesen, um die Besonderheiten der angebotenen Schutzmaßnahmen zu verstehen.
+Einer der wichtigsten Teile der Verhinderung von XSS-Angriffen ist die Verwendung einer angesehenen Schablonen-Engine, die eine robuste Ausgabe-Codierung durchführt, und deren Dokumentation zu lesen, um alle Einschränkungen des gebotenen Schutzes zu verstehen.
 
-#### Kontext in Dokumenten
+#### Dokumentkontexte
 
-Auch wenn Sie eine Templating-Engine verwenden, die HTML automatisch kodiert, müssen Sie sich darüber im Klaren sein, wo im Dokument Sie untrusted content einfügen. Nehmen wir beispielsweise ein Django-Template wie dieses:
+Selbst wenn Sie eine Schablonen-Engine verwenden, die automatisiert HTML codiert, müssen Sie sich bewusst sein, wo im Dokument Sie nicht vertrauenswürdige Inhalte einfügen. Zum Beispiel, nehmen Sie an, dass Sie ein Django Template wie dieses haben:
 
 ```django
 <div>\{{ my_input }}</div>
 ```
 
-In diesem Kontext befindet sich die Eingabe zwischen `<div>`-Tags, sodass der Browser sie als HTML auswertet. Sie müssen also gegen den Fall gewappnet sein, dass `my_input` HTML ist, das ausführbaren Code definiert, wie `<img src=x onerror="alert('XSS')">`. Die in Django integrierte Ausgabe-Codierung verhindert diesen Angriff, indem sie Zeichen wie `<` und `>` als HTML-Entities `&lt;` und `&gt;` kodiert.
+In diesem Kontext ist die Eingabe innerhalb von `<div>`-Tags, sodass der Browser sie als HTML auswertet. Daher müssen Sie sich gegen den Fall schützen, dass `my_input` HTML ist, das ausführbaren Code definiert, wie `<img src=x onerror="alert('XSS')">`. Die in Django eingebaute Ausgabe-Codierung verhindert diesen Angriff, indem sie Zeichen wie `<` und `>` als HTML-Entitäten `&lt;` und `&gt;` kodiert.
 
-Nehmen wir jedoch an, das Template sieht so aus:
+Angenommen, das Template sieht folgendermaßen aus:
 
 ```django
 <div \{{ my_input }}></div>
 ```
 
-In diesem Kontext behandelt der Browser die `my_input`-Variable als HTML-Attribut. Wenn `my_input` `onmouseover="alert('XSS')"` ist, verhindert die von Django bereitgestellte Ausgabe-Codierung den Angriff nicht.
+In diesem Kontext behandelt der Browser die `my_input`-Variable als HTML-Attribut. Wenn `my_input` `onmouseover="alert('XSS')"` ist, wird die Ausgabe-Codierung von Django den Angriff nicht verhindern.
 
-Der Browser verwendet unterschiedliche Regeln, um verschiedene Teile einer Webseite zu verarbeiten — HTML-Elemente und deren Inhalt, HTML-Attribute, Inline-Stile, Inline-Skripte. Die Art der Kodierung, die vorgenommen werden muss, ist unterschiedlich, abhängig vom Kontext, in dem die Eingabe interpoliert wird.
+Der Browser verwendet verschiedene Regeln, um verschiedene Teile einer Webseite zu verarbeiten — HTML-Elemente und deren Inhalt, HTML-Attribute, Inline-Stile, Inline-Skripte. Die Art der notwendigen Codierung ist unterschiedlich, abhängig vom Kontext, in dem die Eingabe eingefügt wird.
 
-Was in einem Kontext sicher ist, kann in einem anderen unsicher sein, und es ist notwendig, den Kontext zu verstehen, in dem Sie untrusted content einfügen, und alle erforderlichen speziellen Handhabungen zu implementieren, die dies erfordert.
+Was in einem Kontext sicher ist, kann in einem anderen unsicher sein, und es ist notwendig, den Kontext zu verstehen, in dem Sie nicht vertrauenswürdige Inhalte einfügen, und jede spezielle Handhabung, die dies erfordert, zu implementieren.
 
-- **HTML-Kontexte**: Eingaben, die zwischen den Tags der meisten HTML-Elemente (außer {{htmlelement("style")}} oder {{htmlelement("script")}}) eingefügt werden, werden als HTML interpretiert. Die von Template-Engines durchgeführte Kodierung ist hauptsächlich auf diesen Kontext ausgerichtet.
-- **HTML-Attributkontexte**: Das Einfügen von Eingaben als HTML-Attributwerte ist manchmal sicher und manchmal nicht, abhängig vom Attribut. Insbesondere Event-Handler-Attribute wie `onblur` sind unsicher, ebenso wie das [`src`](/de/docs/Web/HTML/Element/iframe#src)-Attribut des {{htmlelement("iframe")}}-Elements.
+- **HTML-Kontexte**: Eingaben, die zwischen den Tags der meisten HTML-Elemente (außer {{htmlelement("style")}} oder {{htmlelement("script")}}) eingefügt werden, werden als HTML interpretiert. Die von Schablonen-Engines angewendete Codierung konzentriert sich hauptsächlich auf diesen Kontext.
+- **HTML-Attributkontexte**: Das Einfügen von Eingaben als HTML-Attributwerte ist manchmal sicher und manchmal nicht, abhängig vom Attribut. Insbesondere Ereignis-Handler-Attribute wie `onblur` sind unsicher, ebenso wie das [`src`](/de/docs/Web/HTML/Reference/Elements/iframe#src) Attribut des {{htmlelement("iframe")}} Elements.
 
-  Es ist auch wichtig, Platzhalter für eingefügte Attributwerte zu zitieren, oder ein Angreifer könnte in der Lage sein, ein weiteres unsicheres Attribut in den bereitgestellten Wert einzufügen. Beispielsweise Zitiert diese Vorlage keinen eingefügten Wert:
+  Es ist auch wichtig, Platzhalter für eingefügte Attributwerte zu zitieren, da ein Angreifer möglicherweise in der Lage ist, ein weiteres unsicheres Attribut in den bereitgestellten Wert einzufügen. Zum Beispiel zitiert dieses Template keinen eingefügten Wert:
 
   ```django example-bad
   <div class=\{{ my_class }}>...</div>
   ```
 
-  Ein Angreifer könnte dies ausnutzen, um ein Event-Handler-Attribut zu injizieren, indem er eine Eingabe wie `some_id onmouseover="alert('XSS!')"` verwendet. Um den Angriff zu verhindern, zitieren Sie den Platzhalter:
+  Ein Angreifer kann dies ausnutzen, um ein Ereignis-Handler-Attribut zu injizieren, indem er eine Eingabe wie `some_id onmouseover="alert('XSS!')"` verwendet. Um den Angriff zu verhindern, zitieren Sie den Platzhalter:
 
   ```django example-good
     <div class="\{{ my_class }}">...</div>
   ```
 
-- **JavaScript- und CSS-Kontexte**: Das Einfügen von Eingaben in {{htmlelement("script")}}- oder {{htmlelement("style")}}-Tags ist fast immer unsicher.
+- **JavaScript- und CSS-Kontexte**: Das Einfügen von Eingaben in {{htmlelement("script")}} oder {{htmlelement("style")}} Tags ist fast immer unsicher.
 
-### Sanitization
+### Sanitisierung
 
-Templating-Engines erlauben es den Entwicklern in der Regel, die Ausgabe-Codierung zu deaktivieren. Dies ist notwendig, wenn Entwickler untrusted content als HTML und nicht als Text einfügen möchten. Zum Beispiel deaktiviert der [`safe`](https://docs.djangoproject.com/en/5.0/ref/templates/language/#how-to-turn-it-off)-Filter in Django die Ausgabe-Codierung, und in React hat [`dangerouslySetInnerHTML`](https://react.dev/reference/react-dom/components/common#dangerously-setting-the-inner-html) denselben Effekt.
+Schablonen-Engines ermöglichen Entwicklern normalerweise, die Ausgabe-Codierung zu deaktivieren. Dies ist notwendig, wenn Entwickler nicht vertrauenswürdige Inhalte als HTML, nicht als Text, einfügen möchten. In Django deaktiviert der [`safe`](https://docs.djangoproject.com/en/5.0/ref/templates/language/#how-to-turn-it-off) Filter die Ausgabe-Codierung, und in React hat [`dangerouslySetInnerHTML`](https://react.dev/reference/react-dom/components/common#dangerously-setting-the-inner-html) denselben Effekt.
 
-In diesem Fall liegt es in der Verantwortung des Entwicklers, sicherzustellen, dass der Inhalt sicher ist, indem er ihn sanitisiert.
+In diesem Fall liegt es am Entwickler sicherzustellen, dass der Inhalt sicher ist, indem er ihn sanitiert.
 
-_Sanitization_ ist der Prozess, bei dem unsichere Funktionen aus einem HTML-String entfernt werden: zum Beispiel {{htmlelement("script")}}-Tags oder Inline-Event-Handler. Da Sanitization, ebenso wie Ausgabe-Codierung, schwierig richtig zu machen ist, wird empfohlen, dafür eine anerkanntes Drittanbieter-Bibliothek zu verwenden. [DOMPurify](https://github.com/cure53/DOMPurify) wird von vielen Experten einschließlich [OWASP](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html#html-sanitization) empfohlen.
+_Sanitisierung_ ist der Prozess des Entfernens unsicherer Features aus einer HTML-Zeichenkette: zum Beispiel {{htmlelement("script")}} Tags oder Inline-Ereignis-Handler. Da die Sanitisierung, ebenso wie die Ausgabe-Codierung, schwer richtig zu implementieren ist, wird angeraten, eine seriöse Drittanbieter-Bibliothek zu verwenden. [DOMPurify](https://github.com/cure53/DOMPurify) wird von vielen Experten, einschließlich [OWASP](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html#html-sanitization), empfohlen.
 
-Betrachten Sie zum Beispiel einen HTML-String wie:
+Zum Beispiel, betrachten Sie eine HTML-Zeichenkette wie:
 
 ```html
 <div>
@@ -245,7 +245,7 @@ Betrachten Sie zum Beispiel einen HTML-String wie:
 </div>
 ```
 
-Wenn wir diesen an DOMPurify übergeben, wird zurückgegeben:
+Wenn wir dies an DOMPurify übergeben, wird es zurückgegeben als:
 
 ```html
 <div>
@@ -255,13 +255,13 @@ Wenn wir diesen an DOMPurify übergeben, wird zurückgegeben:
 
 ### Vertrauenswürdige Typen
 
-Eine Funktion zu haben, die einen gegebenen Eingabestring sanitizen kann, ist eine Sache, aber alle Stellen im Codebase zu finden, an denen Eingabestrings sanitizieren müssen, kann an sich ein sehr schwieriges Problem sein.
+Eine Funktion zu haben, die einen gegebenen Eingabestring sanitisieren kann, ist das eine, aber alle Stellen im Code zu finden, an denen Eingabestrings sanitisiert werden müssen, kann ein sehr schwieriges Problem sein.
 
-Wenn Sie clientseitiges Rendering im Browser implementieren, gibt es eine Reihe von Web-APIs, die unsicher sind, wenn sie mit unsanitizierten untrusted content aufgerufen werden.
+Wenn Sie Client-side Rendering im Browser implementieren, gibt es eine Reihe von Web-APIs, die unsicher sind, wenn sie mit nicht sanierten, nicht vertrauenswürdigen Inhalten aufgerufen werden.
 
-Zum Beispiel interpretieren die folgenden APIs ihre String-Argumente als HTML und verwenden es, um das Seiten-DOM zu aktualisieren:
+Zum Beispiel interpretieren die folgenden APIs ihre Zeichenkettenargumente als HTML und verwenden sie, um den DOM der Seite zu aktualisieren:
 
-- [`Element.innerHTML`](/de/docs/Web/API/Element/innerHTML) (die auch intern von Reacts `dangerouslySetInnerHTML` verwendet wird)
+- [`Element.innerHTML`](/de/docs/Web/API/Element/innerHTML) (das auch intern durch Reacts `dangerouslySetInnerHTML` verwendet wird)
 - [`Element.outerHTML`](/de/docs/Web/API/Element/outerHTML)
 - [`Element.insertAdjacentHTML()`](/de/docs/Web/API/Element/insertAdjacentHTML)
 - [`Document.write()`](/de/docs/Web/API/Document/write)
@@ -271,9 +271,9 @@ Andere APIs führen ihre Argumente direkt als JavaScript aus. Zum Beispiel:
 - [`eval()`](/de/docs/Web/JavaScript/Reference/Global_Objects/eval)
 - [`Window.setTimeout()`](/de/docs/Web/API/Window/setTimeout) und [`Window.setInterval()`](/de/docs/Web/API/Window/setInterval)
 
-Die [Trusted Types API](/de/docs/Web/API/Trusted_Types_API) ermöglicht es einem Entwickler, sicherzustellen, dass Eingaben immer sanitiziert werden, bevor sie einer dieser APIs übergeben werden.
+Die [Trusted Types API](/de/docs/Web/API/Trusted_Types_API) ermöglicht es einem Entwickler, sicherzustellen, dass Eingaben immer saniert werden, bevor sie an eine dieser APIs übergeben werden.
 
-Der Schlüssel zur Durchsetzung der Verwendung von vertrauenswürdigen Typen ist die [`require-trusted-types-for`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/require-trusted-types-for)-CSP-Direktive. Wenn diese Direktive gesetzt ist, wird das Übergeben von String-Argumenten an unsichere APIs eine Ausnahme auslösen:
+Der Schlüssel zur Durchsetzung der Verwendung vertrauenswürdiger Typen ist die [`require-trusted-types-for`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/require-trusted-types-for) CSP-Direktive. Wenn diese Direktive gesetzt ist, wird das Übergeben von Zeichenkettenargumenten an unsichere APIs eine Ausnahme auslösen:
 
 ```js example-bad
 const userInput = "I might be XSS";
@@ -282,7 +282,8 @@ const element = document.querySelector("#container");
 element.innerHTML = userInput; // Throws a TypeError
 ```
 
-Stattdessen muss ein Entwickler einen _trusted type_ an eine dieser APIs übergeben. Ein trusted type ist ein Objekt, das aus einem String von einem [`TrustedTypePolicy`](/de/docs/Web/API/TrustedTypePolicy)-Objekt erstellt wurde, dessen Implementierung vom Entwickler definiert wird. Zum Beispiel:
+Stattdessen muss ein Entwickler einen _vertrauenswürdigen Typ_ an eine dieser APIs übergeben. Ein vertrauenswürdiger Typ ist ein
+Objekt, das aus einer Zeichenkette durch ein [`TrustedTypePolicy`](/de/docs/Web/API/TrustedTypePolicy) Objekt erstellt wird, dessen Implementierung vom Entwickler definiert wird. Zum Beispiel:
 
 ```js example-good
 // Create a policy that can create TrustedHTML values
@@ -299,23 +300,23 @@ element.innerHTML = trustedHTML;
 ```
 
 > [!NOTE]
-> Die Trusted Types API bietet keine Sanitization-Funktion: Es ist ein Framework, in dem ein Entwickler sicher sein kann, dass eine von ihm bereitgestellte Sanitization-Funktion aufgerufen wurde. Im obigen Beispiel verwendet der Entwickler DOMPurify als Sanitizer für HTML-Sinks innerhalb des Trusted Types-Rahmens.
+> Die Trusted Types API bietet keine Sanitisierungsfunktion: Es ist ein Framework, in dem ein Entwickler sicherstellen kann, dass eine von ihm bereitgestellte Sanitisierungsfunktion aufgerufen wurde. Im obigen Beispiel verwendet der Entwickler DOMPurify als Sanierer für HTML-Senken im Trusted Types Framework.
 
-Die Trusted Types API hat noch keine gute browserübergreifende Unterstützung, aber wenn sie es hat, wird es eine wichtige Verteidigung gegen DOM-basierte XSS-Angriffe sein.
+Die Trusted Types API hat noch keine gute Unterstützung in verschiedenen Browsern, aber wenn sie verfügbar ist, wird sie eine wichtige Verteidigung gegen DOM-basierte XSS-Angriffe sein.
 
-### CSP bereitstellen
+### Implementierung einer CSP
 
-Die Ausgabe-Codierung und die Sanitization zielen darauf ab, zu verhindern, dass bösartige Skripte in die Seiten einer Website geraten. Eine der Hauptfunktionen einer Content Security Policy ist es, zu verhindern, dass bösartige Skripte ausgeführt werden, selbst wenn sie sich auf den Seiten einer Website befinden. Das heißt, es ist ein Backup für den Fall, dass die anderen Verteidigungen scheitern.
+Ausgabe-Codierung und Sanitisierung zielen darauf ab, zu verhindern, dass bösartige Skripte in die Seiten einer Website gelangen. Eine der Hauptfunktionen einer Content-Security-Policy ist es, zu verhindern, dass bösartige Skripte ausgeführt werden, selbst wenn sie in den Seiten einer Website sind. Das heißt, es ist eine Absicherung, falls die anderen Abwehrmaßnahmen fehlschlagen.
 
-Der empfohlene Ansatz zur Minderung von XSS mit einer CSP ist eine [strikte CSP](/de/docs/Web/HTTP/Guides/CSP#strict_csp), die eine [nonce](/de/docs/Web/HTTP/Guides/CSP#nonces) oder einen [Hash](/de/docs/Web/HTTP/Guides/CSP#hashes) verwendet, um dem Browser anzuzeigen, welche Skripte er im Dokument erwartet. Wenn es einem Angreifer gelingt, bösartige `<script>`-Elemente einzufügen, haben diese keine korrekte nonce oder keinen korrekten Hash und der Browser wird sie nicht ausführen. Zusätzlich werden verschiedene gängige XSS-Vektoren vollständig verboten: Inline-Event-Handler, `javascript:` URLs und APIs wie `eval()`, die ihre Argumente als JavaScript ausführen.
+Der empfohlene Ansatz zur Minderung von XSS mit einer CSP ist eine [strikte CSP](/de/docs/Web/HTTP/Guides/CSP#strict_csp), die einen [nonce](/de/docs/Web/HTTP/Guides/CSP#nonces) oder einen [Hash](/de/docs/Web/HTTP/Guides/CSP#hashes) verwendet, um dem Browser mitzuteilen, welche Skripte er im Dokument erwartet zu sehen. Wenn es einem Angreifer gelingt, bösartige `<script>`-Elemente einzufügen, dann haben sie nicht den korrekten Nonce oder Hash, und der Browser wird sie nicht ausführen. Zusätzlich werden verschiedene gängige XSS-Vektoren vollständig untersagt: Inline-Ereignis-Handler, `javascript:`-URLs und APIs wie `eval()`, die ihre Argumente als JavaScript ausführen.
 
-### Zusammenfassende Verteidigungscheckliste
+### Verteidigungs-Checkliste zusammengefasst
 
-Wir können die oben genannten Verteidigungen wie folgt zusammenfassen:
+Zusammengefasst können die oben genannten Verteidigungen wie folgt aufgelistet werden:
 
-- Verwenden Sie beim Interpolieren von Eingaben in eine Seite, sowohl im Browser als auch auf dem Server, eine Templating-Engine, die Ausgabe-Codierung durchführt.
-- Seien Sie sich des Kontexts bewusst, in dem Sie Eingaben interpolieren, und stellen Sie sicher, dass die entsprechende Ausgabe-Codierung in diesem Kontext durchgeführt wird.
-- Wenn Sie Eingaben als HTML einfügen müssen, sanitizieren Sie sie mit einer anerkannten Bibliothek. Wenn Sie dies im Browser tun, verwenden Sie das Trusted Types-Framework, um sicherzustellen, dass die Eingaben von Ihrer Sanitization-Funktion verarbeitet werden.
+- Verwenden Sie bei der Interpolation von Eingaben in eine Seite, entweder im Browser oder auf dem Server, eine Schablonen-Engine, die Ausgabecodierung durchführt.
+- Seien Sie sich des Kontexts bewusst, in dem Sie Eingaben interpolieren, und stellen Sie sicher, dass die passende Ausgabecodierung in diesem Kontext durchgeführt wird.
+- Wenn Sie Eingaben als HTML einfügen müssen, säubern Sie diese mit einer anerkannten Bibliothek. Wenn Sie dies im Browser tun, verwenden Sie das Trusted-Types-Framework, um sicherzustellen, dass die Eingabe durch Ihre Sanitisierungsfunktion verarbeitet wird.
 - Implementieren Sie eine strikte CSP.
 
 ## Siehe auch

@@ -3,18 +3,18 @@ title: "HTMLMeterElement: low-Eigenschaft"
 short-title: low
 slug: Web/API/HTMLMeterElement/low
 l10n:
-  sourceCommit: f36d86d713e8757d5786bbc86eccf123bc1fec67
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{ APIRef("HTML DOM") }}
 
-Die **`low`**-Eigenschaft des [`HTMLMeterElement`](/de/docs/Web/API/HTMLMeterElement)-Interfaces repräsentiert die untere Grenze des {{htmlelement("meter")}}-Elements als Gleitkommazahl. Sie spiegelt das [`low`](/de/docs/Web/HTML/Element/meter#low)-Attribut des Elements wider oder den Wert von `min`, wenn es nicht definiert ist. Der Wert von `low` wird durch die Werte von `min` und `max` begrenzt.
+Die **`low`**-Eigenschaft der [`HTMLMeterElement`](/de/docs/Web/API/HTMLMeterElement)-Schnittstelle repräsentiert die untere Grenze des {{htmlelement("meter")}}-Elements als Gleitkommazahl. Sie spiegelt das [`low`](/de/docs/Web/HTML/Reference/Elements/meter#low)-Attribut des Elements wider oder den Wert von `min`, falls nicht definiert. Der Wert von `low` wird durch die `min`- und `max`-Werte begrenzt.
 
-Diese Eigenschaft kann auch direkt gesetzt werden, zum Beispiel, um einen Standardwert basierend auf einer Bedingung festzulegen.
+Diese Eigenschaft kann auch direkt gesetzt werden, um beispielsweise einen Standardwert basierend auf einer bestimmten Bedingung festzulegen.
 
 ## Wert
 
-Eine Zahl, die nicht kleiner ist als [`HTMLMeterElement.min`](/de/docs/Web/API/HTMLMeterElement/min) und nicht größer als [`HTMLMeterElement.max`](/de/docs/Web/API/HTMLMeterElement/max).
+Eine Zahl, die nicht kleiner als [`HTMLMeterElement.min`](/de/docs/Web/API/HTMLMeterElement/min) und nicht größer als [`HTMLMeterElement.max`](/de/docs/Web/API/HTMLMeterElement/max) ist.
 
 ## Beispiele
 

@@ -3,12 +3,14 @@ title: "HTMLElement: isContentEditable-Eigenschaft"
 short-title: isContentEditable
 slug: Web/API/HTMLElement/isContentEditable
 l10n:
-  sourceCommit: 816cc4d4a5a318a23222946b6981bb92b499aebb
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{ APIRef("HTML DOM") }}
 
-Die schreibgeschützte Eigenschaft **`HTMLElement.isContentEditable`** gibt einen booleschen Wert zurück, der `true` ist, wenn der Inhalt des Elements bearbeitbar ist; andernfalls wird `false` zurückgegeben.
+Die **`HTMLElement.isContentEditable`** schreibgeschützte Eigenschaft
+gibt einen booleschen Wert zurück, der `true` ist, wenn der Inhalt des Elements
+bearbeitbar ist; andernfalls gibt sie `false` zurück.
 
 ## Wert
 
@@ -54,4 +56,4 @@ infoText2.textContent += " " + secondParagraph.isContentEditable;
 ## Siehe auch
 
 - [`HTMLElement/contentEditable`](/de/docs/Web/API/HTMLElement/contentEditable)
-- Das globale Attribut [`contenteditable`](/de/docs/Web/HTML/Global_attributes/contenteditable).
+- Das globale Attribut [`contenteditable`](/de/docs/Web/HTML/Reference/Global_attributes/contenteditable).

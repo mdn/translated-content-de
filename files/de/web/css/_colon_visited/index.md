@@ -2,12 +2,12 @@
 title: :visited
 slug: Web/CSS/:visited
 l10n:
-  sourceCommit: 62f49419c2c97353749cf9d21df9e205a60ca62b
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{CSSRef}}
 
-Die **`:visited`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) wird angewendet, sobald der Link vom Benutzer besucht wurde. Aus Datenschutzgründen sind die mit diesem Selektor modifizierbaren Stile sehr eingeschränkt. Die `:visited` Pseudoklasse gilt nur für {{htmlelement("a")}} und {{htmlelement("area")}} Elemente, die ein `href` Attribut besitzen.
+Die **`:visited`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) wird verwendet, wenn der Link vom Benutzer besucht wurde. Aus Datenschutzgründen sind die Stile, die mit diesem Selektor geändert werden können, sehr eingeschränkt. Die `:visited` Pseudoklasse gilt nur für {{htmlelement("a")}} und {{htmlelement("area")}} Elemente, die ein `href`-Attribut besitzen.
 
 {{InteractiveExample("CSS Demo: :visited", "tabbed-shorter")}}
 
@@ -43,18 +43,18 @@ a:visited {
 </ul>
 ```
 
-Stile, die durch die `:visited` und unbesuchte [`:link`](/de/docs/Web/CSS/:link) Pseudoklassen definiert werden, können von nachfolgenden Benutzer-Aktions-Pseudoklassen ({{cssxref(":hover")}} oder {{cssxref(":active")}}) überschrieben werden, die mindestens gleiche Spezifität haben. Um Links angemessen zu gestalten, setzen Sie die `:visited` Regel nach der `:link` Regel, aber vor den `:hover` und `:active` Regeln, wie es die _LVHA-Reihenfolge_ definiert: `:link` — `:visited` — `:hover` — `:active`. Die `:visited` Pseudoklasse und die `:link` Pseudoklasse schließen sich gegenseitig aus.
+Von den Pseudoklassen `:visited` und nicht besuchten [`:link`](/de/docs/Web/CSS/:link) definierten Stile können von nachfolgenden Nutzeraktions-Pseudoklassen ({{cssxref(":hover")}} oder {{cssxref(":active")}}) überschrieben werden, die mindestens die gleiche Spezifität haben. Um Links angemessen zu gestalten, setzen Sie die `:visited`-Regel nach der `:link`-Regel, aber vor den `:hover`- und `:active`-Regeln, wie es durch die _LVHA-Reihenfolge_ definiert ist: `:link` — `:visited` — `:hover` — `:active`. Die `:visited`-Pseudoklasse und die `:link`-Pseudoklasse schließen sich gegenseitig aus.
 
-## Datenschutzbeschränkungen
+## Datenschutz-Beschränkungen
 
-Aus Gründen des Datenschutzes begrenzen Browser strikt, welche Stile mit dieser Pseudoklasse angewendet werden können und wie sie verwendet werden können:
+Aus Datenschutzgründen beschränken Browser strikt, welche Stile Sie mit dieser Pseudoklasse anwenden können und wie sie verwendet werden dürfen:
 
 - Erlaubte CSS-Eigenschaften sind {{ cssxref("color") }}, {{ cssxref("background-color") }}, {{ cssxref("border-color") }}, {{ cssxref("border-bottom-color") }}, {{ cssxref("border-left-color") }}, {{ cssxref("border-right-color") }}, {{ cssxref("border-top-color") }}, {{ cssxref("column-rule-color") }}, {{ cssxref("outline-color") }}, {{ cssxref("text-decoration-color") }} und {{ cssxref("text-emphasis-color") }}.
 - Erlaubte SVG-Attribute sind {{SVGAttr("fill")}} und {{SVGAttr("stroke")}}.
-- Die Alphakomponente der erlaubten Stile wird ignoriert. Stattdessen wird die Alphakomponente des Nicht-`:visited`-Zustands des Elements verwendet. In Firefox, wenn die Alphakomponente `0` ist, wird der im `:visited` gesetzte Stil vollständig ignoriert.
+- Die Alpha-Komponente der erlaubten Stile wird ignoriert. Die Alpha-Komponente des Nicht-`:visited`-Zustands des Elements wird stattdessen verwendet. In Firefox wird der im `:visited`-Zustand gesetzte Stil vollständig ignoriert, wenn die Alpha-Komponente `0` beträgt.
 - Obwohl diese Stile das Erscheinungsbild von Farben für den Endbenutzer ändern können, wird die Methode [`window.getComputedStyle`](/de/docs/Web/API/Window/getComputedStyle) lügen und immer den Wert der Nicht-`:visited`-Farbe zurückgeben.
-- Das [`<link>`](/de/docs/Web/HTML/Element/link) Element wird nie durch `:visited` getroffen.
-- DOM-Methoden, die Elemente über CSS-Selektoren abgleichen — wie [`querySelector()`](/de/docs/Web/API/Document/querySelector) und [`querySelectorAll()`](/de/docs/Web/API/Document/querySelectorAll) — liefern immer ein "leeres" Ergebnis zurück, selbst wenn im Dokument besuchte Links vorhanden sind. Für die vorgenannten Methoden wird dies `null` oder eine leere [`NodeList`](/de/docs/Web/API/NodeList) sein.
+- Das [`<link>`](/de/docs/Web/HTML/Reference/Elements/link)-Element wird niemals von `:visited` getroffen.
+- DOM-Methoden, die Elemente über CSS-Selektoren abgleichen – wie [`querySelector()`](/de/docs/Web/API/Document/querySelector) und [`querySelectorAll()`](/de/docs/Web/API/Document/querySelectorAll) – werden immer ein „leeres“ Ergebnis zurückgeben, selbst wenn im Dokument besuchte Links vorhanden sind. Bei den zuvor genannten Methoden wird dies `null` oder eine leere [`NodeList`](/de/docs/Web/API/NodeList) sein.
 
 > [!NOTE]
 > Weitere Informationen zu diesen Einschränkungen und den dahinter stehenden Gründen finden Sie unter [Privacy and the :visited selector](/de/docs/Web/CSS/CSS_selectors/Privacy_and_the_visited_selector).
@@ -69,7 +69,7 @@ Aus Gründen des Datenschutzes begrenzen Browser strikt, welche Stile mit dieser
 
 ## Beispiele
 
-Eigenschaften, die sonst keine Farbe haben oder transparent sind, können mit `:visited` nicht modifiziert werden. Von den Eigenschaften, die mit dieser Pseudoklasse gesetzt werden können, hat Ihr Browser wahrscheinlich nur einen Standardwert für `color` und `column-rule-color`. Wenn Sie also die anderen Eigenschaften ändern möchten, müssen Sie ihnen einen Basiswert außerhalb des `:visited` Selektors geben.
+Eigenschaften, die ansonsten keine Farbe haben oder transparent sind, können mit `:visited` nicht geändert werden. Bei den Eigenschaften, die mit dieser Pseudoklasse gesetzt werden können, hat Ihr Browser wahrscheinlich nur einen Standardwert für `color` und `column-rule-color`. Daher müssen Sie, wenn Sie die anderen Eigenschaften ändern möchten, diesen außerhalb des `:visited`-Selektors einen Basiswert zuweisen.
 
 ### HTML
 

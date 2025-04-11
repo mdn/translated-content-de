@@ -2,14 +2,14 @@
 title: :user-invalid
 slug: Web/CSS/:user-invalid
 l10n:
-  sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{CSSRef}}
 
-Die **`:user-invalid`** CSS-[Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) steht für jedes validierte Formularelement, dessen Wert basierend auf den [Validierungsbeschränkungen](/de/docs/Web/HTML/Constraint_validation) ungültig ist, nachdem der Benutzer damit interagiert hat.
+Die **`:user-invalid`** CSS-[Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert jedes validierte Formularelement, dessen Wert basierend auf seinen [Validierungsbeschränkungen](/de/docs/Web/HTML/Guides/Constraint_validation) ungültig ist, nachdem der Benutzer damit interagiert hat.
 
-Die `:user-invalid`-Pseudoklasse muss mit einem {{CSSxRef(":invalid")}}, {{CSSxRef(":out-of-range")}} oder leerem, aber {{CSSxRef(":required")}}-Element übereinstimmen, und zwar zwischen dem Zeitpunkt, zu dem der Benutzer versucht hat, das Formular abzusenden, und bevor der Benutzer erneut mit dem Formularelement interagiert.
+Die `:user-invalid` Pseudoklasse muss mit einem {{CSSxRef(":invalid")}}, {{CSSxRef(":out-of-range")}} oder leerem, aber {{CSSxRef(":required")}} Element übereinstimmen, in der Zeit, in der der Benutzer versucht hat, das Formular abzusenden, und bevor der Benutzer erneut mit dem Formularelement interagiert hat.
 
 ## Syntax
 
@@ -21,10 +21,9 @@ Die `:user-invalid`-Pseudoklasse muss mit einem {{CSSxRef(":invalid")}}, {{CSSxR
 
 ## Beispiele
 
-### Festlegen einer Farbe und eines Symbols für :user-invalid
+### Eine Farbe und ein Symbol auf :user-invalid setzen
 
-Im folgenden Beispiel werden der rote Rand und das ❌ erst angezeigt, nachdem der Benutzer mit dem Feld interagiert hat.
-Versuchen Sie, etwas anderes als eine E-Mail-Adresse einzugeben, um das Ergebnis zu sehen.
+Im folgenden Beispiel werden der rote Rahmen und ❌ nur angezeigt, sobald der Benutzer mit dem Feld interagiert hat. Versuchen Sie, etwas anderes als eine E-Mail-Adresse einzugeben, um es in Aktion zu sehen.
 
 ```html
 <form>

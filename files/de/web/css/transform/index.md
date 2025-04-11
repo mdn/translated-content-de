@@ -2,13 +2,13 @@
 title: transform
 slug: Web/CSS/transform
 l10n:
-  sourceCommit: 6d55eec58e38583da60aa635d41393ad051d1c6d
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{CSSRef}}
 
-Die **`transform`** [CSS](/de/docs/Web/CSS) Eigenschaft ermöglicht es Ihnen, ein Element zu rotieren, skalieren, schräg zu stellen oder zu verschieben.
-Sie modifiziert den Koordinatenraum des CSS [visuellen Formatierungsmodells](/de/docs/Web/CSS/CSS_display/Visual_formatting_model).
+Die **`transform`**-Eigenschaft [CSS](/de/docs/Web/CSS) ermöglicht es Ihnen, ein Element zu drehen, zu skalieren, zu schrägen oder zu verschieben.
+Sie verändert den Koordinatenraum des CSS-[visuellen Formatierungsmodells](/de/docs/Web/CSS/CSS_display/Visual_formatting_model).
 
 {{InteractiveExample("CSS Demo: transform")}}
 
@@ -46,12 +46,12 @@ transform: scale(0.5) translate(-100%, -100%);
 </section>
 ```
 
-Wenn die Eigenschaft einen anderen Wert als `none` hat, wird ein [Stapelkontext](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_context) erstellt.
-In diesem Fall fungiert das Element als [enthältender Block](/de/docs/Web/CSS/CSS_display/Containing_block) für alle darin enthaltenen `position: fixed;` oder `position: absolute;` Elemente.
+Hat die Eigenschaft einen anderen Wert als `none`, wird ein [Stapelformkontext](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_context) erstellt.
+In diesem Fall wird das Element als [begrenzender Block](/de/docs/Web/CSS/CSS_display/Containing_block) für alle `position: fixed;` oder `position: absolute;` Elemente fungieren, die es enthält.
 
 > [!WARNING]
 > Nur transformierbare Elemente können `transform`iert werden.
-> Das heißt, alle Elemente, deren Layout durch das CSS-Box-Modell geregelt wird, mit Ausnahme von: {{Glossary("Inline-level_content", "nicht-ersetzbaren Inline-Boxen")}}, [Tabellenspalten-Boxen](/de/docs/Web/HTML/Element/col) und [Tabellenspalten-Gruppen-Boxen](/de/docs/Web/HTML/Element/colgroup).
+> Das heißt, alle Elemente, deren Layout vom CSS-Boxmodell bestimmt wird, mit Ausnahme von: {{Glossary("Inline-level_content", "nicht ersetzten Inline-Boxen")}}, [Tabellenspalten-Boxen](/de/docs/Web/HTML/Reference/Elements/col) und [Tabellen-Spaltengruppen-Boxen](/de/docs/Web/HTML/Reference/Elements/colgroup).
 
 ## Syntax
 
@@ -94,26 +94,27 @@ transform: revert-layer;
 transform: unset;
 ```
 
-Die `transform` Eigenschaft kann entweder als das Schlüsselwort `none` oder als eine oder mehrere `<transform-function>` Werte angegeben werden.
+Die `transform`-Eigenschaft kann entweder als Schlüsselwort `none` oder als eine oder mehrere `<transform-function>`-Werte angegeben werden.
 
 ### Werte
 
 - {{cssxref("&lt;transform-function&gt;")}}
-  - : Eine oder mehrere der anzuwendenden [CSS-Transform-Funktionen](/de/docs/Web/CSS/transform-function).
-    Die Transformationsfunktionen werden in der Reihenfolge von links nach rechts multipliziert, was bedeutet, dass zusammengesetzte Transformationen effektiv [in der Reihenfolge von rechts nach links angewendet](#reihenfolge_der_transformationen) werden.
+  - : Eine oder mehrere der [CSS-Transformationsfunktionen](/de/docs/Web/CSS/transform-function), die angewendet werden sollen.
+    Die Transformationsfunktionen werden von links nach rechts multipliziert, was bedeutet, dass zusammengesetzte Transformationen effektiv [von rechts nach links angewendet werden](#reihenfolge_der_transformationen).
 - `none`
   - : Gibt an, dass keine Transformation angewendet werden soll.
 
 ## Barrierefreiheit
 
-Scaling/Zooming-Animationen sind problematisch für die Barrierefreiheit, da sie häufig bestimmte Arten von Migräne auslösen. Wenn Sie solche Animationen auf Ihrer Website einbauen müssen, sollten Sie eine Steuerung bereitstellen, die es Benutzern ermöglicht, Animationen zu deaktivieren, vorzugsweise auf der gesamten Website.
+Skalierungs-/Zoom-Animationen sind problematisch für die Barrierefreiheit, da sie weit verbreitete Auslöser für bestimmte Arten von Migräne sind.
+Wenn auf Ihrer Website solche Animationen enthalten sein müssen, sollten Sie eine Steuerung bereitstellen, mit der Benutzer Animationen ausschalten können, vorzugsweise auf der gesamten Website.
 
-Berücksichtigen Sie auch die Verwendung der {{cssxref("@media/prefers-reduced-motion", "prefers-reduced-motion")}} Media-Feature — verwenden Sie es, um eine [Media-Abfrage](/de/docs/Web/CSS/CSS_media_queries) zu schreiben, die Animationen deaktiviert, wenn der Benutzer reduzierte Animation in seinen Systemeinstellungen angegeben hat.
+Berücksichtigen Sie auch die Verwendung der {{cssxref("@media/prefers-reduced-motion", "prefers-reduced-motion")}} Media-Feature — verwenden Sie sie, um eine [Media-Abfrage](/de/docs/Web/CSS/CSS_media_queries) zu schreiben, die Animationen ausschaltet, wenn der Benutzer in seinen Systemeinstellungen reduzierte Animationen festgelegt hat.
 
 Erfahren Sie mehr:
 
-- [MDN Verständnis WCAG, Leitfaden 2.3 Erklärungen](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Operable#guideline_2.3_—_seizures_and_physical_reactions_do_not_design_content_in_a_way_that_is_known_to_cause_seizures_or_physical_reactions)
-- [Verständnis des Erfolgskriteriums 2.3.3 | W3C Verständnis WCAG 2.1](https://www.w3.org/WAI/WCAG21/Understanding/animation-from-interactions)
+- [MDN Verständnis von WCAG, Erläuterungen zu Richtlinie 2.3](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Operable#guideline_2.3_—_seizures_and_physical_reactions_do_not_design_content_in_a_way_that_is_known_to_cause_seizures_or_physical_reactions)
+- [Verständnis des Erfolgs-Kriteriums 2.3.3 | W3C Verständnis von WCAG 2.1](https://www.w3.org/WAI/WCAG21/Understanding/animation-from-interactions)
 
 ## Formale Definition
 
@@ -125,7 +126,7 @@ Erfahren Sie mehr:
 
 ## Beispiele
 
-### Ein Element verschieben und rotieren
+### Übersetzen und Drehen eines Elements
 
 #### HTML
 
@@ -150,7 +151,7 @@ div {
 
 ### Reihenfolge der Transformationen
 
-Die Reihenfolge der Transformationsfunktionen ist wichtig. In diesem Beispiel werden zwei Boxen mit denselben Werten rotiert und verschoben; nur die Reihenfolge der Transformationsfunktionen ist unterschiedlich.
+Die Reihenfolge der Transformationsfunktionen ist wichtig. In diesem Beispiel werden zwei Boxen mit den gleichen Werten gedreht und verschoben; nur die Reihenfolge der Transformationsfunktionen ist unterschiedlich.
 
 #### HTML
 
@@ -210,11 +211,11 @@ div {
 
 {{EmbedLiveSample("Transform_order", "400", "460")}}
 
-Wenn ein Element vor dem Verschieben rotiert wird, ist die Übersetzungsrichtung auf der gedrehten Achse. Die Achse wird durch die gepunkteten Linien angezeigt.
+Wenn ein Element gedreht wird, bevor es verschoben wird, ist die Verschieberichtung auf der gedrehten Achse. Dies wird durch die gestrichelten Linien angezeigt.
 
 ### Weitere Beispiele
 
-Bitte sehen Sie [Verwendung von CSS-Transformationen](/de/docs/Web/CSS/CSS_transforms/Using_CSS_transforms) und {{cssxref("&lt;transform-function&gt;")}} für weitere Beispiele.
+Bitte sehen Sie sich [Verwendung von CSS-Transformationen](/de/docs/Web/CSS/CSS_transforms/Using_CSS_transforms) und {{cssxref("&lt;transform-function&gt;")}} für weitere Beispiele an.
 
 ## Spezifikationen
 
@@ -227,7 +228,7 @@ Bitte sehen Sie [Verwendung von CSS-Transformationen](/de/docs/Web/CSS/CSS_trans
 ## Siehe auch
 
 - [Verwendung von CSS-Transformationen](/de/docs/Web/CSS/CSS_transforms/Using_CSS_transforms)
-- {{cssxref("&lt;transform-function&gt;")}} Datentyp mit allen erläuterten Transformationsfunktionen.
-- Einzelne CSS-Eigenschaften: {{cssxref('translate')}}, {{cssxref('rotate')}}, und {{cssxref('scale')}} (es gibt keine `skew` Eigenschaft).
-- SVG {{SVGAttr("transform")}} Attribut
-- Online-Tool zur Visualisierung von CSS-Transformationsfunktionen: [CSS Transform Playground](https://css-transform.moro.es/)
+- {{cssxref("&lt;transform-function&gt;")}} Datentyp mit Erklärungen zu allen Transformationsfunktionen.
+- Einzelne CSS-Eigenschaften: {{cssxref('translate')}}, {{cssxref('rotate')}}, und {{cssxref('scale')}} (es gibt keine `skew`-Eigenschaft).
+- SVG-{{SVGAttr("transform")}}-Attribut
+- Online-Tool zum Visualisieren von CSS-Transformationsfunktionen: [CSS Transform Playground](https://css-transform.moro.es/)

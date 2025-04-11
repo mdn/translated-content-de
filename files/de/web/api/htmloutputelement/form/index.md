@@ -1,14 +1,14 @@
 ---
-title: "HTMLOutputElement: form-Eigenschaft"
+title: "HTMLOutputElement: form Eigenschaft"
 short-title: form
 slug: Web/API/HTMLOutputElement/form
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die schreibgeschützte **`form`**-Eigenschaft des [`HTMLOutputElement`](/de/docs/Web/API/HTMLOutputElement)-Interfaces gibt ein [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement)-Objekt zurück, das dieses {{htmlelement("output")}} besitzt, oder `null`, wenn dieses Output-Element zu keinem Formular gehört.
+Die **`form`** schreibgeschützte Eigenschaft der Schnittstelle [`HTMLOutputElement`](/de/docs/Web/API/HTMLOutputElement) gibt ein [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement)-Objekt zurück, das dieses {{htmlelement("output")}} besitzt, oder `null`, wenn dieses Output-Element zu keinem Formular gehört.
 
 ## Wert
 
@@ -27,5 +27,5 @@ Ein [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement) oder `null`.
 - [`HTMLOutputElement`](/de/docs/Web/API/HTMLOutputElement)
 - [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement)
 - {{HTMLElement("output")}}
-- HTML-<a href="/de/docs/Web/HTML/Element/output#form">`form`</a>-Attribut
-- [HTML-Formulare-Leitfaden](/de/docs/Learn_web_development/Extensions/Forms)
+- HTML [`form`](/de/docs/Web/HTML/Reference/Elements/output#form) Attribut
+- [HTML Formulare Leitfaden](/de/docs/Learn_web_development/Extensions/Forms)

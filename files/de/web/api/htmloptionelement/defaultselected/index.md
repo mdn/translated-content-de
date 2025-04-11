@@ -3,12 +3,12 @@ title: "HTMLOptionElement: defaultSelected-Eigenschaft"
 short-title: defaultSelected
 slug: Web/API/HTMLOptionElement/defaultSelected
 l10n:
-  sourceCommit: 9a1384feb06620002bbb01e8085c0d9f1e30df4f
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{ APIRef("HTML DOM") }}
 
-Die **`defaultSelected`**-Eigenschaft des [`HTMLOptionElement`](/de/docs/Web/API/HTMLOptionElement)-Interfaces gibt den standardmäßigen ausgewählten Zustand des Elements an. Diese Eigenschaft spiegelt das [`selected`](/de/docs/Web/HTML/Element/option#selected)-Attribut des {{htmlelement("option")}}-Elements wider. Das Vorhandensein des `selected`-Attributs setzt die `defaultSelected`-Eigenschaft auf `true`.
+Die **`defaultSelected`**-Eigenschaft des [`HTMLOptionElement`](/de/docs/Web/API/HTMLOptionElement)-Interfaces spezifiziert den standardmäßig ausgewählten Zustand des Elements. Diese Eigenschaft spiegelt das [`selected`](/de/docs/Web/HTML/Reference/Elements/option#selected)-Attribut des {{htmlelement("option")}}-Elements wider. Die Anwesenheit des `selected`-Attributs setzt die `defaultSelected`-Eigenschaft auf `true`.
 
 ## Wert
 

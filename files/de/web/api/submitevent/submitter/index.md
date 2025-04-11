@@ -1,24 +1,24 @@
 ---
-title: "SubmitEvent: submitter Eigenschaft"
+title: "SubmitEvent: submitter-Eigenschaft"
 short-title: submitter
 slug: Web/API/SubmitEvent/submitter
 l10n:
-  sourceCommit: 101ffc9479db6aaa530f2aac3992734dd97d1b86
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die schreibgeschützte **`submitter`** Eigenschaft der [`SubmitEvent`](/de/docs/Web/API/SubmitEvent)-Schnittstelle gibt das Sende-Button-Element oder ein anderes Element an, das ausgelöst wurde, um das Formular einzureichen.
+Die schreibgeschützte **`submitter`**-Eigenschaft, die in der Schnittstelle [`SubmitEvent`](/de/docs/Web/API/SubmitEvent) gefunden wird, gibt das Absende-Button oder ein anderes Element an, das ausgelöst wurde, um das Formular abzuschicken.
 
 ## Wert
 
-Ein Element, das das Element angibt, welches das [`submit`](/de/docs/Web/API/HTMLFormElement/submit_event)-Ereignis an das Formular gesendet hat. Während dies oft ein {{HTMLElement("input")}} Element ist, dessen [`type`](/de/docs/Web/HTML/Element/input#type) `submit` ist oder ein {{HTMLElement("button")}} Element, dessen [`type`](/de/docs/Web/HTML/Element/input#type) `submit` ist, könnte es auch ein anderes Element sein, das einen Übermittlungsprozess initiiert hat.
+Ein Element, das das Element angibt, das das [`submit`](/de/docs/Web/API/HTMLFormElement/submit_event)-Ereignis an das Formular gesendet hat. Während dies oft ein {{HTMLElement("input")}}-Element ist, dessen [`type`](/de/docs/Web/HTML/Reference/Elements/input#type) `submit` ist, oder ein {{HTMLElement("button")}}-Element, dessen [`type`](/de/docs/Web/HTML/Reference/Elements/input#type) `submit` ist, könnte es ein anderes Element sein, das einen Absendevorgang eingeleitet hat.
 
-Falls die Übermittlung nicht durch eine Art Button ausgelöst wurde, ist der Wert von `submitter` `null`.
+Wenn die Absendung nicht durch eine Art von Button ausgelöst wurde, ist der Wert von `submitter` `null`.
 
 ## Beispiele
 
-Siehe [`SubmitEvent`](/de/docs/Web/API/SubmitEvent#examples) für Beispielcode.
+Sehen Sie sich [`SubmitEvent`](/de/docs/Web/API/SubmitEvent#examples) für Beispielcode an.
 
 ## Spezifikationen
 

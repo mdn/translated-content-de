@@ -1,16 +1,16 @@
 ---
 title: Barrierefreiheit in React
-short-title: React Barrierefreiheit
+short-title: React Zugänglichkeit
 slug: Learn_web_development/Core/Frameworks_libraries/React_accessibility
 l10n:
-  sourceCommit: 6c58c5d4227a031105740b0e85acbc6178223d0a
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{LearnSidebar}}
 
 {{PreviousMenuNext("Learn_web_development/Core/Frameworks_libraries/React_interactivity_filtering_conditional_rendering","Learn_web_development/Core/Frameworks_libraries/React_resources", "Learn_web_development/Core/Frameworks_libraries")}}
 
-In unserem letzten Tutorial-Artikel konzentrieren wir uns auf Barrierefreiheit, einschließlich Fokus-Management in React, das die Benutzerfreundlichkeit verbessern und Verwirrung sowohl für reine Tastaturnutzer als auch für Screenreader-Benutzer reduzieren kann.
+In unserem letzten Tutorial-Artikel konzentrieren wir uns (Wortspiel beabsichtigt) auf Barrierefreiheit, einschließlich des Fokus-Managements in React, was die Benutzerfreundlichkeit verbessern und Verwirrungen für sowohl reine Tastaturnutzer als auch Screenreader-Benutzer verringern kann.
 
 <table>
   <tbody>
@@ -19,53 +19,53 @@ In unserem letzten Tutorial-Artikel konzentrieren wir uns auf Barrierefreiheit, 
       <td>
         Vertrautheit mit den Kernsprachen <a href="/de/docs/Learn_web_development/Core/Structuring_content">HTML</a>,
         <a href="/de/docs/Learn_web_development/Core/Styling_basics">CSS</a> und
-        <a href="/de/docs/Learn_web_development/Core/Scripting">JavaScript</a> sowie mit dem <a href="/de/docs/Learn_web_development/Getting_started/Environment_setup/Command_line">Terminal/Kommandozeile</a>.
+        <a href="/de/docs/Learn_web_development/Core/Scripting">JavaScript</a>, und der <a href="/de/docs/Learn_web_development/Getting_started/Environment_setup/Command_line">Terminal-/Befehlszeile</a>.
       </td>
     </tr>
     <tr>
       <th scope="row">Lernziele:</th>
-      <td>Implementierung von Tastaturzugänglichkeit in React.</td>
+      <td>Implementieren von Tastaturzugänglichkeit in React.</td>
     </tr>
   </tbody>
 </table>
 
 ## Einbeziehung von Tastaturnutzern
 
-An diesem Punkt haben wir alle Funktionen implementiert, die wir umsetzen wollten. Benutzer können eine neue Aufgabe hinzufügen, Aufgaben ab- und anhaken, Aufgaben löschen oder Aufgabennamen bearbeiten. Außerdem können sie ihre Aufgabenliste nach allen, aktiven oder erledigten Aufgaben filtern.
+Zu diesem Zeitpunkt haben wir alle Funktionen implementiert, die wir uns vorgenommen hatten. Benutzer können eine neue Aufgabe hinzufügen, Aufgaben aktivieren und deaktivieren, Aufgaben löschen oder Aufgabennamen bearbeiten. Außerdem können sie ihre Aufgabenliste nach allen, aktiven oder abgeschlossenen Aufgaben filtern.
 
-Oder zumindest können sie all diese Dinge mit der Maus tun. Leider sind diese Funktionen für reine Tastaturnutzer nicht sehr zugänglich. Lassen Sie uns das jetzt erkunden.
+Oder zumindest können sie all diese Dinge mit einer Maus erledigen. Leider sind diese Funktionen nicht sehr zugänglich für reine Tastaturnutzer. Lassen Sie uns dies jetzt erkunden.
 
-## Das Problem der Tastaturbenutzbarkeit erkunden
+## Erforschen des Tastaturbedienbarkeitsproblems
 
-Beginnen Sie, indem Sie auf das Eingabefeld oben in unserer App klicken, als ob Sie eine neue Aufgabe hinzufügen möchten. Sie sehen einen dicken, gestrichelten Umriss um dieses Eingabefeld. Dieser Umriss ist Ihr visueller Indikator dafür, dass der Browser momentan auf dieses Element fokussiert ist. Drücken Sie die <kbd>Tab</kbd>-Taste, und Sie werden den Umriss um den "Add"-Button unter dem Eingabefeld erscheinen sehen. Dies zeigt an, dass sich der Fokus des Browsers verschoben hat.
+Beginnen Sie, indem Sie auf das Eingabefeld am oberen Rand unserer App klicken, als ob Sie eine neue Aufgabe hinzufügen möchten. Sie werden eine dicke, gestrichelte Umrandung um dieses Eingabefeld sehen. Diese Umrandung ist Ihr visueller Indikator dafür, dass der Browser derzeit auf dieses Element fokussiert ist. Drücken Sie die <kbd>Tab</kbd>-Taste, und Sie werden sehen, dass die Umrandung um die "Add"-Schaltfläche unter dem Eingabefeld erscheint. Dies zeigt Ihnen, dass sich der Fokus des Browsers verschoben hat.
 
-Drücken Sie noch ein paar Mal <kbd>Tab</kbd>, und Sie werden sehen, wie sich dieser gestrichelte Fokusindikator zwischen den einzelnen Filter-Buttons bewegt. Fahren Sie fort, bis der Fokusindikator um den ersten "Edit"-Button liegt. Drücken Sie <kbd>Enter</kbd>.
+Drücken Sie einige Male <kbd>Tab</kbd>, und Sie werden sehen, dass sich dieser gestrichelte Fokusindikator zwischen jeder der Filter-Schaltflächen bewegt. Machen Sie weiter, bis der Fokusindikator um die erste "Edit"-Schaltfläche ist. Drücken Sie <kbd>Enter</kbd>.
 
-Die `<Todo />`-Komponente wird, wie wir gestaltet haben, das Template wechseln und Sie werden ein Formular sehen, das es uns ermöglicht, den Namen der Aufgabe zu bearbeiten.
+Die `<Todo />`-Komponente wechselt die Vorlagen, wie wir es entworfen haben, und Sie sehen ein Formular, das uns ermöglicht, den Namen der Aufgabe zu bearbeiten.
 
-Aber wohin ist unser Fokusindikator verschwunden?
+Aber wo ist unser Fokusindikator geblieben?
 
-Wenn wir zwischen Templates in unserer `<Todo />`-Komponente wechseln, entfernen wir die Elemente des alten Templates vollständig und ersetzen sie durch die Elemente des neuen Templates. Das bedeutet, dass das Element, auf das wir fokussiert waren, nicht mehr existiert, sodass es keinen visuellen Hinweis darauf gibt, wo der Fokus des Browsers ist. Dies könnte eine Vielzahl von Benutzern verwirren - insbesondere Benutzer, die auf die Tastatur angewiesen sind oder Benutzer, die Hilfstechnologien verwenden.
+Wenn wir zwischen Vorlagen in unserer `<Todo />`-Komponente wechseln, entfernen wir die Elemente aus der alten Vorlage vollständig und ersetzen sie durch die Elemente aus der neuen Vorlage. Das bedeutet, dass das Element, auf das wir fokussiert waren, nicht mehr existiert, sodass es keinen visuellen Hinweis darauf gibt, wo der Fokus des Browsers ist. Dies könnte eine Vielzahl von Benutzern verwirren — insbesondere Benutzer, die auf die Tastatur angewiesen sind, oder Benutzer, die unterstützende Technologien verwenden.
 
-Um die Erfahrung für Tastatur- und Hilfstechnologie-Nutzer zu verbessern, sollten wir den Fokus des Browsers selbst verwalten.
+Um die Erfahrung für Tastatur- und unterstützende Technologiebesucher zu verbessern, sollten wir den Fokus des Browsers selbst verwalten.
 
-### Hinweis: eine Notiz zu unserem Fokusindikator
+### Nebenbemerkung: eine Anmerkung zu unserem Fokusindikator
 
-Wenn Sie mit Ihrer Maus auf die "All", "Active" oder "Completed" Filter-Buttons klicken, werden Sie keinen sichtbaren Fokusindikator sehen, aber Sie werden einen sehen, wenn Sie zwischen ihnen mit der <kbd>Tab</kbd>-Taste auf Ihrer Tastatur wechseln. Keine Sorge — Ihr Code ist nicht kaputt!
+Wenn Sie mit der Maus auf die "All", "Active" oder "Completed" Filter-Schaltflächen klicken, werden Sie _keinen_ sichtbaren Fokusindikator sehen, aber Sie werden ihn sehen, wenn Sie mit der <kbd>Tab</kbd>-Taste auf Ihrer Tastatur zwischen ihnen wechseln. Keine Sorge — Ihr Code ist nicht kaputt!
 
-Unsere CSS-Datei verwendet die [`:focus-visible`](/de/docs/Web/CSS/:focus-visible) Pseudoklasse, um benutzerdefinierte Styles für den Fokusindikator bereitzustellen, und der Browser verwendet eine Reihe interner Regeln, um zu bestimmen, wann er ihn dem Nutzer zeigen soll. Im Allgemeinen wird der Browser einen Fokusindikator als Reaktion auf Tastatureingaben anzeigen und könnte ihn als Reaktion auf Mauseingaben anzeigen. `<button>`-Elemente zeigen keinen Fokusindikator als Reaktion auf Mauseingaben, während `<input>`-Elemente dies tun.
+Unsere CSS-Datei verwendet die [`:focus-visible`](/de/docs/Web/CSS/:focus-visible) Pseudoklasse, um benutzerdefiniertes Styling für den Fokusindikator bereitzustellen, und der Browser verwendet eine Reihe interner Regeln, um zu bestimmen, wann er ihn dem Benutzer anzeigt. Im Allgemeinen _wird_ der Browser bei Tastatureingaben einen Fokusindikator anzeigen und _könnte_ es bei Mauseingaben tun. `<button>`-Elemente zeigen _keinen_ Fokusindikator bei Mauseingaben, während `<input>`-Elemente dies _tun_.
 
-Das Verhalten von `:focus-visible` ist selektiver als die ältere [`:focus`](/de/docs/Web/CSS/:focus) Pseudoklasse, mit der Sie vielleicht vertrauter sind. `:focus` zeigt in vielen weiteren Situationen einen Fokusindikator an, und Sie können es anstelle von oder in Kombination mit `:focus-visible` nutzen, wenn Sie dies bevorzugen.
+Das Verhalten von `:focus-visible` ist selektiver als die ältere [`:focus`](/de/docs/Web/CSS/:focus) Pseudoklasse, mit der Sie möglicherweise vertrauter sind. `:focus` zeigt einen Fokusindikator in viel mehr Situationen, und Sie können es stattdessen oder in Kombination mit `:focus-visible` verwenden, wenn Sie dies bevorzugen.
 
-## Fokussieren zwischen Templates
+## Fokussieren zwischen Vorlagen
 
-Wenn ein Benutzer das `<Todo />`-Template vom Ansehen zum Bearbeiten wechselt, sollten wir den Fokus auf das `<input>` legen, das zum Umbenennen verwendet wird; wenn er vom Bearbeiten zurück zum Ansehen wechselt, sollten wir den Fokus zurück auf den "Edit"-Button bewegen.
+Wenn ein Benutzer die `<Todo />`-Vorlage vom Ansehen zum Bearbeiten ändert, sollten wir auf das `<input>` fokussieren, das für die Umbenennung verwendet wird; wenn er von der Bearbeitung zurück zum Ansehen wechselt, sollten wir den Fokus zurück auf die "Edit"-Schaltfläche bewegen.
 
-### Elemente anvisieren
+### Unsere Elemente anvisieren
 
-Bis zu diesem Punkt haben wir JSX-Komponenten geschrieben und React die resultierende DOM hinter den Kulissen erstellen lassen. Die meiste Zeit müssen wir keine spezifischen Elemente im DOM anvisieren, weil wir Reacts Zustand und Props verwenden können, um zu kontrollieren, was gerendert wird. Um den Fokus zu verwalten, müssen wir jedoch in der Lage sein, gezielt auf spezifische DOM-Elemente zuzugreifen.
+Bis zu diesem Punkt haben wir JSX-Komponenten geschrieben und React den resultierenden DOM im Hintergrund erstellen lassen. Meistens müssen wir keine spezifischen Elemente im DOM anvisieren, da wir Reacts Status und Props verwenden können, um zu steuern, was gerendert wird. Um den Fokus zu verwalten, müssen wir jedoch in der Lage sein, spezifische DOM-Elemente anzusteuern.
 
-Hier kommt der `useRef()` Hook ins Spiel.
+Hier kommt der `useRef()`-Hook ins Spiel.
 
 Ändern Sie zunächst die `import`-Anweisung am Anfang von `Todo.jsx`, sodass sie `useRef` enthält:
 
@@ -73,18 +73,18 @@ Hier kommt der `useRef()` Hook ins Spiel.
 import { useRef, useState } from "react";
 ```
 
-`useRef()` erstellt ein Objekt mit einer einzigen Eigenschaft: `current`. Refs können beliebige Werte speichern, die wir später abrufen können. Wir können sogar Referenzen auf DOM-Elemente speichern, was genau das ist, was wir hier tun werden.
+`useRef()` erstellt ein Objekt mit einer einzigen Eigenschaft: `current`. Refs können alle Werte speichern, die wir möchten, und wir können diese Werte später nachschlagen. Wir können sogar Verweise auf DOM-Elemente speichern, was genau das ist, was wir hier tun werden.
 
-Erstellen Sie als Nächstes zwei neue Konstanten unter den `useState()` Hooks in Ihrer `Todo()` Funktion. Jede sollte eine Ref sein – eine für den "Edit"-Button im Ansichtstemplate und eine für das Bearbeitungsfeld im Bearbeitungstemplate.
+Erstellen Sie als nächstes zwei neue Konstanten unter den `useState()`-Hooks in Ihrer `Todo()`-Funktion. Jede sollte ein Ref sein – eines für die "Edit"-Schaltfläche in der Ansichtsvorlage und eines für das Bearbeitungsfeld in der Bearbeitungsvorlage.
 
 ```jsx
 const editFieldRef = useRef(null);
 const editButtonRef = useRef(null);
 ```
 
-Diese Refs haben einen Standardwert von `null`, um klarzustellen, dass sie leer sind, bis sie an ihre DOM-Elemente angefügt werden. Um sie an ihre Elemente zu binden, fügen wir jedem Element im JSX das spezielle `ref`-Attribut hinzu und setzen die Werte dieser Attribute auf die entsprechend benannten `ref`-Objekte.
+Diese Refs haben einen Standardwert von `null`, um klarzustellen, dass sie leer sein werden, bis sie an ihre DOM-Elemente angehängt werden. Um sie an ihre Elemente zu binden, fügen wir jedem Elementattribut in JSX das spezielle `ref`-Attribut hinzu und setzen die Werte dieser Attribute auf die entsprechend benannten `ref`-Objekte.
 
-Aktualisieren Sie das `<input>` in Ihrem Bearbeitungstemplate, sodass es so aussieht:
+Aktualisieren Sie das `<input>` in Ihrer Bearbeitungsvorlage, damit es wie folgt aussieht:
 
 ```jsx
 <input
@@ -97,7 +97,7 @@ Aktualisieren Sie das `<input>` in Ihrem Bearbeitungstemplate, sodass es so auss
 />
 ```
 
-Aktualisieren Sie den "Edit"-Button in Ihrem Ansichtstemplate, sodass er so aussieht:
+Aktualisieren Sie die "Edit"-Schaltfläche in Ihrer Ansichtsvorlage, damit sie wie folgt aussieht:
 
 ```jsx
 <button
@@ -109,22 +109,22 @@ Aktualisieren Sie den "Edit"-Button in Ihrem Ansichtstemplate, sodass er so auss
 </button>
 ```
 
-Dadurch werden unsere `editFieldRef` und `editButtonRef` mit Referenzen auf die DOM-Elemente befüllt, an die sie gebunden sind, aber _nur_ nachdem React die Komponente gerendert hat. Testen Sie dies selbst: Fügen Sie die folgende Zeile irgendwo im Körper Ihrer `Todo()` Funktion hinzu, unterhalb der Initialisierung von `editButtonRef`:
+Dies wird unser `editFieldRef` und `editButtonRef` mit Verweisen auf die DOM-Elemente, an die sie angehängt sind, füllen, jedoch _nur_ nachdem React die Komponente gerendert hat. Testen Sie dies selbst: fügen Sie die folgende Zeile irgendwo im Rumpf Ihrer `Todo()`-Funktion hinzu, unterhalb der Stelle, an der `editButtonRef` initialisiert wird:
 
 ```jsx
 console.log(editButtonRef.current);
 ```
 
-Sie werden feststellen, dass der Wert von `editButtonRef.current` `null` ist, wenn die Komponente erstmals gerendert wird, aber wenn Sie auf einen "Edit"-Button klicken, wird das `<button>`-Element in der Konsole protokolliert. Dies liegt daran, dass die Ref erst nach dem Rendern der Komponente befüllt wird und das Klicken auf den "Edit"-Button die Komponente neu darstellt. Achten Sie darauf, dieses Log zu löschen, bevor Sie fortfahren.
+Sie werden sehen, dass der Wert von `editButtonRef.current` `null` ist, wenn die Komponente zum ersten Mal gerendert wird, aber wenn Sie auf eine "Edit"-Schaltfläche klicken, wird es das `<button>`-Element in der Konsole protokollieren. Dies liegt daran, dass das Ref erst nach dem Rendern der Komponente gefüllt wird und das Klicken auf die "Edit"-Schaltfläche dazu führt, dass die Komponente erneut gerendert wird. Entfernen Sie dieses Protokoll, bevor Sie weitermachen.
 
 > [!NOTE]
-> Ihre Logs werden 6 Mal erscheinen, da wir 3 Instanzen von `<Todo />` in unserer App haben und React unsere Komponenten zweimal in der Entwicklung rendert.
+> Ihre Protokolle erscheinen 6 Mal, da wir 3 Instanzen von `<Todo />` in unserer App haben und React unsere Komponenten zweimal in der Entwicklung rendert.
 
-Wir kommen der Sache näher! Um von unseren neu referenzierten Elementen zu profitieren, müssen wir einen weiteren React Hook verwenden: `useEffect()`.
+Wir kommen der Sache näher! Um von unseren neu referenzierten Elementen zu profitieren, müssen wir einen weiteren React-Hook verwenden: `useEffect()`.
 
 ### Implementierung von `useEffect()`
 
-[`useEffect()`](https://react.dev/reference/react/useEffect) ist so benannt, weil es alle Nebenwirkungen ausführt, die wir dem Renderprozess hinzufügen möchten, die aber nicht im Hauptkörper der Funktion ausgeführt werden können. `useEffect()` läuft direkt nach dem Rendern einer Komponente, was bedeutet, dass die DOM-Elemente, auf die wir im vorherigen Abschnitt referenziert haben, für uns verfügbar sind.
+[`useEffect()`](https://react.dev/reference/react/useEffect) ist so benannt, weil es alle Nebeneffekte ausführt, die wir zum Renderprozess hinzufügen möchten, aber nicht im Hauptkörper der Funktion ausgeführt werden können. `useEffect()` wird direkt nach dem Rendern einer Komponente ausgeführt, was bedeutet, dass die DOM-Elemente, die wir im vorherigen Abschnitt referenziert haben, uns zur Verfügung stehen.
 
 Ändern Sie die Importanweisung von `Todo.jsx` erneut, um `useEffect` hinzuzufügen:
 
@@ -132,7 +132,7 @@ Wir kommen der Sache näher! Um von unseren neu referenzierten Elementen zu prof
 import { useEffect, useRef, useState } from "react";
 ```
 
-`useEffect()` nimmt eine Funktion als Argument; diese Funktion wird _nach_ dem Rendern der Komponente ausgeführt. Um dies zu demonstrieren, fügen Sie den folgenden `useEffect()`-Aufruf direkt über der `return`-Anweisung im Körper von `Todo()` ein und übergeben eine Funktion, die den Ausdruck "side effect" in Ihre Konsole protokolliert:
+`useEffect()` nimmt eine Funktion als Argument an; diese Funktion wird _nach_ dem Rendern der Komponente ausgeführt. Um dies zu demonstrieren, setzen Sie den folgenden `useEffect()`-Aufruf direkt über die `return`-Anweisung im Körper von `Todo()`, und übergeben Sie eine Funktion, die die Worte "Nebenwirkung" in Ihre Konsole protokolliert:
 
 ```jsx
 useEffect(() => {
@@ -140,26 +140,26 @@ useEffect(() => {
 });
 ```
 
-Um den Unterschied zwischen dem Haupt-Renderprozess und dem in `useEffect()` ausgeführten Code zu veranschaulichen, fügen Sie ein weiteres Log hinzu – platzieren Sie dieses unter der vorherigen Hinzufügung:
+Um den Unterschied zwischen dem Haupt-Renderprozess und dem Code zu veranschaulichen, der innerhalb `useEffect()` ausgeführt wird, fügen Sie ein weiteres Protokoll hinzu – setzen Sie dieses unter die vorherige Ergänzung:
 
 ```jsx
 console.log("main render");
 ```
 
-Öffnen Sie nun die App in Ihrem Browser. Sie sollten beide Nachrichten in Ihrer Konsole sehen, wobei sich jede mehrmals wiederholt. Beachten Sie, dass "main render" zuerst protokolliert wurde und "side effect" als zweites, obwohl das "side effect" Log zuerst im Code erscheint.
+Öffnen Sie nun die App in Ihrem Browser. Sie sollten beide Meldungen in Ihrer Konsole sehen, wobei jede mehrmals wiederholt wird. Beachten Sie, dass "main render" zuerst protokolliert wurde und "side effect" als Zweites, obwohl das "side effect" Protokoll in dem Code zuerst erscheint.
 
 ```plain
 main render                                     Todo.jsx
 side effect                                     Todo.jsx
 ```
 
-Nochmals, die Logs sind auf diese Weise geordnet, weil der Code innerhalb von `useEffect()` _nach_ dem Rendern der Komponente ausgeführt wird. Dies erfordert ein wenig Gewöhnung, behalten Sie es einfach im Hinterkopf, während Sie fortfahren. Löschen Sie vorerst `console.log("main render")` und wir machen mit der Implementierung unseres Fokussierungsmanagements weiter.
+Nochmals: Die Protokolle sind in dieser Reihenfolge, weil der Code innerhalb von `useEffect()` nach dem Rendern der Komponente ausgeführt wird. Daran muss man sich erst gewöhnen, behalten Sie es einfach im Hinterkopf, während Sie fortfahren. Löschen Sie für jetzt `console.log("main render")` und wir gehen weiter zur Implementierung unseres Fokus-Managements.
 
-### Fokussierung auf unser Bearbeitungsfeld
+### Fokussieren auf unser Bearbeitungsfeld
 
-Jetzt, da wir wissen, dass unser `useEffect()` Hook funktioniert, können wir den Fokus damit verwalten. Zur Erinnerung: wir wollen den Fokus beim Wechsel zum Bearbeitungstemplate auf das Bearbeitungsfeld legen.
+Jetzt, da wir wissen, dass unser `useEffect()`-Hook funktioniert, können wir den Fokus damit verwalten. Zur Erinnerung: Wir möchten uns auf das Bearbeitungsfeld fokussieren, wenn wir zur Bearbeitungsvorlage wechseln.
 
-Aktualisieren Sie Ihren bestehenden `useEffect()` Hook, damit er so aussieht:
+Aktualisieren Sie Ihren bestehenden `useEffect()`-Hook so, dass er wie folgt aussieht:
 
 ```jsx
 useEffect(() => {
@@ -169,13 +169,13 @@ useEffect(() => {
 }, [isEditing]);
 ```
 
-Diese Änderungen sorgen dafür, dass React den aktuellen Wert von `editFieldRef` liest und den Browserfokus darauf setzt, wenn `isEditing` wahr ist. Wir geben auch ein Array als zweites Argument in `useEffect()` ein. Dieses Array ist eine Liste von Werten, auf die `useEffect()` angewiesen sein sollte. Mit diesen eingeschlossenen Werten läuft `useEffect()` nur, wenn sich einer dieser Werte ändert. Wir wollen den Fokus nur dann ändern, wenn sich der Wert von `isEditing` ändert.
+Diese Änderungen bewirken, dass, wenn `isEditing` wahr ist, React den aktuellen Wert des `editFieldRef` liest und den Fokus des Browsers darauf bewegt. Wir übergeben auch ein Array an `useEffect()` als zweites Argument. Dieses Array ist eine Liste von Werten, von denen `useEffect()` abhängen soll. Mit diesen enthaltenen Werten wird `useEffect()` nur ausgeführt, wenn sich einer dieser Werte ändert. Wir möchten den Fokus nur ändern, wenn sich der Wert von `isEditing` ändert.
 
-Probieren Sie es jetzt aus: Verwenden Sie die <kbd>Tab</kbd>-Taste, um zu einem der "Edit"-Buttons zu navigieren und drücken Sie <kbd>Enter</kbd>. Sie sollten sehen, wie die `<Todo />`-Komponente zu ihrem Bearbeitungstemplate wechselt und der Fokusindikator des Browsers um das `<input>`-Element erscheint!
+Probieren Sie es jetzt aus: Verwenden Sie die <kbd>Tab</kbd>-Taste, um zu einer der "Edit"-Schaltflächen zu navigieren, und drücken Sie dann <kbd>Enter</kbd>. Sie sollten sehen, dass die `<Todo />`-Komponente zu ihrer Bearbeitungsvorlage wechselt und der Fokusindikator des Browsers um das `<input>`-Element erscheint!
 
-### Rückkehr des Fokus zum Edit-Button
+### Den Fokus zurück zur Edit-Schaltfläche bewegen
 
-Auf den ersten Blick scheint es recht einfach zu sein, React dazu zu bringen, den Fokus zurück auf unseren "Edit"-Button zu legen, wenn die Bearbeitung gespeichert oder abgebrochen wird. Sicherlich könnten wir eine Bedingung zu unserem `useEffect` hinzufügen, um den Fokus auf den Edit-Button zu legen, wenn `isEditing` `false` ist? Probieren wir es aus — aktualisieren Sie Ihren `useEffect()`-Aufruf wie folgt:
+Auf den ersten Blick scheint es täuschend einfach zu sein, React dazu zu bringen, den Fokus zurück auf unsere "Edit"-Schaltfläche zu bewegen, wenn die Bearbeitung gespeichert oder abgebrochen wird. Sicherlich könnten wir eine Bedingung zu unserem `useEffect` hinzufügen, um sich auf die Edit-Schaltfläche zu fokussieren, wenn `isEditing` `false` ist? Probieren wir es jetzt aus — aktualisieren Sie Ihren `useEffect()`-Aufruf so:
 
 ```jsx
 useEffect(() => {
@@ -187,15 +187,15 @@ useEffect(() => {
 }, [isEditing]);
 ```
 
-Dies funktioniert irgendwie. Wenn Sie Ihre Tastatur verwenden, um den "Edit"-Button auszulösen (denken Sie daran: <kbd>Tab</kbd> darauf und <kbd>Enter</kbd> drücken), werden Sie sehen, dass sich der Fokus zwischen dem Edit `<input>` und dem "Edit"-Button bewegt, wenn Sie eine Bearbeitung starten und beenden. Sie haben jedoch vielleicht ein neues Problem bemerkt – der "Edit"-Button in der letzten `<Todo />`-Komponente wird sofort beim Laden der Seite fokussiert, bevor wir die App überhaupt genutzt haben!
+Dies funktioniert einigermaßen. Wenn Sie Ihre Tastatur verwenden, um die "Edit"-Schaltfläche auszulösen (denken Sie daran: <kbd>Tab</kbd> darauf und drücken Sie <kbd>Enter</kbd>), werden Sie sehen, dass Ihr Fokus zwischen dem Bearbeitung-`<input>` und der "Edit"-Schaltfläche wechselt, während Sie eine Bearbeitung starten und beenden. Allerdings haben Sie möglicherweise ein neues Problem bemerkt — die "Edit"-Schaltfläche in der letzten `<Todo />`-Komponente wird beim Laden der Seite sofort fokussiert, bevor wir überhaupt mit der App interagieren!
 
-Unser `useEffect()`-Hook verhält sich genau so, wie wir es entworfen haben: er läuft, sobald die Komponente gerendert wird, sieht, dass `isEditing` `false` ist, und fokussiert den "Edit"-Button. Er gibt den Fokus auf den "Edit"-Button der letzten gerenderten von drei `<Todo />`-Instanzen.
+Unser `useEffect()`-Hook verhält sich genau so, wie wir ihn entworfen haben: er wird ausgeführt, sobald die Komponente gerendert wird, sieht, dass `isEditing` `false` ist, und fokussiert die "Edit"-Schaltfläche. Es gibt drei Instanzen von `<Todo />`, und der Fokus wird der "Edit"-Schaltfläche derjenigen zugewiesen, die zuletzt rendert.
 
-Wir müssen unseren Ansatz umstrukturieren, damit der Fokus nur dann geändert wird, wenn `isEditing` von einem Wert zum anderen wechselt.
+Wir müssen unseren Ansatz umgestalten, sodass der Fokus nur dann geändert wird, wenn `isEditing` sich von einem Wert zum anderen ändert.
 
-## Robusteres Fokussierungsmanagement
+## Robusteres Fokus-Management
 
-Um unsere verfeinerten Kriterien zu erfüllen, müssen wir nicht nur den Wert von `isEditing` kennen, sondern auch _wann sich dieser Wert geändert hat_. Dazu müssen wir in der Lage sein, den vorherigen Wert der `isEditing`-Konstante zu lesen. Mithilfe von Pseudocode sollte unsere Logik in etwa so aussehen:
+Um unsere verfeinerten Kriterien zu erfüllen, müssen wir nicht nur den Wert von `isEditing` kennen, sondern auch _wann sich dieser Wert geändert hat_. Dazu müssen wir in der Lage sein, den vorherigen Wert der `isEditing`-Konstanten zu lesen. Unter Verwendung von Pseudocode sollte unsere Logik in etwa so aussehen:
 
 ```jsx
 if (wasNotEditingBefore && isEditingNow) {
@@ -205,11 +205,11 @@ if (wasNotEditingBefore && isEditingNow) {
 }
 ```
 
-Das React-Team hat [Möglichkeiten besprochen, um den vorherigen Zustand einer Komponente zu erhalten](https://legacy.reactjs.org/docs/hooks-faq.html#how-to-get-the-previous-props-or-state) und ein Beispiel-Hook bereitgestellt, das wir für diese Aufgabe verwenden können.
+Das React-Team hat [Möglichkeiten diskutiert, um den vorherigen Zustand einer Komponente zu erhalten](https://legacy.reactjs.org/docs/hooks-faq.html#how-to-get-the-previous-props-or-state) und einen Beispiel-Hook bereitgestellt, den wir für diese Aufgabe verwenden können.
 
 ### Einführung von `usePrevious()`
 
-Fügen Sie den folgenden Code in der Nähe des Anfangs von `Todo.jsx` ein, oberhalb Ihrer `Todo()`-Funktion.
+Fügen Sie den folgenden Code in der Nähe des oberen Bereichs von `Todo.jsx`, über Ihrer `Todo()`-Funktion ein:
 
 ```jsx
 function usePrevious(value) {
@@ -221,31 +221,31 @@ function usePrevious(value) {
 }
 ```
 
-`usePrevious()` ist ein _Custom Hook_, der einen Wert über Rendervorgänge hinweg verfolgt. Es:
+`usePrevious()` ist ein _benutzerdefinierter Hook_, der einen Wert über mehrere Renderings hinweg verfolgt. Es:
 
-1. Verwendet den `useRef()` Hook, um eine leere `ref` zu erstellen.
-2. Gibt den `current`-Wert der `ref` an die aufrufende Komponente zurück.
-3. Ruft `useEffect()` auf und aktualisiert den in `ref.current` gespeicherten Wert nach jedem Rendern der aufrufenden Komponente.
+1. Verwendet den `useRef()`-Hook, um einen leeren `ref` zu erstellen.
+2. Gibt den `current`-Wert des `ref`s an die aufrufende Komponente zurück.
+3. Ruft `useEffect()` auf und aktualisiert den im `ref.current` gespeicherten Wert nach jedem Rendering der aufrufenden Komponente.
 
-Das Verhalten von `useEffect()` ist der Schlüsselfaktor für diese Funktionalität. Da `ref.current` innerhalb eines `useEffect()`-Aufrufs aktualisiert wird, liegt es immer einen Schritt hinter dem Wert in der Hauptschleife der Komponente zurück – daher der Name `usePrevious()`.
+Das Verhalten von `useEffect()` ist entscheidend für diese Funktionalität. Da `ref.current` innerhalb eines `useEffect()`-Aufrufs aktualisiert wird, ist es immer einen Schritt hinter dem Wert, der sich im Haupt-Renderzyklus der Komponente befindet — daher der Name `usePrevious()`.
 
 ### Verwendung von `usePrevious()`
 
-Jetzt können wir eine `wasEditing`-Konstante definieren, um den vorherigen Wert von `isEditing` zu verfolgen; dies wird erreicht, indem `usePrevious` mit `isEditing` als Argument aufgerufen wird. Fügen Sie das folgende innerhalb von `Todo()`, unterhalb der `useRef`-Zeilen hinzu:
+Jetzt können wir eine `wasEditing`-Konstante definieren, die den vorherigen Wert von `isEditing` verfolgt; dies wird erreicht, indem `usePrevious` mit `isEditing` als Argument aufgerufen wird. Fügen Sie die folgende Zeile in `Todo()`, unter den `useRef`-Zeilen hinzu:
 
 ```jsx
 const wasEditing = usePrevious(isEditing);
 ```
 
-Sie können sehen, wie sich `usePrevious()` verhält, indem Sie ein Konsolenprotokoll unterhalb dieser Zeile hinzufügen:
+Sie können sehen, wie sich `usePrevious()` verhält, indem Sie ein Konsolenprotokoll unter dieser Zeile hinzufügen:
 
 ```jsx
 console.log(wasEditing);
 ```
 
-In diesem Protokoll wird der `current`-Wert von `wasEditing` immer der vorherige Wert von `isEditing` sein. Klicken Sie ein paar Mal auf den "Edit"- und "Cancel"-Button, um zu sehen, wie er sich ändert, und löschen Sie dieses Log, wenn Sie bereit sind, weiterzumachen.
+In diesem Protokoll wird der `current`-Wert von `wasEditing` immer der vorherige Wert von `isEditing` sein. Klicken Sie ein paar Mal auf die "Edit"- und "Cancel"-Schaltfläche, um zu sehen, wie es sich ändert, und löschen Sie dieses Protokoll, wenn Sie bereit sind, weiterzugehen.
 
-Mit dieser `wasEditing`-Konstanten können wir unseren `useEffect()`-Hook aktualisieren, um die zuvor besprochene Pseudocode-Logik zu implementieren:
+Mit dieser `wasEditing`-Konstante können wir unseren `useEffect()`-Hook aktualisieren, um den Pseudocode umzusetzen, den wir zuvor besprochen haben:
 
 ```jsx
 useEffect(() => {
@@ -257,27 +257,27 @@ useEffect(() => {
 }, [wasEditing, isEditing]);
 ```
 
-Beachten Sie, dass die Logik von `useEffect()` nun von `wasEditing` abhängt, sodass wir es in das Abhängigkeitsarray aufnehmen.
+Beachten Sie, dass die Logik von `useEffect()` nun von `wasEditing` abhängt, daher geben wir es in das Abhängigkeits-Array ein.
 
-Versuchen Sie, Ihre Tastatur zu verwenden, um die "Edit"- und "Cancel"-Buttons in der `<Todo />`-Komponente zu aktivieren; Sie werden sehen, wie sich der Fokusindikator des Browsers entsprechend bewegt, ohne das Problem, das wir zu Beginn dieses Abschnitts besprochen haben.
+Versuchen Sie, Ihre Tastatur zu verwenden, um die "Edit"- und "Cancel"-Schaltflächen in der `<Todo />`-Komponente zu aktivieren; Sie werden sehen, dass sich der Fokusindikator des Browsers entsprechend bewegt, ohne das Problem, das wir zu Beginn dieses Abschnitts besprochen haben.
 
-## Fokussierung, wenn der Benutzer eine Aufgabe löscht
+## Fokussieren, wenn der Benutzer eine Aufgabe löscht
 
-Es gibt noch eine letzte Lücke in der Tastaturerfahrung: Wenn ein Benutzer eine Aufgabe aus der Liste löscht, verschwindet der Fokus. Wir werden ein ähnliches Muster wie bei unseren vorherigen Änderungen befolgen: wir erstellen eine neue Ref und nutzen unseren `usePrevious()`-Hook, damit wir den Fokus auf die Listenüberschrift legen können, wann immer ein Benutzer eine Aufgabe löscht.
+Es gibt noch eine letzte Lücke in der Benutzererfahrung mit der Tastatur: Wenn ein Benutzer eine Aufgabe aus der Liste löscht, verschwindet der Fokus. Wir werden ein ähnliches Muster wie bei unseren vorherigen Änderungen befolgen: Wir erstellen ein neues Ref und nutzen unseren `usePrevious()`-Hook, damit wir uns auf die Listenüberschrift fokussieren können, wann immer ein Benutzer eine Aufgabe löscht.
 
 ### Warum die Listenüberschrift?
 
-Manchmal ist der Ort, an den wir unseren Fokus senden möchten, offensichtlich: Als wir die `<Todo />`-Templates umgeschaltet haben, hatten wir einen Ausgangspunkt, zu dem wir "zurückgehen" konnten – den "Edit"-Button. In diesem Fall jedoch, da wir Elemente vollständig aus der DOM entfernen, haben wir keinen Ort, zu dem wir zurückkehren können. Das nächstbeste ist ein intuitiver Standort in der Nähe. Die Listenüberschrift ist die beste Wahl, da sie sich in der Nähe des Listenelements befindet, das der Benutzer löscht, und der Fokus darauf wird den Benutzer darüber informieren, wie viele Aufgaben noch übrig sind.
+Manchmal ist der Ort, an den wir unseren Fokus schicken möchten, offensichtlich: Als wir unsere `<Todo />`-Vorlagen umgeschaltet haben, hatten wir einen Ausgangspunkt, zu dem wir "zurückkehren" konnten — die "Edit"-Schaltfläche. In diesem Fall jedoch, da wir Elemente vollständig aus dem DOM entfernen, haben wir keinen Ort, zu dem wir zurückkehren können. Die nächste beste Option ist ein intuitiver Standort in der Nähe. Die Listenüberschrift ist unsere beste Wahl, weil sie sich in der Nähe des Listenelements befindet, das der Benutzer löschen wird, und der Fokus darauf wird dem Benutzer mitteilen, wie viele Aufgaben noch übrig sind.
 
-### Erstellung unserer Ref
+### Erstellen unseres Refs
 
-Importieren Sie die `useRef()`- und `useEffect()`-Hooks in `App.jsx` — Sie benötigen beide unten:
+Importieren Sie die `useRef()` und `useEffect()` Hooks in `App.jsx` — Sie werden beide darunter benötigen:
 
 ```jsx
 import { useState, useRef, useEffect } from "react";
 ```
 
-Deklarieren Sie als Nächstes eine neue Ref innerhalb der `App()`-Funktion, direkt über der `return`-Anweisung:
+Erklären Sie als Nächstes ein neues Ref innerhalb der `App()`-Funktion, direkt über der `return`-Anweisung:
 
 ```jsx
 const listHeadingRef = useRef(null);
@@ -285,9 +285,9 @@ const listHeadingRef = useRef(null);
 
 ### Vorbereitung der Überschrift
 
-Überschriftselemente wie unser `<h2>` sind normalerweise nicht fokussierbar. Dies ist kein Problem – wir können jedes Element programmatisch fokussierbar machen, indem wir ihm das Attribut [`tabindex="-1"`](/de/docs/Web/HTML/Global_attributes/tabindex) hinzufügen. Dies bedeutet nur mit JavaScript fokussierbar. Sie können nicht durch Drücken von <kbd>Tab</kbd> ein Element mit einem Tabindex von `-1` fokussieren, wie Sie es mit einem [`<button>`](/de/docs/Web/HTML/Element/button) oder [`<a>`](/de/docs/Web/HTML/Element/a) Element tun könnten (dies kann mit `tabindex="0"` getan werden, aber das ist in diesem Fall nicht angemessen).
+Überschriftselemente wie unser `<h2>` sind normalerweise nicht fokussierbar. Das stellt kein Problem dar — wir können jedes Element programmgesteuert fokussierbar machen, indem wir das Attribut [`tabindex="-1"`](/de/docs/Web/HTML/Reference/Global_attributes/tabindex) hinzufügen. Das bedeutet _nur mit JavaScript fokussierbar_. Sie können nicht die <kbd>Tab</kbd>-Taste drücken, um ein Element mit einem `tabindex` von `-1` zu fokussieren, wie Sie es mit einem [`<button>`](/de/docs/Web/HTML/Reference/Elements/button) oder [`<a>`](/de/docs/Web/HTML/Reference/Elements/a) Element tun könnten (dies kann mit `tabindex="0"` erfolgen, was aber in diesem Fall nicht angebracht ist).
 
-Lassen Sie uns das `tabindex`-Attribut — in JSX als `tabIndex` geschrieben — zur Überschrift über unserer Aufgabenliste hinzufügen, zusammen mit unserer `listHeadingRef`:
+Fügen wir das `tabindex`-Attribut — in JSX als `tabIndex` geschrieben — der Überschrift über unserer Aufgabenliste hinzu, zusammen mit unserem `listHeadingRef`:
 
 ```jsx
 <h2 id="list-heading" tabIndex="-1" ref={listHeadingRef}>
@@ -296,11 +296,11 @@ Lassen Sie uns das `tabindex`-Attribut — in JSX als `tabIndex` geschrieben —
 ```
 
 > [!NOTE]
-> Das `tabindex`-Attribut ist hervorragend für einige Barrierefallstricke, aber Sie sollten **große Sorgfalt** darauf verwenden, es nicht zu übernutzen. Wenden Sie einen `tabindex` nur dann auf ein Element an, wenn Sie sicher sind, dass das Fokussieren des Elements Ihrem Nutzer in irgendeiner Weise zugutekommt. In den meisten Fällen sollten Sie Elemente verwenden, die auf natürliche Weise fokussierbar sind, wie Buttons, Anker und Eingaben. Eine unverantwortliche Nutzung des `tabindex` könnte massive negative Auswirkungen auf Tastatur- und Screenreader-Nutzer haben!
+> Das `tabindex`-Attribut ist ausgezeichnet für spezielle Barrierefreiheitsszenarien, aber Sie sollten **mit größter Sorgfalt** darauf achten, es nicht übermäßig zu verwenden. Wenden Sie ein `tabindex`-Attribut nur dann auf ein Element an, wenn Sie sicher sind, dass es Ihrem Benutzer in irgendeiner Weise zugute kommt, es fokussierbar zu machen. In den meisten Fällen sollten Sie Elemente verwenden, die natürlicherweise den Fokus erhalten können, wie z. B. Buttons, Anker und Eingabefelder. Eine unverantwortliche Nutzung von `tabindex` könnte sich nachteilig auf Benutzer auswirken, die auf die Tastatur und Screenreader angewiesen sind!
 
-### Vorherigen Zustand abrufen
+### Erhalten des vorherigen Zustands
 
-Wir wollen den Fokus auf das Element legen, das mit unserer Ref (über das `ref`-Attribut) verknüpft ist, nur wenn unser Nutzer eine Aufgabe aus seiner Liste löscht. Das wird die Nutzung des `usePrevious()`-Hooks erfordern, den wir zuvor genutzt haben. Fügen Sie es am Anfang Ihrer `App.jsx`-Datei, direkt unter den Imports, hinzu:
+Wir möchten uns nur dann auf das mit unserem Ref assoziierte Element fokussieren (über das `ref`-Attribut), wenn unser Benutzer eine Aufgabe aus seiner Liste löscht. Dazu benötigen wir den `usePrevious()`-Hook, den wir zuvor verwendet haben. Fügen Sie ihn oben in Ihre `App.jsx`-Datei ein, direkt unter den Imports:
 
 ```jsx
 function usePrevious(value) {
@@ -312,22 +312,22 @@ function usePrevious(value) {
 }
 ```
 
-Fügen Sie nun das Folgende, über der `return`-Anweisung in der `App()`-Funktion, ein:
+Fügen Sie nun die folgende Zeile oberhalb der `return`-Anweisung innerhalb der `App()`-Funktion hinzu:
 
 ```jsx
 const prevTaskLength = usePrevious(tasks.length);
 ```
 
-Hier rufen wir `usePrevious()` auf, um die vorherige Länge des Aufgaben-Arrays zu verfolgen.
+Hier rufen wir `usePrevious()` auf, um die vorherige Länge des Tasks-Arrays zu verfolgen.
 
 > [!NOTE]
-> Da wir jetzt `usePrevious()` in zwei Dateien verwenden, könnte es effizienter sein, die Funktion `usePrevious()` in eine eigene Datei zu verschieben, sie aus dieser Datei zu exportieren und sie dort zu importieren, wo sie benötigt wird. Versuchen Sie dies als Übung, sobald Sie das Ende erreicht haben.
+> Da wir `usePrevious()` jetzt in zwei Dateien verwenden, könnte es effizienter sein, die Funktion `usePrevious()` in eine eigene Datei zu verschieben, sie aus dieser Datei zu exportieren und dort zu importieren, wo Sie sie benötigen. Versuchen Sie dies als Übung, sobald Sie das Ende erreicht haben.
 
-### Verwendung von `useEffect()`, um unseren Überschriftenfokus zu steuern
+### Verwendung von `useEffect()`, um unsere Fokussteuerung durchzuführen
 
-Jetzt, da wir gespeichert haben, wie viele Aufgaben wir zuvor hatten, können wir einen `useEffect()`-Hook einrichten, der ausgeführt wird, wenn sich unsere Anzahl an Aufgaben ändert und der die Überschrift fokussiert, wenn wir weniger Aufgaben haben als zuvor – das heißt, wir haben eine Aufgabe gelöscht!
+Jetzt, da wir wissen, wie viele Aufgaben wir zuvor hatten, können wir einen `useEffect()`-Hook einrichten, der ausgeführt wird, wenn sich die Anzahl unserer Aufgaben ändert, und die Überschrift fokussieren, wenn die Anzahl unserer Aufgaben jetzt geringer ist als zuvor — das heißt, wir haben eine Aufgabe gelöscht!
 
-Fügen Sie das folgende in den Körper Ihrer `App()`-Funktion ein, direkt unter Ihren vorherigen Ergänzungen:
+Fügen Sie das Folgende in den Rumpf Ihrer `App()`-Funktion ein, direkt unter Ihren vorherigen Ergänzungen:
 
 ```jsx
 useEffect(() => {
@@ -337,21 +337,21 @@ useEffect(() => {
 }, [tasks.length, prevTaskLength]);
 ```
 
-Wir versuchen nur dann, auf unsere Listenüberschrift zu fokussieren, wenn wir weniger Aufgaben haben als zuvor. Die Abhängigkeiten, die an diesen Hook übergeben werden, stellen sicher, dass er nur dann versucht, erneut auszuführen, wenn sich einer dieser Werte (die Anzahl der aktuellen Aufgaben oder die Anzahl der vorherigen Aufgaben) ändert.
+Wir versuchen nur dann, uns auf unsere Listenüberschrift zu fokussieren, wenn wir jetzt weniger Aufgaben haben als zuvor. Die Abhängigkeiten, die in diesen Hook übergeben werden, stellen sicher, dass er nur noch einmal versucht wird, neu ausgeführt zu werden, wenn sich einer der beiden Werte (die Anzahl der aktuellen Aufgaben oder die Anzahl der vorherigen Aufgaben) ändert.
 
-Wenn Sie nun mit Ihrer Tastatur versuchen, eine Aufgabe in Ihrem Browser zu löschen, sehen Sie unseren gestrichelten Fokusumriss um die Überschrift oberhalb der Liste erscheinen.
+Jetzt, wenn Sie Ihre Tastatur verwenden, um eine Aufgabe in Ihrem Browser zu löschen, werden Sie sehen, dass unser gestrichelter Fokusumriss um die Überschrift über der Liste erscheint.
 
 ## Fertig!
 
-Sie haben gerade eine React-App von Grund auf gebaut! Herzlichen Glückwunsch! Die hier erlernten Fähigkeiten bieten eine großartige Grundlage, auf der Sie aufbauen können, während Sie weiterhin mit React arbeiten.
+Sie haben gerade eine React-App von Grund auf aufgebaut! Herzlichen Glückwunsch! Die hier erlernten Fähigkeiten werden eine großartige Grundlage sein, auf der Sie aufbauen können, während Sie weiter mit React arbeiten.
 
-Meistens können Sie ein effektiver Mitwirkender eines React-Projekts sein, auch wenn Sie nur sorgfältig über Komponenten und ihren Zustand sowie ihre Props nachdenken. Denken Sie daran, immer das beste HTML zu schreiben, das Sie können.
+Die meiste Zeit können Sie ein effektiver Mitwirkender eines React-Projekts sein, selbst wenn Sie nur sorgfältig über Komponenten und deren Zustand und Props nachdenken. Denken Sie daran, immer das beste HTML zu schreiben, das Sie können.
 
-`useRef()` und `useEffect()` sind ziemlich fortgeschrittene Funktionen, und Sie sollten stolz darauf sein, sie zu verwenden! Halten Sie Ausschau nach Möglichkeiten, um sie mehr zu üben, denn so können Sie inklusivere Erfahrungen für Benutzer schaffen. Denken Sie daran: Unsere App wäre ohne sie für Tastaturnutzer unzugänglich gewesen!
+`useRef()` und `useEffect()` sind etwas fortgeschrittene Funktionen, und Sie sollten stolz darauf sein, sie zu verwenden! Achten Sie auf Möglichkeiten, sie mehr zu üben, denn das wird Ihnen ermöglichen, inklusive Erlebnisse für Benutzer zu schaffen. Denken Sie daran: Ohne sie wäre unsere App für Tastaturnutzer unzugänglich gewesen!
 
 > [!NOTE]
-> Wenn Sie Ihren Code mit unserer Version überprüfen müssen, können Sie eine abgeschlossene Version des Beispielcodes der React-App in unserem [todo-react Repository](https://github.com/mdn/todo-react) finden. Für eine live laufende Version, siehe <https://mdn.github.io/todo-react/>.
+> Wenn Sie Ihren Code mit unserer Version abgleichen müssen, finden Sie eine fertige Version des Beispiel-React-App-Codes in unserem [todo-react Repository](https://github.com/mdn/todo-react). Für eine laufende Live-Version siehe <https://mdn.github.io/todo-react/>.
 
-Im allerletzten Artikel werden wir Ihnen eine Liste von React-Ressourcen präsentieren, die Ihnen helfen, Ihr Lernen weiter voranzutreiben.
+Im allerletzten Artikel werden wir Ihnen eine Liste von React-Ressourcen präsentieren, mit denen Sie Ihre Lernreise fortsetzen können.
 
 {{PreviousMenuNext("Learn_web_development/Core/Frameworks_libraries/React_interactivity_filtering_conditional_rendering","Learn_web_development/Core/Frameworks_libraries/React_resources", "Learn_web_development/Core/Frameworks_libraries")}}

@@ -1,22 +1,22 @@
 ---
-title: "HTMLFormElement: Eigenschaft acceptCharset"
+title: "HTMLFormElement: acceptCharset-Eigenschaft"
 short-title: acceptCharset
 slug: Web/API/HTMLFormElement/acceptCharset
 l10n:
-  sourceCommit: 56cbe48e4426172461d9297523b68716922690e5
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`HTMLFormElement.acceptCharset`**-Eigenschaft repräsentiert die {{Glossary("character_encoding", "Zeichenkodierung")}} für das gegebene {{htmlelement("form")}}-Element.
+Die **`HTMLFormElement.acceptCharset`**-Eigenschaft steht für die {{Glossary("character_encoding", "Zeichenkodierung")}} des angegebenen {{htmlelement("form")}}-Elements.
 
-Die Spezifikation erlaubt einen einzigen nicht case-sensitiven Wert von `"UTF-8"`, was die Allgegenwärtigkeit dieser Kodierung widerspiegelt (historisch konnten mehrere Zeichencodierungen als kommaseparierte oder leerzeichengetrennte Liste angegeben werden).
+Die Spezifikation erlaubt einen einzelnen, nicht case-sensitiven Wert von `"UTF-8"`, was die allgegenwärtige Verwendung dieser Kodierung widerspiegelt (historisch konnten mehrere Zeichenkodierungen als kommagetrennte oder leerzeichengetrennte Liste angegeben werden).
 
-Dies spiegelt den Wert des [`accept-charset`](/de/docs/Web/HTML/Element/form#accept-charset) HTML-Attributs des Formulars wider.
+Dies spiegelt den Wert des [`accept-charset`](/de/docs/Web/HTML/Reference/Elements/form#accept-charset) HTML-Attributs des Formulars wider.
 
 ## Wert
 
-Ein String, der in case-insensitiver Übereinstimmung mit `UTF-8` stehen kann.
+Ein String, der eine nicht case-sensitive Übereinstimmung mit `UTF-8` sein kann.
 
 ## Beispiele
 

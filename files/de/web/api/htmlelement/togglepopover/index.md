@@ -3,19 +3,19 @@ title: "HTMLElement: togglePopover() Methode"
 short-title: togglePopover()
 slug: Web/API/HTMLElement/togglePopover
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{APIRef("Popover API")}}
 
-Die **`togglePopover()`** Methode der [`HTMLElement`](/de/docs/Web/API/HTMLElement) Schnittstelle schaltet ein [Popover](/de/docs/Web/API/Popover_API) Element (d.h. eines, das ein gültiges [`popover`](/de/docs/Web/HTML/Global_attributes/popover) Attribut besitzt) zwischen den versteckten und sichtbaren Zuständen um.
+Die **`togglePopover()`** Methode der [`HTMLElement`](/de/docs/Web/API/HTMLElement) Schnittstelle schaltet ein [Popover](/de/docs/Web/API/Popover_API)-Element (d.h. eines mit einem gültigen [`popover`](/de/docs/Web/HTML/Reference/Global_attributes/popover)-Attribut) zwischen den Zuständen "versteckt" und "anzeigend" um.
 
-Wenn `togglePopover()` auf ein Element mit dem [`popover`](/de/docs/Web/HTML/Global_attributes/popover) Attribut aufgerufen wird:
+Wenn `togglePopover()` auf einem Element mit dem [`popover`](/de/docs/Web/HTML/Reference/Global_attributes/popover)-Attribut aufgerufen wird:
 
 1. Ein [`beforetoggle`](/de/docs/Web/API/HTMLElement/beforetoggle_event) Ereignis wird ausgelöst.
-2. Das Popover wird zwischen versteckt und sichtbar umgeschaltet:
-   1. War es zunächst sichtbar, wechselt es zu versteckt.
-   2. War es zunächst versteckt, wechselt es zu sichtbar.
+2. Das Popover wechselt zwischen "versteckt" und "anzeigend":
+   1. Wenn es ursprünglich angezeigt wurde, wird es auf "versteckt" umgeschaltet.
+   2. Wenn es ursprünglich versteckt war, wird es auf "anzeigend" umgeschaltet.
 3. Ein [`toggle`](/de/docs/Web/API/HTMLElement/toggle_event) Ereignis wird ausgelöst.
 
 ## Syntax
@@ -31,39 +31,39 @@ togglePopover(options)
 Ein Boolean (`force`) oder ein Optionsobjekt:
 
 - `force` {{optional_inline}}
-  - : Ein Boolean, der `togglePopover()` wie [`showPopover()`](/de/docs/Web/API/HTMLElement/showPopover) oder [`hidePopover()`](/de/docs/Web/API/HTMLElement/hidePopover) verhalten lässt, mit der Ausnahme, dass es keine Ausnahme wirft, wenn das Popover bereits im Zielzustand ist.
-    - Wenn auf `true` gesetzt, wird das Popover angezeigt, wenn es zunächst versteckt war. War es zunächst angezeigt, passiert nichts.
-    - Wenn auf `false` gesetzt, wird das Popover versteckt, wenn es zunächst angezeigt war. War es zunächst versteckt, passiert nichts.
+  - : Ein Boolean, der `togglePopover()` dazu bringt, sich wie [`showPopover()`](/de/docs/Web/API/HTMLElement/showPopover) oder [`hidePopover()`](/de/docs/Web/API/HTMLElement/hidePopover) zu verhalten, jedoch ohne eine Ausnahme zu werfen, wenn das Popover bereits im Zielzustand ist.
+    - Wenn auf `true` gesetzt, wird das Popover angezeigt, wenn es ursprünglich versteckt war. Wenn es bereits angezeigt wurde, passiert nichts.
+    - Wenn auf `false` gesetzt, wird das Popover versteckt, wenn es ursprünglich angezeigt wurde. Wenn es bereits versteckt war, passiert nichts.
 - `options` {{optional_inline}}
 
   - : Ein Objekt, das die folgenden Eigenschaften enthalten kann:
 
     - `force` {{optional_inline}}
-      - : Ein Boolean; siehe die Beschreibung von `force` oben.
+      - : Ein Boolean; siehe die `force` Beschreibung oben.
     - `source` {{optional_inline}}
 
-      - : Ein [`HTMLElement`](/de/docs/Web/API/HTMLElement) Verweis; definiert programmatisch den Auslöser des Popovers, der mit der Umschaltaktion verknüpft ist, d.h. sein Steuerelement. Die Etablierung einer Beziehung zwischen einem Popover und seinem Auslöser mit der `source`-Option hat zwei nützliche Effekte:
+      - : Ein [`HTMLElement`](/de/docs/Web/API/HTMLElement) Verweis; definiert programmatisch den Aufrufer des mit der Umschaltaktion assoziierten Popovers, d.h. sein Steuerelement. Die Beziehung zwischen einem Popover und seinem Aufrufer mithilfe der `source`-Option herzustellen, hat zwei nützliche Effekte:
 
-        - Der Browser platziert das Popover in einer logischen Position in der Tastaturfokus-Navigationsreihenfolge, wenn es angezeigt wird. Dies macht das Popover für Tastaturbenutzer zugänglicher (siehe auch [Popover-Zugänglichkeitsmerkmale](/de/docs/Web/API/Popover_API/Using#popover_accessibility_features)).
-        - Der Browser erstellt eine implizite Ankerreferenz zwischen beiden, was das Positionieren von Popovers relativ zu ihren Steuerungen mit [CSS Ankerpositionierung](/de/docs/Web/CSS/CSS_anchor_positioning) sehr praktisch macht. Siehe [Popover-Ankerpositionierung](/de/docs/Web/API/Popover_API/Using#popover_anchor_positioning) für weitere Details.
+        - Der Browser platziert das Popover in einer logischen Reihenfolge in der Tastaturfokusnavigation, wenn es angezeigt wird. Dies macht das Popover für Tastaturbenutzer zugänglicher (siehe auch [Popover-Zugänglichkeitseigenschaften](/de/docs/Web/API/Popover_API/Using#popover_accessibility_features)).
+        - Der Browser erstellt eine implizite Ankerreferenz zwischen den beiden, was es sehr bequem macht, Popovers relativ zu ihren Steuerelementen zu positionieren, indem [CSS-Ankerpositionierung](/de/docs/Web/CSS/CSS_anchor_positioning) verwendet wird. Siehe [Popover-Ankerpositionierung](/de/docs/Web/API/Popover_API/Using#popover_anchor_positioning) für weitere Details.
 
 ### Rückgabewert
 
 `true`, wenn das Popup nach dem Aufruf geöffnet ist, und `false` andernfalls.
 
-Es kann keine ({{jsxref("undefined")}}) in älteren Browserversionen zurückgegeben werden (siehe [Browser-Kompatibilität](#browser-kompatibilität)).
+Nichts ({{jsxref("undefined")}}) kann in älteren Browserversionen zurückgegeben werden (siehe [Browser-Kompatibilität](#browser-kompatibilität)).
 
 ## Beispiele
 
-Siehe die [Popover-API-Beispiele-Landingpage](https://mdn.github.io/dom-examples/popover-api/), um die vollständige Sammlung der MDN-Popover-Beispiele aufzurufen.
+Siehe die [Popover API Beispiele Startseite](https://mdn.github.io/dom-examples/popover-api/), um auf die vollständige Sammlung der MDN Popover-Beispiele zuzugreifen.
 
-### Einfaches Auto-Popup
+### Einfaches automatisches Popup
 
 Dies ist eine leicht modifizierte Version des [Toggle Help UI Popover Beispiels](https://mdn.github.io/dom-examples/popover-api/toggle-help-ui/).
-Das Beispiel schaltet ein Popover durch Drücken einer bestimmten Taste auf der Tastatur um (wenn das Beispiel-Fenster den Fokus hat).
+Das Beispiel schaltet ein Popover ein und aus, indem eine bestimmte Taste auf der Tastatur gedrückt wird (wenn das Beispiel-Fenster den Fokus hat).
 
 Der HTML-Code für das Beispiel wird unten gezeigt.
-Dieses erste Element definiert Anweisungen, wie das Popup aufgerufen wird, was wir benötigen, da Popups standardmäßig ausgeblendet sind.
+Dieses erste Element definiert Anweisungen, wie das Popup aufzurufen ist, da Popups standardmäßig versteckt sind.
 
 ```html
 <p id="instructions">
@@ -71,8 +71,8 @@ Dieses erste Element definiert Anweisungen, wie das Popup aufgerufen wird, was w
 </p>
 ```
 
-Dann definieren wir ein `<div>` Element, das das Popup ist.
-Der eigentliche Inhalt spielt keine Rolle, aber beachten Sie, dass wir das [`popover`](/de/docs/Web/HTML/Global_attributes/popover) Attribut benötigen, um das `<div>` in ein Popover zu verwandeln, damit es standardmäßig ausgeblendet ist (oder wir könnten dieses Element im JavaScript festlegen).
+Wir definieren dann ein `<div>` Element, das das Popup ist.
+Der tatsächliche Inhalt spielt keine Rolle, aber beachten Sie, dass wir das [`popover`](/de/docs/Web/HTML/Reference/Global_attributes/popover)-Attribut benötigen, um das `<div>` in ein Popover zu verwandeln, damit es standardmäßig versteckt ist (oder wir könnten dieses Element im JavaScript festlegen).
 
 ```html
 <div id="mypopover" popover>
@@ -102,7 +102,7 @@ if (!HTMLElement.prototype.hasOwnProperty("popover")) {
 ```
 
 Wenn Popovers unterstützt werden, fügen wir einen Listener für das Drücken der `h`-Taste hinzu und verwenden diesen, um das Öffnen des Popups auszulösen.
-Wir protokollieren auch, ob das Popup nach dem Aufruf geöffnet oder geschlossen war, jedoch nur, wenn ein `true` oder `false` zurückgegeben wurde.
+Wir protokollieren auch, ob das Popup nach dem Aufruf geöffnet oder geschlossen war, aber nur, wenn ein `true` oder `false` zurückgegeben wurde.
 
 ```js
 if (HTMLElement.prototype.hasOwnProperty("popover")) {
@@ -120,7 +120,7 @@ if (HTMLElement.prototype.hasOwnProperty("popover")) {
 }
 ```
 
-Sie können dies mit dem Live-Beispiel unten ausprobieren.
+Sie können dies im untenstehenden Live-Beispiel testen.
 
 {{EmbedLiveSample('Examples', 700, 290)}}
 
@@ -134,5 +134,5 @@ Sie können dies mit dem Live-Beispiel unten ausprobieren.
 
 ## Siehe auch
 
-- [`popover`](/de/docs/Web/HTML/Global_attributes/popover) HTML Globalattribut
+- [`popover`](/de/docs/Web/HTML/Reference/Global_attributes/popover) globales HTML-Attribut
 - [Popover API](/de/docs/Web/API/Popover_API)

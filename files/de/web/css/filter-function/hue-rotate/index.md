@@ -2,14 +2,14 @@
 title: hue-rotate()
 slug: Web/CSS/filter-function/hue-rotate
 l10n:
-  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{CSSRef}}
 
-Die **`hue-rotate()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) rotiert den [Farbton (Hue)](https://en.wikipedia.org/wiki/Hue) eines Elements und dessen Inhalt. Das Ergebnis ist eine {{cssxref("&lt;filter-function&gt;")}}.
+Die **`hue-rotate()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) dreht den [Farbton](https://en.wikipedia.org/wiki/Hue) eines Elements und dessen Inhalt. Das Ergebnis ist eine {{cssxref("&lt;filter-function&gt;")}}.
 
-> **Note:** `hue-rotate()` ist als Matrixoperation auf dem RGB-Farbmodell spezifiziert. Es konvertiert die Farbe nicht tatsächlich in das HSL-Modell, das eine nicht-lineare Operation ist. Daher kann es die Sättigung oder Helligkeit der ursprünglichen Farbe möglicherweise nicht beibehalten, insbesondere bei gesättigten Farben.
+> **Note:** `hue-rotate()` ist als Matrixoperation auf der RGB-Farbe spezifiziert. Sie konvertiert die Farbe nicht tatsächlich in das HSL-Modell, welches eine nicht-lineare Operation darstellt. Daher kann es sein, dass Sättigung oder Helligkeit der Originalfarbe, insbesondere bei gesättigten Farben, nicht erhalten bleiben.
 
 {{InteractiveExample("CSS Demo: hue-rotate()")}}
 
@@ -50,9 +50,9 @@ hue-rotate(angle)
 ### Werte
 
 - `angle` {{Optional_Inline}}
-  - : Die relative Änderung des Farbtons der Eingabeprobe, angegeben als ein {{cssxref("&lt;angle&gt;")}}. Ein Wert von `0deg` lässt die Eingabe unverändert. Eine positive Farbtonrotation erhöht den Farbtonwert, während eine negative Rotation den Farbtonwert verringert. Der Ausgangswert für {{Glossary("interpolation", "Interpolation")}} ist `0`. Es gibt keinen Mindest- oder Höchstwert. Der Effekt von Werten über `360deg` wird, bei `hue-rotate(Ndeg)` angegeben, zu `N` modulo 360 ausgewertet. Der Standardwert ist `0deg`.
+  - : Die relative Änderung des Farbtons der Eingabestelle, angegeben als {{cssxref("&lt;angle&gt;")}}. Ein Wert von `0deg` belässt die Eingabe unverändert. Eine positive Farbtonrotation erhöht den Farbtonwert, während eine negative Rotation den Farbtonwert verringert. Der Anfangswert für {{Glossary("interpolation", "Interpolierung")}} ist `0`. Es gibt keinen minimalen oder maximalen Wert. Die Wirkung von Werten über `360deg` wird, gegeben `hue-rotate(Ndeg)`, als `N` modulo 360 ausgewertet. Der Standardwert ist `0deg`.
 
-Der `<angle>` CSS-Datentyp repräsentiert einen Winkelwert, ausgedrückt in Grad, Gradian, Radiant oder Runden. Die folgenden sind äquivalent:
+Der `<angle>` CSS-Datentyp repräsentiert einen Winkelwert, der in Grad, Gradian, Radiant oder Umdrehungen ausgedrückt wird. Die folgenden Werte sind äquivalent:
 
 ```css
 hue-rotate(-180deg)
@@ -68,9 +68,9 @@ hue-rotate(0.5turn)
 
 ## Beispiele
 
-### Mit der backdrop-filter-Eigenschaft
+### Mit der backdrop-filter Eigenschaft
 
-Dieses Beispiel wendet einen `hue-rotate()` Filter über die `backdrop-filter` CSS-Eigenschaft auf den Absatz an, was eine Farbverschiebung im Bereich hinter dem `<p>` verursacht.
+Dieses Beispiel wendet einen `hue-rotate()` Filter über die CSS-Eigenschaft `backdrop-filter` auf den Absatz an, der Farbverschiebung auf den Bereich hinter dem `<p>` vornimmt.
 
 ```css
 .container {
@@ -107,9 +107,9 @@ p {
 
 {{EmbedLiveSample('With_the_backdrop-filter_property','100%','280')}}
 
-### Mit der filter-Eigenschaft
+### Mit der filter Eigenschaft
 
-Dieses Beispiel wendet einen `hue-rotate()` Filter über die `filter` CSS-Eigenschaft an, indem die Farbverschiebung auf das gesamte Element angewendet wird, einschließlich Inhalt, Rand und Hintergrundbild.
+Dieses Beispiel wendet einen `hue-rotate()` Filter über die CSS-Eigenschaft `filter` an und fügt die Farbverschiebung auf das gesamte Element hinzu, einschließlich Inhalt, Rand und Hintergrundbild.
 
 ```css
 p {
@@ -141,7 +141,7 @@ p {
 
 ### Mit url() und dem SVG hue-rotate Filter
 
-Das SVG {{SVGElement("filter")}} Element wird verwendet, um benutzerdefinierte Filtereffekte zu definieren, die dann durch [`id`](/de/docs/Web/HTML/Global_attributes/id) referenziert werden können. Der `hueRotate` Typ der `<filter>` {{SVGElement("feColorMatrix")}} Primitive bietet denselben Effekt. Angesichts des folgenden:
+Das SVG {{SVGElement("filter")}}-Element wird verwendet, um benutzerdefinierte Filtereffekte zu definieren, die dann über [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id) referenziert werden können. Der `<filter>` {{SVGElement("feColorMatrix")}} Primitive `hueRotate`-Typ bietet denselben Effekt. Bei gegebenem:
 
 ```svg
 <filter id="filterID">
@@ -149,7 +149,7 @@ Das SVG {{SVGElement("filter")}} Element wird verwendet, um benutzerdefinierte F
 </filter>
 ```
 
-Diese Werte erzeugen die gleichen Ergebnisse:
+Diese Werte erzeugen dasselbe Ergebnis:
 
 ```css
 filter: hue-rotate(90deg); /* 90deg rotation */
@@ -157,7 +157,7 @@ filter: url(#filterID); /* with embedded SVG */
 filter: url(folder/fileName.svg#filterID); /* external svg filter definition */
 ```
 
-Dieses Beispiel zeigt drei Bilder: das Bild mit einer `hue-rotate()` Filterfunktion angewendet, das Bild mit einem äquivalenten `url()` Filter angewendet und die Originalbilder zum Vergleich:
+Dieses Beispiel zeigt drei Bilder: das Bild mit einer `hue-rotate()` Funktion, das Bild mit einem äquivalenten `url()`-Filter und die Originalbilder zum Vergleich:
 
 ```html hidden
 <table cellpadding="5">
@@ -206,9 +206,9 @@ Dieses Beispiel zeigt drei Bilder: das Bild mit einer `hue-rotate()` Filterfunkt
 
 {{EmbedLiveSample('With_url()_and_the_SVG_hue-rotate_filter','100%','280')}}
 
-### hue-rotate() bewahrt Sättigung oder Helligkeit nicht
+### hue-rotate() erhält Sättigung oder Helligkeit nicht
 
-Das folgende Diagramm vergleicht zwei Farbverläufe beginnend mit Rot: der erste wird mithilfe von `hue-rotate()` generiert, und der zweite verwendet tatsächliche HSL-Farbwerte. Beachten Sie, wie der `hue-rotate()` Verlauf offensichtliche Unterschiede in Sättigung und Helligkeit in der Mitte zeigt.
+Das Diagramm unten vergleicht zwei Farbverläufe, die jeweils mit Rot beginnen: der erste wird mit `hue-rotate()` generiert, und der zweite verwendet tatsächliche HSL-Farbwerte. Beachten Sie, wie der `hue-rotate()` Verlauf offensichtliche Unterschiede in Sättigung und Helligkeit in der Mitte zeigt.
 
 ```html
 <div>
@@ -263,7 +263,7 @@ for (let i = 0; i < 360; i++) {
 
 ## Siehe auch
 
-- [CSS Filtereffekte](/de/docs/Web/CSS/CSS_filter_effects) Modul
+- [CSS-Filtereffekte](/de/docs/Web/CSS/CSS_filter_effects)-Modul
 - Die anderen {{cssxref("&lt;filter-function&gt;")}} Funktionen, die in Werten der {{cssxref("filter")}} und {{cssxref("backdrop-filter")}} Eigenschaften verwendet werden können, umfassen:
   - {{cssxref("filter-function/blur", "blur()")}}
   - {{cssxref("filter-function/brightness", "brightness()")}}

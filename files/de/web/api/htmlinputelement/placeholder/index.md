@@ -3,12 +3,12 @@ title: "HTMLInputElement: placeholder-Eigenschaft"
 short-title: placeholder
 slug: Web/API/HTMLInputElement/placeholder
 l10n:
-  sourceCommit: a24234ea6552cbd126d20fbf61e8f2bb010e1f20
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{ APIRef("HTML DOM") }}
 
-Die **`placeholder`**-Eigenschaft der [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Schnittstelle stellt einen Hinweis für den Benutzer dar, was in die Steuerung eingegeben werden kann. Sie spiegelt das [`placeholder`](/de/docs/Web/HTML/Element/input#placeholder) Attribut des {{htmlelement("input")}}-Elements wider.
+Die **`placeholder`**-Eigenschaft des [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Interfaces stellt einen Hinweis für den Benutzer dar, was in das Steuerelement eingegeben werden kann. Sie spiegelt das [`placeholder`](/de/docs/Web/HTML/Reference/Elements/input#placeholder)-Attribut des {{htmlelement("input")}}-Elements wider.
 
 ## Wert
 
@@ -33,5 +33,5 @@ console.log(input.placeholder);
 
 - {{HTMLElement("input")}}
 - [`HTMLInputElement.value`](/de/docs/Web/API/HTMLInputElement/value)
-- {{cssxref("::placeholder")}} Pseudo-Element
-- {{CSSXref(":placeholder-shown")}} Pseudo-Klasse
+- {{cssxref("::placeholder")}} Pseudoelement
+- {{CSSXref(":placeholder-shown")}} Pseudoklasse

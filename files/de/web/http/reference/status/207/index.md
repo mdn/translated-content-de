@@ -2,22 +2,23 @@
 title: 207 Multi-Status
 slug: Web/HTTP/Reference/Status/207
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: 975650c2f6ea843d6f7cbc721aee5dbc1db907b2
 ---
 
 {{HTTPSidebar}}
 
-Der HTTP-Statuscode **`207 Multi-Status`** für [erfolgreiche Antworten](/de/docs/Web/HTTP/Reference/Status#successful_responses) zeigt eine Mischung von Antworten an. Diese Antwort wird ausschließlich im Kontext von Web Distributed Authoring and Versioning ({{Glossary("WebDAV", "WebDAV")}}) verwendet.
+Der HTTP-Statuscode **`207 Multi-Status`** zeigt eine Mischung von Antworten an [erfolgreichen Antworten](/de/docs/Web/HTTP/Reference/Status#successful_responses).
+Dieser Status wird ausschließlich im Kontext von Web Distributed Authoring and Versioning ({{Glossary("WebDAV", "WebDAV")}}) verwendet.
 
-Der Antwortinhalt ist eine `text/xml`- oder `application/xml`-HTTP-Entität mit einem `multistatus`-Root-Element, das individuelle Antwortcodes auflistet.
+Der Antwortinhalt ist eine `text/xml` oder `application/xml` HTTP-Entität mit einem `multistatus`-Root-Element, das einzelne Antwortcodes auflistet.
 
 > [!NOTE]
-> Browser, die auf Webseiten zugreifen, werden diesen Statuscode nie sehen.
+> Browser, die auf Webseiten zugreifen, werden diesen Statuscode nie antreffen.
 > Die Fähigkeit, eine _Sammlung von Ressourcen_ zurückzugeben, ist Teil des {{Glossary("WebDAV", "WebDAV")}}-Protokolls und wird nur von Webanwendungen angetroffen, die auf einen WebDAV-Server zugreifen.
 
 ## Status
 
-```plain
+```http
 207 Multi-Status
 ```
 
@@ -25,7 +26,8 @@ Der Antwortinhalt ist eine `text/xml`- oder `application/xml`-HTTP-Entität mit 
 
 ### Empfang einer `207`-Antwort in einem WebDAV-Kontext
 
-Die folgende Antwort ist ein Beispiel für eine `207`-Antwort, die ein {{Glossary("WebDAV", "WebDAV")}}-Server an einen Client sendet. Es gibt ein `multistatus`-Root-Element mit Details zu den einzelnen Sammlungen:
+Die folgende Antwort ist ein Beispiel für eine `207`-Antwort, die ein {{Glossary("WebDAV", "WebDAV")}}-Server an einen Client sendet.
+Es gibt ein `multistatus`-Root-Element mit Details zu den einzelnen Sammlungen:
 
 ```http
 HTTP/1.1 207 Multi-Status

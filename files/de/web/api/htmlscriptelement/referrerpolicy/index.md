@@ -3,38 +3,36 @@ title: "HTMLScriptElement: referrerPolicy-Eigenschaft"
 short-title: referrerPolicy
 slug: Web/API/HTMLScriptElement/referrerPolicy
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`referrerPolicy`**-Eigenschaft der
-[`HTMLScriptElement`](/de/docs/Web/API/HTMLScriptElement)-Schnittstelle spiegelt das HTML
-[`referrerpolicy`](/de/docs/Web/HTML/Element/script#referrerpolicy) der {{HTMLElement("script")}}-Element wider, das definiert, wie der Referrer gesetzt wird, wenn das Skript und alle importierten Skripte abgerufen werden.
+Die **`referrerPolicy`**-Eigenschaft der [`HTMLScriptElement`](/de/docs/Web/API/HTMLScriptElement)-Schnittstelle spiegelt die HTML-[`referrerpolicy`](/de/docs/Web/HTML/Reference/Elements/script#referrerpolicy) des {{HTMLElement("script")}}-Elements wider, die definiert, wie der Referrer gesetzt wird, wenn das Skript und alle von ihm importierten Skripte abgerufen werden.
 
 ## Wert
 
-Ein String; einer der folgenden:
+Ein String, einer der folgenden:
 
 - `no-referrer`
   - : Der {{HTTPHeader("Referer")}}-Header wird vollständig weggelassen. Es werden keine Referrer-Informationen mit Anfragen gesendet.
 - `no-referrer-when-downgrade`
-  - : Die URL wird als Referrer gesendet, wenn das Protokoll-Sicherheitsniveau gleich bleibt (z. B. HTTP→HTTP, HTTPS→HTTPS), aber nicht zu einem weniger sicheren Ziel gesendet (z. B. HTTPS→HTTP).
+  - : Die URL wird als Referrer gesendet, wenn das Sicherheitslevel des Protokolls gleich bleibt (z.B. HTTP→HTTP, HTTPS→HTTPS), aber nicht an eine weniger sichere Zieladresse (z.B., HTTPS→HTTP) gesendet.
 - `origin`
-  - : Nur der Ursprung des Dokuments wird in allen Fällen als Referrer gesendet. Das Dokument `https://example.com/page.html` sendet den Referrer `https://example.com/`.
+  - : Nur die Herkunft des Dokuments wird in allen Fällen als Referrer gesendet. Das Dokument `https://example.com/page.html` sendet den Referrer `https://example.com/`.
 - `origin-when-cross-origin`
-  - : Eine vollständige URL wird bei einer gleichherkunftlichen Anfrage gesendet, aber nur der Ursprung des Dokuments für andere Fälle.
+  - : Eine vollständige URL wird gesendet, wenn eine Anfrage von derselben Herkunft stammt, aber nur die Herkunft des Dokuments wird in anderen Fällen gesendet.
 - `same-origin`
-  - : Ein Referrer wird für [gleichherkunftliche Ursprünge](/de/docs/Web/Security/Same-origin_policy) gesendet, aber bei Cross-Origin-Anfragen werden keine Referrer-Informationen enthalten sein.
+  - : Ein Referrer wird für [gleichseitige Ursprünge](/de/docs/Web/Security/Same-origin_policy) gesendet, aber Cross-Origin-Anfragen enthalten keine Referrer-Informationen.
 - `strict-origin`
-  - : Nur der Ursprung des Dokuments wird als Referrer gesendet, wenn das Protokoll-Sicherheitsniveau gleich bleibt (z. B. HTTPS→HTTPS), aber nicht zu einem weniger sicheren Ziel gesendet (z. B. HTTPS→HTTP).
+  - : Nur die Herkunft des Dokuments wird als Referrer gesendet, wenn das Sicherheitslevel des Protokolls gleich bleibt (z.B., HTTPS→HTTPS), aber nicht an eine weniger sichere Zieladresse (z.B., HTTPS→HTTP).
 - `strict-origin-when-cross-origin` (Standard)
-  - : Dies ist das Standardverhalten des Benutzers, wenn keine Richtlinie angegeben ist. Eine vollständige URL wird bei einer gleichherkunftlichen Anfrage gesendet, nur der Ursprung wird gesendet, wenn das Protokoll-Sicherheitsniveau gleich bleibt (z. B. HTTPS→HTTPS), und kein Header wird zu einem weniger sicheren Ziel gesendet (z. B. HTTPS→HTTP).
+  - : Dies ist das Standardverhalten des Benutzeragenten, wenn keine Richtlinie angegeben ist. Eine vollständige URL wird gesendet, wenn eine Anfrage von derselben Herkunft stammt; nur die Herkunft wird gesendet, wenn das Sicherheitslevel des Protokolls gleich bleibt (z.B., HTTPS→HTTPS), und es wird kein Header an eine weniger sichere Zieladresse gesendet (z.B., HTTPS→HTTP).
 - `unsafe-url`
-  - : Eine vollständige URL wird sowohl bei gleichherkunftlichen als auch bei Cross-Origin-Anfragen gesendet. Diese Richtlinie kann Ursprünge und Pfade von TLS-geschützten Ressourcen an unsichere Ursprünge weitergeben. Überlegen Sie sorgfältig die Auswirkungen dieser Einstellung.
+  - : Eine vollständige URL wird gesendet, wenn eine Anfrage von derselben oder einer anderen Herkunft kommt. Diese Richtlinie wird Ursprünge und Pfade von TLS-geschützten Ressourcen an unsichere Ursprünge leaken. Überlegen Sie sorgfältig die Auswirkungen dieser Einstellung.
 
 > [!NOTE]
-> Ein leerer String-Wert (`""`) ist sowohl der Standardwert als auch ein Fallback-Wert, wenn `referrerpolicy` nicht unterstützt wird. Wenn `referrerpolicy` nicht explizit auf dem `<script>`-Element angegeben ist, wird eine höherstufige Referrer-Richtlinie übernommen, d.h. eine auf dem gesamten Dokument oder der Domain gesetzte Richtlinie. Wenn keine höherstufige Richtlinie verfügbar ist, wird der leere String als äquivalent zu `no-referrer-when-downgrade` behandelt.
+> Ein leerer Zeichenfolgenwert (`""`) ist sowohl der Standardwert als auch ein Ersatzwert, wenn `referrerpolicy` nicht unterstützt wird. Wenn `referrerpolicy` nicht explizit auf dem `<script>`-Element angegeben ist, übernimmt es eine höherstufige Referrerpolitik, d.h. eine, die für das gesamte Dokument oder die gesamte Domain festgelegt ist. Wenn keine höherstufige Politik verfügbar ist, wird die leere Zeichenfolge als gleichbedeutend mit `no-referrer-when-downgrade` behandelt.
 
 ## Beispiele
 

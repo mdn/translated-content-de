@@ -3,16 +3,16 @@ title: "HTMLFormElement: autocomplete-Eigenschaft"
 short-title: autocomplete
 slug: Web/API/HTMLFormElement/autocomplete
 l10n:
-  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{ APIRef("HTML DOM") }}
 
-Die **`autocomplete`**-Eigenschaft des [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement)-Interfaces gibt an, ob die Werte der Formularsteuerelemente automatisch vom Browser ausgefüllt werden können. Sie entspricht dem [`autocomplete`](/de/docs/Web/HTML/Attributes/autocomplete)-Attribut des {{htmlelement("form")}}-Elements.
+Die **`autocomplete`**-Eigenschaft des [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement)-Interfaces gibt an, ob die Werte der Formularsteuerungen automatisch vom Browser vervollständigt werden können. Sie spiegelt das [`autocomplete`](/de/docs/Web/HTML/Reference/Attributes/autocomplete)-Attribut des {{htmlelement("form")}}-Elements wider.
 
 ## Wert
 
-Ein String; der Wert `"off"`, wenn explizit auf `"off"` gesetzt, und sonst immer `"on"`.
+Ein String; der Wert `"off"`, wenn er explizit auf `"off"` gesetzt wurde, und sonst immer `"on"`.
 
 ## Beispiele
 
@@ -32,6 +32,6 @@ console.log(formElement.autocomplete);
 ## Siehe auch
 
 - {{HTMLElement("form")}}
-- HTML-Attribut [`autocomplete`](/de/docs/Web/HTML/Attributes/autocomplete)
-- ARIA-Attribut [`aria-autocomplete`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-autocomplete)
-- [Deaktivieren der Autovervollständigung](/de/docs/Web/Security/Practical_implementation_guides/Turning_off_form_autocompletion)
+- HTML [`autocomplete`](/de/docs/Web/HTML/Reference/Attributes/autocomplete)-Attribut
+- ARIA [`aria-autocomplete`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-autocomplete)-Attribut
+- [Deaktivieren der automatischen Vervollständigung](/de/docs/Web/Security/Practical_implementation_guides/Turning_off_form_autocompletion)

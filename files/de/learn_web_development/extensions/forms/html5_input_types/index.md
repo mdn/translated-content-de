@@ -1,20 +1,20 @@
 ---
-title: Die HTML5-Eingabetypen
+title: Die HTML5-Input-Typen
 slug: Learn_web_development/Extensions/Forms/HTML5_input_types
 l10n:
-  sourceCommit: 2595b22899b54f079721069704128fb7f0451995
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{LearnSidebar}}{{PreviousMenuNext("Learn_web_development/Extensions/Forms/Basic_native_form_controls", "Learn_web_development/Extensions/Forms/Other_form_controls", "Learn_web_development/Extensions/Forms")}}
 
-Im [vorherigen Artikel](/de/docs/Learn_web_development/Extensions/Forms/Basic_native_form_controls) haben wir uns das {{htmlelement("input")}}-Element angesehen und die ursprünglichen Werte des `type`-Attributs behandelt, die seit den frühen Tagen von HTML verfügbar sind. Nun schauen wir uns detailliert die Funktionalität einiger Eingabetypen an, die später hinzugefügt wurden.
+Im [vorherigen Artikel](/de/docs/Learn_web_development/Extensions/Forms/Basic_native_form_controls) haben wir das {{htmlelement("input")}}-Element betrachtet und die ursprünglichen Werte des `type`-Attributs abgedeckt, die seit den frühen Tagen von HTML verfügbar waren. Jetzt schauen wir uns die Funktionalität einiger später hinzugefügter Input-Typen genauer an.
 
 <table>
   <tbody>
     <tr>
       <th scope="row">Voraussetzungen:</th>
       <td>
-        Grundlegendes
+        Ein grundlegendes
         <a href="/de/docs/Learn_web_development/Core/Structuring_content"
           >Verständnis von HTML</a
         >.
@@ -23,18 +23,18 @@ Im [vorherigen Artikel](/de/docs/Learn_web_development/Extensions/Forms/Basic_na
     <tr>
       <th scope="row">Ziel:</th>
       <td>
-        Das Verständnis der neueren Eingabetypen für die Erstellung nativer
-        Formularelemente zu verbessern und deren Implementierung in HTML zu lernen.
+        Verstehen der neueren Input-Typ-Werte zur Erstellung nativer
+        Formularsteuerelemente und Implementierung dieser mithilfe von HTML.
       </td>
     </tr>
   </tbody>
 </table>
 
-Da das Aussehen von HTML-Formularelementen von den Spezifikationen eines Designers stark abweichen kann, erstellen Webentwickler manchmal eigene benutzerdefinierte Formularelemente. Wir behandeln dies in einem fortgeschrittenen Tutorial: [Wie man benutzerdefinierte Formularelemente erstellt](/de/docs/Learn_web_development/Extensions/Forms/How_to_build_custom_form_controls).
+Da das Erscheinungsbild von HTML-Formularsteuerelementen sich erheblich von den Entwürfen eines Designers unterscheiden kann, entwickeln Webentwickler manchmal ihre eigenen benutzerdefinierten Formularsteuerelemente. Dies behandeln wir in einem fortgeschrittenen Tutorial: [Anleitung zur Erstellung benutzerdefinierter Formular-Widgets](/de/docs/Learn_web_development/Extensions/Forms/How_to_build_custom_form_controls).
 
 ## E-Mail-Adressfeld
 
-Dieser Feldtyp wird mit dem Wert `email` für das [`type`](/de/docs/Web/HTML/Element/input#type)-Attribut gesetzt:
+Dieser Feldtyp wird mit dem Wert `email` für das [`type`](/de/docs/Web/HTML/Reference/Elements/input#type)-Attribut festgelegt:
 
 ```html hidden live-sample___email
 <label for="email">Enter your email address:</label><br />
@@ -46,39 +46,39 @@ Dieser Feldtyp wird mit dem Wert `email` für das [`type`](/de/docs/Web/HTML/Ele
 
 {{EmbedLiveSample('email','100%','50')}}
 
-Wenn dieser [`type`](/de/docs/Web/HTML/Element/input#type) verwendet wird, muss der Wert eine E-Mail-Adresse sein, um gültig zu sein. Jeder andere Inhalt führt dazu, dass der Browser einen Fehler anzeigt, wenn das Formular abgeschickt wird. Das können Sie in der untenstehenden Abbildung sehen.
+Wird dieser [`type`](/de/docs/Web/HTML/Reference/Elements/input#type) verwendet, muss der Wert eine E-Mail-Adresse sein, um gültig zu sein. Jeder andere Inhalt führt dazu, dass der Browser beim Abschicken des Formulars einen Fehler anzeigt. Dies können Sie in der untenstehenden Abbildung sehen.
 
-![Eine ungültige E-Mail-Eingabe zeigt die Nachricht "Bitte geben Sie eine E-Mail-Adresse ein." an.](email_address_invalid.png)
+![Eine ungültige E-Mail-Eingabe zeigt die Nachricht "Please enter an email address."](email_address_invalid.png)
 
-Sie können das [`multiple`](/de/docs/Web/HTML/Attributes/multiple)-Attribut in Kombination mit dem `email`-Eingabetyp verwenden, um mehrere, durch Kommas getrennte E-Mail-Adressen in derselben Eingabe zu ermöglichen:
+Mit dem [`multiple`](/de/docs/Web/HTML/Reference/Attributes/multiple)-Attribut in Kombination mit dem `email`-Input-Typ können mehrere, durch Kommas getrennte E-Mail-Adressen im selben Input eingegeben werden:
 
 ```html
 <input type="email" id="email" name="email" multiple />
 ```
 
-Auf einigen Geräten – insbesondere Touchgeräte mit dynamischen Tastaturen wie Smartphones – kann eine andere virtuelle Tastatur angezeigt werden, die besser geeignet ist, E-Mail-Adressen einzugeben, einschließlich der `@`-Taste:
+Auf einigen Geräten, insbesondere Touch-Geräten mit dynamischen Tastaturen wie Smartphones, könnte eine andere virtuelle Tastatur angezeigt werden, die besser zum Eingeben von E-Mail-Adressen geeignet ist, einschließlich der `@`-Taste:
 
-![Firefox für Android E-Mail-Tastatur, mit dem At-Zeichen als Standard.](fx-android-email-type-keyboard.jpg)
+![Firefox für Android E-Mail-Tastatur, mit dem at-Zeichen standardmäßig angezeigt.](fx-android-email-type-keyboard.jpg)
 
 > [!NOTE]
-> Beispiele für die grundlegenden Texteingabetypen finden Sie unter [basic input examples](https://mdn.github.io/learning-area/html/forms/basic-input-examples/) (siehe auch den [Quellcode](https://github.com/mdn/learning-area/blob/main/html/forms/basic-input-examples/index.html)).
+> Beispiele zu den grundlegenden Texteingabetypen finden Sie unter [basic input examples](https://mdn.github.io/learning-area/html/forms/basic-input-examples/) (siehe auch den [Quellcode](https://github.com/mdn/learning-area/blob/main/html/forms/basic-input-examples/index.html)).
 
-Dies ist ein weiterer guter Grund, diese neueren Eingabetypen zu verwenden, um die Benutzererfahrung für Nutzer dieser Geräte zu verbessern.
+Dies ist ein weiterer guter Grund, diese neueren Input-Typen zu verwenden, um die Benutzererfahrung für Nutzer dieser Geräte zu verbessern.
 
 ### Client-seitige Validierung
 
-Wie Sie oben sehen können, bietet `email` – zusammen mit anderen neueren `input`-Typen – eingebaute _client-seitige_ Fehlerprüfung, die vom Browser durchgeführt wird, bevor die Daten an den Server gesendet werden. Es _ist_ eine hilfreiche Unterstützung, um Nutzern zu helfen, ein Formular korrekt auszufüllen, und es kann Zeit sparen: Es ist nützlich zu wissen, dass Ihre Daten nicht korrekt sind, anstatt auf den Hin- und Rückweg zum Server warten zu müssen.
+Wie oben zu sehen ist, bietet `email` — zusammen mit anderen neueren `input`-Typen — eingebaute _Client-seitige_ Fehlerüberprüfung, die vom Browser durchgeführt wird, bevor die Daten an den Server gesendet werden. Dies ist eine hilfreiche Unterstützung, um Benutzer beim präzisen Ausfüllen eines Formulars zu leiten, und es kann Zeit sparen: Es ist nützlich zu wissen, dass Ihre Daten nicht korrekt sind, bevor sie an den Server gesendet werden, anstatt eine Runde bis zum Server warten zu müssen.
 
-Aber es _sollte nicht als_ umfassende Sicherheitsmaßnahme betrachtet werden! Ihre Anwendungen sollten stets Sicherheitsprüfungen auf alle Formular-Daten sowohl _serverseitig_ als auch client-seitig durchführen, da die client-seitige Validierung zu leicht abzuschalten ist, sodass böswillige Benutzer immer noch leicht schlechte Daten an Ihren Server senden können. Lesen Sie [Website-Sicherheit](/de/docs/Learn_web_development/Extensions/Server-side/First_steps/Website_security) um eine Vorstellung davon zu bekommen, was _passieren könnte_; die Implementierung von serverseitiger Validierung liegt außerhalb des Umfangs dieses Moduls, aber Sie sollten es berücksichtigen.
+Aber es _sollte nicht als_ umfassende Sicherheitsmaßnahme betrachtet werden! Ihre Anwendungen sollten immer Sicherheitsüberprüfungen der an den _Server_ gesendeten Formulardaten durchführen, ebenso wie clientseitige, da die clientseitige Validierung zu einfach abgeschaltet werden kann, sodass böswillige Benutzer immer noch problemlos fehlerhafte Daten an Ihren Server senden können. Lesen Sie [Website-Sicherheit](/de/docs/Learn_web_development/Extensions/Server-side/First_steps/Website_security), um eine Vorstellung davon zu bekommen, was _passieren_ könnte; die Implementierung der serverseitigen Validierung liegt außerhalb des Umfangs dieses Moduls, aber Sie sollten dies im Hinterkopf behalten.
 
-Beachten Sie, dass `a@b` gemäß der standardmäßig bereitgestellten Einschränkungen eine gültige E-Mail-Adresse ist. Dies liegt daran, dass der `email`-Eingabetyp standardmäßig Intranet-E-Mail-Adressen zulässt. Um ein anderes Validierungsverhalten zu implementieren, können Sie das [`pattern`](/de/docs/Web/HTML/Attributes/pattern)-Attribut verwenden. Sie können auch die Fehlermeldungen anpassen. Wir werden später im Artikel [Client-side form validation](/de/docs/Learn_web_development/Extensions/Forms/Form_validation) darüber sprechen, wie man diese Funktionen verwendet.
+Beachten Sie, dass `a@b` laut den standardmäßig bereit gestellten Einschränkungen eine gültige E-Mail-Adresse ist. Das liegt daran, dass der `email`-Input-Typ standardmäßig Intranet-E-Mail-Adressen erlaubt. Um ein anderes Validierungsverhalten zu implementieren, können Sie das [`pattern`](/de/docs/Web/HTML/Reference/Attributes/pattern)-Attribut verwenden. Sie können auch die Fehlermeldungen anpassen. Wie man diese Funktionen nutzt, erklären wir in dem Artikel [Client-seitige Formularvalidierung](/de/docs/Learn_web_development/Extensions/Forms/Form_validation) später.
 
 > [!NOTE]
-> Wenn die eingegebenen Daten keine E-Mail-Adresse sind, wird die {{cssxref(':invalid')}}-Pseudoklasse übereinstimmen und die [`validityState.typeMismatch`](/de/docs/Web/API/ValidityState/typeMismatch)-Eigenschaft wird `true` zurückgeben.
+> Wenn die eingegebenen Daten keine E-Mail-Adresse sind, wird die {{cssxref(':invalid')}}-Pseudoklasse übereinstimmen und die [`validityState.typeMismatch`](/de/docs/Web/API/ValidityState/typeMismatch)-Eigenschaft gibt `true` zurück.
 
 ## Suchfeld
 
-Suchfelder sind dafür gedacht, um auf Seiten und in Apps Suchboxen zu erstellen. Dieser Feldtyp wird mit dem Wert `search` für das [`type`](/de/docs/Web/HTML/Element/input#type)-Attribut gesetzt:
+Suchfelder sollen zur Erstellung von Suchfeldern auf Seiten und in Apps verwendet werden. Dieser Feldtyp wird durch die Verwendung des Wertes `search` für das [`type`](/de/docs/Web/HTML/Reference/Elements/input#type)-Attribut festgelegt:
 
 ```html hidden
 <label for="search">Enter a search term:</label><br />
@@ -90,13 +90,13 @@ Suchfelder sind dafür gedacht, um auf Seiten und in Apps Suchboxen zu erstellen
 
 {{EmbedLiveSample('search field','100%','50')}}
 
-Der Hauptunterschied zwischen einem `text`- und einem `search`-Feld liegt darin, wie der Browser sein Aussehen darstellt. In einigen Browsern werden `search`-Felder mit abgerundeten Ecken angezeigt. In einigen Browsern wird ein "Ⓧ"-Symbol zur Löschung angezeigt, das beim Klicken den Wert des Feldes löscht. Dieses Löschsymbol erscheint nur, wenn das Feld einen Wert hat und (außer bei Safari) wird es nur angezeigt, wenn das Feld fokussiert ist. Zusätzlich kann auf Geräten mit dynamischen Tastaturen die Eingabetaste der Tastatur als "**search**" angezeigt werden oder ein Lupensymbol darstellen.
+Der Hauptunterschied zwischen einem `text`-Feld und einem `search`-Feld liegt in der Art und Weise, wie der Browser seine Darstellung stylt. In einigen Browsern werden `search`-Felder mit abgerundeten Ecken dargestellt. In einigen Browsern wird ein "Ⓧ"-Symbol zur Löschung angezeigt, das den Inhalt des Feldes auf Klick löscht. Dieses Löschsymbol erscheint nur, wenn das Feld einen Wert hat und wird, außer in Safari, nur angezeigt, wenn das Feld fokussiert ist. Zusätzlich kann auf Geräten mit dynamischen Tastaturen die Enter-Taste der Tastatur "**search**" anzeigen oder ein Lupensymbol darstellen.
 
-Ein weiteres bemerkenswertes Feature ist, dass die Werte eines `search`-Feldes automatisch gespeichert und wiederverwendet werden können, um Auto-Vervollständigung über mehrere Seiten derselben Webseite anzubieten; dies geschieht in den meisten modernen Browsern automatisch.
+Ein weiteres bemerkenswertes Merkmal ist, dass die Werte eines `search`-Feldes automatisch gespeichert und über mehrere Seiten derselben Website für die Autovervollständigung wiederverwendet werden können; dies geschieht in den meisten modernen Browsern automatisch.
 
 ## Telefonnummernfeld
 
-Ein spezielles Feld zur Eingabe von Telefonnummern kann durch die Verwendung von `tel` als Wert des [`type`](/de/docs/Web/HTML/Element/input#type)-Attributs erstellt werden:
+Ein spezielles Feld zur Eingabe von Telefonnummern kann erstellt werden, indem `tel` als Wert des [`type`](/de/docs/Web/HTML/Reference/Elements/input#type)-Attributs verwendet wird:
 
 ```html hidden
 <label for="tel">Enter a telephone number:</label><br />
@@ -108,17 +108,17 @@ Ein spezielles Feld zur Eingabe von Telefonnummern kann durch die Verwendung von
 
 {{EmbedLiveSample('phone number field','100%','50')}}
 
-Wenn es über ein Touchgerät mit dynamischer Tastatur aufgerufen wird, zeigen die meisten Geräte eine numerische Tastatur an, wenn `type="tel"` vorhanden ist. Dies bedeutet, dass dieser Typ immer dann nützlich ist, wenn eine numerische Tastatur nützlich ist, und nicht nur für Telefonnummern verwendet werden muss.
+Wenn auf ein Touch-Gerät mit einer dynamischen Tastatur zugegriffen wird, zeigen die meisten Geräte eine numerische Tastatur an, wenn `type="tel"` verwendet wird. Dies bedeutet, dass dieser Typ immer dann nützlich ist, wenn eine numerische Tastatur nützlich ist und nicht nur für Telefonnummern verwendet werden muss.
 
--![Firefox für Android E-Mail-Tastatur, mit dem Kaufmanns-Und als Standard.](fx-android-tel-type-keyboard.jpg)
+-![Firefox für Android E-Mail-Tastatur, mit dem Et-Zeichen standardmäßig angezeigt.](fx-android-tel-type-keyboard.jpg)
 
-Aufgrund der Vielzahl an Telefonnummernformaten weltweit erzwingt dieser Feldtyp keine Einschränkungen für den eingegebenen Wert durch den Benutzer (dies bedeutet, dass er Buchstaben enthalten kann, usw.).
+Aufgrund der Vielzahl an Telefonnummernformaten weltweit erzwingt dieser Feldtyp keine Einschränkungen bezüglich des vom Nutzer eingegebenen Wertes (dies bedeutet, dass er Buchstaben usw. enthalten kann).
 
-Wie bereits erwähnt, kann das [`pattern`](/de/docs/Web/HTML/Attributes/pattern)-Attribut verwendet werden, um Einschränkungen durchzusetzen, die Sie im [Client-side form validation](/de/docs/Learn_web_development/Extensions/Forms/Form_validation) erfahren werden.
+Wie bereits erwähnt, kann das [`pattern`](/de/docs/Web/HTML/Reference/Attributes/pattern)-Attribut verwendet werden, um Einschränkungen durchzusetzen, die Sie in der [Client-seitigen Formularvalidierung](/de/docs/Learn_web_development/Extensions/Forms/Form_validation) lernen werden.
 
 ## URL-Feld
 
-Ein spezieller Feldtyp zur Eingabe von URLs kann mit dem Wert `url` für das [`type`](/de/docs/Web/HTML/Element/input#type)-Attribut erstellt werden:
+Ein spezieller Feldtyp zur Eingabe von URLs kann erstellt werden, indem der Wert `url` für das [`type`](/de/docs/Web/HTML/Reference/Elements/input#type)-Attribut verwendet wird:
 
 ```html hidden
 <label for="url">Enter a URL:</label><br />
@@ -130,14 +130,14 @@ Ein spezieller Feldtyp zur Eingabe von URLs kann mit dem Wert `url` für das [`t
 
 {{EmbedLiveSample('URL field','100%','50')}}
 
-Es fügt besondere Validierungseinschränkungen hinzu. Der Browser meldet einen Fehler, wenn kein Protokoll (wie `http:`) eingegeben wird oder wenn die URL anderweitig fehlerhaft ist. Auf Geräten mit dynamischen Tastaturen werden oft Tastaturtasten für Doppelpunkt, Punkt und Schrägstrich angezeigt.
+Es fügt dem Feld spezielle Validierungseinschränkungen hinzu. Der Browser meldet einen Fehler, wenn kein Protokoll (wie `http:`) eingegeben wurde oder wenn die URL anderweitig fehlerhaft ist. Auf Geräten mit dynamischen Tastaturen zeigt die Standardtastatur häufig einige oder alle der Zeichen Doppelpunkt, Punkt und Schrägstrich als Standardtasten an.
 
 > [!NOTE]
-> Nur weil die URL gut geformt ist, bedeutet das nicht notwendigerweise, dass sie auf einen tatsächlich existierenden Ort verweist!
+> Nur weil die URL korrekt formatiert ist, bedeutet das nicht unbedingt, dass sie auf einen tatsächlich vorhandenen Ort verweist!
 
 ## Numerisches Feld
 
-Steuerelemente zur Eingabe von Zahlen können mit einem {{HTMLElement("input")}} [`type`](/de/docs/Web/HTML/Element/input#type) von `number` erstellt werden. Dieses Steuerungselement sieht aus wie ein Textfeld, erlaubt aber nur Fließkommazahlen und bietet normalerweise Schaltflächen in Form eines Spinners, um den Wert des Steuerungselements zu erhöhen und zu verringern. Auf Geräten mit dynamischen Tastaturen wird in der Regel die numerische Tastatur angezeigt.
+Steuerelemente zur Eingabe von Zahlen können mit einem {{HTMLElement("input")}} [`type`](/de/docs/Web/HTML/Reference/Elements/input#type) von `number` erstellt werden. Dieses Steuerelement sieht wie ein Textfeld aus, erlaubt jedoch nur Gleitkommazahlen und bietet in der Regel Buttons in Form eines Spinners, um den Wert des Steuerelements zu erhöhen oder zu verringern. Auf Geräten mit dynamischen Tastaturen wird im Allgemeinen die numerische Tastatur angezeigt.
 
 ```html hidden live-sample___number
 <label for="number">Enter a number:</label><br />
@@ -149,13 +149,13 @@ Steuerelemente zur Eingabe von Zahlen können mit einem {{HTMLElement("input")}}
 
 {{EmbedLiveSample('number','100%','50')}}
 
-Mit dem `number`-Eingabetyp können Sie die minimal und maximal zulässigen Werte einschränken, indem Sie die [`min`](/de/docs/Web/HTML/Element/input#min)- und [`max`](/de/docs/Web/HTML/Element/input#max)-Attribute festlegen.
+Mit dem `number`-Input-Typ können Sie die minimalen und maximalen erlaubten Werte durch Setzen der [`min`](/de/docs/Web/HTML/Reference/Elements/input#min)- und [`max`](/de/docs/Web/HTML/Reference/Elements/input#max)-Attribute beschränken.
 
-Sie können auch das `step`-Attribut verwenden, um das Inkrement, das durch Drücken der Spinner-Schaltflächen verursacht wird, festzulegen. Standardmäßig wird der `number`-Eingabetyp nur dann validiert, wenn die Zahl eine Ganzzahl ist, da das [`step`](/de/docs/Web/HTML/Attributes/step)-Attribut standardmäßig auf `1` festgelegt ist. Um Gleitkommazahlen zuzulassen, geben Sie `step="any"` oder einen bestimmten Wert wie `step="0.01"` an, um die Gleitkommadarstellung einzuschränken. Wenn weggelassen, sind nur ganze Zahlen gültig, da der `step`-Wert standardmäßig `1` ist.
+Sie können auch das `step`-Attribut verwenden, um den Inkrementwert für die Erhöhung und Verringerung durch Drücken der Spinner-Buttons festzulegen. Standardmäßig validiert der Zahleneingabetyp nur, ob die Zahl eine Ganzzahl ist, da das [`step`](/de/docs/Web/HTML/Reference/Attributes/step)-Attribut standardmäßig auf `1` gesetzt ist. Um Gleitkommazahlen zuzulassen, geben Sie `step="any"` oder einen spezifischen Wert an, wie z. B. `step="0.01"`, um das Gleitkommaformat einzuschränken. Wenn ausgelassen, werden, da der `step`-Wert standardmäßig `1` ist, nur ganze Zahlen als gültig betrachtet.
 
-Lassen Sie uns einige Beispiele ansehen:
+Werfen wir einen Blick auf einige Beispiele:
 
-Dieses Beispiel erstellt ein Zahlensteuerungselement, dessen gültiger Wert auf einen ungeraden Wert zwischen `1` und `10` beschränkt ist. Die Erhöhungs- und Verminderungstasten ändern den Wert um `2`, beginnend mit dem `min`-Wert.
+Dieses Beispiel erstellt ein Zahlensteuerfeld, dessen gültiger Wert auf einen ungeraden Wert zwischen `1` und `10` beschränkt ist. Die Erhöhungs- und Verringerungstasten ändern den Wert um `2`, beginnend mit dem `min`-Wert.
 
 ```html hidden live-sample___number2
 <label for="number">Enter an odd number between 1 and 10:</label><br />
@@ -167,7 +167,7 @@ Dieses Beispiel erstellt ein Zahlensteuerungselement, dessen gültiger Wert auf 
 
 {{EmbedLiveSample('number2','100%','50')}}
 
-Dieses Beispiel erstellt ein Zahlensteuerungselement, dessen Wert auf einen beliebigen Wert zwischen `0` und `1` inklusive beschränkt ist, und dessen Erhöhungs- und Verminderungstasten seinen Wert um `0.01` ändern.
+Dieses Beispiel erstellt ein Zahlensteuerfeld, dessen Wert auf jeden Wert zwischen `0` und `1` einschließlich beschränkt ist und dessen Erhöhungs- und Verringerungstasten den Wert um `0,01` ändern.
 
 ```html hidden live-sample___number3
 <label for="number">Enter a number between 0 and 1, inclusive:</label><br />
@@ -179,21 +179,21 @@ Dieses Beispiel erstellt ein Zahlensteuerungselement, dessen Wert auf einen beli
 
 {{EmbedLiveSample('number3','100%','50')}}
 
-Der `number`-Eingabetyp ist sinnvoll, wenn der Bereich der gültigen Werte begrenzt ist, wie zum Beispiel das Alter oder die Körpergröße einer Person. Wenn der Bereich zu groß ist, um inkrementelle Erhöhungen sinnvoll erscheinen zu lassen (wie bei den USA-PLZs, die von `00001` bis `99999` reichen), könnte der `tel`-Typ eine bessere Option sein; er bietet die numerische Tastatur, ohne die UI-Funktion des Zahlenspin zu nutzen.
+Der `number`-Input-Typ ist sinnvoll, wenn der Bereich gültiger Werte begrenzt ist, wie z. B. das Alter oder die Körpergröße einer Person. Wenn der Bereich zu groß ist, um inkrementelle Erhöhungen sinnvoll zu gestalten (wie bei US-amerikanischen Postleitzahlen, die von `00001` bis `99999` reichen), könnte der `tel`-Typ eine bessere Option sein; er stellt die numerische Tastatur bereit, während auf die Spinner-Benutzeroberfläche für Zahleneingaben verzichtet wird.
 
-## Schieberegler-Kontrollen
+## Schieberegler-Steuerelemente
 
-Eine andere Möglichkeit, eine Zahl auszuwählen, ist die Verwendung eines **Schiebereglers**. Sie sehen diese ziemlich oft auf Seiten wie Shopping-Seiten, wo Sie einen maximalen Immobilienwert zum Filtern einstellen möchten. Schauen wir uns ein Live-Beispiel an, um dies zu verdeutlichen:
+Eine andere Möglichkeit, eine Zahl auszuwählen, ist die Verwendung eines **Schiebereglers**. Sie sehen diese oft auf Websites wie Einkaufsseiten, auf denen Sie einen maximalen Immobilienpreis festlegen möchten, um danach zu filtern. Sehen wir uns ein Live-Beispiel an, um dies zu veranschaulichen:
 
 {{EmbedLiveSample('Slider controls','100%','50')}}
 
-Von der Nutzung her sind Schieberegler weniger genau als Textfelder. Daher werden sie verwendet, um eine Zahl auszuwählen, deren _genauer_ Wert nicht unbedingt wichtig ist.
+In der Anwendung sind Schieberegler weniger genau als Textfelder. Daher werden sie verwendet, um eine Zahl auszuwählen, deren _genauer_ Wert nicht unbedingt wichtig ist.
 
-Ein Schieberegler wird mit dem {{HTMLElement("input")}}-Element erstellt, dessen [`type`](/de/docs/Web/HTML/Element/input#type)-Attribut auf den Wert `range` gesetzt ist. Der Schieberegler-Daum kann per Maus oder Touch, oder mit den Pfeilen der Tastatur bewegt werden.
+Ein Schieberegler wird mit der Verwendung des {{HTMLElement("input")}}-Elements erstellt, dessen [`type`](/de/docs/Web/HTML/Reference/Elements/input#type)-Attribut auf den Wert `range` gesetzt ist. Der Schieberegler-Daumen kann mit der Maus oder durch Berühren oder mit den Pfeiltasten der Tastatur bewegt werden.
 
-Es ist wichtig, den Schieberegler richtig zu konfigurieren. Es wird dringend empfohlen, dass Sie die [`min`](/de/docs/Web/HTML/Attributes/min)-, [`max`](/de/docs/Web/HTML/Attributes/max)- und [`step`](/de/docs/Web/HTML/Attributes/step)-Attribute festlegen, die die minimalen, maximalen und Inkrementwerte festlegen.
+Es ist wichtig, Ihren Schieberegler richtig zu konfigurieren. Daher ist es sehr empfehlenswert, die [`min`](/de/docs/Web/HTML/Reference/Attributes/min), [`max`](/de/docs/Web/HTML/Reference/Attributes/max) und [`step`](/de/docs/Web/HTML/Reference/Attributes/step) Attribute festzulegen, die die minimalen, maximalen und inkrementellen Werte setzen.
 
-Schauen wir uns den Code des obigen Beispiels an, damit Sie sehen können, wie es gemacht wird. Zuerst das grundlegende HTML:
+Sehen wir uns den Code hinter dem obigen Beispiel an, damit Sie sehen können, wie es gemacht wird. Zunächst der grundlegende HTML-Code:
 
 ```html
 <label for="price">Choose a maximum house price: </label>
@@ -208,11 +208,11 @@ Schauen wir uns den Code des obigen Beispiels an, damit Sie sehen können, wie e
 <output class="price-output" for="price"></output>
 ```
 
-Dieses Beispiel erstellt einen Schieberegler, dessen Wert zwischen `50000` und `500000` liegen kann, und der sich jeweils um 1000 erhöht/verringert. Wir haben ihm einen Standardwert von `250000` gegeben, unter Verwendung des `value`-Attributs.
+Dieses Beispiel erstellt einen Schieberegler, dessen Wert zwischen `50000` und `500000` variieren kann, der um 1000 schrittweise verändert wird. Wir haben ihm einen Standardwert von `250000` gegeben, unter Verwendung des `value`-Attributs.
 
-Ein Problem mit Schiebereglern ist, dass sie keine visuelle Rückmeldung über den aktuellen Wert bieten. Deshalb haben wir ein {{htmlelement("output")}}-Element hinzugefügt, um den aktuellen Wert anzuzeigen. Sie könnten einen Eingabewert oder das Ergebnis einer Berechnung in einem beliebigen Element anzeigen, aber `<output>` ist besonders — genau wie `<label>` — und es kann ein `for`-Attribut haben, das es Ihnen erlaubt, es mit dem Element oder den Elementen zu verknüpfen, denen der Ausgangswert entstammt.
+Ein Problem mit Schiebereglern ist, dass sie keine Art von visueller Rückmeldung darüber bieten, welchen aktuellen Wert sie haben. Deshalb haben wir ein {{htmlelement("output")}}-Element eingefügt, um den aktuellen Wert anzuzeigen. Sie könnten einen Eingabewert oder das Ergebnis einer Berechnung in jedem Element anzeigen lassen, aber `<output>` ist etwas Besonderes — ähnlich wie `<label>` — und es kann ein `for`-Attribut annehmen, das es Ihnen erlaubt, es mit dem Element oder den Elementen zu verknüpfen, von denen der Ausgabe-Wert stammt.
 
-Um den aktuellen Wert tatsächlich anzuzeigen und ihn zu aktualisieren, wenn er sich ändert, müssen Sie JavaScript verwenden, was mit ein paar Befehlen erreicht werden kann:
+Um den aktuellen Wert tatsächlich anzuzeigen und ihn bei Änderungen zu aktualisieren, müssen Sie JavaScript verwenden, was mit wenigen Anweisungen erreicht werden kann:
 
 ```js
 const price = document.querySelector("#price");
@@ -235,15 +235,15 @@ output {
 }
 ```
 
-Hier speichern wir Referenzen auf das `range`-Eingabe- und das `output` in zwei Variablen. Dann setzen wir sofort das [`textContent`](/de/docs/Web/API/Node/textContent) des `output` auf den aktuellen `value` der Eingabe. Schließlich wird ein Eventlistener gesetzt, um sicherzustellen, dass wann immer der Bereichs-Schieberegler bewegt wird, das `textContent` des `output` auf den neuen Wert aktualisiert wird.
+Hier speichern wir Referenzen auf das `range`-Input und das `output` in zwei Variablen. Dann setzen wir sofort den [`textContent`](/de/docs/Web/API/Node/textContent) des `outputs` auf den aktuellen `value`-Wert des Inputs. Schließlich wird ein Event-Listener gesetzt, um sicherzustellen, dass, wann immer der Bereichsschieberegler bewegt wird, das `output`'s `textContent` auf den neuen Wert aktualisiert wird.
 
-## Datums- und Zeitwähler
+## Datum- und Zeit-Auswahlfelder
 
-Im Allgemeinen ist es für eine gute Benutzererfahrung bei der Erfassung von Datums- und Zeitwerten wichtig, eine Kalender-Auswahl-UI anzubieten. Diese ermöglicht den Nutzern, Daten auszuwählen, ohne dass sie auf eine native Kalenderanwendung wechseln müssen oder potenziell in unterschiedlichen Formaten eingeben, die schwer zu parsen sind. Die letzte Minute des vorherigen Jahrtausends kann auf folgende verschiedene Arten ausgedrückt werden: `1999/12/31`, `23:59`, oder `12/31/99T11:59PM`.
+Im Allgemeinen ist es für eine gute Benutzererfahrung beim Erfassen von Datums- und Zeitwerten wichtig, eine Kalenderauswahl-UI bereitzustellen. Diese ermöglichen es Benutzern, Daten auszuwählen, ohne in eine native Kalenderanwendung wechseln zu müssen oder sie potenziell in verschiedenen Formaten einzugeben, die schwer zu parsen sind. Die letzte Minute des vorherigen Jahrtausends kann auf die folgenden verschiedenen Weisen ausgedrückt werden: `1999/12/31`, `23:59` oder `12/31/99T11:59PM`.
 
-HTML-Datumssteuerungselemente sind verfügbar, um diese spezifische Art von Daten zu verarbeiten, kalenderbasierte Widgets bereitzustellen und die Daten einheitlich zu machen.
+HTML-Datumssteuerungen sind verfügbar, um diese spezielle Art von Daten zu handhaben, indem Kalender-Widgets bereitgestellt werden und die Daten vereinheitlicht werden.
 
-Ein Datums- und Zeitsteuerungselement wird mit dem {{HTMLElement("input")}}-Element und einem geeigneten Wert für das [`type`](/de/docs/Web/HTML/Element/input#type)-Attribut erstellt, je nachdem, ob Sie Daten, Zeiten oder beides erfassen möchten. Hier ist ein Live-Beispiel:
+Ein Datum- und Zeit-Steuerelement wird mit dem {{HTMLElement("input")}}-Element und einem entsprechenden Wert für das [`type`](/de/docs/Web/HTML/Reference/Elements/input#type)-Attribut erstellt, je nachdem, ob Sie Daten, Zeiten oder beides sammeln möchten. Hier ist ein Live-Beispiel:
 
 ```html hidden live-sample___date1
 <label for="party">Choose a date and time for your party:</label>
@@ -263,11 +263,11 @@ input:valid + span:after {
 
 {{EmbedLiveSample('date1','100%','50')}}
 
-Schauen wir uns die verschiedenen verfügbaren Typen kurz an. Beachten Sie, dass die Nutzung dieser Typen ziemlich komplex ist, insbesondere in Bezug auf die Browserunterstützung (siehe unten); um die vollständigen Details zu erfahren, folgen Sie den Links unten zu den Referenzseiten für jeden Typ einschließlich detaillierter Beispiele.
+Sehen wir uns die verschiedenen verfügbaren Typen kurz an. Beachten Sie, dass die Verwendung dieser Typen ziemlich komplex ist, insbesondere in Bezug auf die Browserunterstützung (siehe unten); um die vollständigen Details herauszufinden, folgen Sie den unten stehenden Links zu den Referenzseiten für jeden Typ, einschließlich detaillierter Beispiele.
 
 ### `date`
 
-[`<input type="date">`](/de/docs/Web/HTML/Element/input/date) erstellt ein Widget zur Anzeige und Auswahl eines Datums (Jahr, Monat und Tag, ohne Zeit).
+[`<input type="date">`](/de/docs/Web/HTML/Reference/Elements/input/date) erstellt ein Widget, das ein Datum (Jahr, Monat und Tag, ohne Zeit) anzeigt und auswählt.
 
 ```html hidden
 <label for="date">Enter the date:</label><br />
@@ -281,7 +281,7 @@ Schauen wir uns die verschiedenen verfügbaren Typen kurz an. Beachten Sie, dass
 
 ### `datetime-local`
 
-[`<input type="datetime-local">`](/de/docs/Web/HTML/Element/input/datetime-local) erstellt ein Widget zur Anzeige und Auswahl eines Datums mit Zeit ohne spezielle Zeitzoneninformationen.
+[`<input type="datetime-local">`](/de/docs/Web/HTML/Reference/Elements/input/datetime-local) erstellt ein Widget, das ein Datum mit Uhrzeit anzeigt und auswählt, ohne spezifische Zeitzoneninformationen.
 
 ```html hidden
 <label for="month">Enter the date and time:</label><br />
@@ -295,7 +295,7 @@ Schauen wir uns die verschiedenen verfügbaren Typen kurz an. Beachten Sie, dass
 
 ### `month`
 
-[`<input type="month">`](/de/docs/Web/HTML/Element/input/month) erstellt ein Widget zur Anzeige und Auswahl eines Monats mit einem Jahr.
+[`<input type="month">`](/de/docs/Web/HTML/Reference/Elements/input/month) erstellt ein Widget, um einen Monat mit einem Jahr anzuzeigen und auszuwählen.
 
 ```html hidden
 <label for="month">Enter the month:</label><br />
@@ -309,7 +309,7 @@ Schauen wir uns die verschiedenen verfügbaren Typen kurz an. Beachten Sie, dass
 
 ### `time`
 
-[`<input type="time">`](/de/docs/Web/HTML/Element/input/time) erstellt ein Widget zur Anzeige und Auswahl eines Zeitwerts. Während die Zeit im 12-Stunden-Format _angezeigt_ wird, wird der _zurückgegebene Wert_ im 24-Stunden-Format angezeigt.
+[`<input type="time">`](/de/docs/Web/HTML/Reference/Elements/input/time) erstellt ein Widget, um einen Zeitwert anzuzeigen und auszuwählen. Während die Zeit in einem 12-Stunden-Format _angezeigt_ werden kann, wird der _zurückgegebene Wert_ im 24-Stunden-Format ausgegeben.
 
 ```html hidden
 <label for="time">Enter a time:</label><br />
@@ -323,9 +323,9 @@ Schauen wir uns die verschiedenen verfügbaren Typen kurz an. Beachten Sie, dass
 
 ### `week`
 
-[`<input type="week">`](/de/docs/Web/HTML/Element/input/week) erstellt ein Widget zur Anzeige und Auswahl einer Woche und ihres Jahres.
+[`<input type="week">`](/de/docs/Web/HTML/Reference/Elements/input/week) erstellt ein Widget, das eine Wochennummer und ihr Jahr anzeigt und auswählt.
 
-Wochen beginnen am Montag und enden am Sonntag. Darüber hinaus enthält die erste Woche 1 jedes Jahres den ersten Donnerstag dieses Jahres — was möglicherweise nicht den ersten Tag des Jahres umfasst oder die letzten Tage des vorangegangenen Jahres einschließen könnte.
+Wochen beginnen am Montag und enden am Sonntag. Zusätzlich enthält die erste Woche 1 jedes Jahres den ersten Donnerstag dieses Jahres — der möglicherweise nicht den ersten Tag des Jahres enthält oder die letzten Tage des vorherigen Jahres enthalten kann.
 
 ```html hidden
 <label for="week">Enter the week:</label><br />
@@ -337,9 +337,9 @@ Wochen beginnen am Montag und enden am Sonntag. Darüber hinaus enthält die ers
 
 {{EmbedLiveSample('week','100%','50')}}
 
-### Einschränkung von Datums-/Uhrzeitwerten
+### Eingeschränkte Datum-/Zeitwerte
 
-Alle Datums- und Zeitsteuerungselemente können durch die [`min`](/de/docs/Web/HTML/Attributes/min)- und [`max`](/de/docs/Web/HTML/Attributes/max)-Attribute eingeschränkt werden, mit weiteren Einschränkungen durch das [`step`](/de/docs/Web/HTML/Attributes/step)-Attribut (dessen Wert nach Eingabetyp variiert).
+Alle Datum- und Zeit-Steuerelemente können mittels der [`min`](/de/docs/Web/HTML/Reference/Attributes/min)- und [`max`](/de/docs/Web/HTML/Reference/Attributes/max)-Attribute eingeschränkt werden, mit weiteren Einschränkungen durch das [`step`](/de/docs/Web/HTML/Reference/Attributes/step)-Attribut (dessen Wert je nach Eingabetyp variiert).
 
 ```html
 <label for="myDate">When are you available this summer?</label><br />
@@ -354,11 +354,11 @@ Alle Datums- und Zeitsteuerungselemente können durch die [`min`](/de/docs/Web/H
 
 {{EmbedLiveSample('constraining date/time values','100%','50')}}
 
-## Farbwahlsteuerung
+## Farbwahler-Steuerelement
 
-Farben sind immer etwas schwierig zu handhaben. Es gibt viele Möglichkeiten, sie auszudrücken: RGB-Werte (dezimal oder hexadezimal), HSL-Werte, Schlüsselwörter und so weiter.
+Farben sind immer ein wenig schwierig zu handhaben. Es gibt viele Möglichkeiten, sie auszudrücken: RGB-Werte (dezimal oder hexadezimal), HSL-Werte, Schlüsselwörter usw.
 
-Eine `color`-Steuerung kann erstellt werden, indem das {{HTMLElement("input")}}-Element mit seinem [`type`](/de/docs/Web/HTML/Element/input#type)-Attribut auf den Wert `color` gesetzt wird:
+Ein `color`-Steuerelement kann mittels des {{HTMLElement("input")}}-Elements mit seinem [`type`](/de/docs/Web/HTML/Reference/Elements/input#type)-Attribut, das auf den Wert `color` gesetzt ist, erstellt werden:
 
 ```html hidden
 <label for="color">Pick a color:</label><br />
@@ -370,14 +370,14 @@ Eine `color`-Steuerung kann erstellt werden, indem das {{HTMLElement("input")}}-
 
 {{EmbedLiveSample('Color picker control','100%','50')}}
 
-Ein Klick auf eine Farbsteuerung zeigt im Allgemeinen die Standard-Farbwählerfunktionalität des Betriebssystems an, aus der Sie auswählen können. Der zurückgegebene Wert ist immer ein kleingeschriebener 6-stelliger hexadezimaler Farbwert.
+Beim Klicken auf ein Farbkontrollfeld wird im Allgemeinen die standardmäßige Farbauswahlfunktionalität des Betriebssystems angezeigt, um eine Auswahl zu treffen. Der zurückgegebene Wert ist immer ein sechsstelliges, kleingeschriebenes hexadezimales Farbformat.
 
-## Testen Sie Ihre Fähigkeiten!
+## Testen Sie Ihr Können!
 
-Sie haben das Ende dieses Artikels erreicht, aber können Sie sich die wichtigsten Informationen merken? Sie finden einige weitere Tests, um zu überprüfen, ob Sie diese Informationen behalten haben, bevor Sie weitermachen — siehe [Testen Sie Ihre Fähigkeiten: HTML5-Steuerelemente](/de/docs/Learn_web_development/Extensions/Forms/Test_your_skills:_HTML5_controls).
+Sie haben das Ende dieses Artikels erreicht, aber können Sie sich an die wichtigsten Informationen erinnern? Sie können einige weitere Tests finden, um zu überprüfen, ob Sie diese Informationen behalten haben, bevor Sie weitermachen — siehe [Test your skills: HTML5 controls](/de/docs/Learn_web_development/Extensions/Forms/Test_your_skills:_HTML5_controls).
 
 ## Zusammenfassung
 
-Damit sind wir am Ende unserer Tour durch die HTML5-Formulareingabetypen angelangt. Es gibt noch einige andere Steuerelementtypen, die aufgrund ihrer sehr spezifischen Funktionen nicht einfach gruppiert werden können, aber dennoch wichtig zu kennen sind. Wir behandeln diese im nächsten Artikel.
+Damit sind wir am Ende unserer Tour der HTML5-Formulareingabetypen angekommen. Es gibt noch einige andere Steuerungstypen, die aufgrund ihrer sehr spezifischen Verhaltensweisen nicht leicht zu gruppieren sind, aber dennoch wichtig zu kennen sind. Diese werden wir im nächsten Artikel behandeln.
 
 {{PreviousMenuNext("Learn_web_development/Extensions/Forms/Basic_native_form_controls", "Learn_web_development/Extensions/Forms/Other_form_controls", "Learn_web_development/Extensions/Forms")}}

@@ -3,7 +3,7 @@ title: "HTMLElement: accessKeyLabel-Eigenschaft"
 short-title: accessKeyLabel
 slug: Web/API/HTMLElement/accessKeyLabel
 l10n:
-  sourceCommit: d0e6d8d712a33b9d3c7a9fb9a8ba85d4dd1b7002
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{ APIRef("HTML DOM") }}
@@ -47,4 +47,4 @@ btn.onclick = () => {
 ## Siehe auch
 
 - [`HTMLElement.accessKey`](/de/docs/Web/API/HTMLElement/accessKey)
-- Das globale [accesskey](/de/docs/Web/HTML/Global_attributes/accesskey) Attribut.
+- Das globale [accesskey](/de/docs/Web/HTML/Reference/Global_attributes/accesskey)-Attribut.

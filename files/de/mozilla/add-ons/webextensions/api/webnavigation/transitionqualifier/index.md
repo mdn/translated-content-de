@@ -2,23 +2,23 @@
 title: webNavigation.TransitionQualifier
 slug: Mozilla/Add-ons/WebExtensions/API/webNavigation/TransitionQualifier
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{AddonSidebar}}
 
-Zusätzliche Informationen über einen Übergang. Beachten Sie, dass viele der hier aufgeführten Werte derzeit nicht in Firefox unterstützt werden: Einzelheiten finden Sie in der [Browser-Kompatibilitäts-Tabelle](#browser-kompatibilität).
+Zusätzliche Informationen über einen Übergang. Beachten Sie, dass viele Werte hier derzeit in Firefox nicht unterstützt werden: Einzelheiten finden Sie in der [Browser-Kompatibilitätstabelle](#browser-kompatibilität).
 
 ## Typ
 
-Die Werte dieses Typs sind Zeichenfolgen. Mögliche Werte sind:
+Werte dieses Typs sind Zeichenketten. Mögliche Werte sind:
 
 - "client_redirect"
-  - : Umleitung(en) verursacht durch JavaScript, das auf der Seite ausgeführt wird, oder ein "refresh"-Pragma im [meta](/de/docs/Web/HTML/Element/meta)-Tag der Seite.
+  - : Weiterleitung(en) verursacht durch JavaScript, das auf der Seite ausgeführt wird, oder ein "refresh"-Pragma im [meta](/de/docs/Web/HTML/Reference/Elements/meta)-Tag der Seite.
 - "server_redirect"
-  - : Umleitung(en) verursacht durch einen [3XX HTTP-Statuscode](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#3xx_Redirection), der vom Server gesendet wird.
+  - : Weiterleitung(en) verursacht durch einen [3XX-HTTP-Statuscode](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#3xx_Redirection), der vom Server gesendet wird.
 - "forward_back"
-  - : Der Benutzer hat die Navigation durch die Vorwärts- oder Rückwärts-Schaltfläche ausgelöst.
+  - : Der Benutzer hat die Navigation durch Drücken der Vorwärts- oder Zurück-Schaltfläche ausgelöst.
 - "from_address_bar"
   - : Der Benutzer hat die Navigation über die Adressleiste ausgelöst.
 
@@ -29,7 +29,7 @@ Die Werte dieses Typs sind Zeichenfolgen. Mögliche Werte sind:
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.webNavigation`](https://developer.chrome.com/docs/extensions/reference/api/webNavigation#type-TransitionQualifier) API von Chromium. Diese Dokumentation basiert auf [`web_navigation.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/web_navigation.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.webNavigation`](https://developer.chrome.com/docs/extensions/reference/api/webNavigation#type-TransitionQualifier) API von Chromium. Diese Dokumentation ist von [`web_navigation.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/web_navigation.json) im Chromium-Code abgeleitet.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

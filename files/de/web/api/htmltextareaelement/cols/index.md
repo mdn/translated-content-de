@@ -3,12 +3,12 @@ title: "HTMLTextAreaElement: cols-Eigenschaft"
 short-title: cols
 slug: Web/API/HTMLTextAreaElement/cols
 l10n:
-  sourceCommit: 30d0a926fffe7bcf586def53959c12a5e526fa26
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{ APIRef("HTML DOM") }}
 
-Die **`cols`**-Eigenschaft des [`HTMLTextAreaElement`](/de/docs/Web/API/HTMLTextAreaElement)-Interfaces ist eine positive Ganzzahl, die die sichtbare Breite der mehrzeiligen Texteingabe in durchschnittlichen Zeichenbreiten darstellt. Sie spiegelt das [`cols`](/de/docs/Web/HTML/Element/textarea#cols)-Attribut des `<textarea>`-Elements wider.
+Die **`cols`**-Eigenschaft des [`HTMLTextAreaElement`](/de/docs/Web/API/HTMLTextAreaElement)-Interfaces ist eine positive Ganzzahl, die die sichtbare Breite des mehrzeiligen Texteingabe-Steuerungselements in durchschnittlichen Zeichenbreiten darstellt. Sie spiegelt das [`cols`](/de/docs/Web/HTML/Reference/Elements/textarea#cols)-Attribut des `<textarea>`-Elements wider.
 
 ## Wert
 

@@ -3,12 +3,12 @@ title: "HTMLOutputElement: htmlFor-Eigenschaft"
 short-title: htmlFor
 slug: Web/API/HTMLOutputElement/htmlFor
 l10n:
-  sourceCommit: 4c8b7533087b60fb75e98de28ac6bccc4139e735
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{ APIRef("HTML DOM") }}
 
-Die **`htmlFor`**-Eigenschaft der [`HTMLOutputElement`](/de/docs/Web/API/HTMLOutputElement)-Schnittstelle ist ein String, der eine durch Leerzeichen getrennte Liste von `id`s anderer Elemente enthält. Sie gibt an, dass diese Elemente Eingabewerte zur Berechnung beigetragen haben (oder diese auf andere Weise beeinflusst haben). Sie spiegelt das [`for`](/de/docs/Web/HTML/Element/output#for)-Attribut des {{HTMLElement("output")}}-Elements wider.
+Die **`htmlFor`**-Eigenschaft der [`HTMLOutputElement`](/de/docs/Web/API/HTMLOutputElement)-Schnittstelle ist ein String, der eine durch Leerzeichen getrennte Liste von `id`s anderer Elemente enthält. Diese kennzeichnen, dass diese Elemente Eingabewerte zur Berechnung beigetragen haben (oder anderweitig die Berechnung beeinflusst haben). Sie entspricht dem [`for`](/de/docs/Web/HTML/Reference/Elements/output#for)-Attribut des {{HTMLElement("output")}}-Elements.
 
 ## Wert
 

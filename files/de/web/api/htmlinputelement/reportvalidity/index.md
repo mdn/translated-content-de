@@ -3,12 +3,12 @@ title: "HTMLInputElement: reportValidity() Methode"
 short-title: reportValidity()
 slug: Web/API/HTMLInputElement/reportValidity
 l10n:
-  sourceCommit: d8d89df9fc9908787e9d0c6eb1ea091f8867e32f
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`reportValidity()`**-Methode des [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement) Interfaces führt die gleichen Gültigkeitsprüfungs-Schritte wie die [`checkValidity()`](/de/docs/Web/API/HTMLInputElement/checkValidity) Methode aus. Zusätzlich zeigt der Browser das Problem dem Benutzer an, wenn das [`invalid`](/de/docs/Web/API/HTMLInputElement/invalid_event) Ereignis nicht abgebrochen wird.
+Die **`reportValidity()`**-Methode der [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Schnittstelle führt die gleichen Schritte zur Gültigkeitsprüfung durch wie die [`checkValidity()`](/de/docs/Web/API/HTMLInputElement/checkValidity)-Methode. Zusätzlich zeigt der Browser, sofern das [`invalid`](/de/docs/Web/API/HTMLInputElement/invalid_event)-Ereignis nicht abgebrochen wird, das Problem dem Benutzer an.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ Keine.
 
 ### Rückgabewert
 
-Gibt `true` zurück, wenn der Wert des Elements keine Gültigkeitsprobleme aufweist; andernfalls `false`.
+Gibt `true` zurück, wenn der Wert des Elements keine Gültigkeitsprobleme aufweist; andernfalls wird `false` zurückgegeben.
 
 ## Beispiele
 
@@ -30,7 +30,7 @@ Gibt `true` zurück, wenn der Wert des Elements keine Gültigkeitsprobleme aufwe
 
 #### HTML
 
-Wir fügen ein Formular mit einem erforderlichen Zahlenfeld und zwei Buttons hinzu: einer, um das Formular zu überprüfen und der andere, um es abzusenden.
+Wir fügen ein Formular mit einem erforderlichen Zahlenfeld und zwei Schaltflächen ein: eine zur Überprüfung des Formulars und eine zum Absenden.
 
 ```html
 <form action="#" method="post">
@@ -48,7 +48,7 @@ Wir fügen ein Formular mit einem erforderlichen Zahlenfeld und zwei Buttons hin
 
 #### JavaScript
 
-Wenn der "reportValidity()"-Button aktiviert wird, verwenden wir die `reportValidity()` Methode, um zu prüfen, ob der Wert des Inputs seine Beschränkungen erfüllt. Wir protokollieren den Rückgabewert. Wenn `false`, zeigen wir auch die Validierungsnachricht an und erfassen das `invalid`-Ereignis.
+Wenn die "reportValidity()"-Schaltfläche aktiviert wird, verwenden wir die `reportValidity()`-Methode, um zu prüfen, ob der Wert des Eingabefeldes seine Beschränkungen erfüllt. Wir protokollieren den Rückgabewert. Wenn `false`, zeigen wir auch die Validierungsnachricht an und erfassen das `invalid`-Ereignis.
 
 ```js
 const output = document.querySelector("#log");
@@ -72,15 +72,15 @@ reportButton.addEventListener("click", () => {
 
 {{EmbedLiveSample("Basic usage", "100%", 120)}}
 
-Wenn `false`, erscheint eine Fehlermeldung, ein ungültiges Ereignis wird ausgelöst, und wir protokollieren dieses ungültige Ereignis in der Konsole, falls der Wert fehlt, unter 21 liegt, über 65 liegt oder anderweitig ungültig ist.
+Wenn `false`, wird, falls der Wert fehlt, unter 21 ist, über 65 liegt oder anderweitig ungültig ist, eine Fehlermeldung angezeigt, ein ungültiges Ereignis ausgelöst und wir protokollieren dieses ungültige Ereignis in der Konsole.
 
 ### Benutzerdefinierte Fehlermeldung
 
-Dieses Beispiel zeigt, wie eine benutzerdefinierte Fehlermeldung einen `false` Rückgabewert verursachen kann, wenn der Wert ansonsten gültig ist.
+Dieses Beispiel zeigt, wie eine benutzerdefinierte Fehlermeldung einen `false`-Rückgabewert verursachen kann, auch wenn der Wert ansonsten gültig ist.
 
 #### HTML
 
-Wir fügen einen "Fix me"-Button zum HTML des vorherigen Beispiels hinzu.
+Wir fügen der HTML aus dem vorherigen Beispiel eine "Fix mich"-Schaltfläche hinzu.
 
 ```html hidden
 <form action="#" method="post">
@@ -107,7 +107,7 @@ Wir fügen einen "Fix me"-Button zum HTML des vorherigen Beispiels hinzu.
 
 #### JavaScript
 
-Wir erweitern das JavaScript aus dem grundlegenden Beispiel oben, indem wir eine Funktion hinzufügen, die die [`HTMLInputElement.setCustomValidity()`](/de/docs/Web/API/HTMLInputElement/setCustomValidity) Methode verwendet, um benutzerdefinierte Fehlermeldungen bereitzustellen. Die `validateAge()` Funktion setzt die Fehlermeldung nur dann auf eine leere Zeichenfolge, wenn das Eingabefeld gültig ist UND die Variable `enableValidation` `true` ist, wobei `enableValidation` `false` bleibt, bis der "Fix issues"-Button aktiviert wurde.
+Wir erweitern das JavaScript aus dem grundlegenden Beispiel oben und fügen eine Funktion hinzu, die die [`HTMLInputElement.setCustomValidity()`](/de/docs/Web/API/HTMLInputElement/setCustomValidity)-Methode verwendet, um benutzerdefinierte Fehlermeldungen bereitzustellen. Die `validateAge()`-Funktion setzt die Fehlermeldung nur dann auf eine leere Zeichenkette, wenn die Eingabe gültig ist UND die `enableValidation`-Variable `true` ist, wobei `enableValidation` `false` ist, bis die "Probleme beheben"-Schaltfläche aktiviert wurde.
 
 ```js
 const output = document.querySelector("#log");
@@ -150,7 +150,7 @@ const validateAge = () => {
 
 {{EmbedLiveSample("Custom error message", "100%", 120)}}
 
-Wenn Sie den "reportValidity()"-Button aktivieren, bevor Sie ein Alter eingeben, gibt die `reportValidity()` Methode `false` zurück, da sie die `required`-Einschränkungsvalidierung nicht erfüllt. Diese Methode löst ein `invalid`-Ereignis auf der Eingabe aus und berichtet das Problem dem Benutzer, wobei die benutzerdefinierte Fehlermeldung "Please set an age (required)" angezeigt wird. Solange eine benutzerdefinierte Fehlermeldung gesetzt ist, wird durch Aktivieren des "reportValidity()"-Buttons weiterhin ein Fehler angezeigt, auch wenn Sie ein gültiges Alter auswählen. Um die Validierung zu aktivieren, müssen wir die benutzerdefinierte Fehlermeldung auf die leere Zeichenfolge setzen, was durch Klicken auf den "Fix issues"-Button geschieht.
+Wenn Sie die "reportValidity()"-Schaltfläche aktivieren, bevor Sie ein Alter eingeben, gibt die `reportValidity()`-Methode `false` zurück, da sie die `required`-Beschränkungsvalidierung nicht erfüllt. Diese Methode löst ein `invalid`-Ereignis für die Eingabe aus und meldet das Problem dem Benutzer, wobei die benutzerdefinierte Fehlermeldung "Bitte ein Alter angeben (erforderlich)" angezeigt wird. Solange eine benutzerdefinierte Fehlermeldung festgelegt ist, wird durch Aktivieren der "reportValidity()"-Schaltfläche weiterhin ein Fehler angezeigt, auch wenn Sie ein gültiges Alter wählen. Um die Validierung zu aktivieren, müssen wir die benutzerdefinierte Fehlermeldung auf die leere Zeichenkette setzen, was durch Klicken auf die "Probleme beheben"-Schaltfläche erfolgt.
 
 ## Spezifikationen
 
@@ -166,5 +166,5 @@ Wenn Sie den "reportValidity()"-Button aktivieren, bevor Sie ein Alter eingeben,
 - {{HTMLElement("input")}}
 - {{HTMLElement("form")}}
 - [Learn: Client-side form validation](/de/docs/Learn_web_development/Extensions/Forms/Form_validation)
-- [Leitfaden: Constraint validation](/de/docs/Web/HTML/Constraint_validation)
-- CSS {{cssxref(":valid")}} und {{cssxref(":invalid")}} Pseudoklassen
+- [Leitfaden: Constraint validation](/de/docs/Web/HTML/Guides/Constraint_validation)
+- CSS {{cssxref(":valid")}} und {{cssxref(":invalid")}} Pseudo-Klassen

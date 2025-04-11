@@ -3,12 +3,12 @@ title: "HTMLAreaElement: referrerPolicy-Eigenschaft"
 short-title: referrerPolicy
 slug: Web/API/HTMLAreaElement/referrerPolicy
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{APIRef}}
 
-Die **`HTMLAreaElement.referrerPolicy`**-Eigenschaft spiegelt das HTML-[`referrerpolicy`](/de/docs/Web/HTML/Element/area#referrerpolicy)-Attribut des {{HTMLElement("area")}}-Elements wider, das definiert, welcher Referrer gesendet wird, wenn die Ressource abgerufen wird.
+Die **`HTMLAreaElement.referrerPolicy`**-Eigenschaft spiegelt das HTML-Attribut [`referrerpolicy`](/de/docs/Web/HTML/Reference/Elements/area#referrerpolicy) des {{HTMLElement("area")}}-Elements wider und definiert, welcher Referrer beim Abrufen der Ressource gesendet wird.
 
 ## Wert
 
@@ -19,17 +19,17 @@ Ein String; einer der folgenden:
 - `no-referrer-when-downgrade`
   - : Die URL wird als Referrer gesendet, wenn das Sicherheitsniveau des Protokolls gleich bleibt (z.B. HTTP→HTTP, HTTPS→HTTPS), aber nicht an ein weniger sicheres Ziel gesendet (z.B. HTTPS→HTTP).
 - `origin`
-  - : Nur die Herkunft des Dokuments wird in allen Fällen als Referrer gesendet. Das Dokument `https://example.com/page.html` sendet den Referrer `https://example.com/`.
+  - : Nur der Ursprung des Dokuments wird in allen Fällen als Referrer gesendet. Das Dokument `https://example.com/page.html` sendet den Referrer `https://example.com/`.
 - `origin-when-cross-origin`
-  - : Eine vollständige URL wird bei einer gleichherkunftlichen Anfrage gesendet, aber nur die Herkunft des Dokuments in anderen Fällen.
+  - : Eine vollständige URL wird bei einer Same-Origin-Anfrage gesendet, aber nur der Ursprung des Dokuments für andere Fälle.
 - `same-origin`
-  - : Ein Referrer wird für [gleiche Ursprünge](/de/docs/Web/Security/Same-origin_policy) gesendet, aber bei Cross-Origin-Anfragen werden keine Referrer-Informationen enthalten sein.
+  - : Ein Referrer wird für [same-site origins](/de/docs/Web/Security/Same-origin_policy) gesendet, aber bei Cross-Origin-Anfragen werden keine Referrer-Informationen gesendet.
 - `strict-origin`
-  - : Nur die Herkunft des Dokuments wird als Referrer gesendet, wenn das Sicherheitsniveau des Protokolls gleich bleibt (z.B. HTTPS→HTTPS), aber nicht an ein weniger sicheres Ziel (z.B. HTTPS→HTTP).
+  - : Nur der Ursprung des Dokuments wird als Referrer gesendet, wenn das Sicherheitsniveau des Protokolls gleich bleibt (z.B. HTTPS→HTTPS), jedoch nicht an ein weniger sicheres Ziel (z.B. HTTPS→HTTP).
 - `strict-origin-when-cross-origin` (Standard)
-  - : Dies ist das Standardverhalten des Benutzeragenten, wenn keine Richtlinie angegeben ist. Eine vollständige URL wird bei einer gleichherkunftlichen Anfrage gesendet, nur die Herkunft wird gesendet, wenn das Sicherheitsniveau des Protokolls gleich bleibt (z.B. HTTPS→HTTPS), und kein Header wird an ein weniger sicheres Ziel gesendet (z.B. HTTPS→HTTP).
+  - : Dies ist das Standardverhalten des Benutzeragenten, wenn keine Richtlinie angegeben ist. Eine vollständige URL wird für eine Same-Origin-Anfrage gesendet, nur der Ursprung wird gesendet, wenn das Sicherheitsniveau des Protokolls gleich bleibt (z.B. HTTPS→HTTPS), und es wird kein Header an ein weniger sicheres Ziel gesendet (z.B. HTTPS→HTTP).
 - `unsafe-url`
-  - : Eine vollständige URL wird bei gleichherkunftlichen oder Cross-Origin-Anfragen gesendet. Diese Richtlinie kann Ursprünge und Pfade von TLS-geschützten Ressourcen an unsichere Ursprünge leaken. Überlegen Sie sorgfältig die Auswirkungen dieser Einstellung.
+  - : Senden Sie eine vollständige URL bei Same-Origin- oder Cross-Origin-Anfragen. Diese Richtlinie wird Ursprünge und Pfade von TLS-geschützten Ressourcen an unsichere Ursprünge lecken. Überlegen Sie sorgfältig, welche Auswirkungen diese Einstellung hat.
 
 ## Beispiele
 
@@ -60,6 +60,4 @@ map.appendChild(elt);
 
 ## Siehe auch
 
-- [`HTMLImageElement.referrerPolicy`](/de/docs/Web/API/HTMLImageElement/referrerPolicy),
-  [`HTMLAnchorElement.referrerPolicy`](/de/docs/Web/API/HTMLAnchorElement/referrerPolicy) und
-  [`HTMLIFrameElement.referrerPolicy`](/de/docs/Web/API/HTMLIFrameElement/referrerPolicy).
+- [`HTMLImageElement.referrerPolicy`](/de/docs/Web/API/HTMLImageElement/referrerPolicy), [`HTMLAnchorElement.referrerPolicy`](/de/docs/Web/API/HTMLAnchorElement/referrerPolicy) und [`HTMLIFrameElement.referrerPolicy`](/de/docs/Web/API/HTMLIFrameElement/referrerPolicy).

@@ -3,14 +3,14 @@ title: "CSSImportRule: href-Eigenschaft"
 short-title: href
 slug: Web/API/CSSImportRule/href
 l10n:
-  sourceCommit: a850ca867a8b380a53320bab6870fb7335f22d52
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{APIRef("CSSOM")}}
 
-Die schreibgeschützte **`href`**-Eigenschaft der [`CSSImportRule`](/de/docs/Web/API/CSSImportRule)-Schnittstelle gibt die im {{cssxref("@import")}} [at-rule](/de/docs/Web/CSS/CSS_syntax/At-rule) angegebene URL zurück.
+Die schreibgeschützte **`href`**-Eigenschaft der [`CSSImportRule`](/de/docs/Web/API/CSSImportRule)-Schnittstelle gibt die URL zurück, die durch das {{cssxref("@import")}} [At-Regel](/de/docs/Web/CSS/CSS_syntax/At-rule) angegeben wird.
 
-Die aufgelöste URL wird der [`href`](/de/docs/Web/HTML/Element/link#href)-Attributwert des zugehörigen Stylesheets sein.
+Die aufgelöste URL wird das [`href`](/de/docs/Web/HTML/Reference/Elements/link#href)-Attribut des zugehörigen Stylesheets sein.
 
 ## Wert
 

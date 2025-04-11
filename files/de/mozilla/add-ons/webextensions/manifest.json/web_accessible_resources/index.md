@@ -2,7 +2,7 @@
 title: web_accessible_resources
 slug: Mozilla/Add-ons/WebExtensions/manifest.json/web_accessible_resources
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{AddonSidebar}}
@@ -14,7 +14,7 @@ l10n:
       <td><code>Array</code></td>
     </tr>
     <tr>
-      <th scope="row">Pflicht</th>
+      <th scope="row">Verpflichtend</th>
       <td>Nein</td>
     </tr>
     <tr>
@@ -36,22 +36,22 @@ l10n:
 
 ## Beschreibung
 
-Manchmal möchten Sie Ressourcen wie Bilder, HTML, CSS oder JavaScript mit Ihrer Erweiterung verpacken und sie für Webseiten und andere Erweiterungen zugänglich machen.
+Manchmal möchten Sie Ressourcen – zum Beispiel Bilder, HTML, CSS oder JavaScript – mit Ihrer Erweiterung paketieren und sie Webseiten und anderen Erweiterungen zugänglich machen.
 
 > [!NOTE]
-> Bis Firefox 105 konnten Erweiterungen standardmäßig auf Ressourcen zugreifen, die in anderen Erweiterungen verpackt waren. Ab Firefox 105 müssen, um anderen Erweiterungen den Zugriff auf die Ressourcen einer Erweiterung zu ermöglichen, diese in diesem Schlüssel eingeschlossen sein.
+> Bis Firefox 105 konnten Erweiterungen standardmäßig auf Ressourcen zugreifen, die in anderen Erweiterungen gepackt sind. Ab Firefox 105 müssen Erweiterungen, um auf die Ressourcen einer anderen Erweiterung zugreifen zu können, in diesem Schlüssel eingeschlossen werden.
 
-Zum Beispiel ersetzt die [Beastify-Beispielerweiterung](https://github.com/mdn/webextensions-examples/tree/main/beastify) eine Webseite mit einem Bild eines vom Benutzer ausgewählten Tieres. Die Tierbilder sind in der Erweiterung enthalten. Um das ausgewählte Bild sichtbar zu machen, fügt die Erweiterung [`<img>`](/de/docs/Web/HTML/Element/img)-Elemente hinzu, deren `src`-Attribut auf das Bild des Tieres verweist. Damit die Webseite die Bilder laden kann, müssen sie webzugänglich gemacht werden.
+Zum Beispiel ersetzt die [Beastify-Beispielerweiterung](https://github.com/mdn/webextensions-examples/tree/main/beastify) eine Webseite mit einem von der Nutzerin oder dem Nutzer ausgewählten Bild eines Biests. Die Biest-Bilder sind in der Erweiterung enthalten. Um das ausgewählte Bild sichtbar zu machen, fügt die Erweiterung [`<img>`](/de/docs/Web/HTML/Reference/Elements/img)-Elemente hinzu, deren `src`-Attribut auf das Bild des Biests verweist. Damit die Webseite die Bilder laden kann, müssen sie webbasiert zugänglich gemacht werden.
 
-Mit dem Schlüssel `web_accessible_resources` listen Sie alle verpackten Ressourcen auf, die Sie für Webseiten zugänglich machen möchten. Sie geben sie als Pfade relativ zur Datei manifest.json an.
+Mit dem Schlüssel `web_accessible_resources` können Sie alle gepackten Ressourcen auflisten, die Sie Webseiten zugänglich machen möchten. Sie geben sie als Pfade relativ zur manifest.json-Datei an.
 
-Beachten Sie, dass Inhaltsskripte nicht als webzugängliche Ressourcen aufgelistet werden müssen.
+Beachten Sie, dass Content-Skripte nicht als webbasierte Ressourcen aufgelistet werden müssen.
 
-Wenn eine Erweiterung {{WebExtAPIRef("webRequest")}} oder {{WebExtAPIRef("declarativeNetRequest")}} verwenden möchte, um eine öffentliche URL (z.B. HTTPS) auf eine Seite umzuleiten, die in der Erweiterung verpackt ist, dann muss die Erweiterung die Seite im Schlüssel `web_accessible_resources` auflisten.
+Wenn eine Erweiterung {{WebExtAPIRef("webRequest")}} oder {{WebExtAPIRef("declarativeNetRequest")}} verwenden möchte, um eine öffentliche URL (z.B. HTTPS) auf eine in der Erweiterung gepackte Seite umzuleiten, dann muss die Erweiterung die Seite im Schlüssel `web_accessible_resources` auflisten.
 
-### Manifest V2-Syntax
+### Syntax Manifest V2
 
-In Manifest V2 werden webzugängliche Ressourcen als Array unter dem Schlüssel hinzugefügt, wie folgt:
+In Manifest V2 werden webbasierte Ressourcen als Array unter dem Schlüssel hinzugefügt, wie folgt:
 
 ```json
 "web_accessible_resources": [
@@ -59,9 +59,9 @@ In Manifest V2 werden webzugängliche Ressourcen als Array unter dem Schlüssel 
 ]
 ```
 
-### Manifest V3-Syntax
+### Syntax Manifest V3
 
-In Manifest V3 ist der Schlüssel `web_accessible_resources` ein Array von Objekten wie folgt:
+In Manifest V3 ist der Schlüssel `web_accessible_resources` ein Array von Objekten, wie folgt:
 
 ```json
 {
@@ -98,40 +98,40 @@ Jedes Objekt muss eine `"resources"`-Eigenschaft und entweder eine `"matches"`- 
       </td>
       <td><code>Array</code> von <code>String</code></td>
       <td>
-        Optional. Standardmäßig <code>[]</code>, was bedeutet, dass andere Erweiterungen nicht auf die Ressource zugreifen können.
+        Optional. Standardwert ist <code>[]</code>, was bedeutet, dass andere Erweiterungen nicht auf die Ressource zugreifen können.
         <p>
-        Eine Liste von Erweiterungs-IDs, die die Erweiterungen angeben, die auf die Ressourcen zugreifen können.
-        "*" steht für alle Erweiterungen.
+        Eine Liste von Erweiterungs-IDs, die die Erweiterungen angibt, die auf die Ressourcen zugreifen dürfen.
+        "*" entspricht allen Erweiterungen.
       </td>
     </tr>
     <tr>
       <td><code>matches</code></td>
       <td><code>Array</code> von <code>String</code></td>
       <td>
-        Optional. Standardmäßig <code>[]</code>, was bedeutet, dass andere Webseiten nicht auf die Ressource zugreifen können.
+        Optional. Standardwert ist <code>[]</code>, was bedeutet, dass andere Webseiten nicht auf die Ressource zugreifen können.
         <p>
-        Eine Liste von URL-<a href="/de/docs/Mozilla/Add-ons/WebExtensions/Match_patterns">Übereinstimmungsmustern</a>, die die Seiten angeben, die auf die Ressourcen zugreifen können. Nur der Ursprung wird verwendet, um URLs zu matchen. Allerdings:
+        Eine Liste von URL-<a href="/de/docs/Mozilla/Add-ons/WebExtensions/Match_patterns">Match-Mustern</a>, die die Seiten spezifizieren, die auf die Ressourcen zugreifen können. Nur der Ursprung wird verwendet, um URLs zu vergleichen. Allerdings:
         <ul>
-          <li>In Firefox und Safari kann jeder Pfad eingeschlossen werden.</li>
+          <li>In Firefox und Safari kann jeder Pfad enthalten sein.</li>
           <li>In Chrome muss der Pfad auf <code>/*</code> gesetzt werden.</li>
         </ul>
-        Ursprünge schließen die Übereinstimmung von Subdomains ein.
+        Ursprünge umfassen Subdomain-Abgleiche.
       </td>
     </tr>
     <tr>
       <td><code>resources</code></td>
       <td><code>Array</code> von <code>String</code></td>
       <td>
-        Ein Array von Ressourcen, die offengelegt werden sollen. Ressourcen werden als Zeichenketten angegeben und können <code>*</code> für Platzhalter-Matches enthalten. Zum Beispiel, <code>"/images/*"</code> gibt alles im Verzeichnis <code>/images</code> der Erweiterung rekursiv frei, während <code>"*.png"</code> alle PNG-Dateien freigibt.
+        Ein Array von Ressourcen, die freigegeben werden sollen. Ressourcen werden als Strings spezifiziert und können <code>*</code> für Platzhalterabgleiche enthalten. Zum Beispiel macht <code>"/images/*"</code> alles im Verzeichnis <code>/images</code> der Erweiterung rekursiv verfügbar, während <code>"*.png"</code> alle PNG-Dateien freigibt.
       </td>
     </tr>
     <tr>
       <td><code>use_dynamic_url</code></td>
       <td><code>Boolean</code></td>
       <td>
-        Optional. Standardmäßig <code>false</code>.
+        Optional. Standardwert ist <code>false</code>.
         <p>
-        Ob Ressourcen über die dynamische ID zugänglich sein sollen. Die dynamische ID wird pro Sitzung generiert und bei jedem Neustart des Browsers oder beim Neuladen der Erweiterung neu erstellt.
+        Ob Ressourcen über die dynamische ID zugänglich gemacht werden sollen. Die dynamische ID wird pro Sitzung generiert und bei jedem Neustart des Browsers oder Neuladen der Erweiterung neu generiert.
       </td>
     </tr>
   </tbody>
@@ -149,24 +149,24 @@ my-extension-files/
         my-image.png
 ```
 
-Um einer Webseite die Nutzung eines [`<img>`](/de/docs/Web/HTML/Element/img)-Elements zu ermöglichen, dessen `src`-Attribut auf dieses Bild verweist, würden Sie `web_accessible_resources` wie folgt angeben:
+Um einer Webseite zu ermöglichen, ein [`<img>`](/de/docs/Web/HTML/Reference/Elements/img)-Element zu verwenden, dessen `src`-Attribut auf dieses Bild verweist, würden Sie `web_accessible_resources` wie folgt spezifizieren:
 
 ```json
 "web_accessible_resources": ["images/my-image.png"]
 ```
 
-Die Datei ist dann über eine URL wie diese verfügbar:
+Die Datei ist dann unter Verwendung einer URL wie folgt verfügbar:
 
 ```plain
 moz-extension://<extension-UUID>/images/my-image.png"
 ```
 
-`<extension-UUID>` ist **nicht** die ID Ihrer Erweiterung. Diese ID wird für jede Browser-Instanz zufällig generiert. Dies verhindert, dass Webseiten einen Browser über die installierten Erweiterungen erkennen.
+`<extension-UUID>` ist **nicht** die ID Ihrer Erweiterung. Diese ID wird zufällig für jede Instanz des Browsers generiert. Dadurch wird verhindert, dass Webseiten einen Browser über die installierten Erweiterungen fingerabdrucken.
 
 > [!NOTE]
 > In Chrome in Manifest V2 ist die ID einer Erweiterung fest. Wenn eine Ressource in `web_accessible_resources` aufgelistet ist, ist sie als `chrome-extension://<your-extension-id>/<path/to/resource>` zugänglich. In Manifest V3 kann Chrome eine dynamische URL verwenden, indem `use_dynamic_url` auf `true` gesetzt wird.
 
-Der empfohlene Ansatz, um die URL der Ressource zu erhalten, ist die Verwendung von [`runtime.getURL`](/de/docs/Mozilla/Add-ons/WebExtensions/API/runtime/getURL) mit dem Pfad relativ zu manifest.json, zum Beispiel:
+Der empfohlene Ansatz, um die URL der Ressource zu erhalten, ist die Verwendung von [`runtime.getURL`](/de/docs/Mozilla/Add-ons/WebExtensions/API/runtime/getURL), wobei der Pfad relativ zur manifest.json übergeben wird, zum Beispiel:
 
 ```js
 browser.runtime.getURL("images/my-image.png");
@@ -174,11 +174,11 @@ browser.runtime.getURL("images/my-image.png");
 // moz-extension://944cfddf-7a95-3c47-bd9a-663b3ce8d699/images/my-image.png
 ```
 
-Dieser Ansatz gibt Ihnen die korrekte URL unabhängig vom Browser, auf dem Ihre Erweiterung läuft.
+Dieser Ansatz liefert Ihnen die korrekte URL unabhängig vom Browser, auf dem Ihre Erweiterung läuft.
 
 ### Platzhalter
 
-`web_accessible_resources`-Einträge können Platzhalter enthalten. Zum Beispiel würde der folgende Eintrag auch funktionieren, um die Ressource unter "images/my-image.png" einzuschließen:
+Einträge in `web_accessible_resources` können Platzhalter enthalten. Zum Beispiel würde der folgende Eintrag ebenfalls funktionieren, um die Ressource bei "images/my-image.png" einzuschließen:
 
 ```json
   "web_accessible_resources": ["images/*.png"]
@@ -186,21 +186,21 @@ Dieser Ansatz gibt Ihnen die korrekte URL unabhängig vom Browser, auf dem Ihre 
 
 ### Sicherheit
 
-Wenn Sie eine Seite webzugänglich machen, kann jede Webseite diese Seite verlinken oder zu dieser umleiten. Die Seite sollte dann jede Eingabe (beispielsweise POST-Daten) behandeln, als würde sie von einer nicht vertrauenswürdigen Quelle stammen, genau wie eine normale Webseite.
+Wenn Sie eine Seite webbasiert zugänglich machen, kann jede Webseite auf diese Seite verlinken oder umleiten. Die Seite sollte dann jede Eingabe (zum Beispiel POST-Daten) so behandeln, als kämen sie von einer nicht vertrauenswürdigen Quelle, genau wie eine normale Webseite.
 
-Webzugängliche Erweiterungsressourcen werden nicht von [CORS](/de/docs/Web/HTTP/Guides/CORS) oder [CSP](/de/docs/Web/HTTP/Guides/CSP) blockiert. Aufgrund dieser Fähigkeit, Sicherheitsüberprüfungen zu umgehen, sollten Erweiterungen es vermeiden, webzugängliche Skripte zu verwenden, wann immer möglich. Ein webzugängliches Skript einer Erweiterung kann unerwartet von bösartigen Webseiten missbraucht werden, um die Sicherheit anderer Webseiten zu schwächen. Befolgen Sie die [Sicherheitsbest-Praktiken](https://extensionworkshop.com/documentation/develop/build-a-secure-extension/) durch Vermeidung der Injektion von moz-extension:-URLs in Webseiten und die Sicherstellung, dass Drittanbieter-Bibliotheken aktuell sind.
+Webbasierte Erweiterungsressourcen werden nicht durch [CORS](/de/docs/Web/HTTP/Guides/CORS) oder [CSP](/de/docs/Web/HTTP/Guides/CSP) blockiert. Aufgrund dieser Fähigkeit, Sicherheitschecks zu umgehen, sollten Erweiterungen nach Möglichkeit die Verwendung von webbasierten Skripten vermeiden. Ein webbasiertes Erweiterungsskript kann unerwartet von böswilligen Webseiten missbraucht werden, um die Sicherheit anderer Webseiten zu schwächen. Befolgen Sie die [Best Practices zur Sicherheit](https://extensionworkshop.com/documentation/develop/build-a-secure-extension/), indem Sie die Injektion von moz-extension:-URLs in Webseiten vermeiden und sicherstellen, dass Drittanbieter-Bibliotheken auf dem neuesten Stand sind.
 
 ## Beispiel
 
-### Manifest V2-Beispiel
+### Manifest V2 Beispiel
 
 ```json
 "web_accessible_resources": ["images/my-image.png"]
 ```
 
-Machen Sie die Datei unter "images/my-image.png" für jede Webseite und Erweiterung webzugänglich.
+Machen Sie die Datei bei "images/my-image.png" webbasiert zugänglich für jede Webseite und Erweiterung.
 
-### Manifest V3-Beispiel
+### Manifest V3 Beispiel
 
 ```json
 "web_accessible_resources": [
@@ -212,9 +212,9 @@ Machen Sie die Datei unter "images/my-image.png" für jede Webseite und Erweiter
 ]
 ```
 
-Machen Sie die Datei unter "images/my-image.png" für jede Webseite und Erweiterung webzugänglich.
+Machen Sie die Datei bei "images/my-image.png" webbasiert zugänglich für jede Webseite und Erweiterung.
 
-Es wird empfohlen, `extension_ids` oder `matches` nur anzugeben, wenn nötig. Zum Beispiel, wenn die Ressource nur für Webseiten bei example.com zugänglich sein muss:
+Es wird empfohlen, nur `extension_ids` oder `matches` zu spezifizieren, wenn nötig. Zum Beispiel, wenn die Ressource nur für Webseiten bei example.com zugänglich sein muss:
 
 ```json
 "web_accessible_resources": [
@@ -227,7 +227,7 @@ Es wird empfohlen, `extension_ids` oder `matches` nur anzugeben, wenn nötig. Zu
 
 ## Beispielerweiterungen
 
-<!-- Idealerweise würden wir die WebExtExamples-Vorlage verwenden, aber Beispiele sind noch nicht nach Manifest-Schlüsseln kategorisiert - https://github.com/mdn/webextensions-examples/issues/524 -->
+<!-- Ideally we'd use the WebExtExamples template, but examples are not categorized by manifest keys yet - https://github.com/mdn/webextensions-examples/issues/524 -->
 
 - [beastify](https://github.com/mdn/webextensions-examples/tree/main/beastify)
 - [dnr-redirect-url](https://github.com/mdn/webextensions-examples/tree/main/dnr-redirect-url)

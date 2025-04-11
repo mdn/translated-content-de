@@ -1,11 +1,11 @@
 ---
-title: "ARIA: Rolle navigation"
+title: "ARIA: navigation Rolle"
 slug: Web/Accessibility/ARIA/Reference/Roles/navigation_role
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
-Die Rolle `navigation` wird verwendet, um Hauptgruppen von Links zu identifizieren, die zum Navigieren durch eine Website oder Seiteninhalte verwendet werden.
+Die `navigation` Rolle wird verwendet, um Hauptgruppen von Links zu identifizieren, die zur Navigation durch eine Website oder Seiteninhalte verwendet werden.
 
 ```html
 <div role="navigation" aria-label="Main">
@@ -17,17 +17,17 @@ Dies ist die Hauptnavigation einer Website.
 
 ## Beschreibung
 
-Die Rolle `navigation` ist eine [Landmarke](/de/docs/Web/Accessibility/ARIA/Reference/Roles#3._landmark_roles). Landmarkenrollen bieten eine Möglichkeit, die Organisation und Struktur einer Webseite zu identifizieren. Durch die Klassifizierung und Kennzeichnung von Seitenbereichen wird visuell durch das Layout vermittelte strukturelle Information programmatisch dargestellt. Screenreader verwenden Landmarkenrollen, um Tastaturnavigation zu wichtigen Abschnitten einer Seite bereitzustellen. Wie das HTML-Element {{HTMLElement('nav')}} bieten Navigationslandmarken eine Möglichkeit, Gruppen (z. B. Listen) von Links zu identifizieren, die für die Navigation von Website- oder Seiteninhalten vorgesehen sind. Wenn eine Seite mehr als eine Navigationslandmarke enthält, sollte jede eine eindeutige Kennzeichnung haben. Wenn zwei oder mehr Navigationslandmarken auf einer Seite den gleichen Satz von Links haben, verwenden Sie für jede denselben Bezeichner.
+Die `navigation` Rolle ist eine [landmark](/de/docs/Web/Accessibility/ARIA/Reference/Roles#3._landmark_roles) Rolle. Landmark-Rollen bieten eine Möglichkeit, die Organisation und Struktur einer Webseite zu identifizieren. Durch Klassifizierung und Benennung der Abschnitte einer Seite wird die visuell durch das Layout übermittelte Strukturinformation programmatisch repräsentiert. Screenreader verwenden Landmark-Rollen, um eine Tastaturnavigation zu wichtigen Abschnitten einer Seite bereitzustellen. Wie das HTML {{HTMLElement('nav')}} Element bieten Navigationslandmarks eine Möglichkeit, Gruppen (z. B. Listen) von Links zu identifizieren, die für die Navigation durch Website- oder Seiteninhalte gedacht sind. Wenn eine Seite mehr als ein Navigationslandmark enthält, sollte jedes eine eindeutige Bezeichnung haben. Wenn zwei oder mehr Navigationslandmarks auf einer Seite denselben Satz von Links haben, verwenden Sie dieselbe Bezeichnung für jedes.
 
-Es ist vorzuziehen, das HTML5-Element [`<nav>`](/de/docs/Web/HTML/Element/nav) zu verwenden, um eine Navigationslandmarke zu definieren. Wenn die HTML5-`nav`-Element-Technik nicht verwendet wird, verwenden Sie ein Attribut `role="navigation"`, um eine Navigationslandmarke zu definieren.
+Es ist vorzuziehen, das HTML5 [`<nav>` Element](/de/docs/Web/HTML/Reference/Elements/nav) zu verwenden, um ein Navigationslandmark zu definieren. Wenn die HTML5 `nav` Element-Technik nicht verwendet wird, verwenden Sie ein `role="navigation"` Attribut, um ein Navigationslandmark zu definieren.
 
 > [!NOTE]
-> Die Verwendung des {{HTMLElement('nav')}}-Elements wird automatisch kommunizieren, dass ein Abschnitt eine Rolle von `navigation` hat. Entwickler sollten immer das richtige semantische HTML-Element gegenüber der Verwendung von ARIA bevorzugen.
+> Durch die Verwendung des {{HTMLElement('nav')}} Elements wird automatisch kommuniziert, dass ein Abschnitt die Rolle `navigation` hat. Entwickler sollten immer bevorzugen, das richtige semantische HTML-Element zu verwenden, anstatt ARIA zu verwenden.
 
-### Zugehörige WAI-ARIA Rollen, Zustände und Eigenschaften
+### Zugehörige WAI-ARIA-Rollen, -Zustände und -Eigenschaften
 
 - [`aria-label`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label)
-  - : Eine kurze Beschreibung des Zwecks der Navigation, ohne den Begriff "Navigation", da der Screenreader sowohl die Rolle als auch den Inhalt des Labels vorliest.
+  - : Eine kurze Beschreibung des Zwecks der Navigation, wobei der Begriff "navigation" ausgelassen wird, da der Screenreader sowohl die Rolle als auch den Inhalt des Labels liest.
 
 ### Tastaturinteraktionen
 
@@ -52,21 +52,21 @@ Keine.
 </div>
 ```
 
-## Barrierefreiheitsaspekte
+## Barrierefreiheitsbedenken
 
-[Landmarkenrollen](/de/docs/Web/Accessibility/ARIA/Reference/Roles#3._landmark_roles) sollten sparsam eingesetzt werden, um größere Gesamtabschnitte des Dokuments zu identifizieren. Die Verwendung von zu vielen Landmarkenrollen kann "Lärm" in Screenreadern erzeugen und es schwierig machen, das Gesamtlayout der Seite zu verstehen.
+[Landmark-Rollen](/de/docs/Web/Accessibility/ARIA/Reference/Roles#3._landmark_roles) sollen sparsam verwendet werden, um größere Gesamtabteilungen des Dokuments zu identifizieren. Die Verwendung von zu vielen Landmark-Rollen kann "Lärm" in Screenreadern erzeugen, was es schwierig macht, die Gesamtanordnung der Seite zu verstehen.
 
 ## Best Practices
 
 ### HTML bevorzugen
 
-Die Verwendung des {{HTMLElement('nav')}}-Elements wird automatisch kommunizieren, dass ein Abschnitt eine Rolle von `navigation` hat. Wenn möglich, ziehen Sie es vor, es zu verwenden.
+Die Verwendung des {{HTMLElement('nav')}} Elements wird automatisch kommunizieren, dass ein Abschnitt die Rolle `navigation` hat. Wenn irgendwie möglich, bevorzugen Sie die Verwendung dieses Elements.
 
 ### Landmarks kennzeichnen
 
 #### Mehrere Landmarks
 
-Wenn es mehr als eine Landmarkenrolle `navigation` oder {{HTMLElement('nav')}} in einem Dokument gibt, geben Sie für jede Landmarke eine Kennzeichnung an. Dieses Label ermöglicht es einem Benutzer von Hilfstechnologien, den Zweck jeder Landmarke schnell zu verstehen.
+Wenn in einem Dokument mehr als eine `navigation` Landmark-Rolle oder ein {{HTMLElement('nav')}} Element vorhanden ist, geben Sie für jedes Landmark eine Bezeichnung an. Diese Bezeichnung ermöglicht es dem Benutzer unterstützender Technologien, schnell den Zweck jedes Landmarks zu verstehen.
 
 ```html
 <div id="main-nav" role="navigation" aria-label="Main">
@@ -82,7 +82,7 @@ Wenn es mehr als eine Landmarkenrolle `navigation` oder {{HTMLElement('nav')}} i
 
 #### Wiederholte Landmarks
 
-Wenn eine Landmarkenrolle `navigation` oder {{HTMLElement('nav')}} in einem Dokument wiederholt wird und beide Landmarks identischen Inhalt haben, verwenden Sie für jede Landmarke dasselbe Label. Ein Beispiel hierfür wäre das Wiederholen der Hauptnavigation am oberen und unteren Rand der Seite.
+Wenn eine `navigation` Landmark-Rolle oder ein {{HTMLElement('nav')}} Element in einem Dokument wiederholt wird und beide Landmarks identische Inhalte haben, verwenden Sie dieselbe Bezeichnung für jedes Landmark. Ein Beispiel dafür wäre das Wiederholen der Hauptnavigation am oberen und unteren Rand der Seite.
 
 ```html
 <header>
@@ -102,7 +102,7 @@ Wenn eine Landmarkenrolle `navigation` oder {{HTMLElement('nav')}} in einem Doku
 
 #### Redundante Beschreibungen
 
-Screenreader werden die Art der Rolle der Landmarke ankündigen. Aus diesem Grund müssen Sie in ihrem Label nicht beschreiben, was die Landmarke ist. Beispielsweise könnte eine Deklaration von `role="navigation"` mit einem `aria-label="Primary navigation"` redundant als "primary navigation navigation" angekündigt werden.
+Screenreader geben den Typ der Rolle an, die das Landmark ist. Daher müssen Sie nicht beschreiben, was das Landmark in seiner Bezeichnung ist. Beispielsweise könnte eine Deklaration von `role="navigation"` mit `aria-label="Primary navigation"` redundant als "primary navigation navigation" angesagt werden.
 
 ## Spezifikationen
 
@@ -110,8 +110,8 @@ Screenreader werden die Art der Rolle der Landmarke ankündigen. Aus diesem Grun
 
 ## Siehe auch
 
-- Das {{HTMLElement('nav')}}-Element
-- [Verwenden von HTML-Abschnitten und -Outlines](/de/docs/Web/HTML/Element/Heading_Elements)
+- Das {{HTMLElement('nav')}} Element
+- [Verwendung von HTML-Abschnitten und Umrissen](/de/docs/Web/HTML/Reference/Elements/Heading_Elements)
 - [Using WAI-ARIA Landmarks – 2013 | The Paciello Group](https://www.tpgi.com/using-wai-aria-landmarks-2013/)
 - [Accessible Landmarks | scottohara.me](https://www.scottohara.me/blog/2018/03/03/landmarks.html)
 - [Semantische Navigation mit dem nav-Element | HTML5 Doctor](https://html5doctor.com/nav-element/)

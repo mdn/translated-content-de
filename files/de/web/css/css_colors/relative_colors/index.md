@@ -319,9 +319,9 @@ Dieses Beispiel erlaubt Ihnen, eine Basisfarbe und einen Farbpalettentyp zu wäh
 
 Das vollständige HTML ist unten als Referenz enthalten. Die interessantesten Teile sind wie folgt:
 
-- Die benutzerdefinierte Eigenschaft `--base-color` wird als Inline-Attribut [`style`](/de/docs/Web/HTML/Global_attributes/style) auf das {{htmlelement("div")}}-Element mit der ID `container` gespeichert. Wir haben sie dort platziert, damit sie leicht mit JavaScript aktualisiert werden kann. Wir haben einen anfänglichen Wert von `#ff0000` (`red`) bereitgestellt, um beim Laden des Beispiels eine Farbpalette basierend auf diesem Wert anzuzeigen. Normalerweise würden wir dies wahrscheinlich auf dem {{htmlelement("html")}}-Element setzen, aber das MDN-Live-Beispiel entfernte es beim Rendern.
-- Der Basisfarb-Auswahlwerkzeug wird mit einem [`<input type="color">`](/de/docs/Web/HTML/Element/input/color)-Steuerelement erstellt. Wenn ein neuer Wert in diesem Steuerelement gesetzt wird, wird die benutzerdefinierte Eigenschaft `--base-color` mithilfe von JavaScript auf diesen Wert gesetzt, was wiederum eine neue Farbpalette generiert. Alle angezeigten Farben sind relative Farben basierend auf `--base-color`.
-- Das Set von [`<input type="radio">`](/de/docs/Web/HTML/Element/input/radio)-Steuerelementen ermöglicht die Auswahl eines zu generierenden Farbpalettentyps. Wenn hier ein neuer Wert ausgewählt wird, wird JavaScript verwendet, um eine neue Klasse auf dem `container`-`<div>` zu setzen, um die gewählte Palette zu repräsentieren. In CSS werden Nachfahrenselektoren verwendet, um die untergeordneten `<div>`s zu zielen (z.B. `.comp :nth-child(1)`), sodass sie die richtigen Farben erhalten und die ungenutzten `<div>`-Knoten ausgeblendet werden.
+- Die benutzerdefinierte Eigenschaft `--base-color` wird als Inline-Attribut [`style`](/de/docs/Web/HTML/Reference/Global_attributes/style) auf das {{htmlelement("div")}}-Element mit der ID `container` gespeichert. Wir haben sie dort platziert, damit sie leicht mit JavaScript aktualisiert werden kann. Wir haben einen anfänglichen Wert von `#ff0000` (`red`) bereitgestellt, um beim Laden des Beispiels eine Farbpalette basierend auf diesem Wert anzuzeigen. Normalerweise würden wir dies wahrscheinlich auf dem {{htmlelement("html")}}-Element setzen, aber das MDN-Live-Beispiel entfernte es beim Rendern.
+- Der Basisfarb-Auswahlwerkzeug wird mit einem [`<input type="color">`](/de/docs/Web/HTML/Reference/Elements/input/color)-Steuerelement erstellt. Wenn ein neuer Wert in diesem Steuerelement gesetzt wird, wird die benutzerdefinierte Eigenschaft `--base-color` mithilfe von JavaScript auf diesen Wert gesetzt, was wiederum eine neue Farbpalette generiert. Alle angezeigten Farben sind relative Farben basierend auf `--base-color`.
+- Das Set von [`<input type="radio">`](/de/docs/Web/HTML/Reference/Elements/input/radio)-Steuerelementen ermöglicht die Auswahl eines zu generierenden Farbpalettentyps. Wenn hier ein neuer Wert ausgewählt wird, wird JavaScript verwendet, um eine neue Klasse auf dem `container`-`<div>` zu setzen, um die gewählte Palette zu repräsentieren. In CSS werden Nachfahrenselektoren verwendet, um die untergeordneten `<div>`s zu zielen (z.B. `.comp :nth-child(1)`), sodass sie die richtigen Farben erhalten und die ungenutzten `<div>`-Knoten ausgeblendet werden.
 - Der `container`-`<div>`, der die untergeordneten `<div>`s enthält, die die Farben der generierten Palette anzeigen. Beachten Sie, dass eine anfängliche Klasse `comp` darauf gesetzt ist, sodass die Seite ein komplementäres Farbschema beim ersten Laden anzeigt.
 
 ```html
@@ -606,7 +606,7 @@ Das Ergebnis ist wie folgt. Dies beginnt die Stärke relativer CSS-Farben zu zei
 
 ### Live-UI-Farbschema-Updater
 
-Dieses Beispiel zeigt eine Karte mit einer Überschrift und Text, jedoch mit einer Wendung — unterhalb der Karte befindet sich ein Schieberegler ([`<input type="range">`](/de/docs/Web/HTML/Element/input/range))-Steuerelement. Wenn dessen Wert geändert wird, wird JavaScript verwendet, um den Wert der benutzerdefinierten Eigenschaft `--hue` auf den neuen Schiebereglerwert zu setzen.
+Dieses Beispiel zeigt eine Karte mit einer Überschrift und Text, jedoch mit einer Wendung — unterhalb der Karte befindet sich ein Schieberegler ([`<input type="range">`](/de/docs/Web/HTML/Reference/Elements/input/range))-Steuerelement. Wenn dessen Wert geändert wird, wird JavaScript verwendet, um den Wert der benutzerdefinierten Eigenschaft `--hue` auf den neuen Schiebereglerwert zu setzen.
 
 Dies passt wiederum das Farbschema für die gesamte Benutzeroberfläche an:
 
@@ -618,8 +618,8 @@ Dies passt wiederum das Farbschema für die gesamte Benutzeroberfläche an:
 Das HTML für das Beispiel wird unten gezeigt.
 
 - Das {{htmlelement("main")}}-Element fungiert als äußerer Wrapper, um den Rest des Inhalts zu enthalten, sodass die Karte und das Formular vertikal und horizontal in `<main>` als eine Einheit zentriert werden können.
-- Das {{htmlelement("section")}}-Element enthält die [`<h1>`](/de/docs/Web/HTML/Element/Heading_Elements)- und {{htmlelement("p")}}-Elemente, die den Inhalt der Karte definieren.
-- Das {{htmlelement("form")}}-Element enthält das ([`<input type="range">`](/de/docs/Web/HTML/Element/input/range))-Steuerelement und dessen {{htmlelement("label")}}.
+- Das {{htmlelement("section")}}-Element enthält die [`<h1>`](/de/docs/Web/HTML/Reference/Elements/Heading_Elements)- und {{htmlelement("p")}}-Elemente, die den Inhalt der Karte definieren.
+- Das {{htmlelement("form")}}-Element enthält das ([`<input type="range">`](/de/docs/Web/HTML/Reference/Elements/input/range))-Steuerelement und dessen {{htmlelement("label")}}.
 
 ```html
 <main>

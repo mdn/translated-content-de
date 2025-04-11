@@ -2,7 +2,7 @@
 title: chrome_url_overrides
 slug: Mozilla/Add-ons/WebExtensions/manifest.json/chrome_url_overrides
 l10n:
-  sourceCommit: d86e14de2e66319fc0a0ec0539a05400dea5a453
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{AddonSidebar}}
@@ -14,11 +14,11 @@ l10n:
       <td><code>Object</code></td>
     </tr>
     <tr>
-      <th scope="row">Obligatorisch</th>
+      <th scope="row">Verpflichtend</th>
       <td>Nein</td>
     </tr>
     <tr>
-      <th scope="row">Manifest-Version</th>
+      <th scope="row">Manifestversion</th>
       <td>2 oder höher</td>
     </tr>
     <tr>
@@ -53,7 +53,7 @@ Der Schlüssel `chrome_url_overrides` ist ein Objekt, das die folgenden Eigensch
       <td><code>bookmarks</code></td>
       <td><code>String</code></td>
       <td>
-        <p>Ersatz für die Seite bereitstellen, die die Lesezeichen anzeigt. </p>
+        <p>Stellen Sie einen Ersatz für die Seite bereit, die die Lesezeichen anzeigt. </p>
       </td>
     </tr>
     <tr>
@@ -61,7 +61,7 @@ Der Schlüssel `chrome_url_overrides` ist ein Objekt, das die folgenden Eigensch
       <td><code>String</code></td>
       <td>
         <p>
-          Ersatz für die Seite bereitstellen, die den Browserverlauf anzeigt.
+          Stellen Sie einen Ersatz für die Seite bereit, die den Browserverlauf anzeigt.
         </p>
       </td>
     </tr>
@@ -70,44 +70,36 @@ Der Schlüssel `chrome_url_overrides` ist ein Objekt, das die folgenden Eigensch
       <td><code>String</code></td>
       <td>
         <p>
-          Ersatz für das Dokument bereitstellen, das auf der "Neuer Tab"
-          Seite angezeigt wird. Dies ist die Seite, die angezeigt wird, wenn der Benutzer einen neuen Tab geöffnet hat,
-          aber noch kein Dokument darin geladen hat: z. B. durch Verwendung der
-          <kbd>Strg</kbd>/<kbd>Befehl</kbd>+<kbd>T</kbd> Tastenkombination.
+          Stellen Sie einen Ersatz für das Dokument bereit, das auf der "neue Tab"-Seite angezeigt wird. Dies ist die Seite, die gezeigt wird, wenn der Benutzer einen neuen Tab geöffnet hat, aber kein Dokument darin geladen hat: zum Beispiel durch die Verwendung des
+          <kbd>Strg</kbd>/<kbd>Command</kbd>+<kbd>T</kbd>-Tastenkürzels.
         </p>
         <p>
-          Der Ersatz wird als URL zu einer HTML-Datei angegeben. Die Datei muss
-          mit der Erweiterung gebündelt sein: Sie können hier keine externe URL angeben. Sie
-          können es relativ zum Stammverzeichnis der Erweiterung angeben, wie:
+          Der Ersatz wird als URL zu einer HTML-Datei angegeben. Die Datei muss mit der Erweiterung gebündelt sein: Sie können hier keine Remote-URL angeben. Sie können sie relativ zum Stammordner der Erweiterung angeben, wie:
           "path/to/newtab.html".
         </p>
         <p>
-          Das Dokument kann CSS und JavaScript laden, genau wie eine normale Webseite.
-          JavaScript, das auf der Seite ausgeführt wird, erhält Zugriff auf die gleichen
+          Das Dokument kann CSS und JavaScript laden, genau wie eine normale Webseite. JavaScript, das auf der Seite läuft, erhält Zugriff auf dieselben
           <a href="/de/docs/Mozilla/Add-ons/WebExtensions/API"
-            >privilegierten "browser.*" APIs</a
+            >privilegierten "browser.*"-APIs</a
           >
           wie das Hintergrundskript der Erweiterung.
         </p>
         <p>
           Es ist eine sehr gute Praxis, einen
-          <a href="/de/docs/Web/HTML/Element/title">&#x3C;title></a> für die
-          Seite hinzuzufügen, andernfalls wird der Titel des Tabs die "moz-extension://..." URL sein.
+          <a href="/de/docs/Web/HTML/Reference/Elements/title">&#x3C;title></a> für die
+          Seite einzuschließen, da der Titel des Tabs sonst die "moz-extension://..."-URL sein wird.
         </p>
         <p>
-          Ein häufiger Anwendungsfall ist es, dem Benutzer zu erlauben, eine neue Tab-Seite zu definieren:
-          um dies zu tun, stellen Sie eine benutzerdefinierte neue Tab-Seite bereit,
-          die zu der vom Benutzer definierten Seite navigiert.
+          Ein häufiger Anwendungsfall ist es, dem Benutzer zu ermöglichen, eine neue Tab-Seite zu definieren: Um dies zu tun, stellen Sie eine benutzerdefinierte neue Tab-Seite bereit, die zur vom Benutzer definierten Seite navigiert.
         </p>
         <p>
-          Wenn zwei oder mehr Erweiterungen jeweils benutzerdefinierte neue Tab-Seiten definieren, dann wird die
-          zuletzt installierte oder aktivierte den Vorzug erhalten.
+          Wenn zwei oder mehr Erweiterungen benutzerdefinierte neue Tab-Seiten definieren, dann wird der Wert der zuletzt installierten oder aktivierten Erweiterung verwendet.
         </p>
         <p>
-          Um die Startseite des Browsers zu ersetzen, verwenden Sie "<a
+          Um die Startseite des Browsers zu überschreiben, verwenden Sie stattdessen "<a
             href="/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/chrome_settings_overrides"
             >chrome_settings_overrides</a
-          >" stattdessen.
+          >".
         </p>
       </td>
     </tr>

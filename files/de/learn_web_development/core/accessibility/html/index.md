@@ -1,77 +1,77 @@
 ---
-title: "HTML: Eine gute Grundlage für Barrierefreiheit"
-short-title: Barrierefreies HTML
+title: "HTML: Eine gute Grundlage für Zugänglichkeit"
+short-title: Zugängliches HTML
 slug: Learn_web_development/Core/Accessibility/HTML
 l10n:
-  sourceCommit: 9da2567689c0a4397b0d70efbbb878dec3115754
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{LearnSidebar}}
 
 {{PreviousMenuNext("Learn_web_development/Core/Accessibility/Tooling","Learn_web_development/Core/Accessibility/CSS_and_JavaScript", "Learn_web_development/Core/Accessibility")}}
 
-Ein großer Teil der Webinhalte kann zugänglich gemacht werden, indem man einfach sicherstellt, dass die richtigen Hypertext Markup Language-Elemente jederzeit für den richtigen Zweck verwendet werden. Dieser Artikel untersucht im Detail, wie HTML verwendet werden kann, um maximale Barrierefreiheit sicherzustellen.
+Ein Großteil der Webinhalte kann zugänglich gemacht werden, indem immer die richtigen Hypertext Markup Language-Elemente für den richtigen Zweck verwendet werden. Dieser Artikel befasst sich im Detail damit, wie HTML eingesetzt werden kann, um maximale Zugänglichkeit zu gewährleisten.
 
 <table>
   <tbody>
     <tr>
       <th scope="row">Voraussetzungen:</th>
-      <td>Vertrautheit mit <a href="/de/docs/Learn_web_development/Core/Structuring_content">HTML</a>, <a href="/de/docs/Learn_web_development/Core/Styling_basics">CSS</a>, ein <a href="/de/docs/Learn_web_development/Core/Accessibility/What_is_accessibility">grundlegendes Verständnis von Barrierefreiheitskonzepten</a>.</td>
+      <td>Vertrautheit mit <a href="/de/docs/Learn_web_development/Core/Structuring_content">HTML</a>, <a href="/de/docs/Learn_web_development/Core/Styling_basics">CSS</a>, ein <a href="/de/docs/Learn_web_development/Core/Accessibility/What_is_accessibility">grundlegendes Verständnis von Zugänglichkeitskonzepten</a>.</td>
     </tr>
     <tr>
       <th scope="row">Lernziele:</th>
       <td>
         <ul>
-          <li>Semantisches HTML verwenden, auch bekannt als "Das richtige Element für die richtige Aufgabe", da der Browser so viele eingebaute Hooks für die Barrierefreiheit bietet.</li>
-          <li>Barrierefreie Best Practices wie Alternativtexte, gute Link-Best, Formularbeschriftungen und Tabellenzeilen- und -spaltenüberschriften und -abgrenzungen.</li>
-          <li>Einfache, klare Sprache verwenden, soweit möglich auf Slang und Abkürzungen verzichten und Definitionen bieten, wo es nicht möglich ist.</li>
-          <li>Das Konzept und die Praxis der Tastaturzugänglichkeit.</li>
-          <li>Die Bedeutung der Quellreihenfolge.</li>
+          <li>Verwendung von semantischem HTML, auch bekannt als "Das richtige Element für den richtigen Job", da der Browser viele integrierte Zugänglichkeits-Mechanismen bietet.</li>
+          <li>Zugängliche Best Practices wie Alt-Text, gute Linkpraktiken, Formularbeschriftungen und Tabellenzeilen- und -spaltenüberschriften sowie Scoping.</li>
+          <li>Verwendung einfacher, klarer Sprache, Vermeidung von Slang und Abkürzungen, wo möglich, und Bereitstellung von Definitionen, wo dies nicht möglich ist.</li>
+          <li>Das Konzept und die Praxis der Tastatur-Zugänglichkeit.</li>
+          <li>Die Bedeutung der Quellenreihenfolge.</li>
         </ul>
       </td>
     </tr>
   </tbody>
 </table>
 
-## HTML und Barrierefreiheit
+## HTML und Zugänglichkeit
 
-Wenn Sie mehr über HTML lernen — mehr Ressourcen lesen, mehr Beispiele ansehen, usw. — werden Sie ein gemeinsames Thema immer wieder sehen: die Bedeutung der Verwendung von semantischem HTML (manchmal als POSH bezeichnet, oder Plain Old Semantic HTML). Das bedeutet, die korrekten HTML-Elemente so oft wie möglich für ihren vorgesehenen Zweck zu verwenden.
+Je mehr Sie über HTML lernen — mehr Ressourcen lesen, mehr Beispiele ansehen usw. — desto mehr werden Sie ein gemeinsames Thema erkennen: die Bedeutung der Verwendung von semantischem HTML (manchmal POSH genannt, oder Plain Old Semantic HTML). Das bedeutet, die richtigen HTML-Elemente so weit wie möglich für den vorgesehenen Zweck zu verwenden.
 
-Sie fragen sich vielleicht, warum das so wichtig ist. Schließlich können Sie eine Kombination aus CSS und JavaScript verwenden, um fast jedes HTML-Element so verhalten zu lassen, wie Sie es möchten. Zum Beispiel könnte eine Steuerungstaste, um ein Video auf Ihrer Website abzuspielen, so formatiert werden:
+Sie könnten sich fragen, warum das so wichtig ist. Schließlich können Sie eine Kombination aus CSS und JavaScript verwenden, um fast jedes HTML-Element so zu gestalten, dass es sich in einer beliebigen Art und Weise verhält, die Sie wollen. Zum Beispiel könnte ein Steuerungsknopf zum Abspielen eines Videos auf Ihrer Seite so markiert sein:
 
 ```html
 <div>Play video</div>
 ```
 
-Aber wie Sie später noch genauer sehen werden, macht es Sinn, das richtige Element für die Aufgabe zu verwenden:
+Aber wie Sie später noch detaillierter sehen werden, macht es Sinn, das richtige Element für die Aufgabe zu verwenden:
 
 ```html
 <button>Play video</button>
 ```
 
-HTML-`<button>`s haben nicht nur einige passende Voreinstellungen (die Sie wahrscheinlich überschreiben möchten), sie bieten auch eingebaute Tastaturzugänglichkeit — Benutzer können mit der <kbd>Tab</kbd>-Taste zwischen den Tasten navigieren und ihre Auswahl mit <kbd>Space</kbd>, <kbd>Return</kbd> oder <kbd>Enter</kbd> aktivieren.
+HTML-`<button>`s haben nicht nur eine geeignete Standard-Styling, das Sie wahrscheinlich überschreiben wollen, sondern auch eine eingebaute Tastatur-Zugänglichkeit — Benutzer können zwischen Tasten mit der <kbd>Tab</kbd>-Taste navigieren und ihre Auswahl mit <kbd>Space</kbd>, <kbd>Return</kbd> oder <kbd>Enter</kbd> aktivieren.
 
-Semantisches HTML erfordert nicht mehr Zeit zum Schreiben als nicht-semantische (schlechte) Markup, wenn Sie von Anfang an konsequent vorgehen. Noch besser ist, dass semantisches Markup über Barrierefreiheit hinaus weitere Vorteile bietet:
+Semantisches HTML erfordert nicht länger zum Schreiben als nicht-semantisches (schlechtes) Markup, wenn Sie es konsequent von Beginn Ihres Projekts an tun. Noch besser, semantisches Markup hat über die Zugänglichkeit hinaus weitere Vorteile:
 
-1. **Einfacher zu entwickeln** — wie oben erwähnt, erhalten Sie einige Funktionen kostenlos, und es ist wohl einfacher zu verstehen.
-2. **Besser auf mobilen Geräten** — semantisches HTML ist tendenziell leichter in der Dateigröße als nicht-semantischer Spaghetti-Code und einfacher responsive zu machen.
-3. **Gut für SEO** — Suchmaschinen geben Keywords innerhalb von Überschriften, Links usw. mehr Bedeutung als Keywords, die in nicht-semantischen `<div>`s usw. enthalten sind, so dass Ihre Dokumente für Kunden auffindbarer werden.
+1. **Einfacher zu entwickeln** — wie bereits erwähnt, erhalten Sie einige Funktionalitäten kostenlos, und es ist wahrscheinlich einfacher zu verstehen.
+2. **Besser auf Mobilgeräten** — semantisches HTML hat möglicherweise eine geringere Dateigröße als nicht-semantischer Spaghetticode und ist leichter responsiv zu gestalten.
+3. **Gut für SEO** — Suchmaschinen legen mehr Wert auf Schlüsselwörter innerhalb von Überschriften, Links usw. als auf Schlüsselwörter, die in nicht-semantischen `<div>`s inkludiert sind, sodass Ihre Dokumente besser von Kunden gefunden werden können.
 
-Lassen Sie uns nun im Detail auf barrierefreies HTML eingehen.
+Schauen wir uns nun zugängliches HTML im Detail an.
 
 ## Gute Semantik
 
-Wir haben bereits über die Bedeutung korrekter Semantik gesprochen und warum wir das richtige HTML-Element für die Aufgabe verwenden sollten. Dies kann nicht ignoriert werden, da es einer der Hauptbereiche ist, in denen Barrierefreiheit ernsthaft beeinträchtigt wird, wenn sie nicht ordnungsgemäß behandelt wird.
+Wir haben bereits über die Bedeutung der richtigen Semantik gesprochen und warum wir das richtige HTML-Element für den Job verwenden sollten. Dies kann nicht ignoriert werden, da es einer der Hauptpunkte ist, an denen die Zugänglichkeit erheblich beeinträchtigt wird, wenn sie nicht ordnungsgemäß gehandhabt wird.
 
-Im Web machen die Menschen seltsame Dinge mit HTML-Markup. Oft ist der Missbrauch von HTML auf veraltete Praktiken zurückzuführen, die noch nicht verschwunden sind, aber manchmal passiert es auch, weil Autoren nichts Besseres wissen. In jedem Fall sollten Sie schlechtes Code durch gutes semantisches Markup ersetzen, wo immer möglich, sowohl in statischen HTML-Seiten als auch dynamisch generiertem HTML aus [serverseitigem](/de/docs/Learn_web_development/Extensions/Server-side) Code oder [clientseitigen JavaScript-Frameworks](/de/docs/Learn_web_development/Core/Frameworks_libraries) wie React.
+Im Web ist es eine Tatsache, dass Leute sehr seltsame Dinge mit HTML-Markup machen. Oft resultiert der Missbrauch von HTML aus alten Praktiken, die noch nicht verschwunden sind, aber manchmal geschieht es, weil Autoren es nicht besser wissen. Was auch immer der Fall ist, Sie sollten schlechten Code wann immer möglich durch gutes semantisches Markup ersetzen, sowohl in statischen HTML-Seiten als auch in dynamisch generiertem HTML aus [serverseitigem](/de/docs/Learn_web_development/Extensions/Server-side) Code oder [clientseitigen JavaScript-Frameworks](/de/docs/Learn_web_development/Core/Frameworks_libraries) wie React.
 
-Manchmal sind Sie nicht in der Lage, schlechtes Markup loszuwerden — Ihre Seiten könnten von serverseitigem Code oder Web-/Framework-Komponenten abhängen, die außerhalb Ihrer Kontrolle liegen, oder Sie könnten Drittinhalte auf Ihrer Seite haben (wie Werbebanner).
+Manchmal sind Sie nicht in der Lage, schlechtes Markup zu entfernen — Ihre Seiten könnten von serverseitigem Code oder Web-/Framework-Komponenten abhängen, über die Sie keine Kontrolle haben, oder Sie haben möglicherweise Drittinhalte auf Ihrer Seite (wie Werbebanner).
 
-Das Ziel ist nicht "alles oder nichts"; jede Verbesserung, die Sie vornehmen können, wird dem Zweck der Barrierefreiheit helfen.
+Das Ziel ist nicht "alles oder nichts"; jede Verbesserung, die Sie vornehmen können, wird zur Sache der Zugänglichkeit beitragen.
 
 ### Verwenden Sie gut strukturierten Textinhalt
 
-Eine der besten Hilfen für Nutzer von Screenreader ist eine ausgezeichnete Textstruktur mit Überschriften, Absätzen, Listen usw. Ein gutes semantisches Beispiel könnte folgendermaßen aussehen:
+Eine der besten Zugänglichkeitshilfen, die ein Benutzer eines Screenreaders haben kann, ist eine hervorragende Textstruktur mit Überschriften, Absätzen, Listen usw. Ein gutes semantisches Beispiel könnte folgendermaßen aussehen:
 
 ```html example-good
 <h1>My heading</h1>
@@ -101,14 +101,14 @@ Eine der besten Hilfen für Nutzer von Screenreader ist eine ausgezeichnete Text
 </p>
 ```
 
-Wir haben eine längere Textversion für Sie vorbereitet, die Sie mit einem Screenreader ausprobieren können (siehe [good-semantics.html](https://mdn.github.io/learning-area/accessibility/html/good-semantics.html)). Wenn Sie sich durch diese Version navigieren, werden Sie feststellen, dass sie ziemlich einfach zu bedienen ist:
+Wir haben eine Version mit längerem Text für Sie vorbereitet, um diese mit einem Screenreader auszuprobieren (siehe [good-semantics.html](https://mdn.github.io/learning-area/accessibility/html/good-semantics.html)). Wenn Sie versuchen, durch diese zu navigieren, werden Sie feststellen, dass dies ziemlich einfach ist:
 
-1. Der Screenreader liest jede Überschrift aus, während Sie den Inhalt durchgehen, und informiert Sie darüber, was eine Überschrift, was ein Absatz usw. ist.
-2. Er stoppt nach jedem Element, sodass Sie in Ihrem eigenen Tempo vorgehen können.
-3. In vielen Screenreadern können Sie zur nächsten/vorherigen Überschrift springen.
-4. Viele Screenreader bieten eine Liste aller Überschriften an, die Sie wie ein Inhaltsverzeichnis verwenden können, um spezifische Inhalte zu finden.
+1. Der Screenreader liest jede Überschrift vor, während Sie durch den Inhalt voranschreiten und teilt Ihnen mit, was eine Überschrift ist, was ein Absatz ist etc.
+2. Er stoppt nach jedem Element, sodass Sie in Ihrem eigenen angenehmen Tempo vorankommen können.
+3. In vielen Screenreadern können Sie zum nächsten/vorherigen Überschrift springen.
+4. Sie können auch in vielen Screenreadern eine Liste aller Überschriften abrufen, sodass Sie diese als praktische Inhaltsverzeichnis verwenden können, um spezifische Inhalte zu finden.
 
-Menschen schreiben manchmal Überschriften, Absätze usw., indem sie Zeilenumbrüche verwenden und rein zu Stilzwecken HTML-Elemente hinzufügen, wie im folgenden Beispiel:
+Manchmal schreiben Leute Überschriften, Absätze usw. mit Zeilenumbrüchen und fügen HTML-Elemente nur zur Formatierung hinzu, etwas wie das Folgende:
 
 ```html example-bad
 <span style="font-size: 3em">My heading</span> <br /><br />
@@ -133,23 +133,23 @@ This is the second subsection of my content. I think is more interesting than
 the last one.
 ```
 
-Wenn Sie mit einem Screenreader unsere längere Version ausprobieren (siehe [bad-semantics.html](https://mdn.github.io/learning-area/accessibility/html/bad-semantics.html)), werden Sie keine sehr gute Erfahrung machen — der Screenreader hat keine strukturellen Hinweise, sodass Sie kein nützliches Inhaltsverzeichnis abrufen können und die ganze Seite als ein einziger großer Block wahrgenommen wird, der in einem Zug durchgelesen wird.
+Wenn Sie unsere längere Version mit einem Screenreader ausprobieren (siehe [bad-semantics.html](https://mdn.github.io/learning-area/accessibility/html/bad-semantics.html)), werden Sie keine sehr gute Erfahrung machen — der Screenreader hat nichts, woran er sich orientieren kann, d.h. Sie können kein nützliches Inhaltsverzeichnis abrufen und die ganze Seite wird als ein einziger riesiger Block angesehen, der einfach in einem Zug, komplett durchgelesen wird.
 
-Es gibt auch andere Probleme jenseits der Barrierefreiheit — es ist schwieriger, den Inhalt mit CSS zu gestalten oder mit JavaScript zu manipulieren, zum Beispiel, weil es keine Elemente gibt, die als Selektoren verwendet werden können.
+Es gibt auch andere Probleme neben der Zugänglichkeit — es ist schwieriger, den Inhalt mit CSS zu stylen oder ihn mit JavaScript zu manipulieren, da es keine Elemente gibt, die als Selektoren verwendet werden können.
 
 ### Verwenden Sie klare Sprache
 
-Die Sprache, die Sie verwenden, kann ebenfalls die Barrierefreiheit beeinflussen. Generell sollten Sie eine klare Sprache verwenden, die nicht übermäßig komplex ist und keine unnötigen Fachbegriffe oder Slangwörter verwendet. Dies kommt nicht nur Menschen mit kognitiven oder anderen Behinderungen zugute; es hilft auch Lesern, für die der Text nicht in ihrer Muttersprache geschrieben ist, jüngeren Menschen... im Grunde jedem! Abgesehen davon sollten Sie versuchen, Sprache und Zeichen zu vermeiden, die vom Screenreader nicht klar vorgelesen werden. Zum Beispiel:
+Die Sprache, die Sie verwenden, kann auch die Zugänglichkeit beeinflussen. Im Allgemeinen sollten Sie eine klare Sprache verwenden, die nicht unnötig komplex ist und keine unnötigen Fachbegriffe oder Slang verwendet. Dies nützt nicht nur Menschen mit kognitiven oder anderen Behinderungen, sondern auch Lesern, für die der Text nicht in ihrer Erstsprache geschrieben ist, jüngeren Menschen …, ja, eigentlich allen! Abgesehen davon sollten Sie versuchen, Sprache und Zeichen zu vermeiden, die nicht klar von einem Screenreader gelesen werden. Zum Beispiel:
 
-- Vermeiden Sie, wenn möglich, Bindestriche zu verwenden. Statt 5–7 zu schreiben, schreiben Sie 5 bis 7.
-- Abkürzungen ausschreiben — statt Jan zu schreiben, schreiben Sie Januar.
-- Abkürzungen erläutern, mindestens ein- oder zweimal, und dann das [`<abbr>`](/de/docs/Web/HTML/Element/abbr) Tag verwenden, um sie zu beschreiben.
+- Verwenden Sie keine Bindestriche, wenn Sie es vermeiden können. Anstatt "5–7" zu schreiben, schreiben Sie "5 bis 7".
+- Erweitern Sie Abkürzungen — anstelle von "Jan" schreiben Sie "Januar".
+- Erweitern Sie Akronyme, einmal oder zweimal, verwenden Sie dann den [`<abbr>`](/de/docs/Web/HTML/Reference/Elements/abbr) Tag, um sie zu beschreiben.
 
-### Gliedern Sie Seitensektionen logisch
+### Strukturieren Sie Seitenabschnitte logisch
 
-Sie sollten geeignete [Abschnittselemente](/de/docs/Web/HTML/Element#content_sectioning) verwenden, um Ihre Webseiten zu strukturieren, zum Beispiel für die Navigation ({{htmlelement("nav")}}), Fußzeile ({{htmlelement("footer")}}) und wiederkehrende Inhaltseinheiten ({{htmlelement("article")}}). Diese bieten zusätzliche Semantik für Screenreader (und andere Werkzeuge), um den Benutzern zusätzliche Hinweise über den navigierten Inhalt zu geben.
+Sie sollten geeignete [Sektionselemente](/de/docs/Web/HTML/Reference/Elements#content_sectioning) verwenden, um Ihre Webseiten zu strukturieren, zum Beispiel für Navigation ({{htmlelement("nav")}}), Fußzeile ({{htmlelement("footer")}}), und wiederkehrende Inhaltseinheiten ({{htmlelement("article")}}). Diese bieten zusätzliche Semantik für Screenreader (und andere Tools), um Benutzern zusätzliche Hinweise auf die Inhalte zu geben, die sie navigieren.
 
-Ein modernes Inhaltsstrukturbeispiel könnte etwa so aussehen:
+Zum Beispiel könnte eine moderne Inhaltsstruktur so aussehen:
 
 ```html
 <header>
@@ -183,24 +183,24 @@ Ein modernes Inhaltsstrukturbeispiel könnte etwa so aussehen:
 </footer>
 ```
 
-Sie finden ein [komplettes Beispiel hier](https://mdn.github.io/learning-area/html/introduction-to-html/document_and_website_structure/).
+Ein [vollständiges Beispiel finden Sie hier](https://mdn.github.io/learning-area/html/introduction-to-html/document_and_website_structure/).
 
-Neben guter Semantik und einem ansprechenden Layout sollte Ihr Inhalt in seiner Quellreihenfolge auch logischen Sinn ergeben — Sie können ihn später immer dort platzieren, wo Sie möchten, indem Sie CSS verwenden, aber Sie sollten die Quellreihenfolge von Anfang an richtig gestalten, sodass das, was Screenreader-Nutzer vorgelesen bekommen, Sinn ergibt.
+Zusätzlich zu guter Semantik und einem attraktiven Layout sollte Ihr Inhalt in seiner Quellenreihenfolge logisch Sinn machen — Sie können es später immer mit CSS platzieren, wo Sie möchten, aber Sie sollten die Quellenreihenfolge von Anfang an richtig hinbekommen, damit das, was Screenreader-Benutzer vorgelesen bekommen, sinnvoll ist.
 
-### Verwenden Sie nach Möglichkeit semantische UI-Steuerelemente
+### Verwenden Sie, wenn möglich, semantische UI-Steuerelemente
 
-Mit UI-Steuerelementen meinen wir die Hauptbestandteile von Webdokumenten, mit denen Benutzer interagieren — am häufigsten Buttons, Links und Formularelemente. In diesem Abschnitt beschäftigen wir uns mit den grundlegenden Themen der Barrierefreiheit, die bei der Erstellung solcher Steuerelemente zu beachten sind. Spätere Artikel zu WAI-ARIA und Multimedia werden sich mit anderen Aspekten der UI-Barrierefreiheit befassen.
+Mit UI-Steuerelementen meinen wir die Hauptbestandteile von Webdokumenten, mit denen Benutzer interagieren — am häufigsten Tasten, Links und Formularsteuerelemente. In diesem Abschnitt betrachten wir die grundlegenden Zugänglichkeitsaspekte, auf die Sie beim Erstellen solcher Steuerelemente achten sollten. Spätere Artikel zu WAI-ARIA und Multimedia werden sich mit weiteren Aspekten der UI-Zugänglichkeit befassen.
 
-Ein wichtiger Aspekt der Barrierefreiheit von UI-Steuerelementen ist, dass Browser diese standardmäßig über die Tastatur bedienbar machen. Sie können dies mit unserem [native-keyboard-accessibility.html](https://mdn.github.io/learning-area/tools-testing/cross-browser-testing/accessibility/native-keyboard-accessibility.html) Beispiel ausprobieren (siehe den [Quellcode](https://github.com/mdn/learning-area/blob/main/tools-testing/cross-browser-testing/accessibility/native-keyboard-accessibility.html)). Öffnen Sie dies in einem neuen Tab und versuchen Sie, die Tabulatortaste zu drücken; nach ein paar Drücken sollten Sie sehen, wie der Tab-Fokus durch die verschiedenen fokussierbaren Elemente wechselt. Die fokussierten Elemente erhalten einen hervorgehobenen Standardstil in jedem Browser (es unterscheidet sich leicht zwischen verschiedenen Browsern), sodass Sie erkennen können, welches Element fokussiert ist.
+Ein Schlüsselpunkt der Zugänglichkeit von UI-Steuerelementen ist, dass Browser sie standardmäßig mit der Tastatur steuern lassen. Sie können dies mit unserem [native-keyboard-accessibility.html](https://mdn.github.io/learning-area/tools-testing/cross-browser-testing/accessibility/native-keyboard-accessibility.html) Beispiel ausprobieren (siehe den [Quellcode](https://github.com/mdn/learning-area/blob/main/tools-testing/cross-browser-testing/accessibility/native-keyboard-accessibility.html)). Öffnen Sie dies in einem neuen Tab und versuchen Sie, die Tabulatortaste zu drücken; nach ein paar Mal sollten Sie sehen, wie der Tab-Fokus beginnt, sich durch die verschiedenen fokussierbaren Elemente zu bewegen. Die fokussierten Elemente erhalten in jedem Browser eine hervorgehobene Standard-Styling (sie unterscheidet sich leicht zwischen den verschiedenen Browsern), sodass Sie feststellen können, welches Element fokussiert ist.
 
-![Drei Schaltflächen mit dem Text "Click me!", "Click me too!" und "And me!" darin. Die dritte Schaltfläche hat einen blauen Umriss, um den aktuellen Tab-Fokus anzuzeigen.](button-focused-unfocused.png)
+![Drei Schaltflächen mit dem Text "Klicken Sie mich an!", "Klicken Sie auch mich an!" und "Und mich!" in ihnen. Die dritte Schaltfläche hat eine blaue Umrandung, um den aktuellen Tab-Fokus anzuzeigen.](button-focused-unfocused.png)
 
 > [!NOTE]
-> Sie können in Ihren Entwickler-Tools eine Überlagerung aktivieren, die die Tabulatorreihenfolge der Seite anzeigt. Weitere Informationen finden Sie unter: [Accessibility Inspector > Show web page tabbing order](https://firefox-source-docs.mozilla.org/devtools-user/accessibility_inspector/index.html#show-web-page-tabbing-order).
+> Sie können ein Overlay aktivieren, das die Tabbing-Reihenfolge der Seite in Ihren Entwicklertools anzeigt. Weitere Informationen finden Sie unter: [Accessibility Inspector > Show web page tabbing order](https://firefox-source-docs.mozilla.org/devtools-user/accessibility_inspector/index.html#show-web-page-tabbing-order).
 
-Sie können dann Enter/Return drücken, um einem fokussierten Link zu folgen oder eine Schaltfläche zu drücken (wir haben etwas JavaScript eingebaut, damit die Schaltflächen eine Nachricht anzeigen), oder anfangen zu tippen, um Text in einem Texteingabefeld einzugeben. Andere Formularelemente haben unterschiedliche Steuerungen; zum Beispiel kann das {{htmlelement("select")}}-Element seine Optionen mit den Pfeiltasten nach oben und unten anzeigen und zwischen ihnen wechseln.
+Sie können dann Enter/Return drücken, um einem fokussierten Link zu folgen oder eine Schaltfläche zu drücken (wir haben etwas JavaScript eingefügt, damit die Schaltflächen eine Nachricht auslösen), oder beginnen, Text in ein Texteingabefeld einzugeben. Andere Formularelemente haben unterschiedliche Steuerungen; zum Beispiel kann das {{htmlelement("select")}}-Element seine Optionen zur Anzeige bringen und zwischen ihnen mit den Auf- und Abwärtspfeiltasten wechseln.
 
-Im Grunde erhalten Sie dieses Verhalten kostenlos, indem Sie einfach die entsprechenden Elemente verwenden, zum Beispiel:
+Dieses Verhalten erhalten Sie im Grunde kostenlos, indem Sie die entsprechenden Elemente verwenden, zum Beispiel:
 
 ```html example-good
 <h1>Links</h1>
@@ -243,9 +243,9 @@ Im Grunde erhalten Sie dieses Verhalten kostenlos, indem Sie einfach die entspre
 </form>
 ```
 
-Das bedeutet, Links, Buttons, Formularelemente und Beschriftungen angemessen zu verwenden (einschließlich des {{htmlelement("label")}}-Elements für Formularelemente).
+Das bedeutet, dass Sie Links, Schaltflächen, Formularelemente und Beschriftungen angemessen verwenden sollten (einschließlich des {{htmlelement("label")}}-Elements für Formularsteuerelemente).
 
-Allerdings kommt es vor, dass Menschen manchmal seltsame Dinge mit HTML machen. Zum Beispiel sieht man manchmal Tasten, die mit {{htmlelement("div")}}s formatiert sind, zum Beispiel:
+Dies ist jedoch ein weiterer Fall, in dem Menschen manchmal seltsame Dinge mit HTML tun. Beispielsweise sehen Sie manchmal Tasten, die mit {{htmlelement("div")}}s markiert sind, zum Beispiel:
 
 ```html example-bad
 <div data-message="This is from the first button">Click me!</div>
@@ -253,11 +253,11 @@ Allerdings kommt es vor, dass Menschen manchmal seltsame Dinge mit HTML machen. 
 <div data-message="This is from the third button">And me!</div>
 ```
 
-Aber solche Codeverwendung wird nicht empfohlen — Sie verlieren sofort die native Tastaturzugänglichkeit, die Sie gehabt hätten, wenn Sie einfach {{htmlelement("button")}}-Elemente verwendet hätten, und Sie erhalten keine der Standard-CSS-Styling-Optionen, die Tasten bekommen. In seltenen bis nicht existierenden Fällen, in denen Sie ein Nicht-Tasten-Element für eine Taste verwenden müssen, verwenden Sie die [`button`-Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles/button_role) und implementieren Sie alle Standard-Tastenverhalten einschließlich Tastatur- und Maustastensupport.
+Aber die Verwendung eines solchen Codes wird nicht empfohlen — Sie verlieren sofort die native Tastatur-Zugänglichkeit, die Sie gehabt hätten, wenn Sie einfach {{htmlelement("button")}} Elemente verwendet hätten, und Sie erhalten keine der Standard-CSS-Stylings, die Tasten haben. Im seltenen bis nicht existierenden Fall, dass Sie ein Nicht-Tasten-Element für eine Schaltfläche verwenden müssen, verwenden Sie die [`button`-Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles/button_role) und implementieren alle Standard-Tastenverhalten, einschließlich Tastatur- und Maustastenunterstützung.
 
-#### Tastaturzugänglichkeit wieder einbauen
+#### Tastatur-Zugänglichkeit zurück einbauen
 
-Solche Vorteile zurückzubringen erfordert etwas Arbeit (Sie können ein Beispiel in unserem [fake-div-buttons.html](https://mdn.github.io/learning-area/tools-testing/cross-browser-testing/accessibility/fake-div-buttons.html) Beispiel sehen — siehe auch den [Quellcode](https://github.com/mdn/learning-area/blob/main/tools-testing/cross-browser-testing/accessibility/fake-div-buttons.html)). Hier haben wir unseren gefälschten `<div>`-Tasten die Möglichkeit gegeben, fokussiert zu werden (einschließlich über Tab), indem wir jedes mit dem Attribut `tabindex="0"` versehen. Wir schließen auch `role="button"` ein, damit Screenreader-Benutzer wissen, dass sie das Element fokussieren und interagieren können:
+Das Wiederherstellen solcher Vorteile erfordert ein wenig Arbeit (Sie können ein Beispiel in unserem [fake-div-buttons.html](https://mdn.github.io/learning-area/tools-testing/cross-browser-testing/accessibility/fake-div-buttons.html) Beispiel sehen — siehe auch den [Quellcode](https://github.com/mdn/learning-area/blob/main/tools-testing/cross-browser-testing/accessibility/fake-div-buttons.html)). Hier haben wir unseren gefälschten `<div>` Tasten die Fähigkeit gegeben, fokussiert zu sein (einschließlich über Tab), indem wir jedem das Attribut `tabindex="0"` gegeben haben. Wir schließen auch `role="button"` ein, damit Benutzer von Screenreadern wissen, dass sie das Element fokussieren und interagieren können:
 
 ```html
 <div data-message="This is from the first button" tabindex="0" role="button">
@@ -271,12 +271,12 @@ Solche Vorteile zurückzubringen erfordert etwas Arbeit (Sie können ein Beispie
 </div>
 ```
 
-Grundsätzlich ist das [`tabindex`](/de/docs/Web/HTML/Global_attributes/tabindex)-Attribut hauptsächlich dazu gedacht, tabbbaren Elementen eine benutzerdefinierte Tab-Reihenfolge (in positiver numerischer Reihenfolge) zu geben, anstatt sie in ihrer Standard-Quellreihenfolge zu tabben. Dies ist fast immer eine schlechte Idee, da es zu großen Verwirrung führen kann. Verwenden Sie es nur, wenn Sie es wirklich brauchen, zum Beispiel, wenn das Layout die Dinge in einer sehr anderen visuellen Reihenfolge als im Quellcode zeigt und Sie die Dinge logischer gestalten möchten. Es gibt zwei weitere Optionen für `tabindex`:
+Grundsätzlich ist das [`tabindex`](/de/docs/Web/HTML/Reference/Global_attributes/tabindex)-Attribut in erster Linie dazu gedacht, fokussierbaren Elementen eine benutzerdefinierte Tab-Reihenfolge zu geben (in positiver numerischer Reihenfolge angegeben), anstatt einfach in ihrer Standard-Quellenreihenfolge durchgetabbt zu werden. Dies ist fast immer eine schlechte Idee, da es zu großen Verwirrungen führen kann. Verwenden Sie es nur, wenn Sie es wirklich brauchen, zum Beispiel, wenn das Layout Sachen in einer sehr anderen visuellen Reihenfolge als der Quellcode zeigt und Sie möchten, dass die Dinge logischer funktionieren. Es gibt zwei weitere Optionen für `tabindex`:
 
-- `tabindex="0"` — wie oben erwähnt, erlaubt dieser Wert, dass Elemente, die normalerweise nicht tabbbar sind, tabbbar werden. Das ist der nützlichste Wert von `tabindex`.
-- `tabindex="-1"` — dies ermöglicht normalerweise nicht tabbenden Elementen, programmatisch fokussiert zu werden, z. B. über JavaScript oder als Ziel von Links.
+- `tabindex="0"` — wie oben angegeben, erlaubt dieser Wert normalerweise nicht-fokussierbaren Elementen, fokussierbar zu werden. Dies ist der nützlichste Wert von `tabindex`.
+- `tabindex="-1"` — erlaubt normalerweise nicht-fokussierbaren Elementen, programmgesteuert fokussiert zu werden, z.B. über JavaScript oder als Ziel von Links.
 
-Obiger Zusatz ermöglicht es uns zwar, zu den Tasten zu tabben, erlaubt es uns jedoch nicht, sie über die <kbd>Enter</kbd>/<kbd>Return</kbd>-Taste zu aktivieren. Dazu mussten wir das folgende JavaScript-Stück hinzufügen:
+Wenn Sie die obige Ergänzung gemacht haben, können Sie zu den Schaltflächen tabben, aber Sie können sie nicht mit der <kbd>Enter</kbd>/<kbd>Return</kbd> Taste aktivieren. Dazu mussten wir das folgende JavaScript hinzufügen:
 
 ```js
 document.onkeydown = (e) => {
@@ -287,19 +287,19 @@ document.onkeydown = (e) => {
 };
 ```
 
-Hier fügen wir einen Listener zum `document`-Objekt hinzu, um zu erkennen, wenn eine Taste auf der Tastatur gedrückt wurde. Wir überprüfen, welche Taste gedrückt wurde, über die Eigenschaft [`key`](/de/docs/Web/API/KeyboardEvent/key) des Event-Objekts; wenn die gedrückte Taste <kbd>Enter</kbd>/<kbd>Return</kbd> ist, rufen wir die Funktion auf, die im `onclick`-Handler der Taste gespeichert ist, indem wir `document.activeElement.click()` verwenden. [`activeElement`](/de/docs/Web(API/Document/activeElement) gibt uns das Element, das derzeit auf der Seite fokussiert ist.
+Hier fügen wir dem `document`-Objekt einen Listener hinzu, um zu erkennen, wann eine Taste auf der Tastatur gedrückt wurde. Wir prüfen, welche Taste über die [`key`](/de/docs/Web/API/KeyboardEvent/key)-Eigenschaft des Ereignisobjekts gedrückt wurde; wenn die gedrückte Taste <kbd>Enter</kbd>/<kbd>Return</kbd> ist, führen wir die Funktion aus, die im `onclick`-Handler der Taste gespeichert ist, indem wir `document.activeElement.click()` verwenden. [`activeElement`](/de/docs/Web/API/Document/activeElement) gibt uns das Element, das derzeit auf der Seite fokussiert ist.
 
-Das ist eine Menge extra Arbeit, um die Funktionalität wiederherzustellen. Und es wird sicherlich andere Probleme damit geben. **Besser, gleich das richtige Element für die richtige Aufgabe zu verwenden.**
+Das ist eine Menge zusätzlicher Arbeit, um die Funktionalität wieder einzubauen. Und es gibt bestimmt noch andere Probleme damit. **Es ist besser, von Anfang an das richtige Element für den richtigen Job zu verwenden.**
 
-#### Verwenden Sie bedeutungsvolle Textbeschriftungen
+#### Verwenden Sie aussagekräftige Textbeschriftungen
 
-UI-Steuerelement-Textbeschriftungen sind für alle Benutzer sehr nützlich, aber sie richtig hinzubekommen, ist besonders wichtig für Benutzer mit Behinderungen.
+UI-Steuerelement-Textbeschriftungen sind sehr nützlich für alle Benutzer, aber besonders für Benutzer mit Behinderungen ist es wichtig, dass sie richtig sind.
 
-Sie sollten darauf achten, dass Ihre Schaltflächen- und Linktextbeschriftungen verständlich und deutlich sind. Verwenden Sie nicht einfach "Hier klicken" für Ihre Beschriftungen, da Screenreader-Benutzer manchmal eine Liste von Schaltflächen und Formularelementen aufrufen. Der folgende Screenshot zeigt unsere Steuerelemente, die von VoiceOver auf dem Mac aufgelistet werden.
+Sie sollten sicherstellen, dass Ihre Schaltflächen- und Link-Textbeschriftungen verständlich und unterscheidbar sind. Verwenden Sie nicht einfach "Hier klicken" für Ihre Beschriftungen, da Benutzer von Screenreadern manchmal eine Liste von Tasten und Formularsteuerelementen erhalten. Der folgende Screenshot zeigt, wie unsere Steuerelemente von VoiceOver auf einem Mac aufgelistet werden.
 
-![Liste von Formular-Eingabebeschriftungen, die von der VoiceOver-Software auf einem Mac aufgelistet werden. Diese Liste enthält bedeutungslose Beschriftungen wie 'happy menu button`, die verschiedenen Formularsteuerelementen wie Schaltfläche, Textfeld und Link zugewiesen sind](voiceover-formcontrols.png)
+![Eine Liste von Formular-Eingabetexten, die von der VoiceOver-Software auf einem Mac aufgelistet werden. Diese Liste enthält bedeutungslose Bezeichnungen wie 'happy menu button`, die verschiedenen Formularsteuerelementen wie Schaltfläche, Textfeld und Link gegeben werden.](voiceover-formcontrols.png)
 
-Stellen Sie sicher, dass Ihre Beschriftungen sowohl aus dem Kontext heraus als auch als Teil des umgebenden Textes Sinn ergeben. Zum Beispiel zeigt das folgende Beispiel, wie guter Linktext aussieht:
+Stellen Sie sicher, dass Ihre Beschriftungen sowohl aus dem Zusammenhang gerissen Sinn machen als auch im Kontext des Absatzes, in dem sie sich befinden. Zum Beispiel zeigt das folgende Beispiel einen guten Linktext:
 
 ```html example-good
 <p>
@@ -308,7 +308,7 @@ Stellen Sie sicher, dass Ihre Beschriftungen sowohl aus dem Kontext heraus als a
 </p>
 ```
 
-doch dies ist schlechter Linktext:
+aber dies ist schlechter Linktext:
 
 ```html example-bad
 <p>
@@ -318,15 +318,15 @@ doch dies ist schlechter Linktext:
 ```
 
 > [!NOTE]
-> Sie finden viel mehr über die Implementierung und Best Practices von Links in unserem [Erstellen von Links](/de/docs/Learn_web_development/Core/Structuring_content/Creating_links)-Artikel. Sie können auch gute und schlechte Beispiele bei [good-links.html](https://mdn.github.io/learning-area/accessibility/html/good-links.html) und [bad-links.html](https://mdn.github.io/learning-area/accessibility/html/bad-links.html) sehen.
+> Weitere Informationen zur Link-Implementierung und zu Best Practices finden Sie in unserem Artikel [Links erstellen](/de/docs/Learn_web_development/Core/Structuring_content/Creating_links). Sie können auch einige gute und schlechte Beispiele unter [good-links.html](https://mdn.github.io/learning-area/accessibility/html/good-links.html) und [bad-links.html](https://mdn.github.io/learning-area/accessibility/html/bad-links.html) finden.
 
-Formularbeschriftungen sind auch wichtig, um Ihnen einen Hinweis darauf zu geben, was Sie in jedes Formulareingabefeld eingeben müssen. Das folgende Beispiel scheint ein vernünftiges Beispiel zu sein:
+Formularbeschriftungen sind auch wichtig, um Ihnen einen Hinweis darauf zu geben, was Sie in jedes Formulareingabefeld eingeben müssen. Folgendes scheint ein vernünftiges Beispiel zu sein:
 
 ```html example-bad
 Fill in your name: <input type="text" id="name" name="name" />
 ```
 
-Das ist jedoch für behinderte Benutzer nicht sehr nützlich. Es gibt nichts im obigen Beispiel, das die Beschriftung eindeutig mit der Formulareingabe verbindet und klar macht, wie sie auszufüllen ist, wenn man sie nicht sehen kann. Wenn Sie dieses Beispiel mit einigen Screenreadern verwenden, erhalten Sie möglicherweise nur eine Beschreibung wie "Edit Text".
+Dies ist jedoch nicht sehr nützlich für behinderte Benutzer. Im obigen Beispiel gibt es nichts, das die Beschriftung unmissverständlich mit der Formulareingabe verknüpft und es klar macht, wie sie ausgefüllt werden soll, wenn Sie sie nicht sehen können. Wenn Sie dies mit einigen Screenreadern aufrufen, erhalten Sie möglicherweise nur eine Beschreibung im Sinne von "Textbearbeitung."
 
 Das folgende ist ein viel besseres Beispiel:
 
@@ -337,22 +337,22 @@ Das folgende ist ein viel besseres Beispiel:
 </div>
 ```
 
-Mit einem solchen Code wird die Beschriftung deutlich mit der Eingabe verbunden; die Beschreibung wird sein wie "Fill in your name: Edit Text".
+Mit solchem Code wird die Beschriftung klar mit der Eingabe verbunden; die Beschreibung wird mehr wie "Geben Sie Ihren Namen ein: Textbearbeitung."
 
-![Eine gute Formularbeschriftung, die "Fill in your name" liest, wird einem Text-Eingabeformularsteuerlement zugewiesen. ](voiceover-good-form-label.png)
+![Eine gute Formularbeschriftung, die "Geben Sie Ihren Namen ein" liest, wird einem Text-Eingabeformular-Steuerelement zugeordnet.](voiceover-good-form-label.png)
 
-Als zusätzlicher Vorteil bedeutet das Verknüpfen einer Beschriftung mit einer Formulareingabe in den meisten Browsern, dass Sie auf die Beschriftung klicken können, um das Formularelement auszuwählen oder zu aktivieren. Dies vergrößert die Trefferfläche des Eingabefelds und erleichtert die Auswahl.
+Zusätzlich haben Sie mit den meisten Browsern, wenn Sie eine Beschriftung mit einer Formulareingabe verknüpfen, die Möglichkeit, durch Klicken auf die Beschriftung das Formularelement auszuwählen oder zu aktivieren. Dies gibt der Eingabe einen größeren Trefferbereich, was sie einfacher auszuwählen macht.
 
 > [!NOTE]
-> Einige gute und schlechte Formulbbeispiele finden Sie in [good-form.html](https://mdn.github.io/learning-area/accessibility/html/good-form.html) und [bad-form.html](https://mdn.github.io/learning-area/accessibility/html/bad-form.html).
+> Sie können einige gute und schlechte Formularexamples in [good-form.html](https://mdn.github.io/learning-area/accessibility/html/good-form.html) und [bad-form.html](https://mdn.github.io/learning-area/accessibility/html/bad-form.html) sehen.
 
-In folgendem Video finden Sie eine schöne Erklärung über die Bedeutung von richtigen Textbeschriftungen und wie Sie Probleme mit Textbeschriftungen mit dem [Firefox Accessibility Inspector](https://firefox-source-docs.mozilla.org/devtools-user/accessibility_inspector/index.html) untersuchen können:
+Sie können eine schöne Erklärung zur Bedeutung von richtigen Textbeschriftungen und wie man Textbeschriftungsprobleme mit dem [Firefox Accessibility Inspector](https://firefox-source-docs.mozilla.org/devtools-user/accessibility_inspector/index.html) untersucht, im folgenden Video finden:
 
 {{EmbedYouTube("YhlAVlfH0rQ")}}
 
-## Barrierefreie Datentabellen
+## Zugängliche Datentabellen
 
-Eine einfache Datentabelle kann mit sehr einfachem Markup geschrieben werden, zum Beispiel:
+Eine grundlegende Daten-tabelle kann mit sehr einfachem Markup geschrieben werden, zum Beispiel:
 
 ```html
 <table>
@@ -379,21 +379,21 @@ Eine einfache Datentabelle kann mit sehr einfachem Markup geschrieben werden, zu
 </table>
 ```
 
-Aber das hat Probleme — es gibt keine Möglichkeit für einen Screenreader-Benutzer, Zeilen oder Spalten als Datengruppierungen zu verbinden. Dazu müssen die Überschriftenzeilen bekannt sein und ob sie Zeilen oder Spalten überschreiben usw. Dies kann für die obige Tabelle nur visuell erfolgen (siehe [bad-table.html](https://mdn.github.io/learning-area/accessibility/html/bad-table.html) und probieren Sie das Beispiel selbst aus).
+Aber das hat Probleme — es gibt keine Möglichkeit für einen Bildschirmleser-Benutzer, Zeilen oder Spalten als Gruppierungen von Daten miteinander in Verbindung zu bringen. Dazu müssen Sie wissen, was die Überschriftszeilen sind und ob sie Zeilen, Spalten usw. überspannen. Dies kann nur visuell für die obige Tabelle getan werden (siehe [bad-table.html](https://mdn.github.io/learning-area/accessibility/html/bad-table.html) und probieren Sie das Beispiel selbst aus).
 
-Sehen Sie sich nun unser [punk bands table example](https://github.com/mdn/learning-area/blob/main/css/styling-boxes/styling-tables/punk-bands-complete.html) an — hier können Sie einige Barrierefreiheitsunterstützungen sehen:
+Schauen Sie sich jetzt unser [Punk-Bands-Tabelle Beispiel](https://github.com/mdn/learning-area/blob/main/css/styling-boxes/styling-tables/punk-bands-complete.html) an — Sie können dort ein paar Zugänglichkeitshilfen in Aktion sehen:
 
-- Tabellenüberschriften werden mit {{htmlelement("th")}}-Elementen definiert — Sie können auch angeben, ob sie Überschriften für Zeilen oder Spalten sind, mithilfe des Attributs `scope`. Dies gibt Ihnen vollständige Datengruppen, die von Screenreadern als einzelne Einheiten konsumiert werden können.
-- Das {{htmlelement("caption")}}-Element und das `summary`-Attribut des `<table>`-Elements erfüllen ähnliche Aufgaben — sie geben einem Screenreader-Benutzer eine nützliche kurze Zusammenfassung der Tabelleninhalte. Das `<caption>`-Element wird allgemein bevorzugt, da es seinen Inhalt auch sehenden Benutzern zugänglich macht, die es auch nützlich finden könnten. Sie benötigen nicht unbedingt beides.
+- Tabellenüberschriften sind mit {{htmlelement("th")}}-Elementen definiert — Sie können auch angeben, ob sie Überschriften für Zeilen oder Spalten sind, indem Sie das `scope`-Attribut verwenden. Das gibt Ihnen vollständige Datengruppen, die von Screenreadern als Einheiten konsumiert werden können.
+- Das {{htmlelement("caption")}}-Element und das `summary`-Attribut des `<table>`-Elements haben ähnliche Funktionen — sie wirken als Alt-Text für eine Tabelle und geben einem Screenreader-Benutzer eine nützliche kurze Zusammenfassung des Tabelleninhalts. Das `<caption>`-Element wird allgemein bevorzugt, da es auch sehenden Benutzern, die es vielleicht genauso nützlich finden könnten, zugänglich ist. Man braucht nicht unbedingt beides.
 
 > [!NOTE]
-> Siehe unseren [HTML table accessibility](/de/docs/Learn_web_development/Core/Structuring_content/Table_accessibility)-Artikel für mehr Details zu barrierefreien Datentabellen.
+> Siehe unseren [Zugänglichkeit von HTML-Tabellen](/de/docs/Learn_web_development/Core/Structuring_content/Table_accessibility) Artikel für mehr Details über zugängliche Datentabellen.
 
 ## Textalternativen
 
-Während textueller Inhalt inhärent barrierefrei ist, kann dies nicht unbedingt für multimediale Inhalte gesagt werden — Bild- und Videoinhalte können von sehbehinderten Menschen nicht gesehen werden und Audioinhalte nicht von hörgeschädigten Menschen. Wir behandeln Video- und Audioinhalte ausführlich im [Accessible multimedia](/de/docs/Learn_web_development/Core/Accessibility/Multimedia), aber in diesem Artikel befassen wir uns mit der Barrierefreiheit des bescheidenen {{htmlelement("img")}}-Elements.
+Während Textinhalte von Natur aus zugänglich sind, kann dasselbe nicht unbedingt für Multimedia-Inhalte gesagt werden — Bild- und Videoinhalte können von sehbehinderten Personen nicht gesehen werden, und Audiowiedergaben können von hörbehinderten Personen nicht gehört werden. Wir behandeln Video- und Audioinhalte ausführlich im [Zugängliche Multimedia](/de/docs/Learn_web_development/Core/Accessibility/Multimedia), aber für diesen Artikel schauen wir uns die Zugänglichkeit für das einfache {{htmlelement("img")}}-Element an.
 
-Wir haben ein einfaches Beispiel geschrieben, [accessible-image.html](https://mdn.github.io/learning-area/accessibility/html/accessible-image.html), das vier Kopien desselben Bildes beinhaltet:
+Wir haben ein einfaches Beispiel geschrieben, [accessible-image.html](https://mdn.github.io/learning-area/accessibility/html/accessible-image.html), das vier Kopien desselben Bildes zeigt:
 
 ```html
 <img src="dinosaur.png" />
@@ -415,32 +415,32 @@ Wir haben ein einfaches Beispiel geschrieben, [accessible-image.html](https://md
 </p>
 ```
 
-Das erste Bild bietet beim Betrachten durch einen Screenreader dem Benutzer nicht wirklich viel Hilfe — VoiceOver zum Beispiel liest "/dinosaur.png, Bild" vor. Es liest dem Benutzer den Dateinamen vor, um einige Informationen zu geben. In diesem Fall weiß der Benutzer zumindest, dass es sich um einen Dinosaurier irgendeiner Art handelt, aber oft werden Dateien mit maschinengenerierten Dateinamen (z. B. von einer Digitalkamera) hochgeladen, die wahrscheinlich keinen Kontext zu den Bildinhalten bieten.
+Beim ersten Bild bietet der Bildschirmleser dem Benutzer nicht wirklich viel Hilfe — VoiceOver zum Beispiel liest "/dinosaur.png, image" vor. Es liest den Dateinamen vor, um einige Hinweise zu geben. In diesem Beispiel weiß der Benutzer zumindest, dass es sich um einen Dinosaurier handelt, aber oft werden Dateien mit maschinengenerierten Dateinamen hochgeladen (z. B. von einer Digitalkamera), und diese Dateinamen bieten wahrscheinlich keinen Kontext zum Inhalt des Bildes.
 
 > [!NOTE]
-> Aus diesem Grund sollten Sie niemals Textinhalte in ein Bild einfügen — Screenreader können darauf nicht zugreifen. Es gibt auch andere Nachteile — man kann sie nicht auswählen oder kopieren/einfügen. Tun Sie es einfach nicht!
+> Dies ist der Grund, warum Sie niemals Textinhalte in ein Bild einfügen sollten — Bildschirmleser können es nicht erreichen. Es gibt auch andere Nachteile — Sie können es nicht auswählen und kopieren/einfügen. Tun Sie es einfach nicht!
 
-Wenn ein Screenreader auf das zweite Bild stößt, liest er das vollständige `alt`-Attribut vor — "Ein roter Tyrannosaurus Rex: Ein zweibeiniger Dinosaurier, der aufrecht wie ein Mensch steht, mit kleinen Armen und einem großen Kopf mit vielen scharfen Zähnen".
+Wenn ein Bildschirmleser auf das zweite Bild stößt, liest es das komplette alt-Attribut vor — "Ein roter Tyrannosaurus Rex: Ein zweibeiniger Dinosaurier, der wie ein Mensch aufrecht steht, mit kleinen Armen und einem großen Kopf mit vielen scharfen Zähnen."
 
-Dies hebt die Bedeutung hervor, nicht nur bedeutungsvolle Dateinamen zu verwenden, falls so genannter **Alt-Text** nicht verfügbar ist, sondern auch sicherzustellen, dass Alt-Text in `alt`-Attributen, wo immer möglich, bereitgestellt wird.
+Dies unterstreicht die Bedeutung nicht nur von sinnvoller Dateinamengebung, falls sogenannter **alt-Text** nicht verfügbar ist, sondern auch von der Bereitstellung von Alt-Text in `alt`-Attributen, wo immer möglich.
 
-Beachten Sie, dass der Inhalt des `alt`-Attributs immer eine direkte Darstellung des Bildes und seiner visuellen Aussage bieten sollte. Das `alt` sollte kurz und prägnant sein und alle Informationen enthalten, die im Bild vermittelt werden, aber nicht im umgebenden Text dupliziert sind.
+Der Inhalt des `alt`-Attributs sollte immer eine direkte Darstellung des Bildes und dessen sein, was es visuell vermittelt. Das Alt sollte kurz und prägnant sein und alle Informationen umfassen, die im Bild gezeigt werden, die nicht im umgebenden Text dargelegt sind.
 
-Der Inhalt des `alt`-Attributs für ein einzelnes Bild variiert je nach Kontext. Zum Beispiel, wenn das Foto von Fluffy ein Avatar neben einer Bewertung für Yuckymeat-Hundefutter ist, ist `alt="Fluffy"` angemessen. Wenn das Foto Teil von Fluffys Adoptionsseite für die Tierrettungsgesellschaft ist, sollten Informationen, die im Bild vermittelt werden und für einen potenziellen Hundebesitzer relevant sind, aber nicht im umgebenden Text bereits stehen, enthalten sein. Eine längere Beschreibung wie `alt="Fluffy, ein dreifarbiger Terrier mit sehr kurzem Haar, mit einem Tennisball im Mund."` ist angemessen. Da der umgebende Text wahrscheinlich Fluffys Größe und Rasse enthält, wird dies nicht im `alt` aufgenommen. Da die Biographie des Hundes wahrscheinlich keine Haarlänge, Farben oder Spielzeugvorlieben enthält, die für potenzielle Besitzer wichtig sind, wird dies aufgenommen. Ist das Bild im Freien, oder trägt Fluffy ein rotes Halsband mit einer blauen Leine? Nicht wichtig im Hinblick auf die Adoption des Haustiers und daher nicht aufgenommen. Alle Informationen, die ein sehender Benutzer aus dem Bild entnehmen kann und die im Kontext relevant sind, müssen vermittelt werden; nicht mehr. Halten Sie es kurz, präzise und nützlich.
+Der Inhalt des `alt`-Attributs für ein einzelnes Bild unterscheidet sich je nach Kontext. Zum Beispiel, wenn das Foto von Fluffy ein Avatar neben einer Bewertung für Yuckymeat Hundefutter ist, ist `alt="Fluffy"` angemessen. Wenn das Foto Teil von Fluffys Adoptionsseite für das Tierrettungsverein ist, sollten Informationen, die im Bild vermittelt werden und für einen potenziellen Hundebesitzer relevant sind, die nicht im umgebenden Text dupliziert sind, dargelegt werden. Eine längere Beschreibung wie `alt="Fluffy, ein dreifarbiger Terrier mit sehr kurzem Haar, mit einem Tennisball im Mund."` ist angemessen. Da wahrscheinlich Größe und Rasse von Fluffy im begleitenden Text enthalten sind, werden diese nicht im `alt` vermerkt. Da die Biografie des Hundes jedoch wahrscheinlich keine Haarlänge, Farben oder Spielzeugvorlieben enthält, die der potenzielle Besitzer wissen soll, werden diese enthalten. Ist das Bild draußen oder hat Fluffy ein rotes Halsband mit einer blauen Leine? Nicht wichtig in Bezug auf die Adoption und daher nicht enthalten. Alle Informationen, die ein Bild vermittelt, auf die ein sehender Benutzer zugreifen kann und die im Kontext relevant sind, müssen dargelegt werden; nichts darüber hinaus. Halten Sie es kurz, präzise und nützlich.
 
-Persönliches Wissen oder zusätzliche Beschreibungen sollten hier nicht eingefügt werden, da sie für Personen, die das Bild zuvor nicht gesehen haben, nicht nützlich sind. Wenn der Ball Fluffys Lieblingst Spielzeug ist oder ein sehender Benutzer das nicht aus dem Bild erkennen kann, dann nicht aufnehmen.
+Persönliche Kenntnisse oder zusätzliche Beschreibungen sollten hier nicht einbezogen werden, da sie nicht nützlich für Leute sind, die das Bild zuvor nicht gesehen haben. Wenn der Ball Fluffys Lieblingsspielzeug ist, oder wenn ein sehender Benutzer das aus dem Bild nicht wissen kann, dann sollten sie es nicht einbeziehen.
 
-Bedenken Sie, ob Ihre Bilder in Ihrem Inhalt eine Bedeutung haben oder ob sie rein zur visuellen Dekoration verwendet werden und somit keine Bedeutung haben. Wenn sie dekorativ sind, ist es besser, einen leeren Text als Wert für das `alt`-Attribut zu schreiben (siehe [Leere alt-Attribute](#leere_alt-attribute)) oder sie einfach als CSS-Hintergrundbilder in die Seite einzufügen.
+Ein weiterer zu berücksichtigender Aspekt ist, ob Ihre Bilder innerhalb Ihrer Inhalte Bedeutung haben, oder ob sie rein zur visuellen Dekoration sind und daher keine Bedeutung haben. Wenn sie dekorativ sind, ist es besser, einen leeren Text als Wert für das `alt`-Attribut zu schreiben (siehe [Leere alt-Attribute](#leere_alt-attribute)) oder sie einfach auf der Seite als CSS-Hintergrundbilder einzufügen.
 
 > [!NOTE]
-> Lesen Sie [HTML images](/de/docs/Learn_web_development/Core/Structuring_content/HTML_images) und [Responsive images](/de/docs/Web/HTML/Responsive_images) für viele weitere Informationen über Bildimplementierung und Best Practices.
-> Sie können auch [An alt Decision Tree](https://www.w3.org/WAI/tutorials/images/decision-tree/) lesen, um zu lernen, wie man ein alt-Attribut für Bilder in verschiedenen Situationen verwendet.
+> Lesen Sie [HTML-Bilder](/de/docs/Learn_web_development/Core/Structuring_content/HTML_images) und [Responsive Bilder](/de/docs/Web/HTML/Guides/Responsive_images), um mehr über die Implementierung von Bildern und Best-Practices zu erfahren.
+> Sie können auch [Ein alt-Entscheidungsbaum](https://www.w3.org/WAI/tutorials/images/decision-tree/) lesen, um zu lernen, wie Sie ein alt-Attribut für Bilder in verschiedenen Situationen verwenden.
 
-Wenn Sie zusätzliche kontextuelle Informationen bereitstellen möchten, sollten Sie diese im umgebenden Text, oder in einem `title`-Attribut unterbringen, wie oben gezeigt. In diesem Fall lesen die meisten Screenreader den alt-Text, das title-Attribut und den Dateinamen vor. Außerdem zeigen Browser Title-Text als Tooltip an, wenn mit der Maus darauf gezeigt wird.
+Wenn Sie zusätzliche kontextuelle Informationen bereitstellen möchten, sollten Sie diese im Text um das Bild herum plattieren, oder in ein `title`-Attribut, wie oben gezeigt. In diesem Fall werden die meisten Screenreader den alt-Text, den title-Attribut und den Dateinamen vorlesen. In Ergänzung dazu zeigen Browser den title-Text als Hinweise an, wenn mit der Maus darüber gefahren wird.
 
-![Screenshot eines roten Tyrannosaurus Rex mit dem Text "The mozilla red dinosaur", der als Tooltip beim Mouseover angezeigt wird.](title-attribute.png)
+![Screenshot von einem roten Tyrannosaurus Rex mit dem Text "The Mozilla red dinosaur", der als Tooltip beim Überfahren mit der Maus angezeigt wird.](title-attribute.png)
 
-Lassen Sie uns schnell noch einmal die vierte Methode betrachten:
+Lasst uns einen schnellen Blick auf die vierte Methode werfen:
 
 ```html
 <img src="dinosaur.png" aria-labelledby="dino-label" />
@@ -448,13 +448,13 @@ Lassen Sie uns schnell noch einmal die vierte Methode betrachten:
 <p id="dino-label">The Mozilla red Tyrannosaurus…</p>
 ```
 
-In diesem Fall verwenden wir das `alt`-Attribut überhaupt nicht — stattdessen haben wir unsere Beschreibung des Bildes als regulären Textabschnitt präsentiert, ihm eine `id` zugewiesen und dann das `aria-labelledby`-Attribut verwendet, um sich auf diese `id` zu beziehen, was dazu führt, dass Screenreader diesen Absatz als Alt-Text/Beschriftung für dieses Bild verwenden. Dies ist besonders nützlich, wenn Sie denselben Text als Beschriftung für mehrere Bilder verwenden möchten — etwas, das mit `alt` nicht möglich ist.
+In diesem Fall verwenden wir überhaupt kein `alt`-Attribut — stattdessen haben wir unsere Bildbeschreibung als regulären Textabsatz dargestellt, ihm eine `id` gegeben und dann das Attribut `aria-labelledby` verwendet, um auf diese `id` zu verweisen, was bewirkt, dass Screenreader diesen Absatz als Alt-Text/Label für das Bild verwenden. Dies ist besonders nützlich, wenn Sie den gleichen Text für mehrere Bilder als Label verwenden wollen — etwas, das mit `alt` nicht möglich ist.
 
-> **Hinweis:** [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby) ist Teil der [WAI-ARIA](https://www.w3.org/TR/wai-aria-1.1/)-Spezifikation, die es Entwicklern ermöglicht, ihrem Markup zusätzliche Semantik hinzuzufügen, um die Zugänglichkeit von Screenreadern zu verbessern, wenn nötig.
+> **Note:** [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby) ist Teil der [WAI-ARIA](https://www.w3.org/TR/wai-aria-1.1/) Spezifikation, die es Entwicklern ermöglicht, ihrem Markup zusätzliche Semantik hinzuzufügen, um die Zugänglichkeitskapazitäten von Screenreadern nach Bedarf zu verbessern.
 
-### Abbilder und Abbildungsüberschriften
+### Abbildungen und Bildunterschriften
 
-HTML enthält zwei Elemente — {{htmlelement("figure")}} und {{htmlelement("figcaption")}} — die eine Abbildung irgendeiner Art (es könnte alles sein, nicht unbedingt ein Bild) mit einer Abbildungsüberschrift assoziieren:
+HTML enthält zwei Elemente — {{htmlelement("figure")}} und {{htmlelement("figcaption")}} — die eine Abbildung irgendeiner Art (es kann auch etwas sein, das nicht unbedingt ein Bild ist) mit einer Bildunterschrift verbinden:
 
 ```html
 <figure>
@@ -469,7 +469,7 @@ HTML enthält zwei Elemente — {{htmlelement("figure")}} und {{htmlelement("fig
 </figure>
 ```
 
-Während es gemischte Unterstützung durch Screenreader gibt, Abbildungsüberschriften mit ihren Abbildungen zu assoziieren, schafft die Einbeziehung von [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby) oder [`aria-describedby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-describedby) die Assoziation, wenn keine vorhanden ist. Davon abgesehen ist die Elementstruktur nützlich für das CSS-Styling und bietet eine Möglichkeit, eine Beschreibung des Bildes neben diesem in der Quelle zu platzieren.
+Während die Unterstützung der Zuordnung von Bildunterschriften mit ihren Abbildungen durch Screenreader gemischt ist, erzeugt die Einbindung von [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby) oder [`aria-describedby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-describedby) die Zuordnung, falls keine vorhanden ist. Das Elementstruktur ist jedoch nützlich für die CSS-Gestaltung, plus es bietet eine Möglichkeit, eine Beschreibung des Bildes neben ihm im Quelltext zu platzieren.
 
 ### Leere alt-Attribute
 
@@ -480,34 +480,34 @@ Während es gemischte Unterstützung durch Screenreader gibt, Abbildungsübersch
 </h3>
 ```
 
-Es kann vorkommen, dass ein Bild im Design einer Seite enthalten ist, aber sein Hauptzweck visuelle Dekoration ist. Im obigen Codebeispiel werden Sie bemerken, dass das `alt`-Attribut des Bildes leer ist — dies soll Screenreader erkennen, das Bild nicht versuchen zu beschreiben (stattdessen würden sie nur "Bild" oder ähnliches sagen).
+Es kann Zeiten geben, in denen ein Bild im Design einer Seite enthalten ist, aber sein Hauptzweck ist die visuelle Dekoration. Sie werden im obigen Codebeispiel bemerken, dass das `alt`-Attribut des Bildes leer ist — dies dient dazu, dass Screenreader das Bild erkennen, aber nicht versuchen, es zu beschreiben (stattdessen würden sie einfach "Bild" oder ähnliches sagen).
 
-Der Grund, ein leeres `alt` anstelle keines zu verwenden, ist, dass viele Screenreader die gesamte Bild-URL ankündigen, wenn kein `alt` angegeben ist. Im obigen Beispiel dient das Bild als visuelle Dekoration für die Überschrift, mit der es verbunden ist. In solchen Fällen und bei Bildern, die nur dekorativ sind und keinen Inhaltswert bieten, sollten Sie ein leeres `alt` in Ihre `img`-Elemente aufnehmen. Eine andere Möglichkeit besteht darin, das `aria` [`role`](/de/docs/Web/Accessibility/ARIA/Reference/Roles)-Attribut [`role="presentation"`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/presentation_role) zu verwenden, da dies auch Screenreader davon abhält, Alternativtext vorzulesen.
+Der Grund, warum ein leeres `alt` verwendet wird, anstatt es einfach wegzulassen, ist, dass viele Screenreader die ganze Bild-URL ansagen, wenn kein `alt` bereitgestellt wird. Im obigen Beispiel dient das Bild als visuelle Dekoration für die Überschrift, mit der es verknüpft ist. In solchen Fällen und in Fällen, in denen ein Bild nur dekorativ ist und keinen Inhaltswert hat, sollten Sie ein leeres `alt` in Ihren `img`-Elementen einschließen. Eine andere Alternative ist die Verwendung des aria-[`role`](/de/docs/Web/Accessibility/ARIA/Reference/Roles) Attributs [`role="presentation"`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/presentation_role), da dies auch verhindert, dass Screenreader den alternativen Text vorlesen.
 
 > [!NOTE]
-> Wo möglich, sollten Sie CSS verwenden, um Bilder darzustellen, die nur dekorativ sind.
+> Wenn möglich sollten Sie CSS verwenden, um Bilder anzuzeigen, die nur dekorativ sind.
 
 ## Mehr über Links
 
-Links (das [`<a>`](/de/docs/Web/HTML/Element/a)-Element mit einem `href`-Attribut), abhängig davon, wie sie verwendet werden, können sie die Barrierefreiheit verbessern oder verschlechtern. Standardmäßig sind Links in der visuellen Darstellung zugänglich. Sie können die Barrierefreiheit verbessern, indem sie dem Benutzer helfen, schnell zu verschiedenen Abschnitten eines Dokuments zu navigieren. Sie können die Barrierefreiheit auch beeinträchtigen, wenn ihre zugängliche Darstellung entfernt wird oder wenn JavaScript sie in unvorhersehbarer Weise verhalten lässt.
+Links (das [`<a>`](/de/docs/Web/HTML/Reference/Elements/a)-Element mit einem `href`-Attribut) können je nach Verwendung die Zugänglichkeit verbessern oder schädigen. Standardmäßig sind Links zugänglich in ihrer Erscheinung. Sie können die Zugänglichkeit verbessern, indem sie einem Benutzer helfen, schnell zu verschiedenen Abschnitten eines Dokuments zu navigieren. Sie können die Zugänglichkeit jedoch beeinträchtigen, wenn ihr zugängliches Styling entfernt wird oder wenn JavaScript dazu führt, dass sie sich auf unerwartete Weise verhalten.
 
-### Linkgestaltung
+### Link-Styling
 
-Standardmäßig heben sich Links visuell von anderem Text durch sowohl Farbe als auch [text-decoration](/de/docs/Web/CSS/text-decoration) ab, wobei Links standardmäßig blau und unterstrichen sind, lila und unterstrichen, wenn sie besucht wurden, und mit einem [Fokus-Ring](/de/docs/Web/CSS/:focus), wenn sie Tastaturfokus erhalten.
+Standardmäßig unterscheiden sich Links visuell von anderem Text sowohl in Farbe als auch in [text-decoration](/de/docs/Web/CSS/text-decoration), wobei Links standardmäßig blau und unterstrichen, besucht lila und unterstrichen und mit einem [focus-ring](/de/docs/Web/CSS/:focus) versehen sind, wenn sie über die Tastatur fokussiert werden.
 
-Farbe sollte nicht das einzige Unterscheidungsmerkmal zwischen Links und nicht-verlinktem Inhalt sein. Die Linktextfarbe, genauso wie jede andere Textfarbe, muss sich erheblich von der Hintergrundfarbe unterscheiden ([ein Kontrast von 4,5:1](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable/Color_contrast)). Darüber hinaus sollte sich der Linktext visuell signifikant von nicht-verlinktem Text unterscheiden, mit einem Mindestkontrast von 3:1 zwischen Linktext und umgebendem Text sowie zwischen Standard-, besuchtem und Fokus/aktivem Zustand und einem 4,5:1-Kontrast zwischen all diesen Zustandsfarben und der Hintergrundfarbe.
+Farbe sollte nicht als alleinige Methode verwendet werden, um Links von nicht verlinkten Inhalten zu unterscheiden. Die Linktextfarbe muss, wie alle Texte, signifikant unterschiedlich von der Hintergrundfarbe sein ([ein Kontrast von 4.5:1](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable/Color_contrast)). Zusätzlich sollten Links optisch signifikant anders als nicht verlinkter Text sein, mit einer Mindestkontrastanforderung von 3:1 zwischen Linktext und umgebendem Text und zwischen den Zuständen Standard, besucht und Fokus/Aktiv und einem Kontrast von 4.5:1 zwischen allen diesen Zustandfarben und der Hintergrundfarbe.
 
 ### `onclick`-Ereignisse
 
-Ankertags werden oft mit dem `onclick`-Ereignis missbraucht, um Pseudo-Tasten zu erstellen, indem **href** auf `"#"` oder `"javascript:void(0)"` gesetzt wird, um zu verhindern, dass die Seite aktualisiert wird.
+Ankertags werden häufig mit dem `onclick`-Ereignis missbraucht, um Pseudo-Tasten zu erstellen, indem **href** auf `"#"` oder `"javascript:void(0)"` gesetzt wird, um zu verhindern, dass die Seite aktualisiert wird.
 
-Diese Werte verursachen unerwartetes Verhalten beim Kopieren oder Ziehen von Links, Öffnen von Links in einem neuen Tab oder Fenster, Bookmarking und wenn JavaScript noch heruntergeladen wird, Fehler verursacht oder deaktiviert ist. Dies vermittelt auch falsche Semantik an unterstützende Technologien (z. B. Screenreader). In solchen Fällen wird empfohlen, stattdessen eine {{HTMLElement("button")}} zu verwenden. Im Allgemeinen sollten Sie ein Anker nur zum Navigieren mit einer richtigen URL verwenden.
+Diese Werte verursachen unerwartetes Verhalten beim Kopieren oder Ziehen von Links, Öffnen von Links in einem neuen Tab oder Fenster, Bookmarken und wenn Javascript noch heruntergeladen wird, Fehler auftreten oder deaktiviert ist. Dies vermittelt auch falsche Semantik für assistive Technologien (z. B. Screenreader). In diesen Fällen wird empfohlen, stattdessen ein {{HTMLElement("button")}} zu verwenden. Im Allgemeinen sollten Sie nur ein Ankertag für die Navigation mit einer richtigen URL verwenden.
 
-### Externe Links und Links zu nicht-HTML-Ressourcen
+### Externe Links und Verlinken zu nicht-HTML-Ressourcen
 
-Links, die über die `target="_blank"`-Deklaration in einem neuen Tab oder Fenster geöffnet werden, und Links, deren `href`-Wert auf eine Datei-Ressource verweist, sollten einen Indikator darüber enthalten, welches Verhalten beim Aktivieren des Links auftreten wird.
+Links, die in einem neuen Tab oder Fenster über die `target="_blank"` Deklaration geöffnet werden und Links, deren `href`-Wert auf einer Dateiresource verweist, sollten einen Hinweis über das Verhalten enthalten, das auftreten wird, wenn der Link aktiviert wird.
 
-Personen mit Sehbehinderungen, die mit der Hilfe einer Screenreading-Technologie navigieren, oder die kognitive Probleme haben, könnten verwirrt sein, wenn das neue Tab, Fenster oder die Anwendung unerwartet geöffnet wird. Ältere Versionen von Screenreading-Software könnten das Verhalten nicht einmal ankündigen.
+Menschen mit Sehschwierigkeiten, die mit der Hilfe von Screenreader-Technologie navigieren, oder die kognitive Bedenken haben, können verwirrt werden, wenn der neue Tab, das Fenster oder die Anwendung unerwartet geöffnet werden. Ältere Versionen von Screenreader-Software geben das Verhalten möglicherweise noch nicht einmal bekannt.
 
 #### Link, der ein neues Tab oder Fenster öffnet
 
@@ -517,7 +517,7 @@ Personen mit Sehbehinderungen, die mit der Hilfe einer Screenreading-Technologie
 >
 ```
 
-#### Link zu einer nicht-HTML-Ressource
+#### Link zu einer Nicht-HTML-Ressource
 
 ```html
 <a target="_blank" href="2017-annual-report.ppt"
@@ -525,38 +525,38 @@ Personen mit Sehbehinderungen, die mit der Hilfe einer Screenreading-Technologie
 >
 ```
 
-Wenn ein Symbol anstelle von Text verwendet wird, um auf diese Art von Linkverhalten hinzuweisen, stellen Sie sicher, dass es eine [alternative Beschreibung](/de/docs/Web/HTML/Element/img#alt) enthält.
+Wenn ein Symbol anstelle von Text verwendet wird, um dieses Linkverhalten zu zeigen, stellen Sie sicher, dass es eine [alternative Beschreibung](/de/docs/Web/HTML/Reference/Elements/img#alt) enthält.
 
-- [WebAIM: Links and Hypertext - Hypertext Links](https://webaim.org/techniques/hypertext/hypertext_links)
-- [MDN Understanding WCAG, Guideline 3.2 explanations](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Understandable#guideline_3.2_—_predictable_make_web_pages_appear_and_operate_in_predictable_ways)
-- [G200: Öffnung neuer Fenster und Tabs nur bei Bedarf | W3C Techniken für WCAG 2.0](https://www.w3.org/TR/WCAG20-TECHS/G200.html)
-- [G201: Benutzer vorher warnen, wenn ein neues Fenster geöffnet wird | W3C Techniken für WCAG 2.0](https://www.w3.org/TR/WCAG20-TECHS/G201.html)
+- [WebAIM: Links und Hypertext - Hypertext-Links](https://webaim.org/techniques/hypertext/hypertext_links)
+- [MDN Erklärung der WCAG, Richtlinie 3.2 Erklärungen](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Understandable#guideline_3.2_—_predictable_make_web_pages_appear_and_operate_in_predictable_ways)
+- [G200: Öffnen von neuen Fenstern und Tabs aus einem Link nur wenn notwendig | W3C Techniken für WCAG 2.0](https://www.w3.org/TR/WCAG20-TECHS/G200.html)
+- [G201: Nutzer rechtzeitig vorwarnen, wenn ein neues Fenster geöffnet wird | W3C Techniken für WCAG 2.0](https://www.w3.org/TR/WCAG20-TECHS/G201.html)
 
 ### Skip-Links
 
-Eine Skip-Links, auch bekannt als Skipnav, ist ein `a`-Element, das so nah wie möglich an dem öffnenden {{HTMLElement("body")}}-Element platziert ist und auf den Beginn des Hauptinhalts der Seite verlinkt. Dieser Link ermöglicht es Menschen, Inhalte zu überspringen, die auf mehreren Seiten einer Website wiederholt werden, wie die Kopfzeile und Hauptnavigation der Website.
+Ein Skip-Link, auch als skipnav bekannt, ist ein `a`-Element, das so nahe wie möglich am öffnenden {{HTMLElement("body")}}-Element platziert wird und zum Beginn des Hauptinhalts der Seite verlinkt. Dieser Link erlaubt es Menschen, Inhalte zu umgehen, die sich auf mehreren Seiten einer Website wiederholen, wie zum Beispiel die Kopfzeile und die primäre Navigation einer Website.
 
-Skip-Links sind besonders nützlich für Personen, die mit Hilfe von assistiven Technologien wie Schaltsteuerung, Sprachbefehl oder Mundstäben/Kopfwandschaltern navigieren, bei denen die Bewegung durch wiederholte Links eine mühsame Aufgabe sein kann.
+Skip-Links sind besonders nützlich für Menschen, die mit der Hilfe von Hilfstechnologie wie Umschaltsteuerung, Sprachbefehl oder Mundstücken/Kopfstäben navigieren, bei denen das Navigieren durch sich wiederholende Links eine mühsame Aufgabe sein kann.
 
-- [WebAIM: "Skip Navigation" Links](https://webaim.org/techniques/skipnav/)
-- [How-to: Use Skip Navigation links - The A11Y Project](https://www.a11yproject.com/posts/skip-nav-links/)
-- [MDN Understanding WCAG, Guideline 2.4 explanations](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Operable#guideline_2.4_%e2%80%94_navigable_provide_ways_to_help_users_navigate_find_content_and_determine_where_they_are)
-- [Understanding Success Criterion 2.4.1 | W3C Understanding WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms-skip.html)
+- [WebAIM: "Skip-Navigation"-Links](https://webaim.org/techniques/skipnav/)
+- [Anleitung: Nutzung von Skip-Navigation-Links - The A11Y Project](https://www.a11yproject.com/posts/skip-nav-links/)
+- [MDN Erklärung der WCAG, Richtlinie 2.4 Erklärungen](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Operable#guideline_2.4_%e2%80%94_navigable_provide_ways_to_help_users_navigate_find_content_and_determine_where_they_are)
+- [Understanding Success Criterion 2.4.1 | W3C Verständnis von WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms-skip.html)
 
 ### Nähe
 
-Wenn große Mengen interaktiver Inhalte eingeschlossen werden — einschließlich Anker —, die in enger visueller Nähe zueinander platziert sind, sollten Abstände eingefügt werden, um sie zu trennen. Dies begünstigt Menschen, die unter feinmotorischen Problemen leiden und möglicherweise versehentlich den falschen interaktiven Inhalt aktivieren, während sie navigieren.
+Große Mengen an interaktiven Inhalten — einschließlich Anker —, die in enger visueller Nähe zueinander platziert sind, sollten Platz eingefügt bekommen, um sie zu trennen. Dieser Abstand ist hilfreich für Menschen, die unter feinmotorischen Problemen leiden und möglicherweise versehentlich den falschen interaktiven Inhalt aktivieren, während sie navigieren.
 
-Abstand kann mit CSS-Eigenschaften wie {{CSSxRef("margin")}} erzeugt werden.
+Abstände können mit CSS-Eigenschaften wie {{CSSxRef("margin")}} erstellt werden.
 
-- [Handtremors und das große-Button-Problem - Axess Lab](https://axesslab.com/hand-tremors/)
+- [Handzitterns und das Riesenknopfproblem - Axess Lab](https://axesslab.com/hand-tremors/)
 
 ## Testen Sie Ihre Fähigkeiten
 
-Sie sind am Ende dieses Artikels angekommen, aber können Sie sich an die wichtigsten Informationen erinnern? Sehen Sie [Testen Sie Ihre Fähigkeiten: HTML Accessibility](/de/docs/Learn_web_development/Core/Accessibility/Test_your_skills:_HTML_accessibility), um zu überprüfen, ob Sie diese Informationen behalten haben, bevor Sie fortfahren.
+Sie haben das Ende dieses Artikels erreicht, aber können Sie sich an die wichtigsten Informationen erinnern? Siehe [Testen Sie Ihre Fähigkeiten: HTML-Zugänglichkeit](/de/docs/Learn_web_development/Core/Accessibility/Test_your_skills:_HTML_accessibility), um zu überprüfen, ob Sie diese Informationen behalten haben, bevor Sie fortfahren.
 
 ## Zusammenfassung
 
-Sie sollten jetzt gut darin sein, barrierefreies HTML für die meisten Gelegenheiten zu schreiben. Unser Artikel zu WAI-ARIA-Grundlagen wird helfen, Wissenslücken zu füllen, aber dieser Artikel hat die Grundlagen behandelt. Als Nächstes erkunden wir CSS und JavaScript und wie deren gute oder schlechte Verwendung die Barrierefreiheit beeinflusst.
+Sie sollten nun gut darin sein, zugängliches HTML für die meisten Gelegenheiten zu schreiben. Unser Artikel über WAI-ARIA-Grundlagen wird helfen, Lücken in diesem Wissen zu füllen, aber dieser Artikel hat sich um die Grundlagen gekümmert. Als nächstes werden wir CSS und JavaScript erkunden und wie Zugänglichkeit durch deren richtigen oder schlechten Gebrauch beeinflusst wird.
 
 {{PreviousMenuNext("Learn_web_development/Core/Accessibility/Tooling","Learn_web_development/Core/Accessibility/CSS_and_JavaScript", "Learn_web_development/Core/Accessibility")}}

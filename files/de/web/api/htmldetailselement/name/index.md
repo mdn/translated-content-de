@@ -3,14 +3,14 @@ title: "HTMLDetailsElement: name-Eigenschaft"
 short-title: name
 slug: Web/API/HTMLDetailsElement/name
 l10n:
-  sourceCommit: 52580e9f35f17e9973d798c8ad46a6ad756b18ec
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{ APIRef("HTML DOM") }}
 
-Die **`name`**-Eigenschaft des [`HTMLDetailsElement`](/de/docs/Web/API/HTMLDetailsElement)-Interfaces spiegelt das [`name`](/de/docs/Web/HTML/Element/details#name)-Attribut von {{htmlelement("details")}}-Elementen wider. Sie ermöglicht es, mehrere `<details>`-Elemente miteinander zu verbinden, sodass nur eines der `<details>`-Elemente gleichzeitig geöffnet sein kann. Dies erlaubt Entwicklern, UI-Funktionen wie Akkordeons ohne Skripterstellung einfach zu erstellen.
+Die **`name`**-Eigenschaft der [`HTMLDetailsElement`](/de/docs/Web/API/HTMLDetailsElement)-Schnittstelle spiegelt das [`name`](/de/docs/Web/HTML/Reference/Elements/details#name)-Attribut von {{htmlelement("details")}}-Elementen wider. Sie ermöglicht es, mehrere `<details>`-Elemente miteinander zu verbinden, wobei nur eines der `<details>`-Elemente gleichzeitig geöffnet sein kann. Dies erlaubt es Entwicklern, UI-Features wie Akkordeons leicht ohne Scripting zu erstellen.
 
-Das Name-Attribut gibt einen Gruppennamen an – weisen Sie mehreren `<details>`-Elementen denselben Namenswert zu, um sie zu gruppieren. Nur eines der gruppierten `<details>`-Elemente kann gleichzeitig geöffnet sein – das Öffnen eines Elements führt dazu, dass ein anderes geschlossen wird. Wenn mehreren gruppierten `<details>`-Elementen das `open`-Attribut gegeben wird, wird nur das erste in der Quellreihenfolge geöffnet angezeigt.
+Das `name`-Attribut spezifiziert einen Gruppennamen — geben Sie mehreren `<details>`-Elementen denselben `name`-Wert, um sie zu gruppieren. Nur eines der gruppierten `<details>`-Elemente kann gleichzeitig geöffnet sein — das Öffnen eines führt dazu, dass ein anderes geschlossen wird. Wenn mehreren gruppierten `<details>`-Elementen das `open`-Attribut gegeben wird, wird nur das erste in der Quellreihenfolge geöffnet gerendert.
 
 ## Wert
 

@@ -2,13 +2,13 @@
 title: <style>
 slug: Web/SVG/Reference/Element/style
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
-Das **`<style>`**-Element in [SVG](/de/docs/Web/SVG) erlaubt es, Stylesheets direkt innerhalb von SVG-Inhalten einzubetten.
+Das **`<style>`** [SVG](/de/docs/Web/SVG)-Element ermöglicht das direkte Einbetten von Stylesheets in SVG-Inhalte.
 
 > [!NOTE]
-> Das `style`-Element in SVG hat dieselben Attribute wie das entsprechende Element in HTML (siehe das {{HTMLElement("style")}}-Element in HTML).
+> Das `style`-Element von SVG hat dieselben Attribute wie das entsprechende Element in HTML (siehe HTML's {{HTMLElement("style")}} Element).
 
 ## Beispiel
 
@@ -42,13 +42,13 @@ svg {
   - : Dieses Attribut definiert den Typ der Stylesheet-Sprache, die als Medientyp-String verwendet werden soll.
     _Wertetyp_: {{Glossary("MIME_type", "**`<media-type>`**")}}; _Standardwert_: `text/css`; _Animierbar_: **nein**
 - {{SVGAttr("media")}}
-  - : Dieses Attribut definiert, auf welches {{cssxref('@media', 'Medium')}} das Stylesheet angewendet wird.
+  - : Dieses Attribut definiert, auf welche {{cssxref('@media', 'Medien')}} der Stil angewendet wird.
     _Wertetyp_: [**`<media-query-list>`**](/de/docs/Web/CSS/@media#syntax); _Standardwert_: `all`; _Animierbar_: **nein**
 - {{SVGAttr("title")}}
-  - : Dieses Attribut ist der Titel des Stylesheets, der verwendet werden kann, um zwischen [alternativen Stylesheets](/de/docs/Web/HTML/Attributes/rel/alternate_stylesheet) zu wechseln.
+  - : Dieses Attribut ist der Titel des Stylesheets, der verwendet werden kann, um zwischen [alternativen Stylesheets](/de/docs/Web/HTML/Reference/Attributes/rel/alternate_stylesheet) zu wechseln.
     _Wertetyp_: [**`<string>`**](/de/docs/Web/CSS/string); _Standardwert_: _none_; _Animierbar_: **nein**
 
-## Verwendungskontext
+## Nutzungskontext
 
 {{svginfo}}
 

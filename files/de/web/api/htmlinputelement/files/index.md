@@ -3,12 +3,12 @@ title: "HTMLInputElement: files-Eigenschaft"
 short-title: files
 slug: Web/API/HTMLInputElement/files
 l10n:
-  sourceCommit: 0eeaa04378b34bce70e618ee20434e1193cdec17
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{APIRef("File and Directory Entries API")}}
 
-Die **`HTMLInputElement.files`**-Eigenschaft ermöglicht Ihnen den Zugriff auf die [`FileList`](/de/docs/Web/API/FileList), die mit dem [`<input type="file">`](/de/docs/Web/HTML/Element/input/file)-Element ausgewählt wurde.
+Die **`HTMLInputElement.files`**-Eigenschaft ermöglicht Ihnen den Zugriff auf die [`FileList`](/de/docs/Web/API/FileList), die mit dem [`<input type="file">`](/de/docs/Web/HTML/Reference/Elements/input/file)-Element ausgewählt wurde.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein [`FileList`](/de/docs/Web/API/FileList)-Objekt, das die ausgewählten Dateie
 
 ## Beispiele
 
-Das folgende Beispiel zeigt, wie Sie auf die **`HTMLInputElement.files`**-Eigenschaft zugreifen und den Namen, das Änderungsdatum, die Größe und den Typ jeder vom Benutzer ausgewählten Datei protokollieren können.
+Das untenstehende Beispiel zeigt, wie Sie auf die **`HTMLInputElement.files`**-Eigenschaft zugreifen und den Namen, das Änderungsdatum, die Größe und den Typ jeder vom Benutzer ausgewählten Datei protokollieren können.
 
 ### HTML
 
@@ -27,7 +27,7 @@ Das folgende Beispiel zeigt, wie Sie auf die **`HTMLInputElement.files`**-Eigens
 ### JavaScript
 
 Beachten Sie, dass **`HTMLInputElement.files`** auch dann eine Instanz von [`FileList`](/de/docs/Web/API/FileList) zurückgibt, wenn keine Dateien ausgewählt sind.
-Daher ist es sicher, mit {{JSxref("Statements/for...of", "for...of")}} darauf zu iterieren, ohne zu prüfen, ob Dateien ausgewählt sind.
+Daher ist es sicher, mit {{JSxref("Statements/for...of", "for...of")}} darauf zu iterieren, ohne zu überprüfen, ob Dateien ausgewählt sind.
 
 ```js
 const fileInput = document.getElementById("files");

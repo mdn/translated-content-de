@@ -2,30 +2,30 @@
 title: aria-expanded
 slug: Web/Accessibility/ARIA/Reference/Attributes/aria-expanded
 l10n:
-  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
-Das `aria-expanded` Attribut wird auf einem Element gesetzt, um anzuzeigen, ob ein Steuerelement erweitert oder eingeklappt ist und ob die gesteuerten Elemente angezeigt oder versteckt sind.
+Das `aria-expanded` Attribut wird auf ein Element gesetzt, um anzuzeigen, ob ein Steuerelement erweitert oder eingeklappt ist und ob die gesteuerten Elemente angezeigt oder versteckt sind.
 
 ## Beschreibung
 
-Es gibt mehrere Widgets, die erweitert und eingeklappt werden können, darunter Menüs, Dialoge und Akkordeon-Panels. Jedes dieser Objekte hat wiederum ein interaktives Element, das deren Öffnen und Schließen steuert. Das `aria-expanded` Attribut wird auf dieses fokussierbare, interaktive Steuerelement angewendet, das die Sichtbarkeit des Objekts umschaltet.
+Es gibt mehrere Widgets, die erweitert und eingeklappt werden können, einschließlich Menüs, Dialoge und Akkordeonpanels. Jedes dieser Objekte hat wiederum ein interaktives Element, das ihre Öffnung und Schließung steuert. Das `aria-expanded` Attribut wird auf dieses fokussierbare, interaktive Steuerelement angewendet, das die Sichtbarkeit des Objekts umschaltet.
 
-Zum Beispiel wird `aria-expanded` auf das übergeordnete Element in einem DOM-Baum angewendet, um anzuzeigen, ob sein Kindzweig angezeigt wird. Das übergeordnete Element steuert auch die Sichtbarkeit des zugehörigen Kindzweigs.
+Beispielsweise wird `aria-expanded` auf das übergeordnete Element in einem DOM-Baum angewendet, um anzuzeigen, ob sein untergeordnetes Element angezeigt wird. Das übergeordnete Element steuert ebenfalls die Sichtbarkeit des zugehörigen untergeordneten Elements.
 
-Es gibt zwei Deklarationen, die auf Objekte angewendet werden können, die die Sichtbarkeit eines anderen Objekts steuern: [`aria-controls`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-controls) oder [`aria-owns`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-owns) in Kombination mit `aria-expanded`. Die `aria-controls` und `aria-owns` Attribute zeigen die Beziehung zwischen dem steuernden Element und dem gesteuerten Element an. Das `aria-expanded` Attribut zeigt unterstützenden Technologien, ob das gesteuerte Element erweitert oder eingeklappt ist.
+Es gibt zwei Deklarationen, die auf Objekte angewendet werden können, die die Sichtbarkeit eines anderen Objekts steuern: [`aria-controls`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-controls) oder [`aria-owns`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-owns) in Kombination mit `aria-expanded`. `aria-controls` und `aria-owns` geben die Beziehung zwischen dem steuernden und dem gesteuerten Element an. `aria-expanded` zeigt der unterstützenden Technologie, ob das gesteuerte Element erweitert oder eingeklappt ist.
 
-Verwenden Sie das `aria-owns` Attribut auf den Elementen, die erweiterbare Gruppierungscontainer besitzen. Wenn der erweiterbare und einklappbare Gruppierungscontainer nicht von dem Element, das das `aria-expanded` Attribut besitzt, verwaltet wird, verwenden Sie das `aria-controls` Attribut, um stattdessen auf den Gruppierungscontainer zu verweisen.
+Verwenden Sie das `aria-owns` Attribut auf den Elementen, die erweiterbare Gruppierungscontainer besitzen. Wenn der erweiterbare und einklappbare Gruppierungscontainer nicht von dem Element mit dem `aria-expanded` Attribut besessen wird, verwenden Sie stattdessen das `aria-controls` Attribut, um auf den Gruppierungscontainer zu verweisen.
 
 ### Schaltflächen
 
-Eine Schaltfläche, die ein Widget umschaltet, sollte `aria-controls` auf die [`id`](/de/docs/Web/HTML/Global_attributes/id) des umgeschalteten Widgets und `aria-expanded` auf den aktuellen Zustand des Widgets setzen.
+Eine Schaltfläche, die ein Widget umschaltet, sollte `aria-controls` mit der [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id) des umgeschalteten Widgets und `aria-expanded` mit dem aktuellen Zustand des Widgets haben.
 
 ```html
 <button aria-expanded="false" aria-controls="widget1">Toggle widget</button>
 ```
 
-Wenn das Widget sichtbar ist, gibt das steuernde Objekt diese Information weiter, indem `aria-expanded="true"` darauf gesetzt wird. Der zugängliche Name des steuernden Objekts sollte diese Änderung widerspiegeln.
+Wenn das Widget sichtbar ist, teilt das steuernde Objekt diese Information mit, indem `aria-expanded="true"` darauf gesetzt wird. Der zugängliche Name des steuernden Objekts sollte diese Änderung widerspiegeln.
 
 ```html
 <button aria-expanded="true" aria-controls="widget1">Toggle widget</button>
@@ -33,11 +33,11 @@ Wenn das Widget sichtbar ist, gibt das steuernde Objekt diese Information weiter
 
 ### Menü
 
-Wenn ein [`menu`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/menu_role) angezeigt wird, hat das Schaltflächenobjekt, das die Sichtbarkeit dieses Menüs umschaltet, `aria-expanded="true"` gesetzt. Wenn das Menü verborgen ist, kann `aria-expanded` weggelassen werden. Falls angegeben, wenn das Menü verborgen ist, sollte es auf `aria-expanded="false"` gesetzt sein. Wenn ein untergeordnetes Menü nicht sichtbar ist, hat sein übergeordnetes [`menuitem`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/menuitem_role) `aria-expanded`. Es sollte auf `true` gesetzt werden, wenn das untergeordnete Menü sichtbar ist.
+Wenn ein [`menu`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/menu_role) angezeigt wird, hat das Schaltflächenobjekt, das die Sichtbarkeit dieses Menüs umschaltet, `aria-expanded="true"` gesetzt. Wenn das Menü versteckt ist, kann `aria-expanded` weggelassen werden. Wenn es angegeben wird, wenn das Menü versteckt ist, sollte es auf `aria-expanded="false"` gesetzt werden. Wenn ein untergeordnetes Menü nicht sichtbar ist, hat dessen übergeordnetes [`menuitem`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/menuitem_role) `aria-expanded`. Es sollte auf `true` gesetzt werden, wenn das untergeordnete Menü sichtbar ist.
 
-### Kombinationsfeld (Combobox)
+### Kombinationsfeld
 
-Standardmäßig sind einige Rollen verborgen oder eingeklappt und andere Rollen sind standardmäßig offen oder erweitert. Elemente mit der Rolle [`combobox`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/combobox_role) haben standardmäßig den Wert `false` für `aria-expanded`. Wenn ein Kombinationsfeld-Popup nicht sichtbar ist, hat das Element mit der Rolle `combobox` `aria-expanded` auf `false` gesetzt. Dies ist der Standardzustand. Wenn das Popup-Element sichtbar ist, sollte `aria-expanded` auf `true` gesetzt sein.
+Standardmäßig sind einige Rollen versteckt oder standardmäßig eingeklappt, während andere Rollen standardmäßig geöffnet oder erweitert sind. Elemente mit der Rolle [`combobox`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/combobox_role) haben einen Standardwert von `false` für `aria-expanded`. Wenn ein Kombinationsfeld-Popup nicht sichtbar ist, hat das Element mit der Rolle `combobox` `aria-expanded` auf `false` gesetzt. Dies ist der Standardzustand. Wenn das Popup-Element sichtbar ist, sollte `aria-expanded` auf `true` gesetzt werden.
 
 ```html
 <label for="username">Username</label>
@@ -55,35 +55,35 @@ Standardmäßig sind einige Rollen verborgen oder eingeklappt und andere Rollen 
 ```
 
 > [!NOTE]
-> Das Vorhandensein des `aria-expanded` Attributs zeigt Kontrolle an. Vermeiden Sie, es auf Elemente zu setzen, die den erweiterten Zustand anderer Elemente nicht kontrollieren.
+> Die Anwesenheit des `aria-expanded` Attributs deutet auf Kontrolle hin. Vermeiden Sie es, es auf Elemente zu setzen, die nicht den erweiterten Zustand anderer Elemente steuern.
 
-### Treeitems
+### Baumelemente
 
-Jedes Element mit der Rolle [`treeitem`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/treeitem_role), das als übergeordneter Knoten fungiert, hat `aria-expanded="false"`, wenn der Knoten geschlossen ist, und `aria-expanded="true"`, wenn der Knoten geöffnet ist. Endknoten, Knoten ohne Nachkommen, sollten das `aria-expanded` Attribut nicht haben, da sie, wenn sie es hätten, fälschlicherweise gegenüber unterstützenden Technologien als übergeordnete Knoten beschrieben würden.
+Jedes Element mit der Rolle [`treeitem`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/treeitem_role), das als übergeordneter Knoten dient, hat `aria-expanded="false"`, wenn der Knoten im geschlossenen Zustand ist und `aria-expanded="true"`, wenn der Knoten im offenen Zustand ist. Endknoten, Knoten ohne Nachkommen, sollten das `aria-expanded` Attribut nicht haben, da sie, wenn sie es hätten, fälschlicherweise unterstützenden Technologien als übergeordnete Knoten beschrieben würden.
 
 ### Zeilen
 
-Eine übergeordnete Zeile in einem [`treegrid`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/treegrid_role) ist eine Zeile, die erweitert oder eingeklappt werden kann, um eine Gruppe von untergeordneten Zeilen in einer Tabelle oder einem Raster anzuzeigen oder zu verbergen. Jede übergeordnete Zeile hat den `aria-expanded` Zustand entweder auf das Zeilenelement oder auf eine Zelle in der Zeile gesetzt. Wenn die untergeordneten Zeilen verborgen sind, ist `aria-expanded="false"` gesetzt. `aria-expanded="true"` ist gesetzt, wenn die untergeordneten Zeilen angezeigt werden. Zeilen, die die Anzeige von untergeordneten Zeilen nicht kontrollieren, sollten das `aria-expanded` Attribut überhaupt nicht enthalten, da das Vorhandensein des Attributs die Zeilen als übergeordnete Zeilen definiert.
+Eine übergeordnete Zeile in einem [`treegrid`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/treegrid_role) ist eine Zeile, die erweitert oder eingeklappt werden kann, um eine Reihe von untergeordneten Zeilen in einer Tabelle oder einem Raster anzuzeigen oder zu verbergen. Jede übergeordnete Zeile hat den `aria-expanded` Zustand entweder auf dem Zeilenelement oder auf einer in der Zeile enthaltenen Zelle gesetzt. Wenn die untergeordneten Zeilen versteckt sind, wird `aria-expanded="false"` gesetzt. `aria-expanded="true"` wird gesetzt, wenn die untergeordneten Zeilen angezeigt werden. Zeilen, die die Anzeige von untergeordneten Zeilen nicht steuern, sollten das `aria-expanded` Attribut überhaupt nicht enthalten, da das Attribut die Zeilen als übergeordnete Zeilen definiert.
 
 ## Werte
 
 - `false`
 
-  - : Das Gruppierungselement, das dieses Element besitzt oder kontrolliert, ist eingeklappt.
+  - : Das Gruppierungselement, das dieses Element besitzt oder steuert, ist eingeklappt.
 
 - `true`
 
-  - : Das Gruppierungselement, das dieses Element besitzt oder kontrolliert, ist erweitert.
+  - : Das Gruppierungselement, das dieses Element besitzt oder steuert, ist erweitert.
 
-- `undefined` (standard)
-  - : Das Element besitzt oder kontrolliert kein erweiterbares Gruppierungselement.
+- `undefined` (Standard)
+  - : Das Element besitzt oder steuert kein erweiterbares Gruppierungselement.
 
 ## Zugehörige Schnittstellen
 
 - [`Element.ariaExpanded`](/de/docs/Web/API/Element/ariaExpanded)
-  - : Die [`ariaExpanded`](/de/docs/Web/API/Element/ariaExpanded) Eigenschaft, als Teil der [`Element`](/de/docs/Web/API/Element) Schnittstelle, spiegelt den Wert des `aria-expanded` Attributs wider.
+  - : Die [`ariaExpanded`](/de/docs/Web/API/Element/ariaExpanded) Eigenschaft, Teil der [`Element`](/de/docs/Web/API/Element) Schnittstelle, spiegelt den Wert des `aria-expanded` Attributs wider.
 - [`ElementInternals.ariaExpanded`](/de/docs/Web/API/ElementInternals/ariaExpanded)
-  - : Die [`ariaExpanded`](/de/docs/Web/API/Element/ariaExpanded) Eigenschaft, als Teil der [`ElementInternals`](/de/docs/Web/API/ElementInternals) Schnittstelle, spiegelt den Wert des `aria-expanded` Attributs wider.
+  - : Die [`ariaExpanded`](/de/docs/Web/API/Element/ariaExpanded) Eigenschaft, Teil der [`ElementInternals`](/de/docs/Web/API/ElementInternals) Schnittstelle, spiegelt den Wert des `aria-expanded` Attributs wider.
 
 ## Zugehörige Rollen
 
@@ -102,7 +102,7 @@ Verwendet in Rollen:
 - [`tab`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/tab_role)
 - [`treeitem`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/treeitem_role)
 
-Wird vererbt in Rollen:
+Vererbt in Rollen:
 
 - [`columnheader`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/columnheader_role)
 - [`menuitemcheckbox`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/menuitemcheckbox_role)
@@ -119,4 +119,4 @@ Wird vererbt in Rollen:
 - [`aria-controls`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-controls)
 - [`aria-owns`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-owns)
 - [`aria-hidden`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-hidden)
-- Das HTML [`hidden`](/de/docs/Web/HTML/Global_attributes/hidden) Attribut
+- HTML [`hidden`](/de/docs/Web/HTML/Reference/Global_attributes/hidden) Attribut
