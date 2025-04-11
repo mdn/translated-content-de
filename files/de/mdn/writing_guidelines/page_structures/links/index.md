@@ -2,38 +2,38 @@
 title: Link-Makros
 slug: MDN/Writing_guidelines/Page_structures/Links
 l10n:
-  sourceCommit: e13b6ffe7c9cb05c6a89fcb3c8fcbc987eb05211
+  sourceCommit: b2f5e6cc0fe097a4eaabe53f3c134432c6e5824d
 ---
 
-MDN bietet zahlreiche Makros, um stets aktuelle Links zu MDN-Inhalten zu erstellen. In diesem Leitfaden erfahren Sie mehr über MDN-Querverweis-Makros, die Sie nutzen können, um einen einzelnen Link zu einer anderen Seite oder eine Liste von Links zu allen Unterseiten eines Dokuments einzufügen.
+MDN bietet zahlreiche Makros, um stets aktuelle Links zu MDN-Inhalten zu erstellen. In diesem Leitfaden erfahren Sie mehr über MDN-Querreferenz-Makros, die Sie verwenden können, um entweder einen einzelnen Link zu einer anderen Seite oder eine Liste von Links zu allen Unterseiten eines Dokuments einzufügen.
 
 ## Listen von Links
 
-MDN stellt Makros bereit, die eine Liste von Links erstellen:
+MDN bietet Makros, die eine Liste von Links erstellen:
 
 - [`\{{SubpagesWithSummaries}}`](https://github.com/mdn/rari/blob/main/crates/rari-doc/src/templ/templs/subpages_with_summaries.rs)
 
-  - : Fügt eine Definitionsliste ({{HTMLElement("dl")}}) der Unterseiten der aktuellen Seite ein, wobei der Titel jeder Seite als {{HTMLElement("dt")}} Begriff und der erste Absatz als {{HTMLElement("dd")}} Begriff verwendet wird.
+  - : Fügt eine Definitionsliste ({{HTMLElement("dl")}}) der Unterseiten der aktuellen Seite ein, wobei der Titel jeder Seite als {{HTMLElement("dt")}} Begriff und der erste Absatz als {{HTMLElement("dd")}} Begriff eingefügt wird.
 
 - [`\{{ListSubpagesForSidebar()}}`](https://github.com/mdn/rari/blob/main/crates/rari-doc/src/templ/templs/list_subpages_for_sidebar.rs)
 
-  - : Wenn ohne Parameter eingebunden, wird eine geordnete Liste von Links zu den Unterseiten der aktuellen Seite eingefügt. Dieses Makro wird meist in [Sidebars](/de/docs/MDN/Writing_guidelines/Page_structures/Sidebars) verwendet (daher der Makroname), wobei die Aufzählungszeichen nicht gerendert werden. Der erste Parameter ist ein Slug der übergeordneten Seite des Linkbaums. Der Linktext wird als Code angezeigt. Wenn ein zweiter Parameter auf `true` oder `1` gesetzt wird, werden die Links in normalen Text umgewandelt. Wird ein dritter Parameter auf `true` oder `1` gesetzt, wird oben in der Liste ein Link zur Slug-(übergeordneten) Seite mit "Übersicht" als Linktext hinzugefügt.
+  - : Wenn ohne Parameter eingefügt, wird eine geordnete Liste von Links zu den Unterseiten der aktuellen Seite eingefügt. Der erste Parameter ist ein Slug der übergeordneten Seite des Linkbaums. Der Linktext wird als Code angezeigt. Ein zweiter Parameter, der auf `true` oder `1` gesetzt wird, wandelt die Links in einfachen Text um. Ein dritter Parameter, der auf `true` oder `1` gesetzt wird, fügt einen Link zur Slug-Seite (Elternteil) oben in der Liste mit „Übersicht“ als Linktext hinzu.
 
 - [`\{{QuickLinksWithSubpages()}}`](https://github.com/mdn/rari/blob/main/crates/rari-doc/src/templ/templs/quick_links_with_subpages.rs)
 
-  - : Erstellt ein Set von Schnelllinks, das die Kinder der aktuellen Seite (oder der angegebenen Seite) als Ziele verwendet. Dies erzeugt hierarchische Listen bis zu zwei Ebenen tief. Die Titel der Seiten werden als Linktext verwendet und ihre Zusammenfassungen als Tooltips.
+  - : Erstellt eine Reihe von Schnellnavigationen, bei denen die Kinder der aktuellen Seite (oder der angegebenen Seite) als Ziele verwendet werden. Dies erstellt hierarchische Listen bis zu zwei Ebenen tief. Die Titel der Seiten werden als Linktext verwendet und ihre Zusammenfassungen als Tooltips.
 
-### Beispiel für eine Linkliste
+### Beispiel-Linkliste
 
-Um eine geordnete Liste von Links zu erstellen, die diese Seite und ihre Geschwister umfasst, schreiben Sie folgendes:
+Um eine geordnete Liste von Links einzuschließen, die diese Seite und ihre Geschwister enthält, schreiben Sie Folgendes:
 
 ```md
 \{{ListSubpagesForSidebar("/en-US/docs/MDN/Writing_guidelines/Page_structures/Macros", 1)}}
 ```
 
-## Querverweis-Links
+## Querreferenz-Links
 
-Einige Makros erstellen einen einzelnen Link, um auf eine CSS-, JavaScript-, SVG- oder HTML-Funktion, einschließlich Attribute, Elemente, Eigenschaften, Datentypen und APIs, zu verweisen. Die Makros, die einzelne Links erstellen, erfordern mindestens einen Parameter: die Funktion, auf die verwiesen wird.
+Einige Makros erstellen einen einzelnen Link, um eine CSS-, JavaScript-, SVG- oder HTML-Funktion zu referenzieren, einschließlich Attribute, Elemente, Eigenschaften, Datentypen und APIs. Die Makros, die einzelne Links erstellen, erfordern mindestens einen Parameter: die referenzierte Funktion.
 
 Diese Makros sind:
 
@@ -47,24 +47,24 @@ Diese Makros sind:
 - [`\{{HTTPMethod("")}}`](https://github.com/mdn/rari/blob/main/crates/rari-doc/src/templ/templs/links/http.rs)
 - [`\{{HTTPStatus("")}}`](https://github.com/mdn/rari/blob/main/crates/rari-doc/src/templ/templs/links/http.rs)
 
-Der erste Parameter jedes dieser Makros ist der letzte Abschnitt des Slugs des referenzierten Dokuments. Zum Beispiel, für HTML-Elemente, fügen Sie `\{{HTMLElement("")}}` mit dem Teil des Slugs ein, der nach `Web/HTML/Element/` folgt und geben diesen als ersten Parameter an. Mit `\{{CSSxRef("")}}`, fügen Sie den Teil des Slugs ein, der nach `Web/CSS/` folgt. Der Link wird auf diese Seite verweisen.
+Der erste Parameter jedes dieser Makros ist der letzte Abschnitt des Slugs des referenzierten Dokuments. Zum Beispiel, für HTML-Elemente, schließen Sie `\{{HTMLElement("")}}` mit dem Teil des Slugs ein, der nach `Web/HTML/Element/` im Slug als erster Parameter kommt. Bei `\{{CSSxRef("")}}`, fügen Sie den Teil des Slugs hinzu, der nach `Web/CSS/` im Slug kommt. Der Link wird zu dieser Seite führen.
 
-Standardmäßig wird der Text, der angezeigt wird, als die verlinkte Ressource dargestellt, wie sie im ersten Parameter angegeben ist, in spitzen Klammern im Fall von `\{{HTMLElement()}}`. Das ist möglicherweise nicht das gewünschte Ergebnis. Beispielsweise ist der Slug für den Bereichs-Input-Typ `Web/HTML/Element/input/range`. Die Einbindung von `\{{HTMLElement("input/range")}}` ergibt "{{HTMLElement("input/range")}}". Das ist nicht das gewünschte Ergebnis. Alle Makros akzeptieren zusätzliche Parameter, sodass Sie den gewünschten Anzeigetext angeben können.
+Standardmäßig wird der verlinkte Text als Ressource angezeigt, wie sie im ersten Parameter geschrieben ist, bei `\{{HTMLElement()}}` in spitzen Klammern. Das ist möglicherweise nicht das, was Sie möchten. Zum Beispiel ist der Slug für den Eingabetyp "range" `Web/HTML/Element/input/range`. Die Einbeziehung von `\{{HTMLElement("input/range")}}` ergibt "{{HTMLElement("input/range")}}". Das ist nicht das, was Sie wollen. Alle Makros akzeptieren zusätzliche Parameter, sodass Sie den Text angeben können, den Sie anzeigen möchten.
 
-Der zweite Parameter, wenn vorhanden, stellt den Linktext bereit. Im Fall des Input-Bereichs würden wir `\{{HTMLElement("input/range", "<code>&lt;input type=&quot;range&quot;&gt;</code>")}}` schreiben, was "{{HTMLElement("input/range", "<code>&lt;input type=&quot;range&quot;&gt;</code>")}}" ergibt. Dieses spezielle Makro entfernt die {{htmlelement("code")}}- und spitzen Klammern, wenn der zweite Parameter ein Leerzeichen enthält, daher haben wir die Klammern und Code-Tags hinzugefügt.
+Der zweite Parameter, falls vorhanden, bietet den Linktext. Im Fall des input-range-Beispiels würden wir `\{{HTMLElement("input/range", "<code>&lt;input type=&quot;range&quot;&gt;</code>")}}` schreiben, was "{{HTMLElement("input/range", "<code>&lt;input type=&quot;range&quot;&gt;</code>")}}" ergibt. Dieses spezielle Makro entfernt die {{htmlelement("code")}} und die spitzen Klammern, wenn der zweite Parameter ein Leerzeichen enthält, daher haben wir die Klammern und Code-Tags hinzugefügt.
 
-Jedes Makro ist anders!
+Jedes Makro ist unterschiedlich!
 
-Um HTML-Code-Semantik und CSS-Code-Styling zu verhindern, enthalten einige Querverweismakros einen Parameter mit dem `"nocode"`, um dieses Styling zu deaktivieren.
+Um HTML-Code-Semantik und CSS-Codestil zu verhindern, beinhalten einige Querreferenz-Makros einen Parameter mit dem `"nocode"` um diese Formatierung zu deaktivieren.
 
-Zum Beispiel erstellt `\{{CSSxRef("background-color")}}` den Code-Link "{{CSSxRef("background-color")}}" und `\{{domxref("CSS.supports_static", "Unterstützung prüfen", "", "nocode")}}` erstellt den normalen Text-Link "[Unterstützung prüfen](/de/docs/Web/API/CSS/supports_static)".
+Zum Beispiel, `\{{CSSxRef("background-color")}}` erstellt den Code-Link "{{CSSxRef("background-color")}}" und `\{{domxref("CSS.supports_static", "support überprüfen", "", "nocode")}}` erstellt den einfachen Textlink "[support überprüfen](/de/docs/Web/API/CSS/supports_static)".
 
-Stellen Sie sicher, dass Sie den Quellcode ansehen, um zu verstehen, wie das von Ihnen verwendete Makro funktioniert und um die verschiedenen Parameter zu verstehen; während die Parameter im Allgemeinen gut dokumentiert sind, gibt es Ausnahmen wie "nicht als Code rendern, wenn der zweite Parameter ein Leerzeichen enthält", die wir im `\{{HTMLElement("")}}` Makro gesehen haben, die im Code aber sonst nicht dokumentiert sind.
+Stellen Sie sicher, dass Sie den Quellcode anschauen, um zu verstehen, wie das von Ihnen verwendete Makro funktioniert und um die verschiedenen Parameter zu verstehen; während die Parameter im Allgemeinen gut dokumentiert sind, gibt es Ausnahmen wie "als Code nicht rendern, wenn der zweite Parameter ein Leerzeichen enthält", wie wir sie im `\{{HTMLElement("")}}`-Makro gesehen haben, die im Code, aber nicht anderweitig dokumentiert ist.
 
-Um zu erfahren, welche Parameter jedes Makro unterstützt und die Reihenfolge der Parameter für jedes Makro, enthält die oben verlinkte Makro-Quelldatei Dokumentation. Es gibt eine [Liste häufig verwendeter Makros](/de/docs/MDN/Writing_guidelines/Page_structures/Macros/Commonly_used_macros), von denen jedes Links im Hauptinhaltbereich der Seite erzeugt.
+Um zu erfahren, welche Parameter jedes Makro unterstützt und die Reihenfolge der Parameter für jedes Makro, enthält die Quelldatei des Makros, die oben verlinkt ist, Dokumentation. Es gibt eine [Liste häufig verwendeter Makros](/de/docs/MDN/Writing_guidelines/Page_structures/Macros/Commonly_used_macros), von denen jedes Links im Hauptinhaltsbereich der Seite ausgibt.
 
-## Weitere Informationen
+## Siehe auch
 
 - [Verwendung von Makros](/de/docs/MDN/Writing_guidelines/Page_structures/Macros)
-- [Häufig verwendete Makros](/de/docs/MDN/Writing_guidelines/Page_structures/Macros/Commonly_used_macros), einschließlich BCD-Makros (`\{{Compat}}`, `\{{Compat(&lt;feature>)}}`, und `\{{Compat(&lt;feature>, &lt;depth>)}}`) und Spezifikationsmakros (`\{{Specifications}}` / `\{{Specifications(&lt;feature>)}}`)
-- [Leitfaden für Banner und Hinweise](/de/docs/MDN/Writing_guidelines/Page_structures/Banners_and_notices) einschließlich der Makros `\{{SeeCompatTable}}`, `\{{Deprecated_Header}}`, und `\{{SecureContext_Header}}`.
+- [Häufig verwendete Makros](/de/docs/MDN/Writing_guidelines/Page_structures/Macros/Commonly_used_macros), einschließlich BCD-Makros (`\{{Compat}}`) und Spezifikations-Makros (`\{{Specifications}}`).
+- [Leitfaden zu Bannern und Hinweisen](/de/docs/MDN/Writing_guidelines/Page_structures/Banners_and_notices) einschließlich der `\{{SeeCompatTable}}`, `\{{Deprecated_Header}}` und `\{{SecureContext_Header}}` Makros.

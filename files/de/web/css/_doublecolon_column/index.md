@@ -2,12 +2,12 @@
 title: ::column
 slug: Web/CSS/::column
 l10n:
-  sourceCommit: 960a94a198ca60fb04fe63857ea61d7306465791
+  sourceCommit: 8cea7d86ef44c0905506b87d051ea002ee518878
 ---
 
 {{CSSRef}}
 
-Das **`::column`** [CSS](/de/docs/Web/CSS) [Pseudo-Element](/de/docs/Web/CSS/Pseudo-elements) repräsentiert die einzelnen Spalten, die generiert werden, wenn ein Container so eingestellt ist, dass er seinen Inhalt in mehreren Spalten über das [CSS Multi-Column-Layout](/de/docs/Web/CSS/CSS_multicol_layout) anzeigt. Das `::column` Pseudo-Element ermöglicht das Anwenden von Stilen, die das Layout dieser generierten Fragmente nicht beeinflussen.
+Das **`::column`** [CSS](/de/docs/Web/CSS) [Pseudoelement](/de/docs/Web/CSS/Pseudo-elements) repräsentiert die einzelnen Spalten, die erzeugt werden, wenn ein Container so eingestellt ist, dass sein Inhalt über mehrere Spalten hinweg angezeigt wird, durch das [CSS-Mehrspalten-Layout](/de/docs/Web/CSS/CSS_multicol_layout). Das `::column`-Pseudoelement ermöglicht die Anwendung von Stilen, die das Layout nicht beeinflussen, auf diese erzeugten Fragmente.
 
 ## Syntax
 
@@ -19,21 +19,21 @@ Das **`::column`** [CSS](/de/docs/Web/CSS) [Pseudo-Element](/de/docs/Web/CSS/Pse
 
 ## Beschreibung
 
-Wenn das CSS Multi-Column-Layout verwendet wird, um den Inhalt eines Containers in mehreren Spalten zu layouten (zum Beispiel mit der {{cssxref("column-count")}} Eigenschaft), werden `::column` Pseudo-Elemente generiert, um jede einzelne Spalte zu enthalten.
+Wenn das CSS-Mehrspalten-Layout verwendet wird, um den Inhalt eines Containers über mehrere Spalten anzuordnen (zum Beispiel durch die Verwendung der {{cssxref("column-count")}}-Eigenschaft), werden `::column`-Pseudoelemente erzeugt, um jede einzelne Spalte zu enthalten.
 
-Das `::column` Pseudo-Element akzeptiert nur 'scroll snap'-Eigenschaften, die auf Elemente innerhalb eines Scroll-Fensters angewendet werden, einschließlich {{cssxref("scroll-margin")}}, {{cssxref("scroll-snap-align")}} und {{cssxref("scroll-snap-stop")}}.
+Das `::column`-Pseudoelement akzeptiert nur Scroll-Snap-Eigenschaften, die auf Elemente innerhalb eines Scroll-Containers angewendet werden, einschließlich {{cssxref("scroll-margin")}}, {{cssxref("scroll-snap-align")}} und {{cssxref("scroll-snap-stop")}}.
 
-Das `::column` Pseudo-Element kann ein {{cssxref("::scroll-marker")}} Pseudo-Element haben. Andere Pseudo-Elemente wie {{cssxref("::before")}} und {{cssxref("::after")}} werden auf `::column` nicht generiert. Die Anwendung von `::column::scroll-marker` erstellt einen Marker für jede Spalte des ursprünglichen {{Glossary("Scroll_container", "Scroll-Containers")}}, wobei die `::scroll-marker` Pseudo-Elemente vom ursprünglichen Element des `::column` Pseudo-Elements und nicht von `::column` selbst erben.
+Das `::column`-Pseudoelement kann ein {{cssxref("::scroll-marker")}}-Pseudoelement haben. Andere Pseudoelemente wie {{cssxref("::before")}} und {{cssxref("::after")}} werden bei `::column` nicht erzeugt. Die Anwendung von `::column::scroll-marker` erzeugt einen Marker für jede Spalte des ursprünglichen {{Glossary("Scroll_container", "Scroll-Containers")}}, wobei die `::scroll-marker`-Pseudoelemente vom ursprünglichen Element des `::column`-Pseudoelements erben, nicht vom `::column` selbst.
 
-Dies ist nützlich für [CSS Karussells](/de/docs/Web/CSS/CSS_overflow/CSS_carousels) — `::column` kann verwendet werden, um `::scroll-marker` Pseudo-Elemente für jede Spalte zu generieren und sie als {{Glossary("Scroll_snap#snap_target", "Snap-Ziele")}} mit [CSS Scroll Snap](/de/docs/Web/CSS/CSS_scroll_snap) festzulegen.
+Dies ist nützlich für [CSS-Karussells](/de/docs/Web/CSS/CSS_overflow/CSS_carousels) — `::column` kann verwendet werden, um `::scroll-marker`-Pseudoelemente für jede Spalte zu erzeugen, und diese als {{Glossary("Scroll_snap#snap_target", "Snap-Ziele")}} mit [CSS-Scroll-Snap](/de/docs/Web/CSS/CSS_scroll_snap) festzulegen.
 
-Während die Stile, die auf `::column` angewendet werden können, sehr begrenzt sind, könnte dies in Zukunft erweitert werden. Alle in Zukunft unterstützten Eigenschaften und Werte werden auf solche beschränkt sein, die das Layout nicht beeinflussen.
+Obwohl die Stile, die auf `::column` angewendet werden können, sehr eingeschränkt sind, könnten sie in der Zukunft erweitert werden. Jegliche unterstützten Eigenschaften und Werte werden auf solche beschränkt sein, die das Layout nicht beeinflussen.
 
 ## Beispiele
 
-### Scrollendes Spaltenlayout
+### Scrollendes Spalten-Layout
 
-Dieses Demo erstellt einen responsiven Container, der jede "Seite" des Inhalts passend einrastet. Es nutzt die {{cssxref("columns")}} Eigenschaft und das `::columns` Pseudo-Element, um Inhaltsspalten zu schaffen, die die volle Breite ihres übergeordneten {{Glossary("scroll_container", "Scroll-Containers")}} einnehmen, was horizontal gescrollt werden kann. Jede Spalte enthält ein oder mehrere Listenelemente, deren Anzahl sich je nach Viewport-Breite ändert.
+Dieses Demo erstellt einen responsiven Container, der jede "Seite" des Inhalts an seinen Platz schnappt. Es verwendet die {{cssxref("columns")}}-Eigenschaft und das `::columns`-Pseudoelement, um Inhalts-Spalten zu erstellen, die die volle Breite ihres übergeordneten {{Glossary("scroll_container", "Scroll-Containers")}} über die horizontale Scrollleiste erstrecken lassen. Jede Spalte enthält ein oder mehrere Listenelemente, die abhängig von der Breite des Viewports variieren.
 
 #### HTML
 
@@ -101,7 +101,7 @@ Das HTML besteht aus einer [ungeordneten Liste](/de/docs/Web/HTML/Reference/Elem
 
 #### CSS
 
-Die Liste erhält eine feste {{cssxref("height")}} und eine {{cssxref("width")}} von `100vw`, um sie über die volle Breite des Viewports zu spannen. Ein {{cssxref("overflow-x")}} Wert von `scroll` wird dann gesetzt, damit der Inhalt horizontal scrollen wird, und [CSS Scroll Snap](/de/docs/Web/CSS/CSS_scroll_snap) wird verwendet, um zu jedem Element oder jeder "Seite" zu schnappen — ein {{cssxref("scroll-snap-type")}} Wert von `x mandatory` wird verwendet, um die Liste in einen {{Glossary("Scroll_snap#scroll_snap_container", "Scroll Snap Container")}} zu verwandeln. Schließlich wird ein {{cssxref("columns")}} Wert von `1` gesetzt, um den Listeninhalten zu erzwingen, als eine einzige Spalte angezeigt zu werden. Ein {{cssxref("text-align")}} Wert von `center` wird ebenfalls angewendet, um den Inhalt mit der Mitte der Liste auszurichten.
+Der Liste wird eine feste {{cssxref("height")}} und eine {{cssxref("width")}} von `100vw` zugewiesen, um sie über die gesamte Breite des Viewports erstrecken zu lassen. Ein {{cssxref("overflow-x")}}-Wert von `scroll` wird dann gesetzt, damit der Inhalt horizontal scrollen kann, und [CSS-Scroll-Snap](/de/docs/Web/CSS/CSS_scroll_snap) wird verwendet, um zu jedem Element oder "Seite" zu snappen — ein {{cssxref("scroll-snap-type")}}-Wert von `x mandatory` wird verwendet, um die Liste zu einem {{Glossary("Scroll_snap#scroll_snap_container", "Scroll-Snap-Container")}} zu machen. Schließlich wird ein {{cssxref("columns")}}-Wert von `1` gesetzt, um den Inhalt der Liste als eine einzige Spalte anzuzeigen. Ein {{cssxref("text-align")}}-Wert von `center` wird ebenfalls angewendet, um den Inhalt mit der Mitte der Liste auszurichten.
 
 ```css hidden live-sample___column-layout-example live-sample___carousel-example
 * {
@@ -130,10 +130,10 @@ ul {
 
 Die Listenelemente werden dann gestylt:
 
-- Ein {{cssxref("display")}} Wert von `inline-block` wird gesetzt, um die Listenelemente nebeneinander zu setzen und die Liste horizontal scrollen zu lassen.
-- Eine feste {{cssxref("width")}} und {{cssxref("height")}} wurde auf ihnen gesetzt.
-- Ein `text-align` Wert von `left` wird auf ihnen gesetzt, um das `text-align: center`, das auf den übergeordneten Container gesetzt wurde, zu überschreiben, sodass der Inhalt des Elements linksbündig ist.
-- Jedes gerade Listenelement erhält eine andere Hintergrundfarbe über {{cssxref(":nth-child()")}}, damit der Scroll-Effekt leichter zu sehen ist.
+- Ein {{cssxref("display")}}-Wert von `inline-block` wird gesetzt, um die Listenelemente nebeneinander anzuordnen und die Liste horizontal scrollen zu lassen.
+- Eine feste {{cssxref("width")}} und {{cssxref("height")}} wurde ihnen zugewiesen.
+- Ein `text-align`-Wert von `left` wird auf sie gesetzt, um die `text-align: center`, die im übergeordneten Container gesetzt wurde, zu überschreiben, sodass der Inhalt des Elements linksbündig ausgerichtet wird.
+- Jedes gerade Listenelement hat eine unterschiedliche Hintergrundfarbe über {{cssxref(":nth-child()")}}, sodass der Scrolling-Effekt leichter zu erkennen ist.
 
 ```css live-sample___column-layout-example live-sample___carousel-example
 li {
@@ -155,7 +155,7 @@ li:nth-child(even) {
 }
 ```
 
-Die {{cssxref("scroll-snap-align")}} Eigenschaft wird auf die {{cssxref("::column")}} Pseudo-Elemente gesetzt — die die durch die `columns` Eigenschaft generierten Inhaltsspalten darstellen — sodass beim Scrollen eine Spalte zentriert im Scroll-Container einrastet.
+Die {{cssxref("scroll-snap-align")}}-Eigenschaft wird auf die `::column`-Pseudoelemente gesetzt — die die durch die `columns`-Eigenschaft erzeugten Inhaltsspalten repräsentieren —, sodass bei gescrollten eine Spalte zentriert im Scroll-Container eingeschnappt ist.
 
 ```css live-sample___column-layout-example live-sample___carousel-example
 ul::column {
@@ -167,13 +167,13 @@ ul::column {
 
 {{EmbedLiveSample("column-layout-example", "100%", "400px")}}
 
-### Spaltenbasiertes Karussell mit Scroll-Markern
+### Karussell basierend auf Spalten mit Scrollmarkern
 
-Ausgehend vom vorherigen Beispiel werden wir Scroll-Marker erstellen, um die direkte Navigation zu verschiedenen Spalten zu ermöglichen, indem ein {{cssxref("scroll-marker-group")}} auf den Container angewendet wird und ein {{cssxref("::scroll-marker")}} auf jedes `::column` Pseudo-Element. Das HTML bleibt unverändert.
+Aufbauend auf dem vorherigen Beispiel erstellen wir Scrollmarker, um die direkte Navigation zu verschiedenen Spalten zu ermöglichen, indem wir eine {{cssxref("scroll-marker-group")}} auf den Container und ein {{cssxref("::scroll-marker")}} auf jedes `::column`-Pseudoelement anwenden. Das HTML bleibt unverändert.
 
 #### CSS
 
-Wir erstellen eine Scroll-Marker-Gruppe mit der {{cssxref("scroll-marker-group")}} Eigenschaft und platzieren die Gruppe nach dem gesamten Inhalt:
+Wir erstellen eine Scrollmarker-Gruppe mit der {{cssxref("scroll-marker-group")}}-Eigenschaft und platzieren die Gruppe nach dem gesamten Inhalt:
 
 ```css live-sample___carousel-example
 ul {
@@ -181,7 +181,7 @@ ul {
 }
 ```
 
-Wir wenden dann Stile auf das {{cssxref("::scroll-marker-group")}} Pseudo-Element an, um die Scroll-Marker in der Mitte der Zeile mit einem Abstand von `0.4em` zwischen jedem anzuordnen:
+Dann wenden wir Stile auf das {{cssxref("::scroll-marker-group")}}-Pseudoelement an, um die Scrollmarker in der Mitte der Zeile mit einem Abstand von `0.4em` dazwischen anzuordnen:
 
 ```css live-sample___carousel-example
 ::scroll-marker-group {
@@ -191,7 +191,7 @@ Wir wenden dann Stile auf das {{cssxref("::scroll-marker-group")}} Pseudo-Elemen
 }
 ```
 
-Schließlich verwenden wir das {{cssxref("::scroll-marker")}} Pseudo-Element, um für jedes Listenelement einen runden, transparenten Marker mit einem schwarzen Rand zu erstellen, und stylen den Marker des aktuell gescrollten Elements anders als die anderen, indem wir den Marker mit der {{cssxref(":target-current")}} Pseudo-Klasse ansprechen:
+Schließlich verwenden wir das {{cssxref("::scroll-marker")}}-Pseudoelement, um einen runden, transparenten Marker für jedes Listenelement mit einem schwarzen Rand zu erstellen und den Marker des derzeit gescrollten Elements anders als die anderen zu stylen, indem wir den Marker mit der {{cssxref(":target-current")}}-Pseudoklasse anvisieren:
 
 ```css live-sample___carousel-example
 ul::column::scroll-marker {
@@ -212,7 +212,7 @@ ul::column::scroll-marker:target-current {
 
 {{EmbedLiveSample("carousel-example", "100%", "400px")}}
 
-Versuchen Sie, die Scroll-Marker zu drücken, um direkt zu jeder Seite zu springen. Beachten Sie, wie der aktuelle Marker hervorgehoben wird, sodass Sie sehen können, wo Sie sich in der Paginierung befinden. Versuchen Sie auch, zur Scroll-Marker-Gruppe zu tabben und dann die Pfeiltasten zu verwenden, um durch jede Seite zu blättern.
+Versuchen Sie, die Scrollmarker zu drücken, um direkt zu jeder Seite zu springen. Beachten Sie, wie der aktuelle Marker hervorgehoben ist, damit Sie sehen können, wo Sie in der Paginierung sind. Versuchen Sie auch, zur Scrollmarker-Gruppe zu tabben, und verwenden Sie dann die Cursortasten, um durch jede Seite zu blättern.
 
 Siehe [Erstellen von CSS-Karussells](/de/docs/Web/CSS/CSS_overflow/CSS_carousels) für weitere Karussellbeispiele.
 
@@ -231,6 +231,6 @@ Siehe [Erstellen von CSS-Karussells](/de/docs/Web/CSS/CSS_overflow/CSS_carousels
 - {{cssxref("::scroll-marker-group")}}
 - {{cssxref(":target-current")}}
 - [Erstellen von CSS-Karussells](/de/docs/Web/CSS/CSS_overflow/CSS_carousels)
-- [CSS Multi-Column-Layout](/de/docs/Web/CSS/CSS_multicol_layout) Modul
-- [CSS Überlauf](/de/docs/Web/CSS/CSS_overflow) Modul
-- [CSS Carousel Gallery](https://chrome.dev/carousel/) über chrome.dev (2025)
+- Modul [CSS-Mehrspalten-Layout](/de/docs/Web/CSS/CSS_multicol_layout)
+- Modul [CSS-Überlauf](/de/docs/Web/CSS/CSS_overflow)
+- [CSS-Karussell-Galerie](https://chrome.dev/carousel/) über chrome.dev (2025)

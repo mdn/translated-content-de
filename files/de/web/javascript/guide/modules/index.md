@@ -2,29 +2,29 @@
 title: JavaScript-Module
 slug: Web/JavaScript/Guide/Modules
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{jsSidebar("JavaScript Guide")}}{{Previous("Web/JavaScript/Guide/Meta_programming")}}
 
-Dieser Leitfaden gibt Ihnen alles, was Sie benötigen, um mit der JavaScript-Modulsyntax zu beginnen.
+Dieser Leitfaden bietet Ihnen alles, was Sie benötigen, um mit der JavaScript-Modulsyntax zu beginnen.
 
-## Ein Hintergrund über Module
+## Hintergrund zu Modulen
 
-JavaScript-Programme begannen ziemlich klein - die meisten seiner frühen Anwendungen waren isolierte Skripting-Aufgaben, die ein wenig Interaktivität auf Ihren Webseiten dort bieten, wo sie benötigt wurde, sodass große Skripte im Allgemeinen nicht erforderlich waren. Einige Jahre später haben wir nun komplette Anwendungen, die in Browsern mit viel JavaScript ausgeführt werden, sowie JavaScript, das in anderen Kontexten verwendet wird (zum Beispiel {{Glossary("Node.js", "Node.js")}}).
+JavaScript-Programme waren anfangs ziemlich klein – die meiste Nutzung in den ersten Tagen bestand darin, isolierte Skriptaufgaben auszuführen und Ihren Webseiten dort, wo es erforderlich war, ein wenig Interaktivität zu verleihen, sodass große Skripte im Allgemeinen nicht benötigt wurden. Einige Jahre später haben wir nun komplette Anwendungen, die in Browsern mit viel JavaScript ausgeführt werden, sowie JavaScript, das in anderen Kontexten verwendet wird (zum Beispiel {{Glossary("Node.js", "Node.js")}}).
 
-Komplexe Projekte erfordern einen Mechanismus zum Aufteilen von JavaScript-Programmen in separate Module, die bei Bedarf importiert werden können. Node.js hat diese Fähigkeit schon lange, und es gibt eine Anzahl von JavaScript-Bibliotheken und Frameworks, die die Modulnutzung ermöglichen (zum Beispiel andere [CommonJS](https://en.wikipedia.org/wiki/CommonJS) und [AMD](https://github.com/amdjs/amdjs-api/blob/master/AMD.md)-basierte Modulsysteme wie [RequireJS](https://requirejs.org/), [webpack](https://webpack.js.org/) und [Babel](https://babeljs.io/)).
+Komplexe Projekte erfordern einen Mechanismus, um JavaScript-Programme in separate Module aufzuteilen, die bei Bedarf importiert werden können. Node.js verfügt schon lange über diese Fähigkeit, und es gibt eine Reihe von JavaScript-Bibliotheken und -Frameworks, die die Nutzung von Modulen ermöglichen (zum Beispiel andere [CommonJS](https://en.wikipedia.org/wiki/CommonJS)- und [AMD](https://github.com/amdjs/amdjs-api/blob/master/AMD.md)-basierte Modulsysteme wie [RequireJS](https://requirejs.org/), [webpack](https://webpack.js.org/) und [Babel](https://babeljs.io/)).
 
-Alle modernen Browser unterstützen Modul-Features nativ ohne die Notwendigkeit der Transpilation. Das kann nur positiv sein - Browser können das Laden von Modulen optimieren, was effizienter ist, als eine Bibliothek verwenden zu müssen und all diese zusätzliche clientseitige Verarbeitung und zusätzliche Hin- und Rückfahrten zu erledigen. Es bedeutet jedoch nicht, dass Bundler wie webpack veraltet sind – Bundler leisten immer noch gute Arbeit beim Partitionieren von Code in angemessen große Stücke und können andere Optimierungen wie Minifizierung, Elimination von totem Code und Baumschütteln durchführen.
+Alle modernen Browser unterstützen Modul-Features nativ, ohne dass Transpilation erforderlich ist. Das kann nur von Vorteil sein – Browser können das Laden von Modulen optimieren, was effizienter ist, als eine Bibliothek zu verwenden und all diese zusätzlichen clientseitigen Verarbeitungen und zusätzlichen Übertragungen durchführen zu müssen. Es macht Bundler wie webpack jedoch nicht überflüssig – Bundler leisten nach wie vor gute Arbeit darin, Code in sinnvoll große Abschnitte aufzuteilen, und können andere Optimierungen wie Minifizierung, Dead Code Elimination und Tree-Shaking durchführen.
 
 ## Einführung eines Beispiels
 
-Um die Verwendung von Modulen zu demonstrieren, haben wir eine [Reihe von Beispielen](https://github.com/mdn/js-examples/tree/main/module-examples) erstellt, die Sie auf GitHub finden können. Diese Beispiele demonstrieren eine Reihe von Modulen, die ein [`<canvas>`](/de/docs/Web/HTML/Reference/Elements/canvas)-Element auf einer Webseite erstellen und dann verschiedene Formen auf das Canvas zeichnen (und Informationen darüber berichten).
+Um die Nutzung von Modulen zu demonstrieren, haben wir eine [Reihe von Beispielen](https://github.com/mdn/js-examples/tree/main/module-examples) erstellt, die Sie auf GitHub finden können. Diese Beispiele zeigen eine Reihe von Modulen, die ein [`<canvas>`](/de/docs/Web/HTML/Reference/Elements/canvas)-Element auf einer Webseite erstellen und dann verschiedene Formen darauf zeichnen (und Informationen darüber berichten).
 
-Diese sind ziemlich trivial, wurden aber absichtlich einfach gehalten, um Module klar zu demonstrieren.
+Diese sind ziemlich trivial, wurden aber absichtlich einfach gehalten, um Module deutlich zu demonstrieren.
 
 > [!NOTE]
-> Wenn Sie die Beispiele herunterladen und lokal ausführen möchten, müssen Sie sie durch einen lokalen Webserver ausführen.
+> Wenn Sie die Beispiele herunterladen und lokal ausführen möchten, müssen Sie sie über einen lokalen Webserver ausführen.
 
 ## Grundlegende Beispielstruktur
 
@@ -39,47 +39,47 @@ modules/
 ```
 
 > [!NOTE]
-> Alle Beispiele in diesem Leitfaden haben im Grunde die gleiche Struktur; das oben Gesagte sollte ziemlich vertraut werden.
+> Alle Beispiele in diesem Leitfaden haben im Grunde die gleiche Struktur; das oben sollte ziemlich vertraut vorkommen.
 
 Die beiden Module im Verzeichnis "modules" werden unten beschrieben:
 
-- `canvas.js` — enthält Funktionen im Zusammenhang mit der Einrichtung des Canvas:
+- `canvas.js` — enthält Funktionen im Zusammenhang mit dem Einrichten der Leinwand:
 
-  - `create()` — erstellt ein Canvas mit einer angegebenen `width` und `height` innerhalb eines Wrapper-`<div>` mit einer angegebenen ID, der selbst innerhalb eines angegebenen Elternelements angehängt wird. Gibt ein Objekt zurück, das den 2D-Kontext des Canvas und die ID des Wrappers enthält.
-  - `createReportList()` — erstellt eine ungeordnete Liste, die innerhalb eines angegebenen Wrapper-Elements angehängt wird, und die zum Ausgeben von Berichtsdaten verwendet werden kann. Gibt die ID der Liste zurück.
+  - `create()` — erstellt eine Leinwand mit einer angegebenen `width` und `height` innerhalb eines Wrapper [`<div>`](/de/docs/Web/HTML/Reference/Elements/div) mit einer angegebenen ID, die selbst innerhalb eines angegebenen Elternelements angehängt wird. Gibt ein Objekt zurück, das den 2D-Kontext der Leinwand und die ID des Wrappers enthält.
+  - `createReportList()` — erstellt eine ungeordnete Liste, die innerhalb eines angegebenen Wrapper-Elements angehängt wird und für die Ausgabe von Berichtsdaten verwendet werden kann. Gibt die ID der Liste zurück.
 
 - `square.js` — enthält:
 
   - `name` — eine Konstante, die den String 'square' enthält.
-  - `draw()` — zeichnet ein Quadrat auf ein angegebenes Canvas mit einer angegebenen Größe, Position und Farbe. Gibt ein Objekt zurück, das die Größe, Position und Farbe des Quadrats enthält.
-  - `reportArea()` — schreibt die Fläche eines Quadrats auf eine bestimmte Berichtsliste, basierend auf seiner Länge.
-  - `reportPerimeter()` — schreibt den Umfang eines Quadrats auf eine bestimmte Berichtsliste, basierend auf seiner Länge.
+  - `draw()` — zeichnet ein Quadrat auf eine angegebene Leinwand mit einer angegebenen Größe, Position und Farbe. Gibt ein Objekt zurück, das die Größe, Position und Farbe des Quadrats enthält.
+  - `reportArea()` — schreibt die Fläche eines Quadrats in eine bestimmte Berichtsliste, gegebenenfalls mit seiner Länge.
+  - `reportPerimeter()` — schreibt den Umfang eines Quadrats in eine bestimmte Berichtsliste, gegebenenfalls mit seiner Länge.
 
-### Nebenbemerkung — .mjs versus .js
+### Hinweis — .mjs vs. .js
 
-In diesem Artikel haben wir `.js`-Erweiterungen für unsere Moduldaten verwendet, aber in anderen Ressourcen sehen Sie möglicherweise die `.mjs`-Erweiterung. [V8's Dokumentation empfiehlt dies](https://v8.dev/features/modules#mjs), zum Beispiel. Die angegebenen Gründe sind:
+In diesem Artikel haben wir `.js`-Erweiterungen für unsere Moduldaten verwendet, aber in anderen Ressourcen kann die `.mjs`-Erweiterung verwendet werden. [V8s-Dokumentation empfiehlt dies](https://v8.dev/features/modules#mjs), beispielsweise. Die angegebenen Gründe sind:
 
-- Es ist gut für die Klarheit, d.h. es macht klar, welche Dateien Module sind und welche reguläres JavaScript sind.
-- Es stellt sicher, dass Ihre Moduldaten von Laufzeiten wie [Node.js](https://nodejs.org/api/esm.html#esm_enabling) und Build-Tools wie [Babel](https://babeljs.io/docs/options#sourcetype) als Modul geparst werden.
+- Es ist gut für die Klarheit, d.h. es wird deutlich, welche Dateien Module sind und welche normale JavaScript-Dateien sind.
+- Es stellt sicher, dass Ihre Moduldaten von Laufzeitumgebungen wie [Node.js](https://nodejs.org/api/esm.html#esm_enabling) und Build-Tools wie [Babel](https://babeljs.io/docs/options#sourcetype) als Modul geparst werden.
 
-Wir haben uns jedoch entschieden, vorerst `.js` zu verwenden. Um Module korrekt in einem Browser zu verwenden, müssen Sie sicherstellen, dass Ihr Server sie mit einem `Content-Type`-Header liefert, der einen JavaScript-MIME-Typ wie `text/javascript` enthält. Wenn nicht, erhalten Sie einen strengen MIME-Typ-Prüfungsfehler etwa in der Art "Der Server hat mit einem nicht-JavaScript-MIME-Typ geantwortet" und der Browser wird Ihr JavaScript nicht ausführen. Die meisten Server setzen bereits den korrekten Typ für `.js`-Dateien, aber bisher noch nicht für `.mjs`-Dateien. Server, die `.mjs`-Dateien korrekt bedienen, sind [GitHub Pages](https://pages.github.com/) und [`http-server`](https://github.com/http-party/http-server#readme) für Node.js.
+Wir haben uns jedoch entschieden, vorerst `.js` beizubehalten. Um Module im Browser richtig funktionieren zu lassen, müssen Sie sicherstellen, dass Ihr Server diese mit einem `Content-Type`-Header ausliefert, der einen JavaScript-MIME-Typ wie `text/javascript` enthält. Wenn nicht, tritt ein strenger MIME-Typ-Überprüfungsfehler in der Art von "Der Server antwortete mit einem Nicht-JavaScript MIME-Typ" auf, und der Browser wird Ihr JavaScript nicht ausführen. Die meisten Server setzen bereits den richtigen Typ für `.js`-Dateien, aber noch nicht für `.mjs`-Dateien. Server, die `.mjs`-Dateien bereits korrekt ausliefern, sind [GitHub Pages](https://pages.github.com/) und [`http-server`](https://github.com/http-party/http-server#readme) für Node.js.
 
-Das ist in Ordnung, wenn Sie eine solche Umgebung bereits verwenden, oder wenn nicht, aber Sie wissen, was Sie tun, und Zugriff haben (i.e., Sie können Ihren Server so konfigurieren, dass der korrekte [`Content-Type`](/de/docs/Web/HTTP/Reference/Headers/Content-Type) für `.mjs`-Dateien gesetzt wird). Es könnte jedoch Verwirrung stiften, wenn Sie den Server, von dem aus Sie Dateien bereitstellen, nicht kontrollieren oder Dateien zur öffentlichen Nutzung veröffentlichen, wie wir es hier tun.
+Das ist in Ordnung, wenn Sie bereits eine solche Umgebung verwenden oder nicht, aber wissen, was Sie tun und Zugriff haben (d.h. Sie können Ihren Server so konfigurieren, dass er den korrekten [`Content-Type`](/de/docs/Web/HTTP/Reference/Headers/Content-Type) für `.mjs`-Dateien setzt). Es könnte jedoch Verwirrung stiften, wenn Sie nicht den Server kontrollieren, von dem Sie Dateien bereitstellen, oder Dateien zur öffentlichen Nutzung veröffentlichen, wie wir es hier tun.
 
 Für Lern- und Portabilitätszwecke haben wir uns entschieden, bei `.js` zu bleiben.
 
-Wenn Ihnen die Klarheit, `.mjs` für Module im Vergleich zur Verwendung von `.js` für "normale" JavaScript-Dateien zu schätzen, aber nicht auf das oben beschriebene Problem stoßen wollen, könnten Sie immer `.mjs` während der Entwicklung verwenden und sie während Ihres Build-Schritts in `.js` umwandeln.
+Wenn Ihnen die Klarheit von `.mjs` für Module im Gegensatz zu `.js` für "normale" JavaScript-Dateien wirklich wichtig ist, aber nicht in das oben beschriebene Problem geraten möchten, können Sie während der Entwicklung immer `.mjs` verwenden und sie während Ihres Build-Schritts in `.js` umwandeln.
 
 Es ist auch erwähnenswert, dass:
 
-- Einige Werkzeuge `.mjs` möglicherweise nie unterstützen.
+- Einige Tools möglicherweise niemals `.mjs` unterstützen.
 - Das `<script type="module">`-Attribut wird verwendet, um anzugeben, wann auf ein Modul verwiesen wird, wie Sie unten sehen werden.
 
 ## Exportieren von Modulfunktionen
 
-Das Erste, was Sie tun müssen, um Zugriff auf Modulfunktionen zu erhalten, ist, sie zu exportieren. Dies wird mit der {{jsxref("Statements/export", "export")}}-Anweisung gemacht.
+Das erste, was Sie tun, um Zugriff auf Modulfunktionen zu erhalten, ist, diese zu exportieren. Dies erfolgt durch die {{jsxref("Statements/export", "export")}}-Anweisung.
 
-Der einfachste Weg, es zu verwenden, besteht darin, es vor die Elemente zu setzen, die Sie aus dem Modul exportieren möchten, zum Beispiel:
+Die einfachste Möglichkeit, dies zu verwenden, ist, es vor alle Elemente zu setzen, die Sie aus dem Modul exportieren möchten, zum Beispiel:
 
 ```js
 export const name = "square";
@@ -92,9 +92,9 @@ export function draw(ctx, length, x, y, color) {
 }
 ```
 
-Sie können Funktionen, `var`, `let`, `const` und — wie wir später sehen werden — Klassen exportieren. Sie müssen Elemente auf der obersten Ebene sein: Zum Beispiel können Sie `export` nicht innerhalb einer Funktion verwenden.
+Sie können Funktionen, `var`, `let`, `const` und – wie wir später sehen werden – Klassen exportieren. Sie müssen Toplevel-Elemente sein: Zum Beispiel können Sie `export` nicht innerhalb einer Funktion verwenden.
 
-Ein bequemerer Weg, alle Elemente, die Sie exportieren möchten, zu exportieren, ist die Verwendung einer einzigen Exportanweisung am Ende Ihrer Moduldaten, gefolgt von einer durch Kommata getrennten Liste der Funktionen, die Sie exportieren möchten, in geschweiften Klammern. Zum Beispiel:
+Eine bequemere Möglichkeit, alle Elemente, die Sie exportieren möchten, zu exportieren, besteht darin, eine einzelne Exportanweisung am Ende Ihrer Moduldaten zu verwenden, gefolgt von einer durch Kommas getrennten Liste der Funktionen, die Sie exportieren möchten, umschlossen in geschweifte Klammern. Zum Beispiel:
 
 ```js
 export { name, draw, reportArea, reportPerimeter };
@@ -102,15 +102,17 @@ export { name, draw, reportArea, reportPerimeter };
 
 ## Importieren von Funktionen in Ihr Skript
 
-Sobald Sie einige Funktionen aus Ihrem Modul exportiert haben, müssen Sie sie in Ihr Skript importieren, um sie verwenden zu können. Der einfachste Weg, dies zu tun, ist wie folgt:
+Sobald Sie einige Funktionen aus Ihrem Modul exportiert haben, müssen Sie diese in Ihr Skript importieren, um sie verwenden zu können. Der einfachste Weg, dies zu tun, ist wie folgt:
 
 ```js
 import { name, draw, reportArea, reportPerimeter } from "./modules/square.js";
 ```
 
-Sie verwenden die {{jsxref("Statements/import", "import")}}-Anweisung, gefolgt von einer durch Kommata getrennten Liste der Funktionen, die Sie importieren möchten, in geschweiften Klammern, gefolgt vom Schlüsselwort `from`, gefolgt vom _Modul-Spezifizierer_.
+Sie verwenden die {{jsxref("Statements/import", "import")}}-Anweisung, gefolgt von einer durch Kommas getrennten Liste der Funktionen, die Sie importieren möchten, umschlossen in geschweifte Klammern, gefolgt vom Schlüsselwort `from`, gefolgt vom _Modulspezifizierer_.
 
-Der _Modul-Spezifizierer_ bietet einen String, den die JavaScript-Umgebung in einen Pfad zur Moduldaten auflösen kann. In einem Browser könnte dies ein relativ zum Site-Stammpfad sein, der für unser `basic-modules`-Beispiel `/js-examples/module-examples/basic-modules` wäre. Hier verwenden wir jedoch stattdessen die Punkt-(`.`)-Syntax, um "der aktuelle Ort" zu bedeuten, gefolgt vom relativen Pfad zu den Daten, die wir finden möchten. Dies ist viel besser, als jedes Mal den gesamten absoluten Pfad auszuschreiben, da relative Pfade kürzer und die URL tragbar machen - das Beispiel funktioniert immer noch, wenn Sie es an einen anderen Ort in der Seitenhierarchie verschieben.
+Der _Modulspezifizierer_ stellt einen String bereit, den die JavaScript-Umgebung in einen Pfad zu den Moduldaten auflösen kann.
+In einem Browser könnte dies ein pfad relativer zur Site-Root sein, der für unser `basic-modules`-Beispiel `/js-examples/module-examples/basic-modules` wäre.
+Hier verwenden wir jedoch stattdessen die Punkt-(`.`)-Syntax, um den „aktuellen Standort“ zu bedeuten, gefolgt vom relativen Pfad zu der Datei, die wir zu finden versuchen. Dies ist viel besser, als jedes Mal den gesamten absoluten Pfad zu schreiben, da relative Pfade kürzer sind und die URL portabel machen – das Beispiel funktioniert immer noch, wenn Sie es an einen anderen Ort in der Site-Hierarchie verschieben.
 
 Zum Beispiel:
 
@@ -124,12 +126,13 @@ wird zu
 ./modules/square.js
 ```
 
-Sie können solche Zeilen in Aktion in [`main.js`](https://github.com/mdn/js-examples/blob/main/module-examples/basic-modules/main.js) sehen.
+Solche Zeilen finden Sie in [`main.js`](https://github.com/mdn/js-examples/blob/main/module-examples/basic-modules/main.js).
 
 > [!NOTE]
-> In einigen Modulsystemen können Sie einen Modulspezifizierer wie `modules/square` verwenden, der kein relativer oder absoluter Pfad ist und der keine Dateierweiterung hat. Diese Art von Spezifizierer kann in einer Browserumgebung verwendet werden, wenn Sie zuerst eine [Importtabelle](#importieren_von_modulen_mit_importkarten) definieren.
+> In einigen Modulsystemen können Sie einen Modulspezifizierer wie `modules/square` verwenden, der kein relativer oder absoluter Pfad ist und keine Dateierweiterung hat.
+> Diese Art von Spezifizierer kann in einer Browserumgebung verwendet werden, wenn Sie zuerst eine [Importkarte](#importieren_von_modulen_mit_importkarten) definieren.
 
-Sobald Sie die Funktionen in Ihr Skript importiert haben, können Sie sie genauso verwenden, als wären sie im selben Date, definiert. Das Folgende findet sich in `main.js`, unter den Importzeilen:
+Sobald Sie die Funktionen in Ihr Skript importiert haben, können Sie sie genauso verwenden, als wären sie im selben Dateipaket definiert. Das Folgende findet sich in `main.js`, unterhalb der Importzeilen:
 
 ```js
 const myCanvas = create("myCanvas", document.body, 480, 320);
@@ -141,20 +144,22 @@ reportPerimeter(square1.length, reportList);
 ```
 
 > [!NOTE]
-> Die importierten Werte sind schreibgeschützte Ansichten der Funktionen, die exportiert wurden. Ähnlich wie bei `const`-Variablen können Sie die importierte Variable nicht neu zuweisen, aber Sie können weiterhin Eigenschaften von Objektwerten ändern. Der Wert kann nur vom Modul, das ihn exportiert, neu zugewiesen werden. Siehe die [`import`](https://www.drupal.org/api/drupal/actions?field_category=16482) Referenz für ein Beispiel.
+> Die importierten Werte sind schreibgeschützte Ansichten der exportierten Funktionen. Ähnlich wie `const`-Variablen können Sie die importierte Variable nicht neu zuweisen, aber Sie können weiterhin Eigenschaften von Objektwerten ändern. Der Wert kann nur vom Modul, das es exportiert, neu zugewiesen werden. Siehe das [`import` Reference](/de/docs/Web/JavaScript/Reference/Statements/import#imported_values_can_only_be_modified_by_the_exporter) für ein Beispiel.
 
 ## Importieren von Modulen mit Importkarten
 
-Oben haben wir gesehen, wie ein Browser ein Modul mit einem Modul-Spezifizierer importieren kann, der entweder eine absolute URL ist oder eine relative URL, die mit der Basis-URL des Dokuments aufgelöst wird:
+Oben haben wir gesehen, wie ein Browser ein Modul mit einem Modulspezifizierer importieren kann, der entweder eine absolute URL oder eine relative URL ist, die mit der Basis-URL des Dokuments aufgelöst wird:
 
 ```js
 import { name as squareName, draw } from "./shapes/square.js";
 import { name as circleName } from "https://example.com/shapes/circle.js";
 ```
 
-[Importkarten](/de/docs/Web/HTML/Reference/Elements/script/type/importmap) ermöglichen es Entwicklern, stattdessen fast jeden Text zu spezifizieren, den sie im Modulspezifizierer verwenden möchten; die Karte bietet einen entsprechenden Wert, der den Text ersetzt, wenn die Moduledaten -URL aufgelöst wird.
+[Importkarten](/de/docs/Web/HTML/Reference/Elements/script/type/importmap) ermöglichen es Entwicklern, stattdessen fast jeden gewünschten Text im Modulspezifizierer anzugeben, wenn ein Modul importiert wird; die Karte bietet einen entsprechenden Wert, der den Text beim Auflösen der Modul-URL ersetzt.
 
-Zum Beispiel definiert der Schlüssel `imports` in der folgenden Importkarte ein „Modulspezifizierer-Karten“-JSON-Objekt, bei dem die Eigenschaftsnamen als Modulspezifizierer verwendet werden können und die entsprechenden Werte beim Auflösen der Moduledaten -URL ersetzt werden. Die Werte müssen absolute oder relative URLs sein. Relative URLs werden in absolute URL-Adressen aufgelöst, indem die [Basis-URL](/de/docs/Web/HTML/Reference/Elements/base) des Dokuments, das die Importkarte enthält, verwendet wird.
+Zum Beispiel definiert der `imports` Schlüssel in der folgenden Importkarte ein "Modulspezifiziererkarte" JSON-Objekt, bei dem die Eigenschaftsnamen als Modulspezifizierer verwendet werden können, und die entsprechenden Werte beim Auflösen der Modul-URL ersetzt werden.
+Die Werte müssen absolute oder relative URLs sein.
+Relative URLs werden in absolute URL-Adressen unter Verwendung der [Basis-URL](/de/docs/Web/HTML/Reference/Elements/base) des Dokuments aufgelöst, das die Importkarte enthält.
 
 ```html
 <script type="importmap">
@@ -170,9 +175,12 @@ Zum Beispiel definiert der Schlüssel `imports` in der folgenden Importkarte ein
 </script>
 ```
 
-Die Importkarte wird mit einem [JSON-Objekt](/de/docs/Web/HTML/Reference/Elements/script/type/importmap#import_map_json_representation) in einem `<script>`-Element mit dem Typattribut, das auf [`importmap`](/de/docs/Web/HTML/Reference/Elements/script/type/importmap) gesetzt ist, definiert. Beachten Sie, dass eine Importkarte nur für das Dokument gilt - die Spezifikation behandelt nicht, wie eine Importkarte in einem Arbeiter- oder Worklet-Kontext angewendet werden kann. <!-- https://github.com/WICG/import-maps/issues/2 -->
+Die Importkarte wird mit einem [JSON-Objekt](/de/docs/Web/HTML/Reference/Elements/script/type/importmap#import_map_json_representation) in einem `<script>`-Element mit dem Attribut `type` auf [`importmap`](/de/docs/Web/HTML/Reference/Elements/script/type/importmap) definiert.
+Beachten Sie, dass eine Importkarte nur für das Dokument gilt – die Spezifikation deckt nicht ab, wie eine Importkarte im Worker- oder Worklet-Kontext angewendet wird. <!-- https://github.com/WICG/import-maps/issues/2 -->
 
-Mit dieser Karte können Sie jetzt die oben genannten Eigenschaftsnamen als Modulspezifizierer verwenden. Wenn kein Schrägstrich am Ende des Modulspezifizierer-Schlüssels vorhanden ist, wird der gesamte Modulspezifizierer-Schlüssel abgeglichen und ersetzt. Zum Beispiel werden unten nackte Modulnamen abgeglichen, und eine URL wird auf einen anderen Pfad umgeleitet.
+Mit dieser Karte können Sie jetzt die oben genannten Eigenschaftsnamen als Modulspezifizierer verwenden.
+Wenn es keinen nachgestellten Schrägstrich am Modulspezifizierer-Schlüssel gibt, wird der gesamte Modulspezifizierer-Schlüssel abgeglichen und ersetzt.
+Zum Beispiel unten matchen wir eingängige Modulnamen und remappen einen URL zu einem anderen Pfad.
 
 ```js
 // Bare module names as module specifiers
@@ -183,22 +191,28 @@ import { name as squareNameTwo } from "shapes/square";
 import { name as squareNameThree } from "https://example.com/shapes/square.js";
 ```
 
-Wenn der Modulspezifizierer einen abschließenden Schrägstrich hat, muss dieser Wert auch einen haben, und der Schlüssel wird als „Pfadpräfix“ abgeglichen. Dadurch können ganze Klassen von URLs neu gemappt werden.
+Wenn der Modulspezifizierer einen nachgestellten Schrägstrich hat, dann muss der Wert auch einen haben, und der Schlüssel wird als "Pfadpräfix" abgeglichen.
+Dadurch kann die Umleitung einer ganzen Klassen von URLs durchgeführt werden.
 
 ```js
 // Remap a URL as a prefix ( https://example.com/shapes/)
 import { name as squareNameFour } from "https://example.com/shapes/moduleshapes/square.js";
 ```
 
-Es ist möglich, dass mehrere Schlüssel in einer Importkarte gültige Übereinstimmungen für einen Modulspezifizierer sind. Zum Beispiel könnte ein Modulspezifizierer von `shapes/circle/` mit den Modulspezifiziererschlüsseln `shapes/` und `shapes/circle/` übereinstimmen. In diesem Fall wählt der Browser den spezifischsten (längsten) passenden Modulspezifiziererschlüssel aus.
+Es ist möglich, dass mehrere Schlüssel in einer Importkarte gültige Übereinstimmungen für einen Modulspezifizierer sind.
+Zum Beispiel könnte ein Modulspezifizierer von `shapes/circle/` den Modulspezifizierer-Schlüsseln `shapes/` und `shapes/circle/` entsprechen.
+In diesem Fall wählt der Browser den spezifischsten (längsten) passenden Modulspezifizierer-Schlüssel aus.
 
-Importkarten ermöglichen es, Module mit nackten Modulnamen zu importieren (wie in Node.js) und können auch das Importieren von Modulen aus Paketen simulieren, sowohl mit als auch ohne Dateierweiterungen. Auch wenn dies oben nicht gezeigt wird, erlauben sie auch, bestimmte Versionen einer Bibliothek basierend auf dem Pfad des Skripts zu importieren, das das Modul importiert. Im Allgemeinen ermöglichen sie es Entwicklern, mehr ergonomischen Importcode zu schreiben, und erleichtern die Verwaltung der verschiedenen Versionen und Abhängigkeiten der von einer Seite verwendeten Module. Dies kann den Aufwand zur Verwendung derselben JavaScript-Bibliotheken sowohl in Browser als auch auf Servern verringern.
+Importkarten ermöglichen es, Module mit eingängigen Modulnamen zu importieren (wie in Node.js), und können auch das Importieren von Modulen aus Paketen simulieren, sowohl mit als auch ohne Dateierweiterungen.
+Obwohl dies oben nicht gezeigt wurde, ermöglichen sie auch das Importieren bestimmter Versionen einer Bibliothek, basierend auf dem Pfad des Skripts, das das Modul importiert.
+Im Allgemeinen lassen sie Entwickler ergonomischeren Import-Code schreiben und erleichtern das Verwalten der verschiedenen Versionen und Abhängigkeiten von Modulen, die durch eine Site verwendet werden.
+Dies kann den Aufwand reduzieren, dieselben JavaScript-Bibliotheken sowohl im Browser- als auch im Server-Umfeld zu verwenden.
 
-Die folgenden Abschnitte erweitern die oben skizzierten verschiedenen Funktionen.
+Die folgenden Abschnitte erweitern die oben skizzierten Funktionen.
 
-### Funktionsüberprüfung
+### Funktionsunterstützung
 
-Sie können die Unterstützung für Importkarten mit der statischen Methode [`HTMLScriptElement.supports()`](/de/docs/Web/API/HTMLScriptElement/supports_static) überprüfen (die selbst weitgehend unterstützt wird):
+Sie können die Unterstützung für Importkarten mit der statischen Methode [`HTMLScriptElement.supports()`](/de/docs/Web/API/HTMLScriptElement/supports_static) überprüfen (die selbst umfassend unterstützt wird):
 
 ```js
 if (HTMLScriptElement.supports?.("importmap")) {
@@ -206,17 +220,19 @@ if (HTMLScriptElement.supports?.("importmap")) {
 }
 ```
 
-### Importieren von Modulen als nackte Namen
+### Importieren von Modulen als eingängige Namen
 
-In einigen JavaScript-Umgebungen wie Node.js können Sie nackte Namen für den Modulspezifizierer verwenden. Dies funktioniert, weil die Umgebung Modulnamen in einem Standardpfad im Dateisystem auflösen kann. Zum Beispiel könnten Sie die folgende Syntax verwenden, um das "square"-Modul zu importieren.
+In einigen JavaScript-Umgebungen, wie Node.js, können Sie eingängige Namen als Modulspezifizierer verwenden.
+Das funktioniert, weil die Umgebung Modulnamen in einem Standardverzeichnis im Dateisystem auflösen kann.
+Zum Beispiel verwenden Sie möglicherweise die folgende Syntax, um das „square“-Modul zu importieren.
 
 ```js
 import { name, draw, reportArea, reportPerimeter } from "square";
 ```
 
-Um nackte Namen in einem Browser zu verwenden, benötigen Sie eine Importkarte, die die vom Browser benötigten Informationen bereitstellt, um Modulspezifizierer in URLs aufzulösen (JavaScript wirft einen `TypeError`, wenn es versucht, einen Modulspezifizierer zu importieren, der nicht zu einem Modulstandort aufgelöst werden kann).
+Um eingängige Namen in einem Browser zu verwenden, benötigen Sie eine Importkarte, die dem Browser die Informationen zur Verfügung stellt, die er benötigt, um Modulspezifizierer in URLs aufzulösen (JavaScript wirft einen `TypeError`, wenn versucht wird, einen Modulspezifizierer zu importieren, der nicht in eine Modulposition aufgelöst werden kann).
 
-Unten sehen Sie eine Karte, die einen `square`-Modulspezifiziererschlüssel definiert, der in diesem Fallzu einer relativen Adresswert.
+Unten sehen Sie eine Karte, die einen `square` Modulspezifizierer-Schlüssel definiert, der in diesem Fall einer relativen Adressangabe entspricht.
 
 ```html
 <script type="importmap">
@@ -228,22 +244,25 @@ Unten sehen Sie eine Karte, die einen `square`-Modulspezifiziererschlüssel defi
 </script>
 ```
 
-Mit dieser Karte können wir jetzt einen nackten Namen verwenden, wenn wir das Modul importieren:
+Mit dieser Karte können wir jetzt einen eingängigen Namen verwenden, wenn wir das Modul importieren:
 
 ```js
 import { name as squareName, draw } from "square";
 ```
 
-### Umleiten von Modulpfaden
+### Neue Zuweisungen von Modulpfaden
 
-Moduleinträgen in der Modulspezifiziererkarte, bei denen sowohl der Spezifiziererschlüssel als auch der damit verbundene Wert einen abschließenden Schrägstrich (`/`) haben, können als Pfad-Präfix verwendet werden. Dadurch kann eine ganze Menge von Import-URLs von einem Standort auf einen anderen umgeleitet werden. Es kann auch verwendet werden, um das Arbeiten mit "Paketen und Modulen", wie Sie es in der Node-Umgebung sehen können, zu simulieren.
+Einträge in der Modulspezifiziererkarte, bei denen sowohl der spezifizierer Schlüssel als auch der dazugehörige Wert einen nachgestellten Schrägstrich (`/`) haben, können als Pfadpräfix genutzt werden.
+Dies ermöglicht die Neue Zuweisung eines ganzen Satzes von Import-URLs von einem Standort zu einem anderen.
+Es kann auch verwendet werden, um das Arbeiten mit "Paketen und Modulen" zu emulieren, wie Sie es in dem Node-Ökosystem sehen.
 
 > [!NOTE]
-> Der abschließende `/` zeigt an, dass der Modulspezifiziererschlüssel als _Teil_ eines Modulspezifizierers ersetzt werden kann. Wenn dies nicht vorhanden ist, wird der Browser nur den ganzen Modulspezifiziererschlüssel (und ersetzt) abgleichen.
+> Der nachgestellte `/` gibt an, dass der Modulspezifizierer-Schlüssels als _Teil_ eines Modulspezifizierers ersetzt werden kann.
+> Wenn dies nicht vorhanden ist, wird der Browser nur den gesamten Modulspezifizierer-Schlüssel abgleichen (und ersetzen).
 
 #### Pakete von Modulen
 
-Die folgende JSON-Importkartendefinition ordnet `lodash` als nackten Namen zu und das Modulspezifizierer-Präfix `lodash/` dem Pfad `/node_modules/lodash-es/` (aufgelöst auf die Basis-URL des Dokuments):
+Die folgenden JSON-Importdefinitionskarte mappt `lodash` als eingängigen Namen und das Modulspezifiziererpräfix `lodash/` auf den Pfad `/node_modules/lodash-es/` (gelöst zur Basis-URL des Dokuments):
 
 ```json
 {
@@ -254,18 +273,20 @@ Die folgende JSON-Importkartendefinition ordnet `lodash` als nackten Namen zu un
 }
 ```
 
-Mit dieser Zuordnung können Sie sowohl das gesamte "Paket" mit dem nackten Namen importieren als auch Module darin (mit der Pfadzuordnung):
+Mit dieser Zuweisung können Sie sowohl das gesamte "Paket" importieren, indem Sie den eingängigen Namen verwenden, als auch Module darin (indem Sie die Pfadzuweisung nutzen):
 
 ```js
 import _ from "lodash";
 import fp from "lodash/fp.js";
 ```
 
-Es ist möglich, `fp` oben ohne die `.js` Dateierweiterung zu importieren, aber Sie müssten ein Bare-Modulspezifiziererschlüssel für diese Datei erstellen, z. B. `lodash/fp`, anstatt den Pfad zu verwenden. Dies mag vernünftig für nur ein Modul sein, skaliert aber schlecht, wenn Sie viele Module importieren möchten.
+Es ist möglich, `fp` oben ohne die Endung `.js` zu importieren, aber Sie müssten einen eingängigen Modulspezifizierer für diese Datei erstellen, z. B. `lodash/fp`, anstatt den Pfad zu verwenden.
+Dies kann für nur ein Modul vernünftig sein, skaliert jedoch schlecht, wenn Sie viele Module importieren möchten.
 
-#### Allgemeine URL-Umleitung
+#### Allgemeine URL-Zuweisungen
 
-Ein Modulspezifiziererschlüssel muss kein Pfad sein - er kann auch eine absolute URL sein (oder ein URL-ähnlicher relativer Pfad wie `./`, `../`, `/`). Dies kann nützlich sein, wenn Sie ein Modul umleiten möchten, das absolute Pfade zu einer Ressource hat, mit Ihren eigenen lokalen Ressourcen.
+Ein Modulspezifizierer-Schlüssel muss kein Pfad sein – es kann auch eine absolute URL (oder ein URL-ähnlicher relativer Pfad wie `./`, `../`, `/`) sein.
+Dies könnte nützlich sein, wenn Sie ein Modul, das absolute Pfade zu einer Ressource hat, mit Ihren eigenen lokalen Ressourcen ersetzen möchten.
 
 ```json
 {
@@ -275,14 +296,18 @@ Ein Modulspezifiziererschlüssel muss kein Pfad sein - er kann auch eine absolut
 }
 ```
 
-### Gezielte Module für das Versionsmanagement
+### Spezifizierte Module für die Versionsverwaltung
 
-Umgebungen wie Node verwenden Paketmanager wie npm, um Module und ihre Abhängigkeiten zu verwalten. Der Paketmanager stellt sicher, dass jedes Modul von anderen Modulen und ihren Abhängigkeiten getrennt ist. Infolgedessen, obwohl eine komplexe Anwendung dasselbe Modul mehrmals mit mehreren verschiedenen Versionen in verschiedenen Teilen des Modulgraphen einschließen könnte, müssen sich die Benutzer nicht mit dieser Komplexität auseinandersetzen.
+Ökosysteme wie Node verwenden Paketmanager wie npm, um Module und ihre Abhängigkeiten zu verwalten.
+Der Paketmanager sorgt dafür, dass jedes Modul von anderen Modulen und deren Abhängigkeiten getrennt ist.
+Daher kann eine komplexe Anwendung zwar dasselbe Modul mehrmals mit mehreren verschiedenen Versionen an verschiedenen Stellen des Modulgraphen enthalten, Benutzer müssen sich jedoch nicht mit dieser Komplexität auseinandersetzen.
 
 > [!NOTE]
-> Sie können das Versionsmanagement auch mit relativen Pfaden erreichen, aber dies ist unzureichend, weil dies unter anderem eine bestimmte Struktur auf Ihr Projekt erzwingt und Sie daran hindert, Bare-Modulnamen zu verwenden.
+> Sie können auch die Versionsverwaltung mit relativen Pfaden erreichen, aber dies ist suboptimal, weil es unter anderem eine bestimmte Struktur für Ihr Projekt erzwingt und Sie daran hindert, eingängige Modulnamen zu verwenden.
 
-Importkarten ermöglichen es Ihnen, mehrere Versionen von Abhängigkeiten in Ihrer Anwendung zu haben und auf sie mit demselben Modulspezifizierer zu verweisen. Sie implementieren dies mit dem Schlüssel `scopes`, der es Ihnen erlaubt, Modulspezifizierer-Karten bereitzustellen, die je nach Pfad des die Importausführenden Skripts verwendet werden. Das folgende Beispiel demonstriert dies.
+Importkarten ermöglichen es Ihnen ebenfalls, mehrere Versionen von Abhängigkeiten in Ihrer Anwendung zu haben und sie mit den gleichen Modulspezifizierern zu referenzieren.
+Sie implementieren dies mit dem `scopes`-Schlüssel, der es Ihnen ermöglicht, Modulspezifiziererkarten bereitzustellen, die basierend auf dem Pfad des Scripts, das den Import durchführt, genutzt werden.
+Das untenstehende Beispiel demonstriert dies.
 
 ```json
 {
@@ -297,17 +322,26 @@ Importkarten ermöglichen es Ihnen, mehrere Versionen von Abhängigkeiten in Ihr
 }
 ```
 
-Mit dieser Zuordnung wird, wenn ein Skript mit einer URL, die `/node_modules/dependency/` enthält, `cool-module` importiert, die Version in `/node_modules/some/other/location/cool-module/index.js` verwendet. Die Karte in `imports` wird als Ersatz verwendet, wenn kein passender Bereich in der gesperrten Karte vorhanden ist, oder die passenden Bereiche keinen passenden Spezifizierer enthalten. Wenn zum Beispiel `cool-module` von einem Skript mit einem nicht passenden Umfangspfad importiert wird, dann wird die Modulspezifiziererkarte in `imports` stattdessen verwendet, um auf die Version in `/node_modules/cool-module/index.js` zu verweisen.
+Mit dieser Zuweisung, wenn ein Script mit einer URL, die `/node_modules/dependency/` enthält, `cool-module` importiert, wird die Version in `/node_modules/some/other/location/cool-module/index.js` verwendet.
+Die Karte in `imports` wird als Fallback verwendet, falls keine übereinstimmende gelenkter Karteneintrag in der Modulspezifiziererkarte vorhanden ist, oder die übereinstimmenden Scopes keinen übereinstimmenden Spezifizierer enthalten. Beispielsweise, wenn `cool-module` von einem Script mit einem nicht übereinstimmenden Scope-Pfad importiert wird, wird stattdessen die Modulspezifiziererkarte in `imports` verwendet, die zur Version in `/node_modules/cool-module/index.js` abstimmt.
 
-Beachten Sie, dass der zum Auswählen eines Bereichs verwendete Pfad nicht beeinflusst, wie die Adresse aufgelöst wird. Der Wert im gemappten Pfad muss nicht mit dem Bereichspfad übereinstimmen, und relative Pfade werden weiterhin zur Basis-URL des Skripts aufgelöst, das die Importkarte enthält.
+Beachten Sie, dass der Pfad, der zur Auswahl eines Scopes verwendet wird, die Art und Weise, wie die Adresse aufgelöst wird, nicht beeinflusst.
+Der Wert im zugeordneten Pfad muss nicht mit dem Scope-Pfad übereinstimmen, und relative Pfade werden immer noch auf die Basis-URL des Scripts, das die Importkarte enthält, bezogen.
 
-Genau wie bei den Modulspezifizierer-Karten können Sie viele Bereichsschlüssel haben, und diese können sich überlappende Pfade enthalten. Wenn mehrere Bereiche mit der Referrer-URL übereinstimmen, wird zuerst der spezifischste Bereichtspfad (der längste Bereichsschlüssel) auf eine passende Spezifizierung überprüft. Der Browser fällt auf den nächsten spezifischsten passenden Bereichspfad zurück, wenn keine passende Spezifikabteilung vorhanden ist, und so weiter. Wenn in keinen der passenden Bereiche eine passende Spezifikabteilung vorhanden ist, überprüft der Browser auf eine Übereinstimmung in der Modulspezifikabteilungskarte im `imports`-Schlüssel.
+Genau wie bei Modulspezifiziererkarten können Sie viele Scope-Schlüssel haben, und diese können sich überschneidende Pfade enthalten.
+Wenn mehrere Scopes mit der Ursprungs-URL übereinstimmen, wird der spezifischste Scope-Pfad zuerst (der längste Scope-Schlüssel) überprüft, um einen übereinstimmenden Spezifizierer zu finden.
+Die Browser setzen auf den nächsten spezifischsten übereinstimmenden geglätteten Bereich zurück, wenn kein übereinstimmender Spezifizierer vorhanden ist, und so weiter.
+Wenn es keinen übereinstimmenden Spezifizierer in irgendeinem der übereinstimmenden Scopes gibt, überprüft der Browser auf eine Übereinstimmung in der Modulspezifiziererkarte im Schlüssel `imports`.
 
-### Verbesserung des Caching durch Wegzuordnen von gehashten Dateinamen
+### Verbessern des Caching durch das Mapping von Hashed-Filenames
 
-Skriptdateien, die von Websites verwendet werden, haben oft gehashte Dateinamen, um das Caching zu vereinfachen. Der Nachteil dieses Ansatzes ist, dass, wenn sich ein Modul ändert, alle Module, die es mit seinem gehashten Dateinamen importieren, auch aktualisiert/regeneriert werden müssen. Dies reistet möglicherweise zu einer Kaskade von Updates, was verschwenderisch für Netzwerkressourcen ist.
+Von Websites verwendete Skriptdateien haben oft gehashte Dateinamen, um das Caching zu vereinfachen.
+Der Nachteil dieser Vorgehensweise ist, dass, wenn sich ein Modul ändert, alle Module, die es mit seinem gehashten Dateinamen importieren, ebenfalls aktualisiert/neu generiert werden müssen.
+Dies führt möglicherweise zu einer Kaskade von Aktualisierungen, was eine Verschwendung von Netzressourcen ist.
 
-Importkarten bieten eine bequeme Lösung für dieses Problem. Anstatt von bestimmten gehashten Dateinamen abhängig zu sein, verlassen sich Anwendungen und Skripte stattdessen auf eine ungehashte Version des Modulnamens (Adresse). Eine Importkarte wie die folgende stellt dann eine Zuordnung zur tatsächlichen Skriptdaten bereit.
+Importkarten bieten eine praktische Lösung für dieses Problem.
+Anstatt sich auf spezifische gehashte Dateinamen zu verlassen, hängen Anwendungen und Skripte ab sofort von einer ungehashte Version des Modulnamens (Adresse) ab.
+Eine Importkarte wie die unten aufgeführte liefert dann ein Mapping zur tatsächlichen Skriptdatei.
 
 ```json
 {
@@ -318,20 +352,21 @@ Importkarten bieten eine bequeme Lösung für dieses Problem. Anstatt von bestim
 }
 ```
 
-Wenn sich `dependency_script` ändert, ändert sich auch sein Hash, der im Dateinamen enthalten ist. In diesem Fall müssen wir nur die Importkarte aktualisieren, um den geänderten Namen des Moduls zu widerspiegeln. Wir müssen den Quellcode des JavaScript-Codes, der sich darauf verlässt, nicht aktualisieren, weil der im Importbefehl angegebene Spezifizierer sich nicht ändert.
+Wenn sich `dependency_script` ändert, ändert sich auch der Hash, der im Dateinamen enthalten ist. In diesem Fall müssen wir nur die Importkarte aktualisieren, um den geänderten Namen des Moduls widerzuspiegeln.
+Wir müssen den Codequellcode für das JavaScript nicht aktualisieren, der davon abhängt, weil sich der Spezifizierer in der Importanweisung nicht ändert.
 
 ## Laden von Nicht-JavaScript-Ressourcen
 
-Ein aufregendes Feature, das eine einheitliche Modularchitektur bietet, ist die Möglichkeit, Nicht-JavaScript-Ressourcen als Module zu laden. Zum Beispiel können Sie JSON als JavaScript-Objekt importieren oder CSS als [`CSSStyleSheet`](/de/docs/Web/API/CSSStyleSheet)-Objekt importieren.
+Eine aufregende Funktion, die eine einheitliche Modularchitektur bietet, ist die Möglichkeit, Nicht-JavaScript-Ressourcen als Module zu laden. Zum Beispiel können Sie JSON als JavaScript-Objekt oder CSS als [`CSSStyleSheet`](/de/docs/Web/API/CSSStyleSheet)-Objekt importieren.
 
-Sie müssen explizit angeben, welche Art von Ressource Sie importieren. Standardmäßig nimmt der Browser an, dass die Ressource JavaScript ist, und wirft einen Fehler, wenn die aufgelöste Ressource etwas anderes ist. Um JSON, CSS oder andere Arten von Ressourcen zu importieren, verwenden Sie die [import attributes](/de/docs/Web/JavaScript/Reference/Statements/import/with)-Syntax:
+Sie müssen explizit deklarieren, welche Art von Ressource Sie importieren. Standardmäßig geht der Browser davon aus, dass die Ressource JavaScript ist und wirft einen Fehler, wenn die aufgelöste Ressource etwas anderes ist. Für den Import von JSON, CSS, oder anderen Ressourcentypen verwenden Sie die [Import-Attribute](/de/docs/Web/JavaScript/Reference/Statements/import/with)-Syntax:
 
 ```js
 import colors from "./colors.json" with { type: "json" };
 import styles from "./styles.css" with { type: "css" };
 ```
 
-Browser führen auch eine Validierung des Modultyps durch und schlagen fehl, wenn zum Beispiel `./data.json` nicht als JSON-Datei aufgelöst wird. Dies stellt sicher, dass Sie nicht versehentlich Code ausführen, wenn Sie nur Daten importieren möchten. Sobald sie erfolgreich importiert wurde, können Sie den importierten Wert jetzt als normales JavaScript-Objekt oder `CSSStyleSheet`-Objekt verwenden.
+Browser führen auch eine Validierung des Modultyps durch und scheitern, wenn zum Beispiel `./data.json` nicht zu einer JSON-Datei aufgelöst wird. Dies stellt sicher, dass Sie nicht versehentlich Code ausführen, wenn Sie nur Daten importieren möchten. Sobald der Import erfolgreich abgeschlossen ist, können Sie den importierten Wert jetzt als normales JavaScript-Objekt oder `CSSStyleSheet`-Objekt verwenden.
 
 ```js
 console.log(colors.map((color) => color.value));
@@ -340,15 +375,15 @@ document.adoptedStyleSheets = [styles];
 
 ## Anwenden des Moduls auf Ihr HTML
 
-Nun müssen wir nur noch das `main.js`-Modul auf unsere HTML-Seite anwenden. Dies ähnelt sehr der Weise, wie wir ein reguläres Skript auf eine Seite anwenden, mit einigen bemerkenswerten Unterschieden.
+Jetzt müssen wir nur noch das `main.js`-Modul auf unsere HTML-Seite anwenden. Dies ist sehr ähnlich wie das Anwenden eines normalen Skripts auf eine Seite, mit einigen bemerkenswerten Unterschieden.
 
-Zuerst müssen Sie `type="module"` im [`<script>`](/de/docs/Web/HTML/Reference/Elements/script)-Element einschließen, um dieses Skript als Modul zu deklarieren. Um das `main.js`-Skript zu importieren, verwenden wir dies:
+Erstens müssen Sie `type="module"` im [`<script>`](/de/docs/Web/HTML/Reference/Elements/script)-Element enthalten, um dieses Skript als Modul zu deklarieren. Um das `main.js`-Skript zu importieren, verwenden wir dies:
 
 ```html
 <script type="module" src="main.js"></script>
 ```
 
-Sie können das Skript des Moduls auch direkt in die HTML-Datei einbetten, indem Sie den JavaScript-Code im Körper des `<script>`-Elements platzieren:
+Sie können das Modulskript auch direkt in die HTML-Datei einbetten, indem Sie den JavaScript-Code innerhalb des `<script>`-Elementkörpers platzieren:
 
 ```html
 <script type="module">
@@ -356,7 +391,7 @@ Sie können das Skript des Moduls auch direkt in die HTML-Datei einbetten, indem
 </script>
 ```
 
-Sie können nur `import`- und `export`-Anweisungen innerhalb von Modulen verwenden, nicht in regulären Skripten. Ein Fehler wird ausgelöst, wenn Ihr `<script>`-Element nicht das `type="module"`-Attribut hat und versucht, andere Module zu importieren. Zum Beispiel:
+Sie können `import`- und `export`-Anweisungen nur innerhalb von Modulen verwenden, nicht regulären Skripten. Ein Fehler wird geworfen, wenn Ihr `<script>`-Element nicht das Attribut `type="module"` hat und versucht, andere Module zu importieren. Zum Beispiel:
 
 ```html example-bad
 <script>
@@ -367,21 +402,21 @@ Sie können nur `import`- und `export`-Anweisungen innerhalb von Modulen verwend
 <!-- SyntaxError: import declarations may only appear at top level of a module -->
 ```
 
-Sie sollten im Allgemeinen alle Module in separaten Dateien definieren. Inline in HTML deklarierte Module können nur andere Module importieren, aber alles, was sie exportieren, wird von anderen Modulen nicht zugänglich sein (weil sie keine URL haben).
+Im Allgemeinen sollten Sie alle Ihre Module in separaten Dateien definieren. Inline in HTML deklarierte Module können andere Module nur importieren, aber alles, was sie exportieren, ist nicht von anderen Modulen zugänglich (weil sie keine URL besitzen).
 
 > [!NOTE]
-> Module und ihre Abhängigkeiten können vorab geladen werden, indem sie in [`<link>`](/de/docs/Web/HTML/Reference/Elements/link)-Elementen mit [`rel="modulepreload"`](/de/docs/Web/HTML/Reference/Attributes/rel/modulepreload) spezifiziert werden.
-> Dies kann die Ladezeit erheblich reduzieren, wenn die Module verwendet werden.
+> Module und ihre Abhängigkeiten können vorab geladen werden, indem sie in [`<link>`](/de/docs/Web/HTML/Reference/Elements/link)-Elementen mit [`rel="modulepreload"`](/de/docs/Web/HTML/Reference/Attributes/rel/modulepreload) angegeben werden.
+> Dies kann die Ladezeit erheblich verkürzen, wenn die Module verwendet werden.
 
 ## Weitere Unterschiede zwischen Modulen und klassischen Skripten
 
-- Sie müssen auf lokales Testen achten — wenn Sie die HTML-Datei lokal laden (i.e., mit einer `file://` URL), stoßen Sie aufgrund von JavaScript-Modulsicherheitsanforderungen auf CORS-Fehler. Sie müssen Ihr Testen durch einen Server durchführen.
-- Beachten Sie auch, dass Sie möglicherweise unterschiedliches Verhalten von Skriptabschnitten erhalten, die in Modulen im Gegensatz zu klassischen Skripten definiert sind. Dies liegt daran, dass Module automatisch den {{jsxref("Strict_mode", "strict mode", "", 1)}} verwenden.
-- Es ist nicht erforderlich, das `defer`-Attribut zu verwenden (siehe [`<script>` attributes](/de/docs/Web/HTML/Reference/Elements/script#attributes)) beim Laden eines Modulscripts; Module werden automatisch verzögert.
-- Module werden nur einmal ausgeführt, selbst wenn sie in mehrere `<script>`-Tags referenziert werden.
-- Last but not least, lassen Sie uns das klarstellen - Modulfunktionen werden in den Gültigkeitsbereich eines einzelnen Skripts importiert - sie sind nicht im globalen Bereich verfügbar. Daher können Sie auf importierte Funktionen nur in dem Skript zugreifen, in das sie importiert werden, und Sie können nicht über die JavaScript-Konsole darauf zugreifen. Sie erhalten trotzdem Syntaxfehler, die in den DevTools angezeigt werden, aber Sie können möglicherweise nicht einige der Debugg-Techniken verwenden, die Sie erwartet haben zu verwenden.
+- Sie müssen auf lokales Testen achten – wenn Sie versuchen, die HTML-Datei lokal (d.h. mit einer `file://` URL) zu laden, stoßen Sie aufgrund von JavaScript-Modul-Sicherheitsanforderungen auf CORS-Fehler. Sie müssen Ihr Testen über einen Server durchführen.
+- Beachten Sie auch, dass Sie unterschiedliche Verhaltensweisen von Skriptabschnitten beobachten können, die in Modulen im Gegensatz zu klassischen Skripten definiert sind. Dies liegt daran, dass Module die {{jsxref("Strict_mode", "strict mode", "", 1)}} automatisch verwenden.
+- Es ist nicht notwendig, das `defer`-Attribut (siehe [`<script>` attributes](/de/docs/Web/HTML/Reference/Elements/script#attributes)) beim Laden eines Modulskripts zu verwenden; Module werden automatisch verzögert.
+- Module werden nur einmal ausgeführt, auch wenn sie in mehreren `<script>`-Tags referenziert werden.
+- Zuletzt, aber nicht zuletzt, lassen Sie uns dies klarstellen – Modulfunktionen werden in den Scope eines einzelnen Skripts importiert – sie sind nicht im globalen Bereich verfügbar. Daher können Sie auf importierte Funktionen nur in dem Skript zugreifen, in das sie importiert sind, und nicht über die JavaScript-Konsole. Sie erhalten immer noch Syntaxfehler, die in den DevTools angezeigt werden, aber können nicht einige der Debugging-Techniken verwenden, die Sie vielleicht erwartet haben.
 
-Modul-definierte Variablen sind im Modulbereich, es sei denn, sie werden ausdrücklich an das globale Objekt angehängt. Andererseits sind global-definierte Variablen im Modul verfügbar. Zum Beispiel, gegeben der folgende Code:
+Modul-definierte Variablen sind auf das Modul beschränkt, es sei denn, sie werden explizit an das globale Objekt angehängt. Andererseits stehen global definierte Variablen im Modul zur Verfügung. Zum Beispiel, gegeben der folgende Code:
 
 ```html
 <!doctype html>
@@ -407,15 +442,15 @@ Modul-definierte Variablen sind im Modulbereich, es sei denn, sie werden ausdrü
 document.getElementById("main").innerText = text;
 ```
 
-Die Seite würde immer noch `Hello` rendern, da die globalen Variablen `text` und `document` im Modul verfügbar sind. (Beachten Sie auch aus diesem Beispiel, dass ein Modul nicht unbedingt eine Import/Export-Anweisung benötigt — die einzige Voraussetzung ist, dass der Einstiegspunkt `type="module"` hat.)
+Die Seite würde immer noch `Hello` anzeigen, weil die globalen Variablen `text` und `document` im Modul verfügbar sind. (Beachten Sie auch aus diesem Beispiel, dass ein Modul nicht notwendigerweise eine Import-/Export-Anweisung benötigt – das einzige, was benötigt wird, ist, dass der Einstiegspunkt `type="module"` hat.)
 
-## Standardexporte vs. benannte Exporte
+## Standardexporte versus benannte Exporte
 
-Die Funktionalität, die wir bisher exportiert haben, besteht aus **benannten Exporten** — jedes Element (sei es eine Funktion, `const`, etc.) wurde bei seinem Namen beim Export referenziert, und dieser Name wurde auch beim Import ebenfalls dafür verwendet.
+Die Funktionalität, die wir bisher exportiert haben, bestand aus **benannten Exporten** – jedes Element (sei es eine Funktion, `const`, etc.) wurde beim Export mit seinem Namen referenziert, und dieser Name wurde auch beim Import verwendet.
 
-Es gibt auch eine Art von Export, der **Standardexport** genannt wird — dieser ist dazu konzipiert, es einfach zu machen, eine Standardfunktion bereitzustellen, die von einem Modul angeboten wird, und hilft auch JavaScript-Module mit bestehenden CommonJS- und AMD-Modulsystemen zu interagieren (wie es schön beschrieben wird in [ES6 In Depth: Modules](https://hacks.mozilla.org/2015/08/es6-in-depth-modules/) von Jason Orendorff; suchen Sie nach "Default exports").
+Es gibt auch eine Art von Export, die **Standardexport** genannt wird – dies ist so konzipiert, dass es einfach ist, eine Standardfunktion bereitzustellen, die von einem Modul bereitgestellt wird, und hilft JavaScript-Modulen, mit bestehenden CommonJS- und AMD-Modulsystemen zu interagieren (wie dies anschaulich erklärt wird in [ES6 In Depth: Modules](https://hacks.mozilla.org/2015/08/es6-in-depth-modules/) von Jason Orendorff; suchen Sie nach "Default exports").
 
-Lassen Sie uns ein Beispiel betrachten, während wir erklären, wie es funktioniert. In unserem basic-modules `square.js` finden Sie eine Funktion namens `randomSquare()`, die ein Quadrat mit einer zufälligen Farbe, Größe und Position erstellt. Wir wollen dies als unseren Standard exportieren, also schreiben wir am Ende der Datei dies:
+Betrachten wir ein Beispiel, während wir erklären, wie es funktioniert. In unserem `basic-modules` `square.js` finden Sie eine Funktion namens `randomSquare()`, die ein Quadrat mit einer zufälligen Farbe, Größe und Position erstellt. Wir möchten dies als unser Standard exportieren, also schreiben wir am Ende der Datei:
 
 ```js
 export default randomSquare;
@@ -423,7 +458,7 @@ export default randomSquare;
 
 Beachten Sie das Fehlen von geschweiften Klammern.
 
-Wir könnten stattdessen `export default` der Funktion voranstellen und sie als anonyme Funktion definieren, wie folgt:
+Wir könnten stattdessen `export default` an die Funktion voranstellen und es als anonyme Funktion definieren, wie dies:
 
 ```js
 export default function (ctx) {
@@ -437,26 +472,26 @@ In unserer `main.js`-Datei importieren wir die Standardfunktion mit dieser Zeile
 import randomSquare from "./modules/square.js";
 ```
 
-Beachten Sie auch hier das Fehlen von geschweiften Klammern. Dies liegt daran, dass pro Modul nur ein Standardexport erlaubt ist, und wir wissen, dass `randomSquare` es ist. Die obige Zeile ist im Wesentlichen eine Abkürzung für:
+Erneut beachten Sie das Fehlen von geschweiften Klammern. Dies liegt daran, dass pro Modul nur ein Standardexport erlaubt ist, und wir wissen, dass `randomSquare` es ist. Die obige Zeile ist im Grunde eine Abkürzung für:
 
 ```js
 import { default as randomSquare } from "./modules/square.js";
 ```
 
 > [!NOTE]
-> Die `as`-Syntax zum Umbenennen von exportierten Elementen wird unten im Abschnitt [Umbenennung von Importen und Exporten](#umbenennung_von_importen_und_exporten) erklärt.
+> Die Syntax `as` für das Umbenennen von exportierten Elementen wird unten im Abschnitt [Umbenennen von Imports und Exports](#umbenennen_von_imports_und_exports) erklärt.
 
 ## Vermeidung von Namenskonflikten
 
-Bisher scheinen unsere Canvas-Formen zeichnenden Module gut zu funktionieren. Aber was passiert, wenn wir versuchen, ein Modul hinzuzufügen, das sich mit dem Zeichnen einer anderen Form befasst, wie einem Kreis oder Dreieck? Diese Formen hätten wahrscheinlich auch zugehörige Funktionen wie `draw()`, `reportArea()`, etc.; wenn wir versuchten, unterschiedliche Funktionen mit demselben Namen in dieselbe oberste Projektebene-Datei zu importieren, würden wir auf Konflikte und Fehler stoßen.
+Bisher scheinen unsere Modulen zum Zeichnen von Formen auf der Leinwand zu funktionieren. Aber was passiert, wenn wir versuchen, ein Modul hinzuzufügen, das sich mit dem Zeichnen einer anderen Form befasst, wie einem Kreis oder Dreieck? Diese Formen würden wahrscheinlich assoziierte Funktionen wie `draw()`, `reportArea()`, etc. haben; wenn wir versuchen, verschiedene Funktionen mit demselben Namen in dasselbe Toplevel-Moduldatei zu importieren, würden wir Konflikte und Fehler erhalten.
 
-Glücklicherweise gibt es einige Möglichkeiten, dies zu umgehen. In den folgenden Abschnitten werden wir diese betrachten.
+Glücklicherweise gibt es eine Reihe von Möglichkeiten, um dieses Problem zu umgehen. Wir werden diese in den folgenden Abschnitten behandeln.
 
-## Umbenennung von Importen und Exporten
+## Umbenennen von Imports und Exports
 
-Innerhalb der geschweiften Klammern Ihrer `import`- und `export`-Anweisungen können Sie das Schlüsselwort `as` zusammen mit einem neuen Funktionennamen verwenden, um den identifizierenden Namen zu ändern, den Sie innerhalb des Moduls auf höchster Ebene für eine Funktion verwenden werden.
+In den geschweiften Klammern Ihrer `import`- und `export`-Anweisungen können Sie das Schlüsselwort `as` zusammen mit einem neuen Funktionsnamen verwenden, um den Namen zu ändern, den Sie innerhalb des Toplevel-Moduls für eine Funktion verwenden werden.
 
-Also zum Beispiel würden beide der folgenden im Wesentlichen dieselbe Arbeit erledigen, wenn auch auf leicht unterschiedliche Weise:
+Also zum Beispiel, beide der folgenden würden den gleichen Job machen, wenn auch auf leicht unterschiedliche Weise:
 
 ```js
 // inside module.js
@@ -477,15 +512,15 @@ import {
 } from "./modules/module.js";
 ```
 
-Lassen Sie uns ein echtes Beispiel betrachten. In unserem [renaming](https://github.com/mdn/js-examples/tree/main/module-examples/renaming)-Verzeichnis sehen Sie dasselbe Modulsystem wie im vorherigen Beispiel, außer dass wir `circle.js`- und `triangle.js`-Module hinzugefügt haben, um Kreise und Dreiecke zu zeichnen und darüber Bericht zu erstatten.
+Schauen wir uns ein reales Beispiel an. In unserem [renaming](https://github.com/mdn/js-examples/tree/main/module-examples/renaming)-Verzeichnis sehen Sie dasselbe Modulsystem wie im vorherigen Beispiel, außer dass wir `circle.js`- und `triangle.js`-Module hinzugefügt haben, um Kreise und Dreiecke zu zeichnen und zu melden.
 
-In jedem dieser Module haben wir Funktionen mit denselben Namen, die exportiert werden, und daher hat jedes am Ende dieselbe `export`-Anweisung:
+In jedem dieser Module haben wir Funktionen mit denselben exportierten Namen, und daher hat jedes von ihnen dieselbe `export`-Anweisung am Ende:
 
 ```js
 export { name, draw, reportArea, reportPerimeter };
 ```
 
-Wenn wir diese in `main.js` zu verwenden versuchen
+Beim Importieren dieser in `main.js`, wenn wir versuchen würden, es zu verwenden
 
 ```js
 import { name, draw, reportArea, reportPerimeter } from "./modules/square.js";
@@ -493,9 +528,9 @@ import { name, draw, reportArea, reportPerimeter } from "./modules/circle.js";
 import { name, draw, reportArea, reportPerimeter } from "./modules/triangle.js";
 ```
 
-würde der Browser einen Fehler wie "SyntaxError: redeclaration of import name" (Firefox) werfen.
+Der Browser würde einen Fehler werfen, wie "SyntaxError: redeclaration of import name" (Firefox).
 
-Stattdessen müssen wir die Importe umbenennen, damit sie einzigartig sind:
+Stattdessen müssen wir die Importe umbenennen, so dass sie eindeutig sind:
 
 ```js
 import {
@@ -520,7 +555,7 @@ import {
 } from "./modules/triangle.js";
 ```
 
-Beachten Sie, dass Sie das Problem auch in den Moduldaten beheben könnten, z.B.
+Beachten Sie, dass Sie das Problem stattdessen auch in den Moduldaten lösen könnten, z.B.
 
 ```js
 // in square.js
@@ -542,30 +577,30 @@ import {
 } from "./modules/square.js";
 ```
 
-Und es würde genauso funktionieren. Welche Stilrichtung Sie verwenden, bleibt Ihnen überlassen, es macht jedoch möglicherweise mehr Sinn, Ihren Modulcode in Ruhe zu lassen und die Änderungen in den Importen vorzunehmen. Dies macht insbesondere dann Sinn, wenn Sie aus Modulen von Drittanbietern importieren, die Sie nicht steuern können.
+Und es würde genauso funktionieren. Welchen Stil Sie verwenden, bleibt Ihnen überlassen, obwohl es argumentierbar mehr Sinn macht, Ihren Modulcode in Ruhe zu lassen, und Änderungen in den Importen vorzunehmen. Dies macht insbesondere Sinn, wenn Sie von Drittanbieter-Modulen importieren, über die Sie keine Kontrolle haben.
 
 ## Erstellen eines Modulobjekts
 
-Die obige Methode funktioniert gut, aber sie ist ein wenig unordentlich und umständlich. Eine noch bessere Lösung ist, die Funktionen jedes Moduls innerhalb eines Modulobjekts zu importieren. Die folgende Syntaxform macht dies:
+Die obige Methode funktioniert gut, aber sie ist ein wenig unordentlich und umständlich. Eine noch bessere Lösung besteht darin, die Funktionen jedes Moduls in einem Modulobjekt zu importieren. Die folgende Syntaxform macht genau das:
 
 ```js
 import * as Module from "./modules/module.js";
 ```
 
-Dies greift alle verfügbaren Exporte innerhalb von `module.js` und macht sie als Mitglieder eines Objekts `Module` verfügbar, was ihm effektiv seinen eigenen Namensbereich gibt. Zum Beispiel:
+Dies erfasst alle in `module.js` verfügbaren Exporte und macht sie als Mitglieder eines Objekts `Module` verfügbar, indem es ihm effektiv einen eigenen Namensraum gibt. Zum Beispiel:
 
 ```js
 Module.function1();
 Module.function2();
 ```
 
-Sehen wir uns noch ein Beispiel an. Wenn Sie unser [module-objects](https://github.com/mdn/js-examples/tree/main/module-examples/module-objects)-Verzeichnis besuchen, sehen Sie das gleiche Beispiel noch einmal, aber umgeschrieben, um von dieser neuen Syntax zu profitieren. In den Modulen sind alle Exporte in der folgenden einfachen Form:
+Lassen Sie uns erneut in ein reales Beispiel schauen. Wenn Sie unser [module-objects](https://github.com/mdn/js-examples/tree/main/module-examples/module-objects)-Verzeichnis öffnen, sehen Sie dasselbe Beispiel erneut, jedoch umgeschrieben, um diese neue Syntax zu nutzen. In den Modulen sind die Exporte alle in der folgenden einfachen Form:
 
 ```js
 export { name, draw, reportArea, reportPerimeter };
 ```
 
-Die Importe hingegen sehen so aus:
+Die Importe dagegen sehen so aus:
 
 ```js
 import * as Canvas from "./modules/canvas.js";
@@ -575,7 +610,7 @@ import * as Circle from "./modules/circle.js";
 import * as Triangle from "./modules/triangle.js";
 ```
 
-In jedem Fall können Sie jetzt auf die Importe des Moduls unterhalb des angegebenen Objektnamens zugreifen, zum Beispiel:
+In jedem Fall können Sie jetzt auf die Importe des Moduls unter dem angegebenen Objektnamen zugreifen, zum Beispiel:
 
 ```js
 const square1 = Square.draw(myCanvas.ctx, 50, 50, 100, "blue");
@@ -583,13 +618,13 @@ Square.reportArea(square1.length, reportList);
 Square.reportPerimeter(square1.length, reportList);
 ```
 
-Sie können den Code also nach wie vor genauso wie zuvor schreiben (sofern Sie die Objektnamen bei Bedarf hinzufügen), und die Importe sind wesentlich ordentlicher.
+So können Sie den Code jetzt genauso wie zuvor schreiben (solange Sie die Objektnamen bei Bedarf einbeziehen), und die Importe sind viel eleganter.
 
 ## Module und Klassen
 
-Wie wir zuvor angedeutet haben, können Sie auch Klassen exportieren und importieren; dies ist eine weitere Option zum Vermeiden von Konflikten in Ihrem Code und ist besonders nützlich, wenn Sie Ihren Modulcode bereits im objektorientierten Stil geschrieben haben.
+Wie wir bereits angedeutet haben, können Sie auch Klassen exportieren und importieren; dies ist eine weitere Option, um Konflikte in Ihrem Code zu vermeiden, und ist besonders nützlich, wenn Sie Ihren Modulcode bereits im objektorientierten Stil geschrieben haben.
 
-Sie können ein Beispiel für unser mit ES-Klassen umgeschriebenes Formenzeichnungsmodul in unserem [classes](https://github.com/mdn/js-examples/tree/main/module-examples/classes)-Verzeichnis sehen. Zum Beispiel enthält die Datei [`square.js`](https://github.com/mdn/js-examples/blob/main/module-examples/classes/modules/square.js) nun alle ihre Funktionalität in einer einzigen Klasse:
+Sie können ein Beispiel unseres Moduls zum Zeichnen von Formen sehen, das mit ES-Klassen umgeschrieben wurde, in unserem [classes](https://github.com/mdn/js-examples/tree/main/module-examples/classes)-Verzeichnis. Zum Beispiel enthält die Datei [`square.js`](https://github.com/mdn/js-examples/blob/main/module-examples/classes/modules/square.js) jetzt ihre gesamte Funktionalität in einer einzigen Klasse:
 
 ```js
 class Square {
@@ -611,13 +646,13 @@ die wir dann exportieren:
 export { Square };
 ```
 
-Drüben in [`main.js`](https://github.com/mdn/js-examples/blob/main/module-examples/classes/main.js) importieren wir sie so:
+In [`main.js`](https://github.com/mdn/js-examples/blob/main/module-examples/classes/main.js) importieren wir es so:
 
 ```js
 import { Square } from "./modules/square.js";
 ```
 
-Und verwenden dann die Klasse, um unser Quadrat zu zeichnen:
+Und dann verwenden wir die Klasse, um unser Quadrat zu zeichnen:
 
 ```js
 const square1 = new Square(myCanvas.ctx, myCanvas.listId, 50, 50, 100, "blue");
@@ -626,16 +661,16 @@ square1.reportArea();
 square1.reportPerimeter();
 ```
 
-## Aggregierung von Modulen
+## Aggregieren von Modulen
 
-Es wird Zeiten geben, in denen Sie Module zusammenfassen möchten. Sie könnten mehrere Ebenen von Abhängigkeiten haben, wo Sie die Dinge vereinfachen möchten, indem Sie mehrere Untermodule in ein übergeordnetes Modul kombinieren. Dies ist möglich, indem Sie die Exportsyntax der folgenden Formate im übergeordneten Modul verwenden:
+Es wird Zeiten geben, in denen Sie Module zusammen aggregieren möchten. Sie haben möglicherweise mehrere Ebenen von Abhängigkeiten, bei denen Sie die Dinge vereinfachen möchten, indem Sie mehrere Untermodule zu einem übergeordneten Modul kombinieren. Dies ist durch die Verwendung der folgenden Formen der Export-Syntax im übergeordneten Modul möglich:
 
 ```js
 export * from "x.js";
 export { name } from "x.js";
 ```
 
-Für ein Beispiel, siehe unser [module-aggregation](https://github.com/mdn/js-examples/tree/main/module-examples/module-aggregation)-Verzeichnis. In diesem Beispiel (basierend auf unserem vorherigen Klassenbeispiel) haben wir ein zusätzliches Modul namens `shapes.js`, das alle Funktionen von `circle.js`, `square.js` und `triangle.js` zusammenfasst. Wir haben auch unsere Untermodule innerhalb eines Unterverzeichnisses innerhalb des `modules`-Verzeichnisses namens `shapes` verschoben. Die Moduldatenstruktur in diesem Beispiel ist wie folgt:
+Für ein Beispiel siehe unser [module-aggregation](https://github.com/mdn/js-examples/tree/main/module-examples/module-aggregation)-Verzeichnis. In diesem Beispiel (basierend auf unserem früheren Klassenbeispiel) haben wir ein zusätzliches Modul namens `shapes.js`, das alle Funktionen aus `circle.js`, `square.js` und `triangle.js` zusammen aggregiert. Wir haben unsere Untermodule auch in ein Unterverzeichnis innerhalb des `modules`-Verzeichnisses namens `shapes` verschoben. Die Modulstruktur in diesem Beispiel ist:
 
 ```plain
 modules/
@@ -647,13 +682,13 @@ modules/
     triangle.js
 ```
 
-In jedem der Untermodule ist der Export in derselben Form, z.B.
+In jedem der Untermodule ist der Export in der gleichen Form, z. B.
 
 ```js
 export { Square };
 ```
 
-Als nächstes kommt der Aggregationsteil. Innerhalb von [`shapes.js`](https://github.com/mdn/js-examples/blob/main/module-examples/module-aggregation/modules/shapes.js) beinhalten wir die folgenden Zeilen:
+Als nächstes kommt der Aggregationsteil. Innerhalb von [`shapes.js`](https://github.com/mdn/js-examples/blob/main/module-examples/module-aggregation/modules/shapes.js) nehmen wir die folgenden Zeilen auf:
 
 ```js
 export { Square } from "./shapes/square.js";
@@ -661,12 +696,12 @@ export { Triangle } from "./shapes/triangle.js";
 export { Circle } from "./shapes/circle.js";
 ```
 
-Diese greifen die Exporte von den einzelnen Untermodulen und machen sie effektiv vom `shapes.js`-Modul verfügbar.
+Diese greifen die Exporte der einzelnen Untermodule und machen sie effektiv aus dem `shapes.js`-Modul verfügbar.
 
 > [!NOTE]
-> Die in `shapes.js` referenzierten Exporte werden im Wesentlichen durch die Datei umgeleitet und existieren dort nicht wirklich, sodass Sie dort keinen verwandten nützlichen Code schreiben können.
+> Die in `shapes.js` referenzierten Exporte werden im Grunde durch die Datei umgeleitet und existieren dort nicht wirklich, sodass Sie keinen nützlichen verwandten Code in derselben Datei schreiben können.
 
-Jetzt können wir in der `main.js`-Datei auf alle drei Modulklassen zugreifen, indem wir
+Jetzt in der `main.js`-Datei können wir auf alle drei Modulklassen zugreifen, indem wir
 
 ```js
 import { Square } from "./modules/square.js";
@@ -674,17 +709,17 @@ import { Circle } from "./modules/circle.js";
 import { Triangle } from "./modules/triangle.js";
 ```
 
-mit der folgenden einzigen Zeile ersetzen:
+durch die folgende einzelne Zeile ersetzen:
 
 ```js
 import { Square, Circle, Triangle } from "./modules/shapes.js";
 ```
 
-## Dynamisches Laden von Modulen
+## Dynamisches Modulladen
 
-Ein neuerer Zusatz zur Funktionalität von JavaScript-Modulen ist das dynamische Laden von Modulen. Dies ermöglicht es Ihnen, Module nur dann dynamisch zu laden, wenn sie benötigt werden, anstatt alles im Voraus laden zu müssen. Dies hat einige offensichtliche Leistungs Vorteile. Lesen Sie weiter, um zu erfahren, wie es funktioniert.
+Eine kürzliche Ergänzung zur JavaScript-Module-Funktionalität ist das dynamische Modulladen. Dies ermöglicht es Ihnen, Module nur dann dynamisch zu laden, wenn sie benötigt werden, anstatt alles im Voraus laden zu müssen. Dies hat einige offensichtliche Leistungsvorteile; lesen wir weiter und sehen, wie es funktioniert.
 
-Diese neue Funktionalität ermöglicht es Ihnen, [`import()`](/de/docs/Web/JavaScript/Reference/Operators/import) als Funktion aufzurufen und den Pfad zum Modul als Parameter zu übergeben. Es gibt ein Promise zurück, das sich mit einem Modulobjekt erfüllt (siehe [Erstellen eines Modulobjekts](#erstellen_eines_modulobjekts)), das Ihnen Zugriff auf die Exporte jenes Objekts gibt. Zum Beispiel:
+Diese neue Funktionalität ermöglicht es Ihnen, [`import()`](/de/docs/Web/JavaScript/Reference/Operators/import) als Funktion aufzurufen und den Pfad zum Modul als Parameter zu übergeben. Sie gibt ein {{jsxref("Promise")}} zurück, das mit einem Modul-Objekt erfüllt wird (siehe [Erstellen eines Modulobjekts](#erstellen_eines_modulobjekts)), das Ihnen Zugang zu den Exporten dieses Objekts bietet. Zum Beispiel:
 
 ```js
 import("./modules/myModule.js").then((module) => {
@@ -693,22 +728,22 @@ import("./modules/myModule.js").then((module) => {
 ```
 
 > [!NOTE]
-> Der dynamische Import ist im Hauptthread des Browsers sowie in Shared und Dedicated Workers erlaubt.
-> Jedoch wird `import()` einen Fehler werfen, wenn es in einem Service Worker oder Worklet aufgerufen wird.
+> Dynamischer Import ist im Hauptthread des Browsers erlaubt sowie in gemeinsamen und dedizierten Arbeitern.
+> `import()` wird jedoch einen Fehler werfen, wenn es in einem Service Worker oder Worklet aufgerufen wird.
 
 <!-- https://whatpr.org/html/6395/webappapis.html#hostimportmoduledynamically(referencingscriptormodule,-specifier,-promisecapability) -->
 
-Sehen wir uns ein Beispiel an. Im [dynamic-module-imports](https://github.com/mdn/js-examples/tree/main/module-examples/dynamic-module-imports)-Verzeichnis haben wir ein weiteres Beispiel basierend auf unserem Klassenbeispiel. Dieses Mal zeichnen wir jedoch beim Laden des Beispiels nichts auf der Leinwand. Stattdessen umfassen wir drei Schaltflächen — "Circle", "Square" und "Triangle" — die, wenn sie gedrückt werden, das erforderliche Modul dynamisch laden und dann verwenden, um die zugehörige Form zu zeichnen.
+Schauen wir uns ein Beispiel an. Im [dynamic-module-imports](https://github.com/mdn/js-examples/tree/main/module-examples/dynamic-module-imports) Verzeichnis haben wir ein weiteres Beispiel, das auf unserem Klassenbeispiel basiert. Diesmal zeichnen wir jedoch beim Laden des Beispiels nichts auf der Leinwand. Stattdessen haben wir drei Schaltflächen – "Circle", "Square" und "Triangle" –, die beim Drücken das erforderliche Modul dynamisch laden und es dann verwenden, um die zugehörige Form zu zeichnen.
 
-In diesem Beispiel haben wir nur Änderungen an unseren [`index.html`](https://github.com/mdn/js-examples/blob/main/module-examples/dynamic-module-imports/index.html) und [`main.js`](https://github.com/mdn/js-examples/blob/main/module-examples/dynamic-module-imports/main.js) Dateien vorgenommen — die Moduldaten-Exporte bleiben wie zuvor.
+In diesem Beispiel haben wir nur Änderungen an unserer [`index.html`](https://github.com/mdn/js-examples/blob/main/module-examples/dynamic-module-imports/index.html) und [`main.js`](https://github.com/mdn/js-examples/blob/main/module-examples/dynamic-module-imports/main.js)-Dateien vorgenommen – die Modulausgaben bleiben identisch mit zuvor.
 
-In `main.js` greifen wir auf eine Referenz jeder Schaltfläche mit einem [`document.querySelector()`](/de/docs/Web/API/Document/querySelector) Aufruf zu, zum Beispiel:
+In der `main.js`-Datei haben wir eine Referenz zu jeder Schaltfläche mit einem [`document.querySelector()`](/de/docs/Web/API/Document/querySelector)-Aufruf erfasst, zum Beispiel:
 
 ```js
 const squareBtn = document.querySelector(".square");
 ```
 
-Dann befestigen wir einen Ereignis-Listener an jede Schaltfläche, damit beim Drücken das relevante Modul dynamisch geladen und verwendet wird, um die Form zu zeichnen:
+Wir fügen dann jedem Knopf einen Ereignislistener hinzu, sodass beim Drücken das entsprechende Modul dynamisch geladen und verwendet wird, um die Form zu zeichnen:
 
 ```js
 squareBtn.addEventListener("click", () => {
@@ -728,9 +763,9 @@ squareBtn.addEventListener("click", () => {
 });
 ```
 
-Beachten Sie, dass, weil die Erfüllung des Versprechens ein Modulobjekt zurückgibt, die Klasse dann ein Untermerkmal des Objekts wird; daher müssen wir jetzt auf den Konstruktor mit `Module.` vorangestellt zugreifen, z.B., `Module.Square( /* … */ )`.
+Beachten Sie, dass, da die Erfüllung des Versprechens ein Modulobjekt zurückgibt, die Klasse dann zu einem Teilobjekt des Objekts wird, daher müssen wir jetzt auf den Konstruktor mit `Module.` davor zugreifen, z. B. `Module.Square( /* … */ )`.
 
-Ein weiterer Vorteil von dynamischen Importen ist, dass sie immer verfügbar sind, selbst in Skriptumgebungen. Daraus ergibt sich, dass Sie, wenn Sie ein bestehendes `<script>`-Tag in Ihrem HTML haben, das nicht `type="module"` hat, immer noch bereits erstellten Code als Module verwenden können, indem Sie ihn dynamisch importieren.
+Ein weiterer Vorteil von dynamischen Importen besteht darin, dass sie immer verfügbar sind, sogar in Skriptumgebungen. Wenn Sie also ein bestehendes `<script>`-Tag in Ihrem HTML haben, das nicht `type="module"` hat, können Sie weiterhin den in Modulen verteilten Code verwenden, indem Sie ihn dynamisch importieren.
 
 ```html
 <script>
@@ -743,13 +778,13 @@ Ein weiterer Vorteil von dynamischen Importen ist, dass sie immer verfügbar sin
 </script>
 ```
 
-## Top-Level-Await
+## Top Level Await
 
-Top-Level-Await ist eine Funktion, die in Modulen verfügbar ist. Das bedeutet, dass das `await`-Schlüsselwort verwendet werden kann. Es ermöglicht Modulen, als große [asynchrone Funktionen](/de/docs/Learn_web_development/Extensions/Async_JS/Introducing) zu fungieren, was bedeutet, dass Code vor der Verwendung in übergeordneten Modulen ausgewertet werden kann, jedoch ohne das Laden von Geschwistermodulen zu blockieren.
+Top Level Await ist eine in Modulen verfügbare Funktion. Das bedeutet, dass das Schlüsselwort `await` verwendet werden kann. Es ermöglicht Modulen, wie große [asynchrone Funktionen](/de/docs/Learn_web_development/Extensions/Async_JS/Introducing) zu agieren, was bedeutet, dass Code vor der Verwendung in übergeordneten Modulen ausgewertet werden kann, ohne das Laden von Geschwistermodulen zu blockieren.
 
-Schauen wir uns ein Beispiel an. Sie können alle beschriebenen Dateien und Codes im Verzeichnis [`top-level-await`](https://github.com/mdn/js-examples/tree/main/module-examples/top-level-await) finden, das von den vorherigen Beispiel erweitert wird.
+Schauen wir uns ein Beispiel an. Sie können alle Dateien und den Code, die in diesem Abschnitt beschrieben sind, im Verzeichnis [`top-level-await`](https://github.com/mdn/js-examples/tree/main/module-examples/top-level-await) finden, das von den vorherigen Beispielen ausgeht.
 
-Zuerst deklarieren wir unsere Farbpalette in einer separaten [`colors.json`](https://github.com/mdn/js-examples/blob/main/module-examples/top-level-await/data/colors.json) Datei:
+Zuerst deklarieren wir unsere Farbpalette in einer separaten Datei [`colors.json`](https://github.com/mdn/js-examples/blob/main/module-examples/top-level-await/data/colors.json):
 
 ```json
 {
@@ -761,7 +796,7 @@ Zuerst deklarieren wir unsere Farbpalette in einer separaten [`colors.json`](htt
 }
 ```
 
-Dann erstellen wir ein Modul namens [`getColors.js`](https://github.com/mdn/js-examples/blob/main/module-examples/top-level-await/modules/getColors.js), das eine Fetch-Anfrage verwendet, um die Datei [`colors.json`](https://github.com/mdn/js-examples/blob/main/module-examples/top-level-await/data/colors.json) zu laden und die Daten als ein Objekt zurückzugeben.
+Dann erstellen wir ein Modul namens [`getColors.js`](https://github.com/mdn/js-examples/blob/main/module-examples/top-level-await/modules/getColors.js), das eine Fetch-Anfrage verwendet, um die Datei [`colors.json`](https://github.com/mdn/js-examples/blob/main/module-examples/top-level-await/data/colors.json) zu laden und die Daten als Objekt zurückzugeben.
 
 ```js
 // fetch request
@@ -772,9 +807,9 @@ export default await colors;
 
 Beachten Sie die letzte Exportzeile hier.
 
-Wir verwenden das Schlüsselwort `await`, bevor wir die Konstante `colors` angeben, die exportiert werden soll. Das bedeutet, dass alle anderen Module, die dieses Modul beinhalten, warten, bis `colors` heruntergeladen und analysiert wurde, bevor sie es verwenden.
+Wir verwenden das Schlüsselwort `await`, bevor wir die Konstante `colors` angeben, um zu exportieren. Das bedeutet, dass alle Module, die dieses beinhalten, warten, bis `colors` heruntergeladen und verarbeitet wurde, bevor es verwendet wird.
 
-Lassen Sie uns dieses Modul in unsere [`main.js`](https://github.com/mdn/js-examples/blob/main/module-examples/top-level-await/main.js) Datei einschließen:
+Lassen Sie uns dieses Modul in unserer [`main.js`](https://github.com/mdn/js-examples/blob/main/module-examples/top-level-await/main.js) Datei einfügen:
 
 ```js
 import colors from "./modules/getColors.js";
@@ -785,7 +820,7 @@ const circleBtn = document.querySelector(".circle");
 // …
 ```
 
-Wir verwenden `colors` anstelle der zuvor verwendeten Strings beim Aufrufen unserer Formfunktionen:
+Wir verwenden `colors` anstelle der zuvor verwendeten Strings, wenn wir unsere Formfunktionen aufrufen:
 
 ```js
 const square1 = new Module.Square(
@@ -816,13 +851,13 @@ const triangle1 = new Module.Triangle(
 );
 ```
 
-Dies ist nützlich, weil der Code innerhalb von [`main.js`](https://github.com/mdn/js-examples/blob/main/module-examples/top-level-await/main.js) nicht ausgeführt wird, bis der Code in [`getColors.js`](https://github.com/mdn/js-examples/blob/main/module-examples/top-level-await/modules/getColors.js) ausgeführt wurde. Es wird jedoch das Laden anderer Module nicht blockieren. Zum Beispiel wird unser [`canvas.js`](https://github.com/mdn/js-examples/blob/main/module-examples/top-level-await/modules/canvas.js) Modul weiterhin geladen, während `colors` abgerufen wird.
+Dies ist nützlich, weil der Code innerhalb [`main.js`](https://github.com/mdn/js-examples/blob/main/module-examples/top-level-await/main.js) erst ausgeführt wird, wenn der Code in [`getColors.js`](https://github.com/mdn/js-examples/blob/main/module-examples/top-level-await/modules/getColors.js) ausgeführt wurde. Es wird jedoch nicht das Laden anderer Module blockieren. Beispielsweise lädt unser [`canvas.js`](https://github.com/mdn/js-examples/blob/main/module-examples/top-level-await/modules/canvas.js) Modul weiterhin, während `colors` abgerufen wird.
 
-## Importdeklarationen werden gehoben
+## Importdeklarationen werden gehostet
 
-Importdeklarationen werden {{Glossary("Hoisting", "gehoben")}}. In diesem Fall bedeutet es, dass die importierten Werte im Code des Moduls verfügbar sind, auch vor der Stelle, an der sie deklariert werden, und dass die Nebeneffekte des importierten Moduls erzeugt werden, bevor der restliche Code des Moduls ausgeführt wird.
+Importdeklarationen werden {{Glossary("Hoisting", "gehostet")}}. In diesem Fall bedeutet dies, dass die importierten Werte im Modulcode verfügbar sind, noch bevor die Stelle erklärt wird, an der sie deklariert werden, und dass die Seiteneffekte des importierten Moduls vor dem Starten des restlichen Modulcodes ausgeführt werden.
 
-Also zum Beispiel würde das Importieren von `Canvas` in der Mitte des Codes in `main.js` immer noch funktionieren:
+Zum Beispiel würde das Importieren von `Canvas` in `main.js` in der Mitte des Codes immer noch funktionieren:
 
 ```js
 // …
@@ -833,13 +868,13 @@ myCanvas.createReportList();
 // …
 ```
 
-Dennoch gilt es als gute Praxis, alle Ihre Importe an den Anfang des Codes zu setzen, was es einfacher macht, Abhängigkeiten zu analysieren.
+Es wird jedoch als gute Praxis angesehen, alle Ihre Importe am Anfang des Codes zu platzieren, was die Analyse der Abhängigkeiten erleichtert.
 
 ## Zyklische Importe
 
-Module können andere Module importieren, und diese Module können andere Module importieren, und so weiter. Dies bildet einen [gerichteten Graphen](https://en.wikipedia.org/wiki/Directed_graph), der als "Abhängigkeitsgraph" bezeichnet wird. In einer idealen Welt ist dieser Graph [zyklusfrei](https://en.wikipedia.org/wiki/Directed_acyclic_graph). In diesem Fall kann der Graph unter Verwendung eines Tiefendurchlaufs ausgewertet werden.
+Module können andere Module importieren, und diese Module können andere Module importieren, usw. Dies bildet einen [gerichteten Graphen](https://en.wikipedia.org/wiki/Directed_graph) namens "Abhängigkeitsgraphen". In einer idealen Welt ist dieser Graph [azyklisch](https://en.wikipedia.org/wiki/Directed_acyclic_graph). In diesem Fall kann der Graph mit einer Tiefendurchsuchung ausgewertet werden.
 
-Zyklen sind jedoch oft unvermeidbar. Ein zyklischer Import entsteht, wenn Modul `a` Modul `b` importiert, aber `b` direkt oder indirekt von `a` abhängt. Zum Beispiel:
+Zyklen sind jedoch oft unvermeidlich. Ein zyklischer Import tritt auf, wenn Modul `a` das Modul `b` importiert, aber `b` direkt oder indirekt von `a` abhängt. Zum Beispiel:
 
 ```js
 // -- a.js --
@@ -854,7 +889,7 @@ import { a } from "./a.js";
 //  └─────────┘
 ```
 
-Zyklische Importe schlagen nicht immer fehl. Der Wert der importierten Variablen wird nur abgerufen, wenn die Variable tatsächlich verwendet wird (daher werden [Live-Bindungen](/de/docs/Web/JavaScript/Reference/Statements/import#imported_values_can_only_be_modified_by_the_exporter) ermöglicht), und nur wenn die Variable zu diesem Zeitpunkt nicht initialisiert ist, wird ein [`ReferenceError`](/de/docs/Web/JavaScript/Reference/Errors/Cant_access_lexical_declaration_before_init) geworfen.
+Zyklische Importe schlagen nicht immer fehl. Der Wert der importierten Variablen wird nur abgerufen, wenn die Variable tatsächlich verwendet wird (daher Erlauben von [Live-Bindings](/de/docs/Web/JavaScript/Reference/Statements/import#imported_values_can_only_be_modified_by_the_exporter)), und nur wenn die Variable zu diesem Zeitpunkt uninitialisiert bleibt, wird ein [`ReferenceError`](/de/docs/Web/JavaScript/Reference/Errors/Cant_access_lexical_declaration_before_init) ausgelöst.
 
 ```js
 // -- a.js --
@@ -876,9 +911,9 @@ setTimeout(() => {
 export const b = 1;
 ```
 
-In diesem Beispiel werden sowohl `a` als auch `b` asynchron verwendet. Daher wird zur Zeit der Modulauswertung auf keinen von beiden tatsächlich gelesen, sodass der restliche Code wie gewohnt ausgeführt wird und die beiden `export`-Deklarationen die Werte von `a` und `b` liefern. Dann, nach dem Timeout, sind sowohl `a` als auch `b` verfügbar, sodass die beiden `console.log` Anweisungen ebenfalls wie gewohnt ausgeführt werden.
+In diesem Beispiel werden sowohl `a` als auch `b` asynchron verwendet. Daher wird zu dem Zeitpunkt, an dem das Modul ausgewertet wird, weder `b` noch `a` tatsächlich gelesen, sodass der Rest des Codes normal ausgeführt wird und die beiden `export` Deklarationen die Werte von `a` und `b` produzieren. Dann, nach dem Timeout, sind sowohl `a` als auch `b` verfügbar, sodass die beiden `console.log` Anweisungen ebenfalls normal ausgeführt werden.
 
-Wenn Sie den Code so ändern, dass `a` synchron verwendet wird, schlägt die Modulauswertung fehl:
+Wenn Sie den Code ändern, um `a` synchron zu verwenden, schlägt die Modulauswertung fehl:
 
 ```js
 // -- a.js (entry module) --
@@ -893,9 +928,9 @@ console.log(a); // ReferenceError: Cannot access 'a' before initialization
 export const b = 1;
 ```
 
-Dies liegt daran, dass JavaScript beim Auswerten von `a.js` zuerst `b.js` auswerten muss, die Abhängigkeit von `a.js`. `b.js` verwendet jedoch `a`, die noch nicht verfügbar ist.
+Dies liegt daran, dass JavaScript `a.js` auswerten muss, benötigt es zuerst `b.js` auszuwerten, die Abhängigkeit von `a.js`. `b.js` verwendet jedoch `a`, das noch nicht verfügbar ist.
 
-Wenn Sie den Code auf den synchronen Gebrauch von `b` gegen `a` ändern, aber `a` asynchron verwenden, funktioniert die Modulauswertung:
+Andererseits, wenn Sie den Code ändern, um `b` synchron, aber `a` asynchron verwenden, wird die Modulauswertung erfolgreich sein:
 
 ```js
 // -- a.js (entry module) --
@@ -915,24 +950,24 @@ export const b = 1;
 
 Dies liegt daran, dass die Auswertung von `b.js` normal abgeschlossen wird, sodass der Wert von `b` verfügbar ist, wenn `a.js` ausgewertet wird.
 
-Normalerweise sollten Sie zyklische Importe in Ihrem Projekt vermeiden, da sie Ihren Code fehleranfälliger machen. Einige gängige Techniken zur Eliminierung von Zyklen sind:
+Sie sollten zyklische Importe in Ihrem Projekt in der Regel vermeiden, weil sie Ihren Code fehleranfälliger machen. Einige übliche Zyklus-Eliminierungs-Techniken sind:
 
-- Die beiden Module zu einem zusammenführen.
-- Den gemeinsamen Code in ein drittes Modul verschieben.
-- Einige Codes von einem Modul zum anderen verschieben.
+- Kombinieren Sie die beiden Module in eins.
+- Verschieben Sie den gemeinsamen Code in ein drittes Modul.
+- Verschieben Sie einige Code von einem Modul zu dem anderen.
 
-Zyklische Importe können jedoch auch auftreten, wenn die Bibliotheken voneinander abhängen, was schwerer zu beheben ist.
+Zyklische Importe können jedoch auch auftreten, wenn die Bibliotheken voneinander abhängen, was schwieriger zu beheben ist.
 
-## Verfassen von „isomorphen“ Modulen
+## Autorisierende "isomorphe" Module
 
-Die Einführung von Modulen ermutigt das JavaScript-Ökosystem, Code modulare zu verteilen und wiederzuverwenden. Das bedeutet jedoch nicht, dass ein Stück JavaScript-Code in jeder Umgebung ausgeführt werden kann. Angenommen, Sie haben ein Modul entdeckt, das SHA-Hashes des Passworts Ihres Benutzers generiert. Können Sie es im Frontend des Browsers verwenden? Können Sie es auf Ihrem Node.js-Server verwenden? Die Antwort lautet: Es hängt ab.
+Die Einführung von Modulen fördert das JavaScript-Ökosystem, um Code in modularer Form zu verteilen und wiederzuverwendet zu machen. Dies bedeutet jedoch nicht unbedingt, dass ein Stück JavaScript-Code in jeder Umgebung ausgeführt werden kann. Angenommen, Sie haben ein Modul entdeckt, das SHA-Hashes des Passworts Ihres Benutzers generiert. Können Sie es im Frontend des Browsers verwenden? Können Sie es auf Ihrem Node.js-Server verwenden? Die Antwort lautet: Es hängt davon ab.
 
-Module haben immer noch Zugriff auf globale Variablen, wie bereits gezeigt wurde. Wenn das Modul auf globale Variablen wie `window` verweist, kann es im Browser ausgeführt werden, löst aber auf Ihrem Node.js-Server einen Fehler aus, da `window` dort nicht verfügbar ist. Ebenso, wenn der Code den Zugriff auf `process` erfordert, um funktionsfähig zu sein, kann es nur in Node.js verwendet werden.
+Module haben immer noch Zugriff auf globale Variablen, wie vorher gezeigt. Wenn das Modul auf globale Variablen wie `window` verweist, kann es im Browser ausgeführt werden, verursacht jedoch einen Fehler auf Ihrem Node.js-Server, weil `window` dort nicht verfügbar ist. Wenn der Code hingegen Zugriff auf `process` benötigt, um funktional zu sein, kann er nur in Node.js verwendet werden.
 
-Um die Wiederverwendbarkeit eines Moduls zu maximieren, wird häufig empfohlen, den Code „isomorph“ zu gestalten - das heißt, in jedem Lauf spezifisch dasselbe Verhalten aufzuweisen. Dies wird allgemein auf drei Weisen erreicht:
+Um die Wiederverwendbarkeit eines Moduls zu maximieren, wird häufig empfohlen, den Code "isomorph" zu gestalten – das heißt, in jeder Laufzeitumgebung das gleiche Verhalten zu zeigen. Dies wird üblicherweise auf drei Arten erreicht:
 
-- Trennen Sie Ihre Module in „Kern“ und „Bindung“. Fokussieren Sie sich bei dem „Kern“ auf reinen JavaScript-Logik, wie die Berechnung des Hashs, ohne jeglichen DOM-, Netzwerk-, Dateisystemzugriff, und exportieren Sie Gebrauchsfunktionen. Lesen und schreiben Sie im „Bindungsteil“ im globalen Kontext. Vorhanden sei etwa, die „Browser-Bindung“ wählt, den Wert aus einer Eingabekästchen zu lesen, während die „Node-Bindung“ aus `process.env` liest, aber aus beiden Stellen zur gleichen Kernfunktion und behandeln es auf dieselbe Weise gearbeitet. Der Kern kann in jeder Umgebung importiert und auf dieselbe Weise verwendet werden, während nur die Bindung, die im Allgemeinen leicht ist, plattformspezifisch sein muss.
-- Erst, ob eine bestimmte globale Variable existiert, bevor sie verwendet wird. Zum Beispiel wissen Sie, dass, wenn Sie `typeof window === "undefined"` testen, Sie wahrscheinlich in einer Node.js-Umgebung sind und nicht den DOM lesen sollten.
+- Trennen Sie Ihre Module in "Kern" und "Verbindung". Für den "Kern" konzentrieren Sie sich auf reine JavaScript-Logik wie das Berechnen des Hashs, ohne irgendeine DOM-, Netzwerk- oder Dateisystemzugriff zu haben und nützliche Funktionen bereitzustellen. Für den "Verbindungsteil" können Sie aus dem globalen Kontext lesen und schreiben. Zum Beispiel kann das "Browser-Bindeglied" wählen, den Wert von einem Eingabefeld zu lesen, während das "Node-Bindeglied" es aus `process.env` liest, aber Werte, die von beiden Orten gelesen werden, fließen in dieselbe Kernfunktion und werden in der gleichen Weise behandelt. Der Kern kann in jeder Umgebung importiert und auf die gleiche Weise verwendet werden, während nur die Verbindung, die normalerweise leichtgewichtig ist, plattformabhängig sein muss.
+- Prüfen Sie, ob ein bestimmter globaler Wert existiert, bevor Sie ihn verwenden. Wenn Sie z. B. prüfen, dass `typeof window === "undefined"` ist, wissen Sie, dass Sie sich wahrscheinlich in einer Node.js-Umgebung befinden und keinen DOM verwenden sollten.
 
   ```js
   // myModule.js
@@ -946,9 +981,9 @@ Um die Wiederverwendbarkeit eines Moduls zu maximieren, wird häufig empfohlen, 
   }
   ```
 
-  Dies wird bevorzugt, wenn die beiden Zweige letztendlich dasselbe Verhalten haben ("isomorph"). Wenn es unmöglich ist, dieselbe Funktionalität bereitzustellen oder wenn es das Laden großer Mengen an Code beinhaltet, während ein großer Teil davon unbenutzt bleibt, sollten Sie stattdessen verschiedene „Bindungen“ verwenden.
+  Dies ist bevorzugt, wenn die beiden Zweige tatsächlich mit demselben Verhalten enden ("isomorph"). Wenn es unmöglich ist, die gleiche Funktionalität zu bieten, oder wenn dies bedeutet, dass erhebliche Code-Mengen geladen werden, während ein großer Teil ungenutzt bleibt, ist es besser, unterschiedliche Bindungen zu verwenden.
 
-- Verwenden Sie einen Polyfill, um einen Fallback für fehlende Funktionen bereitzustellen. Wenn Sie zum Beispiel die Funktion [`fetch`](/de/docs/Web/API/Fetch_API) verwenden möchten, die nur in Node.js seit v18 unterstützt wird, können Sie eine ähnliche API wie die, die von [`node-fetch`](https://www.npmjs.com/package/node-fetch) bereitgestellt wird, verwenden. Sie können dies bedingt über dynamische Importe tun:
+- Verwenden Sie ein Polyfill, um ein Fallback für fehlende Funktionen bereitzustellen. Wenn Sie beispielsweise die Funktion [`fetch`](/de/docs/Web/API/Fetch_API) verwenden möchten, die erst seit Node.js v18 unterstützt wird, können Sie eine ähnliche API wie die von [`node-fetch`](https://www.npmjs.com/package/node-fetch) bereitgestellte verwenden. Sie können dies bedingt durch dynamische Importe tun:
 
   ```js
   // myModule.js
@@ -959,23 +994,23 @@ Um die Wiederverwendbarkeit eines Moduls zu maximieren, wird häufig empfohlen, 
   // …
   ```
 
-  Die Variable [`globalThis`](/de/docs/Web/JavaScript/Reference/Global_Objects/globalThis) ist ein globales Objekt, das in jeder Umgebung verfügbar ist und nützlich ist, wenn Sie globale Variablen innerhalb von Modulen lesen oder erstellen möchten.
+  [`globalThis`](/de/docs/Web/JavaScript/Reference/Global_Objects/globalThis) ist eine vorhandene globale variable in jeder Umgebung und nützlich, wenn Sie globale variablen innerhalb von Modulen lesen oder erstellen möchten.
 
-Diese Praktiken sind nicht einzigartig für Module. Still, mit dem Trend der Codewiederverwendbarkeit und Modularisierung werden Sie dazu ermutigt, Ihren Code plattformübergreifend zu gestalten, damit er von so vielen Menschen wie möglich genutzt werden kann. Laufzeiten wie Node.js implementieren auch aktiv Web-APIs, wo immer es möglich ist, um die Interoperabilität mit dem Web zu verbessern.
+Diese Praktiken sind nicht einzigartig für Module. Dennoch, mit dem Trend zur Wiederverwendbarkeit von Code und Modularisierung, werden Sie ermutigt, Ihren Code plattformübergreifend zu gestalten, sodass er von so vielen Menschen wie möglich genutzt werden kann. Laufzeiten wie Node.js implementieren auch aktiv Web-APIs, um die Interoperabilität mit dem Web zu verbessern.
 
 ## Fehlersuche
 
-Hier sind ein paar Tipps, die Sie möglicherweise nützlich finden, wenn Sie Probleme haben, Ihre Module zum Laufen zu bekommen. Willkommen, wenn Sie zur Liste hinzufügen, wenn Sie mehr entdecken!
+Hier sind ein paar Tipps, die Ihnen helfen können, wenn Sie Probleme haben, Ihre Module zum Laufen zu bringen. Fühlen Sie sich frei, zur Liste hinzuzufügen, wenn Sie mehr entdecken!
 
-- Wir haben dies zuvor erwähnt, aber um es zu wiederholen: `.mjs`-Dateien müssen mit einem MIME-Typ von `text/javascript` (oder einem anderen JavaScript-kompatiblen MIME-Typ, aber `text/javascript` wird empfohlen) geladen werden, sonst erhalten Sie einen strengen MIME-Typ-Prüfungsfehler wie "Der Server hat mit einem nicht-JavaScript-MIME-Typ geantwortet".
-- Wenn Sie versuchen, die HTML-Datei lokal zu laden (i.e., mit einer `file://` URL), stoßen Sie aufgrund von JavaScript-Modulsicherheitsanforderungen auf CORS-Fehler. Sie müssen Ihr Testen durch einen Server durchführen. GitHub-Seiten sind ideal, da sie auch `.mjs`-Dateien mit dem richtigen MIME-Typ bedienen.
-- Da `.mjs` ein nicht standardmäßiger Dateierweiterung ist, erkennen einige Betriebssysteme sie möglicherweise nicht oder versuchen, sie durch etwas anderes zu ersetzen. Zum Beispiel stellten wir fest, dass macOS stillschweigend `.js` am Ende von `.mjs`-Dateien ergänzt und dann die Dateierweiterung automatisch ausgeblendet hat. So kamen alle unsere Dateien tatsächlich als `x.mjs.js` heraus. Sobald wir das automatische Ausblenden von Dateierweiterungen deaktiviert und sie akzeptieren, dass `.mjs` in Ordnung zwar funktioniert.
+- Wir haben das schon erwähnt, aber nochmals zur Erinnerung: `.mjs`-Dateien müssen mit einem MIME-Typ von `text/javascript` (oder einem anderen JavaScript-kompatiblen MIME-Typ, aber `text/javascript` wird empfohlen) geladen werden, andernfalls erhalten Sie einen strengen MIME-Typ-Prüfungsfehler wie "Der Server antwortete mit einem Nicht-JavaScript MIME-Typ".
+- Wenn Sie versuchen, die HTML-Datei lokal (d.h. mit einem `file://` URL) zu laden, stoßen Sie aufgrund von JavaScript-Modul-Sicherheitsanforderungen auf CORS-Fehler. Sie müssen Ihr Testen über einen Server durchführen. GitHub Pages ist ideal, da es auch `.mjs`-Dateien mit dem richtigen MIME-Typ ausliefert.
+- Da `.mjs` eine nicht standardmäßige Dateierweiterung ist, erkennen einige Betriebssysteme sie möglicherweise nicht oder versuchen, sie durch etwas anderes zu ersetzen. Zum Beispiel haben wir festgestellt, dass macOS den Dateinamen .mjs stillschweigend durch .js ergänzt hat und dann die Dateiendung automatisch versteckte. Alle unsere Dateien wurden tatsächlich als `x.mjs.js` ausgegeben. Nachdem wir das automatische Verstecken der Dateiendungen abgeschaltet hatten und es akzeptiert haben, `.mjs` zu akzeptieren, war es in Ordnung.
 
 ## Siehe auch
 
-- [JavaScript-Module](https://v8.dev/features/modules) auf v8.dev (2018)
-- [ES-Module: Ein Cartoon-Tiefgang](https://hacks.mozilla.org/2018/03/es-modules-a-cartoon-deep-dive/) auf hacks.mozilla.org (2018)
-- [ES6 in der Tiefe: Module](https://hacks.mozilla.org/2015/08/es6-in-depth-modules/) auf hacks.mozilla.org (2015)
-- [Exploring JS, Kapitel 16: Module](https://exploringjs.com/es6/ch_modules.html) von Dr. Axel Rauschmayer
+- [JavaScript modules](https://v8.dev/features/modules) auf v8.dev (2018)
+- [ES modules: A cartoon deep-dive](https://hacks.mozilla.org/2018/03/es-modules-a-cartoon-deep-dive/) auf hacks.mozilla.org (2018)
+- [ES6 in Depth: Modules](https://hacks.mozilla.org/2015/08/es6-in-depth-modules/) auf hacks.mozilla.org (2015)
+- [Exploring JS, Ch.16: Modules](https://exploringjs.com/es6/ch_modules.html) von Dr. Axel Rauschmayer
 
 {{Previous("Web/JavaScript/Guide/Meta_programming")}}
