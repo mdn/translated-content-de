@@ -1,27 +1,27 @@
 ---
-title: Standard eingebaute Objekte
+title: Standardmäßige eingebaute Objekte
 slug: Web/JavaScript/Reference/Global_Objects
 l10n:
-  sourceCommit: 3dbbefa32758e2a1ca9a37c2788370c06aae2738
+  sourceCommit: b2c8dcdae36907a87d1d1b9393ca4a35ebc765d6
 ---
 
 {{jsSidebar("Objects")}}
 
 Dieses Kapitel dokumentiert alle standardmäßigen, eingebauten Objekte von JavaScript, einschließlich ihrer Methoden und Eigenschaften.
 
-Der Begriff "globale Objekte" (oder standardmäßig eingebaute Objekte) hier ist nicht zu verwechseln mit **dem globalen Objekt**. Hier beziehen sich "globale Objekte" auf **Objekte im globalen Bereich**.
+Der Begriff "globale Objekte" (oder standardmäßige eingebaute Objekte) hier darf nicht mit **dem globalen Objekt** verwechselt werden. Hier beziehen sich "globale Objekte" auf **Objekte im globalen Gültigkeitsbereich**.
 
-Das **globale Objekt** selbst kann im globalen Bereich mit dem Operator {{jsxref("Operators/this", "this")}} aufgerufen werden. Tatsächlich **besteht der globale Bereich aus** den Eigenschaften des globalen Objekts, einschließlich geerbter Eigenschaften, falls vorhanden.
+Auf das **globale Objekt** selbst kann im globalen Gültigkeitsbereich mit dem Operator {{jsxref("Operators/this", "this")}} zugegriffen werden. Tatsächlich **besteht** der globale Gültigkeitsbereich aus den Eigenschaften des globalen Objekts, einschließlich eventuell geerbter Eigenschaften.
 
-Andere Objekte im globalen Bereich werden entweder [vom Benutzerskript erstellt](/de/docs/Web/JavaScript/Guide/Working_with_objects#creating_new_objects) oder von der Host-Anwendung bereitgestellt. Die in Browser-Kontexten verfügbaren Host-Objekte sind in der [API-Referenz](/de/docs/Web/API) dokumentiert.
+Andere Objekte im globalen Gültigkeitsbereich werden entweder [durch das Benutzerskript erstellt](/de/docs/Web/JavaScript/Guide/Working_with_objects#creating_new_objects) oder von der Host-Anwendung bereitgestellt. Die in Browserkontexten verfügbaren Host-Objekte sind in der [API-Referenz](/de/docs/Web/API) dokumentiert.
 
-Weitere Informationen über den Unterschied zwischen dem [DOM](/de/docs/Web/API/Document_Object_Model) und dem Kern von [JavaScript](/de/docs/Web/JavaScript) finden Sie in der [JavaScript-Technologien-Übersicht](/de/docs/Web/JavaScript/Reference/JavaScript_technologies_overview).
+Weitere Informationen zum Unterschied zwischen dem [DOM](/de/docs/Web/API/Document_Object_Model) und dem Kern von [JavaScript](/de/docs/Web/JavaScript) finden Sie im [Überblick über JavaScript-Technologien](/de/docs/Web/JavaScript/Reference/JavaScript_technologies_overview).
 
 ## Standardobjekte nach Kategorie
 
-### Wert-Eigenschaften
+### Werteigenschaften
 
-Diese globalen Eigenschaften geben einen einfachen Wert zurück. Sie haben keine Eigenschaften oder Methoden.
+Diese globalen Eigenschaften liefern einen einfachen Wert zurück. Sie haben keine Eigenschaften oder Methoden.
 
 - {{jsxref("globalThis")}}
 - {{jsxref("Infinity")}}
@@ -30,7 +30,7 @@ Diese globalen Eigenschaften geben einen einfachen Wert zurück. Sie haben keine
 
 ### Funktionseigenschaften
 
-Diese globalen Funktionen—Funktionen, die global aufgerufen werden, statt auf einem Objekt—geben ihre Ergebnisse direkt an den Aufrufer zurück.
+Diese globalen Funktionen—Funktionen, die global aufgerufen werden, anstatt auf einem Objekt—geben ihre Ergebnisse direkt an den Aufrufer zurück.
 
 - {{jsxref("Global_Objects/eval", "eval()")}}
 - {{jsxref("isFinite()")}}
@@ -44,9 +44,9 @@ Diese globalen Funktionen—Funktionen, die global aufgerufen werden, statt auf 
 - {{jsxref("escape()")}} {{deprecated_inline}}
 - {{jsxref("unescape()")}} {{deprecated_inline}}
 
-### Fundamentale Objekte
+### Grundlegende Objekte
 
-Diese Objekte repräsentieren fundamentale Sprachkonstrukte.
+Diese Objekte repräsentieren grundlegende Sprachkonstrukte.
 
 - {{jsxref("Object")}}
 - {{jsxref("Function")}}
@@ -55,7 +55,7 @@ Diese Objekte repräsentieren fundamentale Sprachkonstrukte.
 
 ### Fehlerobjekte
 
-Fehlerobjekte sind eine spezielle Art von fundamentalen Objekten. Sie umfassen den grundlegenden Typ {{jsxref("Error")}}, sowie mehrere spezialisierte Fehlertypen.
+Fehlerobjekte sind eine spezielle Art von grundlegenden Objekten. Sie umfassen den grundlegenden Typ {{jsxref("Error")}} sowie mehrere spezialisierte Fehlertypen.
 
 - {{jsxref("Error")}}
 - {{jsxref("AggregateError")}}
@@ -69,7 +69,7 @@ Fehlerobjekte sind eine spezielle Art von fundamentalen Objekten. Sie umfassen d
 
 ### Zahlen und Daten
 
-Dies sind die Basisobjekte, die Zahlen, Daten und mathematische Berechnungen darstellen.
+Dies sind die Basisobjekte, die Zahlen, Daten und mathematische Berechnungen repräsentieren.
 
 - {{jsxref("Number")}}
 - {{jsxref("BigInt")}}
@@ -84,11 +84,12 @@ Diese Objekte repräsentieren Zeichenfolgen und unterstützen deren Manipulation
 - {{jsxref("String")}}
 - {{jsxref("RegExp")}}
 
-### Indizierte Sammlungen
+### Indexierte Sammlungen
 
-Diese Objekte repräsentieren Sammlungen von Daten, die durch einen Indexwert geordnet sind. Dazu gehören (typisierte) Arrays und Array-ähnliche Konstrukte.
+Diese Objekte repräsentieren Sammlungen von Daten, die nach einem Indexwert geordnet sind. Dies schließt (typisierte) Arrays und array-ähnliche Konstrukte ein.
 
 - {{jsxref("Array")}}
+- {{jsxref("TypedArray")}}
 - {{jsxref("Int8Array")}}
 - {{jsxref("Uint8Array")}}
 - {{jsxref("Uint8ClampedArray")}}
@@ -104,7 +105,7 @@ Diese Objekte repräsentieren Sammlungen von Daten, die durch einen Indexwert ge
 
 ### Schlüsselbasierte Sammlungen
 
-Diese Objekte repräsentieren Sammlungen, die Schlüssel verwenden. Die iterierbaren Sammlungen ({{jsxref("Map")}} und {{jsxref("Set")}}) enthalten Elemente, die sich leicht in der Reihenfolge der Einfügung durchlaufen lassen.
+Diese Objekte repräsentieren Sammlungen, die Schlüssel verwenden. Die iterierbaren Sammlungen ({{jsxref("Map")}} und {{jsxref("Set")}}) enthalten Elemente, die leicht in der Reihenfolge der Einfügung durchiteriert werden können.
 
 - {{jsxref("Map")}}
 - {{jsxref("Set")}}
@@ -113,7 +114,7 @@ Diese Objekte repräsentieren Sammlungen, die Schlüssel verwenden. Die iterierb
 
 ### Strukturierte Daten
 
-Diese Objekte repräsentieren und interagieren mit strukturierten Datenpuffern und Daten, die mit JavaScript Object Notation (JSON) codiert sind.
+Diese Objekte repräsentieren und interagieren mit gepufferten strukturierten Daten und mit JavaScript Object Notation (JSON) codierten Daten.
 
 - {{jsxref("ArrayBuffer")}}
 - {{jsxref("SharedArrayBuffer")}}
@@ -123,14 +124,14 @@ Diese Objekte repräsentieren und interagieren mit strukturierten Datenpuffern u
 
 ### Speicherverwaltung
 
-Diese Objekte interagieren mit dem Mechanismus zur Speicherbereinigung.
+Diese Objekte interagieren mit der Speicherbereinigungsmechanismus.
 
 - {{jsxref("WeakRef")}}
 - {{jsxref("FinalizationRegistry")}}
 
 ### Kontrollabstraktionsobjekte
 
-Kontrollabstraktionen können helfen, den Code zu strukturieren, insbesondere asynchronen Code (ohne zum Beispiel tief verschachtelte Rückruffunktionen zu verwenden).
+Kontrollabstraktionen können helfen, Code zu strukturieren, insbesondere asynchronen Code (ohne z.B. tief geschachtelte Rückrufe zu verwenden).
 
 - {{jsxref("Iterator")}}
 - {{jsxref("AsyncIterator")}}
@@ -148,7 +149,7 @@ Kontrollabstraktionen können helfen, den Code zu strukturieren, insbesondere as
 
 ### Internationalisierung
 
-Erweiterungen des ECMAScript-Kerns für sprachensensitive Funktionalitäten.
+Ergänzungen zum ECMAScript-Kern für sprachsensitive Funktionen.
 
 - {{jsxref("Intl")}}
 - {{jsxref("Intl.Collator")}}

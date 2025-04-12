@@ -2,16 +2,16 @@
 title: exp()
 slug: Web/CSS/exp
 l10n:
-  sourceCommit: 5a195171d06aee3d9c1c78d71c7f0c3a060f5263
+  sourceCommit: b2c8dcdae36907a87d1d1b9393ca4a35ebc765d6
 ---
 
 {{CSSRef}}
 
-Die **`exp()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) ist eine Exponentialfunktion, die eine Zahl als Argument annimmt und die mathematische Konstante `e` auf die Potenz der angegebenen Zahl erhöht zurückgibt.
+Die **`exp()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) ist eine Exponentialfunktion, die eine Zahl als Argument nimmt und die mathematische Konstante `e` potenziert um die gegebene Zahl zurückgibt.
 
-Die mathematische Konstante [`e`](<https://en.wikipedia.org/wiki/E_(mathematical_constant)>) ist die Basis der natürlichen Logarithmen und beträgt ungefähr `2.718281828459045`.
+Die mathematische Konstante [`e`](<https://en.wikipedia.org/wiki/E_(mathematical_constant)>) ist die Basis des natürlichen Logarithmus und beträgt ungefähr `2.718281828459045`.
 
-Die Funktion `exp(number)` enthält eine Berechnung, die denselben Wert zurückgibt wie {{CSSxRef("pow", "pow(e, number)")}}.
+Die Funktion `exp(number)` enthält eine Berechnung, die den gleichen Wert wie {{CSSxRef("pow", "pow(e, number)")}} zurückgibt.
 
 ## Syntax
 
@@ -24,14 +24,14 @@ width: calc(100px * exp(1)); /* 100px * 2.718281828459045 = 217px */
 
 ### Parameter
 
-Die `exp(number)`-Funktion akzeptiert nur einen Wert als Parameter.
+Die `exp(number)`-Funktion akzeptiert nur einen Wert als ihren Parameter.
 
 - `number`
-  - : Eine Berechnung, die zu einer {{CSSxRef("number")}} aufgelöst wird. Repräsentiert den Wert, der mit einer Potenz von `e` erhöht werden soll.
+  - : Eine Berechnung, die sich zu einer {{CSSxRef("number")}} auflöst. Sie stellt den Wert dar, der mit einer Potenz von `e` potenziert wird.
 
 ### Rückgabewert
 
-Gibt eine nicht-negative {{CSSxRef("number")}} zurück, die e<sup>number</sup> darstellt, was das Ergebnis der Berechnung von `e` ist, das auf die Potenz der `number` erhöht wurde.
+Gibt eine nicht-negative {{CSSxRef("number")}} zurück, die e<sup>number</sup> darstellt, was das Ergebnis der Berechnung von `e` potenziert um die Zahl ist.
 
 - Wenn `number` `-Infinity` ist, ist das Ergebnis `0`.
 - Wenn `number` `0` ist, ist das Ergebnis `1`.
@@ -46,7 +46,7 @@ Gibt eine nicht-negative {{CSSxRef("number")}} zurück, die e<sup>number</sup> d
 
 ### Elemente rotieren
 
-Die `exp()`-Funktion kann verwendet werden, um Elemente zu {{CSSxRef("transform-function/rotate", "rotieren")}}, da sie eine {{CSSxRef("number")}} zurückgibt.
+Die `exp()`-Funktion kann verwendet werden, um Elemente mit {{CSSxRef("transform-function/rotate", "rotate")}} zu drehen, da sie eine {{CSSxRef("number")}} zurückgibt.
 
 #### HTML
 
@@ -77,19 +77,19 @@ div.box {
   background: linear-gradient(orange, red);
 }
 div.box-1 {
-  transform: rotate(calc(1turn * exp(-1))); // 0.3678794411714423turn
+  transform: rotate(calc(1turn * exp(-1))); /* 0.3678794411714423turn */
 }
 div.box-2 {
-  transform: rotate(calc(1turn * exp(-0.75))); // 0.4723665527410147turn
+  transform: rotate(calc(1turn * exp(-0.75))); /* 0.4723665527410147turn */
 }
 div.box-3 {
-  transform: rotate(calc(1turn * exp(-0.5))); // 0.6065306597126334turn
+  transform: rotate(calc(1turn * exp(-0.5))); /* 0.6065306597126334turn */
 }
 div.box-4 {
-  transform: rotate(calc(1turn * exp(-0.25))); // 0.7788007830714049turn
+  transform: rotate(calc(1turn * exp(-0.25))); /* 0.7788007830714049turn */
 }
 div.box-5 {
-  transform: rotate(calc(1turn * exp(0))); // 1turn
+  transform: rotate(calc(1turn * exp(0))); /* 1turn */
 }
 ```
 
@@ -97,9 +97,9 @@ div.box-5 {
 
 {{EmbedLiveSample('Rotate elements', '100%', '200px')}}
 
-### Überschriften im festen Verhältnis skalieren
+### Überschriften nach festem Verhältnis skalieren
 
-Die `exp()`-Funktion kann nützlich für Strategien wie den CSS modularen Skalen sein, der alle Schriftgrößen auf einer Seite in einem festen Verhältnis miteinander in Beziehung setzt.
+Die `exp()`-Funktion kann für Strategien wie CSS modular scale nützlich sein, die alle Schriftgrößen auf einer Seite miteinander durch ein festes Verhältnis in Beziehung setzen.
 
 #### HTML
 

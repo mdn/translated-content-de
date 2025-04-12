@@ -2,16 +2,16 @@
 title: targetX
 slug: Web/SVG/Reference/Attribute/targetX
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: b2c8dcdae36907a87d1d1b9393ca4a35ebc765d6
 ---
 
-Das **`targetX`**-Attribut bestimmt die Positionierung in horizontaler Richtung der Faltungsmatrix relativ zu einem gegebenen Zielpixel im Eingangsbild. Die linkeste Spalte der Matrix ist die Spaltennummer null. Der Wert muss so sein, dass: `0` <= `targetX` < {{SVGAttr("order")}} `X`.
+Das Attribut **`targetX`** bestimmt die Positionierung in horizontaler Richtung der Faltungsmatrix relativ zu einem gegebenen Zielpixel im Eingabebild. Die äußerste linke Spalte der Matrix ist Spalte Nummer null. Der Wert muss so sein, dass: `0` <= `targetX` < `x` von {{SVGAttr("order")}}.
 
-Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
+Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 - {{SVGElement("feConvolveMatrix")}}
 
-## Verwendungshinweise
+## Nutzungshinweise
 
 <table class="properties">
   <tbody>
@@ -21,7 +21,7 @@ Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
     </tr>
     <tr>
       <th scope="row">Standardwert</th>
-      <td><code>floor({{SVGAttr("order")}}X / 2)</code></td>
+      <td><code>floor(<code>x</code> von {{SVGAttr("order")}} / 2)</code></td>
     </tr>
     <tr>
       <th scope="row">Animierbar</th>
@@ -31,7 +31,7 @@ Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 </table>
 
 - `<integer>`
-  - : Dieser Wert gibt die Positionierung in horizontaler Richtung der Faltungsmatrix relativ zu einem gegebenen Zielpixel im Eingangsbild an.
+  - : Dieser Wert gibt die Positionierung in horizontaler Richtung der Faltungsmatrix relativ zu einem gegebenen Zielpixel im Eingabebild an.
 
 ## Spezifikationen
 

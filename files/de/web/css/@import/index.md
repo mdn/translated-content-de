@@ -2,12 +2,13 @@
 title: "@import"
 slug: Web/CSS/@import
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: b2c8dcdae36907a87d1d1b9393ca4a35ebc765d6
 ---
 
 {{CSSRef}}
 
-Die **`@import`** [CSS](/de/docs/Web/CSS) [At-Regel](/de/docs/Web/CSS/CSS_syntax/At-rule) wird verwendet, um Stilregeln aus anderen gültigen Stylesheets zu importieren. Eine `@import`-Regel _muss_ am Anfang des Stylesheets definiert werden, vor jeder anderen At-Regel (außer [@charset](/de/docs/Web/CSS/@charset) und [@layer](/de/docs/Web/CSS/@layer)) und Stilangaben, sonst wird sie ignoriert.
+Die **`@import`** [CSS](/de/docs/Web/CSS) [Schlüsselregel](/de/docs/Web/CSS/CSS_syntax/At-rule) wird verwendet, um Stilregeln aus anderen gültigen Stylesheets zu importieren.
+Eine `@import`-Regel _muss_ am Anfang des Stylesheets definiert werden, vor allen anderen Schlüsselregeln (außer [@charset](/de/docs/Web/CSS/@charset) und [@layer](/de/docs/Web/CSS/@layer)) und Stil-Deklarationen, sonst wird sie ignoriert.
 
 ## Syntax
 
@@ -28,17 +29,19 @@ wo:
 - _url_
   - : Ist ein {{CSSxRef("string")}} oder ein {{cssxref("url_value", "&lt;url&gt;")}}-Typ, der den Speicherort der zu importierenden Ressource darstellt. Die URL kann absolut oder relativ sein.
 - _list-of-media-queries_
-  - : Ist eine durch Kommas getrennte Liste von [Media Queries](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries), die die medienspezifischen Bedingungen für die Anwendung der in der verknüpften URL definierten CSS-Regeln spezifizieren. Wenn der Browser keine dieser Abfragen unterstützt, lädt er die verknüpfte Ressource nicht.
+  - : Ist eine kommagetrennte Liste von [Media-Queries](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries), die die medienabhängigen Bedingungen für die Anwendung der in der verlinkten URL definierten CSS-Regeln angeben. Wenn der Browser keine dieser Queries unterstützt, lädt er die verlinkte Ressource nicht.
 - _layer-name_
-  - : Ist der Name einer [Kaskadenschicht](/de/docs/Web/CSS/@layer), in die die Inhalte der verknüpften Ressource importiert werden.
+  - : Ist der Name einer [Kaskadenschicht](/de/docs/Web/CSS/@layer), in die die Inhalte der verlinkten Ressource importiert werden. Weitere Informationen finden Sie unter [`layer()`](/de/docs/Web/CSS/@import/layer_function).
 - _supports-condition_
-  - : Gibt die Funktion(en) an, die der Browser unterstützen muss, damit das Stylesheet importiert wird. Wenn der Browser nicht den in der _supports-condition_ angegebenen Bedingungen entspricht, kann es sein, dass er das verknüpfte Stylesheet nicht abruft, und selbst wenn es über einen anderen Pfad heruntergeladen wird, wird es nicht geladen. Die Syntax von `supports()` ist nahezu identisch mit der, die in {{CSSxRef("@supports")}} beschrieben ist, und dieses Thema kann als umfassendere Referenz verwendet werden.
+  - : Gibt an, welche Funktion(en) der Browser unterstützen muss, damit das Stylesheet importiert wird.
+    Wenn der Browser den in der _supports-condition_ angegebenen Bedingungen nicht entspricht, ruft er das verlinkte Stylesheet möglicherweise nicht ab, und selbst wenn es durch einen anderen Pfad heruntergeladen wird, lädt er es nicht.
+    Die Syntax von `supports()` ist fast identisch mit der, die in {{CSSxRef("@supports")}} beschrieben wird, und dieses Thema kann als umfassendere Referenz verwendet werden.
 
 Verwenden Sie `@import` zusammen mit dem Schlüsselwort `layer` oder der Funktion `layer()`, um externe Stylesheets (von Frameworks, Widget-Stylesheets, Bibliotheken usw.) in Schichten zu importieren.
 
 ## Beschreibung
 
-Importierte Regeln müssen vor allen anderen Regeltypen kommen, außer {{CSSxRef("@charset")}}-Regeln und Schichtenerstellenden [`@layer`](/de/docs/Web/CSS/@layer)-Anweisungen.
+Importierte Regeln müssen vor allen anderen Regeltypen kommen, außer {{CSSxRef("@charset")}}-Regeln und layer-erzeugenden [`@layer`](/de/docs/Web/CSS/@layer)-Statements.
 
 ```css example-bad
 * {
@@ -49,7 +52,7 @@ Importierte Regeln müssen vor allen anderen Regeltypen kommen, außer {{CSSxRef
 @import url("my-imported-styles.css");
 ```
 
-Da die `@import`-At-Regel nach den Stilen deklariert ist, ist sie ungültig und wird daher ignoriert.
+Da die `@import`-Schlüsselregel nach den Styles deklariert wird, ist sie ungültig und wird daher ignoriert.
 
 ```css example-good
 @import url("my-imported-styles.css");
@@ -60,13 +63,13 @@ Da die `@import`-At-Regel nach den Stilen deklariert ist, ist sie ungültig und 
 /* more styles */
 ```
 
-Die `@import`-Regel ist keine [verschachtelte Anweisung](/de/docs/Web/CSS/CSS_syntax/Syntax#nested_statements). Daher kann sie nicht innerhalb von [bedingten Gruppen-At-Regeln](/de/docs/Web/CSS/CSS_conditional_rules#at-rules) verwendet werden.
+Die `@import`-Regel ist keine [verschachtelte Anweisung](/de/docs/Web/CSS/CSS_syntax/Syntax#nested_statements). Daher kann sie nicht innerhalb von [Bedingungsgruppen-Schlüsselregeln](/de/docs/Web/CSS/CSS_conditional_rules#at-rules) verwendet werden.
 
-Damit {{Glossary("user_agent", "Benutzeragenten")}} das Abrufen von Ressourcen für nicht unterstützte Medientypen vermeiden können, können Autoren medienabhängige Importbedingungen spezifizieren. Diese bedingten Importe spezifizieren durch Kommas getrennte [Media Queries](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries) nach der URL. In Abwesenheit einer Media Query ist der Import nicht an das verwendete Medium gebunden. Die Angabe von `all` für die `list-of-media-queries` hat denselben Effekt.
+Damit {{Glossary("user_agent", "Benutzeragenten")}} Ressourcen für nicht unterstützte Medientypen vermeiden können, können Autoren medienabhängige Importbedingungen angeben. Diese bedingten Importe spezifizieren kommagetrennte [Media-Queries](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries) nach der URL. In Ermangelung einer Media-Query ist der Import nicht vom verwendeten Medium abhängig. Die Angabe von `all` für die `list-of-media-queries` hat den gleichen Effekt.
 
-Ebenso können Benutzeragenten die `supports()`-Funktion in einer `@import`-At-Regel verwenden, um Ressourcen nur dann abzurufen, wenn ein bestimmter Funktionssatz (oder nicht) unterstützt wird. Dies ermöglicht es Autoren, von neu eingeführten CSS-Funktionen zu profitieren, während sie gleichzeitig anmutige Rückfallebenen für ältere Browserversionen bieten. Beachten Sie, dass die Bedingungen in der `supports()`-Funktion einer `@import`-At-Regel in JavaScript unter Verwendung von [`CSSImportRule.supportsText`](/de/docs/Web/API/CSSImportRule/supportsText) abgerufen werden können.
+Ebenso können Benutzeragenten die Funktion `supports()` in einer `@import`-Schlüsselregel verwenden, um Ressourcen nur dann abzurufen, wenn eine bestimmte Menge von Funktionen unterstützt wird (oder nicht unterstützt wird). Dies ermöglicht es Autoren, kürzlich eingeführte CSS-Funktionen zu nutzen, während sie elegante Fallbacks für ältere Browserversionen bieten. Beachten Sie, dass die Bedingungen in der Funktion `supports()` einer `@import`-Schlüsselregel in JavaScript mit [`CSSImportRule.supportsText`](/de/docs/Web/API/CSSImportRule/supportsText) abgerufen werden können.
 
-Die `@import`-Regel kann auch verwendet werden, um eine [Kaskadenschicht](/de/docs/Web/CSS/@layer) zu erstellen, indem Regeln aus einer verknüpften Ressource importiert werden. Regeln können auch in eine vorhandene Kaskadenschicht importiert werden. Das Schlüsselwort `layer` oder die Funktion `layer()` wird für diesen Zweck mit `@import` verwendet. Deklarationen in Stilregeln aus importierten Stylesheets interagieren mit der Kaskade, als wären sie wörtlich an der Stelle des Imports in das Stylesheet geschrieben.
+Die `@import`-Regel kann auch verwendet werden, um eine [Kaskadenschicht](/de/docs/Web/CSS/@layer) zu erstellen, indem Regeln aus einer verlinkten Ressource importiert werden. Regeln können auch in eine vorhandene Kaskadenschicht importiert werden. Das Schlüsselwort `layer` oder die Funktion `layer()` wird zu diesem Zweck mit `@import` verwendet. Deklarationen in Stilregeln aus importierten Stylesheets interagieren mit der Kaskade, als ob sie an der Importstelle wörtlich in das Stylesheet geschrieben worden wären.
 
 ## Formale Syntax
 
@@ -81,9 +84,9 @@ Die `@import`-Regel kann auch verwendet werden, um eine [Kaskadenschicht](/de/do
 @import url("chrome://communicator/skin/");
 ```
 
-Die beiden obigen Beispiele zeigen, wie der _url_ als `<string>` und als `url()`-Funktion angegeben wird.
+Die beiden obigen Beispiele zeigen, wie der _url_ als `<string>` und als `url()`-Funktion angegeben werden kann.
 
-### Importieren von CSS-Regeln, abhängig von Media Queries
+### Importieren von CSS-Regeln, abhängig von Media-Queries
 
 ```css
 @import url("fine-print.css") print;
@@ -92,9 +95,9 @@ Die beiden obigen Beispiele zeigen, wie der _url_ als `<string>` und als `url()`
 @import url("landscape.css") screen and (orientation: landscape);
 ```
 
-Die `@import`-Regeln in den obigen Beispielen zeigen medienspezifische Bedingungen, die erfüllt sein müssen, bevor die verknüpften CSS-Regeln angewendet werden. Zum Beispiel wird die letzte `@import`-Regel das Stylesheet `landscape.css` nur auf einem Bildschirmgerät im Querformat laden.
+Die `@import`-Regeln in den obigen Beispielen zeigen medienabhängige Bedingungen, die erfüllt sein müssen, bevor die verlinkten CSS-Regeln angewendet werden. So wird zum Beispiel die letzte `@import`-Regel das Stylesheet `landscape.css` nur auf einem Bildschirmgerät im Querformat laden.
 
-### Importieren von CSS-Regeln, abhängig von der Feature-Unterstützung
+### Importieren von CSS-Regeln, abhängig von Funktionsunterstützung
 
 ```css
 @import url("gridy.css") supports(display: grid) screen and (max-width: 400px);
@@ -102,9 +105,9 @@ Die `@import`-Regeln in den obigen Beispielen zeigen medienspezifische Bedingung
   screen and (max-width: 400px);
 ```
 
-Die obigen `@import`-Regeln veranschaulichen, wie Sie ein Layout importieren könnten, das ein Raster verwenden, wenn `display: grid` unterstützt wird, und ansonsten CSS importieren, das `display: flex` verwendet. Während Sie nur eine `supports()`-Anweisung haben können, können Sie jede Anzahl von Feature-Checks mit `not`, `and` und `or` kombinieren. Sie müssen jedoch Klammern verwenden, um die Priorität zu definieren, wenn Sie sie mischen, z.B. `supports((..) or (..) and not (..))` ist ungültig, aber `supports((..) or ((..) and (not (..))))` ist gültig. Beachten Sie, dass, wenn Sie nur eine einzelne Deklaration haben, Sie sie nicht in zusätzliche Klammern einschließen müssen: Dies wird im ersten obigen Beispiel gezeigt.
+Die obigen `@import`-Regeln veranschaulichen, wie Sie ein Layout importieren können, das ein Grid verwendet, wenn `display: grid` unterstützt wird, und ansonsten CSS importieren, das `display: flex` verwendet. Während Sie nur eine `supports()`-Anweisung haben können, können Sie jede Anzahl von Funktionsüberprüfungen mit `not`, `and` und `or` kombinieren. Sie müssen jedoch Klammern verwenden, um die Priorität zu definieren, wenn Sie diese kombinieren, z.B. ist `supports((..) or (..) and not (..))` ungültig, aber `supports((..) or ((..) and (not (..))))` ist gültig. Beachten Sie, dass wenn Sie nur eine einzelne Deklaration haben, diese nicht in zusätzliche Klammern eingeschlossen werden muss: Dies wird im ersten obigen Beispiel gezeigt.
 
-Die obigen Beispiele zeigen Unterstützungsbedingungen unter Verwendung der grundlegenden Deklarationssyntax. Sie können auch CSS-Funktionen in `supports()` angeben, und es wird zu `true` ausgewertet, wenn sie unterstützt werden und im Benutzeragenten ausgewertet werden können. Zum Beispiel zeigt der folgende Code eine `@import`, die von [Kindkombinatoren](/de/docs/Web/CSS/Child_combinator) (`selector()`) und der `font-tech()`-Funktion abhängig ist:
+Die obigen Beispiele zeigen Unterstützungskonditionen unter Verwendung der grundlegenden Deklarationssyntax. Sie können auch CSS-Funktionen in `supports()` angeben, und es wird als `true` ausgewertet, wenn sie unterstützt werden und auf dem Benutzeragenten ausgewertet werden können. Zum Beispiel zeigt der folgende Code ein `@import`, das von [Kindkombinatoren](/de/docs/Web/CSS/Child_combinator) (`selector()`) und der `font-tech()`-Funktion abhängig ist:
 
 ```css
 @import url("whatever.css")
@@ -117,7 +120,7 @@ supports((selector(h2 > p)) and (font-tech(color-COLRv1)));
 @import "theme.css" layer(utilities);
 ```
 
-Im obigen Beispiel wird eine Kaskadenschicht namens `utilities` erstellt, und sie wird Regeln aus dem importierten Stylesheet `theme` enthalten.
+Im obigen Beispiel wird eine Kaskadenschicht namens `utilities` erstellt und sie wird Regeln aus dem importierten Stylesheet `theme` enthalten.
 
 ```css
 @import url(headings.css) layer(default);
@@ -137,7 +140,7 @@ Im obigen Beispiel kaskadieren die Regeln in den Stylesheets `headings.css` und 
 @import "style.css" layer;
 ```
 
-Dies ist ein Beispiel für die Erstellung von zwei separaten unbenannten Kaskadenschichten und das Importieren der verknüpften Regeln in jede einzeln. Eine ohne Namen deklarierte Kaskadenschicht ist eine unbenannte Kaskadenschicht. Unbenannte Kaskadenschichten werden beim Erstellen finalisiert: Sie bieten keine Mittel zum Neuordnen oder Hinzufügen von Stilen und können von außen nicht referenziert werden.
+Dies ist ein Beispiel für die Erstellung von zwei separaten unbenannten Kaskadenschichten und das Importieren der verlinkten Regeln in jede einzeln. Eine Kaskadenschicht, die ohne Namen deklariert wird, ist eine unbenannte Kaskadenschicht. Unbenannte Kaskadenschichten sind beim Erstellen abgeschlossen: Sie bieten keine Möglichkeit, Styles neu anzuordnen oder hinzuzufügen, und sie können von außen nicht referenziert werden.
 
 ## Spezifikationen
 
@@ -151,5 +154,5 @@ Dies ist ein Beispiel für die Erstellung von zwei separaten unbenannten Kaskade
 
 - {{CSSxRef("@media")}}
 - {{CSSxRef("@supports")}}
-- [CSS-Kaskadierung und Vererbung](/de/docs/Web/CSS/CSS_cascade) Modul
-- [CSS-At-Regel-Funktionen](/de/docs/Web/CSS/CSS_syntax/At-rule_functions)
+- [CSS-Kaskadierung und Vererbung](/de/docs/Web/CSS/CSS_cascade)-Modul
+- [CSS-Schlüsselregel-Funktionen](/de/docs/Web/CSS/CSS_syntax/At-rule_functions)
