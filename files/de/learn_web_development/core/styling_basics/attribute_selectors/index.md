@@ -1,13 +1,13 @@
 ---
-title: Attribut-Selektoren
+title: Attributselektoren
 slug: Learn_web_development/Core/Styling_basics/Attribute_selectors
 l10n:
-  sourceCommit: 48d220a8cffdfd5f088f8ca89724a9a92e34d8c0
+  sourceCommit: 4436741f7ac013be6aa98e71132fcce457657d48
 ---
 
 {{PreviousMenuNext("Learn_web_development/Core/Styling_basics/Basic_selectors", "Learn_web_development/Core/Styling_basics/Pseudo_classes_and_elements", "Learn_web_development/Core/Styling_basics")}}
 
-Wie Sie aus Ihrem Studium von HTML wissen, können Elemente Attribute haben, die weitere Informationen über das markierte Element geben. In CSS können Sie Attribut-Selektoren verwenden, um Elemente mit bestimmten Attributen zu wählen. Diese Lektion zeigt Ihnen, wie Sie diese sehr nützlichen Selektoren verwenden.
+Wie Sie aus Ihrem HTML-Studium wissen, können Elemente Attribute haben, die weitere Details über das markierte Element liefern. In CSS können Sie Attributselektoren verwenden, um Elemente mit bestimmten Attributen zu selektieren. Diese Lektion zeigt Ihnen, wie Sie diese sehr nützlichen Selektoren verwenden.
 
 <table>
   <tbody>
@@ -24,31 +24,31 @@ Wie Sie aus Ihrem Studium von HTML wissen, können Elemente Attribute haben, die
       <th scope="row">Lernziele:</th>
       <td>
         <ul>
-          <li>Das grundlegende Konzept der Attribut-Selektoren.</li>
-          <li>Präsenz- und Wertattribut-Selektoren.</li>
-          <li>Teilzeichenfolgen-Matching-Attribut-Selektoren.</li>
+          <li>Das Grundkonzept der Attributselektoren.</li>
+          <li>Anwesenheits- und Wertattributselektoren.</li>
+          <li>Teilstringübereinstimmende Attributselektoren.</li>
         </ul>
       </td>
     </tr>
   </tbody>
 </table>
 
-## Präsenz- und Wert-Selektoren
+## Anwesenheits- und Wertselektoren
 
-Diese Selektoren ermöglichen die Auswahl eines Elements basierend allein auf dem Vorhandensein eines Attributs (zum Beispiel `href`) oder auf verschiedenen Übereinstimmungen des Attributwertes.
+Diese Selektoren ermöglichen die Auswahl eines Elements basierend auf der bloßen Anwesenheit eines Attributs (zum Beispiel `href`) oder basierend auf verschiedenen Übereinstimmungen mit dem Wert des Attributs.
 
-| Selektor             | Beispiel                        | Beschreibung                                                                                                                                      |
-| -------------------- | ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `[*attr*]`           | `a[title]`                      | Wählt Elemente mit einem _attr_-Attribut aus (dessen Name der Wert in den eckigen Klammern ist).                                                  |
-| `[*attr*=*value*]`   | `a[href="https://example.com"]` | Wählt Elemente mit einem _attr_-Attribut, dessen Wert genau _value_ ist – die Zeichenkette in den Anführungszeichen.                              |
-| `[*attr*~=*value*]`  | `p[class~="special"]`           | Wählt Elemente mit einem _attr_-Attribut, dessen Wert genau _value_ ist oder _value_ in seiner (durch Leerzeichen getrennten) Werteliste enthält. |
-| `[*attr*\|=*value*]` | `div[lang\|="zh"]`              | Wählt Elemente mit einem _attr_-Attribut, dessen Wert genau _value_ ist oder mit _value_ beginnt, gefolgt von einem Bindestrich.                  |
+| Selektor         | Beispiel                        | Beschreibung                                                                                                                                                 |
+| ---------------- | ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `[attr]`         | `a[title]`                      | Selektiert Elemente mit einem _attr_ Attribut (dessen Name der Wert in eckigen Klammern ist).                                                                |
+| `[attr=value]`   | `a[href="https://example.com"]` | Selektiert Elemente mit einem _attr_ Attribut, dessen Wert genau _value_ ist — der String innerhalb der Anführungszeichen.                                   |
+| `[attr~=value]`  | `p[class~="special"]`           | Selektiert Elemente mit einem _attr_ Attribut, dessen Wert genau _value_ ist oder _value_ in seiner (durch Leerzeichen getrennten) Liste von Werten enthält. |
+| `[attr\|=value]` | `div[lang\|="zh"]`              | Selektiert Elemente mit einem _attr_ Attribut, dessen Wert genau _value_ ist oder mit _value_ beginnt, unmittelbar gefolgt von einem Bindestrich.            |
 
-Im unten stehenden Beispiel sehen Sie diese Selektoren im Einsatz.
+Im folgenden Beispiel sehen Sie, wie diese Selektoren verwendet werden.
 
-- Durch die Verwendung von `li[class]` können wir jedes Listenelement mit einem Klassenattribut auswählen. Dies trifft auf alle Listenelemente außer dem ersten zu.
-- `li[class="a"]` wählt einen Selektor mit der Klasse `a`, jedoch nicht einen Selektor mit der Klasse `a`, die als Teil des Wertes eine andere durch Leerzeichen getrennte Klasse hat. Sie wählt das zweite Listenelement.
-- `li[class~="a"]` wird eine Klasse `a` sowie einen Wert, der die Klasse `a` als Teil einer durch Leerzeichen getrennten Liste enthält, auswählen. Es wählt das zweite und dritte Listenelement.
+- Durch die Verwendung von `li[class]` können wir jedes Listenelement mit einem Attribut `class` selektieren. Dies selektiert alle Listenelemente außer dem ersten.
+- `li[class="a"]` selektiert einen Selektor mit einer Klasse `a`, aber nicht einen Selektor mit einer Klasse `a` mit einer anderen durch Leerzeichen getrennten Klasse als Teil des Werts. Es selektiert das zweite Listenelement.
+- `li[class~="a"]` selektiert eine Klasse `a`, aber auch einen Wert, der die Klasse `a` als Teil einer durch Leerzeichen getrennten Liste enthält. Es selektiert das zweite und dritte Listenelement.
 
 ```html live-sample___attribute
 <h1>Attribute presence and value selectors</h1>
@@ -79,23 +79,23 @@ li[class~="a"] {
 
 {{EmbedLiveSample("attribute", "", "200px")}}
 
-## Teilzeichenfolgen-Matching-Selektoren
+## Teilstringübereinstimmende Selektoren
 
-Diese Selektoren ermöglichen ein fortgeschritteneres Matching von Teilzeichenfolgen innerhalb des Wertes Ihres Attributs. Zum Beispiel, wenn Sie Klassen wie `box-warning` und `box-error` haben und alles auswählen möchten, das mit dem String "box-" beginnt, könnten Sie `[class^="box-"]` verwenden, um beide auszuwählen (oder `[class|="box"]`, wie im obigen Abschnitt beschrieben).
+Diese Selektoren ermöglichen eine fortgeschrittenere Übereinstimmung von Teilstrings innerhalb des Wertes Ihres Attributs. Zum Beispiel, wenn Sie Klassen von `box-warning` und `box-error` hatten und alles selektieren wollten, das mit dem String "box-" beginnt, könnten Sie `[class^="box-"]` verwenden, um beide zu selektieren (oder `[class|="box"]` wie oben beschrieben).
 
-| Selektor        | Beispiel            | Beschreibung                                                                                                      |
-| --------------- | ------------------- | ----------------------------------------------------------------------------------------------------------------- |
-| `[attr^=value]` | `li[class^="box-"]` | Wählt Elemente mit einem _attr_-Attribut aus, dessen Wert mit _value_ beginnt.                                    |
-| `[attr$=value]` | `li[class$="-box"]` | Wählt Elemente mit einem _attr_-Attribut aus, dessen Wert mit _value_ endet.                                      |
-| `[attr*=value]` | `li[class*="box"]`  | Wählt Elemente mit einem _attr_-Attribut aus, dessen Wert _value_ irgendwo innerhalb der Zeichenkette beinhaltet. |
+| Selektor        | Beispiel            | Beschreibung                                                                                   |
+| --------------- | ------------------- | ---------------------------------------------------------------------------------------------- |
+| `[attr^=value]` | `li[class^="box-"]` | Selektiert Elemente mit einem _attr_ Attribut, dessen Wert mit _value_ beginnt.                |
+| `[attr$=value]` | `li[class$="-box"]` | Selektiert Elemente mit einem _attr_ Attribut, dessen Wert mit _value_ endet.                  |
+| `[attr*=value]` | `li[class*="box"]`  | Selektiert Elemente mit einem _attr_ Attribut, dessen Wert _value_ irgendwo im String enthält. |
 
-(Vielleicht hilft es zu beachten, dass `^` und `$` schon lange in sogenannten _regulären Ausdrücken_ als _Anker_ verwendet werden, um _beginnt mit_ bzw. _endet mit_ zu bedeuten.)
+(Nebenbei: Es könnte hilfreich sein zu beachten, dass `^` und `$` seit langem als _Anker_ in sogenannten _regulären Ausdrücken_ verwendet werden, um _beginnt mit_ bzw. _endet mit_ zu bedeuten.)
 
 Das nächste Beispiel zeigt die Verwendung dieser Selektoren:
 
-- `li[class^="a"]` wählt jeden Attributwert aus, der mit `a` beginnt, und passt somit auf die ersten beiden Listenelemente.
-- `li[class$="a"]` wählt jeden Attributwert aus, der mit `a` endet, und passt somit auf das erste und dritte Listenelement.
-- `li[class*="a"]` wählt jeden Attributwert aus, in dem `a` irgendwo in der Zeichenkette erscheint, und passt somit auf alle unsere Listenelemente.
+- `li[class^="a"]` selektiert jeden Attributwert, der mit `a` beginnt, sodass die ersten beiden Listenelemente selektiert werden.
+- `li[class$="a"]` selektiert jeden Attributwert, der mit `a` endet, sodass das erste und dritte Listenelement selektiert werden.
+- `li[class*="a"]` selektiert jeden Attributwert, in dem `a` irgendwo im String vorkommt, sodass alle unsere Listenelemente selektiert werden.
 
 ```html live-sample___attribute-substring
 <h1>Attribute substring matching selectors</h1>
@@ -128,6 +128,6 @@ li[class*="a"] {
 
 ## Zusammenfassung
 
-Nun, da wir mit den Attribut-Selektoren fertig sind, können Sie mit dem nächsten Artikel fortfahren und über Pseudo-Klassen- und Pseudo-Element-Selektoren lesen.
+Da wir nun mit den Attributselektoren fertig sind, können Sie im nächsten Artikel weiterlesen und über Pseudo-Klassen- und Pseudo-Element-Selektoren lernen.
 
 {{PreviousMenuNext("Learn_web_development/Core/Styling_basics/Basic_selectors", "Learn_web_development/Core/Styling_basics/Pseudo_classes_and_elements", "Learn_web_development/Core/Styling_basics")}}
