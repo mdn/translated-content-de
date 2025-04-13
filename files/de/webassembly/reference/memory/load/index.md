@@ -1,16 +1,16 @@
 ---
-title: "load: Wasm Textanweisung"
+title: "load: Wasm-Textanweisung"
 short-title: load
 slug: WebAssembly/Reference/Memory/Load
 l10n:
-  sourceCommit: c0fc8c988385a0ce8ff63887f9a3263caf55a1f9
+  sourceCommit: d47940f987297e6d5202c55576afef1ddc8565e7
 ---
 
-Die **`load`** [Speicheranweisungen](/de/docs/WebAssembly/Reference/Memory) werden verwendet, um eine Zahl aus einem Speicher auf den Stapel zu laden.
+Die **`load`**-Anweisungen für den [Speicher](/de/docs/WebAssembly/Reference/Memory) werden verwendet, um eine Zahl aus einem Speicher auf den Stack zu laden.
 
-Es gibt `load` Anweisungen zum Laden aus einem Speicher in ein `i32`, `i64`, `f32` und `f64`.
-Für die ganzzahligen Nummern gibt es separate Anweisungsvarianten, um eine schmalere, signierte oder unsignierte Zahl aus dem Speicher zu laden und in einen breiteren Typ zu erweitern.
-Zum Beispiel kann man eine unsignierte 8-Bit-Zahl laden und in ein `i32` umwandeln, indem man `i32.load8_u` verwendet.
+Es gibt `load`-Anweisungen zum Laden aus einem Speicher in ein `i32`, `i64`, `f32` und `f64`.
+Für die ganzen Zahlen gibt es separate Anweisungsvarianten zum Laden einer engeren vorzeichenbehafteten Zahl und einer vorzeichenlosen Zahl aus dem Speicher und deren Erweiterung in einen breiteren Typ.
+Zum Beispiel können Sie eine vorzeichenlose 8-Bit-Zahl laden und in ein `i32` umwandeln, indem Sie `i32.load8_u` verwenden.
 Alle Varianten sind [unten aufgeführt](#anweisungen_und_opcodes).
 
 {{InteractiveExample("Wat Demo: load", "tabbed-taller")}}
@@ -47,7 +47,7 @@ console.log(load_first_item_in_mem(100));
 
 ## Syntax
 
-Laden aus dem Standardspeicher
+Aus dem Standardspeicher laden
 
 ```wat
 ;; Load from default memory at offset specified by value on top of stack
@@ -58,7 +58,7 @@ i32.load    ;; Load from specified offset in default memory
 (i32.load (i32.const 0))
 ```
 
-Laden aus einem angegebenen Speicher (wenn Multi-Speicher unterstützt wird)
+Aus einem angegebenen Speicher laden (wenn Multi-Memory unterstützt wird)
 
 ```wat
 ;; Load from memory specified by index
@@ -94,12 +94,12 @@ i32.load (memory $memory1) ;; load from named memory $memory1
 
 ## Beispiele
 
-### Laden von Elementen aus dem Standardspeicher
+### Elemente aus dem Standardspeicher laden
 
 Der erste Speicher, der einem Wasm-Modul hinzugefügt wird, ist der Standardspeicher und hat den Index 0.
-Man kann aus diesem Speicher laden, indem man eine Variable angibt, die den Offset im Standardspeicher der Zahl spezifiziert, die auf den Stapel geladen werden soll, und dann `load` aufruft.
+Wir können aus diesem Speicher laden, indem wir eine Variable hinzufügen, die den Offset im Standardspeicher der Zahl, die auf den Stack geladen werden soll, angibt, und dann `load` aufrufen.
 
-Der unten stehende Code zeigt eine WAT-Datei, die dies demonstriert:
+Der folgende Code zeigt eine WAT-Datei, die dies demonstriert:
 
 ```wat
 (module
@@ -116,10 +116,10 @@ Der unten stehende Code zeigt eine WAT-Datei, die dies demonstriert:
 )
 ```
 
-Oben mussten wir den Speicher in der Ladeanweisung nicht angeben, aber wir hätten es mit dem Namen oder Index des Standardspeichers tun können.
-Das wird im folgenden Beispiel gezeigt.
+Oben mussten wir den Speicher in der Ladeanweisung nicht angeben, aber wir hätten es tun können, indem wir entweder den Namen oder den Index des Standardspeichers verwenden.
+Dies wird im folgenden Beispiel gezeigt.
 
-Der Vollständigkeit halber können wir die kompilierte Version der oben genannten Datei `load_single.wasm` mit einem dem unten gezeigten Code ähnlichen Code verwenden:
+Vollständigkeitshalber können wir die kompilierte Version der obigen Datei `load_single.wasm` mit einem ähnlichen Code wie unten gezeigt verwenden:
 
 ```js
 // await on the specified .wasm file to be fetched and loaded
@@ -139,13 +139,13 @@ dataView.setUint32(0, 30, true);
 console.log(load_first_item_in_mem(100)); // 30
 ```
 
-### Laden von Elementen aus einem angegebenen Speicher
+### Elemente aus einem angegebenen Speicher laden
 
-Da Speicher in einem Wasm-Modul definiert werden, wird ihnen nacheinander eine Indexnummer von null an zugewiesen.
-Sie können aus einem bestimmten Speicher laden, indem Sie die `memory` Anweisung und den gewünschten Index oder Namen nach der `load` Anweisung angeben.
-Wenn Sie keinen bestimmten Speicher angeben, wird der Standardspeicher mit dem Index 0 verwendet.
+Da Speicher in einem Wasm-Modul definiert werden, erhalten sie nacheinander eine Indexnummer ab null.
+Sie können aus einem bestimmten Speicher laden, indem Sie die `memory`-Anweisung und den gewünschten Index oder Namen nach der `load`-Anweisung angeben.
+Wenn Sie keinen bestimmten Speicher angeben, wird der Standardspeicher mit Index 0 verwendet.
 
-Das unten stehende Modul zeigt, wie man direkt auf einen Speicher über den Index zugreifen kann.
+Das folgende Modul zeigt, wie Sie einen Speicher direkt über den Index referenzieren können.
 
 ```wat
 (module
@@ -163,7 +163,7 @@ Das unten stehende Modul zeigt, wie man direkt auf einen Speicher über den Inde
 )
 ```
 
-Der Körper der Funktion könnte auch unter Verwendung einer der folgenden Optionen geschrieben worden sein:
+Der Funktionskörper könnte auch mit jeder der folgenden Optionen geschrieben werden:
 
 ```wat
 i32.const 0
@@ -174,8 +174,8 @@ i32.load (memory $memory1)  ;; referencing memory by name
 (i32.load (memory $memory1) (i32.const 0)) ;; reference memory by name
 ```
 
-Wir haben im Beispiel nicht den Standardspeicher benutzt.
-Aber Sie können auch diesen Index angeben, wenn Sie möchten:
+Wir haben im Beispiel nicht den Standardspeicher verwendet.
+Aber Sie können diesen Index auch angeben, wenn Sie möchten:
 
 ```wat
 i32.const 0
@@ -187,7 +187,7 @@ i32.load (memory 0)  ;; referencing memory by index
 (i32.load (memory $memory0) (i32.const 0)) ;; reference memory by name
 ```
 
-Die WAT-Dateien könnten unter Verwendung des gleichen JavaScript-Codes wie im ersten Beispiel geladen werden.
+Die WAT-Dateien können mit demselben JavaScript-Code wie im ersten Beispiel geladen werden.
 
 ## Spezifikationen
 
@@ -195,8 +195,7 @@ Die WAT-Dateien könnten unter Verwendung des gleichen JavaScript-Codes wie im e
 
 ## Browser-Kompatibilität
 
-> [!NOTE]
-> Die Unterstützung von Speicher in Wasm-Modulen entspricht der [`WebAssembly.Memory`](/de/docs/WebAssembly/Reference/JavaScript_interface/Memory) JavaScript API.
-> Der Schlüssel [multiMemory](#webassembly.multimemory) zeigt die Versionen an, in denen `load` mit einem angegebenen Speicher verwendet werden kann.
-
 {{Compat}}
+
+> [!NOTE]
+> Die `multiMemory`-Kompatibilitätstabelle zeigt Versionen an, in denen `load` mit einem angegebenen Speicher verwendet werden kann.

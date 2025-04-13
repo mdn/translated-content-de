@@ -1,14 +1,18 @@
 ---
-title: "store: Wasm-Textbefehl"
+title: "store: Wasm Textanweisung"
 short-title: store
 slug: WebAssembly/Reference/Memory/Store
 l10n:
-  sourceCommit: c0fc8c988385a0ce8ff63887f9a3263caf55a1f9
+  sourceCommit: d47940f987297e6d5202c55576afef1ddc8565e7
 ---
 
-Die **`store`** [Speicheranweisungen](/de/docs/WebAssembly/Reference/Memory) werden verwendet, um eine Zahl vom Stapel in einen Speicher zu speichern.
+Die **`store`**-Anweisungen der [Speicheranweisungen](/de/docs/WebAssembly/Reference/Memory) werden verwendet, um eine Zahl auf dem Stack in einem Speicher abzulegen.
 
-Es gibt `store`-Anweisungen zum Speichern von `i32`, `i64`, `f32` und `f64` im Speicher. Für Ganzzahlen gibt es separate Anweisungsvarianten zum Speichern einer breit getypten Zahl in eine schmalere Zahl im Speicher. Zum Beispiel kann eine 32-Bit-Zahl in einem 8-Bit-Slot im Speicher gespeichert werden, indem `i32.store8` verwendet wird. Wenn die Zahl nicht in den schmaleren Zahlentyp passt, wird sie umgebrochen. Alle Varianten sind [nachfolgend aufgeführt](#anweisungen_und_opcodes).
+Es gibt `store`-Anweisungen zum Speichern eines `i32`, `i64`, `f32` und `f64` im Speicher.
+Für die ganzzahligen Zahlen gibt es separate Anweisungsvarianten zum Speichern einer weit getypten Zahl in einer schmaleren Zahl im Speicher.
+Beispielsweise können Sie eine 32-Bit-Zahl in einem 8-Bit-Slot im Speicher mit `i32.store8` speichern.
+Wenn die Zahl nicht in den schmaleren Zahlentyp passt, wird sie umgebrochen.
+Alle Varianten sind [unten aufgelistet](#anweisungen_und_opcodes).
 
 {{InteractiveExample("Wat Demo: store", "tabbed-taller")}}
 
@@ -59,7 +63,7 @@ i32.store ;; store in default memory
 (i32.store (i32.const 0) (i32.const 20))
 ```
 
-Speichern in spezifiertem Speicher (wenn Multi-Speicher unterstützt wird)
+Speichern im angegebenen Speicher (falls Multi-Speicher unterstützt wird)
 
 ```wat
 ;; Store in memory referenced by its index
@@ -96,8 +100,7 @@ i32.store (memory $memoryName)  ;; store in memory with name "$memoryName"
 
 ## Browser-Kompatibilität
 
-> [!NOTE]
-> Der Speichersupport in Wasm-Modulen entspricht dem JavaScript-API [`WebAssembly.Memory`](/de/docs/WebAssembly/Reference/JavaScript_interface/Memory).
-> Der Schlüssel [multiMemory](#webassembly.multimemory) zeigt die Versionen an, in denen `store` mit einem spezifizierten Speicher verwendet werden kann.
-
 {{Compat}}
+
+> [!NOTE]
+> Die `multiMemory`-Kompatibilitätstabelle gibt Versionen an, in denen `store` mit einem angegebenen Speicher verwendet werden kann.

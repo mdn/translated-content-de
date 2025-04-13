@@ -1,14 +1,14 @@
 ---
-title: "fill: Wasm-Textanweisung"
+title: "fill: Wasm-Text-Instruktion"
 short-title: fill
 slug: WebAssembly/Reference/Memory/Fill
 l10n:
-  sourceCommit: c0fc8c988385a0ce8ff63887f9a3263caf55a1f9
+  sourceCommit: d47940f987297e6d5202c55576afef1ddc8565e7
 ---
 
-Die **`fill`** [Speicheranweisung](/de/docs/WebAssembly/Reference/Memory) setzt alle Bytes in einem Speicherbereich auf ein angegebenes Byte.
+Die **`fill`**-[Speicherinstruktion](/de/docs/WebAssembly/Reference/Memory) setzt alle Bytes in einem Speicherbereich auf ein vorgegebenes Byte.
 
-Die Anweisung liefert keinen Wert zurück. Sie löst eine Ausnahme aus, wenn der angegebene Speicherbereich außerhalb der Grenzen liegt.
+Die Instruktion liefert keinen Wert zurück. Sie erzeugt eine Ausnahme, wenn der angegebene Speicherbereich außerhalb des zulässigen Bereichs liegt.
 
 ## Syntax
 
@@ -25,7 +25,7 @@ memory.fill ;; Fill default memory
 (memory.fill (i32.const 200) (i32.const 255) (i32.const 100))
 ```
 
-Füllen des angegebenen Speichers (wenn Mehrfachspeicher unterstützt wird)
+Füllen des angegebenen Speichers (falls Multi-Speicher unterstützt wird)
 
 ```wat
 ;; Fill specific memory referenced by its index
@@ -44,9 +44,9 @@ memory.fill (memory $memoryName) ;; Fill memory with name "$memoryName"
 (memory.fill (memory $memoryName) (i32.const 200) (i32.const 255) (i32.const 100))
 ```
 
-### Anweisungen und Opcodes
+### Instruktionen und Opcodes
 
-| Anweisung     | Binärer Opcode |
+| Instruktion   | Binärer Opcode |
 | ------------- | -------------- |
 | `memory.fill` | `0xFC 0x0b`    |
 
@@ -56,8 +56,7 @@ memory.fill (memory $memoryName) ;; Fill memory with name "$memoryName"
 
 ## Browser-Kompatibilität
 
-> [!NOTE]
-> Die Unterstützung von Speicher in Wasm-Modulen entspricht der [`WebAssembly.Memory`](/de/docs/WebAssembly/Reference/JavaScript_interface/Memory) JavaScript-API.
-> Der Schlüssel [multiMemory](#webassembly.multimemory) gibt Versionen an, in denen `store` mit einem angegebenen Speicher verwendet werden kann.
-
 {{Compat}}
+
+> [!NOTE]
+> Die `multiMemory`-Kompatibilitätstabelle zeigt Versionen an, in denen `fill` mit einem angegebenen Speicher verwendet werden kann.
