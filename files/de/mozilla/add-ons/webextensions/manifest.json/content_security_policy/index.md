@@ -2,7 +2,7 @@
 title: content_security_policy
 slug: Mozilla/Add-ons/WebExtensions/manifest.json/content_security_policy
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: 5c5ee35d66ac24bc6513c14f120750c74d779d20
 ---
 
 {{AddonSidebar}}
@@ -14,7 +14,7 @@ l10n:
       <td><code>String</code></td>
     </tr>
     <tr>
-      <th scope="row">Verpflichtend</th>
+      <th scope="row">Erforderlich</th>
       <td>Nein</td>
     </tr>
     <tr>
@@ -37,49 +37,49 @@ l10n:
   </tbody>
 </table>
 
-Erweiterungen haben standardmäßig eine Content Security Policy (CSP) angelegt. Die Standardrichtlinie beschränkt die Quellen, von denen Erweiterungen Code laden können (wie zum Beispiel [`<script>`](/de/docs/Web/HTML/Reference/Elements/script)-Ressourcen), und verbietet potenziell unsichere Praktiken wie die Verwendung von [`eval()`](/de/docs/Web/JavaScript/Reference/Global_Objects/eval). Weitere Informationen zu den Auswirkungen finden Sie unter [Standard-Content-Security-Policy](/de/docs/Mozilla/Add-ons/WebExtensions/Content_Security_Policy#default_content_security_policy).
+Erweiterungen haben standardmäßig eine Content-Security-Policy (CSP) angewendet. Die Standardrichtlinie beschränkt die Quellen, von denen Erweiterungen Code laden können (wie zum Beispiel [`<script>`](/de/docs/Web/HTML/Reference/Elements/script)-Ressourcen), und verbietet potenziell unsichere Praktiken wie die Verwendung von [`eval()`](/de/docs/Web/JavaScript/Reference/Global_Objects/eval). Weitere Informationen zu den Auswirkungen dieser Standardrichtlinie finden Sie unter [Standard-Content-Security-Policy](/de/docs/Mozilla/Add-ons/WebExtensions/Content_Security_Policy#default_content_security_policy).
 
-Sie können den `"content_security_policy"`-Manifest-Schlüssel verwenden, um die Standardrichtlinie zu lockern oder zu verschärfen. Dieser Schlüssel wird auf die gleiche Weise spezifiziert wie der HTTP-Header Content-Security-Policy. Eine allgemeine Beschreibung der CSP-Syntax finden Sie unter [Verwendung von Content Security Policy](/de/docs/Web/HTTP/Guides/CSP).
+Sie können den Manifest-Schlüssel `"content_security_policy"` verwenden, um die Standardrichtlinie zu lockern oder zu verschärfen. Dieser Schlüssel wird auf die gleiche Weise wie der HTTP-Header Content-Security-Policy angegeben. Eine allgemeine Beschreibung der CSP-Syntax finden Sie unter [Verwendung der Content-Security-Policy](/de/docs/Web/HTTP/Guides/CSP).
 
-Zum Beispiel können Sie diesen Schlüssel verwenden, um:
+Beispielsweise können Sie diesen Schlüssel verwenden, um:
 
-- Die erlaubten Quellen für andere Inhaltsarten wie Bilder und Stylesheets mit der entsprechenden [Richtliniendirektive](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy) einzuschränken.
-- Der Erweiterung zu ermöglichen, [WebAssembly](/de/docs/WebAssembly) zu nutzen, indem die Quelle `'wasm-unsafe-eval'` in die `script-src`-Direktive aufgenommen wird.
-- Die Standard-{{CSP("script-src")}}-Richtlinien zu lockern (nur für Manifest V2):
-  - Der Erweiterung erlauben, Skripte von außerhalb ihres Pakets zu laden, indem ihre URL in der {{CSP("script-src")}}-Direktive angegeben wird.
-  - Der Erweiterung erlauben, Inline-Skripte auszuführen, indem [der Hash des Skripts in der `script-src`-Direktive angegeben wird](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/script-src#unsafe_inline_script).
-  - Der Erweiterung erlauben, `eval()` und ähnliche Funktionen zu verwenden, indem `'unsafe-eval'` in die {{CSP("script-src")}}-Direktive aufgenommen wird.
+- Erlaubte Quellen für andere Arten von Inhalten wie Bilder und Stylesheets mit der entsprechenden [Richtliniendirektive](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy) einzuschränken.
+- Der Erweiterung zu ermöglichen, von [WebAssembly](/de/docs/WebAssembly) zu profitieren, indem die Quelle `'wasm-unsafe-eval'` in der `script-src`-Direktive enthalten ist.
+- Die standardmäßigen {{CSP("script-src")}}-Richtlinien zu lockern (nur Manifest V2):
+  - Der Erweiterung das Laden von Skripten außerhalb ihres Pakets zu ermöglichen, indem deren URL in der {{CSP("script-src")}}-Direktive angegeben wird.
+  - Der Erweiterung das Ausführen von Inline-Skripten zu ermöglichen, indem [der Hash des Skripts in der `script-src`-Direktive](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/script-src#unsafe_inline_script) angegeben wird.
+  - Der Erweiterung die Nutzung von `eval()` und ähnlichen Funktionen zu gestatten, indem `'unsafe-eval'` in der {{CSP("script-src")}}-Direktive eingeschlossen wird.
 
-Es gibt Einschränkungen bezüglich der Richtlinie, die Sie mit diesem Manifest-Schlüssel angeben können:
+Es gibt Einschränkungen bei der Richtlinie, die Sie mit diesem Manifest-Schlüssel angeben können:
 
-- Die {{CSP("script-src")}}-Direktive muss mindestens das `'self'`-Schlüsselwort enthalten und darf nur sichere Quellen enthalten. Die Menge der erlaubten sicheren Quellen unterscheidet sich zwischen Manifest V2 und Manifest V3.
-- Die Richtlinie kann {{CSP("default-src")}} alleine (ohne {{CSP("script-src")}}) enthalten, wenn ihre Quellen die Anforderungen für die {{CSP("script-src")}}-Direktive erfüllen.
-- Das {{CSP("object-src")}}-Schlüsselwort kann erforderlich sein, siehe [object-src-Direktive](#object-src-direktive) für Details.
-- Direktiven, die sich auf Code beziehen – {{CSP("script-src")}}, {{CSP("script-src-elem")}}, {{CSP("worker-src")}} und {{CSP("default-src")}} (wenn als Fallback verwendet) – teilen dieselbe Anforderung an sichere Quellen. Es gibt keine Einschränkungen für CSP-Direktiven, die sich auf Nicht-Skript-Inhalte beziehen, wie {{CSP("img-src")}}.
+- Die {{CSP("script-src")}}-Direktive muss mindestens das Schlüsselwort `'self'` enthalten und darf nur sichere Quellen umfassen. Die Menge der erlaubten sicheren Quellen unterscheidet sich zwischen Manifest V2 und Manifest V3.
+- Die Richtlinie darf {{CSP("default-src")}} allein enthalten (ohne {{CSP("script-src")}}), wenn ihre Quellen die Anforderungen der {{CSP("script-src")}}-Direktive erfüllen.
+- Das Schlüsselwort {{CSP("object-src")}} kann erforderlich sein, siehe [object-src-Direktive](#object-src-direktive) für Einzelheiten.
+- Direktiven, die sich auf Code beziehen – {{CSP("script-src")}}, {{CSP("script-src-elem")}}, {{CSP("worker-src")}} und {{CSP("default-src")}} (wenn als Fallback verwendet) – teilen sich die gleichen Anforderungen für sichere Quellen. Es gibt keine Einschränkungen bei CSP-Direktiven, die nicht auf Skriptinhalte abzielen, wie {{CSP("img-src")}}.
 
-In Manifest V3 sind alle CSP-Quellen, die sich auf externe oder nicht-statische Inhalte beziehen, verboten. Die einzigen zugelassenen Werte sind `'none'`, `'self'`, und `'wasm-unsafe-eval'`.
+In Manifest V3 sind alle CSP-Quellen, die auf externe oder nicht statische Inhalte verweisen, verboten. Die einzigen erlaubten Werte sind `'none'`, `'self'` und `'wasm-unsafe-eval'`.
 In Manifest V2 wird eine Quelle für eine Skript-Direktive als sicher angesehen, wenn sie diese Kriterien erfüllt:
 
-- Platzhalter-Hosts sind nicht zulässig, wie `"script-src 'self' *"`.
-- Remote-Quellen müssen `https:`-Schemata verwenden.
-- Remote-Quellen dürfen keine Platzhalter für Domains in der [öffentlichen Suffixliste](https://publicsuffix.org/list/) verwenden (also `*.co.uk` und `*.blogspot.com` sind nicht erlaubt, obwohl `*.foo.blogspot.com` erlaubt ist).
+- Platzhalter-Hosts sind nicht erlaubt, wie `"script-src 'self' *"`.
+- Externe Quellen müssen `https:`-Schemata verwenden.
+- Externe Quellen dürfen keine Platzhalter für beliebige Domains in der [öffentlichen Suffixliste](https://publicsuffix.org/list/) verwenden (also sind `*.co.uk` und `*.blogspot.com` nicht erlaubt, obwohl `*.foo.blogspot.com` zulässig ist).
 - Alle Quellen müssen einen Host angeben.
-- Die einzigen zugelassenen Schemata für Quellen sind `blob:`, `filesystem:`, `moz-extension:`, `https:`, und `wss:`.
-- Die einzigen zugelassenen [Schlüsselwörter](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy#fetch_directive_syntax) sind: `'none'`, `'self'`, `'unsafe-eval'`, und `'wasm-unsafe-eval'`.
+- Die einzigen erlaubten Schemata für Quellen sind `blob:`, `filesystem:`, `moz-extension:`, `https:` und `wss:`.
+- Die einzigen erlaubten [Schlüsselwörter](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy#fetch_directive_syntax) sind: `'none'`, `'self'`, `'unsafe-eval'` und `'wasm-unsafe-eval'`.
 
 ## object-src-Direktive
 
-Die `{{CSP("object-src")}}`-Direktive kann in einigen Browsern, die veraltete {{Glossary("Plugin", "Plugins")}} unterstützen, erforderlich sein und sollte bei Bedarf auf eine sichere Quelle wie `'none'` gesetzt werden. Dies kann für Browser bis einschließlich 2022 notwendig sein.
+Die `{{CSP("object-src")}}`-Direktive kann in einigen Browsern erforderlich sein, die veraltete {{Glossary("Plugin", "Plugins")}} unterstützen, und sollte, falls erforderlich, auf eine sichere Quelle wie `'none'` gesetzt werden. Dies kann bis 2022 für Browser erforderlich sein.
 
-- In Firefox ist `"object-src"` ab Firefox 106 optional. In früheren Versionen wird, wenn `"object-src"` nicht spezifiziert ist, `"content_security_policy"` ignoriert und die Standard-CSP verwendet.
-- In Chrome ist `"object-src"` erforderlich. Wenn es fehlt oder als unsicher angesehen wird, wird die Standard- (`"object-src 'self'"`) verwendet und eine Warnmeldung protokolliert.
+- In Firefox ist `"object-src"` ab Firefox 106 optional. In früheren Versionen wird, falls `"object-src"` nicht angegeben ist, `"content_security_policy"` ignoriert und die Standard-CSP verwendet.
+- In Chrome ist `"object-src"` erforderlich. Fehlt es oder ist es als unsicher eingestuft, wird die Standard-CSP (`"object-src 'self'"`) verwendet und eine Warnmeldung protokolliert.
 - In Safari gibt es keine Anforderung für `"object-src"`.
 
-Siehe W3C WebExtensions Community Group [issue 204](https://github.com/w3c/webextensions/issues/204), Remove object-src from the CSP, für weitere Informationen.
+Weitere Informationen finden Sie im W3C WebExtensions Community Group [Problem 204](https://github.com/w3c/webextensions/issues/204), Entfernen von object-src aus der CSP.
 
 ## Manifest V2-Syntax
 
-In Manifest V2 wird eine Content-Security-Policy gegen den Schlüssel wie folgt spezifiziert:
+In Manifest V2 gibt es eine Content-Security-Policy, die mit dem Schlüssel wie folgt angegeben wird:
 
 ```json
 "content_security_policy": "default-src 'self'"
@@ -87,7 +87,7 @@ In Manifest V2 wird eine Content-Security-Policy gegen den Schlüssel wie folgt 
 
 ## Manifest V3-Syntax
 
-In Manifest V3 ist der `content_security_policy`-Schlüssel ein Objekt, das möglicherweise eine dieser Eigenschaften enthalten kann, die alle optional sind:
+In Manifest V3 ist der `content_security_policy`-Schlüssel ein Objekt, das jede dieser Eigenschaften haben kann, alle optional:
 
 <table class="fullwidth-table standard-table">
   <thead>
@@ -114,7 +114,7 @@ In Manifest V3 ist der `content_security_policy`-Schlüssel ein Objekt, das mög
       <td><code>sandbox</code></td>
       <td><code>String</code></td>
       <td>
-        Die Content-Security-Policy, die für sandboxed-Erweiterungsseiten verwendet wird.
+        Die Content-Security-Policy, die für Sandbox-Erweiterungsseiten verwendet wird.
       </td>
     </tr>
   </tbody>
@@ -125,13 +125,13 @@ In Manifest V3 ist der `content_security_policy`-Schlüssel ein Objekt, das mög
 ### Gültige Beispiele
 
 > [!NOTE]
-> Gültige Beispiele veranschaulichen die korrekte Verwendung von Schlüsseln in CSP.
-> Allerdings sind Erweiterungen mit 'unsafe-eval', entfernten Skripten, Blob- oder Remote-Quellen in ihrer CSP gemäß den [Add-on-Richtlinien](https://extensionworkshop.com/documentation/publish/add-on-policies/) und aufgrund signifikanter Sicherheitsprobleme für Firefox-Erweiterungen nicht zulässig.
+> Gültige Beispiele zeigen die korrekte Verwendung von Schlüsseln in CSPs.
+> Erweiterungen, die 'unsafe-eval', Remote-Skripte, Blobs oder entfernte Quellen in ihrer CSP verwenden, sind jedoch aufgrund signifikanter Sicherheitsprobleme und gemäß den [Add-on-Richtlinien](https://extensionworkshop.com/documentation/publish/add-on-policies/) nicht für Firefox-Erweiterungen zulässig.
 
 > [!NOTE]
-> Einige Beispiele enthalten die `{{CSP("object-src")}}`-Direktive, die Rückwärtskompatibilität für ältere Browserversionen bietet. Weitere Details finden Sie unter [object-src-Direktive](#object-src-direktive).
+> Einige Beispiele beinhalten die `{{CSP("object-src")}}`-Direktive, die Abwärtskompatibilität für ältere Browserversionen bietet. Weitere Einzelheiten finden Sie unter [object-src-Direktive](#object-src-direktive).
 
-Erfordern, dass alle Arten von Inhalten mit der Erweiterung verpackt werden:
+Erfordern, dass alle Arten von Inhalten mit der Erweiterung gepackt werden:
 
 - Manifest V2
 
@@ -147,7 +147,7 @@ Erfordern, dass alle Arten von Inhalten mit der Erweiterung verpackt werden:
   }
   ```
 
-Erlauben von Remote-Skripten von "https://example.com":
+Remote-Skripte von "https://example.com" erlauben:
 
 - Manifest V2
 
@@ -155,9 +155,9 @@ Erlauben von Remote-Skripten von "https://example.com":
   "content_security_policy": "script-src 'self' https://example.com; object-src 'self'"
   ```
 
-- Manifest V3 erlaubt keine Remote-URLs in `script-src` von `extension_pages`.
+- Manifest V3 erlaubt keine externen URLs in `script-src` von `extension_pages`.
 
-Erlauben von Remote-Skripten von jeder Subdomain von "jquery.com":
+Remote-Skripte von jeder Subdomain von "jquery.com" erlauben:
 
 - Manifest V2
 
@@ -165,9 +165,9 @@ Erlauben von Remote-Skripten von jeder Subdomain von "jquery.com":
   "content_security_policy": "script-src 'self' https://*.jquery.com; object-src 'self'"
   ```
 
-- Manifest V3 erlaubt keine Remote-URLs in `script-src` von `extension_pages`.
+- Manifest V3 erlaubt keine externen URLs in `script-src` von `extension_pages`.
 
-Erlauben von [`eval()` und Freunden](/de/docs/Mozilla/Add-ons/WebExtensions/Content_Security_Policy#eval%28%29_and_friends):
+[`eval()` und ähnliches](/de/docs/Mozilla/Add-ons/WebExtensions/Content_Security_Policy#eval_and_friends) erlauben:
 
 - Manifest V2
 
@@ -175,9 +175,9 @@ Erlauben von [`eval()` und Freunden](/de/docs/Mozilla/Add-ons/WebExtensions/Cont
   "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self';"
   ```
 
-- Manifest V3 erlaubt kein `'unsafe-eval'` in `script-src`.
+- Manifest V3 erlaubt `'unsafe-eval'` nicht in `script-src`.
 
-Erlauben des Inline-Skripts: `"<script>alert('Hello, world.');</script>"`:
+Das Inline-Skript `"<script>alert('Hello, world.');</script>"` erlauben:
 
 - Manifest V2
 
@@ -187,7 +187,7 @@ Erlauben des Inline-Skripts: `"<script>alert('Hello, world.');</script>"`:
 
 - Manifest V3 erlaubt keine CSP-Hashes in `script-src` von `extension_pages`.
 
-Behalten des Rests der Richtlinie, aber zusätzlich erfordern, dass Bilder mit der Erweiterung verpackt werden:
+Den Rest der Richtlinie beibehalten, aber zusätzlich verlangen, dass Bilder mit der Erweiterung gepackt werden:
 
 - Manifest V2
 
@@ -203,11 +203,11 @@ Behalten des Rests der Richtlinie, aber zusätzlich erfordern, dass Bilder mit d
   }
   ```
 
-Ermöglichen der Nutzung von [WebAssembly](/de/docs/WebAssembly):
+Die Verwendung von [WebAssembly](/de/docs/WebAssembly) ermöglichen:
 
 - Manifest V2
 
-  Aus Kompatibilitätsgründen können Manifest V2-Erweiterungen in Firefox WebAssembly ohne die Verwendung von `'wasm-unsafe-eval'` verwenden. Dieses Verhalten ist jedoch nicht garantiert. Siehe [Firefox Bug 1770909](https://bugzil.la/1770909). Erweiterungen, die WebAssembly verwenden, sollten daher `'wasm-unsafe-eval'` in ihrer CSP deklarieren. Weitere Informationen finden Sie auf der Content Security Policy-Seite unter [WebAssembly](/de/docs/Mozilla/Add-ons/WebExtensions/Content_Security_Policy#webassembly).
+  Für die Abwärtskompatibilität können Manifest-V2-Erweiterungen in Firefox WebAssembly ohne die Verwendung von `'wasm-unsafe-eval'` nutzen. Dieses Verhalten ist jedoch nicht garantiert. Siehe [Firefox-Bug 1770909](https://bugzil.la/1770909). Erweiterungen, die WebAssembly verwenden, werden daher ermutigt, in ihrer CSP `'wasm-unsafe-eval'` zu deklarieren. Weitere Informationen finden Sie auf der Content-Security-Policy-Seite unter [WebAssembly](/de/docs/Mozilla/Add-ons/WebExtensions/Content_Security_Policy#webassembly).
 
   ```json
   "content_security_policy": "script-src 'self' 'wasm-unsafe-eval'"
@@ -229,7 +229,7 @@ Richtlinie, die die `"object-src"`-Direktive weglässt:
 "content_security_policy": "script-src 'self' https://*.jquery.com;"
 ```
 
-Dies ist jedoch nur in Browsern ungültig, die veraltete {{Glossary("Plugin", "Plugins")}} unterstützen. Weitere Details finden Sie unter [object-src-Direktive](#object-src-direktive).
+Dies ist jedoch nur in Browsern ungültig, die veraltete {{Glossary("Plugin", "Plugins")}} unterstützen. Weitere Einzelheiten finden Sie unter [object-src-Direktive](#object-src-direktive).
 
 Richtlinie, die das `"self"`-Schlüsselwort in der `"script-src"`-Direktive weglässt:
 
@@ -237,25 +237,25 @@ Richtlinie, die das `"self"`-Schlüsselwort in der `"script-src"`-Direktive wegl
 "content_security_policy": "script-src https://*.jquery.com; object-src 'self'"
 ```
 
-Schema für eine Remote-Quelle ist nicht `https`:
+Das Schema für eine externe Quelle ist nicht `https`:
 
 ```json example-bad
 "content_security_policy": "script-src 'self' http://code.jquery.com; object-src 'self'"
 ```
 
-Platzhalter wird mit einem generischen Domain verwendet:
+Ein Platzhalter wird mit einer generischen Domain verwendet:
 
 ```json example-bad
 "content_security_policy": "script-src 'self' https://*.blogspot.com; object-src 'self'"
 ```
 
-Quelle gibt ein Schema an, aber keinen Host:
+Die Quelle spezifiziert ein Schema, aber keinen Host:
 
 ```json example-bad
 "content_security_policy": "script-src 'self' https:; object-src 'self'"
 ```
 
-Direktive enthält das nicht unterstützte Schlüsselwort `'unsafe-inline'`:
+Die Direktive enthält das nicht unterstützte Schlüsselwort `'unsafe-inline'`:
 
 ```json example-bad
 "content_security_policy": "script-src 'self' 'unsafe-inline'; object-src 'self'"
