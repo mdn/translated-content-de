@@ -2,12 +2,12 @@
 title: -moz-float-edge
 slug: Web/CSS/-moz-float-edge
 l10n:
-  sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
+  sourceCommit: 0d43b58f31f30e5dbafd9c117a467e389cc8b176
 ---
 
 {{CSSRef}}{{Non-standard_header}}{{Deprecated_Header}}
 
-Die nicht standardisierte **`-moz-float-edge`** [CSS](/de/docs/Web/CSS)-Eigenschaft gibt an, ob die Eigenschaften Höhe und Breite des Elements die Dicke von `margin`, `border` oder `padding` einschließen.
+Die nicht standardisierte **`-moz-float-edge`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt fest, ob die Eigenschaften für Höhe und Breite des Elements die Dicke von Rand, Rahmen oder Polsterung einschließen.
 
 ## Syntax
 
@@ -25,9 +25,9 @@ Die nicht standardisierte **`-moz-float-edge`** [CSS](/de/docs/Web/CSS)-Eigensch
 ### Werte
 
 - `content-box`
-  - : Die Eigenschaften Höhe und Breite umfassen den Inhalt, aber nicht das `padding`, den `border` oder den `margin`.
+  - : Die Eigenschaften für Höhe und Breite beinhalten den Inhalt, jedoch nicht die Polsterung, den Rahmen oder Rand.
 - `margin-box`
-  - : Die Eigenschaften Höhe und Breite umfassen den Inhalt sowie `padding`, `border` und `margin`.
+  - : Die Eigenschaften für Höhe und Breite beinhalten den Inhalt, die Polsterung, den Rahmen und den Rand.
 
 ## Formale Definition
 
@@ -35,10 +35,7 @@ Die nicht standardisierte **`-moz-float-edge`** [CSS](/de/docs/Web/CSS)-Eigensch
 
 ## Formale Syntax
 
-```plain
--moz-float-edge =
-  content-box | margin-box
-```
+{{CSSSyntaxRaw(`-moz-float-edge = content-box | margin-box`)}}
 
 ## Beispiele
 
@@ -77,4 +74,4 @@ Nicht Teil eines Standards.
 
 ## Siehe auch
 
-- [Firefox-Bug 432891](https://bugzil.la/432891)
+- [Firefox Fehler 432891](https://bugzil.la/432891)

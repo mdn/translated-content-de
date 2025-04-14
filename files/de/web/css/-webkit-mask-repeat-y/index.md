@@ -2,7 +2,7 @@
 title: -webkit-mask-repeat-y
 slug: Web/CSS/-webkit-mask-repeat-y
 l10n:
-  sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
+  sourceCommit: 0d43b58f31f30e5dbafd9c117a467e389cc8b176
 ---
 
 {{CSSRef}}{{Non-standard_header}}
@@ -34,13 +34,13 @@ Die Eigenschaft `-webkit-mask-repeat-y` legt fest, ob und wie ein Maskenbild ver
 - repeat
   - : Das Maskenbild wird vertikal wiederholt.
 - no-repeat
-  - : Das Maskenbild wird nicht vertikal wiederholt; es wird nur eine Kopie des Maskenbilds in vertikaler Richtung gezeichnet. Der verbleibende vertikale Inhalt des maskierten Elements wird nicht angezeigt.
+  - : Das Maskenbild wird nicht vertikal wiederholt; es wird nur eine Kopie des Maskenbildes in vertikaler Richtung gezeichnet. Der vertikale Rest des Inhalts des maskierten Elements wird nicht angezeigt.
 - repeat
   - : Das Maskenbild wird vertikal wiederholt.
 - space
-  - : Das Bild wird so oft wie möglich wiederholt, ohne abgeschnitten zu werden. Das erste und letzte Bild werden an den oberen und unteren Rand des Elements angeheftet, und der verfügbare Leerraum wird gleichmäßig zwischen den Bildern verteilt. Die Eigenschaft {{cssxref("mask-position")}} wird ignoriert, es sei denn, es kann nur ein Bild ohne Abschneiden angezeigt werden. Das einzige Szenario, in dem bei Verwendung von `space` ein Abschneiden erfolgt, ist, wenn nicht genug Platz vorhanden ist, um ein Bild anzuzeigen.
+  - : Das Bild wird so oft wie möglich ohne Abschneiden wiederholt. Die ersten und letzten Bilder werden an den oberen und unteren Rand des Elements angeheftet, und der Freiraum wird gleichmäßig zwischen den Bildern verteilt. Die Eigenschaft {{cssxref("mask-position")}} wird ignoriert, es sei denn, nur ein Bild kann ohne Abschneiden angezeigt werden. Der einzige Fall, in dem beim Verwenden von space abgeschnitten wird, ist, wenn nicht genug Platz für die Anzeige eines Bildes vorhanden ist.
 - round
-  - : Wenn der verfügbare vertikale Platz größer wird, dehnen sich die wiederholten Bilder aus (ohne Lücken zu hinterlassen), bis Platz für ein weiteres Bild geschaffen wird. Wird ein weiteres Bild hinzugefügt, komprimieren sich alle aktuellen Bilder, um Platz zu machen. Beispiel: Ein Bild mit einer ursprünglichen Höhe von 260px, das dreimal wiederholt wird, kann sich ausdehnen, bis jede Wiederholung eine Höhe von 300px erreicht, und dann wird ein weiteres Bild hinzugefügt. Anschließend komprimieren sie sich auf eine Höhe von 225px.
+  - : Wenn der verfügbare vertikale Platz größer wird, werden die wiederholten Bilder gedehnt (ohne Lücken zu lassen), bis Platz für ein weiteres Bild vorhanden ist. Wenn ein weiteres Bild hinzugefügt wird, werden alle aktuellen Bilder komprimiert, um Platz zu schaffen. Beispiel: Ein Bild mit einer ursprünglichen Höhe von 260px, das dreimal wiederholt wird, könnte sich dehnen, bis jede Wiederholung 300px hoch ist, und dann wird ein weiteres Bild hinzugefügt. Sie werden dann auf eine Höhe von 225px komprimiert.
 
 ## Formale Definition
 
@@ -48,14 +48,11 @@ Die Eigenschaft `-webkit-mask-repeat-y` legt fest, ob und wie ein Maskenbild ver
 
 ## Formale Syntax
 
-```plain
--webkit-mask-repeat-y =
-  repeat | no-repeat | space | round
-```
+{{CSSSyntaxRaw(`-webkit-mask-repeat-y = repeat | no-repeat | space | round`)}}
 
 ## Beispiele
 
-### Verwendung eines wiederholenden oder nicht wiederholenden Maskenbilds
+### Verwendung eines wiederholenden oder nicht wiederholenden Maskenbildes
 
 ```css
 .example-one {
@@ -71,7 +68,7 @@ Die Eigenschaft `-webkit-mask-repeat-y` legt fest, ob und wie ein Maskenbild ver
 
 ### Verwendung mehrerer Maskenbilder
 
-Sie können für jedes Maskenbild einen anderen `<repeat-style>` festlegen, getrennt durch Kommata:
+Sie können einen anderen `<repeat-style>` für jedes Maskenbild angeben, getrennt durch Kommas:
 
 ```css
 .example-three {
@@ -80,11 +77,11 @@ Sie können für jedes Maskenbild einen anderen `<repeat-style>` festlegen, getr
 }
 ```
 
-Jedes Bild wird mit dem entsprechenden Wiederholungsstil übereinstimmend von zuerst spezifiziert bis zuletzt verwendet.
+Jedes Bild wird mit dem entsprechenden Wiederholungsstil abgeglichen, vom zuerst angegebenen bis zum zuletzt angegebenen.
 
 ## Spezifikationen
 
-Teil keiner Standardisierung.
+Nicht Teil eines Standards.
 
 ## Browser-Kompatibilität
 

@@ -2,17 +2,17 @@
 title: box-pack
 slug: Web/CSS/box-pack
 l10n:
-  sourceCommit: 4e508e2f543c0d77c9c04f406ebc8e9db7e965be
+  sourceCommit: 0d43b58f31f30e5dbafd9c117a467e389cc8b176
 ---
 
 {{CSSRef}}{{Non-standard_header}}{{Deprecated_Header}}
 
 > [!WARNING]
-> Dies ist eine Eigenschaft des ursprünglichen CSS-Flexbox-Layouts Modulentwurfs und wurde durch einen neueren Standard ersetzt. Siehe [flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox) für Informationen über den aktuellen Standard.
+> Dies ist eine Eigenschaft des ursprünglichen Entwurfs des CSS Flexible Box Layout Moduls und wurde durch einen neueren Standard ersetzt. Informationen über den aktuellen Standard finden Sie unter [flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox).
 
-Die **`-moz-box-pack`** und **`-webkit-box-pack`** [CSS](/de/docs/Web/CSS) Eigenschaften geben an, wie ein `-moz-box` oder `-webkit-box` seine Inhalte in der Richtung seines Layouts packt. Der Effekt davon ist nur sichtbar, wenn im Kasten zusätzlicher Platz vorhanden ist.
+Die **`-moz-box-pack`** und **`-webkit-box-pack`** [CSS](/de/docs/Web/CSS) Eigenschaften geben an, wie eine `-moz-box` oder `-webkit-box` ihre Inhalte in der Richtung ihres Layouts packt. Der Effekt ist nur sichtbar, wenn zusätzlicher Platz in der Box vorhanden ist.
 
-Die Layoutrichtung hängt von der Ausrichtung des Elements ab: horizontal oder vertikal.
+Die Richtung des Layouts hängt von der Ausrichtung des Elements ab: horizontal oder vertikal.
 
 ## Syntax
 
@@ -29,25 +29,25 @@ box-pack: initial;
 box-pack: unset;
 ```
 
-Die `box-pack`-Eigenschaft wird als einer der unten aufgeführten Schlüsselwortwerte angegeben.
+Die `box-pack`-Eigenschaft wird als eines der unten aufgeführten Schlüsselwortwerte angegeben.
 
 ### Werte
 
 - `start`
-  - : Der Kasten packt Inhalte am Anfang und lässt zusätzlichen Raum am Ende.
+  - : Die Box packt Inhalte am Anfang und lässt zusätzlichen Platz am Ende.
 - `center`
-  - : Der Kasten packt Inhalte in der Mitte und teilt den zusätzlichen Raum gleichmäßig zwischen Anfang und Ende auf.
+  - : Die Box packt Inhalte in der Mitte und teilt den zusätzlichen Platz gleichmäßig zwischen Anfang und Ende auf.
 - `end`
-  - : Der Kasten packt Inhalte am Ende und lässt zusätzlichen Raum am Anfang.
+  - : Die Box packt Inhalte am Ende und lässt zusätzlichen Platz am Anfang.
 - `justify`
-  - : Der Raum wird gleichmäßig zwischen jedem Kind aufgeteilt, ohne dass zusätzlicher Raum vor dem ersten Kind oder nach dem letzten Kind platziert wird. Wenn es nur ein Kind gibt, wird der Wert behandelt, als wäre es `start`.
+  - : Der Raum wird gleichmäßig zwischen den einzelnen Kindern verteilt, wobei kein zusätzlicher Raum vor dem ersten Kind oder nach dem letzten Kind platziert wird. Wenn es nur ein Kind gibt, wird der Wert behandelt, als wäre es `start`.
 
 ## Anmerkungen
 
-Die Kante des Kastens, die für Packzwecke als _Anfang_ festgelegt ist, hängt von der Ausrichtung und Richtung des Kastens ab:
+Der Rand der Box, der für Packzwecke als _start_ bezeichnet wird, hängt von der Ausrichtung und Richtung der Box ab:
 
-- Für horizontale Elemente ist der _Anfang_ die obere Kante.
-- Für vertikale Elemente ist der _Anfang_ die linke Kante.
+- Für horizontale Elemente ist der _start_ der obere Rand.
+- Für vertikale Elemente ist der _start_ der linke Rand.
 
 <table class="standard-table">
   <tbody>
@@ -69,20 +69,17 @@ Die Kante des Kastens, die für Packzwecke als _Anfang_ festgelegt ist, hängt v
   </tbody>
 </table>
 
-Die gegenüberliegende Kante zum Anfang wird als _Ende_ bezeichnet.
+Der dem Start gegenüberliegende Rand wird als _end_ bezeichnet.
 
-Wenn die Packung über das `pack`-Attribut des Elements festgelegt wird, wird der Stil ignoriert.
+Wenn das Packen über das `pack`-Attribut des Elements festgelegt wird, wird der Stil ignoriert.
 
-## Formale Definition
+## Offizielle Definition
 
 {{CSSInfo}}
 
-## Formaler Syntax
+## Offizielle Syntax
 
-```plain
-box-pack =
-  start | center | end | justify
-```
+{{CSSSyntaxRaw(`box-pack = start | center | end | justify`)}}
 
 ## Beispiele
 
@@ -133,7 +130,7 @@ div.example p {
 
 ## Spezifikationen
 
-Gehört zu keinem Standard.
+Nicht Teil eines Standards.
 
 ## Browser-Kompatibilität
 

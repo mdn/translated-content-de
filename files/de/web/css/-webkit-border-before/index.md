@@ -2,12 +2,12 @@
 title: -webkit-border-before
 slug: Web/CSS/-webkit-border-before
 l10n:
-  sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
+  sourceCommit: 0d43b58f31f30e5dbafd9c117a467e389cc8b176
 ---
 
 {{CSSRef}}{{Non-standard_header}}
 
-Die **`-webkit-border-before`** [CSS](/de/docs/Web/CSS)-Eigenschaft ist eine Kurzschreibweise, um die individuellen logischen Eigenschaften des Blockanfangsrahmens an einer einzigen Stelle im Stylesheet festzulegen.
+Die **`-webkit-border-before`** [CSS](/de/docs/Web/CSS) Eigenschaft ist eine Kurzschreibweise, um die einzelnen logischen Eigenschaften des Blockanfangsrandes an einer einzigen Stelle im Stylesheet festzulegen.
 
 ## Bestandteileigenschaften
 
@@ -35,7 +35,7 @@ Diese Eigenschaft ist eine Kurzschreibweise für die folgenden CSS-Eigenschaften
 
 ### Werte
 
-Eines oder mehrere der folgenden, in beliebiger Reihenfolge:
+Einer oder mehrere der folgenden Werte, in beliebiger Reihenfolge:
 
 - `<'border-width'>`
   - : Siehe {{cssxref("border-width")}}
@@ -46,11 +46,11 @@ Eines oder mehrere der folgenden, in beliebiger Reihenfolge:
 
 ## Beschreibung
 
-Die `-webkit-border-before`-Eigenschaft wird einer physischen Rahmenkante entsprechend dem Schreibmodus, der Richtung und der Textorientierung des Elements zugeordnet. Sie entspricht der Eigenschaft {{cssxref("border-top")}}, {{cssxref("border-right")}}, {{cssxref("border-bottom")}} oder {{cssxref("border-left")}} abhängig von den definierten Werten für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}}.
+Die `-webkit-border-before`-Eigenschaft bezieht sich auf eine physische Grenze, abhängig vom Schreibmodus, der Richtung und der Textausrichtung des Elements. Sie entspricht der {{cssxref("border-top")}}, {{cssxref("border-right")}}, {{cssxref("border-bottom")}}, oder {{cssxref("border-left")}} Eigenschaft, je nach den definierten Werten für {{cssxref("writing-mode")}}, {{cssxref("direction")}}, und {{cssxref("text-orientation")}}.
 
-Sie steht in Bezug zu {{cssxref("-webkit-border-after")}}, {{cssxref("-webkit-border-start")}} und {{cssxref("-webkit-border-end")}}, welche die anderen Rahmenkanten des Elements definieren.
+Sie steht im Zusammenhang mit {{cssxref("-webkit-border-after")}}, {{cssxref("-webkit-border-start")}}, und {{cssxref("-webkit-border-end")}}, die die anderen Ränder des Elements definieren.
 
-Die standardisierte Entsprechung dieser Eigenschaft ist {{cssxref("border-block-start")}}.
+Das standardkonforme Gegenstück dieser Eigenschaft ist {{cssxref("border-block-start")}}.
 
 ## Formale Definition
 
@@ -58,14 +58,11 @@ Die standardisierte Entsprechung dieser Eigenschaft ist {{cssxref("border-block-
 
 ## Formale Syntax
 
-```plain
--webkit-border-before =
-  <'border-width'> || <'border-style'> || <color>
-```
+{{CSSSyntaxRaw(`-webkit-border-before = <'border-width'> || <'border-style'> || <color>`)}}
 
 ## Beispiele
 
-### Anwenden eines Rahmens mit vertikalem Text
+### Anwenden eines Rahmens bei vertikalem Text
 
 #### HTML
 
@@ -96,7 +93,7 @@ div {
 
 ## Spezifikationen
 
-Kein Bestandteil eines Standards, jedoch in Bezug auf die standardisierte {{cssxref("border-block-start")}}-Eigenschaft.
+Teil keiner Norm, aber es steht in Zusammenhang mit der standardkonformen {{cssxref("border-block-start")}} Eigenschaft.
 
 ## Browser-Kompatibilität
 
@@ -105,5 +102,5 @@ Kein Bestandteil eines Standards, jedoch in Bezug auf die standardisierte {{cssx
 ## Siehe auch
 
 - {{cssxref("border-block-start")}}
-- Die zugeordneten physischen Eigenschaften: {{cssxref("border-top")}}, {{cssxref("border-right")}}, {{cssxref("border-bottom")}} und {{cssxref("border-left")}}
+- Die zugeordneten physikalischen Eigenschaften: {{cssxref("border-top")}}, {{cssxref("border-right")}}, {{cssxref("border-bottom")}}, und {{cssxref("border-left")}}
 - {{cssxref("writing-mode")}}, {{cssxref("direction")}}, {{cssxref("text-orientation")}}

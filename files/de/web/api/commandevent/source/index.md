@@ -3,12 +3,12 @@ title: "CommandEvent: source-Eigenschaft"
 short-title: source
 slug: Web/API/CommandEvent/source
 l10n:
-  sourceCommit: 3556f7aca5478c222368dba8a7bd6a007898b36a
+  sourceCommit: af550427ce6ddc8b22dae1f6c8a109ed4a5fbd91
 ---
 
-{{APIRef("Invoker Commands API")}}{{SeeCompatTable}}
+{{APIRef("Invoker Commands API")}}
 
-Die schreibgeschützte **`source`**-Eigenschaft des [`CommandEvent`](/de/docs/Web/API/CommandEvent)-Interfaces gibt ein [`EventTarget`](/de/docs/Web/API/EventTarget) zurück, das das Steuerelement darstellt, das den gegebenen Befehl ausgelöst hat.
+Die **`source`**-Schreibgeschützte Eigenschaft des [`CommandEvent`](/de/docs/Web/API/CommandEvent)-Interfaces gibt ein [`EventTarget`](/de/docs/Web/API/EventTarget) zurück, das das Steuerelement darstellt, das den gegebenen Befehl aufgerufen hat.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein [`EventTarget`](/de/docs/Web/API/EventTarget)-Objekt. In der Regel ein [`HTM
 
 ## Beispiele
 
-Im folgenden einfachen Beispiel haben wir einen Event-Listener eingerichtet, um dem Button-Element bei einem CommandEvent eine temporäre Klasse hinzuzufügen:
+Im folgenden einfachen Beispiel haben wir einen Ereignislistener eingerichtet, um eine temporäre Klasse zum Button-Element hinzuzufügen, wenn ein CommandEvent ausgelöst wird:
 
 ```js
 document.body.addEventListener(

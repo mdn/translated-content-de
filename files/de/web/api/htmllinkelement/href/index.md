@@ -13,7 +13,7 @@ Die **`href`**-Eigenschaft der [`HTMLLinkElement`](/de/docs/Web/API/HTMLLinkElem
 Sie spiegelt das `href`-Attribut des {{HTMLElement("link")}}-Elements wider. Wenn das Element kein `href`-Attribut hat, ist der Wert dieser Eigenschaft der leere String (`""`).
 
 > [!NOTE]
-> Jedes `<link>`-Element muss entweder eines oder beide der Attribute `href` oder [`imagesrcset`](/de/docs/Web/HTML/Reference/Elements/link#imagesrcset) enthalten. Das bedeutet, für jedes gültige `<link>` ist entweder diese Eigenschaft oder [`imageSrcset`](/de/docs/Web/API/HTMLLinkElement/imageSrcset) nicht leer.
+> Jedes `<link>`-Element muss entweder eines oder beide der Attribute `href` oder [`imagesrcset`](/de/docs/Web/HTML/Reference/Elements/link#imagesrcset) enthalten. Das bedeutet, für jedes gültige `<link>` ist entweder diese Eigenschaft oder [`imageSrcset`](/de/docs/Web/API/HTMLLinkElement/imagesrcset) nicht leer.
 
 ## Wert
 
@@ -40,5 +40,5 @@ console.log(link.href); // 'example.css'
 
 ## Siehe auch
 
-- [`HTMLLinkElement.imageSrcset`](/de/docs/Web/API/HTMLLinkElement/imageSrcset)-Eigenschaft
+- [`HTMLLinkElement.imageSrcset`](/de/docs/Web/API/HTMLLinkElement/imagesrcset)-Eigenschaft
 - [`HTMLAnchorElement.href`](/de/docs/Web/API/HTMLAnchorElement/href)-Eigenschaft

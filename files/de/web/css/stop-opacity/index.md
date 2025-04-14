@@ -2,17 +2,17 @@
 title: stop-opacity
 slug: Web/CSS/stop-opacity
 l10n:
-  sourceCommit: 8ad43cb18baadffa72a32ba8b4524f09d611f078
+  sourceCommit: 0d43b58f31f30e5dbafd9c117a467e389cc8b176
 ---
 
 {{CSSRef}}
 
-Die **`stop-opacity`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert die Deckkraft eines bestimmten Farbverlaufsstopps im SVG {{SVGElement("stop")}} Element innerhalb eines SVG-Gradienten. Falls vorhanden, überschreibt sie das Attribut {{SVGAttr("stop-opacity")}} des Elements.
+Die **`stop-opacity`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert die Deckkraft einer bestimmten Farbverlauf-Stop im SVG {{SVGElement("stop")}}-Element innerhalb eines SVG-Verlaufs. Ist sie vorhanden, überschreibt sie das {{SVGAttr("stop-opacity")}}-Attribut des Elements.
 
-Der Eigenschaftswert beeinflusst den Alpha-Kanal des {{cssxref("stop-color")}}; er kann die Transparenz der Farbe eines `<stop>` erhöhen, aber nicht die durch die Eigenschaft `stop-color` definierte Farbe undurchsichtiger machen.
+Der Wert der Eigenschaft beeinflusst den Alpha-Kanal des {{cssxref("stop-color")}}; sie kann die Transparenz einer `<stop>`-Farbe erhöhen, jedoch nicht die durch die `stop-color` Eigenschaft definierte Farbe undurchsichtiger machen.
 
 > [!NOTE]
-> Die Eigenschaft `stop-opacity` gilt nur für {{SVGElement('stop')}} Elemente, die in einem {{SVGElement("svg")}} verschachtelt sind. Sie gilt nicht für andere SVG-, HTML- oder Pseudo-Elemente.
+> Die `stop-opacity` Eigenschaft gilt nur für {{SVGElement('stop')}}-Elemente, die in einem {{SVGElement("svg")}} eingebettet sind. Sie gilt nicht für andere SVG-, HTML- oder Pseudo-Elemente.
 
 ## Syntax
 
@@ -31,17 +31,17 @@ stop-opacity: unset;
 
 ### Werte
 
-Der `<opacity-value>` ist eine {{cssxref("number")}} oder {{cssxref("percentage")}}, die die Deckkraft des SVG-Gradienten-`<stop>`-Elements angibt.
+Der `<opacity-value>` ist eine {{cssxref("number")}} oder {{cssxref("percentage")}}, die die Deckkraft des SVG-Verlaufs-`<stop>`-Elements angibt.
 
 - {{cssxref("number")}}
 
-  - : Ein numerischer Wert zwischen `0` und `1`, einschließlich.
+  - : Ein numerischer Wert zwischen `0` und `1`, inklusive.
 
 - {{cssxref("percentage")}}
 
-  - : Ein Prozentwert zwischen `0%` und `100%`, einschließlich.
+  - : Ein Prozentwert zwischen `0%` und `100%`, inklusive.
 
-Mit `0` oder `0%` eingestellt, ist der Stopp vollständig transparent. Mit `1` oder `100%` eingestellt, hat das Element die volle Deckkraft des `stop-color`-Wertes, der möglicherweise teilweise undurchsichtig ist.
+Beträgt der Wert `0` oder `0%`, ist der Stop vollständig transparent. Beträgt der Wert `1` oder `100%`, hat das Element die volle Deckkraft des `stop-color`-Wertes, welcher teilweise undurchsichtig sein kann oder nicht.
 
 ## Formale Definition
 
@@ -49,17 +49,17 @@ Mit `0` oder `0%` eingestellt, ist der Stopp vollständig transparent. Mit `1` o
 
 ## Formale Syntax
 
-{{csssyntax}}
+{{CSSSyntaxRaw(`stop-opacity = <number> | <percentage>`)}}
 
 ## Beispiele
 
-### Die Deckkraft eines SVG-Farbverlaufsstops definieren
+### Die Deckkraft eines SVG-Farbverlaufsstopps definieren
 
-Dieses Beispiel demonstriert die grundlegende Anwendung von `stop-opacity` und wie die CSS-Eigenschaft `stop-opacity` das `stop-opacity`-Attribut übersteuert.
+Dieses Beispiel demonstriert den grundlegenden Anwendungsfall von `stop-opacity` und wie die CSS-`stop-opacity`-Eigenschaft das `stop-opacity`-Attribut überlagert.
 
 #### HTML
 
-Wir haben ein SVG mit ein paar {{SVGElement("polygon")}} Sternen und drei {{SVGElement("linearGradient")}} Elementen: jedes hat drei {{SVGElement("stop")}} Elemente, die drei Farbstopps definieren, die einen Verlauf von Blau nach Weiß zu Pink erzeugen; der einzige Unterschied zwischen ihnen ist der `id`-Wert.
+Wir haben ein SVG mit einigen {{SVGElement("polygon")}}-Sternen und drei {{SVGElement("linearGradient")}}-Elementen: jedes hat drei {{SVGElement("stop")}}-Elemente, die drei Farb-Stops definieren, die einen Verlauf erzeugen, der von Blau zu Weiß zu Pink geht; der einzige Unterschied zwischen ihnen ist der `id`-Wert.
 
 ```html
 <svg viewBox="0 0 250 120" xmlns="http://www.w3.org/2000/svg">
@@ -90,9 +90,9 @@ Wir haben ein SVG mit ein paar {{SVGElement("polygon")}} Sternen und drei {{SVGE
 
 Wir fügen ein {{cssxref("stroke")}} und {{cssxref("stroke-width")}} hinzu, um die Polygonpfadlinie sichtbar zu machen.
 
-Jedes `polygon` hat einen Verlaufs-Hintergrund, der mit der {{cssxref("fill")}} Eigenschaft gesetzt wird; die `id` des Verlaufs ist der `url()` Parameter. Wir setzen `magenta` als Ersatzfarbe.
+Jedes `polygon` hat einen Farbverlaufs-Hintergrund, der mit der {{cssxref("fill")}}-Eigenschaft gesetzt wird; die `id` des Verlaufs ist der `url()`-Parameter. Wir setzen `magenta` als Rückfallfarbe.
 
-Wir definieren die Deckkraft der Stopps jedes Verlaufs mit der `stop-opacity` Eigenschaft.
+Wir definieren die Deckkraft der Stops jedes Verlaufs mit der `stop-opacity` Eigenschaft.
 
 Das SVG hat einen gestreiften Hintergrund, um die Transparenzeinstellungen deutlicher zu machen.
 
@@ -139,10 +139,10 @@ polygon:nth-of-type(3) {
 
 {{EmbedLiveSample("Defining the opacity of a SVG gradient color stop", "300", "200")}}
 
-Der erste Stern ist vollständig undurchsichtig. Die Füllung des zweiten Sterns hat eine Deckkraft von 80%, da die Farbstopps leicht durchsichtig sind; der `stop-opacity: 0.8;` hat den Attributwert `stop-opacity="1"` überstimmt. Die Füllung des letzten Sterns ist kaum wahrnehmbar mit Farbstopps, die eine Deckkraft von 25% haben. Beachten Sie, dass der Strich in allen Fällen dasselbe undurchsichtige Dunkelgrau ist.
+Der erste Stern ist vollständig undurchsichtig. Die Füllung des zweiten Sterns ist 80% undurchsichtig, da die Farb-Stops leicht durchscheinend sind; die `stop-opacity: 0.8;` hat den `stop-opacity="1"`-Elementattributwert überlagert. Die Füllung des letzten Sterns ist kaum sichtbar mit Farb-Stops, die 25% undurchsichtig sind. Beachten Sie, dass der Strich in allen Fällen das gleiche undurchsichtige Dunkelgrau ist.
 
 > [!NOTE]
-> Da wir denselben `stop-opacity` Wert für alle Geschwister-`<stop>`-Elemente im linearen Verlauf verwendet haben, hätten wir stattdessen einen einzigen `<linearGradient>` mit vollständig undurchsichtigen Stopps verwenden und für jedes `<polygon>` die Eigenschaft {{cssxref("fill-opacity")}} einstellen können.
+> Da wir denselben `stop-opacity`-Wert für alle Geschwister-`<stop>`-Elemente im linearen Verlauf verwendet haben, hätten wir stattdessen einen einzelnen `<linearGradient>` mit vollständig undurchsichtigen Stops verwenden und für jedes `<polygon>` die {{cssxref("fill-opacity")}}-Eigenschaft setzen können.
 
 ## Spezifikationen
 
@@ -154,7 +154,7 @@ Der erste Stern ist vollständig undurchsichtig. Die Füllung des zweiten Sterns
 
 ## Siehe auch
 
-- SVG {{SVGAttr("stop-opacity")}} Attribut
+- SVG {{SVGAttr("stop-opacity")}}-Attribut
 - Präsentationseigenschaften: `stop-opacity`, {{cssxref("clip-rule")}}, {{cssxref("color-interpolation-filters")}}, {{cssxref("fill-opacity")}}, {{cssxref("fill-rule")}}, {{cssxref("fill")}}, {{cssxref("marker-end")}}, {{cssxref("marker-mid")}}, {{cssxref("marker-start")}}, {{cssxref("shape-rendering")}}, {{cssxref("stop-color")}}, {{cssxref("stroke")}}, {{cssxref("stroke-dasharray")}}, {{cssxref("stroke-dashoffset")}}, {{cssxref("stroke-linecap")}}, {{cssxref("stroke-linejoin")}}, {{cssxref("stroke-miterlimit")}}, {{cssxref("stroke-opacity")}}, {{cssxref("stroke-width")}}, {{cssxref("text-anchor")}}, und {{cssxref("vector-effect")}}
 - {{cssxref("opacity")}}
 - {{cssxref("background-color")}}

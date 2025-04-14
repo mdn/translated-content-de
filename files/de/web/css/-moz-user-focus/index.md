@@ -2,14 +2,14 @@
 title: -moz-user-focus
 slug: Web/CSS/-moz-user-focus
 l10n:
-  sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
+  sourceCommit: 0d43b58f31f30e5dbafd9c117a467e389cc8b176
 ---
 
 {{CSSRef}} {{deprecated_header}}{{non-standard_header}}
 
-Die **`-moz-user-focus`**-Eigenschaft ([CSS](/de/docs/Web/CSS)) wird verwendet, um anzuzeigen, ob ein Element den Fokus erhalten kann.
+Die **`-moz-user-focus`** [CSS](/de/docs/Web/CSS)-Eigenschaft wird verwendet, um anzugeben, ob ein Element den Fokus haben kann.
 
-Indem Sie den Wert auf `ignore` setzen, können Sie das Fokussieren des Elements deaktivieren. Das bedeutet, dass der Benutzer das Element nicht aktivieren kann und das Element in der Tabulatorreihenfolge übersprungen wird. Der Standardwert ist `none`, welcher das Fokussieren auf das Element deaktiviert und den Fokus von anderen Elementen entfernt, wenn versucht wird, das betreffende Element auszuwählen.
+Indem Sie den Wert auf `ignore` setzen, können Sie den Fokus des Elements deaktivieren, was bedeutet, dass der Benutzer das Element nicht aktivieren kann und das Element in der Tab-Reihenfolge übersprungen wird. Der Standardwert ist `none`, der den Fokus auf das Element deaktiviert und den Fokus auf anderen Elementen entfernt, wenn versucht wird, das Element auszuwählen.
 
 ## Syntax
 
@@ -28,12 +28,12 @@ Indem Sie den Wert auf `ignore` setzen, können Sie das Fokussieren des Elements
 ### Werte
 
 - `ignore`
-  - : Das Element akzeptiert keinen Tastaturfokus und wird in der Tabulatorreihenfolge übersprungen.
+  - : Das Element akzeptiert keinen Tastaturfokus und wird in der Tab-Reihenfolge übersprungen.
 - `normal`
   - : Das Element kann Tastaturfokus akzeptieren.
 - `none`
   - : Das Element akzeptiert keinen Tastaturfokus.
-    Ein Versuch, das Element auszuwählen, entfernt den Fokus von jedem anderen Element.
+    Der Versuch, das Element auszuwählen, entfernt den Fokus von jedem anderen Element.
 
 ## Formale Definition
 
@@ -41,10 +41,7 @@ Indem Sie den Wert auf `ignore` setzen, können Sie das Fokussieren des Elements
 
 ## Formale Syntax
 
-```plain
--moz-user-focus =
-  ignore | normal | none
-```
+{{CSSSyntaxRaw(`-moz-user-focus = ignore | normal | none`)}}
 
 ## Beispiele
 
@@ -64,7 +61,7 @@ Indem Sie den Wert auf `ignore` setzen, können Sie das Fokussieren des Elements
 
 ## Spezifikationen
 
-Gehört zu keinem Standard.
+Teil keiner Norm.
 
 ## Browser-Kompatibilität
 

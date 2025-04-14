@@ -2,15 +2,15 @@
 title: user-modify
 slug: Web/CSS/user-modify
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: 0d43b58f31f30e5dbafd9c117a467e389cc8b176
 ---
 
 {{CSSRef}}{{Non-standard_Header}}{{Deprecated_Header}}
 
-Die **`user-modify`** Eigenschaft hat in Firefox keine Wirkung. Ursprünglich war sie dazu gedacht, zu bestimmen, ob der Inhalt eines Elements von einem Benutzer bearbeitet werden kann oder nicht.
+Die Eigenschaft **`user-modify`** hat in Firefox keine Wirkung. Ursprünglich war geplant, damit festzulegen, ob der Inhalt eines Elements von einem Benutzer bearbeitet werden kann oder nicht.
 
 > [!WARNING]
-> Diese Eigenschaft wurde durch das [`contenteditable`](/de/docs/Web/HTML/Reference/Global_attributes/contenteditable) Attribut ersetzt.
+> Diese Eigenschaft wurde durch das [`contenteditable`](/de/docs/Web/HTML/Reference/Global_attributes/contenteditable)-Attribut ersetzt.
 
 ## Syntax
 
@@ -27,7 +27,7 @@ user-modify: revert;
 user-modify: unset;
 ```
 
-Die `-moz-user-modify` Eigenschaft wird als einer der Schlüsselwortwerte aus der folgenden Liste angegeben.
+Die `-moz-user-modify`-Eigenschaft wird als eines der Schlüsselwortwerte aus der unten stehenden Liste angegeben.
 
 ### Werte
 
@@ -36,16 +36,13 @@ Die `-moz-user-modify` Eigenschaft wird als einer der Schlüsselwortwerte aus de
 - `read-write`
   - : Der Benutzer kann Inhalte lesen und schreiben.
 - `read-write-plaintext-only`
-  - : Dasselbe wie `read-write`, aber Formatierungen von Rich-Text gehen verloren.
+  - : Wie `read-write`, aber Formatierungen im Rich-Text gehen verloren.
 - `write-only`
   - : Der Benutzer kann den Inhalt bearbeiten, aber nicht lesen.
 
 ## Formale Syntax
 
-```plain
-user-modify =
-  read-only | read-write | read-write-plaintext-only | write-only
-```
+{{CSSSyntaxRaw(`user-modify = read-only | read-write | read-write-plaintext-only | write-only`)}}
 
 ## Beispiele
 
@@ -66,7 +63,7 @@ user-modify =
 
 ## Spezifikationen
 
-Nicht Teil eines Standards.
+Teil keiner Norm.
 
 ## Browser-Kompatibilität
 

@@ -1,158 +1,158 @@
 ---
-title: fetchLater() Quoten
+title: fetchLater()-Quoten
 slug: Web/API/fetchLater_API/fetchLater_quotas
 l10n:
-  sourceCommit: 5fad0829b5070d04993a57af8c276f5e35da3ed2
+  sourceCommit: 8c0f4d9b9d335105107b15be55e06ca5619a0054
 ---
 
 {{DefaultAPISidebar("fetchLater API")}}{{SeeCompatTable}}
 
-Aufgeschobene Abrufe der [`fetchLater()` API](/de/docs/Web/API/fetchLater_API) werden gesammelt und gesendet, sobald der Tab geschlossen wird. Zu diesem Zeitpunkt gibt es keine Möglichkeit für den Benutzer, sie abzubrechen. Um Situationen zu vermeiden, in denen Dokumente dieses Bandbreite missbrauchen, um unbegrenzt Daten über das Netzwerk zu senden, setzt die API Quoten, wie viel Daten später gesendet werden können.
+Aufgeschobene Abrufe der [fetchLater() API](/de/docs/Web/API/fetchLater_API) werden gesammelt und gesendet, sobald der Tab geschlossen wird. Zu diesem Zeitpunkt gibt es keine Möglichkeit für den Benutzer, diese abzubrechen. Um Situationen zu vermeiden, in denen Dokumente dieses Bandbreite nutzen, um unbegrenzte Datenmengen über das Netzwerk zu senden, setzt die API Quoten, wie viele Daten aufgeschoben gesendet werden können.
 
-Diese Quoten können durch die {{HTTPHeader("Permissions-Policy/deferred-fetch", "deferred-fetch")}} und {{HTTPHeader("Permissions-Policy/deferred-fetch-minimal", "deferred-fetch-minimal")}} [Permissions Policy](/de/docs/Web/HTTP/Guides/Permissions_Policy)-Richtlinien verwaltet werden.
+Diese Quoten können durch die {{HTTPHeader("Permissions-Policy/deferred-fetch", "deferred-fetch")}} und {{HTTPHeader("Permissions-Policy/deferred-fetch-minimal", "deferred-fetch-minimal")}} [Permissions Policy](/de/docs/Web/HTTP/Guides/Permissions_Policy) Direktiven verwaltet werden.
 
 ## Übersicht
 
-Die Gesamtquote für `fetchLater()` beträgt 640KiB pro Dokument. Standardmäßig teilt sich dies in eine 512KiB-Top-Level-Quote und eine 128KiB-gemeinsame Quote auf:
+Das Gesamtkontingent für `fetchLater()` beträgt 640KiB pro Dokument. Standardmäßig ist dies in ein 512KiB Hauptkontingent und ein 128KiB gemeinsames Kontingent unterteilt:
 
-- Die 512KiB-Top-Level-Quote ist standardmäßig für alle `fetchLater()`-Anfragen aus dem Top-Level-Dokument und direkten Subframes mit demselben Ursprung.
-- Die 128KiB-gemeinsame Quote ist standardmäßig für alle `fetchLater()`-Anfragen in Cross-Origin-Subframes (zum Beispiel `<iframe>`, `<object>`, `<embed>` und `<frame>`-Elemente).
+- Das 512KiB Hauptkontingent ist standardmäßig für alle `fetchLater()`-Anfragen des Hauptdokuments und direkten Unterrahmen, die diesen Ursprung verwenden.
+- Das 128KiB gemeinsame Kontingent ist standardmäßig für `fetchLater()`-Anfragen gedacht, die in cross-origin Unterrahmen (zum Beispiel `<iframe>`, `<object>`, `<embed>` und `<frame>` Elemente) gestellt werden.
 
-`fetchLater()`-Anfragen können an jede URL gestellt werden und sind nicht auf denselben Ursprung wie das Dokument oder das Subframe beschränkt. Daher ist es wichtig, zwischen Anfragen im Top-Level-Dokumentinhalt (zu Ursprüngen erster oder dritter Parteien) und denen in Subframes zu unterscheiden.
+`fetchLater()`-Anfragen können an jede URL gesendet werden und sind nicht auf denselben Ursprung wie das Dokument oder der Unterrahmen beschränkt. Es ist daher wichtig, zwischen Anfragen im Hauptdokumentinhalt (ob zu Ursprüngen von Erstanbietern oder Drittanbietern) und denen in Unterrahmen zu unterscheiden.
 
-Beispielsweise, wenn ein Top-Level-`a.com`-Dokument ein `<script>` enthält, das eine `fetchLater()`-Anfrage an `analytics.example.com` stellt, wäre diese Anfrage durch das 512KiB-Limit des Top-Levels begrenzt. Alternativ, wenn das Top-Level-Dokument ein `<iframe>` mit `analytics.example.com` einbettet, das eine `fetchLater()`-Anfrage stellt, wäre diese Anfrage durch das 128KiB-Limit begrenzt.
+Wenn zum Beispiel ein Hauptdokument `a.com` ein `<script>` enthält, das eine `fetchLater()`-Anfrage an `analytics.example.com` sendet, wäre diese Anfrage durch das Hauptlimit von 512KiB begrenzt. Wenn das Hauptdokument einen `<iframe>` mit einer Quelle von `analytics.example.com` einbettet, der eine `fetchLater()`-Anfrage sendet, wäre diese Anfrage durch das 128KiB-Limit begrenzt.
 
-## Quotenlimits nach Meldungsursprung und Subframe
+## Kontingentgrenzen nach Berichtsursprung und Unterrahmen
 
-Nur 64KiB der 512KiB-Top-Level-Quote können gleichzeitig für denselben Meldungsursprung (der Ursprungs-URL der Anfrage) verwendet werden. Dies verhindert, dass Drittanbieter-Bibliotheken opportunistisch Quoten reservieren, bevor sie Daten zu senden haben.
+Nur 64KiB des 512KiB-Hauptkontingents können gleichzeitig für denselben Berichtsursprung (den Ursprung der Anforderungs-URL) verwendet werden. Dies verhindert, dass Drittanbieter-Bibliotheken das Kontingent opportunistisch reservieren, bevor sie Daten zum Senden haben.
 
-Jedes Cross-Origin-Subframe erhält standardmäßig 8KiB aus der gemeinsamen 128KiB-Quote, die zugewiesen wird, wenn das Subframe dem DOM hinzugefügt wird (unabhängig davon, ob `fetchLater()` in diesem Subframe verwendet wird oder nicht). Dies bedeutet, dass im Allgemeinen nur die ersten 16 Cross-Origin-Subframes, die einer Seite hinzugefügt werden, `fetchLater()` verwenden können, da sie die 128KiB-Quote verbrauchen.
+Jeder cross-origin Unterrahmen erhält ein 8KiB Kontingent aus dem gemeinsamen 128KiB Kontingent, das zugewiesen wird, wenn der Unterrahmen dem DOM hinzugefügt wird (unabhängig davon, ob `fetchLater()` in diesem Unterrahmen verwendet wird oder nicht). Dies bedeutet, dass im Allgemeinen nur die ersten 16 cross-origin Unterrahmen, die einer Seite hinzugefügt werden, `fetchLater()` verwenden können, da sie das 128KiB Kontingent aufbrauchen.
 
-## Erhöhung der Subframe-Quoten durch Teilen der Top-Level-Quote
+## Erhöhung der Unterrahmenkontingente durch Teilen des Hauptkontingents
 
-Der Top-Level-Ursprung kann ausgewählten Cross-Origin-Subframes eine erhöhte Quote von 64KiB geben, die aus dem größeren 512KiB-Top-Level-Limit genommen wird. Dies geschieht durch das Auflisten dieser Ursprünge in der {{HTTPHeader("Permissions-Policy/deferred-fetch", "deferred-fetch")}} Permissions Policy-Richtlinie. Dies wird zugewiesen, wenn das Subframe dem DOM hinzugefügt wird, was weniger Quote für das Top-Level-Dokument und direkte gleich-ursprüngliche Subframes übriglässt. Mehrere gleich-ursprüngige Subdomains können jeweils eine 64KiB-Quote erhalten.
+Der Hauptursprung kann ausgewählten cross-origin Unterrahmen ein erhöhtes Kontingent von 64KiB gewähren, das dem größeren 512KiB Hauptkontingent entnommen wird. Dies erfolgt, indem diese Ursprünge im {{HTTPHeader("Permissions-Policy/deferred-fetch", "deferred-fetch")}} Permissions Policy direktiv aufgeführt werden. Dieses wird zugewiesen, wenn der Unterrahmen dem DOM hinzugefügt wird, wodurch weniger Kontingent für das Hauptdokument und direkte gleichursprüngliche Unterrahmen übrig bleibt. Mehrere gleichursprüngliche Subdomains können jeweils ein 64KiB Kontingent erhalten.
 
-## Einschränken der gemeinsamen Quote
+## Einschränkung des gemeinsamen Kontingents
 
-Der Top-Level-Ursprung kann auch die 128KiB-gemeinsame Quote auf benannte Cross-Origin-Subframes beschränken, indem er diese Ursprünge in der {{HTTPHeader("Permissions-Policy/deferred-fetch-minimal", "deferred-fetch-minimal")}} Permissions Policy auflistet. Er kann auch die gesamte 128KiB-Standardsubframe-Quote widerrufen und stattdessen die volle 640KiB-Quote für sich selbst und benannte `deferred-fetch`-Cross-Origin behalten, indem er die {{HTTPHeader("Permissions-Policy/deferred-fetch-minimal", "deferred-fetch-minimal")}} Permissions Policy auf `()` setzt.
+Der Hauptursprung kann auch das 128KiB gemeinsame Kontingent auf benannte cross-origin Unterrahmen beschränken, indem er diese Ursprünge in der {{HTTPHeader("Permissions-Policy/deferred-fetch-minimal", "deferred-fetch-minimal")}} Permissions Policy auflistet. Er kann auch das gesamte 128KiB Standard-Unterrahmenkontingent widerrufen und stattdessen das volle 640KiB Kontingent für sich selbst und alle benannten `deferred-fetch` cross-origins behalten, indem er die {{HTTPHeader("Permissions-Policy/deferred-fetch-minimal", "deferred-fetch-minimal")}} Permissions Policy auf `()` setzt.
 
-## Delegation von Quoten an Subframes von Subframes
+## Zuteilung von Kontingenten an Unterrahmen von Unterrahmen
 
-Standardmäßig erhalten Subframes von Subframes keine Quote und können daher `fetchLater()` nicht verwenden. Subframes, denen die erhöhte 64KiB-Quote zugewiesen wurde, können die volle 64KiB-Quote an weitere Subframes delegieren und ihnen die Verwendung von `fetchLater()` ermöglichen, indem sie ihre eigene `deferred-fetch` Permissions Policy setzen. Sie können nur ihre volle Quote an weitere Subframes delegieren, nicht Teile davon, und können keine neuen Quoten festlegen. Subframes, die die minimale 8KiB-Quote verwenden, können Quoten nicht an Subframes delegieren. Um Quoten zugeordnet zu bekommen, müssen Sub-Subframes sowohl in den Top-Level- als auch in den Subframe-`deferred-fetch` {{httpheader('Permissions-Policy')}}-Richtlinien enthalten sein.
+Im Standardfall werden Unterrahmen von Unterrahmen kein Kontingent zugewiesen und können daher `fetchLater()` nicht verwenden. Unterrahmen mit dem erhöhten 64KiB Kontingent können das volle 64KiB Kontingent an weitere Unterrahmen delegieren und ihnen die Verwendung von `fetchLater()` ermöglichen, indem sie ihre eigene `deferred-fetch` Permissions Policy setzen. Sie können nur ihr vollständiges Kontingent an weitere Unterrahmen delegieren, nicht Teile davon, und können keine neuen Kontingente spezifizieren. Unterrahmen, die das minimale 8KiB Kontingent verwenden, können keine Kontingente an Unterrahmen delegieren. Um ein Kontingent zugeteilt zu bekommen, müssen Sub-Subrahmen sowohl in der `deferred-fetch` {{httpheader('Permissions-Policy')}} Direktive des Haupt- als auch des Unterrahmens enthalten sein.
 
-## Wenn Quoten überschritten werden
+## Wenn Kontingente überschritten werden
 
-Wenn Quoten überschritten werden, wird ein `QuotaExceededError` ausgelöst, wenn die Methode [`fetchLater()`](/de/docs/Web/API/Window/fetchLater) aufgerufen wird, um die aufgeschobene Anfrage zu initiieren.
+Wenn Kontingente überschritten werden, wird ein `QuotaExceededError` ausgelöst, wenn die [`fetchLater()`](/de/docs/Web/API/Window/fetchLater) Methode aufgerufen wird, um die aufgeschobene Anfrage zu initiieren.
 
-Permissions Policy-Prüfungen sind von Quotenprüfungen nicht zu unterscheiden. Ein Aufruf von `fetchLater()` löst sowohl dann einen `QuotaExceededError` aus, wenn die Quote tatsächlich überschritten wurde, als auch wenn die Quote über eine Permissions Policy für diesen Ursprung eingeschränkt wurde.
+Berechtigungsrichtlinienprüfungen sind von Kontingentprüfungen nicht unterscheidbar. Das Aufrufen von `fetchLater()` wird einen `QuotaExceededError` auslösen, sowohl wenn das Kontingent tatsächlich überschritten wird, als auch wenn das Kontingent für diesen Ursprung über eine Berechtigungsrichtlinie eingeschränkt wurde.
 
-Aufrufer von `fetchLater()` sollten defensive Programmierung berücksichtigen und `QuotaExceededError`-Fehler in fast allen Fällen abfangen, insbesondere wenn sie Drittanbieter-JavaScript einbetten.
+Aufrufer von `fetchLater()` sollten defensiv sein und `QuotaExceededError`-Fehler in fast allen Fällen abfangen, insbesondere wenn sie JavaScript von Drittanbietern einbinden.
 
 ## Beispiele
 
-### Verwenden der minimalen Quote
+### Nutzung des minimalen Kontingents
 
 ```http
 Permissions-Policy: deferred-fetch=(self "https://b.com")
 ```
 
-1. Ein `<iframe src="https://b.com/page">` erhält 64KiB, wenn es dem Top-Level-Dokument hinzugefügt wird, aus der 512KiB-Grenze des Top-Levels.
-2. Ein `<iframe src="https://c.com/page">` ist nicht aufgelistet und erhält daher 8KiB, wenn es dem Top-Level-Dokument aus dem 128KiB-geteilten Limit hinzugefügt wird.
-3. Weitere 15 Cross-Origin-Iframes würden jeweils 8KiB erhalten, wenn sie dem Top-Level-Dokument hinzugefügt werden (ähnlich wie `c.com`).
-4. Das nächste Cross-Origin-Iframe würde keine Quote erhalten.
-5. Wenn eines der Cross-Origin-Iframes entfernt wird, werden die aufgeschobenen Abrufe gesendet.
-6. Das nächste Cross-Origin-Iframe _würde_ eine 8KiB-Quote erhalten, da wieder eine Quote verfügbar ist.
+1. Ein `<iframe src="https://b.com/page">` erhält 64KiB, nachdem es dem Hauptdokument hinzugefügt wurde, aus dem 512KiB Hauptlimit.
+2. Ein `<iframe src="https://c.com/page">` ist nicht aufgeführt und erhält daher beim Hinzufügen zum Hauptdokument 8KiB aus dem 128KiB gemeinsamen Limit.
+3. 15 weitere cross-origin iframes würden jeweils 8KiB beim Hinzufügen zum Hauptdokument erhalten (ähnlich wie `c.com`).
+4. Das nächste cross-origin iframe würde kein Kontingent zugewiesen bekommen.
+5. Wenn eines der cross-origin iframes entfernt wird, werden dessen aufgeschobene Abrufe gesendet.
+6. Das nächste cross-origin iframe würde ein 8KiB Kontingent erhalten, da wieder Kontingent verfügbar ist.
 
-### Einschränken der minimalen Quote auf benannte Ursprünge
+### Beschränkung des minimalen Kontingents auf benannte Ursprünge widerrufen
 
 ```http
 Permissions-Policy: deferred-fetch-minimal=("https://b.com")
 ```
 
-1. `<iframe src="https://b.com/page">` erhält 8KiB, wenn es dem Top-Level-Dokument hinzugefügt wird.
-2. `<iframe src="https://c.com/page">` erhält keine Quote, wenn es dem Top-Level-Dokument hinzugefügt wird.
-3. Das Top-Level-Dokument und seine gleich-ursprünglichen Nachkommen können bis zu 512KiB verwenden.
+1. `<iframe src="https://b.com/page">` erhält 8KiB beim Hinzufügen zum Hauptdokument.
+2. `<iframe src="https://c.com/page">` erhält kein Kontingent beim Hinzufügen zum Hauptdokument.
+3. Das Hauptdokument und seine gleichursprünglichen Nachkommen können bis zu 512KiB verwenden.
 
-### Die minimale Quote vollständig mit Top-Level-Ausnahmen widerrufen
+### Widerrufen des minimalen Kontingents insgesamt mit Ausnahmen auf oberster Ebene
 
 ```http
 Permissions-Policy: deferred-fetch=(self "https://b.com")
 Permissions-Policy: deferred-fetch-minimal=()
 ```
 
-1. `<iframe src="https://b.com/page">` erhält 64KiB, wenn es dem Top-Level-Dokument hinzugefügt wird.
-2. `<iframe src="https://c.com/page">` erhält keine Quote, wenn es dem Top-Level-Dokument hinzugefügt wird.
-3. Das Top-Level-Dokument und seine gleich-ursprünglichen Nachkommen können bis zu volle 640KiB verwenden, aber das reduziert sich auf 574KiB, wenn ein `b.com` Subframe erstellt wird (oder noch weniger, wenn mehrere `b.com` Subframes erstellt werden, von denen jedes eine 64KiB-Quote zugewiesen bekommt).
+1. `<iframe src="https://b.com/page">` erhält 64KiB beim Hinzufügen zum Hauptdokument.
+2. `<iframe src="https://c.com/page">` erhält kein Kontingent beim Hinzufügen zum Hauptdokument.
+3. Das Hauptdokument und seine gleichursprünglichen Nachkommen können bis zu 640KiB nutzen, aber das wird auf 574KiB reduziert, wenn ein `b.com` Unterrahmen erstellt wird (oder sogar weniger, wenn mehrere `b.com` Unterrahmen erstellt werden, von denen jeder ein 64KiB Kontingent zugewiesen bekommt).
 
-### Die minimale Quote vollständig ohne Ausnahmen widerrufen
+### Widerrufen des minimalen Kontingents insgesamt ohne Ausnahmen
 
 ```http
 Permissions-Policy: deferred-fetch-minimal=()
 ```
 
-1. Das Top-Level-Dokument und seine gleich-ursprünglichen Nachkommen können die vollen 640KiB verwenden.
-2. Subframes erhalten keine Quote und können `fetchLater()` nicht verwenden.
+1. Das Hauptdokument und seine gleichursprünglichen Nachkommen können das volle 640KiB verwenden.
+2. Unterrahmen bekommen kein Kontingent zugewiesen und können `fetchLater()` nicht verwenden.
 
-### Gleichursprungs-Subframes teilen die Quote mit dem Top-Level und können an Subframes delegieren
+### Gleichursprüngliche Unterrahmen teilen sich das Kontingent mit der Hauptsache und können an Unterrahmen delegieren
 
-Angenommen, ein Top-Level-Dokument auf `a.com`, das ein Subframe von `a.com` einbettet, das ein Subframe von `b.com` einbettet, ohne explizite Berechtigungsrichtlinien.
+Angenommen, ein Hauptdokument auf `a.com`, das einen Unterrahmen von `a.com` einbettet, der einen Unterrahmen von `b.com` einbettet, und keine expliziten Berechtigungsrichtlinien.
 
-1. Das Top-Level-Dokument von `a.com` hat die Standard-512KiB-Quote.
-2. `<iframe src="https://a.com/embed">` teilt die 512KiB-Quote, wenn es dem Top-Level-Dokument hinzugefügt wird.
-3. `<iframe src="https://b.com/embed">` erhält eine 8KiB-Quote, wenn es dem Top-Level-Dokument hinzugefügt wird.
+1. Das Hauptdokument von `a.com` hat das Standard 512KiB Kontingent.
+2. `<iframe src="https://a.com/embed">` teilt das 512KiB Kontingent beim Hinzufügen zum Hauptdokument.
+3. `<iframe src="https://b.com/embed">` erhält 8KiB Kontingent beim Hinzufügen zum Hauptdokument.
 
-### Gleichursprungs-Subframes können die Quote nicht mit dem Top-Level teilen, wenn sie durch ein Cross-Origin-Subframe getrennt werden
+### Gleichursprüngliche Unterrahmen können das Kontingent nicht mit dem Hauptdokument teilen, wenn sie durch einen cross-origin Unterrahmen getrennt werden
 
-Angenommen, ein Top-Level-Dokument auf `a.com`, das ein `<iframe src="https://b.com/">` einbettet, das ein Subframe von `<iframe src="https://a.com/embed">` einbettet, ohne explizite Berechtigungsrichtlinien.
+Angenommen, ein Hauptdokument auf `a.com`, das ein `<iframe src="https://b.com/">` einbettet, das einen Unterrahmen von `<iframe src="https://a.com/embed">` einbettet, und keine expliziten Berechtigungsrichtlinien.
 
-1. Das Top-Level-Dokument von `a.com` hat die Standard-512KiB-Quote.
-2. `<iframe src="https://b.com/">` teilt die 8KiB-Quote.
-3. `<iframe src="https://a.com/embed">` erhält keine Quote; auch wenn dies gleichursprünglich mit dem Top-Ursprung ist, wird es durch ein Cross-Origin getrennt.
+1. Das Hauptdokument von `a.com` hat das Standard 512KiB Kontingent.
+2. `<iframe src="https://b.com/">` teilt das 8KiB Kontingent.
+3. `<iframe src="https://a.com/embed">` erhält kein Kontingent; obwohl es gleichursprünglich mit dem Hauptursprung ist, ist es durch ein cross-origin getrennt.
 
-### Sekundäre Subframes von Subframes erhalten standardmäßig keine Quote
+### Sekundäre Unterrahmen von Unterrahmen erhalten standardmäßig kein Kontingent
 
-Angenommen, ein Top-Level-Dokument auf `a.com`, das ein `<iframe src="https://b.com/">` einbettet, das ein `<iframe src="https://c.com/">` einbettet, ohne explizite Berechtigungsrichtlinien.
+Angenommen, ein Hauptdokument auf `a.com`, das ein `<iframe src="https://b.com/">` einbettet, das ein `<iframe src="https://c.com/">` einbettet, und keine expliziten Berechtigungsrichtlinien.
 
-1. Der Top-Level-Frame von `a.com` hat die Standard-512KiB-Quote.
-2. `<iframe src="https://b.com/">` erhält 8KiB der Standard-gemeinsamen Quote.
-3. `<iframe src="https://c.com/">` erhält keine Quote.
+1. Der Hauptframe von `a.com` hat das Standard 512KiB Kontingent.
+2. `<iframe src="https://b.com/">` erhält 8KiB des Standard gemeinsamen Kontingents.
+3. `<iframe src="https://c.com/">` erhält kein Kontingent.
 
-### Zuweisen der vollen Quote an ein weiteres Subframe
+### Gewährung des vollen Kontingents an einen weiteren Unterrahmen
 
-Angenommen, ein Top-Level-Dokument auf `a.com`, das ein `<iframe src="https://b.com/">` einbettet, das ein `<iframe src="https://c.com/">` einbettet.
+Angenommen, ein Hauptdokument auf `a.com`, das ein `<iframe src="https://b.com/">` einbettet, das ein `<iframe src="https://c.com/">` einbettet.
 
-Angenommen, `a.com` hat die folgende Permissions Policy:
+Angenommen, dass `a.com` die folgende Berechtigungsrichtlinie hat:
 
 ```http
 Permissions-Policy: deferred-fetch=("https://c.com" "https://c.com")
 ```
 
-Und, angenommen, `b.com` hat die folgende Permissions Policy:
+Und, angenommen, dass `b.com` die folgende Berechtigungsrichtlinie hat:
 
 ```http
 Permissions-Policy: deferred-fetch=("https://c.com")
 ```
 
-1. Der Top-Level-Frame von `a.com` hat die Standard-512KiB-Quote.
-2. `<iframe src="https://b.com/">` erhält 64KiB der Standard-Quote.
-3. `<iframe src="https://b.com/">` delegiert seine gesamte Quote von 8KiB an `c.com`. `b.com` kann `fetchLater()` nicht verwenden.
-4. `<iframe src="https://c.com/">` erhält 8KiB an Quote.
+1. Der Hauptframe von `a.com` hat das Standard 512KiB Kontingent.
+2. `<iframe src="https://b.com/">` erhält 64KiB des Standardkontingents.
+3. `<iframe src="https://b.com/">` delegiert sein volles Kontingent von 8KiB an `c.com`. `b.com` kann `fetchLater()` nicht verwenden.
+4. `<iframe src="https://c.com/">` erhält 8KiB Kontingent.
 
-### Umleitungen übertragen keine Quote
+### Redirects übertragen kein Kontingent
 
-Angenommen, ein Top-Level-Dokument auf `a.com`, das ein `<iframe src="https://b.com/">` einbettet, das auf `c.com` umleitet, ohne explizite Top-Level-Berechtigungsrichtlinien.
+Angenommen, ein Hauptdokument auf `a.com`, das ein `<iframe src="https://b.com/">` einbettet, das zu `c.com` weiterleitet, und keine expliziten Berechtigungsrichtlinien auf oberster Ebene.
 
-1. Der Top-Level-Frame von `a.com` hat die Standard-512KiB-Quote.
-2. `<iframe src="https://b.com/">` erhält 8KiB der Standard-gemeinsamen Quote.
-3. Die 8KiB wird nicht an `c.com` übertragen, wenn `<iframe src="https://b.com/">` dorthin umleitet, aber die 8KiB werden nicht freigegeben.
+1. Der Hauptframe von `a.com` hat das Standard 512KiB Kontingent.
+2. `<iframe src="https://b.com/">` erhält 8KiB des Standard gemeinsamen Kontingents.
+3. Die 8KiB werden nicht auf `c.com` übertragen, wenn `<iframe src="https://b.com/">` dorthin umleitet, aber die 8KiB werden nicht freigegeben.
 
-### Umleitungen von Subframes zurück zum Top-Level-Ursprung erlauben die Nutzung der Top-Level-Quote
+### Redirects von Unterrahmen zurück zum Hauptursprung erlauben die Nutzung des Hauptkontingents
 
-Angenommen, ein Top-Level-Dokument auf `a.com`, das ein `<iframe src="https://b.com/">` einbettet, das auf `a.com` umleitet, ohne explizite Top-Level-Berechtigungsrichtlinien.
+Angenommen, ein Hauptdokument auf `a.com`, das ein `<iframe src="https://b.com/">` einbettet, das zu `a.com` weiterleitet, und keine expliziten Berechtigungsrichtlinien auf oberster Ebene.
 
-1. Der Top-Level-Frame von `a.com` hat die Standard-512KiB-Quote.
-2. `<iframe src="https://b.com/">` erhält 8KiB der Standard-gemeinsamen Quote.
-3. Die 8KiB wird nicht an `a.com` übertragen, wenn `<iframe src="https://b.com/">` dorthin umleitet, aber es kann erneut die volle Top-Level-Quote teilen, und die 8KiB werden freigegeben.
+1. Der Hauptframe von `a.com` hat das Standard 512KiB Kontingent.
+2. `<iframe src="https://b.com/">` erhält 8KiB des Standard gemeinsamen Kontingents.
+3. Die 8KiB werden nicht auf `a.com` übertragen, wenn `<iframe src="https://b.com/">` dorthin umleitet, aber sie können das volle Hauptkontingent wieder nutzen, und die 8KiB werden freigegeben.
 
 ### Beispiele, die einen `QuotaExceededError` auslösen
 
@@ -178,7 +178,7 @@ fetchLater(a_62_kib_url /* with a 3kb referrer */);
 
 ### Beispiele, die schließlich einen `QuotaExceededError` auslösen
 
-In der folgenden Sequenz, die im Top-Level-Dokument enthalten ist, würden die ersten beiden Anfragen erfolgreich sein, aber die dritte würde auslösen. Denn, obwohl die Gesamt-640KiB-Quote nicht überschritten wurde, übersteigt die dritte Anfrage die Reporting-Origin-Quote für `https://a.example.com` und würde auslösen.
+In der folgenden Sequenz, die im Hauptdokument enthalten ist, würden die ersten beiden Anfragen erfolgreich sein, aber die dritte würde fehlschlagen. Das liegt daran, dass die dritte Anfrage, obwohl das gesamte 640KiB Kontingent nicht überschritten wurde, das Berichtsursprungskontingent für `https://a.example.com` überschreitet und eine Ausnahme auslöst.
 
 ```js
 fetchLater("https://a.example.com", { method: "POST", body: a_40kb_body });

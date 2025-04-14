@@ -2,30 +2,30 @@
 title: CommandEvent
 slug: Web/API/CommandEvent
 l10n:
-  sourceCommit: 0acc152bfff15e69e458c6d99902061951588b1e
+  sourceCommit: af550427ce6ddc8b22dae1f6c8a109ed4a5fbd91
 ---
 
-{{APIRef("Invoker Commands API")}}{{SeeCompatTable}}
+{{APIRef("Invoker Commands API")}}
 
-Die **`CommandEvent`**-Schnittstelle stellt ein Ereignis dar, das den Benutzer benachrichtigt, wenn ein [`button`](/de/docs/Web/API/HTMLButtonElement)-Element mit gültigen Attributen [`commandForElement`](/de/docs/Web/API/HTMLButtonElement/commandForElement) und [`command`](/de/docs/Web/API/HTMLButtonElement/command) ein interaktives Element auslösen soll.
+Das **`CommandEvent`**-Interface stellt ein Ereignis dar, das den Benutzer benachrichtigt, wenn ein [`button`](/de/docs/Web/API/HTMLButtonElement)-Element mit gültigen [`commandForElement`](/de/docs/Web/API/HTMLButtonElement/commandForElement)- und [`command`](/de/docs/Web/API/HTMLButtonElement/command)-Attributen ein interaktives Element aufrufen soll.
 
-Dies ist das Ereignisobjekt für das `HTMLElement`-[`command`](/de/docs/Web/API/HTMLElement/command_event)-Ereignis, das eine Aktion eines "Invoker Control" repräsentiert, wenn es ausgelöst wird (zum Beispiel durch Klick oder Drücken).
+Dies ist das Ereignisobjekt für das `HTMLElement`-[`command`](/de/docs/Web/API/HTMLElement/command_event)-Ereignis, das eine Aktion von einem Invoker Control darstellt, wenn es aufgerufen wird (zum Beispiel, wenn es geklickt oder gedrückt wird).
 
 {{InheritanceDiagram}}
 
 ## Konstruktor
 
-- [`CommandEvent()`](/de/docs/Web/API/CommandEvent/CommandEvent) {{experimental_inline}}
+- [`CommandEvent()`](/de/docs/Web/API/CommandEvent/CommandEvent)
   - : Erstellt ein `CommandEvent`-Objekt.
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
-_Diese Schnittstelle erbt Eigenschaften von ihrem Elternobjekt [`Event`](/de/docs/Web/API/Event)._
+_Dieses Interface erbt Eigenschaften von seinem Elternteil, [`Event`](/de/docs/Web/API/Event)._
 
-- [`CommandEvent.source`](/de/docs/Web/API/CommandEvent/source) {{ReadOnlyInline}} {{experimental_inline}}
-  - : Ein [`HTMLButtonElement`](/de/docs/Web/API/HTMLButtonElement), das den Button repräsentiert, der diese Ausführung ausgelöst hat.
-- [`CommandEvent.command`](/de/docs/Web/API/CommandEvent/command) {{ReadOnlyInline}} {{experimental_inline}}
-  - : Ein String, der den [`command`](/de/docs/Web/API/HTMLButtonElement/command)-Wert des verursachenden Buttons darstellt.
+- [`CommandEvent.source`](/de/docs/Web/API/CommandEvent/source) {{ReadOnlyInline}}
+  - : Ein [`HTMLButtonElement`](/de/docs/Web/API/HTMLButtonElement), das den Button repräsentiert, der diese Auslösung verursacht hat.
+- [`CommandEvent.command`](/de/docs/Web/API/CommandEvent/command) {{ReadOnlyInline}}
+  - : Ein String, der den [`command`](/de/docs/Web/API/HTMLButtonElement/command)-Wert des Quell-Buttons darstellt.
 
 ## Beispiele
 

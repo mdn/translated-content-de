@@ -2,14 +2,14 @@
 title: -moz-image-region
 slug: Web/CSS/-moz-image-region
 l10n:
-  sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
+  sourceCommit: 0d43b58f31f30e5dbafd9c117a467e389cc8b176
 ---
 
 {{CSSRef}}{{Non-standard_Header}}
 
-Für bestimmte XUL-Elemente und Pseudo-Elemente, die ein Bild aus der {{CSSxRef("list-style-image")}}-Eigenschaft verwenden, gibt diese Eigenschaft einen Bereich des Bildes an, der anstelle des gesamten Bildes genutzt wird. Dadurch können verschiedene Teile desselben Bildes von Elementen verwendet werden, um die Leistung zu verbessern.
+Für bestimmte XUL-Elemente und Pseudo-Elemente, die ein Bild aus der Eigenschaft {{CSSxRef("list-style-image")}} verwenden, gibt diese Eigenschaft einen Bereich des Bildes an, der anstelle des gesamten Bildes genutzt wird. Dies ermöglicht es Elementen, verschiedene Teile desselben Bildes zu verwenden, um die Leistung zu verbessern.
 
-Die Syntax ist der {{CSSxRef("clip")}}-Eigenschaft ähnlich. Alle vier Werte beziehen sich auf die obere linke Ecke des Bildes.
+Die Syntax ist ähnlich wie bei der Eigenschaft {{CSSxRef("clip")}}. Alle vier Werte beziehen sich auf die obere linke Ecke des Bildes.
 
 ## Syntax
 
@@ -29,9 +29,9 @@ Die Syntax ist der {{CSSxRef("clip")}}-Eigenschaft ähnlich. Alle vier Werte bez
 ### Werte
 
 - `auto`
-  - : Definiert automatisch den Bereich des Bildes, der verwendet werden soll.
+  - : Definiert automatisch den zu verwendenden Bereich des Bildes.
 - [`<shape>`](/de/docs/Web/CSS/shape)
-  - : Eine Form, die den zu verwendenden Teil des Bildes definiert. Die `rect()`-Funktion definiert ein Rechteck, das als Form verwendet wird. Ihre Parameter definieren die oberen, rechten, unteren und linken Abstände der Bildränder in dieser Reihenfolge.
+  - : Eine Form, die den zu verwendenden Teil des Bildes definiert. Die Funktion `rect()` definiert ein Rechteck, das als Form verwendet wird. Ihre Parameter definieren die oberen, rechten, unteren und linken Abstände der Kanten des Bildes, in dieser Reihenfolge.
 
 ## Formale Definition
 
@@ -39,10 +39,7 @@ Die Syntax ist der {{CSSxRef("clip")}}-Eigenschaft ähnlich. Alle vier Werte bez
 
 ## Formale Syntax
 
-```plain
- -moz-image-region =
-   <shape> | auto
-```
+{{CSSSyntaxRaw(`-moz-image-region = <shape> | auto`)}}
 
 ## Beispiele
 
@@ -62,7 +59,7 @@ Die Syntax ist der {{CSSxRef("clip")}}-Eigenschaft ähnlich. Alle vier Werte bez
 
 ## Spezifikationen
 
-Nicht Teil eines Standards.
+Kein Bestandteil eines Standards.
 
 ## Browser-Kompatibilität
 

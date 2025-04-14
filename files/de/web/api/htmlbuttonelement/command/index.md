@@ -3,14 +3,14 @@ title: "HTMLButtonElement: command-Eigenschaft"
 short-title: command
 slug: Web/API/HTMLButtonElement/command
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: af550427ce6ddc8b22dae1f6c8a109ed4a5fbd91
 ---
 
-{{APIRef("Invoker Commands API")}}{{SeeCompatTable}}
+{{APIRef("Invoker Commands API")}}
 
-Die **`command`**-Eigenschaft des [`HTMLButtonElement`](/de/docs/Web/API/HTMLButtonElement)-Interfaces setzt und erhält die Aktion, die auf einem Element ausgeführt werden soll, das durch diesen Button gesteuert wird. Damit dies Wirkung zeigt, muss [`commandfor`](/de/docs/Web/HTML/Reference/Elements/button#commandfor) gesetzt sein.
+Die **`command`**-Eigenschaft der [`HTMLButtonElement`](/de/docs/Web/API/HTMLButtonElement)-Schnittstelle erhält und setzt die Aktion, die auf ein Element ausgeführt werden soll, das von diesem Button gesteuert wird. Damit dies eine Wirkung hat, muss [`commandfor`](/de/docs/Web/HTML/Reference/Elements/button#commandfor) gesetzt sein.
 
-Sie spiegelt das [`command`](/de/docs/Web/HTML/Reference/Elements/button#command)-HTML-Attribut wider.
+Sie spiegelt das HTML-Attribut [`command`](/de/docs/Web/HTML/Reference/Elements/button#command) wider.
 
 ## Wert
 
@@ -37,7 +37,7 @@ const toggleBtn = document.getElementById("toggleBtn");
 toggleBtn.command = "show-popover";
 ```
 
-### Benutzerdefiniertes Beispiel unter Verwendung von Ereignissen
+### Benutzerdefiniertes Beispiel, mit Ereignissen
 
 ```html
 <button commandfor="the-image" command="--rotate-left">Rotate Left</button>
