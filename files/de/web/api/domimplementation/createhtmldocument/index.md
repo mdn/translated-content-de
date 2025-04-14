@@ -1,14 +1,14 @@
 ---
-title: "DOMImplementation: createHTMLDocument()-Methode"
+title: "DOMImplementation: createHTMLDocument() Methode"
 short-title: createHTMLDocument()
 slug: Web/API/DOMImplementation/createHTMLDocument
 l10n:
-  sourceCommit: 23e1a97d50050a3b3518a4b2f67ccf42e5fd75b7
+  sourceCommit: 874ad29df9150037acb8a4a3e7550a302c90a080
 ---
 
 {{ApiRef("DOM")}}
 
-Die Methode **`DOMImplementation.createHTMLDocument()`** erstellt ein neues HTML-[`Document`](/de/docs/Web/API/Document).
+Die **`DOMImplementation.createHTMLDocument()`** Methode erstellt ein neues HTML-[`Dokument`](/de/docs/Web/API/Document).
 
 ## Syntax
 
@@ -20,11 +20,11 @@ createHTMLDocument(title)
 ### Parameter
 
 - `title` {{optional_inline}}
-  - : Ein String, der den Titel enthält, der dem neuen HTML-Dokument gegeben werden soll.
+  - : Ein String, der den Titel des neuen HTML-Dokuments enthält.
 
 ### Rückgabewert
 
-Ein neues HTML-[`Document`](/de/docs/Web/API/Document)-Objekt.
+Ein neues HTML-[`Dokument`](/de/docs/Web/API/Document)-Objekt.
 
 ## Beispiele
 
@@ -38,7 +38,7 @@ Hier ist das HTML für dieses Beispiel:
     Click <a href="javascript:makeDocument()">here</a> to create a new document
     and insert it below.
   </p>
-  <iframe id="theFrame" src="about:blank" />
+  <iframe id="theFrame" src="about:blank"></iframe>
 </body>
 ```
 
@@ -68,13 +68,13 @@ function makeDocument() {
 }
 ```
 
-Der Code behandelt das Erstellen des neuen HTML-Dokuments und das Einfügen einiger Inhalte darin. `createHTMLDocument()` konzipiert ein neues HTML-Dokument, dessen {{HTMLElement("title")}} `"New Document"` ist. Dann erstellen wir ein neues Paragraphen-Element mit einigem einfachen Inhalt und fügen den neuen Paragraphen in das neue Dokument ein.
+Der Code kümmert sich um die Erstellung des neuen HTML-Dokuments und das Einfügen von Inhalten in dieses. `createHTMLDocument()` erstellt ein neues HTML-Dokument, dessen {{ HTMLElement("title") }} `"New Document"` ist. Dann erstellen wir ein neues Absatz-Element mit einfachem Inhalt, und der neue Absatz wird in das neue Dokument eingefügt.
 
-`destDocument` speichert das `contentDocument` des Rahmens; dies ist das Dokument, in das wir die neuen Inhalte einfügen werden. Die nächsten beiden Zeilen behandeln den Import der Inhalte unseres neuen Dokuments in den Kontext des neuen Dokuments. Schließlich ersetzt `destDocument.replaceChild` tatsächlich die Inhalte des Rahmens durch die Inhalte des neuen Dokuments.
+`destDocument` speichert das `contentDocument` des Rahmens; dies ist das Dokument, in das wir den neuen Inhalt einfügen werden. Die nächsten zwei Zeilen kümmern sich um den Import der Inhalte unseres neuen Dokuments in den Kontext des neuen Dokuments. Schließlich ersetzt `destDocument.replaceChild` tatsächlich den Inhalt des Rahmens mit dem Inhalt des neuen Dokuments.
 
-[Live-Beispiele anzeigen](https://mdn.dev/archives/media/samples/domref/createHTMLDocument.html)
+[Live-Beispiele ansehen](https://mdn.dev/archives/media/samples/domref/createHTMLDocument.html)
 
-Das zurückgegebene Dokument ist mit dem folgenden HTML vorstrukturiert:
+Das zurückgegebene Dokument ist mit folgendem HTML vorab erstellt:
 
 ```html
 <!doctype html>

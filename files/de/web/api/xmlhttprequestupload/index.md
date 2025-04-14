@@ -2,52 +2,52 @@
 title: XMLHttpRequestUpload
 slug: Web/API/XMLHttpRequestUpload
 l10n:
-  sourceCommit: b668655509b77be22798a816067859a51f77eb36
+  sourceCommit: 874ad29df9150037acb8a4a3e7550a302c90a080
 ---
 
 {{APIRef("XMLHttpRequest API")}} {{AvailableInWorkers("window_and_worker_except_service")}}
 
-Die **`XMLHttpRequestUpload`** Schnittstelle repräsentiert den Hochladeprozess für einen spezifischen [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest). Es ist ein _opakes_ Objekt, das den zugrunde liegenden, browserabhängigen Hochladeprozess darstellt. Es ist ein [`XMLHttpRequestEventTarget`](/de/docs/Web/API/XMLHttpRequestEventTarget) und kann durch Aufrufen von [`XMLHttpRequest.upload`](/de/docs/Web/API/XMLHttpRequest/upload) erhalten werden.
+Das **`XMLHttpRequestUpload`** Interface repräsentiert den Upload-Vorgang für ein spezifisches [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest). Es ist ein _opakes_ Objekt, das den zugrunde liegenden, browserabhängigen Upload-Prozess darstellt. Es ist ein [`XMLHttpRequestEventTarget`](/de/docs/Web/API/XMLHttpRequestEventTarget) und kann durch Aufrufen von [`XMLHttpRequest.upload`](/de/docs/Web/API/XMLHttpRequest/upload) erhalten werden.
 
 {{InheritanceDiagram}}
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-_Diese Schnittstelle hat keine spezifischen Eigenschaften, erbt jedoch die Eigenschaften von [`XMLHttpRequestEventTarget`](/de/docs/Web/API/XMLHttpRequestEventTarget) und von [`EventTarget`](/de/docs/Web/API/EventTarget)._
+_Dieses Interface hat keine spezifische Eigenschaft, erbt jedoch die Eigenschaften von [`XMLHttpRequestEventTarget`](/de/docs/Web/API/XMLHttpRequestEventTarget) und von [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
-## Instanz-Methoden
+## Instanzmethoden
 
-_Diese Schnittstelle hat keine spezifischen Methoden, erbt jedoch die Methoden von [`XMLHttpRequestEventTarget`](/de/docs/Web/API/XMLHttpRequestEventTarget) und von [`EventTarget`](/de/docs/Web/API/EventTarget)._
+_Dieses Interface hat keine spezifische Methode, erbt jedoch die Methoden von [`XMLHttpRequestEventTarget`](/de/docs/Web/API/XMLHttpRequestEventTarget) und von [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
 ## Ereignisse
 
 - [`abort`](/de/docs/Web/API/XMLHttpRequestUpload/abort_event)
-  - : Wird ausgelöst, wenn eine Anfrage abgebrochen wurde, zum Beispiel, weil das Programm [`XMLHttpRequest.abort()`](/de/docs/Web/API/XMLHttpRequest/abort) aufgerufen hat.
-    Auch über die `onabort` Ereignishandler-Eigenschaft verfügbar.
+  - : Tritt auf, wenn eine Anforderung abgebrochen wurde, zum Beispiel weil das Programm [`XMLHttpRequest.abort()`](/de/docs/Web/API/XMLHttpRequest/abort) aufgerufen hat.
+    Auch verfügbar über die `onabort` Ereignis-Handler-Eigenschaft.
 - [`error`](/de/docs/Web/API/XMLHttpRequestUpload/error_event)
-  - : Wird ausgelöst, wenn die Anfrage auf einen Fehler gestoßen ist.
-    Auch über die `onerror` Ereignishandler-Eigenschaft verfügbar.
+  - : Tritt auf, wenn die Anforderung auf einen Fehler gestoßen ist.
+    Auch verfügbar über die `onerror` Ereignis-Handler-Eigenschaft.
 - [`load`](/de/docs/Web/API/XMLHttpRequestUpload/load_event)
-  - : Wird ausgelöst, wenn eine Anfragetransaktion erfolgreich abgeschlossen wurde.
-    Auch über die `onload` Ereignishandler-Eigenschaft verfügbar.
+  - : Tritt auf, wenn eine Anforderungstransaktion erfolgreich abgeschlossen wurde.
+    Auch verfügbar über die `onload` Ereignis-Handler-Eigenschaft.
 - [`loadend`](/de/docs/Web/API/XMLHttpRequestUpload/loadend_event)
-  - : Wird ausgelöst, wenn eine Anfrage abgeschlossen wurde, egal ob erfolgreich (nach [`load`](/de/docs/Web/API/XMLHttpRequest/load_event)) oder erfolglos (nach [`abort`](/de/docs/Web/API/XMLHttpRequestUpload/abort_event) oder [`error`](/de/docs/Web/API/XMLHttpRequest/error_event)).
-    Auch über die `onloadend` Ereignishandler-Eigenschaft verfügbar.
+  - : Tritt auf, wenn eine Anforderung abgeschlossen wurde, egal ob erfolgreich (nach [`load`](/de/docs/Web/API/XMLHttpRequest/load_event)) oder erfolglos (nach [`abort`](/de/docs/Web/API/XMLHttpRequestUpload/abort_event) oder [`error`](/de/docs/Web/API/XMLHttpRequest/error_event)).
+    Auch verfügbar über die `onloadend` Ereignis-Handler-Eigenschaft.
 - [`loadstart`](/de/docs/Web/API/XMLHttpRequestUpload/loadstart_event)
-  - : Wird ausgelöst, wenn eine Anfrage begonnen hat Daten zu laden.
-    Auch über die `onloadstart` Ereignishandler-Eigenschaft verfügbar.
+  - : Tritt auf, wenn eine Anforderung begonnen hat, Daten zu laden.
+    Auch verfügbar über die `onloadstart` Ereignis-Handler-Eigenschaft.
 - [`progress`](/de/docs/Web/API/XMLHttpRequestUpload/progress_event)
-  - : Wird regelmäßig ausgelöst, wenn eine Anfrage mehr Daten erhält.
-    Auch über die `onprogress` Ereignishandler-Eigenschaft verfügbar.
+  - : Tritt periodisch auf, wenn eine Anforderung mehr Daten empfängt.
+    Auch verfügbar über die `onprogress` Ereignis-Handler-Eigenschaft.
 - [`timeout`](/de/docs/Web/API/XMLHttpRequestUpload/timeout_event)
-  - : Wird ausgelöst, wenn der Fortschritt beendet wird, da die voreingestellte Zeit abgelaufen ist.
-    Auch über die `ontimeout` Ereignishandler-Eigenschaft verfügbar.
+  - : Tritt auf, wenn der Fortschritt aufgrund abgelaufener voreingestellter Zeit beendet wird.
+    Auch verfügbar über die `ontimeout` Ereignis-Handler-Eigenschaft.
 
 ## Beispiele
 
-### Hochladen einer Datei mit einem Zeitlimit
+### Hochladen einer Datei mit einem Timeout
 
-Dies ermöglicht Ihnen das Hochladen einer Datei auf einen Server; es zeigt einen Fortschrittsbalken während des Hochladens, sowie eine Nachricht mit dem Fortschritt und den Ergebnissen, Erfolg oder Misserfolg. Eine Abbrechen-Schaltfläche ermöglicht das Stoppen eines Uploads.
+Dies ermöglicht Ihnen, eine Datei auf einen Server hochzuladen; es zeigt eine Fortschrittsanzeige, während der Upload durchgeführt wird, sowie eine Nachricht mit dem Fortschritt und den Ergebnissen, Erfolg oder Misserfolg. Ein Abbruch-Button ermöglicht es, einen Upload zu stoppen.
 
 #### HTML
 
@@ -68,7 +68,7 @@ Dies ermöglicht Ihnen das Hochladen einer Datei auf einen Server; es zeigt eine
         <label for="file">File to upload</label><input type="file" id="file" />
       </p>
       <p>
-        <progress />
+        <progress></progress>
       </p>
       <p>
         <output></output>

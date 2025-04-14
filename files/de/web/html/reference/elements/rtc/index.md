@@ -2,26 +2,26 @@
 title: "<rtc>: Das Ruby Text Container-Element"
 slug: Web/HTML/Reference/Elements/rtc
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: 874ad29df9150037acb8a4a3e7550a302c90a080
 ---
 
 {{HTMLSidebar}}{{deprecated_header}}
 
-Das **`<rtc>`** [HTML](/de/docs/Web/HTML)-Element umfasst semantische Annotationen von Zeichen, die in einem Ruby aus {{HTMLElement("rb")}}-Elementen präsentiert werden, die innerhalb eines {{HTMLElement("ruby")}}-Elements verwendet werden. {{HTMLElement("rb")}}-Elemente können sowohl Aussprache- ({{HTMLElement("rt")}}) als auch semantische (`<rtc>`) Annotationen haben.
+Das **`<rtc>`** [HTML](/de/docs/Web/HTML)-Element umfasst semantische Anmerkungen von Zeichen, die in einer Ruby von {{HTMLElement("rb")}}-Elementen präsentiert werden, die innerhalb eines {{HTMLElement("ruby")}}-Elements verwendet werden. {{HTMLElement("rb")}}-Elemente können sowohl Aussprache- ({{HTMLElement("rt")}}) als auch semantische (`<rtc>`) Anmerkungen haben.
 
 {{InteractiveExample("HTML Demo: &lt;rtc&gt;", "tabbed-standard")}}
 
 ```html interactive-example
 <ruby xml:lang="zh-Hant" style="ruby-position: under;">
-    <rbc>
-        <rb>馬</rb><rp>(</rp><rt>mǎ</rt><rp>)</rp>
-        <rb>來</rb><rp>(</rp><rt>lái</rt><rp>)</rp>
-        <rb>西</rb><rp>(</rp><rt>xī</rt><rp>)</rp>
-        <rb>亞</rb><rp>(</rp><rt>yà</rt><rp>)</rp>
-    </rbc>
-    <rtc xml:lang="en" style="ruby-position: over;">
-        <rp>(</rp><rt>Malaysia</rt><rp>)</rp>
-    </rtc>
+  <rbc>
+    <rb>馬</rb><rp>(</rp><rt>mǎ</rt><rp>)</rp>
+    <rb>來</rb><rp>(</rp><rt>lái</rt><rp>)</rp>
+    <rb>西</rb><rp>(</rp><rt>xī</rt><rp>)</rp>
+    <rb>亞</rb><rp>(</rp><rt>yà</rt><rp>)</rp>
+  </rbc>
+  <rtc xml:lang="en" style="ruby-position: over;">
+    <rp>(</rp><rt>Malaysia</rt><rp>)</rp>
+  </rtc>
 </ruby>
 ```
 
@@ -33,7 +33,7 @@ ruby {
 
 ## Attribute
 
-Dieses Element umfasst nur die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
+Dieses Element enthält nur die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
 ## Beispiele
 
@@ -77,7 +77,7 @@ Dieses Element umfasst nur die [globalen Attribute](/de/docs/Web/HTML/Reference/
       <th scope="row">Erlaubter Inhalt</th>
       <td>
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Auszeichnungselemente</a
+          >Phrasierungsinhalt</a
         >
         oder {{HTMLElement("rt")}}-Elemente.
       </td>
@@ -85,10 +85,10 @@ Dieses Element umfasst nur die [globalen Attribute](/de/docs/Web/HTML/Reference/
     <tr>
       <th scope="row">Tag-Auslassung</th>
       <td>
-        Der Schlusstag kann weggelassen werden, wenn er direkt von einem
+        Das schließende Tag kann weggelassen werden, wenn es unmittelbar von einem
         {{HTMLElement("rb")}}, <code>&lt;rtc&gt;</code> oder
-        {{HTMLElement("rt")}}-Element-Öffnungstag oder von seinem Eltern-
-        Schlusstag gefolgt wird.
+        {{HTMLElement("rt")}}-Element-Öffnungstag oder vom parent
+        Schließ-Tag gefolgt wird.
       </td>
     </tr>
     <tr>

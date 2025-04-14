@@ -3,7 +3,7 @@ title: "Element: ariaColSpan-Eigenschaft"
 short-title: ariaColSpan
 slug: Web/API/Element/ariaColSpan
 l10n:
-  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
+  sourceCommit: 874ad29df9150037acb8a4a3e7550a302c90a080
 ---
 
 {{APIRef("DOM")}}
@@ -16,14 +16,14 @@ Ein String, der eine Ganzzahl enthält.
 
 ## Beispiele
 
-In diesem Beispiel wird das `aria-colspan`-Attribut am Element mit der ID `spanning-heading` auf "2" gesetzt. Mit `ariaColSpan` aktualisieren wir den Wert auf "3".
+In diesem Beispiel wird das `aria-colspan`-Attribut des Elements mit der ID `spanning-heading` auf "2" gesetzt. Mit `ariaColSpan` aktualisieren wir den Wert auf "3".
 
 ```html
 <table>
   <tr>
     <th>Heading 1</th>
     <th>Heading 2</th>
-    <th>Heading 3</td>
+    <th>Heading 3</th>
   </tr>
   <tr>
     <td colspan="2" aria-colspan="2" id="spanning-column">Spanning</td>
@@ -49,4 +49,4 @@ console.log(el.ariaColSpan);
 
 ## Siehe auch
 
-- [ARIA: Tabellenrolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles/table_role)
+- [ARIA: table role](/de/docs/Web/Accessibility/ARIA/Reference/Roles/table_role)

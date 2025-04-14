@@ -2,48 +2,49 @@
 title: Screen Wake Lock API
 slug: Web/API/Screen_Wake_Lock_API
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: 874ad29df9150037acb8a4a3e7550a302c90a080
 ---
 
 {{DefaultAPISidebar("Screen Wake Lock API")}}{{securecontext_header}}
 
-Die **Screen Wake Lock API** bietet eine Möglichkeit, zu verhindern, dass Gerätebildschirme gedimmt oder gesperrt werden, wenn eine Anwendung weiterhin aktiv bleiben muss.
+Die **Screen Wake Lock API** bietet eine Möglichkeit, zu verhindern, dass Geräte den Bildschirm dimmen oder sperren, wenn eine Anwendung weiterhin aktiv bleiben muss.
 
-## Konzepte und Nutzung
+## Konzepte und Verwendung
 
-Die meisten Geräte schalten ihren Bildschirm standardmäßig nach einer bestimmten Zeit ab, um die Lebensdauer der Hardware zu verlängern. Moderne Geräte tun dies, um Batterieleistung zu sparen. Obwohl dies eine nützliche Funktion ist, benötigen einige Anwendungen, dass der Bildschirm wach bleibt, um optimal genutzt zu werden.
+Die meisten Geräte schalten standardmäßig ihren Bildschirm nach einer festgelegten Zeit aus, um die Lebensdauer der Hardware zu verlängern. Moderne Geräte tun dies, um Batterieleistung zu sparen. Während dies eine nützliche Funktion ist, benötigen einige Anwendungen, dass der Bildschirm eingeschaltet bleibt, um ihre volle Nützlichkeit zu entfalten.
 
-Die Screen Wake Lock API verhindert, dass der Bildschirm ausgeschaltet, gedimmt oder gesperrt wird. Sie bietet eine einfache plattformbasierte Lösung, damit sichtbare (aktive) Dokumente die Plattform-Bildschirm-Wachhaltung ("screen wake lock") erwerben können.
+Die Screen Wake Lock API verhindert, dass der Bildschirm ausgeschaltet, gedimmt oder gesperrt wird. Sie bietet eine einfache, plattformbasierte Lösung für sichtbare (aktive) Dokumente, um die Plattformbildschirm-Wake-Sperre zu erwerben.
 
-Es gibt viele Anwendungsfälle, bei denen es sinnvoll ist, den Bildschirm eingeschaltet zu lassen, wie beim Lesen eines E-Books, bei der Navigation mit einer Karte, beim Folgen eines Rezepts, bei einer Präsentation vor einem Publikum, beim Scannen eines QR-/Barcodes oder bei Anwendungen, die Sprach- oder Gestensteuerung nutzen, anstatt taktile Eingaben (die Standardmethode zum Wachhalten eines Bildschirms).
+Es gibt viele Anwendungsfälle dafür, den Bildschirm eingeschaltet zu halten, darunter das Lesen eines E-Books, die Navigation mit einer Karte, das Folgen eines Rezepts, das Präsentieren vor einem Publikum, das Scannen eines QR-/Barcodes oder Anwendungen, die Sprach- oder Gestensteuerung anstelle von Berührungseingaben verwenden (die standardmäßige Methode, um den Bildschirm wach zu halten).
 
-Sie erhalten ein [`WakeLockSentinel`](/de/docs/Web/API/WakeLockSentinel)-Objekt, indem Sie die [`navigator.wakeLock.request()`](/de/docs/Web/API/WakeLock/request) {{jsxref('Promise')}}-basierte Methode aufrufen, die aufgelöst wird, wenn die Plattform dies zulässt. Ein Antrag kann aus verschiedenen Gründen abgelehnt werden, einschließlich Systemeinstellungen (wie Energiesparmodus oder niedrigem Batteriestand) oder wenn das Dokument nicht aktiv oder sichtbar ist. Es ist eine gute Praxis, eine Referenz auf das Sentinel-Objekt zu speichern, um die Anwendung später steuern zu lassen, ob sie es freigeben möchte.
+Sie erhalten ein [`WakeLockSentinel`](/de/docs/Web/API/WakeLockSentinel)-Objekt, indem Sie die auf dem {{jsxref('Promise')}} basierende Methode [`navigator.wakeLock.request()`](/de/docs/Web/API/WakeLock/request) aufrufen, die aufgelöst wird, wenn die Plattform dies zulässt. Eine Anfrage kann aus verschiedenen Gründen abgelehnt werden, einschließlich Systemeinstellungen (wie Energiesparmodus oder niedrigem Batteriestand) oder wenn das Dokument nicht aktiv oder sichtbar ist. Es ist eine gute Praxis, einen Verweis auf das Sentinel-Objekt zu speichern, damit die Anwendung später die Freigabe steuern kann.
 
-Das Sentinel ist an das zugrundeliegende System-Wachhaltungssystem gebunden. Es kann vom System freigegeben werden, wenn beispielsweise die Batterieleistung zu niedrig ist oder das Dokument nicht aktiv oder sichtbar ist. Es kann auch manuell über die [`WakeLockSentinel.release()`](/de/docs/Web/API/WakeLockSentinel/release)-Methode freigegeben werden. Nachdem es freigegeben wurde, kann ein `WakeLockSentinel` nicht mehr verwendet werden. Wenn eine Bildschirm-Wachhaltung erneut/immer noch erforderlich ist, muss die Anwendung eine neue anfordern.
+Das Sentinel ist mit der zugrunde liegenden System-Wake-Sperre verbunden. Es kann vom System freigegeben werden, z. B. wenn die Batterieleistung zu niedrig ist oder das Dokument nicht aktiv oder sichtbar ist. Es kann auch manuell über die Methode [`WakeLockSentinel.release()`](/de/docs/Web/API/WakeLockSentinel/release) freigegeben werden. Nach der Freigabe kann ein `WakeLockSentinel` nicht mehr verwendet werden. Wenn erneut eine Bildschirm-Wake-Sperre erforderlich ist, muss die Anwendung eine neue anfordern.
 
-Die Screen Wake Lock API sollte verwendet werden, um den Bildschirm zur Verbesserung der Benutzerfreundlichkeit eingeschaltet zu lassen. Es ist eine gute Idee, auf der Benutzeroberfläche ein Feedback anzuzeigen, um zu zeigen, ob die Wachhaltung aktiv ist, und dem Benutzer eine Möglichkeit zu geben, sie zu deaktivieren, wenn er dies wünscht.
+Die Screen Wake Lock API sollte verwendet werden, um den Bildschirm zum Vorteil der Benutzerfreundlichkeit eingeschaltet zu halten. Es ist eine gute Idee, eine Rückmeldung auf der Benutzeroberfläche anzuzeigen, um zu zeigen, ob die Wake-Sperre aktiv ist, und dem Benutzer die Möglichkeit zu geben, sie zu deaktivieren, wenn er es wünscht.
 
 ## Schnittstellen
 
 - [`WakeLock`](/de/docs/Web/API/WakeLock)
-  - : Verhindert, dass sich Bildschirme von Geräten dimmen oder sperren, wenn eine Anwendung weiterhin laufen muss.
+  - : Verhindert, dass Gerätebildschirme gedimmt oder gesperrt werden, wenn eine Anwendung weiterhin ausgeführt werden muss.
 - [`WakeLockSentinel`](/de/docs/Web/API/WakeLockSentinel)
-  - : Bietet Zugriff auf die zugrundeliegende Plattform-Wachhaltung und kann manuell freigegeben und erneut angefordert werden, wenn es referenziert wird. Erhalten Sie eine Instanz des Objekts, indem Sie [`WakeLock.request`](/de/docs/Web/API/WakeLock/request) aufrufen.
+  - : Bietet einen Zugriff auf die zugrunde liegende Plattform-Wake-Sperre und kann manuell freigegeben und erneut erworben werden, wenn darauf verwiesen wird. Holen Sie sich eine Instanz des Objekts, indem Sie [`WakeLock.request`](/de/docs/Web/API/WakeLock/request) aufrufen.
 
-### Erweiterungen zu anderen Schnittstellen
+### Erweiterungen für andere Schnittstellen
 
 - [`Navigator.wakeLock`](/de/docs/Web/API/Navigator/wakeLock) {{ReadOnlyInline}}
 
-  - : Gibt eine [`WakeLock`](/de/docs/Web/API/WakeLock)-Objektinstanz zurück, von der aus alle anderen Funktionen zugänglich sind.
+  - : Gibt eine Instanz des [`WakeLock`](/de/docs/Web/API/WakeLock)-Objekts zurück, von dem aus alle anderen Funktionen zugänglich sind.
 
 - [`Permissions-Policy: screen-wake-lock`](/de/docs/Web/HTTP/Reference/Headers/Permissions-Policy/screen-wake-lock)
-  - : Der Zugriff auf die API wird durch die [`Permissions-Policy`](/de/docs/Web/HTTP/Reference/Headers/Permissions-Policy)-Richtlinie `screen-wake-lock` beschränkt. Siehe [Sicherheitsüberlegungen](#sicherheitsüberlegungen) unten.
+  - : Der Zugriff auf die API wird durch die [`Permissions-Policy`](/de/docs/Web/HTTP/Reference/Headers/Permissions-Policy)-Direktive `screen-wake-lock` gesteuert.
+    Siehe [Sicherheitsüberlegungen](#sicherheitsüberlegungen) unten.
 
 ## Beispiele
 
-### Feature-Erkennung
+### Funktionsprüfung
 
-Dieser Code prüft die Unterstützung der Wachhaltung und aktualisiert die Benutzeroberfläche entsprechend.
+Dieser Code überprüft die Unterstützung der Wake-Sperre und aktualisiert die Benutzeroberfläche entsprechend.
 
 ```js
 if ("wakeLock" in navigator) {
@@ -55,9 +56,9 @@ if ("wakeLock" in navigator) {
 }
 ```
 
-### Anfordern einer Wachhaltung
+### Anfordern einer Wake-Sperre
 
-Das folgende Beispiel zeigt, wie ein [`WakeLockSentinel`](/de/docs/Web/API/WakeLockSentinel)-Objekt angefordert wird. Die [`WakeLock.request`](/de/docs/Web/API/WakeLock/request)-Methode ist {{jsxref('Promise')}}-basiert, sodass wir eine asynchrone Funktion erstellen können, die wiederum die Benutzeroberfläche aktualisiert, um anzuzeigen, dass die Wachhaltung aktiv ist.
+Das folgende Beispiel zeigt, wie ein [`WakeLockSentinel`](/de/docs/Web/API/WakeLockSentinel)-Objekt angefordert wird. Die Methode [`WakeLock.request`](/de/docs/Web/API/WakeLock/request) basiert auf {{jsxref('Promise')}}, sodass wir eine asynchrone Funktion erstellen können, die wiederum die Benutzeroberfläche aktualisiert, um anzuzeigen, dass die Wake-Sperre aktiv ist.
 
 ```js
 // Create a reference for the Wake Lock.
@@ -73,9 +74,9 @@ try {
 }
 ```
 
-### Freigeben der Wachhaltung
+### Freigeben der Wake-Sperre
 
-Das folgende Beispiel zeigt, wie die zuvor erworbene Wachhaltung freigegeben wird.
+Das folgende Beispiel zeigt, wie die zuvor erworbene Wake-Sperre freigegeben wird.
 
 ```js
 wakeLock.release().then(() => {
@@ -83,9 +84,9 @@ wakeLock.release().then(() => {
 });
 ```
 
-### Lauschen auf die Freigabe der Wachhaltung
+### Überwachen der Freigabe der Wake-Sperre
 
-Dieses Beispiel aktualisiert die Benutzeroberfläche, wenn die Wachhaltung aus irgendeinem Grund freigegeben wurde (z. B. beim Navigieren weg vom aktiven Fenster/Tab).
+Dieses Beispiel aktualisiert die Benutzeroberfläche, wenn die Wake-Sperre aus irgendeinem Grund freigegeben wurde (z. B. beim Verlassen des aktiven Fensters/Tabs).
 
 ```js
 wakeLock.addEventListener("release", () => {
@@ -94,9 +95,9 @@ wakeLock.addEventListener("release", () => {
 });
 ```
 
-### Erneutes Anfordern einer Wachhaltung
+### Erneutes Erwerben einer Wake-Sperre
 
-Der folgende Code fordert die Wachhaltung erneut an, falls sich die Sichtbarkeit des Dokuments ändert und die Wachhaltung freigegeben wird.
+Der folgende Code erwirbt die Wake-Sperre erneut, falls sich die Sichtbarkeit des Dokuments ändert und die Wake-Sperre freigegeben wird.
 
 ```js
 document.addEventListener("visibilitychange", async () => {
@@ -108,34 +109,34 @@ document.addEventListener("visibilitychange", async () => {
 
 ### Alles zusammenfügen
 
-Sie können den [vollständigen Code hier auf GitHub finden](https://github.com/mdn/dom-examples/tree/main/screen-wake-lock-api). Die [Demo](https://mdn.github.io/dom-examples/screen-wake-lock-api/) verwendet einen Button, um eine Wachhaltung anzufordern und auch freizugeben, was wiederum die Benutzeroberfläche aktualisiert. Die Benutzeroberfläche aktualisiert sich auch, wenn die Wachhaltung automatisch aus irgendeinem Grund freigegeben wird. Es gibt ein Kontrollkästchen, das, wenn es aktiviert ist, die Wachhaltung automatisch neu anfordert, wenn sich der Sichtbarkeitszustand des Dokuments ändert und wieder sichtbar wird.
+Sie können den [vollständigen Code auf GitHub hier](https://github.com/mdn/dom-examples/tree/main/screen-wake-lock-api) finden. Die [Demo](https://mdn.github.io/dom-examples/screen-wake-lock-api/) verwendet eine Schaltfläche, um eine Wake-Sperre zu erwerben und wieder freizugeben, was wiederum die Benutzeroberfläche aktualisiert. Die Benutzeroberfläche wird auch aktualisiert, wenn die Wake-Sperre aus irgendeinem Grund automatisch freigegeben wird. Es gibt ein Kontrollkästchen, das bei Aktivierung die Wake-Sperre automatisch erneut erwirbt, wenn der Sichtbarkeitsstatus des Dokuments sich ändert und wieder sichtbar wird.
 
 ## Leistungsüberlegungen
 
-- Geben Sie die Bildschirm-Wachhaltung frei, wenn der Benutzer die Aktivität beendet, die den immer aktiven Bildschirm erforderte. Beispielsweise könnte eine Ticketing-App, die QR-Codes zur Übertragung von Ticketinformationen verwendet, die Bildschirm-Wachhaltung anfordern, wenn der QR-Code angezeigt wird (damit der Code erfolgreich gescannt wird), sie aber danach freigeben. Eine Präsentations-App könnte die Wachhaltung nur während einer aktiven Präsentation halten, aber nicht, wenn die Präsentation bearbeitet wird.
-- Wenn Ihre App lang andauernde Downloads durchführt, ziehen Sie in Betracht, den Hintergrundabruf zu verwenden.
-- Wenn Ihre App Daten von einem entfernten Server synchronisiert, ziehen Sie in Betracht, die Hintergrundsynchronisierung zu verwenden.
-- Nur aktive Dokumente können Bildschirm-Wachhaltungen anfordern, und zuvor erworbene Halterungen werden automatisch freigegeben, wenn das Dokument inaktiv wird. Stellen Sie daher sicher, dass Sie die Bildschirm-Wachhaltung bei Bedarf erneut anfordern, wenn das Dokument aktiv wird (lauschen Sie auf das [visibilitychange](/de/docs/Web/API/Document/visibilitychange_event)-Ereignis).
+- Geben Sie die Bildschirm-Wake-Sperre frei, wenn der Benutzer die Aktivität beendet, die einen stets eingeschalteten Bildschirm erfordert. Beispielsweise könnte eine Ticket-App, die QR-Codes verwendet, um Ticketinformationen zu übermitteln, die Bildschirm-Wake-Sperre erwerben, wenn der QR-Code angezeigt wird (damit der Code erfolgreich gescannt wird), aber danach freigegeben werden. Eine Präsentations-App könnte die Sperre nur halten, während eine Präsentation aktiv ist, aber nicht, wenn die Präsentation bearbeitet wird.
+- Wenn Ihre App lang laufende Downloads durchführt, sollten Sie in Betracht ziehen, Hintergrunddownloads zu verwenden.
+- Wenn Ihre App Daten von einem Remote-Server synchronisiert, sollten Sie in Betracht ziehen, die Hintergrundsynchronisation zu verwenden.
+- Nur aktive Dokumente können Bildschirm-Wake-Sperren erwerben, und zuvor erworbene Sperren werden automatisch freigegeben, wenn das Dokument inaktiv wird. Stellen Sie daher sicher, dass Sie die Bildschirm-Wake-Sperre bei Bedarf erneut erwerben, wenn das Dokument aktiv wird (hören Sie auf das [visibilitychange](/de/docs/Web/API/Document/visibilitychange_event)-Ereignis).
 
 ## Sicherheitsüberlegungen
 
-Der Zugriff auf die Screen Wake Lock API wird durch die [Permissions Policy](/de/docs/Web/HTTP/Guides/Permissions_Policy)-Richtlinie {{HTTPHeader("Permissions-Policy/screen-wake-lock","screen-wake-lock")}} kontrolliert.
+Der Zugriff auf die Screen Wake Lock API wird durch die [Permissions Policy](/de/docs/Web/HTTP/Guides/Permissions_Policy)-Direktive {{HTTPHeader("Permissions-Policy/screen-wake-lock","screen-wake-lock")}} kontrolliert.
 
-Beim Verwenden der [Permissions Policy](/de/docs/Web/HTTP/Guides/Permissions_Policy) ist die Standard-Zulassungsliste für `screen-wake-lock` auf `self` gesetzt. Dies erlaubt die Nutzung der Wachhaltung in Nested Frames mit gleichem Ursprung, verhindert jedoch, dass Drittanbieter-Inhalte die Halterung nutzen. Drittanbieter-Nutzung kann aktiviert werden, indem der Server zunächst den `Permissions-Policy`-Header setzt, um einer bestimmten Drittanbieter-Herkunft die Berechtigung zu erteilen.
+Bei der Verwendung der [Permissions Policy](/de/docs/Web/HTTP/Guides/Permissions_Policy) ist die standardmäßige Erlauben-Liste für `screen-wake-lock` `self`. Diese erlaubt die Nutzung der Wake-Sperre in gleichherkunftsnesteten Frames, verhindert jedoch, dass Inhalte von Drittanbietern die Sperren verwenden. Die Nutzung durch Drittanbieter kann aktiviert werden, indem der Server zuerst den `Permissions-Policy`-Header so setzt, dass er einem bestimmten Drittanbieter-Origin die Berechtigung erteilt.
 
 ```http
 Permissions-Policy: screen-wake-lock=(self b.example.com)
 ```
 
-Dann muss das Attribut `allow="screen-wake-lock"` dem Frame-Containerelement für Quellen aus dieser Herkunft hinzugefügt werden:
+Dann muss das `allow="screen-wake-lock"`-Attribut dem Frame-Containerelement für Quellen von diesem Origin hinzugefügt werden:
 
 ```html
-<iframe src="https://b.example.com" allow="screen-wake-lock"/></iframe>
+<iframe src="https://b.example.com" allow="screen-wake-lock"></iframe>
 ```
 
-Browser können die Bildschirm-Wachhaltung auch in einem bestimmten Dokument aus einem implementationsspezifischen Grund blockieren, wie z. B. eine Benutzer- oder Plattform-Einstellung. Es wird erwartet, dass sie einen unaufdringlichen Mechanismus bereitstellen, um den Benutzer zu informieren, wenn die Wachhaltung aktiv ist, und den Benutzern die Möglichkeit geben, die Bildschirm-Wachhaltung der Anwendung zu entfernen.
+Browser können auch die Bildschirmsperre in einem bestimmten Dokument aus einem implementierungsspezifischen Grund blockieren, wie einer Benutzer- oder Plattform-Einstellung. Es wird erwartet, dass sie ein unaufdringliches Mechanismus bereitstellen, um den Benutzer zu informieren, wenn die Wake-Sperre aktiv ist, und den Benutzern die Möglichkeit geben, die Bildschirmsperre der Anwendung zu entfernen.
 
-Die [Permissions API](/de/docs/Web/API/Permissions_API) `screen-wake-lock`-Berechtigung kann verwendet werden, um zu testen, ob der Zugriff auf die Bildschirm-Wachhaltung `granted`, `denied` oder `prompt` (erfordert Benutzerbestätigung in Form eines Prompts) ist.
+Die [Permissions API](/de/docs/Web/API/Permissions_API) `screen-wake-lock`-Berechtigung kann verwendet werden, um zu testen, ob der Zugriff auf die Bildschirmsperre `granted`, `denied` oder `prompt` (erfordert die Anerkennung eines Benutzerprompts) ist.
 
 ## Spezifikationen
 
@@ -148,4 +149,4 @@ Die [Permissions API](/de/docs/Web/API/Permissions_API) `screen-wake-lock`-Berec
 ## Siehe auch
 
 - [Bleiben Sie wach mit der Screen Wake Lock API](https://developer.chrome.com/docs/capabilities/web-apis/wake-lock/)
-- [Eine Demo der Screen Wake Lock API auf Glitch](https://wake-lock-demo.glitch.me/)
+- [Eine Screen Wake Lock API-Demo auf Glitch](https://wake-lock-demo.glitch.me/)

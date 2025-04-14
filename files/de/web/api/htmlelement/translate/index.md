@@ -3,14 +3,14 @@ title: "HTMLElement: translate-Eigenschaft"
 short-title: translate
 slug: Web/API/HTMLElement/translate
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: 874ad29df9150037acb8a4a3e7550a302c90a080
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`translate`**-Eigenschaft der [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Schnittstelle zeigt an, ob die Attributwerte eines Elements und die Werte seiner [`Text`](/de/docs/Web/API/Text)-Knoten-Kinder übersetzt werden sollen, wenn die Seite lokalisiert wird, oder ob sie unverändert bleiben sollen.
+Die **`translate`**-Eigenschaft der [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Schnittstelle gibt an, ob die Attributwerte eines Elements und die Werte seiner [`Text`](/de/docs/Web/API/Text)-Knoten-Kinder übersetzt werden sollen, wenn die Seite lokalisiert wird, oder ob sie unverändert bleiben sollen.
 
-Sie spiegelt den Wert des HTML-Globalattributs [`translate`](/de/docs/Web/HTML/Reference/Global_attributes/translate) wider.
+Sie spiegelt den Wert des globalen HTML-Attributs [`translate`](/de/docs/Web/HTML/Reference/Global_attributes/translate) wider.
 
 ## Wert
 
@@ -18,16 +18,18 @@ Ein boolescher Wert, der `true` ist, wenn die Attributwerte eines Elements und d
 
 ## Beispiele
 
-Das folgende Beispiel zeigt, wie die Übersetzung per Skript aktiviert oder deaktiviert werden kann:
+Das folgende Beispiel zeigt, wie die Übersetzung per Skript aktiviert oder deaktiviert wird:
 
 ```html
 <div>
   <span>The content may always be translated: </span>
-  <span translate="yes">El contenido será traducido</div>
+  <span translate="yes">El contenido será traducido</span>
 </div>
 <div>
   <span id="translate-label">The content may be translated:</span>
-  <span id="translate-element" translate="no">El contenido puede ser traducido.</div>
+  <span id="translate-element" translate="no">
+    El contenido puede ser traducido.
+  </span>
 </div>
 <input id="translate-controller" type="checkbox" /> Enable translation
 ```
@@ -60,4 +62,4 @@ controller.addEventListener("change", (e) => {
 
 ## Siehe auch
 
-- [`translate`](/de/docs/Web/HTML/Reference/Global_attributes/translate) HTML-Globalattribut
+- Globales HTML-Attribut [`translate`](/de/docs/Web/HTML/Reference/Global_attributes/translate)

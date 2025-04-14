@@ -1,16 +1,16 @@
 ---
-title: "SVGRadialGradientElement: fr Eigenschaft"
+title: "SVGRadialGradientElement: fr-Eigenschaft"
 short-title: fr
 slug: Web/API/SVGRadialGradientElement/fr
 l10n:
-  sourceCommit: aa03c5caef20c53a7bb08c7094c3e0c2510057df
+  sourceCommit: 874ad29df9150037acb8a4a3e7550a302c90a080
 ---
 
 {{APIRef("SVG")}}
 
-Die schreibgeschützte **`fr`**-Eigenschaft des [`SVGRadialGradientElement`](/de/docs/Web/API/SVGRadialGradientElement)-Interfaces beschreibt den Radius des fokalen Kreises des radialen Gradienten als ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength). Sie spiegelt den berechneten Wert des {{SVGAttr("fr")}}-Attributs am {{SVGElement("radialGradient")}}-Element wider.
+Die **`fr`**-Eigenschaft der [`SVGRadialGradientElement`](/de/docs/Web/API/SVGRadialGradientElement)-Schnittstelle beschreibt den Radius des Fokus-Kreises des radialen Verlaufs als ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength). Sie spiegelt den berechneten Wert des {{SVGAttr("fr")}}-Attributs auf dem {{SVGElement("radialGradient")}}-Element wider.
 
-Der Attributwert ist ein [`\<length>`](/de/docs/Web/SVG/Guides/Content_type#length), [`\<percentage>`](/de/docs/Web/SVG/Guides/Content_type#percentage) oder [`\<number>`](/de/docs/Web/SVG/Guides/Content_type#number). Der numerische Wert von [`SVGAnimatedLength.baseVal`](/de/docs/Web/API/SVGAnimatedLength/baseVal) ist der Radius des Brennpunkts des radialen Gradienten im Benutzungskoordinatensystem.
+Der Attributwert ist ein [`\<length>`](/de/docs/Web/SVG/Guides/Content_type#length), [`\<percentage>`](/de/docs/Web/SVG/Guides/Content_type#percentage) oder [`\<number>`](/de/docs/Web/SVG/Guides/Content_type#number). Der numerische Wert von [`SVGAnimatedLength.baseVal`](/de/docs/Web/API/SVGAnimatedLength/baseVal) ist der Radius des Fokuspunktes des radialen Verlaufs im Benutzerkoordinatensystem.
 
 ## Wert
 
@@ -18,7 +18,7 @@ Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength).
 
 ## Beispiel
 
-Angenommen, das folgende SVG, mit zwei identischen Gradienten, die mit unterschiedlichen Einheitentypen deklariert sind:
+Das folgende SVG enthält zwei identische Verläufe, die mit unterschiedlichen Einheitstypen deklariert sind:
 
 ```html
 <svg viewBox="0 0 200 100" width="200" xmlns="http://www.w3.org/2000/svg">
@@ -26,7 +26,6 @@ Angenommen, das folgende SVG, mit zwei identischen Gradienten, die mit unterschi
     <radialGradient id="gradient1" r="20%" fr="0.5">
       <stop offset="0%" stop-color="red" />
       <stop offset="100%" stop-color="yellow" />
-    </radialGradient>
     </radialGradient>
     <radialGradient id="gradient2" r="20%" fr="50%">
       <stop offset="0%" stop-color="red" />
@@ -38,7 +37,7 @@ Angenommen, das folgende SVG, mit zwei identischen Gradienten, die mit unterschi
 </svg>
 ```
 
-Wir können auf die Einheitentypen, Werte und Werte der `fr`-Attribute ohne Einheitentyp zugreifen:
+Wir können auf die Einheitstypen, Werte und Werte der `fr`-Attribute zugreifen, wie sie ohne Einheitstyp angegeben sind:
 
 ```js
 const radialGradients = document.querySelectorAll("radialGradient");
