@@ -2,7 +2,7 @@
 title: <rect>
 slug: Web/SVG/Reference/Element/rect
 l10n:
-  sourceCommit: 19c64b411b90f999565db9fdb815463ba66c9714
+  sourceCommit: 34c204f8f6c3f7ac60ebb23fca9798680aee9956
 ---
 
 Das **`<rect>`** [SVG](/de/docs/Web/SVG)-Element ist eine [grundlegende SVG-Form](/de/docs/Web/SVG/Tutorials/SVG_from_scratch/Basic_shapes), die Rechtecke zeichnet, definiert durch ihre Position, Breite und Höhe. Die Ecken der Rechtecke können abgerundet sein.
@@ -33,30 +33,30 @@ svg {
 
 - {{SVGAttr("x")}}
   - : Die x-Koordinate des Rechtecks.
-    _Wertetyp_: [**\<length>**](/de/docs/Web/SVG/Guides/Content_type#length)|[**\<percentage>**](/de/docs/Web/SVG/Guides/Content_type#percentage) ; _Standardwert_: `0`; _Animierbar_: **ja**
+    _Wertetyp_: [**\<length>**](/de/docs/Web/SVG/Guides/Content_type#length) | [**\<percentage>**](/de/docs/Web/SVG/Guides/Content_type#percentage); _Standardwert_: `0`; _Animierbar_: **ja**
 - {{SVGAttr("y")}}
   - : Die y-Koordinate des Rechtecks.
-    _Wertetyp_: [**\<length>**](/de/docs/Web/SVG/Guides/Content_type#length)|[**\<percentage>**](/de/docs/Web/SVG/Guides/Content_type#percentage) ; _Standardwert_: `0`; _Animierbar_: **ja**
+    _Wertetyp_: [**\<length>**](/de/docs/Web/SVG/Guides/Content_type#length) | [**\<percentage>**](/de/docs/Web/SVG/Guides/Content_type#percentage); _Standardwert_: `0`; _Animierbar_: **ja**
 - {{SVGAttr("width")}}
   - : Die Breite des Rechtecks.
-    _Wertetyp_: `auto`|[**\<length>**](/de/docs/Web/SVG/Guides/Content_type#length)|[**\<percentage>**](/de/docs/Web/SVG/Guides/Content_type#percentage) ; _Standardwert_: `auto`; _Animierbar_: **ja**
+    _Wertetyp_: `auto` | [**\<length>**](/de/docs/Web/SVG/Guides/Content_type#length) | [**\<percentage>**](/de/docs/Web/SVG/Guides/Content_type#percentage); _Standardwert_: `auto`; _Animierbar_: **ja**
 - {{SVGAttr("height")}}
   - : Die Höhe des Rechtecks.
-    _Wertetyp_: `auto`|[**\<length>**](/de/docs/Web/SVG/Guides/Content_type#length)|[**\<percentage>**](/de/docs/Web/SVG/Guides/Content_type#percentage) ; _Standardwert_: `auto`; _Animierbar_: **ja**
+    _Wertetyp_: `auto` | [**\<length>**](/de/docs/Web/SVG/Guides/Content_type#length) | [**\<percentage>**](/de/docs/Web/SVG/Guides/Content_type#percentage); _Standardwert_: `auto`; _Animierbar_: **ja**
 - {{SVGAttr("rx")}}
-  - : Der horizontale Eckenradius des Rechtecks. Standardmäßig `ry`, falls angegeben.
-    _Wertetyp_: `auto`|[**\<length>**](/de/docs/Web/SVG/Guides/Content_type#length)|[**\<percentage>**](/de/docs/Web/SVG/Guides/Content_type#percentage) ; _Standardwert_: `auto`; _Animierbar_: **ja**
+  - : Der horizontale Eckradius des Rechtecks. Standardmäßig `ry`, falls angegeben.
+    _Wertetyp_: `auto` | [**\<length>**](/de/docs/Web/SVG/Guides/Content_type#length) | [**\<percentage>**](/de/docs/Web/SVG/Guides/Content_type#percentage); _Standardwert_: `auto`; _Animierbar_: **ja**
 - {{SVGAttr("ry")}}
-  - : Der vertikale Eckenradius des Rechtecks. Standardmäßig `rx`, falls angegeben.
-    _Wertetyp_: `auto`|[**\<length>**](/de/docs/Web/SVG/Guides/Content_type#length)|[**\<percentage>**](/de/docs/Web/SVG/Guides/Content_type#percentage) ; _Standardwert_: `auto`; _Animierbar_: **ja**
+  - : Der vertikale Eckradius des Rechtecks. Standardmäßig `rx`, falls angegeben.
+    _Wertetyp_: `auto` | [**\<length>**](/de/docs/Web/SVG/Guides/Content_type#length) | [**\<percentage>**](/de/docs/Web/SVG/Guides/Content_type#percentage); _Standardwert_: `auto`; _Animierbar_: **ja**
 - {{SVGAttr("pathLength")}}
-  - : Die Gesamtlänge des Rechteckumfangs in Benutzereinheiten.
-    _Wertetyp_: [**\<number>**](/de/docs/Web/SVG/Guides/Content_type#number) ; _Standardwert_: _none_; _Animierbar_: **ja**
+  - : Die Gesamtlänge des Rechteckumfangs, in Benutzereinheiten.
+    _Wertetyp_: [**\<number>**](/de/docs/Web/SVG/Guides/Content_type#number); _Standardwert_: _none_; _Animierbar_: **ja**
 
 > [!NOTE]
-> Beginnend mit SVG2 sind `x`, `y`, `width`, `height`, `rx` und `ry` _Geometrie-Eigenschaften_, was bedeutet, dass diese Attribute auch als CSS-Eigenschaften für dieses Element verwendet werden können.
+> Ab SVG2 sind `x`, `y`, `width`, `height`, `rx` und `ry` _Geometrie-Eigenschaften_, was bedeutet, dass diese Attribute auch als CSS-Eigenschaften für dieses Element verwendet werden können.
 
-## Kontext der Nutzung
+## Nutzungskontext
 
 {{svginfo}}
 
@@ -70,5 +70,5 @@ svg {
 
 ## Siehe auch
 
-- [SVG-Präsentationsattribute](/de/docs/Web/SVG/Reference/Attribute#presentation_attributes) inklusive {{SVGAttr("fill")}} und {{SVGAttr("stroke")}}
+- [SVG-Präsentationsattribute](/de/docs/Web/SVG/Reference/Attribute#presentation_attributes) einschließlich {{SVGAttr("fill")}} und {{SVGAttr("stroke")}}
 - Andere grundlegende SVG-Formen: {{SVGElement('circle')}}, {{ SVGElement('ellipse') }}, {{ SVGElement('line') }}, **{{ SVGElement('polygon') }}**, {{ SVGElement('polyline') }}

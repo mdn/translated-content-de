@@ -2,10 +2,10 @@
 title: <line>
 slug: Web/SVG/Reference/Element/line
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: 34c204f8f6c3f7ac60ebb23fca9798680aee9956
 ---
 
-Das **`<line>`** [SVG](/de/docs/Web/SVG)-Element ist eine grundlegende SVG-Form, die verwendet wird, um eine Linie zu erstellen, die zwei Punkte verbindet.
+Das **`<line>`** [SVG](/de/docs/Web/SVG)-Element ist eine SVG-Grundform, die verwendet wird, um eine Linie zwischen zwei Punkten zu erstellen.
 
 ## Beispiel
 
@@ -31,22 +31,22 @@ svg {
 ## Attribute
 
 - {{SVGAttr('x1')}}
-  - : Definiert die x-Achsenkoordinate des Startpunkts der Linie.
-    _Wertetyp_: [**\<length>**](/de/docs/Web/SVG/Guides/Content_type#length)|[**\<percentage>**](/de/docs/Web/SVG/Guides/Content_type#percentage)|[**\<number>**](/de/docs/Web/SVG/Guides/Content_type#number) ; _Standardwert_: `0`; _Animierbar_: **ja**
+  - : Definiert die x-Achsen-Koordinate des Startpunkts der Linie.
+    _Werttyp_: [**\<length>**](/de/docs/Web/SVG/Guides/Content_type#length) | [**\<percentage>**](/de/docs/Web/SVG/Guides/Content_type#percentage) | [**\<number>**](/de/docs/Web/SVG/Guides/Content_type#number); _Standardwert_: `0`; _Animierbar_: **ja**
 - {{SVGAttr('x2')}}
-  - : Definiert die x-Achsenkoordinate des Endpunkts der Linie.
-    _Wertetyp_: [**\<length>**](/de/docs/Web/SVG/Guides/Content_type#length)|[**\<percentage>**](/de/docs/Web/SVG/Guides/Content_type#percentage)|[**\<number>**](/de/docs/Web/SVG/Guides/Content_type#number) ; _Standardwert_: `0`; _Animierbar_: **ja**
+  - : Definiert die x-Achsen-Koordinate des Endpunkts der Linie.
+    _Werttyp_: [**\<length>**](/de/docs/Web/SVG/Guides/Content_type#length) | [**\<percentage>**](/de/docs/Web/SVG/Guides/Content_type#percentage) | [**\<number>**](/de/docs/Web/SVG/Guides/Content_type#number); _Standardwert_: `0`; _Animierbar_: **ja**
 - {{SVGAttr('y1')}}
-  - : Definiert die y-Achsenkoordinate des Startpunkts der Linie.
-    _Wertetyp_: [**\<length>**](/de/docs/Web/SVG/Guides/Content_type#length)|[**\<percentage>**](/de/docs/Web/SVG/Guides/Content_type#percentage)|[**\<number>**](/de/docs/Web/SVG/Guides/Content_type#number) ; _Standardwert_: `0`; _Animierbar_: **ja**
+  - : Definiert die y-Achsen-Koordinate des Startpunkts der Linie.
+    _Werttyp_: [**\<length>**](/de/docs/Web/SVG/Guides/Content_type#length) | [**\<percentage>**](/de/docs/Web/SVG/Guides/Content_type#percentage) | [**\<number>**](/de/docs/Web/SVG/Guides/Content_type#number); _Standardwert_: `0`; _Animierbar_: **ja**
 - {{SVGAttr('y2')}}
-  - : Definiert die y-Achsenkoordinate des Endpunkts der Linie.
-    _Wertetyp_: [**\<length>**](/de/docs/Web/SVG/Guides/Content_type#length)|[**\<percentage>**](/de/docs/Web/SVG/Guides/Content_type#percentage)|[**\<number>**](/de/docs/Web/SVG/Guides/Content_type#number) ; _Standardwert_: `0`; _Animierbar_: **ja**
+  - : Definiert die y-Achsen-Koordinate des Endpunkts der Linie.
+    _Werttyp_: [**\<length>**](/de/docs/Web/SVG/Guides/Content_type#length) | [**\<percentage>**](/de/docs/Web/SVG/Guides/Content_type#percentage) | [**\<number>**](/de/docs/Web/SVG/Guides/Content_type#number); _Standardwert_: `0`; _Animierbar_: **ja**
 - {{SVGAttr("pathLength")}}
-  - : Definiert die gesamte Pfadlänge in Benutzereinheiten.
-    _Wertetyp_: [**\<number>**](/de/docs/Web/SVG/Guides/Content_type#number) ; _Standardwert_: _none_; _Animierbar_: **ja**
+  - : Definiert die Gesamtlänge des Pfades in Benutzereinheiten.
+    _Werttyp_: [**\<number>**](/de/docs/Web/SVG/Guides/Content_type#number); _Standardwert_: _none_; _Animierbar_: **ja**
 
-## Nutzungskontext
+## Verwendungskontext
 
 {{svginfo}}
 
@@ -60,4 +60,4 @@ svg {
 
 ## Siehe auch
 
-- Andere grundlegende SVG-Formen: {{ SVGElement('circle') }}, {{ SVGElement('ellipse') }}, {{ SVGElement('polygon') }}, **{{ SVGElement('polyline') }}**, {{ SVGElement('rect') }}
+- Andere SVG-Grundformen: {{ SVGElement('circle') }}, {{ SVGElement('ellipse') }}, {{ SVGElement('polygon') }}, **{{ SVGElement('polyline') }}**, {{ SVGElement('rect') }}

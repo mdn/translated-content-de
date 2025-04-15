@@ -2,12 +2,12 @@
 title: <symbol>
 slug: Web/SVG/Reference/Element/symbol
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: 34c204f8f6c3f7ac60ebb23fca9798680aee9956
 ---
 
-Das **`<symbol>`**-[SVG](/de/docs/Web/SVG)-Element wird verwendet, um grafische Vorlagenobjekte zu definieren, die durch ein {{SVGElement("use")}}-Element instanziiert werden können.
+Das **`<symbol>`** [SVG](/de/docs/Web/SVG)-Element wird verwendet, um grafische Vorlagenobjekte zu definieren, die von einem {{SVGElement("use")}}-Element instanziiert werden können.
 
-Die Verwendung von `<symbol>`-Elementen für Grafiken, die mehrmals im selben Dokument verwendet werden, fügt Struktur und Semantik hinzu. Dokumente, die reich an Struktur sind, können grafisch, als Sprache oder in Brailleschrift dargestellt werden, und fördern so die Barrierefreiheit.
+Die Verwendung von `<symbol>`-Elementen für Grafiken, die mehrfach im selben Dokument genutzt werden, fügt Struktur und Semantik hinzu. Dokumente mit reichhaltiger Struktur können grafisch, als Sprache oder in Brailleschrift gerendert werden, was die Barrierefreiheit fördert.
 
 ## Beispiel
 
@@ -47,35 +47,35 @@ svg {
 
 - {{SVGAttr("height")}}
   - : Dieses Attribut bestimmt die Höhe des Symbols.
-    _Wertetyp_: [**\<length>**](/de/docs/Web/SVG/Guides/Content_type#length)|[**\<percentage>**](/de/docs/Web/SVG/Guides/Content_type#percentage) ; _Standardwert_: `auto`; _Animierbar_: **ja**
+    _Werttyp_: [**\<length>**](/de/docs/Web/SVG/Guides/Content_type#length) | [**\<percentage>**](/de/docs/Web/SVG/Guides/Content_type#percentage); _Standardwert_: `auto`; _Animierbar_: **ja**
 - {{SVGAttr("preserveAspectRatio")}}
-  - : Dieses Attribut definiert, wie das SVG-Fragment verformt werden muss, wenn es in einem Container mit einem anderen {{Glossary("aspect_ratio", "Seitenverhältnis")}} eingebettet ist.
-    _Wertetyp_: (`none`| `xMinYMin`| `xMidYMin`| `xMaxYMin`| `xMinYMid`| `xMidYMid`| `xMaxYMid`| `xMinYMax`| `xMidYMax`| `xMaxYMax`) (`meet`|`slice`)? ; _Standardwert_: `xMidYMid meet`; _Animierbar_: **ja**
+  - : Dieses Attribut definiert, wie das SVG-Fragment verzerrt werden muss, wenn es in einem Container mit einem anderen {{Glossary("aspect_ratio", "Seitenverhältnis")}} eingebettet wird.
+    _Werttyp_: (`none` | `xMinYMin` | `xMidYMin` | `xMaxYMin` | `xMinYMid` | `xMidYMid` | `xMaxYMid` | `xMinYMax` | `xMidYMax` | `xMaxYMax`) (`meet` | `slice`)?; _Standardwert_: `xMidYMid meet`; _Animierbar_: **ja**
 - {{SVGAttr("refX")}}
-  - : Dieses Attribut bestimmt die x-Koordinate des Referenzpunktes des Symbols.
-    _Wertetyp_: [**\<length>**](/de/docs/Web/SVG/Guides/Content_type#length)|[**\<percentage>**](/de/docs/Web/SVG/Guides/Content_type#percentage)|`left`|`center`|`right` ; _Standardwert_: Keiner; _Animierbar_: **ja**
+  - : Dieses Attribut bestimmt die x-Koordinate des Referenzpunkts des Symbols.
+    _Werttyp_: [**\<length>**](/de/docs/Web/SVG/Guides/Content_type#length) | [**\<percentage>**](/de/docs/Web/SVG/Guides/Content_type#percentage) | `left` | `center` | `right`; _Standardwert_: Keine; _Animierbar_: **ja**
 - {{SVGAttr("refY")}}
-  - : Dieses Attribut bestimmt die y-Koordinate des Referenzpunktes des Symbols.
-    _Wertetyp_: [**\<length>**](/de/docs/Web/SVG/Guides/Content_type#length)|[**\<percentage>**](/de/docs/Web/SVG/Guides/Content_type#percentage)|`top`|`center`|`bottom` ; _Standardwert_: Keiner; _Animierbar_: **ja**
+  - : Dieses Attribut bestimmt die y-Koordinate des Referenzpunkts des Symbols.
+    _Werttyp_: [**\<length>**](/de/docs/Web/SVG/Guides/Content_type#length) | [**\<percentage>**](/de/docs/Web/SVG/Guides/Content_type#percentage) | `top` | `center` | `bottom`; _Standardwert_: Keine; _Animierbar_: **ja**
 - {{SVGAttr("viewBox")}}
-  - : Dieses Attribut definiert die Begrenzung des SVG-Anzeigefensters für das aktuelle Symbol.
-    _Wertetyp_: **[\<list-of-numbers>](/de/docs/Web/SVG/Guides/Content_type#list-of-ts)** ; _Standardwert_: keiner; _Animierbar_: **ja**
+  - : Dieses Attribut definiert die Begrenzung des SVG-Anzeigebereichs für das aktuelle Symbol.
+    _Werttyp_: **[\<list-of-numbers>](/de/docs/Web/SVG/Guides/Content_type#list-of-ts)**; _Standardwert_: keine; _Animierbar_: **ja**
 - {{SVGAttr("width")}}
   - : Dieses Attribut bestimmt die Breite des Symbols.
-    _Wertetyp_: [**\<length>**](/de/docs/Web/SVG/Guides/Content_type#length)|[**\<percentage>**](/de/docs/Web/SVG/Guides/Content_type#percentage) ; _Standardwert_: `auto`; _Animierbar_: **ja**
+    _Werttyp_: [**\<length>**](/de/docs/Web/SVG/Guides/Content_type#length) | [**\<percentage>**](/de/docs/Web/SVG/Guides/Content_type#percentage); _Standardwert_: `auto`; _Animierbar_: **ja**
 - {{SVGAttr("x")}}
   - : Dieses Attribut bestimmt die x-Koordinate des Symbols.
-    _Wertetyp_: [**\<length>**](/de/docs/Web/SVG/Guides/Content_type#length)|[**\<percentage>**](/de/docs/Web/SVG/Guides/Content_type#percentage) ; _Standardwert_: `0`; _Animierbar_: **ja**
+    _Werttyp_: [**\<length>**](/de/docs/Web/SVG/Guides/Content_type#length) | [**\<percentage>**](/de/docs/Web/SVG/Guides/Content_type#percentage); _Standardwert_: `0`; _Animierbar_: **ja**
 - {{SVGAttr("y")}}
   - : Dieses Attribut bestimmt die y-Koordinate des Symbols.
-    _Wertetyp_: [**\<length>**](/de/docs/Web/SVG/Guides/Content_type#length)|[**\<percentage>**](/de/docs/Web/SVG/Guides/Content_type#percentage) ; _Standardwert_: `0`; _Animierbar_: **ja**
+    _Werttyp_: [**\<length>**](/de/docs/Web/SVG/Guides/Content_type#length) | [**\<percentage>**](/de/docs/Web/SVG/Guides/Content_type#percentage); _Standardwert_: `0`; _Animierbar_: **ja**
 
-## Verwendungskontext
+## Nutzungskontext
 
 {{svginfo}}
 
 > [!NOTE]
-> Ein `<symbol>`-Element selbst ist nicht zur Darstellung vorgesehen. Nur Instanzen eines `<symbol>`-Elements (d.h. ein Verweis auf ein `<symbol>` durch ein {{SVGElement("use")}}-Element) werden dargestellt. Das bedeutet, dass einige Browser sich weigern könnten, ein `<symbol>`-Element direkt anzuzeigen, selbst wenn die CSS-{{cssxref('display')}}-Eigenschaft etwas anderes angibt.
+> Ein `<symbol>`-Element selbst soll nicht gerendert werden. Nur Instanzen eines `<symbol>`-Elements (d.h. ein Verweis auf ein `<symbol>` durch ein {{SVGElement("use")}}-Element) werden gerendert. Das bedeutet, dass einige Browser sich weigern könnten, ein `<symbol>`-Element direkt anzuzeigen, auch wenn die CSS {{cssxref('display')}}-Eigenschaft etwas anderes angibt.
 
 ## Spezifikationen
 

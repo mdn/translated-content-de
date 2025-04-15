@@ -2,10 +2,10 @@
 title: keyPoints
 slug: Web/SVG/Reference/Attribute/keyPoints
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: 34c204f8f6c3f7ac60ebb23fca9798680aee9956
 ---
 
-Das Attribut **`keyPoints`** gibt die einfache Dauer einer Animation an.
+Das **`keyPoints`**-Attribut gibt die einfache Dauer einer Animation an.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -53,20 +53,20 @@ svg {
 
 {{EmbedLiveSample("Example", "200", "120")}}
 
-## Verwendungshinweise
+## Nutzungshinweise
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Wert</th>
-      <td>{{cssxref("number")}} [; {{cssxref("number")}}]* ;?</td>
+      <td>{{cssxref("number")}} [; {{cssxref("number")}} ]* ;?</td>
     </tr>
     <tr>
       <th scope="row">Standardwert</th>
       <td><em>Keiner</em></td>
     </tr>
     <tr>
-      <th scope="row">Animationsfähig</th>
+      <th scope="row">Animierbar</th>
       <td>Nein</td>
     </tr>
   </tbody>
@@ -74,13 +74,13 @@ svg {
 
 - `<number> [; <number>] ;?`
 
-  - : Dieser Wert definiert eine durch Semikolons getrennte Liste von Gleitkommawerten zwischen 0 und 1 und gibt an, wie weit entlang des Bewegungspfads sich das Objekt zu dem im entsprechenden {{SVGAttr("keyTimes")}} Wert angegebenen Zeitpunkt bewegen soll. Die Entfernung wird entlang des vom {{SVGAttr("path")}} Attribut angegebenen Pfads berechnet. Jeder Fortschrittswert in der Liste entspricht einem Wert in der `keyTimes` Attributliste.
+  - : Dieser Wert definiert eine durch Semikolon getrennte Liste von Gleitkommawerten zwischen 0 und 1 und gibt an, wie weit entlang des Bewegungswegs das Objekt zum Zeitpunkt des entsprechenden {{SVGAttr("keyTimes")}}-Werts bewegt werden soll. Die Distanz wird entlang des Pfades berechnet, der durch das {{SVGAttr("path")}}-Attribut angegeben wird. Jeder Fortschrittswert in der Liste entspricht einem Wert in der `keyTimes`-Attributliste.
 
-    Wenn eine Liste von Schlüsselpunkten angegeben wird, muss die `keyPoints`-Liste genau so viele Werte enthalten wie die `keyTimes`-Liste.
+    Wenn eine Liste von Schlüsselpunkten angegeben wird, muss es genau so viele Werte in der `keyPoints`-Liste geben wie in der `keyTimes`-Liste.
 
-    Wenn am Ende des Wertes ein Semikolon steht, gefolgt von optionalen Leerzeichen, werden sowohl das Semikolon als auch die nachfolgenden Leerzeichen ignoriert.
+    Wenn sich ein Semikolon am Ende des Werts befindet, optional gefolgt von Leerzeichen, werden sowohl das Semikolon als auch das nachfolgende Leerzeichen ignoriert.
 
-    Wenn es Fehler in der Wertspezifikation gibt (z.B. schlechte Werte, zu viele oder zu wenige Werte), dann handelt es sich um einen Fehler.
+    Bei Fehlern in der Wertspezifikation (d.h. fehlerhafte Werte, zu viele oder zu wenige Werte) handelt es sich um einen Fehler.
 
 ## Spezifikationen
 

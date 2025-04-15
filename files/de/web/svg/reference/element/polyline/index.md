@@ -2,10 +2,10 @@
 title: <polyline>
 slug: Web/SVG/Reference/Element/polyline
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: 34c204f8f6c3f7ac60ebb23fca9798680aee9956
 ---
 
-Das **`<polyline>`** [SVG](/de/docs/Web/SVG)-Element ist eine grundlegende SVG-Form, die gerade Linien verbindet und mehrere Punkte miteinander verknüpft. Typischerweise wird ein `polyline` verwendet, um offene Formen zu erstellen, da der letzte Punkt nicht mit dem ersten Punkt verbunden werden muss. Für geschlossene Formen siehe das {{SVGElement("polygon")}}-Element.
+Das **`<polyline>`** [SVG](/de/docs/Web/SVG)-Element ist eine SVG-Grundform, die gerade Linien verbindet, die mehrere Punkte verbinden. Typischerweise wird ein `polyline` verwendet, um offene Formen zu erstellen, da der letzte Punkt nicht mit dem ersten Punkt verbunden sein muss. Für geschlossene Formen siehe das {{SVGElement("polygon")}}-Element.
 
 ## Beispiel
 
@@ -32,13 +32,13 @@ svg {
 ## Attribute
 
 - {{SVGAttr('points')}}
-  - : Dieses Attribut definiert die Liste der Punkte (Paare von x,y absoluten Koordinaten), die erforderlich sind, um das Polyline zu zeichnen.
-    _Wertetyp_: [**\<number>**](/de/docs/Web/SVG/Guides/Content_type#number)+ ; _Standardwert_: `""`; _Animierbar_: **ja**
+  - : Dieses Attribut definiert die Liste der Punkte (Paare von x,y absoluten Koordinaten), die benötigt werden, um die Polyline zu zeichnen.
+    _Wertetyp_: [**\<number>**](/de/docs/Web/SVG/Guides/Content_type#number)+; _Standardwert_: `""`; _Animierbar_: **ja**
 - {{SVGAttr("pathLength")}}
-  - : Dieses Attribut ermöglicht es, die Gesamtlänge des Pfades in Benutzereinheiten zu bestimmen.
-    _Wertetyp_: [**\<number>**](/de/docs/Web/SVG/Guides/Content_type#number) ; _Standardwert_: _none_; _Animierbar_: **ja**
+  - : Dieses Attribut erlaubt die Angabe der Gesamtlänge des Pfades in Benutzereinheiten.
+    _Wertetyp_: [**\<number>**](/de/docs/Web/SVG/Guides/Content_type#number); _Standardwert_: _none_; _Animierbar_: **ja**
 
-## Verwendungszweck
+## Nutzungskontext
 
 {{svginfo}}
 
@@ -53,4 +53,4 @@ svg {
 ## Siehe auch
 
 - [SVG-Präsentationsattribute](/de/docs/Web/SVG/Reference/Attribute#presentation_attributes), einschließlich {{SVGAttr("fill")}} und {{SVGAttr("stroke")}}
-- Weitere grundlegende SVG-Formen: {{ SVGElement('circle') }}, {{ SVGElement('ellipse') }}, **{{ SVGElement('line') }}**, **{{ SVGElement('polygon') }}**, {{ SVGElement('rect') }}
+- Andere SVG-Grundformen: {{ SVGElement('circle') }}, {{ SVGElement('ellipse') }}, **{{ SVGElement('line') }}**, **{{ SVGElement('polygon') }}**, {{ SVGElement('rect') }}

@@ -2,10 +2,10 @@
 title: <mask>
 slug: Web/SVG/Reference/Element/mask
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: 34c204f8f6c3f7ac60ebb23fca9798680aee9956
 ---
 
-Das **`<mask>`** [SVG](/de/docs/Web/SVG)-Element definiert eine Alphamaske für das Zusammensetzen des aktuellen Objekts in den Hintergrund. Eine Maske wird über die {{SVGAttr("mask")}}-Eigenschaft verwendet/referenziert.
+Das **`<mask>`** [SVG](/de/docs/Web/SVG) Element definiert eine Alpha-Maske, um das aktuelle Objekt mit dem Hintergrund zu verschmelzen. Eine Maske wird über die {{SVGAttr("mask")}}-Eigenschaft verwendet/referenziert.
 
 ## Beispiel
 
@@ -43,24 +43,24 @@ svg {
 
 - {{SVGAttr("height")}}
   - : Dieses Attribut definiert die Höhe des Maskierungsbereichs.
-    _Wertetyp_: [**\<length>**](/de/docs/Web/SVG/Guides/Content_type#length) ; _Standardwert_: `120%`; _Animierbar_: **ja**
+    _Wertetyp_: [**\<length>**](/de/docs/Web/SVG/Guides/Content_type#length); _Standardwert_: `120%`; _Animierbar_: **ja**
 - {{SVGAttr("maskContentUnits")}}
-  - : Dieses Attribut definiert das Koordinatensystem für den Inhalt der `<mask>`.
-    _Wertetyp_: `userSpaceOnUse`|`objectBoundingBox` ; _Standardwert_: `userSpaceOnUse`; _Animierbar_: **ja**
+  - : Dieses Attribut definiert das Koordinatensystem für den Inhalt des `<mask>`.
+    _Wertetyp_: `userSpaceOnUse` | `objectBoundingBox`; _Standardwert_: `userSpaceOnUse`; _Animierbar_: **ja**
 - {{SVGAttr("maskUnits")}}
-  - : Dieses Attribut definiert das Koordinatensystem für die Attribute {{SVGAttr("x")}}, {{SVGAttr("y")}}, {{SVGAttr("width")}} und {{SVGAttr("height")}} auf `<mask>`.
-    _Wertetyp_: `userSpaceOnUse`|`objectBoundingBox` ; _Standardwert_: `objectBoundingBox`; _Animierbar_: **ja**
+  - : Dieses Attribut definiert das Koordinatensystem für die Attribute {{SVGAttr("x")}}, {{SVGAttr("y")}}, {{SVGAttr("width")}} und {{SVGAttr("height")}} im `<mask>`.
+    _Wertetyp_: `userSpaceOnUse` | `objectBoundingBox`; _Standardwert_: `objectBoundingBox`; _Animierbar_: **ja**
 - {{SVGAttr("x")}}
   - : Dieses Attribut definiert die x-Achsen-Koordinate der oberen linken Ecke des Maskierungsbereichs.
-    _Wertetyp_: [**\<coordinate>**](/de/docs/Web/SVG/Guides/Content_type#coordinate) ; _Standardwert_: `-10%`; _Animierbar_: **ja**
+    _Wertetyp_: [**\<coordinate>**](/de/docs/Web/SVG/Guides/Content_type#coordinate); _Standardwert_: `-10%`; _Animierbar_: **ja**
 - {{SVGAttr("y")}}
   - : Dieses Attribut definiert die y-Achsen-Koordinate der oberen linken Ecke des Maskierungsbereichs.
-    _Wertetyp_: [**\<coordinate>**](/de/docs/Web/SVG/Guides/Content_type#coordinate) ; _Standardwert_: `-10%`; _Animierbar_: **ja**
+    _Wertetyp_: [**\<coordinate>**](/de/docs/Web/SVG/Guides/Content_type#coordinate); _Standardwert_: `-10%`; _Animierbar_: **ja**
 - {{SVGAttr("width")}}
   - : Dieses Attribut definiert die Breite des Maskierungsbereichs.
-    _Wertetyp_: [**\<length>**](/de/docs/Web/SVG/Guides/Content_type#length) ; _Standardwert_: `120%`; _Animierbar_: **ja**
+    _Wertetyp_: [**\<length>**](/de/docs/Web/SVG/Guides/Content_type#length); _Standardwert_: `120%`; _Animierbar_: **ja**
 
-## Kontext der Verwendung
+## Verwendungskontext
 
 {{svginfo}}
 
@@ -74,5 +74,5 @@ svg {
 
 ## Siehe auch
 
-- Andere Clipping- und Maskierungs-SVG-Elemente: {{SVGElement("clipPath")}}
-- Clipping- und Maskierungs-CSS-Eigenschaften: {{cssxref("mask")}}, {{cssxref("mask-image")}}, {{cssxref("mask-mode")}}, {{cssxref("mask-repeat")}}, {{cssxref("mask-position")}}, {{cssxref("mask-clip")}}, {{cssxref("mask-origin")}}, {{cssxref("mask-composite")}}, {{cssxref("mask-size")}}, {{cssxref("pointer-events")}}
+- Andere Clip- und Maskierungs-SVG-Elemente: {{SVGElement("clipPath")}}
+- CSS-Eigenschaften für Clipping und Maskierung: {{cssxref("mask")}}, {{cssxref("mask-image")}}, {{cssxref("mask-mode")}}, {{cssxref("mask-repeat")}}, {{cssxref("mask-position")}}, {{cssxref("mask-clip")}}, {{cssxref("mask-origin")}}, {{cssxref("mask-composite")}}, {{cssxref("mask-size")}}, {{cssxref("pointer-events")}}

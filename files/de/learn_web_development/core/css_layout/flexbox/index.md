@@ -2,12 +2,12 @@
 title: Flexbox
 slug: Learn_web_development/Core/CSS_layout/Flexbox
 l10n:
-  sourceCommit: 48d220a8cffdfd5f088f8ca89724a9a92e34d8c0
+  sourceCommit: 427efbee9e0da53517f45420af87a66a2a6b6e19
 ---
 
 {{PreviousMenuNext("Learn_web_development/Core/CSS_layout/Positioning", "Learn_web_development/Core/CSS_layout/Grids", "Learn_web_development/Core/CSS_layout")}}
 
-[Flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout) ist eine ein-dimensionale Layout-Methode zum Anordnen von Elementen in Zeilen oder Spalten. Elemente _beugen sich_ (erweitern sich), um zusätzlichen Raum zu füllen oder schrumpfen, um in kleinere Räume zu passen. Dieser Artikel erklärt alle Grundlagen.
+[Flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout) ist eine eindimensionale Layoutmethode zum Anordnen von Elementen in Zeilen oder Spalten. Elemente _flexen_ (dehnen sich aus), um zusätzlichen Raum zu füllen oder ziehen sich zusammen, um in kleinere Räume zu passen. Dieser Artikel erklärt alle Grundlagen.
 
 <table>
   <tbody>
@@ -15,22 +15,22 @@ l10n:
       <th scope="row">Voraussetzungen:</th>
       <td>
         <a href="/de/docs/Learn_web_development/Core/Structuring_content"
-          >Strukturierung von Inhalten mit HTML</a
+          >Inhalte mit HTML strukturieren</a
         >,
-        <a href="/de/docs/Learn_web_development/Core/Styling_basics">CSS Styling Grundlagen</a>,
-        <a href="/de/docs/Learn_web_development/Core/Text_styling/Fundamentals">Grundlagen der Text- und Schriftstile</a>,
-        Vertrautheit mit <a href="/de/docs/Learn_web_development/Core/CSS_layout/Introduction">grundlegenden Konzepten des CSS-Layouts</a>.
+        <a href="/de/docs/Learn_web_development/Core/Styling_basics">CSS Styling-Grundlagen</a>,
+        <a href="/de/docs/Learn_web_development/Core/Text_styling/Fundamentals">Grundlagen der Text- und Schriftstilgestaltung</a>,
+        Vertrautheit mit <a href="/de/docs/Learn_web_development/Core/CSS_layout/Introduction">Grundkonzepten des CSS-Layouts</a>.
       </td>
     </tr>
     <tr>
       <th scope="row">Lernziele:</th>
       <td>
         <ul>
-          <li>Der Zweck von Flexbox — das flexible Layout einer Reihe von Block- oder Inline-Elementen in einer Dimension.</li>
+          <li>Der Zweck von Flexbox — eine Reihe von Block- oder Inline-Elementen flexibel in einer Dimension zu layouten.</li>
           <li>Flex-Terminologie — Flex-Container, Flex-Item, Hauptachse und Querachse.</li>
           <li>Verstehen, was <code>display: flex</code> standardmäßig bietet.</li>
-          <li>Wie man Inhalte in neue Zeilen und Spalten umbricht.</li>
-          <li>Flexible Größenanpassung und Anordnung von Flex-Items.</li>
+          <li>Wie man Inhalte auf neue Zeilen und Spalten umbricht.</li>
+          <li>Flexible Größen- und Anordnungssteuerung von Flex-Items.</li>
           <li>Inhalte rechtfertigen und ausrichten.</li>
         </ul>
       </td>
@@ -40,17 +40,20 @@ l10n:
 
 ## Warum Flexbox?
 
-CSS-Flexibles Box-Layout ermöglicht Ihnen:
+Das CSS flexible Box Layout ermöglicht Ihnen:
 
-- Ein vertikales Zentrieren eines Inhaltsblocks innerhalb seines übergeordneten Elements.
-- Alle Kinder eines Containers so darzustellen, dass sie einen gleichen Anteil der verfügbaren Breite/Höhe einnehmen, unabhängig davon, wie viel Breite/Höhe verfügbar ist.
-- Alle Spalten in einem Mehrspaltenlayout auf die gleiche Höhe zu bringen, selbst wenn sie unterschiedliche Inhaltsmengen enthalten.
+- Ein Blockelement vertikal in seinem Elternteil zu zentrieren.
+- Alle Kinder eines Containers gleichmäßig den verfügbaren Breiten-/Höhenraum aufzuteilen, unabhängig davon, wie viel Breite/Höhe verfügbar ist.
+- Alle Spalten in einem Mehrspalten-Layout dieselbe Höhe annehmen zu lassen, selbst wenn sie eine unterschiedliche Menge an Inhalt enthalten.
 
-Flexbox-Features könnten die perfekte Lösung für Ihre ein-dimensionalen Layout-Bedürfnisse sein. Lassen Sie uns tiefer eintauchen und es herausfinden!
+Flexbox-Funktionen könnten die perfekte Lösung für Ihre eindimensionalen Layoutanforderungen sein. Lassen Sie uns eintauchen und es herausfinden!
 
-## Einführung in ein einfaches Beispiel
+> [!NOTE]
+> Scrimbas einführender [Flexbox](https://scrimba.com/learn-html-and-css-c0p/~017?via=mdn) <sup>[_MDN Lernpartner_](/de/docs/MDN/Writing_guidelines/Learning_content#partner_links_and_embeds)</sup> Scrim bietet einen interaktiven Leitfaden, der erklärt, wie verbreitet Flexbox im Netz ist und warum es so wichtig ist, es zu lernen. Er führt Sie durch einen typischen Anwendungsfall, der die Leistungsfähigkeit von Flexbox demonstriert.
 
-In diesem Artikel werden Sie durch eine Reihe von Übungen arbeiten, um zu verstehen, wie Flexbox funktioniert. Um zu beginnen, sollten Sie eine lokale Kopie des HTML und CSS erstellen. Laden Sie es in einem modernen Browser (wie Firefox oder Chrome) und schauen Sie sich den Code in Ihrem Code-Editor an. Alternativ können Sie das Beispiel in {{LiveSampleLink("flexbox_0", "open the playground")}} öffnen.
+## Ein einfaches Beispiel einführen
+
+In diesem Artikel werden Sie durch eine Reihe von Übungen arbeiten, die Ihnen helfen, zu verstehen, wie Flexbox funktioniert. Um zu beginnen, sollten Sie eine lokale Kopie des HTML und CSS erstellen. Laden Sie es in einem modernen Browser (wie Firefox oder Chrome) und schauen Sie sich den Code in Ihrem Code-Editor an. Alternativ öffnen Sie das Beispiel in {{LiveSampleLink("flexbox_0", "open the playground")}}.
 
 ```html live-sample___flexbox_0
 <header>
@@ -100,11 +103,11 @@ article {
 
 {{EmbedLiveSample("flexbox_0", "100", "415")}}
 
-Sie sehen, dass wir ein {{htmlelement("header")}}-Element mit einer Überschrift auf oberster Ebene darin und ein {{htmlelement("section")}}-Element haben, das drei {{htmlelement("article")}}s enthält. Wir werden diese verwenden, um ein ziemlich standardmäßiges Dreispaltenlayout zu erstellen.
+Sie werden sehen, dass wir ein {{htmlelement("header")}} Element mit einer Hauptüberschrift darin haben und ein {{htmlelement("section")}} Element, das drei {{htmlelement("article")}}s enthält. Wir werden diese verwenden, um ein ziemlich standardmäßiges Dreispalten-Layout zu erstellen.
 
-## Angeben, welche Elemente als flexible Boxen layoutet werden sollen
+## Festlegen, welche Elemente als flexible Boxen layoutet werden sollen
 
-Zunächst müssen wir auswählen, welche Elemente als flexible Boxen layoutet werden sollen. Dazu setzen wir einen speziellen Wert von {{cssxref("display")}} auf das übergeordnete Element der Elemente, die Sie beeinflussen möchten. In diesem Fall möchten wir die {{htmlelement("article")}}-Elemente layouten, also setzen wir dies auf das {{htmlelement("section")}}:
+Zunächst müssen wir auswählen, welche Elemente als flexible Boxen layoutet werden sollen. Dazu setzen wir einen speziellen Wert von {{cssxref("display")}} auf das Elternelement der Elemente, die Sie beeinflussen möchten. In diesem Fall wollen wir die {{htmlelement("article")}} Elemente layouten, daher setzen wir dies auf das {{htmlelement("section")}}:
 
 ```html hidden live-sample___flexbox_1
 <header>
@@ -158,51 +161,51 @@ section {
 }
 ```
 
-Dies bewirkt, dass das `<section>`-Element zu einem **Flex-Container** wird und seine Kinder zu **Flex-Items** werden. So sieht es aus:
+Dies bewirkt, dass das `<section>` Element zu einem **Flex-Container** wird und seine Kinder zu **Flex-Items**. So sieht es aus:
 
 {{EmbedLiveSample("flexbox_1", "100", "210")}}
 
-Diese einzelne Deklaration gibt uns alles, was wir brauchen. Unglaublich, oder? Wir haben ein Mehrspaltenlayout mit gleich großen Spalten, und die Spalten sind alle gleich hoch. Dies liegt daran, dass die Standardwerte, die den Flex-Items (den Kindern des Flex-Containers) gegeben werden, so eingerichtet sind, dass sie häufige Probleme wie dieses lösen.
+Diese einzelne Deklaration gibt uns alles, was wir benötigen. Unglaublich, oder? Wir haben ein Mehrspaltenlayout mit gleich großen Spalten, und die Spalten haben alle dieselbe Höhe. Dies liegt daran, dass die Standardwerte, die den Flex-Items (den Kindern des Flex-Containers) zugewiesen werden, so eingerichtet sind, dass sie häufige Probleme wie dieses lösen.
 
-Lassen Sie uns rekapitulieren, was hier passiert. Durch das Hinzufügen eines {{cssxref("display")}}-Werts von `flex` zu einem Element wird es zu einem Flex-Container. Der Container wird in Bezug auf die Interaktion mit dem Rest der Seite als {{Glossary("Block-level_content", "Block-Content")}} angezeigt. Wenn das Element in einen Flex-Container umgewandelt wird, werden seine Kinder in (und als) Flex-Items umgewandelt.
+Lassen Sie uns zusammenfassen, was hier passiert. Wenn man einem Element einen {{cssxref("display")}} Wert von `flex` hinzufügt, wird es zu einem Flex-Container. Der Container wird als {{Glossary("Block-level_content", "Block-Level-Inhalt")}} angezeigt in Bezug darauf, wie er mit dem Rest der Seite interagiert. Wenn das Element in einen Flex-Container umgewandelt wird, werden seine Kinder in Flex-Items umgewandelt (und layoutet).
 
-Sie können den Container inline machen, indem Sie einen [outside `display` value](/de/docs/Web/CSS/display#outside) verwenden (z. B. `display: inline flex`), welcher beeinflusst, wie der Container selbst in der Seite layoutet wird.
-Der veraltete `inline-flex` display-Wert zeigt den Container ebenfalls inline an.
-Wir konzentrieren uns in diesem Tutorial darauf, wie sich der Inhalt des Containers verhält, aber wenn Sie den Effekt von inline im Vergleich zu Block-Layout sehen möchten, können Sie sich den [Wertevergleich](/de/docs/Web/CSS/display#display_value_comparison) auf der `display` Eigenschaftsseite ansehen.
+Sie können den Container auch inline machen, indem Sie einen [außerhalb `display` Wert](/de/docs/Web/CSS/display#outside) verwenden (z.B. `display: inline flex`), was beeinflusst, wie der Container selbst auf der Seite layoutet wird.
+Der Legacy-`inline-flex` Display-Wert zeigt den Container ebenfalls inline an.
+Wir werden uns in diesem Tutorial darauf konzentrieren, wie sich die Inhalte des Containers verhalten, aber wenn Sie den Effekt von Inline-gegen-Block-Layout sehen möchten, können Sie sich den [Wertvergleich](/de/docs/Web/CSS/display#display_value_comparison) auf der `display` Eigenschaftsseite ansehen.
 
-Die nächsten Abschnitte erklären ausführlicher, was Flex-Items sind und was in einem Element passiert, wenn Sie es zu einem Flex-Container machen.
+Die nächsten Abschnitte erklären detaillierter, was Flex-Items sind und was innerhalb eines Elements passiert, wenn Sie es zu einem Flex-Container machen.
 
-## Das Flexmodell
+## Das Flex-Modell
 
-Wenn Elemente als Flex-Items layoutet werden, werden sie entlang zweier Achsen layoutet:
+Wenn Elemente als Flex-Items layoutet werden, sind sie entlang zwei Achsen angeordnet:
 
-![Drei Flex-Items in einer Sprache, die von links nach rechts gelesen wird, sind nebeneinander in einem Flex-Container angeordnet. Die Hauptachse — die Achse des Flex-Containers in der Richtung, in der die Flex-Items angeordnet sind — ist horizontal. Die Enden der Achse sind Haupt-Start und Haupt-Ende und befinden sich links bzw. rechts. Die Querachse ist vertikal; senkrecht zur Hauptachse. Quer-Start und Quer-Ende befinden sich oben und unten. Die Länge des Flex-Items entlang der Hauptachse, in diesem Fall die Breite, wird Hauptgröße genannt, und die Länge des Flex-Items entlang der Querachse, in diesem Fall die Höhe, wird Quergöße genannt.](flex_terms.png)
+![Drei Flex-Items in einer von links nach rechts Sprache sind nebeneinander in einem Flex-Container layoutet. Die Hauptachse — die Achse des Flex-Containers in der Richtung, in der die Flex-Items layoutet sind — ist horizontal. Die Enden der Achse sind main-start und main-end und befinden sich jeweils links und rechts. Die Querachse ist vertikal; senkrecht zur Hauptachse. Die cross-start und cross-end sind oben und unten jeweils. Die Länge des Flex-Items entlang der Hauptachse, in diesem Fall die Breite, wird main size genannt, und die Länge des Flex-Items entlang der Querachse, in diesem Fall die Höhe, wird cross size genannt.](flex_terms.png)
 
-- Die **Hauptachse** ist die Achse, die in der Richtung verläuft, in der die Flex-Items layoutet sind (z. B. als Reihe über die Seite oder als Spalte nach unten). Der Anfang und das Ende dieser Achse werden als **Haupt-Start** und **Haupt-Ende** bezeichnet. Die Länge von der Haupt-Start-Kante zur Haupt-Ende-Kante ist die **Hauptgröße**.
-- Die **Querachse** ist die Achse, die senkrecht zur Richtung verläuft, in der die Flex-Items layoutet sind. Der Anfang und das Ende dieser Achse werden als **Quer-Start** und **Quer-Ende** bezeichnet. Die Länge von der Quer-Start-Kante zur Quer-Ende-Kante ist die **Quergöße**.
-- Das übergeordnete Element, auf das `display: flex` gesetzt ist (das {{htmlelement("section")}} in unserem Beispiel), wird als **Flex-Container** bezeichnet.
-- Die Elemente, die innerhalb des Flex-Containers als flexible Boxen angeordnet sind, werden als **Flex-Items** bezeichnet (die {{htmlelement("article")}}-Elemente in unserem Beispiel).
+- Die **Hauptachse** ist die Achse, die in der Richtung verläuft, in der die Flex-Items angeordnet sind (zum Beispiel eine Zeile über die Seite, oder eine Spalte die Seite hinunter.) Der Anfang und das Ende dieser Achse werden als **Main Start** und **Main End** bezeichnet. Die Länge vom Main-Start-Edge zum Main-End-Edge ist die **Main Size**.
+- Die **Querachse** ist die Achse, die senkrecht zur Richtung verläuft, in der die Flex-Items angeordnet sind. Der Anfang und das Ende dieser Achse werden als **Cross Start** und **Cross End** bezeichnet. Die Länge vom Cross-Start-Edge zum Cross-End-Edge ist die **Cross Size**.
+- Das Elternelement, das `display: flex` auf sich gesetzt hat (das {{htmlelement("section")}} in unserem Beispiel) wird als **Flex-Container** bezeichnet.
+- Die Elemente, die als flexible Boxen innerhalb des Flex-Containers layoutet sind, werden als **Flex-Items** bezeichnet (die {{htmlelement("article")}} Elemente in unserem Beispiel).
 
-Behalten Sie diese Terminologie im Kopf, während Sie die folgenden Abschnitte durchgehen. Sie können jederzeit darauf zurückgreifen, wenn Sie sich über die verwendeten Begriffe unsicher sind.
+Behalten Sie diese Terminologie im Kopf, während Sie durch die nachfolgenden Abschnitte gehen. Sie können jederzeit darauf zurückgreifen, wenn Sie bei einem der verwendeten Begriffe verwirrt sind.
 
 ## Spalten oder Zeilen?
 
-Flexbox bietet eine Eigenschaft namens {{cssxref("flex-direction")}}, die angibt, in welcher Richtung die Hauptachse verläuft (in welche Richtung die Flexbox-Kinder angeordnet sind). Standardmäßig ist dies auf `row` gesetzt, was dazu führt, dass sie in einer Reihe in der Richtung angeordnet sind, in der die Standardsprache Ihres Browsers funktioniert (von links nach rechts, im Falle eines englischen Browsers).
+Flexbox bietet eine Eigenschaft namens {{cssxref("flex-direction")}}, die festlegt, in welche Richtung die Hauptachse verläuft (welche Richtung die Flexbox-Kinder layoutet sind). Standardmäßig ist dies auf `row` gesetzt, was bewirkt, dass sie in einer Zeile entsprechend der Richtung Ihrer Browsersprachvoreinstellung layoutet sind (von links nach rechts, im Falle eines englischen Browsers).
 
-Versuchen Sie, die folgende Deklaration zu Ihrer {{htmlelement("section")}}-Regel hinzuzufügen:
+Versuchen Sie die folgende Deklaration zu Ihrer {{htmlelement("section")}} Regel hinzuzufügen:
 
 ```css
 flex-direction: column;
 ```
 
-Sie werden sehen, dass dies die Elemente wieder in ein Spaltenlayout versetzt, ähnlich wie sie waren, bevor wir CSS hinzugefügt haben. Bevor Sie weitermachen, löschen Sie diese Deklaration aus Ihrem Beispiel.
+Sie werden sehen, dass dies die Items zurück in ein Spaltenlayout versetzt, so wie sie vor dem Hinzufügen von CSS waren. Bevor Sie fortfahren, löschen Sie diese Deklaration aus Ihrem Beispiel.
 
 > [!NOTE]
-> Sie können Flex-Items auch in umgekehrter Richtung mit den Werten `row-reverse` und `column-reverse` anordnen. Experimentieren Sie auch mit diesen Werten!
+> Sie können Flex-Items auch in umgekehrter Richtung anordnen, indem Sie die Werte `row-reverse` und `column-reverse` verwenden. Experimentieren Sie auch mit diesen Werten!
 
-## Umwickeln
+## Umbrüche
 
-Ein Problem, das auftritt, wenn Sie eine feste Breite oder Höhe in Ihrem Layout haben, ist, dass Ihre Flexbox-Kinder schließlich ihren Container überlaufen und das Layout zerbrechen. Im folgenden Beispiel haben wir 5 {{htmlelement("article")}}, die nicht passen, da sie eine `min-width` von `400px` haben, sodass es einen horizontalen Scroll gibt.
+Ein Problem, das auftritt, wenn Sie eine feste Breite oder Höhe in Ihrem Layout haben, ist, dass schließlich Ihre Flexbox-Kinder ihren Container überlappen und somit das Layout zerstören. Im folgenden Beispiel haben wir 5 {{htmlelement("article")}}s, die nicht passen, da sie eine `min-width` von `400px` haben, sodass ein Horizontal-Scroll vorhanden ist.
 
 ```html hidden live-sample___flex-wrap_0
 <header>
@@ -262,7 +265,7 @@ section {
 
 {{EmbedLiveSample("flex-wrap_0", "100", "230")}}
 
-Hier sehen wir, dass die Kinder tatsächlich aus ihrem Container herausbrechen. Standardmäßig versucht der Browser, alle Flex-Items in einer einzigen Reihe zu platzieren, wenn die `flex-direction` auf `row` gesetzt ist oder in einer einzigen Spalte, wenn die `flex-direction` auf `column` gesetzt ist.
+Hier sehen wir, dass die Kinder tatsächlich ihren Container sprengen. Standardmäßig versucht der Browser, alle Flex-Items in einer einzigen Zeile zu platzieren, wenn `flex-direction` auf `row` gesetzt ist, oder in einer einzigen Spalte, wenn `flex-direction` auf `column` gesetzt ist.
 
 ```html hidden live-sample___flex-wrap_1
 <header>
@@ -320,7 +323,7 @@ section {
 }
 ```
 
-Eine Möglichkeit, wie Sie dies beheben können, besteht darin, die folgende Deklaration Ihrer {{htmlelement("section")}}-Regel hinzuzufügen:
+Eine Möglichkeit, dies zu beheben, besteht darin, folgende Deklaration zu Ihrer {{htmlelement("section")}} Regel hinzuzufügen:
 
 ```css live-sample___flex-wrap_1
 section {
@@ -328,34 +331,32 @@ section {
 }
 ```
 
-Sie werden sehen, dass das Layout mit diesem Einschluss viel besser aussieht:
+Sie werden sehen, dass das Layout viel besser aussieht, wenn dies eingeschlossen ist:
 
 {{EmbedLiveSample("flex-wrap_1", "100", "430")}}
 
-Wir haben jetzt mehrere Reihen. Jede Reihe enthält so viele Flexbox-Kinder, wie es sinnvoll ist. Ein Überlauf wird auf die nächste Zeile verschoben.
+Wir haben jetzt mehrere Zeilen. Jede Zeile hat so viele Flexbox-Kinder darin, wie sinnvoll ist. Ein Überlauf wird auf die nächste Zeile verschoben.
 
-Aber hier gibt es noch mehr, das wir tun können. Versuchen Sie zuerst, den {{cssxref("flex-direction")}} Ihrer Regel zu `row-reverse` zu ändern. Jetzt sehen Sie, dass Sie immer noch Ihr Mehrreihenlayout haben, aber es beginnt in der gegenüberliegenden Ecke des Browserfensters und verläuft umgekehrt.
+Aber es gibt noch mehr, was wir hier tun können. Versuchen Sie zunächst, Ihren Wert von {{cssxref("flex-direction")}} auf `row-reverse` zu ändern. Nun werden Sie sehen, dass Sie immer noch Ihr Mehrzeilenlayout haben, aber es beginnt von der gegenüberliegenden Ecke des Browserfensters aus und läuft umgekehrt ab.
 
-## flex-flow Abkürzung
+## flex-flow-Schreibweise
 
-An dieser Stelle lohnt es sich zu beachten, dass es eine Abkürzung für {{cssxref("flex-direction")}} und {{cssxref("flex-wrap")}} gibt: {{cssxref("flex-flow")}}. So können Sie zum Beispiel
+An dieser Stelle ist es erwähnenswert, dass es eine Kurzfassung für {{cssxref("flex-direction")}} und {{cssxref("flex-wrap")}} gibt: {{cssxref("flex-flow")}}. Also, zum Beispiel, können Sie
 
 ```css
 flex-direction: row;
 flex-wrap: wrap;
 ```
 
-durch
+ersetzen mit
 
 ```css
 flex-flow: row wrap;
 ```
 
-ersetzen.
-
 ## Flexible Größenanpassung von Flex-Items
 
-Lassen Sie uns jetzt zu unserem ersten Beispiel zurückkehren und uns ansehen, wie wir kontrollieren können, welchen Anteil eines Raumes Flex-Items im Vergleich zu anderen Flex-Items einnehmen.
+Lassen Sie uns nun zu unserem ersten Beispiel zurückkehren und schauen, wie wir steuern können, welchen Anteil an Raum Flex-Items im Vergleich zu anderen Flex-Items einnehmen.
 
 ```html hidden live-sample___flexbox_2
 <header>
@@ -413,7 +414,7 @@ article {
 
 {{EmbedLiveSample("flexbox_2", "100", "210")}}
 
-Dies ist ein einheitenloser Proportionswert, der bestimmt, wie viel verfügbarer Raum entlang der Hauptachse jedes Flex-Item im Vergleich zu anderen Flex-Items einnimmt. In diesem Fall geben wir jedem {{htmlelement("article")}}-Element denselben Wert (einen Wert von `1`), was bedeutet, dass sie alle denselben Anteil des übrigen Raumes nach Eigenschaften wie Padding und Margin einnehmen. Dieser Wert wird im Verhältnis unter den Flex-Items geteilt: Jedes Flex-Item mit einem Wert von `400000` würde genau denselben Effekt haben.
+Dies ist ein einheitsloser Proportionswert, der bestimmt, wie viel verfügbaren Raum entlang der Hauptachse jedes Flex-Item im Vergleich zu anderen Flex-Items einnimmt. In diesem Fall geben wir jedem {{htmlelement("article")}} Element denselben Wert (einen Wert von `1`), was bedeutet, dass sie alle einen gleichen Anteil am verbleibenden Raum einnehmen, nachdem Eigenschaften wie Padding und Margin gesetzt wurden. Dieser Wert wird proportional unter den Flex-Items aufgeteilt: Wenn jedes Flex-Item einen Wert von `400000` hätte, hätte dies genau denselben Effekt.
 
 ```html hidden live-sample___flexbox_3
 <header>
@@ -464,7 +465,7 @@ article {
 }
 ```
 
-Fügen Sie nun die folgende Regel unter der vorherigen hinzu:
+Fügen Sie nun die folgende Regel unterhalb der vorherigen hinzu:
 
 ```css live-sample___flexbox_3
 article:nth-of-type(3) {
@@ -474,9 +475,9 @@ article:nth-of-type(3) {
 
 {{EmbedLiveSample("flexbox_3", "100", "210")}}
 
-Wenn Sie jetzt aktualisieren, sehen Sie, dass das dritte {{htmlelement("article")}} doppelt so viel der verfügbaren Breite einnimmt wie die anderen beiden. Es gibt jetzt insgesamt vier Proportionseinheiten (da 1 + 1 + 2 = 4). Die ersten beiden Flex-Items haben jeweils eine Einheit, sodass sie jeweils 1/4 des verfügbaren Raumes einnehmen. Das dritte hat zwei Einheiten, sodass es 2/4 des verfügbaren Raumes einnimmt (oder die Hälfte).
+Nun, wenn Sie aktualisieren, werden Sie sehen, dass das dritte {{htmlelement("article")}} doppelt so viel der verfügbaren Breite einnimmt wie die anderen beiden. Nun gibt es vier Proportions-Einheiten insgesamt (da 1 + 1 + 2 = 4). Die ersten beiden Flex-Items haben jeweils eine Einheit, also nehmen sie jeweils 1/4 des verfügbaren Raums ein. Das dritte hat zwei Einheiten, also nimmt es 2/4 des verfügbaren Raums (oder die Hälfte) ein.
 
-Sie können auch einen Mindestgrößenwert innerhalb des flex-Werts angeben. Versuchen Sie, Ihre vorhandenen Artikelregeln wie folgt zu aktualisieren:
+Sie können auch einen Mindestgrößenwert innerhalb des Flex-Werts angeben. Versuchen Sie, Ihre bestehenden Artikelregeln wie folgt zu aktualisieren:
 
 ```html hidden live-sample___flexbox_4
 <header>
@@ -534,27 +535,27 @@ article:nth-of-type(3) {
 }
 ```
 
-Dies besagt im Grunde: "Jedes Flex-Item bekommt zuerst `100px` des verfügbaren Raumes. Danach wird der übrige Raum proportional laut der Proportionseinheiten geteilt." Sie werden einen Unterschied sehen, wie der Raum geteilt wird.
+Dies besagt im Wesentlichen: "Jedes Flex-Item erhält zunächst `100px` des verfügbaren Raums. Danach wird der Rest des verfügbaren Raums entsprechend der Proportions-Einheiten aufgeteilt." Sie werden einen Unterschied sehen, wie der Raum geteilt wird.
 
 {{EmbedLiveSample("flexbox_4", "100", "210")}}
 
-Alle Flex-Items haben eine Mindestbreite von 100 Pixeln, die mit 'flex' eingestellt wird. Der Wert von flex für die ersten beiden Flex-Items ist 1 und für das dritte Item ist 2. Dies teilt den restlichen Raum im Flex-Container in 4 proportionale Einheiten. Eine Einheit wird jedem der ersten beiden Flex-Items zugewiesen und 2 Einheiten werden dem dritten Flex-Item zugewiesen, wodurch das dritte Flex-Item breiter ist als die anderen beiden, die dieselbe Breite haben.
+Alle Flex-Items haben eine Mindestbreite von 100 Pixel — eingestellt mit 'flex'. Der Wert von Flex für die ersten beiden Flex-Items ist 1 und für das dritte Item ist 2. Dies teilt den verbleibenden Raum im Flex-Container in 4 Proportions-Einheiten auf. Eine Einheit wird jedem der ersten beiden Flex-Items zugewiesen und 2 Einheiten dem dritten Flex-Item, wodurch das dritte Flex-Item breiter ist als die anderen beiden, die die gleiche Breite haben.
 
-Der tatsächliche Wert von Flexbox kann in seiner Flexibilität/Anpassungsfähigkeit gesehen werden. Wenn Sie das Browserfenster in der Größe ändern oder ein weiteres {{htmlelement("article")}}-Element hinzufügen, funktioniert das Layout weiterhin einwandfrei.
+Der wahre Wert von Flexbox kann in seiner Flexibilität/Anpassungsfähigkeit gesehen werden. Wenn Sie das Browserfenster ändern oder ein weiteres {{htmlelement("article")}} Element hinzufügen, funktioniert das Layout weiterhin einwandfrei.
 
-## flex: Abkürzung vs. Langform
+## flex: Schreibweise versus Langfassung
 
-{{cssxref("flex")}} ist eine Abkürzung, die bis zu drei verschiedene Werte spezifizieren kann:
+{{cssxref("flex")}} ist eine Kurzschreibweise, die bis zu drei verschiedene Werte angeben kann:
 
-- Der einheitenlose Proportionswert, den wir oben diskutiert haben. Dies kann separat mit der {{cssxref("flex-grow")}}-Langform-Eigenschaft spezifiziert werden.
-- Ein zweiter einheitenloser Proportionswert, {{cssxref("flex-shrink")}}, der ins Spiel kommt, wenn die Flex-Items ihren Container überlaufen. Dieser Wert gibt an, wie viel ein Element schrumpfen wird, um Überläufe zu verhindern. Dies ist eine ziemlich fortgeschrittene Flexbox-Funktion und wir werden sie in diesem Artikel nicht weiter behandeln.
-- Der oben diskutierte Mindestgrößenwert. Dies kann separat mit dem {{cssxref("flex-basis")}}-Langform-Wert spezifiziert werden.
+- Der einheitslose Proportionswert, den wir oben besprochen haben. Dieser kann separat mit der {{cssxref("flex-grow")}} Langform-Eigenschaft angegeben werden.
+- Ein zweiter einheitsloser Proportionswert, {{cssxref("flex-shrink")}}, der ins Spiel kommt, wenn die Flex-Items ihren Container überlaufen. Dieser Wert gibt an, um wie viel ein Item schrumpfen wird, um Überläufe zu verhindern. Dies ist eine ziemlich fortgeschrittene Flexbox-Funktion, und wir werden sie in diesem Artikel nicht weiter behandeln.
+- Der Mindestgrößenwert, den wir oben diskutiert haben. Dieser kann separat mit dem {{cssxref("flex-basis")}} Langform-Wert angegeben werden.
 
-Wir raten davon ab, die Langform-Flex-Eigenschaften zu verwenden, es sei denn, es ist wirklich notwendig (z. B. um etwas zu überschreiben, was zuvor gesetzt wurde). Sie führen zu viel zusätzlichem geschriebenem Code und können etwas verwirrend sein.
+Wir raten davon ab, die Langform-Flex-Eigenschaften zu verwenden, es sei denn, Sie müssen wirklich (z.B. um zuvor gesetzte Werte zu überschreiben). Sie führen zu viel zusätzlichem Code und können etwas verwirrend sein.
 
 ## Horizontale und vertikale Ausrichtung
 
-Mit Flexbox-Features können Sie auch Flex-Items entlang der Haupt- oder Querachse ausrichten. Lassen Sie uns dies untersuchen, indem wir uns ein neues Beispiel ansehen:
+Sie können auch Flexbox-Funktionen verwenden, um Flex-Items entlang der Haupt- oder Querachse auszurichten. Lassen Sie uns dies erkunden, indem wir uns ein neues Beispiel ansehen:
 
 ```html live-sample___flex-align_0
 <div>
@@ -585,13 +586,13 @@ button {
 /* Add your flexbox CSS below here */
 ```
 
-Wir werden dies in eine ordentliche, flexible Schaltfläche/Toolbar verwandeln. Im Moment sehen Sie eine horizontale Menüleiste mit ein paar Buttons, die in die obere linke Ecke gedrückt sind.
+Wir werden dies in eine saubere, flexible Schaltflächen-/Symbolleiste verwandeln. Im Moment sehen Sie eine horizontale Menüleiste mit einigen in die obere linke Ecke gequetschten Schaltflächen.
 
 {{EmbedLiveSample("flex-align_0", "100", "125")}}
 
-Nehmen Sie zuerst eine lokale Kopie dieses Beispiels.
+Erstellen Sie zunächst eine lokale Kopie dieses Beispiels.
 
-Fügen Sie nun das Folgende am Ende des CSS des Beispiels hinzu:
+Fügen Sie nun das Folgende am Ende des Beispiels-CSS hinzu:
 
 ```html hidden live-sample___flex-align_1
 <div>
@@ -632,15 +633,15 @@ div {
 
 {{EmbedLiveSample("flex-align_1", "100", "125")}}
 
-Aktualisieren Sie die Seite, und Sie werden sehen, dass die Buttons jetzt schön horizontal und vertikal zentriert sind. Wir haben dies durch zwei neue Eigenschaften erreicht. Die Flex-Items sind durch Setzen der `align-items`-Eigenschaft auf `center` in der Mitte der Querachse positioniert. Die Flex-Items sind durch Setzen der `justify-content`-Eigenschaft auf `space-around` gleichmäßig entlang der Hauptachse verteilt.
+Aktualisieren Sie die Seite, und Sie werden sehen, dass die Schaltflächen nun schön horizontal und vertikal zentriert sind. Wir haben dies über zwei neue Eigenschaften erreicht. Die Flex-Items sind über das Zentrum der Querachse positioniert, indem die `align-items` Eigenschaft auf `center` gesetzt wird. Die Flex-Items sind gleichmäßig entlang der Hauptachse positioniert, indem die `justify-content` Eigenschaft auf `space-around` gesetzt wird.
 
-Die {{cssxref("align-items")}}-Eigenschaft steuert, wo die Flex-Items auf der Querachse sitzen.
+Die {{cssxref("align-items")}} Eigenschaft steuert, wo sich die Flex-Items auf der Querachse befinden.
 
-- Standardmäßig ist der Wert `normal`, der sich in Flexbox wie `stretch` verhält. Dadurch werden alle Flex-Items so gedehnt, dass sie das übergeordnete Element in Richtung der Querachse ausfüllen. Wenn das übergeordnete Element keine feste Größe in der Richtung der Querachse hat, werden alle Flex-Items so hoch (oder breit) wie das höchste (oder breiteste) Flex-Item. Dies ist der Grund, warum unser erstes Beispiel Spalten mit gleicher Höhe standardmäßig hatte.
-- Der Wert `center`, den wir im obigen Code verwendet haben, bewirkt, dass die Elemente ihre intrinsischen Dimensionen beibehalten, aber entlang der Querachse zentriert sind. Deshalb sind die aktuellen Beispielbuttons vertikal zentriert.
-- Sie können auch Werte wie `flex-start`, `self-start` oder `start` und `flex-end`, `self-end` oder `end` haben, die alle Elemente am Anfang bzw. Ende der Querachse ausrichten. Die `baseline`-Werte richten die Flex-Items an ihrer Basislinie aus; im Grunde wird die Unterkante jeder ersten Textzeile der Flex-Items mit der Unterkante der ersten Zeile des Elements mit dem größten Abstand zwischen dem Quer-Start und dieser Basislinie ausgeglichen. Weitere Details finden Sie unter {{cssxref("align-items")}}.
+- Standardmäßig ist der Wert `normal`, der sich in Flexbox wie `stretch` verhält. Dies streckt alle Flex-Items, um den Eltern in der Richtung der Querachse auszufüllen. Wenn der Elternteil keine feste Größe in der Richtung der Querachse hat, dann werden alle Flex-Items so hoch (oder breit) wie das höchste (oder breiteste) Flex-Item. So hatte unser erstes Beispiel standardmäßig Spalten gleicher Höhe.
+- Der `center` Wert, den wir in unserem obigen Code verwendet haben, bewirkt, dass die Items ihre intrinsic Dimensionen beibehalten, aber entlang der Querachse zentriert sind. Deshalb sind die Schaltflächen im aktuellen Beispiel vertikal zentriert.
+- Es gibt auch Werte wie `flex-start`, `self-start` oder `start` und `flex-end`, `self-end` oder `end`, die alle Items am Start bzw. Ende der Querachse ausrichten. Die `baseline` Werte werden die Flex-Items nach ihrer Baseline ausrichten; im Grunde wird der Boden jeder Flex-Items ersten Textzeile mit dem Boden der ersten Zeile des Elements mit dem größten Abstand zwischen dem Cross-Start und dieser Baseline ausgerichtet. Siehe {{cssxref("align-items")}} für die vollständigen Details.
 
-Sie können das Verhalten von {{cssxref("align-items")}} für einzelne Flex-Items überschreiben, indem Sie die {{cssxref("align-self")}}-Eigenschaft auf diese anwenden. Beispielweise, versuchen Sie, das Folgende zu Ihrem CSS hinzuzufügen:
+Sie können das Verhalten von {{cssxref("align-items")}} für einzelne Flex-Items überschreiben, indem Sie die {{cssxref("align-self")}} Eigenschaft auf sie anwenden. Zum Beispiel versuchen Sie folgendes zu Ihrem CSS hinzuzufügen:
 
 ```html hidden live-sample___flex-align_2
 <div>
@@ -684,26 +685,26 @@ button:first-child {
 
 {{EmbedLiveSample("flex-align_2", "100", "125")}}
 
-Sehen Sie sich an, welche Auswirkungen dies hat, und entfernen Sie es wieder, wenn Sie fertig sind.
+Schauen Sie, welchen Effekt dies hat und entfernen Sie es, wenn Sie damit fertig sind.
 
-{{cssxref("justify-content")}} steuert, wo die Flex-Items auf der Hauptachse sitzen.
+{{cssxref("justify-content")}} steuert, wo sich die Flex-Items auf der Hauptachse befinden.
 
-- Der Standardwert ist `normal`, der sich wie `start` verhält, sodass alle Elemente am Anfang der Hauptachse angeordnet werden.
-- Sie können `end` oder `flex-end` verwenden, um sie am Ende anzubringen.
-- Die Werte `left` und `right` wirken wie `start` oder `end`, abhängig von der Schreibrichtung.
-- `center` ist ebenfalls ein Wert für `justify-content`. Er sorgt dafür, dass die Flex-Items in der Mitte der Hauptachse sitzen.
-- Der von uns oben verwendete Wert `space-around` ist nützlich — er verteilt alle Elemente gleichmäßig entlang der Hauptachse mit einem kleinen Abstand an beiden Enden.
-- Es gibt einen weiteren Wert, `space-between`, der `space-around` sehr ähnlich ist, außer dass er keinen Abstand an den beiden Enden lässt.
+- Der Standardwert ist `normal`, das sich wie `start` verhält und alle Items am Anfang der Hauptachse platziert.
+- Sie können `end` oder `flex-end` verwenden, um sie am Ende zu platzieren.
+- Die Werte `left` und `right` verhalten sich wie `start` oder `end` abhängig von der Schreibrichtung.
+- `center` ist ebenfalls ein Wert für `justify-content`. Es sorgt dafür, dass die Flex-Items im Zentrum der Hauptachse platziert sind.
+- Der von uns oben verwendete Wert, `space-around`, ist nützlich — er verteilt alle Items gleichmäßig entlang der Hauptachse mit etwas Platz an jedem Ende.
+- Es gibt einen weiteren Wert, `space-between`, der sehr ähnlich zu `space-around` ist, außer dass er keinen Platz an den Enden lässt.
 
-Die [`justify-items`](/de/docs/Web/CSS/justify-items)-Eigenschaft wird in Flexbox-Layouts ignoriert.
+Die [`justify-items`](/de/docs/Web/CSS/justify-items) Eigenschaft wird in Flexbox-Layouts ignoriert.
 
-Wir möchten Sie ermutigen, mit diesen Werten zu experimentieren, um zu sehen, wie sie funktionieren, bevor Sie fortfahren.
+Wir möchten Ihnen ermutigen, mit diesen Werten zu spielen, um zu sehen, wie sie funktionieren, bevor Sie fortfahren.
 
-## Anordnung von Flex-Items
+## Flex-Items anordnen
 
-Flexbox verfügt auch über eine Funktion zum Ändern der Anordnung der Flex-Items, ohne die Quellreihenfolge zu beeinflussen. Dies ist eine weitere Sache, die mit traditionellen Layout-Methoden unmöglich ist.
+Flexbox bietet auch eine Funktion, um die Anordnung der Flex-Items zu ändern, ohne die Quellordnung zu beeinflussen. Dies ist eine weitere Sache, die mit traditionellen Layoutmethoden unmöglich ist.
 
-Versuchen Sie, das folgende CSS zu Ihrem Buttonbar-Beispielcode hinzuzufügen:
+Versuchen Sie, die folgende CSS zu Ihrem Schaltflächenleisten-Beispielcode hinzuzufügen:
 
 ```css
 button:first-child {
@@ -711,14 +712,14 @@ button:first-child {
 }
 ```
 
-Aktualisieren Sie, und Sie werden sehen, dass die "Smile"-Schaltfläche ans Ende der Hauptachse verschoben wurde. Lassen Sie uns darüber sprechen, wie das im Detail funktioniert:
+Aktualisieren Sie und Sie werden sehen, dass die "Smile"-Schaltfläche ans Ende der Hauptachse verschoben wurde. Lassen Sie uns besprechen, wie dies im Detail funktioniert:
 
-- Standardmäßig haben alle Flex-Items einen {{cssxref("order")}}-Wert von `0`.
-- Flex-Items mit höher angegebenen Ordnungswerten erscheinen später in der Display-Reihenfolge als Elemente mit niedrigeren Ordnungswerten.
-- Flex-Items mit dem gleichen Ordnungswert erscheinen in ihrer Quellreihenfolge. Wenn Sie also vier Elemente mit den Ordnungswerten `2`, `1`, `1` und `0` haben, wäre ihre Anzeigereihenfolge 4., 2., 3. dann 1.
-- Das 3. Element erscheint nach dem 2., weil es denselben Ordnungswert hat und in der Quellreihenfolge später kommt.
+- Standardmäßig haben alle Flex-Items einen {{cssxref("order")}} Wert von `0`.
+- Flex-Items mit höheren festgelegten Order-Werten erscheinen später in der Anzeigereihenfolge als Items mit niedrigeren Order-Werten.
+- Flex-Items mit demselben Order-Wert erscheinen in ihrer Quellreihenfolge. Wenn Sie also vier Items haben, deren Order-Werte als `2`, `1`, `1` und `0` festgelegt sind, wäre deren Anzeigereihenfolge 4., 2., 3. und 1.
+- Das 3. Item erscheint nach dem 2., da es denselben Order-Wert hat und danach in der Quellordnung kommt.
 
-Sie können negative Ordnungswerte setzen, damit Elemente früher erscheinen als Elemente, deren Wert `0` ist. Zum Beispiel könnten Sie die "Blush"-Schaltfläche mit der folgenden Regel an den Anfang der Hauptachse setzen:
+Sie können negative Order-Werte setzen, um Items früher erscheinen zu lassen als Items mit dem Wert `0`. Zum Beispiel könnten Sie die "Blush"-Schaltfläche am Anfang der Hauptachse erscheinen lassen, indem Sie die folgende Regel verwenden:
 
 ```css
 button:last-child {
@@ -726,11 +727,11 @@ button:last-child {
 }
 ```
 
-Obwohl Sie die Reihenfolge mit `order` ändern können, bleibt die Tabulatorreihenfolge dieselbe wie die Code-Reihenfolge. Das Ändern der Reihenfolge von fokussierbaren Elementen kann die Benutzerfreundlichkeit für Ihre Tastaturnutzer negativ beeinflussen!
+Obwohl Sie die Order mit `order` ändern können, bleibt die Tab-Reihenfolge dieselbe wie in der Code-Reihenfolge. Das Ändern der Fokusreihenfolge von fokussierbaren Elementen kann sich negativ auf die Benutzerfreundlichkeit für Ihre Tastaturbenutzer auswirken!
 
-## Verschachtelte Flexboxen
+## Verschachtelte Flex-Boxen
 
-Es ist möglich, einige ziemlich komplexe Layouts mit Flexbox zu erstellen. Es ist vollkommen in Ordnung, ein Flex-Item auch zum Flex-Container zu machen, sodass seine Kinder ebenfalls wie flexible Boxen layoutet sind.
+Es ist möglich, einige ziemlich komplexe Layouts mit Flexbox zu erstellen. Es ist völlig in Ordnung, ein Flex-Item auch zu einem Flex-Container zu machen, damit seine Kinder ebenfalls wie flexible Boxen layoutet werden.
 
 ```html hidden live-sample___flex-nesting
 <header>
@@ -812,7 +813,7 @@ button {
 
 {{EmbedLiveSample("flex-nesting", "100", "290")}}
 
-Dieses komplexe Layout hat ein paar Flex-Items, die ebenfalls Flex-Container sind. Das HTML dafür ist ziemlich einfach. Wir haben ein {{htmlelement("section")}}-Element, das drei {{htmlelement("article")}}s enthält. Das dritte {{htmlelement("article")}} enthält drei {{htmlelement("div")}}s, und das erste {{htmlelement("div")}} enthält fünf {{htmlelement("button")}}s:
+Dieses komplexe Layout hat einige Flex-Items, die auch Flex-Container sind. Das HTML dafür ist ziemlich einfach. Wir haben ein {{htmlelement("section")}} Element, das drei {{htmlelement("article")}}s enthält. Das dritte {{htmlelement("article")}} enthält drei {{htmlelement("div")}}s, und das erste {{htmlelement("div")}} enthält fünf {{htmlelement("button")}}s:
 
 ```plain
 section - article
@@ -824,9 +825,9 @@ section - article
                           button
 ```
 
-Lassen Sie uns einen Blick auf den Code werfen, den wir für das Layout verwendet haben.
+Schauen wir uns den Code an, den wir für das Layout verwendet haben.
 
-Zunächst legen wir fest, dass die Kinder des {{htmlelement("section")}} als flexible Boxen layoutet werden.
+Zunächst setzen wir die Kinder des {{htmlelement("section")}} so, dass sie wie flexible Boxen layoutet werden.
 
 ```css
 section {
@@ -834,7 +835,7 @@ section {
 }
 ```
 
-Als Nächstes setzen wir einige Flex-Werte auf die {{htmlelement("article")}}s selbst. Beachten Sie besonders die zweite Regel hier: Wir setzen das dritte {{htmlelement("article")}}, damit seine Kinder auch als Flex-Items layoutet werden, aber diesmal layouten wir sie als Spalte.
+Als nächstes setzen wir einige Flex-Werte auf die {{htmlelement("article")}}s selbst. Beachten Sie besonders die zweite Regel hier: Wir setzen das dritte {{htmlelement("article")}} so, dass seine Kinder ebenfalls wie Flex-Items layoutet werden, aber diesmal werden sie wie eine Spalte layoutet.
 
 ```css
 article {
@@ -848,7 +849,7 @@ article:nth-of-type(3) {
 }
 ```
 
-Als Nächstes wählen wir das erste {{htmlelement("div")}} aus. Wir verwenden zuerst `flex: 1 100px;`, um ihm effektiv eine Mindesthöhe von `100px` zu geben, und setzen dann seine Kinder (die {{htmlelement("button")}}-Elemente) so, dass sie auch als Flex-Items layoutet werden. Hier layouten wir sie in einer umschließenden Zeile und zentrieren sie im verfügbaren Raum, genau wie wir es mit dem einzelnen Button-Beispiel, das wir zuvor gesehen haben, gemacht haben.
+Dann wählen wir das erste {{htmlelement("div")}} aus. Wir verwenden zuerst `flex: 1 100px;`, um ihm effektiv eine Mindesthöhe von `100px` zu geben, dann legen wir fest, dass seine Kinder (die {{htmlelement("button")}} Elemente) ebenfalls wie Flex-Items layoutet werden. Hier layouten wir sie in einer umhüllenden Zeile und zentrieren sie im verfügbaren Raum wie wir es mit dem einzelnen Schaltflächen-Beispiel gesehen haben.
 
 ```css
 article:nth-of-type(3) div:first-child {
@@ -860,7 +861,7 @@ article:nth-of-type(3) div:first-child {
 }
 ```
 
-Schließlich setzen wir einige Größen auf den Button. Dieses Mal, indem wir ihm einen Flex-Wert von `1 auto` geben. Dies hat einen sehr interessanten Effekt, den Sie sehen werden, wenn Sie versuchen, die Breite Ihres Browserfensters zu ändern. Die Schaltflächen nehmen so viel Platz ein, wie sie können. So viele wie angenehm auf eine Zeile passen; darüber hinaus fallen sie auf eine neue Zeile.
+Schließlich setzen wir eine Größenanpassung auf die Schaltfläche. Diesmal indem wir ihr einen Flex-Wert von `1 auto` geben. Dies hat einen sehr interessanten Effekt, den Sie sehen werden, wenn Sie die Breite Ihres Browserfensters ändern. Die Schaltflächen nehmen so viel Platz wie möglich ein. So viele passen auf eine Zeile, wie bequem ist; darüber hinaus fallen sie auf eine neue Zeile.
 
 ```css
 button {
@@ -873,20 +874,20 @@ button {
 
 ## Testen Sie Ihre Fähigkeiten!
 
-Sie haben das Ende dieses Artikels erreicht, aber können Sie sich an die wichtigsten Informationen erinnern? Sie finden weitere Tests, um zu überprüfen, ob Sie diese Informationen behalten haben, bevor Sie fortfahren — siehe [Testen Sie Ihre Fähigkeiten: Flexbox](/de/docs/Learn_web_development/Core/CSS_layout/Test_your_skills/Flexbox).
+Sie haben das Ende dieses Artikels erreicht, aber können Sie sich an die wichtigsten Informationen erinnern? Sie können einige weitere Tests finden, um zu überprüfen, ob Sie diese Informationen vor Ihrem nächsten Schritt behalten haben — siehe [Testen Sie Ihre Fähigkeiten: Flexbox](/de/docs/Learn_web_development/Core/CSS_layout/Test_your_skills/Flexbox).
 
 ## Zusammenfassung
 
-Damit endet unsere Tour durch die Grundlagen von Flexbox. Wir hoffen, dass Sie Spaß hatten und es gründlich ausprobieren werden, während Sie Ihr weiteres Lernen fortsetzen. Als Nächstes werfen wir einen Blick auf einen weiteren wichtigen Aspekt von CSS-Layouts: [CSS-Grids](/de/docs/Learn_web_development/Core/CSS_layout/Grids).
+Damit endet unsere Tour durch die Grundlagen von Flexbox. Wir hoffen, Sie hatten Spaß und werden es weiter erforschen, während Sie mit Ihrem Lernen fortfahren. Als Nächstes werden wir uns einen weiteren wichtigen Aspekt von CSS-Layouts ansehen: [CSS Grids](/de/docs/Learn_web_development/Core/CSS_layout/Grids).
 
 ## Siehe auch
 
 - [Grundkonzepte von Flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox)
-- [Ausrichtung von Objekten in einem Flex-Container](/de/docs/Web/CSS/CSS_flexible_box_layout/Aligning_items_in_a_flex_container)
-- [Anordnung von Flex-Items](/de/docs/Web/CSS/CSS_flexible_box_layout/Ordering_flex_items)
-- [Kontrollieren der Verhältnisse von Flex-Items entlang der Hauptachse](/de/docs/Web/CSS/CSS_flexible_box_layout/Controlling_ratios_of_flex_items_along_the_main_axis)
+- [Ausrichten von Elementen in einem Flex-Container](/de/docs/Web/CSS/CSS_flexible_box_layout/Aligning_items_in_a_flex_container)
+- [Anordnen von Flex-Items](/de/docs/Web/CSS/CSS_flexible_box_layout/Ordering_flex_items)
+- [Kontrolle der Verhältnisse von Flex-Items entlang der Hauptachse](/de/docs/Web/CSS/CSS_flexible_box_layout/Controlling_ratios_of_flex_items_along_the_main_axis)
 - [CSS Flexible Box Layout](/de/docs/Web/CSS/CSS_flexible_box_layout) Modul
-- [CSS-Tricks Leitfaden zu Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) — ein Artikel, der alles über Flexbox auf ansprechende visuelle Weise erklärt
-- [Flexbox Froggy](https://flexboxfroggy.com/) — ein pädagogisches Spiel, um die Grundlagen von Flexbox zu lernen und besser zu verstehen
+- [CSS-Tricks Guide zu Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) — ein Artikel, der alles über Flexbox auf visuell ansprechende Weise erklärt
+- [Flexbox Froggy](https://flexboxfroggy.com/) — ein Lehrspiel, um die Grundlagen von Flexbox zu lernen und besser zu verstehen
 
 {{PreviousMenuNext("Learn_web_development/Core/CSS_layout/Positioning", "Learn_web_development/Core/CSS_layout/Grids", "Learn_web_development/Core/CSS_layout")}}

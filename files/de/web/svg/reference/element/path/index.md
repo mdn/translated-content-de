@@ -2,10 +2,10 @@
 title: <path>
 slug: Web/SVG/Reference/Element/path
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: 34c204f8f6c3f7ac60ebb23fca9798680aee9956
 ---
 
-Das **`<path>`**-Element von [SVG](/de/docs/Web/SVG) ist das generische Element zur Definition einer Form. Alle grundlegenden Formen können mit einem Path-Element erstellt werden.
+Das **`<path>`** [SVG](/de/docs/Web/SVG) Element ist das generische Element zur Definition einer Form. Alle grundlegenden Formen können mit einem path-Element erstellt werden.
 
 ## Beispiel
 
@@ -33,11 +33,11 @@ svg {
 ## Attribute
 
 - {{SVGAttr("d")}}
-  - : Dieses Attribut definiert die Form des Pfades.
-    _Werttyp_: **\<string>** ; _Standardwert_: `''`; _Animierbar_: **ja**
+  - : Dieses Attribut definiert die Form des Pfads.
+    _Wertetyp_: **\<string>**; _Standardwert_: `''`; _Animierbar_: **ja**
 - {{SVGAttr("pathLength")}}
-  - : Dieses Attribut ermöglicht es Autoren, die Gesamtlänge des Pfades in Benutzereinheiten anzugeben.
-    _Werttyp_: [**\<number>**](/de/docs/Web/SVG/Guides/Content_type#number) ; _Standardwert_: _none_; _Animierbar_: **ja**
+  - : Dieses Attribut ermöglicht es Autoren, die Gesamtlänge des Pfads in Benutzereinheiten anzugeben.
+    _Wertetyp_: [**\<number>**](/de/docs/Web/SVG/Guides/Content_type#number); _Standardwert_: _none_; _Animierbar_: **ja**
 
 ## Verwendungskontext
 
@@ -54,4 +54,4 @@ svg {
 ## Siehe auch
 
 - SVG-Grundformen: {{ SVGElement('circle') }}, {{ SVGElement('ellipse') }}, {{ SVGElement('line') }}, {{ SVGElement('polygon') }}, {{ SVGElement('polyline') }}, {{ SVGElement('rect') }}
-- [Das MDN SVG "Erste Schritte"-Tutorial: Pfad](/de/docs/Web/SVG/Tutorials/SVG_from_scratch/Paths)
+- [Das MDN SVG "Erste Schritte" Tutorial: Pfad](/de/docs/Web/SVG/Tutorials/SVG_from_scratch/Paths)

@@ -2,12 +2,12 @@
 title: <clipPath>
 slug: Web/SVG/Reference/Element/clipPath
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: 34c204f8f6c3f7ac60ebb23fca9798680aee9956
 ---
 
-Das **`<clipPath>`** [SVG](/de/docs/Web/SVG)-Element definiert einen Clipping-Pfad, der von der {{SVGAttr("clip-path")}}-Eigenschaft verwendet wird.
+Das **`<clipPath>`** [SVG](/de/docs/Web/SVG)-Element definiert einen Beschneidungspfad, der von der {{SVGAttr("clip-path")}}-Eigenschaft verwendet wird.
 
-Ein Clipping-Pfad beschränkt den Bereich, auf den Farbe angewendet werden kann. Konzeptionell werden Teile der Zeichnung, die außerhalb des durch den Clipping-Pfad begrenzten Bereichs liegen, nicht gezeichnet.
+Ein Beschneidungspfad begrenzt den Bereich, auf den Farbe angewendet werden kann. Konzeptionell werden Teile der Zeichnung, die außerhalb des durch den Beschneidungspfad begrenzten Bereichs liegen, nicht gezeichnet.
 
 ## Beispiel
 
@@ -62,17 +62,17 @@ svg {
 
 {{EmbedLiveSample('Example', 100, 100)}}
 
-Ein Clipping-Pfad ist konzeptionell gleichbedeutend mit einem benutzerdefinierten Viewport für das referenzierende Element. Daher beeinflusst er die _Darstellung_ eines Elements, nicht jedoch die _eigene Geometrie_ des Elements. Der Begrenzungsrahmen eines geclippten Elements (also eines Elements, das ein `<clipPath>`-Element über eine {{SVGAttr("clip-path")}}-Eigenschaft referenziert, oder eines Kindes des referenzierenden Elements) muss derselbe bleiben, als wäre es nicht geclippt.
+Ein Beschneidungspfad ist konzeptionell äquivalent zu einem benutzerdefinierten Ansichtsfenster für das referenzierte Element. Somit beeinflusst es die _Renderung_ eines Elements, aber nicht die _eigene Geometrie_ des Elements. Die Begrenzungsbox eines beschnittenen Elements (das heißt, ein Element, das auf ein `<clipPath>`-Element über eine {{SVGAttr("clip-path")}}-Eigenschaft verweist oder ein Kind des referenzierenden Elements) muss gleich bleiben, als wäre es nicht beschnitten.
 
-Standardmäßig werden {{cssxref("pointer-events")}} nicht auf geclippte Bereiche geschickt. Zum Beispiel wird ein Kreis mit einem Radius von `10`, der auf einen Kreis mit einem Radius von `5` geclippt wurde, keine "Klick"-Ereignisse außerhalb des kleineren Radius empfangen.
+Standardmäßig werden {{cssxref("pointer-events")}} in beschnittenen Regionen nicht abgefangen. Beispielsweise wird ein Kreis mit einem Radius von `10`, der auf einen Kreis mit einem Radius von `5` beschnitten ist, keine "Klick"-Ereignisse außerhalb des kleineren Radius erhalten.
 
 ## Attribute
 
 - {{SVGAttr("clipPathUnits")}}
   - : Definiert das Koordinatensystem für den Inhalt des `<clipPath>`-Elements.
-    _Wertetyp_: `userSpaceOnUse`|`objectBoundingBox`; _Standardwert_: `userSpaceOnUse`; _Animierbar_: **ja**
+    _Werttyp_: `userSpaceOnUse` | `objectBoundingBox`; _Standardwert_: `userSpaceOnUse`; _Animierbar_: **ja**
 
-## Verwendungskontext
+## Nutzungskontext
 
 {{svginfo}}
 
@@ -84,7 +84,7 @@ Standardmäßig werden {{cssxref("pointer-events")}} nicht auf geclippte Bereich
 
 {{Compat}}
 
-## Verwandte Themen
+## Verwandtes
 
-- Andere Clipping- und Maskierungs-SVG-Elemente: {{SVGElement("mask")}}
+- Andere Beschneidungs- und Maskierungs-SVG-Elemente: {{SVGElement("mask")}}
 - Einige CSS-Eigenschaften: {{cssxref("clip-path")}}, {{cssxref("pointer-events")}}
