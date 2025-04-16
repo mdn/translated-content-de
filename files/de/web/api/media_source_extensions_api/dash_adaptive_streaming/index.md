@@ -2,14 +2,16 @@
 title: DASH Adaptive Streaming für HTML-Video
 slug: Web/API/Media_Source_Extensions_API/DASH_Adaptive_Streaming
 l10n:
-  sourceCommit: 226c823808b3ee9f2e48fd019ca92a7b51fc474f
+  sourceCommit: a753bfc10d401d87f72220636166b560264fa1fa
 ---
 
-Dynamic Adaptive Streaming over HTTP (DASH) ist ein adaptives Streaming-Protokoll. Dies bedeutet, dass es ermöglicht, einen Videostream basierend auf der Netzwerkleistung zwischen Bitraten zu wechseln, um die Videowiedergabe aufrechtzuerhalten.
+{{DefaultAPISidebar("Media Source Extensions")}}
 
-Zuerst müssen Sie Ihr WebM-Video in ein DASH-Manifest mit den zugehörigen Videodateien in verschiedenen Bitraten konvertieren. Zunächst benötigen Sie nur das FFmpeg-Programm von [ffmpeg.org](https://www.ffmpeg.org/) mit Unterstützung für libvpx und libvorbis für WebM-Video und -Audio, mindestens Version 2.5 (wahrscheinlich; dies wurde mit 3.2.5 getestet).
+Dynamic Adaptive Streaming over HTTP (DASH) ist ein adaptives Streaming-Protokoll. Das bedeutet, dass es einem Videostream ermöglicht, je nach Netzwerkleistung zwischen Bitraten zu wechseln, um das Video abspielbar zu halten.
 
-Verwenden Sie zuerst Ihre bestehende WebM-Datei, um eine Audiodatei und mehrere Videodateien zu erstellen. Im folgenden Beispiel kann die Datei **_in.video_** ein beliebiger Container mit mindestens einem Audio- und einem Videostream sein, der von FFmpeg decodiert werden kann.
+Zuerst müssen Sie Ihr WebM-Video in ein DASH-Manifest mit den zugehörigen Videodateien in verschiedenen Bitraten konvertieren. Zu Beginn benötigen Sie nur das Programm FFmpeg von [ffmpeg.org](https://www.ffmpeg.org/) mit Unterstützung für libvpx und libvorbis für WebM-Video und -Audio, mindestens Version 2.5 (wahrscheinlich; dies wurde mit Version 3.2.5 getestet).
+
+Verwenden Sie zunächst Ihre vorhandene WebM-Datei, um eine Audiodatei und mehrere Videodateien zu erstellen. Im folgenden Beispiel kann die Datei **_in.video_** ein beliebiger Container mit mindestens einem Audio- und einem Videostream sein, die von FFmpeg dekodiert werden können.
 
 Erstellen Sie das Audio mit:
 
@@ -56,7 +58,7 @@ ffmpeg -i in.video -c:v libvpx-vp9 -keyint_min 150 \
 -an -vf scale=1280:720 -b:v 1500k -dash 1 video_1280x720_1500k.webm
 ```
 
-Dann erstellen Sie die Manifestdatei.
+Erstellen Sie dann die Manifestdatei.
 
 ```bash
 ffmpeg \
@@ -72,14 +74,14 @@ ffmpeg \
   my_video_manifest.mpd
 ```
 
-Die `-map` Argumente entsprechen den Eingabedateien in der Reihenfolge, in der sie angegeben sind; Sie sollten einen für jede Datei haben. Das `-adaptation_sets` Argument ordnet sie Anpassungsmengen zu; zum Beispiel erstellt dies einen Satz (0), der die Streams 0, 1, 2 und 3 (die Videos) enthält, und einen weiteren Satz (1), der nur den Stream 4, den Audiostream, enthält.
+Die `-map` Argumente entsprechen den Eingabedateien in der Reihenfolge, in der sie angegeben sind; Sie sollten eines für jede Datei haben. Das `-adaptation_sets` Argument weist diese in Adaptationssets zu; zum Beispiel wird ein Set (0) erstellt, das die Streams 0, 1, 2 und 3 (die Videos) enthält, und ein weiteres Set (1), das nur Stream 4 enthält, den Audiostream.
 
-Legen Sie das Manifest und die zugehörigen Videodateien auf Ihrem Webserver oder CDN ab. DASH funktioniert über HTTP, also solange Ihr HTTP-Server Anfragen nach Bereichsbyte unterstützt und er so konfiguriert ist, `.mpd`-Dateien mit dem `Content-Type: application/dash+xml` zu servieren, sind Sie startklar.
+Legen Sie das Manifest und die zugehörigen Videodateien auf Ihren Webserver oder Content Delivery Network (CDN). DASH funktioniert über HTTP, daher sind Sie startbereit, solange Ihr HTTP-Server Bereichsanfragen für Bytes unterstützt und so eingerichtet ist, dass er `.mpd`-Dateien mit dem `Content-Type: application/dash+xml` bereitstellt.
 
-Um diese `.mpd`-Datei korrekt mit Ihrem `<video>`-Element zu verbinden, benötigen Sie eine JavaScript-Bibliothek wie dash.js, da kein Browser native Unterstützung für DASH hat. Lesen Sie die [dash.js Schnellstartanleitung](https://dashif.org/dash.js/pages/quickstart/), um zu erfahren, wie Sie Ihre Seite dafür einrichten.
+Um diese `.mpd`-Datei korrekt mit Ihrem `<video>`-Element zu verknüpfen, benötigen Sie eine JavaScript-Bibliothek wie dash.js, da kein Browser native Unterstützung für DASH bietet. Lesen Sie das [dash.js Quickstart](https://dashif.org/dash.js/pages/quickstart/), um zu erfahren, wie Sie Ihre Seite dafür einrichten.
 
 ## Siehe auch
 
-- [WebM DASH Spezifikation beim WebM-Projekt](https://wiki.webmproject.org/adaptive-streaming/webm-dash-specification)
+- [WebM DASH-Spezifikation im WebM-Projekt](https://wiki.webmproject.org/adaptive-streaming/webm-dash-specification)
 - [DASH Industry Forum](https://dashif.org/)
-- [Beschreibung des WebM-Projekts, wie man DASH-Dateien mit FFMPEG erstellt](https://wiki.webmproject.org/adaptive-streaming/instructions-to-playback-adaptive-webm-using-dash)
+- [WebM-Projektbeschreibung, wie man DASH-Dateien mit FFMPEG erstellt](https://wiki.webmproject.org/adaptive-streaming/instructions-to-playback-adaptive-webm-using-dash)
