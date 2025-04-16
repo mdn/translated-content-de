@@ -3,14 +3,14 @@ title: "SVGTextPositioningElement: dx-Eigenschaft"
 short-title: dx
 slug: Web/API/SVGTextPositioningElement/dx
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: 3c83d88f02f33f4066224e9f624a17dd2a0b0d19
 ---
 
 {{APIRef("SVG")}}
 
-Die **`dx`**-Eigenschaft der [`SVGTextPositioningElement`](/de/docs/Web/API/SVGTextPositioningElement)-Schnittstelle beschreibt die x-Achsen-Koordinate des [`SVGTextElement`](/de/docs/Web/API/SVGTextElement), [`SVGTSpanElement`](/de/docs/Web/API/SVGTSpanElement) oder [`SVGTRefElement`](/de/docs/Web/API/SVGTRefElement) als [`SVGAnimatedLengthList`](/de/docs/Web/API/SVGAnimatedLengthList). Sie spiegelt die durch das Attribut {{SVGAttr("dx")}} beschriebenen horizontalen Verschiebungen der einzelnen Textglyphen im Benutzerkoordinatensystem wider.
+Die **`dx`**-Eigenschaft der Oberfläche [`SVGTextPositioningElement`](/de/docs/Web/API/SVGTextPositioningElement) beschreibt die x-Achsen-Koordinate des [`SVGTextElement`](/de/docs/Web/API/SVGTextElement) oder [`SVGTSpanElement`](/de/docs/Web/API/SVGTSpanElement) als eine [`SVGAnimatedLengthList`](/de/docs/Web/API/SVGAnimatedLengthList). Sie spiegelt die horizontale Verschiebung der einzelnen Textglyphen im Benutzerkoordinatensystem wieder, die durch das {{SVGAttr("dx")}}-Attribut festgelegt wird.
 
-Der Attributwert ist eine Liste von [`\<length>`](/de/docs/Web/SVG/Guides/Content_type#length), [`<percentage>`](/de/docs/Web/SVG/Guides/Content_type#percentage) oder [`<number>`](/de/docs/Web/SVG/Guides/Content_type#number). Die numerischen Werte in der [`SVGAnimatedLengthList.baseVal`](/de/docs/Web/API/SVGAnimatedLengthList/baseVal) reflektieren die horizontalen Verschiebungen im Benutzerkoordinatensystem.
+Der Attributwert ist eine Liste von [`\<length>`](/de/docs/Web/SVG/Guides/Content_type#length)-, [`\<percentage>`](/de/docs/Web/SVG/Guides/Content_type#percentage)- oder [`\<number>`](/de/docs/Web/SVG/Guides/Content_type#number)-Werten. Die numerischen Werte in der [`SVGAnimatedLengthList.baseVal`](/de/docs/Web/API/SVGAnimatedLengthList/baseVal) spiegeln die horizontalen Verschiebungen im Benutzerkoordinatensystem wider.
 
 ## Wert
 
@@ -18,7 +18,7 @@ Eine [`SVGAnimatedLengthList`](/de/docs/Web/API/SVGAnimatedLengthList).
 
 ## Beispiele
 
-Angenommen, folgendes SVG:
+Gegeben das folgende SVG:
 
 ```html
 <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
@@ -27,7 +27,7 @@ Angenommen, folgendes SVG:
 </svg>
 ```
 
-Wir können die berechneten Werte der `dx`-Attribute abrufen:
+Wir können auf die berechneten Werte der `dx`-Attribute zugreifen:
 
 ```js
 const texts = document.querySelectorAll("text");

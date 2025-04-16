@@ -2,15 +2,15 @@
 title: fill-opacity
 slug: Web/SVG/Reference/Attribute/fill-opacity
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: 3c83d88f02f33f4066224e9f624a17dd2a0b0d19
 ---
 
-Das Attribut **`fill-opacity`** ist ein Präsentationsattribut, das die Deckkraft des Farbservers (_Farbe_, _Verlauf_, _Muster_ usw.) definiert, der auf eine Form angewendet wird.
+Das **`fill-opacity`** Attribut ist ein Präsentationsattribut, das die Opazität des Mal-Servers (_color_, _gradient_, _pattern_ usw.) definiert, der auf eine Form angewendet wird.
 
 > [!NOTE]
-> Als Präsentationsattribut hat `fill-opacity` auch ein entsprechendes CSS-Attribut: {{cssxref("fill-opacity")}}. Wenn beide angegeben sind, hat die CSS-Eigenschaft Vorrang.
+> Als Präsentationsattribut hat `fill-opacity` auch ein entsprechendes CSS-Attribut: {{cssxref("fill-opacity")}}. Wenn beide angegeben sind, hat die CSS-Eigenschaft Priorität.
 
-Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
+Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 - {{SVGElement('circle')}}
 - {{SVGElement('ellipse')}}
@@ -20,7 +20,6 @@ Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 - {{SVGElement('rect')}}
 - {{SVGElement('text')}}
 - {{SVGElement('textPath')}}
-- {{SVGElement('tref')}}
 - {{SVGElement('tspan')}}
 
 ## Beispiel
@@ -78,7 +77,7 @@ svg {
 </table>
 
 > [!NOTE]
-> SVG2 führt Prozentwerte für `fill-opacity` ein, jedoch wird dies derzeit noch nicht weitreichend unterstützt (_Siehe [Browser-Kompatibilität](#browser-kompatibilität) unten_). Deshalb ist es eine bewährte Praxis, die Deckkraft mit einem Wert im Bereich `[0-1]` einzustellen.
+> SVG2 führt Prozentwerte für `fill-opacity` ein, diese werden jedoch noch nicht breit unterstützt (_siehe [Browser-Kompatibilität](#browser-kompatibilität) unten_). Aus diesem Grund ist es Praxis, die Opazität mit einem Wert im Bereich `[0-1]` festzulegen.
 
 ## Spezifikationen
 
@@ -90,7 +89,7 @@ svg {
 
 ## Siehe auch
 
-- CSS-Eigenschaft {{cssxref("fill-opacity")}}
+- CSS {{cssxref("fill-opacity")}} Eigenschaft
 - {{SVGAttr("opacity")}}
 - {{SVGAttr("stop-opacity")}}
 - {{SVGAttr("stroke-opacity")}}

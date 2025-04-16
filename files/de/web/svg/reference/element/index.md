@@ -1,12 +1,12 @@
 ---
-title: Referenz für SVG-Elemente
+title: SVG-Element-Referenz
 short-title: Elements
 slug: Web/SVG/Reference/Element
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: 3c83d88f02f33f4066224e9f624a17dd2a0b0d19
 ---
 
-SVG-Zeichnungen und -Bilder werden unter Verwendung einer breiten Palette von Elementen erstellt, die der Konstruktion, Zeichnung und Anordnung von Vektorbildern und Diagrammen gewidmet sind. Hier finden Sie die Referenzdokumentation für jedes der SVG-Elemente.
+SVG-Zeichnungen und -Bilder werden mit einer Vielzahl von Elementen erstellt, die der Konstruktion, dem Zeichnen und dem Layout von Vektorgrafiken und Diagrammen gewidmet sind. Hier finden Sie die Referenzdokumentation für jedes der SVG-Elemente.
 
 ## SVG-Elemente von A bis Z
 
@@ -120,11 +120,11 @@ SVG-Zeichnungen und -Bilder werden unter Verwendung einer breiten Palette von El
 - {{SVGElement("view")}}
 
 > [!NOTE]
-> Die [SVG 2-Spezifikation erfordert](https://www.w3.org/TR/SVG2/struct.html#UnknownElement), dass unbekannte Elemente für Darstellungszwecke als {{SVGElement("g")}} behandelt werden.
+> Die [SVG 2-Spezifikation erfordert](https://www.w3.org/TR/SVG2/struct.html#UnknownElement), dass alle unbekannten Elemente zum Zweck der Darstellung als {{SVGElement("g")}} behandelt werden.
 
 ## SVG-Elemente nach Kategorie
 
-### Animationselemente
+### Animations-Elemente
 
 {{SVGElement("animate")}}, {{SVGElement("animateMotion")}}, {{SVGElement("animateTransform")}}, {{SVGElement("mpath")}}, {{SVGElement("set")}}
 
@@ -134,21 +134,17 @@ SVG-Zeichnungen und -Bilder werden unter Verwendung einer breiten Palette von El
 
 ### Container-Elemente
 
-{{SVGElement("a")}}, {{SVGElement("defs")}}, {{SVGElement("g")}}, {{SVGElement("marker")}}, {{SVGElement("mask")}}, {{SVGElement("missing-glyph")}}, {{SVGElement("pattern")}}, {{SVGElement("svg")}}, {{SVGElement("switch")}}, {{SVGElement("symbol")}}
+{{SVGElement("a")}}, {{SVGElement("defs")}}, {{SVGElement("g")}}, {{SVGElement("marker")}}, {{SVGElement("mask")}}, {{SVGElement("pattern")}}, {{SVGElement("svg")}}, {{SVGElement("switch")}}, {{SVGElement("symbol")}}
 
-### Deskriptive Elemente
+### Beschreibende Elemente
 
 {{SVGElement("desc")}}, {{SVGElement("metadata")}}, {{SVGElement("title")}}
 
-### Filter-Primitiven-Elemente
+### Filterprimitive-Elemente
 
 {{SVGElement("feBlend")}}, {{SVGElement("feColorMatrix")}}, {{SVGElement("feComponentTransfer")}}, {{SVGElement("feComposite")}}, {{SVGElement("feConvolveMatrix")}}, {{SVGElement("feDiffuseLighting")}}, {{SVGElement("feDisplacementMap")}}, {{SVGElement("feDropShadow")}}, {{SVGElement("feFlood")}}, {{SVGElement("feFuncA")}}, {{SVGElement("feFuncB")}}, {{SVGElement("feFuncG")}}, {{SVGElement("feFuncR")}}, {{SVGElement("feGaussianBlur")}}, {{SVGElement("feImage")}}, {{SVGElement("feMerge")}}, {{SVGElement("feMergeNode")}}, {{SVGElement("feMorphology")}}, {{SVGElement("feOffset")}}, {{SVGElement("feSpecularLighting")}}, {{SVGElement("feTile")}}, {{SVGElement("feTurbulence")}}
 
-### Schriftart-Elemente
-
-{{SVGElement("font")}}, {{SVGElement("font-face")}}, {{SVGElement("font-face-format")}}, {{SVGElement("font-face-name")}}, {{SVGElement("font-face-src")}}, {{SVGElement("font-face-uri")}}, {{SVGElement("hkern")}}, {{SVGElement("vkern")}}
-
-### Farbverlaufselemente
+### Gradientelemente
 
 {{SVGElement("linearGradient")}}, {{SVGElement("radialGradient")}}, {{SVGElement("stop")}}
 
@@ -156,19 +152,19 @@ SVG-Zeichnungen und -Bilder werden unter Verwendung einer breiten Palette von El
 
 {{SVGElement("circle")}}, {{SVGElement("ellipse")}}, {{SVGElement("image")}}, {{SVGElement("line")}}, {{SVGElement("path")}}, {{SVGElement("polygon")}}, {{SVGElement("polyline")}}, {{SVGElement("rect")}}, {{SVGElement("text")}}, {{SVGElement("use")}}
 
-### Grafikreferenzelemente
+### Grafik referenzierende Elemente
 
 {{SVGElement("use")}}
 
-### Lichtquellen-Elemente
+### Lichtquellenelemente
 
 {{SVGElement("feDistantLight")}}, {{SVGElement("fePointLight")}}, {{SVGElement("feSpotLight")}}
 
-### Nie dargestellte Elemente
+### Niemals gezeichnete Elemente
 
 {{SVGElement("clipPath")}}, {{SVGElement("defs")}}, {{SVGElement("linearGradient")}}, {{SVGElement("marker")}}, {{SVGElement("mask")}}, {{SVGElement("metadata")}}, {{SVGElement("pattern")}}, {{SVGElement("radialGradient")}}, {{SVGElement("script")}}, {{SVGElement("style")}}, {{SVGElement("symbol")}}, {{SVGElement("title")}}
 
-### Malserver-Elemente
+### Farbbereitstellungselemente
 
 {{SVGElement("linearGradient")}}, {{SVGElement("pattern")}}, {{SVGElement("radialGradient")}}
 
@@ -177,63 +173,30 @@ SVG-Zeichnungen und -Bilder werden unter Verwendung einer breiten Palette von El
 {{SVGElement("a")}}, {{SVGElement("circle")}}, {{SVGElement("ellipse")}}, {{SVGElement("foreignObject")}}, {{SVGElement("g")}}, {{SVGElement("image")}}, {{SVGElement("line")}}, {{SVGElement("path")}}, {{SVGElement("polygon")}}, {{SVGElement("polyline")}}, {{SVGElement("rect")}}, {{SVGElement("svg")}}, {{SVGElement("switch")}}, {{SVGElement("symbol")}}, {{SVGElement("text")}}, {{SVGElement("textPath")}}, {{SVGElement("tspan")}}, {{SVGElement("use")}}
 
 > [!NOTE]
-> Die [SVG 2-Spezifikation erfordert](https://www.w3.org/TR/SVG2/struct.html#UnknownElement), dass unbekannte Elemente für Darstellungszwecke als {{SVGElement("g")}} behandelt werden.
+> Die [SVG 2-Spezifikation erfordert](https://www.w3.org/TR/SVG2/struct.html#UnknownElement), dass alle unbekannten Elemente zum Zweck der Darstellung als {{SVGElement("g")}} behandelt werden.
 
 ### Formelemente
 
 {{SVGElement("circle")}}, {{SVGElement("ellipse")}}, {{SVGElement("line")}}, {{SVGElement("path")}}, {{SVGElement("polygon")}}, {{SVGElement("polyline")}}, {{SVGElement("rect")}}
 
-### Strukturelemente
+### Strukturelle Elemente
 
 {{SVGElement("defs")}}, {{SVGElement("g")}}, {{SVGElement("svg")}}, {{SVGElement("symbol")}}, {{SVGElement("use")}}
 
 ### Textinhaltselemente
 
-{{SVGElement("glyph")}}, {{SVGElement("glyphRef")}}, {{SVGElement("textPath")}}, {{SVGElement("text")}}, {{SVGElement("tref")}}, {{SVGElement("tspan")}}
+{{SVGElement("textPath")}}, {{SVGElement("text")}}, {{SVGElement("tspan")}}
 
-### Textinhalt-Kindelemente
+### Unterelemente für Textinhalte
 
-{{SVGElement("textPath")}}, {{SVGElement("tref")}}, {{SVGElement("tspan")}}
+{{SVGElement("textPath")}}, {{SVGElement("tspan")}}
 
-### Unkategorisierte Elemente
+### Nicht kategorisierte Elemente
 
-{{SVGElement("clipPath")}}, {{SVGElement("cursor")}}, {{SVGElement("filter")}}, {{SVGElement("foreignObject")}}, {{SVGElement("script")}}, {{SVGElement("style")}}, {{SVGElement("view")}}
-
-## Veraltete und abgeschriebene Elemente
-
-> [!WARNING]
-> Dies sind alte SVG-Elemente, die veraltet sind und nicht verwendet werden sollten. **Sie sollten sie niemals in neuen Projekten verwenden und in alten Projekten so schnell wie möglich ersetzen.** Sie werden hier nur zu Informationszwecken aufgelistet.
-
-### C
-
-{{SVGElement("cursor")}}
-
-### F
-
-{{SVGElement("font")}}, {{SVGElement("font-face")}}, {{SVGElement("font-face-format")}}, {{SVGElement("font-face-name")}}, {{SVGElement("font-face-src")}}, {{SVGElement("font-face-uri")}}
-
-### G
-
-{{SVGElement("glyph")}}, {{SVGElement("glyphRef")}}
-
-### H
-
-{{SVGElement("hkern")}}
-
-### M
-
-{{SVGElement("missing-glyph")}}
-
-### T
-
-{{SVGElement("tref")}}
-
-### V
-
-{{SVGElement("vkern")}}
+{{SVGElement("clipPath")}}, {{SVGElement("filter")}}, {{SVGElement("foreignObject")}}, {{SVGElement("script")}}, {{SVGElement("style")}}, {{SVGElement("view")}}
 
 ## Siehe auch
 
-- [SVG-Attributreferenz](/de/docs/Web/SVG/Reference/Attribute)
-- [SVG Tutorial](/de/docs/Web/SVG/Tutorials/SVG_from_scratch)
-- [SVG-Schnittstellenreferenz](/de/docs/Web/API/Document_Object_Model#svg_dom)
+- [SVG-Attribut-Referenz](/de/docs/Web/SVG/Reference/Attribute)
+- [SVG-Tutorial](/de/docs/Web/SVG/Tutorials/SVG_from_scratch)
+- [SVG-Schnittstellen-Referenz](/de/docs/Web/API/Document_Object_Model#svg_dom)

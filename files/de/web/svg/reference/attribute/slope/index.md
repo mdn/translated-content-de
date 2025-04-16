@@ -2,12 +2,12 @@
 title: slope
 slug: Web/SVG/Reference/Attribute/slope
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: 3c83d88f02f33f4066224e9f624a17dd2a0b0d19
 ---
 
-Das **`slope`**-Attribut definiert die Werte für lineare Filter, wie z.B. die Helligkeit.
+Das **`slope`**-Attribut definiert die Werte für lineare Filter, wie zum Beispiel Helligkeit.
 
-Das `slope`-Attribut wird von den Kindelementen des {{SVGElement("feComponentTransfer")}}-Filterprimitivs unterstützt, einschließlich der `feFunc-RGBA`-Transferfunktionen. Wenn der `type` einer Transferfunktion `linear` ist, definiert das `slope` die Steigung der linearen Funktion.
+Das `slope`-Attribut wird von den Kind-Elementen der {{SVGElement("feComponentTransfer")}}-Filterprimitive unterstützt, einschließlich der `feFunc-RGBA`-Transferfunktionen. Wenn der `type` einer Transferfunktion `linear` ist, definiert das `slope` die Steigung der linearen Funktion.
 
 Sie können dieses Attribut mit den folgenden SVG-Komponenten-Transferfunktionselementen verwenden, wenn `type="linear"` gesetzt ist:
 
@@ -17,9 +17,9 @@ Sie können dieses Attribut mit den folgenden SVG-Komponenten-Transferfunktionse
 - {{SVGElement("feFuncA")}}
 
 > [!NOTE]
-> Ursprünglich wurde das `slope`-Attribut innerhalb von {{SVGElement("font-face")}} benutzt, um den Winkel der vertikalen Striche eines Fonts anzugeben. Diese Verwendung ist jetzt veraltet.
+> Ursprünglich wurde das `slope`-Attribut innerhalb von `<font-face>` verwendet, um den vertikalen Strichwinkel einer Schriftart anzugeben. Dieser Anwendungsfall wurde jedoch veraltet.
 
-## Hinweise zur Verwendung
+## Verwendungshinweise
 
 <table class="properties">
   <tbody>
@@ -49,7 +49,7 @@ Sie können dieses Attribut mit den folgenden SVG-Komponenten-Transferfunktionse
 
 ## Beispiele
 
-In diesem Beispiel hat eine Gradient-Box zwei Textelemente mit angewendeten linearen Filtern. Die Steigungen der Filtertransferfunktionen jedes Filters unterscheiden sich.
+In diesem Beispiel hat ein Verlaufsfeld zwei Textelemente mit angewendeten linearen Filtern. Die Steigungen der Filterübertragungsfunktionen jedes Filters unterscheiden sich.
 
 ```html
 <svg

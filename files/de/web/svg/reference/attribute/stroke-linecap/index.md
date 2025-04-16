@@ -2,13 +2,13 @@
 title: stroke-linecap
 slug: Web/SVG/Reference/Attribute/stroke-linecap
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: 3c83d88f02f33f4066224e9f624a17dd2a0b0d19
 ---
 
-Das Attribut **`stroke-linecap`** ist ein Präsentationsattribut, das die Form definiert, die am Ende offener Unterpfade verwendet wird, wenn sie gestrichen werden.
+Das **`stroke-linecap`**-Attribut ist ein Präsentationsattribut, das die Form definiert, die am Ende von offenen Unterpfaden verwendet wird, wenn sie gestrichen werden.
 
 > [!NOTE]
-> Als Präsentationsattribut hat `stroke-linecap` auch ein entsprechendes CSS-Property: {{cssxref("stroke-linecap")}}. Wenn beide angegeben sind, hat das CSS-Property Vorrang.
+> Als Präsentationsattribut hat `stroke-linecap` auch ein entsprechendes CSS-Eigenschaftsgegenstück: {{cssxref("stroke-linecap")}}. Wenn beide angegeben sind, hat die CSS-Eigenschaft Vorrang.
 
 Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
@@ -17,7 +17,6 @@ Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 - {{SVGElement('line')}}
 - {{SVGElement('text')}}
 - {{SVGElement('textPath')}}
-- {{SVGElement('tref')}}
 - {{SVGElement('tspan')}}
 
 ## Beispiel
@@ -51,7 +50,7 @@ svg {
 
 {{EmbedLiveSample("Example", '100%', 200)}}
 
-## Nutzungshinweise
+## Verwendungsnotizen
 
 <table class="properties">
   <tbody>
@@ -72,7 +71,7 @@ svg {
 
 ### butt
 
-Der Wert `butt` gibt an, dass der Strich für jeden Unterpfad nicht über seine beiden Endpunkte hinausgeht. Bei einem Unterpfad mit null Länge wird der Pfad überhaupt nicht gerendert.
+Der Wert `butt` zeigt an, dass der Strich für jeden Unterpfad sich nicht über seine zwei Endpunkte hinaus erstreckt. Bei einem Unterpfad mit der Länge null wird der Pfad überhaupt nicht gerendert.
 
 #### Beispiel
 
@@ -107,7 +106,7 @@ svg {
 
 ### round
 
-Der Wert `round` gibt an, dass am Ende jedes Unterpfades der Strich um einen Halbkreis erweitert wird, dessen Durchmesser der Strichbreite entspricht. Bei einem Unterpfad mit null Länge besteht der Strich aus einem vollständigen Kreis, der am Punkt des Unterpfads zentriert ist.
+Der Wert `round` zeigt an, dass am Ende jedes Unterpfades der Strich um einen Halbkreis mit einem Durchmesser, der der Strichbreite entspricht, verlängert wird. Bei einem Unterpfad mit der Länge null besteht der Strich aus einem vollen Kreis, der am Punkt des Unterpfades zentriert ist.
 
 #### Beispiel
 
@@ -142,7 +141,7 @@ svg {
 
 ### square
 
-Der Wert `square` gibt an, dass am Ende jedes Unterpfades der Strich um ein Rechteck erweitert wird, dessen Breite der halben Breite des Strichs und dessen Höhe der Breite des Strichs entspricht. Bei einem Unterpfad mit null Länge besteht der Strich aus einem Quadrat, dessen Breite der Strichbreite entspricht und das am Punkt des Unterpfads zentriert ist.
+Der Wert `square` zeigt an, dass am Ende jedes Unterpfades der Strich um ein Rechteck verlängert wird, dessen Breite der Hälfte der Strichbreite und dessen Höhe der Strichbreite entspricht. Bei einem Unterpfad mit der Länge null besteht der Strich aus einem Quadrat, dessen Breite der Strichbreite entspricht und das am Punkt des Unterpfades zentriert ist.
 
 #### Beispiel
 
@@ -185,4 +184,4 @@ svg {
 
 ## Siehe auch
 
-- CSS {{cssxref("stroke-linecap")}} Property
+- CSS {{cssxref("stroke-linecap")}}-Eigenschaft

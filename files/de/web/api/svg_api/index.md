@@ -2,20 +2,20 @@
 title: SVG API
 slug: Web/API/SVG_API
 l10n:
-  sourceCommit: d155937fdb8c8a0f638c5cb6fc71b5f0ce9db57f
+  sourceCommit: 3c83d88f02f33f4066224e9f624a17dd2a0b0d19
 ---
 
 {{DefaultAPISidebar("SVG")}}
 
-SVG bietet Elemente für Kreise, Rechtecke sowie einfache und komplexe Kurven. Die Attributwerte der Elemente geben an, wie diese gezeichnet werden müssen. Die **SVG API** ist das Teilset des **DOM**, das diese SVG-Elemente und ihre Attributwerte mit Skripten oder Programmiersprachen verbindet, indem es sie im Speicher darstellt. Die SVG API stellt somit Methoden bereit, die einen programmgesteuerten Zugriff auf die SVG-Elemente und deren Attributwerte ermöglichen.
+SVG bietet Elemente für Kreise, Rechtecke sowie einfache und komplexe Kurven. Die Attributwerte der Elemente legen fest, wie diese gezeichnet werden müssen. Die **SVG-API** ist der Teil des **DOM**, der diese SVG-Elemente und ihre Attributwerte mit Skripten oder Programmiersprachen verbindet, indem er sie im Speicher darstellt. Die SVG-API stellt somit Methoden bereit, die einen programmatischen Zugriff auf die SVG-Elemente und ihre Attributwerte ermöglichen.
 
-Die SVG API ist eine Reihe von Schnittstellen, die in die folgenden breiten Kategorien unterteilt sind:
+Die SVG-API ist eine Sammlung von Schnittstellen, die in die folgenden allgemeinen Kategorien unterteilt sind:
 
 1. [Die Element-Schnittstellen](#svg-element-schnittstellen) bieten Zugriff auf die Eigenschaften von SVG-Elementen und Methoden zu deren Manipulation.
-2. Die [statischen Datentyp](#svg-datentyp-schnittstellen)-Schnittstellen bieten Zugriff auf Elementattributwerte und Methoden zu deren Manipulation.
-3. Für Attribute, die animiert werden können, bieten die [animierten Datentyp-Schnittstellen](#svg-datentyp-schnittstellen) schreibgeschützten Zugriff auf den aktuellen animierten Wert eines Attributs.
-4. [Die Schnittstellen für Synchronized Multimedia Integration Language (SMIL)](#smil-bezogene_schnittstellen)
-5. [Andere](#andere_svg-schnittstellen)
+2. Die [statischen Datentyp](#svg-datentyp-schnittstellen)-Schnittstellen bieten Zugriff auf die Attributwerte von Elementen und Methoden zur Manipulation dieser.
+3. Für Attribute, die animiert werden können, bieten die [animierten Datentyp-Schnittstellen](#svg-datentyp-schnittstellen) einen nur lesbaren Zugriff auf den aktuellen animierten Wert eines Attributs.
+4. [Die Synchronized Multimedia Integration Language (SMIL) Schnittstellen](#smil-bezogene_schnittstellen)
+5. [Weitere](#weitere_svg-schnittstellen)
 
 ## Schnittstellen
 
@@ -29,7 +29,6 @@ Die SVG API ist eine Reihe von Schnittstellen, die in die folgenden breiten Kate
 - [`SVGCircleElement`](/de/docs/Web/API/SVGCircleElement)
 - [`SVGClipPathElement`](/de/docs/Web/API/SVGClipPathElement)
 - [`SVGComponentTransferFunctionElement`](/de/docs/Web/API/SVGComponentTransferFunctionElement)
-- [`SVGCursorElement`](/de/docs/Web/API/SVGCursorElement)
 - [`SVGDefsElement`](/de/docs/Web/API/SVGDefsElement)
 - [`SVGDescElement`](/de/docs/Web/API/SVGDescElement)
 - [`SVGDiscardElement`](/de/docs/Web/API/SVGDiscardElement)
@@ -131,7 +130,7 @@ Hier sind die DOM-APIs für Datentypen, die in den Definitionen von SVG-Eigensch
 - [`ElementTimeControl`](/de/docs/Web/API/ElementTimeControl)
 - [`TimeEvent`](/de/docs/Web/API/TimeEvent)
 
-### Andere SVG-Schnittstellen
+### Weitere SVG-Schnittstellen
 
 - [`ShadowAnimation`](/de/docs/Web/API/ShadowAnimation)
 - [`SVGUnitTypes`](/de/docs/Web/API/SVGUnitTypes)
@@ -143,4 +142,4 @@ Hier sind die DOM-APIs für Datentypen, die in den Definitionen von SVG-Eigensch
 
 ## Siehe auch
 
-- [Einstieg in SVG](/de/docs/Web/SVG)
+- [Erster Schritt mit SVG](/de/docs/Web/SVG)

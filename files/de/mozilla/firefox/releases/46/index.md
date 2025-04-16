@@ -59,7 +59,7 @@ Highlights:
 
 #### DOM & HTML DOM
 
-- Die veraltete [`Window.showModalDialog()`](/de/docs/Web/API/Window/showModalDialog) Methode steht nicht mehr zur Verfügung, wenn Firefox im Mehrprozessmodus (e10s) ausgeführt wird ([Firefox-Bug 1234700](https://bugzil.la/1234700)).
+- Die veraltete [`Window.showModalDialog()`](/de/docs/Web/API/HTMLDialogElement/showModal) Methode steht nicht mehr zur Verfügung, wenn Firefox im Mehrprozessmodus (e10s) ausgeführt wird ([Firefox-Bug 1234700](https://bugzil.la/1234700)).
 - Unterstützung für [`Document.elementsFromPoint()`](/de/docs/Web/API/Document/elementsFromPoint) hinzugefügt ([Firefox-Bug 1164427](https://bugzil.la/1164427)).
 - Wenn eine nicht existierende Option eines {{HTMLElement("select")}}-Elements programmatisch ausgewählt wird, wird anstelle des falschen unveränderten Verhaltens der [`selectedIndex`](/de/docs/Web/HTML/Reference/Elements/select#selectedindex) Wert jetzt auf `-1` gesetzt, die [`selectedOptions`](/de/docs/Web/HTML/Reference/Elements/select#selectedoptions) auf eine leere [`HTMLCollection`](/de/docs/Web/API/HTMLCollection) und [`value`](/de/docs/Web/HTML/Reference/Elements/select#value) auf eine leere Zeichenkette ([Firefox-Bug 1203668](https://bugzil.la/1203668)).
 

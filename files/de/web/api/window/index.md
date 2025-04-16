@@ -272,7 +272,7 @@ _Diese Schnittstelle erbt Methoden von der [`EventTarget`](/de/docs/Web/API/Even
   - : Führt eine Funktion aus, nachdem der Browser andere aufwändige Aufgaben beendet hat.
 - [`Window.setResizable()`](/de/docs/Web/API/Window/setResizable) {{Non-standard_Inline}} {{deprecated_inline}}
   - : Macht nichts (no-op). Beibehalten für die Rückwärtskompatibilität mit Netscape 4.x.
-- [`Window.showModalDialog()`](/de/docs/Web/API/Window/showModalDialog) {{Non-standard_Inline}} {{Deprecated_Inline}}
+- [`Window.showModalDialog()`](/de/docs/Web/API/HTMLDialogElement/showModal) {{Non-standard_Inline}} {{Deprecated_Inline}}
   - : Zeigt ein modales Dialogfeld an.
 - [`Window.webkitConvertPointFromNodeToPage()`](/de/docs/Web/API/Window/webkitConvertPointFromNodeToPage) {{Non-standard_Inline}} {{Deprecated_Inline}}
   - : Transformiert einen [`WebKitPoint`](/de/docs/Web/API/WebKitPoint) vom Koordinatensystem des Knotens zum Koordinatensystem der Seite.

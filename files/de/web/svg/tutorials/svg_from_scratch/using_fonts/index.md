@@ -1,17 +1,17 @@
 ---
-title: Verwendung von Schriftarten in SVG
+title: Verwenden von Schriftarten in SVG
 slug: Web/SVG/Tutorials/SVG_from_scratch/Using_fonts
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: 3c83d88f02f33f4066224e9f624a17dd2a0b0d19
 ---
 
 {{ PreviousNext("Web/SVG/Tutorials/SVG_from_scratch/Filter_effects", "Web/SVG/Tutorials/SVG_from_scratch/Image_element") }}
 
-SVG unterstützt mehrere Möglichkeiten, Schriftarten für {{SVGElement("text")}}-Elemente anzugeben. Der empfohlene moderne Ansatz besteht darin, CSS zu verwenden, ähnlich wie Sie Schriftarten in HTML gestalten würden.
+SVG unterstützt mehrere Möglichkeiten, Schriftarten für {{SVGElement("text")}}-Elemente anzugeben. Der empfohlene moderne Ansatz ist die Verwendung von CSS, ähnlich wie Sie Schriftarten in HTML gestalten würden.
 
-## Eine Schriftart mit CSS anwenden und gestalten
+## Anwenden und Gestalten einer Schriftart mit CSS
 
-Der folgende Code zeigt, wie Sie das angegebene `<text>`-Element mit einer bestimmten Schriftart mithilfe von CSS gestalten könnten: in diesem Fall die Systemschrift "Courier New". Beachten Sie, dass das CSS hier innerhalb eines SVG-{{SVGElement("style")}}-Elements eingebettet ist, aber auch im einbettenden HTML angewendet werden könnte.
+Der folgende Code zeigt, wie Sie das angegebene `<text>`-Element mit einer bestimmten Schriftart mithilfe von CSS gestalten könnten: In diesem Fall die Systemschriftart "Courier New". Beachten Sie, dass das CSS hier innerhalb eines SVG-{{SVGElement("style")}}-Elements verschachtelt ist, aber auch im enthaltenen HTML angewendet werden könnte.
 
 ```html
 <svg>
@@ -30,15 +30,15 @@ Der folgende Code zeigt, wie Sie das angegebene `<text>`-Element mit einer besti
 </svg>
 ```
 
-Das Ergebnis wird wie folgt angezeigt:
+Dies wird wie unten gezeigt gerendert:
 
-{{EmbedLiveSample("Anleitung zur Anwendung einer Schriftart", "100", "30px")}}
+{{EmbedLiveSample("Wie man eine Schriftart anwendet", "100", "30px")}}
 
-## Verwendung von Webfonts mit `@font-face`
+## Verwenden von Webfonts mit `@font-face`
 
-Der vorherige Abschnitt verwendet CSS, um eine Systemschrift anzuwenden, aber Sie können auch einen Webfont verwenden, der mithilfe der {{cssxref("@font-face")}}-Regel auf genau dieselbe Weise angegeben wird.
+Der vorherige Abschnitt verwendet CSS, um eine Systemschriftart anzuwenden, aber Sie können auf genau dieselbe Weise einen Webfont anwenden, der mit der {{cssxref("@font-face")}}-Regel angegeben wird.
 
-Das Beispiel zeigt, wie zunächst eine Schriftfamilie namens "FiraSans" definiert und dann verwendet wird:
+Das Beispiel demonstriert dies, indem zunächst eine Schriftfamilie namens "FiraSans" definiert und dann verwendet wird:
 
 ```html
 <svg
@@ -72,11 +72,11 @@ Das Beispiel zeigt, wie zunächst eine Schriftfamilie namens "FiraSans" definier
 </svg>
 ```
 
-{{EmbedLiveSample("Verwendung von Webfonts mit @font-face", "100", "70px")}}
+{{EmbedLiveSample("Verwendung von Webschriften mit @font-face", "100", "70px")}}
 
-## Verweisen auf einen Stil im Textelement
+## Einen Stil im Textelement referenzieren
 
-Sie können auch direkt auf einen Stil innerhalb eines {{SVGElement("text")}}-Elements unter Verwendung des {{SVGAttr("font-family")}}-Attributs verweisen. Dieser Code zeigt, wie wir die benutzerdefinierte "My Font" auf das `<text>`-Element anwenden könnten.
+Sie können auch direkt auf einen Stil innerhalb eines {{SVGElement("text")}}-Elements verweisen, indem Sie das {{SVGAttr("font-family")}}-Attribut verwenden. Dieser Code zeigt, wie wir die benutzerdefinierte "My Font" auf das `<text>`-Element anwenden könnten.
 
 ```svg
 <svg>
@@ -84,9 +84,6 @@ Sie können auch direkt auf einen Stil innerhalb eines {{SVGElement("text")}}-El
 </svg>
 ```
 
-Beachten Sie, dass dies dem Anwenden eines Stils auf ein HTML-Element ähnlich ist. Während es Fälle gibt, in denen dies nützlich sein kann, ist es im Allgemeinen besser, CSS und CSS-Selektoren zu verwenden.
-
-> [!NOTE]
-> Das ältere SVG-Schriftformat unter Verwendung von {{ SVGElement("font") }}- und {{ SVGElement("font-face") }}-Elementen ist veraltet und sollte nicht verwendet werden. Die Verwendung von CSS bietet bessere Leistung und Kompatibilität.
+Beachten Sie, dass dies dem Anwenden eines Stils auf ein HTML-Element ähnlich ist. Obwohl es Fälle gibt, in denen es nützlich sein kann, ist es im Allgemeinen besser, CSS und CSS-Selektoren zu verwenden.
 
 {{ PreviousNext("Web/SVG/Tutorials/SVG_from_scratch/Filter_effects", "Web/SVG/Tutorials/SVG_from_scratch/Image_element") }}

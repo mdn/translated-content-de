@@ -128,7 +128,7 @@ Dieses Element beinhaltet die [globalen Attribute](/de/docs/Web/HTML/Reference/G
     - `allow-pointer-lock`
       - : Ermöglicht der Seite die Verwendung der [Pointer Lock API](/de/docs/Web/API/Pointer_Lock_API).
     - `allow-popups`
-      - : Ermöglicht Popups (wie von [`Window.open()`](/de/docs/Web/API/Window/open), `target="_blank"`, [`Window.showModalDialog()`](/de/docs/Web/API/Window/showModalDialog)). Wenn dieses Schlüsselwort nicht verwendet wird, schlägt diese Funktionalität stillschweigend fehl.
+      - : Ermöglicht Popups (wie von [`Window.open()`](/de/docs/Web/API/Window/open), `target="_blank"`, [`Window.showModalDialog()`](/de/docs/Web/API/HTMLDialogElement/showModal)). Wenn dieses Schlüsselwort nicht verwendet wird, schlägt diese Funktionalität stillschweigend fehl.
     - `allow-popups-to-escape-sandbox`
       - : Ermöglicht einem sandkäfigierten Dokument das Öffnen eines neuen Browsing-Kontexts, ohne die Sandboxflags darauf anzuwenden. Dies ermöglicht es z.B. einer Drittanbieter-Werbung sicher gesandkäfigt zu werden, ohne dieselben Einschränkungen auf die Seite zu erzwingen, auf die die Anzeige verweist. Wenn dieses Flag nicht enthalten ist, unterliegt eine weitergeleitete Seite, ein Popup-Fenster oder ein neuer Tab den gleichen Sandboxing-Einschränkungen wie das ursprüngliche `<iframe>`.
     - `allow-presentation`

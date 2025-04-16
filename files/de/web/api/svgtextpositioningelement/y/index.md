@@ -1,16 +1,16 @@
 ---
-title: "SVGTextPositioningElement: y-Eigenschaft"
+title: "SVGTextPositioningElement: y Eigenschaft"
 short-title: y
 slug: Web/API/SVGTextPositioningElement/y
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: 3c83d88f02f33f4066224e9f624a17dd2a0b0d19
 ---
 
 {{APIRef("SVG")}}
 
-Die **`y`**-Eigenschaft der [`SVGTextPositioningElement`](/de/docs/Web/API/SVGTextPositioningElement)-Schnittstelle beschreibt die y-Achsen-Koordinate des [`SVGTextElement`](/de/docs/Web/API/SVGTextElement), [`SVGTSpanElement`](/de/docs/Web/API/SVGTSpanElement) oder [`SVGTRefElement`](/de/docs/Web/API/SVGTRefElement) als ein [`SVGAnimatedLengthList`](/de/docs/Web/API/SVGAnimatedLengthList). Sie spiegelt die vertikale Position des {{SVGAttr("y")}}-Attributs der einzelnen Textglyphen im Benutzerkoordinatensystem wider.
+Die **`y`** schreibgeschützte Eigenschaft der Schnittstelle [`SVGTextPositioningElement`](/de/docs/Web/API/SVGTextPositioningElement) beschreibt die y-Achsen-Koordinate des [`SVGTextElement`](/de/docs/Web/API/SVGTextElement) oder [`SVGTSpanElement`](/de/docs/Web/API/SVGTSpanElement) als eine [`SVGAnimatedLengthList`](/de/docs/Web/API/SVGAnimatedLengthList). Sie spiegelt die vertikale Position des {{SVGAttr("y")}}-Attributs der einzelnen Textzeichen im Benutzerkoordinatensystem wider.
 
-Der Attributwert ist eine Liste von [`<length>`](/de/docs/Web/SVG/Guides/Content_type#length), [`<percentage>`](/de/docs/Web/SVG/Guides/Content_type#percentage) oder [`<number>`](/de/docs/Web/SVG/Guides/Content_type#number). Die numerischen Werte in der [`SVGAnimatedLengthList.baseVal`](/de/docs/Web/API/SVGAnimatedLengthList/baseVal) spiegeln die y-Koordinaten im Benutzerkoordinatensystem wider.
+Der Attributwert ist eine Liste von [`\<length>`](/de/docs/Web/SVG/Guides/Content_type#length), [`\<percentage>`](/de/docs/Web/SVG/Guides/Content_type#percentage) oder [`\<number>`](/de/docs/Web/SVG/Guides/Content_type#number). Die numerischen Werte in der [`SVGAnimatedLengthList.baseVal`](/de/docs/Web/API/SVGAnimatedLengthList/baseVal) spiegeln die y-Koordinaten im Benutzerkoordinatensystem wider.
 
 ## Wert
 

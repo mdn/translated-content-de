@@ -2,10 +2,10 @@
 title: clip-path
 slug: Web/SVG/Reference/Attribute/clip-path
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: 3c83d88f02f33f4066224e9f624a17dd2a0b0d19
 ---
 
-Das **`clip-path`** Präsentationsattribut definiert oder assoziiert einen Ausschnittspfad mit dem Element, mit dem es verknüpft ist.
+Das **`clip-path`** Präsentationsattribut definiert oder verbindet einen Clipping-Pfad mit dem jeweiligen Element.
 
 > [!NOTE]
 > Als Präsentationsattribut hat `clip-path` auch ein entsprechendes CSS-Eigenschaftsgegenstück: {{cssxref("clip-path")}}. Wenn beide angegeben sind, hat die CSS-Eigenschaft Vorrang.
@@ -17,7 +17,6 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 - {{SVGElement('clipPath')}}
 - {{SVGElement('ellipse')}}
 - {{SVGElement('g')}}
-- {{SVGElement('glyph')}}
 - {{SVGElement('image')}}
 - {{SVGElement('line')}}
 - {{SVGElement('marker')}}
@@ -92,7 +91,7 @@ svg {
 
 {{EmbedLiveSample("Example", '100%', 200)}}
 
-## Verwendungshinweise
+## Hinweise zur Verwendung
 
 <table class="properties">
   <tbody>
@@ -115,10 +114,10 @@ svg {
 </table>
 
 - \<geometry-box>
-  - : Eine Zusatzinformation, um anzugeben, wie eine {{cssxref('basic-shape')}} auf ein Element angewendet wird: `fill-box` gibt an, dass die Objektbegrenzungsbox verwendet wird; `stroke-box` gibt an, dass die Objektbegrenzungsbox zusammen mit dem Strich verwendet wird; `view-box` gibt an, dass der nächstgelegene SVG-Viewport als Referenzbox verwendet wird.
+  - : Zusätzliche Information, um anzugeben, wie eine {{cssxref('basic-shape')}} auf ein Element angewendet wird: `fill-box` gibt an, die Objektbegrenzungsbox zu verwenden; `stroke-box` gibt an, die Objektbegrenzungsbox erweitert um den Strich zu verwenden; `view-box` gibt an, den nächstgelegenen SVG-Viewport als Referenzbox zu verwenden.
 
 > [!NOTE]
-> Für weitere Details zur clip-path Syntax, siehe die CSS-Eigenschaftsreferenzseite {{cssxref('clip-path')}}.
+> Für mehr Details zur clip-path Syntax siehe die CSS-Eigenschaftsreferenzseite {{cssxref('clip-path')}}.
 
 ## Spezifikationen
 

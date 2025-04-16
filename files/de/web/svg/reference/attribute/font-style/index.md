@@ -2,19 +2,18 @@
 title: font-style
 slug: Web/SVG/Reference/Attribute/font-style
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: 3c83d88f02f33f4066224e9f624a17dd2a0b0d19
 ---
 
-Das **`font-style`** Attribut legt fest, ob der Text mit einem normalen, kursiven oder schrägen Schriftbild dargestellt wird.
+Das **`font-style`**-Attribut gibt an, ob der Text in einer normalen, kursiven oder schrägen Schriftart gerendert werden soll.
 
 > [!NOTE]
-> Als Präsentationsattribut hat `font-style` auch ein entsprechendes CSS-Attribut: {{cssxref("font-style")}}. Wenn beide angegeben sind, hat die CSS-Eigenschaft Vorrang.
+> Als Präsentationsattribut hat `font-style` auch ein entsprechendes CSS-Eigenschaft: {{cssxref("font-style")}}. Wenn beide angegeben sind, hat die CSS-Eigenschaft Vorrang.
 
-Dieses Attribut kann bei den folgenden SVG-Elementen verwendet werden:
+Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 - {{SVGElement("text")}}
 - {{SVGElement("textPath")}}
-- {{SVGElement("tref")}}
 - {{SVGElement("tspan")}}
 
 ## Beispiel
@@ -36,7 +35,7 @@ svg {
 
 {{EmbedLiveSample("Example", "250", "30")}}
 
-## Anwendungshinweise
+## Nutzungshinweise
 
 <table class="properties">
   <tbody>
@@ -55,7 +54,7 @@ svg {
   </tbody>
 </table>
 
-Für eine Beschreibung der Werte beachten Sie bitte die [CSS `font-style`](/de/docs/Web/CSS/font-style#values) Eigenschaft.
+Für eine Beschreibung der Werte beziehen Sie sich bitte auf die [CSS `font-style`](/de/docs/Web/CSS/font-style#values)-Eigenschaft.
 
 ## Spezifikationen
 

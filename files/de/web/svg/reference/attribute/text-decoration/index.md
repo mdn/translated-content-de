@@ -2,23 +2,22 @@
 title: text-decoration
 slug: Web/SVG/Reference/Attribute/text-decoration
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: 3c83d88f02f33f4066224e9f624a17dd2a0b0d19
 ---
 
-Das **`text-decoration`** Attribut definiert, ob der Text mit einer Unterstreichung, Überstreichung und/oder Durchstreichung dekoriert wird. Es ist eine Kurzform für die {{cssxref("text-decoration-line")}} und {{cssxref("text-decoration-style")}} Eigenschaften.
+Das **`text-decoration`** Attribut definiert, ob der Text mit einer Unterstreichung, Überstreichung und/oder Durchstreichung versehen ist. Es ist eine Kurzform für die Eigenschaften {{cssxref("text-decoration-line")}} und {{cssxref("text-decoration-style")}}.
 
-Die Füllung und der Umriss der Textdekoration werden durch die Füllung und den Umriss des Textes an dem Punkt bestimmt, an dem die Textdekoration deklariert wird.
+Das Füllen und Streichen der Textdekoration wird durch das Füllen und Streichen des Textes an dem Punkt bestimmt, an dem die Textdekoration deklariert wird.
 
-Die Malreihenfolge der Textdekoration, d.h. die Füllung und der Umriss, wird durch den Wert des {{SVGAttr("paint-order")}} Attributs an dem Punkt bestimmt, an dem die Textdekoration deklariert wird.
+Die Malreihenfolge der Textdekoration, d.h. das Füllen und Streichen, wird durch den Wert des {{SVGAttr("paint-order")}} Attributs an dem Punkt bestimmt, an dem die Textdekoration deklariert wird.
 
 > [!NOTE]
-> Als Präsentationsattribut hat `text-decoration` auch ein CSS-Eigenschaften-Gegenstück: {{cssxref("text-decoration")}}. Wenn beide angegeben sind, hat die CSS-Eigenschaft Vorrang.
+> Als Präsentationsattribut hat `text-decoration` auch ein entsprechendes CSS-Eigenschafts-Pendant: {{cssxref("text-decoration")}}. Wenn beide angegeben sind, hat die CSS-Eigenschaft Vorrang.
 
-Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
+Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 - {{SVGElement("text")}}
 - {{SVGElement("textPath")}}
-- {{SVGElement("tref")}}
 - {{SVGElement("tspan")}}
 
 ## Beispiel
@@ -40,7 +39,7 @@ svg {
 
 {{EmbedLiveSample("Example", "250", "100")}}
 
-## Anwendungshinweise
+## Verwendungshinweise
 
 <table class="properties">
   <tbody>
@@ -68,7 +67,7 @@ svg {
     </tr>
     <tr>
       <th scope="row">Standardwert</th>
-      <td>Siehe individuelle Eigenschaften</td>
+      <td>Siehe einzelne Eigenschaften</td>
     </tr>
     <tr>
       <th scope="row">Animierbar</th>
@@ -77,7 +76,7 @@ svg {
   </tbody>
 </table>
 
-Für eine Beschreibung der Werte siehe bitte die [CSS `text-decoration`](/de/docs/Web/CSS/text-decoration#values) Eigenschaft.
+Für eine Beschreibung der Werte lesen Sie bitte die [CSS `text-decoration`](/de/docs/Web/CSS/text-decoration#values) Eigenschaft.
 
 ## Spezifikationen
 

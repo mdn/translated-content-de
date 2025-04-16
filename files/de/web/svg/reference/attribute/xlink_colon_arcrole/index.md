@@ -2,26 +2,23 @@
 title: xlink:arcrole
 slug: Web/SVG/Reference/Attribute/xlink:arcrole
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: 3c83d88f02f33f4066224e9f624a17dd2a0b0d19
 ---
 
 {{Deprecated_Header}}
 
-Das **`xlink:arcrole`** Attribut spezifiziert eine kontextuelle Rolle für das Element und entspricht dem Begriff einer Eigenschaft im [RDF Primer](https://www.w3.org/TR/rdf-primer/).
+Das Attribut **`xlink:arcrole`** gibt eine kontextbezogene Rolle für das Element an und entspricht dem Begriff einer Eigenschaft im [RDF Primer](https://www.w3.org/TR/rdf-primer/).
 
-Diese kontextuelle Rolle kann sich von der Bedeutung der Ressource unterscheiden, wenn sie außerhalb des Kontextes dieses bestimmten Bogens genommen wird. Zum Beispiel könnte eine Ressource allgemein eine "Person" darstellen, aber im Kontext eines bestimmten Bogens könnte sie die Rolle "Mutter" haben und im Kontext eines anderen Bogens die Rolle "Tochter".
+Diese kontextbezogene Rolle kann sich von der Bedeutung der Ressource unterscheiden, wenn sie außerhalb des Kontexts dieses bestimmten Bogens betrachtet wird. Beispielsweise könnte eine Ressource allgemein eine "Person" darstellen, aber im Kontext eines bestimmten Bogens die Rolle einer "Mutter" und im Kontext eines anderen Bogens die Rolle einer "Tochter" haben.
 
-Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
+Dieses Attribut können Sie mit den folgenden SVG-Elementen verwenden:
 
 - {{SVGElement("a")}}
 - {{SVGElement("animate")}}
 - {{SVGElement("animateMotion")}}
 - {{SVGElement("animateTransform")}}
-- {{SVGElement("cursor")}}
 - {{SVGElement("feImage")}}
 - {{SVGElement("filter")}}
-- {{SVGElement("font-face-uri")}}
-- {{SVGElement("glyphRef")}}
 - {{SVGElement("image")}}
 - {{SVGElement("linearGradient")}}
 - {{SVGElement("mpath")}}
@@ -30,7 +27,6 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 - {{SVGElement("script")}}
 - {{SVGElement("set")}}
 - {{SVGElement("textPath")}}
-- {{SVGElement("tref")}}
 - {{SVGElement("use")}}
 
 ## Verwendungshinweise
@@ -57,7 +53,7 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 </table>
 
 - `<iri>`
-  - : Dieser Wert spezifiziert eine [IRI](/de/docs/Web/SVG/Guides/Content_type#iri) Referenz, die eine Ressource identifiziert, die die beabsichtigte Eigenschaft beschreibt.
+  - : Dieser Wert gibt eine [IRI](/de/docs/Web/SVG/Guides/Content_type#iri)-Referenz an, die eine Ressource identifiziert, die die beabsichtigte Eigenschaft beschreibt.
 
 ## Spezifikationen
 
@@ -69,4 +65,4 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 ## Siehe auch
 
-- [Definition des `xlink:arcrole` Attributs in der XLink-Spezifikation](https://www.w3.org/TR/xlink/#link-semantics)
+- [Definition des `xlink:arcrole`-Attributs in der XLink-Spezifikation](https://www.w3.org/TR/xlink/#link-semantics)

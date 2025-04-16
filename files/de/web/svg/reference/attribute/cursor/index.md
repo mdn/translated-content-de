@@ -2,15 +2,13 @@
 title: cursor
 slug: Web/SVG/Reference/Attribute/cursor
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: 3c83d88f02f33f4066224e9f624a17dd2a0b0d19
 ---
 
-Das `cursor`-Attribut legt den Mauszeiger fest, der angezeigt wird, wenn sich der Mauszeiger über einem Element befindet.
+Das `cursor` Attribut gibt den Mauscursor an, der angezeigt wird, wenn der Mauszeiger über einem Element schwebt.
 
 > [!NOTE]
-> Als Präsentationsattribut hat `cursor` auch ein entsprechendes CSS-Eigenschaftsgegenstück: {{cssxref("cursor")}}. Wenn beide angegeben sind, hat die CSS-Eigenschaft Priorität.
-
-Dieses Attribut verhält sich genau wie die CSS {{cssxref("cursor")}}-Eigenschaft, außer dass, wenn der Browser das {{ SVGElement("cursor") }}-Element unterstützt, Sie in der Lage sein sollten, es mit der [\<FuncIRI>](/de/docs/Web/SVG/Guides/Content_type#funciri)-Notation zu verwenden.
+> Als Präsentationsattribut hat `cursor` auch ein entsprechendes CSS-Attribut: {{cssxref("cursor")}}. Wenn beide angegeben sind, hat die CSS-Eigenschaft Vorrang.
 
 ## Verwendungskontext
 
@@ -46,10 +44,10 @@ Dieses Attribut verhält sich genau wie die CSS {{cssxref("cursor")}}-Eigenschaf
 
 ## Elemente
 
-Die folgenden Elemente können das `cursor`-Attribut verwenden:
+Die folgenden Elemente können das `cursor` Attribut verwenden
 
-- [Containerelemente](/de/docs/Web/SVG/Reference/Element#container_elements)
-- [Grafikelemente](/de/docs/Web/SVG/Reference/Element#graphics_elements)
+- [Container-Elemente](/de/docs/Web/SVG/Reference/Element#container_elements)
+- [Grafik-Elemente](/de/docs/Web/SVG/Reference/Element#graphics_elements)
 
 ## Spezifikationen
 
@@ -61,4 +59,4 @@ Die folgenden Elemente können das `cursor`-Attribut verwenden:
 
 ## Siehe auch
 
-- CSS {{cssxref("cursor")}}-Eigenschaft
+- CSS {{cssxref("cursor")}} Eigenschaft

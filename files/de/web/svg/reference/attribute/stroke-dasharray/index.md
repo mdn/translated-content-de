@@ -2,15 +2,15 @@
 title: stroke-dasharray
 slug: Web/SVG/Reference/Attribute/stroke-dasharray
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: 3c83d88f02f33f4066224e9f624a17dd2a0b0d19
 ---
 
-Das **`stroke-dasharray`** Attribut ist ein Präsentationsattribut, das das Muster aus Strichen und Lücken definiert, das verwendet wird, um die Kontur der Form zu zeichnen.
+Das Attribut **`stroke-dasharray`** ist ein Präsentationsattribut, das das Muster von Strichen und Lücken definiert, mit dem die Umrisse der Form gezeichnet werden.
 
 > [!NOTE]
-> Als Präsentationsattribut hat `stroke-dasharray` auch ein entsprechendes CSS-Eigenschaftspendant: {{cssxref("stroke-dasharray")}}. Wenn beide angegeben sind, hat die CSS-Eigenschaft Vorrang.
+> Als Präsentationsattribut hat `stroke-dasharray` auch ein entsprechendes CSS-Attribut: {{cssxref("stroke-dasharray")}}. Wenn beide angegeben sind, hat das CSS-Attribut Vorrang.
 
-Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
+Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 - {{SVGElement('circle')}}
 - {{SVGElement('ellipse')}}
@@ -21,7 +21,6 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 - {{SVGElement('rect')}}
 - {{SVGElement('text')}}
 - {{SVGElement('textPath')}}
-- {{SVGElement('tref')}}
 - {{SVGElement('tspan')}}
 
 ## Beispiel
@@ -86,7 +85,7 @@ svg {
 
   - : Eine Liste von durch Kommas und/oder Leerzeichen getrennten [`<length>`](/de/docs/Web/SVG/Guides/Content_type#length)s und [`<percentage>`](/de/docs/Web/SVG/Guides/Content_type#percentage)s, die die Längen der abwechselnden Striche und Lücken angeben.
 
-    Wenn eine ungerade Anzahl von Werten angegeben wird, wird die Liste der Werte wiederholt, um eine gerade Anzahl von Werten zu erhalten. So ist `5,3,2` gleichwertig mit `5,3,2,5,3,2`.
+    Wenn eine ungerade Anzahl von Werten angegeben ist, wird die Liste der Werte wiederholt, um eine gerade Anzahl von Werten zu ergeben. Daher ist `5,3,2` äquivalent zu `5,3,2,5,3,2`.
 
 ## Spezifikationen
 

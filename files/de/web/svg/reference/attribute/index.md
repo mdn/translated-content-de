@@ -3,25 +3,21 @@ title: SVG-Attributreferenz
 short-title: Attributes
 slug: Web/SVG/Reference/Attribute
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: 3c83d88f02f33f4066224e9f624a17dd2a0b0d19
 ---
 
-SVG-Elemente können durch Attribute modifiziert werden, die Details darüber spezifizieren, wie genau das Element behandelt oder gerendert werden soll.
+SVG-Elemente können durch Attribute modifiziert werden, die Details darüber angeben, wie genau das Element behandelt oder gerendert werden soll.
 
-Nachfolgend findet sich eine Liste aller in SVG verfügbaren Attribute zusammen mit Links zur Referenzdokumentation, die Ihnen helfen sollen zu lernen, welche Elemente sie unterstützen und wie sie funktionieren.
+Unten finden Sie eine Liste aller in SVG verfügbaren Attribute sowie Links zu Referenzdokumentationen, die Ihnen helfen, zu erfahren, welche Elemente sie unterstützen und wie sie funktionieren.
 
 ## SVG-Attribute von A bis Z
 
 ### A
 
-- {{SVGAttr("accent-height")}}
 - {{SVGAttr("accumulate")}}
 - {{SVGAttr("additive")}}
 - {{SVGAttr("alignment-baseline")}}
-- {{SVGAttr("alphabetic")}}
 - {{SVGAttr("amplitude")}}
-- {{SVGAttr("arabic-form")}}
-- {{SVGAttr("ascent")}}
 - {{SVGAttr("attributeName")}}
 - {{SVGAttr("attributeType")}}
 - {{SVGAttr("azimuth")}}
@@ -31,7 +27,6 @@ Nachfolgend findet sich eine Liste aller in SVG verfügbaren Attribute zusammen 
 - {{SVGAttr("baseFrequency")}}
 - {{SVGAttr("baseline-shift")}}
 - {{SVGAttr("baseProfile")}}
-- {{SVGAttr("bbox")}}
 - {{SVGAttr("begin")}}
 - {{SVGAttr("bias")}}
 - {{SVGAttr("by")}}
@@ -39,7 +34,6 @@ Nachfolgend findet sich eine Liste aller in SVG verfügbaren Attribute zusammen 
 ### C
 
 - {{SVGAttr("calcMode")}}
-- {{SVGAttr("cap-height")}}
 - {{SVGAttr("class")}}
 - {{SVGAttr("clip")}}
 - {{SVGAttr("clipPathUnits")}}
@@ -58,7 +52,6 @@ Nachfolgend findet sich eine Liste aller in SVG verfügbaren Attribute zusammen 
 - {{SVGAttr("d")}}
 - {{SVGAttr("data-*")}}
 - {{SVGAttr("decoding")}}
-- {{SVGAttr("descent")}}
 - {{SVGAttr("diffuseConstant")}}
 - {{SVGAttr("direction")}}
 - {{SVGAttr("display")}}
@@ -98,9 +91,6 @@ Nachfolgend findet sich eine Liste aller in SVG verfügbaren Attribute zusammen 
 
 ### G
 
-- {{SVGAttr("g1")}}
-- {{SVGAttr("g2")}}
-- {{SVGAttr("glyph-name")}}
 - {{SVGAttr("glyph-orientation-horizontal")}}
 - {{SVGAttr("glyph-orientation-vertical")}}
 - {{SVGAttr("gradientTransform")}}
@@ -108,18 +98,13 @@ Nachfolgend findet sich eine Liste aller in SVG verfügbaren Attribute zusammen 
 
 ### H
 
-- {{SVGAttr("hanging")}}
 - {{SVGAttr("height")}}
-- {{SVGAttr("horiz-adv-x")}}
-- {{SVGAttr("horiz-origin-x")}}
-- {{SVGAttr("horiz-origin-y")}}
 - {{SVGAttr("href")}}
 - {{SVGAttr("hreflang")}}
 
 ### I
 
 - {{SVGAttr("id")}}
-- {{SVGAttr("ideographic")}}
 - {{SVGAttr("image-rendering")}}
 - {{SVGAttr("in")}}
 - {{SVGAttr("in2")}}
@@ -127,7 +112,6 @@ Nachfolgend findet sich eine Liste aller in SVG verfügbaren Attribute zusammen 
 
 ### K
 
-- {{SVGAttr("k")}}
 - {{SVGAttr("k1")}}
 - {{SVGAttr("k2")}}
 - {{SVGAttr("k3")}}
@@ -158,7 +142,6 @@ Nachfolgend findet sich eine Liste aller in SVG verfügbaren Attribute zusammen 
 - {{SVGAttr("mask")}}
 - {{SVGAttr("maskContentUnits")}}
 - {{SVGAttr("maskUnits")}}
-- {{SVGAttr("mathematical")}}
 - {{SVGAttr("max")}}
 - {{SVGAttr("media")}}
 - {{SVGAttr("method")}}
@@ -167,7 +150,6 @@ Nachfolgend findet sich eine Liste aller in SVG verfügbaren Attribute zusammen 
 
 ### N
 
-- {{SVGAttr("name")}}
 - {{SVGAttr("numOctaves")}}
 
 ### O
@@ -177,16 +159,12 @@ Nachfolgend findet sich eine Liste aller in SVG verfügbaren Attribute zusammen 
 - {{SVGAttr("operator")}}
 - {{SVGAttr("order")}}
 - {{SVGAttr("orient")}}
-- {{SVGAttr("orientation")}}
 - {{SVGAttr("origin")}}
 - {{SVGAttr("overflow")}}
-- {{SVGAttr("overline-position")}}
-- {{SVGAttr("overline-thickness")}}
 
 ### P
 
 - {{SVGAttr("paint-order")}}
-- {{SVGAttr("panose-1")}}
 - {{SVGAttr("path")}}
 - {{SVGAttr("pathLength")}}
 - {{SVGAttr("patternContentUnits")}}
@@ -235,14 +213,9 @@ Nachfolgend findet sich eine Liste aller in SVG verfügbaren Attribute zusammen 
 - {{SVGAttr("spreadMethod")}}
 - {{SVGAttr("startOffset")}}
 - {{SVGAttr("stdDeviation")}}
-- {{SVGAttr("stemh")}}
-- {{SVGAttr("stemv")}}
 - {{SVGAttr("stitchTiles")}}
 - {{SVGAttr("stop-color")}}
 - {{SVGAttr("stop-opacity")}}
-- {{SVGAttr("strikethrough-position")}}
-- {{SVGAttr("strikethrough-thickness")}}
-- {{SVGAttr("string")}}
 - {{SVGAttr("stroke")}}
 - {{SVGAttr("stroke-dasharray")}}
 - {{SVGAttr("stroke-dashoffset")}}
@@ -273,41 +246,25 @@ Nachfolgend findet sich eine Liste aller in SVG verfügbaren Attribute zusammen 
 
 ### U
 
-- {{SVGAttr("u1")}}
-- {{SVGAttr("u2")}}
-- {{SVGAttr("underline-position")}}
-- {{SVGAttr("underline-thickness")}}
-- {{SVGAttr("unicode")}}
 - {{SVGAttr("unicode-bidi")}}
-- {{SVGAttr("unicode-range")}}
-- {{SVGAttr("units-per-em")}}
 
 ### V
 
-- {{SVGAttr("v-alphabetic")}}
-- {{SVGAttr("v-hanging")}}
-- {{SVGAttr("v-ideographic")}}
-- {{SVGAttr("v-mathematical")}}
 - {{SVGAttr("values")}}
 - {{SVGAttr("vector-effect")}}
 - {{SVGAttr("version")}}
-- {{SVGAttr("vert-adv-y")}}
-- {{SVGAttr("vert-origin-x")}}
-- {{SVGAttr("vert-origin-y")}}
 - {{SVGAttr("viewBox")}}
 - {{SVGAttr("visibility")}}
 
 ### W
 
 - {{SVGAttr("width")}}
-- {{SVGAttr("widths")}}
 - {{SVGAttr("word-spacing")}}
 - {{SVGAttr("writing-mode")}}
 
 ### X
 
 - {{SVGAttr("x")}}
-- {{SVGAttr("x-height")}}
 - {{SVGAttr("x1")}}
 - {{SVGAttr("x2")}}
 - {{SVGAttr("xChannelSelector")}}
@@ -335,7 +292,7 @@ Nachfolgend findet sich eine Liste aller in SVG verfügbaren Attribute zusammen 
 
 ## SVG-Attribute nach Kategorie
 
-### Generische Attribute
+### Allgemeine Attribute
 
 - Kernattribute
 
@@ -347,7 +304,7 @@ Nachfolgend findet sich eine Liste aller in SVG verfügbaren Attribute zusammen 
   - {{SVGAttr("xml:lang")}}
   - {{SVGAttr("xml:space")}}
 
-- Bedingte Verarbeitungsattribute
+- Attribute zur bedingten Verarbeitung
   - {{SVGAttr("requiredExtensions")}}
   - {{SVGAttr("requiredFeatures")}}
   - {{SVGAttr("systemLanguage")}}
@@ -439,24 +396,24 @@ Nachfolgend findet sich eine Liste aller in SVG verfügbaren Attribute zusammen 
 - {{SVGAttr("x")}}
 - {{SVGAttr("y")}}
 
-### Filterattribute
+### Filter-Attribute
 
-- Filter-Primitive-Attribute
+- Attribute für Filterprimitiven
   - : {{SVGAttr("height")}}, {{SVGAttr("result")}}, {{SVGAttr("width")}}, {{SVGAttr("x")}}, {{SVGAttr("y")}}
-- Transfer-Funktionsattribute
+- Attribute der Transferfunktion
   - : {{SVGAttr("type")}}, {{SVGAttr("tableValues")}}, {{SVGAttr("slope")}}, {{SVGAttr("intercept")}}, {{SVGAttr("amplitude")}}, {{SVGAttr("exponent")}}, {{SVGAttr("offset")}}
 
 ### Animationsattribute
 
-- Zielattribute für Animationselemente
+- Attribute für das Animationszielelement
   - : {{SVGAttr("href")}}
-- Attributziele für Animation
+- Animationszielattributattribute
   - : {{SVGAttr("attributeType")}}, {{SVGAttr("attributeName")}}
-- Zeitliche Abläufe von Animationen
+- Animationszeitsteuerungsattribute
   - : {{SVGAttr("begin")}}, {{SVGAttr("dur")}}, {{SVGAttr("end")}}, {{SVGAttr("min")}}, {{SVGAttr("max")}}, {{SVGAttr("restart")}}, {{SVGAttr("repeatCount")}}, {{SVGAttr("repeatDur")}}, {{SVGAttr("fill")}}
-- Werte der Animation
+- Animationswertattribute
   - : {{SVGAttr("calcMode")}}, {{SVGAttr("values")}}, {{SVGAttr("keyTimes")}}, {{SVGAttr("keySplines")}}, {{SVGAttr("from")}}, {{SVGAttr("to")}}, {{SVGAttr("by")}}, {{SVGAttr("autoReverse")}}
-- Ergänzende Animationseigenschaften
+- Addition von Animationsattributen
   - : {{SVGAttr("additive")}}, {{SVGAttr("accumulate")}}
 
 ### Ereignisattribute
@@ -533,4 +490,4 @@ Nachfolgend findet sich eine Liste aller in SVG verfügbaren Attribute zusammen 
 
 - [SVG-Elementreferenz](/de/docs/Web/SVG/Reference/Element)
 - [SVG-Tutorial](/de/docs/Web/SVG/Tutorials/SVG_from_scratch)
-- [SVG-Interface-Referenz](/de/docs/Web/API/SVG_API#interfaces)
+- [SVG-Schnittstellenreferenz](/de/docs/Web/API/SVG_API#interfaces)

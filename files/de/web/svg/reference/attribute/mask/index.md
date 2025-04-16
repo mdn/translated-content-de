@@ -2,13 +2,13 @@
 title: mask
 slug: Web/SVG/Reference/Attribute/mask
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: 3c83d88f02f33f4066224e9f624a17dd2a0b0d19
 ---
 
-Das **`mask`**-Attribut ist ein Präsentationsattribut, das hauptsächlich verwendet wird, um ein angegebenes {{ SVGElement("mask") }}-Element mit dem Element zu verbinden, zu dem das Attribut gehört.
+Das **`mask`** Attribut ist ein Präsentationsattribut, das hauptsächlich verwendet wird, um ein gegebenes {{ SVGElement("mask") }} Element mit dem Element zu verbinden, zu dem das Attribut gehört.
 
 > [!NOTE]
-> Als Präsentationsattribut hat `mask` auch ein entsprechendes CSS-Attribut: {{cssxref("mask")}}. Wenn beides angegeben ist, hat die CSS-Eigenschaft Vorrang.
+> Als Präsentationsattribut hat `mask` auch ein entsprechendes CSS-Property: {{cssxref("mask")}}. Wenn beide angegeben sind, hat das CSS-Property Vorrang.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -17,7 +17,6 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 - {{SVGElement('clipPath')}}
 - {{SVGElement('ellipse')}}
 - {{SVGElement('g')}}
-- {{SVGElement('glyph')}}
 - {{SVGElement('image')}}
 - {{SVGElement('line')}}
 - {{SVGElement('marker')}}
@@ -62,7 +61,7 @@ svg {
 
 {{EmbedLiveSample("Example", '100%', 150)}}
 
-Seit SVG2 wird das {{cssxref('mask')}}-Attribut als CSS-Eigenschaft definiert und ist eine Kurzform für viele andere Eigenschaften: {{cssxref('mask-image')}}, {{cssxref('mask-mode')}}, {{cssxref('mask-repeat')}}, {{cssxref('mask-position')}}, {{cssxref('mask-clip')}}, {{cssxref('mask-origin')}}, {{cssxref('mask-size')}}, und {{cssxref('mask-composite')}}.
+Seit SVG2 wird das Attribut {{cssxref('mask')}} als CSS-Property definiert und ist eine Kurzform für viele andere Eigenschaften: {{cssxref('mask-image')}}, {{cssxref('mask-mode')}}, {{cssxref('mask-repeat')}}, {{cssxref('mask-position')}}, {{cssxref('mask-clip')}}, {{cssxref('mask-origin')}}, {{cssxref('mask-size')}} und {{cssxref('mask-composite')}}.
 
 ## Anwendungshinweise
 
@@ -93,4 +92,4 @@ Seit SVG2 wird das {{cssxref('mask')}}-Attribut als CSS-Eigenschaft definiert un
 
 ## Siehe auch
 
-- CSS {{cssxref("mask")}}-Eigenschaft
+- CSS {{cssxref("mask")}} Eigenschaft

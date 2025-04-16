@@ -31,7 +31,7 @@ _Erbt Eigenschaften von seinem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTML
   - : Ein String, der den Sprachcode für die verknüpfte Ressource repräsentiert.
 - [`HTMLLinkElement.imageSizes`](/de/docs/Web/API/HTMLLinkElement/imageSizes)
   - : Ein String, der das [`imagesizes`](/de/docs/Web/HTML/Reference/Elements/link#imagesizes)-HTML-Attribut widerspiegelt; eine Liste von kommagetrennten Bildbedingungen und -größen.
-- [`HTMLLinkElement.imageSrcset`](/de/docs/Web/API/HTMLLinkElement/imagesrcset)
+- [`HTMLLinkElement.imageSrcset`](/de/docs/Web/API/HTMLLinkElement/imageSrcset)
   - : Ein String, der das [`imagesrcset`](/de/docs/Web/HTML/Reference/Elements/link#imagesrcset)-HTML-Attribut widerspiegelt; eine kommagetrennte Liste von Bildkandidat-Strings.
 - [`HTMLLinkElement.integrity`](/de/docs/Web/API/HTMLLinkElement/integrity)
   - : Ein String mit Inline-Metadaten, die ein Browser verwenden kann, um sicherzustellen, dass eine abgerufene Ressource ohne unerwartete Manipulation bereitgestellt wurde. Er spiegelt das `integrity`-Attribut des {{HTMLElement("link")}}-Elements wider.

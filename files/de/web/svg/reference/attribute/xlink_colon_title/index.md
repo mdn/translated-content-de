@@ -2,31 +2,28 @@
 title: xlink:title
 slug: Web/SVG/Reference/Attribute/xlink:title
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: 3c83d88f02f33f4066224e9f624a17dd2a0b0d19
 ---
 
 {{Deprecated_Header}}
 
-Das **`xlink:title`** Attribut wird verwendet, um die Bedeutung eines Links oder einer Ressource in einer für Menschen lesbaren Weise zu beschreiben.
+Das **`xlink:title`** Attribut wird verwendet, um die Bedeutung eines Links oder einer Ressource auf eine für Menschen lesbare Weise zu beschreiben.
 
-Die Nutzung dieser Information hängt stark von der Art der Verarbeitung ab. Sie kann beispielsweise verwendet werden, um Titel in Anwendungen für sehbehinderte Benutzer verfügbar zu machen, um eine Tabelle mit Links zu erstellen, oder um Hilfetext anzuzeigen, der erscheint, wenn ein Benutzer den Mauszeiger über eine Startressource hält.
+Die Nutzung dieser Information hängt stark von der durchgeführten Verarbeitung ab. Sie kann zum Beispiel verwendet werden, um Titel für Anwendungen zur Verfügung zu stellen, die von sehbehinderten Nutzern genutzt werden, um eine Tabelle von Links zu erstellen oder um Hilfetexte anzuzeigen, die erscheinen, wenn ein Benutzer den Mauszeiger über eine startende Ressource schweben lässt.
 
 > [!NOTE]
 > Neue Inhalte sollten ein {{SVGElement("title")}} Kind-Element anstelle eines `xlink:title` Attributs verwenden.
 
 ## Elemente
 
-Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
+Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 - {{SVGElement("a")}}
 - {{SVGElement("animate")}}
 - {{SVGElement("animateMotion")}}
 - {{SVGElement("animateTransform")}}
-- {{SVGElement("cursor")}}
 - {{SVGElement("feImage")}}
 - {{SVGElement("filter")}}
-- {{SVGElement("font-face-uri")}}
-- {{SVGElement("glyphRef")}}
 - {{SVGElement("image")}}
 - {{SVGElement("linearGradient")}}
 - {{SVGElement("mpath")}}
@@ -35,7 +32,6 @@ Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 - {{SVGElement("script")}}
 - {{SVGElement("set")}}
 - {{SVGElement("textPath")}}
-- {{SVGElement("tref")}}
 - {{SVGElement("use")}}
 
 ## Verwendungshinweise
@@ -54,7 +50,7 @@ Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
     </tr>
     <tr>
       <th scope="row">Standardwert</th>
-      <td><em>None</em></td>
+      <td><em>Keiner</em></td>
     </tr>
     <tr>
       <th scope="row">Animierbar</th>

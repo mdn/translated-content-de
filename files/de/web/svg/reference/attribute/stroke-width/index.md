@@ -2,13 +2,13 @@
 title: stroke-width
 slug: Web/SVG/Reference/Attribute/stroke-width
 l10n:
-  sourceCommit: 515d03ad8572b96e88916888156444626dcba193
+  sourceCommit: 3c83d88f02f33f4066224e9f624a17dd2a0b0d19
 ---
 
-Das **`stroke-width`** Attribut ist ein Präsentationsattribut, das die Breite des Strichs definiert, der auf die Form angewendet werden soll. Es kann auf jede SVG-Form oder Textinhalts-Element angewendet werden, aber als vererbte Eigenschaft kann es auf Elemente wie {{SVGElement("g")}} angewendet werden und dennoch die beabsichtigte Wirkung auf die Striche der Nachfahren-Elemente haben.
+Das **`stroke-width`** Attribut ist ein Präsentationsattribut, das die Breite des Striches definiert, der auf die Form angewendet wird. Es gilt für jedes SVG-Form- oder Textinhaltselement, aber als vererbbares Attribut kann es auf Elemente wie {{SVGElement("g")}} angewendet werden und hat dennoch den gewünschten Effekt auf die Striche der untergeordneten Elemente.
 
 > [!NOTE]
-> Als Präsentationsattribut hat `stroke-width` auch ein entsprechendes CSS-Eigenschaftsgegenstück: {{cssxref("stroke-width")}}. Wenn beide angegeben sind, hat die CSS-Eigenschaft Vorrang.
+> Als Präsentationsattribut hat `stroke-width` auch ein entsprechendes CSS-Eigenschafts-Pendant: {{cssxref("stroke-width")}}. Wenn beide angegeben sind, hat die CSS-Eigenschaft Vorrang.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -21,7 +21,6 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 - {{SVGElement('rect')}}
 - {{SVGElement('text')}}
 - {{SVGElement('textPath')}}
-- {{SVGElement('tref')}}
 - {{SVGElement('tspan')}}
 
 ## Beispiel
@@ -49,7 +48,7 @@ svg {
 
 {{EmbedLiveSample("Example", '100%', 150)}}
 
-## Nutzungshinweise
+## Hinweise zur Nutzung
 
 <table class="properties">
   <tbody>
@@ -80,7 +79,7 @@ svg {
 </table>
 
 > [!NOTE]
-> Ein Prozentwert wird immer als Prozentsatz der normalisierten {{SVGAttr('viewBox')}} Diagonallänge berechnet.
+> Ein Prozentwert wird immer als Prozentsatz der normalisierten Diagonallänge des {{SVGAttr('viewBox')}} berechnet.
 
 ## Spezifikationen
 

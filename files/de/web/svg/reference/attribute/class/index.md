@@ -2,19 +2,19 @@
 title: class
 slug: Web/SVG/Reference/Attribute/class
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: 3c83d88f02f33f4066224e9f624a17dd2a0b0d19
 ---
 
-Weist einem Element einen Klassennamen oder eine Menge von Klassennamen zu. Sie können denselben Klassennamen oder dieselben Klassennamen einer beliebigen Anzahl von Elementen zuweisen, jedoch müssen mehrere Klassennamen durch Leerzeichen getrennt sein.
+Weist einem Element einen Klassennamen oder eine Menge von Klassennamen zu. Sie können demselben Klassennamen oder denselben Klassennamen eine beliebige Anzahl von Elementen zuweisen, jedoch müssen mehrere Klassennamen durch Leerzeichen getrennt werden.
 
-Der Klassenname eines Elements erfüllt zwei wichtige Rollen:
+Der Klassenname eines Elements erfüllt zwei Hauptfunktionen:
 
-- Als Stylesheet-Selektor, wenn ein Autor Stilinformationen auf eine Menge von Elementen anwendet.
-- Zur allgemeinen Nutzung durch den Browser.
+- Als Selektor im Stylesheet, wenn ein Autor Stilinformationen einer Gruppe von Elementen zuweist.
+- Zur allgemeinen Verwendung durch den Browser.
 
 Sie können diese Klasse verwenden, um SVG-Inhalte mit CSS zu stylen.
 
-## Verwendungskontext
+## Nutzungskontext
 
 <table class="properties">
   <tbody>
@@ -78,7 +78,7 @@ Sie können diese Klasse verwenden, um SVG-Inhalte mit CSS zu stylen.
 
 ## Elemente
 
-Die folgenden Elemente können das `class`-Attribut verwenden:
+Die folgenden Elemente können das Attribut `class` verwenden:
 
 - {{ SVGElement("a") }}
 - {{ SVGElement("circle") }}
@@ -103,17 +103,13 @@ Die folgenden Elemente können das `class`-Attribut verwenden:
 - {{ SVGElement("feTile") }}
 - {{ SVGElement("feTurbulence") }}
 - {{ SVGElement("filter") }}
-- {{ SVGElement("font") }}
 - {{ SVGElement("foreignObject") }}
 - {{ SVGElement("g") }}
-- {{ SVGElement("glyph") }}
-- {{ SVGElement("glyphRef") }}
 - {{ SVGElement("image") }}
 - {{ SVGElement("line") }}
 - {{ SVGElement("linearGradient") }}
 - {{ SVGElement("marker") }}
 - {{ SVGElement("mask") }}
-- {{ SVGElement("missing-glyph") }}
 - {{ SVGElement("path") }}
 - {{ SVGElement("pattern") }}
 - {{ SVGElement("polygon") }}
@@ -127,7 +123,6 @@ Die folgenden Elemente können das `class`-Attribut verwenden:
 - {{ SVGElement("text") }}
 - {{ SVGElement("textPath") }}
 - {{ SVGElement("title") }}
-- {{ SVGElement("tref") }}
 - {{ SVGElement("tspan") }}
 - {{ SVGElement("use") }}
 

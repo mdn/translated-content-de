@@ -54,7 +54,7 @@ wobei `<value>` optional einer der folgenden Werte sein kann:
 - `allow-pointer-lock`
   - : Erlaubt der Seite die Verwendung der [Pointer Lock API](/de/docs/Web/API/Pointer_Lock_API).
 - `allow-popups`
-  - : Erlaubt Popups (wie von [`Window.open()`](/de/docs/Web/API/Window/open), `target="_blank"`, [`Window.showModalDialog()`](/de/docs/Web/API/Window/showModalDialog)). Wenn dieses Schlüsselwort nicht verwendet wird, schlägt diese Funktionalität stillschweigend fehl.
+  - : Erlaubt Popups (wie von [`Window.open()`](/de/docs/Web/API/Window/open), `target="_blank"`, [`Window.showModalDialog()`](/de/docs/Web/API/HTMLDialogElement/showModal)). Wenn dieses Schlüsselwort nicht verwendet wird, schlägt diese Funktionalität stillschweigend fehl.
 - `allow-popups-to-escape-sandbox`
   - : Erlaubt einem sandboxed-Dokument das Öffnen neuer Fenster, ohne die Sandbox-Flags darauf anzuwenden. Dies wird beispielsweise einem Drittanbieter-Werbeanzeigen ermöglichen, sicher sandboxed zu werden, ohne die gleichen Einschränkungen auf die Seite anzuwenden, auf die die Anzeige verlinkt.
 - `allow-presentation`

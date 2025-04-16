@@ -1,32 +1,32 @@
 ---
-title: HTMLLinkElement:imageSrcset-Eigenschaft
+title: "HTMLLinkElement: imageSrcset-Eigenschaft"
 short-title: imageSrcset
-slug: Web/API/HTMLLinkElement/imagesrcset
+slug: Web/API/HTMLLinkElement/imageSrcset
 l10n:
-  sourceCommit: 181082d457dc196c519405a7f6cee83fa117f128
+  sourceCommit: 41bfea46fcb69700e456c890ce07c816e14d834c
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`imageSrcset`**-Eigenschaft des [`HTMLLinkElement`](/de/docs/Web/API/HTMLLinkElement)-Interfaces ist ein String, der eine oder mehrere durch Kommas getrennte **Bildkandidaten-Strings** identifiziert. Diese Eigenschaft spiegelt den Wert des `imagesrcset`-Attributs des {{htmlelement("link")}}-Elements wider. Diese Eigenschaft kann den `imagesrcset`-Attributwert abrufen oder festlegen.
+Die **`imageSrcset`**-Eigenschaft des [`HTMLLinkElement`](/de/docs/Web/API/HTMLLinkElement)-Interfaces ist ein String, der einen oder mehrere durch Kommas getrennte **Image-Candidate-Strings** identifiziert. Diese Eigenschaft spiegelt den Wert des [`link`](/de/docs/Web/HTML/Reference/Elements/link#imagesrcset)-Elements im [`imagesrcset`]-Attribut wider. Diese Eigenschaft kann den Wert des `imagesrcset`-Attributs erhalten oder setzen.
 
-Jeder Bildkandidaten-String enthält eine Bild-URL und einen optionalen Breiten- und/oder Pixeldichtedeklarator, der die Bedingungen angibt, unter denen dieses Kandidatenbild verwendet werden soll.
+Jeder Image-Candidate-String enthält eine Bild-URL und einen optionalen Breiten- und/oder Pixeldichte-Deskriptor, der die Bedingungen angibt, unter denen dieses Kandidatenbild verwendet werden soll.
 
 ```plain
 "images/team-photo.jpg, images/team-photo-retina.jpg 2x, images/team-photo-large.jpg 1400w"
 ```
 
-Für HTML {{htmlelement("link")}}-Elemente mit [`rel="preload"`](/de/docs/Web/HTML/Reference/Attributes/rel/preload) und [`as="image"`](/de/docs/Web/HTML/Reference/Elements/link#as) hat das `imagesrcset`-Attribut eine ähnliche Syntax und Semantik wie das [`srcset`](/de/docs/Web/HTML/Reference/Elements/img#srcset)-Attribut des {{htmlelement("img")}}-Elements, das anzeigt, dass die entsprechende Ressource vorab geladen wird, die von einem `<img>`-Element mit entsprechenden Werten für seine `srcset`- und `sizes`-Attribute verwendet wird.
+Für HTML-{{htmlelement("link")}}-Elemente mit [`rel="preload"`](/de/docs/Web/HTML/Reference/Attributes/rel/preload) und [`as="image"`](/de/docs/Web/HTML/Reference/Elements/link#as) gesetzt, hat das `imagesrcset`-Attribut eine ähnliche Syntax und Semantik wie das `srcset`-Attribut des {{htmlelement("img")}}-Elements, welches angibt, die geeignete Ressource vorab zu laden, die durch ein `<img>`-Element mit entsprechenden Werten für seine `srcset`- und `sizes`-Attribute verwendet wird.
 
-Wenn die `imageSrcset`-Eigenschaft Breitenangaben enthält, muss die [`imageSizes`](/de/docs/Web/API/HTMLLinkElement/imageSizes)-Eigenschaft nicht null sein, oder der `imageSrcset`-Wert wird ignoriert.
+Wenn die `imageSrcset`-Eigenschaft Breiten-Deskriptoren enthält, muss die [`imageSizes`](/de/docs/Web/API/HTMLLinkElement/imageSizes)-Eigenschaft nicht null sein, oder der `imageSrcset`-Wert wird ignoriert.
 
 ## Wert
 
-Ein String, der aus einer durch Kommas getrennten Liste von einem oder mehreren Bildkandidaten-Strings besteht, oder der leere String `""`, falls nicht angegeben.
+Ein String, der aus einer durch Kommas getrennten Liste von einem oder mehreren Image-Candidate-Strings besteht, oder der leere String `""`, wenn nicht angegeben.
 
 ## Beispiele
 
-Gegeben sei das folgende `<link>`-Element:
+Angenommen, das folgende `<link>`-Element:
 
 ```html
 <link
@@ -56,7 +56,7 @@ function log(text) {
 }
 ```
 
-…wir können den Wert des `imagesrcset`-Attributs abrufen und aktualisieren, indem wir die `imageSrcset`-Eigenschaft verwenden:
+…können wir den Wert des `imagesrcset`-Attributs abrufen und aktualisieren, indem wir die `imageSrcset`-Eigenschaft verwenden:
 
 ```js
 const link = document.querySelector("link");

@@ -2,15 +2,15 @@
 title: stroke-opacity
 slug: Web/SVG/Reference/Attribute/stroke-opacity
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: 3c83d88f02f33f4066224e9f624a17dd2a0b0d19
 ---
 
-Das **`stroke-opacity`** Attribut ist ein Präsentationsattribut, das die Opazität des Farbservers (_Farbe_, _Gradient_, _Muster_, etc.) definiert, der auf den Umriss einer Form angewendet wird.
+Das Attribut **`stroke-opacity`** ist ein Präsentationsattribut, das die Opazität des Farbsensors (_Farbe_, _Verlauf_, _Muster_ usw.) definiert, der auf den Umriss einer Form angewendet wird.
 
 > [!NOTE]
-> Als Präsentationsattribut hat `stroke-opacity` auch ein entsprechendes CSS-Attribut: {{cssxref("stroke-opacity")}}. Wenn beide spezifiziert sind, hat das CSS-Attribut Vorrang.
+> Als Präsentationsattribut hat `stroke-opacity` auch ein entsprechendes CSS-Attribut: {{cssxref("stroke-opacity")}}. Wenn beide angegeben sind, hat das CSS-Attribut Vorrang.
 
-Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
+Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 - {{SVGElement('circle')}}
 - {{SVGElement('ellipse')}}
@@ -21,7 +21,6 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 - {{SVGElement('rect')}}
 - {{SVGElement('text')}}
 - {{SVGElement('textPath')}}
-- {{SVGElement('tref')}}
 - {{SVGElement('tspan')}}
 
 ## Beispiel
@@ -78,7 +77,7 @@ svg {
   </tbody>
 </table>
 
-Es ist wichtig zu wissen, dass der Umriss teilweise die Füllung einer Form überdeckt. Ein Umriss mit einer Opazität, die nicht `1` ist, wird die darunter liegende Füllung teilweise sichtbar machen. Um diesen Effekt zu vermeiden, ist es möglich, eine globale Opazität mit dem {{SVGAttr('opacity')}} Attribut anzuwenden oder den Umriss hinter die Füllung mit dem {{SVGAttr('paint-order')}} Attribut zu setzen.
+Es ist wichtig zu wissen, dass der Umriss teilweise die Füllung einer Form überdeckt. Ein Umriss mit einer Opazität ungleich `1` wird die darunterliegende Füllung teilweise sichtbar machen. Um diesen Effekt zu vermeiden, kann eine globale Opazität mit dem {{SVGAttr('opacity')}}-Attribut angewendet werden oder der Umriss hinter der Füllung mit dem {{SVGAttr('paint-order')}}-Attribut platziert werden.
 
 ## Spezifikationen
 

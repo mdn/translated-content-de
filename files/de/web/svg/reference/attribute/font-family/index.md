@@ -2,19 +2,18 @@
 title: font-family
 slug: Web/SVG/Reference/Attribute/font-family
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: 3c83d88f02f33f4066224e9f624a17dd2a0b0d19
 ---
 
-Das **`font-family`** Attribut gibt an, welche Schriftfamilie zur Darstellung des Textes verwendet wird. Es wird als priorisierte Liste von Schriftfamiliennamen und/oder generischen Familienschriftarten angegeben.
+Das **`font-family`**-Attribut gibt an, welche Schriftfamilie zur Darstellung des Textes verwendet wird. Es wird als priorisierte Liste von Schriftfamiliennamen und/oder generischen Familiennamen angegeben.
 
 > [!NOTE]
-> Als Präsentationsattribut hat `font-family` auch ein entsprechendes CSS-Eigenschaftsgegenstück: {{cssxref("font-family")}}. Wenn beide angegeben sind, hat die CSS-Eigenschaft Vorrang.
+> Als Präsentationsattribut hat `font-family` auch ein entsprechendes CSS-Property: {{cssxref("font-family")}}. Wenn beide angegeben sind, hat die CSS-Eigenschaft Vorrang.
 
-Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
+Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 - {{SVGElement("text")}}
 - {{SVGElement("textPath")}}
-- {{SVGElement("tref")}}
 - {{SVGElement("tspan")}}
 
 ## Beispiel
@@ -46,7 +45,7 @@ svg {
     </tr>
     <tr>
       <th scope="row">Standardwert</th>
-      <td>Abhängig vom User-Agent</td>
+      <td>Hängt vom Benutzeragenten ab</td>
     </tr>
     <tr>
       <th scope="row">Animierbar</th>
@@ -55,7 +54,7 @@ svg {
   </tbody>
 </table>
 
-Für eine Beschreibung der Werte, siehe bitte die [CSS `font-family`](/de/docs/Web/CSS/font-family#values) Eigenschaft.
+Für eine Beschreibung der Werte beziehen Sie sich bitte auf die [CSS `font-family`](/de/docs/Web/CSS/font-family#values) Eigenschaft.
 
 ## Spezifikationen
 

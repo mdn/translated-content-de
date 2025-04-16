@@ -2,15 +2,15 @@
 title: stroke-dashoffset
 slug: Web/SVG/Reference/Attribute/stroke-dashoffset
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: 3c83d88f02f33f4066224e9f624a17dd2a0b0d19
 ---
 
-Das **`stroke-dashoffset`** Attribut ist ein Präsentationsattribut, das einen Versatz für die Darstellung des zugehörigen Strichmusters definiert.
+Das Attribut **`stroke-dashoffset`** ist ein Präsentationsattribut, das einen Versatz bei der Darstellung des zugehörigen Dash-Arrays definiert.
 
 > [!NOTE]
-> Als Präsentationsattribut hat `stroke-dashoffset` auch ein entsprechendes CSS-Property: {{cssxref("stroke-dashoffset")}}. Wenn beide angegeben sind, hat das CSS-Property Vorrang.
+> Als ein Präsentationsattribut hat `stroke-dashoffset` auch ein entsprechendes CSS-Attribut: {{cssxref("stroke-dashoffset")}}. Wenn beide angegeben sind, hat das CSS-Attribut Vorrang.
 
-Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
+Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 - {{SVGElement('circle')}}
 - {{SVGElement('ellipse')}}
@@ -21,7 +21,6 @@ Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 - {{SVGElement('rect')}}
 - {{SVGElement('text')}}
 - {{SVGElement('textPath')}}
-- {{SVGElement('tref')}}
 - {{SVGElement('tspan')}}
 
 ## Beispiel
@@ -113,17 +112,17 @@ svg {
       </td>
     </tr>
     <tr>
-      <th scope="row">Standardwert</th>
+      <th scope="row">Default-Wert</th>
       <td><code>0</code></td>
     </tr>
     <tr>
-      <th scope="row">Animierbar</th>
+      <th scope="row">Animationsfähig</th>
       <td>Ja</td>
     </tr>
   </tbody>
 </table>
 
-Der Versatz wird normalerweise in Benutzereinheiten ausgedrückt und gegen die {{SVGAttr('pathLength')}} aufgelöst, aber wenn ein [\<percentage>](/de/docs/Web/SVG/Guides/Content_type#percentage) verwendet wird, wird der Wert als Prozentsatz des aktuellen Ansichtsfensters aufgelöst.
+Der Versatz wird normalerweise in Benutzereinheiten ausgedrückt, die gegen die {{SVGAttr('pathLength')}} aufgelöst werden. Wenn jedoch ein [\<percentage>](/de/docs/Web/SVG/Guides/Content_type#percentage) verwendet wird, wird der Wert als Prozentsatz des aktuellen Ansichtsfensters aufgelöst.
 
 ## Spezifikationen
 
@@ -135,4 +134,4 @@ Der Versatz wird normalerweise in Benutzereinheiten ausgedrückt und gegen die {
 
 ## Siehe auch
 
-- CSS {{cssxref("stroke-dashoffset")}} Eigenschaft
+- CSS-Eigenschaft {{cssxref("stroke-dashoffset")}}
