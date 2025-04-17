@@ -3,12 +3,12 @@ title: "MediaStreamTrackGenerator: MediaStreamTrackGenerator() Konstruktor"
 short-title: MediaStreamTrackGenerator()
 slug: Web/API/MediaStreamTrackGenerator/MediaStreamTrackGenerator
 l10n:
-  sourceCommit: 502e8c3f0be95c6f42afe6a72113b029b290b9e8
+  sourceCommit: 62e6088450ab10db4697d190dd54d09dd9a0791a
 ---
 
 {{APIRef("Insertable Streams for MediaStreamTrack API")}}{{SeeCompatTable}}{{Non-standard_Header}}
 
-Der **`MediaStreamTrackGenerator()`** Konstruktor erstellt ein neues [`MediaStreamTrackGenerator`](/de/docs/Web/API/MediaStreamTrackGenerator) Objekt, das einen Strom von Medienrahmen verarbeitet und einen [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) bereitstellt.
+Der **`MediaStreamTrackGenerator()`** Konstruktor erstellt ein neues [`MediaStreamTrackGenerator`](/de/docs/Web/API/MediaStreamTrackGenerator)-Objekt, das einen Strom von Medienrahmen konsumiert und einen [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) bereitstellt.
 
 ## Syntax
 
@@ -18,8 +18,8 @@ new MediaStreamTrackGenerator(options)
 
 ### Parameter
 
-- `options`
-  - : Ein Objekt, das die Eigenschaft `kind` enthält, welche einer der folgenden Strings ist:
+- `options` {{Experimental_Inline}} {{Non-standard_Inline}}
+  - : Ein Objekt, das die Eigenschaft `kind` enthält, die einer der folgenden Zeichenfolgen ist:
     - `"audio"`
       - : Gibt an, dass der Stream [`AudioTrack`](/de/docs/Web/API/AudioTrack)-Objekte akzeptiert.
     - `"video"`
@@ -32,7 +32,7 @@ new MediaStreamTrackGenerator(options)
 
 ## Beispiele
 
-Im folgenden Beispiel wird ein neuer `MediaStreamTrackGenerator` für Video erstellt.
+Im folgenden Beispiel wird ein neuer Video-`MediaStreamTrackGenerator` erstellt.
 
 ```js
 const trackGenerator = new MediaStreamTrackGenerator({ kind: "video" });
@@ -48,4 +48,4 @@ const trackGenerator = new MediaStreamTrackGenerator({ kind: "video" });
 
 ## Siehe auch
 
-- [Insertable Streams für MediaStreamTrack](https://developer.chrome.com/docs/capabilities/web-apis/mediastreamtrack-insertable-media-processing)
+- [Insertable streams for MediaStreamTrack](https://developer.chrome.com/docs/capabilities/web-apis/mediastreamtrack-insertable-media-processing)

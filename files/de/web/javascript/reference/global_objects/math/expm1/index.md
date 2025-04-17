@@ -2,12 +2,12 @@
 title: Math.expm1()
 slug: Web/JavaScript/Reference/Global_Objects/Math/expm1
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: a5de45e034225500d4dacfa7ee074612c81fdb2d
 ---
 
 {{JSRef}}
 
-Die statische Methode **`Math.expm1()`** gibt [e](/de/docs/Web/JavaScript/Reference/Global_Objects/Math/E) hoch einer Zahl zurück, minus 1. Das bedeutet:
+Die statische Methode **`Math.expm1()`** gibt [e](/de/docs/Web/JavaScript/Reference/Global_Objects/Math/E) hoch eine Zahl abzüglich 1 zurück. Das bedeutet:
 
 <!-- prettier-ignore-start -->
 <math display="block">
@@ -48,10 +48,10 @@ Eine Zahl, die e<sup>x</sup> - 1 darstellt, wobei e [die Basis des natürlichen 
 
 ## Beschreibung
 
-Für sehr kleine Werte von _x_ kann das Hinzufügen von 1 die Präzision verringern oder eliminieren. Die in JavaScript verwendeten Double-Floats bieten etwa 15 Stellen Präzision. 1 + 1e-15 = 1.000000000000001, aber 1 + 1e-16 = 1.000000000000000 und somit exakt 1.0 in dieser Arithmetik, da Stellen nach der 15. Stelle gerundet werden.
+Für sehr kleine Werte von _x_ kann das Hinzufügen von 1 die Präzision verringern oder eliminieren. Die in JS verwendeten Gleitkommazahlen mit doppelter Genauigkeit bieten etwa 15 Stellen Genauigkeit. 1 + 1e-15 \= 1.000000000000001, aber 1 + 1e-16 = 1.000000000000000 und daher genau 1.0 in dieser Arithmetik, da Stellen nach der 15. Stelle gerundet werden.
 
 <!-- prettier-ignore-start -->
-Wenn Sie <math><semantics><msup><mi mathvariant="normal">e</mi><mi>x</mi></msup><annotation encoding="TeX">\mathrm{e}^x</annotation></semantics></math> berechnen, wobei x eine Zahl nahe 0 ist, sollten Sie ein Ergebnis erhalten, das sehr nahe bei 1 + x liegt, da: <math><semantics><mrow><munder><mo lspace="0em" rspace="0em">lim</mo><mrow><mi>x</mi><mo stretchy="false">→</mo><mn>0</mn></mrow></munder><mfrac><mrow><msup><mi mathvariant="normal">e</mi><mi>x</mi></msup><mo>−</mo><mn>1</mn></mrow><mi>x</mi></mfrac><mo>=</mo><mn>1</mn></mrow><annotation encoding="TeX">\lim_{x \to 0} \frac{\mathrm{e}^x - 1}{x} = 1</annotation></semantics></math>. Wenn Sie `Math.exp(1.1111111111e-15) - 1` berechnen, sollten Sie eine Antwort nahe `1.1111111111e-15` erhalten. Stattdessen führt die höchste signifikante Zahl im Ergebnis von `Math.exp`, nämlich die Ziffer `1`, dazu, dass der Endwert `1.1102230246251565e-15` beträgt, mit nur 3 korrekten Stellen. Wenn Sie stattdessen `Math.exp1m(1.1111111111e-15)` berechnen, erhalten Sie eine deutlich genauere Antwort, `1.1111111111000007e-15`, mit 11 korrekten Stellen Präzision.
+Wenn Sie <math><semantics><msup><mi mathvariant="normal">e</mi><mi>x</mi></msup><annotation encoding="TeX">\mathrm{e}^x</annotation></semantics></math> berechnen, wobei x eine Zahl ist, die sehr nahe bei 0 liegt, sollten Sie eine Antwort erhalten, die sehr nahe bei 1 + x liegt, weil: <math><semantics><mrow><munder><mo lspace="0em" rspace="0em">lim</mo><mrow><mi>x</mi><mo stretchy="false">→</mo><mn>0</mn></mrow></munder><mfrac><mrow><msup><mi mathvariant="normal">e</mi><mi>x</mi></msup><mo>−</mo><mn>1</mn></mrow><mi>x</mi></mfrac><mo>=</mo><mn>1</mn></mrow><annotation encoding="TeX">\lim_{x \to 0} \frac{\mathrm{e}^x - 1}{x} = 1</annotation></semantics></math>. Wenn Sie `Math.exp(1.1111111111e-15) - 1` berechnen, sollten Sie eine Antwort erhalten, die nahe bei `1.1111111111e-15` liegt. Stattdessen ist aufgrund der höchsten signifikanten Stelle in dem Ergebnis von `Math.exp` die Einerstelle `1`, der endgültige Wert `1.1102230246251565e-15`, mit nur 3 korrekten Stellen. Wenn Sie stattdessen `Math.expm1(1.1111111111e-15)` berechnen, erhalten Sie eine viel genauere Antwort, `1.1111111111000007e-15`, mit 11 korrekten Stellen der Genauigkeit.
 <!-- prettier-ignore-end -->
 
 Da `expm1()` eine statische Methode von `Math` ist, verwenden Sie sie immer als `Math.expm1()` und nicht als Methode eines von Ihnen erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
