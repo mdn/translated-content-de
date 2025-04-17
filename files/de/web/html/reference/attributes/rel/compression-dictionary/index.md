@@ -1,15 +1,15 @@
 ---
-title: rel=compression-dictionary
+title: rel="compression-dictionary"
 slug: Web/HTML/Reference/Attributes/rel/compression-dictionary
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: 0389dd29e0827791ad9d2f6b8cda217c121f9c19
 ---
 
 {{HTMLSidebar}}{{SeeCompatTable}}
 
-Das **`compression-dictionary`** Schlüsselwort für das [`rel`](/de/docs/Web/HTML/Reference/Elements/link#rel) Attribut des {{HTMLElement("link")}} Elements ist ein Link, den Browser verwenden können, um ein {{Glossary("Compression_dictionary_transport", "Kompressionswörterbuch")}} herunterzuladen. Dieses kann verwendet werden, um zukünftige Downloads für Ressourcen auf dieser Seite zu komprimieren, sodass die Downloadgrößen dieser Ressourcen kleiner als bei standardmäßiger Kompression sind.
+Das **`compression-dictionary`** Schlüsselwort für das [`rel`](/de/docs/Web/HTML/Reference/Elements/link#rel) Attribut des {{HTMLElement("link")}} Elements ist ein Link, den Browser verwenden können, um ein {{Glossary("Compression_dictionary_transport", "Kompressionswörterbuch")}} herunterzuladen, das zum Komprimieren zukünftiger Downloads von Ressourcen auf dieser Website verwendet werden kann, sodass die Downloadgrößen dieser Ressourcen kleiner sind als bei standardmäßiger Komprimierung.
 
-Weitere Informationen finden Sie im [Leitfaden für Kompressionswörterbuch-Transport](/de/docs/Web/HTTP/Guides/Compression_dictionary_transport).
+Weitere Informationen finden Sie im [Kompressionswörterbuch-Transport-Leitfaden](/de/docs/Web/HTTP/Guides/Compression_dictionary_transport).
 
 ## Spezifikationen
 
@@ -21,4 +21,4 @@ Weitere Informationen finden Sie im [Leitfaden für Kompressionswörterbuch-Tran
 
 ## Siehe auch
 
-- [Leitfaden für Kompressionswörterbuch-Transport](/de/docs/Web/HTTP/Guides/Compression_dictionary_transport)
+- [Kompressionswörterbuch-Transport-Leitfaden](/de/docs/Web/HTTP/Guides/Compression_dictionary_transport)

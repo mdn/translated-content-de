@@ -2,20 +2,20 @@
 title: Erstellen von 3D-Objekten mit WebGL
 slug: Web/API/WebGL_API/Tutorial/Creating_3D_objects_using_WebGL
 l10n:
-  sourceCommit: 3c13d9a0c239ed31ae861486393952bc03e0b5bd
+  sourceCommit: f723de8e9a946a1b73daaf52c292522351234841
 ---
 
 {{DefaultAPISidebar("WebGL")}} {{PreviousNext("Web/API/WebGL_API/Tutorial/Animating_objects_with_WebGL", "Web/API/WebGL_API/Tutorial/Using_textures_in_WebGL")}}
 
-Lassen Sie uns unser quadratisches Plane in drei Dimensionen erweitern, indem wir fünf weitere Flächen hinzufügen, um einen Würfel zu erstellen. Um dies effizient zu tun, werden wir vom direkten Zeichnen mittels der Vertizes über die Methode [`gl.drawArrays()`](/de/docs/Web/API/WebGLRenderingContext/drawArrays) zu einer Nutzung des Vertex-Arrays als Tabelle wechseln. Dabei referenzieren wir einzelne Vertizes in dieser Tabelle, um die Positionen der Vertizes jeder Fläche zu definieren, indem wir [`gl.drawElements()`](/de/docs/Web/API/WebGLRenderingContext/drawElements) aufrufen.
+Lassen Sie uns unsere quadratische Fläche in drei Dimensionen erweitern, indem wir fünf weitere Flächen hinzufügen, um einen Würfel zu erstellen. Um dies effizient zu tun, werden wir von der direkten Verwendung der Vertices beim Zeichnen mit der Methode [`gl.drawArrays()`](/de/docs/Web/API/WebGLRenderingContext/drawArrays) umschalten, sodass das Vertex-Array als Tabelle verwendet wird. Indem wir dann auf einzelne Vertices in dieser Tabelle verweisen, definieren wir die Positionen der Vertices jeder Fläche durch den Aufruf von [`gl.drawElements()`](/de/docs/Web/API/WebGLRenderingContext/drawElements).
 
-Bedenken Sie: Jede Fläche erfordert vier Vertizes, aber jeder Vertex wird von drei Flächen geteilt. Wir können deutlich weniger Daten umherreichen, indem wir ein Array mit allen 24 Vertizes erstellen und dann jeden Vertex über seinen Index in diesem Array ansprechen, anstatt ganze Koordinatensätze zu verschieben. Falls Sie sich wundern, warum wir 24 und nicht nur 8 Vertizes benötigen: Jede Ecke gehört zu drei Flächen unterschiedlicher Farben, und ein einzelner Vertex benötigt eine einzelne spezifische Farbe. Daher erstellen wir drei Kopien jedes Vertex in drei verschiedenen Farben, je eine für jede Fläche.
+Überlegen Sie: Jede Fläche benötigt vier Vertices zur Definition, aber jeder Vertex wird von drei Flächen geteilt. Wir können viel weniger Daten herumschicken, indem wir ein Array aus allen 24 Vertices erstellen und dann auf jeden Vertex durch seinen Index in diesem Array verweisen, anstatt ganze Koordinatensätze zu verschieben. Falls Sie sich fragen, warum wir 24 Vertices benötigen und nicht nur 8, liegt es daran, dass jede Ecke zu drei Flächen in verschiedenen Farben gehört und ein einzelner Vertex eine spezifische Farbe haben muss; daher erstellen wir drei Kopien jedes Vertex in drei verschiedenen Farben, eine für jede Fläche.
 
-## Definieren der Positionen der Vertizes des Würfels
+## Definieren der Positionen der Vertices des Würfels
 
-Zuerst erstellen wir den Vertex-Positions-Puffer des Würfels, indem wir den Code in `initBuffers()` aktualisieren. Dies ist im Wesentlichen dasselbe wie bei der quadratischen Fläche, aber etwas länger, da es 24 Vertizes sind (4 pro Seite).
+Zuerst erstellen wir den Vertex-Positionspuffer des Würfels, indem wir den Code in `initBuffers()` aktualisieren. Dies ist im Wesentlichen dasselbe wie bei der quadratischen Fläche, jedoch etwas länger, da es 24 Vertices gibt (4 pro Seite).
 
-Ersetzen Sie in der Funktion `initPositionBuffer()` Ihres Moduls "init-buffers.js" die Deklaration von `positions` mit diesem Code:
+In der Funktion `initPositionBuffer()` Ihres "init-buffers.js"-Moduls ersetzen Sie die `positions`-Deklaration mit diesem Code:
 
 ```js
 const positions = [
@@ -39,19 +39,19 @@ const positions = [
 ];
 ```
 
-Da wir einen z-Komponente zu unseren Vertizes hinzugefügt haben, müssen wir die `numComponents` unseres `vertexPosition` Attributs auf 3 aktualisieren.
+Da wir eine z-Komponente zu unseren Vertices hinzugefügt haben, müssen wir die `numComponents` unseres `vertexPosition` Attributs auf 3 aktualisieren.
 
-Ändern Sie in der Funktion `setPositionAttribute()` Ihres Moduls "draw-scene.js" die Konstante `numComponents` von `2` auf `3`:
+In der Funktion `setPositionAttribute()` Ihres "draw-scene.js"-Moduls ändern Sie die Konstante `numComponents` von `2` auf `3`:
 
 ```js
 const numComponents = 3;
 ```
 
-## Definieren der Farben der Vertizes
+## Definieren der Farben der Vertices
 
-Wir müssen auch ein Array von Farben für jeden der 24 Vertizes erstellen. Dieser Code beginnt mit der Definition einer Farbe für jede Fläche und verwendet dann eine Schleife, um ein Array aller Farben für jeden der Vertizes zusammenzustellen.
+Wir müssen auch ein Array von Farben für jeden der 24 Vertices erstellen. Dieser Code beginnt mit der Definition einer Farbe für jede Fläche und verwendet dann eine Schleife, um ein Array aller Farben für jeden der Vertices zusammenzustellen.
 
-Ersetzen Sie in der Funktion `initColorBuffer()` Ihres Moduls "init-buffers.js" die Deklaration von `colors` mit diesem Code:
+In der Funktion `initColorBuffer()` Ihres "init-buffers.js"-Moduls ersetzen Sie die `colors`-Deklaration mit diesem Code:
 
 ```js
 const faceColors = [
@@ -65,7 +65,7 @@ const faceColors = [
 
 // Convert the array of colors into a table for all the vertices.
 
-const colors = [];
+let colors = [];
 
 for (let j = 0; j < faceColors.length; ++j) {
   const c = faceColors[j];
@@ -74,11 +74,11 @@ for (let j = 0; j < faceColors.length; ++j) {
 }
 ```
 
-## Definieren des Element-Arrays
+## Definieren des Elemente-Arrays
 
-Sobald die Vertex-Arrays generiert sind, müssen wir das Element-Array erstellen.
+Sobald die Vertex-Arrays erzeugt sind, müssen wir das Elemente-Array erstellen.
 
-Fügen Sie diese Funktion in Ihr Modul "init-buffer.js" ein:
+Fügen Sie in Ihrem "init-buffer.js"-Modul die folgende Funktion hinzu:
 
 ```js
 function initIndexBuffer(gl) {
@@ -111,11 +111,11 @@ function initIndexBuffer(gl) {
 }
 ```
 
-Das `indices` Array definiert jede Fläche als ein Paar von Dreiecken, wobei die Vertizes jedes Dreiecks als Index in die Vertex-Arrays des Würfels angegeben werden. Somit wird der Würfel als Sammlung von 12 Dreiecken beschrieben.
+Das `indices`-Array definiert jede Fläche als ein Paar Dreiecke und spezifiziert die Vertices jedes Dreiecks als einen Index in den Vertex-Arrays des Würfels. Somit wird der Würfel als eine Sammlung von 12 Dreiecken beschrieben.
 
-Als Nächstes müssen Sie diese neue Funktion aus `initBuffers()` aufrufen und den Puffer zurückgeben, den sie erstellt.
+Als Nächstes müssen Sie diese neue Funktion aus `initBuffers()` aufrufen und den von ihr erstellten Puffer zurückgeben.
 
-Am Ende der Funktion `initBuffers()` Ihres Moduls "init-buffers.js" fügen Sie diesen Code ein und ersetzen die bestehende `return`-Anweisung:
+Am Ende der Funktion `initBuffers()` Ihres "init-buffers.js"-Moduls fügen Sie den folgenden Code hinzu und ersetzen die bestehende `return`-Anweisung:
 
 ```js
 function initBuffers(gl) {
@@ -131,18 +131,18 @@ function initBuffers(gl) {
 }
 ```
 
-## Den Würfel zeichnen
+## Zeichnen des Würfels
 
-Als Nächstes müssen wir unserem `drawScene()`-Funktion Code hinzufügen, um den Index-Puffer des Würfels zu zeichnen, indem neue Aufrufe von [`gl.bindBuffer()`](/de/docs/Web/API/WebGLRenderingContext/bindBuffer) und [`gl.drawElements()`](/de/docs/Web/API/WebGLRenderingContext/drawElements) hinzugefügt werden.
+Als Nächstes müssen wir in unserer `drawScene()`-Funktion Code hinzufügen, um den Würfel mit dem Indexpuffer zu zeichnen und neue Aufrufe von [`gl.bindBuffer()`](/de/docs/Web/API/WebGLRenderingContext/bindBuffer) und [`gl.drawElements()`](/de/docs/Web/API/WebGLRenderingContext/drawElements) hinzuzufügen.
 
-Fügen Sie in Ihrer `drawScene()`-Funktion diesen Code unmittelbar vor der `gl.useProgram`-Zeile hinzu:
+Fügen Sie in Ihrer `drawScene()`-Funktion den folgenden Code direkt vor der `gl.useProgram`-Zeile hinzu:
 
 ```js
 // Tell WebGL which indices to use to index the vertices
 gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, buffers.indices);
 ```
 
-Ersetzen Sie in der `drawScene()`-Funktion Ihres Moduls "draw-scene.js" den Block direkt nach den zwei `gl.uniformMatrix4fv`-Aufrufen, der die Zeile `gl.drawArrays()` enthält, durch den folgenden Block:
+Ersetzen Sie in der `drawScene()`-Funktion Ihres "draw-scene.js"-Moduls den Block direkt nach den beiden `gl.uniformMatrix4fv`-Aufrufen, der die `gl.drawArrays()`-Zeile enthält, durch den folgenden Block:
 
 ```js
 {
@@ -153,17 +153,17 @@ Ersetzen Sie in der `drawScene()`-Funktion Ihres Moduls "draw-scene.js" den Bloc
 }
 ```
 
-Da jede Fläche unseres Würfels aus zwei Dreiecken besteht, sind es 6 Vertizes pro Seite oder 36 insgesamt im Würfel, obwohl viele davon Duplikate sind.
+Da jede Fläche unseres Würfels aus zwei Dreiecken besteht, gibt es 6 Vertices pro Seite, also insgesamt 36 Vertices im Würfel, obwohl viele davon Duplikate sind.
 
-Schließlich ersetzen wir unsere Variable `squareRotation` mit `cubeRotation` und fügen eine zweite Rotation um die x-Achse hinzu.
+Lassen Sie uns schließlich unsere Variable `squareRotation` durch `cubeRotation` ersetzen und eine zweite Rotation um die x-Achse hinzufügen.
 
-Ersetzen Sie zu Beginn Ihrer Datei "webgl-demo.js" die Deklaration von `squareRotation` durch diese Zeile:
+Ersetzen Sie am Anfang Ihrer "webgl-demo.js"-Datei die `squareRotation`-Deklaration durch diese Zeile:
 
 ```js
 let cubeRotation = 0.0;
 ```
 
-Ersetzen Sie in Ihrer `drawScene()`-Funktionsdeklaration `squareRotation` mit `cubeRotation`:
+Ersetzen Sie in Ihrer `drawScene()`-Funktionsdeklaration `squareRotation` durch `cubeRotation`:
 
 ```js
 function drawScene(gl, programInfo, buffers, cubeRotation) {
@@ -171,7 +171,7 @@ function drawScene(gl, programInfo, buffers, cubeRotation) {
 }
 ```
 
-Ersetzen Sie in Ihrer `drawScene()`-Funktion den Aufruf von `mat4.rotate` durch den folgenden Code:
+Ersetzen Sie in Ihrer `drawScene()`-Funktion den `mat4.rotate`-Aufruf durch den folgenden Code:
 
 ```js
 mat4.rotate(
@@ -194,17 +194,17 @@ mat4.rotate(
 ); // axis to rotate around (X)
 ```
 
-Ersetzen Sie in Ihrer `main()`-Funktion den Code, der `drawScene()` aufruft und `squareRotation` aktualisiert, um stattdessen `cubeRotation` zu übergeben und zu aktualisieren:
+Ersetzen Sie in Ihrer `main()`-Funktion den Code, der `drawScene()` aufruft und `squareRotation` aktualisiert, sodass stattdessen `cubeRotation` übergeben und aktualisiert wird:
 
 ```js
 drawScene(gl, programInfo, buffers, cubeRotation);
 cubeRotation += deltaTime;
 ```
 
-An diesem Punkt haben wir nun einen animierten Würfel, der rotiert und dessen sechs Flächen lebhaft gefärbt sind.
+An diesem Punkt haben wir nun einen animierten, rotierenden Würfel, dessen sechs Flächen ziemlich farbenfroh sind.
 
 {{EmbedGHLiveSample('dom-examples/webgl-examples/tutorial/sample5/index.html', 670, 510) }}
 
-[Sehen Sie den vollständigen Code](https://github.com/mdn/dom-examples/tree/main/webgl-examples/tutorial/sample5) | [Öffnen Sie dieses Demo auf einer neuen Seite](https://mdn.github.io/dom-examples/webgl-examples/tutorial/sample5/)
+[Den vollständigen Code anzeigen](https://github.com/mdn/dom-examples/tree/main/webgl-examples/tutorial/sample5) | [Dieses Demo auf einer neuen Seite öffnen](https://mdn.github.io/dom-examples/webgl-examples/tutorial/sample5/)
 
 {{PreviousNext("Web/API/WebGL_API/Tutorial/Animating_objects_with_WebGL", "Web/API/WebGL_API/Tutorial/Using_textures_in_WebGL")}}

@@ -2,7 +2,7 @@
 title: ::file-selector-button
 slug: Web/CSS/::file-selector-button
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: 2e16fdb99d2c52cc05d1b0d5eaf2f3178e4314c1
 ---
 
 {{CSSRef}}
@@ -34,7 +34,9 @@ input::file-selector-button {
 ## Syntax
 
 ```css
-selector::file-selector-button
+::file-selector-button {
+  /* ... */
+}
 ```
 
 ## Beispiele
@@ -79,7 +81,7 @@ input[type="file"]::file-selector-button:hover {
 
 {{EmbedLiveSample("Basic_example", "100%", 150)}}
 
-Beachten Sie, dass `::file-selector-button` ein ganzes Element ist und somit die Regeln des UA-Stylesheets erfüllt. Insbesondere werden Schriftarten und Farben nicht unbedingt vom `input`-Element übernommen.
+Beachten Sie, dass `::file-selector-button` ein ganzes Element ist und daher den Regeln aus dem UA-Stylesheet entspricht. Insbesondere werden Schriftarten und Farben nicht unbedingt vom `input`-Element vererbt.
 
 ### Rückfallbeispiel
 
