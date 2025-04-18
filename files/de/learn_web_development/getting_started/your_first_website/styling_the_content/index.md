@@ -1,30 +1,30 @@
 ---
-title: "CSS: Gestaltung des Inhalts"
-short-title: Gestaltung des Inhalts
+title: "CSS: Styling the content"
+short-title: Inhalt gestalten
 slug: Learn_web_development/Getting_started/Your_first_website/Styling_the_content
 l10n:
-  sourceCommit: 6a5c619dfad295ca9a9d317a4088908cfd33e686
+  sourceCommit: 04b891269af86287313a1d6e28423560a674cd2d
 ---
 
 {{PreviousMenuNext("Learn_web_development/Getting_started/Your_first_website/Creating_the_content", "Learn_web_development/Getting_started/Your_first_website/Adding_interactivity", "Learn_web_development/Getting_started/Your_first_website")}}
 
-CSS (Cascading Style Sheets) ist der Code, der Webinhalte gestaltet. _Gestaltung des Inhalts_ führt durch das, was Sie benötigen, um anzufangen. Wir werden Fragen beantworten wie: Wie mache ich Text rot? Wie lasse ich Inhalte an einer bestimmten Position im (Webseiten-)Layout anzeigen? Wie dekoriere ich meine Webseite mit Hintergrundbildern und -farben?
+CSS (Cascading Style Sheets) ist der Code, der Webinhalte gestaltet. Dieser Artikel führt Sie durch ein grundlegendes Verständnis von CSS – wie es funktioniert und wie Sie das Aussehen und die Haptik der Inhaltsstruktur verbessern können, die Sie im vorherigen Artikel erstellt haben.
 
 <table>
   <tbody>
     <tr>
       <th scope="row">Voraussetzungen:</th>
       <td>
-        Grundlegende Vertrautheit mit Ihrem Computer-Betriebssystem, der grundlegenden Software, die Sie zum Erstellen einer Website verwenden werden, und Dateisystemen.
+        Grundkenntnisse Ihres Computerbetriebssystems, der grundlegenden Software, die Sie zum Erstellen einer Website verwenden, und Dateisysteme.
       </td>
     </tr>
     <tr>
-      <th scope="row">Lernziele:</th>
+      <th scope="row">Lernergebnisse:</th>
       <td>
         <ul>
           <li>Der Zweck und die Funktion von CSS.</li>
-          <li>Die grundlegenden Teile der CSS-Syntax — Regeln, Selektoren, Deklarationen, Eigenschaften, Eigenschaftswerte.</li>
-          <li>Häufige CSS-Funktionalitäten, einschließlich Boxmodell, Ändern von Farben und Schriftarten sowie Positionierung von HTML-Elementen.</li>
+          <li>Die grundlegenden Teile der CSS-Syntax – Regelgruppen, Selektoren, Deklarationen, Eigenschaften, Eigenschaftswerte.</li>
+          <li>Gängige CSS-Funktionalitäten einschließlich Box-Modell, Änderung von Farben und Schriftarten sowie Positionierung von HTML-Elementen.</li>
         </ul>
       </td>
     </tr>
@@ -33,58 +33,80 @@ CSS (Cascading Style Sheets) ist der Code, der Webinhalte gestaltet. _Gestaltung
 
 ## Was ist CSS?
 
-Wie HTML ist CSS keine Programmiersprache. Auch keine Auszeichnungssprache. **CSS ist eine Stylesheet-Sprache.** CSS wird verwendet, um HTML-Elemente gezielt zu stylen. Zum Beispiel wählt dieses CSS Absatztext aus und setzt die Farbe auf rot:
+Wie HTML ist CSS keine Programmiersprache. Es ist auch keine Auszeichnungssprache. **CSS ist eine Stylesheet-Sprache.** CSS wird verwendet, um HTML-Elemente zu gestalten: Sie wählen die Elemente aus, die Sie gestalten möchten, und legen Werte für deren Stileigenschaften fest, die bestimmen, wie sie aussehen werden.
 
-```css
+Lassen Sie uns das einfache HTML-Beispiel aus dem Artikel [Inhalte erstellen](/de/docs/Learn_web_development/Getting_started/Your_first_website/Creating_the_content) noch einmal ansehen:
+
+```html live-sample___basic-html live-sample___basic-css
+<p>Instructions for life:</p>
+
+<ul>
+  <li>Eat</li>
+  <li>Sleep</li>
+  <li>Repeat</li>
+</ul>
+```
+
+Das wird auf sich allein gestellt wie folgt gerendert:
+
+{{EmbedLiveSample("basic-html", "100%", "140px")}}
+
+Wenn wir etwas CSS hinzufügen, können wir das Aussehen des HTML ändern. Das folgende Snippet wählt das {{htmlelement("p")}}-Element aus und verleiht ihm eine andere [Schriftart](/de/docs/Web/CSS/font-family) und eine rote Text-{{cssxref("color")}}. Anschließend werden alle {{htmlelement("li")}}-Elemente ausgewählt und erhalten jeweils eine grün-gelbe {{cssxref("background-color")}}, einen einfarbig schwarzen {{cssxref("border")}} von einem Pixel und einen 5-Pixel-[unteren Rand](/de/docs/Web/CSS/margin-bottom):
+
+```css live-sample___basic-css
 p {
+  font-family: sans-serif;
   color: red;
+}
+
+li {
+  background-color: greenyellow;
+  border: 1px solid black;
+  margin-bottom: 5px;
 }
 ```
 
-Lassen Sie es uns ausprobieren!
+Mit dem CSS, das auf das HTML angewendet wurde, rendert die Demo jetzt so:
 
-1. Erstellen Sie in Ihrem `first-website`-Ordner einen weiteren neuen Ordner namens `styles`.
-2. Verwenden Sie einen Texteditor, um die drei oben gezeigten CSS-Zeilen in eine neue Datei einzufügen.
-3. Speichern Sie die Datei in Ihrem `styles`-Ordner mit dem Dateinamen `style.css`.
+{{EmbedLiveSample("basic-css", "100%", "160px")}}
 
-Damit der Code funktioniert, müssen wir dieses CSS (oben) noch auf Ihr HTML-Dokument anwenden. Andernfalls ändert das Styling nicht das Aussehen des HTML.
+Wie Sie sehen können, konnten wir mit nur ein wenig CSS das Erscheinungsbild einer schlicht aussehenden Liste ändern.
 
-1. Öffnen Sie Ihre `index.html`-Datei. Fügen Sie die folgende Zeile in den HTML-Kopf ein (zwischen den {{HTMLElement("head")}} und `</head>` Tags):
+CSS hat viele weitere Funktionen, von der Angabe von Hintergrundbildern und -verläufen bis hin zur Steuerung von Typografie und Scrollverhalten, zum Hinzufügen von Animationen und zum Erstellen ganzer Webseiten-Layouts.
+
+## CSS auf Ihr HTML anwenden
+
+Wenn Sie CSS verwenden, ist das erste, was Sie richtig machen sollten, sicherzustellen, dass Ihr CSS erfolgreich auf Ihr HTML angewendet wird. In diesem Abschnitt fügen wir ein CSS-**Stylesheet** zu Ihrer `first-website` hinzu und wenden es auf Ihre Seite an.
+
+1. Erstellen Sie in Ihrem `first-website`-Ordner einen weiteren neuen Ordner mit dem Namen `styles`.
+2. Fügen Sie unter Verwendung eines Texteditors das folgende CSS in eine neue Datei ein, das Ihren `<p>`-Elementen eine rote Textfarbe verleiht. Es ist nützlich, mit so etwas zu beginnen, um zu testen, ob Ihr Stylesheet korrekt auf Ihr HTML angewendet wird.
+
+   ```css
+   p {
+     color: red;
+   }
+   ```
+
+3. Speichern Sie die Datei im `styles`-Ordner mit dem Dateinamen `style.css`.
+4. Öffnen Sie Ihre `index.html`-Datei. Fügen Sie die folgende Zeile innerhalb des HTML-Kopfs (zwischen den {{HTMLElement("head")}}- und `</head>`-Tags) ein:
 
    ```html
    <link href="styles/style.css" rel="stylesheet" />
    ```
 
-2. Speichern Sie `index.html` und laden Sie es in Ihrem Browser. Sie sollten etwas Folgendes sehen:
+5. Speichern Sie `index.html` und laden Sie es in Ihrem Browser. Sie sollten so etwas sehen:
 
-![Ein Mozilla Logo und einige Absätze. Der Absatztext wurde durch unser CSS rot gestaltet.](website-screenshot-styled.png)
+![Ein Mozilla-Logo und einige Absätze. Der Absatztext wurde durch unser CSS rot gefärbt.](website-screenshot-styled.png)
 
-Wenn Ihr Absatztext rot ist, herzlichen Glückwunsch! Ihr CSS funktioniert.
+Wenn Ihr Absatztext rot ist, herzlichen Glückwunsch! Ihr CSS funktioniert. Wenn nicht, gehen Sie die obigen Schritte durch und prüfen Sie sorgfältig, ob Sie jeden einzelnen korrekt befolgt haben.
 
-## Anatomie eines CSS-Regelsatzes
+## Grundlagen der CSS-Syntax
 
-Lassen Sie uns den CSS-Code für roten Absatztext zerlegen, um zu verstehen, wie er funktioniert:
+Im vorherigen CSS-Beispiel wird `p` als **Selektor** bezeichnet — es wählt die zu gestaltenden Elemente aus. Insbesondere wählt `p` alle Absätze im HTML aus. Die Zeile innerhalb der geschweiften Klammern (`{ }`) wird als **Deklaration** bezeichnet – sie legt einen Wert für eine bestimmte Eigenschaft fest. In diesem Fall ist die **Eigenschaft** `color`, die die Textfarbe der Absätze steuert, und der festgelegte **Eigenschaftswert** ist `red`.
 
-![CSS p Deklaration Farbe rot](css-declaration-small.png)
+Die gesamte Struktur wird als **Regelgruppe** bezeichnet. (Der Begriff _Regelgruppe_ wird oft einfach als _Regel_ bezeichnet.)
 
-Die gesamte Struktur wird als **Regelsatz** bezeichnet. (Der Begriff _Regelsatz_ wird oft einfach als _Regel_ bezeichnet.) Beachten Sie die Bezeichnungen der einzelnen Teile:
-
-- Selektor
-  - : Dies ist der HTML-Elementname am Anfang des Regelsatzes. Er definiert das oder die zu stylenden Elemente (in diesem Beispiel {{HTMLElement("p")}}-Elemente). Um ein anderes Element zu stylen, ändern Sie den Selektor.
-- Deklaration
-  - : Dies ist eine einzelne Regel wie `color: red;`. Sie gibt an, welche der Eigenschaften des Elements Sie stylen möchten.
-- Eigenschaften
-  - : Dies sind Merkmale eines HTML-Elements, deren Werte Sie ändern können, um es anders zu stylen. (In diesem Beispiel ist `color` eine Eigenschaft der {{htmlelement("p")}}-Elemente.) In CSS wählen Sie aus, welche Eigenschaften Sie in der Regel beeinflussen möchten.
-- Eigenschaftswert
-  - : Rechts von der Eigenschaft — nach dem Doppelpunkt — steht der **Eigenschaftswert**. Damit wird eine von vielen möglichen Erscheinungen für eine gegebene Eigenschaft ausgewählt. (Zum Beispiel gibt es neben `red` viele `color`-Werte.)
-
-Beachten Sie die anderen wichtigen Teile der Syntax:
-
-- Abgesehen vom Selektor muss jeder Regelsatz in geschweifte Klammern gesetzt werden. (`{}`)
-- Innerhalb jeder Deklaration müssen Sie einen Doppelpunkt (`:`) verwenden, um die Eigenschaft von ihrem Wert oder ihren Werten zu trennen.
-- Innerhalb jedes Regelsatzes müssen Sie ein Semikolon (`;`) verwenden, um jede Deklaration von der nächsten zu trennen.
-
-Um mehrere Eigenschaftswerte in einem Regelsatz zu ändern, schreiben Sie sie durch Semikolons getrennt, wie hier:
+Schauen wir uns eine andere Regelgruppe an, diesmal mit mehreren Deklarationen:
 
 ```css
 p {
@@ -94,112 +116,64 @@ p {
 }
 ```
 
-> [!NOTE]
-> Scrimbas [Schreiben Sie Ihre ersten CSS-Zeilen!](https://scrimba.com/the-frontend-developer-career-path-c0j/~015?via=mdn) <sup>[_MDN-Lernpartner_](/de/docs/MDN/Writing_guidelines/Learning_content#partner_links_and_embeds)</sup> bietet eine nützliche interaktive Einführung in die CSS-Syntax.
+Innerhalb einer Regelgruppe müssen Sie ein Semikolon (`;`) verwenden, um eine Deklaration von der nächsten zu trennen. Innerhalb jeder Deklaration müssen Sie einen Doppelpunkt (`:`) verwenden, um die Eigenschaft und ihren Wert zu trennen.
 
-### Auswählen mehrerer Elemente
-
-Sie können auch mehrere Elemente auswählen und einen einzelnen Regelsatz auf alle anwenden. Trennen Sie mehrere Selektoren durch Kommas. Zum Beispiel:
+Sie können auch mehrere Selektoren in einer Regel durch Kommas getrennt einschließen, um mehrere Elemente auszuwählen. Zum Beispiel:
 
 ```css
 p,
-li,
-h1 {
+.my-class,
+#my-id {
   color: red;
 }
 ```
 
-### Verschiedene Arten von Selektoren
+In dieser CSS-Regel haben wir einen **Element**- (oder **Typ**-)Selektor aufgenommen, der ein bestimmtes HTML-Element auswählt. Wir haben auch zwei andere Selektortypen aufgenommen, die für den Rest dieses Tutorials nicht relevant sind. Wenn Sie neugierig sind, was sie tun, sehen Sie sich unseren [Grundlegende Selektoren](/de/docs/Learn_web_development/Core/Styling_basics/Basic_selectors)-Leitfaden an.
 
-Es gibt viele verschiedene Arten von Selektoren. Die Beispiele oben verwenden **Elementselektoren**, die alle Elemente eines bestimmten Typs auswählen. Wir können jedoch auch spezifischere Auswahlen treffen. Hier sind einige der häufigeren Arten von Selektoren:
+> [!NOTE]
+> Scrimbas [Schreiben Sie Ihre ersten Zeilen in CSS!](https://v2.scrimba.com/the-frontend-developer-career-path-c0j/~015?via=mdn) <sup>[_MDN Learning Partner_](/de/docs/MDN/Writing_guidelines/Learning_content#partner_links_and_embeds)</sup> bietet eine nützliche interaktive Einführung in die CSS-Syntax.
 
-<table class="standard-table no-markdown">
-  <thead>
-    <tr>
-      <th scope="col">Selektorname</th>
-      <th scope="col">Was wird ausgewählt</th>
-      <th scope="col">Beispiel</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Elementselektor (manchmal als Tag- oder Typselektor bezeichnet)</td>
-      <td>Alle HTML-Elemente des angegebenen Typs.</td>
-      <td><code>p</code><br />wählt <code>&#x3C;p></code> aus</td>
-    </tr>
-    <tr>
-      <td>ID-Selektor</td>
-      <td>
-        Das Element auf der Seite mit der angegebenen ID. Auf einer bestimmten HTML-Seite sollte jeder ID-Wert eindeutig sein.
-      </td>
-      <td>
-        <code>#my-id</code><br />wählt <code>&#x3C;p id="my-id"></code> oder
-        <code>&#x3C;a id="my-id"></code> aus
-      </td>
-    </tr>
-    <tr>
-      <td>Klassenselektor</td>
-      <td>
-        Das oder die Elemente auf der Seite mit der angegebenen Klasse. Mehrfache Instanzen derselben Klasse können auf einer Seite erscheinen.
-      </td>
-      <td>
-        <code>.my-class</code><br />wählt
-        <code>&#x3C;p class="my-class"></code> und
-        <code>&#x3C;a class="my-class"></code> aus
-      </td>
-    </tr>
-    <tr>
-      <td>Attributselektor</td>
-      <td>Das oder die Elemente auf der Seite mit dem angegebenen Attribut.</td>
-      <td>
-        <code>img[src]</code><br />wählt
-        <code>&#x3C;img src="my-image.png"></code> aus, aber nicht
-        <code>&#x3C;img></code>
-      </td>
-    </tr>
-    <tr>
-      <td>Pseudoklassenselektor</td>
-      <td>
-        Das oder die angegebenen Elemente, jedoch nur im angegebenen Zustand. (Beispielsweise, wenn ein Cursor über einen Link schwebt.)
-      </td>
-      <td>
-        <code>a:hover</code><br />wählt <code>&#x3C;a></code> aus, jedoch nur wenn der Mauszeiger über den Link schwebt.
-      </td>
-    </tr>
-  </tbody>
-</table>
+## Verbesserung des Textes
 
-Es gibt noch viele weitere Selektoren zu entdecken. Um mehr zu erfahren, lesen Sie unsere Selektor-Tutorials, beginnend mit [Basisselektoren](/de/docs/Learn_web_development/Core/Styling_basics/Basic_selectors).
+Kehren wir zu unserem Beispiel zurück und verwenden CSS, um das Erscheinungsbild des Textes zu verbessern. Wir stellen eine neue Schriftart für die Seite ein und ändern einige Texteinstellungen für verschiedene Elemente.
 
-## Schriftarten und Text
-
-Nachdem wir einige grundlegende CSS-Konzepte erkundet haben, verbessern wir das Erscheinungsbild des Beispiels, indem wir der Datei `style.css` mehr Regeln und Informationen hinzufügen.
-
-1. Suchen Sie zuerst den [Ausgang von Google Fonts](/de/docs/Learn_web_development/Getting_started/Your_first_website/What_will_your_website_look_like#choosing_a_font), den Sie zuvor von [Wie wird Ihre Webseite aussehen?](/de/docs/Learn_web_development/Getting_started/Your_first_website/What_will_your_website_look_like) gespeichert haben. Fügen Sie das {{htmlelement("link")}}-Element irgendwo in den Kopfbereich Ihrer `index.html`-Datei hinzu (irgendwo zwischen den {{HTMLElement("head")}} und `</head>`-Tags). Es sieht ungefähr so aus:
+1. Finden Sie zunächst die [Ausgabe von Google Fonts](/de/docs/Learn_web_development/Getting_started/Your_first_website/What_will_your_website_look_like#choosing_a_font), die Sie zuvor gespeichert haben. Wenn Sie noch keine Schriftart ausgewählt haben, folgen Sie dem Link und tun Sie dies jetzt.
+2. Fügen Sie die {{htmlelement("link")}}-Elemente in den {{HTMLElement("head")}} Ihrer `index.html` gerade vor dem schließenden `</head>`-Tag ein. Sie sollten ungefähr so aussehen:
 
    ```html
+   <link rel="preconnect" href="https://fonts.googleapis.com" />
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
    <link
-     href="https://fonts.googleapis.com/css?family=Open+Sans"
+     href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
      rel="stylesheet" />
    ```
 
-   Dieser Code verknüpft Ihre Seite mit einem Stylesheet, das die Schriftfamilie Open Sans mit Ihrer Webseite lädt.
+   Dieser Code verlinkt Ihre Seite mit einem Stylesheet, das vom Google Fonts-Dienst gehostet wird und Ihre ausgewählte Schriftart lädt.
 
-2. Löschen Sie als Nächstes die vorhandene Regel in Ihrer `style.css`-Datei. Es war ein guter Test, aber lassen Sie uns nicht mit viel rotem Text weitermachen.
-3. Fügen Sie die folgenden Zeilen (unten gezeigt) hinzu, wobei Sie die `font-family`-Zuweisung mit Ihrer `font-family`-Auswahl aus [Wie wird Ihre Webseite aussehen?](/de/docs/Learn_web_development/Getting_started/Your_first_website/What_will_your_website_look_like#choosing_a_font) ersetzen. Die Eigenschaft `font-family` bezieht sich auf die Schriftart(en), die Sie für Text verwenden möchten. Diese Regel definiert eine globale Basis-Schriftart und Schriftgröße für die gesamte Seite. Da {{HTMLElement("html")}} das Elternelement der gesamten Seite ist, erben alle darin enthaltenen Elemente dieselbe `font-size` und `font-family`.
+3. Löschen Sie als Nächstes die bestehende Regel in Ihrer `style.css`-Datei. Wir möchten nicht mehr, dass unsere Absätze rot sind.
+4. Fügen Sie die folgenden Zeilen zu `style.css` hinzu:
 
    ```css
    html {
-     font-size: 10px; /* px means "pixels": the base font size is now 10 pixels high */
-     font-family:
-       "Open Sans", sans-serif; /* this should be the rest of the output you got from Google Fonts */
+     /* px means "pixels". The base font size is now 10 pixels high */
+     font-size: 10px;
+     /* Replace PLACEHOLDER with the font-family property value you got from Google Fonts */
+     font-family: PLACEHOLDER;
    }
    ```
 
    > [!NOTE]
-   > Alles in CSS zwischen `/*` und `*/` ist ein **CSS-Kommentar**. Der Browser ignoriert Kommentare, während er den Code rendert. CSS-Kommentare sind eine Möglichkeit, um hilfreiche Notizen zu Ihrem Code oder Ihrer Logik zu schreiben.
+   > Alles in CSS zwischen `/*` und `*/` ist ein **CSS-Kommentar**, der vom Browser ignoriert wird. CSS-Kommentare sind eine Möglichkeit für Sie, nützliche Notizen über Ihren Code oder Ihre Logik zu machen, ohne dass dies die Darstellung Ihrer Webseite beeinflusst.
 
-4. Lassen Sie uns nun die Schriftgrößen für Elemente festlegen, die Text im HTML-Body haben werden ({{htmlelement("Heading_Elements", "&lt;h1&gt;")}}, {{htmlelement("li")}} und {{htmlelement("p")}}). Wir werden auch die Überschrift zentrieren. Schließlich erweitern wir den zweiten Regelsatz (unten) mit Einstellungen für Zeilenhöhe und Buchstabenabstand, um den Inhalt im Textkörper lesbarer zu machen.
+5. Ersetzen Sie die Platzhalterzeile `font-family` durch die Linie `font-family` aus Ihrem Google Fonts-Code, zum Beispiel:
+
+   ```css
+   font-family: "Roboto", sans-serif;
+   ```
+
+   Die `font-family`-Eigenschaft legt die Schriftart(en) fest, die Sie auf Ihr HTML anwenden möchten. Diese Regel definiert eine globale grundlegende Schriftart und -größe für die gesamte Seite. Alle Elemente innerhalb des {{HTMLElement("html")}}-Elements erben dieselbe `font-size` und `font-family`.
+
+6. Lassen Sie uns nun einige Schrift- und Texteinstellungen auf unsere [`<h1>`](/de/docs/Web/HTML/Reference/Elements/Heading_Elements), {{htmlelement("li")}} und {{htmlelement("p")}}-Elemente festlegen. Wir setzen neue Werte für {{cssxref("font-size")}} für jedes Element. Außerdem zentrieren wir die Überschrift mit {{cssxref("text-align")}} und erhöhen die {{cssxref("line-height")}} sowie den {{cssxref("letter-spacing")}} der Absätze und Listenelemente, um den Fließtext besser lesbar zu machen.
 
    ```css
    h1 {
@@ -215,37 +189,41 @@ Nachdem wir einige grundlegende CSS-Konzepte erkundet haben, verbessern wir das 
    }
    ```
 
-Passen Sie die `px`-Werte nach Belieben an. Ihr aktueller Arbeitsstand sollte ungefähr so aussehen:
+7. Speichern Sie Ihren Code und laden Sie Ihr HTML in einem Browser (aktualisieren Sie es, wenn es von vorher noch geöffnet ist). Ihr Arbeitsstand sollte in etwa so aussehen:
 
-![Ein Mozilla Logo und einige Absätze. Eine serifenlose Schrift wurde festgelegt, die Schriftgrößen, Zeilenhöhe und Buchstabenabstand sind angepasst, und die Hauptüberschrift der Seite wurde zentriert](website-screenshot-font-small.png)
+   ![Ein Mozilla-Logo und einige Absätze. Eine serifenlose Schriftart wurde eingestellt, die Schriftgrößen, der Zeilenabstand und der Buchstabenabstand wurden angepasst und die Hauptseitenüberschrift wurde zentriert.](website-screenshot-font-small.png)
 
-## CSS: Alles über Boxen
+   > [!NOTE]
+   > Versuchen Sie, die `px`-Werte anzupassen, bis Sie Schriftgrößen erhalten, die Ihnen für Ihre Überschrift und Ihren Fließtext gefallen.
 
-Etwas, das Ihnen bei der Nutzung von CSS immer häufiger auffallen wird: Es geht viel um Boxen. Dazu gehören das Festlegen von Größe, Farbe und Position. Die meisten HTML-Elemente auf Ihrer Seite können als Boxen betrachtet werden, die auf anderen Boxen sitzen.
+## Bei CSS dreht sich alles um Boxen
 
-![Ein großer Stapel von Kisten oder Kisten, die aufeinander stehen](boxes.jpg)
+Eine Sache, die Ihnen auffallen wird, je mehr Sie CSS verwenden, ist, dass ein Großteil davon Boxen betrifft. Die meisten HTML-Elemente auf einer Seite können als Kästchen betrachtet werden, die auf (oder neben) anderen Kästchen sitzen. Sie können diese Kästchen für Größe, Farbe, Positionierung usw. einstellen. Dies wird als [**das Box-Modell**](/de/docs/Learn_web_development/Core/Styling_basics/Box_model) bezeichnet.
 
-Foto von [https://www.geograph.org.uk/photo/3418115](https://www.geograph.org.uk/photo/3418115) Copyright © [Jim Barton](https://www.geograph.org.uk/profile/26362) [cc-by-sa/2.0](https://creativecommons.org/licenses/by-sa/2.0/)
+![Drei Boxen, die ineinander liegen. Von außen nach innen sind sie als Rand, Rahmen und Auffüllung gekennzeichnet.](box-model.png)
 
-Das CSS-Layout basiert hauptsächlich auf dem _Boxmodell._ Jede Box, die Platz auf Ihrer Seite beansprucht, hat Eigenschaften wie:
+Jedes Kästchen, das Platz auf Ihrer Seite einnimmt, verfügt über Eigenschaften wie:
 
-- `padding`, der Raum um den Inhalt. Im Beispiel unten ist es der Raum um den Absatztext.
-- `border`, die feste Linie, die direkt außerhalb des Paddings liegt.
-- `margin`, der Raum um die Außenseite des Rands.
+- {{cssxref("padding")}}: Der Raum um den Inhalt. Im vorherigen Beispiel ist es der Raum um den Absatztext herum.
+- {{cssxref("border")}}: Die durchgehende Linie unmittelbar außerhalb der Auffüllung.
+- {{cssxref("margin")}}: Der Raum außerhalb des Rahmens.
 
-![Drei Boxen, die ineinander geschachtelt sind. Von außen nach innen sind sie als Rand, Rahmen und Padding beschriftet](box-model.png)
+In diesem Abschnitt verwenden wir auch die folgenden Eigenschaften, von denen Sie einige bereits zuvor gesehen haben:
 
-In diesem Abschnitt verwenden wir auch:
+- {{cssxref("width")}}: Die Breite eines Elements.
+- {{cssxref("background-color")}}: Die Farbe hinter dem Inhalt und der Auffüllung eines Elements.
+- {{cssxref("color")}}: Die Farbe des Inhalts eines Elements (normalerweise Text).
+- {{cssxref("text-shadow")}}: Ein Schlagschatten auf dem Text innerhalb eines Elements.
+- {{cssxref("display")}}: Der Darstellungsmodus eines Elements (die Grundeinstellung, wie es auf der Webseite angezeigt oder gestaltet wird).
 
-- `width` (eines Elements).
-- `background-color`, die Farbe hinter dem Inhalt und Padding eines Elements.
-- `color`, die Farbe des Inhalts eines Elements (gewöhnlich Text).
-- `text-shadow` setzt einen Schlagschatten auf den Text innerhalb eines Elements.
-- `display` legt den Anzeigemodus eines Elements fest. (Weiterlesen, um mehr zu erfahren)
+In jedem der folgenden Abschnitte:
 
-Um fortzufahren, fügen wir mehr CSS hinzu. Fügen Sie diese neuen Regeln weiterhin am Ende von `style.css` hinzu. Experimentieren Sie mit der Änderung der Werte, um zu sehen, was passiert.
+1. Fügen Sie den bereitgestellten CSS-Code unten in Ihrer `style.css`-Datei hinzu.
+2. Speichern Sie die Datei und aktualisieren Sie Ihren Browser, um zu sehen, wie sich das CSS auf das HTML-Rendering auswirkt.
+3. Lesen Sie die bereitgestellte Erklärung, um besser zu verstehen, wie das CSS funktioniert.
+4. Wenn Sie sich abenteuerlustig fühlen, experimentieren Sie mit dem Ändern der Eigenschaftswerte, um Ihre Seite weiter anzupassen.
 
-### Ändern der Seitenfarbe
+## Die Seitenfarbe ändern
 
 ```css
 html {
@@ -253,9 +231,9 @@ html {
 }
 ```
 
-Diese Regel setzt eine Hintergrundfarbe für die gesamte Seite. Ändern Sie den Farbcode in [die Farbe, die Sie in Wie wird meine Webseite aussehen?](/de/docs/Learn_web_development/Getting_started/Your_first_website/What_will_your_website_look_like#choosing_a_theme_color) ausgewählt haben.
+Diese Regel setzt eine Hintergrundfarbe für die gesamte Seite. Ändern Sie den Farbcode in die Farbe, die Sie in [Wie wird Ihre Webseite aussehen?](/de/docs/Learn_web_development/Getting_started/Your_first_website/What_will_your_website_look_like#choosing_a_theme_color) ausgewählt haben.
 
-### Gestalten des Hauptteils
+## Den Hauptinhalt stilisieren
 
 ```css
 body {
@@ -269,13 +247,13 @@ body {
 
 Der obige Code setzt neue Werte für mehrere Eigenschaften des {{htmlelement("body")}}-Elements. Gehen wir diese Zeile für Zeile durch:
 
-- `width: 600px;` Dies zwingt den Hauptteil, immer 600 Pixel breit zu sein.
-- `margin: 0 auto;` Wenn Sie zwei Werte für eine Eigenschaft wie `margin` oder `padding` festlegen, betrifft der erste Wert die obere _und_ untere Seite des Elements (setzt sie in diesem Fall auf `0`); der zweite Wert betrifft die linke _und_ rechte Seite. (Hier ist `auto` ein spezieller Wert, der den verfügbaren horizontalen Raum gleichmäßig zwischen links und rechts aufteilt). Sie können auch einen, zwei, drei oder vier Werte verwenden, wie in [Marginsyntax](/de/docs/Web/CSS/margin#syntax) dokumentiert.
-- `background-color: #FF9500;` Dies setzt die Hintergrundfarbe des Elements. Dieses Projekt verwendet ein rötliches Orange für die Hintergrundfarbe des Hauptteils, im Gegensatz zu dunkelblau für das {{htmlelement("html")}}-Element. (Experimentieren Sie ruhig.)
-- `padding: 0 20px 20px 20px;` Dies setzt vier Werte für das Padding. Das Ziel ist es, etwas Raum um den Inhalt zu schaffen. In diesem Beispiel gibt es kein Padding am oberen Rand des Hauptteils und 20 Pixel auf der rechten, unteren und linken Seite. Die Werte setzen oben, rechts, unten, links, in dieser Reihenfolge. Wie bei `margin` können Sie einen, zwei, drei oder vier Werte verwenden, wie in [Paddingsyntax](/de/docs/Web/CSS/padding#syntax) dokumentiert.
-- `border: 5px solid black;` Dies setzt Werte für die Breite, den Stil und die Farbe des Rahmens. In diesem Fall ist es ein fünf Pixel breiter, schwarzer solider Rahmen auf allen Seiten des Hauptteils.
+- `width: 600px;`: Damit wird der Body immer 600 Pixel breit.
+- `margin: 0 auto;`: Wenn Sie zwei Werte für eine Eigenschaft wie `margin` oder `padding` festlegen, wirkt sich der erste Wert sowohl auf die obere _als auch_ die untere Seite des Elements aus (in diesem Fall wird er auf `0` gesetzt); der zweite Wert wirkt sich auf die linke _als auch_ die rechte Seite aus. `auto` ist ein spezieller Wert, der den verfügbaren horizontalen Platz gleichmäßig zwischen links und rechts aufteilt.
+- `background-color: #FF9500;`: Dies setzt die Hintergrundfarbe des Elements. Unser Projekt verwendet ein rötliches Orange für die `<body>`-Hintergrundfarbe, um einen Kontrast zu dem dunklen Blau zu schaffen, das für das {{htmlelement("html")}}-Element verwendet wird.
+- `padding: 0 20px 20px 20px;`: Dies setzt vier Werte für die Auffüllung. Das Ziel ist es, etwas Raum um den Inhalt zu schaffen. In diesem Beispiel gibt es keine Auffüllung oben im body und 20 Pixel auf der rechten, unteren und linken Seite. Die Werte setzen Auffüllung für oben, rechts, unten und links in dieser Reihenfolge.
+- `border: 5px solid black;`: Dies setzt Werte für die Breite, den Stil und die Farbe des Rahmens. In diesem Fall ist es ein 5-Pixel-breiter massiver schwarzer Rahmen um alle Seiten des Body.
 
-### Positionierung und Styling des Hauptseitentitels
+## Die Hauptüberschrift auf der Seite positionieren und gestalten
 
 ```css
 h1 {
@@ -286,22 +264,18 @@ h1 {
 }
 ```
 
-Sie haben vielleicht bemerkt, dass oben im Hauptteil eine hässliche Lücke ist. Das passiert, weil Browser Standardstyling auf das {{htmlelement("Heading_Elements", "h1")}}-Element (unter anderem) anwenden. Das mag wie eine schlechte Idee erscheinen, aber die Absicht ist, grundlegende Lesbarkeit für ungestaltete Seiten bereitzustellen. Um die Lücke zu beseitigen, überschreiben wir das Standardstyling des Browsers mit der Einstellung `margin: 0;`.
+Sie haben vielleicht bemerkt, dass oben im Body ein hässlicher Spalt existiert. Das passiert, weil Browser standardmäßig eine Stilsetzung auf das `<h1>`-Element anwenden. Das mag wie eine schlechte Idee erscheinen, aber die Absicht besteht darin, grundlegende Lesbarkeit für ungestaltete Seiten zu bieten. Um den Spalt zu eliminieren, überschreiben wir die Standardeinstellung des Browsers mit der Einstellung `margin: 0;`.
 
-Als Nächstes setzen wir das obere und untere Padding der Überschrift auf 20 Pixel.
+Als Nächstes setzen wir die obere und untere Auffüllung der Überschrift auf 20 Pixel und setzen die Überschrift in dieselbe Farbe wie die HTML-Hintergrundfarbe.
 
-Anschließend setzen wir die Überschrift auf dieselbe Farbe wie die HTML-Hintergrundfarbe.
+Abschließend wendet `text-shadow` einen Schatten auf den Textinhalt des Elements an:
 
-Schließlich wendet `text-shadow` einen Schatten auf den Textinhalt des Elements an. Seine vier Werte sind:
-
-- Der erste Pixelwert setzt den **horizontalen Offset** des Schattens vom Text: wie weit er sich bewegt.
-- Der zweite Pixelwert setzt den **vertikalen Offset** des Schattens vom Text: wie weit er sich nach unten bewegt.
-- Der dritte Pixelwert setzt den **Weichzeichnungsradius** des Schattens. Ein größerer Wert erzeugt einen unschärfer aussehenden Schatten.
+- Der erste Pixelwert setzt den **horizontalen Versatz** des Schattens vom Text: wie weit er quer verschoben wird.
+- Der zweite Pixelwert setzt den **vertikalen Versatz** des Schattens vom Text: wie weit er nach unten verschoben wird.
+- Der dritte Pixelwert setzt den **Unschärferadius** des Schattens. Ein größerer Wert erzeugt einen verschwommener aussehenden Schatten.
 - Der vierte Wert setzt die Basisfarbe des Schattens.
 
-Versuchen Sie, mit verschiedenen Werten zu experimentieren, um zu sehen, wie sie das Erscheinungsbild verändern.
-
-### Zentrieren des Bildes
+## Das Bild zentrieren
 
 ```css
 img {
@@ -311,28 +285,28 @@ img {
 }
 ```
 
-Als nächstes zentrieren wir das Bild, um es besser aussehen zu lassen. Wir könnten denselben Trick `margin: 0 auto` wie beim Hauptteil verwenden. Aber es gibt Unterschiede, die eine zusätzliche Einstellung erfordern, um das CSS zum Laufen zu bringen.
+Als Nächstes zentrieren wir das Bild, um es besser aussehen zu lassen. Wir können denselben `margin: 0 auto`-Trick wie beim body verwenden, aber es gibt Unterschiede, die eine zusätzliche Einstellung erfordern, um das CSS zum Laufen zu bringen.
 
-Das {{htmlelement("body")}} ist ein **Block**-Element, was bedeutet, dass es Platz auf der Seite einnimmt. Der auf ein Blockelement angewendete Rand wird von anderen Elementen auf der Seite respektiert. Im Gegensatz dazu sind Bilder **Inline**-Elemente; damit der Automargin-Trick auf dieses Bild wirkt, müssen wir ihm Block-Level-Verhalten mit `display: block;` geben.
+Das {{htmlelement("body")}}-Element ist ein **Block**-Element, was bedeutet, dass es Platz auf der Seite einnimmt und Margin, Auffüllung und andere Box-Eigenschaften akzeptieren kann. {{htmlelement("img")}}- (Bild-) Elemente hingegen sind **Inline**-Elemente: Standardmäßig akzeptieren sie Margin-Werte nicht auf die gleiche Weise, wie es Block-Elemente tun. Damit der Auto-Margin-Trick bei diesem Bild funktioniert, müssen wir ihm mit `display: block;` ein Blockverhalten geben.
 
-Schließlich fügen wir `max-width: 100%;` hinzu, um sicherzustellen, dass, wenn das Bild größer als die `width` ist, die auf den Hauptteil gesetzt ist (600 Pixel), es in dieser Breite angezeigt wird und nicht größer.
+Schließlich setzen wir die {{cssxref("max-width")}}-Eigenschaft auf `100%`, um sicherzustellen, dass wenn das Bild größer als die für den Body festgelegte `width` (600 Pixel) ist, es auf `600px` beschränkt wird und nicht breiter gestreckt wird.
 
 > [!NOTE]
-> Machen Sie sich keine Sorgen, wenn Sie `display: block;` und die Unterschiede zwischen einem Blockelement und einem Inline-Element oder `max-width: 100%;` noch nicht vollständig verstehen. Sie werden mehr Sinn ergeben, wenn Sie Ihr Studium von CSS fortsetzen. Sie finden mehr Informationen über diese Eigenschaften auf den MDN-Referenzseiten für {{cssxref("display")}} und {{cssxref("max-width")}}.
+> Machen Sie sich keine allzu großen Gedanken, wenn Sie `display: block;` und die Unterschiede zwischen einem Blockelement und einem Inline-Element oder `max-width: 100%;` nicht vollständig verstehen. Das wird mehr Sinn machen, je mehr Sie CSS studieren.
 
 ## Fazit
 
-Wenn Sie alle Anleitungen in diesem Artikel befolgt haben, sollten Sie eine Seite haben, die dieser hier ähnelt:
+Wenn Sie alle Anweisungen in diesem Artikel befolgt haben, sollten Sie eine Seite haben, die dieser hier ähnelt:
 
-![Ein zentriertes Mozilla Logo und eine Überschrift und Absätze. Es sieht jetzt schön gestaltet aus, mit einem blauen Hintergrund für die gesamte Seite und einem orangefarbenen Hintergrund für den zentrierten Hauptinhaltstreifen.](website-screenshot-final.png)
+![Ein Mozilla-Logo, zentriert, und eine Kopfzeile und Absätze. Es sieht jetzt schön gestaltet aus, mit einem blauen Hintergrund für die gesamte Seite und einem orangefarbenen Hintergrund für den zentrierten Hauptinhaltstreifen.](website-screenshot-final.png)
 
-(Sie können [unsere Version hier ansehen](https://mdn.github.io/beginner-html-site-styled/).) Wenn Sie steckenbleiben, können Sie Ihre Arbeit jederzeit mit unserem [fertigen Beispielcode auf GitHub](https://github.com/mdn/beginner-html-site-styled/blob/gh-pages/styles/style.css) vergleichen.
+Sie können [unsere Version hier ansehen](https://mdn.github.io/beginner-html-site-styled/). Wenn Sie feststecken, können Sie Ihre Arbeit jederzeit mit unserem [fertigen Beispielcode auf GitHub](https://github.com/mdn/beginner-html-site-styled/blob/gh-pages/styles/style.css) vergleichen.
 
-In diesem Artikel haben wir nur die Oberfläche von CSS angekratzt. Unsere [Kernmodule](/de/docs/Learn_web_development/Core), beginnend mit dem [CSS-Styling-Grundlagenmodul](/de/docs/Learn_web_development/Core/Styling_basics), werden es viel detaillierter behandeln.
+In diesem Artikel haben wir nur an der Oberfläche von CSS gekratzt. Sie werden in unserem [CSS-Styling-Grundlagen](/de/docs/Learn_web_development/Core/Styling_basics)-Kernmodul später im Kurs viel mehr lernen.
 
 ## Siehe auch
 
-- [HTML und CSS lernen](https://scrimba.com/learn-html-and-css-c0p?via=mdn), Scrimba <sup>[_MDN-Lernpartner_](/de/docs/MDN/Writing_guidelines/Learning_content#partner_links_and_embeds)</sup>
-  - : [Scrimbas](https://scrimba.com?via=mdn) _HTML und CSS lernen_ Kurs bringt Ihnen HTML und CSS bei durch den Bau und die Bereitstellung von fünf großartigen Projekten, mit unterhaltsamen interaktiven Lektionen und Herausforderungen, gelehrt von sachkundigen Lehrern.
+- [Lernen Sie HTML und CSS](https://scrimba.com/learn-html-and-css-c0p?via=mdn), Scrimba <sup>[_MDN Learning Partner_](/de/docs/MDN/Writing_guidelines/Learning_content#partner_links_and_embeds)</sup>
+  - : [Scrimbas](https://scrimba.com?via=mdn) _Lernen Sie HTML und CSS_-Kurs bringt Ihnen HTML und CSS bei, indem Sie fünf großartige Projekte bauen und bereitstellen, mit unterhaltsamen interaktiven Lektionen und Herausforderungen, die von sachkundigen Lehrern unterrichtet werden.
 
 {{PreviousMenuNext("Learn_web_development/Getting_started/Your_first_website/Creating_the_content", "Learn_web_development/Getting_started/Your_first_website/Adding_interactivity", "Learn_web_development/Getting_started/Your_first_website")}}

@@ -1,30 +1,30 @@
 ---
-title: Verwenden von benutzerdefinierten Elementen
+title: Verwendung von benutzerdefinierten Elementen
 slug: Web/API/Web_components/Using_custom_elements
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: fd1081dbbecd338a3ea55b03c187b6a60500408f
 ---
 
 {{DefaultAPISidebar("Web Components")}}
 
-Eine der Hauptmerkmale von Webkomponenten ist die Möglichkeit, _benutzerdefinierte Elemente_ zu erstellen: Das sind HTML-Elemente, deren Verhalten vom Webentwickler definiert wird und die den im Browser verfügbaren Elementsatz erweitern.
+Eine der Schlüsselfunktionen von Web-Komponenten ist die Möglichkeit, _benutzerdefinierte Elemente_ zu erstellen: Das sind HTML-Elemente, deren Verhalten vom Webentwickler definiert wird und die das Set von im Browser verfügbaren Elementen erweitern.
 
-Dieser Artikel führt in benutzerdefinierte Elemente ein und erklärt einige Beispiele.
+Dieser Artikel führt in benutzerdefinierte Elemente ein und führt durch einige Beispiele.
 
 ## Arten von benutzerdefinierten Elementen
 
 Es gibt zwei Arten von benutzerdefinierten Elementen:
 
-- **Autonome benutzerdefinierte Elemente** erben von der HTML-Element-Basisklasse [`HTMLElement`](/de/docs/Web/API/HTMLElement). Sie müssen deren Verhalten von Grund auf neu implementieren.
+- **Autonome benutzerdefinierte Elemente** erben von der Basisklasse des HTML-Elements [`HTMLElement`](/de/docs/Web/API/HTMLElement). Sie müssen deren Verhalten von Grund auf neu implementieren.
 
-- **Angepasste eingebettete Elemente** erben von Standard-HTML-Elementen wie [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement) oder [`HTMLParagraphElement`](/de/docs/Web/API/HTMLParagraphElement). Ihre Implementierung erweitert das Verhalten ausgewählter Instanzen des Standard-Elements.
+- **Angepasste eingebaute Elemente** erben von Standard-HTML-Elementen wie [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement) oder [`HTMLParagraphElement`](/de/docs/Web/API/HTMLParagraphElement). Ihre Implementierung erweitert das Verhalten ausgewählter Instanzen des Standard-Elements.
 
   > [!NOTE]
-  > Safari plant nicht, benutzerdefinierte eingebettete Elemente zu unterstützen. Weitere Informationen finden Sie im [`is`-Attribut](/de/docs/Web/HTML/Reference/Global_attributes/is).
+  > Safari plant nicht, angepasste eingebaute Elemente zu unterstützen. Weitere Informationen finden Sie im [`is` attribute](/de/docs/Web/HTML/Reference/Global_attributes/is).
 
-## Implementieren eines benutzerdefinierten Elements
+## Implementierung eines benutzerdefinierten Elements
 
-Ein benutzerdefiniertes Element wird als [Klasse](/de/docs/Web/JavaScript/Reference/Classes) implementiert, die von [`HTMLElement`](/de/docs/Web/API/HTMLElement) (im Falle autonomer Elemente) oder der zu anpassenden Schnittstelle (im Falle angepasster eingebetteter Elemente) abgeleitet ist.
+Ein benutzerdefiniertes Element wird als [Klasse](/de/docs/Web/JavaScript/Reference/Classes) implementiert, die von [`HTMLElement`](/de/docs/Web/API/HTMLElement) (im Fall von autonomen Elementen) oder der Schnittstelle, die Sie anpassen möchten (im Fall von angepassten eingebauten Elementen), abgeleitet wird.
 
 Hier ist die Implementierung eines minimalen benutzerdefinierten Elements, das das {{HTMLElement("p")}}-Element anpasst:
 
@@ -48,20 +48,21 @@ class PopupInfo extends HTMLElement {
 }
 ```
 
-Im [Konstruktor](/de/docs/Web/JavaScript/Reference/Classes/constructor) der Klasse können Sie den Anfangszustand und Standardwerte festlegen, Ereignislistener registrieren und möglicherweise eine Shadow-Root erstellen. Zu diesem Zeitpunkt sollten Sie die Attribute oder Kinder des Elements nicht inspizieren oder neue Attribute oder Kinder hinzufügen. Siehe [Anforderungen für Konstruktoren und Reaktionen benutzerdefinierter Elemente](https://html.spec.whatwg.org/multipage/custom-elements.html#custom-element-conformance) für das vollständige Set an Anforderungen.
+Im Klassen[constructor](/de/docs/Web/JavaScript/Reference/Classes/constructor) können Sie den Anfangszustand und die Standardwerte festlegen, Ereignis-Listener registrieren und möglicherweise einen Shadow-Root erstellen. Zu diesem Zeitpunkt sollten Sie die Attribute oder Kinder des Elements nicht inspizieren oder neue Attribute oder Kinder hinzufügen. Siehe [Anforderungen für benutzerdefinierte Elementkonstruktoren und -reaktionen](https://html.spec.whatwg.org/multipage/custom-elements.html#custom-element-conformance) für die vollständige Liste der Anforderungen.
 
-### Lebenszyklus-Callbacks für benutzerdefinierte Elemente
+### Lebenszyklus-Callbacks von benutzerdefinierten Elementen
 
-Sobald Ihr benutzerdefiniertes Element registriert ist, ruft der Browser bestimmte Methoden Ihrer Klasse auf, wenn Code auf der Seite mit Ihrem benutzerdefinierten Element auf bestimmte Weise interagiert. Durch die Bereitstellung einer Implementierung dieser Methoden, die in der Spezifikation als _Lebenszyklus-Callbacks_ bezeichnet werden, können Sie Code als Reaktion auf diese Ereignisse ausführen.
+Sobald Ihr benutzerdefiniertes Element registriert ist, ruft der Browser bestimmte Methoden Ihrer Klasse auf, wenn der Code auf der Seite in bestimmten Weisen mit Ihrem benutzerdefinierten Element interagiert. Durch die Bereitstellung einer Implementierung dieser Methoden, die in der Spezifikation als _Lebenszyklus-Callbacks_ bezeichnet werden, können Sie Code in Reaktion auf diese Ereignisse ausführen.
 
-Lebenszyklus-Callbacks für benutzerdefinierte Elemente umfassen:
+Lebenszyklus-Callbacks von benutzerdefinierten Elementen umfassen:
 
-- `connectedCallback()`: Wird jedes Mal aufgerufen, wenn das Element dem Dokument hinzugefügt wird. Die Spezifikation empfiehlt, dass Entwickler, soweit möglich, das Setup des benutzerdefinierten Elements in diesem Callback anstelle des Konstruktors implementieren sollten.
+- `connectedCallback()`: Wird jedes Mal aufgerufen, wenn das Element zum Dokument hinzugefügt wird. Die Spezifikation empfiehlt, soweit möglich, dass Entwickler die Einrichtung des benutzerdefinierten Elements in diesem Callback anstelle des Konstruktors implementieren.
 - `disconnectedCallback()`: Wird jedes Mal aufgerufen, wenn das Element aus dem Dokument entfernt wird.
+- `connectedMoveCallback()`: Wenn definiert, wird dies _anstelle_ von `connectedCallback()` und `disconnectedCallback()` jedes Mal aufgerufen, wenn das Element an eine andere Stelle im DOM verschoben wird, z.B. durch [`Element.moveBefore()`](/de/docs/Web/API/Element/moveBefore). Verwenden Sie dies, um zu vermeiden, dass Initialisierungs-/Aufräumcodes in den `connectedCallback()`- und `disconnectedCallback()`-Callbacks ausgeführt werden, wenn das Element nicht tatsächlich zum oder aus dem DOM hinzugefügt oder entfernt wird. Siehe [Lebenszyklus-Callbacks und zustandserhaltende Verschiebungen](#lebenszyklus-callbacks_und_zustandserhaltende_verschiebungen) für weitere Details.
 - `adoptedCallback()`: Wird jedes Mal aufgerufen, wenn das Element in ein neues Dokument verschoben wird.
-- `attributeChangedCallback()`: Wird aufgerufen, wenn Attribute geändert, hinzugefügt, entfernt oder ersetzt werden. Siehe [Reagieren auf Attributänderungen](#reagieren_auf_attributänderungen) für weitere Details zu diesem Callback.
+- `attributeChangedCallback()`: Wird aufgerufen, wenn Attribute geändert, hinzugefügt, entfernt oder ersetzt werden. Siehe [Reaktion auf Attributänderungen](#reaktion_auf_attributänderungen) für weitere Details über dieses Callback.
 
-Hier ist ein minimales benutzerdefiniertes Element, das diese Lebenszyklus-Ereignisse protokolliert:
+Hier ist ein minimales benutzerdefiniertes Element, das diese Lebenszyklusereignisse protokolliert:
 
 ```js
 // Create a class for the element
@@ -81,6 +82,10 @@ class MyCustomElement extends HTMLElement {
     console.log("Custom element removed from page.");
   }
 
+  connectedMoveCallback() {
+    console.log("Custom element moved with moveBefore()");
+  }
+
   adoptedCallback() {
     console.log("Custom element moved to new page.");
   }
@@ -93,42 +98,60 @@ class MyCustomElement extends HTMLElement {
 customElements.define("my-custom-element", MyCustomElement);
 ```
 
-## Registrieren eines benutzerdefinierten Elements
+#### Lebenszyklus-Callbacks und zustandserhaltende Verschiebungen
 
-Um ein benutzerdefiniertes Element auf einer Seite verfügbar zu machen, rufen Sie die [`define()`](/de/docs/Web/API/CustomElementRegistry/define)-Methode von [`Window.customElements`](/de/docs/Web/API/Window/customElements) auf.
+Die Position eines benutzerdefinierten Elements im DOM kann wie jedes reguläre HTML-Element manipuliert werden, aber es gibt Lebenszyklusnebenwirkungen zu beachten.
+
+Jedes Mal, wenn ein benutzerdefiniertes Element verschoben wird (über Methoden wie [`Element.moveBefore()`](/de/docs/Web/API/Element/moveBefore) oder [`Node.insertBefore()`](/de/docs/Web/API/Node/insertBefore)), werden die Lebenszyklus-Callbacks `disconnectedCallback()` und `connectedCallback()` ausgelöst, da das Element vom DOM getrennt und wieder mit ihm verbunden wird.
+
+Dies könnte Ihr beabsichtigtes Verhalten sein. Da diese Callbacks jedoch typischerweise verwendet werden, um jeglichen erforderlichen Initialisierungs- oder Aufräumcode zu implementieren, der zu Beginn oder am Ende des Lebenszyklus des Elements ausgeführt wird, kann dies beim Verschieben (anstatt Löschen oder Einfügen) Probleme mit seinem Zustand verursachen. Sie könnten zum Beispiel einige gespeicherte Daten entfernen, die das Element weiterhin benötigt.
+
+Wenn Sie den Zustand des Elements bewahren möchten, können Sie dies tun, indem Sie einen `connectedMoveCallback()`-Lebenszyklus-Callback innerhalb der Elementklasse definieren und dann die Methode [`Element.moveBefore()`](/de/docs/Web/API/Element/moveBefore) verwenden, um das Element zu verschieben (anstatt ähnlicher Methoden wie [`Node.insertBefore()`](/de/docs/Web/API/Node/insertBefore)). Dies führt dazu, dass der `connectedMoveCallback()`-Callback anstelle von `connectedCallback()` und `disconnectedCallback()` ausgeführt wird.
+
+Sie könnten einen leeren `connectedMoveCallback()` hinzufügen, um zu verhindern, dass die anderen beiden Callbacks ausgeführt werden, oder einige benutzerdefinierte Logik hinzufügen, um mit der Verschiebung umzugehen:
+
+```js
+connectedMoveCallback() {
+  console.log("Custom move-handling logic here.");
+}
+```
+
+## Registrierung eines benutzerdefinierten Elements
+
+Um ein benutzerdefiniertes Element auf einer Seite verfügbar zu machen, rufen Sie die Methode [`define()`](/de/docs/Web/API/CustomElementRegistry/define) von [`Window.customElements`](/de/docs/Web/API/Window/customElements) auf.
 
 Die `define()`-Methode nimmt die folgenden Argumente:
 
 - `name`
-  - : Der Name des Elements. Dieser muss mit einem Kleinbuchstaben beginnen, einen Bindestrich enthalten und bestimmte andere in der Spezifikation aufgeführte Regeln erfüllen, die in der [Definition eines gültigen Namens](https://html.spec.whatwg.org/multipage/custom-elements.html#valid-custom-element-name) enthalten sind.
+  - : Der Name des Elements. Dieser muss mit einem Kleinbuchstaben beginnen, ein Bindestrich enthalten und bestimmte andere in der Spezifikation aufgeführte Regeln für [definition of a valid name](https://html.spec.whatwg.org/multipage/custom-elements.html#valid-custom-element-name) erfüllen.
 - `constructor`
   - : Die Konstruktorfunktion des benutzerdefinierten Elements.
 - `options`
-  - : Nur für angepasste eingebettete Elemente enthalten, ist dies ein Objekt, das eine einzige Eigenschaft `extends` enthält, die ein String ist, der das eingebettete Element nennt, das erweitert werden soll.
+  - : Nur enthalten für angepasste eingebaute Elemente, dies ist ein Objekt, das eine einzelne Eigenschaft `extends` enthält, die einen String darstellt, der das eingebaute Element benennt, das erweitert werden soll.
 
-Zum Beispiel registriert dieser Code das `WordCount` angepasste eingebettete Element:
+Zum Beispiel registriert dieser Code das `WordCount`-angepasste eingebaute Element:
 
 ```js
 customElements.define("word-count", WordCount, { extends: "p" });
 ```
 
-Dieser Code registriert das `PopupInfo` autonome benutzerdefinierte Element:
+Dieser Code registriert das `PopupInfo`-autonome benutzerdefinierte Element:
 
 ```js
 customElements.define("popup-info", PopupInfo);
 ```
 
-## Verwenden eines benutzerdefinierten Elements
+## Verwendung eines benutzerdefinierten Elements
 
 Sobald Sie ein benutzerdefiniertes Element definiert und registriert haben, können Sie es in Ihrem Code verwenden.
 
-Um ein angepasstes eingebettetes Element zu verwenden, verwenden Sie das eingebettete Element, aber mit dem benutzerdefinierten Namen als Wert des [`is`](/de/docs/Web/HTML/Reference/Global_attributes/is)-Attributs:
+Um ein angepasstes eingebautes Element zu verwenden, verwenden Sie das eingebaute Element, aber mit dem benutzerdefinierten Namen als Wert des [`is`](/de/docs/Web/HTML/Reference/Global_attributes/is) Attributs:
 
 ```html
 <p is="word-count"></p>
 ```
 
-Um ein autonomes benutzerdefiniertes Element zu verwenden, verwenden Sie den benutzerdefinierten Namen wie ein eingebettetes HTML-Element:
+Um ein autonomes benutzerdefiniertes Element zu verwenden, verwenden Sie den benutzerdefinierten Namen genau wie ein eingebautes HTML-Element:
 
 ```html
 <popup-info>
@@ -136,22 +159,22 @@ Um ein autonomes benutzerdefiniertes Element zu verwenden, verwenden Sie den ben
 </popup-info>
 ```
 
-## Reagieren auf Attributänderungen
+## Reaktion auf Attributänderungen
 
-Wie eingebettete Elemente können benutzerdefinierte Elemente HTML-Attribute verwenden, um das Verhalten des Elements zu konfigurieren. Um Attribute effektiv zu nutzen, muss ein Element in der Lage sein, auf Änderungen des Werts eines Attributs zu reagieren. Dazu muss ein benutzerdefiniertes Element die folgenden Mitglieder zur Klasse hinzufügen, die das benutzerdefinierte Element implementiert:
+Ähnlich wie eingebaute Elemente können benutzerdefinierte Elemente HTML-Attribute verwenden, um das Verhalten des Elements zu konfigurieren. Um Attribute effektiv zu nutzen, muss ein Element auf Änderungen des Attributwerts reagieren können. Hierzu muss ein benutzerdefiniertes Element die folgenden Mitglieder zur Klasse hinzufügen, die das benutzerdefinierte Element implementiert:
 
-- Eine statische Eigenschaft namens `observedAttributes`. Dies muss ein Array sein, das die Namen aller Attribute enthält, für die das Element Änderungsbenachrichtigungen benötigt.
-- Eine Implementierung des `attributeChangedCallback()`-Lebenszyklus-Callbacks.
+- Eine statische Eigenschaft namens `observedAttributes`. Diese muss ein Array sein, das die Namen aller Attribute enthält, für die das Element Änderungsbenachrichtigungen benötigt.
+- Eine Implementierung des Lebenszyklus-Callbacks `attributeChangedCallback()`.
 
-Das `attributeChangedCallback()`-Callback wird dann aufgerufen, wann immer ein Attribut, dessen Name in der `observedAttributes`-Eigenschaft des Elements aufgelistet ist, hinzugefügt, geändert, entfernt oder ersetzt wird.
+Das `attributeChangedCallback()`-Callback wird dann aufgerufen, wenn ein Attribut hinzugefügt, geändert, entfernt oder ersetzt wird, dessen Name in der `observedAttributes`-Eigenschaft des Elements aufgeführt ist.
 
 Das Callback erhält drei Argumente:
 
-- Den Namen des Attributs, das geändert wurde.
-- Den alten Wert des Attributs.
-- Den neuen Wert des Attributs.
+- Der Name des Attributs, das geändert wurde.
+- Der alte Wert des Attributs.
+- Der neue Wert des Attributs.
 
-Zum Beispiel wird dieses autonome Element ein `size`-Attribut beobachten und die alten und neuen Werte protokollieren, wenn sie sich ändern:
+Zum Beispiel wird dieses autonome Element ein `size`-Attribut beobachten und die alten und neuen Werte bei Änderungen protokollieren:
 
 ```js
 // Create a class for the element
@@ -172,26 +195,27 @@ class MyCustomElement extends HTMLElement {
 customElements.define("my-custom-element", MyCustomElement);
 ```
 
-Beachten Sie, dass wenn die HTML-Deklaration des Elements ein beobachtetes Attribut enthält, `attributeChangedCallback()` nach der Initialisierung des Attributs aufgerufen wird, wenn die Deklaration des Elements das erste Mal analysiert wird. Also wird im folgenden Beispiel `attributeChangedCallback()` aufgerufen, wenn der DOM analysiert wird, selbst wenn das Attribut nie wieder geändert wird:
+Beachten Sie, dass wenn die HTML-Deklaration des Elements ein beobachtetes Attribut enthält, dann wird `attributeChangedCallback()` aufgerufen, nachdem das Attribut initialisiert wurde, wenn die Deklaration des Elements zum ersten Mal analysiert wird. Daher wird im folgenden Beispiel `attributeChangedCallback()` aufgerufen, wenn das DOM analysiert wird, auch wenn das Attribut nie mehr geändert wird:
 
 ```html
 <my-custom-element size="100"></my-custom-element>
 ```
 
-Für ein vollständiges Beispiel, das die Verwendung von `attributeChangedCallback()` zeigt, siehe [Lebenszyklus-Callbacks](#lebenszyklus-callbacks) auf dieser Seite.
+Ein vollständiges Beispiel für die Verwendung von `attributeChangedCallback()` finden Sie unter [Lebenszyklus-Callbacks](#lebenszyklus-callbacks) auf dieser Seite.
 
-### Benutzerdefinierte Zustände und benutzerdefinierte Zustandspseudoklassen-CSS-Selektoren
+### Benutzerdefinierte Zustände und benutzerdefinierte Zustands-Pseudoklassen-CSS-Selektoren
 
-Eingebaute HTML-Elemente können verschiedene _Zustände_ haben, wie "hover", "disabled" und "read only".
-Einige dieser Zustände können als Attribute mit HTML oder JavaScript gesetzt werden, während andere intern sind und nicht. Ob extern oder intern, häufig haben diese Zustände entsprechende CSS-[Pseudoklassen](/de/docs/Web/CSS/Pseudo-classes), die verwendet werden können, um das Element auszuwählen und zu stylen, wenn es sich in einem bestimmten Zustand befindet.
+Eingebaute HTML-Elemente können verschiedene _Zustände_ haben, wie "hover", "disabled" und "read-only".
+Einige dieser Zustände können als Attribute mithilfe von HTML oder JavaScript gesetzt werden, während andere intern und unerreichbar sind.
+Ob extern oder intern, häufig haben diese Zustände entsprechende CSS-[Pseudo-Klassen](/de/docs/Web/CSS/Pseudo-classes), die verwendet werden können, um das Element zu selektieren und zu stylen, wenn es sich in einem bestimmten Zustand befindet.
 
-Autonome benutzerdefinierte Elemente (aber nicht Elemente, die auf eingebauten Elementen basieren) ermöglichen es Ihnen auch, Zustände zu definieren und gegen sie zu selektieren, indem Sie die [`:state()`](/de/docs/Web/CSS/:state) Pseudoklassenfunktion verwenden.
-Das untenstehende Codebeispiel zeigt, wie dies mit einem autonomen benutzerdefinierten Element funktioniert, das einen internen Zustand `"collapsed"` hat.
+Autonome benutzerdefinierte Elemente (aber nicht auf eingebauten Elementen basierende Elemente) ermöglichen es Ihnen auch, Zustände zu definieren und gegen sie mit der [`:state()`](/de/docs/Web/CSS/:state)-Pseudo-Klassen-Funktion zu selektieren.
+Der untenstehende Code zeigt, wie dies funktioniert, anhand des Beispiels eines autonomen benutzerdefinierten Elements, das einen internen Zustand `"collapsed"` hat.
 
-Der `collapsed`-Zustand wird als boolesche Eigenschaft dargestellt (mit Setter- und Getter-Methoden), die außerhalb des Elements nicht sichtbar ist.
-Um diesen Zustand in CSS selektierbar zu machen, ruft das benutzerdefinierte Element zuerst [`HTMLElement.attachInternals()`](/de/docs/Web/API/HTMLElement/attachInternals) in seinem Konstruktor auf, um ein [`ElementInternals`](/de/docs/Web/API/ElementInternals)-Objekt zu befestigen, das wiederum Zugriff auf ein [`CustomStateSet`](/de/docs/Web/API/CustomStateSet) über die [`ElementInternals.states`](/de/docs/Web/API/ElementInternals/states)-Eigenschaft bietet.
-Der Setter für den (internen) collapsed-Zustand fügt dem `CustomStateSet` das _Kennzeichen_ `hidden` hinzu, wenn der Zustand `true` ist, und entfernt es, wenn der Zustand `false` ist.
-Das Kennzeichen ist einfach ein String: in diesem Fall haben wir es `hidden` genannt, aber wir hätten es genauso gut `collapsed` nennen können.
+Der `collapsed`-Zustand wird als boolesche Eigenschaft repräsentiert (mit Setter- und Getter-Methoden), die außerhalb des Elements nicht sichtbar ist.
+Um diesen Zustand in CSS selektierbar zu machen, ruft das benutzerdefinierte Element zuerst [`HTMLElement.attachInternals()`](/de/docs/Web/API/HTMLElement/attachInternals) in seinem Konstruktor auf, um ein [`ElementInternals`](/de/docs/Web/API/ElementInternals)-Objekt zu verknüpfen, das wiederum über die [`ElementInternals.states`](/de/docs/Web/API/ElementInternals/states)-Eigenschaft Zugriff auf ein [`CustomStateSet`](/de/docs/Web/API/CustomStateSet) bereitstellt.
+Der Setter für den (internen) `collapsed`-Zustand fügt das _Identifier_ `hidden` zum `CustomStateSet` hinzu, wenn der Zustand `true` ist, und entfernt ihn, wenn der Zustand `false` ist.
+Der Bezeichner ist einfach ein String: in diesem Fall haben wir ihn `hidden` genannt, aber wir hätten ihn genauso gut `collapsed` nennen können.
 
 ```js
 class MyCustomElement extends HTMLElement {
@@ -219,9 +243,9 @@ class MyCustomElement extends HTMLElement {
 customElements.define("my-custom-element", MyCustomElement);
 ```
 
-Wir können das zum `CustomStateSet` (`this._internals.states`) des benutzerdefinierten Elements hinzugefügte Kennzeichen verwenden, um den benutzerdefinierten Zustand des Elements abzugleichen.
-Dies wird erreicht, indem das Kennzeichen an die [`:state()`](/de/docs/Web/CSS/:state) Pseudoklasse übergeben wird.
-Zum Beispiel selektieren wir unten den Zustand `hidden` als wahr (und damit den `collapsed`-Zustand des Elements) mit dem `:hidden`-Selektor und entfernen die Umrandung.
+Wir können den dem benutzerdefinierten Element `CustomStateSet` (`this._internals.states`) hinzugefügten Bezeichner verwenden, um den benutzerdefinierten Zustand des Elements zu selektieren.
+Dies wird erreicht, indem der Bezeichner an die [`:state()`](/de/docs/Web/CSS/:state)-Pseudo-Klasse übergeben wird.
+Zum Beispiel, unten selektieren wir den `hidden`-Zustand, wenn er `true` ist (und somit den `collapsed`-Zustand des Elements), mit dem `:hidden`-Selektor und entfernen die Umrandung.
 
 ```css
 my-custom-element {
@@ -232,22 +256,22 @@ my-custom-element:state(hidden) {
 }
 ```
 
-Die `:state()`-Pseudoklasse kann auch innerhalb der [`:host()`](/de/docs/Web/CSS/:host_function) Pseudoklassenfunktion verwendet werden, um einen benutzerdefinierten Zustand [innerhalb eines Shadow DOM eines benutzerdefinierten Elements](/de/docs/Web/CSS/:state#matching_a_custom_state_in_a_custom_elements_shadow_dom) abzugleichen. Zusätzlich kann die `:state()`-Pseudoklasse nach dem [`::part()`](/de/docs/Web/CSS/::part) Pseudoelement verwendet werden, um die [Shadow-Parts](/de/docs/Web/CSS/CSS_shadow_parts) eines benutzerdefinierten Elements zu selektieren, das sich in einem bestimmten Zustand befindet.
+Die `:state()`-Pseudo-Klasse kann auch innerhalb der [`:host()`](/de/docs/Web/CSS/:host_function)-Pseudo-Klassen-Funktion verwendet werden, um einen benutzerdefinierten Zustand [innerhalb des Shadow DOM eines benutzerdefinierten Elements](/de/docs/Web/CSS/:state#matching_a_custom_state_in_a_custom_elements_shadow_dom) zu selektieren. Zusätzlich kann die `:state()`-Pseudo-Klasse nach der [`::part()`](/de/docs/Web/CSS/::part)-Pseudo-Element verwendet werden, um die [Shadow-Parts](/de/docs/Web/CSS/CSS_shadow_parts) eines benutzerdefinierten Elements zu selektieren, das sich in einem bestimmten Zustand befindet.
 
-Es gibt mehrere Live-Beispiele in [`CustomStateSet`](/de/docs/Web/API/CustomStateSet), die zeigen, wie das funktioniert.
+Im [`CustomStateSet`](/de/docs/Web/API/CustomStateSet) befinden sich mehrere Live-Beispiele, die zeigen, wie dies funktioniert.
 
 ## Beispiele
 
-Im restlichen Teil dieses Leitfadens werden wir uns einige Beispielbenutzerdefinierte Elemente ansehen. Sie finden den Quellcode für all diese Beispiele und mehr im [web-components-examples](https://github.com/mdn/web-components-examples) Repository, und Sie können sie alle live unter <https://mdn.github.io/web-components-examples/> sehen.
+Im Rest dieses Leitfadens betrachten wir einige Beispiele für benutzerdefinierte Elemente. Sie können den Quellcode für alle diese Beispiele und mehr im [web-components-examples](https://github.com/mdn/web-components-examples)-Repository finden, und Sie können alle live unter <https://mdn.github.io/web-components-examples/> sehen.
 
 ### Ein autonomes benutzerdefiniertes Element
 
-Zuerst betrachten wir ein autonomes benutzerdefiniertes Element. Das `<popup-info>`-Element nimmt ein Bildsymbol und einen Textstring als Attribute und bettet das Symbol in die Seite ein. Wenn das Symbol fokussiert ist, wird der Text in einem Popup-Informationsfeld angezeigt, um zusätzliche kontextbezogene Informationen bereitzustellen.
+Zuerst betrachten wir ein autonomes benutzerdefiniertes Element. Das `<popup-info>`-benutzerdefinierte Element nimmt ein Bildsymbol und einen Textstring als Attribute und bettet das Symbol in die Seite ein. Wenn das Symbol fokussiert ist, zeigt es den Text in einem Popup-Informationsfeld an, um weitere kontextbezogene Informationen bereitzustellen.
 
 - [Beispiel live ansehen](https://mdn.github.io/web-components-examples/popup-info-box-web-component/)
 - [Quellcode ansehen](https://github.com/mdn/web-components-examples/tree/main/popup-info-box-web-component)
 
-Zu Beginn definiert die JavaScript-Datei eine Klasse namens `PopupInfo`, die die [`HTMLElement`](/de/docs/Web/API/HTMLElement) Klasse erweitert.
+Zu Beginn definiert die JavaScript-Datei eine Klasse namens `PopupInfo`, die die Klasse [`HTMLElement`](/de/docs/Web/API/HTMLElement) erweitert.
 
 ```js
 // Create a class for the element
@@ -332,17 +356,17 @@ class PopupInfo extends HTMLElement {
 }
 ```
 
-Die Klassendefinition enthält den [`constructor()`](/de/docs/Web/JavaScript/Reference/Classes/constructor) für die Klasse, der immer mit einem Aufruf von [`super()`](/de/docs/Web/JavaScript/Reference/Operators/super) beginnt, damit die korrekte Prototypenkette hergestellt wird.
+Die Klassendefinition enthält den [`constructor()`](/de/docs/Web/JavaScript/Reference/Classes/constructor) für die Klasse, der immer mit dem Aufruf von [`super()`](/de/docs/Web/JavaScript/Reference/Operators/super) beginnt, um die korrekte Prototypenkette zu etablieren.
 
-Innerhalb der Methode `connectedCallback()` definieren wir alle Funktionen, die das Element haben wird, wenn es mit dem DOM verbunden ist. In diesem Fall verbinden wir eine Shadow-Root mit dem benutzerdefinierten Element, verwenden einige DOM-Manipulationen, um die interne Shadow-DOM-Struktur des Elements zu erstellen – die dann an die Shadow-Root angefügt wird – und fügen schließlich etwas CSS zur Shadow-Root hinzu, um es zu stylen. Diese Arbeiten führen wir nicht im Konstruktor aus, da die Attribute eines Elements erst verfügbar sind, wenn es mit dem DOM verbunden ist.
+Innerhalb der Methode `connectedCallback()` definieren wir alle Funktionen, die das Element haben wird, wenn das Element mit dem DOM verbunden ist. In diesem Fall hängen wir ein Shadow-Root an das benutzerdefinierte Element an, verwenden einige DOM-Manipulationen, um die interne Struktur des Shadow DOM des Elements zu erstellen – die dann an das Shadow-Root angehängt wird – und fügen schließlich einige CSS hinzu, um es zu stylen. Wir führen diese Arbeit nicht im Konstruktor aus, da Attribute des Elements nicht verfügbar sind, bis es mit dem DOM verbunden ist.
 
-Schließlich registrieren wir unser benutzerdefiniertes Element in der `CustomElementRegistry` mit der zuvor erwähnten `define()`-Methode – in den Parametern geben wir den Elementnamen und dann den Klassennamen an, der dessen Funktionalität definiert:
+Schließlich registrieren wir unser benutzerdefiniertes Element im `CustomElementRegistry` mit der `define()`-Methode, die wir zuvor erwähnt haben — in den Parametern spezifizieren wir den Elementnamen und dann den Klassennamen, der seine Funktionalität definiert:
 
 ```js
 customElements.define("popup-info", PopupInfo);
 ```
 
-Es ist nun auf unserer Seite nutzbar. In unserem HTML verwenden wir es so:
+Es ist nun verfügbar, um auf unserer Seite verwendet zu werden. In unserem HTML verwenden wir es so:
 
 ```html
 <popup-info
@@ -352,9 +376,9 @@ Es ist nun auf unserer Seite nutzbar. In unserem HTML verwenden wir es so:
   back of your card."></popup-info>
 ```
 
-### Externe Styles referenzieren
+### Referenzieren externer Stile
 
-Im obigen Beispiel wenden wir Styles auf das Shadow-DOM mit einem {{htmlelement("style")}}-Element an, aber Sie können ein externes Stylesheet von einem {{htmlelement("link")}}-Element referenzieren. In diesem Beispiel werden wir das `<popup-info>`-benutzerdefinierte Element modifizieren, um ein externes Stylesheet zu verwenden.
+Im obigen Beispiel wenden wir Stile auf das Shadow DOM mit einem {{htmlelement("style")}}-Element an, aber Sie können stattdessen ein externes Stylesheet über ein {{htmlelement("link")}}-Element referenzieren. In diesem Beispiel werden wir das `<popup-info>`-benutzerdefinierte Element ändern, um ein externes Stylesheet zu verwenden.
 
 - [Beispiel live ansehen](https://mdn.github.io/web-components-examples/popup-info-box-external-stylesheet/)
 - [Quellcode ansehen](https://github.com/mdn/web-components-examples/tree/main/popup-info-box-external-stylesheet)
@@ -414,21 +438,21 @@ class PopupInfo extends HTMLElement {
 }
 ```
 
-Es ist genau wie das ursprüngliche `<popup-info>`-Beispiel, außer dass wir mit einem {{HTMLElement("link")}}-Element auf ein externes Stylesheet verlinken, das wir zum Shadow-DOM hinzufügen.
+Es ähnelt dem ursprünglichen `<popup-info>`-Beispiel, außer dass wir auf ein externes Stylesheet über ein {{HTMLElement("link")}}-Element verweisen, das wir zum Shadow DOM hinzufügen.
 
-Beachten Sie, dass {{htmlelement("link")}}-Elemente das Rendern der Shadow-Root nicht blockieren, sodass es zu einem Flash of Unstyled Content (FOUC) kommen kann, während das Stylesheet geladen wird.
+Beachten Sie, dass {{htmlelement("link")}}-Elemente das Zeichnen des Shadow-Roots nicht blockieren, sodass es möglicherweise einen Moment lang nicht gestylten Inhalt (FOUC) gibt, während das Stylesheet geladen wird.
 
-Viele moderne Browser implementieren eine Optimierung für {{htmlelement("style")}}-Tags, die entweder von einem gemeinsamen Knoten geklont wurden oder identischen Text haben, um ihnen zu erlauben, ein gemeinsames Stylesheet zu teilen. Mit dieser Optimierung sollte die Leistung von externen und internen Styles ähnlich sein.
+Viele moderne Browser implementieren eine Optimierung für {{htmlelement("style")}}-Tags, die entweder von einem gemeinsamen Knoten geklont oder denselben Text haben, um ihnen zu ermöglichen, ein gemeinsames zugrunde liegendes Stylesheet zu teilen. Mit dieser Optimierung sollte die Leistung externer und interner Stile ähnlich sein.
 
 ### Angepasste eingebaute Elemente
 
-Nun schauen wir uns ein Beispiel für ein angepasstes eingebautes Element an. Dieses Beispiel erweitert das eingebaute {{HTMLElement("ul")}}-Element, um das Erweitern und Einklappen der Listenpunkte zu unterstützen.
+Nun schauen wir uns ein Beispiel für ein angepasstes eingebautes Element an. Dieses Beispiel erweitert das eingebaute {{HTMLElement("ul")}}-Element, um das Erweitern und Zusammenklappen der Listenelemente zu unterstützen.
 
 - [Beispiel live ansehen](https://mdn.github.io/web-components-examples/expanding-list-web-component/)
 - [Quellcode ansehen](https://github.com/mdn/web-components-examples/tree/main/expanding-list-web-component)
 
 > [!NOTE]
-> Bitte beachten Sie das [`is`](/de/docs/Web/HTML/Reference/Global_attributes/is)-Attribut-Referenz für Hinweise auf die Implementierungsrealität angepasster eingebauter Elemente.
+> Bitte sehen Sie die [`is`](/de/docs/Web/HTML/Reference/Global_attributes/is)-Attributreferenz für Hinweise zur Implementierungsrealität von angepassten eingebauten Elementen.
 
 Zuerst definieren wir die Klasse unseres Elements:
 
@@ -492,17 +516,17 @@ class ExpandingList extends HTMLUListElement {
 }
 ```
 
-Beachten Sie, dass wir diesmal von [`HTMLUListElement`](/de/docs/Web/API/HTMLUListElement) und nicht von [`HTMLElement`](/de/docs/Web/API/HTMLElement) ableiten. Das bedeutet, dass wir das Standardverhalten einer Liste erhalten und nur unsere eigenen Anpassungen implementieren müssen.
+Beachten Sie, dass wir dieses Mal von [`HTMLUListElement`](/de/docs/Web/API/HTMLUListElement) anstelle von [`HTMLElement`](/de/docs/Web/API/HTMLElement) erben. Dies bedeutet, dass wir das Standardverhalten einer Liste erhalten und nur unsere eigenen Anpassungen implementieren müssen.
 
-Wie zuvor befindet sich der größte Teil des Codes im `connectedCallback()`-Lebenszyklus-Callback.
+Wie zuvor ist der größte Teil des Codes im `connectedCallback()`-Lebenszyklus-Callback enthalten.
 
-Als nächstes registrieren wir das Element mit der `define()`-Methode wie zuvor, dieses Mal enthält es jedoch ein Optionsobjekt, das angibt, von welchem Element unser benutzerdefiniertes Element erbt:
+Anschließend registrieren wir das Element mit der `define()`-Methode, wie zuvor, außer dass dieses Mal auch ein Optionsobjekt enthalten ist, das angibt, von welchem Element unser benutzerdefiniertes Element erbt:
 
 ```js
 customElements.define("expanding-list", ExpandingList, { extends: "ul" });
 ```
 
-Die Verwendung des eingebauten Elements in einem Webdokument sieht auch etwas anders aus:
+Das Verwenden des eingebauten Elements in einem Webdokument sieht ebenfalls etwas anders aus:
 
 ```html
 <ul is="expanding-list">
@@ -510,9 +534,9 @@ Die Verwendung des eingebauten Elements in einem Webdokument sieht auch etwas an
 </ul>
 ```
 
-Sie verwenden ein `<ul>`-Element wie gewohnt, geben jedoch den Namen des benutzerdefinierten Elements innerhalb des `is`-Attributs an.
+Sie verwenden ein `<ul>`-Element wie gewohnt, geben aber den Namen des benutzerdefinierten Elements im `is`-Attribut an.
 
-Beachten Sie, dass wir in diesem Fall sicherstellen müssen, dass das Skript, das unser benutzerdefiniertes Element definiert, ausgeführt wird, nachdem der DOM vollständig analysiert wurde, da `connectedCallback()` aufgerufen wird, sobald die erweiternde Liste dem DOM hinzugefügt wird, und zu diesem Zeitpunkt ihre Kinder noch nicht hinzugefügt wurden, sodass die `querySelectorAll()`-Aufrufe keine Elemente finden. Eine Möglichkeit, dies sicherzustellen, ist das Hinzufügen des [defer](/de/docs/Web/HTML/Reference/Elements/script#defer)-Attributs zur Zeile, die das Skript enthält:
+Beachten Sie, dass in diesem Fall sichergestellt werden muss, dass das Skript, das unser benutzerdefiniertes Element definiert, nach dem vollständigen Parsen des DOMs ausgeführt wird, da `connectedCallback()` aufgerufen wird, sobald die erweiterbare Liste dem DOM hinzugefügt wird, und zu diesem Zeitpunkt noch keine Kinder hinzugefügt wurden, sodass die `querySelectorAll()`-Aufrufe keine Elemente finden. Eine Möglichkeit, dies sicherzustellen, besteht darin, das [defer](/de/docs/Web/HTML/Reference/Elements/script#defer)-Attribut zur Zeile hinzuzufügen, die das Skript enthält:
 
 ```html
 <script src="main.js" defer></script>
@@ -520,12 +544,12 @@ Beachten Sie, dass wir in diesem Fall sicherstellen müssen, dass das Skript, da
 
 ### Lebenszyklus-Callbacks
 
-Bisher haben wir nur einen Lebenszyklus-Callback in Aktion gesehen: `connectedCallback()`. Im letzten Beispiel, `<custom-square>`, werden wir einige der anderen sehen. Das autonome benutzerdefinierte Element `<custom-square>` zeichnet ein Quadrat, dessen Größe und Farbe durch zwei Attribute bestimmt werden, die `"size"` und `"color"` genannt werden.
+Bisher haben wir nur einen Lebenszyklus-Callback in Aktion gesehen: `connectedCallback()`. Im letzten Beispiel, `<custom-square>`, werden wir einige der anderen sehen. Das autonome benutzerdefinierte Element `<custom-square>` zeichnet ein Quadrat, dessen Größe und Farbe durch zwei Attribute namens `"size"` und `"color"` bestimmt werden.
 
 - [Beispiel live ansehen](https://mdn.github.io/web-components-examples/life-cycle-callbacks/)
 - [Quellcode ansehen](https://github.com/mdn/web-components-examples/tree/main/life-cycle-callbacks)
 
-Im Klassenkonstruktor fügen wir dem Element ein Shadow-DOM hinzu und anschließend ein leeres {{htmlelement("div")}}- und {{htmlelement("style")}}-Element zur Shadow-Root hinzu:
+Im Klassenkonstruktor fügen wir dem Element ein Shadow DOM hinzu und fügen dann leere {{htmlelement("div")}}- und {{htmlelement("style")}}-Elemente zum Shadow-Root hinzu:
 
 ```js
 class Square extends HTMLElement {
@@ -545,7 +569,7 @@ class Square extends HTMLElement {
 }
 ```
 
-Die Schlüsselfunktion in diesem Beispiel ist `updateStyle()` — diese nimmt ein Element, erhält dessen Shadow-Root, findet dessen `<style>`-Element und fügt {{cssxref("width")}}, {{cssxref("height")}} und {{cssxref("background-color")}} zum Style hinzu.
+Die Schlüsselfunktion in diesem Beispiel ist `updateStyle()` — sie nimmt ein Element, holt sich das Shadow-Root, findet dessen `<style>`-Element und fügt {{cssxref("width")}}, {{cssxref("height")}} und {{cssxref("background-color")}} dem Stil hinzu.
 
 ```js
 function updateStyle(elem) {
@@ -560,7 +584,7 @@ function updateStyle(elem) {
 }
 ```
 
-Die eigentlichen Aktualisierungen werden alle von den Lebenszyklus-Callbacks behandelt. Die `connectedCallback()` wird jedes Mal ausgeführt, wenn das Element zum DOM hinzugefügt wird — hier führen wir die `updateStyle()`-Funktion aus, um sicherzustellen, dass das Quadrat entsprechend den in seinen Attributen definierten Styles gestaltet ist:
+Die eigentlichen Updates werden alle durch die Lebenszyklus-Callbacks gehandhabt. Der `connectedCallback()` wird jedes Mal ausgeführt, wenn das Element dem DOM hinzugefügt wird — hier führen wir die `updateStyle()`-Funktion aus, um sicherzustellen, dass das Quadrat gemäß seinen Attributen gestylt ist:
 
 ```js
 class Square extends HTMLElement {
@@ -573,7 +597,7 @@ class Square extends HTMLElement {
 }
 ```
 
-Die `disconnectedCallback()`- und `adoptedCallback()`-Callbacks protokollieren Nachrichten an die Konsole, um uns zu informieren, wenn das Element entweder aus dem DOM entfernt oder auf eine andere Seite verschoben wird:
+Die `disconnectedCallback()`- und `adoptedCallback()`-Callbacks geben Nachrichten in die Konsole aus, um uns zu informieren, wenn das Element entweder aus dem DOM entfernt oder auf eine andere Seite verschoben wird:
 
 ```js
 class Square extends HTMLElement {
@@ -589,7 +613,7 @@ class Square extends HTMLElement {
 }
 ```
 
-Das `attributeChangedCallback()`-Callback wird ausgeführt, wann immer eines der Attribute des Elements auf irgendeine Weise geändert wird. Wie Sie aus seinen Parametern entnehmen können, ist es möglich, auf einzelne Attribute zu reagieren, indem man auf ihren Namen sowie die alten und neuen Attributwerte schaut. In diesem Fall führen wir jedoch einfach die `updateStyle()`-Funktion erneut aus, um sicherzustellen, dass das Quadrat entsprechend den neuen Werten aktualisiert wird:
+Das `attributeChangedCallback()`-Callback wird jedes Mal ausgeführt, wenn eines der Attribute des Elements in irgendeiner Weise geändert wird. Wie Sie aus seinen Parametern sehen können, ist es möglich, auf Einzelattribute zu reagieren, indem man deren Namen sowie alte und neue Attributwerte betrachtet. In diesem Fall führen wir jedoch einfach erneut die Funktion `updateStyle()` aus, um sicherzustellen, dass der Stil des Quadrats entsprechend den neuen Werten aktualisiert wird:
 
 ```js
 class Square extends HTMLElement {
@@ -602,7 +626,7 @@ class Square extends HTMLElement {
 }
 ```
 
-Beachten Sie, dass, um das `attributeChangedCallback()`-Callback auszuführen, wenn sich ein Attribut ändert, Sie die Attribute beobachten müssen. Dies geschieht durch die Angabe einer `static get observedAttributes()`-Methode innerhalb der benutzerdefinierten Elementklasse - diese sollte ein Array zurückgeben, das die Namen der Attribute enthält, die Sie beobachten möchten:
+Beachten Sie, dass, damit das `attributeChangedCallback()`-Callback ausgelöst wird, wenn ein Attribut geändert wird, Sie die Attribute beobachten müssen. Dies wird durch Angabe einer `static get observedAttributes()`-Methode innerhalb der benutzerdefinierten Elementklasse erreicht - diese sollte ein Array zurückgeben, das die Namen der zu beobachtenden Attribute enthält:
 
 ```js
 class Square extends HTMLElement {

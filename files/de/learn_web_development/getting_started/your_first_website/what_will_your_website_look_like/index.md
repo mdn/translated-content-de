@@ -3,91 +3,94 @@ title: Wie wird Ihre Website aussehen?
 short-title: Wie wird sie aussehen?
 slug: Learn_web_development/Getting_started/Your_first_website/What_will_your_website_look_like
 l10n:
-  sourceCommit: 48d220a8cffdfd5f088f8ca89724a9a92e34d8c0
+  sourceCommit: 04b891269af86287313a1d6e28423560a674cd2d
 ---
 
 {{NextMenu("Learn_web_development/Getting_started/Your_first_website/Creating_the_content", "Learn_web_development/Getting_started/Your_first_website")}}
 
-_Wie wird Ihre Website aussehen?_ befasst sich mit der Planungs- und Gestaltungsarbeit, die Sie für Ihre Website leisten müssen, bevor Sie mit dem Programmieren beginnen. Dazu gehört "Welche Informationen bietet meine Website?", "Welche Schriftarten und Farben möchte ich?", und "Was macht meine Seite?"
+_Wie wird Ihre Website aussehen?_ behandelt die Planung und Gestaltungsarbeit, die Sie für Ihre Website erledigen müssen, bevor Sie mit dem Schreiben von Code beginnen. Dazu gehören Fragen wie "Welche Informationen bietet meine Website?", "Welche Schriftarten und Farben möchte ich?" und "Was genau macht meine Seite?"
 
 <table>
   <tbody>
     <tr>
       <th scope="row">Voraussetzungen:</th>
       <td>
-        Grundkenntnisse über Ihr Computerbetriebssystem, die grundlegende Software, die Sie zum Erstellen einer Website verwenden, und Dateisysteme.
+        Grundlegende Vertrautheit mit Ihrem Computerbetriebssystem, der grundlegenden Software, die Sie zur Erstellung einer Website verwenden, und Dateisystemen.
       </td>
     </tr>
     <tr>
-      <th scope="row">Lernergebnisse:</th>
+      <th scope="row">Lernziele:</th>
       <td>
         <ul>
-          <li>Planen einer einfachen Website.</li>
-          <li>Verwenden eines grundlegenden Designprozesses.</li>
-          <li>Sammeln von Materialien.</li>
+          <li>Planung einer einfachen Website.</li>
+          <li>Verwendung eines einfachen Designprozesses.</li>
+          <li>Sammlung von Ressourcen.</li>
         </ul>
       </td>
     </tr>
   </tbody>
 </table>
 
-## Zuerst einmal: Planung
+## Zuerst: Planung
 
-Bevor Sie etwas tun, brauchen Sie einige Ideen. Was soll Ihre Website eigentlich tun? Eine Website kann im Grunde alles machen, aber für Ihren ersten Versuch sollten Sie die Dinge einfach halten. Wir beginnen mit der Erstellung einer einfachen Webseite mit einer Überschrift, einem Bild und ein paar Absätzen.
+Bevor Sie irgendetwas tun, benötigen Sie einige Ideen. Was sollte Ihre Website tatsächlich machen? Eine Website kann im Grunde alles tun, aber für den ersten Versuch sollten Sie die Dinge einfach halten. Wir beginnen mit der Erstellung einer einfachen Webseite mit einer Überschrift, einem Bild und ein paar Absätzen.
 
-Zunächst müssen Sie folgende Fragen beantworten:
+Um zu beginnen, müssen Sie folgende Fragen beantworten:
 
 1. **Worum geht es auf Ihrer Website?** Mögen Sie Hunde, New York oder Pac-Man?
-2. **Welche Informationen präsentieren Sie zu diesem Thema?** Schreiben Sie einen Titel und ein paar Absätze und denken Sie an ein Bild, das Sie auf Ihrer Seite zeigen möchten.
-3. **Wie sieht Ihre Website aus,** in einfachen, grundlegenden Begriffen? Was ist die Hintergrundfarbe? Welche Art von Schriftart ist geeignet: formell, cartoonhaft, fett und laut, subtil?
+2. **Welche Informationen präsentieren Sie zu diesem Thema?** Schreiben Sie einen Titel und einige Absätze und denken Sie an ein Bild, das Sie auf Ihrer Seite präsentieren möchten.
+3. **Wie sieht Ihre Website aus,** in einfachen übergeordneten Begriffen? Was ist die Hintergrundfarbe? Welche Art von Schriftart ist angemessen: formal, cartoonartig, fett und laut, subtil?
 
 > [!NOTE]
-> Komplexe Projekte benötigen detaillierte Richtlinien, die alle Details zu Farben, Schriftarten, Abständen zwischen Elementen auf einer Seite, geeigneten Schreibstilen und so weiter umfassen. Dies wird manchmal als Designleitfaden, Designsystem oder Markenbuch bezeichnet, und Sie können ein Beispiel im [Firefox Acorn Design System](https://acorn.firefox.com/latest) sehen.
+> Komplexe Projekte benötigen detaillierte Richtlinien, die alle Details zu Farben, Schriftarten, Abständen zwischen den Elementen auf einer Seite, dem angemessenen Schreibstil und so weiter enthalten. Dies wird manchmal als Design-Leitfaden, Design-System oder Markenbuch bezeichnet, und Sie können ein Beispiel im [Firefox Acorn Design System](https://acorn.firefox.com/latest) sehen.
 
-## Entwerfen Ihres Designs
+## Skizzieren Sie Ihr Design
 
-Als Nächstes nehmen Sie Stift und Papier und skizzieren grob, wie Ihre Seite aussehen soll. Für Ihre erste einfache Webseite gibt es nicht viel zu skizzieren, aber Sie sollten sich jetzt angewöhnen, dies zu tun. Es hilft wirklich – Sie müssen kein Van Gogh sein!
+Nehmen Sie nun Stift und Papier und skizzieren Sie grob, wie Ihre Seite aussehen soll. Für Ihre erste einfache Webseite gibt es nicht viel zu skizzieren, aber Sie sollten sich jetzt daran gewöhnen. Es hilft wirklich — Sie müssen kein Van Gogh sein!
 
 ![Eine grobe Zeichnung und Skizze einer Website auf Papier](website-drawing-scan.png)
 
 > [!NOTE]
-> Selbst bei realen, komplexen Websites beginnen die Designteams in der Regel mit groben Skizzen auf Papier und erstellen später digitale Entwürfe mithilfe eines Grafikeditors oder Webtechnologien.
+> Selbst bei echten, komplexen Websites beginnen die Designteams in der Regel mit groben Skizzen auf Papier und erstellen später digitale Entwürfe mit einem Grafikeditor oder Web-Technologien.
 >
-> Webteams umfassen oft sowohl einen Grafikdesigner als auch einen {{Glossary("UX", "User Experience")}} (UX)-Designer. Grafikdesigner gestalten das visuelle Erscheinungsbild der Website. UX-Designer haben eine etwas abstraktere Rolle, indem sie sich mit der Benutzererfahrung und der Interaktion mit der Website befassen.
+> Web-Teams bestehen oft sowohl aus einem Grafikdesigner als auch einem {{Glossary("UX", "User Experience")}} (UX) Designer. Grafikdesigner stellen die visuellen Elemente der Website zusammen. UX-Designer haben eine etwas abstraktere Rolle und befassen sich damit, wie Nutzer die Website erleben und mit ihr interagieren werden.
 
-An dieser Stelle ist es gut, die Inhalte zusammenzustellen, die schließlich auf Ihrer Webseite erscheinen werden. Sie sollten Ihre Absätze und den Titel von früher noch griffbereit haben.
+An diesem Punkt ist es gut, den Inhalt vorzubereiten, der schließlich auf Ihrer Webseite erscheinen wird. Sie sollten immer noch die Absätze und den Titel von vorher haben. Halten Sie diese griffbereit.
 
-## Auswahl einer Farbthematik
+## Auswahl einer Themenfarbe
 
-Um eine Farbe auszuwählen, gehen Sie zum [Color Picker](/de/docs/Web/CSS/CSS_colors/Color_picker_tool) und finden Sie eine Farbe, die Ihnen gefällt. Wenn Sie auf eine Farbe klicken, sehen Sie einen seltsamen sechsstelligen Code wie `#660066`. Das wird als _Hex-Code_ (kurz für hexadezimal) bezeichnet und repräsentiert Ihre Farbe. Notieren Sie den Code für den Moment an einem sicheren Ort.
+Wählen Sie eine Farbe, indem Sie zum [Color Picker](/de/docs/Web/CSS/CSS_colors/Color_picker_tool) gehen und eine Farbe finden, die Ihnen gefällt. Wenn Sie auf eine Farbe klicken, sehen Sie einen seltsamen sechsstelligen Code wie `#660066`. Das ist ein _Hex-Code_ (kurz für hexadezimal) und repräsentiert Ihre Farbe. Notieren Sie den Code jetzt an einem sicheren Ort.
 
-![Farb-Auswahl-Tool auf der MDN-Dokumentationswebsite mit RGB-, HSL- und HEX-Farben](color-picker.png)
+![Color-Picker-Tool auf der MDN Docs-Seite mit RGB-, HSL- und HEX-Farben](color-picker.png)
 
 ## Auswahl eines Bildes
 
 Um ein Bild auszuwählen, gehen Sie zu [Google Images](https://www.google.com/imghp) und suchen Sie nach etwas Passendem.
 
 1. Wenn Sie das gewünschte Bild gefunden haben, klicken Sie auf das Bild, um eine vergrößerte Ansicht zu erhalten.
-2. Klicken Sie mit der rechten Maustaste auf das Bild (Strg + Klick auf einem Mac), wählen Sie _Bild speichern unter…_ und suchen Sie sich einen sicheren Ort zum Speichern Ihres Bildes.
+2. Klicken Sie mit der rechten Maustaste auf das Bild (Ctrl + Klick auf einem Mac), wählen Sie _Bild speichern unter..._ und suchen Sie einen sicheren Ort zum Speichern Ihres Bildes.
 
-![Suchergebnisse für einen Suchbegriff bei Google Images](updated-google-images.png)
+![Suchergebnisse für einen Suchbegriff auf Google Bilder](updated-google-images.png)
 
-Beachten Sie, dass die meisten Bilder im Web, einschließlich Google Images, urheberrechtlich geschützt sind. Um die Wahrscheinlichkeit eines Urheberrechtsverstoßes zu verringern, können Sie den Lizenzfilter von Google verwenden. Klicken Sie auf die Schaltfläche _Tools_, dann auf die erscheinende Option _Nutzungsrechte_. Sie sollten die Option _Creative Commons-Lizenzen_ auswählen.
+Beachten Sie, dass die meisten Bilder im Web, einschließlich bei Google Images, urheberrechtlich geschützt sind. Um die Wahrscheinlichkeit einer Urheberrechtsverletzung zu verringern, können Sie den Lizenzfilter von Google verwenden. Klicken Sie auf die Schaltfläche _Tools_ und dann auf die erscheinende Option _Nutzungsrechte_. Sie sollten die Option _Creative Commons-Lizenzen_ wählen.
 
-![Gefilterte Suchergebnisse, um Bilder von Creative Commons-Lizenzen bei Google Images zu erhalten](updated-google-images-licensing.png)
+![Gefilterte Suchergebnisse, um Bilder von Creative Commons-Lizenzen auf Google Bilder zu erhalten](updated-google-images-licensing.png)
 
 ## Auswahl einer Schriftart
 
-Wie bei Bildern sind auch viele Schriftarten durch Lizenzen geschützt, was bedeutet, dass Sie sie nicht frei auf Ihrer Website verwenden können. [Google Fonts](https://developers.google.com/fonts) ist ein Webdienst von Google, der Zugriff auf viele Schriftarten bietet.
+Es gibt eine Reihe von Schriftarten, die als [websichere Schriftarten](/de/docs/Learn_web_development/Core/Text_styling/Fundamentals#web_safe_fonts) bekannt sind, wie Arial, Times New Roman oder Courier New, die auf den meisten Computersystemen verfügbar sind. Wenn Sie eine dieser Schriftarten auf Ihrer Website verwenden, lädt der Browser die Schriftartdatei, die auf dem Computer des Nutzers vorhanden ist.
 
-Sobald Sie eine Schriftart gefunden haben, gibt es zwei Hauptmethoden, sie zu verwenden:
+Wenn Sie jedoch andere Schriftarten verwenden möchten, die nicht allgemein auf Geräten verfügbar sind, müssen Sie sie entweder zusammen mit Ihren Website-Dateien bereitstellen oder die Schriftdateien von einem Drittanbieter-Schriftservice referenzieren, damit der Browser sie bei Bedarf herunterladen kann. [Google Fonts](https://fonts.google.com/) ist ein solcher Dienst, der Zugang zu vielen Schriftarten bietet.
 
-1. Fügen Sie einen Verweis in Ihrem Code hinzu, um die Schriftart von den Google-Servern zu laden.
-2. Laden Sie die Schriftart herunter, hosten Sie sie selbst, und verwenden Sie Ihre lokale Kopie im Code Ihrer Website.
+Verwenden wir Google Fonts, um eine Schriftart für Ihre Website auszuwählen:
+
+1. Gehen Sie zu [Google Fonts](https://fonts.google.com/).
+2. Scrollen Sie die Liste der Schriftarten herunter, bis Sie eine finden, die Ihnen gefällt. Wenn Sie Probleme haben, eine zu finden, können Sie die Filter in der anderen Spalte verwenden, um Ihre Suche einzugrenzen.
+3. Klicken Sie auf Ihre Schriftartoption, dann auf der nächsten Seite auf die Schaltfläche "Get font".
+4. Klicken Sie auf der nächsten Seite auf "Get embed code".
+5. Kopieren Sie beide bereitgestellten Codeblöcke und speichern Sie sie an einem sicheren Ort für die spätere Verwendung.
 
 > [!NOTE]
-> Das Laden von Schriftarten, die auf Google Fonts gehostet werden, kann mit der Datenschutzverordnung [GDPR](https://gdpr.eu/) der Europäischen Union unvereinbar sein, da der Schriftdienst die IP-Adresse des Nutzers preisgibt. Wenn dies ein potenzielles Problem für Sie darstellt, wählen Sie entweder die zweite Option oder einen Schriftartanbieter, der GDPR-konform ist, wie zum Beispiel [Bunny Fonts](https://fonts.bunny.net/about).
-
-Alternativ können Sie [sichere Webschriftarten](https://web.mit.edu/jmorzins/www/fonts.html) wie Arial, Times New Roman oder Courier New verwenden.
+> Wie bei Bildern sind viele Schriftarten durch Lizenzen geschützt, was bedeutet, dass Sie sie nicht unbedingt frei auf kommerziellen Websites verwenden können. Sie werden keine Probleme haben, während Sie an Lernbeispielen arbeiten, aber dies sollten Sie im Hinterkopf behalten, wenn Sie Schriftarten für echte Websites auswählen.
 
 {{NextMenu("Learn_web_development/Getting_started/Your_first_website/Creating_the_content", "Learn_web_development/Getting_started/Your_first_website")}}
