@@ -2,14 +2,14 @@
 title: Browser
 slug: Glossary/Browser
 l10n:
-  sourceCommit: 50e5e8a9b8a6b7d0dd9877610c9639d8b90f329f
+  sourceCommit: 6a5c619dfad295ca9a9d317a4088908cfd33e686
 ---
 
 {{GlossarySidebar}}
 
-Ein **Webbrowser** oder **Browser** ist ein Programm, das Seiten aus dem {{Glossary("World_Wide_Web", "Web")}} abruft und anzeigt und es den Benutzern ermöglicht, über {{Glossary("hyperlink", "Hyperlinks")}} auf weitere Seiten zuzugreifen. Ein Browser ist die bekannteste Art eines {{Glossary("user_agent", "User Agent")}}. Er verwendet eine {{Glossary("Engine/Rendering", "Rendering-Engine")}}, um Webseiten darzustellen.
+Ein **Webbrowser** oder **Browser** ist ein Programm, das Seiten aus dem {{Glossary("World_Wide_Web", "Web")}} abruft und anzeigt und es den Nutzern ermöglicht, weitere Seiten über {{Glossary("hyperlink", "Hyperlinks")}} aufzurufen. Ein Browser ist die bekannteste Art eines {{Glossary("user_agent", "User Agents")}}. Er verwendet eine {{Glossary("Engine/Rendering", "Rendering-Engine")}}, um Webseiten darzustellen.
 
-Zu den gängigen Browsern gehören:
+Gängige Browser sind:
 
 - {{Glossary("Google_Chrome", "Google Chrome")}}
 - {{Glossary("Mozilla_Firefox", "Mozilla Firefox")}}
@@ -21,8 +21,8 @@ Zu den gängigen Browsern gehören:
 
 - [Webbrowser](https://en.wikipedia.org/wiki/Web_browser) auf Wikipedia
 - {{HTTPHeader("User-agent")}} (HTTP-Header)
-- Laden Sie einen Browser herunter
-  - [Mozilla Firefox](https://www.mozilla.org/en-US/firefox/)
+- Einen Browser herunterladen
+  - [Mozilla Firefox](https://www.mozilla.org/en-US/firefox/new/)
   - [Google Chrome](https://www.google.com/chrome/)
   - [Microsoft Edge](https://www.microsoft.com/en-us/edge)
   - [Opera Browser](https://www.opera.com/)

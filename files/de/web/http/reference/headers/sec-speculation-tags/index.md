@@ -2,14 +2,14 @@
 title: Sec-Speculation-Tags
 slug: Web/HTTP/Reference/Headers/Sec-Speculation-Tags
 l10n:
-  sourceCommit: 31f1214fbabf51aa60ed6a3dae71b8d257e634d7
+  sourceCommit: 6a5c619dfad295ca9a9d317a4088908cfd33e686
 ---
 
 {{HTTPSidebar}}{{SeeCompatTable}}
 
-Der HTTP **`Sec-Speculation-Tags`** {{Glossary("request_header", "Request-Header")}} enthält einen oder mehrere `tag`-Werte aus den [speculation rules](/de/docs/Web/API/Speculation_Rules_API), die zur Spekulation führten. Dies ermöglicht es einem Server, zu identifizieren, welche Regel(n) eine Spekulation verursacht haben, und sie möglicherweise zu blockieren.
+Der HTTP **`Sec-Speculation-Tags`** {{Glossary("request_header", "Request-Header")}} enthält einen oder mehrere `tag` Werte aus den [Spekulationsregeln](/de/docs/Web/API/Speculation_Rules_API), die zur Spekulation geführt haben. Dies ermöglicht es einem Server, zu identifizieren, welche Regel(n) eine Spekulation verursacht haben und diese gegebenenfalls zu blockieren.
 
-Ein CDN kann beispielsweise automatisch Spekulationsregeln einfügen, aber Spekulationen für Ressourcen blockieren, die nicht im CDN zwischengespeichert sind, um unbeabsichtigte Konsequenzen zu vermeiden. Der `Sec-Speculation-Tags`-Header erlaubt es dem CDN, zwischen den von ihm eingefügten Regeln (die in diesem Fall blockiert werden sollen) und den vom Seitenbetreiber hinzugefügten Spekulationsregeln (die nicht blockiert werden sollen) zu unterscheiden.
+Ein CDN könnte beispielsweise Spekulationsregeln automatisch einfügen, aber Spekulationen für nicht im CDN zwischengespeicherte Ressourcen blockieren, um unbeabsichtigte Konsequenzen zu vermeiden. Der `Sec-Speculation-Tags` Header ermöglicht es dem CDN, zwischen den von ihm eingefügten Regeln (die in diesem Fall blockiert werden sollten) und den vom Website-Besitzer hinzugefügten Spekulationsregeln (die nicht blockiert werden sollten) zu unterscheiden.
 
 <table class="properties">
   <tbody>
@@ -33,11 +33,11 @@ Sec-Speculation-Tags: <tag-list>
 ## Direktiven
 
 - `<tag-list>`
-  - : Eine kommagetrennte Liste von Tags, die [Speculation Rules API](/de/docs/Web/API/Speculation_Rules_API) Regeln angeben, die diese Anfrage initiiert haben könnten. Siehe [Speculation rules JSON representation](/de/docs/Web/HTML/Reference/Elements/script/type/speculationrules#speculation_rules_json_representation) für die Syntaxreferenz.
+  - : Eine durch Kommas getrennte Liste von Tags, die auf [Speculation Rules API](/de/docs/Web/API/Speculation_Rules_API) Regeln hinweisen, die diese Anfrage möglicherweise initiiert haben. Siehe [JSON-Darstellung von Spekulationsregeln](/de/docs/Web/HTML/Reference/Elements/script/type/speculationrules#speculation_rules_json_representation) für die Syntaxreferenz.
 
 ## Beispiele
 
-### Spekulation aus einer Regel ohne expliziten Tag
+### Spekulation aus einer Regel ohne explizites Tag
 
 ```html
 <script type="speculationrules">
@@ -51,7 +51,7 @@ Sec-Speculation-Tags: <tag-list>
 </script>
 ```
 
-Wenn eine Spekulation aufgrund einer Spekulationsregel ohne Tag auftritt, wird `null` im `Sec-Speculation-Tags`-Header gesendet.
+Wenn eine Spekulation aufgrund einer Spekulationsregel ohne Tag auftritt, wird `null` im `Sec-Speculation-Tags` Header gesendet.
 
 ```http
 Sec-Speculation-Tags: null
@@ -72,7 +72,7 @@ Sec-Speculation-Tags: null
 </script>
 ```
 
-Wenn eine Spekulation aufgrund einer Spekulationsregel mit einem Tag auftritt, wird der Tag-Name im `Sec-Speculation-Tags`-Header gesendet.
+Wenn eine Spekulation aufgrund einer Spekulationsregel mit einem Tag auftritt, wird der Tag-Name im `Sec-Speculation-Tags` Header gesendet.
 
 ```http
 Sec-Speculation-Tags: "my-rule"
@@ -80,7 +80,7 @@ Sec-Speculation-Tags: "my-rule"
 
 ### Spekulation aus einer Regel mit mehreren Tags
 
-Der `tag` kann auf mehreren Ebenen gesetzt werden:
+Der `tag` kann auf mehreren Ebenen festgelegt werden:
 
 ```html
 <script type="speculationrules">
@@ -96,7 +96,7 @@ Der `tag` kann auf mehreren Ebenen gesetzt werden:
 </script>
 ```
 
-Alle passenden Tags werden im `Sec-Speculation-Tags`-Header gesendet, daher würden in diesem Fall sowohl `"my-ruleset"` als auch `"my-rule"` gesendet werden:
+Alle übereinstimmenden Tags werden im `Sec-Speculation-Tags` Header gesendet, so dass in diesem Fall sowohl `"my-ruleset"` als auch `"my-rule"` gesendet würden:
 
 ```http
 Sec-Speculation-Tags: "my-ruleset", "my-rule"
@@ -129,13 +129,13 @@ Sec-Speculation-Tags: "my-ruleset", "my-rule"
 </script>
 ```
 
-In diesem Beispiel, wenn die Spekulation durch das Hovern des Benutzers über den Link für 200 Millisekunden initiiert wird (`"eagerness": "moderate"`), wird nur der `my-rule` Tag im Header gesendet:
+In diesem Beispiel, wenn die Spekulation durch das Überfahren des Links für 200 Millisekunden (`"eagerness": "moderate"`) initiiert wird, wird nur der `my-rule` Tag im Header gesendet:
 
 ```http
 Sec-Speculation-Tags: "my-rule"
 ```
 
-Wenn jedoch der Link sofort geklickt wird, ohne auf das 200-Millisekunden-Hovern zu warten, würden beide Regeln eine Spekulation ausgelöst haben, daher werden beide Tags im Header enthalten sein:
+Wenn jedoch der Link sofort angeklickt wird, ohne auf den 200 Millisekunden Hover zu warten, hätten beide Regeln eine Spekulation ausgelöst, daher würden beide Tags im Header enthalten sein:
 
 ```http
 Sec-Speculation-Tags: "my-rule", "cdn-rule"
@@ -167,7 +167,7 @@ Sec-Speculation-Tags: "my-rule", "cdn-rule"
 </script>
 ```
 
-Ähnlich wie im vorherigen Beispiel, wenn der Link sofort geklickt wird, ohne auf das 200-Millisekunden-Hovern zu warten, würden beide Regeln eine Spekulation ausgelöst haben, daher werden beide Tags im Header enthalten sein. Da die erste Regel jedoch kein `tag`-Feld enthält, wird sie im Header mit einem `null`-Wert dargestellt:
+Ähnlich wie im vorherigen Beispiel, wenn der Link sofort geklickt wird, ohne auf den 200 Millisekunden Hover zu warten, hätten beide Regeln eine Spekulation ausgelöst, daher würden beide Tags im Header enthalten sein. Da jedoch die erste Regel kein `tag` Feld enthält, wird sie im Header mit einem `null` Wert dargestellt:
 
 ```http
 Sec-Speculation-Tags: null, "cdn-rule"
