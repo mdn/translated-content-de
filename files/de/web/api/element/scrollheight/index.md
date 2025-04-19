@@ -3,36 +3,32 @@ title: "Element: scrollHeight-Eigenschaft"
 short-title: scrollHeight
 slug: Web/API/Element/scrollHeight
 l10n:
-  sourceCommit: 59d50a9b94240beb310ef06fb05e7438c7d3c18c
+  sourceCommit: 0916e1754652f3a7c663ef031faa26c98f492023
 ---
 
 {{APIRef("DOM")}}
 
-Die **`Element.scrollHeight`** Lese-Eigenschaft ist ein Maß für die Höhe des Inhalts eines Elements, einschließlich des Inhalts, der aufgrund von Überlauf nicht auf dem Bildschirm sichtbar ist.
+Die **`scrollHeight`**-Eigenschaft der [`Element`](/de/docs/Web/API/Element)-Schnittstelle ist eine schreibgeschützte Eigenschaft, die die Höhe des Inhalts eines Elements misst, einschließlich des Inhalts, der aufgrund von Überlauf nicht auf dem Bildschirm sichtbar ist.
 
-![Die Benutzeransicht ist ein Element mit vier Bereichen, die als padding-top, border-top, border-bottom, padding-bottom bezeichnet sind. Die scroll height reicht vom padding-top des Containers bis zum Ende des padding-bottom, weit über den oberen und unteren Rand der Ansicht hinaus.](scrollheight.png)
+![Der Benutzeransichtbereich ist ein Element mit vier Bereichen, die als padding-top, border-top, border-bottom, padding-bottom bezeichnet sind. Die Scroll-Höhe reicht vom oberen Rand des Containers bis zum Ende des unteren Rabatts und geht weit über den oberen und unteren Rand des Ansichtbereichs hinaus.](scrollheight.png)
 
-Der `scrollHeight`-Wert entspricht der minimal erforderlichen Höhe des Elements, um den gesamten Inhalt im Sichtfenster ohne vertikalen Bildlauf unterzubringen. Die Höhe wird auf die gleiche Weise wie [`clientHeight`](/de/docs/Web/API/Element/clientHeight) gemessen: Sie umfasst das Padding des Elements, jedoch nicht seine Umrandung, den Außenabstand oder die horizontale Bildlaufleiste (falls vorhanden). Sie kann auch die Höhe von Pseudo-Elementen wie {{cssxref("::before")}} oder {{cssxref("::after")}} umfassen. Wenn der Inhalt des Elements ohne vertikalen Bildlauf passt, entspricht seine `scrollHeight` der [`clientHeight`](/de/docs/Web/API/Element/clientHeight).
-
-> [!NOTE]
-> Diese Eigenschaft rundet den Wert auf eine ganze Zahl. Wenn Sie einen Bruchwert benötigen, verwenden Sie
-> [`Element.getBoundingClientRect()`](/de/docs/Web/API/Element/getBoundingClientRect).
+Der `scrollHeight`-Wert entspricht der minimalen Höhe, die das Element benötigen würde, um den gesamten Inhalt im Ansichtbereich ohne Verwendung eines vertikalen Scrollbalkens aufzunehmen. Die Höhe wird auf die gleiche Weise wie `clientHeight` gemessen: Sie umfasst das Padding des Elements, aber nicht seine Grenze, seinen Rand oder den horizontalen Scrollbalken (falls vorhanden). Sie kann auch die Höhe von Pseudoelementen wie {{cssxref("::before")}} oder {{cssxref("::after")}} einschließen. Wenn der Inhalt des Elements ohne Notwendigkeit eines vertikalen Scrollbalkens Platz findet, ist seine `scrollHeight` gleich der [`clientHeight`](/de/docs/Web/API/Element/clientHeight).
 
 ## Wert
 
-Eine ganze Zahl, die dem scrollHeight-Pixelwert des Elements entspricht.
+Eine Ganzzahl.
 
 ## Probleme und Lösungen
 
 ### Bestimmen, ob ein Element vollständig gescrollt wurde
 
-`scrollTop` ist eine nicht gerundete Zahl, während `scrollHeight` und `clientHeight` gerundet sind - daher ist die einzige Möglichkeit zu bestimmen, ob der Scrollbereich bis zum Ende gescrollt ist, zu überprüfen, ob die Scrollmenge nahe genug an einem bestimmten Schwellenwert liegt (in diesem Beispiel `1`):
+`scrollTop` ist eine nicht gerundete Zahl, während `scrollHeight` und `clientHeight` gerundet sind – deshalb besteht die einzige Möglichkeit, festzustellen, ob der Scrollbereich bis zum Ende gescrollt wurde, darin, zu prüfen, ob die Scrollmenge nahe genug an einem Schwellenwert liegt (in diesem Beispiel `1`):
 
 ```js
 Math.abs(element.scrollHeight - element.clientHeight - element.scrollTop) <= 1;
 ```
 
-Das folgende Beispiel wird _nicht_ immer funktionieren, da `scrollTop` Dezimalstellen enthalten kann:
+Das Folgende wird _nicht_ immer funktionieren, da `scrollTop` Dezimalzahlen enthalten kann:
 
 ```js
 element.scrollHeight - Math.abs(element.scrollTop) === element.clientHeight;
@@ -40,7 +36,7 @@ element.scrollHeight - Math.abs(element.scrollTop) === element.clientHeight;
 
 ### Bestimmen, ob der Inhalt eines Elements überläuft
 
-Diese Funktion gibt einen booleschen Wert zurück, der angibt, ob der Inhalt eines Elements seine Grenzen überläuft:
+Diese Funktion gibt einen booleschen Wert zurück, der angibt, ob der Inhalt eines Elements seine Grenzen überschreitet:
 
 ```js
 function isOverflowing(element) {
@@ -48,7 +44,7 @@ function isOverflowing(element) {
 }
 ```
 
-Dann möchten Sie möglicherweise überprüfen, ob es in diesem Fall scrollbar ist:
+Dann sollten Sie überprüfen, ob es in diesem Fall scrollbar ist:
 
 ```js
 function isScrollable(element) {
@@ -61,12 +57,11 @@ function isScrollable(element) {
 
 ## Beispiele
 
-### Überprüfen, dass der Benutzer einen Text gelesen hat
+### Prüfen, ob der Benutzer einen Text gelesen hat
 
-In Verbindung mit dem [`scroll`](/de/docs/Web/API/Element/scroll_event)-Ereignis kann diese
-Äquivalenz nützlich sein, um festzustellen, ob ein Benutzer einen Text gelesen hat oder nicht (siehe auch die Eigenschaften [`element.scrollTop`](/de/docs/Web/API/Element/scrollTop) und [`element.clientHeight`](/de/docs/Web/API/Element/clientHeight)).
+In Verbindung mit dem [`scroll`](/de/docs/Web/API/Element/scroll_event)-Ereignis kann diese Gleichung nützlich sein, um festzustellen, ob ein Benutzer einen Text gelesen hat (siehe auch die Eigenschaften [`element.scrollTop`](/de/docs/Web/API/Element/scrollTop) und [`element.clientHeight`](/de/docs/Web/API/Element/clientHeight)).
 
-Das Kontrollkästchen im untenstehenden Demo ist deaktiviert und kann daher nicht aktiviert werden, um Zustimmung zu zeigen, bis der Inhalt des Absatzes durchgescrollt wurde. Sobald es aktiviert ist, kann der "Weiter"-Button angeklickt werden, um fortzufahren.
+Das Kontrollkästchen in der Demo unten ist deaktiviert und kann nicht markiert werden, um die Zustimmung zu zeigen, bis der Inhalt des Absatzes durchgescrollt wurde. Sobald es markiert ist, kann der "Weiter"-Button geklickt werden, um fortzufahren.
 
 #### HTML
 
@@ -204,6 +199,11 @@ toNextStep.addEventListener("click", () => {
 
 ## Siehe auch
 
-- [`Element.clientHeight`](/de/docs/Web/API/Element/clientHeight)
+- [Bestimmen der Dimensionen von Elementen](/de/docs/Web/API/CSS_Object_Model/Determining_the_dimensions_of_elements)
 - [`HTMLElement.offsetHeight`](/de/docs/Web/API/HTMLElement/offsetHeight)
-- [Bestimmung der Dimensionen von Elementen](/de/docs/Web/API/CSS_Object_Model/Determining_the_dimensions_of_elements)
+- [`Element.clientHeight`](/de/docs/Web/API/Element/clientHeight)
+- [`Element.scrollWidth`](/de/docs/Web/API/Element/scrollWidth)
+- [`Element.scrollLeft`](/de/docs/Web/API/Element/scrollLeft)
+- [`Element.scrollTop`](/de/docs/Web/API/Element/scrollTop)
+- [`Element.getBoundingClientRect()`](/de/docs/Web/API/Element/getBoundingClientRect)
+- [`Element.scrollTo()`](/de/docs/Web/API/Element/scrollTo)

@@ -3,25 +3,22 @@ title: "Element: clientTop-Eigenschaft"
 short-title: clientTop
 slug: Web/API/Element/clientTop
 l10n:
-  sourceCommit: d0b23f3f26637aa405ee9ee0a0892fc6e9b742ef
+  sourceCommit: 0916e1754652f3a7c663ef031faa26c98f492023
 ---
 
 {{ APIRef("DOM") }}
 
-Die Breite des oberen Rands eines Elements in Pixel. Es handelt sich um eine schreibgeschützte, ganzzahlige Eigenschaft des Elements.
+Die **`clientTop`** schreibgeschützte Eigenschaft des [`Element`](/de/docs/Web/API/Element)-Interfaces gibt die Breite des oberen Randes eines Elements in Pixeln zurück.
 
-Tatsächlich liegt zwischen den beiden Positionen (`offsetTop` und dem oberen Bereich des client-Bereichs) nur der Rand des Elements. Das liegt daran, dass `offsetTop` die Position des oberen Randes angibt (nicht des äußeren Randes), während der client-Bereich direkt unter dem Rand beginnt (der client-Bereich schließt den inneren Abstand ein). Daher wird der Wert von **clientTop** immer dem ganzzahligen Teil des `.getComputedStyle()`-Wertes für "border-top-width" entsprechen. (Tatsächlich könnte es sich um Math.round(parseFloat()) handeln.) Beispielsweise, wenn der berechnete "border-top-width" null ist, dann ist **`clientTop`** ebenfalls null.
-
-> [!NOTE]
-> Diese Eigenschaft rundet den Wert auf eine ganze Zahl. Falls Sie einen Bruchwert benötigen, verwenden Sie [`element.getBoundingClientRect()`](/de/docs/Web/API/Element/getBoundingClientRect).
+Zwischen dem `offsetTop` und dem `clientTop` liegt nur der Rand des Elements. Dies liegt daran, dass `offsetTop` die Lage des oberen Randes (nicht des Außenabstands) angibt, während der Bereich für den Client direkt unter dem Rand beginnt und die Innenabstände einschließt. Daher ist der `clientTop`-Wert immer gleich der `border-top-width`, gerundet auf eine ganze Zahl. Zum Beispiel, wenn die berechnete `border-top-width` null ist, dann ist `clientTop` auch null.
 
 ## Wert
 
-Eine Zahl.
+Eine ganze Zahl.
 
 ## Beispiele
 
-Im folgenden Beispiel hat der client-Bereich einen weißen Hintergrund und eine 24px breite schwarze `border-top`. Der `clientTop`-Wert ist der Abstand von dort, wo der Randbereich (gelb) endet, zu dem Bereich aus innerem Abstand und Inhalt (weiß) beginnt: also 24px.
+Im folgenden Beispiel hat der Client-Bereich einen weißen Hintergrund und einen 24px schwarzen `border-top`. Der `clientTop`-Wert ist der Abstand von dem Ende des Außenabstands (gelb) zu dem Beginn der Innen- und Inhaltsbereiche (weiß): also 24px.
 
 ### HTML
 
@@ -60,10 +57,6 @@ Im folgenden Beispiel hat der client-Bereich einen weißen Hintergrund und eine 
 
 {{EmbedLiveSample("Examples", 400, 350)}}
 
-## Anmerkungen
-
-`clientTop` wurde erstmals im MS IE DHTML-Objektmodell eingeführt.
-
 ## Spezifikationen
 
 {{Specifications}}
@@ -71,3 +64,13 @@ Im folgenden Beispiel hat der client-Bereich einen weißen Hintergrund und eine 
 ## Browser-Kompatibilität
 
 {{Compat}}
+
+## Siehe auch
+
+- [Ermittlung der Abmessungen von Elementen](/de/docs/Web/API/CSS_Object_Model/Determining_the_dimensions_of_elements)
+- [`HTMLElement.offsetTop`](/de/docs/Web/API/HTMLElement/offsetTop)
+- [`Element.scrollTop`](/de/docs/Web/API/Element/scrollTop)
+- [`Element.clientHeight`](/de/docs/Web/API/Element/clientHeight)
+- [`Element.clientWidth`](/de/docs/Web/API/Element/clientWidth)
+- [`Element.clientLeft`](/de/docs/Web/API/Element/clientLeft)
+- [`Element.getBoundingClientRect()`](/de/docs/Web/API/Element/getBoundingClientRect)
