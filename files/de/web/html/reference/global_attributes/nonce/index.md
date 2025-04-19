@@ -22,7 +22,7 @@ Es kann Ihnen helfen, die Verwendung der [CSP](/de/docs/Web/HTTP/Guides/CSP) `un
 > (Siehe Nutzungshinweise zu [unsafe inline script](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/script-src#unsafe_inline_script).)
 > Versuchen Sie immer, den vollen Vorteil der [CSP](/de/docs/Web/HTTP/Guides/CSP) Schutzmaßnahmen zu nutzen und vermeiden Sie Nonces oder unsichere Inline-Skripte wann immer möglich.
 
-### Verwenden von nonce, um ein \<script>-Element auf die Positivliste zu setzen
+### Verwenden von nonce, um ein `<script>`-Element auf die Positivliste zu setzen
 
 Es gibt einige Schritte, die erforderlich sind, um ein Inline-Skript mit dem Nonce-Mechanismus auf die Positivliste zu setzen:
 

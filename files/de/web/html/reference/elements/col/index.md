@@ -107,7 +107,7 @@ Die folgenden Attribute sind veraltet und sollten nicht verwendet werden. Sie si
 
 - `valign` {{deprecated_inline}}
 
-  - : Gibt die vertikale Ausrichtung jeder Spaltenzelle an. Die mög<裔®›傳roty】lićtle`bottom都 `middle`, und `top`. Beachten Sie, dass dieses Attribut die im übergeordneten {{HTMLElement("colgroup")}}-Element angegebene [`valign`](https://developer.mozilla.org/de/docs/Web/HTML/Reference/Elements/colgroup#valign)-Zuordnung überschreibt. Verwenden Sie stattdessen die {{cssxref("vertical-align")}}-CSS-Eigenschaft auf den {{htmlelement("td")}}- und {{htmlelement("th")}}-Elementen, da dieses Attribut veraltet ist.
+  - : Gibt die vertikale Ausrichtung jeder Spaltenzelle an. Die mög<裔®›傳roty】lićtle`bottom都 `middle`, und `top`. Beachten Sie, dass dieses Attribut die im übergeordneten {{HTMLElement("colgroup")}}-Element angegebene [`valign`](/de/docs/Web/HTML/Reference/Elements/colgroup#valign)-Zuordnung überschreibt. Verwenden Sie stattdessen die {{cssxref("vertical-align")}}-CSS-Eigenschaft auf den {{htmlelement("td")}}- und {{htmlelement("th")}}-Elementen, da dieses Attribut veraltet ist.
 
     > [!NOTE]
     > Das Setzen von `vertical-align` auf das `<col>`-Element hat keine Wirkung, da `<col>` keine Nachfolger hat und daher keine Elemente von ihm erben.
