@@ -1,16 +1,16 @@
 ---
-title: "RTCPeerConnection: Methode getConfiguration()"
+title: "RTCPeerConnection: getConfiguration()-Methode"
 short-title: getConfiguration()
 slug: Web/API/RTCPeerConnection/getConfiguration
 l10n:
-  sourceCommit: 20c51db7895b1b6f41d4fa90e71830f4b6678eea
+  sourceCommit: c486da8298cdfdba0556a190d8e3f92e9aa117bb
 ---
 
 {{APIRef("WebRTC")}}
 
-Die **`getConfiguration()`**-Methode der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)-Schnittstelle gibt ein Objekt zurück, das die aktuelle Konfiguration der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection), auf der die Methode aufgerufen wird, angibt.
+Die **`getConfiguration()`**-Methode der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)-Schnittstelle gibt ein Objekt zurück, das die aktuelle Konfiguration der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) angibt, auf der die Methode aufgerufen wird.
 
-Die zurückgegebene Konfiguration ist die zuletzt über [`setConfiguration()`](/de/docs/Web/API/RTCPeerConnection/setConfiguration) angewandte oder, falls `setConfiguration()` nicht aufgerufen wurde, die Konfiguration, mit der die `RTCPeerConnection` erstellt wurde. Die Konfiguration enthält eine Liste der von der Verbindung verwendeten ICE-Server, Informationen über Transportrichtlinien und Identitätsinformationen.
+Die zurückgegebene Konfiguration ist die zuletzt über [`setConfiguration()`](/de/docs/Web/API/RTCPeerConnection/setConfiguration) angewandte Konfiguration, oder, wenn `setConfiguration()` nicht aufgerufen wurde, die Konfiguration, mit der die `RTCPeerConnection` konstruiert wurde. Die Konfiguration umfasst eine Liste der von der Verbindung verwendeten ICE-Server, Informationen über Transportpolitiken und Identitätsinformationen.
 
 ## Syntax
 
@@ -24,11 +24,11 @@ Keine.
 
 ### Rückgabewert
 
-Ein Objekt, das die aktuelle Konfiguration der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) beschreibt. Siehe [`RTCPeerConnection()`](/de/docs/Web/API/RTCPeerConnection/RTCPeerConnection#parameters) für weitere Informationen über zulässige Optionen.
+Ein Objekt, das die aktuelle Konfiguration der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) beschreibt. Siehe [`RTCPeerConnection()`](/de/docs/Web/API/RTCPeerConnection/RTCPeerConnection#parameters) für weitere Informationen zu den zulässigen Optionen.
 
 ## Beispiele
 
-Dieses Beispiel fügt einer aktiven Verbindung ein neues Zertifikat hinzu, falls bereits keines verwendet wird.
+Dieses Beispiel fügt einer aktiven Verbindung ein neues Zertifikat hinzu, wenn diese nicht bereits eines verwendet.
 
 ```js
 let configuration = myPeerConnection.getConfiguration();
@@ -46,9 +46,9 @@ if (configuration.certificates?.length === 0) {
 }
 ```
 
-Dieses Beispiel ruft die aktuelle Konfiguration der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) ab und prüft dann, ob Zertifikate gesetzt sind, indem (a) überprüft wird, ob die Konfiguration einen Wert für `certificates` hat, und (b) ob deren Länge null ist.
+In diesem Beispiel wird die aktuelle Konfiguration der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) abgerufen. Dann wird überprüft, ob Zertifikate gesetzt sind, indem festgestellt wird, ob (a) die Konfiguration einen Wert für `certificates` hat und (b) ob deren Länge null ist.
 
-Wenn festgestellt wird, dass keine Zertifikate vorhanden sind, wird [`RTCPeerConnection.generateCertificate()`](/de/docs/Web/API/RTCPeerConnection/generateCertificate_static) aufgerufen, um ein neues Zertifikat zu erstellen; es wird ein Erfüllungs-Handler bereitgestellt, der ein neues Array mit dem neu erstellten Zertifikat zur aktuellen Konfiguration hinzufügt und es an [`setConfiguration()`](/de/docs/Web/API/RTCPeerConnect/setConfiguration) übergibt, um das Zertifikat zur Verbindung hinzuzufügen.
+Wenn festgestellt wird, dass keine Zertifikate vorhanden sind, wird [`RTCPeerConnection.generateCertificate()`](/de/docs/Web/API/RTCPeerConnection/generateCertificate_static) aufgerufen, um ein neues Zertifikat zu erstellen. Es wird ein Fulfillment-Handler bereitgestellt, der ein neues Array mit dem neu erstellten Zertifikat zur aktuellen Konfiguration hinzufügt und es an [`setConfiguration()`](/de/docs/Web/API/RTCPeerConnection/setConfiguration) übergibt, um das Zertifikat der Verbindung hinzuzufügen.
 
 ## Spezifikationen
 

@@ -2,12 +2,12 @@
 title: DOMMatrixReadOnly
 slug: Web/API/DOMMatrixReadOnly
 l10n:
-  sourceCommit: c783eb168e90b80e22f223d5126178ecf95b6135
+  sourceCommit: c486da8298cdfdba0556a190d8e3f92e9aa117bb
 ---
 
 {{APIRef("Geometry Interfaces")}}{{AvailableInWorkers}}
 
-Das **`DOMMatrixReadOnly`** Interface repräsentiert eine schreibgeschützte 4×4-Matrix, geeignet für 2D- und 3D-Operationen. Das [`DOMMatrix`](/de/docs/Web/API/DOMMatrix) Interface — das auf `DOMMatrixReadOnly` basiert — fügt [Mutabilität](https://en.wikipedia.org/wiki/Immutable_object) hinzu, wodurch Sie die Matrix nach ihrer Erstellung ändern können.
+Das **`DOMMatrixReadOnly`**-Interface stellt eine schreibgeschützte 4×4-Matrix dar, die für 2D- und 3D-Operationen geeignet ist. Das [`DOMMatrix`](/de/docs/Web/API/DOMMatrix)-Interface — das auf `DOMMatrixReadOnly` basiert — fügt [Mutabilität](https://en.wikipedia.org/wiki/Immutable_object) hinzu, wodurch Sie die Matrix nach ihrer Erstellung ändern können.
 
 Dieses Interface sollte innerhalb von [Web-Workern](/de/docs/Web/API/Web_Workers_API) verfügbar sein, obwohl einige Implementierungen dies noch nicht erlauben.
 
@@ -16,19 +16,19 @@ Dieses Interface sollte innerhalb von [Web-Workern](/de/docs/Web/API/Web_Workers
 - [`DOMMatrixReadOnly()`](/de/docs/Web/API/DOMMatrixReadOnly/DOMMatrixReadOnly)
   - : Erstellt ein neues `DOMMatrixReadOnly`-Objekt.
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
 _Dieses Interface erbt keine Eigenschaften._
 
 - [`DOMMatrixReadOnly.is2D`](/de/docs/Web/API/DOMMatrixReadOnly/is2D) {{ReadOnlyInline}}
-  - : Ein boolesches Flag, dessen Wert `true` ist, wenn die Matrix als 2D-Matrix initialisiert wurde. Wenn `false`, ist die Matrix 3D.
+  - : Ein Boolean-Flag, dessen Wert `true` ist, wenn die Matrix als 2D-Matrix initialisiert wurde. Wenn `false`, ist die Matrix 3D.
 - [`DOMMatrixReadOnly.isIdentity`](/de/docs/Web/API/DOMMatrixReadOnly/isIdentity) {{ReadOnlyInline}}
-  - : Ein Boolean, dessen Wert `true` ist, wenn die Matrix eine [Identitätsmatrix](https://en.wikipedia.org/wiki/Identity_matrix) ist.
+  - : Ein Boolean, dessen Wert `true` ist, wenn die Matrix eine [Einheitsmatrix](https://en.wikipedia.org/wiki/Identity_matrix) ist.
 - `m11`, `m12`, `m13`, `m14`, `m21`, `m22`, `m23`, `m24`, `m31`, `m32`, `m33`, `m34`, `m41`, `m42`, `m43`, `m44`
-  - : Gleitkommazahlen mit doppelter Genauigkeit, die jede Komponente einer 4×4-Matrix darstellen, wobei `m11` bis `m14` die erste Spalte sind, `m21` bis `m24` die zweite Spalte, und so weiter.
+  - : Doppelt-präzise Fließkommazahlen, die jede Komponente einer 4×4-Matrix darstellen, wobei `m11` bis `m14` die erste Spalte sind, `m21` bis `m24` die zweite Spalte und so weiter.
 - `a`, `b`, `c`, `d`, `e`, `f`
 
-  - : Gleitkommazahlen mit doppelter Genauigkeit, die die Komponenten einer 4×4-Matrix darstellen, die erforderlich sind, um 2D-Rotationen und -Übersetzungen durchzuführen. Diese sind Aliase für bestimmte Komponenten einer 4×4-Matrix, wie unten gezeigt.
+  - : Doppelt-präzise Fließkommazahlen, die die Komponenten einer 4×4-Matrix darstellen, die erforderlich sind, um 2D-Rotation und Translation durchzuführen. Diese sind Aliasse für spezifische Komponenten einer 4×4-Matrix, wie unten gezeigt.
 
     | 2D  | 3D-Äquivalent |
     | --- | ------------- |
@@ -39,55 +39,55 @@ _Dieses Interface erbt keine Eigenschaften._
     | `e` | `m41`         |
     | `f` | `m42`         |
 
-## Instanzmethoden
+## Instanz-Methoden
 
-_Dieses Interface erbt keine Methoden. Keine der folgenden Methoden ändern die ursprüngliche Matrix._
+_Dieses Interface erbt keine Methoden. Keine der folgenden Methoden verändert die ursprüngliche Matrix._
 
 - [`DOMMatrixReadOnly.flipX()`](/de/docs/Web/API/DOMMatrixReadOnly/flipX)
-  - : Gibt eine neue [`DOMMatrix`](/de/docs/Web/API/DOMMatrix) zurück, die durch das Spiegeln der Quellmatrix um ihre X-Achse erstellt wurde. Dies entspricht der Multiplikation der Matrix mit `DOMMatrix(-1, 0, 0, 1, 0, 0)`. Die ursprüngliche Matrix wird nicht modifiziert.
+  - : Gibt eine neue [`DOMMatrix`](/de/docs/Web/API/DOMMatrix) zurück, die erstellt wurde, indem die Quellmatrix entlang ihrer X-Achse gespiegelt wird. Dies entspricht der Multiplikation der Matrix mit `DOMMatrix(-1, 0, 0, 1, 0, 0)`. Die ursprüngliche Matrix wird nicht geändert.
 - [`DOMMatrixReadOnly.flipY()`](/de/docs/Web/API/DOMMatrixReadOnly/flipY)
-  - : Gibt eine neue [`DOMMatrix`](/de/docs/Web/API/DOMMatrix) zurück, die durch das Spiegeln der Quellmatrix um ihre Y-Achse erstellt wurde. Dies entspricht der Multiplikation der Matrix mit `DOMMatrix(1, 0, 0, -1, 0, 0)`. Die ursprüngliche Matrix wird nicht modifiziert.
+  - : Gibt eine neue [`DOMMatrix`](/de/docs/Web/API/DOMMatrix) zurück, die erstellt wurde, indem die Quellmatrix entlang ihrer Y-Achse gespiegelt wird. Dies entspricht der Multiplikation der Matrix mit `DOMMatrix(1, 0, 0, -1, 0, 0)`. Die ursprüngliche Matrix wird nicht geändert.
 - [`DOMMatrixReadOnly.inverse()`](/de/docs/Web/API/DOMMatrixReadOnly/inverse)
-  - : Gibt eine neue [`DOMMatrix`](/de/docs/Web/API/DOMMatrix) zurück, die durch Invertieren der Quellmatrix erstellt wurde. Die ursprüngliche Matrix wird nicht verändert.
+  - : Gibt eine neue [`DOMMatrix`](/de/docs/Web/API/DOMMatrix) zurück, die erstellt wurde, indem die Quellmatrix invertiert wird. Die ursprüngliche Matrix wird nicht verändert.
 - [`DOMMatrixReadOnly.multiply()`](/de/docs/Web/API/DOMMatrixReadOnly/multiply)
-  - : Gibt eine neue [`DOMMatrix`](/de/docs/Web/API/DOMMatrix) zurück, die durch Berechnen des Skalarprodukts der Quellmatrix und der angegebenen Matrix erstellt wurde. Die ursprüngliche Matrix wird nicht geändert.
+  - : Gibt eine neue [`DOMMatrix`](/de/docs/Web/API/DOMMatrix) zurück, die erstellt wurde, indem das Skalarprodukt der Quellmatrix und der angegebenen Matrix berechnet wird. Die ursprüngliche Matrix ist nicht
 - [`DOMMatrixReadOnly.rotateAxisAngle()`](/de/docs/Web/API/DOMMatrixReadOnly/rotateAxisAngle)
-  - : Gibt eine neue [`DOMMatrix`](/de/docs/Web/API/DOMMatrix) zurück, die durch Drehen der Quellmatrix um den gegebenen Winkel um den spezifizierten Vektor erstellt wurde. Die ursprüngliche Matrix wird nicht modifiziert.
+  - : Gibt eine neue [`DOMMatrix`](/de/docs/Web/API/DOMMatrix) zurück, die erstellt wurde, indem die Quellmatrix um den gegebenen Winkel um den angegebenen Vektor rotiert wird. Die ursprüngliche Matrix wird nicht geändert.
 - [`DOMMatrixReadOnly.rotate()`](/de/docs/Web/API/DOMMatrixReadOnly/rotate)
-  - : Gibt eine neue [`DOMMatrix`](/de/docs/Web/API/DOMMatrix) zurück, die durch Drehen der Quellmatrix um jede ihrer Achsen um die angegebene Anzahl von Grad erstellt wurde. Die ursprüngliche Matrix wird nicht verändert.
+  - : Gibt eine neue [`DOMMatrix`](/de/docs/Web/API/DOMMatrix) zurück, die erstellt wurde, indem die Quellmatrix um jeden ihrer Achsen um die angegebenen Grad gedreht wird. Die ursprüngliche Matrix wird nicht verändert.
 - [`DOMMatrixReadOnly.rotateFromVector()`](/de/docs/Web/API/DOMMatrixReadOnly/rotateFromVector)
-  - : Gibt eine neue [`DOMMatrix`](/de/docs/Web/API/DOMMatrix) zurück, die durch Drehen der Quellmatrix um den Winkel zwischen dem spezifizierten Vektor und `(1, 0)` erstellt wurde. Die ursprüngliche Matrix wird nicht modifiziert.
+  - : Gibt eine neue [`DOMMatrix`](/de/docs/Web/API/DOMMatrix) zurück, die erstellt wurde, indem die Quellmatrix um den Winkel zwischen dem angegebenen Vektor und `(1, 0)` rotiert wird. Die ursprüngliche Matrix wird nicht verändert.
 - [`DOMMatrixReadOnly.scale()`](/de/docs/Web/API/DOMMatrixReadOnly/scale)
-  - : Gibt eine neue [`DOMMatrix`](/de/docs/Web/API/DOMMatrix) zurück, die durch Skalieren der Quellmatrix um den für jede Achse angegebenen Betrag erstellt wurde, zentriert auf den gegebenen Ursprung. Standardmäßig werden die X- und Z-Achse mit `1` skaliert, und die Y-Achse hat keinen Standard-Skalierungswert. Der Standardursprung ist `(0, 0, 0)`. Die ursprüngliche Matrix wird nicht modifiziert.
+  - : Gibt eine neue [`DOMMatrix`](/de/docs/Web/API/DOMMatrix) zurück, die erstellt wurde, indem die Quellmatrix um den für jede Achse angegebenen Betrag skaliert wird, zentriert auf dem angegebenen Ursprung. Standardmäßig werden die X- und Z-Achsen um `1` skaliert und die Y-Achse hat keinen standardmäßigen Skalierungswert. Der Standardursprung ist `(0, 0, 0)`. Die ursprüngliche Matrix wird nicht verändert.
 - [`DOMMatrixReadOnly.scale3d()`](/de/docs/Web/API/DOMMatrixReadOnly/scale3d)
-  - : Gibt eine neue [`DOMMatrix`](/de/docs/Web/API/DOMMatrix) zurück, die durch Skalieren der Quell-3D-Matrix um den angegebenen Faktor entlang aller Achsen erstellt wurde, zentriert auf den spezifizierten Ursprungspunkt. Der Standardursprung ist `(0, 0, 0)`. Die ursprüngliche Matrix wird nicht modifiziert.
+  - : Gibt eine neue [`DOMMatrix`](/de/docs/Web/API/DOMMatrix) zurück, die erstellt wurde, indem die Quellmatrix in 3D um den gegebenen Faktor entlang aller Achsen skaliert wird, zentriert auf dem angegebenen Ursprungspunkt. Der Standardursprung ist `(0, 0, 0)`. Die ursprüngliche Matrix wird nicht verändert.
 - [`DOMMatrixReadOnly.scaleNonUniform()`](/de/docs/Web/API/DOMMatrixReadOnly/scaleNonUniform) {{deprecated_inline}}
-  - : Gibt eine neue [`DOMMatrix`](/de/docs/Web/API/DOMMatrix) zurück, die durch Anwenden der angegebenen Skalierung auf die X-, Y- und Z-Achsen erstellt wurde, zentriert auf den gegebenen Ursprung. Standardmäßig sind die Skalierungsfaktoren für die Y- und Z-Achse jeweils `1`, der Skalierungsfaktor für X muss jedoch angegeben werden. Der Standardursprung ist `(0, 0, 0)`. Die ursprüngliche Matrix wird nicht geändert.
+  - : Gibt eine neue [`DOMMatrix`](/de/docs/Web/API/DOMMatrix) zurück, die erstellt wurde, indem die angegebene Skalierungen auf den X-, Y- und Z-Achsen angewendet werden, zentriert auf dem angegebenen Ursprung. Standardmäßig sind die Skalierungsfaktoren für die Y- und Z-Achse beide `1`, aber der Skalierungsfaktor für X muss angegeben werden. Der Standardursprung ist `(0, 0, 0)`. Die ursprüngliche Matrix wird nicht verändert.
 - [`DOMMatrixReadOnly.skewX()`](/de/docs/Web/API/DOMMatrixReadOnly/skewX)
-  - : Gibt eine neue [`DOMMatrix`](/de/docs/Web/API/DOMMatrix) zurück, die durch Anwenden der angegebenen Schertransformation auf die Quellmatrix entlang ihrer X-Achse erstellt wurde. Die ursprüngliche Matrix wird nicht modifiziert.
+  - : Gibt eine neue [`DOMMatrix`](/de/docs/Web/API/DOMMatrix) zurück, die erstellt wurde, indem die angegebene Schertransformation auf die Quellmatrix entlang ihrer X-Achse angewendet wird. Die ursprüngliche Matrix wird nicht verändert.
 - [`DOMMatrixReadOnly.skewY()`](/de/docs/Web/API/DOMMatrixReadOnly/skewY)
-  - : Gibt eine neue [`DOMMatrix`](/de/docs/Web/API/DOMMatrix) zurück, die durch Anwenden der angegebenen Schertransformation auf die Quellmatrix entlang ihrer Y-Achse erstellt wurde. Die ursprüngliche Matrix wird nicht modifiziert.
+  - : Gibt eine neue [`DOMMatrix`](/de/docs/Web/API/DOMMatrix) zurück, die erstellt wurde, indem die angegebene Schertransformation auf die Quellmatrix entlang ihrer Y-Achse angewendet wird. Die ursprüngliche Matrix wird nicht verändert.
 - [`DOMMatrixReadOnly.toFloat32Array()`](/de/docs/Web/API/DOMMatrixReadOnly/toFloat32Array)
-  - : Gibt ein neues {{jsxref("Float32Array")}} von Gleitkommazahlen (32-Bit) mit einfacher Genauigkeit zurück, das alle 16 Elemente enthält, aus denen sich die Matrix zusammensetzt.
+  - : Gibt ein neues {{jsxref("Float32Array")}} von einfach-präzisen Fließkommazahlen zurück, das alle 16 Elemente enthält, die die Matrix bilden.
 - [`DOMMatrixReadOnly.toFloat64Array()`](/de/docs/Web/API/DOMMatrixReadOnly/toFloat64Array)
-  - : Gibt ein neues {{jsxref("Float64Array")}} von Gleitkommazahlen (64-Bit) mit doppelter Genauigkeit zurück, das alle 16 Elemente enthält, aus denen sich die Matrix zusammensetzt.
+  - : Gibt ein neues {{jsxref("Float64Array")}} von doppelt-präzisen Fließkommazahlen zurück, das alle 16 Elemente enthält, die die Matrix bilden.
 - [`DOMMatrixReadOnly.toJSON()`](/de/docs/Web/API/DOMMatrixReadOnly/toJSON)
-  - : Gibt eine JSON-Repräsentation des `DOMMatrixReadOnly`-Objekts zurück.
+  - : Gibt eine JSON-Darstellung des `DOMMatrixReadOnly`-Objekts zurück.
 - [`DOMMatrixReadOnly.toString()`](/de/docs/Web/API/DOMMatrixReadOnly/toString)
-  - : Erstellt und gibt eine Zeichenkettenrepräsentation der Matrix im CSS-Matrix-Syntax zurück, die die entsprechende CSS-Matrix-Notation verwendet.
+  - : Erstellt und gibt eine Zeichenkettendarstellung der Matrix in CSS-Matrix-Notation zurück, indem die entsprechende CSS-Matrix-Notation verwendet wird.
 - [`DOMMatrixReadOnly.transformPoint()`](/de/docs/Web/API/DOMMatrixReadOnly/transformPoint)
-  - : Transformiert den angegebenen Punkt mit der Matrix und gibt ein neues [`DOMPoint`](/de/docs/Web/API/DOMPoint)-Objekt zurück, das den transformierten Punkt enthält. Weder die Matrix noch der ursprüngliche Punkt werden verändert.
+  - : Transformiert den angegebenen Punkt unter Verwendung der Matrix und gibt ein neues [`DOMPoint`](/de/docs/Web/API/DOMPoint)-Objekt zurück, das den transformierten Punkt enthält. Weder die Matrix noch der ursprüngliche Punkt werden verändert.
 - [`DOMMatrixReadOnly.translate()`](/de/docs/Web/API/DOMMatrixReadOnly/translate)
-  - : Gibt eine neue [`DOMMatrix`](/de/docs/Web/API/DOMMatrix) zurück, die eine Matrix enthält, die durch Übersetzen der Quellmatrix mit dem angegebenen Vektor berechnet wurde. Standardmäßig ist der Vektor `(0, 0, 0)`. Die ursprüngliche Matrix wird nicht geändert.
+  - : Gibt eine neue [`DOMMatrix`](/de/docs/Web/API/DOMMatrix) zurück, die eine durch Translation der Quellmatrix unter Verwendung des angegebenen Vektors berechnete Matrix enthält. Standardmäßig ist der Vektor `(0, 0, 0)`. Die ursprüngliche Matrix wird nicht verändert.
 
 ## Statische Methoden
 
-- [`fromFloat32Array()`](/de/docs/Web/API/DOMMatrixReadOnly/fromFloat32Array)
-  - : Erstellt ein neues veränderbares `DOMMatrix`-Objekt aus einem Array von Gleitkommazahlen (32-Bit) mit einfacher Genauigkeit. Wenn das Array sechs Werte hat, ist das Ergebnis eine 2D-Matrix; wenn das Array 16 Werte hat, ist das Ergebnis eine 3D-Matrix. Andernfalls wird eine {{jsxref("TypeError")}}-Ausnahme ausgelöst.
-- [`fromFloat64Array()`](/de/docs/Web/API/DOMMatrixReadOnly/fromFloat64Array)
-  - : Erstellt ein neues veränderbares `DOMMatrix`-Objekt aus einem Array von Gleitkommazahlen (64-Bit) mit doppelter Genauigkeit. Wenn das Array sechs Werte hat, ist das Ergebnis eine 2D-Matrix; wenn das Array 16 Werte hat, ist das Ergebnis eine 3D-Matrix. Andernfalls wird eine {{jsxref("TypeError")}}-Ausnahme ausgelöst.
-- [`fromMatrix()`](/de/docs/Web/API/DOMMatrixReadOnly/fromMatrix)
-  - : Erstellt ein neues veränderbares `DOMMatrix`-Objekt aus einer bestehenden Matrix oder einem Objekt, das die Werte für seine Eigenschaften bereitstellt. Wenn keine Matrix angegeben ist, wird die Matrix mit jedem Element auf `0` initialisiert, _außer_ der unteren rechten Ecke und dem Element unmittelbar darüber und links daneben: `m33` und `m34`. Diese haben den Standardwert `1`.
+- [`fromFloat32Array()`](/de/docs/Web/API/DOMMatrixReadOnly/fromFloat32Array_static)
+  - : Erstellt ein neues, veränderliches `DOMMatrix`-Objekt aus einem Array von einfach-präzisen (32-Bit) Fließkommazahlen. Hat das Array sechs Werte, ist das Ergebnis eine 2D-Matrix; hat das Array 16 Werte, ist das Ergebnis eine 3D-Matrix. Andernfalls wird eine {{jsxref("TypeError")}}-Ausnahme ausgelöst.
+- [`fromFloat64Array()`](/de/docs/Web/API/DOMMatrixReadOnly/fromFloat64Array_static)
+  - : Erstellt ein neues, veränderliches `DOMMatrix`-Objekt aus einem Array von doppelt-präzisen (64-Bit) Fließkommazahlen. Hat das Array sechs Werte, ist das Ergebnis eine 2D-Matrix; hat das Array 16 Werte, ist das Ergebnis eine 3D-Matrix. Andernfalls wird eine {{jsxref("TypeError")}}-Ausnahme ausgelöst.
+- [`fromMatrix()`](/de/docs/Web/API/DOMMatrixReadOnly/fromMatrix_static)
+  - : Erstellt ein neues, veränderliches `DOMMatrix`-Objekt basierend auf einer vorhandenen Matrix oder einem Objekt, das die Werte für seine Eigenschaften bereitstellt. Wenn keine Matrix angegeben ist, wird die Matrix mit jedem Element auf `0` initialisiert, _außer_ die Ecke unten rechts und das Element unmittelbar darüber und links davon: `m33` und `m34`. Diese haben den Standardwert `1`.
 
 ## Spezifikationen
 

@@ -2,25 +2,22 @@
 title: HTMLHeadElement
 slug: Web/API/HTMLHeadElement
 l10n:
-  sourceCommit: 387d0d4d8690c0d2c9db1b85eae28ffea0f3ac1f
+  sourceCommit: c486da8298cdfdba0556a190d8e3f92e9aa117bb
 ---
 
 {{APIRef("HTML DOM")}}
 
-Das **`HTMLHeadElement`**-Interface enthält die beschreibenden Informationen oder Metadaten für ein Dokument. Dieses Objekt erbt alle Eigenschaften und Methoden, die im [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Interface beschrieben sind.
+Die Schnittstelle **`HTMLHeadElement`** enthält die beschreibenden Informationen oder Metadaten für ein Dokument. Dieses Objekt erbt alle Eigenschaften und Methoden, die in der [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Schnittstelle beschrieben sind.
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
-_Erbt Eigenschaften von seinem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
-
-- [`HTMLHeadElement.profile`](/de/docs/Web/API/HTMLHeadElement/profile) {{deprecated_inline}}
-  - : Ein String, der die URIs eines oder mehrerer Metadaten-Profile (mit Leerzeichen getrennt) darstellt.
+_Keine spezifischen Eigenschaften; erbt Eigenschaften von seinem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
 ## Instanz-Methoden
 
-_Keine spezifischen Methoden; erbt Methoden von seinem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
+_Keine spezifische Methode; erbt Methoden von seinem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
 ## Spezifikationen
 
@@ -32,4 +29,4 @@ _Keine spezifischen Methoden; erbt Methoden von seinem Elternteil, [`HTMLElement
 
 ## Siehe auch
 
-- Das HTML-Element, das dieses Interface implementiert: {{HTMLElement("head")}}
+- Das HTML-Element, das diese Schnittstelle implementiert: {{HTMLElement("head")}}

@@ -2,14 +2,16 @@
 title: <xsl:processing-instruction>
 slug: Web/XML/XSLT/Reference/Element/processing-instruction
 l10n:
-  sourceCommit: 3e1b5277c6451e7d27ab628f23fb9702947a7a7b
+  sourceCommit: c5c84b62f3f1fbd46f77c940fa0cbfff649c46a1
 ---
 
 Das `<xsl:processing-instruction>`-Element schreibt eine Verarbeitungsanweisung in das Ausgabedokument.
 
 ## Syntax
 
-`<xsl:processing-instruction name=NAME> TEMPLATE </xsl:processing-instruction>`
+```xml
+<xsl:processing-instruction name=NAME>TEMPLATE</xsl:processing-instruction>
+```
 
 ### Erforderliche Attribute
 

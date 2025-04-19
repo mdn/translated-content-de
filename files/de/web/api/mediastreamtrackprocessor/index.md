@@ -2,26 +2,22 @@
 title: MediaStreamTrackProcessor
 slug: Web/API/MediaStreamTrackProcessor
 l10n:
-  sourceCommit: 62e6088450ab10db4697d190dd54d09dd9a0791a
+  sourceCommit: c486da8298cdfdba0556a190d8e3f92e9aa117bb
 ---
 
-{{APIRef("Insertable Streams for MediaStreamTrack API")}}{{SeeCompatTable}}
+{{APIRef("Insertable Streams for MediaStreamTrack API")}}{{SeeCompatTable}}{{AvailableInWorkers("dedicated")}}
 
 > [!WARNING]
-> Browser unterscheiden sich darin, in welchem globalen Kontext sie diese Schnittstelle bereitstellen (z. B. nur Window in einigen Browsern und nur dedizierten Workers in anderen), was sie inkompatibel macht. Beachten Sie dies beim Vergleichen der Unterstützung.
+> Browser unterscheiden sich darin, in welchem globalen Kontext sie diese Schnittstelle bereitstellen (z. B. nur im Fenster in einigen Browsern und nur im dedizierten Worker in anderen), wodurch sie inkompatibel werden. Beachten Sie dies beim Vergleich der Unterstützung.
 
-Die **`MediaStreamTrackProcessor`** Schnittstelle der [Insertable Streams for MediaStreamTrack API](/de/docs/Web/API/Insertable_Streams_for_MediaStreamTrack_API) nutzt die Quelle eines Video-[`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)-Objekts und erzeugt einen Strom von [`VideoFrame`](/de/docs/Web/API/VideoFrame)s.
-
-Diese Schnittstelle ist nur in [`dedizierten Workers`](/de/docs/Web/API/Worker) verfügbar (außer wie angegeben).
+Die **`MediaStreamTrackProcessor`**-Schnittstelle der [Insertable Streams für MediaStreamTrack API](/de/docs/Web/API/Insertable_Streams_for_MediaStreamTrack_API) verarbeitet die Quelle eines Video-`MediaStreamTrack`-Objekts und erzeugt einen Stream von [`VideoFrame`](/de/docs/Web/API/VideoFrame)-Objekten.
 
 ## Konstruktor
 
 - [`MediaStreamTrackProcessor()`](/de/docs/Web/API/MediaStreamTrackProcessor/MediaStreamTrackProcessor) {{Experimental_Inline}}
-
   - : Erstellt ein neues `MediaStreamTrackProcessor`-Objekt.
-
 - [`window.MediaStreamTrackProcessor()`](/de/docs/Web/API/MediaStreamTrackProcessor/MediaStreamTrackProcessor) {{Experimental_Inline}} {{Non-standard_Inline}}
-  - : Erstellt ein neues `MediaStreamTrackProcessor`-Objekt auf dem {{Glossary("main_thread", "Main-Thread")}}, das sowohl Video als auch Audio verarbeiten kann.
+  - : Erstellt ein neues `MediaStreamTrackProcessor`-Objekt im {{Glossary("main_thread", "Main-Thread")}}, das sowohl Video als auch Audio verarbeiten kann.
 
 ## Instanzeigenschaften
 
@@ -30,7 +26,7 @@ Diese Schnittstelle ist nur in [`dedizierten Workers`](/de/docs/Web/API/Worker) 
 
 ## Beispiele
 
-Das folgende Beispiel stammt aus dem Artikel [Unbundling MediaStreamTrackProcessor and VideoTrackGenerator](https://blog.mozilla.org/webrtc/unbundling-mediastreamtrackprocessor-and-videotrackgenerator/). Es [überträgt](/de/docs/Web/API/Web_Workers_API/Transferable_objects) einen Kamera-[`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) zu einem Worker zur Verarbeitung. Der Worker erstellt eine Pipeline, die einen Sepia-Filter auf die Videoframes anwendet und sie spiegelt. Die Pipeline mündet in einen [`VideoTrackGenerator`](/de/docs/Web/API/VideoTrackGenerator), dessen [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) zurückübertragen und abgespielt wird. Die Medien fließen nun in Echtzeit durch die Transformation abseits des {{Glossary("main_thread", "Main-Threads")}}.
+Das folgende Beispiel stammt aus dem Artikel [Unbundling MediaStreamTrackProcessor and VideoTrackGenerator](https://blog.mozilla.org/webrtc/unbundling-mediastreamtrackprocessor-and-videotrackgenerator/). Es [überträgt](/de/docs/Web/API/Web_Workers_API/Transferable_objects) einen Kamera-`MediaStreamTrack` an einen Worker zur Verarbeitung. Der Worker erstellt eine Pipeline, die einen sepiafarbenen Filter auf die Videobilder anwendet und sie spiegelt. Die Pipeline endet in einem [`VideoTrackGenerator`](/de/docs/Web/API/VideoTrackGenerator), dessen `MediaStreamTrack` zurückübertragen und abgespielt wird. Die Medien fließen nun in Echtzeit durch die Transformation außerhalb des {{Glossary("main_thread", "Main-Thread")}}.
 
 ```js
 const stream = await navigator.mediaDevices.getUserMedia({ video: true });
@@ -54,11 +50,6 @@ onmessage = async ({ data: { track } }) => {
 };
 ```
 
-## Siehe auch
-
-- [`VideoTrackGenerator`](/de/docs/Web/API/VideoTrackGenerator)
-- Der ältere Artikel [Insertable streams for MediaStreamTrack](https://developer.chrome.com/docs/capabilities/web-apis/mediastreamtrack-insertable-media-processing) wurde geschrieben, bevor die API auf Workers und Video beschränkt wurde (achten Sie auf die Verwendung der nicht standardisierten Version von [`MediaStreamTrackProcessor`](/de/docs/Web/API/MediaStreamTrackProcessor), die auf dem {{Glossary("main_thread", "Main-Thread")}} blockiert)
-
 ## Spezifikationen
 
 {{Specifications}}
@@ -66,3 +57,10 @@ onmessage = async ({ data: { track } }) => {
 ## Browser-Kompatibilität
 
 {{Compat}}
+
+## Siehe auch
+
+- [`VideoTrackGenerator`](/de/docs/Web/API/VideoTrackGenerator)
+- [Insertable streams für MediaStreamTrack](https://developer.chrome.com/docs/capabilities/web-apis/mediastreamtrack-insertable-media-processing) auf developer.chrome.com
+  > [!NOTE]
+  > Dieser Artikel wurde geschrieben, bevor die API auf Worker und Video beschränkt wurde. Achten Sie auf die Verwendung der nicht standardisierten Version von `MediaStreamTrackProcessor`, die den {{Glossary("main_thread", "Main-Thread")}} blockiert.

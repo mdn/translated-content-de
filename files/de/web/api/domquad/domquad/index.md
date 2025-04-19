@@ -3,14 +3,14 @@ title: "DOMQuad: DOMQuad() Konstruktor"
 short-title: DOMQuad()
 slug: Web/API/DOMQuad/DOMQuad
 l10n:
-  sourceCommit: 30c67624659d33887ea64cb8e08766fed55b2491
+  sourceCommit: c486da8298cdfdba0556a190d8e3f92e9aa117bb
 ---
 
 {{APIRef("Geometry Interfaces")}}{{AvailableInWorkers}}
 
-Der **`DOMQuad()`** Konstruktor erstellt und gibt ein neues [`DOMQuad`](/de/docs/Web/API/DOMQuad)-Objekt zurück, basierend auf den Werten für einige oder alle seiner Eigenschaften.
+Der **`DOMQuad()`** Konstruktor erzeugt und gibt ein neues [`DOMQuad`](/de/docs/Web/API/DOMQuad)-Objekt zurück, unter Verwendung der Werte für einige oder alle seiner Eigenschaften.
 
-Sie können auch ein `DOMQuad` erstellen, indem Sie die statische Funktion [`DOMQuad.fromRect()`](/de/docs/Web/API/DOMQuad/fromRect) oder [`DOMQuad.fromQuad()`](/de/docs/Web/API/DOMQuad/fromQuad) aufrufen. Diese Funktion akzeptiert jedes Objekt mit den erforderlichen Parametern, einschließlich eines `DOMQuad`, [`DOMPoint`](/de/docs/Web/API/DOMPoint) oder [`DOMPointReadOnly`](/de/docs/Web/API/DOMPointReadOnly).
+Sie können auch ein `DOMQuad` erstellen, indem Sie die statische Funktion [`DOMQuad.fromRect()`](/de/docs/Web/API/DOMQuad/fromRect_static) oder [`DOMQuad.fromQuad()`](/de/docs/Web/API/DOMQuad/fromQuad_static) aufrufen. Diese Funktion akzeptiert jedes Objekt mit den erforderlichen Parametern, einschließlich eines `DOMQuad`, [`DOMPoint`](/de/docs/Web/API/DOMPoint) oder [`DOMPointReadOnly`](/de/docs/Web/API/DOMPointReadOnly).
 
 ## Syntax
 
@@ -35,7 +35,7 @@ new DOMQuad(p1, p2, p3, p4)
 
 ## Beispiele
 
-Dieses Beispiel erstellt ein `DOMQuad` unter Verwendung eines [`DOMPoint`](/de/docs/Web/API/DOMPoint) und drei weiterer Punkte, die als Objekte definiert sind.
+Dieses Beispiel erstellt ein `DOMQuad` unter Verwendung eines [`DOMPoint`](/de/docs/Web/API/DOMPoint) und drei weiteren als Objekte definierten Punkten.
 
 ```js
 const point = new DOMPoint(2, 0);
