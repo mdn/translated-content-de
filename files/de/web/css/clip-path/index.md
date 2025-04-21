@@ -2,12 +2,12 @@
 title: clip-path
 slug: Web/CSS/clip-path
 l10n:
-  sourceCommit: c60addb49f4c70501535f375afe984b9e7b11203
+  sourceCommit: 1e0a16464b11cde9eddbb9795fe74e737dba0598
 ---
 
 {{CSSRef}}
 
-Die **`clip-path`** [CSS](/de/docs/Web/CSS) Eigenschaft erstellt einen Ausschnittbereich, der festlegt, welcher Teil eines Elements angezeigt werden soll. Teile, die sich innerhalb des Bereichs befinden, werden angezeigt, während diejenigen außerhalb ausgeblendet werden.
+Die **`clip-path`** [CSS](/de/docs/Web/CSS) Eigenschaft erzeugt ein Beschnittsbereich, der festlegt, welcher Teil eines Elements angezeigt werden soll. Teile, die sich innerhalb des Bereichs befinden, werden angezeigt, während diejenigen außerhalb ausgeblendet werden.
 
 {{InteractiveExample("CSS Demo: clip-path")}}
 
@@ -113,57 +113,57 @@ clip-path: revert-layer;
 clip-path: unset;
 ```
 
-Die `clip-path`-Eigenschaft wird als einer oder eine Kombination der unten aufgeführten Werte angegeben.
+Die `clip-path` Eigenschaft wird als einer oder eine Kombination der unten aufgelisteten Werte angegeben.
 
 ### Werte
 
 - `<clip-source>`
-  - : Ein {{cssxref("url_value", "&lt;url&gt;")}}, das auf ein [SVG](/de/docs/Web/SVG) {{SVGElement("clipPath")}}-Element verweist.
+  - : Ein {{cssxref("url_value", "&lt;url&gt;")}} der auf ein [SVG](/de/docs/Web/SVG) {{SVGElement("clipPath")}} Element verweist.
 - {{cssxref("&lt;basic-shape&gt;")}}
 
-  - : Eine Form, deren Größe und Position durch den `<geometry-box>`-Wert definiert ist. Wenn keine Geometrie-Box angegeben ist, wird die `border-box` als Referenz verwendet. Einer der folgenden Werte:
+  - : Eine Form, deren Größe und Position durch den `<geometry-box>` Wert definiert wird. Wenn keine Geometrie-Box angegeben ist, wird die `border-box` als Referenz verwendet. Eine der folgenden:
 
     - {{cssxref("basic-shape/inset","inset()")}}
-      - : Definiert ein Rechteck mit Einzug.
+      - : Definiert ein eingefügtes Rechteck.
     - {{cssxref("basic-shape/circle","circle()")}}
-      - : Definiert einen Kreis mit Radius und Position.
+      - : Definiert einen Kreis mit einem Radius und einer Position.
     - {{cssxref("basic-shape/ellipse","ellipse()")}}
       - : Definiert eine Ellipse mit zwei Radien und einer Position.
     - {{cssxref("basic-shape/polygon","polygon()")}}
-      - : Definiert ein Polygon mit einer SVG-Füllregel und einer Menge von Eckpunkten.
+      - : Definiert ein Polygon unter Verwendung einer SVG-Füllregel und einer Reihe von Eckpunkten.
     - {{cssxref("basic-shape/path","path()")}}
-      - : Definiert eine Form mit einer optionalen SVG-Füllregel und einer SVG-Pfaddefinition.
+      - : Definiert eine Form unter Verwendung einer optionalen SVG-Füllregel und einer SVG-Pfaddarstellung.
     - {{cssxref("basic-shape/rect","rect()")}}
-      - : Definiert ein Rechteck basierend auf den angegebenen Abständen zu den Kanten der Referenzbox.
+      - : Definiert ein Rechteck mit den angegebenen Abständen von den Rändern der Referenzbox.
     - {{cssxref("basic-shape/shape","shape()")}}
-      - : Definiert eine Form mit optionaler SVG-Füllregel und Befehlen zur Erstellung von Linien, Kurven und Bögen.
+      - : Definiert eine Form mit einer optionalen SVG-Füllregel und Formbefehlen für Linien, Kurven und Bögen.
     - {{cssxref("basic-shape/xywh","xywh()")}}
-      - : Definiert ein Rechteck anhand der angegebenen Abstände von den oberen und linken Kanten der Referenzbox sowie der angegebenen Breite und Höhe des Rechtecks.
+      - : Definiert ein Rechteck mit den angegebenen Abständen von den oberen und linken Kanten der Referenzbox und den angegebenen Breiten- und Höhenwerten des Rechtecks.
 
 - `<geometry-box>`
 
-  - : Wenn in Kombination mit einer `<basic-shape>` angegeben, definiert dieser Wert die Referenzbox für die Grundform. Wenn er alleine angegeben ist, bewirken die Kanten der angegebenen Box, einschließlich jeder Eckenformung (wie ein {{cssxref("border-radius")}}), dass sie der Ausschnittpfad wird. Die Geometrie-Box kann einer der folgenden Werte sein:
+  - : Wenn in Kombination mit einer `<basic-shape>` angegeben, definiert dieser Wert die Referenzbox für die Grundform. Wenn er alleine angegeben wird, bewirken die Kanten der genannten Box, einschließlich jeglicher Eckformgebung (wie ein {{cssxref("border-radius")}}) die Beschnittspfad. Die Geometrie-Box kann einen der folgenden Werte annehmen:
 
     - `margin-box`
-      - : Verwendet den [Margin-Box](/de/docs/Web/CSS/CSS_shapes/From_box_values#margin-box) als Referenzbox.
+      - : Verwendet die [Margin-Box](/de/docs/Web/CSS/CSS_shapes/From_box_values#margin-box) als Referenzbox.
     - `border-box`
-      - : Verwendet den [Border-Box](/de/docs/Web/CSS/CSS_shapes/From_box_values#border-box) als Referenzbox.
+      - : Verwendet die [Border-Box](/de/docs/Web/CSS/CSS_shapes/From_box_values#border-box) als Referenzbox.
     - `padding-box`
-      - : Verwendet den [Padding-Box](/de/docs/Web/CSS/CSS_shapes/From_box_values#padding-box) als Referenzbox.
+      - : Verwendet die [Padding-Box](/de/docs/Web/CSS/CSS_shapes/From_box_values#padding-box) als Referenzbox.
     - `content-box`
-      - : Verwendet den [Content-Box](/de/docs/Web/CSS/CSS_shapes/From_box_values#content-box) als Referenzbox.
+      - : Verwendet die [Content-Box](/de/docs/Web/CSS/CSS_shapes/From_box_values#content-box) als Referenzbox.
     - `fill-box`
-      - : Verwendet die Umrandungsbox des Objekts als Referenzbox.
+      - : Verwendet die Objektumgrenzungsbox als Referenzbox.
     - `stroke-box`
-      - : Verwendet die Umrandungsbox des Strichs als Referenzbox.
+      - : Verwendet die Strichbegrenzungsbox als Referenzbox.
     - `view-box`
-      - : Verwendet den nächsten SVG-Viewport als Referenzbox. Wenn ein {{SVGAttr("viewBox")}}-Attribut für das Element, das den SVG-Viewport erstellt, angegeben ist, wird die Referenzbox am Ursprung des durch das `viewBox`-Attribut festgelegten Koordinatensystems positioniert, und die Größe der Referenzbox wird auf die Breiten- und Höhenwerte des `viewBox`-Attributs gesetzt.
+      - : Verwendet den nächsten SVG-Ansichtsbereich als Referenzbox. Wenn ein {{SVGAttr("viewBox")}} Attribut für das Element, das den SVG-Ansichtsbereich erzeugt, angegeben wird, wird die Referenzbox am Ursprung des durch das `viewBox` Attribut festgelegten Koordinatensystems positioniert, und die Dimension der Referenzbox wird auf die Breiten- und Höhenwerte des `viewBox` Attributs gesetzt.
 
 - `none`
-  - : Es wird kein Ausschnittspfad erstellt.
+  - : Es wird kein Beschnittspfad erstellt.
 
 > [!NOTE]
-> Ein berechneter Wert, der nicht **`none`** ist, führt zur Erstellung eines neuen [Stacking-Kontexts](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_context), genauso wie CSS {{cssxref("opacity")}} für andere Werte als `1`.
+> Ein anderer berechneter Wert außer **`none`** führt zur Erstellung eines neuen [Stacking-Contexts](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_context), ähnlich wie es CSS {{cssxref("opacity")}} für Werte außer `1` tut.
 
 ## Formale Definition
 
@@ -177,7 +177,7 @@ Die `clip-path`-Eigenschaft wird als einer oder eine Kombination der unten aufge
 
 ### Formen und Geometrie-Boxen
 
-In diesem Beispiel werden zwei Dreiecke erstellt, indem ein `polygon()` als Ausschnittpfad auf {{htmlelement("div")}}-Elementen definiert wird. Jedes hat einen einfarbigen Hintergrund und eine dicke {{cssxref("border")}}. Das zweite `<div>`-Element hat seine Referenzbox auf `content-box` gesetzt:
+In diesem Beispiel werden zwei Dreiecke erstellt, indem ein `polygon()` als Beschnittspfad für {{htmlelement("div")}} Elemente definiert wird. Jedes hat einen einfarbigen Hintergrund und einen dicken {{cssxref("border")}}. Das zweite `<div>` Element hat seine Referenzbox auf `content-box` gesetzt:
 
 #### HTML
 
@@ -216,13 +216,13 @@ div:last-of-type {
 
 {{EmbedLiveSample("shapes1", "", "230")}}
 
-Für das erste Dreieck haben wir keine Referenzbox angegeben; es wird daher standardmäßig die `border-box` verwendet, mit den 0% und 100% Positionen an der Außenkante des Rahmens. Im zweiten Beispiel setzen wir die `<geometry-box>` auf `content-box`, was bedeutet, dass die Referenzbox für die Grundform die Außenkante des Inhaltsbereichs ist, der sich innerhalb der Padding-Box befindet. Da unser Beispiel kein `padding` hat, ist dies die Innenkante des Rahmens.
+Für das erste Dreieck haben wir keine Referenzbox angegeben; daher wird sie standardmäßig auf `border-box` gesetzt, mit den 0% und 100% Positionen, die sich an der Außenkante des Rahmens befinden. Im zweiten Beispiel haben wir die `<geometry-box>` auf `content-box` gesetzt, was bedeutet, dass die Referenzbox für die Grundform die Außenkante des Inhaltsbereichs ist, die sich innerhalb der Padding-Box befindet. Da unser Beispiel kein `padding` hat, ist dies die Innenkante des Rahmens.
 
 ### `shape()` versus `path()` Funktionen
 
-Aufbauend auf dem vorherigen Beispiel erstellen wir dasselbe Dreieck mit unterschiedlichen `<basic-shape>`-Werten und zeigen, wie die Funktionen {{cssxref("basic-shape/shape", "shape()")}} und {{cssxref("basic-shape/path", "path()")}} ebenfalls verwendet werden können, um Ausschnittpfade zu erstellen, wobei `shape()` eine flexibelere Lösung darstellt.
+Ausgehend vom vorherigen Beispiel erstellen wir das gleiche Dreieck mit verschiedenen `<basic-shape>` Werten, um zu zeigen, wie die {{cssxref("basic-shape/shape", "shape()")}} und {{cssxref("basic-shape/path", "path()")}} Funktionen ebenfalls verwendet werden können, um Beschnittspfade zu erstellen, wobei `shape()` eine flexiblere Lösung darstellt.
 
-Wir verwenden `path()`, um den Ausschnittpfad des ersten Elements zu definieren, und `shape()` für das zweite, wobei beide die standardmäßige `border-box` als Referenzbox nutzen:
+Wir verwenden `path()`, um den Beschnittspfad des ersten Elements zu definieren, und `shape()` für den zweiten, wobei beide die Standard-`border-box` als Referenzbox verwenden:
 
 ```css live-sample___shapes2 live-sample___shapes3
 div {
@@ -234,13 +234,13 @@ div:last-of-type {
 }
 ```
 
-Das Ergebnis ist, dass der mit der `shape()`-Funktion definierte Pfad mit dem Element wächst, während die `path()`-Version dies nicht tut:
+Dadurch wächst der mit der `shape()` Funktion definierte Pfad mit dem Element, während die `path()`-Version dies nicht tut:
 
 {{EmbedLiveSample("shapes2", "", "230")}}
 
-Da die `shape()`-Funktion die Verwendung von {{cssxref("percentage")}}-Werten (und auch {{cssxref("--*", "custom properties")}}) erlaubt, ist sie robuster.
+Da die `shape()` Funktion die Verwendung von {{cssxref("percentage")}} Werten (und [benutzerdefinierten Eigenschaften](/de/docs/Web/CSS/--*) ebenfalls) ermöglicht, ist sie robuster.
 
-Wir demonstrieren dies, indem wir die Größe des zugrunde liegenden Elements vergrößern:
+Wir demonstrieren dies, indem wir die Größe des darunterliegenden Elements erhöhen:
 
 ```css live-sample___shapes3
 div {
@@ -251,15 +251,15 @@ div {
 
 {{EmbedLiveSample("shapes3", "", "280")}}
 
-Die Sichtbarkeit oder zumindest teilweise Sichtbarkeit der vier Rahmenseiten im Ausschnittpfad-Beispiel, das mit der `shape()`-Funktion definiert ist, liegt daran, dass die Prozentwerte dem Pfad erlauben, mit dem Element zu wachsen. In der `path()`-Version wuchs das Element, aber nicht die Form. Daher sind die oberen und linken Rahmen teilweise sichtbar, während die rechten und unteren Rahmen abgeschnitten werden.
+Die Sichtbarkeit oder zumindest teilweise Sichtbarkeit der vier Rahmenseiten im Beschnittpfadbeispiel, das durch die `shape()` Funktion definiert ist, ist darauf zurückzuführen, dass die Prozentwerte es dem Pfad ermöglichen, mit dem Element zu wachsen. In der `path()` Version wuchs das Element, aber nicht die Form. Dadurch sind die oberen und linken Ränder teilweise sichtbar, während die rechten und unteren Ränder ausgeblendet sind.
 
 ### SVG als Clip-Quelle
 
-In diesem Beispiel definieren wir SVG {{svgElement("clipPath")}}-Elemente zur Verwendung als `clip-path`-Quelle.
+In diesem Beispiel definieren wir SVG {{svgElement("clipPath")}} Elemente, die als `clip-path` Quelle verwendet werden.
 
 #### HTML
 
-Wir fügen zwei {{htmlElement("div")}}-Elemente hinzu und ein `<svg>`-Element mit zwei `<clipPath>`-Elementen. Ein `<clipPath>` enthält vier {{svgElement("rect")}}-Elemente, die zusammen Fensterflügel definieren und einen leeren Bereich in der Mitte lassen, und das andere enthält zwei sich kreuzende `<rect>`-Elemente.
+Wir fügen zwei {{htmlElement("div")}} Elemente und ein `<svg>` Element hinzu, das zwei `<clipPath>` Elemente enthält. Ein `<clipPath>` enthält vier {{svgElement("rect")}} Elemente, die zusammen Fensterscheiben definieren und einen leeren Kreuzbereich in der Mitte hinterlassen, und das andere enthält zwei sich kreuzende `<rect>` Elemente.
 
 ```html
 <svg height="0" width="0">
@@ -283,7 +283,7 @@ Wir fügen zwei {{htmlElement("div")}}-Elemente hinzu und ein `<svg>`-Element mi
 
 #### CSS
 
-Wir verwenden [Flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout), um unsere Elemente nebeneinander mit Abstand dazwischen zu platzieren, sofern genügend Platz vorhanden ist. Wir definieren ein {{cssxref("gradient/conic-gradient", "conic-gradient()")}}-Hintergrundbild auf beiden `<div>`-Elementen, um ein interessantes visuelles Element zum Ausschneiden anzubieten, zusammen mit einer {{cssxref("border")}}.
+Wir verwenden [Flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout), um unsere Elemente nebeneinander mit einem Abstand dazwischen anzuordnen, wenn Platz vorhanden ist. Wir definieren ein {{cssxref("gradient/conic-gradient", "conic-gradient()")}} Hintergrundbild auf beiden `<div>` Elementen, das ein interessantes visuelles Element zum Zuschneiden bietet, zusammen mit einem {{cssxref("border")}}.
 
 ```css
 body {
@@ -309,7 +309,7 @@ div {
 }
 ```
 
-Wir setzen dann die `id` des `<clipPath>` als `<clip-source>`. Wir zentrieren den Text im `cross`-Beispiel vertikal mit {{cssxref("align-content")}}, da sonst der Text abgeschnitten würde, wie es im `window`-Beispiel der Fall ist.
+Wir setzen dann die `id` des `<clipPath>` als `<clip-source>`. Wir zentrieren den Text im `cross` Beispiel vertikal mit {{cssxref("align-content")}}, da andernfalls der Text abgeschnitten würde, wie es im `window` Beispiel der Fall ist.
 
 ```css
 .window {
@@ -326,15 +326,15 @@ Wir setzen dann die `id` des `<clipPath>` als `<clip-source>`. Wir zentrieren de
 
 {{EmbedLiveSample("SVG as clip source", "", "230")}}
 
-Die Elemente, einschließlich ihres Rahmens und Textes, sind ausgeschnitten, wobei nur die Teile, die sich überlappen, mit den `<clipPath>`-Elementen auf der Seite sichtbar sind.
+Die Elemente, einschließlich ihres Rahmens und Textes, werden beschnitten, wobei nur die Teile gezeichnet werden, die die `<clipPath>` Elemente überlappen.
 
-### Die verschiedenen Werttypen
+### Die verschiedenen Wertetypen
 
-Dieses Beispiel zeigt die verschiedenen Werte der `clip-path`-Eigenschaft, die auf ein HTML {{htmlelement("img")}} angewendet werden.
+Dieses Beispiel demonstriert die verschiedenen Werte der `clip-path` Eigenschaft, die ein HTML {{htmlelement("img")}} beschneiden.
 
 #### HTML
 
-Das HTML enthält ein `<img>`, das ausgeschnitten wird, ein sternförmiges `<clipPath>` und ein {{htmlelement("select")}}-Element, um einen Wert der `clip-path`-Eigenschaft auszuwählen.
+Die HTML enthält ein `<img>`, das beschnitten wird, ein sternförmiges `<clipPath>`, und ein {{htmlelement("select")}} Element zur Auswahl eines `clip-path` Eigenschaftswertes.
 
 ```html
 <img id="clipped"
@@ -367,7 +367,7 @@ Das HTML enthält ein `<img>`, das ausgeschnitten wird, ein sternförmiges `<cli
 
 #### CSS
 
-Die anfängliche Darstellung beinhaltet den Stern als Quelle für den `clip-path`.
+Das anfängliche Rendering verwendet den Stern als `clip-path` Quelle.
 
 ```css
 #clipped {
@@ -378,7 +378,7 @@ Die anfängliche Darstellung beinhaltet den Stern als Quelle für den `clip-path
 
 #### JavaScript
 
-Wenn Sie eine neue Option aus dem `<select>`-Menü auswählen, aktualisiert ein Event-Handler den Wert des `clip-path`, der auf dem `<img>` gesetzt ist.
+Wenn Sie eine neue Option aus dem `<select>` Menü auswählen, aktualisiert ein Ereignishandler den Wert des `clip-path`, das auf das `<img>` gesetzt ist.
 
 ```js
 const clipPathSelect = document.getElementById("clipPath");
@@ -401,10 +401,10 @@ function log(text) {
 
 {{EmbedLiveSample("Complete_example", 230, 300)}}
 
-Wählen Sie verschiedene Optionen aus, um den Wert von `clip-path` zu ändern.
+Wählen Sie verschiedene Optionen, um den `clip-path` Wert zu ändern.
 
 > [!NOTE]
-> Während es möglich ist, einen Pfad von Text zu definieren, sollten Sie, wenn Sie ein Hintergrundbild an Text anstatt an eine Form clippen möchten, die {{cssxref("background-clip")}} Eigenschaft verwenden.
+> Während es möglich ist, einen Pfad aus Text zu definieren, sollten Sie, wenn Sie ein Hintergrundbild an Text statt an eine Form schneiden möchten, die {{cssxref("background-clip")}} Eigenschaft verwenden.
 
 ## Spezifikationen
 
@@ -422,4 +422,4 @@ Wählen Sie verschiedene Optionen aus, um den Wert von `clip-path` zu ändern.
 - {{cssxref("background-clip")}}
 - [CSS Masking](/de/docs/Web/CSS/CSS_masking) Modul
 - SVG {{SVGAttr("clip-path")}} Attribut
-- [Anwendung von SVG-Effekten auf HTML-Inhalte](/de/docs/Web/SVG/Guides/Applying_SVG_effects_to_HTML_content)
+- [SVG-Effekte auf HTML-Inhalt anwenden](/de/docs/Web/SVG/Guides/Applying_SVG_effects_to_HTML_content)
