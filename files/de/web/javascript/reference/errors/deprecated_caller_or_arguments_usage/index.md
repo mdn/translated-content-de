@@ -1,16 +1,17 @@
 ---
-title: "ReferenceError: veraltete Verwendung von caller oder arguments"
+title: "TypeError: Die Eigenschaften 'caller', 'callee' und 'arguments' können nicht aufgerufen werden"
 slug: Web/JavaScript/Reference/Errors/Deprecated_caller_or_arguments_usage
 l10n:
-  sourceCommit: faee5a3a8399d43ca3ef49912fcb6cba5be6834c
+  sourceCommit: 1cfd3388d77b149a8ff01ec6f570889ba50057dc
 ---
 
 {{jsSidebar("Errors")}}
 
-Die JavaScript-[[strict mode](/de/docs/Web/JavaScript/Reference/Strict_mode)]-nur-Ausnahme
-"'caller', 'callee', und 'arguments'-Eigenschaften dürfen in Strict-Mode-Funktionen oder den arguments-Objekten für Aufrufe zu ihnen nicht verwendet werden" tritt auf, wenn die veralteten {{jsxref("Functions/arguments/callee", "arguments.callee")}}, {{jsxref("Function.prototype.caller")}} oder {{jsxref("Function.prototype.arguments")}}-Eigenschaften verwendet werden.
+Die ausschließlich im JavaScript-[Strict-Modus](/de/docs/Web/JavaScript/Reference/Strict_mode) auftretende Ausnahme
+"'caller', 'callee', und 'arguments' Eigenschaften können in Strict-Mode-Funktionen oder den arguments-Objekten für Aufrufe an sie nicht abgefragt werden", tritt auf, wenn die
+veralteten Eigenschaften {{jsxref("Functions/arguments/callee", "arguments.callee")}}, {{jsxref("Function.prototype.caller")}} oder {{jsxref("Function.prototype.arguments")}} verwendet werden.
 
-## Meldung
+## Nachricht
 
 ```plain
 TypeError: 'caller', 'callee', and 'arguments' properties may not be accessed on strict mode functions or the arguments objects for calls to them (V8-based & Firefox)
@@ -19,12 +20,13 @@ TypeError: 'arguments', 'callee', and 'caller' cannot be accessed in this contex
 
 ## Fehlertyp
 
-{{jsxref("TypeError")}} nur im [strict mode](/de/docs/Web/JavaScript/Reference/Strict_mode).
+{{jsxref("TypeError")}} nur im [Strict-Modus](/de/docs/Web/JavaScript/Reference/Strict_mode).
 
 ## Was ist schiefgelaufen?
 
-Im [strict mode](/de/docs/Web/JavaScript/Reference/Strict_mode) werden die {{jsxref("Functions/arguments/callee", "arguments.callee")}},
-{{jsxref("Function.prototype.caller")}} oder {{jsxref("Function.prototype.arguments")}}-Eigenschaften verwendet und sollten nicht verwendet werden. Sie sind veraltet, da sie den Funktionsaufrufer offenlegen, nicht standardisiert sind, schwer zu optimieren sind und potenziell die Leistung beeinträchtigen können.
+Im [Strict-Modus](/de/docs/Web/JavaScript/Reference/Strict_mode) werden die Eigenschaften {{jsxref("Functions/arguments/callee", "arguments.callee")}},
+{{jsxref("Function.prototype.caller")}} oder {{jsxref("Function.prototype.arguments")}} verwendet,
+obwohl sie es nicht sollten. Sie sind veraltet, da sie den Funktionsaufrufer preisgeben, nicht standardisiert sind, schwer zu optimieren und potenziell eine leistungsschädliche Funktion darstellen können.
 
 ## Beispiele
 
@@ -51,7 +53,8 @@ myFunc();
 
 ### Function.prototype.arguments
 
-{{jsxref("Function.prototype.arguments")}} ist veraltet (siehe den Referenzartikel für weitere Informationen).
+{{jsxref("Function.prototype.arguments")}} ist veraltet (siehe den Referenzartikel für weitere
+Informationen).
 
 ```js example-bad
 "use strict";
@@ -76,8 +79,8 @@ console.log(`returned: ${g.arguments}`);
 
 ## Siehe auch
 
-- [Veraltete und obsolet gewordene Funktionen](/de/docs/Web/JavaScript/Reference/Deprecated_and_obsolete_features)
-- [Strict mode](/de/docs/Web/JavaScript/Reference/Strict_mode)
+- [Veraltete und obsolete Funktionen](/de/docs/Web/JavaScript/Reference/Deprecated_and_obsolete_features)
+- [Strict-Modus](/de/docs/Web/JavaScript/Reference/Strict_mode)
 - {{jsxref("Function.prototype.arguments")}}
 - {{jsxref("Function.prototype.caller")}}
 - [`arguments.callee`](/de/docs/Web/JavaScript/Reference/Functions/arguments/callee)
