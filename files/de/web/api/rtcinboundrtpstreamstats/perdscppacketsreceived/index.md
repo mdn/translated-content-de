@@ -1,24 +1,25 @@
 ---
-title: "RTCInboundRtpStreamStats: Eigenschaft perDscpPacketsReceived"
+title: "RTCInboundRtpStreamStats: perDscpPacketsReceived-Eigenschaft"
 short-title: perDscpPacketsReceived
 slug: Web/API/RTCInboundRtpStreamStats/perDscpPacketsReceived
 l10n:
-  sourceCommit: 4f35a8237ee0842beb9cfef3354e05464ad7ce1a
+  sourceCommit: 7c03abf6c6abaf0013f6606cae9cb97717415cce
 ---
 
 {{APIRef("WebRTC")}}
 
-Die **`perDscpPacketsReceived`**-Eigenschaft des [`RTCInboundRtpStreamStats`](/de/docs/Web/API/RTCInboundRtpStreamStats)-Wörterbuchs ist eine Aufzeichnung bestehend aus Schlüssel/Wert-Paaren, in denen jeder Schlüssel eine Zeichenfolgenrepräsentation eines Differentiated Services Code Point ist und der Wert die Anzahl der für diesen DCSP empfangenen Pakete ist.
+Die **`perDscpPacketsReceived`**
+Eigenschaft des [`RTCInboundRtpStreamStats`](/de/docs/Web/API/RTCInboundRtpStreamStats)-Dictionaries ist ein Datensatz, der aus Schlüssel/Wert-Paaren besteht, wobei jeder Schlüssel eine String-Darstellung eines Differentiated Services Code Point und der Wert die Anzahl der für dieses DSCP empfangenen Pakete ist.
 
 > [!NOTE]
-> Nicht alle Betriebssysteme stellen Daten auf einer pro-DSCP-Basis zur Verfügung, daher sollte auf diesen Systemen nicht auf diese Eigenschaft vertraut werden.
+> Nicht alle Betriebssysteme stellen Daten auf einer pro-DSCP-Basis zur Verfügung, deshalb sollte auf diesen Systemen nicht auf diese Eigenschaft vertraut werden.
 
 ## Wert
 
-Eine Aufzeichnung, die aus Zeichenfolge/Wert-Paaren besteht. Jeder Schlüssel ist die Zeichenfolgenrepräsentation einer eindeutigen Identifikationsnummer eines Differentiated Services Code Point (DSCP).
+Ein Datensatz, der aus String/Wert-Paaren besteht. Jeder Schlüssel ist die String-Darstellung der ID-Nummer eines einzelnen Differentiated Services Code Point (DSCP).
 
 > [!NOTE]
-> Aufgrund von Netzwerkaufhellung und -umverteilung stimmen die in dieser Aufzeichnung aufgeführten Nummern möglicherweise nicht mit den Werten überein, wie sie beim Senden der Daten waren.
+> Aufgrund von Netzwerkbleaching und -umgliederung stimmen die Zahlen in diesem Datensatz möglicherweise nicht mit den Werten überein, wie sie beim Senden der Daten waren.
 
 ## Spezifikationen
 

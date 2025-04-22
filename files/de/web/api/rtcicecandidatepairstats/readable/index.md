@@ -1,18 +1,18 @@
 ---
-title: "RTCIceCandidatePairStats: readable Eigenschaft"
+title: "RTCIceCandidatePairStats: readable-Eigenschaft"
 short-title: readable
 slug: Web/API/RTCIceCandidatePairStats/readable
 l10n:
-  sourceCommit: 2c2b213b9a7d391732c94dd35928edf9ff34d8ed
+  sourceCommit: 7c03abf6c6abaf0013f6606cae9cb97717415cce
 ---
 
 {{APIRef("WebRTC")}}{{Deprecated_Header}}{{Non-standard_Header}}
 
-Die **`readable`** Eigenschaft des [`RTCIceCandidatePairStats`](/de/docs/Web/API/RTCIceCandidatePairStats) Dictionary gibt an, ob die Verbindung, die durch das Kandidatenpaar beschrieben wird, mindestens eine gültige eingehende ICE-Anfrage erhalten hat.
+Die **`readable`**-Eigenschaft des [`RTCIceCandidatePairStats`](/de/docs/Web/API/RTCIceCandidatePairStats)-Dictionaries gibt an, ob die durch das Kandidatenpaar beschriebene Verbindung mindestens eine gültige eingehende ICE-Anfrage erhalten hat.
 
 ## Wert
 
-Ein Boolean-Wert, der `true` ist, wenn die Verbindung, die durch dieses Kandidatenpaar beschrieben wird, mindestens eine gültige ICE-Anfrage erhalten hat und daher bereit ist, von ihr gelesen zu werden.
+Ein boolescher Wert, der `true` ist, wenn die durch dieses Kandidatenpaar beschriebene Verbindung mindestens eine gültige ICE-Anfrage erhalten hat und daher bereit ist, gelesen zu werden.
 
 > [!NOTE]
 > Anstatt diesen Wert zu verwenden, sollten Sie feststellen, ob die Verbindung lesbar ist, indem Sie überprüfen, ob [`requestsReceived`](/de/docs/Web/API/RTCIceCandidatePairStats/requestsReceived) größer als 0 ist:

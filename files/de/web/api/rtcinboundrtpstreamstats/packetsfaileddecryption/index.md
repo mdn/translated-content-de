@@ -1,18 +1,18 @@
 ---
-title: "RTCInboundRtpStreamStats: Eigenschaft packetsFailedDecryption"
+title: "RTCInboundRtpStreamStats: packetsFailedDecryption Eigenschaft"
 short-title: packetsFailedDecryption
 slug: Web/API/RTCInboundRtpStreamStats/packetsFailedDecryption
 l10n:
-  sourceCommit: 954612667bafd71241a93e8554e8f11afc474ff3
+  sourceCommit: 7c03abf6c6abaf0013f6606cae9cb97717415cce
 ---
 
 {{APIRef("WebRTC")}}
 
-Die **`packetsFailedDecryption`**-Eigenschaft des [`RTCInboundRtpStreamStats`](/de/docs/Web/API/RTCInboundRtpStreamStats)-Wörterbuchs gibt die Gesamtzahl der {{Glossary("RTP", "RTP")}}-Pakete an, die nach dem Empfang durch das lokale Ende der Verbindung in dieser Sitzung nicht erfolgreich entschlüsselt werden konnten.
+Die **`packetsFailedDecryption`**-Eigenschaft des [`RTCInboundRtpStreamStats`](/de/docs/Web/API/RTCInboundRtpStreamStats)-Wörterbuchs gibt die Gesamtanzahl der {{Glossary("RTP", "RTP")}}-Pakete an, die nach dem Empfang durch das lokale Ende der Verbindung während dieser Sitzung nicht erfolgreich entschlüsselt werden konnten.
 
 ## Wert
 
-Ein ganzzahliger Wert, der angibt, wie viele Pakete das lokale Ende der RTP-Verbindung nicht erfolgreich entschlüsseln konnte.
+Ein Ganzzahlwert, der angibt, wie viele Pakete am lokalen Ende der RTP-Verbindung nicht erfolgreich entschlüsselt werden konnten.
 
 ## Spezifikationen
 

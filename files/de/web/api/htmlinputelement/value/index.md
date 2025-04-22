@@ -3,28 +3,28 @@ title: "HTMLInputElement: value-Eigenschaft"
 short-title: value
 slug: Web/API/HTMLInputElement/value
 l10n:
-  sourceCommit: d47348199a379f68bea876a403eb510628ec4ccb
+  sourceCommit: 25ef0a8da5e55b74e7500b23ed8864bcfaf6db03
 ---
 
 {{ APIRef("HTML DOM") }}
 
-Die **`value`**-Eigenschaft der [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Schnittstelle repräsentiert den aktuellen Wert des {{htmlelement("input")}}-Elements als Zeichenkette.
+Die **`value`**-Eigenschaft des [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Interfaces repräsentiert den aktuellen Wert des {{htmlelement("input")}}-Elements als Zeichenkette.
 
-Diese Eigenschaft kann auch direkt gesetzt werden, um beispielsweise einen Standardwert basierend auf einer Bedingung festzulegen.
+Diese Eigenschaft kann auch direkt gesetzt werden, zum Beispiel, um einen Standardwert basierend auf einer Bedingung zu setzen.
 
 ## Wert
 
-Eine Zeichenkette, die den Wert des {{htmlelement("input")}}-Elements enthält, oder eine leere Zeichenkette, wenn das Eingabeelement keinen Wert hat.
+Eine Zeichenkette, die den Standardwert des {{htmlelement("input")}}-Elements angibt.
 
 ## Beispiele
 
-### Abrufen des Werts einer Texteingabe
+### Den Wert eines Texteingabe-Elements abrufen
 
-In diesem Beispiel wird der aktuelle Wert protokolliert, während der Benutzer Daten in das Eingabefeld eingibt.
+In diesem Beispiel wird der aktuelle Wert angezeigt, während der Benutzer Daten in die Eingabe eingibt.
 
 #### HTML
 
-Wir fügen ein {{htmlelement("input")}} und ein zugehöriges {{htmlelement("label")}} sowie einen {{htmlelement("pre")}}-Container für unsere Ausgabe ein.
+Wir fügen ein {{htmlelement("input")}} und ein zugehöriges {{htmlelement("label")}} hinzu, mit einem {{htmlelement("pre")}}-Container für unsere Ausgabe.
 
 ```html
 <label for="given-name">Your name:</label>
@@ -36,7 +36,7 @@ Wir fügen ein {{htmlelement("input")}} und ein zugehöriges {{htmlelement("labe
 
 #### JavaScript
 
-Der [`innerText`](/de/docs/Web/API/HTMLElement/innerText) des `<pre>`-Elements wird jedes Mal aktualisiert, wenn ein [`keyup`](/de/docs/Web/API/Element/keyup_event)-Ereignis ausgelöst wird, und zwar auf den aktuellen Wert des `<input>`.
+Das `<pre>`-Element wird in seiner [`innerText`](/de/docs/Web/API/HTMLElement/innerText)-Eigenschaft mit dem aktuellen Wert des `<input>` aktualisiert, jedes Mal, wenn ein [`keyup`](/de/docs/Web/API/Element/keyup_event)-Ereignis ausgelöst wird.
 
 ```js
 const logElement = document.getElementById("log");
@@ -57,15 +57,15 @@ inputElement.addEventListener("keyup", () => {
 
 #### Ergebnisse
 
-{{EmbedLiveSample("Retrieving a text input's value", "", 100)}}
+{{EmbedLiveSample("Den Wert eines Texteingabe-Elements abrufen", "", 100)}}
 
 ### Abrufen eines Farbwerts
 
-Dieses Beispiel zeigt, wie die `value`-Eigenschaft mit einem `<input>` des Typs {{HTMLElement("input/color", "color")}} verwendet wird.
+Dieses Beispiel demonstriert die `value`-Eigenschaft mit einem `<input>` des Typs {{HTMLElement("input/color", "color")}}.
 
 #### HTML
 
-Wir fügen ein `<input>` des Typs `color` ein:
+Wir fügen ein `<input>` des Typs `color` hinzu:
 
 ```html
 <label for="color">Pick a color:</label>
@@ -77,7 +77,7 @@ Wir fügen ein `<input>` des Typs `color` ein:
 
 #### JavaScript
 
-Der [`innerText`](/de/docs/Web/API/HTMLElement/innerText) des `<pre>`-Elements wird mit dem Standardfarbwert (`#000000`) aktualisiert und dann jedes Mal aktualisiert, wenn ein [`change`](/de/docs/Web/API/HTMLElement/change_event)-Ereignis ausgelöst wird.
+Das `<pre>`-Element wird in seiner [`innerText`](/de/docs/Web/API/HTMLElement/innerText)-Eigenschaft mit dem Standardfarbwert (`#000000`) und danach jedes Mal aktualisiert, wenn ein [`change`](/de/docs/Web/API/HTMLElement/change_event)-Ereignis ausgelöst wird.
 
 ```js
 const logElement = document.getElementById("log");
@@ -100,7 +100,7 @@ inputElement.addEventListener("change", () => {
 
 #### Ergebnisse
 
-{{EmbedLiveSample("Retrieving a color value", "", 100)}}
+{{EmbedLiveSample("Abrufen eines Farbwerts", "", 100)}}
 
 ## Spezifikationen
 

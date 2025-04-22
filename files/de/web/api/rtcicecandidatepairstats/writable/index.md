@@ -3,12 +3,12 @@ title: "RTCIceCandidatePairStats: writable-Eigenschaft"
 short-title: writable
 slug: Web/API/RTCIceCandidatePairStats/writable
 l10n:
-  sourceCommit: 2c2b213b9a7d391732c94dd35928edf9ff34d8ed
+  sourceCommit: 7c03abf6c6abaf0013f6606cae9cb97717415cce
 ---
 
 {{APIRef("WebRTC")}}{{Deprecated_Header}}{{Non-standard_Header}}
 
-Die **`writable`**-Eigenschaft des [`RTCIceCandidatePairStats`](/de/docs/Web/API/RTCIceCandidatePairStats)-Wörterbuchs gibt an, ob die durch das Kandidatenpaar beschriebene Verbindung schreibbar ist.
+Die **`writable`**-Eigenschaft des [`RTCIceCandidatePairStats`](/de/docs/Web/API/RTCIceCandidatePairStats)-Wörterbuchs gibt an, ob die Verbindung, die durch das Kandidatenpaar beschrieben wird, beschreibbar ist.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Die **`writable`**-Eigenschaft des [`RTCIceCandidatePairStats`](/de/docs/Web/API
 
 > [!NOTE]
 > Diese Eigenschaft ist veraltet.
-> Sie können stattdessen feststellen, ob eine eingehende ICE-Anfrage lesbar ist, indem Sie prüfen, ob [`responsesReceived`](/de/docs/Web/API/RTCIceCandidatePairStats/responsesReceived) größer als 0 ist und die durch [`consentExpiredTimestamp`](/de/docs/Web/API/RTCIceCandidatePairStats/consentExpiredTimestamp) angegebene Zeit nicht überschritten wurde:
+> Stattdessen können Sie feststellen, ob eine eingehende ICE-Anfrage lesbar ist, indem Sie überprüfen, ob [`responsesReceived`](/de/docs/Web/API/RTCIceCandidatePairStats/responsesReceived) größer als 0 ist und dass der durch [`consentExpiredTimestamp`](/de/docs/Web/API/RTCIceCandidatePairStats/consentExpiredTimestamp) angegebene Zeitpunkt nicht überschritten wurde:
 >
 > ```js
 > if (

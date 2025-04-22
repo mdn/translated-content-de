@@ -2,10 +2,10 @@
 title: Fenster schließen
 slug: Web/WebDriver/Reference/Commands/CloseWindow
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: 469f97048247e0d738897cae20c695da6f1f738d
 ---
 
-Der Befehl [_Fenster schließen_](/de/docs/Web/WebDriver/Command) der [WebDriver](/de/docs/Web/WebDriver) API schließt den aktuellen obersten Browsing-Kontext (Fenster oder Tab) und gibt die Liste der derzeit geöffneten [`WebWindow`](/de/docs/Web/WebDriver/WebWindow)s zurück. Wenn es das letzte Fenster ist, das geschlossen wird, wird die WebDriver-Sitzung implizit gelöscht. Nachfolgende Befehle nach dem Ende der Sitzung führen daher zu [Ungültigen Sitzungs-ID](/de/docs/Web/WebDriver/Reference/Errors/InvalidSessionID)-Fehlern.
+Der _Fenster schließen_ [Befehl](/de/docs/Web/WebDriver/Command) der [WebDriver](/de/docs/Web/WebDriver) API schließt den aktuellen Top-Level-Browsing-Kontext (Fenster oder Tab) und gibt die Liste der derzeit offenen [`WebWindow`](/de/docs/Web/WebDriver/WebWindow) zurück. Wenn es das letzte Fenster ist, das geschlossen wird, wird die WebDriver-Sitzung implizit beendet. Nachfolgende Befehle nach dem Ende der Sitzung führen daher zu [ungültigen Sitzungs-ID](/de/docs/Web/WebDriver/Reference/Errors/InvalidSessionID) Fehlern.
 
 ## Syntax
 
@@ -21,9 +21,9 @@ Der Befehl [_Fenster schließen_](/de/docs/Web/WebDriver/Command) der [WebDriver
 ### Fehler
 
 - [Ungültige Sitzungs-ID](/de/docs/Web/WebDriver/Reference/Errors/InvalidSessionID)
-  - : Sitzung existiert nicht.
-- [Unerwarteter Alert geöffnet](/de/docs/Web/WebDriver/Errors/UnexpectedAlertOpen)
-  - : Eine Benutzereingabeaufforderung, wie z.B. [`window.alert`](/de/docs/Web/API/Window/alert), blockiert die Ausführung des Befehls, bis sie bearbeitet wird.
+  - : Die Sitzung existiert nicht.
+- [Unerwartetes geöffnetes Alert](/de/docs/Web/WebDriver/Errors/UnexpectedAlertOpen)
+  - : Eine Benutzeraufforderung, wie z.B. [`window.alert`](/de/docs/Web/API/Window/alert), blockiert die Ausführung des Befehls, bis sie behandelt wird.
 
 ## Beispiel
 
@@ -44,7 +44,7 @@ session.switch_to.window(original_window)
 
 C#:
 
-```cpp
+```cs
 using OpenQA.Selenium.Firefox;
 
 namespace MDNWebDriverExamples
@@ -76,6 +76,6 @@ namespace MDNWebDriverExamples
 
 ## Siehe auch
 
-- Befehl [Zu Fenster wechseln](/de/docs/Web/WebDriver/Commands/SwitchToWindow)
-- Befehl [Fenster-Handle abrufen](/de/docs/Web/WebDriver/Commands/GetWindowHandle)
-- Befehl [Fenster-Handles abrufen](/de/docs/Web/WebDriver/Reference/Commands/GetWindowHandles)
+- [Zu Fenster wechseln](/de/docs/Web/WebDriver/Commands/SwitchToWindow) Befehl
+- [Fenstergriff erhalten](/de/docs/Web/WebDriver/Commands/GetWindowHandle) Befehl
+- [Fenstergriffe erhalten](/de/docs/Web/WebDriver/Reference/Commands/GetWindowHandles) Befehl

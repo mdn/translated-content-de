@@ -1,26 +1,28 @@
 ---
-title: "RTCIceCandidatePairStats: availableIncomingBitrate-Eigenschaft"
+title: "RTCIceCandidatePairStats: Eigenschaft availableIncomingBitrate"
 short-title: availableIncomingBitrate
 slug: Web/API/RTCIceCandidatePairStats/availableIncomingBitrate
 l10n:
-  sourceCommit: 2c2b213b9a7d391732c94dd35928edf9ff34d8ed
+  sourceCommit: 7c03abf6c6abaf0013f6606cae9cb97717415cce
 ---
 
 {{APIRef("WebRTC")}}
 
-Die **`availableIncomingBitrate`**-Eigenschaft des [`RTCIceCandidatePairStats`](/de/docs/Web/API/RTCIceCandidatePairStats) Dictionaries zeigt die verfügbare eingehende Kapazität der Netzwerkverbindung an, die durch das Kandidatenpaar repräsentiert wird. Je höher der Wert, desto mehr Bandbreite kann für eingehende Daten angenommen werden.
+Die **`availableIncomingBitrate`**-Eigenschaft des [`RTCIceCandidatePairStats`](/de/docs/Web/API/RTCIceCandidatePairStats)-Wörterbuchs gibt die verfügbare eingehende Kapazität der Netzwerkverbindung an, die durch das Kandidatenpaar dargestellt wird.
+Je höher der Wert, desto mehr Bandbreite kann für eingehende Daten angenommen werden.
 
-Die ausgehende verfügbare Bitrate können Sie über [`availableOutgoingBitrate`](/de/docs/Web/API/RTCIceCandidatePairStats/availableOutgoingBitrate) erhalten.
+Die ausgehende verfügbare Bitrate kann über [`availableOutgoingBitrate`](/de/docs/Web/API/RTCIceCandidatePairStats/availableOutgoingBitrate) abgerufen werden.
 
 ## Wert
 
-Eine Zahl, die die verfügbare Bandbreite für eingehende Daten auf der Netzwerkverbindung, die durch das `RTCIceCandidatePair` beschrieben wird, approximiert.
-Der Wert wird in Bit pro Sekunde angegeben und über ein 1-Sekunden-Intervall berechnet.
+Eine Zahl, die die Menge an verfügbarer Bandbreite für eingehende Daten auf der Netzwerkverbindung beschreibt, die durch das `RTCIceCandidatePair` beschrieben wird.
+Der Wert wird in Bits pro Sekunde angegeben und über einen 1-Sekunden-Intervall berechnet.
 
-Der zurückgegebene Wert wird berechnet, indem die verfügbare Bitrate für jeden {{Glossary("RTP", "RTP")}}-Stream addiert wird, der die durch dieses Kandidatenpaar beschriebene Verbindung nutzt. Der zurückgegebene Wert berücksichtigt nicht den durch zugrunde liegende Protokolle eingeführten Overhead, einschließlich IP, UDP oder TCP.
+Der zurückgegebene Wert wird berechnet, indem die verfügbare Bitrate für jeden {{Glossary("RTP", "RTP")}}-Stream, der die durch dieses Kandidatenpaar beschriebene Verbindung nutzt, summiert wird.
+Der zurückgegebene Wert berücksichtigt dabei nicht den Overhead, der durch die zugrunde liegenden Protokolle wie IP, UDP oder TCP eingeführt wird.
 
 > [!NOTE]
-> Der zurückgegebene Wert wird mit einer Methode berechnet, die der Transport Independent Application Specific Maximum (TIAS), beschrieben in {{RFC(3890, "", "6.2")}}, ähnlich ist – aber nicht identisch zu ihr ist.
+> Der zurückgegebene Wert wird mit einer Methode berechnet, die ähnlich, aber nicht identisch mit dem Transport Independent Application Specific Maximum (TIAS) ist, wie in {{RFC(3890, "", "6.2")}} beschrieben.
 
 ## Spezifikationen
 

@@ -2,12 +2,12 @@
 title: Daten in WebGL
 slug: Web/API/WebGL_API/Data
 l10n:
-  sourceCommit: 621c7978886787ca66bc5e90e457cf1466e58d35
+  sourceCommit: 469f97048247e0d738897cae20c695da6f1f738d
 ---
 
 {{DefaultAPISidebar("WebGL")}}
 
-Shaderprogramme haben Zugriff auf drei Arten der Datenspeicherung, von denen jede eine spezifische Anwendung hat. Jede Art von Variable ist durch eine oder beide Arten von Shader-Programmen zugänglich (abhängig vom Typ der Datenspeicherung) und möglicherweise durch den JavaScript-Code der Website, abhängig vom spezifischen Typ der Variable.
+Shader-Programme haben Zugriff auf drei Arten der Datenspeicherung, von denen jede einen spezifischen Anwendungsfall hat. Jede Art von Variable ist durch einen oder beide Typen von Shader-Programmen zugänglich (abhängig von der Art der Datenspeicherung) und möglicherweise durch den JavaScript-Code der Seite, je nach spezifischem Variablentyp.
 
 ## GLSL-Datentypen
 
@@ -15,11 +15,11 @@ Siehe [Datentypen](<https://www.khronos.org/opengl/wiki/Data_Type_(GLSL)>) in de
 
 ## GLSL-Variablen
 
-In GLSL gibt es drei Arten von "Variablen" oder Datenspeicher, die jeweils ihren eigenen Zweck und Anwendungsfälle haben: **[Attribute](#attribute)**, **[Varyings](#varyings)** und **[Uniforms](#uniforms)**.
+Es gibt drei Arten von "Variablen" oder Datenspeicherung in GLSL, von denen jede ihren eigenen Zweck und Anwendungsfälle hat: **[attributes](#attributes)**, **[varyings](#varyings)** und **[uniforms](#uniforms)**.
 
-### Attribute
+### Attributes
 
-**Attribute** sind GLSL-Variablen, die nur dem Vertex-Shader (als Variablen) und dem JavaScript-Code zur Verfügung stehen. Attribute werden typischerweise verwendet, um Farbinformationen, Texturkoordinaten und alle anderen berechneten oder abgerufenen Daten zu speichern, die zwischen JavaScript-Code und dem Vertex-Shader ausgetauscht werden müssen.
+**Attributes** sind GLSL-Variablen, die nur dem Vertex-Shader (als Variablen) und dem JavaScript-Code zur Verfügung stehen. Attributes werden typischerweise verwendet, um Farbinformationen, Texturkoordinaten und andere berechnete oder abgerufene Daten zu speichern, die zwischen dem JavaScript-Code und dem Vertex-Shader geteilt werden müssen.
 
 ```js
 // init colors
@@ -47,8 +47,7 @@ gl.vertexAttribPointer(vColor, 4, gl.FLOAT, false, 0, 0);
 gl.enableVertexAttribArray(vColor);
 ```
 
-```cpp
-//glsl
+```glsl
 attribute  vec4 vColor;
 
 void main()
@@ -59,20 +58,20 @@ void main()
 
 ### Varyings
 
-**Varyings** sind Variablen, die vom Vertex-Shader deklariert werden und verwendet werden, um Daten vom Vertex-Shader an den Fragment-Shader zu übertragen. Dies wird häufig verwendet, um den [Normalenvektor](<https://en.wikipedia.org/wiki/Normal_(geometry)>) eines Vertexes zu teilen, nachdem er vom Vertex-Shader berechnet wurde.
+**Varyings** sind Variablen, die vom Vertex-Shader deklariert werden und dazu verwendet werden, Daten vom Vertex-Shader an den Fragment-Shader zu übergeben. Dies wird häufig verwendet, um den [Normalenvektor](<https://en.wikipedia.org/wiki/Normal_(geometry)>) eines Vertexes zu teilen, nachdem er durch den Vertex-Shader berechnet wurde.
 
-<\<Anleitung zur Verwendung>>
+<\<how to use>>
 
 ### Uniforms
 
-**Uniforms** werden durch den JavaScript-Code festgelegt und stehen sowohl dem Vertex- als auch dem Fragment-Shader zur Verfügung. Sie werden verwendet, um Werte bereitzustellen, die für alles, was im Frame gezeichnet wird, gleich bleiben, wie beispielsweise Beleuchtungspositionen und -stärken, globale Transformations- und Perspektivendetails und so weiter.
+**Uniforms** werden durch den JavaScript-Code festgelegt und stehen sowohl dem Vertex- als auch dem Fragment-Shader zur Verfügung. Sie werden verwendet, um Werte bereitzustellen, die für alles, was im Frame gezeichnet wird, gleich bleiben, wie zum Beispiel Beleuchtungspositionen und -stärken, globale Transformations- und Perspektivdetails usw.
 
-<\<Details hinzufügen>>
+<\<add details>>
 
-## Buffers
+## Puffer
 
-<\<Informationen hinzufügen>>
+<\<add information>>
 
-## Textures
+## Texturen
 
-<\<Informationen hinzufügen>>
+<\<add information>>

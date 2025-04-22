@@ -2,12 +2,12 @@
 title: Fenster-Handles abrufen
 slug: Web/WebDriver/Reference/Commands/GetWindowHandles
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: 469f97048247e0d738897cae20c695da6f1f738d
 ---
 
-Der _Get Window Handles_ [Befehl](/de/docs/Web/WebDriver/Command) der [WebDriver](/de/docs/Web/WebDriver) API gibt eine Liste aller [`WebWindow`](/de/docs/Web/WebDriver/WebWindow)s zurück. Jedes Tab oder Fenster, je nachdem, ob Sie einen Tab-Browser verwenden, wird mit einem _Fenster-Handle_ assoziiert, das verwendet wird, um [zum Fenster zu wechseln](/de/docs/Web/WebDriver/Commands/SwitchToWindow).
+Der _Get Window Handles_-[Befehl](/de/docs/Web/WebDriver/Command) der [WebDriver](/de/docs/Web/WebDriver) API gibt eine Liste aller [`WebWindow`](/de/docs/Web/WebDriver/WebWindow)s zurück. Jedes Tab oder Fenster, je nachdem, ob Sie einen Browser mit Tabs verwenden, ist durch ein _Fenster-Handle_ verknüpft, das als Referenz verwendet wird, wenn [zum Fenster gewechselt wird](/de/docs/Web/WebDriver/Commands/SwitchToWindow).
 
-Um festzustellen, ob eine bestimmte Interaktion mit dem Browser ein neues Fenster öffnet, kann man die Menge der Fenster-Handles vor der Interaktion erfassen und mit der Menge nach der Aktion vergleichen.
+Um festzustellen, ob eine bestimmte Interaktion mit dem Browser ein neues Fenster öffnet, kann man die Menge der Fenster-Handles vor der Interaktion ermitteln und mit der Menge nach der Aktion vergleichen.
 
 ## Syntax
 
@@ -18,7 +18,7 @@ Um festzustellen, ob eine bestimmte Interaktion mit dem Browser ein neues Fenste
 ### URL-Parameter
 
 - `session id`
-  - : Kennung der Sitzung.
+  - : Bezeichner der Sitzung.
 
 ### Fehler
 
@@ -29,7 +29,7 @@ Um festzustellen, ob eine bestimmte Interaktion mit dem Browser ein neues Fenste
 
 C#:
 
-```cpp
+```cs
 using System.Collections.ObjectModel;
 using OpenQA.Selenium.Firefox;
 
