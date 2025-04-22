@@ -2,15 +2,15 @@
 title: WebAssembly.compile()
 slug: WebAssembly/Reference/JavaScript_interface/compile_static
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: 006c05b688814b45a01ad965bbe4ebfc15513e74
 ---
 
-Die **`WebAssembly.compile()`** statische Methode kompiliert WebAssembly-Binärcode in ein [`WebAssembly.Module`](/de/docs/WebAssembly/Reference/JavaScript_interface/Module)-Objekt.
-Diese Funktion ist nützlich, wenn ein Modul kompiliert werden muss, bevor es instanziiert werden kann (ansonsten sollte die [`WebAssembly.instantiate()`](/de/docs/WebAssembly/Reference/JavaScript_interface/instantiate_static)-Funktion verwendet werden).
+Die statische Methode **`WebAssembly.compile()`** kompiliert WebAssembly-Binärcode in ein [`WebAssembly.Module`](/de/docs/WebAssembly/Reference/JavaScript_interface/Module)-Objekt.
+Diese Funktion ist nützlich, wenn ein Modul kompiliert werden muss, bevor es instanziiert werden kann (andernfalls sollte die Funktion [`WebAssembly.instantiate()`](/de/docs/WebAssembly/Reference/JavaScript_interface/instantiate_static) verwendet werden).
 
 > [!NOTE]
 > Webseiten, die eine strikte [Content Security Policy (CSP)](/de/docs/Web/HTTP/Guides/CSP) haben, könnten das Kompilieren und Ausführen von WebAssembly-Modulen blockieren.
-> Weitere Informationen zum Zulassen von WebAssembly-Kompilierung und -Ausführung finden Sie unter [script-src CSP](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/script-src).
+> Weitere Informationen zum Zulassen der WebAssembly-Kompilierung und -Ausführung finden Sie unter dem [script-src CSP](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/script-src).
 
 ## Syntax
 
@@ -22,29 +22,28 @@ WebAssembly.compile(bufferSource, compileOptions)
 ### Parameter
 
 - `bufferSource`
-  - : Ein [getypedetes Array](/de/docs/Web/JavaScript/Guide/Typed_arrays) oder {{jsxref("ArrayBuffer")}}, das den Binärcode des zu kompilierenden Wasm-Moduls enthält.
+  - : Ein [typisiertes Array](/de/docs/Web/JavaScript/Guide/Typed_arrays) oder {{jsxref("ArrayBuffer")}}, das den Binärcode des zu kompilierenden Wasm-Moduls enthält.
 - `compileOptions` {{optional_inline}}
-  - : Ein Objekt, das Kompilierungsoptionen enthält. Eigenschaften können umfassen:
+  - : Ein Objekt, das Kompilierungsoptionen enthält. Eigenschaften können enthalten:
     - `builtins` {{optional_inline}}
-      - : Ein Array von einem oder mehreren Strings, das die Verwendung von [JavaScript Builtins](/de/docs/WebAssembly/Guides/JavaScript_builtins) im kompilierten Wasm-Modul ermöglicht. Die Strings definieren die Builtins, die Sie aktivieren möchten. Derzeit ist der einzige verfügbare Wert `"js-string"`, der JavaScript-String-Builtins aktiviert.
+      - : Ein Array von einem oder mehreren Zeichenfolgen, das die Verwendung von [JavaScript builtins](/de/docs/WebAssembly/Guides/JavaScript_builtins) im kompilierten Wasm-Modul ermöglicht. Die Zeichenfolgen definieren die Builtins, die Sie aktivieren möchten. Derzeit ist der einzige verfügbare Wert `"js-string"`, der JavaScript-String-Builtins aktiviert.
     - `importedStringConstants` {{optional_inline}}
-      - : Ein String, der einen Namensraum für [importierte globale String-Konstanten](/de/docs/WebAssembly/Guides/Imported_string_constants) angibt. Diese Eigenschaft muss angegeben werden, wenn Sie importierte globale String-Konstanten im Wasm-Modul verwenden möchten.
+      - : Eine Zeichenfolge, die einen Namensraum für [importierte globale String-Konstanten](/de/docs/WebAssembly/Guides/Imported_string_constants) angibt. Diese Eigenschaft muss angegeben werden, wenn Sie importierte globale String-Konstanten im Wasm-Modul verwenden möchten.
 
 ### Rückgabewert
 
-Ein `Promise`, das zu einem [`WebAssembly.Module`](/de/docs/WebAssembly/Reference/JavaScript_interface/Module)-Objekt aufgelöst wird, das das kompilierte Modul repräsentiert.
+Ein `Promise`, das sich zu einem [`WebAssembly.Module`](/de/docs/WebAssembly/Reference/JavaScript_interface/Module)-Objekt auflöst und das kompilierte Modul darstellt.
 
 ### Ausnahmen
 
-- Wenn `bufferSource` kein [getypedetes Array](/de/docs/Web/JavaScript/Guide/Typed_arrays) oder {{jsxref("ArrayBuffer")}} ist, wird das Promise mit einem {{jsxref("TypeError")}} abgelehnt.
+- Wenn `bufferSource` kein [typisiertes Array](/de/docs/Web/JavaScript/Guide/Typed_arrays) oder {{jsxref("ArrayBuffer")}} ist, wird das Promise mit einem {{jsxref("TypeError")}} abgelehnt.
 - Wenn die Kompilierung fehlschlägt, wird das Promise mit einem [`WebAssembly.CompileError`](/de/docs/WebAssembly/Reference/JavaScript_interface/CompileError) abgelehnt.
 
 ## Beispiele
 
 ### Verwendung von compile
 
-Das folgende Beispiel kompiliert den geladenen simple.wasm Bytecode mit der
-`compile()`-Funktion und sendet ihn dann mit [postMessage()](/de/docs/Web/API/Worker/postMessage) an einen [Worker](/de/docs/Web/API/Web_Workers_API).
+Im folgenden Beispiel wird der geladene einfache Wasm-Bytecode mit der Funktion `compile()` kompiliert und dann mit [postMessage()](/de/docs/Web/API/Worker/postMessage) an einen [Worker](/de/docs/Web/API/Web_Workers_API) gesendet.
 
 ```js
 const worker = new Worker("wasm_worker.js");
@@ -56,13 +55,12 @@ fetch("simple.wasm")
 ```
 
 > [!NOTE]
-> In den meisten Fällen möchten Sie wahrscheinlich
-> [`WebAssembly.compileStreaming()`](/de/docs/WebAssembly/Reference/JavaScript_interface/compileStreaming_static) verwenden, da es effizienter
-> als `compile()` ist.
+> In den meisten Fällen werden Sie vermutlich
+> [`WebAssembly.compileStreaming()`](/de/docs/WebAssembly/Reference/JavaScript_interface/compileStreaming_static) verwenden wollen, da es effizienter als `compile()` ist.
 
-### Aktivieren von JavaScript Builtins und globalen String-Imports
+### Aktivieren von JavaScript-Builtins und globalen String-Importen
 
-In diesem Beispiel werden JavaScript-String-Builtins und importierte globale String-Konstanten aktiviert, wenn das Wasm-Modul mit `compile()` kompiliert wird, bevor es mit [`instantiate()`](/de/docs/WebAssembly/Reference/JavaScript_interface/instantiate_static) instanziiert wird, und dann die exportierte `main()`-Funktion ausgeführt wird (die `"hello world!"` in die Konsole protokolliert). [Siehe es live](https://mdn.github.io/webassembly-examples/js-builtin-examples/compile/).
+Dieses Beispiel aktiviert JavaScript-String-Builtins und importierte globale String-Konstanten, wenn das Wasm-Modul mit `compile()` kompiliert wird, bevor es mit [`instantiate()`](/de/docs/WebAssembly/Reference/JavaScript_interface/instantiate_static) instanziiert und anschließend die exportierte `main()`-Funktion (die `"hello world!"` auf die Konsole schreibt) ausgeführt wird. [Siehe es live in Aktion](https://mdn.github.io/webassembly-examples/js-builtin-examples/compile/).
 
 ```js
 const importObject = {

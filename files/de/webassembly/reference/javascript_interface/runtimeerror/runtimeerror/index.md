@@ -2,10 +2,10 @@
 title: WebAssembly.RuntimeError() Konstruktor
 slug: WebAssembly/Reference/JavaScript_interface/RuntimeError/RuntimeError
 l10n:
-  sourceCommit: df9d06402163f77fc3e2d327ab63f9dd4af15b38
+  sourceCommit: 006c05b688814b45a01ad965bbe4ebfc15513e74
 ---
 
-Der **`WebAssembly.RuntimeError()`** Konstruktor erstellt ein neues WebAssembly `RuntimeError` Objekt — den Typ, der immer dann ausgelöst wird, wenn WebAssembly eine [trap](https://webassembly.github.io/simd/core/intro/overview.html#trap) spezifiziert.
+Der **`WebAssembly.RuntimeError()`** Konstruktor erstellt ein neues WebAssembly `RuntimeError` Objekt – der Typ, der immer dann ausgelöst wird, wenn WebAssembly eine [Trap](https://webassembly.github.io/simd/core/intro/overview.html#trap) spezifiziert.
 
 ## Syntax
 
@@ -24,17 +24,17 @@ new WebAssembly.RuntimeError(message, fileName, lineNumber)
 - `options` {{optional_inline}}
   - : Ein Objekt, das die folgenden Eigenschaften hat:
     - `cause` {{optional_inline}}
-      - : Eine Eigenschaft, die die spezifische Ursache des Fehlers angibt. Wenn ein Fehler mit einer spezifischeren oder nützlicheren Fehlermeldung abgefangen und erneut ausgelöst wird, kann diese Eigenschaft verwendet werden, um den ursprünglichen Fehler weiterzugeben.
+      - : Eine Eigenschaft, die die spezifische Ursache des Fehlers angibt. Beim Abfangen und erneuten Auslösen eines Fehlers mit einer spezifischeren oder nützlicheren Fehlermeldung kann diese Eigenschaft verwendet werden, um den ursprünglichen Fehler zu übergeben.
 - `fileName` {{optional_inline}} {{non-standard_inline}}
   - : Der Name der Datei, die den Code enthält, der die Ausnahme verursacht hat.
 - `lineNumber` {{optional_inline}} {{non-standard_inline}}
-  - : Die Zeilennummer des Codes, die die Ausnahme verursacht hat.
+  - : Die Zeilennummer des Codes, der die Ausnahme verursacht hat.
 
 ## Beispiele
 
 ### Erstellen einer neuen RuntimeError-Instanz
 
-Das folgende Snippet erstellt eine neue `RuntimeError` Instanz und protokolliert deren Details in der Konsole:
+Das folgende Snippet erzeugt eine neue `RuntimeError`-Instanz und protokolliert deren Details in der Konsole:
 
 ```js
 try {
@@ -60,6 +60,6 @@ try {
 
 ## Siehe auch
 
-- [WebAssembly](/de/docs/WebAssembly) Übersichtsseite
+- [WebAssembly](/de/docs/WebAssembly) Überblick
 - [WebAssembly-Konzepte](/de/docs/WebAssembly/Guides/Concepts)
 - [Verwendung der WebAssembly JavaScript API](/de/docs/WebAssembly/Guides/Using_the_JavaScript_API)

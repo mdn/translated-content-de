@@ -2,16 +2,16 @@
 title: WebAssembly.Table.prototype.length
 slug: WebAssembly/Reference/JavaScript_interface/Table/length
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: 006c05b688814b45a01ad965bbe4ebfc15513e74
 ---
 
-Die schreibgeschützte **`length`** Prototyp-Eigenschaft des [`WebAssembly.Table`](/de/docs/WebAssembly/Reference/JavaScript_interface/Table) Objekts gibt die Länge der Tabelle zurück, d.h. die Anzahl der Elemente in der Tabelle.
+Die schreibgeschützte **`length`** Prototype-Eigenschaft des [`WebAssembly.Table`](/de/docs/WebAssembly/Reference/JavaScript_interface/Table)-Objekts gibt die Länge der Tabelle zurück, d.h. die Anzahl der Elemente in der Tabelle.
 
 ## Beispiele
 
 ### Verwendung von length
 
-Das folgende Beispiel erstellt eine neue WebAssembly-Tabelle mit einer Anfangsgröße von 2 und einer maximalen Größe von 10:
+Das folgende Beispiel erstellt eine neue WebAssembly-Tabelleninstanz mit einer anfänglichen Größe von 2 und einer maximalen Größe von 10:
 
 ```js
 const table = new WebAssembly.Table({
@@ -21,7 +21,7 @@ const table = new WebAssembly.Table({
 });
 ```
 
-Erhöhen Sie die Tabelle um 1 mit `WebAssembly.grow()`:
+Vergrößern Sie die Tabelle um 1 mit `WebAssembly.grow()`:
 
 ```js
 console.log(table.length); // 2
@@ -39,6 +39,6 @@ console.log(table.length); // 3
 
 ## Siehe auch
 
-- [Übersichtsseite zu WebAssembly](/de/docs/WebAssembly)
+- [Überblick über WebAssembly](/de/docs/WebAssembly)
 - [WebAssembly-Konzepte](/de/docs/WebAssembly/Guides/Concepts)
-- [Verwendung der WebAssembly JavaScript API](/de/docs/WebAssembly/Guides/Using_the_JavaScript_API)
+- [Verwendung der WebAssembly JavaScript-API](/de/docs/WebAssembly/Guides/Using_the_JavaScript_API)

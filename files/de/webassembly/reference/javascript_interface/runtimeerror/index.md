@@ -2,10 +2,10 @@
 title: WebAssembly.RuntimeError
 slug: WebAssembly/Reference/JavaScript_interface/RuntimeError
 l10n:
-  sourceCommit: df9d06402163f77fc3e2d327ab63f9dd4af15b38
+  sourceCommit: 006c05b688814b45a01ad965bbe4ebfc15513e74
 ---
 
-Das **`WebAssembly.RuntimeError`**-Objekt ist der Fehlertyp, der ausgelöst wird, wenn WebAssembly eine [trap](https://webassembly.github.io/spec/core/intro/overview.html#trap) angibt.
+Das **`WebAssembly.RuntimeError`**-Objekt ist der Fehlertyp, der ausgelöst wird, wann immer WebAssembly eine [Falle](https://webassembly.github.io/spec/core/intro/overview.html#trap) spezifiziert.
 
 ## Konstruktor
 
@@ -25,20 +25,20 @@ Das **`WebAssembly.RuntimeError`**-Objekt ist der Fehlertyp, der ausgelöst wird
 - {{jsxref("Error.prototype.lineNumber", "WebAssembly.RuntimeError.prototype.lineNumber")}} {{non-standard_inline}}
   - : Zeilennummer in der Datei, die diesen Fehler verursacht hat. Geerbt von {{jsxref("Error")}}.
 - {{jsxref("Error.prototype.columnNumber", "WebAssembly.RuntimeError.prototype.columnNumber")}} {{non-standard_inline}}
-  - : Spaltennummer der Zeile, die diesen Fehler verursacht hat. Geerbt von {{jsxref("Error")}}.
+  - : Spaltennummer in der Zeile, die diesen Fehler verursacht hat. Geerbt von {{jsxref("Error")}}.
 - {{jsxref("Error.prototype.stack", "WebAssembly.RuntimeError.prototype.stack")}} {{non-standard_inline}}
-  - : Stack-Trace. Geerbt von {{jsxref("Error")}}.
+  - : Stapelverfolgung. Geerbt von {{jsxref("Error")}}.
 
 ## Instanz-Methoden
 
 - {{jsxref("Error.prototype.toString", "WebAssembly.RuntimeError.prototype.toString()")}}
-  - : Gibt eine Zeichenfolge zurück, die das spezifizierte `Error`-Objekt darstellt. Geerbt von {{jsxref("Error")}}.
+  - : Gibt einen String zurück, der das spezifizierte `Error`-Objekt repräsentiert. Geerbt von {{jsxref("Error")}}.
 
 ## Beispiele
 
 ### Erstellen einer neuen RuntimeError-Instanz
 
-Das folgende Snippet erstellt eine neue `RuntimeError`-Instanz und protokolliert deren Details in der Konsole:
+Der folgende Codeausschnitt erstellt eine neue `RuntimeError`-Instanz und protokolliert deren Details in die Konsole:
 
 ```js
 try {
@@ -64,6 +64,6 @@ try {
 
 ## Siehe auch
 
-- Überblick über [WebAssembly](/de/docs/WebAssembly)
+- [WebAssembly](/de/docs/WebAssembly) Übersicht
 - [WebAssembly-Konzepte](/de/docs/WebAssembly/Guides/Concepts)
-- [Verwendung der WebAssembly JavaScript API](/de/docs/WebAssembly/Guides/Using_the_JavaScript_API)
+- [Verwendung der WebAssembly JavaScript-API](/de/docs/WebAssembly/Guides/Using_the_JavaScript_API)
