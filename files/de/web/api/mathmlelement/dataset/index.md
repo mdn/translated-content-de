@@ -3,18 +3,18 @@ title: "MathMLElement: dataset-Eigenschaft"
 short-title: dataset
 slug: Web/API/MathMLElement/dataset
 l10n:
-  sourceCommit: 7ef48e3e54f5003f735eafd4bd3a0c2aedb21c27
+  sourceCommit: cd701f10306c8b0b9690532ff808df826818a04f
 ---
 
 {{APIRef("MathML")}}
 
-Die **`dataset`**-Schreibgeschützte Eigenschaft des [`MathMLElement`](/de/docs/Web/API/MathMLElement)-Interfaces bietet Lese-/Schreibzugriff auf [benutzerdefinierte Datensattribute](/de/docs/Web/MathML/Reference/Global_attributes/data-*) (`data-*`) auf Elementen. Sie stellt eine Zuordnung von Zeichenfolgen ([`DOMStringMap`](/de/docs/Web/API/DOMStringMap)) mit einem Eintrag für jedes `data-*`-Attribut bereit.
+Die **`dataset`** schreibgeschützte Eigenschaft der [`MathMLElement`](/de/docs/Web/API/MathMLElement)-Schnittstelle bietet Lese- und Schreibzugriff auf [benutzerdefinierte Datenattribute](/de/docs/Web/MathML/Reference/Global_attributes/data-*) (`data-*`) auf Elementen. Sie stellt eine Abbildung von Strings ([`DOMStringMap`](/de/docs/Web/API/DOMStringMap)) bereit, mit einem Eintrag für jedes `data-*`-Attribut.
 
-Die `dataset`-Eigenschaft selbst kann gelesen, aber nicht direkt beschrieben werden. Stattdessen müssen alle Schreibvorgänge auf die einzelnen Eigenschaften innerhalb des `dataset` erfolgen, die wiederum die Datenattribute darstellen.
+Die `dataset`-Eigenschaft selbst kann gelesen, aber nicht direkt beschrieben werden. Stattdessen müssen alle Schreibvorgänge an die einzelnen Eigenschaften innerhalb des `dataset` erfolgen, die ihrerseits die Datenattribute repräsentieren.
 
 ## Wert
 
-Ein [`DOMStringMap`](/de/docs/Web/API/DOMStringMap).
+Eine [`DOMStringMap`](/de/docs/Web/API/DOMStringMap).
 
 ## Beispiele
 
@@ -56,4 +56,4 @@ console.log(el.dataset.equation); // "euler"
 
 - [`HTMLElement.dataset`](/de/docs/Web/API/HTMLElement/dataset)
 - [`data-*`](/de/docs/Web/MathML/Reference/Global_attributes/data-*)
-- [Verwenden von Datenattributen](/de/docs/Learn_web_development/Howto/Solve_HTML_problems/Use_data_attributes)
+- [Verwendung von Datenattributen](/de/docs/Web/HTML/How_to/Use_data_attributes)

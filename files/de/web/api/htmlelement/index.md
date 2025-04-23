@@ -2,158 +2,159 @@
 title: HTMLElement
 slug: Web/API/HTMLElement
 l10n:
-  sourceCommit: b2c8dcdae36907a87d1d1b9393ca4a35ebc765d6
+  sourceCommit: cd701f10306c8b0b9690532ff808df826818a04f
 ---
 
 {{APIRef("HTML DOM")}}
 
-Das **`HTMLElement`**-Interface repräsentiert jedes [HTML](/de/docs/Web/HTML)-Element. Einige Elemente implementieren dieses Interface direkt, während andere es über ein Interface implementieren, das es erbt.
+Das **`HTMLElement`**-Interface repräsentiert ein beliebiges [HTML](/de/docs/Web/HTML)-Element. Einige Elemente implementieren dieses Interface direkt, während andere es über ein Interface implementieren, das davon erbt.
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
-_Erbt auch Eigenschaften von seinem übergeordneten Element, [`Element`](/de/docs/Web/API/Element)._
+_Erbt auch Eigenschaften von seinem übergeordneten Objekt, [`Element`](/de/docs/Web/API/Element)._
 
 - [`HTMLElement.accessKey`](/de/docs/Web/API/HTMLElement/accessKey)
-  - : Ein Zeichenkette, die den dem Element zugewiesenen Zugangsschlüssel darstellt.
+  - : Ein Zeichenfolgenwert, der den Zugriffsschlüssel darstellt, der dem Element zugewiesen ist.
 - [`HTMLElement.accessKeyLabel`](/de/docs/Web/API/HTMLElement/accessKeyLabel) {{ReadOnlyInline}}
-  - : Gibt eine Zeichenkette zurück, die den dem Element zugewiesenen Zugangsschlüssel enthält.
+  - : Gibt eine Zeichenfolge zurück, die den dem Element zugewiesenen Zugriffsschlüssel enthält.
 - [`HTMLElement.anchorElement`](/de/docs/Web/API/HTMLElement/anchorElement) {{ReadOnlyInline}}&nbsp;{{non-standard_inline}} {{experimental_inline}}
-  - : Gibt eine Referenz auf das Ankerelement des Elements zurück oder `null`, wenn es keines hat.
+  - : Gibt eine Referenz auf das Ankerelement des Elements zurück, oder `null`, wenn es keines hat.
 - [`HTMLElement.attributeStyleMap`](/de/docs/Web/API/HTMLElement/attributeStyleMap) {{ReadOnlyInline}}
-  - : Eine [`StylePropertyMap`](/de/docs/Web/API/StylePropertyMap), die die Deklarationen des [`style`](/de/docs/Web/HTML/Reference/Global_attributes/style)-Attributes des Elements darstellt.
+  - : Eine [`StylePropertyMap`](/de/docs/Web/API/StylePropertyMap), die die Deklarationen des [`style`](/de/docs/Web/HTML/Reference/Global_attributes/style)-Attributs des Elements repräsentiert.
 - [`HTMLElement.autocapitalize`](/de/docs/Web/API/HTMLElement/autocapitalize)
-  - : Eine Zeichenkette, die das Kapitalisierungsverhalten des Elements für Benutzereingaben darstellt. Gültige Werte sind: `none`, `off`, `on`, `characters`, `words`, `sentences`.
+  - : Eine Zeichenfolge, die das Verhalten der Großschreibung für Benutzereingaben des Elements darstellt. Gültige Werte sind: `none`, `off`, `on`, `characters`, `words`, `sentences`.
 - [`HTMLElement.autofocus`](/de/docs/Web/API/HTMLElement/autofocus)
-  - : Ein boolescher Wert, der das [`autofocus`](/de/docs/Web/HTML/Reference/Elements/select#autofocus) HTML-Globalattribut widerspiegelt, das angibt, ob die Steuerung beim Laden der Seite oder beim Anzeigen eines Dialogs oder Popovers fokussiert werden soll, falls es in einem Element innerhalb von {{htmlelement("dialog")}}-Elementen oder Elementen, deren Popover-Attribut gesetzt ist, angegeben ist.
+  - : Ein boolescher Wert, der das HTML-Globale Attribut [`autofocus`](/de/docs/Web/HTML/Reference/Elements/select#autofocus) widerspiegelt, welches angibt, ob das Kontrollkästchen fokussiert werden soll, wenn die Seite geladen wird oder wenn das Dialogfeld oder das Popover angezeigt wird, falls es in einem Element innerhalb von {{htmlelement("dialog")}}-Elementen oder Elementen, deren Popover-Attribut festgelegt ist, angegeben ist.
 - [`HTMLElement.autocorrect`](/de/docs/Web/API/HTMLElement/autocorrect)
-  - : Ein boolean, das angibt, ob Texteingaben des Benutzers automatisch korrigiert werden sollen oder nicht. Dies spiegelt das [`autocorrect`](/de/docs/Web/HTML/Reference/Global_attributes/autocorrect) HTML-Globalattribut wider.
+  - : Ein Boolescher Wert, der darstellt, ob der vom Benutzer eingegebene Text automatisch korrigiert werden soll oder nicht.
+    Dies spiegelt das HTML-Globale Attribut [`autocorrect`](/de/docs/Web/HTML/Reference/Global_attributes/autocorrect) wider.
 - [`HTMLElement.contentEditable`](/de/docs/Web/API/HTMLElement/contentEditable)
-  - : Eine Zeichenkette, bei der ein Wert von `true` bedeutet, dass das Element editierbar ist, und ein Wert von `false`, dass es nicht editierbar ist.
+  - : Eine Zeichenfolge, bei der ein Wert von `true` bedeutet, dass das Element bearbeitbar ist, und ein Wert von `false`, dass es nicht bearbeitbar ist.
 - [`HTMLElement.dataset`](/de/docs/Web/API/HTMLElement/dataset) {{ReadOnlyInline}}
-  - : Gibt ein [`DOMStringMap`](/de/docs/Web/API/DOMStringMap) zurück, mit dem Skripte die [benutzerdefinierten Datenattribute](/de/docs/Learn_web_development/Howto/Solve_HTML_problems/Use_data_attributes) (`data-*`) des Elements lesen und schreiben können.
+  - : Gibt ein [`DOMStringMap`](/de/docs/Web/API/DOMStringMap) zurück, mit dem ein Skript die [benutzerdefinierten Dateneigenschaften](/de/docs/Web/HTML/How_to/Use_data_attributes) (`data-*`) eines Elements lesen und schreiben kann.
 - [`HTMLElement.dir`](/de/docs/Web/API/HTMLElement/dir)
-  - : Eine Zeichenkette, die das globale Attribut `dir` widerspiegelt und die Richtungsangabe des Elements darstellt. Mögliche Werte sind `"ltr"`, `"rtl"` und `"auto"`.
+  - : Eine Zeichenfolge, die das `dir`-Globale Attribut widerspiegelt, welches die Schreibrichtung des Elements darstellt. Mögliche Werte sind `"ltr"`, `"rtl"` und `"auto"`.
 - [`HTMLElement.draggable`](/de/docs/Web/API/HTMLElement/draggable)
   - : Ein boolescher Wert, der angibt, ob das Element gezogen werden kann.
 - [`HTMLElement.editContext`](/de/docs/Web/API/HTMLElement/editContext) {{experimental_inline}}
-  - : Gibt den mit dem Element verbundenen [`EditContext`](/de/docs/Web/API/EditContext) zurück oder `null`, wenn keiner vorhanden ist.
+  - : Gibt den [`EditContext`](/de/docs/Web/API/EditContext) zurück, der mit dem Element assoziiert ist, oder `null`, wenn keiner vorhanden ist.
 - [`HTMLElement.enterKeyHint`](/de/docs/Web/API/HTMLElement/enterKeyHint)
-  - : Eine Zeichenkette, die definiert, welches Aktionslabel (oder Icon) für die Enter-Taste auf virtuellen Tastaturen angezeigt werden soll.
+  - : Eine Zeichenfolge, die angibt, welches Aktionssymbol (oder Ikone) für die Eingabetaste auf virtuellen Tastaturen angezeigt werden soll.
 - [`HTMLElement.hidden`](/de/docs/Web/API/HTMLElement/hidden)
-  - : Eine Zeichenkette oder ein boolescher Wert, der den Wert des [`hidden`](/de/docs/Web/HTML/Reference/Global_attributes/hidden)-Attributs des Elements widerspiegelt.
+  - : Ein Zeichenfolgen- oder boolescher Wert, der den Wert des [`hidden`](/de/docs/Web/HTML/Reference/Global_attributes/hidden)-Attributs des Elements widerspiegelt.
 - [`HTMLElement.inert`](/de/docs/Web/API/HTMLElement/inert)
-  - : Ein boolescher Wert, der angibt, ob der Benutzeragent so handeln muss, als ob der gegebene Knoten für Benutzerinteraktionsereignisse, In-Seiten-Textsuchvorgänge ("Seiteninhalt durchsuchen") und Textauswahl nicht vorhanden ist.
+  - : Ein boolescher Wert, der angibt, ob der Nutzer-Agent so handeln muss, als ob der gegebene Knoten für die Zwecke von Benutzerinteraktionsereignissen, textbasierte In-Page-Suchen ("Seite durchsuchen") und Textauswahl abwesend ist.
 - [`HTMLElement.innerText`](/de/docs/Web/API/HTMLElement/innerText)
-  - : Stellt den gerenderten Textinhalt eines Knotens und seiner Nachkommen dar.
-    Als Getter approximiert es den Text, den der Benutzer erhalten würde, wenn er die Inhalte des Elements mit dem Cursor markieren und dann in die Zwischenablage kopieren würde.
-    Als Setter ersetzt es den Inhalt im ausgewählten Element und konvertiert Zeilenumbrüche in {{HTMLElement("br")}}-Elemente.
+  - : Repräsentiert den gerenderten Textinhalt eines Knotens und seiner Nachkommen.
+    Als Leser approximiert er den Text, den der Benutzer erhalten würde, wenn er den Inhalt des Elements mit dem Cursor markiert und dann in die Zwischenablage kopiert hätte.
+    Als Schreiber ersetzt er den Inhalt innerhalb des ausgewählten Elements, indem er alle Zeilenumbrüche in {{HTMLElement("br")}}-Elemente konvertiert.
 - [`HTMLElement.inputMode`](/de/docs/Web/API/HTMLElement/inputMode)
-  - : Ein Zeichenkettenwert, der den Wert des [`inputmode`](/de/docs/Web/HTML/Reference/Global_attributes/inputmode)-Attributs des Elements widerspiegelt.
+  - : Ein Zeichenfolgenwert, der den Wert des [`inputmode`](/de/docs/Web/HTML/Reference/Global_attributes/inputmode)-Attributs des Elements widerspiegelt.
 - [`HTMLElement.isContentEditable`](/de/docs/Web/API/HTMLElement/isContentEditable) {{ReadOnlyInline}}
   - : Gibt einen booleschen Wert zurück, der angibt, ob der Inhalt des Elements bearbeitet werden kann oder nicht.
 - [`HTMLElement.lang`](/de/docs/Web/API/HTMLElement/lang)
-  - : Eine Zeichenkette, die die Sprache der Attribute, des Textes und der Inhalte eines Elements darstellt.
+  - : Eine Zeichenfolge, die die Sprache der Attribute, des Textes und der Inhalte eines Elements repräsentiert.
 - [`HTMLElement.nonce`](/de/docs/Web/API/HTMLElement/nonce)
-  - : Gibt die kryptografische Nummer zurück, die von der Content Security Policy verwendet wird, um festzustellen, ob ein bestimmter Abruf durchgeführt werden darf.
+  - : Gibt die einmal verwendete kryptografische Nummer zurück, die von der Content Security Policy verwendet wird, um zu bestimmen, ob ein gegebener Abruf durchgeführt werden darf.
 - [`HTMLElement.offsetHeight`](/de/docs/Web/API/HTMLElement/offsetHeight) {{ReadOnlyInline}}
-  - : Gibt einen `double` zurück, welcher die Höhe eines Elements relativ zum Layout enthält.
+  - : Gibt ein `double` zurück, das die Höhe eines Elements relativ zum Layout enthält.
 - [`HTMLElement.offsetLeft`](/de/docs/Web/API/HTMLElement/offsetLeft) {{ReadOnlyInline}}
-  - : Gibt einen `double` zurück, welcher die Entfernung von der linken Grenze dieses Elements zur linken Grenze seines `offsetParent` wiedergibt.
+  - : Gibt ein `double` zurück, der die Entfernung vom linken Rand dieses Elements zum linken Rand des `offsetParent` enthält.
 - [`HTMLElement.offsetParent`](/de/docs/Web/API/HTMLElement/offsetParent) {{ReadOnlyInline}}
-  - : Ein [`Element`](/de/docs/Web/API/Element), das das Element ist, von dem alle Offset-Berechnungen derzeit durchgeführt werden.
+  - : Ein [`Element`](/de/docs/Web/API/Element), von dem alle Offset-Berechnungen derzeit durchgeführt werden.
 - [`HTMLElement.offsetTop`](/de/docs/Web/API/HTMLElement/offsetTop) {{ReadOnlyInline}}
-  - : Gibt einen `double` zurück, welcher die Entfernung von der oberen Grenze dieses Elements zur oberen Grenze seines `offsetParent` wiedergibt.
+  - : Gibt ein `double` zurück, der die Entfernung vom oberen Rand dieses Elements zum oberen Rand des `offsetParent` enthält.
 - [`HTMLElement.offsetWidth`](/de/docs/Web/API/HTMLElement/offsetWidth) {{ReadOnlyInline}}
-  - : Gibt einen `double` zurück, welcher die Breite eines Elements relativ zum Layout enthält.
+  - : Gibt ein `double` zurück, das die Breite eines Elements relativ zum Layout enthält.
 - [`HTMLElement.outerText`](/de/docs/Web/API/HTMLElement/outerText)
-  - : Stellt den gerenderten Textinhalt eines Knotens und seiner Nachkommen dar.
-    Als Getter ist es das gleiche wie [`HTMLElement.innerText`](/de/docs/Web/API/HTMLElement/innerText) (es repräsentiert den gerenderten Textinhalt eines Elements und seiner Nachkommen).
-    Als Setter ersetzt es den ausgewählten Knoten und seinen Inhalt durch den angegebenen Wert und konvertiert Zeilenumbrüche in {{HTMLElement("br")}}-Elemente.
+  - : Repräsentiert den gerenderten Textinhalt eines Knotens und seiner Nachkommen.
+    Als Leser ist es dasselbe wie [`HTMLElement.innerText`](/de/docs/Web/API/HTMLElement/innerText) (es repräsentiert den angezeigten Textinhalt eines Elements und seiner Nachkommen).
+    Als Schreiber ersetzt er den ausgewählten Knoten und seine Inhalte durch den gegebenen Wert und konvertiert alle Zeilenumbrüche in {{HTMLElement("br")}}-Elemente.
 - [`HTMLElement.popover`](/de/docs/Web/API/HTMLElement/popover)
-  - : Ruft den Popover-Zustand eines Elements über JavaScript ab und legt ihn fest (`"auto"`, `"hint"` oder `"manual"`), und kann zur Funktionsunterstützungserkennung verwendet werden. Spiegelt den Wert des [`popover`](/de/docs/Web/HTML/Reference/Global_attributes/popover)-Attributs des globalen HTML-Attributs wider.
+  - : Ruft den Popover-Zustand eines Elements über JavaScript ab und setzt diesen (`"auto"`, `"hint"` oder `"manual"`) und kann zur Feature-Erkennung verwendet werden. Spiegelt den Wert des globalen HTML-Attributs [`popover`](/de/docs/Web/HTML/Reference/Global_attributes/popover) wider.
 - [`HTMLElement.spellcheck`](/de/docs/Web/API/HTMLElement/spellcheck)
-  - : Ein boolescher Wert, der den [Rechtschreibprüfung](/de/docs/Web/HTML/Reference/Global_attributes/spellcheck)-Hinweis steuert. Es ist auf allen HTML-Elementen verfügbar, wirkt sich jedoch nicht auf alle aus.
+  - : Ein boolescher Wert, der den Hinweis auf die [Rechtschreibprüfung](/de/docs/Web/HTML/Reference/Global_attributes/spellcheck) steuert. Es ist für alle HTML-Elemente verfügbar, obwohl es nicht alle betrifft.
 - [`HTMLElement.style`](/de/docs/Web/API/HTMLElement/style)
-  - : Ein [`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration), der die Deklarationen des [`style`](/de/docs/Web/HTML/Reference/Global_attributes/style)-Attributes des Elements darstellt.
+  - : Eine [`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration), die die Deklarationen des [`style`](/de/docs/Web/HTML/Reference/Global_attributes/style)-Attributs des Elements repräsentiert.
 - [`HTMLElement.tabIndex`](/de/docs/Web/API/HTMLElement/tabIndex)
-  - : Ein `long`, der die Position des Elements in der Tabulatorreihenfolge darstellt.
+  - : Eine `long`, die die Position des Elements in der Tab-Reihenfolge repräsentiert.
 - [`HTMLElement.title`](/de/docs/Web/API/HTMLElement/title)
-  - : Ein Zeichenkette, die den Text enthält, der in einem Popup-Fenster angezeigt wird, wenn die Maus über das Element fährt.
+  - : Eine Zeichenfolge, die den Text enthält, der in einem Popup-Fenster erscheint, wenn die Maus über dem Element ist.
 - [`HTMLElement.translate`](/de/docs/Web/API/HTMLElement/translate)
-  - : Ein boolean, der die Übersetzung darstellt.
+  - : Ein boolescher Wert, der die Übersetzung repräsentiert.
 - [`HTMLElement.virtualKeyboardPolicy`](/de/docs/Web/API/HTMLElement/virtualKeyboardPolicy) {{Experimental_Inline}}
-  - : Ein Zeichenkette, die das Verhalten der virtuellen Bildschirmtastatur auf Geräten wie Tablets, Mobiltelefonen oder anderen Geräten angibt, bei denen möglicherweise keine Hardwaretastatur verfügbar ist, wenn der Inhalt des Elements bearbeitbar ist (z. B. ein {{htmlelement("input")}}- oder {{htmlelement("textarea")}}-Element oder ein Element mit dem [`contenteditable`](/de/docs/Web/HTML/Reference/Global_attributes/contenteditable)-Attribut).
+  - : Eine Zeichenfolge, die das Verhalten der virtuellen Bildschirmtastatur auf Geräten wie Tablets, Mobiltelefonen oder anderen Geräten, bei denen möglicherweise keine Hardwaretastatur verfügbar ist, angibt, sofern der Inhalt des Elements bearbeitbar ist (zum Beispiel ist es ein {{htmlelement("input")}}- oder {{htmlelement("textarea")}}-Element, oder ein Element mit dem Attribut [`contenteditable`](/de/docs/Web/HTML/Reference/Global_attributes/contenteditable) gesetzt).
 - [`HTMLElement.writingSuggestions`](/de/docs/Web/API/HTMLElement/writingSuggestions)
-  - : Eine Zeichenkette, die angibt, ob vom Browser bereitgestellte Schreibvorschläge innerhalb des Geltungsbereichs des Elements aktiviert werden sollen oder nicht.
+  - : Eine Zeichenfolge, die angibt, ob vom Browser bereitgestellte Schreibvorschläge im Rahmen des Elements aktiv sein sollen oder nicht.
 
 ## Instanz-Methoden
 
-_Erbt auch Methoden von seinem übergeordneten Element, [`Element`](/de/docs/Web/API/Element)._
+_Erbt auch Methoden von seinem übergeordneten Objekt, [`Element`](/de/docs/Web/API/Element)._
 
 - [`HTMLElement.attachInternals()`](/de/docs/Web/API/HTMLElement/attachInternals)
   - : Gibt ein [`ElementInternals`](/de/docs/Web/API/ElementInternals)-Objekt zurück und ermöglicht es einem benutzerdefinierten Element, an HTML-Formularen teilzunehmen.
 - [`HTMLElement.blur()`](/de/docs/Web/API/HTMLElement/blur)
-  - : Entfernt den Tastaturfokus vom aktuell fokussierten Element.
+  - : Entfernt die Tastaturfokussierung von dem aktuell fokussierten Element.
 - [`HTMLElement.click()`](/de/docs/Web/API/HTMLElement/click)
-  - : Sendet ein Mausklickereignis an das Element.
+  - : Sendet ein Mausklick-Ereignis an das Element.
 - [`HTMLElement.focus()`](/de/docs/Web/API/HTMLElement/focus)
   - : Macht das Element zum aktuellen Tastaturfokus.
 - [`HTMLElement.hidePopover()`](/de/docs/Web/API/HTMLElement/hidePopover)
-  - : Blendet ein Popover-Element aus, indem es aus der {{Glossary("top_layer", "obersten Ebene")}} entfernt und mit `display: none` gestylt wird.
+  - : Versteckt ein Popover-Element, indem es aus der {{Glossary("top_layer", "oberen Schicht")}} entfernt und mit `display: none` gestylt wird.
 - [`HTMLElement.showPopover()`](/de/docs/Web/API/HTMLElement/showPopover)
-  - : Zeigt ein Popover-Element an, indem es zur {{Glossary("top_layer", "obersten Ebene")}} hinzugefügt und `display: none;` aus seinen Stilen entfernt wird.
+  - : Zeigt ein Popover-Element, indem es zur {{Glossary("top_layer", "oberen Schicht")}} hinzugefügt und `display: none;` aus seinen Stilen entfernt wird.
 - [`HTMLElement.togglePopover()`](/de/docs/Web/API/HTMLElement/togglePopover)
   - : Schaltet ein Popover-Element zwischen den Zuständen "versteckt" und "angezeigt" um.
 
 ## Ereignisse
 
-Hören Sie auf diese Ereignisse mit [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder durch Zuweisen eines Ereignis-Listeners zur `oneventname`-Eigenschaft dieses Interface.
+Diese Ereignisse können mit [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder durch Zuweisen eines Ereignis-Listeners zur `oneventname`-Eigenschaft dieses Interfaces überwacht werden.
 
-_Erbt auch Ereignisse von seinem übergeordneten Element, [`Element`](/de/docs/Web/API/Element)._
+_Erbt auch Ereignisse von seinem übergeordneten Objekt, [`Element`](/de/docs/Web/API/Element)._
 
 - [`change`](/de/docs/Web/API/HTMLElement/change_event)
-  - : Ausgelöst, wenn der `value` eines {{HTMLElement("input")}}, {{HTMLElement("select")}} oder {{HTMLElement("textarea")}}-Elements durch den Benutzer geändert und festgelegt wurde. Anders als das [`input`](/de/docs/Web/API/Element/input_event)-Ereignis wird das `change`-Ereignis nicht unbedingt für jede Änderung des `value` eines Elements ausgelöst.
+  - : Wird ausgelöst, wenn der `value` eines {{HTMLElement("input")}}, {{HTMLElement("select")}} oder {{HTMLElement("textarea")}}-Elements geändert und vom Benutzer bestätigt wurde. Im Gegensatz zum [`input`](/de/docs/Web/API/Element/input_event)-Ereignis wird das `change`-Ereignis nicht unbedingt für jede Änderung des `value`-Werts eines Elements ausgelöst.
 - [`command`](/de/docs/Web/API/HTMLElement/command_event)
-  - : Wird auf einem Element ausgelöst, das über einen [`button`](/de/docs/Web/API/HTMLButtonElement) mit gültigen [`commandForElement`](/de/docs/Web/API/HTMLButtonElement/commandForElement)- und [`command`](/de/docs/Web/API/HTMLButtonElement/command)-Werten gesteuert wird, wann immer der Button interagiert wurde (z. B. durch Klicken).
+  - : Wird auf einem Element ausgelöst, das über ein [`button`](/de/docs/Web/API/HTMLButtonElement) mit gültigen [`commandForElement`](/de/docs/Web/API/HTMLButtonElement/commandForElement) und [`command`](/de/docs/Web/API/HTMLButtonElement/command)-Werten gesteuert wird, wann immer der Button interagiert wird (z.B. wenn darauf geklickt wird).
 - [`error`](/de/docs/Web/API/HTMLElement/error_event)
-  - : Ausgelöst, wenn eine Ressource nicht geladen werden konnte oder nicht verwendet werden kann.
+  - : Wird ausgelöst, wenn eine Ressource nicht geladen werden konnte oder nicht verwendet werden kann.
 - [`load`](/de/docs/Web/API/HTMLElement/load_event)
-  - : Wird für Elemente ausgelöst, die eine Ressource enthalten, wenn die Ressource erfolgreich geladen wurde.
+  - : Wird für Elemente ausgelöst, die eine Ressource enthalten, wenn diese Ressource erfolgreich geladen wurde.
 
 ### Zwischenablage-Ereignisse
 
 - [`copy`](/de/docs/Web/API/HTMLElement/copy_event)
-  - : Ausgelöst, wenn der Benutzer eine Kopieraktion über die Benutzeroberfläche des Browsers initiiert.
+  - : Wird ausgelöst, wenn der Benutzer eine Kopieraktion über die Benutzeroberfläche des Browsers einleitet.
 - [`cut`](/de/docs/Web/API/HTMLElement/cut_event)
-  - : Ausgelöst, wenn der Benutzer eine Ausschneideaktion über die Benutzeroberfläche des Browsers initiiert.
+  - : Wird ausgelöst, wenn der Benutzer eine Ausschneideaktion über die Benutzeroberfläche des Browsers einleitet.
 - [`paste`](/de/docs/Web/API/HTMLElement/paste_event)
-  - : Ausgelöst, wenn der Benutzer eine Einfügeaktion über die Benutzeroberfläche des Browsers initiiert.
+  - : Wird ausgelöst, wenn der Benutzer eine Einfügeaktion über die Benutzeroberfläche des Browsers einleitet.
 
 ### Drag & Drop-Ereignisse
 
 - [`drag`](/de/docs/Web/API/HTMLElement/drag_event)
   - : Dieses Ereignis wird ausgelöst, wenn ein Element oder eine Textauswahl gezogen wird.
 - [`dragend`](/de/docs/Web/API/HTMLElement/dragend_event)
-  - : Dieses Ereignis wird ausgelöst, wenn eine Ziehoperation beendet wird (durch Loslassen einer Maustaste oder Drücken der Escape-Taste).
+  - : Dieses Ereignis wird ausgelöst, wenn ein Zieh-Vorgang beendet wird (durch Loslassen einer Maustaste oder Drücken der Escape-Taste).
 - [`dragenter`](/de/docs/Web/API/HTMLElement/dragenter_event)
-  - : Dieses Ereignis wird ausgelöst, wenn ein gezogenes Element oder eine Textauswahl ein gültiges Ziehl-Ziel betritt.
+  - : Dieses Ereignis wird ausgelöst, wenn ein gezogenes Element oder eine Textauswahl in ein gültiges Ziehziel eintritt.
 - [`dragleave`](/de/docs/Web/API/HTMLElement/dragleave_event)
-  - : Dieses Ereignis wird ausgelöst, wenn ein gezogenes Element oder eine Textauswahl ein gültiges Ziehl-Ziel verlässt.
+  - : Dieses Ereignis wird ausgelöst, wenn ein gezogenes Element oder eine Textauswahl ein gültiges Ziehziel verlässt.
 - [`dragover`](/de/docs/Web/API/HTMLElement/dragover_event)
-  - : Dieses Ereignis wird kontinuierlich ausgelöst, wenn ein Element oder eine Textauswahl gezogen wird und der Mauszeiger sich über einem gültigen Ziehl-Ziel befindet (alle 50 ms WENN die Maus sich nicht bewegt, ANSONSTEN viel schneller zwischen ungefähr 5 ms (langsamer Bewegung) und 1ms (schneller Bewegung). Dieses Auslösungsmuster unterscheidet sich von [`mouseover`](/de/docs/Web/API/Element/mouseover_event) ).
+  - : Dieses Ereignis wird kontinuierlich ausgelöst, wenn ein Element oder eine Textauswahl gezogen wird und sich der Mauszeiger über einem gültigen Ziehziel befindet (alle 50 ms, wenn die Maus nicht bewegt wird, sonst viel schneller, zwischen 5 ms (langsamer Bewegung) und ca. 1ms (schnelle Bewegung). Dieses Auslöse-Muster unterscheidet sich vom [`mouseover`](/de/docs/Web/API/Element/mouseover_event)-Ereignis).
 - [`dragstart`](/de/docs/Web/API/HTMLElement/dragstart_event)
-  - : Dieses Ereignis wird ausgelöst, wenn der Benutzer beginnt, ein Element oder eine Textauswahl zu ziehen.
+  - : Dieses Ereignis wird ausgelöst, wenn der Benutzer anfängt, ein Element oder eine Textauswahl zu ziehen.
 - [`drop`](/de/docs/Web/API/HTMLElement/drop_event)
-  - : Dieses Ereignis wird ausgelöst, wenn ein Element oder eine Textauswahl auf ein gültiges Ziehl-Ziel fallen gelassen wird.
+  - : Dieses Ereignis wird ausgelöst, wenn ein Element oder eine Textauswahl auf ein gültiges Ziehziel fallen gelassen wird.
 
 ### Umschalt-Ereignisse
 
 - [`beforetoggle`](/de/docs/Web/API/HTMLElement/beforetoggle_event)
-  - : Ausgelöst, wenn das Element ein [Popover](/de/docs/Web/API/Popover_API) oder {{htmlelement("dialog")}} ist, bevor es versteckt oder angezeigt wird.
+  - : Wird ausgelöst, wenn das Element ein [Popover](/de/docs/Web/API/Popover_API) oder {{htmlelement("dialog")}} ist, bevor es versteckt oder angezeigt wird.
 - [`toggle`](/de/docs/Web/API/HTMLElement/toggle_event)
-  - : Ausgelöst, wenn das Element ein [Popover](/de/docs/Web/API/Popover_API), {{htmlelement("dialog")}} oder {{htmlelement("details")}} Element ist, direkt nachdem es versteckt oder angezeigt wurde.
+  - : Wird ausgelöst, wenn das Element ein [Popover](/de/docs/Web/API/Popover_API), {{htmlelement("dialog")}} oder {{htmlelement("details")}}-Element ist, gerade nachdem es versteckt oder angezeigt wird.
 
 ## Spezifikationen
 
