@@ -2,12 +2,12 @@
 title: CSS-Bilder
 slug: Web/CSS/CSS_images
 l10n:
-  sourceCommit: b5df38a16de5c44a7e9bf7de59f65994cafd5396
+  sourceCommit: ffdff0c932218759f727d5af9707b94ee8d54d0a
 ---
 
 {{CSSRef}}
 
-Das **CSS-Bilder**-Modul definiert die Arten von Bildern, die verwendet werden können (der {{CSSxRef("&lt;image&gt;")}}-Typ, der URLs, Verläufe und andere Arten von Bildern enthält), wie man sie skaliert und wie sie und andere ersetzte Inhalte mit den verschiedenen Layoutmodellen interagieren.
+Das **CSS images** Modul definiert die Arten von Bildern, die verwendet werden können (der {{CSSxRef("&lt;image&gt;")}} Typ, der URLs, Verläufe und andere Bildtypen enthält), wie man sie skalieren kann und wie sie sowie anderer ersetzter Inhalt mit den verschiedenen Layoutmodellen interagieren.
 
 ## Referenz
 
@@ -29,8 +29,9 @@ Das **CSS-Bilder**-Modul definiert die Arten von Bildern, die verwendet werden k
 - {{CSSxRef("gradient/repeating-conic-gradient", "repeating-conic-gradient()")}}
 - {{CSSxRef("cross-fade", "cross-fade()")}}
 - {{CSSxRef("element", "element()")}}
-- {{CSSxRef("image/image", "image()")}}
 - {{CSSxRef("image/image-set", "image-set()")}}
+
+Die Spezifikation definiert auch die {{CSSxRef("image/image", "image()")}} Funktion, die bisher von keinem Browser unterstützt wird.
 
 ### Datentypen
 
@@ -39,17 +40,17 @@ Das **CSS-Bilder**-Modul definiert die Arten von Bildern, die verwendet werden k
 
 ## Leitfäden
 
-- [Verwendung von CSS-Verläufen](/de/docs/Web/CSS/CSS_images/Using_CSS_gradients)
+- [CSS-Gradients verwenden](/de/docs/Web/CSS/CSS_images/Using_CSS_gradients)
 
   - : Präsentiert einen speziellen Typ von CSS-Bildern, _Verläufe_, und wie man diese erstellt und verwendet.
 
-- [Implementierung von Bildsprites in CSS](/de/docs/Web/CSS/CSS_images/Implementing_image_sprites_in_CSS)
+- [Bildspritzen in CSS implementieren](/de/docs/Web/CSS/CSS_images/Implementing_image_sprites_in_CSS)
 
   - : Beschreibt die gängige Technik, mehrere Bilder in einem einzigen Dokument zu gruppieren, um Download-Anfragen zu sparen und die Verfügbarkeit einer Seite zu beschleunigen.
 
 - [Verständnis von Seitenverhältnissen](/de/docs/Web/CSS/CSS_box_sizing/Understanding_aspect-ratio)
 
-  - : Erlernen Sie die `aspect-ratio`-Eigenschaft, diskutieren Sie Seitenverhältnisse für ersetzte und nicht ersetzte Elemente und untersuchen Sie einige häufige Anwendungsfälle von Seitenverhältnissen.
+  - : Lernen Sie die `aspect-ratio` Eigenschaft kennen, diskutieren Sie Seitenverhältnisse für ersetzte und nicht-ersetzte Elemente und untersuchen Sie einige häufige Anwendungsfälle von Seitenverhältnissen.
 
 ## Verwandte Konzepte
 
@@ -62,7 +63,7 @@ Das **CSS-Bilder**-Modul definiert die Arten von Bildern, die verwendet werden k
 
 ## Siehe auch
 
-- Modul [CSS-Filtereffekte](/de/docs/Web/CSS/CSS_filter_effects)
-- Modul [CSS-Komposition und -Mischung](/de/docs/Web/CSS/CSS_compositing_and_blending)
-- Modul [CSS-Farben](/de/docs/Web/CSS/CSS_colors)
-- Modul [CSS-Werte und Einheiten](/de/docs/Web/CSS/CSS_Values_and_Units)
+- [CSS-Filtereffekte](/de/docs/Web/CSS/CSS_filter_effects) Modul
+- [CSS-Compositing und -Blending](/de/docs/Web/CSS/CSS_compositing_and_blending) Modul
+- [CSS-Farben](/de/docs/Web/CSS/CSS_colors) Modul
+- [CSS-Werte und Einheiten](/de/docs/Web/CSS/CSS_Values_and_Units) Modul
