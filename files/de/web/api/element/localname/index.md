@@ -1,9 +1,9 @@
 ---
-title: "Element: localName-Eigenschaft"
+title: "Element: Eigenschaft localName"
 short-title: localName
 slug: Web/API/Element/localName
 l10n:
-  sourceCommit: d0b23f3f26637aa405ee9ee0a0892fc6e9b742ef
+  sourceCommit: e4e57ab3ccb5f93319f8fe13848d4895d3e1e771
 ---
 
 {{APIRef("DOM")}}
@@ -16,13 +16,13 @@ Ein String, der den lokalen Teil des qualifizierten Namens des Elements darstell
 
 ## Beispiele
 
-(Muss mit dem XML-Content-Typ bereitgestellt werden, wie `text/xml` oder `application/xhtml+xml`.)
+(Muss mit dem XML-Inhaltstyp bereitgestellt werden, wie `text/xml` oder `application/xhtml+xml`.)
 
 ```xml
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:svg="http://www.w3.org/2000/svg">
 <head>
-  <script type="application/javascript"><![CDATA[
+  <script><![CDATA[
   function test() {
     const text = document.getElementById('text');
     const circle = document.getElementById('circle');
@@ -46,7 +46,7 @@ Ein String, der den lokalen Teil des qualifizierten Namens des Elements darstell
 
 ## Hinweise
 
-Der lokale Name eines Knotens ist der Teil des qualifizierten Namens des Knotens, der nach dem Doppelpunkt kommt. Qualifizierte Namen werden typischerweise in XML als Teil der Namensräume der jeweiligen XML-Dokumente verwendet. Zum Beispiel ist in dem qualifizierten Namen `ecomm:partners` `partners` der lokale Name und `ecomm` das Präfix:
+Der lokale Name eines Knotens ist der Teil des qualifizierten Namens des Knotens, der nach dem Doppelpunkt kommt. Qualifizierte Namen werden typischerweise in XML als Teil der Namespaces der jeweiligen XML-Dokumente verwendet. Zum Beispiel ist in dem qualifizierten Namen `ecomm:partners`, `partners` der lokale Name und `ecomm` das Präfix:
 
 ```xml
 <ecomm:business id="soda_shop" type="brick_n_mortar" xmlns:ecomm="http://example.com/ecomm">
@@ -58,7 +58,7 @@ Der lokale Name eines Knotens ist der Teil des qualifizierten Namens des Knotens
 ```
 
 > [!NOTE]
-> Während die Eigenschaft die Kleinschreibung des internen DOM-Speichers zurückgibt, beachten Sie, dass die [`tagName`](/de/docs/Web/API/Element/tagName) Eigenschaft Großbuchstaben für HTML-Elemente in HTML-DOMs zurückgibt.
+> Während die Eigenschaft den Fall der internen DOM-Speicherung zurückgibt, der in Kleinbuchstaben erfolgt, beachten Sie, dass die [`tagName`](/de/docs/Web/API/Element/tagName) Eigenschaft Großbuchstaben für HTML-Elemente in HTML-DOMs zurückgibt.
 
 ## Spezifikationen
 

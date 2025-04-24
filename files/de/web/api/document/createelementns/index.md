@@ -1,17 +1,17 @@
 ---
-title: "Dokumentation: createElementNS()-Methode"
+title: "Dokument: createElementNS() Methode"
 short-title: createElementNS()
 slug: Web/API/Document/createElementNS
 l10n:
-  sourceCommit: 5c0d26f70b80e5511496f49cb5dc0405de98c562
+  sourceCommit: e4e57ab3ccb5f93319f8fe13848d4895d3e1e771
 ---
 
 {{APIRef("DOM")}}
 
-Erstellt ein Element mit der angegebenen Namespace-URI und dem qualifizierten Namen.
+Erstellt ein Element mit dem angegebenen Namespace-URI und qualifizierten Namen.
 
-Um ein Element zu erstellen, ohne eine Namespace-URI anzugeben, verwenden Sie die Methode
-[`createElement()`](/de/docs/Web/API/Document/createElement).
+Um ein Element ohne Angabe eines Namespace-URIs zu erstellen, verwenden Sie die
+[`createElement()`](/de/docs/Web/API/Document/createElement)-Methode.
 
 ## Syntax
 
@@ -23,7 +23,7 @@ createElementNS(namespaceURI, qualifiedName, options)
 ### Parameter
 
 - `namespaceURI`
-  - : Ein String, der die [`namespaceURI`](/de/docs/Web/API/Element/namespaceURI) angibt, die mit dem Element verknüpft werden soll. Einige wichtige Namespace-URIs sind:
+  - : Ein String, der den [`namespaceURI`](/de/docs/Web/API/Element/namespaceURI) angibt, der dem Element zugeordnet werden soll. Einige wichtige Namespace-URIs sind:
     - [HTML](/de/docs/Web/HTML)
       - : `http://www.w3.org/1999/xhtml`
     - [SVG](/de/docs/Web/SVG)
@@ -35,10 +35,9 @@ createElementNS(namespaceURI, qualifiedName, options)
     Die [`nodeName`](/de/docs/Web/API/Node/nodeName)-Eigenschaft des erstellten Elements wird mit dem Wert von _qualifiedName_ initialisiert.
 - `options` {{Optional_Inline}}
 
-  - : Ein optionales `ElementCreationOptions`-Objekt, das eine einzelne Eigenschaft namens `is` enthält, deren Wert der Tag-Name eines benutzerdefinierten Elements ist, das zuvor mit `customElements.define()` definiert wurde.
-    Aus Gründen der Abwärtskompatibilität mit früheren Versionen der [Custom Elements-Spezifikation](https://www.w3.org/TR/custom-elements/)
-    erlauben es einige Browser, hier einen String anstelle eines Objekts zu übergeben, wobei der Wert des Strings der Tag-Name des benutzerdefinierten Elements ist.
-    Siehe [Erweitern nativer HTML-Elemente](https://web.dev/articles/web-components) für weitere Informationen zur Nutzung dieses Parameters.
+  - : Ein optionales `ElementCreationOptions`-Objekt, das eine einzelne Eigenschaft namens `is` enthält, deren Wert der Tag-Name für ein benutzerdefiniertes Element ist, das zuvor mit `customElements.define()` definiert wurde. Aus Gründen der Rückwärtskompatibilität mit früheren Versionen der [Custom Elements Spezifikation](https://www.w3.org/TR/custom-elements/)
+    erlauben es einige Browser, hier einen String statt eines Objekts zu übergeben, wobei der Wert des Strings der Tag-Name des benutzerdefinierten Elements ist.
+    Siehe [Erweitern von nativen HTML-Elementen](https://web.dev/articles/web-components) für weitere Informationen zur Verwendung dieses Parameters.
 
     Das neue Element erhält ein `is`-Attribut, dessen Wert der Tag-Name des benutzerdefinierten Elements ist. Benutzerdefinierte Elemente sind ein experimentelles Feature, das nur in einigen Browsern verfügbar ist.
 
@@ -49,15 +48,14 @@ Das neue [`Element`](/de/docs/Web/API/Element).
 ### Ausnahmen
 
 - `NamespaceError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der Wert von [`namespaceURI`](#namespaceuri) keine gültige Namespace-URI ist.
+  - : Wird ausgelöst, wenn der [`namespaceURI`](#namespaceuri)-Wert kein gültiger Namespace-URI ist.
 - `InvalidCharacterError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der Wert von [`qualifiedName`](#qualifiedname) kein gültiger [XML-Name](https://www.w3.org/TR/REC-xml/#dt-name) ist; zum Beispiel, wenn er mit einer Zahl, einem Bindestrich oder einem Punkt beginnt oder Zeichen enthält, die nicht alphanumerisch, Unterstriche, Bindestriche oder Punkte sind.
+  - : Wird ausgelöst, wenn der [`qualifiedName`](#qualifiedname)-Wert kein gültiger [XML-Name](https://www.w3.org/TR/REC-xml/#dt-name) ist; beispielsweise wenn er mit einer Zahl, einem Bindestrich oder Punkt beginnt oder Zeichen enthält, die keine alphanumerischen Zeichen, Unterstriche, Bindestriche oder Punkte sind.
 
 ## Beispiele
 
-Dies erstellt ein neues `<div>`-Element im {{Glossary("XHTML", "XHTML")}}-Namespace und
-hängt es an das `vbox`-Element an. Obwohl dies kein besonders nützliches XUL-Dokument ist, demonstriert es die Verwendung von
-Elementen aus zwei verschiedenen Namespaces innerhalb eines einzigen Dokuments:
+Dies erstellt ein neues `<div>`-Element im {{Glossary("XHTML", "XHTML")}}-Namespace und fügt es dem vbox-Element hinzu. Obwohl dies kein besonders nützliches XUL-Dokument ist, zeigt es die Verwendung von
+Elementen aus zwei verschiedenen Namespaces innerhalb eines einzelnen Dokuments:
 
 ```xml
 <?xml version="1.0"?>
@@ -66,7 +64,7 @@ Elementen aus zwei verschiedenen Namespaces innerhalb eines einzigen Dokuments:
       title="||Working with elements||"
       onload="init()">
 
-<script type="application/javascript"><![CDATA[
+<script><![CDATA[
  let container;
  let newDiv;
  let textNode;
@@ -91,9 +89,8 @@ Elementen aus zwei verschiedenen Namespaces innerhalb eines einzigen Dokuments:
 ```
 
 > [!NOTE]
-> Das oben gezeigte Beispiel verwendet inline Script, was in XHTML-Dokumenten nicht empfohlen wird.
-> Dieses spezifische Beispiel ist tatsächlich ein XUL-Dokument mit eingebettetem XHTML,
-> jedoch gilt die Empfehlung dennoch.
+> Das oben gegebene Beispiel verwendet Inline-Skript, was in XHTML-Dokumenten nicht empfohlen wird. Dieses spezielle Beispiel ist tatsächlich ein XUL-Dokument mit eingebettetem XHTML,
+> die Empfehlung gilt jedoch weiterhin.
 
 ## Spezifikationen
 

@@ -2,12 +2,13 @@
 title: "CSP: child-src"
 slug: Web/HTTP/Reference/Headers/Content-Security-Policy/child-src
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: e4e57ab3ccb5f93319f8fe13848d4895d3e1e771
 ---
 
 {{HTTPSidebar}}
 
-Die HTTP {{HTTPHeader("Content-Security-Policy")}} (CSP) **`child-src`** Direktive definiert die erlaubten Quellen für [Web Workers](/de/docs/Web/API/Web_Workers_API) und verschachtelte Browsing-Kontexte, die mit Elementen wie {{HTMLElement("frame")}} und {{HTMLElement("iframe")}} geladen werden. Bei Workern werden nicht konforme Anfragen vom Benutzeragenten als fatale Netzwerkfehler behandelt.
+Die HTTP {{HTTPHeader("Content-Security-Policy")}} (CSP)
+**`child-src`** Direktive definiert die gültigen Quellen für [Web Workers](/de/docs/Web/API/Web_Workers_API) und eingebettete Browsing-Kontexte, die mit Elementen wie {{HTMLElement("frame")}} und {{HTMLElement("iframe")}} geladen werden. Bei Workern werden nicht konforme Anfragen vom Benutzeragenten als schwerwiegende Netzwerkfehler behandelt.
 
 <table class="properties">
   <tbody>
@@ -16,13 +17,13 @@ Die HTTP {{HTTPHeader("Content-Security-Policy")}} (CSP) **`child-src`** Direkti
       <td>2</td>
     </tr>
     <tr>
-      <th scope="row">Direktivtyp</th>
+      <th scope="row">Direktiventyp</th>
       <td>{{Glossary("Fetch_directive", "Fetch-Direktive")}}</td>
     </tr>
     <tr>
       <th scope="row">{{CSP("default-src")}} Fallback</th>
       <td>
-        Ja. Ist diese Direktive nicht vorhanden, sucht der Benutzeragent nach der
+        Ja. Wenn diese Direktive fehlt, sucht der Benutzeragent nach der
         <code>default-src</code> Direktive.
       </td>
     </tr>
@@ -39,10 +40,10 @@ Content-Security-Policy: child-src <source-expression-list>;
 Diese Direktive kann einen der folgenden Werte haben:
 
 - `'none'`
-  - : Es dürfen keine Ressourcen dieses Typs geladen werden. Die einfachen Anführungszeichen sind obligatorisch.
+  - : Es dürfen keine Ressourcen dieses Typs geladen werden. Die einfachen Anführungszeichen sind verpflichtend.
 - `<source-expression-list>`
 
-  - : Eine durch Leerzeichen getrennte Liste von _Quellausdrucks_-Werten. Ressourcen dieses Typs dürfen geladen werden, wenn sie mit einem der angegebenen Quellausdrücke übereinstimmen. Für diese Direktive sind die folgenden Quellausdruckswerte anwendbar:
+  - : Eine durch Leerzeichen getrennte Liste von _source expression_ Werten. Ressourcen dieses Typs dürfen geladen werden, wenn sie mit einer der angegebenen Quell-Ausdrücke übereinstimmen. Für diese Direktive gelten die folgenden Quell-Ausdrücke:
 
     - [`<host-source>`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy#host-source)
     - [`<scheme-source>`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy#scheme-source)
@@ -50,21 +51,21 @@ Diese Direktive kann einen der folgenden Werte haben:
 
 ## Beispiele
 
-### Verstöße
+### Verletzungsfälle
 
-Gegeben ist dieser CSP-Header:
+Angenommen, dieser CSP-Header ist gegeben:
 
 ```http
 Content-Security-Policy: child-src https://example.com/
 ```
 
-Dieses {{HTMLElement("iframe")}} und der Worker werden blockiert und laden nicht:
+Dieses {{HTMLElement("iframe")}} und der Worker werden blockiert und nicht geladen:
 
 ```html
 <iframe src="https://not-example.com"></iframe>
 
 <script>
-  const blockedWorker = new Worker("data:application/javascript,…");
+  const blockedWorker = new Worker("data:text/javascript,…");
 </script>
 ```
 

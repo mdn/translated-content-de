@@ -2,12 +2,12 @@
 title: Beispiel
 slug: Web/SVG/Guides/Namespaces_crash_course/Example
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: e4e57ab3ccb5f93319f8fe13848d4895d3e1e771
 ---
 
-In diesem Beispiel verwenden wir {{Glossary("XHTML", "XHTML")}}, [SVG](/de/docs/Web/SVG), [JavaScript](/de/docs/Web/JavaScript) und das [DOM](/de/docs/Web/API/Document_Object_Model), um einen Schwarm von "Motes" zu animieren. Diese Motes werden von zwei grundlegenden Prinzipien gesteuert. Erstens versucht jedes Mote, sich in Richtung des Mauszeigers zu bewegen, und zweitens versucht jedes Mote, sich vom durchschnittlichen Mote-Position zu entfernen. Zusammen ergibt sich dieses sehr natürlich wirkende Verhalten.
+In diesem Beispiel verwenden wir {{Glossary("XHTML", "XHTML")}}, [SVG](/de/docs/Web/SVG), [JavaScript](/de/docs/Web/JavaScript) und das [DOM](/de/docs/Web/API/Document_Object_Model), um einen Schwarm von "Motes" zu animieren. Diese Motes folgen zwei Grundprinzipien. Erstens versucht jedes Mote, sich dem Mauszeiger zuzuwenden, und zweitens versucht jedes Mote, sich von der durchschnittlichen Position der Motes zu entfernen. Diese Kombination führt zu einem sehr natürlich aussehenden Verhalten.
 
-[Beispiel ansehen](https://mdn.dev/archives/media/samples/svg/swarm-of-motes.xhtml). Das verlinkte Beispiel wurde mit den besten Praktiken von 2006 geschrieben. Das folgende Beispiel wurde auf moderne JavaScript-Best-Practices aktualisiert. Beide funktionieren.
+[Sehen Sie sich das Beispiel an](https://mdn.dev/archives/media/samples/svg/swarm-of-motes.xhtml). Das verlinkte Beispiel wurde mit bewährten Verfahren aus dem Jahr 2006 erstellt. Das untenstehende Beispiel wurde auf moderne JavaScript-Best Practices aktualisiert. Beide funktionieren.
 
 ```xml
 <?xml version='1.0'?>
@@ -53,7 +53,7 @@ cy='150' r='7' fill='#0000ff' fill-opacity='0.5'/>
     <div>
     (C) 2006 <a id='email-me' href='#'>Nick Johnson</a>
 
-    <script type='text/javascript'>
+    <script>
     <![CDATA[
       // foil spam bots
       let email = '@riovia.net';
@@ -85,7 +85,7 @@ cy='150' r='7' fill='#0000ff' fill-opacity='0.5'/>
       </p>
     </form>
 
-  <script type='text/javascript'>
+  <script>
   <![CDATA[
 
     // Array of motes

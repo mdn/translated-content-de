@@ -2,7 +2,7 @@
 title: "CSP: worker-src"
 slug: Web/HTTP/Reference/Headers/Content-Security-Policy/worker-src
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: e4e57ab3ccb5f93319f8fe13848d4895d3e1e771
 ---
 
 {{HTTPSidebar}}
@@ -23,7 +23,7 @@ Die HTTP {{HTTPHeader("Content-Security-Policy")}} (CSP) **`worker-src`** Direkt
       <th scope="row">Fallback</th>
       <td>
         <p>
-          Falls diese Direktive fehlt, wird der User-Agent zunächst nach der {{CSP("child-src")}} Direktive suchen, dann nach der {{CSP("script-src")}} Direktive und schließlich nach der {{CSP("default-src")}} Direktive, wenn er die Ausführung des Workers regelt.
+          Wenn diese Direktive fehlt, sucht der Benutzeragent zuerst nach der {{CSP("child-src")}} Direktive, dann nach der {{CSP("script-src")}} Direktive und schließlich nach der {{CSP("default-src")}} Direktive, wenn es um die Ausführung von Workern geht.
         </p>
       </td>
     </tr>
@@ -40,10 +40,10 @@ Content-Security-Policy: worker-src <source-expression-list>;
 Diese Direktive kann einen der folgenden Werte haben:
 
 - `'none'`
-  - : Es dürfen keine Ressourcen dieses Typs geladen werden. Die einfachen Anführungszeichen sind obligatorisch.
+  - : Es dürfen keine Ressourcen dieses Typs geladen werden. Die einfachen Anführungszeichen sind zwingend erforderlich.
 - `<source-expression-list>`
 
-  - : Eine durch Leerzeichen getrennte Liste von _Quellausdrucks_-Werten. Ressourcen dieses Typs dürfen geladen werden, wenn sie mit einem der angegebenen Quellausdrücke übereinstimmen. Für diese Direktive sind die folgenden Quellausdruckswerte anwendbar:
+  - : Eine durch Leerzeichen getrennte Liste von _Quell-Ausdrucks_-Werten. Ressourcen dieses Typs dürfen geladen werden, wenn sie mit einem der angegebenen Quellausdrücke übereinstimmen. Für diese Direktive sind die folgenden Quell-Ausdruckswerte anwendbar:
 
     - [`<host-source>`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy#host-source)
     - [`<scheme-source>`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy#scheme-source)
@@ -59,11 +59,11 @@ Angesichts dieses CSP-Headers:
 Content-Security-Policy: worker-src https://example.com/
 ```
 
-[`Worker`](/de/docs/Web/API/Worker), [`SharedWorker`](/de/docs/Web/API/SharedWorker), [`ServiceWorker`](/de/docs/Web/API/ServiceWorker) sind blockiert und werden nicht geladen:
+[`Worker`](/de/docs/Web/API/Worker), [`SharedWorker`](/de/docs/Web/API/SharedWorker), [`ServiceWorker`](/de/docs/Web/API/ServiceWorker) werden blockiert und nicht geladen:
 
 ```html
 <script>
-  let blockedWorker = new Worker("data:application/javascript,…");
+  let blockedWorker = new Worker("data:text/javascript,…");
   blockedWorker = new SharedWorker("https://not-example.com/");
   navigator.serviceWorker.register("https://not-example.com/sw.js");
 </script>
@@ -80,5 +80,5 @@ Content-Security-Policy: worker-src https://example.com/
 ## Siehe auch
 
 - {{HTTPHeader("Content-Security-Policy")}}
-- [CSP für Web Worker](/de/docs/Web/API/Web_Workers_API/Using_web_workers#content_security_policy)
+- [CSP für Web Workers](/de/docs/Web/API/Web_Workers_API/Using_web_workers#content_security_policy)
 - [`Worker`](/de/docs/Web/API/Worker), [`SharedWorker`](/de/docs/Web/API/SharedWorker), [`ServiceWorker`](/de/docs/Web/API/ServiceWorker)

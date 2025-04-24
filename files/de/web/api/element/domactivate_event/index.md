@@ -1,18 +1,18 @@
 ---
-title: "Element: DOMActivate-Ereignis"
+title: "Element: DOMActivate Event"
 short-title: DOMActivate
 slug: Web/API/Element/DOMActivate_event
 l10n:
-  sourceCommit: b4dc8c13ae9041844dc45423aa087002bf9a25e9
+  sourceCommit: e4e57ab3ccb5f93319f8fe13848d4895d3e1e771
 ---
 
 {{APIRef}}{{Deprecated_Header}}
 
-Das **`DOMActivate`**-Ereignis wird bei einem Element ausgelöst, wenn es aktiv wird, zum Beispiel, wenn es mit der Maus angeklickt oder per Tastendruck darauf zugegriffen wird.
+Das **`DOMActivate`**-Ereignis wird bei einem Element ausgelöst, wenn es aktiv wird, etwa wenn es mit der Maus angeklickt wird oder eine Tasteneingabe verwendet wird, um zu ihm zu navigieren.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js
 addEventListener("DOMActivate", (event) => {});
@@ -41,10 +41,10 @@ Ein [`MouseEvent`](/de/docs/Web/API/MouseEvent). Erbt von [`UIEvent`](/de/docs/W
   width="6cm"
   height="5cm"
   viewBox="0 0 600 500">
-  <desc>Example: invoke an ECMAScript function from a DOMActivate event</desc>
+  <desc>Example: invoke an JavaScript function from a DOMActivate event</desc>
 
-  <!-- ECMAScript to change the radius -->
-  <script type="application/ecmascript">
+  <!-- JavaScript to change the radius -->
+  <script>
     <![CDATA[ function change(evt) { const circle = evt.target; const
     currentRadius = circle.getFloatTrait("r"); if (currentRadius === 100) {
     circle.setFloatTrait("r", currentRadius * 2); } else {
@@ -53,7 +53,7 @@ Ein [`MouseEvent`](/de/docs/Web/API/MouseEvent). Erbt von [`UIEvent`](/de/docs/W
 
   <!-- Act on each DOMActivate event -->
   <circle cx="300" cy="225" r="100" fill="red">
-    <handler type="application/ecmascript" ev:event="DOMActivate">
+    <handler type="text/javascript" ev:event="DOMActivate">
       change(evt);
     </handler>
   </circle>
