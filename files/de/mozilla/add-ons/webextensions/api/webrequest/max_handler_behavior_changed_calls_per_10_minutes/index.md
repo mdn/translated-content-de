@@ -2,14 +2,14 @@
 title: webRequest.MAX_HANDLER_BEHAVIOR_CHANGED_CALLS_PER_10_MINUTES
 slug: Mozilla/Add-ons/WebExtensions/API/webRequest/MAX_HANDLER_BEHAVIOR_CHANGED_CALLS_PER_10_MINUTES
 l10n:
-  sourceCommit: 5ebacde5e3e3500a851a2c49c7d02a7a5c6604ce
+  sourceCommit: 9d86be96f9c486e46ca0aab0c434ab23aa9ba444
 ---
 
 {{AddonSidebar}}
 
-Die maximale Anzahl der Aufrufe, die `{{WebExtAPIRef("webRequest.handlerBehaviorChanged", "handlerBehaviorChanged()")}}` innerhalb eines Zeitraums von 10 Minuten vorgenommen werden kann.
+Die maximale Anzahl von Aufrufen, die {{WebExtAPIRef("webRequest.handlerBehaviorChanged", "handlerBehaviorChanged()")}} in einem Zeitraum von 10 Minuten ausgeführt werden kann.
 
-Diese Eigenschaft ist schreibgeschützt.
+Diese Eigenschaft ist schreibgeschützt und hat einen Wert von `20`.
 
 ## Browser-Kompatibilität
 
@@ -18,7 +18,7 @@ Diese Eigenschaft ist schreibgeschützt.
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.webRequest`](https://developer.chrome.com/docs/extensions/reference/api/webRequest#property-MAX_HANDLER_BEHAVIOR_CHANGED_CALLS_PER_10_MINUTES)-API von Chromium. Diese Dokumentation ist abgeleitet von [`web_request.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/web_request.json) im Chromium-Code.
+> Diese API basiert auf Chromiums [`chrome.webRequest`](https://developer.chrome.com/docs/extensions/reference/api/webRequest#property-MAX_HANDLER_BEHAVIOR_CHANGED_CALLS_PER_10_MINUTES) API. Diese Dokumentation stammt aus [`web_request.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/web_request.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

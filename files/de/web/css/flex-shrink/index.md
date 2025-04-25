@@ -2,15 +2,15 @@
 title: flex-shrink
 slug: Web/CSS/flex-shrink
 l10n:
-  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
+  sourceCommit: c2cfce2cd4a7b4057270c59e61cc4576084638ba
 ---
 
 {{CSSRef}}
 
-Die **`flex-shrink`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt den Verkleinerungsfaktor eines Flex-Elements fest. Wenn die Größe aller Flex-Elemente größer als der Flex-Container ist, können die [Flex-Elemente verkleinert werden](/de/docs/Web/CSS/CSS_flexible_box_layout/Controlling_ratios_of_flex_items_along_the_main_axis#the_flex-shrink_property), um entsprechend ihrem `flex-shrink`-Wert zu passen. Der [negative freie Raum](/de/docs/Web/CSS/CSS_flexible_box_layout/Controlling_ratios_of_flex_items_along_the_main_axis#positive_and_negative_free_space) jeder Flexzeile wird zwischen den Flex-Elementen der Zeile verteilt, die einen `flex-shrink`-Wert größer als `0` haben.
+Die **`flex-shrink`** [CSS](/de/docs/Web/CSS) Eigenschaft legt den Flex-Schrumpffaktor eines Flex-Elements fest. Wenn die Größe aller Flex-Elemente größer als der Flex-Container ist, können die [Flex-Elemente schrumpfen](/de/docs/Web/CSS/CSS_flexible_box_layout/Controlling_ratios_of_flex_items_along_the_main_axis#the_flex-shrink_property), um gemäß ihrem `flex-shrink`-Wert zu passen. Der [negative Freiraum](/de/docs/Web/CSS/CSS_flexible_box_layout/Controlling_ratios_of_flex_items_along_the_main_axis#positive_and_negative_free_space) jeder Flex-Linie wird zwischen den Flex-Elementen der Linie verteilt, die einen `flex-shrink`-Wert größer als `0` haben.
 
 > [!NOTE]
-> Es wird empfohlen, die {{cssxref("flex")}} Kurznotation anstelle separater Deklarationen von `flex-shrink`, {{cssxref("flex-grow")}} und {{cssxref("flex-basis")}} zu verwenden. Wir haben sie hier getrennt, da dieses Dokument eine der Komponenten der `flex`-Kurznotation behandelt: die `flex-shrink`-Eigenschaft.
+> Es wird empfohlen, die {{cssxref("flex")}} Kurzschreibweise mit einem Schlüsselwortwert wie `auto` oder `initial` zu verwenden, anstatt `flex-basis` alleine festzulegen. Die [Schlüsselwortwerte](/de/docs/Web/CSS/flex#values) erweitern sich zu zuverlässigen Kombinationen von {{cssxref("flex-grow")}}, `flex-shrink` und {{cssxref("flex-basis")}}, die helfen, die häufig gewünschten Flex-Verhalten zu erreichen.
 
 {{InteractiveExample("CSS Demo: flex-shrink")}}
 
@@ -69,17 +69,17 @@ flex-shrink: unset;
 
 ## Beschreibung
 
-Die `flex-shrink`-Eigenschaft spezifiziert den Verkleinerungsfaktor, der bestimmt, wie stark das Flex-Element im Vergleich zu den restlichen Flex-Elementen im Flex-Container schrumpfen wird, wenn negativer freier Raum verteilt wird.
+Die Eigenschaft `flex-shrink` gibt den Flex-Schrumpffaktor an, der bestimmt, wie stark das Flex-Element im Verhältnis zu den anderen Flex-Elementen im Flex-Container schrumpfen wird, wenn negativer Freiraum verteilt wird.
 
-Diese Eigenschaft behandelt Situationen, in denen der Browser die flex-basis-Werte der Flex-Elemente berechnet und feststellt, dass sie zu groß sind, um in den Flex-Container zu passen. Solange `flex-shrink` einen positiven Wert hat, werden die Elemente geschrumpft, damit sie nicht den Container überfluten.
+Diese Eigenschaft befasst sich mit Situationen, in denen der Browser die `flex-basis`-Werte der Flex-Elemente berechnet und feststellt, dass sie zu groß sind, um in den Flex-Container zu passen. Solange `flex-shrink` einen positiven Wert hat, werden die Elemente schrumpfen, um den Container nicht zu überfüllen.
 
-Die `flex-grow`-Eigenschaft behandelt die Verteilung des verfügbaren positiven freien Raums proportional zum Wachstumsfaktor jedes Elements, wobei der Wert der `flex-grow`-Eigenschaft die einzige Überlegung darstellt. Die `flex-shrink`-Eigenschaft verwaltet das Entfernen von negativem freien Raum, um die Boxen in ihren Container passen zu lassen, ohne dass sie überfluten. Das Entfernen von Raum ist etwas komplizierter als das Hinzufügen von Raum. Der Verkleinerungsfaktor wird mit der Basisgröße des Flex-Elements multipliziert; dies verteilt negativen Raum proportional dazu, wie stark das Element schrumpfen kann. Dies verhindert, dass kleinere Elemente auf `0px` schrumpfen, bevor ein größerer Gegenstand merklich reduziert wird.
+Die `flex-grow`-Eigenschaft befasst sich damit, verfügbaren positiven Freiraum proportional zu jedem Element entsprechend ihrem `flex-grow`-Faktor zu verteilen, wobei der Wert der `flex-grow`-Eigenschaft die einzige Überlegung ist. Die `flex-shrink`-Eigenschaft verwaltet das Entfernen von negativem Freiraum, um die Boxen in ihren Container einzupassen, ohne überzulaufen. Raum zu entfernen ist etwas komplizierter als Raum hinzuzufügen. Der Flex-Schrumpffaktor wird mit der Flex-Basisgröße multipliziert; dies verteilt den negativen Raum proportional dazu, wie stark das Element schrumpfen kann. Dies verhindert, dass kleinere Elemente auf `0px` schrumpfen, bevor ein größeres Element merklich reduziert wird.
 
-Im Allgemeinen wird `flex-shrink` zusammen mit den Eigenschaften {{cssxref("flex-grow")}} und {{cssxref("flex-basis")}} verwendet. Innerhalb der `flex`-Kurznotation ist der Verkleinerungsfaktor immer die zweite `<number>`. Wenn die Kurznotation nur einen numerischen Wert enthält, wird angenommen, dass dieser Wert der `flex-grow`-Wert ist.
+In der Regel wird `flex-shrink` zusammen mit den Eigenschaften {{cssxref("flex-grow")}} und {{cssxref("flex-basis")}} verwendet. Innerhalb der `flex`-Kurzschreibweise ist der Schrumpffaktor immer die zweite `<number>`. Wenn die Kurzschreibweise nur einen Zahlenwert enthält, wird angenommen, dass dieser Wert der `flex-grow`-Wert ist.
 
 ## Werte
 
-Die `flex-shrink`-Eigenschaft wird als eine einzelne `<number>` angegeben.
+Die Eigenschaft `flex-shrink` wird als einzelnes `<number>` angegeben.
 
 - `<number>`
   - : Siehe {{cssxref("&lt;number&gt;")}}. Negative Werte sind ungültig. Standardwert ist 1.
@@ -94,9 +94,9 @@ Die `flex-shrink`-Eigenschaft wird als eine einzelne `<number>` angegeben.
 
 ## Beispiele
 
-### Verkleinerungsfaktor von Flex-Elementen festlegen
+### Festlegen des Schrumpffaktors von Flex-Elementen
 
-Dieses Beispiel zeigt, wie negativer freier Raum basierend auf dem Verkleinerungsfaktor des Elements verteilt wird. Es umfasst fünf Flex-Elemente mit einem `flex-shrink`-Wert größer als 0, die eine kombinierte Breite haben, die größer ist als die Breite ihres übergeordneten Flex-Containers.
+Dieses Beispiel demonstriert, wie negativer Freiraum basierend auf dem Schrumpffaktor des Elements verteilt wird. Es umfasst fünf Flex-Elemente mit einem `flex-shrink`-Wert größer als 0, die eine kombinierte Breite haben, die größer ist als die Breite ihres übergeordneten Flex-Containers.
 
 #### HTML
 
@@ -112,7 +112,7 @@ Dieses Beispiel zeigt, wie negativer freier Raum basierend auf dem Verkleinerung
 
 #### CSS
 
-Wir geben jedem Flex-Element eine {{cssxref("width")}} von `200px`. Da die Eigenschaft {{cssxref("flex-basis")}} standardmäßig auf `auto` steht, beträgt die flex-basis jedes Elements `200px`. Dies gibt den Flex-Elementen eine Gesamtbreite von `1000px`, doppelt so groß wie der Container. Wir setzen alle Flex-Elemente so, dass sie verkleinert werden können, mit `flex-shrink`-Werten größer als `0`. Die letzten beiden Elemente haben höhere `flex-shrink`-Werte festgelegt, sodass sie stärker schrumpfen.
+Wir geben jedem Flex-Element eine {{cssxref("width")}} von `200px`. Da die Eigenschaft {{cssxref("flex-basis")}} standardmäßig auf `auto` gesetzt ist, hat jedes Element eine Flex-Basis von `200px`. Dies gibt den Flex-Elementen eine Gesamtbreite von `1000px`, doppelt so groß wie der Container. Wir setzen alle Flex-Elemente so, dass sie schrumpfbar sind, mit `flex-shrink`-Werten größer als `0`. Die letzten beiden Elemente haben größere `flex-shrink`-Werte, sodass sie stärker schrumpfen.
 
 ```css
 #content {
@@ -153,7 +153,7 @@ div {
 
 {{EmbedLiveSample('Setting_flex_item_shrink_factor', 500, 100)}}
 
-Die Flex-Elemente überlaufen ihren Container nicht, da sie schrumpfen können: die `500px` negativer freier Raum wird unter den fünf Elementen basierend auf ihren `flex-shrink`-Werten verteilt. Die ersten drei Elemente haben `flex-shrink: 1` gesetzt. D hat `flex-shrink: 1.5` und E hat `flex-shrink: 2` gesetzt. Die endgültige Breite von D und E ist geringer als die der anderen, wobei E kleiner als D ist.
+Die Flex-Elemente überlaufen ihren Container nicht, da sie in der Lage sind zu schrumpfen: Die `500px` negativen Freiraums werden unter den fünf Elementen basierend auf ihren `flex-shrink`-Werten verteilt. Die ersten drei Elemente haben `flex-shrink: 1` gesetzt. D hat `flex-shrink: 1.5` und E hat `flex-shrink: 2` gesetzt. Die endgültige Breite von D und E ist geringer als die der anderen, wobei E kleiner als D ist.
 
 ## Spezifikationen
 
@@ -166,5 +166,5 @@ Die Flex-Elemente überlaufen ihren Container nicht, da sie schrumpfen können: 
 ## Siehe auch
 
 - [Grundkonzepte von Flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox)
-- [Steuerung der Verhältnisse von Flex-Elementen entlang der Hauptachse](/de/docs/Web/CSS/CSS_flexible_box_layout/Controlling_ratios_of_flex_items_along_the_main_axis)
-- [CSS Flexibler Box-Layout-](/de/docs/Web/CSS/CSS_flexible_box_layout) Modul
+- [Steuerung von Verhältnissen von Flex-Elementen entlang der Hauptachse](/de/docs/Web/CSS/CSS_flexible_box_layout/Controlling_ratios_of_flex_items_along_the_main_axis)
+- [CSS-Flexible-Box-Layout-Modul](/de/docs/Web/CSS/CSS_flexible_box_layout)

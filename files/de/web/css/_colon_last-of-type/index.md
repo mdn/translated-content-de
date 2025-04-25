@@ -2,12 +2,12 @@
 title: :last-of-type
 slug: Web/CSS/:last-of-type
 l10n:
-  sourceCommit: 33a12980eb49cc795a41f15ec7a0181270ad3048
+  sourceCommit: 82e1a3964631e478c0a8349cc6d7abd4a3eee8be
 ---
 
 {{CSSRef}}
 
-Die **`:last-of-type`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert das letzte Element seines Typs in einer Gruppe von Geschwisterelementen.
+Die **`:last-of-type`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert das letzte Element eines bestimmten Typs (Tag-Name) innerhalb einer Gruppe von Geschwisterelementen.
 
 {{InteractiveExample("CSS Demo: :last-of-type", "tabbed-shorter")}}
 
@@ -49,7 +49,7 @@ dd:last-of-type {
 
 ## Beispiele
 
-### Das letzte Absatz element stylen
+### Stil des letzten Absatzes
 
 #### HTML
 
@@ -74,7 +74,7 @@ p:last-of-type {
 
 ### Verschachtelte Elemente
 
-Dieses Beispiel zeigt, wie auch verschachtelte Elemente angesprochen werden können. Beachten Sie, dass der [Universalselektor](/de/docs/Web/CSS/Universal_selectors) (`*`) impliziert ist, wenn kein einfacher Selektor geschrieben wird.
+Dieses Beispiel zeigt, wie auch verschachtelte Elemente gezielt angesprochen werden können. Beachten Sie, dass der [universelle Selektor](/de/docs/Web/CSS/Universal_selectors) (`*`) impliziert ist, wenn kein einfacher Selektor geschrieben wird.
 
 #### HTML
 
@@ -146,7 +146,7 @@ p:last-of-type {
 
 {{EmbedLiveSample('Multiple_selectors_elements', 500)}}
 
-Das letzte `<div>` und das letzte `<p>` sind beide rot und fett, da `.item:last-of-type` das letzte jedes Typs auswählt, sofern dieses letzte Element auch die Klasse `item` hat.
+Das letzte `<div>` und das letzte `<p>` sind beide rot und fett, da `.item:last-of-type` das letzte Element jedes Typs auswählt, wenn dieses letzte Element auch die Klasse `item` hat.
 
 ## Spezifikationen
 

@@ -2,12 +2,12 @@
 title: :only-of-type
 slug: Web/CSS/:only-of-type
 l10n:
-  sourceCommit: 33a12980eb49cc795a41f15ec7a0181270ad3048
+  sourceCommit: 82e1a3964631e478c0a8349cc6d7abd4a3eee8be
 ---
 
 {{CSSRef}}
 
-Die **`:only-of-type`** CSS-[Pseudo-Klasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert ein Element, das keine Geschwister vom gleichen Typ hat.
+Die **`:only-of-type`** CSS-[Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert ein Element, das keine Geschwister des gleichen Typs (Tag-Name) hat.
 
 {{InteractiveExample("CSS Demo: :only-of-type", "tabbed-shorter")}}
 
@@ -51,7 +51,7 @@ dd:only-of-type {
 
 ## Beispiele
 
-### Styling von Elementen ohne Geschwister vom gleichen Typ
+### Gestalten von Elementen ohne Geschwister des gleichen Typs
 
 #### HTML
 
