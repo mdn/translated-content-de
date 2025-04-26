@@ -3,26 +3,33 @@ title: "ElementInternals: ariaLevel-Eigenschaft"
 short-title: ariaLevel
 slug: Web/API/ElementInternals/ariaLevel
 l10n:
-  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
+  sourceCommit: c1a15955a64fe6afa4a6226cbc034d994349afea
 ---
 
 {{APIRef("Web Components")}}
 
-Die **`ariaLevel`**-Eigenschaft der [`ElementInternals`](/de/docs/Web/API/ElementInternals)-Schnittstelle spiegelt den Wert des [`aria-level`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-level)-Attributs wider, das die hierarchische Ebene eines Elements innerhalb einer Struktur definiert.
+Die **`ariaLevel`**-Eigenschaft des [`ElementInternals`](/de/docs/Web/API/ElementInternals)-Interfaces spiegelt den Wert des [`aria-level`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-level)-Attributs wider, das die hierarchische Ebene eines Elements innerhalb einer Struktur definiert.
 
 > [!NOTE]
-> Das Setzen von aria-Attributen auf `ElementInternals` ermöglicht es, Standardsemantiken für ein benutzerdefiniertes Element zu definieren. Diese können durch vom Autor definierte Attribute überschrieben werden, stellen jedoch sicher, dass die Standardsemantik erhalten bleibt, falls der Autor diese Attribute löscht oder gar nicht erst hinzufügt. Für weitere Informationen siehe die [Accessibility Object Model Erklärungsseite](https://wicg.github.io/aom/explainer.html#default-semantics-for-custom-elements-via-the-elementinternals-object).
+> Das Setzen von aria-Attributen auf `ElementInternals` ermöglicht es, Standardsemantiken auf einem benutzerdefinierten Element zu definieren. Diese können durch vom Autor definierte Attribute überschrieben werden, stellen aber sicher, dass die Standardsemantiken erhalten bleiben, falls der Autor diese Attribute löscht oder gar nicht hinzufügt. Weitere Informationen finden Sie im [Accessibility Object Model explainer](https://wicg.github.io/aom/explainer.html#default-semantics-for-custom-elements-via-the-elementinternals-object).
 
 ## Wert
 
-Ein String, der eine Ganzzahl enthält.
+Ein String, der eine ganze Zahl enthält.
 
 ## Beispiele
 
 In diesem Beispiel wird der Wert von `ariaLevel` auf "1" gesetzt.
 
 ```js
-this.internals_.ariaLevel = "1";
+class CustomEl extends HTMLElement {
+  constructor() {
+    super();
+    this.internals_ = this.attachInternals();
+    this.internals_.ariaLevel = "1";
+  }
+  // …
+}
 ```
 
 ## Spezifikationen
@@ -35,4 +42,4 @@ this.internals_.ariaLevel = "1";
 
 ## Siehe auch
 
-- [ARIA: Überschriftenrolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles/heading_role)
+- [ARIA: heading-Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles/heading_role)

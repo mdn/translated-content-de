@@ -3,26 +3,33 @@ title: "ElementInternals: ariaDescription-Eigenschaft"
 short-title: ariaDescription
 slug: Web/API/ElementInternals/ariaDescription
 l10n:
-  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
+  sourceCommit: c1a15955a64fe6afa4a6226cbc034d994349afea
 ---
 
 {{APIRef("Web Components")}}
 
-Die **`ariaDescription`**-Eigenschaft des [`ElementInternals`](/de/docs/Web/API/ElementInternals)-Interfaces spiegelt den Wert des [`aria-description`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-description)-Attributs wider, welches einen Zeichenfolgenwert definiert, der das aktuelle Element beschreibt oder erläutert.
+Die **`ariaDescription`**-Eigenschaft der [`ElementInternals`](/de/docs/Web/API/ElementInternals)-Schnittstelle spiegelt den Wert des [`aria-description`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-description)-Attributs wider, das einen string-Wert definiert, der das aktuelle Element beschreibt oder kommentiert.
 
 > [!NOTE]
-> Das Festlegen von aria-Attributen auf `ElementInternals` erlaubt es, Standardsemantiken auf einem benutzerdefinierten Element zu definieren. Diese können durch vom Autor definierte Attribute überschrieben werden, stellen jedoch sicher, dass die Standardsemantiken erhalten bleiben, falls der Autor diese Attribute löschen oder überhaupt nicht hinzufügen sollte. Weitere Informationen finden Sie im [Accessibility Object Model Erklärungsdokument](https://wicg.github.io/aom/explainer.html#default-semantics-for-custom-elements-via-the-elementinternals-object).
+> Das Setzen von aria-Attributen auf `ElementInternals` ermöglicht es, Standardsemantik auf einem benutzerdefinierten Element festzulegen. Diese können von vom Autor definierten Attributen überschrieben werden, stellen aber sicher, dass die Standardsemantik beibehalten wird, falls der Autor diese Attribute löscht oder sie überhaupt nicht hinzufügt. Weitere Informationen finden Sie im [Accessibility Object Model Explainer](https://wicg.github.io/aom/explainer.html#default-semantics-for-custom-elements-via-the-elementinternals-object).
 
 ## Wert
 
-Ein Zeichenfolge.
+Ein String.
 
 ## Beispiele
 
 In diesem Beispiel wird der Wert von `ariaDescription` auf "A description of this widget" gesetzt.
 
 ```js
-this.internals_.ariaDescription = "A description of this widget";
+class CustomControl extends HTMLElement {
+  constructor() {
+    super();
+    this.internals_ = this.attachInternals();
+    this.internals_.ariaDescription = "A description of this widget";
+  }
+  // …
+}
 ```
 
 ## Spezifikationen

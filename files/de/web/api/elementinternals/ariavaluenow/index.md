@@ -3,15 +3,15 @@ title: "ElementInternals: ariaValueNow-Eigenschaft"
 short-title: ariaValueNow
 slug: Web/API/ElementInternals/ariaValueNow
 l10n:
-  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
+  sourceCommit: c1a15955a64fe6afa4a6226cbc034d994349afea
 ---
 
 {{APIRef("Web Components")}}
 
-Die **`ariaValueNow`**-Eigenschaft des [`ElementInternals`](/de/docs/Web/API/ElementInternals)-Interfaces spiegelt den Wert des [`aria-valuenow`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-valuenow)-Attributs wider, das den aktuellen Wert eines Bereichs-Widgets definiert.
+Die **`ariaValueNow`**-Eigenschaft des [`ElementInternals`](/de/docs/Web/API/ElementInternals)-Interfaces spiegelt den Wert des [`aria-valuenow`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-valuenow)-Attributs wider, das den aktuellen Wert für ein Bereichs-Widget definiert.
 
 > [!NOTE]
-> Das Setzen von aria-Attributen auf `ElementInternals` ermöglicht es, Standardsemantik auf einem benutzerdefinierten Element zu definieren. Diese können durch benutzerdefinierte Attribute überschrieben werden, stellen jedoch sicher, dass die Standardsemantik erhalten bleibt, falls der Autor diese Attribute löscht oder sie überhaupt nicht hinzufügt. Für weitere Informationen siehe den [Accessibility Object Model erklärer](https://wicg.github.io/aom/explainer.html#default-semantics-for-custom-elements-via-the-elementinternals-object).
+> Das Festlegen von aria-Attributen auf `ElementInternals` ermöglicht es, Standardsemantiken für ein benutzerdefiniertes Element zu definieren. Diese können durch benutzerdefinierte Attribute überschrieben werden, stellen jedoch sicher, dass die Standardsemantiken beibehalten werden, falls der Autor diese Attribute löscht oder sie überhaupt nicht hinzufügt. Weitere Informationen finden Sie im [Accessibility Object Model Erklärer](https://wicg.github.io/aom/explainer.html#default-semantics-for-custom-elements-via-the-elementinternals-object).
 
 ## Wert
 
@@ -22,7 +22,14 @@ Ein String, der eine Zahl enthält.
 In diesem Beispiel wird der Wert von `ariaValueNow` auf "1" gesetzt.
 
 ```js
-this.internals_.ariaValueNow = "1";
+class CustomControl extends HTMLElement {
+  constructor() {
+    super();
+    this.internals_ = this.attachInternals();
+    this.internals_.ariaValueNow = "1";
+  }
+  // …
+}
 ```
 
 ## Spezifikationen

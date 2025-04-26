@@ -3,15 +3,15 @@ title: "ElementInternals: ariaBusy-Eigenschaft"
 short-title: ariaBusy
 slug: Web/API/ElementInternals/ariaBusy
 l10n:
-  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
+  sourceCommit: c1a15955a64fe6afa4a6226cbc034d994349afea
 ---
 
 {{APIRef("Web Components")}}
 
-Die **`ariaBusy`**-Eigenschaft der [`ElementInternals`](/de/docs/Web/API/ElementInternals)-Schnittstelle spiegelt den Wert des [`aria-busy`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-busy)-Attributs wider. Dieses Attribut zeigt an, ob ein Element modifiziert wird, da assistive Technologien möglicherweise warten möchten, bis die Änderungen abgeschlossen sind, bevor sie dem Benutzer präsentiert werden.
+Die **`ariaBusy`**-Eigenschaft des [`ElementInternals`](/de/docs/Web/API/ElementInternals)-Interfaces spiegelt den Wert des [`aria-busy`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-busy)-Attributs wider, das angibt, ob ein Element gerade modifiziert wird, da unterstützende Technologien möglicherweise warten möchten, bis die Änderungen abgeschlossen sind, bevor sie dem Benutzer präsentiert werden.
 
 > [!NOTE]
-> Das Setzen von `aria`-Attributen auf `ElementInternals` ermöglicht die Definition von Standardsemantiken auf einem benutzerdefinierten Element. Diese können durch benutzerdefinierte Attribute überschrieben werden, jedoch wird sichergestellt, dass die Standardsemantiken beibehalten werden, falls der Autor diese Attribute löscht oder sie überhaupt nicht hinzufügt. Weitere Informationen finden Sie im [Accessibility Object Model-Erklärer](https://wicg.github.io/aom/explainer.html#default-semantics-for-custom-elements-via-the-elementinternals-object).
+> Das Setzen von `aria`-Attributen auf `ElementInternals` ermöglicht es, Standardsemantiken auf einem benutzerdefinierten Element zu definieren. Diese können durch vom Autor definierte Attribute überschrieben werden, stellen jedoch sicher, dass die Standardsemantiken bestehen bleiben, falls der Autor diese Attribute löscht oder sie überhaupt nicht hinzufügt. Weitere Informationen finden Sie im [Accessibility Object Model explainer](https://wicg.github.io/aom/explainer.html#default-semantics-for-custom-elements-via-the-elementinternals-object).
 
 ## Wert
 
@@ -27,7 +27,14 @@ Ein String mit einem der folgenden Werte:
 In diesem Beispiel wird der Wert von `ariaBusy` auf "true" gesetzt.
 
 ```js
-this.internals_.ariaBusy = "true";
+class CustomControl extends HTMLElement {
+  constructor() {
+    super();
+    this.internals_ = this.attachInternals();
+    this.internals_.ariaBusy = "true";
+  }
+  // …
+}
 ```
 
 ## Spezifikationen

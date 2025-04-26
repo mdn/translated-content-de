@@ -3,15 +3,15 @@ title: "ElementInternals: ariaColCount-Eigenschaft"
 short-title: ariaColCount
 slug: Web/API/ElementInternals/ariaColCount
 l10n:
-  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
+  sourceCommit: c1a15955a64fe6afa4a6226cbc034d994349afea
 ---
 
 {{APIRef("Web Components")}}
 
-Die **`ariaColCount`**-Eigenschaft des [`ElementInternals`](/de/docs/Web/API/ElementInternals)-Interfaces spiegelt den Wert des [`aria-colcount`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-colcount)-Attributs wider, welches die Anzahl der Spalten in einer Tabelle, einem Raster oder einem Baumraster definiert.
+Die **`ariaColCount`**-Eigenschaft der [`ElementInternals`](/de/docs/Web/API/ElementInternals)-Schnittstelle spiegelt den Wert des [`aria-colcount`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-colcount)-Attributs wider, das die Anzahl der Spalten in einer Tabelle, einem Raster oder einem Baumraster definiert.
 
 > [!NOTE]
-> Das Setzen von aria-Attributen auf `ElementInternals` ermöglicht es, Standardsemantiken auf einem benutzerdefinierten Element zu definieren. Diese können durch autorendefinierte Attribute überschrieben werden, stellen jedoch sicher, dass die Standardsemantiken erhalten bleiben, wenn der Autor diese Attribute löscht oder gar nicht hinzufügt. Für weitere Informationen siehe den [Accessibility Object Model Erklärer](https://wicg.github.io/aom/explainer.html#default-semantics-for-custom-elements-via-the-elementinternals-object).
+> Das Setzen von `aria`-Attributen auf `ElementInternals` ermöglicht es, Standardsemantiken für ein benutzerdefiniertes Element zu definieren. Diese können durch benutzerdefinierte Attribute überschrieben werden, stellen jedoch sicher, dass Standardsemantiken erhalten bleiben, falls der Autor diese Attribute löscht oder sie überhaupt nicht hinzufügt. Weitere Informationen finden Sie im [Accessibility Object Model Explainer](https://wicg.github.io/aom/explainer.html#default-semantics-for-custom-elements-via-the-elementinternals-object).
 
 ## Wert
 
@@ -22,7 +22,14 @@ Ein String.
 In diesem Beispiel wird das [`aria-colcount`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-colcount)-Attribut auf "3" gesetzt.
 
 ```js
-this.internals_.ariaColCount = "3";
+class CustomControl extends HTMLElement {
+  constructor() {
+    super();
+    this.internals_ = this.attachInternals();
+    this.internals_.ariaColCount = "3";
+  }
+  // …
+}
 ```
 
 ## Spezifikationen
@@ -35,4 +42,4 @@ this.internals_.ariaColCount = "3";
 
 ## Siehe auch
 
-- [ARIA: table role](/de/docs/Web/Accessibility/ARIA/Reference/Roles/table_role)
+- [ARIA: Tabellenrolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles/table_role)

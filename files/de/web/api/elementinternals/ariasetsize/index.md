@@ -3,15 +3,15 @@ title: "ElementInternals: ariaSetSize-Eigenschaft"
 short-title: ariaSetSize
 slug: Web/API/ElementInternals/ariaSetSize
 l10n:
-  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
+  sourceCommit: c1a15955a64fe6afa4a6226cbc034d994349afea
 ---
 
 {{APIRef("Web Components")}}
 
-Die **`ariaSetSize`**-Eigenschaft des [`ElementInternals`](/de/docs/Web/API/ElementInternals)-Interfaces spiegelt den Wert des [`aria-setsize`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-setsize)-Attributs wider, welches die Anzahl der Elemente in der aktuellen Gruppe von Listenelementen oder Baumelementen definiert.
+Die **`ariaSetSize`**-Eigenschaft des [`ElementInternals`](/de/docs/Web/API/ElementInternals)-Interfaces spiegelt den Wert des [`aria-setsize`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-setsize)-Attributs wider, welches die Anzahl der Elemente im aktuellen Satz von Listenelementen oder Baumelementen definiert.
 
 > [!NOTE]
-> Das Setzen von Aria-Attributen auf `ElementInternals` ermöglicht es, Standardsemantiken auf einem benutzerdefinierten Element zu definieren. Diese können durch von Autoren definierte Attribute überschrieben werden, stellen jedoch sicher, dass die Standardsemantiken beibehalten werden, sollte der Autor diese Attribute löschen oder sie gar nicht hinzufügen. Weitere Informationen finden Sie im [Accessibility Object Model explainer](https://wicg.github.io/aom/explainer.html#default-semantics-for-custom-elements-via-the-elementinternals-object).
+> Das Setzen von aria-Attributen auf `ElementInternals` ermöglicht es, Standard-Semantiken für ein benutzerdefiniertes Element zu definieren. Diese können durch vom Autor definierte Attribute überschrieben werden, aber es wird sichergestellt, dass die Standard-Semantiken erhalten bleiben, falls der Autor diese Attribute löscht oder sie gar nicht erst hinzufügt. Weitere Informationen finden Sie im [Accessibility Object Model Erklärer](https://wicg.github.io/aom/explainer.html#default-semantics-for-custom-elements-via-the-elementinternals-object).
 
 ## Wert
 
@@ -22,7 +22,14 @@ Ein String, der eine ganze Zahl enthält.
 In diesem Beispiel wird der Wert von `ariaSetSize` auf "4" gesetzt.
 
 ```js
-this.internals_.ariaSetSize = "4";
+class CustomControl extends HTMLElement {
+  constructor() {
+    super();
+    this.internals_ = this.attachInternals();
+    this.internals_.ariaSetSize = "4";
+  }
+  // …
+}
 ```
 
 ## Spezifikationen
@@ -35,4 +42,4 @@ this.internals_.ariaSetSize = "4";
 
 ## Siehe auch
 
-- [ARIA: tab role](/de/docs/Web/Accessibility/ARIA/Reference/Roles/tab_role)
+- [ARIA: tab-Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles/tab_role)
