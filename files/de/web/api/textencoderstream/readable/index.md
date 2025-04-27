@@ -3,12 +3,12 @@ title: "TextEncoderStream: readable-Eigenschaft"
 short-title: readable
 slug: Web/API/TextEncoderStream/readable
 l10n:
-  sourceCommit: 0f42b8ccf6bef96f27e678163954b3a363b9dcf6
+  sourceCommit: 77d90a23ee0a3b5486a7963f68ad4e56efb06a7b
 ---
 
 {{APIRef("Encoding API")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`readable`**-Eigenschaft der [`TextEncoderStream`](/de/docs/Web/API/TextEncoderStream)-Schnittstelle gibt einen [`ReadableStream`](/de/docs/Web/API/ReadableStream) zurück.
+Die **`readable`** schreibgeschützte Eigenschaft der [`TextEncoderStream`](/de/docs/Web/API/TextEncoderStream)-Schnittstelle gibt einen [`ReadableStream`](/de/docs/Web/API/ReadableStream) zurück.
 
 ## Wert
 
@@ -20,7 +20,7 @@ Das folgende Beispiel zeigt, wie ein `ReadableStream` von einem `TextEncoderStre
 
 ```js
 const stream = new TextEncoderStream();
-console.log(stream.readable); //a ReadableStream
+console.log(stream.readable); // A ReadableStream
 ```
 
 ## Spezifikationen

@@ -1,14 +1,14 @@
 ---
-title: "EncodedAudioChunk: copyTo() Methode"
+title: "EncodedAudioChunk: Methode copyTo()"
 short-title: copyTo()
 slug: Web/API/EncodedAudioChunk/copyTo
 l10n:
-  sourceCommit: 06b418a190b8e4a46682ab706d14984e7db34862
+  sourceCommit: 77d90a23ee0a3b5486a7963f68ad4e56efb06a7b
 ---
 
 {{APIRef("WebCodecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`copyTo()`**-Methode des [`EncodedAudioChunk`](/de/docs/Web/API/EncodedAudioChunk)-Interfaces kopiert den kodierten Chunk von Audiodaten.
+Die **`copyTo()`**-Methode des [`EncodedAudioChunk`](/de/docs/Web/API/EncodedAudioChunk)-Interfaces kopiert den kodierten Audio-Datenblock.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ copyTo(destination)
 ### Parameter
 
 - `destination`
-  - : Ein {{jsxref("ArrayBuffer")}}, ein {{jsxref("TypedArray")}} oder ein {{jsxref("DataView")}}, in den die Daten kopiert werden können.
+  - : Ein {{jsxref("ArrayBuffer")}}, ein {{jsxref("TypedArray")}} oder ein {{jsxref("DataView")}}, in das die Daten kopiert werden können.
 
 ### Rückgabewert
 
@@ -36,7 +36,7 @@ const init = {
   timestamp: 23000000,
   duration: 2000000,
 };
-chunk = EncodedAudioChunk(init);
+const chunk = new EncodedAudioChunk(init);
 
 chunk.copyTo(newBuffer);
 ```

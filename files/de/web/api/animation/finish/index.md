@@ -1,16 +1,16 @@
 ---
-title: "Animation: finish()-Methode"
+title: "Animation: finish() Methode"
 short-title: finish()
 slug: Web/API/Animation/finish
 l10n:
-  sourceCommit: 135b8311a5e3d12789e8421845be3ce026ef72b8
+  sourceCommit: 77d90a23ee0a3b5486a7963f68ad4e56efb06a7b
 ---
 
 {{APIRef("Web Animations")}}
 
-Die **`finish()`**-Methode der [`Animation`](/de/docs/Web/API/Animation)-Schnittstelle der [Web Animations API](/de/docs/Web/API/Web_Animations_API) setzt die aktuelle Wiedergabezeit auf das Ende der Animation, entsprechend der aktuellen Abspielrichtung.
+Die **`finish()`** Methode des [Web Animations API](/de/docs/Web/API/Web_Animations_API)-[`Animation`](/de/docs/Web/API/Animation)-Interfaces setzt die aktuelle Wiedergabezeit auf das Ende der Animation entsprechend der aktuellen Wiedergaberichtung.
 
-Das bedeutet, wenn die Animation vorwärts läuft, wird die Wiedergabezeit auf die Länge der Animationssequenz gesetzt. Läuft die Animation rückwärts (nachdem die Methode [`reverse()`](/de/docs/Web/API/Animation/reverse) aufgerufen wurde), wird die Wiedergabezeit auf 0 gesetzt.
+Das heißt, wenn die Animation vorwärts läuft, wird die Wiedergabezeit auf die Länge der Animationssequenz gesetzt. Wenn die Animation rückwärts läuft (nachdem ihre [`reverse()`](/de/docs/Web/API/Animation/reverse)-Methode aufgerufen wurde), wird die Wiedergabezeit auf 0 gesetzt.
 
 ## Syntax
 
@@ -29,7 +29,7 @@ Keiner ({{jsxref("undefined")}}).
 ### Ausnahmen
 
 - `InvalidState`
-  - : Die Wiedergabegeschwindigkeit des Players ist 0 oder die Wiedergabegeschwindigkeit der Animation ist größer als 0 und die Endzeit der Animation ist unendlich.
+  - : Die Abspielrate des Players ist 0 oder die Wiedergaberate der Animation ist größer als 0 und die Endzeit der Animation ist unendlich.
 
 ## Beispiele
 
@@ -43,7 +43,7 @@ interfaceElement.addEventListener("mousedown", () => {
     if (e instanceof InvalidState) {
       console.log("finish() called on paused or finished animation.");
     } else {
-      logMyErrors(e); //pass exception object to error handler
+      logMyErrors(e); // Pass exception object to error handler
     }
   }
 });
@@ -66,6 +66,6 @@ elem.getAnimations().forEach((animation) => animation.finish());
 ## Siehe auch
 
 - [Web Animations API](/de/docs/Web/API/Web_Animations_API)
-- [`Animation`](/de/docs/Web/API/Animation) für andere Methoden und Eigenschaften, die Sie zur Steuerung von Webseiten-Animationen verwenden können.
+- [`Animation`](/de/docs/Web/API/Animation) für andere Methoden und Eigenschaften, die Sie zur Steuerung von Animationen auf Webseiten verwenden können.
 - [`Animation.play()`](/de/docs/Web/API/Animation/play), um eine Animation vorwärts abzuspielen.
 - [`Animation.reverse()`](/de/docs/Web/API/Animation/reverse), um eine Animation rückwärts abzuspielen.

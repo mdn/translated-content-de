@@ -3,20 +3,20 @@ title: "EncodedAudioChunk: timestamp-Eigenschaft"
 short-title: timestamp
 slug: Web/API/EncodedAudioChunk/timestamp
 l10n:
-  sourceCommit: 06b418a190b8e4a46682ab706d14984e7db34862
+  sourceCommit: 77d90a23ee0a3b5486a7963f68ad4e56efb06a7b
 ---
 
 {{APIRef("WebCodecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`timestamp`** schreibgeschützte Eigenschaft des [`EncodedAudioChunk`](/de/docs/Web/API/EncodedAudioChunk)-Interfaces gibt einen ganzzahligen Wert zurück, der den Zeitstempel des Audios in Mikrosekunden angibt.
+Die schreibgeschützte **`timestamp`**-Eigenschaft der [`EncodedAudioChunk`](/de/docs/Web/API/EncodedAudioChunk)-Schnittstelle gibt eine ganze Zahl zurück, die den Zeitstempel des Audios in Mikrosekunden angibt.
 
 ## Wert
 
-Ein ganzzahliger Wert.
+Eine ganze Zahl.
 
 ## Beispiele
 
-Im folgenden Beispiel wird der `timestamp` in die Konsole ausgegeben.
+Im folgenden Beispiel wird der `timestamp` in der Konsole ausgegeben.
 
 ```js
 const init = {
@@ -25,9 +25,9 @@ const init = {
   timestamp: 23000000,
   duration: 2000000,
 };
-chunk = EncodedAudioChunk(init);
+const chunk = new EncodedAudioChunk(init);
 
-console.log(chunk.timestamp); //23000000
+console.log(chunk.timestamp); // 23000000
 ```
 
 ## Spezifikationen

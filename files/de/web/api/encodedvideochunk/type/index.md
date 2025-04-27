@@ -3,16 +3,16 @@ title: "EncodedVideoChunk: type-Eigenschaft"
 short-title: type
 slug: Web/API/EncodedVideoChunk/type
 l10n:
-  sourceCommit: 3789de65bd11453c4cb24625723f81a7e8fcdd56
+  sourceCommit: 77d90a23ee0a3b5486a7963f68ad4e56efb06a7b
 ---
 
 {{APIRef("WebCodecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`type`**-Eigenschaft des schreibgeschützten [`EncodedVideoChunk`](/de/docs/Web/API/EncodedVideoChunk)-Interfaces gibt einen Wert zurück, der angibt, ob das Video-Chunk ein Schlüssel-Chunk ist, welches für die Dekodierung nicht auf andere Frames angewiesen ist.
+Die schreibgeschützte **`type`**-Eigenschaft der [`EncodedVideoChunk`](/de/docs/Web/API/EncodedVideoChunk)-Schnittstelle gibt einen Wert zurück, der angibt, ob der Video-Chunk ein Schlüssel-Chunk ist, der nicht auf andere Frames zur Dekodierung angewiesen ist.
 
 ## Wert
 
-Ein String, einer der folgenden:
+Ein String, einer von:
 
 - `"key"`
   - : Die Daten sind ein Schlüssel-Chunk.
@@ -21,7 +21,7 @@ Ein String, einer der folgenden:
 
 ## Beispiele
 
-Im folgenden Beispiel wird der `type` in der Konsole ausgegeben.
+Im folgenden Beispiel wird der `type` in die Konsole ausgegeben.
 
 ```js
 const init = {
@@ -30,9 +30,9 @@ const init = {
   timestamp: 23000000,
   duration: 2000000,
 };
-chunk = EncodedVideoChunk(init);
+const chunk = new EncodedVideoChunk(init);
 
-console.log(chunk.type); //"key"
+console.log(chunk.type); // "key"
 ```
 
 ## Spezifikationen

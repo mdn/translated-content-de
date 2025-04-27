@@ -2,18 +2,18 @@
 title: FileSystemDirectoryEntry
 slug: Web/API/FileSystemDirectoryEntry
 l10n:
-  sourceCommit: cbe4c570701052c120808ea54c24c46ec9734084
+  sourceCommit: 77d90a23ee0a3b5486a7963f68ad4e56efb06a7b
 ---
 
 {{APIRef("File and Directory Entries API")}}
 
-Das **`FileSystemDirectoryEntry`** Interface der [File and Directory Entries API](/de/docs/Web/API/File_and_Directory_Entries_API) repräsentiert ein Verzeichnis in einem Dateisystem. Es bietet Methoden, die den Zugriff auf und die Manipulation von Dateien in einem Verzeichnis sowie den Zugriff auf die Einträge innerhalb des Verzeichnisses ermöglichen.
+Die **`FileSystemDirectoryEntry`**-Schnittstelle der [File and Directory Entries API](/de/docs/Web/API/File_and_Directory_Entries_API) repräsentiert ein Verzeichnis in einem Dateisystem. Sie bietet Methoden, die den Zugriff und die Manipulation der Dateien in einem Verzeichnis sowie den Zugriff auf die Einträge innerhalb des Verzeichnisses ermöglichen.
 
 {{InheritanceDiagram}}
 
-## Grundlegende Konzepte
+## Grundkonzepte
 
-Sie können ein neues Verzeichnis erstellen, indem Sie [`getDirectory()`](/de/docs/Web/API/FileSystemDirectoryEntry/getDirectory) aufrufen. Wenn Sie Unterverzeichnisse erstellen möchten, erstellen Sie jedes untergeordnete Verzeichnis nacheinander. Wenn Sie versuchen, ein Verzeichnis mit einem vollständigen Pfad zu erstellen, der übergeordnete Verzeichnisse enthält, die noch nicht existieren, wird ein Fehler zurückgegeben. Erstellen Sie die Hierarchie also, indem Sie rekursiv einen neuen Pfad nach der Erstellung des übergeordneten Verzeichnisses hinzufügen.
+Sie können ein neues Verzeichnis erstellen, indem Sie [`getDirectory()`](/de/docs/Web/API/FileSystemDirectoryEntry/getDirectory) aufrufen. Wenn Sie Unterverzeichnisse erstellen möchten, erstellen Sie jedes Unterverzeichnis nacheinander. Wenn Sie versuchen, ein Verzeichnis mit einem vollständigen Pfad zu erstellen, der übergeordnete Verzeichnisse enthält, die noch nicht existieren, wird ein Fehler zurückgegeben. Erstellen Sie also die Hierarchie, indem Sie rekursiv einen neuen Pfad hinzufügen, nachdem das übergeordnete Verzeichnis erstellt wurde.
 
 ### Beispiel
 
@@ -32,10 +32,10 @@ function onFs(fs) {
     "Documents",
     { create: true },
     (directoryEntry) => {
-      //directoryEntry.isFile === false
-      //directoryEntry.isDirectory === true
-      //directoryEntry.name === 'Documents'
-      //directoryEntry.fullPath === '/Documents'
+      // directoryEntry.isFile === false
+      // directoryEntry.isDirectory === true
+      // directoryEntry.name === 'Documents'
+      // directoryEntry.fullPath === '/Documents'
     },
     onError,
   );
@@ -47,20 +47,20 @@ window.requestFileSystem(TEMPORARY, 1024 * 1024 /*1MB*/, onFs, onError);
 
 ## Instanz-Eigenschaften
 
-_Dieses Interface hat keine eigenen Eigenschaften, erbt jedoch Eigenschaften von seinem Elterninterface, [`FileSystemEntry`](/de/docs/Web/API/FileSystemEntry)._
+_Diese Schnittstelle hat keine eigenen Eigenschaften, erbt jedoch Eigenschaften von ihrer übergeordneten Schnittstelle, [`FileSystemEntry`](/de/docs/Web/API/FileSystemEntry)._
 
 ## Instanz-Methoden
 
-_Dieses Interface erbt Methoden von seinem Elterninterface, [`FileSystemEntry`](/de/docs/Web/API/FileSystemEntry)._
+_Diese Schnittstelle erbt Methoden von ihrer übergeordneten Schnittstelle, [`FileSystemEntry`](/de/docs/Web/API/FileSystemEntry)._
 
 - [`createReader()`](/de/docs/Web/API/FileSystemDirectoryEntry/createReader)
-  - : Erstellt ein [`FileSystemDirectoryReader`](/de/docs/Web/API/FileSystemDirectoryReader) Objekt, das verwendet werden kann, um die Einträge in diesem Verzeichnis zu lesen.
+  - : Erstellt ein [`FileSystemDirectoryReader`](/de/docs/Web/API/FileSystemDirectoryReader)-Objekt, das zum Lesen der Einträge in diesem Verzeichnis verwendet werden kann.
 - [`getDirectory()`](/de/docs/Web/API/FileSystemDirectoryEntry/getDirectory)
-  - : Gibt ein `FileSystemDirectoryEntry` Objekt zurück, das ein Verzeichnis an einem angegebenen Pfad repräsentiert, relativ zu dem Verzeichnis, auf dem die Methode aufgerufen wird.
+  - : Gibt ein `FileSystemDirectoryEntry`-Objekt zurück, das ein Verzeichnis darstellt, das sich an einem angegebenen Pfad befindet, relativ zu dem Verzeichnis, auf dem die Methode aufgerufen wird.
 - [`getFile()`](/de/docs/Web/API/FileSystemDirectoryEntry/getFile)
-  - : Gibt ein [`FileSystemFileEntry`](/de/docs/Web/API/FileSystemFileEntry) Objekt zurück, das eine Datei innerhalb der Hierarchie des Verzeichnisses repräsentiert, gegeben ein Pfad relativ zu dem Verzeichnis, auf dem die Methode aufgerufen wird.
+  - : Gibt ein [`FileSystemFileEntry`](/de/docs/Web/API/FileSystemFileEntry)-Objekt zurück, das eine Datei innerhalb der Verzeichnishierarchie darstellt, wobei ein Pfad relativ zu dem Verzeichnis angegeben wird, auf dem die Methode aufgerufen wird.
 - [`removeRecursively()`](/de/docs/Web/API/FileSystemDirectoryEntry/removeRecursively) {{Deprecated_inline}} {{Non-standard_inline}}
-  - : Entfernt das Verzeichnis sowie dessen gesamten Inhalt, indem rekursiv über seinen gesamten Unterbaum von Nachkommen-Dateien und -Verzeichnissen iteriert wird.
+  - : Entfernt das Verzeichnis sowie alle seine Inhalte, indem es hierarchisch über den gesamten Unterbaum der nachgeordneten Dateien und Verzeichnisse iteriert.
 
 ## Spezifikationen
 

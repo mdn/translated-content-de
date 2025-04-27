@@ -2,12 +2,12 @@
 title: 'TypeError: "x" ist keine Funktion'
 slug: Web/JavaScript/Reference/Errors/Not_a_function
 l10n:
-  sourceCommit: 0a9c10fc67901972221dc7b3d006334fbfa73dce
+  sourceCommit: 77d90a23ee0a3b5486a7963f68ad4e56efb06a7b
 ---
 
 {{jsSidebar("Errors")}}
 
-Die JavaScript-Ausnahme "is not a function" tritt auf, wenn versucht wurde, einen Wert aus einer Funktion aufzurufen, der Wert jedoch tatsächlich keine Funktion ist.
+Der JavaScript-Fehler "is not a function" tritt auf, wenn versucht wird, einen Wert aus einer Funktion aufzurufen, der Wert jedoch tatsächlich keine Funktion ist.
 
 ## Meldung
 
@@ -21,11 +21,11 @@ TypeError: "x" is not a function. (V8-based & Firefox & Safari)
 
 ## Was ist schiefgelaufen?
 
-Es wurde versucht, einen Wert aus einer Funktion aufzurufen, aber der Wert ist tatsächlich keine Funktion. Einige Codeabschnitte erwarten, dass Sie eine Funktion bereitstellen, aber das ist nicht geschehen.
+Es wurde versucht, einen Wert aus einer Funktion aufzurufen, der Wert ist jedoch tatsächlich keine Funktion. Einige Codeabschnitte erwarten, dass Sie eine Funktion bereitstellen, was in diesem Fall nicht geschehen ist.
 
-Vielleicht gibt es einen Schreibfehler im Funktionsnamen? Vielleicht hat das Objekt, auf dem Sie die Methode aufrufen, diese Funktion nicht? Zum Beispiel haben JavaScript `Objects` keine `map`-Funktion, aber das JavaScript `Array`-Objekt hat sie.
+Vielleicht gibt es einen Tippfehler im Funktionsnamen? Vielleicht hat das Objekt, auf dem Sie die Methode aufrufen, diese Funktion nicht? Zum Beispiel haben JavaScript-`Objects` keine `map`-Funktion, aber das JavaScript-`Array`-Objekt hat eine.
 
-Es gibt viele eingebaute Funktionen, die eine (Callback-)Funktion benötigen. Sie müssen eine Funktion bereitstellen, damit diese Methoden ordnungsgemäß funktionieren:
+Es gibt viele eingebaute Funktionen, die eine (Callback-)Funktion benötigen. Sie müssen eine Funktion zur Verfügung stellen, damit diese Methoden ordnungsgemäß funktionieren:
 
 - Bei der Arbeit mit {{jsxref("Array")}} oder {{jsxref("TypedArray")}} Objekten:
 
@@ -40,9 +40,9 @@ Es gibt viele eingebaute Funktionen, die eine (Callback-)Funktion benötigen. Si
 
 ## Beispiele
 
-### Ein Schreibfehler im Funktionsnamen
+### Ein Tippfehler im Funktionsnamen
 
-In diesem Fall, der viel zu oft vorkommt, gibt es einen Schreibfehler im Methodennamen:
+In diesem Fall, der viel zu oft passiert, gibt es einen Tippfehler im Methodennamen:
 
 ```js example-bad
 const x = document.getElementByID("foo");
@@ -55,9 +55,9 @@ Der korrekte Funktionsname ist `getElementById`:
 const x = document.getElementById("foo");
 ```
 
-### Funktion wird auf dem falschen Objekt aufgerufen
+### Funktion auf dem falschen Objekt aufgerufen
 
-Für bestimmte Methoden müssen Sie eine (Callback-)Funktion bereitstellen, und sie funktioniert nur mit bestimmten Objekten. In diesem Beispiel wird {{jsxref("Array.prototype.map()")}} verwendet, das nur mit {{jsxref("Array")}} Objekten funktioniert.
+Für bestimmte Methoden müssen Sie eine (Callback-)Funktion bereitstellen, und sie werden nur auf bestimmten Objekten funktionieren. In diesem Beispiel wird {{jsxref("Array.prototype.map()")}} verwendet, das nur mit {{jsxref("Array")}}-Objekten funktioniert.
 
 ```js example-bad
 const obj = { a: 13, b: 37, c: 42 };
@@ -79,9 +79,9 @@ numbers.map(function (num) {
 }); // [2, 8, 18]
 ```
 
-### Funktion teilt einen Namen mit einer bereits existierenden Eigenschaft
+### Funktion teilt einen Namen mit einer vorhandenen Eigenschaft
 
-Manchmal kann es beim Erstellen einer Klasse vorkommen, dass Sie eine Eigenschaft und eine Funktion mit demselben Namen haben. Beim Aufrufen der Funktion denkt der Compiler, dass die Funktion nicht mehr existiert.
+Manchmal, wenn Sie eine Klasse erstellen, kann es vorkommen, dass Sie eine Eigenschaft und eine Funktion mit demselben Namen haben. Beim Aufruf der Funktion denkt der Compiler, dass die Funktion nicht mehr existiert.
 
 ```js example-bad
 function Dog() {
@@ -97,7 +97,7 @@ Dog.prototype.name = function (name) {
 };
 
 const myNewDog = new Dog();
-myNewDog.name("Cassidy"); //Uncaught TypeError: myNewDog.name is not a function
+myNewDog.name("Cassidy"); // TypeError: myNewDog.name is not a function
 ```
 
 Verwenden Sie stattdessen einen anderen Eigenschaftsnamen:
@@ -106,7 +106,7 @@ Verwenden Sie stattdessen einen anderen Eigenschaftsnamen:
 function Dog() {
   this.age = 11;
   this.color = "black";
-  this.dogName = "Ralph"; //Using this.dogName instead of .name
+  this.dogName = "Ralph"; // Using this.dogName instead of .name
   return this;
 }
 
@@ -116,14 +116,14 @@ Dog.prototype.name = function (name) {
 };
 
 const myNewDog = new Dog();
-myNewDog.name("Cassidy"); //Dog { age: 11, color: 'black', dogName: 'Cassidy' }
+myNewDog.name("Cassidy"); // Dog { age: 11, color: 'black', dogName: 'Cassidy' }
 ```
 
-### Verwendung von Klammern für die Multiplikation
+### Klammern zur Multiplikation verwenden
 
-In der Mathematik kann man 2 × (3 + 5) als 2\*(3 + 5) oder einfach 2(3 + 5) schreiben.
+In der Mathematik können Sie 2 × (3 + 5) als 2\*(3 + 5) oder einfach als 2(3 + 5) schreiben.
 
-Letzteres führt jedoch zu einem Fehler:
+Die letztere Schreibweise wird einen Fehler auslösen:
 
 ```js example-bad
 const sixteen = 2(3 + 5);
@@ -139,7 +139,7 @@ console.log(`2 x (3 + 5) is ${sixteen}`);
 // 2 x (3 + 5) is 16
 ```
 
-### Modul korrekt importieren
+### Das exportierte Modul korrekt importieren
 
 Stellen Sie sicher, dass Sie das Modul korrekt importieren.
 
@@ -160,7 +160,7 @@ helpers.groupBy = function (objectArray, property) {
 export default helpers;
 ```
 
-Die korrekte Verwendung des Imports (`App.js`):
+Die korrekte Importnutzung (`App.js`):
 
 ```js
 import helpers from "./helpers";

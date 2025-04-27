@@ -1,14 +1,14 @@
 ---
-title: "AudioBuffer: Methode getChannelData()"
+title: "AudioBuffer: getChannelData() Methode"
 short-title: getChannelData()
 slug: Web/API/AudioBuffer/getChannelData
 l10n:
-  sourceCommit: ca3afa7533ac5bc2d552b0c7926d672fe79d71de
+  sourceCommit: 77d90a23ee0a3b5486a7963f68ad4e56efb06a7b
 ---
 
 {{ APIRef("Web Audio API") }}
 
-Die **`getChannelData()`**-Methode der [`AudioBuffer`](/de/docs/Web/API/AudioBuffer)-Schnittstelle gibt ein {{jsxref("Float32Array")}} zurück, das die PCM-Daten des Kanals enthält, der durch den Kanalparameter definiert ist (wobei 0 den ersten Kanal darstellt).
+Die **`getChannelData()`** Methode der [`AudioBuffer`](/de/docs/Web/API/AudioBuffer) Schnittstelle gibt ein {{jsxref("Float32Array")}} zurück, das die PCM-Daten des Kanals enthält, die durch den Kanalparameter festgelegt sind (wobei 0 den ersten Kanal darstellt).
 
 ## Syntax
 
@@ -19,7 +19,7 @@ getChannelData(channel)
 ### Parameter
 
 - `channel`
-  - : Die Kanal-Eigenschaft ist ein Index, der den bestimmten Kanal repräsentiert, für den Daten abgerufen werden sollen. Ein Indexwert von 0 repräsentiert den ersten Kanal. Wenn der `channel`-Indexwert größer oder gleich [`AudioBuffer.numberOfChannels`](/de/docs/Web/API/AudioBuffer/numberOfChannels) ist, wird eine `INDEX_SIZE_ERR`-Ausnahme ausgelöst.
+  - : Die `channel`-Eigenschaft ist ein Index, der den bestimmten Kanal repräsentiert, für den Daten abgerufen werden sollen. Ein Indexwert von 0 repräsentiert den ersten Kanal. Wenn der `channel`-Indexwert größer oder gleich [`AudioBuffer.numberOfChannels`](/de/docs/Web/API/AudioBuffer/numberOfChannels) ist, wird eine `INDEX_SIZE_ERR`-Ausnahme ausgelöst.
 
 ### Rückgabewert
 
@@ -27,7 +27,7 @@ Ein {{jsxref("Float32Array")}}.
 
 ## Beispiele
 
-Im folgenden Beispiel erstellen wir einen zwei Sekunden langen Puffer, füllen ihn mit weißem Rauschen und spielen ihn dann über einen [`AudioBufferSourceNode`](/de/docs/Web/API/AudioBufferSourceNode) ab. Die Kommentare sollten klar erklären, was vor sich geht. Sie können den Code auch [live ausführen](https://mdn.github.io/webaudio-examples/audio-buffer/) oder [den Quellcode ansehen](https://github.com/mdn/webaudio-examples).
+Im folgenden Beispiel erstellen wir einen zwei Sekunden langen Puffer, füllen ihn mit weißem Rauschen und spielen ihn dann über einen [`AudioBufferSourceNode`](/de/docs/Web/API/AudioBufferSourceNode) ab. Die Kommentare sollten klar erklären, was geschieht. Sie können den [Code live ausführen](https://mdn.github.io/webaudio-examples/audio-buffer/) oder den [Quellcode anzeigen](https://github.com/mdn/webaudio-examples).
 
 ```js
 const audioCtx = new AudioContext();
@@ -47,7 +47,7 @@ const myArrayBuffer = audioCtx.createBuffer(2, frameCount, audioCtx.sampleRate);
 
 button.onclick = () => {
   // Fill the buffer with white noise;
-  //just random values between -1.0 and 1.0
+  // just random values between -1.0 and 1.0
   for (let channel = 0; channel < channels; channel++) {
     // This gives us the actual ArrayBuffer that contains the data
     const nowBuffering = myArrayBuffer.getChannelData(channel);

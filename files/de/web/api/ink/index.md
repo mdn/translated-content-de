@@ -2,19 +2,19 @@
 title: Ink
 slug: Web/API/Ink
 l10n:
-  sourceCommit: 57aa2614c8f3b1b3f5c646262c8156afadcd63d8
+  sourceCommit: 77d90a23ee0a3b5486a7963f68ad4e56efb06a7b
 ---
 
 {{APIRef("Ink API")}}{{SeeCompatTable}}
 
-Das **`Ink`**-Interface der [Ink API](/de/docs/Web/API/Ink_API) bietet Zugriff auf [`DelegatedInkTrailPresenter`](/de/docs/Web/API/DelegatedInkTrailPresenter)-Objekte, die von der Anwendung zur Darstellung von Tintenstrichen verwendet werden können.
+Das **`Ink`**-Interface der [Ink-API](/de/docs/Web/API/Ink_API) bietet Zugriff auf [`DelegatedInkTrailPresenter`](/de/docs/Web/API/DelegatedInkTrailPresenter)-Objekte, die von der Anwendung zur Darstellung von digitalen Tintenstrichen verwendet werden können.
 
 {{InheritanceDiagram}}
 
 ## Instanzmethoden
 
 - [`requestPresenter()`](/de/docs/Web/API/Ink/requestPresenter) {{Experimental_Inline}}
-  - : Gibt ein {{jsxref("Promise")}} zurück, das mit einem [`DelegatedInkTrailPresenter`](/de/docs/Web/API/DelegatedInkTrailPresenter)-Objekt erfüllt wird, um Striche darzustellen.
+  - : Gibt ein {{jsxref("Promise")}} zurück, das mit einem [`DelegatedInkTrailPresenter`](/de/docs/Web/API/DelegatedInkTrailPresenter)-Objekt erfüllt wird, welches die Darstellung von Strichen verwaltet.
 
 ## Beispiel
 
@@ -23,7 +23,7 @@ async function inkInit() {
   const ink = navigator.ink;
   let presenter = await ink.requestPresenter({ presentationArea: canvas });
 
-  //...
+  // …
 }
 ```
 

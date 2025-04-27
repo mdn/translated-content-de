@@ -1,14 +1,14 @@
 ---
-title: "EncodedVideoChunk: copyTo()-Methode"
+title: "EncodedVideoChunk: copyTo() Methode"
 short-title: copyTo()
 slug: Web/API/EncodedVideoChunk/copyTo
 l10n:
-  sourceCommit: 3789de65bd11453c4cb24625723f81a7e8fcdd56
+  sourceCommit: 77d90a23ee0a3b5486a7963f68ad4e56efb06a7b
 ---
 
 {{APIRef("WebCodecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`copyTo()`**-Methode des [`EncodedVideoChunk`](/de/docs/Web/API/EncodedVideoChunk)-Interfaces kopiert den kodierten Videodaten-Chunk.
+Die **`copyTo()`** Methode des [`EncodedVideoChunk`](/de/docs/Web/API/EncodedVideoChunk) Interface kopiert den kodierten Chunk der Videodaten.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ copyTo(destination)
 ### Parameter
 
 - `destination`
-  - : Ein {{jsxref("ArrayBuffer")}}, ein {{jsxref("TypedArray")}} oder ein {{jsxref("DataView")}}, in den die Daten kopiert werden können.
+  - : Ein {{jsxref("ArrayBuffer")}}, ein {{jsxref("TypedArray")}}, oder ein {{jsxref("DataView")}}, in den die Daten kopiert werden können.
 
 ### Rückgabewert
 
@@ -27,7 +27,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Im folgenden Beispiel wird ein [`EncodedVideoChunk`](/de/docs/Web/API/EncodedVideoChunk) erstellt und anschließend kopiert.
+Im folgenden Beispiel wird ein [`EncodedVideoChunk`](/de/docs/Web/API/EncodedVideoChunk) erstellt und dann kopiert.
 
 ```js
 const init = {
@@ -36,7 +36,7 @@ const init = {
   timestamp: 23000000,
   duration: 2000000,
 };
-chunk = EncodedVideoChunk(init);
+const chunk = new EncodedVideoChunk(init);
 
 chunk.copyTo(newBuffer);
 ```

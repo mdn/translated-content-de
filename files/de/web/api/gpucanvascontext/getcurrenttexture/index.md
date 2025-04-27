@@ -1,14 +1,14 @@
 ---
-title: "GPUCanvasContext: getCurrentTexture() Methode"
+title: "GPUCanvasContext: getCurrentTexture()-Methode"
 short-title: getCurrentTexture()
 slug: Web/API/GPUCanvasContext/getCurrentTexture
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: 77d90a23ee0a3b5486a7963f68ad4e56efb06a7b
 ---
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`getCurrentTexture()`**-Methode der [`GPUCanvasContext`](/de/docs/Web/API/GPUCanvasContext) Schnittstelle gibt die nächste [`GPUTexture`](/de/docs/Web/API/GPUTexture) zurück, die vom Canvas-Kontext im Dokument zusammengesetzt werden soll.
+Die **`getCurrentTexture()`**-Methode der [`GPUCanvasContext`](/de/docs/Web/API/GPUCanvasContext)-Schnittstelle gibt die nächste [`GPUTexture`](/de/docs/Web/API/GPUTexture) zurück, die vom Canvas-Kontext im Dokument zusammengesetzt werden soll.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ Keine.
 
 ### Rückgabewert
 
-Eine [`GPUTexture`](/de/docs/Web/API/GPUTexture)-Objektinstanz.
+Eine Instanz des [`GPUTexture`](/de/docs/Web/API/GPUTexture)-Objekts.
 
 ### Ausnahmen
 
@@ -41,7 +41,7 @@ context.configure({
   alphaMode: "premultiplied",
 });
 
-//...
+// …
 // Later on
 const commandEncoder = device.createCommandEncoder();
 

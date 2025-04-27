@@ -3,7 +3,7 @@ title: "SpeechRecognition: maxAlternatives-Eigenschaft"
 short-title: maxAlternatives
 slug: Web/API/SpeechRecognition/maxAlternatives
 l10n:
-  sourceCommit: f2f9346c0c0e9f6676f2df9f1850933e274401de
+  sourceCommit: 77d90a23ee0a3b5486a7963f68ad4e56efb06a7b
 ---
 
 {{APIRef("Web Speech API")}}
@@ -17,11 +17,11 @@ Der Standardwert ist 1.
 
 ## Wert
 
-Eine Zahl, die die maximale Anzahl zurückgegebener Alternativen für jedes Ergebnis darstellt.
+Eine Zahl, die die maximal zurückgegebenen Alternativen für jedes Ergebnis darstellt.
 
 ## Beispiele
 
-Dieser Code ist ein Auszug aus unserem [Speech color changer](https://github.com/mdn/dom-examples/blob/main/web-speech-api/speech-color-changer/script.js)-Beispiel.
+Dieser Code stammt aus unserem [Farbe-ändern-mit-Sprache](https://github.com/mdn/dom-examples/blob/main/web-speech-api/speech-color-changer/script.js)-Beispiel.
 
 ```js
 const grammar =
@@ -30,7 +30,7 @@ const recognition = new SpeechRecognition();
 const speechRecognitionList = new SpeechGrammarList();
 speechRecognitionList.addFromString(grammar, 1);
 recognition.grammars = speechRecognitionList;
-//recognition.continuous = false;
+// recognition.continuous = false;
 recognition.lang = "en-US";
 recognition.interimResults = false;
 recognition.maxAlternatives = 1;

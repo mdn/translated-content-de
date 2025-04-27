@@ -3,12 +3,12 @@ title: "ServiceWorkerRegistration: backgroundFetch-Eigenschaft"
 short-title: backgroundFetch
 slug: Web/API/ServiceWorkerRegistration/backgroundFetch
 l10n:
-  sourceCommit: c77a11ee1509542c16b0348afc4fcb3ffe588e1c
+  sourceCommit: 77d90a23ee0a3b5486a7963f68ad4e56efb06a7b
 ---
 
 {{APIRef("Background Fetch API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`backgroundFetch`**-Eigenschaft der [`ServiceWorkerRegistration`](/de/docs/Web/API/ServiceWorkerRegistration)-Schnittstelle gibt eine Referenz zu einem [`BackgroundFetchManager`](/de/docs/Web/API/BackgroundFetchManager)-Objekt zurück, mit dem Hintergrundfetch-Operationen initiiert werden können.
+Die schreibgeschützte **`backgroundFetch`**-Eigenschaft des [`ServiceWorkerRegistration`](/de/docs/Web/API/ServiceWorkerRegistration)-Interfaces gibt eine Referenz auf ein [`BackgroundFetchManager`](/de/docs/Web/API/BackgroundFetchManager)-Objekt zurück, das verwendet werden kann, um Hintergrundabrufoperationen zu starten.
 
 ## Wert
 
@@ -16,9 +16,9 @@ Ein [`BackgroundFetchManager`](/de/docs/Web/API/BackgroundFetchManager)-Objekt.
 
 ## Beispiele
 
-### Initiieren eines Hintergrundfetchs
+### Starten eines Hintergrundabrufs
 
-Der folgende Code greift auf die `backgroundFetch`-Eigenschaft zu und verwendet sie, um eine Hintergrundfetch-Operation zu initiieren.
+Der folgende Code greift auf die `backgroundFetch`-Eigenschaft zu und verwendet sie, um eine Hintergrundabrufoperation zu starten.
 
 ```js
 // main.js
@@ -34,7 +34,7 @@ async function requestBackgroundFetch(movieData) {
       label: "Downloading a show",
     },
   );
-  //...
+  // …
 }
 ```
 

@@ -3,12 +3,12 @@ title: "Navigator: gpu-Eigenschaft"
 short-title: gpu
 slug: Web/API/Navigator/gpu
 l10n:
-  sourceCommit: 89c435da452257b944b403cc9e45036fcb22590e
+  sourceCommit: 77d90a23ee0a3b5486a7963f68ad4e56efb06a7b
 ---
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die **`Navigator.gpu`** schreibgeschützte Eigenschaft gibt das [`GPU`](/de/docs/Web/API/GPU)-Objekt für den aktuellen Browserkontext zurück, welcher der Einstiegspunkt für die [WebGPU API](/de/docs/Web/API/WebGPU_API) ist.
+Die **`Navigator.gpu`**-Eigenschaft ist schreibgeschützt und liefert das [`GPU`](/de/docs/Web/API/GPU)-Objekt für den aktuellen Browsing-Kontext, welches der Einstiegspunkt für die [WebGPU API](/de/docs/Web/API/WebGPU_API) ist.
 
 ## Wert
 
@@ -29,7 +29,7 @@ async function init() {
 
   const device = await adapter.requestDevice();
 
-  //...
+  // …
 }
 ```
 

@@ -3,12 +3,12 @@ title: "AudioParam: Methode cancelScheduledValues()"
 short-title: cancelScheduledValues()
 slug: Web/API/AudioParam/cancelScheduledValues
 l10n:
-  sourceCommit: 135b8311a5e3d12789e8421845be3ce026ef72b8
+  sourceCommit: 77d90a23ee0a3b5486a7963f68ad4e56efb06a7b
 ---
 
 {{ APIRef("Web Audio API") }}
 
-Die Methode `cancelScheduledValues()` der [`AudioParam`](/de/docs/Web/API/AudioParam)-Schnittstelle storniert alle geplanten zukünftigen Änderungen an dem `AudioParam`.
+Die `cancelScheduledValues()`-Methode der [`AudioParam`](/de/docs/Web/API/AudioParam)-Schnittstelle storniert alle geplanten zukünftigen Änderungen am `AudioParam`.
 
 ## Syntax
 
@@ -19,17 +19,17 @@ cancelScheduledValues(startTime)
 ### Parameter
 
 - `startTime`
-  - : Ein Double, das die Zeit (in Sekunden) darstellt, nachdem der [`AudioContext`](/de/docs/Web/API/AudioContext) zuerst erstellt wurde, nach der alle geplanten Änderungen storniert werden.
+  - : Ein Double, das die Zeit (in Sekunden) angibt, nachdem der [`AudioContext`](/de/docs/Web/API/AudioContext) erstmals erstellt wurde und nach der alle geplanten Änderungen storniert werden.
 
 ### Rückgabewert
 
-Eine Referenz zu diesem `AudioParam`-Objekt. In einigen älteren Implementierungen gibt diese Methode {{jsxref('undefined')}} zurück.
+Eine Referenz auf dieses `AudioParam`-Objekt. In einigen älteren Implementierungen gibt diese Methode {{jsxref('undefined')}} zurück.
 
 ## Beispiele
 
 ```js
 const gainNode = audioCtx.createGain();
-gainNode.gain.setValueCurveAtTime(waveArray, audioCtx.currentTime, 2); //'gain' is the AudioParam
+gainNode.gain.setValueCurveAtTime(waveArray, audioCtx.currentTime, 2); // 'gain' is the AudioParam
 gainNode.gain.cancelScheduledValues(audioCtx.currentTime);
 ```
 

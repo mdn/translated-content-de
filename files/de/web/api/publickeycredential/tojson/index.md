@@ -1,19 +1,18 @@
 ---
-title: "PublicKeyCredential: toJSON() Methode"
+title: "PublicKeyCredential: toJSON()-Methode"
 short-title: toJSON()
 slug: Web/API/PublicKeyCredential/toJSON
 l10n:
-  sourceCommit: dd49e9f6381aa1a35e9d582808f2fd1d4abfa813
+  sourceCommit: 77d90a23ee0a3b5486a7963f68ad4e56efb06a7b
 ---
 
 {{APIRef("Web Authentication API")}}{{securecontext_header}}
 
-Die **`toJSON()`** Methode des [`PublicKeyCredential`](/de/docs/Web/API/PublicKeyCredential)-Interfaces gibt eine {{Glossary("JSON_type_representation", "JSON-Typ-Darstellung")}} eines [`PublicKeyCredential`](/de/docs/Web/API/PublicKeyCredential) zurück.
+Die **`toJSON()`**-Methode des [`PublicKeyCredential`](/de/docs/Web/API/PublicKeyCredential)-Interfaces gibt eine {{Glossary("JSON_type_representation", "JSON-Typ-Repräsentation")}} eines [`PublicKeyCredential`](/de/docs/Web/API/PublicKeyCredential) zurück.
 
-Die Eigenschaften des zurückgegebenen Objekts hängen davon ab, ob das Anmeldeinformation-Objekt durch [`navigator.credentials.create()`](/de/docs/Web/API/CredentialsContainer/create) beim [Erstellen eines Schlüsselpaares und Registrieren eines Benutzers](/de/docs/Web/API/Web_Authentication_API#creating_a_key_pair_and_registering_a_user), oder durch [`navigator.credentials.get()`](/de/docs/Web/API/CredentialsContainer/get) beim [Authentifizieren eines Benutzers](/de/docs/Web/API/Web_Authentication_API#authenticating_a_user) zurückgegeben wird.
+Die Eigenschaften des zurückgegebenen Objekts hängen davon ab, ob die Berechtigung durch [`navigator.credentials.create()`](/de/docs/Web/API/CredentialsContainer/create) beim [Erstellen eines Schlüsselpaares und Registrieren eines Benutzers](/de/docs/Web/API/Web_Authentication_API#creating_a_key_pair_and_registering_a_user) oder durch [`navigator.credentials.get()`](/de/docs/Web/API/CredentialsContainer/get) beim [Authentifizieren eines Benutzers](/de/docs/Web/API/Web_Authentication_API#authenticating_a_user) zurückgegeben wird.
 
-Diese Methode wird automatisch aufgerufen, wenn der Code der Web-App [`JSON.stringify()`](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) aufruft, um ein [`PublicKeyCredential`](/de/docs/Web/API/PublicKeyCredential) zu serialisieren, sodass es zum vertrauenden Server gesendet werden kann, wenn ein Benutzer registriert oder authentifiziert wird.
-Es ist nicht vorgesehen, dass diese Methode direkt im Code der Web-App aufgerufen wird.
+Diese Methode wird automatisch aufgerufen, wenn Web-App-Code [`JSON.stringify()`](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) aufruft, um ein [`PublicKeyCredential`](/de/docs/Web/API/PublicKeyCredential) zu serialisieren, damit es an den Server der vertrauenden Partei gesendet werden kann, wenn ein Benutzer registriert oder authentifiziert wird. Sie ist nicht dazu gedacht, direkt im Web-App-Code aufgerufen zu werden.
 
 ## Syntax
 
@@ -27,29 +26,29 @@ Keine.
 
 ### Rückgabewert
 
-Eine {{Glossary("JSON_type_representation", "JSON-Typ-Darstellung")}} eines [`PublicKeyCredential`](/de/docs/Web/API/PublicKeyCredential)-Objekts.
+Eine {{Glossary("JSON_type_representation", "JSON-Typ-Repräsentation")}} eines [`PublicKeyCredential`](/de/docs/Web/API/PublicKeyCredential)-Objekts.
 
-Die enthaltenen Eigenschaften hängen davon ab, ob das Anmeldeinformation-Objekt durch [`navigator.credentials.create()`](/de/docs/Web/API/CredentialsContainer/create) bei der Registrierung oder durch [`navigator.credentials.get()`](/de/docs/Web/API/CredentialsContainer/get) bei der Authentifizierung eines Benutzers zurückgegeben wurde. Die Werte und Typen der enthaltenen Eigenschaften sind dieselben wie für [`PublicKeyCredential`](/de/docs/Web/API/PublicKeyCredential), mit der Ausnahme, dass {{Glossary("Base64", "base64url")}}-codierte Strings anstelle von Puffer-Eigenschaften verwendet werden.
+Die enthaltenen Eigenschaften hängen davon ab, ob die Berechtigung bei der Registrierung von [`navigator.credentials.create()`](/de/docs/Web/API/CredentialsContainer/create) oder beim Authentifizieren eines Benutzers von [`navigator.credentials.get()`](/de/docs/Web/API/CredentialsContainer/get) zurückgegeben wurde. Die Werte und Typen der enthaltenen Eigenschaften sind dieselben wie bei [`PublicKeyCredential`](/de/docs/Web/API/PublicKeyCredential), mit der Ausnahme, dass {{Glossary("Base64", "base64url")}}-kodierte Zeichenfolgen anstelle von Puffer-Eigenschaften verwendet werden.
 
-Die Objekteigenschaften sind:
+Die Objekt-Eigenschaften sind:
 
 - `id`
-  - : Der Wert, der von [`PublicKeyCredential.id`](/de/docs/Web/API/PublicKeyCredential/id) zurückgegeben wird.
+  - : Der von [`PublicKeyCredential.id`](/de/docs/Web/API/PublicKeyCredential/id) zurückgegebene Wert.
 - `rawId`
-  - : Eine {{Glossary("Base64", "base64url")}}-codierte Version von [`PublicKeyCredential.rawId`](/de/docs/Web/API/PublicKeyCredential/rawId).
+  - : Eine {{Glossary("Base64", "base64url")}}-kodierte Version von [`PublicKeyCredential.rawId`](/de/docs/Web/API/PublicKeyCredential/rawId).
 - `authenticatorAttachment` {{optional_inline}}
-  - : Der Wert, der von [`PublicKeyCredential.authenticatorAttachment`](/de/docs/Web/API/PublicKeyCredential/authenticatorAttachment) zurückgegeben wird.
+  - : Der von [`PublicKeyCredential.authenticatorAttachment`](/de/docs/Web/API/PublicKeyCredential/authenticatorAttachment) zurückgegebene Wert.
 - `type`
   - : Der String `"public-key"`.
 - `clientExtensionResults`
-  - : Ein Array, das {{Glossary("Base64", "base64url")}}-codierte Versionen der Werte enthält, die von [`PublicKeyCredential.getClientExtensionResults()`](/de/docs/Web/API/PublicKeyCredential/getClientExtensionResults) zurückgegeben werden.
+  - : Ein Array, das {{Glossary("Base64", "base64url")}}-kodierte Versionen der von [`PublicKeyCredential.getClientExtensionResults()`](/de/docs/Web/API/PublicKeyCredential/getClientExtensionResults) zurückgegebenen Werte enthält.
 - `response`
 
-  - : Das Antwort-Objekt hängt davon ab, ob die Anmeldeinformationen nach einer Registrierung oder einer Authentifizierung zurückgegeben werden.
+  - : Das Antwortobjekt hängt davon ab, ob die Berechtigungen nach einem Registrierungs- oder Authentifizierungsvorgang zurückgegeben werden.
 
-    - Bei der Registrierung eines neuen Benutzers wird `response` eine JSON-Typ-Darstellung von [`AuthenticatorAttestationResponse`](/de/docs/Web/API/AuthenticatorAttestationResponse) sein, bei der Pufferwerte {{Glossary("Base64", "base64url")}} codiert wurden.
+    - Bei der Registrierung eines neuen Benutzers wird `response` eine JSON-Typ-Repräsentation von [`AuthenticatorAttestationResponse`](/de/docs/Web/API/AuthenticatorAttestationResponse) sein, bei der Pufferwerte {{Glossary("Base64", "base64url")}} kodiert wurden.
 
-    - Bei der Authentifizierung eines Benutzers wird der zurückgegebene Wert eine JSON-Typ-Darstellung der [`AuthenticatorAssertionResponse`](/de/docs/Web/API/AuthenticatorAssertionResponse) sein, bei der Pufferwerte {{Glossary("Base64", "base64url")}} codiert wurden.
+    - Bei der Authentifizierung eines Benutzers wird der zurückgegebene Wert eine JSON-Typ-Repräsentation von [`AuthenticatorAssertionResponse`](/de/docs/Web/API/AuthenticatorAssertionResponse) sein, bei der Pufferwerte {{Glossary("Base64", "base64url")}} kodiert wurden.
 
 ### Ausnahmen
 
@@ -58,8 +57,7 @@ Die Objekteigenschaften sind:
 
 ## Beispiele
 
-Bei der Registrierung eines neuen Benutzers liefert ein vertrauender Server der Web-App Informationen über die erwarteten Anmeldeinformationen.
-Die Web-App ruft [`navigator.credentials.create()`](/de/docs/Web/API/CredentialsContainer/create) mit den empfangenen Informationen (`createCredentialOptions` unten) auf, was ein Versprechen zurückgibt, das mit den neuen Anmeldeinformationen (einem [`PublicKeyCredential`](/de/docs/Web/API/PublicKeyCredential)) erfüllt wird.
+Beim Registrieren eines neuen Benutzers wird ein Server der vertrauenden Partei der Web-App Informationen zu den erwarteten Anmeldeinformationen bereitstellen. Die Web-App ruft [`navigator.credentials.create()`](/de/docs/Web/API/CredentialsContainer/create) mit den empfangenen Informationen (`createCredentialOptions` unten) auf, was ein Versprechen zurückgibt, das sich mit der neuen Berechtigung (einem [`PublicKeyCredential`](/de/docs/Web/API/PublicKeyCredential)) erfüllt.
 
 ```js
 const newCredentialInfo = await navigator.credentials.create({
@@ -67,14 +65,14 @@ const newCredentialInfo = await navigator.credentials.create({
 });
 ```
 
-Die Web-App serialisiert dann die zurückgegebenen Anmeldeinformationen mit `JSON.stringify()` (was wiederum `toJSON()` aufruft) und sendet sie zurück an den Server.
+Die Web-App serialisiert dann die zurückgegebene Berechtigung mithilfe von `JSON.stringify()` (welches wiederum `toJSON()` aufruft) und sendet sie zurück an den Server.
 
 ```js
 const registration_url = "https://example.com/registration";
 const apiRegOptsResp = await fetch(registration_url, {
   method: "POST",
   headers: { "Content-Type": "application/json" },
-  body: JSON.stringify(newCredentialInfo), //Calls newCredentialInfo.toJSON
+  body: JSON.stringify(newCredentialInfo), // Calls newCredentialInfo.toJSON
 });
 ```
 

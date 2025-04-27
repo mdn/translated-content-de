@@ -2,12 +2,12 @@
 title: i18n.getUILanguage()
 slug: Mozilla/Add-ons/WebExtensions/API/i18n/getUILanguage
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 77d90a23ee0a3b5486a7963f68ad4e56efb06a7b
 ---
 
 {{AddonSidebar}}
 
-Ermittelt die UI-Sprache des Browsers. Dies unterscheidet sich von {{WebExtAPIRef('i18n.getAcceptLanguages')}}, welche die bevorzugten Sprachen des Benutzers zurückgibt.
+Gibt die UI-Sprache des Browsers zurück. Dies ist unterschiedlich von {{WebExtAPIRef('i18n.getAcceptLanguages')}}, welche die bevorzugten Benutzersprachen zurückgibt.
 
 Siehe die [Internationalisierung](/de/docs/Mozilla/Add-ons/WebExtensions/Internationalization)-Seite für einen Leitfaden zur Verwendung dieser Funktion.
 
@@ -23,7 +23,7 @@ Keine.
 
 ### Rückgabewert
 
-`string`. Der UI-Sprachcode des Browsers als {{WebExtAPIRef("i18n.LanguageCode")}}.
+`string`. Der Sprachcode der Browser-UI als {{WebExtAPIRef("i18n.LanguageCode")}}.
 
 ## Browser-Kompatibilität
 
@@ -35,13 +35,13 @@ Keine.
 let uiLanguage = browser.i18n.getUILanguage();
 console.log(uiLanguage);
 
-//e.g. "fr"
+// e.g. "fr"
 ```
 
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.i18n`](https://developer.chrome.com/docs/extensions/reference/api/i18n#method-getUILanguage) API von Chromium. Diese Dokumentation ist abgeleitet von [`i18n.json`](https://chromium.googlesource.com/chromium/src/+/refs/heads/main/extensions/common/api/i18n.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.i18n`](https://developer.chrome.com/docs/extensions/reference/api/i18n#method-getUILanguage)-API von Chromium. Diese Dokumentation ist abgeleitet von [`i18n.json`](https://chromium.googlesource.com/chromium/src/+/refs/heads/main/extensions/common/api/i18n.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

@@ -2,21 +2,21 @@
 title: "HTMLElement: toggle Ereignis"
 slug: Web/API/HTMLElement/toggle_event
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: 77d90a23ee0a3b5486a7963f68ad4e56efb06a7b
 ---
 
 {{APIRef("HTML DOM")}}
 
-Das **`toggle`** Ereignis der [`HTMLElement`](/de/docs/Web/API/HTMLElement) Schnittstelle wird bei einem [Popover](/de/docs/Web/API/Popover_API) Element, einem {{htmlelement("dialog")}} Element oder einem {{htmlelement("details")}} Element unmittelbar nach dessen Anzeige oder Ausblendung ausgelöst.
+Das **`toggle`**-Ereignis der [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Schnittstelle wird bei einem [Popover](/de/docs/Web/API/Popover_API)-Element, {{htmlelement("dialog")}}-Element oder {{htmlelement("details")}}-Element ausgelöst, unmittelbar nachdem es angezeigt oder verborgen wurde.
 
-- Wenn das Element vom ausgeblendeten in den angezeigten Zustand wechselt, wird die Eigenschaft [`event.oldState`](/de/docs/Web/API/ToggleEvent/oldState) auf `closed` gesetzt und die Eigenschaft [`event.newState`](/de/docs/Web/API/ToggleEvent/newState) auf `open`.
-- Wenn das Element vom angezeigten in den ausgeblendeten Zustand wechselt, ist `event.oldState` `open` und `event.newState` `closed`.
+- Wenn das Element von verborgen zu sichtbar wechselt, wird die Eigenschaft [`event.oldState`](/de/docs/Web/API/ToggleEvent/oldState) auf `closed` gesetzt und die Eigenschaft [`event.newState`](/de/docs/Web/API/ToggleEvent/newState) auf `open`.
+- Wenn das Element von sichtbar zu verborgen wechselt, wird `event.oldState` `open` sein und `event.newState` wird `closed` sein.
 
 Dieses Ereignis ist nicht [abbrechbar](/de/docs/Web/API/Event/cancelable).
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js
 addEventListener("toggle", (event) => {});
@@ -32,11 +32,12 @@ Ein [`ToggleEvent`](/de/docs/Web/API/ToggleEvent). Erbt von [`Event`](/de/docs/W
 
 ## Beispiele
 
-Der folgende Beispielcode demonstriert, wie das `toggle` Ereignis für ein [Popover](/de/docs/Web/API/Popover_API) verwendet werden kann. Der gleiche Code kann auf {{htmlelement("dialog")}} oder {{htmlelement("details")}} Elemente auf die gleiche Weise angewendet werden.
+Der folgende Beispielcode zeigt, wie das `toggle`-Ereignis mit einem [Popover](/de/docs/Web/API/Popover_API) verwendet werden kann.
+Der gleiche Code kann auch auf {{htmlelement("dialog")}}- oder {{htmlelement("details")}}-Elemente in gleicher Weise angewendet werden.
 
 ### Einfaches Beispiel
 
-Dieses Beispiel zeigt, wie Sie das `toggle` Ereignis überwachen und das Ergebnis protokollieren können.
+Dieses Beispiel zeigt, wie man auf das `toggle`-Ereignis hört und das Ergebnis protokolliert.
 
 #### HTML
 
@@ -70,7 +71,7 @@ function log(text) {
 
 #### JavaScript
 
-Der Code fügt einen Ereignislistener für das `toggle` Ereignis hinzu und protokolliert den Zustand.
+Der Code fügt einen Ereignislistener für das `toggle`-Ereignis hinzu und protokolliert den Zustand.
 
 ```js
 const popover = document.getElementById("mypopover");
@@ -88,15 +89,15 @@ popover.addEventListener("toggle", (event) => {
 
 {{EmbedLiveSample("Basic example", '100%', "250px")}}
 
-### Ein Hinweis zum Coalescing von toggle Ereignissen
+### Eine Anmerkung zur Zusammenführung von toggle-Ereignissen
 
-Wenn mehrere `toggle` Ereignisse ausgelöst werden, bevor der Ereignis-Loop die Chance hat, erneut zu durchlaufen, wird nur ein einziges Ereignis ausgelöst. Dies wird als "Ereignis-Coalescing" bezeichnet.
+Wenn mehrere `toggle`-Ereignisse ausgelöst werden, bevor die Ereignisschleife die Möglichkeit hat, ihren Zyklus zu durchlaufen, wird nur ein einzelnes Ereignis ausgelöst. Dies wird als "Ereigniszusaammenführung" bezeichnet.
 
-Zum Beispiel:
+Beispiel:
 
 ```js
 popover.addEventListener("toggle", () => {
-  //...
+  // …
 });
 
 popover.showPopover();
@@ -106,7 +107,7 @@ popover.hidePopover();
 
 ### Weitere Beispiele
 
-- [Öffnen eines modalen Dialogs](/de/docs/Web/API/HTMLDialogElement#opening_a_modal_dialog) Beispiel in `HTMLDialogElement`
+- [Ein modales Dialogfeld öffnen](/de/docs/Web/API/HTMLDialogElement#opening_a_modal_dialog) Beispiel im `HTMLDialogElement`
 
 ## Spezifikationen
 

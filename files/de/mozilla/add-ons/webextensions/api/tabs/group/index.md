@@ -2,17 +2,17 @@
 title: tabs.group()
 slug: Mozilla/Add-ons/WebExtensions/API/tabs/group
 l10n:
-  sourceCommit: da342187abedb56612c08b166eb5594552b670e4
+  sourceCommit: 77d90a23ee0a3b5486a7963f68ad4e56efb06a7b
 ---
 
 {{AddonSidebar}}
 
-Fügt eine oder mehrere Tabs zu einer Gruppe hinzu oder fügt die Tabs zu einer neuen Gruppe hinzu, wenn keine Gruppe angegeben ist. Alle Tabs in einer Tab-Gruppe müssen nebeneinander liegen, und Tabs werden bei Bedarf verschoben. Alle angehefteten Tabs werden vor dem Gruppieren gelöst.
+Fügt eine oder mehrere Registerkarten zu einer Gruppe hinzu oder, wenn keine Gruppe angegeben ist, fügt die Registerkarten einer neuen Gruppe hinzu. Alle Registerkarten in einer Registerkartengruppe müssen nebeneinander liegen, und Registerkarten werden bei Bedarf verschoben. Alle angehefteten Registerkarten werden vor dem Gruppieren gelöst.
 
-Wenn ein Aufruf Tabs aus Tab-Gruppen entfernt und eine dieser Tab-Gruppen leer wird, werden die leeren Tab-Gruppen entfernt.
+Wenn ein Aufruf Registerkarten aus Registerkartengruppen verschiebt und eine dieser Registerkartengruppen dadurch leer wird, werden die leeren Registerkartengruppen entfernt.
 
 > [!NOTE]
-> Die Methode `tabs.group()` ist nicht der einzige Weg, um Tabs zu gruppieren. Ein Tab tritt auch einer Tab-Gruppe bei, wenn {{WebExtAPIRef("tabs.move")}} es zwischen Tabs platziert, die Teil einer Tab-Gruppe sind.
+> Die Methode `tabs.group()` ist nicht der einzige Weg, Registerkarten zu gruppieren. Eine Registerkarte tritt auch einer Registerkartengruppe bei, wenn {{WebExtAPIRef("tabs.move")}} sie zwischen Registerkarten platziert, die Teil einer Registerkartengruppe sind.
 
 ## Syntax
 
@@ -26,7 +26,7 @@ let grouping = browser.tabs.group(
 
 - `options`
 
-  - : Ein Objekt, das Details über das Tab-Gruppieren enthält.
+  - : Ein Objekt, das Details zur Registerkartengruppierung enthält.
 
     - `createProperties` {{optional_inline}}
 
@@ -36,27 +36,27 @@ let grouping = browser.tabs.group(
           - : `integer`. Das Fenster der neuen Gruppe. Standardmäßig das [aktuelle Fenster](/de/docs/Mozilla/Add-ons/WebExtensions/API/windows/getCurrent).
 
     - `groupId` {{optional_inline}}
-      - : `integer`. Die ID der Gruppe, zu der die Tabs hinzugefügt werden sollen. Wenn nicht angegeben, wird eine neue Gruppe erstellt.
+      - : `integer`. Die ID der Gruppe, zu der die Registerkarten hinzugefügt werden sollen. Wenn nicht angegeben, wird eine neue Gruppe erstellt.
     - `tabIds`
-      - : `integer` oder `array` von `integer`. Die Tab-ID oder Liste von Tab-IDs, die zur Gruppe hinzugefügt werden sollen. Muss mindestens eine Tab-ID enthalten.
+      - : `integer` oder `array` von `integer`. Die Registerkarten-ID oder Liste von Registerkarten-IDs, die zur Gruppe hinzugefügt werden sollen. Muss mindestens eine Registerkarten-ID enthalten.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem Integer erfüllt wird, der die `groupId` der Tab-Gruppe enthält, zu der die Tabs hinzugefügt wurden. Wenn die `groupId` nicht gefunden wird, eine der `tabIds` ungültig ist, die `windowId` ungültig ist oder ein anderer Fehler auftritt, wird das Promise mit einer Fehlermeldung abgelehnt. Wenn ein Validierungsfehler auftritt, werden die Tabs nicht geändert.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem Integer erfüllt wird, der die `groupId` der Registerkartengruppe enthält, zu der die Registerkarten hinzugefügt wurden. Wenn die `groupId` nicht gefunden wird, eine der `tabIds` ungültig ist, die `windowId` ungültig ist oder ein anderer Fehler auftritt, wird das Promise mit einer Fehlermeldung abgelehnt. Bei einem Validierungsfehler werden die Registerkarten nicht geändert.
 
 ## Beispiele
 
-Erstellen Sie zwei Tabs und fügen Sie sie in eine neue Gruppe ein, dann erstellen Sie ein weiteres Tab und fügen es der Gruppe hinzu.
+Erstellen Sie zwei Registerkarten und fügen Sie sie in eine neue Gruppe ein, dann erstellen Sie eine weitere Registerkarte und fügen sie der Gruppe hinzu.
 
 ```js
-//Create two tabs and put them in a new group.
+// Create two tabs and put them in a new group.
 const tab1 = await browser.tabs.create({});
 const tab2 = await browser.tabs.create({});
 const groupId = await browser.tabs.group({
   tabIds: [tab1.id, tab2.id],
 });
 
-//Create another tab and add it to the group.
+// Create another tab and add it to the group.
 const tab3 = await browser.tabs.create({});
 await browser.tabs.group({
   tabIds: tab3.id,
@@ -64,7 +64,7 @@ await browser.tabs.group({
 });
 ```
 
-Erstellen Sie ein Tab und passen Sie seine Gruppierung an die des aktuellen Tabs an.
+Erstellen Sie eine Registerkarte und passen Sie deren Gruppierung an die der aktuellen Registerkarte an.
 
 ```js
 let [oldTab] = await browser.tabs.query({

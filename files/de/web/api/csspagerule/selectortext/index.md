@@ -1,14 +1,14 @@
 ---
-title: "CSSPageRule: selectorText-Eigenschaft"
+title: "CSSPageRule: selectorText Eigenschaft"
 short-title: selectorText
 slug: Web/API/CSSPageRule/selectorText
 l10n:
-  sourceCommit: d76defab4ca13261e9de81ae1df125345f847b0a
+  sourceCommit: 77d90a23ee0a3b5486a7963f68ad4e56efb06a7b
 ---
 
 {{APIRef("CSSOM")}}
 
-Die **`selectorText`**-Eigenschaft der [`CSSPageRule`](/de/docs/Web/API/CSSPageRule)-Schnittstelle erhält und setzt die Selektoren, die mit der `CSSPageRule` verbunden sind.
+Die **`selectorText`**-Eigenschaft der [`CSSPageRule`](/de/docs/Web/API/CSSPageRule)-Schnittstelle holt und setzt die Selektoren, die mit der `CSSPageRule` verbunden sind.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein String.
 
 ## Beispiele
 
-Das Stylesheet enthält zwei {{cssxref("@page")}}-Regeln. Die `selectorText`-Eigenschaft gibt den buchstäblichen Selektortext von `:first` als String zurück.
+Das Stylesheet enthält zwei {{cssxref("@page")}}-Regeln. Die `selectorText`-Eigenschaft wird den literal Zeichenfolgensatz von `:first` als String zurückgeben.
 
 ```css
 @page {
@@ -29,8 +29,8 @@ Das Stylesheet enthält zwei {{cssxref("@page")}}-Regeln. Die `selectorText`-Eig
 ```
 
 ```js
-let myRules = document.styleSheets[0].cssRules; //returns two myRules
-console.log(myRules[1].selectorText); // returns the string ":first"
+const myRules = document.styleSheets[0].cssRules; // Two myRules
+console.log(myRules[1].selectorText); // ":first"
 ```
 
 ## Spezifikationen

@@ -3,12 +3,12 @@ title: "DelegatedInkTrailPresenter: expectedImprovement-Eigenschaft"
 short-title: expectedImprovement
 slug: Web/API/DelegatedInkTrailPresenter/expectedImprovement
 l10n:
-  sourceCommit: 57aa2614c8f3b1b3f5c646262c8156afadcd63d8
+  sourceCommit: 77d90a23ee0a3b5486a7963f68ad4e56efb06a7b
 ---
 
 {{APIRef("Ink API")}}{{Deprecated_header}}{{Non-Standard_Header}}
 
-Die schreibgeschützte Eigenschaft **`expectedImprovement`** der [`DelegatedInkTrailPresenter`](/de/docs/Web/API/DelegatedInkTrailPresenter)-Schnittstelle gibt einen Wert in Millisekunden zurück, der die Latenzverbesserung angibt, die bei der Verwendung dieses Presenters erwartet werden kann.
+Die schreibgeschützte Eigenschaft **`expectedImprovement`** der Schnittstelle [`DelegatedInkTrailPresenter`](/de/docs/Web/API/DelegatedInkTrailPresenter) gibt einen Wert in Millisekunden zurück, der die Latenzverbesserung angibt, die bei Verwendung dieses Präsenters erwartet werden kann.
 
 ### Wert
 
@@ -22,7 +22,7 @@ async function inkInit() {
   let presenter = await ink.requestPresenter({ presentationArea: canvas });
   console.log(presenter.expectedImprovement);
 
-  //...
+  // ...
 }
 ```
 
@@ -36,4 +36,4 @@ Das Feature ist nicht mehr Teil der Spezifikation.
 
 ## Siehe auch
 
-- [Verbesserung der Tintenfunktionalität im Web](https://blogs.windows.com/msedgedev/2021/08/18/enhancing-inking-on-the-web/)
+- [Verbesserung des Zeichnens im Web](https://blogs.windows.com/msedgedev/2021/08/18/enhancing-inking-on-the-web/)

@@ -1,22 +1,22 @@
 ---
-title: "SpeechRecognition: lang-Eigenschaft"
+title: "SpeechRecognition: `lang`-Eigenschaft"
 short-title: lang
 slug: Web/API/SpeechRecognition/lang
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: 77d90a23ee0a3b5486a7963f68ad4e56efb06a7b
 ---
 
 {{APIRef("Web Speech API")}}
 
-Die **`lang`**-Eigenschaft des [`SpeechRecognition`](/de/docs/Web/API/SpeechRecognition)-Interfaces gibt die Sprache der aktuellen `SpeechRecognition` zurück und legt sie fest. Falls nicht angegeben, wird standardmäßig der Wert des HTML-Attributes [`lang`](/de/docs/Web/HTML/Reference/Global_attributes/lang) verwendet oder die Spracheinstellung des Benutzeragenten, falls das auch nicht festgelegt ist.
+Die **`lang`**-Eigenschaft der [`SpeechRecognition`](/de/docs/Web/API/SpeechRecognition)-Schnittstelle gibt die Sprache der aktuellen `SpeechRecognition` zurück und setzt sie. Wenn nicht angegeben, wird standardmäßig der Wert des HTML-Attributs [`lang`](/de/docs/Web/HTML/Reference/Global_attributes/lang) verwendet oder, falls dies auch nicht gesetzt ist, die Spracheinstellung des Benutzeragents.
 
 ## Wert
 
-Ein String, der den BCP 47-Sprachcode für die aktuelle `SpeechRecognition` darstellt.
+Ein String, der das BCP 47-Sprach-Tag für die aktuelle `SpeechRecognition` darstellt.
 
 ## Beispiele
 
-Dieser Code stammt aus unserem Beispiel [Speech color changer](https://github.com/mdn/dom-examples/blob/main/web-speech-api/speech-color-changer/script.js).
+Dieser Code stammt aus unserem [Sprachfarbwechsel-Beispiel](https://github.com/mdn/dom-examples/blob/main/web-speech-api/speech-color-changer/script.js).
 
 ```js
 const grammar =
@@ -25,7 +25,7 @@ const recognition = new SpeechRecognition();
 const speechRecognitionList = new SpeechGrammarList();
 speechRecognitionList.addFromString(grammar, 1);
 recognition.grammars = speechRecognitionList;
-//recognition.continuous = false;
+// recognition.continuous = false;
 recognition.lang = "en-US";
 recognition.interimResults = false;
 recognition.maxAlternatives = 1;
