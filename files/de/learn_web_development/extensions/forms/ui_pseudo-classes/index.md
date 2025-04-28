@@ -661,7 +661,7 @@ Die folgenden sind auch interessant, werden jedoch noch nicht gut von Browsern u
 
 ## Testen Sie Ihre Fähigkeiten!
 
-Sie haben das Ende dieses Artikels erreicht, aber können Sie sich an die wichtigsten Informationen erinnern? Sie können weitere Tests finden, um zu überprüfen, ob Sie diese Informationen behalten haben, bevor Sie fortfahren — siehe [Advanced Styling: Testen Sie Ihre Fähigkeiten](/de/docs/Learn_web_development/Extensions/Forms/Test_your_skills:_Advanced_styling).
+Sie haben das Ende dieses Artikels erreicht, aber können Sie sich an die wichtigsten Informationen erinnern? Sie können weitere Tests finden, um zu überprüfen, ob Sie diese Informationen behalten haben, bevor Sie fortfahren — siehe [Advanced Styling: Testen Sie Ihre Fähigkeiten](/de/docs/Learn_web_development/Extensions/Forms/Test_your_skills/Advanced_styling).
 
 ## Zusammenfassung
 

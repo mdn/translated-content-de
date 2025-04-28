@@ -374,7 +374,7 @@ Beim Klicken auf eine Farbsteuerung wird im Allgemeinen die Standardfarbauswahlf
 
 ## Testen Sie Ihre Fähigkeiten!
 
-Sie haben das Ende dieses Artikels erreicht, aber können Sie sich die wichtigsten Informationen merken? Sie können einige weitere Tests durchführen, um zu überprüfen, ob Sie diese Informationen behalten haben, bevor Sie fortfahren – siehe [Testen Sie Ihre Fähigkeiten: HTML5-Steuerungen](/de/docs/Learn_web_development/Extensions/Forms/Test_your_skills:_HTML5_controls).
+Sie haben das Ende dieses Artikels erreicht, aber können Sie sich die wichtigsten Informationen merken? Sie können einige weitere Tests durchführen, um zu überprüfen, ob Sie diese Informationen behalten haben, bevor Sie fortfahren – siehe [Testen Sie Ihre Fähigkeiten: HTML5-Steuerungen](/de/docs/Learn_web_development/Extensions/Forms/Test_your_skills/Input_types).
 
 ## Zusammenfassung
 

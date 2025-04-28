@@ -378,7 +378,7 @@ Und voilà! Ihr Formular sollte nun so aussehen:
 
 ## Testen Sie Ihre Fähigkeiten
 
-Sie haben das Ende dieses Artikels erreicht, aber können Sie sich an die wichtigsten Informationen erinnern? Sie können weitere Tests finden, um zu überprüfen, ob Sie diese Informationen behalten haben, bevor Sie fortfahren — siehe [Testen Sie Ihre Fähigkeiten: Gestaltung Grundkenntnisse](/de/docs/Learn_web_development/Extensions/Forms/Test_your_skills:_Styling_basics).
+Sie haben das Ende dieses Artikels erreicht, aber können Sie sich an die wichtigsten Informationen erinnern? Sie können weitere Tests finden, um zu überprüfen, ob Sie diese Informationen behalten haben, bevor Sie fortfahren — siehe [Testen Sie Ihre Fähigkeiten: Gestaltung Grundkenntnisse](/de/docs/Learn_web_development/Extensions/Forms/Test_your_skills/Styling_basics).
 
 ## Zusammenfassung
 

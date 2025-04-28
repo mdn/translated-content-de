@@ -263,7 +263,7 @@ Der Inhalt innerhalb des {{HTMLElement("progress")}}-Elements ist ein Fallback f
 
 ## Testen Sie Ihr Wissen!
 
-Sie haben das Ende dieses Artikels erreicht, aber können Sie sich an die wichtigsten Informationen erinnern? Sie können einige weitere Tests finden, um zu überprüfen, ob Sie diese Informationen behalten haben, bevor Sie fortfahren — siehe [Testen Sie Ihr Wissen: Andere Steuerungen](/de/docs/Learn_web_development/Extensions/Forms/Test_your_skills:_Other_controls).
+Sie haben das Ende dieses Artikels erreicht, aber können Sie sich an die wichtigsten Informationen erinnern? Sie können einige weitere Tests finden, um zu überprüfen, ob Sie diese Informationen behalten haben, bevor Sie fortfahren — siehe [Testen Sie Ihr Wissen: Andere Steuerungen](/de/docs/Learn_web_development/Extensions/Forms/Test_your_skills/Other_controls).
 
 ## Zusammenfassung
 

@@ -1,73 +1,70 @@
 ---
-title: CSS Modul-Landingpage-Vorlage
+title: CSS-Modul-Landingpage-Vorlage
 slug: MDN/Writing_guidelines/Page_structures/Page_types/CSS_module_landing_page_template
 l10n:
-  sourceCommit: 719645a32546d9e514ac530a5eb66aa4c26d4f51
+  sourceCommit: da12dd76d4c9863ce4f9c436f5e2373fe541e1c7
 ---
 
-> [!NOTE] _Denken Sie daran, diesen Hinweisblock vor der Veröffentlichung zu entfernen._
+> **Note:** _Bitte denken Sie daran, diesen Hinweisblock vor der Veröffentlichung zu entfernen._
 >
 > ---
 >
 > **Seiten-Metadaten:**
 >
-> Der Metadaten-Abschnitt am Anfang der Seite wird zur Definition von "Seitenmetadaten" verwendet.
-> Die Werte sollten für das jeweilige Modul entsprechend aktualisiert werden.
+> Der Abschnitt am Anfang der Seite wird verwendet, um "Seitenmetadaten" zu definieren.
+> Die Werte sollten entsprechend dem jeweiligen Modul aktualisiert werden.
 >
 > ```md
 > ---
-> title: CSS NameDesModuls
-> slug: Web/CSS/CSS_NameDesModuls
+> title: CSS NameOfTheModule
+> slug: Web/CSS/CSS_NameOfTheModule
 > page-type: css-module
 > spec-urls:
 >   - url1
 >   - url2
+> sidebar: cssref
 > ---
 > ```
 >
 > - **title**
 >   - : Der `title`-Wert wird oben auf der Seite angezeigt.
->     Dies ist der Text "CSS" gefolgt vom Namen des Moduls.
->     Zum Beispiel lautet der Titel für die Modul-Landingpage [Grid Layout](/de/docs/Web/CSS/CSS_grid_layout) _CSS Grid Layout_.
+>     Es handelt sich um den Text "CSS" gefolgt vom Namen des Moduls.
+>     Zum Beispiel lautet der Titel für die Landingpage des Moduls [Grid-Layout](/de/docs/Web/CSS/CSS_grid_layout) _CSS grid layout_.
 > - **slug**
 >   - : Der `slug`-Wert ist das Ende des URL-Pfads nach `https://developer.mozilla.org/de/docs/`.
->     Dies wird als `Web/CSS/CSS_NameDesModuls` formatiert.
->     Zum Beispiel lautet der Slug für die Modul-Landingpage [Grid Layout](/de/docs/Web/CSS/CSS_grid_layout) `Web/CSS/CSS_grid_layout`.
+>     Dieser wird im Format `Web/CSS/CSS_NameOfTheModule` formatiert.
+>     Zum Beispiel ist der Slug für die Landingpage des Moduls [Grid-Layout](/de/docs/Web/CSS/CSS_grid_layout) `Web/CSS/CSS_grid_layout`.
 > - **page-type**
->   - : Der `page-type`-Wert für CSS Modul-Landingpages ist immer `css-module`.
+>   - : Der `page-type`-Wert für CSS-Modul-Landingpages ist immer `css-module`.
 > - **spec-urls**
 >
->   - : Der `spec-urls`-Wert ist eine URL der Spezifikation. Falls es mehr als eine relevante Version der Spezifikation gibt, präsentieren Sie sie in einer Aufzählungsliste. Zum Beispiel lautet der Wert für den `spec-urls`-Schlüssel für die Modul-Landingpage [Filter Effects](/de/docs/Web/CSS/CSS_filter_effects):
+>   - : Der `spec-urls`-Wert ist eine URL der Spezifikation. Falls es mehr als eine Version der relevanten Spezifikation gibt, geben Sie diese in einer Aufzählungsliste an. Zum Beispiel ist der Wert für den `spec-urls`-Schlüssel für die Landingpage des Moduls [Filter-Effekte](/de/docs/Web/CSS/CSS_filter_effects):
 >
 >     ```plain
 >     - https://drafts.fxtf.org/filter-effects-2/
 >     - https://drafts.fxtf.org/filter-effects-1/
 >     ```
 >
-> ---
->
-> **Makros am Seitenanfang**
->
-> Der `\{{CSSRef}}` Macro-Aufruf erscheint am Anfang des Inhaltsbereichs (direkt nach den Seitenmetadaten).
-> Dieses Makro muss auf jeder CSS Modul-Landingpage vorhanden sein. Es generiert eine passende CSS-Seitenleiste, abhängig von den auf der Seite enthaltenen Tags.
-> Entfernen Sie das `\{{MDNSidebar}}` Makro, wenn Sie diese Vorlage verwenden.
+> - **sidebar**
+>   - : Dies ist `cssref` für alle CSS-Leitfaden- und Referenzseiten.
+>     Siehe [Seitenstrukturen: Sidebars](/de/docs/MDN/Writing_guidelines/Page_structures/Sidebars) für Details.
 >
 > ---
 >
-> _Denken Sie daran, diesen Hinweisblock vor der Veröffentlichung zu entfernen._
+> _Bitte denken Sie daran, diesen Hinweisblock vor der Veröffentlichung zu entfernen._
 
-Beginnen Sie den Inhalt der Seite mit einem einführenden Absatz, der das Modul benennt und erklärt, was es tut.
+Beginnen Sie den Inhalt auf der Seite mit einem einführenden Absatz, der das Modul benennt und sagt, was es tut.
 Dies sollte idealerweise ein oder zwei kurze Sätze sein.
 
-## NameDesModuls in Aktion
+## NameOfTheModule in Aktion
 
-In diesem Abschnitt soll ein Beispiel eingefügt werden, das den Nutzen oder die Leistungsfähigkeit der verschiedenen vom Modul bereitgestellten Eigenschaften veranschaulicht.
-Der Zweck dieses Abschnitts ist es, einige Anwendungsfälle darzustellen und Interesse und Neugier bei den Lesern zu wecken, die etwas über dieses Modul lernen.
+In diesem Abschnitt sollte ein Beispiel enthalten sein, das die Nützlichkeit oder die Leistungsfähigkeit der verschiedenen von diesem Modul bereitgestellten Eigenschaften demonstriert.
+Der Zweck dieses Abschnitts ist es, einige Anwendungsfälle zu zeigen und Interesse und Neugier bei den Lesern zu wecken, die über dieses Modul lernen.
 
-Geben Sie eine kurze Beschreibung, wie die Leser mit dem Beispiel interagieren können.
-Gehen Sie nicht ausführlich auf das Beispiel ein und fügen Sie keine Code-Snippets ein.
+Geben Sie eine kurze Beschreibung, wie Leser mit dem Beispiel interagieren können.
+Gehen Sie nicht detailliert darauf ein, das Beispiel zu erklären, und fügen Sie keine Codeausschnitte hinzu.
 
-Fügen Sie ein Live-Beispiel ein, das das Merkmal mit `\{{EmbedLiveSample}}` demonstriert (siehe Dokumentation zu [Live-Beispielen](/de/docs/MDN/Writing_guidelines/Page_structures/Live_samples) für weitere Informationen).
+Fügen Sie ein Live-Beispiel hinzu, das das Feature mithilfe von `\{{EmbedLiveSample}}` demonstriert (siehe [Live-Beispiele](/de/docs/MDN/Writing_guidelines/Page_structures/Live_samples) Dokumentation für weitere Informationen).
 
 ## Referenz
 
@@ -75,23 +72,23 @@ Erstellen Sie die relevanten Unterabschnitte, um die zugehörigen Eigenschaften,
 
 ### Eigenschaften
 
-Liste aller Kurz- und Langformen der vom Modul bereitgestellten Eigenschaften.
+Liste aller Kurz- und Langform-Eigenschaften, die vom Modul bereitgestellt werden.
 
-### At-Rules
+### At-Regeln
 
-Liste der vom Modul bereitgestellten CSS-At-Regeln. Lassen Sie diesen Abschnitt weg, wenn es keine relevanten CSS-At-Regeln für dieses Modul gibt.
+Liste der CSS-At-Regeln, die vom Modul bereitgestellt werden. Lassen Sie diesen Abschnitt weg, wenn es keine relevanten CSS-At-Regeln für dieses Modul gibt.
 
 ### Funktionen
 
-Liste der vom Modul bereitgestellten CSS-Funktionen. Lassen Sie diesen Abschnitt weg, wenn es keine relevanten CSS-Funktionen für dieses Modul gibt.
+Liste der CSS-Funktionen, die vom Modul bereitgestellt werden. Lassen Sie diesen Abschnitt weg, wenn es keine relevanten CSS-Funktionen für dieses Modul gibt.
 
 ### Datentypen
 
-Liste der vom Modul bereitgestellten CSS-Datentypen. Lassen Sie diesen Abschnitt weg, wenn es keine relevanten CSS-Datentypen für dieses Modul gibt.
+Liste der CSS-Datentypen, die vom Modul bereitgestellt werden. Lassen Sie diesen Abschnitt weg, wenn es keine relevanten CSS-Datentypen für dieses Modul gibt.
 
 ### Ereignisse
 
-Liste der vom Modul bereitgestellten API-Ereignisse. Lassen Sie diesen Abschnitt weg, wenn es keine relevanten Ereignisse für dieses Modul gibt.
+Liste der API-Ereignisse, die vom Modul bereitgestellt werden. Lassen Sie diesen Abschnitt weg, wenn es keine relevanten Ereignisse für dieses Modul gibt.
 
 ### Schnittstellen
 
@@ -106,7 +103,7 @@ Liste der zugehörigen APIs und Schnittstellen, die vom Modul bereitgestellt wer
 
 ## Verwandte Konzepte
 
-Listen Sie alle anderen Eigenschaften, Datentypen oder Glossarbegriffe auf, die für dieses Modul relevant oder damit verwandt sein könnten.
+Liste aller anderen Eigenschaften, Datentypen oder Glossarbegriffe, die möglicherweise relevant oder mit diesem Modul verwandt sind.
 
 ## Spezifikationen
 
@@ -116,8 +113,8 @@ _Um dieses Makro zu verwenden, entfernen Sie die Backticks und den Backslash in 
 
 ## Siehe auch
 
-Fügen Sie Links zu Referenzseiten und Leitfäden ein, die mit dem aktuellen Modul in Zusammenhang stehen. Überprüfen Sie den Abschnitt [Siehe auch](/de/docs/MDN/Writing_guidelines/Writing_style_guide#see_also_section) in unserem _Schreibstil-Leitfaden_ für weitere Hinweise und Anleitungen.
+Fügen Sie Links zu Referenzseiten und Leitfäden hinzu, die mit dem aktuellen Modul verwandt sind. Überprüfen Sie den Abschnitt [Siehe auch](/de/docs/MDN/Writing_guidelines/Writing_style_guide#see_also_section) in unserem _Schreibstil-Leitfaden_ für weitere Hinweise und Anweisungen.
 
 - link1
 - link2
-- externer_link (Jahr)
+- external_link (Jahr)
