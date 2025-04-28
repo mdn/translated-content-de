@@ -1,27 +1,27 @@
 ---
-title: "WebTransport: closed-Eigenschaft"
+title: "WebTransport: `closed`-Eigenschaft"
 short-title: closed
 slug: Web/API/WebTransport/closed
 l10n:
-  sourceCommit: 584199ed3502f1a886fd1b074f48c81fcf519a73
+  sourceCommit: 759102220c07fb140b3e06971cd5981d8f0f134f
 ---
 
 {{APIRef("WebTransport API")}}{{SecureContext_Header}} {{AvailableInWorkers}}
 
-Die schreibgeschützte **`closed`**-Eigenschaft des [`WebTransport`](/de/docs/Web/API/WebTransport)-Interfaces gibt ein Promise zurück, das aufgelöst wird, wenn der Transport geschlossen wird.
+Die **`closed`** schreibgeschützte Eigenschaft der [`WebTransport`](/de/docs/Web/API/WebTransport)-Schnittstelle gibt ein Promise zurück, das aufgelöst wird, wenn der Transport geschlossen wird.
 
-Dieses Promise wird erstellt, wenn das `WebTransport`-Objekt erstellt wird und wird aufgelöst, wenn der Transport auf irgendeine Weise geschlossen wird, beispielsweise durch Aufruf der [`close()`](/de/docs/Web/API/WebTransport/close)-Methode, wenn die Verbindung fehlgeschlagen ist oder wenn die Verbindung vom Server geschlossen wird. Der Zugriff auf dieses Promise oder das Abwarten darauf löst keine Aktion aus; es ermöglicht lediglich Maßnahmen zu ergreifen, wenn der Transport geschlossen wird, ähnlich dem Lauschen auf ein Ereignis.
+Dieses Promise wird erstellt, wenn das `WebTransport`-Objekt erstellt wird, und wird aufgelöst, wenn der Transport auf irgendeine Weise geschlossen wird, z.B. durch Aufrufen der [`close()`](/de/docs/Web/API/WebTransport/close)-Methode, wenn die Verbindung fehlschlägt, oder wenn die Verbindung vom Server geschlossen wird. Das Zugreifen auf oder das Warten auf dieses Promise löst keine Aktion aus; es ermöglicht nur Maßnahmen, wenn der Transport geschlossen wird, ähnlich wie das Zuhören eines Ereignisses.
 
 ## Wert
 
-Ein {{jsxref("Promise")}}, das auf ein Objekt mit den folgenden Eigenschaften aufgelöst wird:
+Ein {{jsxref("Promise")}}, das zu einem Objekt aufgelöst wird, das die folgenden Eigenschaften enthält:
 
 - `closeCode`
   - : Eine Zahl, die den Fehlercode für den Fehler darstellt.
 - `reason`
-  - : Ein String, der den Grund für das Schließen des `WebTransport` darstellt.
+  - : Ein String, der den Grund für das Schließen des `WebTransport` angibt.
 
-Oder, im Falle eines unerwarteten Schließens, wie bei einem Netzwerkfehler, wird das Promise mit einem Fehler abgelehnt.
+Oder, im Fall eines unerwarteten Abschlusses, wie z.B. eines Netzwerkausfalls, wird das Promise mit einem Fehler abgelehnt.
 
 ## Beispiele
 
@@ -35,10 +35,10 @@ async function initTransport(url) {
   // The connection can be used once ready fulfills
   await transport.ready;
 
-  // ...
+  // …
 }
 
-// ...
+// …
 
 async function closeTransport(transport) {
   // Respond to connection closing

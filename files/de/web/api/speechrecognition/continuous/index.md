@@ -3,7 +3,7 @@ title: "SpeechRecognition: continuous-Eigenschaft"
 short-title: continuous
 slug: Web/API/SpeechRecognition/continuous
 l10n:
-  sourceCommit: f2f9346c0c0e9f6676f2df9f1850933e274401de
+  sourceCommit: 759102220c07fb140b3e06971cd5981d8f0f134f
 ---
 
 {{APIRef("Web Speech API")}}
@@ -15,11 +15,11 @@ Standardmäßig ist sie auf einzelne Ergebnisse (`false`) eingestellt.
 
 ## Wert
 
-Ein boolescher Wert, der den aktuellen kontinuierlichen Status der `SpeechRecognition` repräsentiert. `true` bedeutet kontinuierlich, und `false` bedeutet nicht kontinuierlich (einzelnes Ergebnis jedes Mal).
+Ein boolescher Wert, der den aktuellen `SpeechRecognition`-Kontinuitätsstatus darstellt. `true` bedeutet kontinuierlich, und `false` bedeutet nicht kontinuierlich (einzelnes Ergebnis jedes Mal).
 
 ## Beispiele
 
-Dieser Code ist aus unserem [Sprachfarbwechsler](https://github.com/mdn/dom-examples/blob/main/web-speech-api/speech-color-changer/script.js)-Beispiel entnommen.
+Dieser Code ist aus unserem [Speech color changer](https://github.com/mdn/dom-examples/blob/main/web-speech-api/speech-color-changer/script.js)-Beispiel entnommen.
 
 ```js
 const grammar =
@@ -33,7 +33,7 @@ recognition.lang = "en-US";
 recognition.interimResults = false;
 recognition.maxAlternatives = 1;
 
-// ...
+// …
 ```
 
 ## Spezifikationen

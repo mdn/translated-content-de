@@ -3,12 +3,13 @@ title: "Navigation: navigate() Methode"
 short-title: navigate()
 slug: Web/API/Navigation/navigate
 l10n:
-  sourceCommit: 6e26603d67a00cc23f0c52afc27055a901d004b9
+  sourceCommit: 759102220c07fb140b3e06971cd5981d8f0f134f
 ---
 
 {{APIRef("Navigation API")}}{{SeeCompatTable}}
 
-Die **`navigate()`** Methode der [`Navigation`](/de/docs/Web/API/Navigation) Schnittstelle navigiert zu einer bestimmten URL und aktualisiert jeden angegebenen Zustand in der Liste der Historieneinträge.
+Die **`navigate()`** Methode der
+[`Navigation`](/de/docs/Web/API/Navigation)-Schnittstelle navigiert zu einer bestimmten URL und aktualisiert dabei gegebenenfalls den Zustand in der Liste der Verlaufseinträge.
 
 ## Syntax
 
@@ -20,17 +21,17 @@ navigate(url, options)
 ### Parameter
 
 - `url`
-  - : Die Ziel-URL, zu der navigiert werden soll. Beachten Sie, dass beim Aufrufen von `navigate()` auf dem `navigation`-Objekt eines anderen Fensters die URL relativ zur URL des Ziel-Fensters aufgelöst wird, nicht relativ zur URL des aufrufenden Fensters. Dies entspricht dem Verhalten der [History API](/de/docs/Web/API/History_API), aber nicht dem Verhalten der [Location API](/de/docs/Web/API/Location).
+  - : Die Ziel-URL, zu der navigiert werden soll. Beachten Sie, dass, wenn `navigate()` für das `navigation`-Objekt eines anderen Fensters aufgerufen wird, die URL relativ zur URL des Ziel-Fensters und nicht relativ zur URL des aufrufenden Fensters aufgelöst wird. Dies entspricht dem Verhalten der [History API](/de/docs/Web/API/History_API), jedoch nicht dem Verhalten der [Location API](/de/docs/Web/API/Location).
 - `options` {{optional_inline}}
-  - : Ein Optionen-Objekt, das die folgenden Eigenschaften enthält:
+  - : Ein Optionsobjekt mit den folgenden Eigenschaften:
     - `state` {{optional_inline}}
-      - : Vom Entwickler definierte Informationen, die im zugehörigen [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry) gespeichert werden sollen, sobald die Navigation abgeschlossen ist, abrufbar über [`getState()`](/de/docs/Web/API/NavigationHistoryEntry/getState). Dies kann jeder Datentyp sein. Sie könnten beispielsweise die Anzahl der Seitenaufrufe für Analysezwecke speichern oder Details zum UI-Zustand speichern, damit die Ansicht genau so angezeigt werden kann, wie der Benutzer sie zuletzt verlassen hat. Alle im `state` gespeicherten Daten müssen [strukturierte-kopierbar](/de/docs/Web/API/Web_Workers_API/Structured_clone_algorithm) sein.
+      - : Vom Entwickler definierte Informationen, die im zugehörigen [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry) gespeichert werden, sobald die Navigation abgeschlossen ist, abrufbar über [`getState()`](/de/docs/Web/API/NavigationHistoryEntry/getState). Dies kann jeder Datentyp sein. Sie könnten beispielsweise die Anzahl der Seitenbesuche für Analysezwecke speichern oder UI-Zustandsdetails speichern, damit die Ansicht genau so angezeigt werden kann, wie der Nutzer sie zuletzt verlassen hat. Alle im `state` gespeicherten Daten müssen [strukturklonierbar](/de/docs/Web/API/Web_Workers_API/Structured_clone_algorithm) sein.
     - `info` {{optional_inline}}
-      - : Vom Entwickler definierte Informationen, die an das [`navigate`](/de/docs/Web/API/Navigation/navigate_event) Ereignis übermittelt und in [`NavigateEvent.info`](/de/docs/Web/API/NavigateEvent/info) verfügbar gemacht werden. Dies kann jeder Datentyp sein. Sie könnten beispielsweise neu navigierte Inhalte mit einer anderen Animation basierend darauf anzeigen, wie sie navigiert wurden (Wischen nach links, Wischen nach rechts oder Zurückkehren). Eine Zeichenkette, die angibt, welche Animation verwendet werden soll, könnte als `info` übermittelt werden.
+      - : Vom Entwickler definierte Informationen, die an das [`navigate`](/de/docs/Web/API/Navigation/navigate_event) Ereignis übergeben werden, verfügbar in [`NavigateEvent.info`](/de/docs/Web/API/NavigateEvent/info). Dies kann jeder Datentyp sein. Sie könnten zum Beispiel neu navigierte Inhalte mit einer anderen Animation je nach Navigationsweise anzeigen (links wischen, rechts wischen oder nach Hause gehen). Eine Zeichenkette, die angibt, welche Animation verwendet werden soll, könnte als `info` übergeben werden.
     - `history` {{optional_inline}}
-      - : Ein enumerierter Wert, der das Verhalten der Historie bei dieser Navigation festlegt. Die verfügbaren Werte sind:
-        - `auto`: Der Standardwert; führt normalerweise eine `push`-Navigation durch, kann aber unter besonderen Umständen eine `replace`-Navigation durchführen (siehe die Beschreibung des `NotSupportedError` unten).
-        - `push`: Fügt einen neuen [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry) der Liste der Einträge hinzu oder schlägt unter besonderen Umständen fehl (siehe die Beschreibung des `NotSupportedError` unten).
+      - : Ein enumerierter Wert, der das Verlaufverhalten dieser Navigation festlegt. Die verfügbaren Werte sind:
+        - `auto`: Der Standardwert; wird normalerweise eine `push`-Navigation durchführen, kann jedoch unter besonderen Umständen eine `replace`-Navigation ausführen (siehe die Beschreibung des `NotSupportedError` unten).
+        - `push`: Fügt einen neuen [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry) zur Eintragsliste hinzu oder schlägt unter besonderen Umständen fehl (siehe die Beschreibung des `NotSupportedError` unten).
         - `replace`: Ersetzt den aktuellen [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry).
 
 ### Rückgabewert
@@ -40,19 +41,19 @@ Ein Objekt mit den folgenden Eigenschaften:
 - `committed`
   - : Ein {{jsxref("Promise")}}, das erfüllt wird, wenn sich die sichtbare URL geändert hat und ein neuer [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry) erstellt wurde.
 - `finished`
-  - : Ein {{jsxref("Promise")}}, das erfüllt wird, wenn alle Versprechen, die vom `intercept()`-Handler zurückgegeben werden, erfüllt sind. Dies entspricht dem Erfüllen des [`NavigationTransition.finished`](/de/docs/Web/API/NavigationTransition/finished) Versprechens, wenn das [`navigatesuccess`](/de/docs/Web/API/Navigation/navigatesuccess_event) Ereignis ausgelöst wird.
+  - : Ein {{jsxref("Promise")}}, das erfüllt wird, wenn alle von dem `intercept()` Handler zurückgegebenen Promises erfüllt sind. Dies ist gleichbedeutend mit der Erfüllung des [`NavigationTransition.finished`](/de/docs/Web/API/NavigationTransition/finished) Promises, wenn das [`navigatesuccess`](/de/docs/Web/API/Navigation/navigatesuccess_event) Ereignis ausgelöst wird.
 
-Eines dieser Versprechen wird abgelehnt, wenn die Navigation aus irgendeinem Grund fehlgeschlagen ist.
+Eines dieser Promises wird verworfen, wenn die Navigation aus irgendeinem Grund fehlgeschlagen ist.
 
 ### Ausnahmen
 
 - `DataCloneError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der `state` Parameter Werte enthalten hat, die nicht strukturierte-kopierbar sind.
+  - : Wird ausgelöst, wenn der `state` Parameter nicht strukturklonierbare Werte enthält.
 - `SyntaxError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn der `url` Parameter keine gültige URL ist.
 - `NotSupportedError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn die `history` Option auf `push` gesetzt ist und einer der folgenden speziellen Umstände zutrifft:
-    - Der Browser zeigt derzeit das initiale `about:blank` Dokument an.
+  - : Wird ausgelöst, wenn die `history` Option auf `push` gesetzt ist und eine der folgenden speziellen Umstände zutrifft:
+    - Der Browser zeigt derzeit das anfängliche `about:blank` Dokument an.
     - Das Schema der `url` ist `javascript`.
 
 ## Beispiele
@@ -82,7 +83,7 @@ navigation.addEventListener("navigate", (event) => {
 
 ### Ein intelligenter Zurück-Button
 
-Ein von der Seite bereitgestellter "Zurück"-Button kann Sie zurückbringen, auch nach einem Neuladen, indem er die vorherigen Historieneinträge inspiziert:
+Ein von der Seite bereitgestellter "Zurück"-Button kann Sie sogar nach einem Neuladen zurückbringen, indem er die vorherigen Verlaufseinträge untersucht:
 
 ```js
 backButtonEl.addEventListener("click", () => {
@@ -109,7 +110,7 @@ async function navigateHandler() {
   }).finished;
 
   // Update application state
-  // ...
+  // …
 }
 ```
 
@@ -123,6 +124,6 @@ async function navigateHandler() {
 
 ## Siehe auch
 
-- [Moderner client-seitiger Routing: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
-- [Navigation API-Erklärung](https://github.com/WICG/navigation-api/blob/main/README.md)
+- [Moderne client-seitige Navigation: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
+- [Navigation API Erklärung](https://github.com/WICG/navigation-api/blob/main/README.md)
 - Domenic Denicolas [Navigation API Live-Demo](https://gigantic-honored-octagon.glitch.me/)

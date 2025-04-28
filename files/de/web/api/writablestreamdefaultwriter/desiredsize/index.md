@@ -1,25 +1,25 @@
 ---
-title: "WritableStreamDefaultWriter: desiredSize-Eigenschaft"
+title: "WritableStreamDefaultWriter: desiredSize Eigenschaft"
 short-title: desiredSize
 slug: Web/API/WritableStreamDefaultWriter/desiredSize
 l10n:
-  sourceCommit: d8b4431bfde42f1bc195239ea1f378d763f8163e
+  sourceCommit: 759102220c07fb140b3e06971cd5981d8f0f134f
 ---
 
 {{APIRef("Streams")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte Eigenschaft **`desiredSize`** des [`WritableStreamDefaultWriter`](/de/docs/Web/API/WritableStreamDefaultWriter)-Interfaces gibt die gewünschte Größe zurück, die benötigt wird, um die interne Warteschlange des Streams zu füllen.
+Die schreibgeschützte Eigenschaft **`desiredSize`** des [`WritableStreamDefaultWriter`](/de/docs/Web/API/WritableStreamDefaultWriter)-Interfaces gibt die gewünschte Größe an, die benötigt wird, um die interne Warteschlange des Streams zu füllen.
 
 ## Wert
 
-Ein Ganzzahlwert. Beachten Sie, dass dieser negativ sein kann, wenn die Warteschlange überfüllt ist.
+Ein Integer. Beachten Sie, dass dieser negativ sein kann, wenn die Warteschlange überfüllt ist.
 
-Der Wert ist `null`, wenn in den Stream nicht erfolgreich geschrieben werden kann (entweder aufgrund eines Fehlers oder wegen einer anstehenden Abbruchoperation) und null, wenn der Stream geschlossen ist.
+Der Wert ist `null`, wenn der Stream nicht erfolgreich beschrieben werden kann (entweder aufgrund eines Fehlers oder weil ein Abbruch ansteht), und null wenn der Stream geschlossen ist.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Die Sperre des Writers ist freigegeben.
+  - : Die Sperre des Schreibers wurde freigegeben.
 
 ## Beispiele
 
@@ -27,26 +27,26 @@ Der Wert ist `null`, wenn in den Stream nicht erfolgreich geschrieben werden kan
 const writableStream = new WritableStream(
   {
     write(chunk) {
-      // ...
+      // …
     },
     close() {
-      // ...
+      // …
     },
     abort(err) {
-      // ...
+      // …
     },
   },
   queuingStrategy,
 );
 
-// ...
+// …
 
 const writer = writableStream.getWriter();
 
-// ...
+// …
 
 // return stream's desired size
-let size = writer.desiredSize;
+const size = writer.desiredSize;
 ```
 
 ## Spezifikationen

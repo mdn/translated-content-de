@@ -1,14 +1,14 @@
 ---
-title: "SourceBuffer: abort() Methode"
+title: "SourceBuffer: abort()-Methode"
 short-title: abort()
 slug: Web/API/SourceBuffer/abort
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: 759102220c07fb140b3e06971cd5981d8f0f134f
 ---
 
 {{APIRef("Media Source Extensions")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`abort()`** Methode der [`SourceBuffer`](/de/docs/Web/API/SourceBuffer)-Schnittstelle bricht das aktuelle Segment ab und setzt den Segmentparser zurück.
+Die **`abort()`**-Methode des [`SourceBuffer`](/de/docs/Web/API/SourceBuffer)-Interfaces bricht das aktuelle Segment ab und setzt den Segmentparser zurück.
 
 ## Syntax
 
@@ -22,28 +22,28 @@ Keine.
 
 ### Rückgabewert
 
-Keine ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn die [`MediaSource.readyState`](/de/docs/Web/API/MediaSource/readyState)-Eigenschaft der übergeordneten Medienquelle nicht gleich `open` ist oder wenn dieser `SourceBuffer` aus der [`MediaSource`](/de/docs/Web/API/MediaSource) entfernt wurde.
+  - : Wird ausgelöst, wenn die Eigenschaft [`MediaSource.readyState`](/de/docs/Web/API/MediaSource/readyState) der übergeordneten Medienquelle nicht gleich `open` ist oder dieser `SourceBuffer` aus der [`MediaSource`](/de/docs/Web/API/MediaSource) entfernt wurde.
 
 ## Beispiele
 
-Die Spezifikationsbeschreibung von `abort()` ist etwas verwirrend — betrachten Sie beispielsweise Schritt 1 der [Parser-Zustandszurücksetzung](https://w3c.github.io/media-source/index.html#sourcebuffer-reset-parser-state). Die MSE-API ist vollständig asynchron, aber dieser Schritt scheint eine synchrone (blockierende) Operation vorzuschlagen, was keinen Sinn ergibt.
+Die Spezifikationsbeschreibung von `abort()` ist etwas verwirrend – betrachten Sie beispielsweise Schritt 1 von [reset parser state](https://w3c.github.io/media-source/index.html#sourcebuffer-reset-parser-state). Die MSE-API ist vollständig asynchron, aber dieser Schritt scheint eine synchrone (blockierende) Operation vorzuschlagen, was keinen Sinn ergibt.
 
-Wenn man das sagt, können aktuelle Implementierungen in bestimmten Situationen nützlich sein, wenn Sie den aktuellen Anhang (oder was auch immer) auf einem Source-Buffer stoppen und dann sofort wieder Operationen darauf ausführen möchten. Zum Beispiel, betrachten Sie diesen Code:
+Das gesagt, können aktuelle Implementierungen in bestimmten Situationen nützlich sein, wenn Sie die aktuelle Anhängeoperation (oder Ähnliches) stoppen möchten, die gerade auf einem Quellpuffer stattfindet, und dann sofort erneut Operationen darauf ausführen möchten. Betrachten Sie beispielsweise diesen Code:
 
 ```js
 sourceBuffer.addEventListener("updateend", (ev) => {
-  // ...
+  // …
 });
 
 sourceBuffer.appendBuffer(buf);
 ```
 
-Angenommen, nach dem Aufruf von `appendBuffer`, ABER bevor das `updateend`-Ereignis ausgelöst wird (d.h. ein Buffer wird angehängt, aber die Operation ist noch nicht abgeschlossen), "spult" ein Benutzer das Video zu einem neuen Zeitpunkt. In diesem Fall möchten Sie manuell `abort()` auf dem Source-Buffer aufrufen, um die Dekodierung des aktuellen Buffers zu stoppen und dann das neu angeforderte Segment abzurufen und anzuhängen, das zur aktuellen neuen Position des Videos gehört.
+Angenommen, nach dem Aufruf von `appendBuffer`, aber bevor das `updateend`-Ereignis ausgelöst wird (d.h. ein Puffer wird angehängt, aber die Operation wurde noch nicht abgeschlossen), "scrubbt" ein Benutzer das Video und sucht zu einem neuen Zeitpunkt. In diesem Fall sollten Sie manuell `abort()` auf dem Quellpuffer aufrufen, um die Dekodierung des aktuellen Puffers zu stoppen, dann das neu angeforderte Segment abrufen und anhängen, das sich auf die aktuelle neue Position des Videos bezieht.
 
 ## Spezifikationen
 

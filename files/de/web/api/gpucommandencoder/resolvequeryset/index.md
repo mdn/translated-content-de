@@ -1,9 +1,9 @@
 ---
-title: "GPUCommandEncoder: resolveQuerySet()-Methode"
+title: "GPUCommandEncoder: resolveQuerySet() Methode"
 short-title: resolveQuerySet()
 slug: Web/API/GPUCommandEncoder/resolveQuerySet
 l10n:
-  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
+  sourceCommit: 759102220c07fb140b3e06971cd5981d8f0f134f
 ---
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
@@ -19,15 +19,15 @@ resolveQuerySet(querySet, firstQuery, queryCount, destination, destinationOffset
 ### Parameter
 
 - `querySet`
-  - : Ein [`GPUQuerySet`](/de/docs/Web/API/GPUQuerySet)-Objekt, das das Abfrageset darstellt, das aufgelöst werden soll.
+  - : Ein [`GPUQuerySet`](/de/docs/Web/API/GPUQuerySet)-Objekt, das das aufzulösende Abfrageset darstellt.
 - `firstQuery`
-  - : Die Indexnummer des ersten Abfragewerts, der in den Puffer kopiert werden soll.
+  - : Die Indexnummer der ersten Abfrage, die in den Puffer kopiert werden soll.
 - `queryCount`
-  - : Die Anzahl der Abfragen, die in den Puffer kopiert werden sollen, beginnend mit `firstQuery`.
+  - : Die Anzahl der Abfragen, die ab `firstQuery` in den Puffer kopiert werden sollen.
 - `destination`
   - : Ein [`GPUBuffer`](/de/docs/Web/API/GPUBuffer), der den Puffer darstellt, in den die Abfragewerte kopiert werden sollen.
 - `destinationOffset`
-  - : Eine Zahl, die den Offset in Bytes vom Beginn des Puffers darstellt, ab dem die Abfragewerte geschrieben werden sollen.
+  - : Eine Zahl, die den Versatz in Bytes vom Anfang des Puffers angibt, an dem mit dem Schreiben der Abfragewerte begonnen werden soll.
 
 ### Rückgabewert
 
@@ -35,9 +35,9 @@ Keiner ({{jsxref("Undefined")}}).
 
 ### Validierung
 
-Die folgenden Kriterien müssen erfüllt sein, wenn **`resolveQuerySet()`** aufgerufen wird, andernfalls wird ein [`GPUValidationError`](/de/docs/Web/API/GPUValidationError) erzeugt und der [`GPUCommandEncoder`](/de/docs/Web/API/GPUCommandEncoder) wird ungültig:
+Die folgenden Kriterien müssen erfüllt sein, wenn **`resolveQuerySet()`** aufgerufen wird, ansonsten wird ein [`GPUValidationError`](/de/docs/Web/API/GPUValidationError) erzeugt und der [`GPUCommandEncoder`](/de/docs/Web/API/GPUCommandEncoder) wird ungültig:
 
-- Das `destination.buffer`-[`GPUBuffer.usage`](/de/docs/Web/API/GPUBuffer/usage) enthält das `GPUBufferUsage.QUERY_RESOLVE`-Flag.
+- Die [`GPUBuffer.usage`](/de/docs/Web/API/GPUBuffer/usage) des `destination.buffer` umfasst das `GPUBufferUsage.QUERY_RESOLVE`-Flag.
 - `firstQuery` ist kleiner als die Anzahl der Abfragen in `querySet`.
 - `firstQuery` + `queryCount` ist kleiner oder gleich der Anzahl der Abfragen in `querySet`.
 - `destinationOffset` ist ein Vielfaches von 256.
@@ -46,7 +46,7 @@ Die folgenden Kriterien müssen erfüllt sein, wenn **`resolveQuerySet()`** aufg
 ## Beispiele
 
 ```js
-// ...
+// …
 
 const queryBuffer = device.createBuffer({
   size: 1024,
@@ -58,17 +58,17 @@ const querySet = device.createQuerySet({
   count: 32,
 });
 
-// ...
+// …
 
 const commandEncoder = device.createCommandEncoder();
 
 // Write timestamps to querySet
 commandEncoder.writeTimestamp(querySet, 0);
-// ...
+// …
 commandEncoder.writeTimestamp(querySet, 1);
 // etc.
 
-// ...
+// …
 
 commandEncoder.resolveQuerySet(
   querySet,
@@ -78,7 +78,7 @@ commandEncoder.resolveQuerySet(
   0, // Buffer offset
 );
 
-// ...
+// …
 ```
 
 ## Spezifikationen

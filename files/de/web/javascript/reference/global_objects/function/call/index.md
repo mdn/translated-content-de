@@ -2,12 +2,12 @@
 title: Function.prototype.call()
 slug: Web/JavaScript/Reference/Global_Objects/Function/call
 l10n:
-  sourceCommit: 32142cbf6ab60da6987aee2e11f59c5ee916ea49
+  sourceCommit: 759102220c07fb140b3e06971cd5981d8f0f134f
 ---
 
 {{JSRef}}
 
-Die **`call()`** Methode von {{jsxref("Function")}} Instanzen ruft diese Funktion mit einem gegebenen `this` Wert und individuell bereitgestellten Argumenten auf.
+Die Methode **`call()`** von {{jsxref("Function")}}-Instanzen ruft diese Funktion mit einem gegebenen `this`-Wert und einzeln bereitgestellten Argumenten auf.
 
 {{InteractiveExample("JavaScript Demo: Function.prototype.call()")}}
 
@@ -38,29 +38,29 @@ call(thisArg, arg1, arg2, /* …, */ argN)
 ### Parameter
 
 - `thisArg`
-  - : Der Wert, der als `this` beim Aufruf von `func` verwendet wird. Wenn die Funktion nicht im [Strict-Modus](/de/docs/Web/JavaScript/Reference/Strict_mode) ist, werden [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) und [`undefined`](/de/docs/Web/JavaScript/Reference/Global_Objects/undefined) durch das globale Objekt ersetzt, und primitive Werte werden in Objekte umgewandelt.
+  - : Der Wert, der als `this` verwendet werden soll, wenn `func` aufgerufen wird. Wenn die Funktion nicht im [strict mode](/de/docs/Web/JavaScript/Reference/Strict_mode) ist, werden [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) und [`undefined`](/de/docs/Web/JavaScript/Reference/Global_Objects/undefined) durch das globale Objekt ersetzt, und primitive Werte werden in Objekte konvertiert.
 - `arg1`, …, `argN` {{optional_inline}}
   - : Argumente für die Funktion.
 
 ### Rückgabewert
 
-Das Ergebnis des Aufrufs der Funktion mit dem angegebenen `this` Wert und den Argumenten.
+Das Ergebnis des Aufrufs der Funktion mit dem angegebenen `this`-Wert und den Argumenten.
 
 ## Beschreibung
 
 > [!NOTE]
-> Diese Funktion ist fast identisch mit {{jsxref("Function/apply", "apply()")}}, bis auf dass die Funktionsargumente an `call()` einzeln als Liste übergeben werden, während sie bei `apply()` in einem Objekt kombiniert werden, typischerweise ein Array — zum Beispiel `func.call(this, "eat", "bananas")` vs. `func.apply(this, ["eat", "bananas"])`.
+> Diese Funktion ist fast identisch mit {{jsxref("Function/apply", "apply()")}}, mit dem Unterschied, dass die Funktionsargumente zu `call()` einzeln als Liste übergeben werden, während sie für `apply()` in einem Objekt, typischerweise einem Array, kombiniert werden — zum Beispiel `func.call(this, "eat", "bananas")` vs. `func.apply(this, ["eat", "bananas"])`.
 
-Normalerweise ist beim Funktionsaufruf der Wert von [`this`](/de/docs/Web/JavaScript/Reference/Operators/this) innerhalb der Funktion das Objekt, auf dem die Funktion aufgerufen wurde. Mit `call()` können Sie einen beliebigen Wert als `this` zuweisen, wenn Sie eine vorhandene Funktion aufrufen, ohne die Funktion zuerst als Eigenschaft an das Objekt anfügen zu müssen. Dadurch können Sie die Methoden eines Objekts als generische Hilfsfunktionen verwenden.
+Normalerweise ist beim Aufruf einer Funktion der Wert von [`this`](/de/docs/Web/JavaScript/Reference/Operators/this) innerhalb der Funktion das Objekt, auf dem die Funktion aufgerufen wurde. Mit `call()` können Sie einen beliebigen Wert als `this` zuweisen, wenn Sie eine vorhandene Funktion aufrufen, ohne die Funktion zuerst als Eigenschaft an das Objekt anzuhängen. Dies ermöglicht Ihnen, Methoden eines Objekts als generische Hilfsfunktionen zu verwenden.
 
 > [!WARNING]
-> Verwenden Sie `call()` nicht, um Konstruktoren zu verketten (zum Beispiel, um Vererbung zu implementieren). Dies ruft die Konstruktorfunktion als normale Funktion auf, was bedeutet, dass [`new.target`](/de/docs/Web/JavaScript/Reference/Operators/new.target) `undefined` ist und Klassen einen Fehler werfen, da sie ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) nicht aufgerufen werden können. Verwenden Sie stattdessen {{jsxref("Reflect.construct()")}} oder [`extends`](/de/docs/Web/JavaScript/Reference/Classes/extends).
+> Verwenden Sie `call()` nicht, um Konstruktoren zu verketten (zum Beispiel zur Implementierung von Vererbung). Dies ruft die Konstruktorfunktion als normale Funktion auf, was bedeutet, dass [`new.target`](/de/docs/Web/JavaScript/Reference/Operators/new.target) `undefined` ist, und Klassen werfen einen Fehler, da sie nicht ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden können. Nutzen Sie stattdessen {{jsxref("Reflect.construct()")}} oder [`extends`](/de/docs/Web/JavaScript/Reference/Classes/extends).
 
 ## Beispiele
 
-### Verwendung von call(), um eine Funktion aufzurufen und den this-Wert anzugeben
+### Verwendung von call() zum Aufrufen einer Funktion mit einem festgelegten this-Wert
 
-Im folgenden Beispiel wird, wenn wir `greet` aufrufen, der Wert von `this` an das Objekt `obj` gebunden, auch wenn `greet` keine Methode von `obj` ist.
+Im unten stehenden Beispiel wird beim Aufruf von `greet` der Wert von `this` an das Objekt `obj` gebunden, selbst wenn `greet` keine Methode von `obj` ist.
 
 ```js
 function greet() {
@@ -75,9 +75,9 @@ const obj = {
 greet.call(obj); // cats typically sleep between 12 and 16 hours
 ```
 
-### Verwendung von call(), um eine Funktion aufzurufen, ohne das erste Argument anzugeben
+### Verwendung von call() zum Aufrufen einer Funktion ohne Angabe des ersten Arguments
 
-Wenn der erste `thisArg`-Parameter weggelassen wird, lautet der Standardwert `undefined`. Im Nicht-Strict-Modus wird der `this` Wert dann durch {{jsxref("globalThis")}} ersetzt (was dem globalen Objekt ähnelt).
+Wenn der erste `thisArg`-Parameter ausgelassen wird, wird er standardmäßig auf `undefined` gesetzt. Im nicht-strict mode wird der `this`-Wert dann durch {{jsxref("globalThis")}} (was dem globalen Objekt entspricht) ersetzt.
 
 ```js
 globalThis.globProp = "foo";
@@ -89,7 +89,7 @@ function display() {
 display.call(); // Logs "globProp value is foo"
 ```
 
-Im Strict-Modus wird der Wert von `this` nicht ersetzt, sodass er als `undefined` bleibt.
+Im strict mode wird der Wert von `this` nicht ersetzt und bleibt somit `undefined`.
 
 ```js
 "use strict";
@@ -103,28 +103,28 @@ function display() {
 display.call(); // throws TypeError: Cannot read the property of 'globProp' of undefined
 ```
 
-### Methoden in Hilfsfunktionen umwandeln
+### Umwandlung von Methoden in Hilfsfunktionen
 
-`call()` ist fast gleichbedeutend mit einem normalen Funktionsaufruf, außer dass `this` als normales Argument anstelle des Werts übergeben wird, auf dem die Funktion aufgerufen wurde. Dies ähnelt der Funktionsweise von allgemein verwendbaren Hilfsfunktionen: Anstelle von `array.map(callback)` verwenden Sie `map(array, callback)`, was es Ihnen ermöglicht, `map` mit array-ähnlichen Objekten zu verwenden, die keine Arrays sind (zum Beispiel [`arguments`](/de/docs/Web/JavaScript/Reference/Functions/arguments)) ohne `Object.prototype` zu verändern.
+`call()` ist fast gleichbedeutend mit einem normalen Funktionsaufruf, mit der Ausnahme, dass `this` als normales Argument statt als der Wert, auf den die Funktion aufgerufen wurde, übergeben wird. Dies ähnelt der Funktionsweise allgemeiner Hilfsfunktionen: anstelle von `array.map(callback)` verwenden Sie `map(array, callback)`, wodurch Sie `map` mit array-ähnlichen Objekten, die keine Arrays sind (zum Beispiel [`arguments`](/de/docs/Web/JavaScript/Reference/Functions/arguments)), verwenden können, ohne `Object.prototype` zu modifizieren.
 
-Nehmen Sie {{jsxref("Array.prototype.slice()")}} zum Beispiel, welche Sie zur Umwandlung eines array-ähnlichen Objekts in ein echtes Array verwenden möchten. Sie könnten eine Abkürzung wie diese erstellen:
+Betrachten Sie zum Beispiel {{jsxref("Array.prototype.slice()")}}, die Sie verwenden möchten, um ein array-ähnliches Objekt in ein echtes Array zu konvertieren. Sie könnten eine Abkürzung wie folgt erstellen:
 
 ```js
 const slice = Array.prototype.slice;
 
-// ...
+// …
 
 slice.call(arguments);
 ```
 
-Beachten Sie, dass Sie `slice.call` nicht speichern können und als normale Funktion aufrufen können, weil die `call()` Methode auch ihren `this` Wert liest, welcher die Funktion ist, die sie aufrufen soll. In diesem Fall können Sie {{jsxref("Function/bind", "bind()")}} verwenden, um den Wert von `this` für `call()` zu binden. Im folgenden Codebeispiel ist `slice()` eine gebundene Version von `Function.prototype.call()`, wobei der `this` Wert an {{jsxref("Array.prototype.slice()")}} gebunden ist. Dies bedeutet, dass zusätzliche `call()` Aufrufe eliminiert werden können:
+Beachten Sie, dass Sie `slice.call` nicht speichern und als einfache Funktion aufrufen können, da die `call()`-Methode auch ihren `this`-Wert liest, der die Funktion ist, die sie aufrufen soll. In diesem Fall können Sie {{jsxref("Function/bind", "bind()")}} verwenden, um den `this`-Wert für `call()` zu binden. Im folgenden Code ist `slice()` eine gebundene Version von `Function.prototype.call()`, mit dem `this`-Wert gebunden an {{jsxref("Array.prototype.slice()")}}. Dadurch können zusätzliche `call()`-Aufrufe vermieden werden:
 
 ```js
 // Same as "slice" in the previous example
 const unboundSlice = Array.prototype.slice;
 const slice = Function.prototype.call.bind(unboundSlice);
 
-// ...
+// …
 
 slice(arguments);
 ```

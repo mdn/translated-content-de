@@ -1,18 +1,18 @@
 ---
-title: "DelegatedInkTrailPresenter: presentationArea-Eigenschaft"
+title: "DelegatedInkTrailPresenter: Präsentationsbereich Eigenschaft"
 short-title: presentationArea
 slug: Web/API/DelegatedInkTrailPresenter/presentationArea
 l10n:
-  sourceCommit: 77d90a23ee0a3b5486a7963f68ad4e56efb06a7b
+  sourceCommit: 759102220c07fb140b3e06971cd5981d8f0f134f
 ---
 
 {{APIRef("Ink API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte **`presentationArea`**-Eigenschaft der [`DelegatedInkTrailPresenter`](/de/docs/Web/API/DelegatedInkTrailPresenter)-Schnittstelle gibt das [`Element`](/de/docs/Web/API/Element) zurück, in dem die Darstellung der Tintenschläge eingeschränkt ist.
+Die **`presentationArea`** schreibgeschützte Eigenschaft des [`DelegatedInkTrailPresenter`](/de/docs/Web/API/DelegatedInkTrailPresenter)-Interfaces gibt das [`Element`](/de/docs/Web/API/Element) zurück, innerhalb dessen die Darstellung von Tintenstrichen begrenzt ist.
 
-Wenn der vorhergehende Aufruf der Methode [`Ink.requestPresenter()`](/de/docs/Web/API/Ink/requestPresenter) eine spezifische Definition eines `presentationArea`-Elements enthielt, wird dieses Element zurückgegeben. Andernfalls wird der Standard zurückgegeben, was das enthaltene Viewport ist.
+Falls der vorherige Aufruf der Methode [`Ink.requestPresenter()`](/de/docs/Web/API/Ink/requestPresenter) eine spezifische `presentationArea`-Elementdefinition enthielt, wird dieses Element zurückgegeben. Andernfalls wird die Standardeinstellung zurückgegeben, die der enthaltende Viewport ist.
 
-Dieser Bereich entspricht immer den Client-Koordinaten für das Randfeld des Elements, sodass beim Verschieben oder Scrollen des Elements keine Neuberechnung seitens des Entwicklers erforderlich ist.
+Dieser Bereich entspricht immer den Client-Koordinaten für das Border-Box des Elements, sodass das Bewegen oder Scrollen des Elements keine Neuberechnung seitens des Entwicklers erfordert.
 
 ### Wert
 
@@ -23,10 +23,10 @@ Ein [`Element`](/de/docs/Web/API/Element).
 ```js
 async function inkInit() {
   const ink = navigator.ink;
-  let presenter = await ink.requestPresenter({ presentationArea: canvas });
+  const presenter = await ink.requestPresenter({ presentationArea: canvas });
   console.log(presenter.presentationArea);
 
-  // ...
+  // …
 }
 ```
 
@@ -40,4 +40,4 @@ async function inkInit() {
 
 ## Siehe auch
 
-- [Verbesserung des Inking im Web](https://blogs.windows.com/msedgedev/2021/08/18/enhancing-inking-on-the-web/)
+- [Verbesserung des Schreibens im Web](https://blogs.windows.com/msedgedev/2021/08/18/enhancing-inking-on-the-web/)

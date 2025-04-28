@@ -1,17 +1,17 @@
 ---
-title: "SpeechSynthesisUtterance: voice Eigenschaft"
+title: "SpeechSynthesisUtterance: voice-Eigenschaft"
 short-title: voice
 slug: Web/API/SpeechSynthesisUtterance/voice
 l10n:
-  sourceCommit: 101ffc9479db6aaa530f2aac3992734dd97d1b86
+  sourceCommit: 759102220c07fb140b3e06971cd5981d8f0f134f
 ---
 
 {{APIRef("Web Speech API")}}
 
-Die **`voice`**-Eigenschaft des [`SpeechSynthesisUtterance`](/de/docs/Web/API/SpeechSynthesisUtterance)-Interfaces ruft die Stimme ab, die verwendet wird, um die Äußerung zu sprechen, und legt sie fest.
+Die **`voice`**-Eigenschaft der [`SpeechSynthesisUtterance`](/de/docs/Web/API/SpeechSynthesisUtterance)-Schnittstelle ruft die Stimme ab, die zum Sprechen der Äußerung verwendet wird, und legt sie fest.
 
 Diese sollte auf eines der [`SpeechSynthesisVoice`](/de/docs/Web/API/SpeechSynthesisVoice)-Objekte gesetzt werden, die von [`SpeechSynthesis.getVoices()`](/de/docs/Web/API/SpeechSynthesis/getVoices) zurückgegeben werden.
-Wenn sie nicht gesetzt wird, bevor die Äußerung gesprochen wird, wird die am besten geeignete Standardstimme verwendet, die für die [`lang`](/de/docs/Web/API/SpeechSynthesisUtterance/lang)-Einstellung der Äußerung verfügbar ist.
+Wenn sie nicht festgelegt wird, wenn die Äußerung gesprochen wird, wird die am besten geeignete Standardstimme für die Einstellung der [`lang`](/de/docs/Web/API/SpeechSynthesisUtterance/lang)-Eigenschaft der Äußerung verwendet.
 
 ## Wert
 
@@ -28,7 +28,7 @@ const voiceSelect = document.querySelector("select");
 
 const voices = synth.getVoices();
 
-// ...
+// …
 
 inputForm.onsubmit = (event) => {
   event.preventDefault();

@@ -1,20 +1,22 @@
 ---
-title: "Window: fetch() Method"
+title: "Window: fetch()-Methode"
 short-title: fetch()
 slug: Web/API/Window/fetch
 l10n:
-  sourceCommit: af98ab1715ff54825888ef1f7f13d6e3e3bf90b8
+  sourceCommit: 759102220c07fb140b3e06971cd5981d8f0f134f
 ---
 
 {{APIRef("Fetch API")}}
 
-Die **`fetch()`**-Methode des [`Window`](/de/docs/Web/API/Window)-Interfaces startet den Prozess des Abrufens einer Ressource aus dem Netzwerk. Sie gibt ein Promise zurück, das erfüllt wird, sobald die Antwort verfügbar ist.
+Die **`fetch()`**-Methode der [`Window`](/de/docs/Web/API/Window)-Schnittstelle startet den Prozess des Abrufens einer Ressource aus dem Netzwerk und gibt ein Promise zurück, das erfüllt wird, sobald die Antwort verfügbar ist.
 
-Das Promise wird auf das [`Response`](/de/docs/Web/API/Response)-Objekt aufgelöst, das die Antwort auf Ihre Anfrage darstellt.
+Das Promise wird auf das [`Response`](/de/docs/Web/API/Response)-Objekt aufgelöst, das die Antwort auf Ihre Anfrage repräsentiert.
 
-Ein `fetch()`-Promise wird nur abgelehnt, wenn die Anfrage fehlschlägt, beispielsweise aufgrund einer fehlerhaft geformten Anforderungs-URL oder eines Netzwerkfehlers. Ein `fetch()`-Promise wird _nicht_ abgelehnt, wenn der Server mit HTTP-Statuscodes antwortet, die Fehler anzeigen (`404`, `504` usw.). Stattdessen muss ein `then()`-Handler die Eigenschaften [`Response.ok`](/de/docs/Web/API/Response/ok) und/oder [`Response.status`](/de/docs/Web/API/Response/status) überprüfen.
+Ein `fetch()`-Promise wird nur abgelehnt, wenn die Anfrage fehlschlägt, zum Beispiel wegen einer fehlerhaft formatierten Anforderungs-URL oder einem Netzwerkfehler.
+Ein `fetch()`-Promise wird _nicht_ abgelehnt, wenn der Server mit HTTP-Statuscodes antwortet, die auf Fehler hinweisen (`404`, `504`, etc.).
+Stattdessen muss ein `then()`-Handler die Eigenschaften [`Response.ok`](/de/docs/Web/API/Response/ok) und/oder [`Response.status`](/de/docs/Web/API/Response/status) überprüfen.
 
-Die `fetch()`-Methode wird durch die `connect-src`-Direktive der [Content Security Policy](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy) kontrolliert, nicht durch die Direktive der Ressourcen, die sie abruft.
+Die `fetch()`-Methode wird durch die `connect-src`-Richtlinie der [Content Security Policy](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy) anstelle der Richtlinie der Ressourcen, die sie abruft, gesteuert.
 
 > [!NOTE]
 > Die Parameter der `fetch()`-Methode sind identisch mit denen des [`Request()`](/de/docs/Web/API/Request/Request)-Konstruktors.
@@ -32,12 +34,12 @@ fetch(resource, options)
 
   - : Dies definiert die Ressource, die Sie abrufen möchten. Dies kann entweder sein:
 
-    - Ein String oder ein anderes Objekt mit einem {{Glossary("stringifier", "Stringifier")}} — einschließlich eines [`URL`](/de/docs/Web/API/URL)-Objekts — das die URL der Ressource bereitstellt, die Sie abrufen möchten. Die URL kann relativ zur Basis-URL sein, welche im Fensterkontext die [`baseURI`](/de/docs/Web/API/Node/baseURI) des Dokuments ist oder [`WorkerGlobalScope.location`](/de/docs/Web/API/WorkerGlobalScope/location) im Worker-Kontext.
+    - Ein String oder ein anderes Objekt mit einem {{Glossary("stringifier", "stringifier")}} ​​— einschließlich eines [`URL`](/de/docs/Web/API/URL)-Objekts — das die URL der Ressource bereitstellt, die Sie abrufen möchten. Die URL kann relativ zur Basis-URL sein, die in einem Fensterkontext die [`baseURI`](/de/docs/Web/API/Node/baseURI) des Dokuments ist, oder [`WorkerGlobalScope.location`](/de/docs/Web/API/WorkerGlobalScope/location) in einem Worker-Kontext.
     - Ein [`Request`](/de/docs/Web/API/Request)-Objekt.
 
 - `options` {{optional_inline}}
 
-  - : Ein [`RequestInit`](/de/docs/Web/API/RequestInit)-Objekt, das alle benutzerdefinierten Einstellungen enthält, die Sie auf die Anforderung anwenden möchten.
+  - : Ein [`RequestInit`](/de/docs/Web/API/RequestInit)-Objekt, das benutzerdefinierte Einstellungen enthält, die Sie auf die Anfrage anwenden möchten.
 
 ### Rückgabewert
 
@@ -46,10 +48,9 @@ Ein {{jsxref("Promise")}}, das auf ein [`Response`](/de/docs/Web/API/Response)-O
 ### Ausnahmen
 
 - `AbortError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Die Anfrage wurde aufgrund eines Aufrufs der Methode [`AbortController`](/de/docs/Web/API/AbortController)
-    [`abort()`](/de/docs/Web/API/AbortController/abort) abgebrochen.
+  - : Die Anfrage wurde aufgrund eines Aufrufs der [`AbortController`](/de/docs/Web/API/AbortController)-Methode [`abort()`](/de/docs/Web/API/AbortController/abort) abgebrochen.
 - `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Ausgelöst, wenn die Nutzung der [Topics API](/de/docs/Web/API/Topics_API) ausdrücklich durch eine {{httpheader('Permissions-Policy/browsing-topics','browsing-topics')}} [Permissions Policy](/de/docs/Web/HTTP/Guides/Permissions_Policy) untersagt wird und eine `fetch()`-Anfrage mit `browsingTopics: true` gestellt wurde.
+  - : Wird ausgelöst, wenn die Nutzung der [Topics API](/de/docs/Web/API/Topics_API) durch eine {{httpheader('Permissions-Policy/browsing-topics','browsing-topics')}} [Permissions Policy](/de/docs/Web/HTTP/Guides/Permissions_Policy) ausdrücklich untersagt wird und eine `fetch()`-Anfrage mit `browsingTopics: true` gestellt wurde.
 - {{jsxref("TypeError")}}
   - : Kann aus folgenden Gründen auftreten:
 
@@ -57,13 +58,13 @@ Ein {{jsxref("Promise")}}, das auf ein [`Response`](/de/docs/Web/API/Response)-O
   <thead>
     <tr>
       <th scope="col">Grund</th>
-      <th scope="col">Fehlschlagende Beispiele</th>
+      <th scope="col">Fehlgeschlagene Beispiele</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>Durch eine Berechtigungsrichtlinie blockiert</td>
-      <td>Die Verwendung der <a href="/de/docs/Web/API/Attribution_Reporting_API">Attribution Reporting API</a> wird durch eine <a href="/de/docs/Web/HTTP/Reference/Headers/Permissions-Policy/attribution-reporting"><code>attribution-reporting</code></a> {{httpheader("Permissions-Policy")}} blockiert, und eine <code>fetch()</code>-Anfrage wurde mit <code>attributionReporting</code> angegeben.</td>
+      <td>Die Nutzung der <a href="/de/docs/Web/API/Attribution_Reporting_API">Attribution Reporting API</a> wird durch eine <a href="/de/docs/Web/HTTP/Reference/Headers/Permissions-Policy/attribution-reporting"><code>attribution-reporting</code></a> {{httpheader("Permissions-Policy")}} blockiert, und eine <code>fetch()</code>-Anfrage wurde mit <code>attributionReporting</code> angegeben.</td>
     </tr>
     <tr>
       <td>Ungültiger Header-Name.</td>
@@ -81,7 +82,7 @@ fetch("https://example.com/", { headers });
     </tr>
     <tr>
       <td>
-        Ungültiger Header-Wert. Das Header-Objekt muss genau zwei Elemente enthalten.
+        Ungültiger Headerwert. Das Headerobjekt muss genau zwei Elemente enthalten.
       </td>
       <td>
         <pre class="brush: js">
@@ -95,7 +96,7 @@ fetch("https://example.com/", { headers });
     </tr>
     <tr>
       <td>
-        Ungültige URL oder Schema oder Verwendung eines Schemas, das fetch nicht unterstützt, oder Nutzung eines Schemas, das für einen bestimmten Anforderungsmodus nicht unterstützt wird.
+        Ungültige URL oder Schema oder die Verwendung eines Schemas, das fetch nicht unterstützt, oder die Verwendung eines Schemas, das für einen bestimmten Anfragemodus nicht unterstützt wird.
       </td>
       <td>
         <pre class="brush: js">
@@ -127,7 +128,7 @@ fetch("https://example.com/", { mode: "navigate" });
     </tr>
     <tr>
       <td>
-        Wenn der Anforderungscachemodus "only-if-cached" ist und der Anforderungsmodus anders als "same-origin" ist.
+        Wenn der Anfragemodus "only-if-cached" ist und der Anfragemodus ungleich "same-origin" ist.
       </td>
       <td>
         <pre class="brush: js">
@@ -140,7 +141,7 @@ fetch("https://example.com/", {
     </tr>
     <tr>
       <td>
-        Wenn die Anforderungsmethode ein ungültiger Namens-Token oder einer der verbotenen Header ist
+        Wenn die Anfragemethode ein ungültiges Namens-Token oder eines der verbotenen Headers ist
         (<code>CONNECT</code>, <code>TRACE</code> oder <code>TRACK</code>).
       </td>
       <td>
@@ -151,8 +152,8 @@ fetch("https://example.com/", { method: "CONNECT" });
     </tr>
     <tr>
       <td>
-        Wenn der Anforderungsmodus "no-cors" ist und die Anforderungsmethode nicht eine CORS-sicher gelistete Methode ist
-        (<code>GET</code>, <code>HEAD</code> oder <code>POST</code>).
+        Wenn der Anfragemodus "no-cors" ist und die Anfragemethode keine CORS-sicher aufgelistete Methode ist
+        (<code>GET</code>, <code>HEAD</code>, oder <code>POST</code>).
       </td>
       <td>
         <pre class="brush: js">
@@ -165,7 +166,7 @@ fetch("https://example.com/", {
     </tr>
     <tr>
       <td>
-        Wenn die Anforderungsmethode <code>GET</code> oder <code>HEAD</code> ist und der Body nicht null oder nicht undefiniert ist.
+        Wenn die Anfragemethode <code>GET</code> oder <code>HEAD</code> ist und der Body nicht null oder undefined ist.
       </td>
       <td>
         <pre class="brush: js">
@@ -177,7 +178,7 @@ fetch("https://example.com/", {
       </td>
     </tr>
     <tr>
-      <td>Wenn fetch einen Netzwerkfehler wirft.</td>
+      <td>Wenn fetch einen Netzwerkfehler auslöst.</td>
       <td></td>
     </tr>
   </tbody>
@@ -185,7 +186,7 @@ fetch("https://example.com/", {
 
 ## Beispiele
 
-In unserem [Fetch Request-Beispiel](https://github.com/mdn/dom-examples/tree/main/fetch/fetch-request) (siehe [Fetch Request live](https://mdn.github.io/dom-examples/fetch/fetch-request/)) erstellen wir ein neues [`Request`](/de/docs/Web/API/Request)-Objekt mit dem entsprechenden Konstruktor und rufen es dann mit einem `fetch()`-Aufruf ab. Da wir ein Bild abrufen, führen wir [`Response.blob()`](/de/docs/Web/API/Response/blob) für die Antwort aus, um ihm den richtigen MIME-Typ zu geben, damit es ordnungsgemäß behandelt wird. Dann erstellen wir eine Objekt-URL daraus und zeigen es in einem {{htmlelement("img")}}-Element an.
+In unserem [Fetch Request Beispiel](https://github.com/mdn/dom-examples/tree/main/fetch/fetch-request) (siehe [Fetch Request live](https://mdn.github.io/dom-examples/fetch/fetch-request/)) erstellen wir ein neues [`Request`](/de/docs/Web/API/Request)-Objekt mit dem entsprechenden Konstruktor und rufen es dann mit einem `fetch()`-Aufruf ab. Da wir ein Bild abrufen, verwenden wir [`Response.blob()`](/de/docs/Web/API/Response/blob) auf der Antwort, um den richtigen MIME-Typ zu erhalten, damit sie ordnungsgemäß behandelt wird, und erstellen dann eine Objekt-URL daraus und zeigen sie in einem {{htmlelement("img")}}-Element an.
 
 ```js
 const myImage = document.querySelector("img");
@@ -206,7 +207,8 @@ window
   });
 ```
 
-In unserem [Fetch Request with init-Beispiel](https://github.com/mdn/dom-examples/tree/main/fetch/fetch-request-with-init) (siehe [Fetch Request init live](https://mdn.github.io/dom-examples/fetch/fetch-request-with-init/)) machen wir das gleiche, außer dass wir beim Aufruf von `fetch()` ein _options_-Objekt übergeben. In diesem Fall können wir einen {{HTTPHeader("Cache-Control")}}-Wert setzen, um anzugeben, mit welchen Art von zwischengespeicherten Antworten wir einverstanden sind:
+In unserem [Fetch Request mit init Beispiel](https://github.com/mdn/dom-examples/tree/main/fetch/fetch-request-with-init) (siehe [Fetch Request init live](https://mdn.github.io/dom-examples/fetch/fetch-request-with-init/)) machen wir dasselbe, außer dass wir ein _options_-Objekt übergeben, wenn wir `fetch()` aufrufen.
+In diesem Fall können wir einen {{HTTPHeader("Cache-Control")}}-Wert setzen, um anzugeben, mit welcher Art von zwischengespeicherten Antworten wir einverstanden sind:
 
 ```js
 const myImage = document.querySelector("img");
@@ -223,7 +225,7 @@ const options = {
 const req = new Request("flowers.jpg", options);
 
 fetch(req).then((response) => {
-  // ...
+  // …
 });
 ```
 
@@ -260,5 +262,5 @@ Der Artikel [Using fetch](/de/docs/Web/API/Fetch_API/Using_Fetch) bietet weitere
 - [`WorkerGlobalScope.fetch()`](/de/docs/Web/API/WorkerGlobalScope/fetch)
 - [Fetch API](/de/docs/Web/API/Fetch_API)
 - [ServiceWorker API](/de/docs/Web/API/Service_Worker_API)
-- [HTTP-Zugriffskontrolle (CORS)](/de/docs/Web/HTTP/Guides/CORS)
+- [HTTP access control (CORS)](/de/docs/Web/HTTP/Guides/CORS)
 - [HTTP](/de/docs/Web/HTTP)

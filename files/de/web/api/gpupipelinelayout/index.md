@@ -2,36 +2,36 @@
 title: GPUPipelineLayout
 slug: Web/API/GPUPipelineLayout
 l10n:
-  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
+  sourceCommit: 759102220c07fb140b3e06971cd5981d8f0f134f
 ---
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Das **`GPUPipelineLayout`**-Interface der [WebGPU API](/de/docs/Web/API/WebGPU_API) definiert die [`GPUBindGroupLayout`](/de/docs/Web/API/GPUBindGroupLayout)s, die von einer Pipeline verwendet werden. [`GPUBindGroup`](/de/docs/Web/API/GPUBindGroup), die während der Befehlskodierung mit der Pipeline verwendet werden, müssen kompatible [`GPUBindGroupLayout`](/de/docs/Web/API/GPUBindGroupLayout)s haben.
+Das **`GPUPipelineLayout`** Interface der [WebGPU API](/de/docs/Web/API/WebGPU_API) definiert die [`GPUBindGroupLayout`](/de/docs/Web/API/GPUBindGroupLayout)s, die von einer Pipeline verwendet werden. Die [`GPUBindGroup`](/de/docs/Web/API/GPUBindGroup)s, die während der Befehlskodierung mit der Pipeline verwendet werden, müssen kompatible [`GPUBindGroupLayout`](/de/docs/Web/API/GPUBindGroupLayout)s haben.
 
-Ein `GPUPipelineLayout`-Objekt wird mit der Methode [`GPUDevice.createPipelineLayout()`](/de/docs/Web/API/GPUDevice/createPipelineLayout) erstellt.
+Ein `GPUPipelineLayout` Objekt wird mithilfe der Methode [`GPUDevice.createPipelineLayout()`](/de/docs/Web/API/GPUDevice/createPipelineLayout) erstellt.
 
 {{InheritanceDiagram}}
 
-## Instanz-Eigenschaften
+## Instanz Eigenschaften
 
 - [`label`](/de/docs/Web/API/GPUPipelineLayout/label) {{Experimental_Inline}}
-  - : Ein String, der ein Label bereitstellt, das verwendet werden kann, um das Objekt zu identifizieren, beispielsweise in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen oder Konsolenwarnungen.
+  - : Ein String, der ein Label bereitstellt, das verwendet werden kann, um das Objekt zu identifizieren, zum Beispiel in [`GPUError`](/de/docs/Web/API/GPUError) Meldungen oder Konsolenwarnungen.
 
 ## Beispiele
 
 > [!NOTE]
-> Die [WebGPU-Beispiele](https://webgpu.github.io/webgpu-samples/) bieten viele weitere Beispiele.
+> Die [WebGPU-Beispiele](https://webgpu.github.io/webgpu-samples/) enthalten viele weitere Beispiele.
 
-### Einfaches Pipeline-Layout-Beispiel
+### Einfaches Beispiel für ein Pipeline-Layout
 
-Der folgende Schnipsel:
+Der folgende Codeausschnitt:
 
 - Erstellt ein [`GPUBindGroupLayout`](/de/docs/Web/API/GPUBindGroupLayout), das eine Bindung mit einem Buffer, einer Textur und einem Sampler beschreibt.
 - Erstellt ein `GPUPipelineLayout` basierend auf dem [`GPUBindGroupLayout`](/de/docs/Web/API/GPUBindGroupLayout).
 
 ```js
-// ...
+// …
 
 const bindGroupLayout = device.createBindGroupLayout({
   entries: [
@@ -57,7 +57,7 @@ const pipelineLayout = device.createPipelineLayout({
   bindGroupLayouts: [bindGroupLayout],
 });
 
-// ...
+// …
 ```
 
 ## Spezifikationen

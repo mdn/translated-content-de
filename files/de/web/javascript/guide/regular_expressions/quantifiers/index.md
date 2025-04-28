@@ -1,11 +1,11 @@
 ---
-title: Quantifizierer
+title: Quantifiers
 slug: Web/JavaScript/Guide/Regular_expressions/Quantifiers
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: be1922d62a0d31e4e3441db0e943aed8df736481
 ---
 
-{{jsSidebar("JavaScript Guide")}}
+{{jsSidebar("JavaScript Leitfaden")}}
 
 Quantifizierer geben die Anzahl der Zeichen oder Ausdrücke an, die übereinstimmen sollen.
 
@@ -30,7 +30,7 @@ console.log(modifiedQuote.match(regexpTooGreedy));
 ## Typen
 
 > [!NOTE]
-> Im Folgenden bezieht sich _Item_ nicht nur auf einzelne Zeichen, sondern umfasst auch [Zeichenklassen](/de/docs/Web/JavaScript/Guide/Regular_expressions/Character_classes) sowie [Gruppen und Rückverweise](/de/docs/Web/JavaScript/Guide/Regular_expressions/Groups_and_backreferences).
+> Im Folgenden bezieht sich _item_ nicht nur auf einzelne Zeichen, sondern schließt auch [Zeichenklassen](/de/docs/Web/JavaScript/Guide/Regular_expressions/Character_classes) sowie [Gruppen und Rückverweise](/de/docs/Web/JavaScript/Guide/Regular_expressions/Groups_and_backreferences) ein.
 
 <table class="standard-table">
   <thead>
@@ -46,9 +46,9 @@ console.log(modifiedQuote.match(regexpTooGreedy));
       </td>
       <td>
         <p>
-          Passt zum vorangehenden Element "x" 0- oder mehrmals. Zum Beispiel
-          passt <code>/bo*/</code> in "A ghost booooed" zu "boooo" und in "A
-          bird warbled" zu "b", aber zu nichts in "A goat grunted".
+          Entspricht dem vorhergehenden Element "x" 0 oder mehrmals. Zum Beispiel
+          passt <code>/bo*/</code> auf "boooo" in "A ghost booooed" und "b" in "A
+          bird warbled", jedoch nicht in "A goat grunted".
         </p>
       </td>
     </tr>
@@ -58,9 +58,9 @@ console.log(modifiedQuote.match(regexpTooGreedy));
       </td>
       <td>
         <p>
-          Passt zum vorangehenden Element "x" 1- oder mehrmals. Entspricht
-          <code>{1,}</code>. Zum Beispiel passt <code>/a+/</code> zur "a" in
-          "candy" und allen "a"s in "caaaaaaandy".
+          Entspricht dem vorhergehenden Element "x" 1 oder mehrmals. Entspricht
+          <code>{1,}</code>. Zum Beispiel passt <code>/a+/</code> auf das "a" in
+          "candy" und auf alle "a"'s in "caaaaaaandy".
         </p>
       </td>
     </tr>
@@ -70,16 +70,16 @@ console.log(modifiedQuote.match(regexpTooGreedy));
       </td>
       <td>
         <p>
-          Passt zum vorangehenden Element "x" 0- oder 1-mal. Zum Beispiel passt
-          <code>/e?le?/</code> zur "el" in "angel" und zur "le" in
-          "angle".
+          Entspricht dem vorhergehenden Element "x" 0 oder 1 Mal. Zum Beispiel
+          passt <code>/e?le?/</code> auf das "el" in "angel" und das "le" in
+          "angle."
         </p>
         <p>
-          Wenn unmittelbar nach einem der Quantifizierer <code>*</code>,
-          <code>+</code>, <code>?</code> oder <code>{}</code> verwendet,
-          macht es den Quantifizierer nicht-gierig (er sucht die minimale Anzahl
-          an Passungen), im Gegensatz zur Standardeinstellung, bei der er gierig
-          ist (die maximale Anzahl an Passungen).
+          Wenn es direkt nach einem der Quantifizierer <code>*</code>,
+          <code>+</code>, <code>?</code>, oder <code>{}</code> verwendet wird,
+          macht es den Quantifizierer "non-greedy" (übereinstimmend mit der
+          minimalen Anzahl), im Gegensatz zur Voreinstellung, die "greedy" ist
+          (übereinstimmend mit der maximalen Anzahl).
         </p>
       </td>
     </tr>
@@ -89,10 +89,10 @@ console.log(modifiedQuote.match(regexpTooGreedy));
       </td>
       <td>
         <p>
-          Wo "n" eine nicht-negative ganze Zahl ist, entspricht dies genau "n"
-          Vorkommen des vorangehenden Elements "x". Zum Beispiel passt
-          <code>/a{2}/</code> nicht zur "a" in "candy", aber zu allen "a"s in
-          "caandy" und den ersten beiden "a"s in "caaandy".
+          Wo "n" eine nicht-negative ganze Zahl ist, entspricht genau "n"
+          Vorkommen des vorhergehenden Elements "x". Zum Beispiel passt
+          <code>/a{2}/</code> nicht auf das "a" in "candy", aber es passt auf
+          alle "a"'s in "caandy" und die ersten beiden "a"'s in "caaandy".
         </p>
       </td>
     </tr>
@@ -102,10 +102,10 @@ console.log(modifiedQuote.match(regexpTooGreedy));
       </td>
       <td>
         <p>
-          Wo "n" eine nicht-negative ganze Zahl ist, passt es zu mindestens "n"
-          Vorkommen des vorangehenden Elements "x". Zum Beispiel passt
-          <code>/a{2,}/</code> nicht zur "a" in "candy", aber zu allen "a"s in
-          "caandy" und in "caaaaaaandy".
+          Wo "n" eine nicht-negative ganze Zahl ist, entspricht mindestens "n"
+          Vorkommen des vorhergehenden Elements "x". Zum Beispiel passt
+          <code>/a{2,}/</code> nicht auf das "a" in "candy", aber es passt auf
+          alle "a"'s in "caandy" und in "caaaaaaandy".
         </p>
       </td>
     </tr>
@@ -117,12 +117,12 @@ console.log(modifiedQuote.match(regexpTooGreedy));
         <!-- cSpell:ignore cndy -->
         <p>
           Wo "n" und "m" nicht-negative ganze Zahlen sind und <code>m >= n</code>,
-          passt es zu mindestens "n" und höchstens "m" Vorkommen des vorangehenden
-          Elements "x". Zum Beispiel passt <code>/a{1,3}/</code> zu nichts in
-          "cndy", zur "a" in "candy", zu den zwei "a"s in "caandy" und zu den ersten
-          drei "a"s in "caaaaaaandy". Beachten Sie, dass bei der Übereinstimmung mit
-          "caaaaaaandy" das Ergebnis "aaa" ist, obwohl die ursprüngliche Zeichenkette
-          mehr "a"s enthält.
+          entspricht mindestens "n" und höchstens "m" Vorkommen des vorhergehenden
+          Elements "x". Zum Beispiel passt <code>/a{1,3}/</code> auf nichts in
+          "cndy", das "a" in "candy", die zwei "a"'s in "caandy", und die ersten
+          drei "a"'s in "caaaaaaandy". Beachten Sie, dass beim Abgleich von
+          "caaaaaaandy" das Ergebnis "aaa" ist, obwohl der ursprüngliche String
+          mehr "a"s hatte.
         </p>
       </td>
     </tr>
@@ -138,18 +138,18 @@ console.log(modifiedQuote.match(regexpTooGreedy));
       <td>
         <p>
           Standardmäßig sind Quantifizierer wie <code>*</code> und <code>+</code>
-          "gierig", das heißt, sie versuchen, so viel von der Zeichenkette wie möglich
-          abzugleichen. Das Zeichen <code>?</code> nach dem Quantifizierer macht
-          den Quantifizierer "nicht-gierig": Das bedeutet, dass er aufhört, sobald
-          er eine Übereinstimmung findet. Zum Beispiel wird bei einer Zeichenkette
-          wie "some &#x3C;foo> &#x3C;bar> new &#x3C;/bar> &#x3C;/foo> thing":
+          "greedy", was bedeutet, dass sie versuchen, so viel wie möglich aus dem
+          String zu matchen. Das <code>?</code>-Zeichen nach dem Quantifizierer
+          macht den Quantifizierer "non-greedy": Das bedeutet, es stoppt, sobald
+          es eine Übereinstimmung findet. Zum Beispiel, bei einem String wie
+          "some &#x3C;foo> &#x3C;bar> new &#x3C;/bar> &#x3C;/foo> thing":
         </p>
         <ul>
           <li>
-            <code>/&#x3C;.*>/</code> "&#x3C;foo> &#x3C;bar> new &#x3C;/bar>
-            &#x3C;/foo>" abgleichen
+            <code>/&#x3C;.*>/</code> wird "&#x3C;foo> &#x3C;bar> new
+            &#x3C;/bar> &#x3C;/foo>" matchen
           </li>
-          <li><code>/&#x3C;.*?>/</code> "&#x3C;foo>" abgleichen</li>
+          <li><code>/&#x3C;.*?>/</code> wird "&#x3C;foo>" matchen</li>
         </ul>
       </td>
     </tr>
@@ -160,7 +160,7 @@ console.log(modifiedQuote.match(regexpTooGreedy));
 
 ### Wiederholtes Muster
 
-In diesem Beispiel gleichen wir ein oder mehrere Zeichen eines Wortes mit `\w+` ab, dann ein oder mehrere Zeichen "a" mit `a+` und enden schließlich an einer Wortgrenze mit `\b`.
+In diesem Beispiel matchen wir ein oder mehr Wortzeichen mit `\w+`, dann ein oder mehr Zeichen "a" mit `a+` und enden schließlich an einer Wortgrenze mit `\b`.
 
 ```js
 const wordEndingWithAs = /\w+a+\b/;
@@ -171,7 +171,7 @@ console.table(delicateMessage.match(wordEndingWithAs)); // [ "Spartaaaaaaa" ]
 
 ### Zählen von Zeichen
 
-In diesem Beispiel gleichen wir Wörter ab, die einen Buchstaben haben, Wörter, die zwischen 2 und 6 Buchstaben haben, und Wörter, die 13 oder mehr Buchstaben haben.
+In diesem Beispiel matchen wir Wörter, die einen einzelnen Buchstaben haben, Wörter, die zwischen 2 und 6 Buchstaben haben, und Wörter, die 13 oder mehr Buchstaben haben.
 
 ```js
 const singleLetterWord = /\b\w\b/g;
@@ -187,7 +187,9 @@ console.table(sentence.match(longWord)); // ["multiplication"]
 
 ### Optionales Zeichen
 
-In diesem Beispiel gleichen wir Wörter ab, die entweder mit "our" oder "or" enden.
+In diesem Beispiel matchen wir Wörter, die entweder mit "our" oder "or" enden.
+
+<!-- cSpell:ignore neighbour -->
 
 ```js
 const britishText = "He asked his neighbour a favour.";
@@ -206,9 +208,9 @@ console.table(americanText.match(regexpEnding));
 // ["neighbor", "favor"]
 ```
 
-### Gierig versus nicht-gierig
+### Greedy versus Non-greedy
 
-In diesem Beispiel gleichen wir ein oder mehrere Zeichen eines Wortes oder Leerzeichen mit `[\w ]+` und `[\w ]+?` ab. Das erste ist gierig, das zweite nicht-gierig. Beachten Sie, wie der zweite bereits stoppt, sobald die minimale Anforderung erfüllt ist.
+In diesem Beispiel matchen wir ein oder mehr Wortzeichen oder Leerzeichen mit `[\w ]+` und `[\w ]+?`. Der erste ist greedy und der zweite ist non-greedy. Beachten Sie, wie der zweite sofort stoppt, sobald er die minimale Anforderung erfüllt.
 
 ```js
 const text = "I must be getting somewhere near the center of the earth.";
@@ -226,10 +228,10 @@ console.log(text.match(nonGreedyRegexp));
 
 ## Siehe auch
 
-- [Reguläre Ausdrücke](/de/docs/Web/JavaScript/Guide/Regular_expressions)-Leitfaden
-- [Zeichenklassen](/de/docs/Web/JavaScript/Guide/Regular_expressions/Character_classes)-Leitfaden
-- [Assertions](/de/docs/Web/JavaScript/Guide/Regular_expressions/Assertions)-Leitfaden
-- [Gruppen und Rückverweise](/de/docs/Web/JavaScript/Guide/Regular_expressions/Groups_and_backreferences)-Leitfaden
+- [Reguläre Ausdrücke](/de/docs/Web/JavaScript/Guide/Regular_expressions) Leitfaden
+- [Zeichenklassen](/de/docs/Web/JavaScript/Guide/Regular_expressions/Character_classes) Leitfaden
+- [Assertions](/de/docs/Web/JavaScript/Guide/Regular_expressions/Assertions) Leitfaden
+- [Gruppen und Rückverweise](/de/docs/Web/JavaScript/Guide/Regular_expressions/Groups_and_backreferences) Leitfaden
 - [`RegExp`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp)
-- [Reguläre Ausdrücke](/de/docs/Web/JavaScript/Guide/Regular_expressions)-Referenz
+- [Reguläre Ausdrücke](/de/docs/Web/JavaScript/Guide/Regular_expressions) Referenz
 - [Quantifizierer: `*`, `+`, `?`, `{n}`, `{n,}`, `{n,m}`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Quantifier)

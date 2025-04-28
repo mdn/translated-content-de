@@ -3,15 +3,14 @@ title: "GPURenderPassEncoder: popDebugGroup()-Methode"
 short-title: popDebugGroup()
 slug: Web/API/GPURenderPassEncoder/popDebugGroup
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: 759102220c07fb140b3e06971cd5981d8f0f134f
 ---
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`popDebugGroup()`**-Methode der
-[`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder)-Schnittstelle beendet eine Render-Pass-Debug-Gruppe, die mit einem Aufruf von [`pushDebugGroup()`](/de/docs/Web/API/GPURenderPassEncoder/pushDebugGroup) gestartet wurde.
+Die **`popDebugGroup()`**-Methode der [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder)-Schnittstelle beendet eine Renderpass-Debuggruppe, die mit einem Aufruf von [`pushDebugGroup()`](/de/docs/Web/API/GPURenderPassEncoder/pushDebugGroup) begonnen wurde.
 
-Dies könnte für Telemetrie verwendet werden oder in Zukunft in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen, Browser-Entwicklungstools oder anderen Diensten genutzt werden, um beim Debuggen zu helfen.
+Dies könnte für Telemetrie verwendet werden oder könnte in Zukunft in [`GPUError`](/de/docs/Web/API/GPUError)-Nachrichten, Entwicklerwerkzeugen des Browsers oder anderen Diensten zur Unterstützung beim Debugging genutzt werden.
 
 ## Syntax
 
@@ -31,12 +30,12 @@ Keiner ({{jsxref("Undefined")}}).
 
 Die folgenden Kriterien müssen erfüllt sein, wenn **`popDebugGroup()`** aufgerufen wird, andernfalls wird ein [`GPUValidationError`](/de/docs/Web/API/GPUValidationError) erzeugt und der [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder) wird ungültig:
 
-- Der Debug-Stack des Render-Pass-Encoders ist nicht leer (d.h. mindestens eine Render-Pass-Debug-Gruppe wurde zuvor mit [`pushDebugGroup()`](/de/docs/Web/API/GPURenderPassEncoder/pushDebugGroup) gestartet).
+- Der Debug-Stack des Renderpass-Encoders ist nicht leer (d.h. es wurde mindestens eine Renderpass-Debuggruppe zuvor mit [`pushDebugGroup()`](/de/docs/Web/API/GPURenderPassEncoder/pushDebugGroup) gestartet).
 
 ## Beispiele
 
 ```js
-// ...
+// …
 
 const passEncoder = commandEncoder.beginRenderPass(renderPassDescriptor);
 
@@ -48,7 +47,7 @@ passEncoder.draw(3);
 
 passEncoder.popDebugGroup();
 
-// ...
+// …
 ```
 
 ## Spezifikationen

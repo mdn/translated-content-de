@@ -3,20 +3,20 @@ title: "SVGMarkerElement: viewBox-Eigenschaft"
 short-title: viewBox
 slug: Web/API/SVGMarkerElement/viewBox
 l10n:
-  sourceCommit: 77d90a23ee0a3b5486a7963f68ad4e56efb06a7b
+  sourceCommit: 759102220c07fb140b3e06971cd5981d8f0f134f
 ---
 
 {{APIRef("SVG")}}
 
-Die **`viewBox`**-Eigenschaft der [`SVGMarkerElement`](/de/docs/Web/API/SVGMarkerElement)-Schnittstelle gibt ein [`SVGAnimatedRect`](/de/docs/Web/API/SVGAnimatedRect)-Objekt zurück. Dieses Objekt enthält die Werte, die durch das {{SVGattr("viewBox")}}-Attribut auf dem {{SVGElement("marker")}} gesetzt wurden.
+Die **`viewBox`** schreibgeschützte Eigenschaft des [`SVGMarkerElement`](/de/docs/Web/API/SVGMarkerElement)-Interfaces liefert ein [`SVGAnimatedRect`](/de/docs/Web/API/SVGAnimatedRect)-Objekt zurück, das die Werte enthält, die durch das {{SVGattr("viewBox")}}-Attribut auf dem {{SVGElement("marker")}} gesetzt wurden.
 
 ## Wert
 
-Ein [`SVGAnimatedRect`](/de/docs/Web/API/SVGAnimatedRect)-Objekt. Die `baseVal`-Eigenschaft dieses Objekts gibt ein [`SVGRect`](/de/docs/Web/API/SVGRect)-Objekt zurück, aus dem die `x`- und `y`-Koordinaten sowie die `Breite` und `Höhe` des {{SVGElement("marker")}}-{{SVGattr("viewBox")}}-Attributs abgerufen werden können.
+Ein [`SVGAnimatedRect`](/de/docs/Web/API/SVGAnimatedRect)-Objekt. Die `baseVal`-Eigenschaft dieses Objekts gibt ein [`SVGRect`](/de/docs/Web/API/SVGRect)-Objekt zurück, aus dem die `x`- und `y`-Koordinaten sowie die `width` und `height` des {{SVGElement("marker")}}-{{SVGattr("viewBox")}}-Attributs abgerufen werden können.
 
 ## Beispiele
 
-Dieses Beispiel zeigt, wie der für das {{SVGattr("viewBox")}}-Attribut von {{SVGElement("marker")}} gesetzte `Breite`-Wert zurückgegeben wird.
+Dieses Beispiel zeigt, wie der Wert der `width`, die für das {{SVGattr("viewBox")}}-Attribut des {{SVGElement("marker")}} festgelegt wurde, abgerufen werden kann.
 
 ```html
 <svg id="svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
@@ -37,8 +37,8 @@ Dieses Beispiel zeigt, wie der für das {{SVGattr("viewBox")}}-Attribut von {{SV
 ```
 
 ```js
-let marker = document.getElementById("arrow");
-console.log(marker.viewBox.baseVal.width); / 10
+const marker = document.getElementById("arrow");
+console.log(marker.viewBox.baseVal.width); // 10
 ```
 
 ## Spezifikationen

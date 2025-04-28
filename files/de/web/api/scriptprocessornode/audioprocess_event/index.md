@@ -1,19 +1,19 @@
 ---
-title: "ScriptProcessorNode: audioprocess-Ereignis"
+title: "ScriptProcessorNode: audioprocess Ereignis"
 short-title: audioprocess
 slug: Web/API/ScriptProcessorNode/audioprocess_event
 l10n:
-  sourceCommit: 4f35a8237ee0842beb9cfef3354e05464ad7ce1a
+  sourceCommit: 759102220c07fb140b3e06971cd5981d8f0f134f
 ---
 
 {{APIRef("Web Audio API")}}{{Deprecated_Header}}
 
-Das `audioprocess`-Ereignis der [`ScriptProcessorNode`](/de/docs/Web/API/ScriptProcessorNode)-Schnittstelle wird ausgelöst, wenn ein Eingabepuffer eines Script-Processors zur Verarbeitung bereit ist.
+Das `audioprocess`-Ereignis der [`ScriptProcessorNode`](/de/docs/Web/API/ScriptProcessorNode)-Schnittstelle wird ausgelöst, wenn ein Eingabepuffer eines Script-Prozessors zur Verarbeitung bereit ist.
 
 > [!NOTE]
 > Diese Funktion wurde durch [AudioWorklets](/de/docs/Web/API/AudioWorklet) und die [`AudioWorkletNode`](/de/docs/Web/API/AudioWorkletNode)-Schnittstelle ersetzt.
 
-Dieses Ereignis ist nicht abbrechbar und wird nicht weitergeleitet.
+Dieses Ereignis ist nicht abbruchfähig und wird nicht weitergeleitet.
 
 ## Ereignistyp
 
@@ -23,14 +23,18 @@ Ein [`AudioProcessingEvent`](/de/docs/Web/API/AudioProcessingEvent). Erbt von [`
 
 ## Ereigniseigenschaften
 
-_Implementiert auch die Eigenschaften, die von seinem Elternteil, [`Event`](/de/docs/Web/API/Event), geerbt werden._
+_Erbt auch die Eigenschaften von seinem Elternteil, [`Event`](/de/docs/Web/API/Event)._
 
 - `playbackTime` {{ReadOnlyInline}}
-  - : Ein Double-Wert, der die Zeit angibt, wann das Audio abgespielt wird, definiert durch die Zeit von [`AudioContext.currentTime`](/de/docs/Web/API/BaseAudioContext/currentTime).
+  - : Ein Doppelwert, der die Zeit darstellt, wann das Audio abgespielt wird, wie durch die Zeit von [`AudioContext.currentTime`](/de/docs/Web/API/BaseAudioContext/currentTime) definiert.
 - `inputBuffer` {{ReadOnlyInline}}
-  - : Ein [`AudioBuffer`](/de/docs/Web/API/AudioBuffer), der den Eingabepuffer mit den zu verarbeitenden Audiodaten enthält. Die Anzahl der Kanäle wird als Parameter `numberOfInputChannels` der Fabrikmethode [`AudioContext.createScriptProcessor()`](/de/docs/Web/API/BaseAudioContext/createScriptProcessor) definiert. Beachten Sie, dass der zurückgegebene <code>AudioBuffer</code> nur im Rahmen des Ereignishandlers gültig ist.
+  - : Ein [`AudioBuffer`](/de/docs/Web/API/AudioBuffer), der den Puffer enthält, der die zu verarbeitenden Audioeingabedaten enthält.
+    Die Anzahl der Kanäle wird als Parameter `numberOfInputChannels` in der Fabrikmethode [`AudioContext.createScriptProcessor()`](/de/docs/Web/API/BaseAudioContext/createScriptProcessor) definiert.
+    Beachten Sie, dass der zurückgegebene <code>AudioBuffer</code> nur im Geltungsbereich des Ereignishandlers gültig ist.
 - `outputBuffer` {{ReadOnlyInline}}
-  - : Ein [`AudioBuffer`](/de/docs/Web/API/AudioBuffer), der der Puffer ist, in den die Ausgabedaten geschrieben werden sollen. Die Anzahl der Kanäle wird als Parameter <code>numberOfOutputChannels</code> der Fabrikmethode [`AudioContext.createScriptProcessor()`](/de/docs/Web/API/BaseAudioContext/createScriptProcessor) definiert. Beachten Sie, dass der zurückgegebene <code>AudioBuffer</code> nur im Rahmen des Ereignishandlers gültig ist.
+  - : Ein [`AudioBuffer`](/de/docs/Web/API/AudioBuffer), der der Puffer ist, in den die Audioausgabedaten geschrieben werden sollen.
+    Die Anzahl der Kanäle wird als Parameter <code>numberOfOutputChannels</code> in der Fabrikmethode [`AudioContext.createScriptProcessor()`](/de/docs/Web/API/BaseAudioContext/createScriptProcessor) definiert.
+    Beachten Sie, dass der zurückgegebene <code>AudioBuffer</code> nur im Geltungsbereich des Ereignishandlers gültig ist.
 
 ## Beispiele
 
@@ -59,19 +63,19 @@ scriptNode.addEventListener("audioprocess", (audioProcessingEvent) => {
 });
 ```
 
-Sie könnten den Ereignishandler auch über die `onaudioprocess`-Eigenschaft einrichten:
+Sie könnten den Ereignishandler auch mit der `onaudioprocess`-Eigenschaft einrichten:
 
 ```js
 scriptNode.onaudioprocess = (audioProcessingEvent) => {
-  // ...
+  // …
 };
 ```
 
 ## Spezifikationen
 
-Seit der Veröffentlichung der [Web Audio API-Spezifikation](https://www.w3.org/TR/webaudio/#ScriptProcessorNode) am 29. August 2014 ist diese Funktion veraltet. Sie ist nicht mehr auf dem Weg, ein Standard zu werden.
+Seit der Veröffentlichung der [Web Audio API-Spezifikation](https://www.w3.org/TR/webaudio/#ScriptProcessorNode) am 29. August 2014, ist diese Funktion veraltet. Sie ist nicht mehr auf dem Weg, ein Standard zu werden.
 
-Sie wurde durch [AudioWorklets](/de/docs/Web/API/AudioWorklet) und die [`AudioWorkletNode`](/de/docs/Web/API/AudioWorkletNode)-Schnittstelle ersetzt.
+Es wurde durch [AudioWorklets](/de/docs/Web/API/AudioWorklet) und die [`AudioWorkletNode`](/de/docs/Web/API/AudioWorkletNode)-Schnittstelle ersetzt.
 
 ## Browser-Kompatibilität
 

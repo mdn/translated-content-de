@@ -1,27 +1,27 @@
 ---
-title: "GPUBindGroupLayout: label Eigenschaft"
+title: "GPUBindGroupLayout: label-Eigenschaft"
 short-title: label
 slug: Web/API/GPUBindGroupLayout/label
 l10n:
-  sourceCommit: bff3a6a2e6b3c13dd8bb0c80a1eb9da08cce5dc6
+  sourceCommit: 759102220c07fb140b3e06971cd5981d8f0f134f
 ---
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`label`**-Eigenschaft der [`GPUBindGroupLayout`](/de/docs/Web/API/GPUBindGroupLayout)-Schnittstelle bietet eine Bezeichnung, die zur Identifizierung des Objekts verwendet werden kann, zum Beispiel in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen oder Konsolenwarnungen.
+Die **`label`**-Eigenschaft der [`GPUBindGroupLayout`](/de/docs/Web/API/GPUBindGroupLayout)-Schnittstelle bietet ein Label, das verwendet werden kann, um das Objekt zu identifizieren, zum Beispiel in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen oder Konsolenwarnungen.
 
-Diese kann durch Bereitstellung einer `label`-Eigenschaft im Deskriptorobjekt gesetzt werden, das in den ursprünglichen Aufruf von [`GPUDevice.createBindGroupLayout()`](/de/docs/Web/API/GPUDevice/createBindGroupLayout) übergeben wird, oder Sie können sie direkt auf dem `GPUBindGroupLayout`-Objekt abrufen und setzen.
+Dies kann durch Bereitstellung einer `label`-Eigenschaft in dem Deskriptorobjekt gesetzt werden, das im ursprünglichen Aufruf von [`GPUDevice.createBindGroupLayout()`](/de/docs/Web/API/GPUDevice/createBindGroupLayout) übergeben wird, oder Sie können es direkt auf dem `GPUBindGroupLayout`-Objekt abrufen und setzen.
 
 ## Wert
 
-Ein String. Wenn dies nicht zuvor wie oben beschrieben festgelegt wurde, wird es ein leerer String sein.
+Ein String. Wenn dies nicht wie oben beschrieben vorher festgelegt wurde, wird es ein leerer String sein.
 
 ## Beispiele
 
-Festlegen und Abrufen einer Bezeichnung über `GPUBindGroupLayout.label`:
+Festlegen und Abrufen eines Labels über `GPUBindGroupLayout.label`:
 
 ```js
-// ...
+// …
 
 const bindGroupLayout = device.createBindGroupLayout({
   entries: [
@@ -40,10 +40,10 @@ bindGroupLayout.label = "my_bind_group_layout";
 console.log(bindGroupLayout.label); // "my_bind_group_layout"
 ```
 
-Festlegen einer Bezeichnung über den ursprünglichen Aufruf von [`GPUDevice.createBindGroupLayout()`](/de/docs/Web/API/GPUDevice/createBindGroupLayout) und Abrufen über `GPUBindGroupLayout.label`:
+Ein Label über den ursprünglichen Aufruf von [`GPUDevice.createBindGroupLayout()`](/de/docs/Web/API/GPUDevice/createBindGroupLayout) festlegen und es dann über `GPUBindGroupLayout.label` abrufen:
 
 ```js
-// ...
+// …
 
 const bindGroupLayout = device.createBindGroupLayout({
   entries: [

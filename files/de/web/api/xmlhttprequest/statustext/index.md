@@ -3,17 +3,17 @@ title: "XMLHttpRequest: statusText-Eigenschaft"
 short-title: statusText
 slug: Web/API/XMLHttpRequest/statusText
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: be1922d62a0d31e4e3441db0e943aed8df736481
 ---
 
 {{APIRef("XMLHttpRequest API")}} {{AvailableInWorkers("window_and_worker_except_service")}}
 
-Die schreibgeschützte **`XMLHttpRequest.statusText`**-Eigenschaft gibt einen String zurück, der die Statusmeldung der Antwort enthält, wie sie vom HTTP-Server zurückgegeben wird. Im Gegensatz zu [`XMLHTTPRequest.status`](/de/docs/Web/API/XMLHttpRequest/status), das einen numerischen Statuscode angibt, enthält diese Eigenschaft den _Text_ des Antwortstatus, wie "OK" oder "Not Found". Wenn der [`readyState`](/de/docs/Web/API/XMLHttpRequest/readyState) der Anfrage im Zustand `UNSENT` oder `OPENED` ist, wird der Wert von `statusText` ein leerer String sein.
+Die schreibgeschützte **`XMLHttpRequest.statusText`**-Eigenschaft gibt einen String zurück, der die Statusnachricht der Antwort enthält, wie sie vom HTTP-Server zurückgegeben wurde. Im Gegensatz zu [`XMLHttpRequest.status`](/de/docs/Web/API/XMLHttpRequest/status), das einen numerischen Statuscode angibt, enthält diese Eigenschaft den _Text_ des Antwortstatus, wie "OK" oder "Not Found". Wenn sich der [`readyState`](/de/docs/Web/API/XMLHttpRequest/readyState) der Anfrage im `UNSENT`- oder `OPENED`-Zustand befindet, wird der Wert von `statusText` ein leerer String sein.
 
-Wenn die Serverantwort keinen Status-Text explizit angibt, nimmt `statusText` den Standardwert "OK" an.
+Falls die Serverantwort keinen Status-Text explizit angibt, nimmt `statusText` den Standardwert "OK" an.
 
 > [!NOTE]
-> Antworten über eine HTTP/2-Verbindung haben immer eine leere Zeichenkette als Statusmeldung, da HTTP/2 diese nicht unterstützt.
+> Antworten über eine HTTP/2-Verbindung haben immer einen leeren String als Statusnachricht, da HTTP/2 diese nicht unterstützt.
 
 ## Wert
 

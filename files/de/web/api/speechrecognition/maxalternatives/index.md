@@ -3,7 +3,7 @@ title: "SpeechRecognition: maxAlternatives-Eigenschaft"
 short-title: maxAlternatives
 slug: Web/API/SpeechRecognition/maxAlternatives
 l10n:
-  sourceCommit: 77d90a23ee0a3b5486a7963f68ad4e56efb06a7b
+  sourceCommit: 759102220c07fb140b3e06971cd5981d8f0f134f
 ---
 
 {{APIRef("Web Speech API")}}
@@ -21,7 +21,7 @@ Eine Zahl, die die maximal zurückgegebenen Alternativen für jedes Ergebnis dar
 
 ## Beispiele
 
-Dieser Code stammt aus unserem [Farbe-ändern-mit-Sprache](https://github.com/mdn/dom-examples/blob/main/web-speech-api/speech-color-changer/script.js)-Beispiel.
+Dieser Code stammt aus unserem Beispiel [Speech color changer](https://github.com/mdn/dom-examples/blob/main/web-speech-api/speech-color-changer/script.js).
 
 ```js
 const grammar =
@@ -35,7 +35,7 @@ recognition.lang = "en-US";
 recognition.interimResults = false;
 recognition.maxAlternatives = 1;
 
-// ...
+// …
 ```
 
 ## Spezifikationen

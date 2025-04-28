@@ -1,11 +1,11 @@
 ---
-title: Set Timeouts
+title: Setze Timeouts
 slug: Web/WebDriver/Reference/Commands/SetTimeouts
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: c6cab7f1aa7dc9f3495486a5b46020db320101cf
 ---
 
-Der _Set Timeouts_-[Befehl](/de/docs/Web/WebDriver/Reference/Commands) der [WebDriver](/de/docs/Web/WebDriver) API setzt die mit der aktuellen Sitzung verbundenen Zeitlimits. Die Dauer der [Sitzungs-Timeouts](/de/docs/Web/WebDriver/Reference/Timeouts) steuert Verhaltensweisen wie Zeitüberschreitungen bei der [Skriptinjektion](/de/docs/Web/WebDriver/Reference/Timeouts#script), [Dokumentnavigation](/de/docs/Web/WebDriver/Reference/Timeouts#pageload) und [Elementabfrage](/de/docs/Web/WebDriver/Reference/Timeouts#implicit).
+Der _Setze Timeouts_ [Befehl](/de/docs/Web/WebDriver/Reference/Commands) der [WebDriver](/de/docs/Web/WebDriver) API setzt die Timeouts, die mit der aktuellen Sitzung verbunden sind. Die [Sitzungstimeout](/de/docs/Web/WebDriver/Reference/Timeouts)-Dauern steuern Verhalten wie Timeouts bei [Skriptinjektion](/de/docs/Web/WebDriver/Reference/Timeouts#script), [Dokumentnavigation](/de/docs/Web/WebDriver/Reference/Timeouts#pageload) und [Elementabruf](/de/docs/Web/WebDriver/Reference/Timeouts#implicit).
 
 ## Syntax
 
@@ -23,11 +23,11 @@ Der _Set Timeouts_-[Befehl](/de/docs/Web/WebDriver/Reference/Commands) der [WebD
 Die Eingabe ist ein [`Timeouts`](/de/docs/Web/WebDriver/Reference/Timeouts)-Objekt:
 
 - `implicit`
-  - : Zeit in Millisekunden, die die [Elementabfragestrategie](/de/docs/Web/WebDriver/WebElement) wiederholt wird, wenn ein Element gefunden wird. Standardmäßig ist dies 0, was bedeutet, dass die Strategie nur einmal ausgeführt wird.
+  - : Zeit in Millisekunden, um die [Elementlokalisierungsstrategie](/de/docs/Web/WebDriver/Reference/WebElement) beim Finden eines Elements erneut zu versuchen. Dies ist standardmäßig auf 0 gesetzt, was bedeutet, dass die Strategie nur einmal ausgeführt wird.
 - `pageLoad`
-  - : Zeit in Millisekunden, die gewartet wird, bis das Dokument fertig geladen ist. Standardmäßig wartet WebDriver fünf Minuten (oder 300.000 ms).
+  - : Zeit in Millisekunden, um zu warten, bis das Dokument das Laden abgeschlossen hat. Standardmäßig wartet WebDriver fünf Minuten (oder 300.000 ms).
 - `script`
-  - : Mit [Execute Script](/de/docs/Web/WebDriver/Commands/ExecuteScript) oder [Execute Async Script](/de/docs/Web/WebDriver/Commands/ExecuteAsyncScript) injizierte Skripte laufen, bis sie die Skript-Timeout-Dauer erreichen, die ebenfalls in Millisekunden angegeben wird. Die Skripte werden dann unterbrochen und ein [Skript-Timeout-Fehler](/de/docs/Web/WebDriver/Errors/ScriptTimeoutError) wird zurückgegeben. Standardmäßig beträgt das Timeout 30 Sekunden (oder 30.000 ms).
+  - : Skripte, die mit [Execute Script](/de/docs/Web/WebDriver/Reference/Commands/ExecuteScript) oder [Execute Async Script](/de/docs/Web/WebDriver/Reference/Commands/ExecuteAsyncScript) injiziert werden, laufen, bis sie die Skript-Timeout-Dauer erreichen, die ebenfalls in Millisekunden angegeben ist. Die Skripte werden dann unterbrochen und ein [Skript-Timeout-Fehler](/de/docs/Web/WebDriver/Reference/Errors/ScriptTimeoutError) wird zurückgegeben. Standardmäßig 30 Sekunden (oder 30.000 ms).
 
 ### Fehler
 

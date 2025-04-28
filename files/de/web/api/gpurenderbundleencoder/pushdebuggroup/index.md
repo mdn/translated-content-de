@@ -1,16 +1,17 @@
 ---
-title: "GPURenderBundleEncoder: Methode pushDebugGroup()"
+title: "GPURenderBundleEncoder: pushDebugGroup() Methode"
 short-title: pushDebugGroup()
 slug: Web/API/GPURenderBundleEncoder/pushDebugGroup
 l10n:
-  sourceCommit: bff3a6a2e6b3c13dd8bb0c80a1eb9da08cce5dc6
+  sourceCommit: 759102220c07fb140b3e06971cd5981d8f0f134f
 ---
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`pushDebugGroup()`**-Methode der [`GPURenderBundleEncoder`](/de/docs/Web/API/GPURenderBundleEncoder)-Schnittstelle beginnt eine Render-Bundle-Debug-Gruppe, die mit einem angegebenen Label markiert ist und alle nachfolgenden kodierten Befehle enthält, bis eine [`popDebugGroup()`](/de/docs/Web/API/GPURenderBundleEncoder/popDebugGroup)-Methode aufgerufen wird.
+Die **`pushDebugGroup()`**-Methode der
+[`GPURenderBundleEncoder`](/de/docs/Web/API/GPURenderBundleEncoder)-Schnittstelle beginnt eine Render-Bundle-Debug-Gruppe, die mit einem bestimmten Label gekennzeichnet ist und alle nachfolgenden kodierten Befehle enthalten wird, bis eine [`popDebugGroup()`](/de/docs/Web/API/GPURenderBundleEncoder/popDebugGroup)-Methode aufgerufen wird.
 
-Dies könnte für Telemetrie verwendet werden oder möglicherweise in der Zukunft in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen, Entwicklungswerkzeugen des Browsers oder anderen Diensten zur Unterstützung der Fehlersuche eingesetzt werden.
+Dies könnte für Telemetrie verwendet werden oder in Zukunft in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen, Entwicklertools des Browsers oder anderen Diensten genutzt werden, um beim Debuggen zu helfen.
 
 > [!NOTE]
 > Diese Methode ist funktional identisch mit ihrem Äquivalent auf [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder) — [`pushDebugGroup()`](/de/docs/Web/API/GPURenderPassEncoder/pushDebugGroup).
@@ -33,7 +34,7 @@ Keiner ({{jsxref("Undefined")}}).
 ## Beispiele
 
 ```js
-// ...
+// …
 
 const bundleEncoder = device.createRenderBundleEncoder(renderBundleDescriptor);
 
@@ -45,7 +46,7 @@ bundleEncoder.draw(3);
 
 bundleEncoder.popDebugGroup();
 
-// ...
+// …
 ```
 
 ## Spezifikationen

@@ -1,14 +1,14 @@
 ---
-title: "GPURenderPassEncoder: endOcclusionQuery()-Methode"
+title: "GPURenderPassEncoder: endOcclusionQuery() Methode"
 short-title: endOcclusionQuery()
 slug: Web/API/GPURenderPassEncoder/endOcclusionQuery
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: 759102220c07fb140b3e06971cd5981d8f0f134f
 ---
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`endOcclusionQuery()`**-Methode der [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder)-Schnittstelle beendet eine aktive Occlusion Query, die zuvor mit [`beginOcclusionQuery()`](/de/docs/Web/API/GPURenderPassEncoder/beginOcclusionQuery) gestartet wurde.
+Die **`endOcclusionQuery()`**-Methode der [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder)-Schnittstelle beendet eine aktive Okklusionsabfrage, die zuvor mit [`beginOcclusionQuery()`](/de/docs/Web/API/GPURenderPassEncoder/beginOcclusionQuery) gestartet wurde.
 
 ## Syntax
 
@@ -26,14 +26,14 @@ Keiner ({{jsxref("Undefined")}}).
 
 ### Validierung
 
-Die folgenden Kriterien müssen erfüllt sein, wenn **`endOcclusionQuery()`** aufgerufen wird, sonst wird ein [`GPUValidationError`](/de/docs/Web/API/GPUValidationError) erzeugt und der [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder) wird ungültig:
+Die folgenden Kriterien müssen erfüllt sein, wenn **`endOcclusionQuery()`** aufgerufen wird, andernfalls wird ein [`GPUValidationError`](/de/docs/Web/API/GPUValidationError) generiert und der [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder) wird ungültig:
 
-- Eine Occlusion Query ist für diesen Render-Pass aktiv (d.h. über einen vorherigen `beginOcclusionQuery()`-Aufruf).
+- Eine Okklusionsabfrage ist für diesen Render-Pass aktiv (d.h. durch einen vorherigen `beginOcclusionQuery()`-Aufruf).
 
 ## Beispiele
 
 ```js
-// ...
+// …
 
 // Create a query set to hold the occlusion queries
 const querySet = device.createQuerySet({
@@ -68,7 +68,7 @@ passEncoder.draw(3);
 // End the occlusion query
 passEncoder.endOcclusionQuery();
 
-// ...
+// …
 ```
 
 ## Spezifikationen

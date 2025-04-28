@@ -1,14 +1,14 @@
 ---
-title: "GPUShaderModule: getCompilationInfo()-Methode"
+title: "GPUShaderModule: getCompilationInfo() Methode"
 short-title: getCompilationInfo()
 slug: Web/API/GPUShaderModule/getCompilationInfo
 l10n:
-  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
+  sourceCommit: 759102220c07fb140b3e06971cd5981d8f0f134f
 ---
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`getCompilationInfo()`**-Methode der [`GPUShaderModule`](/de/docs/Web/API/GPUShaderModule)-Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das mit einem [`GPUCompilationInfo`](/de/docs/Web/API/GPUCompilationInfo)-Objekt erfüllt wird, welches Nachrichten enthält, die während der Kompilierung des `GPUShaderModule` erzeugt wurden.
+Die **`getCompilationInfo()`** Methode der [`GPUShaderModule`](/de/docs/Web/API/GPUShaderModule)-Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das mit einem [`GPUCompilationInfo`](/de/docs/Web/API/GPUCompilationInfo)-Objekt erfüllt wird, das Nachrichten enthält, die während der Kompilierung des `GPUShaderModule` generiert wurden.
 
 ## Syntax
 
@@ -24,11 +24,11 @@ Keine.
 
 Ein {{jsxref("Promise")}}, das mit einem [`GPUCompilationInfo`](/de/docs/Web/API/GPUCompilationInfo)-Objekt erfüllt wird.
 
-[`GPUCompilationInfo`](/de/docs/Web/API/GPUCompilationInfo) enthält eine `messages`-Eigenschaft, die ein Array von [`GPUCompilationMessage`](/de/docs/Web/API/GPUCompilationMessage)-Objekten beinhaltet, von denen jedes die Details einer individuellen Kompilierungsmeldung enthält.
+[`GPUCompilationInfo`](/de/docs/Web/API/GPUCompilationInfo) enthält eine `messages`-Eigenschaft, die ein Array von [`GPUCompilationMessage`](/de/docs/Web/API/GPUCompilationMessage)-Objekten ist, wobei jedes die Details einer einzelnen Kompilierungsnachricht enthält.
 
 ## Beispiele
 
-Im folgenden Beispiel haben wir absichtlich eine Klammer aus einer Funktionsdeklaration in unserem Shader-Code weggelassen:
+Im folgenden Beispiel haben wir absichtlich eine Klammer in einer Funktionsdeklaration in unserem Shader-Code weggelassen:
 
 ```js
 const shaders = `
@@ -55,11 +55,11 @@ fn fragment_main(fragData: VertexOut) -> @location(0) vec4f
 `;
 ```
 
-Beim Kompilieren des Shader-Moduls verwenden wir `getCompilationInfo()`, um Informationen über den resultierenden Fehler zu erhalten:
+Wenn wir das Shader-Modul kompilieren, verwenden wir `getCompilationInfo()`, um einige Informationen über den resultierenden Fehler zu erhalten:
 
 ```js
 async function init() {
-  // ...
+  // …
 
   const shaderModule = device.createShaderModule({
     code: shaders,
@@ -72,7 +72,7 @@ async function init() {
   console.log(firstMessage.message); // "expected ')' for function declaration"
   console.log(firstMessage.type); // "error"
 
-  // ...
+  // …
 }
 ```
 

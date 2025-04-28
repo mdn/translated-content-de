@@ -3,14 +3,14 @@ title: "GPUComputePipeline: Methode getBindGroupLayout()"
 short-title: getBindGroupLayout()
 slug: Web/API/GPUComputePipeline/getBindGroupLayout
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: 759102220c07fb140b3e06971cd5981d8f0f134f
 ---
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`getBindGroupLayout()`**-Methode der [`GPUComputePipeline`](/de/docs/Web/API/GPUComputePipeline)-Schnittstelle gibt das [`GPUBindGroupLayout`](/de/docs/Web/API/GPUBindGroupLayout)-Objekt der Pipeline mit dem gegebenen Index zurück (d.h. eingeschlossen in das ursprüngliche [`GPUDevice.createComputePipeline()`](/de/docs/Web/API/GPUDevice/createComputePipeline)- oder [`GPUDevice.createComputePipelineAsync()`](/de/docs/Web/API/GPUDevice/createComputePipelineAsync)-Aufruf Layout der Pipeline).
+Die **`getBindGroupLayout()`**-Methode der [`GPUComputePipeline`](/de/docs/Web/API/GPUComputePipeline)-Schnittstelle gibt das [`GPUBindGroupLayout`](/de/docs/Web/API/GPUBindGroupLayout)-Objekt der Pipeline mit dem angegebenen Index zurück (d.h. in dem von [`GPUDevice.createComputePipeline()`](/de/docs/Web/API/GPUDevice/createComputePipeline) oder [`GPUDevice.createComputePipelineAsync()`](/de/docs/Web/API/GPUDevice/createComputePipelineAsync) aufgerufenen Pipeline-Layout enthalten).
 
-Wenn die [`GPUComputePipeline`](/de/docs/Web/API/GPUComputePipeline) mit `layout: "auto"` erstellt wurde, ist diese Methode die einzige Möglichkeit, die von der Pipeline generierten [`GPUBindGroupLayout`](/de/docs/Web/API/GPUBindGroupLayout)s abzurufen.
+Wurde die [`GPUComputePipeline`](/de/docs/Web/API/GPUComputePipeline) mit `layout: "auto"` erstellt, ist diese Methode die einzige Möglichkeit, die von der Pipeline generierten [`GPUBindGroupLayout`](/de/docs/Web/API/GPUBindGroupLayout)s abzurufen.
 
 ## Syntax
 
@@ -26,11 +26,11 @@ getBindGroupLayout(index)
 
 ### Rückgabewert
 
-Eine Instanz des [`GPUBindGroupLayout`](/de/docs/Web/API/GPUBindGroupLayout)-Objekts.
+Eine Instanz eines [`GPUBindGroupLayout`](/de/docs/Web/API/GPUBindGroupLayout)-Objekts.
 
 ### Validierung
 
-Die folgenden Kriterien müssen erfüllt sein, wenn **`getBindGroupLayout()`** aufgerufen wird, andernfalls wird ein [`GPUValidationError`](/de/docs/Web/API/GPUValidationError) erzeugt und ein ungültiges [`GPUBindGroupLayout`](/de/docs/Web/API/GPUBindGroupLayout) Objekt zurückgegeben:
+Die folgenden Kriterien müssen erfüllt sein, wenn **`getBindGroupLayout()`** aufgerufen wird, andernfalls wird ein [`GPUValidationError`](/de/docs/Web/API/GPUValidationError) generiert und ein ungültiges [`GPUBindGroupLayout`](/de/docs/Web/API/GPUBindGroupLayout)-Objekt zurückgegeben:
 
 - `index` ist kleiner als die Anzahl der [`GPUBindGroupLayout`](/de/docs/Web/API/GPUBindGroupLayout)-Objekte, die im Pipeline-Layout verwendet werden.
 
@@ -40,7 +40,7 @@ Die folgenden Kriterien müssen erfüllt sein, wenn **`getBindGroupLayout()`** a
 > Sie können vollständige funktionierende Beispiele mit `getBindGroupLayout()` in Aktion in den [WebGPU-Beispielen](https://webgpu.github.io/webgpu-samples/) sehen.
 
 ```js
-// ...
+// …
 
 // Create a compute pipeline using layout: "auto" to automatically generate
 // appropriate bind group layouts
@@ -63,7 +63,7 @@ const computeBindGroup = device.createBindGroup({
   ],
 });
 
-// ...
+// …
 ```
 
 ## Spezifikationen

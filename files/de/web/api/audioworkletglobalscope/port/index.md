@@ -3,18 +3,18 @@ title: "AudioWorkletGlobalScope: port"
 short-title: port
 slug: Web/API/AudioWorkletGlobalScope/port
 l10n:
-  sourceCommit: d365a618a169aad175463ae028ad33f85b612f89
+  sourceCommit: ae00fed5f0d86527081eceee0c619338c6ce37ad
 ---
 
 {{APIRef("Web Audio API")}}
 
-Die schreibgeschützte Eigenschaft **`port`** des [`AudioWorkletGlobalScope`](/de/docs/Web/API/AudioWorkletGlobalScope)-Interfaces gibt ein [`MessagePort`](/de/docs/Web/API/MessagePort)-Objekt zurück, das verwendet werden kann, um Nachrichten zwischen dem Hauptthread und dem zugehörigen [`AudioWorklet`](/de/docs/Web/API/AudioWorklet) zu senden und zu empfangen.
+Die schreibgeschützte **`port`**-Eigenschaft der [`AudioWorkletGlobalScope`](/de/docs/Web/API/AudioWorkletGlobalScope)-Schnittstelle gibt ein [`MessagePort`](/de/docs/Web/API/MessagePort)-Objekt zurück, das verwendet werden kann, um Nachrichten zwischen dem Hauptthread und dem zugehörigen [`AudioWorklet`](/de/docs/Web/API/AudioWorklet) zu senden und zu empfangen.
 
-Dies ermöglicht eine benutzerdefinierte, asynchrone Kommunikation zwischen Code im Hauptthread und dem globalen Scope eines Audio-Worklets, wie z.B. das Senden von Steuerungsdaten oder globalen Einstellungen.
+Dies ermöglicht eine benutzerdefinierte, asynchrone Kommunikation zwischen Code im Hauptthread und dem globalen Gültigkeitsbereich eines Audio-Worklets, wie zum Beispiel das Senden von Steuerungsdaten oder globalen Einstellungen.
 
 ## Wert
 
-Das [`MessagePort`](/de/docs/Web/API/MessagePort)-Objekt, das das `AudioWorklet` und dessen zugehörigen `AudioWorkletGlobalScope` verbindet.
+Das [`MessagePort`](/de/docs/Web/API/MessagePort)-Objekt, das das `AudioWorklet` und seinen zugehörigen `AudioWorkletGlobalScope` verbindet.
 
 ## Beispiele
 

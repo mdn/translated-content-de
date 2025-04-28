@@ -2,12 +2,12 @@
 title: Reflect.preventExtensions()
 slug: Web/JavaScript/Reference/Global_Objects/Reflect/preventExtensions
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: 759102220c07fb140b3e06971cd5981d8f0f134f
 ---
 
 {{JSRef}}
 
-Die statische Methode **`Reflect.preventExtensions()`** ist vergleichbar mit {{jsxref("Object.preventExtensions()")}}. Sie verhindert, dass einem Objekt jemals neue Eigenschaften hinzugefügt werden können (d.h. sie verhindert zukünftig Erweiterungen des Objekts).
+Die statische Methode **`Reflect.preventExtensions()`** ähnelt {{jsxref("Object.preventExtensions()")}}. Sie verhindert, dass neue Eigenschaften zu einem Objekt hinzugefügt werden können (d.h. sie verhindert zukünftige Erweiterungen des Objekts).
 
 {{InteractiveExample("JavaScript Demo: Reflect.preventExtensions()")}}
 
@@ -36,7 +36,7 @@ Reflect.preventExtensions(target)
 
 ### Rückgabewert
 
-Ein {{jsxref("Boolean")}}, der angibt, ob die Erweiterungen für das Zielobjekt erfolgreich verhindert wurden oder nicht.
+Ein {{jsxref("Boolean")}}, der angibt, ob das Ziel erfolgreich so eingestellt wurde, dass Erweiterungen verhindert werden.
 
 ### Ausnahmen
 
@@ -45,12 +45,12 @@ Ein {{jsxref("Boolean")}}, der angibt, ob die Erweiterungen für das Zielobjekt 
 
 ## Beschreibung
 
-`Reflect.preventExtensions()` stellt die reflektive Semantik zur Verfügung, um Erweiterungen eines Objekts zu verhindern. Die Unterschiede zu {{jsxref("Object.preventExtensions()")}} sind:
+`Reflect.preventExtensions()` bietet die reflektierende Semantik, um Erweiterungen eines Objekts zu verhindern. Die Unterschiede zu {{jsxref("Object.preventExtensions()")}} sind:
 
-- `Reflect.preventExtensions()` löst eine {{jsxref("TypeError")}} aus, wenn das Ziel kein Objekt ist, während `Object.preventExtensions()` nicht-objekthafte Ziele unverändert zurückgibt.
-- `Reflect.preventExtensions()` gibt einen {{jsxref("Boolean")}} zurück, der angibt, ob die Erweiterungen des Ziels erfolgreich verhindert wurden, während `Object.preventExtensions()` das Zielobjekt zurückgibt.
+- `Reflect.preventExtensions()` wirft einen {{jsxref("TypeError")}}, wenn das Ziel kein Objekt ist, während `Object.preventExtensions()` immer nicht-objektartige Ziele unverändert zurückgibt.
+- `Reflect.preventExtensions()` gibt einen {{jsxref("Boolean")}} zurück, der angibt, ob das Ziel erfolgreich eingestellt wurde, um Erweiterungen zu verhindern, während `Object.preventExtensions()` das Zielobjekt zurückgibt.
 
-`Reflect.preventExtensions()` ruft die `[[PreventExtensions]]` [interne Objektmethode](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods) des `target` auf.
+`Reflect.preventExtensions()` ruft die `[[PreventExtensions]]` [interne Objektmethode](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods) von `target` auf.
 
 ## Beispiele
 
@@ -63,14 +63,14 @@ Siehe auch {{jsxref("Object.preventExtensions()")}}.
 const empty = {};
 Reflect.isExtensible(empty); // true
 
-// ...but that can be changed.
+// … but that can be changed.
 Reflect.preventExtensions(empty);
 Reflect.isExtensible(empty); // false
 ```
 
 ### Unterschied zu Object.preventExtensions()
 
-Wenn das Argument `target` dieser Methode kein Objekt (ein primitiver Wert) ist, wird eine {{jsxref("TypeError")}} ausgelöst. Bei {{jsxref("Object.preventExtensions()")}} wird ein nicht-objekthafter `target` ohne Fehler unverändert zurückgegeben.
+Wenn das `target`-Argument dieser Methode kein Objekt ist (ein primitiver Datentyp), wird ein {{jsxref("TypeError")}} verursacht. Bei {{jsxref("Object.preventExtensions()")}} wird ein nicht-objektartiges `target` ohne Fehler unverändert zurückgegeben.
 
 ```js
 Reflect.preventExtensions(1);
@@ -90,7 +90,7 @@ Object.preventExtensions(1);
 
 ## Siehe auch
 
-- [Polyfill für `Reflect.preventExtensions` in `core-js`](https://github.com/zloirock/core-js#ecmascript-reflect)
+- [Polyfill von `Reflect.preventExtensions` in `core-js`](https://github.com/zloirock/core-js#ecmascript-reflect)
 - {{jsxref("Reflect")}}
 - {{jsxref("Object.preventExtensions()")}}
 - [`handler.preventExtensions()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy/preventExtensions)

@@ -2,12 +2,12 @@
 title: Get Window Rect
 slug: Web/WebDriver/Reference/Commands/GetWindowRect
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: c6cab7f1aa7dc9f3495486a5b46020db320101cf
 ---
 
-Der _Get Window Rect_ [Befehl](/de/docs/Web/WebDriver/Reference/Commands) der [WebDriver](/de/docs/Web/WebDriver) API gibt die Größe und Position des angegebenen [`WebElement`](/de/docs/Web/WebDriver/WebElement) zurück. Viele [WebDriver-Clients](/de/docs/Web/WebDriver/Clients) bieten separate API-Methoden zum Abrufen des Standorts und der Abmessungen eines Elements an, verwenden jedoch als Optimierung beide diesen primitiven Befehl.
+Der _Get Window Rect_ [Befehl](/de/docs/Web/WebDriver/Reference/Commands) der [WebDriver](/de/docs/Web/WebDriver) API gibt die Größe und Position des angegebenen [`WebElement`](/de/docs/Web/WebDriver/Reference/WebElement) zurück. Viele [WebDriver-Clients](/de/docs/Web/WebDriver/Reference/Clients) bieten separate API-Methoden zum Abrufen des Standorts und der Abmessungen eines Elements an, aber als Optimierung verwenden sie beide diesen grundlegenden Befehl.
 
-Der Befehl arbeitet am derzeit ausgewählten Fenster und gibt die Größe und Position des Betriebssystemfensters zurück. Das zurückgegebene [`WindowRect`](/de/docs/Web/WebDriver/WindowRect) kann als Eingabe für den [Set Window Rect](/de/docs/Web/WebDriver/SetWindowRect) Befehl verwendet werden, der zur Manipulation der Position und Abmessungen eines Fensters dient.
+Der Befehl operiert auf dem aktuell ausgewählten Fenster und gibt die Größe und Position des Betriebssystemfensters zurück. Das zurückgegebene [`WindowRect`](/de/docs/Web/WebDriver/Reference/WindowRect) kann als Eingabe für den [Set Window Rect](/de/docs/Web/WebDriver/Reference/SetWindowRect)-Befehl verwendet werden, der zum Ändern der Position und der Abmessungen eines Fensters dient.
 
 ## Syntax
 
@@ -18,11 +18,11 @@ Der Befehl arbeitet am derzeit ausgewählten Fenster und gibt die Größe und Po
 ### URL-Parameter
 
 - `session id`
-  - : Bezeichner der Sitzung.
+  - : Kennung der Sitzung.
 
 ### Antwort
 
-Die Antwort enthält ein [`WindowRect`](/de/docs/Web/WebDriver/WebWindow):
+Die Antwortnutzlast ist ein [`WindowRect`](/de/docs/Web/WebDriver/Reference/WebWindow):
 
 - `x`
   - : Horizontale Position des Betriebssystemfensters, das mit [`window`](/de/docs/Web/API/Window) assoziiert ist, entsprechend [`Window.screenX`](/de/docs/Web/API/Window/screenX).
@@ -37,8 +37,8 @@ Die Antwort enthält ein [`WindowRect`](/de/docs/Web/WebDriver/WebWindow):
 
 - [Ungültige Sitzungs-ID](/de/docs/Web/WebDriver/Reference/Errors/InvalidSessionID)
   - : Sitzung existiert nicht.
-- [Unerwarteter geöffneter Alarm](/de/docs/Web/WebDriver/Errors/UnexpectedAlertOpen)
-  - : Eine Benutzereingabeaufforderung, wie z.B. [`window.alert`](/de/docs/Web/API/Window/alert), blockiert die Ausführung des Befehls, bis sie bearbeitet wird.
+- [Unerwartetes geöffnetes Fenster](/de/docs/Web/WebDriver/Reference/Errors/UnexpectedAlertOpen)
+  - : Ein Benutzerhinweis, wie beispielsweise [`window.alert`](/de/docs/Web/API/Window/alert), blockiert die Ausführung des Befehls, bis er bearbeitet wird.
 
 ## Spezifikationen
 
@@ -54,6 +54,6 @@ Die Antwort enthält ein [`WindowRect`](/de/docs/Web/WebDriver/WebWindow):
 - Zugehörige Befehle:
 
   - [Set Window Rect](/de/docs/Web/WebDriver/Reference/Commands/SetWindowRect)
-  - [Get Window Handle](/de/docs/Web/WebDriver/Commands/GetWindowHandle)
+  - [Get Window Handle](/de/docs/Web/WebDriver/Reference/Commands/GetWindowHandle)
   - [Get Window Handles](/de/docs/Web/WebDriver/Reference/Commands/GetWindowHandles)
   - [Close Window](/de/docs/Web/WebDriver/Reference/Commands/CloseWindow)

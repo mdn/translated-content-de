@@ -2,21 +2,21 @@
 title: GPUBindGroup
 slug: Web/API/GPUBindGroup
 l10n:
-  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
+  sourceCommit: 759102220c07fb140b3e06971cd5981d8f0f134f
 ---
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`GPUBindGroup`**-Schnittstelle der [WebGPU API](/de/docs/Web/API/WebGPU_API) basiert auf einem [`GPUBindGroupLayout`](/de/docs/Web/API/GPUBindGroupLayout) und definiert eine Gruppe von Ressourcen, die zusammen gebunden werden und wie diese Ressourcen in Shader-Stufen verwendet werden.
+Die **`GPUBindGroup`**-Schnittstelle der [WebGPU API](/de/docs/Web/API/WebGPU_API) basiert auf einem [`GPUBindGroupLayout`](/de/docs/Web/API/GPUBindGroupLayout) und definiert eine Gruppe von Ressourcen, die zusammen in einer Gruppe gebunden werden und wie diese Ressourcen in Shader-Stufen verwendet werden.
 
-Eine Instanz eines `GPUBindGroup`-Objekts wird mit der Methode [`GPUDevice.createBindGroup()`](/de/docs/Web/API/GPUDevice/createBindGroup) erstellt.
+Ein `GPUBindGroup`-Objekt wird mit der Methode [`GPUDevice.createBindGroup()`](/de/docs/Web/API/GPUDevice/createBindGroup) erstellt.
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
 - [`label`](/de/docs/Web/API/GPUBindGroup/label) {{Experimental_Inline}}
-  - : Ein String, der eine Bezeichnung bietet, die verwendet werden kann, um das Objekt zu identifizieren, zum Beispiel in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen oder Konsolenwarnungen.
+  - : Ein String, der ein Label bereitstellt, das verwendet werden kann, um das Objekt zu identifizieren, zum Beispiel in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen oder Konsolenwarnungen.
 
 ## Beispiele
 
@@ -25,10 +25,10 @@ Eine Instanz eines `GPUBindGroup`-Objekts wird mit der Methode [`GPUDevice.creat
 
 ### Einfaches Beispiel
 
-Unser [einfaches Berechnungs-Demo](https://mdn.github.io/dom-examples/webgpu-compute-demo/) zeigt ein Beispiel für die Erstellung eines Bind-Group-Layouts und dessen Verwendung als Vorlage bei der Erstellung einer Bind-Group.
+Unser [einfaches Compute-Demo](https://mdn.github.io/dom-examples/webgpu-compute-demo/) zeigt ein Beispiel für das Erstellen eines Bindgruppenlayouts und die Verwendung dessen als Vorlage bei der Erstellung einer Bindgruppe.
 
 ```js
-// ...
+// …
 
 const bindGroupLayout = device.createBindGroupLayout({
   entries: [
@@ -54,7 +54,7 @@ const bindGroup = device.createBindGroup({
   ],
 });
 
-// ...
+// …
 ```
 
 ## Spezifikationen

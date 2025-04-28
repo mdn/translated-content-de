@@ -2,12 +2,12 @@
 title: Date.prototype.setTime()
 slug: Web/JavaScript/Reference/Global_Objects/Date/setTime
 l10n:
-  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
+  sourceCommit: be1922d62a0d31e4e3441db0e943aed8df736481
 ---
 
 {{JSRef}}
 
-Die **`setTime()`** Methode von {{jsxref("Date")}} Instanzen ändert den [Zeitstempel](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) für dieses Datum, welcher die Anzahl der Millisekunden seit dem [Epoch](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) ist, definiert als Mitternacht zu Beginn des 1. Januar 1970, UTC.
+Die Methode **`setTime()`** von {{jsxref("Date")}}-Instanzen ändert den [Zeitstempel](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) für dieses Datum. Der Zeitstempel ist die Anzahl der Millisekunden seit der [Epoche](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date), die als Mitternacht zu Beginn des 1. Januar 1970 UTC definiert ist.
 
 {{InteractiveExample("JavaScript Demo: Date.prototype.setTime()", "taller")}}
 
@@ -19,8 +19,8 @@ futureDate.setTime(launchDate.getTime());
 console.log(futureDate);
 // Expected output: "Thu Jul 01 1999 12:00:00 GMT+0200 (CEST)"
 
-const fiveMinutesInMillis = 5 * 60 * 1000;
-futureDate.setTime(futureDate.getTime() + fiveMinutesInMillis);
+const fiveMinutesInMs = 5 * 60 * 1000;
+futureDate.setTime(futureDate.getTime() + fiveMinutesInMs);
 
 console.log(futureDate);
 // Expected output: "Thu Jul 01 1999 12:05:00 GMT+0200 (CEST)"
@@ -36,11 +36,11 @@ setTime(timeValue)
 ### Parameter
 
 - `timeValue`
-  - : Ein Integer, der den neuen Zeitstempel darstellt — die Anzahl der Millisekunden seit Mitternacht zu Beginn des 1. Januar 1970, UTC.
+  - : Ein Integer, der den neuen Zeitstempel darstellt — die Anzahl der Millisekunden seit Mitternacht zu Beginn des 1. Januar 1970 UTC.
 
 ### Rückgabewert
 
-Ändert das {{jsxref("Date")}} Objekt in-place und gibt dessen neuen [Zeitstempel](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) zurück. Wenn `timeValue` `NaN` ist (oder andere Werte, die zu `NaN` [gezwungen](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion) werden, wie `undefined`), wird das Datum auf [Ungültiges Datum](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) gesetzt und `NaN` wird zurückgegeben.
+Ändert das {{jsxref("Date")}}-Objekt direkt und gibt seinen neuen [Zeitstempel](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) zurück. Wenn `timeValue` `NaN` ist (oder andere Werte, die zu `NaN` [konvertiert](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion) werden, wie `undefined`), wird das Datum auf [Ungültiges Datum](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) gesetzt und `NaN` wird zurückgegeben.
 
 ## Beispiele
 

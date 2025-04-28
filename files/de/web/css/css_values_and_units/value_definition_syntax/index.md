@@ -1,15 +1,15 @@
 ---
-title: Wert-Definitionssyntax
+title: Wertedefinitionssyntax
 slug: Web/CSS/CSS_Values_and_Units/Value_definition_syntax
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: 7c0cd9f9b667fe9be0887e8902d09f0013290930
 ---
 
 {{CSSRef}}
 
-Die **CSS-Wert-Definitionssyntax**, eine formale Grammatik, wird verwendet, um die Menge gültiger Werte für eine CSS-Eigenschaft oder Funktion zu definieren. Zusätzlich zu dieser Syntax kann die Menge der gültigen Werte durch semantische Einschränkungen weiter eingeschränkt werden (zum Beispiel, dass eine Zahl streng positiv sein muss).
+Die **CSS-Wertedefinitionssyntax**, eine formale Grammatik, wird verwendet, um die Menge gültiger Werte für eine CSS-Eigenschaft oder Funktion zu definieren. Zusätzlich zu dieser Syntax kann die Menge gültiger Werte durch semantische Einschränkungen weiter eingeschränkt werden (zum Beispiel muss eine Zahl strikt positiv sein).
 
-Die Definitionssyntax beschreibt, welche Werte erlaubt sind und die Interaktionen zwischen ihnen. Eine Komponente kann ein _Schlüsselwort_, einige als _Literal_ betrachtete Zeichen oder ein Wert eines angegebenen CSS-Datentyps oder einer anderen CSS-Eigenschaft sein.
+Die Definitionssyntax beschreibt, welche Werte erlaubt sind und die Interaktionen zwischen ihnen. Eine Komponente kann ein _Schlüsselwort_, einige als _Literal_ betrachtete Zeichen oder ein Wert eines bestimmten CSS-Datentyps oder einer anderen CSS-Eigenschaft sein.
 
 ## Komponentenwerttypen
 
@@ -17,42 +17,40 @@ Die Definitionssyntax beschreibt, welche Werte erlaubt sind und die Interaktione
 
 #### Allgemeine Schlüsselwörter
 
-Ein Schlüsselwort mit einer vordefinierten Bedeutung erscheint wörtlich, ohne Anführungszeichen. Zum Beispiel: `auto`, `smaller` oder `ease-in`.
+Ein Schlüsselwort mit vordefinierter Bedeutung erscheint buchstäblich, ohne Anführungszeichen. Zum Beispiel: `auto`, `smaller` oder `ease-in`.
 
 #### CSS-weite Schlüsselwörter
 
-Alle CSS-Funktionen akzeptieren die Schlüsselwörter `inherit`, `initial`, `revert`, `revert-layer` und `unset`. Sie werden in der Wert-Definition nicht angezeigt und sind implizit definiert.
+Alle CSS-Eigenschaften akzeptieren die Schlüsselwörter `inherit`, `initial`, `revert`, `revert-layer` und `unset`. Sie werden in der Wertedefinition nicht angezeigt und sind implizit definiert.
 
 ### Literale
 
-In CSS können einige Zeichen alleine erscheinen, wie der Schrägstrich (`/`) oder das Komma (`,`), und werden in einer Eigenschaftsdefinition verwendet, um ihre Teile zu trennen. Das Komma wird häufig verwendet, um Werte in Aufzählungen oder Parameter in mathematischen Funktionen zu trennen; der Schrägstrich trennt oft Teile eines Wertes, die semantisch unterschiedlich, aber von gleicher Syntax sind. Typischerweise wird der Schrägstrich bei Kurzschreibweise-Eigenschaften verwendet, um Komponenten desselben Typs zu trennen, die jedoch zu verschiedenen Eigenschaften gehören.
+In CSS können einige Zeichen alleine auftreten, wie der Schrägstrich (`/`) oder das Komma (`,`), und werden in einer Eigenschaftsdefinition verwendet, um ihre Teile zu trennen. Das Komma wird oft verwendet, um Werte in Aufzählungen oder Parameter in mathematisch ähnlichen Funktionen zu trennen; der Schrägstrich trennt oft Teile des Wertes, die semantisch unterschiedlich sind, aber eine gemeinsame Syntax haben. Typischerweise wird der Schrägstrich in Kurzschreibeigenschaften verwendet; um Komponenten desselben Typs zu trennen, die jedoch zu unterschiedlichen Eigenschaften gehören.
 
-Beide Symbole erscheinen wörtlich in einer Wert-Definition.
+Beide Symbole erscheinen buchstäblich in einer Wertedefinition.
 
 ### Datentypen
 
 #### Grundlegende Datentypen
 
-Einige Datentypen werden überall in CSS verwendet und einmal für alle Werte in der Spezifikation definiert. Diese sogenannten _grundlegenden Datentypen_ werden mit ihrem Namen, umgeben von den Symbolen `<` und `>`, dargestellt: {{CSSxRef("&lt;angle&gt;")}}, {{CSSxRef("&lt;string&gt;")}}, ...
+Einige Datentypen werden in CSS häufig verwendet und sind einmalig für alle Werte in der Spezifikation definiert. Diese _grundlegenden Datentypen_ werden mit ihrem Namen dargestellt, der von den Symbolen `<` und `>` umgeben ist: {{CSSxRef("&lt;angle&gt;")}}, {{CSSxRef("&lt;string&gt;")}}, …
 
 #### Nicht-terminal Datentypen
 
-Weniger gebräuchliche Datentypen, sogenannte _nicht-terminal Datentypen_, sind ebenfalls von `<` und `>` umgeben.
+Weniger häufige Datentypen, genannt _nicht-terminal Datentypen_, sind ebenfalls von `<` und `>` umgeben.
 
-Nicht-terminale Datentypen gibt es in zwei Arten:
+Nicht-terminale Datentypen sind zweierlei Art:
 
-- Datentypen, die _den gleichen Namen wie eine Eigenschaft_ teilen, in Anführungszeichen gesetzt. In diesem Fall teilt der Datentyp die gleiche Menge von Werten wie die Eigenschaft. Sie werden häufig in der Definition von Kurzschreibweise-Eigenschaften verwendet.
-- Datentypen, die _nicht den gleichen Namen wie eine Eigenschaft_ teilen. Diese Datentypen sind den grundlegenden Datentypen sehr ähnlich. Sie unterscheiden sich nur von den grundlegenden Datentypen durch den physikalischen Ort ihrer Definition. In diesem Fall ist die Definition üblicherweise physisch sehr nah an der Definition der diese Datentypen benutzenden Eigenschaft.
+- Datentypen, _die denselben Namen wie eine Eigenschaft teilen_, werden zwischen Anführungszeichen gesetzt. In diesem Fall teilt der Datentyp dieselbe Menge von Werten wie die Eigenschaft. Sie werden oft in der Definition von Kurzschreibeigenschaften verwendet.
+- Datentypen, _die nicht denselben Namen wie eine Eigenschaft teilen_. Diese Datentypen sind den grundlegenden Datentypen sehr ähnlich. Sie unterscheiden sich nur von den grundlegenden Datentypen durch den physischen Ort ihrer Definition. In diesem Fall ist die Definition normalerweise physisch sehr nah an der Definition der Eigenschaft, die sie verwenden.
 
-## Kombinatoren für Komponentenwerte
+## Komponentenwertkombinatoren
 
 ### Klammern
 
-_Klammern_ schließen mehrere Entitäten, Kombinatoren und Multiplikatoren ein und transformieren sie dann zu einer einzigen Komponente. Sie werden verwendet, um **Komponenten zu gruppieren, um die Vorrangregeln zu umgehen**.
+_Klammern_ umfassen mehrere Entitäten, Kombinatoren und Multiplikatoren und transformieren sie dann als eine einzelne Komponente. Sie werden verwendet, um **Komponenten zu gruppieren, um die Vorrangregeln zu umgehen**.
 
-```css
-bold [ thin && <length> ]
-```
+{{CSSSyntaxRaw(`example = bold [ thin && <length> ]`)}}
 
 Dieses Beispiel passt zu den folgenden Werten:
 
@@ -62,15 +60,13 @@ Dieses Beispiel passt zu den folgenden Werten:
 
 Aber nicht:
 
-- `thin bold 3em`, da `bold` mit der durch die Klammern definierten Komponente verknüpft ist, muss es davor erscheinen.
+- `thin bold 3em`, da `bold` direkt neben der durch die Klammern definierten Komponente steht, muss es davor erscheinen.
 
 ### Juxtaposition
 
-Das nebeneinanderstellen mehrerer Schlüsselwörter, Literale oder Datentypen, nur durch ein oder mehrere Leerzeichen getrennt, wird als _Juxtaposition_ bezeichnet. Alle juxtapositionierten Komponenten sind **verpflichtend und sollten in genau dieser Reihenfolge erscheinen**.
+Mehrere Schlüsselwörter, Literale oder Datentypen nebeneinander zu platzieren, nur durch ein oder mehrere Leerzeichen getrennt, wird _Juxtaposition_ genannt. Alle juxtapositionierten Komponenten sind **verpflichtend und sollen in der genau angegebenen Reihenfolge erscheinen**.
 
-```css
-bold <length>, thin
-```
+{{CSSSyntaxRaw(`example = bold <length>, thin`)}}
 
 Dieses Beispiel passt zu den folgenden Werten:
 
@@ -81,17 +77,15 @@ Dieses Beispiel passt zu den folgenden Werten:
 
 Aber nicht:
 
-- `thin 1em, bold`, da die Einheiten in der angegebenen Reihenfolge erscheinen müssen
-- `bold 1em thin`, da die Einheiten verbindlich sind; das Komma, ein Literal, muss vorhanden sein
-- `bold 0.5ms, thin`, da die `ms`-Werte keine {{CSSxRef("&lt;length&gt;")}} sind
+- `thin 1em, bold`, da die Entitäten in der ausgedrückten Reihenfolge sein müssen
+- `bold 1em thin`, da die Entitäten verpflichtend sind; das Komma, ein Literal, muss vorhanden sein
+- `bold 0.5ms, thin`, da die `ms` Werte nicht {{CSSxRef("&lt;length&gt;")}} sind
 
-### Doppel-Ampersand
+### Doppeltes Kaufmanns-Und
 
-Das Trennen von zwei oder mehr Komponenten durch ein _doppeltes Ampersand_, `&&`, bedeutet, dass all diese Entitäten **verpflichtend sind, aber in beliebiger Reihenfolge erscheinen dürfen**.
+Das Trennen von zwei oder mehr Komponenten durch ein _doppeltes Kaufmanns-Und_, `&&`, bedeutet, dass alle diese Entitäten **verpflichtend sind, aber in beliebiger Reihenfolge erscheinen dürfen**.
 
-```css
-bold && <length>
-```
+{{CSSSyntaxRaw(`example = bold && <length>`)}}
 
 Dieses Beispiel passt zu den folgenden Werten:
 
@@ -106,37 +100,33 @@ Aber nicht:
 - `bold 1em bold`, da beide Komponenten nur einmal erscheinen dürfen.
 
 > [!NOTE]
-> Die Juxtaposition hat Vorrang vor dem doppelten Ampersand, was bedeutet, dass `bold thin && <length>` gleichbedeutend ist mit `[ bold thin ] && <length>`. Es beschreibt `bold thin <length>` oder `<length> bold thin`, aber nicht `bold <length> thin`.
+> Juxtaposition hat Vorrang vor dem doppelten Kaufmanns-Und, was bedeutet, dass `bold thin && <length>` gleichwertig zu `[ bold thin ] && <length>` ist. Es beschreibt `bold thin <length>` oder `<length> bold thin`, aber nicht `bold <length> thin`.
 
-### Doppelstrich
+### Doppelte Leiste
 
-Das Trennen von zwei oder mehr Komponenten durch einen _doppelten Strich_, `||`, bedeutet, dass alle Entitäten Optionen sind: **mindestens eine muss vorhanden sein, und sie können in beliebiger Reihenfolge erscheinen**. Typischerweise wird dies verwendet, um die verschiedenen Werte einer [Kurzform-Eigenschaft](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties) zu definieren.
+Das Trennen von zwei oder mehr Komponenten durch eine _doppelte Leiste_, `||`, bedeutet, dass alle Entitäten Optionen sind: **mindestens eine muss vorhanden sein, und sie können in beliebiger Reihenfolge erscheinen**. Typischerweise wird dies verwendet, um die verschiedenen Werte einer [Kurzschreibeeigenschaft](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties) zu definieren.
 
-```css
-<'border-width'> || <'border-style'> || <'border-color'>
-```
+{{CSSSyntaxRaw(`example = <number> || <length> || <color>`)}}
 
 Dieses Beispiel passt zu den folgenden Werten:
 
-- `1em solid blue`
+- `1em 1 blue`
 - `blue 1em`
-- `solid 1px yellow`
+- `1 1px yellow`
 
 Aber nicht:
 
-- `blue yellow`, da eine Komponente höchstens einmal erscheinen muss.
-- `bold`, da es kein erlaubtes Schlüsselwort als Wert für eine der Entitäten ist.
+- `blue yellow`, da eine Komponente höchstens einmal erscheinen darf.
+- `bold`, da es kein Schlüsselwort ist, das als Wert einer der Entitäten erlaubt ist.
 
 > [!NOTE]
-> Der doppelte Ampersand hat Vorrang vor dem doppelten Strich, was bedeutet, dass `bold || thin && <length>` gleichbedeutend ist mit `bold || [ thin && <length> ]`. Es beschreibt `bold`, `thin <length>`, `bold thin <length>`, oder `thin <length> bold`, aber nicht `<length> bold thin`, da bold, wenn nicht weggelassen, vor oder nach der gesamten `thin && <length>` Komponente platziert sein muss.
+> Das doppelte Kaufmanns-Und hat Vorrang vor der doppelten Leiste, was bedeutet, dass `bold || thin && <length>` gleichwertig zu `bold || [ thin && <length> ]` ist. Es beschreibt `bold`, `thin <length>`, `bold thin <length>` oder `thin <length> bold`, aber nicht `<length> bold thin`, da bold, wenn es nicht weggelassen wird, vor oder nach der gesamten `thin && <length>` Komponente platziert werden muss.
 
-### Einzelstrich
+### Einzelne Leiste
 
-Das Trennen von zwei oder mehr Entitäten durch einen _einzelnen Strich_, `|`, bedeutet, dass alle Entitäten exklusive Optionen sind: **genau eine dieser Optionen muss vorhanden sein**. Dies wird typischerweise verwendet, um eine Liste möglicher Schlüsselwörter zu trennen.
+Das Trennen von zwei oder mehr Entitäten durch eine _einzelne Leiste_, `|`, bedeutet, dass alle Entitäten exklusive Optionen sind: **genau eine dieser Optionen muss vorhanden sein**. Diese wird typischerweise verwendet, um eine Liste möglicher Schlüsselwörter zu trennen.
 
-```css
-<percentage> | <length> | left | center | right | top | bottom
-```
+{{CSSSyntaxRaw(`example = <percentage> | <length> | left | center | right | top | bottom`)}}
 
 Dieses Beispiel passt zu den folgenden Werten:
 
@@ -155,59 +145,53 @@ Aber nicht:
 - `3em 4.5em`, da eine Komponente höchstens einmal vorhanden sein darf.
 
 > [!NOTE]
-> Der doppelte Strich hat Vorrang vor dem einzelnen Strich, was bedeutet, dass `bold | thin || <length>` gleichbedeutend ist mit `bold | [ thin || <length> ]`. Es beschreibt `bold`, `thin`, `<length>`, `<length> thin`, oder `thin <length>`, aber nicht `bold <length>`, da nur eine Entität von jeder Seite des `|` Kombinators vorhanden sein kann.
+> Die doppelte Leiste hat Vorrang vor der einzelnen Leiste, was bedeutet, dass `bold | thin || <length>` gleichwertig zu `bold | [ thin || <length> ]` ist. Es beschreibt `bold`, `thin`, `<length>`, `<length> thin` oder `thin <length>`, aber nicht `bold <length>`, da nur eine Entität von jeder Seite des `|` Kombinators vorhanden sein kann.
 
-## Multiplikatoren für Komponentenwerte
+## Komponentenwertmultiplikatoren
 
-Ein Multiplikator ist ein Zeichen, das angibt, wie oft eine vorhergehende Einheit wiederholt werden kann. Ohne Multiplikator muss eine Entität genau einmal erscheinen.
+Ein Multiplikator ist ein Zeichen, das anzeigt, wie oft eine vorhergehende Entität wiederholt werden kann. Ohne einen Multiplikator muss eine Entität genau einmal erscheinen.
 
 Multiplikatoren können nicht hinzugefügt werden und haben Vorrang vor allen Kombinatoren.
 
 ### Sternchen (`*`)
 
-Der _Sternchen-Multiplikator_ gibt an, dass die Entität **null, einmal oder mehrmals** erscheinen darf.
+Der _Sternchen-Multiplikator_ zeigt an, dass die Entität **null, einmal oder mehrmals** erscheinen darf.
 
-```css
-bold smaller*
-```
+{{CSSSyntaxRaw(`example = bold smaller*`)}}
 
 Dieses Beispiel passt zu den folgenden Werten:
 
 - `bold`
 - `bold smaller`
 - `bold smaller smaller`
-- `bold smaller smaller smaller` und so weiter.
+- `bold smaller smaller smaller`, und so weiter.
 
 Aber nicht:
 
-- `smaller`, da `bold` juxtapositioniert ist und vor jedem `smaller` Schlüsselwort erscheinen muss.
+- `smaller`, da `bold` juxtapositioniert ist, und vor jedem `smaller`-Schlüsselwort erscheinen muss.
 
-### Plus (`+`)
+### Pluszeichen (`+`)
 
-Der _Plus-Multiplikator_ gibt an, dass die Entität **einmal oder mehrmals** erscheinen darf.
+Der _Plus-Multiplikator_ zeigt an, dass die Entität **einmal oder mehrmals** erscheinen darf.
 
-```css
-bold smaller+
-```
+{{CSSSyntaxRaw(`example = bold smaller+`)}}
 
 Dieses Beispiel passt zu den folgenden Werten:
 
 - `bold smaller`
 - `bold smaller smaller`
-- `bold smaller smaller smaller` und so weiter.
+- `bold smaller smaller smaller`, und so weiter.
 
 Aber nicht:
 
 - `bold`, da `smaller` mindestens einmal erscheinen muss.
-- `smaller`, da `bold` juxtapositioniert ist und vor jedem `smaller` Schlüsselwort erscheinen muss.
+- `smaller`, da `bold` juxtapositioniert ist und vor jedem `smaller`-Schlüsselwort erscheinen muss.
 
 ### Fragezeichen (`?`)
 
-Der _Fragezeichen-Multiplikator_ zeigt an, dass die Entität optional ist und **null oder einmal erscheinen muss**.
+Der _Fragezeichen-Multiplikator_ zeigt an, dass die Entität optional ist, und **null oder einmal** erscheinen muss.
 
-```css
-bold smaller?
-```
+{{CSSSyntaxRaw(`example = bold smaller?`)}}
 
 Dieses Beispiel passt zu den folgenden Werten:
 
@@ -217,15 +201,13 @@ Dieses Beispiel passt zu den folgenden Werten:
 Aber nicht:
 
 - `bold smaller smaller`, da `smaller` höchstens einmal erscheinen darf.
-- `smaller`, da `bold` juxtapositioniert ist und vor jedem `smaller` Schlüsselwort erscheinen muss.
+- `smaller`, da `bold` juxtapositioniert ist und vor jedem `smaller`-Schlüsselwort erscheinen muss.
 
 ### Geschweifte Klammern (`{ }`)
 
-Der _geschweifte Klammern-Multiplikator_, der zwei durch ein Komma getrennte ganze Zahlen A und B umschließt, gibt an, dass die Entität **mindestens A mal und höchstens B mal** erscheinen muss.
+Der _geschweifte Klammer-Multiplikator_, der zwei durch ein Komma getrennte ganze Zahlen A und B einschließt, zeigt an, dass die Entität **mindestens A Mal und höchstens B Mal** erscheinen muss.
 
-```css
-bold smaller{1,3}
-```
+{{CSSSyntaxRaw(`example = bold smaller{1,3}`)}}
 
 Dieses Beispiel passt zu den folgenden Werten:
 
@@ -237,33 +219,29 @@ Aber nicht:
 
 - `bold`, da `smaller` mindestens einmal erscheinen muss.
 - `bold smaller smaller smaller smaller`, da `smaller` höchstens dreimal erscheinen darf.
-- `smaller`, da `bold` juxtapositioniert ist und vor jedem `smaller` Schlüsselwort erscheinen muss.
+- `smaller`, da `bold` juxtapositioniert ist und vor jedem `smaller`-Schlüsselwort erscheinen muss.
 
-### Rautezeichen (`#`)
+### Raute (#)
 
-Der _Rautezeichen-Multiplikator_ zeigt an, dass die Entität mindestens einmal oder mehrmals wiederholt werden kann (ähnlich dem Plus-Multiplikator), jedoch muss jede Instanz durch ein Komma (',') getrennt sein.
+Der _Raute-Multiplikator_ zeigt an, dass die Entität einmal oder mehrmals wiederholt werden kann (zum Beispiel der Plus-Multiplikator), aber jedes Vorkommen durch ein Komma (',') getrennt wird.
 
-```css
-bold smaller#
-```
+{{CSSSyntaxRaw(`example = bold smaller#`)}}
 
 Dieses Beispiel passt zu den folgenden Werten:
 
 - `bold smaller`
 - `bold smaller, smaller`
-- `bold smaller, smaller, smaller` und so weiter.
+- `bold smaller, smaller, smaller`, und so weiter.
 
 Aber nicht:
 
 - `bold`, da `smaller` mindestens einmal erscheinen muss.
-- `bold smaller smaller smaller`, da die verschiedenen Instanzen von `smaller` durch Kommas getrennt sein müssen.
-- `smaller`, da `bold` juxtapositioniert ist und vor jedem `smaller` Schlüsselwort erscheinen muss.
+- `bold smaller smaller smaller`, da die verschiedenen Vorkommen von `smaller` durch Kommas getrennt sein müssen.
+- `smaller`, da `bold` juxtapositioniert ist und vor jedem `smaller`-Schlüsselwort erscheinen muss.
 
-Das Rautezeichen kann optional von geschweiften Klammern gefolgt sein, um anzugeben, wie oft die Entität wiederholt wird.
+Der Raute-Multiplikator kann optional von geschweiften Klammern gefolgt werden, um anzugeben, wie oft die Entität wiederholt wird.
 
-```css
-bold smaller#{1,3}
-```
+{{CSSSyntaxRaw(`example = bold smaller#{1,3}`)}}
 
 Dieses Beispiel passt zu den folgenden Werten:
 
@@ -273,13 +251,11 @@ Dieses Beispiel passt zu den folgenden Werten:
 
 Aber nicht:
 
-- `bold smaller, smaller, smaller, smaller`, da `smaller` höchstens dreimal erscheinen darf.
+- `bold smaller, smaller, smaller, smaller`, da `smaller` höchstens dreimal auftreten darf.
 
-```css
-bold smaller#{2}
-```
+{{CSSSyntaxRaw(`example = bold smaller#{2}`)}}
 
-Dieses Beispiel passt zum folgenden Wert:
+Dieses Beispiel passt zu folgendem Wert:
 
 - `bold smaller, smaller`
 
@@ -289,11 +265,9 @@ Aber nicht:
 
 ### Ausrufezeichen (`!`)
 
-Der _Ausrufezeichen-Multiplikator_ nach einer Gruppe zeigt an, dass die Gruppe erforderlich ist und mindestens einen Wert produzieren muss; auch wenn die Grammatik der Inhalte innerhalb der Gruppe es sonst erlauben würde, den gesamten Inhalt wegzulassen, muss mindestens ein Komponentenwert nicht weggelassen werden.
+Der _Ausrufezeichen-Multiplikator_ nach einer Gruppe zeigt an, dass die Gruppe erforderlich ist und mindestens einen Wert erzeugen muss; selbst wenn die Grammatik der Elemente innerhalb der Gruppe andernfalls das gesamte enthaltene Material weglassen würde, darf mindestens eine Komponentenwert nicht weggelassen werden.
 
-```css
-[ bold? smaller? ]!
-```
+{{CSSSyntaxRaw(`example = [ bold? smaller? ]!`)}}
 
 Dieses Beispiel passt zu den folgenden Werten:
 
@@ -303,28 +277,26 @@ Dieses Beispiel passt zu den folgenden Werten:
 
 Aber nicht:
 
-- weder `bold` noch `smaller`, da einer von ihnen erscheinen muss.
-- `smaller bold`, da `bold` juxtapositioniert ist und vor dem `smaller` Schlüsselwort erscheinen muss.
+- weder `bold` noch `smaller`, da eine von beiden erscheinen muss.
+- `smaller bold`, da `bold` juxtapositioniert ist und vor dem `smaller`-Schlüsselwort erscheinen muss.
 - `bold smaller bold`, da `bold` und `smaller` nur einmal erscheinen dürfen.
 
-## Klammernotierung für Bereich (`[min,max]`)
+## Bereichsbezeichnung in Klammern (`[min,max]`)
 
-Einige Typen können numerische Werte innerhalb eines bestimmten Bereichs akzeptieren. Zum Beispiel kann die [`column-count`](/de/docs/Web/CSS/column-count)-Eigenschaft einen ganzzahligen Wert zwischen positiv 1 und unendlich, inklusive, akzeptieren. Die entsprechende Syntax sieht so aus:
+Einige Typen können numerische Werte innerhalb eines bestimmten Bereichs akzeptieren. Zum Beispiel kann die Eigenschaft [`column-count`](/de/docs/Web/CSS/column-count) einen ganzzahligen Wert zwischen positiv 1 und unendlich, inklusive, akzeptieren. Die entsprechende Syntax sieht folgendermaßen aus:
 
-```plain
-<integer [1,∞]>
-```
+{{CSSSyntaxRaw(`example = <integer [1,∞]>`)}}
 
-Jeder Wert außerhalb dieses angegebenen Bereichs führt dazu, dass die gesamte Deklaration ungültig ist, daher ignoriert der Browser sie.
+Jeder Wert außerhalb dieses angegebenen Bereichs macht die gesamte Deklaration ungültig, daher wird der Browser sie ignorieren.
 
-Die _Klammernotierung des Bereichs_ `[min, max]` gibt einen inklusiven Bereich zwischen einem `min`- und `max`-Wert an. Diese Notation wird in numerischen Typnotationen verwendet und kann Einheiten enthalten, z.B. `<angle [0,180deg]>`. Unendlichkeiten (-∞ und ∞) dürfen keine Einheiten angegeben haben. Typen, die in Einheiten spezifiziert werden, können Nullwerte mit oder ohne Einheiten spezifiziert haben, zum Beispiel `<time [0s,10s]>` oder `<time [0,10s]>`.
+Die _Bereichsbezeichnung in Klammern_ `[min, max]` zeigt einen inklusiven Bereich zwischen einem `min`- und `max`-Wert an. Diese Notation wird in numerischen Typnotationen verwendet und kann Einheiten enthalten, z.B. `<angle [0,180deg]>`. Positive und negative Unendlichkeit (-∞ und ∞) dürfen keine Einheiten angegeben haben. Typen, die in Einheiten angegeben sind, können Null-Werte mit oder ohne Einheiten enthalten, beispielsweise `<time [0s,10s]>` oder `<time [0,10s]>`.
 
 Hier sind einige weitere Beispiele:
 
-- `<integer [-∞,∞]>`: Jeder ganzzahlige Wert von negativer zu positiver Unendlichkeit.
-- `<integer [0,∞]>`: Jeder ganzzahlige Wert ab 0 bis zur positiven Unendlichkeit ist gültig. Negative Ganzzahlen sind ungültig.
-- `<time [0s,10s]>` oder `<time [0,10s]>`: Jede Dauer zwischen 0 und 10 Sekunden ist gültig.
-- `<integer [-∞,-1]> | <integer [1,∞]>`: Jede Ganzzahl außer Null ist gültig.
+- `<integer [-∞,∞]>`: Jeder ganzzahlige Wert von negativer bis positiver Unendlichkeit.
+- `<integer [0,∞]>`: Jeder ganzzahlige Wert von 0 bis positive Unendlichkeit ist gültig. Negative Ganzzahlen sind ungültig.
+- `<time [0s,10s]>` oder `<time [0,10s]>`: Jede Dauer von 0 bis 10 Sekunden ist gültig.
+- `<integer [-∞,-1]> | <integer [1,∞]>`: Jede ganze Zahl außer null ist gültig.
 
 ## Zusammenfassung
 
@@ -344,21 +316,21 @@ Hier sind einige weitere Beispiele:
     <tr>
       <td></td>
       <td>Juxtaposition</td>
-      <td>Komponenten sind verpflichtend und sollten in dieser Reihenfolge erscheinen</td>
+      <td>Komponenten sind erforderlich und müssen in dieser Reihenfolge erscheinen</td>
       <td><code>solid &#x3C;length></code></td>
     </tr>
     <tr>
       <td><code>&#x26;&#x26;</code></td>
-      <td>Doppeltes Ampersand</td>
-      <td>Komponenten sind verpflichtend, können aber in beliebiger Reihenfolge erscheinen</td>
+      <td>Doppeltes Kaufmanns-Und</td>
+      <td>Komponenten sind erforderlich, dürfen aber in beliebiger Reihenfolge erscheinen</td>
       <td><code>&#x3C;length> &#x26;&#x26; &#x3C;string></code></td>
     </tr>
     <tr>
       <td><code>||</code></td>
-      <td>Doppelstrich</td>
+      <td>Doppelte Leiste</td>
       <td>
-        Mindestens eine der Komponenten muss vorhanden sein und kann in beliebiger
-        Reihenfolge erscheinen.
+        Mindestens eine der Komponenten muss vorhanden sein, und sie können in
+        beliebiger Reihenfolge erscheinen.
       </td>
       <td>
         <code>&#x3C;'border-image-outset'> || &#x3C;'border-image-slice'></code>
@@ -366,14 +338,14 @@ Hier sind einige weitere Beispiele:
     </tr>
     <tr>
       <td><code>|</code></td>
-      <td>Einzelstrich</td>
+      <td>Einzelne Leiste</td>
       <td>Genau eine der Komponenten muss vorhanden sein</td>
       <td><code>smaller | small | normal | big | bigger</code></td>
     </tr>
     <tr>
       <td><code>[ ]</code></td>
       <td>Klammern</td>
-      <td>Komponenten gruppieren, um Vorrangregeln zu umgehen</td>
+      <td>Gruppieren von Komponenten zur Umgehung der Vorrangregeln</td>
       <td><code>bold [ thin &#x26;&#x26; &#x3C;length> ]</code></td>
     </tr>
     <tr>
@@ -400,28 +372,28 @@ Hier sind einige weitere Beispiele:
     <tr>
       <td><code>?</code></td>
       <td>Fragezeichen</td>
-      <td>0 oder 1 Mal (das heißt <em>optional</em>)</td>
+      <td>0 oder 1 Mal (das heißt <em>optional)</em></td>
       <td><code>bold smaller?</code></td>
     </tr>
     <tr>
       <td><code>{min,max}</code></td>
       <td>Geschweifte Klammern</td>
-      <td>Mindestens <code>min</code> Mal, höchstens <code>max</code> Mal</td>
+      <td>Mindestens <code>min</code> Male, maximal <code>max</code> Male</td>
       <td><code>bold smaller{1,3}</code></td>
     </tr>
     <tr>
       <td><code>#</code></td>
-      <td>Rautezeichen</td>
+      <td>Raute</td>
       <td>
-        1 oder mehr Male, wobei jede Instanz durch ein Komma
-        (<code>,</code>) getrennt ist
+        1 oder mehr Male, wobei jede Vorkommen durch ein Komma
+        (<code>,</code>) getrennt wird
       </td>
       <td><code>bold smaller#</code></td>
     </tr>
     <tr>
       <td><code>!</code></td>
       <td>Ausrufezeichen</td>
-      <td>Gruppe muss mindestens einen Wert produzieren</td>
+      <td>Gruppe muss mindestens 1 Wert erzeugen</td>
       <td><code>[ bold? smaller? ]!</code></td>
     </tr>
     <tr>
@@ -442,7 +414,7 @@ Hier sind einige weitere Beispiele:
 
 ## Siehe auch
 
-- CSS Schlüsselkonzepte:
+- CSS-Schlüsselkonzepte:
   - [CSS-Syntax](/de/docs/Web/CSS/CSS_syntax/Syntax)
   - [Kommentare](/de/docs/Web/CSS/CSS_syntax/Comments)
   - [Spezifität](/de/docs/Web/CSS/CSS_cascade/Specificity)
@@ -450,12 +422,12 @@ Hier sind einige weitere Beispiele:
   - [Box-Modell](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model)
   - {{Glossary("Layout_mode", "Layout-Modi")}}
   - [Visuelles Formatierungsmodell](/de/docs/Web/CSS/CSS_display/Visual_formatting_model)
-  - [Randzusammenfall](/de/docs/Web/CSS/CSS_box_model/Mastering_margin_collapsing)
+  - [Rand-Kollaps](/de/docs/Web/CSS/CSS_box_model/Mastering_margin_collapsing)
   - Werte
-    - [Anfangswerte](/de/docs/Web/CSS/CSS_cascade/Value_processing#initial_value)
+    - [Initialwerte](/de/docs/Web/CSS/CSS_cascade/Value_processing#initial_value)
     - [Berechnete Werte](/de/docs/Web/CSS/CSS_cascade/Value_processing#computed_value)
     - [Verwendete Werte](/de/docs/Web/CSS/CSS_cascade/Value_processing#used_value)
     - [Tatsächliche Werte](/de/docs/Web/CSS/CSS_cascade/Value_processing#actual_value)
-  - **Wert-Definitionssyntax**
-  - [Kurzschreibweise-Eigenschaften](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties)
+  - **Wertedefinitionssyntax**
+  - [Kurzschreibeeigenschaften](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties)
   - {{Glossary("Replaced_elements", "Ersetzte Elemente")}}

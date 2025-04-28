@@ -2,23 +2,23 @@
 title: GPUDeviceLostInfo
 slug: Web/API/GPUDeviceLostInfo
 l10n:
-  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
+  sourceCommit: 759102220c07fb140b3e06971cd5981d8f0f134f
 ---
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Das **`GPUDeviceLostInfo`**-Interface der [WebGPU API](/de/docs/Web/API/WebGPU_API) repräsentiert das Objekt, das zurückgegeben wird, wenn der [`GPUDevice.lost`](/de/docs/Web/API/GPUDevice/lost) {{jsxref("Promise")}} aufgelöst wird. Dies liefert Informationen darüber, warum ein Gerät verloren gegangen ist.
+Das **`GPUDeviceLostInfo`**-Interface der [WebGPU-API](/de/docs/Web/API/WebGPU_API) repräsentiert das Objekt, das zurückgegeben wird, wenn das [`GPUDevice.lost`](/de/docs/Web/API/GPUDevice/lost) {{jsxref("Promise")}} aufgelöst wird. Dies liefert Informationen darüber, warum ein Gerät verloren gegangen ist.
 
-Weitere Informationen über den "verlorenen" Status finden Sie auf der Seite [`GPUDevice.lost`](/de/docs/Web/API/GPUDevice/lost).
+Siehe die Seite [`GPUDevice.lost`](/de/docs/Web/API/GPUDevice/lost) für weitere Informationen über den "verlorenen" Zustand.
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
 - [`message`](/de/docs/Web/API/GPUDeviceLostInfo/message) {{Experimental_Inline}} {{ReadOnlyInline}}
-  - : Ein String, der eine menschenlesbare Nachricht bereitstellt, die erklärt, warum das Gerät verloren gegangen ist.
+  - : Ein String, der eine für Menschen lesbare Nachricht bereitstellt, die erklärt, warum das Gerät verloren ging.
 - [`reason`](/de/docs/Web/API/GPUDeviceLostInfo/reason) {{Experimental_Inline}} {{ReadOnlyInline}}
-  - : Ein enumerierter Wert, der den Grund angibt, warum das Gerät in maschinenlesbarer Form verloren gegangen ist.
+  - : Ein enumerierter Wert, der den Grund, warum das Gerät verloren ging, in maschinenlesbarer Weise definiert.
 
 ## Beispiele
 
@@ -43,7 +43,7 @@ async function init() {
       init();
     }
   });
-  // ...
+  // …
 }
 ```
 
@@ -57,4 +57,4 @@ async function init() {
 
 ## Siehe auch
 
-- Die [WebGPU API](/de/docs/Web/API/WebGPU_API)
+- Die [WebGPU-API](/de/docs/Web/API/WebGPU_API)

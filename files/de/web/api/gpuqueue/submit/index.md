@@ -1,14 +1,14 @@
 ---
-title: "GPUQueue: submit()-Methode"
+title: "GPUQueue: submit() Methode"
 short-title: submit()
 slug: Web/API/GPUQueue/submit
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: 759102220c07fb140b3e06971cd5981d8f0f134f
 ---
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`submit()`**-Methode der [`GPUQueue`](/de/docs/Web/API/GPUQueue)-Schnittstelle plant die Ausführung von Befehls-Puffern, die durch ein oder mehrere [`GPUCommandBuffer`](/de/docs/Web/API/GPUCommandBuffer)-Objekte dargestellt werden, durch die GPU.
+Die **`submit()`**-Methode des [`GPUQueue`](/de/docs/Web/API/GPUQueue)-Interfaces plant die Ausführung von Befehls-Puffern, die durch eines oder mehrere [`GPUCommandBuffer`](/de/docs/Web/API/GPUCommandBuffer)-Objekte vom GPU repräsentiert werden.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ submit(commandBuffers)
 ### Parameter
 
 - `commandBuffers`
-  - : Ein Array von [`GPUCommandBuffer`](/de/docs/Web/API/GPUCommandBuffer)-Objekten, das die Befehle enthält, die zur Verarbeitung durch die GPU in die Warteschlange gestellt werden sollen. Das Array darf keine doppelten `GPUCommandBuffer`-Objekte enthalten — jedes Objekt kann nur einmal pro `submit()`-Aufruf übermittelt werden.
+  - : Ein Array von [`GPUCommandBuffer`](/de/docs/Web/API/GPUCommandBuffer)-Objekten, die die zu verarbeitenden Befehle für die GPU enthalten. Das Array darf keine doppelten `GPUCommandBuffer`-Objekte enthalten — jedes kann nur einmal pro `submit()`-Aufruf übermittelt werden.
 
 ### Rückgabewert
 
@@ -27,19 +27,19 @@ Keiner ({{jsxref("Undefined")}}).
 
 ### Validierung
 
-Die folgenden Kriterien müssen beim Aufruf von **`submit()`** erfüllt sein, andernfalls wird ein [`GPUValidationError`](/de/docs/Web/API/GPUValidationError) erzeugt und die [`GPUQueue`](/de/docs/Web/API/GPUQueue) wird ungültig:
+Die folgenden Kriterien müssen erfüllt sein, wenn **`submit()`** aufgerufen wird, andernfalls wird ein [`GPUValidationError`](/de/docs/Web/API/GPUValidationError) generiert und die [`GPUQueue`](/de/docs/Web/API/GPUQueue) wird ungültig:
 
-- Das Array von [`GPUCommandBuffer`](/de/docs/Web/API/GPUCommandBuffer)-Objekten, das im `submit()`-Aufruf referenziert wird, enthält keine Duplikate.
-- Alle in den kodierten Befehlen verwendeten [`GPUBuffer`](/de/docs/Web/API/GPUBuffer)-, [`GPUTexture`](/de/docs/Web/API/GPUTexture)- und [`GPUQuerySet`](/de/docs/Web/API/GPUQuerySet)-Objekte sind verfügbar, d.h. sie sind nicht nicht verfügbar (`GPUBuffer` sind nicht verfügbar, wenn sie derzeit [gemappt](/de/docs/Web/API/GPUBuffer/mapAsync) sind) oder zerstört (mit der `destroy()`-Methode).
-- Alle [`GPUExternalTexture`](/de/docs/Web/API/GPUExternalTexture)-Objekte, die in den kodierten Befehlen verwendet werden, sind nicht abgelaufen (sie laufen automatisch ab, kurz nachdem sie über [`importExternalTexture()`](/de/docs/Web/API/GPUDevice/importExternalTexture) importiert wurden).
-- Wenn ein [`GPUQuerySet`](/de/docs/Web/API/GPUQuerySet)-Objekt in einem kodierten Befehl vom Typ „occlusion“ query ist, wird es nicht bereits verwendet, außer durch [`GPURenderPassEncoder.beginOcclusionQuery()`](/de/docs/Web/API/GPURenderPassEncoder/beginOcclusionQuery).
+- Das Array von [`GPUCommandBuffer`](/de/docs/Web/API/GPUCommandBuffer)-Objekten, auf das im `submit()`-Aufruf verwiesen wird, enthält keine Duplikate.
+- Alle [`GPUBuffer`](/de/docs/Web/API/GPUBuffer)-, [`GPUTexture`](/de/docs/Web/API/GPUTexture)- und [`GPUQuerySet`](/de/docs/Web/API/GPUQuerySet)-Objekte, die in den kodierten Befehlen verwendet werden, sind verfügbar, d.h. nicht unzugänglich (z. B. sind `GPUBuffer`s unzugänglich, wenn sie derzeit [gemappt](/de/docs/Web/API/GPUBuffer/mapAsync) sind) oder zerstört (mit der `destroy()`-Methode).
+- Alle [`GPUExternalTexture`](/de/docs/Web/API/GPUExternalTexture)-Objekte, die in den kodierten Befehlen verwendet werden, sind nicht abgelaufen (sie laufen automatisch kurz nach dem Import über [`importExternalTexture()`](/de/docs/Web/API/GPUDevice/importExternalTexture) ab).
+- Wenn ein [`GPUQuerySet`](/de/docs/Web/API/GPUQuerySet)-Objekt, das in einem kodierten Befehl verwendet wird, von Typ "occlusion query" ist, wird es nicht bereits verwendet, außer von [`GPURenderPassEncoder.beginOcclusionQuery()`](/de/docs/Web/API/GPURenderPassEncoder/beginOcclusionQuery).
 
 ## Beispiele
 
-In unserem [grundlegenden Render-Demo](https://mdn.github.io/dom-examples/webgpu-render-demo/) werden eine Reihe von Befehlen über einen [`GPUCommandEncoder`](/de/docs/Web/API/GPUCommandEncoder) aufgezeichnet:
+In unserem [Grundlegendes Render-Demo](https://mdn.github.io/dom-examples/webgpu-render-demo/) werden eine Reihe von Befehlen über einen [`GPUCommandEncoder`](/de/docs/Web/API/GPUCommandEncoder) aufgezeichnet:
 
 ```js
-// ...
+// …
 
 // Create GPUCommandEncoder
 const commandEncoder = device.createCommandEncoder();
@@ -69,17 +69,17 @@ passEncoder.draw(3);
 
 passEncoder.end();
 
-// ...
+// …
 ```
 
-Die durch den [`GPUCommandEncoder`](/de/docs/Web/API/GPUCommandEncoder) kodierten Befehle werden mit der [`GPUCommandEncoder.finish()`](/de/docs/Web/API/GPUCommandEncoder/finish)-Methode in einen [`GPUCommandBuffer`](/de/docs/Web/API/GPUCommandBuffer) rekodiert. Der Befehls-Puffer wird dann über einen `submit()`-Aufruf in die Warteschlange übergeben, bereit zur Verarbeitung durch die GPU.
+Die durch den [`GPUCommandEncoder`](/de/docs/Web/API/GPUCommandEncoder) kodierten Befehle werden mithilfe der [`GPUCommandEncoder.finish()`](/de/docs/Web/API/GPUCommandEncoder/finish)-Methode in einem [`GPUCommandBuffer`](/de/docs/Web/API/GPUCommandBuffer) neu aufgezeichnet. Der Befehls-Puffer wird dann über einen `submit()`-Aufruf in die Warteschlange übergeben und ist bereit, von der GPU verarbeitet zu werden.
 
 ```js
 device.queue.submit([commandEncoder.finish()]);
 ```
 
 > [!NOTE]
-> Untersuchen Sie die [WebGPU-Beispiele](https://webgpu.github.io/webgpu-samples/), um weitere Beispiele für Warteschlangen zu finden.
+> Studieren Sie die [WebGPU-Beispiele](https://webgpu.github.io/webgpu-samples/), um weitere Warteschlangenbeispiele zu finden.
 
 ## Spezifikationen
 

@@ -3,12 +3,12 @@ title: "FormDataEvent: formData-Eigenschaft"
 short-title: formData
 slug: Web/API/FormDataEvent/formData
 l10n:
-  sourceCommit: 0a726c0a04ab286873ad91b5ddee478dd938832d
+  sourceCommit: be1922d62a0d31e4e3441db0e943aed8df736481
 ---
 
 {{APIRef("DOM")}}
 
-Die schreibgeschützte `formData`-Eigenschaft des [`FormDataEvent`](/de/docs/Web/API/FormDataEvent)-Interfaces enthält das [`FormData`](/de/docs/Web/API/FormData)-Objekt, das die Daten darstellt, die im Formular enthalten sind, als das Ereignis ausgelöst wurde.
+Die schreibgeschützte `formData`-Eigenschaft des [`FormDataEvent`](/de/docs/Web/API/FormDataEvent)-Interfaces enthält das [`FormData`](/de/docs/Web/API/FormData)-Objekt, das die Daten des Formulars repräsentiert, als das Ereignis ausgelöst wurde.
 
 ## Wert
 
@@ -59,7 +59,7 @@ formElem.addEventListener("formdata", (e) => {
 
 ## Siehe auch
 
-- [`XMLHTTPRequest`](/de/docs/Web/API/XMLHttpRequest)
+- [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest)
 - [Verwendung von XMLHttpRequest](/de/docs/Web/API/XMLHttpRequest_API/Using_XMLHttpRequest)
 - [Verwendung von FormData-Objekten](/de/docs/Web/API/XMLHttpRequest_API/Using_FormData_Objects)
 - {{HTMLElement("Form")}}

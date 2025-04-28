@@ -1,16 +1,16 @@
 ---
-title: "GPUComputePassEncoder: popDebugGroup()-Methode"
+title: "GPUComputePassEncoder: popDebugGroup() Methode"
 short-title: popDebugGroup()
 slug: Web/API/GPUComputePassEncoder/popDebugGroup
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: 759102220c07fb140b3e06971cd5981d8f0f134f
 ---
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`popDebugGroup()`**-Methode des [`GPUComputePassEncoder`](/de/docs/Web/API/GPUComputePassEncoder)-Interfaces beendet eine Berechnungs-Pass-Debug-Gruppe, die mit einem Aufruf von [`pushDebugGroup()`](/de/docs/Web/API/GPUComputePassEncoder/pushDebugGroup) begonnen wurde.
+Die **`popDebugGroup()`**-Methode der [`GPUComputePassEncoder`](/de/docs/Web/API/GPUComputePassEncoder)-Schnittstelle beendet eine Compute-Pass-Debuggruppe, die mit einem [`pushDebugGroup()`](/de/docs/Web/API/GPUComputePassEncoder/pushDebugGroup)-Aufruf gestartet wurde.
 
-Dies könnte für Telemetrie verwendet werden oder in Zukunft in [`GPUError`](/de/docs/Web/API/GPUError)-Nachrichten, Browser-Entwicklungstools oder anderen Diensten zur Fehlersuche genutzt werden.
+Dies könnte für Telemetrie verwendet werden oder könnte zukünftig in [`GPUError`](/de/docs/Web/API/GPUError)-Nachrichten, Browser-Entwicklungstools oder anderen Diensten zur Unterstützung beim Debugging genutzt werden.
 
 ## Syntax
 
@@ -30,12 +30,12 @@ Keiner ({{jsxref("Undefined")}}).
 
 Die folgenden Kriterien müssen erfüllt sein, wenn **`popDebugGroup()`** aufgerufen wird, andernfalls wird ein [`GPUValidationError`](/de/docs/Web/API/GPUValidationError) erzeugt und der [`GPUComputePassEncoder`](/de/docs/Web/API/GPUComputePassEncoder) wird ungültig:
 
-- Der Debug-Stack des Compute-Pass-Encoders ist nicht leer (d.h. mindestens eine Berechnungs-Pass-Debug-Gruppe wurde zuvor mit [`pushDebugGroup()`](/de/docs/Web/API/GPUComputePassEncoder/pushDebugGroup) gestartet).
+- Der Debug-Stack des Compute-Pass-Encoders ist nicht leer (d.h. mindestens eine Compute-Pass-Debuggruppe wurde zuvor mit [`pushDebugGroup()`](/de/docs/Web/API/GPUComputePassEncoder/pushDebugGroup) gestartet).
 
 ## Beispiele
 
 ```js
-// ...
+// …
 
 const passEncoder = commandEncoder.beginComputePass();
 
@@ -47,7 +47,7 @@ passEncoder.dispatchWorkgroups(Math.ceil(BUFFER_SIZE / 64));
 
 passEncoder.popDebugGroup();
 
-// ...
+// …
 ```
 
 ## Spezifikationen

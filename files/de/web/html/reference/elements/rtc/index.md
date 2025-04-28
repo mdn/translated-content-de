@@ -2,24 +2,24 @@
 title: "<rtc>: Das Ruby Text Container-Element"
 slug: Web/HTML/Reference/Elements/rtc
 l10n:
-  sourceCommit: 874ad29df9150037acb8a4a3e7550a302c90a080
+  sourceCommit: 7c0cd9f9b667fe9be0887e8902d09f0013290930
 ---
 
 {{HTMLSidebar}}{{deprecated_header}}
 
-Das **`<rtc>`** [HTML](/de/docs/Web/HTML)-Element umfasst semantische Anmerkungen von Zeichen, die in einer Ruby von {{HTMLElement("rb")}}-Elementen präsentiert werden, die innerhalb eines {{HTMLElement("ruby")}}-Elements verwendet werden. {{HTMLElement("rb")}}-Elemente können sowohl Aussprache- ({{HTMLElement("rt")}}) als auch semantische (`<rtc>`) Anmerkungen haben.
+Das **`<rtc>`** [HTML](/de/docs/Web/HTML)-Element umfasst semantische Anmerkungen von Zeichen, die in einer Ruby von {{HTMLElement("rb")}}-Elementen verwendet werden, die innerhalb eines {{HTMLElement("ruby")}}-Elements eingesetzt sind. {{HTMLElement("rb")}}-Elemente können sowohl Aussprache- ({{HTMLElement("rt")}}) als auch semantische (`<rtc>`) Anmerkungen haben.
 
 {{InteractiveExample("HTML Demo: &lt;rtc&gt;", "tabbed-standard")}}
 
 ```html interactive-example
-<ruby xml:lang="zh-Hant" style="ruby-position: under;">
+<ruby lang="zh-Hant">
   <rbc>
     <rb>馬</rb><rp>(</rp><rt>mǎ</rt><rp>)</rp>
     <rb>來</rb><rp>(</rp><rt>lái</rt><rp>)</rp>
     <rb>西</rb><rp>(</rp><rt>xī</rt><rp>)</rp>
     <rb>亞</rb><rp>(</rp><rt>yà</rt><rp>)</rp>
   </rbc>
-  <rtc xml:lang="en" style="ruby-position: over;">
+  <rtc lang="en">
     <rp>(</rp><rt>Malaysia</rt><rp>)</rp>
   </rtc>
 </ruby>
@@ -28,23 +28,26 @@ Das **`<rtc>`** [HTML](/de/docs/Web/HTML)-Element umfasst semantische Anmerkunge
 ```css interactive-example
 ruby {
   font-size: 2em;
+  ruby-position: under;
+}
+
+rtc {
+  ruby-position: over;
 }
 ```
 
 ## Attribute
 
-Dieses Element enthält nur die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
+Dieses Element beinhaltet nur die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
 ## Beispiele
 
 ```html
 <div class="info">
   <ruby>
-    <rtc>
-      <rb>旧</rb><rt>jiù</rt>
-      <rb>金</rb><rt>jīn</rt>
-      <rb>山</rb><rt>shān</rt>
-    </rtc>
+    <rbc>
+      <rb>旧</rb><rt>jiù</rt> <rb>金</rb><rt>jīn</rt> <rb>山</rb><rt>shān</rt>
+    </rbc>
     <rtc>San Francisco</rtc>
   </ruby>
 </div>
@@ -77,7 +80,7 @@ Dieses Element enthält nur die [globalen Attribute](/de/docs/Web/HTML/Reference
       <th scope="row">Erlaubter Inhalt</th>
       <td>
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Phrasierungsinhalt</a
+          >Phrasing-Inhalt</a
         >
         oder {{HTMLElement("rt")}}-Elemente.
       </td>
@@ -87,8 +90,8 @@ Dieses Element enthält nur die [globalen Attribute](/de/docs/Web/HTML/Reference
       <td>
         Das schließende Tag kann weggelassen werden, wenn es unmittelbar von einem
         {{HTMLElement("rb")}}, <code>&lt;rtc&gt;</code> oder
-        {{HTMLElement("rt")}}-Element-Öffnungstag oder vom parent
-        Schließ-Tag gefolgt wird.
+        {{HTMLElement("rt")}}-Element öffnenden Tag oder vom schließenden
+        Tag seines Elternteils gefolgt wird.
       </td>
     </tr>
     <tr>

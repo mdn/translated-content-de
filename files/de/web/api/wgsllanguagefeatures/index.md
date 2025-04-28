@@ -2,59 +2,59 @@
 title: WGSLLanguageFeatures
 slug: Web/API/WGSLLanguageFeatures
 l10n:
-  sourceCommit: e3c2148d226a4a1143fbe0dbde1af50a7400b971
+  sourceCommit: 759102220c07fb140b3e06971cd5981d8f0f134f
 ---
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`WGSLLanguageFeatures`**-Schnittstelle der [WebGPU API](/de/docs/Web/API/WebGPU_API) ist ein [set-ähnliches](/de/docs/Web/JavaScript/Reference/Global_Objects/Set) Objekt, das die vom WebGPU-Implementierung unterstützten [WGSL-Spracherweiterungen](https://gpuweb.github.io/gpuweb/wgsl/#language-extension) meldet.
+Die **`WGSLLanguageFeatures`** Schnittstelle der [WebGPU API](/de/docs/Web/API/WebGPU_API) ist ein [setähnliches](/de/docs/Web/JavaScript/Reference/Global_Objects/Set) Objekt, das die von der WebGPU-Implementierung unterstützten [WGSL-Spracherweiterungen](https://gpuweb.github.io/gpuweb/wgsl/#language-extension) meldet.
 
-Das `WGSLLanguageFeatures`-Objekt wird über die [`GPU.wgslLanguageFeatures`](/de/docs/Web/API/GPU/wgslLanguageFeatures)-Eigenschaft aufgerufen.
+Das `WGSLLanguageFeatures`-Objekt wird über die [`GPU.wgslLanguageFeatures`](/de/docs/Web/API/GPU/wgslLanguageFeatures) Eigenschaft aufgerufen.
 
 > [!NOTE]
-> Nicht alle WGSL-Spracherweiterungen sind in allen Browsern, die die API unterstützen, für WebGPU verfügbar. Wir empfehlen, alle Erweiterungen, die Sie verwenden möchten, gründlich zu testen.
+> Nicht alle WGSL-Spracherweiterungen sind für WebGPU in allen Browsern, die die API unterstützen, verfügbar. Es wird empfohlen, alle Erweiterungen, die Sie verwenden möchten, gründlich zu testen.
 
 {{InheritanceDiagram}}
 
 ## Verfügbare Funktionen
 
-Die folgenden WGSL-Spracherweiterungen sind in den [WGSL-Spracherweiterungen](https://gpuweb.github.io/gpuweb/wgsl/#language-extension) in der WGSL-Spezifikation definiert. Beachten Sie, dass der genaue Satz an verfügbaren Funktionen zwischen Implementierungen und physischen Geräten variieren kann und sich im Laufe der Zeit ändern kann.
+Die folgenden WGSL-Spracherweiterungen sind unter [WGSL-Spracherweiterungen](https://gpuweb.github.io/gpuweb/wgsl/#language-extension) in der WGSL-Spezifikation definiert. Beachten Sie, dass der genaue Funktionsumfang je nach Implementierung und physischem Gerät variieren kann und sich im Laufe der Zeit ändern kann.
 
 - `packed_4x8_integer_dot_product`
 
-  - : Erlaubt **DP4a**-GPU-Anweisungen (Dot Product of 4 Elements and Accumulate), die über Ihren WGSL-Code verwendet werden können. Diese führen effizient 8-Bit-Integer-Punktprodukte aus, um Berechnungen zu beschleunigen, Speicher und Netzwerkbandbreite zu sparen und die Leistung im Vergleich zu den entsprechenden `f32`-Versionen zu verbessern. Sie werden häufig in inferenzierenden Maschinenlernmodellen innerhalb von KI-Frameworks eingesetzt.
+  - : Ermöglicht **DP4a** (Dot Product of 4 Elements and Accumulate) GPU-Anweisungen, die über Ihren WGSL-Code verwendet werden können. Diese führen effizient 8-Bit-Integer-Dot-Produkte aus, um die Berechnung zu beschleunigen, Speicher und Netzwerkbandbreite zu sparen und die Leistung im Vergleich zu den entsprechenden `f32`-Versionen zu verbessern. Sie werden häufig in maschinellen Lernmodellen bei der Inferenzierung innerhalb von KI-Frameworks verwendet.
 
-    Insbesondere kann bei Verfügbarkeit von `packed_4x8_integer_dot_product` WGSL-Code verwenden:
+    Insbesondere wenn `packed_4x8_integer_dot_product` verfügbar ist, kann WGSL-Code Folgendes verwenden:
 
-    - 32-Bit-Integer-Skalare, die 4-Komponenten-Vektoren von 8-Bit-Integern verpacken, um als Eingaben für Punktproduktanweisungen verwendet zu werden (über die eingebauten Funktionen `dot4U8Packed()` und `dot4I8Packed()`).
-    - Verpackungs- und Entpackungsanweisungen mit verpackten 4-Komponenten-Vektoren von 8-Bit-Integern (über eingebaute Funktionen wie `pack4xI8()` und `pack4xI8Clamp()`).
+    - 32-Bit-Integer-Skalare, die 4-Komponenten-Vektoren von 8-Bit-Integern packen, um als Eingaben zu Dot-Produkt-Anweisungen zu dienen (über die eingebauten Funktionen `dot4U8Packed()` und `dot4I8Packed()`).
+    - Packer- und Entpacker-Anweisungen mit gepackten 4-Komponenten-Vektoren von 8-Bit-Integern (über eingebaute Funktionen wie `pack4xI8()` und `pack4xI8Clamp()`).
 
 - `readonly_and_readwrite_storage_textures`
 
-  - : Ermöglicht, wenn verfügbar, die Angabe der Werte `"read-only"` und `"read-write"` für [`storageTexture.access`](/de/docs/Web/API/GPUDevice/createBindGroupLayout#access), wenn Speichertextur-Bindgruppen-Eintragstypen in einem Bindgruppenlayout angegeben werden. Diese erlauben WGSL-Code das Lesen von Speichertexturen oder das Lesen und Schreiben von Speichertexturen.
+  - : Wenn verfügbar, erlaubt es die Festlegung der `"read-only"` und `"read-write"` [`storageTexture.access`](/de/docs/Web/API/GPUDevice/createBindGroupLayout#access) Werte beim Spezifizieren von Speichertextur-Bindgruppeneintragstypen in einem Bindgruppen-Layout. Diese ermöglichen es WGSL-Code, Speichertexturen zu lesen und Speichertexturen zu lesen/schreiben.
 
 - `unrestricted_pointer_parameters`
 
-  - : Lockert die Einschränkungen für Zeiger, die an WGSL-Funktionen übergeben werden. Wenn verfügbar, sind die folgenden erlaubt:
+  - : Lockert die Einschränkungen für Zeiger, die an WGSL-Funktionen übergeben werden. Wenn verfügbar, sind die folgenden zulässig:
 
-    - Parameterzeiger auf Speicher-, Uniform- und Arbeitsgruppenspeicher, die an benutzerdefinierte Funktionen übergeben werden.
-    - Zeiger auf Strukturmitglieder und Array-Elemente, die an benutzerdefinierte Funktionen übergeben werden.
+    - Parameterzeiger auf Speicher-, Uniform- und Arbeitsgruppenspeicheradressen können an vom Benutzer deklarierte Funktionen übergeben werden.
+    - Zeiger auf Strukturelemente und Array-Elemente können an vom Benutzer deklarierte Funktionen übergeben werden.
 
       Siehe [Zeiger als Funktionsparameter](https://google.github.io/tour-of-wgsl/types/pointers/passing_pointers/) für weitere Details.
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
-Die folgende Eigenschaft ist in allen schreibgeschützten [set-ähnlichen](/de/docs/Web/JavaScript/Reference/Global_Objects/Set) Objekten verfügbar:
+Die folgende Eigenschaft ist für alle schreibgeschützten [setähnlichen](/de/docs/Web/JavaScript/Reference/Global_Objects/Set) Objekte verfügbar:
 
 - {{jsxref("Set.prototype.size", "size")}} {{Experimental_Inline}}
   - : Gibt die Anzahl der Werte im Set zurück.
 
-## Instanzmethoden
+## Instanz-Methoden
 
-Die folgenden Methoden sind in allen schreibgeschützten [set-ähnlichen](/de/docs/Web/JavaScript/Reference/Global_Objects/Set) Objekten verfügbar:
+Die folgenden Methoden sind für alle schreibgeschützten [setähnlichen](/de/docs/Web/JavaScript/Reference/Global_Objects/Set) Objekte verfügbar:
 
 - {{jsxref("Set.prototype.has()", "has()")}} {{Experimental_Inline}}
-  - : Gibt einen booleschen Wert zurück, der angibt, ob ein Element mit dem gegebenen Wert im Set vorhanden ist oder nicht.
+  - : Gibt einen Boolean-Wert zurück, der angibt, ob ein Element mit dem angegebenen Wert im Set vorhanden ist oder nicht.
 - {{jsxref("Set.prototype.values()", "values()")}} {{Experimental_Inline}}
   - : Gibt ein neues Iterator-Objekt zurück, das **Werte** für jedes Element im Set in Einfügereihenfolge liefert.
 - {{jsxref("Set.prototype.keys()", "keys()")}} {{Experimental_Inline}}
@@ -92,7 +92,7 @@ for (const value of valueIterator) {
   console.log(value);
 }
 
-// ...
+// …
 ```
 
 ## Spezifikationen

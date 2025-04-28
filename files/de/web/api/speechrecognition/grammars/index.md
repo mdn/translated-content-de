@@ -3,23 +3,20 @@ title: "SpeechRecognition: grammars-Eigenschaft"
 short-title: grammars
 slug: Web/API/SpeechRecognition/grammars
 l10n:
-  sourceCommit: 77d90a23ee0a3b5486a7963f68ad4e56efb06a7b
+  sourceCommit: 759102220c07fb140b3e06971cd5981d8f0f134f
 ---
 
 {{APIRef("Web Speech API")}}
 
-Die **`grammars`**-Eigenschaft des
-[`SpeechRecognition`](/de/docs/Web/API/SpeechRecognition)-Interfaces gibt eine Sammlung von
-[`SpeechGrammar`](/de/docs/Web/API/SpeechGrammar)-Objekten zurück und setzt sie, die die Grammatiken repräsentieren, die von der aktuellen `SpeechRecognition` verstanden werden sollen.
+Die **`grammars`**-Eigenschaft des [`SpeechRecognition`](/de/docs/Web/API/SpeechRecognition)-Interfaces gibt eine Sammlung von [`SpeechGrammar`](/de/docs/Web/API/SpeechGrammar)-Objekten zurück und setzt diese, welche die Grammatiken darstellen, die von der aktuellen `SpeechRecognition` verstanden werden sollen.
 
 ## Wert
 
-Ein [`SpeechGrammarList`](/de/docs/Web/API/SpeechGrammarList), das die [`SpeechGrammar`](/de/docs/Web/API/SpeechGrammar)-Objekte enthält, die Ihre Grammatik für Ihre Anwendung repräsentieren.
+Ein [`SpeechGrammarList`](/de/docs/Web/API/SpeechGrammarList), das die [`SpeechGrammar`](/de/docs/Web/API/SpeechGrammar)-Objekte enthält, die Ihre Grammatik für Ihre Anwendung darstellen.
 
 ## Beispiele
 
-Dieser Code stammt aus unserem
-[Sprachfarbwechsler](https://github.com/mdn/dom-examples/blob/main/web-speech-api/speech-color-changer/script.js)-Beispiel.
+Dieser Code ist aus unserem [Speech color changer](https://github.com/mdn/dom-examples/blob/main/web-speech-api/speech-color-changer/script.js)-Beispiel entnommen.
 
 ```js
 const grammar =
@@ -33,7 +30,7 @@ recognition.lang = "en-US";
 recognition.interimResults = false;
 recognition.maxAlternatives = 1;
 
-// ...
+// …
 ```
 
 ## Spezifikationen

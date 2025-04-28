@@ -2,10 +2,10 @@
 title: Abrufen des Element-Tag-Namens
 slug: Web/WebDriver/Reference/Commands/GetElementTagName
 l10n:
-  sourceCommit: 394a1aff10d20ba51dbd00252ce481769298001c
+  sourceCommit: c6cab7f1aa7dc9f3495486a5b46020db320101cf
 ---
 
-Der _Befehl zum Abrufen des Element-Tag-Namens_ der [WebDriver](/de/docs/Web/WebDriver)-API gibt den Tag-Namen des referenzierten [Webelements](/de/docs/Web/WebDriver/WebElement) zurück. Wenn das Element beispielsweise ein {{HTMLElement("img")}} ist, wird der zurückgegebene Tag-Name `"IMG"` sein, was dem Aufruf von [`Element.tagName`](/de/docs/Web/API/Element/tagName) auf dem Element entspricht. Für XML/XHTML-Dokumente kann er anders dargestellt werden.
+Der _Abrufen des Element-Tag-Namens_ [Befehl](/de/docs/Web/WebDriver/Reference/Command) der [WebDriver](/de/docs/Web/WebDriver) API gibt den Tag-Namen des referenzierten [Webelements](/de/docs/Web/WebDriver/Reference/WebElement) zurück. Wenn das Element zum Beispiel ein {{HTMLElement("img")}} ist, wird der zurückgegebene Tag-Name `"IMG"` sein, was dem Aufruf von [`Element.tagName`](/de/docs/Web/API/Element/tagName) auf dem Element entspricht. Bei XML/XHTML-Dokumenten kann die Großschreibung abweichen.
 
 ## Syntax
 
@@ -16,18 +16,18 @@ Der _Befehl zum Abrufen des Element-Tag-Namens_ der [WebDriver](/de/docs/Web/Web
 ### URL-Parameter
 
 - `session id`
-  - : Kennung der Sitzung.
+  - : Identifikator der Sitzung.
 - `element id`
-  - : Kennung des [Webelements](/de/docs/Web/WebDriver/WebElement), dessen Tag-Name abgerufen werden soll.
+  - : Identifikator des [Webelements](/de/docs/Web/WebDriver/Reference/WebElement), von dem der Tag-Name abgerufen werden soll.
 
 ### Fehler
 
-- [Session nicht erstellt](/de/docs/Web/WebDriver/Errors/SessionNotCreated)
-  - : Sitzung existiert nicht.
-- [Kein solches Fenster](/de/docs/Web/WebDriver/Errors/NoSuchWindow)
-  - : Das [`window`](/de/docs/Web/API/Window)-Objekt wurde verworfen, was bedeutet, dass der Tab oder das Fenster geschlossen wurde.
-- [Unerwartetes geöffnetes Alert](/de/docs/Web/WebDriver/Errors/UnexpectedAlertOpen)
-  - : Eine Benutzeraufforderung, wie z. B. [`window.alert`](/de/docs/Web/API/Window/alert), blockiert die Ausführung des Befehls, bis sie behandelt wird.
+- [Sitzung nicht erstellt](/de/docs/Web/WebDriver/Reference/Errors/SessionNotCreated)
+  - : Die Sitzung existiert nicht.
+- [Kein solches Fenster](/de/docs/Web/WebDriver/Reference/Errors/NoSuchWindow)
+  - : Das [`Fenster`](/de/docs/Web/API/Window) Objekt wurde verworfen, was darauf hinweist, dass die Registerkarte oder das Fenster geschlossen wurde.
+- [Unerwartetes geöffnetes Alert](/de/docs/Web/WebDriver/Reference/Errors/UnexpectedAlertOpen)
+  - : Eine Benutzeraufforderung, wie [`window.alert`](/de/docs/Web/API/Window/alert), blockiert die Ausführung des Befehls, bis sie bearbeitet wird.
 
 ## Beispiele
 

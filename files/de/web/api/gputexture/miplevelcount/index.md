@@ -1,16 +1,16 @@
 ---
-title: "GPUTexture: Eigenschaft mipLevelCount"
+title: "GPUTexture: mipLevelCount-Eigenschaft"
 short-title: mipLevelCount
 slug: Web/API/GPUTexture/mipLevelCount
 l10n:
-  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
+  sourceCommit: 759102220c07fb140b3e06971cd5981d8f0f134f
 ---
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`mipLevelCount`** schreibgeschützte Eigenschaft des [`GPUTexture`](/de/docs/Web/API/GPUTexture)-Interfaces gibt die Anzahl der Mip-Levels der `GPUTexture` an.
+Die schreibgeschützte Eigenschaft **`mipLevelCount`** der [`GPUTexture`](/de/docs/Web/API/GPUTexture)-Schnittstelle repräsentiert die Anzahl der Mip-Level der `GPUTexture`.
 
-Diese wird über die `mipLevelCount`-Eigenschaft im Deskriptorobjekt gesetzt, das in den ursprünglichen Aufruf von [`GPUDevice.createTexture()`](/de/docs/Web/API/GPUDevice/createTexture) übergeben wird. Falls nicht angegeben, beträgt der Standardwert 1.
+Diese wird über die `mipLevelCount`-Eigenschaft im Deskriptor-Objekt gesetzt, das beim ursprünglichen Aufruf von [`GPUDevice.createTexture()`](/de/docs/Web/API/GPUDevice/createTexture) übergeben wird. Wenn weggelassen, beträgt der Standardwert 1.
 
 ## Wert
 
@@ -19,7 +19,7 @@ Eine Zahl.
 ## Beispiele
 
 ```js
-// ...
+// …
 
 const depthTexture = device.createTexture({
   size: [canvas.width, canvas.height],

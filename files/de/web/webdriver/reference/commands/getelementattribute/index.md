@@ -1,11 +1,11 @@
 ---
-title: Attribut eines Elements abrufen
+title: Holen Sie sich das Elementattribut
 slug: Web/WebDriver/Reference/Commands/GetElementAttribute
 l10n:
-  sourceCommit: 394a1aff10d20ba51dbd00252ce481769298001c
+  sourceCommit: c6cab7f1aa7dc9f3495486a5b46020db320101cf
 ---
 
-Der _Attribut eines Elements abrufen_ [Befehl](/de/docs/Web/WebDriver/Command) der [WebDriver](/de/docs/Web/WebDriver) API gibt das Attribut des referenzierten [Webelements](/de/docs/Web/WebDriver/WebElement) zurück. Wenn zum Beispiel das Element ein {{HTMLElement("img")}} ist, lautet das zurückgegebene Attribut `"//TODO"`, was dem Aufruf von [`Element.getAttribute`](/de/docs/Web/API/Element/getAttribute) für das Element entspricht. Bei XML/XHTML-Dokumenten kann es anders formatiert sein.
+Der _Get Element Attribute_ [Befehl](/de/docs/Web/WebDriver/Reference/Command) der [WebDriver](/de/docs/Web/WebDriver) API gibt das Attribut des referenzierten [Webelements](/de/docs/Web/WebDriver/Reference/WebElement) zurück. Wenn es sich zum Beispiel bei dem Element um ein {{HTMLElement("img")}} handelt, wird das Attribut `"//TODO"` zurückgegeben, was dem Aufruf von [`Element.getAttribute`](/de/docs/Web/API/Element/getAttribute) auf dem Element entspricht. Für XML/XHTML-Dokumente kann es unterschiedlich großgeschrieben sein.
 
 ## Syntax
 
@@ -16,20 +16,20 @@ Der _Attribut eines Elements abrufen_ [Befehl](/de/docs/Web/WebDriver/Command) d
 ### URL-Parameter
 
 - `session id`
-  - : Bezeichner der Sitzung.
+  - : Kennung der Sitzung.
 - `element id`
-  - : Bezeichner des [Webelements](/de/docs/Web/WebDriver/WebElement), dessen Tag-Name abgerufen werden soll.
+  - : Kennung des [Webelements](/de/docs/Web/WebDriver/Reference/WebElement), dessen Tag-Namen Sie erhalten möchten.
 - `name`
-  - : Bezeichner des Attributs des [Webelements](/de/docs/Web/WebDriver/WebElement), das abgerufen werden soll.
+  - : Kennung des Attributs des [Webelements](/de/docs/Web/WebDriver/Reference/WebElement), das Sie erhalten möchten.
 
 ### Fehler
 
-- [Sitzung nicht erstellt](/de/docs/Web/WebDriver/Errors/SessionNotCreated)
+- [Sitzung nicht erstellt](/de/docs/Web/WebDriver/Reference/Errors/SessionNotCreated)
   - : Die Sitzung existiert nicht.
-- [Kein solches Fenster](/de/docs/Web/WebDriver/Errors/NoSuchWindow)
+- [Kein solches Fenster](/de/docs/Web/WebDriver/Reference/Errors/NoSuchWindow)
   - : Das [`window`](/de/docs/Web/API/Window)-Objekt wurde verworfen, was darauf hinweist, dass der Tab oder das Fenster geschlossen wurde.
-- [Unerwartetes Alert geöffnet](/de/docs/Web/WebDriver/Errors/UnexpectedAlertOpen)
-  - : Eine Benutzeraufforderung, wie zum Beispiel [`window.alert`](/de/docs/Web/API/Window/alert), blockiert die Ausführung des Befehls, bis sie behandelt wird.
+- [Unerwartetes Alert geöffnet](/de/docs/Web/WebDriver/Reference/Errors/UnexpectedAlertOpen)
+  - : Eine Benutzeraufforderung, wie zum Beispiel [`window.alert`](/de/docs/Web/API/Window/alert), blockiert die Ausführung des Befehls, bis sie erledigt ist.
 
 ## Beispiele
 

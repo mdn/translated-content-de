@@ -2,20 +2,20 @@
 title: Ungültige Cookie-Domain
 slug: Web/WebDriver/Reference/Errors/InvalidCookieDomain
 l10n:
-  sourceCommit: 57b855a52a2d2e8914a30e3a47567bff0806ae23
+  sourceCommit: c6cab7f1aa7dc9f3495486a5b46020db320101cf
 ---
 
-Der **ungültige Cookie-Domain**-Fehler ist ein [WebDriver-Fehler](/de/docs/Web/WebDriver/Reference/Errors), der auftritt, wenn ein illegaler Versuch unternommen wurde, ein {{Glossary("Cookie", "Cookie")}} unter einer anderen {{Glossary("Domain", "Domain")}} als der des aktuellen Dokuments zu setzen.
+Der Fehler **ungültige Cookie-Domain** ist ein [WebDriver-Fehler](/de/docs/Web/WebDriver/Reference/Errors), der auftritt, wenn ein unerlaubter Versuch unternommen wurde, ein {{Glossary("Cookie", "Cookie")}} unter einer anderen {{Glossary("Domain", "Domain")}} als der aktuellen des Dokuments zu setzen.
 
-In WebDriver ist es nicht zulässig, Cookies für andere Domains als die Domain des {{Glossary("Browsing_context", "aktuellen Browsing-Kontexts")}}'s [Dokuments](/de/docs/Web/API/Document) zu setzen.
+Im WebDriver ist es nicht erlaubt, Cookies für andere Domains als die Domain des {{Glossary("Browsing_context", "aktuellen Browsing-Kontextes")}} des [Dokuments](/de/docs/Web/API/Document) zu setzen.
 
-Dieser Fehler tritt auch auf, wenn das Dokument _cookie-averse_ ist, das heißt, wenn das Dokument nicht über `http://`, `https://` oder `ftp://` geladen wird.
+Dieser Fehler tritt auch auf, wenn das Dokument _cookieunverträglich_ ist, das heißt, wenn das Dokument nicht über `http://`, `https://` oder `ftp://` geladen wird.
 
 ## Beispiel
 
 ### Andere Domains
 
-Wenn die aktuelle Domain `example.com` wäre, wäre es nicht möglich, ein [Cookie hinzuzufügen](/de/docs/Web/WebDriver/Commands/AddCookie) für die Domain `example.org`:
+Wenn die aktuelle Domain `example.com` wäre, wäre es nicht möglich, ein [Cookie hinzuzufügen](/de/docs/Web/WebDriver/Reference/Commands/AddCookie) für die Domain `example.org`:
 
 ```python
 from selenium import webdriver
@@ -38,9 +38,9 @@ Ausgabe:
 InvalidCookieDomainException: https://example.org/
 ```
 
-### Cookie-averse Dokumente
+### Cookieunverträgliche Dokumente
 
-Dieser Fehler kann auch auftreten, wenn Sie ein cookie-averses Dokument besuchen, wie zum Beispiel eine Datei auf Ihrer lokalen Festplatte:
+Dieser Fehler kann auch auftreten, wenn Sie ein cookieunverträgliches Dokument besuchen, wie beispielsweise eine Datei auf Ihrer lokalen Festplatte:
 
 ```python
 from selenium import webdriver
@@ -66,8 +66,8 @@ InvalidCookieDomainException: Document is cookie-averse
 - [Liste der WebDriver-Fehler](/de/docs/Web/WebDriver/Reference/Errors)
 - Relevante WebDriver-Befehle:
 
-  - [Add Cookie](/de/docs/Web/WebDriver/Commands/AddCookie)
-  - [Delete Cookie](/de/docs/Web/WebDriver/Commands/DeleteCookie)
-  - [Delete All Cookies](/de/docs/Web/WebDriver/Commands/DeleteAllCookies)
-  - [Get All Cookies](/de/docs/Web/WebDriver/Commands/GetAllCookies)
-  - [Get Named Cookie](/de/docs/Web/WebDriver/Commands/GetNamedCookie)
+  - [Add Cookie](/de/docs/Web/WebDriver/Reference/Commands/AddCookie)
+  - [Delete Cookie](/de/docs/Web/WebDriver/Reference/Commands/DeleteCookie)
+  - [Delete All Cookies](/de/docs/Web/WebDriver/Reference/Commands/DeleteAllCookies)
+  - [Get All Cookies](/de/docs/Web/WebDriver/Reference/Commands/GetAllCookies)
+  - [Get Named Cookie](/de/docs/Web/WebDriver/Reference/Commands/GetNamedCookie)

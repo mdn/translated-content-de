@@ -1,78 +1,78 @@
 ---
-title: "Django Tutorial Teil 5: Erstellung unserer Startseite"
+title: "Django Tutorial Teil 5: Erstellen unserer Startseite"
 short-title: "5: Startseite"
 slug: Learn_web_development/Extensions/Server-side/Django/Home_page
 l10n:
-  sourceCommit: 48d220a8cffdfd5f088f8ca89724a9a92e34d8c0
+  sourceCommit: be1922d62a0d31e4e3441db0e943aed8df736481
 ---
 
 {{PreviousMenuNext("Learn_web_development/Extensions/Server-side/Django/Admin_site", "Learn_web_development/Extensions/Server-side/Django/Generic_views", "Learn_web_development/Extensions/Server-side/Django")}}
 
-Wir sind nun bereit, den Code hinzuzufügen, der unsere erste vollständige Seite anzeigt – eine Startseite für die [LocalLibrary](/de/docs/Learn_web_development/Extensions/Server-side/Django/Tutorial_local_library_website) Website. Die Startseite wird die Anzahl der Datensätze anzeigen, die wir für jeden Modelltyp haben, und Seitenleisten-Navigationslinks zu unseren anderen Seiten bieten. Dabei werden wir praktische Erfahrungen im Schreiben grundlegender URL-Maps und Views, Abrufen von Datensätzen aus der Datenbank und der Verwendung von Templates sammeln.
+Wir sind nun bereit, den Code hinzuzufügen, der unsere erste vollständige Seite anzeigt - eine Startseite für die [LocalLibrary](/de/docs/Learn_web_development/Extensions/Server-side/Django/Tutorial_local_library_website) Website. Die Startseite wird die Anzahl der Datensätze anzeigen, die wir für jeden Modelltyp haben, und Navigationslinks in der Seitenleiste zu unseren anderen Seiten bereitstellen. Dabei werden wir praktische Erfahrungen im Schreiben grundlegender URL-Karten und Ansichten sammeln, Datensätze aus der Datenbank abrufen und Vorlagen verwenden.
 
 <table>
   <tbody>
     <tr>
       <th scope="row">Voraussetzungen:</th>
       <td>
-        Lesen Sie die <a href="/de/docs/Learn_web_development/Extensions/Server-side/Django/Introduction">Django Einführung</a>. Abschließen der vorherigen Tutorial-Themen (einschließlich <a href="/de/docs/Learn_web_development/Extensions/Server-side/Django/Admin_site">Django Tutorial Teil 4: Django Admin Site</a>).
+        Lesen Sie die <a href="/de/docs/Learn_web_development/Extensions/Server-side/Django/Introduction">Django-Einführung</a>. Schließen Sie die vorherigen Tutorial-Themen ab (einschließlich <a href="/de/docs/Learn_web_development/Extensions/Server-side/Django/Admin_site">Django Tutorial Teil 4: Django Admin Site</a>).
       </td>
     </tr>
     <tr>
       <th scope="row">Ziel:</th>
       <td>
-        Lernen, einfache URL-Maps und Views zu erstellen (wo keine Daten in der URL codiert sind), Daten von Modellen abzurufen und Templates zu erstellen.
+        Lernen Sie, einfache URL-Karten und Ansichten zu erstellen (bei denen keine Daten in der URL kodiert sind), Daten aus Modellen abzurufen und Vorlagen zu erstellen.
       </td>
     </tr>
   </tbody>
 </table>
 
-## Übersicht
+## Überblick
 
-Nachdem wir unsere Modelle definiert und einige anfängliche Bibliotheksdatensätze erstellt haben, mit denen wir arbeiten können, ist es an der Zeit, den Code zu schreiben, der diese Informationen den Benutzern präsentiert. Das Erste, was wir tun müssen, ist zu bestimmen, welche Informationen wir auf unseren Seiten anzeigen wollen, und die URLs zu definieren, die verwendet werden sollen, um diese Ressourcen zurückzugeben. Dann werden wir einen URL-Mapper, Views und Templates erstellen, um die Seiten anzuzeigen.
+Nachdem wir unsere Modelle definiert und einige initiale Bibliotheksdatensätze erstellt haben, ist es an der Zeit, den Code zu schreiben, der diese Informationen den Nutzern präsentiert. Zunächst müssen wir festlegen, welche Informationen wir auf unseren Seiten anzeigen möchten und die URLs definieren, die zur Rückgabe dieser Ressourcen verwendet werden sollen. Dann erstellen wir einen URL-Mapper, Ansichten und Vorlagen, um die Seiten anzuzeigen.
 
-Das folgende Diagramm beschreibt den Hauptdatenfluss und die Komponenten, die bei der Verarbeitung von HTTP-Anfragen und -Antworten erforderlich sind. Da wir bereits das Modell implementiert haben, sind die Hauptkomponenten, die wir erstellen werden:
+Das folgende Diagramm beschreibt den Hauptdatenfluss und die benötigten Komponenten beim Umgang mit HTTP-Anfragen und -Antworten. Da wir bereits das Modell implementiert haben, sind die Hauptkomponenten, die wir erstellen werden:
 
-- URL-Mapper, um die unterstützten URLs (und alle Informationen, die in den URLs codiert sind) an die entsprechenden View-Funktionen weiterzuleiten.
-- View-Funktionen, um die angeforderten Daten aus den Modellen abzurufen, HTML-Seiten zu erstellen, die die Daten anzeigen, und die Seiten dem Benutzer zur Ansicht im Browser zurückzusenden.
-- Templates, die bei der Datenwiedergabe in den Views verwendet werden.
+- URL-Mapper, um die unterstützten URLs (und alle in den URLs kodierten Informationen) an die entsprechenden Ansichts-Funktionen weiterzuleiten.
+- Ansichts-Funktionen, um die angeforderten Daten aus den Modellen abzurufen, HTML-Seiten zu erstellen, die die Daten anzeigen, und die Seiten als Antwort an den Benutzer zurückzugeben, damit sie im Browser angezeigt werden können.
+- Vorlagen, die beim Rendern der Daten in den Ansichten verwendet werden.
 
-![Diagramm des Hauptdatenflusses: URL-, Model-, View- & Template-Komponente, die bei der Verarbeitung von HTTP-Anfragen und -Antworten in einer Django-Anwendung erforderlich sind. Eine HTTP-Anfrage erreicht einen Django-Server, wird an die 'urls.py'-Datei der URLS-Komponente weitergeleitet. Die Anfrage wird an die entsprechende View weitergeleitet. Die View kann Daten aus der Models 'models.py'-Datei lesen und schreiben, die den Code zu den Modellen enthält. Die View greift auch auf die HTML-Datei-Template-Komponente zu. Die View gibt die Antwort an den Benutzer zurück.](basic-django.png)
+![Hauptdatenflussdiagramm: URL, Modell, Ansicht & Vorlagenkomponente benötigt beim Umgang mit HTTP-Anfragen und -Antworten in einer Django-Anwendung. Eine HTTP-Anfrage trifft auf einen Django-Server und wird zur Datei 'urls.py' der URL-Komponente weitergeleitet. Die Anfrage wird an die entsprechende Ansicht weitergeleitet. Die Ansicht kann Daten aus den Modellen der Datei 'models.py' lesen und schreiben, die den Code für die Modelle enthält. Die Ansicht greift auch auf die HTML-Vorlagenkomponente zu. Die Ansicht gibt die Antwort zurück an den Benutzer.](basic-django.png)
 
-Wie Sie im nächsten Abschnitt sehen werden, haben wir 5 Seiten zu zeigen, was zu viele Informationen sind, um sie in einem einzigen Artikel zu dokumentieren. Daher konzentriert sich dieser Artikel darauf, wie man die Startseite implementiert, und wir werden die anderen Seiten in einem nachfolgenden Artikel behandeln. Dies sollte Ihnen ein gutes Verständnis darüber vermitteln, wie URL-Mappers, Views und Modelle in der Praxis funktionieren.
+Wie Sie im nächsten Abschnitt sehen werden, haben wir fünf Seiten, die wir anzeigen möchten, was zu viele Informationen sind, um sie in einem einzigen Artikel zu dokumentieren. Daher wird dieser Artikel sich darauf konzentrieren, wie man die Startseite implementiert, und wir werden die anderen Seiten in einem späteren Artikel behandeln. Dies sollte Ihnen ein gutes End-to-End-Verständnis dafür geben, wie URL-Mapper, Ansichten und Modelle in der Praxis funktionieren.
 
 ## Definieren der Ressourcen-URLs
 
-Da diese Version von [LocalLibrary](/de/docs/Learn_web_development/Extensions/Server-side/Django/Tutorial_local_library_website) im Wesentlichen für Endbenutzer schreibgeschützt ist, müssen wir nur eine Einstiegsseite für die Website (eine Startseite) und Seiten bereitstellen, die Listen- und Detailansichten für Bücher und Autoren _anzeigen_.
+Da diese Version von [LocalLibrary](/de/docs/Learn_web_development/Extensions/Server-side/Django/Tutorial_local_library_website) für Endbenutzer im Wesentlichen schreibgeschützt ist, müssen wir nur eine Startseite für die Website (eine Homepage) bereitstellen und Seiten, die Listen- und Detailansichten für Bücher und Autoren _anzeigen_.
 
 Die URLs, die wir für unsere Seiten benötigen, sind:
 
-- `catalog/` — Die Startseite (Index).
+- `catalog/` — Die Startseite (Index-Seite).
 - `catalog/books/` — Eine Liste aller Bücher.
 - `catalog/authors/` — Eine Liste aller Autoren.
-- `catalog/book/<id>` — Die Detailansicht für ein bestimmtes Buch mit einem primären Schlüssel des Feldes `<id>` (der Standard). Zum Beispiel wird die URL für das dritte Buch auf der Liste `/catalog/book/3` sein.
-- `catalog/author/<id>` — Die Detailansicht für den spezifischen Autor mit einem primären Schlüssel des Feldes `<id>`. Zum Beispiel wird die URL für den 11. hinzugefügten Autor `/catalog/author/11` sein.
+- `catalog/book/<id>` — Die Detailansicht für ein bestimmtes Buch mit einem Feldprimärschlüssel von `<id>` (dem Standardwert). Zum Beispiel wäre die URL für das dritte Buch in der Liste `/catalog/book/3`.
+- `catalog/author/<id>` — Die Detailansicht für den spezifischen Autor mit einem Feldprimärschlüssel von `<id>`. Zum Beispiel wäre die URL für den elften Autor in der Liste `/catalog/author/11`.
 
-Die ersten drei URLs geben die Indexseite, die Bücherliste und die Autorenliste zurück. Diese URLs codieren keine zusätzlichen Informationen, und die Abfragen, die Daten aus der Datenbank abrufen, werden immer gleich sein. Die Ergebnisse, die die Abfragen zurückgeben, hängen jedoch vom Inhalt der Datenbank ab.
+Die ersten drei URLs geben die Index-Seite, die Buchliste und die Autorenliste zurück. Diese URLs kodieren keine zusätzlichen Informationen und die Abfragen, die Daten aus der Datenbank abrufen, sind immer gleich. Die Ergebnisse, die die Abfragen zurückgeben, hängen jedoch vom Inhalt der Datenbank ab.
 
-Im Gegensatz dazu zeigen die letzten beiden URLs detaillierte Informationen über ein bestimmtes Buch oder einen bestimmten Autor an. Diese URLs codieren die Identität des anzuzeigenden Elements (dargestellt durch `<id>` oben). Der URL-Mapper extrahiert die codierten Informationen und übergibt sie der View, und die View bestimmt dynamisch, welche Informationen aus der Datenbank abgerufen werden. Indem wir die Informationen in der URL codieren, verwenden wir einen einzigen Satz einer URL-Zuordnung, einer View und eines Templates, um alle Bücher (oder Autoren) zu bearbeiten.
-
-> [!NOTE]
-> Mit Django können Sie Ihre URLs so konstruieren, wie Sie es benötigen — Sie können Informationen im Hauptteil der URL wie oben gezeigt oder `GET`-Parameter in die URL aufnehmen, zum Beispiel `/book/?id=6`. Welche Methode Sie auch immer verwenden, die URLs sollten sauber, logisch und lesbar gehalten werden, wie von der [W3C empfohlen](https://www.w3.org/Provider/Style/URI).
-> Die Django-Dokumentation empfiehlt, Informationen im Hauptteil der URL zu kodieren, um ein besseres URL-Design zu erreichen.
-
-Wie bereits in der Übersicht erwähnt, wird im Rest dieses Artikels beschrieben, wie die Startseite erstellt wird.
-
-## Erstellung der Startseite
-
-Die erste Seite, die wir erstellen, ist die Startseite (`catalog/`). Die Startseite wird einige statische HTML-Inhalte enthalten, zusammen mit generierten "Zahlen" von verschiedenen Datensätzen in der Datenbank. Damit dies funktioniert, erstellen wir eine URL-Zuordnung, eine View und ein Template.
+Im Gegensatz dazu zeigen die letzten beiden URLs detaillierte Informationen über ein bestimmtes Buch oder einen bestimmten Autor an. Diese URLs kodieren die Identität des Elements, das angezeigt werden soll (dargestellt durch `<id>` oben). Der URL-Mapper extrahiert die kodierten Informationen und übergibt sie an die Ansicht, und die Ansicht bestimmt dynamisch, welche Informationen aus der Datenbank abgerufen werden sollen. Indem die Informationen in der URL kodiert werden, können wir ein einziges URL-Mapping, eine Ansicht und eine Vorlage verwenden, um alle Bücher (oder Autoren) zu verwalten.
 
 > [!NOTE]
-> Es lohnt sich, in diesem Abschnitt etwas genauer hinzusehen. Die meisten der Informationen beziehen sich auch auf die anderen Seiten, die wir erstellen werden.
+> Mit Django können Sie Ihre URLs nach Ihren Anforderungen konstruieren - Sie können Informationen im Körper der URL kodieren, wie oben gezeigt, oder `GET`-Parameter in die URL einfügen, zum Beispiel `/book/?id=6`. Egal, welche Methode Sie verwenden, die URLs sollten sauber, logisch und lesbar gehalten werden, wie es die [W3C empfiehlt](https://www.w3.org/Provider/Style/URI).
+> Die Django-Dokumentation empfiehlt, Informationen im Körper der URL zu kodieren, um ein besseres URL-Design zu erreichen.
 
-### URL-Zuordnung
+Wie im Überblick erwähnt, beschreibt der Rest dieses Artikels, wie die Index-Seite erstellt wird.
 
-Als wir die [Skeleton-Website](/de/docs/Learn_web_development/Extensions/Server-side/Django/skeleton_website) erstellt haben, haben wir die Datei **locallibrary/urls.py** so aktualisiert, dass jedes Mal, wenn eine URL, die mit `catalog/` beginnt, empfangen wird, das _URLConf_-Modul `catalog.urls` die verbleibende Teilzeichenkette verarbeitet.
+## Erstellen der Index-Seite
+
+Die erste Seite, die wir erstellen werden, ist die Index-Seite (`catalog/`). Die Index-Seite wird einige statische HTML-Inhalte sowie generierte "Counts" verschiedener Datensätze in der Datenbank enthalten. Um dies zu ermöglichen, erstellen wir ein URL-Mapping, eine Ansicht und eine Vorlage.
+
+> [!NOTE]
+> Es lohnt sich, in diesem Abschnitt etwas genauer hinzuschauen. Ein Großteil der Informationen gilt auch für die anderen Seiten, die wir erstellen werden.
+
+### URL-Mapping
+
+Als wir die [Skeleton-Website](/de/docs/Learn_web_development/Extensions/Server-side/Django/skeleton_website) erstellt haben, haben wir die Datei **locallibrary/urls.py** aktualisiert, um sicherzustellen, dass wann immer eine URL empfangen wird, die mit `catalog/` beginnt, das _URLConf_ Modul `catalog.urls` die verbleibende Teilzeichenkette verarbeitet.
 
 Der folgende Codeausschnitt aus **locallibrary/urls.py** enthält das `catalog.urls`-Modul:
 
@@ -83,10 +83,10 @@ urlpatterns += [
 ```
 
 > [!NOTE]
-> Wenn Django auf die Importfunktion [`django.urls.include()`](https://docs.djangoproject.com/en/5.0/ref/urls/#django.urls.include) trifft, teilt es den URL-String am angegebenen Endzeichen und sendet die verbleibende Teilzeichenkette an das eingeschlossene _URLConf_-Modul zur weiteren Verarbeitung.
+> Immer, wenn Django auf die Importfunktion [`django.urls.include()`](https://docs.djangoproject.com/en/5.0/ref/urls/#django.urls.include) trifft, wird die URL-Zeichenkette am festgelegten Endzeichen geteilt und die verbleibende Teilzeichenkette an das enthaltene _URLConf_-Modul zur weiteren Verarbeitung gesendet.
 
-Wir haben auch eine Platzhalterdatei für das _URLConf_-Modul mit dem Namen **/catalog/urls.py** erstellt.
-Fügen Sie die folgenden Zeilen in diese Datei ein:
+Wir haben auch eine Platzhalterdatei für das _URLConf_-Modul erstellt, genannt **/catalog/urls.py**.
+Fügen Sie die folgenden Zeilen in diese Datei hinzu:
 
 ```python
 urlpatterns = [
@@ -94,26 +94,26 @@ urlpatterns = [
 ]
 ```
 
-Die Funktion `path()` definiert Folgendes:
+Die `path()`-Funktion definiert Folgendes:
 
-- Ein URL-Muster, das ein leerer String ist: `''`. Wir werden URL-Muster im Detail besprechen, wenn wir an den anderen Views arbeiten.
-- Eine View-Funktion, die aufgerufen wird, wenn das URL-Muster erkannt wird: `views.index`, welche die Funktion namens `index()` in der Datei **views.py** ist.
+- Ein URL-Muster, das ein leerer String ist: `''`. Wir werden URL-Muster im Detail besprechen, wenn wir an den anderen Ansichten arbeiten.
+- Eine Ansichts-Funktion, die aufgerufen wird, wenn das URL-Muster erkannt wird: `views.index`, was die Funktion mit dem Namen `index()` in der Datei **views.py** ist.
 
-Die Funktion `path()` gibt auch einen `name`-Parameter an, der ein eindeutiger Bezeichner für _diese_ spezielle URL-Zuordnung ist. Sie können den Namen verwenden, um den Mapper umzukehren, d.h. um dynamisch eine URL zu erstellen, die auf die Ressource verweist, die der Mapper bearbeiten soll.
-Zum Beispiel können wir den Namen verwenden, um von jeder anderen Seite aus auf unsere Startseite zu verlinken, indem wir den folgenden Link in einem Template hinzufügen:
+Die `path()`-Funktion spezifiziert auch einen `name`-Parameter, der einen einzigartigen Bezeichner für _diese_ spezielle URL-Zuordnung darstellt. Sie können den Namen verwenden, um den Mapper "umzukehren", d.h. eine URL dynamisch zu erstellen, die auf die Ressource verweist, die der Mapper handhaben soll.
+Zum Beispiel können wir den Namen verwenden, um von jeder anderen Seite auf unsere Startseite zu verlinken, indem wir den folgenden Link in eine Vorlage einfügen:
 
 ```django
 <a href="{% url 'index' %}">Home</a>.
 ```
 
 > [!NOTE]
-> Wir können den Link hart kodieren, wie in `<a href="/catalog/">Home</a>`), aber wenn wir das Muster für unsere Startseite ändern, z.B. in `/catalog/index`, werden die Templates nicht mehr richtig verlinken. Die Verwendung einer umgekehrten URL-Zuordnung ist robuster.
+> Wir können den Link fest codieren, wie in `<a href="/catalog/">Home</a>`), aber wenn wir das Muster für unsere Startseite ändern, zum Beispiel in `/catalog/index`) würden die Vorlagen nicht mehr korrekt verlinken. Die Verwendung einer umgekehrten URL-Zuordnung ist robuster.
 
-### View (funktionsbasiert)
+### Ansicht (funktionsbasiert)
 
-Eine View ist eine Funktion, die eine HTTP-Anfrage verarbeitet, die erforderlichen Daten aus der Datenbank abruft, die Daten in einer HTML-Seite mit einem HTML-Template rendert und dann das generierte HTML in einer HTTP-Antwort zurückgibt, um die Seite dem Benutzer anzuzeigen. Die Index-View folgt diesem Modell – sie ruft Informationen über die Anzahl der `Book`, `BookInstance`, verfügbaren `BookInstance` und `Author`-Datensätze ab, die wir in der Datenbank haben, und übergibt diese Informationen einem Template zur Anzeige.
+Eine Ansicht ist eine Funktion, die eine HTTP-Anfrage verarbeitet, die erforderlichen Daten aus der Datenbank abruft, die Daten in einer HTML-Seite mit einer HTML-Vorlage rendert und dann das generierte HTML in einer HTTP-Antwort zurückgibt, um die Seite dem Benutzer anzuzeigen. Die Index-Ansicht folgt diesem Modell: Sie ruft Informationen über die Anzahl der `Book`, `BookInstance`, verfügbaren `BookInstance`- und `Author`-Datensätze ab, die wir in der Datenbank haben, und übergibt diese Informationen einer Vorlage zur Anzeige.
 
-Öffnen Sie **catalog/views.py** und beachten Sie, dass die Datei bereits die [render()](https://docs.djangoproject.com/en/5.0/topics/http/shortcuts/#django.shortcuts.render) Shortcut-Funktion importiert, um eine HTML-Datei mit einem Template und Daten zu generieren:
+Öffnen Sie **catalog/views.py** und beachten Sie, dass die Datei bereits die [render()](https://docs.djangoproject.com/en/5.0/topics/http/shortcuts/#django.shortcuts.render) Shortcut-Funktion importiert, um eine HTML-Datei mithilfe einer Vorlage und Daten zu erzeugen:
 
 ```python
 from django.shortcuts import render
@@ -150,42 +150,42 @@ def index(request):
     return render(request, 'index.html', context=context)
 ```
 
-Die erste Zeile importiert die Modellklassen, die wir verwenden werden, um auf Daten in allen unseren Views zuzugreifen.
+Die erste Zeile importiert die Modellklassen, die wir verwenden werden, um auf die Daten in allen unseren Ansichten zuzugreifen.
 
-Der erste Teil der View-Funktion ruft die Anzahl der Datensätze unter Verwendung des `objects.all()`-Attributs auf den Modellklassen ab. Es erhält auch eine Liste von `BookInstance`-Objekten, die einen Wert von 'a' (verfügbar) im Statusfeld haben. Weitere Informationen darüber, wie auf Modelldaten zugegriffen wird, finden Sie in unserem vorherigen Tutorial [Django Tutorial Teil 3: Verwendung von Modellen > Suche nach Datensätzen](/de/docs/Learn_web_development/Extensions/Server-side/Django/Models#searching_for_records).
+Der erste Teil der Ansichts-Funktion holt die Anzahl der Datensätze mithilfe des `objects.all()`-Attributs der Modellklassen. Es erhält auch eine Liste von `BookInstance`-Objekten, die im Statusfeld den Wert 'a' (verfügbar) haben. Weitere Informationen dazu, wie man auf Modelldaten zugreift, finden Sie in unserem vorherigen Tutorial [Django Tutorial Teil 3: Verwendung von Modellen > Suchen nach Datensätzen](/de/docs/Learn_web_development/Extensions/Server-side/Django/Models#searching_for_records).
 
-Am Ende der View-Funktion rufen wir die `render()`-Funktion auf, um eine HTML-Seite zu erstellen und die Seite als Antwort zurückzugeben. Diese Shortcut-Funktion kapselt eine Reihe anderer Funktionen, um einen sehr häufigen Anwendungsfall zu vereinfachen. Die Funktion `render()` akzeptiert die folgenden Parameter:
+Am Ende der Ansichts-Funktion rufen wir die `render()`-Funktion auf, um eine HTML-Seite zu erstellen und die Seite als Antwort zurückzugeben. Diese Shortcut-Funktion wickelt eine Reihe anderer Funktionen ab, um einen sehr häufigen Anwendungsfall zu vereinfachen. Die `render()`-Funktion akzeptiert die folgenden Parameter:
 
-- das ursprüngliche `request`-Objekt, welches ein `HttpRequest` ist.
-- ein HTML-Template mit Platzhaltern für die Daten.
-- eine `context`-Variable, die ein Python-Wörterbuch ist, das die Daten zur Platzierung in die Platzhalter enthält.
+- das ursprüngliche `request`-Objekt, bei dem es sich um ein `HttpRequest` handelt.
+- eine HTML-Vorlage mit Platzhaltern für die Daten.
+- eine `context`-Variable, die ein Python-Wörterbuch darstellt und die Daten enthält, die in die Platzhalter eingefügt werden sollen.
 
-Wir werden mehr über Templates und die `context`-Variable im nächsten Abschnitt sprechen. Beginnen wir mit der Erstellung unseres Templates, damit wir dem Benutzer tatsächlich etwas anzeigen können!
+Wir werden mehr über Vorlagen und die `context`-Variable im nächsten Abschnitt sprechen. Erstellen wir unsere Vorlage, damit wir dem Benutzer tatsächlich etwas anzeigen können!
 
-### Template
+### Vorlage
 
-Ein Template ist eine Textdatei, die die Struktur oder das Layout einer Datei (wie z.B. einer HTML-Seite) definiert und Platzhalter verwendet, um den tatsächlichen Inhalt darzustellen.
+Eine Vorlage ist eine Textdatei, die die Struktur oder das Layout einer Datei (beispielsweise einer HTML-Seite) definiert und Platzhalter verwendet, um tatsächlichen Inhalt darzustellen.
 
-Eine mit **startapp** erstellte Django-Anwendung (wie das Skeleton dieses Beispiels) sucht nach Templates in einem Unterverzeichnis namens '**templates**' Ihrer Anwendungen. Zum Beispiel wird die `render()`-Funktion in der gerade hinzugefügten Index-View erwarten, dass die Datei **_index.html_** in **/django-locallibrary-tutorial/catalog/templates/** liegt und wird einen Fehler auslösen, wenn die Datei nicht vorhanden ist.
+Eine mit **startapp** erstellte Django-Anwendung (wie das Skeleton dieses Beispiels) sucht nach Vorlagen in einem Unterverzeichnis namens '**templates**' Ihrer Anwendungen. Zum Beispiel erwartet die `render()`-Funktion, die wir in der gerade hinzugefügten Index-Ansicht verwenden, die Datei **_index.html_** in **/django-locallibrary-tutorial/catalog/templates/** und wird einen Fehler ausgeben, wenn die Datei nicht vorhanden ist.
 
-Sie können dies überprüfen, indem Sie die vorherigen Änderungen speichern und in Ihrem Browser auf `127.0.0.1:8000` zugreifen - es wird eine ziemlich intuitive Fehlermeldung angezeigt: "TemplateDoesNotExist at /catalog/", und weitere Details.
-
-> [!NOTE]
-> Basierend auf der Einstellungsdatei Ihres Projekts sucht Django an mehreren Stellen nach Templates und sucht standardmäßig in Ihren installierten Anwendungen. Sie können mehr darüber erfahren, wie Django Templates findet und welche Template-Formate es unterstützt, im [Template-Abschnitt der Django-Dokumentation](https://docs.djangoproject.com/en/5.0/topics/templates/).
-
-#### Templates erweitern
-
-Das Index-Template benötigt standardmäßiges HTML-Markup für Kopf und Körper, zusammen mit Navigationsabschnitten, um zu den anderen Seiten der Website zu verlinken (die wir noch nicht erstellt haben), und zu Abschnitten, die einführende Texte und Buchdaten anzeigen.
-
-Ein großer Teil des HTML- und Navigationsaufbaus wird auf jeder Seite unserer Website gleich sein. Anstatt Boilerplate-Code auf jeder Seite zu duplizieren, können Sie die Django-Templating-Sprache verwenden, um ein Basistemplate zu deklarieren und es dann zu erweitern, indem Sie nur die Teile ersetzen, die für jede einzelne Seite unterschiedlich sind.
-
-Der folgende Codeausschnitt ist ein Beispiel eines Basistemplates aus einer **base_generic.html**-Datei.
-Wir werden das Template für LocalLibrary in Kürze erstellen.
-Das Beispiel unten enthält Standard-HTML mit Abschnitten für einen Titel, eine Seitenleiste und Hauptinhalte, die mit benannten `block`- und `endblock`-Template-Tags markiert sind.
-Sie können die Blöcke leer lassen oder Standardinhalt enthalten, der bei der Wiedergabe von Seiten, die sich von diesem Template ableiten, verwendet wird.
+Sie können dies überprüfen, indem Sie die vorherigen Änderungen speichern und `127.0.0.1:8000` in Ihrem Browser aufrufen - es wird eine ziemlich intuitive Fehlermeldung angezeigt: "TemplateDoesNotExist at /catalog/" und weitere Details.
 
 > [!NOTE]
-> Template-_Tags_ sind Funktionen, die Sie in einem Template verwenden können, um z.B. Listen zu durchlaufen, bedingte Operationen basierend auf dem Wert einer Variablen auszuführen usw. Neben Template-Tags ermöglicht Ihnen die Template-Syntax das Referenzieren von Variablen, die aus der View an das Template übergeben werden, und das Verwenden von _Template-Filtern_, um Variablen zu formatieren (zum Beispiel eine Zeichenkette in Kleinbuchstaben zu konvertieren).
+> Basierend auf Ihrer Projekt-Einstellungsdatei sucht Django an mehreren Orten nach Vorlagen, wobei standardmäßig in Ihren installierten Anwendungen gesucht wird. Sie können mehr darüber erfahren, wie Django Vorlagen findet und welche Vorlagenformate es unterstützt, im [Template-Bereich der Django-Dokumentation](https://docs.djangoproject.com/en/5.0/topics/templates/).
+
+#### Vorlagen erweitern
+
+Die Index-Vorlage benötigt standardmäßiges HTML-Markup für Kopf- und Körperbereich sowie Navigationsabschnitte, um zu den anderen Seiten der Website zu verlinken (die wir noch nicht erstellt haben), und zu Abschnitten, die Einführungstext und Buchdaten anzeigen.
+
+Vieles von dem HTML- und Navigationsaufbau wird auf jeder Seite unserer Website gleich sein. Statt den Boilerplate-Code auf jeder Seite zu duplizieren, können Sie die Django-Template-Sprache verwenden, um eine Basisvorlage zu deklarieren und sie dann zu erweitern, um nur die Teile zu ersetzen, die für jede spezifische Seite unterschiedlich sind.
+
+Der folgende Codeausschnitt ist eine Beispielbasisvorlage aus einer **base_generic.html**-Datei.
+Wir werden die Vorlage für LocalLibrary in Kürze erstellen.
+Die Beispielvorlage unten enthält allgemeine HTML-Sektionen mit Bereichen für einen Titel, eine Seitenleiste und Hauptinhalte, die mit den benannten `block` und `endblock` Template-Tags markiert sind.
+Sie können die Blöcke leer lassen oder Standardinhalte für die Verwendung beim Rendern der von der Vorlage abgeleiteten Seiten einfügen.
+
+> [!NOTE]
+> Template-_Tags_ sind Funktionen, die Sie in einer Vorlage verwenden können, um durch Listen zu durchlaufen, bedingte Operationen basierend auf dem Wert einer Variablen auszuführen und so weiter. Zusätzlich zu Template-Tags ermöglicht die Template-Syntax das Referenzieren von Variablen, die von der Ansicht in die Vorlage übergeben werden, und das Verwenden von _Template-Filtern_, um Variablen zu formatieren (zum Beispiel, um eine Zeichenkette in Kleinbuchstaben zu konvertieren).
 
 ```django
 <!doctype html>
@@ -206,9 +206,9 @@ Sie können die Blöcke leer lassen oder Standardinhalt enthalten, der bei der W
 </html>
 ```
 
-Beim Definieren eines Templates für eine bestimmte Ansicht geben wir zunächst das Basistemplate mithilfe des `extends`-Template-Tags an — siehe das untenstehende Codebeispiel. Dann deklarieren wir, welche Abschnitte aus dem Template wir ersetzen möchten (falls vorhanden), indem wir `block`/`endblock`-Abschnitte wie im Basistemplate verwenden.
+Beim Definieren einer Vorlage für eine bestimmte Ansicht geben wir zuerst die Basisvorlage mit dem `extends` Template-Tag an — siehe den untenstehenden Codeausschnitt. Dann deklarieren wir, welche Abschnitte der Vorlage wir ersetzen möchten (falls vorhanden), indem wir `block`/`endblock`-Bereiche wie in der Basisvorlage verwenden.
 
-Zum Beispiel zeigt der untenstehende Codeausschnitt, wie man das `extends`-Template-Tag verwendet und den `content`-Block überschreibt. Das generierte HTML wird den im Basistemplate definierten Code und Aufbau einschließlich des Standardinhalts, den Sie im `title`-Block definiert haben, enthalten, jedoch den neuen `content`-Block anstelle des standardmäßigen.
+Der folgende Codeausschnitt zeigt zum Beispiel, wie man das `extends` Template-Tag verwendet und den `content`-Block überschreibt. Das generierte HTML wird den im Grundgerüst definierten Code und die Struktur einschließen, einschließlich des Standardinhalts, den Sie im `title`-Block definiert haben, aber der neue `content`-Block ersetzt den Standardinhalt.
 
 ```django
 {% extends "base_generic.html" %}
@@ -222,9 +222,9 @@ Zum Beispiel zeigt der untenstehende Codeausschnitt, wie man das `extends`-Templ
 {% endblock %}
 ```
 
-#### Das LocalLibrary-Basistemplate
+#### Die LocalLibrary-Basisvorlage
 
-Wir verwenden den folgenden Codeausschnitt als Basistemplate für die _LocalLibrary_ Website. Wie Sie sehen können, enthält es etwas HTML-Code und definiert Blöcke für `title`, `sidebar` und `content`. Wir haben einen Standardtitel und eine Standardsidebar mit Links zu Liste aller Bücher und Autoren, beide in Blöcken eingeschlossen, um sie in Zukunft leicht ändern zu können.
+Wir werden den folgenden Codeausschnitt als Basisvorlage für die _LocalLibrary_ Website verwenden. Wie Sie sehen, enthält sie etwas HTML-Code und definiert Blöcke für `title`, `sidebar` und `content`. Wir haben einen Standardtitel und eine Standardsidebar mit Links zu Listen aller Bücher und Autoren, beide in Blöcken eingefügt, um sie in Zukunft leicht ändern zu können.
 
 > [!NOTE]
 > Wir führen auch zwei zusätzliche Template-Tags ein: `url` und `load static`. Diese Tags werden in den folgenden Abschnitten erklärt.
@@ -267,9 +267,9 @@ Erstellen Sie eine neue Datei **base_generic.html** in **/django-locallibrary-tu
 </html>
 ```
 
-Das Template enthält CSS von [Bootstrap](https://getbootstrap.com/), um das Layout und die Präsentation der HTML-Seite zu verbessern. Die Verwendung von Bootstrap (oder einem anderen Client-seitigen Webframework) ist ein schneller Weg, um eine ansprechende Seite zu erstellen, die gut auf verschiedenen Bildschirmgrößen angezeigt wird.
+Die Vorlage enthält CSS von [Bootstrap](https://getbootstrap.com/), um das Layout und die Präsentation der HTML-Seite zu verbessern. Die Verwendung von Bootstrap (oder eines anderen clientseitigen Web-Frameworks) ist ein schneller Weg, um eine ansprechende Seite zu erstellen, die auf unterschiedlichen Bildschirmgrößen gut aussieht.
 
-Das Basistemplate verweist auch auf eine lokale CSS-Datei (**styles.css**), die zusätzliche Formatierungen bereitstellt. Erstellen Sie eine **styles.css**-Datei in **/django-locallibrary-tutorial/catalog/static/css/** und fügen Sie den folgenden Code in die Datei ein:
+Die Basisvorlage verweist auch auf eine lokale CSS-Datei (**styles.css**), die zusätzliche Styling-Anweisungen bietet. Erstellen Sie eine **styles.css** Datei in **/django-locallibrary-tutorial/catalog/static/css/** und fügen Sie den folgenden Code in die Datei ein:
 
 ```css
 .sidebar-nav {
@@ -279,10 +279,10 @@ Das Basistemplate verweist auch auf eine lokale CSS-Datei (**styles.css**), die 
 }
 ```
 
-#### Das Index-Template
+#### Die Index-Vorlage
 
 Erstellen Sie eine neue HTML-Datei **index.html** in **/django-locallibrary-tutorial/catalog/templates/** und fügen Sie den folgenden Code in die Datei ein.
-Dieser Code erweitert unser Basistemplate in der ersten Zeile und ersetzt dann den Standard-`content`-Block für das Template.
+Dieser Code erweitert unsere Basisvorlage in der ersten Zeile und ersetzt dann den Standard-`content`-Block der Vorlage.
 
 ```django
 {% extends "base_generic.html" %}
@@ -304,14 +304,14 @@ Dieser Code erweitert unser Basistemplate in der ersten Zeile und ersetzt dann d
 {% endblock %}
 ```
 
-Im Abschnitt _Dynamischer Inhalt_ erklären wir Platzhalter (_Template-Variablen_) für die Informationen aus der View, die wir einfügen möchten.
-Die Variablen sind mit doppelten Klammern (Handlebars) eingeschlossen.
+Im Abschnitt _Dynamischer Inhalt_ deklarieren wir Platzhalter (_Template-Variablen_) für die Informationen aus der Ansicht, die wir einfügen möchten.
+Die Variablen sind mit doppelten geschweiften Klammern (Handlebars) umschlossen.
 
 > [!NOTE]
-> Sie können Template-Variablen und Template-Tags (Funktionen) leicht erkennen - Variablen sind in doppelte Klammern eingeschlossen (`\{{ num_books }}`), und Tags sind in einfache Klammern mit Prozentzeichen eingeschlossen (`{% extends "base_generic.html" %}`).
+> Sie können Template-Variablen und Template-Tags (Funktionen) leicht erkennen - Variablen sind in doppelten geschweiften Klammern (`\{{ num_books }}`) und Tags sind in einfachen Klammern mit Prozentzeichen (`{% extends "base_generic.html" %}`) eingeschlossen.
 
-Das Wichtigste, das hier zu beachten ist, dass Variablen mit den _Schlüssel_ benannt werden, unter denen wir die Daten im `context`-Wörterbuch der `render()`-Funktion unserer View übergeben (siehe Beispiel unten).
-Variablen werden mit ihren zugehörigen _Werten_ ersetzt, wenn das Template gerendert wird.
+Das Wichtigste hier ist, dass Variablen mit den _Keys_ benannt werden, die wir in das `context`-Dictionary der `render()`-Funktion unserer Ansicht übergeben (siehe Beispiel unten).
+Die Variablen werden ersetzt durch ihre zugehörigen _Werte_, wenn die Vorlage gerendert wird.
 
 ```python
 context = {
@@ -324,11 +324,11 @@ context = {
 return render(request, 'index.html', context=context)
 ```
 
-#### Verweis auf statische Dateien in Templates
+#### Referenzierung von statischen Dateien in Vorlagen
 
-Ihr Projekt verwendet wahrscheinlich statische Ressourcen, einschließlich JavaScript, CSS und Bilder. Da die Position dieser Dateien möglicherweise nicht bekannt ist (oder sich ändern könnte), ermöglicht Django Ihnen, den Speicherort in Ihren Templates relativ zur globalen `STATIC_URL`-Einstellung anzugeben. Die Standardeinstellung der `STATIC_URL` auf der Skeleton-Website ist `"/static/"`, aber Sie könnten diese auch auf einem Content Delivery Network oder anderswo hosten.
+Ihr Projekt wird wahrscheinlich statische Ressourcen verwenden, einschließlich JavaScript, CSS und Bilder. Da der Speicherort dieser Dateien möglicherweise unbekannt ist (oder sich ändern kann), ermöglicht Django es Ihnen, den Speicherort in Ihren Vorlagen relativ zur globalen Einstellung `STATIC_URL` anzugeben. Die Standard-Skeleton-Website setzt den Wert von `STATIC_URL` auf `"/static/"`, aber Sie könnten diese statischen Dateien auch auf einem Content Delivery Network oder anderswo hosten.
 
-Innerhalb des Templates rufen Sie zuerst das `load`-Template-Tag auf und geben "static" an, um die Template-Bibliothek hinzuzufügen, wie im Codebeispiel unten gezeigt. Dann können Sie das `static`-Template-Tag verwenden und die relative URL zur benötigten Datei angeben.
+Innerhalb der Vorlage rufen Sie zuerst das `load` Template-Tag auf, das "static" angibt, um die Template-Bibliothek hinzuzufügen, wie im Code-Beispiel unten gezeigt. Sie können dann das `static` Template-Tag verwenden und die relative URL zur erforderlichen Datei angeben.
 
 ```django
 <!-- Add additional CSS in static file -->
@@ -336,7 +336,7 @@ Innerhalb des Templates rufen Sie zuerst das `load`-Template-Tag auf und geben "
 <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
 ```
 
-Sie können ein Bild auf die gleiche Weise in die Seite einfügen, z.B.:
+Sie können auch ein Bild auf ähnliche Weise in die Seite einfügen:
 
 ```django
 {% load static %}
@@ -347,24 +347,24 @@ Sie können ein Bild auf die gleiche Weise in die Seite einfügen, z.B.:
 ```
 
 > [!NOTE]
-> Die obigen Beispiele geben an, wo die Dateien sich befinden, aber Django dient ihnen standardmäßig nicht. Wir haben den Entwicklungs-Webserver konfiguriert, um Dateien zu liefern, indem wir den globalen URL-Mapper (**/django-locallibrary-tutorial/locallibrary/urls.py**) geändert haben, als wir das [Website-Skeleton erstellt](/de/docs/Learn_web_development/Extensions/Server-side/Django/skeleton_website) haben, aber wir müssen das Dateiladen in der Produktion noch aktivieren. Darauf werden wir später noch eingehen.
+> Die obigen Beispiele geben an, wo sich die Dateien befinden, aber Django dient ihnen standardmäßig nicht. Wir haben den Entwicklungs-Webserver konfiguriert, um Dateien zu servern, indem wir den globalen URL-Mapper (**/django-locallibrary-tutorial/locallibrary/urls.py**) modifiziert haben, als wir [das Website-Skelett erstellt](/de/docs/Learn_web_development/Extensions/Server-side/Django/skeleton_website) haben, aber das File-Serving in der Produktion müssen wir später noch einrichten. Darauf werden wir später eingehen.
 
-Weitere Informationen zur Arbeit mit statischen Dateien finden Sie unter [Verwalten statischer Dateien](https://docs.djangoproject.com/en/5.0/howto/static-files/) in der Django-Dokumentation.
+Weitere Informationen zum Arbeiten mit statischen Dateien finden Sie unter [Verwalten statischer Dateien](https://docs.djangoproject.com/en/5.0/howto/static-files/) in der Django-Dokumentation.
 
-#### Verlinkung zu URLs
+#### Verlinken auf URLs
 
-Das obige Basistemplate hat das `url`-Template-Tag eingeführt.
+Die oben vorgestellte Basisvorlage führte das `url` Template-Tag ein.
 
 ```django
 <li><a href="{% url 'index' %}">Home</a></li>
 ```
 
-Dieses Tag akzeptiert den Namen einer `path()`-Funktion, die in Ihrer Datei **urls.py** aufgerufen wird, und die Werte für alle Argumente, die die zugehörige View von dieser Funktion erhalten soll, und gibt eine URL zurück, die Sie zum Verlinken der Ressource verwenden können.
+Dieses Tag akzeptiert den Namen einer `path()`-Funktion, die in Ihrer **urls.py** aufgerufen wird, sowie die Werte für alle Argumente, die die zugehörige Ansicht von dieser Funktion erhalten wird, und gibt eine URL zurück, die Sie verwenden können, um auf die Ressource zu verlinken.
 
-#### Konfiguration, wo die Templates zu finden sind
+#### Konfigurieren, wo die Vorlagen zu finden sind
 
-Der Ort, an dem Django nach Templates sucht, ist im `TEMPLATES`-Objekt in der Datei **settings.py** angegeben.
-Die Standard-**settings.py** (wie für dieses Tutorial erstellt) sieht etwa so aus:
+Der Speicherort, an dem Django nach Vorlagen sucht, wird im `TEMPLATES`-Objekt in der Datei **settings.py** angegeben.
+Die Standard-**settings.py** (wie sie für dieses Tutorial erstellt wurde) sieht ungefähr so aus:
 
 ```python
 TEMPLATES = [
@@ -384,46 +384,46 @@ TEMPLATES = [
 ]
 ```
 
-Die Einstellung von `'APP_DIRS': True`, ist dabei die wichtigste, da sie Django anweist, nach Templates in einem Unterverzeichnis jeder Applikation im Projekt namens "templates" zu suchen (dies erleichtert das Gruppieren von Templates mit ihrer zugehörigen Applikation zur einfachen Wiederverwendung).
+Die Einstellung `'APP_DIRS': True` ist am wichtigsten, da sie Django anweist, nach Vorlagen in einem Unterverzeichnis jeder Anwendung des Projekts zu suchen, das "templates" genannt wird (dies erleichtert das Gruppieren von Vorlagen mit ihren zugehörigen Anwendungen zur einfachen Wiederverwendung).
 
-Wir können auch spezifische Orte angeben, an denen Django nach Verzeichnissen suchen soll, indem wir `'DIRS': []` verwenden (aber das ist bisher noch nicht erforderlich).
+Wir können auch bestimmte Speicherorte angeben, an denen Django nach Verzeichnissen suchen soll, indem wir `'DIRS': []` verwenden (aber das ist momentan nicht nötig).
 
 > [!NOTE]
-> Sie können mehr darüber erfahren, wie Django Templates findet und welche Template-Formate es unterstützt, im [Template-Abschnitt der Django-Dokumentation](https://docs.djangoproject.com/en/5.0/topics/templates/).
+> Sie können mehr darüber erfahren, wie Django Vorlagen findet und welche Vorlagenformate es unterstützt, im [Template-Bereich der Django-Dokumentation](https://docs.djangoproject.com/en/5.0/topics/templates/).
 
 ## Wie sieht es aus?
 
-An diesem Punkt haben wir alle erforderlichen Ressourcen erstellt, um die Startseite anzuzeigen. Starten Sie den Server (`python3 manage.py runserver`) und öffnen Sie `http://127.0.0.1:8000/` in Ihrem Browser. Wenn alles korrekt konfiguriert ist, sollte Ihre Seite wie der folgende Screenshot aussehen.
+An diesem Punkt haben wir alle erforderlichen Ressourcen erstellt, um die Index-Seite anzuzeigen. Führen Sie den Server aus (`python3 manage.py runserver`) und öffnen Sie `http://127.0.0.1:8000/` in Ihrem Browser. Wenn alles korrekt konfiguriert ist, sollte Ihre Seite wie der folgende Screenshot aussehen.
 
-![Startseite für die LocalLibrary-Website](index_page_ok.png)
+![Index-Seite der LocalLibrary-Website](index_page_ok.png)
 
 > [!NOTE]
-> Die Links **Alle Bücher** und **Alle Autoren** funktionieren noch nicht, da die Pfade, Views und Templates für diese Seiten noch nicht definiert sind. Wir haben nur Platzhalter für diese Links im `base_generic.html`-Template eingefügt.
+> Die **Alle Bücher** und **Alle Autoren** Links werden noch nicht funktionieren, weil die Pfade, Ansichten und Vorlagen für diese Seiten noch nicht definiert sind. Wir haben lediglich Platzhalter für diese Links in der `base_generic.html`-Vorlage eingefügt.
 
-## Fordern Sie sich heraus
+## Fordern Sie sich selbst heraus
 
-Hier sind ein paar Aufgaben, um Ihre Vertrautheit mit Modellabfragen, Views und Templates zu testen.
+Hier sind ein paar Aufgaben, um Ihre Vertrautheit mit Modellabfragen, Ansichten und Vorlagen zu testen.
 
-1. Das LocalLibrary [Basistemplate](#das_locallibrary-basistemplate) enthält einen `title`-Block. Überschreiben Sie diesen Block im [Index-Template](#das_index-template) und erstellen Sie einen neuen Titel für die Seite.
+1. Die LocalLibrary [Basisvorlage](#die_locallibrary-basisvorlage) enthält einen `title`-Block. Überschreiben Sie diesen Block in der [Index-Vorlage](#die_index-vorlage) und erstellen Sie einen neuen Titel für die Seite.
 
    > [!NOTE]
-   > Der Abschnitt [Templates erweitern](#templates_erweitern) erklärt, wie man Blöcke erstellt und einen Block in einem anderen Template erweitert.
+   > Der Abschnitt [Vorlagen erweitern](#vorlagen_erweitern) erklärt, wie man Blöcke erstellt und einen Block in einer anderen Vorlage erweitert.
 
-2. Ändern Sie die [View](#view_function-based), um Zählungen für _Genres_ und _Bücher_ zu generieren, die ein bestimmtes Wort enthalten (groß-/kleinschreibungsunabhängig), und übergeben Sie die Ergebnisse an den `context`. Sie erreichen dies auf ähnliche Weise wie bei der Erstellung und Verwendung von `num_books` und `num_instances_available`. Aktualisieren Sie dann das [Index-Template](#das_index-template), um diese Variablen einzubeziehen.
+2. Ändern Sie die [Ansicht](#view_function-based), um Zählungen für _Genres_ und _Bücher_, die ein bestimmtes Wort (unabhängig von Groß-/Kleinschreibung) enthalten, zu erzeugen und übergeben Sie die Ergebnisse an den `context`. Sie können dies auf ähnliche Weise erreichen, wie Sie `num_books` und `num_instances_available` erstellt und verwendet haben. Aktualisieren Sie dann die [Index-Vorlage](#die_index-vorlage), um diese Variablen einzuschließen.
 
 ## Zusammenfassung
 
-Wir haben gerade die Startseite unserer Website erstellt - eine HTML-Seite, die eine Anzahl von Datensätzen aus der Datenbank anzeigt und Links zu anderen, noch zu erstellenden Seiten bietet. Unterwegs haben wir grundlegende Informationen zu URL-Maps, Views, Abfragen der Datenbank mit Modellen, Weitergabe von Informationen an ein Template aus einer View und Erstellung und Erweiterung von Templates gelernt.
+Wir haben gerade die Startseite für unsere Seite erstellt - eine HTML-Seite, die eine Anzahl von Datensätzen aus der Datenbank anzeigt und Links zu anderen noch zu erstellenden Seiten enthält. Dabei haben wir grundlegende Informationen über URL-Mapper, Ansichten, Abfragen in der Datenbank mit Modellen, das Übergeben von Informationen von einer Ansicht an eine Vorlage sowie das Erstellen und Erweitern von Vorlagen gelernt.
 
-Im nächsten Artikel werden wir auf diesem Wissen aufbauen, um die verbleibenden vier Seiten unserer Website zu erstellen.
+Im nächsten Artikel werden wir auf diesem Wissen aufbauen, um die restlichen vier Seiten unserer Website zu erstellen.
 
 ## Siehe auch
 
-- [Ihr erstes Django-App, Teil 3: Views und Templates schreiben](https://docs.djangoproject.com/en/5.0/intro/tutorial03/) (Django-Dokumentation)
-- [URL-Dispatcher](https://docs.djangoproject.com/en/5.0/topics/http/urls/) (Django-Dokumentation)
-- [View-Funktionen](https://docs.djangoproject.com/en/5.0/topics/http/views/) (Django-Dokumentation)
+- [Writing your first Django app, part 3: Views and Templates](https://docs.djangoproject.com/en/5.0/intro/tutorial03/) (Django-Dokumentation)
+- [URL dispatcher](https://docs.djangoproject.com/en/5.0/topics/http/urls/) (Django-Dokumentation)
+- [View functions](https://docs.djangoproject.com/en/5.0/topics/http/views/) (Django-Dokumentation)
 - [Templates](https://docs.djangoproject.com/en/5.0/topics/templates/) (Django-Dokumentation)
-- [Verwalten statischer Dateien](https://docs.djangoproject.com/en/5.0/howto/static-files/) (Django-Dokumentation)
-- [Django-Shortcut-Funktionen](https://docs.djangoproject.com/en/5.0/topics/http/shortcuts/#django.shortcuts.render) (Django-Dokumentation)
+- [Managing static files](https://docs.djangoproject.com/en/5.0/howto/static-files/) (Django-Dokumentation)
+- [Django shortcut functions](https://docs.djangoproject.com/en/5.0/topics/http/shortcuts/#django.shortcuts.render) (Django-Dokumentation)
 
 {{PreviousMenuNext("Learn_web_development/Extensions/Server-side/Django/Admin_site", "Learn_web_development/Extensions/Server-side/Django/Generic_views", "Learn_web_development/Extensions/Server-side/Django")}}

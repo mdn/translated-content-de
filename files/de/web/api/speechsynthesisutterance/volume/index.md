@@ -3,20 +3,20 @@ title: "SpeechSynthesisUtterance: volume-Eigenschaft"
 short-title: volume
 slug: Web/API/SpeechSynthesisUtterance/volume
 l10n:
-  sourceCommit: 101ffc9479db6aaa530f2aac3992734dd97d1b86
+  sourceCommit: 759102220c07fb140b3e06971cd5981d8f0f134f
 ---
 
 {{APIRef("Web Speech API")}}
 
-Die **`volume`**-Eigenschaft der [`SpeechSynthesisUtterance`](/de/docs/Web/API/SpeechSynthesisUtterance)-Schnittstelle erhält und setzt die Lautstärke, mit der die Äußerung gesprochen wird.
+Die **`volume`**-Eigenschaft des [`SpeechSynthesisUtterance`](/de/docs/Web/API/SpeechSynthesisUtterance)-Interfaces liest und setzt die Lautstärke, mit der die Äußerung gesprochen wird.
 
-Wenn sie nicht festgelegt ist, wird der Standardwert 1 verwendet.
+Falls nicht gesetzt, wird der Standardwert 1 verwendet.
 
 ## Wert
 
-Ein Gleitkommawert, der den Lautstärkewert darstellt, zwischen 0 (niedrigste) und 1 (höchste).
+Ein Float, der den Lautstärkewert repräsentiert, zwischen 0 (niedrigstmögliche) und 1 (höchstmögliche).
 
-Wenn [SSML](https://www.w3.org/TR/speech-synthesis/) verwendet wird, wird dieser Wert durch [Prosody-Tags](https://www.w3.org/TR/speech-synthesis/#S3.2.4) im Markup überschrieben.
+Wenn [SSML](https://www.w3.org/TR/speech-synthesis/) verwendet wird, wird dieser Wert von [Prosodie-Tags](https://www.w3.org/TR/speech-synthesis/#S3.2.4) im Markup überschrieben.
 
 ## Beispiele
 
@@ -29,7 +29,7 @@ const voiceSelect = document.querySelector("select");
 
 const voices = synth.getVoices();
 
-// ...
+// …
 
 inputForm.onsubmit = (event) => {
   event.preventDefault();

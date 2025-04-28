@@ -2,16 +2,16 @@
 title: Arrow Function Expressions
 slug: Web/JavaScript/Reference/Functions/Arrow_functions
 l10n:
-  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
+  sourceCommit: be1922d62a0d31e4e3441db0e943aed8df736481
 ---
 
 {{jsSidebar("Functions")}}
 
-Ein **Arrow Function Ausdruck** ist eine kompakte Alternative zu einem traditionellen [Funktionsausdruck](/de/docs/Web/JavaScript/Reference/Operators/function) mit einigen semantischen Unterschieden und bewussten Einschränkungen in der Verwendung:
+Ein **Arrow Function Ausdruck** ist eine kompakte Alternative zu einem traditionellen [Function Ausdruck](/de/docs/Web/JavaScript/Reference/Operators/function), mit einigen semantischen Unterschieden und bewussten Einschränkungen in der Nutzung:
 
-- Arrow-Functions haben keine eigenen {{Glossary("binding", "Bindings")}} für [`this`](/de/docs/Web/JavaScript/Reference/Operators/this), [`arguments`](/de/docs/Web/JavaScript/Reference/Functions/arguments) oder [`super`](/de/docs/Web/JavaScript/Reference/Operators/super) und sollten nicht als {{Glossary("Method", "Methoden")}} verwendet werden.
-- Arrow-Functions können nicht als {{Glossary("Constructor", "Konstruktoren")}} verwendet werden. Wenn sie mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden, wird ein {{jsxref("TypeError")}} ausgelöst. Sie haben auch keinen Zugriff auf das [`new.target`](/de/docs/Web/JavaScript/Reference/Operators/new.target) Schlüsselwort.
-- Arrow-Functions können [`yield`](/de/docs/Web/JavaScript/Reference/Operators/yield) nicht innerhalb ihres Körpers verwenden und können nicht als Generatorfunktionen erstellt werden.
+- Arrow Functions haben keine eigenen {{Glossary("binding", "Bindings")}} für [`this`](/de/docs/Web/JavaScript/Reference/Operators/this), [`arguments`](/de/docs/Web/JavaScript/Reference/Functions/arguments) oder [`super`](/de/docs/Web/JavaScript/Reference/Operators/super) und sollten nicht als {{Glossary("Method", "Methoden")}} verwendet werden.
+- Arrow Functions können nicht als {{Glossary("Constructor", "Konstruktoren")}} verwendet werden. Ein Aufruf mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) führt zu einem {{jsxref("TypeError")}}. Sie haben auch keinen Zugriff auf das Schlüsselwort [`new.target`](/de/docs/Web/JavaScript/Reference/Operators/new.target).
+- Arrow Functions können nicht innerhalb ihres Körpers [`yield`](/de/docs/Web/JavaScript/Reference/Operators/yield) verwenden und können nicht als Generator-Funktionen erstellt werden.
 
 {{InteractiveExample("JavaScript Demo: Arrow function expressions")}}
 
@@ -46,7 +46,7 @@ param => {
 }
 ```
 
-[Restparameter](/de/docs/Web/JavaScript/Reference/Functions/rest_parameters), [Standardparameter](/de/docs/Web/JavaScript/Reference/Functions/Default_parameters) und [Destrukturierung](/de/docs/Web/JavaScript/Reference/Operators/Destructuring) innerhalb von Parametern werden unterstützt und erfordern immer Klammern:
+[Rest Parameter](/de/docs/Web/JavaScript/Reference/Functions/rest_parameters), [Default Parameter](/de/docs/Web/JavaScript/Reference/Functions/Default_parameters) und [Destructuring](/de/docs/Web/JavaScript/Reference/Operators/Destructuring) innerhalb von Parametern werden unterstützt und erfordern immer Klammern:
 
 ```js-nolint
 (a, b, ...r) => expression
@@ -55,7 +55,7 @@ param => {
 ({ a, b } = { a: 10, b: 20 }) => expression
 ```
 
-Arrow-Functions können [`async`](/de/docs/Web/JavaScript/Reference/Statements/async_function) sein, indem der Ausdruck mit dem `async` Schlüsselwort vorangestellt wird.
+Arrow Functions können durch Voranstellen des `async` Schlüsselworts [`async`](/de/docs/Web/JavaScript/Reference/Statements/async_function) sein.
 
 ```js-nolint
 async param => expression
@@ -66,10 +66,10 @@ async (param1, param2, ...paramN) => {
 
 ## Beschreibung
 
-Lassen Sie uns eine traditionelle anonyme Funktion Schritt für Schritt zu einer einfachsten Arrow-Function zerlegen. Jeder Schritt auf dem Weg ist eine gültige Arrow-Function.
+Lassen Sie uns eine traditionelle anonyme Funktion Schritt für Schritt bis zur einfachsten Arrow Function reduzieren. Jeder Schritt auf dem Weg ist eine gültige Arrow Function.
 
 > [!NOTE]
-> Traditionelle Funktionsausdrücke und Arrow-Functions haben mehr Unterschiede als nur ihre Syntax. Wir werden ihre Verhaltensunterschiede in den nächsten Abschnitten ausführlicher vorstellen.
+> Traditionelle Function Expressions und Arrow Functions weisen mehr Unterschiede als nur ihre Syntax auf. Wir werden ihre Verhaltensunterschiede in den nächsten Abschnitten ausführlicher vorstellen.
 
 ```js-nolint
 // Traditional anonymous function
@@ -89,9 +89,9 @@ Lassen Sie uns eine traditionelle anonyme Funktion Schritt für Schritt zu einer
 a => a + 100;
 ```
 
-Im obigen Beispiel können sowohl die Klammern um den Parameter als auch die geschweiften Klammern um den Funktionskörper weggelassen werden. Dies ist jedoch nur in bestimmten Fällen möglich.
+Im obigen Beispiel können sowohl die Klammern um den Parameter als auch die geschweiften Klammern um den Funktionskörper weggelassen werden. Diese können jedoch nur in bestimmten Fällen weggelassen werden.
 
-Die Klammern können nur weggelassen werden, wenn die Funktion einen einzigen einfachen Parameter hat. Wenn sie mehrere Parameter, keine Parameter oder Standard-, dekonstruierte oder Restparameter hat, sind die Klammern um die Parameterliste erforderlich.
+Die Klammern können nur weggelassen werden, wenn die Funktion einen einzelnen einfachen Parameter hat. Wenn sie mehrere Parameter, keine Parameter oder Standard-, Destrukturierte- oder Rest-Parameter hat, sind die Klammern um die Parameterliste erforderlich.
 
 ```js
 // Traditional anonymous function
@@ -114,7 +114,7 @@ const b = 2;
 () => a + b + 100;
 ```
 
-Die geschweiften Klammern können nur weggelassen werden, wenn die Funktion direkt einen Ausdruck zurückgibt. Wenn der Körper Anweisungen hat, sind die geschweiften Klammern erforderlich — ebenso wie das `return` Schlüsselwort. Arrow-Functions können nicht erraten, was oder wann Sie etwas zurückgeben möchten.
+Die geschweiften Klammern können nur weggelassen werden, wenn die Funktion direkt einen Ausdruck zurückgibt. Wenn der Körper Anweisungen enthält, sind die geschweiften Klammern erforderlich — und ebenso das `return` Schlüsselwort. Arrow Functions können nicht erraten, was oder wann Sie etwas zurückgeben möchten.
 
 ```js
 // Traditional anonymous function
@@ -130,7 +130,7 @@ Die geschweiften Klammern können nur weggelassen werden, wenn die Funktion dire
 };
 ```
 
-Arrow-Functions sind nicht von Natur aus mit einem Namen verbunden. Wenn die Arrow-Function sich selbst aufrufen muss, verwenden Sie stattdessen einen benannten Funktionsausdruck. Sie können die Arrow-Function auch einer Variablen zuweisen, sodass Sie sich über diese Variable darauf beziehen können.
+Arrow Functions sind nicht von Natur aus mit einem Namen verbunden. Wenn die Arrow Function sich selbst aufrufen muss, verwenden Sie stattdessen einen benannten Function Ausdruck. Sie können die Arrow Function auch einer Variablen zuweisen, sodass Sie sie über diese Variable referenzieren können.
 
 ```js
 // Traditional Function
@@ -144,9 +144,9 @@ const bob2 = (a) => a + 100;
 
 ### Funktionskörper
 
-Arrow-Functions können entweder einen _Ausdruckskörper_ oder den üblichen _Blockkörper_ haben.
+Arrow Functions können entweder einen _Ausdruckskörper_ oder den üblichen _Blockkörper_ haben.
 
-In einem Ausdruckskörper wird nur ein einzelner Ausdruck angegeben, der zum impliziten Rückgabewert wird. In einem Blockkörper müssen Sie eine explizite `return`-Anweisung verwenden.
+In einem Ausdruckskörper wird nur ein einziger Ausdruck angegeben, der der implizite Rückgabewert wird. In einem Blockkörper müssen Sie eine explizite `return` Anweisung verwenden.
 
 ```js
 const func = (x) => x * x;
@@ -158,7 +158,7 @@ const func2 = (x, y) => {
 // with block body, explicit "return" needed
 ```
 
-Die Rückgabe von Objektliteralen mit der Ausdruckskörpersyntax `(params) => { object: literal }` funktioniert nicht wie erwartet.
+Das Zurückgeben von Objektliteralen unter Verwendung der Ausdruckskörpersyntax `(params) => { object: literal }` funktioniert nicht wie erwartet.
 
 ```js-nolint example-bad
 const func = () => { foo: 1 };
@@ -171,7 +171,7 @@ const func3 = () => { foo() {} };
 // SyntaxError: Unexpected token '{'
 ```
 
-Dies liegt daran, dass JavaScript eine Arrow-Function nur dann als Funktion mit einem Ausdruckskörper ansieht, wenn das Token, das auf den Pfeil folgt, keine linke geschweifte Klammer ist. Der Code innerhalb der Klammern ({}) wird daher als Abfolge von Anweisungen geparst, wobei `foo` ein [Label](/de/docs/Web/JavaScript/Reference/Statements/label) ist und kein Schlüssel in einem Objektliteral.
+Dies liegt daran, dass JavaScript die Arrow Function nur dann als eine mit einem Ausdruckskörper ansieht, wenn das Token nach dem Pfeil keine linke geschweifte Klammer ist, sodass der Code innerhalb der geschweiften Klammern ({}) als eine Sequenz von Anweisungen analysiert wird, wobei `foo` ein [Label](/de/docs/Web/JavaScript/Reference/Statements/label) und kein Schlüssel in einem Objektliteral ist.
 
 Um dies zu beheben, umgeben Sie das Objektliteral mit Klammern:
 
@@ -179,9 +179,9 @@ Um dies zu beheben, umgeben Sie das Objektliteral mit Klammern:
 const func = () => ({ foo: 1 });
 ```
 
-### Können nicht als Methoden verwendet werden
+### Kann nicht als Methoden verwendet werden
 
-Arrow-Function-Ausdrücke sollten nur für Nicht-Methoden-Funktionen verwendet werden, da sie kein eigenes `this` haben. Sehen wir uns an, was passiert, wenn wir versuchen, sie als Methoden zu verwenden:
+Arrow Function Ausdrücke sollten nur für Nicht-Methoden-Funktionen verwendet werden, da sie kein eigenes `this` haben. Lassen Sie uns sehen, was passiert, wenn wir versuchen, sie als Methoden zu verwenden:
 
 ```js
 "use strict";
@@ -215,7 +215,7 @@ Object.defineProperty(obj, "b", {
 });
 ```
 
-Da der Körper einer [Klasse](/de/docs/Web/JavaScript/Reference/Classes) einen `this`-Kontext hat, schließen Arrow-Functions als [Klassenfelder](/de/docs/Web/JavaScript/Reference/Classes/Public_class_fields) über den `this`-Kontext der Klasse, und das `this` innerhalb des Körpers der Arrow-Function zeigt korrekt auf die Instanz (oder die Klasse selbst, für [statische Felder](/de/docs/Web/JavaScript/Reference/Classes/static)). Da es sich jedoch um eine [closure](/de/docs/Web/JavaScript/Guide/Closures) handelt und nicht um das eigene Binding der Funktion, ändert sich der Wert von `this` nicht basierend auf dem Ausführungskontext.
+Da der Körper einer [Klasse](/de/docs/Web/JavaScript/Reference/Classes) einen `this`-Kontext hat, schließen Arrow Functions als [Klassenfelder](/de/docs/Web/JavaScript/Reference/Classes/Public_class_fields) über den `this`-Kontext der Klasse. Das `this` innerhalb des Körpers der Arrow Function wird korrekt auf die Instanz (oder die Klasse selbst, für [statische Felder](/de/docs/Web/JavaScript/Reference/Classes/static)) verweisen. Da es sich jedoch um eine [Schließung](/de/docs/Web/JavaScript/Guide/Closures) und nicht um das eigene Binding der Funktion handelt, ändert sich der Wert von `this` nicht basierend auf dem Ausführungskontext.
 
 ```js
 class C {
@@ -232,7 +232,7 @@ autoBoundMethod(); // 1
 // If it were a normal method, it should be undefined in this case
 ```
 
-Arrow-Function-Eigenschaften werden oft als "automatisch gebundene Methoden" bezeichnet, da das Äquivalent mit normalen Methoden so aussieht:
+Es wird oft gesagt, dass Arrow Function Eigenschaften "automatisch gebundene Methoden" sind, weil das Äquivalent mit normalen Methoden ist:
 
 ```js
 class C {
@@ -247,13 +247,13 @@ class C {
 ```
 
 > [!NOTE]
-> Klassenfelder werden auf der _Instanz_ definiert, nicht auf dem _Prototypen_, sodass bei jeder Instanzerstellung ein neuer Funktions-Referenzierungspunkt und eine neue Schließung erstellt werden, was potenziell zu mehr Speichernutzung führen kann als bei einer normalen nicht gebundenen Methode.
+> Klassenfelder sind auf der _Instanz_ definiert, nicht auf dem _Prototyp_, sodass bei jeder Instanzierung eine neue Funktionsreferenz und eine neue Schließung erstellt würden, was möglicherweise zu mehr Speichernutzung als bei einer normalen ungebundenen Methode führt.
 
-Aus ähnlichen Gründen sind die Methoden [`call()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/call), [`apply()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/apply) und [`bind()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/bind) nicht nützlich, wenn sie auf Arrow-Functions aufgerufen werden, da Arrow-Functions `this` auf Basis des Scopes definieren, in dem die Arrow-Function definiert ist, und sich der `this`-Wert nicht ändert, je nachdem, wie die Funktion aufgerufen wird.
+Aus ähnlichen Gründen sind die Methoden [`call()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/call), [`apply()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/apply) und [`bind()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/bind) nicht nützlich, wenn sie auf Arrow Functions angewendet werden, da Arrow Functions `this` basierend auf dem Scope, in dem sie definiert sind, festlegen und sich der `this` Wert nicht ändert, basierend darauf, wie die Funktion aufgerufen wird.
 
 ### Kein Binding von Arguments
 
-Arrow-Functions haben kein eigenes [`arguments`](/de/docs/Web/JavaScript/Reference/Functions/arguments)-Objekt. Daher ist in diesem Beispiel `arguments` eine Referenz auf die Argumente des umgebenden Scopes:
+Arrow Functions haben kein eigenes [`arguments`](/de/docs/Web/JavaScript/Reference/Functions/arguments) Objekt. In diesem Beispiel ist `arguments` also eine Referenz zu den Argumenten des umgebenden Scopes:
 
 ```js
 function foo(n) {
@@ -264,7 +264,7 @@ function foo(n) {
 foo(3); // 3 + 3 = 6
 ```
 
-In den meisten Fällen ist die Verwendung von [Restparametern](/de/docs/Web/JavaScript/Reference/Functions/rest_parameters) eine gute Alternative zur Verwendung eines `arguments`-Objekts.
+In den meisten Fällen ist die Verwendung von [Rest Parametern](/de/docs/Web/JavaScript/Reference/Functions/rest_parameters) eine gute Alternative zur Nutzung eines `arguments` Objekts.
 
 ```js
 function foo(n) {
@@ -275,9 +275,9 @@ function foo(n) {
 foo(1); // 11
 ```
 
-### Können nicht als Konstruktoren verwendet werden
+### Kann nicht als Konstruktoren verwendet werden
 
-Arrow-Functions können nicht als Konstruktoren verwendet werden und lösen einen Fehler aus, wenn sie mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden. Sie haben auch keine [`prototype`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/prototype)-Eigenschaft.
+Arrow Functions können nicht als Konstruktoren verwendet werden und führen zu einem Fehler, wenn sie mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden. Sie haben auch keine [`prototype`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/prototype) Eigenschaft.
 
 ```js
 const Foo = () => {};
@@ -285,13 +285,13 @@ const foo = new Foo(); // TypeError: Foo is not a constructor
 console.log("prototype" in Foo); // false
 ```
 
-### Können nicht als Generatoren verwendet werden
+### Kann nicht als Generatoren verwendet werden
 
-Das [`yield`](/de/docs/Web/JavaScript/Reference/Operators/yield)-Schlüsselwort kann nicht im Körper einer Arrow-Function verwendet werden (außer wenn es innerhalb von Generatorfunktionen, die weiter innerhalb der Arrow-Function verschachtelt sind, verwendet wird). Folglich können Arrow-Functions nicht als Generatoren verwendet werden.
+Das [`yield`](/de/docs/Web/JavaScript/Reference/Operators/yield) Schlüsselwort kann nicht im Körper einer Arrow Function verwendet werden (außer wenn innerhalb der Arrow Function weiter verschachtelte Generator-Funktionen verwendet werden). Folglich können Arrow Functions nicht als Generatoren verwendet werden.
 
 ### Zeilenumbruch vor dem Pfeil
 
-Eine Arrow-Function kann keinen Zeilenumbruch zwischen ihren Parametern und ihrem Pfeil enthalten.
+Eine Arrow Function darf keinen Zeilenumbruch zwischen ihren Parametern und dem Pfeil enthalten.
 
 ```js-nolint example-bad
 const func = (a, b, c)
@@ -299,7 +299,7 @@ const func = (a, b, c)
 // SyntaxError: Unexpected token '=>'
 ```
 
-Aus Formatierungsgründen können Sie den Zeilenumbruch nach dem Pfeil setzen oder Klammern/geschweifte Klammern um den Funktionskörper verwenden, wie unten gezeigt. Sie können auch Zeilenumbrüche zwischen Parametern setzen.
+Zum Zweck der Formatierung können Sie den Zeilenumbruch nach dem Pfeil setzen oder Klammern/Geschweifte Klammern um den Funktionskörper verwenden, wie unten gezeigt. Sie können auch Zeilenumbrüche zwischen Parametern setzen.
 
 ```js-nolint
 const func = (a, b, c) =>
@@ -322,7 +322,7 @@ const func4 = (
 
 ### Vorrang des Pfeils
 
-Obwohl der Pfeil in einer Arrow-Function kein Operator ist, haben Arrow-Functions spezielle Parsing-Regeln, die anders mit [Operatorvorrang](/de/docs/Web/JavaScript/Reference/Operators/Operator_precedence) interagieren als reguläre Funktionen.
+Obwohl der Pfeil in einer Arrow Function kein Operator ist, haben Arrow Functions spezielle Analyse-Regeln, die anders mit dem [Operatorvorrang](/de/docs/Web/JavaScript/Reference/Operators/Operator_precedence) interagieren als reguläre Funktionen.
 
 ```js-nolint example-bad
 let callback;
@@ -331,7 +331,7 @@ callback = callback || () => {};
 // SyntaxError: invalid arrow-function arguments
 ```
 
-Da `=>` einen niedrigeren Vorrang als die meisten Operatoren hat, sind Klammern notwendig, um zu verhindern, dass `callback || ()` als Argumentenliste der Arrow-Function geparst wird.
+Da `=>` eine niedrigere Priorität als die meisten Operatoren hat, sind Klammern notwendig, um zu verhindern, dass `callback || ()` als Argumentenliste der Arrow Function analysiert wird.
 
 ```js example-good
 callback = callback || (() => {});
@@ -339,7 +339,7 @@ callback = callback || (() => {});
 
 ## Beispiele
 
-### Verwendung von Arrow-Functions
+### Verwendung von Arrow Functions
 
 ```js
 // An empty arrow function returns undefined
@@ -376,7 +376,7 @@ promise
     // …
   });
 
-// Parameterless arrow functions that are visually easier to parse
+// Arrow functions without parameters
 setTimeout(() => {
   console.log("I happen sooner");
   setTimeout(() => {
@@ -388,7 +388,7 @@ setTimeout(() => {
 
 ### Verwendung von call, bind und apply
 
-Die Methoden [`call()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/call), [`apply()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/apply) und [`bind()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/bind) funktionieren mit traditionellen Funktionen wie erwartet, weil wir den Scope für jede der Methoden festlegen:
+Die Methoden [`call()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/call), [`apply()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/apply) und [`bind()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/bind) funktionieren wie erwartet mit traditionellen Funktionen, da wir den Scope für jede der Methoden festlegen:
 
 ```js
 const obj = {
@@ -409,7 +409,7 @@ const boundAdd = add.bind(obj);
 console.log(boundAdd(1, 2, 3)); // 106
 ```
 
-Bei Arrow-Functions, da unsere `add`-Funktion im Wesentlichen auf dem `globalThis` (globalen) Scope erstellt wird, nimmt sie an, dass `this` `globalThis` ist.
+Bei Arrow Functions nimmt unsere `add` Funktion, da sie im `globalThis` (globalen) Scope erstellt wird, `this` als `globalThis` an.
 
 ```js
 const obj = {
@@ -428,9 +428,9 @@ const boundAdd = add.bind(obj);
 console.log(boundAdd(1, 2, 3)); // 48
 ```
 
-Vielleicht der größte Vorteil der Verwendung von Arrow-Functions ist bei Methoden wie [`setTimeout()`](/de/docs/Web/API/Window/setTimeout) und [`EventTarget.prototype.addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), die normalerweise eine Art von Closure, `call()`, `apply()`, oder `bind()` erfordern, um sicherzustellen, dass die Funktion im richtigen Scope ausgeführt wird.
+Der vielleicht größte Vorteil der Verwendung von Arrow Functions liegt bei Methoden wie [`setTimeout()`](/de/docs/Web/API/Window/setTimeout) und [`EventTarget.prototype.addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), die normalerweise eine Art von Schließung, `call()`, `apply()` oder `bind()` erfordern, um sicherzustellen, dass die Funktion im richtigen Scope ausgeführt wird.
 
-Bei traditionellen Funktionsausdrücken funktioniert dieser Code nicht wie erwartet:
+Mit traditionellen Function Expressions funktioniert Code wie dieser nicht wie erwartet:
 
 ```js
 const obj = {
@@ -447,7 +447,7 @@ const obj = {
 obj.doSomethingLater(); // logs "NaN", because the property "count" is not in the window scope.
 ```
 
-Mit Arrow-Functions wird der `this`-Scope leichter beibehalten:
+Mit Arrow Functions wird der `this` Scope leichter beibehalten:
 
 ```js
 const obj = {
@@ -469,16 +469,16 @@ obj.doSomethingLater(); // logs 11
 
 ## Spezifikationen
 
-{{Spezifikationen}}
+{{Specifications}}
 
 ## Browser-Kompatibilität
 
-{{Kompatibilität}}
+{{Compat}}
 
 ## Siehe auch
 
 - [Funktionen](/de/docs/Web/JavaScript/Guide/Functions) Leitfaden
 - [Funktionen](/de/docs/Web/JavaScript/Reference/Functions)
 - {{jsxref("Statements/function", "function")}}
-- [`function` expression](/de/docs/Web/JavaScript/Reference/Operators/function)
-- [ES6 in der Tiefe: Arrow-Functions](https://hacks.mozilla.org/2015/06/es6-in-depth-arrow-functions/) auf hacks.mozilla.org (2015)
+- [`function` Ausdruck](/de/docs/Web/JavaScript/Reference/Operators/function)
+- [ES6 In Depth: Arrow functions](https://hacks.mozilla.org/2015/06/es6-in-depth-arrow-functions/) auf hacks.mozilla.org (2015)

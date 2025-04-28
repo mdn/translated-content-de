@@ -1,14 +1,14 @@
 ---
-title: "PushSubscription: getKey() Methode"
+title: "PushSubscription: getKey()-Methode"
 short-title: getKey()
 slug: Web/API/PushSubscription/getKey
 l10n:
-  sourceCommit: 3a91caa0ebbc5131ed75afe0e5168cd5bffc0976
+  sourceCommit: 759102220c07fb140b3e06971cd5981d8f0f134f
 ---
 
 {{APIRef("Push API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die `getKey()`-Methode des [`PushSubscription`](/de/docs/Web/API/PushSubscription) Interfaces gibt ein {{jsxref("ArrayBuffer")}} zurück, das einen öffentlichen Schlüssel des Clients darstellt. Dieser kann dann an einen Server gesendet und zur Verschlüsselung von Push-Nachrichtendaten verwendet werden.
+Die `getKey()`-Methode der [`PushSubscription`](/de/docs/Web/API/PushSubscription)-Schnittstelle gibt einen {{jsxref("ArrayBuffer")}} zurück, der einen öffentlichen Schlüssel des Clients repräsentiert. Dieser kann dann an einen Server gesendet und zur Verschlüsselung von Push-Nachrichtendaten verwendet werden.
 
 ## Syntax
 
@@ -20,12 +20,12 @@ getKey(name)
 
 - `name`
 
-  - : Ein String, der die Verschlüsselungsmethode repräsentiert, die zur Generierung eines Clientschlüssels verwendet wird. Der Wert kann sein:
+  - : Ein String, der die Verschlüsselungsmethode repräsentiert, die zur Erzeugung eines Client-Schlüssels verwendet wird. Der Wert kann sein:
 
     - `p256dh`
-      - : Ein [Elliptic curve Diffie–Hellman](https://en.wikipedia.org/wiki/Elliptic_curve_Diffie%E2%80%93Hellman) öffentlicher Schlüssel auf der P-256-Kurve (das heißt, der NIST secp256r1 elliptischen Kurve). Der resultierende Schlüssel ist ein nicht komprimierter Punkt im ANSI X9.62 Format.
+      - : Ein [Elliptic curve Diffie–Hellman](https://en.wikipedia.org/wiki/Elliptic_curve_Diffie%E2%80%93Hellman)-Öffentlicher Schlüssel auf der P-256-Kurve (das heißt der NIST secp256r1 elliptischen Kurve). Der resultierende Schlüssel ist ein unkomprimierter Punkt im ANSI X9.62-Format.
     - `auth`
-      - : Ein Authentifizierungsgeheimnis, wie es in [Message Encryption for Web Push](https://datatracker.ietf.org/doc/html/draft-ietf-webpush-encryption-08) beschrieben ist.
+      - : Ein Authentifizierungsgeheimnis, wie in [Message Encryption for Web Push](https://datatracker.ietf.org/doc/html/draft-ietf-webpush-encryption-08) beschrieben.
 
 ### Rückgabewert
 
@@ -58,7 +58,7 @@ reg.pushManager.getSubscription().then((subscription) => {
   const key = subscription.getKey("p256dh");
   const auth = subscription.getKey("auth");
 
-  // ...
+  // …
 });
 ```
 

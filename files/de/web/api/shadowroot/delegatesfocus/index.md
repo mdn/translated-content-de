@@ -3,36 +3,36 @@ title: "ShadowRoot: delegatesFocus-Eigenschaft"
 short-title: delegatesFocus
 slug: Web/API/ShadowRoot/delegatesFocus
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: 759102220c07fb140b3e06971cd5981d8f0f134f
 ---
 
 {{APIRef("Shadow DOM")}}
 
-Die **`delegatesFocus`**-Eigenschaft des [`ShadowRoot`](/de/docs/Web/API/ShadowRoot)-Interfaces gibt `true` zurück, wenn der Shadow-Root den Fokus delegiert, und `false`, wenn nicht.
+Die schreibgeschützte **`delegatesFocus`**-Eigenschaft der [`ShadowRoot`](/de/docs/Web/API/ShadowRoot)-Schnittstelle gibt `true` zurück, wenn das Shadow Root den Fokus delegiert, und `false` andernfalls.
 
-Wenn `true`, wird beim Klicken auf einen nicht fokussierbaren Bereich des Shadow DOM oder bei Aufruf von `.focus()` auf das Host-Element, der erste fokussierbare Teil innerhalb des Shadow DOM des Hosts fokussiert und der Shadow-Host erhält jegliches verfügbare `:focus`-Styling.
+Wenn `true`, wird der erste fokussierbare Teil innerhalb des Shadow DOM des Hosts fokussiert, wenn ein nicht fokussierbarer Teil des Shadow DOM angeklickt wird oder `.focus()` auf das Host-Element aufgerufen wird, und der Shadow Host erhält jegliche verfügbare `:focus`-Stilisierung.
 
-Der Fokus ist besonders wichtig für Tastaturbenutzer (einschließlich derjenigen, die Screenreader verwenden). Das Standardverhalten von `delegatesFocus` ist es, das erste fokussierbare Element zu fokussieren – was unerwünscht sein kann, wenn dieses Element nicht Teil der Tab-Reihenfolge sein soll (zum Beispiel ein Element mit `tabindex="-1"`) oder wenn ein 'wichtigeres' fokussierbares Element den initialen Fokus erhalten sollte (zum Beispiel das erste Textfeld anstatt des vorangestellten 'Schließen'-Buttons). In solchen Fällen kann das `autofocus`-Attribut auf das Element gesetzt werden, welches den initialen Fokus erhalten soll. Das `autofocus`-Attribut sollte mit Vorsicht verwendet werden, da es Barrierefreiheitsprobleme verursachen kann, wie zum Beispiel das Umgehen wichtiger Inhalte, die aufgrund des gesetzten Fokus auf ein später im DOM angeordnetes Element unbemerkt bleiben könnten.
+Der Fokus ist insbesondere für Tastaturnutzer (einschließlich derjenigen, die Bildschirmleser verwenden) von Bedeutung. Das Standardverhalten von `delegatesFocus` ist, das erste fokussierbare Element zu fokussieren – was unerwünscht sein kann, wenn dieses Element nicht Teil der Tabulatorreihenfolge sein soll (z. B. ein Element mit `tabindex="-1"`), oder wenn ein wichtigeres fokussierbares Element den initialen Fokus erhalten sollte (zum Beispiel das erste Textfeld anstelle des davor liegenden 'Schließen'-Buttons). In solchen Fällen kann das `autofocus`-Attribut auf dem Element angegeben werden, welches den initialen Fokus erhalten soll. Verwenden Sie das `autofocus`-Attribut mit Vorsicht, da es Barrierefreiheitsprobleme verursachen kann, wie das Übergehen wichtiger Inhalte, die unbemerkt bleiben können, wenn der Fokus auf ein später im DOM auftauchendes Element gesetzt wird.
 
-Der Eigenschaftswert wird ursprünglich durch die `delegatesFocus`-Eigenschaft des Objekts gesetzt, das an [`Element.attachShadow()`](/de/docs/Web/API/Element/attachShadow) übergeben wird, oder durch das [`shadowrootdelegatesfocus`](/de/docs/Web/HTML/Reference/Elements/template#shadowrootclonable)-Attribut des [`<template>`](/de/docs/Web/HTML/Reference/Elements/template)-Elements, wenn ein Shadow-Root deklarativ erstellt wird.
+Der Eigenschaftswert wird ursprünglich über die `delegatesFocus`-Eigenschaft des Objekts gesetzt, das an [`Element.attachShadow()`](/de/docs/Web/API/Element/attachShadow) übergeben wird, oder durch das [`shadowrootdelegatesfocus`](/de/docs/Web/HTML/Reference/Elements/template#shadowrootclonable)-Attribut des [`<template>`](/de/docs/Web/HTML/Reference/Elements/template)-Elements, wenn ein Shadow Root deklarativ erstellt wird.
 
 ## Wert
 
-`true`, wenn der Shadow-Root den Fokus delegiert, andernfalls `false`.
+`true`, wenn das Shadow Root den Fokus delegiert, und `false` andernfalls.
 
 ## Beispiele
 
 ```js
-let customElem = document.querySelector("my-shadow-dom-element");
-let shadow = customElem.shadowRoot;
+const customElem = document.querySelector("my-shadow-dom-element");
+const shadow = customElem.shadowRoot;
 
-// ...
+// …
 
 // Does it delegate focus?
-let hostElem = shadow.delegatesFocus;
+const hostElem = shadow.delegatesFocus;
 ```
 
-Das Beispiel [Deklaratives Shadow DOM mit delegiertem Fokus](/de/docs/Web/HTML/Reference/Elements/template#declarative_shadow_dom_with_delegated_focus) in der `<template>`-Dokumentation demonstriert die Effekte des Fokusdelegierens.
+Das Beispiel [Deklaratives Shadow DOM mit delegiertem Fokus](/de/docs/Web/HTML/Reference/Elements/template#declarative_shadow_dom_with_delegated_focus) in der `<template>`-Dokumentation demonstriert die Auswirkungen des fokussierenden Delegierens.
 
 ## Spezifikationen
 

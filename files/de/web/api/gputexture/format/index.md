@@ -3,23 +3,23 @@ title: "GPUTexture: format-Eigenschaft"
 short-title: format
 slug: Web/API/GPUTexture/format
 l10n:
-  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
+  sourceCommit: 759102220c07fb140b3e06971cd5981d8f0f134f
 ---
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
 Die **`format`**-Eigenschaft des [`GPUTexture`](/de/docs/Web/API/GPUTexture)-Interfaces ist eine schreibgeschützte Eigenschaft, die das Format der `GPUTexture` darstellt.
 
-Dieses wird über die `format`-Eigenschaft im Deskriptor-Objekt gesetzt, das im ursprünglichen Aufruf von [`GPUDevice.createTexture()`](/de/docs/Web/API/GPUDevice/createTexture) übergeben wurde.
+Diese wird über die `format`-Eigenschaft im Deskriptor-Objekt gesetzt, das in den zugrunde liegenden Aufruf von [`GPUDevice.createTexture()`](/de/docs/Web/API/GPUDevice/createTexture) übergeben wird.
 
 ## Wert
 
-Ein Enumerationswert. Siehe den Abschnitt [Texture formats](https://gpuweb.github.io/gpuweb/#enumdef-gputextureformat) der Spezifikation für alle möglichen Werte.
+Ein enumerierter Wert. Siehe den Abschnitt [Texture formats](https://gpuweb.github.io/gpuweb/#enumdef-gputextureformat) der Spezifikation für alle möglichen Werte.
 
 ## Beispiele
 
 ```js
-// ...
+// …
 
 const depthTexture = device.createTexture({
   size: [canvas.width, canvas.height],

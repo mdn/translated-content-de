@@ -3,14 +3,14 @@ title: "ReadableStream: locked-Eigenschaft"
 short-title: locked
 slug: Web/API/ReadableStream/locked
 l10n:
-  sourceCommit: d8b4431bfde42f1bc195239ea1f378d763f8163e
+  sourceCommit: 759102220c07fb140b3e06971cd5981d8f0f134f
 ---
 
 {{APIRef("Streams")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`locked`**-Eigenschaft der [`ReadableStream`](/de/docs/Web/API/ReadableStream)-Schnittstelle gibt an, ob der lesbare Stream an einen Leser gebunden ist oder nicht.
+Die schreibgeschützte **`locked`**-Eigenschaft der [`ReadableStream`](/de/docs/Web/API/ReadableStream)-Schnittstelle gibt zurück, ob der lesbare Stream an einen Leser gebunden ist oder nicht.
 
-Ein lesbarer Stream kann höchstens einen aktiven Leser gleichzeitig haben und bleibt an diesen Leser gebunden, bis er freigegeben wird. Ein Leser kann durch Verwenden von [`ReadableStream.getReader()`](/de/docs/Web/API/ReadableStream/getReader) erhalten und durch die Methode `releaseLock()` des Lesers freigegeben werden.
+Ein lesbarer Stream kann höchstens einen aktiven Leser gleichzeitig haben und ist an diesen Leser gebunden, bis er freigegeben wird. Ein Leser kann mit [`ReadableStream.getReader()`](/de/docs/Web/API/ReadableStream/getReader) bezogen und mit der Methode `releaseLock()` des Lesers freigegeben werden.
 
 ## Wert
 
@@ -20,7 +20,7 @@ Ein {{Glossary("boolean", "boolean")}}-Wert, der angibt, ob der lesbare Stream g
 
 ```js
 const stream = new ReadableStream({
-  // ...
+  // …
 });
 
 const reader = stream.getReader();
@@ -39,5 +39,5 @@ stream.locked;
 
 ## Siehe auch
 
-- [`ReadableStream()`](/de/docs/Web/API/ReadableStream/ReadableStream)-Konstruktor
+- [`ReadableStream()`](/de/docs/Web/API/ReadableStream/ReadableStream) Konstruktor
 - [Verwendung von lesbaren Streams](/de/docs/Web/API/Streams_API/Using_readable_streams)

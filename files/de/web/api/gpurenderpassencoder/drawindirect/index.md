@@ -1,15 +1,14 @@
 ---
-title: "GPURenderPassEncoder: drawIndirect() Methode"
+title: "GPURenderPassEncoder: drawIndirect()-Methode"
 short-title: drawIndirect()
 slug: Web/API/GPURenderPassEncoder/drawIndirect
 l10n:
-  sourceCommit: 2379747e3cefc009c6a00ec52e88d66ff15c5397
+  sourceCommit: 759102220c07fb140b3e06971cd5981d8f0f134f
 ---
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`drawIndirect()`**-Methode der
-[`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder)-Schnittstelle zeichnet Primitiven unter Verwendung von Parametern, die aus einem [`GPUBuffer`](/de/docs/Web/API/GPUBuffer) gelesen werden.
+Die **`drawIndirect()`**-Methode der [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder)-Schnittstelle zeichnet Primitive unter Verwendung von Parametern, die aus einem [`GPUBuffer`](/de/docs/Web/API/GPUBuffer) gelesen werden.
 
 ## Syntax
 
@@ -21,7 +20,7 @@ drawIndirect(indirectBuffer, indirectOffset)
 
 - `indirectBuffer`
 
-  - : Ein [`GPUBuffer`](/de/docs/Web/API/GPUBuffer), der die Werte `vertexCount`, `instanceCount`, `firstVertex` und `firstInstance` enthält, die benötigt werden, um die Zeichenoperation durchzuführen. Der Puffer muss einen dicht gepackten Block von vier 32-Bit-unsigned-Integer-Werten enthalten, die die Werte in der gleichen Reihenfolge wie die Argumente für [`GPURenderPassEncoder.draw()`](/de/docs/Web/API/GPURenderPassEncoder/draw) darstellen (insgesamt 16 Bytes). Ein Beispiel:
+  - : Ein [`GPUBuffer`](/de/docs/Web/API/GPUBuffer), der die `vertexCount`, `instanceCount`, `firstVertex` und `firstInstance` Werte enthält, die benötigt werden, um die Zeichnungsoperation durchzuführen. Der Puffer muss einen dicht gepackten Block von vier 32-Bit-Ganzzahlwerten ohne Vorzeichen enthalten, welche die Werte in derselben Reihenfolge repräsentieren wie die Argumente für [`GPURenderPassEncoder.draw()`](/de/docs/Web/API/GPURenderPassEncoder/draw) (insgesamt 16 Bytes). Zum Beispiel:
 
     ```js
     const uint32 = new Uint32Array(4);
@@ -35,10 +34,10 @@ drawIndirect(indirectBuffer, indirectOffset)
     ```
 
     > [!NOTE]
-    > Die `indirect-first-instance` [Funktion](/de/docs/Web/API/GPUSupportedFeatures) muss aktiviert sein, damit nicht-null `firstInstance`-Werte verwendet werden können. Wenn die `indirect-first-instance`-Funktion nicht aktiviert ist und `firstInstance` nicht null ist, wird der `drawIndirect()`-Aufruf als No-Op behandelt.
+    > Das `indirect-first-instance` [Feature](/de/docs/Web/API/GPUSupportedFeatures) muss aktiviert sein, damit nicht-null `firstInstance`-Werte verwendet werden können. Wenn das `indirect-first-instance`-Feature nicht aktiviert ist und `firstInstance` nicht null ist, wird der `drawIndirect()`-Aufruf als no-op behandelt.
 
 - `indirectOffset`
-  - : Der Offset in Bytes im `indirectBuffer`, wo die Wertedaten beginnen.
+  - : Der Versatz in Bytes in `indirectBuffer`, wo die Wertedaten beginnen.
 
 ### Rückgabewert
 
@@ -48,14 +47,14 @@ Keiner ({{jsxref("Undefined")}}).
 
 Die folgenden Kriterien müssen erfüllt sein, wenn **`drawIndirect()`** aufgerufen wird, andernfalls wird ein [`GPUValidationError`](/de/docs/Web/API/GPUValidationError) generiert und der [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder) wird ungültig:
 
-- `indirectBuffer`'s [`GPUBuffer.usage`](/de/docs/Web/API/GPUBuffer/usage) enthält das `GPUBufferUsage.INDIRECT`-Flag.
-- `indirectOffset` + die durch die Wertparameter im `indirectBuffer` angegebene Gesamtgröße ist kleiner oder gleich der [`GPUBuffer.size`](/de/docs/Web/API/GPUBuffer/size) des `indirectBuffer`.
+- [`GPUBuffer.usage`](/de/docs/Web/API/GPUBuffer/usage) von `indirectBuffer` enthält das `GPUBufferUsage.INDIRECT`-Flag.
+- `indirectOffset` + die durch die Wertparameter im `indirectBuffer` angegebene Gesamtgröße ist kleiner oder gleich der [`GPUBuffer.size`](/de/docs/Web/API/GPUBuffer/size) von `indirectBuffer`.
 - `indirectOffset` ist ein Vielfaches von 4.
 
 ## Beispiele
 
 ```js
-// ...
+// …
 
 // Create GPURenderPassEncoder
 const passEncoder = commandEncoder.beginRenderPass(renderPassDescriptor);
@@ -87,7 +86,7 @@ passEncoder.end();
 // End frame by passing array of GPUCommandBuffers to command queue for execution
 device.queue.submit([commandEncoder.finish()]);
 
-// ...
+// …
 ```
 
 ## Spezifikationen

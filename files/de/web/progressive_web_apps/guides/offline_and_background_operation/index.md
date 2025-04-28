@@ -1,27 +1,27 @@
 ---
-title: Offline- und Hintergrundbetrieb
+title: Offline- und Hintergrundoperationen
 slug: Web/Progressive_web_apps/Guides/Offline_and_background_operation
 l10n:
-  sourceCommit: 77d90a23ee0a3b5486a7963f68ad4e56efb06a7b
+  sourceCommit: 759102220c07fb140b3e06971cd5981d8f0f134f
 ---
 
 {{PWASidebar}}
 
-In der Regel sind Websites stark von einer zuverlässigen Netzwerkverbindung und davon abhängig, dass der Benutzer ihre Seiten in einem Browser geöffnet hat. Ohne Netzwerkverbindung sind die meisten Websites einfach unbrauchbar, und wenn der Benutzer die Seite nicht in einem Browser-Tab geöffnet hat, können die meisten Websites nichts tun.
+Normalerweise sind Websites stark auf eine zuverlässige Netzwerkverbindung und darauf angewiesen, dass der Nutzer ihre Seiten in einem Browser geöffnet hat. Ohne Netzwerkverbindung sind die meisten Websites einfach unbrauchbar, und wenn der Nutzer die Seite nicht in einem Browser-Tab geöffnet hat, können die meisten Websites nichts unternehmen.
 
 Betrachten Sie jedoch die folgenden Szenarien:
 
-- Eine Musik-App ermöglicht dem Benutzer, Musik online zu streamen, kann aber im Hintergrund Tracks herunterladen und dann weiter abspielen, während der Benutzer offline ist.
-- Der Benutzer verfasst eine lange E-Mail, drückt auf „Senden“ und verliert dann die Netzwerkverbindung. Das Gerät sendet die E-Mail im Hintergrund, sobald die Netzwerkverbindung wieder verfügbar ist.
-- Die Chat-App des Benutzers erhält eine Nachricht von einem seiner Kontakte, und obwohl die App nicht geöffnet ist, wird ein Badge auf dem App-Symbol angezeigt, um den Benutzer darüber zu informieren, dass er eine neue Nachricht hat.
+- Eine Musik-App ermöglicht es dem Nutzer, Musik zu streamen, während er online ist, kann aber im Hintergrund Tracks herunterladen und dann weiterhin abspielen, während der Nutzer offline ist.
+- Der Nutzer verfasst eine lange E-Mail, drückt auf "Senden" und verliert dann die Netzwerkverbindung. Das Gerät sendet die E-Mail im Hintergrund, sobald die Netzwerkverbindung wieder verfügbar ist.
+- Die Chat-App des Nutzers erhält eine Nachricht von einem ihrer Kontakte, und obwohl die App nicht geöffnet ist, zeigt sie ein Abzeichen auf dem App-Symbol an, um den Nutzer darüber zu informieren, dass er eine neue Nachricht hat.
 
-Dies sind die Arten von Funktionen, die Benutzer von installierten Apps erwarten. In diesem Leitfaden werden wir eine Reihe von Technologien vorstellen, die es einer PWA ermöglichen:
+Dies sind die Arten von Funktionen, die Nutzer von installierten Apps erwarten. In diesem Leitfaden stellen wir eine Reihe von Technologien vor, die es einem PWA ermöglichen:
 
-- Eine gute Benutzererfahrung zu bieten, auch wenn das Gerät nur intermittierende Netzwerkverbindung hat
-- Den eigenen Status zu aktualisieren, wenn die App nicht läuft
-- Den Benutzer über wichtige Ereignisse zu informieren, die passiert sind, während die App nicht lief
+- Eine gute Benutzererfahrung zu bieten, selbst wenn das Gerät eine intermittierende Netzwerkverbindung hat
+- Seinen Zustand zu aktualisieren, wenn die App nicht läuft
+- Den Nutzer über wichtige Ereignisse zu benachrichtigen, die passiert sind, während die App nicht lief
 
-Die in diesem Leitfaden eingeführten Technologien sind:
+Die in diesem Leitfaden vorgestellten Technologien sind:
 
 - [Service Worker API](/de/docs/Web/API/Service_Worker_API)
 - [Background Synchronization API](/de/docs/Web/API/Background_Synchronization_API)
@@ -34,36 +34,36 @@ Die in diesem Leitfaden eingeführten Technologien sind:
 
 Die Grundlage aller Technologien, die wir in diesem Leitfaden besprechen werden, ist der _Service Worker_. In diesem Abschnitt geben wir einen kleinen Überblick über Worker und wie sie die Architektur einer Web-App verändern.
 
-Normalerweise läuft eine gesamte Website in einem einzigen Thread. Dazu gehört das eigene JavaScript der Website und alle Arbeiten zur Darstellung der Benutzeroberfläche der Website. Eine Konsequenz daraus ist, dass, wenn Ihr JavaScript eine langwierige Operation ausführt, die Hauptbenutzeroberfläche der Website blockiert wird und die Website dem Benutzer als nicht ansprechbar erscheint.
+Normalerweise läuft eine gesamte Website in einem einzigen Thread. Dies umfasst das eigene JavaScript der Website sowie alle Arbeiten zur Darstellung der Benutzeroberfläche der Website. Eine Konsequenz daraus ist, dass wenn Ihr JavaScript eine lang andauernde Operation ausführt, die Haupt-Benutzeroberfläche der Website blockiert wird und die Website für den Nutzer nicht mehr reagiert.
 
-Ein [Service Worker](/de/docs/Web/API/Service_Worker_API) ist eine spezielle Art von [Web Worker](/de/docs/Web/API/Web_Workers_API), die zur Implementierung von PWAs verwendet wird. Wie alle Web Worker läuft ein Service Worker in einem separaten Thread zum Haupt-JavaScript-Code. Der Hauptcode erstellt den Worker, indem er eine URL für das Skript des Workers übergibt. Der Worker und der Hauptcode können nicht direkt aufeinander zugreifen, können jedoch durch Senden von Nachrichten miteinander kommunizieren. Worker können verwendet werden, um rechenintensive Aufgaben im Hintergrund auszuführen: Da sie in einem separaten Thread laufen, kann der Haupt-JavaScript-Code in der App, der die Benutzeroberfläche der App implementiert, ansprechbar für den Benutzer bleiben.
+Ein [Service Worker](/de/docs/Web/API/Service_Worker_API) ist eine spezielle Art von [Web Worker](/de/docs/Web/API/Web_Workers_API), die dazu verwendet wird, PWAs zu implementieren. Wie alle Web Worker läuft ein Service Worker in einem separaten Thread zum Haupt-JavaScript-Code. Der Hauptcode erstellt den Worker, indem er eine URL zum Skript des Workers übergibt. Der Worker und der Hauptcode können nicht direkt auf die Zustände des jeweils anderen zugreifen, können aber kommunizieren, indem sie sich gegenseitig Nachrichten senden. Worker können verwendet werden, um rechenintensive Aufgaben im Hintergrund auszuführen: Da sie in einem separaten Thread laufen, kann der Haupt-JavaScript-Code in der App, der die Benutzeroberfläche der App implementiert, schnell auf die Eingaben des Nutzers reagieren.
 
-Daher hat eine PWA immer eine Architektur, die in folgende Teile unterteilt ist:
+Ein PWA hat also immer eine in höherem Maße aufgeteilte Architektur:
 
-- Die _Haupt-App_, mit dem HTML, CSS und dem Teil des JavaScripts, das die Benutzeroberfläche der App implementiert (indem beispielsweise Benutzerereignisse behandelt werden)
-- Der _Service Worker_, der Offline- und Hintergrundaufgaben behandelt
+- Die _Haupt-App_, mit dem HTML, CSS und dem Teil des JavaScripts, der die Benutzeroberfläche der App implementiert (indem er auf Benutzerereignisse reagiert, zum Beispiel)
+- Der _Service Worker_, der Offline- und Hintergrundaufgaben übernimmt
 
-In diesem Leitfaden werden wir, wenn wir Codebeispiele zeigen, angeben, zu welchem Teil der App der Code gehört, mit einem Kommentar wie `// main.js` oder `// service-worker.js`.
+In diesem Leitfaden werden wir bei der Darstellung von Codebeispielen angeben, zu welchem Teil der App der Code gehört, mit einem Kommentar wie `// main.js` oder `// service-worker.js`.
 
 ## Offline-Betrieb
 
-Der Offline-Betrieb ermöglicht es einer PWA, eine gute Benutzererfahrung zu bieten, auch wenn das Gerät keine Netzwerkverbindung hat. Dies wird ermöglicht, indem ein Service Worker zur App hinzugefügt wird.
+Offline-Betrieb ermöglicht es einem PWA, eine gute Benutzererfahrung zu bieten, selbst wenn das Gerät keine Netzwerkverbindung hat. Dies wird ermöglicht, indem der App ein Service Worker hinzugefügt wird.
 
-Ein Service Worker _kontrolliert_ einige oder alle Seiten der App. Wenn der Service Worker installiert ist, kann er die Ressourcen vom Server für die von ihm kontrollierten Seiten abrufen (einschließlich Seiten, Stile, Skripte und Bilder, zum Beispiel) und sie zu einem lokalen Cache hinzufügen. Die [`Cache`](/de/docs/Web/API/Cache)-Schnittstelle wird verwendet, um Ressourcen zum Cache hinzuzufügen. `Cache`-Instanzen sind im globalen Umfang von Service Workern über die Eigenschaft [`WorkerGlobalScope.caches`](/de/docs/Web/API/WorkerGlobalScope/caches) zugänglich.
+Ein Service Worker _kontrolliert_ einige oder alle Seiten der App. Wenn der Service Worker installiert ist, kann er die Ressourcen vom Server für die von ihm kontrollierten Seiten abrufen (einschließlich Seiten, Stilen, Skripten und Bildern zum Beispiel) und sie einem lokalen Cache hinzufügen. Die [`Cache`](/de/docs/Web/API/Cache) Schnittstelle wird verwendet, um Ressourcen zum Cache hinzuzufügen. `Cache`-Instanzen sind über die [`WorkerGlobalScope.caches`](/de/docs/Web/API/WorkerGlobalScope/caches) Eigenschaft im globalen Scope des Service Workers zugänglich.
 
-Dann, wann immer die App eine Ressource anfordert (zum Beispiel, weil der Benutzer die App geöffnet oder auf einen internen Link geklickt hat), löst der Browser ein Ereignis namens [`fetch`](/de/docs/Web/API/ServiceWorkerGlobalScope/fetch_event) im globalen Umfang des Service Workers aus. Indem dieses Ereignis überwacht wird, kann der Service Worker die Anfrage abfangen.
+Wenn die App dann eine Ressource anfordert (zum Beispiel, weil der Nutzer die App öffnet oder auf einen internen Link klickt), löst der Browser ein Ereignis namens [`fetch`](/de/docs/Web/API/ServiceWorkerGlobalScope/fetch_event) im globalen Scope des Service Workers aus. Indem sie dieses Ereignis abhören, kann der Service Worker die Anfrage abfangen.
 
-Der Ereignishandler für das `fetch`-Ereignis erhält ein [`FetchEvent`](/de/docs/Web/API/FetchEvent)-Objekt, das:
+Der Ereignishandler für das `fetch` Ereignis erhält ein [`FetchEvent`](/de/docs/Web/API/FetchEvent) Objekt, das:
 
-- Zugriff auf die Anfrage als eine [`Request`](/de/docs/Web/API/Request)-Instanz bietet
-- Eine [`respondWith()`](/de/docs/Web/API/FetchEvent/respondWith)-Methode bietet, um eine Antwort auf die Anfrage zu senden
+- Zugriff auf die Anfrage als [`Request`](/de/docs/Web/API/Request) Instanz bietet
+- Eine [`respondWith()`](/de/docs/Web/API/FetchEvent/respondWith) Methode bietet, um eine Antwort auf die Anfrage zu senden.
 
-Eine Möglichkeit, wie ein Service Worker Anfragen behandeln kann, ist eine "Cache-zuerst"-Strategie. In dieser Strategie:
+Eine Möglichkeit, wie ein Service Worker Anfragen behandeln kann, ist eine "cache-first"-Strategie. In dieser Strategie:
 
-1. Wenn die angeforderte Ressource im Cache existiert, wird die Ressource aus dem Cache abgerufen und der App bereitgestellt.
-2. Wenn die angeforderte Ressource nicht im Cache existiert, wird versucht, die Ressource aus dem Netzwerk abzurufen.
-   1. Wenn die Ressource abgerufen werden konnte, wird die Ressource dem Cache hinzugefügt, damit sie beim nächsten Mal verfügbar ist, und der App zur Verfügung gestellt.
-   2. Wenn die Ressource nicht abgerufen werden konnte, wird eine Standard-Backup-Ressource bereitgestellt.
+1. Wenn die angeforderte Ressource im Cache existiert, holen Sie die Ressource aus dem Cache und geben Sie sie der App zurück.
+2. Wenn die angeforderte Ressource nicht im Cache existiert, versuchen Sie, die Ressource aus dem Netzwerk zu holen.
+   1. Wenn die Ressource abgerufen werden konnte, fügen Sie die Ressource für das nächste Mal dem Cache hinzu und geben Sie die Ressource der App zurück.
+   2. Wenn die Ressource nicht abgerufen werden konnte, geben Sie eine Standard-Notfallressource zurück.
 
 Das folgende Codebeispiel zeigt eine Implementierung davon:
 
@@ -119,38 +119,38 @@ self.addEventListener("fetch", (event) => {
 });
 ```
 
-Das bedeutet, dass die Web-App in vielen Situationen gut funktioniert, selbst wenn die Netzwerkverbindung nur intermittierend ist. Aus Sicht des Haupt-App-Codes ist es vollständig transparent: Die App stellt einfach Netzwerk-Anfragen und erhält Antworten. Außerdem kann der Haupt-App-Code ansprechbar für Benutzereingaben bleiben, während Ressourcen abgerufen und im Cache gespeichert werden, da der Service Worker in einem separaten Thread läuft.
+Das bedeutet, dass die Web-App in vielen Situationen auch dann gut funktionieren wird, wenn die Netzwerkverbindung intermittierend ist. Aus Sicht des Haupt-App-Codes ist dies völlig transparent: Die App führt einfach Netzwerk-Anfragen aus und erhält Antworten. Da der Service Worker jedoch in einem separaten Thread läuft, kann der Haupt-App-Code reaktionsschnell auf Benutzereingaben bleiben, während Ressourcen abgerufen und zwischengespeichert werden.
 
 > [!NOTE]
-> Die hier beschriebene Strategie ist nur eine Möglichkeit, wie ein Service Worker Caching implementieren könnte. Insbesondere wird bei einer „Cache-zuerst“-Strategie zuerst der Cache überprüft, bevor auf das Netzwerk zugegriffen wird, was bedeutet, dass wir wahrscheinlich schneller eine Antwort erhalten, ohne dass Netzwerkressourcen gebraucht werden, wir aber möglicherweise eine veraltete Antwort erhalten.
+> Die hier beschriebene Strategie ist nur eine Möglichkeit, wie ein Service Worker Caching implementieren könnte. Insbesondere überprüfen wir bei einer Cache-First-Strategie zuerst den Cache, bevor wir das Netzwerk ansprechen, was bedeutet, dass wir eher eine schnelle Antwort zurückgeben können, ohne einen Netzwerkkostenaufwand zu verursachen, aber eher eine veraltete Antwort zurückgeben.
 >
-> Eine Alternative wäre eine _Netzwerk-zuerst_-Strategie, bei der wir zuerst versuchen, die Ressource vom Server abzurufen, und auf den Cache zurückgreifen, wenn das Gerät offline ist.
+> Eine Alternative wäre eine _network-first_ Strategie, bei der wir zuerst versuchen, die Ressource vom Server abzurufen und wenn das Gerät offline ist, auf den Cache zurückgreifen.
 >
 > Die optimale Caching-Strategie hängt von der jeweiligen Web-App und ihrer Nutzung ab.
 
-Für wesentlich mehr Details zum Einrichten von Service Workern und deren Verwendung zum Hinzufügen von Offline-Funktionalitäten, siehe unseren [Leitfaden zur Verwendung von Service Workern](/de/docs/Web/API/Service_Worker_API/Using_Service_Workers).
+Für viel detailliertere Informationen, wie man Service Worker einrichtet und verwendet, um Offline-Funktionalität hinzuzufügen, siehe unseren [Leitfaden zur Verwendung von Service Workern](/de/docs/Web/API/Service_Worker_API/Using_Service_Workers).
 
-## Hintergrundbetrieb
+## Hintergrundoperationen
 
-Während Offline-Funktionen die häufigste Nutzung für Service Worker darstellen, ermöglichen sie einer PWA auch, sogar dann zu arbeiten, wenn die Haupt-App geschlossen ist. Dies ist möglich, weil der Service Worker laufen kann, während die Haupt-App nicht läuft.
+Während Offline-Betrieb die häufigste Verwendung für Service Worker ist, ermöglichen sie einem PWA auch, zu funktionieren, selbst wenn die Haupt-App geschlossen ist. Dies ist möglich, weil der Service Worker laufen kann, während die Haupt-App nicht läuft.
 
-Das bedeutet nicht, dass Service Worker die ganze Zeit laufen: Browser können Service Worker stoppen, wenn sie es für angemessen halten. Zum Beispiel wird ein Service Worker gestoppt, wenn er eine Weile inaktiv ist. Der Browser wird den Service Worker jedoch neu starten, wenn ein Ereignis aufgetreten ist, das er bearbeiten muss. Dies ermöglicht es einer PWA, Hintergrundoperationen folgendermaßen zu implementieren:
+Das bedeutet nicht, dass Service Worker die ganze Zeit laufen: Browser können Service Worker stoppen, wenn sie der Meinung sind, dass es angebracht ist. Wenn ein Service Worker zum Beispiel eine Weile inaktiv war, wird er gestoppt. Der Browser wird den Service Worker jedoch neustarten, wenn ein Ereignis aufgetreten ist, das behandelt werden muss. Dadurch kann ein PWA Hintergrundoperationen auf folgende Weise umsetzen:
 
-- In der Haupt-App eine Anfrage für den Service Worker registrieren, eine bestimmte Operation auszuführen
-- Zum passenden Zeitpunkt wird der Service Worker, falls erforderlich, neu gestartet und ein Ereignis wird im Umfang des Service Workers ausgelöst
+- In der Haupt-App registrieren Sie eine Anfrage, dass der Service Worker eine Operation durchführt
+- Zum geeigneten Zeitpunkt wird der Service Worker bei Bedarf neu gestartet, und ein Ereignis wird im Scope des Service Workers ausgelöst
 - Der Service Worker führt die Operation aus
 
-In den nächsten Abschnitten werden wir einige verschiedene Funktionen diskutieren, die dieses Muster verwenden, um einer PWA zu ermöglichen, zu arbeiten, während die Haupt-App nicht geöffnet ist.
+In den nächsten Abschnitten werden wir einige verschiedene Funktionen besprechen, die dieses Muster verwenden, um es einem PWA zu ermöglichen, zu arbeiten, während die Haupt-App nicht geöffnet ist.
 
-## Hintergrund-Synchronisation
+## Hintergrundsync
 
-Angenommen, ein Benutzer verfasst eine E-Mail und drückt „Senden“. Auf einer traditionellen Website müsste er den Tab offen halten, bis die App die E-Mail gesendet hat: Wenn er den Tab schließt oder das Gerät die Verbindung verliert, wird die Nachricht nicht gesendet. Hintergrund-Synchronisation, definiert in der [Background Synchronization API](/de/docs/Web/API/Background_Synchronization_API), ist die Lösung für dieses Problem bei PWAs.
+Angenommen, ein Nutzer verfasst eine E-Mail und drückt auf "Senden". Bei einer traditionellen Website muss er das Tab geöffnet lassen, bis die App die E-Mail gesendet hat: Wenn er das Tab schließt oder das Gerät die Verbindung verliert, wird die Nachricht nicht gesendet. Hintergrundsync, definiert in der [Background Synchronization API](/de/docs/Web/API/Background_Synchronization_API), ist die Lösung für dieses Problem für PWAs.
 
-Hintergrund-Synchronisation ermöglicht es der App, ihren Service Worker zu bitten, eine Aufgabe in ihrem Namen auszuführen. Sobald das Gerät Netzwerkverbindung hat, wird der Browser den Service Worker, falls erforderlich, neu starten und ein Ereignis namens [`sync`](/de/docs/Web/API/ServiceWorkerGlobalScope/sync_event) im Bereich des Service Workers auslösen. Der Service Worker kann dann versuchen, die Aufgabe auszuführen. Wenn die Aufgabe nicht abgeschlossen werden kann, kann der Browser die Anzahl der Wiederholungen begrenzen, indem er das Ereignis erneut auslöst.
+Hintergrundsync ermöglicht es der App, ihren Service Worker zu bitten, eine Aufgabe in ihrem Namen auszuführen. Sobald das Gerät eine Netzwerkverbindung hat, wird der Browser den Service Worker, falls nötig, neu starten und ein Ereignis namens [`sync`](/de/docs/Web/API/ServiceWorkerGlobalScope/sync_event) im Scope des Service Workers auslösen. Der Service Worker kann dann versuchen, die Aufgabe auszuführen. Wenn die Aufgabe nicht abgeschlossen werden kann, kann der Browser eine begrenzte Anzahl von Malen erneut versuchen, indem er das Ereignis erneut auslöst.
 
-### Registrierung eines Synchronisationsereignisses
+### Registrieren eines Sync-Ereignisses
 
-Um den Service Worker zu bitten, eine Aufgabe auszuführen, kann die Haupt-App auf [`navigator.serviceWorker.ready`](/de/docs/Web/API/ServiceWorkerContainer/ready) zugreifen, das mit einem [`ServiceWorkerRegistration`](/de/docs/Web/API/ServiceWorkerRegistration)-Objekt aufgelöst wird. Die App ruft dann [`sync.register()`](/de/docs/Web/API/SyncManager/register) am `ServiceWorkerRegistration`-Objekt auf, wie folgt:
+Um den Service Worker zu bitten, eine Aufgabe auszuführen, kann die Haupt-App auf [`navigator.serviceWorker.ready`](/de/docs/Web/API/ServiceWorkerContainer/ready) zugreifen, welche ein [`ServiceWorkerRegistration`](/de/docs/Web/API/ServiceWorkerRegistration) Objekt zurückgibt. Die App ruft dann [`sync.register()`](/de/docs/Web/API/SyncManager/register) auf dem `ServiceWorkerRegistration` Objekt auf, so:
 
 ```js
 // main.js
@@ -161,11 +161,11 @@ async function registerSync() {
 }
 ```
 
-Beachten Sie, dass die App einen Namen für die Aufgabe übergibt: `"send-message"` in diesem Fall.
+Beachten Sie, dass die App einen Namen für die Aufgabe angibt: In diesem Fall `"send-message"`.
 
-### Behandlung eines Synchronisationsereignisses
+### Umgang mit einem Sync-Ereignis
 
-Sobald das Gerät Netzwerkverbindung hat, wird das `sync`-Ereignis im Umfang des Service Workers ausgelöst. Der Service Worker überprüft den Namen der Aufgabe und führt die entsprechende Funktion aus, in diesem Fall `sendMessage()`:
+Sobald das Gerät eine Netzwerkverbindung hat, wird das `sync`-Ereignis im Scope des Service Workers ausgelöst. Der Service Worker überprüft den Namen der Aufgabe und führt die entsprechende Funktion aus, in diesem Fall `sendMessage()`:
 
 ```js
 // service-worker.js
@@ -177,31 +177,31 @@ self.addEventListener("sync", (event) => {
 });
 ```
 
-Beachten Sie, dass wir das Ergebnis der Funktion `sendMessage()` in die Methode [`waitUntil()`](/de/docs/Web/API/ExtendableEvent/waitUntil) des Ereignisses übergeben. Die `waitUntil()`-Methode nimmt ein {{jsxref("Promise")}} als Parameter entgegen und bittet den Browser, den Service Worker nicht zu stoppen, bis das Versprechen erfüllt ist. Dies ist auch die Möglichkeit, wie der Browser erkennt, ob die Operation erfolgreich war oder nicht: Wenn das Versprechen fehlschlägt, kann der Browser versuchen, das `sync`-Ereignis erneut auszulösen.
+Beachten Sie, dass wir das Ergebnis der `sendMessage()`-Funktion in die Methode [`waitUntil()`](/de/docs/Web/API/ExtendableEvent/waitUntil) des Ereignisses geben. Die Methode `waitUntil()` nimmt ein {{jsxref("Promise")}} als Parameter und bittet den Browser, den Service Worker nicht zu stoppen, bis das Versprechen abgeschlossen ist. Auf diese Weise erfährt der Browser auch, ob die Operation erfolgreich war oder nicht: Wenn das Versprechen abgelehnt wird, kann der Browser erneut versuchen, indem er das `sync`-Ereignis erneut auslöst.
 
-Die `waitUntil()`-Methode garantiert nicht, dass der Browser den Service Worker nicht stoppt: Wenn die Operation zu lange dauert, wird der Service Worker trotzdem gestoppt. Passiert dies, wird die Operation abgebrochen, und das nächste Mal, wenn ein `sync`-Ereignis ausgelöst wird, läuft der Handler von Anfang an erneut - er setzt nicht dort fort, wo er aufgehört hat.
+Die `waitUntil()`-Methode ist keine Garantie dafür, dass der Browser den Service Worker nicht stoppt: Wenn die Operation zu lange dauert, wird der Service Worker dennoch gestoppt. Wenn das passiert, wird die Operation abgebrochen und beim nächsten `sync`-Ereignis wird der Handler erneut von Anfang an ausgeführt - er setzt nicht dort fort, wo er aufgehört hat.
 
-Was in einem Browser als „zu lange“ betrachtet wird, ist spezifisch für den Browser. Für Chrome ist der Service Worker wahrscheinlich geschlossen, wenn:
+Wie lange "zu lange" ist, ist browserspezifisch. Bei Chrome wird der Service Worker wahrscheinlich geschlossen, wenn:
 
-- Er war 30 Sekunden inaktiv
-- Er hat 30 Sekunden lang synchrones JavaScript ausgeführt
-- Das Versprechen, das an `waitUntil()` übergeben wurde, hat mehr als 5 Minuten gebraucht, um erfüllt zu werden
+- Er 30 Sekunden lang inaktiv war
+- Er 30 Sekunden lang synchronen JavaScript ausgeführt hat
+- Das Versprechen, das an `waitUntil()` übergeben wurde, mehr als 5 Minuten benötigt hat, um abgeschlossen zu sein
 
 ## Hintergrundabruf
 
-Hintergrund-Synchronisation ist nützlich für relativ kurze Hintergrundoperationen, aber wie wir gerade gesehen haben: Wenn ein Service Worker nicht innerhalb einer relativ kurzen Zeit einen Synchronisationsereignis behandelt, wird der Browser den Service Worker anhalten. Dies ist eine bewusste Maßnahme, um die Akkulaufzeit zu schonen und die Privatsphäre des Benutzers zu schützen, indem die Zeit minimiert wird, für die die IP-Adresse des Benutzers dem Server bekannt ist, während die App im Hintergrund läuft.
+Hintergrundsync ist nützlich für relativ kurze Hintergrundoperationen, aber wie wir gerade gesehen haben: Wenn ein Service Worker es nicht schafft, ein Sync-Ereignis in relativ kurzer Zeit zu bearbeiten, wird der Browser den Service Worker stoppen. Dies ist eine bewusste Maßnahme, um die Batterielebensdauer zu schonen und die Privatsphäre des Nutzers zu schützen, indem die Zeit, in der die IP-Adresse des Nutzers dem Server ausgesetzt ist, minimiert wird, während die App im Hintergrund läuft.
 
-Dies macht die Hintergrund-Synchronisation für längere Operationen ungeeignet - zum Beispiel das Herunterladen eines Films. Für dieses Szenario benötigen Sie die [Background Fetch API](/de/docs/Web/API/Background_Fetch_API). Mit Hintergrund-Abrufen können Netzwerkanfragen durchgeführt werden, während sowohl die Haupt-App-Benutzeroberfläche als auch der Service Worker geschlossen sind.
+Dies macht Hintergrundsync ungeeignet für längere Vorgänge - zum Beispiel das Herunterladen eines Films. Für dieses Szenario benötigen Sie die [Background Fetch API](/de/docs/Web/API/Background_Fetch_API). Mit Hintergrundabruf können Netzwerk-Anfragen ausgeführt werden, während sowohl die Haupt-App-Oberfläche als auch der Service Worker geschlossen sind.
 
-Mit Hintergrund-Abrufen:
+Beim Hintergrundabruf:
 
-- Die Anfrage wird von der Haupt-App-Benutzeroberfläche aus eingeleitet
-- Unabhängig davon, ob die Haupt-App geöffnet ist oder nicht, zeigt der Browser ein dauerhaftes Benutzerelement an, das den Benutzer über die laufende Anfrage informiert und es ihm ermöglicht, sie abzubrechen oder den Fortschritt zu überprüfen
-- Wenn die Anfrage erfolgreich abgeschlossen wurde oder fehlschlägt, oder der Benutzer den Fortschritt der Anfrage überprüfen möchte, startet der Browser den Service Worker (falls erforderlich) und löst das entsprechende Ereignis im Bereich des Service Workers aus.
+- Wird die Anfrage von der Haupt-App-Oberfläche aus gestartet
+- Zeigt der Browser, unabhängig davon, ob die Haupt-App geöffnet ist oder nicht, ein dauerhaftes UI-Element an, das den Nutzer über die laufende Anfrage informiert und es ihm ermöglicht, sie abzubrechen oder ihren Fortschritt zu überprüfen
+- Startet der Browser den Service Worker (falls nötig) und löst das entsprechende Ereignis im Scope des Service Workers aus, wenn die Anfrage mit Erfolg oder Misserfolg abgeschlossen wurde oder der Nutzer den Fortschritt der Anfrage überprüfen möchte.
 
-### Erstellen einer Hintergrund-Abruf-Anfrage
+### Durchführung einer Hintergrundabruf-Anfrage
 
-Eine Hintergrund-Abruf-Anfrage wird im Haupt-App-Code durch einen Aufruf von [`backgroundFetch.fetch()`](/de/docs/Web/API/BackgroundFetchManager/fetch) am `ServiceWorkerRegistration`-Objekt initiiert, so:
+Eine Hintergrundabruf-Anfrage wird im Haupt-App-Code gestartet, indem [`backgroundFetch.fetch()`](/de/docs/Web/API/BackgroundFetchManager/fetch) auf dem `ServiceWorkerRegistration` Objekt aufgerufen wird, so:
 
 ```js
 // main.js
@@ -217,38 +217,38 @@ async function requestBackgroundFetch(movieData) {
       downloadTotal: 60 * 1024 * 1024,
     },
   );
-  // ...
+  // …
 }
 ```
 
 Wir übergeben drei Argumente an `backgroundFetch.fetch()`:
 
-1. Eine Kennung für diese Abruf-Anfrage
-2. Ein Array von [`Request`](/de/docs/Web/API/Request)-Objekten oder URLs. Eine einzelne Hintergrund-Abruf-Anfrage kann mehrere Netzwerk-Anfragen beinhalten.
-3. Ein Objekt, das Daten für die Benutzeroberfläche enthält, die der Browser verwendet, um das Vorhandensein und den Fortschritt der Anfrage anzuzeigen.
+1. Einen Bezeichner für diesen Abruf
+2. Ein Array von [`Request`](/de/docs/Web/API/Request) Objekten oder URLs. Eine einzelne Hintergrundabruf-Anfrage kann mehrere Netzwerk-Anfragen umfassen.
+3. Ein Objekt, das Daten für die UI enthält, die der Browser verwendet, um die Existenz und den Fortschritt der Anfrage anzuzeigen.
 
-Der Aufruf von `backgroundFetch.fetch()` gibt ein {{jsxref("Promise")}} zurück, das sich zu einem [`BackgroundFetchRegistration`](/de/docs/Web/API/BackgroundFetchRegistration)-Objekt auflöst. Damit kann die Haupt-App ihre eigene Benutzeroberfläche aktualisieren, während der Fortschritt der Anfrage liegt. Allerdings wird, wenn die Haupt-App geschlossen ist, der Abruf im Hintergrund fortgesetzt.
+Der Aufruf von `backgroundFetch.fetch()` gibt ein {{jsxref("Promise")}} zurück, das ein [`BackgroundFetchRegistration`](/de/docs/Web/API/BackgroundFetchRegistration) Objekt auflöst. Auf diese Weise kann die Haupt-App ihre eigene UI aktualisieren, während die Anfrage fortschreitet. Wenn die Haupt-App jedoch geschlossen wird, wird der Abruf im Hintergrund fortgesetzt.
 
-Der Browser wird ein dauerhaftes Benutzerelement anzeigen, das den Benutzer daran erinnert, dass die Anfrage läuft, und ihm die Möglichkeit gibt, mehr über die Anfrage zu erfahren und sie abzubrechen, wenn er möchte. Das Benutzerelement wird ein Symbol und einen Titel enthalten, die aus den Argumenten `icons` und `title` stammen, und verwendet `downloadTotal` als Schätzung für die gesamte Download-Größe, um den Fortschritt der Anfrage anzuzeigen.
+Der Browser zeigt ein dauerhaftes UI-Element an, das den Nutzer daran erinnert, dass die Anfrage noch läuft und ihm die Möglichkeit gibt, mehr über die Anfrage zu erfahren und sie bei Bedarf abzubrechen. Die UI enthält ein Symbol und einen Titel, die aus den Argumenten `icons` und `title` übernommen werden, und verwendet `downloadTotal` als Schätzung der gesamten Downloadgröße, um den Fortschritt der Anfrage anzuzeigen.
 
-### Behandlung von Anfrageergebnissen
+### Umgang mit Ergebnissen von Anfragen
 
-Wenn der Abruf mit Erfolg oder Misserfolg abgeschlossen ist, oder der Benutzer auf die Fortschrittsbenutzeroberfläche geklickt hat, startet der Browser den Service Worker der App, falls erforderlich, und löst ein Ereignis im Bereich des Service Workers aus. Die folgenden Ereignisse können ausgelöst werden:
+Wenn der Abruf erfolgreich oder fehlgeschlagen ist oder der Nutzer auf die Fortschritts-UI geklickt hat, dann startet der Browser den Service Worker der App, falls nötig, und löst ein Ereignis im Scope des Service Workers aus. Die folgenden Ereignisse können ausgelöst werden:
 
 - `backgroundfetchsuccess`: alle Anfragen waren erfolgreich
 - `backgroundfetchfail`: mindestens eine Anfrage ist fehlgeschlagen
-- `backgroundfetchabort`: der Abruf wurde vom Benutzer oder von der Haupt-App abgebrochen
-- `backgroundfetchclick`: der Benutzer hat auf das Fortschrittsbenutzerelement geklickt, das der Browser anzeigt
+- `backgroundfetchabort`: der Abruf wurde vom Nutzer oder von der Haupt-App abgebrochen
+- `backgroundfetchclick`: der Nutzer hat auf das Fortschritts-UI-Element geklickt, das der Browser zeigt
 
 #### Abrufen von Antwortdaten
 
-In den Handlern für die Ereignisse `backgroundfetchsuccess`, `backgroundfetchfail` und `backgroundfetchabort` kann der Service Worker die Anfragen- und Antwortdaten abrufen.
+In den Handlern für die Ereignisse `backgroundfetchsuccess`, `backgroundfetchfail` und `backgroundfetchabort` kann der Service Worker die Anfrage- und Antwortdaten abrufen.
 
-Um die Antwort zu erhalten, greift der Ereignishandler auf die [`registration`](/de/docs/Web/API/BackgroundFetchEvent/registration)-Eigenschaft des Ereignisses zu. Dies ist ein [`BackgroundFetchRegistration`](/de/docs/Web/API/BackgroundFetchRegistration)-Objekt, das die Methoden [`matchAll()`](/de/docs/Web/API/BackgroundFetchRegistration/matchAll) und [`match()`](/de/docs/Web/API/BackgroundFetchRegistration/match) enthält, die [`BackgroundFetchRecord`](/de/docs/Web/API/BackgroundFetchRecord)-Objekte zurückgeben, die die gegebene URL (oder im Fall von `matchAll()` alle Datensätze, wenn keine URL angegeben ist) entsprechen.
+Um die Antwort zu erhalten, greift der Ereignishandler auf die [`registration`](/de/docs/Web/API/BackgroundFetchEvent/registration) Eigenschaft des Ereignisses zu. Dies ist ein [`BackgroundFetchRegistration`](/de/docs/Web/API/BackgroundFetchRegistration) Objekt, das über die Methoden [`matchAll()`](/de/docs/Web/API/BackgroundFetchRegistration/matchAll) und [`match()`](/de/docs/Web/API/BackgroundFetchRegistration/match) verfügt, die [`BackgroundFetchRecord`](/de/docs/Web/API/BackgroundFetchRecord) Objekte zurückgeben, die mit der gegebenen URL übereinstimmen (oder im Fall von `matchAll()` alle Datensätze, wenn keine URL angegeben ist).
 
-Jeder `BackgroundFetchRecord` hat eine [`responseReady`](/de/docs/Web/API/BackgroundFetchRecord/responseReady)-Eigenschaft, die ein `Promise` ist, das sich auf die [`Response`](/de/docs/Web/API/Response) auflöst, sobald die Antwort verfügbar ist.
+Jeder `BackgroundFetchRecord` hat eine [`responseReady`](/de/docs/Web/API/BackgroundFetchRecord/responseReady) Eigenschaft, die ein `Promise` ist, das auf die [`Response`](/de/docs/Web/API/Response) aufgelöst wird, sobald die Antwort verfügbar ist.
 
-Um auf Antwortdaten zuzugreifen, könnte der Handler etwa so vorgehen:
+Um auf die Antwortdaten zuzugreifen, könnte der Handler also so etwas tun:
 
 ```js
 // service-worker.js
@@ -269,18 +269,18 @@ self.addEventListener("backgroundfetchsuccess", (event) => {
 });
 ```
 
-Da die Antwortdaten nach dem Beenden des Handlers nicht mehr verfügbar sind, sollte der Handler die Daten speichern (zum Beispiel im [`Cache`](/de/docs/Web/API/Cache)), wenn die App sie weiterhin benötigt.
+Da die Antwortdaten nach dem Verlassen des Handlers nicht mehr verfügbar sind, sollte der Handler die Daten speichern (zum Beispiel im [`Cache`](/de/docs/Web/API/Cache)), wenn die App sie noch benötigt.
 
-#### Aktualisieren der Benutzeroberfläche des Browsers
+#### Aktualisieren der UI des Browsers
 
-Das Ereignisobjekt, das in `backgroundfetchsuccess` und `backgroundfetchfail` übergeben wird, hat auch eine [`updateUI()`](/de/docs/Web/API/BackgroundFetchUpdateUIEvent/updateUI)-Methode, die verwendet werden kann, um die Benutzeroberfläche zu aktualisieren, die der Browser anzeigt, um den Benutzer über die Abrufoperation auf dem Laufenden zu halten. Mit `updateUI()` kann der Handler den Titel und das Symbol des UI-Elements aktualisieren:
+Das Ereignisobjekt, das an `backgroundfetchsuccess` und `backgroundfetchfail` übergeben wird, verfügt auch über eine [`updateUI()`](/de/docs/Web/API/BackgroundFetchUpdateUIEvent/updateUI) Methode, die verwendet werden kann, um die UI zu aktualisieren, die der Browser anzeigt, um den Nutzer über die Abrufoperation zu informieren. Mit `updateUI()` kann der Handler den Titel und das Symbol des UI-Elements aktualisieren:
 
 ```js
 // service-worker.js
 
 self.addEventListener("backgroundfetchsuccess", (event) => {
   // retrieve and store response data
-  // ...
+  // …
 
   event.updateUI({ title: "Finished your download!" });
 });
@@ -290,11 +290,11 @@ self.addEventListener("backgroundfetchfail", (event) => {
 });
 ```
 
-#### Reaktion auf Benutzerinteraktion
+#### Reagieren auf Benutzerinteraktionen
 
-Das `backgroundfetchclick`-Ereignis wird ausgelöst, wenn der Benutzer auf das UI-Element geklickt hat, das der Browser anzeigt, während der Abruf läuft.
+Das `backgroundfetchclick`-Ereignis wird ausgelöst, wenn der Nutzer auf das UI-Element geklickt hat, das der Browser zeigt, während der Abruf noch läuft.
 
-Die erwartete Reaktion hier ist das Öffnen eines Fensters, das dem Benutzer mehr Informationen über die Abrufoperation gibt, was vom Service Worker aus mit [`clients.openWindow()`](/de/docs/Web/API/Clients/openWindow) geschehen kann. Zum Beispiel:
+Die erwartete Reaktion hier ist, ein Fenster zu öffnen, das dem Nutzer mehr Informationen über die Abrufoperation gibt, was vom Service Worker aus mit [`clients.openWindow()`](/de/docs/Web/API/Clients/openWindow) geschehen kann. Zum Beispiel:
 
 ```js
 // service-worker.js
@@ -310,19 +310,19 @@ self.addEventListener("backgroundfetchclick", (event) => {
 });
 ```
 
-## Periodische Hintergrund-Synchronisation
+## Periodischer Hintergrundsync
 
-Die [Periodic Background Synchronization API](/de/docs/Web/API/Web_Periodic_Background_Synchronization_API) ermöglicht es einer PWA, ihre Daten regelmäßig im Hintergrund zu aktualisieren, während die Haupt-App geschlossen ist.
+Die [Periodic Background Synchronization API](/de/docs/Web/API/Web_Periodic_Background_Synchronization_API) ermöglicht es einem PWA, seine Daten im Hintergrund periodisch zu aktualisieren, während die Haupt-App geschlossen ist.
 
-Dies kann die Offline-Erfahrung, die eine PWA bietet, erheblich verbessern. Betrachten Sie eine App, die davon abhängig ist, relativ frische Inhalte bereitzustellen, wie eine Nachrichten-App. Wenn das Gerät offline ist, wenn der Benutzer die App öffnet, dann werden selbst mit Service Worker-basierendem Caching die Artikel nur so frisch sein, wie sie zuletzt geöffnet wurden. Mit periodischer Hintergrund-Synchronisation könnte die App ihre Artikel im Hintergrund aktualisiert haben, wenn das Gerät Konnektivität hatte, und könnte dem Benutzer so relativ frische Inhalte zeigen.
+Dies kann die Offline-Erfahrung, die ein PWA bietet, erheblich verbessern. Betrachten Sie eine App, die von relativ aktuellen Inhalten abhängig ist, wie eine Nachrichten-App. Wenn das Gerät offline ist, wenn der Nutzer die App öffnet, dann werden selbst bei der Verwendung von Service Worker-basiertem Caching die Geschichten nur so frisch sein, wie das letzte Mal, als die App geöffnet war. Mit periodischem Hintergrundsync könnte die App ihre Geschichten im Hintergrund aktualisiert haben, wenn das Gerät eine Verbindung hatte, und könnte dem Nutzer daher relativ frische Inhalte zeigen.
 
-Dies nutzt die Tatsache, dass die Konnektivität insbesondere auf einem mobilen Gerät nicht so sehr schlecht als _intermittierend_ ist: Durch die Nutzung der Zeiten, in denen das Gerät Konnektivität hat, kann die App die Verbindungslücken glätten.
+Dies nutzt die Tatsache aus, dass die Konnektivität auf einem mobilen Gerät besonders nicht so sehr schlecht, sondern _intermittierend_ ist: Durch das Nutzen der Zeiten, in denen das Gerät Konnektivität hat, kann die App die Konnektivitätslücken überbrücken.
 
-### Registrierung eines periodischen Synchronisationsereignisses
+### Registrieren eines periodischen Sync-Ereignisses
 
-Der Code zur Registrierung eines periodischen Synchronisationsereignisses folgt demselben Muster wie der zur [Registrierung eines Synchronisationsereignisses](#registrierung_eines_synchronisationsereignisses). Der [`ServiceWorkerRegistration`](/de/docs/Web/API/ServiceWorkerRegistration) hat eine [`periodicSync`](/de/docs/Web/API/ServiceWorkerRegistration/periodicSync) Eigenschaft, die eine [`register()`](/de/docs/Web/API/PeriodicSyncManager/register)-Methode besitzt, die den Namen der periodischen Synchronisation als Parameter annimmt.
+Der Code zur Registrierung eines periodischen Sync-Ereignisses folgt demselben Muster wie für [die Registrierung eines Sync-Ereignisses](#registrieren_eines_sync-ereignisses). Der [`ServiceWorkerRegistration`](/de/docs/Web/API/ServiceWorkerRegistration) hat eine [`periodicSync`](/de/docs/Web/API/ServiceWorkerRegistration/periodicSync) Eigenschaft, die über eine [`register()`](/de/docs/Web/API/PeriodicSyncManager/register) Methode verfügt, die den Namen des periodischen Syncs als Parameter annimmt.
 
-Allerdings nimmt `periodicSync.register()` ein zusätzliches Argument entgegen, das ein Objekt mit einer `minInterval`-Eigenschaft ist. Dies stellt das minimale Intervall, in Millisekunden, zwischen Synchronisationsversuchen dar:
+Allerdings nimmt `periodicSync.register()` ein zusätzliches Argument, das ein Objekt mit einem `minInterval`-Eigenschaft ist. Diese stellt das Mindestintervall in Millisekunden zwischen Synchronisierungsversuchen dar:
 
 ```js
 // main.js
@@ -336,13 +336,13 @@ async function registerPeriodicSync() {
 }
 ```
 
-### Behandlung eines periodischen Synchronisationsereignisses
+### Umgang mit einem periodischen Sync-Ereignis
 
-Obwohl die PWA in der `register()`-Methode um ein bestimmtes Intervall bittet, liegt es im Ermessen des Browsers, wie oft periodische Synchronisationsereignisse generiert werden. Apps, die Nutzer oft öffnen und mit denen sie interagieren, werden wahrscheinlicher öfter periodische Synchronisationsereignisse empfangen, als Apps, mit denen ein Nutzer selten oder nie interagiert.
+Obwohl das PWA ein bestimmtes Intervall im `register()`-Aufruf anfordert, liegt es im Ermessen des Browsers, wie oft periodische Sync-Ereignisse generiert werden. Apps, die Nutzer häufig öffnen und nutzen, erhalten wahrscheinlich häufiger periodische Sync-Ereignisse als Apps, mit denen der Nutzer selten oder gar nicht interagiert.
 
-Wenn der Browser entschieden hat, ein periodisches Synchronisationsereignis zu generieren, ist das Muster wie folgt: er startet den Service Worker, falls erforderlich, und löst ein [`periodicSync`](/de/docs/Web/API/ServiceWorkerGlobalScope/periodicsync_event)-Ereignis im globalen Umfang des Service Workers aus.
+Wenn der Browser entschieden hat, ein periodisches Sync-Ereignis zu generieren, ist das Muster folgendes: Er startet den Service Worker, falls nötig, und löst ein [`periodicSync`](/de/docs/Web/API/ServiceWorkerGlobalScope/periodicsync_event) Ereignis im globalen Scope des Service Workers aus.
 
-Der Ereignishandler des Service Workers überprüft den Namen des Ereignisses und ruft die entsprechende Funktion innerhalb der Methode [`waitUntil()`](/de/docs/Web/API/ExtendableEvent/waitUntil) des Ereignisses auf:
+Der Ereignishandler des Service Workers überprüft den Namen des Ereignisses und ruft die entsprechende Funktion in der [`waitUntil()`](/de/docs/Web/API/ExtendableEvent/waitUntil) Methode des Ereignisses auf:
 
 ```js
 // service-worker.js
@@ -354,11 +354,11 @@ self.addEventListener("periodicsync", (event) => {
 });
 ```
 
-Innerhalb von `updateNews()` kann der Service Worker die neuesten Artikel abrufen und im Cache speichern. Die `updateNews()`-Funktion sollte relativ schnell abgeschlossen sein: wenn der Service Worker zu lange braucht, um seine Inhalte zu aktualisieren, wird der Browser ihn stoppen.
+Innerhalb von `updateNews()` kann der Service Worker die neuesten Geschichten abrufen und zwischenspeichern. Die Funktion `updateNews()` sollte relativ schnell abgeschlossen sein: Wenn der Service Worker zu lange braucht, um seine Inhalte zu aktualisieren, wird der Browser ihn stoppen.
 
-### Entregistrierung einer periodischen Synchronisation
+### Abmelden eines periodischen Syncs
 
-Wenn die PWA keine regelmäßigen Hintergrundaktualisierungen mehr benötigt (zum Beispiel, weil der Benutzer sie in den App-Einstellungen ausgeschaltet hat), sollte die PWA den Browser bitten, keine periodischen Synchronisationsereignisse mehr zu generieren, indem sie die [`unregister()`](/de/docs/Web/API/PeriodicSyncManager/unregister)-Methode von [`periodicSync`](/de/docs/Web/API/ServiceWorkerRegistration/periodicSync) aufruft:
+Wenn das PWA keine periodischen Hintergrund-Updates mehr benötigt (zum Beispiel, weil der Nutzer sie in den App-Einstellungen deaktiviert hat), sollte das PWA den Browser bitten, keine periodischen Sync-Ereignisse mehr zu generieren, indem es die [`unregister()`](/de/docs/Web/API/PeriodicSyncManager/unregister) Methode von [`periodicSync`](/de/docs/Web/API/ServiceWorkerRegistration/periodicSync) aufruft:
 
 ```js
 // main.js
@@ -371,68 +371,68 @@ async function unregisterPeriodicSync() {
 
 ## Push
 
-Die [Push API](/de/docs/Web/API/Push_API) ermöglicht es einer PWA, Nachrichten zu empfangen, die vom Server gesendet werden, unabhängig davon, ob die App läuft oder nicht. Wenn die Nachricht vom Gerät empfangen wird, wird der Service Worker der App gestartet und verarbeitet die Nachricht, und eine [Benachrichtigung](/de/docs/Web/API/Notifications_API) wird dem Benutzer angezeigt. Die Spezifikation erlaubt "stilles Pushen", bei dem keine Anzeige erscheint, aber keine Browser unterstützen dies, aufgrund von Bedenken hinsichtlich der Privatsphäre (zum Beispiel könnte Push dann verwendet werden, um den Standort eines Benutzers zu verfolgen).
+Die [Push API](/de/docs/Web/API/Push_API) ermöglicht es einem PWA, Nachrichten zu empfangen, die vom Server gepusht werden, unabhängig davon, ob die App läuft oder nicht. Wenn die Nachricht vom Gerät empfangen wird, wird der Service Worker der App gestartet und verarbeitet die Nachricht, und eine [Benachrichtigung](/de/docs/Web/API/Notifications_API) wird dem Nutzer angezeigt. Die Spezifikation erlaubt "stilles Pushen", bei dem keine Benachrichtigung gezeigt wird, aber keine Browser unterstützen dies, aus Datenschutzbedenken (zum Beispiel, dass Push dann verwendet werden könnte, um den Standort eines Nutzers zu verfolgen).
 
-Das Anzeigen einer Benachrichtigung für den Benutzer unterbricht ihn bei dem, was er gerade macht, und hat das Potenzial, sehr störend zu sein. Nutzen Sie Push-Nachrichten daher mit Bedacht. Sie eignen sich im Allgemeinen für Situationen, in denen Sie den Benutzer über etwas informieren müssen und nicht warten können, bis er die App das nächste Mal öffnet.
+Das Anzeigen einer Benachrichtigung lenkt den Nutzer von dem ab, was er gerade tut, und hat das Potenzial, sehr störend zu sein, daher sollten Push-Nachrichten mit Vorsicht verwendet werden. Im Allgemeinen sind sie in Situationen geeignet, in denen Sie den Nutzer über etwas informieren müssen und nicht bis zum nächsten Mal warten können, wenn er Ihre App öffnet.
 
-Ein häufiger Anwendungsfall für Push-Benachrichtigungen sind Chat-Apps: Wenn der Benutzer eine Nachricht von einem seiner Kontakte erhält, wird diese als Push-Nachricht zugestellt, und die App zeigt eine Benachrichtigung an.
+Ein häufiges Verwendungsbeispiel für Push-Benachrichtigungen sind Chat-Apps: Wenn der Nutzer eine Nachricht von einem seiner Kontakte erhält, wird sie als Push-Nachricht zugestellt und die App zeigt eine Benachrichtigung an.
 
-Push-Nachrichten werden nicht direkt vom Server der App zum Gerät gesendet. Stattdessen sendet der Server der App Nachrichten an einen Push-Service, von dem das Gerät sie abrufen und an die App weiterleiten kann.
+Push-Nachrichten werden nicht direkt vom App-Server an das Gerät gesendet. Stattdessen sendet Ihr App-Server Nachrichten an einen Push-Dienst, von dem das Gerät sie abrufen und an die App liefern kann.
 
-Das bedeutet auch, dass Nachrichten von Ihrem Server an den Push-Service {{Glossary("Encryption", "verschlüsselt")}} (damit der Push-Service sie nicht lesen kann) und {{Glossary("Signature/Security", "unterschrieben")}} werden müssen (damit der Push-Service weiß, dass die Nachrichten wirklich von Ihrem Server stammen und nicht von jemandem, der sich als Ihr Server ausgibt).
+Das bedeutet auch, dass Nachrichten von Ihrem Server an den Push-Dienst {{Glossary("Encryption", "verschlüsselt")}} (damit der Push-Dienst sie nicht lesen kann) und {{Glossary("Signature/Security", "signiert")}} (damit der Push-Dienst weiß, dass die Nachrichten wirklich von Ihrem Server stammen und nicht von jemandem, der sich als Ihr Server ausgibt) sein müssen.
 
-Der Push-Service wird vom Browseranbieter oder einem Drittanbieter betrieben, und der Server der App kommuniziert mit ihm unter Verwendung des [HTTP Push](https://datatracker.ietf.org/doc/html/rfc8030)-Protokolls. Der Server der App kann eine Drittanbieterbibliothek wie [web-push](https://github.com/web-push-libs/web-push) verwenden, um sich um die Details des Protokolls zu kümmern.
+Der Push-Dienst wird von dem Browseranbieter oder von einem Drittanbieter betrieben, und der App-Server kommuniziert mit ihm über das [HTTP Push](https://datatracker.ietf.org/doc/html/rfc8030) Protokoll. Der App-Server kann eine Drittanbieterbibliothek wie [web-push](https://github.com/web-push-libs/web-push) verwenden, um die Detailfragen des Protokolls zu handhaben.
 
 ### Abonnieren von Push-Nachrichten
 
-Das Muster für das Abonnieren von Push-Nachrichten sieht wie folgt aus:
+Das Muster zum Abonnieren von Push-Nachrichten sieht wie folgt aus:
 
-![Diagramm der Schritte zur Push-Nachricht-Abonnierung](push-messaging-1.svg)
+![Diagramm, das die Schritte für das Abonnieren von Push-Nachrichten zeigt](push-messaging-1.svg)
 
-1. Als Voraussetzung muss der App-Server mit einem {{Glossary("Public-key_cryptography", "public/private Schlüssel-Paar")}} ausgestattet sein, damit er Push-Nachrichten signieren kann. Die Signatur der Nachrichten muss dem [VAPID](https://datatracker.ietf.org/doc/html/draft-thomson-webpush-vapid-02)-Standard folgen.
+1. Als Voraussetzung muss der App-Server mit einem {{Glossary("Public-key_cryptography", "öffentlichen/privaten Schlüsselpaar")}} ausgestattet sein, damit er Push-Nachrichten signieren kann. Das Signieren von Nachrichten muss der [VAPID](https://datatracker.ietf.org/doc/html/draft-thomson-webpush-vapid-02) Spezifikation folgen.
 
-2. Auf dem Gerät verwendet die App die Methode [`PushManager.subscribe()`](/de/docs/Web/API/PushManager/subscribe), um sich für Nachrichten vom Server zu abonnieren. Die Methode `subscribe()`:
+2. Auf dem Gerät verwendet die App die Methode [`PushManager.subscribe()`](/de/docs/Web/API/PushManager/subscribe), um Nachrichten vom Server zu abonnieren. Die `subscribe()`-Methode:
 
-   - Nimmt den öffentlichen Schlüssel des App-Servers als Argument: Dies ist das, was der Push-Service verwendet, um die Signatur auf Nachrichten vom App-Server zu überprüfen.
+   - Nimmt den öffentlichen Schlüssel des App-Servers als Argument: Dies ist das, was der Push-Dienst verwenden wird, um die Signatur auf Nachrichten vom App-Server zu überprüfen.
 
-   - Gibt ein `Promise` zurück, das sich in ein [`PushSubscription`](/de/docs/Web/API/PushSubscription)-Objekt auflöst. Dieses Objekt beinhaltet:
+   - Gibt ein `Promise` zurück, das auf ein [`PushSubscription`](/de/docs/Web/API/PushSubscription) Objekt aufgelöst wird. Dieses Objekt enthält:
 
-     - Den [Endpoint](/de/docs/Web/API/PushSubscription/endpoint) für den Push-Service: Dies ist, wie der App-Server weiß, wohin er Push-Nachrichten senden soll.
-     - Den [öffentlichen Verschlüsselungsschlüssel](/de/docs/Web/API/PushSubscription/getKey), den Ihr Server verwenden wird, um Nachrichten an den Push-Service zu verschlüsseln.
+     - Den [Endpunkt](/de/docs/Web/API/PushSubscription/endpoint) für den Push-Dienst: So weiß der App-Server, wohin er Push-Nachrichten senden muss.
+     - Den [öffentlichen Verschlüsselungsschlüssel](/de/docs/Web/API/PushSubscription/getKey), den Ihr Server verwenden wird, um Nachrichten an den Push-Dienst zu verschlüsseln.
 
-3. Die App sendet den Endpoint und den öffentlichen Verschlüsselungsschlüssel an Ihren Server (zum Beispiel durch Verwendung von [`fetch()`](/de/docs/Web/API/WorkerGlobalScope/fetch)).
+3. Die App sendet den Endpunkt und den öffentlichen Verschlüsselungsschlüssel an Ihren Server (zum Beispiel mit [`fetch()`](/de/docs/Web/API/WorkerGlobalScope/fetch)).
 
-Danach kann der App-Server beginnen, Push-Nachrichten zu senden.
+Danach ist der App-Server in der Lage, damit zu beginnen, Push-Nachrichten zu senden.
 
-### Senden, Zustellen und Behandeln von Push-Nachrichten
+### Senden, Liefern und Verarbeiten von Push-Nachrichten
 
-Wenn ein Ereignis auf dem Server stattfindet, das der Server von der App verwaltet haben möchte, kann der Server Nachrichten senden, und die Abfolge der Schritte ist wie folgt:
+Wenn auf dem Server ein Ereignis auftritt, das der Server von der App bearbeiten lassen möchte, kann der Server Nachrichten senden, und die Abfolge der Schritte sieht so aus:
 
-![Diagramm der Schritte zum Senden und Liefern von Push-Nachrichten](push-messaging-2.svg)
+![Diagramm, das die Schritte für das Senden und Liefern von Push-Nachrichten zeigt](push-messaging-2.svg)
 
-1. Der App-Server signiert die Nachricht mit seinem privaten Signaturschlüssel und verschlüsselt die Nachricht mit dem öffentlichen Verschlüsselungsschlüssel für den Push-Service. Der App-Server kann eine Bibliothek wie [web-push](https://github.com/web-push-libs/web-push) verwenden, um dies zu vereinfachen.
-2. Der App-Server sendet die Nachricht an den Endpoint für den Push-Service, unter Verwendung des [HTTP Push](https://datatracker.ietf.org/doc/html/rfc8030)-Protokolls, und optional erneut unter Verwendung einer Bibliothek, wie web-push.
-3. Der Push-Service überprüft die Signatur der Nachricht, und wenn die Signatur gültig ist, stellt der Push-Service die Nachricht zur Zustellung in die Warteschlange.
-4. Wenn das Gerät Netzwerkverbindung hat, liefert der Push-Service die verschlüsselte Nachricht an den Browser.
-5. Wenn der Browser die verschlüsselte Nachricht empfängt, entschlüsselt er die Nachricht.
-6. Der Browser startet den Service Worker, falls erforderlich, und löst ein Ereignis namens [`push`](/de/docs/Web/API/ServiceWorkerGlobalScope/push_event) im globalen Umfang des Service Workers aus. Der Ereignishandler erhält ein [`PushEvent`](/de/docs/Web/API/PushEvent)-Objekt, das die Nachrichtendaten enthält.
-7. In seinem Ereignishandler verarbeitet der Service Worker die Nachricht. Wie gewohnt ruft der Ereignishandler `event.waitUntil()` auf, um den Browser zu bitten, den Service Worker am Laufen zu halten.
-8. In seinem Ereignishandler erstellt der Service Worker eine Benachrichtigung unter Verwendung von [`registration.showNotification()`](/de/docs/Web/API/ServiceWorkerRegistration/showNotification).
-9. Wenn der Benutzer auf die Benachrichtigung klickt oder sie schließt, werden die Ereignisse [`notificationclick`](/de/docs/Web/API/ServiceWorkerGlobalScope/notificationclick_event) und [`notificationclose`](/de/docs/Web/API/ServiceWorkerGlobalScope/notificationclose_event) im globalen Umfang des Service Workers ausgelöst. Diese ermöglichen es der App, auf die Benutzerreaktion auf die Benachrichtigung zu reagieren.
+1. Der App-Server signiert die Nachricht mit seinem privaten Signaturschlüssel und verschlüsselt die Nachricht mit dem öffentlichen Verschlüsselungsschlüssel für den Push-Dienst. Der App-Server kann eine Bibliothek wie [web-push](https://github.com/web-push-libs/web-push) verwenden, um dies zu vereinfachen.
+2. Der App-Server sendet die Nachricht an den Endpunkt für den Push-Dienst, unter Verwendung des [HTTP Push](https://datatracker.ietf.org/doc/html/rfc8030) Protokolls, und optional erneut unter Verwendung einer Bibliothek wie web-push.
+3. Der Push-Dienst überprüft die Signatur auf der Nachricht, und wenn die Signatur gültig ist, stellt der Push-Dienst die Nachricht zur Zustellung in die Warteschlange.
+4. Wenn das Gerät Netzwerkverbindung hat, liefert der Push-Dienst die verschlüsselte Nachricht an den Browser.
+5. Wenn der Browser die verschlüsselte Nachricht erhält, entschlüsselt er die Nachricht.
+6. Der Browser startet den Service Worker bei Bedarf und löst ein Ereignis namens [`push`](/de/docs/Web/API/ServiceWorkerGlobalScope/push_event) im globalen Scope des Service Workers aus. Der Ereignishandler erhält ein [`PushEvent`](/de/docs/Web/API/PushEvent) Objekt, das die Nachrichtendaten enthält.
+7. Im Ereignishandler verarbeitet der Service Worker die Nachricht. Wie üblich ruft der Ereignishandler `event.waitUntil()` auf, um den Browser zu bitten, den Service Worker am Laufen zu halten.
+8. Im Ereignishandler erstellt der Service Worker eine Benachrichtigung mit [`registration.showNotification()`](/de/docs/Web/API/ServiceWorkerRegistration/showNotification).
+9. Wenn der Nutzer die Benachrichtigung anklickt oder schließt, werden die [`notificationclick`](/de/docs/Web/API/ServiceWorkerGlobalScope/notificationclick_event) und [`notificationclose`](/de/docs/Web/API/ServiceWorkerGlobalScope/notificationclose_event) Ereignisse entsprechend im globalen Scope des Service Workers ausgelöst. Diese ermöglichen es der App, auf die Reaktion des Nutzers auf die Benachrichtigung zu reagieren.
 
 ## Berechtigungen und Einschränkungen
 
-Browser müssen einen Ausgleich finden, bei dem sie Webentwicklern leistungsstarke APIs bereitstellen können, während sie Benutzer vor bösartigen, ausbeuterischen oder schlecht geschriebenen Websites schützen. Einer der wichtigsten Schutzmechanismen besteht darin, dass Benutzer die Seiten der Website schließen können und sie dann nicht mehr auf ihrem Gerät aktiv ist. Die in diesem Artikel beschriebenen APIs neigen dazu, diese Sicherheit zu verletzen, daher müssen Browser zusätzliche Maßnahmen ergreifen, um sicherzustellen, dass Benutzer sich dessen bewusst sind und dass die APIs in einer Weise verwendet werden, die mit den Interessen der Benutzer übereinstimmt.
+Browser müssen ein Gleichgewicht finden, bei dem sie leistungsfähige APIs für Webentwickler bereitstellen können, während sie die Nutzer vor bösartigen, ausnutzenden oder schlecht geschriebenen Websites schützen. Einer der wichtigsten Schutzmaßnahmen, die sie bieten, ist, dass Nutzer die Seiten der Website schließen können und sie dann nicht mehr aktiv auf ihrem Gerät ist. Die in diesem Artikel beschriebenen APIs neigen dazu, diesen Schutz zu verletzen, daher müssen Browser zusätzliche Schritte unternehmen, um sicherzustellen, dass die Nutzer sich dessen bewusst sind und dass die APIs in einer Weise verwendet werden, die den Interessen der Nutzer entspricht.
 
-In diesem Abschnitt skizzieren wir diese Schritte. Mehrere dieser APIs erfordern explizite [Benutzerberechtigungen](/de/docs/Web/API/Permissions_API) und verschiedene andere Einschränkungen und Designentscheidungen, um Benutzer zu schützen.
+In diesem Abschnitt werden wir diese Schritte umreißen. Einige dieser APIs erfordern eine explizite [Nutzerberechtigung](/de/docs/Web/API/Permissions_API) sowie verschiedene andere Einschränkungen und Designentscheidungen, um die Nutzer zu schützen.
 
-- Die Background Sync API benötigt keine explizite Benutzerberechtigung, aber das Anfordern einer Hintergrundsynchronisation darf nur gemacht werden, während die Haupt-App geöffnet ist, und Browser begrenzen die Anzahl der Wiederholungen und die Dauer, die Hintergrundsynchronisationsoperationen dauern können.
+- Die Background-Sync-API benötigt keine explizite Nutzerberechtigung, aber das Auslösen einer Hintergrund-Sync-Anfrage kann nur gemacht werden, während die Haupt-App geöffnet ist, und Browser begrenzen die Anzahl der Wiederholungen und die Länge der Hintergrund-Sync-Vorgänge.
 
-- Die Background Fetch API erfordert die Benutzerberechtigung „"background-fetch"“, und der Browser zeigt den laufenden Fortschritt der Abrufoperation an und ermöglicht es dem Benutzer, sie abzubrechen.
+- Die Background-Fetch-API erfordert die Nutzerberechtigung `"background-fetch"`, und der Browser zeigt den laufenden Fortschritt der Abrufoperation an, sodass der Nutzer sie jederzeit abbrechen kann.
 
-- Die Periodic Background Sync API erfordert die Benutzerberechtigung „"periodic-background-sync"“, und Browser sollten Benutzern erlauben, die periodische Hintergrundsynchronisation vollständig zu deaktivieren. Außerdem können Browser die Häufigkeit der Synchronisationsereignisse an das Ausmaß knüpfen, mit dem der Benutzer mit der App interagiert: eine App, die der Benutzer selten benutzt, erhält möglicherweise wenige oder sogar keine Ereignisse.
+- Die Periodic-Background-Sync-API erfordert die Nutzerberechtigung `"periodic-background-sync"`, und Browser sollten den Nutzern erlauben, den periodischen Hintergrundsync vollständig zu deaktivieren. Außerdem können Browser die Frequenz der Synchronisierungsereignisse mit dem Ausmaß verknüpfen, in dem der Nutzer beschließt, mit der App zu interagieren: Eine App, die der Nutzer selten nutzt, kann wenige bis keine Ereignisse erhalten.
 
-- Die Push API erfordert die Benutzerberechtigung „"push"“, und alle Browser verlangen, dass Push-Ereignisse für den Benutzer sichtbar sind, was bedeutet, dass sie eine benutzer- sichtbare Benachrichtigung auslösen.
+- Die Push-API erfordert die Nutzerberechtigung `"push"`, und alle Browser verlangen, dass Push-Ereignisse für den Nutzer sichtbar sind, was bedeutet, dass sie eine sichtbare Benachrichtigung erzeugen.
 
 ## Siehe auch
 

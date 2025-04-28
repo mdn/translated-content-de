@@ -3,23 +3,23 @@ title: "ToggleEvent: newState-Eigenschaft"
 short-title: newState
 slug: Web/API/ToggleEvent/newState
 l10n:
-  sourceCommit: 0df415130c5816ffea5b180c0c440edb712673e1
+  sourceCommit: 759102220c07fb140b3e06971cd5981d8f0f134f
 ---
 
 {{APIRef("Popover API")}}
 
-Die schreibgeschützte Eigenschaft **`newState`** des [`ToggleEvent`](/de/docs/Web/API/ToggleEvent)-Interfaces ist ein String, der den Zustand darstellt, in den das Element wechselt.
+Die **`newState`**-Eigenschaft des [`ToggleEvent`](/de/docs/Web/API/ToggleEvent) Interfaces ist eine schreibgeschützte Zeichenkette, die den Zustand darstellt, zu dem das Element wechselt.
 
 ## Wert
 
-Ein String. Mögliche Werte sind `"open"` (das Popover wird angezeigt) oder `"closed"` (das Popover wird ausgeblendet).
+Eine Zeichenkette. Mögliche Werte sind `"open"` (das Popover wird angezeigt) oder `"closed"` (das Popover wird ausgeblendet).
 
 ## Beispiele
 
 ```js
 const popover = document.getElementById("mypopover");
 
-// ...
+// …
 
 popover.addEventListener("beforetoggle", (event) => {
   if (event.newState === "open") {

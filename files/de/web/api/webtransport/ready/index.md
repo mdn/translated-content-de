@@ -3,18 +3,18 @@ title: "WebTransport: ready-Eigenschaft"
 short-title: ready
 slug: Web/API/WebTransport/ready
 l10n:
-  sourceCommit: 584199ed3502f1a886fd1b074f48c81fcf519a73
+  sourceCommit: 759102220c07fb140b3e06971cd5981d8f0f134f
 ---
 
 {{APIRef("WebTransport API")}}{{SecureContext_Header}} {{AvailableInWorkers}}
 
-Die schreibgeschützte **`ready`**-Eigenschaft des [`WebTransport`](/de/docs/Web/API/WebTransport)-Interfaces gibt ein Promise zurück, das aufgelöst wird, wenn der Transport bereit zur Verwendung ist.
+Die **`ready`** schreibgeschützte Eigenschaft der [`WebTransport`](/de/docs/Web/API/WebTransport)-Schnittstelle gibt ein Promise zurück, das aufgelöst wird, wenn das Transportmittel einsatzbereit ist.
 
-Dieses Promise wird erstellt, wenn das `WebTransport`-Objekt erstellt wird, und wird aufgelöst, wenn eine Verbindung hergestellt wird. Das Zugreifen oder Warten auf dieses Promise löst keine Aktion aus; es erlaubt lediglich, Aktionen zu ergreifen, wenn der Transport bereit ist, ähnlich wie beim Lauschen auf ein Ereignis.
+Dieses Promise wird erstellt, wenn das `WebTransport`-Objekt erstellt wird und es wird aufgelöst, wenn eine Verbindung hergestellt ist. Der Zugriff oder das Abwarten dieses Promises löst keine Aktion aus; es ermöglicht lediglich Aktionen, die ausgeführt werden können, wenn der Transport bereit ist, ähnlich wie beim Zuhören eines Ereignisses.
 
 ## Wert
 
-Ein {{jsxref("Promise")}}, das mit `undefined` aufgelöst wird.
+Ein {{jsxref("Promise")}}, das zu `undefined` aufgelöst wird.
 
 ## Beispiele
 
@@ -28,10 +28,10 @@ async function initTransport(url) {
   // The connection can be used once ready fulfills
   await transport.ready;
 
-  // ...
+  // …
 }
 
-// ...
+// …
 
 async function closeTransport(transport) {
   // Respond to connection closing

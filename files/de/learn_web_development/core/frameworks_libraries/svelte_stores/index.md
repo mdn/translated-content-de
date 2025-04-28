@@ -1,13 +1,13 @@
 ---
-title: Arbeiten mit Svelte Stores
+title: Arbeiten mit Svelte-Stores
 slug: Learn_web_development/Core/Frameworks_libraries/Svelte_stores
 l10n:
-  sourceCommit: 48d220a8cffdfd5f088f8ca89724a9a92e34d8c0
+  sourceCommit: be1922d62a0d31e4e3441db0e943aed8df736481
 ---
 
 {{PreviousMenuNext("Learn_web_development/Core/Frameworks_libraries/Svelte_reactivity_lifecycle_accessibility","Learn_web_development/Core/Frameworks_libraries/Svelte_TypeScript", "Learn_web_development/Core/Frameworks_libraries")}}
 
-Im letzten Artikel haben wir die Entwicklung unserer App abgeschlossen, sie in Komponenten organisiert und einige fortgeschrittene Techniken zur Reaktivität, Arbeit mit DOM-Knoten und Bereitstellung von Komponentenfunktionen besprochen. In diesem Artikel zeigen wir eine weitere Möglichkeit, das Zustandsmanagement in Svelte zu handhaben: [Stores](https://learn.svelte.dev/tutorial/writable-stores). Stores sind globale Datenrepositories, die Werte speichern. Komponenten können sich bei Stores anmelden und Benachrichtigungen erhalten, wenn sich deren Werte ändern.
+Im letzten Artikel haben wir die Entwicklung unserer App abgeschlossen, sie in Komponenten organisiert und einige fortgeschrittene Techniken zur Behandlung von Reaktivität, zur Arbeit mit DOM-Knoten und zum Offenlegen von Komponentenfunktionen diskutiert. In diesem Artikel zeigen wir eine weitere Möglichkeit, das Zustandsmanagement in Svelte zu behandeln: [Stores](https://learn.svelte.dev/tutorial/writable-stores). Stores sind globale Datenrepositorien, die Werte speichern. Komponenten können Stores abonnieren und Benachrichtigungen erhalten, wenn sich ihre Werte ändern.
 
 <table>
   <tbody>
@@ -15,29 +15,33 @@ Im letzten Artikel haben wir die Entwicklung unserer App abgeschlossen, sie in K
       <th scope="row">Voraussetzungen:</th>
       <td>
         <p>
-          Es wird mindestens empfohlen, mit den Kerntechnologien
+          Es wird mindestens empfohlen, dass Sie mit den grundlegenden
           <a href="/de/docs/Learn_web_development/Core/Structuring_content">HTML</a>,
           <a href="/de/docs/Learn_web_development/Core/Styling_basics">CSS</a> und
-          <a href="/de/docs/Learn_web_development/Core/Scripting">JavaScript</a>
-          sowie <a href="/de/docs/Learn_web_development/Getting_started/Environment_setup/Command_line">Terminal/Befehlszeile</a> vertraut zu sein.
+          <a href="/de/docs/Learn_web_development/Core/Scripting">JavaScript</a> Sprachen vertraut sind und
+          Kenntnisse über das
+          <a
+            href="/de/docs/Learn_web_development/Getting_started/Environment_setup/Command_line"
+            >Terminal/ die Kommandozeile</a
+          > haben.
         </p>
         <p>
-          Sie benötigen ein Terminal mit installierten Node und npm, um Ihre App zu kompilieren und zu bauen.
+          Sie benötigen ein Terminal mit installiertem Node und npm, um Ihre App zu kompilieren und zu erstellen.
         </p>
       </td>
     </tr>
     <tr>
       <th scope="row">Ziel:</th>
-      <td>Lernen, wie man Svelte Stores verwendet</td>
+      <td>Lernen Sie, wie Sie Svelte-Stores verwenden</td>
     </tr>
   </tbody>
 </table>
 
-Mit Stores erstellen wir eine `Alert`-Komponente, die Benachrichtigungen auf dem Bildschirm anzeigt und Nachrichten von jeder Komponente erhalten kann. In diesem Fall ist die `Alert`-Komponente unabhängig vom Rest — sie ist weder Eltern- noch Kindkomponente einer anderen —, sodass die Nachrichten nicht in die Komponentenhierarchie passen.
+Mit Stores werden wir eine `Alert`-Komponente erstellen, die Benachrichtigungen auf dem Bildschirm anzeigt und Nachrichten von jeder Komponente erhalten kann. In diesem Fall ist die `Alert`-Komponente unabhängig vom Rest – sie ist weder Eltern- noch Kindkomponente – sodass die Nachrichten nicht in die Komponentenhierarchie passen.
 
-Wir werden auch sehen, wie wir unseren eigenen benutzerdefinierten Store entwickeln können, um die To-Do-Informationen im [Webspeicher](/de/docs/Web/API/Web_Storage_API) zu speichern, damit unsere To-Dos bei Seitenaktualisierungen erhalten bleiben.
+Wir werden auch sehen, wie wir unseren eigenen benutzerdefinierten Store entwickeln können, um die Todo-Informationen im [Web-Speicher](/de/docs/Web/API/Web_Storage_API) zu speichern, sodass unsere To-Dos über Seitenladevorgänge hinweg beständig sind.
 
-## Coden Sie mit uns
+## Begleiten Sie uns beim Codieren
 
 ### Git
 
@@ -47,7 +51,7 @@ Klonen Sie das GitHub-Repo (falls Sie es noch nicht getan haben) mit:
 git clone https://github.com/opensas/mdn-svelte-tutorial.git
 ```
 
-Um den aktuellen Zustand der App zu erreichen, führen Sie dann Folgendes aus:
+Um zum aktuellen App-Zustand zu gelangen, führen Sie Folgendes aus:
 
 ```bash
 cd mdn-svelte-tutorial/06-stores
@@ -59,42 +63,42 @@ Oder laden Sie direkt den Inhalt des Ordners herunter:
 npx degit opensas/mdn-svelte-tutorial/06-stores
 ```
 
-Vergessen Sie nicht, `npm install && npm run dev` auszuführen, um Ihre App im Entwicklungsmodus zu starten.
+Denken Sie daran, `npm install && npm run dev` auszuführen, um Ihre App im Entwicklungsmodus zu starten.
 
 ### REPL
 
-Um mit der REPL weiter zu coden, starten Sie unter
+Um zusammen mit uns mit dem REPL zu codieren, starten Sie bei
 
 <https://svelte.dev/repl/d1fa84a5a4494366b179c87395940039?version=3.23.2>
 
-## Umgang mit dem Zustand unserer App
+## Umgang mit unserem App-Status
 
-Wir haben bereits gesehen, wie unsere Komponenten über Props, bidirektionale Datenbindung und Ereignisse miteinander kommunizieren können. In all diesen Fällen haben wir mit der Kommunikation zwischen Eltern- und Kindkomponenten gearbeitet.
+Wir haben bereits gesehen, wie unsere Komponenten über Props, bidirektionale Datenbindung und Ereignisse miteinander kommunizieren können. In all diesen Fällen haben wir es mit der Kommunikation zwischen Eltern- und Kindkomponenten zu tun.
 
-Aber nicht alle Zustände der Anwendung gehören in die Komponentenhierarchie Ihrer Anwendung. Zum Beispiel Informationen über den angemeldeten Benutzer oder darüber, ob das dunkle Thema ausgewählt ist.
+Aber nicht all der Anwendungsstatus gehört innerhalb der Komponentenhierarchie Ihrer Anwendung. Zum Beispiel Informationen über den angemeldeten Benutzer oder ob das dunkle Thema ausgewählt ist oder nicht.
 
-Manchmal muss Ihr Anwendungszustand von mehreren Komponenten, die nicht hierarchisch verwandt sind, oder von einem regulären JavaScript-Modul aus zugänglich sein.
+Manchmal muss Ihr App-Zustand von mehreren Komponenten, die nicht hierarchisch verwandt sind, oder von einem regulären JavaScript-Modul aus zugänglich sein.
 
-Wenn Ihre App komplex wird und Ihre Komponentenhierarchie kompliziert wird, könnte es zu schwierig sein, dass Komponenten Daten zwischen einander übermitteln. In diesem Fall könnte der Umzug zu einem globalen Datenspeicher eine gute Option sein. Wenn Sie bereits mit [Redux](https://redux.js.org/) oder [Vuex](https://vuex.vuejs.org/) gearbeitet haben, sind Sie vielleicht mit der Funktionsweise dieser Art von Store vertraut. Svelte Stores bieten ähnliche Funktionen für das Zustandsmanagement.
+Wenn Ihre App komplex wird und Ihre Komponentenhierarchie kompliziert wird, kann es zu schwierig werden, Daten zwischen den Komponenten weiterzuleiten. In diesem Fall kann der Wechsel zu einem globalen Datenspeicher eine gute Option sein. Wenn Sie bereits mit [Redux](https://redux.js.org/) oder [Vuex](https://vuex.vuejs.org/) gearbeitet haben, dann sind Sie mit der Funktionsweise solcher Stores vertraut. Svelte-Stores bieten ähnliche Funktionen für das Zustandsmanagement.
 
-Ein Store ist ein Objekt mit einer `subscribe()`-Methode, die es interessierten Parteien ermöglicht, benachrichtigt zu werden, wenn sich der Wert des Stores ändert, und einer optionalen `set()`-Methode, die es Ihnen ermöglicht, neue Werte für den Store festzulegen. Diese minimale API ist als [Store-Vertrag](https://svelte.dev/docs/svelte-components#script-4-prefix-stores-with-$-to-access-their-values-store-contract) bekannt.
+Ein Store ist ein Objekt mit einer `subscribe()`-Methode, die es Interessierten ermöglicht, benachrichtigt zu werden, wann immer sich der Wert des Stores ändert, und einer optionalen `set()`-Methode, die es Ihnen ermöglicht, neue Werte für den Store festzulegen. Diese minimale API ist als das [Store-Contract](https://svelte.dev/docs/svelte-components#script-4-prefix-stores-with-$-to-access-their-values-store-contract) bekannt.
 
-Svelte stellt Funktionen zum Erstellen von [readable](https://svelte.dev/docs/svelte-store#readable), [writable](https://svelte.dev/docs/svelte-store#writable) und [derived](https://svelte.dev/docs/svelte-store#derived) Stores im `svelte/store`-Modul bereit.
+Svelte bietet Funktionen zum Erstellen von [lesbaren](https://svelte.dev/docs/svelte-store#readable), [beschreibbaren](https://svelte.dev/docs/svelte-store#writable) und [abgeleiteten](https://svelte.dev/docs/svelte-store#derived) Stores im `svelte/store`-Modul.
 
-Svelte bietet auch eine sehr intuitive Möglichkeit, Stores in sein Reaktivitätssystem zu integrieren, indem die [reaktive `$store`-Syntax](https://svelte.dev/docs/svelte-components#script-4-prefix-stores-with-$-to-access-their-values) verwendet wird. Wenn Sie Ihre eigenen Stores unter Einhaltung des Store-Vertrags erstellen, erhalten Sie diesen reaktiven syntaktischen Zucker ohne zusätzliche Kosten.
+Svelte bietet auch eine sehr intuitive Möglichkeit, Stores in sein Reaktivitätssystem mithilfe der [reaktiven `$store`-Syntax](https://svelte.dev/docs/svelte-components#script-4-prefix-stores-with-$-to-access-their-values) zu integrieren. Wenn Sie Ihre eigenen Stores gemäß dem Store-Contract erstellen, erhalten Sie diese reaktive syntaktische Zuckerung kostenlos.
 
 ## Erstellen der Alert-Komponente
 
-Um zu zeigen, wie man mit Stores arbeitet, erstellen wir eine `Alert`-Komponente. Diese Art von Widgets könnten auch als Pop-up-Benachrichtigungen, Toast oder Benachrichtigungsblasen bekannt sein.
+Um zu zeigen, wie man mit Stores arbeitet, werden wir eine `Alert`-Komponente erstellen. Diese Art von Widgets könnte auch als Popup-Benachrichtigungen, Toasts oder Benachrichtigungsblasen bekannt sein.
 
-Unsere `Alert`-Komponente wird von der `App`-Komponente angezeigt, aber jede Komponente kann Benachrichtigungen an sie senden. Immer wenn eine Benachrichtigung eintrifft, zeigt die `Alert`-Komponente sie auf dem Bildschirm an.
+Unsere `Alert`-Komponente wird von der `App`-Komponente angezeigt, aber jede Komponente kann ihr Benachrichtigungen senden. Wann immer eine Benachrichtigung eintrifft, ist die `Alert`-Komponente dafür verantwortlich, sie auf dem Bildschirm anzuzeigen.
 
 ### Erstellen eines Stores
 
-Beginnen wir mit der Erstellung eines beschreibbaren Stores. Jede Komponente wird in der Lage sein, in diesen Store zu schreiben, und die `Alert`-Komponente wird ihn abonnieren und eine Nachricht anzeigen, wann immer der Store geändert wird.
+Beginnen wir damit, einen beschreibbaren Store zu erstellen. Jede Komponente kann in diesen Store schreiben, und die `Alert`-Komponente wird ihn abonnieren und eine Nachricht anzeigen, wann immer der Store geändert wird.
 
-1. Erstellen Sie eine neue Datei `stores.js` in Ihrem `src`-Verzeichnis.
-2. Geben Sie ihr den folgenden Inhalt:
+1. Erstellen Sie eine neue Datei, `stores.js`, in Ihrem `src`-Verzeichnis.
+2. Füllen Sie sie mit folgendem Inhalt:
 
    ```js
    import { writable } from "svelte/store";
@@ -103,16 +107,16 @@ Beginnen wir mit der Erstellung eines beschreibbaren Stores. Jede Komponente wir
    ```
 
 > [!NOTE]
-> Stores können außerhalb von Svelte-Komponenten definiert und verwendet werden, sodass Sie sie nach Belieben organisieren können.
+> Stores können außerhalb von Svelte-Komponenten definiert und verwendet werden, sodass Sie sie in beliebiger Weise organisieren können.
 
-Im obigen Code importieren wir die Funktion `writable()` aus `svelte/store` und verwenden sie, um einen neuen Store namens `alert` mit einem Anfangswert von "Welcome to the to-do list app!" zu erstellen. Dann `exportieren` wir den Store.
+Im obigen Code importieren wir die Funktion `writable()` aus `svelte/store` und verwenden sie, um einen neuen Store namens `alert` mit einem anfänglichen Wert von "Welcome to the to-do list app!" zu erstellen. Dann exportieren wir den Store.
 
-### Erstellen der tatsächlichen Komponente
+### Die eigentliche Komponente erstellen
 
-Erstellen wir jetzt unsere `Alert`-Komponente und sehen wir, wie wir Werte aus dem Store lesen können.
+Lassen Sie uns nun unsere `Alert`-Komponente erstellen und sehen, wie wir Werte aus dem Store lesen können.
 
 1. Erstellen Sie eine weitere neue Datei namens `src/components/Alert.svelte`.
-2. Geben Sie ihr den folgenden Inhalt:
+2. Geben Sie ihr folgenden Inhalt:
 
    ```svelte
    <script>
@@ -163,42 +167,42 @@ Erstellen wir jetzt unsere `Alert`-Komponente und sehen wir, wie wir Werte aus d
    </style>
    ```
 
-Lassen Sie uns diesen Codeabschnitt im Detail durchgehen.
+Lassen Sie uns dieses Stück Code im Detail durchgehen.
 
-- Am Anfang importieren wir den `alert` Store.
-- Anschließend importieren wir die `onDestroy()`-Lebenszyklusfunktion, mit der wir einen Rückruf ausführen können, nachdem die Komponente demontiert wurde.
-- Dann erstellen wir eine lokale Variable namens `alertContent`. Denken Sie daran, dass wir auf oberster Ebene Variablen aus dem Markup zugreifen können, und wenn sie geändert werden, wird das DOM entsprechend aktualisiert.
-- Dann rufen wir die Methode `alert.subscribe()` auf und übergeben ihr eine Rückruffunktion als Parameter. Immer wenn sich der Wert des Stores ändert, wird die Rückruffunktion mit dem neuen Wert als Parameter aufgerufen. In der Rückruffunktion weisen wir einfach den empfangenen Wert der lokalen Variable zu, was die Aktualisierung des DOMs der Komponente auslöst.
-- Die `subscribe()`-Methode gibt auch eine Bereinigungsfunktion zurück, die die Abbestellung übernimmt. So abonnieren wir beim Initialisieren der Komponente und verwenden `onDestroy`, um die Abbestellung vorzunehmen, wenn die Komponente demontiert wird.
-- Schließlich verwenden wir in unserem Markup die Variable `alertContent`, und wenn der Benutzer auf die Warnung klickt, leeren wir sie.
+- Zu Beginn importieren wir den `alert`-Store.
+- Als nächstes importieren wir die `onDestroy()`-Lebenszyklusfunktion, die es uns ermöglicht, einen Rückruf auszuführen, nachdem die Komponente entfernt wurde.
+- Dann erstellen wir eine lokale Variable namens `alertContent`. Denken Sie daran, dass wir auf Variablen oberster Ebene aus dem Markup zugreifen können und wann immer sie geändert werden, das DOM entsprechend aktualisiert wird.
+- Dann rufen wir die Methode `alert.subscribe()` auf und übergeben ihr eine Rückruffunktion als Parameter. Jedes Mal, wenn sich der Wert des Stores ändert, wird die Rückruffunktion mit dem neuen Wert als Parameter aufgerufen. In der Rückruffunktion weisen wir den Wert, den wir erhalten haben, einfach der lokalen Variablen zu, was das Update des DOMs der Komponente auslöst.
+- Die `subscribe()`-Methode gibt auch eine Bereinigungsfunktion zurück, die sich um das Freigeben des Abonnements kümmert. Wir abonnieren also, wenn die Komponente initialisiert wird, und verwenden `onDestroy`, um das Abonnement zu beenden, wenn die Komponente entfernt wird.
+- Schließlich verwenden wir die `alertContent`-Variable in unserem Markup. Wenn der Benutzer auf den Alert klickt, löschen wir ihn.
 - Am Ende fügen wir einige CSS-Zeilen hinzu, um unsere `Alert`-Komponente zu stylen.
 
-Dieses Setup ermöglicht es uns, in einem reaktiven Weg mit Stores zu arbeiten. Wenn der Wert des Stores geändert wird, wird der Rückruf ausgeführt. Dort weisen wir einer lokalen Variable einen neuen Wert zu, und dank der Svelte-Reaktivität werden unser gesamtes Markup und die reaktiven Abhängigkeiten entsprechend aktualisiert.
+Dieses Setup ermöglicht es uns, auf reaktive Weise mit Stores zu arbeiten. Wenn sich der Wert des Stores ändert, wird der Rückruf ausgeführt. Dort weisen wir der lokalen Variablen einen neuen Wert zu, und dank der Svelte-Reaktivität werden all unser Markup und unsere reaktiven Abhängigkeiten entsprechend aktualisiert.
 
-### Verwendung der Komponente
+### Die Komponente verwenden
 
 Lassen Sie uns nun unsere Komponente verwenden.
 
-1. In `App.svelte` werden wir die Komponente importieren. Fügen Sie die folgende Import-Anweisung unter der vorhandenen hinzu:
+1. In `App.svelte` importieren wir die Komponente. Fügen Sie die folgende Importanweisung unter der bestehenden hinzu:
 
    ```js
    import Alert from "./components/Alert.svelte";
    ```
 
-2. Rufen Sie dann die `Alert`-Komponente direkt über dem `Todos`-Aufruf auf, so:
+2. Rufen Sie dann die `Alert`-Komponente direkt über den `Todos`-Aufruf auf, so:
 
    ```svelte
    <Alert />
    <Todos {todos} />
    ```
 
-3. Laden Sie Ihre Test-App jetzt, und Sie sollten die `Alert`-Nachricht auf dem Bildschirm sehen. Sie können darauf klicken, um sie zu schließen.
+3. Laden Sie Ihre Test-App jetzt und Sie sollten die `Alert`-Nachricht auf dem Bildschirm sehen. Sie können darauf klicken, um sie zu schließen.
 
-   ![Eine einfache Benachrichtigung in der oberen rechten Ecke einer App mit der Nachricht "Welcome to the to-do list app"](01-alert-message.png)
+   ![Eine einfache Benachrichtigung in der rechten oberen Ecke einer App, die "Welcome to the to-do list app" sagt](01-alert-message.png)
 
 ## Stores mit der reaktiven `$store`-Syntax reaktiv machen
 
-Das funktioniert, aber Sie müssten all diesen Code jedes Mal kopieren und einfügen, wenn Sie sich bei einem Store anmelden möchten:
+Das funktioniert, aber Sie müssen diesen ganzen Code jedes Mal kopieren und einfügen, wenn Sie einen Store abonnieren möchten:
 
 ```svelte
 <script>
@@ -215,7 +219,7 @@ Das funktioniert, aber Sie müssten all diesen Code jedes Mal kopieren und einf�
 {myStoreContent}
 ```
 
-Das ist zu viel Boilerplate für Svelte! Da es ein Compiler ist, hat Svelte mehr Ressourcen, um uns das Leben zu erleichtern. In diesem Fall bietet Svelte die reaktive `$store`-Syntax, auch bekannt als Auto-Subscription. In einfachen Worten müssen Sie einfach den Store mit dem `$`-Zeichen prefixen, und Svelte generiert automatisch den Code, um ihn reaktiv zu machen. Unser vorheriger Codeblock kann also mit diesem ersetzt werden:
+Das ist zu viel Boilerplate für Svelte! Als Compiler hat Svelte mehr Ressourcen, um uns das Leben zu erleichtern. In diesem Fall bietet Svelte die reaktive `$store`-Syntax, auch bekannt als Auto-Subscription. Einfach ausgedrückt, Sie setzen einfach das `$`-Zeichen vor den Store und Svelte generiert den Code, um ihn automatisch reaktiv zu machen. Unser vorheriger Codeblock kann also durch diesen ersetzt werden:
 
 ```svelte
 <script>
@@ -225,9 +229,9 @@ Das ist zu viel Boilerplate für Svelte! Da es ein Compiler ist, hat Svelte mehr
 {$myStore}
 ```
 
-Und `$myStore` wird vollständig reaktiv sein. Dies gilt auch für Ihre eigenen benutzerdefinierten Stores. Wenn Sie die Methoden `subscribe()` und `set()` implementieren, wie wir es später tun werden, gilt die reaktive `$store`-Syntax auch für Ihre Stores.
+Und `$myStore` wird vollständig reaktiv. Dies gilt auch für Ihre eigenen benutzerdefinierten Stores. Wenn Sie die Methoden `subscribe()` und `set()` implementieren, wie wir es später tun werden, gilt auch für Ihre Stores die reaktive `$store`-Syntax.
 
-1. Wenden wir dies auf unsere `Alert`-Komponente an. Aktualisieren Sie die `<script>`- und Markup-Bereiche von `Alert.svelte` wie folgt:
+1. Wenden wir das auf unsere `Alert`-Komponente an. Aktualisieren Sie die `<script>`- und Markup-Abschnitte von `Alert.svelte` wie folgt:
 
    ```svelte
    <script>
@@ -241,19 +245,19 @@ Und `$myStore` wird vollständig reaktiv sein. Dies gilt auch für Ihre eigenen 
    {/if}
    ```
 
-2. Überprüfen Sie Ihre App erneut, und Sie werden sehen, dass dies genauso funktioniert wie zuvor. Das ist viel besser!
+2. Überprüfen Sie Ihre App noch einmal, und Sie werden sehen, dass dies genauso funktioniert wie zuvor. Das ist viel besser!
 
-Hinter den Kulissen hat Svelte den Code generiert, um die lokale Variable `$alert` zu deklarieren, den `alert`-Store zu abonnieren, `$alert` zu aktualisieren, wann immer der Inhalt des Stores geändert wird, und die Abbestellung vorzunehmen, wenn die Komponente demontiert wird. Es wird auch die `alert.set()`-Anweisungen generieren, wann immer wir einen Wert zu `$alert` zuweisen.
+Im Hintergrund hat Svelte den Code generiert, um die lokale Variable `$alert` zu deklarieren, das `alert`-Store zu abonnieren, `$alert` zu aktualisieren, wann immer der Inhalt des Stores geändert wird, und das Abonnement zu beenden, wenn die Komponente entfernt wird. Es wird auch die `alert.set()`-Anweisungen generieren, wann immer wir einen Wert `$alert` zuweisen.
 
-Das Endergebnis dieses praktischen Tricks ist, dass Sie auf globale Stores genauso einfach zugreifen können wie auf reaktive lokale Variablen.
+Das Endergebnis dieses geschickten Tricks ist, dass Sie auf globale Stores so leicht zugreifen können wie auf reaktive lokale Variablen.
 
-Dies ist ein perfektes Beispiel dafür, wie Svelte den Compiler verantwortlich für eine bessere Entwicklerergonomie macht, indem es uns nicht nur von Boilerplate-Code verschont, sondern auch weniger fehleranfälligen Code generiert.
+Dies ist ein perfektes Beispiel dafür, wie Svelte den Compiler für bessere Entwicklerfreundlichkeit verantwortlich macht, uns nicht nur von Boilerplate befreit, sondern auch weniger fehleranfälligen Code generiert.
 
-## Schreiben in unseren Store
+## In unseren Store schreiben
 
-In unseren Store zu schreiben, ist einfach eine Frage des Imports und der Ausführung von `$store = 'neuer Wert'`. Lassen Sie es uns in unserer `Todos`-Komponente verwenden.
+In unseren Store zu schreiben ist einfach eine Frage des Importierens und Ausführen von `$store = 'neuer Wert'`. Lassen Sie uns dies in unserer `Todos`-Komponente verwenden.
 
-1. Fügen Sie die folgende `import`-Anweisung unter den vorhandenen ein:
+1. Fügen Sie die folgende `import`-Anweisung unter den bestehenden hinzu:
 
    ```js
    import { alert } from "../stores.js";
@@ -293,7 +297,7 @@ In unseren Store zu schreiben, ist einfach eine Frage des Imports und der Ausfü
    }
    ```
 
-5. Fügen Sie den folgenden reaktiven Block unter dem Block hinzu, der mit `let filter = 'all'` beginnt:
+5. Fügen Sie den folgenden reaktiven Block unterhalb des Blocks hinzu, der mit `let filter = 'all'` beginnt:
 
    ```js
    $: {
@@ -307,7 +311,7 @@ In unseren Store zu schreiben, ist einfach eine Frage des Imports und der Ausfü
    }
    ```
 
-6. Und schließlich aktualisieren Sie die Blöcke `const checkAllTodos` und `const removeCompletedTodos` wie folgt:
+6. Und schließlich für jetzt, aktualisieren Sie die `const checkAllTodos` und `const removeCompletedTodos` Blöcke wie folgt:
 
    ```js
    const checkAllTodos = (completed) => {
@@ -320,22 +324,22 @@ In unseren Store zu schreiben, ist einfach eine Frage des Imports und der Ausfü
    };
    ```
 
-7. Grundsätzlich haben wir den Store importiert und ihn bei jedem Ereignis aktualisiert, wodurch jedes Mal eine neue Warnung angezeigt wird. Schauen Sie sich Ihre App erneut an und versuchen Sie, einige To-Dos hinzuzufügen/löschen/aktualisieren!
+7. Grundsätzlich haben wir den Store importiert und ihn bei jedem Ereignis aktualisiert, wodurch jedes Mal ein neuer Alert angezeigt wird. Schauen Sie sich Ihre App noch einmal an und versuchen Sie, ein paar To-Dos hinzuzufügen/löschen/aktualisieren!
 
-Sobald wir `$alert = …` ausführen, wird Svelte `alert.set()` aufrufen. Unsere `Alert`-Komponente — wie jeder Abonnent des `alert`-Stores — wird benachrichtigt, wenn sie einen neuen Wert erhält, und dank der Svelte-Reaktivität wird ihr Markup aktualisiert.
+Sobald wir `$alert = …` ausführen, wird Svelte `alert.set()` ausführen. Unsere `Alert`-Komponente – wie jeder Abonnent des Alert-Stores – wird benachrichtigt, wenn sie einen neuen Wert erhält, und dank der Svelte-Reaktivität wird ihr Markup aktualisiert.
 
-Wir könnten dasselbe innerhalb einer beliebigen Komponente oder `.js`-Datei tun.
+Das Gleiche könnten wir innerhalb jeder Komponente oder `.js`-Datei tun.
 
 > [!NOTE]
-> Außerhalb von Svelte-Komponenten können Sie die `$store`-Syntax nicht verwenden. Das liegt daran, dass der Svelte-Compiler nichts außerhalb von Svelte-Komponenten anfasst. In diesem Fall müssen Sie sich auf die Methoden `store.subscribe()` und `store.set()` verlassen.
+> Außerhalb von Svelte-Komponenten können Sie die `$store`-Syntax nicht verwenden. Das liegt daran, dass der Svelte-Compiler nichts außerhalb von Svelte-Komponenten berühren wird. In diesem Fall müssen Sie sich auf die `store.subscribe()`- und `store.set()`-Methoden verlassen.
 
 ## Verbesserung unserer Alert-Komponente
 
-Es ist etwas störend, dass man auf die Warnung klicken muss, um sie loszuwerden. Es wäre besser, wenn die Benachrichtigung nach ein paar Sekunden einfach verschwindet.
+Es ist etwas lästig, auf den Alert klicken zu müssen, um ihn loszuwerden. Es wäre besser, wenn die Benachrichtigung einfach nach ein paar Sekunden verschwindet.
 
-Sehen wir uns an, wie man das macht. Wir geben eine Eigenschaft mit den Millisekunden an, die vor dem Leeren der Benachrichtigung gewartet werden sollen, und definieren ein Timeout, um die Warnung zu entfernen. Wir kümmern uns auch darum, das Timeout zu löschen, wenn die `Alert`-Komponente demontiert wird, um Speicherlecks zu vermeiden.
+Lassen Sie uns sehen, wie wir das machen. Wir werden eine Prop mit den Millisekunden angeben, die wir warten, bevor die Benachrichtigung gelöscht wird, und wir werden ein Timeout definieren, um den Alert zu entfernen. Wir werden auch darauf achten, das Timeout zu löschen, wenn die `Alert`-Komponente entfernt wird, um Speicherlecks zu verhindern.
 
-1. Aktualisieren Sie den `<script>`-Bereich Ihrer `Alert.svelte`-Komponente wie folgt:
+1. Aktualisieren Sie den `<script>`-Abschnitt Ihrer `Alert.svelte`-Komponente wie folgt:
 
    ```js
    import { onDestroy } from "svelte";
@@ -360,7 +364,7 @@ Sehen wir uns an, wie man das macht. Wir geben eine Eigenschaft mit den Millisek
    onDestroy(() => clearTimeout(timeout)); // make sure we clean-up the timeout
    ```
 
-2. Und aktualisieren Sie den Markup-Bereich von `Alert.svelte` wie folgt:
+2. Und aktualisieren Sie den Markup-Abschnitt von `Alert.svelte` wie folgt:
 
    ```svelte
    {#if visible}
@@ -371,45 +375,45 @@ Sehen wir uns an, wie man das macht. Wir geben eine Eigenschaft mit den Millisek
    {/if}
    ```
 
-Hier erstellen wir zuerst die Eigenschaft `ms` mit einem Standardwert von 3000 (Millisekunden). Dann erstellen wir eine `onMessageChange()`-Funktion, die überprüft, ob die Warnung sichtbar sein soll oder nicht. Mit `$: onMessageChange($alert, ms)` sagen wir Svelte, dass diese Funktion immer dann ausgeführt werden soll, wenn sich der `$alert` Store oder die `ms` Eigenschaft ändert.
+Hier erstellen wir zuerst die Prop `ms` mit einem Standardwert von 3000 (Millisekunden). Dann erstellen wir eine `onMessageChange()`-Funktion, die sich darum kümmert, ob der Alert sichtbar ist oder nicht. Mit `$: onMessageChange($alert, ms)` sagen wir Svelte, dass diese Funktion ausgeführt werden soll, wann immer der `$alert`-Store oder die `ms`-Prop sich ändert.
 
-Immer wenn sich der `$alert` Store ändert, werden wir alle ausstehenden Timeouts bereinigen. Wenn `$alert` leer ist, setzen wir `visible` auf `false` und die `Alert`-Komponente wird aus dem DOM entfernt. Wenn es nicht leer ist, setzen wir `visible` auf `true` und verwenden die Funktion `setTimeout()`, um die Warnung nach `ms` Millisekunden zu löschen.
+Wann immer der `$alert`-Store sich ändert, bereinigen wir jedes noch ausstehende Timeout. Wenn `$alert` leer ist, setzen wir `visible` auf `false` und der Alert wird aus dem DOM entfernt. Wenn es nicht leer ist, setzen wir `visible` auf `true` und verwenden die `setTimeout()`-Funktion, um den Alert nach `ms` Millisekunden zu löschen.
 
-Schließlich stellen wir mit der Funktion `onDestroy()` sicher, dass die Funktion `clearTimeout()` aufgerufen wird.
+Schließlich stellen wir mit der `onDestroy()`-Lebenszyklusfunktion sicher, dass die `clearTimeout()`-Funktion aufgerufen wird.
 
-Wir haben auch ein SVG-Icon oberhalb des Alert-Absatzes hinzugefügt, um es etwas schöner aussehen zu lassen. Versuchen Sie es erneut und Sie sollten die Änderungen sehen.
+Wir haben auch ein SVG-Icon oberhalb des Alert-Absatzes hinzugefügt, um es etwas ansprechender aussehen zu lassen. Probieren Sie es aus und Sie sollten die Änderungen sehen.
 
-## Unsere Alert-Komponente zugänglich machen
+## Unsere Alert-Komponente barrierefrei machen
 
-Unsere `Alert`-Komponente funktioniert einwandfrei, ist jedoch nicht sehr benutzerfreundlich für unterstützende Technologien. Das Problem sind Elemente, die dynamisch hinzugefügt und aus der Seite entfernt werden. Zwar sind sie für Benutzer, die die Seite sehen können, visuell offensichtlich, jedoch möglicherweise nicht so offensichtlich für Benutzer von unterstützenden Technologien wie Bildschirmlesern. Um solche Situationen zu handhaben, können wir von [ARIA-Live-Bereichen](/de/docs/Web/Accessibility/ARIA/Guides/Live_regions) profitieren, die eine Möglichkeit bieten, dynamische Inhaltsänderungen programmgesteuert freizugeben, damit sie von unterstützenden Technologien erkannt und angekündigt werden können.
+Unsere `Alert`-Komponente funktioniert zwar gut, ist aber nicht sehr freundlich zu unterstützenden Technologien. Das Problem sind Elemente, die dynamisch hinzugefügt und entfernt werden. Während sie visuell offensichtlich sind für Benutzer, die die Seite sehen können, sind sie möglicherweise nicht so offensichtlich für Benutzer von unterstützenden Technologien wie Bildschirmlesegeräten. Um diese Situationen zu handhaben, können wir [ARIA-Live-Regionen](/de/docs/Web/Accessibility/ARIA/Guides/Live_regions) verwenden, die eine Möglichkeit bieten, dynamische Inhaltsänderungen auf programmatischem Wege zu erkennen, sodass sie von unterstützenden Technologien erkannt und angekündigt werden können.
 
-Wir können einen Bereich deklarieren, der dynamischen Inhalt enthält, der von unterstützenden Technologien angekündigt werden sollte, mit der `aria-live`-Eigenschaft gefolgt von der Höflichkeitseinstellung, die verwendet wird, um die Priorität festzulegen, mit der Bildschirmleser Updates in diesen Bereichen handhaben sollen. Die möglichen Einstellungen sind `off`, `polite` oder `assertive`.
+Wir können eine Region deklarieren, die dynamische Inhalte enthält, die von unterstützenden Technologien angekündigt werden sollen, mit der Eigenschaft `aria-live` gefolgt von der Höflichkeitseinstellung, die verwendet wird, um die Priorität festzulegen, mit der Bildschirmlesegeräte Updates dieser Regionen verarbeiten sollen. Die möglichen Einstellungen sind `off`, `polite` oder `assertive`.
 
-Für häufige Situationen stehen Ihnen auch mehrere vordefinierte spezialisierte `role`-Werte zur Verfügung, die verwendet werden können, wie `log`, `status` und `alert`.
+Für häufige Situationen gibt es auch mehrere vordefinierte spezialisierte `role`-Werte, die verwendet werden können, wie `log`, `status` und `alert`.
 
-In unserem Fall genügt es, ein `role="alert"` zum `<div>`-Container hinzuzufügen, so:
+In unserem Fall reicht es aus, dem `<div>`-Container `role="alert"` hinzuzufügen, so:
 
 ```svelte
 <div role="alert" on:click={() => visible = false}>
 ```
 
-Im Allgemeinen ist es eine gute Idee, Ihre Anwendungen mit Bildschirmlesern zu testen, nicht nur um Barrierefreiheitsprobleme zu entdecken, sondern auch, um sich daran zu gewöhnen, wie sehbehinderte Menschen das Web nutzen. Sie haben mehrere Optionen, wie [NVDA](https://www.nvaccess.org/) für Windows, [ChromeVox](https://support.google.com/chromebook/answer/7031755) für Chrome, [Orca](https://wiki.gnome.org/Projects/Orca) auf Linux, und [VoiceOver](https://www.apple.com/accessibility/vision/) für macOS und iOS, unter anderen Optionen.
+Im Allgemeinen ist es eine gute Idee, Ihre Anwendungen mit Bildschirmlesegeräten zu testen, um nicht nur Barrierefreiheitsprobleme zu entdecken, sondern auch um sich daran zu gewöhnen, wie sehbehinderte Menschen das Web nutzen. Sie haben mehrere Optionen, wie [NVDA](https://www.nvaccess.org/) für Windows, [ChromeVox](https://support.google.com/chromebook/answer/7031755) für Chrome, [Orca](https://wiki.gnome.org/Projects/Orca) auf Linux und [VoiceOver](https://www.apple.com/accessibility/vision/) für macOS und iOS, neben anderen Optionen.
 
-Um mehr über das Erkennen und Beheben von Barrierefreiheitsproblemen zu erfahren, schauen Sie sich unser [Barrierefreiheits-Modul](/de/docs/Learn_web_development/Core/Accessibility) an.
+Um mehr über die Erkennung und Behebung von Barrierefreiheitsproblemen zu erfahren, schauen Sie sich unser [Barrierefreiheitsmodul](/de/docs/Learn_web_development/Core/Accessibility) an.
 
-## Verwenden des Store-Vertrags zum Speichern unserer To-Dos
+## Verwendung des Store-Contracts zur Speicherung unserer To-Dos
 
-Unsere kleine App ermöglicht es uns, unsere To-Dos ziemlich einfach zu verwalten, ist jedoch eher nutzlos, wenn wir immer die gleiche Liste von hartcodierten To-Dos erhalten, wenn wir sie neu laden. Um sie wirklich nützlich zu machen, müssen wir herausfinden, wie wir unsere To-Dos speichern können.
+Unsere kleine App ermöglicht es uns, unsere To-Dos ziemlich einfach zu verwalten, aber sie ist eher nutzlos, wenn wir immer dieselbe Liste von fest codierten To-Dos erhalten, wenn wir sie neu laden. Um sie wirklich nützlich zu machen, müssen wir herausfinden, wie wir unsere To-Dos speichern können.
 
-Zuerst brauchen wir eine Möglichkeit für unsere `Todos`-Komponente, die aktualisierten To-Dos an ihre Eltern zurückzugeben. Wir könnten ein aktualisiertes Ereignis mit der Liste der To-Dos auslösen, aber es ist einfacher, einfach die `todos`-Variable zu binden. Öffnen wir `App.svelte` und versuchen es.
+Zuerst brauchen wir eine Möglichkeit, wie unsere `Todos`-Komponente die aktualisierten To-Dos ihrem Elternteil zurückgibt. Wir könnten ein Aktualisierungsereignis mit der Liste der To-Dos auslösen, aber es ist einfacher, die `todos`-Variable zu binden. Lassen Sie uns `App.svelte` öffnen und es versuchen.
 
-1. Fügen Sie zuerst die folgende Zeile unter Ihrem `todos`-Array hinzu:
+1. Fügen Sie zuerst die folgende Zeile unterhalb Ihres `todos`-Arrays hinzu:
 
    ```js
    $: console.log("todos", todos);
    ```
 
-2. Aktualisieren Sie als Nächstes Ihren `Todos`-Komponentenaufruf wie folgt:
+2. Als Nächstes aktualisieren Sie Ihren `Todos`-Komponentenaufruf wie folgt:
 
    ```svelte
    <Todos bind:todos />
@@ -417,24 +421,24 @@ Zuerst brauchen wir eine Möglichkeit für unsere `Todos`-Komponente, die aktual
 
    > **Hinweis:** `<Todos bind:todos />` ist nur eine Abkürzung für `<Todos bind:todos={todos} />`.
 
-3. Gehen Sie zurück zu Ihrer App, versuchen Sie, einige To-Dos hinzuzufügen, gehen Sie dann zu Ihrem Entwicklerwerkzeuge-Webkonsole. Sie werden sehen, dass jede Änderung, die wir an unseren To-Dos vornehmen, im `todos`-Array in `App.svelte` dank der bind-Direktive widergespiegelt wird.
+3. Gehen Sie zurück zu Ihrer App, versuchen Sie, einige To-Dos hinzuzufügen, und gehen dann zu Ihrer Entwickler-Werkzeug-Webkonsole. Sie werden sehen, dass jede Änderung, die wir an unseren To-Dos vornehmen, im `todos`-Array, das in `App.svelte` definiert ist, dank der `bind`-Direktive reflektiert wird.
 
-Nun müssen wir einen Weg finden, diese To-Dos zu speichern. Wir könnten einige Codes in unserer `App.svelte`-Komponente implementieren, um unsere To-Dos in den [Webspeicher](/de/docs/Web/API/Web_Storage_API) oder zu einem Webservice zu lesen und zu speichern.
-Aber wäre es nicht besser, wenn wir einen generischen Store entwickeln könnten, der es uns ermöglicht, seinen Inhalt zu speichern? Dadurch könnten wir ihn genauso wie jeden anderen Store verwenden und den Persistenzmechanismus abstrahieren. Wir könnten einen Store erstellen, der seinen Inhalt in Webspeicher synchronisiert, und später einen anderen entwickeln, der gegen einen Webservice synchronisiert. Das Umschalten zwischen ihnen wäre trivial und wir müssten `App.svelte` überhaupt nicht anpassen.
+Nun müssen wir einen Weg finden, um diese To-Dos zu speichern. Wir könnten etwas Code in unserer `App.svelte`-Komponente implementieren, um unsere To-Dos in [Web-Speicher](/de/docs/Web/API/Web_Storage_API) oder in einem Webdienst zu lesen und zu speichern.
+Aber wäre es nicht besser, wenn wir einen generischen Store entwickeln könnten, der es uns ermöglicht, seinen Inhalt zu speichern? Damit könnten wir ihn wie jeden anderen Store verwenden und den Speichermechanismus abstrahieren. Wir könnten einen Store erstellen, der seinen Inhalt mit dem Web-Speicher synchronisiert, und später einen anderen entwickeln, der mit einem Webdienst synchronisiert wird. Zwischen ihnen zu wechseln wäre trivial und wir müssten `App.svelte` überhaupt nicht anfassen.
 
-### Speichern unserer To-Dos
+### Unsere To-Dos speichern
 
-Beginnen wir also damit, einen regulären beschreibbaren Store zu verwenden, um unsere To-Dos zu speichern.
+Beginnen wir damit, einen regulären beschreibbaren Store zu verwenden, um unsere To-Dos zu speichern.
 
-1. Öffnen Sie die Datei `stores.js` und fügen Sie den folgenden Store unter dem vorhandenen hinzu:
+1. Öffnen Sie die Datei `stores.js` und fügen Sie den folgenden Store unter dem bestehenden hinzu:
 
    ```js
    export const todos = writable([]);
    ```
 
-2. Das war einfach. Jetzt müssen wir den Store importieren und in `App.svelte` verwenden. Denken Sie nur daran, dass wir, um auf die To-Dos zuzugreifen, jetzt die reaktive `$todos`-Syntax verwenden müssen.
+2. Das war einfach. Jetzt müssen wir den Store importieren und in `App.svelte` verwenden. Denken Sie nur daran, dass wir nur mit der reaktiven `$todos`-Syntax auf die To-Dos zugreifen müssen.
 
-   Aktualisieren Sie Ihre Datei `App.svelte` wie folgt:
+   Aktualisieren Sie Ihre `App.svelte`-Datei so:
 
    ```svelte
    <script>
@@ -454,30 +458,30 @@ Beginnen wir also damit, einen regulären beschreibbaren Store zu verwenden, um 
    <Todos bind:todos={$todos} />
    ```
 
-3. Probieren Sie es aus; alles sollte funktionieren. Als Nächstes werden wir sehen, wie man unsere eigenen benutzerdefinierten Stores implementiert.
+3. Probieren Sie es aus; alles sollte funktionieren. Als Nächstes werden wir sehen, wie wir unsere eigenen benutzerdefinierten Stores definieren.
 
-### Wie man einen Store-Vertrag implementiert: Die Theorie
+### Wie man einen Store-Contract implementiert: Die Theorie
 
-Sie können Ihre eigenen Stores erstellen, ohne sich auf `svelte/store` zu verlassen, indem Sie den Store-Vertrag umsetzen. Seine Merkmale müssen so funktionieren:
+Sie können Ihre eigenen Stores erstellen, ohne sich auf `svelte/store` zu verlassen, indem Sie das Store-Contract implementieren. Seine Merkmale müssen wie folgt funktionieren:
 
-1. Ein Store muss eine `subscribe()`-Methode enthalten, die als Argument eine Abonnementfunktion akzeptieren muss. Alle aktiven Abonnementfunktionen eines Stores müssen aufgerufen werden, wenn sich der Wert des Stores ändert.
-2. Die `subscribe()`-Methode muss eine `unsubscribe()`-Funktion zurückgeben, die, wenn sie aufgerufen wird, ihr Abonnement beenden muss.
-3. Ein Store kann optional eine `set()`-Methode enthalten, die als Argument einen neuen Wert für den Store akzeptieren muss und synchron alle aktiven Abonnementfunktionen des Stores aufruft. Ein Store mit einer `set()`-Methode wird als beschreibbarer Store bezeichnet.
+1. Ein Store muss eine `subscribe()`-Methode enthalten, die als Argument eine Abonnementfunktion akzeptieren muss. Alle aktiven Abonnementfunktionen eines Stores müssen aufgerufen werden, wann immer sich der Wert des Stores ändert.
+2. Die `subscribe()`-Methode muss eine `unsubscribe()`-Funktion zurückgeben, die bei Aufruf das Abonnement beendet.
+3. Ein Store kann optional eine `set()`-Methode enthalten, die als Argument einen neuen Wert für den Store akzeptieren muss und die synchron alle aktiven Abonnementfunktionen des Stores aufruft. Ein Store mit einer `set()`-Methode wird als beschreibbarer Store bezeichnet.
 
-Fügen wir zunächst die folgenden `console.log()`-Anweisungen zu unserer `App.svelte`-Komponente hinzu, um den `todos`-Store und seinen Inhalt in Aktion zu sehen. Fügen Sie diese Zeilen unter dem `todos`-Array hinzu:
+Fügen wir zuerst die folgenden `console.log()`-Anweisungen zu unserer `App.svelte`-Komponente hinzu, um den `todos`-Store und seinen Inhalt in Aktion zu sehen. Fügen Sie diese Zeilen unterhalb des `todos`-Arrays hinzu:
 
 ```js
 console.log("todos store - todos:", todos);
 console.log("todos store content - $todos:", $todos);
 ```
 
-Wenn Sie die App jetzt ausführen, sehen Sie im Webkonsole so etwas:
+Wenn Sie die App jetzt ausführen, werden Sie in Ihrer Webkonsole so etwas sehen:
 
-![Webkonsole zeigt die Funktionen und Inhalte des todos-Stores](02-svelte-store-in-action.png)
+![Webkonsole, die die Funktionen und Inhalte des todos-Stores zeigt](02-svelte-store-in-action.png)
 
-Wie Sie sehen können, ist unser Store einfach ein Objekt, das `subscribe()`, `set()` und `update()` Methoden enthält, und `$todos` ist unser Array von To-Dos.
+Wie Sie sehen können, ist unser Store nur ein Objekt mit `subscribe()`, `set()` und `update()`-Methoden, und `$todos` ist unser Array von To-Dos.
 
-Nur zur Referenz hier ein Basisstore, der von Grund auf neu implementiert wurde:
+Nur zur Referenz hier ein grundlegender funktionierender Store von Grund auf implementiert:
 
 ```js
 export const writable = (initial_value = 0) => {
@@ -502,11 +506,11 @@ export const writable = (initial_value = 0) => {
 };
 ```
 
-Hier deklarieren wir `subs`, eine Liste von Abonnenten. In der `subscribe()`-Methode fügen wir den Handler zur `subs`-Liste hinzu und geben eine Funktion zurück, die, wenn sie ausgeführt wird, den Handler aus der Liste entfernt.
+Hier deklarieren wir `subs`, das ein Array von Abonnenten ist. In der `subscribe()`-Methode fügen wir den Handler zum `subs`-Array hinzu und geben eine Funktion zurück, die beim Ausführen den Handler aus dem Array entfernt.
 
 Wenn wir `set()` aufrufen, aktualisieren wir den Wert des Stores und rufen jeden Handler auf, wobei der neue Wert als Parameter übergeben wird.
 
-Normalerweise implementiert man Stores nicht von Grund auf neu; stattdessen würde man den writable-Store verwenden, um [benutzerdefinierte Stores](https://learn.svelte.dev/tutorial/custom-stores) mit domänenspezifischer Logik zu erstellen. In dem folgenden Beispiel erstellen wir einen Zähler-Store, der uns nur erlaubt, eins zum Zähler hinzuzufügen oder seinen Wert zurückzusetzen:
+Normalerweise implementieren Sie Stores nicht von Grund auf; stattdessen würden Sie den beschreibbaren Store verwenden, um [benutzerdefinierte Stores](https://learn.svelte.dev/tutorial/custom-stores) mit domänenspezifischer Logik zu erstellen. Im folgenden Beispiel erstellen wir einen Zähler-Store, der es uns nur erlaubt, eins zum Zähler hinzuzufügen oder seinen Wert zurückzusetzen:
 
 ```js
 import { writable } from "svelte/store";
@@ -521,26 +525,26 @@ function myStore() {
 }
 ```
 
-Wenn unsere To-Do-Listen-App zu komplex wird, könnten wir den To-Dos-Store dazu bringen, jede Zustandsänderung zu handhaben. Wir könnten alle Methoden, die das `todo`-Array ändern (wie `addTodo()`, `removeTodo()`, etc.), von unserer `Todos`-Komponente in den Store verschieben. Wenn Sie einen zentralen Ort haben, an dem alle Zustandsänderungen angewendet werden, könnten Komponenten einfach diese Methoden aufrufen, um den Zustand der App zu ändern, und die Informationen, die vom Store bereitgestellt werden, reaktiv anzeigen. Einen einzigartigen Ort zu haben, um Zustandsänderungen zu handhaben, macht es einfacher, über den Zustandsfluss nachzudenken und Probleme zu erkennen.
+Wenn unsere To-do-Listen-App zu komplex wird, könnten wir unseren To-Dos Store alle Zustandsänderungen übernehmen lassen. Wir könnten alle Methoden, die das `todo`-Array ändern (wie `addTodo()`, `removeTodo()`, etc.) von unserer `Todos`-Komponente in den Store verschieben. Wenn Sie einen zentralen Ort haben, an dem alle Zustandsänderungen angewandt werden, könnten Komponenten diese Methoden einfach aufrufen, um den Status der App zu ändern und die von dem Store reaktiv angezeigten Informationen anzuzeigen. Einen einzigartigen Ort zu haben, um Zustandsänderungen zu handhaben, macht es einfacher, über den Zustandfluss nachzudenken und Probleme zu erkennen.
 
-Svelte zwingt Sie nicht, Ihr Zustandsmanagement auf eine bestimmte Weise zu organisieren; es stellt einfach die Werkzeuge zur Verfügung, damit Sie selbst entscheiden können, wie Sie damit umgehen.
+Svelte wird Sie nicht zwingen, Ihr Zustandsmanagement auf eine bestimmte Weise zu organisieren; es bietet Ihnen nur die Werkzeuge, um zu entscheiden, wie Sie es handhaben möchten.
 
-### Implementierung unseres benutzerdefinierten To-Dos-Stores
+### Unseren benutzerdefinierten To-Dos-Store implementieren
 
-Unsere To-Do-Listen-App ist nicht besonders komplex, also werden wir nicht alle unsere Änderungsmethoden an einem zentralen Ort ablegen. Wir lassen sie einfach so, wie sie sind, und konzentrieren uns stattdessen darauf, unsere To-Dos zu speichern.
+Unsere To-do-Listen-App ist nicht besonders komplex, daher werden wir nicht alle unsere Änderungsmethoden an einem zentralen Ort zusammenführen. Wir lassen sie einfach so, wie sie sind, und konzentrieren uns stattdessen darauf, unsere To-Dos zu speichern.
 
 > [!NOTE]
-> Wenn Sie dieser Anleitung aus der Svelte REPL folgen, können Sie diesen Schritt nicht abschließen. Aus Sicherheitsgründen arbeitet die Svelte REPL in einer sandboxed-Umgebung, die es Ihnen nicht erlaubt, auf den Webspeicher zuzugreifen, und Sie werden einen "The operation is insecure" Fehler erhalten. Um diesen Abschnitt zu befolgen, müssen Sie das Repo klonen und in den Ordner `mdn-svelte-tutorial/06-stores` gehen, oder Sie können den Inhalt des Ordners direkt mit `npx degit opensas/mdn-svelte-tutorial/06-stores` herunterladen.
+> Wenn Sie diesem Leitfaden mit dem Svelte REPL folgen, können Sie diesen Schritt nicht abschließen. Aus Sicherheitsgründen funktioniert der Svelte REPL in einer Sandbox-Umgebung, die Ihnen den Zugriff auf den Web-Speicher nicht erlaubt, und Sie erhalten einen "Die Operation ist unsicher" Fehler. Um diesen Abschnitt fortzusetzen, müssen Sie das Repo klonen und in den Ordner `mdn-svelte-tutorial/06-stores` gehen, oder Sie können den Inhalt des Ordners direkt mit `npx degit opensas/mdn-svelte-tutorial/06-stores` herunterladen.
 
-Um einen benutzerdefinierten Store zu implementieren, der seinen Inhalt im Webspeicher speichert, benötigen wir einen beschreibbaren Store, der Folgendes tut:
+Um einen benutzerdefinierten Store zu implementieren, der seinen Inhalt im Web-Speicher speichert, benötigen wir einen beschreibbaren Store, der Folgendes tut:
 
-- Liest zunächst den Wert aus dem Webspeicher und, wenn er nicht vorhanden ist, initialisiert ihn mit einem Standardwert
-- Wann immer der Wert modifiziert wird, aktualisiert er den Store selbst und auch die Daten im lokalen Speicher
+- Zunächst liest er den Wert aus dem Web-Speicher aus, und wenn er nicht vorhanden ist, initialisiert er ihn mit einem Standardwert
+- Wann immer der Wert geändert wird, aktualisiert er den Store selbst und auch die Daten im lokalen Speicher
 
-Darüber hinaus, da der Webspeicher nur das Speichern von Zeichenkettenwerten unterstützt, müssen wir beim Speichern eine Umwandlung von Objekt zu Zeichenkette vornehmen und umgekehrt, wenn wir den Wert aus dem lokalen Speicher laden.
+Außerdem unterstützt der Web-Speicher nur das Speichern von String-Werten, daher müssen wir beim Speichern von einem Objekt zu einem String konvertieren und umgekehrt, wenn wir den Wert aus dem lokalen Speicher laden.
 
-1. Erstellen Sie eine neue Datei `localStore.js` in Ihrem `src`-Verzeichnis.
-2. Geben Sie ihr den folgenden Inhalt:
+1. Erstellen Sie eine neue Datei namens `localStore.js` in Ihrem `src`-Verzeichnis.
+2. Geben Sie ihr folgenden Inhalt:
 
    ```js
    import { writable } from "svelte/store";
@@ -571,17 +575,17 @@ Darüber hinaus, da der Webspeicher nur das Speichern von Zeichenkettenwerten un
    };
    ```
 
-   - Unser `localStore` wird eine Funktion sein, die beim Ausführen zunächst ihren Inhalt aus dem Webspeicher liest und ein Objekt mit drei Methoden zurückgibt: `subscribe()`, `set()` und `update()`.
-   - Beim Erstellen eines neuen `localStore` müssen wir den Schlüssel des Webspeichers und einen Anfangswert angeben. Wir prüfen dann, ob der Wert im Webspeicher vorhanden ist und legen ihn andernfalls an.
-   - Wir verwenden die Methoden [`localStorage.getItem(key)`](/de/docs/Web/API/Storage/getItem) und [`localStorage.setItem(key, value)`](/de/docs/Web/API/Storage/setItem), um Informationen im Webspeicher zu lesen und zu schreiben, sowie die Hilfsfunktionen [`toString()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/toString) und `toObj()`, die [`JSON.parse()`](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse) verwendet, um die Werte zu konvertieren.
-   - Anschließend konvertieren wir den Zeichenketteninhalt, den wir aus dem Webspeicher erhalten, in ein Objekt und speichern dieses Objekt in unserem Store.
-   - Schließlich aktualisieren wir jedes Mal, wenn wir den Inhalt des Stores aktualisieren, auch den Webspeicher mit dem Wert, der in eine Zeichenkette konvertiert wurde.
+   - Unser `localStore` wird eine Funktion sein, die bei Ausführung zunächst ihren Inhalt aus dem Web-Speicher liest und ein Objekt mit drei Methoden zurückgibt: `subscribe()`, `set()` und `update()`.
+   - Wenn wir einen neuen `localStore` erstellen, müssen wir den Schlüssel des Web-Speichers und einen anfänglichen Wert angeben. Wir prüfen dann, ob der Wert im Web-Speicher vorhanden ist. Wenn nicht, erstellen wir ihn.
+   - Wir verwenden die Methoden [`localStorage.getItem(key)`](/de/docs/Web/API/Storage/getItem) und [`localStorage.setItem(key, value)`](/de/docs/Web/API/Storage/setItem), um Informationen im Web-Speicher zu lesen und zu schreiben, sowie die Hilfsmethoden [`toString()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/toString) und `toObj()` (die [`JSON.parse()`](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse) verwenden), um die Werte zu konvertieren.
+   - Als nächstes konvertieren wir den als String empfangenen Inhalt vom Web-Speicher in ein Objekt und speichern dieses Objekt in unserem Store.
+   - Schließlich, jedes Mal, wenn wir den Inhalt des Stores aktualisieren, aktualisieren wir auch den Web-Speicher, mit dem in einen String konvertierten Wert.
 
-   Beachten Sie, dass wir nur die `set()`-Methode neu definieren mussten, indem wir die Operation zum Speichern des Werts im Webspeicher hinzugefügt haben. Der Rest des Codes dient hauptsächlich der Initialisierung und Konvertierung.
+   Beachten Sie, dass wir nur die `set()`-Methode neu definieren mussten und die Operationen zum Speichern des Wertes im Web-Speicher hinzugefügt haben. Der Rest des Codes besteht größtenteils aus Initialisierungs- und Konvertierungsoperationen.
 
-3. Jetzt werden wir unseren lokalen Store von `stores.js` verwenden, um unseren lokal gespeicherten To-Dos-Store zu erstellen.
+3. Nun werden wir unseren lokalen Store aus `stores.js` verwenden, um unseren lokal gespeicherten To-Dos-Store zu erstellen.
 
-   Aktualisieren Sie `stores.js` so:
+   Aktualisieren Sie `stores.js` wie folgt:
 
    ```js
    import { writable } from "svelte/store";
@@ -597,9 +601,9 @@ Darüber hinaus, da der Webspeicher nur das Speichern von Zeichenkettenwerten un
    export const todos = localStore("mdn-svelte-todo", initialTodos);
    ```
 
-   Durch Verwendung von `localStore('mdn-svelte-todo', initialTodos)` konfigurieren wir den Store, um die Daten im Webspeicher unter dem Schlüssel `mdn-svelte-todo` zu speichern. Wir setzen auch ein paar Todos als Anfangswerte.
+   Mit `localStore('mdn-svelte-todo', initialTodos)` konfigurieren wir den Store so, dass er die Daten unter dem Schlüssel `mdn-svelte-todo` im Web-Speicher speichert. Wir setzen auch ein paar To-Dos als anfängliche Werte.
 
-4. Lassen Sie uns jetzt die hartcodierten To-Dos in `App.svelte` loswerden. Aktualisieren Sie den Inhalt wie folgt. Wir löschen im Grunde einfach das `$todos`-Array und die `console.log()`-Anweisungen:
+4. Lassen Sie uns nun die fest codierten To-Dos in `App.svelte` loswerden. Aktualisieren Sie den Inhalt wie folgt. Im Wesentlichen löschen wir einfach das `$todos`-Array und die `console.log()`-Anweisungen:
 
    ```svelte
    <script>
@@ -613,25 +617,25 @@ Darüber hinaus, da der Webspeicher nur das Speichern von Zeichenkettenwerten un
    <Todos bind:todos={$todos} />
    ```
 
-   > [!NOTE]
+   > **Hinweis**
    > Dies ist die einzige Änderung, die wir vornehmen müssen, um unseren benutzerdefinierten Store zu verwenden. `App.svelte` ist völlig transparent in Bezug darauf, welche Art von Store wir verwenden.
 
-5. Gehen Sie nun zu Ihrer App zurück, erstellen Sie ein paar To-Dos und schließen Sie den Browser. Sie können sogar den Svelte-Server stoppen und neu starten. Beim erneuten Besuch der URL sind Ihre To-Dos immer noch vorhanden.
-6. Sie können es auch in den DevTools-Konsole inspizieren. Geben Sie in der Webkonsole den Befehl `localStorage.getItem('mdn-svelte-todo')` ein. Nehmen Sie einige Änderungen an Ihrer App vor, wie das Drücken des _Uncheck All_-Buttons, und überprüfen Sie den Inhalt des Webspeichers erneut. Sie erhalten so etwas:
+5. Gehen Sie voran und testen Sie Ihre App erneut. Erstellen Sie ein paar To-Dos und schließen Sie dann den Browser. Sie können sogar den Svelte-Server stoppen und neu starten. Beim erneuten Besuch der URL werden Ihre To-Dos immer noch da sein.
+6. Sie können sie auch in der DevTools-Konsole inspizieren. Geben Sie in der Webkonsole den Befehl `localStorage.getItem('mdn-svelte-todo')` ein. Nehmen Sie einige Änderungen an Ihrer App vor, wie das Drücken der Schaltfläche _Uncheck All_, und überprüfen Sie den Inhalt des Web-Speichers nochmals. Sie werden so etwas wie dieses erhalten:
 
-   ![To-do-App mit Webkonsole-Ansicht daneben, zeigt, dass wenn ein To-Do in der App geändert wird, der entsprechende Eintrag im Webspeicher geändert wird](03-persisting-todos-to-local-storage.png)
+   ![To-Do-App mit Webkonsole daneben, die zeigt, dass wenn ein To-Do in der App geändert wird, der entsprechende Eintrag im Webspeicher geändert wird](03-persisting-todos-to-local-storage.png)
 
-Svelte Stores bieten eine sehr einfache und leichte, aber äußerst leistungsstarke Möglichkeit, einen komplexen Anwendungszustand aus einem globalen Datenspeicher auf reaktive Weise zu handhaben. Und da Svelte unseren Code kompiliert, kann es den [`$store`-Automatischen-Abo-Syntax](https://svelte.dev/docs/svelte-components#script-4-prefix-stores-with-$-to-access-their-values) bereitstellen, die es uns ermöglicht, mit Stores genauso einfach wie mit lokalen Variablen zu arbeiten. Da Stores eine minimale API haben, ist es sehr einfach, unsere benutzerdefinierten Stores zu erstellen, um die Funktionsweise des Stores selbst zu abstrahieren.
+Svelte-Stores bieten eine sehr einfache und leichte, aber äußerst leistungsstarke Möglichkeit, komplexe App-Zustände aus einem globalen Datenspeicher auf reaktive Weise zu handhaben. Und weil Svelte unseren Code kompiliert, kann es die [`$store`-Auto-Subscription-Syntax](https://svelte.dev/docs/svelte-components#script-4-prefix-stores-with-$-to-access-their-values) bereitstellen, die es uns ermöglicht, mit Stores auf die gleiche Weise wie mit lokalen Variablen zu arbeiten. Da Stores eine minimale API haben, ist es sehr einfach, unsere benutzerdefinierten Stores zu erstellen, um die inneren Arbeitsweisen des Stores selbst zu abstrahieren.
 
-## Bonustrack: Übergänge
+## Bonus-Track: Übergänge
 
-Lassen Sie uns das Thema wechseln und etwas Spaßiges und anderes machen: eine Animation zu unseren Warnungen hinzufügen. Svelte stellt ein ganzes Modul zur Verfügung, um [Übergänge](https://learn.svelte.dev/tutorial/transition) und [Animationen](https://learn.svelte.dev/tutorial/animate) zu definieren, damit wir unsere Benutzeroberflächen ansprechender gestalten können.
+Lassen Sie uns das Thema wechseln und etwas Spaßiges und Anderes tun: Fügen Sie unseren Benachrichtigungen eine Animation hinzu. Svelte bietet ein ganzes Modul, um [Übergänge](https://learn.svelte.dev/tutorial/transition) und [Animationen](https://learn.svelte.dev/tutorial/animate) zu definieren, damit wir unsere Benutzeroberflächen ansprechender gestalten können.
 
-Ein Übergang wird mit der [transition:fn](https://svelte.dev/docs/element-directives#transition-fn)-Direktive angewendet und wird von einem Element ausgelöst, das aufgrund einer Zustandsänderung zum DOM hinzugefügt oder aus diesem entfernt wird. Das Modul `svelte/transition` exportiert sieben Funktionen: `fade`, `blur`, `fly`, `slide`, `scale`, `draw` und `crossfade`.
+Ein Übergang wird mit der [transition:fn](https://svelte.dev/docs/element-directives#transition-fn)-Direktive angewendet und wird ausgelöst, wenn ein Element als Ergebnis einer Statusänderung in das oder aus dem DOM kommt.
 
-Geben wir unserer `Alert`-Komponente einen `fly`-Übergang. Wir öffnen die `Alert.svelte`-Datei und importieren die `fly`-Funktion aus dem `svelte/transition`-Modul.
+Lassen Sie uns unserer `Alert`-Komponente einen Fly-`transition` hinzufügen. Wir öffnen die `Alert.svelte`-Datei und importieren die `fly`-Funktion aus dem `svelte/transition`-Modul.
 
-1. Setzen Sie die folgende `import`-Anweisung unter die vorhandenen:
+1. Setzen Sie die folgende `import`-Anweisung unter die bestehenden:
 
    ```js
    import { fly } from "svelte/transition";
@@ -645,7 +649,7 @@ Geben wir unserer `Alert`-Komponente einen `fly`-Übergang. Wir öffnen die `Ale
    >
    ```
 
-   Übergänge können auch Parameter erhalten, zum Beispiel:
+   Übergänge können auch Parameter erhalten, so:
 
    ```svelte
    <div role="alert" on:click={() => visible = false}
@@ -653,21 +657,21 @@ Geben wir unserer `Alert`-Komponente einen `fly`-Übergang. Wir öffnen die `Ale
    >
    ```
 
-   > [!NOTE]
-   > Die doppelten geschweiften Klammern sind keine spezielle Svelte-Syntax. Es handelt sich einfach um ein literales JavaScript-Objekt, das als Parameter an den Fly-Übergang übergeben wird.
+   > **Hinweis**
+   > Die doppelten geschweiften Klammern sind keine spezielle Svelte-Syntax. Es ist einfach ein literales JavaScript-Objekt, das als Parameter an den Fly-Übergang übergeben wird.
 
 3. Probieren Sie Ihre App erneut aus und Sie werden sehen, dass die Benachrichtigungen jetzt etwas ansprechender aussehen.
 
 > [!NOTE]
-> Da Svelte ein Compiler ist, ermöglicht es die Optimierung der Größe unseres Bundles, indem nicht genutzte Funktionen ausgeschlossen werden. In diesem Fall, wenn wir unsere App für die Produktion mit `npm run build` kompilieren, wird unsere Datei `public/build/bundle.js` etwas weniger als 22 KB wiegen. Wenn wir die `transitions:fly`-Direktive entfernen, ist Svelte schlau genug zu erkennen, dass die Fly-Funktion nicht verwendet wird und die Größe der `bundle.js`-Datei auf nur 18 KB sinken wird.
+> Als Compiler ermöglicht es Svelte, die Größe unseres Bundles zu optimieren, indem es nicht verwendete Funktionen ausschließt. In diesem Fall, wenn wir unsere App für die Produktion mit `npm run build` kompilieren, wird unsere `public/build/bundle.js`-Datei etwas weniger als 22 KB wiegen. Wenn wir die `transitions:fly`-Direktive entfernen, ist Svelte schlau genug, um zu erkennen, dass die Fly-Funktion nicht verwendet wird und die Dateigröße der `bundle.js` wird auf nur 18 KB sinken.
 
-Dies ist nur die Spitze des Eisbergs. Svelte hat viele Möglichkeiten, um mit Animationen und Übergängen umzugehen. Svelte unterstützt auch das Spezifizieren unterschiedlicher Übergänge für das Hinzufügen oder Entfernen eines Elements aus dem DOM mit den Direktiven `in:fn`/`out:fn`, und es ermöglicht Ihnen auch, Ihre [benutzerdefinierten CSS](https://learn.svelte.dev/tutorial/custom-css-transitions) und [JavaScript](https://learn.svelte.dev/tutorial/custom-js-transitions) Übergänge zu definieren. Es hat auch mehrere Easing-Funktionen, um die Änderungsrate über die Zeit zu spezifizieren. Werfen Sie einen Blick auf den [Ease-Visualizer](https://svelte.dev/examples/easing), um die verschiedenen verfügbaren Ease-Funktionen zu erkunden.
+Das ist nur die Spitze des Eisbergs. Svelte hat viele Optionen, um mit Animationen und Übergängen umzugehen. Svelte unterstützt auch die Angabe verschiedener Übergänge, die angewendet werden sollen, wenn das Element hinzugefügt oder entfernt wird, mit den `in:fn`/`out:fn`-Direktiven, und es ermöglicht Ihnen auch, Ihre [benutzerdefinierten CSS](https://learn.svelte.dev/tutorial/custom-css-transitions) und [JavaScript](https://learn.svelte.dev/tutorial/custom-js-transitions) Übergänge zu definieren. Es gibt auch mehrere Funktionen, um die Änderungsrate über die Zeit festzulegen. Schauen Sie sich den [Easing-Visualizer](https://svelte.dev/examples/easing) an, um die verschiedenen verfügbaren Easing-Funktionen zu erkunden.
 
-## Der Code bis jetzt
+## Der bisherige Code
 
 ### Git
 
-Um den Stand des Codes am Ende dieses Artikels zu sehen, greifen Sie auf Ihre Kopie unseres Repos so zu:
+Um den Zustand des Codes zu sehen, wie er am Ende dieses Artikels sein sollte, greifen Sie auf Ihre Kopie unseres Repos so zu:
 
 ```bash
 cd mdn-svelte-tutorial/07-next-steps
@@ -679,22 +683,22 @@ Oder laden Sie direkt den Inhalt des Ordners herunter:
 npx degit opensas/mdn-svelte-tutorial/07-next-steps
 ```
 
-Vergessen Sie nicht, `npm install && npm run dev` auszuführen, um Ihre App im Entwicklungsmodus zu starten.
+Denken Sie daran, `npm install && npm run dev` auszuführen, um Ihre App im Entwicklungsmodus zu starten.
 
 ### REPL
 
-Um den aktuellen Stand des Codes in einer REPL zu sehen, besuchen Sie:
+Um den aktuellen Zustand des Codes in einem REPL zu sehen, besuchen Sie:
 
 <https://svelte.dev/repl/378dd79e0dfe4486a8f10823f3813190?version=3.23.2>
 
 ## Zusammenfassung
 
-In diesem Artikel haben wir zwei neue Features hinzugefügt: eine `Alert`-Komponente und die Speicherung von `todos` im Webspeicher.
+In diesem Artikel haben wir zwei neue Features hinzugefügt: eine `Alert`-Komponente und das Speichern von `todos` im Web-Speicher.
 
-- Dadurch konnten wir einige fortschrittliche Svelte-Techniken demonstrieren. Wir haben die `Alert`-Komponente entwickelt, um zu zeigen, wie man ein komponentenübergreifendes Zustandsmanagement mithilfe von Stores implementiert. Wir haben auch gesehen, wie man diese automatisch abonniert, um sie nahtlos in das Svelte-Reaktivitätssystem zu integrieren.
-- Dann haben wir gesehen, wie man seinen eigenen Store von Grund auf neu implementiert, und auch, wie man Sveltes beschreibbaren Store erweitert, um Daten im Webspeicher zu speichern.
-- Am Ende haben wir uns angeschaut, wie man die Svelte `transition`-Direktive verwendet, um Animationen auf DOM-Elementen zu implementieren.
+- Dies ermöglichte es uns, einige fortgeschrittene Svelte-Techniken zu zeigen. Wir haben die `Alert`-Komponente entwickelt, um zu zeigen, wie man plattformübergreifendes Zustandsmanagement mit Stores implementiert. Wir haben auch gesehen, wie man sich automatisch bei Stores anmeldet, um sie nahtlos in das Svelte-Reaktivitätssystem zu integrieren.
+- Dann haben wir gesehen, wie man unseren eigenen Store von Grund auf implementiert und auch, wie man Sveltes beschreibbaren Store erweitert, um Daten im Web-Speicher zu speichern.
+- Am Ende haben wir einen Blick darauf geworfen, die Svelte-`transition`-Direktive zu verwenden, um Animationen für DOM-Elemente zu implementieren.
 
-Im nächsten Artikel lernen wir, wie wir unserer Svelte-Anwendung TypeScript-Unterstützung hinzufügen. Um alle Funktionen zu nutzen, werden wir auch unsere gesamte Anwendung auf TypeScript portieren.
+Im nächsten Artikel werden wir lernen, wie wir TypeScript-Unterstützung zu unserer Svelte-Anwendung hinzufügen. Um alle Funktionen zu nutzen, werden wir auch unsere gesamte Anwendung auf TypeScript portieren.
 
 {{PreviousMenuNext("Learn_web_development/Core/Frameworks_libraries/Svelte_reactivity_lifecycle_accessibility","Learn_web_development/Core/Frameworks_libraries/Svelte_TypeScript", "Learn_web_development/Core/Frameworks_libraries")}}

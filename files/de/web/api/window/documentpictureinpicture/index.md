@@ -3,12 +3,12 @@ title: "Window: documentPictureInPicture-Eigenschaft"
 short-title: documentPictureInPicture
 slug: Web/API/Window/documentPictureInPicture
 l10n:
-  sourceCommit: bac20b9ed34bf5b6427ba9274c99c1737dc309ff
+  sourceCommit: 759102220c07fb140b3e06971cd5981d8f0f134f
 ---
 
 {{APIRef("Document Picture-in-Picture API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die **`documentPictureInPicture`**-Eigenschaft des [`Window`](/de/docs/Web/API/Window)-Interfaces ist eine schreibgeschützte Eigenschaft, die eine Referenz auf das [`DocumentPictureInPicture`](/de/docs/Web/API/DocumentPictureInPicture)-Objekt des aktuellen Dokumentkontexts zurückgibt.
+Die schreibgeschützte **`documentPictureInPicture`**-Eigenschaft des [`Window`](/de/docs/Web/API/Window)-Interfaces gibt eine Referenz auf das [`DocumentPictureInPicture`](/de/docs/Web/API/DocumentPictureInPicture)-Objekt für den aktuellen Dokumentkontext zurück.
 
 ## Wert
 
@@ -19,7 +19,7 @@ Eine Instanz eines [`DocumentPictureInPicture`](/de/docs/Web/API/DocumentPicture
 ```js
 const videoPlayer = document.getElementById("player");
 
-// ...
+// …
 
 // Open a Picture-in-Picture window.
 await window.documentPictureInPicture.requestWindow({
@@ -27,7 +27,7 @@ await window.documentPictureInPicture.requestWindow({
   height: videoPlayer.clientHeight,
 });
 
-// ...
+// …
 ```
 
 ## Spezifikationen

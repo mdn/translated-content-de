@@ -1,23 +1,23 @@
 ---
-title: Regennde Rechtecke
+title: Regnende Rechtecke
 slug: Web/API/WebGL_API/By_example/Raining_rectangles
 l10n:
-  sourceCommit: 1eae3d383ad47b5e21bf25764d1d35487ea52bb8
+  sourceCommit: be1922d62a0d31e4e3441db0e943aed8df736481
 ---
 
 {{DefaultAPISidebar("WebGL")}}{{PreviousNext("Web/API/WebGL_API/By_example/Scissor_animation","Web/API/WebGL_API/By_example/Hello_GLSL")}}
 
-Ein einfaches WebGL-Spiel, das das Löschen mit Volltonfarben, Beschneidung, Animation und Benutzerinteraktion demonstriert.
+Ein einfaches WebGL-Spiel, das das Löschen mit Vollfarben, Konturierung, Animation und Benutzerinteraktion demonstriert.
 
-## Animation und Benutzerinteraktion mit Beschneidung
+## Animation und Benutzerinteraktion mit Konturierung
 
 {{EmbedLiveSample("Animation_and_user_interaction_with_scissoring",660,425)}}
 
-Dies ist ein einfaches Spiel. Das Ziel: Versuchen Sie, so viele der herabfallenden Rechtecke wie möglich durch Klicken zu fangen. In diesem Beispiel verwenden wir einen objektorientierten Ansatz für die angezeigten Rechtecke, was hilft, den Zustand des Rechtecks (seine Position, Farbe usw.) an einem Ort zu organisieren und den gesamten Code kompakter und wiederverwendbarer zu machen.
+Dies ist ein einfaches Spiel. Ziel: Versuchen Sie, so viele der regnenden Rechtecke wie möglich zu fangen, indem Sie darauf klicken. In diesem Beispiel verwenden wir einen objektorientierten Ansatz für die angezeigten Rechtecke, was dazu beiträgt, den Zustand des Rechtecks (seine Position, Farbe usw.) an einem Ort organisiert zu halten und den gesamten Code kompakter und wiederverwendbarer zu machen.
 
-Dieses Beispiel kombiniert das Löschen des Zeichenpuffers mit Volltonfarben und Beschneidungsoperationen. Es ist eine Vorschau auf eine vollständige grafische Anwendung, die verschiedene Phasen der {{Glossary("WebGL", "WebGL")}} Grafik-Pipeline und Zustandsmaschine manipuliert.
+Dieses Beispiel kombiniert das Löschen des Zeichenpuffers mit Vollfarben und Konturierungsoperationen. Es ist eine Vorschau auf eine vollständige grafische Anwendung, die verschiedene Phasen der {{Glossary("WebGL", "WebGL")}}-Grafik-Pipeline und Zustandsmaschine manipuliert.
 
-Zusätzlich demonstriert das Beispiel, wie man die WebGL-Funktionsaufrufe innerhalb einer Spielschleife integriert. Die Spielschleife ist dafür verantwortlich, die Animationsrahmen zu zeichnen und die Animation responsiv auf Benutzereingaben zu halten. Hier wird die Spielschleife mit Timeouts implementiert.
+Zusätzlich zeigt das Beispiel, wie man die WebGL-Funktionsaufrufe in eine Spielschleife integriert. Die Spielschleife ist für die Darstellung der Animationsbilder verantwortlich und hält die Animation reaktionsfähig auf Benutzereingaben. Hier wird die Spielschleife mit Hilfe von Timeouts implementiert.
 
 ```html hidden
 <p>You caught <strong>0</strong>. You missed <strong>0</strong>.</p>
@@ -132,10 +132,10 @@ function Rectangle() {
   // size and position. For each we use a different number,
   // because we want horizontal size, vertical size and
   // position to be determined independently.
-  const randNums = getRandomVector();
-  rect.size = [5 + 120 * randNums[0], 5 + 120 * randNums[1]];
+  const randVec = getRandomVector();
+  rect.size = [5 + 120 * randVec[0], 5 + 120 * randVec[1]];
   rect.position = [
-    randNums[2] * (gl.drawingBufferWidth - rect.size[0]),
+    randVec[2] * (gl.drawingBufferWidth - rect.size[0]),
     gl.drawingBufferHeight,
   ];
   rect.velocity = 1.0 + 6.0 * Math.random();

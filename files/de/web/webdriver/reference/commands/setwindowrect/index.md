@@ -1,21 +1,21 @@
 ---
-title: Set Window Rect
+title: Fenster-Rechteck setzen
 slug: Web/WebDriver/Reference/Commands/SetWindowRect
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: c6cab7f1aa7dc9f3495486a5b46020db320101cf
 ---
 
-Der _Set Window Rect_ [Befehl](/de/docs/Web/WebDriver/Reference/Commands) der [WebDriver](/de/docs/Web/WebDriver) API ändert die Größe und Position des mit dem aktuellen [`window`](/de/docs/Web/API/Window) verbundenen Betriebssystemfensters. Der Befehl fungiert als Setter des [Get Window Rect](/de/docs/Web/WebDriver/Reference/Commands/GetWindowRect), dessen Rückgabeobjekt direkt als Nutzdaten für diesen Befehl verwendet werden kann.
+Der _Fenster-Rechteck setzen_ [Befehl](/de/docs/Web/WebDriver/Reference/Commands) der [WebDriver](/de/docs/Web/WebDriver) API ändert die Größe und Position des Betriebssystemfensters, das mit dem aktuellen [`window`](/de/docs/Web/API/Window) assoziiert ist. Der Befehl fungiert als Setter für [Fenster-Rechteck abrufen](/de/docs/Web/WebDriver/Reference/Commands/GetWindowRect), dessen zurückgegebenes Objekt Sie direkt als Nutzlast für diesen Befehl übergeben können.
 
-Bestimmte Gerätegruppen unterstützen nicht das Setzen der Fensterabmessungen oder deren Position. In diesen Konfigurationen gibt der Befehl einen [unsupported operating](/de/docs/Web/WebDriver/Errors/UnsupportedOperation) Fehler zurück. Um Situationen zu vermeiden, in denen dieser Befehl zu einem Fehler führen könnte, ist es möglich, ihn bedingt aufzurufen, wenn die [`setWindowRect`-Fähigkeit](/de/docs/Web/WebDriver/Capabilities/setWindowRect) für die Sitzung auf true gesetzt ist.
+Bestimmte Gerätegruppen unterstützen nicht die Einstellung der Fensterdimensionen oder deren Position. Auf diesen Konfigurationen gibt der Befehl einen [nicht unterstützten Betrieb](/de/docs/Web/WebDriver/Reference/Errors/UnsupportedOperation) Fehler zurück. Um zu vermeiden, dass dieser Aufruf zu einem Fehler führt, kann er bedingt aufgerufen werden, wenn die [`setWindowRect` Fähigkeit](/de/docs/Web/WebDriver/Reference/Capabilities/setWindowRect) für die Sitzung auf true gesetzt ist.
 
-Das Setzen des Fensterrechtecks benötigt `x`, `y`, `width` und `height` als Eingaben. Alle Felder sind optional, z.B. kann der Befehl mit einem leeren Objekt aufgerufen werden, was in diesem Fall als No-Op fungiert. Um die Position zu setzen, sind sowohl `x` als auch `y` erforderlich, und entsprechend sind sowohl `width` als auch `height` erforderlich, um die Abmessungen des Fensters zu ändern.
+Das Setzen des Fenster-Rechtecks benötigt `x`, `y`, `width` und `height` als Eingabe. Alle Felder sind optional, d.h. der Befehl kann mit einem leeren Objekt aufgerufen werden, und in diesem Fall wird er als No-Op fungieren. Um die Position festzulegen, sind sowohl `x` als auch `y` erforderlich, und entsprechend sind sowohl `width` als auch `height` erforderlich, um die Fensterabmessungen zu ändern.
 
-Beim Setzen der Breite oder Höhe ist nicht garantiert, dass die resultierende Fenstergröße genau der gewünschten entspricht. Der Treiber soll Werte klemmen, die größer sind als die physischen Bildschirmabmessungen oder kleiner als die Mindestgröße des Fensters. Einige Treiber können auch andere Einschränkungen haben, wie z.B. das nicht in Einzelpixel-Schritten verkleinern zu können. Aus diesem Grund könnten die zurückgegebenen `width` und `height` nicht genau mit [`Window.outerWidth`](/de/docs/Web/API/Window/outerWidth) und [`Window.outerHeight`](/de/docs/Web/API/Window/outerHeight) übereinstimmen.
+Beim Einstellen der Breite oder Höhe wird nicht garantiert, dass die resultierende Fenstergröße genau dem entspricht, was angefordert wurde. Der Treiber sollte Werte clampen, die größer als die physischen Bildschirmabmessungen oder kleiner als die Mindestgröße des Fensters sind. Einige Treiber können auch andere Einschränkungen haben, wie z.B. die Unfähigkeit, in Ein-Pixel-Schritten die Größe zu ändern. Aus diesem Grund könnten die zurückgegebenen `width` und `height` nicht genau mit [`Window.outerWidth`](/de/docs/Web/API/Window/outerWidth) und [`Window.outerHeight`](/de/docs/Web/API/Window/outerHeight) übereinstimmen.
 
-Das Setzen der Fensterposition ist ähnlich dem Aufruf von [`Window.moveTo(x, y)`](/de/docs/Web/API/Window/moveTo), unterscheidet sich jedoch dadurch, dass Sicherheitsbeschränkungen in Bezug auf die Fensterbearbeitung umgangen werden.
+Das Setzen der Fensterposition ist ähnlich wie der Aufruf von [`Window.moveTo(x, y)`](/de/docs/Web/API/Window/moveTo), unterscheidet sich jedoch dadurch, dass es Sicherheitsbeschränkungen im Zusammenhang mit der Fenster-Manipulation umgeht.
 
-Der Befehl Set Window Rect ist blockierend.
+Der Befehl "Fenster-Rechteck setzen" ist blockierend.
 
 ## Syntax
 
@@ -26,51 +26,51 @@ Der Befehl Set Window Rect ist blockierend.
 ### URL-Parameter
 
 - `session id`
-  - : Kennung der Sitzung.
+  - : Bezeichner der Sitzung.
 
-### Nutzdaten
+### Nutzlast
 
-Die Eingabe ist ein [`WindowRect`](/de/docs/Web/WebDriver/WindowRect) Objekt:
+Die Eingabe ist ein [`WindowRect`](/de/docs/Web/WebDriver/Reference/WindowRect) Objekt:
 
 - `x`
 
-  - : Horizontale Position des [`window`](/de/docs/Web/API/Window), was gleichwertig mit [`Window.screenX`](/de/docs/Web/API/Window/screenX) ist. Muss eine Zahl im Bereich von −(2^31) bis 2^31 − 1, null oder undefiniert sein.
+  - : Horizontale Position des [`window`](/de/docs/Web/API/Window), was [`Window.screenX`](/de/docs/Web/API/Window/screenX) entspricht. Muss eine Zahl im Bereich −(2^31) bis 2^31 − 1, null oder undefined sein.
 
 - `y`
-  - : Vertikale Position des [`window`](/de/docs/Web/API/Window), was gleichwertig mit [`Window.screenY`](/de/docs/Web/API/Window/screenY) ist. Muss eine Zahl im Bereich von −(2^31) bis 2^31 − 1, null oder undefiniert sein.
+  - : Vertikale Position des [`window`](/de/docs/Web/API/Window), was [`Window.screenY`](/de/docs/Web/API/Window/screenY) entspricht. Muss eine Zahl im Bereich −(2^31) bis 2^31 − 1, null oder undefined sein.
 - `width`
-  - : Äußere Breite des [`window`](/de/docs/Web/API/Window), was gleichwertig mit [`Window.outerWidth`](/de/docs/Web/API/Window/outerWidth) ist. Muss eine Zahl im Bereich von 0 bis 2^31 − 1, null oder undefiniert sein.
+  - : Äußere Breite des [`window`](/de/docs/Web/API/Window), was [`Window.outerWidth`](/de/docs/Web/API/Window/outerWidth) entspricht. Muss eine Zahl im Bereich 0 bis 2^31 − 1, null oder undefined sein.
 - `height`
-  - : Äußere Breite des [`window`](/de/docs/Web/API/Window), was gleichwertig mit [`Window.outerHeight`](/de/docs/Web/API/Window/outerHeight) ist. Muss eine Zahl im Bereich von 0 bis 2^31 − 1, null oder undefiniert sein.
+  - : Äußere Breite des [`window`](/de/docs/Web/API/Window), was [`Window.outerHeight`](/de/docs/Web/API/Window/outerHeight) entspricht. Muss eine Zahl im Bereich 0 bis 2^31 − 1, null oder undefined sein.
 
 ### Antwort
 
-Die Antwortnutzdaten sind ein [`WindowRect`](/de/docs/Web/WebDriver/WebWindow):
+Die Antwortnutzlast ist ein [`WindowRect`](/de/docs/Web/WebDriver/Reference/WebWindow):
 
 - `x`
-  - : Horizontale Position des mit [`window`](/de/docs/Web/API/Window) verbundenen Betriebssystemfensters, was gleichwertig mit [`Window.screenX`](/de/docs/Web/API/Window/screenX) ist.
+  - : Horizontale Position des Betriebssystemfensters, das mit [`window`](/de/docs/Web/API/Window) assoziiert ist, was [`Window.screenX`](/de/docs/Web/API/Window/screenX) entspricht.
 - `y`
-  - : Vertikale Position des mit [`window`](/de/docs/Web/API/Window) verbundenen Betriebssystemfensters, was gleichwertig mit [`Window.screenY`](/de/docs/Web/API/Window/screenY) ist.
+  - : Vertikale Position des Betriebssystemfensters, das mit [`window`](/de/docs/Web/API/Window) assoziiert ist, was [`Window.screenY`](/de/docs/Web/API/Window/screenY) entspricht.
 - `width`
-  - : Breite der äußeren Grenzen des mit [`window`](/de/docs/Web/API/Window) verbundenen Betriebssystemfensters, was gleichwertig mit [`Window.outerWidth`](/de/docs/Web/API/Window/outerWidth) ist.
+  - : Breite der äußeren Grenzen des Betriebssystemfensters, das mit [`window`](/de/docs/Web/API/Window) assoziiert ist, was [`Window.outerWidth`](/de/docs/Web/API/Window/outerWidth) entspricht.
 - `height`
-  - : Höhe der äußeren Grenzen des mit [`window`](/de/docs/Web/API/Window) verbundenen Betriebssystemfensters, was gleichwertig mit [`Window.outerHeight`](/de/docs/Web/API/Window/outerHeight) ist.
+  - : Höhe der äußeren Grenzen des Betriebssystemfensters, das mit [`window`](/de/docs/Web/API/Window) assoziiert ist, was [`Window.outerHeight`](/de/docs/Web/API/Window/outerHeight) entspricht.
 
 ### Fehler
 
 - Ungültiges Argument
-  - : Wenn eines der Felder im [`WindowRect`](/de/docs/Web/WebDriver/WindowRect) Nutzdatenobjekt nicht die Typ- oder Bereichseinschränkungen erfüllt oder wenn nur eines der `x`/`y` Paar- oder `width`/`height` Paarfelder angegeben ist.
+  - : Wenn eines der Felder im [`WindowRect`](/de/docs/Web/WebDriver/Reference/WindowRect) Nutzlastobjekt die Typ- oder Begrenzungseinschränkungen nicht erfüllt oder wenn nur ein Feldpaar `x`/`y` oder `width`/`height` angegeben wird.
 - [Ungültige Sitzungs-ID](/de/docs/Web/WebDriver/Reference/Errors/InvalidSessionID)
   - : Sitzung existiert nicht.
-- [Kein solches Fenster](/de/docs/Web/WebDriver/Errors/NoSuchWindow)
+- [Kein solches Fenster](/de/docs/Web/WebDriver/Reference/Errors/NoSuchWindow)
   - : Wenn das [`window`](/de/docs/Web/API/Window) geschlossen wurde.
-- [Unerwartetes geöffnetes Alert](/de/docs/Web/WebDriver/Errors/UnexpectedAlertOpen)
-  - : Eine Benutzereingabeaufforderung, wie z.B. [`window.alert`](/de/docs/Web/API/Window/alert), blockiert die Ausführung des Befehls, bis sie verarbeitet wird.
-- [Nicht unterstützte Operation](/de/docs/Web/WebDriver/Errors/UnsupportedOperation)
+- [Unerwartetes offenes Alert](/de/docs/Web/WebDriver/Reference/Errors/UnexpectedAlertOpen)
+  - : Eine Benutzeraufforderung, wie [`window.alert`](/de/docs/Web/API/Window/alert), blockiert die Ausführung des Befehls, bis sie behandelt wird.
+- [Nicht unterstützter Betrieb](/de/docs/Web/WebDriver/Reference/Errors/UnsupportedOperation)
 
-  - : Wenn der Treiber das Ändern der Fenstergröße oder -position nicht unterstützt. Dies ist in der Regel bei mobilen Geräten der Fall, bei denen der Browser eine feste Größe hat und nicht auf dem Bildschirm verschoben werden kann.
+  - : Wenn der Treiber das Ändern der Fenstergröße oder -position nicht unterstützt. Dies ist normalerweise bei mobilen Geräten der Fall, bei denen der Browser eine feste Dimension hat und nicht auf dem Bildschirm verschoben werden kann.
 
-    Sie können die [`setWindowRect`-Fähigkeit](/de/docs/Web/WebDriver/Capabilities/setWindowRect) untersuchen, um festzustellen, ob das Gerät diesen Befehl unterstützt.
+    Sie können die [`setWindowRect` Fähigkeit](/de/docs/Web/WebDriver/Reference/Capabilities/setWindowRect) inspizieren, um festzustellen, ob das Gerät diesen Befehl unterstützt.
 
 ## Spezifikationen
 
@@ -82,10 +82,10 @@ Die Antwortnutzdaten sind ein [`WindowRect`](/de/docs/Web/WebDriver/WebWindow):
 
 ## Siehe auch
 
-- [`WebWindow`](/de/docs/Web/WebDriver/WebWindow) Objekt
+- [`WebWindow`](/de/docs/Web/WebDriver/Reference/WebWindow) Objekt
 - Zugehörige Befehle:
 
-  - [Get Window Rect](/de/docs/Web/WebDriver/Reference/Commands/GetWindowRect)
-  - [Get Window Handle](/de/docs/Web/WebDriver/Commands/GetWindowHandle)
-  - [Get Window Handles](/de/docs/Web/WebDriver/Reference/Commands/GetWindowHandles)
-  - [Close Window](/de/docs/Web/WebDriver/Reference/Commands/CloseWindow)
+  - [Fenster-Rechteck abrufen](/de/docs/Web/WebDriver/Reference/Commands/GetWindowRect)
+  - [Fenstergriff abrufen](/de/docs/Web/WebDriver/Reference/Commands/GetWindowHandle)
+  - [Fenstergriffe abrufen](/de/docs/Web/WebDriver/Reference/Commands/GetWindowHandles)
+  - [Fenster schließen](/de/docs/Web/WebDriver/Reference/Commands/CloseWindow)

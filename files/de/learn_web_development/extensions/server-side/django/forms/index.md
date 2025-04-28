@@ -1,29 +1,29 @@
 ---
-title: "Django-Tutorial Teil 9: Arbeiten mit Formularen"
+title: "Django Tutorial Teil 9: Arbeiten mit Formularen"
 short-title: "9: Formulare"
 slug: Learn_web_development/Extensions/Server-side/Django/Forms
 l10n:
-  sourceCommit: 48d220a8cffdfd5f088f8ca89724a9a92e34d8c0
+  sourceCommit: be1922d62a0d31e4e3441db0e943aed8df736481
 ---
 
 {{PreviousMenuNext("Learn_web_development/Extensions/Server-side/Django/Sessions", "Learn_web_development/Extensions/Server-side/Django/Testing", "Learn_web_development/Extensions/Server-side/Django")}}
 
-In diesem Tutorial zeigen wir Ihnen, wie Sie in Django mit HTML-Formularen arbeiten und insbesondere die einfachste Art und Weise, Formulare zu schreiben, um Modellinstanzen zu erstellen, zu aktualisieren und zu löschen. Im Rahmen dieser Demonstration erweitern wir die [LocalLibrary](/de/docs/Learn_web_development/Extensions/Server-side/Django/Tutorial_local_library_website) Website, damit Bibliothekare Bücher erneuern und Autoren mit unseren eigenen Formularen (anstatt der Admin-Anwendung) erstellen, aktualisieren und löschen können.
+In diesem Tutorial zeigen wir Ihnen, wie Sie mit HTML-Formularen in Django arbeiten, und insbesondere die einfachste Möglichkeit, Formulare zu schreiben, um Modellinstanzen zu erstellen, zu aktualisieren und zu löschen. Im Rahmen dieser Demonstration werden wir die [LocalLibrary](/de/docs/Learn_web_development/Extensions/Server-side/Django/Tutorial_local_library_website) Website erweitern, damit Bibliothekare Bücher verlängern sowie Autoren mit unseren eigenen Formularen erstellen, aktualisieren und löschen können (anstatt die Admin-Anwendung zu verwenden).
 
 <table>
   <tbody>
     <tr>
       <th scope="row">Voraussetzungen:</th>
       <td>
-        Alle vorherigen Tutorial-Themen abschließen, einschließlich
-        <a href="/de/docs/Learn_web_development/Extensions/Server-side/Django/Authentication">Django-Tutorial Teil 8: Benutzer-Authentifizierung und Berechtigungen</a>.
+        Schließen Sie alle vorherigen Tutorial-Themen ab, einschließlich
+        <a href="/de/docs/Learn_web_development/Extensions/Server-side/Django/Authentication">Django Tutorial Teil 8: Benutzerauthentifizierung und Berechtigungen</a>.
       </td>
     </tr>
     <tr>
       <th scope="row">Ziel:</th>
       <td>
-        Zu verstehen, wie man Formulare schreibt, um Informationen von Benutzern zu erhalten und die Datenbank zu aktualisieren.
-        Verstehen, wie die generischen, klassenbasierten Bearbeitungsansichten die Erstellung von Formularen für die Arbeit mit einem einzelnen Modell erheblich vereinfachen können.
+        Um zu verstehen, wie man Formulare schreibt, um Informationen von Benutzern zu erhalten und die Datenbank zu aktualisieren.
+        Um zu verstehen, wie die generischen, klassenbasierten Bearbeitungsansichten die Erstellung von Formularen zur Arbeit mit einem einzigen Modell erheblich vereinfachen können.
       </td>
     </tr>
   </tbody>
@@ -31,23 +31,23 @@ In diesem Tutorial zeigen wir Ihnen, wie Sie in Django mit HTML-Formularen arbei
 
 ## Überblick
 
-Ein [HTML-Formular](/de/docs/Learn_web_development/Extensions/Forms) ist eine Gruppe von einem oder mehreren Feldern/Widgets auf einer Webseite, die verwendet werden kann, um Informationen von Benutzern zur Übermittlung an einen Server zu sammeln. Formulare sind ein flexibler Mechanismus zur Erfassung von Benutzereingaben, da es geeignete Widgets zum Eingeben vieler verschiedener Datentypen gibt, einschließlich Textfelder, Kontrollkästchen, Optionsfelder, Datumsauswähler und so weiter. Formulare sind auch eine relativ sichere Möglichkeit, Daten mit dem Server zu teilen, da sie es ermöglichen, Daten in `POST`-Anfragen mit Schutz vor Cross-Site-Request-Forgery zu senden.
+Ein [HTML-Formular](/de/docs/Learn_web_development/Extensions/Forms) ist eine Gruppe von einem oder mehreren Feldern/Widgets auf einer Webseite, die verwendet werden können, um Informationen von Benutzern zur Übermittlung an einen Server zu sammeln. Formulare sind ein flexibler Mechanismus zum Sammeln von Benutzereingaben, da es geeignete Widgets zum Eingeben vieler verschiedener Datentypen gibt, einschließlich Textfeldern, Kontrollkästchen, Optionsschaltflächen, Datumsauswählern und so weiter. Formulare sind auch eine relativ sichere Methode, um Daten mit dem Server zu teilen, da sie uns ermöglichen, Daten mit Schutz gegen Cross-Site-Request-Forgery in `POST`-Anfragen zu senden.
 
-Während wir in diesem Tutorial bisher keine Formulare erstellt haben, sind wir ihnen bereits auf der Django-Admin-Website begegnet - etwa zeigt der Screenshot unten ein Formular zur Bearbeitung eines unserer [Book](/de/docs/Learn_web_development/Extensions/Server-side/Django/Models) Modelle, das aus einer Reihe von Auswahllisten und Texteditoren besteht.
+Während wir in diesem Tutorial bisher keine Formulare erstellt haben, sind wir ihnen bereits auf der Django-Admin-Website begegnet - zum Beispiel zeigt der Screenshot unten ein Formular zum Bearbeiten eines unserer [Buch-](/de/docs/Learn_web_development/Extensions/Server-side/Django/Models) Modelle, bestehend aus mehreren Auswahllisten und Texteditoren.
 
-![Admin-Site - Buch hinzufügen](admin_book_add.png)
+![Admin-Seite - Buch hinzufügen](admin_book_add.png)
 
-Mit Formularen zu arbeiten kann kompliziert sein! Entwickler müssen das HTML für das Formular schreiben, eingegebene Daten auf dem Server (und möglicherweise auch im Browser) validieren und richtig bereinigen, das Formular erneut mit Fehlermeldungen posten, um Benutzer über ungültige Felder zu informieren, die Daten verarbeiten, wenn sie erfolgreich übermittelt wurden, und schließlich auf eine Art und Weise auf den Benutzer reagieren, um den Erfolg anzuzeigen. _Django-Formulare_ nehmen Ihnen viel Arbeit in all diesen Schritten ab, indem sie ein Framework bereitstellen, mit dem Sie Formulare und ihre Felder programmatisch definieren können und dann diese Objekte verwenden, um sowohl den Form HTML-Code zu generieren als auch einen Großteil der Validierung und Benutzerinteraktion zu bewältigen.
+Das Arbeiten mit Formularen kann kompliziert sein! Entwickler müssen das HTML für das Formular schreiben, eingegebene Daten auf dem Server (und möglicherweise auch im Browser) validieren und ordnungsgemäß bereinigen, das Formular mit Fehlermeldungen erneut senden, um Benutzer auf ungültige Felder hinzuweisen, die Daten verarbeiten, wenn sie erfolgreich übermittelt wurden, und schließlich den Benutzer auf irgendeine Weise benachrichtigen, um Erfolg anzuzeigen. _Django-Formulare_ nehmen einen Großteil der Arbeit aus all diesen Schritten, indem sie ein Framework bereitstellen, das es Ihnen ermöglicht, Formulare und ihre Felder programmgesteuert zu definieren und dann diese Objekte sowohl zur Generierung des Formular-HTML-Codes als auch zur Übernahme eines Großteils der Validierung und Benutzerinteraktion zu verwenden.
 
-In diesem Tutorial zeigen wir Ihnen einige der Möglichkeiten, wie Sie Formulare erstellen und mit ihnen arbeiten können, und insbesondere, wie die generischen Bearbeitungsansichten den Arbeitsaufwand zur Erstellung von Formularen zur Manipulation Ihrer Modelle erheblich reduzieren können. Unterwegs werden wir unsere _LocalLibrary_-Anwendung erweitern, indem wir ein Formular hinzufügen, das Bibliothekaren ermöglicht, Bibliotheksbücher zu erneuern, und wir werden Seiten erstellen, um Bücher und Autoren zu erstellen, zu bearbeiten und zu löschen (eine grundlegende Version des oben gezeigten Formulars zur Bearbeitung von Büchern).
+In diesem Tutorial zeigen wir Ihnen einige der Möglichkeiten, wie Sie Formulare erstellen und verwenden können, und insbesondere, wie die generischen Bearbeitungsansichten die Menge an Arbeit erheblich reduzieren können, die Sie benötigen, um Formulare zur Manipulation Ihrer Modelle zu erstellen. Auf dem Weg dorthin werden wir unsere _LocalLibrary_ Anwendung erweitern, indem wir ein Formular hinzufügen, das es Bibliothekaren ermöglicht, Bibliotheksbücher zu verlängern, und wir werden Seiten erstellen, um Bücher und Autoren zu erstellen, zu bearbeiten und zu löschen (eine grundlegende Version des oben gezeigten Formulars zur Bearbeitung von Büchern nachzubilden).
 
 ## HTML-Formulare
 
 Zunächst ein kurzer Überblick über [HTML-Formulare](/de/docs/Learn_web_development/Extensions/Forms). Betrachten Sie ein einfaches HTML-Formular mit einem einzigen Textfeld zum Eingeben des Namens eines "Teams" und seinem zugehörigen Label:
 
-![Einfaches Namensfeld-Beispiel in HTML-Formular](form_example_name_field.png)
+![Einfaches Namensfelder-Beispiel in HTML-Formular](form_example_name_field.png)
 
-Das Formular wird in HTML als Sammlung von Elementen innerhalb von `<form>…</form>`-Tags definiert und enthält mindestens ein `input`-Element des Typs `type="submit"`.
+Das Formular wird in HTML als Sammlung von Elementen innerhalb `<form>…</form>` Tags definiert, die mindestens ein `input` Element vom Typ `submit` enthalten.
 
 ```html
 <form action="/team_name_url/" method="post">
@@ -61,70 +61,68 @@ Das Formular wird in HTML als Sammlung von Elementen innerhalb von `<form>…</f
 </form>
 ```
 
-Während wir hier nur ein Textfeld zum Eingeben des Teamnamens haben, kann ein Formular _jede Anzahl_ von anderen Eingabeelementen und deren zugehörigen Labels haben. Das `type`-Attribut des Feldes definiert, welche Art von Widget angezeigt wird. Der `name` und `id` des Feldes identifizieren das Feld in JavaScript/CSS/HTML, während `value` den anfänglichen Wert für das Feld definiert, wenn es erstmals angezeigt wird. Das passende Team-Label wird mit dem `label`-Tag angegeben (siehe "Enter name" oben), mit einem `for`-Feld, das den `id`-Wert des zugehörigen `inputs` enthält.
+Während wir hier nur ein Textfeld zum Eingeben des Teamnamens haben, kann ein Formular _beliebig_ viele andere Eingabeelemente und deren zugehörige Labels haben. Das Attribut `type` des Feldes definiert, welche Art von Widget angezeigt wird. Der `name` und die `id` des Feldes werden verwendet, um das Feld in JavaScript/CSS/HTML zu identifizieren, während `value` den Anfangswert für das Feld definiert, wenn es erstmals angezeigt wird. Das zugehörige Team-Label wird mit dem `label`-Tag angegeben (siehe "Enter name" oben), mit einem `for`-Feld, das den `id`-Wert des zugehörigen `input` enthält.
 
-Das `submit`-Input wird standardmäßig als Button angezeigt.
-Dieser kann gedrückt werden, um die Daten in allen anderen Eingabeelementen im Formular an den Server hochzuladen (in diesem Fall nur das `team_name` Feld).
-Die Formular-Attribute definieren die HTTP `method`, mit der die Daten gesendet werden, und das Ziel der Daten auf dem Server (`action`):
+Das `submit`-Eingabeelement wird standardmäßig als Schaltfläche angezeigt. Es kann gedrückt werden, um die Daten in allen anderen Eingabeelementen im Formular an den Server hochzuladen (in diesem Fall nur das `team_name`-Feld). Die Formularattribute definieren die HTTP-`method`, die zum Senden der Daten verwendet wird, und das Ziel der Daten auf dem Server (`action`):
 
-- `action`: Die Ressource/URL, wohin Daten zur Verarbeitung gesendet werden sollen, wenn das Formular abgeschickt wird. Wenn dies nicht gesetzt ist (oder zu einem leeren String gesetzt ist), dann wird das Formular an die aktuelle Seiten-URL zurückgeschickt.
-- `method`: Die HTTP-Methode, die verwendet wird, um die Daten zu senden: _post_ oder _get_.
+- `action`: Die Ressource/URL, an die Daten zur Verarbeitung gesendet werden sollen, wenn das Formular übermittelt wird. Wenn dies nicht festgelegt ist (oder auf einen leeren String gesetzt ist), wird das Formular an die aktuelle Seiten-URL zurückgesendet.
+- `method`: Die HTTP-Methode, die zum Senden der Daten verwendet wird: _post_ oder _get_.
 
-  - Die `POST`-Methode sollte immer dann verwendet werden, wenn die Daten eine Änderung der Datenbank des Servers zur Folge haben, da sie widerstandsfähiger gegenüber Angriffen durch Cross-Site-Forgery-Requests gemacht werden kann.
-  - Die `GET`-Methode sollte nur für Formulare verwendet werden, die Benutzerdaten nicht ändern (zum Beispiel ein Suchformular). Sie wird empfohlen, wenn man die URL als Lesezeichen verwenden oder teilen möchte.
+  - Die `POST`-Methode sollte immer verwendet werden, wenn die Daten zu einer Änderung in der Datenbank des Servers führen, da sie gegenüber Cross-Site-Forgery-Request-Angriffen widerstandsfähiger gemacht werden kann.
+  - Die `GET`-Methode sollte nur für Formulare verwendet werden, die keine Benutzerdaten ändern (zum Beispiel ein Suchformular). Sie wird empfohlen, wenn Sie die URL als Lesezeichen speichern oder teilen möchten.
 
-Die Rolle des Servers besteht zunächst darin, den anfänglichen Formularzustand zu rendern - entweder mit leeren Feldern oder vorab ausgefüllt mit Anfangswerten. Nachdem der Benutzer den Senden-Button gedrückt hat, empfängt der Server die Formulardaten mit Werten aus dem Webbrowser und muss die Informationen validieren. Wenn das Formular ungültige Daten enthält, sollte der Server das Formular erneut anzeigen, diesmal mit den vom Benutzer eingegebenen Daten in "gültigen" Feldern und Meldungen, um das Problem für die ungültigen Felder zu beschreiben. Sobald der Server eine Anfrage mit allen gültigen Formulardaten erhält, kann er eine entsprechende Aktion durchführen (wie: Daten speichern, das Ergebnis einer Suche zurückgeben, eine Datei hochladen, etc.) und dann den Benutzer benachrichtigen.
+Die Rolle des Servers besteht zunächst darin, den Anfangszustand des Formulars zu rendern – entweder mit leeren Feldern oder vorausgefüllt mit Anfangswerten. Nachdem der Benutzer die Absenden-Schaltfläche gedrückt hat, empfängt der Server die Formulardaten mit Werten vom Webbrowser und muss die Informationen validieren. Wenn das Formular ungültige Daten enthält, sollte der Server das Formular erneut anzeigen, diesmal mit den vom Benutzer eingegebenen Daten in "gültigen" Feldern und Nachrichten, die das Problem für die ungültigen Felder beschreiben. Sobald der Server eine Anfrage mit allen gültigen Formulardaten erhält, kann er eine geeignete Aktion durchführen (z.B.: die Daten speichern, das Ergebnis einer Suche zurückgeben, eine Datei hochladen usw.) und anschließend den Benutzer benachrichtigen.
 
-Wie Sie sich vorstellen können, kann es ziemlich viel Aufwand erfordern, um das HTML zu erstellen, die zurückgegebenen Daten zu validieren, die eingegebenen Daten bei Bedarf mit Fehlerberichten erneut anzuzeigen und die gewünschte Operation auf gültigen Daten durchzuführen, um alles "richtig" hinzubekommen. Django macht dies erheblich einfacher, indem es Ihnen einige der schweren Aufgaben und wiederholenden Codes abnimmt!
+Wie Sie sich vorstellen können, kann es ziemlich viel Mühe kosten, das HTML zu erstellen, die zurückgegebenen Daten zu validieren, die eingegebenen Daten bei Bedarf erneut mit Fehlerberichten anzuzeigen und den gewünschten Vorgang mit gültigen Daten durchzuführen, um alles "richtig zu machen". Django macht dies erheblich einfacher, indem es einen Teil der schweren Arbeit und des wiederholenden Codes übernimmt!
 
 ## Django-Formularbearbeitungsprozess
 
-Die Formularbearbeitung von Django verwendet alle Techniken, die wir in früheren Tutorials kennengelernt haben (um Informationen über unsere Modelle anzuzeigen): die Ansicht erhält eine Anfrage, führt alle erforderlichen Aktionen aus, einschließlich des Lesens von Daten aus den Modellen, und generiert dann eine HTML-Seite (aus einer Vorlage, in die wir einen _Kontext_ einfügen, der die anzuzeigenden Daten enthält) und gibt diese zurück. Was die Dinge komplexer macht, ist, dass der Server auch in der Lage sein muss, von dem Benutzer bereitgestellte Daten zu verarbeiten und die Seite bei Fehlern erneut anzuzeigen.
+Djangos Formularbearbeitung verwendet alle Techniken, über die wir in den vorherigen Tutorials gelernt haben (für die Anzeige von Informationen zu unseren Modellen): Die Ansicht erhält eine Anfrage, führt alle erforderlichen Aktionen aus, einschließlich des Lesens von Daten aus den Modellen, und generiert und gibt dann eine HTML-Seite zurück (aus einer Vorlage, in die wir einen _Kontext_ mit den anzuzeigenden Daten einfügen). Was die Dinge komplizierter macht, ist, dass der Server auch in der Lage sein muss, vom Benutzer bereitgestellte Daten zu verarbeiten und die Seite bei Fehlern erneut anzuzeigen.
 
-Ein Prozessflussdiagramm, das zeigt, wie Django Formulareingaben handhabt, ist unten dargestellt, beginnend mit einer Anfrage nach einer Seite, die ein Formular enthält (angezeigt in grün).
+Ein Prozessablaufdiagramm, wie Django Formularanfragen verarbeitet, ist unten gezeigt, beginnend mit einer Anfrage nach einer Seite, die ein Formular enthält (in grün dargestellt).
 
-![Aktualisierter Formularbearbeitungsprozess](form_handling_-_standard.png)
+![Aktualisierter Formularbearbeitungsprozess-Dokument.](form_handling_-_standard.png)
 
-Basierend auf dem obigen Diagramm sind die Hauptaufgaben, die Django bei der Formularbearbeitung übernimmt:
+Basierend auf dem obigen Diagramm sind die Hauptpunkte, die Djangos Formularbearbeitung durchführt:
 
-1. Anzeige des Standardformulars, wenn es zum ersten Mal von dem Benutzer angefordert wird.
+1. Zeigen Sie das Standardformular an, wenn es zum ersten Mal vom Benutzer angefordert wird.
 
-   - Das Formular kann leere Felder enthalten, wenn Sie einen neuen Eintrag erstellen, oder es kann mit Anfangswerten vorab ausgefüllt sein (zum Beispiel, wenn Sie einen Eintrag ändern oder nützliche Standardanfangswerte haben).
-   - Das Formular wird zu diesem Zeitpunkt als _ungebunden_ bezeichnet, da es nicht mit irgendwelchen benutzereingegebenen Daten verbunden ist (obwohl es Anfangswerte haben kann).
+   - Das Formular kann leere Felder enthalten, wenn Sie einen neuen Datensatz erstellen, oder es kann vorausgefüllt mit Initialwerten sein (zum Beispiel, wenn Sie einen Datensatz ändern oder nützliche Standardanfangswerte haben).
+   - Das Formular wird an diesem Punkt als _ungebunden_ bezeichnet, da es nicht mit benutzereingabene Daten verknüpft ist (obwohl es Anfangswerte haben kann).
 
-2. Empfang von Daten aus einer Sendeanfrage und Bindung an das Formular.
+2. Empfangen Sie Daten von einer Absende-Anfrage und binden Sie sie an das Formular.
 
-   - Das Binden von Daten an das Formular bedeutet, dass die vom Benutzer eingegebenen Daten und alle Fehler verfügbar sind, wenn wir das Formular erneut anzeigen müssen.
+   - Daten an das Formular zu binden bedeutet, dass die vom Benutzer eingegebenen Daten und alle Fehler verfügbar sind, wenn wir das Formular erneut anzeigen müssen.
 
-3. Säuberung und Validierung der Daten.
+3. Bereinigen und validieren Sie die Daten.
 
-   - Die Datenbereinigung führt die Bereinigung der Eingabefelder durch, wie das Entfernen ungültiger Zeichen, die verwendet werden könnten, um potenziell bösartigen Inhalt an den Server zu senden, und konvertiert sie in konsistente Python-Typen.
-   - Die Validierung überprüft, ob die Werte für das Feld angemessen sind (zum Beispiel, ob sie im richtigen Datumsbereich liegen, nicht zu kurz oder zu lang sind, etc.)
+   - Die Datenbereinigung führt eine Sanitisierung der Eingabefelder durch, z.B. das Entfernen ungültiger Zeichen, die verwendet werden könnten, um böswillige Inhalte an den Server zu senden, und konvertiert sie in konsistente Python-Typen.
+   - Die Validierung überprüft, ob die Werte für das Feld geeignet sind (z.B. ob sie im richtigen Datumsbereich liegen, nicht zu kurz oder zu lang sind usw.).
 
-4. Wenn Daten ungültig sind, das Formular erneut anzeigen, diesmal mit benutzergefüllten Werten und Fehlermeldungen für die Problemfelder.
-5. Wenn alle Daten gültig sind, die erforderlichen Aktionen durchführen (wie Daten speichern, eine E-Mail senden, das Ergebnis einer Suche zurückgeben, eine Datei hochladen usw.).
-6. Sobald alle Aktionen abgeschlossen sind, den Benutzer auf eine andere Seite umleiten.
+4. Wenn Daten ungültig sind, zeigen Sie das Formular erneut an, diesmal mit allen vom Benutzer eingegebenen Werten und Fehlermeldungen für die problematischen Felder.
+5. Wenn alle Daten gültig sind, führen Sie die erforderlichen Aktionen durch (z.B. Daten speichern, eine E-Mail senden, das Ergebnis einer Suche zurückgeben, eine Datei hochladen usw.).
+6. Sobald alle Aktionen abgeschlossen sind, leiten Sie den Benutzer zu einer anderen Seite weiter.
 
-Django stellt eine Reihe von Tools und Ansätzen bereit, um Ihnen bei den oben genannten Aufgaben zu helfen. Das fundamentalste ist die `Form`-Klasse, die sowohl die Generierung von Formular-HTML als auch die Datenbereinigung/-validierung vereinfacht. Im nächsten Abschnitt beschreiben wir, wie Formulare mit dem praktischen Beispiel einer Seite zum Erneuern von Büchern für Bibliothekare funktionieren.
+Django bietet eine Reihe von Werkzeugen und Ansätzen, um Ihnen bei den oben beschriebenen Aufgaben zu helfen. Das grundlegendste ist die `Form`-Klasse, die sowohl die Generierung von HTML-Formularen als auch die Datenbereinigung/Validierung vereinfacht. Im nächsten Abschnitt beschreiben wir, wie Formulare funktionieren und verwenden als praktisches Beispiel eine Seite, die es Bibliothekaren ermöglicht, Bücher zu erneuern.
 
 > [!NOTE]
-> Zu verstehen, wie `Form` verwendet wird, wird Ihnen helfen, wenn wir über die "höheren" Formular-Framework-Klassen von Django sprechen.
+> Das Verstehen, wie `Form` verwendet wird, wird Ihnen helfen, wenn wir über Djangos mehr "hochwertige" Formular-Framework-Klassen sprechen.
 
-## Buch-Erneuerungsformular mithilfe eines Formulars und einer Funktionsansicht
+## Erneuere-Buch-Formular mit einem Formular und Funktionsansicht
 
-Als Nächstes fügen wir eine Seite hinzu, damit Bibliothekare entliehene Bücher erneuern können. Dazu erstellen wir ein Formular, das es den Benutzern ermöglicht, einen Datumswert einzugeben. Wir setzen das Feld mit einem Anfangswert 3 Wochen ab dem aktuellen Datum (der normalen Leihdauer) vorab und fügen eine Validierung hinzu, um sicherzustellen, dass der Bibliothekar kein Datum in der Vergangenheit oder ein Datum zu weit in der Zukunft eingeben kann. Wenn ein gültiges Datum eingegeben wurde, schreiben wir es in das aktuelle `BookInstance.due_back`-Feld des Datensatzes.
+Als nächstes fügen wir eine Seite hinzu, die es Bibliothekaren ermöglicht, ausgeliehene Bücher zu verlängern. Dazu erstellen wir ein Formular, das es Benutzern ermöglicht, einen Datumswert einzugeben. Wir setzen das Feld mit einem Anfangswert 3 Wochen ab dem aktuellen Datum (die normale Leihfrist) und fügen eine Validierung hinzu, um sicherzustellen, dass der Bibliothekar kein Datum in der Vergangenheit oder ein Datum zu weit in der Zukunft eingeben kann. Wenn ein gültiges Datum eingegeben wurde, schreiben wir es in das `BookInstance.due_back` Feld des aktuellen Datensatzes.
 
-Das Beispiel verwendet eine funktionsbasierte Ansicht und eine `Form`-Klasse. Die folgenden Abschnitte erklären, wie Formulare funktionieren, und die Änderungen, die Sie an unserem fortlaufenden _LocalLibrary_-Projekt vornehmen müssen.
+Das Beispiel verwendet eine funktionsbasierte Ansicht und eine `Form`-Klasse. Die folgenden Abschnitte erklären, wie Formulare funktionieren und welche Änderungen Sie an unserem laufenden _LocalLibrary_ Projekt vornehmen müssen.
 
 ### Formular
 
-Die `Form`-Klasse ist das Herzstück des Formularbearbeitungssystems von Django. Sie spezifiziert die Felder im Formular, deren Layout, Anzeige-Widgets, Labels, Anfangswerte, gültige Werte und (nach Validierung) die Fehlermeldungen, die mit ungültigen Feldern verbunden sind. Die Klasse bietet auch Methoden, um sich selbst in Vorlagen mit vordefinierten Formaten (Tabellen, Listen usw.) darzustellen oder um den Wert eines Elements abzurufen (ermöglicht eine feinkörnige manuelle Darstellung).
+Die `Form`-Klasse ist das Herzstück von Djangos Formularbearbeitungssystem. Sie spezifiziert die Felder im Formular, deren Layout, Anzeigewidgets, Labels, Anfangswerte, gültige Werte und (nach Validierung) die mit ungültigen Feldern verbundenen Fehlermeldungen. Die Klasse bietet auch Methoden zur eigenen Darstellung in Vorlagen mit vordefinierten Formaten (Tabellen, Listen usw.) oder um den Wert eines beliebigen Elements zu erhalten (ermöglicht eine fein abgestimmte manuelle Darstellung).
 
 #### Ein Formular deklarieren
 
-Die Deklarationssyntax für ein `Form` ähnelt der Deklaration eines `Model` sehr und teilt die gleichen Feldtypen (und einige ähnliche Parameter). Das macht Sinn, denn in beiden Fällen müssen wir sicherstellen, dass jedes Feld die richtigen Datentypen verarbeitet, auf gültige Daten beschränkt ist und eine Beschreibung für die Anzeige/Dokumentation hat.
+Die Deklarationssyntax für ein `Form` ist der Deklaration eines `Model` sehr ähnlich und teilt die gleichen Feldtypen (und einige ähnliche Parameter). Das macht Sinn, da wir in beiden Fällen sicherstellen müssen, dass jedes Feld die richtigen Datentypen behandelt, auf gültige Daten beschränkt ist und eine Beschreibung für die Anzeige/Dokumentation hat.
 
-Formulardaten werden in einer `forms.py`-Datei einer Anwendung gespeichert, die sich im Anwendungsverzeichnis befindet. Erstellen und öffnen Sie die Datei **django-locallibrary-tutorial/catalog/forms.py**. Um ein `Form` zu erstellen, importieren wir die `forms`-Bibliothek, leiten von der `Form`-Klasse ab und deklarieren die Felder des Formulars. Eine sehr einfache Formular-Klasse für unser Buch-Erneuerungsformular ist unten gezeigt — fügen Sie dies Ihrer neuen Datei hinzu:
+Formulardaten werden in der forms.py-Datei einer Anwendung im Anwendungsverzeichnis gespeichert. Erstellen und öffnen Sie die Datei **django-locallibrary-tutorial/catalog/forms.py**. Um ein `Formular` zu erstellen, importieren wir die `forms`-Bibliothek, leiten von der `Form`-Klasse ab und deklarieren die Felder des Formulars. Eine sehr grundlegende Formularklasse für unser Bibliotheksbuch-Verlängerungsformular wird unten gezeigt — fügen Sie dies zu Ihrer neuen Datei hinzu:
 
 ```python
 from django import forms
@@ -135,7 +133,7 @@ class RenewBookForm(forms.Form):
 
 #### Formularfelder
 
-In diesem Fall haben wir ein einzelnes [`DateField`](https://docs.djangoproject.com/en/5.0/ref/forms/fields/#datefield) zur Eingabe des Erneuerungsdatums, das in HTML mit einem leeren Wert, der Standardbezeichnung "_Erneuerungsdatum:_" und einem hilfreichen Verwendungstext: "_Geben Sie ein Datum zwischen jetzt und 4 Wochen ein (Standard 3 Wochen)._" gerendert wird. Da keine der anderen optionalen Argumente angegeben sind, akzeptiert das Feld Daten im [input_formats](https://docs.djangoproject.com/en/5.0/ref/forms/fields/#django.forms.DateField.input_formats): YYYY-MM-DD (2024-11-06), MM/DD/YYYY (02/26/2024), MM/DD/YY (10/25/24) und wird mit dem Standard-[Widget](https://docs.djangoproject.com/en/5.0/ref/forms/fields/#widget): [DateInput](https://docs.djangoproject.com/en/5.0/ref/forms/widgets/#django.forms.DateInput) gerendert.
+In diesem Fall haben wir ein einzelnes [`DateField`](https://docs.djangoproject.com/en/5.0/ref/forms/fields/#datefield) zum Eingeben des Verlängerungsdatums, das in HTML mit einem leeren Wert, dem Standardlabel "_Renewal date:_", und etwas hilfreichem Gebrauchstext angezeigt wird: "_Enter a date between now and 4 weeks (default 3 weeks)._". Da keine der anderen optionalen Argumente angegeben sind, akzeptiert das Feld Datumsangaben, die die [input_formats](https://docs.djangoproject.com/en/5.0/ref/forms/fields/#django.forms.DateField.input_formats) verwenden: JJJJ-MM-TT (2024-11-06), MM/TT/JJJJ (02/26/2024), MM/TT/JJ (10/25/24), und wird mit dem Standard-[Widget](https://docs.djangoproject.com/en/5.0/ref/forms/fields/#widget) gerendert: [DateInput](https://docs.djangoproject.com/en/5.0/ref/forms/widgets/#django.forms.DateInput).
 
 Es gibt viele andere Arten von Formularfeldern, die Sie größtenteils an ihrer Ähnlichkeit zu den entsprechenden Modellfeldklassen erkennen werden:
 
@@ -168,22 +166,22 @@ Es gibt viele andere Arten von Formularfeldern, die Sie größtenteils an ihrer 
 - [`ModelMultipleChoiceField`](https://docs.djangoproject.com/en/5.0/ref/forms/fields/#modelmultiplechoicefield)
 - [`ModelChoiceField`](https://docs.djangoproject.com/en/5.0/ref/forms/fields/#modelchoicefield)
 
-Die Argumente, die für die meisten Felder gemeinsam sind, sind unten aufgelistet (diese haben sinnvolle Standardwerte):
+Die Argumente, die den meisten Feldern gemeinsam sind, werden unten aufgeführt (diese haben sinnvolle Standardwerte):
 
-- [`required`](https://docs.djangoproject.com/en/5.0/ref/forms/fields/#required): Wenn `True`, darf das Feld nicht leer gelassen oder mit einem `None`-Wert versehen werden. Felder sind standardmäßig erforderlich, daher würden Sie `required=False` setzen, um leere Werte im Formular zuzulassen.
-- [`label`](https://docs.djangoproject.com/en/5.0/ref/forms/fields/#label): Das Label für das Rendering des Feldes in HTML. Wenn ein [label](https://docs.djangoproject.com/en/5.0/ref/forms/fields/#label) nicht spezifiziert ist, erstellt Django eines aus dem Feldnamen, indem es den ersten Buchstaben großschreibt und Unterstriche durch Leerzeichen ersetzt (z. B. _Erneuerungsdatum_).
-- [`label_suffix`](https://docs.djangoproject.com/en/5.0/ref/forms/fields/#label-suffix): Standardmäßig wird ein Doppelpunkt nach dem Label angezeigt (z. B. Erneuerungsdatum&ZeroWidthSpace;**:**). Mit diesem Argument können Sie ein anderes Suffix mit anderen Zeichen angeben.
-- [`initial`](https://docs.djangoproject.com/en/5.0/ref/forms/fields/#initial): Der anfängliche Wert für das Feld, wenn das Formular angezeigt wird.
-- [`widget`](https://docs.djangoproject.com/en/5.0/ref/forms/fields/#widget): Das Anzeige-Widget, das verwendet werden soll.
-- [`help_text`](https://docs.djangoproject.com/en/5.0/ref/forms/fields/#help-text) (wie im obigen Beispiel gesehen): Zusätzlicher Text, der in Formularen angezeigt werden kann, um die Verwendung des Feldes zu erklären.
-- [`error_messages`](https://docs.djangoproject.com/en/5.0/ref/forms/fields/#error-messages): Eine Liste von Fehlermeldungen für das Feld. Sie können diese bei Bedarf mit eigenen Nachrichten überschreiben.
+- [`required`](https://docs.djangoproject.com/en/5.0/ref/forms/fields/#required): Wenn `True`, darf das Feld nicht leer oder mit einem `None`-Wert versehen werden. Felder sind standardmäßig erforderlich, sodass Sie `required=False` setzen würden, um leere Werte im Formular zuzulassen.
+- [`label`](https://docs.djangoproject.com/en/5.0/ref/forms/fields/#label): Das Label, das bei der Darstellung des Feldes in HTML verwendet wird. Wenn kein [Label](https://docs.djangoproject.com/en/5.0/ref/forms/fields/#label) angegeben ist, erstellt Django eines aus dem Feldnamen, indem der erste Buchstabe großgeschrieben und Unterstriche durch Leerzeichen ersetzt werden (z.B. _Renewal date_).
+- [`label_suffix`](https://docs.djangoproject.com/en/5.0/ref/forms/fields/#label-suffix): Standardmäßig wird nach dem Label ein Doppelpunkt angezeigt (z.B. Renewal date&ZeroWidthSpace;**:**). Dieses Argument ermöglicht es Ihnen, ein anderes Suffix mit anderen Zeichen zu spezifizieren.
+- [`initial`](https://docs.djangoproject.com/en/5.0/ref/forms/fields/#initial): Der Anfangswert für das Feld, wenn das Formular angezeigt wird.
+- [`widget`](https://docs.djangoproject.com/en/5.0/ref/forms/fields/#widget): Das Anzeigewidget, das verwendet werden soll.
+- [`help_text`](https://docs.djangoproject.com/en/5.0/ref/forms/fields/#help-text) (wie im obigen Beispiel zu sehen): Zusätzlicher Text, der in Formularen angezeigt werden kann, um zu erklären, wie das Feld verwendet wird.
+- [`error_messages`](https://docs.djangoproject.com/en/5.0/ref/forms/fields/#error-messages): Eine Liste von Fehlermeldungen für das Feld. Sie können diese bei Bedarf durch eigene Nachrichten überschreiben.
 - [`validators`](https://docs.djangoproject.com/en/5.0/ref/forms/fields/#validators): Eine Liste von Funktionen, die beim Validieren des Feldes aufgerufen werden.
-- [`localize`](https://docs.djangoproject.com/en/5.0/ref/forms/fields/#localize): Ermöglicht die Lokalisierung der Formular-Dateneingabe (siehe Link für weitere Informationen).
-- [`disabled`](https://docs.djangoproject.com/en/5.0/ref/forms/fields/#disabled): Das Feld wird angezeigt, aber sein Wert kann nicht bearbeitet werden, wenn dies `True` ist. Der Standardwert ist `False`.
+- [`localize`](https://docs.djangoproject.com/en/5.0/ref/forms/fields/#localize): Ermöglicht die Lokalisierung von Formulareingabedaten (siehe Link für weitere Informationen).
+- [`disabled`](https://docs.djangoproject.com/en/5.0/ref/forms/fields/#disabled): Das Feld wird angezeigt, aber sein Wert kann nicht bearbeitet werden, wenn dies `True` ist. Der Standard ist `False`.
 
 #### Validierung
 
-Django bietet zahlreiche Möglichkeiten, um Ihre Daten zu validieren. Der einfachste Weg, ein einzelnes Feld zu validieren, besteht darin, die Methode `clean_<field_name>()` für das Feld zu überschreiben, das Sie überprüfen möchten. So können wir zum Beispiel sicherstellen, dass die eingegebenen `renewal_date`-Werte zwischen jetzt und 4 Wochen liegen, indem wir `clean_renewal_date()` wie unten gezeigt implementieren.
+Django bietet zahlreiche Möglichkeiten, um Ihre Daten zu validieren. Der einfachste Weg, um ein einzelnes Feld zu validieren, besteht darin, die Methode `clean_<field_name>()` für das Feld zu überschreiben, das Sie überprüfen möchten. So können wir zum Beispiel überprüfen, dass eingegebene `renewal_date` Werte zwischen jetzt und 4 Wochen liegen, indem wir `clean_renewal_date()` wie unten gezeigt implementieren.
 
 Aktualisieren Sie Ihre forms.py-Datei, damit sie so aussieht:
 
@@ -213,20 +211,18 @@ class RenewBookForm(forms.Form):
         return data
 ```
 
-Es gibt zwei wichtige Dinge zu beachten. Das erste ist, dass wir unsere Daten mit `self.cleaned_data['renewal_date']` abrufen und dass wir diese Daten zurückgeben, egal, ob wir sie am Ende der Funktion ändern oder nicht.
-Dieser Schritt liefert uns die Daten "gesäubert" und von potenziell unsicheren Eingaben mithilfe der Standard-Validatoren bereinigt und in den korrekten Standardtyp für die Daten konvertiert (in diesem Fall ein Python-`datetime.datetime`-Objekt).
+Es gibt zwei wichtige Punkte zu beachten. Erstens erhalten wir unsere Daten mit `self.cleaned_data['renewal_date']` und geben diese Daten zurück, unabhängig davon, ob wir sie am Ende der Funktion ändern oder nicht. Dieser Schritt ermöglicht es uns, die Daten "gereinigt" und von potenziell unsicherer Eingabe sanitisiert zu erhalten, unter Verwendung der Standardvalidatoren und konvertiert sie in den korrekten Standardtyp für die Daten (in diesem Fall ein Python `datetime.datetime`-Objekt).
 
-Der zweite Punkt ist, dass wir, wenn ein Wert außerhalb unserer Reichweite liegt, ein `ValidationError` auslösen und den Fehlertext angeben, den wir im Formular anzeigen möchten, wenn ein ungültiger Wert eingegeben wird.
-Das obige Beispiel umschließt diesen Text auch mit einer der [Übersetzungsfunktionen](https://docs.djangoproject.com/en/5.0/topics/i18n/translation/) von Django, `gettext_lazy()` (importiert als `_()`), was eine gute Praxis ist, wenn Sie Ihre Website später übersetzen möchten.
+Der zweite Punkt ist, dass wir, wenn ein Wert außerhalb unseres Bereichs liegt, eine `ValidationError`-Ausnahme auslösen und den Fehlertext angeben, den wir im Formular anzeigen möchten, wenn ein ungültiger Wert eingegeben wird. Das obige Beispiel umschließt diesen Text auch in einer der [Übersetzungsfunktionen](https://docs.djangoproject.com/en/5.0/topics/i18n/translation/) von Django, `gettext_lazy()` (importiert als `_()`), was gängige Praxis ist, wenn Sie später Ihre Website übersetzen möchten.
 
 > [!NOTE]
-> Es gibt zahlreiche andere Methoden und Beispiele zur Validierung von Formularen in [Formular- und Feldvalidierung](https://docs.djangoproject.com/en/5.0/ref/forms/validation/) (Django-Dokumentation). Beispielsweise können Sie in Fällen, in denen mehrere Felder voneinander abhängen, die Funktion [Formular.clean()](https://docs.djangoproject.com/en/5.0/ref/forms/api/#django.forms.Form.clean) überschreiben und erneut eine `ValidationError` auslösen.
+> Es gibt zahlreiche andere Methoden und Beispiele zur Validierung von Formularen in [Form- und Feldvalidierung](https://docs.djangoproject.com/en/5.0/ref/forms/validation/) (Django-Dokumentation). Zum Beispiel können Sie in Fällen, in denen Sie mehrere Felder haben, die voneinander abhängig sind, die Funktion [Form.clean()](https://docs.djangoproject.com/en/5.0/ref/forms/api/#django.forms.Form.clean) überschreiben und erneut eine `ValidationError` exception auslösen.
 
 Das ist alles, was wir für das Formular in diesem Beispiel benötigen!
 
 ### URL-Konfiguration
 
-Bevor wir unsere Ansicht erstellen, fügen wir eine URL-Konfiguration für die _renew-books_-Seite hinzu. Kopieren Sie die folgende Konfiguration an das Ende von **django-locallibrary-tutorial/catalog/urls.py**:
+Bevor wir unsere Ansicht erstellen, fügen wir eine URL-Konfiguration für die _renew-books_ Seite hinzu. Kopieren Sie die folgende Konfiguration an das Ende von **django-locallibrary-tutorial/catalog/urls.py**:
 
 ```python
 urlpatterns += [
@@ -234,19 +230,18 @@ urlpatterns += [
 ]
 ```
 
-Die URL-Konfiguration leitet URLs mit dem Format **/catalog/book/_\<bookinstance_id>_/renew/** zur Funktion namens `renew_book_librarian()` in **views.py** um und sendet die `BookInstance`-ID als Parameter namens `pk`. Das Muster wird nur übereinstimmen, wenn `pk` eine korrekt formatierte `uuid` ist.
+Die URL-Konfiguration leitet URLs mit dem Format **/catalog/book/_\<bookinstance_id>_/renew/** an die in **views.py** definierte Funktion `renew_book_librarian()` weiter und sendet die `BookInstance`-ID als den als `pk` bezeichneten Parameter. Das Muster passt nur, wenn `pk` ein korrekt formatiertes `uuid` ist.
 
 > [!NOTE]
-> Wir können unseren erfassten URL-Daten einen beliebigen Namen geben, da wir die vollständige Kontrolle über die Ansichts-Funktion haben (wir verwenden keine generische Detailansichtsklasse, die Parameter mit einem bestimmten Namen erwartet). `pk`, kurz für "primary key", ist jedoch eine vernünftige Konvention!
+> Wir können unsere erfassten URL-Daten beliebig benennen, da wir die komplette Kontrolle über die View-Funktion haben (wir verwenden keine generische Detailansichtsklasse, die Parameter mit einem bestimmten Namen erwartet). Dennoch ist `pk`, kurz für "primary key", eine sinnvolle Konvention!
 
 ### Ansicht
 
-Wie im Abschnitt [Django-Formularbearbeitungsprozess](#django-formularbearbeitungsprozess) oben beschrieben, muss die Ansicht das Standardformular rendern, wenn sie zum ersten Mal aufgerufen wird und es entweder erneut mit Fehlermeldungen rendern, wenn die Daten ungültig sind, oder die Daten verarbeiten und zu einer neuen Seite umleiten, wenn die Daten gültig sind. Um diese unterschiedlichen Aktionen auszuführen, muss die Ansicht in der Lage sein, zu wissen, ob es sich um den ersten Aufruf zur Darstellung des Standardformulars oder um einen nachfolgenden Aufruf zur Validierung von Daten handelt.
+Wie im Abschnitt über den [Django-Formularbearbeitungsprozess](#django-formularbearbeitungsprozess) erläutert, muss die Ansicht das Standardformular rendern, wenn sie zum ersten Mal aufgerufen wird, und es dann entweder mit Fehlermeldungen neu rendern, wenn die Daten ungültig sind, oder die Daten bei Gültigkeit bearbeiten und auf eine neue Seite umleiten. Um diese verschiedenen Aktionen auszuführen, muss die Ansicht wissen, ob sie erstmals aufgerufen wird, um das Standardformular zu rendern, oder zu einem späteren Zeitpunkt, um Daten zu validieren.
 
-Für Formulare, die eine `POST`-Anfrage verwenden, um Informationen an den Server zu übermitteln, besteht das häufigste Muster darin, wenn die Ansicht gegen den `POST`-Anfragetyp (`if request.method == 'POST':`) prüft, um Validierungsanfragen zu erkennen, und `GET` (mithilfe einer `else`-Bedingung) um die erste Anforderung zur Erstellung des Formulars zu erkennen. Wenn Sie Ihre Daten mit einer `GET`-Anfrage übermitteln möchten, besteht ein typischer Ansatz, um zu identifizieren, ob dies der erste oder ein nachfolgender Aufruf der Ansicht ist, darin, die Formulardaten zu lesen (z. B. indem Sie einen versteckten Wert im Formular lesen).
+Für Formulare, die eine `POST`-Anfrage verwenden, um Informationen an den Server zu übermitteln, ist das gängigste Muster, dass die Ansicht gegen den `POST`-Anfragetyp prüft (`if request.method == 'POST':`), um Formularvalidierungsanfragen zu identifizieren, und `GET` verwendet (unter Verwendung einer `else`-Bedingung), um die anfängliche Formularerstellungsanfrage zu identifizieren. Wenn Sie Ihre Daten mit einer `GET` Anfrage übermitteln möchten, dann besteht ein gängiger Ansatz zur Identifizierung, ob dies der erste oder ein späterer Aufruf der Ansicht ist, darin, die Formulardaten zu lesen (z.B. um einen versteckten Wert im Formular zu lesen).
 
-Da der Bucherneuerungsprozess in unsere Datenbank geschrieben wird, verwenden wir der Konvention nach den `POST`-Anfrageansatz.
-Der Codeausschnitt unten zeigt das (sehr standardmäßige) Muster für diese Art von Funktionsansicht.
+Da der Buchverlängerungsprozess in unserer Datenbank geschrieben wird, verwenden wir konventionsgemäß den `POST`-Anfrageansatz. Der folgende Codeausschnitt zeigt das (sehr standardmäßige) Muster für diese Art von Funktionsansicht.
 
 ```python
 import datetime
@@ -288,15 +283,14 @@ def renew_book_librarian(request, pk):
     return render(request, 'catalog/book_renew_librarian.html', context)
 ```
 
-Zuerst importieren wir unser Formular (`RenewBookForm`) und eine Reihe anderer nützlicher Objekte/Methoden, die im Hauptteil der Ansichts-Funktion verwendet werden:
+Zunächst importieren wir unser Formular (`RenewBookForm`) sowie eine Anzahl anderer nützlicher Objekte/Methoden, die im Körper der Funktionsansicht verwendet werden:
 
-- [`get_object_or_404()`](https://docs.djangoproject.com/en/5.0/topics/http/shortcuts/#get-object-or-404): Gibt ein bestimmtes Objekt aus einem Modell basierend auf seinem Primärschlüsselwert zurück und löst eine `Http404`-Ausnahme (nicht gefunden) aus, wenn der Datensatz nicht existiert.
-- [`HttpResponseRedirect`](https://docs.djangoproject.com/en/5.0/ref/request-response/#django.http.HttpResponseRedirect): Erstellt eine Weiterleitung zu einer angegebenen URL (HTTP-Statuscode 302).
-- [`reverse()`](https://docs.djangoproject.com/en/5.0/ref/urlresolvers/#django.urls.reverse): Generiert eine URL aus einem URL-Konfigurationsnamen und einer Menge von Argumenten. Es ist das Python-Äquivalent des `url`-Tags, das wir in unseren Vorlagen verwenden.
-- [`datetime`](https://docs.python.org/3/library/datetime.html): Eine Python-Bibliothek zur Manipulation von Datum und Uhrzeit.
+- [`get_object_or_404()`](https://docs.djangoproject.com/en/5.0/topics/http/shortcuts/#get-object-or-404): Gibt ein angegebenes Objekt aus einem Modell basierend auf seinem Primärschlüsselwert zurück und löst eine `Http404`-Ausnahme (nicht gefunden) aus, wenn der Datensatz nicht existiert.
+- [`HttpResponseRedirect`](https://docs.djangoproject.com/en/5.0/ref/request-response/#django.http.HttpResponseRedirect): Dies erstellt eine Umleitung zu einer angegebenen URL (HTTP-Statuscode 302).
+- [`reverse()`](https://docs.djangoproject.com/en/5.0/ref/urlresolvers/#django.urls.reverse): Dies erzeugt eine URL aus einem URL-Konfigurationsnamen und einer Gruppe von Argumenten. Es ist das Python-Äquivalent des `url` Tags, das wir in unseren Vorlagen verwendet haben.
+- [`datetime`](https://docs.python.org/3/library/datetime.html): Eine Python-Bibliothek zur Manipulation von Daten und Uhrzeiten.
 
-In der Ansicht verwenden wir zuerst das `pk`-Argument in `get_object_or_404()`, um die aktuelle `BookInstance` abzurufen (wenn diese nicht existiert, wird die Ansicht sofort beendet und die Seite zeigt einen "nicht gefunden"-Fehler an).
-Wenn dies _nicht_ eine `POST`-Anfrage ist (behandelt durch die `else`-Klausel), dann erstellen wir das Standardformular unter Angabe eines `initial`-Werts für das `renewal_date`-Feld, 3 Wochen ab dem aktuellen Datum.
+In der Ansicht verwenden wir zuerst das `pk` Argument in `get_object_or_404()`, um die aktuelle `BookInstance` zu erhalten (wenn diese nicht existiert, beendet die Ansicht sofort und die Seite zeigt einen "nicht gefunden" Fehler an). Wenn dies _keine_ `POST` Anfrage ist (behandelt durch die `else` Klausel), dann erstellen wir das Standardformular und übergeben einen `initial` Wert für das `renewal_date` Feld, 3 Wochen ab dem aktuellen Datum.
 
 ```python
 book_instance = get_object_or_404(BookInstance, pk=pk)
@@ -314,11 +308,11 @@ context = {
 return render(request, 'catalog/book_renew_librarian.html', context)
 ```
 
-Nachdem wir das Formular erstellt haben, rufen wir `render()` auf, um die HTML-Seite zu erstellen, wobei wir die Vorlage und einen Kontext angeben, der unser Formular enthält. In diesem Fall enthält der Kontext auch unsere `BookInstance`, die wir in der Vorlage verwenden, um Informationen über das Buch anzuzeigen, das wir erneuern.
+Nachdem wir das Formular erstellt haben, rufen wir `render()` auf, um die HTML-Seite zu erstellen, wobei wir die Vorlage und einen Kontext angeben, der unser Formular enthält. In diesem Fall enthält der Kontext auch unsere `BookInstance`, die wir in der Vorlage verwenden, um Informationen über das Buch bereitzustellen, das wir verlängern.
 
-Wenn dies jedoch eine `POST`-Anfrage ist, erstellen wir unser `form`-Objekt und befüllen es mit Daten aus der Anfrage. Dieser Vorgang wird als "Bindung" bezeichnet und ermöglicht es uns, das Formular zu validieren.
+Wenn es jedoch eine `POST` Anfrage ist, erstellen wir unser `form`-Objekt und füllen es mit Daten aus der Anfrage. Dieser Prozess wird als "Binden" bezeichnet und ermöglicht es uns, das Formular zu validieren.
 
-Anschließend überprüfen wir, ob das Formular gültig ist, was den gesamten Validierungscode auf alle Felder ausführt - einschließlich sowohl des generischen Codes, um zu überprüfen, dass unser Datumsfeld tatsächlich ein gültiges Datum ist als auch der `clean_renewal_date()`-Funktion unseres spezifischen Formulars, um zu überprüfen, ob das Datum im richtigen Bereich liegt.
+Wir überprüfen dann, ob das Formular gültig ist, was den gesamten Validierungscode für alle Felder ausführt – einschließlich sowohl des generischen Codes, um sicherzustellen, dass unser Datumsfeld tatsächlich ein gültiges Datum ist, als auch unserer spezifischen `clean_renewal_date()` Funktion, um zu überprüfen, ob das Datum im richtigen Bereich liegt.
 
 ```python
 book_instance = get_object_or_404(BookInstance, pk=pk)
@@ -346,18 +340,18 @@ context = {
 return render(request, 'catalog/book_renew_librarian.html', context)
 ```
 
-Wenn das Formular nicht gültig ist, rufen wir `render()` erneut auf, aber dieses Mal wird der im Kontext übergebene Formularwert Fehlermeldungen enthalten.
+Wenn das Formular nicht gültig ist, rufen wir `render()` erneut auf, diesmal wird der Formularwert, der im Kontext übergeben wird, Fehlermeldungen enthalten.
 
-Wenn das Formular gültig ist, können wir die Daten verwenden, indem wir über das Attribut `form.cleaned_data` darauf zugreifen (z.B. `data = form.cleaned_data['renewal_date']`). Hier speichern wir einfach die Daten in den `due_back`-Wert des zugehörigen `BookInstance`-Objekts.
+Wenn das Formular gültig ist, können wir beginnen, die Daten zu verwenden, indem wir auf das `form.cleaned_data` Attribut zugreifen (z.B. `data = form.cleaned_data['renewal_date']`). Hier speichern wir die Daten einfach im `due_back` Wert des zugehörigen `BookInstance`-Objekts.
 
 > [!WARNING]
-> Zwar können Sie auf die Formulardaten auch direkt über die Anfrage zugreifen (zum Beispiel `request.POST['renewal_date']` oder `request.GET['renewal_date']`, wenn Sie eine GET-Anfrage verwenden), dies wird jedoch NICHT empfohlen. Die gesäuberten Daten sind bereinigt, validiert und in pythonfreundliche Typen umgewandelt.
+> Während Sie auch auf die Formulardaten direkt über die Anfrage zugreifen können (z.B. `request.POST['renewal_date']` oder `request.GET['renewal_date']` bei einer GET Anfrage), wird dies NICHT empfohlen. Die bereinigten Daten sind gesäubert, validiert und in Python-freundliche Typen konvertiert.
 
-Der letzte Schritt im Formularbearbeitungsteil der Ansicht ist die Weiterleitung zu einer anderen Seite, normalerweise einer "Erfolgs"-Seite. In diesem Fall verwenden wir `HttpResponseRedirect` und `reverse()`, um zur Ansicht `'all-borrowed'` weiterzuleiten (dies wurde als "Herausforderung" in [Django-Tutorial Teil 8: Benutzer-Authentifizierung und Berechtigungen](/de/docs/Learn_web_development/Extensions/Server-side/Django/Authentication#challenge_yourself) erstellt). Wenn Sie diese Seite nicht erstellt haben, ziehen Sie in Betracht, zur Startseite der URL `/` umzuleiten).
+Der letzte Schritt im Formularbearbeitungsteil der Ansicht ist die Weiterleitung zu einer anderen Seite, üblicherweise einer "Erfolgsseite". In diesem Fall verwenden wir `HttpResponseRedirect` und `reverse()`, um zur Ansicht mit dem Namen `'all-borrowed'` weiterzuleiten (diese wurde als "Herausforderung" in [Django Tutorial Teil 8: Benutzerauthentifizierung und Berechtigungen](/de/docs/Learn_web_development/Extensions/Server-side/Django/Authentication#challenge_yourself) erstellt). Wenn Sie diese Seite nicht erstellt haben, ziehen Sie in Betracht, zur Startseite mit der URL `/` umzuleiten).
 
-Das ist alles, was für die Formularbearbeitung selbst benötigt wird, aber wir müssen den Zugriff auf die Ansicht nur auf angemeldete Bibliothekare beschränken, die Berechtigung zur Erneuerung von Büchern haben. Wir verwenden `@login_required`, um zu verlangen, dass der Benutzer angemeldet ist, und den Funktions-Dekorator `@permission_required` mit unserer bestehenden `can_mark_returned`-Berechtigung, um Zugriff zu gewähren (Dekoratoren werden in Reihenfolge verarbeitet). Beachten Sie, dass wir wahrscheinlich eine neue Berechtigungseinstellung in `BookInstance` (`can_renew`) hätten erstellen sollen, aber wir werden die vorhandene wiederverwenden, um das Beispiel einfach zu halten.
+Das ist alles, was für die Formularbearbeitung selbst benötigt wird, aber wir müssen den Zugriff auf die Ansicht auf nur eingeloggte Bibliothekare beschränken, die berechtigt sind, Bücher zu verlängern. Wir verwenden `@login_required`, um sicherzustellen, dass der Benutzer eingeloggt ist, und den `@permission_required` Funktions-Dekorator mit unserer vorhandenen `can_mark_returned` Berechtigung, um den Zugriff zu ermöglichen (Dekoratoren werden in der angegebenen Reihenfolge verarbeitet). Beachten Sie, dass wir wahrscheinlich eine neue Berechtigung im `BookInstance` (`can_renew`) hätten erstellen sollen, aber wir verwenden die bestehende, um das Beispiel einfach zu halten.
 
-Die endgültige Ansicht lautet daher wie unten gezeigt. Bitte kopieren Sie dies in den unteren Bereich von **django-locallibrary-tutorial/catalog/views.py**.
+Die endgültige Ansicht ist daher unten gezeigt. Bitte kopieren Sie dies ans Ende von **django-locallibrary-tutorial/catalog/views.py**.
 
 ```python
 import datetime
@@ -405,7 +399,7 @@ def renew_book_librarian(request, pk):
 
 ### Die Vorlage
 
-Erstellen Sie die Vorlage, auf die in der Ansicht verwiesen wird (**/catalog/templates/catalog/book_renew_librarian.html**) und kopieren Sie den unten stehenden Code hinein:
+Erstellen Sie die in der Ansicht referenzierte Vorlage (**/catalog/templates/catalog/book_renew_librarian.html**) und kopieren Sie den untenstehenden Code hinein:
 
 ```django
 {% extends "base_generic.html" %}
@@ -425,17 +419,17 @@ Erstellen Sie die Vorlage, auf die in der Ansicht verwiesen wird (**/catalog/tem
 {% endblock %}
 ```
 
-Das meiste davon wird Ihnen aus den vorherigen Tutorials vollkommen vertraut sein.
+Das meiste davon wird Ihnen aus den vorherigen Tutorials völlig vertraut sein.
 
-Wir erweitern die Basisvorlage und definieren dann den Inhaltsblock neu. Wir können auf `\{{ book_instance }}` (und deren Variablen) verweisen, da es im Kontextobjekt in der `render()`-Funktion übergeben wurde, und wir verwenden diese, um den Buchtitel, den Entleiher und das ursprüngliche Fälligkeitsdatum aufzulisten.
+Wir erweitern die Basisvorlage und definieren dann den Inhaltsblock neu. Wir können auf `\{{ book_instance }}` (und ihre Variablen) zugreifen, da sie im Kontextobjekt in der `render()` Funktion übergeben wurde, und wir verwenden diese, um den Buchtitel, den Ausleiher und das ursprüngliche Fälligkeitsdatum aufzulisten.
 
-Der Formularcode ist relativ einfach. Zuerst deklarieren wir die `form`-Tags, geben an, wohin das Formular gesendet werden soll (`action`) und die `method` für das Übermitteln der Daten (in diesem Fall ein `POST`) — wenn Sie sich den [Überblick über HTML-Formulare](#html-formulare) oben auf der Seite erinnern, bedeutet ein leeres `action`, wie gezeigt, dass die Formulardaten an die aktuelle URL der Seite zurückgesendet werden (was wir wollen). Innerhalb der Tags definieren wir die `submit`-Eingabe, die ein Benutzer drücken kann, um die Daten zu übermitteln. Der `{% csrf_token %}` direkt innerhalb der Formulartags ist Teil von Djangos Schutz gegen Cross-Site-Fälschungen.
+Der Formularcode ist relativ einfach. Zuerst deklarieren wir die `form`-Tags und geben an, wohin das Formular gesendet werden soll (`action`) und die `method` zum Übermitteln der Daten (in diesem Fall ein `POST`) — wenn Sie die [HTML Formulare](#html-formulare) Übersicht oben auf der Seite erinnern, bedeutet ein leerer `action`, wie angezeigt, dass die Formulardaten an die aktuelle URL der Seite gesendet werden (was wir wollen). Innerhalb der Tags definieren wir die `submit` Eingabe, die ein Benutzer drücken kann, um die Daten zu übermitteln. Das `{% csrf_token %}`, das gerade innerhalb der Formular-Tags hinzugefügt wird, ist Teil von Djangos Schutz gegen Cross-Site-Forgery.
 
 > [!NOTE]
-> Fügen Sie den `{% csrf_token %}` zu jeder Django-Vorlage hinzu, die Sie erstellen und die `POST` verwendet, um Daten zu übermitteln. Dies reduziert das Risiko, dass Formulare von böswilligen Benutzern gekapert werden.
+> Fügen Sie das `{% csrf_token %}` zu jeder Django-Vorlage hinzu, die Sie erstellen und die `POST` zum Übermitteln von Daten verwendet. Dies wird die Chance verringern, dass Formulare von böswilligen Benutzern entführt werden.
 
-Alles, was übrig bleibt, ist die `<{{ form }}>`-Vorlagenvariable, die wir im Kontextwörterbuch an die Vorlage übergeben haben.
-Es überrascht vielleicht nicht, dass dies die Standard-Wiedergabe aller Formularfelder bietet, einschließlich ihrer Labels, Widgets und Hilfetexte — die Wiedergabe erfolgt wie unten gezeigt:
+Alles, was noch bleibt, ist die `\{{ form }}` Templatevariable, die wir im Kontext-Dictionary der Vorlage übergeben haben.
+Vielleicht wenig überraschend liefert sie bei der Verwendung wie gezeigt die Standarddarstellung aller Formularfelder, einschließlich ihrer Bezeichnungen, Widgets und Hilfetexte — die Darstellung sieht wie unten gezeigt aus:
 
 ```html
 <tr>
@@ -456,15 +450,15 @@ Es überrascht vielleicht nicht, dass dies die Standard-Wiedergabe aller Formula
 ```
 
 > [!NOTE]
-> Vielleicht fällt es nicht auf, da wir nur ein Feld haben, aber normalerweise wird jedes Feld in einer eigenen Tabellenzeile definiert. Diese gleiche Wiedergabe wird bereitgestellt, wenn Sie die Vorlagenvariable `\{{ form.as_table }}` referenzieren.
+> Es ist vielleicht nicht offensichtlich, weil wir nur ein Feld haben, aber standardmäßig wird jedes Feld in seiner eigenen Tabellenspalte definiert. Dieselbe Darstellung wird bereitgestellt, wenn Sie auf die Templatevariable `\{{ form.as_table }}` verweisen.
 
-Wenn Sie ein ungültiges Datum eingeben, erhalten Sie zusätzlich eine Liste der Fehler, die auf der Seite wiedergegeben werden (siehe `errorlist` unten).
+Wenn Sie einen ungültigen Datumswert eingeben würden, würden zusätzlich die Fehlermeldungen auf der Seite angezeigt (siehe `error-list` unten).
 
 ```html
 <tr>
   <th><label for="id_renewal_date">Renewal date:</label></th>
   <td>
-    <ul class="errorlist">
+    <ul class="error-list">
       <li>Invalid date - renewal in past</li>
     </ul>
     <input
@@ -481,23 +475,22 @@ Wenn Sie ein ungültiges Datum eingeben, erhalten Sie zusätzlich eine Liste der
 </tr>
 ```
 
-#### Andere Verwendungsmöglichkeiten der Vorlagenvariable für Formulare
+#### Andere Möglichkeiten, die Formular-Templatevariable zu verwenden
 
-Indem Sie `\{{ form.as_table }}` wie oben gezeigt verwenden, wird jedes Feld als Tabellenreihe dargestellt. Sie können jedes Feld auch als Listenelement (mithilfe `\{{ form.as_ul }}`) oder als Absatz (mithilfe `\{{ form.as_p }}`) darstellen.
+Wenn Sie `\{{ form.as_table }}` wie oben gezeigt verwenden, wird jedes Feld als Tabellenzeile gerendert. Sie können jedes Feld auch als Listenelement rendern (unter Verwendung von `\{{ form.as_ul }}`) oder als Absatz (unter Verwendung von `\{{ form.as_p }}`).
 
-Es ist auch möglich, die vollständige Kontrolle über die Wiedergabe jedes Teils des Formulars zu haben, indem Sie auf seine Eigenschaften mit Punktnotation zugreifen. So können wir beispielsweise auf eine Reihe von separaten Elementen für unser `renewal_date`-Feld zugreifen:
+Es ist auch möglich, die vollständige Kontrolle über die Darstellung jedes Teils des Formulars zu haben, indem Sie seine Eigenschaften mit Punktnotation ansprechen. So können Sie beispielsweise auf eine Anzahl von separaten Items für unser `renewal_date` Feld zugreifen:
 
-- `\{{ form.renewal_date }}:` Das ganze Feld.
-- `\{{ form.renewal_date.errors }}`: Die Liste der Fehler.
-- `\{{ form.renewal_date.id_for_label }}`: Die ID des Labels.
+- `\{{ form.renewal_date }}:` Das gesamte Feld.
+- `\{{ form.renewal_date.errors }}`: Die Fehlerliste.
+- `\{{ form.renewal_date.id_for_label }}`: Die ID der Bezeichnung.
 - `\{{ form.renewal_date.help_text }}`: Der Hilfetext des Feldes.
 
-Für weitere Beispiele, wie man Formulare manuell in Vorlagen rendert und Felder dynamisch durchläuft, siehe [Arbeiten mit Formularen > Felder manuell rendern](https://docs.djangoproject.com/en/5.0/topics/forms/#rendering-fields-manually) (Django-Dokumentation).
+Für weitere Beispiele, wie man Formulare manuell in Vorlagen rendert und dynamisch über Templatefelder iteriert, siehe [Arbeiten mit Formularen > Manuelles Rendern von Feldern](https://docs.djangoproject.com/en/5.0/topics/forms/#rendering-fields-manually) (Django-Dokumentation).
 
 ### Testen der Seite
 
-Wenn Sie die "Herausforderung" in [Django-Tutorial Teil 8: Benutzer-Authentifizierung und Berechtigungen](/de/docs/Learn_web_development/Extensions/Server-side/Django/Authentication#challenge_yourself) akzeptiert haben, haben Sie eine Ansicht, die alle verliehenen Bücher in der Bibliothek anzeigt, die nur für Bibliothekspersonal sichtbar ist.
-Die Ansicht könnte ungefähr so aussehen:
+Wenn Sie die "Herausforderung" in [Django Tutorial Teil 8: Benutzerauthentifizierung und Berechtigungen](/de/docs/Learn_web_development/Extensions/Server-side/Django/Authentication#challenge_yourself) angenommen haben, haben Sie eine Ansicht, die alle in der Bibliothek ausgeliehenen Bücher anzeigt und die nur für Bibliotheksmitarbeiter sichtbar ist. Die Ansicht könnte so ähnlich aussehen:
 
 ```django
 {% extends "base_generic.html" %}
@@ -521,39 +514,38 @@ Die Ansicht könnte ungefähr so aussehen:
 {% endblock %}
 ```
 
-Wir können neben jedem Element einen Link zur Buchereneuerungsseite hinzufügen, indem wir den folgenden Vorlagencode an den Listelement-Text oben anhängen.
-Beachten Sie, dass dieser Vorlagencode nur innerhalb der `{% for %}` Schleife ausgeführt werden kann, da dies der Ort ist, an dem der `bookinst` Wert definiert ist.
+Wir können einen Link zur Buchverlängerungsseite neben jedem Element hinzufügen, indem wir den folgenden Vorlagencode an den Listenelementtext oben anhängen. Beachten Sie, dass dieser Vorlagencode nur innerhalb der `{% for %}` Schleife ausgeführt werden kann, da dort der `bookinst` Wert definiert ist.
 
 ```django
 {% if perms.catalog.can_mark_returned %}- <a href="{% url 'renew-book-librarian' bookinst.id %}">Renew</a>{% endif %}
 ```
 
 > [!NOTE]
-> Denken Sie daran, dass Ihr Testkonto die Berechtigung `catalog.can_mark_returned` benötigt, um den neuen "Erneuern"-Link zu sehen, der oben hinzugefügt wurde, und um auf die verlinkte Seite zuzugreifen (verwenden Sie vielleicht Ihr Superuser-Konto).
+> Denken Sie daran, dass Ihr Test-Login die Berechtigung `catalog.can_mark_returned` haben muss, um den neu hinzugefügten "Renew" Link zu sehen, und um auf die verlinkte Seite zuzugreifen (verwenden Sie möglicherweise Ihr Administrator-Konto).
 
-Alternativ können Sie eine Test-URL manuell wie folgt erstellen — `http://127.0.0.1:8000/catalog/book/<bookinstance_id>/renew/` (ein gültiger `bookinstance_id` kann ermittelt werden, indem Sie zu einer Buchdetailseite in Ihrer Bibliothek navigieren und das `id`-Feld kopieren).
+Sie können alternativ manuell eine Test-URL wie diese konstruieren — `http://127.0.0.1:8000/catalog/book/<bookinstance_id>/renew/` (eine gültige `bookinstance_id` kann erhalten werden, indem man zu einer Buchdetailseite in Ihrer Bibliothek navigiert und das `id` Feld kopiert).
 
 ### Wie sieht es aus?
 
 Wenn Sie erfolgreich sind, sieht das Standardformular so aus:
 
-![Standardformular, das die Buchdetails, das Fälligkeitsdatum, das Erneuerungsdatum und einen Senden-Button anzeigt, falls der Link erfolgreich funktioniert](forms_example_renew_default.png)
+![Standardformular, das die Buchdetails, das Fälligkeitsdatum, das Erneuerungsdatum und eine Absenden-Schaltfläche anzeigt, falls der Link erfolgreich funktioniert](forms_example_renew_default.png)
 
-Das Formular mit einem ungültigen Wert eingegeben sieht so aus:
+Das Formular mit einem ungültigen Wert sieht so aus:
 
-![Gleiches Formular wie oben mit einer Fehlermeldung: ungültiges Datum - Erneuerung in der Vergangenheit](forms_example_renew_invalid.png)
+![Gleiches Formular wie oben mit einer Fehlermeldung: ungültiges Datum - Verlängerung in der Vergangenheit](forms_example_renew_invalid.png)
 
 Die Liste aller Bücher mit Erneuerungslinks sieht so aus:
 
-![Zeigt eine Liste aller erneuerten Bücher mit deren Details. Überfällige sind in Rot.](forms_example_renew_allbooks.png)
+![Zeigt eine Liste aller erneuerten Bücher mit ihren Details an. Überfällige sind in rot.](forms_example_renew_allbooks.png)
 
 ## ModelForms
 
-Die Erstellung einer `Form`-Klasse mit dem oben beschriebenen Ansatz ist sehr flexibel und ermöglicht es Ihnen, jede Art von Formularseite zu erstellen und sie mit einem beliebigen Modell oder Modellen zu verknüpfen.
+Das Erstellen einer `Form`-Klasse mit dem oben beschriebenen Ansatz ist sehr flexibel und ermöglicht Ihnen, jede Art von Formularseite zu erstellen und sie mit jedem Modell oder Modellen zu verknüpfen.
 
-Wenn Sie jedoch nur ein Formular benötigen, das die Felder eines _einzelnen_ Modells abbildet, enthält Ihr Modell bereits die meisten Informationen, die Sie für Ihr Formular benötigen: Felder, Labels, Hilfetexte usw. Anstatt die Modelldefinitionen in Ihrem Formular neu zu erstellen, ist es einfacher, die [ModelForm](https://docs.djangoproject.com/en/5.0/topics/forms/modelforms/)-Hilfsklasse zu verwenden, um das Formular aus Ihrem Modell zu erstellen. Dieses `ModelForm` kann dann wie ein gewöhnliches `Form` in Ihren Ansichten verwendet werden.
+Wenn Sie jedoch nur ein Formular benötigen, um die Felder eines _einzigen_ Modells abzubilden, dann wird Ihr Modell bereits die meisten Informationen enthalten, die Sie in Ihrem Formular benötigen: Felder, Beschriftungen, Hilfetexte und so weiter. Statt die Modelldefinitionen in Ihrem Formular neu zu erstellen, ist es einfacher, die [ModelForm](https://docs.djangoproject.com/en/5.0/topics/forms/modelforms/) Hilfsklasse zu verwenden, um das Formular aus Ihrem Modell zu erstellen. Diese `ModelForm` kann dann in Ihren Ansichten auf genau die gleiche Weise wie ein gewöhnliches `Form` verwendet werden.
 
-Ein einfaches `ModelForm`, das das gleiche Feld wie unser ursprüngliches `RenewBookForm` enthält, wird unten gezeigt. Alles, was Sie tun müssen, um das Formular zu erstellen, ist, `class Meta` mit dem zugehörigen `model` (`BookInstance`) und eine Liste der Modellfelder `fields` hinzuzufügen, die im Formular enthalten sein sollen.
+Ein einfaches `ModelForm`, das dasselbe Feld wie unser ursprüngliches `RenewBookForm` enthält, wird unten gezeigt. Um das Formular zu erstellen, müssen Sie lediglich `class Meta` mit dem zugeordneten `model` (`BookInstance`) und einer Liste der Modell `fields` zum Einschließen im Formular hinzufügen.
 
 ```python
 from django.forms import ModelForm
@@ -567,15 +559,14 @@ class RenewBookModelForm(ModelForm):
 ```
 
 > [!NOTE]
-> Sie können auch alle Felder im Formular mit `fields = '__all__'` einfügen, oder Sie können `exclude` (anstatt `fields`) verwenden, um die Felder anzugeben, die _nicht_ aus dem Modell im Formular enthalten sein sollen.
+> Sie können auch alle Felder im Formular mit `fields = '__all__'` einbeziehen oder `exclude` (anstatt `fields`) verwenden, um die Felder anzugeben, die _nicht_ aus dem Modell einbezogen werden sollen).
 >
-> Keiner der Ansätze wird empfohlen, da neue Felder, die dem Modell hinzugefügt werden, dann automatisch im Formular enthalten sind (ohne dass der Entwickler notwendigerweise mögliche Sicherheitsimplikationen berücksichtigt).
+> Keine der beiden Ansätze wird empfohlen, weil neue Felder, die dem Modell hinzugefügt werden, automatisch ins Formular aufgenommen werden (ohne dass der Entwickler notwendigerweise die möglichen Sicherheitsimplikationen berücksichtigt).
 
 > [!NOTE]
-> Dies mag nicht viel einfacher aussehen als nur ein `Form` zu verwenden (und das ist es in diesem Fall nicht, da wir nur ein Feld haben). Wenn Sie jedoch viele Felder haben, kann es den erforderlichen Code erheblich reduzieren!
+> Dies scheint nicht viel einfacher als die Verwendung eines `Form` zu sein (und ist es in diesem Fall auch nicht, da wir nur ein Feld haben). Wenn Sie jedoch viele Felder haben, kann dies den erforderlichen Code erheblich reduzieren!
 
-Der Rest der Informationen stammt aus den Modelfelddefinitionen (z. B. Labels, Widgets, Hilfetexte, Fehlermeldungen). Wenn diese nicht ganz richtig sind, können wir sie in unserer `class Meta` überschreiben und ein Wörterbuch mit dem zu ändernden Feld und seinem neuen Wert angeben. Beispielsweise möchten wir in diesem Formular vielleicht ein Label für unser Feld "_Erneuerungsdatum_" (statt des standardmäßigen, auf dem Feldnamen basierenden: _Due Back_), und wir möchten auch, dass unser Hilfetext spezifisch für diesen Anwendungsfall ist.
-Die `Meta` unten zeigt Ihnen, wie Sie diese Felder überschreiben, und Sie können auf ähnliche Weise `widgets` und `error_messages` einstellen, wenn die Standardwerte nicht ausreichen.
+Der Rest der Informationen stammt aus den Mod-felddefinitionen (z.B. Bezeichnungen, Widgets, Hilfetexte, Fehlermeldungen). Wenn diese nicht ganz richtig sind, dann können wir sie in unserem `class Meta` überschreiben, indem wir ein Dictionary angeben, das das zu ändernde Feld und seinen neuen Wert enthält. In diesem Formular möchten wir vielleicht ein Label für unser Feld "_Renewal date_" (anstatt dem Standard basierend auf dem Feldnamen: _Due Back_), und wir möchten auch, dass unser Hilfetext für diesen Anwendungsfall spezifisch ist. Das untenstehende `Meta` zeigt Ihnen, wie man diese Felder überschreibt, und Sie können ähnlich `widgets` und `error_messages` angeben, falls die Standardwerte nicht ausreichen.
 
 ```python
 class Meta:
@@ -585,9 +576,7 @@ class Meta:
     help_texts = {'due_back': _('Enter a date between now and 4 weeks (default 3).')}
 ```
 
-Um die Validierung hinzuzufügen, können Sie denselben Ansatz wie bei einem normalen `Form` verwenden — Sie definieren eine Funktion namens `clean_<field_name>()` und lösen `ValidationError`-Ausnahmen für ungültige Werte aus.
-Der einzige Unterschied zu unserem ursprünglichen Formular besteht darin, dass das Modelfeld `due_back` und nicht `renewal_date` genannt wird.
-Diese Änderung ist notwendig, da das entsprechende Feld in `BookInstance` `due_back` heißt.
+Um eine Validierung hinzuzufügen, können Sie den gleichen Ansatz wie bei einem normalen `Form` verwenden – Sie definieren eine Funktion namens `clean_<field_name>()` und lösen `ValidationError`-Ausnahmen für ungültige Werte aus. Der einzige Unterschied im Vergleich zu unserem ursprünglichen Formular besteht darin, dass das Mod-Feld `due_back` und nicht `renewal_date` genannt wird. Diese Änderung ist notwendig, da das entsprechende Feld in `BookInstance` `due_back` genannt wird.
 
 ```python
 from django.forms import ModelForm
@@ -616,20 +605,20 @@ class RenewBookModelForm(ModelForm):
         help_texts = {'due_back': _('Enter a date between now and 4 weeks (default 3).')}
 ```
 
-Die Klasse `RenewBookModelForm` oben ist nun funktional äquivalent zu unserem ursprünglichen `RenewBookForm`. Sie könnten es importieren und dort verwenden, wo Sie derzeit `RenewBookForm` verwenden, solange Sie auch den entsprechenden Formulavariablennamen von `renewal_date` in `due_back` ändern, wie in der zweiten Formdeklaration: `RenewBookModelForm(initial={'due_back': proposed_renewal_date}`.
+Die Klasse `RenewBookModelForm` oben ist jetzt funktional äquivalent zu unserem ursprünglichen `RenewBookForm`. Sie können sie überall dort importieren und verwenden, wo Sie derzeit `RenewBookForm` verwenden, solange Sie auch den entsprechenden Formularvariablennamen von `renewal_date` auf `due_back` aktualisieren, wie in der zweiten Formdeklaration: `RenewBookModelForm(initial={'due_back': proposed_renewal_date}`.
 
 ## Generische Bearbeitungsansichten
 
-Der in unserem Funktionsansichtsbeispiel oben verwendete Formularbearbeitungsalgorithmus stellt ein extrem häufiges Muster in Formularbearbeitungsansichten dar. Django abstrahiert viel von diesem "boilerplate" für Sie, indem es [generische Bearbeitungsansichten](https://docs.djangoproject.com/en/5.0/ref/class-based-views/generic-editing/) für das Erstellen, Bearbeiten und Löschen von Ansichten basierend auf Modellen erstellt. Diese übernehmen nicht nur das "Ansichts"-Verhalten, sondern erstellen automatisch auch die Formular-Klasse (`ModelForm`) für Sie aus dem Modell.
+Der Formularbearbeitungsalgorithmus, den wir im obigen Funktionsansichtsbeispiel verwendet haben, repräsentiert ein extrem häufiges Muster in Formularbearbeitungsansichten. Django abstrahiert einen Großteil dieses "Boilerplate" für Sie, indem es [generische Bearbeitungsansichten](https://docs.djangoproject.com/en/5.0/ref/class-based-views/generic-editing/) für das Erstellen, Bearbeiten und Löschen von Modellansichten bereitstellt. Diese Anwendungsfälle verhalten sich nicht nur wie "Ansichten", sie erstellen automatisch die Formularklasse (eine `ModelForm`) für Sie aus dem Modell.
 
 > [!NOTE]
-> Zusätzlich zu den hier beschriebenen Bearbeitungsansichten gibt es auch eine [FormView](https://docs.djangoproject.com/en/5.0/ref/class-based-views/generic-editing/#formview)-Klasse, die sich irgendwo zwischen unserer Funktionsansicht und den anderen generischen Ansichten in Bezug auf "Flexibilität" und "Codingsaufwand" befindet. Mit `FormView` müssen Sie Ihr `Form` noch erstellen, aber Sie müssen nicht alle Standardmuster zur Formularbearbeitung implementieren. Stattdessen müssen Sie nur eine Implementierung der Funktion bereitstellen, die aufgerufen wird, sobald die Übermittlung als gültig bekannt ist.
+> Zusätzlich zu den hier beschriebenen Bearbeitungsansichten gibt es auch eine [FormView](https://docs.djangoproject.com/en/5.0/ref/class-based-views/generic-editing/#formview) Klasse, die irgendwo zwischen unserer Funktionsansicht und den anderen generischen Ansichten in Bezug auf "Flexibilität" vs. "Codierungseffort" liegt. Bei der Verwendung von `FormView` müssen Sie immer noch Ihr `Form` erstellen, aber Sie müssen nicht alle Standard-Formularbearbeitungsmuster implementieren. Stattdessen müssen Sie nur eine Implementierung der Funktion bereitstellen, die aufgerufen wird, sobald die Übermittlung als gültig bekannt ist.
 
-In diesem Abschnitt verwenden wir generische Bearbeitungsansichten, um Seiten zu erstellen, um `Author`-Datensätze zu unserem Bibliotheksbestand hinzuzufügen, zu bearbeiten und zu löschen — effektiv eine grundlegende Neuimplementierung von Teilen der Admin-Website (dies könnte nützlich sein, wenn Sie Admin-Funktionalität auf eine flexiblere Weise anbieten müssen, als die Admin-Website bereitgestellt werden kann).
+In diesem Abschnitt werden wir generische Bearbeitungsansichten verwenden, um Seiten zu erstellen, die die Funktionalität bieten, `Author`-Datensätze aus unserer Bibliothek zu erstellen, zu bearbeiten und zu löschen – was effektiv eine grundlegende Neuimplementierung von Teilen der Admin-Site darstellt (dies könnte nützlich sein, wenn Sie Admin-Funktionalität auf eine flexiblere Weise anbieten müssen, als die Admin-Site bieten kann).
 
 ### Ansichten
 
-Öffnen Sie die Ansichts-Datei (**django-locallibrary-tutorial/catalog/views.py**) und fügen Sie den folgenden Codeblock am Ende der Datei hinzu:
+Öffnen Sie die views-Datei (**django-locallibrary-tutorial/catalog/views.py**) und fügen Sie den folgenden Codeblock am Ende der Datei hinzu:
 
 ```python
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
@@ -663,18 +652,13 @@ class AuthorDelete(PermissionRequiredMixin, DeleteView):
             )
 ```
 
-Wie Sie sehen können, müssen Sie für das Erstellen, Aktualisieren oder Löschen der Ansichten von `CreateView`, `UpdateView` und `DeleteView` (jeweils) ableiten und dann das zugehörige Modell definieren.
-Wir beschränken auch den Aufruf dieser Ansichten nur auf angemeldete Benutzer mit den Berechtigungen `add_author`, `change_author` und `delete_author`.
+Wie Sie sehen können, müssen Sie zur Erstellung, Aktualisierung oder zum Löschen von Ansichten von `CreateView`, `UpdateView` und `DeleteView` (jeweils) ableiten und dann das zugeordnete Modell definieren. Wir beschränken den Aufruf dieser Ansichten auch nur auf angemeldete Benutzer mit den Berechtigungen `add_author`, `change_author` und `delete_author`, jeweils.
 
-Für die "Erstellen"- und "Aktualisieren"-Fälle müssen Sie auch die im Formular anzuzeigenden Felder angeben (unter Verwendung derselben Syntax wie für `ModelForm`). In diesem Fall zeigen wir, wie man sie einzeln auflistet und die Syntax, um "alle" Felder aufzulisten. Sie können auch Anfangswerte für jedes der Felder unter Verwendung eines Wörterbuchs von _Feldname_-/_Wert_-Paaren angeben (hier setzen wir willkürlich das Todesdatum zu Demonstrationszwecken — möglicherweise möchten Sie dies entfernen). Standardmäßig leiten diese Ansichten bei Erfolg auf eine Seite weiter, die das neu erstellte/bearbeitete Modell-Element anzeigt, das in unserem Fall die in einem früheren Tutorial erstellte Autoren-Detailansicht sein wird. Sie können einen alternativen Umleitungsort durch explizite Angabe des Parameters `success_url` festlegen.
+Für die "erstellen" und "aktualisieren" Fälle müssen Sie auch die Felder angeben, die im Formular angezeigt werden sollen (unter Verwendung der gleichen Syntax wie bei `ModelForm`). In diesem Fall zeigen wir, wie man sie einzeln auflistet und die Syntax, um "alle" Felder aufzulisten. Sie können auch Anfangswerte für jedes der Felder mit einem Dictionary von _feld_name_/_wert_ Paaren angeben (hier setzen wir willkürlich das Sterbedatum zu Demonstrationszwecken – Sie möchten das möglicherweise entfernen). Standardmäßig leiten diese Ansichten im Erfolgsfall auf eine Seite weiter, die das neu erstellte/bearbeitete Modelldetail anzeigt, was in unserem Fall die Autorendetailansicht ist, die wir in einem vorherigen Tutorial erstellt haben. Sie können einen alternativen Weiterleitungsort durch explizite Deklaration des Parameters `success_url` angeben.
 
-Die `AuthorDelete`-Klasse muss keine der Felder anzeigen, daher müssen diese nicht angegeben werden.
-Wir setzen auch ein `success_url` (wie oben gezeigt), da es keine offensichtliche Standard-URL für Django gibt, wohin nach dem erfolgreichem Löschen des `Author` navigiert werden soll. Oben verwenden wir die Funktion [`reverse_lazy()`](https://docs.djangoproject.com/en/5.0/ref/urlresolvers/#reverse-lazy), um nach dem Löschen eines `Author` zur Autorenliste weiterzuleiten — `reverse_lazy()` ist eine verzögert ausgeführte Version von `reverse()`, die hier verwendet wird, weil wir eine URL an ein Klassenansichtsattribut bereitstellen.
+Die `AuthorDelete`-Klasse muss keine der Felder anzeigen, daher müssen diese nicht angegeben werden. Wir setzen auch eine `success_url` (wie oben gezeigt), da es keinen offensichtlichen Standard-URL gibt, zu dem Django nach dem erfolgreichen Löschen des `Author` navigieren kann. Oben verwenden wir die Funktion [`reverse_lazy()`](https://docs.djangoproject.com/en/5.0/ref/urlresolvers/#reverse-lazy) , um nach dem Löschen eines Autors zur Autorenliste weiterzuleiten — `reverse_lazy()` ist eine faul ausgeführte Version von `reverse()`, die hier verwendet wird, weil wir eine URL zu einer klassenbasierten Ansichtsattribut angeben.
 
-Wenn das Löschen von Autoren immer erfolgreich sein sollte, wäre es das.
-Leider verursacht das Löschen eines `Author` eine Ausnahme, wenn der Autor mit einem Buch verknüpft ist, da unser [`Book`-Modell](/de/docs/Learn_web_development/Extensions/Server-side/Django/Models#book_model) `on_delete=models.RESTRICT` für das `ForeignKey`-Feld des Autors angibt.
-Um diesen Fall zu behandeln, überschreibt die Ansicht die Methode [`form_valid()`](https://docs.djangoproject.com/en/5.0/ref/class-based-views/mixins-editing/#django.views.generic.edit.FormMixin.form_valid), sodass, wenn das Löschen des `Author` erfolgreich ist, es zur `success_url` weiterleitet, und wenn nicht, es einfach wieder zurück zur gleichen Form weiterleitet.
-Wir werden die Vorlage unten aktualisieren, um klarzustellen, dass Sie keine `Author`-Instanz löschen können, die in einem `Book` verwendet wird.
+Wenn das Löschen von Autoren immer erfolgreich sein soll, wäre das alles. Leider wird das Löschen eines `Author` eine Ausnahme verursachen, wenn der Autor ein zugeordnetes Buch hat, da unser [`Buch`-Modell](/de/docs/Learn_web_development/Extensions/Server-side/Django/Models#book_model) `on_delete=models.RESTRICT` für das Autoren-`ForeignKey`-Feld spezifiziert. Um diesen Fall zu behandeln, überschreibt die Ansicht die [`form_valid()`](https://docs.djangoproject.com/en/5.0/ref/class-based-views/mixins-editing/#django.views.generic.edit.FormMixin.form_valid) Methode, sodass wenn das Löschen des `Author` erfolgreich ist, es zur `success_url` umleitet, aber wenn nicht, leitet es einfach zur selben Form zurück. Wir werden die Vorlage unten aktualisieren, um klar zu machen, dass Sie keine `Author`-Instanz löschen können, die in einem `Buch` verwendet wird.
 
 ### URL-Konfigurationen
 
@@ -688,13 +672,13 @@ urlpatterns += [
 ]
 ```
 
-Es gibt hier nichts besonders Neues! Sie können sehen, dass die Ansichten Klassen sind und daher über `.as_view()` aufgerufen werden müssen, und Sie sollten in der Lage sein, die URL-Muster in jedem Fall zu erkennen. Wir müssen `pk` als Namen für unseren erfassten Primärschlüsselwert verwenden, da dies der von den Ansichtsklassen erwartete Parametername ist.
+Es gibt hier nichts wirklich Neues! Sie können sehen, dass die Ansichten Klassen sind und daher über `.as_view()` aufgerufen werden müssen, und Sie sollten die URL-Muster in jedem Fall erkennen. Wir müssen `pk` als Namen für unseren erfassten Primärschlüsselwert verwenden, da dies der Parametername ist, den die Ansichtsklassen erwarten.
 
 ### Vorlagen
 
-Die "Erstellen"- und "Aktualisieren"-Ansichten verwenden standardmäßig dieselbe Vorlage, die nach Ihrem Modell benannt wird: `model_name_form.html` (Sie können das Suffix mit dem Feld `template_name_suffix` in Ihrer Ansicht auf etwas anderes als **\_form** ändern, zum Beispiel `template_name_suffix = '_other_suffix'`)
+Die "erstellen" und "aktualisieren" Ansichten verwenden standardmäßig die gleiche Vorlage, die nach Ihrem Modell benannt wird: `model_name_form.html` (Sie können das Suffix mit dem `template_name_suffix` Feld in Ihrer Ansicht zu etwas anderem als **\_form** ändern, zum Beispiel `template_name_suffix = '_other_suffix'`)
 
-Erstellen Sie die Datei `django-locallibrary-tutorial/catalog/templates/catalog/author_form.html` und kopieren Sie den folgenden Text hinein.
+Erstellen Sie die Vorlagendatei `django-locallibrary-tutorial/catalog/templates/catalog/author_form.html` und kopieren Sie den folgenden Text hinein.
 
 ```django
 {% extends "base_generic.html" %}
@@ -710,10 +694,9 @@ Erstellen Sie die Datei `django-locallibrary-tutorial/catalog/templates/catalog/
 {% endblock %}
 ```
 
-Dies ist ähnlich wie unsere vorherigen Formulare und rendert die Felder mithilfe einer Tabelle. Beachten Sie auch, wie wir erneut den `{% csrf_token %}` deklarieren, um sicherzustellen, dass unsere Formulare gegen CSRF-Angriffe resistent sind.
+Dies ist ähnlich wie unsere vorherigen Formulare und rendert die Felder mit einer Tabelle. Beachten Sie auch, wie wir erneut das `{% csrf_token %}` deklarieren, um sicherzustellen, dass unsere Formulare gegen CSRF-Angriffe widerstandsfähig sind.
 
-Die "Löschen"-Ansicht erwartet eine Vorlage mit dem Format `[model_name]_confirm_delete.html` (auch hier können Sie das Suffix in Ihrer Ansicht mit `template_name_suffix` ändern).
-Erstellen Sie die Datei `django-locallibrary-tutorial/catalog/templates/catalog/author_confirm_delete.html` und kopieren Sie den folgenden Text hinein.
+Die "Lösch"-Ansicht erwartet, eine Vorlage mit dem Format `[model_name]_confirm_delete.html` zu finden (wieder können Sie das Suffix mit `template_name_suffix` in Ihrer Ansicht ändern). Erstellen Sie die Vorlagendatei `django-locallibrary-tutorial/catalog/templates/catalog/author_confirm_delete.html` und kopieren Sie den folgenden Text hinein.
 
 ```django
 {% extends "base_generic.html" %}
@@ -743,14 +726,9 @@ Erstellen Sie die Datei `django-locallibrary-tutorial/catalog/templates/catalog/
 {% endblock %}
 ```
 
-Die Vorlage sollte Ihnen vertraut sein.
-Sie überprüft zunächst, ob der Autor in irgendeinem Buch verwendet wird, und wenn ja, zeigt sie die Liste der Bücher an, die gelöscht werden müssen, bevor der Autorensatz gelöscht werden kann.
-Andernfalls wird ein Formular angezeigt, in dem der Benutzer gefragt wird, ob er den Autorensatz wirklich löschen möchte.
+Die Vorlage sollte bekannt sein. Sie prüft zuerst, ob der Autor in einem Buch verwendet wird, und wenn ja, zeigt sie die Liste der Bücher an, die vor dem Löschen des Autoreneintrags gelöscht werden müssen. Wenn nicht, zeigt sie ein Formular an, das den Benutzer auffordert zu bestätigen, dass er den Autoreneintrag löschen möchte.
 
-Der letzte Schritt ist, die Seiten in die Seitenleiste einzuhängen.
-Zuerst fügen wir einen Link zum Erstellen des Autors in die _Basisvorlage_ ein, sodass er auf allen Seiten für angemeldete Benutzer sichtbar ist, die als "Mitarbeiter" angesehen werden und die Berechtigung haben, Autoren zu erstellen (`catalog.add_author`).
-Öffnen Sie **/django-locallibrary-tutorial/catalog/templates/base_generic.html** und fügen Sie die Zeilen hinzu, die es Benutzern mit der Berechtigung erlauben, den Autor zu erstellen (im gleichen Block wie der Link, der alle ausgeliehenen Bücher anzeigt).
-Denken Sie daran, auf die URL unter Verwendung ihres Namens `'author-create'` zu verweisen, wie unten gezeigt.
+Der letzte Schritt besteht darin, die Seiten in die Seitenleiste einzubinden. Zuerst fügen wir einen Link zum Erstellen des Autors in die _Basisvorlage_ ein, sodass er in allen Seiten für angemeldete Benutzer, die als "Mitarbeiter" betrachtet werden und die Berechtigung haben, Autoren zu erstellen (`catalog.add_author`) sichtbar ist. Öffnen Sie **/django-locallibrary-tutorial/catalog/templates/base_generic.html** und fügen Sie die Zeilen hinzu, die Benutzern mit der Berechtigung erlauben, den Autor zu erstellen (im gleichen Block wie der Link, der "Alle ausgeliehen" Bücher anzeigt). Denken Sie daran, auf die URL mit ihrem Namen `'author-create'` wie unten gezeigt zu verweisen.
 
 ```django
 {% if user.is_staff %}
@@ -765,8 +743,7 @@ Denken Sie daran, auf die URL unter Verwendung ihres Namens `'author-create'` zu
 {% endif %}
 ```
 
-Wir fügen die Links zum Aktualisieren und Löschen von Autoren zur Autoren-Detailseite hinzu.
-Öffnen Sie **catalog/templates/catalog/author_detail.html** und hängen Sie den folgenden Code an:
+Wir fügen die Links zum Aktualisieren und Löschen von Autoren auf der Detailseite des Autors hinzu. Öffnen Sie **catalog/templates/catalog/author_detail.html** und fügen Sie den folgenden Code an:
 
 ```django
 {% block sidebar %}
@@ -787,55 +764,49 @@ Wir fügen die Links zum Aktualisieren und Löschen von Autoren zur Autoren-Deta
 {% endblock %}
 ```
 
-Dieser Block überschreibt den `sidebar`-Block in der Basisvorlage und zieht dann den ursprünglichen Inhalt mit `\{{ block.super }}` herein.
-Er fügt dann Links hinzu, um den Autor zu aktualisieren oder zu löschen, allerdings nur wenn der Benutzer die richtigen Berechtigungen hat und der Autorsatz nicht mit einem Buch verknüpft ist.
+Dieser Block überschreibt den `sidebar` Block in der Basisvorlage und zieht dann den ursprünglichen Inhalt mit `\{{ block.super }}` hinein. Dann fügt es Links zum Aktualisieren oder Löschen des Autors hinzu, jedoch nur, wenn der Benutzer die richtigen Berechtigungen hat und der Autoreneintrag nicht mit einem Buch in Verbindung steht.
 
 Die Seiten sind jetzt bereit zum Testen!
 
 ### Testen der Seite
 
-Melden Sie sich zuerst mit einem Konto auf der Website an, das über die Berechtigungen zum Hinzufügen, Ändern und Löschen von Autoren verfügt.
+Melden Sie sich zuerst mit einem Konto auf der Website an, das die Rechte zum Hinzufügen, Ändern und Löschen von Autoren hat.
 
-Navigieren Sie zu einer beliebigen Seite und wählen Sie "Create author" in der Seitenleiste (mit URL `http://127.0.0.1:8000/catalog/author/create/`).
-Die Seite sollte aussehen wie der unten stehende Screenshot.
+Navigieren Sie zu einer beliebigen Seite und wählen "Autor erstellen" in der Seitenleiste (mit der URL `http://127.0.0.1:8000/catalog/author/create/`). Die Seite sollte wie der untenstehende Screenshot aussehen.
 
-![Formular-Beispiel: Autor erstellen](forms_example_create_author.png)
+![Formularbeispiel: Autor erstellen](forms_example_create_author.png)
 
-Geben Sie Werte für die Felder ein und drücken Sie **Submit**, um den Autorensatz zu speichern.
-Sie sollten nun zur Detailansicht für Ihren neuen Autor gelangen, mit einer URL von etwa `http://127.0.0.1:8000/catalog/author/10`.
+Geben Sie Werte für die Felder ein und drücken Sie dann **Absenden**, um den Autoreneintrag zu speichern. Sie sollten jetzt zur Detailansicht Ihres neuen Autors weitergeleitet werden, mit einer URL, die so ähnlich aussieht wie `http://127.0.0.1:8000/catalog/author/10`.
 
-![Formular-Beispiel: Autorendetails mit Links zum Aktualisieren und Löschen](forms_example_detail_author_update.png)
+![Formularbeispiel: Autorendetail mit Links zum Aktualisieren und Löschen](forms_example_detail_author_update.png)
 
-Sie können das Bearbeiten des Datensatzes testen, indem Sie auf den Link "Update author" klicken (mit URL etwa `http://127.0.0.1:8000/catalog/author/10/update/`) — wir zeigen keinen Screenshot, da er genauso aussieht wie die "create"-Seite!
+Sie können das Bearbeiten des Eintrags testen, indem Sie auf den Link "Autor aktualisieren" wählen (mit einer URL, die so ähnlich aussieht wie `http://127.0.0.1:8000/catalog/author/10/update/`) — wir zeigen keinen Screenshot, weil er genauso aussieht wie die "erstellen" Seite!
 
-Schließlich können wir die Seite löschen, indem wir "Delete author" in der Seitenleiste auf der Detailseite auswählen.
-Django sollte die unten gezeigte Löschseite anzeigen, wenn der Autorensatz in keinem Buch verwendet wird.
-Drücken Sie "**Yes, delete.**", um den Datensatz zu entfernen und zur Liste aller Autoren zu gelangen.
+Schließlich können wir die Seite löschen, indem wir "Autor löschen" aus der Seitenleiste auf der Detailseite auswählen. Django sollte die Löschseite anzeigen, die unten gezeigt wird, wenn der Autoreneintrag nicht in einem Buch verwendet wird. Drücken Sie "**Ja, löschen.**", um den Eintrag zu entfernen und zur Liste aller Autoren weitergeleitet zu werden.
 
 ![Formular mit Option zum Löschen des Autors](forms_example_delete_author.png)
 
 ## Fordern Sie sich selbst heraus
 
-Erstellen Sie einige Formulare, um `Book`-Datensätze zu erstellen, zu bearbeiten und zu löschen. Sie können genau die gleiche Struktur wie für `Authors` verwenden (beim Löschen denken Sie daran, dass Sie ein `Book` nicht löschen können, bis alle zugehörigen `BookInstance`-Datensätze gelöscht sind) und Sie müssen die richtigen Berechtigungen verwenden.
-Wenn Ihre **book_form.html**-Vorlage nur eine kopierte und umbenannte Version der **author_form.html**-Vorlage ist, wird die neue Seite "create book" wie der unten stehende Screenshot aussehen:
+Erstellen Sie einige Formulare, um `Buch`-Einträge zu erstellen, zu bearbeiten und zu löschen. Sie können genau die gleiche Struktur wie für die `Autor`-Einträge verwenden (für das Löschen, denken Sie daran, dass Sie ein `Buch` nicht löschen können, bis alle zugehörigen `BookInstance`-Einträge gelöscht sind) und Sie müssen die richtigen Berechtigungen verwenden. Wenn Ihre **book_form.html** Vorlage einfach eine umbenannte Kopie der **author_form.html** Vorlage ist, dann sieht die neue "Buch erstellen" Seite wie der untenstehende Screenshot aus:
 
-![Screenshot zeigt verschiedene Felder im Formular, wie Titel, Autor, Zusammenfassung, ISBN, Genre und Sprache](forms_example_create_book.png)
+![Screenshot zeigt verschiedene Felder im Formular wie Titel, Autor, Zusammenfassung, ISBN, Genre und Sprache](forms_example_create_book.png)
 
 ## Zusammenfassung
 
-Die Erstellung und Handhabung von Formularen kann ein komplexer Prozess sein! Django macht es viel einfacher, indem programmgesteuerte Mechanismen bereitgestellt werden, um Formulare zu deklarieren, darzustellen und zu validieren. Darüber hinaus bietet Django generische Formbarebeitungsansichten, mit denen fast alle Arbeiten zur Definition von Seiten, die Einträge zur einer einzelnen Modellinstanz erstellen, bearbeiten und löschen können, automatisch erledigt werden können.
+Das Erstellen und Bearbeiten von Formularen kann ein komplizierter Prozess sein! Django macht es viel einfacher, indem es programmatische Mechanismen bereitstellt, um Formulare zu deklarieren, zu rendern und zu validieren. Darüber hinaus bietet Django generische Formularbearbeitungsansichten, die _fast die gesamte_ Arbeit leisten können, um Seiten zu definieren, die Datensätze im Zusammenhang mit einer einzigen Modellinstanz erstellen, bearbeiten und löschen können.
 
-Es gibt noch viel mehr, das mit Formularen gemacht werden kann (sehen Sie sich unsere [Siehe auch](#siehe_auch) Liste unten an), aber Sie sollten nun verstehen, wie Sie grundlegende Formulare und Formularbearbeitungscode zu Ihren eigenen Websites hinzufügen können.
+Es gibt noch viel mehr, was mit Formularen getan werden kann (sehen Sie sich unsere [Siehe auch](#siehe_auch) Liste unten an), aber Sie sollten jetzt verstehen, wie man grundlegende Formulare und Formularbearbeitungscode zu Ihren eigenen Websites hinzufügt.
 
 ## Siehe auch
 
 - [Arbeiten mit Formularen](https://docs.djangoproject.com/en/5.0/topics/forms/) (Django-Dokumentation)
-- [Ihr erstes Django-Programm schreiben, Teil 4 > Ein einfaches Formular schreiben](https://docs.djangoproject.com/en/5.0/intro/tutorial04/#write-a-simple-form) (Django-Dokumentation)
-- [Die Forms-API](https://docs.djangoproject.com/en/5.0/ref/forms/api/) (Django-Dokumentation)
+- [Schreiben Ihrer ersten Django-Anwendung, Teil 4 > Schreiben eines einfachen Formulars](https://docs.djangoproject.com/en/5.0/intro/tutorial04/#write-a-simple-form) (Django-Dokumentation)
+- [Die Formular-API](https://docs.djangoproject.com/en/5.0/ref/forms/api/) (Django-Dokumentation)
 - [Formularfelder](https://docs.djangoproject.com/en/5.0/ref/forms/fields/) (Django-Dokumentation)
-- [Formular- und Feldvalidierung](https://docs.djangoproject.com/en/5.0/ref/forms/validation/) (Django-Dokumentation)
+- [Form- und Feldvalidierung](https://docs.djangoproject.com/en/5.0/ref/forms/validation/) (Django-Dokumentation)
 - [Formularbearbeitung mit klassenbasierten Ansichten](https://docs.djangoproject.com/en/5.0/topics/class-based-views/generic-editing/) (Django-Dokumentation)
-- [Formulare aus Modellen erstellen](https://docs.djangoproject.com/en/5.0/topics/forms/modelforms/) (Django-Dokumentation)
+- [Erstellen von Formularen aus Modellen](https://docs.djangoproject.com/en/5.0/topics/forms/modelforms/) (Django-Dokumentation)
 - [Generische Bearbeitungsansichten](https://docs.djangoproject.com/en/5.0/ref/class-based-views/generic-editing/) (Django-Dokumentation)
 
 {{PreviousMenuNext("Learn_web_development/Extensions/Server-side/Django/authentication_and_sessions", "Learn_web_development/Extensions/Server-side/Django/Testing", "Learn_web_development/Extensions/Server-side/Django")}}

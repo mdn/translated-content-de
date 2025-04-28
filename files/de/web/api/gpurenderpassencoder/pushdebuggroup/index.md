@@ -3,14 +3,14 @@ title: "GPURenderPassEncoder: pushDebugGroup()-Methode"
 short-title: pushDebugGroup()
 slug: Web/API/GPURenderPassEncoder/pushDebugGroup
 l10n:
-  sourceCommit: bff3a6a2e6b3c13dd8bb0c80a1eb9da08cce5dc6
+  sourceCommit: 759102220c07fb140b3e06971cd5981d8f0f134f
 ---
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`pushDebugGroup()`**-Methode der [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder)-Schnittstelle startet eine Debuggruppe für den Renderpass, die mit einem angegebenen Label markiert ist und alle folgenden kodierten Befehle umfasst, bis eine [`popDebugGroup()`](/de/docs/Web/API/GPURenderPassEncoder/popDebugGroup)-Methode aufgerufen wird.
+Die **`pushDebugGroup()`**-Methode der [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder)-Schnittstelle beginnt eine Render-Pass-Debug-Gruppe, die mit einem angegebenen Label gekennzeichnet ist und alle nachfolgenden codierten Befehle bis zur Aufruf der [`popDebugGroup()`](/de/docs/Web/API/GPURenderPassEncoder/popDebugGroup)-Methode enthalten wird.
 
-Diese Methode könnte für Telemetrie verwendet werden oder in der Zukunft in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen, Entwicklerwerkzeugen des Browsers oder anderen Diensten genutzt werden, um beim Debugging zu helfen.
+Dies könnte für Telemetrie verwendet werden oder künftig in [`GPUError`](/de/docs/Web/API/GPUError)-Nachrichten, in den Entwicklerwerkzeugen des Browsers oder in anderen Diensten zur Unterstützung der Fehlerbehebung genutzt werden.
 
 ## Syntax
 
@@ -21,7 +21,7 @@ pushDebugGroup(groupLabel)
 ### Parameter
 
 - `groupLabel`
-  - : Ein String, der das Label für die Debuggruppe repräsentiert.
+  - : Ein String, der das Label für die Debug-Gruppe darstellt.
 
 ### Rückgabewert
 
@@ -30,7 +30,7 @@ Keiner ({{jsxref("Undefined")}}).
 ## Beispiele
 
 ```js
-// ...
+// …
 
 const passEncoder = commandEncoder.beginRenderPass(renderPassDescriptor);
 
@@ -42,7 +42,7 @@ passEncoder.draw(3);
 
 passEncoder.popDebugGroup();
 
-// ...
+// …
 ```
 
 ## Spezifikationen

@@ -1,16 +1,16 @@
 ---
-title: "Element: getClientRects() Methode"
+title: "Element: getClientRects()-Methode"
 short-title: getClientRects()
 slug: Web/API/Element/getClientRects
 l10n:
-  sourceCommit: 8ac73df2fbe2c88d8649fcb006dcde098616c723
+  sourceCommit: be1922d62a0d31e4e3441db0e943aed8df736481
 ---
 
 {{APIRef("DOM")}}
 
-Die **`getClientRects()`**-Methode des [`Element`](/de/docs/Web/API/Element)-Interfaces gibt eine Sammlung von [`DOMRect`](/de/docs/Web/API/DOMRect)-Objekten zurück, die die Begrenzungsrechtecke für jede [CSS-Rahmenbox](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model) in einem Client anzeigen.
+Die **`getClientRects()`**-Methode der [`Element`](/de/docs/Web/API/Element)-Schnittstelle gibt eine Sammlung von [`DOMRect`](/de/docs/Web/API/DOMRect)-Objekten zurück, die die Begrenzungsrechtecke für jede [CSS-Border-Box](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model) in einem Client anzeigen.
 
-Die meisten Elemente haben jeweils nur eine Rahmenbox, aber ein mehrzeiliges {{Glossary("Inline-level_content", "Inline-Element")}} (wie z.B. ein mehrzeiliges {{HTMLElement("span")}}-Element, standardmäßig) hat eine Rahmenbox um jede Zeile.
+Die meisten Elemente haben jeweils nur eine Border-Box, aber ein mehrzeiliges [Inline-Level-Element](/de/docs/Glossary/Inline-level_content) (wie ein mehrzeiliges {{HTMLElement("span")}}-Element) hat standardmäßig eine Border-Box um jede Zeile.
 
 ## Syntax
 
@@ -24,25 +24,25 @@ Keine.
 
 ### Rückgabewert
 
-Der zurückgegebene Wert ist eine Sammlung von [`DOMRect`](/de/docs/Web/API/DOMRect)-Objekten, eines für jede mit dem Element verbundene CSS-Rahmenbox. Jedes [`DOMRect`](/de/docs/Web/API/DOMRect)-Objekt beschreibt die Rahmenbox in Pixeln, wobei die obere linke Ecke relativ zur oberen linken Ecke des Viewports liegt. Bei Tabellen mit Bildunterschriften wird die Bildunterschrift einbezogen, auch wenn sie sich außerhalb der Rahmenbox der Tabelle befindet. Wenn die Methode auf SVG-Elemente angewendet wird, die nicht ein äußeres `<svg>` sind, ist der "viewport", zu dem sich die resultierenden Rechtecke beziehen, der vom äußeren `<svg>` etablierte Viewport (und um klarzustellen, die Rechtecke werden auch durch die `viewBox`-Transformation des äußeren `<svg>` transformiert, sofern vorhanden).
+Der zurückgegebene Wert ist eine Sammlung von [`DOMRect`](/de/docs/Web/API/DOMRect)-Objekten, eines für jede mit dem Element assoziierte CSS-Border-Box. Jedes [`DOMRect`](/de/docs/Web/API/DOMRect)-Objekt beschreibt die Border-Box in Pixeln, wobei die obere linke Ecke relativ zur oberen linken Ecke des Viewports ist. Bei Tabellen mit Überschriften ist die Überschrift enthalten, auch wenn sie außerhalb der Border-Box der Tabelle liegt. Wird die Methode auf SVG-Elementen aufgerufen, die nicht das äußere `<svg>` sind, so ist der „Viewport“, auf den sich die resultierenden Rechtecke beziehen, der Viewport, den das äußere `<svg>`-Element erstellt (um klarzustellen: die Rechtecke werden auch durch die `viewBox`-Transformation des äußeren `<svg>`-Elements transformiert, falls vorhanden).
 
-Die beim Scrollen des Viewport-Bereichs (oder eines anderen scrollbaren Elements) durchgeführte Scrollmenge wird bei der Berechnung der Rechtecke berücksichtigt.
+Der durchgeführte Scrollvorgang des Viewport-Bereichs (oder eines anderen scrollbaren Elements) wird bei der Berechnung der Rechtecke berücksichtigt.
 
-Die zurückgegebenen Rechtecke schließen nicht die Grenzen von Kinderelementen ein, die möglicherweise überlaufen.
+Die zurückgegebenen Rechtecke schließen die Grenzen von Kind-Elementen, die möglicherweise überlaufen, nicht ein.
 
-Für HTML-{{HtmlElement("area")}}-Elemente, SVG-Elemente, die selbst nichts rendern, `display:none`-Elemente und allgemein alle Elemente, die nicht direkt gerendert werden, wird eine leere Liste zurückgegeben.
+Für HTML {{HtmlElement("area")}}-Elemente, SVG-Elemente, die selbst nichts rendern, `display:none`-Elemente und allgemein alle Elemente, die nicht direkt gerendert werden, wird eine leere Liste zurückgegeben.
 
-Rechtecke werden auch für CSS-Boxen zurückgegeben, die leere Rahmenboxen haben. Die `left`, `top`, `right` und `bottom`-Koordinaten können dennoch von Bedeutung sein.
+Rechtecke werden auch für CSS-Boxen zurückgegeben, die leere Border-Boxen haben. Die `left`, `top`, `right` und `bottom`-Koordinaten können dennoch aussagekräftig sein.
 
-Bruchteile von Pixelversetzungen sind möglich.
+Bruchteile von Pixelversätzen sind möglich.
 
 ## Beispiele
 
-Diese Beispiele zeichnen Client-Rechtecke in verschiedenen Farben. Beachten Sie, dass die JavaScript-Funktion, die die Client-Rechtecke zeichnet, über die Klasse `withClientRectsOverlay` mit dem Markup verknüpft ist.
+Diese Beispiele zeichnen Client-Rechtecke in verschiedenen Farben. Beachten Sie, dass die JavaScript-Funktion, die die Client-Rechtecke zeichnet, über die Klasse `withClientRectsOverlay` mit dem Markup verbunden ist.
 
 ### HTML
 
-Beispiel 1: Dieses HTML erstellt drei Absätze mit einem `<span>` darin, jeder eingebettet in einem `<div>`-Block. Client-Rechtecke werden für den Absatz im zweiten Block und für das `<span>`-Element im dritten Block gezeichnet.
+Beispiel 1: Dieses HTML erstellt drei Absätze mit einem `<span>`-Element darin, jeweils eingebettet in einem `<div>`-Block. Client-Rechtecke werden für den Absatz im zweiten Block und für das `<span>`-Element im dritten Block gezeichnet.
 
 ```html
 <h3>A paragraph with a span inside</h3>
@@ -76,7 +76,7 @@ Beispiel 1: Dieses HTML erstellt drei Absätze mit einem `<span>` darin, jeder e
 </div>
 ```
 
-Beispiel 2: Dieses HTML erstellt drei geordnete Listen. Client-Rechtecke werden für das `<ol>` im zweiten Block und für jedes `<li>`-Element im dritten Block gezeichnet.
+Beispiel 2: Dieses HTML erstellt drei geordnete Listen. Client-Rechtecke werden für die `<ol>` im zweiten Block und für jedes `<li>`-Element im dritten Block gezeichnet.
 
 ```html
 <h3>A list</h3>
@@ -110,7 +110,7 @@ Beispiel 2: Dieses HTML erstellt drei geordnete Listen. Client-Rechtecke werden 
 </div>
 ```
 
-Beispiel 3: Dieses HTML erstellt zwei Tabellen mit Bildunterschriften. Client-Rechtecke werden für das `<table>` im zweiten Block gezeichnet.
+Beispiel 3: Dieses HTML erstellt zwei Tabellen mit Überschriften. Client-Rechtecke werden für die `<table>` im zweiten Block gezeichnet.
 
 ```html
 <h3>A table with a caption</h3>
@@ -160,7 +160,7 @@ Beispiel 3: Dieses HTML erstellt zwei Tabellen mit Bildunterschriften. Client-Re
 
 ### CSS
 
-Das CSS zeichnet Rahmen um den Absatz und das `<span>` in jedem `<div>`-Block für das erste Beispiel, um das `<ol>` und die `<li>` für das zweite Beispiel und um `<table>`, `<th>` und `<td>`-Elemente für das dritte Beispiel.
+Das CSS zieht Rahmen um den Absatz und das `<span>`-Element in jedem `<div>`-Block für das erste Beispiel, um die `<ol>` und `<li>` für das zweite Beispiel sowie um `<table>`, `<th>` und `<td>`-Elemente für das dritte Beispiel.
 
 ```css
 strong {
@@ -214,9 +214,9 @@ function addClientRectsOverlay(elt) {
 (() => {
   /* Call function addClientRectsOverlay(elt) for all elements with
      assigned class "withClientRectsOverlay" */
-  const elts = document.getElementsByClassName("withClientRectsOverlay");
-  for (const elt of elts) {
-    addClientRectsOverlay(elt);
+  const elems = document.getElementsByClassName("withClientRectsOverlay");
+  for (const elem of elems) {
+    addClientRectsOverlay(elem);
   }
 })();
 ```

@@ -1,28 +1,28 @@
 ---
-title: "Anforderung: isHistoryNavigation-Eigenschaft"
+title: "Anfrage: isHistoryNavigation-Eigenschaft"
 short-title: isHistoryNavigation
 slug: Web/API/Request/isHistoryNavigation
 l10n:
-  sourceCommit: 22526bdf0076aec093ba0a1ba32a6bb0d4ffd853
+  sourceCommit: 759102220c07fb140b3e06971cd5981d8f0f134f
 ---
 
 {{APIRef("Fetch API")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`isHistoryNavigation`**-Eigenschaft des [`Request`](/de/docs/Web/API/Request)-Interfaces ist ein boolescher Wert, der angibt, ob die Anforderung eine Verlauf-Navigation ist.
+Die schreibgeschützte Eigenschaft **`isHistoryNavigation`** der [`Request`](/de/docs/Web/API/Request)-Schnittstelle ist ein Boolean, der angibt, ob die Anfrage eine Verlaufsnavigation ist.
 
-Eine Verlauf-Navigation ist eine Navigation innerhalb des Browser-Verlaufs, die durch Aufrufen von [`History.go()`](/de/docs/Web/API/History/go), [`History.back()`](/de/docs/Web/API/History/back), [`History.forward()`](/de/docs/Web/API/History/forward), [`Navigation.traverseTo()`](/de/docs/Web/API/Navigation/traverseTo), [`Navigation.back()`](/de/docs/Web/API/Navigation/back), [`Navigation.forward()`](/de/docs/Web/API/Navigation/forward) oder direkt durch Klicken auf die Vorwärts- oder Rückwärts-Navigationstaste des Browsers erfolgt.
+Eine Verlaufsnavigation ist eine Navigation innerhalb des Browser-Verlaufs, die durch Aufrufen von [`History.go()`](/de/docs/Web/API/History/go), [`History.back()`](/de/docs/Web/API/History/back), [`History.forward()`](/de/docs/Web/API/History/forward), [`Navigation.traverseTo()`](/de/docs/Web/API/Navigation/traverseTo), [`Navigation.back()`](/de/docs/Web/API/Navigation/back), [`Navigation.forward()`](/de/docs/Web/API/Navigation/forward) oder direkt durch Klicken auf die Vor- oder Zurück-Schaltfläche des Browsers erfolgt.
 
 ## Wert
 
-Ein boolescher Wert.
+Ein Boolean-Wert.
 
 ## Beispiele
 
-Dieses Beispiel wird in einem Service Worker ausgeführt. Es hört auf das [`fetch`](/de/docs/Web/API/ServiceWorkerGlobalScope/fetch_event)-Ereignis. Im Ereignishandler überprüft der Service Worker die `isHistoryNavigation`-Eigenschaft, um festzustellen, ob die Anforderung aufgrund einer Verlauf-Navigation erfolgt ist. Falls ja, versucht er mit einer zwischengespeicherten Antwort zu antworten. Falls der Cache keine Antwort für diese Anforderung enthält, holt der Service Worker eine Antwort aus dem Netzwerk, speichert eine Kopie davon im Cache und antwortet mit der Netzwerkantwort.
+Dieses Beispiel wird in einem Service Worker ausgeführt. Es lauscht auf das [`fetch`](/de/docs/Web/API/ServiceWorkerGlobalScope/fetch_event)-Ereignis. Im Ereignis-Handler überprüft der Service Worker die `isHistoryNavigation`-Eigenschaft, um zu wissen, ob die Anfrage aufgrund einer Verlaufsnavigation erfolgt ist. Falls ja, versucht er mit einer im Cache gespeicherten Antwort zu antworten. Wenn der Cache keine Antwort für diese Anfrage enthält, holt der Service Worker eine Antwort aus dem Netzwerk, speichert einen Klon davon im Cache und antwortet mit der Netzwerkantwort.
 
 ```js
 self.addEventListener("request", (event) => {
-  // ...
+  // …
 
   if (event.request.isHistoryNavigation) {
     event.respondWith(
@@ -31,7 +31,7 @@ self.addEventListener("request", (event) => {
           return response;
         } else {
           return fetch(event.request).then((response) => {
-            let responseClone = response.clone();
+            const responseClone = response.clone();
 
             caches.open("v1").then((cache) => {
               cache.put(event.request, responseClone);
@@ -44,7 +44,7 @@ self.addEventListener("request", (event) => {
     );
   }
 
-  // ...
+  // …
 });
 ```
 

@@ -3,23 +3,23 @@ title: "ToggleEvent: oldState-Eigenschaft"
 short-title: oldState
 slug: Web/API/ToggleEvent/oldState
 l10n:
-  sourceCommit: 0df415130c5816ffea5b180c0c440edb712673e1
+  sourceCommit: 759102220c07fb140b3e06971cd5981d8f0f134f
 ---
 
 {{APIRef("Popover API")}}
 
-Die **`oldState`**-Eigenschaft der schreibgeschützten [`ToggleEvent`](/de/docs/Web/API/ToggleEvent)-Schnittstelle ist ein String, der den Zustand darstellt, von dem das Element übergeht.
+Die schreibgeschützte Eigenschaft **`oldState`** des [`ToggleEvent`](/de/docs/Web/API/ToggleEvent)-Interfaces ist ein String, der den Zustand darstellt, von dem das Element wechselt.
 
 ## Wert
 
-Ein String. Mögliche Werte sind `"open"` (das Popover wechselt von sichtbar zu versteckt) oder `"closed"` (das Popover wechselt von versteckt zu sichtbar).
+Ein String. Mögliche Werte sind `"open"` (das Popover geht von sichtbar zu versteckt) oder `"closed"` (das Popover geht von versteckt zu sichtbar).
 
 ## Beispiele
 
 ```js
 const popover = document.getElementById("mypopover");
 
-// ...
+// …
 
 popover.addEventListener("beforetoggle", (event) => {
   if (event.oldState === "open") {

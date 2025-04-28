@@ -3,18 +3,18 @@ title: "SpeechSynthesisUtterance: lang-Eigenschaft"
 short-title: lang
 slug: Web/API/SpeechSynthesisUtterance/lang
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: 759102220c07fb140b3e06971cd5981d8f0f134f
 ---
 
 {{APIRef("Web Speech API")}}
 
 Die **`lang`**-Eigenschaft des [`SpeechSynthesisUtterance`](/de/docs/Web/API/SpeechSynthesisUtterance)-Interfaces ruft die Sprache der Äußerung ab und setzt sie.
 
-Wenn sie nicht gesetzt ist, wird die Sprache der App verwendet (d.h. der `lang`-Wert des {{htmlelement("html")}} [`lang`](/de/docs/Web/HTML/Reference/Global_attributes/lang) Attributs), oder der Benutzer-Agent-Standard, wenn auch dieser nicht gesetzt ist.
+Wenn sie nicht festgelegt ist, wird die Sprachangabe der Anwendung (d.h. der [`lang`](/de/docs/Web/HTML/Reference/Global_attributes/lang)-Wert des {{htmlelement("html")}}) verwendet oder, falls auch dies nicht festgelegt ist, der Standardwert des Benutzeragenten.
 
 ## Wert
 
-Ein String, der einen BCP 47 Sprach-Tag darstellt.
+Ein String, der ein BCP 47-Sprachtag darstellt.
 
 ## Beispiele
 
@@ -27,7 +27,7 @@ const voiceSelect = document.querySelector("select");
 
 const voices = synth.getVoices();
 
-// ...
+// …
 
 inputForm.onsubmit = (event) => {
   event.preventDefault();
