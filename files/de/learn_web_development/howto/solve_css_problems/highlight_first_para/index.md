@@ -1,19 +1,20 @@
 ---
-title: Wie man den ersten Absatz hervorhebt
+title: Anleitung zum Hervorheben des ersten Absatzes
+short-title: Hervorheben des ersten Absatzes
 slug: Learn_web_development/Howto/Solve_CSS_problems/Highlight_first_para
 l10n:
-  sourceCommit: 48d220a8cffdfd5f088f8ca89724a9a92e34d8c0
+  sourceCommit: 479ea4c8bff4b900a7968413287c77dde2b0c20f
 ---
 
 In diesem Leitfaden erfahren Sie, wie Sie den ersten Absatz innerhalb eines Containers hervorheben können.
 
 ## Gestaltung des ersten Absatzes
 
-Sie möchten den ersten Absatz größer und fett machen. Sie könnten dem ersten Absatz eine Klasse hinzufügen und ihn auf diese Weise auswählen, jedoch ist die Verwendung eines Pseudo-Klassen-Selektors flexibler — das bedeutet, dass Sie den Absatz basierend auf seiner Position im Dokument anvisieren können, und Sie müssen die Klasse nicht manuell verschieben, wenn sich die Quellreihenfolge ändert.
+Sie möchten den ersten Absatz größer und fett machen. Sie könnten dem ersten Absatz eine Klasse hinzufügen und ihn auf diese Weise auswählen. Die Verwendung eines Pseudo-Klassen-Selectors ist jedoch flexibler – das bedeutet, dass Sie den Absatz basierend auf seiner Position im Dokument anvisieren können, und Sie müssen die Klasse nicht manuell verschieben, wenn sich die Reihenfolge der Elemente ändert.
 
 ## Verwendung einer Pseudo-Klasse
 
-Eine {{cssxref("pseudo-classes","pseudo-class")}} wirkt so, als ob Sie eine Klasse angewendet haben; anstatt jedoch einen Klassen-Selektor zu verwenden, wählt CSS basierend auf der Dokumentstruktur. Es gibt eine Reihe von verschiedenen Pseudo-Klassen, die unterschiedliche Dinge auswählen können. In unserem Fall werden wir {{cssxref(":first-child")}} verwenden. Diese wählt das Element aus, das das erste Kind eines Elternteils ist.
+Eine {{cssxref("pseudo-classes","Pseudo-Klasse")}} wirkt so, als hätten Sie eine Klasse angewendet; jedoch wählt CSS aufgrund der Dokumentstruktur aus, anstatt einen Klassen-Selektor zu verwenden. Es gibt eine Reihe verschiedener Pseudo-Klassen, die unterschiedliche Dinge auswählen können. In unserem Fall werden wir {{cssxref(":first-child")}} verwenden. Dies wählt das Element aus, das das erste Kind eines übergeordneten Elements ist.
 
 ```html live-sample___highlight_first_para
 <div class="wrapper">
@@ -39,11 +40,11 @@ Eine {{cssxref("pseudo-classes","pseudo-class")}} wirkt so, als ob Sie eine Klas
 
 {{EmbedLiveSample("highlight_first_para")}}
 
-Sie können versuchen, {{cssxref(":first-child")}} im obigen Live-Beispiel in {{cssxref(":last-child")}} zu ändern, und Sie werden den letzten Absatz auswählen.
+Sie können versuchen, {{cssxref(":first-child")}} im obigen Live-Beispiel zu {{cssxref(":last-child")}} zu ändern, und Sie werden den letzten Absatz auswählen.
 
-Wann immer Sie etwas in Ihrem Dokument ansprechen müssen, können Sie überprüfen, ob eine der verfügbaren {{cssxref("pseudo-classes")}} es für Sie tun kann.
+Immer wenn Sie etwas in Ihrem Dokument anvisieren müssen, können Sie prüfen, ob eine der verfügbaren {{cssxref("pseudo-classes")}} diese Aufgabe für Sie übernehmen kann.
 
 ## Siehe auch
 
-- Die {{cssxref("pseudo-classes")}} Referenzseite.
+- Die Referenzseite zu {{cssxref("pseudo-classes")}}.
 - [CSS lernen: Pseudo-Klassen und Pseudo-Elemente.](/de/docs/Learn_web_development/Core/Styling_basics/Pseudo_classes_and_elements)

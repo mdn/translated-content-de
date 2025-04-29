@@ -1,17 +1,18 @@
 ---
-title: Anleitung zum Zentrieren eines Elements
+title: Anleitung zur Zentrierung eines Elements
+short-title: Ein Element zentrieren
 slug: Learn_web_development/Howto/Solve_CSS_problems/Center_an_item
 l10n:
-  sourceCommit: 48d220a8cffdfd5f088f8ca89724a9a92e34d8c0
+  sourceCommit: 479ea4c8bff4b900a7968413287c77dde2b0c20f
 ---
 
-In diesem Leitfaden erfahren Sie, wie Sie ein Element in einem anderen Element zentrieren, sowohl horizontal als auch vertikal.
+In diesem Leitfaden erfahren Sie, wie Sie ein Element sowohl horizontal als auch vertikal innerhalb eines anderen Elements zentrieren können.
 
-## Eine Box zentrieren
+## Ein Kästchen zentrieren
 
-Um eine Box innerhalb einer anderen Box mithilfe von CSS zu zentrieren, müssen Sie [CSS-Boxausrichtungs](/de/docs/Web/CSS/CSS_box_alignment)-Eigenschaften auf dem übergeordneten Container verwenden. Da diese Ausrichtungseigenschaften noch keine Browserunterstützung für Block- und Inline-Layout haben, müssen Sie den übergeordneten Container zu einem [Flex](/de/docs/Web/CSS/CSS_flexible_box_layout)- oder [Grid](/de/docs/Web/CSS/CSS_grid_layout)-Container machen, um die Möglichkeit der Ausrichtung nutzen zu können.
+Um ein Kästchen innerhalb eines anderen mit CSS zu zentrieren, müssen Sie die [CSS-Box-Ausrichtungs](/de/docs/Web/CSS/CSS_box_alignment)-Eigenschaften auf dem übergeordneten Container verwenden. Da diese Ausrichtungseigenschaften noch keine Unterstützung in Browsern für Block- und Inline-Layouts haben, müssen Sie den übergeordneten Container zu einem [flex](/de/docs/Web/CSS/CSS_flexible_box_layout)- oder [grid](/de/docs/Web/CSS/CSS_grid_layout)-Container machen, um die Möglichkeit der Ausrichtung zu aktivieren.
 
-Im folgenden Beispiel haben wir dem übergeordneten Container `display: flex` gegeben; dann {{cssxref("justify-content")}} auf center gesetzt, um es horizontal auszurichten, und {{cssxref("align-items")}} auf center, um es vertikal auszurichten.
+Im folgenden Beispiel haben wir dem übergeordneten Container `display: flex` zugewiesen; dann `{{cssxref("justify-content")}}` auf center gesetzt, um es horizontal auszurichten, und `{{cssxref("align-items")}}` auf center gesetzt, um es vertikal auszurichten.
 
 ```html live-sample___center
 <div class="wrapper">
@@ -38,7 +39,7 @@ Im folgenden Beispiel haben wir dem übergeordneten Container `display: flex` ge
 {{EmbedLiveSample("center", "", "220px")}}
 
 > [!NOTE]
-> Sie können diese Technik verwenden, um irgendeine Art von Ausrichtung von einem oder mehreren Elementen innerhalb eines anderen vorzunehmen. Im obigen Beispiel können Sie die Werte auf beliebige gültige Werte für {{cssxref("justify-content")}} und {{cssxref("align-items")}} ändern.
+> Sie können diese Technik verwenden, um jede Art der Ausrichtung eines oder mehrerer Elemente innerhalb eines anderen durchzuführen. Im obigen Beispiel können Sie versuchen, die Werte auf beliebige gültige Werte für `{{cssxref("justify-content")}}` und `{{cssxref("align-items")}}` zu ändern.
 
 ## Siehe auch
 

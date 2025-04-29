@@ -1,13 +1,11 @@
 ---
-title: Wie stellen Sie sicher, dass Ihre Website ordnungsgemäß funktioniert?
+title: Wie stellen Sie sicher, dass Ihre Webseite ordnungsgemäß funktioniert?
 slug: Learn_web_development/Howto/Tools_and_setup/Checking_that_your_web_site_is_working_properly
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: 479ea4c8bff4b900a7968413287c77dde2b0c20f
 ---
 
-{{QuicklinksWithSubPages("/de/docs/Learn_web_development/Howto")}}
-
-In diesem Artikel gehen wir verschiedene Schritte zur Fehlersuche einer Website durch und zeigen einige grundlegende Maßnahmen, um diese Probleme zu lösen.
+In diesem Artikel behandeln wir verschiedene Schritte zur Fehlersuche auf einer Webseite und einige grundlegende Maßnahmen, um diese Probleme zu lösen.
 
 <table>
   <tbody>
@@ -24,81 +22,81 @@ In diesem Artikel gehen wir verschiedene Schritte zur Fehlersuche einer Website 
     <tr>
       <th scope="row">Ziel:</th>
       <td>
-        Sie werden lernen, wie Sie einige grundlegende Probleme diagnostizieren und lösen können, auf die Sie mit Ihrer Website stoßen könnten.
+        Sie werden lernen, wie man einige grundlegende Probleme diagnostiziert und löst, die auf Ihrer Webseite auftreten können.
       </td>
     </tr>
   </tbody>
 </table>
 
-Haben Sie Ihre Website online veröffentlicht? Sehr gut! Aber sind Sie sicher, dass sie ordnungsgemäß funktioniert?
+Haben Sie Ihre Webseite online veröffentlicht? Sehr gut! Aber sind Sie sicher, dass sie ordnungsgemäß funktioniert?
 
-Ein entfernter Webserver verhält sich oft ganz anders als ein lokaler, daher ist es eine gute Idee, Ihre Website zu testen, sobald sie online ist. Sie könnten überrascht sein, wie viele Probleme auftreten: Bilder werden nicht angezeigt, Seiten laden nicht oder laden langsam usw. Meistens handelt es sich um kein großes Problem, nur einen einfachen Fehler oder ein Problem mit Ihrer Webhosting-Konfiguration.
+Ein entfernter Webserver verhält sich oft ganz anders als ein lokaler, daher ist es eine gute Idee, Ihre Webseite zu testen, sobald sie online ist. Sie könnten überrascht sein, wie viele Probleme auftreten: Bilder werden nicht angezeigt, Seiten laden nicht oder laden langsam, usw. Meistens ist es keine große Sache, nur ein einfacher Fehler oder ein Problem mit Ihrer Webhost-Konfiguration.
 
-Sehen wir uns an, wie Sie diese Probleme diagnostizieren und lösen können.
+Schauen wir uns an, wie man diese Probleme diagnostiziert und löst.
 
 ## Aktives Lernen
 
-_Es ist noch kein aktives Lernen verfügbar. [Bitte ziehen Sie eine Mitwirkung in Erwägung](/de/docs/MDN/Community/Getting_started)._
+_Es gibt derzeit kein aktives Lernen. [Bitte ziehen Sie in Betracht, einen Beitrag zu leisten](/de/docs/MDN/Community/Getting_started)._
 
 ## Graben Sie tiefer
 
-### Test im Browser
+### Im Browser testen
 
-Wenn Sie wissen möchten, ob Ihre Website korrekt funktioniert, ist das Erste, was Sie tun sollten, Ihren Browser zu öffnen und zur Seite zu gehen, die Sie testen möchten.
+Wenn Sie wissen möchten, ob Ihre Webseite korrekt funktioniert, ist das Erste, was Sie tun sollten, Ihren Browser zu öffnen und zur Seite zu gehen, die Sie testen möchten.
 
-#### Uh-oh, wo ist das Bild?
+#### Oh nein, wo ist das Bild?
 
-Sehen wir uns unsere persönliche Website an, `http://demozilla.examplehostingprovider.net/`. Sie zeigt nicht das Bild an, das wir erwartet haben!
+Schauen wir uns unsere persönliche Webseite an, `http://demozilla.examplehostingprovider.net/`. Es wird nicht das Bild angezeigt, das wir erwartet hatten!
 
-![Oops, das 'unicorn'-Bild fehlt](image-missing.png)
+![Ups, das 'unicorn'-Bild fehlt](image-missing.png)
 
-Öffnen Sie das Firefox-Netzwerktool (**Tools ➤ Web Developer ➤ Network**) und laden Sie die Seite neu:
+Öffnen Sie das Netzwerk-Tool von Firefox (**Extras ➤ Webentwickler ➤ Netzwerkanalyse**) und laden Sie die Seite neu:
 
 ![Das Bild hat einen 404-Fehler](error404.png)
 
-Da ist das Problem, dieser "404" am unteren Rand. "404" bedeutet "Ressource nicht gefunden", und aus diesem Grund haben wir das Bild nicht gesehen.
+Da ist das Problem, die "404" unten. "404" bedeutet "Ressource nicht gefunden", und deshalb haben wir das Bild nicht gesehen.
 
-#### HTTP-Statuscodes
+#### HTTP-Status
 
-Server antworten mit einer Statusmeldung, wann immer sie eine Anfrage erhalten. Hier sind die häufigsten Statuscodes:
+Server antworten mit einer Statusmeldung, wann immer sie eine Anfrage erhalten. Hier sind die gängigsten Statuscodes:
 
 - **200: OK**
-  - : Die angeforderte Ressource wurde ausgeliefert.
-- **301: Moved permanently**
-  - : Die Ressource wurde an einen neuen Ort verschoben. Sie werden dies in Ihrem Browser nicht oft sehen, aber es ist gut, über "301" Bescheid zu wissen, da Suchmaschinen diese Informationen häufig verwenden, um ihre Indizes zu aktualisieren.
-- **304: Not modified**
-  - : Die Datei hat sich seit der letzten Anfrage nicht geändert, sodass Ihr Browser die Version aus seinem Cache anzeigen kann, was zu schnelleren Antwortzeiten und effizienterer Bandbreitennutzung führt.
-- **403: Forbidden**
-  - : Sie dürfen die Ressource nicht anzeigen. Üblicherweise hat es mit einem Konfigurationsfehler zu tun (z. B. hat Ihr Hosting-Anbieter Ihnen versehentlich keine Zugriffsrechte auf ein Verzeichnis eingeräumt).
-- **404: Not found**
-  - : Selbst erklärend. Wir werden weiter unten besprechen, wie man dieses Problem löst.
-- **500: Internal server error**
-  - : Etwas ist auf dem Server schiefgelaufen. Vielleicht ist die serverseitige Programmiersprache ({{Glossary("PHP", "PHP")}}, .Net usw.) nicht mehr funktionstüchtig, oder der Webserver selbst hat ein Konfigurationsproblem. Es ist meistens am besten, sich an den Support Ihres Hosting-Anbieters zu wenden.
-- **503: Service unavailable**
-  - : Normalerweise das Ergebnis einer kurzfristigen Systemüberlastung. Der Server hat irgendeine Art von Problem. Versuchen Sie es in einer Weile erneut.
+  - : Die angeforderte Ressource wurde bereitgestellt.
+- **301: Permanent verschoben**
+  - : Die Ressource wurde an einen neuen Ort verschoben. Dies werden Sie in Ihrem Browser nicht oft sehen, aber es ist gut, über "301" Bescheid zu wissen, da Suchmaschinen diese Information verwenden, um ihre Indizes zu aktualisieren.
+- **304: Nicht modifiziert**
+  - : Die Datei hat sich seit der letzten Anfrage nicht geändert, sodass Ihr Browser die Version aus seinem Cache anzeigen kann, was zu schnelleren Antwortzeiten und effizienterem Bandbreiteneinsatz führt.
+- **403: Verboten**
+  - : Sie dürfen die Ressource nicht anzeigen. Normalerweise liegt dies an einem Konfigurationsfehler (z.B. Ihr Hosting-Anbieter hat Ihnen nicht die Zugriffsrechte auf ein Verzeichnis gegeben).
+- **404: Nicht gefunden**
+  - : Selbsterklärend. Wir werden weiter unten besprechen, wie man dieses Problem löst.
+- **500: Interner Serverfehler**
+  - : Etwas ist auf dem Server schiefgelaufen. Zum Beispiel hat vielleicht die serverseitige Sprache ({{Glossary("PHP", "PHP")}}, .Net, etc.) aufgehört zu funktionieren, oder der Webserver selbst hat ein Konfigurationsproblem. In der Regel ist es am besten, sich an den Support Ihres Hosting-Anbieters zu wenden.
+- **503: Dienst nicht verfügbar**
+  - : Meistens das Ergebnis einer kurzfristigen Systemüberlastung. Der Server hat irgendein Problem. Versuchen Sie es nach einer Weile noch einmal.
 
-Als Anfänger, die unsere (einfache) Website überprüfen, werden wir am häufigsten mit 200, 304, 403 und 404 konfrontiert.
+Als Anfänger, die unsere (einfache) Webseite überprüfen, werden wir am häufigsten mit 200, 304, 403 und 404 konfrontiert.
 
 #### Behebung des 404-Fehlers
 
 Was ist also schiefgelaufen?
 
-![Die Liste der Bilder in unserem Projekt](demozilla-images-list.png)
+![Liste der Bilder in unserem Projekt](demozilla-images-list.png)
 
-Auf den ersten Blick scheint das Bild, das wir angefordert haben, am richtigen Ort zu sein, aber das Netzwerktool meldete einen "404". Es stellt sich heraus, dass wir in unserem HTML-Code einen Tippfehler gemacht haben: `unicorn_pics.png` statt `unicorn_pic.png`. Korrigieren Sie den Tippfehler in Ihrem Code-Editor, indem Sie das `src`-Attribut des Bildes ändern:
+Auf den ersten Blick scheint das Bild, das wir angefordert haben, am richtigen Ort zu sein, aber das Netzwerk-Tool meldete einen "404". Es stellt sich heraus, dass wir einen Tippfehler in unserem HTML-Code gemacht haben: `unicorn_pics.png` anstelle von `unicorn_pic.png`. Korrigieren Sie also den Tippfehler in Ihrem Code-Editor, indem Sie das `src`-Attribut des Bildes ändern:
 
-![Das Entfernen des 's'](code-correct.png)
+![Das 's' löschen](code-correct.png)
 
-Speichern Sie, [schieben Sie die Datei auf den Server](/de/docs/Learn_web_development/Howto/Tools_and_setup/Upload_files_to_a_web_server), und laden Sie die Seite in Ihrem Browser neu:
+Speichern Sie, [senden Sie es an den Server](/de/docs/Learn_web_development/Howto/Tools_and_setup/Upload_files_to_a_web_server) und laden Sie die Seite in Ihrem Browser neu:
 
-![Das Bild wird im Browser korrekt geladen](image-corrected.png)
+![Das Bild wird korrekt im Browser geladen](image-corrected.png)
 
 Da haben Sie es! Schauen wir uns die {{Glossary("HTTP", "HTTP")}}-Statuscodes noch einmal an:
 
-- **200** für `/` und für `unicorn_pic.png` bedeutet, dass wir die Seite und das Bild erfolgreich erneut geladen haben.
-- **304** für `basic.css` bedeutet, dass sich diese Datei seit der letzten Anfrage nicht geändert hat, sodass der Browser die Datei in seinem Cache verwenden kann, anstatt eine frische Kopie zu erhalten.
+- **200** für `/` und `unicorn_pic.png` bedeutet, dass wir es geschafft haben, die Seite und das Bild neu zu laden.
+- **304** für `basic.css` bedeutet, dass diese Datei sich seit der letzten Anfrage nicht geändert hat, sodass der Browser die Datei aus seinem Cache verwenden kann, anstatt eine neue Kopie zu erhalten.
 
-Wir haben den Fehler behoben und dabei ein paar HTTP-Statuscodes gelernt!
+So haben wir den Fehler behoben und dabei noch ein paar HTTP-Statuscodes gelernt!
 
 ### Häufige Fehler
 
@@ -108,39 +106,39 @@ Die häufigsten Fehler, die wir finden, sind diese:
 
 Wir wollten `http://demozilla.examplehostingprovider.net/` eingeben, haben aber zu schnell getippt und ein "l" vergessen:
 
-![Adresse unerreichbar](cannot-find-server.png)
+![Adresse nicht erreichbar](cannot-find-server.png)
 
 Die Adresse kann nicht gefunden werden. In der Tat.
 
 #### 404-Fehler
 
-Oft resultiert der Fehler einfach aus einem Tippfehler, aber manchmal haben Sie vielleicht entweder vergessen, eine Ressource hochzuladen oder Ihre Netzwerkverbindung verloren, während Sie Ihre Ressourcen hochgeladen haben. Überprüfen Sie zunächst das korrekte Buchstabieren und die Genauigkeit des Dateipfads, und wenn es immer noch ein Problem gibt, laden Sie Ihre Dateien erneut hoch. Das wird wahrscheinlich das Problem beheben.
+Oft resultiert der Fehler nur aus einem Tippfehler, aber manchmal haben Sie entweder vergessen, eine Ressource hochzuladen, oder Sie haben Ihre Netzwerkverbindung verloren, während Sie Ihre Ressourcen hochgeladen haben. Überprüfen Sie zuerst die Rechtschreibung und Genauigkeit des Dateipfads, und wenn das Problem weiterhin besteht, laden Sie Ihre Dateien erneut hoch. Das wird das Problem wahrscheinlich beheben.
 
 #### JavaScript-Fehler
 
-Jemand (möglicherweise Sie) hat ein Skript zur Seite hinzugefügt und einen Fehler gemacht. Dies wird das Laden der Seite nicht verhindern, aber Sie werden merken, dass etwas schiefgelaufen ist.
+Jemand (möglicherweise Sie selbst) hat ein Skript zur Seite hinzugefügt und einen Fehler gemacht. Dies wird das Laden der Seite nicht verhindern, aber Sie werden merken, dass etwas schiefgelaufen ist.
 
-Öffnen Sie die Konsole (**Tools ➤ Webentwickler ➤ Web-Konsole**) und laden Sie die Seite neu:
+Öffnen Sie die Konsole (**Extras ➤ Webentwickler ➤ Webkonsole**) und laden Sie die Seite neu:
 
 ![Ein JavaScript-Fehler wird in der Konsole angezeigt](js-error.png)
 
-In diesem Beispiel erfahren wir (ziemlich klar), was der Fehler ist, und wir können ihn beheben (wir werden JavaScript in einer [anderen Serie](/de/docs/Learn_web_development/Core/Scripting) von Artikeln behandeln).
+In diesem Beispiel erfahren wir (ziemlich eindeutig), worin der Fehler liegt, und wir können ihn beheben (wir werden JavaScript in einer [anderen Reihe](/de/docs/Learn_web_development/Core/Scripting) von Artikeln behandeln).
 
-### Weitere Dinge zu überprüfen
+### Weitere Dinge, die zu überprüfen sind
 
-Wir haben einige einfache Möglichkeiten aufgelistet, um zu überprüfen, ob Ihre Website ordnungsgemäß funktioniert, sowie die häufigsten Fehler, die Sie möglicherweise antreffen, und wie Sie diese beheben können. Sie können auch testen, ob Ihre Seite diese Kriterien erfüllt:
+Wir haben einige einfache Möglichkeiten aufgelistet, um zu überprüfen, ob Ihre Webseite ordnungsgemäß funktioniert, sowie die häufigsten Fehler, auf die Sie stoßen können, und wie Sie diese beheben können. Sie können auch testen, ob Ihre Seite diese Kriterien erfüllt:
 
 #### Wie ist die Leistung?
 
-Lädt die Seite schnell genug? Ressourcen wie [WebPageTest.org](https://www.webpagetest.org/) oder Browser-Add-ons wie [YSlow](https://github.com/marcelduran/yslow) können Ihnen einige interessante Dinge verraten:
+Lädt die Seite schnell genug? Ressourcen wie [WebPageTest.org](https://www.webpagetest.org/) oder Browser-Erweiterungen wie [YSlow](https://github.com/marcelduran/yslow) können Ihnen einige interessante Dinge verraten:
 
-![Yslow-Diagnosen](yslow-diagnostics.png)
+![Yslow-Diagnose](yslow-diagnostics.png)
 
-Die Noten reichen von A bis F. Unsere Seite ist nur klein und erfüllt die meisten Kriterien. Aber wir können schon feststellen, dass es besser gewesen wäre, ein {{Glossary("CDN", "CDN")}} zu verwenden. Das spielt nicht so eine große Rolle, wenn wir nur ein Bild bereitstellen, aber es wäre entscheidend für eine Website mit hoher Bandbreite, die viele Tausende von Bildern bereitstellt.
+Die Noten reichen von A bis F. Unsere Seite ist nur klein und erfüllt die meisten Kriterien. Aber wir können bereits feststellen, dass es besser gewesen wäre, ein {{Glossary("CDN", "CDN")}} zu verwenden. Das spielt keine große Rolle, wenn wir nur ein Bild bereitstellen, wäre aber entscheidend für eine Webseite mit hohem Bandbreitenbedarf, die viele Tausende von Bildern bereitstellt.
 
-#### Ist der Server reaktionsschnell genug?
+#### Ist der Server ausreichend reaktionsfähig?
 
-`ping` ist ein nützliches Shell-Tool, das den von Ihnen bereitgestellten Domainnamen testet und Ihnen sagt, ob der Server antwortet oder nicht:
+`ping` ist ein nützliches Shell-Tool, das den von Ihnen bereitgestellten Domainnamen testet und Ihnen mitteilt, ob der Server reagiert oder nicht:
 
 ```plain
 $ ping mozilla.org
@@ -155,17 +153,17 @@ PING mozilla.org (63.245.215.20): 56 data bytes
 round-trip min/avg/max/stddev = 147.857/148.468/148.741/0.362 ms
 ```
 
-Merken Sie sich eine praktische Tastenkombination: **Strg+C**. Strg+C sendet ein "Interrupt"-Signal an die Laufzeitumgebung und sagt ihr, dass sie stoppen soll. Wenn Sie die Laufzeit nicht stoppen, wird `ping` den Server auf unbestimmte Zeit anpingen.
+Denken Sie einfach an eine praktische Tastenkombination: **Strg+C**. Strg+C sendet ein "Interrupt"-Signal an die Laufzeitumgebung und teilt ihr mit, dass sie stoppen soll. Wenn Sie die Laufzeit nicht stoppen, wird `ping` den Server unendlich lange anpingen.
 
 ### Eine einfache Checkliste
 
 - Überprüfen Sie auf 404-Fehler
-- Stellen Sie sicher, dass alle Webseiten wie erwartet funktionieren
-- Testen Sie Ihre Website in mehreren Browsern, um sicherzustellen, dass sie konsistent gerendert wird
+- Stellen Sie sicher, dass alle Webseiten so funktionieren, wie Sie es erwarten
+- Überprüfen Sie Ihre Webseite in mehreren Browsern, um sicherzustellen, dass sie konsistent dargestellt wird
 
 ## Nächste Schritte
 
-Herzlichen Glückwunsch, Ihre Website ist für jeden besuchbar. Das ist eine große Leistung. Jetzt können Sie anfangen, tiefer in verschiedene Themen einzutauchen.
+Herzlichen Glückwunsch, Ihre Webseite ist für jeden zugänglich online. Das ist ein großer Erfolg. Jetzt können Sie tiefer in verschiedene Themen einsteigen.
 
-- Da Menschen aus der ganzen Welt Ihre Website besuchen können, sollten Sie überlegen, sie [zugänglich für alle](/de/docs/Learn_web_development/Howto/Design_and_accessibility/What_is_accessibility) zu machen.
-- Ist das Design Ihrer Website etwas zu grob? Es ist Zeit, [mehr über CSS zu lernen](/de/docs/Learn_web_development/Core/Styling_basics).
+- Da Menschen aus aller Welt Ihre Webseite besuchen können, sollten Sie in Betracht ziehen, sie [für alle zugänglich zu machen](/de/docs/Learn_web_development/Howto/Design_and_accessibility/What_is_accessibility).
+- Ist das Design Ihrer Webseite etwas zu grob? Es ist an der Zeit, [mehr über CSS zu lernen](/de/docs/Learn_web_development/Core/Styling_basics).

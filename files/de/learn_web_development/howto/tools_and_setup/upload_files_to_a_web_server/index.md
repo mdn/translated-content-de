@@ -2,26 +2,24 @@
 title: Wie laden Sie Ihre Dateien auf einen Webserver hoch?
 slug: Learn_web_development/Howto/Tools_and_setup/Upload_files_to_a_web_server
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: 479ea4c8bff4b900a7968413287c77dde2b0c20f
 ---
 
-{{QuicklinksWithSubPages("/de/docs/Learn_web_development/Howto")}}
-
-Dieser Artikel zeigt Ihnen, wie Sie Ihre Website mit Dateiübertragungstools online veröffentlichen können.
+Dieser Artikel zeigt Ihnen, wie Sie Ihre Website mithilfe von Dateiübertragungs-Tools online veröffentlichen.
 
 <table>
   <tbody>
     <tr>
       <th scope="row">Voraussetzungen:</th>
       <td>
-        Sie sollten wissen,
+        Sie müssen wissen,
         <a href="/de/docs/Learn_web_development/Howto/Web_mechanics/What_is_a_web_server"
           >was ein Webserver ist</a
         >
         und
         <a href="/de/docs/Learn_web_development/Howto/Web_mechanics/What_is_a_domain_name"
           >wie Domainnamen funktionieren</a
-        >. Sie sollten auch wissen, wie man
+        >. Sie müssen auch wissen, wie man
         <a
           href="/de/docs/Learn_web_development/Howto/Tools_and_setup/set_up_a_local_testing_server"
           >eine grundlegende Umgebung einrichtet</a
@@ -35,7 +33,7 @@ Dieser Artikel zeigt Ihnen, wie Sie Ihre Website mit Dateiübertragungstools onl
     <tr>
       <th scope="row">Ziel:</th>
       <td>
-        Erlernen, wie man Dateien mithilfe verschiedener zur Verfügung stehender Dateiübertragungswerkzeuge auf einen Server bringt.
+        Lernen Sie, wie Sie Dateien mit den verschiedenen verfügbaren Dateiübertragungs-Tools auf einen Server übertragen.
       </td>
     </tr>
   </tbody>
@@ -43,133 +41,133 @@ Dieser Artikel zeigt Ihnen, wie Sie Ihre Website mit Dateiübertragungstools onl
 
 ## Zusammenfassung
 
-Wenn Sie eine einfache Webseite erstellt haben (siehe [HTML-Grundlagen](/de/docs/Learn_web_development/Getting_started/Your_first_website/Creating_the_content) für ein Beispiel), möchten Sie sie wahrscheinlich online, auf einem Webserver, veröffentlichen. In diesem Artikel werden wir besprechen, wie das mit verschiedenen verfügbaren Optionen wie SFTP-Clients, RSync und GitHub geschehen kann.
+Wenn Sie eine einfache Webseite erstellt haben (sehen Sie sich [HTML-Grundlagen](/de/docs/Learn_web_development/Getting_started/Your_first_website/Creating_the_content) für ein Beispiel an), möchten Sie diese wahrscheinlich online auf einem Webserver verfügbar machen. In diesem Artikel besprechen wir, wie Sie das mit verschiedenen verfügbaren Optionen wie SFTP-Clients, RSync und GitHub tun können.
 
 ## SFTP
 
-Es gibt verschiedene SFTP-Clients. Unsere Demo behandelt [FileZilla](https://filezilla-project.org/), da es kostenlos ist und für Windows, macOS und Linux verfügbar ist. Um FileZilla zu installieren, gehen Sie auf die [FileZilla-Download-Seite](https://filezilla-project.org/download.php?type=client), klicken Sie auf den großen Download-Button und installieren Sie es dann wie gewohnt vom Installationsprogramm.
+Es gibt mehrere SFTP-Clients. Unser Beispiel behandelt [FileZilla](https://filezilla-project.org/), da es kostenlos und für Windows, macOS und Linux verfügbar ist. Um FileZilla zu installieren, gehen Sie zur [FileZilla-Downloadseite](https://filezilla-project.org/download.php?type=client), klicken Sie auf die große Schaltfläche „Download“ und installieren Sie dann aus der Installationsdatei wie gewohnt.
 
 > [!NOTE]
-> Natürlich gibt es viele andere Optionen. Weitere Informationen finden Sie unter [Veröffentlichungstools](/de/docs/Learn_web_development/Howto/Tools_and_setup/How_much_does_it_cost#publishing_tools).
+> Natürlich gibt es viele andere Optionen. Siehe [Veröffentlichungstools](/de/docs/Learn_web_development/Howto/Tools_and_setup/How_much_does_it_cost#publishing_tools) für weitere Informationen.
 
-Öffnen Sie die FileZilla-Anwendung; Sie sollten etwas Ähnliches sehen:
+Öffnen Sie die FileZilla-Anwendung; Sie sollten etwas wie dieses sehen:
 
-![Screenshot der Benutzeroberfläche der FileZilla FTP-Anwendung. Hosteingabe hat den Fokus.](filezilla-ui.png)
+![Screenshot der Benutzeroberfläche der FileZilla-FTP-Anwendung. Das Host-Eingabefeld hat den Fokus.](filezilla-ui.png)
 
-### Anmeldung
+### Anmelden
 
-Für dieses Beispiel nehmen wir an, dass unser Hosting-Anbieter (der Dienst, der unseren HTTP-Webserver hosten wird) eine fiktive Firma "Beispiel-Hosting-Anbieter" ist, deren URLs so aussehen: `mypersonalwebsite.examplehostingprovider.net`.
+Für dieses Beispiel nehmen wir an, dass unser Hosting-Anbieter (der Dienst, der unseren HTTP-Webserver hostet), eine fiktive Firma "Example Hosting Provider" ist, deren URLs so aussehen: `mypersonalwebsite.examplehostingprovider.net`.
 
 Wir haben gerade ein Konto eröffnet und diese Informationen von ihnen erhalten:
 
-> Herzlichen Glückwunsch zur Kontoeröffnung bei Beispiel-Hosting-Anbieter.
+> Herzlichen Glückwunsch zur Eröffnung eines Kontos bei Example Hosting Provider.
 >
 > Ihr Konto lautet: `demozilla`
 >
-> Ihre Website wird unter `demozilla.examplehostingprovider.net` sichtbar sein
+> Ihre Website ist sichtbar unter `demozilla.examplehostingprovider.net`
 >
-> Um auf dieses Konto zu veröffentlichen, verbinden Sie sich bitte über SFTP mit den folgenden Zugangsdaten:
+> Um auf dieses Konto zu veröffentlichen, verbinden Sie sich bitte über SFTP mit den folgenden Anmeldedaten:
 >
 > - SFTP-Server: `sftp://demozilla.examplehostingprovider.net`
 > - Benutzername: `demozilla`
 > - Passwort: `quickbrownfox`
 > - Port: `5548`
-> - Um im Web zu veröffentlichen, legen Sie Ihre Dateien im Verzeichnis `Public/htdocs` ab.
+> - Um im Web zu veröffentlichen, legen Sie Ihre Dateien in das Verzeichnis `Public/htdocs`.
 
-Sehen wir uns zuerst `http://demozilla.examplehostingprovider.net/` an — wie Sie sehen können, ist dort bisher nichts:
+Sehen wir uns zunächst `http://demozilla.examplehostingprovider.net/` an — wie Sie sehen können, ist dort bisher nichts:
 
-![Unsere persönliche demozilla-Website, im Browser betrachtet: Sie ist leer](demozilla-empty.png)
+![Unsere persönliche Demozilla-Website, im Browser gesehen: sie ist leer](demozilla-empty.png)
 
 > [!NOTE]
-> Abhängig von Ihrem Hosting-Anbieter sehen Sie beim ersten Aufruf Ihrer Webadresse meist eine Seite mit dem Hinweis "Diese Website wird gehostet von \[Hosting Service]."
+> Abhängig von Ihrem Hosting-Anbieter, sehen Sie meistens eine Seite, die etwas wie „Diese Website wird gehostet von \[Hosting Service].“ sagt, wenn Sie erstmals Ihre Webadresse aufrufen.
 
-Um Ihren SFTP-Client mit dem entfernten Server zu verbinden, folgen Sie diesen Schritten:
+Um Ihren SFTP-Client mit dem entfernten Server zu verbinden, gehen Sie wie folgt vor:
 
-1. Wählen Sie _Datei > Servermanager…_ im Hauptmenü.
-2. Drücken Sie im _Servermanager_-Fenster die Schaltfläche _Neue Seite_, dann füllen Sie im vorgesehenen Feld den Seitennamen als **demozilla** aus.
-3. Geben Sie den von Ihrem Host bereitgestellten SFTP-Server im Feld _Host:_ ein.
-4. Wählen Sie im Dropdown-Menü _Anmeldetyp:_ _Normal_, und geben Sie Ihren Benutzernamen und Ihr Passwort in die entsprechenden Felder ein.
-5. Geben Sie den richtigen Port und andere Informationen ein.
+1. Wählen Sie _Datei > Site-Manager…_ aus dem Hauptmenü.
+2. Drücken Sie im Fenster _Site-Manager_ die Schaltfläche _Neue Site_ und geben Sie dann den Seitennamen **demozilla** in den bereitgestellten Bereich ein.
+3. Füllen Sie das von Ihrem Host bereitgestellte SFTP-Server-Feld im Feld _Host:_ aus.
+4. Wählen Sie im Drop-down-Menü _Anmeldetyp:_ die Option _Normal_ und füllen Sie die bereitgestellten Anmeldedaten in den entsprechenden Feldern aus.
+5. Füllen Sie den richtigen Port und andere Informationen aus.
 
-Ihre Fensteransicht sollte ungefähr so aussehen:
+Ihr Fenster sollte in etwa so aussehen:
 
-![Screenshot der Standard-Startseite einer fiktiven Website, wenn das Dateiverzeichnis leer ist](site-manager.png)
+![Screenshot der Standard-Landingpage einer fiktiven Website, wenn das Datei-Verzeichnis leer ist](site-manager.png)
 
-Drücken Sie nun _Verbinden_, um sich mit dem SFTP-Server zu verbinden.
+Drücken Sie nun _Verbinden_, um eine Verbindung zum SFTP-Server herzustellen.
 
-Hinweis: Stellen Sie sicher, dass Ihr Hosting-Anbieter eine SFTP (Secure FTP)-Verbindung zu Ihrem Hosting-Bereich anbietet. FTP ist von Natur aus unsicher und sollte nicht verwendet werden.
+Hinweis: Stellen Sie sicher, dass Ihr Hosting-Anbieter eine SFTP- (Secure FTP) Verbindung zu Ihrem Hosting-Space bietet. FTP ist inhärent unsicher und sollte nicht verwendet werden.
 
 ### Hier und dort: lokale und entfernte Ansicht
 
-Sobald Sie verbunden sind, sollte Ihr Bildschirm in etwa so aussehen (wir haben unser eigenes Beispiel angeschlossen, um Ihnen eine Vorstellung zu geben):
+Sobald Sie verbunden sind, sollte Ihr Bildschirm etwa so aussehen (wir haben ein eigenes Beispiel verbunden, um Ihnen eine Vorstellung zu geben):
 
-![SFTP-Client zeigt den Website-Inhalt an, nachdem er mit dem SFTP-Server verbunden wurde. Lokale Dateien sind links. Entfernte Dateien sind rechts.](connected.png)
+![SFTP-Client zeigt Website-Inhalte an, sobald er mit dem SFTP-Server verbunden ist. Lokale Dateien sind links. Entfernte Dateien sind rechts.](connected.png)
 
-Lassen Sie uns ansehen, was Sie sehen:
+Sehen wir uns an, was Sie sehen:
 
-- Im linken mittleren Bereich sehen Sie Ihre lokalen Dateien. Navigieren Sie in das Verzeichnis, in dem Sie Ihre Website speichern (z. B. `mdn`).
-- Im rechten mittleren Bereich sehen Sie entfernte Dateien. Wir sind in unser entferntes FTP-Stammverzeichnis eingeloggt (in diesem Fall `users/demozilla`).
-- Sie können die unteren und oberen Bereiche vorerst ignorieren. Diese zeigen respektive ein Protokoll von Nachrichten an, die den Verbindungsstatus zwischen Ihrem Computer und dem SFTP-Server anzeigen, sowie ein Live-Protokoll jeder Interaktion zwischen Ihrem SFTP-Client und dem Server.
+- Im linken Bereich in der Mitte sehen Sie Ihre lokalen Dateien. Navigieren Sie in das Verzeichnis, in dem Sie Ihre Website speichern (z. B. `mdn`).
+- Im rechten Bereich in der Mitte sehen Sie entfernte Dateien. Wir sind in unserem entfernten FTP-Stamm eingeloggt (in diesem Fall `users/demozilla`).
+- Die unteren und oberen Bereiche können Sie vorerst ignorieren. Es handelt sich dabei um ein Protokoll der Nachrichten, die den Verbindungsstatus zwischen Ihrem Computer und dem SFTP-Server anzeigen, und um ein Live-Protokoll jeder Interaktion zwischen Ihrem SFTP-Client und dem Server.
 
 ### Hochladen auf den Server
 
-Unsere Beispielhostanweisungen sagten uns: "Um im Web zu veröffentlichen, legen Sie Ihre Dateien im Verzeichnis `Public/htdocs` ab." Sie müssen in Ihrem rechten Bereich zu dem angegebenen Verzeichnis navigieren. Dieses Verzeichnis ist im Wesentlichen das Wurzelverzeichnis Ihrer Website — dorthin gehören Ihre `index.html`-Datei und andere Assets.
+Unsere Beispiel-Hostanweisungen sagten uns: „Um im Web zu veröffentlichen, legen Sie Ihre Dateien in das Verzeichnis `Public/htdocs`.“ Sie müssen zum angegebenen Verzeichnis in Ihrem rechten Bereich navigieren. Dieses Verzeichnis ist effektiv der Stamm Ihrer Website — hier werden Ihre `index.html`-Datei und andere Ressourcen hingespeichert.
 
-Sobald Sie das richtige entfernte Verzeichnis gefunden haben, um Ihre Dateien abzulegen, ziehen Sie zum Hochladen Ihrer Dateien auf den Server diese einfach von links nach rechts.
+Sobald Sie das korrekte entfernte Verzeichnis gefunden haben, um Ihre Dateien abzulegen, müssen Sie Ihre Dateien vom linken Bereich in den rechten Bereich ziehen, um sie auf den Server hochzuladen.
 
 ### Sind sie wirklich online?
 
-So weit, so gut, aber sind die Dateien wirklich online? Sie können dies überprüfen, indem Sie zu Ihrer Website (z. B. `http://demozilla.examplehostingprovider.net/`) in Ihrem Browser zurückkehren:
+Soweit, so gut, aber sind die Dateien wirklich online? Sie können nachsehen, indem Sie in Ihrem Browser zu Ihrer Website zurückkehren (z. B. `http://demozilla.examplehostingprovider.net/`):
 
-![Da sind wir: Unsere Website ist live!](here-we-go.png)
+![Los geht's: unsere Website ist online!](here-we-go.png)
 
 Und unsere Website ist live!
 
 ## Rsync
 
-{{Glossary("Rsync", "Rsync")}} ist ein Werkzeug zur Synchronisierung von Dateien zwischen lokalem und entferntem Speicher, das auf den meisten Unix-basierten Systemen (wie macOS und Linux) allgemein verfügbar ist, aber auch Windows-Versionen existieren.
+{{Glossary("Rsync", "Rsync")}} ist ein lokales-zu-entferntes Datei-Synchronisierungswerkzeug, das allgemein auf den meisten Unix-basierten Systemen verfügbar ist (wie macOS und Linux), aber auch Windows-Versionen existieren.
 
-Es gilt als ein fortgeschritteneres Werkzeug als SFTP, da es standardmäßig in der Befehlszeile verwendet wird. Ein grundlegender Befehl sieht so aus:
+Es wird als ein fortgeschritteneres Werkzeug als SFTP angesehen, da es standardmäßig über die Befehlszeile verwendet wird. Ein grundlegender Befehl sieht so aus:
 
 ```bash
 rsync [-options] SOURCE user@x.x.x.x:DESTINATION
 ```
 
-- `-options` ist ein Bindestrich, gefolgt von einem oder mehreren Buchstaben, zum Beispiel `-v` für ausführliche Fehlermeldungen und `-b` zum Erstellen von Backups. Die vollständige Liste finden Sie auf der [rsync Man-Seite](https://linux.die.net/man/1/rsync) (suchen Sie nach "Options summary").
-- `SOURCE` ist der Pfad zur lokalen Datei oder zum Verzeichnis, von dem Sie Dateien kopieren möchten.
+- `-options` ist ein Bindestrich gefolgt von einem oder mehreren Buchstaben, zum Beispiel `-v` für ausführliche Fehlermeldungen und `-b`, um Backups zu erstellen. Sie können die vollständige Liste auf der [Rsync-Man-Seite](https://linux.die.net/man/1/rsync) sehen (suchen Sie nach „Options summary“).
+- `SOURCE` ist der Pfad zur lokalen Datei oder zum lokalen Verzeichnis, aus dem Sie Dateien kopieren möchten.
 - `user@` sind die Anmeldedaten des Benutzers auf dem entfernten Server, zu dem Sie Dateien kopieren möchten.
 - `x.x.x.x` ist die IP-Adresse des entfernten Servers.
-- `DESTINATION` ist der Pfad zum Speicherort, an den Sie Ihr Verzeichnis oder Ihre Dateien auf dem entfernten Server kopieren möchten.
+- `DESTINATION` ist der Pfad zu dem Ort, an dem Sie Ihr Verzeichnis oder Ihre Dateien auf dem entfernten Server kopieren möchten.
 
-Solche Details müssten Sie von Ihrem Hosting-Anbieter erhalten.
+Diese Details müssten Sie von Ihrem Hosting-Anbieter erhalten.
 
 Für weitere Informationen und Beispiele siehe [How to Use Rsync to Copy/Sync Files Between Servers](https://www.atlantic.net/vps-hosting/how-to-use-rsync-copy-sync-files-servers/).
 
-Natürlich ist es eine gute Idee, wie bei FTP eine sichere Verbindung zu verwenden. Im Fall von Rsync geben Sie SSH-Details an, um die Verbindung über SSH herzustellen, indem Sie die `-e` Option verwenden. Zum Beispiel:
+Natürlich ist es eine gute Idee, wie bei FTP eine sichere Verbindung zu verwenden. Im Falle von Rsync geben Sie SSH-Details an, um die Verbindung über SSH herzustellen, indem Sie die `-e` Option verwenden. Zum Beispiel:
 
 ```bash
 rsync [-options] -e "ssh [SSH DETAILS GO HERE]" SOURCE user@x.x.x.x:DESTINATION
 ```
 
-Weitere Details zu den erforderlichen Informationen finden Sie unter [How To Copy Files With Rsync Over SSH](https://www.digitalocean.com/community/tutorials/how-to-copy-files-with-rsync-over-ssh).
+Weitere Details dazu finden Sie unter [How To Copy Files With Rsync Over SSH](https://www.digitalocean.com/community/tutorials/how-to-copy-files-with-rsync-over-ssh).
 
 ### Rsync GUI-Tools
 
-Für Rsync sind GUI-Tools verfügbar (für diejenigen, die sich mit der Befehlszeile nicht so wohl fühlen). [Acrosync](https://acrosync.com/mac.html) ist ein solches Tool, und es ist für Windows und macOS erhältlich.
+GUI-Tools sind für Rsync verfügbar (für diejenigen, die sich mit der Befehlszeile nicht so wohl fühlen). [Acrosync](https://acrosync.com/mac.html) ist ein solches Tool und es ist für Windows und macOS verfügbar.
 
-Auch hier müssten Sie die Verbindungsdaten von Ihrem Hosting-Anbieter erhalten, aber auf diese Weise hätten Sie eine grafische Benutzeroberfläche, um sie einzugeben.
+Auch hier müssten Sie die Verbindungseinstellungen von Ihrem Hosting-Anbieter erhalten, aber auf diese Weise hätten Sie eine GUI, um sie einzugeben.
 
 ## GitHub
 
-GitHub ermöglicht das Veröffentlichen von Websites über [GitHub Pages](https://pages.github.com/) (gh-pages).
+GitHub ermöglicht Ihnen, Websites über [GitHub Pages](https://pages.github.com/) (gh-pages) zu veröffentlichen.
 
-Die Grundlagen zur Nutzung dieses Dienstes haben wir in dem Artikel [Veröffentlichen Ihrer Website](/de/docs/Learn_web_development/Getting_started/Your_first_website/Publishing_your_website) aus unserem [Einstieg in das Web](/de/docs/Learn_web_development/Getting_started/Your_first_website) Leitfaden behandelt, daher werden wir hier nicht alles wiederholen.
+Wir haben die Grundlagen dieser Nutzung im Artikel [Veröffentlichen Ihrer Website](/de/docs/Learn_web_development/Getting_started/Your_first_website/Publishing_your_website) aus unserem [Leitfaden „Einstieg ins Web“](/de/docs/Learn_web_development/Getting_started/Your_first_website) behandelt, daher werden wir es hier nicht wiederholen.
 
-Es ist jedoch wissenswert, dass Sie auch eine Website auf GitHub hosten können, jedoch mit einer benutzerdefinierten Domain. Weitere Informationen finden Sie unter [Using a custom domain with GitHub Pages](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site).
+Es ist jedoch wissenswert, dass Sie auch eine Website auf GitHub hosten können, aber eine benutzerdefinierte Domain damit verwenden können. Siehe [Using a custom domain with GitHub Pages](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site) für eine detaillierte Anleitung.
 
-## Weitere Methoden zum Hochladen von Dateien
+## Andere Methoden zum Hochladen von Dateien
 
-Das FTP-Protokoll ist eine bekannte Methode zur Veröffentlichung einer Website, aber nicht die einzige. Hier sind einige weitere Möglichkeiten:
+Das FTP-Protokoll ist eine bekannte Methode zur Veröffentlichung einer Website, aber nicht die einzige. Hier sind ein paar andere Möglichkeiten:
 
-- **Webschnittstellen**. Eine HTML-Oberfläche dient als Front-End für einen Dienst zum Hochladen von Dateien. Bereitgestellt von Ihrem Hosting-Dienst.
-- **{{Glossary("WebDAV", "WebDAV")}}**. Eine Erweiterung des {{Glossary("HTTP", "HTTP")}} Protokolls, um erweiterte Datei-Management-Möglichkeiten zu ermöglichen.
+- **Webschnittstellen**. Eine HTML-Oberfläche, die als Front-End für einen entfernten Datei-Upload-Dienst dient. Bereitgestellt von Ihrem Hosting-Service.
+- **{{Glossary("WebDAV", "WebDAV")}}**. Eine Erweiterung des {{Glossary("HTTP", "HTTP")}}-Protokolls, um ein fortgeschritteneres Dateimanagement zu ermöglichen.

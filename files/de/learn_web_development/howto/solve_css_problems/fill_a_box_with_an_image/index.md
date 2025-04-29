@@ -1,21 +1,22 @@
 ---
-title: Wie man eine Box mit einem Bild füllt, ohne es zu verzerren
+title: Anleitung, wie man eine Box mit einem Bild füllt, ohne es zu verzerren
+short-title: Eine Box mit einem Bild füllen
 slug: Learn_web_development/Howto/Solve_CSS_problems/Fill_a_box_with_an_image
 l10n:
-  sourceCommit: 48d220a8cffdfd5f088f8ca89724a9a92e34d8c0
+  sourceCommit: 479ea4c8bff4b900a7968413287c77dde2b0c20f
 ---
 
-In diesem Leitfaden können Sie eine Technik kennenlernen, um ein HTML-Bild dazu zu bringen, eine Box vollständig auszufüllen.
+In diesem Leitfaden erfahren Sie, wie Sie ein HTML-Bild so einstellen, dass es eine Box vollständig ausfüllt.
 
 ## Verwendung von object-fit
 
-Wenn Sie ein Bild mit dem HTML-{{htmlelement("img")}}-Element zu einer Seite hinzufügen, behält das Bild die Größe und das {{Glossary("aspect_ratio", "Seitenverhältnis")}} der Bilddatei oder das eines HTML-[`width`](/de/docs/Web/HTML/Reference/Elements/img#width) oder [`height`](/de/docs/Web/HTML/Reference/Elements/img#height)-Attributs bei. Manchmal möchten Sie, dass das Bild die Box, in der Sie es platziert haben, vollständig ausfüllt. In diesem Fall müssen Sie zuerst entscheiden, was passiert, wenn das Bild das falsche Seitenverhältnis für den Container hat.
+Wenn Sie ein Bild mit dem HTML-{{htmlelement("img")}}-Element zu einer Seite hinzufügen, behält das Bild die Größe und das {{Glossary("aspect_ratio", "Seitenverhältnis")}} der Bilddatei bei, oder das der HTML-Attribute [`width`](/de/docs/Web/HTML/Reference/Elements/img#width) oder [`height`](/de/docs/Web/HTML/Reference/Elements/img#height). Manchmal möchten Sie jedoch, dass das Bild die Box, in der Sie es platziert haben, vollständig ausfüllt. In diesem Fall müssen Sie zuerst entscheiden, was passieren soll, wenn das Bild nicht das richtige Seitenverhältnis für den Container hat.
 
-1. Das Bild sollte die Box vollständig ausfüllen, das Seitenverhältnis beibehalten und den überschüssigen Teil auf der zu großen Seite zuschneiden.
-2. Das Bild sollte in die Box passen, wobei der Hintergrund als Streifen auf der zu kleinen Seite durchscheint.
+1. Das Bild sollte die Box vollständig ausfüllen, das Seitenverhältnis beibehalten und überschüssige Teile auf der Seite, die zu groß ist, um zu passen, abschneiden.
+2. Das Bild sollte in die Box passen, wobei der Hintergrund als Streifen auf der zu kleinen Seite sichtbar ist.
 3. Das Bild sollte die Box ausfüllen und sich strecken, was bedeuten kann, dass es im falschen Seitenverhältnis angezeigt wird.
 
-Die {{cssxref("object-fit")}}-Eigenschaft ermöglicht alle diese Ansätze. Im folgenden Beispiel können Sie sehen, wie unterschiedliche Werte von `object-fit` mit dem gleichen Bild funktionieren. Wählen Sie den Ansatz, der am besten zu Ihrem Design passt.
+Die Eigenschaft {{cssxref("object-fit")}} ermöglicht all diese Ansätze. Im folgenden Beispiel können Sie sehen, wie unterschiedliche Werte von `object-fit` funktionieren, wenn dasselbe Bild verwendet wird. Wählen Sie den Ansatz, der am besten zu Ihrem Design passt.
 
 ```html live-sample___object-fit
 <div class="wrapper">
