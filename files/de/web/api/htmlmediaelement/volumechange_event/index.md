@@ -3,23 +3,23 @@ title: "HTMLMediaElement: volumechange Ereignis"
 short-title: volumechange
 slug: Web/API/HTMLMediaElement/volumechange_event
 l10n:
-  sourceCommit: b71d118ffc6d72b77efad9661110fcc9ede464eb
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{APIRef("HTMLMediaElement")}}
 
-Das `volumechange` Ereignis wird ausgelöst, wenn sich entweder das [`volume`](/de/docs/Web/API/HTMLMediaElement/volume)-Attribut oder das [`muted`](/de/docs/Web/API/HTMLMediaElement/muted)-Attribut geändert hat.
+Das `volumechange` Ereignis wird ausgelöst, wenn entweder das [`volume`](/de/docs/Web/API/HTMLMediaElement/volume)-Attribut oder das [`muted`](/de/docs/Web/API/HTMLMediaElement/muted)-Attribut geändert wurde.
 
-Dieses Ereignis kann nicht abgebrochen werden und löst keine Bubble aus.
+Dieses Ereignis kann nicht abgebrochen werden und wird nicht weitergereicht (bubbled).
 
 ## Syntax
 
 Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
-```js
-addEventListener("volumechange", (event) => {});
+```js-nolint
+addEventListener("volumechange", (event) => { })
 
-onvolumechange = (event) => {};
+onvolumechange = (event) => { }
 ```
 
 ## Ereignistyp
@@ -28,7 +28,7 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-Diese Beispiele fügen einen Event Listener für das `volumechange` Ereignis des HTMLMediaElements hinzu und geben dann eine Nachricht aus, wenn der Ereignishandler auf das Auslösen des Ereignisses reagiert hat.
+Diese Beispiele fügen einen Ereignislistener für das `volumechange` Ereignis des HTMLMediaElements hinzu und senden eine Nachricht, wenn dieser Ereignishandler auf das Auslösen des Ereignisses reagiert hat.
 
 Verwendung von `addEventListener()`:
 

@@ -3,25 +3,25 @@ title: "RTCPeerConnection: track Ereignis"
 short-title: track
 slug: Web/API/RTCPeerConnection/track_event
 l10n:
-  sourceCommit: 00f46adb5616d826821d63b11eac285faf1cf4a5
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{APIRef("WebRTC")}}
 
-Das **`track`**-Ereignis wird an den `ontrack`-Ereignishandler auf [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)s gesendet, nachdem ein neuer Track zu einem [`RTCRtpReceiver`](/de/docs/Web/API/RTCRtpReceiver) hinzugefügt wurde, der Teil der Verbindung ist.
+Das **`track`**-Ereignis wird an den `ontrack`-Ereignishandler auf [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)s gesendet, nachdem eine neue Spur zu einem [`RTCRtpReceiver`](/de/docs/Web/API/RTCRtpReceiver) hinzugefügt wurde, der Teil der Verbindung ist.
 
-Zum Zeitpunkt der Zustellung dieses Ereignisses wurde der neue Track vollständig zur Peer-Verbindung hinzugefügt. Einzelheiten finden Sie unter [Track-Ereignistypen](/de/docs/Web/API/RTCTrackEvent#track_event_types).
+Zum Zeitpunkt der Zustellung dieses Ereignisses wurde die neue Spur vollständig zur Peer-Verbindung hinzugefügt. Siehe [Track-Ereignistypen](/de/docs/Web/API/RTCTrackEvent#track_event_types) für Details.
 
-Dieses Ereignis kann nicht abgebrochen werden und es wird nicht gebubbelt.
+Dieses Ereignis ist nicht abbrechbar und wird nicht weitergeleitet.
 
 ## Syntax
 
 Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
-```js
-addEventListener("track", (event) => {});
+```js-nolint
+addEventListener("track", (event) => { })
 
-ontrack = (event) => {};
+ontrack = (event) => { }
 ```
 
 ## Ereignistyp
@@ -35,17 +35,17 @@ Ein [`RTCTrackEvent`](/de/docs/Web/API/RTCTrackEvent). Erbt von [`Event`](/de/do
 _Da `RTCTrackEvent` auf [`Event`](/de/docs/Web/API/Event) basiert, sind dessen Eigenschaften ebenfalls verfügbar._
 
 - [`receiver`](/de/docs/Web/API/RTCTrackEvent/receiver) {{ReadOnlyInline}}
-  - : Der [`RTCRtpReceiver`](/de/docs/Web/API/RTCRtpReceiver), der von dem hinzugefügten Track zur `RTCPeerConnection` verwendet wird.
+  - : Der [`RTCRtpReceiver`](/de/docs/Web/API/RTCRtpReceiver), der von der hinzugefügten Spur in der `RTCPeerConnection` verwendet wird.
 - [`streams`](/de/docs/Web/API/RTCTrackEvent/streams) {{ReadOnlyInline}} {{optional_inline}}
-  - : Ein Array von [`MediaStream`](/de/docs/Web/API/MediaStream)-Objekten, die jeweils einen der Medienströme darstellen, zu denen der hinzugefügte [`track`](/de/docs/Web/API/RTCTrackEvent/track) gehört. Standardmäßig ist das Array leer, was auf einen streamlosen Track hinweist.
+  - : Ein Array von [`MediaStream`](/de/docs/Web/API/MediaStream)-Objekten, von denen jedes einen der Medienstreams repräsentiert, zu denen die hinzugefügte [`track`](/de/docs/Web/API/RTCTrackEvent/track) gehört. Standardmäßig ist das Array leer, was auf eine spurlose Spur hinweist.
 - [`track`](/de/docs/Web/API/RTCTrackEvent/track) {{ReadOnlyInline}}
-  - : Der [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack), der zur Verbindung hinzugefügt wurde.
+  - : Die [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack), die zur Verbindung hinzugefügt wurde.
 - [`transceiver`](/de/docs/Web/API/RTCTrackEvent/transceiver) {{ReadOnlyInline}}
-  - : Der [`RTCRtpTransceiver`](/de/docs/Web/API/RTCRtpTransceiver), der vom neuen Track verwendet wird.
+  - : Der [`RTCRtpTransceiver`](/de/docs/Web/API/RTCRtpTransceiver), der von der neuen Spur verwendet wird.
 
 ## Beispiele
 
-Dieses Beispiel zeigt Code, der eine neue [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) erstellt und dann einen neuen `track`-Ereignishandler hinzufügt.
+Dieses Beispiel zeigt Code zur Erstellung einer neuen [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) und fügt einen neuen `track`-Ereignishandler hinzu.
 
 ```js
 pc = new RTCPeerConnection({
@@ -68,9 +68,9 @@ pc.addEventListener(
 );
 ```
 
-Der Ereignishandler ordnet den ersten Stream des neuen Tracks einem bestehenden {{HTMLElement("video")}}-Element zu, das mit der Variablen `videoElement` identifiziert wird.
+Der Ereignishandler weist den ersten Stream der neuen Spur einem vorhandenen {{HTMLElement("video")}}-Element zu, das mithilfe der Variablen `videoElement` identifiziert wird.
 
-Sie können die Ereignishandlungsfunktion auch der `ontrack`-Eigenschaft zuweisen, anstatt [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) zu verwenden.
+Sie können die Ereignishandler-Funktion auch der `ontrack`-Eigenschaft zuweisen, anstatt [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) zu verwenden.
 
 ```js
 pc.ontrack = (e) => {

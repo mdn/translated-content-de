@@ -1,31 +1,31 @@
 ---
-title: "EditContext: Ereignis textformatupdate"
+title: "EditContext: textformatupdate-Ereignis"
 short-title: textformatupdate
 slug: Web/API/EditContext/textformatupdate_event
 l10n:
-  sourceCommit: f216422c99b6c7014e398803b70600501bce8a48
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{APIRef("EditContext API")}}{{SeeCompatTable}}
 
-Das `textformatupdate`-Ereignis der [`EditContext`](/de/docs/Web/API/EditContext)-Schnittstelle wird ausgelöst, wenn die Eingabe über einen {{Glossary("Input_Method_Editor", "Input Method Editor")}} (IME)-Fenster erfolgt.
+Das `textformatupdate`-Ereignis des [`EditContext`](/de/docs/Web/API/EditContext)-Interfaces wird ausgelöst, wenn eine Komposition mit einem {{Glossary("Input_Method_Editor", "Input Method Editor")}} (IME) erfolgt.
 
-Das Ereignis wird ausgelöst, wenn der IME entscheidet, dass bestimmte Teile des gerade komponierten Textes anders formatiert werden sollten, um den Kompositionszustand anzuzeigen.
+Das Ereignis wird ausgelöst, wenn der IME entscheidet, dass bestimmte Teile des zu komponierenden Textes anders formatiert werden sollten, um den Kompositionsstatus anzuzeigen.
 
-Der folgende Screenshot zeigt ein Beispiel für Text, der in der Notepad-App auf Windows mit dem japanischen IME geschrieben wird. Der Text ist mit einer dicken Unterstreichung formatiert, um anzuzeigen, dass er aus einer der IME-Vorschläge zusammengesetzt wurde.
+Der folgende Screenshot zeigt ein Beispiel für Text, der in der Notepad-App auf Windows geschrieben wird, indem der japanische IME verwendet wird. Der Text ist mit einer fetten Unterstreichung formatiert, um anzuzeigen, dass er aus einem Vorschlag des IME komponiert wurde.
 
 ![Notepad auf Windows mit japanischem Text, der aus dem IME-Fenster komponiert wird](./ime-notepad.png)
 
-Als Webentwickler sollten Sie das `textformatupdate`-Ereignis beobachten und die Formatierung des in Ihrer editierbaren Region angezeigten Textes entsprechend aktualisieren.
+Als Webentwickler sollten Sie auf das `textformatupdate`-Ereignis hören und die Formatierung des in Ihrem bearbeitbaren Bereich angezeigten Textes entsprechend aktualisieren.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
-```js
-addEventListener("textformatupdate", (event) => {});
+```js-nolint
+addEventListener("textformatupdate", (event) => { })
 
-ontextformatupdate = (event) => {};
+ontextformatupdate = (event) => { }
 ```
 
 ## Ereignistyp
@@ -34,7 +34,7 @@ Ein [`TextFormatUpdateEvent`](/de/docs/Web/API/TextFormatUpdateEvent). Erbt von 
 
 ## Ereigniseigenschaften
 
-_Neben den unten aufgeführten Eigenschaften sind die Eigenschaften der übergeordneten Schnittstelle [`Event`](/de/docs/Web/API/Event) verfügbar._
+_Neben den unten aufgeführten Eigenschaften sind auch Eigenschaften des übergeordneten Interfaces, [`Event`](/de/docs/Web/API/Event), verfügbar._
 
 - [`TextFormatUpdateEvent.getTextFormats`](/de/docs/Web/API/TextFormatUpdateEvent/getTextFormats)
   - : Gibt die Liste der Textformate zurück, die das IME-Fenster auf den Text anwenden möchte.
@@ -43,7 +43,7 @@ _Neben den unten aufgeführten Eigenschaften sind die Eigenschaften der übergeo
 
 ### Rendering von IME-Kompositionstextformatierung
 
-Im folgenden Beispiel wird das `textformatupdate`-Ereignis verwendet, um die Formatierung des Textes in der editierbaren Region zu aktualisieren. Beachten Sie, dass der Ereignis-Listener-Callback in diesem Beispiel nur aufgerufen wird, wenn ein IME-Fenster oder andere plattformspezifische Bearbeitungsoberflächen zum Textkomponieren verwendet werden.
+Im folgenden Beispiel wird das `textformatupdate`-Ereignis verwendet, um die Formatierung des Textes im bearbeitbaren Bereich zu aktualisieren. Beachten Sie, dass der Event-Listener-Callback in diesem Beispiel nur aufgerufen wird, wenn ein IME-Fenster oder andere plattformspezifische Bearbeitungsoberflächen verwendet werden, um Text zu komponieren.
 
 ```html
 <canvas id="editor-canvas"></canvas>

@@ -1,25 +1,25 @@
 ---
-title: "HTMLDialogElement: close-Ereignis"
+title: "HTMLDialogElement: close Ereignis"
 short-title: close
 slug: Web/API/HTMLDialogElement/close_event
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{APIRef}}
 
-Das `close`-Ereignis wird auf einem `HTMLDialogElement`-Objekt ausgelöst, wenn das repräsentierte {{htmlelement("dialog")}} geschlossen wurde.
+Das `close` Ereignis wird auf einem `HTMLDialogElement` Objekt ausgelöst, wenn das damit verknüpfte {{htmlelement("dialog")}} geschlossen wurde.
 
-Dieses Ereignis kann nicht abgebrochen werden und löst keine Event-Bubbling aus.
+Dieses Ereignis kann nicht abgebrochen werden und wird nicht weitergegeben.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine `event handler`-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder legen Sie eine Ereignishandler-Eigenschaft fest.
 
-```js
-addEventListener("close", (event) => {});
+```js-nolint
+addEventListener("close", (event) => { })
 
-onclose = (event) => {};
+onclose = (event) => { }
 ```
 
 ## Ereignistyp

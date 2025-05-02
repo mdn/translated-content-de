@@ -3,23 +3,23 @@ title: "HTMLMediaElement: playing Event"
 short-title: playing
 slug: Web/API/HTMLMediaElement/playing_event
 l10n:
-  sourceCommit: b71d118ffc6d72b77efad9661110fcc9ede464eb
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{APIRef("HTMLMediaElement")}}
 
-Das `playing` Event wird ausgelöst, nachdem die Wiedergabe zum ersten Mal gestartet wurde und immer wenn sie neu gestartet wird. Beispielsweise wird es ausgelöst, wenn die Wiedergabe nach einer Pause oder Verzögerung aufgrund fehlender Daten fortgesetzt wird.
+Das `playing`-Ereignis wird ausgelöst, nachdem die Wiedergabe zum ersten Mal gestartet wurde und wann immer sie neu gestartet wird. Zum Beispiel wird es ausgelöst, wenn die Wiedergabe fortgesetzt wird, nachdem sie pausiert oder aufgrund von Datenmangel verzögert wurde.
 
-Dieses Ereignis ist nicht abbrichbar und propagiert nicht.
+Dieses Ereignis kann nicht abgebrochen werden und wird nicht weitergeleitet.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Event-Handler-Eigenschaft.
 
-```js
-addEventListener("playing", (event) => {});
+```js-nolint
+addEventListener("playing", (event) => { })
 
-onplaying = (event) => {};
+onplaying = (event) => { }
 ```
 
 ## Ereignistyp
@@ -28,7 +28,7 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-Diese Beispiele fügen einen Ereignis-Listener für das `playing` Ereignis des HTMLMediaElement hinzu und senden eine Nachricht, wenn der Ereignis-Handler auf das Auslösen des Ereignisses reagiert hat.
+Diese Beispiele fügen einen Ereignis-Listener für das `playing`-Ereignis des HTMLMediaElement hinzu und senden dann eine Nachricht, wenn dieser Ereignis-Handler auf das Ereignis reagiert hat.
 
 Verwendung von `addEventListener()`:
 
@@ -40,7 +40,7 @@ video.addEventListener("playing", (event) => {
 });
 ```
 
-Verwendung der `onplaying` Ereignis-Handler-Eigenschaft:
+Verwendung der `onplaying`-Ereignis-Handler-Eigenschaft:
 
 ```js
 const video = document.querySelector("video");

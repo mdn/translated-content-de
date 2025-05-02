@@ -3,23 +3,23 @@ title: "ServiceWorkerGlobalScope: install-Ereignis"
 short-title: install
 slug: Web/API/ServiceWorkerGlobalScope/install_event
 l10n:
-  sourceCommit: 759102220c07fb140b3e06971cd5981d8f0f134f
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{APIRef("Service Workers API")}}{{SecureContext_Header}}{{AvailableInWorkers("service")}}
 
-Das **`install`**-Ereignis des [`ServiceWorkerGlobalScope`](/de/docs/Web/API/ServiceWorkerGlobalScope)-Interfaces wird ausgelöst, wenn eine [`ServiceWorkerRegistration`](/de/docs/Web/API/ServiceWorkerRegistration) einen neuen [`ServiceWorkerRegistration.installing`](/de/docs/Web/API/ServiceWorkerRegistration/installing)-Arbeiter erhält.
+Das **`install`**-Ereignis des [`ServiceWorkerGlobalScope`](/de/docs/Web/API/ServiceWorkerGlobalScope)-Interfaces wird ausgelöst, wenn eine [`ServiceWorkerRegistration`](/de/docs/Web/API/ServiceWorkerRegistration) eine neue [`ServiceWorkerRegistration.installing`](/de/docs/Web/API/ServiceWorkerRegistration/installing) Worker erhält.
 
-Dieses Ereignis kann nicht abgebrochen werden und wird nicht gebubbelt.
+Dieses Ereignis kann nicht abgebrochen werden und löst keine Bubbling aus.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignisbehandlereigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandlereigenschaft.
 
-```js
-addEventListener("install", (event) => {});
+```js-nolint
+addEventListener("install", (event) => { })
 
-oninstall = (event) => {};
+oninstall = (event) => { }
 ```
 
 ## Ereignistyp
@@ -34,7 +34,7 @@ _Implementiert keine spezifischen Eigenschaften, erbt jedoch Eigenschaften von s
 
 ## Beispiele
 
-Der folgende Ausschnitt zeigt, wie ein `install`-Ereignishandler verwendet werden kann, um einen Cache mit einer Anzahl von Antworten zu füllen, die der Service Worker zur Bereitstellung von Offline-Assets verwenden kann:
+Das folgende Beispiel zeigt, wie ein `install`-Ereignishandler verwendet werden kann, um einen Cache mit mehreren Antworten zu füllen, die der Service Worker dann verwenden kann, um Assets offline zu liefern:
 
 ```js
 self.addEventListener("install", (event) => {
@@ -59,7 +59,7 @@ self.addEventListener("install", (event) => {
 });
 ```
 
-Sie können auch den Ereignis-Handler mit der `oninstall`-Eigenschaft einrichten:
+Sie können den Ereignishandler auch über die `oninstall`-Eigenschaft einrichten:
 
 ```js
 self.oninstall = (event) => {
@@ -77,6 +77,6 @@ self.oninstall = (event) => {
 
 ## Siehe auch
 
-- [`activate`](/de/docs/Web/API/ServiceWorkerGlobalScope/activate_event)-Ereignis
+- [`activate`](/de/docs/Web/API/ServiceWorkerGlobalScope/activate_event) Ereignis
 - [`ServiceWorkerGlobalScope`](/de/docs/Web/API/ServiceWorkerGlobalScope)
 - [Service Worker API](/de/docs/Web/API/Service_Worker_API)

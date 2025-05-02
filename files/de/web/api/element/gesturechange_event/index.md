@@ -3,23 +3,23 @@ title: "Element: gesturechange Ereignis"
 short-title: gesturechange
 slug: Web/API/Element/gesturechange_event
 l10n:
-  sourceCommit: bbf7f25f9cf95fb154e2740a9fdc9c02818981bf
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{APIRef}}{{Non-standard_header}}
 
-Das **`gesturechange`** Ereignis wird ausgelöst, wenn sich Finger während einer Berührungsgeste bewegen.
+Das **`gesturechange`** Ereignis wird ausgelöst, wenn sich Finger während einer Touch-Geste bewegen.
 
 Es handelt sich um ein proprietäres Ereignis, das spezifisch für WebKit ist.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Event-Handler-Eigenschaft.
 
-```js
-addEventListener("gesturechange", (event) => {});
+```js-nolint
+addEventListener("gesturechange", (event) => { })
 
-ongesturechange = (event) => {};
+ongesturechange = (event) => { }
 ```
 
 ## Ereignistyp
@@ -33,13 +33,13 @@ Ein [`GestureEvent`](/de/docs/Web/API/GestureEvent). Erbt von [`Event`](/de/docs
 _Diese Schnittstelle erbt auch Eigenschaften ihrer Eltern, [`UIEvent`](/de/docs/Web/API/UIEvent) und [`Event`](/de/docs/Web/API/Event)._
 
 - [`GestureEvent.rotation`](/de/docs/Web/API/GestureEvent/rotation) {{ReadOnlyInline}}
-  - : Änderung der Rotation (in Grad) seit Beginn des Ereignisses. Positive Werte zeigen eine Drehung im Uhrzeigersinn an; negative Werte zeigen eine Drehung gegen den Uhrzeigersinn an. Anfangswert: `0.0`.
+  - : Änderung der Rotation (in Grad) seit dem Beginn des Ereignisses. Positive Werte weisen auf eine Drehung im Uhrzeigersinn hin; negative Werte auf eine Drehung gegen den Uhrzeigersinn. Anfangswert: `0.0`.
 - [`GestureEvent.scale`](/de/docs/Web/API/GestureEvent/scale) {{ReadOnlyInline}}
-  - : Abstand zwischen zwei Fingern seit Beginn des Ereignisses. Ausgedrückt als Gleitkomma-Multiplikator des ursprünglichen Abstands zwischen den Fingern zu Beginn der Geste. Werte unter 1.0 zeigen ein Zusammenziehen (Herauszoomen) an. Werte über 1.0 zeigen ein Auseinanderziehen (Hineinzoomen) an. Anfangswert: `1.0`.
+  - : Entfernung zwischen zwei Fingern seit dem Beginn des Ereignisses. Angegeben als Gleitkommazahl, die ein Vielfaches der anfänglichen Entfernung zwischen den Fingern zu Beginn der Geste darstellt. Werte unter 1.0 weisen auf ein Zusammenziehen (Herauszoomen) hin. Werte über 1.0 weisen auf ein Auseinanderziehen (Hineinzoomen) hin. Anfangswert: `1.0`.
 
 ## Spezifikationen
 
-Teil keiner Spezifikation.
+Nicht Teil einer Spezifikation.
 
 ## Browser-Kompatibilität
 

@@ -1,47 +1,47 @@
 ---
-title: "XMLHttpRequestUpload: load-Ereignis"
+title: "XMLHttpRequestUpload: load-Event"
 short-title: load
 slug: Web/API/XMLHttpRequestUpload/load_event
 l10n:
-  sourceCommit: 9c78a44b9321fcd3fbe63d6f5b61ed749c2fa261
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{APIRef("XMLHttpRequest API")}} {{AvailableInWorkers("window_and_worker_except_service")}}
 
-Das `load`-Ereignis wird ausgelöst, wenn ein [`XMLHttpRequestUpload`](/de/docs/Web/API/XMLHttpRequestUpload)-Vorgang erfolgreich abgeschlossen wird.
+Das `load`-Event wird ausgelöst, wenn eine [`XMLHttpRequestUpload`](/de/docs/Web/API/XMLHttpRequestUpload)-Transaktion erfolgreich abgeschlossen wird.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandlereigenschaft.
+Verwenden Sie den Event-Namen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Event-Handler-Eigenschaft.
 
-```js
-addEventListener("load", (event) => {});
+```js-nolint
+addEventListener("load", (event) => { })
 
-onload = (event) => {};
+onload = (event) => { }
 ```
 
-## Ereignistyp
+## Event-Typ
 
 Ein [`ProgressEvent`](/de/docs/Web/API/ProgressEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("ProgressEvent")}}
 
-## Ereigniseigenschaften
+## Event-Eigenschaften
 
-_Neben den unten aufgeführten Eigenschaften sind die Eigenschaften der übergeordneten Schnittstelle, [`Event`](/de/docs/Web/API/Event), verfügbar._
+_Zusätzlich zu den unten aufgeführten Eigenschaften sind die Eigenschaften der übergeordneten Schnittstelle, [`Event`](/de/docs/Web/API/Event), verfügbar._
 
 - [`lengthComputable`](/de/docs/Web/API/ProgressEvent/lengthComputable) {{ReadOnlyInline}}
-  - : Ein boolesches Flag, das anzeigt, ob die gesamte zu leistende Arbeit und die bereits geleistete Arbeit des zugrunde liegenden Prozesses berechenbar sind. Mit anderen Worten, es zeigt an, ob der Fortschritt messbar ist oder nicht.
+  - : Ein boolesches Flag, das angibt, ob die gesamte zu erledigende Arbeit und die bereits geleistete Arbeit vom zugrunde liegenden Prozess berechenbar ist. Mit anderen Worten, es zeigt an, ob der Fortschritt messbar ist oder nicht.
 - [`loaded`](/de/docs/Web/API/ProgressEvent/loaded) {{ReadOnlyInline}}
-  - : Ein 64-Bit-Unsigned-Integer-Wert, der die Menge der bereits vom zugrunde liegenden Prozess geleisteten Arbeit angibt. Das Verhältnis der geleisteten Arbeit kann berechnet werden, indem `total` durch den Wert dieser Eigenschaft geteilt wird. Beim Herunterladen einer Ressource über HTTP zählt dies nur den Körper der HTTP-Nachricht und schließt keine Header und anderen Overhead ein.
+  - : Ein 64-Bit-Unsigned-Integer-Wert, der die bereits vom zugrunde liegenden Prozess geleistete Arbeit angibt. Das Verhältnis der geleisteten Arbeit kann berechnet werden, indem `total` durch den Wert dieser Eigenschaft geteilt wird. Beim Herunterladen einer Ressource über HTTP zählt dies nur den Hauptteil der HTTP-Nachricht und schließt Header und andere Overheads aus.
 - [`total`](/de/docs/Web/API/ProgressEvent/total) {{ReadOnlyInline}}
-  - : Ein 64-Bit-Unsigned-Integer, der die Gesamtmenge der Arbeit repräsentiert, die der zugrunde liegende Prozess gerade ausführt. Beim Herunterladen einer Ressource über HTTP ist dies die `Content-Length` (die Größe des Nachrichtentextes) und schließt keine Header und anderen Overhead ein.
+  - : Ein 64-Bit-Unsigned-Integer-Wert, der die gesamte Menge der Arbeit repräsentiert, die der zugrunde liegende Prozess ausführt. Beim Herunterladen einer Ressource über HTTP ist dies die `Content-Length` (die Größe des Hauptteils der Nachricht) und schließt die Header und andere Overheads aus.
 
 ### Beispiele
 
-## Verwendung des `load`-Ereignisses
+## Verwendung des `load`-Events
 
-Sie können das `load`-Ereignis verwenden, um das erfolgreiche Ende eines Uploads zu erkennen. Ein vollständiges Codebeispiel, das eine Datei hochlädt und eine Fortschrittsanzeige anzeigt, finden Sie auf der Hauptseite von [`XMLHttpRequestUpload`](/de/docs/Web/API/XMLHttpRequestUpload).
+Sie können das `load`-Event verwenden, um das erfolgreiche Ende eines Uploads zu erkennen. Für ein vollständiges Codebeispiel, das eine Datei hochlädt und eine Fortschrittsleiste anzeigt, siehe die Hauptseite von [`XMLHttpRequestUpload`](/de/docs/Web/API/XMLHttpRequestUpload).
 
 ```js
 // When the upload is finished, we hide the progress bar.
@@ -62,5 +62,5 @@ xhr.upload.addEventListener("load", (event) => {
 
 ## Siehe auch
 
-- Verwandte Ereignisse: [`loadstart`](/de/docs/Web/API/XMLHttpRequestUpload/loadstart_event), [`progress`](/de/docs/Web/API/XMLHttpRequestUpload/progress_event), [`error`](/de/docs/Web/API/XMLHttpRequestUpload/error_event), [`loadend`](/de/docs/Web/API/XMLHttpRequestUpload/loadend_event), [`abort`](/de/docs/Web/API/XMLHttpRequestUpload/abort_event), [`timeout`](/de/docs/Web/API/XMLHttpRequestUpload/timeout_event)
+- Verwandte Events: [`loadstart`](/de/docs/Web/API/XMLHttpRequestUpload/loadstart_event), [`progress`](/de/docs/Web/API/XMLHttpRequestUpload/progress_event), [`error`](/de/docs/Web/API/XMLHttpRequestUpload/error_event), [`loadend`](/de/docs/Web/API/XMLHttpRequestUpload/loadend_event), [`abort`](/de/docs/Web/API/XMLHttpRequestUpload/abort_event), [`timeout`](/de/docs/Web/API/XMLHttpRequestUpload/timeout_event)
 - [`XMLHttpRequestUpload`](/de/docs/Web/API/XMLHttpRequestUpload)

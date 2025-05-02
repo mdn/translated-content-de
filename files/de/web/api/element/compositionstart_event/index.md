@@ -1,25 +1,25 @@
 ---
-title: "Element: compositionstart Event"
+title: "Element: compositionstart Ereignis"
 short-title: compositionstart
 slug: Web/API/Element/compositionstart_event
 l10n:
-  sourceCommit: cede06423af0242a18670246e1b25562d21c0004
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{APIRef}}
 
-Das **`compositionstart`**-Ereignis wird ausgelöst, wenn ein Textzusammensetzungssystem wie ein {{Glossary("input_method_editor", "Eingabemethoden-Editor")}} eine neue Zusammensetzungssitzung startet.
+Das **`compositionstart`** Ereignis wird ausgelöst, wenn ein Textzusammensetzungssystem wie ein {{Glossary("input_method_editor", "Eingabemethoden-Editor")}} eine neue Zusammenführungssitzung startet.
 
-Beispielsweise könnte dieses Ereignis ausgelöst werden, nachdem ein Benutzer anfängt, ein chinesisches Zeichen mit einem [Pinyin](https://en.wikipedia.org/wiki/Pinyin)-{{Glossary("Input_method_editor", "Eingabemethoden-Editor")}} einzugeben.
+Zum Beispiel könnte dieses Ereignis ausgelöst werden, nachdem ein Benutzer beginnt, ein chinesisches Zeichen mit einem [Pinyin](https://en.wikipedia.org/wiki/Pinyin) {{Glossary("Input_method_editor", "Eingabemethoden-Editor")}} einzugeben.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandlereigenschaft.
 
-```js
-addEventListener("compositionstart", (event) => {});
+```js-nolint
+addEventListener("compositionstart", (event) => { })
 
-oncompositionstart = (event) => {};
+oncompositionstart = (event) => { }
 ```
 
 ## Ereignistyp
@@ -30,12 +30,12 @@ Ein [`CompositionEvent`](/de/docs/Web/API/CompositionEvent). Erbt von [`UIEvent`
 
 ## Ereigniseigenschaften
 
-_Diese Schnittstelle erbt auch Eigenschaften ihrer Eltern, [`UIEvent`](/de/docs/Web/API/UIEvent), und ihres Vorfahren — [`Event`](/de/docs/Web/API/Event)._
+_Diese Schnittstelle erbt auch Eigenschaften von ihrem Elternteil, [`UIEvent`](/de/docs/Web/API/UIEvent), und ihrem Vorfahren — [`Event`](/de/docs/Web/API/Event)._
 
 - [`CompositionEvent.data`](/de/docs/Web/API/CompositionEvent/data) {{ReadOnlyInline}}
-  - : Gibt die vom Eingabemethoden-Editor erzeugten Zeichen zurück, die das Ereignis ausgelöst haben; sie variieren je nach Art des Ereignisses, das das `CompositionEvent`-Objekt erzeugt hat.
+  - : Gibt die vom Eingabemethode-Editor erzeugten Zeichen zurück, die das Ereignis ausgelöst haben; dies variiert je nach Typ des Ereignisses, das das `CompositionEvent`-Objekt erzeugt hat.
 - [`CompositionEvent.locale`](/de/docs/Web/API/CompositionEvent/locale) {{ReadOnlyInline}} {{deprecated_inline}}
-  - : Gibt die Gebietsschema des aktuellen Eingabemethoden-Editors zurück (zum Beispiel das Tastaturlayout-Gebietsschema, wenn die Zusammensetzung mit IME verbunden ist).
+  - : Gibt die Gebietsschema der aktuellen Eingabemethode zurück (zum Beispiel das Tastaturlayout-Gebietsschema, wenn die Zusammenführung mit einem IME verbunden ist).
 
 ## Beispiele
 

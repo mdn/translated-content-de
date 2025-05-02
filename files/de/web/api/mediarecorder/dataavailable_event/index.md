@@ -1,38 +1,38 @@
 ---
-title: "MediaRecorder: dataavailable-Event"
+title: "MediaRecorder: dataavailable Ereignis"
 short-title: dataavailable
 slug: Web/API/MediaRecorder/dataavailable_event
 l10n:
-  sourceCommit: e4678a89b823949ab3f90fc1480a790a22d89510
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{APIRef("MediaStream Recording")}}
 
-Das **`dataavailable`**-Event des [`MediaRecorder`](/de/docs/Web/API/MediaRecorder)-Interfaces wird ausgelöst, wenn der MediaRecorder Mediendaten für Ihre Anwendung bereitstellt. Die Daten werden in einem [`Blob`](/de/docs/Web/API/Blob)-Objekt bereitgestellt, das die Daten enthält. Dies geschieht in vier Situationen:
+Das **`dataavailable`** Ereignis der [`MediaRecorder`](/de/docs/Web/API/MediaRecorder) Schnittstelle wird ausgelöst, wenn der MediaRecorder Mediendaten an Ihre Anwendung zur Nutzung liefert. Die Daten werden in einem [`Blob`](/de/docs/Web/API/Blob) Objekt bereitgestellt, das die Daten enthält. Dies tritt in vier Situationen auf:
 
-- Wenn der Medienstream endet, werden alle Mediendaten, die noch nicht an Ihren `ondataavailable`-Handler geliefert wurden, in einem einzigen [`Blob`](/de/docs/Web/API/Blob) übergeben.
-- Wenn [`MediaRecorder.stop()`](/de/docs/Web/API/MediaRecorder/stop) aufgerufen wird, werden alle Mediendaten, die seit Beginn der Aufnahme oder seit dem letzten `dataavailable`-Event erfasst wurden, in einem [`Blob`](/de/docs/Web/API/Blob) geliefert; danach endet die Aufnahme.
-- Wenn [`MediaRecorder.requestData()`](/de/docs/Web/API/MediaRecorder/requestData) aufgerufen wird, werden alle Mediendaten, die seit Beginn der Aufnahme oder seit dem letzten `dataavailable`-Event erfasst wurden, geliefert; dann wird ein neuer `Blob` erstellt und die Medienspeicherung wird in diesem Blob fortgesetzt.
-- Wenn eine `timeslice`-Eigenschaft in die Methode [`MediaRecorder.start()`](/de/docs/Web/API/MediaRecorder/start) übergeben wurde, die die Medienaufnahme gestartet hat, wird ein `dataavailable`-Event alle `timeslice`-Millisekunden ausgelöst. Das bedeutet, dass normalerweise jeder Blob eine bestimmte Zeitdauer hat (außer dem letzten Blob, der kürzer sein kann, da er nur das übrig gebliebene von dem letzten Event enthält). Wenn der Methodenaufruf beispielsweise so aussah — `recorder.start(1000);` — dann würde das `dataavailable`-Event jede Sekunde der Medienaufnahme ausgelöst und unser Event-Handler würde jede Sekunde mit einem einsekündigen Blob von Mediendaten aufgerufen werden. Man kann `timeslice` zusammen mit [`MediaRecorder.stop()`](/de/docs/Web/API/MediaRecorder/stop) und [`MediaRecorder.requestData()`](/de/docs/Web/API/MediaRecorder/requestData) verwenden, um mehrere gleich lange Blobs plus andere kürzere Blobs zu erzeugen.
+- Wenn der Medienstream endet, werden alle Mediendaten, die noch nicht an Ihren `ondataavailable` Handler geliefert wurden, in einem einzelnen [`Blob`](/de/docs/Web/API/Blob) übergeben.
+- Wenn [`MediaRecorder.stop()`](/de/docs/Web/API/MediaRecorder/stop) aufgerufen wird, werden alle Mediendaten, die seit Beginn der Aufnahme oder das letzte Mal, als ein `dataavailable` Ereignis auftrat, erfasst wurden, in einem [`Blob`](/de/docs/Web/API/Blob) übergeben; danach endet die Aufnahme.
+- Wenn [`MediaRecorder.requestData()`](/de/docs/Web/API/MediaRecorder/requestData) aufgerufen wird, werden alle Mediendaten, die seit Beginn der Aufnahme oder dem letzten `dataavailable` Ereignis erfasst wurden, übergeben; dann wird ein neuer `Blob` erstellt und die Aufnahme wird in diesem Blob fortgesetzt.
+- Wenn die Eigenschaft `timeslice` der Methode [`MediaRecorder.start()`](/de/docs/Web/API/MediaRecorder/start), die die Medienaufnahme startet, übergeben wurde, wird alle `timeslice` Millisekunden ein `dataavailable` Ereignis ausgelöst. Das bedeutet, dass normalerweise jeder Blob eine bestimmte Zeitdauer hat (außer dem letzten Blob, der möglicherweise kürzer ist, da er das restliche Stück seit dem letzten Ereignis wäre). Wenn der Methodenaufruf beispielsweise so aussähe – `recorder.start(1000);` – würde das `dataavailable` Ereignis jede Sekunde der Medienaufnahme ausgelöst, und unser Ereignishandler würde jede Sekunde mit einem Blob von Mediendaten, der eine Sekunde lang ist, aufgerufen. Sie können `timeslice` zusammen mit [`MediaRecorder.stop()`](/de/docs/Web/API/MediaRecorder/stop) und [`MediaRecorder.requestData()`](/de/docs/Web/API/MediaRecorder/requestData) verwenden, um mehrere Blobs gleicher Länge plus anderer kürzerer Blobs zu produzieren.
 
 > [!NOTE]
-> Wie andere Zeitangaben in Web-APIs ist `timeslice` nicht genau und die realen Intervalle können aufgrund von ausstehenden Aufgaben, Browser-Funktionen (wie das Pausieren der Kamera und des Mikrofons in Safari), browserspezifischen Verhaltensweisen (wie das Sperren des Bildschirms während der Aufnahme auf Chrome auf Android, das das `dataavailable`-Event pausiert) oder anderen Browserfehlern verzögert werden. Solche Szenarien können auch zu deutlich größeren Chunk-Größen führen.
+> Wie andere Zeitwerte in Web-APIs ist `timeslice` nicht exakt und die tatsächlichen Intervalle können aufgrund anderer anstehender Aufgaben, Browserfunktionen (wie das Pausieren der Kamera und des Mikrofons in Safari), browserspezifischer Verhaltensweisen (Bildschirm sperren während der Aufnahme in Chrome auf Android pausiert das `dataavailable` Ereignis) oder anderer Browserfehler verzögert werden. Solche Szenarien können auch zu deutlich größeren Datenmengen führen.
 >
-> Verlassen Sie sich daher nicht auf `timeslice` und die Anzahl der erhaltenen Chunks, um die verstrichene Zeit zu berechnen, da sich Fehler ansammeln können. Stattdessen sollten Sie einen separaten Timer verwenden, der mit [`Event.timeStamp`](/de/docs/Web/API/Event/timeStamp) oder ähnlichem die insgesamt seit dem Start verstrichene Zeit aufzeichnet.
+> Verlassen Sie sich daher nicht auf `timeslice` und die Anzahl der empfangenen Datenmengen, um die verstrichene Zeit zu berechnen, da Fehler sich summieren können. Stattdessen sollten Sie einen separaten Timer wie [`Event.timeStamp`](/de/docs/Web/API/Event/timeStamp) oder ähnliches verwenden, der die gesamte seit dem Start verstrichene Zeit aufzeichnet.
 
-Der [`Blob`](/de/docs/Web/API/Blob), der die Mediendaten enthält, ist in der `dataavailable`-Eigenschaft des Events verfügbar.
+Der [`Blob`](/de/docs/Web/API/Blob), der die Mediendaten enthält, ist in der `data` Eigenschaft des `dataavailable` Ereignisses verfügbar.
 
 ## Syntax
 
-Verwenden Sie den Eventnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Event-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
-```js
-addEventListener("dataavailable", (event) => {});
+```js-nolint
+addEventListener("dataavailable", (event) => { })
 
-ondataavailable = (event) => {};
+ondataavailable = (event) => { }
 ```
 
-## Event-Typ
+## Ereignistyp
 
 Ein [`BlobEvent`](/de/docs/Web/API/BlobEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
@@ -70,7 +70,8 @@ mediaRecorder.ondataavailable = (e) => {
 ## Siehe auch
 
 - [Verwendung der MediaStream Recording API](/de/docs/Web/API/MediaStream_Recording_API)
-- [Web-Diktiergerät](https://mdn.github.io/dom-examples/media/web-dictaphone/): MediaRecorder + getUserMedia + Web Audio API Visualisierungsdemo, von [Chris Mills](https://github.com/chrisdavidmills) ([Quelle auf GitHub](https://github.com/mdn/dom-examples/tree/main/media/web-dictaphone).)
-- [simpl.info MediaStream Recording Demo](https://simpl.info/mediarecorder/), von [Sam Dutton](https://github.com/samdutton).
+- [Web Dictaphone](https://mdn.github.io/dom-examples/media/web-dictaphone/): MediaRecorder +
+  getUserMedia + Web Audio API Visualisierungsdemo von [Chris Mills](https://github.com/chrisdavidmills) ([Quellcode auf GitHub](https://github.com/mdn/dom-examples/tree/main/media/web-dictaphone).)
+- [simpl.info MediaStream Recording Demo](https://simpl.info/mediarecorder/) von [Sam Dutton](https://github.com/samdutton).
 - [`Navigator.getUserMedia()`](/de/docs/Web/API/Navigator/getUserMedia)
-- [Umgang mit großen MediaRecorder-Chunks](https://blog.addpipe.com/dealing-with-huge-mediarecorder-slices/) auf addpipe.com (2024)
+- [Umgang mit großen MediaRecorder-Datenstücken](https://blog.addpipe.com/dealing-with-huge-mediarecorder-slices/) auf addpipe.com (2024)

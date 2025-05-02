@@ -1,25 +1,25 @@
 ---
-title: "Dokument: readystatechange Ereignis"
+title: "Dokument: readystatechange-Ereignis"
 short-title: readystatechange
 slug: Web/API/Document/readystatechange_event
 l10n:
-  sourceCommit: 41a8b9c9832359d445d136b6d7a8a28737badc6b
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{APIRef}}
 
-Das **`readystatechange`** Ereignis wird ausgelöst, wenn sich das [`readyState`](/de/docs/Web/API/Document/readyState) Attribut eines Dokuments geändert hat.
+Das **`readystatechange`**-Ereignis wird ausgelöst, wenn sich das [`readyState`](/de/docs/Web/API/Document/readyState)-Attribut eines Dokuments geändert hat.
 
-Dieses Ereignis kann nicht abgebrochen werden und wird nicht weitergeleitet.
+Dieses Ereignis ist nicht abbrechbar und wird nicht propagiert.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandlereigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
-```js
-addEventListener("readystatechange", (event) => {});
+```js-nolint
+addEventListener("readystatechange", (event) => { })
 
-onreadystatechange = (event) => {};
+onreadystatechange = (event) => { }
 ```
 
 ## Ereignistyp

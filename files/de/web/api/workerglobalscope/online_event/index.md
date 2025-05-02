@@ -1,23 +1,23 @@
 ---
-title: "WorkerGlobalScope: online-Event"
+title: "WorkerGlobalScope: online Ereignis"
 short-title: online
 slug: Web/API/WorkerGlobalScope/online_event
 l10n:
-  sourceCommit: e8fe043f7d2ad7cd9804d1bf96e0310949f1dac7
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{APIRef("Web Workers API")}}{{AvailableInWorkers("worker")}}
 
-Das **`online`**-Ereignis des [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope) wird ausgelöst, wenn das Gerät wieder eine Verbindung zum Internet herstellt.
+Das **`online`** Ereignis des [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope) wird ausgelöst, wenn das Gerät die Verbindung zum Internet wiederherstellt.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignisbehandlungs-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder legen Sie eine Ereignisbehandlungs-Eigenschaft fest.
 
-```js
-addEventListener("online", (event) => {});
+```js-nolint
+addEventListener("online", (event) => { })
 
-ononline = (event) => {};
+ononline = (event) => { }
 ```
 
 ## Ereignistyp
@@ -26,7 +26,7 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiel
 
-Der folgende Codeausschnitt zeigt einen `onoffline`-Handler, der innerhalb eines Workers gesetzt wird:
+Der folgende Codeausschnitt zeigt einen `onoffline`-Handler, der innerhalb eines Workers gesetzt ist:
 
 ```js
 self.ononline = () => {
@@ -34,7 +34,7 @@ self.ononline = () => {
 };
 ```
 
-Der gleiche Codeausschnitt, aber mit `addEventListener()`:
+Der gleiche Ausschnitt, aber mit `addEventListener()`:
 
 ```js
 self.addEventListener("online", () => {
@@ -52,4 +52,4 @@ self.addEventListener("online", () => {
 
 ## Siehe auch
 
-Die [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope)-Schnittstelle, zu der es gehört.
+Das [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope) Interface, zu dem es gehört.

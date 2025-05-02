@@ -1,27 +1,30 @@
 ---
-title: "Element: pointerrawupdate event"
+title: "Element: pointerrawupdate Ereignis"
 short-title: pointerrawupdate
 slug: Web/API/Element/pointerrawupdate_event
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{APIRef}}{{SeeCompatTable}}{{secureContext_header}}
 
-Das **`pointerrawupdate`** [`PointerEvent`](/de/docs/Web/API/PointerEvent) wird ausgelöst, wenn ein Zeiger eine seiner Eigenschaften ändert, die keine [`pointerdown`](/de/docs/Web/API/Element/pointerdown_event) oder [`pointerup`](/de/docs/Web/API/Element/pointerup_event) Ereignisse auslösen. Weitere Informationen zu diesen Eigenschaften finden Sie unter [`pointermove`](/de/docs/Web/API/Element/pointermove_event).
+Das **`pointerrawupdate`** [`PointerEvent`](/de/docs/Web/API/PointerEvent) wird ausgelöst, wenn ein Zeiger irgendwelche Eigenschaften ändert, die nicht die [`pointerdown`](/de/docs/Web/API/Element/pointerdown_event) oder [`pointerup`](/de/docs/Web/API/Element/pointerup_event) Ereignisse auslösen.
+Siehe [`pointermove`](/de/docs/Web/API/Element/pointermove_event) für eine Liste dieser Eigenschaften.
 
-Das `pointerrawupdate` Ereignis kann zusammengelegte Ereignisse enthalten, wenn bereits ein anderes `pointerrawupdate` Ereignis mit derselben Zeiger-ID im Ereignisschleifenprozess vorliegt, das noch nicht abgewickelt wurde. Informationen zu zusammengelegten Ereignissen finden Sie in der Dokumentation zu [`PointerEvent.getCoalescedEvents`](/de/docs/Web/API/PointerEvent/getCoalescedEvents).
+Das `pointerrawupdate` Ereignis kann zusammengeschlossene Ereignisse enthalten, wenn bereits ein weiteres `pointerrawupdate` Ereignis mit derselben Zeiger-ID existiert, das noch nicht in der Ereignisschleife ausgelöst wurde.
+Für Informationen über zusammengeschlossene Ereignisse, siehe die Dokumentation von [`PointerEvent.getCoalescedEvents`](/de/docs/Web/API/PointerEvent/getCoalescedEvents).
 
-Listener für `pointerrawupdate` Ereignisse sollten nur hinzugefügt werden, wenn Ihr JavaScript hochfrequente Ereignisse benötigt und diese so schnell wie sie gesendet werden, verarbeiten kann. Für die meisten Anwendungsfälle sollten andere Zeigerereignistypen ausreichend sein, da das Hinzufügen von Listenern für `pointerrawupdate` Ereignisse Leistungseinbußen mit sich bringen kann.
+Listener für `pointerrawupdate` Ereignisse sollten nur hinzugefügt werden, wenn Ihr JavaScript hochfrequente Ereignisse benötigt und damit so schnell umgehen kann, wie sie ausgelöst werden.
+Für die meisten Anwendungsfälle sollten andere Zeigerereignistypen ausreichend sein, da das Hinzufügen von Listenern für `pointerrawupdate` Ereignisse Leistungsauswirkungen haben kann.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder legen Sie eine Ereignisbehandlungseigenschaft fest.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
-```js
-addEventListener("pointerrawupdate", (event) => {});
+```js-nolint
+addEventListener("pointerrawupdate", (event) => { })
 
-onpointerrawupdate = (event) => {};
+onpointerrawupdate = (event) => { }
 ```
 
 ## Ereignistyp
@@ -35,11 +38,11 @@ Ein [`PointerEvent`](/de/docs/Web/API/PointerEvent). Erbt von [`Event`](/de/docs
 _Diese Schnittstelle erbt Eigenschaften von [`MouseEvent`](/de/docs/Web/API/MouseEvent) und [`Event`](/de/docs/Web/API/Event)._
 
 - [`PointerEvent.altitudeAngle`](/de/docs/Web/API/PointerEvent/altitudeAngle) {{ReadOnlyInline}} {{experimental_inline}}
-  - : Repräsentiert den Winkel zwischen der Achse eines Transducers (einem Zeiger oder Stylus) und der X-Y-Ebene eines Geräteschirms.
+  - : Repräsentiert den Winkel zwischen einer Wandlerachse (einem Zeiger oder Stylus) und der X-Y-Ebene eines Geräteschirms.
 - [`PointerEvent.azimuthAngle`](/de/docs/Web/API/PointerEvent/azimuthAngle) {{ReadOnlyInline}} {{experimental_inline}}
-  - : Repräsentiert den Winkel zwischen der Y-Z-Ebene und der Ebene, die sowohl die Achse des Transducers (einem Zeiger oder Stylus) als auch die Y-Achse enthält.
+  - : Repräsentiert den Winkel zwischen der Y-Z-Ebene und der Ebene, die sowohl die Wandlerachse (einen Zeiger oder Stylus) als auch die Y-Achse enthält.
 - [`PointerEvent.persistentDeviceId`](/de/docs/Web/API/PointerEvent/persistentDeviceId) {{ReadOnlyInline}} {{experimental_inline}}
-  - : Eine eindeutige Kennung für das Eingabegerät, das das `PointerEvent` erzeugt.
+  - : Eine eindeutige Kennung für das Zeigegerät, das das `PointerEvent` erzeugt.
 - [`PointerEvent.pointerId`](/de/docs/Web/API/PointerEvent/pointerId) {{ReadOnlyInline}}
   - : Eine eindeutige Kennung für den Zeiger, der das Ereignis verursacht.
 - [`PointerEvent.width`](/de/docs/Web/API/PointerEvent/width) {{ReadOnlyInline}}
@@ -47,15 +50,15 @@ _Diese Schnittstelle erbt Eigenschaften von [`MouseEvent`](/de/docs/Web/API/Mous
 - [`PointerEvent.height`](/de/docs/Web/API/PointerEvent/height) {{ReadOnlyInline}}
   - : Die Höhe (Größe auf der Y-Achse), in CSS-Pixel, der Kontaktgeometrie des Zeigers.
 - [`PointerEvent.pressure`](/de/docs/Web/API/PointerEvent/pressure) {{ReadOnlyInline}}
-  - : Der normalisierte Druck der Zeigereingabe im Bereich von `0` bis `1`, wobei `0` und `1` den minimalen und maximalen Druck darstellen, den die Hardware erkennen kann.
+  - : Der normalisierte Druck des Zeigereingangs im Bereich von `0` bis `1`, wobei `0` und `1` den minimalen und maximalen Druck repräsentieren, den die Hardware erkennen kann.
 - [`PointerEvent.tangentialPressure`](/de/docs/Web/API/PointerEvent/tangentialPressure) {{ReadOnlyInline}}
-  - : Der normalisierte tangentiale Druck der Zeigereingabe (auch bekannt als Fassdruck oder [Zylinderbelastung](https://en.wikipedia.org/wiki/Cylinder_stress)) im Bereich von `-1` bis `1`, wobei `0` die neutrale Position der Steuerung darstellt.
+  - : Der normalisierte tangentiale Druck des Zeigereingangs (auch bekannt als Fassdruck oder [Zylinderbelastung](https://en.wikipedia.org/wiki/Cylinder_stress)) im Bereich `-1` bis `1`, wobei `0` die neutrale Position der Steuerung ist.
 - [`PointerEvent.tiltX`](/de/docs/Web/API/PointerEvent/tiltX) {{ReadOnlyInline}}
-  - : Der Ebenenwinkel (in Grad, im Bereich von `-90` bis `90`) zwischen der Y–Z-Ebene und der Ebene, die sowohl die Achse des Zeigers (z. B. Stiftstylus) als auch die Y-Achse enthält.
+  - : Der Winkel der Ebene (in Grad, im Bereich von `-90` bis `90`) zwischen der Y–Z-Ebene und der Ebene, die sowohl die Zeigerachse (z.B. Pen-Stylus) als auch die Y-Achse enthält.
 - [`PointerEvent.tiltY`](/de/docs/Web/API/PointerEvent/tiltY) {{ReadOnlyInline}}
-  - : Der Ebenenwinkel (in Grad, im Bereich von `-90` bis `90`) zwischen der X–Z-Ebene und der Ebene, die sowohl die Achse des Zeigers (z. B. Stiftstylus) als auch die X-Achse enthält.
+  - : Der Winkel der Ebene (in Grad, im Bereich von `-90` bis `90`) zwischen der X-Z-Ebene und der Ebene, die sowohl die Zeigerachse (z.B. Pen-Stylus) als auch die X-Achse enthält.
 - [`PointerEvent.twist`](/de/docs/Web/API/PointerEvent/twist) {{ReadOnlyInline}}
-  - : Die Drehung des Zeigers (z. B. Stiftstylus) im Uhrzeigersinn um seine Hauptachse in Grad, mit einem Wert im Bereich von `0` bis `359`.
+  - : Die Drehung des Zeigers (z.B. Pen-Stylus) im Uhrzeigersinn um seine Hauptachse in Grad, mit einem Wert im Bereich von `0` bis `359`.
 - [`PointerEvent.pointerType`](/de/docs/Web/API/PointerEvent/pointerType) {{ReadOnlyInline}}
   - : Gibt den Gerätetyp an, der das Ereignis verursacht hat (Maus, Stift, Berührung usw.).
 - [`PointerEvent.isPrimary`](/de/docs/Web/API/PointerEvent/isPrimary) {{ReadOnlyInline}}

@@ -3,23 +3,23 @@ title: "OfflineAudioContext: complete-Ereignis"
 short-title: complete
 slug: Web/API/OfflineAudioContext/complete_event
 l10n:
-  sourceCommit: 11f58a4cd8758f89056900a6fb7c21e2d42fa6f1
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{APIRef("Web Audio API")}}
 
-Das `complete`-Ereignis der [`OfflineAudioContext`](/de/docs/Web/API/OfflineAudioContext)-Schnittstelle wird ausgelöst, wenn das Rendering eines Offline-Audio-Kontexts abgeschlossen ist.
+Das `complete`-Ereignis der [`OfflineAudioContext`](/de/docs/Web/API/OfflineAudioContext)-Schnittstelle wird ausgelöst, wenn das Rendern eines offline Audio-Kontextes abgeschlossen ist.
 
-Dieses Ereignis kann nicht abgebrochen werden und wird nicht weitergeleitet.
+Dieses Ereignis kann nicht abgebrochen werden und propagiert nicht.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
 
-```js
-addEventListener("complete", (event) => {});
+```js-nolint
+addEventListener("complete", (event) => { })
 
-oncomplete = (event) => {};
+oncomplete = (event) => { }
 ```
 
 ## Ereignistyp
@@ -30,14 +30,14 @@ Ein [`OfflineAudioCompletionEvent`](/de/docs/Web/API/OfflineAudioCompletionEvent
 
 ## Ereigniseigenschaften
 
-_Erbt auch Eigenschaften von seinem Elternobjekt, [`Event`](/de/docs/Web/API/Event)_.
+_Erbt außerdem Eigenschaften von seinem Elternteil, [`Event`](/de/docs/Web/API/Event)_.
 
 - [`OfflineAudioCompletionEvent.renderedBuffer`](/de/docs/Web/API/OfflineAudioCompletionEvent/renderedBuffer) {{ReadOnlyInline}}
   - : Ein [`AudioBuffer`](/de/docs/Web/API/AudioBuffer), der das Ergebnis der Verarbeitung eines [`OfflineAudioContext`](/de/docs/Web/API/OfflineAudioContext) enthält.
 
 ## Beispiele
 
-Wenn die Verarbeitung abgeschlossen ist, möchten Sie möglicherweise den `complete`-Ereignishandler verwenden, um den Benutzer darauf hinzuweisen, dass das Audio jetzt abgespielt werden kann, und die Abspielen-Schaltfläche aktivieren:
+Wenn die Verarbeitung abgeschlossen ist, können Sie den `complete`-Ereignishandler verwenden, um den Benutzer darauf hinzuweisen, dass das Audio jetzt abgespielt werden kann, und den Abspielknopf aktivieren:
 
 ```js
 const offlineAudioCtx = new OfflineAudioContext();

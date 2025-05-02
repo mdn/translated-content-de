@@ -2,13 +2,13 @@
 title: cursor
 slug: Web/SVG/Reference/Attribute/cursor
 l10n:
-  sourceCommit: 3c83d88f02f33f4066224e9f624a17dd2a0b0d19
+  sourceCommit: c01b393fbb6939f88cc98ac2a34df1a54be1edfd
 ---
 
-Das `cursor` Attribut gibt den Mauscursor an, der angezeigt wird, wenn der Mauszeiger über einem Element schwebt.
+Das `cursor` Attribut legt den Mauszeiger fest, der angezeigt wird, wenn der Mauszeiger über einem Element steht.
 
 > [!NOTE]
-> Als Präsentationsattribut hat `cursor` auch ein entsprechendes CSS-Attribut: {{cssxref("cursor")}}. Wenn beide angegeben sind, hat die CSS-Eigenschaft Vorrang.
+> Als Präsentationsattribut hat `cursor` auch ein entsprechendes CSS-Property: {{cssxref("cursor")}}. Wenn beide angegeben sind, hat das CSS-Property Vorrang.
 
 ## Verwendungskontext
 
@@ -21,8 +21,8 @@ Das `cursor` Attribut gibt den Mauscursor an, der angezeigt wird, wenn der Mausz
     <tr>
       <th scope="row">Wert</th>
       <td>
-        [[<a href="/de/docs/Web/SVG/Guides/Content_type#funciri">&#x3C;FuncIRI></a
-        >,]* [ <strong>auto</strong> | crosshair | default | pointer | move |
+        [ [ <a href="/de/docs/Web/SVG/Guides/Content_type#funciri">&#x3C;FuncIRI></a
+        >, ]* [ <strong>auto</strong> | crosshair | default | pointer | move |
         e-resize | ne-resize | nw-resize | n-resize | se-resize | sw-resize |
         s-resize | w-resize| text | wait | help ]] | inherit
       </td>
@@ -44,10 +44,10 @@ Das `cursor` Attribut gibt den Mauscursor an, der angezeigt wird, wenn der Mausz
 
 ## Elemente
 
-Die folgenden Elemente können das `cursor` Attribut verwenden
+Die folgenden Elemente können das `cursor` Attribut verwenden:
 
-- [Container-Elemente](/de/docs/Web/SVG/Reference/Element#container_elements)
-- [Grafik-Elemente](/de/docs/Web/SVG/Reference/Element#graphics_elements)
+- [Containerelemente](/de/docs/Web/SVG/Reference/Element#container_elements)
+- [Grafikelemente](/de/docs/Web/SVG/Reference/Element#graphics_elements)
 
 ## Spezifikationen
 
@@ -59,4 +59,4 @@ Die folgenden Elemente können das `cursor` Attribut verwenden
 
 ## Siehe auch
 
-- CSS {{cssxref("cursor")}} Eigenschaft
+- CSS {{cssxref("cursor")}} Property

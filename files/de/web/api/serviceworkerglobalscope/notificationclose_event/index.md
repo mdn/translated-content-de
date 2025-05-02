@@ -1,27 +1,27 @@
 ---
-title: "ServiceWorkerGlobalScope: notificationclose-Ereignis"
+title: "ServiceWorkerGlobalScope: notificationclose Ereignis"
 short-title: notificationclose
 slug: Web/API/ServiceWorkerGlobalScope/notificationclose_event
 l10n:
-  sourceCommit: 28848ba41c082db2a8c55e85c804bd06363afb57
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{APIRef("Web Notifications")}}{{SecureContext_Header}}{{AvailableInWorkers("service")}}
 
-Das **`notificationclose`**-Ereignis des [`ServiceWorkerGlobalScope`](/de/docs/Web/API/ServiceWorkerGlobalScope)-Interfaces tritt ein, wenn ein Benutzer eine angezeigte Benachrichtigung schließt, die durch [`ServiceWorkerRegistration.showNotification()`](/de/docs/Web/API/ServiceWorkerRegistration/showNotification) erzeugt wurde.
+Das **`notificationclose`** Ereignis der [`ServiceWorkerGlobalScope`](/de/docs/Web/API/ServiceWorkerGlobalScope) Schnittstelle wird ausgelöst, wenn ein Benutzer eine im Vordergrund angezeigte Benachrichtigung schließt, die durch [`ServiceWorkerRegistration.showNotification()`](/de/docs/Web/API/ServiceWorkerRegistration/showNotification) erstellt wurde.
 
-Benachrichtigungen, die im Haupt-Thread oder in Workern, die keine Service-Worker sind, mithilfe des [`Notification()`](/de/docs/Web/API/Notification/Notification)-Konstruktors erstellt wurden, erhalten stattdessen ein [`close`](/de/docs/Web/API/Notification/close_event)-Ereignis auf dem [`Notification`](/de/docs/Web/API/Notification)-Objekt selbst.
+Benachrichtigungen, die im Hauptthread oder in Workern, die keine Service Worker sind, mit dem [`Notification()`](/de/docs/Web/API/Notification/Notification) Konstruktor erstellt wurden, werden stattdessen ein [`close`](/de/docs/Web/API/Notification/close_event) Ereignis auf dem [`Notification`](/de/docs/Web/API/Notification) Objekt selbst erhalten.
 
-Dieses Ereignis kann nicht abgebrochen werden und löst keine Bubbling-Effekte aus.
+Dieses Ereignis kann nicht abgebrochen werden und löst keine Bubbling aus.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder legen Sie eine Event-Handler-Eigenschaft fest.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Event-Handler-Eigenschaft.
 
-```js
-addEventListener("notificationclose", (event) => {});
+```js-nolint
+addEventListener("notificationclose", (event) => { })
 
-onnotificationclose = (event) => {};
+onnotificationclose = (event) => { }
 ```
 
 ## Ereignistyp
@@ -32,12 +32,12 @@ Ein [`NotificationEvent`](/de/docs/Web/API/NotificationEvent). Erbt von [`Extend
 
 ## Ereigniseigenschaften
 
-_Erbt Eigenschaften von seinen Vorfahren, [`ExtendableEvent`](/de/docs/Web/API/ExtendableEvent) und [`Event`](/de/docs/Web/API/Event)_.
+_Erbt Eigenschaften von seinem Vorfahren, [`ExtendableEvent`](/de/docs/Web/API/ExtendableEvent) und [`Event`](/de/docs/Web/API/Event)_.
 
 - [`NotificationEvent.notification`](/de/docs/Web/API/NotificationEvent/notification) {{ReadOnlyInline}}
-  - : Gibt ein [`Notification`](/de/docs/Web/API/Notification)-Objekt zurück, das die Benachrichtigung darstellt, die angeklickt wurde, um das Ereignis auszulösen.
+  - : Gibt ein [`Notification`](/de/docs/Web/API/Notification) Objekt zurück, das die Benachrichtigung darstellt, die angeklickt wurde, um das Ereignis auszulösen.
 - [`NotificationEvent.action`](/de/docs/Web/API/NotificationEvent/action) {{ReadOnlyInline}}
-  - : Gibt die stringbasierte ID des Benachrichtigungsbuttons zurück, den der Benutzer angeklickt hat. Dieser Wert ist ein leerer String, wenn der Benutzer die Benachrichtigung an einer Stelle angeklickt hat, die kein Aktionsbutton ist, oder wenn die Benachrichtigung keinen Button hat.
+  - : Gibt die Zeichenfolgen-ID der Benachrichtigungsschaltfläche zurück, die der Benutzer angeklickt hat. Dieser Wert ist eine leere Zeichenfolge, wenn der Benutzer irgendwo auf die Benachrichtigung geklickt hat, außer auf eine Aktionsschaltfläche, oder die Benachrichtigung keine Schaltfläche besitzt.
 
 ## Beispiel
 

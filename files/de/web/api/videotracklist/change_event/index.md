@@ -3,26 +3,26 @@ title: "VideoTrackList: change-Ereignis"
 short-title: change
 slug: Web/API/VideoTrackList/change_event
 l10n:
-  sourceCommit: 532ecbca7b68e7defa4612bc7b00885a13163641
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{APIRef}}
 
-Das `change`-Ereignis wird ausgelöst, wenn ein Video-Track aktiv oder inaktiv gemacht wird, zum Beispiel durch Änderung der [`selected`](/de/docs/Web/API/VideoTrack/selected)-Eigenschaft des Tracks.
+Das `change`-Ereignis wird ausgelöst, wenn ein Video-Track aktiv oder inaktiv gemacht wird, zum Beispiel durch Ändern der [`selected`](/de/docs/Web/API/VideoTrack/selected) Eigenschaft des Tracks.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Event-Handler-Eigenschaft.
 
-```js
-addEventListener("change", (event) => {});
+```js-nolint
+addEventListener("change", (event) => { })
 
-onchange = (event) => {};
+onchange = (event) => { }
 ```
 
 ## Ereignistyp
 
-Ein generisches [`Event`](/de/docs/Web/API/Event) ohne zusätzliche Eigenschaften.
+Ein generisches [`Event`](/de/docs/Web/API/Event) ohne hinzugefügte Eigenschaften.
 
 ## Beispiele
 
@@ -42,7 +42,7 @@ toggleTrackButton.addEventListener("click", () => {
 });
 ```
 
-Verwendung der `onchange`-Ereignis-Handler-Eigenschaft:
+Verwendung der `onchange` Event-Handler-Eigenschaft:
 
 ```js
 const videoElement = document.querySelector("video");
@@ -69,6 +69,6 @@ toggleTrackButton.addEventListener("click", () => {
 ## Siehe auch
 
 - Verwandte Ereignisse: [`addtrack`](/de/docs/Web/API/VideoTrackList/addtrack_event), [`removetrack`](/de/docs/Web/API/VideoTrackList/removetrack_event)
-- Dieses Ereignis bei [`AudioTrackList`](/de/docs/Web/API/AudioTrackList) Zielen: [`change`](/de/docs/Web/API/AudioTrackList/change_event)
+- Dieses Ereignis auf [`AudioTrackList`](/de/docs/Web/API/AudioTrackList) zielt auf: [`change`](/de/docs/Web/API/AudioTrackList/change_event)
 - [Media Capture and Streams API](/de/docs/Web/API/Media_Capture_and_Streams_API)
 - [WebRTC](/de/docs/Web/API/WebRTC_API)

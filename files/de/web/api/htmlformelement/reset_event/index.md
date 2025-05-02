@@ -3,21 +3,21 @@ title: "HTMLFormElement: reset Ereignis"
 short-title: reset
 slug: Web/API/HTMLFormElement/reset_event
 l10n:
-  sourceCommit: a3d9f61a8990ba7b53bda9748d1f26a9e9810b18
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{APIRef}}
 
-Das **`reset`**-Ereignis wird ausgelöst, wenn ein {{HTMLElement("form")}} zurückgesetzt wird.
+Das **`reset`** Ereignis wird ausgelöst, wenn ein {{HTMLElement("form")}} zurückgesetzt wird.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
-```js
-addEventListener("reset", (event) => {});
+```js-nolint
+addEventListener("reset", (event) => { })
 
-onreset = (event) => {};
+onreset = (event) => { }
 ```
 
 ## Ereignistyp
@@ -26,7 +26,7 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-Dieses Beispiel verwendet [`EventTarget.addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), um auf das Zurücksetzen von Formularen zu hören, und protokolliert den aktuellen [`Event.timeStamp`](/de/docs/Web/API/Event/timeStamp), sobald dies geschieht.
+Dieses Beispiel verwendet [`EventTarget.addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) um auf Formular-Rücksetzungen zu hören und protokolliert den aktuellen [`Event.timeStamp`](/de/docs/Web/API/Event/timeStamp), wann immer dies geschieht.
 
 ### HTML
 
@@ -65,4 +65,4 @@ form.addEventListener("reset", logReset);
 
 ## Siehe auch
 
-- HTML {{HTMLElement("form")}}-Element
+- HTML {{HTMLElement("form")}} Element

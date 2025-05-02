@@ -2,106 +2,57 @@
 title: SVGLength
 slug: Web/API/SVGLength
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: 2e39a37874913a1e3fd82999467505fd525e9177
 ---
 
 {{APIRef("SVG")}}
 
-Die **`SVGLength`**-Schnittstelle entspricht dem grundlegenden Datentyp [\<length>](/de/docs/Web/SVG/Guides/Content_type#length).
+Die **`SVGLength`**-Schnittstelle entspricht dem [\<length>](/de/docs/Web/SVG/Guides/Content_type#length) Basisdatentyp.
 
-Ein `SVGLength`-Objekt kann als schreibgeschützt definiert werden, was bedeutet, dass Versuche, das Objekt zu ändern, zu einer Ausnahme führen.
+Ein `SVGLength`-Objekt kann als schreibgeschützt festgelegt werden, was bedeutet, dass Versuche, das Objekt zu ändern, zu einer Ausnahme führen werden.
 
 ## Instanz-Eigenschaften
 
 - [`unitType`](/de/docs/Web/API/SVGLength/unitType)
-  - : Der Typ des Wertes, der durch eine der `SVG_LENGTHTYPE_*` Konstanten, die in dieser Schnittstelle definiert sind, festgelegt ist.
+  - : Der Typ des Wertes, wie er durch eine der `SVG_LENGTHTYPE_*` Konstanten definiert ist, die in dieser Schnittstelle festgelegt sind.
 - [`value`](/de/docs/Web/API/SVGLength/value)
-  - : Der Wert als Fließkommawert in Benutzereinheiten.
+  - : Der Wert als Fließkommawert, in Benutzereinheiten.
 - [`valueAsString`](/de/docs/Web/API/SVGLength/valueAsString)
-  - : Der Wert als Zeichenfolgenwert in den durch `unitType` ausgedrückten Einheiten.
+  - : Der Wert als Zeichenfolgenwert, in den durch `unitType` ausgedrückten Einheiten.
 - [`valueInSpecifiedUnits`](/de/docs/Web/API/SVGLength/valueInSpecifiedUnits)
-  - : Der Wert als Fließkommawert in den durch `unitType` ausgedrückten Einheiten.
-
-<table class="no-markdown">
-  <thead>
-    <tr>
-      <th scope="col">Name</th>
-      <th scope="col">Wert</th>
-      <th scope="col">Beschreibung</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code>SVG_LENGTHTYPE_UNKNOWN</code></td>
-      <td><code>0</code></td>
-      <td>
-        Der Einheiten-Typ ist keiner der vordefinierten Einheiten-Typen. Es ist
-        unzulässig, zu versuchen, einen neuen Wert dieses Typs zu definieren oder
-        einen vorhandenen Wert in diesen Typ zu ändern.
-      </td>
-    </tr>
-    <tr>
-      <td><code>SVG_LENGTHTYPE_NUMBER</code></td>
-      <td><code>1</code></td>
-      <td>
-        Es wurde kein Einheiten-Typ angegeben (d.h. es wurde ein wert ohne
-        Einheiten angegeben), was auf einen Wert in Benutzereinheiten hinweist.
-      </td>
-    </tr>
-    <tr>
-      <td><code>SVG_LENGTHTYPE_PERCENTAGE</code></td>
-      <td><code>2</code></td>
-      <td>Ein Prozentsatz-Wert wurde angegeben.</td>
-    </tr>
-    <tr>
-      <td><code>SVG_LENGTHTYPE_EMS</code></td>
-      <td><code>3</code></td>
-      <td>Ein Wert wurde unter Verwendung der in CSS2 definierten em-Einheiten angegeben.</td>
-    </tr>
-    <tr>
-      <td><code>SVG_LENGTHTYPE_EXS</code></td>
-      <td><code>4</code></td>
-      <td>Ein Wert wurde unter Verwendung der in CSS2 definierten ex-Einheiten angegeben.</td>
-    </tr>
-    <tr>
-      <td><code>SVG_LENGTHTYPE_PX</code></td>
-      <td><code>5</code></td>
-      <td>Ein Wert wurde unter Verwendung der in CSS2 definierten px-Einheiten angegeben.</td>
-    </tr>
-    <tr>
-      <td><code>SVG_LENGTHTYPE_CM</code></td>
-      <td><code>6</code></td>
-      <td>Ein Wert wurde unter Verwendung der in CSS2 definierten cm-Einheiten angegeben.</td>
-    </tr>
-    <tr>
-      <td><code>SVG_LENGTHTYPE_MM</code></td>
-      <td><code>7</code></td>
-      <td>Ein Wert wurde unter Verwendung der in CSS2 definierten mm-Einheiten angegeben.</td>
-    </tr>
-    <tr>
-      <td><code>SVG_LENGTHTYPE_IN</code></td>
-      <td><code>8</code></td>
-      <td>Ein Wert wurde unter Verwendung der in CSS2 definierten in-Einheiten angegeben.</td>
-    </tr>
-    <tr>
-      <td><code>SVG_LENGTHTYPE_PT</code></td>
-      <td><code>9</code></td>
-      <td>Ein Wert wurde unter Verwendung der in CSS2 definierten pt-Einheiten angegeben.</td>
-    </tr>
-    <tr>
-      <td><code>SVG_LENGTHTYPE_PC</code></td>
-      <td><code>10</code></td>
-      <td>Ein Wert wurde unter Verwendung der in CSS2 definierten pc-Einheiten angegeben.</td>
-    </tr>
-  </tbody>
-</table>
+  - : Der Wert als Fließkommawert, in den durch `unitType` ausgedrückten Einheiten.
 
 ## Instanz-Methoden
 
 - [`convertToSpecifiedUnits()`](/de/docs/Web/API/SVGLength/convertToSpecifiedUnits)
-  - : Beibehaltung des gleichen zugrunde liegenden gespeicherten Wertes, aber Zurücksetzen des gespeicherten Einheitenbezeichners auf den angegebenen `unitType`.
+  - : Bewahren Sie den gleichen zugrunde liegenden gespeicherten Wert, setzen Sie jedoch den gespeicherten Einheitenbezeichner auf den angegebenen `unitType` zurück.
 - [`newValueSpecifiedUnits()`](/de/docs/Web/API/SVGLength/newValueSpecifiedUnits)
-  - : Zurücksetzen des Wertes als Zahl mit einem zugeordneten `unitType`, wodurch die Werte aller Attribute des Objekts ersetzt werden.
+  - : Setzt den Wert als Zahl mit einem zugehörigen `unitType` zurück und ersetzt damit die Werte für alle Attribute des Objekts.
+
+## Statische Eigenschaften
+
+- `SVG_LENGTHTYPE_UNKNOWN` (0)
+  - : Der Einheitentyp ist nicht einer der vordefinierten Einheitstypen. Es ist ungültig zu versuchen, einen neuen Wert dieses Typs zu definieren oder zu versuchen, einen bestehenden Wert zu diesem Typ zu wechseln.
+- `SVG_LENGTHTYPE_NUMBER` (1)
+  - : Es wurde kein Einheitentyp angegeben (d.h. ein einheitenloser Wert wurde angegeben), was einen Wert in Benutzereinheiten angibt.
+- `SVG_LENGTHTYPE_PERCENTAGE` (2)
+  - : Ein Prozentsatzwert wurde angegeben.
+- `SVG_LENGTHTYPE_EMS` (3)
+  - : Ein Wert wurde unter Verwendung der `em`-Einheiten angegeben.
+- `SVG_LENGTHTYPE_EXS` (4)
+  - : Ein Wert wurde unter Verwendung der `ex`-Einheiten angegeben.
+- `SVG_LENGTHTYPE_PX` (5)
+  - : Ein Wert wurde unter Verwendung der `px`-Einheiten angegeben.
+- `SVG_LENGTHTYPE_CM` (6)
+  - : Ein Wert wurde unter Verwendung der `cm`-Einheiten angegeben.
+- `SVG_LENGTHTYPE_MM` (7)
+  - : Ein Wert wurde unter Verwendung der `mm`-Einheiten angegeben.
+- `SVG_LENGTHTYPE_IN` (8)
+  - : Ein Wert wurde unter Verwendung der `in`-Einheiten angegeben.
+- `SVG_LENGTHTYPE_PT` (9)
+  - : Ein Wert wurde unter Verwendung der `pt`-Einheiten angegeben.
+- `SVG_LENGTHTYPE_PC` (10)
+  - : Ein Wert wurde unter Verwendung der `pc`-Einheiten angegeben.
 
 ## Beispiel
 
@@ -138,7 +89,7 @@ function start() {
 </svg>
 ```
 
-Ergebnisse auf einem Desktop-Monitor (Piksel-Einheiten sind dpi-abhängig):
+Ergebnisse auf einem Desktop-Monitor (Pixel-Einheiten sind dpi-abhängig):
 
 ```plain
 value: 37.7952766418457, valueInSpecifiedUnits: 6: 1, valueAsString: 1cm

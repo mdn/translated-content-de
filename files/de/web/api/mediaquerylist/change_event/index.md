@@ -3,21 +3,21 @@ title: "MediaQueryList: change Ereignis"
 short-title: change
 slug: Web/API/MediaQueryList/change_event
 l10n:
-  sourceCommit: c51e0599ea09c0e6d035c635db9f48ad1f241490
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{APIRef("CSSOM")}}
 
-Das **`change`** Ereignis der [`MediaQueryList`](/de/docs/Web/API/MediaQueryList) Schnittstelle wird ausgelöst, wenn sich der Status der Unterstützung einer Medienabfrage ändert.
+Das **`change`** Ereignis der [`MediaQueryList`](/de/docs/Web/API/MediaQueryList)-Schnittstelle wird ausgelöst, wenn sich der Status der Unterstützung von Media-Queries ändert.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
-```js
-addEventListener("change", (event) => {});
+```js-nolint
+addEventListener("change", (event) => { })
 
-onchange = (event) => {};
+onchange = (event) => { }
 ```
 
 ## Ereignistyp
@@ -28,12 +28,12 @@ Ein [`MediaQueryListEvent`](/de/docs/Web/API/MediaQueryListEvent). Erbt von [`Ev
 
 ## Ereigniseigenschaften
 
-_Die `MediaQueryListEvent`-Schnittstelle erbt Eigenschaften von ihrer Elternschnittstelle, [`Event`](/de/docs/Web/API/Event)._
+_Die `MediaQueryListEvent`-Schnittstelle erbt Eigenschaften von ihrer Elternebene, [`Event`](/de/docs/Web/API/Event)._
 
 - [`MediaQueryListEvent.matches`](/de/docs/Web/API/MediaQueryListEvent/matches) {{ReadOnlyInline}}
-  - : Ein boolescher Wert, der `true` ist, wenn das [`document`](/de/docs/Web/API/Document) derzeit die Medienabfrageliste erfüllt, oder `false`, wenn nicht.
+  - : Ein boolescher Wert, der `true` ist, wenn das [`document`](/de/docs/Web/API/Document) derzeit der Media-Query-Liste entspricht, oder `false`, wenn nicht.
 - [`MediaQueryListEvent.media`](/de/docs/Web/API/MediaQueryListEvent/media) {{ReadOnlyInline}}
-  - : Ein String, der eine serialisierte Medienabfrage darstellt.
+  - : Ein String, der eine serielle Media-Query darstellt.
 
 ## Beispiel
 

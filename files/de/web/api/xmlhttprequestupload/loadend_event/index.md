@@ -1,25 +1,25 @@
 ---
-title: "XMLHttpRequestUpload: loadend Ereignis"
+title: "XMLHttpRequestUpload: loadend-Ereignis"
 short-title: loadend
 slug: Web/API/XMLHttpRequestUpload/loadend_event
 l10n:
-  sourceCommit: d666d5ed812b56cbc9c6cba853494976da1f1dd2
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{APIRef("XMLHttpRequest API")}} {{AvailableInWorkers("window_and_worker_except_service")}}
 
-Das **`loadend`** Ereignis wird ausgelöst, wenn eine Anfrage abgeschlossen ist, unabhängig davon, ob sie erfolgreich (nach [`load`](/de/docs/Web/API/XMLHttpRequestUpload/load_event)) oder erfolglos (nach [`abort`](/de/docs/Web/API/XMLHttpRequestUpload/abort_event) oder [`error`](/de/docs/Web/API/XMLHttpRequestUpload/error_event)) war.
+Das **`loadend`**-Ereignis wird ausgelöst, wenn eine Anfrage abgeschlossen wurde, unabhängig davon, ob sie erfolgreich (nach [`load`](/de/docs/Web/API/XMLHttpRequestUpload/load_event)) oder erfolglos (nach [`abort`](/de/docs/Web/API/XMLHttpRequestUpload/abort_event) oder [`error`](/de/docs/Web/API/XMLHttpRequestUpload/error_event)) beendet wurde.
 
-Das `loadend` Ereignis wird auch gesendet, wenn die Anfrage unterbrochen wurde (durch einen [`timeout`](/de/docs/Web/API/XMLHttpRequestUpload/timeout_event), einen [`abort`](/de/docs/Web/API/XMLHttpRequestUpload/abort_event) oder einen [`error`](/de/docs/Web/API/XMLHttpRequestUpload/error_event)). In solchen Fällen haben sowohl der `loaded` als auch der `total` Wert des Ereignisses den Wert 0.
+Das `loadend`-Ereignis wird auch gesendet, wenn die Anfrage unterbrochen wurde (durch ein [`timeout`](/de/docs/Web/API/XMLHttpRequestUpload/timeout_event), ein [`abort`](/de/docs/Web/API/XMLHttpRequestUpload/abort_event) oder ein [`error`](/de/docs/Web/API/XMLHttpRequestUpload/error_event)). In solchen Fällen betragen sowohl der `loaded`- als auch der `total`-Wert des Ereignisses 0.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
-```js
-addEventListener("loadend", (event) => {});
+```js-nolint
+addEventListener("loadend", (event) => { })
 
-onloadend = (event) => {};
+onloadend = (event) => { }
 ```
 
 ## Ereignistyp
@@ -30,20 +30,20 @@ Ein [`ProgressEvent`](/de/docs/Web/API/ProgressEvent). Erbt von [`Event`](/de/do
 
 ## Ereigniseigenschaften
 
-_Zusätzlich zu den unten aufgelisteten Eigenschaften sind Eigenschaften der übergeordneten Schnittstelle, [`Event`](/de/docs/Web/API/Event), verfügbar._
+_Neben den unten aufgeführten Eigenschaften sind die Eigenschaften der Elternschnittstelle, [`Event`](/de/docs/Web/API/Event), verfügbar._
 
 - [`lengthComputable`](/de/docs/Web/API/ProgressEvent/lengthComputable) {{ReadOnlyInline}}
-  - : Ein boolesches Flag, das anzeigt, ob die gesamte zu erledigende Arbeit und die bereits geleistete Arbeit durch den zugrunde liegenden Prozess berechenbar sind. Mit anderen Worten, es zeigt an, ob der Fortschritt messbar ist oder nicht.
+  - : Ein boolesches Flag, das angibt, ob die Gesamtarbeit, die vom zugrunde liegenden Prozess zu erledigen ist, und die bereits geleistete Arbeit berechenbar sind. Mit anderen Worten, es sagt aus, ob der Fortschritt messbar ist oder nicht.
 - [`loaded`](/de/docs/Web/API/ProgressEvent/loaded) {{ReadOnlyInline}}
-  - : Ein 64-Bit-Unsigned-Integer-Wert, der die bereits durch den zugrunde liegenden Prozess geleistete Arbeit angibt. Das Verhältnis der geleisteten Arbeit kann berechnet werden, indem `total` durch den Wert dieser Eigenschaft geteilt wird. Beim Herunterladen einer Ressource mittels HTTP zählt dies nur den Hauptteil der HTTP-Nachricht und beinhaltet nicht Header und anderen Overhead.
+  - : Ein 64-Bit-Unsigned-Integer-Wert, der die bereits geleistete Arbeit durch den zugrunde liegenden Prozess angibt. Das Verhältnis der geleisteten Arbeit kann berechnet werden, indem `total` durch den Wert dieser Eigenschaft geteilt wird. Beim Herunterladen einer Ressource über HTTP zählt dies nur den Körper der HTTP-Nachricht und schließt Header und anderen Overhead nicht ein.
 - [`total`](/de/docs/Web/API/ProgressEvent/total) {{ReadOnlyInline}}
-  - : Ein 64-Bit-Unsigned-Integer-Wert, der die Gesamtarbeit repräsentiert, die der zugrunde liegende Prozess zu leisten hat. Beim Herunterladen einer Ressource mittels HTTP ist dies die `Content-Length` (die Größe des Hauptteils der Nachricht) und beinhaltet nicht die Header und anderen Overhead.
+  - : Ein 64-Bit-Unsigned-Integer, der die Gesamtmenge der Arbeit darstellt, die der zugrunde liegende Prozess auszuführen hat. Beim Herunterladen einer Ressource über HTTP ist dies die `Content-Length` (die Größe des Nachrichtentextes) und schließt die Header und anderen Overhead nicht mit ein.
 
 ## Beispiele
 
-### Verwendung des `loadend` Ereignisses
+### Verwendung des `loadend`-Ereignisses
 
-Sie können das `loadend` Ereignis verwenden, um das (erfolgreiche oder nicht) Ende eines Uploads zu erkennen. Für ein vollständiges Codebeispiel, das eine Datei hochlädt und eine Fortschrittsanzeige anzeigt, siehe die Hauptseite [`XMLHttpRequestUpload`](/de/docs/Web/API/XMLHttpRequestUpload).
+Sie können das `loadend`-Ereignis verwenden, um die (erfolgreiche oder nicht erfolgreiche) Beendigung eines Uploads zu erkennen. Für ein vollständiges Codebeispiel, das eine Datei hochlädt und einen Fortschrittsbalken anzeigt, siehe die Hauptseite [`XMLHttpRequestUpload`](/de/docs/Web/API/XMLHttpRequestUpload).
 
 ```js
 // When the upload is finished, we hide the progress bar.

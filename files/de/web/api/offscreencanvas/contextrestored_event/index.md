@@ -1,25 +1,25 @@
 ---
-title: "OffscreenCanvas: contextrestored-Ereignis"
+title: "OffscreenCanvas: contextrestored Ereignis"
 short-title: contextrestored
 slug: Web/API/OffscreenCanvas/contextrestored_event
 l10n:
-  sourceCommit: fd3ed7581658bd33c7a596a84be81103faedb10a
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{APIRef("Canvas API")}}
 
-Das **`contextrestored`**-Ereignis des [`OffscreenCanvas`](/de/docs/Web/API/OffscreenCanvas)-Interfaces wird ausgelöst, wenn der Browser einen [`OffscreenCanvasRenderingContext2D`](/de/docs/Web/API/OffscreenCanvasRenderingContext2D)-Kontext wiederherstellt, der [zuvor verloren gegangen](/de/docs/Web/API/OffscreenCanvas/contextlost_event) war.
+Das **`contextrestored`**-Ereignis des [`OffscreenCanvas`](/de/docs/Web/API/OffscreenCanvas)-Interfaces wird ausgelöst, wenn der Browser einen [`OffscreenCanvasRenderingContext2D`](/de/docs/Web/API/OffscreenCanvasRenderingContext2D)-Kontext wiederherstellt, der [zuvor verloren](/de/docs/Web/API/OffscreenCanvas/contextlost_event) gegangen war.
 
-Sie können nach Empfang dieses Ereignisses Ihre Zeichenoperationen erneut ausführen, Ressourcen erneut abrufen und den Zustand Ihres Kontextes neu initialisieren.
+Sie können nach Empfang dieses Ereignisses Ihre Ressourcen neu zeichnen, neu abrufen und den Zustand Ihres Kontexts erneut initialisieren.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Event-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
-```js
-addEventListener("contextrestored", (event) => {});
+```js-nolint
+addEventListener("contextrestored", (event) => { })
 
-oncontextrestored = (event) => {};
+oncontextrestored = (event) => { }
 ```
 
 ## Ereignistyp
@@ -28,7 +28,7 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-Das folgende Codefragment erkennt das Kontext-wiederhergestellt-Ereignis.
+Der folgende Codeausschnitt erkennt das Kontextwiederherstellungsereignis.
 
 ```js
 const canvas = new OffscreenCanvas(256, 256);
@@ -54,6 +54,6 @@ canvas.addEventListener(
 
 ## Siehe auch
 
-- [`OffscreenCanvas: contextlost`-Ereignis](/de/docs/Web/API/OffscreenCanvas/contextlost_event)
+- [`OffscreenCanvas: contextlost` Ereignis](/de/docs/Web/API/OffscreenCanvas/contextlost_event)
 - [`OffscreenCanvasRenderingContext2D.isContextLost()`](/de/docs/Web/API/OffscreenCanvasRenderingContext2D#canvasrenderingcontext2d.iscontextlost)
-- [`HTMLCanvasElement: contextrestored`-Ereignis](/de/docs/Web/API/HTMLCanvasElement/contextrestored_event)
+- [`HTMLCanvasElement: contextrestored` Ereignis](/de/docs/Web/API/HTMLCanvasElement/contextrestored_event)

@@ -2,13 +2,14 @@
 title: "CSP: manifest-src"
 slug: Web/HTTP/Reference/Headers/Content-Security-Policy/manifest-src
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: c01b393fbb6939f88cc98ac2a34df1a54be1edfd
 ---
 
 {{HTTPSidebar}}
 
-Die HTTP
-{{HTTPHeader("Content-Security-Policy")}}`: manifest-src`-Direktive legt fest, welches [Manifest](/de/docs/Web/Progressive_web_apps/Manifest) auf die Ressource angewendet werden kann.
+Die HTTP-Direktive
+{{HTTPHeader("Content-Security-Policy")}} **`manifest-src`**
+legt fest, welche [Manifeste](/de/docs/Web/Progressive_web_apps/Manifest) auf die Ressource angewendet werden können.
 
 <table class="properties">
   <tbody>
@@ -17,14 +18,14 @@ Die HTTP
       <td>3</td>
     </tr>
     <tr>
-      <th scope="row">Direktiventyp</th>
-      <td>{{Glossary("Fetch_directive", "Fetch-Direktive")}}</td>
+      <th scope="row">Direktivtyp</th>
+      <td>{{Glossary("Fetch_directive", "Fetch directive")}}</td>
     </tr>
     <tr>
-      <th scope="row">{{CSP("default-src")}} Rückfall</th>
+      <th scope="row">{{CSP("default-src")}} Fallback</th>
       <td>
         Ja. Wenn diese Direktive fehlt, sucht der Benutzeragent nach der
-        <code>default-src</code>-Direktive.
+        <code>default-src</code> Direktive.
       </td>
     </tr>
   </tbody>
@@ -53,13 +54,13 @@ Diese Direktive kann einen der folgenden Werte haben:
 
 ### Verletzungsfälle
 
-Angenommen, dieser CSP-Header:
+Gegeben sei dieser CSP-Header:
 
 ```http
 Content-Security-Policy: manifest-src https://example.com/
 ```
 
-Das folgende {{HTMLElement("link")}} wird blockiert und nicht geladen:
+Das folgende {{HTMLElement("link")}}-Element wird blockiert und nicht geladen:
 
 ```html
 <link rel="manifest" href="https://not-example.com/manifest" />

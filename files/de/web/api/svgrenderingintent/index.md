@@ -2,69 +2,40 @@
 title: SVGRenderingIntent
 slug: Web/API/SVGRenderingIntent
 l10n:
-  sourceCommit: 22080a7cc403f7f45c8e85065b182c9f0d4d383c
+  sourceCommit: 2e39a37874913a1e3fd82999467505fd525e9177
 ---
 
 {{APIRef("SVG")}}{{deprecated_header}}
 
-Die **`SVGRenderingIntent`**-Schnittstelle definiert die aufgezählte Liste möglicher Werte für {{SVGAttr("rendering-intent")}}-Attribute oder -Deskriptoren.
+Das Interface **`SVGRenderingIntent`** definiert die aufgezählte Liste möglicher Werte für {{SVGAttr("rendering-intent")}} Attribute oder Deskriptoren.
 
 {{InheritanceDiagram}}
 
 > [!WARNING]
-> Diese Schnittstelle wurde in der SVG 2-Spezifikation entfernt.
+> Dieses Interface wurde in der SVG 2 Spezifikation entfernt.
 
-## Konstanten
+## Instanz-Eigenschaften
 
-<table class="no-markdown">
-  <tbody>
-    <tr>
-      <th>Name</th>
-      <th>Wert</th>
-      <th>Beschreibung</th>
-    </tr>
-    <tr>
-      <td><code>RENDERING_INTENT_UNKNOWN</code></td>
-      <td>0</td>
-      <td>
-        Der Typ gehört nicht zu den vordefinierten Typen. Es ist ungültig, zu versuchen, einen neuen Wert dieses Typs zu definieren oder einen vorhandenen Wert auf diesen Typ umzustellen.
-      </td>
-    </tr>
-    <tr>
-      <td><code>RENDERING_INTENT_AUTO</code></td>
-      <td>1</td>
-      <td>Entspricht dem Wert <code>auto</code>.</td>
-    </tr>
-    <tr>
-      <td><code>RENDERING_INTENT_PERCEPTUAL</code></td>
-      <td>2</td>
-      <td>Entspricht dem Wert <code>perceptual</code>.</td>
-    </tr>
-    <tr>
-      <td><code>RENDERING_INTENT_RELATIVE_COLORIMETRIC</code></td>
-      <td>3</td>
-      <td>Entspricht dem Wert <code>relative-colorimetric</code>.</td>
-    </tr>
-    <tr>
-      <td><code>RENDERING_INTENT_SATURATION</code></td>
-      <td>4</td>
-      <td>Entspricht dem Wert <code>saturation</code>.</td>
-    </tr>
-    <tr>
-      <td><code>RENDERING_INTENT_ABSOLUTE_COLORIMETRIC</code></td>
-      <td>5</td>
-      <td>Entspricht dem Wert <code>absolute-colorimetric</code>.</td>
-    </tr>
-  </tbody>
-</table>
+_Dieses Interface implementiert keine spezifischen Eigenschaften._
 
-## Instanzeigenschaften
+## Instanz-Methoden
 
-_Diese Schnittstelle implementiert keine spezifischen Eigenschaften._
+_Dieses Interface implementiert keine spezifischen Methoden._
 
-## Instanzmethoden
+## Statische Eigenschaften
 
-_Diese Schnittstelle implementiert keine spezifischen Methoden._
+- `RENDERING_INTENT_UNKNOWN` (0)
+  - : Der Typ gehört nicht zu den vordefinierten Typen. Es ist ungültig, zu versuchen, einen neuen Wert dieses Typs zu definieren oder einen bestehenden Wert auf diesen Typ zu wechseln.
+- `RENDERING_INTENT_AUTO` (1)
+  - : Entspricht dem Wert `auto`.
+- `RENDERING_INTENT_PERCEPTUAL` (2)
+  - : Entspricht dem Wert `perceptual`.
+- `RENDERING_INTENT_RELATIVE_COLORIMETRIC` (3)
+  - : Entspricht dem Wert `relative-colorimetric`.
+- `RENDERING_INTENT_SATURATION` (4)
+  - : Entspricht dem Wert `saturation`.
+- `RENDERING_INTENT_ABSOLUTE_COLORIMETRIC` (5)
+  - : Entspricht dem Wert `absolute-colorimetric`.
 
 ## Spezifikationen
 

@@ -1,9 +1,9 @@
 ---
-title: "Element: afterscriptexecute-Ereignis"
+title: "Element: afterscriptexecute event"
 short-title: afterscriptexecute
 slug: Web/API/Element/afterscriptexecute_event
 l10n:
-  sourceCommit: c15dc43c147bba7bdbaf2754831c59e5f44b98d2
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{APIRef}}{{Non-standard_header}}{{deprecated_header}}
@@ -19,12 +19,12 @@ Dieses Ereignis kann nicht abgebrochen werden.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
 
-```js
-addEventListener("afterscriptexecute", (event) => {});
+```js-nolint
+addEventListener("afterscriptexecute", (event) => { })
 
-onafterscriptexecute = (event) => {};
+onafterscriptexecute = (event) => { }
 ```
 
 ## Ereignistyp
@@ -33,7 +33,7 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Spezifikationen
 
-Nicht Teil irgendeiner Spezifikation.
+Teil keiner Spezifikation.
 
 ## Browser-Kompatibilität
 

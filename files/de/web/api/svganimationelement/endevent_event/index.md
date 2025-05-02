@@ -1,28 +1,28 @@
 ---
-title: "SVGAnimationElement: endEvent event"
+title: "SVGAnimationElement: endEvent Ereignis"
 short-title: endEvent
 slug: Web/API/SVGAnimationElement/endEvent_event
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{APIRef("SVG")}}
 
-Das **`endEvent`** Ereignis der [`SVGAnimationElement`](/de/docs/Web/API/SVGAnimationElement)-Schnittstelle wird ausgelöst, wenn das aktive Ende der Animation erreicht ist.
+Das **`endEvent`** Ereignis der [`SVGAnimationElement`](/de/docs/Web/API/SVGAnimationElement) Schnittstelle wird ausgelöst, wenn das aktive Ende der Animation erreicht wird.
 
 > [!NOTE]
-> Dieses Ereignis wird nicht am einfachen Ende jeder Animationswiederholung ausgelöst. Dieses Ereignis kann sowohl im Verlauf des normalen (d.h. geplanten oder interaktiven) Zeitachsenverlaufs als auch im Fall, dass das Element mit einer DOM-Methode beendet wurde, ausgelöst werden.
+> Dieses Ereignis wird nicht am einfachen Ende jeder Animationswiederholung ausgelöst. Es kann sowohl im Verlauf eines normalen (d.h. geplanten oder interaktiven) Zeitachsenablaufs ausgelöst werden als auch, wenn das Element mit einer DOM-Methode beendet wurde.
 
-Dieses Ereignis ist nicht abbrechbar und wird nicht gebubbelt.
+Dieses Ereignis kann nicht abgebrochen werden und wird nicht nach oben weitergegeben.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Event-Handler-Eigenschaft.
 
-```js
-addEventListener("endEvent", (event) => {});
+```js-nolint
+addEventListener("endEvent", (event) => { })
 
-onend = (event) => {};
+onend = (event) => { }
 ```
 
 ## Ereignistyp
@@ -34,9 +34,9 @@ Ein [`TimeEvent`](/de/docs/Web/API/TimeEvent). Erbt von [`Event`](/de/docs/Web/A
 ## Ereigniseigenschaften
 
 - [`TimeEvent.detail`](/de/docs/Web/API/TimeEvent/detail) {{ReadOnlyInline}}
-  - : Ein `long`, der abhängig vom Ereignistyp einige Detailinformationen über das Ereignis angibt. Für diesen Ereignistyp gibt er die Wiederholungsnummer der Animation an.
+  - : Ein `long`, der einige Detailinformationen über das Ereignis angibt, abhängig vom Typ des Ereignisses. Für diesen Ereignistyp wird die Wiederholungsnummer für die Animation angegeben.
 - [`TimeEvent.view`](/de/docs/Web/API/TimeEvent/view) {{ReadOnlyInline}}
-  - : Ein {{Glossary("WindowProxy", "WindowProxy")}}, das das Fenster identifiziert, aus dem das Ereignis erstellt wurde.
+  - : Ein {{Glossary("WindowProxy", "WindowProxy")}}, der das Fenster identifiziert, von dem das Ereignis generiert wurde.
 
 ## Beispiele
 
@@ -102,9 +102,9 @@ btn.addEventListener("click", () => {
 
 {{EmbedLiveSample('Animated_circle', '100%', '300')}}
 
-### Äquivalentes Ereignishandler-Property
+### Äquivalent zur Event-Handler-Eigenschaft
 
-Beachten Sie, dass Sie auch einen Ereignis-Listener für das `end`-Ereignis mit der `onend`-Ereignishandler-Eigenschaft erstellen können:
+Beachten Sie, dass Sie auch einen Ereignislistener für das `end` Ereignis mit der `onend` Event-Handler-Eigenschaft erstellen können:
 
 ```js
 animateElem.onend = () => {

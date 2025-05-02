@@ -2,10 +2,10 @@
 title: <mask>
 slug: Web/SVG/Reference/Element/mask
 l10n:
-  sourceCommit: 34c204f8f6c3f7ac60ebb23fca9798680aee9956
+  sourceCommit: c5dc2ada8a069f09eaf7de670059e5d0d5e39399
 ---
 
-Das **`<mask>`** [SVG](/de/docs/Web/SVG) Element definiert eine Alpha-Maske, um das aktuelle Objekt mit dem Hintergrund zu verschmelzen. Eine Maske wird über die {{SVGAttr("mask")}}-Eigenschaft verwendet/referenziert.
+Das **`<mask>`**-Element [SVG](/de/docs/Web/SVG) definiert eine Maske für das Komponieren des aktuellen Objekts in den Hintergrund. Eine Maske wird über die Eigenschaft {{SVGAttr("mask")}} und die CSS-Eigenschaft {{cssxref("mask-image")}} verwendet/referenziert.
 
 ## Beispiel
 
@@ -20,7 +20,7 @@ svg {
 ```html
 <svg viewBox="-10 -10 120 120">
   <rect x="-10" y="-10" width="120" height="120" fill="blue" />
-  <mask id="myMask">
+  <mask id="myMask" mask-type="luminance">
     <!-- Everything under a white pixel will be visible -->
     <rect x="0" y="0" width="100" height="100" fill="white" />
 
@@ -44,11 +44,14 @@ svg {
 - {{SVGAttr("height")}}
   - : Dieses Attribut definiert die Höhe des Maskierungsbereichs.
     _Wertetyp_: [**\<length>**](/de/docs/Web/SVG/Guides/Content_type#length); _Standardwert_: `120%`; _Animierbar_: **ja**
+- {{SVGAttr("mask-type")}}
+  - : Dieses Attribut definiert den Modus der Maske für die Inhalte des `<mask>`.
+    _Wertetyp_: `alpha` | `luminance`; _Standardwert_: `luminance`; _Animierbar_: **ja**
 - {{SVGAttr("maskContentUnits")}}
-  - : Dieses Attribut definiert das Koordinatensystem für den Inhalt des `<mask>`.
+  - : Dieses Attribut definiert das Koordinatensystem für die Inhalte des `<mask>`.
     _Wertetyp_: `userSpaceOnUse` | `objectBoundingBox`; _Standardwert_: `userSpaceOnUse`; _Animierbar_: **ja**
 - {{SVGAttr("maskUnits")}}
-  - : Dieses Attribut definiert das Koordinatensystem für die Attribute {{SVGAttr("x")}}, {{SVGAttr("y")}}, {{SVGAttr("width")}} und {{SVGAttr("height")}} im `<mask>`.
+  - : Dieses Attribut definiert das Koordinatensystem für die Attribute {{SVGAttr("x")}}, {{SVGAttr("y")}}, {{SVGAttr("width")}} und {{SVGAttr("height")}} auf dem `<mask>`.
     _Wertetyp_: `userSpaceOnUse` | `objectBoundingBox`; _Standardwert_: `objectBoundingBox`; _Animierbar_: **ja**
 - {{SVGAttr("x")}}
   - : Dieses Attribut definiert die x-Achsen-Koordinate der oberen linken Ecke des Maskierungsbereichs.
@@ -60,7 +63,7 @@ svg {
   - : Dieses Attribut definiert die Breite des Maskierungsbereichs.
     _Wertetyp_: [**\<length>**](/de/docs/Web/SVG/Guides/Content_type#length); _Standardwert_: `120%`; _Animierbar_: **ja**
 
-## Verwendungskontext
+## Nutzungskontext
 
 {{svginfo}}
 
@@ -74,5 +77,6 @@ svg {
 
 ## Siehe auch
 
-- Andere Clip- und Maskierungs-SVG-Elemente: {{SVGElement("clipPath")}}
-- CSS-Eigenschaften für Clipping und Maskierung: {{cssxref("mask")}}, {{cssxref("mask-image")}}, {{cssxref("mask-mode")}}, {{cssxref("mask-repeat")}}, {{cssxref("mask-position")}}, {{cssxref("mask-clip")}}, {{cssxref("mask-origin")}}, {{cssxref("mask-composite")}}, {{cssxref("mask-size")}}, {{cssxref("pointer-events")}}
+- CSS-Eigenschaft {{cssxref("mask-type")}}
+- Andere Clip- und Masken-Elemente von SVG: {{SVGElement("clipPath")}}
+- Clip- und Maskierungs-CSS-Eigenschaften: {{cssxref("mask")}}, {{cssxref("mask-image")}}, {{cssxref("mask-mode")}}, {{cssxref("mask-repeat")}}, {{cssxref("mask-position")}}, {{cssxref("mask-clip")}}, {{cssxref("mask-origin")}}, {{cssxref("mask-composite")}}, {{cssxref("mask-size")}}

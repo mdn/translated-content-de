@@ -3,7 +3,7 @@ title: "HTMLElement: cut Ereignis"
 short-title: cut
 slug: Web/API/HTMLElement/cut_event
 l10n:
-  sourceCommit: 73b2b6ee411ac094b9fc57dafac6f9c232fc20d9
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{ APIRef("HTML DOM") }}
@@ -12,12 +12,12 @@ Das **`cut`** Ereignis wird ausgelöst, wenn der Benutzer eine Ausschneideaktion
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
 
-```js
-addEventListener("cut", (event) => {});
+```js-nolint
+addEventListener("cut", (event) => { })
 
-oncut = (event) => {};
+oncut = (event) => { }
 ```
 
 ## Ereignistyp
@@ -28,14 +28,14 @@ Ein [`ClipboardEvent`](/de/docs/Web/API/ClipboardEvent). Erbt von [`Event`](/de/
 
 ## Ereigniseigenschaften
 
-_Erbt auch Eigenschaften von seinem Elternteil [`Event`](/de/docs/Web/API/Event)_.
+_Erbt auch Eigenschaften von seinem Elternobjekt [`Event`](/de/docs/Web/API/Event)_.
 
 - [`ClipboardEvent.clipboardData`](/de/docs/Web/API/ClipboardEvent/clipboardData) {{ReadOnlyInline}}
-  - : Ein [`DataTransfer`](/de/docs/Web/API/DataTransfer) Objekt, das die von der benutzerinitiierten `cut`, [`copy`](/de/docs/Web/API/HTMLElement/copy_event) oder [`paste`](/de/docs/Web/API/HTMLElement/paste_event) Operation betroffenen Daten zusammen mit ihrem MIME-Typ enthält.
+  - : Ein [`DataTransfer`](/de/docs/Web/API/DataTransfer)-Objekt, das die Daten enthält, die von der vom Benutzer initiierten `cut`, [`copy`](/de/docs/Web/API/HTMLElement/copy_event), oder [`paste`](/de/docs/Web/API/HTMLElement/paste_event) Operation betroffen sind, zusammen mit ihrem MIME-Typ.
 
 ## Beispiel
 
-Dieses Beispiel erlaubt das Kopieren von Text aus der {{htmlElement("textarea")}}, erlaubt jedoch nicht das Ausschneiden von Text. Es protokolliert auch jeden Kopier- und Ausschneideversuch.
+Dieses Beispiel erlaubt das Kopieren von Text aus dem {{htmlElement("textarea")}}, aber nicht das Ausschneiden von Text. Es protokolliert auch jeden Kopier- und Ausschneideversuch.
 
 ### HTML
 

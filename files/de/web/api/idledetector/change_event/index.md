@@ -3,21 +3,21 @@ title: "IdleDetector: change Ereignis"
 short-title: change
 slug: Web/API/IdleDetector/change_event
 l10n:
-  sourceCommit: a28ce291736be0291feb822083b92c6f4385d57c
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{securecontext_header}}{{APIRef("Idle Detection API")}}{{SeeCompatTable}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Das **`change`**-Ereignis der [`IdleDetector`](/de/docs/Web/API/IdleDetector)-Schnittstelle wird ausgelöst, wenn sich der Wert von `userState` oder `screenState` geändert hat.
+Das **`change`** Ereignis der [`IdleDetector`](/de/docs/Web/API/IdleDetector) Schnittstelle wird ausgelöst, wenn sich der Wert von `userState` oder `screenState` geändert hat.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
-```js
-addEventListener("change", (event) => {});
+```js-nolint
+addEventListener("change", (event) => { })
 
-onchange = (event) => {};
+onchange = (event) => { }
 ```
 
 ## Ereignistyp
@@ -26,7 +26,7 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiel
 
-Im folgenden Beispiel gibt der `change`-Callback den Status von `userState` und `screenState` in der Konsole aus.
+Im folgenden Beispiel gibt der `change` Rückruf den Status von `userState` und `screenState` in der Konsole aus.
 
 ```js
 idleDetector.addEventListener("change", () => {

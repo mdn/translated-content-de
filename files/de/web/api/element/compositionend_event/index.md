@@ -1,25 +1,25 @@
 ---
-title: "Element: compositionend Ereignis"
+title: "Element: compositionend-Ereignis"
 short-title: compositionend
 slug: Web/API/Element/compositionend_event
 l10n:
-  sourceCommit: cede06423af0242a18670246e1b25562d21c0004
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{APIRef}}
 
-Das **`compositionend`** Ereignis wird ausgelöst, wenn ein Textzusammensetzungssystem, wie ein {{Glossary("input_method_editor", "Input-Method-Editor")}}, die aktuelle Eingabesitzung abschließt oder abbricht.
+Das **`compositionend`**-Ereignis wird ausgelöst, wenn ein Textkompositionssystem, wie ein {{Glossary("input_method_editor", "Eingabemethoden-Editor")}}, die aktuelle Kompositionssitzung abschließt oder abbricht.
 
-Zum Beispiel könnte dieses Ereignis ausgelöst werden, nachdem ein Benutzer das Eingeben eines chinesischen Zeichens mit einem [Pinyin](https://en.wikipedia.org/wiki/Pinyin) {{Glossary("Input_method_editor", "Input-Method-Editor")}} beendet hat.
+Beispielsweise könnte dieses Ereignis ausgelöst werden, nachdem ein Benutzer die Eingabe eines chinesischen Zeichens mit einem [Pinyin](https://en.wikipedia.org/wiki/Pinyin)-{{Glossary("Input_method_editor", "Eingabemethoden-Editor")}} abgeschlossen hat.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignisbehandlereigenschaft.
 
-```js
-addEventListener("compositionend", (event) => {});
+```js-nolint
+addEventListener("compositionend", (event) => { })
 
-oncompositionend = (event) => {};
+oncompositionend = (event) => { }
 ```
 
 ## Ereignistyp
@@ -28,14 +28,14 @@ Ein [`CompositionEvent`](/de/docs/Web/API/CompositionEvent). Erbt von [`UIEvent`
 
 {{InheritanceDiagram("CompositionEvent")}}
 
-## Ereigniseigenschaften
+## Ereignis-Eigenschaften
 
-_Diese Schnittstelle erbt auch Eigenschaften ihres Elternteils, [`UIEvent`](/de/docs/Web/API/UIEvent), und ihres Vorfahren — [`Event`](/de/docs/Web/API/Event)._
+_Diese Schnittstelle erbt auch Eigenschaften ihrer Eltern, [`UIEvent`](/de/docs/Web/API/UIEvent), und ihrer Vorfahren — [`Event`](/de/docs/Web/API/Event)._
 
 - [`CompositionEvent.data`](/de/docs/Web/API/CompositionEvent/data) {{ReadOnlyInline}}
-  - : Gibt die Zeichen zurück, die durch die Eingabemethode erzeugt wurden, die das Ereignis ausgelöst hat; diese variieren je nach Typ des Ereignisses, das das `CompositionEvent` Objekt generiert hat.
+  - : Gibt die Zeichen zurück, die durch die Eingabemethode generiert wurden, die das Ereignis ausgelöst hat; dies variiert je nach Art des Ereignisses, das das `CompositionEvent`-Objekt erzeugt hat.
 - [`CompositionEvent.locale`](/de/docs/Web/API/CompositionEvent/locale) {{ReadOnlyInline}} {{deprecated_inline}}
-  - : Gibt das Gebietsschema der aktuellen Eingabemethode zurück (zum Beispiel das Gebietsschema des Tastaturlayouts, wenn die Eingabe mit einem {{Glossary("Input_method_editor", "Input-Method-Editor")}} verbunden ist).
+  - : Gibt das Gebietsschema der aktuellen Eingabemethode zurück (zum Beispiel das Tastaturlayout-Gebietsschema, wenn die Komposition mit einem {{Glossary("Input_method_editor", "Eingabemethoden-Editor")}} verbunden ist).
 
 ## Beispiele
 

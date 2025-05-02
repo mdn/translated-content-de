@@ -1,9 +1,9 @@
 ---
-title: "RTCPeerConnection: addstream Ereignis"
+title: "RTCPeerConnection: addstream-Ereignis"
 short-title: addstream
 slug: Web/API/RTCPeerConnection/addstream_event
 l10n:
-  sourceCommit: 4f35a8237ee0842beb9cfef3354e05464ad7ce1a
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{APIRef("WebRTC")}}{{Deprecated_Header}}{{Non-standard_Header}}
@@ -11,20 +11,20 @@ l10n:
 Das veraltete **`addstream`**-Ereignis wird an eine [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) gesendet, wenn neue Medien in Form eines [`MediaStream`](/de/docs/Web/API/MediaStream)-Objekts hinzugefügt wurden.
 
 > [!WARNING]
-> Dieses Ereignis wurde aus der WebRTC-Spezifikation entfernt. Sie sollten stattdessen das [`track`](/de/docs/Web/API/RTCPeerConnection/track_event) Ereignis überwachen, das für jede Medienspur gesendet wird, die zur `RTCPeerConnection` hinzugefügt wird.
+> Dieses Ereignis wurde aus der WebRTC-Spezifikation entfernt. Stattdessen sollten Sie auf das [`track`](/de/docs/Web/API/RTCPeerConnection/track_event)-Ereignis achten, das für jede Medienspur gesendet wird, die der `RTCPeerConnection` hinzugefügt wird.
 
-Sie können ähnlich Streams beobachten, die von der Verbindung entfernt werden, indem Sie das [`removestream`](/de/docs/Web/API/RTCPeerConnection/removestream_event) Ereignis überwachen.
+Sie können ähnlich beobachten, wie Streams von der Verbindung entfernt werden, indem Sie das [`removestream`](/de/docs/Web/API/RTCPeerConnection/removestream_event)-Ereignis überwachen.
 
-Dieses Ereignis ist nicht abbrechbar und lässt sich nicht nach oben durchreichen (bubbles nicht).
+Dieses Ereignis ist nicht abbrechbar und wird nicht gebubbelt.
 
 ## Syntax
 
 Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
-```js
-addEventListener("addstream", (event) => {});
+```js-nolint
+addEventListener("addstream", (event) => { })
 
-onaddstream = (event) => {};
+onaddstream = (event) => { }
 ```
 
 ## Ereignistyp
@@ -35,14 +35,14 @@ Ein [`MediaStreamEvent`](/de/docs/Web/API/MediaStreamEvent). Erbt von [`Event`](
 
 ## Ereigniseigenschaften
 
-_Ein [`MediaStreamEvent`](/de/docs/Web/API/MediaStreamEvent), das ein [`Event`](/de/docs/Web/API/Event) ist, implementiert auch diese Eigenschaften_.
+_Ein [`MediaStreamEvent`](/de/docs/Web/API/MediaStreamEvent), da es ein [`Event`](/de/docs/Web/API/Event) ist, implementiert auch diese Eigenschaften_.
 
 - [`MediaStreamEvent.stream`](/de/docs/Web/API/MediaStreamEvent/stream) {{ReadOnlyInline}}
-  - : Enthält den [`MediaStream`](/de/docs/Web/API/MediaStream), der mit dem Ereignis verknüpft ist.
+  - : Enthält den [`MediaStream`](/de/docs/Web/API/MediaStream), der mit dem Ereignis verbunden ist.
 
 ## Beispiele
 
-Dieses Beispiel prüft, ob der Browser des Benutzers das [`track`](/de/docs/Web/API/RTCPeerConnection/track_event) Ereignis unterstützt. Falls ja, wird ein `track`-Ereignis-Listener eingerichtet; andernfalls wird ein `addstream`-Ereignis-Listener eingerichtet. `pc` ist eine `RTCPeerConnection`.
+In diesem Beispiel wird ermittelt, ob der Browser des Benutzers das [`track`](/de/docs/Web/API/RTCPeerConnection/track_event)-Ereignis unterstützt. Falls dies der Fall ist, wird ein `track`-Ereignislistener eingerichtet; andernfalls wird ein `addstream`-Ereignislistener eingerichtet. `pc` ist eine `RTCPeerConnection`.
 
 ```js
 if (pc.addTrack !== undefined) {
@@ -56,9 +56,9 @@ if (pc.addTrack !== undefined) {
 }
 ```
 
-Dies ruft eine Funktion `doAddStream()` einmal für jeden Stream auf, der zur [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) hinzugefügt wird, unabhängig davon, ob der Browser `addstream` oder `track` sendet.
+Dies ruft eine Funktion `doAddStream()` für jeden Stream auf, der zur [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) hinzugefügt wird, unabhängig davon, ob der Browser `addstream` oder `track` sendet.
 
-Sie können auch die Methode [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) verwenden, um einen Ereignis-Listener einzurichten:
+Sie können auch die Methode [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) verwenden, um einen Ereignislistener einzurichten:
 
 ```js
 pc.addEventListener("addstream", (ev) => doAddStream(ev.stream), false);

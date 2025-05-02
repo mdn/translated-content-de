@@ -1,28 +1,28 @@
 ---
-title: "Window: cut Ereignis"
+title: "Window: cut-Event"
 short-title: cut
 slug: Web/API/Window/cut_event
 l10n:
-  sourceCommit: cc070123f72376faec06e36622c4fc723a75325f
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{APIRef}}
 
-Das **`cut`** Ereignis wird ausgelöst, wenn der Benutzer eine "Ausschneiden"-Aktion über die Benutzeroberfläche des Browsers initiiert hat.
+Das **`cut`**-Event wird ausgelöst, wenn der Benutzer eine "Ausschneiden"-Aktion über die Benutzeroberfläche des Browsers initiiert hat.
 
-Das ursprüngliche Ziel dieses Ereignisses ist das [`Element`](/de/docs/Web/API/Element), das das beabsichtigte Ziel der Ausschneideaktion war. Sie können auf diesem Ereignis auf der [`Window`](/de/docs/Web/API/Window) Schnittstelle hören, um es in den Capture- oder Bubbling-Phasen zu bearbeiten. Für vollständige Details zu diesem Ereignis siehe die Seite zum [Element: cut Ereignis](/de/docs/Web/API/Element/cut_event).
+Das ursprüngliche Ziel dieses Events ist das [`Element`](/de/docs/Web/API/Element), das das beabsichtigte Ziel der Ausschneideaktion war. Sie können dieses Event auf der [`Window`](/de/docs/Web/API/Window)-Schnittstelle überwachen, um es in den Capture- oder Bubbling-Phasen zu verarbeiten. Für vollständige Details zu diesem Event siehe die Seite [Element: cut-Event](/de/docs/Web/API/Element/cut_event).
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Event-Handler-Eigenschaft.
 
-```js
-addEventListener("cut", (event) => {});
+```js-nolint
+addEventListener("cut", (event) => { })
 
-oncut = (event) => {};
+oncut = (event) => { }
 ```
 
-## Ereignistyp
+## Event-Typ
 
 Ein [`ClipboardEvent`](/de/docs/Web/API/ClipboardEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
@@ -46,6 +46,6 @@ window.addEventListener("cut", (event) => {
 
 ## Siehe auch
 
-- Verwandte Ereignisse: [`copy`](/de/docs/Web/API/Window/copy_event), [`paste`](/de/docs/Web/API/Window/paste_event)
-- Dieses Ereignis auf [`Element`](/de/docs/Web/API/Element) Ziele: [`cut`](/de/docs/Web/API/Element/cut_event)
-- Dieses Ereignis auf [`Document`](/de/docs/Web/API/Document) Ziele: [`cut`](/de/docs/Web/API/Document/cut_event)
+- Verwandte Events: [`copy`](/de/docs/Web/API/Window/copy_event), [`paste`](/de/docs/Web/API/Window/paste_event)
+- Dieses Event auf [`Element`](/de/docs/Web/API/Element) Zielen: [`cut`](/de/docs/Web/API/Element/cut_event)
+- Dieses Event auf [`Document`](/de/docs/Web/API/Document) Zielen: [`cut`](/de/docs/Web/API/Document/cut_event)

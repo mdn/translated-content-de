@@ -1,25 +1,25 @@
 ---
-title: "EventSource: message event"
+title: "EventSource: message-Ereignis"
 short-title: message
 slug: Web/API/EventSource/message_event
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{APIRef("Server Sent Events")}}{{AvailableInWorkers}}
 
 Das **`message`**-Ereignis der [`EventSource`](/de/docs/Web/API/EventSource)-Schnittstelle wird ausgelöst, wenn Daten über eine Ereignisquelle empfangen werden.
 
-Dieses Ereignis kann nicht abgebrochen werden und wird nicht weitergegeben.
+Dieses Ereignis kann nicht abgebrochen werden und löst keine Ereignisblase aus.
 
 ## Syntax
 
 Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
-```js
-addEventListener("message", (event) => {});
+```js-nolint
+addEventListener("message", (event) => { })
 
-onmessage = (event) => {};
+onmessage = (event) => { }
 ```
 
 ## Ereignistyp
@@ -28,24 +28,24 @@ Ein [`MessageEvent`](/de/docs/Web/API/MessageEvent). Erbt von [`Event`](/de/docs
 
 {{InheritanceDiagram("MessageEvent")}}
 
-## Eigenschaften des Ereignisses
+## Ereigniseigenschaften
 
-_Diese Schnittstelle erbt auch Eigenschaften von ihrem Elternteil, [`Event`](/de/docs/Web/API/Event)._
+_Diese Schnittstelle erbt auch Eigenschaften von ihrem übergeordneten Element, [`Event`](/de/docs/Web/API/Event)._
 
 - [`MessageEvent.data`](/de/docs/Web/API/MessageEvent/data) {{ReadOnlyInline}}
-  - : Die vom Nachrichtensender gesendeten Daten.
+  - : Die vom Nachrichtenemitter gesendeten Daten.
 - [`MessageEvent.origin`](/de/docs/Web/API/MessageEvent/origin) {{ReadOnlyInline}}
-  - : Ein String, der den Ursprung des Nachrichtensenders darstellt.
+  - : Eine Zeichenkette, die den Ursprung des Nachrichtenemitters darstellt.
 - [`MessageEvent.lastEventId`](/de/docs/Web/API/MessageEvent/lastEventId) {{ReadOnlyInline}}
-  - : Ein String, der eine eindeutige ID für das Ereignis darstellt.
+  - : Eine Zeichenkette, die eine eindeutige ID für das Ereignis darstellt.
 - [`MessageEvent.source`](/de/docs/Web/API/MessageEvent/source) {{ReadOnlyInline}}
-  - : Eine `MessageEventSource` (die ein {{Glossary("WindowProxy", "WindowProxy")}}, [`MessagePort`](/de/docs/Web/API/MessagePort) oder [`ServiceWorker`](/de/docs/Web/API/ServiceWorker)-Objekt sein kann), die den Nachrichtensender darstellt.
+  - : Eine `MessageEventSource` (die ein {{Glossary("WindowProxy", "WindowProxy")}}, ein [`MessagePort`](/de/docs/Web/API/MessagePort) oder ein [`ServiceWorker`](/de/docs/Web/API/ServiceWorker)-Objekt sein kann) und den Nachrichtenemitter darstellt.
 - [`MessageEvent.ports`](/de/docs/Web/API/MessageEvent/ports) {{ReadOnlyInline}}
-  - : Ein Array von [`MessagePort`](/de/docs/Web/API/MessagePort)-Objekten, die die Ports darstellen, die mit dem Kanal verbunden sind, über den die Nachricht gesendet wird (wo zutreffend, z. B. bei der Kanalnachrichtenübermittlung oder beim Senden einer Nachricht an einen Shared Worker).
+  - : Ein Array von [`MessagePort`](/de/docs/Web/API/MessagePort)-Objekten, die die mit dem Kanal verbundenen Ports darstellen, durch den die Nachricht gesendet wird (wo zutreffend, z.B. im Kanal-Messaging oder beim Senden einer Nachricht an einen gemeinsam genutzten Worker).
 
 ## Beispiele
 
-In diesem grundlegenden Beispiel wird eine `EventSource` erstellt, um Ereignisse vom Server zu empfangen; eine Seite mit dem Namen `sse.php` ist für die Generierung der Ereignisse verantwortlich.
+In diesem einfachen Beispiel wird ein `EventSource` erstellt, um Ereignisse vom Server zu empfangen; eine Seite mit dem Namen `sse.php` ist für die Generierung der Ereignisse verantwortlich.
 
 ```js
 const evtSource = new EventSource("sse.php");
@@ -80,6 +80,6 @@ evtSource.onmessage = (e) => {
 
 ## Siehe auch
 
-- [Verwendung von servergesendeten Ereignissen](/de/docs/Web/API/Server-sent_events/Using_server-sent_events)
+- [Verwendung von Server-Sent Events](/de/docs/Web/API/Server-sent_events/Using_server-sent_events)
 - [`open`](/de/docs/Web/API/EventSource/open_event)
 - [`error`](/de/docs/Web/API/EventSource/error_event)

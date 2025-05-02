@@ -1,9 +1,9 @@
 ---
-title: "IDBTransaction: `abort`-Ereignis"
+title: "IDBTransaction: abort-Ereignis"
 short-title: abort
 slug: Web/API/IDBTransaction/abort_event
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{APIRef("IndexedDB")}}
@@ -12,21 +12,22 @@ Das `abort`-Ereignis wird ausgelöst, wenn eine `IndexedDB`-Transaktion abgebroc
 
 Dies kann aus einem der folgenden Gründe geschehen:
 
-- Falsche Anfragen (z.B. der Versuch, denselben Schlüssel zweimal hinzuzufügen, oder denselben Indexschlüssel zu setzen, wenn auf dem Schlüssel eine Einzigartigkeitsbedingung liegt).
-- Ein expliziter Aufruf von [`abort()`](/de/docs/Web/API/IDBTransaction/abort).
-- Eine nicht abgefangene Ausnahme im Erfolgs-/Fehlerhandler der Anfrage.
-- Ein E/A-Fehler (ein tatsächlicher Schreibfehler auf die Festplatte, beispielsweise abgetrennte Festplatte oder ein anderer Betriebssystem-/Hardwarefehler).
-- Überschreiten des Speicherplatzkontingents.
+- Falsche Anfragen (z.B. der Versuch, denselben Schlüssel zweimal hinzuzufügen oder denselben Index-Schlüssel zu verwenden, wenn der Schlüssel eine Eindeutigkeitsbeschränkung hat).
+- Ein expliziter [`abort()`](/de/docs/Web/API/IDBTransaction/abort)-Aufruf.
+- Eine nicht abgefangene Ausnahme in der Erfolgs-/Fehlerbehandlungsroutine der Anfrage.
+- Ein E/A-Fehler (ein tatsächliches Schreibversagen auf die Festplatte, zum Beispiel Festplatte getrennt oder ein anderer OS-/Hardwarefehler).
+- Überschreiten des Speicherlimits.
 
-Dieses nicht abbrechbare Ereignis [bubbelt](/de/docs/Learn_web_development/Core/Scripting/Event_bubbling) zum zugehörigen [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)-Objekt.
+Dieses nicht-abbrechbare Ereignis [bubbelt](/de/docs/Learn_web_development/Core/Scripting/Event_bubbling) zum zugehörigen [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)-Objekt.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Event-Handler-Eigenschaft.
 
-```js
-addEventListener("abort", (event) => {});
-onabort = (event) => {};
+```js-nolint
+addEventListener("abort", (event) => { })
+
+onabort = (event) => { }
 ```
 
 ## Ereignistyp
@@ -35,13 +36,13 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Bubbling
 
-Dieses Ereignis bubblet zu [`IDBDatabase`](/de/docs/Web/API/IDBDatabase). Die Eigenschaft `event.target` bezieht sich auf das [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)-Objekt, das hochbubbelt.
+Dieses Ereignis bubbelt zum [`IDBDatabase`](/de/docs/Web/API/IDBDatabase). Die `event.target`-Eigenschaft bezieht sich auf das [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)-Objekt, das weitergegeben wird.
 
-Für weitere Informationen siehe [Ereignis-Bubbling](/de/docs/Learn_web_development/Core/Scripting/Event_bubbling).
+Für weitere Informationen siehe [Event-Bubbling](/de/docs/Learn_web_development/Core/Scripting/Event_bubbling).
 
 ## Beispiele
 
-Dieses Beispiel öffnet eine Datenbank (und erstellt die Datenbank, falls sie nicht existiert), öffnet dann eine Transaktion, fügt einen Listener für das `abort`-Ereignis hinzu und bricht dann die Transaktion ab, um das Ereignis auszulösen.
+Dieses Beispiel öffnet eine Datenbank (erstellt die Datenbank, wenn sie nicht existiert), öffnet dann eine Transaktion, fügt einen Listener für das `abort`-Ereignis hinzu und bricht dann die Transaktion ab, um das Ereignis auszulösen.
 
 ```js
 // Open the database
@@ -83,7 +84,7 @@ DBOpenRequest.onsuccess = (event) => {
 };
 ```
 
-Dasselbe Beispiel, aber der Ereignishandler wird der `onabort`-Eigenschaft zugewiesen:
+Dasselbe Beispiel, aber der Event-Handler wird der `onabort`-Eigenschaft zugewiesen:
 
 ```js
 // Open the database

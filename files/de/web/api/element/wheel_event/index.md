@@ -1,46 +1,46 @@
 ---
-title: "Element: wheel Event"
+title: "Element: Wheel-Event "
 short-title: wheel
 slug: Web/API/Element/wheel_event
 l10n:
-  sourceCommit: 63ffc2df0ceb061f6197b30c39080b57c7d52920
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{APIRef}}
 
-Das **`wheel`**-Ereignis wird ausgelöst, wenn der Benutzer einen Radknopf an einem Zeigegerät (typischerweise einer Maus) dreht. Es wird auch für verwandte Geräte ausgelöst, die Radaktionen simulieren, wie Trackpads und Kugelmäuse.
+Das **`wheel`**-Event wird ausgelöst, wenn der Benutzer ein Rad an einem Zeigegerät (in der Regel eine Maus) dreht. Es wird auch für verwandte Geräte ausgelöst, die Radaktionen simulieren, wie Trackpads und Mausrollen.
 
-Dieses Ereignis ersetzt das nicht standardmäßige, veraltete [`mousewheel`](/de/docs/Web/API/Element/mousewheel_event)-Ereignis.
+Dieses Event ersetzt das nicht standardisierte, veraltete [`mousewheel`](/de/docs/Web/API/Element/mousewheel_event)-Event.
 
-Verwechseln Sie das `wheel`-Ereignis nicht mit dem [`scroll`](/de/docs/Web/API/Element/scroll_event)-Ereignis:
+Verwechseln Sie das `wheel`-Event nicht mit dem [`scroll`](/de/docs/Web/API/Element/scroll_event)-Event:
 
-- Ein `wheel`-Ereignis löst nicht unbedingt ein `scroll`-Ereignis aus. Zum Beispiel könnte das Element überhaupt nicht scrollbar sein. Auch Zoomaktionen über das Rad oder Trackpad lösen `wheel`-Ereignisse aus.
-- Ein `scroll`-Ereignis wird nicht unbedingt durch ein `wheel`-Ereignis ausgelöst. Elemente können auch durch die Verwendung der Tastatur, das Ziehen eines Scrollbalkens oder die Nutzung von JavaScript gescrollt werden.
-- Selbst wenn das `wheel`-Ereignis ein Scrollen auslöst, spiegeln die `delta*`-Werte im `wheel`-Ereignis nicht unbedingt die Scrollrichtung des Inhalts wider.
+- Ein `wheel`-Event löst nicht unbedingt ein `scroll`-Event aus. Beispielsweise kann das Element überhaupt nicht scrollbar sein. Zoom-Aktionen mit dem Rad oder Trackpad lösen ebenfalls `wheel`-Events aus.
+- Ein `scroll`-Event wird nicht unbedingt durch ein `wheel`-Event ausgelöst. Elemente können auch mit der Tastatur, durch Ziehen eines Scrollbalkens oder durch JavaScript gescrollt werden.
+- Selbst wenn das `wheel`-Event ein Scrollen auslöst, spiegeln die `delta*`-Werte im `wheel`-Event nicht unbedingt die Scrollrichtung des Inhalts wider.
 
-Daher sollten Sie sich nicht auf die `delta*`-Eigenschaften des `wheel`-Ereignisses verlassen, um die Scrollrichtung zu ermitteln. Stattdessen sollten Sie Wertänderungen von [`scrollLeft`](/de/docs/Web/API/Element/scrollLeft) und [`scrollTop`](/de/docs/Web/API/Element/scrollTop) des Ziels im `scroll`-Ereignis erfassen.
+Verlassen Sie sich daher nicht auf die `delta*`-Eigenschaften des `wheel`-Events, um die Scrollrichtung zu bestimmen. Erfassen Sie stattdessen Wertänderungen von [`scrollLeft`](/de/docs/Web/API/Element/scrollLeft) und [`scrollTop`](/de/docs/Web/API/Element/scrollTop) des Ziels im `scroll`-Event.
 
-Das `wheel`-Ereignis kann abgebrochen werden. Wenn das Ereignis abgebrochen wird, erfolgt kein Scrollen oder Zoomen. Dies kann zu Leistungsproblemen führen, da der Browser bei jedem `wheel`-Ereignis warten muss, bis dieses verarbeitet ist, bevor der Inhalt tatsächlich gescrollt wird. Sie können dies vermeiden, indem Sie `passive: true` setzen, wenn Sie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) aufrufen, was dazu führen kann, dass der Browser nicht abbrechbare `wheel`-Ereignisse generiert.
+Das `wheel`-Event kann abgebrochen werden. Wenn das Event abgebrochen wird, wird kein Scrollen oder Zoomen durchgeführt. Dies kann Leistungsprobleme verursachen, da der Browser auf die Verarbeitung jedes Wheel-Events warten muss, bevor der Inhalt tatsächlich gescrollt wird. Dies können Sie vermeiden, indem Sie `passive: true` verwenden, wenn Sie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) aufrufen, was dazu führen kann, dass der Browser nicht abbrechbare `wheel`-Events erzeugt.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignisbehandlereigenschaft.
+Verwenden Sie den Eventnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Event-Handler-Eigenschaft.
 
-```js
-addEventListener("wheel", (event) => {});
+```js-nolint
+addEventListener("wheel", (event) => { })
 
-onwheel = (event) => {};
+onwheel = (event) => { }
 ```
 
-## Ereignistyp
+## Event-Typ
 
 Ein [`WheelEvent`](/de/docs/Web/API/WheelEvent). Erbt von [`MouseEvent`](/de/docs/Web/API/MouseEvent), [`UIEvent`](/de/docs/Web/API/UIEvent) und [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("WheelEvent")}}
 
-## Ereigniseigenschaften
+## Event-Eigenschaften
 
-_Diese Schnittstelle erbt Eigenschaften von ihren Vorfahren, [`MouseEvent`](/de/docs/Web/API/MouseEvent), [`UIEvent`](/de/docs/Web/API/UIEvent) und [`Event`](/de/docs/Web/API/Event)._
+_Diese Schnittstelle erbt Eigenschaften von ihren Vorfahren, [`MouseEvent`](/de/docs/Web/API/MouseEvent), [`UIEvent`](/de/docs/Web/API/UIEvent), und [`Event`](/de/docs/Web/API/Event)._
 
 - [`WheelEvent.deltaX`](/de/docs/Web/API/WheelEvent/deltaX) {{ReadOnlyInline}}
   - : Gibt einen `double` zurück, der die horizontale Scrollmenge darstellt.
@@ -50,26 +50,26 @@ _Diese Schnittstelle erbt Eigenschaften von ihren Vorfahren, [`MouseEvent`](/de/
   - : Gibt einen `double` zurück, der die Scrollmenge für die z-Achse darstellt.
 - [`WheelEvent.deltaMode`](/de/docs/Web/API/WheelEvent/deltaMode) {{ReadOnlyInline}}
 
-  - : Gibt ein `unsigned long` zurück, das die Einheit der `delta*`-Werte der Scrollmenge darstellt. Erlaubte Werte sind:
+  - : Gibt einen `unsigned long` zurück, der die Einheit der `delta*`-Werte der Scrollmenge darstellt. Erlaubte Werte sind:
 
-    | Konstante                    | Wert   | Beschreibung                                                                                                                                                      |
-    | ---------------------------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-    | `WheelEvent.DOM_DELTA_PIXEL` | `0x00` | Die `delta*`-Werte sind in Pixeln angegeben.                                                                                                                      |
-    | `WheelEvent.DOM_DELTA_LINE`  | `0x01` | Die `delta*`-Werte sind in Zeilen angegeben. Jeder Mausklick scrollt eine Zeile des Inhalts, wobei die Methode zur Berechnung der Zeilenhöhe browserabhängig ist. |
-    | `WheelEvent.DOM_DELTA_PAGE`  | `0x02` | Die `delta*`-Werte sind in Seiten angegeben. Jeder Mausklick scrollt eine Seite des Inhalts.                                                                      |
+    | Konstante                    | Wert   | Beschreibung                                                                                                                                                 |
+    | ---------------------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+    | `WheelEvent.DOM_DELTA_PIXEL` | `0x00` | Die `delta*`-Werte sind in Pixel angegeben.                                                                                                                  |
+    | `WheelEvent.DOM_DELTA_LINE`  | `0x01` | Die `delta*`-Werte sind in Zeilen angegeben. Jeder Mausklick scrollt eine Zeile Inhalt, wobei die Methode zur Berechnung der Zeilenhöhe browserabhängig ist. |
+    | `WheelEvent.DOM_DELTA_PAGE`  | `0x02` | Die `delta*`-Werte sind in Seiten angegeben. Jeder Mausklick scrollt eine Seite Inhalt.                                                                      |
 
 - [`WheelEvent.wheelDelta`](/de/docs/Web/API/WheelEvent/wheelDelta) {{ReadOnlyInline}} {{deprecated_inline}}
-  - : Gibt einen Ganzzahlwert (32-Bit) zurück, der die Entfernung in Pixeln darstellt.
+  - : Gibt einen Integer (32-Bit) zurück, der die Entfernung in Pixel angibt.
 - [`WheelEvent.wheelDeltaX`](/de/docs/Web/API/WheelEvent/wheelDeltaX) {{ReadOnlyInline}} {{deprecated_inline}}
-  - : Gibt einen Ganzzahlwert zurück, der die horizontale Scrollmenge darstellt.
+  - : Gibt einen Integer zurück, der die horizontale Scrollmenge darstellt.
 - [`WheelEvent.wheelDeltaY`](/de/docs/Web/API/WheelEvent/wheelDeltaY) {{ReadOnlyInline}} {{deprecated_inline}}
-  - : Gibt einen Ganzzahlwert zurück, der die vertikale Scrollmenge darstellt.
+  - : Gibt einen Integer zurück, der die vertikale Scrollmenge darstellt.
 
 ## Beispiele
 
-### Skalieren eines Elements über das Mausrad
+### Skalieren eines Elements über das Rad
 
-Dieses Beispiel zeigt, wie man ein Element mit dem Mausrad (oder einem anderen Zeigegerät) skaliert.
+Dieses Beispiel zeigt, wie Sie ein Element mit dem Mausrad (oder einem anderen Zeigegerät) skalieren können.
 
 ```html
 <div>Scale me with your mouse wheel.</div>
@@ -112,9 +112,9 @@ el.onwheel = zoom;
 
 {{EmbedLiveSample("Scaling_an_element_via_the_wheel", 700, 300)}}
 
-### addEventListener-Äquivalent
+### Der addEventListener Äquivalent
 
-Der Ereignisbehandler kann auch mit der Methode [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) eingerichtet werden:
+Der Event-Handler kann auch mit der [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener)-Methode eingerichtet werden:
 
 ```js
 el.addEventListener("wheel", zoom, { passive: false });

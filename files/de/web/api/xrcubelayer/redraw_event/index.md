@@ -1,25 +1,25 @@
 ---
-title: "XRCubeLayer: redraw Ereignis"
+title: "XRCubeLayer: `redraw`-Ereignis"
 short-title: redraw
 slug: Web/API/XRCubeLayer/redraw_event
 l10n:
-  sourceCommit: 76637f9517e4b0a57a3096a36f66b5e33a3f1051
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}
 
-Das `redraw`-Ereignis wird an das `XRCubeLayer`-Objekt gesendet, wenn die zugrunde liegenden Ressourcen der Ebene verloren gehen oder wenn der XR-Kompositor die Ebene nicht mehr reprojizieren kann. Wenn dieses Ereignis gesendet wird, sollten Entwickler den Inhalt der Ebene im nächsten XR-Animationsframe neu zeichnen.
+Das `redraw`-Ereignis wird an das `XRCubeLayer`-Objekt gesendet, wenn die zugrunde liegenden Ressourcen der Schicht verloren gehen oder wenn der XR Kompositor die Schicht nicht mehr reprojizieren kann. Wenn dieses Ereignis gesendet wird, sollten Entwickler den Inhalt der Schicht im nächsten XR-Animationsrahmen neu zeichnen.
 
-Siehe auch die [`XRCompositionLayer.needsRedraw`](/de/docs/Web/API/XRCompositionLayer/needsRedraw)-Eigenschaft, die auch für `XRCubeLayer`-Objekte durch Vererbung von [`XRCompositionLayer`](/de/docs/Web/API/XRCompositionLayer) verfügbar ist.
+Siehe auch die [`XRCompositionLayer.needsRedraw`](/de/docs/Web/API/XRCompositionLayer/needsRedraw)-Eigenschaft, die über die Vererbung von [`XRCompositionLayer`](/de/docs/Web/API/XRCompositionLayer) auch für `XRCubeLayer`-Objekte verfügbar ist.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
-```js
-addEventListener("redraw", (event) => {});
+```js-nolint
+addEventListener("redraw", (event) => { })
 
-onredraw = (event) => {};
+onredraw = (event) => { }
 ```
 
 ## Ereignistyp
@@ -28,7 +28,7 @@ Ein [`XRLayerEvent`](/de/docs/Web/API/XRLayerEvent). Erbt von [`Event`](/de/docs
 
 ## Ereigniseigenschaften
 
-_Zusätzlich zu den unten aufgeführten Eigenschaften stehen Eigenschaften von der Elternschnittstelle, [`Event`](/de/docs/Web/API/Event), zur Verfügung._
+_Zusätzlich zu den unten aufgeführten Eigenschaften sind Eigenschaften der übergeordneten Schnittstelle, [`Event`](/de/docs/Web/API/Event), verfügbar._
 
 - [`layer`](/de/docs/Web/API/XRLayerEvent/layer) {{ReadOnlyInline}}
   - : Das [`XRLayer`](/de/docs/Web/API/XRLayer), das das Ereignis generiert hat.
@@ -45,7 +45,7 @@ cubeLayer.addEventListener("redraw", (event) => {
 });
 ```
 
-Alternativ können Sie die `onredraw`-Ereignishandler-Eigenschaft verwenden, um einen Handler für das `redraw`-Ereignis festzulegen:
+Alternativ können Sie die `onredraw`-Ereignis-Handler-Eigenschaft verwenden, um einen Handler für das `redraw`-Ereignis festzulegen:
 
 ```js
 cubeLayer.onredraw = (event) => {

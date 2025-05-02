@@ -1,26 +1,25 @@
 ---
-title: "ServiceWorkerGlobalScope: message Ereignis"
+title: "ServiceWorkerGlobalScope: message-Ereignis"
 short-title: message
 slug: Web/API/ServiceWorkerGlobalScope/message_event
 l10n:
-  sourceCommit: 2ef36a6d6f380e79c88bc3a80033e1d3c4629994
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{APIRef("Service Workers API")}}{{SecureContext_Header}}{{AvailableInWorkers("service")}}
 
-Das **`message`** Ereignis der [`ServiceWorkerGlobalScope`](/de/docs/Web/API/ServiceWorkerGlobalScope) Schnittstelle tritt auf, wenn eingehende Nachrichten empfangen werden. Kontrollierte Seiten können die [`ServiceWorker.postMessage()`](/de/docs/Web/API/ServiceWorker/postMessage)-Methode verwenden, um Nachrichten an Service Worker zu senden.
-Der Service Worker kann optional über die [`Client.postMessage()`](/de/docs/Web/API/Client/postMessage) eine Antwort an die kontrollierte Seite zurücksenden.
+Das **`message`**-Ereignis der [`ServiceWorkerGlobalScope`](/de/docs/Web/API/ServiceWorkerGlobalScope)-Schnittstelle tritt auf, wenn eingehende Nachrichten empfangen werden. Kontrollierte Seiten können die Methode [`ServiceWorker.postMessage()`](/de/docs/Web/API/ServiceWorker/postMessage) verwenden, um Nachrichten an Service Worker zu senden. Der Service Worker kann optional eine Antwort über [`Client.postMessage()`](/de/docs/Web/API/Client/postMessage) an die kontrollierte Seite senden.
 
-Dieses Ereignis kann nicht abgebrochen werden und erfolgt nicht in einem Ereignis-Bubble.
+Dieses Ereignis ist nicht abbrückbar und wird nicht weitergegeben.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Event-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
-```js
-addEventListener("message", (event) => {});
+```js-nolint
+addEventListener("message", (event) => { })
 
-onmessage = (event) => {};
+onmessage = (event) => { }
 ```
 
 ## Ereignistyp
@@ -34,19 +33,19 @@ Ein [`ExtendableMessageEvent`](/de/docs/Web/API/ExtendableMessageEvent). Erbt vo
 _Erbt Eigenschaften von seinem Elternteil, [`ExtendableEvent`](/de/docs/Web/API/ExtendableEvent)_.
 
 - [`ExtendableMessageEvent.data`](/de/docs/Web/API/ExtendableMessageEvent/data) {{ReadOnlyInline}}
-  - : Gibt die Daten des Ereignisses zurück. Es kann sich um jeden Datentyp handeln. Wird es im `messageerror`-Ereignis ausgelöst, wird die Eigenschaft `null` sein.
+  - : Gibt die Daten des Ereignisses zurück. Dies kann ein beliebiger Datentyp sein. Wenn im `messageerror`-Ereignis gesendet, wird die Eigenschaft `null` sein.
 - [`ExtendableMessageEvent.origin`](/de/docs/Web/API/ExtendableMessageEvent/origin) {{ReadOnlyInline}}
   - : Gibt den Ursprung des [`Client`](/de/docs/Web/API/Client) zurück, der die Nachricht gesendet hat.
 - [`ExtendableMessageEvent.lastEventId`](/de/docs/Web/API/ExtendableMessageEvent/lastEventId) {{ReadOnlyInline}}
-  - : Repräsentiert bei [serverseitig gesendeten Ereignissen](/de/docs/Web/API/Server-sent_events/Using_server-sent_events) die letzte Ereignis-ID der Ereignisquelle.
+  - : Repräsentiert bei [serverseitigen Ereignissen](/de/docs/Web/API/Server-sent_events/Using_server-sent_events) die letzte Ereignis-ID der Ereignisquelle.
 - [`ExtendableMessageEvent.source`](/de/docs/Web/API/ExtendableMessageEvent/source) {{ReadOnlyInline}}
-  - : Gibt eine Referenz zum [`Client`](/de/docs/Web/API/Client)-Objekt zurück, das die Nachricht gesendet hat.
+  - : Gibt eine Referenz auf das [`Client`](/de/docs/Web/API/Client)-Objekt zurück, das die Nachricht gesendet hat.
 - [`ExtendableMessageEvent.ports`](/de/docs/Web/API/ExtendableMessageEvent/ports) {{ReadOnlyInline}}
   - : Gibt das Array zurück, das die [`MessagePort`](/de/docs/Web/API/MessagePort)-Objekte enthält, die die Ports des zugehörigen Nachrichtenkanals darstellen.
 
 ## Beispiele
 
-Im folgenden Beispiel erhält eine Seite Zugriff auf das [`ServiceWorker`](/de/docs/Web/API/ServiceWorker)-Objekt über [`ServiceWorkerRegistration.active`](/de/docs/Web/API/ServiceWorkerRegistration/active) und ruft dann dessen `postMessage()`-Funktion auf.
+Im untenstehenden Beispiel erhält eine Seite einen Zugriff auf das [`ServiceWorker`](/de/docs/Web/API/ServiceWorker)-Objekt über [`ServiceWorkerRegistration.active`](/de/docs/Web/API/ServiceWorkerRegistration/active) und ruft dann dessen `postMessage()`-Funktion auf.
 
 ```js
 // main.js
@@ -64,7 +63,7 @@ if (navigator.serviceWorker) {
 }
 ```
 
-Der Service Worker kann die Nachricht empfangen, indem er das `message`-Ereignis abhört:
+Der Service Worker kann die Nachricht durch Abhören des `message`-Ereignisses empfangen:
 
 ```js
 // service-worker.js
@@ -76,7 +75,7 @@ addEventListener("message", (event) => {
 });
 ```
 
-Alternativ kann das Skript die Nachricht mithilfe von `onmessage` abhören:
+Alternativ kann das Skript die Nachricht mit `onmessage` empfangen:
 
 ```js
 // service-worker.js

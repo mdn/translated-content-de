@@ -1,27 +1,27 @@
 ---
-title: "HTMLInputElement: invalid Event"
+title: "HTMLInputElement: invalid-Event"
 short-title: invalid
 slug: Web/API/HTMLInputElement/invalid_event
 l10n:
-  sourceCommit: b21df53ffbb066cfb9347d7f0e5aebb792ed73e5
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{APIRef}}
 
-Das **`invalid`** Ereignis wird ausgelöst, wenn ein übermittelbares Element auf Gültigkeit geprüft wurde und seine Einschränkungen nicht erfüllt.
+Das **`invalid`**-Event wird ausgelöst, wenn ein übermittelbares Element auf seine Gültigkeit überprüft wurde und seine Einschränkungen nicht erfüllt.
 
-Dieses Ereignis kann nützlich sein, um bei der Übermittlung eines Formulars eine Zusammenfassung der Probleme anzuzeigen. Wenn ein Formular übermittelt wird, werden bei jedem Formularelement, das ungültig ist, `invalid` Ereignisse ausgelöst. Die Gültigkeit übermittelbarer Elemente wird vor der Übermittlung ihres Eigentümer-{{HtmlElement("form")}}-Elements oder nach dem Aufruf der [`checkValidity()`](/de/docs/Web/API/HTMLInputElement/checkValidity) Methode des Elements oder seines Eigentümer-`<form>` geprüft.
+Dieses Event kann nützlich sein, um bei der Übermittlung eines Formulars eine Zusammenfassung der Probleme anzuzeigen. Wenn ein Formular übermittelt wird, werden `invalid`-Events bei jedem Formular-Steuerelement ausgelöst, das ungültig ist. Die Gültigkeit der übermittelbaren Elemente wird vor der Übermittlung ihres zugehörigen {{HtmlElement("form")}}-Elements geprüft oder nachdem die Methode [`checkValidity()`](/de/docs/Web/API/HTMLInputElement/checkValidity) des Elements oder seines zugehörigen `<form>` aufgerufen wurde.
 
-Es wird nicht bei [`blur`](/de/docs/Web/API/Element/blur_event) überprüft.
+Sie wird nicht bei [`blur`](/de/docs/Web/API/Element/blur_event) geprüft.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignisbehandlereigenschaft.
 
-```js
-addEventListener("invalid", (event) => {});
+```js-nolint
+addEventListener("invalid", (event) => { })
 
-oninvalid = (event) => {};
+oninvalid = (event) => { }
 ```
 
 ## Ereignistyp
@@ -30,7 +30,7 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-Wenn ein Formular mit einem ungültigen Wert übermittelt wird, werden die übermittelbaren Elemente überprüft und bei einem Fehler wird das `invalid` Ereignis beim `invalid` Element ausgelöst. In diesem Beispiel wird, wenn ein invalid Ereignis aufgrund eines ungültigen Werts im Eingabefeld ausgelöst wird, der ungültige Wert protokolliert.
+Wenn ein Formular mit einem ungültigen Wert übermittelt wird, werden die übermittelbaren Elemente überprüft und, wenn ein Fehler gefunden wird, wird das `invalid`-Event auf dem ungültigen Element ausgelöst. In diesem Beispiel wird das ungültige Event beim Auftreten, aufgrund eines ungültigen Werts im Eingabefeld, protokolliert.
 
 ### HTML
 
@@ -76,6 +76,6 @@ input.addEventListener("invalid", (e) => {
 
 ## Siehe auch
 
-- HTML {{HtmlElement("form")}} Element
+- HTML {{HtmlElement("form")}}-Element
 - Verwandtes Ereignis: [`submit`](/de/docs/Web/API/HTMLFormElement/submit_event)
-- CSS {{cssxref(":invalid")}} Pseudoklasse
+- CSS {{cssxref(":invalid")}}-Pseudoklasse

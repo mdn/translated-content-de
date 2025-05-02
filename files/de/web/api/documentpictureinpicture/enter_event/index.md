@@ -1,23 +1,23 @@
 ---
-title: "DocumentPictureInPicture: enter-Ereignis"
+title: "DocumentPictureInPicture: enter-Event"
 short-title: enter
 slug: Web/API/DocumentPictureInPicture/enter_event
 l10n:
-  sourceCommit: 89c435da452257b944b403cc9e45036fcb22590e
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{APIRef("Document Picture-in-Picture API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Das **`enter`**-Ereignis der [`DocumentPictureInPicture`](/de/docs/Web/API/DocumentPictureInPicture)-Schnittstelle wird ausgelöst, wenn das Bild-in-Bild-Fenster erfolgreich geöffnet wird.
+Das **`enter`**-Ereignis der [`DocumentPictureInPicture`](/de/docs/Web/API/DocumentPictureInPicture)-Schnittstelle wird ausgelöst, wenn das Picture-in-Picture-Fenster erfolgreich geöffnet wird.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignisbehandlungs-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
-```js
-addEventListener("enter", (event) => {});
+```js-nolint
+addEventListener("enter", (event) => { })
 
-onenter = (event) => {};
+onenter = (event) => { }
 ```
 
 ## Ereignistyp
@@ -59,4 +59,4 @@ documentPictureInPicture.addEventListener("enter", (event) => {
 ## Siehe auch
 
 - [Document Picture-in-Picture API](/de/docs/Web/API/Document_Picture-in-Picture_API)
-- [Verwendung der Document Picture-in-Picture API](/de/docs/Web/API/Document_Picture-in-Picture_API/Using)
+- [Verwenden der Document Picture-in-Picture API](/de/docs/Web/API/Document_Picture-in-Picture_API/Using)

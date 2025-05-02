@@ -3,23 +3,23 @@ title: "HTMLElement: drag-Ereignis"
 short-title: drag
 slug: Web/API/HTMLElement/drag_event
 l10n:
-  sourceCommit: d47348199a379f68bea876a403eb510628ec4ccb
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{APIRef}}
 
-Das `drag`-Ereignis wird alle paar hundert Millisekunden ausgelöst, während ein Element oder eine Textauswahl von dem Benutzer gezogen wird.
+Das `drag`-Ereignis wird alle paar hundert Millisekunden ausgelöst, wenn ein Element oder eine Textauswahl vom Benutzer gezogen wird.
 
 Dieses Ereignis kann abgebrochen werden und kann bis zu den Objekten [`Document`](/de/docs/Web/API/Document) und [`Window`](/de/docs/Web/API/Window) hochblubbern.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
-```js
-addEventListener("drag", (event) => {});
+```js-nolint
+addEventListener("drag", (event) => { })
 
-ondrag = (event) => {};
+ondrag = (event) => { }
 ```
 
 ## Ereignistyp
@@ -37,7 +37,7 @@ _Zusätzlich zu den unten aufgeführten Eigenschaften sind Eigenschaften der üb
 
 ## Beispiele
 
-### Drag-and-Drop-Beispiel
+### Beispiel für Drag and Drop
 
 #### HTML
 

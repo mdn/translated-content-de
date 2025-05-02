@@ -3,24 +3,24 @@ title: "TextTrack: cuechange Ereignis"
 short-title: cuechange
 slug: Web/API/TextTrack/cuechange_event
 l10n:
-  sourceCommit: 0c8a320b035cf625c1df67713a94ead2e7f3aec6
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{APIRef("WebVTT")}}
 
-Das **`cuechange`**-Ereignis wird ausgelöst, wenn ein [`TextTrack`](/de/docs/Web/API/TextTrack) die derzeit angezeigten Cues geändert hat. Das Ereignis wird sowohl auf dem `TextTrack` als auch auf dem [`HTMLTrackElement`](/de/docs/Web/API/HTMLTrackElement) ausgelöst, in dem es präsentiert wird, falls vorhanden.
+Das **`cuechange`**-Ereignis wird ausgelöst, wenn ein [`TextTrack`](/de/docs/Web/API/TextTrack) die aktuell angezeigten Cues geändert hat. Das Ereignis wird sowohl auf dem `TextTrack` als auch dem [`HTMLTrackElement`](/de/docs/Web/API/HTMLTrackElement) ausgelöst, in dem es präsentiert wird, falls vorhanden.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
 
-```js
-addEventListener("cuechange", (event) => {});
+```js-nolint
+addEventListener("cuechange", (event) => { })
 
-oncuechange = (event) => {};
+oncuechange = (event) => { }
 ```
 
-## Eventtyp
+## Ereignistyp
 
 Ein generisches [`Event`](/de/docs/Web/API/Event) ohne zusätzliche Eigenschaften.
 
@@ -35,7 +35,7 @@ track.addEventListener("cuechange", () => {
 });
 ```
 
-Oder Sie können die `oncuechange` Ereignis-Handler-Eigenschaft setzen:
+Oder Sie können die `oncuechange`-Ereignishandler-Eigenschaft setzen:
 
 ```js
 track.oncuechange = (event) => {

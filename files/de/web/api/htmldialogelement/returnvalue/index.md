@@ -1,22 +1,27 @@
 ---
-title: "HTMLDialogElement: returnValue-Eigenschaft"
+title: "HTMLDialogElement: Eigenschaft returnValue"
 short-title: returnValue
 slug: Web/API/HTMLDialogElement/returnValue
 l10n:
-  sourceCommit: ca147ed465e966afbdcec1abed15795d7a60505e
+  sourceCommit: d60211fec216df4045c6ef3be67c4bb3e1d20fc7
 ---
 
 {{ APIRef("HTML DOM") }}
 
-Die **`returnValue`**-Eigenschaft des [`HTMLDialogElement`](/de/docs/Web/API/HTMLDialogElement)-Interfaces ist ein String, der den Rückgabewert für ein {{htmlelement("dialog")}}-Element repräsentiert, wenn es geschlossen wird. Sie können den Wert direkt setzen (`dialog.returnValue = "result"`) oder indem Sie den Wert als String-Argument an [`close()`](/de/docs/Web/API/HTMLDialogElement/close) oder [`requestClose()`](/de/docs/Web/API/HTMLDialogElement/requestClose) übergeben.
+Die **`returnValue`**-Eigenschaft des [`HTMLDialogElement`](/de/docs/Web/API/HTMLDialogElement)-Interfaces ist ein String, der den Rückgabewert für ein {{htmlelement("dialog")}}-Element darstellt, wenn es geschlossen wird.
+Sie können den Wert direkt festlegen (`dialog.returnValue = "result"`) oder indem Sie den Wert als String-Argument an [`close()`](/de/docs/Web/API/HTMLDialogElement/close) oder [`requestClose()`](/de/docs/Web/API/HTMLDialogElement/requestClose) übergeben.
 
 ## Wert
 
-Ein String, der den `returnValue` des Dialogs repräsentiert. Standardmäßig ist dieser ein leerer String (`""`).
+Ein String, der den `returnValue` des Dialogs darstellt.
+Der Standardwert ist ein leerer String (`""`).
 
 ## Beispiele
 
-Das folgende Beispiel zeigt einen Button, um einen Dialog mit einer Nutzungsbedingungen-Aufforderung über die `showModal()`-Methode anzuzeigen. Das Skript verarbeitet die Eingaben des Nutzers, indem es den `returnValue` zuweist, wenn der Annehmen- oder Ablehnen-Button geklickt wird. Der Button "Ablehnen" setzt den `returnValue` auf "declined", während der Button "Annehmen" ihn auf "accepted" setzt. Zudem aktualisiert das Schließen des Dialogs (z.B. mit dem Schließen-Ereignis) den Status-Text mit dem `returnValue` des Dialogs. Das Schließen des Dialogs mit der <kbd>Esc</kbd>-Taste setzt den `returnValue` nicht.
+Im folgenden Beispiel wird eine Schaltfläche angezeigt, um einen Dialog mit einer Nutzungsbedingungen-Eingabeaufforderung über die Methode `showModal()` zu öffnen.
+Das Skript verarbeitet die Benutzereingabe, indem es den `returnValue` zuweist, wenn die Schaltfläche "Akzeptieren" oder "Ablehnen" geklickt wird.
+Die Schaltfläche "Ablehnen" setzt den `returnValue` auf "declined", während die Schaltfläche "Akzeptieren" ihn auf "accepted" setzt. Zusätzlich aktualisiert das Schließen des Dialogs (z. B. durch das Schließen-Ereignis) den Status-Text mit dem `returnValue` des Dialogs.
+Das Schließen des Dialogs mit der <kbd>Esc</kbd>-Taste setzt den `returnValue` nicht.
 
 ```html
 <!-- Simple pop-up dialog box -->
@@ -61,7 +66,6 @@ Das folgende Beispiel zeigt einen Button, um einen Dialog mit einer Nutzungsbedi
   }
 
   dialog.addEventListener("close", () => {
-    openCheck(dialog);
     handleUserInput(dialog.returnValue);
   });
 </script>

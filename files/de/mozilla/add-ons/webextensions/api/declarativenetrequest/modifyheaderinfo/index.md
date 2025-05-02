@@ -2,35 +2,36 @@
 title: declarativeNetRequest.ModifyHeaderInfo
 slug: Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/ModifyHeaderInfo
 l10n:
-  sourceCommit: 9156c03a71d64ed2fdba4e94d651e4c745660f24
+  sourceCommit: c01b393fbb6939f88cc98ac2a34df1a54be1edfd
 ---
 
 {{AddonSidebar}}
 
-Der Anforderungs- oder Antwortheader, der für eine Anfrage geändert werden soll, deklariert im `rule.action.requestHeaders` Array oder `rule.action.responseHeaders` Array für Regeln, deren {{WebExtAPIRef("declarativeNetRequest.RuleAction", "rule.action")}}`.type` "modifyHeaders" ist.
+Der Anforderungs- oder Antwort-Header, der für eine Anfrage geändert werden soll, deklariert im `rule.action.requestHeaders`-Array oder `rule.action.responseHeaders`-Array für Regeln, deren [`rule.action.type`](/de/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/RuleAction#type_2) "modifyHeaders" ist.
 
-Jedes Objekt beschreibt eine Header-Änderung. Um mehrere Header zu ändern, können mehrere Objekte in diesen Arrays oder über mehrere Regeln hinweg angegeben werden.
+Jedes Objekt beschreibt eine Header-Änderung. Um mehrere Header zu ändern, können mehrere Objekte in diesen Arrays oder in mehreren Regeln angegeben werden.
 
-Entsprechende `modifyHeaders` Regeln werden in der Reihenfolge angewendet, die unter [Matching precedence](/de/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest#matching_precedence) beschrieben wird. Innerhalb jeder Erweiterung werden alle `modifyHeaders` Regeln mit einer Priorität niedriger oder gleich den entsprechenden `allow` oder `allowAllRequests` Regeln ignoriert.
+Die übereinstimmenden `modifyHeaders`-Regeln werden in der Reihenfolge angewendet, die unter [Matching precedence](/de/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest#matching_precedence) beschrieben ist.
+Innerhalb jeder Erweiterung werden alle `modifyHeaders`-Regeln, deren Priorität niedriger oder gleich der übereinstimmenden `allow`- oder `allowAllRequests`-Regeln ist, ignoriert.
 
-Wenn mehrere `modifyHeaders` Regeln denselben Header spezifizieren, wird die resultierende Änderung des Headers basierend auf der Priorität der einzelnen Regeln und den angegebenen Operationen bestimmt:
+Wenn mehrere `modifyHeaders`-Regeln denselben Header spezifizieren, wird die resultierende Änderung für den Header basierend auf der Priorität jeder Regel und den angegebenen Operationen bestimmt:
 
-- Wenn eine Regel einem Header hinzugefügt wurde, können Regeln mit niedrigerer Priorität nur zu diesem Header hinzufügen. `set`- und `remove`-Operationen sind nicht erlaubt.
-- Wenn eine Regel einen Header gesetzt hat, können Regeln mit niedrigerer Priorität den Header nicht ändern, außer für `append`-Regeln aus derselben Erweiterung.
-- Wenn eine Regel einen Header entfernt hat, können Regeln mit niedrigerer Priorität den Header nicht ändern.
+- Wenn eine Regel an einen Header angehängt wurde, können niedrigere Prioritätsregeln nur an diesen Header anhängen. `set`- und `remove`-Operationen sind nicht erlaubt.
+- Wenn eine Regel einen Header gesetzt hat, können niedrigere Prioritätsregeln den Header nicht ändern, außer `append`-Regeln derselben Erweiterung.
+- Wenn eine Regel einen Header entfernt hat, können niedrigere Prioritätsregeln den Header nicht ändern.
 
 ## Typ
 
-Werte dieses Typs sind Objekte. Sie enthalten folgende Eigenschaften:
+Werte dieses Typs sind Objekte. Sie enthalten diese Eigenschaften:
 
 - `header`
   - : Ein `string`. Der Name des Headers, der geändert werden soll.
 - `operation`
-  - : Ein `string`. Die Operation, die an einem Header durchgeführt werden soll. Mögliche Werte sind `"append"`, `"set"` und `"remove"`.
+  - : Ein `string`. Die auszuführende Operation an einem Header. Mögliche Werte sind `"append"`, `"set"` und `"remove"`.
 - `value` {{optional_inline}}
-  - : Ein `string`. Der neue Wert für den Header. Muss für die Operationen `append` und `set` angegeben werden. Nicht erlaubt für die `"remove"`-Operation.
+  - : Ein `string`. Der neue Wert für den Header. Muss für `append`- und `set`-Operationen angegeben werden. Nicht erlaubt für die "remove"-Operation.
 
-## Header-Beschränkungen
+## Header-Grenzen
 
 In Chrome wird `"append"` für die folgenden Anforderungs-Header unterstützt:
 
@@ -55,7 +56,7 @@ In Chrome wird `"append"` für die folgenden Anforderungs-Header unterstützt:
 - `Want-Digest`
 - `X-Forwarded-For`
 
-In Firefox benötigt die Erweiterung Host-Berechtigungen für den neuen Wert des `Host` Headers.
+In Firefox benötigt die Erweiterung Host-Berechtigungen für den neuen Wert des `Host`-Headers.
 
 {{WebExtExamples("h2")}}
 

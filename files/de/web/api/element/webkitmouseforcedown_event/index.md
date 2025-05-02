@@ -1,25 +1,25 @@
 ---
-title: "Element: webkitmouseforcedown Ereignis"
+title: "Element: webkitmouseforcedown-Ereignis"
 short-title: webkitmouseforcedown
 slug: Web/API/Element/webkitmouseforcedown_event
 l10n:
-  sourceCommit: d13c1276b80bbfc940a1091b62f333fe9edc78a2
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{APIRef("Force Touch Events")}}{{Non-standard_header}}
 
-Nachdem ein [`mousedown`](/de/docs/Web/API/Element/mousedown_event) Ereignis auf das Element ausgelöst wurde, sendet Safari **`webkitmouseforcedown`** Ereignisse an das Element, falls und wenn ausreichender Druck auf die Maus oder die Trackpad-Taste ausgeübt wurde, um als "Force Click" zu gelten.
+Nachdem ein [`mousedown`](/de/docs/Web/API/Element/mousedown_event)-Ereignis auf das Element ausgelöst wurde, beginnt Safari, **`webkitmouseforcedown`**-Ereignisse an das Element zu senden, wenn genügend Druck auf die Maus- oder Trackpad-Taste ausgeübt wurde, um als "Force-Klick" zu gelten.
 
-**`webkitmouseforcedown`** ist ein proprietäres, WebKit-spezifisches Ereignis. Es ist Teil der [Force Touch Events](/de/docs/Web/API/Force_Touch_events) Funktion.
+**`webkitmouseforcedown`** ist ein proprietäres, WebKit-spezifisches Ereignis. Es ist Teil der [Force-Touch-Ereignisse](/de/docs/Web/API/Force_Touch_events).
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
-```js
-addEventListener("webkitmouseforcedown", (event) => {});
+```js-nolint
+addEventListener("webkitmouseforcedown", (event) => { })
 
-onwebkitmouseforcedown = (event) => {};
+onwebkitmouseforcedown = (event) => { }
 ```
 
 ## Ereignistyp
@@ -30,14 +30,14 @@ Ein [`MouseEvent`](/de/docs/Web/API/MouseEvent). Erbt von [`UIEvent`](/de/docs/W
 
 ## Ereigniseigenschaften
 
-_Diese Schnittstelle erbt auch Eigenschaften ihrer Eltern, [`UIEvent`](/de/docs/Web/API/UIEvent) und [`Event`](/de/docs/Web/API/Event)._
+_Diese Schnittstelle erbt auch Eigenschaften von ihren Eltern, [`UIEvent`](/de/docs/Web/API/UIEvent) und [`Event`](/de/docs/Web/API/Event)._
 
 - [`MouseEvent.altKey`](/de/docs/Web/API/MouseEvent/altKey) {{ReadOnlyInline}}
   - : Gibt `true` zurück, wenn die <kbd>alt</kbd>-Taste gedrückt war, als das Mausereignis ausgelöst wurde.
 - [`MouseEvent.button`](/de/docs/Web/API/MouseEvent/button) {{ReadOnlyInline}}
-  - : Die Nummer der gedrückten Taste (falls zutreffend), als das Mausereignis ausgelöst wurde.
+  - : Die Nummer der Taste, die (falls zutreffend) gedrückt wurde, als das Mausereignis ausgelöst wurde.
 - [`MouseEvent.buttons`](/de/docs/Web/API/MouseEvent/buttons) {{ReadOnlyInline}}
-  - : Die Tasten, die gedrückt sind (falls vorhanden), als das Mausereignis ausgelöst wurde.
+  - : Die Tasten, die (falls vorhanden) gedrückt wurden, als das Mausereignis ausgelöst wurde.
 - [`MouseEvent.clientX`](/de/docs/Web/API/MouseEvent/clientX) {{ReadOnlyInline}}
   - : Die X-Koordinate des Mauszeigers in [Viewport-Koordinaten](/de/docs/Web/CSS/CSSOM_view/Coordinate_systems#viewport).
 - [`MouseEvent.clientY`](/de/docs/Web/API/MouseEvent/clientY) {{ReadOnlyInline}}
@@ -51,13 +51,13 @@ _Diese Schnittstelle erbt auch Eigenschaften ihrer Eltern, [`UIEvent`](/de/docs/
 - [`MouseEvent.metaKey`](/de/docs/Web/API/MouseEvent/metaKey) {{ReadOnlyInline}}
   - : Gibt `true` zurück, wenn die <kbd>meta</kbd>-Taste gedrückt war, als das Mausereignis ausgelöst wurde.
 - [`MouseEvent.movementX`](/de/docs/Web/API/MouseEvent/movementX) {{ReadOnlyInline}}
-  - : Die X-Koordinate des Mauszeigers relativ zur Position des letzten [`mousemove`](/de/docs/Web/API/Element/mousemove_event) Ereignisses.
+  - : Die X-Koordinate des Mauszeigers relativ zur Position des letzten [`mousemove`](/de/docs/Web/API/Element/mousemove_event)-Ereignisses.
 - [`MouseEvent.movementY`](/de/docs/Web/API/MouseEvent/movementY) {{ReadOnlyInline}}
-  - : Die Y-Koordinate des Mauszeigers relativ zur Position des letzten [`mousemove`](/de/docs/Web/API/Element/mousemove_event) Ereignisses.
+  - : Die Y-Koordinate des Mauszeigers relativ zur Position des letzten [`mousemove`](/de/docs/Web/API/Element/mousemove_event)-Ereignisses.
 - [`MouseEvent.offsetX`](/de/docs/Web/API/MouseEvent/offsetX) {{ReadOnlyInline}}
-  - : Die X-Koordinate des Mauszeigers relativ zur Position der Padding-Kante des Zielknotens.
+  - : Die X-Koordinate des Mauszeigers relativ zur Position des Randes des Zielknotens.
 - [`MouseEvent.offsetY`](/de/docs/Web/API/MouseEvent/offsetY) {{ReadOnlyInline}}
-  - : Die Y-Koordinate des Mauszeigers relativ zur Position der Padding-Kante des Zielknotens.
+  - : Die Y-Koordinate des Mauszeigers relativ zur Position des Randes des Zielknotens.
 - [`MouseEvent.pageX`](/de/docs/Web/API/MouseEvent/pageX) {{ReadOnlyInline}}
   - : Die X-Koordinate des Mauszeigers relativ zum gesamten Dokument.
 - [`MouseEvent.pageY`](/de/docs/Web/API/MouseEvent/pageY) {{ReadOnlyInline}}
@@ -71,10 +71,10 @@ _Diese Schnittstelle erbt auch Eigenschaften ihrer Eltern, [`UIEvent`](/de/docs/
 - [`MouseEvent.shiftKey`](/de/docs/Web/API/MouseEvent/shiftKey) {{ReadOnlyInline}}
   - : Gibt `true` zurück, wenn die <kbd>shift</kbd>-Taste gedrückt war, als das Mausereignis ausgelöst wurde.
 - [`MouseEvent.mozInputSource`](/de/docs/Web/API/MouseEvent/mozInputSource) {{non-standard_inline()}} {{ReadOnlyInline}}
-  - : Der Gerätetyp, der das Ereignis erzeugt hat (einer der `MOZ_SOURCE_*` Konstanten).
-    Dadurch können Sie beispielsweise feststellen, ob ein Mausereignis von einer tatsächlichen Maus oder von einem Touch-Ereignis erzeugt wurde (was sich auf die Genauigkeit auswirken könnte, mit der Sie die mit dem Ereignis verbundenen Koordinaten interpretieren).
+  - : Der Typ des Geräts, das das Ereignis erzeugt hat (eines der `MOZ_SOURCE_*` Konstanten).
+    Damit können Sie beispielsweise feststellen, ob ein Mausereignis von einer tatsächlichen Maus oder durch ein Touch-Ereignis erzeugt wurde (was die Genauigkeit der Interpretation der mit dem Ereignis verbundenen Koordinaten beeinflussen könnte).
 - [`MouseEvent.webkitForce`](/de/docs/Web/API/MouseEvent/webkitForce) {{non-standard_inline()}} {{ReadOnlyInline}}
-  - : Die Menge des Drucks, die beim Klicken ausgeübt wurde.
+  - : Die beim Klicken ausgeübte Druckmenge.
 - [`MouseEvent.x`](/de/docs/Web/API/MouseEvent/x) {{ReadOnlyInline}}
   - : Alias für [`MouseEvent.clientX`](/de/docs/Web/API/MouseEvent/clientX).
 - [`MouseEvent.y`](/de/docs/Web/API/MouseEvent/y) {{ReadOnlyInline}}

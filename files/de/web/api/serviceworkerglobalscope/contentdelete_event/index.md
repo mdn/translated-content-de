@@ -3,23 +3,23 @@ title: "ServiceWorkerGlobalScope: contentdelete-Ereignis"
 short-title: contentdelete
 slug: Web/API/ServiceWorkerGlobalScope/contentdelete_event
 l10n:
-  sourceCommit: 759102220c07fb140b3e06971cd5981d8f0f134f
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{APIRef("Content Index API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers("service")}}
 
-Das **`contentdelete`**-Ereignis der [`ServiceWorkerGlobalScope`](/de/docs/Web/API/ServiceWorkerGlobalScope)-Schnittstelle wird ausgelöst, wenn ein Element vom Benutzeragenten aus dem indexierten Inhalt entfernt wird.
+Das **`contentdelete`**-Ereignis der [`ServiceWorkerGlobalScope`](/de/docs/Web/API/ServiceWorkerGlobalScope)-Schnittstelle wird ausgelöst, wenn ein Element über den User-Agent aus dem indexierten Inhalt entfernt wird.
 
-Dieses Ereignis ist nicht stornierbar und wird nicht weitergeleitet.
+Dieses Ereignis ist nicht abbruchfähig und wird nicht weitergeleitet.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
-```js
-addEventListener("contentdelete", (event) => {});
+```js-nolint
+addEventListener("contentdelete", (event) => { })
 
-oncontentdelete = (event) => {};
+oncontentdelete = (event) => { }
 ```
 
 ## Ereignistyp
@@ -30,14 +30,14 @@ Ein [`ContentIndexEvent`](/de/docs/Web/API/ContentIndexEvent). Erbt von [`Event`
 
 ## Ereigniseigenschaften
 
-_Neben den unten aufgeführten Eigenschaften erbt diese Schnittstelle die Eigenschaften ihrer Elternschnittstelle, [`Event`](/de/docs/Web/API/Event)._
+_Zusätzlich zu den unten aufgeführten Eigenschaften erbt diese Schnittstelle die Eigenschaften ihrer Elternschnittstelle, [`Event`](/de/docs/Web/API/Event)._
 
 - [`id`](/de/docs/Web/API/ContentIndexEvent/id) {{ReadOnlyInline}}
-  - : Ein String, der den gelöschten Inhaltsindex über seine `id` identifiziert.
+  - : Ein String, der den gelöschten Inhaltsindex über dessen `id` identifiziert.
 
 ## Beispiele
 
-Das folgende Beispiel verwendet einen `contentdelete`-Ereignishandler, um zwischengespeicherte Inhalte zu entfernen, die sich auf das gelöschte Index-Element beziehen.
+Das folgende Beispiel verwendet einen `contentdelete`-Ereignis-Handler, um im Cache gespeicherten Inhalt im Zusammenhang mit dem gelöschten Indexelement zu entfernen.
 
 ```js
 self.addEventListener("contentdelete", (event) => {
@@ -53,7 +53,7 @@ self.addEventListener("contentdelete", (event) => {
 });
 ```
 
-Sie können den Ereignishandler auch über die `oncontentdelete`-Eigenschaft einrichten:
+Sie können auch den Ereignis-Handler über die `oncontentdelete`-Eigenschaft einrichten:
 
 ```js
 self.oncontentdelete = (event) => {
@@ -72,4 +72,4 @@ self.oncontentdelete = (event) => {
 ## Siehe auch
 
 - [Content Index API](/de/docs/Web/API/Content_Index_API)
-- [Einführungsartikel über die Content Index API](https://developer.chrome.com/docs/capabilities/web-apis/content-indexing-api)
+- [Ein einführender Artikel zur Content Index API](https://developer.chrome.com/docs/capabilities/web-apis/content-indexing-api)

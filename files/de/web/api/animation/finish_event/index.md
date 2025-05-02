@@ -1,24 +1,25 @@
 ---
-title: "Animation: finish Ereignis"
+title: "Animation: finish-Ereignis"
 short-title: finish
 slug: Web/API/Animation/finish_event
 l10n:
-  sourceCommit: ec1006afdf68a5808a48ab6301f9ccff3cd7ecc2
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{ APIRef("Web Animations") }}
 
-Das **`finish`** Ereignis der [`Animation`](/de/docs/Web/API/Animation) Schnittstelle wird ausgelöst, wenn die Animation entweder auf natürliche Weise abgeschlossen ist oder wenn die [`Animation.finish()`](/de/docs/Web/API/Animation/finish) Methode aufgerufen wird, um die Animation sofort zu beenden.
+Das **`finish`**-Ereignis des [`Animation`](/de/docs/Web/API/Animation)-Interfaces wird ausgelöst, wenn die Animation endet, entweder wenn die Animation auf natürliche Weise abgeschlossen wird oder wenn die Methode [`Animation.finish()`](/de/docs/Web/API/Animation/finish) aufgerufen wird, um die Animation sofort zu beenden.
 
 > [!NOTE]
-> Der `"paused"` Abspielstatus hat Vorrang vor dem `"finished"` Abspielstatus; wenn die Animation sowohl pausiert als auch beendet ist, wird der `"paused"` Status gemeldet. Sie können die Animation in den `"finished"` Status zwingen, indem Sie ihre [`startTime`](/de/docs/Web/API/Animation/startTime) auf `document.timeline.currentTime - (Animation.currentTime * Animation.playbackRate)` setzen.
+> Der `"paused"`-Zustand übertrumpft den `"finished"`-Zustand; wenn die Animation sowohl pausiert als auch beendet ist, wird der `"paused"`-Zustand gemeldet. Sie können die Animation in den `"finished"`-Zustand versetzen, indem Sie ihre [`startTime`](/de/docs/Web/API/Animation/startTime) auf `document.timeline.currentTime - (Animation.currentTime * Animation.playbackRate)` setzen.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js-nolint
 addEventListener("finish", (event) => { })
+
 onfinish = (event) => { }
 ```
 
@@ -28,9 +29,9 @@ Ein [`AnimationPlaybackEvent`](/de/docs/Web/API/AnimationPlaybackEvent). Erbt vo
 
 {{InheritanceDiagram("AnimationPlaybackEvent")}}
 
-## Eigenschaften des Ereignisses
+## Ereigniseigenschaften
 
-_Zusätzlich zu den unten aufgeführten Eigenschaften sind Eigenschaften der Elternschnittstelle, [`Event`](/de/docs/Web/API/Event), verfügbar._
+_Zusätzlich zu den unten aufgeführten Eigenschaften sind die Eigenschaften des übergeordneten Interfaces [`Event`](/de/docs/Web/API/Event) verfügbar._
 
 - [`AnimationPlaybackEvent.currentTime`](/de/docs/Web/API/AnimationPlaybackEvent/currentTime) {{ReadOnlyInline}}
   - : Die aktuelle Zeit der Animation, die das Ereignis erzeugt hat.
@@ -39,7 +40,7 @@ _Zusätzlich zu den unten aufgeführten Eigenschaften sind Eigenschaften der Elt
 
 ## Beispiele
 
-`Animation.onfinish` wird mehrmals im Alice in Web Animations API Land [Growing/Shrinking Alice Spiel](https://codepen.io/rachelnabors/pen/PNYGZQ?editors=0010) verwendet. Hier ist ein Beispiel, wo wir Zeigerereignisse an ein Element zurückgeben, nachdem dessen Deckkraftanimation es eingeblendet hat:
+`Animation.onfinish` wird mehrmals im Alice in Web Animations API Land [Growing/Shrinking Alice Game](https://codepen.io/rachelnabors/pen/PNYGZQ?editors=0010) verwendet. Hier ist ein Fall, bei dem wir Pointer-Ereignisse zurück zu einem Element hinzufügen, nachdem dessen Opazitätsanimation es eingeblendet hat:
 
 ```js
 // Add an animation to the game's ending credits

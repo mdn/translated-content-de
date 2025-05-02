@@ -3,7 +3,7 @@ title: "EditContext: compositionend-Ereignis"
 short-title: compositionend
 slug: Web/API/EditContext/compositionend_event
 l10n:
-  sourceCommit: c9fe79713a9323e8f1492c3c5b802fc8776a5f6a
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{APIRef("EditContext API")}}{{SeeCompatTable}}
@@ -12,19 +12,19 @@ Das `compositionend`-Ereignis des [`EditContext`](/de/docs/Web/API/EditContext)-
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
-```js
-addEventListener("compositionend", (event) => {});
+```js-nolint
+addEventListener("compositionend", (event) => { })
 
-oncompositionend = (event) => {};
+oncompositionend = (event) => { }
 ```
 
 ## Beispiele
 
-### Verwendung von `compositionend`, um den Rand des bearbeitbaren Bereichs zu ändern
+### Verwendung von `compositionend`, um den Rahmen des editierbaren Bereichs zu ändern
 
-Im folgenden Beispiel wird der Rand des bearbeitbaren Bereichs auf Rot gesetzt, wenn das `compositionstart`-Ereignis ausgelöst wird, und wieder auf Schwarz, wenn das `compositionend`-Ereignis ausgelöst wird. Beachten Sie, dass die Rückruffunktionen des Ereignis-Listeners in diesem Beispiel nur aufgerufen werden, wenn ein IME-Fenster oder andere plattformspezifische UI-Oberflächen zum Bearbeiten von Text verwendet werden.
+Im folgenden Beispiel wird der Rahmen des editierbaren Bereichs auf Rot gesetzt, wenn das `compositionstart`-Ereignis ausgelöst wird, und zurück zu Schwarz, wenn das `compositionend`-Ereignis ausgelöst wird. Beachten Sie, dass die Event-Listener-Rückrufe in diesem Beispiel nur aufgerufen werden, wenn ein IME-Fenster oder andere plattform-spezifische Bearbeitungsoberflächen verwendet werden, um Text zu komponieren.
 
 ```css
 #text-editor {

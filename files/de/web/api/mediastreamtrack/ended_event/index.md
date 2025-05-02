@@ -3,23 +3,23 @@ title: "MediaStreamTrack: ended Ereignis"
 short-title: ended
 slug: Web/API/MediaStreamTrack/ended_event
 l10n:
-  sourceCommit: 0dc22c2f8707610178e316f4211f3eb076fa0767
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{APIRef("Media Capture and Streams")}}
 
-Das **`ended`** Ereignis der [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) Schnittstelle wird ausgelöst, wenn die Wiedergabe oder das Streaming gestoppt wird, weil das Ende der Medien erreicht wurde oder weil keine weiteren Daten verfügbar sind.
+Das **`ended`** Ereignis der [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) Schnittstelle wird ausgelöst, wenn die Wiedergabe oder das Streaming gestoppt wurde, da das Ende der Medien erreicht wurde oder keine weiteren Daten verfügbar sind.
 
-Dieses Ereignis ist nicht abbruchfähig und wird nicht hochgebubbelt.
+Dieses Ereignis ist nicht abbruchfähig und wird nicht weitergeleitet.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandlereigenschaft.
 
-```js
-addEventListener("ended", (event) => {});
+```js-nolint
+addEventListener("ended", (event) => { })
 
-onended = (event) => {};
+onended = (event) => { }
 ```
 
 ## Ereignistyp
@@ -28,19 +28,19 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Verwendungshinweise
 
-`ended` Ereignisse werden ausgelöst, wenn die Quelle des Medienstream-Tracks dauerhaft aufhört, Daten zu senden. Es gibt verschiedene Möglichkeiten, wie dies geschehen kann, darunter:
+`ended`-Ereignisse werden ausgelöst, wenn die Quelle der Mediastream-Spur dauerhaft aufhört, Daten im Stream zu senden. Es gibt verschiedene Möglichkeiten, wie dies geschehen kann, darunter:
 
-- Es sind keine weiteren Daten mehr zum Senden vorhanden.
-- Der Benutzer hat die für das Senden notwendigen Berechtigungen widerrufen.
-- Die Hardware, die die Quelldaten erzeugt, wurde entfernt oder ausgeworfen.
-- Ein Remote-Peer hat dauerhaft aufgehört, Daten zu senden.
-- Der einzige Fall, in dem der Track endet, aber das `ended` Ereignis nicht ausgelöst wird, ist, wenn [`MediaStreamTrack.stop`](/de/docs/Web/API/MediaStreamTrack/stop) aufgerufen wird.
+- Es sind keine Daten mehr zum Senden vorhanden.
+- Der Benutzer hat die erforderlichen Berechtigungen für das Senden der Daten widerrufen.
+- Die Hardware, die die Quelldaten generiert, wurde entfernt oder ausgeworfen.
+- Ein entfernter Teilnehmer hat dauerhaft aufgehört, Daten zu senden.
+- Der einzige Fall, in dem die Spur endet, das `ended`-Ereignis jedoch nicht ausgelöst wird, ist beim Aufruf von [`MediaStreamTrack.stop`](/de/docs/Web/API/MediaStreamTrack/stop).
 
-Das Pausieren von Medien _erzeugt kein_ `ended` Ereignis.
+Das Pausieren von Medien _erzeugt kein_ `ended`-Ereignis.
 
 ## Beispiele
 
-Dieses Beispiel richtet einen Ereignis-Handler für das `ended` Ereignis ein, der ein Symbol auf dem Bildschirm ändert, um anzuzeigen, dass der Track nicht mehr aktiv ist.
+Dieses Beispiel richtet einen Ereignishandler für das `ended`-Ereignis ein, der ein Symbol auf dem Bildschirm ändert, um anzuzeigen, dass die Spur nicht mehr aktiv ist.
 
 ```js
 track.addEventListener("ended", () => {
@@ -49,7 +49,7 @@ track.addEventListener("ended", () => {
 });
 ```
 
-Sie können den Ereignis-Handler auch über die `onended` Eigenschaft einrichten:
+Sie können den Ereignishandler auch mit der `onended`-Eigenschaft einrichten:
 
 ```js
 track.onended = () => {

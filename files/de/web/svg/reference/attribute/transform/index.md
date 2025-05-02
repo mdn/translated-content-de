@@ -2,13 +2,13 @@
 title: transform
 slug: Web/SVG/Reference/Attribute/transform
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: 854979ef496a7828032000388be9ca35284373ab
 ---
 
-Das **`transform`** Attribut definiert eine Liste von Transformationsdefinitionen, die auf ein Element und die Kinder des Elements angewendet werden.
+Das **`transform`**-Attribut definiert eine Liste von Transformationsdefinitionen, die auf ein Element und die Kinder des Elements angewendet werden.
 
 > [!NOTE]
-> Als Präsentationsattribut hat `transform` auch ein entsprechendes CSS-Eigenschafts-Pendant: {{cssxref("transform")}}. Wenn beide spezifiziert sind, hat die CSS-Eigenschaft Vorrang. Beachten Sie jedoch, dass es einige Unterschiede in der Syntax zwischen der CSS-Eigenschaft und dem Attribut gibt. Siehe die Dokumentation zur CSS-Eigenschaft {{cssxref('transform')}} für die spezifische Syntax, die in diesem Fall zu verwenden ist.
+> Als Präsentationsattribut hat `transform` auch ein entsprechendes CSS-Eigenschaft: {{cssxref("transform")}}. Wenn beide angegeben sind, hat die CSS-Eigenschaft Vorrang. Beachten Sie jedoch, dass es einige Unterschiede in der Syntax zwischen der CSS-Eigenschaft und dem Attribut gibt. Siehe die Dokumentation für die CSS-Eigenschaft {{cssxref('transform')}} für die spezifische Syntax, die in diesem Fall verwendet werden soll.
 
 Dieses Attribut kann mit jedem SVG-Element verwendet werden.
 
@@ -46,7 +46,7 @@ svg {
 
 In SVG 1.1 durften nur diese 16 Elemente es verwenden: {{SVGElement('a')}}, {{SVGElement('circle')}}, {{SVGElement('clipPath')}}, {{SVGElement('defs')}}, {{SVGElement('ellipse')}}, {{SVGElement('foreignObject')}}, {{SVGElement('g')}}, {{SVGElement('image')}}, {{SVGElement('line')}}, {{SVGElement('path')}}, {{SVGElement('polygon')}}, {{SVGElement('polyline')}}, {{SVGElement('rect')}}, {{SVGElement('switch')}}, {{SVGElement('text')}} und {{SVGElement('use')}}.
 
-Ebenfalls als Nachlass aus SVG 1.1 unterstützen {{SVGElement('linearGradient')}} und {{SVGElement('radialGradient')}} das `gradientTransform` Attribut, und {{SVGElement('pattern')}} unterstützt das `patternTransform` Attribut, die beide genau wie das `transform` Attribut wirken.
+Außerdem, als Erbe von SVG 1.1, unterstützen {{SVGElement('linearGradient')}} und {{SVGElement('radialGradient')}} das `gradientTransform`-Attribut, und {{SVGElement('pattern')}} unterstützt das `patternTransform`-Attribut, die beide genau wie das `transform`-Attribut wirken.
 
 <table class="properties">
   <tbody>
@@ -73,14 +73,14 @@ Ebenfalls als Nachlass aus SVG 1.1 unterstützen {{SVGElement('linearGradient')}
 
 ## Transformationsfunktionen
 
-Die folgenden Transformationsfunktionen können durch das `transform` Attribut `<transform-list>` verwendet werden
+Die folgenden Transformationsfunktionen können durch das `transform`-Attribut `<transform-list>` verwendet werden.
 
 > [!WARNING]
-> Laut Spezifikation sollten Sie auch CSS [Transformationsfunktionen](/de/docs/Web/CSS/transform-function) verwenden können. Die Kompatibilität ist jedoch nicht garantiert.
+> Laut Spezifikation sollten Sie auch CSS [transform functions](/de/docs/Web/CSS/transform-function) verwenden können. Die Kompatibilität ist jedoch nicht garantiert.
 
 ### Matrix
 
-Die `matrix(<a> <b> <c> <d> <e> <f>)` Transformationsfunktion spezifiziert eine Transformation in Form einer Transformationsmatrix mit sechs Werten. `matrix(a,b,c,d,e,f)` entspricht der Anwendung der Transformationsmatrix:
+Die `matrix(<a> <b> <c> <d> <e> <f>)` Transformationsfunktion gibt eine Transformation in Form einer Transformationsmatrix aus sechs Werten an. `matrix(a,b,c,d,e,f)` ist äquivalent zur Anwendung der Transformationsmatrix:
 
 <!-- prettier-ignore-start -->
 <math display="block">
@@ -88,7 +88,7 @@ Die `matrix(<a> <b> <c> <d> <e> <f>)` Transformationsfunktion spezifiziert eine 
 </math>
 <!-- prettier-ignore-end -->
 
-Was Koordinaten aus einem vorherigen Koordinatensystem in ein neues Koordinatensystem durch folgende Matrixgleichungen überführt:
+Diese transformiert Koordinaten von einem vorherigen Koordinatensystem in ein neues Koordinatensystem durch folgende Matrixgleichungen:
 
 <!-- prettier-ignore-start -->
 <math display="block">
@@ -146,11 +146,11 @@ svg {
 
 {{EmbedLiveSample('Matrix', '100%', 200)}}
 
-### Translate
+### Übersetzen (Translate)
 
-Die `translate(<x> [<y>])` Transformationsfunktion bewegt das Objekt um `x` und `y`. Wenn `y` nicht angegeben wird, wird es als `0` angenommen.
+Die `translate(<x> [<y>])` Transformationsfunktion verschiebt das Objekt um `x` und `y`. Wenn `y` nicht angegeben ist, wird es als `0` angenommen.
 
-Anders gesagt:
+Anders ausgedrückt:
 
 ```plain
 xNew = xOld + <x>
@@ -203,9 +203,9 @@ svg {
 
 {{EmbedLiveSample('Example_3', '100%', 200)}}
 
-### Scale
+### Skalieren (Scale)
 
-Die `scale(<x> [<y>])` Transformationsfunktion spezifiziert eine Skalierungsoperation durch `x` und `y`. Wenn `y` nicht angegeben wird, gilt es als gleich `x`.
+Die `scale(<x> [<y>])` Transformationsfunktion gibt eine Skalierungsoperation durch `x` und `y` an. Wenn `y` nicht angegeben ist, wird angenommen, dass es gleich `x` ist.
 
 #### Beispiel
 
@@ -235,9 +235,9 @@ svg {
 
 {{EmbedLiveSample('Scale', '100%', 200)}}
 
-### Rotate
+### Drehen (Rotate)
 
-Die `rotate(<a> [<x> <y>])` Transformationsfunktion spezifiziert eine Drehung um `a` Grad um einen gegebenen Punkt. Wenn optionale Parameter `x` und `y` nicht angegeben werden, erfolgt die Drehung um den Ursprung des aktuellen Benutzerkoordinatensystems. Wenn optionale Parameter `x` und `y` angegeben werden, erfolgt die Drehung um den Punkt `(x, y)`.
+Die `rotate(<a> [<x> <y>])` Transformationsfunktion gibt eine Drehung um `a` Grad um einen bestimmten Punkt an. Wenn keine optionalen Parameter `x` und `y` angegeben sind, erfolgt die Drehung um den Ursprung des aktuellen Benutzerkoordinatensystems. Wenn optionale Parameter `x` und `y` angegeben sind, erfolgt die Drehung um den Punkt `(x, y)`.
 
 #### Beispiel
 
@@ -269,9 +269,9 @@ svg {
 
 {{EmbedLiveSample('Rotate', '100%', 200)}}
 
-### SkewX
+### Schrägstellung entlang der X-Achse (SkewX)
 
-Die `skewX(<a>)` Transformationsfunktion spezifiziert eine Schrägtransformation entlang der x-Achse um `a` Grad.
+Die `skewX(<a>)` Transformationsfunktion gibt eine Schrägtransformation entlang der x-Achse um `a` Grad an.
 
 #### Beispiel
 
@@ -293,9 +293,9 @@ svg {
 
 {{EmbedLiveSample('SkewX', '100%', 200)}}
 
-### SkewY
+### Schrägstellung entlang der Y-Achse (SkewY)
 
-Die `skewY(<a>)` Transformationsfunktion spezifiziert eine Schrägtransformation entlang der y-Achse um `a` Grad.
+Die `skewY(<a>)` Transformationsfunktion gibt eine Schrägtransformation entlang der y-Achse um `a` Grad an.
 
 #### Beispiel
 
@@ -320,6 +320,10 @@ svg {
 ## Spezifikationen
 
 {{Specifications}}
+
+## Browser-Kompatibilität
+
+{{Compat}}
 
 ## Siehe auch
 

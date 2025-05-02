@@ -3,12 +3,12 @@ title: Barrierefreiheit von HTML-Tabellen
 short-title: Barrierefreiheit von Tabellen
 slug: Learn_web_development/Core/Structuring_content/Table_accessibility
 l10n:
-  sourceCommit: 48d220a8cffdfd5f088f8ca89724a9a92e34d8c0
+  sourceCommit: 73c2e226085c7902dd200f7d6c3a6730beb6d941
 ---
 
 {{PreviousMenuNext("Learn_web_development/Core/Structuring_content/HTML_table_basics", "Learn_web_development/Core/Structuring_content/Planet_data_table", "Learn_web_development/Core/Structuring_content")}}
 
-Im vorherigen Artikel haben wir eines der wichtigsten Merkmale betrachtet, um HTML-Tabellen für sehbehinderte Benutzer zugänglich zu machen — das Element {{htmlelement("th")}}. In diesem Artikel setzen wir diesen Weg fort und betrachten weitere Funktionen zur Barrierefreiheit von HTML-Tabellen, wie z.B. Bildunterschriften/Zusammenfassungen, das Gruppieren von Zeilen in Tabellenkopf, -körper und -fuß und das Zuweisen von Bereichen zu Spalten und Zeilen.
+Im vorherigen Artikel haben wir uns eines der wichtigsten Merkmale angesehen, um HTML-Tabellen für sehbehinderte Benutzer zugänglich zu machen — das {{htmlelement("th")}}-Element. In diesem Artikel setzen wir diesen Weg fort und betrachten weitere Merkmale der Barrierefreiheit von HTML-Tabellen, wie z.B. Beschriftungen/Summaries, die Gruppierung Ihrer Zeilen in Kopf-, Körper- und Fußbereiche der Tabelle sowie die Zuordnung von Spalten und Zeilen.
 
 <table>
   <tbody>
@@ -17,7 +17,7 @@ Im vorherigen Artikel haben wir eines der wichtigsten Merkmale betrachtet, um HT
       <td>
         Die Grundlagen von HTML (siehe
         <a href="/de/docs/Learn_web_development/Core/Structuring_content/Basic_HTML_syntax"
-          >Grundlagen der HTML-Syntax</a
+          >Grundlegende HTML-Syntax</a
         >).
       </td>
     </tr>
@@ -25,19 +25,19 @@ Im vorherigen Artikel haben wir eines der wichtigsten Merkmale betrachtet, um HT
       <th scope="row">Lernziele:</th>
       <td>
         <ul>
-          <li>Verständnis der mit Tabellen verbundenen Barrierefreiheitsprobleme.</li>
-          <li>Bilder zu Tabellen hinzufügen.</li>
+          <li>Ein Verständnis der Barrierefreiheitsprobleme, die mit Tabellen verbunden sind.</li>
+          <li>Hinzufügen von Beschriftungen zu Tabellen.</li>
           <li>Bessere Tabellenstrukturierung mit Kopf, Körper und Fuß.</li>
-          <li>Erstellen weiterer Beziehungen zwischen Überschriften und Zellen mit den Attributen <code>scope</code>, <code>id</code> und <code>headers</code>.</li>
+          <li>Erstellen weiterer Zuordnungen zwischen Überschriften und Zellen mit den Attributen <code>scope</code>, <code>id</code> und <code>headers</code>.</li>
         </ul>
       </td>
     </tr>
   </tbody>
 </table>
 
-## Zusammenfassung: Tabellen für sehbehinderte Benutzer
+## Rückblick: Tabellen für sehbehinderte Benutzer
 
-Lassen Sie uns kurz zusammenfassen, wie wir Datentabellen verwenden. Eine Tabelle kann ein nützliches Werkzeug sein, um uns schnellen Zugriff auf Daten zu geben und es uns zu ermöglichen, verschiedene Werte nachzuschlagen. Beispielsweise benötigt es nur einen kurzen Blick auf die Tabelle unten, um herauszufinden, wie viele Ringe im August 2016 in Gent verkauft wurden. Um die Informationen zu verstehen, erstellen wir visuelle Assoziationen zwischen den Daten in dieser Tabelle und ihren Spalten- und/oder Zeilenüberschriften.
+Lassen Sie uns kurz rekapitulieren, wie wir Datentabellen verwenden. Eine Tabelle kann ein praktisches Werkzeug sein, das uns schnellen Zugriff auf Daten ermöglicht und es uns erlaubt, verschiedene Werte nachzuschlagen. Zum Beispiel genügt ein kurzer Blick auf die Tabelle unten, um herauszufinden, wie viele Ringe im August 2016 in Gent verkauft wurden. Um die Informationen zu verstehen, machen wir visuelle Zuordnungen zwischen den Daten in dieser Tabelle und ihren Spalten- und/oder Zeilenüberschriften.
 
 <table>
   <caption>Verkaufte Artikel August 2016</caption>
@@ -45,7 +45,7 @@ Lassen Sie uns kurz zusammenfassen, wie wir Datentabellen verwenden. Eine Tabell
     <tr>
       <td colspan="2" rowspan="2"></td>
       <th colspan="3" scope="colgroup">Kleidung</th>
-      <th colspan="2" scope="colgroup">Zubehör</th>
+      <th colspan="2" scope="colgroup">Accessoires</th>
     </tr>
     <tr>
       <th scope="col">Hosen</th>
@@ -101,22 +101,22 @@ Lassen Sie uns kurz zusammenfassen, wie wir Datentabellen verwenden. Eine Tabell
   </tbody>
 </table>
 
-Aber was, wenn Sie diese visuellen Assoziationen nicht herstellen können? Wie können Sie dann eine Tabelle wie die obenstehende lesen? Sehbehinderte Menschen verwenden oft einen Screenreader, der ihnen Informationen auf Webseiten vorliest. Dies stellt kein Problem dar, wenn man einfachen Text liest, aber das Interpretieren einer Tabelle kann für eine blinde Person eine Herausforderung sein. Mit der richtigen Markierung können wir jedoch visuelle Assoziationen durch programmgesteuerte ersetzen.
+Aber was, wenn Sie diese visuellen Zuordnungen nicht machen können? Wie können Sie dann eine Tabelle wie die oben beschriebene lesen? Sehbehinderte Menschen verwenden oft einen Screenreader, der Informationen auf Webseiten für sie vorliest. Das ist kein Problem, wenn man normalen Text liest, aber das Interpretieren einer Tabelle kann für eine blinde Person eine echte Herausforderung sein. Dennoch können wir mit der richtigen Auszeichnung visuelle Zuordnungen durch programmatische ersetzen.
 
 > [!NOTE]
-> Laut [WHO-Daten von 2017](https://www.who.int/en/news-room/fact-sheets/detail/blindness-and-visual-impairment) leben etwa 253 Millionen Menschen mit Sehbehinderungen.
+> Laut [Daten der WHO von 2017](https://www.who.int/en/news-room/fact-sheets/detail/blindness-and-visual-impairment) gibt es etwa 253 Millionen Menschen, die mit einer Sehbehinderung leben.
 
-In diesem Abschnitt des Artikels werden weitere Techniken erläutert, um Tabellen so zugänglich wie möglich zu machen.
+Dieser Abschnitt des Artikels bietet weitere Techniken, um Tabellen so barrierefrei wie möglich zu gestalten.
 
 ### Verwendung von Spalten- und Zeilenüberschriften
 
-Screenreader identifizieren alle Überschriften und verwenden sie, um programmgesteuerte Assoziationen zwischen diesen Überschriften und den sie betreffenden Zellen herzustellen. Die Kombination von Spalten- und Zeilenüberschriften erkennt und interpretiert die Daten in jeder Zelle, sodass Benutzer von Screenreadern die Tabelle ähnlich interpretieren können wie ein sehender Benutzer.
+Screenreader erkennen alle Überschriften und verwenden sie, um programmatische Assoziationen zwischen diesen Überschriften und den Zellen herzustellen, auf die sie sich beziehen. Die Kombination von Spalten- und Zeilenüberschriften identifiziert und interpretiert die Daten in jeder Zelle, sodass Screenreader-Benutzer die Tabelle ähnlich wie ein sehender Benutzer interpretieren können.
 
-Wir haben Überschriften bereits in unserem vorherigen Artikel behandelt — siehe [Hinzufügen von Überschriften mit \<th>-Elementen](/de/docs/Learn_web_development/Core/Structuring_content/HTML_table_basics#adding_headers_with_th_elements).
+Wir haben bereits im vorherigen Artikel über Überschriften gesprochen — siehe [Hinzufügen von Überschriften mit \<th>-Elementen](/de/docs/Learn_web_development/Core/Structuring_content/HTML_table_basics#adding_headers_with_th_elements).
 
-## Hinzufügen einer Bildunterschrift zu Ihrer Tabelle mit \<caption>
+## Hinzufügen einer Beschriftung mit \<caption>
 
-Sie können Ihrer Tabelle eine Bildunterschrift hinzufügen, indem Sie sie in ein {{htmlelement("caption")}}-Element einfügen und dieses in das {{htmlelement("table")}}-Element eingebettet wird. Sie sollten es direkt unter dem öffnenden `<table>`-Tag platzieren.
+Sie können Ihrer Tabelle eine Beschriftung geben, indem Sie sie in ein {{htmlelement("caption")}}-Element setzen und dieses innerhalb des {{htmlelement("table")}}-Elements verschachteln. Sie sollten es direkt unter dem öffnenden `<table>`-Tag platzieren.
 
 ```html
 <table>
@@ -128,46 +128,46 @@ Sie können Ihrer Tabelle eine Bildunterschrift hinzufügen, indem Sie sie in ei
 </table>
 ```
 
-Wie Sie aus dem obigen kurzen Beispiel schließen können, soll die Bildunterschrift eine Beschreibung der Tabelleninhalte enthalten. Dies ist nützlich für alle Leser, die schnell feststellen möchten, ob die Tabelle für sie nützlich ist, während sie die Seite durchsehen, insbesondere aber für blinde Benutzer. Anstatt dass ein Screenreader den Inhalt vieler Zellen vorliest, nur um herauszufinden, worum es in der Tabelle geht, kann der Benutzer sich auf eine Bildunterschrift verlassen und dann entscheiden, ob er die Tabelle genauer lesen möchte oder nicht.
+Wie Sie aus dem kurzen Beispiel oben entnehmen können, soll die Beschriftung eine Beschreibung des Tabelleninhalts enthalten. Dies ist nützlich für alle Leser, die schnell herausfinden möchten, ob die Tabelle für sie von Nutzen ist, während sie die Seite durchgehen, aber insbesondere für blinde Benutzer. Anstatt dass ein Screenreader den Inhalt vieler Zellen vorliest, nur um herauszufinden, worum es in der Tabelle geht, kann sich der Benutzer auf eine Beschriftung verlassen und dann entscheiden, ob er die Tabelle detaillierter lesen möchte.
 
-Eine Bildunterschrift wird direkt unter dem `<table>`-Tag platziert.
-
-> [!NOTE]
-> Das [`summary`]-Attribut (/de/docs/Web/HTML/Reference/Elements/table#summary) kann auch auf dem `<table>`-Element verwendet werden, um eine Beschreibung bereitzustellen — dies wird ebenfalls von Screenreadern vorgelesen. Wir empfehlen jedoch die Verwendung des `<caption>`-Elements, da `summary` veraltet ist und von seheingeschränkten Benutzern nicht gelesen werden kann (es erscheint nicht auf der Seite).
-
-### Aktives Lernen: Hinzufügen einer Bildunterschrift
-
-Lassen Sie uns das ausprobieren, indem wir den Stundenplan eines Sprachlehrers als Beispiel verwenden.
-
-1. Erstellen Sie eine lokale Kopie unserer Datei [timetable-fixed.html](https://github.com/mdn/learning-area/blob/main/html/tables/basic/timetable-fixed.html).
-2. Fügen Sie eine geeignete Bildunterschrift für die Tabelle hinzu.
-3. Speichern Sie Ihren Code und öffnen Sie ihn in einem Browser, um zu sehen, wie es aussieht.
+Eine Beschriftung wird direkt unter dem `<table>`-Tag platziert.
 
 > [!NOTE]
-> Sie können unsere Version auf GitHub finden — siehe [timetable-caption.html](https://github.com/mdn/learning-area/blob/main/html/tables/advanced/timetable-caption.html) ([sehen Sie sich auch die Live-Version an](https://mdn.github.io/learning-area/html/tables/advanced/timetable-caption.html)).
+> Das [`summary`](/de/docs/Web/HTML/Reference/Elements/table#summary)-Attribut kann auch auf dem `<table>`-Element verwendet werden, um eine Beschreibung bereitzustellen — dies wird ebenfalls von Screenreadern vorgelesen. Wir empfehlen jedoch die Verwendung des `<caption>`-Elements, da `summary` veraltet ist und nicht von sehenden Benutzern gelesen werden kann (es erscheint nicht auf der Seite).
 
-## Hinzufügen von Struktur mit \<thead>, \<tbody> und \<tfoot>
+### Aktive Lernübung: Hinzufügen einer Beschriftung
 
-Wenn Ihre Tabellen in der Struktur etwas komplexer werden, ist es sinnvoll, ihnen mehr strukturelle Definition zu geben. Eine klare Möglichkeit, dies zu tun, ist die Verwendung von {{htmlelement("thead")}}, {{htmlelement("tbody")}} und {{htmlelement("tfoot")}}, die es ermöglichen, einen Kopf-, Haupt- und Fußbereich für die Tabelle zu kennzeichnen.
+Probieren Sie es aus, indem Sie den Stundenplan eines Sprachlehrers als Beispiel verwenden.
 
-Diese Elemente machen die Tabelle für Benutzer von Screenreadern nicht zwingend zugänglicher. Sie führen nicht selbst zu visuellen Verbesserungen, aber sie sind sehr nützlich, um Styling- und Layoutverbesserungen über CSS anzuwenden, was die Barrierefreiheit verbessern kann. Um Ihnen einige interessante Beispiele zu geben: Im Falle einer langen Tabelle könnten Sie den Tabellenkopf und -fuß auf jeder gedruckten Seite wiederholen lassen, und Sie könnten den Tabellinhalt auf einer Seite anzeigen und die Inhalte durch Scrollen verfügbar machen.
+1. Machen Sie eine lokale Kopie unserer [timetable-fixed.html](https://github.com/mdn/learning-area/blob/main/html/tables/basic/timetable-fixed.html)-Datei.
+2. Fügen Sie eine geeignete Beschriftung für die Tabelle hinzu.
+3. Speichern Sie Ihren Code und öffnen Sie ihn in einem Browser, um zu sehen, wie er aussieht.
+
+> [!NOTE]
+> Sie können unsere Version auf GitHub finden — siehe [timetable-caption.html](https://github.com/mdn/learning-area/blob/main/html/tables/advanced/timetable-caption.html) ([sehen Sie es auch live](https://mdn.github.io/learning-area/html/tables/advanced/timetable-caption.html)).
+
+## Struktur Hinzufügen mit \<thead>, \<tbody> und \<tfoot>
+
+Wenn Ihre Tabellen etwas komplexer in der Struktur werden, ist es nützlich, ihnen mehr strukturelle Definition zu geben. Eine klare Möglichkeit, dies zu tun, besteht darin, {{htmlelement("thead")}}, {{htmlelement("tbody")}} und {{htmlelement("tfoot")}} zu verwenden, mit denen Sie einen Kopf-, Körper- und Fußbereich für die Tabelle markieren können.
+
+Diese Elemente machen die Tabelle nicht unbedingt zugänglicher für Screenreader-Benutzer. Sie resultieren nicht in einer visuellen Verbesserung an sich, allerdings sind sie sehr nützlich, um Styling und Layout-Verbesserungen durch CSS anzuwenden, was die Zugänglichkeit verbessern kann. Um Ihnen einige interessante Beispiele zu geben: Im Falle einer langen Tabelle könnten Sie den Tabellenkopf und -fuß auf jeder gedruckten Seite wiederholen lassen, und Sie könnten den Tabellenkörper auf einer einzigen Seite anzeigen und den Inhalt durch Scrollen nach oben und unten verfügbar machen.
 
 Um sie zu verwenden, sollten sie in der folgenden Reihenfolge enthalten sein:
 
-- Das `<thead>`-Element muss den Teil der Tabelle umschließen, der der Kopf ist — dies ist normalerweise die erste Zeile mit den Spaltenüberschriften, muss aber nicht immer der Fall sein. Wenn Sie {{htmlelement("col")}}/{{htmlelement("colgroup")}}-Elemente verwenden, sollte der Tabellenkopf direkt unter diesen stehen.
+- Das `<thead>`-Element muss den Teil der Tabelle umschließen, der der Kopf ist — dies ist normalerweise die erste Zeile, die die Spaltenüberschriften enthält, was aber nicht immer der Fall sein muss. Wenn Sie {{htmlelement("col")}}/{{htmlelement("colgroup")}}-Elemente verwenden, sollte der Tabellenkopf direkt darunter kommen.
 - Das `<tbody>`-Element muss den Hauptteil des Tabelleninhalts umschließen, der nicht der Tabellenkopf oder -fuß ist.
-- Das `<tfoot>`-Element muss den Teil der Tabelle umschließen, der der Fuß ist — dies könnte eine abschließende Zeile mit Summen der Elemente in den vorherigen Zeilen sein.
+- Das `<tfoot>`-Element muss den Teil der Tabelle umschließen, der der Fuß ist — dies könnte z.B. eine Abschlusszeile mit zusammengefassten Elementen aus den vorherigen Zeilen sein.
 
-> **Hinweis:** `<tbody>` ist immer in jeder Tabelle enthalten, implizit, wenn Sie es nicht in Ihrem Code angeben. Um dies zu überprüfen, öffnen Sie eines Ihrer vorherigen Beispiele, das `<tbody>` nicht enthält, und sehen Sie sich den HTML-Code in Ihren [Browser-Entwicklertools](/de/docs/Learn_web_development/Howto/Tools_and_setup/What_are_browser_developer_tools) an — Sie werden sehen, dass der Browser dieses Tag für Sie hinzugefügt hat. Sie fragen sich vielleicht, warum Sie es überhaupt angeben sollten — Sie sollten es tun, weil es Ihnen mehr Kontrolle über die Struktur und das Styling Ihrer Tabelle gibt.
+> **Hinweis:** `<tbody>` ist in jeder Tabelle immer enthalten, implizit, wenn Sie es nicht in Ihrem Code spezifizieren. Um dies zu überprüfen, öffnen Sie eines Ihrer vorherigen Beispiele, das `<tbody>` nicht enthält, und sehen Sie sich den HTML-Code in Ihren [Browser-Entwicklerwerkzeugen](/de/docs/Learn_web_development/Howto/Tools_and_setup/What_are_browser_developer_tools) an — Sie werden sehen, dass der Browser dieses Tag für Sie hinzugefügt hat. Sie könnten sich fragen, warum Sie es überhaupt einfügen sollten — Sie sollten es tun, weil es Ihnen mehr Kontrolle über Ihre Tabellenstruktur und Ihr Styling gibt.
 
 ### Aktives Lernen: Hinzufügen von Tabellenstruktur
 
-Lassen Sie uns diese neuen Elemente ausprobieren.
+Setzen wir diese neuen Elemente in die Praxis um.
 
-1. Kopieren Sie zunächst [spending-record.html](https://github.com/mdn/learning-area/blob/main/html/tables/advanced/spending-record.html) und [minimal-table.css](https://github.com/mdn/learning-area/blob/main/html/tables/advanced/minimal-table.css) in einen neuen Ordner.
-2. Versuchen Sie, die offensichtliche Überschriftenzeile in ein `<thead>`-Element, die "SUM"-Zeile in ein `<tfoot>`-Element und den restlichen Inhalt in ein `<tbody>`-Element zu setzen.
-3. Fügen Sie als Nächstes ein [`colspan`]-Attribut (/de/docs/Web/HTML/Reference/Elements/td#colspan) hinzu, um die "SUM"-Zelle über die ersten vier Spalten zu erstrecken, sodass die tatsächliche Zahl am Ende der "Kosten"-Spalte erscheint.
-4. Fügen Sie etwas einfaches zusätzliches Styling zur Tabelle hinzu, um Ihnen eine Vorstellung davon zu geben, wie nützlich diese Elemente für die Anwendung von CSS sind. Im Kopfbereich Ihres HTML-Dokuments sehen Sie ein leeres {{htmlelement("style")}}-Element. Fügen Sie in dieses Element die folgenden CSS-Zeilen ein:
+1. Machen Sie zunächst eine lokale Kopie von [spending-record.html](https://github.com/mdn/learning-area/blob/main/html/tables/advanced/spending-record.html) und [minimal-table.css](https://github.com/mdn/learning-area/blob/main/html/tables/advanced/minimal-table.css) in einem neuen Ordner.
+2. Versuchen Sie, die offensichtliche Überschriftenzeile in ein `<thead>`-Element, die "SUM"-Zeile in ein `<tfoot>`-Element und den Rest des Inhalts in ein `<tbody>`-Element zu setzen.
+3. Fügen Sie als Nächstes ein [`colspan`](/de/docs/Web/HTML/Reference/Elements/td#colspan)-Attribut hinzu, um die "SUM"-Zelle über die ersten vier Spalten zu erstrecken, sodass die tatsächliche Nummer am unteren Rand der "Kosten"-Spalte erscheint.
+4. Fügen Sie der Tabelle etwas einfaches zusätzliches Styling hinzu, um Ihnen eine Vorstellung davon zu geben, wie nützlich diese Elemente zum Anwenden von CSS sind. Innerhalb des Kopfbereichs Ihres HTML-Dokuments sehen Sie ein leeres {{htmlelement("style")}}-Element. Fügen Sie in dieses Element die folgenden CSS-Codezeilen ein:
 
    ```css
    tbody {
@@ -180,21 +180,21 @@ Lassen Sie uns diese neuen Elemente ausprobieren.
    }
    ```
 
-5. Speichern und aktualisieren Sie und schauen Sie sich das Ergebnis an. Wenn die `<tbody>`- und `<tfoot>`-Elemente nicht vorhanden wären, müssten Sie weitaus kompliziertere Selektoren/Regeln schreiben, um das gleiche Styling anzuwenden.
+5. Speichern und aktualisieren Sie, und sehen Sie sich das Ergebnis an. Wenn die `<tbody>`- und `<tfoot>`-Elemente nicht vorhanden wären, müssten Sie viel kompliziertere Selektoren/Regeln schreiben, um dasselbe Styling anzuwenden.
 
 > [!NOTE]
-> Wir erwarten nicht, dass Sie das CSS jetzt vollständig verstehen. Sie werden mehr darüber erfahren, wenn Sie unsere CSS-Module durchgehen ([CSS-Styling-Grundlagen](/de/docs/Learn_web_development/Core/Styling_basics) ist ein guter Anfang; wir haben auch einen Artikel speziell über [Tabellen-Styling](/de/docs/Learn_web_development/Core/Styling_basics/Tables)).
+> Wir erwarten nicht, dass Sie das CSS jetzt vollständig verstehen. Sie werden mehr darüber lernen, wenn Sie unsere CSS-Module durchgehen ([Grundlagen von CSS-Styling](/de/docs/Learn_web_development/Core/Styling_basics) ist ein guter Ausgangspunkt; wir haben auch einen Artikel speziell über [Tabellenstyling](/de/docs/Learn_web_development/Core/Styling_basics/Tables)).
 
-Ihre fertige Tabelle sollte etwa wie folgt aussehen:
+Ihre fertige Tabelle sollte in etwa wie folgt aussehen:
 
 {{ EmbedGHLiveSample('learning-area/html/tables/advanced/spending-record-finished.html', '100%', 400) }}
 
 > [!NOTE]
-> Sie können es auch auf GitHub als [spending-record-finished.html](https://github.com/mdn/learning-area/blob/main/html/tables/advanced/spending-record-finished.html) finden.
+> Sie können es auch auf GitHub als [spending-record-finished.html](https://github.com/mdn/learning-area/blob/main/html/tables/advanced/spending-record-finished.html) finden ([sehen Sie es hier live](https://mdn.github.io/learning-area/html/tables/advanced/spending-record-finished.html)).
 
 ## Das `scope`-Attribut
 
-Das [`scope`]-Attribut (/de/docs/Web/HTML/Reference/Elements/th#scope) kann dem `<th>`-Element hinzugefügt werden, um Screenreadern genau zu sagen, für welche Zellen die Überschrift eine Überschrift ist — ist es eine Überschrift für die Zeile, in der es sich befindet, oder für die Spalte, zum Beispiel? Wenn wir auf unser früheres Beispiel des Ausgabeprotokolls zurückblicken, könnten Sie die Spaltenüberschriften eindeutig als Spaltenüberschriften definieren:
+Das [`scope`](/de/docs/Web/HTML/Reference/Elements/th#scope)-Attribut kann dem `<th>`-Element hinzugefügt werden, um Screenreadern genau anzugeben, für welche Zellen die Überschrift eine Überschrift ist — ist es eine Überschrift für die Reihe, in der es sich befindet, oder die Spalte, zum Beispiel? Wenn wir auf unser früheres Beispiel für das Ausgabeprotokoll zurückblicken, könnten Sie die Spaltenüberschriften eindeutig als Spaltenüberschriften definieren, so:
 
 ```html
 <thead>
@@ -208,7 +208,7 @@ Das [`scope`]-Attribut (/de/docs/Web/HTML/Reference/Elements/th#scope) kann dem 
 </thead>
 ```
 
-Und jede Zeile könnte eine definierte Überschrift wie diese haben (wenn wir Zeilenüberschriften ebenso wie Spaltenüberschriften ergänzen würden):
+Und jede Zeile könnte eine definierte Überschrift wie diese (wenn wir Zeilenüberschriften sowie Spaltenüberschriften hinzufügen würden) haben:
 
 ```html
 <tr>
@@ -220,9 +220,9 @@ Und jede Zeile könnte eine definierte Überschrift wie diese haben (wenn wir Ze
 </tr>
 ```
 
-Screenreader erkennen eine so strukturierte Markierung und erlauben ihren Benutzern, entweder die gesamte Spalte oder Zeile auf einmal lesen zu lassen.
+Screenreader erkennen eine solche Struktur und ermöglichen es ihren Benutzern, zum Beispiel die gesamte Spalte oder Zeile auf einmal vorzulesen.
 
-`scope` hat zwei weitere mögliche Werte — `colgroup` und `rowgroup`. Diese werden für Überschriften verwendet, die über mehreren Spalten oder Zeilen stehen. Wenn Sie sich die Tabelle "Verkaufte Artikel August 2016" am Anfang dieses Artikelsegments nochmal anschauen, sehen Sie, dass die Zelle "Kleidung" über den Zellen "Hosen", "Röcke" und "Kleider" sitzt. Alle diese Zellen sollten als Überschriften mit `<th>` markiert werden, aber "Kleidung" ist eine Überschrift, die über allem steht und die drei Unterüberschriften definiert. Daher sollte "Kleidung" ein Attribut von `scope="colgroup"` erhalten, während die anderen ein Attribut von `scope="col"` erhalten:
+`scope` hat zwei weitere mögliche Werte — `colgroup` und `rowgroup`. Diese werden für Überschriften verwendet, die über mehreren Spalten oder Zeilen stehen. Wenn Sie sich die Tabelle "Verkaufte Artikel August 2016" am Anfang dieses Abschnitts des Artikels ansehen, werden Sie feststellen, dass die "Kleidung"-Zelle über den "Hosen"-, "Röcke"- und "Kleider"-Zellen steht. Alle diese Zellen sollten als Überschriften (`<th>`) ausgezeichnet werden, aber "Kleidung" ist eine Überschrift, die oben sitzt und die anderen drei Unterüberschriften definiert. "Kleidung" sollte daher ein Attribut `scope="colgroup"` erhalten, während die anderen ein Attribut `scope="col"` erhalten würden:
 
 ```html
 <thead>
@@ -237,7 +237,7 @@ Screenreader erkennen eine so strukturierte Markierung und erlauben ihren Benutz
 </thead>
 ```
 
-Das gleiche gilt für Überschriften für mehrere gruppierte Zeilen. Werfen Sie einen weiteren Blick auf die "Verkaufte Artikel August 2016" Tabelle, konzentrieren Sie sich diesmal auf die Zeilen mit den Überschriften "Amsterdam" und "Utrecht" (`<th>`). Sie werden bemerken, dass die Überschrift "Die Niederlande", ebenfalls als `<th>`-Element markiert, sich über beide Zeilen erstreckt, als Überschrift für die anderen beiden Unterüberschriften. Daher sollte `scope="rowgroup"` auf diese Kopfzeile angewendet werden, um Screenreadern zu helfen, die richtigen Assoziationen zu erstellen:
+Dasselbe gilt für Überschriften für mehrere gruppierte Zeilen. Schauen Sie sich die "Verkaufte Artikel August 2016"-Tabelle noch einmal an, diesmal mit Fokus auf die Zeilen mit den Überschriften "Amsterdam" und "Utrecht" (`<th>`). Sie werden feststellen, dass die Überschrift "Die Niederlande", die ebenfalls als `<th>`-Element ausgezeichnet ist, beide Zeilen überspannt und die Überschrift für die anderen beiden Unterüberschriften darstellt. Daher sollte `scope="rowgroup"` für diese Überschriftenzelle angegeben werden, um Screenreadern zu helfen, die richtigen Zuordnungen herzustellen:
 
 ```html
 <tr>
@@ -255,26 +255,32 @@ Das gleiche gilt für Überschriften für mehrere gruppierte Zeilen. Werfen Sie 
 </tr>
 ```
 
-## Die Attribute id und headers
+## Die `id`- und `headers`-Attribute
 
-Eine Alternative zur Verwendung des `scope`-Attributs besteht darin, die Attribute [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id) und [`headers`](/de/docs/Web/HTML/Reference/Elements/td#headers) zu verwenden, um Assoziationen zwischen Überschriften und Zellen zu erstellen.
+Eine Alternative zur Verwendung des `scope`-Attributs ist die Verwendung der [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id)- und [`headers`](/de/docs/Web/HTML/Reference/Elements/td#headers)-Attribute, um Assoziationen zwischen Datenzellen und Überschriftenzellen zu erstellen.
 
-Das `headers`-Attribut akzeptiert eine Liste von ungeordneten, durch Leerzeichen getrennten [String]-Werten (/de/docs/Glossary/string), die jeder einem eindeutigen `id` der `<th>`-Elemente entsprechen, die Überschriften für entweder eine Datenzelle (`<td>`-Element) oder eine andere Kopfzelle (`<th>`-Element) bereitstellen.
+Ein `<th>`-Element kann eine Überschrift für entweder eine Datenzelle (`<td>`) oder, in komplexeren Tabellen, für eine andere Überschriftenzelle (`<th>`) bereitstellen. Dies ermöglicht es, gestaffelte oder gruppierte Überschriften zu erstellen, bei denen eine Überschrift mehrere andere beschreibt.
 
-Dies gibt Ihrer HTML-Tabelle eine explizite Definition der Position jeder Zelle in der Tabelle, definiert durch die Überschrift(en) für jede Spalte und Reihe, an der sie teilnimmt, ähnlich wie eine Tabelle in einer Tabellenkalculation. Damit es gut funktioniert, benötigt die Tabelle wirklich sowohl Spalten- als auch Zeilenüberschriften.
+Das `headers`-Attribut wird verwendet, um eine Zelle `<td>` oder `<th>` mit einer oder mehreren Überschriftenzellen zu verknüpfen. Es nimmt eine durch Leerzeichen getrennte Liste von {{Glossary("string", "Strings")}} auf; die Reihenfolge der Strings spielt keine Rolle. Jeder String muss mit der eindeutigen `id` eines `<th>`-Elements übereinstimmen, mit dem die Zelle in Verbindung steht.
 
-Zurück zu unserem Beispiel "Verkaufte Artikel August 2016", können wir die Attribute `id` und `headers` wie folgt verwenden:
+Diese Methode gibt Ihrer HTML-Tabelle eine explizitere Definition der Position jeder Zelle, basierend auf den Überschriften für die Spalte und die Zeile, zu der sie gehört, ähnlich einer Tabellenkalkulation. Damit dies gut funktioniert, sollte Ihre Tabelle sowohl Spalten- als auch Zeilenüberschriften enthalten.
+
+Sehen wir uns einen Teil des Beispiels "Verkaufte Artikel August 2016" an, um zu sehen, wie die `id`- und `headers`-Attribute verwendet werden:
 
 1. Fügen Sie jedem `<th>`-Element in der Tabelle eine eindeutige `id` hinzu.
-2. Fügen Sie jedem `<th>`-Element, das als Unterüberschrift fungiert, d.h. eine Überschrift darüber hat, ein `headers`-Attribut hinzu. Der Wert ist die `id` der Überschrift, die darüber sitzt und die Unterüberschriften definiert, was in unserem Beispiel `"clothes"` für die Spaltenüberschriften und `"belgium"` für die Zeilenüberschrift ist.
-3. Fügen Sie jedem `<td>`-Element ein `headers`-Attribut hinzu und fügen Sie die `id`s der zugehörigen `<th>`-Elemente in Form einer durch Leerzeichen getrennten Liste hinzu. Sie können genauso vorgehen, wie Sie es in einem Tabellenkalkulationsprogramm tun würden: Finden Sie die Datenzelle und suchen Sie die entsprechenden Überschriften für die Zeile und die Spalte. Die Reihenfolge der angegebenen `id`s spielt keine Rolle, aber Sie sollten konsistent sein, um es organisiert zu halten.
+2. Für die Überschriftenzellen: Fügen Sie jedem `<th>`-Element, das als Unterüberschrift fungiert, also einer Überschriftenzelle mit einer anderen Überschrift darüber, ein `headers`-Attribut hinzu. Der Wert ist die `id` der hochrangigen Überschrift. In unserem Beispiel ist das `"kleidung"` für die Spaltenüberschriften und `"belgien"` für die Zeilenüberschrift.
+3. Für die Datenzellen: Fügen Sie jedem `<td>`-Element ein `headers`-Attribut hinzu und fügen Sie die `id`s der zugehörigen `<th>`-Elemente als durch Leerzeichen getrennte Liste hinzu. Sie können vorgehen wie in einer Tabellenkalkulation: Finden Sie die Datenzelle, dann die Zeilen- und Spaltenüberschriften, die sie beschreiben. Die Reihenfolge der angegebenen `id`s spielt keine Rolle, aber das Einhalten einer einheitlichen Ordnung sorgt für Übersichtlichkeit und verbessert die Lesbarkeit des Codes.
 
 ```html
 <thead>
   <tr>
+    <th></th>
+    <th></th>
     <th id="clothes" colspan="3">Clothes</th>
   </tr>
   <tr>
+    <th></th>
+    <th></th>
     <th id="trousers" headers="clothes">Trousers</th>
     <th id="skirts" headers="clothes">Skirts</th>
     <th id="dresses" headers="clothes">Dresses</th>
@@ -282,29 +288,41 @@ Zurück zu unserem Beispiel "Verkaufte Artikel August 2016", können wir die Att
 </thead>
 <tbody>
   <tr>
-    <th id="belgium" rowspan="3">Belgium</th>
+    <th id="belgium" rowspan="2">Belgium</th>
     <th id="antwerp" headers="belgium">Antwerp</th>
-    <td headers="antwerp belgium clothes trousers">56</td>
-    <td headers="antwerp belgium clothes skirts">22</td>
-    <td headers="antwerp belgium clothes dresses">43</td>
+    <td headers="belgium antwerp clothes trousers">56</td>
+    <td headers="belgium antwerp clothes skirts">22</td>
+    <td headers="belgium antwerp clothes dresses">43</td>
+  </tr>
+  <tr>
+    <th id="ghent" headers="belgium">Ghent</th>
+    <td headers="belgium ghent clothes trousers">41</td>
+    <td headers="belgium ghent clothes skirts">17</td>
+    <td headers="belgium ghent clothes dresses">35</td>
   </tr>
 </tbody>
 ```
 
-> [!NOTE]
-> Diese Methode erstellt sehr präzise Assoziationen zwischen Überschriften und Datenzellen, aber sie verwendet **sehr viel** mehr Markup und lässt keinen Raum für Fehler. Der `scope`-Ansatz ist für die meisten Tabellen in der Regel ausreichend.
+In diesem Beispiel:
 
-## Aktives Lernen: mit scope und headers spielen
-
-1. Für diese abschließende Übung möchten wir, dass Sie zuerst lokale Kopien von [items-sold.html](https://github.com/mdn/learning-area/blob/main/html/tables/advanced/items-sold.html) und [minimal-table.css](https://github.com/mdn/learning-area/blob/main/html/tables/advanced/minimal-table.css) in einem neuen Verzeichnis erstellen.
-2. Versuchen Sie nun, die entsprechenden `scope`-Attribute hinzuzufügen, um diese Tabelle zugänglicher zu machen.
-3. Schließlich versuchen Sie, eine weitere Kopie der Ausgangsdateien zu erstellen und diesmal die Tabelle durch die Erstellung präziser und expliziter Assoziationen mit `id`- und `headers`-Attributen zugänglicher zu machen.
+- Das `<th>` für "Belgien" verwendet `rowspan="2"`, um sowohl "Antwerpen" als auch "Gent" abzudecken.
+- Die Stadtkopfzellen ("Antwerpen" und "Gent") verwenden das `headers`-Attribut, um auf "belgien" zu verweisen und zu zeigen, dass sie zur Belgien-Gruppe gehören.
+- Jede `<td>` enthält ein `headers`-Attribut für Land (`belgien`), Stadt (`antwerpen` oder `gent`), Gruppe (`kleidung`) und das spezifische Kleidungsstück (`hosen`, `röcke` oder `kleider`).
 
 > [!NOTE]
-> Sie können Ihre Arbeit mit unseren fertigen Beispielen vergleichen — siehe [items-sold-scope.html](https://github.com/mdn/learning-area/blob/main/html/tables/advanced/items-sold-scope.html) ([sehen Sie auch diese Live-Version an](https://mdn.github.io/learning-area/html/tables/advanced/items-sold-scope.html)) und [items-sold-headers.html](https://github.com/mdn/learning-area/blob/main/html/tables/advanced/items-sold-headers.html) ([sehen Sie auch diese Live-Version an](https://mdn.github.io/learning-area/html/tables/advanced/items-sold-headers.html)).
+> Diese Methode erstellt sehr präzise Zuordnungen zwischen Überschriften- und Datenzellen, verwendet jedoch **viel** mehr Markup und lässt keinen Raum für Fehler. Der `scope`-Ansatz ist für die meisten Tabellen in der Regel ausreichend.
+
+## Aktives Lernen: Spielen mit `scope` und `headers`
+
+1. Für diese letzte Übung möchten wir, dass Sie zuerst lokale Kopien von [items-sold.html](https://github.com/mdn/learning-area/blob/main/html/tables/advanced/items-sold.html) und [minimal-table.css](https://github.com/mdn/learning-area/blob/main/html/tables/advanced/minimal-table.css) in einem neuen Verzeichnis erstellen.
+2. Versuchen Sie nun, die entsprechenden `scope`-Attribute hinzuzufügen, um diese Tabelle barrierefreier zu gestalten.
+3. Versuchen Sie schließlich, eine weitere Kopie der Startdateien zu machen und die Tabelle diesmal barrierefreier zu gestalten, indem Sie präzise und explizite Assoziationen mit `id`- und `headers`-Attributen erstellen.
+
+> [!NOTE]
+> Sie können Ihre Arbeit mit unseren fertigen Beispielen vergleichen — siehe [items-sold-scope.html](https://github.com/mdn/learning-area/blob/main/html/tables/advanced/items-sold-scope.html) ([auch live ansehen](https://mdn.github.io/learning-area/html/tables/advanced/items-sold-scope.html)) und [items-sold-Headers.html](https://github.com/mdn/learning-area/blob/main/html/tables/advanced/items-sold-headers.html) ([sehen Sie es hier live](https://mdn.github.io/learning-area/html/tables/advanced/items-sold-headers.html)).
 
 ## Zusammenfassung
 
-Es gibt noch ein paar andere Dinge, die Sie über Tabellen in HTML lernen könnten, aber das ist alles, was Sie im Moment wissen müssen. Als Nächstes können Sie sich selbst mit unserer HTML-Tabellen-Herausforderung testen. Viel Spaß!
+Es gibt noch ein paar andere Dinge, die Sie über Tabellen in HTML lernen könnten, aber das ist alles, was Sie im Moment wissen müssen. Als Nächstes können Sie sich mit unserer HTML-Tabellen-Challenge testen. Viel Spaß!
 
 {{PreviousMenuNext("Learn_web_development/Core/Structuring_content/HTML_table_basics", "Learn_web_development/Core/Structuring_content/Planet_data_table", "Learn_web_development/Core/Structuring_content")}}

@@ -1,26 +1,26 @@
 ---
-title: "Dokument: beforescriptexecute Event"
+title: "Dokument: beforescriptexecute-Event"
 short-title: beforescriptexecute
 slug: Web/API/Document/beforescriptexecute_event
 l10n:
-  sourceCommit: c15dc43c147bba7bdbaf2754831c59e5f44b98d2
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{APIRef}}{{non-standard_header}}{{deprecated_header}}
 
-Das `beforescriptexecute`-Ereignis wird ausgelöst, wenn ein statisches {{HTMLElement("script")}}-Element kurz vor der Ausführung steht. Es wird nicht ausgelöst, wenn das Element dynamisch hinzugefügt wird, wie zum Beispiel mit [`appendChild()`](/de/docs/Web/API/Node/appendChild).
+Das `beforescriptexecute`-Event wird ausgelöst, wenn ein statisches {{HTMLElement("script")}}-Element kurz davor steht, ausgeführt zu werden. Es wird nicht ausgelöst, wenn das Element dynamisch hinzugefügt wird, zum Beispiel mit [`appendChild()`](/de/docs/Web/API/Node/appendChild).
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Eventnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignisbehandlungseigenschaft.
 
-```js
-addEventListener("beforescriptexecute", (event) => {});
+```js-nolint
+addEventListener("beforescriptexecute", (event) => { })
 
-onbeforescriptexecute = (event) => {};
+onbeforescriptexecute = (event) => { }
 ```
 
-## Ereignistyp
+## Event-Typ
 
 Ein generisches [`Event`](/de/docs/Web/API/Event).
 
@@ -48,5 +48,5 @@ Nicht Teil einer Spezifikation.
 
 ## Siehe auch
 
-- [`afterscriptexecute`](/de/docs/Web/API/Document/afterscriptexecute_event) Ereignis des `Document`
+- [`afterscriptexecute`](/de/docs/Web/API/Document/afterscriptexecute_event)-Event des `Document`
 - [`Document.currentScript`](/de/docs/Web/API/Document/currentScript)

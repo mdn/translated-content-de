@@ -1,27 +1,27 @@
 ---
-title: "Profiler: samplebufferfull Ereignis"
+title: "Profiler: samplebufferfull-Ereignis"
 short-title: samplebufferfull
 slug: Web/API/Profiler/samplebufferfull_event
 l10n:
-  sourceCommit: be1922d62a0d31e4e3441db0e943aed8df736481
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{APIRef("JS Self-Profiling API")}}
 
-Das **`samplebufferfull`** Ereignis des [`Profiler`](/de/docs/Web/API/Profiler)-Interfaces wird ausgelöst, wenn die Anzahl der vom Profiler aufgezeichneten Samples dem [`maxBufferSize`](/de/docs/Web/API/Profiler/Profiler#maxbuffersize)-Wert entspricht, der im Konstruktor des Profilers übergeben wurde.
+Das **`samplebufferfull`**-Ereignis des [`Profiler`](/de/docs/Web/API/Profiler)-Interfaces wird ausgelöst, wenn die Anzahl der vom Profiler aufgezeichneten Stichproben dem [`maxBufferSize`](/de/docs/Web/API/Profiler/Profiler#maxbuffersize)-Wert entspricht, der an den Konstruktor des Profilers übergeben wurde.
 
-Nachdem dieses Ereignis ausgelöst wurde, wird der Profiler keine weiteren Samples mehr aufzeichnen.
+Nachdem dieses Ereignis ausgelöst wurde, nimmt der Profiler keine weiteren Stichproben mehr auf.
 
-Dieses Ereignis ist nicht abbrechbar und wird nicht weitergegeben.
+Dieses Ereignis kann nicht abgebrochen werden und löst kein Bubbling aus.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Event-Handler-Eigenschaft.
 
-```js
-addEventListener("samplebufferfull", (event) => {});
+```js-nolint
+addEventListener("samplebufferfull", (event) => { })
 
-onsamplebufferfull = (event) => {};
+onsamplebufferfull = (event) => { }
 ```
 
 ## Ereignistyp

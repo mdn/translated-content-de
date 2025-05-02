@@ -2,31 +2,31 @@
 title: SVGUnitTypes
 slug: Web/API/SVGUnitTypes
 l10n:
-  sourceCommit: cce0046336a987e8f643c287fe1430f39269a048
+  sourceCommit: 2e39a37874913a1e3fd82999467505fd525e9177
 ---
 
 {{APIRef("SVG")}}
 
-Die **`SVGUnitTypes`** Schnittstelle definiert eine häufig verwendete Menge von Konstanten, die zum Darstellen von {{SVGAttr("gradientUnits")}}, {{SVGAttr("patternContentUnits")}} und ähnlichen Attributen verwendet werden.
+Das **`SVGUnitTypes`**-Interface definiert eine häufig verwendete Menge von Konstanten, die zur Reflektion der Attribute {{SVGAttr("gradientUnits")}}, {{SVGAttr("patternContentUnits")}} und ähnlicher verwendet werden.
 
 {{InheritanceDiagram}}
 
-## Konstanten
+## Instanz-Eigenschaften
+
+_Dieses Interface implementiert keine spezifischen Eigenschaften._
+
+## Instanz-Methoden
+
+_Dieses Interface implementiert keine spezifischen Methoden._
+
+## Statische Eigenschaften
 
 - `SVG_UNIT_TYPE_UNKNOWN` (0)
-  - : Der Typ ist keiner der vordefinierten Typen. Es ist ungültig, zu versuchen, einen neuen Wert dieses Typs zu definieren oder einen bestehenden Wert auf diesen Typ zu wechseln.
+  - : Der Typ gehört nicht zu den vordefinierten Typen. Es ist ungültig, zu versuchen, einen neuen Wert dieses Typs zu definieren oder einen bestehenden Wert auf diesen Typ zu ändern.
 - `SVG_UNIT_TYPE_USERSPACEONUSE` (1)
   - : Entspricht dem Wert `userSpaceOnUse`.
 - `SVG_UNIT_TYPE_OBJECTBOUNDINGBOX` (2)
   - : Entspricht dem Wert `objectBoundingBox`.
-
-## Instanz-Eigenschaften
-
-_Diese Schnittstelle implementiert keine spezifischen Eigenschaften._
-
-## Instanz-Methoden
-
-_Diese Schnittstelle implementiert keine spezifischen Methoden._
 
 ## Spezifikationen
 

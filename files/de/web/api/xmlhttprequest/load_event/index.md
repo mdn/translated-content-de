@@ -3,7 +3,7 @@ title: "XMLHttpRequest: load-Ereignis"
 short-title: load
 slug: Web/API/XMLHttpRequest/load_event
 l10n:
-  sourceCommit: 9c78a44b9321fcd3fbe63d6f5b61ed749c2fa261
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{APIRef("XMLHttpRequest API")}} {{AvailableInWorkers("window_and_worker_except_service")}}
@@ -12,12 +12,12 @@ Das `load`-Ereignis wird ausgelöst, wenn eine [`XMLHttpRequest`](/de/docs/Web/A
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
-```js
-addEventListener("load", (event) => {});
+```js-nolint
+addEventListener("load", (event) => { })
 
-onload = (event) => {};
+onload = (event) => { }
 ```
 
 ## Ereignistyp
@@ -28,14 +28,14 @@ Ein [`ProgressEvent`](/de/docs/Web/API/ProgressEvent). Erbt von [`Event`](/de/do
 
 ## Ereigniseigenschaften
 
-_Neben den unten aufgeführten Eigenschaften stehen auch die Eigenschaften der übergeordneten Schnittstelle [`Event`](/de/docs/Web/API/Event) zur Verfügung._
+_Zusätzlich zu den unten aufgelisteten Eigenschaften sind Eigenschaften der Elternschnittstelle, [`Event`](/de/docs/Web/API/Event), verfügbar._
 
 - [`lengthComputable`](/de/docs/Web/API/ProgressEvent/lengthComputable) {{ReadOnlyInline}}
-  - : Ein boolesches Flag, das angibt, ob die Gesamtarbeit, die zu erledigen ist, und die bereits geleistete Arbeit durch den zugrunde liegenden Prozess berechenbar ist. Mit anderen Worten, es zeigt an, ob der Fortschritt messbar ist oder nicht.
+  - : Ein boolesches Kennzeichen, das angibt, ob die gesamte zu leistende Arbeit und die bereits geleistete Arbeit des zugrunde liegenden Prozesses berechenbar ist. Mit anderen Worten, es zeigt an, ob der Fortschritt messbar ist oder nicht.
 - [`loaded`](/de/docs/Web/API/ProgressEvent/loaded) {{ReadOnlyInline}}
-  - : Ein 64-Bit-Integerwert, der die Menge der bereits vom zugrunde liegenden Prozess geleisteten Arbeit angibt. Der Anteil der geleisteten Arbeit kann berechnet werden, indem der Wert dieser Eigenschaft durch `total` geteilt wird. Beim Herunterladen einer Ressource über HTTP zählt dies nur den Hauptteil der HTTP-Nachricht und schließt Header und anderen Overhead nicht ein.
+  - : Ein 64-Bit-Ganzzahlwert ohne Vorzeichen, der die Menge an Arbeit angibt, die bereits vom zugrunde liegenden Prozess geleistet wurde. Der Anteil der geleisteten Arbeit kann berechnet werden, indem der Wert dieser Eigenschaft durch `total` geteilt wird. Beim Herunterladen einer Ressource über HTTP zählt dies nur den Körper der HTTP-Nachricht und schließt Header und anderen Overhead aus.
 - [`total`](/de/docs/Web/API/ProgressEvent/total) {{ReadOnlyInline}}
-  - : Ein 64-Bit-Integer, der die Gesamtmenge der Arbeit repräsentiert, die der zugrunde liegende Prozess gerade ausführt. Beim Herunterladen einer Ressource über HTTP ist dies die `Content-Length` (die Größe des Hauptteils der Nachricht) und schließt die Header und anderen Overhead nicht ein.
+  - : Eine 64-Bit-Ganzzahl ohne Vorzeichen, die die Gesamtmenge an Arbeit darstellt, die der zugrunde liegende Prozess gerade ausführt. Beim Herunterladen einer Ressource über HTTP entspricht dies der `Content-Length` (der Größe des Nachrichtenkörpers) und schließt Header und anderen Overhead aus.
 
 ## Beispiele
 

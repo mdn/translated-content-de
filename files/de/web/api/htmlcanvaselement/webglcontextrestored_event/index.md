@@ -3,25 +3,25 @@ title: "HTMLCanvasElement: webglcontextrestored-Ereignis"
 short-title: webglcontextrestored
 slug: Web/API/HTMLCanvasElement/webglcontextrestored_event
 l10n:
-  sourceCommit: acfe8c9f1f4145f77653a2bc64a9744b001358dc
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{APIRef}}
 
-Das **`webglcontextrestored`**-Ereignis der [WebGL API](/de/docs/Web/API/WebGL_API) wird ausgelöst, wenn der User-Agent den Zeichenpuffer für ein [`WebGLRenderingContext`](/de/docs/Web/API/WebGLRenderingContext)-Objekt wiederherstellt.
+Das **`webglcontextrestored`**-Ereignis der [WebGL-API](/de/docs/Web/API/WebGL_API) wird ausgelöst, wenn der Benutzeragent den Zeichenpuffer für ein [`WebGLRenderingContext`](/de/docs/Web/API/WebGLRenderingContext)-Objekt wiederherstellt.
 
 Sobald der Kontext wiederhergestellt ist, sind WebGL-Ressourcen wie Texturen und Puffer, die vor dem Verlust des Kontexts erstellt wurden, nicht mehr gültig. Sie müssen den Zustand Ihrer WebGL-Anwendung neu initialisieren und Ressourcen neu erstellen.
 
-Dieses Ereignis blubbert nicht.
+Dieses Ereignis wird nicht weitergegeben.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
-```js
-addEventListener("webglcontextrestored", (event) => {});
+```js-nolint
+addEventListener("webglcontextrestored", (event) => { })
 
-onwebglcontextrestored = (event) => {};
+onwebglcontextrestored = (event) => { }
 ```
 
 ## Ereignistyp
@@ -39,7 +39,7 @@ _Diese Schnittstelle erbt Eigenschaften von ihrer Elternschnittstelle, [`Event`]
 
 ## Beispiel
 
-Mit Hilfe der [`WEBGL_lose_context`](/de/docs/Web/API/WEBGL_lose_context) Erweiterung können Sie das `webglcontextrestored`-Ereignis simulieren:
+Mit Hilfe der [`WEBGL_lose_context`](/de/docs/Web/API/WEBGL_lose_context)-Erweiterung können Sie das `webglcontextrestored`-Ereignis simulieren:
 
 ```js
 const canvas = document.getElementById("canvas");

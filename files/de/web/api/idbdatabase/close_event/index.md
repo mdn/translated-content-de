@@ -1,24 +1,25 @@
 ---
-title: "IDBDatabase: close-Ereignis"
+title: "IDBDatabase: close-Event"
 short-title: close
 slug: Web/API/IDBDatabase/close_event
 l10n:
-  sourceCommit: b25d8774aa7bcc6a053e26cf804ad454f51e134b
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{ APIRef("IndexedDB") }}
 
-Das `close`-Ereignis wird auf `IDBDatabase` ausgelöst, wenn die Datenbankverbindung unerwartet geschlossen wird. Dies könnte beispielsweise passieren, wenn der zugrunde liegende Speicher entfernt wird oder wenn der Benutzer die Datenbank in den Verlaufspräferenzen des Browsers löscht.
+Das `close`-Ereignis wird auf `IDBDatabase` ausgelöst, wenn die Datenbankverbindung unerwartet geschlossen wird. Dies kann beispielsweise passieren, wenn der zugrunde liegende Speicher entfernt wird oder der Benutzer die Datenbank in den Verlaufseinstellungen des Browsers löscht.
 
-Beachten Sie, dass es nicht ausgelöst wird, wenn die Datenbankverbindung normal über [`IDBDatabase.close()`](/de/docs/Web/API/IDBDatabase/close) geschlossen wird.
+Beachten Sie, dass es nicht ausgelöst wird, wenn die Datenbankverbindung normal mit [`IDBDatabase.close()`](/de/docs/Web/API/IDBDatabase/close) geschlossen wird.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandlereigenschaft.
 
-```js
-addEventListener("close", (event) => {});
-onclose = (event) => {};
+```js-nolint
+addEventListener("close", (event) => { })
+
+onclose = (event) => { }
 ```
 
 ## Ereignistyp
@@ -27,7 +28,7 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-Dieses Beispiel öffnet eine Datenbank und lauscht auf das `close`-Ereignis:
+Dieses Beispiel öffnet eine Datenbank und hört auf das `close`-Ereignis:
 
 ```js
 // Open the database
@@ -57,7 +58,7 @@ dBOpenRequest.onsuccess = (event) => {
 };
 ```
 
-Dasselbe Beispiel, bei dem die `onclose` Eigenschaft anstelle von `addEventListener()` verwendet wird:
+Das gleiche Beispiel, mit der `onclose`-Eigenschaft anstelle von `addEventListener()`:
 
 ```js
 // Open the database

@@ -1,25 +1,25 @@
 ---
-title: "HTMLMediaElement: abort Ereignis"
+title: "HTMLMediaElement: abort event"
 short-title: abort
 slug: Web/API/HTMLMediaElement/abort_event
 l10n:
-  sourceCommit: 595cba0e07c70eda7f08a12890e00ea0281933d3
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{APIRef}}
 
-Das **`abort`**-Ereignis wird ausgelöst, wenn die Ressource nicht vollständig geladen wurde, jedoch nicht als Ergebnis eines Fehlers.
+Das **`abort`** Ereignis wird ausgelöst, wenn die Ressource nicht vollständig geladen wurde, aber nicht als Ergebnis eines Fehlers.
 
-Dieses Ereignis kann nicht abgebrochen werden und perlt nicht nach oben.
+Dieses Ereignis ist nicht abbrechbar und blubbert nicht.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Event-Handler-Eigenschaft.
 
-```js
-addEventListener("abort", (event) => {});
+```js-nolint
+addEventListener("abort", (event) => { })
 
-onabort = (event) => {};
+onabort = (event) => { }
 ```
 
 ## Ereignistyp

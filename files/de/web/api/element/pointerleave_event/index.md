@@ -3,21 +3,21 @@ title: "Element: pointerleave event"
 short-title: pointerleave
 slug: Web/API/Element/pointerleave_event
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{APIRef}}
 
-Das `pointerleave`-Ereignis wird ausgelöst, wenn ein Zeigegerät aus den Treffer-Test-Grenzen eines Elements bewegt wird. Bei Stiftgeräten wird dieses Ereignis ausgelöst, wenn der Stift den vom Digitalisierer erkennbaren Schweberahmen verlässt. Ansonsten funktioniert `pointerleave` genauso wie [`mouseleave`](/de/docs/Web/API/Element/mouseleave_event) und wird zur selben Zeit ausgelöst. Sie werden auch gleichzeitig wie die Ereignisse [`mouseout`](/de/docs/Web/API/Element/mouseout_event) und [`pointerout`](/de/docs/Web/API/Element/pointerout_event) ausgelöst, wenn dies zutrifft.
+Das `pointerleave`-Ereignis wird ausgelöst, wenn ein Zeigegerät aus den Treffertestgrenzen eines Elements bewegt wird. Bei Stiftgeräten wird dieses Ereignis ausgelöst, wenn der Stift den von der Digitalisier-Einheit detektierbaren Schweberadius verlässt. Ansonsten funktioniert `pointerleave` genauso wie [`mouseleave`](/de/docs/Web/API/Element/mouseleave_event) und wird zur gleichen Zeit ausgelöst. Sie werden auch gleichzeitig mit den Ereignissen [`mouseout`](/de/docs/Web/API/Element/mouseout_event) und [`pointerout`](/de/docs/Web/API/Element/pointerout_event) ausgelöst, falls zutreffend.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
-```js
-addEventListener("pointerleave", (event) => {});
+```js-nolint
+addEventListener("pointerleave", (event) => { })
 
-onpointerleave = (event) => {};
+onpointerleave = (event) => { }
 ```
 
 ## Ereignistyp
@@ -28,34 +28,34 @@ Ein [`PointerEvent`](/de/docs/Web/API/PointerEvent). Erbt von [`Event`](/de/docs
 
 ## Ereigniseigenschaften
 
-_Diese Schnittstelle erbt Eigenschaften von [`MouseEvent`](/de/docs/Web/API/MouseEvent) und [`Event`](/de/docs/Web/API/Event)._
+_Dieses Interface erbt Eigenschaften von [`MouseEvent`](/de/docs/Web/API/MouseEvent) und [`Event`](/de/docs/Web/API/Event)._
 
 - [`PointerEvent.altitudeAngle`](/de/docs/Web/API/PointerEvent/altitudeAngle) {{ReadOnlyInline}} {{experimental_inline}}
-  - : Stellt den Winkel zwischen einer Wandlerachse (einem Zeiger oder Stift) und der X-Y-Ebene eines Gerätescreens dar.
+  - : Repräsentiert den Winkel zwischen der Achse eines Transducers (einem Zeiger oder Stift) und der X-Y-Ebene eines Gerätedisplays.
 - [`PointerEvent.azimuthAngle`](/de/docs/Web/API/PointerEvent/azimuthAngle) {{ReadOnlyInline}} {{experimental_inline}}
-  - : Stellt den Winkel zwischen der Y-Z-Ebene und der Ebene dar, die sowohl die Wandlerachse (einen Zeiger oder Stift) als auch die Y-Achse enthält.
+  - : Repräsentiert den Winkel zwischen der Y-Z-Ebene und der Ebene, die sowohl die Transducerachse (ein Zeiger oder Stift) als auch die Y-Achse enthält.
 - [`PointerEvent.persistentDeviceId`](/de/docs/Web/API/PointerEvent/persistentDeviceId) {{ReadOnlyInline}} {{experimental_inline}}
   - : Eine eindeutige Kennung für das Zeigegerät, das das `PointerEvent` erzeugt.
 - [`PointerEvent.pointerId`](/de/docs/Web/API/PointerEvent/pointerId) {{ReadOnlyInline}}
   - : Eine eindeutige Kennung für den Zeiger, der das Ereignis verursacht.
 - [`PointerEvent.width`](/de/docs/Web/API/PointerEvent/width) {{ReadOnlyInline}}
-  - : Die Breite (Größe auf der X-Achse), in CSS-Pixel, der Kontaktgeometrie des Zeigers.
+  - : Die Breite (Ausdehnung auf der X-Achse), in CSS-Pixels, der Kontaktgeometrie des Zeigers.
 - [`PointerEvent.height`](/de/docs/Web/API/PointerEvent/height) {{ReadOnlyInline}}
-  - : Die Höhe (Größe auf der Y-Achse), in CSS-Pixel, der Kontaktgeometrie des Zeigers.
+  - : Die Höhe (Ausdehnung auf der Y-Achse), in CSS-Pixels, der Kontaktgeometrie des Zeigers.
 - [`PointerEvent.pressure`](/de/docs/Web/API/PointerEvent/pressure) {{ReadOnlyInline}}
-  - : Der normalisierte Druck des Zeigereingangs im Bereich von `0` bis `1`, wobei `0` und `1` den minimalen und maximalen Druck repräsentieren, den die Hardware erkennen kann.
+  - : Der normalisierte Druck des Zeigereingangs im Bereich von `0` bis `1`, wobei `0` und `1` den minimalen bzw. maximalen Druck repräsentieren, den die Hardware erkennen kann.
 - [`PointerEvent.tangentialPressure`](/de/docs/Web/API/PointerEvent/tangentialPressure) {{ReadOnlyInline}}
-  - : Der normalisierte Tangentialdruck des Zeigereingangs (auch als Fassdruck oder [Zylinder Stress](https://en.wikipedia.org/wiki/Cylinder_stress) bekannt) im Bereich von `-1` bis `1`, wobei `0` die neutrale Position der Steuerung ist.
+  - : Der normalisierte tangentiale Druck des Zeigereingangs (auch bekannt als Laufdruck oder [Zylinderbelastung](https://en.wikipedia.org/wiki/Cylinder_stress)) im Bereich von `-1` bis `1`, wobei `0` die neutrale Position der Steuerung ist.
 - [`PointerEvent.tiltX`](/de/docs/Web/API/PointerEvent/tiltX) {{ReadOnlyInline}}
-  - : Der Flächenwinkel (in Grad, im Bereich von `-90` bis `90`) zwischen der Y–Z-Ebene und der Ebene, die sowohl die Zeigerachse (z.B. eines Stift) als auch die Y-Achse enthält.
+  - : Der Winkelebene (in Grad, im Bereich von `-90` bis `90`) zwischen der Y–Z-Ebene und der Ebene, die sowohl die Zeigerachse (z.B. Stift-Stylus) als auch die Y-Achse enthält.
 - [`PointerEvent.tiltY`](/de/docs/Web/API/PointerEvent/tiltY) {{ReadOnlyInline}}
-  - : Der Flächenwinkel (in Grad, im Bereich von `-90` bis `90`) zwischen der X–Z-Ebene und der Ebene, die sowohl die Zeigerachse (z.B. eines Stift) als auch die X-Achse enthält.
+  - : Der Winkelebene (in Grad, im Bereich von `-90` bis `90`) zwischen der X–Z-Ebene und der Ebene, die sowohl die Zeigerachse (z.B. Stift-Stylus) als auch die X-Achse enthält.
 - [`PointerEvent.twist`](/de/docs/Web/API/PointerEvent/twist) {{ReadOnlyInline}}
-  - : Die Drehung des Zeigers (z.B. eines Stift) im Uhrzeigersinn um seine Hauptachse, in Grad, mit einem Wert im Bereich von `0` bis `359`.
+  - : Die Drehung im Uhrzeigersinn des Zeigers (z.B. Stift-Stylus) um seine Hauptachse in Grad, mit einem Wert im Bereich von `0` bis `359`.
 - [`PointerEvent.pointerType`](/de/docs/Web/API/PointerEvent/pointerType) {{ReadOnlyInline}}
   - : Gibt den Gerätetyp an, der das Ereignis verursacht hat (Maus, Stift, Touch, etc.).
 - [`PointerEvent.isPrimary`](/de/docs/Web/API/PointerEvent/isPrimary) {{ReadOnlyInline}}
-  - : Gibt an, ob der Zeiger den primären Zeiger dieses Zeigertyps darstellt.
+  - : Gibt an, ob der Zeiger den primären Zeiger dieses Zeigertyps repräsentiert.
 
 ## Beispiele
 
@@ -69,7 +69,7 @@ para.addEventListener("pointerleave", (event) => {
 });
 ```
 
-Verwendung der `onpointerleave` Ereignis-Handler-Eigenschaft:
+Verwendung der `onpointerleave`-Ereignishandler-Eigenschaft:
 
 ```js
 const para = document.querySelector("p");

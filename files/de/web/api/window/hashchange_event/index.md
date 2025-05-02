@@ -1,24 +1,25 @@
 ---
-title: "Fenster: hashchange Ereignis"
+title: "Window: hashchange Ereignis"
 short-title: hashchange
 slug: Web/API/Window/hashchange_event
 l10n:
-  sourceCommit: 4fcf580f28adc7852f9ae08fc437d0974d5e0dd9
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{APIRef}}
 
-Das **`hashchange`** Ereignis wird ausgelöst, wenn sich der Fragmentbezeichner der URL ändert (der Teil der URL, der mit dem `#`-Symbol beginnt und diesem folgt).
+Das **`hashchange`**-Ereignis wird ausgelöst, wenn sich der Fragment-Identifikator der URL geändert hat (der Teil der URL, der mit dem `#`-Symbol beginnt und darauf folgt).
 
-Dieses Ereignis wird nicht ausgelöst, wenn der Hash mit [`history.pushState()`](/de/docs/Web/API/History/pushState) oder [`history.replaceState()`](/de/docs/Web/API/History/replaceState) geändert wird.
+Dieses Ereignis wird nicht ausgelöst, wenn der Hash mittels [`history.pushState()`](/de/docs/Web/API/History/pushState) oder [`history.replaceState()`](/de/docs/Web/API/History/replaceState) modifiziert wird.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
-```js
-addEventListener("hashchange", (event) => {});
-onhashchange = (event) => {};
+```js-nolint
+addEventListener("hashchange", (event) => { })
+
+onhashchange = (event) => { }
 ```
 
 ## Ereignistyp
@@ -32,11 +33,11 @@ Ein [`HashChangeEvent`](/de/docs/Web/API/HashChangeEvent). Erbt von [`Event`](/d
 - [`HashChangeEvent.newURL`](/de/docs/Web/API/HashChangeEvent/newURL) {{ReadOnlyInline}}
   - : Ein String, der die neue URL repräsentiert, zu der das Fenster navigiert.
 - [`HashChangeEvent.oldURL`](/de/docs/Web/API/HashChangeEvent/oldURL) {{ReadOnlyInline}}
-  - : Ein String, der die vorherige URL repräsentiert, von der aus das Fenster navigiert wurde.
+  - : Ein String, der die vorherige URL repräsentiert, von der das Fenster navigiert wurde.
 
-## Ereignishandler-Aliase
+## Ereignis-Handler-Alternativen
 
-Zusätzlich zur `Window`-Schnittstelle ist die Ereignishandler-Eigenschaft `onhashchange` auch auf den folgenden Zielen verfügbar:
+Zusätzlich zur `Window`-Schnittstelle ist die Ereignis-Handler-Eigenschaft `onhashchange` auch auf den folgenden Zielen verfügbar:
 
 - [`HTMLBodyElement`](/de/docs/Web/API/HTMLBodyElement)
 - [`HTMLFrameSetElement`](/de/docs/Web/API/HTMLFrameSetElement)
@@ -44,7 +45,7 @@ Zusätzlich zur `Window`-Schnittstelle ist die Ereignishandler-Eigenschaft `onha
 
 ## Beispiele
 
-Sie können das `hashchange` Ereignis in einer [`addEventListener`](/de/docs/Web/API/EventTarget/addEventListener) Methode verwenden:
+Sie können das `hashchange`-Ereignis in einer [`addEventListener`](/de/docs/Web/API/EventTarget/addEventListener)-Methode verwenden:
 
 ```js
 window.addEventListener(
@@ -56,7 +57,7 @@ window.addEventListener(
 );
 ```
 
-Oder die `onhashchange` Ereignishandler-Eigenschaft verwenden:
+Oder verwenden Sie die `onhashchange`-Ereignis-Handler-Eigenschaft:
 
 ```js
 function locationHashChanged() {

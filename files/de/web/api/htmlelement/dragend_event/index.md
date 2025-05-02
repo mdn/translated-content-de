@@ -1,25 +1,25 @@
 ---
-title: "HTMLElement: dragend-Ereignis"
+title: "HTMLElement: dragend Ereignis"
 short-title: dragend
 slug: Web/API/HTMLElement/dragend_event
 l10n:
-  sourceCommit: ea4425b74ae0dc1ec17737b4e28d8df2b73f1eae
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{APIRef}}
 
-Das `dragend`-Ereignis wird ausgelöst, wenn ein Drag-Vorgang endet (durch Loslassen einer Maustaste oder Drücken der Escape-Taste).
+Das `dragend` Ereignis wird ausgelöst, wenn eine Ziehoperation endet (durch Loslassen einer Maustaste oder Drücken der Escape-Taste).
 
-Dieses Ereignis kann abgebrochen werden und kann bis zum [`Document`](/de/docs/Web/API/Document)- und [`Window`](/de/docs/Web/API/Window)-Objekt aufsteigen.
+Dieses Ereignis kann abgebrochen werden und kann bis zum [`Document`](/de/docs/Web/API/Document) und [`Window`](/de/docs/Web/API/Window) Objekt nach oben blubbern.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
 
-```js
-addEventListener("dragend", (event) => {});
+```js-nolint
+addEventListener("dragend", (event) => { })
 
-ondragend = (event) => {};
+ondragend = (event) => { }
 ```
 
 ## Ereignistyp
@@ -30,20 +30,20 @@ Ein [`DragEvent`](/de/docs/Web/API/DragEvent). Erbt von [`Event`](/de/docs/Web/A
 
 ## Ereigniseigenschaften
 
-_Zusätzlich zu den unten aufgeführten Eigenschaften sind die Eigenschaften der übergeordneten Schnittstelle [`Event`](/de/docs/Web/API/Event) verfügbar._
+_Zusätzlich zu den unten aufgeführten Eigenschaften sind Eigenschaften von der Schnittstelle [`Event`](/de/docs/Web/API/Event) verfügbar._
 
 - [`DragEvent.dataTransfer`](/de/docs/Web/API/DragEvent/dataTransfer) {{ReadOnlyInline}}
   - : Die Daten, die während einer Drag-and-Drop-Interaktion übertragen werden.
 
 ## Beispiele
 
-### Opazität bei dragend zurücksetzen
+### Zurücksetzen der Opazität bei dragend
 
 In diesem Beispiel haben wir ein ziehbares Element in einem Container. Versuchen Sie, das Element zu greifen, zu ziehen und dann loszulassen.
 
-Wir machen das Element halbtransparent, während es gezogen wird, und hören auf das `dragend`-Ereignis, um die Opazität des Elements zurückzusetzen, wenn es losgelassen wird.
+Wir machen das Element halbtransparent, während es gezogen wird, und hören auf das `dragend` Ereignis, um die Opazität des Elements zurückzusetzen, wenn es losgelassen wird.
 
-Für ein vollständiges Beispiel von Drag-and-Drop siehe die Seite für das [`drag`](/de/docs/Web/API/HTMLElement/drag_event)-Ereignis.
+Für ein vollständiges Beispiel von Drag and Drop, siehe die Seite für das [`drag`](/de/docs/Web/API/HTMLElement/drag_event) Ereignis.
 
 #### HTML
 

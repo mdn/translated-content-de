@@ -3,12 +3,12 @@ title: "SVGTextPathElement: method-Eigenschaft"
 short-title: method
 slug: Web/API/SVGTextPathElement/method
 l10n:
-  sourceCommit: cb6a3d63ca47ea6efeb1d9f8f60e47375a59d541
+  sourceCommit: 2e39a37874913a1e3fd82999467505fd525e9177
 ---
 
 {{APIRef("SVG")}}
 
-Die **`method`** schreibgeschützte Eigenschaft der Schnittstelle [`SVGTextPathElement`](/de/docs/Web/API/SVGTextPathElement) spiegelt das Attribut {{SVGAttr("method")}} des gegebenen {{SVGElement("textPath")}}-Elements wider. Sie nimmt einen der auf dieser Schnittstelle definierten [`TEXTPATH_METHODTYPE_*` Konstanten](/de/docs/Web/API/SVGTextPathElement#method_types) an.
+Die **`method`** schreibgeschützte Eigenschaft des [`SVGTextPathElement`](/de/docs/Web/API/SVGTextPathElement)-Interfaces spiegelt das {{SVGAttr("method")}}-Attribut des angegebenen {{SVGElement("textPath")}}-Elements wider. Es nimmt einen der auf diesem Interface definierten [`TEXTPATH_METHODTYPE_*` Konstanten](/de/docs/Web/API/SVGTextPathElement#static_properties) an.
 
 ## Wert
 
@@ -49,4 +49,4 @@ console.log(textPath.method.baseVal); // Output: 1 (TEXTPATH_METHODTYPE_ALIGN)
 ## Siehe auch
 
 - [`SVGTextPathElement.spacing`](/de/docs/Web/API/SVGTextPathElement/spacing)
-- [`SVGTextPathElement` method types](/de/docs/Web/API/SVGTextPathElement#method_types)
+- [`SVGTextPathElement` method types](/de/docs/Web/API/SVGTextPathElement#static_properties)

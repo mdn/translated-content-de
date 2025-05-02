@@ -1,24 +1,25 @@
 ---
-title: "Window: pagereveal-Ereignis"
+title: "Fenster: pagereveal-Ereignis"
 short-title: pagereveal
 slug: Web/API/Window/pagereveal_event
 l10n:
-  sourceCommit: 3a95c239db50c88fdde48daacb6c279006a422b9
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{APIRef("HTML DOM")}}
 
-Das **`pagereveal`**-Ereignis wird ausgelöst, wenn ein Dokument erstmals gerendert wird, sei es beim Laden eines neuen Dokuments aus dem Netzwerk oder beim Aktivieren eines Dokuments (entweder aus dem {{Glossary("bfcache", "Back/Forward-Cache")}} (bfcache) oder {{Glossary("Prerender", "prerender")}}).
+Das **`pagereveal`**-Ereignis wird ausgelöst, wenn ein Dokument erstmals gerendert wird, entweder beim Laden eines neuen Dokuments aus dem Netzwerk oder beim Aktivieren eines Dokuments (entweder aus dem {{Glossary("bfcache", "Backward/Forward Cache")}} (bfcache) oder beim {{Glossary("Prerender", "Prerendering")}}).
 
-Dies ist nützlich im Fall von Cross-Dokument (MPA) [Ansichtsübergängen](/de/docs/Web/API/View_Transition_API), um eine aktive Übergangssituation von der eingehenden Seite einer Navigation zu manipulieren. Zum Beispiel könnte man den Übergang überspringen oder die eingehende Übergangsanimation über JavaScript anpassen.
+Dies ist nützlich im Fall von Cross-Dokumenten (MPA) [Ansichtstransitionen](/de/docs/Web/API/View_Transition_API) für die Manipulation eines aktiven Übergangs von der eingehenden Seite einer Navigation. Zum Beispiel möchten Sie vielleicht den Übergang überspringen oder die eingehende Übergangsanimation über JavaScript anpassen.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Event-Handler-Eigenschaft.
 
-```js
-addEventListener("pagereveal", (event) => {});
-onpagereveal = (event) => {};
+```js-nolint
+addEventListener("pagereveal", (event) => { })
+
+onpagereveal = (event) => { }
 ```
 
 ## Ereignistyp
@@ -30,7 +31,7 @@ Ein [`PageRevealEvent`](/de/docs/Web/API/PageRevealEvent). Erbt von [`Event`](/d
 ## Ereigniseigenschaften
 
 - [`PageRevealEvent.viewTransition`](/de/docs/Web/API/PageRevealEvent/viewTransition) {{ReadOnlyInline}}
-  - : Gibt das [`ViewTransition`](/de/docs/Web/API/ViewTransition)-Objekt zurück, das den eingehenden Cross-Dokument-Ansichtsübergang darstellt, falls ein solcher aktiv ist, wenn das Ereignis ausgelöst wird. Wenn dies nicht der Fall ist, wird `null` zurückgegeben.
+  - : Gibt das [`ViewTransition`](/de/docs/Web/API/ViewTransition)-Objekt zurück, das die eingehende Cross-Dokument-Ansichtstransition repräsentiert, falls eine aktiv ist, wenn das Ereignis ausgelöst wird. Ist dies nicht der Fall, wird `null` zurückgegeben.
 
 ## Beispiele
 
@@ -99,4 +100,4 @@ window.addEventListener("pagereveal", async (e) => {
 ## Siehe auch
 
 - [Verwendung der View Transition API](/de/docs/Web/API/View_Transition_API/Using)
-- [`pageswap`](/de/docs/Web/API/Window/pageswap_event) Event
+- [`pageswap`](/de/docs/Web/API/Window/pageswap_event) Ereignis

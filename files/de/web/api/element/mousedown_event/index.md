@@ -1,27 +1,27 @@
 ---
-title: "Element: mousedown Ereignis"
+title: "Element: mousedown-Ereignis"
 short-title: mousedown
 slug: Web/API/Element/mousedown_event
 l10n:
-  sourceCommit: d13c1276b80bbfc940a1091b62f333fe9edc78a2
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{APIRef}}
 
-Das **`mousedown`** Ereignis wird bei einem [`Element`](/de/docs/Web/API/Element) ausgelöst, wenn eine Taste eines Zeigegeräts gedrückt wird, während sich der Zeiger innerhalb des Elements befindet.
+Das **`mousedown`**-Ereignis wird auf ein [`Element`](/de/docs/Web/API/Element) ausgelöst, wenn ein Zeigegerätknopf gedrückt wird, während der Zeiger sich innerhalb des Elements befindet.
 
-Dies unterscheidet sich vom [`click`](/de/docs/Web/API/Element/click_event) Ereignis, da `click` ausgelöst wird, nachdem ein vollständiger Klickvorgang stattgefunden hat; das heißt, die Maustaste wird gedrückt und losgelassen, während der Zeiger innerhalb desselben Elements bleibt. `mousedown` wird in dem Moment ausgelöst, in dem die Taste zunächst gedrückt wird.
+Dies unterscheidet sich vom [`click`](/de/docs/Web/API/Element/click_event)-Ereignis, da `click` ausgelöst wird, nachdem eine vollständige Klickaktion stattgefunden hat; das heißt, die Maustaste wird gedrückt und losgelassen, während der Zeiger im selben Element bleibt. `mousedown` wird in dem Moment ausgelöst, in dem die Taste initial gedrückt wird.
 
-Dieses Verhalten unterscheidet sich von [`pointerdown`](/de/docs/Web/API/Element/pointerdown_event) Ereignissen. Beim Verwenden einer physischen Maus werden `mousedown` Ereignisse ausgelöst, wann immer eine Taste an einer Maus gedrückt wird. `pointerdown` Ereignisse werden nur beim ersten Drücken einer Taste ausgelöst; nachfolgende Tastendrücke lösen keine `pointerdown` Ereignisse aus.
+Dieses Verhalten unterscheidet sich von [`pointerdown`](/de/docs/Web/API/Element/pointerdown_event)-Ereignissen. Bei Verwendung einer physischen Maus werden `mousedown`-Ereignisse jedes Mal ausgelöst, wenn eine beliebige Taste an einer Maus gedrückt wird. `pointerdown`-Ereignisse werden nur bei der ersten Tastenbetätigung ausgelöst; nachfolgende Tastendrücke lösen keine `pointerdown`-Ereignisse aus.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
-```js
-addEventListener("mousedown", (event) => {});
+```js-nolint
+addEventListener("mousedown", (event) => { })
 
-onmousedown = (event) => {};
+onmousedown = (event) => { }
 ```
 
 ## Ereignistyp
@@ -37,9 +37,9 @@ _Diese Schnittstelle erbt auch Eigenschaften ihrer Eltern, [`UIEvent`](/de/docs/
 - [`MouseEvent.altKey`](/de/docs/Web/API/MouseEvent/altKey) {{ReadOnlyInline}}
   - : Gibt `true` zurück, wenn die <kbd>alt</kbd>-Taste gedrückt war, als das Mausereignis ausgelöst wurde.
 - [`MouseEvent.button`](/de/docs/Web/API/MouseEvent/button) {{ReadOnlyInline}}
-  - : Die Nummer der Taste, die gedrückt wurde (falls zutreffend), als das Mausereignis ausgelöst wurde.
+  - : Die Zahl der Taste, die gedrückt wurde (falls zutreffend), als das Mausereignis ausgelöst wurde.
 - [`MouseEvent.buttons`](/de/docs/Web/API/MouseEvent/buttons) {{ReadOnlyInline}}
-  - : Die Tasten, die gedrückt werden (falls vorhanden), als das Mausereignis ausgelöst wurde.
+  - : Die Tasten, die gedrückt wurden (falls vorhanden), als das Mausereignis ausgelöst wurde.
 - [`MouseEvent.clientX`](/de/docs/Web/API/MouseEvent/clientX) {{ReadOnlyInline}}
   - : Die X-Koordinate des Mauszeigers in [Viewport-Koordinaten](/de/docs/Web/CSS/CSSOM_view/Coordinate_systems#viewport).
 - [`MouseEvent.clientY`](/de/docs/Web/API/MouseEvent/clientY) {{ReadOnlyInline}}
@@ -53,19 +53,19 @@ _Diese Schnittstelle erbt auch Eigenschaften ihrer Eltern, [`UIEvent`](/de/docs/
 - [`MouseEvent.metaKey`](/de/docs/Web/API/MouseEvent/metaKey) {{ReadOnlyInline}}
   - : Gibt `true` zurück, wenn die <kbd>meta</kbd>-Taste gedrückt war, als das Mausereignis ausgelöst wurde.
 - [`MouseEvent.movementX`](/de/docs/Web/API/MouseEvent/movementX) {{ReadOnlyInline}}
-  - : Die X-Koordinate des Mauszeigers relativ zur Position des letzten [`mousemove`](/de/docs/Web/API/Element/mousemove_event) Ereignisses.
+  - : Die X-Koordinate des Mauszeigers relativ zur Position des letzten [`mousemove`](/de/docs/Web/API/Element/mousemove_event)-Ereignisses.
 - [`MouseEvent.movementY`](/de/docs/Web/API/MouseEvent/movementY) {{ReadOnlyInline}}
-  - : Die Y-Koordinate des Mauszeigers relativ zur Position des letzten [`mousemove`](/de/docs/Web/API/Element/mousemove_event) Ereignisses.
+  - : Die Y-Koordinate des Mauszeigers relativ zur Position des letzten [`mousemove`](/de/docs/Web/API/Element/mousemove_event)-Ereignisses.
 - [`MouseEvent.offsetX`](/de/docs/Web/API/MouseEvent/offsetX) {{ReadOnlyInline}}
-  - : Die X-Koordinate des Mauszeigers relativ zur Position des Polsterrandes des Zielknotens.
+  - : Die X-Koordinate des Mauszeigers relativ zur Position der Innenkante des Ziels.
 - [`MouseEvent.offsetY`](/de/docs/Web/API/MouseEvent/offsetY) {{ReadOnlyInline}}
-  - : Die Y-Koordinate des Mauszeigers relativ zur Position des Polsterrandes des Zielknotens.
+  - : Die Y-Koordinate des Mauszeigers relativ zur Position der Innenkante des Ziels.
 - [`MouseEvent.pageX`](/de/docs/Web/API/MouseEvent/pageX) {{ReadOnlyInline}}
   - : Die X-Koordinate des Mauszeigers relativ zum gesamten Dokument.
 - [`MouseEvent.pageY`](/de/docs/Web/API/MouseEvent/pageY) {{ReadOnlyInline}}
   - : Die Y-Koordinate des Mauszeigers relativ zum gesamten Dokument.
 - [`MouseEvent.relatedTarget`](/de/docs/Web/API/MouseEvent/relatedTarget) {{ReadOnlyInline}}
-  - : Das sekundäre Ziel für das Ereignis, falls vorhanden.
+  - : Das sekundäre Ziel des Ereignisses, falls vorhanden.
 - [`MouseEvent.screenX`](/de/docs/Web/API/MouseEvent/screenX) {{ReadOnlyInline}}
   - : Die X-Koordinate des Mauszeigers in [Bildschirmkoordinaten](/de/docs/Web/CSS/CSSOM_view/Coordinate_systems#screen).
 - [`MouseEvent.screenY`](/de/docs/Web/API/MouseEvent/screenY) {{ReadOnlyInline}}
@@ -74,9 +74,9 @@ _Diese Schnittstelle erbt auch Eigenschaften ihrer Eltern, [`UIEvent`](/de/docs/
   - : Gibt `true` zurück, wenn die <kbd>shift</kbd>-Taste gedrückt war, als das Mausereignis ausgelöst wurde.
 - [`MouseEvent.mozInputSource`](/de/docs/Web/API/MouseEvent/mozInputSource) {{non-standard_inline()}} {{ReadOnlyInline}}
   - : Der Typ des Geräts, das das Ereignis erzeugt hat (einer der `MOZ_SOURCE_*` Konstanten).
-    Damit können Sie beispielsweise feststellen, ob ein Mausereignis durch eine tatsächliche Maus oder durch ein Touch-Ereignis erzeugt wurde (was die Genauigkeit bei der Interpretation der mit dem Ereignis verbundenen Koordinaten beeinflussen kann).
+    Dies ermöglicht Ihnen zum Beispiel zu bestimmen, ob ein Mausereignis durch eine tatsächliche Maus oder durch ein Touchevent erzeugt wurde (was die Genauigkeit der Interpretation der Koordinaten des Ereignisses beeinflussen könnte).
 - [`MouseEvent.webkitForce`](/de/docs/Web/API/MouseEvent/webkitForce) {{non-standard_inline()}} {{ReadOnlyInline}}
-  - : Der Druckbetrag, der beim Klicken ausgeübt wurde.
+  - : Der Druck, der beim Klicken ausgeübt wurde.
 - [`MouseEvent.x`](/de/docs/Web/API/MouseEvent/x) {{ReadOnlyInline}}
   - : Alias für [`MouseEvent.clientX`](/de/docs/Web/API/MouseEvent/clientX).
 - [`MouseEvent.y`](/de/docs/Web/API/MouseEvent/y) {{ReadOnlyInline}}
@@ -84,7 +84,7 @@ _Diese Schnittstelle erbt auch Eigenschaften ihrer Eltern, [`UIEvent`](/de/docs/
 
 ## Beispiele
 
-Siehe [`mousemove` Ereignis](/de/docs/Web/API/Element/mousemove_event#examples) für Beispielcode.
+Siehe [`mousemove`-Ereignis](/de/docs/Web/API/Element/mousemove_event#examples) für Beispielcode.
 
 ## Spezifikationen
 
@@ -96,7 +96,7 @@ Siehe [`mousemove` Ereignis](/de/docs/Web/API/Element/mousemove_event#examples) 
 
 ## Siehe auch
 
-- [Learn: Einführung in Ereignisse](/de/docs/Learn_web_development/Core/Scripting/Events)
+- [Lernen: Einführung in Ereignisse](/de/docs/Learn_web_development/Core/Scripting/Events)
 - [`mouseup`](/de/docs/Web/API/Element/mouseup_event)
 - [`mousemove`](/de/docs/Web/API/Element/mousemove_event)
 - [`click`](/de/docs/Web/API/Element/click_event)

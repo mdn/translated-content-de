@@ -3,21 +3,21 @@ title: "ScreenDetails: screenschange-Ereignis"
 short-title: screenschange
 slug: Web/API/ScreenDetails/screenschange_event
 l10n:
-  sourceCommit: 89c435da452257b944b403cc9e45036fcb22590e
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{APIRef("Window Management API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Das **`screenschange`**-Ereignis der [`ScreenDetails`](/de/docs/Web/API/ScreenDetails)-Schnittstelle wird ausgelöst, wenn sich die Menge der dem System zur Verfügung stehenden Bildschirme geändert hat: d.h. ein neuer Bildschirm ist verfügbar geworden oder ein bestehender Bildschirm ist nicht mehr verfügbar. Dies wird durch eine Änderung im [`screens`](/de/docs/Web/API/ScreenDetails/screens)-Array widergespiegelt.
+Das **`screenschange`**-Ereignis der [`ScreenDetails`](/de/docs/Web/API/ScreenDetails)-Schnittstelle wird ausgelöst, wenn sich die Menge der dem System zur Verfügung stehenden Bildschirme geändert hat: Das heißt, ein neuer Bildschirm ist verfügbar geworden oder ein bestehender Bildschirm ist nicht mehr verfügbar. Dies wird in einer Änderung des [`screens`](/de/docs/Web/API/ScreenDetails/screens)-Arrays reflektiert.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignisbehandlungseigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder legen Sie eine Ereignishandler-Eigenschaft fest.
 
-```js
-addEventListener("screenschange", (event) => {});
+```js-nolint
+addEventListener("screenschange", (event) => { })
 
-onscreenschange = (event) => {};
+onscreenschange = (event) => { }
 ```
 
 ## Ereignistyp
@@ -26,7 +26,7 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-Sie könnten das `screenschange`-Ereignis verwenden, um zu erkennen, wann sich die verfügbaren Bildschirme geändert haben, die Änderung zu melden, alle Fenster zu schließen und dann alle wieder zu öffnen, um die neue Konfiguration zu berücksichtigen:
+Sie könnten das `screenschange`-Ereignis verwenden, um zu erkennen, wann sich die verfügbaren Bildschirme geändert haben, die Änderung zu melden, alle Fenster zu schließen und sie dann alle neu zu öffnen, um der neuen Konfiguration zu entsprechen:
 
 ```js
 const screenDetails = await window.getScreenDetails();

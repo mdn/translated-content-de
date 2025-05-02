@@ -3,28 +3,28 @@ title: "EditContext: compositionstart Ereignis"
 short-title: compositionstart
 slug: Web/API/EditContext/compositionstart_event
 l10n:
-  sourceCommit: c9fe79713a9323e8f1492c3c5b802fc8776a5f6a
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{APIRef("EditContext API")}}{{SeeCompatTable}}
 
-Das `compositionstart`-Ereignis des [`EditContext`](/de/docs/Web/API/EditContext)-Interfaces wird ausgelöst, wenn die Komposition mit einem {{Glossary("Input_Method_Editor", "Input Method Editor")}} (IME)-Fenster beginnt.
+Das `compositionstart`-Ereignis der [`EditContext`](/de/docs/Web/API/EditContext)-Schnittstelle wird ausgelöst, wenn die Zusammensetzung mithilfe eines {{Glossary("Input_Method_Editor", "Input Method Editor")}} (IME)-Fensters beginnt.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandlereigenschaft.
 
-```js
-addEventListener("compositionstart", (event) => {});
+```js-nolint
+addEventListener("compositionstart", (event) => { })
 
-oncompositionstart = (event) => {};
+oncompositionstart = (event) => { }
 ```
 
 ## Beispiele
 
-### Verwendung von `compositionstart`, um den Rand des bearbeitbaren Bereichs zu ändern
+### Verwendung von `compositionstart`, um den Rahmen der bearbeitbaren Region zu ändern
 
-Im folgenden Beispiel wird der Rand des bearbeitbaren Bereichs auf Rot gesetzt, wenn das `compositionstart`-Ereignis ausgelöst wird, und zurück auf Schwarz, wenn das `compositionend`-Ereignis ausgelöst wird. Beachten Sie, dass die Rückrufe der Ereignis-Listener in diesem Beispiel nur aufgerufen werden, wenn ein IME-Fenster oder andere plattformspezifische Bearbeitungsoberflächen zur Textzusammensetzung verwendet werden.
+Im folgenden Beispiel wird der Rahmen der bearbeitbaren Region auf Rot gesetzt, wenn das `compositionstart`-Ereignis ausgelöst wird, und zurück auf Schwarz, wenn das `compositionend`-Ereignis ausgelöst wird. Beachten Sie, dass die Rückruffunktionen der Ereignislistener in diesem Beispiel nur aufgerufen werden, wenn ein IME-Fenster oder andere plattformabhängige Bearbeitungsoberflächen zur Textzusammensetzung verwendet werden.
 
 ```css
 #text-editor {

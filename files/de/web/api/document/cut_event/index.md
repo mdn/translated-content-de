@@ -1,36 +1,36 @@
 ---
-title: "Document: cut Ereignis"
+title: "Dokumentation: cut-Ereignis"
 short-title: cut
 slug: Web/API/Document/cut_event
 l10n:
-  sourceCommit: 41a8b9c9832359d445d136b6d7a8a28737badc6b
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{APIRef}}
 
-Das **`cut`**-Ereignis wird ausgelöst, wenn der Benutzer eine Ausschneideaktion über die Benutzeroberfläche des Browsers initiiert.
+Das **`cut`**-Ereignis wird ausgelöst, wenn der Benutzer über die Benutzeroberfläche des Browsers eine Ausschneideaktion initiiert.
 
-Das ursprüngliche Ziel dieses Ereignisses ist das [`Element`](/de/docs/Web/API/Element), das das vorgesehene Ziel der Ausschneideaktion war. Sie können dieses Ereignis auf der [`Document`](/de/docs/Web/API/Document)-Schnittstelle abhören, um es in den Capture- oder Bubbling-Phasen zu bearbeiten. Für vollständige Details zu diesem Ereignis lesen Sie bitte die Seite zum [Element: cut Ereignis](/de/docs/Web/API/Element/cut_event).
+Das ursprüngliche Ziel dieses Ereignisses ist das [`Element`](/de/docs/Web/API/Element), das das beabsichtigte Ziel der Ausschneideaktion war. Sie können dieses Ereignis auf der [`Document`](/de/docs/Web/API/Document)-Schnittstelle überwachen, um es in den Phasen der Erfassung oder des Durchlaufens zu behandeln. Für vollständige Details zu diesem Ereignis siehe die Seite über das [Element: cut-Ereignis](/de/docs/Web/API/Element/cut_event).
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
-```js
-addEventListener("cut", (event) => {});
+```js-nolint
+addEventListener("cut", (event) => { })
 
-oncut = (event) => {};
+oncut = (event) => { }
 ```
 
 ## Ereignistyp
 
-Ein [`ClipboardEvent`](/de/docs/Web/API/ClipboardEvent), der von [`Event`](/de/docs/Web/API/Event) erbt.
+Ein [`ClipboardEvent`](/de/docs/Web/API/ClipboardEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("ClipboardEvent")}}
 
 ## Beispiele
 
-Um informiert zu werden, wenn ein Benutzer Daten von der Webseite in seine Zwischenablage ausschneidet, können Sie Ihrem [`Document`](/de/docs/Web/API/Document)-Exemplar einen Handler hinzufügen, indem Sie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) verwenden, wie folgt:
+Um informiert zu werden, wenn ein Benutzer Daten von der Webseite in seine Zwischenablage ausschneidet, können Sie Ihrem [`Document`](/de/docs/Web/API/Document)-Objekt mit [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) wie folgt einen Handler hinzufügen:
 
 ```js
 document.addEventListener("cut", (event) => {
@@ -38,7 +38,7 @@ document.addEventListener("cut", (event) => {
 });
 ```
 
-Alternativ können Sie die `Document.oncut`-Ereignishandler-Eigenschaft verwenden, um einen Handler für das `cut`-Ereignis festzulegen:
+Alternativ können Sie die `Document.oncut`-Ereignis-Handler-Eigenschaft verwenden, um einen Handler für das `cut`-Ereignis festzulegen:
 
 ```js
 document.oncut = (event) => {
@@ -48,11 +48,11 @@ document.oncut = (event) => {
 
 ## Spezifikationen
 
-{{Specifications}}
+{{Spezifikationen}}
 
 ## Browser-Kompatibilität
 
-{{Compat}}
+{{Kompat}}
 
 ## Siehe auch
 

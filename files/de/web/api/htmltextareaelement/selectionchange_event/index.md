@@ -1,29 +1,29 @@
 ---
-title: "HTMLTextAreaElement: selectionchange-Ereignis"
+title: "HTMLTextAreaElement: selectionchange event"
 short-title: selectionchange
 slug: Web/API/HTMLTextAreaElement/selectionchange_event
 l10n:
-  sourceCommit: d47348199a379f68bea876a403eb510628ec4ccb
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{APIRef}}{{SeeCompatTable}}
 
-Das **`selectionchange`**-Ereignis der [Selection API](/de/docs/Web/API/Selection) wird ausgelöst, wenn die Textauswahl innerhalb eines {{HTMLElement("textarea")}}-Elements geändert wird. Dies schließt sowohl Änderungen im ausgewählten Zeichenbereich als auch das Bewegen der Einfügemarke ein.
+Das **`selectionchange`**-Ereignis der [Selection API](/de/docs/Web/API/Selection) wird ausgelöst, wenn die Textauswahl innerhalb eines {{HTMLElement("textarea")}}-Elements geändert wird. Dies beinhaltet sowohl Änderungen im ausgewählten Zeichenbereich als auch das Verschieben des Cursors.
 
 Dieses Ereignis kann nicht abgebrochen werden.
 
-Normalerweise wird das Ereignis verarbeitet, indem ein Ereignislistener auf das {{HTMLElement("textarea")}} hinzugefügt wird. In der Handler-Funktion werden die Eigenschaften `selectionStart`, `selectionEnd` und `selectionDirection` des [`HTMLTextAreaElement`](/de/docs/Web/API/HTMLTextAreaElement) ausgelesen.
+Das Ereignis wird normalerweise verarbeitet, indem ein Ereignislistener auf das {{HTMLElement("textarea")}} hinzugefügt wird und in der Handlerfunktion die Eigenschaften `selectionStart`, `selectionEnd` und `selectionDirection` des [`HTMLTextAreaElement`](/de/docs/Web/API/HTMLTextAreaElement) ausgelesen werden.
 
-Es ist auch möglich, einen Listener auf den globalen `onselectionchange`-Ereignis-Handler hinzuzufügen und innerhalb der Handler-Funktion [`Document.getSelection()`](/de/docs/Web/API/Document/getSelection) zu verwenden, um die [`Selection`](/de/docs/Web/API/Selection) zu erhalten. Allerdings ist dies nicht sehr nützlich, um Änderungen an _Text_-Auswahlen zu ermitteln.
+Es ist auch möglich, einen Listener am globalen `onselectionchange`-Ereignishandler hinzuzufügen und innerhalb der Handlerfunktion mittels [`Document.getSelection()`](/de/docs/Web/API/Document/getSelection) die [`Selection`](/de/docs/Web/API/Selection) abzurufen. Dies ist jedoch nicht sehr nützlich, um Änderungen an _Textauswahlen_ zu erkennen.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
-```js
-addEventListener("selectionchange", (event) => {});
+```js-nolint
+addEventListener("selectionchange", (event) => { })
 
-onselectionchange = (event) => {};
+onselectionchange = (event) => { }
 ```
 
 ## Ereignistyp

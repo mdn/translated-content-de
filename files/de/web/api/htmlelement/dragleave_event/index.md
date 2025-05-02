@@ -1,25 +1,25 @@
 ---
-title: "HTMLElement: dragleave-Event"
+title: "HTMLElement: dragleave-Ereignis"
 short-title: dragleave
 slug: Web/API/HTMLElement/dragleave_event
 l10n:
-  sourceCommit: d47348199a379f68bea876a403eb510628ec4ccb
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{APIRef}}
 
-Das `dragleave`-Ereignis wird ausgelöst, wenn ein gezogenes Element oder eine Textauswahl ein gültiges Ziel verlässt.
+Das `dragleave`-Ereignis wird ausgelöst, wenn ein gezogenes Element oder eine Textauswahl ein gültiges Ziehziel verlässt.
 
-Dieses Ereignis kann nicht abgebrochen werden und kann bis zu den Objekten [`Document`](/de/docs/Web/API/Document) und [`Window`](/de/docs/Web/API/Window) hinauf propagieren.
+Dieses Ereignis ist nicht abbruchbar und kann bis zum [`Document`](/de/docs/Web/API/Document)- und [`Window`](/de/docs/Web/API/Window)-Objekt hochblasen.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignisbehandler-Eigenschaft.
 
-```js
-addEventListener("dragleave", (event) => {});
+```js-nolint
+addEventListener("dragleave", (event) => { })
 
-ondragleave = (event) => {};
+ondragleave = (event) => { }
 ```
 
 ## Ereignistyp
@@ -30,20 +30,20 @@ Ein [`DragEvent`](/de/docs/Web/API/DragEvent). Erbt von [`Event`](/de/docs/Web/A
 
 ## Ereigniseigenschaften
 
-_Zusätzlich zu den unten aufgeführten Eigenschaften sind auch Eigenschaften von der übergeordneten Schnittstelle, [`Event`](/de/docs/Web/API/Event), verfügbar._
+_Zusätzlich zu den unten aufgeführten Eigenschaften sind die Eigenschaften der Elternschnittstelle, [`Event`](/de/docs/Web/API/Event), verfügbar._
 
 - [`DragEvent.dataTransfer`](/de/docs/Web/API/DragEvent/dataTransfer) {{ReadOnlyInline}}
   - : Die Daten, die während einer Drag-and-Drop-Interaktion übertragen werden.
 
 ## Beispiele
 
-### Zurücksetzen der Dropzone-Stile bei dragleave
+### Rücksetzen der Stile von Ablagezonen bei dragleave
 
-In diesem Beispiel haben wir ein ziehbares Element innerhalb eines Containers. Versuchen Sie, das Element zu greifen, es über den anderen Container zu ziehen und es loszulassen.
+In diesem Beispiel haben wir ein ziehbares Element in einem Container. Versuchen Sie, das Element zu greifen, es über den anderen Container zu ziehen und freizugeben.
 
-Wir geben dem anderen Container einen violetten Hintergrund, während das ziehbare Element darüber ist, um anzuzeigen, dass es auf den Container fallen gelassen werden könnte. Wir hören das `dragleave`-Ereignis ab, um den Hintergrund des Containers zurückzusetzen, wenn das ziehbare Element vom Container weggezogen wird.
+Wir geben dem anderen Container einen lila Hintergrund, während sich das ziehbare Element darüber befindet, um anzuzeigen, dass es auf den Container fallen gelassen werden könnte. Wir hören auf das `dragleave`-Ereignis, um den Containerhintergrund zurückzusetzen, wenn das ziehbare Element vom Container weggezogen wird.
 
-In diesem teilweisen Beispiel haben wir jedoch das Ablegen nicht implementiert: Für ein vollständiges Beispiel für Drag and Drop siehe die Seite für das [`drag`](/de/docs/Web/API/HTMLElement/drag_event)-Ereignis.
+In diesem Teilsbeispiel haben wir jedoch das Ablegen nicht implementiert: Für ein vollständiges Beispiel für Drag and Drop siehe die Seite für das [`drag`](/de/docs/Web/API/HTMLElement/drag_event)-Ereignis.
 
 #### HTML
 

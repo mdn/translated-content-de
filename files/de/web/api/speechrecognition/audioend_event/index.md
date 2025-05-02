@@ -1,23 +1,23 @@
 ---
-title: "SpeechRecognition: audioend-Ereignis"
+title: "SpeechRecognition: audioend Ereignis"
 short-title: audioend
 slug: Web/API/SpeechRecognition/audioend_event
 l10n:
-  sourceCommit: f2f9346c0c0e9f6676f2df9f1850933e274401de
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{APIRef("Web Speech API")}}
 
-Das **`audioend`**-Ereignis der [Web Speech API](/de/docs/Web/API/Web_Speech_API) wird ausgelöst, wenn der Benutzeragent das Erfassen von Audio für die Spracherkennung beendet hat.
+Das **`audioend`** Ereignis der [Web Speech API](/de/docs/Web/API/Web_Speech_API) wird ausgelöst, wenn der Benutzeragent das Erfassen von Audio für die Spracherkennung abgeschlossen hat.
 
 ## Syntax
 
 Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
-```js
-addEventListener("audioend", (event) => {});
+```js-nolint
+addEventListener("audioend", (event) => { })
 
-onaudioend = (event) => {};
+onaudioend = (event) => { }
 ```
 
 ## Ereignistyp
@@ -26,7 +26,7 @@ Ein generisches [`Event`](/de/docs/Web/API/Event) ohne zusätzliche Eigenschafte
 
 ## Beispiele
 
-Sie können das `audioend`-Ereignis in einer [`addEventListener`](/de/docs/Web/API/EventTarget/addEventListener)-Methode verwenden:
+Sie können das `audioend` Ereignis in einer [`addEventListener`](/de/docs/Web/API/EventTarget/addEventListener) Methode nutzen:
 
 ```js
 const recognition = new webkitSpeechRecognition() || new SpeechRecognition();
@@ -36,7 +36,7 @@ recognition.addEventListener("audioend", () => {
 });
 ```
 
-Oder verwenden Sie die `onaudioend`-Ereignis-Handler-Eigenschaft:
+Oder Sie verwenden die `onaudioend` Ereignishandler-Eigenschaft:
 
 ```js
 recognition.onaudioend = () => {

@@ -3,20 +3,20 @@ title: "SVGAngle: unitType-Eigenschaft"
 short-title: unitType
 slug: Web/API/SVGAngle/unitType
 l10n:
-  sourceCommit: a53253307ade5c6e3eec896a5f2d799fdebe9ae8
+  sourceCommit: 2e39a37874913a1e3fd82999467505fd525e9177
 ---
 
 {{APIRef("SVG")}}
 
-Die **`unitType`**-Eigenschaft des [`SVGAngle`](/de/docs/Web/API/SVGAngle)-Interfaces ist eine der [Konstanten für Einheitstypen](/de/docs/Web/API/SVGAngle#constants) und repräsentiert die Einheiten, in denen der Wert dieses Winkels ausgedrückt wird.
+Die **`unitType`**-Eigenschaft der [`SVGAngle`](/de/docs/Web/API/SVGAngle)-Schnittstelle ist eine der [Einheitstyp-Konstanten](/de/docs/Web/API/SVGAngle#static_properties) und stellt die Einheiten dar, in denen der Wert dieses Winkels ausgedrückt wird.
 
 ## Wert
 
-Eine Zahl, die den numerischen Wert der Konstante repräsentiert.
+Eine Zahl, die den numerischen Wert der Konstante darstellt.
 
 ## Beispiele
 
-Hier ist ein Beispiel, wie man auf die `unitType`-Eigenschaft zugreift:
+Hier ist ein Beispiel, wie Sie auf die `unitType`-Eigenschaft zugreifen können:
 
 ```js
 // Get an SVGAngle object

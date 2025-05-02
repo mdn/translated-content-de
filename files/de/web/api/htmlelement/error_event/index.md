@@ -1,30 +1,30 @@
 ---
-title: "HTMLElement: error Ereignis"
+title: "HTMLElement: error Event"
 short-title: error
 slug: Web/API/HTMLElement/error_event
 l10n:
-  sourceCommit: c87cce81bf1a0e3d4d010efb914d620b7f23e522
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{APIRef}}
 
-Das `error` Ereignis wird auf einem Element ausgelöst, wenn eine Ressource nicht geladen werden konnte oder nicht verwendet werden kann. Zum Beispiel, wenn ein Skript einen Ausführungsfehler hat oder ein Bild nicht gefunden wird oder ungültig ist.
+Das `error`-Ereignis wird auf einem Element ausgelöst, wenn eine Ressource nicht geladen werden konnte oder nicht verwendet werden kann. Beispielsweise, wenn ein Skript einen Ausführungsfehler hat oder ein Bild nicht gefunden werden kann oder ungültig ist.
 
-Dieses Ereignis kann nicht abgebrochen werden und es wird nicht weitergeleitet.
+Dieses Ereignis ist nicht abbruchfähig und blubbert nicht.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignisbehandlungs-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Event-Handler-Eigenschaft.
 
-```js
-addEventListener("error", (event) => {});
+```js-nolint
+addEventListener("error", (event) => { })
 
-onerror = (event) => {};
+onerror = (event) => { }
 ```
 
 ## Ereignistyp
 
-Das Ereignisobjekt ist eine Instanz von [`UIEvent`](/de/docs/Web/API/UIEvent), wenn es von einem Benutzerschnittstellenelement generiert wurde, oder eine Instanz von [`Event`](/de/docs/Web/API/Event) andernfalls.
+Das Ereignisobjekt ist eine Instanz von [`UIEvent`](/de/docs/Web/API/UIEvent), wenn es von einem Benutzeroberflächenelement erzeugt wurde, oder eine Instanz von [`Event`](/de/docs/Web/API/Event) andernfalls.
 
 {{InheritanceDiagram("UIEvent")}}
 

@@ -1,21 +1,22 @@
 ---
-title: "Animation: remove Ereignis"
+title: "Animation: remove Event"
 short-title: remove
 slug: Web/API/Animation/remove_event
 l10n:
-  sourceCommit: acfe8c9f1f4145f77653a2bc64a9744b001358dc
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{ APIRef("Web Animations") }}
 
-Das **`remove`**-Ereignis der [`Animation`](/de/docs/Web/API/Animation)-Schnittstelle wird ausgelöst, wenn die Animation vom Browser [automatisch entfernt](/de/docs/Web/API/Web_Animations_API/Using_the_Web_Animations_API#automatically_removing_filling_animations) wird.
+Das **`remove`**-Ereignis des [`Animation`](/de/docs/Web/API/Animation)-Interfaces wird ausgelöst, wenn die Animation vom Browser [automatisch entfernt](/de/docs/Web/API/Web_Animations_API/Using_the_Web_Animations_API#automatically_removing_filling_animations) wird.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js-nolint
-addEventListener('remove', (event) => { })
+addEventListener("remove", (event) => { })
+
 onremove = (event) => { }
 ```
 
@@ -27,18 +28,18 @@ Ein [`AnimationPlaybackEvent`](/de/docs/Web/API/AnimationPlaybackEvent). Erbt vo
 
 ## Ereigniseigenschaften
 
-_Zusätzlich zu den unten aufgeführten Eigenschaften sind Eigenschaften von der übergeordneten Schnittstelle [`Event`](/de/docs/Web/API/Event) verfügbar._
+_Zusätzlich zu den unten aufgeführten Eigenschaften sind Eigenschaften aus dem übergeordneten Interface [`Event`](/de/docs/Web/API/Event) verfügbar._
 
 - [`AnimationPlaybackEvent.currentTime`](/de/docs/Web/API/AnimationPlaybackEvent/currentTime) {{ReadOnlyInline}}
-  - : Die aktuelle Zeit der Animation, die das Ereignis erzeugt hat.
+  - : Die aktuelle Zeit der Animation, die das Ereignis generiert hat.
 - [`AnimationPlaybackEvent.timelineTime`](/de/docs/Web/API/AnimationPlaybackEvent/timelineTime) {{ReadOnlyInline}}
-  - : Der Zeitwert der Timeline der Animation, die das Ereignis erzeugt hat.
+  - : Der Zeitwert der Timeline der Animation, die das Ereignis generiert hat.
 
 ## Beispiele
 
 ### Entfernen von ersetzten Animationen
 
-In diesem Beispiel haben wir ein `<button id="start">`-Element und einen Ereignis-Listener, der ausgeführt wird, wann immer die Maus bewegt wird. Der [`mousemove`](/de/docs/Web/API/Element/mousemove_event)-Ereignis-Handler richtet eine Animation ein, die das `<button>`-Element zur Position des Mauszeigers animiert. Dies könnte zu einer riesigen Animationsliste führen, die ein Speicherleck verursachen könnte. Aus diesem Grund entfernen moderne Browser automatisch vorwärtsfüllende Animationen, die durch andere Animationen überschrieben werden.
+In diesem Beispiel haben wir ein `<button id="start">`-Element und einen Ereignis-Listener, der immer dann ausgeführt wird, wenn sich die Maus bewegt. Der [`mousemove`](/de/docs/Web/API/Element/mousemove_event)-Ereignishandler richtet eine Animation ein, die den `<button>` zur Position des Mauszeigers animiert. Dies könnte zu einer großen Animationsliste führen, was ein Speicherleck verursachen könnte. Aus diesem Grund entfernen moderne Browser automatisch vorwärtsfüllende Animationen, die von anderen Animationen überschrieben werden.
 
 Die Anzahl der erstellten Animationen wird angezeigt. Ein `remove`-Ereignis-Listener wird verwendet, um die Anzahl der entfernten Animationen zu zählen und anzuzeigen.
 

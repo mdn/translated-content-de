@@ -1,25 +1,25 @@
 ---
-title: "Fenster: appinstalled-Ereignis"
+title: "Window: appinstalled-Ereignis"
 short-title: appinstalled
 slug: Web/API/Window/appinstalled_event
 l10n:
-  sourceCommit: 05187b0fecf39b9176d4a101623589309cf44dd0
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{APIRef}}
 
 Das **`appinstalled`**-Ereignis der [Web Manifest API](/de/docs/Web/Progressive_web_apps/Manifest) wird ausgelöst, wenn der Browser eine Seite erfolgreich als Anwendung installiert hat.
 
-Dieses Ereignis kann nicht abgebrochen werden und wird nicht propagiert.
+Dieses Ereignis kann nicht abgebrochen werden und es tritt keine Ereignisweitergabe (Bubbling) auf.
 
 ## Syntax
 
 Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
-```js
-addEventListener("appinstalled", (event) => {});
+```js-nolint
+addEventListener("appinstalled", (event) => { })
 
-onappinstalled = (event) => {};
+onappinstalled = (event) => { }
 ```
 
 ## Ereignistyp
@@ -36,7 +36,7 @@ window.addEventListener("appinstalled", () => {
 });
 ```
 
-Oder die `onappinstalled`-Ereignis-Handler-Eigenschaft verwenden:
+Oder die `onappinstalled` Ereignis-Handler-Eigenschaft benutzen:
 
 ```js
 window.onappinstalled = () => {

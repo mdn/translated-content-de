@@ -1,25 +1,25 @@
 ---
-title: "MediaStream: addtrack-Ereignis"
+title: "MediaStream: addtrack-Event"
 short-title: addtrack
 slug: Web/API/MediaStream/addtrack_event
 l10n:
-  sourceCommit: ac67e6f05d337e52e39f02a978b8c00bc43d583b
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{APIRef("Media Capture and Streams")}}
 
-Das **`addtrack`**-Ereignis wird ausgelöst, wenn ein neues [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)-Objekt zu einem [`MediaStream`](/de/docs/Web/API/MediaStream) hinzugefügt wurde.
+Das **`addtrack`**-Event wird ausgelöst, wenn ein neues [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)-Objekt zu einem [`MediaStream`](/de/docs/Web/API/MediaStream) hinzugefügt wurde.
 
-Dieses Ereignis ist nicht abbruchbar und wird nicht weitergeleitet.
+Dieses Ereignis kann nicht abgebrochen werden und wird nicht weitergereicht.
 
 ## Syntax
 
 Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
-```js
-addEventListener("addtrack", (event) => {});
+```js-nolint
+addEventListener("addtrack", (event) => { })
 
-onaddtrack = (event) => {};
+onaddtrack = (event) => { }
 ```
 
 ## Ereignistyp
@@ -30,10 +30,10 @@ Ein [`MediaStreamTrackEvent`](/de/docs/Web/API/MediaStreamTrackEvent). Erbt von 
 
 ## Ereigniseigenschaften
 
-_Erbt auch Eigenschaften von seiner übergeordneten Schnittstelle, [`Event`](/de/docs/Web/API/Event)._
+_Erbt auch Eigenschaften von seiner Elternschnittstelle, [`Event`](/de/docs/Web/API/Event)._
 
 - [`MediaStreamTrackEvent.track`](/de/docs/Web/API/MediaStreamTrackEvent/track) {{ReadOnlyInline}}
-  - : Ein [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)-Objekt, das den Track darstellt, der dem Stream hinzugefügt wurde.
+  - : Ein [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)-Objekt, das den Track repräsentiert, der zum Stream hinzugefügt wurde.
 
 ## Beispiele
 
@@ -47,7 +47,7 @@ stream.addEventListener("addtrack", (event) => {
 });
 ```
 
-Verwendung der `onaddtrack`-Ereignis-Handler-Eigenschaft:
+Verwendung der `onaddtrack` Ereignis-Handler-Eigenschaft:
 
 ```js
 const stream = new MediaStream();
@@ -68,7 +68,7 @@ stream.onaddtrack = (event) => {
 ## Siehe auch
 
 - Verwandte Ereignisse: [`removetrack`](/de/docs/Web/API/MediaStream/removetrack_event)
-- Dieses Ereignis bei [`AudioTrackList`](/de/docs/Web/API/AudioTrackList)-Zielen: [`addtrack`](/de/docs/Web/API/AudioTrackList/addtrack_event)
-- Dieses Ereignis bei [`VideoTrackList`](/de/docs/Web/API/VideoTrackList)-Zielen: [`addtrack`](/de/docs/Web/API/VideoTrackList/addtrack_event)
+- Dieses Ereignis auf [`AudioTrackList`](/de/docs/Web/API/AudioTrackList) Zielen: [`addtrack`](/de/docs/Web/API/AudioTrackList/addtrack_event)
+- Dieses Ereignis auf [`VideoTrackList`](/de/docs/Web/API/VideoTrackList) Zielen: [`addtrack`](/de/docs/Web/API/VideoTrackList/addtrack_event)
 - [Media Capture and Streams API](/de/docs/Web/API/Media_Capture_and_Streams_API)
 - [WebRTC](/de/docs/Web/API/WebRTC_API)

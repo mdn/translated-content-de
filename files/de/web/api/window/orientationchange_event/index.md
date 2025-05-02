@@ -1,36 +1,36 @@
 ---
-title: "Window: orientationchange Ereignis"
+title: "Window: orientationchange-Event"
 short-title: orientationchange
 slug: Web/API/Window/orientationchange_event
 l10n:
-  sourceCommit: 0f1d3cbc434dd6a8f4886826ac142a32a65e0208
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{APIRef}}{{Deprecated_Header}}
 
-Das `orientationchange` Ereignis wird ausgelöst, wenn sich die Ausrichtung des Geräts geändert hat.
+Das `orientationchange`-Event wird ausgelöst, wenn sich die Ausrichtung des Geräts geändert hat.
 
-Dieses Ereignis kann nicht abgebrochen werden und löst keine Bubbling-Effekte aus.
+Dieses Event kann nicht abgebrochen werden und wird nicht weitergereicht.
 
-Dieses Ereignis ist veraltet. Verwenden Sie stattdessen das [`change`](/de/docs/Web/API/ScreenOrientation/change_event) Ereignis der [`ScreenOrientation`](/de/docs/Web/API/ScreenOrientation) Schnittstelle.
+Dieses Event ist veraltet. Lauschen Sie stattdessen auf das [`change`](/de/docs/Web/API/ScreenOrientation/change_event)-Event der [`ScreenOrientation`](/de/docs/Web/API/ScreenOrientation)-Schnittstelle.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder legen Sie eine Ereignis-Handler-Eigenschaft fest.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
 
-```js
-addEventListener("orientationchange", (event) => {});
+```js-nolint
+addEventListener("orientationchange", (event) => { })
 
-onorientationchange = (event) => {};
+onorientationchange = (event) => { }
 ```
 
-## Ereignistyp
+## Event-Typ
 
 Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiel
 
-Sie können das `orientationchange` Ereignis in einer [`addEventListener`](/de/docs/Web/API/EventTarget/addEventListener) Methode verwenden:
+Sie können das `orientationchange`-Event in einer [`addEventListener`](/de/docs/Web/API/EventTarget/addEventListener)-Methode verwenden:
 
 ```js
 window.addEventListener("orientationchange", (event) => {
@@ -40,7 +40,7 @@ window.addEventListener("orientationchange", (event) => {
 });
 ```
 
-Oder verwenden Sie die `onorientationchange` Ereignis-Handler-Eigenschaft:
+Oder Sie verwenden die `onorientationchange`-Ereignishandler-Eigenschaft:
 
 ```js
 window.onorientationchange = (event) => {

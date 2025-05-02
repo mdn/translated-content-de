@@ -1,23 +1,23 @@
 ---
-title: "TextTrackCue: enter-Ereignis"
+title: "TextTrackCue: enter Ereignis"
 short-title: enter
 slug: Web/API/TextTrackCue/enter_event
 l10n:
-  sourceCommit: 0c8a320b035cf625c1df67713a94ead2e7f3aec6
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{APIRef("WebVTT")}}
 
-Das **`enter`**-Ereignis wird ausgelöst, wenn eine Cue aktiv wird. Im Falle von Untertiteln oder einer Bildunterschrift ist dies der Zeitpunkt, an dem sie über dem Medium angezeigt wird.
+Das **`enter`** Ereignis wird ausgelöst, wenn ein `cue` aktiv wird. Im Fall von Untertiteln oder einer Bildunterschrift passiert dies, wenn sie über dem Medium angezeigt wird.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
 
-```js
-addEventListener("enter", (event) => {});
+```js-nolint
+addEventListener("enter", (event) => { })
 
-onenter = (event) => {};
+onenter = (event) => { }
 ```
 
 ## Ereignistyp
@@ -26,7 +26,7 @@ Ein generisches [`Event`](/de/docs/Web/API/Event) ohne zusätzliche Eigenschafte
 
 ## Beispiel
 
-Im folgenden Beispiel wird `cue1` in die Konsole geschrieben, wenn es die aktive Cue ist.
+Im folgenden Beispiel wird `cue1` bei Aktivierung des Cues in der Konsole ausgegeben.
 
 ```js
 cue1.addEventListener("enter", (event) => {

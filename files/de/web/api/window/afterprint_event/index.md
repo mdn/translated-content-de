@@ -3,22 +3,23 @@ title: "Window: afterprint-Ereignis"
 short-title: afterprint
 slug: Web/API/Window/afterprint_event
 l10n:
-  sourceCommit: c51e0599ea09c0e6d035c635db9f48ad1f241490
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{APIRef}}
 
 Das **`afterprint`**-Ereignis wird ausgelöst, nachdem das zugehörige Dokument mit dem Drucken begonnen hat oder die Druckvorschau geschlossen wurde.
 
-Die [`beforeprint`](/de/docs/Web/API/Window/beforeprint_event) und `afterprint` Ereignisse erlauben es Seiten, ihren Inhalt zu ändern, bevor der Druck beginnt (vielleicht um beispielsweise ein Banner zu entfernen) und diese Änderungen rückgängig zu machen, nachdem der Druck abgeschlossen ist. Im Allgemeinen sollten Sie die Verwendung einer [`@media print`](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries#targeting_media_types) CSS-Regel vorziehen, aber es kann in einigen Fällen notwendig sein, diese Ereignisse zu verwenden.
+Die [`beforeprint`](/de/docs/Web/API/Window/beforeprint_event)- und `afterprint`-Ereignisse ermöglichen es Seiten, ihren Inhalt zu ändern, bevor der Druck beginnt (zum Beispiel, um ein Banner zu entfernen) und diese Änderungen nach dem Druckvorgang rückgängig zu machen. Im Allgemeinen sollten Sie die Verwendung einer [`@media print`](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries#targeting_media_types)-CSS-Regel bevorzugen, aber es kann in manchen Fällen notwendig sein, diese Ereignisse zu verwenden.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder legen Sie eine Ereignis-Handler-Eigenschaft fest.
 
-```js
-addEventListener("afterprint", (event) => {});
-onafterprint = (event) => {};
+```js-nolint
+addEventListener("afterprint", (event) => { })
+
+onafterprint = (event) => { }
 ```
 
 ## Ereignistyp

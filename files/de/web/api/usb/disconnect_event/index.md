@@ -3,7 +3,7 @@ title: "USB: disconnect-Ereignis"
 short-title: disconnect
 slug: Web/API/USB/disconnect_event
 l10n:
-  sourceCommit: a10e3f00a346a0ec35380513f65915849d99f895
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{APIRef("WebUSB API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
@@ -12,12 +12,12 @@ Das **`disconnect`**-Ereignis des [`USB`](/de/docs/Web/API/USB)-Interfaces wird 
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
-```js
-addEventListener("disconnect", (event) => {});
+```js-nolint
+addEventListener("disconnect", (event) => { })
 
-ondisconnect = (event) => {};
+ondisconnect = (event) => { }
 ```
 
 ## Ereignistyp
@@ -28,7 +28,7 @@ Ein [`USBConnectionEvent`](/de/docs/Web/API/USBConnectionEvent). Erbt von [`Even
 
 ## Ereigniseigenschaften
 
-_Neben den unten aufgeführten Eigenschaften sind auch Eigenschaften des Eltern-Interfaces [`Event`](/de/docs/Web/API/Event) verfügbar._
+_Neben den unten aufgeführten Eigenschaften sind auch Eigenschaften von der Schnittstelle [`Event`](/de/docs/Web/API/Event) verfügbar._
 
 - [`device`](/de/docs/Web/API/USBConnectionEvent/device) {{ReadOnlyInline}}
   - : Das [`USBDevice`](/de/docs/Web/API/USBDevice), für das das Ereignis ausgelöst wird.
@@ -43,7 +43,7 @@ navigator.usb.addEventListener("disconnect", (event) => {
 });
 ```
 
-Alternativ können Sie die `USB.ondisconnect` Ereignis-Handler-Eigenschaft verwenden, um einen Handler für das `disconnect`-Ereignis einzurichten:
+Alternativ können Sie die Eigenschaft `USB.ondiscconnect` des Ereignis-Handlers verwenden, um einen Handler für das `disconnect`-Ereignis zu erstellen:
 
 ```js
 navigator.usb.ondisconnect = (event) => {

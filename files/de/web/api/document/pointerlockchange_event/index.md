@@ -1,27 +1,27 @@
 ---
-title: "Document: pointerlockchange-Ereignis"
+title: "Dokument: pointerlockchange Ereignis"
 short-title: pointerlockchange
 slug: Web/API/Document/pointerlockchange_event
 l10n:
-  sourceCommit: c99ff93a1b71e7d664509fdd3e0c168920be967a
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{APIRef("Pointer Lock API")}}
 
 Das **`pointerlockchange`**-Ereignis wird ausgelöst, wenn der Zeiger gesperrt oder entsperrt wird.
 
-Der Ereignishandler kann [`Document.pointerLockElement`](/de/docs/Web/API/Document/pointerLockElement) verwenden, um festzustellen, ob der Zeiger gesperrt ist und falls ja, an welches Element er gesperrt ist.
+Der Ereignishandler kann [`Document.pointerLockElement`](/de/docs/Web/API/Document/pointerLockElement) verwenden, um festzustellen, ob der Zeiger gesperrt ist und, falls ja, an welches Element er gebunden ist.
 
-Dieses Ereignis kann nicht abgebrochen werden und tritt nicht auf (bubbled) auf.
+Dieses Ereignis kann nicht abgebrochen werden und bildet keine Blase.
 
 ## Syntax
 
 Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
-```js
-addEventListener("pointerlockchange", (event) => {});
+```js-nolint
+addEventListener("pointerlockchange", (event) => { })
 
-onpointerlockchange = (event) => {};
+onpointerlockchange = (event) => { }
 ```
 
 ## Ereignistyp
@@ -42,7 +42,7 @@ addEventListener("pointerlockchange", (event) => {
 });
 ```
 
-Verwendung der `onpointerlockchange`-Ereignishandler-Eigenschaft:
+Verwendung der `onpointerlockchange` Ereignishandler-Eigenschaft:
 
 ```js
 document.onpointerlockchange = (event) => {

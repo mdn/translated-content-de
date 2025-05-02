@@ -3,25 +3,25 @@ title: "DedicatedWorkerGlobalScope: rtctransform-Ereignis"
 short-title: rtctransform
 slug: Web/API/DedicatedWorkerGlobalScope/rtctransform_event
 l10n:
-  sourceCommit: 77d90a23ee0a3b5486a7963f68ad4e56efb06a7b
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{APIRef("WebRTC")}}{{AvailableInWorkers("dedicated")}}
 
-Das **`rtctransform`**-Ereignis wird am [`DedicatedWorkerGlobalScope`](/de/docs/Web/API/DedicatedWorkerGlobalScope)-Objekt eines Workers ausgelöst, wenn ein kodierter Video- oder Audio-Frame zur Verarbeitung durch einen [WebRTC Encoded Transform](/de/docs/Web/API/WebRTC_API/Using_Encoded_Transforms) eingereiht wurde.
+Das **`rtctransform`**-Ereignis wird am [`DedicatedWorkerGlobalScope`](/de/docs/Web/API/DedicatedWorkerGlobalScope)-Objekt eines Workers ausgelöst, wenn ein kodiertes Video- oder Audio-Frame zur Verarbeitung durch einen [WebRTC Encoded Transform](/de/docs/Web/API/WebRTC_API/Using_Encoded_Transforms) bereitgestellt wurde.
 
-Die [`transformer`](/de/docs/Web/API/RTCTransformEvent/transformer)-Eigenschaft des Ereignisses gibt einen [`RTCRtpScriptTransformer`](/de/docs/Web/API/RTCRtpScriptTransformer) zurück, der den [`ReadableStream`](/de/docs/Web/API/ReadableStream) bereitstellt, auf dem der Frame eingereiht ist, und einen [`WritableStream`](/de/docs/Web/API/WritableStream), auf den der Frame geschrieben werden kann, um ihn zurück in die WebRTC-Pipeline zu injizieren.
+Die [`transformer`](/de/docs/Web/API/RTCTransformEvent/transformer)-Eigenschaft des Ereignisses gibt einen [`RTCRtpScriptTransformer`](/de/docs/Web/API/RTCRtpScriptTransformer) zurück, der den [`ReadableStream`](/de/docs/Web/API/ReadableStream) bereitstellt, auf dem das Frame in die Queue gestellt wird, sowie einen [`WritableStream`](/de/docs/Web/API/WritableStream), auf den das Frame geschrieben werden kann, um es wieder in die WebRTC-Pipeline zu injizieren.
 
-Dieses Ereignis kann nicht abgebrochen werden und propagiert nicht.
+Dieses Ereignis kann nicht abgebrochen werden und wird nicht gebubbelt.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandlereigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder legen Sie eine Ereignisbehandlereigenschaft fest.
 
-```js
-addEventListener("rtctransform", (event) => {});
+```js-nolint
+addEventListener("rtctransform", (event) => { })
 
-onrtctransform = (event) => {};
+onrtctransform = (event) => { }
 ```
 
 ## Ereignistyp
@@ -39,8 +39,8 @@ _Diese Schnittstelle erbt auch Eigenschaften von ihrem Elternteil, [`Event`](/de
 
 ## Beispiel
 
-Das folgende Codebeispiel zeigt einen Handler für das `rtctransform`-Ereignis im Worker, hinzugefügt zum globalen Geltungsbereich mit `addEventListener()`.
-Das `event.transformer` ist ein [`RTCRtpScriptTransformer`](/de/docs/Web/API/RTCRtpScriptTransformer), das Gegenstück auf der Workerseite zum [`RTCRtpScriptTransform`](/de/docs/Web/API/RTCRtpScriptTransform).
+Der folgende Codeausschnitt zeigt einen Handler für das `rtctransform`-Ereignis im Worker, der mithilfe von `addEventListener()` zum globalen Scope hinzugefügt wurde.
+Das `event.transformer` ist ein [`RTCRtpScriptTransformer`](/de/docs/Web/API/RTCRtpScriptTransformer), das Gegenstück auf der Worker-Seite zu [`RTCRtpScriptTransform`](/de/docs/Web/API/RTCRtpScriptTransform).
 
 ```js
 addEventListener("rtctransform", (event) => {
@@ -59,10 +59,10 @@ addEventListener("rtctransform", (event) => {
 });
 ```
 
-Das `rtctransform`-Ereignis wird ausgelöst, wenn ein kodierter Frame auf dem [`RTCRtpScriptTransformer`](/de/docs/Web/API/RTCRtpScriptTransformer) eingereiht wird und nur einmal, wenn der dem Transformer entsprechende [`RTCRtpScriptTransformer`](/de/docs/Web/API/RTCRtpScriptTransformer) erstellt wird.
-Der Code bestimmt zunächst, welche Transformation angewandt werden soll, indem der `name`-Wert in den Optionen verwendet wird (dies ermöglicht es, dass [`RTCRtpScriptTransform`](/de/docs/Web/API/RTCRtpScriptTransform)-Instanzen, die zu den ein- und ausgehenden WebRTC-Pipelines hinzugefügt werden, einen einzelnen Worker gemeinsam nutzen).
-Kodierte Frames werden dann von dem lesbaren Stream über den ausgewählten [`TransformStream`](/de/docs/Web/API/TransformStream) transformiert und anschließend in einen schreibbaren Stream geleitet.
-Der tatsächliche Transformationscode wird nicht gezeigt.
+Das `rtctransform`-Ereignis wird ausgelöst, wenn ein kodiertes Frame in die Queue des [`RTCRtpScriptTransformer`](/de/docs/Web/API/RTCRtpScriptTransformer) eingestellt wird, und nur einmal, wenn der entsprechende [`RTCRtpScriptTransformer`](/de/docs/Web/API/RTCRtpScriptTransformer) konstruiert wird.
+Der Code ermittelt zunächst, welche Transformation angewendet werden soll, basierend auf dem `name`-Wert, der in den Optionen übergeben wird (dies ermöglicht, dass [`RTCRtpScriptTransform`](/de/docs/Web/API/RTCRtpScriptTransform)-Instanzen, die zu den eingehenden und ausgehenden WebRTC-Pipelines hinzugefügt wurden, einen einzigen Worker teilen).
+Kodierte Frames werden dann von dem lesbaren Stream, durch den ausgewählten Transformations-[`TransformStream`](/de/docs/Web/API/TransformStream), zu einem beschreibbaren Stream geleitet.
+Der eigentliche Transformationscode wird nicht gezeigt.
 
 Beachten Sie, dass dieser Code Teil eines umfassenderen Beispiels ist, das in [Verwendung von WebRTC Encoded Transforms](/de/docs/Web/API/WebRTC_API/Using_Encoded_Transforms) bereitgestellt wird.
 

@@ -1,23 +1,23 @@
 ---
-title: "Document: scroll-Ereignis"
+title: "Dokument: scroll-Ereignis"
 short-title: scroll
 slug: Web/API/Document/scroll_event
 l10n:
-  sourceCommit: 1b4e6d1156e8471d38deeea1567c35ef412c5f42
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{APIRef}}
 
-Das **`scroll`**-Ereignis wird ausgelöst, wenn die Dokumentansicht gescrollt wurde. Um zu erkennen, wann das Scrollen abgeschlossen ist, siehe das [`scrollend`](/de/docs/Web/API/Document/scrollend_event)-Ereignis von `Document`. Für das Scrollen von Elementen siehe das [`scroll`](/de/docs/Web/API/Element/scroll_event)-Ereignis von `Element`.
+Das **`scroll`**-Ereignis wird ausgelöst, wenn die Dokumentansicht gescrollt wurde. Um zu erkennen, wann das Scrollen abgeschlossen wurde, siehe das [`scrollend`](/de/docs/Web/API/Document/scrollend_event)-Ereignis des `Document`. Für das Scrollen von Elementen, siehe [`scroll`](/de/docs/Web/API/Element/scroll_event)-Ereignis des `Element`.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
-```js
-addEventListener("scroll", (event) => {});
+```js-nolint
+addEventListener("scroll", (event) => { })
 
-onscroll = (event) => {};
+onscroll = (event) => { }
 ```
 
 ## Ereignistyp
@@ -26,11 +26,11 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-### Scroll-Ereignis-Throttling
+### Scroll-Ereignis-Drosselung
 
-Da `scroll`-Ereignisse mit hoher Frequenz ausgelöst werden können, sollte der Ereignishandler keine rechenintensiven Operationen wie DOM-Änderungen ausführen. Stattdessen wird empfohlen, das Ereignis mithilfe von [`requestAnimationFrame()`](/de/docs/Web/API/Window/requestAnimationFrame), [`setTimeout()`](/de/docs/Web/API/Window/setTimeout) oder einem [`CustomEvent`](/de/docs/Web/API/CustomEvent) zu drosseln, wie folgt.
+Da `scroll`-Ereignisse mit hoher Rate ausgelöst werden können, sollte der Ereignis-Handler keine rechenintensiven Operationen wie DOM-Modifikationen ausführen. Stattdessen wird empfohlen, das Ereignis mithilfe von [`requestAnimationFrame()`](/de/docs/Web/API/Window/requestAnimationFrame), [`setTimeout()`](/de/docs/Web/API/Window/setTimeout) oder einem [`CustomEvent`](/de/docs/Web/API/CustomEvent) zu drosseln, wie folgt.
 
-Beachten Sie jedoch, dass Eingabeereignisse und Animationsframes mit etwa der gleichen Geschwindigkeit ausgelöst werden, daher ist die untenstehende Optimierung oft nicht erforderlich. Dieses Beispiel optimiert das `scroll`-Ereignis für `requestAnimationFrame`.
+Beachten Sie jedoch, dass Eingabeereignisse und Animationsrahmen ungefähr mit der gleichen Rate ausgelöst werden, wodurch die folgende Optimierung oft unnötig ist. Dieses Beispiel optimiert das `scroll`-Ereignis für `requestAnimationFrame`.
 
 ```js
 let lastKnownScrollPosition = 0;

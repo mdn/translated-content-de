@@ -1,23 +1,23 @@
 ---
-title: "NDEFReader: reading-Ereignis"
+title: "NDEFReader: reading Ereignis"
 short-title: reading
 slug: Web/API/NDEFReader/reading_event
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{SecureContext_Header}}{{SeeCompatTable}}{{APIRef("Web NFC API")}}
 
-Das `reading`-Ereignis der [`NDEFReader`](/de/docs/Web/API/NDEFReader)-Schnittstelle wird ausgelöst, wann immer eine neue Lesung von kompatiblen NFC-Geräten (z. B. NFC-Tags, die NDEF unterstützen) verfügbar ist, wenn diese Geräte sich im magnetischen Induktionsfeld des Lesers befinden.
+Das `reading`-Ereignis der [`NDEFReader`](/de/docs/Web/API/NDEFReader)-Schnittstelle wird immer dann ausgelöst, wenn eine neue Lesung von kompatiblen NFC-Geräten (z.B. NFC-Tags, die NDEF unterstützen) verfügbar ist, wenn sich diese Geräte innerhalb des magnetischen Induktionsfelds des Lesers befinden.
 
 ## Syntax
 
 Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
-```js
-addEventListener("reading", (event) => {});
+```js-nolint
+addEventListener("reading", (event) => { })
 
-onreading = (event) => {};
+onreading = (event) => { }
 ```
 
 ## Ereignistyp
@@ -26,7 +26,7 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-Das folgende Beispiel zeigt, wie Ereignisse mit den `onreading`- und `onreadingerror`-Ereignishandlern verarbeitet werden.
+Das folgende Beispiel zeigt, wie Ereignisse mithilfe der Ereignis-Handler `onreading` und `onreadingerror` verarbeitet werden.
 
 ```js
 const ndef = new NDEFReader();
@@ -58,4 +58,4 @@ ndef
 
 ## Siehe auch
 
-- [`readingerror`](/de/docs/Web/API/NDEFReader/readingerror_event)-Ereignis
+- [`readingerror`](/de/docs/Web/API/NDEFReader/readingerror_event) Ereignis

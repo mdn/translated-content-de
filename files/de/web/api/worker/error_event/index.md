@@ -1,23 +1,23 @@
 ---
-title: "Worker: error Event"
+title: "Worker: error event"
 short-title: error
 slug: Web/API/Worker/error_event
 l10n:
-  sourceCommit: e6457c34ac16790d4e62bc9ba21e899ac560089c
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{APIRef("Web Workers API")}}{{AvailableInWorkers("window_and_worker_except_service")}}
 
-Das **`error`** Ereignis der [`Worker`](/de/docs/Web/API/Worker)-Schnittstelle wird ausgelöst, wenn ein Fehler im Worker auftritt.
+Das **`error`**-Ereignis des [`Worker`](/de/docs/Web/API/Worker)-Interfaces wird ausgelöst, wenn ein Fehler im Worker auftritt.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
 
-```js
-addEventListener("error", (event) => {});
+```js-nolint
+addEventListener("error", (event) => { })
 
-onerror = (event) => {};
+onerror = (event) => { }
 ```
 
 ## Ereignistyp
@@ -26,7 +26,7 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiel
 
-Das folgende Codebeispiel erstellt ein [`Worker`](/de/docs/Web/API/Worker)-Objekt mit dem [`Worker()`](/de/docs/Web/API/Worker/Worker)-Konstruktor und richtet einen `onerror`-Handler an dem resultierenden Objekt ein:
+Der folgende Codeausschnitt erstellt ein [`Worker`](/de/docs/Web/API/Worker)-Objekt mithilfe des [`Worker()`](/de/docs/Web/API/Worker/Worker)-Konstruktors und richtet einen `onerror`-Handler auf dem resultierenden Objekt ein:
 
 ```js
 const myWorker = new Worker("worker.js");

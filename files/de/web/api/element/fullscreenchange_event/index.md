@@ -3,27 +3,27 @@ title: "Element: fullscreenchange Ereignis"
 short-title: fullscreenchange
 slug: Web/API/Element/fullscreenchange_event
 l10n:
-  sourceCommit: f216422c99b6c7014e398803b70600501bce8a48
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{APIRef("Fullscreen API")}}
 
-Das **`fullscreenchange`**-Ereignis wird unmittelbar nach einem Wechsel eines [`Element`](/de/docs/Web/API/Element) in den oder aus dem Vollbildmodus ausgelöst.
+Das **`fullscreenchange`**-Ereignis wird sofort ausgelöst, nachdem ein [`Element`](/de/docs/Web/API/Element) in den oder aus dem Vollbildmodus wechselt.
 
 Dieses Ereignis wird an das `Element` gesendet, das in den oder aus dem Vollbildmodus wechselt.
 
-Um festzustellen, ob das `Element` in den Vollbildmodus eintritt oder diesen verlässt, überprüfen Sie den Wert von [`Document.fullscreenElement`](/de/docs/Web/API/Document/fullscreenElement): Wenn dieser Wert `null` ist, verlässt das Element den Vollbildmodus, andernfalls tritt es in den Vollbildmodus ein.
+Um herauszufinden, ob das `Element` in den Vollbildmodus wechselt oder ihn verlässt, überprüfen Sie den Wert von [`Document.fullscreenElement`](/de/docs/Web/API/Document/fullscreenElement): Wenn dieser Wert `null` ist, verlässt das Element den Vollbildmodus, andernfalls tritt es in den Vollbildmodus ein.
 
-Dieses Ereignis ist nicht abbruchfähig.
+Dieses Ereignis kann nicht abgebrochen werden.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder legen Sie eine Ereignis-Handler-Eigenschaft fest.
 
-```js
-addEventListener("fullscreenchange", (event) => {});
+```js-nolint
+addEventListener("fullscreenchange", (event) => { })
 
-onfullscreenchange = (event) => {};
+onfullscreenchange = (event) => { }
 ```
 
 ## Ereignistyp
@@ -34,11 +34,11 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 In diesem Beispiel wird ein Handler für das `fullscreenchange`-Ereignis zu dem Element hinzugefügt, dessen ID `fullscreen-div` ist.
 
-Wenn der Benutzer auf die Schaltfläche "Toggle Fullscreen Mode" klickt, wird der `click`-Handler den Vollbildmodus für das `div` umschalten. Wenn `document.fullscreenElement` einen Wert hat, wird der Vollbildmodus verlassen. Andernfalls wird das `div` in den Vollbildmodus gebracht.
+Wenn der Benutzer auf die Schaltfläche "Vollbildmodus umschalten" klickt, wird der `click`-Handler den Vollbildmodus für das `div` umschalten. Wenn `document.fullscreenElement` einen Wert hat, wird der Vollbildmodus verlassen. Andernfalls wird das div in den Vollbildmodus gesetzt.
 
-Denken Sie daran, dass der Status des Elements bereits geändert wurde, wenn das `fullscreenchange`-Ereignis verarbeitet wird. Wenn der Wechsel in den Vollbildmodus erfolgt, zeigt `document.fullscreenElement` auf das Element, das jetzt im Vollbildmodus ist. Andererseits, wenn `document.fullscreenElement` `null` ist, wurde der Vollbildmodus abgebrochen.
+Denken Sie daran, dass zum Zeitpunkt der Bearbeitung des `fullscreenchange`-Ereignisses der Status des Elements bereits geändert wurde. Also, wenn die Änderung in den Vollbildmodus ist, zeigt `document.fullscreenElement` auf das Element, das sich jetzt im Vollbildmodus befindet. Andererseits hat, wenn `document.fullscreenElement` `null` ist, der Vollbildmodus abgebrochen.
 
-Das bedeutet für den Beispielcode, dass, wenn ein Element aktuell im Vollbildmodus ist, der `fullscreenchange`-Handler die `id` des Vollbildelements in die Konsole protokolliert. Wenn `document.fullscreenElement` `null` ist, protokolliert der Code eine Nachricht, dass der Wechsel zum Verlassen des Vollbildmodus erfolgt.
+Das bedeutet für den Beispielcode, dass der `fullscreenchange`-Handler, wenn sich ein Element derzeit im Vollbildmodus befindet, die `id` des Vollbildelements in der Konsole protokolliert. Wenn `document.fullscreenElement` `null` ist, protokolliert der Code eine Nachricht, dass die Änderung darin besteht, den Vollbildmodus zu verlassen.
 
 ### HTML
 
@@ -94,7 +94,7 @@ document
 
 ## Siehe auch
 
-- [Document: fullscreenchange Ereignis](/de/docs/Web/API/Document/fullscreenchange_event)
-- [Element: fullscreenerror Ereignis](/de/docs/Web/API/Element/fullscreenerror_event)
+- [Document: fullscreenchange event](/de/docs/Web/API/Document/fullscreenchange_event)
+- [Element: fullscreenerror event](/de/docs/Web/API/Element/fullscreenerror_event)
 - [Fullscreen API](/de/docs/Web/API/Fullscreen_API)
-- [Leitfaden zur Fullscreen API](/de/docs/Web/API/Fullscreen_API/Guide)
+- [Leitfaden zur Fullscreen-API](/de/docs/Web/API/Fullscreen_API/Guide)

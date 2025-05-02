@@ -1,28 +1,28 @@
 ---
-title: "HTMLElement: load Ereignis"
+title: "HTMLElement: load-Ereignis"
 short-title: load
 slug: Web/API/HTMLElement/load_event
 l10n:
-  sourceCommit: e9e2ec643ac69c132f31427a0b586ab2cf83ed58
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{APIRef}}
 
-Das **`load`** Ereignis wird für Elemente ausgelöst, die eine Ressource enthalten, wenn die Ressource erfolgreich geladen wurde. Zu den derzeit unterstützten HTML-Elementen gehören: {{HTMLElement("body")}}, {{HTMLElement("embed")}}, {{HTMLElement("iframe")}}, {{HTMLElement("img")}}, {{HTMLElement("link")}}, {{HTMLElement("object")}}, {{HTMLElement("script")}}, {{HTMLElement("style")}} und {{HTMLElement("track")}}.
+Das **`load`**-Ereignis wird für Elemente ausgelöst, die eine Ressource enthalten, wenn die Ressource erfolgreich geladen wurde. Derzeit umfasst die Liste der unterstützten HTML-Elemente: {{HTMLElement("body")}}, {{HTMLElement("embed")}}, {{HTMLElement("iframe")}}, {{HTMLElement("img")}}, {{HTMLElement("link")}}, {{HTMLElement("object")}}, {{HTMLElement("script")}}, {{HTMLElement("style")}} und {{HTMLElement("track")}}.
 
 > [!NOTE]
-> Das `load` Ereignis auf dem [`HTMLBodyElement`](/de/docs/Web/API/HTMLBodyElement#event_handlers) ist tatsächlich ein Alias für das [`window.onload`](/de/docs/Web/API/Window/load_event) Ereignis. Daher wird das `load` Ereignis am `<body>` Element nur ausgelöst, wenn alle Ressourcen des Dokuments geladen oder fehlgeschlagen sind. Aus Klarheitsgründen wird empfohlen, den Ereignishandler direkt an das `window` Objekt anzuhängen, anstatt an `HTMLBodyElement`.
+> Das `load`-Ereignis auf [`HTMLBodyElement`](/de/docs/Web/API/HTMLBodyElement#event_handlers) ist tatsächlich ein Alias für das [`window.onload`](/de/docs/Web/API/Window/load_event)-Ereignis. Daher wird das `load`-Ereignis nur auf dem `<body>`-Element ausgelöst, sobald alle Ressourcen des Dokuments geladen oder fehlerhaft sind. Aus Gründen der Klarheit wird jedoch empfohlen, den Ereignis-Handler direkt an das `window`-Objekt anzuhängen, anstatt an `HTMLBodyElement`.
 
-Dieses Ereignis kann nicht abgebrochen werden und propagiert nicht.
+Dieses Ereignis kann nicht abgebrochen werden und es wird nicht weitergeleitet.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder legen Sie eine Ereignis-Handler-Eigenschaft fest.
 
-```js
-elt.addEventListener("load", (event) => { ... });
-// or
-elt.onload = (event) => { ... };
+```js-nolint
+addEventListener("load", (event) => { })
+
+onload = (event) => { }
 ```
 
 ## Ereignistyp
@@ -31,7 +31,7 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-Dieses Beispiel gibt eine Meldung auf dem Bildschirm aus, wenn das {{HtmlElement("img")}} Element seine Ressource erfolgreich lädt.
+Dieses Beispiel zeigt auf dem Bildschirm an, wann immer das {{HtmlElement("img")}}-Element seine Ressource erfolgreich lädt.
 
 ### HTML
 
@@ -70,5 +70,5 @@ function reload() {
 
 - Verwandte Ereignisse
 
-  - Window: [`load`](/de/docs/Web/API/Window/load_event) Ereignis
-  - Window: [`error`](/de/docs/Web/API/Window/error_event) Ereignis
+  - Window: [`load`](/de/docs/Web/API/Window/load_event)-Ereignis
+  - Window: [`error`](/de/docs/Web/API/Window/error_event)-Ereignis

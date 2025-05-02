@@ -1,23 +1,23 @@
 ---
-title: "HTMLElement: copy Event"
+title: "HTMLElement: copy-Event"
 short-title: copy
 slug: Web/API/HTMLElement/copy_event
 l10n:
-  sourceCommit: 73b2b6ee411ac094b9fc57dafac6f9c232fc20d9
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{ APIRef("HTML DOM") }}
 
-Das **`copy`**-Ereignis wird ausgelöst, wenn der Benutzer eine Kopieraktion über die Benutzeroberfläche des Browsers initiiert.
+Das **`copy`**-Event wird ausgelöst, wenn der Benutzer über die Benutzeroberfläche des Browsers eine Kopieraktion initiiert.
 
 ## Syntax
 
 Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
-```js
-addEventListener("copy", (event) => {});
+```js-nolint
+addEventListener("copy", (event) => { })
 
-oncopy = (event) => {};
+oncopy = (event) => { }
 ```
 
 ## Ereignistyp
@@ -31,11 +31,11 @@ Ein [`ClipboardEvent`](/de/docs/Web/API/ClipboardEvent). Erbt von [`Event`](/de/
 _Erbt auch Eigenschaften von seinem übergeordneten [`Event`](/de/docs/Web/API/Event)_.
 
 - [`ClipboardEvent.clipboardData`](/de/docs/Web/API/ClipboardEvent/clipboardData) {{ReadOnlyInline}}
-  - : Ein [`DataTransfer`](/de/docs/Web/API/DataTransfer)-Objekt, das die von der vom Benutzer initiierten [`cut`](/de/docs/Web/API/HTMLElement/cut_event)-, `copy`- oder [`paste`](/de/docs/Web/API/HTMLElement/paste_event)-Operation betroffenen Daten sowie ihren MIME-Typ enthält.
+  - : Ein [`DataTransfer`](/de/docs/Web/API/DataTransfer)-Objekt, das die von der benutzerinitiierten [`cut`](/de/docs/Web/API/HTMLElement/cut_event), `copy` oder [`paste`](/de/docs/Web/API/HTMLElement/paste_event)-Operation betroffenen Daten sowie deren MIME-Typ enthält.
 
 ## Beispiel
 
-Dieses Beispiel blockiert jeden Kopier- und Einfügeversuch innerhalb des {{htmlElement("textarea")}}.
+Dieses Beispiel blockiert jeden Kopier- und Einfügeversuch aus dem {{htmlElement("textarea")}}.
 
 ### HTML
 
@@ -85,5 +85,5 @@ editor.onpaste = logPaste;
 ## Siehe auch
 
 - Verwandte Ereignisse
-  - [`cut`](/de/docs/Web/API/HTMLElement/cut_event) Ereignis
-  - [`paste`](/de/docs/Web/API/HTMLElement/paste_event) Ereignis
+  - [`cut`](/de/docs/Web/API/HTMLElement/cut_event)-Ereignis
+  - [`paste`](/de/docs/Web/API/HTMLElement/paste_event)-Ereignis

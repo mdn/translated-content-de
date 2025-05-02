@@ -3,7 +3,7 @@ title: "Node: selectstart-Ereignis"
 short-title: selectstart
 slug: Web/API/Node/selectstart_event
 l10n:
-  sourceCommit: 312081aabba3885b35a81107b3c2fc53428896c5
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{APIRef}}
@@ -14,12 +14,12 @@ Wenn das Ereignis abgebrochen wird, ändert sich die Auswahl nicht.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Event-Handler-Eigenschaft.
 
-```js
-addEventListener("selectstart", (event) => {});
+```js-nolint
+addEventListener("selectstart", (event) => { })
 
-onselectstart = (event) => {};
+onselectstart = (event) => { }
 ```
 
 ## Ereignistyp

@@ -1,9 +1,9 @@
 ---
-title: "SharedWorker: error Ereignis"
+title: "SharedWorker: Fehlerereignis"
 short-title: error
 slug: Web/API/SharedWorker/error_event
 l10n:
-  sourceCommit: f2f9346c0c0e9f6676f2df9f1850933e274401de
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{APIRef("Web Workers API")}}
@@ -12,12 +12,12 @@ Das **`error`**-Ereignis der [`SharedWorker`](/de/docs/Web/API/SharedWorker)-Sch
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
 
-```js
-addEventListener("error", (event) => {});
+```js-nolint
+addEventListener("error", (event) => { })
 
-onerror = (event) => {};
+onerror = (event) => { }
 ```
 
 ## Ereignistyp
@@ -26,7 +26,7 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiel
 
-Der folgende Code-Schnipsel erstellt ein [`SharedWorker`](/de/docs/Web/API/SharedWorker)-Objekt mit dem [`SharedWorker()`](/de/docs/Web/API/SharedWorker/SharedWorker)-Konstruktor und richtet einen `onerror`-Handler auf dem resultierenden Objekt ein:
+Der folgende Codeausschnitt erstellt ein [`SharedWorker`](/de/docs/Web/API/SharedWorker)-Objekt mithilfe des [`SharedWorker()`](/de/docs/Web/API/SharedWorker/SharedWorker)-Konstruktors und richtet einen `onerror`-Handler auf dem resultierenden Objekt ein:
 
 ```js
 const mySharedWorker = new SharedWorker("shared-worker.js");

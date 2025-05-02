@@ -1,22 +1,32 @@
 ---
-title: "Window: gamepadconnected-Ereignis"
+title: "Window: gamepadconnected Ereignis"
 short-title: gamepadconnected
 slug: Web/API/Window/gamepadconnected_event
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{APIRef}}
 
-Das `gamepadconnected`-Ereignis wird ausgelöst, wenn der Browser erkennt, dass ein Gamepad angeschlossen wurde oder das erste Mal eine Taste/Achse des Gamepads verwendet wird.
+Das `gamepadconnected`-Ereignis wird ausgelöst, wenn der Browser erkennt, dass ein Gamepad angeschlossen wurde oder das erste Mal eine Taste/Achse des Gamepads benutzt wird.
 
-Das Ereignis wird nicht ausgelöst, wenn es durch die {{httpheader('Permissions-Policy/gamepad','gamepad')}} [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Guides/Permissions_Policy) des Dokuments nicht erlaubt ist.
+Das Ereignis wird nicht ausgelöst, wenn es durch die {{httpheader('Permissions-Policy/gamepad','gamepad')}} [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Leitfaden/Berechtigungsrichtlinie) des Dokuments nicht erlaubt ist.
 
-Dieses Ereignis ist nicht abbruchfähig und wird nicht gebubbelt.
+Dieses Ereignis ist nicht abbrechbar und wird nicht weitergereicht.
+
+## Syntax
+
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+
+```js-nolint
+addEventListener("gamepadconnected", (event) => { })
+
+ongamepadconnected = (event) => { }
+```
 
 ## Beispiele
 
-Um informiert zu werden, wenn ein Gamepad verbunden ist, können Sie einen Handler zum Fenster hinzufügen, indem Sie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) verwenden, wie hier:
+Um informiert zu werden, wenn ein Gamepad angeschlossen wird, können Sie einen Handler zum Fenster mit [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) hinzufügen, wie folgt:
 
 ```js
 window.addEventListener("gamepadconnected", (event) => {
@@ -25,7 +35,7 @@ window.addEventListener("gamepadconnected", (event) => {
 });
 ```
 
-Alternativ können Sie die `window.ongamepadconnected`-Ereignishandlereigenschaft verwenden, um einen Handler für das `gamepadconnected`-Ereignis festzulegen:
+Alternativ können Sie die `window.ongamepadconnected` Ereignishandler-Eigenschaft verwenden, um einen Handler für das `gamepadconnected`-Ereignis einzurichten:
 
 ```js
 window.ongamepadconnected = (event) => {

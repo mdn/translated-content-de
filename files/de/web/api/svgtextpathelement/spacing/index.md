@@ -3,12 +3,12 @@ title: "SVGTextPathElement: spacing-Eigenschaft"
 short-title: spacing
 slug: Web/API/SVGTextPathElement/spacing
 l10n:
-  sourceCommit: cb6a3d63ca47ea6efeb1d9f8f60e47375a59d541
+  sourceCommit: 2e39a37874913a1e3fd82999467505fd525e9177
 ---
 
 {{APIRef("SVG")}}
 
-Die **`spacing`**-Eigenschaft der [`SVGTextPathElement`](/de/docs/Web/API/SVGTextPathElement)-Schnittstelle ist eine schreibgeschützte Eigenschaft und gibt das {{SVGAttr("spacing")}}-Attribut des entsprechenden {{SVGElement("textPath")}}-Elements wieder. Sie nimmt einen der [`TEXTPATH_SPACINGTYPE_*`-Konstanten](/de/docs/Web/API/SVGTextPathElement#spacing_types) an, die auf dieser Schnittstelle definiert sind.
+Die schreibgeschützte **`spacing`**-Eigenschaft des [`SVGTextPathElement`](/de/docs/Web/API/SVGTextPathElement)-Interfaces spiegelt das {{SVGAttr("spacing")}}-Attribut des gegebenen {{SVGElement("textPath")}}-Elements wider. Sie nimmt einen der auf diesem Interface definierten [`TEXTPATH_SPACINGTYPE_*` Konstanten](/de/docs/Web/API/SVGTextPathElement#static_properties) an.
 
 ## Wert
 
@@ -49,4 +49,4 @@ console.log(textPath.spacing.baseVal); // Output: 1 (TEXTPATH_SPACINGTYPE_AUTO)
 ## Siehe auch
 
 - [`SVGTextPathElement.method`](/de/docs/Web/API/SVGTextPathElement/method)
-- [`SVGTextPathElement` spacing types](/de/docs/Web/API/SVGTextPathElement#spacing_types)
+- [`SVGTextPathElement` spacing types](/de/docs/Web/API/SVGTextPathElement#static_properties)

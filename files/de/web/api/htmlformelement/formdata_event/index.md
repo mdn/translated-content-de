@@ -1,25 +1,25 @@
 ---
-title: "HTMLFormElement: formdata Ereignis"
+title: "HTMLFormElement: formdata-Ereignis"
 short-title: formdata
 slug: Web/API/HTMLFormElement/formdata_event
 l10n:
-  sourceCommit: a3d9f61a8990ba7b53bda9748d1f26a9e9810b18
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{APIRef}}
 
-Das **`formdata`** Ereignis wird ausgelöst, nachdem die Eintragsliste, die die Daten des Formulars darstellt, erstellt wurde. Dies geschieht, wenn das Formular übermittelt wird, kann jedoch auch durch den Aufruf eines [`FormData()`](/de/docs/Web/API/FormData/FormData) Konstruktors ausgelöst werden.
+Das **`formdata`**-Ereignis wird ausgelöst, nachdem die Eintragsliste, die die Daten des Formulars darstellt, erstellt wurde. Dies geschieht, wenn das Formular abgeschickt wird, kann aber auch durch den Aufruf eines [`FormData()`](/de/docs/Web/API/FormData/FormData)-Konstruktors ausgelöst werden.
 
-Dieses Ereignis kann nicht abgebrochen werden und es verbreitet sich nicht weiter.
+Dieses Ereignis ist nicht abbrechbar und wird nicht weitergeleitet.
 
 ## Syntax
 
 Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
-```js
-addEventListener("formdata", (event) => {});
+```js-nolint
+addEventListener("formdata", (event) => { })
 
-onformdata = (event) => {};
+onformdata = (event) => { }
 ```
 
 ## Ereignistyp
@@ -33,7 +33,7 @@ Ein [`FormDataEvent`](/de/docs/Web/API/FormDataEvent). Erbt von [`Event`](/de/do
 _Erbt Eigenschaften von seiner Elternschnittstelle, [`Event`](/de/docs/Web/API/Event)._
 
 - [`FormDataEvent.formData`](/de/docs/Web/API/FormDataEvent/formData)
-  - : Enthält das [`FormData`](/de/docs/Web/API/FormData) Objekt, das die im Formular enthaltenen Daten darstellt, als das Ereignis ausgelöst wurde.
+  - : Enthält das [`FormData`](/de/docs/Web/API/FormData)-Objekt, das die im Formular enthaltenen Daten repräsentiert, als das Ereignis ausgelöst wurde.
 
 ## Beispiele
 
@@ -71,7 +71,7 @@ formElem.addEventListener("formdata", (e) => {
 });
 ```
 
-Die `onformdata` Version würde so aussehen:
+Die `onformdata`-Version würde so aussehen:
 
 ```js
 formElem.onformdata = (e) => {

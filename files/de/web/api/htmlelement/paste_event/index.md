@@ -1,23 +1,23 @@
 ---
-title: "HTMLElement: paste Event"
+title: "HTMLElement: paste-Event"
 short-title: paste
 slug: Web/API/HTMLElement/paste_event
 l10n:
-  sourceCommit: 73b2b6ee411ac094b9fc57dafac6f9c232fc20d9
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{ APIRef("HTML DOM") }}
 
-Das **`paste`**-Ereignis wird ausgelöst, wenn der Benutzer eine Einfügeaktion über die Benutzeroberfläche des Browsers initiiert.
+Das **`paste`**-Event wird ausgelöst, wenn der Benutzer eine Einfügeaktion über die Benutzeroberfläche des Browsers initiiert.
 
 ## Syntax
 
 Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
-```js
-addEventListener("paste", (event) => {});
+```js-nolint
+addEventListener("paste", (event) => { })
 
-onpaste = (event) => {};
+onpaste = (event) => { }
 ```
 
 ## Ereignistyp
@@ -28,14 +28,14 @@ Ein [`ClipboardEvent`](/de/docs/Web/API/ClipboardEvent). Erbt von [`Event`](/de/
 
 ## Ereigniseigenschaften
 
-_Erbt auch Eigenschaften von seinem Eltern-`Event`_.
+_Erbt auch Eigenschaften von seinem übergeordneten [`Event`](/de/docs/Web/API/Event)_.
 
 - [`ClipboardEvent.clipboardData`](/de/docs/Web/API/ClipboardEvent/clipboardData) {{ReadOnlyInline}}
-  - : Ein [`DataTransfer`](/de/docs/Web/API/DataTransfer)-Objekt, das die durch die vom Benutzer initiierte [`cut`](/de/docs/Web/API/HTMLElement/cut_event), [`copy`](/de/docs/Web/API/HTMLElement/copy_event) oder `paste`-Operation betroffenen Daten sowie deren MIME-Typ enthält.
+  - : Ein [`DataTransfer`](/de/docs/Web/API/DataTransfer)-Objekt, das die Daten enthält, die von der vom Benutzer initiierten [`cut`](/de/docs/Web/API/HTMLElement/cut_event)-, [`copy`](/de/docs/Web/API/HTMLElement/copy_event)- oder `paste`-Operation betroffen sind, zusammen mit ihrem MIME-Typ.
 
 ## Beispiel
 
-Dieses Beispiel protokolliert jeden Kopier- und Einfügeversuch in das {{htmlElement("textarea")}}.
+Dieses Beispiel protokolliert jeden Kopier- und Einfügeversuch in der {{htmlElement("textarea")}}.
 
 ### HTML
 
@@ -82,5 +82,5 @@ editor.onpaste = logPaste;
 ## Siehe auch
 
 - Verwandte Ereignisse
-  - [`copy`](/de/docs/Web/API/HTMLElement/copy_event)-Ereignis
-  - [`cut`](/de/docs/Web/API/HTMLElement/cut_event)-Ereignis
+  - [`copy`](/de/docs/Web/API/HTMLElement/copy_event) Ereignis
+  - [`cut`](/de/docs/Web/API/HTMLElement/cut_event) Ereignis

@@ -1,28 +1,31 @@
 ---
-title: "Dokument: DOMContentLoaded-Ereignis"
+title: "Dokument: DOMContentLoaded Ereignis"
 short-title: DOMContentLoaded
 slug: Web/API/Document/DOMContentLoaded_event
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{APIRef}}
 
-Das **`DOMContentLoaded`**-Ereignis wird ausgelöst, wenn das HTML-Dokument vollständig geparst wurde und alle verzögerten Skripte ([`<script defer src="…">`](/de/docs/Web/HTML/Reference/Elements/script#defer) und [`<script type="module">`](/de/docs/Web/HTML/Reference/Elements/script#module)) heruntergeladen und ausgeführt wurden. Es wartet nicht darauf, dass andere Dinge wie Bilder, Subframes und asynchrone Skripte das Laden abgeschlossen haben.
+Das **`DOMContentLoaded`** Ereignis wird ausgelöst, wenn das HTML-Dokument vollständig geparst wurde und alle verzögerten Skripte ([`<script defer src="…">`](/de/docs/Web/HTML/Reference/Elements/script#defer) und [`<script type="module">`](/de/docs/Web/HTML/Reference/Elements/script#module)) heruntergeladen und ausgeführt wurden. Es wartet nicht darauf, dass andere Elemente wie Bilder, Subframes oder asynchrone Skripte das Laden abgeschlossen haben.
 
-`DOMContentLoaded` wartet nicht darauf, dass Stylesheets geladen werden; verzögerte Skripte _warten_ jedoch auf Stylesheets, und das `DOMContentLoaded`-Ereignis wird nach verzögerten Skripten in die Warteschlange gestellt. Auch Skripte, die weder verzögert noch asynchron sind (z.B. `<script>`), warten auf bereits geparste Stylesheets.
+`DOMContentLoaded` wartet nicht auf Stylesheets, jedoch warten verzögerte Skripte _auf_ Stylesheets, und das `DOMContentLoaded` Ereignis wird in die Warteschlange nach verzögerten Skripten gestellt. Auch Skripte, die nicht verzögert oder asynchron sind (z. B. `<script>`), warten darauf, dass bereits geparste Stylesheets geladen werden.
 
 Ein anderes Ereignis, [`load`](/de/docs/Web/API/Window/load_event), sollte nur verwendet werden, um eine vollständig geladene Seite zu erkennen. Es ist ein häufiger Fehler, `load` zu verwenden, wo `DOMContentLoaded` angemessener wäre.
 
-Dieses Ereignis ist nicht abbrechbar.
+Dieses Ereignis kann nicht abgebrochen werden.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener).
 
-```js
-addEventListener("DOMContentLoaded", (event) => {});
+```js-nolint
+addEventListener("DOMContentLoaded", (event) => { })
 ```
+
+> [!NOTE]
+> Es gibt keine `onDOMContentLoaded` Ereignishandler-Eigenschaft für dieses Ereignis.
 
 ## Ereignistyp
 
@@ -52,9 +55,9 @@ document.addEventListener("DOMContentLoaded", (event) => {
 </script>
 ```
 
-### Überprüfung, ob das Laden bereits abgeschlossen ist
+### Überprüfen, ob das Laden bereits abgeschlossen ist
 
-`DOMContentLoaded` kann ausgelöst werden, bevor Ihr Skript die Chance hat, ausgeführt zu werden, daher ist es ratsam, dies zu überprüfen, bevor ein Listener hinzugefügt wird.
+`DOMContentLoaded` kann ausgelöst werden, bevor Ihr Skript eine Chance zur Ausführung hat, daher ist es klug, vor dem Hinzufügen eines Listeners zu überprüfen.
 
 ```js
 function doSomething() {
@@ -71,7 +74,7 @@ if (document.readyState === "loading") {
 ```
 
 > [!NOTE]
-> Es gibt hier keine Race-Condition — es ist nicht möglich, dass das Dokument zwischen der `if`-Prüfung und dem `addEventListener()`-Aufruf geladen wird. JavaScript hat Run-to-Completion-Semantik, was bedeutet, dass wenn das Dokument zu einem bestimmten Tick der Ereignisschleife geladen wird, es nicht vor dem nächsten Zyklus geladen werden kann, zu welchem Zeitpunkt der `doSomething`-Handler bereits angehängt ist und ausgelöst wird.
+> Es gibt hier keine Race-Condition — es ist nicht möglich, dass das Dokument zwischen der `if`-Überprüfung und dem `addEventListener()`-Aufruf geladen wird. JavaScript hat Ausführungssemantiken, was bedeutet, dass, wenn das Dokument zu einem bestimmten Zeitpunkt des Event-Loops lädt, es erst im nächsten Zyklus geladen sein kann, zu welchem Zeitpunkt der `doSomething`-Handler bereits angehängt ist und ausgelöst wird.
 
 ### Live-Beispiel
 

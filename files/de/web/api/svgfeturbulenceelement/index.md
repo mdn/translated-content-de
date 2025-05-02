@@ -2,109 +2,60 @@
 title: SVGFETurbulenceElement
 slug: Web/API/SVGFETurbulenceElement
 l10n:
-  sourceCommit: 226ac33eb70ed5411dd2d68bd602c80cafd780b6
+  sourceCommit: 2e39a37874913a1e3fd82999467505fd525e9177
 ---
 
 {{APIRef("SVG")}}
 
-Die **`SVGFETurbulenceElement`** Schnittstelle entspricht dem {{SVGElement("feTurbulence")}} Element.
+Das **`SVGFETurbulenceElement`** Interface entspricht dem {{SVGElement("feTurbulence")}} Element.
 
 {{InheritanceDiagram}}
 
-## Konstanten
-
-### Turbulenztypen
-
-<table class="no-markdown">
-  <tbody>
-    <tr>
-      <th>Name</th>
-      <th>Wert</th>
-      <th>Beschreibung</th>
-    </tr>
-    <tr>
-      <td><code>SVG_TURBULENCE_TYPE_UNKNOWN</code></td>
-      <td>0</td>
-      <td>
-        Der Typ gehört nicht zu einer der vordefinierten Typen. Es ist ungültig,
-        einen neuen Wert dieses Typs zu definieren oder zu versuchen, einen bestehenden
-        Wert zu diesem Typ zu wechseln.
-      </td>
-    </tr>
-    <tr>
-      <td><code>SVG_TURBULENCE_TYPE_FRACTALNOISE</code></td>
-      <td>1</td>
-      <td>Entspricht dem <code>fractalNoise</code> Wert.</td>
-    </tr>
-    <tr>
-      <td><code>SVG_TURBULENCE_TYPE_TURBULENCE</code></td>
-      <td>2</td>
-      <td>Entspricht dem <code>turbulence</code> Wert.</td>
-    </tr>
-  </tbody>
-</table>
-
-### Stitch-Optionen
-
-<table class="no-markdown">
-  <tbody>
-    <tr>
-      <th>Name</th>
-      <th>Wert</th>
-      <th>Beschreibung</th>
-    </tr>
-    <tr>
-      <td><code>SVG_STITCHTYPE_UNKNOWN</code></td>
-      <td>0</td>
-      <td>
-        Der Typ gehört nicht zu einer der vordefinierten Typen. Es ist ungültig,
-        einen neuen Wert dieses Typs zu definieren oder zu versuchen, einen bestehenden
-        Wert zu diesem Typ zu wechseln.
-      </td>
-    </tr>
-    <tr>
-      <td><code>SVG_STITCHTYPE_STITCH</code></td>
-      <td>1</td>
-      <td>Entspricht dem <code>stitch</code> Wert.</td>
-    </tr>
-    <tr>
-      <td><code>SVG_STITCHTYPE_NOSTITCH</code></td>
-      <td>2</td>
-      <td>Entspricht dem <code>noStitch</code> Wert.</td>
-    </tr>
-  </tbody>
-</table>
-
 ## Instanz-Eigenschaften
 
-_Diese Schnittstelle erbt auch Eigenschaften von ihrer Elternschnittstelle, [`SVGElement`](/de/docs/Web/API/SVGElement)._
+_Dieses Interface erbt auch Eigenschaften von seinem Eltern-Interface, [`SVGElement`](/de/docs/Web/API/SVGElement)._
 
 - [`SVGFETurbulenceElement.baseFrequencyX`](/de/docs/Web/API/SVGFETurbulenceElement/baseFrequencyX) {{ReadOnlyInline}}
-  - : Ein [`SVGAnimatedNumber`](/de/docs/Web/API/SVGAnimatedNumber), der der X-Komponente des {{SVGAttr("baseFrequency")}} Attributs des gegebenen Elements entspricht.
+  - : Ein [`SVGAnimatedNumber`](/de/docs/Web/API/SVGAnimatedNumber), das der X-Komponente des {{SVGAttr("baseFrequency")}}-Attributs des gegebenen Elements entspricht.
 - [`SVGFETurbulenceElement.baseFrequencyY`](/de/docs/Web/API/SVGFETurbulenceElement/baseFrequencyY) {{ReadOnlyInline}}
-  - : Ein [`SVGAnimatedNumber`](/de/docs/Web/API/SVGAnimatedNumber), der der Y-Komponente des {{SVGAttr("baseFrequency")}} Attributs des gegebenen Elements entspricht.
+  - : Ein [`SVGAnimatedNumber`](/de/docs/Web/API/SVGAnimatedNumber), das der Y-Komponente des {{SVGAttr("baseFrequency")}}-Attributs des gegebenen Elements entspricht.
 - [`SVGFETurbulenceElement.height`](/de/docs/Web/API/SVGFETurbulenceElement/height) {{ReadOnlyInline}}
-  - : Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), der dem {{SVGAttr("height")}} Attribut des gegebenen Elements entspricht.
+  - : Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), das dem {{SVGAttr("height")}}-Attribut des gegebenen Elements entspricht.
 - [`SVGFETurbulenceElement.numOctaves`](/de/docs/Web/API/SVGFETurbulenceElement/numOctaves) {{ReadOnlyInline}}
-  - : Ein [`SVGAnimatedInteger`](/de/docs/Web/API/SVGAnimatedInteger), der dem {{SVGAttr("numOctaves")}} Attribut des gegebenen Elements entspricht.
+  - : Ein [`SVGAnimatedInteger`](/de/docs/Web/API/SVGAnimatedInteger), das dem {{SVGAttr("numOctaves")}}-Attribut des gegebenen Elements entspricht.
 - [`SVGFETurbulenceElement.result`](/de/docs/Web/API/SVGFETurbulenceElement/result) {{ReadOnlyInline}}
-  - : Ein [`SVGAnimatedString`](/de/docs/Web/API/SVGAnimatedString), der dem {{SVGAttr("result")}} Attribut des gegebenen Elements entspricht.
+  - : Ein [`SVGAnimatedString`](/de/docs/Web/API/SVGAnimatedString), das dem {{SVGAttr("result")}}-Attribut des gegebenen Elements entspricht.
 - [`SVGFETurbulenceElement.seed`](/de/docs/Web/API/SVGFETurbulenceElement/seed) {{ReadOnlyInline}}
-  - : Ein [`SVGAnimatedNumber`](/de/docs/Web/API/SVGAnimatedNumber), der dem {{SVGAttr("seed")}} Attribut des gegebenen Elements entspricht.
+  - : Ein [`SVGAnimatedNumber`](/de/docs/Web/API/SVGAnimatedNumber), das dem {{SVGAttr("seed")}}-Attribut des gegebenen Elements entspricht.
 - [`SVGFETurbulenceElement.stitchTiles`](/de/docs/Web/API/SVGFETurbulenceElement/stitchTiles) {{ReadOnlyInline}}
-  - : Ein [`SVGAnimatedEnumeration`](/de/docs/Web/API/SVGAnimatedEnumeration), der dem {{SVGAttr("stitchTiles")}} Attribut des gegebenen Elements entspricht. Es nimmt einen der `SVG_STITCHTYPE_*` Konstanten an, die in dieser Schnittstelle definiert sind.
+  - : Ein [`SVGAnimatedEnumeration`](/de/docs/Web/API/SVGAnimatedEnumeration), das dem {{SVGAttr("stitchTiles")}}-Attribut des gegebenen Elements entspricht. Es nimmt einen der `SVG_STITCHTYPE_*` Konstanten an, die in diesem Interface definiert sind.
 - [`SVGFETurbulenceElement.type`](/de/docs/Web/API/SVGFETurbulenceElement/type) {{ReadOnlyInline}}
-  - : Ein [`SVGAnimatedEnumeration`](/de/docs/Web/API/SVGAnimatedEnumeration), der dem {{SVGAttr("type")}} Attribut des gegebenen Elements entspricht. Es nimmt einen der `SVG_TURBULENCE_TYPE_*` Konstanten an, die in dieser Schnittstelle definiert sind.
+  - : Ein [`SVGAnimatedEnumeration`](/de/docs/Web/API/SVGAnimatedEnumeration), das dem {{SVGAttr("type")}}-Attribut des gegebenen Elements entspricht. Es nimmt einen der `SVG_TURBULENCE_TYPE_*` Konstanten an, die in diesem Interface definiert sind.
 - [`SVGFETurbulenceElement.width`](/de/docs/Web/API/SVGFETurbulenceElement/width) {{ReadOnlyInline}}
-  - : Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), der dem {{SVGAttr("width")}} Attribut des gegebenen Elements entspricht.
+  - : Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), das dem {{SVGAttr("width")}}-Attribut des gegebenen Elements entspricht.
 - [`SVGFETurbulenceElement.x`](/de/docs/Web/API/SVGFETurbulenceElement/x) {{ReadOnlyInline}}
-  - : Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), der dem {{SVGAttr("x")}} Attribut des gegebenen Elements entspricht.
+  - : Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), das dem {{SVGAttr("x")}}-Attribut des gegebenen Elements entspricht.
 - [`SVGFETurbulenceElement.y`](/de/docs/Web/API/SVGFETurbulenceElement/y) {{ReadOnlyInline}}
-  - : Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), der dem {{SVGAttr("y")}} Attribut des gegebenen Elements entspricht.
+  - : Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGFETurbulenceElement/y), das dem {{SVGAttr("y")}}-Attribut des gegebenen Elements entspricht.
 
 ## Instanz-Methoden
 
-_Diese Schnittstelle bietet keine spezifischen Methoden, implementiert jedoch die ihrer Elternschnittstelle, [`SVGElement`](/de/docs/Web/API/SVGElement)._
+_Dieses Interface bietet keine spezifischen Methoden, implementiert aber die seines Eltern-Interfaces, [`SVGElement`](/de/docs/Web/API/SVGElement)._
+
+## Statische Eigenschaften
+
+- `SVG_TURBULENCE_TYPE_UNKNOWN` (0)
+  - : Der Typ ist nicht einer der vordefinierten Typen. Es ist ungültig, zu versuchen, einen neuen Wert dieses Typs zu definieren oder einen bestehenden Wert auf diesen Typ zu wechseln.
+- `SVG_TURBULENCE_TYPE_FRACTALNOISE` (1)
+  - : Entspricht dem Wert `fractalNoise`.
+- `SVG_TURBULENCE_TYPE_TURBULENCE` (2)
+  - : Entspricht dem Wert `turbulence`.
+- `SVG_STITCHTYPE_UNKNOWN` (0)
+  - : Der Typ ist nicht einer der vordefinierten Typen. Es ist ungültig, zu versuchen, einen neuen Wert dieses Typs zu definieren oder einen bestehenden Wert auf diesen Typ zu wechseln.
+- `SVG_STITCHTYPE_STITCH` (1)
+  - : Entspricht dem Wert `stitch`.
+- `SVG_STITCHTYPE_NOSTITCH` (2)
+  - : Entspricht dem Wert `noStitch`.
 
 ## Spezifikationen
 

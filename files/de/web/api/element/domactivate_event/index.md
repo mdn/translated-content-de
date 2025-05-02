@@ -1,23 +1,23 @@
 ---
-title: "Element: DOMActivate Event"
+title: "Element: DOMActivate Ereignis"
 short-title: DOMActivate
 slug: Web/API/Element/DOMActivate_event
 l10n:
-  sourceCommit: e4e57ab3ccb5f93319f8fe13848d4895d3e1e771
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{APIRef}}{{Deprecated_Header}}
 
-Das **`DOMActivate`**-Ereignis wird bei einem Element ausgelöst, wenn es aktiv wird, etwa wenn es mit der Maus angeklickt wird oder eine Tasteneingabe verwendet wird, um zu ihm zu navigieren.
+Das **`DOMActivate`** Ereignis wird bei einem Element ausgelöst, wenn es aktiv wird, beispielsweise wenn darauf geklickt wird oder eine Taste verwendet wird, um es zu navigieren.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
-```js
-addEventListener("DOMActivate", (event) => {});
+```js-nolint
+addEventListener("DOMActivate", (event) => { })
 
-onDOMActivate = (event) => {};
+onDOMActivate = (event) => { }
 ```
 
 ## Ereignistyp

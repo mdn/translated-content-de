@@ -1,37 +1,37 @@
 ---
-title: "Element: cut Event"
+title: "Element: cut event"
 short-title: cut
 slug: Web/API/Element/cut_event
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{APIRef}}
 
-Das **`cut`**-Ereignis der [Clipboard API](/de/docs/Web/API/Clipboard_API) wird ausgelöst, wenn der Benutzer eine "Ausschneiden"-Aktion über die Benutzeroberfläche des Browsers initiiert hat.
+Das **`cut`**-Ereignis der [Zwischenablage-API](/de/docs/Web/API/Clipboard_API) wird ausgelöst, wenn der Benutzer eine "Ausschneiden"-Aktion über die Benutzeroberfläche des Browsers initiiert hat.
 
-Wenn der Benutzer versucht, eine Ausschneideaktion auf nicht bearbeitbarem Inhalt durchzuführen, wird das `cut`-Ereignis trotzdem ausgelöst, aber das Ereignisobjekt enthält keine Daten.
+Wenn der Benutzer versucht, eine Ausschneideaktion auf nicht bearbeitbarem Inhalt auszuführen, wird das `cut`-Ereignis trotzdem ausgelöst, aber das Ereignisobjekt enthält keine Daten.
 
-Die Standardaktion des Ereignisses besteht darin, die aktuelle Auswahl (falls vorhanden) in die Systemzwischenablage zu kopieren und sie aus dem Dokument zu entfernen.
+Die Standardaktion des Ereignisses besteht darin, die aktuelle Auswahl (falls vorhanden) in die Systemzwischenablage zu kopieren und aus dem Dokument zu entfernen.
 
-Ein Handler für dieses Ereignis kann die Inhalte der Zwischenablage _modifizieren_, indem er [`setData(format, data)`](/de/docs/Web/API/DataTransfer/setData) auf der [`ClipboardEvent.clipboardData`](/de/docs/Web/API/ClipboardEvent/clipboardData)-Eigenschaft des Ereignisses aufruft und die Standardaktion mit [`event.preventDefault()`](/de/docs/Web/API/Event/preventDefault) abbricht.
+Ein Handler für dieses Ereignis kann die Zwischenablage-Inhalte _ändern_, indem er [`setData(format, data)`](/de/docs/Web/API/DataTransfer/setData) auf der [`ClipboardEvent.clipboardData`](/de/docs/Web/API/ClipboardEvent/clipboardData)-Eigenschaft des Ereignisses aufruft und die Standardaktion mit [`event.preventDefault()`](/de/docs/Web/API/Event/preventDefault) verhindert.
 
-Beachten Sie jedoch, dass das Abbrechen der Standardaktion auch verhindert, dass das Dokument aktualisiert wird. Ein Ereignishandler, der die Standardaktion für "Ausschneiden" emulieren möchte, während er die Zwischenablage modifiziert, muss daher auch manuell die Auswahl aus dem Dokument entfernen.
+Beachten Sie jedoch, dass das Abbrechen der Standardaktion auch verhindert, dass das Dokument aktualisiert wird. Ein Ereignishandler, der die Standardaktion für "Ausschneiden" emulieren und gleichzeitig die Zwischenablage ändern möchte, muss die Auswahl daher auch manuell aus dem Dokument entfernen.
 
-Der Handler kann die Daten der Zwischenablage nicht _lesen_.
+Der Handler kann die Zwischenablage-Daten nicht _lesen_.
 
-Es ist möglich, ein [synthetisches](/de/docs/Web/Events/Creating_and_triggering_events) `cut`-Ereignis zu erstellen und auszulösen, aber dies wird weder die Systemzwischenablage noch den Inhalt des Dokuments beeinflussen.
+Es ist möglich, ein [synthetisches](/de/docs/Web/Events/Creating_and_triggering_events) `cut`-Ereignis zu konstruieren und zu versenden, aber dies wird weder die Systemzwischenablage noch den Dokumentinhalt beeinflussen.
 
-Dieses Ereignis [bubbliciert](/de/docs/Learn_web_development/Core/Scripting/Event_bubbling), ist [stornierbar](/de/docs/Web/API/Event/cancelable) und ist [komponiert](/de/docs/Web/API/Event/composed).
+Dieses Ereignis [blubbert](/de/docs/Learn_web_development/Core/Scripting/Event_bubbling), ist [abbruchsbereit](/de/docs/Web/API/Event/cancelable) und ist [zusammengesetzt](/de/docs/Web/API/Event/composed).
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
-```js
-addEventListener("cut", (event) => {});
+```js-nolint
+addEventListener("cut", (event) => { })
 
-oncut = (event) => {};
+oncut = (event) => { }
 ```
 
 ## Ereignistyp

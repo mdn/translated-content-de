@@ -1,25 +1,25 @@
 ---
-title: "RTCDtlsTransport: error-Ereignis"
+title: "RTCDtlsTransport: error event"
 short-title: error
 slug: Web/API/RTCDtlsTransport/error_event
 l10n:
-  sourceCommit: 802b6063046dffb7634d2138aadcd92cb22ed40c
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{APIRef("WebRTC")}}
 
-Ein [`RTCDtlsTransport`](/de/docs/Web/API/RTCDtlsTransport) empfängt ein `error`-Ereignis, wenn ein Transportfehler in der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) auftritt.
+Ein [`RTCDtlsTransport`](/de/docs/Web/API/RTCDtlsTransport) erhält ein `error`-Ereignis, wenn ein Fehler auf der Transporteebene bei der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) auftritt.
 
-Dieses Ereignis ist nicht abbrechbar und bubblet nicht.
+Dieses Ereignis kann nicht abgebrochen werden und wird nicht weitergeleitet.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Event-Handler-Eigenschaft.
 
-```js
-addEventListener("error", (event) => {});
+```js-nolint
+addEventListener("error", (event) => { })
 
-onerror = (event) => {};
+onerror = (event) => { }
 ```
 
 ## Ereignistyp
@@ -30,23 +30,23 @@ Ein [`RTCErrorEvent`](/de/docs/Web/API/RTCErrorEvent). Erbt von [`Event`](/de/do
 
 ## Ereigniseigenschaften
 
-_Zusätzlich zu den Standard-Eigenschaften, die in der [`Event`](/de/docs/Web/API/Event)-Schnittstelle verfügbar sind, enthält `RTCErrorEvent` auch folgende:_
+_Neben den standardmäßigen Eigenschaften, die auf der [`Event`](/de/docs/Web/API/Event)-Schnittstelle verfügbar sind, enthält `RTCErrorEvent` auch die folgenden:_
 
 - [`error`](/de/docs/Web/API/RTCErrorEvent/error) {{ReadOnlyInline}}
-  - : Ein [`RTCError`](/de/docs/Web/API/RTCError)-Objekt, das den aufgetretenen Fehler spezifiziert; dieses Objekt enthält den Fehlertyp, Informationen darüber, wo der Fehler aufgetreten ist (wie zum Beispiel welche Zeilennummer im {{Glossary("SDP", "SDP")}} oder welcher {{Glossary("SCTP", "SCTP")}}-Ursachencode betroffen war).
+  - : Ein [`RTCError`](/de/docs/Web/API/RTCError)-Objekt, das den aufgetretenen Fehler angibt; dieses Objekt enthält den Fehler-Typ, Informationen über den Ort des Fehlers (wie z.B. welche Zeilennummer im {{Glossary("SDP", "SDP")}} oder welcher {{Glossary("SCTP", "SCTP")}}-Ursachencode betroffen war).
 
 ## Beschreibung
 
-Transportfehler haben einen der folgenden Werte für die spezielle Fehler-Eigenschaft [`RTCError`](/de/docs/Web/API/RTCError) [`errorDetail`](/de/docs/Web/API/RTCError/errorDetail):
+Fehler auf der Transporteebene werden einen der folgenden Werte für die spezifische Fehler [`RTCError`](/de/docs/Web/API/RTCError)-Eigenschaft [`errorDetail`](/de/docs/Web/API/RTCError/errorDetail) haben:
 
 - `dtls-failure`
-  - : Die Aushandlung der {{Glossary("DTLS", "DTLS")}}-Verbindung schlug fehl oder die Verbindung wurde mit einem schwerwiegenden Fehler beendet. Die [`message`](/de/docs/Web/API/DOMException/message) des Fehlers enthält Details zur Art des Fehlers. Wenn ein schwerwiegender Fehler _empfangen_ wird, wird die Eigenschaft [`receivedAlert`](/de/docs/Web/API/RTCError/receivedAlert) des Fehlerobjekts auf den Wert des empfangenen DTLSL-Alarms gesetzt. Wenn andererseits ein schwerwiegender Fehler _gesendet_ wurde, wird [`sentAlert`](/de/docs/Web/API/RTCError/sentAlert) auf den Wert des Alarms gesetzt.
+  - : Die Aushandlung der {{Glossary("DTLS", "DTLS")}}-Verbindung ist fehlgeschlagen oder die Verbindung wurde mit einem schwerwiegenden Fehler beendet. Die [`message`](/de/docs/Web/API/DOMException/message) des Fehlers enthält Details zur Art des Fehlers. Wenn ein schwerwiegender Fehler _empfangen_ wird, wird die Eigenschaft [`receivedAlert`](/de/docs/Web/API/RTCError/receivedAlert) des Fehlerobjekts auf den Wert der empfangenen DTLSL-Warnung gesetzt. Wenn hingegen ein schwerwiegender Fehler _gesendet_ wurde, wird [`sentAlert`](/de/docs/Web/API/RTCError/sentAlert) auf den Wert der Warnung gesetzt.
 - `fingerprint-failure`
-  - : Das Remote-Zertifikat für das [`RTCDtlsTransport`](/de/docs/Web/API/RTCDtlsTransport) stimmte mit keinem der in der SDP aufgelisteten Fingerabdrücke überein. Kann das Remote-Peer das lokale Zertifikat nicht mit den bereitgestellten Fingerabdrücken abgleichen, tritt dieser Fehler nicht auf, obwohl diese Situation stattdessen zu einem `dtls-failure`-Fehler führen kann.
+  - : Das entfernte Zertifikat für den [`RTCDtlsTransport`](/de/docs/Web/API/RTCDtlsTransport) stimmte nicht mit einem der im SDP aufgeführten Fingerabdrücke überein. Wenn das entfernte Peering das lokale Zertifikat nicht mit den bereitgestellten Fingerabdrücken abgleichen kann, tritt dieser Fehler nicht auf, obwohl dies stattdessen zu einem `dtls-failure` führen kann.
 
 ## Beispiele
 
-In diesem Beispiel wird die [`onerror`](/de/docs/Web/API/RTCDtlsTransport/onerror)-Ereignishandler-Eigenschaft verwendet, um den Handler für das `error`-Ereignis festzulegen.
+In diesem Beispiel wird die [`onerror`](/de/docs/Web/API/RTCDtlsTransport/onerror) Ereignis-Handler-Eigenschaft verwendet, um den Handler für das `error`-Ereignis festzulegen.
 
 ```js
 transport.onerror = (ev) => {
@@ -57,7 +57,7 @@ transport.onerror = (ev) => {
 ```
 
 > [!NOTE]
-> Da `RTCError` kein Fehler aus der Legacy-Gruppe ist, hat der Wert von [`code`](/de/docs/Web/API/DOMException/code) immer den Wert 0.
+> Da `RTCError` nicht zu den veralteten Fehlern gehört, ist der Wert von [`code`](/de/docs/Web/API/DOMException/code) immer 0.
 
 ## Spezifikationen
 

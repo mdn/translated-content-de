@@ -1,25 +1,25 @@
 ---
-title: "PictureInPictureWindow: resize Ereignis"
+title: "PictureInPictureWindow: resize-Ereignis"
 short-title: resize
 slug: Web/API/PictureInPictureWindow/resize_event
 l10n:
-  sourceCommit: c58e8c1dd6ecbcb63894c7dd17fb9495b9511b4e
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{APIRef("Picture-in-Picture API")}}
 
-Das **`resize`** Ereignis tritt auf, wenn das schwebende Video-Fenster in der Größe verändert wurde.
+Das **`resize`**-Ereignis wird ausgelöst, wenn das schwebende Video-Fenster in der Größe verändert wurde.
 
-Dieses Ereignis kann nicht abgebrochen werden und wird nicht weitergegeben.
+Dieses Ereignis kann nicht abgebrochen werden und wird nicht nach oben weitergereicht.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
-```js
-addEventListener("resize", (event) => {});
+```js-nolint
+addEventListener("resize", (event) => { })
 
-onresize = (event) => {};
+onresize = (event) => { }
 ```
 
 ## Ereignistyp
@@ -28,16 +28,16 @@ Ein [`PictureInPictureEvent`](/de/docs/Web/API/PictureInPictureEvent). Erbt von 
 
 {{InheritanceDiagram("PictureInPictureEvent")}}
 
-## Ereigniseigenschaften
+## Eigenschaften des Ereignisses
 
-_Neben den unten aufgeführten Eigenschaften sind auch die Eigenschaften der übergeordneten Schnittstelle [`Event`](/de/docs/Web/API/Event) verfügbar._
+_Zusätzlich zu den unten aufgeführten Eigenschaften sind Eigenschaften von der übergeordneten Schnittstelle, [`Event`](/de/docs/Web/API/Event), verfügbar._
 
 - [`PictureInPictureEvent.pictureInPictureWindow`](/de/docs/Web/API/PictureInPictureEvent/pictureInPictureWindow)
   - : Gibt das [`PictureInPictureWindow`](/de/docs/Web/API/PictureInPictureWindow) zurück, das in der Größe verändert wurde.
 
 ## Beispiele
 
-### Fenstergrößen-Protokollierer
+### Fenstergrößen-Logger
 
 ```html
 <p>Resize the floating video window to fire the <code>resize</code> event.</p>

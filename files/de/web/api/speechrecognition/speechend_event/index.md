@@ -1,23 +1,23 @@
 ---
-title: "SpeechRecognition: speechend-Ereignis"
+title: "SpeechRecognition: speechend Ereignis"
 short-title: speechend
 slug: Web/API/SpeechRecognition/speechend_event
 l10n:
-  sourceCommit: f2f9346c0c0e9f6676f2df9f1850933e274401de
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{APIRef("Web Speech API")}}
 
-Das **`speechend`**-Ereignis der [Web Speech API](/de/docs/Web/API/Web_Speech_API) wird ausgelöst, wenn die vom Spracherkennungsdienst erkannte Sprache nicht mehr erkannt wird.
+Das **`speechend`**-Ereignis der [Web Speech API](/de/docs/Web/API/Web_Speech_API) wird ausgelöst, wenn gesprochene Sprache, die vom Spracherkennungsdienst erkannt wurde, nicht mehr erkannt wird.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder legen Sie eine Ereignisbehandlungs-Eigenschaft fest.
 
-```js
-addEventListener("speechend", (event) => {});
+```js-nolint
+addEventListener("speechend", (event) => { })
 
-onspeechend = (event) => {};
+onspeechend = (event) => { }
 ```
 
 ## Ereignistyp
@@ -36,7 +36,7 @@ recognition.addEventListener("speechend", () => {
 });
 ```
 
-Oder verwenden Sie die `onspeechend`-Ereignishandler-Eigenschaft:
+Oder die `onspeechend`-Ereignisbehandlungs-Eigenschaft nutzen:
 
 ```js
 recognition.onspeechend = () => {

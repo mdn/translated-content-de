@@ -1,25 +1,25 @@
 ---
-title: "HTMLCanvasElement: webglcontextlost Ereignis"
+title: "HTMLCanvasElement: webglcontextlost-Ereignis"
 short-title: webglcontextlost
 slug: Web/API/HTMLCanvasElement/webglcontextlost_event
 l10n:
-  sourceCommit: a3d9f61a8990ba7b53bda9748d1f26a9e9810b18
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{APIRef}}
 
-Das **`webglcontextlost`** Ereignis der [WebGL API](/de/docs/Web/API/WebGL_API) wird ausgelöst, wenn der Benutzeragent erkennt, dass der Zeichnungspuffer, der mit einem [`WebGLRenderingContext`](/de/docs/Web/API/WebGLRenderingContext) Objekt verbunden ist, verloren gegangen ist.
+Das **`webglcontextlost`**-Ereignis der [WebGL-API](/de/docs/Web/API/WebGL_API) wird ausgelöst, wenn der Benutzeragent erkennt, dass der mit einem [`WebGLRenderingContext`](/de/docs/Web/API/WebGLRenderingContext) Objekt verbundene Zeichenpuffer verloren gegangen ist.
 
-Dieses Ereignis steigt nicht auf.
+Dieses Ereignis wird nicht weitergeleitet.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
-```js
-addEventListener("webglcontextlost", (event) => {});
+```js-nolint
+addEventListener("webglcontextlost", (event) => { })
 
-onwebglcontextlost = (event) => {};
+onwebglcontextlost = (event) => { }
 ```
 
 ## Ereignistyp
@@ -28,16 +28,16 @@ Ein [`WebGLContextEvent`](/de/docs/Web/API/WebGLContextEvent). Erbt von [`Event`
 
 {{InheritanceDiagram("WebGLContextEvent")}}
 
-## Eigenschaften des Ereignisses
+## Ereigniseigenschaften
 
-_Dieses Interface erbt Eigenschaften von seinem Eltern-Interface, [`Event`](/de/docs/Web/API/Event)._
+_Diese Schnittstelle erbt Eigenschaften von ihrer übergeordneten Schnittstelle, [`Event`](/de/docs/Web/API/Event)._
 
 - [`WebGLContextEvent.statusMessage`](/de/docs/Web/API/WebGLContextEvent/statusMessage)
   - : Eine schreibgeschützte Eigenschaft, die zusätzliche Informationen über das Ereignis enthält.
 
 ## Beispiel
 
-Mit Hilfe der [`WEBGL_lose_context`](/de/docs/Web/API/WEBGL_lose_context) Erweiterung können Sie das `webglcontextlost` Ereignis simulieren:
+Mithilfe der [`WEBGL_lose_context`](/de/docs/Web/API/WEBGL_lose_context)-Erweiterung können Sie das `webglcontextlost`-Ereignis simulieren:
 
 ```js
 const canvas = document.getElementById("canvas");

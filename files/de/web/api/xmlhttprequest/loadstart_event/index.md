@@ -1,9 +1,9 @@
 ---
-title: "XMLHttpRequest: loadstart-Ereignis"
+title: "XMLHttpRequest: loadstart-Event"
 short-title: loadstart
 slug: Web/API/XMLHttpRequest/loadstart_event
 l10n:
-  sourceCommit: 9c78a44b9321fcd3fbe63d6f5b61ed749c2fa261
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{APIRef("XMLHttpRequest API")}} {{AvailableInWorkers("window_and_worker_except_service")}}
@@ -14,10 +14,10 @@ Das **`loadstart`**-Ereignis wird ausgelöst, wenn eine Anfrage begonnen hat, Da
 
 Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
-```js
-addEventListener("loadstart", (event) => {});
+```js-nolint
+addEventListener("loadstart", (event) => { })
 
-onloadstart = (event) => {};
+onloadstart = (event) => { }
 ```
 
 ## Ereignistyp
@@ -28,14 +28,14 @@ Ein [`ProgressEvent`](/de/docs/Web/API/ProgressEvent). Erbt von [`Event`](/de/do
 
 ## Ereigniseigenschaften
 
-_Neben den unten aufgelisteten Eigenschaften sind auch Eigenschaften der übergeordneten Schnittstelle, [`Event`](/de/docs/Web/API/Event), verfügbar._
+_Zusätzlich zu den unten aufgeführten Eigenschaften sind Eigenschaften von der Elternschnittstelle, [`Event`](/de/docs/Web/API/Event), verfügbar._
 
 - [`lengthComputable`](/de/docs/Web/API/ProgressEvent/lengthComputable) {{ReadOnlyInline}}
-  - : Ein boolesches Flag, das angibt, ob die gesamte zu erledigende Arbeit und die bereits geleistete Arbeit durch den zugrunde liegenden Prozess berechenbar sind. Mit anderen Worten, es gibt an, ob der Fortschritt messbar ist oder nicht.
+  - : Ein boolesches Flag, das anzeigt, ob die gesamte Arbeit, die zu erledigen ist, und die bereits erledigte Arbeit durch den zugrunde liegenden Prozess berechenbar sind. Mit anderen Worten, es wird angezeigt, ob der Fortschritt messbar ist oder nicht.
 - [`loaded`](/de/docs/Web/API/ProgressEvent/loaded) {{ReadOnlyInline}}
-  - : Ein 64-Bit-Integer-Wert, der die bereits durch den zugrunde liegenden Prozess geleistete Arbeit angibt. Der Anteil der geleisteten Arbeit kann berechnet werden, indem dieser Wert durch `total` geteilt wird. Beim Herunterladen einer Ressource über HTTP zählt dies nur den Körper der HTTP-Nachricht und schließt nicht die Header und andere Overheads ein.
+  - : Ein 64-Bit-ganzzahliger Wert ohne Vorzeichen, der die bereits vom zugrunde liegenden Prozess geleistete Arbeit angibt. Der geleistete Arbeitsanteil kann berechnet werden, indem der Wert dieser Eigenschaft durch `total` geteilt wird. Beim Herunterladen einer Ressource über HTTP zählt dies nur den Körper der HTTP-Nachricht und schließt Header und anderen Overhead aus.
 - [`total`](/de/docs/Web/API/ProgressEvent/total) {{ReadOnlyInline}}
-  - : Ein 64-Bit-Integer, der die Gesamtmenge der Arbeit angibt, die der zugrunde liegende Prozess zu leisten hat. Beim Herunterladen einer Ressource über HTTP entspricht dies der `Content-Length` (der Größe des Nachrichtenkörpers) und schließt nicht die Header und andere Overheads ein.
+  - : Ein 64-Bit-ganzzahliger Wert ohne Vorzeichen, der die gesamte Arbeit repräsentiert, die der zugrunde liegende Prozess gerade in der Ausführung hat. Beim Herunterladen einer Ressource über HTTP ist dies die `Content-Length` (die Größe des Nachrichtentexts) und schließt die Header und anderen Overhead aus.
 
 ## Beispiele
 
@@ -139,4 +139,4 @@ xhrButtonAbort.addEventListener("click", () => {
 ## Siehe auch
 
 - Verwandte Ereignisse: [`loadend`](/de/docs/Web/API/XMLHttpRequest/loadend_event), [`load`](/de/docs/Web/API/XMLHttpRequest/load_event), [`progress`](/de/docs/Web/API/XMLHttpRequest/progress_event), [`error`](/de/docs/Web/API/XMLHttpRequest/error_event), [`abort`](/de/docs/Web/API/XMLHttpRequest/abort_event)
-- [Fortschritt überwachen](/de/docs/Web/API/XMLHttpRequest_API/Using_XMLHttpRequest#monitoring_progress)
+- [Überwachung des Fortschritts](/de/docs/Web/API/XMLHttpRequest_API/Using_XMLHttpRequest#monitoring_progress)

@@ -1,21 +1,21 @@
 ---
-title: "AbortSignal: abort Ereignis"
+title: "AbortSignal: abort-Ereignis"
 short-title: abort
 slug: Web/API/AbortSignal/abort_event
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{APIRef("DOM")}}{{AvailableInWorkers}}
 
-Das **`abort`** Ereignis des [`AbortSignal`](/de/docs/Web/API/AbortSignal) wird ausgelöst, wenn die zugehörige Anforderung abgebrochen wird, d.h. unter Verwendung von [`AbortController.abort()`](/de/docs/Web/API/AbortController/abort).
+Das **`abort`**-Ereignis des [`AbortSignal`](/de/docs/Web/API/AbortSignal) wird ausgelöst, wenn die zugehörige Anfrage abgebrochen wird, d.h. unter Verwendung von [`AbortController.abort()`](/de/docs/Web/API/AbortController/abort).
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignisbehandlereigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Event-Handler-Eigenschaft.
 
 ```js-nolint
-addEventListener('abort', (event) => { })
+addEventListener("abort", (event) => { })
 
 onabort = (event) => { }
 ```
@@ -26,9 +26,9 @@ Ein generisches [`Event`](/de/docs/Web/API/Event) ohne zusätzliche Eigenschafte
 
 ## Beispiele
 
-In den folgenden Code-Snippets erstellen wir ein neues `AbortController`-Objekt und erhalten dessen [`AbortSignal`](/de/docs/Web/API/AbortSignal) (verfügbar über die `signal` Eigenschaft). Später prüfen wir, ob das Signal abgebrochen wurde, indem wir eine Ereignisbehandlereigenschaft verwenden.
+In den folgenden Code-Snippets erstellen wir ein neues `AbortController`-Objekt und erhalten dessen [`AbortSignal`](/de/docs/Web/API/AbortSignal) (verfügbar über die Eigenschaft `signal`). Später überprüfen wir, ob das Signal über eine Event-Handler-Eigenschaft abgebrochen wurde.
 
-Sie können das `abort` Ereignis mittels einer [`addEventListener`](/de/docs/Web/API/EventTarget/addEventListener) Methode erkennen:
+Sie können das `abort`-Ereignis mithilfe einer [`addEventListener`](/de/docs/Web/API/EventTarget/addEventListener)-Methode erkennen:
 
 ```js
 const controller = new AbortController();
@@ -39,7 +39,7 @@ signal.addEventListener("abort", () => {
 });
 ```
 
-Oder die `onabort` Ereignisbehandlereigenschaft verwenden:
+Oder verwenden Sie die `onabort`-Event-Handler-Eigenschaft:
 
 ```js
 const controller = new AbortController();
