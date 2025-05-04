@@ -3,50 +3,50 @@ title: "Element: ariaOwnsElements-Eigenschaft"
 short-title: ariaOwnsElements
 slug: Web/API/Element/ariaOwnsElements
 l10n:
-  sourceCommit: 85d5b8d224843c37974318ff04fbcc1ab69ef95d
+  sourceCommit: 6bed868c7b75c4c3ca3721fa8ed6c6ad2f41262b
 ---
 
 {{APIRef("DOM")}}
 
-Die **`ariaOwnsElements`**-Eigenschaft der [`Element`](/de/docs/Web/API/Element)-Schnittstelle ist ein Array, das das Element (oder die Elemente) enthält, die eine visuelle, funktionale oder kontextuelle Beziehung zwischen einem übergeordneten Element, auf das sie angewendet wird, und seinen untergeordneten Elementen definieren.
-Dies wird verwendet, wenn die DOM-Hierarchie nicht genutzt werden kann, um die Beziehung darzustellen, und sie ansonsten nicht für unterstützende Technologie verfügbar wäre.
+Die **`ariaOwnsElements`**-Eigenschaft des [`Element`](/de/docs/Web/API/Element)-Interfaces ist ein Array, das die Elemente enthält, die eine visuelle, funktionale oder kontextuelle Beziehung zwischen einem übergeordneten Element, auf das es angewendet wird, und seinen untergeordneten Elementen definieren.
+Dies wird verwendet, wenn die DOM-Hierarchie nicht zur Darstellung der Beziehung verwendet werden kann und ansonsten nicht für unterstützende Technologien verfügbar wäre.
 
 Das Thema [`aria-owns`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-owns) enthält zusätzliche Informationen darüber, wie das Attribut und die Eigenschaft verwendet werden sollten.
 
 ## Wert
 
-Ein Array von Unterklassen von [`HTMLElement`](/de/docs/Web/API/HTMLElement).
+Ein Array von Subklassen von [`HTMLElement`](/de/docs/Web/API/HTMLElement).
 
 Beim Lesen ist das zurückgegebene Array statisch und schreibgeschützt.
-Beim Schreiben wird das zugewiesene Array kopiert: nachfolgende Änderungen am Array beeinflussen den Wert der Eigenschaft nicht.
+Beim Schreiben wird das zugewiesene Array kopiert: nachfolgende Änderungen am Array beeinflussen nicht den Wert der Eigenschaft.
 
 ## Beschreibung
 
-Die Eigenschaft ist eine flexible Alternative zur Verwendung des [`aria-owns`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-owns)-Attributs, um die Inhaberschaft eines Elements anzuzeigen.
+Die Eigenschaft ist eine flexible Alternative zur Verwendung des [`aria-owns`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-owns)-Attributs, um die Zugehörigkeit eines Elements anzuzeigen.
 Im Gegensatz zu `aria-owns` müssen die dieser Eigenschaft zugewiesenen Elemente kein [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id)-Attribut haben.
 
-Die Eigenschaft spiegelt das [`aria-owns`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-owns)-Attribut des Elements wider, wenn es definiert ist, jedoch nur für aufgelistete Referenz-`id`-Werte, die gültigen, im Geltungsbereich befindlichen Elementen entsprechen.
-Wenn die Eigenschaft gesetzt ist, wird das entsprechende Attribut gelöscht.
-Weitere Informationen zu reflektierten Elementreferenzen und dem Geltungsbereich finden Sie unter [Reflected element references](/de/docs/Web/API/Document_Object_Model/Reflected_attributes#reflected_element_references) im _Reflected attributes_-Leitfaden.
+Die Eigenschaft spiegelt das [`aria-owns`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-owns)-Attribut des Elements wider, wenn es definiert ist, jedoch nur für aufgelistete Referenz-`id`-Werte, die mit gültigen, im Bereich befindlichen Elementen übereinstimmen.
+Wenn die Eigenschaft gesetzt wird, wird das entsprechende Attribut gelöscht.
+Weitere Informationen zu reflektierten Elementreferenzen und Bereichen finden Sie unter [Reflected element references](/de/docs/Web/API/Document_Object_Model/Reflected_attributes#reflected_element_references) im _Reflected attributes_-Leitfaden.
 
 ## Beispiele
 
-### Abrufen des zugehörigen Elements
+### Das zugehörige Element abrufen
 
-Dieses Beispiel demonstriert, wie das `aria-owns`-Attribut und die Eigenschaft verwendet werden.
+Dieses Beispiel zeigt, wie das `aria-owns`-Attribut und die dazugehörige Eigenschaft verwendet werden.
 
-Der Code definiert ein Menü und sein zugehöriges Untermenü in separaten und nicht verschachtelten {{htmlelement("div")}}-Elementen.
-Da diese Elemente nicht verschachtelt sind, wird die Inhaberschaftsbeziehung zwischen dem Menü und dem Untermenü nicht vom DOM erfasst.
-Hier stellen wir diese Informationen den Barrierefreiheits-Tools mithilfe des `aria-owns`-Attributs zur Verfügung, aber wir könnten dies auch mithilfe der reflektierten Eigenschaft tun.
+Der Code definiert ein Menü und das zugehörige Untermenü in separaten und nicht verschachtelten {{htmlelement("div")}}-Elementen.
+Da diese Elemente nicht verschachtelt sind, wird die Besitzbeziehung zwischen dem Menü und dem Untermenü nicht vom DOM erfasst.
+Hier stellen wir diese Informationen für Barrierefreiheitstools mithilfe des `aria-owns`-Attributs bereit, könnten es aber auch über die reflektierte Eigenschaft tun.
 
-Beachten Sie, dass wir ein Menü konstruieren könnten, bei dem das Untermenü verschachtelt ist: das Beispiel wurde _konstruiert_, um es leichter zu machen, einen Fall zu demonstrieren, bei dem die Beziehung definiert werden muss.
+Beachten Sie, dass wir ein Menü konstruieren könnten, bei dem das Untermenü verschachtelt war: das Beispiel wurde _konstruiert_, um es einfacher zu machen, einen Fall zu demonstrieren, bei dem die Beziehung definiert werden muss.
 
 #### HTML
 
-Das HTML definiert {{htmlelement("div")}}-Elemente für das Menü, mit `id=parentMenu` und das Untermenü mit `id="subMenu1"`.
-Wir haben ein `<div>` dazwischen hinzugefügt, nur um noch offensichtlicher zu machen, dass im DOM kein direktes Inhaberschaftsmodell definiert ist.
+Das HTML definiert {{htmlelement("div")}}-Elemente für das Menü mit `id=parentMenu` und das Untermenü mit `id="subMenu1"`.
+Wir haben ein `<div>` dazwischen hinzugefügt, um noch offensichtlicher zu machen, dass im DOM kein direktes Besitzmodell definiert ist.
 
-Das übergeordnete Menü-`<div>` enthält das Attribut `aria-owns="subMenu1"`, um diese Inhaberschaftsbeziehung zu erstellen.
+Das übergeordnete Menü-`<div>` enthält das Attribut `aria-owns="subMenu1"`, um diese Besitzbeziehung zu erstellen.
 
 ```html
 <div class="menu" id="parentMenu" role="menubar" aria-owns="subMenu1">
@@ -64,7 +64,7 @@ Das übergeordnete Menü-`<div>` enthält das Attribut `aria-owns="subMenu1"`, u
 
 #### CSS
 
-Das CSS gestaltet das Menü und das Untermenü und zeigt das Untermenü an, wenn das Menü mit der Maus überfahren wird.
+Das CSS gestaltet das Menü und das Untermenü und zeigt das Untermenü an, wenn das Menü darüber schwebt.
 
 ```css
 .menu {
@@ -116,8 +116,8 @@ Das CSS gestaltet das Menü und das Untermenü und zeigt das Untermenü an, wenn
 
 #### JavaScript
 
-Der Code überprüft zuerst, ob die `ariaOwnsElements` unterstützt wird.
-Wenn dies der Fall ist, protokollieren wir das Attribut, die Elemente in der Eigenschaft und den `id`-Wert für jedes Element.
+Der Code überprüft zuerst, ob `ariaOwnsElements` unterstützt wird.
+Falls ja, protokollieren wir das Attribut, die Elemente in der Eigenschaft und den `id`-Wert für jedes Element.
 
 ```js hidden
 const logElement = document.querySelector("#log");
@@ -143,8 +143,8 @@ if ("ariaOwnsElements" in Element.prototype) {
 
 #### Ergebnis
 
-Das Ergebnis des Ausführens des Codes wird unten gezeigt.
-Das Protokoll zeigt, dass die mit dem `aria-owns`-Attribut definierte Beziehung in der `ariaOwnsElements`-Eigenschaft widergespiegelt wird (Elemente im Array stimmen mit den Attribut-Elementreferenzen überein).
+Das Ergebnis der Ausführung des Codes wird unten angezeigt.
+Das Protokoll zeigt, dass die mit dem `aria-owns`-Attribut definierte Beziehung in der `ariaOwnsElements`-Eigenschaft widergespiegelt wird (Elemente im Array entsprechen den Attribut-Elementreferenzen).
 
 {{EmbedLiveSample("Get the flow-to element","100%","200px")}}
 

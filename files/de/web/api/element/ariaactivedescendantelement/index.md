@@ -1,40 +1,40 @@
 ---
-title: "Element: ariaActiveDescendantElement-Eigenschaft"
+title: "Element: ariaActiveDescendantElement Eigenschaft"
 short-title: ariaActiveDescendantElement
 slug: Web/API/Element/ariaActiveDescendantElement
 l10n:
-  sourceCommit: 85d5b8d224843c37974318ff04fbcc1ab69ef95d
+  sourceCommit: 6bed868c7b75c4c3ca3721fa8ed6c6ad2f41262b
 ---
 
 {{APIRef("DOM")}}
 
-Die **`ariaActiveDescendantElement`**-Eigenschaft des [`Element`](/de/docs/Web/API/Element)-Interfaces repräsentiert das aktuell aktive Element, wenn der Fokus auf einem [`composite`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/composite_role)-Widget, [`combobox`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/combobox_role), [`textbox`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/textbox_role), [`group`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/group_role) oder einer [`application`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/application_role) liegt.
+Die **`ariaActiveDescendantElement`**-Eigenschaft der [`Element`](/de/docs/Web/API/Element)-Schnittstelle repräsentiert das aktuell aktive Element, wenn der Fokus auf einem [`composite`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/composite_role)-Widget, [`combobox`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/combobox_role), [`textbox`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/textbox_role), [`group`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/group_role) oder einer [`application`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/application_role) liegt.
 
 Das Thema [`aria-activedescendant`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-activedescendant) enthält zusätzliche Informationen darüber, wie das Attribut und die Eigenschaft verwendet werden sollten.
 
 ## Wert
 
-Eine Unterklasse von [`HTMLElement`](/de/docs/Web/API/HTMLElement), die den aktiven Nachfolger darstellt, oder `null`, wenn es keinen aktiven Nachfolger gibt.
+Eine Unterklasse von [`HTMLElement`](/de/docs/Web/API/HTMLElement), die den aktiven Nachfahren repräsentiert, oder `null`, wenn kein aktiver Nachfahre existiert.
 
 ## Beschreibung
 
 Die Eigenschaft ist eine flexible Alternative zur Verwendung des [`aria-activedescendant`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-activedescendant)-Attributs.
-Im Gegensatz zu `aria-activedescendant` muss das dieser Eigenschaft zugewiesene Element kein [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id)-Attribut haben.
+Im Gegensatz zu `aria-activedescendant` muss das einem Element zugewiesene Objekt kein [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id)-Attribut haben.
 
-Die Eigenschaft spiegelt das [`aria-activedescendant`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-errormessage)-Attribut des Elements wider, wenn es definiert ist, allerdings nur für Referenz-`id`-Werte, die mit gültigen in-Scope-Elementen übereinstimmen.
-Wird die Eigenschaft gesetzt, so wird das entsprechende Attribut geleert.
-Für weitere Informationen zu reflektierten Elementreferenzen und Scope siehe [Reflektierte Elementreferenzen](/de/docs/Web/API/Document_Object_Model/Reflected_attributes#reflected_element_references) im _Reflektierte Attribute_-Leitfaden.
+Die Eigenschaft spiegelt das [`aria-activedescendant`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-errormessage)-Attribut eines Elements wider, wenn es definiert ist, jedoch nur für Referenz-`id`-Werte, die gültigen im Geltungsbereich befindlichen Elementen entsprechen.
+Wenn die Eigenschaft gesetzt wird, wird das entsprechende Attribut gelöscht.
+Weitere Informationen zu referenzierten Elementeigenschaften und Geltungsbereichen finden Sie unter [Reflektierte Elemente-Referenzen](/de/docs/Web/API/Document_Object_Model/Reflected_attributes#reflected_element_references) im _Reflektierte Attribute_-Leitfaden.
 
 ## Beispiele
 
-### Den aktiven Nachfolger abrufen
+### Den aktiven Nachfahren abrufen
 
-Dieses Beispiel zeigt, wie `ariaActiveDescendantElement` verwendet werden kann, um den aktuellen aktiven Nachfolger zu erhalten.
+Dieses Beispiel zeigt, wie `ariaActiveDescendantElement` verwendet werden kann, um den aktuellen aktiven Nachfahren zu bekommen.
 
 #### HTML
 
-Das HTML definiert eine Listbox zur Auswahl verschiedener Straßentypen, bestehend aus einem {{htmlelement("div")}}-Element mit der [`listbox` Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles/listbox_role) und verschachtelten `<div>`-Elementen für jede Option.
-Der aktive Nachfolger ist zunächst auf das Element mit der `id` `avenue` mittels `aria-activedescendant` gesetzt.
+Das HTML definiert eine Listbox zur Auswahl verschiedener Straßenarten, bestehend aus einem {{htmlelement("div")}}-Element mit der [`listbox`-Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles/listbox_role) und verschachtelten `<div>`-Elementen für jede der Optionen.
+Der aktive Nachfahre wird zunächst auf das Element mit `id` `avenue` unter Verwendung von `aria-activedescendant` gesetzt.
 
 ```html
 <div id="streetType" role="listbox" aria-activedescendant="avenue">
@@ -59,8 +59,8 @@ Der aktive Nachfolger ist zunächst auf das Element mit der `id` `avenue` mittel
 
 #### JavaScript
 
-Der untenstehende Code überprüft zunächst, ob `ariaActiveDescendantElement` unterstützt wird.
-Wenn die Eigenschaft unterstützt wird, protokolliert der Code den Wert von `aria-activedescendant` (die `id` des referenzierten Elements) mittels [`Element.getAttribute()`](/de/docs/Web/API/Element/getAttribute), dem Eigenschaftselement und dem Textinhalt des Elements.
+Der unten stehende Code überprüft zuerst, ob `ariaActiveDescendantElement` unterstützt wird.
+Wenn die Eigenschaft unterstützt wird, gibt der Code dann den Wert von `aria-activedescendant` (die `id` des referenzierten Elements) unter Verwendung von [`Element.getAttribute()`](/de/docs/Web/API/Element/getAttribute), das Eigenschaftselement und den Textinhalt des Elements aus.
 
 ```js hidden
 const logElement = document.querySelector("#log");
@@ -83,8 +83,8 @@ if ("ariaActiveDescendantElement" in Element.prototype) {
 
 #### Ergebnis
 
-Das folgende Protokoll zeigt die Ausgabe des obigen Codes.
-Der aus der `aria-activedescendant`-Eigenschaft zurückgegebene Wert sollte `"avenue"` sein, das zugehörige Element sollte ein `HTMLDivElement`-Element sein und der Text in diesem Element sollte `Avenue` sein.
+Das untenstehende Protokoll zeigt die Ausgabe des obigen Codes.
+Der von der Eigenschaft `aria-activedescendant` zurückgegebene Wert sollte `"avenue"` sein, das zugeordnete Element sollte ein `HTMLDivElement`-Element sein, und der Text in diesem Element sollte `Avenue` lauten.
 
 {{EmbedLiveSample("Get the active descendant","100%","190px")}}
 
@@ -100,4 +100,4 @@ Der aus der `aria-activedescendant`-Eigenschaft zurückgegebene Wert sollte `"av
 
 - [`aria-activedescendant`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-activedescendant)-Attribut
 - [`ElementInternals.ariaActiveDescendantElement`](/de/docs/Web/API/ElementInternals/ariaActiveDescendantElement)
-- [Reflektierte Elementreferenzen](/de/docs/Web/API/Document_Object_Model/Reflected_attributes#reflected_element_references) im _Attributreflexions_-Leitfaden.
+- [Reflektierte Elemente-Referenzen](/de/docs/Web/API/Document_Object_Model/Reflected_attributes#reflected_element_references) im _Attribute reflection_-Leitfaden.

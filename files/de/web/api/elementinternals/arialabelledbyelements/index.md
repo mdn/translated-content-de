@@ -1,40 +1,48 @@
 ---
-title: "ElementInternals: ariaLabelledByElements Eigenschaft"
+title: "ElementInternals: ariaLabelledByElements-Eigenschaft"
 short-title: ariaLabelledByElements
 slug: Web/API/ElementInternals/ariaLabelledByElements
 l10n:
-  sourceCommit: 85d5b8d224843c37974318ff04fbcc1ab69ef95d
+  sourceCommit: 6bed868c7b75c4c3ca3721fa8ed6c6ad2f41262b
 ---
 
 {{APIRef("DOM")}}
 
-Die **`ariaLabelledByElements`**-Eigenschaft des [`ElementInternals`](/de/docs/Web/API/ElementInternals)-Interfaces ist ein Array, das das oder die Elemente enthält, die einen zugänglichen Namen für das Element bereitstellen, auf das es angewendet wird.
+Die **`ariaLabelledByElements`**-Eigenschaft des [`ElementInternals`](/de/docs/Web/API/ElementInternals)-Interfaces ist ein Array, das das Element (oder die Elemente) enthält, die einen zugänglichen Namen für das Element bereitstellen, auf das sie angewendet wird.
 
-Die Eigenschaft ist in erster Linie dazu gedacht, ein Label für Elemente bereitzustellen, die keine standardisierte Methode zur Definition ihres zugänglichen Namens haben. Zum Beispiel könnte dies verwendet werden, um ein generisches Container-Element wie ein {{htmlelement("div")}} oder {{htmlelement("span")}} zu benennen, oder eine Gruppierung von Elementen, wie ein Bild mit einem Schieberegler, der verwendet werden kann, um die Opazität zu ändern. Die Eigenschaft hat Vorrang vor anderen Mechanismen zur Bereitstellung eines zugänglichen Namens für Elemente und kann daher auch dazu verwendet werden, einen Namen für Elemente bereitzustellen, die ihn normalerweise von ihrem inneren Inhalt oder von einem zugeordneten Element wie einem Label erhalten würden.
+Die Eigenschaft ist hauptsächlich dazu gedacht, einem Element ein Label zuzuweisen, das keine standardmäßige Methode zur Definition seines zugänglichen Namens hat.
+Zum Beispiel könnte dies verwendet werden, um ein generisches Containerelement zu benennen, wie ein {{htmlelement("div")}} oder {{htmlelement("span")}}, oder eine Gruppierung von Elementen, wie ein Bild mit einem Schieberegler, der verwendet werden kann, um dessen Deckkraft zu ändern.
+Die Eigenschaft hat Vorrang vor anderen Mechanismen zur Bereitstellung eines zugänglichen Namens für Elemente und kann daher auch verwendet werden, um einem Element einen Namen zu geben, das ihn normalerweise aus seinem inneren Inhalt oder von einem zugehörigen Element wie einem Label erhält.
 
 Das Thema [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby) enthält zusätzliche Informationen darüber, wie das Attribut und die Eigenschaft verwendet werden sollten.
 
 ## Wert
 
-Ein Array von Elementen. Der innere Text dieser Elemente kann mit Leerzeichen verbunden werden, um den zugänglichen Namen zu erhalten.
+Ein Array von Elementen.
+Der innere Text dieser Elemente kann durch Leerzeichen verbunden werden, um den zugänglichen Namen zu erhalten.
 
-Beim Lesen ist das zurückgegebene Array statisch und schreibgeschützt. Beim Schreiben wird das zugewiesene Array kopiert: nachfolgende Änderungen am Array beeinflussen den Wert der Eigenschaft nicht.
+Beim Lesen ist das zurückgegebene Array statisch und schreibgeschützt.
+Beim Schreiben wird das zugewiesene Array kopiert: Nachfolgende Änderungen am Array beeinflussen den Wert der Eigenschaft nicht.
 
 ## Beschreibung
 
-Die Eigenschaft ist eine flexible Alternative zur Verwendung des [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby)-Attributs zur Festlegung des zugänglichen Namens. Im Gegensatz zu `aria-labelledby` müssen die dieser Eigenschaft zugewiesenen Elemente kein [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id)-Attribut haben.
+Die Eigenschaft ist eine flexible Alternative zur Verwendung des [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby)-Attributs, um den zugänglichen Namen festzulegen.
+Im Gegensatz zu `aria-labelledby` müssen die dieser Eigenschaft zugewiesenen Elemente kein [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id)-Attribut haben.
 
-Die Eigenschaft spiegelt das `aria-labelledby`-Attribut des Elements wider, wenn es definiert ist, jedoch nur für aufgeführte `id`-Referenzwerte, die mit gültigen innerhalb des Geltungsbereichs befindlichen Elementen übereinstimmen. Wenn die Eigenschaft gesetzt ist, wird das entsprechende Attribut gelöscht. Weitere Informationen zu reflektierten Elementreferenzen und Geltungsbereichen finden Sie unter [Reflektierte Elementreferenzen](/de/docs/Web/API/Document_Object_Model/Reflected_attributes#reflected_element_references) im _Reflected attributes_-Leitfaden.
+Die Eigenschaft spiegelt das [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby)-Attribut des Elements wider, wenn es definiert ist, jedoch nur für aufgelistete Referenz-`id`-Werte, die mit gültigen in-Scope-Elementen übereinstimmen.
+Wenn die Eigenschaft gesetzt ist, wird das entsprechende Attribut gelöscht.
+Für weitere Informationen zu reflektierten Elementreferenzen und Scope siehe [Reflected element references](/de/docs/Web/API/Document_Object_Model/Reflected_attributes#reflected_element_references) im _Reflected attributes_-Leitfaden.
 
 ## Beispiele
 
 ### Den zugänglichen Namen abrufen
 
-Dieses Beispiel zeigt, wie `ariaLabelledByElements` verwendet werden kann, um programmgesteuert ein mit `aria-labelledby` innerhalb des Shadow-Roots definiertes Label abzurufen.
+Dieses Beispiel zeigt, wie `ariaLabelledByElements` verwendet werden kann, um programmgesteuert ein Label zu erhalten, das mit `aria-labelledby` innerhalb des Shadow-Roots definiert wurde.
 
 #### HTML
 
-Das HTML definiert zwei {{htmlelement("span")}}-Elemente und referenziert deren IDs im `aria-labelledby`-Attribut eines {{htmlelement("input")}}. Der zugängliche Name des `<input>` ist daher die Verkettung des inneren Textes der beiden referenzierten Elemente.
+Das HTML definiert zwei {{htmlelement("span")}}-Elemente und verweist auf deren IDs im `aria-labelledby`-Attribut eines {{htmlelement("input")}}.
+Der zugängliche Name des `<input>` ist daher die Verkettung des inneren Textes der beiden referenzierten Elemente.
 
 ```html
 <div id="host">
@@ -61,7 +69,9 @@ Das HTML definiert zwei {{htmlelement("span")}}-Elemente und referenziert deren 
 
 #### JavaScript
 
-Der untenstehende Code prüft zuerst, ob `ariaLabelledByElements` unterstützt wird, und falls nicht, wird das Ergebnis protokolliert und beendet. Wenn die Eigenschaft unterstützt wird, protokolliert sie zunächst den Wert der Eigenschaft. Anschließend wird durch die zurückgegebenen Elemente iteriert, deren innerer Text verkettet und der resultierende zugängliche Name des Elements protokolliert.
+Der Code unten prüft zuerst, ob `ariaLabelledByElements` unterstützt wird, und wenn nicht, wird das Ergebnis protokolliert und der Vorgang beendet.
+Wenn die Eigenschaft unterstützt wird, wird zunächst der Wert der Eigenschaft protokolliert.
+Dann iteriert er durch die zurückgegebenen Elemente, verkettet deren inneren Text und protokolliert den resultierenden zugänglichen Namen des Elements.
 
 ```js hidden
 const logElement = document.querySelector("#log");
@@ -96,9 +106,10 @@ if ("ariaLabelledByElements" in ElementInternals.prototype) {
 
 #### Ergebnis
 
-Das untenstehende Protokoll zeigt die Ausgabe des obigen Codes. Es sollte das Array der referenzierten [`HTMLSpanElement`](/de/docs/Web/API/HTMLSpanElement)-Elemente und den resultierenden zugänglichen Namen aus ihrem inneren Text anzeigen.
+Das unten stehende Protokoll zeigt die Ausgabe des obigen Codes.
+Es zeigt das Array der referenzierten [`HTMLSpanElement`](/de/docs/Web/API/HTMLSpanElement)-Elemente und den resultierenden zugänglichen Namen aus ihrem inneren Text.
 
-{{EmbedLiveSample("Get the accessible name","100%","150px")}}
+{{EmbedLiveSample("Den zugänglichen Namen abrufen", "100%", "150px")}}
 
 ## Spezifikationen
 
@@ -110,6 +121,6 @@ Das untenstehende Protokoll zeigt die Ausgabe des obigen Codes. Es sollte das Ar
 
 ## Siehe auch
 
-- [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby) Attribut
+- [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby)-Attribut
 - [`Element.ariaLabelledByElements`](/de/docs/Web/API/Element/ariaLabelledByElements)
-- [Reflektierte Elementreferenzen](/de/docs/Web/API/Document_Object_Model/Reflected_attributes#reflected_element_references) im _Attribute reflection_-Leitfaden.
+- [Reflected element references](/de/docs/Web/API/Document_Object_Model/Reflected_attributes#reflected_element_references) im _Attribute reflection_-Leitfaden.

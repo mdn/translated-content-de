@@ -3,42 +3,42 @@ title: "Element: ariaControlsElements-Eigenschaft"
 short-title: ariaControlsElements
 slug: Web/API/Element/ariaControlsElements
 l10n:
-  sourceCommit: 85d5b8d224843c37974318ff04fbcc1ab69ef95d
+  sourceCommit: 6bed868c7b75c4c3ca3721fa8ed6c6ad2f41262b
 ---
 
 {{APIRef("DOM")}}
 
-Die **`ariaControlsElements`**-Eigenschaft des [`Element`](/de/docs/Web/API/Element)-Interfaces ist ein Array, das die Elemente enthält, die von dem Element, auf das es angewendet wird, gesteuert werden.
-Beispielsweise könnte dies an einem [Combobox](/de/docs/Web/Accessibility/ARIA/Reference/Roles/combobox_role) gesetzt werden, um das Element anzuzeigen, das es aufpoppt, oder an einem [`Scrollbar`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/scrollbar_role), um die ID des Elements anzugeben, das es steuert.
+Die **`ariaControlsElements`**-Eigenschaft der [`Element`](/de/docs/Web/API/Element)-Schnittstelle ist ein Array, das die Elemente enthält, die von dem Element, auf das sie angewendet wird, kontrolliert werden.
+Beispielsweise könnte dies bei einer [Combobox](/de/docs/Web/Accessibility/ARIA/Reference/Roles/combobox_role) gesetzt werden, um das Element anzugeben, das sie öffnet, oder auf einer [`Scrollbar`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/scrollbar_role), um die ID des kontrollierten Elements anzugeben.
 
 Das Thema [`aria-controls`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-controls) enthält zusätzliche Informationen darüber, wie das Attribut und die Eigenschaft verwendet werden sollten.
 
 ## Wert
 
-Ein Array von Unterklassen von [`HTMLElement`](/de/docs/Web/API/HTMLElement), das die Elemente repräsentiert, die von diesem Element gesteuert werden.
+Ein Array von Unterklassen von [`HTMLElement`](/de/docs/Web/API/HTMLElement), das die Elemente darstellt, die von diesem Element kontrolliert werden.
 
 Beim Lesen ist das zurückgegebene Array statisch und schreibgeschützt.
-Beim Schreiben wird das zugewiesene Array kopiert: nachfolgende Änderungen am Array beeinflussen den Wert der Eigenschaft nicht.
+Beim Schreiben wird das zugewiesene Array kopiert: Nachfolgende Änderungen am Array beeinflussen den Wert der Eigenschaft nicht.
 
 ## Beschreibung
 
-Die Eigenschaft ist eine flexible Alternative zum Verwenden des [`aria-controls`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-controls)-Attributs, um gesteuerte Elemente festzulegen.
+Die Eigenschaft ist eine flexible Alternative zur Verwendung des [`aria-controls`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-controls)-Attributs, um die kontrollierten Elemente festzulegen.
 Im Gegensatz zu `aria-controls` müssen die Elemente, die dieser Eigenschaft zugewiesen sind, kein [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id)-Attribut haben.
 
-Die Eigenschaft spiegelt das [`aria-controls`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-controls)-Attribut wider, wenn es definiert ist, jedoch nur für aufgelistete Referenz-`id`-Werte, die mit gültigen Elementen im Gültigkeitsbereich übereinstimmen.
-Wenn die Eigenschaft gesetzt ist, wird das entsprechende Attribut gelöscht.
-Weitere Informationen zu reflektierten Elementreferenzen und Gültigkeitsbereiche finden Sie unter [Reflektierte Elementreferenzen](/de/docs/Web/API/Document_Object_Model/Reflected_attributes#reflected_element_references) im _Reflektierte Attribute_-Leitfaden.
+Die Eigenschaft spiegelt das [`aria-controls`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-controls)-Attribut wider, wenn es definiert ist, jedoch nur für aufgelistete Referenz-`id`-Werte, die gültigen, im Geltungsbereich befindlichen Elementen entsprechen.
+Wenn die Eigenschaft gesetzt wird, wird das entsprechende Attribut gelöscht.
+Weitere Informationen zu reflektierten Elementreferenzen und Geltungsbereichen finden Sie unter [Reflektierte Elementreferenzen](/de/docs/Web/API/Document_Object_Model/Reflected_attributes#reflected_element_references) im _Reflexionsattribute_-Leitfaden.
 
 ## Beispiele
 
-### Die gesteuerten Elemente abrufen
+### Die kontrollierten Elemente abrufen
 
-Dieses Beispiel zeigt, wie `ariaControlsElements` verwendet werden kann, um die gesteuerten Elemente abzurufen, die mit `aria-controls` festgelegt wurden.
+Dieses Beispiel zeigt, wie `ariaControlsElements` verwendet werden kann, um die kontrollierten Elemente abzurufen, die mit `aria-controls` festgelegt wurden.
 
 #### HTML
 
-Das HTML definiert zuerst ein {{htmlelement("button")}}-Element und zwei {{htmlelement("div")}}-Elemente, `panel1` und `panel2`, die es steuert.
-Die Referenzen auf die gesteuerten Panels sind im `aria-controls`-Attribut des Buttons aufgelistet.
+Das HTML definiert zuerst ein {{htmlelement("button")}}-Element und zwei {{htmlelement("div")}}-Elemente, `panel1` und `panel2`, die es kontrolliert.
+Die Referenzen zu den kontrollierten Panels sind im `aria-controls`-Attribut des Buttons aufgelistet.
 
 ```html
 <button id="toggleButton" aria-controls="panel1 panel2" aria-expanded="false">
@@ -78,7 +78,7 @@ Die Referenzen auf die gesteuerten Panels sind im `aria-controls`-Attribut des B
 
 #### JavaScript
 
-Der Code richtet zunächst die Panels so ein, dass sie basierend auf dem [`aria-expanded`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-expanded)-Attribut des Buttons umgeschaltet werden, um geöffnet oder verborgen zu sein.
+Der Code richtet zunächst die Panels so ein, dass sie basierend auf dem [`aria-expanded`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-expanded)-Attribut des Buttons ein- oder ausgeblendet werden.
 
 ```js hidden
 const logElement = document.querySelector("#log");
@@ -105,9 +105,9 @@ toggleButton.addEventListener("click", () => {
 });
 ```
 
-Anschließend ermittelt das Beispiel den Wert des `aria-controls`-Attributs mit [`Element.getAttribute()`](/de/docs/Web/API/Element/getAttribute) (einem String, der die `id`-Werte der referenzierten Elemente auflistet).
-Es prüft dann, ob die `ariaControlsElements`-Eigenschaft unterstützt wird, und protokolliert, falls ja, deren Wert.
-Schließlich gibt es den inneren Text für jedes der gesteuerten Elemente zurück und protokolliert diesen.
+Als Nächstes holt das Beispiel den Wert des `aria-controls`-Attributs mit [`Element.getAttribute()`](/de/docs/Web/API/Element/getAttribute) (einem String, der die `id`-Werte der referenzierten Elemente auflistet).
+Dann wird geprüft, ob die `ariaControlsElements`-Eigenschaft unterstützt wird, und falls ja, wird deren Wert protokolliert.
+Schließlich wird der inhaltliche Text für jedes der kontrollierten Elemente zurückgegeben und protokolliert.
 
 ```js
 log(`aria-controls: ${toggleButton.getAttribute("aria-controls")}`);
@@ -128,8 +128,8 @@ if ("ariaControlsElements" in Element.prototype) {
 
 #### Ergebnis
 
-Klicken Sie unten auf die Schaltfläche, um die Panels zu zeigen und zu verbergen.
-Das Protokoll zeigt die ursprünglichen Elementreferenzen, die zugeordneten/zurückgegebenen Elemente und den inneren Text jedes Elements.
+Klicken Sie unten auf die Schaltfläche, um die Panels anzuzeigen und auszublenden.
+Das Protokoll zeigt die ursprünglichen Elementreferenzen, die zugeordneten/zurückgegebenen Elemente und den inhaltlichen Text jedes Elements.
 
 {{EmbedLiveSample("Get the controlled elements","100%","280px")}}
 
