@@ -1,46 +1,44 @@
 ---
-title: Ein Badge auf dem App-Symbol anzeigen
+title: Ein Abzeichen auf dem App-Symbol anzeigen
 slug: Web/Progressive_web_apps/How_to/Display_badge_on_app_icon
 l10n:
-  sourceCommit: e03b13c7e157ec7b7bb02a6c7c4854b862195905
+  sourceCommit: 628b29f53d15f203c4a6b33c1d0303f864f6af63
 ---
 
-{{PWASidebar}}
+Apps, die nativ für mobile und Desktop-Betriebssysteme sind, können Abzeichen auf ihren App-Symbolen anzeigen, um Benutzer darüber zu informieren, dass neue Inhalte verfügbar sind. Beispielsweise kann eine E-Mail-Client-Anwendung die Gesamtzahl der ungelesenen Nachrichten in einem Abzeichen anzeigen und diese Zahl aktualisieren, auch wenn die App nicht läuft.
 
-Anwendungen, die nativ auf mobilen oder Desktop-Betriebssystemen laufen, können Badges auf ihren App-Symbolen anzeigen, um Benutzer darüber zu informieren, dass neuer Inhalt verfügbar ist. Zum Beispiel kann eine E-Mail-Client-Anwendung die Gesamtzahl der ungelesenen Nachrichten in einem Badge anzeigen und diese Zahl aktualisieren, selbst wenn die App nicht läuft.
+Hier ist ein Beispiel, das die Mail-Anwendung auf einem iOS-Gerät mit einem Abzeichen in der oberen rechten Ecke zeigt:
 
-Hier ist ein Beispiel, das die Mail-Anwendung auf einem iOS-Gerät mit einem Badge in der oberen rechten Ecke zeigt:
+![Der Dockbereich auf einem iPhone-Startbildschirm, der ein Abzeichen auf dem Mail-App-Symbol zeigt](./mail-badge-ios.png)
 
-![Der Dockbereich auf einem iPhone-Startbildschirm, der ein Badge auf dem Mail-App-Symbol zeigt](./mail-badge-ios.png)
+[Progressive Web-Apps](/de/docs/Web/Progressive_web_apps) (PWAs) können ebenfalls Abzeichen auf ihren App-Symbolen anzeigen und aktualisieren.
 
-[Progressive Web-Apps](/de/docs/Web/Progressive_web_apps) (PWAs) können ebenfalls Badges auf ihren App-Symbolen anzeigen und aktualisieren.
+Die Anzeige und Aktualisierung eines Abzeichens erfolgt durch die Verwendung der [Badging API](/de/docs/Web/API/Badging_API). Diese API kann aus dem [Service Worker](/de/docs/Web/API/Service_Worker_API/Using_Service_Workers) Ihrer App aufgerufen werden, um das Abzeichen anzuzeigen oder zu aktualisieren, selbst wenn die App nicht läuft.
 
-Das Anzeigen und Aktualisieren eines Badges erfolgt über die [Badging API](/de/docs/Web/API/Badging_API). Sie können diese API vom [Service Worker](/de/docs/Web/API/Service_Worker_API/Using_Service_Workers) der App aus aufrufen, um das Badge anzuzeigen oder zu aktualisieren, auch wenn die App nicht läuft.
+## Unterstützung für Abzeichen
 
-## Unterstützung für Badges
-
-App-Badges werden nur unterstützt, wenn eine PWA auf ihrem Host-Betriebssystem installiert ist. Badges erscheinen auf dem App-Symbol, das erst vorhanden ist, nachdem die App installiert wurde.
+App-Abzeichen werden nur unterstützt, wenn eine PWA auf ihrem Host-Betriebssystem installiert ist. Abzeichen erscheinen auf dem App-Symbol, das nur nach der Installation der App existiert.
 
 > [!NOTE]
-> Dieser Artikel konzentriert sich auf die [`Navigator.setAppBadge()`](/de/docs/Web/API/Navigator/setAppBadge) und [`Navigator.clearAppBadge()`](/de/docs/Web/API/Navigator/clearAppBadge) Methoden aus der Badging API und ignoriert `Navigator.setClientBadge` und `Navigator.clearClientBadge`. Obwohl diese Methoden ebenfalls in der [Badging API-Spezifikation](https://w3c.github.io/badging/) definiert sind, dienen sie dazu, Badges auf Dokumenten und nicht auf Anwendungs-Symbolen anzuzeigen.
+> Dieser Artikel konzentriert sich auf die Methoden [`Navigator.setAppBadge()`](/de/docs/Web/API/Navigator/setAppBadge) und [`Navigator.clearAppBadge()`](/de/docs/Web/API/Navigator/clearAppBadge) der Badging API und ignoriert `Navigator.setClientBadge` und `Navigator.clearClientBadge`. Obwohl diese Methoden auch in der [Badging API-Spezifikation](https://w3c.github.io/badging/) definiert sind, dienen sie zur Anzeige von Abzeichen auf Dokumenten und nicht auf Anwendungssymbolen.
 
-### Desktop-Unterstützung
+### Unterstützung auf dem Desktop
 
-Auf Desktop-Betriebssystemen werden Badges nur auf Windows und macOS unterstützt und nur, wenn die PWA über Chrome oder Edge installiert ist. Während die Badging API auf Chromium-basierten Browsern unter Linux unterstützt wird, werden Badges auf diesem Betriebssystem nicht angezeigt.
+Auf Desktop-Betriebssystemen werden Abzeichen nur auf Windows und macOS unterstützt, und nur wenn die PWA von Chrome oder Edge installiert ist. Während die Badging API in Chromium-basierten Browsern auf Linux unterstützt wird, werden Abzeichen auf diesem Betriebssystem nicht angezeigt.
 
-Safari und Firefox auf dem Desktop unterstützen die Badging API nicht und erlauben nicht die Installation von PWAs.
+Safari und Firefox auf dem Desktop unterstützen die Badging API nicht und unterstützen nicht die Installation von PWAs.
 
-### Mobile Unterstützung
+### Unterstützung auf mobilen Geräten
 
-Badges werden ab iPadOS 16.4 in Safari auf iOS und iPadOS unterstützt. Die Badging API wird nicht von Chromium-basierten Browsern auf Android unterstützt. Stattdessen zeigt Android automatisch ein Badge auf dem App-Symbol der PWA an, wenn eine ungelesene Benachrichtigung vorliegt, genau wie bei Android-Apps.
+Abzeichen werden in Safari auf iOS und iPadOS unterstützt, beginnend mit iPadOS 16.4. Die Badging API wird nicht von Chromium-basierten Browsern auf Android unterstützt. Stattdessen zeigt Android automatisch ein Abzeichen auf dem App-Symbol der PWA, wenn eine ungelesene Benachrichtigung vorhanden ist, genau wie bei Android-Apps.
 
-## Beste Praktiken für Badges
+## Beste Praktiken für Abzeichen
 
-Bevor Sie lernen, wie man Badges verwendet, überlegen Sie sich diese bewährten Methoden, um sicherzustellen, dass Ihre App Badges auf die effektivste und nützlichste Weise für Ihre Benutzer einsetzt.
+Bevor Sie lernen, wie Sie Abzeichen verwenden, berücksichtigen Sie diese besten Praktiken, um sicherzustellen, dass Ihre App Abzeichen auf die effektivste und nützlichste Weise für Ihre Benutzer verwendet.
 
-### Überprüfen Sie die Unterstützung
+### Unterstützung überprüfen
 
-Um sicherzustellen, dass die Badging API im [Browser des Benutzers und dessen Betriebssystem](#unterstützung_für_badges) unterstützt wird, überprüfen Sie dies, bevor Sie die API verwenden, um einen JavaScript-Fehler zu vermeiden:
+Um zu gewährleisten, dass die Badging API im Browser und Betriebssystem des Benutzers [unterstützt](#unterstützung_für_abzeichen) wird und um das Auftreten eines JavaScript-Fehlers zu verhindern, prüfen Sie die Unterstützung, bevor Sie die API verwenden:
 
 ```js
 if (navigator.setAppBadge) {
@@ -50,11 +48,11 @@ if (navigator.setAppBadge) {
 }
 ```
 
-Verlassen Sie sich nicht allein auf Badges, um Benutzer über die Verfügbarkeit neuer Inhalte zu informieren. Browser, die die Badging API unterstützen, können auf Betriebssystemen installiert sein, die das Anzeigen eines Badges nicht unterstützen. Zum Beispiel unterstützt Chrome die Badging API, aber Badges erscheinen nicht auf installierten Anwendungs-Symbolen unter Linux.
+Verlassen Sie sich nicht ausschließlich auf Abzeichen, um Benutzer über die Verfügbarkeit neuer Inhalte zu informieren. Browser, die die Badging API unterstützen, können auf Betriebssystemen installiert sein, die die Anzeige eines Abzeichens nicht unterstützen. Zum Beispiel, während Chrome die Badging API unterstützt, werden Abzeichen auf installierten Anwendungssymbolen unter Linux nicht angezeigt.
 
-### Benachrichtigungsberechtigungen für iOS und/oder iPadOS anfordern
+### Benachrichtigungsrechte für iOS und/oder iPadOS anfordern
 
-Obwohl Benachrichtigungs-Badges auf iOS und iPadOS unterstützt werden, werden Badges erst angezeigt, wenn der Anwendung Benachrichtigungsberechtigungen erteilt wurden. Um Benachrichtigungsberechtigungen anzufordern, rufen Sie die [`Notification.requestPermission()`](/de/docs/Web/API/Notifications_API/Using_the_Notifications_API#getting_permission) Methode auf:
+Obwohl Benachrichtigungs-Abzeichen auf iOS und iPadOS unterstützt werden, erscheinen Abzeichen nicht, bis der Anwendung Benachrichtigungsrechte gewährt wurden. Um Benachrichtigungsrechte anzufordern, rufen Sie die Methode [`Notification.requestPermission()`](/de/docs/Web/API/Notifications_API/Using_the_Notifications_API#getting_permission) auf:
 
 ```js
 Notification.requestPermission().then((result) => {
@@ -62,29 +60,29 @@ Notification.requestPermission().then((result) => {
 });
 ```
 
-Optional können Sie mit der [Permissions API](/de/docs/Web/API/Permissions_API) überprüfen, ob ein Benutzer zuvor Benachrichtigungsberechtigungen erteilt hat.
+Optionale können Sie mit der [Permissions API](/de/docs/Web/API/Permissions_API) überprüfen, ob ein Benutzer bereits Benachrichtigungsrechte gewährt hat.
 
-### Nutzen Sie Badges sparsam
+### Abzeichen sparsam verwenden
 
-Ähnlich wie Benachrichtigungen können Badges eine sehr effektive Möglichkeit sein, Benutzer mit Ihrer App erneut zu engagieren, wenn sie sparsam eingesetzt werden. Stellen Sie sicher, dass Sie Badges nur verwenden, um neuen, für Ihre Benutzer wichtigen Inhalt zu signalisieren.
+Ähnlich wie Benachrichtigungen können Abzeichen eine sehr effektive Methode sein, um Nutzer mit Ihrer App erneut zu engagieren, wenn sie sparsam verwendet werden. Stellen Sie sicher, dass Sie Abzeichen nur verwenden, um neue Inhalte anzuzeigen, die für Ihre Nutzer wichtig sind.
 
-### Aktualisieren Sie Badges in Echtzeit
+### Abzeichen in Echtzeit aktualisieren
 
-Stellen Sie sicher, dass Sie das Badge Ihrer Anwendung in Echtzeit aktualisieren. Das bedeutet, die Anzahl der Badges zu aktualisieren, um widerzuspiegeln, wie viele neue Elemente dem Benutzer tatsächlich noch zur Verfügung stehen, und das App-Badge zu löschen, wenn keine neuen Elemente mehr vorhanden sind.
+Stellen Sie sicher, dass Sie das App-Abzeichen in Echtzeit aktualisieren. Das bedeutet, die Abzeichenanzahl zu aktualisieren, um widerzuspiegeln, wie viele neue Elemente tatsächlich für den Benutzer übrig sind, und das App-Abzeichen zu löschen, wenn keine neuen Elemente vorhanden sind.
 
-Zum Beispiel sollte eine E-Mail-Client-App, die im Hintergrund neue Nachrichten erhält, ihr Badge aktualisieren, um die richtige Anzahl ungelesener Nachrichten im Posteingang anzuzeigen und möglicherweise Nachrichten aus anderen Ordnern wie einem Spam-Ordner herauszufiltern. Es ist möglich, [Badges im Hintergrund zu aktualisieren](#aktualisieren_des_badges_im_hintergrund), indem die `navigator.setAppBadge()` Methode von einem Service Worker verwendet wird.
+Wenn beispielsweise eine E-Mail-Client-Anwendung im Hintergrund neue Nachrichten empfängt, sollte sie ihr Abzeichen aktualisieren, um die richtige Anzahl ungelesener Nachrichten im Posteingang anzuzeigen und möglicherweise Nachrichten aus anderen Ordnern wie einem Spam-Ordner herauszufiltern. Es ist möglich, [Abzeichen im Hintergrund zu aktualisieren](#das_abzeichen_im_hintergrund_aktualisieren), indem Sie die Methode `navigator.setAppBadge()` von einem Service Worker verwenden.
 
-Sobald der Benutzer die App startet und Nachrichten zu lesen beginnt, sollte die E-Mail-Client-App ihr Badge entsprechend aktualisieren, indem `navigator.setAppBadge()` mit der neuen Anzahl ungelesener Nachrichten aufgerufen wird oder `navigator.clearAppBadge()`, wenn keine ungelesenen Nachrichten mehr vorhanden sind.
+Sobald der Benutzer die App startet und die Nachrichten liest, sollte die E-Mail-Client-Anwendung ihr Abzeichen entsprechend aktualisieren, indem sie `navigator.setAppBadge()` mit der neuen Anzahl ungelesener Nachrichten aufruft oder `navigator.clearAppBadge()` aufruft, wenn keine ungelesenen Nachrichten mehr vorhanden sind.
 
-### Heben Sie neue Inhalte in der App hervor
+### Neue Inhalte in der App hervorheben
 
-Wenn Ihre App neue Inhalte erhält und ein Badge auf dem App-Symbol hinzufügt, stellen Sie sicher, dass Sie diesen neuen Inhalt für Benutzer hervorheben, wenn sie die App starten.
+Wenn Ihre App neue Inhalte erhält und ein Abzeichen auf dem App-Symbol hinzufügt, stellen Sie sicher, dass diese neuen Inhalte für Benutzer hervorgehoben werden, wenn sie die App starten.
 
-Zum Beispiel, wenn eine E-Mail-Client-App die Anzahl ungelesener Nachrichten auf dem App-Symbol-Badge anzeigt, sollten diese Nachrichten fett oder auf irgendeine Weise hervorgehoben werden, wenn die App geöffnet wird.
+Wenn beispielsweise ein E-Mail-Client die Anzahl ungelesener Nachrichten auf dem App-Symbol-Abzeichen anzeigt, sollten diese Nachrichten fett oder auf andere Weise hervorgehoben sein, wenn die App geöffnet wird.
 
-## Anzeigen und Aktualisieren des Badges
+## Das Abzeichen anzeigen und aktualisieren
 
-Um ein Badge auf dem App-Symbol Ihrer PWA anzuzeigen, das die Anzahl ungelesener Nachrichten zeigt, verwenden Sie die [`Navigator.setAppBadge()`](/de/docs/Web/API/Navigator/setAppBadge) Methode:
+Um ein Abzeichen auf dem App-Symbol Ihrer PWA anzuzeigen, das eine Anzahl ungelesener Nachrichten zeigt, verwenden Sie die Methode [`Navigator.setAppBadge()`](/de/docs/Web/API/Navigator/setAppBadge):
 
 ```js
 // Check for support first.
@@ -94,7 +92,7 @@ if (navigator.setAppBadge) {
 }
 ```
 
-Sie können auch ein leeres Badge mit derselben Methode anzeigen, indem Sie den Zählparameter weglassen oder auf `0` setzen:
+Sie können auch ein leeres Abzeichen mit derselben Methode anzeigen, indem Sie den Zählparameter weglassen oder ihn auf `0` setzen:
 
 ```js
 // Check for support first.
@@ -104,7 +102,7 @@ if (navigator.setAppBadge) {
 }
 ```
 
-Um das Badge auf dem App-Symbol zu entfernen, verwenden Sie die [`Navigator.clearAppBadge()`](/de/docs/Web/API/Navigator/clearAppBadge) Methode:
+Um das Abzeichen auf dem App-Symbol zu entfernen, verwenden Sie die Methode [`Navigator.clearAppBadge()`](/de/docs/Web/API/Navigator/clearAppBadge):
 
 ```js
 // Check for support first.
@@ -114,21 +112,21 @@ if (navigator.clearAppBadge) {
 }
 ```
 
-## Aktualisieren des Badges im Hintergrund
+## Das Abzeichen im Hintergrund aktualisieren
 
-Badges können nützlich sein, um Benutzer wieder mit Ihrer App zu engagieren, wenn sie die App gerade nicht verwenden. Dies bedeutet, dass Ihre App in der Lage sein muss, ihr Badge auch dann zu aktualisieren, wenn sie nicht läuft.
+Abzeichen können nützlich sein, um Benutzer mit Ihrer App erneut zu engagieren, wenn sie die App nicht bereits verwenden. Dies bedeutet, dass Ihre App ihr Abzeichen aktualisieren können muss, selbst wenn sie nicht läuft.
 
-PWAs können die folgenden Mechanismen verwenden, um im Hintergrund zu aktualisieren und ihre Badges anzuzeigen, zu aktualisieren oder zu verbergen:
+PWAs können die folgenden Mechanismen verwenden, um im Hintergrund zu aktualisieren und ihre Abzeichen anzuzeigen, zu aktualisieren oder zu verbergen:
 
 - [Push API](/de/docs/Web/API/Push_API)
-  - : PWAs können diese API verwenden, um Nachrichten von einem Server zu empfangen, selbst wenn die App nicht läuft. Die meisten Browser erfordern, dass eine Benachrichtigung angezeigt wird, wann immer eine Push-Nachricht empfangen wird. Dies ist für einige Anwendungsfälle in Ordnung (zum Beispiel das Anzeigen einer Benachrichtigung beim Aktualisieren des Badges), macht es jedoch unmöglich, das Badge subtil zu aktualisieren, ohne eine Benachrichtigung anzuzeigen. Darüber hinaus müssen Benutzer Ihrer Website Benachrichtigungsberechtigungen erteilen, um Push-Nachrichten zu empfangen.
+  - : PWAs können diese API verwenden, um Nachrichten von einem Server zu empfangen, selbst wenn die App nicht läuft. Die meisten Browser erfordern, dass eine Benachrichtigung angezeigt wird, wenn eine Push-Nachricht empfangen wird. Dies ist für einige Anwendungsfälle in Ordnung (zum Beispiel, wenn die Benachrichtigung beim Aktualisieren des Abzeichens angezeigt wird), macht es jedoch unmöglich, das Abzeichen subtil zu aktualisieren, ohne eine Benachrichtigung anzuzeigen. Darüber hinaus müssen Benutzer Ihrer Website Benachrichtigungsrechte erteilen, um Push-Nachrichten zu empfangen.
     Weitere Informationen finden Sie in der [ServiceWorkerRegistration: showNotification() Methode](/de/docs/Web/API/ServiceWorkerRegistration/showNotification).
 - [Background Synchronization API](/de/docs/Web/API/Background_Synchronization_API)
   - : PWAs können diese API verwenden, um Code im Hintergrund auszuführen, wenn eine stabile Netzwerkverbindung erkannt wird.
 - [Web Periodic Background Synchronization API](/de/docs/Web/API/Web_Periodic_Background_Synchronization_API)
-  - : PWAs können diese API verwenden, um Code im Hintergrund in periodischen Zeitintervallen auszuführen.
+  - : PWAs können diese API verwenden, um Code im Hintergrund in regelmäßigen Intervallen auszuführen.
 
-Hier ist ein Beispiel für einen Service Worker-Code, der zeigt, wie man auf Push-Nachrichten eines Servers hört und das App-Badge aktualisiert, um eine Anzahl ungelesener Nachrichten widerzuspiegeln:
+Hier ist ein Service-Worker-Codebeispiel, das zeigt, wie auf Push-Nachrichten eines Servers gehört werden kann und das App-Abzeichen aktualisiert wird, um eine Anzahl ungelesener Nachrichten widerzuspiegeln:
 
 ```js
 // Listen to "push" events in the service worker.
@@ -152,7 +150,7 @@ self.addEventListener("push", (event) => {
 
 ## Siehe auch
 
-- [Anleitung zur Erstellung eines App-Badges](https://web.dev/patterns/web-apps/badges/)
-- [Badging für App-Symbole](https://developer.chrome.com/docs/capabilities/web-apis/badging-api)
-- [Benutzer mit Badges, Benachrichtigungen und Push-Nachrichten erneut ansprechen](https://learn.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/how-to/notifications-badges)
+- [Anleitung zur Erstellung eines App-Abzeichens](https://web.dev/patterns/web-apps/badges/)
+- [Abzeichen für App-Symbole](https://developer.chrome.com/docs/capabilities/web-apis/badging-api)
+- [Nutzer mit Abzeichen, Benachrichtigungen und Push-Nachrichten erneut ansprechen](https://learn.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/how-to/notifications-badges)
 - [Codelab: Erstellen eines Push-Benachrichtigungsservers](https://web.dev/articles/push-notifications-server-codelab)

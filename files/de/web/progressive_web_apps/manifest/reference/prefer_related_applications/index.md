@@ -2,12 +2,12 @@
 title: prefer_related_applications
 slug: Web/Progressive_web_apps/Manifest/Reference/prefer_related_applications
 l10n:
-  sourceCommit: 2f6ddccbafddcea8f2b68eb4a78b9764892916b3
+  sourceCommit: 628b29f53d15f203c4a6b33c1d0303f864f6af63
 ---
 
-{{QuickLinksWithSubpages("/de/docs/Web/Progressive_web_apps/Manifest/Reference")}}{{SeeCompatTable}}
+{{SeeCompatTable}}
 
-Der `prefer_related_applications`-Eintrag im Manifest wird verwendet, um Browsern einen Hinweis darauf zu geben, ob sie die Installation von nativen Anwendungen, die im [`related_applications`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/related_applications)-Eintrag im Manifest angegeben sind, gegenüber Ihrer Webanwendung bevorzugen sollen.
+Das `prefer_related_applications` Manifest-Element wird verwendet, um Browsern einen Hinweis zu geben, ob native Anwendungen, die im [`related_applications`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/related_applications) Manifest-Element angegeben sind, bevorzugt über Ihre Webanwendung installiert werden sollen.
 
 ## Syntax
 
@@ -21,16 +21,16 @@ Der `prefer_related_applications`-Eintrag im Manifest wird verwendet, um Browser
 
 - `prefer_related_applications`
   - : Ein boolescher Wert:
-    - Wenn auf `true` gesetzt, können Browser Benutzer dazu auffordern, eine der in [`related_applications`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/related_applications) aufgeführten Anwendungen anstelle Ihrer Web-App zu installieren.
-    - Wenn auf `false` gesetzt oder weggelassen, werden Browser bevorzugen, Ihre Web-App über verwandte native Anwendungen zu installieren.
+    - Wenn auf `true` gesetzt, können Browser Benutzer dazu auffordern, eine der in [`related_applications`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/related_applications) aufgelisteten Anwendungen statt Ihrer Web-App zu installieren.
+    - Wenn auf `false` gesetzt oder weggelassen, werden Browser es bevorzugen, Ihre Web-App über verwandte native Anwendungen zu installieren.
       > [!NOTE]
-      > Für Chromium-basierte Browser sollte `prefer_related_applications` auf `false` gesetzt oder weggelassen werden, damit Ihre Web-App installierbar ist.
+      > Für Chromium-basierte Browser sollte `prefer_related_applications` auf `false` gesetzt oder weggelassen werden, um ihre Web-App installierbar zu machen.
 
 ## Beispiele
 
-### Präferenz für die Installation Ihrer Web-App festlegen
+### Präferenz für die Installation Ihrer Web-App angeben
 
-Betrachten Sie ein Szenario, in dem sowohl eine Web-App als auch native Apps für Ihr Produkt im Google Play Store und Windows Store verfügbar sind. Wenn Sie verwandte native Apps als Optionen anbieten, aber bevorzugen, dass Benutzer Ihre Web-App installieren, können Sie dies in Ihrer Manifestdatei wie unten gezeigt einrichten. Browser werden Ihre Web-App für die Installation bewerben. Die nativen Apps stehen dennoch als Alternativen zur Verfügung.
+Betrachten Sie ein Szenario, in dem Sie sowohl eine Web-App als auch native Apps für Ihr Produkt im Google Play Store und Windows Store verfügbar haben. Wenn Sie verwandte native Apps als Optionen anbieten möchten, aber es bevorzugen, dass Benutzer Ihre Web-App installieren, können Sie es in Ihrer Manifest-Datei wie unten gezeigt einrichten. Browser werden Ihre Web-App zur Installation bewerben. Die nativen Apps sind weiterhin als Alternativen verfügbar.
 
 ```json
 {
@@ -48,9 +48,9 @@ Betrachten Sie ein Szenario, in dem sowohl eine Web-App als auch native Apps fü
 }
 ```
 
-### Präferenz für die Installation der verwandten nativen App festlegen
+### Präferenz für die Installation der verwandten nativen App angeben
 
-Um Benutzer zu ermutigen, Ihre native Android-Hiking-App aus dem Google Play Store anstelle der Web-App zu installieren, können Sie die Manifestdatei Ihrer Web-App wie unten gezeigt konfigurieren.
+Um Benutzer zu ermutigen, Ihre native Android-Wander-App aus dem Google Play Store bevorzugt über die Web-App zu installieren, können Sie die Manifest-Datei Ihrer Web-App wie unten gezeigt konfigurieren.
 
 ```json
 {
@@ -74,5 +74,5 @@ Um Benutzer zu ermutigen, Ihre native Android-Hiking-App aus dem Google Play Sto
 
 ## Siehe auch
 
-- [`related_applications`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/related_applications)-Eintrag im Manifest
-- [Das Web-App-Manifest](/de/docs/Web/Progressive_web_apps/Guides/Making_PWAs_installable#the_web_app_manifest) zur Installierbarkeit Ihrer Web-App
+- [`related_applications`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/related_applications) Manifest-Element
+- [Das Web-App-Manifest](/de/docs/Web/Progressive_web_apps/Guides/Making_PWAs_installable#the_web_app_manifest) für die Installierbarkeit Ihrer Web-App

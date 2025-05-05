@@ -2,14 +2,10 @@
 title: scope
 slug: Web/Progressive_web_apps/Manifest/Reference/scope
 l10n:
-  sourceCommit: be1922d62a0d31e4e3441db0e943aed8df736481
+  sourceCommit: 628b29f53d15f203c4a6b33c1d0303f864f6af63
 ---
 
-{{QuickLinksWithSubpages("/de/docs/Web/Progressive_web_apps/Manifest/Reference")}}
-
-Das `scope` Manifestmitglied wird verwendet, um den obersten URL-Pfad anzugeben, der die Seiten und Unterverzeichnisse Ihrer Webanwendung enthält.
-Wenn Benutzer Ihre Web-App installieren und nutzen, bieten Seiten _im Scope_ eine app-ähnliche Oberfläche.
-Wenn Benutzer zu Seiten außerhalb des App-Scopes navigieren, erleben sie weiterhin die app-ähnliche Oberfläche, aber die Browser zeigen UI-Elemente wie die URL-Leiste an, um den Kontextwechsel anzuzeigen.
+Das `scope`-Manifestmitglied wird verwendet, um den obersten URL-Pfad anzugeben, der die Seiten und Unterverzeichnisse Ihrer Webanwendung enthält. Wenn Benutzer Ihre Web-App installieren und verwenden, bieten Seiten _innerhalb des Geltungsbereichs_ eine app-ähnliche Oberfläche. Wenn Benutzer zu Seiten außerhalb des App-Geltungsbereichs navigieren, erleben sie immer noch die app-ähnliche Oberfläche, aber Browser zeigen UI-Elemente wie die Adressleiste an, um auf den geänderten Kontext hinzuweisen.
 
 ## Syntax
 
@@ -28,32 +24,24 @@ Wenn Benutzer zu Seiten außerhalb des App-Scopes navigieren, erleben sie weiter
 
 - `scope`
 
-  - : Ein String, der eine URL darstellt.
-    Die URL kann absolut oder relativ sein.
-    Wenn der Wert relativ ist, wird er relativ zur URL der Manifestdatei aufgelöst.
+  - : Ein String, der eine URL darstellt. Die URL kann absolut oder relativ sein. Wenn der Wert relativ ist, wird er relativ zur URL der Manifestdatei aufgelöst.
 
-    Wenn `scope` im Manifest nicht angegeben ist oder der Wert ungültig ist (d.h. kein String, keine gültige URL oder `start_url` nicht im angegebenen `scope` enthalten ist), wird der effektive Scope auf den `start_url`-Wert gesetzt, nachdem sein Dateiname, seine Abfrage und Fragment entfernt wurden.
+    Wenn `scope` im Manifest nicht angegeben ist oder der Wert ungültig ist (d.h. kein String, keine gültige URL oder `start_url` nicht innerhalb des angegebenen `scope` liegt), wird der effektive Geltungsbereich auf den `start_url`-Wert gesetzt, nachdem der Dateiname, die Abfrage und das Fragment entfernt wurden.
 
 ## Beschreibung
 
-Das `scope` Mitglied definiert die URLs, die Teil der installierten Erfahrung Ihrer Web-App sind.
-Browser verwenden `scope`, um zu bestimmen, ob eine Seite im {{Glossary("Application_context", "Anwendungskontext")}} Ihrer Web-App ist.
+Das `scope`-Mitglied definiert die URLs, die Teil der installierten Erfahrung Ihrer Web-App sind. Browser verwenden `scope`, um zu bestimmen, ob sich eine Seite im {{Glossary("Application_context", "Anwendungskontext")}} Ihrer Web-App befindet.
 
-### Verhalten innerhalb und außerhalb des Scopes
+### Verhalten innerhalb und außerhalb des Geltungsbereichs
 
-Eine URL wird als "innerhalb des Scopes" betrachtet, wenn ihr Pfad mit dem im `scope` definierten URL-Pfad beginnt.
-Zum Beispiel, wenn der `scope` auf `/app/` gesetzt ist, werden die URLs `/app/`, `/app/page.html` und `/app/dashboard/index.html` als innerhalb des Scopes angesehen, während `/` oder `/page.html` es nicht sind.
+Eine URL wird als "innerhalb des Geltungsbereichs" betrachtet, wenn ihr Pfad mit dem in `scope` definierten URL-Pfad beginnt. Zum Beispiel, wenn `scope` auf `/app/` gesetzt ist, dann werden die URLs `/app/`, `/app/page.html` und `/app/dashboard/index.html` als innerhalb des Geltungsbereichs betrachtet, während `/` oder `/page.html` nicht dazu gehören.
 
-Wenn Benutzer Ihre installierte Web-App öffnen, erleben sie eine app-ähnliche Oberfläche.
-Für Seiten innerhalb des Scopes bewahren Browser den Anwendungskontext und die app-ähnliche Erfahrung.
-Wenn Benutzer zu Seiten außerhalb des App-Scopes navigieren, erleben sie weiterhin im Wesentlichen die app-ähnliche Oberfläche; jedoch zeigen auf diesen Seiten Browser zusätzliche UI-Elemente wie die URL-Leiste an.
-Dies hilft Benutzern zu verstehen, dass sie Seiten außerhalb des definierten Scopes der App anzeigen.
+Wenn Benutzer Ihre installierte Web-App öffnen, erleben sie eine app-ähnliche Oberfläche. Für Seiten im Geltungsbereich erhalten Browser den Anwendungskontext und bewahren das app-ähnliche Erlebnis. Wenn Benutzer zu Seiten außerhalb des App-Geltungsbereichs navigieren, erleben sie weiterhin im Großen und Ganzen die app-ähnliche Oberfläche; jedoch zeigen Browser auf diesen Seiten zusätzliche UI-Elemente wie die Adressleiste an. Dies hilft Benutzern zu verstehen, dass sie Seiten außerhalb des definierten Geltungsbereichs der App anzeigen.
 
 > [!NOTE]
-> Das `scope` Mitglied verhindert nicht, dass Benutzer zu App-Seiten außerhalb des definierten Scopes navigieren.
-> Navigationen außerhalb des Scopes werden von Browsern nicht blockiert und dürfen in einem neuen obersten Browsing-Kontext geöffnet werden.
+> Das `scope`-Mitglied verhindert nicht, dass Benutzer zu Seiten außerhalb des definierten Geltungsbereichs der App navigieren. Navigieren außerhalb des Geltungsbereichs wird von Browsern nicht blockiert und kann in einem neuen obersten Browser-Kontext geöffnet werden.
 
-Betrachten Sie eine Web-App zum Erkunden von Wanderwegen mit folgender Verzeichnisstruktur:
+Betrachten Sie eine Web-App zur Erkundung von Wanderwegen mit folgender Verzeichnisstruktur:
 
 ```plain
 web-app/
@@ -68,60 +56,54 @@ web-app/
 │   └── index.html
 ```
 
-Mit dem Scope auf `/trails/` gesetzt:
+Mit dem auf `/trails/` gesetzten Geltungsbereich:
 
-- Beim Anzeigen von Seiten und Unterverzeichnissen unter `/trails/` (wie `trail-list.html` und `/trails/settings/index.html`) erleben Benutzer die app-ähnliche Oberfläche ohne die Browsersteuerungen (Bild auf der linken Seite).
-- Beim Navigieren zu Seiten in Unterverzeichnissen wie `/blog/`, die außerhalb des Scopes der App liegen, bleibt die App-Oberfläche erhalten, aber Benutzer sehen die Website-Adresse und andere Browsersteuerungen (Bild auf der rechten Seite).
+- Beim Betrachten von Seiten und Unterverzeichnissen unter `/trails/` (wie `trail-list.html` und `/trails/settings/index.html`) erleben Benutzer die app-ähnliche Oberfläche ohne die Browser-Steuerelemente (Bild links).
+- Beim Navigieren zu Seiten in Unterverzeichnissen wie `/blog/`, die außerhalb des App-Geltungsbereichs liegen, bleibt die app-ähnliche Oberfläche erhalten, aber Benutzer sehen die Website-Adresse und andere Browser-Steuerelemente (Bild rechts).
 
-| Seite im Scope                                                                                     | Seite außerhalb des Scopes                                                                                |
-| -------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
-| ![Seite mit Wanderweg-Liste zeigt app-ähnliche Oberfläche ohne Browsersteuerungen](trail-list.png) | ![Blog-Seite zeigt Website-Adresse und Browsersteuerungen während beibehaltener App-Oberfläche](blog.png) |
+| Seite im Geltungsbereich                                                                                         | Seite außerhalb des Geltungsbereichs                                                                              |
+| ---------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| ![Seite zur Auflistung von Wanderwegen mit app-ähnlicher Oberfläche ohne Browser-Steuerelemente](trail-list.png) | ![Blog-Seite mit Website-Adresse und Browser-Steuerelementen bei beibehaltenem app-ähnlichem Interface](blog.png) |
 
-### Auswirkung von Scope auf tief verlinkte Seiten
+### Auswirkungen des Geltungsbereichs auf tief verlinkte Seiten
 
-Andere Anwendungen können direkt auf bestimmte Seiten Ihrer Web-App verlinken.
-Das `scope` Mitglied beeinflusst, wie diese tief verlinkten Seiten angezeigt werden, es ist jedoch nicht erforderlich, damit tiefes Verlinken funktioniert.
+Andere Anwendungen können direkt auf bestimmte Seiten Ihrer Web-App verlinken. Das `scope`-Mitglied beeinflusst, wie diese tief verlinkten Seiten angezeigt werden, ist aber nicht erforderlich, damit Deep-Linking funktioniert.
 
-Betrachten Sie das frühere Beispiel der Web-App zum Erkunden von Wanderwegen, bei der der `scope` auf `/trails/` gesetzt ist:
+Betrachten Sie das vorherige Beispiel der Web-App zur Erkundung von Wanderwegen, bei dem `scope` auf `/trails/` gesetzt ist:
 
-- Wenn ein Link zu `https://trailnav.app/trails/saratoga-gap-trail.html` in sozialen Medien geteilt wird, sehen Benutzer, die die Trail Navigator App installiert haben, diese Seite in der App-Oberfläche ohne Browsersteuerungen.
-- Wird ein Link zu `https://trailnav.app/blog/trail-safety.html` geteilt, sehen diese Benutzer die Blog-Seite in der App-ähnlichen Oberfläche, aber mit sichtbarer Website-Adresse und Browsersteuerungen, da sie außerhalb des definierten Scopes liegt.
+- Wenn ein Link zu `https://trailnav.app/trails/saratoga-gap-trail.html` in sozialen Medien geteilt wird, sehen Benutzer mit der installierten Trail Navigator App diese Seite in der Oberfläche der App ohne Browser-Steuerelemente.
+- Wenn ein Link zu `https://trailnav.app/blog/trail-safety.html` geteilt wird, sehen diese Benutzer die Blog-Seite im app-ähnlichen Interface, aber mit sichtbarer Website-Adresse und Browser-Steuerelementen, da sie außerhalb des definierten App-Geltungsbereichs liegt.
 
-Dieses Verhalten hilft Benutzern zu verstehen, ob sie Seiten innerhalb oder außerhalb des App-Scopes ansehen, auch wenn sie die App-Seiten über externe Links aufrufen.
+Dieses Verhalten hilft Benutzern zu verstehen, ob sie Seiten innerhalb oder außerhalb des App-Geltungsbereichs betrachten, selbst beim Zugriff auf App-Seiten über externe Links.
 
-### Fallback-Verhalten des Scopes
+### Fallback-Verhalten des Geltungsbereichs
 
-Der `scope` ist ungültig, wenn `start_url` keine Teilmenge der `scope` URL ist. Zum Beispiel:
+Der `scope` ist ungültig, wenn `start_url` keine Teilmenge der `scope`-URL ist. Zum Beispiel:
 
-- **Gültig**: `scope` ist `/app/`, und `start_url` ist `/app/home.html`.
-- **Ungültig**: `scope` ist `/app/`, und `start_url` ist `/index.html`.
+- **Gültig**: `scope` ist `/app/` und `start_url` ist `/app/home.html`.
+- **Ungültig**: `scope` ist `/app/` und `start_url` ist `/index.html`.
 
-Wenn `scope` fehlt oder ungültig ist, wird es auf den `start_url`-Wert nach Entfernen seines Dateinamens, seiner Abfrage und seines Fragments zurückgesetzt.
-Beachten Sie, dass wenn `start_url` ebenfalls nicht definiert (oder ungültig) ist, es standardmäßig die Seite wird, die auf das Manifest verweist.
-So wird sichergestellt, dass der Scope standardmäßig an der Seite beginnt, die die Installation ausgelöst hat.
+Wenn `scope` fehlt oder ungültig ist, wird er auf den `start_url`-Wert gesetzt, nachdem dessen Dateiname, Abfrage und Fragment entfernt wurden. Beachten Sie, dass, wenn der `start_url` ebenfalls nicht definiert ist (oder ungültig), er auf die Seite zurückfällt, die auf das Manifest verlinkt. Dies stellt sicher, dass standardmäßig der Geltungsbereich von der Seite beginnt, die die Installation ausgelöst hat.
 
 Zum Beispiel:
 
-- Wenn `start_url` `https://example.com/app/index.html?user=123#home` ist, wird der Scope `https://example.com/app/`.
-- Wenn `start_url` `/pages/welcome.html` ist, wird der Scope `/pages/` am gleichen Ursprung sein.
-- Wenn `start_url` `/pages/` ist (der abschließende Schrägstrich ist wichtig), wird der Scope `/pages/`.
+- Wenn `start_url` `https://example.com/app/index.html?user=123#home` ist, wird der Geltungsbereich `https://example.com/app/`.
+- Wenn `start_url` `/pages/welcome.html` ist, wird der Geltungsbereich `/pages/` am gleichen Ursprung.
+- Wenn `start_url` `/pages/` ist (der abschließende Schrägstrich ist wichtig), wird der Geltungsbereich `/pages/`.
 
-Wenn Sie sich auf das Fallback-Verhalten von `scope` verlassen, stellen Sie sicher, dass die URLs aller Seiten in Ihrer App mit dem übergeordneten Pfad von `start_url` beginnen.
-Um Probleme bei der Scop-Bestimmung zu vermeiden, wird empfohlen, `scope` explizit in Ihrer Manifestdatei anzugeben.
+Wenn Sie sich auf das Fallback-Verhalten von `scope` verlassen, stellen Sie sicher, dass die URLs aller Seiten in Ihrer App mit dem übergeordneten Pfad von `start_url` beginnen. Um Probleme bei der Bestimmung des Geltungsbereichs zu vermeiden, wird empfohlen, `scope` explizit in Ihrer Manifestdatei anzugeben.
 
-### Mechanismus des Scope-Matchings
+### Mechanismus zur Übereinstimmung des Geltungsbereichs
 
-Die Zeichenkettenübereinstimmung der Scope-URL verwendet eine einfache Präfixübereinstimmung, nicht die Pfadstruktur.
-Zum Beispiel, wenn der `scope` auf `/prefix` gesetzt ist, wird er URLs, die mit `/prefix` beginnen, zuordnen, einschließlich `/prefix-of/index.html` und `/prefix/index.html`. Beachten Sie, dass `/prefix-of/index.html` übereinstimmt, obwohl `prefix-of` keine exakte Übereinstimmung mit dem Scope `/prefix` ist.
+Die String-Übereinstimmung für die Geltungsbereich-URL verwendet eine einfache Präfixübereinstimmung, nicht die Pfadstruktur. Zum Beispiel, wenn der `scope` als `/prefix` gesetzt ist, wird er URLs, die mit `/prefix` beginnen, einschließlich `/prefix-of/index.html` und `/prefix/index.html`, entsprechen. Beachten Sie, dass `/prefix-of/index.html` auch übereinstimmt, obwohl `prefix-of` keine genaue Übereinstimmung mit dem Geltungsbereich `/prefix` ist.
 
-Aus diesem Grund wird empfohlen, einen Scope zu definieren, der mit `/` endet.
-Das Setzen des `scope` als `/prefix/` stellt sicher, dass er nur die Seiten im Verzeichnis `/prefix/` zuordnet und unbeabsichtigte Übereinstimmungen verhindert.
+Aus diesem Grund wird empfohlen, einen Geltungsbereich mit einem abschließenden `/` zu definieren. Wenn Sie den `scope` als `/prefix/` festlegen, wird sichergestellt, dass er nur die Seiten innerhalb des `/prefix/`-Verzeichnisses erfasst und unbeabsichtigte Übereinstimmungen verhindert.
 
 ## Beispiele
 
-### Angabe einer absoluten URL für den Scope
+### Festlegen einer absoluten URL für den Geltungsbereich
 
-Angenommen, die Manifestdatei für Ihre Web-App ist mit `https://hikingapp.com/index.html` verlinkt, und Sie möchten, dass der Scope alle Unterverzeichnisse umfasst. Sie können diesen Scope mit einer absoluten URL angeben, die sich im selben Ursprung wie die URL der Manifestdatei befindet, wie unten gezeigt. Dies stellt sicher, dass Seiten wie `https://hikingapp.com/store` und `https://hikingapp.com/company` Teil Ihrer Web-App sind.
+Angenommen, die Manifestdatei Ihrer Web-App ist von `https://hikingapp.com/index.html` verlinkt, und Sie möchten, dass der Geltungsbereich alle Unterverzeichnisse umfasst. Sie können diesen Geltungsbereich mit einer absoluten URL festlegen, die den gleichen Ursprung wie die URL der Manifestdatei hat, wie unten gezeigt. Dies stellt sicher, dass Seiten wie `https://hikingapp.com/store` und `https://hikingapp.com/company` Teil Ihrer Web-App sind.
 
 ```json
 {
@@ -129,9 +111,9 @@ Angenommen, die Manifestdatei für Ihre Web-App ist mit `https://hikingapp.com/i
 }
 ```
 
-### Angabe einer relativen URL für den Scope
+### Festlegen einer relativen URL für den Geltungsbereich
 
-Wenn die URL Ihrer Manifestdatei `https://hikingapp.com/resources/manifest.json` ist und Sie möchten, dass der Scope `https://hikingapp.com/app/` ist, können Sie ihn als relative URL definieren:
+Wenn die URL Ihrer Manifestdatei `https://hikingapp.com/resources/manifest.json` ist und Sie den Geltungsbereich auf `https://hikingapp.com/app/` festlegen möchten, können Sie ihn als relative URL definieren:
 
 ```json
 {
@@ -139,9 +121,9 @@ Wenn die URL Ihrer Manifestdatei `https://hikingapp.com/resources/manifest.json`
 }
 ```
 
-### Definition einer Web-App für einen bestimmten Abschnitt Ihrer Website
+### Definieren einer Web-App für einen bestimmten Abschnitt Ihrer Website
 
-Wenn Sie eine Website mit mehreren Abschnitten haben, aber Ihre Web-App auf einen bestimmten Abschnitt konzentrieren möchten, können Sie den `scope` wie folgt definieren:
+Wenn Sie eine Website mit mehreren Abschnitten haben, aber Ihre Web-App auf einen bestimmten Abschnitt fokussieren möchten, können Sie den `scope` folgendermaßen definieren:
 
 ```json
 {
@@ -151,7 +133,7 @@ Wenn Sie eine Website mit mehreren Abschnitten haben, aber Ihre Web-App auf eine
 }
 ```
 
-Mit dieser Konfiguration sind Seiten wie `https://hikingapp.com/store/products` Teil Ihrer Web-App, aber `https://hikingapp.com/company/` liegt außerhalb des Scopes Ihrer Web-App. Für URLs außerhalb des Scopes können Browser unterschiedliche UI-Elemente anzeigen, um Benutzer darüber zu informieren, dass sie sich außerhalb des Scopes der App bewegt haben.
+Mit dieser Einrichtung sind Seiten wie `https://hikingapp.com/store/products` Teil Ihrer Web-App, aber `https://hikingapp.com/company/` liegt außerhalb des Geltungsbereichs Ihrer Web-App. Für URLs außerhalb des Geltungsbereichs können Browser unterschiedliche UI-Elemente anzeigen, um Benutzer darüber zu informieren, dass sie den definierten Geltungsbereich der App verlassen haben.
 
 ## Spezifikationen
 

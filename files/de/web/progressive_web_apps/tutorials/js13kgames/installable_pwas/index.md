@@ -1,42 +1,41 @@
 ---
-title: Wie man PWAs installierbar macht
+title: "js13kGames: Wie man PWAs installierbar macht"
+short-title: Wie man PWAs installierbar macht
 slug: Web/Progressive_web_apps/Tutorials/js13kGames/Installable_PWAs
 l10n:
-  sourceCommit: 759102220c07fb140b3e06971cd5981d8f0f134f
+  sourceCommit: 628b29f53d15f203c4a6b33c1d0303f864f6af63
 ---
 
 {{PreviousMenuNext("Web/Progressive_web_apps/Tutorials/js13kGames/Offline_Service_workers", "Web/Progressive_web_apps/Tutorials/js13kGames/Re-engageable_Notifications_Push", "Web/Progressive_web_apps/Tutorials/js13kGames")}}
 
-{{PWASidebar}}
+Im letzten Schritt dieses Tutorials haben wir gelesen, wie die Beispielanwendung [js13kPWA](https://mdn.github.io/pwa-examples/js13kpwa/) offline funktioniert, dank ihres [Service Workers](/de/docs/Web/API/Service_Worker_API), aber wir können noch weiter gehen und den Nutzern ermöglichen, die Web-App auf ihrem Gerät zu installieren. Die installierte Web-App kann dann von den Nutzern gestartet werden, als wäre sie eine native App des OS. Dieser Artikel erklärt, wie dies mithilfe des Manifests der Web-App erreicht wird.
 
-Im letzten Schritt dieses Tutorials haben wir gelesen, wie die Beispielanwendung, [js13kPWA](https://mdn.github.io/pwa-examples/js13kpwa/), dank ihres [Service Workers](/de/docs/Web/API/Service_Worker_API) offline funktioniert. Aber wir können noch einen Schritt weiter gehen und den Nutzern erlauben, die Web-App auf ihrem Gerät zu installieren. Die installierte Web-App kann dann von Nutzern genau wie eine native App des Betriebssystems gestartet werden. Dieser Artikel erklärt, wie Sie dies mit Hilfe des Manifests der Web-App erreichen können.
+Das Web-App-Manifest ermöglicht es, die App direkt von der Startseite des Geräts, der Taskleiste oder dem Dock zu starten, anstatt dass der Nutzer den Browser öffnen und dann zur Seite navigieren muss, sei es durch Verwendung eines Lesezeichens oder durch Eingeben der URL. Ihre Web-App kann sich neben nativen Anwendungen befinden, was den Zugriff für die Nutzer erleichtert. Darüber hinaus können Sie festlegen, dass die App im Vollbild- oder Standalone-Modus gestartet wird, wodurch die standardmäßige Benutzeroberfläche des Browsers, die sonst vorhanden wäre, entfernt wird und ein noch nahtloseres, nativeres Gefühl entsteht.
 
-Das Web-App-Manifest ermöglicht es, die App direkt vom Home-Bildschirm, der Taskleiste oder dem Dock des Geräts aus zu starten, anstatt dass der Nutzer den Browser öffnen und dann über ein Lesezeichen oder die Eingabe der URL zur Seite navigieren muss. Ihre Web-App kann neben nativen Anwendungen platziert werden, was den Zugriff für die Nutzer erleichtert. Außerdem können Sie angeben, dass die App im Vollbild- oder Standalone-Modus gestartet werden soll, wodurch die standardmäßige Benutzeroberfläche des Browsers entfernt wird, die ansonsten vorhanden wäre, was ein noch nahtloseres und nativeres Gefühl schafft.
+Um mehr zu erfahren, sehen Sie [Wie man PWAs installierbar macht](/de/docs/Web/Progressive_web_apps/Guides/Making_PWAs_installable).
 
-Um mehr zu erfahren, siehe [PWAs installierbar machen](/de/docs/Web/Progressive_web_apps/Guides/Making_PWAs_installable).
+## Anforderungen
 
-## Voraussetzungen
+Um unsere Beispielanwendung installierbar zu machen, werden folgende Dinge benötigt:
 
-Um unsere Beispielanwendung installierbar zu machen, sind die folgenden Dinge erforderlich:
+- Ein Web-Anwendungsmanifest, mit den [korrekt ausgefüllten Mitgliedern](/de/docs/Web/Progressive_web_apps/Guides/Making_PWAs_installable#the_web_app_manifest).
+- Die Website muss von einer sicheren (HTTPS) Domäne aus bedient werden.
+- Ein Symbol zur Darstellung der App auf dem Gerät.
 
-- Ein Web-App-Manifest mit den [korrekten ausgefüllten Elementen](/de/docs/Web/Progressive_web_apps/Guides/Making_PWAs_installable#the_web_app_manifest).
-- Die Website muss von einer sicheren (HTTPS) Domain bereitgestellt werden.
-- Ein Icon, das die App auf dem Gerät darstellt.
+### Die Web-App-Manifest-Datei
 
-### Die Web-App-Manifestdatei
+Das Schlüsselelement ist eine Manifestdatei der Web-Anwendung, die alle Informationen über die Website im JSON-Format auflistet.
 
-Das Schlüsselelement ist eine Web-App-Manifestdatei, die alle Informationen über die Website in einem JSON-Format auflistet.
+Sie befindet sich normalerweise im Stammordner einer Web-App. Sie enthält nützliche Informationen, wie den Titel der App, Pfade zu unterschiedlich großen Symbolen, die verwendet werden können, um die App auf einem OS zu repräsentieren (wie ein Symbol auf dem Startbildschirm, ein Eintrag im Startmenü oder ein Symbol auf dem Desktop), und eine Hintergrundfarbe für Lade- oder Startbildschirme. Diese Informationen sind notwendig, damit der Browser die Web-App während des Installationsprozesses sowie innerhalb der Startoberfläche des Geräts, wie dem Startbildschirm eines mobilen Geräts, korrekt präsentieren kann.
 
-Sie befindet sich üblicherweise im Stammverzeichnis einer Web-App. Sie enthält nützliche Informationen wie den Titel der App, Pfade zu unterschiedlich großen Icons, die verwendet werden können, um die App im Betriebssystem darzustellen (wie ein Icon auf dem Home-Bildschirm, ein Eintrag im Startmenü oder ein Icon auf dem Desktop) und eine Hintergrundfarbe für Lade- oder Startbildschirme. Diese Informationen sind notwendig, damit der Browser die Web-App während des Installationsprozesses sowie in der App-Startschnittstelle des Geräts, wie dem Home-Bildschirm eines mobilen Geräts, korrekt präsentieren kann.
-
-Die Datei `js13kpwa.webmanifest` der [js13kPWA](https://mdn.github.io/pwa-examples/js13kpwa/) Web-App wird im {{HTMLElement("head")}} Block der `index.html` Datei mit der folgenden Codezeile eingebunden:
+Die `js13kpwa.webmanifest`-Datei der [js13kPWA](https://mdn.github.io/pwa-examples/js13kpwa/) Web-App ist im {{HTMLElement("head")}} Block der `index.html` Datei mit der folgenden Codezeile enthalten:
 
 ```html
 <link rel="manifest" href="js13kpwa.webmanifest" />
 ```
 
 > [!NOTE]
-> Viele verwenden `manifest.json` für Web-App-Manifeste, da die Inhalte in einer JSON-Struktur organisiert sind. Allerdings wird das `.webmanifest` Dateiformat ausdrücklich in der [W3C Manifest Spezifikation](https://w3c.github.io/manifest/) erwähnt, daher verwenden wir dies hier.
+> Viele verwenden `manifest.json` für Web-App-Manifestdateien, da die Inhalte in einer JSON-Struktur organisiert sind. Allerdings wird das `.webmanifest`-Dateiformat ausdrücklich in der [W3C Manifest-Spezifikation](https://w3c.github.io/manifest/) erwähnt, daher werden wir es hier verwenden.
 
 Der Inhalt der Datei sieht folgendermaßen aus:
 
@@ -65,37 +64,37 @@ Der Inhalt der Datei sieht folgendermaßen aus:
 }
 ```
 
-Die meisten der Elemente sind selbsterklärend. Hier ist eine Beschreibung der im vorherigen Codebeispiel angegebenen Elemente:
+Die meisten Mitglieder sind selbsterklärend. Hier ist eine Beschreibung der im vorhergehenden Codebeispiel gezeigten Mitglieder:
 
 - `name`: Der vollständige Name Ihrer Web-App.
-- `short_name`: Kurzer Name, der auf dem Home-Bildschirm angezeigt werden soll.
-- `description`: Ein oder zwei Sätze, die erklären, was Ihre App macht.
-- `icons`: Informationen über die App-Icons — Quell-URLs, Größen und Typen. Stellen Sie sicher, dass Sie mindestens einige hinzufügen, damit das am besten passende für das Gerät des Nutzers ausgewählt wird. Siehe [Definieren Sie Ihre App-Icons](/de/docs/Web/Progressive_web_apps/How_to/Define_app_icons).
-- `start_url`: Das Startdokument, das beim Starten der App geöffnet werden soll.
+- `short_name`: Kurzer Name, der auf dem Startbildschirm angezeigt wird.
+- `description`: Ein bis zwei Sätze, die erklären, was Ihre App macht.
+- `icons`: Informationen über die App-Symbole — Quell-URLs, Größen und Typen. Stellen Sie sicher, dass Sie mindestens ein paar einschließen, sodass eines ausgewählt wird, das am besten zum Gerät des Benutzers passt. Siehe [Definieren Sie Ihre App-Symbole](/de/docs/Web/Progressive_web_apps/How_to/Define_app_icons).
+- `start_url`: Das Startdokument, das beim Starten der App geladen wird.
 - `display`: Wie die App angezeigt wird; kann `fullscreen`, `standalone`, `minimal-ui` oder `browser` sein.
-- `theme_color`: Eine Primärfarbe für die Benutzeroberfläche, verwendet vom Betriebssystem.
+- `theme_color`: Eine Primärfarbe für die Benutzeroberfläche, die vom Betriebssystem verwendet wird.
 - `background_color`: Eine Farbe, die als Standardhintergrund der App verwendet wird, während der Installation und auf dem Startbildschirm.
 
-Es gibt noch mehr Elemente, die Sie verwenden können als oben aufgeführt — stellen Sie sicher, die [Web-App-Manifestreferenz](/de/docs/Web/Progressive_web_apps/Manifest) für Details zu prüfen.
+Es gibt noch mehr Mitglieder, die Sie verwenden können als die oben aufgeführten — stellen Sie sicher, dass Sie das [Web-App-Manifest-Referenz](/de/docs/Web/Progressive_web_apps/Manifest) für Details überprüfen.
 
-## Installation der PWA
+## Die PWA installieren
 
-Unter Verwendung der im Web-App-Manifest enthaltenen Informationen können unterstützende Browser dem Nutzer ein Installations-Prompt anzeigen. Wenn der Nutzer die PWA besucht, kann er aufgefordert werden, sie auf seinem Gerät zu installieren. Wenn er dem Prompt zustimmt, wird die PWA wie andere native OS-Apps installiert, und der Nutzer kann die Web-App normal starten und verwenden.
+Unter Verwendung der Informationen, die in unserem Web-App-Manifest gefunden werden, können unterstützende Browser dem Benutzer ein Installationsaufforderung anzeigen. Wenn der Benutzer die PWA besucht, kann er aufgefordert werden, sie auf seinem Gerät zu installieren. Wenn er die Aufforderung akzeptiert, wird die PWA wie andere OS-native Apps installiert und der Benutzer kann die Web-App wie gewohnt starten und verwenden.
 
-Um mehr darüber zu erfahren, wie Nutzer PWAs installieren können, lesen Sie [Installieren und Deinstallieren von Web-Apps](/de/docs/Web/Progressive_web_apps/Guides/Installing).
+Um mehr darüber zu erfahren, wie Benutzer PWAs installieren können, siehe [Web-Apps installieren und deinstallieren](/de/docs/Web/Progressive_web_apps/Guides/Installing).
 
 ### Startbildschirm
 
-Auf bestimmten Geräten wird aus den Informationen im Manifest ein Startbildschirm generiert, der angezeigt wird, wenn die PWA gestartet wird und während sie geladen wird.
+Auf bestimmten Geräten wird auch ein Startbildschirm aus den Informationen im Manifest generiert, der angezeigt wird, wenn die PWA gestartet wird und während sie geladen wird.
 
-![Screenshot des Startbildschirms der App auf einem Mobiltelefon. Es ist eine komplett rote Seite mit dem Anwendungslogo in der Mitte und dem darunter stehenden Namen: "js13kGames Progressive Web App"](js13kpwa-splash.png)
+![Screenshot des Startbildschirms der App auf einem Mobiltelefon. Es ist eine komplett rote Seite mit dem Anwendungslogo in der Mitte und dem Namen darunter: "js13kGames Progressive Web App"](js13kpwa-splash.png)
 
-Das Icon sowie die Themen- und Hintergrundfarben werden verwendet, um diesen Bildschirm zu erstellen.
+Das Symbol sowie die Farb- und Hintergrundfarben werden verwendet, um diesen Bildschirm zu erstellen.
 
 ## Zusammenfassung
 
-In diesem Artikel haben wir gelernt, wie wir PWAs mit einem korrekt konfigurierten Web-App-Manifest installierbar machen können und wie der Nutzer danach die PWA auf seinen Geräten installieren kann.
+In diesem Artikel haben wir erfahren, wie wir PWAs mit einem richtig konfigurierten Web-App-Manifest installierbar machen können und wie der Benutzer dann die PWA auf seinen Geräten installieren kann.
 
-Nun gehen wir zum letzten Schritt in unserem PWA-Tutorial über: Push-Benachrichtigungen verwenden, um Ankündigungen mit dem Nutzer zu teilen und ihm zu helfen, sich wieder mit unserer App zu beschäftigen.
+Jetzt kommen wir zum letzten Schritt unseres PWA-Tutorials: Push-Benachrichtigungen zu nutzen, um Ankündigungen mit dem Benutzer zu teilen und um dem Benutzer zu helfen, sich erneut mit unserer App zu beschäftigen.
 
 {{PreviousMenuNext("Web/Progressive_web_apps/Tutorials/js13kGames/Offline_Service_workers", "Web/Progressive_web_apps/Tutorials/js13kGames/Re-engageable_Notifications_Push", "Web/Progressive_web_apps/Tutorials/js13kGames")}}

@@ -2,16 +2,13 @@
 title: orientation
 slug: Web/Progressive_web_apps/Manifest/Reference/orientation
 l10n:
-  sourceCommit: 2f6ddccbafddcea8f2b68eb4a78b9764892916b3
+  sourceCommit: 628b29f53d15f203c4a6b33c1d0303f864f6af63
 ---
 
-{{QuickLinksWithSubpages("/de/docs/Web/Progressive_web_apps/Manifest/Reference")}}
-
-Das `orientation`-Manifestmitglied wird verwendet, um die Standardausrichtung Ihrer Webanwendung festzulegen.
-Es definiert, wie die App beim Starten und während der Nutzung in Bezug auf die Bildschirmorientierung des Geräts angezeigt werden soll, insbesondere auf Geräten, die mehrere Ausrichtungen unterstützen.
+Das `orientation`-Manifestmitglied wird verwendet, um die Standardausrichtung Ihrer Webanwendung festzulegen. Es definiert, wie die App beim Start und während der Nutzung in Bezug auf die Bildschirmorientierung des Geräts angezeigt werden soll, insbesondere auf Geräten, die mehrere Ausrichtungen unterstützen.
 
 > [!NOTE]
-> Die Ausrichtung der App kann zur Laufzeit durch verschiedene Mittel geändert werden, wie z.B. durch die Verwendung der [Screen Orientation API](/de/docs/Web/API/Screen_Orientation_API).
+> Die Ausrichtung der App kann während der Laufzeit durch verschiedene Mittel geändert werden, wie zum Beispiel mit der [Screen Orientation API](/de/docs/Web/API/Screen_Orientation_API).
 
 ## Syntax
 
@@ -31,70 +28,69 @@ Es definiert, wie die App beim Starten und während der Nutzung in Bezug auf die
 
 - `orientation`
 
-  - : Ein String, der die Standardausrichtung für die Web-App festlegt.
-    Wenn das `orientation`-Mitglied nicht angegeben ist oder ein ungültiger Wert angegeben wird, wird die Web-App typischerweise die natürliche Ausrichtung des Geräts sowie alle benutzer- oder systemseitigen Ausrichtungseinstellungen verwenden.
+  - : Ein String, der die Standardausrichtung für die Webanwendung spezifiziert. Ist das `orientation`-Mitglied nicht angegeben oder wird ein ungültiger Wert bereitgestellt, verwendet die Webanwendung typischerweise die natürliche Ausrichtung des Geräts und etwaige Benutzer- oder Systemeinstellungen zur Ausrichtung.
 
-    Der `orientation`-Wert muss eines der folgenden Schlüsselwörter sein:
+    Der Wert `orientation` muss eines der folgenden Schlüsselwörter sein:
 
     - `any`
 
-      - : Zeigt die Web-App in jeder vom Betriebssystem des Geräts oder von Benutzereinstellungen erlaubten Ausrichtung an.
-        Es erlaubt der App, sich frei zu drehen, um die Ausrichtung des Geräts bei Drehung anzupassen.
+      - : Zeigt die Webanwendung in jeder vom Betriebssystem des Geräts oder den Benutzereinstellungen erlaubten Ausrichtung an.
+        Es erlaubt der App, sich frei zu drehen, um der Ausrichtung des Geräts zu entsprechen, wenn es gedreht wird.
 
     - `natural`
 
-      - : Zeigt die Web-App in der Ausrichtung an, die für das Gerät als am natürlichsten angesehen wird, bestimmt durch den Browser, das Betriebssystem, Benutzereinstellungen oder den Bildschirm selbst. Dies entspricht der Art und Weise, wie das Gerät am häufigsten gehalten oder verwendet wird:
+      - : Zeigt die Webanwendung in der als natürlich empfundenen Ausrichtung des Geräts an. Diese wird vom Browser, Betriebssystem, den Benutzereinstellungen oder dem Bildschirm selbst bestimmt. Sie entspricht der Art und Weise, wie das Gerät am häufigsten gehalten oder verwendet wird:
 
-        - Auf Geräten, die typischerweise vertikal gehalten werden, wie Mobiltelefone, ist `natural` normalerweise `portrait-primary`.
-        - Auf Geräten, die typischerweise horizontal verwendet werden, wie Computermonitore und Tablets, ist `natural` normalerweise `landscape-primary`.
+        - Auf Geräten, die typischerweise vertikal gehalten werden, wie Mobiltelefone, ist `natural` üblicherweise `portrait-primary`.
+        - Auf Geräten, die typischerweise horizontal verwendet werden, wie Computermonitore und Tablets, ist `natural` üblicherweise `landscape-primary`.
 
-        Wenn das Gerät gedreht wird, kann die App möglicherweise rotieren oder auch nicht, um die natürliche Ausrichtung des Geräts zu matchen; dieses Verhalten kann je nach spezifischem Gerät, Browser-Implementierung und Benutzereinstellungen variieren.
+        Wenn das Gerät gedreht wird, kann es sein, dass die App sich mitdreht oder nicht, um der natürlichen Ausrichtung des Geräts zu entsprechen; dieses Verhalten kann je nach spezifischem Gerät, Browser-Implementierung und Benutzereinstellungen variieren.
 
     - `portrait`
 
-      - : Zeigt die Web-App mit einer größeren Höhe als Breite an.
-        Es erlaubt der App, zwischen `portrait-primary` und `portrait-secondary` Ausrichtungen zu wechseln, wenn das Gerät gedreht wird.
+      - : Zeigt die Webanwendung mit größerer Höhe als Breite an.
+        Es erlaubt der App, zwischen `portrait-primary` und `portrait-secondary` zu wechseln, wenn das Gerät gedreht wird.
 
     - `portrait-primary`
 
-      - : Zeigt die Web-App im Hochformat an, typischerweise mit dem Gerät aufrecht gehalten.
-        Dies ist normalerweise die Standardausrichtung der App auf Geräten, die von Natur aus Hochformat sind.
-        Je nach Gerät und Browser-Implementierung wird die App typischerweise diese Ausrichtung beibehalten, selbst wenn das Gerät gedreht wird.
+      - : Zeigt die Webanwendung im Hochformat an, typischerweise mit aufrechtem Gerät.
+        Dies ist üblicherweise die Standardausrichtung der App auf Geräten, die natürlich im Hochformat sind.
+        Abhängig von Gerät und Browser-Implementierung bleibt die App typischerweise in dieser Ausrichtung, auch wenn das Gerät gedreht wird.
 
     - `portrait-secondary`
 
-      - : Zeigt die Web-App im invertierten Hochformat an, was `portrait-primary` um 180 Grad gedreht ist.
-        Je nach Gerät und Browser-Implementierung wird die App typischerweise diese Ausrichtung beibehalten, selbst wenn das Gerät gedreht wird.
+      - : Zeigt die Webanwendung im umgekehrten Hochformat an, was `portrait-primary` um 180 Grad gedreht entspricht.
+        Abhängig von Gerät und Browser-Implementierung bleibt die App typischerweise in dieser Ausrichtung, auch wenn das Gerät gedreht wird.
 
     - `landscape`
 
-      - : Zeigt die Web-App mit einer größeren Breite als Höhe an.
-        Es erlaubt der App, zwischen `landscape-primary` und `landscape-secondary` Ausrichtungen zu wechseln, wenn das Gerät gedreht wird.
+      - : Zeigt die Webanwendung mit größerer Breite als Höhe an.
+        Es erlaubt der App, zwischen `landscape-primary` und `landscape-secondary` zu wechseln, wenn das Gerät gedreht wird.
 
     - `landscape-primary`
 
-      - : Zeigt die Web-App im Querformat an, typischerweise mit dem Gerät in seiner Standard-Position horizontal gehalten.
-        Dies ist normalerweise die Standardausrichtung der App auf Geräten, die von Natur aus Querformat sind.
-        Je nach Gerät und Browser-Implementierung wird die App typischerweise diese Ausrichtung beibehalten, selbst wenn das Gerät gedreht wird.
+      - : Zeigt die Webanwendung im Querformat an, typischerweise mit dem Gerät in seiner Standardhorizontalposition.
+        Dies ist üblicherweise die Standardausrichtung der App auf Geräten, die natürlich im Querformat sind.
+        Abhängig von Gerät und Browser-Implementierung bleibt die App typischerweise in dieser Ausrichtung, auch wenn das Gerät gedreht wird.
 
     - `landscape-secondary`
 
-      - : Zeigt die Web-App im invertierten Querformat an, was `landscape-primary` um 180 Grad gedreht ist.
-        Je nach Gerät und Browser-Implementierung wird die App typischerweise diese Ausrichtung beibehalten, selbst wenn das Gerät gedreht wird.
+      - : Zeigt die Webanwendung im umgekehrten Querformat an, was `landscape-primary` um 180 Grad gedreht entspricht.
+        Abhängig von Gerät und Browser-Implementierung bleibt die App typischerweise in dieser Ausrichtung, auch wenn das Gerät gedreht wird.
 
 ## Beschreibung
 
-Um das `orientation`-Manifestmitglied zu verstehen, ist es wichtig, mit den folgenden, ausrichtungsbezogenen Konzepten vertraut zu sein:
+Um das `orientation`-Manifestmitglied zu verstehen, ist es wichtig, mit den folgenden orientierungsbezogenen Konzepten vertraut zu sein:
 
 - **Geräteausrichtung**: Definiert, wie das Gerät physisch gehalten oder positioniert wird.
-- **Bildschirmausrichtung**: Definiert die physische Ausrichtung der Anzeige des Geräts.
-- **App-Ausrichtung**: Definiert, wie der Inhalt der App relativ zur Bildschirmausrichtung angezeigt wird.
+- **Bildschirmorientierung**: Definiert die physische Ausrichtung des Gerätebildschirms.
+- **App-Auslegung**: Definiert, wie der Inhalt der App relativ zur Bildschirmorientierung angezeigt wird.
 
-Wenn ein Gerät gedreht wird, ändert sich typischerweise die Bildschirmausrichtung. Beispielsweise wechselt der Bildschirm bei Drehung eines Mobiltelefons von vertikal nach horizontal normalerweise vom Hochformat zum Querformat. Ohne eine spezifische Ausrichtungseinstellung im Manifest passen die meisten Apps ihr Layout an, um diese neue Bildschirmausrichtung zu nutzen.
+Wenn ein Gerät gedreht wird, ändert es typischerweise die Bildschirmorientierung. Zum Beispiel wechselt ein Mobiltelefon von vertikal zu horizontal oft den Bildschirm vom Hochformat ins Querformat. Ohne spezifische Ausrichtung im Manifest passen die meisten Apps ihr Layout an diese neue Bildschirmorientierung an.
 
-Das `orientation`-Mitglied des Manifests ermöglicht es Ihnen, zu kontrollieren, wie Ihre App auf diese Änderungen reagiert. Indem Sie eine bevorzugte Ausrichtung für Ihre App angeben, können Sie entscheiden, ob Ihre App auf Änderungen der Bildschirmausrichtung reagieren oder ein festes Layout beibehalten soll, unabhängig davon, wie das Gerät gehalten wird. Zum Beispiel, indem Sie `"orientation": "portrait-primary"` setzen, können Sie angeben, dass Sie bevorzugen, dass Ihre App immer im aufrechten Hochformat im Verhältnis zum Bildschirm angezeigt wird, selbst wenn das Gerät gedreht wird. Der Browser oder das Betriebssystem wird versuchen, diese Präferenz nach Möglichkeit zu berücksichtigen.
+Das `orientation`-Mitglied des Manifests ermöglicht es Ihnen zu kontrollieren, wie Ihre App auf diese Änderungen reagiert. Indem Sie eine bevorzugte Ausrichtung für Ihre App angeben, können Sie entscheiden, ob Ihre App sich an Bildschirmorientierungsänderungen anpassen oder ein festes Layout beibehalten soll, unabhängig davon, wie das Gerät gehalten wird. Zum Beispiel können Sie durch das Setzen von `"orientation": "portrait-primary"` angeben, dass Sie bevorzugen, dass Ihre App immer im aufrechten Hochformat in Bezug auf den Bildschirm angezeigt wird, selbst wenn das Gerät gedreht wird. Der Browser oder das Betriebssystem wird versuchen, diese Präferenz nach Möglichkeit zu berücksichtigen.
 
-Das folgende Beispiel zeigt, wie das Layout einer Web-App aussehen könnte, wenn ein Mobiltelefon gedreht wird. Nehmen Sie für dieses Beispiel an, dass der `orientation`-Wert der App auf `any` gesetzt ist, wodurch die App zwischen allen `orientation`-Werten rotieren kann, wenn das Mobiltelefon gedreht wird. Nehmen Sie außerdem an, dass sowohl das Telefon als auch der Browser alle Ausrichtungen unterstützen. Die Sequenz zeigt eine Drehung des Telefons im Uhrzeigersinn, wobei jede Position von der Ausgangsposition wie folgt gedreht ist:
+Das folgende Beispiel veranschaulicht, wie das Layout einer Webanwendung aussehen könnte, wenn ein Mobiltelefon gedreht wird. Nehmen Sie in diesem Beispiel an, dass der `orientation`-Wert der App auf `any` gesetzt ist, was es der App ermöglicht, zwischen allen `orientation`-Werten zu wechseln, wenn das Mobiltelefon gedreht wird. Nehmen Sie außerdem an, dass sowohl das Telefon als auch der Browser alle Ausrichtungen unterstützen. Die Reihenfolge zeigt eine Drehung des Telefons im Uhrzeigersinn, wobei jede Position von der Startposition aus gedreht ist:
 
 - Oben links: `portrait-primary` (Ausgangsposition)
 - Oben rechts: `landscape-primary` (90 Grad)
@@ -224,55 +220,53 @@ Das folgende Beispiel zeigt, wie das Layout einer Web-App aussehen könnte, wenn
 
 {{EmbedLiveSample('Description', '', 800)}}
 
-### Umfang und Standardverhalten
+### Anwendungsbereich und Standardverhalten
 
-Die angegebene `orientation` wird auf alle Top-Level-{{Glossary("Browsing_context", "Browsing-Kontexte")}} der Web-App angewendet.
+Die angegebene `orientation` wird auf alle obersten {{Glossary("Browsing_context", "Browsing-Kontexte")}} der Webanwendung angewendet.
 
-Wenn ein Browser den angegebenen `orientation`-Wert unterstützt, wird er diese als die Standard-Ausrichtung der App während ihrer gesamten Lebensdauer verwenden, es sei denn, sie wird zur Laufzeit überschrieben.
-Das bedeutet, dass Browser bei Navigation auf diesen Standardwert der Ausrichtung zurückkehren, wann immer der Top-Level-Browsing-Kontext navigiert wird.
+Wenn ein Browser den angegebenen `orientation`-Wert unterstützt, wird er dies als Standard-App-Ausrichtung während der gesamten Lebensdauer der App verwenden, es sei denn, er wird zur Laufzeit überschrieben. Das bedeutet, dass Browser bei jeder Navigation im obersten Browsing-Kontext diese Standardausrichtung wiederherstellen werden.
 
-### Wahl einer bevorzugten Ausrichtung für Ihre Web-App
+### Auswahl einer bevorzugten Ausrichtung für Ihre Web-App
 
-Durch das Festlegen einer bestimmten Ausrichtung können Sie sicherstellen, dass Ihre Web-App optimal für ihren Inhalt und ihre Benutzeroberfläche angezeigt wird.
-Zum Beispiel ist eine Video-App oft besser für die Querformat-Ausrichtung geeignet, während eine Lese-App typischerweise besser im Hochformat funktioniert.
+Indem Sie eine bestimmte Ausrichtung festlegen, können Sie sicherstellen, dass Ihre Webanwendung optimal für den Inhalt und die Benutzeroberfläche angezeigt wird. Zum Beispiel ist eine Video-App oft besser für das Querformat geeignet, während eine Lese-App typischerweise besser im Hochformat funktioniert.
 
-Das Nicht-Spezifizieren einer Ausrichtung kann auch eine bewusste Wahl sein, um Ihrer Web-App zu ermöglichen, sich flexibel an verschiedene Geräte und Benutzerpräferenzen anzupassen.
+Das Nicht-Festlegen einer Ausrichtung kann auch eine bewusste Entscheidung sein, um Ihrer Webanwendung die flexible Anpassung an verschiedene Geräte und Benutzerpräferenzen zu ermöglichen.
 
-### Manifest `orientation` vs. Screen Orientation API Verhalten
+### Manifest `orientation` vs. Verhalten der Screen Orientation API
 
-Während das `orientation`-Manifestmitglied die Standardausrichtung der Web-App setzt, kann die Ausrichtung eines Top-Level-Browsing-Kontextes geändert werden, sobald die Web-App ausgeführt wird, unter Verwendung der [Screen Orientation API](/de/docs/Web/API/Screen_Orientation_API).
+Während das `orientation`-Manifestmitglied die Standardausrichtung der Webanwendung festlegt, kann die Ausrichtung eines obersten Browsing-Kontextes geändert werden, sobald die Webanwendung läuft, indem die [Screen Orientation API](/de/docs/Web/API/Screen_Orientation_API) verwendet wird.
 
-Die `orientation`-Werte sind im Web-App-Manifest und der Screen Orientation API ähnlich, jedoch unterscheiden sich ihr Verhalten und ihre Zwecke.
+Die `orientation`-Werte sind im Webanwendungsmanifest und der Screen Orientation API ähnlich, aber ihr Verhalten und ihre Zwecke unterscheiden sich.
 
-- Web-App-Manifest:
+- Webanwendungsmanifest:
 
-  - Gibt die bevorzugte Standard-Ausrichtung der Web-App mit dem `orientation`-Manifestmitglied an.
+  - Schlägt die bevorzugte Standardausrichtung der Webanwendung mit dem `orientation`-Manifestmitglied vor.
   - Setzt die anfängliche Ausrichtung, wenn die App gestartet wird.
 
 - Screen Orientation API:
 
   - Verwendet Ausrichtungswerte, um den Bildschirm auf eine bestimmte Ausrichtung zu sperren.
-  - Ermöglicht dynamische Änderungen der Ausrichtung während der Laufzeit (zum Beispiel, durch Sperren der Ausrichtung mit [`screen.orientation.lock()`](/de/docs/Web/API/ScreenOrientation/lock)).
+  - Ermöglicht dynamische Änderungen der Ausrichtung zur Laufzeit (zum Beispiel das Sperren der Ausrichtung mit [`screen.orientation.lock()`](/de/docs/Web/API/ScreenOrientation/lock)).
 
   > [!NOTE]
-  > Die [`lock()`](/de/docs/Web/API/ScreenOrientation/lock)-Methode der Screen Orientation API wird nicht von allen Browsern umfassend unterstützt.
-  > Prüfen Sie die Kompatibilität, wenn Sie planen, sie zur dynamischen Änderung der Bildschirmausrichtung während der Laufzeit zu verwenden.
+  > Die Methode [`lock()`](/de/docs/Web/API/ScreenOrientation/lock) der Screen Orientation API wird eingeschränkt in Browsern unterstützt.
+  > Überprüfen Sie die Kompatibilität, wenn Sie vorhaben, sie zu verwenden, um die Bildschirmorientierung zur Laufzeit dynamisch zu ändern.
 
 ### Plattform- und Browser-Einschränkungen
 
-Beim Hinzufügen der Ausrichtungspräferenz für Ihre App beachten Sie die folgenden Überlegungen und Einschränkungen:
+Wenn Sie die Ausrichtungspräferenz für Ihre App hinzufügen, beachten Sie die folgenden Überlegungen und Einschränkungen:
 
-- Browseranbieter und Gerätehersteller entscheiden, welche Ausrichtungen und [`display`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/display)-Modi kompatibel sind.
-- Bestimmte UI/UX-Angelegenheiten und Plattformkonventionen können einschränken, welche Bildschirmausrichtungen und Anzeigemodi zusammen verwendet werden können.
-- Die Unterstützung spezifischer `orientation`-Werte kann je nach Gerät und Plattform variieren.
-- Einige Geräte unterstützen möglicherweise nicht alle `orientation`-Werte wie `portrait-secondary` und `landscape-secondary`.
-- Einige Browser erlauben möglicherweise nicht die Änderung der Standardausrichtung einer Web-App, während sie sich in bestimmten Anzeigemodi befindet (z.B. [`"display": "browser"`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/display#browser)).
+- Browser-Hersteller und Gerätehersteller bestimmen, welche Ausrichtungen und [`display`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/display)-Modi kompatibel sind.
+- Bestimmte UI/UX-Bedenken und Plattformkonventionen können einschränken, welche Bildschirm-Ausrichtungen und Anzeigemodi zusammen verwendet werden können.
+- Die Unterstützung für spezifische `orientation`-Werte kann je nach Gerät und Plattform variieren.
+- Einige Geräte unterstützen möglicherweise nicht alle `orientation`-Werte, wie `portrait-secondary` und `landscape-secondary`.
+- Einige Browser erlauben möglicherweise nicht das Ändern der Standardausrichtung einer Webanwendung, während sie in bestimmten Anzeigemodi ausgeführt wird (z. B. [`"display": "browser"`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/display#browser)).
 
 ## Beispiele
 
 ### Festlegen einer festen Ausrichtung für eine Web-App
 
-Dieses Beispiel setzt die Ausrichtung der App auf `portrait-primary`. Bei Annahme der Unterstützung durch Browser und Gerät wird die App immer im aufrechten Hochformat angezeigt, auch wenn das Gerät gedreht wird.
+Dieses Beispiel setzt die Ausrichtung der App auf `portrait-primary`. Angenommen, es gibt Unterstützung von Browser und Gerät, wird die App immer im aufrechten Hochformat angezeigt, auch wenn das Gerät gedreht wird.
 
 ```json
 {
@@ -281,9 +275,9 @@ Dieses Beispiel setzt die Ausrichtung der App auf `portrait-primary`. Bei Annahm
 }
 ```
 
-### Einstellen einer flexiblen Ausrichtung für eine Web-App
+### Festlegen einer flexiblen Ausrichtung für eine Web-App
 
-Betrachten Sie eine Fotoanzeige- und Bearbeitungs-App. In der Manifest-Datei der App, wie unten gezeigt, ist `orientation` auf `any` gesetzt. Dies ermöglicht es der App, in der aktuellen Ausrichtung des Geräts gestartet zu werden und sich sowohl an `portrait` als auch `landscape` Ausrichtungen anzupassen, während Benutzer ihre Geräte drehen. Diese `orientation`-Einstellung ermöglicht es Benutzern, Fotos in der jeweiligen aktuellen Anzeige oder ihrem aktuellen Nutzungskontext bequem in der Ausrichtung zu betrachten und zu bearbeiten.
+Betrachten Sie eine Fotoanzeige- und -bearbeitungs-App. Im Manifest der App, wie unten gezeigt, ist `orientation` auf `any` gesetzt. Dies ermöglicht es der App, in der aktuellen Ausrichtung des Geräts gestartet zu werden und sich an sowohl `portrait` als auch `landscape` Ausrichtungen anzupassen, während Benutzer ihre Geräte drehen. Diese `orientation`-Einstellung ermöglicht es den Benutzern, Fotos komfortabel in der Ausrichtung zu betrachten und zu bearbeiten, die am besten zum aktuellen Display oder ihrer aktuellen Nutzungssituation passt.
 
 ```json
 {
@@ -320,6 +314,6 @@ Betrachten Sie eine Fotoanzeige- und Bearbeitungs-App. In der Manifest-Datei der
 ## Siehe auch
 
 - [Screen Orientation API](/de/docs/Web/API/Screen_Orientation_API)
-- [Verwalten der Bildschirmausrichtung](/de/docs/Web/API/CSS_Object_Model/Managing_screen_orientation)
-- [Verwendung von Media Queries für Geräteausrichtungen](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries)
-- [Lernen: Responsive Design](/de/docs/Learn_web_development/Core/CSS_layout/Responsive_Design)
+- [Verwaltung der Bildschirmorientierung](/de/docs/Web/API/CSS_Object_Model/Managing_screen_orientation)
+- [Verwendung von Media Queries für Geräteausrichtung](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries)
+- [Lernen: Responsives Design](/de/docs/Learn_web_development/Core/CSS_layout/Responsive_Design)

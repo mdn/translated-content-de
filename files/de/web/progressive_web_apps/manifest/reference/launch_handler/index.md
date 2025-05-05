@@ -2,29 +2,29 @@
 title: launch_handler
 slug: Web/Progressive_web_apps/Manifest/Reference/launch_handler
 l10n:
-  sourceCommit: 2f6ddccbafddcea8f2b68eb4a78b9764892916b3
+  sourceCommit: 628b29f53d15f203c4a6b33c1d0303f864f6af63
 ---
 
-{{QuickLinksWithSubpages("/de/docs/Web/Progressive_web_apps/Manifest/Reference")}}{{SeeCompatTable}}
+{{SeeCompatTable}}
 
-Das `launch_handler`-Element definiert Werte, die den Start einer Webanwendung steuern. Derzeit kann es nur einen einzigen Wert enthalten, `client_mode`, der den Kontext spezifiziert, in dem die App beim Start geladen werden soll. Zum Beispiel in einem bestehenden Web-App-Client, der eine Instanz der App enthält, oder in einem neuen Web-App-Client. Dies lässt Raum für mehr `launch_handler`-Werte, die in Zukunft definiert werden können.
+Das `launch_handler` Mitglied definiert Werte, die den Start einer Webanwendung steuern. Derzeit kann es nur einen einzigen Wert enthalten, `client_mode`, der den Kontext angibt, in dem die App beim Start geladen werden soll. Zum Beispiel in einem bestehenden Web-App-Client mit einer Instanz der App oder in einem neuen Web-App-Client. Dies lässt Raum für die zukünftige Definition weiterer `launch_handler` Werte.
 
 ### Werte
 
-`launch_handler`-Objekte können die folgenden Werte enthalten:
+`launch_handler` Objekte können die folgenden Werte enthalten:
 
 - `client_mode` {{experimental_inline}}
 
-  - : Ein String oder ein Kommata-getrenntes Array von Strings, das den Kontext spezifiziert, in dem die App beim Start geladen werden soll. Wenn ein Array von Strings angegeben wird, wird der erste gültige Wert verwendet.
-    Mögliche Werte sind:
+  - : Ein String oder ein kommagetrenntes Array von Strings, das den Kontext angibt, in dem die App beim Start geladen werden soll. Wenn ein Array von Strings bereitgestellt wird, wird der erste gültige Wert verwendet.
+    Mögliche Werte sind:</p>
     - `auto`
-      - : Der Benutzeragent entscheidet, welcher Kontext für die Plattform sinnvoll ist, um die App zu laden. Zum Beispiel könnte `navigate-existing` auf mobilen Geräten sinnvoller sein, wo Einzelinstanzen von Apps üblich sind, während `navigate-new` in einem Desktop-Kontext sinnvoller sein könnte. Dies ist der Standardwert, wenn alle angegebenen Werte ungültig sind.
+      - : Der Benutzeragent entscheidet, welcher Kontext für die Plattform sinnvoll ist, um die App zu laden. Zum Beispiel könnte `navigate-existing` auf mobilen Geräten sinnvoller sein, wo einzelne App-Instanzen üblich sind, während `navigate-new` in einem Desktop-Kontext sinnvoller sein könnte. Dies ist der Standardwert, der verwendet wird, wenn alle angegebenen Werte ungültig sind.
     - `focus-existing`
-      - : Wenn die App bereits in einem Web-App-Client geladen ist, wird sie in den Vordergrund geholt, aber nicht zur Start-Ziel-URL navigiert. Die Ziel-URL ist über [`Window.launchQueue`](/de/docs/Web/API/Window/launchQueue) verfügbar, um die Implementierung einer benutzerdefinierten Start-Navigation zu ermöglichen. Wenn die App noch nicht in einem Web-App-Client geladen ist, wird stattdessen das Verhalten von `navigate-new` verwendet.
+      - : Wenn die App bereits in einem Web-App-Client geladen ist, wird sie in den Fokus gebracht, aber nicht zur Startziel-URL navigiert. Die Ziel-URL wird über [`Window.launchQueue`](/de/docs/Web/API/Window/launchQueue) verfügbar gemacht, um eine benutzerdefinierte Startnavigation zu implementieren. Wenn die App noch nicht in einem Web-App-Client geladen ist, wird stattdessen das `navigate-new` Verhalten verwendet.
     - `navigate-existing`
-      - : Wenn die App bereits in einem Web-App-Client geladen ist, wird sie in den Vordergrund geholt und zur angegebenen Start-Ziel-URL navigiert. Die Ziel-URL ist über [`Window.launchQueue`](/de/docs/Web/API/Window/launchQueue) verfügbar, um zusätzliche benutzerdefinierte Start-Navigations-Handhabung zu ermöglichen. Wenn die App noch nicht in einem Web-App-Client geladen ist, wird stattdessen das Verhalten von `navigate-new` verwendet.
+      - : Wenn die App bereits in einem Web-App-Client geladen ist, wird sie in den Fokus gebracht und zur angegebenen Startziel-URL navigiert. Die Ziel-URL wird über [`Window.launchQueue`](/de/docs/Web/API/Window/launchQueue) verfügbar gemacht, um zusätzliche benutzerdefinierte Startnavigation zu implementieren. Wenn die App noch nicht in einem Web-App-Client geladen ist, wird stattdessen das `navigate-new` Verhalten verwendet.
     - `navigate-new`
-      - : Die App wird in einem neuen Web-App-Client geladen. Die Ziel-URL ist über [`Window.launchQueue`](/de/docs/Web/API/Window/launchQueue) verfügbar, um zusätzliche benutzerdefinierte Start-Navigations-Handhabung zu ermöglichen.
+      - : Die App wird in einem neuen Web-App-Client geladen. Die Ziel-URL wird über [`Window.launchQueue`](/de/docs/Web/API/Window/launchQueue) verfügbar gemacht, um zusätzliche benutzerdefinierte Startnavigation zu implementieren.
 
 ## Beispiele
 

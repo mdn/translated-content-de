@@ -2,16 +2,13 @@
 title: Beschreibung
 slug: Web/Progressive_web_apps/Manifest/Reference/description
 l10n:
-  sourceCommit: 2f6ddccbafddcea8f2b68eb4a78b9764892916b3
+  sourceCommit: 628b29f53d15f203c4a6b33c1d0303f864f6af63
 ---
 
-{{QuickLinksWithSubpages("/de/docs/Web/Progressive_web_apps/Manifest/Reference")}}
-
-Das `description`-Manifestmitglied wird verwendet, um die Kernfunktionen oder die Funktionalität Ihrer Webanwendung zu erläutern.
-Dieser Text hilft den Nutzern, den Zweck Ihrer App zu verstehen, wenn sie diese in einem App-Store betrachten.
+Das `description`-Manifestmitglied wird verwendet, um die Kernfunktionen oder die Funktionsweise Ihrer Webanwendung zu erläutern. Dieser Text hilft Benutzern, den Zweck Ihrer App zu verstehen, wenn sie diese in einem App-Store betrachten.
 
 > [!NOTE]
-> Das `description`-Mitglied ist optional, und App-Stores verwenden diesen Text möglicherweise nicht, wenn sie Ihre App präsentieren.
+> Das `description`-Mitglied ist optional, und App-Stores müssen diesen Text möglicherweise nicht verwenden, wenn sie Ihre App präsentieren.
 
 ## Syntax
 
@@ -26,13 +23,11 @@ Dieser Text hilft den Nutzern, den Zweck Ihrer App zu verstehen, wenn sie diese 
 
 ## Beschreibung
 
-Das `description`-Mitglied ist ergänzende Metadaten, die das Laufzeitverhalten der App oder die Darstellung durch Browser nicht beeinflussen.
-Sein Wert wird in App-Stores und anderen Vertriebsplattformen verwendet, um den Nutzern zu verdeutlichen, was Ihre App macht.
-Zusätzlich bietet es eine zugängliche Beschreibung Ihrer installierten App.
+Das `description`-Mitglied ist ergänzende Metadaten, die das Laufzeitverhalten der App oder die Präsentation in Browsern nicht beeinflussen. Sein Wert wird in App-Stores und anderen Vertriebsplattformen verwendet, um Benutzern zu helfen zu verstehen, was Ihre App tut. Zusätzlich bietet es eine zugängliche Beschreibung Ihrer installierten App.
 
 ## Beispiele
 
-### Hinzufügen einer Beschreibung für eine Mahlzeitenplanungs-Web-App
+### Hinzufügen einer Beschreibung für eine Menüplanungs-Web-App
 
 Einfache `description` in einer von links nach rechts verlaufenden Sprache:
 

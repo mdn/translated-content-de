@@ -2,20 +2,18 @@
 title: Erstellen Sie eine eigenständige App
 slug: Web/Progressive_web_apps/How_to/Create_a_standalone_app
 l10n:
-  sourceCommit: 05187b0fecf39b9176d4a101623589309cf44dd0
+  sourceCommit: 628b29f53d15f203c4a6b33c1d0303f864f6af63
 ---
 
-{{PWASidebar}}
+[Progressive Web Apps](/de/docs/Web/Progressive_web_apps) (PWAs), die auf einem Gerät eines Benutzers installiert sind, können definieren, wie sie erscheinen, wenn der Benutzer sie startet. Sie können wählen, ob sie in einem Webbrowser angezeigt werden, genau wie Websites, oder eigene dedizierte Fenster haben, ähnlich wie Betriebssystem-native Anwendungen funktionieren.
 
-[Progressive Web Apps](/de/docs/Web/Progressive_web_apps) (PWAs), die auf dem Gerät eines Nutzers installiert sind, können definieren, wie sie beim Start angezeigt werden. Sie können sich dafür entscheiden, in einem Webbrowser angezeigt zu werden, genau wie Websites, oder ihre eigenen dedizierten Fenster zu haben, ähnlich wie es bei nativen OS-Anwendungen der Fall ist.
+Benutzer haben in der Regel bestimmte Erwartungen daran, wie installierte Anwendungen auf ihren Geräten funktionieren. Eine dieser Erwartungen ist, dass Anwendungen eigene dedizierte Fenster haben.
 
-Benutzer haben in der Regel spezifische Erwartungen daran, wie installierte Anwendungen auf ihren Geräten funktionieren. Eine dieser Erwartungen ist, dass Anwendungen ihre eigenen dedizierten Fenster haben.
-
-Indem Sie das [`display`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/display)-Element des [Web-App-Manifests](/de/docs/Web/Progressive_web_apps/Manifest) verwenden, können Sie definieren, ob die installierte PWA in einem Browser angezeigt oder ein eigenes dediziertes Fenster hat, wenn die PWA vom Gerät des Nutzers aus gestartet wird.
+Durch die Verwendung des [`display`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/display)-Mitglieds im [Web-App-Manifest](/de/docs/Web/Progressive_web_apps/Manifest) können Sie festlegen, ob die installierte PWA in einem Browser oder mit einem dedizierten Fenster angezeigt wird, wenn die PWA vom Gerät des Benutzers gestartet wird.
 
 ## Verwenden Sie den Standalone-Anzeigemodus
 
-Um einen Standalone-Anzeigemodus zu verwenden und Ihrer PWA ein eigenes dediziertes Fenster zu geben, fügen Sie das [`display`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/display)-Element zu Ihrem [Web-App-Manifest](/de/docs/Web/Progressive_web_apps/Manifest) hinzu und setzen Sie seinen Wert auf `standalone`:
+Um einen Standalone-Anzeigemodus zu verwenden und Ihrer PWA ein eigenes dediziertes Fenster zu geben, fügen Sie das [`display`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/display)-Mitglied zu Ihrem [Web-App-Manifest](/de/docs/Web/Progressive_web_apps/Manifest) hinzu und setzen Sie dessen Wert auf `standalone`:
 
 ```json
 {
@@ -32,23 +30,23 @@ Um einen Standalone-Anzeigemodus zu verwenden und Ihrer PWA ein eigenes dedizier
 }
 ```
 
-Beachten Sie, dass es andere Anzeigemodi gibt, wie `browser`, `minimal-ui` und `fullscreen`. Der gewählte Anzeigemodus ändert, wie viel von der Browser-Benutzeroberfläche dem Nutzer gezeigt wird, von der vollständigen Anzeige bis hin zu einem eigenen dedizierten Fenster. Um mehr über alle verfügbaren Anzeigemodi und ihre Rückfalleigenschaften zu erfahren, sehen Sie sich die Dokumentation über das [`display`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/display)-Element an.
+Beachten Sie, dass es andere Anzeigemodi gibt, wie `browser`, `minimal-ui` und `fullscreen`. Der gewählte Anzeigemodus bestimmt, wie viel von der Benutzeroberfläche des Browsers dem Benutzer angezeigt wird, von der vollständigen Anzeige bis hin zu einem eigenen Fenster. Um mehr über alle verfügbaren Anzeigemodi und über deren Fallbacks zu erfahren, wenn einer nicht unterstützt wird, siehe die Dokumentation über das [`display`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/display)-Mitglied.
 
 ## Beste Praktiken
 
-### Umgang mit Mehrseiten-Navigation
+### Navigation über mehrere Seiten
 
-Wenn Ihre Anwendung aus mehreren navigierbaren HTML-Seiten besteht, stellen Sie sicher, dass Benutzeroberflächenelemente vorhanden sind, um die Navigation innerhalb Ihrer Anwendung zu steuern.
+Wenn Ihre Anwendung aus mehreren navigierbaren HTML-Seiten besteht, stellen Sie sicher, dass Sie UI-Elemente für die Navigation innerhalb Ihrer Anwendung bereitstellen.
 
-Wenn Sie keine eigenen Navigationselemente haben, verwenden Sie den `minimal-ui`-Anzeigemodus, um sicherzustellen, dass Benutzer dennoch zwischen Seiten mit den im Titelbereich Ihrer App angezeigten Vorwärts- und Rückwärts-Buttons des Browsers navigieren können.
+Wenn Sie keine eigenen Navigationselemente haben, verwenden Sie den `minimal-ui` Anzeigemodus, um sicherzustellen, dass Benutzer dennoch zwischen Seiten wechseln können, indem sie von der App in der Titelleiste bereitgestellte Vor- und Rückschaltflächen verwenden.
 
-## Passen Sie Ihre App abhängig vom Anzeigemodus an
+## Passen Sie Ihre App je nach Anzeigemodus an
 
-Wenn Sie einen anderen Anzeigemodus als `browser` in Ihrem Web-App-Manifest definieren, gilt dieser nur, wenn die Anwendung installiert ist. Wie jede andere Webseite hat das `display`-Element eines Manifests keine Wirkung, wenn die PWA nicht installiert ist. Sie können den Anzeigemodus zur Laufzeit überprüfen, um festzustellen, ob die App installiert ist oder nicht.
+Wenn Sie in Ihrem Web-App-Manifest einen anderen Anzeigemodus als `browser` definieren, gilt dies nur, wenn die Anwendung installiert ist. Wie jede andere Webseite hat das `display`-Mitglied eines Manifests keine Auswirkungen, wenn die PWA nicht installiert ist. Sie können den Anzeigemodus zur Laufzeit prüfen, um festzustellen, ob die App installiert ist oder nicht.
 
-Mithilfe der CSS-{{cssxref("@media/display-mode", "display-mode")}}-Medienfunktion oder der JavaScript-Funktion [`Window.matchMedia()`](/de/docs/Web/API/Window/matchMedia) können Sie basierend auf dem Anzeigemodus selektiv CSS-Stile anwenden oder JavaScript-Code in Ihrer App ausführen.
+Mit dem CSS {{cssxref("@media/display-mode", "display-mode")}} Media-Feature oder der [`Window.matchMedia()`](/de/docs/Web/API/Window/matchMedia) JavaScript-Funktion können Sie selektiv CSS-Stile anwenden oder JavaScript-Code in Ihrer App basierend auf ihrem Anzeigemodus ausführen.
 
-Hier ist ein Beispiel, das zeigt, wie man die {{cssxref("@media")}}-CSS-Anweisung verwendet, um ein Element auf einer Webseite nur dann sichtbar zu machen, wenn der `standalone`-Anzeigemodus aktiviert ist:
+Hier ist ein Beispiel zur Verwendung der {{cssxref("@media")}} CSS-Regel, um ein Element auf einer Webseite nur anzuzeigen, wenn der `standalone` Anzeigemodus aktiviert ist:
 
 ```css
 .app-button {
@@ -62,9 +60,9 @@ Hier ist ein Beispiel, das zeigt, wie man die {{cssxref("@media")}}-CSS-Anweisun
 }
 ```
 
-In diesem Beispiel wird das `.app-button`-Element standardmäßig ausgeblendet, es sei denn, der Anzeigemodus ist auf `standalone` gesetzt, was eintritt, wenn das `display`-Element im Manifest auf `standalone` eingestellt wurde und die App auf dem Gerät des Benutzers installiert ist.
+In diesem Beispiel wird das `.app-button` Element standardmäßig ausgeblendet, es sei denn, der Anzeigemodus ist auf `standalone` gesetzt, was der Fall ist, wenn das `display`-Mitglied des Manifests auf `standalone` gesetzt wurde und die App auf dem Gerät des Benutzers installiert ist.
 
-Hier ist ein weiteres Beispiel, das zeigt, wie die Methode [`window.matchMedia()`](/de/docs/Web/API/Window/matchMedia) verwendet wird, um zu erkennen, ob der `standalone`-Anzeigemodus aktiviert ist:
+Hier ist ein weiteres Beispiel zur Verwendung der [`window.matchMedia()`](/de/docs/Web/API/Window/matchMedia)-Methode, um zu erkennen, ob der `standalone` Anzeigemodus aktiviert ist:
 
 ```js
 function isStandaloneApp() {
@@ -74,6 +72,6 @@ function isStandaloneApp() {
 
 ## Siehe auch
 
-- [Web-App-Manifeste](/de/docs/Web/Progressive_web_apps/Manifest).
+- [Web-App-Manifest](/de/docs/Web/Progressive_web_apps/Manifest).
 - [Anzeigemodi](https://web.dev/learn/pwa/app-design/#display_modes).
-- Passen Sie die Titelleiste Ihrer App auf Desktop-Betriebssystemen mithilfe der [Window Controls Overlay API](/de/docs/Web/API/Window_Controls_Overlay_API) an.
+- Passen Sie die Titelleiste Ihrer App auf Desktop-Betriebssystemen mit der [Window Controls Overlay API](/de/docs/Web/API/Window_Controls_Overlay_API) an.

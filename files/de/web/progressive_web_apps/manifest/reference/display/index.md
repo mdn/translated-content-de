@@ -2,12 +2,10 @@
 title: display
 slug: Web/Progressive_web_apps/Manifest/Reference/display
 l10n:
-  sourceCommit: 2f6ddccbafddcea8f2b68eb4a78b9764892916b3
+  sourceCommit: 628b29f53d15f203c4a6b33c1d0303f864f6af63
 ---
 
-{{QuickLinksWithSubpages("/de/docs/Web/Progressive_web_apps/Manifest/Reference")}}
-
-Das `display`-Manifestelement wird verwendet, um den bevorzugten Anzeigemodus für die Webanwendung anzugeben. Der Anzeigemodus bestimmt, wie viele der Browser-Bedienelemente dem Benutzer angezeigt werden, wenn die App im Kontext eines Betriebssystems gestartet wird. Sie können wählen, ob die vollständige Browser-Oberfläche angezeigt oder ausgeblendet werden soll, um ein mehr app-ähnliches Erlebnis zu bieten.
+Das `display` Manifestmitglied wird verwendet, um den bevorzugten Anzeigemodus für die Webanwendung anzugeben. Der Anzeigemodus bestimmt, wie viel der Benutzeroberfläche des Browsers dem Benutzer angezeigt wird, wenn die App im Kontext eines Betriebssystems gestartet wird. Sie können wählen, ob die vollständige Browser-Oberfläche angezeigt oder ausgeblendet werden soll, um ein stärker an eine App erinnerndes Erlebnis zu bieten.
 
 ## Syntax
 
@@ -23,39 +21,39 @@ Das `display`-Manifestelement wird verwendet, um den bevorzugten Anzeigemodus f�
 
 - `display`
 
-  - : Ein String mit Schlüsselwortwerten. Wenn nicht angegeben, wird der Standardwert `browser` verwendet. Zu den Schlüsselwortwerten gehören:
+  - : Ein String mit Schlüsselwortwerten. Wenn nicht angegeben, wird der Standardwert `browser` verwendet. Die Schlüsselwortwerte umfassen:
 
     - `fullscreen`
 
-      - : Öffnet die App mit ausgeblendeten Browser-UI-Elementen und nutzt den gesamten verfügbaren Anzeigebereich. Verwenden Sie diesen Wert für Apps, bei denen eine vollständige Bildschirmnutzung entscheidend und erwünscht ist. Zum Beispiel für eine Spiele-App, die den gesamten Bildschirm ohne sichtbare Browser-Steuerelemente einnehmen kann und so eine vollständig immersive Spielerfahrung bietet.
+      - : Öffnet die App mit ausgeblendeten UI-Elementen des Browsers und nutzt den gesamten verfügbaren Anzeigebereich. Verwenden Sie diesen Wert für Apps, bei denen eine vollständige Bildschirmnutzung wichtig und gewünscht ist. Zum Beispiel für eine Spiele-App, die den gesamten Bildschirm ohne sichtbare Browser-Steuerelemente einnehmen kann, um ein vollständig immersives Spielerlebnis zu bieten.
 
         > [!NOTE]
-        > Der `fullscreen`-Wert des `display`-Manifestelements arbeitet unabhängig von der [Fullscreen API](/de/docs/Web/API/Fullscreen_API). Der `fullscreen`-Anzeigemodus ändert den Zustand des gesamten Browser-Fensters auf Vollbild, während die Fullscreen API nur ein bestimmtes Element innerhalb des Fensters im Vollbildmodus anzeigt. Daher kann eine Web-App im `fullscreen`-Anzeigemodus sein, während [`Document.fullscreenElement`](/de/docs/Web/API/Document/fullscreenElement) `null` ist und [`Document.fullscreenEnabled`](/de/docs/Web/API/Document/fullscreenEnabled) `false` ist.
+        > Der `fullscreen` Wert des `display` Manifestmitglieds arbeitet separat von der [Fullscreen API](/de/docs/Web/API/Fullscreen_API). Der `fullscreen` Anzeigemodus ändert den Status des gesamten Browserfensters auf Vollbild, während die Fullscreen API nur ein bestimmtes Element innerhalb des Fensters in den Vollbildmodus versetzt. Eine Web-App kann sich also im `fullscreen` Anzeigemodus befinden, während [`Document.fullscreenElement`](/de/docs/Web/API/Document/fullscreenElement) `null` ist und [`Document.fullscreenEnabled`](/de/docs/Web/API/Document/fullscreenEnabled) `false` ist.
 
     - `standalone`
 
-      - : Öffnet die App, dass sie wie eine eigenständige native App aussieht und sich anfühlt. Dazu kann gehören, dass die App ein eigenes Fenster und ein eigenes Symbol im App-Launcher hat. Der Browser schließt UI-Elemente wie die URL-Leiste aus, kann jedoch andere UI-Elemente wie die Statusleiste enthalten. Verwenden Sie diesen Modus beispielsweise für eine Aufgabenmanager-App, die in einem eigenen Fenster ohne die URL-Leiste des Browsers öffnet, während die Statusleiste des Geräts für Batterie und Benachrichtigungen weiterhin angezeigt wird, wodurch ein integriertes Erlebnis entsteht.
+      - : Öffnet die App so, dass sie wie eine eigenständige native App aussieht und sich anfühlt. Dies kann bedeuten, dass die App ein eigenes Fenster und ein eigenes Symbol im App-Launcher hat. Der Browser schließt UI-Elemente wie eine URL-Leiste aus, kann aber weiterhin andere UI-Elemente wie die Statusleiste enthalten. Zum Beispiel für eine Aufgabenverwaltung-App, die in einem eigenen Fenster ohne die URL-Leiste des Browsers geöffnet wird, dabei aber weiterhin die Statusleiste des Geräts für Batterie und Benachrichtigungen anzeigt und so eine integrierte Erfahrung bietet.
 
     - `minimal-ui`
 
-      - : Öffnet die App, dass sie wie eine eigenständige App mit einem minimalen Satz von UI-Elementen für die Navigation aussieht und sich anfühlt. Die spezifischen Elemente können je nach Browser variieren, beinhalten aber typischerweise Navigationselemente wie Zurück, Vorwärts, Neu laden und möglicherweise eine Möglichkeit, die URL der App anzuzeigen. Darüber hinaus kann der Browser plattformspezifische UI-Elemente einschließen, die Funktionalitäten zum Teilen und Drucken von Inhalten bieten. Verwenden Sie diesen Wert für Apps, bei denen das Anzeigen einer minimalen Browser-Oberfläche vorteilhaft ist. Zum Beispiel für eine Nachrichtenlese-App oder andere allgemeine Lese-Apps, die nur die wesentlichen Browser-Steuerelemente wie Zurück- und Neu laden-Tasten zeigen und so eine sauberere und weniger ablenkende Schnittstelle bieten.
+      - : Öffnet die App so, dass sie wie eine eigenständige App aussieht und sich anfühlt, jedoch mit einem minimalen Satz von UI-Elementen zur Navigation. Die spezifischen Elemente können je nach Browser variieren, umfassen jedoch typischerweise Navigationselemente wie Zurück, Vorwärts, Neu laden und möglicherweise eine Möglichkeit, die URL der App anzuzeigen. Zusätzlich kann der Browser plattformspezifische UI-Elemente enthalten, die Funktionen zum Teilen und Drucken von Inhalten bieten. Verwenden Sie diesen Wert für Apps, bei denen das Anzeigen einer minimalen Browser-Oberfläche von Vorteil ist. Zum Beispiel für eine Nachrichtenleser-App oder andere allgemeine Lese-Apps, die nur die wesentlichen Browser-Steuerelemente wie Zurück- und Neu laden-Buttons zeigen und so eine sauberere und weniger ablenkende Oberfläche bieten.
 
     - `browser`
-      - : Öffnet die App in einem herkömmlichen Browser-Tab oder einem neuen Fenster unter Verwendung des plattformspezifischen Konzepts zum Öffnen von Links. Verwenden Sie diesen Wert für Apps, die in einem Browser-Kontext verwendet werden sollen, wo volle Browser-Funktionalität benötigt wird. Dies ist der Standardwert, wenn kein `display`-Modus angegeben wird.
+      - : Öffnet die App in einem herkömmlichen Browser-Tab oder neuen Fenster, unter Verwendung des plattformspezifischen Konventions zum Öffnen von Links. Verwenden Sie diesen Wert für Apps, die innerhalb eines Browsers verwendet werden sollen, wo vollständige Browser-Funktionalität benötigt wird. Dies ist der Standardwert, wenn kein `display`-Modus angegeben ist.
 
 ## Beschreibung
 
-Nachdem ein Browser einen `display`-Modus auf einen {{Glossary("application_context", "Applikationskontext")}} angewendet hat, wird dieser zum Standard-Anzeigemodus für den obersten Browsing-Kontext. Der Browser kann diesen Anzeigemodus aus Sicherheitsgründen außer Kraft setzen oder den Benutzern eine Möglichkeit bieten, zu einem anderen `display`-Modus zu wechseln.
+Nachdem ein Browser einen `display`-Modus auf einen {{Glossary("application_context", "Anwendungskontext")}} angewendet hat, wird dieser zum Standardanzeigemodus für den übergeordneten Browsing-Kontext. Der Browser kann diesen Anzeigemodus aus Sicherheitsgründen überschreiben oder den Benutzern eine Möglichkeit bieten, zu einem anderen `display`-Modus zu wechseln.
 
-Unterstützt ein Browser den angegebenen Anzeigemodus nicht, folgt er einer vordefinierten Fallback-Kette: `fullscreen` → `standalone` → `minimal-ui` → `browser`.
+Wenn ein Browser den angegebenen Anzeigemodus nicht unterstützt, folgt er einer vordefinierten Rückfallkette: `fullscreen` → `standalone` → `minimal-ui` → `browser`.
 
-Das {{cssxref("@media/display-mode", "display-mode")}} Medienmerkmal kann verwendet werden, um die Anwendungsstile und -verhalten basierend auf dem aktuellen `display`-Modus zu konfigurieren. Dies kann helfen, ein konsistentes Benutzererlebnis zu bieten, unabhängig davon, ob die Website über eine URL oder über ein Desktop-Symbol gestartet wird.
+Das {{cssxref("@media/display-mode", "display-mode")}} Medien-Feature kann verwendet werden, um die Stilgestaltung und das Verhalten Ihrer Anwendung basierend auf dem aktuellen `display`-Modus zu konfigurieren. Dies kann dazu beitragen, ein konsistentes Benutzererlebnis zu bieten, unabhängig davon, ob die Website von einer URL oder von einem Desktopsymbol aus gestartet wird.
 
 > [!NOTE]
-> Der Wert des `display-mode` Medienmerkmals spiegelt den tatsächlichen `display`-Modus wider, der vom Browser verwendet wird.
-> Dieser kann vom im Manifest angeforderten Modus abweichen, da der Browser den angeforderten Modus möglicherweise nicht unterstützt.
+> Der Wert des `display-mode` Medien-Features spiegelt den tatsächlich vom Browser verwendeten `display`-Modus wider.
+> Dies kann sich von dem im Manifest angeforderten Modus unterscheiden, da der Browser den angeforderten Modus möglicherweise nicht unterstützt.
 
-Wie im untenstehenden Code gezeigt wird, können Sie den Stil einer App je nachdem, welcher `display-mode` verwendet wird, anpassen.
+Wie im untenstehenden Code gezeigt, können Sie den Stil einer App je nach verwendetem `display-mode` anpassen.
 
 ```css
 @media (display-mode: standalone) {
@@ -73,9 +71,9 @@ Wie im untenstehenden Code gezeigt wird, können Sie den Stil einer App je nachd
 
 ## Beispiele
 
-### Angabe des standalone-Anzeigemodus
+### Angabe des standalone Anzeigemodus
 
-Das folgende Manifest-Beispiel für die Web-App namens "HackerWeb" definiert, wie die App aussehen und sich verhalten soll, wenn sie auf dem Gerät eines Benutzers installiert ist. Das `display`-Element ist auf `standalone` gesetzt, was angibt, dass die App in einem separaten Fenster ohne die typischen Browser-UI-Elemente wie die URL-Leiste geöffnet werden soll.
+Das folgende Beispiel eines Manifestdateien für die Web-App "HackerWeb" definiert, wie die App aussehen und sich verhalten soll, wenn sie auf einem Gerät des Benutzers installiert wird. Das `display`-Mitglied ist auf `standalone` gesetzt, was angibt, dass die App in einem separaten Fenster ohne typische UI-Elemente des Browsers wie die URL-Leiste geöffnet werden soll.
 
 ```json
 {

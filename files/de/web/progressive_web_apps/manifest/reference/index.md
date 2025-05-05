@@ -3,12 +3,10 @@ title: Referenz der Mitglieder des Web-App-Manifests
 short-title: Reference
 slug: Web/Progressive_web_apps/Manifest/Reference
 l10n:
-  sourceCommit: 05187b0fecf39b9176d4a101623589309cf44dd0
+  sourceCommit: 628b29f53d15f203c4a6b33c1d0303f864f6af63
 ---
 
-{{QuickLinksWithSubpages("/de/docs/Web/Progressive_web_apps/Manifest/Reference")}}
-
-Diese Seite listet Referenzen für die Nutzung von [Web-App-Manifest](/de/docs/Web/Progressive_web_apps/Manifest)-Mitgliedern im Web auf.
+Diese Seite listet Referenzen für die Nutzung von [Web-App-Manifesten](/de/docs/Web/Progressive_web_apps/Manifest) im Web auf.
 
 {{SubPagesWithSummaries}}
 

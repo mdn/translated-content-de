@@ -1,17 +1,16 @@
 ---
 title: Funktionen, die auf sichere Kontexte beschränkt sind
+short-title: Beschränkte Funktionen
 slug: Web/Security/Secure_Contexts/features_restricted_to_secure_contexts
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: ade8d870ed7e18a71dc51fe25aa13d812fb82558
 ---
-
-{{QuickLinksWithSubpages("/de/docs/Web/Security")}}
 
 Diese Referenz listet die Webplattform-Funktionen auf, die nur in sicheren Kontexten verfügbar sind — siehe [Sichere Kontexte](/de/docs/Web/Security/Secure_Contexts) für eine Definition und weitere Details.
 
 ## Aktuelle Funktionen, die nur in sicheren Kontexten verfügbar sind
 
-Dieser Abschnitt listet APIs auf, die gemäß Spezifikationen nur in sicheren Kontexten verfügbar sind.
+Dieser Abschnitt listet APIs auf, die laut Spezifikationen nur in sicheren Kontexten verfügbar sind.
 
 - [Async Clipboard API](/de/docs/Web/API/Clipboard)
 - [Audio Output Devices API](/de/docs/Web/API/Audio_Output_Devices_API)
@@ -65,7 +64,7 @@ Dieser Abschnitt listet APIs auf, die gemäß Spezifikationen nur in sicheren Ko
 - [Web Share API](/de/docs/Web/API/Web_Share_API)
 - [Window Management API](/de/docs/Web/API/Window_Management_API)
 
-Zusätzlich erfordern die folgenden Methoden einen sicheren Kontext (selbst wenn die zugehörige API dies nicht erfordert):
+Darüber hinaus erfordern die folgenden Methoden einen sicheren Kontext (auch wenn die zugehörige API dies nicht tut):
 
 - [`MediaDevices.getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia)
 - [`Navigator.registerProtocolHandler()`](/de/docs/Web/API/Navigator/registerProtocolHandler)

@@ -2,13 +2,13 @@
 title: related_applications
 slug: Web/Progressive_web_apps/Manifest/Reference/related_applications
 l10n:
-  sourceCommit: 2f6ddccbafddcea8f2b68eb4a78b9764892916b3
+  sourceCommit: 628b29f53d15f203c4a6b33c1d0303f864f6af63
 ---
 
-{{QuickLinksWithSubpages("/de/docs/Web/Progressive_web_apps/Manifest/Reference")}}{{SeeCompatTable}}
+{{SeeCompatTable}}
 
-Das `related_applications`-Manifestmitglied wird verwendet, um eine oder mehrere native Anwendungen anzugeben, die mit Ihrer Webanwendung in Verbindung stehen.
-Es kann zusammen mit dem [`prefer_related_applications`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/prefer_related_applications)-Manifestmitglied verwendet werden, das eine Präferenz für die Installation einer verwandten nativen Anwendung oder Ihrer Webanwendung angibt.
+Das `related_applications` Manifestmitglied wird verwendet, um eine oder mehrere native Anwendungen anzugeben, die mit Ihrer Webanwendung verwandt sind.
+Es kann zusammen mit dem [`prefer_related_applications`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/prefer_related_applications) Manifestmitglied verwendet werden, das eine Präferenz für die Installation entweder einer verwandten nativen Anwendung oder Ihrer Webanwendung angibt.
 
 ## Syntax
 
@@ -48,45 +48,45 @@ Es kann zusammen mit dem [`prefer_related_applications`](/de/docs/Web/Progressiv
 
 - `related_applications`
 
-  - : Ein Array von Objekten, die jeweils eine plattformspezifische native Anwendung darstellen, die mit der Webanwendung verwandt ist. Jedes Objekt muss eine `platform`-Eigenschaft enthalten und mindestens eine von entweder einer `url` oder einer `id` (oder beides).
+  - : Ein Array von Objekten, die jeweils eine plattform-spezifische native Anwendung darstellen, die mit der Web-App verwandt ist. Jedes Objekt muss eine `platform`-Eigenschaft und mindestens entweder eine `url` oder eine `id` (oder beides) enthalten.
 
     - `platform`
       - : Ein String, der die Plattform identifiziert, auf der die Anwendung zu finden ist.
         Beispiele sind `amazon` (Amazon App Store), `play` (Google Play Store) und `windows` (Windows Store).
-        Siehe die vollständige Liste der möglichen [Plattformwerte](https://github.com/w3c/manifest/wiki/Platforms).
+        Sehen Sie die vollständige Liste der möglichen [Plattform-Werte](https://github.com/w3c/manifest/wiki/Platforms).
     - `url` {{Optional_Inline}}
-      - : Ein String, der die URL darstellt, unter der die plattformspezifische Anwendung zu finden ist.
-        Wenn nicht angegeben, muss eine `id` bereitgestellt werden.
+      - : Ein String, der die URL darstellt, unter der die plattform-spezifische Anwendung zu finden ist.
+        Wird sie nicht angegeben, muss eine `id` bereitgestellt werden.
     - `id` {{Optional_Inline}}
-      - : Ein String mit der ID, die zur Darstellung der Anwendung auf der angegebenen Plattform verwendet wird.
-        Wenn nicht angegeben, muss eine `url` bereitgestellt werden.
+      - : Ein String mit der ID, die zur Repräsentation der Anwendung auf der angegebenen Plattform verwendet wird.
+        Wird sie nicht angegeben, muss eine `url` bereitgestellt werden.
 
 ## Beschreibung
 
-Eine "verwandte Anwendung" ist eine {{Glossary("native", "native")}} Anwendung, die ähnliche Funktionen wie Ihre Webanwendung bietet, oft mit zusätzlichen Funktionen oder besserer Integration mit den Geräten der Benutzer.
+Eine "verwandte Anwendung" ist eine {{Glossary("native", "native")}} Anwendung, die ähnliche Funktionalitäten wie Ihre Web-App bietet, häufig mit zusätzlichen Features oder besserer Integration mit den Geräten der Benutzer.
 
-Das `related_applications`-Manifestmitglied ermöglicht es Ihnen, die plattformspezifischen nativen Anwendungen zu identifizieren, die mit Ihrer Webanwendung in Verbindung stehen.
-Angenommen, Sie haben eine native Android-App für Ihr Produkt im Google Play Store verfügbar.
-Sie bietet die gleichen Kernfunktionen wie Ihre Webanwendung und integriert sich besser in das Benachrichtigungssystem des Geräts.
-Sie können `related_applications` verwenden, um diese native Android-App in der Manifestdatei Ihrer Webanwendung anzugeben.
+Das `related_applications` Manifestmitglied ermöglicht es Ihnen, die plattform-spezifischen nativen Anwendungen zu identifizieren, die mit Ihrer Web-App verwandt sind.
+Zum Beispiel, wenn Sie über eine native Android-App für Ihr Produkt verfügen, die im Google Play Store verfügbar ist.
+Sie bietet dieselben Kernfunktionalitäten wie Ihre Web-App und integriert sich besser in das Benachrichtigungssystem des Geräts.
+Sie können `related_applications` verwenden, um diese native Android-App in der Manifest-Datei Ihrer Web-App anzugeben.
 
-Einige wichtige Punkte zum `related_applications`-Mitglied sind:
+Einige wichtige Punkte über das `related_applications` Mitglied sind:
 
-- Es ermöglicht Ihnen, mehrere verwandte Apps auf verschiedenen Plattformen anzugeben, um Benutzern Optionen für native Apps auf verschiedenen Geräten und Betriebssystemen zu bieten.
-- Es erstellt eine unidirektionale Beziehung zwischen Ihrer Webanwendung und den angegebenen nativen Apps.
-  Die nativen Apps müssen Ihre Webanwendung nicht im Gegenzug referenzieren.
-- Die Daten können von Webcrawlern verwendet werden, um mehr Informationen über die nativen Apps zu sammeln, die mit Ihrer Webanwendung in Verbindung stehen, was die Auffindbarkeit dieser nativen Apps verbessern könnte.
+- Es erlaubt Ihnen, mehrere verwandte Apps auf verschiedenen Plattformen anzugeben, wodurch Benutzern Optionen für native Apps auf verschiedenen Geräten und Betriebssystemen gegeben werden.
+- Es schafft eine unidirektionale Beziehung zwischen Ihrer Web-App und den angegebenen nativen Apps.
+  Die nativen Apps müssen Ihre Web-App nicht im Gegenzug referenzieren.
+- Die Daten könnten von Webcrawlern verwendet werden, um mehr Informationen über die nativen Apps zu sammeln, die mit Ihrer Web-App verwandt sind, was möglicherweise die Auffindbarkeit dieser nativen Apps verbessern könnte.
 
-- Wenn es mit dem [`prefer_related_applications`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/prefer_related_applications)-Mitglied auf `true` gesetzt verwendet wird, ermöglicht es Browsern, die Installation der verwandten nativen App anstelle Ihrer Webanwendung vorzuschlagen.
+- Wenn es zusammen mit dem auf `true` gesetzten [`prefer_related_applications`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/prefer_related_applications) Mitglied verwendet wird, ermöglicht es Browsern, die Installation der verwandten nativen App anstelle Ihrer Web-App vorzuschlagen.
 
   > [!NOTE]
-  > Für Chromium-basierte Browser sollte `prefer_related_applications` auf `false` gesetzt oder weggelassen werden, um Ihre Webanwendung installierbar zu machen.
+  > Für Chromium-basierte Browser sollte `prefer_related_applications` auf `false` gesetzt oder weggelassen werden, um Ihre Web-App installierbar zu machen.
 
 ## Beispiele
 
-### Eine verwandte native Anwendung angeben
+### Angeben einer verwandten nativen Anwendung
 
-Dieses Beispiel zeigt, wie eine verwandte native Android-App in der Manifestdatei Ihrer Webanwendung angegeben wird. Es verwendet minimale Informationen, um die im Google Play Store verfügbare native App zu identifizieren:
+Dieses Beispiel zeigt, wie man eine verwandte native Android-App in der Manifest-Datei Ihrer Web-App angibt. Es verwendet minimale Informationen, um die native App im Google Play Store zu identifizieren:
 
 ```json
 {
@@ -99,9 +99,9 @@ Dieses Beispiel zeigt, wie eine verwandte native Android-App in der Manifestdate
 }
 ```
 
-### Verwandte native Anwendungen auf mehreren Plattformen angeben
+### Angeben verwandter nativer Anwendungen auf mehreren Plattformen
 
-Wenn native Versionen Ihrer Webanwendung sowohl im Google Play Store als auch im Windows Store verfügbar sind, können Sie sie in der Manifestdatei Ihrer Webanwendung wie folgt angeben:
+Wenn native Versionen Ihrer Web-App sowohl im Google Play Store als auch im Windows Store verfügbar sind, können Sie sie in der Manifest-Datei Ihrer Web-App folgendermaßen angeben:
 
 ```json
 {
@@ -119,9 +119,9 @@ Wenn native Versionen Ihrer Webanwendung sowohl im Google Play Store als auch im
 }
 ```
 
-### Präferenz für die Installation einer verwandten nativen App angeben
+### Angeben einer Präferenz für die Installation einer verwandten nativen App
 
-Wenn Sie den Browsern mitteilen möchten, dass Sie es bevorzugen, Benutzern die Möglichkeit zu geben, Ihre native App zu installieren, die im Google Play Store verfügbar ist, anstatt Ihrer Webanwendung, können Sie `prefer_related_applications` auf `true` setzen. Die Browser können dann Benutzer dazu auffordern, die native Android-App anstelle Ihrer Web-App zu installieren.
+Wenn Sie den Browsern anzeigen möchten, dass Sie es bevorzugen, dass Benutzern die Option gegeben wird, Ihre native App, verfügbar im Google App Store, anstelle Ihrer Web-App zu installieren, können Sie `prefer_related_applications` auf `true` setzen. Browser könnten dann Benutzer dazu auffordern, die native Android-App anstelle Ihrer Web-App zu installieren.
 
 ```json
 {
@@ -146,5 +146,5 @@ Wenn Sie den Browsern mitteilen möchten, dass Sie es bevorzugen, Benutzern die 
 ## Siehe auch
 
 - [`prefer_related_applications`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/prefer_related_applications) Manifestmitglied
-- [Das Web-App-Manifest](/de/docs/Web/Progressive_web_apps/Guides/Making_PWAs_installable#the_web_app_manifest) für die Installation Ihrer Webanwendung
+- [Das Web-App-Manifest](/de/docs/Web/Progressive_web_apps/Guides/Making_PWAs_installable#the_web_app_manifest) für die Installierbarkeit Ihrer Web-App
 - [`Navigator.getInstalledRelatedApps()`](/de/docs/Web/API/Navigator/getInstalledRelatedApps)

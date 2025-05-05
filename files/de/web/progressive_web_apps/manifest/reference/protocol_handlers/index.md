@@ -2,14 +2,14 @@
 title: protocol_handlers
 slug: Web/Progressive_web_apps/Manifest/Reference/protocol_handlers
 l10n:
-  sourceCommit: 2f6ddccbafddcea8f2b68eb4a78b9764892916b3
+  sourceCommit: 628b29f53d15f203c4a6b33c1d0303f864f6af63
 ---
 
-{{QuickLinksWithSubpages("/de/docs/Web/Progressive_web_apps/Manifest/Reference")}}{{SeeCompatTable}}
+{{SeeCompatTable}}
 
-Das `protocol_handlers`-Mitglied spezifiziert ein Array von Objekten, die Protokolle sind, welche diese Webanwendung registrieren und handhaben kann. Protokoll-Handler registrieren die Anwendung in den Anwendungseinstellungen eines Betriebssystems; die Registrierung verknüpft eine spezifische Anwendung mit dem angegebenen Protokollschema. Zum Beispiel öffnen sich bei der Nutzung des Protokoll-Handlers `mailto://` auf einer Webseite die registrierten E-Mail-Anwendungen.
+Das `protocol_handlers`-Mitglied gibt ein Array von Objekten an, welche Protokolle sind, die diese Web-App registrieren und handhaben kann. Protokoll-Handler registrieren die Anwendung in den Anwendungseinstellungen eines Betriebssystems; die Registrierung assoziiert eine spezifische Anwendung mit dem gegebenen Protokoll-Schema. Wenn beispielsweise der Protokoll-Handler `mailto://` auf einer Webseite verwendet wird, öffnen sich registrierte E-Mail-Anwendungen.
 
-Nachdem eine Webanwendung als Protokoll-Handler registriert wurde, öffnet sich die registrierte PWA und empfängt die URL, wenn ein Benutzer auf einen Hyperlink mit einem bestimmten Schema wie `mailto://` oder `web+music://` von einem Browser oder einer nativen App klickt.
+Nachdem eine Web-App als Protokoll-Handler registriert wurde, öffnet sich die registrierte PWA und empfängt die URL, wenn ein Benutzer in einem Browser oder einer nativen App auf einen Hyperlink mit einem spezifischen Schema wie `mailto://` oder `web+music://` klickt.
 
 ### Werte
 
@@ -17,15 +17,16 @@ Protokoll-Handler-Objekte können die folgenden Werte enthalten:
 
 - `protocol` {{experimental_inline}}
 
-  - : Ein erforderlicher String, der das zu handhabende Protokoll enthält; z. B.: `mailto`, `ms-word`, `web+jngl`.
+  - : Ein erforderlicher String, der das zu bearbeitende Protokoll enthält; z.B.: `mailto`, `ms-word`, `web+jngl`.
 
 - `url` {{experimental_inline}}
-  - : Erforderliche HTTPS-URL innerhalb des Anwendung[`scope`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/scope), die das Protokoll handhaben wird.
-    Das `%s`-Token wird durch die URL ersetzt, die mit dem Protokollhandler-Schema beginnt. Wenn `url` eine relative URL ist, wird die Basis-URL die URL des Manifestes sein.
+  - : Erforderliche HTTPS-URL innerhalb des Anwendungs[`bereichs`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/scope), die das Protokoll
+    handhaben wird.
+    Das `%s`-Token wird durch die URL ersetzt, die mit dem Schema des Protokoll-Handlers beginnt. Wenn `url` eine relative URL ist, wird die Basis-URL die URL des Manifests sein.
 
 ## Beispiele
 
-In diesem Beispiel deklariert ein Web-App-Manifest, dass die App registriert werden soll, um die Protokolle `web+jngl` und `web+jnglstore` zu handhaben.
+In diesem Beispiel gibt ein Web-App-Manifest an, dass die App registriert werden soll, um die Protokolle `web+jngl` und `web+jnglstore` zu bearbeiten.
 
 ```json
 "protocol_handlers": [
@@ -40,9 +41,9 @@ In diesem Beispiel deklariert ein Web-App-Manifest, dass die App registriert wer
 ]
 ```
 
-Ein Entwickler kann ein Feld in der manifest.json hinzufügen, um anzugeben, welche Protokolle die Webanwendung handhaben kann. Wie im obigen Beispiel zu sehen, heißt der Schlüssel `protocol_handlers` und enthält ein Array von Deklarationsobjekten der Protokoll-Handler.
+Ein Entwickler kann ein Feld in der manifest.json hinzufügen, um anzugeben, welche Protokolle die Web-App handhaben kann. Wie im obigen Beispiel zu sehen ist, wird der Schlüssel `protocol_handlers` genannt und enthält ein Array von Protokoll-Handler-Deklarationsobjekten.
 
-Die Registrierung von Anwendungen zur Handhabung von URL-Schemata ist betriebssystemabhängig. Diese Verknüpfung erfolgt normalerweise während der Installation der Anwendung, kann aber auch später von einer bereits installierten App vorgenommen werden.
+Das Registrieren von Anwendungen zur Bearbeitung von URL-Schemata ist betriebssystemabhängig. Diese Assoziation wird normalerweise während der Anwendungsinstallation durchgeführt, kann aber auch nachträglich von einer bereits installierten App aus erfolgen.
 
 ## Spezifikationen
 

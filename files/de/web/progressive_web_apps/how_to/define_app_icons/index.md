@@ -1,49 +1,47 @@
 ---
-title: Definieren Sie Ihre App-Icons
+title: Definieren Sie Ihre App-Symbole
 slug: Web/Progressive_web_apps/How_to/Define_app_icons
 l10n:
-  sourceCommit: 05187b0fecf39b9176d4a101623589309cf44dd0
+  sourceCommit: 628b29f53d15f203c4a6b33c1d0303f864f6af63
 ---
 
-{{PWASidebar}}
+[Progressive Web Apps (PWAs)](/de/docs/Web/Progressive_web_apps) können genauso wie andere Apps auf Geräten installiert werden. Sobald eine PWA installiert ist, erscheint ihr App-Symbol auf dem Startbildschirm des Geräts, im Dock, in der Taskleiste oder an einem anderen Ort, an dem normalerweise Apps des Betriebssystems angezeigt werden.
 
-[Progressive Web Apps (PWAs)](/de/docs/Web/Progressive_web_apps) können auf Geräten wie andere Apps installiert werden. Sobald eine PWA installiert ist, erscheint ihr App-Icon auf dem Startbildschirm des Geräts, im Dock, in der Taskleiste oder an anderen Orten, an denen normalerweise auch native Apps des Betriebssystems angezeigt werden.
+Zum Beispiel kann die Taskleiste in Windows sowohl Symbole für native als auch für PWA-Apps nebeneinander enthalten:
 
-Zum Beispiel kann auf Windows die Taskleiste sowohl Icons für native Apps als auch für PWA-Apps nebeneinander enthalten:
+![Die Taskleiste in Windows zeigt die üblichen Windows-Symbole und dann Symbole für Firefox und Word, die native Apps sind, sowie Symbole für Spotify und PWAmp, die PWAs sind](./windows-taskbar.png)
 
-![Die Taskleiste auf Windows, die die üblichen Windows-Icons zeigt, sowie Icons für Firefox und Word, die native Apps sind, aber auch Icons für Spotify und PWAmp, die PWAs sind](./windows-taskbar.png)
-
-Wenn Sie eine PWA erstellen, können Sie Ihre eigenen Icon-Sets definieren, die verwendet werden, wenn die App auf einem Gerät installiert ist. Dieser Artikel erklärt, wie Sie Ihre eigenen App-Icons definieren, welche Icon-Größen zu erstellen sind und wie Sie Ihre Icons so gestalten, dass sie Maskierung unterstützen.
+Beim Erstellen einer PWA können Sie Ihre eigenen Symbole definieren, die verwendet werden, wenn die App auf einem Gerät installiert wird. Dieser Artikel erklärt, wie Sie Ihre eigenen App-Symbole definieren, welche Symbolgrößen Sie erstellen sollten und wie Sie Ihre Symbole für Maskierung unterstützen können.
 
 > [!NOTE]
-> Das PWA-App-Icon ist nicht dasselbe wie das {{Glossary("favicon", "Favicon")}}, das an Orten wie der Adressleiste des Browsers angezeigt wird. PWAs können sowohl ein Favicon als auch ein App-Icon haben. Um mehr über Favicons zu erfahren, lesen Sie [Hinzufügen von benutzerdefinierten Icons zu Ihrer Website](/de/docs/Learn_web_development/Core/Structuring_content/Webpage_metadata#adding_custom_icons_to_your_site).
+> Das PWA-App-Symbol ist nicht dasselbe wie das {{Glossary("favicon", "Favicon")}}, das in Bereichen wie der Adressleiste des Browsers angezeigt wird. PWAs können sowohl ein Favicon als auch ein App-Symbol haben. Um mehr über Favicons zu erfahren, siehe [Anpassen von Symbolen auf Ihrer Website](/de/docs/Learn_web_development/Core/Structuring_content/Webpage_metadata#adding_custom_icons_to_your_site).
 
-## Ihr Icon entwerfen
+## Gestalten Sie Ihr Symbol
 
-Der erste Schritt bei der Definition Ihres App-Icons ist dessen Entwurf.
+Der erste Schritt zur Definition Ihres App-Symbols ist die Gestaltung desselben.
 
-Die meisten Benutzer erkennen Anwendungen anhand ihrer Icons. Icons erscheinen an vielen Stellen im Betriebssystem, einschließlich des Startbildschirms, der Taskleiste, des App-Launchers oder in Einstellungsfenstern. Stellen Sie sicher, dass Ihre Benutzer Ihre App leicht finden können, indem Sie ihr Icon sowohl visuell ansprechend als auch repräsentativ für Ihre Anwendung gestalten.
+Die meisten Benutzer erkennen Anwendungen durch ihre Symbole. Symbole erscheinen an vielen Stellen im Betriebssystem, einschließlich des Startbildschirms, der Taskleiste, des App-Launchers oder in den Einstellungen. Stellen Sie sicher, dass Ihre Benutzer Ihre App leicht finden können, indem Sie ihr Symbol sowohl visuell ansprechend als auch repräsentativ für Ihre Anwendung machen.
 
-Das Bild sollte einen transparenten Hintergrund haben, damit es auf einer Vielzahl von Hintergründen angezeigt werden kann. Es sollte mindestens 1024x1024 Pixel groß sein oder skalierbar zu dieser Größe, da dies die größte Größe ist, in der Ihr Icon angezeigt werden kann. Sie sollten auch Icon-Versionen mit weniger Details erstellen, um sie an Orten zu verwenden, an denen das Icon in kleineren Größen angezeigt wird.
+Das Bild sollte einen transparenten Hintergrund haben, damit es auf einer Vielzahl von Hintergründen angezeigt werden kann. Es sollte mindestens 1024x1024 Pixel groß sein oder auf diese Größe skalierbar sein, da dies die größte Größe ist, in der Ihr Symbol angezeigt werden kann. Sie können auch Versionen Ihres Symbols mit weniger Details erstellen, die an Stellen verwendet werden, wo das Symbol in kleineren Größen angezeigt wird.
 
-Es ist eine gute Idee, Ihr Icon als SVG-Datei zu entwerfen, da dies es ermöglicht, ohne Qualitätsverlust auf jede Größe skaliert zu werden.
+Es ist eine gute Idee, Ihr Symbol als SVG-Datei zu gestalten, da es somit ohne Qualitätsverlust auf jede Größe skaliert werden kann.
 
-## Referenzieren Sie Ihre Icons im Web-App-Manifest
+## Verweisen Sie in der Web-App-Manifestdatei auf Ihre Symbole
 
-Verwenden Sie das [`icons`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/icons) Web-App-Manifest-Element, um ein Set von Icons für Ihre PWA zu definieren.
+Verwenden Sie das [`icons`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/icons)-Element im Web-App-Manifest, um eine Reihe von Symbolen für Ihre PWA zu definieren.
 
-Wie unter [Erstellen der notwendigen Icon-Größen](#erstellen_sie_die_notwendigen_icon-größen) beschrieben, sollten Sie mehrere Versionen Ihres Icons erstellen, um sicherzustellen, dass es an allen Orten, an denen es verwendet wird, korrekt angezeigt wird. Aus diesem Grund ist das `icons`-Element ein Array von Objekten, von denen jedes ein Icon darstellt, mit seiner eigenen Größe, seinem Typ und Zweck. Jedes Icon-Objekt hat folgende Eigenschaften:
+Wie im Abschnitt [Erstellen Sie die erforderlichen Symbolgrößen](#erstellen_sie_die_erforderlichen_symbolgrößen) beschrieben, sollten Sie mehrere Versionen Ihres Symbols erstellen, um sicherzustellen, dass es an allen Stellen richtig angezeigt wird, an denen es verwendet wird. Deshalb ist das `icons`-Element ein Array von Objekten, von denen jedes ein Symbol darstellt, mit eigener Größe, Typ und Zweck. Jedes Symbolobjekt hat die folgenden Eigenschaften:
 
 - `src`
-  - : Die URL der Icon-Bilddatei.
+  - : Die URL der Symbolbilddatei.
 - `sizes`
-  - : Die Größen, für die das Icon verwendet werden kann.
+  - : Die Größen, für die das Symbol verwendet werden kann.
 - `type`
-  - : Der {{Glossary("MIME_type", "MIME-Typ")}} der Bilddatei, den das Betriebssystem verwenden kann, um Bilder schnell zu ignorieren, die es nicht unterstützt.
+  - : Der {{Glossary("MIME_type", "MIME-Typ")}} der Bilddatei, sodass das Betriebssystem Bilder, die es nicht unterstützt, schnell ignorieren kann.
 - `purpose`
   - : Der betriebssystemspezifische Zweck des Bildes.
 
-Beispielsweise definiert das folgende Web-App-Manifest fünf PNG-Icons, jedes mit einer anderen Größe:
+Zum Beispiel definiert das folgende Web-App-Manifest fünf PNG-Symbole, jedes mit einer anderen Größe:
 
 ```json
 {
@@ -80,21 +78,21 @@ Beispielsweise definiert das folgende Web-App-Manifest fünf PNG-Icons, jedes mi
 }
 ```
 
-## Erstellen Sie die notwendigen Icon-Größen
+## Erstellen Sie die erforderlichen Symbolgrößen
 
-Verschiedene Betriebssysteme verwenden unterschiedliche Icon-Größen an verschiedenen Orten und für unterschiedliche Gerätefähigkeiten. Es ist wichtig, mehrere Versionen Ihres Icons zu erstellen, damit es an allen Orten, an denen es verwendet wird, korrekt angezeigt wird.
+Verschiedene Betriebssysteme verwenden unterschiedliche Symbolgrößen an verschiedenen Stellen und für unterschiedliche Geräteeigenschaften. Es ist wichtig, mehrere Versionen Ihres Symbols zu erstellen, damit es überall, wo es verwendet wird, korrekt erscheint.
 
-Zum Beispiel kann Windows Ihr App-Icon als 44x44 Pixel-Bild in der Taskleiste oder als 150x150 Pixel-Bild im Startmenü anzeigen. Verwenden Sie die untenstehenden Links für weitere Informationen über die von verschiedenen Betriebssystemen benötigten Icon-Größen und Tipps zum Erstellen effektiver Icons:
+Zum Beispiel kann Windows Ihr App-Symbol als 44x44 Pixel Bild in der Taskleiste oder als 150x150 Pixel Bild im Startmenü anzeigen. Verwenden Sie die folgenden Links für weitere Informationen zu den von verschiedenen Betriebssystemen verwendeten Symbolgrößen und Tipps zur Erstellung wirkungsvoller Symbole:
 
-- Für Windows siehe [Definieren von Icons und einer Themenfarbe](https://learn.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/how-to/icon-theme-color) auf learn.microsoft.com.
-- Für Android siehe [Google Play Icon-Design-Spezifikationen](https://developer.android.com/distribute/google-play/resources/icon-design-specifications) auf developer.android.com.
-- Für iOS und macOS siehe [App-Icons](https://developer.apple.com/design/human-interface-guidelines/app-icons#App-icon-sizes) auf developer.apple.com.
+- Für Windows siehe [Definieren von Symbolen und einer Themenfarbe](https://learn.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/how-to/icon-theme-color) auf learn.microsoft.com.
+- Für Android siehe [Google Play Icon Design Spezifikationen](https://developer.android.com/distribute/google-play/resources/icon-design-specifications) auf developer.android.com.
+- Für iOS und macOS siehe [App-Symbole](https://developer.apple.com/design/human-interface-guidelines/app-icons#App-icon-sizes) auf developer.apple.com.
 
-Die Größen, in denen Ihr Icon angezeigt wird, hängen vom Betriebssystem ab und können sich im Laufe der Zeit ändern. Es ist am besten, Ihr Icon auf allen Geräten und Betriebssystemen, die Sie unterstützen möchten, zu testen und die Größen und Bildtypen zu generieren, die zu den besten Ergebnissen führen. Sie können auch ein Tool wie den [PWA Image Generator](https://www.pwabuilder.com/imageGenerator) verwenden, um die notwendigen Icon-Größen aus einem einzigen hochauflösenden Bild für Sie zu generieren.
+Die Anzeigegrößen Ihres Symbols hängen vom Betriebssystem ab und können sich im Laufe der Zeit ändern. Am besten testen Sie Ihr Symbol auf allen Geräten und Betriebssystemen, die Sie unterstützen möchten, und erstellen Sie die Größen und Bildtypen, die zu den besten Ergebnissen führen. Sie können auch ein Tool wie [PWA Image Generator](https://www.pwabuilder.com/imageGenerator) verwenden, um die erforderlichen Symbolgrößen aus einem einzigen hochauflösenden Bild zu erzeugen.
 
-Beachten Sie, dass einige Betriebssysteme [SVG](/de/docs/Web/SVG)-Icons unterstützen, was die Anzahl der zu erstellenden Bilder reduzieren kann, da SVG automatisch auf jede Größe skaliert werden kann. Wenn Ihr SVG-Icon nicht gut auf kleine Größen skaliert, kann es notwendig sein, zusätzliche Icons mit weniger Details und Komplexität zu erstellen. Um alle Betriebssysteme und kleine Größen zu unterstützen, erstellen Sie auch PNG-Versionen Ihres Icons.
+Beachten Sie, dass einige Betriebssysteme [SVG](/de/docs/Web/SVG)-Symbole unterstützen, die helfen können, die Anzahl der zu erstellenden Bilder zu reduzieren, da SVG automatisch auf jede Größe skaliert werden kann. Wenn Ihr SVG-Symbol nicht gut auf kleine Größen skaliert, kann es nötig sein, zusätzliche Symbole mit weniger Details und weniger Komplexität zu erstellen. Um alle Betriebssysteme und kleinen Größen zu unterstützen, erstellen Sie auch PNG-Versionen Ihres Symbols.
 
-Das folgende Web-App-Manifestbeispiel verwendet ein WebP-Bild für das kleine Icon, ein ICO-Bild für mittelgroße Icons und ein skalierbares SVG-Bild für höher aufgelöste Icons:
+Das folgende Web-App-Manifest-Beispiel verwendet ein WebP-Bild für das kleine Symbol, ein ICO-Bild für Symbole mittlerer Größe und ein skalierbares SVG-Bild für hochauflösende Symbole:
 
 ```json
 {
@@ -119,19 +117,19 @@ Das folgende Web-App-Manifestbeispiel verwendet ein WebP-Bild für das kleine Ic
 }
 ```
 
-Erfahren Sie mehr darüber, wie Sie die verschiedenen Icon-Größen referenzieren in [Referenzieren Sie Ihre Icons im Web-App-Manifest](#referenzieren_sie_ihre_icons_im_web-app-manifest).
+Erfahren Sie mehr darüber, wie Sie die verschiedenen Symbolgrößen im Abschnitt [Verweisen Sie in der Web-App-Manifestdatei auf Ihre Symbole](#verweisen_sie_in_der_web-app-manifestdatei_auf_ihre_symbole) angeben.
 
 ## Unterstützung für Maskierung
 
-Abhängig vom Betriebssystem und den Gerätefähigkeiten kann Ihrem Icon eine Maske hinzugefügt werden, um eine bestimmte Form zu entsprechen. Maskierbare Icons sind adaptive Icons, die in einer Vielzahl von Formen angezeigt werden können, die von Betriebssystemen angeboten werden. Zum Beispiel können auf Android App-Icons eine kreisförmige Maske haben.
+Abhängig vom Betriebssystem und den Geräteeigenschaften kann eine Maske auf Ihr Symbol angewendet werden, um es an eine bestimmte Form anzupassen. Maskierbare Symbole sind Adaptive Symbole, die in einer Vielzahl von Formen angezeigt werden können, die das Betriebssystem bereitstellt. Zum Beispiel können auf Android App-Symbole eine kreisförmige Maske haben.
 
-Ihr PWA-App-Icon sollte speziell Maskierung unterstützen, um gut mit Betriebssystemen integriert auszusehen, die Masken anwenden. Icons, die keine Maskierung unterstützen, können beschnitten erscheinen oder kleiner als erwartet sein. Auf Android sind nicht-maskierbare Icons in der kreisförmigen Maske zentriert und erhalten einen weißen Hintergrund, was mit Ihrem Icon möglicherweise nicht gut aussieht.
+Ihr PWA-App-Symbol sollte speziell die Maskierung unterstützen, um gut integriert mit Betriebssystemen zu wirken, die Masken anwenden. Symbole, die die Maskierung nicht unterstützen, können beschnitten oder kleiner als erwartet erscheinen. Auf Android werden nicht maskierbare Symbole innerhalb der kreisförmigen Maske zentriert und mit einem weißen Hintergrund versehen, was nicht gut zu Ihrem Symbol passen könnte.
 
-Das folgende Bild zeigt den Unterschied zwischen einem maskierbaren und einem nicht-maskierbaren Icon auf Android:
+Das folgende Bild veranschaulicht den Unterschied zwischen einem maskierbaren und einem nicht maskierbaren Symbol auf Android:
 
-![Ein nicht-maskierbares Icon links, als kleines Quadrat innerhalb des App-Icon-Kreises. Ein maskierbares Icon rechts, das den gesamten App-Icon-Kreis ausfüllt](./maskable-icon-comparison.png)
+![Ein nicht maskierbares Symbol links, als kleines Quadrat innerhalb des App-Symbol-Kreises. Ein maskierbares Symbol rechts, das den gesamten App-Symbol-Kreis ausfüllt](./maskable-icon-comparison.png)
 
-Um Ihr App-Icon maskierbar zu machen, verwenden Sie die `purpose`-Eigenschaft in den Icon-Objekten Ihres Web-App-Manifests und setzen Sie deren Wert auf `maskable`. Zum Beispiel:
+Um Ihr App-Symbol maskierbar zu machen, verwenden Sie die `purpose`-Eigenschaft in den Symbolobjekten Ihres Web-App-Manifests und setzen Sie ihren Wert auf `maskable`. Zum Beispiel:
 
 ```json
 {
@@ -146,22 +144,22 @@ Um Ihr App-Icon maskierbar zu machen, verwenden Sie die `purpose`-Eigenschaft in
 }
 ```
 
-Die Verwendung der `purpose`-Eigenschaft ist nur der letzte Schritt, um Ihr Icon maskierbar zu machen. Sie müssen damit beginnen, sicherzustellen, dass Ihr Icon gut mit dem Host-Betriebssystem integriert ist, indem Sie sicherstellen, dass die wichtigen Teile des Icons gut innerhalb der Masken-_Schutzzone_ erscheinen.
+Die Verwendung der `purpose`-Eigenschaft ist nur der letzte Schritt, um Ihr Symbol maskierbar zu machen. Sie müssen zunächst sicherstellen, dass Ihr Symbol gut mit dem Host-Betriebssystem integriert aussieht, indem Sie sicherstellen, dass die wichtigen Teile des Symbols gut innerhalb der Maske _sicheren Zone_ erscheinen.
 
-Die Schutzzone ist der Bereich, der garantiert immer sichtbar ist, wenn die Maske angewendet wird, und als Kreis definiert ist, dessen Durchmesser 80% der minimalen Dimension des Icons beträgt.
+Die sichere Zone ist der Bereich, der immer sichtbar ist, wenn die Maske angewendet wird, und wird definiert als ein Kreis, dessen Durchmesser 80% der minimalen Dimension des Symbols beträgt.
 
-![Illustration des sicheren Bereichs innerhalb eines maskierbaren Icons](./maskable-icon-safe-area.png)
+![Illustration des sicheren Bereichs innerhalb eines maskierbaren Symbols](./maskable-icon-safe-area.png)
 
-Zum Beispiel, wenn Ihr Icon ein Quadrat ist, stellen Sie sicher, dass das Quadrat vollständig innerhalb der Schutzzone sichtbar ist und seine Ecken nicht abgeschnitten werden.
+Zum Beispiel, wenn Ihr Symbol ein Quadrat ist, stellen Sie sicher, dass das Quadrat vollständig innerhalb der sicheren Zone sichtbar ist und dass seine Ecken nicht abgeschnitten werden.
 
-Abschließend geben Sie Ihrem maskierbaren Icon eine opake Hintergrundfarbe, um den gesamten Icon-Bereich auszufüllen.
+Schließlich geben Sie Ihrem maskierbaren Symbol eine undurchsichtige Hintergrundfarbe, um den gesamten Symbolbereich zu füllen.
 
-Sie können auch Tools wie [Maskable.app](https://maskable.app/) verwenden, um eine Vorschau zu sehen, wie Ihr Icon aussieht, wenn es auf verschiedenen Betriebssystemen maskiert wird.
+Sie können auch Tools wie [Maskable.app](https://maskable.app/) verwenden, um eine Vorschau zu sehen, wie Ihr Symbol bei verschiedenen Betriebssystemen maskiert aussieht.
 
 ## Siehe auch
 
 - [`icons` Manifest-Element](/de/docs/Web/Progressive_web_apps/Manifest/Reference/icons)
 - [App-Design](https://web.dev/learn/pwa/app-design#the_icon) auf web.dev
-- [Adaptive Icon-Unterstützung in PWAs mit maskierbaren Icons](https://web.dev/articles/maskable-icon) auf web.dev
-- [Definieren von Icons und einer Themenfarbe](https://learn.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/how-to/icon-theme-color) auf microsoft.com
+- [Adaptive Icon-Unterstützung in PWAs mit maskierbaren Symbolen](https://web.dev/articles/maskable-icon) auf web.dev
+- [Definieren von Symbolen und einer Themenfarbe](https://learn.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/how-to/icon-theme-color) auf microsoft.com
 - [PWA Image Generator](https://www.pwabuilder.com/imageGenerator) auf pwabuilder.com
