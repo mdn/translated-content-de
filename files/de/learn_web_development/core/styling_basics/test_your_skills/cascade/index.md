@@ -1,27 +1,27 @@
 ---
-title: "Prüfen Sie Ihre Fähigkeiten: Die Kaskade"
+title: "Testen Sie Ihre Fähigkeiten: Die Kaskade"
 short-title: Cascade
 slug: Learn_web_development/Core/Styling_basics/Test_your_skills/Cascade
 l10n:
-  sourceCommit: 48d220a8cffdfd5f088f8ca89724a9a92e34d8c0
+  sourceCommit: ad05d59f31af097f555a7d6de2728e6fd2a11e4a
 ---
 
-Ziel dieses Fertigkeitstests ist es zu beurteilen, ob Sie die universellen Eigenschaftswerte zum [Steuern der Vererbung in CSS](/de/docs/Learn_web_development/Core/Styling_basics/Handling_conflicts) verstehen.
+Das Ziel dieses Fähigkeitstests ist festzustellen, ob Sie universelle Eigenschaftswerte zum [Steuern der Vererbung in CSS](/de/docs/Learn_web_development/Core/Styling_basics/Handling_conflicts) verstehen.
 
 > [!NOTE]
-> Klicken Sie unten in den Codeblöcken auf **„Abspielen“**, um die Beispiele im MDN Playground zu bearbeiten.
-> Sie können den Code auch kopieren (klicken Sie auf das Zwischenablage-Symbol) und in einen Online-Editor wie [CodePen](https://codepen.io/), [JSFiddle](https://jsfiddle.net/) oder [Glitch](https://glitch.com/) einfügen.
-> Wenn Sie nicht weiterkommen, können Sie uns in einem unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) erreichen.
+> Klicken Sie auf **„Play“** in den untenstehenden Codeblöcken, um die Beispiele im MDN Playground zu bearbeiten.
+> Sie können den Code auch kopieren (klicken Sie auf das Klemmbrett-Symbol) und in einen Online-Editor wie [CodePen](https://codepen.io/), [JSFiddle](https://jsfiddle.net/) oder [Glitch](https://glitch.com/) einfügen.
+> Wenn Sie nicht weiterkommen, können Sie uns über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) erreichen.
 
 ## Aufgabe 1
 
-In dieser Aufgabe möchten wir, dass Sie einen der speziellen Werte verwenden, die wir im Abschnitt [Steuern der Vererbung](/de/docs/Learn_web_development/Core/Styling_basics/Handling_conflicts#controlling_inheritance) betrachtet haben. Schreiben Sie eine Deklaration in einer neuen Regel, die die Hintergrundfarbe wieder auf Weiß zurücksetzt, ohne einen tatsächlichen Farbwert zu verwenden.
+In dieser Aufgabe möchten wir, dass Sie einen der speziellen Werte verwenden, die wir im Abschnitt [Vererbung steuern](/de/docs/Learn_web_development/Core/Styling_basics/Handling_conflicts#controlling_inheritance) behandelt haben. Schreiben Sie eine Deklaration in einer neuen Regel, die die Hintergrundfarbe wieder auf weiß zurücksetzt, ohne einen tatsächlichen Farbwert zu verwenden.
 
-Ihr Endergebnis sollte wie im Bild unten aussehen:
+Ihr Endergebnis sollte wie das Bild unten aussehen:
 
-![Kaum sichtbare gelbe Links auf weißem Hintergrund.](mdn-cascade.png)
+![Kaum sichtbare gelbe Links auf einem weißen Hintergrund.](mdn-cascade.png)
 
-Versuchen Sie, den unten stehenden Code zu aktualisieren, um das fertige Beispiel nachzubilden:
+Versuchen Sie, den untenstehenden Code zu aktualisieren, um das fertige Beispiel nachzubilden:
 
 ```html live-sample___cascade
 <div class="container" id="outer">
@@ -60,23 +60,23 @@ Eine mögliche Lösung ist wie folgt:
 }
 ```
 
-Es gibt zwei Dinge, die Sie in dieser Aufgabe tun müssen. Erstens, schreiben Sie einen Selektor für das `a`-Element, der spezieller ist als der Selektor, der den Hintergrund powderblue färbt. In dieser Lösung wird dies durch die Verwendung des `id`-Selektors erreicht, der eine sehr hohe Spezifität hat.
+Es gibt zwei Dinge, die Sie in dieser Aufgabe tun müssen. Erstens, schreiben Sie einen Selektor für das `a`-Element, das spezifischer ist als der Selektor, der den Hintergrund in Puderblau ändert. In dieser Lösung wird dies durch die Verwendung des `id`-Selectors erreicht, der eine sehr hohe Spezifität hat.
 
-Dann müssen Sie sich daran erinnern, dass es spezielle Schlüsselwortwerte für alle Eigenschaften gibt. In diesem Fall setzt die Verwendung von `inherit` die Hintergrundfarbe auf die gleiche wie das übergeordnete Element zurück.
+Dann müssen Sie sich daran erinnern, dass es spezielle Schlüsselwortwerte für alle Eigenschaften gibt. In diesem Fall wird durch die Verwendung von `inherit` die Hintergrundfarbe wieder auf die gleiche wie das Elternelement gesetzt.
 
 </details>
 
 ## Aufgabe 2
 
-In dieser Aufgabe möchten wir, dass Sie die Reihenfolge der Kaskadenschichten manipulieren, um die Links in `rebeccapurple` zu färben. Die `lightgreen`-Deklaration darf nicht bearbeitet werden!
+In dieser Aufgabe möchten wir, dass Sie die Reihenfolge der Kaskadenebenen manipulieren, um die Links in `rebeccapurple` zu färben. Bearbeiten Sie nicht die `lightgreen`-Deklaration!
 
-Diese Aufgabe ist ein erweitertes Ziel – sie erfordert Kenntnisse über Kaskadenschichten, die wir nicht im Artikel [Konflikte handhaben](/de/docs/Learn_web_development/Core/Styling_basics/Handling_conflicts) behandelt haben. Sie können die benötigten Informationen unter [Kaskadenschichten > Bestimmung der Vorrangordnung basierend auf der Reihenfolge der Schichten](/de/docs/Learn_web_development/Core/Styling_basics/Cascade_layers#determining_the_precedence_based_on_the_order_of_layers) finden.
+Diese Aufgabe ist ein ehrgeiziges Ziel — sie erfordert Kenntnisse über Kaskadenebenen, die wir im Artikel [Konflikte handhaben](/de/docs/Learn_web_development/Core/Styling_basics/Handling_conflicts) nicht behandelt haben. Sie finden die benötigten Informationen, um diese Aufgabe zu versuchen, unter [Kaskadenebenen > Ermitteln der Vorrangigkeit basierend auf der Reihenfolge der Ebenen](/de/docs/Learn_web_development/Core/Styling_basics/Cascade_layers#determining_the_precedence_based_on_the_order_of_layers).
 
-Ihr Endergebnis sollte wie im Bild unten aussehen:
+Ihr Endergebnis sollte wie das Bild unten aussehen:
 
-![Kaum sichtbare gelbe Links auf weißem Hintergrund.](mdn-cascade.png)
+![Kaum sichtbare gelbe Links auf einem weißen Hintergrund.](mdn-cascade.png)
 
-Versuchen Sie, den unten stehenden Code zu aktualisieren, um das fertige Beispiel nachzubilden:
+Versuchen Sie, den untenstehenden Code zu aktualisieren, um das fertige Beispiel nachzubilden:
 
 ```html live-sample___cascade-layer
 <div class="container" id="outer">
@@ -122,12 +122,12 @@ Eine mögliche Lösung ist wie folgt:
 @layer yellow, green, purple;
 ```
 
-In dieser Aufgabe müssen Sie eine Sache tun: die Vorrangordnung so ändern, dass die Deklaration für die gewünschte Farbe in der zuletzt deklarierten Schicht ist, was diese Lösung zeigt.
+In dieser Aufgabe müssen Sie die Reihenfolge des Vorrangs ändern, sodass die Deklaration für die gewünschte Farbe in der zuletzt deklarierten Ebene liegt, was diese Lösung zeigt.
 
-Sie müssen sich daran erinnern, dass nicht geschichtete normale Stile Vorrang vor geschichteten normalen Stilen haben. Wenn jedoch alle Stile innerhalb von Schichten sind – wie in dieser Aufgabe – haben Stile in später deklarierten Schichten Vorrang vor Stilen in früher deklarierten Schichten. Das Verschieben der lila Schicht an das Ende bedeutet, dass sie Vorrang vor den grünen und gelben Schichten hat.
+Sie müssen sich daran erinnern, dass unlagerte normale Stile Vorrang vor gelagerten normalen Stilen haben. Aber wenn alle Stile innerhalb von Ebenen sind — wie im Fall dieser Aufgabe — haben Stile in später deklarierten Ebenen Vorrang vor Stilen, die in früheren Ebenen deklariert wurden. Das Verschieben der lila Ebene an das Ende bedeutet, dass sie Vorrang vor den grünen und gelben Ebenen hat.
 
 </details>
 
 ## Siehe auch
 
-- [Grundlagen der CSS-Formatierung](/de/docs/Learn_web_development/Core/Styling_basics)
+- [CSS-Styling-Grundlagen](/de/docs/Learn_web_development/Core/Styling_basics)
