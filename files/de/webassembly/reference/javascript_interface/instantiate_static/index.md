@@ -2,22 +2,16 @@
 title: WebAssembly.instantiate()
 slug: WebAssembly/Reference/JavaScript_interface/instantiate_static
 l10n:
-  sourceCommit: 006c05b688814b45a01ad965bbe4ebfc15513e74
+  sourceCommit: c51a62ab42cd27f23c2bde769d716c37873e1b24
 ---
 
-Die Funktion **`WebAssembly.instantiate()`** ermöglicht es Ihnen,
-WebAssembly-Code zu kompilieren und zu instanziieren. Diese Funktion verfügt über zwei Überladungen:
+Die Funktion **`WebAssembly.instantiate()`** ermöglicht es, WebAssembly-Code zu kompilieren und zu instanziieren. Diese Funktion hat zwei Überladungen:
 
-- Die primäre Überladung nimmt den WebAssembly-Binärcode in Form eines [typisierten Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) oder
-  eines {{jsxref("ArrayBuffer")}} und führt sowohl die Kompilierung als auch die Instanziierung in einem Schritt durch. Das zurückgegebene `Promise` löst sich zu einem kompilierten
-  [`WebAssembly.Module`](/de/docs/WebAssembly/Reference/JavaScript_interface/Module) und seiner ersten [`WebAssembly.Instance`](/de/docs/WebAssembly/Reference/JavaScript_interface/Instance) auf.
-- Die sekundäre Überladung nimmt ein bereits kompiliertes [`WebAssembly.Module`](/de/docs/WebAssembly/Reference/JavaScript_interface/Module)
-  und gibt ein `Promise` zurück, das sich zu einer `Instance` dieses
-  `Moduls` auflöst. Diese Überladung ist nützlich, wenn das `Modul` bereits kompiliert wurde.
+- Die primäre Überladung nimmt den WebAssembly-Binärcode, in Form eines [typed array](/de/docs/Web/JavaScript/Guide/Typed_arrays) oder einem {{jsxref("ArrayBuffer")}}, und führt sowohl Kompilierung als auch Instanziierung in einem Schritt aus. Das zurückgegebene `Promise` wird sowohl zu einem kompilierten [`WebAssembly.Module`](/de/docs/WebAssembly/Reference/JavaScript_interface/Module) als auch zu seiner ersten [`WebAssembly.Instance`](/de/docs/WebAssembly/Reference/JavaScript_interface/Instance) aufgelöst.
+- Die sekundäre Überladung nimmt ein bereits kompiliertes [`WebAssembly.Module`](/de/docs/WebAssembly/Reference/JavaScript_interface/Module) und gibt ein `Promise` zurück, das zu einer `Instance` dieses `Module` aufgelöst wird. Diese Überladung ist nützlich, wenn das `Module` bereits kompiliert wurde.
 
 > [!WARNING]
-> Diese Methode ist nicht die effizienteste Art, Wasm-Module abzurufen und zu instanziieren. Wenn möglich, sollten Sie stattdessen die neuere
-> Methode [`WebAssembly.instantiateStreaming()`](/de/docs/WebAssembly/Reference/JavaScript_interface/instantiateStreaming_static) verwenden, die ein Modul in einem Schritt direkt aus dem Rohbytecode abruft, kompiliert und instanziiert, und daher keine Konvertierung in einen {{jsxref("ArrayBuffer")}} erfordert.
+> Diese Methode ist nicht die effizienteste Art, Wasm-Module zu laden und zu instanziieren. Wenn möglich, sollten Sie stattdessen die neuere Methode [`WebAssembly.instantiateStreaming()`](/de/docs/WebAssembly/Reference/JavaScript_interface/instantiateStreaming_static) verwenden, die ein Modul in einem Schritt direkt aus dem Raw-Bytecode lädt, kompiliert und instanziiert und daher keine Konvertierung in ein {{jsxref("ArrayBuffer")}} benötigt.
 
 ## Syntax
 
@@ -36,37 +30,32 @@ WebAssembly.instantiate(module, importObject, compileOptions)
 ### Parameter
 
 - `bufferSource`
-  - : Ein [typisiertes Array](/de/docs/Web/JavaScript/Guide/Typed_arrays) oder
-    {{jsxref("ArrayBuffer")}}, das den Binärcode des Wasm-Moduls enthält, das Sie kompilieren möchten, oder ein [`WebAssembly.Module`](/de/docs/WebAssembly/Reference/JavaScript_interface/Module).
+  - : Ein [typed array](/de/docs/Web/JavaScript/Guide/Typed_arrays) oder
+    {{jsxref("ArrayBuffer")}}, das den Binärcode des Wasm-Moduls enthält, den Sie kompilieren möchten.
 - `module`
   - : Das [`WebAssembly.Module`](/de/docs/WebAssembly/Reference/JavaScript_interface/Module)-Objekt, das instanziiert werden soll.
 - `importObject` {{optional_inline}}
-  - : Ein Objekt, das die Werte enthält, die in die neu erstellte `Instance` importiert werden sollen, wie etwa Funktionen oder [`WebAssembly.Memory`](/de/docs/WebAssembly/Reference/JavaScript_interface/Memory)-Objekte.
-    Es muss eine übereinstimmende Eigenschaft für jeden deklarierten Import des kompilierten Moduls vorhanden sein, andernfalls wird ein [`WebAssembly.LinkError`](/de/docs/WebAssembly/Reference/JavaScript_interface/LinkError) ausgelöst.
+  - : Ein Objekt, das die Werte enthält, die in die neu erstellte `Instance` importiert werden sollen, wie Funktionen oder [`WebAssembly.Memory`](/de/docs/WebAssembly/Reference/JavaScript_interface/Memory)-Objekte. Es muss eine übereinstimmende Eigenschaft für jeden deklarierten Import des kompilierten Moduls geben, sonst wird ein [`WebAssembly.LinkError`](/de/docs/WebAssembly/Reference/JavaScript_interface/LinkError) ausgelöst.
 - `compileOptions` {{optional_inline}}
-  - : Ein Objekt, das Kompilierungsoptionen enthält. Eigenschaften können Folgendes umfassen:
+  - : Ein Objekt, das Kompilierungsoptionen enthält. Zu den Eigenschaften können gehören:
     - `builtins` {{optional_inline}}
-      - : Ein Array von Zeichenketten, das die Verwendung von [JavaScript-Builtins](/de/docs/WebAssembly/Guides/JavaScript_builtins) im kompilierten Wasm-Modul ermöglicht. Die Zeichenketten definieren die Builtins, die Sie aktivieren möchten. Derzeit ist der einzige verfügbare Wert `"js-string"`, der JavaScript-String-Builtins aktiviert.
+      - : Ein Array von Strings, das die Verwendung von [JavaScript builtins](/de/docs/WebAssembly/Guides/JavaScript_builtins) im kompilierten Wasm-Modul ermöglicht. Die Strings definieren die builtins, die Sie aktivieren möchten. Derzeit ist der einzige verfügbare Wert `"js-string"`, der JavaScript-String-builtins aktiviert.
     - `importedStringConstants` {{optional_inline}}
-      - : Eine Zeichenkette, die einen Namespace für [importierte globale Zeichenkettenkonstanten](/de/docs/WebAssembly/Guides/Imported_string_constants) angibt. Diese Eigenschaft muss angegeben werden, wenn Sie importierte globale Zeichenkettenkonstanten im Wasm-Modul verwenden möchten.
+      - : Ein String, der einen Namensraum für [importierte globale String-Konstanten](/de/docs/WebAssembly/Guides/Imported_string_constants) spezifiziert. Diese Eigenschaft muss angegeben werden, wenn Sie importierte globale String-Konstanten im Wasm-Modul verwenden möchten.
 
 ### Rückgabewert
 
-Wenn ein `bufferSource` übergeben wird, gibt es ein `Promise` zurück, das sich zu einem `ResultObject` mit zwei
-Feldern auflöst:
+Wenn ein `bufferSource` übergeben wird, gibt es ein `Promise` zurück, das sich zu einem `ResultObject` auflöst, welches zwei Felder enthält:
 
-- `module`: Ein [`WebAssembly.Module`](/de/docs/WebAssembly/Reference/JavaScript_interface/Module)-Objekt, das das kompilierte WebAssembly-Modul darstellt. Dieses `Modul` kann erneut instanziiert, über [`postMessage()`](/de/docs/Web/API/Worker/postMessage) geteilt oder [gecached](/de/docs/Web/Progressive_web_apps/Guides/Caching) werden.
+- `module`: Ein [`WebAssembly.Module`](/de/docs/WebAssembly/Reference/JavaScript_interface/Module)-Objekt, das das kompilierte WebAssembly-Modul darstellt. Dieses `Module` kann erneut instanziiert, über [`postMessage()`](/de/docs/Web/API/Worker/postMessage) geteilt oder [zwischengespeichert](/de/docs/Web/Progressive_web_apps/Guides/Caching) werden.
 - `instance`: Ein [`WebAssembly.Instance`](/de/docs/WebAssembly/Reference/JavaScript_interface/Instance)-Objekt, das alle [Exportierten WebAssembly-Funktionen](/de/docs/WebAssembly/Guides/Exported_functions) enthält.
 
 Wenn ein `module` übergeben wird, gibt es ein `Promise` zurück, das sich zu einem [`WebAssembly.Instance`](/de/docs/WebAssembly/Reference/JavaScript_interface/Instance)-Objekt auflöst.
 
 ### Ausnahmen
 
-- Wenn einer der Parameter nicht den richtigen Typ oder die richtige Struktur hat,
-  wird das Promise mit einem {{jsxref("TypeError")}} abgelehnt.
-- Wenn die Operation fehlschlägt, wird das Promise mit einem
-  [`WebAssembly.CompileError`](/de/docs/WebAssembly/Reference/JavaScript_interface/CompileError), [`WebAssembly.LinkError`](/de/docs/WebAssembly/Reference/JavaScript_interface/LinkError) oder
-  [`WebAssembly.RuntimeError`](/de/docs/WebAssembly/Reference/JavaScript_interface/RuntimeError) abgelehnt, je nach Ursache des Fehlers.
+- Wenn einer der Parameter nicht vom richtigen Typ oder der richtigen Struktur ist, wird das Promise mit einem {{jsxref("TypeError")}} abgelehnt.
+- Wenn die Operation fehlschlägt, wird das Promise mit einem [`WebAssembly.CompileError`](/de/docs/WebAssembly/Reference/JavaScript_interface/CompileError), [`WebAssembly.LinkError`](/de/docs/WebAssembly/Reference/JavaScript_interface/LinkError) oder [`WebAssembly.RuntimeError`](/de/docs/WebAssembly/Reference/JavaScript_interface/RuntimeError) abgelehnt, abhängig von der Ursache des Fehlers.
 
 ## Beispiele
 
@@ -75,10 +64,7 @@ Wenn ein `module` übergeben wird, gibt es ein `Promise` zurück, das sich zu ei
 
 ### Beispiel für die erste Überladung
 
-Nach dem Abrufen einiger WebAssembly-Bytecodes mit fetch kompilieren und instanziieren wir das
-Modul mithilfe der Funktion `WebAssembly.instantiate()`, wobei wir eine
-JavaScript-Funktion in das WebAssembly-Modul importieren. Dann rufen wir eine [Exportierte WebAssembly-Funktion](/de/docs/WebAssembly/Guides/Exported_functions) auf,
-die von der `Instance` exportiert wird.
+Nachdem wir einige WebAssembly-Bytecode mit fetch geladen haben, kompilieren und instanziieren wir das Modul mit der Funktion `WebAssembly.instantiate()`. Dabei wird eine JavaScript-Funktion in das WebAssembly-Modul importiert. Wir rufen dann eine [Exportierte WebAssembly-Funktion](/de/docs/WebAssembly/Guides/Exported_functions) auf, die von der `Instance` exportiert wird.
 
 ```js
 const importObject = {
@@ -96,16 +82,11 @@ fetch("simple.wasm")
 ```
 
 > [!NOTE]
-> Dieses Beispiel finden Sie auch unter [index.html](https://github.com/mdn/webassembly-examples/blob/main/js-api-examples/index.html)
-> auf GitHub ([auch live ansehen](https://mdn.github.io/webassembly-examples/js-api-examples/)).
+> Sie können dieses Beispiel auch unter [index.html](https://github.com/mdn/webassembly-examples/blob/main/js-api-examples/index.html) auf GitHub finden ([sehen Sie es auch live](https://mdn.github.io/webassembly-examples/js-api-examples/)).
 
 ### Beispiel für die zweite Überladung
 
-Das folgende Beispiel (siehe unser [index-compile.html](https://github.com/mdn/webassembly-examples/blob/main/js-api-examples/index-compile.html)
-Demo auf GitHub und [auch live ansehen](https://mdn.github.io/webassembly-examples/js-api-examples/index-compile.html))
-kompiliert den geladenen simple.wasm-Bytecode mit der
-Methode [`WebAssembly.compileStreaming()`](/de/docs/WebAssembly/Reference/JavaScript_interface/compileStreaming_static) und sendet ihn dann an einen [Worker](/de/docs/Web/API/Web_Workers_API) mithilfe von
-[`postMessage()`](/de/docs/Web/API/Worker/postMessage).
+Das folgende Beispiel (siehe unser [index-compile.html](https://github.com/mdn/webassembly-examples/blob/main/js-api-examples/index-compile.html) Demo auf GitHub und [sehen Sie es auch live](https://mdn.github.io/webassembly-examples/js-api-examples/index-compile.html)) kompiliert den geladenen simple.wasm-Bytecode mit der Methode [`WebAssembly.compileStreaming()`](/de/docs/WebAssembly/Reference/JavaScript_interface/compileStreaming_static) und sendet ihn dann mit [`postMessage()`](/de/docs/Web/API/Worker/postMessage) an einen [Worker](/de/docs/Web/API/Web_Workers_API).
 
 ```js
 const worker = new Worker("wasm_worker.js");
@@ -116,11 +97,7 @@ WebAssembly.compileStreaming(fetch("simple.wasm")).then((mod) =>
 ```
 
 Im Worker (siehe
-[`wasm_worker.js`](https://github.com/mdn/webassembly-examples/blob/main/js-api-examples/wasm_worker.js))
-definieren wir ein Importobjekt für das Modul zur Verwendung, richten dann einen Ereignishandler ein,
-um das Modul vom Hauptthread zu empfangen. Wenn das Modul empfangen wird, erstellen wir eine
-Instanz daraus mithilfe der Methode `WebAssembly.instantiate()` und rufen eine
-exportierte Funktion von innen auf.
+[`wasm_worker.js`](https://github.com/mdn/webassembly-examples/blob/main/js-api-examples/wasm_worker.js)) definieren wir ein Importobjekt für das Modul zur Nutzung und richten einen Event-Handler ein, um das Modul vom Haupt-Thread zu empfangen. Wenn das Modul empfangen wird, erstellen wir eine Instanz davon mit der Methode `WebAssembly.instantiate()` und rufen eine exportierte Funktion darin auf.
 
 ```js
 const importObject = {
@@ -141,9 +118,9 @@ onmessage = (e) => {
 };
 ```
 
-### Aktivieren von JavaScript-Builtins und globalen Zeichenkettenimporten
+### Aktivierung von JavaScript builtins und globalen String-Imports
 
-Dieses Beispiel aktiviert JavaScript-String-Builtins und importierte globale Zeichenkettenkonstanten beim Kompilieren und Instanziieren des Wasm-Moduls mit `instantiate()`, bevor die exportierte `main()` Funktion ausgeführt wird (die `"hello world!"` in die Konsole protokolliert). [Hier live sehen](https://mdn.github.io/webassembly-examples/js-builtin-examples/instantiate/).
+Dieses Beispiel ermöglicht JavaScript-String-builtins und importierte globale String-Konstanten, bei der Kompilierung und Instanziierung des Wasm-Moduls mit `instantiate()`, bevor die exportierte Funktion `main()` ausgeführt wird (die `"hello world!"` in die Konsole protokolliert). [Siehe es live ausführen](https://mdn.github.io/webassembly-examples/js-builtin-examples/instantiate/).
 
 ```js
 const importObject = {
@@ -174,6 +151,6 @@ fetch("log-concat.wasm")
 
 ## Siehe auch
 
-- [Überblick über WebAssembly](/de/docs/WebAssembly)
+- [WebAssembly](/de/docs/WebAssembly) Übersicht
 - [WebAssembly-Konzepte](/de/docs/WebAssembly/Guides/Concepts)
-- [Verwenden der WebAssembly-JavaScript-API](/de/docs/WebAssembly/Guides/Using_the_JavaScript_API)
+- [Verwendung der WebAssembly-JavaScript-API](/de/docs/WebAssembly/Guides/Using_the_JavaScript_API)
