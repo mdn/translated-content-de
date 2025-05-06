@@ -3479,8 +3479,9 @@
 /de/docs/Games/Anatomy_of_a_vIdeo_game	/de/docs/Games/Anatomy
 /de/docs/Games/Index	/de/docs/Games
 /de/docs/Games/Introduction/Introduction_3D	/de/docs/Games/Techniques/3D_on_the_web
-/de/docs/Games/Introduction_to_HTML5_Game_Development_(summary)	/de/docs/Games/Introduction_to_HTML5_Game_Development
-/de/docs/Games/Introduction_to_HTML5_Game_Gevelopment_(summary)	/de/docs/Games/Introduction_to_HTML5_Game_Development
+/de/docs/Games/Introduction_to_HTML5_Game_Development	/de/docs/Games/Tools
+/de/docs/Games/Introduction_to_HTML5_Game_Development_(summary)	/de/docs/Games/Tools
+/de/docs/Games/Introduction_to_HTML5_Game_Gevelopment_(summary)	/de/docs/Games/Tools
 /de/docs/Games/Techniques/3D_collision_detection/Bounding_boxes_with_THREE.js	/de/docs/Games/Techniques/3D_collision_detection/Bounding_volume_collision_detection_with_THREE.js
 /de/docs/Games/Techniques/3D_on_the_web/WebVR	/de/docs/Games/Techniques/3D_on_the_web/WebXR
 /de/docs/Games/Techniques/Crisp,_pixel_art_look_with_image-rendering	/de/docs/Games/Techniques/Crisp_pixel_art_look
@@ -9935,7 +9936,7 @@
 /de/docs/Web/API/RTCIceCandidateInit/usernameFragment	/de/docs/Web/API/RTCIceCandidate/usernameFragment
 /de/docs/Web/API/RTCIceCandidatePairStats/bytesReceieved	/de/docs/Web/API/RTCIceCandidatePairStats/bytesReceived
 /de/docs/Web/API/RTCIceCandidateStats/ip	/de/docs/Web/API/RTCIceCandidateStats/address
-/de/docs/Web/API/RTCIceCandidateStats/mozLocalTransport	/de/docs/Web/API/RTCIceCandidateStats/relayProtocol
+/de/docs/Web/API/RTCIceCandidateStats/mozLocalTransport	/de/docs/Web/API/RTCIceCandidateStats
 /de/docs/Web/API/RTCIceCandidateType	/de/docs/Web/API/RTCIceCandidate/type
 /de/docs/Web/API/RTCIceComponent	/de/docs/Web/API/RTCIceCandidate/component
 /de/docs/Web/API/RTCIceConnectionState	/de/docs/Web/API/RTCPeerConnection/iceConnectionState

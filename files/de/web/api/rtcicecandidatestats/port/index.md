@@ -3,7 +3,7 @@ title: "RTCIceCandidateStats: port-Eigenschaft"
 short-title: port
 slug: Web/API/RTCIceCandidateStats/port
 l10n:
-  sourceCommit: 73e4dcc6b6ab8840537340bc80df947886bc5ef5
+  sourceCommit: ef82d981d563626248276acbf9516aac7445d4fa
 ---
 
 {{APIRef("WebRTC")}}
@@ -12,7 +12,8 @@ Die **`port`**-Eigenschaft des [`RTCIceCandidateStats`](/de/docs/Web/API/RTCIceC
 
 ## Wert
 
-Ein ganzzahliger Wert, der den Netzwerkport angibt, der von dem durch das `RTCIceCandidateStats`-Objekt beschriebenen [`RTCIceCandidate`](/de/docs/Web/API/RTCIceCandidate) verwendet wird.
+Ein ganzzahliger Wert, der den Netzwerkport angibt, der vom [`RTCIceCandidate`](/de/docs/Web/API/RTCIceCandidate) beschrieben wird, auf den sich dieses `RTCIceCandidateStats`-Objekt bezieht.
+Entspricht [`RTCIceCandidate.port`](/de/docs/Web/API/RTCIceCandidate/port).
 
 ## Spezifikationen
 
