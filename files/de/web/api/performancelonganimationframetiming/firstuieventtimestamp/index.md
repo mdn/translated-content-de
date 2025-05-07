@@ -3,12 +3,12 @@ title: "PerformanceLongAnimationFrameTiming: firstUIEventTimestamp-Eigenschaft"
 short-title: firstUIEventTimestamp
 slug: Web/API/PerformanceLongAnimationFrameTiming/firstUIEventTimestamp
 l10n:
-  sourceCommit: 1391eec245db45782d4c73572ce7b375cbe43989
+  sourceCommit: a396b67c90885e19659fbd770504c6335438fd3f
 ---
 
 {{SeeCompatTable}}{{APIRef("Performance API")}}
 
-Die schreibgeschützte Eigenschaft **`firstUIEventTimestamp`** des [`PerformanceLongAnimationFrameTiming`](/de/docs/Web/API/PerformanceLongAnimationFrameTiming)-Interfaces gibt einen [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, der die Zeit des ersten UI-Events angibt – wie ein Maus- oder Tastatur-Event –, das während des aktuellen Animationsframes in die Warteschlange gestellt wurde.
+Die schreibgeschützte **`firstUIEventTimestamp`**-Eigenschaft des [`PerformanceLongAnimationFrameTiming`](/de/docs/Web/API/PerformanceLongAnimationFrameTiming)-Interfaces gibt einen [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, der die Zeit des ersten UI-Ereignisses angibt – wie z. B. ein Maus- oder Tastaturereignis –, das während des aktuellen Animationsframes verarbeitet wird. Beachten Sie, dass dieser Zeitstempel vor dem Beginn dieses Animationsframes liegen kann, wenn es eine Verzögerung zwischen dem Auftreten des Ereignisses und seiner Verarbeitung gab.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp).
 
 ## Beispiele
 
-Siehe [Long animation frame timing](/de/docs/Web/API/Performance_API/Long_animation_frame_timing#examples) für Beispiele im Zusammenhang mit der Long Animation Frames API.
+Siehe [Lange Animationsframe-Timing](/de/docs/Web/API/Performance_API/Long_animation_frame_timing#examples) für Beispiele im Zusammenhang mit der Long Animation Frames API.
 
 ## Spezifikationen
 
@@ -28,5 +28,5 @@ Siehe [Long animation frame timing](/de/docs/Web/API/Performance_API/Long_animat
 
 ## Siehe auch
 
-- [Long animation frame timing](/de/docs/Web/API/Performance_API/Long_animation_frame_timing)
+- [Lange Animationsframe-Timing](/de/docs/Web/API/Performance_API/Long_animation_frame_timing)
 - [`PerformanceScriptTiming`](/de/docs/Web/API/PerformanceScriptTiming)
