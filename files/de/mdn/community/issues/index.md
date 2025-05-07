@@ -2,62 +2,64 @@
 title: Erstellen und Bearbeiten von Issues
 slug: MDN/Community/Issues
 l10n:
-  sourceCommit: af98ab1715ff54825888ef1f7f13d6e3e3bf90b8
+  sourceCommit: 7819249f906dcfc59a2c4cb702b80a35b7964842
 ---
 
-Als Mitwirkender können Sie [ein Problem melden](#richtlinien_zum_melden_eines_problems) und [an Problemen arbeiten](#richtlinien_zum_arbeiten_an_einem_problem).
-Nachdem Sie ein Problem gemeldet haben, wird es triagiert. Die [Triagierung von Problemen](#richtlinien_zur_triagierung_von_problemen) wird typischerweise von Personen durchgeführt, denen die Rolle eines Maintainers oder Eigentümers zugewiesen wurde.
+Als Mitwirkender können Sie [Problems melden](#richtlinien_zum_melden_eines_problems) und [an Problemen arbeiten](#richtlinien_für_die_arbeit_an_einem_problem).
+Nachdem Sie ein Problem gemeldet haben, wird es einer Priorisierung unterzogen. Das [Priorisieren von Problemen](#richtlinien_zur_priorisierung_von_problemen) wird typischerweise von Personen mit der Rolle eines Maintainers oder Owners durchgeführt.
 
 ## Allgemeine Richtlinien für die Teilnahme
 
-Beim Melden eines Problems oder der Teilnahme an einer Diskussion in einem Problem sollten Sie stets sicherstellen, dass Ihre Beiträge zum Fortschritt des Projekts beitragen. Überlegen Sie, ob die von Ihnen eröffneten Probleme und Ihre Kommentare in einem Problem konstruktiv und thematisch relevant sind und nicht nur Lärm erzeugen.
+Beim Melden eines Problems oder bei der Teilnahme an einer Diskussion in einem Problem sollten Ihre Beiträge stets zum Fortschritt des Projekts beitragen. Überlegen Sie, ob die von Ihnen eröffneten Probleme und Ihre Kommentare in einem Problem konstruktiv und thematisch relevant sind und nicht nur Lärm erzeugen.
 
-Tun Sie Folgendes:
+Folgendes sollten Sie tun:
 
-- Bevor Sie ein Problem melden, überlegen Sie, ob Sie es mit dem Personal oder der Community [diskutieren](/de/docs/MDN/Community/Communication_channels#chat_rooms) müssen. Nutzen Sie Diskussionen, um verschiedene Standpunkte einzuholen und sich auf einen vereinbarten Handlungsweg zu einigen. Dies hilft, Probleme fokussiert und produktiv zu halten.
-- Versuchen Sie nach dem Melden eines Problems, das Problem selbst zu lösen. Lesen Sie unseren [Beitragsleitfaden](https://github.com/mdn/content/blob/main/CONTRIBUTING.md), um mehr zu erfahren.
-- Wenn Sie eine Frage haben, können Sie diese in den [MDN Web Docs Chatrooms](/de/docs/MDN/Community/Communication_channels#chat_rooms) stellen, anstatt ein Problem zu melden.
+- Bevor Sie ein Problem eröffnen, sollten Sie überlegen, ob Sie es mit dem Team oder der Community [diskutieren](/de/docs/MDN/Community/Communication_channels#chat_rooms) sollten. Nutzen Sie Diskussionen, um verschiedene Standpunkte zu erhalten und eine vereinbarte Handlungslinie zu finden. Dies hilft, Probleme fokussiert und produktiv zu halten.
+- Versuchen Sie nach dem Eröffnen eines Problems, das Problem selbst zu lösen. Lesen Sie unseren [Leitfaden zur Mitwirkung](https://github.com/mdn/content/blob/main/CONTRIBUTING.md), um mehr zu erfahren.
+- Wenn Sie eine Frage haben, können Sie diese in den [MDN Web Docs Chatrooms](/de/docs/MDN/Community/Communication_channels#chat_rooms) stellen, anstatt ein Problem zu eröffnen.
 
 Vermeiden Sie Folgendes:
 
-- Probleme zu verkomplizieren, indem Sie mehrere Themen diskutieren oder nicht themenbezogene Kommentare abgeben.
-- Viele Probleme mit unklaren Fragen zu eröffnen.
-- Fragen zu stellen, ohne zuerst zu versuchen, das Problem selbst zu lösen.
+- Probleme zu komplizieren, indem Sie versuchen, mehrere Themen zu diskutieren, oder indem Sie themenfremde Kommentare machen.
+- Eine Vielzahl von Problemen mit unklaren Fragen zu eröffnen.
+- Fragen zu stellen, ohne zunächst zu versuchen, das Problem selbst zu lösen.
+
+Wenn Sie neue Dokumentationen oder Möglichkeiten zur Verbesserung der Website vorschlagen möchten, lesen Sie [Vorschläge für neue Inhalte oder Funktionen](/de/docs/MDN/Community/Issues/Content_suggestions_feature_proposals).
 
 ## Richtlinien zum Melden eines Problems
 
-[Probleme](https://docs.github.com/en/issues/tracking-your-work-with-issues/about-issues) werden verwendet, um Bugs zu verfolgen. Ein Problem muss eine einzelne umsetzbare Aufgabe oder eine Sammlung verwandter umsetzbarer Aufgaben sein und muss ein klares Ergebnis haben.
+[Probleme](https://docs.github.com/en/issues/tracking-your-work-with-issues/about-issues) werden verwendet, um Fehler zu verfolgen. Ein Problem muss eine einzelne ausführbare Aufgabe oder eine Sammlung verwandter ausführbarer Aufgaben sein und ein klares Ergebnis haben.
 
-### Bevor Sie ein Problem melden
+### Bevor Sie ein Problem eröffnen
 
-Wenn Sie glauben, einen Fehler im Inhalt von MDN Web Docs oder im Aussehen der Website gefunden zu haben, suchen Sie in den aktuellen offenen Issues im [relevanten Repository](/de/docs/MDN/Community/Our_repositories), um sicherzustellen, dass niemand anderes das Problem bereits gemeldet hat.
+Wenn Sie glauben, einen Fehler mit dem Inhalt der MDN Web Docs oder dem Aussehen der Website gefunden zu haben, durchsuchen Sie die aktuellen offenen Probleme im [relevanten Repository](/de/docs/MDN/Community/Our_repositories) und stellen Sie sicher, dass niemand anderes das Problem bereits gemeldet hat.
 
 ### Ein Problem melden
 
-Je nach Art des entdeckten Problems können Sie es melden, indem Sie ein Issue auf einem der Haupt- [MDN GitHub-Repositories](/de/docs/MDN/Community/Our_repositories) erstellen.
-Wenn die von Ihnen bereitgestellten Informationen im Issue unvollständig sind, werden Sie möglicherweise gebeten, während des [Triagierungsprozesses des Issues](#überprüfen_der_vollständigkeit_der_informationen_im_problem) weitere Details bereitzustellen.
+Abhängig von der Art des entdeckten Problems können Sie es melden, indem Sie ein Problem in einem der Haupt- [MDN GitHub-Repositories](/de/docs/MDN/Community/Our_repositories) eröffnen.
+Wenn die Informationen, die Sie im Problem angeben, unvollständig sind, werden Sie möglicherweise während des [Priorisierungsprozesses](#überprüfen_der_vollständigkeit_der_informationen_im_problem) um weitere Details gebeten.
 
-Hier sind einige Tipps zum Öffnen von Issues:
+Hier sind einige Tipps zum Eröffnen von Problemen:
 
-- Wählen Sie die richtige Kategorie, um das Problem zu melden. Um beispielsweise einen Inhaltsfehler zu melden, verwenden Sie die [Content Issue](https://github.com/mdn/content/issues/new?assignees=&labels=needs+triage&template=content-bug.yml)- Vorlage im `mdn/content` Repository.
-- Geben Sie ausreichende Informationen beim Melden des Problems an:
-  - Der **Titel des Problems** muss die _erforderliche Aktion_ prägnant vermitteln.
-  - Die **Problembeschreibung** muss den Fehler und die zur Lösung des Problems erforderlichen Maßnahmen klar beschreiben. Es muss auch die Aufgabe oder Unteraufgaben enthalten, die zur Lösung des Problems abgeschlossen werden müssen. Einige weitere Richtlinien beinhalten:
-    - Verwenden Sie das Beschreibungsfeld, um den Status der Aufgabe oder Unteraufgaben mithilfe von Checklisten anzugeben.
-    - Aktualisieren Sie den Status einer Aufgabe in der Problembeschreibung anstatt im Kommentarfeld. Verwenden Sie [Aufgabenlisten](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/about-task-lists) in der Beschreibung, wenn ein Problem mehrere Teile hat. Dies hilft anderen, die sonst durch Kommentare scrollen müssten, um den Status verschiedener Aufgaben zu ermitteln.
-    - Kommentare in einem Problem sollten auf Details oder Kontext beschränkt sein, die helfen, das Problem zu lösen.
-- Wenn Sie sich in einer der folgenden Situationen befinden, verlagern Sie die Diskussion auf [MDNs Diskussionen auf GitHub](https://github.com/orgs/mdn/discussions):
-  - Es muss eine Diskussion geführt werden, um ein Problem zu klären.
-  - Eine Diskussion beginnt, nachdem das Problem eröffnet wurde.
-  - Es gibt keinen klaren Konsens zur Lösung des Problems.
-  - Die Anforderungen zur Erledigung der Aufgabe weiten sich aus, während sie gelöst wird, oder die Arbeit ist unklar.
-- Bei kleinen Fehlern können Sie [die Änderungen selbst vornehmen](#probleme_selbst_beheben) und eine Pull-Anfrage einreichen.
+- Wählen Sie die passende Kategorie, um das Problem zu melden. Zum Beispiel, um einen Inhaltsfehler zu melden, verwenden Sie die [Vorlage für Inhaltsprobleme](https://github.com/mdn/content/issues/new?assignees=&labels=needs+triage&template=content-bug.yml) im `mdn/content`-Repository.
+- Geben Sie beim Melden eines Problems ausreichende Informationen an:
+  - **Titel des Problems** muss das zu ergreifende _Handelnd_ kurz und prägnant vermitteln.
+  - **Beschreibung des Problems** muss den Fehler klar beschreiben und die zur Lösung des Problems erforderliche Handlung. Sie muss auch die Aufgaben oder Teilaufgaben auflisten, die zur Lösung des Problems abgeschlossen werden müssen. Einige weitere Richtlinien umfassen:
+    - Verwenden Sie das Beschreibungsfeld, um den Status der Aufgabe oder Teilaufgaben durch Checklisten anzugeben.
+    - Aktualisieren Sie den Status einer Aufgabe in der Problembeschreibung und nicht in einem Kommentar zum Problem. Verwenden Sie [Aufgabenlisten](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/about-task-lists) in der Beschreibung, wenn ein Problem mehrere Teile hat. Dies hilft anderen, die sonst Kommentare zu dem Problem durchsuchen müssten, um den Status verschiedener Aufgaben zu bestimmen.
+    - Kommentare in einem Problem sollten sich auf Details oder Kontext beschränken, die zur Lösung des Problems beitragen.
+- Wenn Sie sich in einer der folgenden Situationen befinden, verschieben Sie die Konversation zu [MDNs Diskussion auf GitHub](https://github.com/orgs/mdn/discussions):
+  - Es muss eine Diskussion stattfinden, um ein Problem zu klären.
+  - Eine Diskussion beginnt, nachdem das Problem geöffnet wurde.
+  - Es gibt keinen klaren Konsens über die Lösung des Problems.
+  - Die Anforderungen zum Abschluss der Aufgabe werden während der Bearbeitung erweitert oder die Arbeit ist unklar.
+- Für kleinere Fehler können Sie [die Änderungen selbst vornehmen](#beheben_von_problemen_selbst) und eine Pull-Anfrage einreichen.
 
-### Erstellen eines Aufgabenlisten-Problems
+### Erstellen eines Aufgabenlistenproblems
 
-Wenn das eröffnete Problem nicht dazu dient, einen Fehler zu melden, sondern eine Reihe von Aufgaben auszuführen, können Sie das Problem als [Aufgabenliste](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/about-task-lists) erstellen.
-Erklären Sie den Kontext oder Grund für die Durchführung der Aufgaben in der Beschreibung.
-Stellen Sie sicher, dass Sie alle umsetzbaren Aufgaben als Checkliste auflisten.
+Wenn das von Ihnen eröffnete Problem nicht dem Melden eines Fehlers dient, sondern der Ausführung einer Reihe von Aufgaben, können Sie das Problem als [Aufgabenliste](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/about-task-lists) erstellen.
+Erklären Sie den Kontext oder den Grund für die Durchführung der Aufgaben in der Beschreibung.
+Stellen Sie sicher, dass Sie alle ausführbaren Aufgaben als Checkliste auflisten.
 
 Zum Beispiel:
 
@@ -77,120 +79,120 @@ The task list in this issue will be used to compare the documented CSS propertie
 - [ ] [letter-spacing](/en-US/docs/Web/CSS/letter-spacing) - open pull request to move `Accessibility concerns` and `Internationalization concerns` sections before the `Specifications` section.
 ```
 
-## Richtlinien zum Arbeiten an einem Problem
+## Richtlinien für die Arbeit an einem Problem
 
-Denken Sie daran, dass, wenn Sie sich einem Problem widmen, erwartet wird, dass die Arbeit zeitnah abgeschlossen wird. Wenn Sie nach Zuweisung für eine Woche keinen Fortschritt machen können oder nicht mehr in der Lage sind, die erforderliche Aufgabe abzuschließen, hinterlassen Sie einen Kommentar und weisen Sie sich selbst vom Problem ab.
+Denken Sie daran, dass erwartet wird, dass die Arbeit rechtzeitig abgeschlossen wird, wenn Sie ein Problem übernehmen. Wenn Sie nach einer Woche, in der Sie zugewiesen wurden, keine Fortschritte erzielen können oder die erforderliche Aufgabe nicht mehr abschließen können, hinterlassen Sie einen Kommentar und weisen Sie sich selbst von dem Problem ab.
 
-Dies sind die allgemeinen Schritte zum Arbeiten an einem Problem:
+Dies sind die allgemeinen Schritte zur Bearbeitung eines Problems:
 
-1. **Finden Sie ein Problem:** Wenn Sie beitragen möchten, suchen Sie nach Problemen mit dem Label [`good first issue`, `help wanted`](#setzen_anderer_labels) oder [`p3`](#setzen_eines_prioritätslabels). Die meisten Repositories haben Probleme mit diesen Labels. Sie sind herzlich eingeladen, ein Problem auszuwählen, das zu Ihren Fähigkeiten passt. Eine weitere nützliche Anlaufstelle, um nach Problemen zu suchen, an denen Sie arbeiten können, ist das [MDN Contributors Task Board](https://github.com/orgs/mdn/projects/25). Diese Projektansicht listet offene Probleme aus mehreren Repositories auf. Sie können die Liste basierend auf den Themen filtern (`Labels`-Spalte), die Sie interessieren. Sehen Sie die Beschreibung einiger Labels, die während des Triagierungsprozesses angewendet werden.
+1. **Ein Problem finden:** Wenn Sie einen Beitrag leisten möchten, suchen Sie nach Problemen mit dem Label [`good first issue`, `help wanted`](#setzen_weiterer_labels) oder [`p3`](#setzen_eines_prioritätslabels). Die meisten Repositories haben Probleme mit diesen Labels. Sie sind herzlich eingeladen, ein Problem zu durchsuchen und auszuwählen, das zu Ihrem Fähigkeitsniveau passt. Ein weiterer nützlicher Ort, um nach Problemen zu suchen, an denen Sie arbeiten können, ist die [MDN Contributors Task Board](https://github.com/orgs/mdn/projects/25). Diese Projektansicht listet offene Probleme aus mehreren Repositories auf. Sie können die Liste basierend auf den Themen (`Labels`-Spalte) filtern, die Sie interessieren. Siehe die Beschreibung einiger [Labels](#setzen_weiterer_labels), die während des Priorisierungsprozesses für Probleme angewendet werden.
 
    > [!NOTE]
-   > Ein Problem mit dem Label `needs triage` zeigt an, dass das MDN Web Docs Kernteam das Problem noch nicht überprüft hat und Sie an ihm noch nicht arbeiten sollten.
+   > Ein Problem mit dem Label `needs triage` zeigt an, dass das Kernteam der MDN Web Docs das Problem noch nicht überprüft hat und Sie nicht an ihm arbeiten sollten.
 
-2. **Weisen Sie sich das Problem selbst zu:** Nachdem Sie ein Problem gefunden haben, an dem Sie arbeiten möchten, stellen Sie sicher, dass das Problem niemand anderem zugewiesen ist. Fügen Sie einen Kommentar hinzu, dass Sie an dem Problem arbeiten möchten, und wenn Sie es können, [weisen Sie sich das Problem selbst zu](https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/assigning-issues-and-pull-requests-to-other-github-users#assigning-an-individual-issue-or-pull-request).
+2. **Ordnen Sie sich das Problem zu:** Nachdem Sie ein Problem gefunden haben, an dem Sie arbeiten möchten, vergewissern Sie sich, dass das Problem niemand anderem zugewiesen ist. Fügen Sie einen Kommentar hinzu, dass Sie gerne an dem Problem arbeiten möchten, und wenn Sie können, [ordnen Sie sich das Problem selbst zu](https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/assigning-issues-and-pull-requests-to-other-github-users#assigning-an-individual-issue-or-pull-request).
 
-3. **Führen Sie die Recherche durch:** Die meisten Probleme erfordern einige Nachforschungen, bevor mit der Arbeit begonnen werden kann.
+3. **Recherchieren Sie:** Die meisten Probleme benötigen einige Untersuchungen, bevor die Arbeit beginnen kann.
 
-   - Erkunden Sie den Umfang der Arbeit, die erledigt werden muss. Wenn Sie Fragen stellen müssen, stellen Sie diese in den [MDN Web Docs-Chatrooms](/de/docs/MDN/Community/Communication_channels#chat_rooms).
-   - Wenn das Problem gut beschrieben ist und die Arbeit ziemlich offensichtlich ist, erledigen Sie sie fort.
-   - Wenn das Problem nicht gut beschrieben ist und/oder Sie nicht sicher sind, was benötigt wird, erwähnen Sie den Autor und bitten Sie um weitere Informationen.
+   - Überlegen Sie das Ausmaß der Arbeit, die erledigt werden muss. Wenn Sie Fragen stellen müssen, stellen Sie diese in den [MDN Web Docs Chatrooms](/de/docs/MDN/Community/Communication_channels#chat_rooms).
+   - Wenn das Problem gut beschrieben ist und die Arbeit ziemlich offensichtlich ist, fahren Sie fort und erledigen Sie sie.
+   - Wenn das Problem nicht gut beschrieben ist und/oder Sie nicht sicher sind, was benötigt wird, dürfen Sie den Ersteller mit @mention um weitere Informationen bitten.
 
-4. **Nehmen Sie die Änderungen vor:** Forken und verzweigen Sie das Repository. Führen Sie Ihre Arbeit durch und öffnen Sie eine [Pull-Anfrage](/de/docs/MDN/Community/Pull_requests) im Repository. [Beziehen Sie sich auf das Problem](https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/linking-a-pull-request-to-an-issue) in der Beschreibung der Pull-Anfrage. Abhängig von den Dateien, die Sie in der Pull-Anfrage aktualisiert haben, wird automatisch ein Prüfer zu Ihrer Pull-Anfrage zugewiesen. (Themenbezogene Teams sind in der [CODEOWNERS](https://github.com/mdn/content/blob/main/.github/CODEOWNERS) Datei definiert).
+4. **Änderungen vornehmen:** Forken und verästeln Sie das Repository. Führen Sie Ihre Arbeit aus und öffnen Sie eine [Pull-Anfrage](/de/docs/MDN/Community/Pull_requests) im Repository. [Verweisen Sie auf das Problem](https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/linking-a-pull-request-to-an-issue) in der Beschreibung der Pull-Anfrage. Abhängig von den Dateien, die Sie in der Pull-Anfrage aktualisiert haben, wird automatisch ein Gutachter Ihrer Pull-Anfrage zugewiesen. (Teams pro Themenbereich sind in der Datei [CODEOWNERS](https://github.com/mdn/content/blob/main/.github/CODEOWNERS) definiert).
 
-   Wenn Sie die Pull-Anfrage geöffnet haben und feststellen, dass Sie keine Zeit mehr haben, um Änderungen vorzunehmen oder Feedback zu implementieren, lassen Sie das Team so schnell wie möglich in einem Kommentar in der Pull-Anfrage wissen. So kann das Team einen anderen interessierten Mitwirkenden beauftragen, die Arbeit an der Pull-Anfrage abzuschließen und das verknüpfte Problem zu schließen.
+   Nachdem Sie die Pull-Anfrage geöffnet haben, geben Sie in einem Kommentar in der Pull-Anfrage an, wenn Sie keine Zeit mehr haben, Änderungen vorzunehmen oder das Feedback zur Überprüfung zu berücksichtigen. Dies hilft dem Team, einen anderen interessierten Mitwirkenden zuzuweisen, um die Arbeit an der Pull-Anfrage abzuschließen und das verknüpfte Problem zu schließen.
 
-5. Nachdem Ihre Pull-Anfrage überprüft und zusammengeführt wurde, können Sie das verknüpfte Problem als abgeschlossen markieren. Wenn Sie die Pull-Anfrage mit dem Vermerk `Fixes #<issue>` geöffnet haben, wird das Problem automatisch geschlossen, wenn die Pull-Anfrage zusammengeführt wird.
+5. Nachdem Ihre Pull-Anfrage überprüft und zusammengeführt wurde, können Sie das verknüpfte Problem als geschlossen kennzeichnen. Wenn Sie die Pull-Anfrage mit dem Text `Fixes #<issue>` eröffnet haben, wird das Problem automatisch geschlossen, wenn die Pull-Anfrage zusammengeführt wird.
 
-### Probleme selbst beheben
+### Beheben von Problemen selbst
 
-Wenn Sie einen Fehler bemerken – sei es ein Problem mit dem Erscheinungsbild der Website oder ein Fehler in der Dokumentation –, können Sie versuchen, ihn selbst zu beheben. Erfahren Sie, wie Sie beitragen können, indem Sie unseren [Beitragsleitfaden](https://github.com/mdn/content/blob/main/CONTRIBUTING.md) durchgehen.
+Wenn Sie einen Fehler feststellen — sei es ein Problem mit dem Aussehen der Website oder ein Fehler in der Dokumentation — können Sie versuchen, ihn selbst zu beheben. Erfahren Sie, wie Sie beitragen können, indem Sie unseren [Leitfaden zur Mitwirkung](https://github.com/mdn/content/blob/main/CONTRIBUTING.md) durchgehen.
 
-Bei kleinen Fehlern, wie z. B. einem Tippfehler oder einer geringfügigen Satzverbesserung, oder einer unkontroversen Korrektur, reichen Sie eine Pull-Anfrage mit den Änderungen ein.
+Wenn der Fehler klein ist, z. B. ein Tippfehler oder eine geringfügige Satzverbesserung, oder eine unkontroverse Korrektur betrifft, übermitteln Sie eine Pull-Anfrage mit den Änderungen.
 
-Bei allen anderen Arten von Fehlern beginnen Sie mit dem [Öffnen des Problems](#richtlinien_zum_melden_eines_problems). Fügen Sie einen Kommentar zu Ihrer Absicht hinzu, an dem Problem zu arbeiten, und beschreiben Sie, wenn möglich, Ihre vorgeschlagene Lösung oder Schritte zur Behebung des Problems.
-Warten Sie, bis das Problem triagiert ist, damit das MDN Web Docs Team überprüfen kann, dass das Problem legitim ist und Ihre vorgeschlagene Lösung genehmigen kann.
+Für alle anderen Arten von Fehlern beginnen Sie mit der [Eröffnung des Problems](#richtlinien_zum_melden_eines_problems). Fügen Sie einen Kommentar zu Ihrer Absicht hinzu, an dem Problem zu arbeiten, und beschreiben Sie nach Möglichkeit Ihre vorgeschlagene Lösung oder die Schritte zur Behebung des Problems.
+Warten Sie, bis das Problem priorisiert wird, damit das MDN Web Docs-Team bestätigen kann, dass das Problem legitim ist und Ihre vorgeschlagene Lösung genehmigt.
 
 > [!NOTE]
-> Wenn Sie eine Pull-Anfrage öffnen, bevor das Problem triagiert wurde, könnte Ihre Zeit und Mühe verschwendet sein, wenn das verknüpfte Problem als ungültig erachtet wird oder die Lösung nicht der von dem MDN Web Docs Team erwarteten entspricht.
-> Nachdem das Problem triagiert wurde, weisen Sie sich das Problem selbst zu.
+> Wenn Sie eine Pull-Anfrage eröffnen, bevor das Problem priorisiert wurde, könnten Ihre Zeit und Mühe verschwendet werden, wenn das verknüpfte Problem als ungültig angesehen wird oder die Lösung nicht mit der vom MDN Web Docs-Team erwarteten übereinstimmt.
+> Nachdem das Problem priorisiert wurde, ordnen Sie sich das Problem selbst zu.
 
-Verwenden Sie die [Richtlinien zum Arbeiten an einem Problem](#richtlinien_zum_arbeiten_an_einem_problem), um zu versuchen, das Problem durch Aktualisierung der entsprechenden Quelle zu beheben, wie zum Beispiel:
+Versuchen Sie unter Verwendung der [Richtlinien zur Bearbeitung eines Problems](#richtlinien_für_die_arbeit_an_einem_problem), das Problem zu beheben, indem Sie die entsprechende Quelle aktualisieren, wie zum Beispiel:
 
-- Der **Inhalt** von MDN Web Docs (auf Englisch) im [mdn/content](https://github.com/mdn/content) Repository
-- Der **übersetzte Inhalt** von MDN Web Docs im [mdn/translated-content](https://github.com/mdn/translated-content) Repository
-- Das **Frontend** von MDN Web Docs im [mdn/yari](https://github.com/mdn/yari) Repository
+- Der **Inhalt** der MDN Web Docs (auf Englisch) im [mdn/content](https://github.com/mdn/content)-Repository
+- Der **übersetzte Inhalt** der MDN Web Docs im [mdn/translated-content](https://github.com/mdn/translated-content)-Repository
+- Das **Frontend** der MDN Web Docs im [mdn/yari](https://github.com/mdn/yari)-Repository
 
-Jedes Repository enthält nützliche Informationen, die Sie darüber informieren, wie Sie beitragen können.
-Weitere Informationen finden Sie in [unseren Haupt-GitHub-Repositories](/de/docs/MDN/Community/Our_repositories).
+Jedes Repository enthält nützliche Informationen, um Sie bei Ihrem Beitrag zu unterstützen.
+Für weitere Informationen siehe [unsere Haupt-GitHub-Repositories](/de/docs/MDN/Community/Our_repositories).
 
-## Richtlinien zur Triagierung von Problemen
+## Richtlinien zur Priorisierung von Problemen
 
-Wenn Sie ein Maintainer oder Eigentümer in der GitHub-Organisation der MDN Web Docs sind, sind Sie verantwortlich für die Triagierung von Problemen in einem oder mehreren MDN Web Docs Repositorys.
+Wenn Sie ein Maintainer oder Owner in der MDN Web Docs GitHub-Organisation sind, sind Sie verantwortlich für die Priorisierung von Problemen in einem oder mehreren MDN Web Docs-Repositories.
 
-Der gesamte Triagierungsprozess umfasst einige [allgemeine](#allgemeine_triagierungsaufgaben) und einige [problem-spezifische Aufgaben](#problem-spezifische_triagierungsaufgaben).
+Der allgemeine Prozess der Priorisierung umfasst einige [allgemeine](#allgemeine_priorisierungsaufgaben) und einige [problem-spezifische Aufgaben](#problem-spezifische_priorisierungsaufgaben).
 
-### Allgemeine Triagierungsaufgaben
+### Allgemeine Priorisierungsaufgaben
 
-- Wenn ein Problem geöffnet wird, wird das Label `needs triage` automatisch gesetzt. Sie können nach diesem Label suchen, um nach Problemen zu suchen, die [triagiert werden müssen](#problem-spezifische_triagierungsaufgaben). Mitwirkende oder andere Personen sollten an dem Problem nicht arbeiten, bis es triagiert wurde. (Triagierende sollten daran denken, das `needs triage` Label nach der Triagierung des Problems zu entfernen.)
+- Wenn ein Problem geöffnet wird, wird das Label `needs triage` automatisch auf das Problem gesetzt. Sie können nach diesem Label suchen, um nach Problemen zu suchen, die (noch) [priorisiert werden müssen](#problem-spezifische_priorisierungsaufgaben). Mitwirkende oder andere Personen sollten nicht an dem Problem arbeiten, bis es priorisiert wurde. (Priorisierende Personen sollten daran denken, das Label `needs triage` nach der Priorisierung des Problems zu entfernen.)
 
-- Im [mdn/content Repository](https://github.com/mdn/content/issues) wird automatisch ein zusätzliches `Content:` Label, wie `Content:CSS` oder `Content:WebAPI`, gesetzt. Dieses wird basierend auf der in dem Problem erwähnten MDN-URL gesetzt. Sie können das inhaltsspezifische Label verwenden, um nach Problemen zu suchen, die in Ihrem spezifischen Themenbereich triagiert werden müssen.
+- Im [mdn/content-Repository](https://github.com/mdn/content/issues) wird zusätzlich ein `Content:`-Label, wie `Content:CSS` oder `Content:WebAPI`, automatisch auf das Problem gesetzt. Dieses wird basierend auf der im Problem genannten MDN-URL gesetzt. Sie können das inhaltsspezifische Label verwenden, um nach Problemen zu suchen, die in Ihrem speziellen Themenbereich priorisiert werden müssen.
 
-- Wenn sich ein Problem auf eine aktive, nicht englischsprachige Lokalisierung bezieht, setzen Sie das entsprechende Label, wie `l10n-fr`, `l10n-zh` oder `l10n-ja`. Die Teams für diese Lokalisierungen werden diese Probleme aufnehmen und triagieren.
+- Wenn ein Problem eine aktive, nicht-en-US-Locale betrifft, setzen Sie das entsprechende Label, wie `l10n-fr`, `l10n-zh` oder `l10n-ja`. Die Teams für diese Sprachversionen werden diese Probleme auswählen und priorisieren.
 
-- Sie müssen nicht ständig Probleme triagieren. Planen Sie Zeit ein, z. B. 30 Minuten pro Woche, um regelmäßig Probleme in Ihrem Verantwortungsbereich zu triagieren. Triagierung muss nicht bei einem synchronen Meeting oder zur gleichen Zeit wie alle anderen erfolgen, aber sie sollte regelmäßig durchgeführt werden, damit der Rückstand an untriagierten Bugs nicht zu hoch wird.
+- Sie müssen nicht die ganze Zeit aktiv Probleme priorisieren. Planen Sie sich Zeit ein, sagen wir 30 Minuten pro Woche, um Probleme regelmäßig in Ihrem Verantwortungsbereich zu priorisieren. Die Priorisierung muss nicht im Rahmen eines synchronen Meetings oder gleichzeitig mit anderen erfolgen, sollte jedoch regelmäßig durchgeführt werden, um sicherzustellen, dass die Rückstände unangemeldeter Fehler nicht zu groß werden.
 
-- Neben der wöchentlichen Triagierung eingehender Probleme überprüfen Sie die Liste der alten Bugs, um festzustellen, ob es welche gibt, die feststecken, geschlossen werden müssen oder nicht mehr relevant sind. Das Label `idle` wird automatisch auf Probleme gesetzt, bei denen nach 30 Tagen keine Aktivitäten mehr stattgefunden haben.
-  - Überprüfen Sie zugewiesene Probleme, die noch offen sind, um zu sehen, ob der Zuweisungsempfänger Fortschritte macht. Wenn nach einer Woche keine Fortschritte gemacht wurden, fragen Sie sie, ob sie noch Zeit haben, an dem Problem zu arbeiten. Wenn eine weitere Woche ohne Fortschritt vergeht, weisen Sie sie ab und hinterlassen Sie einen Kommentar, der besagt, dass Sie das Problem für andere interessierte Mitwirkende verfügbar machen.
-  - Wenn eine Pull-Anfrage zur Behebung des Problems geöffnet wurde, jedoch eine Woche lang nicht überprüft wurde, senden Sie dem Prüfer eine sanfte Erinnerung, ob er sie ansehen kann.
-  - Wenn eine Pull-Anfrage zur Behebung des Problems auf die Bearbeitung von Überprüfungskommentaren wartet und diese nach einer Woche nicht bearbeitet wurden, fragen Sie den Autor, ob er auf seine Überprüfung antworten kann. Wenn eine weitere Woche vergeht, entweder die Überprüfungskommentare selbst korrigieren, wenn Sie Zeit haben, oder die Pull-Anfrage schließen und das zugehörige Problem abweisen.
+- Abgesehen von der Priorisierung eingehender Probleme jede Woche, überprüfen Sie die Liste der alten Fehler, um zu sehen, ob es welche gibt, die ins Stocken geraten sind, geschlossen werden müssen oder nicht mehr relevant sind. Das `idle`-Label wird automatisch auf Probleme gesetzt, die 30 Tage lang keine Aktivität hatten.
+  - Überprüfen Sie zugewiesene Probleme, die noch offen sind, um zu sehen, ob der oder die Bearbeiter Fortschritte machen. Wenn nach einer Woche keine Fortschritte gemacht werden, fragen Sie den Bearbeiter, ob er noch Zeit hat, an dem Problem zu arbeiten. Wenn eine weitere Woche ohne Fortschritte vergeht, entziehen Sie ihm die Zuweisung und hinterlassen Sie einen Kommentar, dass Sie das Problem für andere interessierte Mitwirkende freigeben.
+  - Wenn eine Pull-Anfrage geöffnet wurde, um das Problem zu beheben, aber seit einer Woche nicht überprüft wurde, geben Sie dem Überprüfenden eine sanfte Erinnerung, ob er oder sie dazu kommen kann.
+  - Wenn auf eine Überprüfungskommentare gewartet wird, um behoben zu werden, nachdem eine Woche vergangen ist, fragen Sie den Verfasser, ob er die Überprüfung beantworten kann. Wenn eine weitere Woche vergeht, beheben Sie entweder selbst die Überprüfungskommentare, wenn Sie Zeit haben, oder schließen Sie die Pull-Anfrage und entziehen Sie die Zuweisung des zugehörigen Problems.
 
-### Problem-spezifische Triagierungsaufgaben
+### Problem-spezifische Priorisierungsaufgaben
 
-Dies sind die Richtlinien, die beim Triagieren eines jeden Problems beachtet werden sollten.
+Dies sind die Richtlinien, die beim Priorisieren jedes Problems befolgt werden sollten.
 
 #### Überprüfen, ob das Problem gültig ist
 
-Hier sind einige Dinge, die während der Überprüfung der Gültigkeit eines Problems zu beachten sind:
+Dies sind einige Dinge, die beim Überprüfen der Gültigkeit eines Problems zu beachten sind:
 
-- Überprüfen Sie, ob das aufgeworfene Problem gültig ist und ob die Korrektur den Inhalt für die Leser und die Website verbessern wird.
-- Bewerten Sie, ob die Auswirkungen der Korrektur klein oder auf die ganze Website ausgedehnt sind.
-- Bewerten Sie, ob die Lösung des Problems zuerst einer Diskussion bedarf, in diesem Fall weisen Sie den Autor darauf hin, eine [Diskussion](https://github.com/orgs/mdn/discussions) zu eröffnen.
+- Überprüfen Sie, ob das aufgeworfene Problem gültig ist und ob die Behebung den Inhalt für die Leser und die Website verbessern wird.
+- Bewerten Sie, ob der Einfluss der Behebung gering oder umfassend sein wird.
+- Prüfen Sie, ob die Behebung des Problems eine Diskussion erfordert, in diesem Fall weisen Sie den Autor an, stattdessen eine [Diskussion](https://github.com/orgs/mdn/discussions) zu eröffnen.
 - Überprüfen Sie, ob das Problem mit unseren [Schreibrichtlinien](/de/docs/MDN/Writing_guidelines/Writing_style_guide) und [Vorlagen](/de/docs/MDN/Writing_guidelines/Page_structures/Page_types) übereinstimmt.
-- Überprüfen Sie, ob Vorschläge zur Hinzufügung von Links mit unserer [Richtlinie für externe Links](/de/docs/MDN/Writing_guidelines/Writing_style_guide#external_links) übereinstimmen.
+- Überprüfen Sie, ob Vorschläge zum Hinzufügen von Links mit unserer [Richtlinie für externe Links](/de/docs/MDN/Writing_guidelines/Writing_style_guide#external_links) übereinstimmen.
 
 #### Überprüfen der Vollständigkeit der Informationen im Problem
 
-Überprüfen Sie jedes Problem anhand der folgenden Checkliste, um sicherzustellen, dass das Problem die beschriebenen Informationen enthält, damit jemand mit der Arbeit an dem Bug beginnen kann:
+Überprüfen Sie jedes Problem anhand der folgenden Checkliste, um sicherzustellen, dass das Problem die beschriebenen Informationen enthält, damit jemand beginnen kann, am Fehler zu arbeiten:
 
-- URL der MDN Web Docs Seite mit dem Problem oder URL einer Beispielseite der MDN Web Docs, wenn das Problem auf mehreren Seiten auftritt
-- Die bestimmte Überschrift oder der Abschnitt auf der MDN Web Docs Seite, wo das Problem gefunden wurde
-- Eine klare Beschreibung der falschen, nicht hilfreichen, unvollständigen oder fehlenden Informationen
+- URL der MDN-Web-Dokumentationsseite mit dem Problem oder URL einer Beispiel-MDN-Web-Dokumentationsseite, wenn das Problem auf mehreren Seiten besteht
+- Die spezifische Überschrift oder der Abschnitt auf der MDN-Web-Dokumentationsseite, wo das Problem gefunden wurde
+- Eine klare Beschreibung der falschen, unhilfreichen, unvollständigen oder fehlenden Information
 
-Wenn eine der oben genannten Informationen nicht vorhanden ist, sollten Sie den Autor des Problems bitten, diese Details bereitzustellen, und das `needs info` Label zum Problem hinzufügen. Fahren Sie erst mit der Triagierung fort, nachdem diese Details bereitgestellt wurden (nachdem Sie das `needs info` Label entfernen können). Es ist in Ordnung, bis zu einer Woche auf eine Antwort des Autors zu warten.
+Wenn eine der oben genannten Informationen nicht vorhanden ist, sollten Sie den Autor des Problems bitten, diese Details bereitzustellen, und das `needs info`-Label auf das Problem setzen. Fahren Sie mit der Priorisierung des Problems erst dann fort, nachdem diese Details bereitgestellt wurden (nachdem Sie das `needs info`-Label entfernen können). Es ist in Ordnung, bis zu einer Woche zu warten, um eine Antwort vom Autor zu erhalten.
 
 #### Setzen eines Prioritätslabels
 
 Für jeden Fehler setzen Sie ein Prioritätslabel basierend auf der Schwere des Problems, um Personen zu helfen, die an den wichtigsten Problemen oder Bereichen arbeiten möchten.
 
-- Kritisches Problem: Diese Art von Problem muss so schnell wie möglich behoben werden, unabhängig davon, wo es auf der Seite erscheint. Diese Art von Problem könnte den Ruf von MDN schwer schädigen und/oder Benutzern schaden. Beispiele für dieses Problem sind ein fehlerhaftes Code-Snippet, das bei Verwendung in der Produktion ein schweres Sicherheitsproblem verursachen könnte, sowie unerwünschte Inhalte wie Malware, Obszönitäten, Pornografie, Hassrede oder Links zu solchen Inhalten.
+- Kritisches Problem: Dieser Problemtyp muss so schnell wie möglich behoben werden, unabhängig davon, wo es auf der Website auftritt. Dieser Problemtyp könnte den Ruf von MDN schwer beschädigen und/oder Nutzern schaden. Beispiele für dieses Problem sind ein falscher Code-Schnipsel, der bei Verwendung in der Produktion ein schwerwiegendes Sicherheitsproblem verursachen könnte, und unerwünschte Inhalte wie Malware, Anstößigkeit, Pornografie, Hassrede oder Links zu solchen Inhalten.
 
-  - Label: `p0` (wird sofort behoben)
+  - Label: `p0` (wird sofort bearbeitet)
 
-- Größeres Problem: Diese Art von Problem könnte die Nützlichkeit einer Seite ernsthaft beeinträchtigen. Zum Beispiel eine erhebliche Menge an veralteten Informationen, ein komplexes und wichtiges Code-Beispiel, das nicht funktioniert, eine erhebliche Menge an schlecht geschriebenem und schwer verständlichem Text oder eine große Anzahl defekter Links.
+- Hauptproblem: Dieser Problemtyp könnte die Nützlichkeit einer Seite ernsthaft beeinträchtigen. Zum Beispiel eine erhebliche Menge an veralteten Informationen, ein komplexes und wichtiges Code-Beispiel, das nicht funktioniert, eine große Menge an schlecht geschriebenem und schwer verständlichem Text oder eine große Anzahl von defekten Links.
 
-  - Labels: `p1` (wird bald behandelt) und `p2` (wird bald behandelt, aber höhere prioritäre Punkte haben Vorrang)
+  - Labels: `p1` (wird bald bearbeitet) und `p2` (wird bald bearbeitet, aber wichtigere Aufgaben haben Vorrang)
 
-- Kleineres Problem: Dies ist eine Art Verbesserungsproblem, das den bestehenden Inhalt besser machen kann, aber das Lernen nicht beeinträchtigt oder nur geringfügig beeinträchtigt. Da diese Art von Problemen nicht aktiv geplant werden, ist Hilfe von Mitwirkenden zur Behebung dieser Probleme willkommen und sehr geschätzt. Die Behebung einiger dieser Probleme kann auch Anfängern, die mit dem Beitragsprozess vertraut werden, die notwendige Übung bieten. Beispiele beinhalten Tippfehler, schlechte Grammatik, einen defekten Link, eine geringe Menge an veralteten oder schlecht geschriebenen Informationen oder ein nicht funktionierendes Code-Snippet.
-  - Labels: `p3` (keine Sichtbarkeit, wann das Problem behandelt wird)
+- Geringfügiges Problem: Dies ist eine Art Verbesserungsvorschlag, der den bestehenden Inhalt verbessern kann, das Lernen jedoch nicht beeinträchtigt oder nur einen geringen Einfluss auf das Lernen hat. Da diese Arten von Problemen nicht aktiv geplant werden, sind Beiträge von Mitwirkenden zur Behebung dieser Probleme willkommen und sehr geschätzt. Die Behebung einiger dieser Probleme kann auch den notwendigen Übungsbedarf für Anfänger bieten, die gerade erst mit dem Mitwirkungsprozess vertraut werden. Beispiele umfassen Tippfehler, schlechte Grammatik, einen defekten Link, eine kleine Menge veralteter Informationen oder schlecht geschriebener Text oder ein Code-Schnipsel, der nicht funktioniert.
+  - Labels: `p3` (keine Sichtbarkeit, wann das Problem bearbeitet wird)
 
-Im Allgemeinen sollten kritische Probleme sofort behoben werden und werden höchstwahrscheinlich vom MDN Web Docs-Team und Kollegen behandelt.
+Im Allgemeinen sollten kritische Probleme sofort behoben werden und werden höchstwahrscheinlich von MDN Web Docs-Mitarbeitern und -Kollegen behandelt.
 
-#### Hilfreiche Informationen hinzufügen
+#### Hinzufügen hilfreicher Informationen
 
-Wenn möglich, fügen Sie Informationen hinzu, die den Mitwirkenden helfen können, das Problem zu beheben. Die Informationen können in Form von Schritten, allgemeinen Ansätzen, Links zu anderen ähnlichen behobenen Problemen oder Lesematerialien vorliegen. Ein gut ausgelegter Plan oder Schritte sind besonders bei Problemen erforderlich, die als `good first issue` gekennzeichnet sind, und können neuen Mitwirkenden helfen, sich schnell einzuarbeiten. Sie können diese Aufgabe zeitlich begrenzen, z. B. auf 5-10 Minuten.
+Fügen Sie nach Möglichkeit Informationen hinzu, die Mitwirkenden helfen können, das Problem zu beheben. Die Informationen können in Form von Schritten, allgemeinen Ansätzen, Links zu anderen ähnlichen gelösten Problemen oder Lesematerialien sein. Ein gut ausgelegter Plan oder Schritte sind besonders bei Problemen erforderlich, die mit dem Label `good first issue` versehen sind und neuen Mitwirkenden schnell auf die Sprünge helfen können. Sie können diese Aufgabe zeitlich auf 5-10 Minuten begrenzen.
 
-Zum Beispiel können Sie als Triagierer die folgenden Informationen zu dem Problem hinzufügen, das Sie triagieren:
+Zum Beispiel könnten Sie als Priorisierender folgende Informationen zu dem Problem hinzufügen, das Sie priorisieren:
 
 ```md
 To whoever fixes this issue, it looks like the following is needed:
@@ -200,16 +202,16 @@ To whoever fixes this issue, it looks like the following is needed:
 - Update the compatibility data at Link-X
 ```
 
-#### Setzen anderer Labels
+#### Setzen weiterer Labels
 
-Setzen Sie anschließend die folgenden Labels entsprechend:
+Setzen Sie als nächstes die folgenden Labels nach Bedarf:
 
-- `effort: small`, `effort: medium`, `effort: large`: Einige Mitwirkende suchen nach Bugs basierend auf der Zeit und dem Aufwand, der zur Behebung des Problems erforderlich ist. Wenn möglich, sollten Sie versuchen, eine Schätzung des erforderlichen Aufwands bereitzustellen.
-- `good first issue`: Setzen Sie dieses Label auf das Problem, wenn die Korrektur des Problems sehr einfach ist und wenn das Beheben des Problems eine gute Übung für einen Neueinsteiger darstellt, der sich mit dem Prozess vertraut macht.
-- `help wanted`: Setzen Sie dieses Label, wenn das Problem Hilfe von jemandem erfordert, der sich mit dem Thema auskennt oder damit vertraut ist. Dies ist ein beliebtes Label und einige Mitwirkende verwenden es, um nach Problemen zu suchen, an denen sie in Open-Source-Projekten in ihren Themenbereichen arbeiten können.
-- `broken link external`: Setzen Sie dieses Label, wenn das Problem einen defekten Link zu einer externen Seite beinhaltet.
-- `document not written`: Setzen Sie dieses Label, wenn das Problem ein erforderliches Dokument beinhaltet, das noch nicht geschrieben wurde, normalerweise weil ein Link darauf verweist.
-- `needs content update`: Setzen Sie dieses Label, wenn eine Problemlösung in einem anderen Repository eine entsprechende Korrektur im `mdn/content` Repository benötigt.
+- `effort: small`, `effort: medium`, `effort: large`: Einige Mitwirkende möchten nach Fehlern suchen, basierend auf dem Zeit- und Aufwand, der zur Behebung des Fehlers benötigt wird. Wenn möglich, sollten Sie versuchen, einen Schätzwert für den erforderlichen Aufwand anzugeben.
+- `good first issue`: Setzen Sie dieses Label auf das Problem, wenn die Behebung des Problems wirklich einfach ist und wenn die Behebung des Problems für einen Neuling, der sich an den Prozess gewöhnt, eine gute Übung bietet.
+- `help wanted`: Setzen Sie dieses Label, wenn das Problem Hilfe von jemandem erfordert, der das Thema kennt oder damit vertraut ist. Dies ist ein beliebtes Label und einige Mitwirkende verwenden es, um nach Problemen zu suchen, an denen sie in Open-Source-Projekten in ihren Vertrautheits- oder Fachgebieten arbeiten können.
+- `broken link external`: Setzen Sie dieses Label, wenn das Problem einen defekten Link zu einer externen Seite betrifft.
+- `document not written`: Setzen Sie dieses Label, wenn das Problem ein notwendiges Dokument betrifft, das noch nicht geschrieben wurde, in der Regel, weil ein Link darauf verweist.
+- `needs content update`: Setzen Sie dieses Label, wenn das Problem in einem anderen Repository behoben werden muss und eine entsprechende Korrektur im `mdn/content`-Repository erfordert.
 
   > [!NOTE]
-  > Entfernen Sie nach Abschluss des Triagierungsprozesses das `needs triage` Label.
+  > Nach Abschluss des Priorisierungsprozesses entfernen Sie das `needs triage`-Label.
