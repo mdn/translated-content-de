@@ -1,17 +1,17 @@
 ---
-title: "BaseAudioContext: Methode createWaveShaper()"
+title: "BaseAudioContext: createWaveShaper()-Methode"
 short-title: createWaveShaper()
 slug: Web/API/BaseAudioContext/createWaveShaper
 l10n:
-  sourceCommit: be8f7f155a48e11b30c240f8731afb1845f85378
+  sourceCommit: a2e04148406b84af145fd1b3e388b72b5e430a82
 ---
 
 {{ APIRef("Web Audio API") }}
 
-Die Methode `createWaveShaper()` der [`BaseAudioContext`](/de/docs/Web/API/BaseAudioContext)-Schnittstelle erstellt einen [`WaveShaperNode`](/de/docs/Web/API/WaveShaperNode), der eine nichtlineare Verzerrung darstellt. Sie wird verwendet, um Verzerrungseffekte auf Ihr Audio anzuwenden.
+Die `createWaveShaper()`-Methode der [`BaseAudioContext`](/de/docs/Web/API/BaseAudioContext)-Schnittstelle erstellt einen [`WaveShaperNode`](/de/docs/Web/API/WaveShaperNode), der eine nicht-lineare Verzerrung darstellt. Sie wird verwendet, um Verzerrungseffekte auf Ihr Audio anzuwenden.
 
 > [!NOTE]
-> Der Konstruktor [`WaveShaperNode()`](/de/docs/Web/API/WaveShaperNode/WaveShaperNode) ist die empfohlene Methode, um einen [`WaveShaperNode`](/de/docs/Web/API/WaveShaperNode) zu erstellen; siehe [Erstellen eines AudioNode](/de/docs/Web/API/AudioNode#creating_an_audionode).
+> Der [`WaveShaperNode()`](/de/docs/Web/API/WaveShaperNode/WaveShaperNode)-Konstruktor ist die empfohlene Methode, um einen [`WaveShaperNode`](/de/docs/Web/API/WaveShaperNode) zu erstellen; siehe [Erstellen eines AudioNode](/de/docs/Web/API/AudioNode#creating_an_audionode).
 
 ## Syntax
 
@@ -29,12 +29,12 @@ Ein [`WaveShaperNode`](/de/docs/Web/API/WaveShaperNode).
 
 ## Beispiele
 
-Das folgende Beispiel zeigt die grundlegende Verwendung eines AudioContext zur Erstellung eines Wave Shaper Node. Für vollständigere Anwendungsbeispiele/informationen besuchen Sie unser [Voice-change-O-matic](https://github.com/mdn/webaudio-examples/tree/main/voice-change-o-matic) Demo (siehe [app.js Zeilen 108–193](https://github.com/mdn/webaudio-examples/blob/main/voice-change-o-matic/scripts/app.js#L108-L193) für relevanten Code).
+Das folgende Beispiel zeigt die grundlegende Verwendung eines AudioContext zur Erstellung eines WaveShaperNode. Für ausführlichere Anwendungsbeispiele und Informationen werfen Sie einen Blick auf unser [Voice-change-O-matic](https://github.com/mdn/webaudio-examples/tree/main/voice-change-o-matic)-Demo (siehe [app.js](https://github.com/mdn/webaudio-examples/blob/main/voice-change-o-matic/scripts/app.js) für relevanten Code).
 
 > [!NOTE]
-> Sigmoid-Funktionen werden häufig für Verzerrungskurven verwendet,
-> wegen ihrer natürlichen Eigenschaften. Ihre S-Form trägt beispielsweise dazu bei, ein
-> reibungsloser klingendes Ergebnis zu erzeugen. Wir haben den unten stehenden Code für die Verzerrungskurve auf [Stack Overflow](https://stackoverflow.com/questions/22312841/waveshaper-node-in-webaudio-how-to-emulate-distortion) gefunden.
+> Sigmoid-Funktionen werden häufig für Verzerrungskurven verwendet
+> aufgrund ihrer natürlichen Eigenschaften. Ihre S-Form trägt beispielsweise dazu bei, ein
+> glatteres Klangresultat zu schaffen. Wir fanden den untenstehenden Code für die Verzerrungskurve auf [Stack Overflow](https://stackoverflow.com/questions/22312841/waveshaper-node-in-webaudio-how-to-emulate-distortion).
 
 ```js
 const audioCtx = new AudioContext();
