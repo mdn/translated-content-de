@@ -2,7 +2,7 @@
 title: width
 slug: Web/CSS/width
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: 4b4b1952a6c75114a61e07d908cb2f17c2311a46
 ---
 
 {{CSSRef}}
@@ -48,11 +48,11 @@ width: auto;
 
 Der angegebene Wert von `width` gilt für den Inhaltsbereich, solange sein Wert innerhalb der durch {{cssxref("min-width")}} und {{cssxref("max-width")}} definierten Werte bleibt.
 
-- Wenn der Wert für `width` kleiner ist als der Wert für `min-width`, überschreibt `min-width` `width`.
-- Wenn der Wert für `width` größer ist als der Wert für `max-width`, überschreibt `max-width` `width`.
+- Ist der Wert für `width` kleiner als der Wert für `min-width`, dann überschreibt `min-width` die `width`.
+- Ist der Wert für `width` größer als der Wert für `max-width`, dann überschreibt `max-width` die `width`.
 
 > [!NOTE]
-> Als geometrische Eigenschaft gilt `width` auch für die {{SVGElement("svg")}}, {{SVGElement("rect")}}, {{SVGElement("image")}}, und {{SVGElement("foreignObject")}} SVG-Elemente, wobei `auto` sich für `<svg>` zu `100%` und für andere Elemente zu `0` auflöst, und Prozentwerte sich auf die Breite des SVG-Viewports für `<rect>` beziehen. Der CSS-Wert der `width`-Eigenschaft überschreibt jeden SVG-Wert des {{SVGAttr("width")}} Attributs, das am SVG-Element gesetzt ist.
+> Als geometrische Eigenschaft gilt `width` auch für die {{SVGElement("svg")}}, {{SVGElement("rect")}}, {{SVGElement("image")}} und {{SVGElement("foreignObject")}} SVG-Elemente, wobei `auto` für `<svg>` zu `100%` und für andere Elemente zu `0` aufgelöst wird und Prozentwerte sich auf die SVG-Ansichtsfensterbreite von `<rect>` beziehen. Der CSS `width` Eigenschaftswert überschreibt jeden auf dem SVG-Element gesetzten SVG {{SVGAttr("width")}} Attributwert.
 
 ## Syntax
 
@@ -87,30 +87,27 @@ width: unset;
 - {{cssxref("&lt;length&gt;")}}
   - : Definiert die Breite als Distanzwert.
 - {{cssxref("&lt;percentage&gt;")}}
-  - : Definiert die Breite als Prozentsatz der Breite des [enthältenden Blocks](/de/docs/Web/CSS/CSS_display/Containing_block).
+  - : Definiert die Breite als Prozentsatz der Breite des [umgebenden Blocks](/de/docs/Web/CSS/CSS_display/Containing_block).
 - `auto`
   - : Der Browser berechnet und wählt eine Breite für das angegebene Element.
 - `max-content`
-  - : Die intrinsisch bevorzugte Breite.
+  - : Die intrinsische bevorzugte Breite.
 - `min-content`
-  - : Die intrinsisch minimale Breite.
+  - : Die intrinsische Mindestbreite.
 - `fit-content`
   - : Verwendet den verfügbaren Platz, aber nicht mehr als [max-content](/de/docs/Web/CSS/max-content), d.h. `min(max-content, max(min-content, stretch))`.
 - `fit-content({{cssxref("&lt;length-percentage&gt;")}})`
-  - : Verwendet die fit-content-Formel, wobei der verfügbare Raum durch das angegebene Argument ersetzt wird, d.h. `min(max-content, max(min-content, <length-percentage>))`.
+  - : Verwendet die fit-content-Formel mit dem verfügbaren Raum, ersetzt durch das angegebene Argument, d.h. `min(max-content, max(min-content, <length-percentage>))`.
 - `stretch`
 
-  - : Setzt die Breite des [Randbereichs](/de/docs/Learn_web_development/Core/Styling_basics/Box_model#parts_of_a_box) des Elements auf die Breite seines [enthältenden Blocks](/de/docs/Web/CSS/CSS_display/Containing_block#identifying_the_containing_block). Es versucht, den Randbereich zu füllen, verhält sich also ähnlich wie `100%`, wendet die resultierende Größe jedoch auf den Randbereich und nicht auf den von [box-sizing](/de/docs/Web/CSS/box-sizing) bestimmten Bereich an.
-
-    > [!NOTE]
-    > Um die von Browsern verwendeten Aliasnamen für den `stretch`-Wert und dessen Implementierungsstatus zu überprüfen, siehe den Abschnitt [Browser-Kompatibilität](#browser-kompatibilität).
+  - : Setzt die Breite der [Randbox](/de/docs/Learn_web_development/Core/Styling_basics/Box_model#parts_of_a_box) des Elements auf die Breite seines [umgebenden Blocks](/de/docs/Web/CSS/CSS_display/Containing_block#identifying_the_containing_block). Es versucht, die Randbox den verfügbaren Raum im umgebenden Block ausfüllen zu lassen, verhält sich also in gewisser Weise ähnlich wie `100%`, wendet die resultierende Größe jedoch auf die Randbox und nicht auf die durch [box-sizing](/de/docs/Web/CSS/box-sizing) bestimmte Box an.
 
 ## Barrierefreiheit
 
-Stellen Sie sicher, dass Elemente mit einer festgelegten `width` nicht abgeschnitten werden und/oder andere Inhalte nicht verdecken, wenn die Seite vergrößert wird, um die Textgröße zu erhöhen.
+Stellen Sie sicher, dass Elemente mit einer festgelegten `width` nicht abgeschnitten und/oder andere Inhalte verdeckt werden, wenn die Seite herangezoomt wird, um die Textgröße zu erhöhen.
 
-- [MDN Verständnis von WCAG, Erläuterungen zu Richtlinie 1.4](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background)
-- [Verständnis des Erfolgs-Kriteriums 1.4.4 | W3C Verständnis von WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-scale.html)
+- [MDN Erklärung zu WCAG, Leitfaden 1.4](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background)
+- [Verständnis des Erfolgskriteriums 1.4.4 | W3C Verständnis WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-scale.html)
 
 ## Formale Definition
 
@@ -125,18 +122,18 @@ Stellen Sie sicher, dass Elemente mit einer festgelegten `width` nicht abgeschni
 ### Standardbreite
 
 ```css
-p.goldie {
+p.gold {
   background: gold;
 }
 ```
 
 ```html
-<p class="goldie">The MDN community writes really great documentation.</p>
+<p class="gold">The MDN community writes really great documentation.</p>
 ```
 
 {{EmbedLiveSample('Default_width', '500px', '64px')}}
 
-### Beispiel mit Pixeln und Ems
+### Beispiel mit Pixeln und ems
 
 ```css
 .px_length {
@@ -161,7 +158,7 @@ p.goldie {
 
 {{EmbedLiveSample('Example using pixels and ems', '500px', '64px')}}
 
-### Beispiel mit Prozentwert
+### Beispiel mit Prozentsatz
 
 ```css
 .percent {
@@ -207,6 +204,55 @@ p.min-blue {
 
 {{EmbedLiveSample('Example using "min-content"', '500px', '155px')}}
 
+### Dehnen der Breite um den umgebenden Block auszufüllen
+
+#### HTML
+
+```html
+<div class="parent">
+  <div class="child">text</div>
+</div>
+
+<div class="parent">
+  <div class="child stretch">stretch</div>
+</div>
+```
+
+#### CSS
+
+```css hidden
+@supports not (width: stretch) {
+  .parent {
+    display: none !important;
+  }
+
+  body::after {
+    content: "Your browser doesn't support the `stretch` value yet.";
+  }
+}
+```
+
+```css
+.parent {
+  border: solid;
+  margin: 1rem;
+  display: flex;
+}
+
+.child {
+  background: #0999;
+  margin: 1rem;
+}
+
+.stretch {
+  width: stretch;
+}
+```
+
+#### Ergebnis
+
+{{EmbedLiveSample('Stretch width to fill the containing block', 'auto', 250)}}
+
 ## Spezifikationen
 
 {{Specifications}}
@@ -223,5 +269,5 @@ p.min-blue {
 - {{cssxref("block-size")}}, {{cssxref("inline-size")}}
 - {{cssxref("anchor-size()")}}
 - SVG {{SVGAttr("width")}} Attribut
-- [Einführung in das grundlegende CSS-Box-Modell](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model)
+- [Einführung in das CSS-Grundlegende Box-Modell](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model)
 - [CSS-Box-Modell](/de/docs/Web/CSS/CSS_box_model) Modul

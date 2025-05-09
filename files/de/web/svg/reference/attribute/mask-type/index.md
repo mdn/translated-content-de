@@ -2,12 +2,12 @@
 title: mask-type
 slug: Web/SVG/Reference/Attribute/mask-type
 l10n:
-  sourceCommit: c5dc2ada8a069f09eaf7de670059e5d0d5e39399
+  sourceCommit: cb7e7fde9b942001d6acef7d9868fbf622d71636
 ---
 
-Das **`mask-type`** Attribut gibt an, welchen Maskierungsmodus, _alpha_ oder _luminance_, für den Inhalt des {{ SVGElement("mask") }} Elements beim Maskieren verwendet werden soll.
+Das **`mask-type`** Attribut gibt an, welcher Maskenmodus, _Alpha_ oder _Luminanz_, für den Inhalt des {{ SVGElement("mask") }}-Elements beim Maskieren verwendet werden soll.
 
-Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
+Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 - {{SVGElement('mask')}}
 
@@ -59,7 +59,7 @@ svg {
 
 ## mask
 
-Für {{SVGElement("mask")}} definiert `mask-type`, ob der Inhalt des Maskelements als Luminanzmaske oder Alphamaske behandelt wird.
+Für {{SVGElement("mask")}} definiert `mask-type`, ob der Inhalt des Maskenelements als Luminanzmaske oder Alphamaske behandelt wird.
 
 <table class="properties">
   <tbody>
@@ -79,9 +79,9 @@ Für {{SVGElement("mask")}} definiert `mask-type`, ob der Inhalt des Maskelement
 </table>
 
 - `alpha`
-  - : Dieser Wert gibt an, dass die Alphawerte des {{SVGElement('mask')}} Elements verwendet werden sollten; die Pixel des maskierten Objekts entsprechen der Abdeckung der Maskenbereiche, ohne Berücksichtigung der Luminanz der Farben der Maske.
+  - : Dieser Wert gibt an, dass die Alphawerte des {{SVGElement('mask')}}-Elements verwendet werden sollten; die Pixel des maskierten Objekts entsprechen der Deckkraft der Maskenbereiche, ohne Rücksicht auf die Luminanz der Maskenfarben.
 - `luminance`
-  - : Dieser Wert gibt an, dass die Luminanzwerte des {{SVGElement('mask')}} Elements verwendet werden sollten; die Deckkraft des maskierten Objekts hängt von der Opazität und Helligkeit der Maske ab. Die Opazität einer `luminance` Maske wird durch die `R`, `G`, `B` und `A` Kanäle der Maske bestimmt, unter Verwendung der Gleichung `((0.2125 * R) + (0.7154 * G) + (0.0721 * B)) * A`.
+  - : Dieser Wert gibt an, dass die Luminanzwerte des {{SVGElement('mask')}}-Elements verwendet werden sollten; die Deckkraft des maskierten Objekts hängt von der Opazität und Helligkeit der Maske ab. Die Opazität einer `luminance`-Maske wird durch die `R`, `G`, `B` und `A` Kanäle der Maske bestimmt, unter Verwendung der Gleichung `((0.2125 * R) + (0.7154 * G) + (0.0721 * B)) * A`.
 
 ## Spezifikationen
 

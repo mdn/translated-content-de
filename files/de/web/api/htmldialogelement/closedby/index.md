@@ -3,19 +3,19 @@ title: "HTMLDialogElement: closedBy-Eigenschaft"
 short-title: closedBy
 slug: Web/API/HTMLDialogElement/closedBy
 l10n:
-  sourceCommit: 2dfac351d5f732bb9b61ec3b506d725e01fcc1bf
+  sourceCommit: a61be259435257328a25c462cb0f42bc91981a6f
 ---
 
-{{ APIRef("HTML DOM") }}
+{{ APIRef("HTML DOM") }}{{SeeCompatTable}}
 
-Die **`closedBy`**-Eigenschaft des [`HTMLDialogElement`](/de/docs/Web/API/HTMLDialogElement)-Interfaces gibt an, welche Arten von Benutzeraktionen verwendet werden können, um das zugehörige {{htmlelement("dialog")}}-Element zu schließen. Sie setzt oder gibt den Wert des [`closedby`](/de/docs/Web/HTML/Reference/Elements/dialog#closedby)-Attributs des Dialogs zurück.
+Die **`closedBy`**-Eigenschaft der [`HTMLDialogElement`](/de/docs/Web/API/HTMLDialogElement)-Schnittstelle gibt die Arten von Benutzeraktionen an, die verwendet werden können, um das zugehörige {{htmlelement("dialog")}}-Element zu schließen. Sie setzt oder gibt den Attributwert `closedby` des Dialogs zurück. ([`closedby`](/de/docs/Web/HTML/Reference/Elements/dialog#closedby))
 
 ## Wert
 
 Ein String; mögliche Werte sind:
 
 - `any`
-  - : Der Dialog kann mit einer leichten Abbruch-Benutzeraktion, einer plattform-spezifischen Benutzeraktion oder einem vom Entwickler festgelegten Mechanismus geschlossen werden.
+  - : Der Dialog kann mit einer "Light Dismiss"-Benutzeraktion, einer plattform-spezifischen Benutzeraktion oder einem vom Entwickler festgelegten Mechanismus geschlossen werden.
 - `closerequest`
   - : Der Dialog kann mit einer plattform-spezifischen Benutzeraktion oder einem vom Entwickler festgelegten Mechanismus geschlossen werden.
 - `none`

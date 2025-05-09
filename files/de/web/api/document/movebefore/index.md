@@ -3,12 +3,12 @@ title: "Dokument: moveBefore()-Methode"
 short-title: moveBefore()
 slug: Web/API/Document/moveBefore
 l10n:
-  sourceCommit: fd1081dbbecd338a3ea55b03c187b6a60500408f
+  sourceCommit: a61be259435257328a25c462cb0f42bc91981a6f
 ---
 
-{{APIRef("DOM")}}
+{{APIRef("DOM")}}{{SeeCompatTable}}
 
-Die **`moveBefore()`**-Methode der [`Document`](/de/docs/Web/API/Document)-Schnittstelle verschiebt einen gegebenen [`Node`](/de/docs/Web/API/Node) innerhalb des `Document`-DOM-Knotens als direktes Kind vor einen gegebenen Referenzknoten.
+Die **`moveBefore()`**-Methode der [`Document`](/de/docs/Web/API/Document)-Schnittstelle verschiebt einen gegebenen [`Node`](/de/docs/Web/API/Node) als direktes Kind an eine neue Position innerhalb des `Document`-DOM-Knotens, vor einen angegebenen Referenzknoten.
 
 ## Syntax
 
@@ -33,47 +33,47 @@ Keiner ({{jsxref("undefined")}}).
   - : Wird in einer der folgenden Situationen ausgelöst:
     - Der angegebene `movedNode` gehört nicht zu diesem Dokument.
     - Der angegebene `movedNode` ist kein [`Element`](/de/docs/Web/API/Element) oder [`CharacterData`](/de/docs/Web/API/CharacterData)-Knoten.
-    - Sie versuchen, `movedNode` vor dem {{Glossary("doctype", "doctype")}} des Dokuments zu verschieben (dargestellt durch ein [`DocumentType`](/de/docs/Web/API/DocumentType)-Objekt).
+    - Sie versuchen, `movedNode` vor das {{Glossary("doctype", "doctype")}} des Dokuments zu verschieben (dargestellt durch ein [`DocumentType`](/de/docs/Web/API/DocumentType)-Objekt).
 - `NotFoundError` {{jsxref("TypeError")}}
-  - : Der angegebene `referenceNode` ist kein Kind des Knotens, auf dem Sie `moveBefore()` aufrufen, das heißt, des Knotens, in den Sie `movedNode` verschieben möchten.
+  - : Der angegebene `referenceNode` ist kein Kind des Knotens, auf dem `moveBefore()` aufgerufen wird, d.h. des Knotens, in den Sie `movedNode` verschieben möchten.
 - `TypeError` {{jsxref("TypeError")}}
   - : Das zweite Argument wurde nicht angegeben.
 
 ## Beschreibung
 
-Die `moveBefore()`-Methode verschiebt einen gegebenen Knoten an einen neuen Ort im DOM. Sie bietet eine ähnliche Funktionalität wie die [`Node.insertBefore()`](/de/docs/Web/API/Node/insertBefore)-Methode, außer dass sie den Knoten nicht entfernt und dann neu einfügt. Dies bedeutet, dass der Zustand des Knotens (der zurückgesetzt würde, wenn er mit `insertBefore()` und ähnlichen Mechanismen verschoben würde) nach der Verschiebung erhalten bleibt. Dies umfasst:
+Die `moveBefore()`-Methode verschiebt einen gegebenen Knoten an eine neue Position im DOM. Sie bietet ähnliche Funktionalität wie die [`Node.insertBefore()`](/de/docs/Web/API/Node/insertBefore)-Methode, entfernt und fügt den Knoten jedoch nicht erneut ein. Dies bedeutet, dass der Zustand des Knotens (der zurückgesetzt würde, wenn er mit `insertBefore()` und ähnlichen Mechanismen verschoben wird) nach der Verschiebung erhalten bleibt. Dies umfasst:
 
-- [Animation](/de/docs/Web/CSS/CSS_animations) und [Übergang](/de/docs/Web/CSS/CSS_transitions)-Zustand.
+- [Animation](/de/docs/Web/CSS/CSS_animations) und [Übergangs](/de/docs/Web/CSS/CSS_transitions)-Zustand.
 - Ladezustand von {{htmlelement("iframe")}}.
-- Interaktivitätszustände (zum Beispiel {{cssxref(":focus")}} und {{cssxref(":active")}}).
-- [Vollbild](/de/docs/Web/API/Fullscreen_API)-Elementzustand.
-- Offen/geschlossen-Zustand von [Popovern](/de/docs/Web/API/Popover_API).
+- Interaktivitätszustände (z. B. {{cssxref(":focus")}} und {{cssxref(":active")}}).
+- [Vollbild](/de/docs/Web/API/Fullscreen_API)-Zustand des Elements.
+- Offen/geschlossen-Zustand von [Popovers](/de/docs/Web/API/Popover_API).
 - Modalzustand von {{htmlelement("dialog")}}-Elementen (modale Dialoge werden nicht geschlossen).
 
-Der Abspielzustand von {{htmlelement("video")}} und {{htmlelement("audio")}}-Elementen ist in der obigen Liste nicht enthalten, da diese Elemente ihren Zustand beibehalten, wenn sie entfernt und wieder eingefügt werden, unabhängig vom verwendeten Mechanismus.
+Der Wiedergabestatus von {{htmlelement("video")}}- und {{htmlelement("audio")}}-Elementen ist in der obigen Liste nicht enthalten, da diese Elemente ihren Zustand behalten, wenn sie entfernt und wieder eingefügt werden, unabhängig von dem verwendeten Mechanismus.
 
-Beim Beobachten von Änderungen am DOM mit einem [`MutationObserver`](/de/docs/Web/API/MutationObserver) werden Knoten, die mit `moveBefore()` verschoben wurden, mit einem [entfernten Knoten](/de/docs/Web/API/MutationRecord/removedNodes) und einem [hinzugefügten Knoten](/de/docs/Web/API/MutationRecord/addedNodes) erfasst.
+Beim Beobachten von Änderungen im DOM mit einem [`MutationObserver`](/de/docs/Web/API/MutationObserver), werden Knoten, die mit `moveBefore()` verschoben wurden, als [entfernte Knoten](/de/docs/Web/API/MutationRecord/removedNodes) und [hinzugefügte Knoten](/de/docs/Web/API/MutationRecord/addedNodes) aufgezeichnet.
 
-Die `moveBefore()`-Methode ist nicht besonders nützlich, wenn sie auf dem `Document`-Knoten aufgerufen wird. Es gibt einige nicht-elementbezogene Verwendungen dafür, zum Beispiel könnten Sie `moveBefore()` verwenden, um Kommentarknoten um die Wurzel des `Document` zu verschieben. Sie werden jedoch viel wahrscheinlicher eine Verwendung dafür finden, sie auf einem individuellen `DocumentFragment` oder `Element` aufzurufen — siehe [`DocumentFragment.moveBefore()`](/de/docs/Web/API/DocumentFragment/moveBefore) und [`Element.moveBefore()`](/de/docs/Web/API/Element/moveBefore).
+Die `moveBefore()`-Methode ist nicht besonders nützlich, wenn sie auf den `Document`-Knoten angewendet wird. Es gibt einige nicht elementare Anwendungen, z. B. könnten Sie `moveBefore()` verwenden, um Kommentar-Knoten um die Wurzel des `Document` zu verschieben. Sie werden jedoch viel eher eine Verwendung finden, wenn es auf ein individuelles `DocumentFragment` oder `Element` aufgerufen wird — siehe [`DocumentFragment.moveBefore()`](/de/docs/Web/API/DocumentFragment/moveBefore) und [`Element.moveBefore()`](/de/docs/Web/API/Element/moveBefore).
 
 ### Einschränkungen von `moveBefore()`
 
 Es gibt einige Einschränkungen, die bei der Verwendung von `moveBefore()` zu beachten sind:
 
-- Es funktioniert nur, wenn ein Knoten innerhalb desselben Dokuments verschoben wird.
-- Es funktioniert nicht, wenn Sie versuchen, einen Knoten, der nicht mit dem DOM verbunden ist, in einen bereits verbundenen Elternknoten zu verschieben oder umgekehrt.
+- Sie kann nur zum Verschieben eines Knotens innerhalb des gleichen Dokuments verwendet werden.
+- Sie funktioniert nicht, wenn Sie versuchen, einen Knoten, der nicht mit dem DOM verbunden ist, zu einem bereits verbundenen Elternknoten zu verschieben, oder umgekehrt.
 
-In solchen Fällen wird `moveBefore()` mit einer `HierarchyRequestError`-Ausnahme fehlschlagen. Wenn die obigen Einschränkungen Anforderungen für Ihren speziellen Anwendungsfall sind, sollten Sie stattdessen [`Node.insertBefore()`](/de/docs/Web/API/Node/insertBefore) verwenden oder [`try...catch`](/de/docs/Web/JavaScript/Reference/Statements/try...catch) verwenden, um die Fehler, die in solchen Fällen auftreten, zu behandeln.
+In solchen Fällen wird `moveBefore()` mit einer `HierarchyRequestError`-Ausnahme fehlschlagen. Wenn die oben genannten Einschränkungen Anforderungen für Ihren speziellen Anwendungsfall sind, sollten Sie stattdessen [`Node.insertBefore()`](/de/docs/Web/API/Node/insertBefore) verwenden oder [`try...catch`](/de/docs/Web/JavaScript/Reference/Statements/try...catch) verwenden, um die entstehenden Fehler zu behandeln.
 
 ## Beispiele
 
-### Kommentarknoten mit `moveBefore()` verschieben
+### Verschieben eines Kommentarknotens mit `moveBefore()`
 
-In diesem Beispiel zeigen wir, wie `document.moveBefore()` verwendet wird, um einen Kommentarknoten innerhalb des DOM zu verschieben.
+In diesem Demo zeigen wir, wie man `document.moveBefore()` verwendet, um einen Kommentarknoten innerhalb des DOM zu verschieben.
 
 #### HTML
 
-Das HTML ist eine minimale Vorlage, die einen Kommentar innerhalb des {{htmlelement("body")}} enthält.
+Das HTML ist eine minimale Vorlage, die einen Kommentar im {{htmlelement("body")}} enthält.
 
 ```html live-sample___movebefore-comment
 <!doctype html>
@@ -91,7 +91,7 @@ Das HTML ist eine minimale Vorlage, die einen Kommentar innerhalb des {{htmlelem
 
 #### JavaScript
 
-In unserem Skript durchlaufen wir alle [`childNodes`](/de/docs/Web/API/Node/childNodes) des `<body>`-Elements. Wenn wir einen Knoten mit einem [`nodeType`](/de/docs/Web/API/Node/nodeType) Wert von `8` finden (der einen Kommentarknoten anzeigt), speichern wir eine Referenz darauf in einer Variablen namens `commentNode`. Dann rufen wir `document.moveBefore()` auf, wobei wir angeben, dass wir den Kommentarknoten verschieben möchten, und ein zweites Argument von `null` angeben, um unseren Kommentar am Ende der Kindknoten des `Document` einzufügen.
+In unserem Skript durchlaufen wir alle [`childNodes`](/de/docs/Web/API/Node/childNodes) des `<body>`-Elements. Wenn wir einen Knoten mit einem [`nodeType`](/de/docs/Web/API/Node/nodeType)-Wert von `8` (was einen Kommentarknoten anzeigt) finden, speichern wir eine Referenz darauf in einer Variablen namens `commentNode`. Dann rufen wir `document.moveBefore()` auf und geben an, dass wir den Kommentarknoten verschieben möchten, und geben ein zweites Argument von `null` an, um unseren Kommentar am Ende der Kindknoten des `Document` einzufügen.
 
 ```js live-sample___movebefore-comment
 let commentNode;
@@ -107,11 +107,11 @@ document.moveBefore(commentNode, null);
 
 #### Ergebnis
 
-Das gerenderte Beispiel sieht folgendermaßen aus:
+Das gerenderte Beispiel sieht so aus:
 
 {{EmbedLiveSample("movebefore-comment", "100%", "60px")}}
 
-Wenn Sie das Beispiel mit den Entwicklertools Ihres Browsers inspizieren, werden Sie bemerken, dass der Kommentar an das Ende des Dokuments verschoben wurde, nach dem schließenden `</html>`-Tag.
+Wenn Sie das Beispiel mit den Entwickler-Tools Ihres Browsers untersuchen, werden Sie feststellen, dass der Kommentar ans Ende des Dokuments, nach dem abschließenden `</html>`-Tag verschoben wurde.
 
 ## Spezifikationen
 

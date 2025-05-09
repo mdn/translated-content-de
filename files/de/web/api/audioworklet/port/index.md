@@ -3,18 +3,18 @@ title: "AudioWorklet: port"
 short-title: port
 slug: Web/API/AudioWorklet/port
 l10n:
-  sourceCommit: d365a618a169aad175463ae028ad33f85b612f89
+  sourceCommit: a61be259435257328a25c462cb0f42bc91981a6f
 ---
 
-{{APIRef("Web Audio API")}}
+{{APIRef("Web Audio API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte Eigenschaft **`port`** des [`AudioWorklet`](/de/docs/Web/API/AudioWorklet)-Interfaces gibt ein [`MessagePort`](/de/docs/Web/API/MessagePort)-Objekt zurück, das verwendet werden kann, um Nachrichten zwischen dem Hauptthread und dem zugehörigen [`AudioWorkletGlobalScope`](/de/docs/Web/API/AudioWorkletGlobalScope) zu senden und zu empfangen.
+Die schreibgeschützte Eigenschaft **`port`** des [`AudioWorklet`](/de/docs/Web/API/AudioWorklet)-Interfaces gibt ein [`MessagePort`](/de/docs/Web/API/MessagePort)-Objekt zurück, das verwendet werden kann, um Nachrichten zwischen dem Haupt-Thread und dem zugehörigen [`AudioWorkletGlobalScope`](/de/docs/Web/API/AudioWorkletGlobalScope) zu senden und zu empfangen.
 
-Dies ermöglicht eine benutzerdefinierte, asynchrone Kommunikation zwischen dem Code im Hauptthread und dem globalen Gültigkeitsbereich eines Audio-Worklets, wie zum Beispiel das Empfangen von Steuerdaten oder globalen Einstellungen.
+Dies ermöglicht eine benutzerdefinierte, asynchrone Kommunikation zwischen Code im Haupt-Thread und dem globalen Bereich eines Audio-Worklets, wie das Empfangen von Steuerungsdaten oder globalen Einstellungen.
 
 ## Wert
 
-Das [`MessagePort`](/de/docs/Web/API/MessagePort)-Objekt, das den `AudioWorklet` und seinen zugehörigen `AudioWorkletGlobalScope` verbindet.
+Das [`MessagePort`](/de/docs/Web/API/MessagePort)-Objekt, das den `AudioWorklet` und den zugehörigen `AudioWorkletGlobalScope` verbindet.
 
 ## Beispiele
 
@@ -22,7 +22,7 @@ Siehe [`AudioWorkletNode.port`](/de/docs/Web/API/AudioWorkletNode/port#examples)
 
 ### Verwendung eines Ports für globale Nachrichten
 
-Im folgenden Beispiel können wir `port.onmessage` verwenden, um Daten zu empfangen und `port.postMessage`, um Daten zu senden:
+Im folgenden Beispiel können wir `port.onmessage` verwenden, um Daten zu empfangen, und `port.postMessage`, um Daten zu senden:
 
 ```js
 const context = new AudioContext();

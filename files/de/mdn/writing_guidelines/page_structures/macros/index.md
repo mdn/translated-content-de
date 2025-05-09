@@ -2,33 +2,33 @@
 title: Verwendung von Makros
 slug: MDN/Writing_guidelines/Page_structures/Macros
 l10n:
-  sourceCommit: 7819249f906dcfc59a2c4cb702b80a35b7964842
+  sourceCommit: cb7e7fde9b942001d6acef7d9868fbf622d71636
 ---
 
-Das [rari](https://github.com/mdn/rari)-Backend ist das Build-System von MDN und bietet eine Makrosyntax für gängige Aufgaben.
+Das [rari](https://github.com/mdn/rari) Backend ist das Build-System von MDN und bietet eine Makro-Syntax für gängige Aufgaben.
 
 ## Verwendung eines Makros im Inhalt
 
-Um ein Makro zu verwenden, schließen Sie den Namen des Makros in ein Paar geschweifte Doppelklammern (`{{ }}`) zusammen mit seinen Parametern ein, falls vorhanden:
+Um ein Makro zu verwenden, umgeben Sie den Namen des Makros mit einem Paar von Doppelklammern (`{{ }}`), zusammen mit seinen Parametern, falls vorhanden:
 
 ```plain
 \{{macroname(parameter-list)}}
 ```
 
-Einige Hinweise zu Makroaufrufen:
+Einige Anmerkungen zu Makroaufrufen:
 
-- Makronamen sind case-sensitive, aber es wird versucht, häufige Großschreibungsfehler zu korrigieren; Sie können alles klein schreiben, auch wenn der Makroname Großbuchstaben enthält, und Sie können ein Makro groß schreiben, dessen Name normalerweise mit einem Kleinbuchstaben beginnt.
-- Parameter werden durch Kommas getrennt.
-- Wenn keine Parameter vorhanden sind, können Sie die Klammern weglassen; `\{{macroname()}}` und `\{{macroname}}` sind identisch.
-- Numerische Parameter können in Anführungszeichen gesetzt werden oder nicht. Es liegt an Ihnen (allerdings, wenn Sie eine Versionsnummer mit mehreren Dezimalstellen haben, muss diese in Anführungszeichen gesetzt werden).
+- Makronamen sind case-sensitive, aber es wird versucht, gängige Groß- und Kleinschreibfehler zu korrigieren; Sie können den gesamten Namen in Kleinbuchstaben verwenden, auch wenn der Makroname Großbuchstaben enthält, und Sie können ein Makro großschreiben, dessen Name normalerweise mit einem Kleinbuchstaben beginnt.
+- Parameter sind durch Kommas getrennt.
+- Wenn es keine Parameter gibt, können Sie die Klammern komplett weglassen; `\{{macroname()}}` und `\{{macroname}}` sind identisch.
+- Numerische Parameter können in Anführungszeichen stehen oder nicht. Es liegt bei Ihnen (wenn Sie jedoch eine Versionsnummer mit mehreren Dezimalstellen haben, muss diese in Anführungszeichen stehen).
 
-Makros können so einfach sein wie das Einfügen eines größeren Textblocks oder den Austausch von Inhalten aus einem anderen Teil von MDN, oder so komplex wie das Erstellen eines gesamten Inhaltsverzeichnisses durch Durchsuchen von Teilen der Website, das Stylen des Ausgabes und das Hinzufügen von Links.
+Makros können so einfach sein wie das Einfügen eines größeren Textblocks oder das Austauschen von Inhalten aus einem anderen Teil von MDN oder so komplex wie der Aufbau eines gesamten Inhaltsverzeichnisses durch das Durchsuchen von Teilen der Website, das Stylen der Ausgabe und das Hinzufügen von Links.
 
 Sie können sich über unsere am häufigsten verwendeten Makros auf der Seite [Häufig verwendete Makros](/de/docs/MDN/Writing_guidelines/Page_structures/Macros/Commonly_used_macros) informieren.
-Weniger gängige Makros werden in der Dokumentation [Andere Makros](MDN/Writing_guidelines/Page_structures/Macros/Other) beschrieben.
+Weniger häufige Makros werden in der [Andere Makros](/de/docs/MDN/Writing_guidelines/Page_structures/Macros/Other) Dokumentation beschrieben.
 
 ## Siehe auch
 
-- [Seitenleisten-Makros](/de/docs/MDN/Writing_guidelines/Page_structures/Sidebars)
+- [Sidebar-Makros](/de/docs/MDN/Writing_guidelines/Page_structures/Sidebars)
 - [Link-Makros](/de/docs/MDN/Writing_guidelines/Page_structures/Links)
-- [Funktionsstatus-Makros](/de/docs/MDN/Writing_guidelines/Page_structures/Feature_status)
+- [Feature-Status-Makros](/de/docs/MDN/Writing_guidelines/Page_structures/Feature_status)

@@ -2,44 +2,45 @@
 title: AudioWorkletGlobalScope
 slug: Web/API/AudioWorkletGlobalScope
 l10n:
-  sourceCommit: d365a618a169aad175463ae028ad33f85b612f89
+  sourceCommit: a61be259435257328a25c462cb0f42bc91981a6f
 ---
 
 {{APIRef("Web Audio API")}}
 
-Die **`AudioWorkletGlobalScope`**-Schnittstelle der [Web Audio API](/de/docs/Web/API/Web_Audio_API) repräsentiert einen globalen Ausführungskontext für benutzerdefinierten Code, der eigene von [`AudioWorkletProcessor`](/de/docs/Web/API/AudioWorkletProcessor) abgeleitete Klassen definiert.
+Das **`AudioWorkletGlobalScope`** Interface der [Web Audio API](/de/docs/Web/API/Web_Audio_API) repräsentiert einen globalen Ausführungskontext für benutzerdefinierten Code, der benutzerdefinierte Klassen definiert, die von [`AudioWorkletProcessor`](/de/docs/Web/API/AudioWorkletProcessor) abgeleitet sind.
 
-Jeder [`BaseAudioContext`](/de/docs/Web/API/BaseAudioContext) verfügt über eine einzelne [`AudioWorklet`](/de/docs/Web/API/AudioWorklet), die unter der [`audioWorklet`](/de/docs/Web/API/BaseAudioContext/audioWorklet)-Eigenschaft verfügbar ist und ihren Code in einem einzelnen `AudioWorkletGlobalScope` ausführt.
+Jeder [`BaseAudioContext`](/de/docs/Web/API/BaseAudioContext) hat eine einzelne [`AudioWorklet`](/de/docs/Web/API/AudioWorklet), die unter der Eigenschaft [`audioWorklet`](/de/docs/Web/API/BaseAudioContext/audioWorklet) verfügbar ist und deren Code in einem einzigen `AudioWorkletGlobalScope` ausgeführt wird.
 
-Da der globale Ausführungskontext über den aktuellen `BaseAudioContext` hinweg geteilt wird, ist es möglich, andere Variablen zu definieren und alle im Worklet erlaubten Aktionen durchzuführen — abgesehen von der Definition von `AudioWorkletProcessor`-abgeleiteten Klassen.
+Da der globale Ausführungskontext über den aktuellen `BaseAudioContext` geteilt wird, ist es möglich, andere Variablen zu definieren und alle in Worklets erlaubten Aktionen auszuführen – abgesehen von der Definition von `AudioWorkletProcessor` abgeleiteten Klassen.
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
-_Diese Schnittstelle erbt auch Eigenschaften, die in ihrer übergeordneten Schnittstelle [`WorkletGlobalScope`](/de/docs/Web/API/WorkletGlobalScope) definiert sind._
+_Dieses Interface erbt auch Eigenschaften, die auf seinem Eltern-Interface [`WorkletGlobalScope`](/de/docs/Web/API/WorkletGlobalScope) definiert sind._
 
 - [`currentFrame`](/de/docs/Web/API/AudioWorkletGlobalScope/currentFrame) {{ReadOnlyInline}}
-  - : Gibt eine Ganzzahl zurück, die den ständig zunehmenden aktuellen Sample-Frame des zu verarbeitenden Audio-Blocks darstellt. Sie wird um 128 (die Größe eines Render-Quantum) nach der Verarbeitung jedes Audio-Blocks inkrementiert.
+  - : Gibt einen ganzzahligen Wert zurück, der den ständig ansteigenden aktuellen Sample-Frame des verarbeiteten Audioblocks darstellt. Er wird nach der Verarbeitung jedes Audioblocks um 128 erhöht (die Größe eines Renderquanten).
 - [`currentTime`](/de/docs/Web/API/AudioWorkletGlobalScope/currentTime) {{ReadOnlyInline}}
-  - : Gibt eine Gleitkommazahl zurück, die die ständig zunehmende Kontextzeit des verarbeiteten Audio-Blocks darstellt. Sie ist gleich der [`currentTime`](/de/docs/Web/API/BaseAudioContext/currentTime)-Eigenschaft des [`BaseAudioContext`](/de/docs/Web/API/BaseAudioContext), zu dem das Worklet gehört.
+  - : Gibt eine Kommazahl zurück, die die ständig ansteigende Kontextzeit des verarbeiteten Audioblocks darstellt. Sie ist gleich der [`currentTime`](/de/docs/Web/API/BaseAudioContext/currentTime) Eigenschaft des [`BaseAudioContext`](/de/docs/Web/API/BaseAudioContext), zu dem das Worklet gehört.
 - [`sampleRate`](/de/docs/Web/API/AudioWorkletGlobalScope/sampleRate) {{ReadOnlyInline}}
-  - : Gibt eine Fließkommazahl zurück, die die Samplerate des zugehörigen [`BaseAudioContext`](/de/docs/Web/API/BaseAudioContext) darstellt.
-- [`port`](/de/docs/Web/API/AudioWorkletGlobalScope/port) {{ReadOnlyInline}}
-  - : Gibt einen [`MessagePort`](/de/docs/Web/API/MessagePort) für die benutzerdefinierte, asynchrone Kommunikation zwischen Code im Haupt-Thread und dem globalen Bereich eines Audio-Worklets zurück. Dies ermöglicht benutzerdefinierte Nachrichten wie das Senden und Empfangen von Steuerdaten oder globalen Einstellungen.
+  - : Gibt einen Float-Wert zurück, der die Abtastrate des zugehörigen [`BaseAudioContext`](/de/docs/Web/API/BaseAudioContext) darstellt.
+- [`port`](/de/docs/Web/API/AudioWorkletGlobalScope/port) {{ReadOnlyInline}} {{experimental_inline}}
+  - : Gibt einen [`MessagePort`](/de/docs/Web/API/MessagePort) für benutzerdefinierte asynchrone Kommunikation zwischen Code im Haupt-Thread und dem globalen Scope eines Audio-Worklets zurück.
+    Dies ermöglicht benutzerdefinierte Nachrichten, wie das Senden und Empfangen von Steuerdaten oder globalen Einstellungen.
 
 ## Instanz-Methoden
 
-_Diese Schnittstelle erbt auch Methoden, die in ihrer übergeordneten Schnittstelle [`WorkletGlobalScope`](/de/docs/Web/API/WorkletGlobalScope) definiert sind._
+_Dieses Interface erbt auch Methoden, die auf seinem Eltern-Interface [`WorkletGlobalScope`](/de/docs/Web/API/WorkletGlobalScope) definiert sind._
 
 - [`registerProcessor()`](/de/docs/Web/API/AudioWorkletGlobalScope/registerProcessor)
-  - : Registriert eine Klasse, die von der [`AudioWorkletProcessor`](/de/docs/Web/API/AudioWorkletProcessor)-Schnittstelle abgeleitet ist. Die Klasse kann dann verwendet werden, indem ein [`AudioWorkletNode`](/de/docs/Web/API/AudioWorkletNode) erstellt wird, der ihren registrierten Namen angibt.
+  - : Registriert eine von der [`AudioWorkletProcessor`](/de/docs/Web/API/AudioWorkletProcessor) Schnittstelle abgeleitete Klasse. Die Klasse kann dann verwendet werden, indem ein [`AudioWorkletNode`](/de/docs/Web/API/AudioWorkletNode) erstellt wird, dem ihr registrierter Name übergeben wird.
 
 ## Beispiele
 
-In diesem Beispiel geben wir alle globalen Eigenschaften in der Konsole im Konstruktor eines benutzerdefinierten [`AudioWorkletProcessor`](/de/docs/Web/API/AudioWorkletProcessor) aus.
+In diesem Beispiel geben wir alle globalen Eigenschaften im Konstruktor eines benutzerdefinierten [`AudioWorkletProcessor`](/de/docs/Web/API/AudioWorkletProcessor) in der Konsole aus.
 
-Zunächst müssen wir den Prozessor definieren und registrieren. Beachten Sie, dass dies in einer separaten Datei geschehen sollte.
+Zuerst müssen wir den Prozessor definieren und registrieren. Beachten Sie, dass dies in einer separaten Datei geschehen sollte.
 
 ```js
 // AudioWorkletProcessor defined in : test-processor.js
@@ -73,7 +74,7 @@ console.log(usefulVariable);
 registerProcessor("test-processor", TestProcessor);
 ```
 
-Als Nächstes laden wir in unserer Hauptskriptdatei den Prozessor, erstellen eine Instanz von [`AudioWorkletNode`](/de/docs/Web/API/AudioWorkletNode) — indem wir den Namen des Prozessors übergeben — und verbinden den Knoten mit einem Audio-Graphen. Wir sollten die Ausgaben der [`console.log()`](/de/docs/Web/API/console/log_static)-Aufrufe in der Konsole sehen:
+Als nächstes werden wir in unserer Hauptskriptdatei den Prozessor laden, eine Instanz von [`AudioWorkletNode`](/de/docs/Web/API/AudioWorkletNode) erstellen – indem wir ihm den Namen des Prozessors übergeben – und den Knoten mit einem Audiografen verbinden. Wir sollten die Ausgabe der [`console.log()`](/de/docs/Web/API/console/log_static) Aufrufe in der Konsole sehen:
 
 ```js
 const audioContext = new AudioContext();
