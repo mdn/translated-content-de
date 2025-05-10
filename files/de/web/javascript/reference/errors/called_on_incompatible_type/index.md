@@ -1,36 +1,41 @@
 ---
-title: "TypeError: X.prototype.y auf inkompatiblen Typ aufgerufen"
+title: "TypeError: X.prototype.y auf einem inkompatiblen Typ aufgerufen"
 slug: Web/JavaScript/Reference/Errors/Called_on_incompatible_type
 l10n:
-  sourceCommit: 859f03368d7a2fcb330c4292d58a55920a076bba
+  sourceCommit: f6838cf0eb75531c30beebe1be8d3cbf63e80845
 ---
 
 {{jsSidebar("Errors")}}
 
-Die JavaScript-Ausnahme "auf inkompatiblem Ziel (oder Objekt) aufgerufen" tritt auf, wenn eine Funktion (auf einem gegebenen Objekt) mit einem `this` aufgerufen wird, das nicht dem von der Funktion erwarteten Typ entspricht.
+Die JavaScript-Ausnahme "auf inkompatiblem Ziel (oder Objekt) aufgerufen" tritt auf, wenn eine Funktion (auf einem gegebenen Objekt) mit einem `this`-Wert aufgerufen wird, der nicht dem von der Funktion erwarteten Typ entspricht.
 
 ## Meldung
 
 ```plain
 TypeError: Method Set.prototype.add called on incompatible receiver undefined (V8-based)
 TypeError: Bind must be called on a function (V8-based)
+TypeError: Illegal invocation (V8-based)
+TypeError: Function.prototype.toString requires that 'this' be a Function (V8-based)
+TypeError: this is not a Date object. (V8-based)
+TypeError: this is not a typed array. (V8-based)
 TypeError: Function.prototype.toString called on incompatible object (Firefox)
 TypeError: Function.prototype.bind called on incompatible target (Firefox)
+TypeError: 'addEventListener' called on an object that does not implement interface EventTarget. (Firefox)
 TypeError: Type error (Safari)
 TypeError: undefined is not an object (Safari)
 ```
 
-## Fehlerart
+## Fehlertyp
 
 {{jsxref("TypeError")}}
 
 ## Was ist schiefgelaufen?
 
-Wenn dieser Fehler ausgelöst wird, wird eine Funktion (auf einem gegebenen Objekt) mit einem `this` aufgerufen, das nicht dem von der Funktion erwarteten Typ entspricht.
+Wenn dieser Fehler ausgelöst wird, wird eine Funktion (auf einem gegebenen Objekt) mit einem `this`-Wert aufgerufen, der nicht dem von der Funktion erwarteten Typ entspricht.
 
-Dieses Problem kann auftreten, wenn die Methoden {{jsxref("Function.prototype.call()")}} oder {{jsxref("Function.prototype.apply()")}} verwendet werden und dabei ein `this`-Argument bereitgestellt wird, das nicht den erwarteten Typ hat.
+Dieses Problem kann auftreten, wenn die Methoden {{jsxref("Function.prototype.call()")}} oder {{jsxref("Function.prototype.apply()")}} verwendet werden und ein `this`-Argument angegeben wird, das nicht den erwarteten Typ hat.
 
-Dieses Problem kann auch auftreten, wenn eine Funktion, die als Eigenschaft eines Objekts gespeichert ist, als Argument an eine andere Funktion übergeben wird. In diesem Fall wird das Objekt, das die Funktion speichert, nicht das `this`-Ziel jener Funktion sein, wenn sie von der anderen Funktion aufgerufen wird. Um dieses Problem zu umgehen, müssen Sie entweder die Callback-Funktion in eine andere Funktion einwickeln oder die Methode {{jsxref("Function.prototype.bind()")}} verwenden, um das `this`-Argument auf das erwartete Objekt festzulegen.
+Das Problem kann auch auftreten, wenn eine Funktion, die als Eigenschaft eines Objekts gespeichert ist, als Argument an eine andere Funktion übergeben wird. In diesem Fall ist das Objekt, das die Funktion speichert, nicht das `this`-Ziel dieser Funktion, wenn sie von der anderen Funktion aufgerufen wird. Um dieses Problem zu umgehen, müssen Sie die Rückruffunktion entweder in eine andere Funktion einwickeln oder die Methode {{jsxref("Function.prototype.bind()")}} verwenden, um das `this`-Argument auf das erwartete Objekt zu erzwingen.
 
 ## Beispiele
 
