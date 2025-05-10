@@ -16,7 +16,7 @@ Die verwendete Basis-URL eines Dokuments kann von Skripten mit [`Node.baseURI`](
 Zu den Attributen dieses Elements gehören die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
 > [!WARNING]
-> Ein `<base>` Element muss ein `href` Attribut, ein `target` Attribut oder beides haben. 
+> Ein `<base>` Element muss ein `href` Attribut, ein `target` Attribut oder beides haben.
 > Wenn mindestens eines dieser Attribute angegeben ist, muss das `<base>` Element **vor** anderen Elementen mit Attributwerten, die URLs sind, kommen, wie z.B. das `href` Attribut eines {{HTMLElement("link")}}.
 
 - `href`

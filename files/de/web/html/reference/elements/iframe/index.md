@@ -231,7 +231,7 @@ Ohne diesen Titel müssen sie in das `<iframe>` navigieren, um zu bestimmen, was
 
 ## Beispiele
 
-### Ein einfaches \<iframe>
+### Ein einfaches `<iframe>`
 
 Dieses Beispiel bettet die Seite unter <https://example.org> in ein iframe ein. Dies ist ein häufiger Anwendungsfall von iframes: Inhalte von einer anderen Website einzubetten. Zum Beispiel sind das Live-Sample selbst und das [Try it](#try_it) Beispiel oben beides `<iframe>` Einbettungen von Inhalten einer anderen MDN-Seite.
 
@@ -250,7 +250,7 @@ Dieses Beispiel bettet die Seite unter <https://example.org> in ein iframe ein. 
 
 {{EmbedLiveSample('A_basic_iframe', 640,400)}}
 
-### Einbettung von Quellcode in ein \<iframe>
+### Einbettung von Quellcode in ein `<iframe>`
 
 Dieses Beispiel rendert Quellcode direkt in einem iframe. Dies kann als Technik verwendet werden, um Skriptinjektionen bei der Anzeige von benutzergenerierten Inhalten zu verhindern, wenn es mit dem `sandbox` Attribut kombiniert wird.
 
