@@ -1,20 +1,21 @@
 ---
-title: "ARIA: Kommentarrolle"
+title: "ARIA: Rolle comment"
+short-title: comment
 slug: Web/Accessibility/ARIA/Reference/Roles/comment_role
 l10n:
-  sourceCommit: ec98716dfe71c78db3f82ee3b1b9e7f68997fa19
+  sourceCommit: a8b25483994fa47cf949b432ddf34a6bce2ddb2e
 ---
 
-Die `comment`-Rolle kennzeichnet semantisch einen Kommentar oder eine Reaktion zu einem Inhalt auf der Seite oder zu einem vorherigen Kommentar.
+Die Rolle `comment` bezeichnet semantisch einen Kommentar/Reaktion auf einige Inhalte auf der Seite oder auf einen vorherigen Kommentar.
 
 > [!NOTE]
-> Die Kommentarrolle wird in WAI-ARIA 1.3 vorgeschlagen ([Neuester ARIA-Entwurf](https://w3c.github.io/aria/)), welcher sich noch im Entwurfsstadium befindet.
+> Die Rolle comment wird in WAI-ARIA 1.3 vorgeschlagen ([Neuester ARIA-Entwurf](https://w3c.github.io/aria/)), der sich noch in der Entwurfsphase befindet.
 
 ## Beispiele
 
 Im folgenden Beispiel haben wir einen Dokumentabschnitt, der kommentiert wurde. Der kommentierte Abschnitt wird mit `<span role="mark">` ausgezeichnet.
 
-Der zugehörige Kommentar wird mit einer HTML-Struktur markiert, die in einem `<div>` mit `role="comment"` enthalten ist.
+Der zugehörige Kommentar wird mit einer HTML-Struktur ausgezeichnet, die in einem `<div>` mit `role="comment"` eingebettet ist.
 
 ```html
 <p>
@@ -34,7 +35,7 @@ Um den Kommentar mit dem kommentierten Text zu verknüpfen, müssen wir den komm
 
 ### Mehrere Kommentare
 
-Da `aria-details` jetzt mehrere IDs akzeptieren kann, können wir mehrere Kommentare mit derselben Annotation verknüpfen:
+Da `aria-details` nun mehrere IDs akzeptieren kann, können wir mehrere Kommentare mit derselben Anmerkung verknüpfen, wie folgt:
 
 ```html
 <p>
@@ -61,7 +62,7 @@ Da `aria-details` jetzt mehrere IDs akzeptieren kann, können wir mehrere Kommen
 
 ### Verschachtelte Kommentare
 
-Es ist möglich, Kommentare ineinander zu verschachteln:
+Es ist möglich, Kommentare ineinander zu verschachteln, wie folgt:
 
 ```html
 <div role="comment" id="thread-1" data-author="chris">
@@ -85,4 +86,4 @@ Keine.
 
 ## Spezifikationen
 
-Wird Teil von WAI-ARIA 1.3 werden, das sich noch im Entwurfsstadium befindet.
+Wird Teil von WAI-ARIA 1.3 sein, das sich noch in der Entwurfsphase befindet.

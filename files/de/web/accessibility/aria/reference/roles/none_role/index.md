@@ -1,10 +1,11 @@
 ---
-title: "ARIA: none Rolle"
+title: "ARIA: none-Rolle"
+short-title: none
 slug: Web/Accessibility/ARIA/Reference/Roles/none_role
 l10n:
-  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
+  sourceCommit: a8b25483994fa47cf949b432ddf34a6bce2ddb2e
 ---
 
-Die `none` Rolle ist ein Synonym für die [`presentation`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/presentation_role) Rolle; beide entfernen die impliziten ARIA-Semantiken eines Elements, sodass sie nicht dem Zugänglichkeitsbaum zugänglich gemacht werden.
+Die `none`-Rolle ist ein Synonym für die [`presentation`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/presentation_role)-Rolle; beide entfernen die impliziten ARIA-Semantiken eines Elements, damit sie nicht im Zugänglichkeitsbaum angezeigt werden.
 
-Siehe die [`presentation`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/presentation_role) Rolle für weitere Informationen.
+Weitere Informationen finden Sie bei der [`presentation`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/presentation_role)-Rolle.

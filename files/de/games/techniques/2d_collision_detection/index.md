@@ -1,17 +1,17 @@
 ---
-title: 2D-Kollisionsdetektion
+title: 2D-Kollisionserkennung
 slug: Games/Techniques/2D_collision_detection
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: 33e22d8d3b374f47040fff448d91478d67e35c05
 ---
 
 {{GamesSidebar}}
 
-Algorithmen zur Erkennung von Kollisionen in 2D-Spielen hängen von der Art der Formen ab, die kollidieren können (z. B. Rechteck zu Rechteck, Rechteck zu Kreis, Kreis zu Kreis). Im Allgemeinen verwendet man eine einfache generische Form, die die Entität als "Hitbox" umschließt, so dass, auch wenn die Kollision nicht pixelgenau ist, sie ausreichend gut aussieht und leistungsstark über mehrere Entitäten hinweg ist. Dieser Artikel gibt einen Überblick über die gängigsten Techniken zur Kollisionsdetektion in 2D-Spielen.
+Algorithmen zur Erkennung von Kollisionen in 2D-Spielen hängen von den Arten von Formen ab, die kollidieren können (z.B. Rechteck zu Rechteck, Rechteck zu Kreis, Kreis zu Kreis). Normalerweise haben Sie eine einfache generische Form, die die Entität abdeckt und als "Hitbox" bekannt ist. Auch wenn die Kollision nicht pixelgenau ist, sieht sie gut genug aus und ist bei mehreren Entitäten leistungsfähig. Dieser Artikel bietet einen Überblick über die gebräuchlichsten Techniken zur Bereitstellung der Kollisionserkennung in 2D-Spielen.
 
-## Achsen ausgerichtete Begrenzungsrahmen
+## Achsen-ausgerichtete Begrenzungsbox
 
-Eine der einfacheren Formen der Kollisionsdetektion besteht zwischen zwei Rechtecken, die achsen ausgerichtet sind – das bedeutet ohne Rotation. Der Algorithmus funktioniert, indem sichergestellt wird, dass es keine Lücke zwischen den 4 Seiten der Rechtecke gibt. Jegliche Lücke bedeutet, dass keine Kollision existiert.
+Eine der einfacheren Formen der Kollisionserkennung besteht zwischen zwei rechteckigen, achsen-ausgerichteten Formen – also ohne Rotation. Der Algorithmus funktioniert, indem sichergestellt wird, dass es keine Lücke zwischen den 4 Seiten der Rechtecke gibt. Jede Lücke bedeutet, dass keine Kollision vorliegt.
 
 ```html hidden
 <div id="cr-stage"></div>
@@ -53,11 +53,11 @@ rect2.bind("EnterFrame", function () {
 
 {{ EmbedLiveSample('Axis-Aligned_Bounding_Box', '700', '300') }}
 
-> **Note:** [Ein weiteres Beispiel ohne Canvas oder externe Bibliotheken](https://jsfiddle.net/jlr7245/217jrozd/3/).
+> **Hinweis:** [Ein weiteres Beispiel ohne Canvas oder externe Bibliotheken](https://jsfiddle.net/jlr7245/217jrozd/3/).
 
-## Kreis-Kollision
+## Kreiskollision
 
-Eine weitere einfache Form für die Kollisionsdetektion besteht zwischen zwei Kreisen. Dieser Algorithmus funktioniert, indem die Mittelpunkte der beiden Kreise genommen werden und sichergestellt wird, dass der Abstand zwischen den Mittelpunkten kleiner ist als die Summe der beiden Radien.
+Eine weitere einfache Form zur Kollisionserkennung besteht zwischen zwei Kreisen. Dieser Algorithmus funktioniert, indem die Mittelpunkte der beiden Kreise genommen werden und sichergestellt wird, dass der Abstand zwischen den Mittelpunkten kleiner ist als die Summe der beiden Radien.
 
 ```html hidden
 <div id="cr-stage"></div>
@@ -117,8 +117,8 @@ const circle2 = Crafty.e("2D, Canvas, Circle, Fourway")
   .circle(20, "blue");
 
 circle2.bind("EnterFrame", function () {
-  const dx = circle1.x - circle2.x;
-  const dy = circle1.y - circle2.y;
+  const dx = circle1.x + circle1.radius - (circle2.x + circle2.radius);
+  const dy = circle1.y + circle1.radius - (circle2.y + circle2.radius);
   const distance = Math.sqrt(dx * dx + dy * dy);
 
   const colliding = distance < circle1.radius + circle2.radius;
@@ -128,28 +128,31 @@ circle2.bind("EnterFrame", function () {
 
 {{ EmbedLiveSample('Circle_Collision', '700', '300') }}
 
-> **Note:** [Hier ist ein weiteres Beispiel ohne Canvas oder externe Bibliotheken.](https://jsfiddle.net/jlr7245/teb4znk0/20/)
+> [!NOTE]
+> Die `x`- und `y`-Koordinaten der Kreise beziehen sich auf die oberen linken Ecken, daher müssen wir den Radius addieren, um ihre Mittelpunkte zu vergleichen.
 
-## Trennung der Achsentheorie
+> **Hinweis:** [Hier ist ein weiteres Beispiel ohne Canvas oder externe Bibliotheken.](https://jsfiddle.net/jlr7245/teb4znk0/20/)
 
-Dies ist ein Kollisionsalgorithmus, der eine Kollision zwischen zwei konvexen Polygonen erkennen kann. Es ist komplizierter zu implementieren als die obigen Methoden, aber dafür leistungsstärker. Die Komplexität eines solchen Algorithmus bedeutet, dass wir Performance-Optimierungen in Betracht ziehen müssen, die im nächsten Abschnitt behandelt werden.
+## Trennachsentheorem
 
-Die Implementierung der SAT liegt außerhalb des Umfangs dieser Seite, daher siehe die empfohlenen Anleitungen unten:
+Dies ist ein Kollisionsalgorithmus, der eine Kollision zwischen zwei _konvexen_ Polygonen erkennen kann. Er ist komplizierter zu implementieren als die oben genannten Methoden, aber leistungsfähiger. Die Komplexität eines solchen Algorithmus bedeutet, dass wir Performance-Optimierungen in Erwägung ziehen müssen, was im nächsten Abschnitt behandelt wird.
 
-1. [Erklärung zur Trennung der Achsentheorie (SAT)](https://www.sevenson.com.au/programming/sat/)
-2. [Kollisionsdetektion und -antwort](https://www.metanetsoftware.com/technique/tutorialA.html)
-3. [Kollisionsdetektion mit der Trennung der Achsentheorie](https://code.tutsplus.com/collision-detection-using-the-separating-axis-theorem--gamedev-169t)
-4. [SAT (Trennung der Achsentheorie)](https://dyn4j.org/2010/01/sat/)
-5. [Trennung der Achsentheorie](https://programmerart.weebly.com/separating-axis-theorem.html)
+Das Implementieren von SAT liegt außerhalb des Rahmens dieser Seite, daher siehe die empfohlenen Tutorials unten:
+
+1. [Erklärung des Trennachsentheorems (SAT)](https://www.sevenson.com.au/programming/sat/)
+2. [Kollisionserkennung und Reaktion](https://www.metanetsoftware.com/technique/tutorialA.html)
+3. [Kollisionserkennung unter Verwendung des Trennachsentheorems](https://code.tutsplus.com/collision-detection-using-the-separating-axis-theorem--gamedev-169t)
+4. [SAT (Trennachsentheorem)](https://dyn4j.org/2010/01/sat/)
+5. [Trennachsentheorem](https://programmerart.weebly.com/separating-axis-theorem.html)
 
 ## Kollisionsleistung
 
-Obwohl einige dieser Algorithmen zur Kollisionsdetektion einfach genug zu berechnen sind, kann es Verschwendung von Rechenzyklen sein, jede Entität mit jeder anderen Entität zu testen. Üblicherweise wird die Kollision in Spiele in zwei Phasen aufgeteilt: die breite und die enge Phase.
+Während einige dieser Algorithmen zur Kollisionserkennung einfach genug zu berechnen sind, können sie eine Verschwendung von Rechenzyklen sein, wenn _jede_ Entität mit jeder anderen Entität getestet wird. Normalerweise wird die Kollision in Spielen in zwei Phasen aufgeteilt, grob und eng.
 
-### Breite Phase
+### Grobe Phase
 
-Die breite Phase sollte Ihnen eine Liste von Entitäten geben, die möglicherweise kollidieren könnten. Dies kann mit einer räumlichen Datenstruktur implementiert werden, die Ihnen eine grobe Vorstellung gibt, wo sich die Entität befindet und was sich in ihrer Umgebung befindet. Einige Beispiele für räumliche Datenstrukturen sind Quad-Trees, R-Trees oder ein räumlicher Hashmap.
+Die grobe Phase sollte Ihnen eine Liste von Entitäten geben, die _kollidieren könnten_. Dies kann mit einer räumlichen Datenstruktur implementiert werden, die Ihnen eine ungefähre Vorstellung davon gibt, wo die Entität existiert und was sich um sie herum befindet. Einige Beispiele für räumliche Datenstrukturen sind Quad Trees, R-Trees oder ein räumliches Hashmap.
 
 ### Enge Phase
 
-Wenn Sie eine kleine Liste von Entitäten haben, die überprüft werden sollen, sollten Sie einen Algorithmus für die enge Phase verwenden (wie die oben aufgeführten), um eine sichere Antwort darauf zu geben, ob eine Kollision vorliegt oder nicht.
+Wenn Sie eine kleine Liste von Entitäten zu überprüfen haben, möchten Sie einen engen Phasen-Algorithmus (wie die oben genannten) verwenden, um eine sichere Antwort darauf zu geben, ob eine Kollision vorliegt oder nicht.

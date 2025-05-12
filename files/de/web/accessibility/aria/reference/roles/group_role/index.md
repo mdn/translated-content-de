@@ -1,31 +1,32 @@
 ---
-title: "ARIA: group-Rolle"
+title: "ARIA: Rolle `group`"
+short-title: group
 slug: Web/Accessibility/ARIA/Reference/Roles/group_role
 l10n:
-  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
+  sourceCommit: a8b25483994fa47cf949b432ddf34a6bce2ddb2e
 ---
 
-Die `group`-Rolle identifiziert eine Reihe von Benutzeroberflächen-Objekten, die von unterstützenden Technologien nicht dazu gedacht sind, in eine Seitenzusammenfassung oder ein Inhaltsverzeichnis aufgenommen zu werden.
+Die Rolle `group` identifiziert eine Gruppe von Benutzeroberflächen-Objekten, die nicht von assistiven Technologien in einer Seitenzusammenfassung oder einem Inhaltsverzeichnis berücksichtigt werden sollen.
 
 ## Beschreibung
 
-Am engsten mit dem {{HTMLElement('fieldset')}}-Element von HTML verwandt, wird die `group`-Dokumentstrukturrolle verwendet, um eine Reihe von Benutzeroberflächen-Objekten zu identifizieren, die im Vergleich zur [`region`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/region_role) nicht dazu gedacht sind, in die Zusammenfassung der Seite oder das Inhaltsverzeichnis aufgenommen zu werden.
+Am engsten verwandt mit dem HTML-Element {{HTMLElement('fieldset')}}, wird die Dokumentstrukturrolle `group` verwendet, um eine Gruppe von Benutzeroberflächen-Objekten zu identifizieren, die im Vergleich zu [`region`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/region_role) nicht in die Zusammenfassung der Seite oder das Inhaltsverzeichnis aufgenommen werden soll.
 
-Die `group`-Rolle sollte verwendet werden, um eine logische Sammlung von Elementen mit zusammenhängender Funktionalität zu bilden, wie z.B. Kinder in einem [`tree`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/tree_role)-Widget, die eine Sammlung von Geschwistern in einer Hierarchie bilden, oder eine Sammlung von Elementen, die denselben Container in einem [`directory`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/directory_role) haben.
+Die Rolle `group` sollte verwendet werden, um eine logische Sammlung von Elementen mit verwandter Funktionalität zu bilden, wie z.B. Kinder in einem [`tree`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/tree_role)-Widget, die eine Sammlung von Geschwistern in einer Hierarchie bilden, oder eine Sammlung von Elementen, die im selben Container in einem [`directory`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/directory_role) enthalten sind.
 
-Wenn eine `group` im Kontext einer [`list`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/list_role) verwendet wird, beschränken Sie die Kinder der `group` auf [`listitem`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/listitem_role)-Elemente. In diesem Fall wird empfohlen, mehrere geordnete oder ungeordnete Listen, {{HTMLElement('ol')}} oder {{HTMLElement('ul')}}, mit verschachtelten {{HTMLElement('li')}}-Kindern zu verwenden.
+Wenn ein `group` im Kontext einer [`list`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/list_role) verwendet wird, beschränken Sie die Kinder des `group` auf [`listitem`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/listitem_role)-Elemente. In diesem Fall wird empfohlen, mehrere geordnete oder ungeordnete Listen, {{HTMLElement('ol')}} oder {{HTMLElement('ul')}}, mit verschachtelten {{HTMLElement('li')}}-Kindern zu verwenden.
 
-Wenn sie im Kontext einer [`listbox`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/listbox_role) verwendet wird, sind die einzigen zulässigen Kinder {{HTMLElement('option')}}-Elemente. In diesem Fall wird empfohlen, {{HTMLElement('select')}}, {{HTMLElement('option')}} und {{HTMLElement('optgroup')}} zu verwenden.
+Wenn sie im Kontext eines [`listbox`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/listbox_role) verwendet werden, sind nur {{HTMLElement('option')}} Elemente als Kinder zulässig. In diesem Fall wird empfohlen, {{HTMLElement('select')}}, {{HTMLElement('option')}} und {{HTMLElement('optgroup')}} zu verwenden.
 
 `Group`-Elemente können verschachtelt werden.
 
-Die `group`-Rolle sollte nicht für wesentliche wahrnehmbare Abschnitte einer Seite verwendet werden. Wenn ein Abschnitt wichtig genug ist, um in das Inhaltsverzeichnis der Seite aufgenommen zu werden, verwenden Sie die `region`-Rolle oder eine standardmäßige [landmark role](/de/docs/Web/Accessibility/ARIA/Reference/Roles#3._landmark_roles).
+Die Rolle `group` sollte nicht für wesentliche wahrnehmbare Abschnitte einer Seite verwendet werden. Wenn ein Abschnitt so signifikant ist, dass er in das Inhaltsverzeichnis der Seite aufgenommen werden sollte, verwenden Sie die Rolle `region` oder eine Standard-[Landmark-Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles#3._landmark_roles).
 
-Wenn die Rolle einem Element hinzugefügt wird, sendet der Browser ein zugängliches Gruppenereignis an unterstützende Technologieprodukte, die dann den Benutzer darüber informieren können.
+Wenn die Rolle zu einem Element hinzugefügt wird, sendet der Browser ein zugängliches Gruppenereignis an assistive Technologien, die den Benutzer darüber informieren können.
 
 ## Beispiele
 
-Das folgende HTML-Codebeispiel verwendet die `group`-Rolle mit einer `tree`-Ansicht:
+Das folgende HTML-Codebeispiel verwendet die Rolle `group` mit einer `tree`-Sicht:
 
 ```html
 <div id="tree1" role="tree" tabindex="-1">
@@ -63,7 +64,7 @@ Das folgende HTML-Codebeispiel verwendet die `group`-Rolle mit einer `tree`-Ansi
 </div>
 ```
 
-Das folgende Beispiel verwendet die `group`-Rolle mit einem Drop-down-[`menu`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/menu_role), das [`menuitem`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/menuitem_role)s enthält:
+Das nächste Beispiel verwendet die Rolle `group` mit einem Dropdown-[`menu`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/menu_role), das [`menuitem`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/menuitem_role)s enthält:
 
 ```html
 <div role="menu">
@@ -83,7 +84,7 @@ Das folgende Beispiel verwendet die `group`-Rolle mit einem Drop-down-[`menu`](/
 </div>
 ```
 
-Dieses Menü könnte unter Verwendung von {{HTMLElement('select')}} und {{HTMLElement('option')}}-Elementen konstruiert werden. In diesem Fall wäre die `group`-Rolle am ehesten mit dem {{HTMLElement('optgroup')}}-Element vergleichbar.
+Dieses Menü könnte mit {{HTMLElement('select')}} und {{HTMLElement('option')}}-Elementen konstruiert werden. In diesem Fall wäre die Rolle `group` am ähnlichsten dem Element {{HTMLElement('optgroup')}}.
 
 ## Spezifikationen
 
@@ -91,8 +92,8 @@ Dieses Menü könnte unter Verwendung von {{HTMLElement('select')}} und {{HTMLEl
 
 ## Siehe auch
 
-- Das {{HTMLElement('fieldset')}}-Element
-- [ARIA: `section`-Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles/section_role)
-- [ARIA: `row`-Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles/row_role)
-- [ARIA: `select`-Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles/select_role)
-- [ARIA: `toolbar`-Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles/toolbar_role)
+- Das {{HTMLElement('fieldset')}} Element
+- [ARIA: `section` role](/de/docs/Web/Accessibility/ARIA/Reference/Roles/section_role)
+- [ARIA: `row` role](/de/docs/Web/Accessibility/ARIA/Reference/Roles/row_role)
+- [ARIA: `select` role](/de/docs/Web/Accessibility/ARIA/Reference/Roles/select_role)
+- [ARIA: `toolbar` role](/de/docs/Web/Accessibility/ARIA/Reference/Roles/toolbar_role)

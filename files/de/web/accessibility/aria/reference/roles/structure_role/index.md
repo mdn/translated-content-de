@@ -1,20 +1,22 @@
 ---
-title: "ARIA: Struktur-Rolle"
+title: "ARIA: `structure`-Rolle"
+short-title: structure
 slug: Web/Accessibility/ARIA/Reference/Roles/structure_role
 l10n:
-  sourceCommit: ec98716dfe71c78db3f82ee3b1b9e7f68997fa19
+  sourceCommit: a8b25483994fa47cf949b432ddf34a6bce2ddb2e
 ---
 
-Die `structure`-Rolle ist für strukturelle Dokumentelemente vorgesehen.
+Die `structure`-Rolle ist für dokumentarische Strukturelemente vorgesehen.
 
 > [!WARNING]
-> Die `structure`-Rolle ist eine [abstrakte Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles#6._abstract_roles). Sie ist hier zur Vollständigkeit der Dokumentation enthalten und sollte nicht von Webautoren verwendet werden. Verwenden Sie stattdessen HTML und Unterklassen-Strukturrollen.
+> Die `structure`-Rolle ist eine [abstrakte Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles#6._abstract_roles). Sie wird hier zur Vollständigkeit der Dokumentation aufgenommen. Sie sollte nicht von Web-Autoren verwendet werden. Verwenden Sie HTML und Unterklassenstrukturrollen.
 
 ## Beschreibung
 
-`Structure` ist eine Oberklasse für [abstrakte Rollen](/de/docs/Web/Accessibility/ARIA/Reference/Roles#6._abstract_roles) für Dokumentstrukturen, wie [`document`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/document_role), [`rowgroup`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/rowgroup_role) und [`sectionhead`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/sectionhead_role), die die Barrierefreiheit dynamischer Webinhalte unterstützen, indem sie unterstützenden Technologien helfen, aktiven Inhalt von statischem Dokumentinhalt zu unterscheiden. Einige Unterklassenrollen, wie die [`section`-Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles/section_role), sind wiederum Oberklassen anderer Rollen.
+`Structure` ist eine Superklasse [abstrakter Rollen](/de/docs/Web/Accessibility/ARIA/Reference/Roles#6._abstract_roles) für Dokumentstrukturen, wie z.B. [`document`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/document_role),
+[`rowgroup`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/rowgroup_role) und [`sectionhead`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/sectionhead_role), die die Zugänglichkeit von dynamischen Web-Inhalten unterstützen, indem sie assistierenden Technologien helfen, aktiven Inhalt von statischem Dokumenteninhalt zu unterscheiden. Einige Unterklassenrollen, wie z.B. die [`section`-Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles/section_role), sind wiederum Superklassen anderer Rollen.
 
-Die `structure`-Rolle ist die Oberklasse für alle Dokumentstrukturrollen, die verwendet werden, um eine strukturelle Beschreibung für einen Inhaltsteil bereitzustellen. Die meisten Strukturrollen sollten nicht mehr verwendet werden, da Browser nun semantische HTML-Elemente mit gleicher Bedeutung unterstützen. Die Strukturrollen ohne HTML-Äquivalente, wie die [`presentation`-Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles/presentation_role), die bedeutet, dass der Inhalt nur präsentationsbezogen ist, liefern Informationen über die Dokumentstruktur an unterstützende Technologien wie Screenreader, da gleichwertige native HTML-Tags nicht verfügbar sind.
+Die `structure`-Rolle ist die Superklasse für alle Dokumentstrukturrollen, die verwendet werden, um eine strukturelle Beschreibung für einen Abschnitt des Inhalts bereitzustellen. Die meisten Strukturrollen sollten nicht mehr verwendet werden, da Browser jetzt semantische HTML-Elemente mit derselben Bedeutung unterstützen. Die Strukturrollen ohne HTML-Äquivalente, wie die [`presentation`-Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles/presentation_role), die bedeutet, dass der Inhalt nur zur Darstellung dient, liefern informationen zur Dokumentstruktur für unterstützende Technologien wie Bildschirmleser, da äquivalente native HTML-Tags nicht verfügbar sind.
 
 ## Spezifikationen
 
@@ -29,7 +31,7 @@ Die `structure`-Rolle ist die Oberklasse für alle Dokumentstrukturrollen, die v
 - [ARIA: `section`-Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles/section_role)
 - [ARIA: `sectionhead`-Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles/sectionhead_role)
 
-<!-- diese sollten nicht verwendet werden, daher sollten wir nicht auf sie verlinken
+<!-- diese sollten nicht verwendet werden, also sollten wir nicht darauf verlinken
 - [ARIA: `application`-Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles/application_role)
 - [ARIA: `document`-Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles/document_role)
 - [ARIA: `rowgroup`-Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles/rowgroup_role)

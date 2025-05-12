@@ -1,42 +1,43 @@
 ---
-title: "ARIA: button-Rolle"
+title: "ARIA: button role"
+short-title: button
 slug: Web/Accessibility/ARIA/Reference/Roles/button_role
 l10n:
-  sourceCommit: be1922d62a0d31e4e3441db0e943aed8df736481
+  sourceCommit: a8b25483994fa47cf949b432ddf34a6bce2ddb2e
 ---
 
-Die `button`-Rolle ist für anklickbare Elemente vorgesehen, die eine Reaktion auslösen, wenn sie vom Benutzer aktiviert werden. Das Hinzufügen von `role="button"` teilt dem Screenreader mit, dass das Element ein Button ist, bietet jedoch keine Button-Funktionalität. Verwenden Sie stattdessen {{HTMLElement("button")}} oder {{HTMLElement("input")}} mit `type="button"`.
+Die `button` Rolle ist für anklickbare Elemente vorgesehen, die eine Reaktion auslösen, wenn sie vom Benutzer aktiviert werden. Das Hinzufügen von `role="button"` teilt dem Screenreader mit, dass das Element ein Button ist, bietet jedoch keine Button-Funktionalität. Verwenden Sie stattdessen {{HTMLElement("button")}} oder {{HTMLElement("input")}} mit `type="button"`.
 
 ## Beschreibung
 
-Die button-Rolle identifiziert ein Element als Button für unterstützende Technologien wie Screenreader. Ein Button ist ein Widget, das verwendet wird, um Aktionen wie das Absenden eines Formulars, das Öffnen eines Dialogs, das Abbrechen einer Aktion oder das Ausführen eines Befehls wie das Einfügen eines neuen Datensatzes oder das Anzeigen von Informationen auszuführen. Das Hinzufügen von `role="button"` teilt unterstützender Technologie mit, dass das Element ein Button ist, bietet jedoch keine Button-Funktionalität. Verwenden Sie stattdessen {{HTMLElement("button")}} oder {{HTMLElement("input")}} mit `type="button"`.
+Die `button` Rolle kennzeichnet ein Element als Button für unterstützende Technologien wie Screenreader. Ein Button ist ein Widget, das verwendet wird, um Aktionen wie das Absenden eines Formulars, das Öffnen eines Dialogs, das Abbrechen einer Aktion oder das Ausführen eines Befehls wie das Einfügen eines neuen Datensatzes oder das Anzeigen von Informationen auszuführen. Das Hinzufügen von `role="button"` teilt unterstützenden Technologien mit, dass das Element ein Button ist, bietet jedoch keine Button-Funktionalität. Verwenden Sie stattdessen {{HTMLElement("button")}} oder {{HTMLElement("input")}} mit `type="button"`.
 
-Diese `button`-Rolle kann in Kombination mit dem [`aria-pressed`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-pressed)-Attribut verwendet werden, um [Umschaltbuttons zu erstellen](#umschaltbuttons).
+Diese `button` Rolle kann in Kombination mit dem [`aria-pressed`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-pressed) Attribut verwendet werden, um [Umschalter-Buttons zu erstellen](#umschalter-buttons).
 
 ```html
 <div id="saveChanges" tabindex="0" role="button" aria-pressed="false">Save</div>
 ```
 
-Das obige Beispiel erstellt einen fokussierbaren Button, erfordert jedoch JavaScript und CSS, um das Aussehen und die Funktionalität des Buttons einzuschließen. Diese Eigenschaften werden standardmäßig bereitgestellt, wenn die {{HTMLElement("button")}} und {{HTMLElement("input")}} mit `type="button"`-Elementen verwendet werden:
+Das obige Beispiel erstellt einen fokussierbaren Button, benötigt jedoch JavaScript und CSS, um das Aussehen und die Funktionalität des Buttons einzuschließen. Diese Funktionen werden standardmäßig bereitgestellt, wenn die {{HTMLElement("button")}} und {{HTMLElement("input")}} mit `type="button"` Elemente verwendet werden:
 
 ```html
 <button type="button" id="saveChanges">Save</button>
 ```
 
 > [!NOTE]
-> Wenn Sie `role="button"` anstelle der semantischen `<button>`- oder `<input type="button">`-Elemente verwenden, müssen Sie das Element fokussierbar machen und Ereignishandler für [`click`](/de/docs/Web/API/Element/click_event) und [`keydown`](/de/docs/Web/API/Element/keydown_event)-Ereignisse definieren. Dies schließt das Handhaben der <kbd>Enter</kbd> und <kbd>Leertaste</kbd>-Tastendrücke ein, um alle Formen der Benutzereingabe zu verarbeiten. Sehen Sie sich [den offiziellen WAI-ARIA-Beispielcode](https://www.w3.org/WAI/ARIA/apg/patterns/button/examples/button/) an.
+> Wenn `role="button"` anstelle der semantischen `<button>` oder `<input type="button">` Elemente verwendet wird, müssen Sie das Element fokussierbar machen und Ereignishandler für [`click`](/de/docs/Web/API/Element/click_event) und [`keydown`](/de/docs/Web/API/Element/keydown_event) Ereignisse definieren. Dazu gehört das Verarbeiten der <kbd>Enter</kbd> und <kbd>Leertaste</kbd> Tastendrücke, um alle Formen der Benutzereingabe zu verarbeiten. Siehe [das offizielle WAI-ARIA Beispielcode](https://www.w3.org/WAI/ARIA/apg/patterns/button/examples/button/).
 
-Zusätzlich zum gewöhnlichen Button-Widget sollte `role="button"` hinzugefügt werden, wenn bei der Verwendung eines Nicht-Button-Elements ein Umschaltbutton oder Menübutton erstellt wird.
+Zusätzlich zu dem gewöhnlichen Button-Widget sollte `role="button"` enthalten sein, wenn ein Umschalter-Button oder ein Menü-Button mit einem Nicht-Button-Element erstellt wird.
 
-Ein Umschaltbutton ist ein Zwei-Zustand-Button, der entweder aus (nicht gedrückt) oder ein (gedrückt) sein kann. Die Werte des [`aria-pressed`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-pressed)-Attributs von `true` oder `false` identifizieren einen Button als Umschaltbutton.
+Ein Umschalter-Button ist ein Zweistellungsschalter, der entweder aus (nicht gedrückt) oder an (gedrückt) sein kann. Die [`aria-pressed`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-pressed) Attributswerte von `true` oder `false` kennzeichnen einen Button als Umschalter-Button.
 
-Ein Menübutton ist ein Button, der ein Menü steuert und über ein [`aria-haspopup`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-haspopup)-Eigenschafts-Attribut verfügt, das entweder auf `menu` oder `true` gesetzt ist.
+Ein Menü-Button ist ein Button, der ein Menü steuert und eine [`aria-haspopup`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-haspopup) Eigenschaft hat, die auf entweder `menu` oder `true` gesetzt ist.
 
 ### Alle Nachkommen sind präsentational
 
-Es gibt einige Arten von Benutzeroberflächenkomponenten, die beim Darstellen in einer Plattform-Zugriffs-API nur Text enthalten können. Zugriffs-APIs haben keine Möglichkeit, semantische Elemente innerhalb eines `button` darzustellen. Um mit dieser Einschränkung umzugehen, wenden Browser automatisch die Rolle [`presentation`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/presentation_role) auf alle Nachkommenelemente eines `button`-Elements an, da es sich um eine Rolle handelt, die keine semantischen Kinder unterstützt.
+Es gibt einige Arten von Benutzeroberflächenkomponenten, die, wenn sie in einer Plattform-Accessibility-API dargestellt werden, nur Text enthalten können. Accessibility-APIs haben keine Möglichkeit, semantische Elemente, die in einem `button` enthalten sind, darzustellen. Um mit dieser Einschränkung umzugehen, wenden Browser automatisch die Rolle [`presentation`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/presentation_role) auf alle Nachkommenelemente eines beliebigen `button` Elements an, da es sich um eine Rolle handelt, die keine semantischen Kinder unterstützt.
 
-Betrachten Sie zum Beispiel das folgende `button`-Element, das eine Überschrift enthält.
+Betrachten Sie beispielsweise das folgende `button` Element, das eine Überschrift enthält.
 
 ```html
 <div role="button"><h3>Title of my button</h3></div>
@@ -48,63 +49,63 @@ Da Nachkommen von `button` präsentational sind, ist der folgende Code äquivale
 <div role="button"><h3 role="presentation">Title of my button</h3></div>
 ```
 
-Aus der Perspektive eines Benutzers unterstützter Technologien existiert die Überschrift nicht, da die vorherigen Code-Snippets äquivalent zu Folgendem im {{Glossary("Accessibility_tree", "Zugriffsbaum")}} sind:
+Aus Sicht des Benutzers von unterstützenden Technologien existiert die Überschrift nicht, da die vorherigen Code-Beispiele dem folgenden im {{Glossary("Accessibility_tree", "Accessibility-Tree")}} entsprechen:
 
 ```html
 <div role="button">Title of my button</div>
 ```
 
-### Zugehörige ARIA-Rollen, -Zustände und -Eigenschaften
+### Zugehörige ARIA Rollen, Zustände und Eigenschaften
 
 - [`aria-pressed`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-pressed)
-  - : Das `aria-pressed`-Attribut definiert den Button als Umschaltbutton. Der Wert beschreibt den Zustand des Buttons. Die Werte schließen `aria-pressed="false"` ein, wenn ein Button derzeit nicht gedrückt ist, `aria-pressed="true"`, um anzuzeigen, dass der Button derzeit gedrückt ist, und `aria-pressed="mixed"`, wenn der Button als teilweise gedrückt betrachtet wird. Wenn das Attribut weggelassen oder auf seinen Standardwert `aria-pressed="undefined"` gesetzt wird, unterstützt das Element nicht das Gedrücktsein.
+  - : Das `aria-pressed` Attribut definiert den Button als Umschalter-Button. Der Wert beschreibt den Zustand des Buttons. Zu den Werten gehören `aria-pressed="false"` wenn ein Button momentan nicht gedrückt ist, `aria-pressed="true"` um anzuzeigen, dass ein Button aktuell gedrückt ist, und `aria-pressed="mixed"` wenn der Button als teilweise gedrückt angesehen wird. Wenn das Attribut weggelassen oder auf den Standardwert `aria-pressed="undefined"` gesetzt ist, unterstützt das Element kein Drücken.
 - [`aria-expanded`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-expanded)
-  - : Wenn der Button eine Gruppierung anderer Elemente steuert, zeigt der `aria-expanded`-Zustand an, ob die gesteuerte Gruppierung derzeit erweitert oder eingeklappt ist. Wenn der Button `aria-expanded="false"` gesetzt hat, ist die Gruppierung derzeit nicht erweitert; wenn der Button `aria-expanded="true"` gesetzt hat, ist sie derzeit erweitert; wenn der Button `aria-expanded="undefined"` gesetzt hat oder das Attribut weggelassen wird, ist sie nicht erweiterbar.
+  - : Wenn der Button eine Gruppierung von anderen Elementen steuert, zeigt der `aria-expanded` Zustand an, ob die gesteuerte Gruppierung aktuell erweitert oder eingeklappt ist. Wenn der Button `aria-expanded="false"` gesetzt hat, ist die Gruppierung aktuell nicht erweitert; Wenn der Button `aria-expanded="true"` gesetzt hat, ist sie aktuell erweitert; Wenn der Button `aria-expanded="undefined"` gesetzt hat oder das Attribut fehlt, ist sie nicht erweiterbar.
 
 ### Grundlegende Buttons
 
-Buttons sollten immer einen zugänglichen Namen haben. Für die meisten Buttons wird dieser Name derselbe sein wie der Text innerhalb des Buttons, zwischen den öffnenden und schließenden Tags. In einigen Fällen, z. B. bei Buttons, die durch Symbole dargestellt werden, kann der zugängliche Name aus den Attributen [`aria-label`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label) oder [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby) bereitgestellt werden.
+Buttons sollten immer einen zugänglichen Namen haben. Für die meisten Buttons wird dieser Name der gleiche wie der Text innerhalb des Buttons sein, zwischen den öffnenden und schließenden Tags. In einigen Fällen, z. B. bei Buttons, die durch Symbole dargestellt werden, kann der zugängliche Name über die [`aria-label`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label) oder [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby) Attribute bereitgestellt werden.
 
-### Umschaltbuttons
+### Umschalter-Buttons
 
-Ein Umschaltbutton hat typischerweise zwei Zustände: gedrückt und nicht gedrückt. Ein dritter gemischter Zustand ist für Umschaltbuttons verfügbar, die andere Elemente steuern, wie andere Umschaltbuttons oder Kontrollkästchen, die nicht alle denselben Wert teilen. Ob ein Element ein Umschaltbutton ist oder nicht, kann mit dem [`aria-pressed`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-pressed)-Attribut zusätzlich zur `button`-Rolle (wenn das Element nicht bereits ein nativer Button ist) angegeben werden:
+Ein Umschalter-Button hat typischerweise zwei Zustände: gedrückt und nicht gedrückt. Ein dritter gemischter Zustand ist für Umschalter-Buttons verfügbar, die andere Elemente steuern, wie z.B. andere Umschalter-Buttons oder Checkboxen, die nicht alle denselben Wert teilen. Ob ein Element ein Umschalter-Button ist oder nicht, kann mit dem [`aria-pressed`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-pressed) Attribut neben der `button` Rolle angegeben werden (falls das Element nicht bereits ein nativer Button ist):
 
-- Wenn `aria-pressed` nicht verwendet oder auf den "undefined"-Zustand gesetzt wird, ist der Button kein Umschaltbutton.
-- Wenn `aria-pressed="false"` verwendet wird, ist der Button ein Umschaltbutton, der derzeit nicht gedrückt ist.
-- Wenn `aria-pressed="true"` verwendet wird, ist der Button ein Umschaltbutton, der derzeit gedrückt ist.
+- Wenn `aria-pressed` nicht verwendet wird oder auf den "undefined" Zustand gesetzt ist, ist der Button kein Umschalter-Button.
+- Wenn `aria-pressed="false"` verwendet wird, ist der Button ein Umschalter-Button, der aktuell nicht gedrückt ist.
+- Wenn `aria-pressed="true"` verwendet wird, ist der Button ein Umschalter-Button, der aktuell gedrückt ist.
 - Wenn `aria-pressed="mixed"` verwendet wird, wird der Button als teilweise gedrückt betrachtet.
 
-Als Beispiel könnte der Stummschaltbutton bei einem Audio-Player, der mit "mute" beschriftet ist, durch Setzen des `aria-pressed`-Zustands auf true anzeigen, dass der Ton stummgeschaltet ist. Das Label eines Umschaltbuttons sollte sich nicht ändern, wenn sich sein Zustand ändert. In unserem Beispiel bleibt das Label "Mute" bestehen, wobei ein Screenreader "Mute switch button pressed" oder "Mute switch button not pressed" je nach Wert von `aria-pressed` liest. Wenn das Design vorsieht, dass sich das Button-Label von "Mute" zu "Unmute" ändern soll, wäre ein Umschaltbutton nicht angemessen, sodass das `aria-pressed`-Attribut weggelassen würde.
+Zum Beispiel könnte der Stummschalter-Button auf einem Audioplayer, der "mute" beschriftet ist, anzeigen, dass der Ton stummgeschaltet ist, indem der `aria-pressed` Zustand auf true gesetzt wird. Das Label eines Umschalter-Buttons sollte sich nicht ändern, wenn sich sein Zustand ändert. In unserem Beispiel bleibt das Label "Mute", wobei ein Screenreader "Stummschalter-Button gedrückt" oder "Stummschalter-Button nicht gedrückt" je nach Wert von `aria-pressed` vorliest. Wenn das Design verlangen würde, dass das Button-Label sich von "Mute" zu "Unmute" ändert, wäre ein Umschalter-Button nicht geeignet, sodass das `aria-pressed` Attribut weggelassen würde.
 
-### Tastaturinteraktionen
+### Tastatur-Interaktionen
 
 | Taste                | Funktion              |
 | -------------------- | --------------------- |
 | <kbd>Enter</kbd>     | Aktiviert den Button. |
 | <kbd>Leertaste</kbd> | Aktiviert den Button  |
 
-Nach der Aktivierung des Buttons wird der Fokus je nach Art der Aktion, die der Button ausführt, neu gesetzt. Beispielweise, wenn durch Klicken auf den Button ein Dialog geöffnet wird, sollte der Fokus auf den Dialog verschoben werden. Wenn der Button einen Dialog schließt, sollte der Fokus zu dem Button zurückkehren, der den Dialog geöffnet hat, es sei denn, die im Dialogkontext ausgeführte Funktion führt logisch zu einem anderen Element. Wenn der Button den aktuellen Kontext verändert, wie beispielsweise beim Stummschalten und Aufheben der Stummschaltung einer Audiodatei, bleibt der Fokus typischerweise auf dem Button.
+Nach der Aktivierung des Buttons wird der Fokus je nach Art der Aktion, die der Button ausführt, gesetzt. Zum Beispiel, wenn das Klicken des Buttons einen Dialog öffnet, sollte der Fokus auf den Dialog verschoben werden. Wenn der Button einen Dialog schließt, sollte der Fokus auf den Button zurückkehren, der den Dialog geöffnet hat, es sei denn, die im Dialogkontext ausgeführte Funktion führt logisch zu einem anderen Element. Wenn der Button den aktuellen Kontext ändert, wie das Stummschalten und Aufheben der Stummschaltung einer Audiodatei, bleibt der Fokus typischerweise auf dem Button.
 
-### Erforderliche JavaScript-Eigenschaften
+### Erforderliche JavaScript-Funktionen
 
 #### Erforderliche Ereignishandler
 
-Buttons können von Maus-, Touchscreen- und Tastaturbenutzern bedient werden. Bei nativen HTML-`<button>`-Elementen wird das `onclick`-Ereignis des Buttons sowohl für Mausklicks als auch für das Drücken der <kbd>Leertaste</kbd> oder der <kbd>Enter</kbd>-Taste ausgelöst, während der Button im Fokus ist. Wenn jedoch ein anderes Tag verwendet wird, um einen Button zu erstellen, wird das `onclick`-Ereignis nur ausgelöst, wenn es mit dem Mauszeiger geklickt wird, selbst wenn `role="button"` verwendet wird. Daher müssen separate Tastenereignishandler dem Element hinzugefügt werden, damit der Button ausgelöst wird, wenn die <kbd>Leertaste</kbd> oder die <kbd>Enter</kbd>-Taste gedrückt wird.
+Buttons können von Maus-, Touch- und Tastaturbenutzern bedient werden. Für native HTML `<button>` Elemente wird das `onclick` Ereignis des Buttons ausgelöst, wenn Mausklicks ausgeführt werden und wenn der Benutzer die <kbd>Leertaste</kbd> oder <kbd>Enter</kbd> drückt, während der Button den Fokus hat. Wenn jedoch ein anderes Tag verwendet wird, um einen Button zu erstellen, wird das `onclick` Ereignis nur ausgelöst, wenn es vom Mauszeiger angeklickt wird, selbst wenn `role="button"` verwendet wird. Aufgrund dessen müssen separate Tastaturereignishandler dem Element hinzugefügt werden, so dass der Button bei Drücken der <kbd>Leertaste</kbd> oder <kbd>Enter</kbd> Taste ausgelöst wird.
 
 - `onclick`
-  - : Handhabt das Ereignis, das ausgelöst wird, wenn der Button durch einen Mausklick oder Touch-Ereignis aktiviert wird.
+  - : Behandelt das Ereignis, das ausgelöst wird, wenn der Button durch einen Mausklick oder Touch-Ereignis aktiviert wird.
 - `onKeyDown`
-  - : Handhabt das Ereignis, das ausgelöst wird, wenn der Button durch Drücken der Enter- oder Leertaste auf der Tastatur aktiviert wird. (Hinweis: nicht das [veraltete onKeyPress](/de/docs/Web/API/Element/keypress_event))
+  - : Behandelt das Ereignis, das ausgelöst wird, wenn der Button unter Verwendung der Enter- oder Leertaste auf der Tastatur aktiviert wird. (Hinweis: nicht das [veraltete onKeyPress](/de/docs/Web/API/Element/keypress_event))
 
 ## Beispiele
 
 ### Grundlegendes Button-Beispiel
 
-In diesem Beispiel hat ein Span-Element die `button`-Rolle erhalten. Da ein `<span>`-Element verwendet wird, ist das `tabindex`-Attribut erforderlich, um den Button fokussierbar zu machen und Teil der Tab-Reihenfolge der Seite zu sein. Der enthaltene CSS-Stil wird bereitgestellt, um das `<span>`-Element wie einen Button aussehen zu lassen und visuelle Hinweise zu geben, wenn der Button im Fokus steht.
+In diesem Beispiel wurde einem span-Element die `button` Rolle zugewiesen. Da ein `<span>` Element verwendet wird, wird das `tabindex` Attribut benötigt, um den Button fokussierbar zu machen und Teil der Tab-Reihenfolge der Seite zu sein. Der enthaltene CSS-Stil ist vorgesehen, um das `<span>` Element wie einen Button aussehen zu lassen und visuelle Hinweise zu geben, wenn der Button den Fokus hat.
 
-Die Ereignishandler `handleBtnClick` und `handleBtnKeyDown` führen die Aktion des Buttons aus, wenn dieser durch einen Mausklick oder die <kbd>Leertaste</kbd> oder <kbd>Enter</kbd>-Taste aktiviert wird. In diesem Fall besteht die Aktion darin, einen neuen Namen zur Liste der Namen hinzuzufügen.
+Die `handleBtnClick` und `handleBtnKeyDown` Ereignishandler führen die Aktion des Buttons aus, wenn er durch einen Mausklick oder die <kbd>Leertaste</kbd> oder <kbd>Enter</kbd> Taste aktiviert wird. In diesem Fall besteht die Aktion darin, einen neuen Namen zur Liste der Namen hinzuzufügen.
 
-Probieren Sie das Beispiel aus, indem Sie einen Namen in das Textfeld hinzufügen. Der Button wird dazu führen, dass der Name zu einer Liste hinzugefügt wird.
+Probieren Sie das Beispiel aus, indem Sie einen Namen in das Textfeld eingeben. Der Button wird den Namen zur Liste hinzufügen.
 
 #### HTML
 
@@ -178,9 +179,9 @@ function handleCommand(event) {
 
 {{EmbedLiveSample("Basic_button_example")}}
 
-### Umschaltbutton-Beispiel
+### Umschalter-Button-Beispiel
 
-In diesem Ausschnitt wird ein {{HTMLElement("span")}}-Element mit der `button`-Rolle und dem `aria-pressed`-Attribut in einen Umschaltbutton umgewandelt. Wenn der Button aktiviert wird, wechselt der `aria-pressed`-Wert den Zustand; von `true` zu `false` und wieder zurück.
+In diesem Ausschnitt wird ein {{HTMLElement("span")}} Element mit der `button` Rolle und dem `aria-pressed` Attribut in einen Umschalter-Button umgewandelt. Wenn der Button aktiviert wird, wechselt der `aria-pressed` Wert die Zustände; von `true` zu `false` und zurück.
 
 #### HTML
 
@@ -263,18 +264,18 @@ function toggleButton(element) {
 
 {{EmbedLiveSample('Toggle_button_example')}}
 
-## Zugriffsüberlegungen
+## Barrierefreiheitsthemen
 
-Buttons sind interaktive Steuerungen und daher fokussierbar. Wenn die `button`-Rolle einem Element hinzugefügt wird, das von sich aus nicht fokussierbar ist (wie `<span>`, `<div>` oder `<p>`), muss das `tabindex`-Attribut verwendet werden, um den Button fokussierbar zu machen.
+Buttons sind interaktive Steuerelemente und daher fokussierbar. Wenn die `button` Rolle zu einem Element hinzugefügt wird, das von sich aus nicht fokussierbar ist (wie `<span>`, `<div>` oder `<p>`), dann muss das `tabindex` Attribut verwendet werden, um den Button fokussierbar zu machen.
 
 > [!WARNING]
-> Seien Sie vorsichtig, wenn Sie Links mit der button-Rolle markieren. Buttons werden erwartet, mit der <kbd>Leertaste</kbd> oder <kbd>Enter</kbd>-Taste ausgelöst zu werden, während Links erwartet werden, mit der <kbd>Enter</kbd>-Taste ausgelöst zu werden. Mit anderen Worten: Wenn Links verwendet werden, um wie Buttons zu funktionieren, ist es nicht ausreichend, nur `role="button"` hinzuzufügen. Es ist auch notwendig, einen Tastenereignishandler hinzuzufügen, der auf die <kbd>Leertaste</kbd> hört, um mit nativen Buttons konsistent zu sein.
+> Seien Sie vorsichtig, wenn Sie Links mit der Button-Rolle auszeichnen. Von Buttons wird erwartet, dass sie über die <kbd>Leertaste</kbd> oder <kbd>Enter</kbd> Taste ausgelöst werden, während Links über die <kbd>Enter</kbd> Taste erwartet werden. Mit anderen Worten, wenn Links dazu verwendet werden, wie Buttons zu agieren, reicht das Hinzufügen von `role="button"` alleine nicht aus. Es wird auch notwendig sein, einen Tastenereignishandler hinzuzufügen, der auf die <kbd>Leertaste</kbd> Taste hört, um mit nativen Buttons konsistent zu sein.
 
-Wenn die `button`-Rolle verwendet wird, kündigen Screenreader das Element als Button an, indem sie im Allgemeinen "klicken" gefolgt vom zugänglichen Namen des Buttons sagen. Der zugängliche Name ist entweder der Inhalt des Elements oder der Wert eines `aria-label` oder eines Elements, das durch ein `aria-labelledby`-Attribut referenziert wird, oder eine Beschreibung, falls enthalten.
+Wenn die `button` Rolle verwendet wird, kündigen Screenreader das Element als Button an und sagen im Allgemeinen "klicken" gefolgt vom zugänglichen Namen des Buttons. Der zugängliche Name ist entweder der Inhalt des Elements oder der Wert eines `aria-label` oder des durch ein `aria-labelledby` Attribut referenzierten Elements oder einer Beschreibung, falls enthalten.
 
-## Beste Praktiken
+## Best Practices
 
-Wenn ein Link die Aktion eines Buttons ausführt, hilft das Geben der `role="button"`-Elemente Benutzern von unterstützenden Technologien, die Funktion des Elements zu verstehen. Eine bessere Lösung ist jedoch es, das visuelle Design anzupassen, damit es mit der Funktion und der ARIA-Rolle übereinstimmt. Wo möglich, wird empfohlen, native HTML-Buttons (`<button>`, `<input type="button">`, `<input type="submit">`, `<input type="reset">` und `<input type="image">`) anstelle der `button`-Rolle zu verwenden, da native HTML-Buttons von allen Benutzeragenten und unterstützenden Technologien unterstützt werden und Tastatur- und Fokusanforderungen standardmäßig ohne zusätzliche Anpassungen bieten.
+Wenn ein Link die Aktion eines Buttons ausführt, hilft `role="button"` den Benutzern von unterstützenden Technologien, die Funktion des Elements zu verstehen. Eine bessere Lösung besteht jedoch darin, das visuelle Design so anzupassen, dass es mit der Funktion und der ARIA-Rolle übereinstimmt. Wo immer möglich, wird empfohlen, native HTML-Buttons (`<button>`, `<input type="button">`, `<input type="submit">`, `<input type="reset">` und `<input type="image">`) anstelle der `button` Rolle zu verwenden, da native HTML-Buttons von allen Benutzeragenten und unterstützenden Technologien unterstützt werden und Tastatur- und Fokusanforderungen standardmäßig bereitstellen, ohne dass zusätzliche Anpassungen erforderlich sind.
 
 ## Spezifikationen
 
@@ -282,8 +283,8 @@ Wenn ein Link die Aktion eines Buttons ausführt, hilft das Geben der `role="but
 
 ## Siehe auch
 
-- Das {{HTMLElement('button')}}-Element
-- Das {{HTMLElement("input")}}-Element
+- Das {{HTMLElement('button')}} Element
+- Das {{HTMLElement("input")}} Element
 - [`<input type="button">`](/de/docs/Web/HTML/Reference/Elements/input/button)
 - [`<input type="submit">`](/de/docs/Web/HTML/Reference/Elements/input/submit)
 - [`<input type="reset">`](/de/docs/Web/HTML/Reference/Elements/input/reset)
@@ -292,4 +293,4 @@ Wenn ein Link die Aktion eines Buttons ausführt, hilft das Geben der `role="but
 - [`aria-haspopup`](https://www.w3.org/TR/wai-aria-1.1/#aria-haspopup)
 - [Starke native Semantik in HTML5](https://html.spec.whatwg.org/multipage/dom.html#aria-usage-note)
 - [Hinweise zur Verwendung von ARIA in HTML](https://www.w3.org/TR/aria-in-html/)
-- [Offizieller WAI-ARIA-Beispielcode](https://www.w3.org/WAI/ARIA/apg/patterns/button/examples/button/)
+- [Offizieller WAI-ARIA Beispielcode](https://www.w3.org/WAI/ARIA/apg/patterns/button/examples/button/)

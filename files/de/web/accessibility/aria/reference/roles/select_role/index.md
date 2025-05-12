@@ -1,18 +1,19 @@
 ---
-title: "ARIA: Rolle `select`"
+title: "ARIA: select Rolle"
+short-title: select
 slug: Web/Accessibility/ARIA/Reference/Roles/select_role
 l10n:
-  sourceCommit: ec98716dfe71c78db3f82ee3b1b9e7f68997fa19
+  sourceCommit: a8b25483994fa47cf949b432ddf34a6bce2ddb2e
 ---
 
-Die **Rolle `select`**, eine abstrakte Rolle, ist eine Superklassenrolle für Formular-Widgets, die es dem Benutzer ermöglichen, aus einer Reihe von Auswahlmöglichkeiten auszuwählen.
+Die **`select` Rolle**, eine abstrakte Rolle, ist die Superklassenrolle für Formular-Widgets, die es dem Benutzer ermöglichen, aus einer Auswahl von Optionen zu wählen.
 
 > [!WARNING]
-> Die Rolle `select` ist eine [abstrakte Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles#6._abstract_roles). Sie ist hier aus Gründen der Vollständigkeit der Dokumentation enthalten. Sie sollte nicht von Webautoren verwendet werden.
+> Die `select` Rolle ist eine [abstrakte Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles#6._abstract_roles). Sie ist hier zur Vollständigkeit der Dokumentation enthalten. Sie sollte nicht von Web-Autoren verwendet werden.
 
 ## Beschreibung
 
-Die strukturelle Rolle `select`, eine abstrakte Rolle, ist eine Superklassenrolle für vier Formular-Widgets, [`listbox`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/listbox_role), [`menu`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/menu_role), [`radiogroup`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/radiogroup_role) und [`tree`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/tree_role), die es Benutzern ermöglichen, aus einer Reihe von Auswahlmöglichkeiten auszuwählen.
+Die strukturelle `select` Rolle, eine abstrakte Rolle, ist die Superklassenrolle für vier Formular-Widgets, [`listbox`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/listbox_role), [`menu`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/menu_role), [`radiogroup`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/radiogroup_role) und [`tree`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/tree_role), die es Benutzern ermöglichen, aus einer Auswahl von Optionen zu wählen.
 
 ## Spezifikationen
 
@@ -20,9 +21,9 @@ Die strukturelle Rolle `select`, eine abstrakte Rolle, ist eine Superklassenroll
 
 ## Siehe auch
 
-- [ARIA: Rolle `composite`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/composite_role)
-- [ARIA: Rolle `group`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/group_role)
-- [ARIA: Rolle `listbox`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/listbox_role)
-- [ARIA: Rolle `menu`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/menu_role)
-- [ARIA: Rolle `radiogroup`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/radiogroup_role)
-- [ARIA: Rolle `tree`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/tree_role)
+- [ARIA: `composite` Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles/composite_role)
+- [ARIA: `group` Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles/group_role)
+- [ARIA: `listbox` Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles/listbox_role)
+- [ARIA: `menu` Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles/menu_role)
+- [ARIA: `radiogroup` Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles/radiogroup_role)
+- [ARIA: `tree` Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles/tree_role)

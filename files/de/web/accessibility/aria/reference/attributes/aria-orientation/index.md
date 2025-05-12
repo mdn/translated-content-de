@@ -1,55 +1,56 @@
 ---
-title: aria-orientation
+title: "ARIA: aria-orientation-Attribut"
+short-title: aria-orientation
 slug: Web/Accessibility/ARIA/Reference/Attributes/aria-orientation
 l10n:
-  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
+  sourceCommit: a8b25483994fa47cf949b432ddf34a6bce2ddb2e
 ---
 
-Das Attribut `aria-orientation` gibt an, ob die Ausrichtung des Elements horizontal, vertikal oder unbekannt/mehrdeutig ist.
+Das `aria-orientation`-Attribut gibt an, ob die Orientierung des Elements horizontal, vertikal oder unbekannt/mehrdeutig ist.
 
 ## Beschreibung
 
-Es kann für den Benutzer wichtig sein, die Ausrichtung zu kennen, um zu wissen, wie bestimmte Widgets navigiert werden können, da die Ausrichtung das erwartete Verhalten der Tasten für links, rechts, oben und unten beeinflusst. Das Attribut `aria-orientation` wird verwendet, um Benutzern von unterstützenden Technologien anzuzeigen, ob die Ausrichtung eines Elements `horizontal` oder `vertical` oder `undefined` ist.
+Es kann wichtig sein, dass der Benutzer die Orientierung kennt, um zu wissen, wie man bestimmte Widgets navigiert, da die Orientierung das erwartete Verhalten der Pfeiltasten links, rechts, oben und unten beeinflusst. Das `aria-orientation`-Attribut wird verwendet, um Nutzern von unterstützender Technologie anzuzeigen, ob die Orientierung eines Elements `horizontal`, `vertical` oder `undefined` ist.
 
-Einige Widgets haben Standardausrichtungen:
+Einige Widgets haben standardmäßig Orientierungen:
 
 Standardmäßig horizontal:
 
 - [`slider`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/slider_role),
-- [`tablist`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/tablist_role),
-- [`toolbar`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/toolbar_role),
+- [`tablist`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/tablist_role)
+- [`toolbar`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/toolbar_role)
 - [`menubar`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/menubar_role)
 
 Standardmäßig vertikal:
 
-- [`scrollbar`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/scrollbar_role),
-- [`tree`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/tree_role),
-- [`listbox`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/listbox_role),
+- [`scrollbar`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/scrollbar_role)
+- [`tree`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/tree_role)
+- [`listbox`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/listbox_role)
 - [`menu`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/menu_role)
 
-Jeder [`separator`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/separator_role) sollte `aria-orientation` entsprechend der Ausrichtung des Separators haben.
+Jeder [`separator`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/separator_role) sollte ein `aria-orientation`-Attribut haben, das mit der Orientierung des Separators übereinstimmt.
 
-Wenn Knoten in einem Baum horizontal statt in der standardmäßigen vertikalen Ausrichtung angeordnet sind, oder wenn eine Tab-Liste vertikal statt horizontal ist, verhält sich die untere Pfeiltaste wie die rechte Pfeiltaste und die obere Pfeiltaste wie die linke Pfeiltaste. In diesen Fällen müssen Benutzer von unterstützenden Technologien die Ausrichtung des Widgets kennen, um korrekt navigieren zu können.
+Wenn Knoten in einem Baum horizontal anstatt in der standardmäßigen vertikalen Richtung angeordnet sind oder wenn eine Tab-Liste vertikal anstatt horizontal ist, funktioniert der Abwärtspfeil wie ein normaler Rechtspfeil und der Aufwärtspfeil wie ein normaler Linkspfeil. In diesen Fällen müssen Nutzer von unterstützender Technologie die Orientierung des Widgets kennen, um korrekt navigieren zu können.
 
-Die Pfeiltasten nach oben und unten sind in der Regel für das normale Scrollen im Browser verfügbar, selbst wenn der Fokus innerhalb eines Baums oder einer Tab-Liste liegt. Verwenden Sie `aria-orientation`, um Benutzer zu warnen, wenn ein Widget nicht die standardmäßige, erwartete Ausrichtung und die damit verbundene Navigation hat.
+Auf- und Abwärtspfeile stehen generell für normales Browserscrolling zur Verfügung, selbst wenn sich der Fokus innerhalb eines Baums oder einer Tab-Liste befindet. Fügen Sie `aria-orientation` hinzu, um Nutzer zu warnen, wenn ein Widget nicht die standardmäßige, erwartete Orientierung und assoziierte Navigation hat.
 
-Denken Sie immer daran, dass ARIA nur beeinflusst, wie unterstützende Technologien Inhalte für Ihre Benutzer präsentieren; um das Verhalten der Pfeiltasten zu ändern, ist JavaScript erforderlich.
+Denken Sie immer daran, dass ARIA nur verändert, wie unterstützende Technologie Inhalte Ihren Nutzern präsentiert; das Verhalten der Pfeiltasten zu ändern, erfordert JavaScript.
 
 ## Werte
 
 - `horizontal`
-  - : Das Element ist horizontal ausgerichtet.
-- `undefined` (standardmäßig)
-  - : Die Ausrichtung des Elements ist unbekannt/mehrdeutig.
+  - : Das Element ist horizontal orientiert.
+- `undefined` (Standard)
+  - : Die Orientierung des Elements ist unbekannt/mehrdeutig.
 - `vertical`
-  - : Das Element ist vertikal ausgerichtet.
+  - : Das Element ist vertikal orientiert.
 
 ## Zugehörige Schnittstellen
 
 - [`Element.ariaOrientation`](/de/docs/Web/API/Element/ariaOrientation)
-  - : Die [`ariaOrientation`](/de/docs/Web/API/Element/ariaOrientation)-Eigenschaft, Teil der [`Element`](/de/docs/Web/API/Element)-Schnittstelle, spiegelt den Wert des `aria-orientation`-Attributes wider.
+  - : Die [`ariaOrientation`](/de/docs/Web/API/Element/ariaOrientation)-Eigenschaft, Teil der [`Element`](/de/docs/Web/API/Element)-Schnittstelle, spiegelt den Wert des `aria-orientation`-Attributs wider.
 - [`ElementInternals.ariaOrientation`](/de/docs/Web/API/ElementInternals/ariaOrientation)
-  - : Die [`ariaOrientation`](/de/docs/Web/API/ElementInternals/ariaOrientation)-Eigenschaft, Teil der [`ElementInternals`](/de/docs/Web/API/ElementInternals)-Schnittstelle, spiegelt den Wert des `aria-orientation`-Attributes wider.
+  - : Die [`ariaOrientation`](/de/docs/Web/API/ElementInternals/ariaOrientation)-Eigenschaft, Teil der [`ElementInternals`](/de/docs/Web/API/ElementInternals)-Schnittstelle, spiegelt den Wert des `aria-orientation`-Attributs wider.
 
 ## Zugehörige Rollen
 
@@ -62,7 +63,7 @@ Verwendet in Rollen:
 - [`tablist`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/tablist_role)
 - [`toolbar`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/toolbar_role)
 
-Geerbt in Rollen:
+Vererbt in Rollen:
 
 - [`listbox`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/listbox_role)
 - [`menu`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/menu_role)
@@ -77,4 +78,4 @@ Geerbt in Rollen:
 
 ## Siehe auch
 
-- [Verständnis von WCAG: Tastatur](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Keyboard)
+- [Verstehen von WCAG: Tastatur](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Keyboard)

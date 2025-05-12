@@ -1,15 +1,16 @@
 ---
-title: aria-colindextext
+title: "ARIA: aria-colindextext Attribut"
+short-title: aria-colindextext
 slug: Web/Accessibility/ARIA/Reference/Attributes/aria-colindextext
 l10n:
-  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
+  sourceCommit: a8b25483994fa47cf949b432ddf34a6bce2ddb2e
 ---
 
-Das `aria-colindextext` Attribut definiert eine für Menschen lesbare Textalternative zum numerischen [`aria-colindex`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-colindex).
+Das `aria-colindextext` Attribut definiert einen menschenlesbaren Text als Alternative zum numerischen [`aria-colindex`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-colindex).
 
 ## Beschreibung
 
-Wenn Sie eine sehr große Tabelle haben oder absichtlich nur einen Teil einer Tabelle anzeigen möchten, sind möglicherweise nicht alle Spalten im DOM vorhanden. In diesem Fall verwenden wir das [`aria-colcount`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-colcount) mit einem ganzzahligen Wert, um zu definieren, wie viele Spalten die Tabelle (oder das Raster) hätte, wenn alle Spalten vorhanden wären, und fügen die [`aria-colindex`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-colindex) Eigenschaft auf jeder Spalte hinzu, um Informationen über den Spaltenindex innerhalb dieser größeren Tabelle bereitzustellen.
+Wenn Sie eine sehr große Tabelle haben oder nur absichtlich einen Abschnitt einer Tabelle anzeigen möchten, sind möglicherweise nicht alle Spalten im DOM vorhanden. In diesem Fall verwenden wir das [`aria-colcount`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-colcount) mit einem ganzzahligen Wert, um zu definieren, wie viele Spalten die Tabelle (oder das Raster) hätte, wenn alle Spalten vorhanden wären, und fügen die [`aria-colindex`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-colindex) Eigenschaft für jede Spalte hinzu, um Informationen über den Spaltenindex innerhalb dieser größeren Tabelle bereitzustellen.
 
 Im folgenden HTML-Ausschnitt hat unsere Tabelle 8 Spalten, aber wir zeigen nur 4 an. Die "city"-Spalte ist die fünfte Spalte unserer größeren Tabelle, wie durch `aria-colindex="5"` definiert.
 
@@ -27,7 +28,7 @@ Im folgenden HTML-Ausschnitt hat unsere Tabelle 8 Spalten, aber wir zeigen nur 4
 </table>
 ```
 
-Diese Tabelle ist nicht sehr komplex. Wäre es eine Tabelle mit über 100 Spalten oder ein Gitter ohne Spaltenüberschriften, wie ein Schachbrett, könnte der bereitgestellte oder berechnete Wert von `aria-colindex` nicht sinnhaft oder möglicherweise nicht der angezeigte Index sein. In diesem Fall kann `aria-colindextext` hinzugefügt werden. Der Wert ist eine Zeichenkette, die eine für Menschen lesbare Textalternative zum numerischen `aria-colindex` darstellt.
+Diese Tabelle ist nicht sehr komplex. Wenn dies ein Spreadsheet mit mehr als 100 Spalten oder ein Raster ohne Spaltenüberschriften gewesen wäre, wie z.B. ein Schachbrett, könnte der angegebene oder berechnete Wert von `aria-colindex` nicht sinnvoll sein oder möglicherweise nicht den angezeigten Index widerspiegeln. In diesem Fall kann `aria-colindextext` hinzugefügt werden. Der Wert ist eine Zeichenkette, die als menschenlesbare Textalternative zum numerischen `aria-colindex` dient.
 
 ```html
 <table aria-colcount="128">
@@ -55,19 +56,19 @@ Diese Tabelle ist nicht sehr komplex. Wäre es eine Tabelle mit über 100 Spalte
 </table>
 ```
 
-Im obigen Beispiel hat die Tabelle 128 Spalten, von denen nur 4 angezeigt werden. Das `aria-colindextext` wird in drei Spalten verwendet, um für Menschen lesbare Textalternativen bereitzustellen. Durch die Einbeziehung von `aria-colindextext="Value at start of 2021"` können unterstützende Technologien "Value at start of 2021" anstelle von "Column 110" ankündigen.
+Im obigen Beispiel hat die Tabelle 128 Spalten, von denen nur 4 angezeigt werden. Das `aria-colindextext` wird in drei Spalten genutzt, um menschenlesbare Textalternativen bereitzustellen. Indem `aria-colindextext="Value at start of 2021"` eingefügt wird, können unterstützende Technologien "Value at start of 2021" statt "Column 110" ankündigen.
 
-Verwenden Sie `aria-colindextext` nur, wenn der bereitgestellte oder berechnete Wert von `aria-colindex` nicht sinnhaft ist oder nicht dem angezeigten Index entspricht. Wann immer Sie `aria-colindextext` einfügen, behalten Sie auch das `aria-colindex`, da einige unterstützende Technologien auf den numerischen Spaltenindex angewiesen sind, um die Position des Benutzers zu verfolgen und alternative Tabellennavigation bereitzustellen.
+Verwenden Sie `aria-colindextext` nur, wenn der angegebene oder berechnete Wert von `aria-colindex` nicht sinnvoll ist oder nicht den angezeigten Index widerspiegelt. Wann immer Sie `aria-colindextext` einschließen, behalten Sie auch das `aria-colindex` bei, da einige unterstützende Technologien auf den numerischen Spaltenindex angewiesen sind, um die Position des Benutzers zu verfolgen und alternative Tabellennavigationen bereitzustellen.
 
 > [!NOTE]
-> Während `aria-colindex` zu einer Zeile hinzugefügt werden kann, wenn alle vorhandenen Spalten zusammenhängend sind, da sequenzielle Werte abgeleitet werden können, ist `aria-colindextext` KEINE unterstützte Eigenschaft von [`row`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/row_role).
+> Obwohl `aria-colindex` einer Zeile hinzugefügt werden kann, wenn alle vorhandenen Spalten zusammenhängend sind, da die sequentiellen Werte abgeleitet werden können, ist `aria-colindextext` KEINE unterstützte Eigenschaft von [`row`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/row_role).
 
 Siehe verwandtes [`aria-rowindextext`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-rowindextext).
 
 ## Werte
 
 - `<string>`
-  - : Die für Menschen lesbare Textalternative zum numerischen [`aria-colindex`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-colindex)
+  - : Die menschenlesbare Textalternative zum numerischen [`aria-colindex`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-colindex)
 
 ## Zugehörige Schnittstellen
 
@@ -82,7 +83,7 @@ Verwendet in Rollen:
 
 - [`cell`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/cell_role)
 
-Erbt in Rollen:
+Vererbt in Rollen:
 
 - [`columnheader`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/columnheader_role)
 - [`rowheader`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/columnheader_role)
@@ -97,6 +98,6 @@ Erbt in Rollen:
 - [`aria-colindex`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-colindex)
 - [`aria-rowindextext`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-rowindextext)
 - [`aria-colcount`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-colcount)
-- [`cell` role](/de/docs/Web/Accessibility/ARIA/Reference/Roles/cell_role)
-- [`columnheader` role](/de/docs/Web/Accessibility/ARIA/Reference/Roles/columnheader_role)
-- [`rowheader` role](/de/docs/Web/Accessibility/ARIA/Reference/Roles/columnheader_role)
+- [`cell` Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles/cell_role)
+- [`columnheader` Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles/columnheader_role)
+- [`rowheader` Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles/columnheader_role)

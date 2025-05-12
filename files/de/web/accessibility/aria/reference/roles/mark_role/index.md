@@ -1,25 +1,26 @@
 ---
-title: "ARIA: `mark`-Rolle"
+title: "ARIA: mark Rolle"
+short-title: mark
 slug: Web/Accessibility/ARIA/Reference/Roles/mark_role
 l10n:
-  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
+  sourceCommit: a8b25483994fa47cf949b432ddf34a6bce2ddb2e
 ---
 
-Die `mark`-Rolle kennzeichnet Inhalte, die für Bezugnahme oder Notizzwecke markiert oder hervorgehoben sind, aufgrund der Relevanz des Inhalts im umgebenden Kontext.
+Die `mark` Rolle kennzeichnet Inhalte, die zur Referenz oder wegen ihrer Bedeutung im umgebenden Kontext markiert oder hervorgehoben sind.
 
 ## Beschreibung
 
-Die `mark`-Rolle bezeichnet semantisch HTML-Elemente, die Text enthalten, der zu Referenzzwecken markiert/hervorgehoben ist. Dies entspricht semantisch dem HTML-{{HTMLElement('mark')}}-Element. Wenn möglich, sollten Sie stattdessen dieses Element verwenden.
+Die `mark` Rolle kennzeichnet HTML-Elemente, die Text enthalten, der zur Referenz markiert/hervorgehoben ist. Dies entspricht semantisch dem HTML-Element {{HTMLElement('mark')}}. Wenn möglich, sollten Sie dieses Element stattdessen verwenden.
 
-Beispielhafte Verwendungen für `mark` sind genau die gleichen wie für das `<mark>`-Element. Sie beinhalten das Hervorheben von Text in einem Zitat, das von besonderem Interesse ist, aber nicht im Originalmaterial markiert wurde, vergleichbar mit der Verwendung eines Textmarkers, um Passagen eines gedruckten Artikels zu markieren, und die Kennzeichnung von Teilen des Inhalts, die für die aktuelle Benutzeraktivität relevant sind, wie z. B. das Hervorheben von Texttreffern, die von einer Suchfunktion gefunden wurden.
+Beispiele für die Verwendung von `mark` sind genau dieselben wie für das `<mark>` Element. Dazu gehört das Hervorheben von Text in einem Zitat, das von besonderem Interesse ist, aber im ursprünglichen Quellenmaterial nicht markiert ist, vergleichbar mit der Verwendung eines Textmarkers, um Abschnitte eines gedruckten Artikels zu markieren und Teile des Inhalts anzuzeigen, die für die aktuelle Aktivität des Benutzers relevant sind, wie z.B. das Hervorheben von Textübereinstimmungen, die von einer Suchfunktion gefunden wurden.
 
-Verwenden Sie `mark` nicht für rein dekorative Stile, wie beispielsweise Syntaxhervorhebung.
+Verwenden Sie `mark` nicht für rein dekorative Stile wie Syntaxhervorhebung.
 
-Das `mark`-Element sollte keinen zugänglichen Namen erhalten; sowohl [`aria-label`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label) als auch [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby)-Attribute sind für `mark` untersagt.
+Dem `mark` Element sollte kein zugänglicher Name gegeben werden; sowohl die [`aria-label`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label) als auch die [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby) Attribute sind bei `mark` verboten.
 
 ## Beispiele
 
-Im folgenden Beispiel haben wir einen Dokumentabschnitt, der kommentiert wurde. Der kommentierte Abschnitt wird mit `<span role="mark">` gekennzeichnet.
+Im folgenden Beispiel haben wir einen Abschnitt eines Dokuments, der kommentiert wurde. Der kommentierte Abschnitt wird mit `<span role="mark">` ausgezeichnet.
 
 ```html
 <p>
@@ -35,15 +36,15 @@ Im folgenden Beispiel haben wir einen Dokumentabschnitt, der kommentiert wurde. 
 </div>
 ```
 
-Der zugehörige Kommentar wird mit einer HTML-Struktur gekennzeichnet, die von einem {{HTMLElement('div')}} umschlossen ist und [`role="comment"`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/comment_role) enthält.
+Der dazugehörige Kommentar wird mit einer HTML-Struktur ausgezeichnet, die mit einem {{HTMLElement('div')}} umschlossen ist und [`role="comment"`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/comment_role) enthält.
 
-Um den Kommentar mit dem Text, der kommentiert wird, zu verknüpfen, müssen wir den kommentierten Text mit einem Element umschließen, das das [`aria-details`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-details)-Attribut enthält, dessen Wert die ID des Kommentars sein sollte.
+Um den Kommentar mit dem kommentierten Text zu verknüpfen, müssen wir den kommentierten Text mit einem Element umschließen, das das [`aria-details`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-details) Attribut enthält, dessen Wert die ID des Kommentars sein sollte.
 
 ## Best Practices
 
-### Bevorzugung von HTML
+### Bevorzugen Sie HTML
 
-Die Verwendung des {{HTMLElement('mark')}}-Elements wird automatisch kommunizieren, dass ein Knoten die Rolle `mark` hat. Wenn möglich, bevorzugen Sie die Verwendung dieses Elements.
+Die Verwendung des {{HTMLElement('mark')}} Elements gibt automatisch an, dass ein Knoten die Rolle `mark` hat. Wenn möglich, sollten Sie es bevorzugt verwenden.
 
 ## Spezifikationen
 
@@ -51,4 +52,4 @@ Wird Teil von [WAI-ARIA 1.3](https://w3c.github.io/aria/#mark) sein, das sich no
 
 ## Siehe auch
 
-- HTML-{{HTMLElement('mark')}}-Element
+- HTML {{HTMLElement('mark')}} Element

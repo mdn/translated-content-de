@@ -1,23 +1,24 @@
 ---
-title: "ARIA: Präsentationsrolle"
+title: "ARIA: presentation-Rolle"
+short-title: presentation
 slug: Web/Accessibility/ARIA/Reference/Roles/presentation_role
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: a8b25483994fa47cf949b432ddf34a6bce2ddb2e
 ---
 
-Die `presentation`- und ihre Synonymrolle `none` entfernen die implizite ARIA-Semantik eines Elements, damit diese nicht im Zugänglichkeitsbaum sichtbar ist.
+Die `presentation`-Rolle und ihr Synonym `none` entfernen die implizite ARIA-Semantik eines Elements aus dem Zugänglichkeitsbaum.
 
-Der Inhalt des Elements bleibt für unterstützende Technologien verfügbar; es sind nur die Semantiken des Containers — und in einigen Fällen erforderliche zugeordnete Nachfahren —, die ihre Zuordnungen zur Zugänglichkeits-API nicht mehr offenlegen.
+Der Inhalt des Elements bleibt für unterstützende Technologien zugänglich; es sind nur die Semantik des Containers – und in einigen Fällen auch erforderliche zugehörige Nachkommen – die ihre Zuordnungen zur Zugänglichkeits-API nicht mehr offenlegen.
 
 ## Beschreibung
 
-Während ARIA hauptsächlich dazu verwendet wird, Semantik auszudrücken, gibt es einige Situationen, in denen es hilfreich ist, die Semantik eines Elements vor unterstützenden Technologien zu verbergen. Dies wird mit der `presentation`-Rolle oder ihrer Synonymrolle `none` erreicht, die angeben, dass ein Element nur zur Darstellung verwendet wird und daher keine Zugänglichkeitssemantiken besitzt.
+Während ARIA hauptsächlich verwendet wird, um Semantik auszudrücken, gibt es einige Situationen, in denen es hilfreich ist, die Semantik eines Elements vor unterstützenden Technologien zu verbergen. Dies wird mit der `presentation`-Rolle oder ihrer synonymen Rolle `none` erreicht, die angeben, dass ein Element nur zur Darstellung verwendet wird und daher keine zugänglichen Semantiken besitzt.
 
-Das Schreiben von `<h2 role="presentation">Democracy Dies in Darkness</h2>` entfernt die Überschriftensemantik des {{HTMLElement("Heading_Elements", "h2")}}-Elements, wodurch es dem Äquivalent von `<div>Democracy Dies in Darkness</div>` entspricht. Die Überschriftenrollensemantik wird entfernt, aber der Inhalt selbst bleibt verfügbar.
+Mit `<h2 role="presentation">Democracy Dies in Darkness</h2>` werden die Überschriftensemantiken des {{HTMLElement("Heading_Elements", "h2")}} Elements entfernt, sodass es gleichbedeutend mit `<div>Democracy Dies in Darkness</div>` ist. Die Überschriftenrollen-Semantiken werden entfernt, aber der Inhalt selbst bleibt verfügbar.
 
-Wenn ein Element erforderliche Nachfahren hat, wie zum Beispiel die verschiedenen {{HTMLElement('table')}}-Elemente und {{HTMLElement('li')}}-Kinder eines {{HTMLElement('ul')}} oder {{HTMLElement('ol')}}, wird durch die `presentation`- oder `none`-Rolle auf der Tabelle oder Liste die Standardsemantik des Elements, auf das sie angewendet wurde, sowie deren erforderliche Nachfahrelemente entfernt.
+Wenn ein Element erforderliche Nachkommen hat, wie die verschiedenen {{HTMLElement('table')}}-Elemente und {{HTMLElement('li')}}-Kinder eines {{HTMLElement('ul')}} oder {{HTMLElement('ol')}}, entfernt die `presentation`- oder `none`-Rolle auf der Tabelle oder Liste die Standardsemantiken des Elements, auf das sie angewendet wurde, und ihrer erforderlichen Nachkommenelemente.
 
-Wird `presentation` oder `none` auf ein {{HTMLElement('table')}}-Element angewendet, erben die Nachfahren {{HTMLElement('caption')}}, {{HTMLElement('thead')}}, {{HTMLElement('tbody')}}, {{HTMLElement('tfoot')}}, {{HTMLElement('tr')}}, {{HTMLElement('th')}}, und {{HTMLElement('td')}} die Rolle und sind somit nicht für unterstützende Technologien sichtbar. Aber Elemente innerhalb der {{HTMLElement('th')}} und {{HTMLElement('td')}}-Elemente, einschließlich verschachtelter Tabellen, sind für unterstützende Technologien sichtbar.
+Wenn `presentation` oder `none` auf ein {{HTMLElement('table')}}-Element angewendet wird, erben die Nachkommen {{HTMLElement('caption')}}, {{HTMLElement('thead')}}, {{HTMLElement('tbody')}}, {{HTMLElement('tfoot')}}, {{HTMLElement('tr')}}, {{HTMLElement('th')}} und {{HTMLElement('td')}} Elemente die Rolle und werden daher nicht für unterstützende Technologien offen gelegt. Aber Elemente innerhalb der {{HTMLElement('th')}}- und {{HTMLElement('td')}}-Elemente, einschließlich verschachtelter Tabellen, werden unterstützenden Technologien zugänglich gemacht.
 
 ```html
 <ul role="presentation">
@@ -33,16 +34,16 @@ Wird `presentation` oder `none` auf ein {{HTMLElement('table')}}-Element angewen
 </ul>
 ```
 
-Da die `presentation`-Rolle auf das {{HTMLElement('ul')}}-Element angewendet wurde, erbt jedes Kind-{{HTMLElement('li')}}-Element die `presentation`-Rolle. Dies liegt daran, dass ARIA verlangt, dass `listitem`-Elemente ein übergeordnetes `list`-Element haben. Während die {{HTMLElement('li')}}-Elemente in diesem Fall nicht für unterstützende Technologien sichtbar sind, sind Nachfahren dieser erforderlichen Elemente sichtbar. Wenn wir innerhalb eines dieser {{HTMLElement('li')}}-Elemente eine Liste verschachtelt hätten, wären sie für unterstützende Technologien sichtbar. Bei Elementen ohne erforderliche Kinder behalten alle innerhalb des Elements mit `role="presentation"` oder `role="none"` verschachtelten Elemente ihre Semantik. In diesem Fall sind die innerhalb dieser {{HTMLElement('li')}}-Elemente enthaltenen {{HTMLElement('a')}}-Elemente sichtbar.
+Da die `presentation`-Rolle auf das {{HTMLElement('ul')}}-Element angewendet wurde, erbt jedes Kind-{{HTMLElement('li')}}-Element die `presentation`-Rolle. Dies liegt daran, dass ARIA erfordert, dass die `listitem`-Elemente ein übergeordnetes `list`-Element haben. Während die {{HTMLElement('li')}}-Elemente in diesem Fall nicht unterstützenden Technologien zugänglich gemacht werden, sind die Nachkommen dieser erforderlichen Elemente zugänglich. Wenn wir eine Liste innerhalb eines dieser {{HTMLElement('li')}} verschachtelt hätten, wären sie für unterstützende Technologien sichtbar. Bei Elementen ohne erforderliche Kinder behalten die innerhalb des Elements mit `role="presentation"` oder `role="none"` verschachtelten Elemente ihre Semantik. In diesem Fall werden die innerhalb dieser {{HTMLElement('li')}}-Elemente enthaltenen {{HTMLElement('a')}}-Elemente bekannt gemacht.
 
-Das {{HTMLElement('a')}} ist ein besonderer Fall. Seine Rolle wäre sichtbar gewesen, selbst wenn es direkt mit der `presentation`- oder `none`-Rolle belegt worden wäre. Browser ignorieren `role="presentation"` und `role="none"` bei fokussierbaren Elementen, einschließlich Links und Eingaben, oder bei allem, was ein [tabindex](/de/docs/Web/HTML/Reference/Global_attributes/tabindex)-Attribut gesetzt hat. Browser ignorieren auch die Einbeziehung der Rolle, wenn eines der Elemente globale ARIA-Zustände und -Eigenschaften enthält, wie beispielsweise [`aria-describedby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-describedby).
+Das {{HTMLElement('a')}} ist ein Sonderfall. Seine Rolle wäre bekannt gemacht worden, selbst wenn direkt die `presentation`- oder `none`-Rolle darauf angewendet worden wäre. Browser ignorieren `role="presentation"` und `role="none"` auf fokussierbaren Elementen, einschließlich Links und Eingabefeldern, oder allem mit einem [tabindex](/de/docs/Web/HTML/Reference/Global_attributes/tabindex)-Attribut. Browser ignorieren auch das Hinzufügen der Rolle, wenn eines der Elemente globale ARIA-Zustände und -Eigenschaften enthält, wie [`aria-describedby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-describedby).
 
 > [!NOTE]
-> Das Element mit `role="presentation"` ist kein Teil des Zugänglichkeitsbaums und sollte keinen zugänglichen Namen haben. Verwenden Sie **nicht** [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby) oder [`aria-label`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label).
+> Das Element mit `role="presentation"` ist nicht Teil des Zugänglichkeitsbaums und sollte keinen zugänglichen Namen haben. Verwenden Sie **nicht** [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby) oder [`aria-label`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label).
 
-### Zugeordnete WAI-ARIA-Rollen, -Zustände und -Eigenschaften
+### Zugehörige WAI-ARIA Rollen, Zustände und Eigenschaften
 
-Keine. Wenn ein globaler ARIA-Zustand und eine -Eigenschaft gesetzt sind, werden `presentation` oder `none` ignoriert und die implizite Rolle des Elements wird verwendet.
+Keine. Wenn ein globaler ARIA-Zustand und eine Eigenschaft festgelegt sind, wird `presentation` oder `none` ignoriert, und die implizite Rolle des Elements wird verwendet.
 
 ## Beispiele
 

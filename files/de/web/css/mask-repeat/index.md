@@ -2,12 +2,12 @@
 title: mask-repeat
 slug: Web/CSS/mask-repeat
 l10n:
-  sourceCommit: cb7e7fde9b942001d6acef7d9868fbf622d71636
+  sourceCommit: ff31fa134873d7fc271ea37a020a5cf12f6f1dd8
 ---
 
 {{CSSRef}}
 
-Die **`mask-repeat`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, wie Maskenbilder wiederholt werden. Ein Maskenbild kann entlang der horizontalen Achse, der vertikalen Achse, beider Achsen oder gar nicht wiederholt werden.
+Die **`mask-repeat`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt fest, wie Maskenbilder wiederholt werden. Ein Maskenbild kann entlang der horizontalen Achse, der vertikalen Achse, beiden Achsen oder gar nicht wiederholt werden.
 
 ## Syntax
 
@@ -45,39 +45,40 @@ mask-repeat: unset;
 
 ### Werte
 
-Die Eigenschaft `mask-repeat` ist eine kommagetrennte Liste von zwei `<repeat-style>` Werten, wobei der erste `<repeat-style>` Wert den horizontalen Wiederholungswert und der zweite den vertikalen Wiederholungswert darstellt, oder ein einzelner Schlüsselwortwert, der eine Kurzform für zwei `<repeat-style>` Werte ist.
+Die `mask-repeat`-Eigenschaft ist eine kommagetrennte Liste von zwei `<repeat-style>` Werten,
+bei denen der erste `<repeat-style>` Wert den horizontalen Wiederholungswert und der zweite Wert den vertikalen Wiederholungswert darstellt, oder ein Schlüsselwortwert, der eine Kurzform für zwei `<repeat-style>` Werte ist.
 
 #### `<repeat-style>` Werte
 
-Die `<repeat-style>` Werte beinhalten:
+Die `<repeat-style>` Werte umfassen:
 
 - `repeat`
 
-  - : Das Bild wird so oft wie nötig wiederholt, um den gesamten Maskenmalbereich abzudecken. Maskenbilder entlang der Ränder werden abgeschnitten, wenn die Größe des [Maskenursprungsbereichs](/de/docs/Web/CSS/mask-origin) kein exaktes Vielfaches der Maskenbildgröße ist.
+  - : Das Bild wird so oft wiederholt, wie nötig, um den gesamten Masken-Malbereich zu bedecken. Maskenbilder entlang der Ränder werden abgeschnitten, wenn die Größe der [Masken-Origin-Box](/de/docs/Web/CSS/mask-origin) kein exaktes Vielfaches der Größe des Maskenbildes ist.
 
 - `space`
 
-  - : Das Maskenbild wird so oft wie möglich ohne Abschneiden wiederholt. Wenn die Ursprungsgöße des Elements mindestens zweimal so groß ist wie die Maskenbildgröße in der entsprechenden Dimension, wird die {{cssxref("mask-position")}} Eigenschaft ignoriert und die ersten und letzten Bilder werden an den Rändern des Maskenursprung-Containers positioniert. Wenn der Ursprungskasten kein exaktes Vielfaches der Maskenbildgröße ist, wird der Leerraum gleichmäßig zwischen den wiederholten Maskenbildern verteilt.
+  - : Das Maskenbild wird so oft wie möglich ohne Abschneiden wiederholt. Wenn die Größe der Element-Origin mindestens doppelt so groß ist wie die Größe des Maskenbildes in der entsprechenden Dimension, wird die {{cssxref("mask-position")}}-Eigenschaft ignoriert und die ersten und letzten Bilder an den Rändern des Masken-Origin-Containers positioniert. Ist die Masken-Origin-Box kein exaktes Vielfaches der Größe des Maskenbildes, wird der Leerraum gleichmäßig zwischen den wiederholten Maskenbildern verteilt.
 
-    Wenn die Ursprungsgröße kleiner als das Doppelte der Maskenbildgröße in der angegebenen Dimension ist, kann nur ein Maskenbild angezeigt werden. In diesem Fall wird das Bild wie durch die `mask-position` Eigenschaft definiert positioniert, die standardmäßig `0% 0%` ist. Das Maskenbild wird nur abgeschnitten, wenn das Maskenbild größer als der Maskenursprungskasten ist.
+    Wenn die Origin-Box kleiner als doppelt so groß wie das Maskenbild in der angegebenen Dimension ist, kann nur ein Maskenbild angezeigt werden. In diesem Fall wird das Bild gemäß der `mask-position`-Eigenschaft positioniert, die standardmäßig auf `0% 0%` gesetzt ist. Das Maskenbild wird nur abgeschnitten, wenn das Maskenbild größer als die Masken-Origin-Box ist.
 
 - `round`
 
-  - : Das Maskenbild wird so oft wie möglich in seinen ursprünglichen Dimensionen wiederholt. Wenn die Größe des Maskenursprungskastens kein exaktes Vielfaches der Maskenbildgröße ist, werden alle Maskenbilder skaliert, [verkleinert oder gestreckt](#rounded-repetitions), um sicherzustellen, dass keine Wiederholungen abgeschnitten werden.
+  - : Das Maskenbild wird so oft wie möglich in seinen Originalmaßen wiederholt. Wenn die Größe der Masken-Origin-Box kein exaktes Vielfaches der Größe des Maskenbildes ist, werden alle Maskenbilder [verkleinert oder gestreckt](#runde_wiederholungen), um sicherzustellen, dass keine Wiederholungen abgeschnitten werden.
 
 - `no-repeat`
 
-  - : Das Maskenbild wird nicht wiederholt (und daher wird der Maskenmalbereich nicht unbedingt vollständig abgedeckt). Die Position des nicht wiederholten Maskenbildes wird durch die {{cssxref("mask-position")}} CSS-Eigenschaft definiert.
+  - : Das Maskenbild wird nicht wiederholt (und daher wird der Masken-Malbereich möglicherweise nicht vollständig bedeckt). Die Position des nicht wiederholten Maskenbildes wird durch die {{cssxref("mask-position")}} CSS-Eigenschaft definiert.
 
 #### Kurzformwerte
 
-Die Ein-Wert-Syntax ist eine Abkürzung für die vollständige Zwei-Wert-Syntax:
+Die Ein-Wert-Syntax ist eine Kurzform für die vollständige Zwei-Wert-Syntax:
 
 <table class="standard-table">
   <thead>
     <tr>
-      <th>Einzelner Wert</th>
-      <th>Entsprechender Zwei-Wert</th>
+      <th>Einzelwert</th>
+      <th>Zwei-Wert-Äquivalent</th>
     </tr>
   </thead>
   <tbody>
@@ -110,43 +111,43 @@ Die Ein-Wert-Syntax ist eine Abkürzung für die vollständige Zwei-Wert-Syntax:
 
 - `repeat-x`
 
-  - : Entspricht `repeat no-repeat`. Das Bild wird in horizontaler Richtung so oft wie nötig wiederholt, um die Breite des Maskenmalbereichs abzudecken. Maskenbilder entlang der rechten oder linken Ränder, oder beides abhängig vom Wert von {{cssxref("mask-position")}}, werden abgeschnitten, wenn die Breite des Maskenursprungskastens kein exaktes Vielfaches der Breite des Maskenbilds ist.
+  - : Entspricht `repeat no-repeat`. Das Bild wird in horizontaler Richtung so oft wie nötig wiederholt, um die Breite des Masken-Malbereichs zu bedecken. Maskenbilder entlang der rechten oder linken Ränder oder beider, abhängig vom {{cssxref("mask-position")}}-Wert, werden abgeschnitten, wenn die Breite der Masken-Origin-Box kein exaktes Vielfaches der Breite des Maskenbildes ist.
 
 - `repeat-y`
 
-  - : Entspricht `no-repeat repeat`. Das Bild wird in vertikaler Richtung so oft wie nötig wiederholt, um die Höhe des Maskenmalbereichs abzudecken. Maskenbilder entlang der oberen oder unteren Ränder, oder beides abhängig vom Wert von {{cssxref("mask-position")}}, werden abgeschnitten, wenn die Höhe des Maskenursprungskastens kein exaktes Vielfaches der Höhe des Maskenbilds ist.
+  - : Entspricht `no-repeat repeat`. Das Bild wird in vertikaler Richtung so oft wie nötig wiederholt, um die Höhe des Masken-Malbereichs zu bedecken. Maskenbilder entlang der oberen oder unteren Ränder oder beider, abhängig vom {{cssxref("mask-position")}}-Wert, werden abgeschnitten, wenn die Höhe der Masken-Origin-Box kein exaktes Vielfaches der Höhe des Maskenbildes ist.
 
 ## Beschreibung
 
-Die `mask-repeat` Eigenschaft akzeptiert ein kommagetrenntes Paar von Werten oder einen [Kurzformwert](#shorthand-values). In der Zwei-Wert-Syntax repräsentiert der erste Wert das horizontale Wiederholungsverhalten und der zweite Wert das vertikale Verhalten.
+Die `mask-repeat`-Eigenschaft akzeptiert ein kommagetrenntes Paar von Werten oder einen [Ein-Wert](#kurzformwerte). In der Zwei-Wert-Syntax repräsentiert der erste Wert das horizontale Wiederholungsverhalten und der zweite Wert das vertikale Verhalten.
 
 ### Mehrere Werte
 
-Jeder `mask-repeat` Wert in dieser kommagetrennten Liste gilt für eine separate Maskenebene. Ein Element kann mehrere Maskenebenen haben. Die Anzahl der Ebenen wird durch die Anzahl der kommagetrennten Werte im Wert der {{cssxref("mask-image")}} Eigenschaft bestimmt (auch wenn ein Wert `none` ist). Jeder `mask-repeat` Wert wird den `mask-image` Werten in Reihenfolge zugeordnet. Wenn die Anzahl der Werte in den beiden Eigenschaften unterschiedlich ist, werden überschüssige `mask-repeat` Werte ignoriert, oder wenn `mask-repeat` weniger Werte als `mask-image` hat, werden die `mask-repeat` Werte wiederholt.
+Jeder `mask-repeat`-Wert in dieser kommagetrennten Liste gilt für eine separate Maskenschicht. Ein Element kann mehrere Maskenschichten aufweisen. Die Anzahl der Schichten wird durch die Anzahl der kommagetrennten Werte im Wert der {{cssxref("mask-image")}}-Eigenschaft bestimmt (auch wenn ein Wert `none` ist). Jeder `mask-repeat`-Wert wird den `mask-image`-Werten in der Reihenfolge zugeordnet. Wenn die Anzahl der Werte in den beiden Eigenschaften unterschiedlich ist, werden überzählige Werte von `mask-repeat` ignoriert, oder, wenn `mask-repeat` weniger Werte hat als `mask-image`, werden die `mask-repeat`-Werte wiederholt.
 
 ### Größenanpassung und Positionierung
 
-Der Wert der `mask-repeat` Eigenschaft definiert, wie Maskenbilder gekachelt werden, nachdem sie [größenangepasst](/de/docs/Web/CSS/mask-size) und [positioniert](/de/docs/Web/CSS/mask-position) wurden. Die erste (und möglicherweise einzige) Wiederholung des Maskenbildes wird durch die {{cssxref("mask-position")}} Eigenschaft positioniert, die standardmäßig `0% 0%` ist, die obere linke Ecke des Ursprungskastens. Die Größe wird durch die {{cssxref("mask-size")}} Eigenschaft definiert, die standardmäßig `auto` ist. Die Positionen der wiederholten Masken basieren auf dieser anfänglichen Maskeninstanz.
+Der `mask-repeat`-Eigenschaftswert definiert, wie Maskenbilder gekachelt werden, nachdem sie [dimensioniert](/de/docs/Web/CSS/mask-size) und [positioniert](/de/docs/Web/CSS/mask-position) wurden. Die erste (und möglicherweise einzige) Wiederholung des Maskenbildes wird von der {{cssxref("mask-position")}}-Eigenschaft positioniert, die standardmäßig auf `0% 0%` gesetzt ist, die obere linke Ecke der Origin-Box. Die Größe wird durch die {{cssxref("mask-size")}}-Eigenschaft definiert, die standardmäßig auf `auto` gesetzt ist. Die Positionen der wiederholten Masken basieren auf dieser ersten Maskeninstanz.
 
-### Clipping
+### Abschneiden
 
-Maskenbilder werden nicht wiederholt, sondern abgeschnitten, wenn die Größe des Maskenbildes größer als der Ursprungskasten ist, außer im Fall von `round`, wo eine einzelne Maske verkleinert wird, um in den Ursprungskasten zu passen.
+Maskenbilder werden nicht wiederholt, sondern werden abgeschnitten, wenn die Größe des Maskenbildes größer als die Origin-Box ist, außer im Fall von `round`, bei dem eine einzelne Maske verkleinert wird, um in die Origin-Box zu passen.
 
-Mit `repeat` Werten können Maskenbilder am Rand des Ursprungskastens abgeschnitten werden, wenn die Dimension (Breite oder Höhe) des Kastens kein exaktes Vielfaches der Maske ist.
+Bei `repeat`-Werten können Maskenbilder am Rand der Origin-Box abgeschnitten werden, wenn die Dimension (Breite oder Höhe) der Box kein exaktes Vielfaches der Maske ist.
 
 ### Seitenverhältnis
 
-Standardmäßig behalten Maskenbilder das Seitenverhältnis bei, das durch die {{cssxref("mask-size")}} Eigenschaft festgelegt wird, oder ihr Standard-Seitenverhältnis, wenn `mask-size` auf `auto` voreingestellt oder explizit auf `auto` gesetzt ist. Nur im Fall von `round` Wert in beiden Richtungen kann das Seitenverhältnis der Masken verzerrt werden.
+Standardmäßig behalten Maskenbilder das Seitenverhältnis bei, das durch die {{cssxref("mask-size")}}-Eigenschaft gesetzt ist oder ihr Standardseitenverhältnis, wenn `mask-size` standardmäßig verwendet wird oder ausdrücklich auf `auto` gesetzt ist. Nur im Fall von `round`-Werten in beiden Richtungen könnte das Seitenverhältnis der Maske verzerrt werden.
 
-Wenn `round` in beide Richtungen gesetzt ist, werden die resultierenden wiederholten Maskenbilder das Seitenverhältnis des Ursprungskastens einhalten. Da die Maskenbilder skaliert werden, um zu passen, können sie verzerrt werden, um sicherzustellen, dass die Maskenbilder nicht abgeschnitten werden. Wenn `round` nur in einer Dimension gesetzt ist, wird das Seitenverhältnis der Masken-Größe respektiert.
+Wenn `round` in beiden Richtungen gesetzt ist, passen die resultierenden wiederholten Maskenbilder zum Seitenverhältnis der Origin-Box. Da die Maskenbilder skaliert werden, um zu passen, könnten sie verzerrt werden, um sicherzustellen, dass die Maskenbilder nicht abgeschnitten werden. Wenn `round` nur in einer Dimension gesetzt ist, wird das Seitenverhältnis der Maskengröße respektiert.
 
-### Abgerundete Wiederholungen
+### Runde Wiederholungen
 
-Im Fall von `round` werden Maskenbilder vergrößert oder verkleinert, um die Maske in den Positionierungsbereich eine ganze Anzahl von Malen zu passen. Die Maskengröße wird vergrößert oder verkleinert, um die nächstmögliche natürliche Anzahl von Masken zu passen, mit einem Minimum von einer Maske.
+Im Fall von `round` werden Maskenbilder verkleinert oder vergrößert, um so oft in den Positionierungsbereich zu passen, wie dies ganzzahlig möglich ist. Die Maskengröße wird erhöht oder verringert, um die nächste natürliche Zahl zu erreichen, mit einem Minimum von einer Maske.
 
-Die gerenderten Dimensionen der Maske sind die Größe des Ursprungskastens dividiert durch die Anzahl der Wiederholungen der Masken in dieser Dimension, wobei die Wiederholungen eine Ganzzahl größer als null sind. Die Anzahl der Wiederholungen ist: `X' = D / round(D / X)` wobei `D` die Breite oder Höhe ist und `round()` eine Funktion ist, die die nächste Ganzzahl größer als null zurückgibt.
+Die gerenderten Dimensionen der Maske entsprechen der Größe der Origin-Box, geteilt durch die Anzahl der Maskenwiederholungen in dieser Dimension, wobei die Wiederholungen eine ganze Zahl größer als null sind. Die Anzahl der Wiederholungen ist: `X' = D / round(D / X)`, wobei `D` die Breite oder Höhe ist und `round()` eine Funktion ist, die die nächstgelegene ganze Zahl größer als null zurückgibt.
 
-Zum Beispiel, wenn `mask-repeat` auf `round` gesetzt ist und `mask-size` die Maske auf `40px` Breite setzt, wenn der Ursprungskasten vorhanden ist (größer als `0px` breit) aber weniger als `60px` breit, wird es eine einzelne Wiederholung geben, die 100% der Breite dieses Kastens beträgt. Wenn der Kasten mindestens `60px` breit ist, aber weniger als `100px` breit, wird es zwei Wiederholungen geben, die jeweils `50%` des Kastens betragen. Von 100px bis 140px passen drei Masken entlang der horizontalen Achse. Diese "`40px`-breiten" Masken werden nur `40px` breit sein, wenn der Ursprungskasten ein exaktes Vielfaches von `40px` ist.
+Zum Beispiel, wenn `mask-repeat` auf `round` gesetzt ist und die `mask-size` die Maske auf `40px` Breite setzt, wird, wenn die Origin-Box vorhanden (größer als `0px` breit), aber weniger als `60px` breit ist, eine einzelne Wiederholung 100% der Breite dieser Box ausmachen. Wenn die Box mindestens `60px` breit, aber weniger als `100px` breit ist, wird es zwei Wiederholungen geben, die jeweils `50%` der Box einnehmen. Von `100px` bis `140px` passen drei Masken entlang der horizontalen Achse. Diese "`40px` breite" Masken sind nur dann `40px` breit, wenn die Origin-Box ein exaktes Vielfaches von `40px` ist.
 
 ## Formale Definition
 
@@ -158,13 +159,13 @@ Zum Beispiel, wenn `mask-repeat` auf `round` gesetzt ist und `mask-size` die Mas
 
 ## Beispiele
 
-### Grundlegende Nutzung
+### Grundlegende Verwendung
 
-Dieses Beispiel zeigt das Setzen der `mask-repeat` Eigenschaft für eine einzelne Maske.
+Dieses Beispiel zeigt das Setzen der `mask-repeat`-Eigenschaft für eine einzelne Maske.
 
 #### HTML
 
-Unser HTML enthält ein einfaches {{htmlelement("div")}} Element:
+Unser HTML beinhaltet ein einfaches {{htmlelement("div")}}-Element:
 
 ```html
 <div></div>
@@ -172,7 +173,7 @@ Unser HTML enthält ein einfaches {{htmlelement("div")}} Element:
 
 #### CSS
 
-Wir definieren ein `250px` Quadrat mit einem rot zu blau Verlauf und einem `100px` mal `100px` Stern als Maskenbild. Wir verwenden die `mask-repeat` Eigenschaft, indem wir `round` für die horizontale Richtung und `space` für den vertikalen Wert setzen.
+Wir definieren ein Quadrat mit `250px` mit einem Farbverlauf von Rot zu Blau mit einem `100px` mal `100px` Stern als Maskenbild. Wir verwenden die `mask-repeat`-Eigenschaft und setzen `round` für die horizontale Richtung und `space` für den vertikalen Wert.
 
 ```css
 div {
@@ -191,11 +192,11 @@ div {
 
 {{EmbedLiveSample("basic usage", "", "300px")}}
 
-Mit `space` und `round` auf einem Maskenbild, das kleiner als der Ursprungskasten ist, wird die Maske nicht abgeschnitten. Vielmehr verzerrt der `round` Wert den Stern, um Abschneiden und Weißraum zu verhindern, während `space` das Seitenverhältnis des Sterns beibehält, aber bei Bedarf Platz zwischen den Masken hinzufügt.
+Mit `space` und `round` auf einem Maskenbild, das kleiner als die Origin-Box ist, wird die Maske nicht abgeschnitten. Vielmehr verzerrt der `round`-Wert den Stern, um Abschneiden und Leerraum zu verhindern, während `space` das Seitenverhältnis des Sterns beibehält, aber Platz nach Bedarf zwischen Masken hinzufügt.
 
-### Abgerundete Wiederholungen
+### Runde Iterationen
 
-Anhand desselben HTML und CSS zeigt diese Demonstration einen Schieberegler, der die Breite des Containers ändert, um zu zeigen, wie sich bei `round` die Masken vergrößern, wenn der Platz es zulässt, bis eine weitere Wiederholung der Maske passt, oder schrumpfen, bis die Anzahl der Wiederholungen nicht mehr passt.
+Mit dem gleichen HTML und CSS zeigt diese Demonstration einen Schieberegler, der die Breite des Containers ändert, um zu zeigen, wie bei `round` Masken wachsen, sobald Platz vorhanden ist, bis eine weitere Iteration der Maske passt, oder sie schrumpfen, bis die Anzahl der Iterationen nicht mehr passt.
 
 ```html hidden
 <div></div>
@@ -236,15 +237,15 @@ range.addEventListener("change", () => {
 
 {{EmbedLiveSample("round iterations", "", "300px")}}
 
-Die Maske ist als `100px` breit definiert. Es gibt einen einzelnen Stern, wenn der Ursprungskasten von `1px` bis `149px` breit ist, zwei Sterne von `150px` bis `249px`, drei Sterne von `250px` bis `349px` usw.
+Die Maske ist als `100px` breite definiert. Es gibt einen einzelnen Stern, wenn die Origin-Box von `1px` bis `149px` breit ist, zwei Sterne von `150px` bis `249px`, drei Sterne von `250px` bis `349px` und so weiter.
 
 ### Die Kurzformwerte
 
-Dieses Beispiel zeigt alle `mask-repeat` Kurzform (Ein-Schlüsselwort) Werte.
+Dieses Beispiel demonstriert alle `mask-repeat`-Kurzform (Einzel-Schlüsselwort)-Werte.
 
 #### HTML
 
-Wir fügen mehrere {{htmlelement("section")}} Elemente ein, die jeweils ein `<div>` enthalten, wobei jedes eine andere Klassenname hat.
+Wir fügen mehrere {{htmlelement("section")}}-Elemente hinzu, die jeweils ein `<div>` enthalten, jedes mit einem anderen Klassennamen.
 
 ```html
 <section class="repeat">
@@ -269,7 +270,7 @@ Wir fügen mehrere {{htmlelement("section")}} Elemente ein, die jeweils ein `<di
 
 #### CSS
 
-Wir geben jedem `<div>` das gleiche CSS, außer für den `mask-repeat` Wert, den wir mit dem Klassennamen seines Elternteils abgleichen. Wir definieren eine Maskengröße, setzen das anfängliche `mask-image` unten rechts, wobei jegliches Abschneiden an den oberen und linken Seiten der obersten und linken Masken erfolgt.
+Wir geben jedem `<div>` das gleiche CSS, außer für den `mask-repeat`-Wert, den wir an ihren Eltern-Klassennamen anpassen. Wir definieren eine Maskengröße, wobei das initiale `mask-image` unten rechts gesetzt wird, sodass ein Abschneiden auf den obersten und am weitesten linken Masken an ihren oberen und linken Seiten erfolgt.
 
 ```css
 div {
@@ -303,7 +304,7 @@ div {
 }
 ```
 
-Wir zeigen den Klassennamen mithilfe generierter Inhalte an.
+Wir zeigen den Klassennamen mittels generierten Inhalts.
 
 ```css
 section::before {
@@ -329,11 +330,11 @@ section {
 
 {{EmbedLiveSample("The shorthand values", "", "450px")}}
 
-Der erste (und, im Fall von `no-repeat`, einzige) Maskenstern wird [auf die Größe](/de/docs/Web/CSS/mask-size) 50px mal 50px [gesetzt](/de/docs/Web/CSS/mask-position) am unteren rechten Rand des Malbereichs positioniert, wobei die wiederholten Sterne über und/oder links von ihm mit jeglichem Abschneiden an den oberen und linken Seiten der oberen und linken Sterne platziert werden. Beachten Sie, dass alle Sterne die gleiche Größe und Form haben, außer bei `round`, bei dem alle Masken auf 45px x 45px schrumpften, um vier vollständige Masken in jede Richtung zu passen. Wäre der Container 174px groß, hätte es drei Sterne in jeder Richtung gegeben, anstatt vier, und jeder Stern wäre gestreckt worden.
+Der erste (und im Fall von `no-repeat` einzige) Maskenstern wird [dimensioniert](/de/docs/Web/CSS/mask-size), um 50px mal 50px zu sein und [positioniert](/de/docs/Web/CSS/mask-position) am unteren rechten Rand des Malbereichs, mit wiederholten Sternen, die darüber und/oder links davon platziert werden, wobei ein Abschneiden an der Oberseite und links der obersten und am weitesten linken Sterne erfolgt. Beachten Sie, dass alle Sterne die gleiche Größe und Form haben, außer bei `round`, bei der alle Masken auf 45px x 45px geschrumpft wurden, um vier vollständige Masken in jede Richtung zu passen. Wäre der Container 174px gewesen, hätte es drei Sterne in jede Richtung anstelle von vier gegeben, und jeder Stern wäre gestreckt worden.
 
 ### Mehrere Maskenbilder und Wiederholungen
 
-Sie können für jedes Maskenbild einen anderen `<repeat-style>` angeben, getrennt durch Kommas:
+Sie können einen unterschiedlichen `<repeat-style>` für jedes Maskenbild angeben, getrennt durch Kommas:
 
 ```css
 .extra-repeats {
@@ -342,7 +343,7 @@ Sie können für jedes Maskenbild einen anderen `<repeat-style>` angeben, getren
 }
 ```
 
-Jedes Bild wird mit dem entsprechenden Wiederholstil abgeglichen. Da es mehr `mask-repeat` Werte als `mask-image` Werte gibt, werden die überschüssigen `mask-repeat` Werte ignoriert.
+Jedes Bild wird mit dem entsprechenden Wiederholungsstil abgeglichen. Da mehr `mask-repeat`-Werte als `mask-image`-Werte vorhanden sind, werden die überschüssigen `mask-repeat`-Werte ignoriert.
 
 ```css
 .missing-repeats {
@@ -352,7 +353,7 @@ Jedes Bild wird mit dem entsprechenden Wiederholstil abgeglichen. Da es mehr `ma
 }
 ```
 
-Jedes Bild wird mit einem entsprechenden Wiederholstil abgeglichen. Da es mehr `mask-image` Werte als `mask-repeat` Werte gibt, wird der `mask-repeat` wiederholt, bis jedes `mask-image` einen zugehörigen `mask-repeat` Wert hat. Hier wiederholen sich ungerade nummerierte Masken entlang der x-Achse, während gerade nummerierte Masken entlang der y-Achse wiederholen.
+Jedes Bild wird mit einem entsprechenden Wiederholungsstil abgeglichen. Da mehr `mask-image`-Werte als `mask-repeat`-Werte vorhanden sind, wird das `mask-repeat` wiederholt, bis jedes `mask-image` einen zugeordneten `mask-repeat`-Wert hat. Hier wiederholen sich die ungeraden Masken entlang der x-Achse, während sich die geraden Masken entlang der y-Achse wiederholen.
 
 ## Spezifikationen
 
@@ -364,4 +365,4 @@ Jedes Bild wird mit einem entsprechenden Wiederholstil abgeglichen. Da es mehr `
 
 ## Siehe auch
 
-- [Clipping und Maskierung in CSS](https://css-tricks.com/clipping-masking-css/)
+- [Clipping and Masking in CSS](https://css-tricks.com/clipping-masking-css/)

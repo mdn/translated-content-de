@@ -1,11 +1,12 @@
 ---
-title: "ARIA: search role"
+title: "ARIA: search Rolle"
+short-title: search
 slug: Web/Accessibility/ARIA/Reference/Roles/search_role
 l10n:
-  sourceCommit: 3ffcab3614f7e76c82890e51994c4c26eafadc29
+  sourceCommit: a8b25483994fa47cf949b432ddf34a6bce2ddb2e
 ---
 
-Die `search` Rolle wird verwendet, um die Suchfunktionalität zu identifizieren; den Abschnitt der Seite, der verwendet wird, um die Seite, Website oder Sammlung von Websites zu durchsuchen.
+Die `search`-Rolle wird verwendet, um die Suchfunktionalität zu identifizieren; den Abschnitt der Seite, der verwendet wird, um die Seite, die Website oder eine Sammlung von Websites zu durchsuchen.
 
 ```html
 <form role="search">
@@ -15,11 +16,11 @@ Die `search` Rolle wird verwendet, um die Suchfunktionalität zu identifizieren;
 
 ## Beschreibung
 
-Die `search` Rolle ist [eine Landmarke](/de/docs/Web/Accessibility/ARIA/Reference/Roles#3._landmark_roles), die zu dem Containerelement hinzugefügt werden kann, welches alle Elemente umfasst, die zusammen das Suchfeature des Dokuments oder der Anwendung bilden, einschließlich eines Nachfahren [`<input type="search">`](/de/docs/Web/HTML/Reference/Elements/input/search). Wenn ein Dokument mehr als eine Suche enthält, sollte jede Suche eine eindeutige Bezeichnung haben, es sei denn, es handelt sich um dieselbe Suche, die wiederholt wird, dann verwenden Sie denselben Namen. Es gibt ein [`input` vom Typ `search`](/de/docs/Web/HTML/Reference/Elements/input/search), aber dieses definiert nicht alleine eine Suchlandmarke. Die Verwendung von {{HTMLElement('search')}} ist eine alternative Möglichkeit, eine Suchlandmarke zu definieren.
+Die `search`-Rolle ist eine [Orientierungsrolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles#3._landmark_roles), die dem Container-Element hinzugefügt werden kann, das alle Elemente umfasst, die zusammen die Suchfunktion des Dokuments oder der Anwendung bilden, einschließlich eines nachgeordneten [`<input type="search">`](/de/docs/Web/HTML/Reference/Elements/input/search). Wenn ein Dokument mehr als eine Suche enthält, sollte jede einen eindeutigen Namen haben, es sei denn, es handelt sich um die gleiche wiederholte Suche, dann verwenden Sie den gleichen Namen. Es gibt ein [`input` vom Typ `search`](/de/docs/Web/HTML/Reference/Elements/input/search), obwohl dies allein keine Suchorientierung definiert. Die Verwendung von {{HTMLElement('search')}} ist eine alternative Möglichkeit, um eine Suchorientierung zu definieren.
 
 ## Beispiele
 
-Wenn ein {{HTMLElement('form')}} ein Suchformular ist, verwenden Sie die `search` Rolle anstelle der [`form`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/form_role) Rolle.
+Wenn ein {{HTMLElement('form')}} ein Suchformular ist, verwenden Sie die `search`-Rolle anstelle der [`form`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/form_role)-Rolle.
 
 ```html
 <form id="search" role="search">
@@ -29,21 +30,21 @@ Wenn ein {{HTMLElement('form')}} ein Suchformular ist, verwenden Sie die `search
 </form>
 ```
 
-## Barrierefreiheit
+## Barrierefreiheitsbedenken
 
-[Landmarkenrollen](/de/docs/Web/Accessibility/ARIA/Reference/Roles#3._landmark_roles) sollen sparsam eingesetzt werden, um größere übergeordnete Abschnitte des Dokuments zu identifizieren. Die Verwendung von zu vielen Landmarkenrollen kann "Rauschen" in Screenreadern erzeugen und es schwierig machen, das allgemeine Layout der Seite zu verstehen.
+[Orientierungsrollen](/de/docs/Web/Accessibility/ARIA/Reference/Roles#3._landmark_roles) sollen sparsam verwendet werden, um größere übergreifende Abschnitte des Dokuments zu identifizieren. Die Verwendung von zu vielen Orientierungsrollen kann in Screenreadern "Geräusche" erzeugen, die es schwierig machen, das gesamte Layout der Seite zu verstehen.
 
-## Beste Praktiken
+## Best Practices
 
 ### Bevorzugen Sie HTML
 
-Die Verwendung des {{HTMLElement('form')}} Elements in Verbindung mit einer Deklaration von `role="search"` bietet die größte Unterstützung.
+Die Verwendung des {{HTMLElement('form')}}-Elements in Verbindung mit einer Deklaration von `role="search"` bietet die größte Unterstützung.
 
-### Beschriftung von Landmarken
+### Beschriftung von Orientierungen
 
-#### Mehrere Landmarken
+#### Mehrere Orientierungen
 
-Wenn es mehr als eine `search` Landmarke in einem Dokument gibt, geben Sie eine Bezeichnung für jede Landmarke an. Diese Bezeichnung ermöglicht es einem Nutzer von assistiver Technologie, schnell den Zweck jeder Landmarke zu verstehen.
+Wenn es in einem Dokument mehr als eine `search`-Orientierungsrolle gibt, geben Sie eine Beschriftung für jede Orientierung an. Diese Beschriftung ermöglicht es einem Benutzer von unterstützender Technologie, den Zweck jeder Orientierung schnell zu verstehen.
 
 ```html
 <form id="site-search" role="search" aria-label="Sitewide">
@@ -57,9 +58,9 @@ Wenn es mehr als eine `search` Landmarke in einem Dokument gibt, geben Sie eine 
 </form>
 ```
 
-#### Wiederholte Landmarken
+#### Wiederholte Orientierungen
 
-Wenn eine `search` Landmarke in einem Dokument wiederholt wird und beide Landmarken identischen Inhalt haben, verwenden Sie für jede Landmarke dieselbe Bezeichnung. Ein Beispiel hierfür wäre die Wiederholung der sitenweiten Suche am oberen und unteren Rand der Seite.
+Wenn eine `search`-Orientierungsrolle in einem Dokument wiederholt wird und beide Orientierungen identischen Inhalt haben, verwenden Sie für jede Orientierung die gleiche Beschriftung. Ein Beispiel hierfür wäre das Wiederholen der seitenweiten Suche am oberen und unteren Rand der Seite.
 
 ```html
 <header>
@@ -77,9 +78,9 @@ Wenn eine `search` Landmarke in einem Dokument wiederholt wird und beide Landmar
 </footer>
 ```
 
-#### Überflüssige Beschreibungen
+#### Redundante Beschreibungen
 
-Screenreader geben an, um welche Art von Rolle es sich bei der Landmarke handelt. Aus diesem Grund müssen Sie in ihrer Bezeichnung nicht beschreiben, was die Landmarke ist. Eine Deklaration von `role="search"` mit einem [`aria-label="Sitewide search"`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label) könnte beispielsweise redundant als "sitenweite Suche Suche" angekündigt werden.
+Screenreader kündigen den Rollentyp der Orientierung an. Aus diesem Grund müssen Sie nicht in seiner Beschriftung beschreiben, was die Orientierung ist. Beispielsweise kann eine Deklaration von `role="search"` mit einem [`aria-label="Sitewide search"`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label) redundant als "sitewide search search" angekündigt werden.
 
 ## Spezifikationen
 
@@ -87,8 +88,8 @@ Screenreader geben an, um welche Art von Rolle es sich bei der Landmarke handelt
 
 ## Siehe auch
 
-- Das {{HTMLElement('form')}} Element
-- Das {{HTMLElement('input')}} Element
-- Das {{HTMLElement('search')}} Element
+- Das {{HTMLElement('form')}}-Element
+- Das {{HTMLElement('input')}}-Element
+- Das {{HTMLElement('search')}}-Element
 - [`<input type="search">`](/de/docs/Web/HTML/Reference/Elements/input/search)
-- [Verwendung von HTML-Sektionen und Umrissen](/de/docs/Web/HTML/Reference/Elements/Heading_Elements)
+- [Verwendung von HTML-Abschnitten und Übersichtsstrukturen](/de/docs/Web/HTML/Reference/Elements/Heading_Elements)

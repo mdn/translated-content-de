@@ -1,63 +1,64 @@
 ---
-title: "ARIA: scrollbar-Rolle"
+title: "ARIA: Rolle `scrollbar`"
+short-title: scrollbar
 slug: Web/Accessibility/ARIA/Reference/Roles/scrollbar_role
 l10n:
-  sourceCommit: 874ad29df9150037acb8a4a3e7550a302c90a080
+  sourceCommit: a8b25483994fa47cf949b432ddf34a6bce2ddb2e
 ---
 
 Ein `scrollbar` ist ein grafisches Objekt, das das Scrollen von Inhalten innerhalb eines Anzeigebereichs steuert.
 
 ## Beschreibung
 
-Ein `scrollbar` ist ein Bereich, der steuert, welcher Teil des Inhalts eines Ansichtsfensters derzeit im Rahmen des Ansichtsfensters sichtbar ist; unabhängig davon, ob das Ansichtsfenster die volle Browsergröße hat, ein iframe oder ein beliebiges Element im [Block-Formatierungskontext](/de/docs/Web/CSS/CSS_display/Block_formatting_context) ist.
+Ein `scrollbar` ist ein Bereich, der steuert, welcher Teil des Inhalts eines Viewports derzeit im Rahmen des Viewports sichtbar ist; ob der Viewport die volle Browsergröße hat, ein iframe ist oder ein beliebiges Element im [Block-Formatierungskontext](/de/docs/Web/CSS/CSS_display/Block_formatting_context).
 
-### Was ist eine Scrollleiste?
+### Was ist ein Scrollbar
 
-Viele Anwendungen bieten native Scrollleisten, wenn der Inhaltsbereich größer als das Anwendungsfenster ist. Scrollleisten erscheinen in der Regel rechts oder unten im Anzeigebereich. Native Scrollleisten erscheinen als dünne rechteckige Bereichsmarkierungen in der Länge des von ihnen gesteuerten Ansichtsfensters mit einem UI-Element namens Daumen oder Scroller, das entlang einer Spur gezogen werden kann, um den zugehörigen Inhalt innerhalb des Ansichtsfensters zu bewegen. Einige Scrollleisten haben Pfeile an jedem Ende der Spur, die das Scrollen des Ansichtsfensters um eine kurze Distanz ermöglichen, wenn sie aktiviert werden.
+Viele Anwendungen bieten native Scrollbars, wenn der Inhaltsbereich größer als das Anwendungsfenster ist. Scrollbars erscheinen normalerweise rechts oder unten im Anzeigebereich. Native Scrollbars erscheinen als dünne rechteckige Schienen, die die Länge des gesteuerten Viewports abdecken, mit einem UI-Element, das als Daumen oder Schieber bezeichnet wird und entlang der Schiene gezogen werden kann, um den zugehörigen Inhalt im Viewport zu bewegen. Einige Scrollbars haben Pfeile an jedem Ende der Schiene, mit denen der Viewport bei Aktivierung um eine kurze Distanz verschoben werden kann.
 
-Nehmen Sie dieses Dokument als Beispiel: Wenn das Ansichtsfenster das vollständige Browserfenster ist und der Inhalt höher ist als das Ansichtsfenster, repräsentiert die Scrollleiste am rechten Rand des Fensters in den meisten Browsern die Gesamtlänge der Seite und der Scroll-Daumen repräsentiert den Teil des Seiteninhalts, der derzeit im Ansichtsfenster ist.
+Nehmen Sie dieses Dokument als Beispiel: Wenn der Viewport das gesamte Browserfenster ist und der Inhalt höher als der Viewport ist, repräsentiert in den meisten Browsern die Scrollbar am rechten Rand des Fensters die Gesamtlänge der Seite und der Scroll-Daumen stellt den Teil des Seiteninhalts dar, der derzeit im Viewport sichtbar ist.
 
-Scrollleisten können auch in Ansichtsfenstern erscheinen, die Unterabschnitte des gesamten Browserfensters sind. Setzen wir dieses Dokument als Beispiel fort: Wenn dieser Inhalt in einem {{HTMLElement('iframe')}} oder einem {{HTMLElement('object')}} eingebettet ist, wird die native vertikale Scrollleiste die Höhe des Rahmens haben. Eine Scrollleiste hat in der Regel die Länge des Ansichtsfensters, muss dies jedoch nicht zwingend haben.
+Scrollbars können auch in Viewports erscheinen, die Unterabschnitte des gesamten Browserfensters sind. Bleiben wir bei diesem Inhalt als Beispiel, wenn dieser Inhalt in einem {{HTMLElement('iframe')}} oder {{HTMLElement('object')}} eingebettet ist, wird die native vertikale Scrollbar die Höhe des Rahmens haben. Eine Scrollbar hat in der Regel die Länge des Viewports, muss es aber nicht sein.
 
-Wenn Sie derzeit keine Scrollleiste sehen, könnte das daran liegen, dass Ihr Browser die Scrollleiste nur beim Scrollen anzeigt oder nur, wenn der Inhalt eines Elements zu groß ist, um in dessen Block-Formatierungskontext zu passen. Abhängig vom Browser und Betriebssystem können Scrollleisten sichtbar gemacht werden, selbst wenn der Inhalt in das Ansichtsfenster passt und kein Scrollen notwendig oder möglich ist.
+Wenn Sie derzeit keine Scrollbar sehen, kann es daran liegen, dass Ihr Browser die Scrollbar nur beim Scrollen anzeigt oder nur wenn der Inhalt eines Elements zu groß ist, um in seinen Block-Formatierungskontext zu passen. Abhängig vom Browser und Betriebssystem können Scrollbars so eingestellt werden, dass sie auch dann sichtbar sind, wenn der Inhalt in den Viewport passt und kein Scrollen notwendig oder möglich ist.
 
-### ARIA-`scrollbar`
+### ARIA `scrollbar`
 
-Es ist immer am besten, native Scrollleisten zu verwenden. Sie können die CSS-Eigenschaft {{CSSXref('overflow')}} verwenden, um das Erscheinen von nativen Scrollleisten sicherzustellen. Eine [CSS-Spezifikation für Scrollleisten](https://drafts.csswg.org/css-scrollbars/) wird entwickelt. Einige Browser erlauben [die Gestaltung von Scrollleisten über prefixierte Pseudoelemente](/de/docs/Web/CSS/::-webkit-scrollbar).
+Es ist immer am besten, native Scrollbars zu verwenden. Sie können die CSS-Eigenschaft {{CSSXref('overflow')}} verwenden, um das Erscheinungsbild nativer Scrollbars sicherzustellen. Eine [CSS-Scrollbar-Spezifikation](https://drafts.csswg.org/css-scrollbars/) wird derzeit entwickelt. Einige Browser erlauben das [Styling von Scrollbars über vorangestellte Pseudo-Elemente](/de/docs/Web/CSS/::-webkit-scrollbar).
 
-Da die Gestaltung von nativen Scrollleisten historisch begrenzt war, könnte Ihnen eine in JavaScript implementierte Scrollleiste begegnen, die Sie unterstützen und vollständig zugänglich machen müssen. Dafür können Sie die Rolle `scrollbar` verwenden, um Hilfstechnologien mitzuteilen, dass ein UI-Element eine interaktive Scrollleiste ist.
+Da die native Scrollbar-Gestaltung historisch begrenzt war, stoßen Sie möglicherweise auf eine in JavaScript implementierte Scrollbar, die Sie unterstützen und vollständig zugänglich machen müssen. Zu diesem Zweck können Sie die `scrollbar`-Rolle verwenden, um unterstützende Technologien darüber zu informieren, dass ein UI-Steuerelement eine interaktive Scrollbar ist.
 
-Ein Element mit der Rolle `scrollbar` ist ein grafisches Objekt, das das Scrollen von Inhalten innerhalb eines Anzeigebereichs steuert; es ist die ARIA-Rolle, die anzeigt, dass ein Element eine Scrollleiste ist. Das HTML-Element, das am ähnlichsten ist, ist der `range` {{HTMLElement('input')}}-Typ, [`<input type="range">`](/de/docs/Web/HTML/Reference/Elements/input/range).
+Ein Element mit der Rolle `scrollbar` ist ein grafisches Objekt, das das Scrollen von Inhalten innerhalb eines Anzeigebereichs steuert; es ist die ARIA-Rolle, die anzeigt, dass ein Element eine Scrollbar ist. Das HTML-Element, das dem am ähnlichsten ist, ist der `range`-{{HTMLElement('input')}}-Typ, [`<input type="range">`](/de/docs/Web/HTML/Reference/Elements/input/range).
 
-Das `scrollbar`-Element hat zwei erforderliche Attribute: [`aria-controls`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-controls) und [`aria-valuenow`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-valuenow). Das `aria-controls`-Attribut verweist auf die [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id) des gesteuerten, scrollbaren Bereichs. Die Eigenschaft `aria-valuenow` definiert den aktuellen Wert der Scrollleiste.
+Das `scrollbar`-Element hat zwei erforderliche Attribute: [`aria-controls`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-controls) und [`aria-valuenow`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-valuenow). Das `aria-controls`-Attribut verweist auf die [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id) des gesteuerten Scrollbereichs. Die `aria-valuenow`-Eigenschaft definiert den aktuellen Wert der Scrollbar.
 
-Während `aria-valuenow` immer erforderlich ist, müssen die Eigenschaften [`aria-valuemin`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-valuemin) und [`aria-valuemax`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-valuemax) nur für die Rolle der Scrollleiste gesetzt werden, wenn der minimale Wert der `scrollbar` nicht 0 oder der maximale Wert nicht 100 ist. Der Wert von `aria-valuenow` muss immer zwischen dem minimalen und maximalen Wert liegen, oder zwischen `0` und `100`, wenn die minimalen und maximalen Werte standardmäßig `0` und `100` sind. `aria-valuenow` kommuniziert, wie nah das Ansichtsfenster am unteren Ende des Dokuments ist. Denken Sie daran wie an eine Fortschrittsanzeige, bei der der Anfang des Dokuments der minimale Wert ist und das Ende des Dokuments der maximale Wert.
+Während `aria-valuenow` immer erforderlich ist, müssen die Eigenschaften [`aria-valuemin`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-valuemin) und [`aria-valuemax`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-valuemax) nur für die Rolle der Scrollbar festgelegt werden, wenn der Mindestwert der `scrollbar` nicht 0 oder der Höchstwert nicht 100 ist. Der Wert von `aria-valuenow` muss immer zwischen den Mindest- und Höchstwerten einschließlich liegen, oder zwischen `0` und `100` einschließlich, wenn die Mindest- und Höchstwerte standardmäßig auf `0` und `100` gesetzt sind. `aria-valuenow` kommuniziert, wie nah der Viewport am unteren Ende des Dokuments ist. Denken Sie daran wie an eine Fortschrittsanzeige, bei der der Anfang des Dokuments der Mindestwert ist und das Ende des Dokuments der Höchstwert.
 
-Eine `scrollbar` repräsentiert den aktuellen Wert und den Bereich möglicher Werte über die Größe der Scrollleiste und die Position des Daumens im Hinblick auf den sichtbaren Bereich der Orientierung (horizontal oder vertikal), die sie steuert. Mit anderen Worten: Die Länge (Höhe oder Breite) der `scrollbar` repräsentiert den gesamten Inhalt innerhalb eines Ansichtsfensters. Der Wert `aria-valuemin` repräsentiert den Anfang des Inhalts und der Scrollleiste, der Wert `aria-valuemax` repräsentiert das Ende des Inhalts und der Scrollleiste. Der Wert `aria-valuenow` repräsentiert den Inhalt, der derzeit im Ansichtsfenster sichtbar ist und die aktuelle Position oder den Wert des beweglichen Daumens. Der Wert `aria-valuenow` wird in der Regel als Prozentsatz zwischen `aria-valuemin` und `aria-valuemax` angegeben, berechnet von Hilfstechnologien.
-
-> [!NOTE]
-> Hilfstechnologien stellen den Wert von `aria-valuenow` normalerweise als Prozentsatz eines Bereichs zwischen den Werten von `aria-valuemin` und `aria-valuemax` dar, es sei denn, [`aria-valuetext`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-valuetext) ist gesetzt. Es wird empfohlen, die Werte für `aria-valuemin`, `aria-valuemax` und `aria-valuenow` so zu setzen, dass sie für diese Berechnung geeignet sind.
-
-Wie bei einer nativen Scrollleiste interagieren Benutzer direkt oder indirekt mit `scrollbar`-Elementen über Maus, Touchpad, Tastatur und Spracheingabe. Implementierungen der Rolle `scrollbar` müssen all diese Interaktionsmethoden unterstützen.
-
-Wenn Sie eine Maus verwenden, muss der Benutzer in der Lage sein, die `scrollbar` zu aktivieren, indem er auf die Bildlauffelder an beiden Enden der Scrollleiste klickt, falls vorhanden, auf einen leeren Teil der Spur klickt sowie den Scroll-Daumen klickt und zieht.
-
-Die Tastaturnavigation muss ebenfalls unterstützt werden. Wenn sich der Fokus innerhalb des durch eine `scrollbar` gesteuerten Ansichtsfensters befindet, sollten die Tasten <kbd>Pfeil nach oben</kbd> und <kbd>Pfeil nach unten</kbd> (oder <kbd>Pfeil nach links</kbd> und <kbd>Pfeil nach rechts</kbd> für eine horizontale Scrollleiste) den Scrollleiste-Daumen proportional bewegen. Zusätzlich müssen die Tasten <kbd>Bild auf</kbd>, <kbd>Bild ab</kbd>, <kbd>Leertaste</kbd> und <kbd>Umschalt + Leertaste</kbd> den Inhalt und den Scrollleiste-Daumen um die Höhe (oder Breite) des Ansichtsfensters für jeden Tastendruck verschieben, bis das Ende oder der Anfang (oder links oder rechts) des Inhalts sichtbar ist.
-
-JavaScript muss verwendet werden, um die Aktion der `scrollbar` in Scroll-Befehle zu übersetzen, und Sie sollten dem Benutzer Feedback geben, indem Sie:
-
-1. Das `scrollbar`-Element visuell aktualisieren,
-2. Den Inhalt des Ansichtsfensters verschieben und
-3. Den Wert der Eigenschaft [`aria-valuenow`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-valuenow) aktualisieren.
-
-Die Standardausrichtung der `scrollbar`-Rolle ist vertikal. Das Einschließen von [`aria-orientation="vertical"`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-orientation) ist in diesem Fall optional. Die Orientierung repräsentiert die Ausrichtung der Scrollleiste und den Scrolling-Effekt auf den Anzeigebereich, der durch die Scrollbar gesteuert wird. Wenn das Scrollen von links nach rechts oder von rechts nach links und nicht von oben nach unten erfolgt, fügen Sie `aria-orientation="horizontal"` dem Element mit der `scrollbar`-Rolle hinzu.
+Ein `scrollbar` stellt den aktuellen Wert und den Bereich der möglichen Werte durch die Größe der Scrollbar und die Position des Daumens im Verhältnis zum sichtbaren Bereich der von ihm gesteuerten Ausrichtung (horizontal oder vertikal) dar. Mit anderen Worten, die Länge (Höhe oder Breite) des `scrollbar` repräsentiert den gesamten Inhalt innerhalb eines Viewports. Der `aria-valuemin`-Wert repräsentiert den Anfang des Inhalts und der Scrollbar, der `aria-valuemax`-Wert repräsentiert das Ende des Inhalts und das Ende der Scrollbar. Der `aria-valuenow` repräsentiert den derzeit sichtbaren Inhalt im Viewport und die aktuelle Position oder den aktuellen Wert des beweglichen Daumens. Der `aria-valuenow`-Wert wird im Allgemeinen als Prozentsatz zwischen `aria-valuemin` und `aria-valuemax` dargestellt, der von unterstützenden Technologien berechnet wird.
 
 > [!NOTE]
-> Ein zugänglicher Name ist **erforderlich**. Wenn die `scrollbar`-Rolle auf ein HTML {{HTMLElement('input')}}-Element (oder ein `<meter>`- oder `<progress>`-Element) angewendet wird, kann der zugängliche Name von dem zugehörigen {{HTMLElement('label')}} stammen. Verwenden Sie andernfalls [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby), wenn eine sichtbare Beschriftung vorhanden ist, oder [`aria-label`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label), wenn keine sichtbare Beschriftung vorhanden ist.
+> Unterstützende Technologien stellen den Wert von `aria-valuenow` im Allgemeinen als Prozentsatz eines Bereichs zwischen dem Wert von `aria-valuemin` und `aria-valuemax` dar, es sei denn, [`aria-valuetext`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-valuetext) ist gesetzt. Es wird empfohlen, die Werte für `aria-valuemin`, `aria-valuemax` und `aria-valuenow` so festzulegen, dass sie für diese Berechnung geeignet sind.
+
+Wie bei einer nativen Scrollbar interagieren Nutzer direkt oder indirekt mit `scrollbar`-Elementen über Maus, Touchpad, Tastatur und Spracheingabe. Implementierungen der `scrollbar`-Rolle müssen auch alle diese Interaktionsmethoden unterstützen.
+
+Beim Gebrauch der Maus muss der Benutzer die `scrollbar` aktivieren können, indem er auf die Scrollpfeile an jedem Ende der Scrollbar klickt, sofern vorhanden, auf einen leeren Abschnitt der Scrollschiene klickt sowie den Schieber (Daumen) anklickt und zieht.
+
+Die Tastaturunterstützung muss ebenfalls gegeben sein. Wenn der Fokus innerhalb des Viewports ist, der von einer `scrollbar` gesteuert wird, sollten die Tasten <kbd>Pfeil nach oben</kbd> und <kbd>Pfeil nach unten</kbd> (oder <kbd>Pfeil nach links</kbd> und <kbd>Pfeil nach rechts</kbd> für eine horizontale Scrollbar) den Scrollbarthum proportional bewegen. Zusätzlich müssen die Tasten <kbd>Bild nach oben</kbd>, <kbd>Bild nach unten</kbd>, <kbd>Leertaste</kbd> und <kbd>Umschalt + Leertaste</kbd> den Inhalt und den Scrollbarthum um die Höhe (oder Breite) des Viewports verschieben, für jeden Tastendruck bis der Inhalt oben oder unten (oder links oder rechts) im Blick ist.
+
+JavaScript muss verwendet werden, um die `scrollbar`-Aktion in Scrollbefehle zu übersetzen und dem Benutzer Feedback zu geben durch:
+
+1. Visuelles Aktualisieren des `scrollbar`-Elements,
+2. Scrollen des Inhalts im Viewport und
+3. Aktualisieren des [`aria-valuenow`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-valuenow)-Eigenschaftswerts.
+
+Die Standardausrichtung der `scrollbar`-Rolle ist vertikal. Das Einschließen von [`aria-orientation="vertical"`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-orientation) in diesem Fall ist optional. Die Ausrichtung repräsentiert die Ausrichtung der Scrollbar und den Scrolleffekt auf den Anzeigebereich, der von der Scrollbar gesteuert wird. Wenn das Scrollen von links nach rechts oder von rechts nach links und nicht von oben nach unten erfolgt, fügen Sie `aria-orientation="horizontal"` zu dem mit der `scrollbar`-Rolle versehenen Element hinzu.
+
+> [!NOTE]
+> Ein zugänglicher Name ist **erforderlich**. Wenn die `scrollbar`-Rolle auf ein HTML-{{HTMLElement('input')}}-Element (oder ein `<meter>` oder `<progress>`-Element) angewendet wird, kann der zugängliche Name von dem zugehörigen {{HTMLElement('label')}} stammen. Andernfalls verwenden Sie [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby), wenn ein sichtbares Etikett vorhanden ist, oder [`aria-label`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label), wenn kein sichtbares Etikett vorhanden ist.
 
 ### Alle Nachkommen sind präsentational
 
-Es gibt einige Arten von Benutzeroberflächenkomponenten, die, wenn sie in einer Plattformzugänglichkeits-API dargestellt werden, nur Text enthalten können. Zugangs-APIs haben keine Möglichkeit, semantische Elemente, die in einer `scrollbar` enthalten sind, darzustellen. Um mit dieser Einschränkung umzugehen, wenden Browser automatisch die Rolle [`presentation`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/presentation_role) auf alle Nachkommenelemente eines beliebigen `scrollbar`-Elements an, da es sich um eine Rolle handelt, die keine semantischen Kinder unterstützt.
+Es gibt einige Arten von Benutzeroberflächenkomponenten, die, wenn sie in einer Plattform-Accessibility-API dargestellt werden, nur Text enthalten können. Accessibility-APIs haben keine Möglichkeit, semantische Elemente zu repräsentieren, die in einer `scrollbar` enthalten sind. Um mit dieser Einschränkung umzugehen, wenden Browser automatisch die Rolle [`presentation`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/presentation_role) auf alle Nachkommenelemente eines `scrollbar`-Elements an, da es sich um eine Rolle handelt, die keine semantischen Kinder unterstützt.
 
 Betrachten Sie zum Beispiel das folgende `scrollbar`-Element, das eine Überschrift enthält.
 
@@ -71,49 +72,49 @@ Da Nachkommen von `scrollbar` präsentational sind, ist der folgende Code äquiv
 <div role="scrollbar"><h3 role="presentation">Title of my scrollbar</h3></div>
 ```
 
-Aus der Perspektive des Benutzers von assistiven Technologien existiert die Überschrift nicht, da die vorherigen Code-Snippets dem folgenden im {{Glossary("Accessibility_tree", "Zugangsbaum")}} entsprechen:
+Aus der Perspektive des Benutzers unterstützender Technologien existiert die Überschrift nicht, da die vorherigen Codebeispiele dem folgenden im {{Glossary("Accessibility_tree", "Accessibility-Baum")}} entsprechen:
 
 ```html
 <div role="scrollbar">Title of my scrollbar</div>
 ```
 
-### Zugehörige WAI-ARIA-Rollen, -Zustände und -Eigenschaften
+### Zugehörige WAI-ARIA-Rollen, Zustände und Eigenschaften
 
 - [`aria-controls`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-controls) (Erforderlich)
-  - : Identifiziert das Ansichtsfenster über die `id`, dessen Inhalt durch die Scrollbar gesteuert wird.
+  - : Identifiziert den Viewport über die `id`, dessen Inhalt von der Scrollbar gesteuert wird.
 - [`aria-valuenow`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-valuenow) (Erforderlich)
-  - : Wird auf einen Dezimalwert zwischen `0` oder `aria-valuemin`, falls vorhanden, und `aria-valuemax` gesetzt und zeigt den aktuellen Wert der Scrollbar an.
+  - : Auf einen Dezimalwert zwischen `0` oder `aria-valuemin` (falls vorhanden) und `aria-valuemax` eingestellt, der den aktuellen Wert der Scrollbar angibt.
 - [`aria-valuetext`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-valuetext)
-  - : Hilfstechnologien präsentieren den Wert von `aria-valuenow` oft als Prozentsatz. Wenn dies nicht hilfreich wäre, verwenden Sie diese Eigenschaft, um den Scrollleistenwert für Benutzer verständlicher zu machen.
+  - : Unterstützende Technologien präsentieren den Wert von `aria-valuenow` oft als Prozentsatz. Wenn dies nicht hilfreich wäre, verwenden Sie diese Eigenschaft, um den Scrollbar-Wert für Benutzer verständlicher zu machen.
 - [`aria-valuemin`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-valuemin)
-  - : Wird auf einen Dezimalwert gesetzt, der den minimalen Wert darstellt, und ist kleiner als `aria-valuemax`. Wenn nicht vorhanden, ist der Standardwert `0`.
+  - : Einstellen auf einen Dezimalwert, der den Minimalwert darstellt und kleiner als `aria-valuemax` ist. Wenn nicht vorhanden, beträgt der Standardwert `0`.
 - [`aria-valuemax`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-valuemax)
-  - : Wird auf einen Dezimalwert gesetzt, der den maximalen Wert darstellt, und ist größer als `aria-valuemin`. Wenn nicht vorhanden, ist der Standardwert `100`.
+  - : Einstellen auf einen Dezimalwert, der den Maximalwert darstellt und größer als `aria-valuemin` ist. Wenn nicht vorhanden, beträgt der Standardwert `100`.
 - [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby)
-  - : Wenn kein nativer Form-Kontroll verwendet wird und daher keine Möglichkeit besteht, die Scrollbar mit einem {{HTMLElement('label')}} zu assoziieren, falls sichtbarer Text vorhanden ist, der den erforderlichen zugänglichen Namen bereitstellen kann, setzen Sie ihn auf die [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id) eines Elements, das als Beschriftung dient. Andernfalls verwenden Sie `aria-label`.
+  - : Wenn kein nativer Formularsteuerelement verwendet wird und daher die Scrollbar nicht mit einem {{HTMLElement('label')}} verknüpft werden kann, und sichtbarer Text verfügbar ist, der den erforderlichen zugänglichen Namen bereitstellen kann, dann wird dieser auf die [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id) eines Elements gesetzt, das Text enthält, der als Etikett dient. Andernfalls verwenden Sie `aria-label`.
 - [`aria-label`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label)
-  - : Wenn kein {{htmlelement('label')}} verwendet werden kann und kein sichtbarer Text vorhanden ist, der mit `aria-labelledby` referenziert werden kann, liefert das String-Wert, das das `scrollbar`-Element etikettiert, den erforderlichen zugänglichen Namen bereitstellt.
+  - : Wenn kein {{htmlelement('label')}} verwendet werden kann und kein sichtbarer Text vorhanden ist, der von `aria-labelledby` referenziert werden kann, bietet den Zeichenfolgenwert, der das `scrollbar`-Element beschriftet und den erforderlichen zugänglichen Namen bereitstellt.
 - [`aria-orientation`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-orientation)
-  - : Standardmäßig ist die Ausrichtung `vertical`. Die Eigenschaft kann hinzugefügt und auf `horizontal`, `undefined` (der Standard für alle Rollen, sofern nicht anders angegeben) oder `vertical` gesetzt werden.
+  - : Standardmäßig ist die Ausrichtung `vertical`. Die Eigenschaft kann einbezogen und auf `horizontal`, `undefined` (der Standard für alle Rollen, sofern nicht anders angegeben) oder `vertical` gesetzt werden.
 
-### Tastatur-Interaktionen
+### Tastaturinteraktionen
 
 - <kbd>Pfeil nach oben</kbd>
-  - : Der Inhalt im Ansichtsfenster bewegt sich um eine Zeile nach oben, und der Daumen bewegt sich proportional nach oben entlang der Scrollleistenführung, bis das obere Ende des Inhalts und der Scrollleiste erreicht ist.
+  - : Der Inhalt im Viewport bewegt sich um eine Zeile nach oben, wobei sich der Daumen proportional nach oben entlang der Scrollbarschiene bewegt, bis das obere Ende des Inhalts und der Scrollbar erreicht sind.
 - <kbd>Pfeil nach unten</kbd>
-  - : Der Inhalt im Ansichtsfenster bewegt sich um eine Zeile nach unten, und der Daumen bewegt sich proportional nach unten entlang der Scrollleistenführung, bis das untere Ende des Inhalts und der Scrollleiste erreicht ist.
+  - : Der Inhalt im Viewport bewegt sich um eine Zeile nach unten, wobei sich der Daumen proportional nach unten entlang der Scrollbarschiene bewegt, bis das untere Ende des Inhalts und der Scrollbar erreicht sind.
 - <kbd>Pfeil nach links</kbd>
-  - : Bei horizontalem Scrollen bewegt sich der Inhalt im Ansichtsfenster um die Breite eines Zeichens nach links, und der Daumen bewegt sich proportional nach links entlang der Scrollleistenführung, bis der linke Rand des Inhalts an das linke Ende des Ansichtsfensters stößt und der Daumen am linken Ende der Scrollleiste ausgerichtet ist.
+  - : Bei horizontalem Scrollen bewegt sich der Inhalt im Viewport um die Breite eines Zeichens nach links, wobei sich der Daumen proportional nach links entlang der Scrollbarschiene bewegt, bis der linke Rand des Inhalts das linke Ende des Viewports berührt und der Daumen am linken Ende der Scrollbar ausgerichtet ist.
 - <kbd>Pfeil nach rechts</kbd>
-  - : Bei horizontalem Scrollen bewegt sich der Inhalt im Ansichtsfenster um die Breite eines Zeichens nach rechts, und der Daumen bewegt sich proportional nach rechts entlang der Scrollleistenführung, bis der rechte Rand des Inhalts an das rechte Ende des Ansichtsfensters stößt und der Daumen am rechten Ende der Scrollleiste ausgerichtet ist.
-- <kbd>Bild auf</kbd> und <kbd>Umschalt + Leertaste</kbd>
-  - : Der Inhalt im Ansichtsfenster bewegt sich um die Höhe eines Ansichtsfensters nach oben, und der Daumen bewegt sich proportional nach oben entlang der Scrollleistenführung, bis das obere Ende des Inhalts und der Scrollleiste erreicht ist.
-- <kbd>Bild ab</kbd> und <kbd>Leertaste</kbd>
-  - : Der Inhalt im Ansichtsfenster bewegt sich um die Höhe eines Ansichtsfensters nach unten, und der Daumen bewegt sich proportional nach unten entlang der Scrollleistenführung, bis das untere Ende des Inhalts und der Scrollleiste erreicht ist. Das untere oder obere Ende des Inhalts ist sichtbar.
+  - : Bei horizontalem Scrollen bewegt sich der Inhalt im Viewport um die Breite eines Zeichens nach rechts, wobei sich der Daumen proportional nach rechts entlang der Scrollbarschiene bewegt, bis der rechte Rand des Inhalts das rechte Ende des Viewports berührt und der Daumen am rechten Ende der Scrollbar ausgerichtet ist.
+- <kbd>Bild nach oben</kbd> und <kbd>Umschalt + Leertaste</kbd>
+  - : Der Inhalt im Viewport bewegt sich um die Höhe eines Viewports nach oben, wobei sich der Daumen proportional nach oben entlang der Scrollbarschiene bewegt, bis das obere Ende des Inhalts und der Scrollbar erreicht sind.
+- <kbd>Bild nach unten</kbd> und <kbd>Leertaste</kbd>
+  - : Der Inhalt im Viewport bewegt sich um die Höhe eines Viewports nach unten, wobei sich der Daumen proportional nach unten entlang der Scrollbarschiene bewegt, bis das untere Ende des Inhalts und der Scrollbar erreicht sind.
 
 ## Beispiele
 
-Das Folgende ist ein Beispiel für ein Wort, das wahrscheinlich zu lang für einen übergeordneten Container ist.
+Das folgende ist ein Beispiel für ein Wort, das wahrscheinlich zu lang für ein übergeordnetes Container-Element ist.
 
 ```html
 <div id="pi-label">Pi</div>
@@ -132,9 +133,9 @@ Das Folgende ist ein Beispiel für ein Wort, das wahrscheinlich zu lang für ein
 </div>
 ```
 
-Wenn Sie die ARIA-Rollen anstelle von nativen UI-Funktionen verwenden, muss CSS verwendet werden, um die Scrollleiste und den Daumen zu gestalten, und JavaScript muss verwendet werden, um alle Tastatur- und Zeigereignisse zu verwalten.
+Wenn anstelle von nativen UI-Features die ARIA-Rollen verwendet werden, muss CSS verwendet werden, um die Scrollbar und den Daumen zu gestalten und JavaScript muss verwendet werden, um alle Tastatur- und Zeigerereignisse zu handhaben.
 
-CSS könnte verwendet worden sein, um sicherzustellen, dass der überlaufende Wert von PI eine native Scrollleiste hatte:
+CSS hätte verwendet werden können, um sicherzustellen, dass der überlaufende Wert von PI eine native Scrollbar hat:
 
 ```html
 <h3 id="PI">Pi</h3>
@@ -150,7 +151,7 @@ CSS könnte verwendet worden sein, um sicherzustellen, dass der überlaufende We
 }
 ```
 
-Das obige CSS bedeutet, dass eine native Scrollleiste erscheint, wenn der Benutzer mit dem Ansichtsfenster des Absatzes interagiert, falls die Länge des längsten Wortes im Absatz breiter ist als der enthaltene Kasten des Absatzes. Das `tabindex`-Attribut wurde hinzugefügt, um Benutzern, die eine Tastatur verwenden, zu ermöglichen, den überfließenden Inhalt zu navigieren und darzustellen.
+Das obige CSS bedeutet, dass eine native Scrollbar angezeigt wird, wenn der Benutzer mit dem Viewport des Absatzes interagiert, falls die Länge des längsten Wortes im Absatz breiter ist als die Box, die den Absatz enthält. Das `tabindex`-Attribut wurde hinzugefügt, um Personen, die eine Tastatur verwenden, zu ermöglichen, zu navigieren und überschüssigen Inhalt zu scrollen.
 
 ## Spezifikationen
 
@@ -159,12 +160,12 @@ Das obige CSS bedeutet, dass eine native Scrollleiste erscheint, wenn der Benutz
 ## Siehe auch
 
 - [`<input type="range">`](/de/docs/Web/HTML/Reference/Elements/input/range),
-- HTML {{HTMLElement('progress')}}-Element
-- HTML {{HTMLElement('meter')}}-Element
+- HTML-Element {{HTMLElement('progress')}}
+- HTML-Element {{HTMLElement('meter')}}
 - Andere Bereichs-Widgets umfassen:
   - [`meter`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/meter_role)
   - [`slider`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/slider_role)
   - [`separator`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/separator_role) (wenn fokussierbar)
   - [`progressbar`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/progressbar_role)
   - [`spinbutton`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/spinbutton_role)
-- [Dokument-`scroll`-Ereignis](/de/docs/Web/API/Document/scroll_event)
+- [Scroll-Ereignis des Dokuments](/de/docs/Web/API/Document/scroll_event)

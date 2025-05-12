@@ -1,11 +1,12 @@
 ---
-title: "ARIA: cell Rolle"
+title: 'ARIA: Rolle "cell"'
+short-title: cell
 slug: Web/Accessibility/ARIA/Reference/Roles/cell_role
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: a8b25483994fa47cf949b432ddf34a6bce2ddb2e
 ---
 
-Der `cell` Wert des ARIA _role_ Attributs kennzeichnet ein Element als Zelle in einem tabellarischen Container, der keine Spalten- oder Zeilenkopfzeileninformationen enthält. Um unterstützt zu werden, muss die Zelle in einem Element mit der Rolle `row` verschachtelt sein.
+Der Wert `cell` des ARIA-_role_-Attributs identifiziert ein Element als eine Zelle in einem tabellarischen Container, der keine Spalten- oder Zeilenheader-Informationen enthält. Um unterstützt zu werden, muss die Zelle in einem Element mit der Rolle `row` geschachtelt sein.
 
 ```html
 <div role="row">
@@ -14,7 +15,7 @@ Der `cell` Wert des ARIA _role_ Attributs kennzeichnet ein Element als Zelle in 
 </div>
 ```
 
-Eine bessere, semantischere Möglichkeit, die obigen Zellen zu schreiben, wäre die Verwendung des semantischen [`<td>`](/de/docs/Web/HTML/Reference/Elements/td) Elements.
+Eine bessere, semantischere Weise, die obigen Zellen zu schreiben, wäre die Verwendung des semantischen [`<td>`](/de/docs/Web/HTML/Reference/Elements/td)-Elements.
 
 ```html
 <tr role="row">
@@ -25,57 +26,57 @@ Eine bessere, semantischere Möglichkeit, die obigen Zellen zu schreiben, wäre 
 
 ## Beschreibung
 
-Das Element mit `role="cell"` ist eine Zelle innerhalb einer Reihe, optional innerhalb einer [`rowgroup`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/rowgroup_role), innerhalb einer [`table`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/table_role). Wenn sich die Zelle in einem [`grid`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/grid_role) oder [`treegrid`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/treegrid_role) befindet, nutzen Sie `gridcell`. Die Verwendung nativer HTML {{HTMLElement('td')}} Elemente wird, wann immer möglich, dringend empfohlen.
+Das Element mit `role="cell"` ist eine Zelle innerhalb einer Zeile, optional innerhalb einer [`rowgroup`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/rowgroup_role), innerhalb einer [`table`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/table_role). Befindet sich die Zelle in einem [`grid`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/grid_role) oder [`treegrid`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/treegrid_role), sollte `gridcell` bevorzugt werden. Wann immer möglich, wird dringend empfohlen, native HTML-{{HTMLElement('td')}}-Elemente zu verwenden.
 
-Jedes Element mit `role="cell"` MUSS in einem Container-Element mit [`role="row"`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/row_role) verschachtelt sein. Diese Zeile kann wiederum in einem Element mit [`role="rowgroup"`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/rowgroup_role) verschachtelt sein und sollte innerhalb eines `grid`, `table` oder `treegrid` verschachtelt werden. Wenn eine Zelle Spalten- oder Zeilenkopfzeileninformationen enthält, verwenden Sie die `columnheader` oder `rowheader` Rollen. Wenn die Zelle keine Kopfzeileninformationen enthält und in einem `grid` oder `treegrid` verschachtelt ist, kann die Rolle `gridcell` angemessener sein.
+Jedes Element mit `role="cell"` MUSS in einem Containerelement mit [`role="row"`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/row_role) geschachtelt sein. Diese Zeile kann wiederum in einem Element mit [`role="rowgroup"`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/rowgroup_role) geschachtelt sein und sollte in einem `grid`, `table` oder `treegrid` geschachtelt sein. Wenn eine Zelle Spalten- oder Zeilenheader-Informationen enthält, verwenden Sie die Rollen `columnheader` oder `rowheader`. Wenn die Zelle keine Header-Informationen enthält und in einem `grid` oder `treegrid` geschachtelt ist, könnte die Rolle `gridcell` passender sein.
 
-Eine Zelle kann eine Reihe von Eigenschaften-Attributen enthalten, die die Position der Zelle innerhalb der tabellarischen Datenstruktur klären, einschließlich [`aria-colindex`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-colindex), [`aria-colspan`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-colspan), [`aria-rowindex`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-rowindex) und [`aria-rowspan`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-rowspan).
+Eine Zelle kann eine Reihe von Property-Attributen enthalten, die die Position der Zelle innerhalb der tabellarischen Datenstruktur klären, einschließlich [`aria-colindex`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-colindex), [`aria-colspan`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-colspan), [`aria-rowindex`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-rowindex) und [`aria-rowspan`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-rowspan).
 
 > [!NOTE]
-> Die Verwendung des nativen HTML Tabellen-Elements ({{HTMLElement('table')}}) zusammen mit dem Tabellenzeilen-Element ({{HTMLElement('tr')}}) und dem Tabellenzellen-Element ({{HTMLElement('td')}}) wird, wann immer möglich, dringend empfohlen.
+> Wann immer möglich, wird dringend empfohlen, das native HTML-Tabellenelement ({{HTMLElement('table')}}) zusammen mit dem Tabellenzeilenelement ({{HTMLElement('tr')}}) und dem Tabellenzellen-Element ({{HTMLElement('td')}}) zu verwenden.
 
-### Zugehörige WAI-ARIA Rollen, Zustände und Eigenschaften
+### Zugehörige WAI-ARIA-Rollen, -Zustände und -Eigenschaften
 
 #### Kontextrollen
 
 - [role="row"](/de/docs/Web/Accessibility/ARIA/Reference/Roles/row_role)
-  - : Ein Element mit `role="row"` ist eine Zeile von Zellen innerhalb einer tabellarischen Struktur. Eine Zeile enthält eine oder mehrere Zellen, Gitterzellen, Spaltenkopfzeilen oder Zeilenkopfzeilen innerhalb eines [`grid`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/grid_role), [`table`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/table_role) oder `treegrid`, und optional innerhalb einer [`rowgroup`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/rowgroup_role).
+  - : Ein Element mit `role="row"` ist eine Zeile von Zellen innerhalb einer tabellarischen Struktur. Eine Zeile enthält eine oder mehrere Zellen, Grid Cells, Spaltenheader oder Zeilenheader innerhalb eines [`grid`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/grid_role), einer [`table`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/table_role) oder eines `treegrid` und optional innerhalb einer [`rowgroup`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/rowgroup_role).
 - [role="rowgroup"](/de/docs/Web/Accessibility/ARIA/Reference/Roles/rowgroup_role)
-  - : `Row` ist ein erforderliches Zellen-Elternteil. `Rowgroup` ist ein optionales kontextuelles Zeilen-Elternteil. Es stellt eine Beziehung zwischen nachfolgenden Zeilen her. Es ist ein strukturelles Äquivalent zu den [`thead`](/de/docs/Web/HTML/Reference/Elements/thead), [`tfoot`](/de/docs/Web/HTML/Reference/Elements/tfoot) und [`tbody`](/de/docs/Web/HTML/Reference/Elements/tbody) Elementen in einem [HTML `table`](/de/docs/Learn_web_development/Core/Structuring_content/HTML_table_basics) Element.
+  - : `Row` ist ein erforderliches Zellenelternelement. `Rowgroup` ist ein optionales kontextuelles Zeilenelternelement. Es stellt eine Beziehung zwischen nachfolgenden Zeilen her. Es ist das strukturelle Äquivalent zu den [`thead`](/de/docs/Web/HTML/Reference/Elements/thead), [`tfoot`](/de/docs/Web/HTML/Reference/Elements/tfoot) und [`tbody`](/de/docs/Web/HTML/Reference/Elements/tbody)-Elementen in einem [HTML-`table`](/de/docs/Learn_web_development/Core/Structuring_content/HTML_table_basics)-Element.
 - [role="table"](/de/docs/Web/Accessibility/ARIA/Reference/Roles/table_role)
-  - : Eines der drei möglichen Kontexte (zusammen mit `grid` und `treegrid`), in dem Sie eine Zeile mit Zellen finden. Tabelle identifiziert die Zelle als Teil einer nicht-interaktiven Tabellenstruktur, die Daten enthält, die in Zeilen und Spalten angeordnet sind, ähnlich dem nativen HTML [`<table>`](/de/docs/Web/HTML/Reference/Elements/table) Element.
+  - : Eine von drei möglichen Kontexten (zusammen mit `grid` und `treegrid`), in denen man eine Zeile mit Zellen finden kann. Tabelle identifiziert die Zelle als Teil einer nicht-interaktiven Tabellenstruktur, die Daten in Zeilen und Spalten anordnet, ähnlich dem nativen HTML-[`<table>`](/de/docs/Web/HTML/Reference/Elements/table)-Element.
 - [role="grid"](/de/docs/Web/Accessibility/ARIA/Reference/Roles/grid_role)
-  - : Eines der drei möglichen Kontexte (zusammen mit `table` und `treegrid`), in dem Sie eine Zeile mit `cells` und `gridcells` finden. `Grid` kennzeichnet eine Zelle als Teil einer möglicherweise interaktiven Tabellenstruktur, die Daten enthält, die in Zeilen und Spalten angeordnet sind, ähnlich dem nativen [`<table>`](/de/docs/Web/HTML/Reference/Elements/table) HTML Element.
+  - : Eine von drei möglichen Kontexten (zusammen mit `table` und `treegrid`), in denen man eine Zeile mit `cells` und `gridcells` finden kann. `Grid` identifiziert eine Zelle als Teil einer möglicherweise interaktiven Tabellenstruktur, die Daten in Zeilen und Spalten anordnet, ähnlich dem nativen [`<table>`](/de/docs/Web/HTML/Reference/Elements/table)-HTML-Element.
 - [role="treegrid"](/de/docs/Web/Accessibility/ARIA/Reference/Roles/treegrid_role)
-  - : Ähnlich einem Grid, aber mit Zeilen, die erweitert und in der gleichen Weise wie bei einem Baum zusammengeklappt werden können.
+  - : Ähnlich einem Grid, aber mit Zeilen, die in derselben Weise erweitert und zusammengeklappt werden können wie in einem Baum.
 
-#### Unterklassen Rollen
+#### Unterklassenrollen
 
 - [role="gridcell"](/de/docs/Web/Accessibility/ARIA/Reference/Roles/gridcell_role)
   - : Eine Zelle in einer Zeile innerhalb eines `grid` oder `treegrid`.
 - [role="columnheader"](/de/docs/Web/Accessibility/ARIA/Reference/Roles/columnheader_role)
-  - : Eine Header-Zelle, die das strukturelle Äquivalent des HTML [`<th>`](/de/docs/Web/HTML/Reference/Elements/th) Elements mit Spaltenscope ist. Anders als bei einer einfachen Zelle schafft die `columnheader` Rolle eine Beziehung zwischen ihr und allen Zellen in der entsprechenden Spalte.
+  - : Eine Header-Zelle, die das strukturelle Äquivalent des HTML-[`<th>`](/de/docs/Web/HTML/Reference/Elements/th)-Elements mit einer Spaltenreichweite darstellt. Im Gegensatz zu einer einfachen Zelle stellt die Rolle `columnheader` eine Beziehung zwischen ihr und allen Zellen in der entsprechenden Spalte her.
 - [role="rowheader"](/de/docs/Web/Accessibility/ARIA/Reference/Roles/rowheader_role)
-  - : Eine Header-Zelle, die das strukturelle Äquivalent des HTML [`<th>`](/de/docs/Web/HTML/Reference/Elements/th) Elements mit Zeilenscope ist. Anders als bei einer einfachen Zelle schafft die `rowheader` Rolle eine Beziehung zwischen ihr und allen Zellen in der entsprechenden Zeile.
+  - : Eine Header-Zelle, die das strukturelle Äquivalent des HTML-[`<th>`](/de/docs/Web/HTML/Reference/Elements/th)-Elements mit einer Zeilenreichweite darstellt. Im Gegensatz zu einer einfachen Zelle stellt die Rolle `rowheader` eine Beziehung zwischen ihr und allen Zellen in der entsprechenden Zeile her.
 
 #### Zustände und Eigenschaften
 
 - [`aria-colspan`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-colspan)
-  - : Ähnlich dem HTML [`<th>`](/de/docs/Web/HTML/Reference/Elements/th) und [`<td>` colspan Attribut](/de/docs/Web/HTML/Reference/Elements/td), definiert es die Anzahl der von der Zelle überspannten Spalten.
+  - : Ähnlich wie das HTML-[`<th>`](/de/docs/Web/HTML/Reference/Elements/th)- und das [`<td>`-`colspan`-Attribut](/de/docs/Web/HTML/Reference/Elements/td) definiert es, wie viele Spalten von der Zelle überspannt werden.
 - [`aria-rowspan`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-rowspan)
-  - : Ähnlich dem HTML [`<th>`](/de/docs/Web/HTML/Reference/Elements/th) und [`<td>` rowspan Attribut](/de/docs/Web/HTML/Reference/Elements/td), definiert es die Anzahl der von der Zelle überspannten Zeilen.
-- [`aria-colindex`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-colindex) Attribut
-  - : Das `aria-colindex` Attribut wird nur benötigt, wenn Spalten im DOM versteckt sind. Das Attribut nimmt als Wert eine ganze Zahl zwischen 1 und der Gesamtanzahl der Spalten innerhalb der `table`, `grid` oder `treegrid` ein. Das `aria-colindex` definiert den Spaltenindex oder die Position eines Elements in Bezug auf die Gesamtanzahl der Spalten innerhalb einer Zeile. Wenn alle Spalten im DOM sind, ist dieses Attribut nicht notwendig.
-- [`aria-rowindex`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-rowindex) Attribut
-  - : Das `aria-rowindex` Attribut wird nur benötigt, wenn Zeilen im DOM versteckt sind, um anzuzeigen, in welcher Zeile der Liste der Gesamtzeilen sich die aktuelle Zelle befindet. Das Attribut nimmt als Wert eine ganze Zahl zwischen 1 und der Gesamtanzahl der Zeilen in der Tabelle, dem Grid oder dem Treegrid ein, was die Position oder den Index der Zelle anzeigt. Zum Beispiel hätte eine Zelle in der ersten Zeile des ersten Headers wahrscheinlich `aria-rowindex="1"` gesetzt und Zellen in Zeile 47 hätten `aria-rowindex="47"`, wenn `aria-rowindex` aufgrund nicht aller Zeilen im DOM notwendig wäre. Wenn die sichtbaren Zeilen zusammenhängend sind und es keine Zellen mit einer `colspan` oder `rowspan` größer als eins gibt, kann diese Eigenschaft den übergeordneten Zeilen statt allen Zellen der Zeilen hinzugefügt werden.
+  - : Ähnlich wie das HTML-[`<th>`](/de/docs/Web/HTML/Reference/Elements/th)- und das [`<td>`-`rowspan`-Attribut](/de/docs/Web/HTML/Reference/Elements/td) definiert es, wie viele Zeilen von der Zelle überspannt werden.
+- [`aria-colindex`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-colindex)-Attribut
+  - : Das `aria-colindex`-Attribut wird nur benötigt, wenn Spalten im DOM verborgen sind. Das Attribut nimmt als Wert eine ganze Zahl zwischen 1 und der Gesamtanzahl der Spalten innerhalb der `table`, `grid` oder `treegrid` an. Das `aria-colindex` definiert den Spaltenindex oder die Position eines Elements relativ zur Gesamtanzahl der Spalten innerhalb einer Zeile. Wenn alle Spalten im DOM vorhanden sind, ist dieses Attribut nicht notwendig.
+- [`aria-rowindex`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-rowindex)-Attribut
+  - : Das `aria-rowindex`-Attribut wird nur benötigt, wenn Zeilen im DOM verborgen sind, um anzugeben, in welcher Zeile, in der Liste der gesamten Zeilen, sich die aktuelle Zelle befindet. Das Attribut nimmt als Wert eine ganze Zahl zwischen 1 und der Gesamtanzahl der Zeilen innerhalb der Tabelle, des Gitters oder des Baumgitters an und gibt die Position oder den Index der Zelle an. Zum Beispiel würde eine Zelle in der ersten Zeile des ersten Headers wahrscheinlich `aria-rowindex="1"` haben, und Zellen in Zeile 47 würden `aria-rowindex="47"` haben, falls `aria-rowindex` aufgrund der Tatsache benötigt wird, dass nicht alle Zeilen im DOM sind. Wenn die sichtbaren Zeilen aneinandergrenzen und es keine Zellen mit einem `colspan` oder `rowspan` größer als eins gibt, kann diese Eigenschaft zu den übergeordneten Zeilen anstelle aller Zellen der Reihen hinzugefügt werden.
 
 ### Tastaturinteraktionen
 
 Keine.
 
-### Erforderliche JavaScript-Features
+### Erforderliche JavaScript-Funktionen
 
-Die erste Regel für die Verwendung von ARIA ist, dass Sie, wenn Sie eine native Funktion mit den bereits eingebauten Semantiken und Verhaltensweisen verwenden können, anstatt ein Element neu zu verwenden und **eine** ARIA Rolle, -Zustand oder -Eigenschaft hinzuzufügen, um es zugänglich zu machen, dies tun sollten. Verwenden Sie das HTML [`<td>`](/de/docs/Web/HTML/Reference/Elements/td) Element anstelle der ARIA-Rolle `cell`, wann immer möglich.
+Die erste Regel für die Verwendung von ARIA lautet: Wenn Sie eine native Funktion mit den bereits integrierten Semantiken und Verhaltensweisen verwenden können, anstatt ein Element umzufunktionieren und eine ARIA-Rolle, einen Zustand oder eine Eigenschaft hinzuzufügen, um es zugänglich zu machen, dann tun Sie dies. Verwenden Sie das HTML-Element [`<td>`](/de/docs/Web/HTML/Reference/Elements/td) anstelle der ARIA-Rolle `cell` wann immer möglich.
 
 ## Beispiele
 
@@ -119,11 +120,11 @@ Die erste Regel für die Verwendung von ARIA ist, dass Sie, wenn Sie eine native
 </div>
 ```
 
-Oben ist eine nicht-semantische ARIA-Tabelle mit fünf von 81 Zeilen, die im DOM vorhanden sind: eine in einem Tabellenkopf und vier Zeilen im Tabellenkörper. Da nicht alle Zeilen im DOM sind, haben wir die `aria-rowindex` Eigenschaft in jeder Zelle inkludiert. Wenn keine Zellen mehr als eine Zeile oder Spalte überspannen würden, könnte das `aria-rowindex` auf die Zeile anstatt auf die individuellen Zellen der Zeile gesetzt werden.
+Das oben stehende Beispiel ist eine nicht-semantische ARIA-Tabelle mit fünf von 81 Zeilen, die im DOM vorhanden sind: Eine innerhalb eines Tabellen-Headers und vier Zeilen innerhalb des Tabellenkörpers. Da nicht alle Zeilen im DOM sind, haben wir die `aria-rowindex`-Eigenschaft auf jeder Zelle hinzugefügt. Wenn keine Zellen mehr als eine Zeile oder Spalte überspannten, könnte das `aria-rowindex` auf die Zeile anstatt auf die einzelnen Zellen der Zeile gesetzt werden.
 
-## Beste Praktiken
+## Best Practices
 
-Verwenden Sie nur {{HTMLElement('table')}}, {{HTMLElement('tbody')}}, {{HTMLElement('thead')}}, {{HTMLElement('tr')}}, {{HTMLElement('th')}}, {{HTMLElement('td')}} usw., für die Datenstruktur der Tabelle. Sie können ARIA-Rollen hinzufügen, um die Zugänglichkeit sicherzustellen, falls die nativen Semantiken der Tabelle entfernt werden, wie z. B. durch CSS. Ein relevanter Anwendungsfall für die ARIA-Tabelle Rolle ist, wenn die nativen Semantik einer Tabelle durch [CSS-Display-Eigenschaft, wie durch display: grid](/de/docs/Web/CSS/display#accessibility), überschrieben wird. In diesem Fall können Sie die ARIA-Tabellenrollen verwenden, um die Semantiken wieder hinzuzufügen.
+Verwenden Sie nur {{HTMLElement('table')}}, {{HTMLElement('tbody')}}, {{HTMLElement('thead')}}, {{HTMLElement('tr')}}, {{HTMLElement('th')}}, {{HTMLElement('td')}} usw. für die Daten-Tabellenstruktur. Sie können ARIA-Rollen hinzufügen, um die Barrierefreiheit zu gewährleisten, falls die nativen Semantiken der Tabelle entfernt werden, zum Beispiel durch CSS. Ein relevanter Anwendungsfall für die ARIA-Tabellenrolle ist gegeben, wenn die nativen Semantiken einer Tabelle durch [die CSS-Display-Eigenschaft, wie etwa durch `display: grid`](/de/docs/Web/CSS/display#accessibility), überschrieben werden. In diesem Fall können Sie die ARIA-Tabellenrollen verwenden, um die Semantiken wieder hinzuzufügen.
 
 ```html
 <table
@@ -163,11 +164,11 @@ Verwenden Sie nur {{HTMLElement('table')}}, {{HTMLElement('tbody')}}, {{HTMLElem
 </table>
 ```
 
-Oben ist die semantische Art, eine Tabelle zu schreiben. Die ARIA-Rollen sind nicht notwendig, wenn die nativen Semantiken der Tabelle und daher die Tabellenzeilen nicht verändert wurden, wie durch [die Display-Eigenschaft](/de/docs/Web/CSS/display#accessibility).
+Oben ist die semantische Art, eine Tabelle zu schreiben. Die ARIA-Rollen sind nicht notwendig, wenn die nativen Semantiken der Tabelle und somit der Tabellenzeilen nicht verändert wurden, wie beispielsweise durch [die Display-Eigenschaft](/de/docs/Web/CSS/display#accessibility).
 
-### Zusätzliche Vorteile
+### Zugefügte Vorteile
 
-Wenn auf eine {{HTMLElement('td')}} angewendet, stellt es die Zellsemantik dem Element zurück, falls die Semantik entfernt wurde, wie durch `display: grid;`.
+Bei Anwendung auf ein {{HTMLElement('td')}} werden die Zellen-Semantiken dem Element zurückgegeben, falls die Semantiken entfernt wurden, etwa durch `display: grid;`.
 
 ## Spezifikationen
 
@@ -177,7 +178,7 @@ Wenn auf eine {{HTMLElement('td')}} angewendet, stellt es die Zellsemantik dem E
 
 - [`role="row"`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/row_role)
 - [`role="gridcell"`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/gridcell_role)
-- [HTML `<td>` Element](/de/docs/Web/HTML/Reference/Elements/td)
-- [HTML `<th>` Element](/de/docs/Web/HTML/Reference/Elements/th)
-- [Lernen: HTML Tabellen Zugänglichkeit](/de/docs/Learn_web_development/Core/Structuring_content/Table_accessibility)
-- [Lernen: Grundlagen der HTML Tabelle](/de/docs/Learn_web_development/Core/Structuring_content/HTML_table_basics)
+- [HTML `<td>`-Element](/de/docs/Web/HTML/Reference/Elements/td)
+- [HTML `<th>`-Element](/de/docs/Web/HTML/Reference/Elements/th)
+- [Erlernen: Barrierefreiheit für HTML-Tabellen](/de/docs/Learn_web_development/Core/Structuring_content/Table_accessibility)
+- [Erlernen: Grundlegendes zu HTML-Tabellen](/de/docs/Learn_web_development/Core/Structuring_content/HTML_table_basics)

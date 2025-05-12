@@ -1,35 +1,36 @@
 ---
-title: aria-valuetext
+title: "ARIA: aria-valuetext-Attribut"
+short-title: aria-valuetext
 slug: Web/Accessibility/ARIA/Reference/Attributes/aria-valuetext
 l10n:
-  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
+  sourceCommit: a8b25483994fa47cf949b432ddf34a6bce2ddb2e
 ---
 
-Das `aria-valuetext` Attribut definiert den lesbaren Text, der als Alternative zu `aria-valuenow` für ein Bereichs-Widget dient.
+Das `aria-valuetext`-Attribut definiert den menschenlesbaren Text als Alternative zu `aria-valuenow` für ein Bereichs-Widget.
 
 ## Beschreibung
 
-Zahlen – sogar Prozentsätze – sind nicht immer benutzerfreundlich. Unterstützende Technologien stellen [`aria-valuenow`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-valuenow) als numerische Werte dar. Wenn eine Fortschrittsanzeige bei 8% ist, was bedeutet das? `aria-valuetext` bietet eine Möglichkeit, den aktuellen Wert auf eine benutzerfreundlichere und verständlichere Weise darzustellen. Zum Beispiel könnte ein Wert eines Batterieanzeigers als `aria-valuetext="8% (34 Minuten) verbleibend"` angezeigt werden.
+Zahlen – selbst Prozentangaben – sind nicht immer benutzerfreundlich. Unterstützungstechnologien präsentieren [`aria-valuenow`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-valuenow) als numerische Werte. Wenn eine Fortschrittsanzeige bei 8% steht, was bedeutet das? `aria-valuetext` bietet eine Möglichkeit, den aktuellen Wert auf eine benutzerfreundlichere, für Menschen verständliche Weise darzustellen. Zum Beispiel könnte ein Batteriemeterwert als `aria-valuetext="8% (noch 34 Minuten)"` angegeben werden.
 
-Das `aria-valuetext` Attribut wird zusammen mit dem `aria-valuenow` Attribut verwendet, nicht anstelle davon, es sei denn, dieser Wert ist nicht bekannt.
+Das `aria-valuetext`-Attribut wird zusammen mit dem `aria-valuenow`-Attribut verwendet, nicht an dessen Stelle, es sei denn, dieser Wert ist nicht bekannt.
 
-`aria-valuetext` ist nur erforderlich, wenn der numerische Wert von `aria-valuenow` nicht aussagekräftig ist. Zum Beispiel sind die Werte eines Bereichs numerisch, können aber für nicht numerische Werte wie das Niveau einer Universitätsklasse verwendet werden. Die Werte von `aria-valuenow` für ein 4-jähriges Hochschulstudium könnten von 1 bis 4 reichen, was die Position jedes Werts im Werteraum anzeigt. In diesem Fall könnte der `aria-valuetext` einer der Strings sein: "erstes Jahr", "zweites Jahr", "drittes Jahr" und "viertes Jahr".
+`aria-valuetext` wird nur benötigt, wenn der numerische Wert von `aria-valuenow` nicht aussagekräftig ist. Zum Beispiel sind die Werte eines Bereichs numerisch, können jedoch für nicht-numerische Werte verwendet werden, wie z. B. die College-Klassenstufe. Die Werte von `aria-valuenow` für ein vierjähriges College könnten von 1 bis 4 reichen, was die Position jedes Wertes im Wertbereich angibt. In diesem Fall könnte das `aria-valuetext` einer der folgenden Zeichenfolgen sein: "Erstes Jahr", "Sophomore", "Junior" und "Senior".
 
-Wenn der numerische Wert aussagekräftig ist, wie bei einem Spinner mit `aria-valuenow="3"`, um die Anzahl der Pizzastücke zu bestellen, wird `aria-valuetext` nicht benötigt.
+Wenn der numerische Wert aussagekräftig ist, wie z. B. ein Spinner mit `aria-valuenow="3"` für die Anzahl an Pizzastücken, die Sie bestellen möchten, ist `aria-valuetext` nicht erforderlich.
 
-Sind sowohl `aria-valuetext` als auch `aria-valuenow` vorhanden, wird `aria-valuetext` angesagt. Befindet sich kein `aria-valuetext` Attribut, so kündigen unterstützende Technologien das `aria-valuenow` Attribut für den aktuellen Wert an.
+Wenn sowohl `aria-valuetext` als auch `aria-valuenow` enthalten sind, wird das `aria-valuetext` angesagt. Wenn kein `aria-valuetext`-Attribut vorhanden ist, werden die Unterstützungstechnologien das `aria-valuenow`-Attribut für den aktuellen Wert ansagen.
 
 ## Werte
 
 - `<string>`
-  - : Ein lesbarer Text als Alternative zum `aria-valuenow` Wert.
+  - : Eine menschenlesbare Textalternative zum `aria-valuenow`-Wert.
 
 ## Zugehörige Schnittstellen
 
 - [`Element.ariaValueText`](/de/docs/Web/API/Element/ariaValueText)
-  - : Die [`ariaValueText`](/de/docs/Web/API/Element/ariaValueText) Eigenschaft, Teil der [`Element`](/de/docs/Web/API/Element) Schnittstelle, spiegelt den Wert des `aria-valuetext` Attributs wider.
+  - : Die [`ariaValueText`](/de/docs/Web/API/Element/ariaValueText)-Eigenschaft, die Teil der [`Element`](/de/docs/Web/API/Element)-Schnittstelle ist, spiegelt den Wert des `aria-valuetext`-Attributs wider.
 - [`ElementInternals.ariaValueText`](/de/docs/Web/API/ElementInternals/ariaValueText)
-  - : Die [`ariaValueText`](/de/docs/Web/API/ElementInternals/ariaValueText) Eigenschaft, Teil der [`ElementInternals`](/de/docs/Web/API/ElementInternals) Schnittstelle, spiegelt den Wert des `aria-valuetext` Attributs wider.
+  - : Die [`ariaValueText`](/de/docs/Web/API/ElementInternals/ariaValueText)-Eigenschaft, die Teil der [`ElementInternals`](/de/docs/Web/API/ElementInternals)-Schnittstelle ist, spiegelt den Wert des `aria-valuetext`-Attributs wider.
 
 ## Zugehörige Rollen
 
@@ -39,7 +40,7 @@ Verwendet in Rollen:
 - [`separator`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/separator_role)
 - [`spinbutton`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/spinbutton_role)
 
-Geerbt in Rollen:
+Vererbt in Rollen:
 
 - [`meter`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/meter_role)
 - [`progressbar`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/progressbar_role)
