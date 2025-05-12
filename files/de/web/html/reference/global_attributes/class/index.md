@@ -2,7 +2,7 @@
 title: class
 slug: Web/HTML/Reference/Global_attributes/class
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: 96ad6377c054e9cb446613b8afa80bfeaa202150
 ---
 
 {{HTMLSidebar("Global_attributes")}}
@@ -37,19 +37,19 @@ Das **`class`** [globale Attribut](/de/docs/Web/HTML/Reference/Global_attributes
 }
 ```
 
+## Syntax
+
+Das `class`-Attribut ist eine Liste von Klassennamen, getrennt durch {{Glossary("Whitespace#in_html", "ASCII-Leerzeichen")}}.
+
+Jeder Klassenname kann beliebige Unicode-Zeichen enthalten (außer natürlich ASCII-Leerzeichen). Wenn jedoch Klassenbezeichner in CSS-Selektoren verwendet werden, sei es von JavaScript mittels APIs wie [`Document.querySelector()`](/de/docs/Web/API/Document/querySelector) oder in CSS-Stylesheets, müssen die Werte des class-Attributs gültige [CSS-Bezeichner](/de/docs/Web/CSS/ident) sein. Das bedeutet, wenn ein Wert des class-Attributs kein gültiger CSS-Bezeichner ist (zum Beispiel `my?class` oder `1234`), muss er vor der Verwendung in einem Selektor entweder mit der Methode [`CSS.escape()`](/de/docs/Web/API/CSS/escape_static) oder [manuell](/de/docs/Web/CSS/ident#escaping_characters) maskiert werden.
+
+Aus diesem Grund wird empfohlen, dass Entwickler Werte für class-Attribute wählen, die gültige CSS-Bezeichner sind, die keine Maskierung erfordern.
+
 ## Beschreibung
 
-Klassen ermöglichen es CSS und JavaScript, spezifische Elemente über die [Klassenselektoren](/de/docs/Web/CSS/Class_selectors) oder Funktionen wie [`document.getElementsByClassName()`](/de/docs/Web/API/Document/getElementsByClassName) auszuwählen und zuzugreifen.
+Klassen erlauben es CSS und JavaScript, spezifische Elemente über [Klassenselektoren](/de/docs/Web/CSS/Class_selectors) oder Funktionen wie [`document.getElementsByClassName()`](/de/docs/Web/API/Document/getElementsByClassName) auszuwählen und darauf zuzugreifen.
 
-Obwohl die Spezifikation keine Anforderungen an die Namen von Klassen stellt, werden Webentwickler ermutigt, Namen zu verwenden, die den semantischen Zweck des Elements beschreiben, anstatt die Präsentation des Elements. Zum Beispiel _attribute_ zur Beschreibung eines Attributs statt _italics_, obwohl ein Element dieser Klasse kursiv dargestellt werden kann. Semantische Namen bleiben logisch, selbst wenn sich die Präsentation der Seite ändert.
-
-### Syntax
-
-Das `class` Attribut ist eine Liste von Klassenwerten, getrennt durch {{Glossary("Whitespace#in_html", "ASCII-Leerzeichen")}}.
-
-Jeder Klassenwert kann beliebige Unicode-Zeichen enthalten (natürlich außer ASCII-Leerzeichen). Wenn jedoch in CSS-Selektoren, entweder aus JavaScript mithilfe von APIs wie [`Document.querySelector()`](/de/docs/Web/API/Document/querySelector) oder in CSS-Stylesheets, Klassenattributwerte verwendet werden, müssen diese gültige [CSS-Bezeichner](/de/docs/Web/CSS/ident) sein. Das bedeutet, wenn ein Klassenattributwert kein gültiger CSS-Bezeichner ist (zum Beispiel `my?class` oder `1234`), muss er vor der Verwendung in einem Selektor entweder mithilfe der Methode [`CSS.escape()`](/de/docs/Web/API/CSS/escape_static) oder [manuell](/de/docs/Web/CSS/ident#escaping_characters) maskiert werden.
-
-Aus diesem Grund wird empfohlen, dass Entwickler Werte für Klassenattribute wählen, die gültige CSS-Bezeichner sind und keine Maskierung erfordern.
+Obwohl die Spezifikation keine Anforderungen an die Namen von Klassen stellt, werden Webentwickler ermutigt, Namen zu verwenden, die den semantischen Zweck des Elements beschreiben, anstatt die Darstellung des Elements. Zum Beispiel _attribute_, um ein Attribut zu beschreiben, statt _italics_, obwohl ein Element dieser Klasse kursiv dargestellt werden kann. Semantische Namen bleiben logisch, auch wenn sich die Präsentation der Seite ändert.
 
 ## Spezifikationen
 
