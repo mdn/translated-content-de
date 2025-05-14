@@ -61,7 +61,7 @@ Wie alle anderen HTML-Elemente unterstützt dieses Element die [globalen Attribu
     - `use-credentials`
       - : Sendet eine CORS-Anfrage mit Anmeldeinformationen. Das bedeutet, dass der `Origin:`-HTTP-Header mit einem Cookie, einem Zertifikat oder bei der Durchführung einer HTTP-Basisauthentifizierung gesendet wird. Wenn der Server keine Anmeldeinformationen an die Ursprungsseite liefert (durch den `Access-Control-Allow-Credentials:`-HTTP-Header), wird die Ressource _verfälscht_ und ihre Nutzung eingeschränkt.
 
-    Wenn nicht vorhanden, wird die Ressource ohne CORS-Anfrage abgerufen (d. h. ohne den `Origin:`-HTTP-Header zu senden), was ihre unverfälschte Nutzung in {{HTMLElement('canvas')}}-Elementen verhindert. Wenn ungültig, wird sie so behandelt, als ob das aufgezählte Schlüsselwort `anonymous` verwendet wurde. Siehe [CORS-Einstellungsattribute](/de/docs/Web/HTML/Reference/Attributes/crossorigin) für weitere Informationen.
+    Wenn nicht vorhanden, wird die Ressource ohne CORS-Anfrage abgerufen (d.h. ohne den `Origin:`-HTTP-Header zu senden), was ihre unverfälschte Nutzung in {{HTMLElement('canvas')}}-Elementen verhindert. Wenn ungültig, wird sie so behandelt, als ob das aufgezählte Schlüsselwort `anonymous` verwendet wurde. Siehe [CORS-Einstellungsattribute](/de/docs/Web/HTML/Reference/Attributes/crossorigin) für weitere Informationen.
 
 - `disablepictureinpicture`
   - : Verhindert, dass der Browser ein Bild-im-Bild-Kontextmenü vorschlägt oder in einigen Fällen automatisch Bild-im-Bild anfordert.

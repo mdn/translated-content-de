@@ -109,7 +109,7 @@ li span {
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
           >Phraseninhalt</a
-        > akzeptiert, oder jedes Element, das 
+        > akzeptiert, oder jedes Element, das
         <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
           >Fließenden Inhalt</a
         > akzeptiert.

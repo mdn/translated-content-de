@@ -109,7 +109,7 @@ Sie können auch Pfadtrennzeichen enthalten oder damit enden, oder absolute URLs
 }
 ```
 
-Wenn es mehrere Modul-Spezifizierer-Schlüssel in einer Modul-Spezifizierer-Map gibt, die übereinstimmen könnten, wird der spezifischste Schlüssel ausgewählt (d. h. der mit dem längeren Pfad/Wert).
+Wenn es mehrere Modul-Spezifizierer-Schlüssel in einer Modul-Spezifizierer-Map gibt, die übereinstimmen könnten, wird der spezifischste Schlüssel ausgewählt (d.h. der mit dem längeren Pfad/Wert).
 
 Ein Modul-Spezifizierer von `./foo/../js/app.js` würde zu `./js/app.js` aufgelöst, bevor eine Übereinstimmung gesucht wird.
 Das bedeutet, dass ein Modul-Spezifizierer-Schlüssel von `./js/app.js` den Modul-Spezifizierer auch dann treffen würde, wenn sie nicht genau gleich sind.

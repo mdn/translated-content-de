@@ -118,8 +118,8 @@ Die folgenden Attribute kontrollieren das Verhalten während der Formularübermi
     - `_self` (Standard): Laden in den gleichen Browsing-Kontext wie den aktuellen.
     - `_blank`: Laden in einen neuen, unbenannten Browsing-Kontext. Dies bietet das gleiche Verhalten wie das Setzen von [`rel="noopener"`](#rel), das [`window.opener`](/de/docs/Web/API/Window/opener) nicht setzt.
     - `_parent`: Laden in den übergeordneten Browsing-Kontext des aktuellen. Wenn kein übergeordneter Kontext vorhanden ist, verhält es sich wie `_self`.
-    - `_top`: Laden in den obersten Browsing-Kontext (d. h. der Browsing-Kontext, der ein Vorfahr des aktuellen ist und keinen übergeordneten Kontext hat). Wenn kein übergeordneter Kontext vorhanden ist, verhält es sich wie `_self`.
-    - `_unfencedTop`: Laden der Antwort aus einem Formular innerhalb eines eingebetteten [fenced frame](/de/docs/Web/API/Fenced_frame_API) in den obersten Frame (d. h. das Überschreiten der Wurzel des fenced frame, im Gegensatz zu anderen reservierten Zielen). Nur innerhalb von fenced frames verfügbar.
+    - `_top`: Laden in den obersten Browsing-Kontext (d.h. der Browsing-Kontext, der ein Vorfahr des aktuellen ist und keinen übergeordneten Kontext hat). Wenn kein übergeordneter Kontext vorhanden ist, verhält es sich wie `_self`.
+    - `_unfencedTop`: Laden der Antwort aus einem Formular innerhalb eines eingebetteten [fenced frame](/de/docs/Web/API/Fenced_frame_API) in den obersten Frame (d.h. das Überschreiten der Wurzel des fenced frame, im Gegensatz zu anderen reservierten Zielen). Nur innerhalb von fenced frames verfügbar.
 
     Dieser Wert kann durch ein [`formtarget`](/de/docs/Web/HTML/Reference/Elements/button#formtarget) Attribut auf einem {{HTMLElement("button")}}, [`<input type="submit">`](/de/docs/Web/HTML/Reference/Elements/input/submit), oder [`<input type="image">`](/de/docs/Web/HTML/Reference/Elements/input/image) Element überschrieben werden.
 
