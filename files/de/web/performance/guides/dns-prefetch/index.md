@@ -2,16 +2,16 @@
 title: Verwendung von dns-prefetch
 slug: Web/Performance/Guides/dns-prefetch
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: e488eba036b2fee56444fd579c3759ef45ff2ca8
 ---
 
-**`DNS-prefetch`** ist der Versuch, Domain-Namen aufzulösen, bevor Ressourcen angefordert werden. Dies könnte eine später geladene Datei oder ein Linkziel sein, dem ein Benutzer folgen möchte.
+**`DNS-prefetch`** ist ein Versuch, Domänennamen aufzulösen, bevor Ressourcen angefordert werden. Das könnte eine Datei sein, die später geladen wird, oder ein Linkziel, das ein Benutzer zu folgen versucht.
 
 ## Warum dns-prefetch verwenden?
 
-Wenn ein Browser eine Ressource von einem (Drittanbieter-)Server anfordert, muss der Domain-Name des [Cross-Origin](/de/docs/Web/HTTP/Guides/CORS) zu einer IP-Adresse aufgelöst werden, bevor der Browser die Anforderung stellen kann. Dieser Vorgang wird als DNS-Auflösung bezeichnet. Während DNS-Caching helfen kann, diese Latenz zu reduzieren, kann die DNS-Auflösung erhebliche Latenz zu Anfragen hinzufügen. Für Websites, die Verbindungen zu vielen Drittanbietern herstellen, kann diese Latenz die Ladeleistung erheblich reduzieren.
+Wenn ein Browser eine Ressource von einem (Drittanbieter-)Server anfordert, muss der Domänenname dieses [cross-origin](/de/docs/Web/HTTP/Guides/CORS) zunächst in eine IP-Adresse aufgelöst werden, bevor der Browser die Anfrage stellen kann. Dieser Prozess wird als DNS-Auflösung bezeichnet. Obwohl DNS-Caching dazu beitragen kann, diese Latenz zu reduzieren, kann die DNS-Auflösung signifikante Latenz zu Anfragen hinzufügen. Für Websites, die Verbindungen zu vielen Drittanbietern öffnen, kann diese Latenz die Ladeleistung erheblich reduzieren.
 
-`dns-prefetch` hilft Entwicklern, die Latenz der DNS-Auflösung zu maskieren. Das [HTML `<link>`-Element](/de/docs/Web/HTML/Reference/Elements/link) bietet diese Funktionalität durch einen Wert des [`rel`-Attributs](/de/docs/Web/HTML/Reference/Attributes/rel) von `dns-prefetch`. Die [Cross-Origin](/de/docs/Web/HTTP/Guides/CORS)-Domain wird dann im [href-Attribut](/de/docs/Web/HTML/Reference/Attributes) angegeben:
+`dns-prefetch` hilft Entwicklern, die Latenz der DNS-Resolution zu maskieren. Das [HTML `<link>`-Element](/de/docs/Web/HTML/Reference/Elements/link) bietet diese Funktionalität mittels eines `rel`-Attributwerts von `dns-prefetch`. Die [cross-origin](/de/docs/Web/HTTP/Guides/CORS) Domäne wird dann im [href-Attribut](/de/docs/Web/HTML/Reference/Attributes) angegeben:
 
 ## Syntax
 
@@ -35,21 +35,21 @@ Wenn ein Browser eine Ressource von einem (Drittanbieter-)Server anfordert, muss
 </html>
 ```
 
-Sie sollten `dns-prefetch`-Hinweise jederzeit im [`<head>`-Element](/de/docs/Web/HTML/Reference/Elements/head) platzieren, wenn Ihre Website Ressourcen auf Cross-Origin-Domains verweist, aber es gibt einige Dinge zu beachten.
+Sie sollten `dns-prefetch` Hinweise im [`<head>`-Element](/de/docs/Web/HTML/Reference/Elements/head) platzieren, wann immer Ihre Seite Ressourcen auf cross-origin Domänen referenziert, aber es gibt einige Dinge zu beachten.
 
-## Best Practices
+## Beste Praktiken
 
-Es gibt drei Hauptsachen zu beachten:
+Es gibt drei Hauptpunkte zu beachten:
 
-**Erstens**, `dns-prefetch` ist nur für DNS-Abfragen auf [Cross-Origin](/de/docs/Web/HTTP/Guides/CORS)-Domains wirksam, daher sollten Sie es vermeiden, es auf Ihre eigene Website oder Domain zu richten. Der Grund dafür ist, dass die IP hinter der Domain Ihrer Website bereits aufgelöst sein wird, wenn der Browser den Hinweis sieht.
+**Erstens** ist `dns-prefetch` nur effektiv für DNS-Anfragen auf [cross-origin](/de/docs/Web/HTTP/Guides/CORS) Domänen, vermeiden Sie also dessen Verwendung auf Ihrer eigenen Seite oder Domäne. Dies liegt daran, dass die IP-Adresse hinter der Domäne Ihrer Seite bereits aufgelöst wurde, wenn der Browser den Hinweis sieht.
 
-**Zweitens**, es ist auch möglich, `dns-prefetch` (und andere Ressourcenhinweise) als [HTTP-Header](/de/docs/Web/HTTP/Reference/Headers) mittels des [HTTP Link-Feldes](/de/docs/Web/HTTP/Reference/Headers/Link) zu spezifizieren:
+**Zweitens** ist es auch möglich, `dns-prefetch` (und andere Ressourcenhinweise) als [HTTP-Header](/de/docs/Web/HTTP/Reference/Headers) zu spezifizieren, indem das [HTTP Link-Feld](/de/docs/Web/HTTP/Reference/Headers/Link) verwendet wird:
 
 ```http
 Link: <https://fonts.googleapis.com/>; rel=dns-prefetch
 ```
 
-**Drittens**, während `dns-prefetch` nur eine DNS-Abfrage durchführt, stellt [`preconnect`](/de/docs/Web/HTML/Reference/Attributes/rel/preconnect) eine Verbindung zu einem Server her. Dieser Prozess umfasst die DNS-Auflösung sowie die Herstellung der TCP-Verbindung und das Durchführen des {{Glossary("TLS", "TLS")}}-Handshakes—wenn eine Seite über HTTPS bereitgestellt wird. Die Verwendung von `preconnect` bietet die Möglichkeit, die wahrgenommene Latenz von [Cross-Origin-Anfragen](/de/docs/Web/HTTP/Guides/CORS) weiter zu reduzieren. Sie können es als [HTTP-Header](/de/docs/Web/HTTP/Reference/Headers) mithilfe des [HTTP Link-Feldes](/de/docs/Web/HTTP/Reference/Headers/Link) verwenden:
+**Drittens**, während `dns-prefetch` nur eine DNS-Abfrage durchführt, stellt [`preconnect`](/de/docs/Web/HTML/Reference/Attributes/rel/preconnect) eine Verbindung zu einem Server her. Dieser Prozess umfasst sowohl die DNS-Auflösung, als auch das Herstellen der TCP-Verbindung und das Durchführen des {{Glossary("TLS", "TLS")}} Handshakes—wenn eine Seite über HTTPS bereitgestellt wird. Die Verwendung von `preconnect` bietet die Möglichkeit, die wahrgenommene Latenz von [cross-origin Anfragen](/de/docs/Web/HTTP/Guides/CORS) weiter zu verringern. Sie können es als [HTTP-Header](/de/docs/Web/HTTP/Reference/Headers) verwenden, indem das [HTTP Link-Feld](/de/docs/Web/HTTP/Reference/Headers/Link) benutzt wird:
 
 ```http
 Link: <https://fonts.googleapis.com/>; rel=preconnect
@@ -62,17 +62,17 @@ oder über das [HTML `<link>`-Element](/de/docs/Web/HTML/Reference/Elements/link
 ```
 
 > [!NOTE]
-> Wenn eine Seite Verbindungen zu vielen Drittanbieter-Domains herstellen muss, ist das Voranschließen aller kontraproduktiv. Der `preconnect`-Hinweis wird am besten nur für die kritischsten Verbindungen verwendet. Für die anderen verwenden Sie einfach `<link rel="dns-prefetch">`, um Zeit beim ersten Schritt zu sparen—der DNS-Abfrage.
+> Wenn eine Seite Verbindungen zu vielen Drittanbieter-Domänen herstellen muss, ist das Voranschließen aller kontraproduktiv. Der `preconnect` Hinweis ist am besten nur für die kritischsten Verbindungen geeignet. Für die anderen verwenden Sie einfach `<link rel="dns-prefetch">`, um Zeit beim ersten Schritt zu sparen — der DNS-Abfrage.
 
-Die Logik hinter dem Paaren dieser Hinweise ist, dass die Unterstützung für dns-prefetch besser ist als die Unterstützung für preconnect. Browser, die preconnect nicht unterstützen, bekommen trotzdem einen gewissen Vorteil, indem sie auf dns-prefetch zurückfallen. Da dies eine HTML-Funktion ist, ist sie sehr fehlertolerant. Wenn ein Browser, der die Funktion nicht unterstützt, auf einen dns-prefetch-Hinweis—oder einen anderen Ressourcenhinweis—stößt, wird Ihre Seite nicht unterbrochen. Sie erhalten nur nicht die Vorteile, die es bietet.
+Die Logik hinter der Kombination dieser Hinweise besteht darin, dass die Unterstützung für dns-prefetch besser ist als die Unterstützung für preconnect. Browser, die preconnect nicht unterstützen, profitieren dennoch, indem sie auf dns-prefetch zurückfallen. Da dies ein HTML-Feature ist, ist es sehr fehlertolerant. Wenn ein nicht unterstützender Browser einen dns-prefetch Hinweis oder einen anderen Ressourcenhinweis trifft, wird Ihre Seite nicht kaputt gehen. Sie erhalten nur nicht die damit verbundenen Vorteile.
 
-Einige Ressourcen, wie Schriften, werden im anonymen Modus geladen. In solchen Fällen sollten Sie das [crossorigin](/de/docs/Web/HTML/Reference/Attributes/crossorigin)-Attribut mit dem preconnect-Hinweis setzen. Wenn Sie es weglassen, wird der Browser nur die DNS-Abfrage durchführen.
+Einige Ressourcen, wie Schriftarten, werden im anonymen Modus geladen. In solchen Fällen sollten Sie das [crossorigin](/de/docs/Web/HTML/Reference/Attributes/crossorigin) Attribut mit dem preconnect Hinweis setzen. Wenn Sie es auslassen, wird der Browser nur die DNS-Abfrage ausführen.
 
 ## Siehe auch
 
 - [`<link>`](/de/docs/Web/HTML/Reference/Elements/link)
 - [HTML-Attribut: rel](/de/docs/Web/HTML/Reference/Attributes/rel)
-- [HTML rel-Attribut: preconnect](/de/docs/Web/HTML/Reference/Attributes/rel/preconnect)
+- [HTML-Rel-Attribut: preconnect](/de/docs/Web/HTML/Reference/Attributes/rel/preconnect)
 - [crossorigin](/de/docs/Web/HTML/Reference/Attributes/crossorigin)
 - [Cross-Origin Resource Sharing (CORS)](/de/docs/Web/HTTP/Guides/CORS)
 - [HTTP-Header](/de/docs/Web/HTTP/Reference/Headers)

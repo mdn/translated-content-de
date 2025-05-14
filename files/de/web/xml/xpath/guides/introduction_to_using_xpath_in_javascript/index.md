@@ -2,14 +2,14 @@
 title: Einführung in die Verwendung von XPath in JavaScript
 slug: Web/XML/XPath/Guides/Introduction_to_using_XPath_in_JavaScript
 l10n:
-  sourceCommit: 3e1b5277c6451e7d27ab628f23fb9702947a7a7b
+  sourceCommit: e488eba036b2fee56444fd579c3759ef45ff2ca8
 ---
 
-Dieses Dokument beschreibt die Schnittstelle zur Verwendung von [XPath](/de/docs/Web/XML/XPath) in JavaScript. Die Hauptschnittstelle für XPath ist die Funktion [evaluate](/de/docs/Web/API/Document/evaluate) des [document](/de/docs/Web/API/Document)-Objekts.
+Dieses Dokument beschreibt die Schnittstelle zur Verwendung von [XPath](/de/docs/Web/XML/XPath) in JavaScript. Die Hauptschnittstelle zur Verwendung von XPath ist die [evaluate](/de/docs/Web/API/Document/evaluate)-Funktion des [document](/de/docs/Web/API/Document)-Objekts.
 
 ## document.evaluate()
 
-Diese Methode wertet [XPath](/de/docs/Web/XML/XPath)-Ausdrücke gegen ein {{Glossary("XML", "XML")}}-basiertes Dokument (einschließlich HTML-Dokumenten) aus und gibt ein [`XPathResult`](/de/docs/Web/API/XPathResult)-Objekt zurück, das entweder einen einzelnen Knoten oder eine Menge von Knoten darstellen kann. Die bestehende Dokumentation für diese Methode befindet sich unter [document.evaluate](/de/docs/Web/API/Document/evaluate), ist jedoch für unsere Bedürfnisse momentan eher spärlich; im Folgenden wird eine detailliertere Untersuchung gegeben.
+Diese Methode wertet [XPath](/de/docs/Web/XML/XPath)-Ausdrücke in einem auf {{Glossary("XML", "XML")}} basierenden Dokument (einschließlich HTML-Dokumenten) aus und gibt ein [`XPathResult`](/de/docs/Web/API/XPathResult)-Objekt zurück, das ein einzelner Knoten oder eine Menge von Knoten sein kann. Die vorhandene Dokumentation zu dieser Methode befindet sich unter [document.evaluate](/de/docs/Web/API/Document/evaluate), ist aber derzeit eher spärlich für unsere Bedürfnisse; eine umfassendere Untersuchung wird unten gegeben.
 
 ```js
 const xpathResult = document.evaluate(
@@ -23,22 +23,22 @@ const xpathResult = document.evaluate(
 
 ### Parameter
 
-Die Methode [`evaluate()`](/de/docs/Web/API/Document/evaluate) nimmt insgesamt fünf Parameter entgegen:
+Die [`evaluate()`](/de/docs/Web/API/Document/evaluate)-Methode nimmt insgesamt fünf Parameter entgegen:
 
-- `xpathExpression`: Ein String, der den auszuwertenden XPath-Ausdruck enthält.
-- `contextNode`: Ein Knoten im Dokument, gegen den `xpathExpression` ausgewertet werden soll, einschließlich aller seiner Kindknoten. Der [document](/de/docs/Web/API/Document)-Knoten ist der häufigste.
-- `namespaceResolver`: Eine Funktion, die alle Namespace-Präfixe, die in `xpathExpression` enthalten sind, entgegennimmt und eine Zeichenfolge zurückgibt, die den Namespace-URI repräsentiert, der mit diesem Präfix verknüpft ist. Dies ermöglicht die Umwandlung zwischen den im XPath-Ausdruck verwendeten Präfixen und den möglicherweise unterschiedlichen Präfixen, die im Dokument verwendet werden. Die Funktion kann entweder sein:
+- `xpathExpression`: Ein String, der den zu bewertenden XPath-Ausdruck enthält.
+- `contextNode`: Ein Knoten im Dokument, gegen den der `xpathExpression` ausgewertet werden soll, einschließlich aller seiner Kindknoten. Der [document](/de/docs/Web/API/Document)-Knoten wird am häufigsten verwendet.
+- `namespaceResolver`: Eine Funktion, die alle in `xpathExpression` enthaltenen Namespace-Präfixe übergeben bekommt und einen String zurückgibt, der den Namespace-URI wiedergibt, der mit diesem Präfix verknüpft ist. Dies ermöglicht die Umwandlung zwischen den im XPath-Ausdruck verwendeten Präfixen und den möglicherweise unterschiedlichen Präfixen im Dokument. Die Funktion kann entweder sein:
 
-  - Ein [`Node`](/de/docs/Web/API/Node), der eine Methode [`Node.lookupNamespaceURI`](/de/docs/Web/API/Node/lookupNamespaceURI) bereitstellt, um das Namespace-Präfix aufzulösen.
-  - `null`, was für HTML-Dokumente oder wenn keine Namespace-Präfixe verwendet werden, genutzt werden kann. Beachten Sie, dass, wenn der `xpathExpression` ein Namespace-Präfix enthält, dies zu einer `DOMException` mit dem Code `NAMESPACE_ERR` führt.
-  - Eine benutzerdefinierte Funktion. Details dazu finden Sie im Abschnitt [Verwendung eines benutzerdefinierten Namespace-Resolvers](#implementierung_eines_benutzerdefinierten_namespace-resolvers) im Anhang.
+  - Ein [`Node`](/de/docs/Web/API/Node), der eine [`Node.lookupNamespaceURI`](/de/docs/Web/API/Node/lookupNamespaceURI)-Methode bereitstellt, die das Namespace-Präfix auflöst.
+  - `null`, das für HTML-Dokumente oder wenn keine Namespace-Präfixe verwendet werden, genutzt werden kann. Beachten Sie, dass dies zu einer `DOMException` mit dem Code `NAMESPACE_ERR` führt, wenn der `xpathExpression` ein Namespace-Präfix enthält.
+  - Eine benutzerdefinierte Funktion. Details finden Sie im Abschnitt [Verwendung eines benutzerdefinierten Namespace-Resolvers](#implementierung_eines_benutzerdefinierten_namespace-resolvers) im Anhang.
 
-- `resultType`: Eine [Konstante](#xpathresult-definierte_konstanten), die den gewünschten Rückgabetyp angibt, der als Ergebnis der Auswertung zurückgegeben werden soll. Die am häufigsten verwendete Konstante ist `XPathResult.ANY_TYPE`, die die Ergebnisse des XPath-Ausdrucks im natürlichsten Typ zurückgibt. Eine vollständige Liste der [verfügbaren Konstanten](#xpathresult-definierte_konstanten) finden Sie im Anhang. Diese werden ausführlich im Abschnitt "[Spezifizierung des Rückgabetyps](#spezifizierung_des_rückgabetyps)" erklärt.
-- `result`: Wenn ein vorhandenes `XPathResult`-Objekt angegeben wird, wird es wiederverwendet, um die Ergebnisse zurückzugeben. Das Angeben von `null` erstellt ein neues `XPathResult`-Objekt.
+- `resultType`: Eine [Konstante](#xpathresult_definierte_konstanten), die den gewünschten Ergebnistyp angibt, der als Ergebnis der Bewertung zurückgegeben werden soll. Die am häufigsten übergebene Konstante ist `XPathResult.ANY_TYPE`, die die Ergebnisse des XPath-Ausdrucks als den natürlichsten Typ zurückgibt. Eine vollständige Liste der [verfügbaren Konstanten](#xpathresult_definierte_konstanten) finden Sie im Anhang. Diese werden unten im Abschnitt "[Festlegen des Rückgabetyps](#festlegen_des_rückgabetyps)" erklärt.
+- `result`: Wenn ein vorhandenes `XPathResult`-Objekt angegeben wird, wird es zur Rückgabe der Ergebnisse wiederverwendet. Wenn `null` angegeben wird, wird ein neues `XPathResult`-Objekt erstellt.
 
 ### Rückgabewert
 
-Gibt `xpathResult` zurück, ein `XPathResult`-Objekt vom Typ, der im Parameter `resultType` [spezifiziert](#spezifizierung_des_rückgabetyps) wurde. Die `XPathResult`-Schnittstelle wird [hier](/de/docs/Web/API/XPathResult) definiert.
+Gibt ein [`XPathResult`](/de/docs/Web/API/XPathResult)-Objekt des im `resultType`-Parameter [spezifizierten](#festlegen_des_rückgabetyps) Typs zurück.
 
 ### Implementierung eines Standard-Namespace-Resolvers
 
@@ -53,26 +53,25 @@ const nsResolver =
 
 Und übergeben dann `document.evaluate` die Variable `nsResolver` als `namespaceResolver`-Parameter.
 
-> [!NOTE]
-> XPath definiert QNames ohne ein Präfix, um nur Elemente im Null-Namespace abzugleichen. Es gibt keine Möglichkeit in XPath, den Standard-Namespace auf ein reguläres Element-Referenz (z. B. `p[@id='_my-id']` bei `xmlns='http://www.w3.org/1999/xhtml'`) anzuwenden. Um Standard-Elemente in einem Nicht-Null-Namespace abzugleichen, müssen Sie entweder auf ein bestimmtes Element mit einer Form wie `['namespace-uri()='http://www.w3.org/1999/xhtml' and name()='p' and @id='_my-id']` (siehe [diesen Ansatz](#verwendung_von_xpath-funktionen_zum_referenzieren_von_elementen_mit_einem_standard-namespace) für dynamische XPath-Ausdrücke, bei denen die Namespaces nicht bekannt sein könnten) verweisen oder benannte Präfix-Tests verwenden und einen Namespace-Resolver erstellen, der das Präfix auf den Namespace abbildet. Lesen Sie mehr darüber, [wie man einen benutzerdefinierten Namespace-Resolver erstellt](#implementierung_eines_benutzerdefinierten_namespace-resolvers), wenn Sie den letzteren Ansatz verfolgen möchten.
+Hinweis: XPath definiert QNames ohne Präfix, um nur Elemente im null Namespace zu matchen. Es gibt keine Möglichkeit in XPath, den Standard-Namespace wie bei einem regulären Elementverweis aufzunehmen (z. B. `p[@id='_my-id']` für `xmlns='http://www.w3.org/1999/xhtml'`). Um Standard-Elemente in einem nicht null Namespace zu matchen, müssen Sie entweder ein bestimmtes Element mit einer Form wie `['namespace-uri()='http://www.w3.org/1999/xhtml' and name()='p' and @id='_my-id']` referenzieren ([dieser Ansatz](#verwendung_von_xpath-funktionen,_um_elemente_mit_einem_standard-namespace_zu_referenzieren) funktioniert gut für dynamische XPath's, bei denen die Namespaces möglicherweise nicht bekannt sind) oder Präfix-Name-Tests verwenden und einen Namespace-Resolver erstellen, der das Präfix dem Namespace zuordnet. Lesen Sie mehr über [wie man einen benutzerdefinierten Namespace-Resolver erstellt](#implementierung_eines_benutzerdefinierten_namespace-resolvers), wenn Sie diesen Weg gehen möchten.
 
 ## Beschreibung
 
-Passt jeden DOM-Knoten an, um Namespaces aufzulösen, sodass ein [XPath](/de/docs/Web/XML/XPath)-Ausdruck einfach relativ zum Kontextknoten im Dokument ausgewertet werden kann, in dem er auftritt. Dieser Adapter funktioniert wie die DOM Level 3-Methode `lookupNamespaceURI` auf Knoten, indem er `namespaceURI` aus einem gegebenen Präfix mit den aktuellen Informationen auflöst, die in der Hierarchie des Knotens zum Zeitpunkt des Aufrufs von `lookupNamespaceURI` verfügbar sind. Außerdem wird das implizite `xml`-Präfix korrekt aufgelöst.
+Passt einen beliebigen DOM-Knoten an, um Namespaces aufzulösen, sodass ein [XPath](/de/docs/Web/XML/XPath)-Ausdruck einfach relativ zum Kontext des Knotens, wo er im Dokument erschien, ausgewertet werden kann. Dieser Adapter funktioniert wie die DOM Level 3-Methode `lookupNamespaceURI` bei Knoten zur Auflösung der `namespaceURI` von einem gegebenen Präfix unter Verwendung der aktuellen Informationen, die in der Hierarchie des Knotens zum Zeitpunkt des Aufrufs von `lookupNamespaceURI` verfügbar sind. Er löst auch das implizite `xml` Präfix korrekt auf.
 
-### Spezifizierung des Rückgabetyps
+### Festlegen des Rückgabetyps
 
-Die zurückgegebene Variable `xpathResult` von `document.evaluate` kann entweder aus einzelnen Knoten ([einfache Typen](#einfache_typen)) oder einer Sammlung von Knoten ([node-set-Typen](#node-set-typen)) bestehen.
+Die zurückgegebene Variable `xpathResult` von `document.evaluate` kann entweder aus einzelnen Knoten ([einfache Typen](#einfache_typen)) oder einer Sammlung von Knoten ([node-set Typen](#node-set_typen)) bestehen.
 
 #### Einfache Typen
 
-Wenn der gewünschte Rückgabetyp in `resultType` entweder als:
+Wenn der gewünschte Ergebnistyp in `resultType` entweder als
 
-- `NUMBER_TYPE` - eine Zahl (double)
+- `NUMBER_TYPE` - ein double
 - `STRING_TYPE` - ein String
-- `BOOLEAN_TYPE` - ein boolean
+- `BOOLEAN_TYPE` - ein boolescher Wert
 
-angegeben ist, erhalten wir den zurückgegebenen Wert des Ausdrucks, indem wir auf die folgenden Eigenschaften des `XPathResult`-Objekts zugreifen:
+spezifiziert ist, erhalten wir den zurückgegebenen Wert des Ausdrucks, indem wir auf die folgenden Eigenschaften des `XPathResult`-Objekts zugreifen.
 
 - `numberValue`
 - `stringValue`
@@ -80,7 +79,7 @@ angegeben ist, erhalten wir den zurückgegebenen Wert des Ausdrucks, indem wir a
 
 ##### Beispiel
 
-Im folgenden Beispiel wird der XPath-Ausdruck [`count(//p)`](/de/docs/Web/XML/XPath/Reference/Functions/count) verwendet, um die Anzahl der `<p>`-Elemente in einem HTML-Dokument zu erhalten:
+Das folgende Beispiel verwendet den XPath-Ausdruck [`count(//p)`](/de/docs/Web/XML/XPath/Reference/Functions/count), um die Anzahl der `<p>`-Elemente in einem HTML-Dokument zu erhalten:
 
 ```js
 const paragraphCount = document.evaluate(
@@ -96,7 +95,7 @@ console.log(
 );
 ```
 
-Obwohl JavaScript uns erlaubt, die Zahl in einen String für die Anzeige zu konvertieren, konvertiert die XPath-Schnittstelle das numerische Ergebnis nicht automatisch, wenn die `stringValue`-Eigenschaft abgefragt wird. Daher funktioniert der folgende Code **nicht**:
+Obwohl JavaScript es erlaubt, die Zahl in einen String für die Anzeige umzuwandeln, konvertiert die XPath-Schnittstelle das numerische Ergebnis nicht automatisch, wenn die `stringValue`-Eigenschaft angefordert wird, daher funktioniert der folgende Code **nicht**:
 
 ```js
 const paragraphCount = document.evaluate(
@@ -114,9 +113,9 @@ console.log(
 
 Stattdessen wird eine Ausnahme mit dem Code `NS_DOM_TYPE_ERROR` zurückgegeben.
 
-#### Node-Set-Typen
+#### Node-Set Typen
 
-Das `XPathResult`-Objekt erlaubt es, Node-Sets in 3 Haupttypen zurückzugeben:
+Das `XPathResult`-Objekt ermöglicht es, Node-Sets in drei prinzipiellen verschiedenen Typen zurückzugeben:
 
 - [Iterators](#iterators)
 - [Snapshots](#snapshots)
@@ -124,16 +123,16 @@ Das `XPathResult`-Objekt erlaubt es, Node-Sets in 3 Haupttypen zurückzugeben:
 
 ##### Iterators
 
-Wenn der angegebene Rückgabetyp im Parameter `resultType` entweder:
+Wenn der im `resultType`-Parameter angegebene Ergebnistyp entweder
 
 - `UNORDERED_NODE_ITERATOR_TYPE`
 - `ORDERED_NODE_ITERATOR_TYPE`
 
-ist, wird das zurückgegebene `XPathResult`-Objekt ein Node-Set der übereinstimmenden Knoten sein, das sich wie ein Iterator verhält und uns erlaubt, auf die einzelnen Knoten zuzugreifen, indem wir die Methode `iterateNext()` des `XPathResult`-Objekts verwenden.
+ist, wird das zurückgegebene `XPathResult`-Objekt als ein Node-Set von übereinstimmenden Knoten fungieren, das als Iterator agiert und es uns ermöglicht, auf die einzelnen enthaltenen Knoten mithilfe der `iterateNext()`-Methode des `XPathResult`-Objekts zuzugreifen.
 
-Sobald wir alle Einzelknoten durchlaufen haben, gibt `iterateNext()` `null` zurück.
+Sobald wir alle einzelnen übereinstimmenden Knoten durchlaufen haben, kehrt `iterateNext()` `null` zurück.
 
-Beachten Sie jedoch, dass, wenn das Dokument zwischen den Iterationen verändert wird (der Baum des Dokuments geändert wird), dies die Iteration ungültig macht und die Eigenschaft `invalidIteratorState` des `XPathResult` auf `true` gesetzt wird und eine Ausnahme mit dem Code `NS_ERROR_DOM_INVALID_STATE_ERR` ausgelöst wird.
+Beachten Sie jedoch, dass, wenn das Dokument zwischen den Iterationen mutiert wird (der Dokumentenbaum geändert wird), dies die Iteration ungültig macht und die `invalidIteratorState`-Eigenschaft von `XPathResult` auf `true` gesetzt wird, und eine `NS_ERROR_DOM_INVALID_STATE_ERR` Ausnahme ausgelöst wird.
 
 ```js
 const iterator = document.evaluate(
@@ -158,14 +157,14 @@ try {
 
 ##### Snapshots
 
-Wenn der angegebene Rückgabetyp im Parameter `resultType` entweder:
+Wenn der im `resultType`-Parameter angegebene Ergebnistyp entweder
 
 - `UNORDERED_NODE_SNAPSHOT_TYPE`
 - `ORDERED_NODE_SNAPSHOT_TYPE`
 
-ist, wird das zurückgegebene `XPathResult`-Objekt ein statisches Node-Set der übereinstimmenden Knoten sein, das es uns erlaubt, auf jeden Knoten über die Methode `snapshotItem(itemNumber)` des `XPathResult`-Objekts zuzugreifen, wobei `itemNumber` der Index des abzurufenden Knotens ist. Die Gesamtzahl der enthaltenen Knoten kann über die Eigenschaft `snapshotLength` abgerufen werden.
+ist, wird das zurückgegebene `XPathResult`-Objekt als ein statisches Node-Set von übereinstimmenden Knoten fungieren, das uns ermöglicht, auf jeden Knoten mithilfe der `snapshotItem(itemNumber)`-Methode des `XPathResult`-Objekts zuzugreifen, wobei `itemNumber` der Index des abzurufenden Knotens ist. Die Gesamtanzahl der enthaltenen Knoten kann über die `snapshotLength`-Eigenschaft abgerufen werden.
 
-Snapshots ändern sich nicht mit Dokumentmutationen, daher wird der Snapshot, im Gegensatz zu den Iteratoren, nicht ungültig, könnte jedoch nicht mehr mit dem aktuellen Dokument übereinstimmen. Beispielsweise könnten die Knoten verschoben worden sein, Knoten könnten nicht mehr existieren, oder neue Knoten könnten hinzugefügt worden sein.
+Snapshots ändern sich nicht mit Dokumentänderungen, im Gegensatz zu den Iterators wird das Snapshot nicht ungültig, könnte aber möglicherweise nicht mit dem aktuellen Dokument übereinstimmen, zum Beispiel könnten die Knoten verschoben worden sein, es könnte Knoten enthalten, die nicht mehr existieren, oder neue Knoten könnten hinzugekommen sein.
 
 ```js
 const nodesSnapshot = document.evaluate(
@@ -183,14 +182,14 @@ for (let i = 0; i < nodesSnapshot.snapshotLength; i++) {
 
 ##### First Node
 
-Wenn der angegebene Rückgabetyp im Parameter `resultType` entweder:
+Wenn der im `resultType`-Parameter angegebene Ergebnistyp entweder
 
 - `ANY_UNORDERED_NODE_TYPE`
 - `FIRST_ORDERED_NODE_TYPE`
 
-ist, wird das zurückgegebene `XPathResult`-Objekt nur den ersten gefundenen Knoten, der mit dem XPath-Ausdruck übereinstimmt, enthalten. Dieser kann über die Eigenschaft `singleNodeValue` des `XPathResult`-Objekts zugegriffen werden. Dies wird `null` sein, wenn die Node-Set-Menge leer ist.
+ist, wird das zurückgegebene `XPathResult`-Objekt nur der erste gefundene Knoten sein, der mit dem XPath-Ausdruck übereinstimmte. Dies kann über die `singleNodeValue`-Eigenschaft des `XPathResult`-Objekts zugegriffen werden. Dies wird `null` sein, wenn das Node-Set leer ist.
 
-Beachten Sie, dass im ungeordneten Subtyp der zurückgegebene Einzelknoten möglicherweise nicht der erste in Dokumentreihenfolge ist, aber im geordneten Subtyp erhalten Sie garantiert den ersten übereinstimmenden Knoten in Dokumentreihenfolge.
+Beachten Sie, dass für den ungeordneten Subtyp der einzelne zurückgegebene Knoten möglicherweise nicht der erste in der Dokumentenreihenfolge ist, aber für den geordneten Subtyp Sie garantiert den ersten übereinstimmenden Knoten in der Dokumentenreihenfolge erhalten.
 
 ```js
 const firstPhoneNumber = document.evaluate(
@@ -206,21 +205,21 @@ console.log(
 );
 ```
 
-#### Die Konstante ANY_TYPE
+#### Die ANY_TYPE-Konstante
 
-Wenn der Rückgabetyp im Parameter `resultType` als `ANY_TYPE` angegeben ist, wird das zurückgegebene `XPathResult`-Objekt vom Typ sein, der natürlich aus der Auswertung des Ausdrucks resultiert.
+Wenn der Ergebnistyp im `resultType`-Parameter als `ANY_TYPE` angegeben ist, wird das zurückgegebene `XPathResult`-Objekt von welchem Typ auch immer sein, als welcher das Ergebnis der Auswertung des Ausdrucks natürlich resultiert.
 
-Es könnte einer der einfachen Typen (`NUMBER_TYPE, STRING_TYPE, BOOLEAN_TYPE`) sein, **aber**, wenn der zurückgegebene Ergebnistyp ein Node-Set ist, wird er **nur** ein `UNORDERED_NODE_ITERATOR_TYPE` sein.
+Es könnte einer der einfachen Typen sein (`NUMBER_TYPE, STRING_TYPE, BOOLEAN_TYPE`), **aber**, wenn der zurückgegebene Ergebnistyp ein Node-Set ist, wird es **nur** ein `UNORDERED_NODE_ITERATOR_TYPE` sein.
 
-Um den Typ nach der Auswertung zu bestimmen, verwenden wir die Eigenschaft `resultType` des `XPathResult`-Objekts. Die [Konstantenwerte](#xpathresult-definierte_konstanten) dieser Eigenschaft sind im Anhang definiert.
+Um diesen Typ nach der Bewertung zu bestimmen, verwenden wir die `resultType`-Eigenschaft des `XPathResult`-Objekts. Die [Konstanten](#xpathresult_definierte_konstanten)-Werte dieser Eigenschaft sind im Anhang definiert.
 
 ## Beispiele
 
 ### Innerhalb eines HTML-Dokuments
 
-Der folgende Code soll in einem beliebigen JavaScript-Fragment innerhalb oder verknüpft mit dem HTML-Dokument platziert werden, gegen das der XPath-Ausdruck ausgewertet werden soll.
+Der folgende Code ist dazu gedacht, in jedem JavaScript-Fragment innerhalb oder verlinkt zu dem HTML-Dokument platziert zu werden, gegen das der XPath-Ausdruck bewertet werden soll.
 
-Um alle `<h2>`-Überschriftenelemente in einem HTML-Dokument mithilfe von XPath zu extrahieren, lautet der `xpathExpression` `"//h2"`. Dabei ist `//` der Recursive Descent Operator, der Elemente mit dem `nodeName` `h2` überall im Dokumentbaum abgleicht. Der vollständige Code dazu ist hier: Link zur Einführung in XPath-Dokumentation.
+Um alle `<h2>`-Überschriften-Elemente in einem HTML-Dokument mithilfe von XPath zu extrahieren, ist der `xpathExpression` `"//h2"`. Wo `//` der Rekursive Abstieg Operator ist, der Elemente mit dem nodeName `h2` überall im Dokumentbaum matcht. Der vollständige Code hierfür ist: link to introductory xpath doc
 
 ```js
 const headings = document.evaluate(
@@ -232,11 +231,11 @@ const headings = document.evaluate(
 );
 ```
 
-Beachten Sie, dass HTML keine Namespaces hat, deshalb haben wir `null` für den `namespaceResolver`-Parameter übergeben.
+Beachten Sie, dass, da HTML keine Namespaces hat, wir `null` für den `namespaceResolver`-Parameter übergeben haben.
 
-Da wir über das gesamte Dokument nach den Überschriften suchen möchten, haben wir das [document](/de/docs/Web/API/Document)-Objekt selbst als `contextNode` verwendet.
+Da wir den gesamten Dokumentbereich nach den Überschriften durchsuchen möchten, haben wir das [document](/de/docs/Web/API/Document)-Objekt selbst als `contextNode` verwendet.
 
-Das Ergebnis dieses Ausdrucks ist ein `XPathResult`-Objekt. Wenn wir den Typrückgabewert des Ergebnisses wissen möchten, können wir die `resultType`-Eigenschaft des zurückgegebenen Objekts auswerten. In diesem Fall wird dies zu `4`, einem `UNORDERED_NODE_ITERATOR_TYPE`, ausgewertet. Dies ist der Standardrückgabetyp, wenn das Ergebnis des XPath-Ausdrucks ein Node-Set ist. Es bietet Zugriff auf jeweils einen Knoten und gibt die Knoten möglicherweise nicht in einer bestimmten Reihenfolge zurück. Um auf die zurückgegebenen Knoten zuzugreifen, verwenden wir die Methode `iterateNext()` des zurückgegebenen Objekts:
+Das Ergebnis dieses Ausdrucks ist ein `XPathResult`-Objekt. Falls wir wissen möchten, welcher Ergebnistyp zurückgegeben wird, können wir die `resultType`-Eigenschaft des zurückgegebenen Objekts auswerten. In diesem Fall wird es zu `4`, einem `UNORDERED_NODE_ITERATOR_TYPE`, ausgewertet. Dies ist der Standardrückgabetyp, wenn das Ergebnis des XPath-Ausdrucks ein Knoten-Set ist. Es bietet Zugriff auf einen einzelnen Knoten zu einer Zeit und kann Knoten möglicherweise nicht in einer bestimmten Reihenfolge zurückgeben. Um auf die zurückgegebenen Knoten zuzugreifen, verwenden wir die `iterateNext()`-Methode des zurückgegebenen Objekts:
 
 ```js
 let thisHeading = headings.iterateNext();
@@ -249,21 +248,21 @@ while (thisHeading) {
 }
 ```
 
-Sobald wir über einen Knoten iterieren, haben wir Zugriff auf alle Standard-DOM-Schnittstellen für diesen Knoten. Nachdem wir alle `h2`-Elemente aus unserem Ausdruck durchlaufen haben, geben alle weiteren Aufrufe von `iterateNext()` `null` zurück.
+Sobald wir zu einem Knoten iterieren, haben wir Zugriff auf alle Standard-DOM-Schnittstellen auf diesem Knoten. Nach dem Durchlaufen aller `h2`-Elemente, die von unserem Ausdruck zurückgegeben werden, gibt jeder weitere Aufruf von `iterateNext()` `null` zurück.
 
 ## Anhang
 
 ### Implementierung eines benutzerdefinierten Namespace-Resolvers
 
-Dies ist nur ein Beispiel zur Veranschaulichung. Diese Funktion muss Namespace-Präfixe aus dem `xpathExpression` übernehmen und den URI zurückgeben, der diesem Präfix entspricht. Zum Beispiel wird der Ausdruck:
+Dies ist ein Beispiel zur Veranschaulichung. Diese Funktion muss Namespace-Präfixe aus dem `xpathExpression` übernehmen und die URI zurückgeben, die diesem Präfix entspricht. Zum Beispiel wird der Ausdruck:
 
 ```plain
 '//xhtml:td/mathml:math'
 ```
 
-alle [MathML](/de/docs/Web/MathML)-Ausdrücke auswählen, die Kinder von (X)HTML-Tabellenzellen sind.
+alle [MathML](/de/docs/Web/MathML)-Ausdrücke auswählen, die die Kinder von (X)HTML-Tabelldatenzellen-Elementen sind.
 
-Um das Präfix `mathml:` dem Namespace-URI `http://www.w3.org/1998/Math/MathML` zuzuordnen und `xhtml:` dem URI `http://www.w3.org/1999/xhtml`, bieten wir eine Funktion an:
+Um das Präfix `mathml:` mit dem Namespace-URI `http://www.w3.org/1998/Math/MathML` und `xhtml:` mit der URI `http://www.w3.org/1999/xhtml` zu verknüpfen, stellen wir eine Funktion bereit:
 
 ```js
 function nsResolver(prefix) {
@@ -275,7 +274,7 @@ function nsResolver(prefix) {
 }
 ```
 
-Unser Aufruf von `document.evaluate` würde dann folgendes aussehen:
+Unser Aufruf von `document.evaluate` würde dann wie folgt aussehen:
 
 ```js
 document.evaluate(
@@ -287,9 +286,9 @@ document.evaluate(
 );
 ```
 
-### Implementierung eines Standard-Namespace für XML-Dokumente
+### Implementierung eines Standard-Namespaces für XML-Dokumente
 
-Wie zuvor im Abschnitt [Implementierung eines Standard-Namespace-Resolvers](#implementierung_eines_standard-namespace-resolvers) erwähnt, behandelt der Standard-Resolver den Standard-Namespace für XML-Dokumente nicht. Zum Beispiel wird mit folgendem Dokument:
+Wie zuvor im Abschnitt [Implementierung eines Standard-Namespace-Resolvers](#implementierung_eines_standard-namespace-resolvers) erwähnt, ist der Standard-Resolver nicht in der Lage, den Standard-Namespace für XML-Dokumente zu bearbeiten. Zum Beispiel mit diesem Dokument:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -300,9 +299,9 @@ Wie zuvor im Abschnitt [Implementierung eines Standard-Namespace-Resolvers](#imp
 </feed>
 ```
 
-`doc.evaluate('//entry', doc, nsResolver, XPathResult.ANY_TYPE, null)` eine leere Menge zurückgeben, wobei `nsResolver` ein beliebiger `Node` ist. Die Übergabe eines `null`-Resolvers funktioniert ebenfalls nicht besser.
+wird `doc.evaluate('//entry', doc, nsResolver, XPathResult.ANY_TYPE, null)` eine leere Menge zurückgeben, wobei `nsResolver` ein beliebiger `Node` ist. Auch ein `null`-Resolver funktioniert nicht besser.
 
-Eine mögliche Abhilfe besteht darin, einen benutzerdefinierten Resolver zu erstellen, der den richtigen Standard-Namespace (in diesem Fall den Atom-Namespace) zurückgibt. Beachten Sie, dass Sie immer noch ein Namespace-Präfix in Ihrem XPath-Ausdruck verwenden müssen, damit die Resolverfunktion es in Ihren gewünschten Namespace ändern kann. Beispiel:
+Ein möglicher Workaround besteht darin, einen benutzerdefinierten Resolver zu erstellen, der den korrekten Standard-Namespace zurückgibt (in diesem Fall den Atom-Namespace). Beachten Sie, dass Sie weiterhin ein Namespace-Präfix in Ihrem XPath-Ausdruck verwenden müssen, damit die Resolver-Funktion es in Ihren benötigten Namespace ändern kann. Z.B.:
 
 ```js
 function resolver() {
@@ -311,25 +310,25 @@ function resolver() {
 doc.evaluate("//myns:entry", doc, resolver, XPathResult.ANY_TYPE, null);
 ```
 
-Beachten Sie, dass ein komplexerer Resolver erforderlich sein wird, wenn das Dokument mehrere Namespaces verwendet.
+Beachten Sie, dass ein komplexerer Resolver erforderlich ist, wenn das Dokument mehrere Namespaces verwendet.
 
-Ein Ansatz, der möglicherweise besser funktioniert (und es ermöglicht, dass Namespaces im Voraus nicht bekannt sind), wird im nächsten Abschnitt beschrieben.
+Ein Ansatz, der möglicherweise besser funktioniert (und es erlaubt, dass Namespaces im Voraus nicht bekannt sind), wird im nächsten Abschnitt beschrieben.
 
-### Verwendung von XPath-Funktionen zum Referenzieren von Elementen mit einem Standard-Namespace
+### Verwendung von XPath-Funktionen, um Elemente mit einem Standard-Namespace zu referenzieren
 
-Ein weiterer Ansatz zum Abgleichen von Standard-Elementen in einem Nicht-Null-Namespace (und ein Ansatz, der gut für dynamische XPath-Ausdrücke funktioniert, bei denen Namespaces möglicherweise nicht bekannt sind), besteht darin, auf ein bestimmtes Element mit einer Form wie `[namespace-uri()='http://www.w3.org/1999/xhtml' and name()='p' and @id='_my-id']` zu verweisen. Dies umgeht das Problem, dass eine XPath-Abfrage den Standard-Namespace eines regulär benannten Elements nicht erkennen kann.
+Ein weiterer Ansatz, um Standard-Elemente in einem nicht null Namespace zu matchen (und einer, der gut für dynamische XPath-Ausdrücke funktioniert, bei denen die Namespaces möglicherweise nicht bekannt sind), beinhaltet die Referenzierung eines bestimmten Elements unter Verwendung einer Form wie `[namespace-uri()='http://www.w3.org/1999/xhtml' and name()='p' and @id='_my-id']`. Dies umgeht das Problem, dass eine XPath-Abfrage nicht in der Lage ist, den Standard-Namespace auf einem regulär beschrifteten Element zu erkennen.
 
-### Abrufen spezifisch benannter Elemente und Attribute unabhängig vom Präfix
+### Abrufen speziell namespaced Elemente und Attribute unabhängig vom Präfix
 
-Wenn man bei Namespaces flexibel sein möchte (wie sie beabsichtigt sind) und nicht zwingend ein bestimmtes Präfix verwenden möchte, um ein namespaced-Element oder -Attribut zu finden, muss man spezielle Techniken anwenden.
+Wenn man Flexibilität in Namespaces bieten möchte (wie sie beabsichtigt sind), indem man nicht notwendigerweise ein bestimmtes Präfix verwenden muss, um ein namespaced Element oder Attribut zu finden, muss man spezielle Techniken anwenden.
 
-Während man den Ansatz im vorherigen Abschnitt anpassen kann, um nach namespaced-Elementen unabhängig vom gewählten Präfix zu suchen (unter Verwendung von [`local-name()`](/de/docs/Web/XML/XPath/Reference/Functions/local-name) in Kombination mit [`namespace-uri()`](/de/docs/Web/XML/XPath/Reference/Functions/namespace-uri) anstelle von [`name()`](/de/docs/Web/XML/XPath/Reference/Functions/name)), entsteht ein Problem, wenn man ein Element mit einem bestimmten namespaced-Attribut in einem Prädikat erfassen möchte (angesichts der Abwesenheit von implementierungsunabhängigen Variablen in XPath 1.0).
+Während man den Ansatz im obigen Abschnitt anpassen kann, um namespaced Elemente unabhängig vom gewählten Präfix zu testen (unter Verwendung von [`local-name()`](/de/docs/Web/XML/XPath/Reference/Functions/local-name) in Kombination mit [`namespace-uri()`](/de/docs/Web/XML/XPath/Reference/Functions/namespace-uri) anstelle von [`name()`](/de/docs/Web/XML/XPath/Reference/Functions/name)), tritt eine herausfordernde Situation jedoch auf, wenn man ein Element mit einem bestimmten namespaced Attribut in einem Prädikat erfassen möchte (gegeben das Fehlen von implementationsunabhängigen Variablen in XPath 1.0).
 
-Beispielsweise könnte man versuchen (fälschlicherweise), ein Element mit einem namespaced-Attribut wie folgt zu erfassen: `const xpathLink = someElements[local-name(@*)="href" and namespace-uri(@*)='http://www.w3.org/1999/xlink'];`
+Zum Beispiel könnte man (fälschlicherweise) versuchen, ein Element mit einem namespaced Attribut wie folgt zu erfassen: `const xpathLink = someElements[local-name(@*)="href" and namespace-uri(@*)='http://www.w3.org/1999/xlink'];`
 
-Dies könnte unbeabsichtigt einige Elemente erfassen, wenn eines seiner Attribute existierte, das einen lokalen Namen von `href` hatte, es sich jedoch um ein anderes Attribut handelte, das den Ziel-Namespace (XLink) hatte (anstelle von [`@href`](/de/docs/Web/XML/XPath/Reference/Axes#attribute)).
+Dies könnte versehentlich einige Elemente erfassen, wenn eines seiner Attribute existierte, das einen lokalen Namen `href` hatte, aber es war ein anderes Attribut, das den anvisierten (XLink) Namespace hatte (anstelle von [`@href`](/de/docs/Web/XML/XPath/Reference/Axes#attribute)).
 
-Um Elemente mit dem XLink-Attribut `@href` genau zu erfassen (ohne ebenfalls auf vordefinierte Präfixe in einem Namespace-Resolver beschränkt zu sein), könnte man sie folgendermaßen abrufen:
+Um Elemente mit dem XLink `@href` Attribut genau zu erfassen (ohne auch auf vordefinierte Präfixe in einem Namespace-Resolver beschränkt zu sein), könnte man sie wie folgt erhalten:
 
 ```js
 const xpathEls =
@@ -338,27 +337,27 @@ const thisLevel = xml.evaluate(xpathEls, xml, null, XPathResult.ANY_TYPE, null);
 let thisItemEl = thisLevel.iterateNext();
 ```
 
-#### XPathResult-definierte Konstanten
+#### XPathResult Definierte Konstanten
 
-| Ergebnis-Typ definierte Konstante | Wert | Beschreibung                                                                                                                                                                                                              |
-| --------------------------------- | ---- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ANY_TYPE                          | 0    | Eine Ergebnismenge, die den Typ enthält, der natürlich aus der Auswertung des Ausdrucks resultiert. Beachten Sie, dass, wenn das Ergebnis ein Node-Set ist, UNORDERED_NODE_ITERATOR_TYPE immer der resultierende Typ ist. |
-| NUMBER_TYPE                       | 1    | Ein Ergebnis, das eine einzelne Zahl enthält. Dies ist nützlich, z. B. bei einem XPath-Ausdruck, der die Funktion `count()` verwendet.                                                                                    |
-| STRING_TYPE                       | 2    | Ein Ergebnis, das eine einzelne Zeichenfolge enthält.                                                                                                                                                                     |
-| BOOLEAN_TYPE                      | 3    | Ein Ergebnis, das einen einzelnen booleschen Wert enthält. Dies ist nützlich, z. B. bei einem XPath-Ausdruck, der die Funktion `not()` verwendet.                                                                         |
-| UNORDERED_NODE_ITERATOR_TYPE      | 4    | Ein Ergebnis-Node-Set, das alle Knoten enthält, die dem Ausdruck entsprechen. Die Knoten müssen nicht unbedingt in der gleichen Reihenfolge vorliegen, in der sie im Dokument erscheinen.                                 |
-| ORDERED_NODE_ITERATOR_TYPE        | 5    | Ein Ergebnis-Node-Set, das alle Knoten enthält, die dem Ausdruck entsprechen. Die Knoten in der Ergebnismenge befinden sich in der gleichen Reihenfolge, in der sie im Dokument erscheinen.                               |
-| UNORDERED_NODE_SNAPSHOT_TYPE      | 6    | Ein Ergebnis-Node-Set, das Schnappschüsse aller Knoten enthält, die dem Ausdruck entsprechen. Die Knoten müssen nicht unbedingt in der gleichen Reihenfolge vorliegen, in der sie im Dokument erscheinen.                 |
-| ORDERED_NODE_SNAPSHOT_TYPE        | 7    | Ein Ergebnis-Node-Set, das Schnappschüsse aller Knoten enthält, die dem Ausdruck entsprechen. Die Knoten in der Ergebnismenge befinden sich in der gleichen Reihenfolge, in der sie im Dokument erscheinen.               |
-| ANY_UNORDERED_NODE_TYPE           | 8    | Ein Ergebnisknoten-Set, das einen beliebigen einzelnen Knoten enthält, der dem Ausdruck entspricht. Der Knoten ist nicht notwendigerweise der erste Knoten im Dokument, der dem Ausdruck entspricht.                      |
-| FIRST_ORDERED_NODE_TYPE           | 9    | Ein Ergebnisknoten-Set, das den ersten Knoten im Dokument enthält, der dem Ausdruck entspricht.                                                                                                                           |
+| Result Type Defined Constant | Value | Description                                                                                                                                                                                                                    |
+| ---------------------------- | ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| ANY_TYPE                     | 0     | Ein Ergebnis-Set, das den natürlichen Typ enthält, der aus der Evaluierung des Ausdrucks resultiert. Beachten Sie, dass, wenn das Ergebnis ein Node-Set ist, immer der UNORDERED_NODE_ITERATOR_TYPE der resultierende Typ ist. |
+| NUMBER_TYPE                  | 1     | Ein Ergebnis, das eine einzelne Zahl enthält. Dies ist nützlich für Beispiel in einem XPath-Ausdruck, der die `count()`-Funktion verwendet.                                                                                    |
+| STRING_TYPE                  | 2     | Ein Ergebnis, das einen einzelnen String enthält.                                                                                                                                                                              |
+| BOOLEAN_TYPE                 | 3     | Ein Ergebnis, das einen einzelnen booleschen Wert enthält. Dies ist nützlich für Beispiel in einem XPath-Ausdruck, der die `not()`-Funktion verwendet.                                                                         |
+| UNORDERED_NODE_ITERATOR_TYPE | 4     | Ein Ergebnis-Node-Set, das alle Knoten enthält, die mit dem Ausdruck übereinstimmen. Die Knoten sind möglicherweise nicht in der gleichen Reihenfolge wie sie im Dokument erscheinen.                                          |
+| ORDERED_NODE_ITERATOR_TYPE   | 5     | Ein Ergebnis-Node-Set, das alle Knoten enthält, die mit dem Ausdruck übereinstimmen. Die Knoten im Ergebnis-Set sind in der gleichen Reihenfolge wie sie im Dokument erscheinen.                                               |
+| UNORDERED_NODE_SNAPSHOT_TYPE | 6     | Ein statisches Ergebnis-Node-Set, das Momentaufnahmen aller Knoten enthält, die mit dem Ausdruck übereinstimmen. Die Knoten sind möglicherweise nicht in der gleichen Reihenfolge wie sie im Dokument erscheinen.              |
+| ORDERED_NODE_SNAPSHOT_TYPE   | 7     | Ein statisches Ergebnis-Node-Set, das Momentaufnahmen aller Knoten enthält, die mit dem Ausdruck übereinstimmen. Die Knoten im Ergebnis-Set sind in der gleichen Reihenfolge wie sie im Dokument erscheinen.                   |
+| ANY_UNORDERED_NODE_TYPE      | 8     | Ein Ergebnis-Node-Set, das irgendeinen einzelnen Knoten enthält, der mit dem Ausdruck übereinstimmt. Der Knoten ist möglicherweise nicht der erste Knoten im Dokument, der mit dem Ausdruck übereinstimmt.                     |
+| FIRST_ORDERED_NODE_TYPE      | 9     | Ein Ergebnis-Node-Set, das den ersten Knoten im Dokument enthält, der mit dem Ausdruck übereinstimmt.                                                                                                                          |
 
 ## Siehe auch
 
 - [XPath](/de/docs/Web/XML/XPath)
 - [XML Path Language](https://www.xml.com/pub/a/2000/08/holman/index.html?page=2#xpath-info) aus _[What is XSLT?](https://www.xml.com/pub/a/2000/08/holman/)_ von G. Ken Holman
 
-## Informationen zum Originaldokument
+## Originaldokumentinformationen
 
-- Basierend auf einem ursprünglichen Dokument von James Graham.
-- Weitere Mitwirkende: James Thompson.
+- Basierend auf einem Originaldokument von James Graham.
+- Andere Mitwirkende: James Thompson.
