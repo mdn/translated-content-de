@@ -1,56 +1,50 @@
 ---
-title: Spielentwicklung
+title: Spieleentwicklung
 slug: Games
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: d9e11f88996e97a259d2ec47f47a660062c12c4f
 ---
 
 {{GamesSidebar}}
 
-Gaming ist eine der beliebtesten Computeraktivitäten. Neue Technologien ermöglichen es ständig, bessere und leistungsfähigere Spiele zu entwickeln, die in jedem standardkonformen Webbrowser ausgeführt werden können.
+Spielen gehört zu den beliebtesten Computeraktivitäten. Ständig kommen neue Technologien hinzu, die es ermöglichen, bessere und leistungsfähigere Spiele zu entwickeln, die in jedem standardkonformen Webbrowser ausgeführt werden können.
 
 ## Webspiele entwickeln
 
-Willkommen im MDN-Spielentwicklungszentrum! In diesem Bereich der Website bieten wir Ressourcen für Webentwickler, die Spiele entwickeln möchten. Sie finden im Hauptmenü auf der linken Seite viele nützliche Tutorials und Techniken, also zögern Sie nicht, sich umzuschauen.
+Willkommen im MDN-Zentrum für Spieleentwicklung! In diesem Bereich der Website bieten wir Ressourcen für Webentwickler, die Spiele entwickeln möchten. Sie finden im Hauptmenü auf der linken Seite viele nützliche Tutorials und Technikartikel, zögern Sie also nicht, diese zu erkunden.
 
-Wir haben auch einen Referenzabschnitt aufgenommen, damit Sie leicht Informationen über alle gängigen APIs finden, die in der Spielentwicklung verwendet werden.
+Wir haben auch einen Referenzbereich hinzugefügt, damit Sie leicht Informationen über alle häufig verwendeten APIs in der Spieleentwicklung finden können.
 
 > [!NOTE]
-> Spiele im Web zu erstellen, basiert auf einer Reihe von Kern-Webtechnologien wie HTML, CSS und JavaScript. Der Abschnitt [Webentwicklung lernen](/de/docs/Learn_web_development) ist ein guter Ausgangspunkt, um mit den Grundlagen zu beginnen.
+> Die Erstellung von Spielen im Web basiert auf einer Reihe von Kern-Webtechnologien wie HTML, CSS und JavaScript. Der Abschnitt [Webentwicklung lernen](/de/docs/Learn_web_development) ist ein guter Ausgangspunkt, um die Grundlagen zu erlernen.
 
-## Native Spiele ins Web portieren
+## Leitfäden
 
-Wenn Sie ein nativer Entwickler sind (zum Beispiel Spiele in C++ schreiben) und daran interessiert sind, wie Sie Ihre Spiele ins Web portieren können, sollten Sie mehr über unser [Emscripten](https://emscripten.org/index.html) Tool erfahren — dies ist ein LLVM zu JavaScript-Compiler, der LLVM-Bytecode (z. B. generiert aus C/C++ mit Clang oder aus einer anderen Sprache) nimmt und diesen in [asm.js](/de/docs/Games/Tools/asm.js) kompiliert, das im Web ausgeführt werden kann.
-
-Um loszulegen, siehe:
-
-- [Über Emscripten](https://emscripten.org/docs/introducing_emscripten/about_emscripten.html) für eine Einführung einschließlich Details auf hoher Ebene.
-- [Herunterladen und Installieren](https://emscripten.org/docs/getting_started/downloads.html) für die Installation der Toolchain.
-- [Emscripten Tutorial](https://emscripten.org/docs/getting_started/Tutorial.html) für ein Tutorial, das Ihnen zeigt, wie Sie beginnen können.
+{{SubpagesWithSummaries}}
 
 ## Beispiele
 
-Für eine Liste von Webspiel-Beispielen, schauen Sie sich unsere Liste von [Tutorials](/de/docs/Games/Tutorials) an.
+Für eine Liste von Webspielbeispielen, siehe unsere Liste der [Tutorials](/de/docs/Games/Tutorials).
 
 ## Siehe auch
 
 - [Build New Games](http://buildnewgames.com/)
-  - : Eine kollaborative Seite mit einer großen Anzahl von Tutorials zur offenen Webspielentwicklung. War kürzlich nicht sehr aktiv, hält aber immer noch einige gute Ressourcen bereit.
+  - : Eine kollaborative Website mit einer großen Anzahl von Tutorials zur Entwicklung offener Webspiele. War in letzter Zeit nicht sehr aktiv, bietet jedoch weiterhin einige gute Ressourcen.
 - [Creative JS](http://creativejs.com/)
-  - : Eine Sammlung beeindruckender JavaScript-Techniken und -Experimente, nicht speziell für Spiele, aber dennoch hilfreich. War kürzlich nicht sehr aktiv, hält aber immer noch einige gute Ressourcen bereit.
+  - : Eine Sammlung beeindruckender JavaScript-Techniken und -Experimente, die nicht spezifisch für Spiele sind, aber dennoch hilfreich. War in letzter Zeit nicht sehr aktiv, bietet jedoch weiterhin einige gute Ressourcen.
 - [Game Programming Patterns](https://gameprogrammingpatterns.com/)
-  - : Ein Online-Buch, geschrieben von Bob Nystrom, das Programmiermuster im Kontext der Spielentwicklung diskutiert, mit dem Ziel, Spielentwickler dabei zu unterstützen, effektiveren und effizienteren Code zu produzieren.
+  - : Ein Online-Buch, geschrieben von Bob Nystrom, das Programmiermuster im Kontext der Spieleentwicklung diskutiert, um Spieleentwickler dabei zu unterstützen, effektiveren und effizienteren Code zu erstellen.
 - [Gamedev.js Weekly](https://gamedevjsweekly.com/)
-  - : Wöchentlicher Newsletter über HTML-Spielentwicklung, der jeden Freitag versendet wird. Enthält die neuesten Artikel, Tutorials, Tools und Ressourcen.
+  - : Wöchentlicher Newsletter über die Entwicklung von HTML-Spielen, der jeden Freitag verschickt wird. Enthält die neuesten Artikel, Tutorials, Tools und Ressourcen.
 - [HTML5 Game Engine](https://html5gameengine.com/)
-  - : Liste der beliebtesten HTML-Spiel-Frameworks zusammen mit ihrer Bewertung, Funktionen und Beispielen.
+  - : Liste der beliebtesten HTML-Spiel-Frameworks mit Bewertungen, Funktionen und Beispielen.
 - [Tuts+ Game Development](https://gamedevelopment.tutsplus.com/)
   - : Tutorials und Artikel über Spielentwicklung im Allgemeinen.
 - [HTML5 Gamedev Starter](https://html5devstarter.enclavegames.com/)
-  - : Starter für neue Spieleentwickler, eine kuratierte Liste von Links zu verschiedenen nützlichen Ressourcen im Web.
+  - : Einstieg für neue Spieleentwickler, eine kuratierte Liste von Links zu verschiedenen nützlichen Ressourcen im Internet.
 - [js13kGames](https://js13kgames.com/)
-  - : JavaScript-Coding-Wettbewerb für HTML-Spielentwickler mit einer Dateigrößenbeschränkung von 13 Kilobytes. Alle eingereichten Spiele sind in lesbarer Form auf GitHub verfügbar.
+  - : JavaScript-Kodierungswettbewerb für HTML-Spielentwickler mit einer Dateigrößenbeschränkung von 13 Kilobyte. Alle eingereichten Spiele sind in lesbarer Form auf GitHub verfügbar.
 - [Mozilla Hacks Blog](https://hacks.mozilla.org/category/games/)
-  - : Kategorie Spiele im Mozilla Hacks Blog mit interessanten Artikeln zur Spielentwicklung.
-- [Spiele-Sektion auf wiki.mozilla.org](https://wiki.mozilla.org/Platform/Games)
-  - : Eine Wiki-Seite mit Informationen über Mozillas Engagement in Plattformspielen.
+  - : Spielekategorie auf dem Mozilla Hacks-Blog mit interessanten Artikeln zur Spieleentwicklung.
+- [Spielebereich auf wiki.mozilla.org](https://wiki.mozilla.org/Platform/Games)
+  - : Eine Wikiseite mit Informationen über Mozillas Beteiligung an Plattformspielen.

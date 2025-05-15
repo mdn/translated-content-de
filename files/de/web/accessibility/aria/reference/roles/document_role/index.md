@@ -1,15 +1,16 @@
 ---
-title: "ARIA: document-Rolle"
+title: "ARIA: Dokumentrolle"
+short-title: document
 slug: Web/Accessibility/ARIA/Reference/Roles/document_role
 l10n:
-  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
+  sourceCommit: a8b25483994fa47cf949b432ddf34a6bce2ddb2e
 ---
 
-Die `document`-Rolle ist für fokussierbare Inhalte innerhalb komplexer zusammengesetzter [Widgets](/de/docs/Web/Accessibility/ARIA/Reference/Roles/widget_role) oder [Anwendungen](/de/docs/Web/Accessibility/ARIA/Reference/Roles/application_role) gedacht, bei denen unterstützende Technologien den Lesekontext zurück in einen Lesemodus schalten können.
+Die `document`-Rolle ist für fokussierbare Inhalte innerhalb komplexer zusammengesetzter [Widgets](/de/docs/Web/Accessibility/ARIA/Reference/Roles/widget_role) oder [Anwendungen](/de/docs/Web/Accessibility/ARIA/Reference/Roles/application_role) gedacht, bei denen assistive Technologien den Lesekontext in einen Lesemodus zurückschalten können.
 
 ## Beschreibung
 
-Die `document`-Rolle ist für den oberen Container gedacht, der Inhalte enthält, die Benutzer von unterstützenden Technologien im Lesemodus durchsuchen möchten. Nur nützlich auf fokussierbaren Abschnitten innerhalb komplexer zusammengesetzter [Widgets](/de/docs/Web/Accessibility/ARIA/Reference/Roles/widget_role) oder [Anwendungen](/de/docs/Web/Accessibility/ARIA/Reference/Roles/application_role) informiert die `document`-Rolle unterstützende Technologien über den Lesekontext zurück in einen Lesemodus: Die `document`-Rolle teilt unterstützenden Technologien mit Lese- oder Durchsuchen-Modi mit, den Dokumentenmodus zu verwenden, um die innerhalb dieses Elements enthaltenen Inhalte zu lesen.
+Die `document`-Rolle ist für das oberste Container-Element vorgesehen, das Inhalte enthält, die Benutzer von Assistenztechnologien in einem Lesemodus durchsuchen möchten. Die `document`-Rolle ist nur bei fokussierbaren Abschnitten innerhalb komplexer zusammengesetzter [Widgets](/de/docs/Web/Accessibility/ARIA/Reference/Roles/widget_role) oder [Anwendungen](/de/docs/Web/Accessibility/ARIA/Reference/Roles/application_role) sinnvoll und teilt den assistiven Technologien den Wechsel in einen Lesemodus mit: Die `document`-Rolle weist assistive Technologien mit Lese- oder Browsing-Modus an, den Dokumentmodus zu verwenden, um den Inhalt des entsprechenden Elements zu lesen.
 
 ```html
 <div role="dialog">
@@ -22,46 +23,46 @@ Die `document`-Rolle ist für den oberen Container gedacht, der Inhalte enthält
 </div>
 ```
 
-Dieses Beispiel zeigt einen [Dialog](/de/docs/Web/Accessibility/ARIA/Reference/Roles/dialog_role), eine komplexe zusammengesetzte Widget-Rolle, mit einigen Steuerelementen und einem Abschnitt mit einigen Informationstexten, den der Benutzer der unterstützenden Technologie in den Lesemodus wechseln kann, wenn er dorthin tabbt.
+Dieses Beispiel zeigt einen [Dialog](/de/docs/Web/Accessibility/ARIA/Reference/Roles/dialog_role), ein komplexes zusammengesetztes Widget-Rolle mit einigen Steuerelementen und einem Abschnitt mit informativem Text, in den der Benutzer der Assistenztechnologie beim Wechsel in den Lesemodus wechseln kann, wenn er darauf tabbt.
 
-Standardmäßig werden Webseiten als Dokumente behandelt; unterstützende Technologien (AT) wechseln in den Durchsuchen- oder Lesemodus, wenn sie eine neue Webseite betreten. Dieser Modus kann durch verschiedene Rollen geändert werden, einschließlich der Widget- und Anwendungsrollen. Die `document`-Rolle bringt das AT zurück in den Durchsuchen- oder Lesemodus.
+Standardmäßig werden Webseiten als Dokumente behandelt; assistive Technologien (AT) wechseln in den Browsing- oder Lesemodus, wenn sie eine neue Webseite betreten. Dieser Modus kann durch verschiedene Rollen, einschließlich der Widget- und Anwendungsrollen, verändert werden. Die `document`-Rolle bringt die AT zurück in den Browsing- oder Lesemodus.
 
-In der Regel wird die `document`-Rolle innerhalb einer Anwendungsrolle oder einer anderen interaktiven Widget-Rolle platziert und verwendet, um einen Abschnitt eines komplexen zusammengesetzten Widgets anzuzeigen, den ein Benutzer der unterstützenden Technologie mit seinem Durchsuchen- oder virtuellen Lesemodus lesen sollte, falls verfügbar.
+In der Regel innerhalb einer Anwendungsrolle oder einer anderen interaktiven Widget-Rolle platziert, wird die `document`-Rolle verwendet, um einen Abschnitt eines komplexen zusammengesetzten Widgets anzugeben, den ein Benutzer einer Assistenztechnologie mit seinem Browsing- oder virtuellen Lesemodus lesen sollte, sofern verfügbar.
 
-Da ATs mit Lesemodus standardmäßig diesen Modus für alle Elemente außer denen mit einer Widget- oder Anwendungsrolle festgelegt verwenden, ist die Document-Rolle nur für fokussierbare Elemente innerhalb eines Widgets oder einer Anwendung nützlich, die als statischer Rich-Text gelesen werden sollen. Das Hinzufügen von `role="document"` und `tabindex="0"` zu dem Element, das den Text innerhalb eines Widgets enthält, ermöglicht es dem Benutzer des Screenreaders, die Tabulatortaste zu drücken, um den Fokus auf das Dokumentelement zu setzen und den Text mit dem Lesekursor des Screenreaders zu lesen.
+Da ATs mit Lesemodus standardmäßig auf diesem Modus für alle Elemente außer solchen mit einer eingerichteten Widget- oder Anwendungsrolle eingestellt sind, ist die Dokumentrolle nur für fokussierbare Elemente innerhalb eines Widgets oder einer Anwendung nützlich, die als statischer Rich-Text gelesen werden sollen. Durch Hinzufügen von `role="document"` und `tabindex="0"` zum Element, das den Text innerhalb eines Widgets enthält, kann der Benutzer eines Screenreaders durch Drücken der Tabulatortaste den Fokus auf das Dokumentelement setzen und den Text mit dem Lesecursor des Screenreaders lesen.
 
-Unterstützende Technologien sollten den Kontext zurück in den Dokumentenmodus wechseln, möglicherweise von Steuerelementen abfangen, die für den dynamischen Kontext des übergeordneten Elements neu verdrahtet sind, und die Standard-Eingabeveranstaltungen wie Auf- oder Abwärtspfeile-Tastaturereignisse wieder aktivieren, um den Lesekursor zu steuern.
+Assistive Technologien sollten den Kontext zurück in den Dokumentmodus schalten und möglicherweise von Steuerelementen, die für den dynamischen Kontext des übergeordneten Elements neu verdrahtet sind, abgefangen werden. Dabei werden die Standard-Ereignisse wie Aufwärts- oder Abwärts-Pfeiltastenereignisse wieder aktiviert, um den Lesecursor zu steuern.
 
-Im Gegensatz zur [`article`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/article_role)-Rolle hat die `document`-Rolle keine Beziehung zu anderen Elementen mit einer Dokumentrolle, sondern lediglich eine Beziehung zum umgebenden zusammengesetzten Widget. Ein Artikel kann zugehörige Artikel haben.
+Im Gegensatz zur [`article`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/article_role)-Rolle hat die `document`-Rolle keine Beziehung zu anderen Elementen mit der Dokumentrolle, sondern lediglich eine Beziehung zum enthaltenden zusammengesetzten Widget. Ein Artikel kann assoziierte Artikel haben.
 
-### Zugehörige WAI-ARIA-Rollen, Zustände und Eigenschaften
+### Zugehörige WAI-ARIA-Rollen, -Zustände und -Eigenschaften
 
 - [`aria-expanded`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-expanded)
 
-  - : Include mit einem Wert von `true` oder `false` verwenden, wenn das Dokumentelement zusammenklappbar ist, um anzugeben, ob das Dokument aktuell erweitert oder eingeklappt ist. Andere Werte umfassen das Standard-`undefined`, das bedeutet, dass das Dokument nicht zusammenklappbar ist.
+  - : Einschließen mit einem Wert von `true` oder `false`, falls das Dokumentelement einklappbar ist, um anzugeben, ob das Dokument derzeit erweitert oder eingeklappt ist. Andere Werte umfassen das Standard-`undefined`, was bedeutet, dass das Dokument nicht einklappbar ist.
 
 - tabindex="0"
-  - : Wird verwendet, um es fokussierbar zu machen, damit der Benutzer der unterstützenden Technologie darauf tabben und sofort mit dem Lesen beginnen kann.
+  - : Wird verwendet, um es fokussierbar zu machen, sodass der Benutzer der Assistenztechnologie darauf tabben und sofort mit dem Lesen beginnen kann.
 
 ### Tastaturinteraktionen
 
-Das Element sollte durch Einstellen des `tabindex="0"` Attribut/Wert-Paars fokussierbar gemacht werden. Auf diese Weise kann der Benutzer darauf tabben, der Lesemodus wird automatisch aufgerufen und der Inhalt kann sofort gelesen werden.
+Das Element sollte durch Festlegen des Attribut-/Wertepaars `tabindex="0"` fokussierbar gemacht werden. So kann der Benutzer darauf tabben, der Lesemodus wird automatisch ausgelöst und der Inhalt kann sofort gelesen werden.
 
 ### Erforderliche JavaScript-Funktionen
 
-Keine, außer wie von beliebigen Attributen erforderlich. Zum Beispiel, wenn das `document` zusammenklappbar ist, dann muss der Zustand und der Wert von `aria-expanded` beibehalten werden.
+Keine, außer wie durch Attribute erforderlich. Wenn das `document` beispielsweise einklappbar ist, müssen der Zustand und der Wert von `aria-expanded` beibehalten werden.
 
 ## Beispiele
 
-Ein Beispiel ist GMail und die Einzelgesprächsansicht. GMail ist eine Webanwendung. In GMail werden die meisten Benutzerinteraktionen von der Anwendung übernommen. Wenn jedoch der Tastaturfokus auf die Startüberschrift eines einzelnen Gesprächs gesetzt ist, das das Gesprächsthema enthält, kann der Screenreader-Benutzer die Lese-Mode-Befehle verwenden, um durch die Nachrichten zu lesen, sie zu erweitern oder einzuklappen und sie zu manipulieren. Sobald der Fokus entweder durch das Aktivieren der Zurück-Schaltfläche oder durch Drücken einer zugehörigen Taste zur Nachrichteliste zurückkehrt, wird der direkte Anwendungs-Interaktionsmodus wieder aufgerufen, und der Benutzer kann mit den <kbd>Pfeiltasten</kbd> zu einem anderen Gespräch in der Liste wechseln.
+Ein Beispiel ist Gmail und die Einzelansicht einer Konversation. Gmail ist eine Webanwendung. In Gmail werden die meisten Benutzerinteraktionen von der Anwendung übernommen. Wenn jedoch der Tastaturfokus auf die Startüberschrift einer einzelnen Konversation gesetzt ist, die das Thema der Konversation enthält, kann der Screenreader-Benutzer die Lese-Modus-Befehle verwenden, um die Nachrichten zu lesen, sie zu erweitern oder einzuklappen und zu manipulieren. Sobald der Fokus entweder durch Aktivieren der Zurück-Schaltfläche oder durch Drücken eines zugehörigen Tastenanschlags zur Nachrichtenliste zurückkehrt, wird der direkte Anwendungsinteraktionsmodus erneut aufgerufen, und der Benutzer kann mit den <kbd>Pfeil</kbd>-Tasten zu einer anderen Konversation in der Liste wechseln.
 
 ## Beste Praktiken
 
-Stellen Sie sicher, dass ein Element mit der Dokumentrolle fokussierbar ist, indem Sie das `tabindex`-Attribut mit einem Wert von 0 festlegen. Dies wird es auch in die Tabulatorreihenfolge einschließen.
+Stellen Sie immer sicher, dass ein Element mit der Dokumentrolle fokussierbar ist, indem Sie das `tabindex`-Attribut mit einem Wert von 0 festlegen. Dadurch wird es auch in die Tabulatorreihenfolge aufgenommen.
 
 ### Zusätzliche Vorteile
 
-Die Dokumentrolle ist eine einfache Möglichkeit, das Verhalten von unterstützenden Technologien indirekt zu steuern, indem eindeutig angegeben wird, dass dies Inhalte sind, die der Benutzer mit den Standard-Screenreader-Befehlen lesen soll.
+Die Dokumentrolle ist eine einfache Möglichkeit, das Verhalten von assistiven Technologien indirekt zu steuern, indem unmissverständlich angegeben wird, dass es sich um Inhalte handelt, die der Benutzer mit den Standardbefehlen eines Screenreaders lesen sollte.
 
 ## Spezifikationen
 

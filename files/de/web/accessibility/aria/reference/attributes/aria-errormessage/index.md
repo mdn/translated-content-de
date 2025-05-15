@@ -1,31 +1,32 @@
 ---
-title: aria-errormessage
+title: "ARIA: aria-errormessage Attribut"
+short-title: aria-errormessage
 slug: Web/Accessibility/ARIA/Reference/Attributes/aria-errormessage
 l10n:
-  sourceCommit: 85d5b8d224843c37974318ff04fbcc1ab69ef95d
+  sourceCommit: a8b25483994fa47cf949b432ddf34a6bce2ddb2e
 ---
 
-Das Attribut `aria-errormessage` eines Objekts identifiziert das oder die Elemente, die eine Fehlermeldung für dieses Objekt bereitstellen.
+Das `aria-errormessage` Attribut an einem Objekt identifiziert das bzw. die Elemente, die eine Fehlermeldung für dieses Objekt bereitstellen.
 
 ## Beschreibung
 
-Bei einem benutzererstellten Fehler sollten Sie den Benutzer darüber informieren, dass der Fehler existiert und wie er behoben werden kann. Es gibt zwei Attribute, die Sie verwenden müssen: Setzen Sie [`aria-invalid="true"`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-invalid), um das Objekt als fehlerhaft zu definieren und fügen Sie dann das Attribut `aria-errormessage` hinzu, wobei der Wert die `id` des Elements (oder der Elemente) ist, die den Fehlermeldungstext für dieses Objekt enthalten.
+Wenn ein benutzerdefinierter Fehler auftritt, möchten Sie dem Nutzer mitteilen, dass ein Fehler existiert, und ihm sagen, wie er diesen beheben kann. Dazu müssen Sie zwei Attribute verwenden: Setzen Sie [`aria-invalid="true"`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-invalid), um das Objekt als fehlerhaft zu definieren, und fügen Sie dann das `aria-errormessage` Attribut hinzu, wobei der Wert die `id` des Elements (oder der Elemente) ist, die den Text der Fehlermeldung für dieses Objekt enthalten.
 
-Das Attribut `aria-errormessage` sollte nur verwendet werden, wenn der Wert eines Objekts ungültig ist; wenn [`aria-invalid`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-invalid) auf `true` gesetzt ist. Wenn das Objekt gültig ist und Sie das Attribut `aria-errormessage` einschließen, stellen Sie sicher, dass das referenzierte Element ausgeblendet ist, da die enthaltene Nachricht nicht relevant ist.
+Das `aria-errormessage` Attribut sollte nur verwendet werden, wenn der Wert eines Objekts ungültig ist; wenn [`aria-invalid`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-invalid) auf `true` gesetzt ist. Wenn das Objekt gültig ist und Sie das `aria-errormessage` Attribut einfügen, stellen Sie sicher, dass das referenzierte Element ausgeblendet ist, da die darin enthaltene Nachricht nicht relevant ist.
 
-Wenn `aria-errormessage` relevant ist, müssen die referenzierten Elemente sichtbar sein, damit Benutzer die Fehlermeldung sehen oder hören können.
+Wenn `aria-errormessage` relevant ist, müssen das bzw. die referenzierten Elemente sichtbar sein, damit Nutzer die Fehlermeldung sehen oder hören können.
 
-Oft möchten Sie, dass das Element mit der Fehlermeldung eine [ARIA Live-Region](/de/docs/Web/Accessibility/ARIA/Guides/Live_regions) ist, beispielsweise wenn eine Fehlermeldung angezeigt wird, nachdem Benutzer einen ungültigen Wert eingegeben haben. Die Fehlermeldung sollte beschreiben, was falsch ist und dem Benutzer mitteilen, was erforderlich ist, um das Objekt gültig zu machen. Das Hinzufügen der Fehlermeldung als ARIA Live-Region informiert unterstützende Technologien darüber, dass der Benutzer von dem Inhalt der Fehlermeldung profitieren könnte, auch wenn die Fehlermeldung dem Benutzer sonst nicht mitgeteilt würde.
+Oftmals wollen Sie, dass das Element mit der Fehlermeldung eine [ARIA-Live-Region](/de/docs/Web/Accessibility/ARIA/Guides/Live_regions) ist, beispielsweise wenn eine Fehlermeldung den Nutzern angezeigt wird, nachdem sie einen ungültigen Wert eingegeben haben. Die Fehlermeldung sollte beschreiben, was falsch ist, und den Nutzer darüber informieren, was erforderlich ist, um das Objekt gültig zu machen. Das Hinzufügen der Fehlermeldung als ARIA-Live-Region informiert unterstützende Technologien darüber, dass der Nutzer von dem Inhalt der Fehlermeldung profitieren könnte, selbst wenn die Fehlermeldung dem Nutzer sonst nicht angezeigt würde.
 
-Fügen Sie eine sichtbare Fehlermeldung hinzu und verknüpfen Sie das ungültige Objekt mit dem Attribut `aria-errormessage`, wenn der Fehler visuell erkennbar ist und eine explizite Erklärung des Fehlers erforderlich ist.
+Fügen Sie eine sichtbare Fehlermeldung ein und verknüpfen Sie das ungültige Objekt mit dem `aria-errormessage` Attribut, wenn der Fehler optisch erkennbar ist und eine ausdrückliche Beschreibung des Fehlers erforderlich ist.
 
 ## Beispiel
 
 Wir erstellen einige Stile, um:
 
-1. Alle Fehlermeldungen zu verbergen,
-2. Ungültige Objekte als ungültig erscheinen zu lassen, und
-3. Fehlermeldungen anzuzeigen, die nach einem ungültigen Objekt als Geschwisterelemente kommen.
+1. Alle Fehlermeldungen auszublenden,
+2. Ungültige Objekte als ungültig erscheinen zu lassen und
+3. Fehlermeldungen anzuzeigen, die Geschwister sind und nach einem ungültigen Objekt kommen.
 
 Wir verwenden `aria-invalid="true"`, um ungültige Objekte zu identifizieren:
 
@@ -43,7 +44,7 @@ Wir verwenden `aria-invalid="true"`, um ungültige Objekte zu identifizieren:
 }
 ```
 
-Wenn ein Objekt ungültig ist, verwenden wir JavaScript, um `aria-invalid="true"` hinzuzufügen. Das obige CSS lässt die `.errormessage`, die einem ungültigen Objekt folgt, sichtbar werden.
+Wenn ein Objekt ungültig ist, verwenden wir JavaScript, um `aria-invalid="true"` hinzuzufügen. Das obige CSS sorgt dafür, dass die `.errormessage`, die einem ungültigen Objekt folgt, sichtbar wird.
 
 ```html
 <p>
@@ -58,23 +59,23 @@ Wenn ein Objekt ungültig ist, verwenden wir JavaScript, um `aria-invalid="true"
 </p>
 ```
 
-Als wir von gültig zu ungültig wechselten, war die einzige JavaScript-Änderung in diesem Beispiel ein Update von `aria-invalid` im E-Mail-Eingabeobjekt. Da die Fehlermeldung der Eingabe folgt und sichtbar und im Zugänglichkeitsbaum verfügbar wird, können wir unser Beispiel einfach halten. Wir hätten auch eine [`aria-live`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-live) Eigenschaft anwenden oder Rollen von Live-Regionen wie [`alert`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/alert_role) verwenden können.
+Als wir von gültig zu ungültig wechselten, bestand die einzige Änderung im JavaScript-Beispiel darin, dass `aria-invalid` im E-Mail-Eingabeobjekt aktualisiert wurde. Da die Fehlermeldung der Eingabe folgt und im Accessibility-Tree sichtbar und verfügbar wird, konnten wir unser Beispiel einfach halten. Wir hätten auch eine [`aria-live`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-live) Eigenschaft anwenden oder Rollen von Live-Regionen wie [`alert`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/alert_role) verwenden können.
 
 ## Werte
 
 - ID-Referenzliste
-  - : Die `id` oder durch Leerzeichen getrennte Liste von Element-`id`s, die die Fehlermeldung für das aktuelle Element enthalten.
+  - : Die `id` oder eine durch Leerzeichen getrennte Liste von Element-`id`s, die die Fehlermeldung für das aktuelle Element enthalten.
 
-## Zugeordnete Schnittstellen
+## Zugehörige Schnittstellen
 
 - [`Element.ariaErrorMessageElements`](/de/docs/Web/API/Element/ariaErrorMessageElements)
-  - : Die Eigenschaft `ariaErrorMessageElements` ist Teil der Schnittstelle jedes Elements.
-    Ihr Wert ist ein Array von Unterklassen von [`Element`](/de/docs/Web/API/Element), die die `id`-Referenzen im `aria-errormessage`-Attribut widerspiegeln ([mit einigen Vorbehalten](/de/docs/Web/API/Document_Object_Model/Reflected_attributes#reflected_element_references)).
+  - : Die `ariaErrorMessageElements` Eigenschaft ist Teil der Schnittstelle jedes Elements.
+    Ihr Wert ist ein Array von Unterklassen von [`Element`](/de/docs/Web/API/Element), das die `id` Referenzen im `aria-errormessage` Attribut widerspiegelt ([mit einigen Einschränkungen](/de/docs/Web/API/Document_Object_Model/Reflected_attributes#reflected_element_references)).
 - [`ElementInternals.ariaErrorMessageElements`](/de/docs/Web/API/ElementInternals/ariaErrorMessageElements)
-  - : Die Eigenschaft `ariaErrorMessageElements` ist Teil der Schnittstelle jedes benutzerdefinierten Elements.
-    Ihr Wert ist ein Array von Unterklassen von [`Element`](/de/docs/Web/API/Element), die die `id`-Referenzen im `aria-errormessage`-Attribut widerspiegeln ([mit einigen Vorbehalten](/de/docs/Web/API/Document_Object_Model/Reflected_attributes#reflected_element_references)).
+  - : Die `ariaErrorMessageElements` Eigenschaft ist Teil der Schnittstelle jedes benutzerdefinierten Elements.
+    Ihr Wert ist ein Array von Unterklassen von [`Element`](/de/docs/Web/API/Element), das die `id` Referenzen im `aria-errormessage` Attribut widerspiegelt ([mit einigen Einschränkungen](/de/docs/Web/API/Document_Object_Model/Reflected_attributes#reflected_element_references)).
 
-## Zugeordnete Rollen
+## Zugehörige Rollen
 
 Verwendet in Rollen:
 

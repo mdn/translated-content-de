@@ -2,14 +2,14 @@
 title: Temporal.PlainDate.prototype.withCalendar()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainDate/withCalendar
 l10n:
-  sourceCommit: 35512ec91d6a464ebee803d20c2d47464c9ce4e7
+  sourceCommit: 1b77d85af82183b835cf253e885dca26cba93eb5
 ---
 
 {{JSRef}}{{SeeCompatTable}}
 
-Die Methode **`withCalendar()`** von {{jsxref("Temporal.PlainDate")}} Instanzen gibt ein neues `Temporal.PlainDate` Objekt zurück, das dieses Datum im neuen Kalendersystem interpretiert. Da alle `Temporal` Objekte unveränderlich gestaltet sind, fungiert diese Methode im Wesentlichen als der Setter für die {{jsxref("Temporal/PlainDate/calendarId", "calendarId")}} Eigenschaft des Datums.
+Die **`withCalendar()`**-Methode von {{jsxref("Temporal.PlainDate")}}-Instanzen gibt ein neues `Temporal.PlainDate`-Objekt zurück, das dieses Datum im neuen Kalendersystem interpretiert. Da alle `Temporal`-Objekte so konzipiert sind, dass sie unveränderlich sind, fungiert diese Methode im Wesentlichen als Setter für die {{jsxref("Temporal/PlainDate/calendarId", "calendarId")}}-Eigenschaft des Datums.
 
-Um die Datumsbestandteile zu ersetzen, verwenden Sie stattdessen die {{jsxref("Temporal/PlainDate/with", "with()")}} Methode.
+Um die Datumsbestandteile zu ersetzen, verwenden Sie stattdessen die {{jsxref("Temporal/PlainDate/with", "with()")}}-Methode.
 
 ## Syntax
 
@@ -20,18 +20,18 @@ withCalendar(calendar)
 ### Parameter
 
 - `calendar`
-  - : Ein String, der der {{jsxref("Temporal/PlainDate/calendarId", "calendarId")}} Eigenschaft entspricht.
+  - : Ein String, der der {{jsxref("Temporal/PlainDate/calendarId", "calendarId")}}-Eigenschaft entspricht. Siehe [`Intl.supportedValuesOf()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/supportedValuesOf#supported_calendar_types) für eine Liste der häufig unterstützten Kalenderarten.
 
 ### Rückgabewert
 
-Ein neues `Temporal.PlainDate` Objekt, das das durch das ursprüngliche `PlainDate` angegebene Datum repräsentiert, interpretiert im neuen Kalendersystem.
+Ein neues `Temporal.PlainDate`-Objekt, das das Datum repräsentiert, das durch das ursprüngliche `PlainDate` angegeben wird, interpretiert im neuen Kalendersystem.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Ausgelöst, wenn `calendar` kein String ist.
+  - : Wird ausgelöst, wenn `calendar` kein String ist.
 - {{jsxref("RangeError")}}
-  - : Ausgelöst, wenn `calendar` keine gültige Kalenderkennung ist.
+  - : Wird ausgelöst, wenn `calendar` kein gültiger Kalenderbezeichner ist.
 
 ## Beispiele
 

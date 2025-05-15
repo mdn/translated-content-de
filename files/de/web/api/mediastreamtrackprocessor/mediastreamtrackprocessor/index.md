@@ -3,12 +3,12 @@ title: "MediaStreamTrackProcessor: MediaStreamTrackProcessor() Konstruktor"
 short-title: MediaStreamTrackProcessor()
 slug: Web/API/MediaStreamTrackProcessor/MediaStreamTrackProcessor
 l10n:
-  sourceCommit: 62e6088450ab10db4697d190dd54d09dd9a0791a
+  sourceCommit: a61be259435257328a25c462cb0f42bc91981a6f
 ---
 
-{{APIRef("Insertable Streams for MediaStreamTrack API")}}{{SeeCompatTable}}
+{{APIRef("Insertable Streams for MediaStreamTrack API")}}
 
-Der **`MediaStreamTrackProcessor()`** Konstruktor erstellt ein neues [`MediaStreamTrackProcessor`](/de/docs/Web/API/MediaStreamTrackProcessor) Objekt, das die Quelle eines Video-[`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) Objekts konsumiert und einen Strom von [`VideoFrame`](/de/docs/Web/API/VideoFrame)s erzeugt.
+Der **`MediaStreamTrackProcessor()`**-Konstruktor erstellt ein neues [`MediaStreamTrackProcessor`](/de/docs/Web/API/MediaStreamTrackProcessor)-Objekt, das die Quelle eines Video-[`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)-Objekts konsumiert und einen Strom von [`VideoFrame`](/de/docs/Web/API/VideoFrame)s generiert.
 
 ## Syntax
 
@@ -23,7 +23,7 @@ new MediaStreamTrackProcessor(options)
     - `track`
       - : Ein [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack).
     - `maxBufferSize` {{optional_inline}}
-      - : Eine ganze Zahl, die die maximale Anzahl der zu puffenden Medienframes angibt.
+      - : Eine ganze Zahl, die die maximale Anzahl an zu puffernden Medienframes angibt.
 
 ## Beispiele
 

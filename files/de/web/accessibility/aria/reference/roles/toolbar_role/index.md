@@ -1,94 +1,95 @@
 ---
-title: "ARIA: toolbar Rolle"
+title: "ARIA: Rolle der Toolbar"
+short-title: toolbar
 slug: Web/Accessibility/ARIA/Reference/Roles/toolbar_role
 l10n:
-  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
+  sourceCommit: a8b25483994fa47cf949b432ddf34a6bce2ddb2e
 ---
 
-Die `toolbar`-Rolle definiert das umgebende Element als eine Sammlung von häufig verwendeten Funktionsschaltflächen oder Steuerelementen, die in kompakter visueller Form dargestellt sind.
+Die `toolbar`-Rolle definiert das enthaltende Element als eine Sammlung von häufig verwendeten Funktionsschaltflächen oder Steuerelementen, die in einer kompakten visuellen Form dargestellt werden.
 
 ## Beschreibung
 
-Eine Toolbar ist eine Sammlung von häufig verwendeten Steuerelementen, wie Schaltflächen oder Kontrollkästchen, die zusammen in einer kompakten visuellen Form gruppiert sind. Die `toolbar`-Rolle kann verwendet werden, um die Anwesenheit und den Zweck einer solchen Gruppierung für Screenreader-Nutzer zu kommunizieren und kann dazu beitragen, die Anzahl der Tabulatorstopps für Tastaturnutzer zu reduzieren. Verwenden Sie die `toolbar`-Rolle nur, um 3 oder mehr Steuerelemente zu gruppieren.
+Eine Toolbar ist eine Sammlung von häufig verwendeten Steuerelementen, wie Schaltflächen oder Kontrollkästchen, die in einer kompakten visuellen Form zusammengefasst sind. Die `toolbar`-Rolle kann verwendet werden, um Bildschirmlesegeräten die Anwesenheit und den Zweck einer solchen Gruppierung zu kommunizieren und kann helfen, die Anzahl der Tab-Stopps für Tastaturnutzer zu reduzieren. Verwenden Sie die `toolbar`-Rolle nur, um 3 oder mehr Steuerelemente zu gruppieren.
 
-Eine Toolbar ist häufig eine Teilmenge der Funktionen, die in einer `menubar` zu finden sind, um den Aufwand für den Nutzer zu reduzieren. Wenn Sie mehr als eine Toolbar in einer Menüleiste haben, benötigt jede Toolbar ein Label; welches Sie mit [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby) oder [`aria-label`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label) hinzufügen können.
+Die Toolbar ist oft ein Teil der Funktionen, die in einer `menubar` gefunden werden, um den Aufwand für den Benutzer zu verringern. Wenn Sie mehr als eine Toolbar in einer Menubar haben, benötigt jede Toolbar ein Label, das Sie mit [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby) oder [`aria-label`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label) einfügen können.
 
-Beim Erstellen einer Toolbar müssen Sie die Fokusverwaltung und Tastaturinteraktionen innerhalb der Toolbar implementieren und berücksichtigen, wenn dieselben Tastaturinteraktionen sowohl in der Toolbar als auch im enthaltenen nativen Steuerelement verwendet werden. Die Tasten <kbd>Nach-links-Taste</kbd> und <kbd>Nach-rechts-Taste</kbd> sollten verwendet werden, um zwischen den Steuerelementen innerhalb einer horizontalen Toolbar zu navigieren. Die Tasten <kbd>Nach-oben-Taste</kbd> und <kbd>Nach-unten-Taste</kbd> sollten verwendet werden, wenn die Toolbar vertikal ist – in diesem Fall möchten Sie auch die `aria-orientation="vertical"` einschließen – oder in einer horizontalen Toolbar, können sie für Bedienelemente reserviert werden, wie zum Beispiel Spin-Buttons, die vertikale Pfeiltasten erfordern.
+Beim Erstellen einer Toolbar müssen Sie das Fokus-Management und die Tastaturinteraktionen innerhalb der Toolbar implementieren und dabei beachten, wann dieselben Tastaturinteraktionen sowohl in der Toolbar als auch in den enthaltenen nativen Steuerelementen verwendet werden. Der <kbd>linke Pfeil</kbd> und der <kbd>rechte Pfeil</kbd> sollten verwendet werden, um zwischen den Steuerelementen innerhalb einer horizontalen Toolbar zu navigieren. Der <kbd>obere Pfeil</kbd> und der <kbd>untere Pfeil</kbd> sollten verwendet werden, wenn die Toolbar vertikal ist – in diesem Fall sollten Sie auch `aria-orientation="vertical"` einfügen – oder in einer horizontalen Toolbar können sie für die Bedienung von Steuerelementen reserviert werden, wie z.B. Drehknöpfe, die vertikale Pfeiltasten zur Bedienung erfordern.
 
-Vermeiden Sie die Einbeziehung von Steuerelementen, deren Bedienung Pfeiltasten erfordert, die für die Toolbar-Navigation verwendet werden. Wenn ein solches Steuerelement integriert werden muss, machen Sie es zum letzten Steuerelement in der Toolbar. Zum Beispiel könnte in einer horizontalen Toolbar ein Textfeld als letztes Element eingeschlossen werden.
+Vermeiden Sie die Aufnahme von Steuerelementen, deren Bedienung Pfeiltasten erfordert, die für die Toolbar-Navigation verwendet werden. Wenn Sie ein solches Steuerelement einschließen müssen, machen Sie es zum letzten Steuerelement in der Toolbar. Zum Beispiel könnte in einer horizontalen Toolbar ein Textfeld als letztes Element eingeschlossen werden.
 
-Falls eines der ansonsten interaktiven Elemente innerhalb der Toolbar vorübergehend deaktiviert ist, überlegen Sie, ob sie trotzdem fokussierbar bleiben sollten, damit Screenreader-Benutzer über deren Anwesenheit informiert werden können.
+Wenn eines der interaktiven Elemente innerhalb der Toolbar vorübergehend deaktiviert ist, sollten Sie diese weiterhin fokussierbar lassen, damit Bildschirmlesegeräte-Benutzer über deren Anwesenheit informiert werden können.
 
 ### Zugehörige WAI-ARIA-Rollen, Zustände und Eigenschaften
 
 - [`aria-orientation`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-orientation)
 
-  - : Elemente mit der Rolle Toolbar haben einen impliziten `aria-orientation` Wert von horizontal.
+  - : Elemente mit der Rolle Toolbar haben einen impliziten `aria-orientation`-Wert von horizontal.
 
 - [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby) / [`aria-label`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label)
-  - : Wenn die Toolbar ein sichtbares Label hat, referenzieren Sie es mit der ID mittels des `aria-labelledby` Attributs. Andernfalls geben Sie ein `aria-label` an. Wenn es mehr als eine Toolbar in einem Menü gibt, ist eine Benennung erforderlich.
+  - : Wenn die Toolbar ein sichtbares Label hat, beziehen Sie sich mit der `aria-labelledby`-Eigenschaft auf dessen ID. Andernfalls geben Sie ein `aria-label` an. Wenn es mehr als eine Toolbar in einem Menü gibt, ist eine Benennung erforderlich.
 
 ### Tastaturinteraktionen
 
-Implementieren Sie die Fokusverwaltung, sodass die Tabulatorsequenz der Tastatur einen Stopp für die Toolbar umfasst und Pfeiltasten den Fokus zwischen den Steuerelementen in der Toolbar verschieben.
+Implementieren Sie ein Fokus-Management, sodass die Tastatur-Tab-Sequenz einen Stopp für die Toolbar umfasst und die Pfeiltasten den Fokus unter den Steuerelementen in der Toolbar verschieben.
 
 - <kbd>Tab</kbd> und <kbd>Shift + Tab</kbd>
 
-  - : Bewegen Sie den Fokus in die und aus der Toolbar. Wenn der Fokus in eine Toolbar wechselt:
+  - : Verschiebt den Fokus in die und aus der Toolbar. Wenn der Fokus in eine Toolbar verschoben wird:
 
-    - Wenn der Fokus zum ersten Mal in die Toolbar wechselt, wird der Fokus auf das erste Steuerelement gesetzt, das nicht deaktiviert ist.
-    - Wenn die Toolbar zuvor den Fokus hatte, wird der Fokus optional auf das Steuerelement gesetzt, das zuletzt den Fokus hatte. Andernfalls wird er auf das erste Steuerelement gesetzt, das nicht deaktiviert ist.
+    - Wenn der Fokus zum ersten Mal in die Toolbar verschoben wird, wird der Fokus auf das erste Steuerelement gesetzt, das nicht deaktiviert ist.
+    - Wenn die Toolbar zuvor den Fokus hatte, kann der Fokus optional auf das Steuerelement gesetzt werden, das zuletzt den Fokus hatte. Andernfalls wird er auf das erste Steuerelement gesetzt, das nicht deaktiviert ist.
 
 - <kbd>Home</kbd> (Optional)
 
-  - : Bewegt den Fokus auf das erste Element.
+  - : Verschiebt den Fokus auf das erste Element.
 
-- <kbd>End</kbd> (Optional)
-  - : Bewegt den Fokus auf das letzte Element.
+- <kbd>Ende</kbd> (Optional)
+  - : Verschiebt den Fokus auf das letzte Element.
 
 #### Horizontale Toolbar
 
-Elemente mit der Rolle Toolbar haben einen impliziten `aria-orientation` Wert von horizontal. Wenn die Toolbar tatsächlich diese Orientierung hat, müssen die folgenden Tastaturinteraktionen implementiert werden:
+Elemente mit der Rolle Toolbar haben einen impliziten `aria-orientation`-Wert von horizontal. Wenn die Toolbar tatsächlich diese Ausrichtung hat, müssen die folgenden Tastaturinteraktionen implementiert werden:
 
-- <kbd>Nach-links-Taste</kbd> (Für eine horizontale Toolbar (die Standardeinstellung)
+- <kbd>Linke Pfeiltaste</kbd> (Für eine horizontale Toolbar (den Standard)
 
-  - : Bewegt den Fokus auf das vorherige Steuerelement. Optional kann die Fokusbewegung vom ersten zum letzten Element springen.
+  - : Verschiebt den Fokus auf das vorherige Steuerelement. Optional kann sich die Fokusbewegung vom ersten Element auf das letzte Element umschließen.
 
-- <kbd>Nach-rechts-Taste</kbd> (Für eine horizontale Toolbar (die Standardeinstellung)
-  - : Bewegt den Fokus auf das nächste Steuerelement. Optional kann die Fokusbewegung vom letzten zum ersten Element springen.
+- <kbd>Rechte Pfeiltaste</kbd> (Für eine horizontale Toolbar (den Standard)
+  - : Verschiebt den Fokus auf das nächste Steuerelement. Optional kann sich die Fokusbewegung vom letzten Element auf das erste Element umschließen.
 
-In Toolbars mit mehreren Zeilen von Steuerelementen sollten die linken und rechten Pfeiltasten erlauben, von Zeile zu Zeile zu springen, während die Option besteht, vertikale Pfeiltasten für die Bedienung von Steuerelementen zu reservieren, wie etwa für die Navigation zwischen Radio-Buttons, oder für die Erhöhung/Verringerung eines numerischen Spinners.
+In Toolbars mit mehreren Reihen von Steuerelementen erlauben Sie den linken und rechten Pfeilen, sich von Reihe zu Reihe zu umschließen, und lassen Sie die Option, vertikale Pfeiltasten für die Bedienung von Steuerelementen wie das Navigieren unter Radioschaltern oder das Erhöhen/Verringern eines numerischen Spinners zu reservieren.
 
 #### Vertikale Toolbar
 
 Wenn die Toolbar vertikal ist, stellen Sie sicher, dass `aria-orientation="vertical"` gesetzt ist, und die folgenden Tastaturinteraktionen implementiert werden:
 
-- <kbd>Nach-unten-Taste</kbd> (Für eine vertikale Toolbar)
+- <kbd>Unterer Pfeil</kbd> (Für eine horizontale Toolbar (den Standard)
 
-  - : Bewegt den Fokus auf das vorherige Steuerelement. Optional kann die Fokusbewegung vom ersten zum letzten Element springen.
+  - : Verschiebt den Fokus auf das vorherige Steuerelement. Optional kann sich die Fokusbewegung vom ersten Element auf das letzte Element umschließen.
 
-- <kbd>Nach-oben-Taste</kbd> (Für eine vertikale Toolbar)
-  - : Bewegt den Fokus auf das nächste Steuerelement. Optional kann die Fokusbewegung vom letzten zum ersten Element springen.
+- <kbd>Oberer Pfeil</kbd> (Für eine horizontale Toolbar (den Standard)
+  - : Verschiebt den Fokus auf das nächste Steuerelement. Optional kann sich die Fokusbewegung vom letzten Element auf das erste Element umschließen.
 
 ### Erforderliche JavaScript-Funktionen
 
-Implementieren Sie die Fokusverwaltung, sodass die Tabulatorsequenz der Tastatur einen Stopp für die Toolbar umfasst und Pfeiltasten den Fokus zwischen den Steuerelementen in der Toolbar verschieben. Wenn in die Toolbar getabt wird, kehrt der Fokus zum Steuerelement zurück, das zuletzt den Fokus hatte.
+Implementieren Sie ein Fokus-Management, sodass die Tastatur-Tab-Sequenz einen Stopp für die Toolbar umfasst und die Pfeiltasten den Fokus unter den Steuerelementen in der Toolbar verschieben. Beim Wechseln in die Toolbar kehrt der Fokus auf das Steuerelement zurück, das zuletzt den Fokus hatte.
 
-Obwohl das Toolbar-Element selbst keinen Fokus erhält, muss der Fokus beim Bewegen in, aus und innerhalb der Toolbar verwaltet werden. Beim Laden hat das erste Element in der Tabulatonssequenz innerhalb der Toolbar `tabindex="0"` mit `tabindex="-1"` auf allen anderen fokussierbaren Elementen innerhalb der Toolbar. Abhängig von der [Tastaturinteraktion] wird das empfangende Element auf `tabindex="0"` gesetzt und das Element, das gerade den Fokus verloren hat, wird zurück auf `tabindex="-1"` gesetzt. Fokussieren Sie, `element.focus()`, auf das Element, das `tabindex="0"` hat. Dies wird "roving tabindex" genannt. Ein Vorteil der Verwendung von roving tabindex zur Verwaltung des Fokus ist, dass der Browser das neu fokussierte Element in den Blickwinkel scrollt.
+Obwohl das Toolbar-Element selbst keinen Fokus erhält, muss der Fokus bei der Bewegung in, aus und innerhalb der Toolbar verwaltet werden. Beim Laden erhält das erste Element in der Tabbing-Sequenz innerhalb der Toolbar `tabindex="0"`, während alle anderen fokussierbaren Elemente in der Toolbar `tabindex="-1"` haben. Abhängig von der [Tastaturinteraktion] erhält das Element, das den Fokus erhält, `tabindex="0"`, und das Element, das gerade den Fokus verloren hat, wird wieder auf `tabindex="-1"` gesetzt. Setzen Sie den Fokus mit `element.focus()` auf das Element, das `tabindex="0"` hat. Dies wird als "roving tabindex" bezeichnet. Ein Vorteil der Verwendung von roving tabindex zur Verwaltung des Fokus ist, dass der Browser das neu fokussierte Element in den sichtbaren Bereich scrollt.
 
-Wenn das Design erfordert, dass ein bestimmtes Element das nächste Mal fokussiert wird, wenn der Benutzer den Fokus mit <kbd>Tab</kbd> oder <kbd>Shift + Tab</kbd> in die Toolbar bewegt, überprüfen Sie, ob dieses Zielelement `tabindex="0"` hat, wenn die Toolbar den Fokus verliert.
+Wenn das Design erfordert, dass ein bestimmtes Element fokussiert wird, während der Benutzer den Fokus mit <kbd>Tab</kbd> oder <kbd>Shift + Tab</kbd> wieder in die Toolbar verschiebt, überprüfen Sie, ob dieses Ziel-Element `tabindex="0"` hat, wenn die Toolbar den Fokus verliert.
 
-Wenn die Toolbar innerhalb fokussiert ist, bieten Sie visuelle Hinweise. Wenn ein Element innerhalb der Toolbar den Fokus hat, muss ein visueller Hinweis sowohl auf der Toolbar selbst - um die Unterstützung der Toolbar für die Navigation mit den Pfeiltasten zu erleichtern - als auch auf dem Steuerelement, das den Fokus hat, enthalten sein. Die CSS-Pseudoklassen `:focus` und `:focus-within` können verwendet werden, um beide Elemente anzusprechen.
+Wenn die Toolbar den Fokus innerhalb hat, bieten Sie visuelle Hinweise. Wenn ein Element innerhalb der Toolbar den Fokus hat, muss ein visueller Hinweis sowohl auf der Toolbar selbst - um zu unterstützen, dass die Toolbar eine richtungsgebundene Navigation mit den Pfeiltasten ermöglicht - als auch auf dem Steuerelement, das den Fokus hat, enthalten sein. Die CSS-Pseudoklassen `:focus` und `:focus-within` können verwendet werden, um beide Elemente zu zielen.
 
 ## Beispiele
 
-[Beispiel einer Toolbar vom <abbr>W3C</abbr>, dem World Wide Web Consortium](https://www.w3.org/TR/wai-aria-practices-1.2/examples/toolbar/toolbar.html)
+[Toolbar-Beispiel des <abbr>W3C</abbr>, des World Wide Web Consortiums](https://www.w3.org/TR/wai-aria-practices-1.2/examples/toolbar/toolbar.html)
 
 ## Barrierefreiheitsbedenken
 
-Vermeiden Sie die Einbeziehung von Steuerelementen, deren Bedienung Pfeiltasten erfordert, die für die Toolbar-Navigation verwendet werden (rechte und linke Pfeile, oder oben und unten für vertikale Toolbars). Wenn ein solches Steuerelement integriert werden muss, machen Sie es zum letzten Steuerelement in der Toolbar. Zum Beispiel könnte in einer horizontalen Toolbar ein Textfeld als letztes Element eingeschlossen werden.
+Vermeiden Sie die Aufnahme von Steuerelementen, deren Bedienung Pfeiltasten erfordert, die für die Toolbar-Navigation verwendet werden (rechts und links, oder oben und unten für vertikale Toolbars). Wenn Sie ein solches Steuerelement einschließen müssen, machen Sie es zum letzten Steuerelement in der Toolbar. Zum Beispiel könnte in einer horizontalen Toolbar ein Textfeld als letztes Element eingeschlossen werden.
 
-Wenn eines der ansonsten interaktiven Elemente innerhalb der Toolbar deaktiviert ist, überlegen Sie, ob sie trotzdem fokussierbar bleiben sollten, damit Screenreader-Benutzer über deren Anwesenheit informiert werden können.
+Wenn eines der interaktiven Elemente innerhalb der Toolbar deaktiviert ist, sollten Sie erwägen, diese weiterhin fokussierbar zu lassen, damit Bildschirmlesegeräte-Benutzer über deren Anwesenheit informiert werden können.
 
 ## Spezifikationen
 

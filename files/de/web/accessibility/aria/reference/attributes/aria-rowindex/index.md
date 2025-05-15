@@ -1,32 +1,33 @@
 ---
-title: aria-rowindex
+title: "ARIA: aria-rowindex-Attribut"
+short-title: aria-rowindex
 slug: Web/Accessibility/ARIA/Reference/Attributes/aria-rowindex
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: a8b25483994fa47cf949b432ddf34a6bce2ddb2e
 ---
 
-Das `aria-rowindex` Attribut definiert die Position eines Elements in Bezug auf die Gesamtzahl der Reihen innerhalb einer Tabelle, eines Rasters oder eines Baumrasters.
+Das `aria-rowindex`-Attribut definiert die Position eines Elements in Bezug auf die Gesamtanzahl der Zeilen innerhalb einer Tabelle, eines Rasters oder eines Baumgitters.
 
 ## Beschreibung
 
-Einige Tabellen enthalten sehr viele Reihen. Das Laden nur eines Teilausschnitts von Reihen kann eine Designanforderung sein, um die Leistung zu verbessern oder die Benutzererfahrung zu optimieren.
+Einige Tabellen haben sehr viele Zeilen. Nur einen Teil der Zeilen zu laden, kann als Designanforderung dienen, um die Leistung zu verbessern oder die Benutzererfahrung zu steigern.
 
-Wenn nur ein Teil der Reihen geladen wird, müssen alle Benutzer darüber informiert werden, welche Reihenabschnitte angezeigt werden. Das `aria-rowindex` Attribut wird verwendet, um den Index oder die Position der Zelle oder Reihe in Bezug auf die Gesamtanzahl der Reihen innerhalb einer Tabelle, eines Rasters oder eines Baumrasters zu definieren.
+Wenn nur ein Teil der Zeilen geladen wird, müssen alle Nutzer wissen, welche Zeilenabschnitte angezeigt werden. Das `aria-rowindex`-Attribut wird verwendet, um den Zeilenindex oder die Position der Zelle oder Zeile in Bezug auf die Gesamtanzahl der Zeilen innerhalb einer Tabelle, eines Rasters oder eines Baumgitters zu definieren.
 
-Es kann auf das {{HTMLElement('tr')}} Element oder auf ein Element mit der Rolle [`row`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/row_role) angewendet werden oder direkt auf das {{HTMLElement('td')}}, {{HTMLElement('th')}} oder ein Element mit der Rolle [`cell`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/cell_role) oder [`gridcell`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/gridcell_role). Der Wert stellt die Position der Reihe in Bezug auf die komplette Tabelle dar.
+Enthalten auf dem {{HTMLElement('tr')}}-Element oder auf einem Element mit der Rolle [`row`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/row_role), oder direkt auf dem {{HTMLElement('td')}}, {{HTMLElement('th')}} oder Element mit der Rolle [`cell`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/cell_role) oder [`gridcell`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/gridcell_role), ist der Wert die Position der Zeile in Bezug auf die gesamte Tabelle.
 
-Der Wert für `aria-rowindex` ist eine Ganzzahl größer oder gleich `1`, größer als der `aria-rowindex` Wert aller vorhergehenden Reihen und kleiner oder gleich der Anzahl der Reihen in der vollständigen Tabelle.
+Der Wert für `aria-rowindex` ist eine ganze Zahl, die größer oder gleich `1` ist, größer als der `aria-rowindex`-Wert aller vorherigen Zeilen, und kleiner oder gleich der Gesamtzahl der Zeilen in der gesamten Tabelle.
 
-Wenn alle Reihen geladen sind und sich im DOM befinden, müssen Sie `aria-rowindex` nicht einfügen, da Browser den Index jeder Reihe automatisch berechnen. Wenn jedoch nur ein Teil der Reihen im DOM vorhanden ist, wird `aria-rowindex` benötigt, um die Position jeder Reihe in Bezug auf die vollständige Tabelle anzuzeigen. Wenn nur ein Teil der Reihen geladen ist, müssen Sie auch [`aria-rowcount`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-rowcount) auf dem tabellenbezogenen Element hinzufügen, selbst wenn Sie die Gesamtanzahl der Reihen nicht kennen.
+Wenn alle Zeilen geladen und im DOM sind, müssen Sie `aria-rowindex` nicht einfügen, da Browser den Index jeder Zeile automatisch berechnen. Wenn jedoch nur ein Teil der Zeilen im DOM vorhanden ist, ist `aria-rowindex` erforderlich, um die Position jeder Zeile in Bezug auf die vollständige Tabelle anzugeben. Wenn nur ein Teil der Zeilen geladen wird, müssen Sie auch [`aria-rowcount`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-rowcount) auf dem Tabellen-Vorfahren hinzufügen, auch wenn Sie die Gesamtzahl der Zeilen nicht kennen.
 
-Wenn die Tabelle mit nur einem Teil der Reihen eine Zelle hat, die mehr als eine Reihe umfängt, müssen sowohl die Reihe als auch die Zelle das `aria-rowindex` Attribut gesetzt haben. Wenn eine Zelle mehr als eine Reihe umfasst – wenn die Rolle einer Zelle das `aria-rowspan` Attribut oder die HTML-Zelle ein `rowspan` Attribut mit einem Wert größer als 1 hat – sollte der `aria-rowindex` Wert der Reihe, in der die Umspannung beginnt, auch auf die überlappende Zelle angewendet werden, zusätzlich zum entsprechenden Umspanungsattribut.
+Wenn die Tabelle mit nur einem Teil der Zeilen eine Zelle hat, die sich über mehr als eine Zeile erstreckt, müssen sowohl die Zeile als auch die Zelle das `aria-rowindex`-Attribut gesetzt haben. Wenn sich eine Zelle über mehr als eine Zeile erstreckt－wenn eine Zellrolle das `aria-rowspan`-Attribut enthält oder wenn eine HTML-Zelle ein `rowspan`-Attribut mit einem Wert größer als 1 hat－muss der `aria-rowindex`-Wert der Zeile auf die sich erstreckende Zelle zusätzlich zu dem entsprechenden Zeilen-Spann-Attribut gesetzt werden. Der Wert sollte der Zeilenindex der Zeile sein, an der die Spannweite beginnt.
 
 > [!NOTE]
-> Das `aria-rowindex` muss bei jeder Reihe hinzugefügt werden, ist jedoch in den Zellen optional, außer bei Zellen, die Reihen umfassen: das `aria-rowindex` Attribut ist bei allen überlappenden Zellen erforderlich.
+> Das `aria-rowindex` muss zu jeder Zeile hinzugefügt werden, ist jedoch optional bei den Zellen, außer bei Zellen, die über Zeilen hinweg reichen: das `aria-rowindex`-Attribut ist bei allen sich erstreckenden Zellen erforderlich.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt ein Raster mit 24 Reihen, von denen die erste Reihe und die Reihen 7 bis 10 dem Benutzer angezeigt werden. Die letzte "position" Zelle umfasst Spalte 9 und 10.
+Das folgende Beispiel zeigt ein Raster mit 24 Zeilen, von denen die erste Zeile und die Zeilen 7 bis 10 dem Benutzer angezeigt werden. Die letzte "Position"-Zelle erstreckt sich über die Spalten 9 und 10.
 
 ```html
 <div role="grid" aria-rowcount="24">
@@ -61,19 +62,19 @@ Das folgende Beispiel zeigt ein Raster mit 24 Reihen, von denen die erste Reihe 
 </div>
 ```
 
-Beachten Sie, dass sowohl `aria-rowspan` als auch `aria-rowindex` auf der Torwartzelle vorhanden sind, die zwei Reihen umfasst.
+Beachten Sie, dass sowohl `aria-rowspan` als auch `aria-rowindex` auf der Torwartzelle vorhanden sind, die sich über zwei Zeilen erstreckt.
 
 ## Werte
 
 - `<integer>`
-  - : Ein Ganzzahlwert, der größer oder gleich 1 ist, größer als der `aria-rowindex` der vorhergehenden Reihe, falls vorhanden, und kleiner oder gleich dem Wert von [`aria-rowcount`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-rowcount).
+  - : Eine ganze Zahl, die größer oder gleich 1 ist, größer als das `aria-rowindex` der vorherigen Zeile, falls vorhanden, und kleiner oder gleich dem Wert von [`aria-rowcount`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-rowcount).
 
 ## Zugehörige Schnittstellen
 
 - [`Element.ariaRowIndex`](/de/docs/Web/API/Element/ariaRowIndex)
-  - : Die [`ariaRowIndex`](/de/docs/Web/API/Element/ariaRowIndex) Eigenschaft, Teil der [`Element`](/de/docs/Web/API/Element) Schnittstelle, spiegelt den Wert des `aria-rowindex` Attributs wider.
+  - : Die [`ariaRowIndex`](/de/docs/Web/API/Element/ariaRowIndex)-Eigenschaft, Teil der [`Element`](/de/docs/Web/API/Element)-Schnittstelle, spiegelt den Wert des `aria-rowindex`-Attributs wider.
 - [`ElementInternals.ariaRowIndex`](/de/docs/Web/API/ElementInternals/ariaRowIndex)
-  - : Die [`ariaRowIndex`](/de/docs/Web/API/ElementInternals/ariaRowIndex) Eigenschaft, Teil der [`ElementInternals`](/de/docs/Web/API/ElementInternals) Schnittstelle, spiegelt den Wert des `aria-rowindex` Attributs wider.
+  - : Die [`ariaRowIndex`](/de/docs/Web/API/ElementInternals/ariaRowIndex)-Eigenschaft, Teil der [`ElementInternals`](/de/docs/Web/API/ElementInternals)-Schnittstelle, spiegelt den Wert des `aria-rowindex`-Attributs wider.
 
 ## Zugehörige Rollen
 
@@ -82,7 +83,7 @@ Verwendet in Rollen:
 - [`cell`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/cell_role)
 - [`row`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/row_role)
 
-Vererbt in Rollen:
+Geerbt in Rollen:
 
 - [`columnheader`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/columnheader_role)
 - [`gridcell`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/gridcell_role)
@@ -98,4 +99,4 @@ Vererbt in Rollen:
 - [`aria-rowcount`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-rowcount)
 - [`aria-rowspan`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-rowspan)
 - [`aria-colindex`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-colindex)
-- Das [`rowspan`](/de/docs/Web/HTML/Reference/Elements/td#rowspan) Attribut auf {{HTMLElement('td')}}
+- Das [`rowspan`](/de/docs/Web/HTML/Reference/Elements/td#rowspan)-Attribut auf {{HTMLElement('td')}}

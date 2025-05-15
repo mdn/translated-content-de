@@ -3,10 +3,10 @@ title: WebAssembly-Leitfäden
 short-title: Guides
 slug: WebAssembly/Guides
 l10n:
-  sourceCommit: df9d06402163f77fc3e2d327ab63f9dd4af15b38
+  sourceCommit: 049e8715d907f47677e85637b5f8292d5376a9f1
 ---
 
-Diese Seite listet Leitfäden zur Verwendung von [WebAssembly](/de/docs/WebAssembly) im Web auf.
+Die [WebAssembly](/de/docs/WebAssembly)-Leitfäden behandeln Themen wie abstrakte Konzepte, das Kompilieren aus verschiedenen Sprachen, die Textdarstellung des Wasm-Binärformats und wie man WebAssembly ausführt.
 
 {{SubPagesWithSummaries}}
 

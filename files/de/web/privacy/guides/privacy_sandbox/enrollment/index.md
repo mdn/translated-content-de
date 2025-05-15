@@ -1,20 +1,24 @@
 ---
-title: Anmeldung für Privacy Sandbox
+title: Anmeldung zur Privacy Sandbox
 short-title: Enrollment
 slug: Web/Privacy/Guides/Privacy_sandbox/Enrollment
 l10n:
-  sourceCommit: a6c32a2d0add510c95ef74e85bd8e17551d508b6
+  sourceCommit: a8c6558339dafb20c51bc34b2d75c8c1343634ac
 ---
 
-Um auf bestimmte Funktionen der Privacy Sandbox zugreifen zu können, müssen Entwickler in einigen Browsern einen **Anmeldungsprozess** durchlaufen.
+> [!WARNING]
+> Einige der Funktionen, die diesen Anmeldeprozess erfordern, werden derzeit von einem oder mehreren Browseranbietern abgelehnt.
+> Details finden Sie in den spezifischen API-Einstiegspunkten.
 
-Die Anmeldung bietet einen Mechanismus zur Überprüfung der Entitäten, die Privacy Sandbox-Funktionen aufrufen, und zum Sammeln der entwicklerspezifischen Daten, die für die ordnungsgemäße Konfiguration und Nutzung erforderlich sind. Der Anmeldeprozess fügt eine zusätzliche Schutzschicht zu den strukturellen Einschränkungen hinzu, die innerhalb jeder Funktion durchgesetzt werden, indem er Transparenz darüber schafft, wer Daten sammelt, und Versuche zur missbräuchlichen Nutzung der Funktionen zur Erfassung mehr Daten als beabsichtigt, mindert.
+Um auf bestimmte Funktionen der Privacy Sandbox zuzugreifen, müssen Entwickler in einigen Browsern einen **Anmeldeprozess** durchlaufen.
 
-Es ist beabsichtigt, dass Informationen über jedes Unternehmen, das die Anmeldung abgeschlossen hat, öffentlich gemacht werden, um eine überprüfbare Transparenz zu gewährleisten.
+Die Anmeldung bietet einen Mechanismus, um die Entitäten zu verifizieren, die die Funktionen der Privacy Sandbox aufrufen und die entwicklerspezifischen Daten zu sammeln, die für die korrekte Konfiguration und Nutzung erforderlich sind. Der Anmeldeprozess fügt eine zusätzliche Schutzschicht zu den strukturellen Einschränkungen hinzu, die innerhalb jeder Funktion durchgesetzt werden, indem er Transparenz darüber schafft, wer Daten sammelt, und versucht, Missbrauch der Funktionen zur Erhebung von mehr Daten als beabsichtigt zu minimieren.
+
+Das Ziel ist es, die Informationen über jedes Unternehmen, das die Anmeldung abschließt, öffentlich zu machen, um überprüfbare Transparenz zu gewährleisten.
 
 ## Funktionen, die eine Anmeldung erfordern
 
-Für die Nutzung der folgenden Funktionen ist eine Anmeldung erforderlich:
+Die folgenden Funktionen erfordern eine Anmeldung, um genutzt werden zu können:
 
 - [Attribution Reporting API](/de/docs/Web/API/Attribution_Reporting_API)
 - [Fenced Frame API](/de/docs/Web/API/Fenced_frame_API)
@@ -22,15 +26,15 @@ Für die Nutzung der folgenden Funktionen ist eine Anmeldung erforderlich:
 - [Shared Storage API](/de/docs/Web/API/Shared_Storage_API)
 - [Topics API](/de/docs/Web/API/Topics_API)
 
-Die Dokumentation jeder Funktion enthält weitere Details darüber, welche Unterfunktionen genau fehlschlagen werden, wenn die Anmeldung nicht abgeschlossen ist, und wie dies geschieht.
+Die Dokumentation jeder Funktion enthält genauere Informationen darüber, welche Unterfunktionen fehlschlagen, wenn die Anmeldung nicht abgeschlossen wird, und wie.
 
-## Browser-Anmeldeinformationen
+## Informationen zur Anmeldung im Browser
 
 ### Chrome
 
-- **Anleitung**: [Für die Privacy Sandbox anmelden](https://github.com/privacysandbox/attestation/blob/main/how-to-enroll.md).
-- **Testen**: Sie müssen sich nicht anmelden, um die Privacy Sandbox-Funktionen lokal zu testen. Um lokales Testen zu ermöglichen, aktivieren Sie das Entwicklerflag `chrome://flags/#privacy-sandbox-enrollment-overrides`.
+- **Anleitung**: [Anmelden für die Privacy Sandbox](https://github.com/privacysandbox/attestation/blob/main/how-to-enroll.md).
+- **Testen**: Sie müssen sich nicht anmelden, um Privacy Sandbox-Funktionen lokal zu testen. Um lokale Tests zu ermöglichen, aktivieren Sie das Entwickler-Flag `chrome://flags/#privacy-sandbox-enrollment-overrides`.
 
 ## Siehe auch
 
-- [Die Privacy Sandbox](https://privacysandbox.google.com/) auf privacysandbox.google.com
+- [The Privacy Sandbox](https://privacysandbox.google.com/) auf privacysandbox.google.com

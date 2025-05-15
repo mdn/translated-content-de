@@ -1,8 +1,8 @@
 ---
-title: Was ist ein Domainname?
+title: Was ist ein Domain-Name?
 slug: Learn_web_development/Howto/Web_mechanics/What_is_a_domain_name
 l10n:
-  sourceCommit: 479ea4c8bff4b900a7968413287c77dde2b0c20f
+  sourceCommit: e488eba036b2fee56444fd579c3759ef45ff2ca8
 ---
 
 <table>
@@ -10,20 +10,21 @@ l10n:
     <tr>
       <th scope="row">Voraussetzungen:</th>
       <td>
-        Zuerst müssen Sie wissen,
+        Zuerst sollten Sie wissen,
         <a href="/de/docs/Learn_web_development/Howto/Web_mechanics/How_does_the_Internet_work"
           >wie das Internet funktioniert</a
         >
-        und verstehen,
+        und
         <a href="/de/docs/Learn_web_development/Howto/Web_mechanics/What_is_a_URL"
           >was URLs sind</a
-        >.
+        >
+        verstehen.
       </td>
     </tr>
     <tr>
       <th scope="row">Ziel:</th>
       <td>
-        Lernen, was Domainnamen sind, wie sie funktionieren und warum sie wichtig sind.
+        Lernen Sie, was Domain-Namen sind, wie sie funktionieren und warum sie wichtig sind.
       </td>
     </tr>
   </tbody>
@@ -31,69 +32,69 @@ l10n:
 
 ## Zusammenfassung
 
-Domainnamen sind ein wesentlicher Bestandteil der Internetinfrastruktur. Sie bieten eine menschenlesbare Adresse für jeden Webserver, der im Internet verfügbar ist.
+Domain-Namen sind ein wesentlicher Bestandteil der Internet-Infrastruktur. Sie bieten eine menschenlesbare Adresse für jeden Webserver, der im Internet verfügbar ist.
 
 Jeder mit dem Internet verbundene Computer kann über eine öffentliche {{Glossary("IP_Address", "IP-Adresse")}} erreicht werden, entweder eine IPv4-Adresse (z.B. `192.0.2.172`) oder eine IPv6-Adresse (z.B. `2001:db8:8b73:0000:0000:8a2e:0370:1337`).
 
-Computer können solche Adressen leicht verarbeiten, aber Menschen fällt es schwer, herauszufinden, wer den Server betreibt oder welchen Service die Website anbietet. IP-Adressen sind schwer zu merken und können sich im Laufe der Zeit ändern.
+Computer können solche Adressen leicht verarbeiten, aber Menschen haben Schwierigkeiten herauszufinden, wer den Server betreibt oder welchen Dienst die Website bietet. IP-Adressen sind schwer zu merken und können sich im Laufe der Zeit ändern.
 
-Um all diese Probleme zu lösen, verwenden wir menschenlesbare Adressen, die Domainnamen genannt werden.
+Um all diese Probleme zu lösen, verwenden wir menschenlesbare Adressen, die Domain-Namen genannt werden.
 
-## Detaillierter Einblick
+## Tiefere Einblicke
 
-### Struktur von Domainnamen
+### Struktur von Domain-Namen
 
-Ein Domainname hat eine einfache Struktur, die aus mehreren Teilen (es könnte nur ein Teil sein, zwei, drei…) besteht, die durch Punkte getrennt sind und von rechts nach links **gelesen** werden:
+Ein Domain-Name hat eine einfache Struktur, die aus mehreren Teilen besteht (es kann nur ein Teil sein, zwei, drei…), getrennt durch Punkte und **von rechts nach links** gelesen wird:
 
-![Anatomie des MDN Domainnamens](structure.png)
+![Anatomie des MDN-Domain-Namens](structure.png)
 
-Jeder dieser Teile liefert spezifische Informationen über den gesamten Domainnamen.
+Jeder dieser Teile liefert spezifische Informationen über den gesamten Domain-Namen.
 
-- {{Glossary("TLD", "TLD")}} (Top-Level-Domain).
+- {{Glossary("TLD", "TLD")}} (Top-Level Domain).
 
-  - : TLDs geben den Benutzern den allgemeinen Zweck des Dienstes hinter dem Domainnamen an. Die allgemeinsten TLDs (`.com`, `.org`, `.net`) erfordern nicht, dass Webdienste bestimmte Kriterien erfüllen, aber einige TLDs setzen strengere Richtlinien durch, damit klarer wird, wofür sie da sind. Zum Beispiel:
+  - : TLDs geben den Nutzern den allgemeinen Zweck des Dienstes hinter dem Domain-Namen an. Die generischsten TLDs (`.com`, `.org`, `.net`) erfordern nicht, dass Webdienste besondere Kriterien erfüllen, aber einige TLDs setzen strengere Richtlinien durch, sodass klarer ist, welchen Zweck sie haben. Zum Beispiel:
 
-    - Lokale TLDs wie `.us`, `.fr` oder `.se` können erfordern, dass der Dienst in einer bestimmten Sprache bereitgestellt oder in einem bestimmten Land gehostet wird — sie sollen auf eine Ressource in einer bestimmten Sprache oder einem bestimmten Land hinweisen.
-    - TLDs, die `.gov` enthalten, sind nur für den Gebrauch durch Regierungsabteilungen erlaubt.
-    - Die `.edu` TLD ist nur für Bildungs- und akademische Institutionen bestimmt.
+    - Lokale TLDs wie `.us`, `.fr` oder `.se` können erfordern, dass der Dienst in einer bestimmten Sprache bereitgestellt oder in einem bestimmten Land gehostet wird — sie sollen eine Ressource in einer bestimmten Sprache oder einem bestimmten Land anzeigen.
+    - TLDs mit `.gov` dürfen nur von Regierungsabteilungen verwendet werden.
+    - Die `.edu` TLD ist nur zur Nutzung durch Bildungs- und akademische Einrichtungen vorgesehen.
 
-    TLDs können sowohl spezielle als auch lateinische Zeichen enthalten. Die maximale Länge einer TLD beträgt 63 Zeichen, obwohl die meisten etwa 2–3 sind.
+    TLDs können sowohl Sonder- als auch lateinische Zeichen enthalten. Die maximale Länge einer TLD beträgt 63 Zeichen, obwohl die meisten etwa 2–3 Zeichen lang sind.
 
     Die vollständige Liste der TLDs wird von [ICANN gepflegt](https://www.icann.org/en/contracted-parties/registry-operators/resources/list-of-top-level-domains).
 
 - Label (oder Komponente)
 
-  - : Die Labels folgen der TLD. Ein Label ist eine nicht case-sensitive Zeichenfolge von eins bis dreiundsechzig Zeichen in der Länge, die nur die Buchstaben `A` bis `Z`, die Ziffern `0` bis `9` und das Zeichen '-' enthalten darf (dies darf jedoch nicht das erste oder letzte Zeichen im Label sein). `a`, `97` und `hello-strange-person-16-how-are-you` sind alle Beispiele für gültige Labels.
+  - : Die Labels folgen der TLD. Ein Label ist eine nicht auf Groß- und Kleinschreibung achtende Zeichenfolge von einem bis dreiundsechzig Zeichen Länge, die nur die Buchstaben `A` bis `Z`, Ziffern `0` bis `9` und das Zeichen '-' enthält (dies darf weder das erste noch das letzte Zeichen im Label sein). `a`, `97` und `hello-strange-person-16-how-are-you` sind alles Beispiele für gültige Labels.
 
-    Das Label, das sich direkt vor der TLD befindet, wird auch als _Secondary Level Domain_ (SLD) bezeichnet.
+    Das Label, das sich direkt vor der TLD befindet, wird auch _Secondary Level Domain_ (SLD) genannt.
 
-    Ein Domainname kann viele Labels (oder Komponenten) haben. Es ist weder zwingend noch notwendig, 3 Labels zu haben, um einen Domainnamen zu bilden. Beispielsweise ist [informatics.ed.ac.uk](https://informatics.ed.ac.uk/) ein gültiger Domainname. Für jede Domain, die Sie kontrollieren (z.B. [mozilla.org](https://www.mozilla.org/en-US/)), können Sie "Subdomains" mit unterschiedlichem Inhalt erstellen, die an verschiedenen Orten liegen, wie [developer.mozilla.org](/), [support.mozilla.org](https://support.mozilla.org/) oder [bugzilla.mozilla.org](https://bugzilla.mozilla.org/).
+    Ein Domain-Name kann viele Labels (oder Komponenten) haben. Es ist weder zwingend noch erforderlich, drei Labels zu haben, um einen Domain-Namen zu bilden. Zum Beispiel ist [informatics.ed.ac.uk](https://informatics.ed.ac.uk/) ein gültiger Domain-Name. Für jede Domain, die Sie kontrollieren (z.B. [mozilla.org](https://www.mozilla.org/en-US/)), können Sie "Subdomains" mit unterschiedlichem Inhalt erstellen, wie [developer.mozilla.org](/), [support.mozilla.org](https://support.mozilla.org/), oder [bugzilla.mozilla.org](https://bugzilla.mozilla.org/).
 
-### Einen Domainnamen kaufen
+### Kauf eines Domain-Namens
 
-#### Wem gehört ein Domainname?
+#### Wem gehört ein Domain-Name?
 
-Sie können einen Domainnamen nicht "kaufen". Dies ist so, dass ungenutzte Domainnamen schließlich wieder von jemand anderem verwendet werden können. Wenn jeder Domainname gekauft wäre, würde das Web schnell mit ungenutzten und gesperrten Domainnamen gefüllt sein.
+Sie können keinen "Domain-Namen kaufen". Dies ist so, dass ungenutzte Domain-Namen schließlich wieder verfügbar werden, um von jemand anderem verwendet zu werden. Wäre jeder Domain-Name gekauft, würde das Web schnell mit ungenutzten Domain-Namen gefüllt, die gesperrt wären und von niemandem mehr verwendet werden könnten.
 
-Stattdessen zahlen Sie für das Recht, einen Domainnamen für ein oder mehrere Jahre zu nutzen. Sie können Ihr Recht verlängern, und Ihre Verlängerung hat Vorrang vor den Bewerbungen anderer Leute. Aber Sie besitzen niemals den Domainnamen.
+Stattdessen zahlen Sie für das Recht, einen Domain-Namen für ein oder mehrere Jahre zu nutzen. Sie können Ihr Recht erneuern, und Ihre Erneuerung hat Vorrang vor den Anträgen anderer Leute. Aber Sie besitzen den Domain-Namen nie.
 
-Unternehmen, die als Registrare bezeichnet werden, verwenden Domainname-Register, um technische und administrative Informationen zu verfolgen, die Sie mit Ihrem Domainnamen verbinden.
+Unternehmen, die Registrare genannt werden, verwenden Domain-Namen-Register, um technische und administrative Informationen, die Sie mit Ihrem Domain-Namen verbinden, im Auge zu behalten.
 
 > [!NOTE]
-> Für einige Domainnamen ist möglicherweise nicht ein Registrar zuständig, um den Überblick zu behalten. Beispielsweise wird jeder Domainname unter `.fire` von Amazon verwaltet.
+> Für einige Domain-Namen ist möglicherweise nicht ein Registrar verantwortlich, diese zu verwalten. Zum Beispiel wird jede Domain unter `.fire` von Amazon verwaltet.
 
-#### Einen verfügbaren Domainnamen finden
+#### Einen verfügbaren Domain-Namen finden
 
-Um herauszufinden, ob ein bestimmter Domainname verfügbar ist,
+Um herauszufinden, ob ein bestimmter Domain-Name verfügbar ist,
 
-- Gehen Sie auf die Website eines Domainname-Registrars. Die meisten von ihnen bieten einen "whois"-Dienst an, der Ihnen sagt, ob ein Domainname verfügbar ist.
-- Alternativ, wenn Sie ein System mit einer integrierten Shell verwenden, geben Sie einen `whois`-Befehl ein, wie hier für `mozilla.org` gezeigt:
+- Besuchen Sie die Website eines Domain-Namen-Registrars. Die meisten bieten einen "whois"-Dienst, der Ihnen sagt, ob ein Domain-Name verfügbar ist.
+- Alternativ, wenn Sie ein System mit eingebauter Shell verwenden, geben Sie einen `whois`-Befehl ein, wie hier für `mozilla.org` gezeigt:
 
   ```bash
   whois mozilla.org
   ```
 
-  Dies wird folgendes ausgeben:
+  Dies wird die folgende Ausgabe erzeugen:
 
   ```plain
   Domain Name:MOZILLA.ORG
@@ -119,56 +120,56 @@ Um herauszufinden, ob ein bestimmter Domainname verfügbar ist,
   Registrant Phone:+1.6509030800
   ```
 
-Wie Sie sehen, kann ich `mozilla.org` nicht registrieren, da die Mozilla Foundation ihn bereits registriert hat.
+Wie Sie sehen können, kann ich `mozilla.org` nicht registrieren, da die Mozilla Foundation es bereits registriert hat.
 
-Sehen wir uns andererseits an, ob ich `afunkydomainname.org` registrieren könnte:
+Andererseits, sehen wir mal, ob ich `afunkydomainname.org` registrieren könnte:
 
 ```bash
 whois afunkydomainname.org
 ```
 
-Dies wird folgendes ausgeben (zum Zeitpunkt des Schreibens):
+Dies wird die folgende Ausgabe erzeugen (zum Zeitpunkt der Erstellung):
 
 ```plain
 NOT FOUND
 ```
 
-Wie Sie sehen, existiert die Domain nicht in der `whois`-Datenbank, also könnten wir beantragen, sie zu registrieren. Gut zu wissen!
+Wie Sie sehen, existiert die Domain nicht in der `whois`-Datenbank, also könnten wir darum bitten, sie zu registrieren. Gut zu wissen!
 
-#### Einen Domainnamen bekommen
+#### Einen Domain-Namen erhalten
 
 Der Prozess ist ziemlich einfach:
 
 1. Gehen Sie auf die Website eines Registrars.
-2. In der Regel gibt es einen prominenten "Get a domain name" Call to Action. Klicken Sie darauf.
-3. Füllen Sie das Formular mit allen erforderlichen Details aus. Stellen Sie insbesondere sicher, dass Sie Ihren gewünschten Domainnamen nicht falsch geschrieben haben. Sobald er bezahlt ist, ist es zu spät!
-4. Der Registrar wird Sie benachrichtigen, wenn der Domainname ordnungsgemäß registriert wurde. Innerhalb weniger Stunden werden alle DNS-Server Ihre DNS-Informationen erhalten haben.
+2. Normalerweise gibt es einen auffälligen "Einen Domain-Namen bekommen"-Aufruf zur Aktion. Klicken Sie darauf.
+3. Füllen Sie das Formular mit allen erforderlichen Details aus. Achten Sie insbesondere darauf, dass Sie Ihren gewünschten Domain-Namen nicht falsch geschrieben haben. Wenn er einmal bezahlt ist, ist es zu spät!
+4. Der Registrar wird Ihnen mitteilen, wenn der Domain-Name ordnungsgemäß registriert ist. Innerhalb weniger Stunden werden alle DNS-Server Ihre DNS-Informationen erhalten haben.
 
 > [!NOTE]
-> In diesem Prozess fragt der Registrar nach Ihrer realen Adresse. Stellen Sie sicher, dass Sie sie korrekt ausfüllen, da in einigen Ländern die Registrare gezwungen sein können, die Domain zu schließen, wenn sie keine gültige Adresse angeben können.
+> In diesem Prozess fragt der Registrar nach Ihrer realen Adresse. Stellen Sie sicher, dass Sie diese korrekt ausfüllen, da in einigen Ländern die Registrare gezwungen sein könnten, die Domain zu schließen, wenn sie keine gültige Adresse angeben können.
 
-#### DNS-Aktualisierungen
+#### DNS-Aktualisierung
 
-DNS-Datenbanken werden auf jedem DNS-Server weltweit gespeichert, und alle diese Server beziehen sich auf einige spezielle Server, die "autoritative Nameserver" oder "Top-Level-DNS-Server" genannt werden — das sind wie die Boss-Server, die das System verwalten.
+DNS-Datenbanken werden auf jedem DNS-Server weltweit gespeichert, und alle diese Server beziehen sich auf einige spezielle Server, die "authoritative name servers" oder "top-level DNS servers" genannt werden — diese sind wie die Chefserver, die das System verwalten.
 
-Wann immer Ihr Registrar Informationen für eine bestimmte Domain erstellt oder aktualisiert, müssen die Informationen in jeder DNS-Datenbank aktualisiert werden. Jeder DNS-Server, der von einer bestimmten Domain weiß, speichert die Informationen für einige Zeit, bevor sie automatisch ungültig werden und dann aktualisiert werden (der DNS-Server fragt einen autoritativen Server ab und ruft die aktualisierten Informationen von diesem ab). Daher dauert es einige Zeit, bis DNS-Server, die von diesem Domainnamen wissen, die aktuellen Informationen erhalten.
+Immer wenn Ihr Registrar Informationen für eine gegebene Domain erstellt oder aktualisiert, müssen die Informationen in jeder DNS-Datenbank aktualisiert werden. Jeder DNS-Server, der Informationen über eine bestimmte Domain hat, speichert die Informationen für eine gewisse Zeit, bevor sie automatisch ungültig werden und dann aktualisiert werden (der DNS-Server fragt einen autoritativen Server und holt die aktualisierten Informationen von ihm). Daher dauert es einige Zeit, bis DNS-Server, die Informationen über diesen Domain-Namen haben, die aktuellsten Informationen erhalten.
 
-### Wie funktioniert eine DNS-Anfrage?
+### Wie funktioniert eine DNS-Abfrage?
 
-Wie bereits erwähnt, ist es, wenn Sie eine Webseite in Ihrem Browser anzeigen möchten, einfacher, einen Domainnamen als eine IP-Adresse einzugeben. Werfen wir einen Blick auf den Prozess:
+Wie wir bereits gesehen haben, ist es, wenn Sie eine Webseite in Ihrem Browser anzeigen möchten, einfacher, einen Domain-Namen einzugeben als eine IP-Adresse. Werfen Sie einen Blick auf den Prozess:
 
 1. Geben Sie `mozilla.org` in die Adressleiste Ihres Browsers ein.
-2. Ihr Browser fragt Ihren Computer, ob er die IP-Adresse, die von diesem Domainnamen identifiziert wird, bereits erkennt (unter Verwendung eines lokalen DNS-Caches). Wenn dies der Fall ist, wird der Name in die IP-Adresse übersetzt und der Browser verhandelt Inhalte mit dem Webserver. Geschichte zu Ende.
-3. Wenn Ihr Computer nicht weiß, welche IP sich hinter dem Namen `mozilla.org` verbirgt, fragt er einen DNS-Server, dessen Aufgabe es ist, Ihrem Computer mitzuteilen, welche IP-Adresse mit jedem registrierten Domainnamen übereinstimmt.
-4. Jetzt, da der Computer die angeforderte IP-Adresse kennt, kann Ihr Browser Inhalte mit dem Webserver verhandeln.
+2. Ihr Browser fragt Ihren Computer, ob er bereits die IP-Adresse kennt, die von diesem Domain-Namen identifiziert wird (unter Verwendung eines lokalen DNS-Caches). Wenn ja, wird der Name in die IP-Adresse übersetzt und der Browser verhandelt den Inhalt mit dem Webserver. Geschichte zu Ende.
+3. Wenn Ihr Computer nicht weiß, welche IP hinter dem `mozilla.org`-Namen steckt, fragt er einen DNS-Server, dessen Aufgabe es genau ist, Ihrem Computer zu sagen, welche IP-Adresse zu jedem registrierten Domain-Namen passt.
+4. Jetzt, da der Computer die angeforderte IP-Adresse kennt, kann Ihr Browser die Inhalte mit dem Webserver verhandeln.
 
-![Erläuterung der Schritte für die Ausführung einer DNS-Anfrage](2014-10-dns-request2.png)
+![Erklärung der Schritte, die erforderlich sind, um das Ergebnis einer DNS-Anfrage zu erhalten](2014-10-dns-request2.png)
 
 ## Nächste Schritte
 
 Okay, wir haben viel über Prozesse und Architektur gesprochen. Zeit, weiterzumachen.
 
-- Wenn Sie praktisch arbeiten möchten, ist jetzt ein guter Zeitpunkt, sich mit dem Design zu beschäftigen und [die Anatomie einer Webseite](/de/docs/Learn_web_development/Howto/Design_and_accessibility/Common_web_layouts) zu erkunden.
-- Es ist auch erwähnenswert, dass einige Aspekte des Aufbaus einer Website Geld kosten. Bitte beachten Sie [wie viel es kostet, eine Website zu erstellen](/de/docs/Learn_web_development/Howto/Tools_and_setup/How_much_does_it_cost).
-- Oder lesen Sie mehr über [Domainnamen](https://en.wikipedia.org/wiki/Domain_name) auf Wikipedia.
-- Sie können auch [hier](https://howdns.works/) eine lustige und farbenfrohe Erklärung finden, wie DNS funktioniert.
+- Wenn Sie praktisch arbeiten möchten, ist es jetzt ein guter Zeitpunkt, um mit dem Design zu beginnen und die [Anatomie einer Webseite](/de/docs/Learn_web_development/Howto/Design_and_accessibility/Common_web_layouts) zu erkunden.
+- Es ist auch wichtig zu beachten, dass einige Aspekte der Erstellung einer Website Geld kosten. Bitte beziehen Sie sich auf [wie viel es kostet, eine Website zu erstellen](/de/docs/Learn_web_development/Howto/Tools_and_setup/How_much_does_it_cost).
+- Oder lesen Sie mehr über [Domain-Namen](https://de.wikipedia.org/wiki/Domainname) auf Wikipedia.
+- Das [How DNS works](https://howdns.works/) Tutorial bietet eine lustige und farbenfrohe Erklärung.

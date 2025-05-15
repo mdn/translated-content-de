@@ -2,65 +2,56 @@
 title: EXSLT
 slug: Web/XML/EXSLT
 l10n:
-  sourceCommit: f731452fabde211bee55aedd39fc83d60c4e4918
+  sourceCommit: 049e8715d907f47677e85637b5f8292d5376a9f1
 ---
 
-EXSLT ist eine Sammlung von Erweiterungen zu [XSLT](/de/docs/Web/XML/XSLT). Es gibt eine Reihe von Modulen; die, die von Firefox unterstützt werden, sind unten aufgeführt:
+EXSLT ist eine Sammlung von Erweiterungen zu [XSLT](/de/docs/Web/XML/XSLT), organisiert in Module, die Funktionen zur Durchführung von Transformationen auf einem XML-Dokument bereitstellen. Um eine EXSLT-Funktion zu verwenden, müssen Sie den Namespace deklarieren, in dem sich die Funktion befindet, und dann das entsprechende Präfix beim Aufrufen der Funktion verwenden.
 
-## EXSLT-Module
-
-Um eine EXSLT-Funktion zu verwenden, müssen Sie den Namensraum deklarieren, in dem sich die Funktion befindet, und dann den entsprechenden Präfix beim Aufrufen der Funktion verwenden. Zum Beispiel, um das Paket für reguläre Ausdrücke zu nutzen:
+Um beispielsweise das reguläre Ausdrucks-Paket zu nutzen:
 
 ```xml
 <xsl:stylesheet version="1.0"
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:regexp="http://exslt.org/regular-expressions">
   <xsl:template match="/">
-    …
+    <!-- … -->
     <xsl:value-of select="regexp:replace(/root/@value, 'before', 'gi', 'AFTER')"/>
-    …
+    <!-- … -->
   </xsl:template>
-
 </xsl:stylesheet>
 ```
 
-### Common
+## Referenz
 
-Das EXSLT Common-Paket stellt grundlegende Funktionen bereit, die die Fähigkeiten von XSLT erweitern. Der Namensraum für das Common-Paket ist `http://exslt.org/common`.
+Die [EXSLT-Referenz](/de/docs/Web/XML/EXSLT/Reference) beschreibt Namespaces und Funktionen für allgemeine Operationen, Mathematik, reguläre Ausdrücke, Mengenmanipulation und Zeichenfolgenmanipulation.
 
-#### Funktionen
+### Allgemein
+
+Das EXSLT-Allgemein-Paket bietet grundlegende Funktionen, die die Fähigkeiten von XSLT erweitern. Der Namespace für das Allgemein-Paket ist `http://exslt.org/common`.
 
 - [`exsl:node-set()`](/de/docs/Web/XML/EXSLT/Reference/exsl/node-set)
 - [`exsl:object-type()`](/de/docs/Web/XML/EXSLT/Reference/exsl/object-type)
 
-### Math
+### Mathematik
 
-Das EXSLT Math-Paket bietet Funktionen für die Arbeit mit numerischen Werten und den Vergleich von Knoten. Der Namensraum für das Math-Paket ist `http://exslt.org/math`.
-
-#### Funktionen
+Das EXSLT-Mathematik-Paket bietet Funktionen zum Arbeiten mit numerischen Werten und zum Vergleichen von Knoten. Der Namespace für das Mathematik-Paket ist `http://exslt.org/math`.
 
 - [`math:highest()`](/de/docs/Web/XML/EXSLT/Reference/math/highest)
 - [`math:lowest()`](/de/docs/Web/XML/EXSLT/Reference/math/lowest)
 - [`math:max()`](/de/docs/Web/XML/EXSLT/Reference/math/max)
 - [`math:min()`](/de/docs/Web/XML/EXSLT/Reference/math/min)
 
-### Regular expressions
+### Reguläre Ausdrücke
 
-Das EXSLT Regular Expressions-Paket bietet Funktionen, die es ermöglichen, Text mithilfe von regulären Ausdrücken im JavaScript-Stil zu testen, zu matchen und zu ersetzen.
-
-Der Namensraum für EXSLT Regular Expressions ist `http://exslt.org/regular-expressions`.
-
-#### Funktionen
+Das EXSLT-Reguläre-Ausdrücke-Paket bietet Funktionen, die das Testen, Anpassen und Ersetzen von Text mit regulären Ausdrücken im JavaScript-Stil ermöglichen. Der Namespace für EXSLT-Reguläre-Ausdrücke ist `http://exslt.org/regular-expressions`.
 
 - [`regexp:match()`](/de/docs/Web/XML/EXSLT/Reference/regexp/match)
 - [`regexp:replace()`](/de/docs/Web/XML/EXSLT/Reference/regexp/replace)
 - [`regexp:test()`](/de/docs/Web/XML/EXSLT/Reference/regexp/test)
 
-### Sets
+### Mengen
 
-Das EXSLT Sets-Paket bietet Funktionen, die es erlauben, Mengenoperationen durchzuführen. Der Namensraum für diese Funktionen ist `http://exslt.org/sets`.
-
-#### Funktionen
+Das EXSLT-Mengen-Paket bietet Funktionen, mit denen Sie Mengenoperationen durchführen können. Der Namespace für diese Funktionen ist `http://exslt.org/sets`.
 
 - [`set:difference()`](/de/docs/Web/XML/EXSLT/Reference/set/difference)
 - [`set:distinct()`](/de/docs/Web/XML/EXSLT/Reference/set/distinct)
@@ -69,11 +60,9 @@ Das EXSLT Sets-Paket bietet Funktionen, die es erlauben, Mengenoperationen durch
 - [`set:leading()`](/de/docs/Web/XML/EXSLT/Reference/set/leading)
 - [`set:trailing()`](/de/docs/Web/XML/EXSLT/Reference/set/trailing)
 
-### Strings
+### Zeichenfolgen
 
-Das EXSLT Strings-Paket stellt Funktionen bereit, die die Manipulation von Zeichenketten ermöglichen. Der Namensraum für das Strings-Paket ist `http://exslt.org/strings`.
-
-#### Funktionen
+Das EXSLT-Zeichenfolgen-Paket bietet Funktionen, die die Manipulation von Zeichenfolgen ermöglichen. Der Namespace für das Zeichenfolgen-Paket ist `http://exslt.org/strings`.
 
 - [`str:concat()`](/de/docs/Web/XML/EXSLT/Reference/str/concat)
 - [`str:split()`](/de/docs/Web/XML/EXSLT/Reference/str/split)

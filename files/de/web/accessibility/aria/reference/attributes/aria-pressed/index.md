@@ -1,49 +1,50 @@
 ---
-title: aria-pressed
+title: "ARIA: Attribut aria-pressed"
+short-title: aria-pressed
 slug: Web/Accessibility/ARIA/Reference/Attributes/aria-pressed
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: a8b25483994fa47cf949b432ddf34a6bce2ddb2e
 ---
 
-Das `aria-pressed` Attribut gibt den aktuellen "gedrückten" Zustand eines Umschaltknopfes an.
+Das Attribut `aria-pressed` gibt den aktuellen "gedrückten" Zustand eines Umschaltknopfs an.
 
 ## Beschreibung
 
-Wenn Sie `aria-pressed` zu einem Element mit der Rolle [`button`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/button_role) hinzufügen, wird der Knopf zu einem Umschaltknopf. Das `aria-pressed` Attribut ist nur bei Umschaltknöpfen relevant. Es repräsentiert den aktuellen "gedrückten" Zustand des Knopfes.
+Die Hinzufügung von `aria-pressed` zu einem Element mit der Rolle [`button`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/button_role) verwandelt den Button in einen Umschaltknopf. Das Attribut `aria-pressed` ist nur für Umschaltknöpfe relevant. Es stellt den aktuellen "gedrückten" Zustand des Knopfes dar.
 
-Der Wert ist "dreiwertig", was bedeutet, dass er auf `true`, `false`, `mixed` oder `undefined` gesetzt werden kann. Im Fall von `aria-pressed`, wie bei den meisten dreiwertigen Typen, ist der Standardwert `undefined`.
+Der Wert ist "dreiwertig", was bedeutet, dass der Wert auf `true`, `false`, `mixed` oder `undefined` gesetzt werden kann. Im Falle von `aria-pressed`, wie bei den meisten dreiwertigen Typen, ist der Standardwert `undefined`.
 
-Umschaltknöpfe erfordern einen vollständigen Drück-und-Loslass-Zyklus, um ihren Wert zu ändern. Beim einmaligen Drücken und Loslassen ändert sich der Wert zu `true`. Wenn er erneut gedrückt und losgelassen wird, ändert sich der Wert zurück zu `false`.
+Umschaltknöpfe erfordern einen vollständigen Drücken-und-Loslassen-Zyklus, um ihren Wert zu ändern. Einmaliges Drücken und Loslassen ändert den Wert auf `true`. Wenn es erneut gedrückt und losgelassen wird, ändert sich der Wert zurück zu `false`.
 
 Ein Wert von `mixed` bedeutet, dass die Werte von mehr als einem durch den Knopf gesteuerten Element nicht alle denselben Wert haben.
 
-Verändern Sie den Inhalt des Labels auf einem Umschaltknopf nicht, wenn sich der Zustand ändert. Wenn ein Knopflabel "Pause" lautet, ändern Sie es nicht zu "Play", wenn es gedrückt wird. In diesem Beispiel bleibt das Label, wenn der gedrückte Zustand wahr ist, "Pause", sodass ein Screenreader etwas sagen würde wie "Pause Umschaltknopf gedrückt".
+Ändern Sie nicht den Inhalt der Beschriftung eines Umschalters, wenn sich der Zustand ändert. Wenn eine Tastenbeschriftung "Pause" sagt, ändern Sie sie nicht in "Wiedergabe", wenn sie gedrückt wird. In diesem Beispiel bleibt die Beschriftung "Pause", wenn der gedrückte Zustand wahr ist, so dass ein Screenreader etwas wie "Pause-Umschaltknopf gedrückt" sagen würde.
 
 ```html
 <button aria-pressed="false">Pause</button>
 ```
 
-Wenn Sie möchten, dass das Label zwischen "Pausiert" und "Spielen" umschaltet, verwenden Sie nicht `aria-pressed`.
+Wenn Sie möchten, dass die Beschriftung zwischen "Paused" und "Play" umschaltet, verwenden Sie nicht `aria-pressed`.
 
-Die erste Regel bei der Verwendung von ARIA ist: "Wenn Sie eine native Funktion verwenden können, die die benötigte Semantik und das Verhalten bereits eingebaut hat, statt ein Element umzufunktionieren und eine ARIA-Rolle, einen Zustand oder eine Eigenschaft hinzuzufügen, um es zugänglich zu machen, dann tun Sie dies." Wenn wir die nativen HTML-Semantiken mit {{HTMLElement('button')}} verwenden, können wir das Label umschalten, anstatt den gedrückten Zustand umzuschalten, und somit die Notwendigkeit für das `aria-pressed` Attribut entfernen.
+Die erste Regel der ARIA-Nutzung lautet: "Wenn Sie ein nativeres Feature mit der benötigten Semantik und dem benötigten Verhalten verwenden können, anstatt ein Element zweckentfremdet und mit einer ARIA-Rolle, einem Zustand oder einer Eigenschaft für die Zugänglichkeit zu versehen, dann tun Sie dies." Wenn wir die nativen HTML-Semantiken mit {{HTMLElement('button')}} nutzen, können wir die Beschriftung umschalten, anstatt den gedrückten Zustand zu wechseln, und benötigen das Attribut `aria-pressed` nicht.
 
 ## Werte
 
 - `false`
-  - : Der Knopf unterstützt das Gedrücktwerden, ist derzeit jedoch nicht gedrückt.
+  - : Der Knopf unterstützt das Gedrücksein, ist aber momentan nicht gedrückt.
 - `mixed`
-  - : Bedeutet einen gemischten Wert in einem dreiwertigen Umschaltknopf.
+  - : Zeigt einen gemischten Moduswert für einen dreiwertigen Umschaltknopf an.
 - `true`
   - : Der Knopf ist gedrückt.
 - `undefined` (Standard)
-  - : Das Element unterstützt das Gedrücktwerden nicht.
+  - : Das Element unterstützt nicht das Gedrücktsein.
 
 ## Zugehörige Schnittstellen
 
 - [`Element.ariaPressed`](/de/docs/Web/API/Element/ariaPressed)
-  - : Die [`ariaPressed`](/de/docs/Web/API/Element/ariaPressed) Eigenschaft, Teil der [`Element`](/de/docs/Web/API/Element) Schnittstelle, spiegelt den Wert des `aria-pressed` Attributs wider.
+  - : Die [`ariaPressed`](/de/docs/Web/API/Element/ariaPressed)-Eigenschaft, Teil der [`Element`](/de/docs/Web/API/Element)-Schnittstelle, spiegelt den Wert des Attributs `aria-pressed` wider.
 - [`ElementInternals.ariaPressed`](/de/docs/Web/API/ElementInternals/ariaPressed)
-  - : Die [`ariaPressed`](/de/docs/Web/API/ElementInternals/ariaPressed) Eigenschaft, Teil der [`ElementInternals`](/de/docs/Web/API/ElementInternals) Schnittstelle, spiegelt den Wert des `aria-pressed` Attributs wider.
+  - : Die [`ariaPressed`](/de/docs/Web/API/ElementInternals/ariaPressed)-Eigenschaft, Teil der [`ElementInternals`](/de/docs/Web/API/ElementInternals)-Schnittstelle, spiegelt den Wert des Attributs `aria-pressed` wider.
 
 ## Zugehörige Rollen
 

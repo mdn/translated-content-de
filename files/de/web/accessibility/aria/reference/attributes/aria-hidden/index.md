@@ -1,54 +1,55 @@
 ---
-title: aria-hidden
+title: "ARIA: aria-hidden-Attribut"
+short-title: aria-hidden
 slug: Web/Accessibility/ARIA/Reference/Attributes/aria-hidden
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: a8b25483994fa47cf949b432ddf34a6bce2ddb2e
 ---
 
-Der `aria-hidden` Zustand gibt an, ob das Element für eine Barrierefreiheits-API sichtbar ist.
+Der `aria-hidden`-Zustand gibt an, ob das Element einer Zugänglichkeits-API verfügbar gemacht wird.
 
 ## Beschreibung
 
-Das `aria-hidden` Attribut kann verwendet werden, um nicht-interaktiven Inhalt vor der Barrierefreiheits-API zu verbergen.
+Das `aria-hidden`-Attribut kann verwendet werden, um nicht interaktive Inhalte von der Zugänglichkeits-API zu verbergen.
 
-Das Hinzufügen von `aria-hidden="true"` zu einem Element entfernt dieses Element und all seine untergeordneten Elemente aus dem Barrierefreiheitsbaum. Dies kann das Erlebnis für Benutzer von Assistenztechnologien verbessern, indem Folgendes verborgen wird:
+Wenn Sie einem Element `aria-hidden="true"` hinzufügen, wird dieses Element und alle seine Kinder aus dem Zugänglichkeitsbaum entfernt. Dies kann die Erfahrung für Benutzer von unterstützenden Technologien verbessern, indem Folgendes verborgen wird:
 
-- Rein dekorativer Inhalt, wie Icons oder Bilder
-- Duplizierter Inhalt, wie wiederholter Text
-- Inhalt außerhalb des Bildschirms oder eingeklappter Inhalt, wie Menüs
+- Rein dekorative Inhalte, wie Icons oder Bilder
+- Duplizierte Inhalte, wie wiederholter Text
+- Inhalte außerhalb des Bildschirms oder eingeklappte Inhalte, wie Menüs
 
-Die Anwesenheit des `aria-hidden` Attributs verbirgt Inhalte vor Assistenztechnologien, verändert aber nicht die visuelle Anzeige.
+Das Vorhandensein des `aria-hidden`-Attributs verbirgt Inhalte vor unterstützenden Technologien, verbirgt jedoch visuell nichts.
 
-`aria-hidden="true"` sollte nicht auf Elemente angewendet werden, die den Fokus erhalten können. Da dieses Attribut außerdem von den untergeordneten Elementen eines Elements vererbt wird, sollte es nicht auf das übergeordnete oder ein Vorfahren-Element eines fokussierbaren Elements gesetzt werden.
+`aria-hidden="true"` sollte nicht auf Elemente verwendet werden, die den Fokus erhalten können. Da dieses Attribut von den Kindern eines Elements geerbt wird, sollte es außerdem nicht an das übergeordnete oder Vorfahrenelement eines fokussierbaren Elements hinzugefügt werden.
 
 > [!WARNING]
 > Verwenden Sie `aria-hidden="true"` nicht auf fokussierbaren Elementen.
 
-Der versteckte Status eines Elements basiert darauf, ob es gerendert wird. Das Rendern wird normalerweise durch CSS gesteuert. Beispielsweise wird ein Element, dessen `display`-Eigenschaft per CSS auf `none` gesetzt ist, nicht gerendert. Ein Element gilt als versteckt, wenn es selbst oder einer seiner Vorfahren nicht gerendert wird oder deren `aria-hidden`-Attributwert auf wahr gesetzt ist. Beachten Sie, dass ein Element und seine untergeordneten Elemente, welches `aria-hidden="true"` erklärt hat, weiterhin sichtbar sind, es sei denn, sie werden auch durch CSS verborgen.
+Der versteckte Status eines Elements basiert darauf, ob es gerendert wird. Die Darstellung wird normalerweise über CSS gesteuert. Ein Element, dessen `display`-Eigenschaft über CSS auf `none` gesetzt ist, wird beispielsweise nicht gerendert. Ein Element gilt als versteckt, wenn es oder einer seiner Vorfahren nicht gerendert wird oder dessen `aria-hidden`-Attributwert auf true gesetzt ist. Beachten Sie, dass ein Element und seine Kinder, bei denen `aria-hidden="true"` deklariert ist, immer noch sichtbar sein werden, es sei denn, sie werden auch durch CSS verborgen.
 
-Seien Sie vorsichtig, wenn Sie `aria-hidden` verwenden, um sichtbar gerenderten Inhalt vor Assistenztechnologien zu verstecken. Sie sollten keinen sichtbaren Inhalt verbergen, es sei denn, dies verbessert das Erlebnis für Benutzer von Assistenztechnologien, indem redundanter oder überflüssiger Inhalt entfernt wird. Nur wenn identische oder gleichwertige Bedeutung und Funktionalität für Assistenztechnologien verfügbar ist, kann das Entfernen sichtbarer Inhalte aus der Barrierefreiheits-API in Betracht gezogen werden.
+Vorsicht ist geboten, wenn `aria-hidden` verwendet wird, um sichtbar gerenderte Inhalte vor unterstützenden Technologien zu verbergen. Sie sollten keine sichtbaren Inhalte verbergen, es sei denn, dies verbessert die Erfahrung für Benutzer von unterstützenden Technologien, indem redundante oder überflüssige Inhalte entfernt werden. Nur wenn identische oder gleichwertige Bedeutungen und Funktionen für unterstützende Technologien verfügbar gemacht werden, kann das Entfernen sichtbarer Inhalte aus der Zugänglichkeits-API in Betracht gezogen werden.
 
 > [!NOTE]
-> Berücksichtigen Sie alle Behinderungen, wenn Sie sichtbar gerenderten Inhalt vor Assistenztechnologien verbergen. Nicht alle Benutzer von Assistenztechnologien sind sehbehindert. Wenn sichtbarer Inhalt nicht mit Textinhalt in der Barrierefreiheits-API übereinstimmt, wird das Benutzererlebnis für sehende Benutzer negativ beeinflusst.
+> Berücksichtigen Sie alle Behinderungen, wenn Sie sichtbar gerenderte Inhalte vor unterstützenden Technologien verbergen. Nicht alle Benutzer von unterstützenden Technologien sind sehbehindert. Wenn sichtbare Inhalte nicht mit Textinhalten in der Zugänglichkeits-API übereinstimmen, wird die Benutzererfahrung für sehende Benutzer negativ beeinflusst.
 
-Auf den ersten Blick scheinen `aria-hidden="true"` und `role="presentation"` und dessen Synonym `role="none"` ähnlich zu sein, jedoch ist die Absicht hinter jedem unterschiedlich.
+Auf den ersten Blick scheinen `aria-hidden="true"` und die Attribute `role="presentation"` und dessen Synonym `role="none"` ähnlich, aber die Absicht hinter jedem ist unterschiedlich.
 
-- `aria-hidden="true"` entfernt das gesamte Element aus der Barrierefreiheits-API.
-- `role="presentation"` und `role="none"` entfernen die semantische Bedeutung eines Elements, während es selbst und sein Inhalt weiterhin für Assistenztechnologien sichtbar bleibt.
+- `aria-hidden="true"` entfernt das gesamte Element aus der Zugänglichkeits-API.
+- `role="presentation"` und `role="none"` entfernen die semantische Bedeutung eines Elements, während es und seine Inhalte immer noch unterstützenden Technologien zugänglich gemacht werden.
 
 `aria-hidden="true"` sollte nicht hinzugefügt werden, wenn:
 
-- Das HTML-Attribut [`hidden`](/de/docs/Web/HTML/Reference/Global_attributes/hidden) vorhanden ist.
-- Das Element oder ein Vorfahren-Element wird mit [`display: none`](/de/docs/Web/CSS/display) verborgen.
-- Das Element oder ein Vorfahren-Element wird mit [`visibility: hidden`](/de/docs/Web/CSS/visibility) verborgen.
+- Das HTML-Attribut [`hidden`](/de/docs/Web/HTML/Reference/Global_attributes/hidden) vorhanden ist
+- Das Element oder das Vorfahrenelement mit [`display: none`](/de/docs/Web/CSS/display) verborgen ist
+- Das Element oder das Vorfahrenelement mit [`visibility: hidden`](/de/docs/Web/CSS/visibility) verborgen ist
 
-In allen drei Szenarien ist es unnötig, das Attribut hinzuzufügen, da das Element bereits aus dem Barrierefreiheitsbaum entfernt wurde. Das visuelle Verbergen von Elementen mit `display` oder `visibility` verbirgt Inhalte sowohl vom Bildschirm als auch von Assistenztechnologien.
+In allen drei Szenarien ist das Attribut überflüssig, da das Element bereits aus dem Zugänglichkeitsbaum entfernt wurde. Das visuelle Verbergen von Elementen mit `display` oder `visibility` verbirgt Inhalte vom Bildschirm und von unterstützenden Technologien.
 
-Die Verwendung von `aria-hidden="false"` wird das Element nicht erneut für Assistenztechnologien sichtbar machen, wenn einer der Elternteile `aria-hidden="true"` angibt.
+Die Verwendung von `aria-hidden="false"` wird das Element nicht wieder sichtbar für unterstützende Technologien machen, wenn eines seiner Elternelemente `aria-hidden="true"` angibt.
 
 ## Beispiel
 
-Das Hinzufügen von `aria-hidden="true"` zum Icon verbirgt das Icon-Zeichen davor, im zugänglichen Namen enthalten zu sein.
+Das Hinzufügen von `aria-hidden="true"` zum Icon verbirgt das Ikonzeichen davor, in den zugänglichen Namen aufgenommen zu werden.
 
 ```html
 <button>
@@ -57,23 +58,23 @@ Das Hinzufügen von `aria-hidden="true"` zum Icon verbirgt das Icon-Zeichen davo
 </button>
 ```
 
-Wir haben einen Button mit [einem Font Awesome Icon](https://fontawesome.com/). Wir verbergen das Icon vor Assistenztechnologien mit `aria-hidden="true"`, da das Icon für Assistenztechnologien zu Redundanz führen könnte oder, wenn das Icon nicht den gleichen Inhalt wie der sichtbare Text hat, Verwirrung stiften könnte.
+Wir haben eine Schaltfläche mit [einem Font-Awesome-Icon](https://fontawesome.com/). Wir verbergen das Icon vor unterstützenden Technologien mit `aria-hidden="true"`, da das Freilegen des Icons zu unterstützenden Technologien zu Redundanz führen könnte oder, wenn das Icon nicht denselben Inhalt wie der sichtbare Text hat, Verwirrung stiften könnte.
 
 ## Werte
 
 - `false`
-  - : Das Element ist der Barrierefreiheits-API so ausgesetzt, als wäre es gerendert.
+  - : Das Element wird der Zugänglichkeits-API zugänglich gemacht, als ob es gerendert wurde.
 - `true`
-  - : Das Element ist vor der Barrierefreiheits-API verborgen.
+  - : Das Element ist von der Zugänglichkeits-API verborgen.
 - `undefined` (Standard)
-  - : Der versteckte Status des Elements wird vom Benutzer-Agenten basierend darauf bestimmt, ob es gerendert wird.
+  - : Der versteckte Status des Elements wird vom Benutzeragenten bestimmt, basierend darauf, ob es gerendert wird.
 
 ## Zugehörige Schnittstellen
 
 - [`Element.ariaHidden`](/de/docs/Web/API/Element/ariaHidden)
-  - : Die [`ariaHidden`](/de/docs/Web/API/Element/ariaHidden)-Eigenschaft, Teil der [`Element`](/de/docs/Web/API/Element)-Schnittstelle, spiegelt den Wert des `aria-hidden` Attributs wider, das angibt, ob das Element für eine Barrierefreiheits-API sichtbar ist.
+  - : Die [`ariaHidden`](/de/docs/Web/API/Element/ariaHidden)-Eigenschaft, Teil der [`Element`](/de/docs/Web/API/Element)-Schnittstelle, spiegelt den Wert des `aria-hidden`-Attributs wider, welches angibt, ob das Element einer Zugänglichkeits-API zugänglich gemacht wird.
 - [`ElementInternals.ariaHidden`](/de/docs/Web/API/ElementInternals/ariaHidden)
-  - : Die [`ariaHidden`](/de/docs/Web/API/ElementInternals/ariaHidden)-Eigenschaft, Teil der [`ElementInternals`](/de/docs/Web/API/ElementInternals)-Schnittstelle, spiegelt den Wert des `aria-hidden` Attributs wider.
+  - : Die [`ariaHidden`](/de/docs/Web/API/ElementInternals/ariaHidden)-Eigenschaft, Teil der [`ElementInternals`](/de/docs/Web/API/ElementInternals)-Schnittstelle, spiegelt den Wert des `aria-hidden`-Attributs wider
 
 ## Zugehörige Rollen
 
@@ -88,6 +89,6 @@ Verwendet in **ALLEN** Rollen
 - [`aria-disabled`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-disabled)
 - [`aria-modal`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-modal)
 - [`aria-expanded`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-expanded)
-- HTML [`hidden`](/de/docs/Web/HTML/Reference/Global_attributes/hidden) Attribut
-- CSS {{CSSXref('display')}} Eigenschaft
-- CSS {{CSSXref('visibility')}} Eigenschaft
+- HTML-Attribut [`hidden`](/de/docs/Web/HTML/Reference/Global_attributes/hidden)
+- CSS-{{CSSXref('display')}}-Eigenschaft
+- CSS-{{CSSXref('visibility')}}-Eigenschaft

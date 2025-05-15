@@ -1,14 +1,14 @@
 ---
-title: "FileReaderSync: Methode readAsDataURL()"
+title: "FileReaderSync: readAsDataURL() Methode"
 short-title: readAsDataURL()
 slug: Web/API/FileReaderSync/readAsDataURL
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: 1a09a1e09d761cda91a8c89dc4f665182ec493f8
 ---
 
 {{APIRef("File API")}} {{AvailableInWorkers("worker_except_service")}}
 
-Die **`readAsDataURL()`** Methode des [`FileReaderSync`](/de/docs/Web/API/FileReaderSync) Interfaces ermöglicht das Lesen von [`File`](/de/docs/Web/API/File)- oder [`Blob`](/de/docs/Web/API/Blob)-Objekten auf synchrone Weise in einen String, der eine Daten-URL darstellt. Dieses Interface ist [nur verfügbar](/de/docs/Web/API/Web_Workers_API/Functions_and_classes_available_to_workers) in [Workern](/de/docs/Web/API/Worker), da es synchrones I/O ermöglicht, welches potenziell blockieren könnte.
+Die **`readAsDataURL()`** Methode der [`FileReaderSync`](/de/docs/Web/API/FileReaderSync) Schnittstelle ermöglicht das Lesen von [`File`](/de/docs/Web/API/File) oder [`Blob`](/de/docs/Web/API/Blob) Objekten auf synchronem Weg in einen String, der eine Data-URL darstellt. Diese Schnittstelle ist [nur verfügbar](/de/docs/Web/API/Web_Workers_API/Functions_and_classes_available_to_workers) in [Workern](/de/docs/Web/API/Worker), da sie eine synchrone I/O ermöglicht, die potenziell blockieren könnte.
 
 ## Syntax
 
@@ -19,27 +19,27 @@ readAsDataURL(blob)
 ### Parameter
 
 - `blob`
-  - : Die [`File`](/de/docs/Web/API/File) oder [`Blob`](/de/docs/Web/API/Blob), die gelesen werden soll.
+  - : Das [`File`](/de/docs/Web/API/File) oder [`Blob`](/de/docs/Web/API/Blob), das gelesen werden soll.
 
 ### Rückgabewert
 
-Ein String, der die Eingabedaten als Daten-URL darstellt.
+Ein String, der die Eingabedaten als Data-URL darstellt.
 
 ### Ausnahmen
 
-Die folgenden Ausnahmen können von dieser Methode ausgelöst werden:
+Die folgende Ausnahmen können von dieser Methode ausgelöst werden:
 
 - `NotFoundError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn die durch das DOM [`File`](/de/docs/Web/API/File) oder [`Blob`](/de/docs/Web/API/Blob) repräsentierte Ressource nicht gefunden werden kann, z.B. weil sie gelöscht wurde.
+  - : Ausgelöst, wenn die Ressource, die durch das DOM [`File`](/de/docs/Web/API/File) oder [`Blob`](/de/docs/Web/API/Blob) repräsentiert wird, nicht gefunden werden kann, z.B., weil sie gelöscht wurde.
 - `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn eine der folgenden problematischen Situationen erkannt wird:
-    - die Ressource wurde von einem Dritten verändert;
-    - es werden gleichzeitig zu viele Lesevorgänge durchgeführt;
-    - die Datei, auf die die Ressource zeigt, ist für die Verwendung im Web unsicher (zum Beispiel ein Systemdatei).
+  - : Ausgelöst, wenn eine der folgenden problematischen Situationen erkannt wird:
+    - Die Ressource wurde von einem Dritten verändert;
+    - Es werden zu viele Leseoperationen gleichzeitig durchgeführt;
+    - Die Datei, auf die die Ressource verweist, ist unsicher für die Nutzung im Web (z.B. ein Systemdatei).
 - `NotReadableError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn die Ressource aufgrund eines Berechtigungsproblems, wie einer gleichzeitigen Sperre, nicht gelesen werden kann.
+  - : Ausgelöst, wenn die Ressource aufgrund eines Berechtigungsproblems nicht gelesen werden kann, wie z.B. ein gleichzeitiger Sperrzugriff.
 - `EncodingError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn die Ressource eine Daten-URL ist und die von jedem Browser definierte Längenbegrenzung überschreitet.
+  - : Ausgelöst, wenn die Ressource eine Data-URL ist und die von jedem Browser definierte Längenbeschränkung überschreitet.
 
 ## Spezifikationen
 

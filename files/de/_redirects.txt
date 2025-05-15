@@ -5850,12 +5850,13 @@
 /de/docs/MDN/Changelog	/de/docs/MDN/Writing_guidelines/Changelog
 /de/docs/MDN/Community/Contributing	/de/docs/MDN/Community
 /de/docs/MDN/Community/Contributing/Getting_started	/de/docs/MDN/Community/Getting_started
-/de/docs/MDN/Community/Contributing/Security_vulnerability_response	/de/docs/MDN/Community/Security_vulnerability_response
+/de/docs/MDN/Community/Contributing/Security_vulnerability_response	https://github.com/mdn/mdn/issues/45
 /de/docs/MDN/Community/Contributing/Translated_content	/de/docs/MDN/Community/Translated_content
 /de/docs/MDN/Community/Issues/Issue_triage	/de/docs/MDN/Community/Issues
 /de/docs/MDN/Community/MDN_content	/de/docs/MDN/Community/Getting_started
 /de/docs/MDN/Community/MDN_content/Issues	/de/docs/MDN/Community/Issues
 /de/docs/MDN/Community/MDN_content/Pull_requests	/de/docs/MDN/Community/Pull_requests
+/de/docs/MDN/Community/Security_vulnerability_response	https://github.com/mdn/mdn/issues/45
 /de/docs/MDN/Community/Users_teams	/de/docs/MDN/Community/Roles_teams
 /de/docs/MDN/Contribute	/de/docs/MDN/Community/Getting_started
 /de/docs/MDN/Contribute/Changelog	/de/docs/MDN/Writing_guidelines/Changelog

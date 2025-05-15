@@ -3,14 +3,14 @@ title: SVG-Leitfäden
 short-title: Guides
 slug: Web/SVG/Guides
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: be9ba40fbef7f96beae73e5dd6d48a3ca875826f
 ---
 
-Diese Seite listet Leitfäden für SVG auf.
+Diese Seite listet Leitfäden für SVG auf und behandelt Themen wie das Einbetten, MIME (Medien)-Typen, Umgang mit Skripten, Animationen, Filter und mehr.
 
 {{SubPagesWithSummaries}}
 
 ## Siehe auch
 
-- [SVG-Anleitungen](/de/docs/Web/SVG/Tutorials)
+- [SVG-Tutorials](/de/docs/Web/SVG/Tutorials)
 - [SVG-Referenz](/de/docs/Web/SVG/Reference)

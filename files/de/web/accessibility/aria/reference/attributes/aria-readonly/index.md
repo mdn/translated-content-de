@@ -1,31 +1,32 @@
 ---
-title: aria-readonly
+title: "ARIA: aria-readonly-Attribut"
+short-title: aria-readonly
 slug: Web/Accessibility/ARIA/Reference/Attributes/aria-readonly
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: a8b25483994fa47cf949b432ddf34a6bce2ddb2e
 ---
 
-Das `aria-readonly`-Attribut zeigt an, dass das Element nicht bearbeitet werden kann, aber dennoch bedienbar ist.
+Das `aria-readonly`-Attribut gibt an, dass das Element nicht bearbeitbar ist, aber dennoch bedienbar bleibt.
 
 ## Beschreibung
 
-Wenn Sie anzeigen möchten, dass ein interaktives Element funktioniert, aber nicht bearbeitet werden kann, setzen Sie `aria-readonly="true"`. Dies zeigt dem Benutzer, dass ein interaktives Element, das normalerweise fokussierbar und kopierbar ist, in einem schreibgeschützten (nicht deaktivierten) Zustand versetzt wurde.
+Wenn Sie anzeigen möchten, dass ein interaktives Element funktioniert, aber nicht bearbeitbar ist, setzen Sie `aria-readonly="true"`. Dies signalisiert dem Benutzer, dass ein interaktives Element, das normalerweise fokussierbar und kopierbar wäre, in einem schreibgeschützten (nicht deaktivierten) Zustand versetzt wurde.
 
-Wenn `aria-readonly` auf `true` gesetzt ist, bedeutet es, dass der Benutzer den Wert des Widgets lesen, aber nicht setzen kann. Schreibgeschützte Elemente sind weiterhin für den Benutzer relevant, daher sollten Sie verhindern, dass der Benutzer das Element oder dessen fokussierbare Nachkommen erreicht oder den Wert kopiert.
+Wenn `aria-readonly` auf `true` gesetzt ist, bedeutet dies, dass der Benutzer den Wert des Widgets lesen, aber nicht setzen kann. Schreibgeschützte Elemente sind für den Benutzer weiterhin relevant, daher sollten Sie nicht verhindern, dass der Benutzer zum Element oder seinen fokussierbaren Nachkommen navigiert oder den Wert kopiert.
 
 Beispiele umfassen:
 
 - Formularelemente, die nicht geändert werden sollten.
-- Zeilen- und Spaltenüberschriften in einer Tabellenkalkulation.
-- Der Gesamtwert in einem Warenkorb.
+- Zeilen- und Spaltenüberschriften in einer Tabelle.
+- Der Gesamtwert in einem Einkaufswagen.
 
-Wenn der nicht änderbare Wert keinen Fokus erhalten soll, verwenden Sie stattdessen [`aria-disabled`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-disabled).
-
-> [!NOTE]
-> Bei Verwendung von semantischen HTML-Formularsteuerelementen müssen Sie, wenn Sie das `readonly`-Attribut setzen, nicht zusätzlich `aria-readonly="true"` angeben.
+Wenn der nicht veränderbare Wert keinen Fokus erhalten sollte, verwenden Sie stattdessen [`aria-disabled`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-disabled).
 
 > [!NOTE]
-> Der Wert von `<input type="checkbox">` kann nicht bearbeitet werden, sodass `readonly` nicht relevant ist. Wenn jedoch Kontrollkästchen mit `role="checkbox"` erstellt werden, wird das `aria-readonly`-Attribut _unterstützt_.
+> Wenn Sie semantische HTML-Formularsteuerelemente verwenden und das `readonly`-Attribut setzen, müssen Sie `aria-readonly="true"` nicht hinzufügen.
+
+> [!NOTE]
+> Der Wert von `<input type="checkbox">` kann nicht bearbeitet werden, was `readonly` irrelevant macht. Wenn jedoch Kontrollkästchen mit `role="checkbox"` erstellt werden, wird das `aria-readonly`-Attribut _unterstützt_.
 
 ## Werte
 

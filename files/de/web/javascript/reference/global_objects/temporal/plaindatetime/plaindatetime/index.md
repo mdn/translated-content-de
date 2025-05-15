@@ -2,14 +2,14 @@
 title: Temporal.PlainDateTime()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainDateTime/PlainDateTime
 l10n:
-  sourceCommit: b1392b60ee71b9f09c0123694a494a71d0dbbb8a
+  sourceCommit: 1b77d85af82183b835cf253e885dca26cba93eb5
 ---
 
 {{JSRef}}{{SeeCompatTable}}
 
-Der **`Temporal.PlainDateTime()`**-Konstruktor erstellt {{jsxref("Temporal.PlainDateTime")}}-Objekte.
+Der **`Temporal.PlainDateTime()`** Konstruktor erstellt {{jsxref("Temporal.PlainDateTime")}} Objekte.
 
-Dieser Konstruktor erlaubt es Ihnen, Instanzen durch direkte Übergabe der zugrunde liegenden Daten zu erstellen. Wie bei allen anderen `Temporal`-Klassen sollten `Temporal.PlainDateTime`-Objekte normalerweise mit der statischen Methode {{jsxref("Temporal/PlainDateTime/from", "Temporal.PlainDateTime.from()")}} erstellt werden, die eine Vielzahl von Eingabetypen verarbeiten kann.
+Dieser Konstruktor ermöglicht es Ihnen, Instanzen direkt durch die Angabe der zugrunde liegenden Daten zu erstellen. Wie alle anderen `Temporal` Klassen sollten `Temporal.PlainDateTime` Objekte normalerweise mit der {{jsxref("Temporal/PlainDateTime/from", "Temporal.PlainDateTime.from()")}} statischen Methode konstruiert werden, die eine Vielzahl von Eingabetypen verarbeiten kann.
 
 ## Syntax
 
@@ -24,41 +24,41 @@ new Temporal.PlainDateTime(year, month, day, hour, minute, second, millisecond, 
 new Temporal.PlainDateTime(year, month, day, hour, minute, second, millisecond, microsecond, nanosecond, calendar)
 ```
 
-> **Note:** `Temporal.PlainDateTime()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) instanziiert werden. Ein Aufruf ohne `new` führt zu einem {{jsxref("TypeError")}}.
+> **Note:** `Temporal.PlainDateTime()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Ein Versuch, es ohne `new` aufzurufen, wirft einen {{jsxref("TypeError")}}.
 
 ### Parameter
 
 - `year`
-  - : Eine Zahl, auf eine Ganzzahl gekürzt, die das Jahr im ISO-Kalendersystem darstellt.
+  - : Eine Zahl, die auf eine ganze Zahl gekürzt wird, repräsentiert das Jahr im ISO-Kalendersystem.
 - `month`
-  - : Eine Zahl, auf eine Ganzzahl gekürzt, die den Monat im ISO-Kalendersystem darstellt.
+  - : Eine Zahl, die auf eine ganze Zahl gekürzt wird, repräsentiert den Monat im ISO-Kalendersystem.
 - `day`
-  - : Eine Zahl, auf eine Ganzzahl gekürzt, die den Tag des Monats im ISO-Kalendersystem darstellt.
+  - : Eine Zahl, die auf eine ganze Zahl gekürzt wird, repräsentiert den Tag des Monats im ISO-Kalendersystem.
 - `hour` {{optional_inline}}
-  - : Eine Zahl, auf eine Ganzzahl gekürzt, die die Stundenkomponente darstellt.
+  - : Eine Zahl, die auf eine ganze Zahl gekürzt wird, repräsentiert die Stundenkomponente.
 - `minute` {{optional_inline}}
-  - : Eine Zahl, auf eine Ganzzahl gekürzt, die die Minutenkomponente darstellt.
+  - : Eine Zahl, die auf eine ganze Zahl gekürzt wird, repräsentiert die Minutenkomponente.
 - `second` {{optional_inline}}
-  - : Eine Zahl, auf eine Ganzzahl gekürzt, die die Sekundenkomponente darstellt.
+  - : Eine Zahl, die auf eine ganze Zahl gekürzt wird, repräsentiert die Sekundenkomponente.
 - `millisecond` {{optional_inline}}
-  - : Eine Zahl, auf eine Ganzzahl gekürzt, die die Millisekundenkomponente darstellt.
+  - : Eine Zahl, die auf eine ganze Zahl gekürzt wird, repräsentiert die Millisekundenkomponente.
 - `microsecond` {{optional_inline}}
-  - : Eine Zahl, auf eine Ganzzahl gekürzt, die die Mikrosekundenkomponente darstellt.
+  - : Eine Zahl, die auf eine ganze Zahl gekürzt wird, repräsentiert die Mikrosekundenkomponente.
 - `nanosecond` {{optional_inline}}
-  - : Eine Zahl, auf eine Ganzzahl gekürzt, die die Nanosekundenkomponente darstellt.
+  - : Eine Zahl, die auf eine ganze Zahl gekürzt wird, repräsentiert die Nanosekundenkomponente.
 - `calendar` {{optional_inline}}
-  - : Ein String, der den [Kalender](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#calendars) angibt, der verwendet werden soll. Beachten Sie, dass unabhängig vom angegebenen `calendar` die Werte für `year`, `month` und `day` im ISO 8601-Kalendersystem sein müssen. Standardmäßig ist `"iso8601"` eingestellt.
+  - : Ein String, der den [Kalender](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#calendars) angibt, der verwendet werden soll. Sehen Sie sich [`Intl.supportedValuesOf()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/supportedValuesOf#supported_calendar_types) für eine Liste der häufig unterstützten Kalendertypen an. Standardmäßig wird `"iso8601"` verwendet. Beachten Sie, dass unabhängig vom `calendar` das `year`, `month` und `day` im ISO 8601 Kalendersystem sein müssen.
 
 ### Rückgabewert
 
-Ein neues `Temporal.PlainDateTime`-Objekt, das das durch die Parameter angegebene Datum und die Uhrzeit repräsentiert.
+Ein neues `Temporal.PlainDateTime` Objekt, das das durch die Parameter spezifizierte Datum-Uhrzeit darstellt.
 
 ### Ausnahmen
 
 - {{jsxref("RangeError")}}
   - : Wird in einem der folgenden Fälle ausgelöst:
-    - Eine der Datum- und Zeitkomponenten ist keine endliche Zahl.
-    - Die Kombination der Datum- und Zeitkomponenten stellt kein gültiges Datum im ISO-Kalendersystem dar oder liegt außerhalb des [darstellbaren Bereichs](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#representable_dates), der bei ±(10<sup>8</sup> + 1) Tagen oder etwa ±273.972,6 Jahren ab dem Unix-Epoch-Timestamp liegt.
+    - Eine Datum-Zeit-Komponente ist keine endliche Zahl.
+    - Die Kombination aus Datum-Zeit-Komponente stellt kein gültiges Datum im ISO-Kalendersystem dar oder befindet sich nicht im [darstellbaren Bereich](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#representable_dates), der ±(10<sup>8</sup> + 1) Tage, oder etwa ±273.972,6 Jahre, seit dem Unix-Epoch umfasst.
     - `calendar` ist keine gültige Kalenderkennung.
 
 ## Beispiele

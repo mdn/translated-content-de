@@ -1,27 +1,28 @@
 ---
-title: aria-controls
+title: "ARIA: aria-controls-Attribut"
+short-title: aria-controls
 slug: Web/Accessibility/ARIA/Reference/Attributes/aria-controls
 l10n:
-  sourceCommit: 85d5b8d224843c37974318ff04fbcc1ab69ef95d
+  sourceCommit: a8b25483994fa47cf949b432ddf34a6bce2ddb2e
 ---
 
-Die globale `aria-controls`-Eigenschaft identifiziert das Element (oder die Elemente), deren Inhalt oder Vorhandensein von dem Element gesteuert wird, auf dem dieses Attribut gesetzt ist.
+Das globale `aria-controls`-Attribut identifiziert das Element (oder die Elemente), dessen Inhalte oder Vorhandensein durch das Element kontrolliert werden, an dem dieses Attribut gesetzt ist.
 
 ## Beschreibung
 
-Wenn ein interaktives Widget oder Element, sei es ein Combobox, Tab, Knopf usw., verwendet wird, um ein anderes Element oder eine Komponente in einem Dokument oder einer Anwendung zu ändern oder anzupassen, kann das `aria-controls`-Attribut verwendet werden, um das entsprechende Element oder die entsprechenden Elemente programmatisch mit dem steuernden Element zu verknüpfen. Das `aria-controls`-Attribut identifiziert das Element (oder die Elemente), deren Inhalt oder Vorhandensein von dem Element gesteuert wird, auf dem das Attribut gesetzt ist, unabhängig davon, welche Art von Interaktion das betroffene Verhalten auslöst.
+Wenn ein interaktives Widget oder Element, sei es eine Kombinationsbox, ein Tab, ein Button usw., verwendet wird, um ein anderes Element oder eine Komponente in einem Dokument oder einer Anwendung anzupassen oder zu modifizieren, kann das `aria-controls`-Attribut verwendet werden, um das jeweilige Element oder die jeweiligen Elemente programmatisch mit dem kontrollierenden Element zu verknüpfen. Das `aria-controls`-Attribut identifiziert das Element (oder die Elemente), dessen Inhalte oder Vorhandensein durch das Element kontrolliert werden, an dem das Attribut gesetzt ist, unabhängig davon, welche Art der Interaktion das beeinflusste Verhalten auslöst.
 
-Ein [Combobox](/de/docs/Web/Accessibility/ARIA/Reference/Roles/combobox_role)-Element hat `aria-controls` auf einen Wert gesetzt, der sich auf das Element bezieht, das als Popup dient. `aria-controls` muss nur gesetzt werden, wenn das Popup sichtbar ist, aber es ist gültig und einfacher, ein Element zu referenzieren, das nicht sichtbar ist.
+Ein [Combobox](/de/docs/Web/Accessibility/ARIA/Reference/Roles/combobox_role)-Element hat `aria-controls`, das auf ein Popup-Element verweist. Das `aria-controls` muss nur gesetzt werden, wenn das Popup sichtbar ist, aber es ist gültig und einfacher zu programmieren, um auf ein Element zu verweisen, das nicht sichtbar ist.
 
-Andere Beispiele für Steuerelemente umfassen:
+Weitere Beispiele für Steuerelemente sind:
 
-- Die Schaltflächesteile eines Akkordeon-Widgets, die die Sichtbarkeit ihres zugehörigen Panelinhalts umschalten. Jede Schaltfläche kann ein `aria-controls` spezifiziert haben, das die ID des Elements referenziert, das den mit der aufrufenden Steuerung verbundenen Inhalt enthält.
-- Ein Element mit der Rolle [`scrollbar`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/scrollbar_role): Die Scrollleiste benötigt ein `aria-controls`-Attribut, das auf die ID des Elements verweist, das sie steuert.
-- Eine Gruppe von Tabs, die jeweils ein anderes Tab-Panel anzeigen: Jedes Element mit [`role="tab"`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/tab_role) hat ein `aria-controls`-Attribut, das auf das zugehörige [`tabpanel`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/tabpanel_role) verweist.
+- Die Button-Teile eines Akkordeon-Widgets, die die Sichtbarkeit ihrer zugehörigen Panel-Inhalte umschalten. Jeder Button kann ein bestimmtes `aria-controls` haben, das auf die ID des Elements verweist, das den mit der aufrufenden Kontrolle verbundenen Inhalt enthält.
+- Ein Element mit der Rolle [`scrollbar`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/scrollbar_role): der Scrollbalken erfordert ein `aria-controls`-Attribut, das auf die ID des Elements verweist, das er steuert.
+- Eine Gruppe von Tabs, die jeweils ein anderes Tab-Panel anzeigen: jedes Element mit [`role="tab"`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/tab_role) hat ein `aria-controls`-Attribut, das auf sein zugehöriges [`tabpanel`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/tabpanel_role) verweist.
 
 ## Beispiel
 
-In diesem Tabs-Beispiel steuert jeder Tab ein Tabpanel:
+In diesem Tab-Beispiel steuert jeder Tab ein Tab-Panel:
 
 ```html
 <div class="tab-interface">
@@ -74,12 +75,12 @@ In diesem Tabs-Beispiel steuert jeder Tab ein Tabpanel:
 ```
 
 > [!NOTE]
-> ARIA modifiziert nur den Accessibility-Tree für ein Element, indem es identifiziert, wie unterstützende Technologien den Benutzern den Inhalt präsentieren können. ARIA ändert keine implizite Funktionalität oder Gestaltung.
+> ARIA ändert nur den Accessibility-Tree für ein Element, indem es identifiziert, wie unterstützende Technologien den Benutzern den Inhalt präsentieren können. ARIA ändert keine implizite Funktionalität oder Darstellung.
 
 ## Werte
 
-- `id` Liste
-  - : Eine durch Leerzeichen getrennte Liste von einem oder mehreren ID-Werten, die die Elemente referenzieren, die vom aktuellen Element gesteuert werden.
+- `id`-Liste
+  - : Eine durch Leerzeichen getrennte Liste von einer oder mehreren ID-Werten, die auf die Elemente verweisen, die durch das aktuelle Element kontrolliert werden
 
 ## Zugehörige Schnittstellen
 

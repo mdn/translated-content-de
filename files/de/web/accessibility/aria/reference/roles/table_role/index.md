@@ -1,11 +1,12 @@
 ---
 title: "ARIA: table-Rolle"
+short-title: table
 slug: Web/Accessibility/ARIA/Reference/Roles/table_role
 l10n:
-  sourceCommit: ec98716dfe71c78db3f82ee3b1b9e7f68997fa19
+  sourceCommit: a8b25483994fa47cf949b432ddf34a6bce2ddb2e
 ---
 
-Der `table`-Wert der ARIA-`role`-Eigenschaft identifiziert das Element, das diese Rolle enthält, als eine nicht-interaktive Tabellenstruktur, die Daten in Zeilen und Spalten anordnet, ähnlich dem nativen {{HTMLElement('table')}}-HTML-Element.
+Der `table`-Wert des ARIA `role`-Attributs identifiziert das Element, das die Rolle einer nicht-interaktiven Tabellenstruktur mit Daten enthält, die in Reihen und Spalten angeordnet sind, ähnlich dem nativen {{HTMLElement('table')}} HTML-Element.
 
 ```html
 <div
@@ -45,36 +46,36 @@ Der `table`-Wert der ARIA-`role`-Eigenschaft identifiziert das Element, das dies
 
 ## Beschreibung
 
-Ein Element mit `role="table"` ist eine statische tabellarische Struktur mit Zeilen, die Zellen enthalten. Die Zellen sind weder fokussierbar noch auswählbar, obwohl Widgets innerhalb der einzelnen Zellen der Tabelle interaktiv sein können. Es wird nachdrücklich empfohlen, wann immer möglich ein natives HTML-{{HTMLElement('table')}}-Element zu verwenden.
+Ein Element mit `role="table"` ist eine statische tabellarische Struktur mit Reihen, die Zellen enthalten. Die Zellen sind weder fokussierbar noch auswählbar, jedoch können Widgets innerhalb einzelner Zellen der Tabelle interaktiv sein. Wann immer möglich, wird dringend empfohlen, ein natives HTML-{{HTMLElement('table')}}-Element zu verwenden.
 
 > [!WARNING]
-> Wenn eine Tabelle einen Auswahlszustand beibehält, zweidimensionale Navigation hat oder dem Benutzer erlaubt, die Reihenfolge der Zellen zu ändern, verwenden Sie stattdessen [`grid`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/grid_role) oder [`treegrid`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/treegrid_role).
+> Wenn eine Tabelle einen Auswahlszustand beibehält, eine zweidimensionale Navigation hat oder es dem Benutzer erlaubt, die Reihenfolge der Zellen zu ändern, verwenden Sie stattdessen [`grid`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/grid_role) oder [`treegrid`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/treegrid_role).
 
-Um eine ARIA-Tabelle zu erstellen, fügen Sie dem Container-Element `role="table"` hinzu. Innerhalb dieses Containers hat jede Zeile `role="row"` gesetzt und enthält Kinderzellen. Jede Zelle hat eine Rolle von entweder `columnheader`, `rowheader` oder `cell`. Zeilen können Kinder der Tabelle oder innerhalb einer `rowgroup` sein.
+Um eine ARIA-Tabelle zu erstellen, fügen Sie `role="table"` zum Container-Element hinzu. Innerhalb dieses Containers hat jede Reihe `role="row"` und enthält Kinderzellen. Jede Zelle hat eine Rolle entweder von `columnheader`, `rowheader` oder `cell`. Reihen können Kinder der Tabelle oder innerhalb einer `rowgroup` sein.
 
-Die Tabellenüberschrift kann über [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby) oder [`aria-label`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label) definiert werden. Alle anderen semantischen Tabellenelemente, wie {{HTMLElement('tbody')}}, {{HTMLElement('thead')}}, {{HTMLElement('tr')}}, {{HTMLElement('th')}}, und {{HTMLElement('td')}}, müssen über zugeordnete Rollen hinzugefügt werden, wie `rowgroup`, `row`, `columnheader` und `cell`.
+Die Tabellenbeschriftung kann über [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby) oder [`aria-label`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label) definiert werden. Alle anderen semantischen Tabellenelemente, wie {{HTMLElement('tbody')}}, {{HTMLElement('thead')}}, {{HTMLElement('tr')}}, {{HTMLElement('th')}}, und {{HTMLElement('td')}}, müssen über zugehörige Rollen wie `rowgroup`, `row`, `columnheader` und `cell` hinzugefügt werden.
 
-Falls die Tabelle sortierbare Spalten oder Zeilen enthält, sollte das [`aria-sort`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-sort)-Attribut dem Kopfzellen-Element (nicht der Tabelle selbst) hinzugefügt werden. Wenn irgendwelche Zeilen oder Spalten versteckt sind, sollten die Attribute [`aria-colcount`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-colcount) oder [`aria-rowcount`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-rowcount) hinzugefügt werden, um die Gesamtanzahl der Spalten bzw. Zeilen anzugeben, zusammen mit [`aria-colindex`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-colindex) oder [`aria-rowindex`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-rowindex) in jeder Zelle. Das Attribut [`aria-colindex`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-colindex) oder [`aria-rowindex`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-rowindex) gibt die Position einer Zelle innerhalb der Zeile bzw. der Spalte an. Wenn die Tabelle Zellen enthält, die sich über mehrere Zeilen oder Spalten erstrecken, sollten dann [`aria-rowspan`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-rowspan) oder [`aria-colspan`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-colspan) ebenfalls enthalten sein. Behalten Sie im Hinterkopf, dass es viel einfacher ist, das {{HTMLElement('table')}}-Element zu verwenden, zusammen mit allen zugehörigen semantischen Elementen und Attributen, die von allen unterstützenden Technologien akzeptiert werden.
+Wenn die Tabelle sortierbare Spalten oder Reihen enthält, sollte das [`aria-sort`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-sort)-Attribut auf dem Kopfzellenelement (nicht auf der Tabelle selbst) hinzugefügt werden. Wenn irgendwelche Reihen oder Spalten verborgen sind, sollten [`aria-colcount`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-colcount) oder [`aria-rowcount`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-rowcount) eingeschlossen werden, um die Gesamtzahl der Spalten oder Reihen anzugeben, sowie [`aria-colindex`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-colindex) oder [`aria-rowindex`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-rowindex) auf jeder Zelle. Das [`aria-colindex`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-colindex) oder [`aria-rowindex`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-rowindex) ist auf die Position einer Zelle innerhalb der Reihe oder Spalte gesetzt. Wenn die Tabelle Zellen enthält, die sich über mehrere Reihen oder Spalten erstrecken, sollten auch [`aria-rowspan`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-rowspan) oder [`aria-colspan`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-colspan) eingeschlossen werden. Es ist viel einfacher, das {{HTMLElement('table')}}-Element zu verwenden, zusammen mit allen verwandten semantischen Elementen und Attributen, die von allen unterstützenden Technologien unterstützt werden.
 
-Um ein interaktives Widget mit einer tabellarischen Struktur zu erstellen, verwenden Sie stattdessen das `grid`-Muster. Wenn die Interaktion den Auswahlszustand einzelner Zellen bietet, wenn eine von links nach rechts und oben nach unten Navigation geboten wird oder wenn die Benutzeroberfläche das Umordnen der Zellenreihenfolge oder anderweitige Änderungen der Reihenfolge einzelner Zellen, wie durch Drag-and-Drop, zulässt, verwenden Sie stattdessen [`grid`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/grid_role) oder [`treegrid`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/treegrid_role).
+Um ein interaktives Widget mit einer tabellarischen Struktur zu erstellen, verwenden Sie stattdessen das `grid`-Muster. Wenn die Interaktion den Auswahlszustand einzelner Zellen erlaubt, wenn Links-nach-Rechts- und Oben-nach-Unten-Navigation bereitgestellt wird oder wenn die Benutzeroberfläche das Umordnen der Zellreihenfolge oder das sonstige Ändern der individuellen Zellreihenfolge durch z. B. Drag & Drop erlaubt, verwenden Sie stattdessen [`grid`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/grid_role) oder [`treegrid`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/treegrid_role).
 
 > [!NOTE]
-> Die Verwendung eines nativen HTML-Tabellen-Elements wann immer möglich wird dringend empfohlen.
+> Wann immer möglich, wird dringend empfohlen, ein natives HTML-Tabellenelement zu verwenden.
 
 ### Zugehörige WAI-ARIA-Rollen, -Zustände und -Eigenschaften
 
 - `role="rowgroup"`
-  - : Ein optionales Kind der Tabelle, das eine Gruppe von Zeilen umschließt, ähnlich wie {{HTMLElement('thead')}}, {{HTMLElement('tbody')}}, und {{HTMLElement('tfoot')}}.
+  - : Ein optionales Kind der Tabelle, die Zeilengruppe kapselt eine Gruppe von Reihen, ähnlich wie {{HTMLElement('thead')}}, {{HTMLElement('tbody')}}, und {{HTMLElement('tfoot')}}.
 - [`role="row"`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/row_role)
-  - : Eine Zeile innerhalb der Tabelle, und optional innerhalb einer Zeilengruppe, die eine oder mehrere Zellen, Spaltenheader oder Zeilenheader enthält.
-- [`aria-describedby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-describedby)-Attribut
+  - : Eine Reihe innerhalb der Tabelle und optional innerhalb einer Zeilengruppe, die eine oder mehrere Zellen, Spaltenköpfe oder Zeilenköpfe enthält.
+- [`aria-describedby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-describedby) Attribut
   - : Nimmt als Wert die ID des Elements, das als Beschreibung für die Tabelle dient.
-- [`aria-label`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label)-Attribut
+- [`aria-label`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label) Attribut
   - : Das [`aria-label`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label) bietet einen zugänglichen Namen für die Tabelle.
-- [`aria-colcount`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-colcount)-Attribut
-  - : Dieses Attribut ist nur erforderlich, wenn die Spalten nicht immer im DOM vorhanden sind. Es bietet eine explizite Angabe der Anzahl der Spalten in der vollständigen Tabelle. Setzen Sie den Wert auf die Gesamtanzahl der Spalten in der vollständigen Tabelle. Wenn unbekannt, setzen Sie `aria-colcount="-1"`.
-- [`aria-rowcount`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-rowcount)-Attribut
-  - : Dieses Attribut ist nur erforderlich, wenn die Zeilen nicht immer im DOM vorhanden sind, wie z. B. scrollbare Tabellen, die Zeilen zur Minimierung der Anzahl von DOM-Knoten wiederverwenden. Es bietet eine explizite Angabe der Anzahl der Zeilen in der vollständigen Tabelle. Setzen Sie den Wert auf die Gesamtanzahl der Zeilen in der vollständigen Tabelle. Wenn unbekannt, setzen Sie `aria-rowcount="-1"`.
+- [`aria-colcount`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-colcount) Attribut
+  - : Dieses Attribut ist nur erforderlich, wenn die Spalten nicht immer im DOM vorhanden sind. Es gibt explizit die Anzahl der Spalten in der vollständigen Tabelle an. Setzen Sie den Wert auf die Gesamtzahl der Spalten in der vollständigen Tabelle. Wenn unbekannt, setzen Sie `aria-colcount="-1"`.
+- [`aria-rowcount`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-rowcount) Attribut
+  - : Dieses Attribut ist nur erforderlich, wenn die Reihen nicht immer im DOM vorhanden sind, wie bei scrollbaren Tabellen, die Reihen wiederverwenden, um die Anzahl der DOM-Knoten zu minimieren. Es gibt explizit die Anzahl der Reihen in der vollständigen Tabelle an. Setzen Sie den Wert auf die Gesamtanzahl der Reihen in der vollständigen Tabelle. Wenn unbekannt, setzen Sie `aria-rowcount="-1"`.
 
 ### Tastaturinteraktionen
 
@@ -82,10 +83,10 @@ Keine.
 
 ### Erforderliche JavaScript-Funktionen
 
-Keine. Für sortierbare Spalten siehe die [columnheader](/de/docs/Web/Accessibility/ARIA/Reference/Roles/columnheader_role) ARIA-Rolle.
+Keine. Für sortierbare Spalten siehe die [columnheader](/de/docs/Web/Accessibility/ARIA/Reference/Roles/columnheader_role) aria-Rolle.
 
 > [!NOTE]
-> Die erste Regel bei der Verwendung von ARIA ist, dass wenn Sie eine native Funktion mit den erforderlichen Semantiken und Verhaltensweisen bereits eingebaut verwenden können, anstatt ein Element neu zu verwenden und eine ARIA-Rolle, einen Zustand oder eine Eigenschaft hinzuzufügen, um es zugänglich zu machen, dann sollten Sie dies tun. Verwenden Sie wann immer möglich das HTML-{{HTMLElement('table')}}-Element anstelle der ARIA-Rolle der Tabelle.
+> Die erste Regel bei der Verwendung von ARIA ist, wenn Sie eine native Funktion verwenden können, deren Semantik und Verhalten Sie benötigen, anstatt ein Element zweckzuentfremden und **ein** ARIA-Rolle, einen Zustand oder eine Eigenschaft hinzuzufügen, um es zugänglich zu machen, dann tun Sie dies. Verwenden Sie das HTML-{{HTMLElement('table')}}-Element anstelle der ARIA-Tabelle, wann immer möglich.
 
 ## Beispiele
 
@@ -125,11 +126,11 @@ Keine. Für sortierbare Spalten siehe die [columnheader](/de/docs/Web/Accessibil
 </div>
 ```
 
-Das obige ist ein Teil einer Tabelle. Obwohl die vollständige Tabelle 81 Einträge hat, wie durch das [`aria-rowcount`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-rowcount)-Attribut angezeigt, sind derzeit nur vier sichtbar. Die Spalten sind sortierbar, aber momentan nicht sortiert, was durch das [`aria-sort`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-sort)-Attribut in den Spaltenköpfen angezeigt wird.
+Das obige ist ein Teil einer Tabelle. Während die vollständige Tabelle 81 Einträge hat, wie durch die [`aria-rowcount`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-rowcount)-Eigenschaft angegeben, sind derzeit nur vier sichtbar. Die Spalten sind sortierbar, aber nicht aktuell sortiert, wie durch die [`aria-sort`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-sort)-Eigenschaft auf den Spaltenköpfen angegeben.
 
 ## Beste Praktiken
 
-Verwenden Sie nur {{HTMLElement('table')}}, {{HTMLElement('tbody')}}, {{HTMLElement('thead')}}, {{HTMLElement('tr')}}, {{HTMLElement('th')}}, {{HTMLElement('td')}}, usw., für die Datenstrukturtabelle. Sie können diese ARIA-Rollen hinzufügen, um die Barrierefreiheit sicherzustellen, falls die nativen Semantiken der Tabelle, z. B. durch CSS, entfernt werden. Ein relevanter Anwendungsfall für die ARIA-Tabellenrolle ist, wenn CSS die nativen Semantiken einer Tabelle durch die `display`-Eigenschaft überschreibt, z. B. durch `display: grid`. In diesem Fall können Sie die ARIA-Tabellenrollen verwenden, um die Semantiken wieder hinzuzufügen.
+Verwenden Sie nur {{HTMLElement('table')}}, {{HTMLElement('tbody')}}, {{HTMLElement('thead')}}, {{HTMLElement('tr')}}, {{HTMLElement('th')}}, {{HTMLElement('td')}}, usw., für Datentabellenstrukturen. Sie können diese ARIA-Rollen hinzufügen, um die Zugänglichkeit sicherzustellen, falls die native Semantik der Tabelle entfernt wird, etwa durch CSS. Ein relevanter Anwendungsfall für die ARIA-Tabellenrolle ist, wenn die Display-Eigenschaft von CSS die native Semantik einer Tabelle überschreibt, beispielsweise durch `display: grid`. In diesem Fall können Sie die ARIA-Tabellenrollen verwenden, um die Semantik wieder hinzuzufügen.
 
 ## Spezifikationen
 
@@ -137,6 +138,6 @@ Verwenden Sie nur {{HTMLElement('table')}}, {{HTMLElement('tbody')}}, {{HTMLElem
 
 ## Siehe auch
 
-- [Lernen: HTML-Tabellen-Zugänglichkeit](/de/docs/Learn_web_development/Core/Structuring_content/Table_accessibility)
+- [Lernen: HTML-Tabellenzugänglichkeit](/de/docs/Learn_web_development/Core/Structuring_content/Table_accessibility)
 - [Lernen: HTML-Tabellengrundlagen](/de/docs/Learn_web_development/Core/Structuring_content/HTML_table_basics)
 - [ARIA: `grid`-Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles/grid_role)

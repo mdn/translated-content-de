@@ -1,44 +1,45 @@
 ---
-title: "ARIA: heading-Rolle"
+title: "ARIA: Rolle `heading`"
+short-title: heading
 slug: Web/Accessibility/ARIA/Reference/Roles/heading_role
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: a8b25483994fa47cf949b432ddf34a6bce2ddb2e
 ---
 
-Die `heading`-Rolle definiert dieses Element als eine Überschrift einer Seite oder eines Abschnitts, wobei das [`aria-level`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-level)-Attribut für mehr Struktur sorgt.
+Die Rolle `heading` definiert dieses Element als eine Überschrift für eine Seite oder einen Abschnitt, wobei das Attribut [`aria-level`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-level) für mehr Struktur sorgt.
 
 ## Beschreibung
 
-Die heading-Rolle zeigt unterstützenden Technologien an, dass dieses Element wie eine Überschrift behandelt werden soll. Bildschirmlesegeräte würden den Text lesen und verdeutlichen, dass er wie eine Überschrift formatiert ist. Zusätzlich zeigt die Ebene den unterstützenden Technologien, welchen Teil der Seitenstruktur diese Überschrift repräsentiert. Eine Überschrift der Ebene 1, angezeigt durch `aria-level="1"`, zeigt gewöhnlich die Hauptüberschrift einer Seite, eine Überschrift der Ebene 2, definiert mit `aria-level="2"`, den ersten Unterabschnitt an, und eine Überschrift der Ebene 3 ist ein Unterabschnitt davon, und so weiter.
+Die Rolle `heading` signalisiert unterstützenden Technologien, dass dieses Element wie eine Überschrift behandelt werden sollte. Bildschirmleser würden den Text lesen und angeben, dass er wie eine Überschrift formatiert ist. Darüber hinaus weist die Ebene unterstützenden Technologien darauf hin, welchen Teil der Seitenstruktur diese Überschrift repräsentiert. Eine Überschrift der Ebene 1, die mit `aria-level="1"` gekennzeichnet ist, deutet normalerweise auf die Hauptüberschrift einer Seite hin, eine Überschrift der Ebene 2, definiert mit `aria-level="2"`, auf den ersten Unterabschnitt, eine Ebene-3-Überschrift ist ein Unterabschnitt davon, und so weiter.
 
 ```html
 <div role="heading" aria-level="1">This is a main page heading</div>
 ```
 
-Dies definiert den Text im `<div>` als Hauptüberschrift der Seite, angezeigt durch die Ebene 1 über das `aria-level`-Attribut. Verwenden Sie stattdessen das {{HTMLElement("Heading_Elements", "h1")}}-Element (bis {{HTMLElement("Heading_Elements", "h6")}}).
+Dies definiert den Text im `<div>` als Hauptüberschrift der Seite, angezeigt durch die Ebene 1 über das `aria-level` Attribut. Verwenden Sie stattdessen das {{HTMLElement("Heading_Elements", "h1")}} (bis {{HTMLElement("Heading_Elements", "h6")}}) Element.
 
 ```html
 <h1>This is a main page heading</h1>
 ```
 
-### Zugehörige WAI-ARIA-Rollen, Zustände und Eigenschaften
+### Zugehörige WAI-ARIA Rollen, Zustände und Eigenschaften
 
 - [`aria-level`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-level)
-  - : Das `aria-level`-Attribut gibt die Überschriftenebene in der Dokumentstruktur an. Wenn keine Ebene vorhanden ist, ist der Standardwert 2.
+  - : Das Attribut `aria-level` gibt die Überschriftenebene in der Dokumentenstruktur an. Wenn keine Ebene vorhanden ist, ist der Standardwert 2.
 
 ### Tastaturinteraktionen
 
-Diese Rolle erfordert keine speziellen Tastaturnavigationen. Wie bei jeder Überschrift sorgt eine ID dafür, dass sie über Ankerlinks referenziert werden kann, was ihre Zugänglichkeit über die Tastatur gewährleistet.
+Diese Rolle erfordert keine speziellen Tastaturnavigationen. Wie bei jeder Überschrift stellt das Vergeben einer ID sicher, dass sie von Ankerlinks referenziert werden kann und somit über die Tastatur zugänglich ist.
 
 ### Erforderliche JavaScript-Funktionen
 
 - Erforderliche Ereignishandler
   - : Keine.
-- Änderung von Attributwerten
-  - : In der Regel nicht erforderlich, es sei denn, Inhalte werden dynamisch eingefügt. In diesem Fall benötigen die neu hinzugefügten Überschriften `aria-level`-Attribute, deren Werte mit der restlichen Dokumentstruktur konsistent sind.
+- Änderungen von Attributwerten
+  - : In der Regel nicht erforderlich, es sei denn, Inhalte werden dynamisch eingefügt. In diesem Fall benötigen die neu hinzugefügten Überschriften `aria-level` Attribute, deren Werte mit der restlichen Dokumentstruktur übereinstimmen.
 
 > [!NOTE]
-> Anstatt ein `<div>` oder `<span>` mit einer `heading`-Rolle und `aria-level` zu verwenden, ziehen Sie in Betracht, native {{HTMLElement("Heading_Elements", "h1")}} bis {{HTMLElement("Heading_Elements", "h6")}} Elemente zu nutzen, um anzuzeigen, dass dieser Text eine Überschrift ist und welchen Teil der Struktur er repräsentiert.
+> Anstatt ein `<div>` oder `<span>` mit einer `heading` Rolle und `aria-level` zu verwenden, ziehen Sie in Betracht, native {{HTMLElement("Heading_Elements", "h1")}} bis {{HTMLElement("Heading_Elements", "h6")}} Elemente zu verwenden, um anzuzeigen, dass dieser Text eine Überschrift ist und welchen Teil der Struktur er repräsentiert.
 
 ## Beispiele
 
@@ -57,7 +58,7 @@ Das folgende zeigt eine typische Seitenstruktur.
 </div>
 ```
 
-Stattdessen sollten Sie jedoch Folgendes tun:
+Stattdessen sollten Sie jedoch folgendes tun:
 
 ```html
 <div id="container">
@@ -75,17 +76,17 @@ Stattdessen sollten Sie jedoch Folgendes tun:
 ## Barrierefreiheitsbedenken
 
 > [!WARNING]
-> Die Verwendung von [`aria-label`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label) oder [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby) wird den Inhalt Ihrer Überschrift vor unterstützenden Technologien verbergen und stattdessen das Label lesen.
+> Die Verwendung von [`aria-label`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label) oder [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby) wird den Inhalt Ihrer Überschrift vor unterstützenden Technologien verbergen, die stattdessen das Label lesen werden.
 
-Wenn Sie die `heading`-Rolle und das [`aria-level`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-level)-Attribut verwenden müssen, überschreiten Sie nicht Ebene 6, um mit HTML konsistent zu bleiben. Obwohl theoretisch höhere Ebenen möglich sind und einige Bildschirmlesegeräte sie unterstützen können, können die Ergebnisse mit anderen Browser- und Bildschirmleser-Kombinationen unvorhersehbar sein.
+Wenn Sie die Rolle `heading` und das Attribut [`aria-level`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-level) verwenden müssen, überschreiten Sie nicht die Ebene 6, um konsistent mit HTML zu bleiben. Obwohl Sie theoretisch höher gehen können und einige Bildschirmleser dies unterstützen, können die Ergebnisse mit anderen Browser- und Bildschirmleser-Kombinationen unvorhersehbar sein.
 
 ## Beste Praktiken
 
-Die beste Nutzung dieser Rolle besteht darin **sie gar nicht zu verwenden**, und stattdessen die nativen Überschriftstags {{HTMLElement("Heading_Elements", "h1")}} bis {{HTMLElement("Heading_Elements", "h6")}} wie im obigen Beispiel zu verwenden. Die `heading`-Rolle und das `aria-level`-Attribut sollten nur verwendet werden, um die Barrierefreiheit in Legacy-Code, den Sie nicht grundlegend ändern können, nachzurüsten.
+Der beste Weg, diese Rolle zu nutzen, besteht darin, sie **überhaupt nicht zu verwenden**, sondern stattdessen die nativen Überschriften-Tags {{HTMLElement("Heading_Elements", "h1")}} bis {{HTMLElement("Heading_Elements", "h6")}} zu verwenden, wie im obigen Beispiel gezeigt. Die Rolle `heading` und das Attribut `aria-level` sollten nur verwendet werden, um Barrierefreiheit auf alten Code nachzurüsten, den Sie nicht grundlegend ändern können.
 
-Anstatt die ARIA `heading`-Rolle zu verwenden, nutzen Sie das semantische HTML-Element:
+Anstatt die ARIA `heading` Rolle zu nutzen, verwenden Sie das semantische HTML-Element:
 
-| HTML-Element                              | `heading`-Rolle                       |
+| HTML-Element                              | Rolle `heading`                       |
 | ----------------------------------------- | ------------------------------------- |
 | {{HTMLElement("Heading_Elements", "h1")}} | `<div role="heading" aria-level="1">` |
 | {{HTMLElement("Heading_Elements", "h2")}} | `<div role="heading" aria-level="2">` |
@@ -104,8 +105,8 @@ Keine.
 
 ## Vorrangordnung
 
-Die `heading`-Rolle überschreibt die native semantische Bedeutung des Elements, für das sie verwendet wird. Das `aria-level`-Attribut bestimmt außerdem, welche Überschriftenebene dargestellt wird.
+Die Rolle `heading` überschreibt die native semantische Bedeutung des Elements, für das sie verwendet wird. Das Attribut `aria-level` bestimmt zusätzlich, welche Überschriftenebene offengelegt wird.
 
 ## Siehe auch
 
-- [`<h1>` bis `<h6>`: Die HTML-Abschnittsüberschriftselemente](/de/docs/Web/HTML/Reference/Elements/Heading_Elements)
+- [`<h1>` bis `<h6>`: Die HTML-Überschriftselemente](/de/docs/Web/HTML/Reference/Elements/Heading_Elements)

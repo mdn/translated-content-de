@@ -2,17 +2,17 @@
 title: mask-type
 slug: Web/SVG/Reference/Attribute/mask-type
 l10n:
-  sourceCommit: c5dc2ada8a069f09eaf7de670059e5d0d5e39399
+  sourceCommit: ce1dfc470d18fa6ba694a5b8bd5c657914e57cc3
 ---
 
-Das **`mask-type`** Attribut gibt an, welchen Maskierungsmodus, _alpha_ oder _luminance_, für den Inhalt des {{ SVGElement("mask") }} Elements beim Maskieren verwendet werden soll.
+Das **`mask-type`** Attribut gibt an, welcher Maskenmodus, _Alpha_ oder _Luminanz_, für die Inhalte des {{ SVGElement("mask") }} Elements bei der Maskierung verwendet werden soll.
 
 Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 - {{SVGElement('mask')}}
 
 > [!NOTE]
-> Dieses Präsentationsattribut hat ein entsprechendes CSS-Eigenschaftsgegenstück: {{cssxref("mask-type")}}. Wenn beide angegeben sind, hat die CSS-Eigenschaft Vorrang.
+> Dieses Präsentationsattribut hat ein entsprechendes CSS-Attribut: {{cssxref("mask-type")}}. Wenn beide angegeben sind, hat das CSS-Attribut Vorrang.
 
 ## Beispiel
 
@@ -59,7 +59,7 @@ svg {
 
 ## mask
 
-Für {{SVGElement("mask")}} definiert `mask-type`, ob der Inhalt des Maskelements als Luminanzmaske oder Alphamaske behandelt wird.
+Für {{SVGElement("mask")}} definiert `mask-type`, ob der Inhalt des Maskenelements als Luminanzmaske oder Alphamaske behandelt wird.
 
 <table class="properties">
   <tbody>
@@ -79,9 +79,9 @@ Für {{SVGElement("mask")}} definiert `mask-type`, ob der Inhalt des Maskelement
 </table>
 
 - `alpha`
-  - : Dieser Wert gibt an, dass die Alphawerte des {{SVGElement('mask')}} Elements verwendet werden sollten; die Pixel des maskierten Objekts entsprechen der Abdeckung der Maskenbereiche, ohne Berücksichtigung der Luminanz der Farben der Maske.
+  - : Dieser Wert gibt an, dass die Alpha-Werte des {{SVGElement('mask')}} Elements verwendet werden sollen; die Pixel des maskierten Objekts entsprechen der Undurchsichtigkeit der Maskenbereiche, ohne Rücksicht auf die Luminanz der Farben der Maske.
 - `luminance`
-  - : Dieser Wert gibt an, dass die Luminanzwerte des {{SVGElement('mask')}} Elements verwendet werden sollten; die Deckkraft des maskierten Objekts hängt von der Opazität und Helligkeit der Maske ab. Die Opazität einer `luminance` Maske wird durch die `R`, `G`, `B` und `A` Kanäle der Maske bestimmt, unter Verwendung der Gleichung `((0.2125 * R) + (0.7154 * G) + (0.0721 * B)) * A`.
+  - : Dieser Wert gibt an, dass die Luminanzwerte des {{SVGElement('mask')}} Elements verwendet werden sollen; die Undurchsichtigkeit des maskierten Objekts hängt von der Opazität und Helligkeit der Maske ab. Die Opazität einer `luminance` Maske wird durch die `R`, `G`, `B` und `A` Kanäle der Maske bestimmt, anhand der Gleichung `((0.2125 * R) + (0.7154 * G) + (0.0721 * B)) * A`.
 
 ## Spezifikationen
 
@@ -95,3 +95,4 @@ Für {{SVGElement("mask")}} definiert `mask-type`, ob der Inhalt des Maskelement
 
 - CSS {{cssxref("mask-type")}} Eigenschaft
 - CSS {{cssxref("mask-mode")}} Eigenschaft
+- [Einführung in CSS-Maskierung](/de/docs/Web/CSS/CSS_masking/Masking)

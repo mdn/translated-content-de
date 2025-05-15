@@ -1,32 +1,33 @@
 ---
-title: aria-haspopup
+title: "ARIA: aria-haspopup-Attribut"
+short-title: aria-haspopup
 slug: Web/Accessibility/ARIA/Reference/Attributes/aria-haspopup
 l10n:
-  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
+  sourceCommit: a8b25483994fa47cf949b432ddf34a6bce2ddb2e
 ---
 
-Das `aria-haspopup`-Attribut zeigt die Verfügbarkeit und den Typ eines interaktiven Popups an, das durch das Element ausgelöst werden kann, auf dem das Attribut gesetzt ist.
+Das `aria-haspopup`-Attribut gibt die Verfügbarkeit und den Typ eines interaktiven Popup-Elements an, das durch das Element, auf dem das Attribut gesetzt ist, ausgelöst werden kann.
 
 ## Beschreibung
 
-In ARIA werden interaktive Menüs, Listboxen, Bäume, Raster und Dialoge, die über anderen Inhalten erscheinen, wenn sie ausgelöst werden, als "Popups" betrachtet. Diese Popups werden durch eines oder mehrere interaktive Elemente auf der Seite ausgelöst. Die Verfügbarkeit und der Typ des Popups, das das interaktive Element auslösen wird, sollten mit dem `aria-haspopup`-Zustand identifiziert werden.
+In ARIA werden interaktive Menüs, Listboxen, Bäume, Gitter und Dialoge, die beim Auslösen über anderem Inhalt erscheinen, als "Popups" betrachtet. Diese Popups werden durch eines oder mehrere interaktive Elemente auf der Seite ausgelöst. Die Verfügbarkeit und der Typ des Popups, das das interaktive Element auslösen wird, sollten mit dem `aria-haspopup`-Zustand identifiziert werden.
 
-Das Vorhandensein von `aria-haspopup` mit einem der sechs aufgelisteten Werte - `menu`, `listbox`, `tree`, `grid`, `dialog` oder `true` - zeigt an, dass das Element ein Popup auslösen kann und welche Art von Popup angezeigt wird. Das auftauchende Element muss die angegebene Rolle haben. Der Wert `true` entspricht `menu`. Jeder andere Wert, einschließlich eines leeren Strings oder einer anderen [Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles), wird so behandelt, als wäre `false` gesetzt.
+Das Vorhandensein von `aria-haspopup` mit einem von sechs aufgezählten Werten - `menu`, `listbox`, `tree`, `grid`, `dialog` oder `true` - zeigt an, dass das Element ein Popup auslösen kann und welche Art von Popup angezeigt wird. Das Element, das erscheint, muss die angegebene Rolle haben. Der Wert `true` ist gleichbedeutend mit `menu`. Jeder andere Wert, einschließlich eines leeren Strings oder einer anderen [Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles), wird behandelt, als wäre `false` gesetzt.
 
-Ein [`Tooltip`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/tooltip_role) wird in diesem Kontext nicht als Popup angesehen, da es nicht interaktiv ist.
+Ein [`tooltip`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/tooltip_role) wird in diesem Kontext nicht als Popup betrachtet, da es nicht interaktiv ist.
 
 > [!NOTE]
 > Stellen Sie sicher, dass die Rolle des Elements, das als Container für den Popup-Inhalt dient, ein [`menu`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/menu_role), [`listbox`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/listbox_role), [`tree`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/tree_role), [`grid`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/grid_role) oder [`dialog`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/dialog_role) ist und dass der Wert von `aria-haspopup` mit der Rolle des Popup-Containers übereinstimmt.
 
-Der `aria-haspopup`-Zustand informiert Benutzer von unterstützenden Technologien darüber, dass ein Popup vorhanden ist und um welche Art von Popup es sich handelt, bietet jedoch keine Interaktivität. Damit das Popup über die Tastatur zugänglich ist, stellen Sie sicher, dass das Element mit `aria-haspopup` fokussierbar ist und das Popup auslösen kann, dass es einen Tastaturmechanismus zum Öffnen des Popups gibt, und dass das Popup-Element den Fokus aller seiner Nachkommen verwaltet.
+Der `aria-haspopup`-Zustand informiert die Benutzer von unterstützenden Technologien darüber, dass es ein Popup gibt und welchen Typ es hat, bietet jedoch keine Interaktivität. Um das Popup tastaturzugänglich zu machen, stellen Sie sicher, dass das Element mit `aria-haspopup` fokussierbar ist und das Popup auslösen kann, dass ein Tastaturmechanismus zum Öffnen des Popups vorhanden ist und dass das Popup-Element den Fokus seiner gesamten Nachfolger verwaltet.
 
 > [!NOTE]
 > ARIA ermöglicht keine zugängliche Funktionalität. ARIA vermittelt nur das beabsichtigte Verhalten Ihrer Funktionalität.
 
-Beim Erstellen einer [`Menüleiste`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/menubar_role) sollte ein übergeordnetes [`Menüelement`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/menuitem_role) `aria-haspopup="menu"` (oder `true`) gesetzt haben. Jeder Button, der ein Menü öffnet, sollte die Rolle eines [`Buttons`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/button_role) haben oder vorzugsweise ein {{HTMLElement('button')}} sein und ebenfalls `aria-haspopup="menu"` (oder `true`) gesetzt haben. [`Tab`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/tab_role)-Elemente mit Popup-Menüs sollten ebenfalls `aria-haspopup="menu"` gesetzt haben. Beachten Sie, dass `menubar`s nicht zur Erstellung der Navigation von Websites verwendet werden sollten.
+Bei der Erstellung einer [`menubar`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/menubar_role) sollte ein übergeordnetes [`menuitem`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/menuitem_role) mit `aria-haspopup="menu"` (oder `true`) versehen sein. Jeder Button, der ein Menü öffnet, sollte die Rolle [`button`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/button_role) haben oder vorzugsweise ein {{HTMLElement('button')}} sein und ebenfalls `aria-haspopup="menu"` (oder `true`) haben. [`Tab`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/tab_role)-Elemente mit Popup-Menüs sollten ebenfalls `aria-haspopup="menu"` gesetzt haben. Beachten Sie, dass `menubar`s nicht zur Erstellung einer Website-Navigation verwendet werden sollten.
 
 > [!NOTE]
-> Elemente mit der Rolle [`combobox`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/combobox_role) haben implizit einen `aria-haspopup`-Wert von `listbox`.
+> Elemente mit der Rolle [`combobox`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/combobox_role) haben einen impliziten `aria-haspopup`-Wert von `listbox`.
 
 ## Werte
 
@@ -41,14 +42,14 @@ Beim Erstellen einer [`Menüleiste`](/de/docs/Web/Accessibility/ARIA/Reference/R
 - `tree`
   - : Das Popup ist ein Baum.
 - `grid`
-  - : Das Popup ist ein Raster.
+  - : Das Popup ist ein Gitter.
 - `dialog`
   - : Das Popup ist ein Dialog.
 
 ## Zugehörige Schnittstellen
 
 - [`Element.ariaHasPopup`](/de/docs/Web/API/Element/ariaHasPopup)
-  - : Die [`ariaHasPopup`](/de/docs/Web/API/Element/ariaHasPopup)-Eigenschaft, Teil der [`Element`](/de/docs/Web/API/Element)-Schnittstelle, gibt den Wert des `aria-haspopup`-Attributs wieder, das die Verfügbarkeit und den Typ des interaktiven Popups anzeigt, wie z. B. Menü oder Dialog, das durch ein Element ausgelöst werden kann.
+  - : Die [`ariaHasPopup`](/de/docs/Web/API/Element/ariaHasPopup)-Eigenschaft, Teil der [`Element`](/de/docs/Web/API/Element)-Schnittstelle, spiegelt den Wert des `aria-haspopup`-Attributs wider, das die Verfügbarkeit und den Typ des interaktiven Popup-Elements, wie z.B. Menü oder Dialog, das durch ein Element ausgelöst werden kann, angibt.
 - [`ElementInternals.ariaHasPopup`](/de/docs/Web/API/ElementInternals/ariaHasPopup)
   - : Die [`ariaHasPopup`](/de/docs/Web/API/ElementInternals/ariaHasPopup)-Eigenschaft der [`ElementInternals`](/de/docs/Web/API/ElementInternals)-Schnittstelle spiegelt den Wert des `aria-haspopup`-Attributs wider.
 
@@ -87,4 +88,4 @@ Vererbt in Rollen:
 - [`tree`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/tree_role)
 - [`grid`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/grid_role)
 - [`dialog`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/dialog_role)
-- [Toolbar example](https://www.w3.org/WAI/ARIA/apg/patterns/toolbar/examples/toolbar/) - W3C WAI ARIA Practices
+- [Toolbar-Beispiel](https://www.w3.org/WAI/ARIA/apg/patterns/toolbar/examples/toolbar/) - W3C WAI ARIA Praktiken

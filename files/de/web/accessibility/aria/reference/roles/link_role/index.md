@@ -1,29 +1,30 @@
 ---
-title: "ARIA: link Rolle"
+title: "ARIA: link-Rolle"
+short-title: link
 slug: Web/Accessibility/ARIA/Reference/Roles/link_role
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: a8b25483994fa47cf949b432ddf34a6bce2ddb2e
 ---
 
-Ein `link`-Widget bietet einen interaktiven Verweis auf eine Ressource. Die Zielressource kann entweder extern oder lokal sein, d.h. sich außerhalb oder innerhalb der aktuellen Seite oder Anwendung befinden.
+Ein `link`-Widget bietet einen interaktiven Verweis auf eine Ressource. Die Zielressource kann entweder extern oder lokal sein, d.h. entweder außerhalb oder innerhalb der aktuellen Seite oder Anwendung.
 
 > [!NOTE]
-> Wenn möglich, wird empfohlen, ein natives {{HTMLElement("a")}}-Element anstelle der `link`-Rolle zu verwenden, da native Elemente von Benutzeragenten und unterstützenden Technologien weiter verbreitet unterstützt werden. Native {{HTMLElement("a")}}-Elemente erfüllen standardmäßig die Anforderungen an Tastatursteuerung und Fokus, ohne dass zusätzliche Anpassungen erforderlich sind.
+> Wo möglich, wird empfohlen, ein natives {{HTMLElement("a")}}-Element anstelle der `link`-Rolle zu verwenden, da native Elemente von Benutzeragenten und unterstützender Technologie breiter unterstützt werden. Native {{HTMLElement("a")}}-Elemente unterstützen auch standardmäßig Tastatur- und Fokusanforderungen, ohne dass zusätzliche Anpassungen erforderlich sind.
 
 ## Beschreibung
 
-Die `link`-Rolle wird verwendet, um ein Element zu identifizieren, das einen Hyperlink zu einer Ressource innerhalb der Anwendung oder extern erstellt.
+Die `link`-Rolle wird verwendet, um ein Element zu identifizieren, das einen Hyperlink zu einer Ressource in der Anwendung oder extern erstellt.
 
-Wenn semantisches HTML nicht für seinen beabsichtigten Zweck genutzt wird, müssen interaktive Funktionen neu implementiert werden. Zum Beispiel, wenn `role="link"` zu einem Element hinzugefügt wird, sollte die <kbd>Tab</kbd>-Taste es ermöglichen, dem Link Fokus zu geben, und die <kbd>Enter</kbd>-Taste sollte den Link ausführen, wenn der Fokus darauf liegt.
+Wenn semantisches HTML nicht für den vorgesehenen Zweck verwendet wird, müssen interaktive Funktionen neu implementiert werden. Zum Beispiel, wenn `role="link"` zu einem Element hinzugefügt wird, sollte die <kbd>Tab</kbd>-Taste es ermöglichen, dem Link den Fokus zu geben, und die <kbd>Enter</kbd>-Taste sollte den Link ausführen, wenn er fokussiert ist.
 
-Verwenden Sie das [`tabindex`](/de/docs/Web/HTML/Reference/Global_attributes/tabindex)-Attribut mit einem Wert von `0`, um sicherzustellen, dass sich der Link in der richtigen Tabulatorfokus-Reihenfolge befindet.
+Verwenden Sie das [`tabindex`](/de/docs/Web/HTML/Reference/Global_attributes/tabindex)-Attribut mit einem Wert von `0`, um sicherzustellen, dass der Link in der richtigen Tab-Reihenfolge fokussiert wird.
 
 > [!WARNING]
-> Das Anwenden der `link`-Rolle auf ein Element führt nicht dazu, dass Browser das Element mit standardmäßiger Link-Darstellung oder -Verhalten verbessern, wie Unterstreichen, Fokusring, Navigation zum Linkziel oder Kontextmenüaktionen. Das ist die Verantwortung des Entwicklers.
+> Die Anwendung der `link`-Rolle auf ein Element wird keine Browser dazu veranlassen, das Element mit standardmäßigem Link-Aussehen oder -Verhalten wie Unterstreichungen, Fokusringe, Navigation zum Linkziel oder Kontextmenüaktionen zu unterstützen. Das ist die Verantwortung des Entwicklers.
 
 ## Beispiele
 
-Um einen barrierefreien Link mit der `link`-Rolle auf einem Element nachzubilden, das kein {{HTMLElement('a')}} ist, müssen Sie sicherstellen, dass der Link in der richtigen Tabulatorreihenfolge den Fokus erhält, dass das Element wie ein Link aussieht und dass der "Link" sich wie ein Link verhält.
+Um einen zugänglichen Link mit der `link`-Rolle auf einem Element, das kein {{HTMLElement('a')}} ist, zu erstellen, müssen Sie sicherstellen, dass der Link in der richtigen Tab-Reihenfolge fokussiert wird, dass das Element wie ein Link aussieht und dass der "Link" sich wie ein Link verhält.
 
 ```html
 <span data-href="https://mozilla.org" tabindex="0" role="link">
@@ -72,22 +73,22 @@ function navigateLink(e) {
 }
 ```
 
-Wenn das Element mit `role="link"` ein <kbd>Enter</kbd>-Tastenevent empfängt, wird der Link ausgeführt, es wird zur verlinkten Seite gewechselt oder der Fokus auf das Ziel innerhalb der Seite bewegt.
+Wenn das Element mit `role="link"` ein <kbd>Enter</kbd>-Tastenevent erhält, wird der Link ausgeführt, indem zur verlinkten Seite gewechselt oder der Fokus auf das Ziel innerhalb der Seite verschoben wird.
 
 Optional öffnet <kbd>Shift</kbd> + <kbd>F10</kbd> ein Kontextmenü für den Link.
 
-## Best Practices
+## Beste Praktiken
 
-Die verschiedenen Widget-Rollen werden verwendet, um gängige interaktive Muster zu definieren. Ähnlich wie bei den Dokumentstrukturrrollen duplizieren einige dieser Rollen, einschließlich der `link`-Rolle, die Semantik von nativen HTML-Elementen, die gut unterstützt werden und sollten nicht verwendet werden.
+Die verschiedenen Widget-Rollen werden verwendet, um gängige interaktive Muster zu definieren. Ähnlich wie die Dokumentstruktur-Rollen duplizieren einige dieser Rollen, einschließlich der `link`-Rolle, die Semantik von nativen HTML-Elementen, die gut unterstützt werden und nicht verwendet werden sollten.
 
-Vermeiden Sie die Verwendung von `link`, die wir der Vollständigkeit halber aufgenommen haben. Das {HTMLElement('a')}}-semantische Äquivalent mit zugänglicher Interaktivität ist verfügbar und unterstützt.
+Vermeiden Sie die Verwendung von `link`, die wir der Vollständigkeit halber aufgenommen haben. Das {{HTMLElement('a')}}-Semantik-Äquivalent mit zugänglicher Interaktivität ist verfügbar und unterstützt.
 
-### Bevorzugen Sie HTML
+### HTML bevorzugen
 
-Verwenden Sie stattdessen das {{HTMLElement('a')}}.
+Verwenden Sie das {{HTMLElement('a')}} stattdessen.
 
 > [!NOTE]
-> Es ist nicht erforderlich, `role="link"` zu einem HTML-Link hinzuzufügen, da das `<a>` standardmäßig bereits diese Rolle hat.
+> Es ist nicht erforderlich, `role="link"` in einen HTML-Link aufzunehmen, da das `<a>` standardmäßig diese Rolle bereits hat.
 
 ## Spezifikationen
 
