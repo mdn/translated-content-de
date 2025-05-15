@@ -2,7 +2,7 @@
 title: contrast()
 slug: Web/CSS/filter-function/contrast
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: c05ef6211441aedb359d4020518ac152aa92db9e
 ---
 
 {{CSSRef}}
@@ -46,9 +46,9 @@ contrast(amount)
 ### Werte
 
 - `amount` {{Optional_Inline}}
-  - : Der Kontrast des Ergebnisses, angegeben als eine {{cssxref("&lt;number&gt;")}} oder ein {{cssxref("&lt;percentage&gt;")}}. Ein Wert unter `100%` verringert den Kontrast, während ein Wert über `100%` ihn erhöht. Ein Wert von `0` oder `0%` erzeugt ein vollständig graues Bild, während ein Wert von `1` oder `100%` das Eingabebild unverändert lässt. Negative Werte sind nicht erlaubt. Der Anfangswert für {{Glossary("interpolation", "Interpolation")}} ist `1`. Der Standardwert ist `1`.
+  - : Der Kontrast des Ergebnisses, angegeben als {{cssxref("&lt;number&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}. Ein Wert unter `100%` verringert den Kontrast, während ein Wert über `100%` ihn erhöht. Ein Wert von `0` oder `0%` erzeugt ein komplett graues Bild, während ein Wert von `1` oder `100%` das Eingabebild unverändert lässt. Negative Werte sind nicht erlaubt. Der anfängliche Wert für {{Glossary("interpolation", "Interpolation")}} ist `1`. Der Standardwert ist `1`.
 
-Die folgenden Paare sind gleichwertige Werte:
+Die folgenden Paare von Werten sind gleichwertig:
 
 ```css
 contrast(0)    /* Completely gray */
@@ -71,13 +71,13 @@ contrast(200%)
 
 ## Beispiele
 
-### Mit der backdrop-filter-Eigenschaft
+### Mit der Eigenschaft backdrop-filter
 
-Dieses Beispiel wendet einen `contrast()`-Filter über die {{cssxref("backdrop-filter")}} CSS-Eigenschaft auf den Absatz und den monospaced Text an, wobei die Farben der Fläche hinter `<p>` und `<code>` verändert werden.
+Dieses Beispiel wendet einen `contrast()`-Filter über die CSS-Eigenschaft {{cssxref("backdrop-filter")}} auf den Absatz und den nicht-proportionalen Text an, indem die Farben im Bereich hinter dem `<p>` und `<code>` umgeschaltet werden.
 
 ```css
 .container {
-  background: url(image.jpg) no-repeat center / contain #339;
+  background: url(unity_for_the_people.jpg) no-repeat center / contain #339;
 }
 p {
   backdrop-filter: contrast(0.5);
@@ -100,7 +100,7 @@ p {
 ```
 
 ```html hidden
-<div class="container" style="background-image: url(unity_for_the_people.jpg);">
+<div class="container">
   <p>
     Always ensure there is enough contrast between text and all background
     colors. If you think your text may land on top of a background image,
@@ -113,9 +113,9 @@ p {
 
 {{EmbedLiveSample('With_the_backdrop-filter_property','100%','260')}}
 
-### Mit der filter-Eigenschaft
+### Mit der Eigenschaft filter
 
-Dieses Beispiel wendet einen `contrast()`-Filter über die {{cssxref("filter")}} CSS-Eigenschaft an und verändert den Kontrast, indem die Farben des gesamten Elements, einschließlich Inhalt, Rand, Hintergrund und Schatten, verschoben werden.
+Dieses Beispiel wendet einen `contrast()`-Filter über die CSS-Eigenschaft {{cssxref("filter")}} an, indem der Kontrast durch Farbverschiebung des gesamten Elements, einschließlich Inhalt, Rand, Hintergrund und Schatten, geändert wird.
 
 ```css
 p:first-of-type {
@@ -152,25 +152,28 @@ p {
 
 ### Mit url() und dem SVG-Kontrastfilter
 
-Das SVG-Element {{SVGElement("filter")}} wird verwendet, um benutzerdefinierte Filtereffekte zu definieren, die dann durch [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id) referenziert werden können. Das {{SVGElement("feComponentTransfer")}} Primitive des `<filter>` ermöglicht eine Umgestaltung der Pixelfarbe. Angenommen folgende:
+Das SVG-Element {{SVGElement("filter")}} wird verwendet, um benutzerdefinierte Filtereffekte zu definieren, die dann durch [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id) referenziert werden können. Die Primitive {{SVGElement("feComponentTransfer")}} des `<filter>` ermöglicht die pixelgenaue Farbübertragung. Gegeben:
 
-```svg
+```html live-sample___svg_filter
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  id="svg"
+  viewBox="0 0 240 151"
+  height="0"
+  width="0"
+  style="overflow: visible"
+  color-interpolation-filters="sRGB">
   <filter id="contrast">
     <feComponentTransfer>
-      <feFuncR type="linear" slope="2" intercept="-0.5"/>
-      <feFuncG type="linear" slope="2" intercept="-0.5"/>
-      <feFuncB type="linear" slope="2" intercept="-0.5"/>
+      <feFuncR type="linear" slope="2" intercept="-0.5" />
+      <feFuncG type="linear" slope="2" intercept="-0.5" />
+      <feFuncB type="linear" slope="2" intercept="-0.5" />
     </feComponentTransfer>
   </filter>
+</svg>
 ```
 
-```css hidden
-.svgFilterLive {
-  filter: url(#contrast2);
-}
-```
-
-Diese Werte produzieren die gleichen Ergebnisse:
+Diese Werte erzeugen die gleichen Ergebnisse:
 
 ```css
 filter: contrast(200%);
@@ -178,9 +181,9 @@ filter: url(#contrast); /* with embedded SVG */
 filter: url(folder/fileName.svg#contrast); /* external svg filter definition */
 ```
 
-Dieses Beispiel zeigt drei Bilder: das Bild mit einer `contrast()`-Filterfunktion, das Bild mit einem gleichwertigen `url()`-Filter und die Originalbilder zum Vergleich:
+Dieses Beispiel zeigt drei Bilder: das Bild mit einer `contrast()`-Filterfunktion, das Bild mit einem äquivalenten `url()`-Filter und die Originalbilder zum Vergleich:
 
-```html hidden
+```html hidden live-sample___svg_filter
 <table cellpadding="5">
   <thead>
     <tr>
@@ -199,25 +202,9 @@ Dieses Beispiel zeigt drei Bilder: das Bild mit einer `contrast()`-Filterfunktio
       </td>
       <td>
         <img
-          class="svgFilterLive"
+          style="filter: url(#contrast)"
           src="https://mdn.github.io/shared-assets/images/examples/progress-pride-flag.jpg"
           alt="Pride flag" />
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          id="svg"
-          viewBox="0 0 240 151"
-          height="0"
-          width="0"
-          style="overflow: visible"
-          color-interpolation-filters="sRGB">
-          <filter id="contrast2">
-            <feComponentTransfer>
-              <feFuncR type="linear" slope="2" intercept="-0.5" />
-              <feFuncG type="linear" slope="2" intercept="-0.5" />
-              <feFuncB type="linear" slope="2" intercept="-0.5" />
-            </feComponentTransfer>
-          </filter>
-        </svg>
       </td>
       <td>
         <img
@@ -229,7 +216,7 @@ Dieses Beispiel zeigt drei Bilder: das Bild mit einer `contrast()`-Filterfunktio
 </table>
 ```
 
-{{EmbedLiveSample('With_url()_and_the_SVG_contrast_filter','100%','280')}}
+{{EmbedLiveSample('svg_filter','100%','280')}}
 
 ## Spezifikationen
 
@@ -241,8 +228,8 @@ Dieses Beispiel zeigt drei Bilder: das Bild mit einer `contrast()`-Filterfunktio
 
 ## Siehe auch
 
-- Modul [CSS filter effects](/de/docs/Web/CSS/CSS_filter_effects)
-- Die anderen {{cssxref("&lt;filter-function&gt;")}}-Funktionen, die in den Werten der {{cssxref("filter")}} und {{cssxref("backdrop-filter")}} Eigenschaften verwendet werden können, umfassen:
+- [CSS-Filtereffekte](/de/docs/Web/CSS/CSS_filter_effects) Modul
+- Die anderen {{cssxref("&lt;filter-function&gt;")}} Funktionen, die in den Werten der Eigenschaften {{cssxref("filter")}} und {{cssxref("backdrop-filter")}} verwendet werden können, umfassen:
   - {{cssxref("filter-function/blur", "blur()")}}
   - {{cssxref("filter-function/brightness", "brightness()")}}
   - {{cssxref("filter-function/drop-shadow", "drop-shadow()")}}

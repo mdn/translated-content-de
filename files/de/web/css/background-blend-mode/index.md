@@ -2,12 +2,12 @@
 title: background-blend-mode
 slug: Web/CSS/background-blend-mode
 l10n:
-  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
+  sourceCommit: c05ef6211441aedb359d4020518ac152aa92db9e
 ---
 
 {{CSSRef}}
 
-Die **`background-blend-mode`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, wie die Hintergrundbilder eines Elements miteinander und mit der Hintergrundfarbe des Elements gemischt werden sollen.
+Die **`background-blend-mode`**-[CSS](/de/docs/Web/CSS)-Eigenschaft legt fest, wie die Hintergrundbilder eines Elements miteinander und mit der Hintergrundfarbe des Elements gemischt werden sollen.
 
 {{InteractiveExample("CSS Demo: background-blend-mode")}}
 
@@ -44,7 +44,7 @@ background-blend-mode: difference;
 }
 ```
 
-Die Mischmodi sollten in der gleichen Reihenfolge definiert werden wie die {{cssxref("background-image")}} Eigenschaft. Wenn die Listenlängen von Mischmodi und Hintergrundbildern nicht gleich sind, werden sie wiederholt und/oder gekürzt, bis die Längen übereinstimmen.
+Mischmodi sollten in derselben Reihenfolge definiert werden wie die {{cssxref("background-image")}}-Eigenschaft. Wenn die Längen der Listen der Mischmodi und der Hintergrundbilder nicht gleich sind, werden sie wiederholt und/oder gekürzt, bis die Längen übereinstimmen.
 
 ## Syntax
 
@@ -66,7 +66,7 @@ background-blend-mode: unset;
 ### Werte
 
 - {{cssxref("&lt;blend-mode&gt;")}}
-  - : Der anzuwendende Mischmodus. Es können mehrere Werte vorhanden sein, getrennt durch Kommas.
+  - : Der anzuwendende Mischmodus. Es können mehrere Werte mit Kommas getrennt sein.
 
 ## Formale Definition
 
@@ -78,7 +78,7 @@ background-blend-mode: unset;
 
 ## Beispiele
 
-### Grundlegendes Beispiel
+### Einfaches Beispiel
 
 ```css
 .item {
@@ -89,7 +89,7 @@ background-blend-mode: unset;
 }
 ```
 
-### Probieren Sie verschiedene Mischmodi aus
+### Verschiedene Mischmodi ausprobieren
 
 ```html hidden
 <div id="div"></div>
@@ -130,7 +130,7 @@ document.getElementById("select").onchange = (event) => {
 console.log(document.getElementById("div"));
 ```
 
-{{ EmbedLiveSample('Examples', "330", "350") }}
+{{ EmbedLiveSample('try_out_different_blend_modes', "330", "350") }}
 
 ## Spezifikationen
 
