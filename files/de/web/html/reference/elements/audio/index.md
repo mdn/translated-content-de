@@ -38,7 +38,7 @@ Die Attribute dieses Elements umfassen die [globalen Attribute](/de/docs/Web/HTM
   - : Ein logisches Attribut: Wenn angegeben, beginnt das Audio automatisch mit der Wiedergabe, sobald es möglich ist, ohne darauf zu warten, dass die gesamte Audiodatei heruntergeladen wurde.
 
     > [!NOTE]
-    > Seiten, die automatisch Audios (oder Videos mit einem Audiotrack) abspielen, können eine unangenehme Erfahrung für Nutzer sein und sollten möglichst vermieden werden. Wenn Sie dennoch eine Autostart-Funktionalität anbieten müssen, sollten Sie es opt-in gestalten (d. h. der Nutzer muss es bewusst aktivieren). Dies kann jedoch nützlich sein, wenn Sie Medienelemente erstellen, deren Quelle zu einem späteren Zeitpunkt unter Benutzers Steuerung festgelegt wird. Weitere Informationen zur ordnungsgemäßen Verwendung von Autostart finden Sie in unserem [Autoplay Leitfaden](/de/docs/Web/Media/Guides/Autoplay).
+    > Seiten, die automatisch Audios (oder Videos mit einem Audiotrack) abspielen, können eine unangenehme Erfahrung für Nutzer sein und sollten möglichst vermieden werden. Wenn Sie dennoch eine Autostart-Funktionalität anbieten müssen, sollten Sie es opt-in gestalten (d.h. der Nutzer muss es bewusst aktivieren). Dies kann jedoch nützlich sein, wenn Sie Medienelemente erstellen, deren Quelle zu einem späteren Zeitpunkt unter Benutzers Steuerung festgelegt wird. Weitere Informationen zur ordnungsgemäßen Verwendung von Autostart finden Sie in unserem [Autoplay Leitfaden](/de/docs/Web/Media/Guides/Autoplay).
 
 - `controls`
 
@@ -46,7 +46,7 @@ Die Attribute dieses Elements umfassen die [globalen Attribute](/de/docs/Web/HTM
 
 - `controlslist`
 
-  - : Das [`controlslist`](https://wicg.github.io/controls-list/explainer.html) Attribut, wenn spezifiziert, hilft dem Browser dabei, auszuwählen, welche Steuerungen für das `audio` Element angezeigt werden sollen, wann immer der Browser sein eigenes Set von Steuerungen zeigt (d. h. wenn das `controls` Attribut angegeben ist).
+  - : Das [`controlslist`](https://wicg.github.io/controls-list/explainer.html) Attribut, wenn spezifiziert, hilft dem Browser dabei, auszuwählen, welche Steuerungen für das `audio` Element angezeigt werden sollen, wann immer der Browser sein eigenes Set von Steuerungen zeigt (d.h. wenn das `controls` Attribut angegeben ist).
 
     Die erlaubten Werte sind `nodownload`, `nofullscreen` und `noremoteplayback`.
 
@@ -56,11 +56,11 @@ Die Attribute dieses Elements umfassen die [globalen Attribute](/de/docs/Web/HTM
 
     - `anonymous`
       - : Sendet eine Cross-Origin-Anfrage ohne Berechtigungsnachweis. Mit anderen Worten, es sendet den `Origin:` HTTP-Header ohne Cookie, X.509-Zertifikat oder Durchführung der HTTP-Basis-Authentifizierung. Wenn der Server keine Berechtigungsnachweise an die Ursprungsseite gibt (indem er den `Access-Control-Allow-Origin:` HTTP-Header nicht setzt), wird die Ressource _verunreinigt_ und ihre Nutzung eingeschränkt.
-    
+
     - `use-credentials`
       - : Sendet eine Cross-Origin-Anfrage mit Berechtigungsnachweis. Mit anderen Worten, es sendet den `Origin:` HTTP-Header mit einem Cookie, einem Zertifikat oder Durchführung der HTTP-Basis-Authentifizierung. Wenn der Server keine Berechtigungsnachweise an die Ursprungsseite gibt (durch den `Access-Control-Allow-Credentials:` HTTP-Header), wird die Ressource _verunreinigt_ und ihre Nutzung eingeschränkt.
 
-    Wenn nicht vorhanden, wird die Ressource ohne CORS-Anfrage abgerufen (d. h. ohne den `Origin:` HTTP-Header zu senden), was die nicht verunreinigte Verwendung in {{HTMLElement('canvas')}} Elementen verhindert. Wenn ungültig, wird es behandelt, als ob das enumerierte Schlüsselwort **anonymous** verwendet wurde. Weitere Informationen finden Sie unter [CORS-Einstellungen Attribute](/de/docs/Web/HTML/Reference/Attributes/crossorigin).
+    Wenn nicht vorhanden, wird die Ressource ohne CORS-Anfrage abgerufen (d.h. ohne den `Origin:` HTTP-Header zu senden), was die nicht verunreinigte Verwendung in {{HTMLElement('canvas')}} Elementen verhindert. Wenn ungültig, wird es behandelt, als ob das enumerierte Schlüsselwort **anonymous** verwendet wurde. Weitere Informationen finden Sie unter [CORS-Einstellungen Attribute](/de/docs/Web/HTML/Reference/Attributes/crossorigin).
 
 - `disableremoteplayback`
 
@@ -396,7 +396,7 @@ Das folgende Beispiel zeigt die grundlegende Verwendung des `<audio>`-Elements, 
 
 Weitere Details darüber, wann Autoplay funktioniert, wie Sie die Erlaubnis zur Verwendung von Autoplay erhalten und wie und wann es angebracht ist, Autoplay zu verwenden, finden Sie in unserem [Autoplay Leitfaden](/de/docs/Web/Media/Guides/Autoplay).
 
-### \<audio> Element mit \<source> Element
+### `<audio>` Element mit \<source> Element
 
 Dieses Beispiel spezifiziert welche Audiospur eingebettet werden soll, indem das `src` Attribut auf einem geschachtelten `<source>` Element anstelle des `<audio>` Elements direkt verwendet wird. Es ist immer nützlich, den MIME-Typ der Datei im `type` Attribut anzugeben, da der Browser sofort erkennen kann, ob er diese Datei abspielen kann, und keine Zeit auf sie verschwendet, wenn nicht.
 
@@ -407,7 +407,7 @@ Dieses Beispiel spezifiziert welche Audiospur eingebettet werden soll, indem das
 </audio>
 ```
 
-### \<audio> mit mehreren \<source> Elementen
+### `<audio>` mit mehreren \<source> Elementen
 
 Dieses Beispiel schließt mehrere `<source>` Elemente ein. Der Browser versucht zunächst, das erste Source-Element (Opus) zu laden, falls er in der Lage ist es abzuspielen; wenn nicht, greift er auf das zweite (Vorbis) und schließlich auf MP3 zurück:
 

@@ -141,7 +141,7 @@ Jedes `File`-Objekt enthält folgende Informationen:
 - `type`
   - : Der [MIME-Typ](/de/docs/Web/HTTP/Guides/MIME_types) der Datei.
 - `webkitRelativePath` {{non-standard_inline}}
-  - : Ein String, der den Pfad der Datei relativ zum Basisverzeichnis angibt, das in einem Verzeichniswähler ausgewählt wurde (d. h. ein `file`-Picker, bei dem das [`webkitdirectory`](#webkitdirectory)-Attribut gesetzt ist). _Dies ist nicht standardisiert und sollte mit Vorsicht verwendet werden._
+  - : Ein String, der den Pfad der Datei relativ zum Basisverzeichnis angibt, das in einem Verzeichniswähler ausgewählt wurde (d.h. ein `file`-Picker, bei dem das [`webkitdirectory`](#webkitdirectory)-Attribut gesetzt ist). _Dies ist nicht standardisiert und sollte mit Vorsicht verwendet werden._
 
 ### Akzeptierte Dateitypen einschränken
 

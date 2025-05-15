@@ -15,7 +15,7 @@ Der Textinhalt von `<pre>`-Elementen wird als HTML geparst. Wenn Sie sicherstell
 
 `<pre>`-Elemente enthalten häufig {{HTMLElement("code")}}, {{HTMLElement("samp")}} und {{HTMLElement("kbd")}}-Elemente, um Computercode, Computerausgabe und Benutzereingaben darzustellen.
 
-Standardmäßig ist `<pre>` ein {{Glossary("Block-level_content", "Block-Level")}}-Element, d.h., sein Standardwert für {{cssxref("display")}} ist `block`.
+Standardmäßig ist `<pre>` ein {{Glossary("Block-level_content", "Block-Level")}}-Element, d.h. sein Standardwert für {{cssxref("display")}} ist `block`.
 
 {{InteractiveExample("HTML Demo: &lt;pre&gt;", "tabbed-standard")}}
 

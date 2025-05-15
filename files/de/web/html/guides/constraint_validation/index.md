@@ -438,7 +438,7 @@ Siehe {{cssxref(':placeholder-shown')}}.
 
 #### :valid :invalid CSS-Pseudoklassen
 
-Die {{cssxref(':valid')}} und {{cssxref(':invalid')}} [Pseudoklassen](/de/docs/Web/CSS/Pseudo-classes) werden verwendet, um \<input>-Elemente darzustellen, deren Inhalt gültig ist oder nicht, entsprechend der Typ-Einstellung des Eingabefeldes. Diese Klassen ermöglichen es dem Benutzer, gültige oder ungültige Formularelemente zu stylen, um es einfacher zu machen, Elemente zu identifizieren, die entweder korrekt oder inkorrekt formatiert sind.
+Die {{cssxref(':valid')}} und {{cssxref(':invalid')}} [Pseudoklassen](/de/docs/Web/CSS/Pseudo-classes) werden verwendet, um `<input>`-Elemente darzustellen, deren Inhalt gültig ist oder nicht, entsprechend der Typ-Einstellung des Eingabefeldes. Diese Klassen ermöglichen es dem Benutzer, gültige oder ungültige Formularelemente zu stylen, um es einfacher zu machen, Elemente zu identifizieren, die entweder korrekt oder inkorrekt formatiert sind.
 
 ### Kontrolle des Textes bei Constraint-Verletzungen
 

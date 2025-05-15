@@ -41,7 +41,7 @@ Die Attribute dieses Elements beinhalten die [globalen Attribute](/de/docs/Web/H
 
     Es gibt zwei Versionen dieses Attributs, die Sie festlegen können:
 
-    - Boolean, d.h., nur der `attributionsrc`-Name. Dies gibt an, dass Sie möchten, dass der {{httpheader("Attribution-Reporting-Eligible")}}-Header an denselben Server gesendet wird, auf den das `href`-Attribut verweist. Das ist in Ordnung, wenn Sie die Registrierung der Attributionsquelle auf demselben Server handhaben.
+    - Boolean, d.h. nur der `attributionsrc`-Name. Dies gibt an, dass Sie möchten, dass der {{httpheader("Attribution-Reporting-Eligible")}}-Header an denselben Server gesendet wird, auf den das `href`-Attribut verweist. Das ist in Ordnung, wenn Sie die Registrierung der Attributionsquelle auf demselben Server handhaben.
     - Wert, der eine oder mehrere URLs enthält, z.B.:
 
       ```html
@@ -120,7 +120,7 @@ Die Attribute dieses Elements beinhalten die [globalen Attribute](/de/docs/Web/H
     - `_blank`: Normalerweise ein neuer Tab, aber Benutzer können Browser so konfigurieren, dass stattdessen ein neues Fenster geöffnet wird.
     - `_parent`: Der übergeordnete Browsingkontext des aktuellen. Wenn kein übergeordneter, verhält sich wie `_self`.
     - `_top`: Der oberste Browsingkontext. Das bedeutet der "höchste" Kontext, der ein Vorfahre des aktuellen ist. Wenn keine Vorfahren, verhält sich wie `_self`.
-    - `_unfencedTop`: Ermöglicht eingebetteten [Fenced Frames](/de/docs/Web/API/Fenced_frame_API), den Top-Level-Frame zu navigieren (d.h., über die Wurzel des Fenced Frames hinaus, im Gegensatz zu anderen reservierten Zielen). Beachten Sie, dass die Navigation auch dann erfolgreich ist, wenn dies außerhalb eines Fenced Frame-Kontexts verwendet wird, es jedoch nicht als reserviertes Schlüsselwort fungiert.
+    - `_unfencedTop`: Ermöglicht eingebetteten [Fenced Frames](/de/docs/Web/API/Fenced_frame_API), den Top-Level-Frame zu navigieren (d.h. über die Wurzel des Fenced Frames hinaus, im Gegensatz zu anderen reservierten Zielen). Beachten Sie, dass die Navigation auch dann erfolgreich ist, wenn dies außerhalb eines Fenced Frame-Kontexts verwendet wird, es jedoch nicht als reserviertes Schlüsselwort fungiert.
 
     > [!NOTE]
     > Das Einstellen von `target="_blank"` auf `<a>`-Elementen bietet implizit dasselbe `rel`-Verhalten wie das Setzen von [`rel="noopener"`](/de/docs/Web/HTML/Reference/Attributes/rel/noopener), was `window.opener` nicht setzt.
@@ -398,7 +398,7 @@ Das Verhalten von `tel:`-Links variiert je nach Gerätefähigkeiten:
 
 Siehe {{RFC(3966)}} für Syntax, zusätzliche Funktionen und weitere Details zum `tel:`-URL-Schema.
 
-### Verwendung des Download-Attributs zur Speicherung eines \<canvas> als PNG
+### Verwendung des Download-Attributs zur Speicherung eines `<canvas>` als PNG
 
 Um die Inhalte eines {{HTMLElement("canvas")}}-Elements als Bild zu speichern, können Sie einen Link erstellen, bei dem das `href` die Canvas-Daten als `data:`-URL ist, die mit JavaScript erstellt wurde, und das `download`-Attribut den Dateinamen für die heruntergeladene PNG-Datei bereitstellt:
 

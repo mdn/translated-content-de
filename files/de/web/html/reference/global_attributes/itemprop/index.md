@@ -131,7 +131,7 @@ Für numerische Daten können das Meter-Element und sein Wertattribut verwendet 
 </div>
 ```
 
-Eigenschaften können auch Gruppen von Namen-Wert-Paaren sein, indem das Itemskope-Attribut auf das Element gesetzt wird, das die Eigenschaft deklariert. Jeder Wert ist entweder ein String oder eine Gruppe von Namen-Wert-Paaren (d. h. ein Element).
+Eigenschaften können auch Gruppen von Namen-Wert-Paaren sein, indem das Itemskope-Attribut auf das Element gesetzt wird, das die Eigenschaft deklariert. Jeder Wert ist entweder ein String oder eine Gruppe von Namen-Wert-Paaren (d.h. ein Element).
 
 ### Ein äußeres Element, das eine Person darstellt, und ein inneres, das eine Band darstellt
 
@@ -279,7 +279,7 @@ Eine Eigenschaft ist eine ungeordnete Menge von einzigartigen Token, die case-se
 
    1. Ein definierter Eigenschaftenname, oder
    2. Eine gültige URL, die sich auf die Vokabeldefinition bezieht, oder
-   3. Eine gültige URL, die als proprietärer Eigentumsname des Elements verwendet wird (d. h. einer, der nicht in einer öffentlichen Spezifikation definiert ist), oder
+   3. Eine gültige URL, die als proprietärer Eigentumsname des Elements verwendet wird (d.h. einer, der nicht in einer öffentlichen Spezifikation definiert ist), oder
 
 2. Wenn das Element kein typisiertes Element ist, muss es sein:
 
