@@ -2,14 +2,14 @@
 title: Temporal.PlainDateTime.prototype.withCalendar()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainDateTime/withCalendar
 l10n:
-  sourceCommit: 35512ec91d6a464ebee803d20c2d47464c9ce4e7
+  sourceCommit: 1b77d85af82183b835cf253e885dca26cba93eb5
 ---
 
 {{JSRef}}{{SeeCompatTable}}
 
-Die **`withCalendar()`**-Methode der Instanzen von {{jsxref("Temporal.PlainDateTime")}} gibt ein neues `Temporal.PlainDateTime`-Objekt zurück, das diesen Datums- und Uhrzeitpunkt interpretiert im neuen Kalendersystem darstellt. Da alle `Temporal`-Objekte so konzipiert sind, dass sie unveränderlich sind, fungiert diese Methode im Wesentlichen als Setter für die {{jsxref("Temporal/PlainDateTime/calendarId", "calendarId")}}-Eigenschaft des Datums- und Uhrzeitpunkts.
+Die **`withCalendar()`** Methode von {{jsxref("Temporal.PlainDateTime")}} Instanzen gibt ein neues `Temporal.PlainDateTime`-Objekt zurück, das dieses Datum und die Uhrzeit im neuen Kalendersystem darstellt. Da alle `Temporal`-Objekte als unveränderlich konzipiert sind, fungiert diese Methode im Wesentlichen als Setter für die {{jsxref("Temporal/PlainDateTime/calendarId", "calendarId")}}-Eigenschaft des Datums und der Uhrzeit.
 
-Um die Datums- und Uhrzeitenkomponenten-Eigenschaften zu ersetzen, verwenden Sie stattdessen die {{jsxref("Temporal/PlainDateTime/with", "with()")}}-Methode.
+Um die Datums- und Uhrzeitkomponenten-Eigenschaften zu ersetzen, verwenden Sie stattdessen die {{jsxref("Temporal/PlainDateTime/with", "with()")}} Methode.
 
 ## Syntax
 
@@ -20,11 +20,11 @@ withCalendar(calendar)
 ### Parameter
 
 - `calendar`
-  - : Ein String, der der {{jsxref("Temporal/PlainDateTime/calendarId", "calendarId")}}-Eigenschaft entspricht.
+  - : Ein String, der der {{jsxref("Temporal/PlainDateTime/calendarId", "calendarId")}} Eigenschaft entspricht. Siehe [`Intl.supportedValuesOf()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/supportedValuesOf#supported_calendar_types) für eine Liste der häufig unterstützten Kalendertypen.
 
 ### Rückgabewert
 
-Ein neues `Temporal.PlainDateTime`-Objekt, das das durch das ursprüngliche `PlainDateTime` angegebene Datum und die Uhrzeit darstellt, interpretiert im neuen Kalendersystem.
+Ein neues `Temporal.PlainDateTime`-Objekt, das das Datums- und Uhrzeitangabe des ursprünglichen `PlainDateTime` darstellt, interpretiert im neuen Kalendersystem.
 
 ### Ausnahmen
 

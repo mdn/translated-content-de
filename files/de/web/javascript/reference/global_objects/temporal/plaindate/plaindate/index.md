@@ -2,14 +2,14 @@
 title: Temporal.PlainDate()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainDate/PlainDate
 l10n:
-  sourceCommit: 3cecb7942e8b1c5e12b58b2838a2fb8a3f4ef907
+  sourceCommit: 1b77d85af82183b835cf253e885dca26cba93eb5
 ---
 
 {{JSRef}}{{SeeCompatTable}}
 
-Der **`Temporal.PlainDate()`**-Konstruktor erzeugt {{jsxref("Temporal.PlainDate")}}-Objekte.
+Der **`Temporal.PlainDate()`** Konstruktor erstellt {{jsxref("Temporal.PlainDate")}} Objekte.
 
-Dieser Konstruktor ermöglicht es Ihnen, Instanzen zu erstellen, indem Sie die zugrunde liegenden Daten direkt bereitstellen. Wie bei allen anderen `Temporal`-Klassen sollten Sie `Temporal.PlainDate`-Objekte üblicherweise mit der {{jsxref("Temporal/PlainDate/from", "Temporal.PlainDate.from()")}}-statischen Methode konstruieren, die eine Vielzahl von Eingabetypen verarbeiten kann.
+Dieser Konstruktor ermöglicht das Erstellen von Instanzen durch direktes Bereitstellen der zugrunde liegenden Daten. Wie alle anderen `Temporal` Klassen sollten Sie normalerweise `Temporal.PlainDate` Objekte mit der {{jsxref("Temporal/PlainDate/from", "Temporal.PlainDate.from()")}} statischen Methode konstruieren, die verschiedene Eingabetypen verarbeiten kann.
 
 ## Syntax
 
@@ -23,26 +23,26 @@ new Temporal.PlainDate(year, month, day, calendar)
 ### Parameter
 
 - `year`
-  - : Eine Zahl, die auf eine ganze Zahl gekürzt wird, die das Jahr im ISO-Kalendersystem darstellt.
+  - : Eine Zahl, abgerundet auf eine Ganzzahl, die das Jahr im ISO-Kalendersystem darstellt.
 - `month`
-  - : Eine Zahl, die auf eine ganze Zahl gekürzt wird, die den Monat im ISO-Kalendersystem darstellt.
+  - : Eine Zahl, abgerundet auf eine Ganzzahl, die den Monat im ISO-Kalendersystem darstellt.
 - `day`
-  - : Eine Zahl, die auf eine ganze Zahl gekürzt wird, die den Tag des Monats im ISO-Kalendersystem darstellt.
+  - : Eine Zahl, abgerundet auf eine Ganzzahl, die den Tag des Monats im ISO-Kalendersystem darstellt.
 - `calendar` {{optional_inline}}
-  - : Ein String, der den zu verwendenden [Kalender](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#calendars) darstellt. Beachten Sie, dass unabhängig vom `calendar` die Werte `year`, `month` und `day` im ISO 8601-Kalendersystem sein müssen. Standardmäßig wird `"iso8601"` verwendet.
+  - : Ein String, der den [Kalender](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#calendars) repräsentiert, der benutzt werden soll. Siehe [`Intl.supportedValuesOf()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/supportedValuesOf#supported_calendar_types) für eine Liste der häufig unterstützten Kalendertypen. Standardmäßig `"iso8601"`. Beachten Sie, dass unabhängig vom `calendar`, `year`, `month` und `day` im ISO 8601 Kalendersystem sein müssen.
 
 ### Rückgabewert
 
-Ein neues `Temporal.PlainDate`-Objekt, das das durch `year`, `month`, `day` (im ISO-Kalender) angegebene Datum darstellt, interpretiert im durch `calendar` spezifizierten Kalendersystem.
+Ein neues `Temporal.PlainDate` Objekt, das das durch `year`, `month`, `day` (im ISO-Kalender) angegebene Datum darstellt, interpretiert im durch `calendar` angegebenen Kalendersystem.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird geworfen, wenn `calendar` kein String oder `undefined` ist.
+  - : Wird ausgelöst, wenn `calendar` kein String oder `undefined` ist.
 - {{jsxref("RangeError")}}
-  - : Wird in einem der folgenden Fälle geworfen:
+  - : Wird in einem der folgenden Fälle ausgelöst:
     - `year`, `month` oder `day` ist keine endliche Zahl.
-    - Die Kombination aus `year`, `month` und `day` stellt kein gültiges Datum im ISO-Kalendersystem dar oder liegt nicht im [darstellbaren Bereich](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#representable_dates), der ±(10<sup>8</sup> + 1) Tage umfasst, also etwa ±273.972,6 Jahre ab dem Unix-Epoch.
+    - Die Kombination aus `year`, `month` und `day` stellt kein gültiges Datum im ISO-Kalendersystem dar oder liegt nicht im [darstellbaren Bereich](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#representable_dates), der ±(10<sup>8</sup> + 1) Tage oder etwa ±273.972,6 Jahre ab der Unix-Epoche umfasst.
     - `calendar` ist kein gültiger Kalenderbezeichner.
 
 ## Beispiele

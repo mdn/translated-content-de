@@ -2,10 +2,9 @@
 title: Anleitung
 slug: Web/HTML/How_to
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: f08eb478696946da474cf5c5ecdead4f5955f1b4
 ---
 
-Diese Seite listet die Anleitungen für HTML auf.
+Diese Seite listet Anleitungen für HTML auf, die Aufgaben wie das Hinzufügen von JavaScript zu Seiten, die Optimierung der Ladeleistung, das semantische Definieren von Begriffen, das Arbeiten mit `data-*`-Attributen und mehr abdecken.
 
-- [Wie man `<img>` mit Cross-Origin-Bildern und `<canvas>` verwendet](/de/docs/Web/HTML/How_to/CORS_enabled_image)
-  - : HTML bietet ein `crossorigin`-Attribut für Bilder, das in Kombination mit einem geeigneten CORS-Header ermöglicht, dass Bilder, die durch das `<img>`-Element definiert und von fremden Ursprüngen geladen wurden, in einem `<canvas>` verwendet werden können, als ob sie vom aktuellen Ursprung geladen worden wären.
+{{SubpagesWithSummaries}}

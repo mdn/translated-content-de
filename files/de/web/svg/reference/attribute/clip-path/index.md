@@ -2,15 +2,15 @@
 title: clip-path
 slug: Web/SVG/Reference/Attribute/clip-path
 l10n:
-  sourceCommit: 3c83d88f02f33f4066224e9f624a17dd2a0b0d19
+  sourceCommit: 1c24dd81053cd34f393ce2c4b2ac071886007625
 ---
 
-Das **`clip-path`** Präsentationsattribut definiert oder verbindet einen Clipping-Pfad mit dem jeweiligen Element.
+Das Präsentationsattribut **`clip-path`** definiert oder verknüpft einen Clipping-Pfad mit dem zugehörigen Element.
 
 > [!NOTE]
-> Als Präsentationsattribut hat `clip-path` auch ein entsprechendes CSS-Eigenschaftsgegenstück: {{cssxref("clip-path")}}. Wenn beide angegeben sind, hat die CSS-Eigenschaft Vorrang.
+> Als Präsentationsattribut hat `clip-path` auch ein entsprechendes CSS-Eigenschaft: {{cssxref("clip-path")}}. Wenn beide angegeben sind, hat die CSS-Eigenschaft Vorrang.
 
-Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
+Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 - {{SVGElement('a')}}
 - {{SVGElement('circle')}}
@@ -91,7 +91,7 @@ svg {
 
 {{EmbedLiveSample("Example", '100%', 200)}}
 
-## Hinweise zur Verwendung
+## Nutzungshinweise
 
 <table class="properties">
   <tbody>
@@ -114,10 +114,10 @@ svg {
 </table>
 
 - \<geometry-box>
-  - : Zusätzliche Information, um anzugeben, wie eine {{cssxref('basic-shape')}} auf ein Element angewendet wird: `fill-box` gibt an, die Objektbegrenzungsbox zu verwenden; `stroke-box` gibt an, die Objektbegrenzungsbox erweitert um den Strich zu verwenden; `view-box` gibt an, den nächstgelegenen SVG-Viewport als Referenzbox zu verwenden.
+  - : Zusätzliche Information, wie eine {{cssxref('basic-shape')}} auf ein Element angewandt wird: `fill-box` gibt an, dass die Umrandungsbox des Objekts verwendet wird; `stroke-box` gibt an, dass die um den Strich erweiterte Umrandungsbox verwendet wird; `view-box` gibt an, dass der nächste SVG-Ansichtsbereich als Referenzbox verwendet wird.
 
 > [!NOTE]
-> Für mehr Details zur clip-path Syntax siehe die CSS-Eigenschaftsreferenzseite {{cssxref('clip-path')}}.
+> Für weitere Details zur clip-path Syntax, siehe die CSS-Eigenschaftsreferenzseite {{cssxref('clip-path')}}.
 
 ## Spezifikationen
 
@@ -129,4 +129,5 @@ svg {
 
 ## Siehe auch
 
-- CSS {{cssxref("clip-path")}} Eigenschaft
+- CSS {{cssxref("clip-path")}}-Eigenschaft
+- [Einführung in das CSS Clipping](/de/docs/Web/CSS/CSS_masking/Clipping)
