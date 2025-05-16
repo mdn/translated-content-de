@@ -49,8 +49,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version-file: "mdn/yari/.nvmrc"
-          cache: "yarn"
-          cache-dependency-path: mdn/yari/yarn.lock
 
       - name: Install (yari)
         working-directory: ${{ github.workspace }}/mdn/yari
