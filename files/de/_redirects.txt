@@ -1890,8 +1890,8 @@
 /de/docs/DOM/element.onblur	/de/docs/Web/API/Window/blur_event
 /de/docs/DOM/element.onchange	/de/docs/Web/API/HTMLElement/change_event
 /de/docs/DOM/element.onclick	/de/docs/Web/API/Element/click_event
-/de/docs/DOM/element.oncopy	/de/docs/Web/API/HTMLElement/copy_event
-/de/docs/DOM/element.oncut	/de/docs/Web/API/HTMLElement/cut_event
+/de/docs/DOM/element.oncopy	/de/docs/Web/API/Element/copy_event
+/de/docs/DOM/element.oncut	/de/docs/Web/API/Element/cut_event
 /de/docs/DOM/element.ondblclick	/de/docs/Web/API/Element/dblclick_event
 /de/docs/DOM/element.onfocus	/de/docs/Web/API/Window/focus_event
 /de/docs/DOM/element.onkeydown	/de/docs/Web/API/Element/keydown_event
@@ -1901,7 +1901,7 @@
 /de/docs/DOM/element.onmousemove	/de/docs/Web/API/Element/mousemove_event
 /de/docs/DOM/element.onmouseout	/de/docs/Web/API/Element/mouseout_event
 /de/docs/DOM/element.onmouseup	/de/docs/Web/API/Element/mouseup_event
-/de/docs/DOM/element.onpaste	/de/docs/Web/API/HTMLElement/paste_event
+/de/docs/DOM/element.onpaste	/de/docs/Web/API/Element/paste_event
 /de/docs/DOM/element.onresize	/de/docs/Web/API/Window/resize_event
 /de/docs/DOM/element.onscroll	/de/docs/Web/API/Element/scroll_event
 /de/docs/DOM/element.onwheel	/de/docs/Web/API/Element/wheel_event
@@ -2380,8 +2380,8 @@
 /de/docs/DOM:element.onblur	/de/docs/Web/API/Window/blur_event
 /de/docs/DOM:element.onchange	/de/docs/Web/API/HTMLElement/change_event
 /de/docs/DOM:element.onclick	/de/docs/Web/API/Element/click_event
-/de/docs/DOM:element.oncopy	/de/docs/Web/API/HTMLElement/copy_event
-/de/docs/DOM:element.oncut	/de/docs/Web/API/HTMLElement/cut_event
+/de/docs/DOM:element.oncopy	/de/docs/Web/API/Element/copy_event
+/de/docs/DOM:element.oncut	/de/docs/Web/API/Element/cut_event
 /de/docs/DOM:element.ondblclick	/de/docs/Web/API/Element/dblclick_event
 /de/docs/DOM:element.onfocus	/de/docs/Web/API/Window/focus_event
 /de/docs/DOM:element.onkeydown	/de/docs/Web/API/Element/keydown_event
@@ -2391,7 +2391,7 @@
 /de/docs/DOM:element.onmousemove	/de/docs/Web/API/Element/mousemove_event
 /de/docs/DOM:element.onmouseout	/de/docs/Web/API/Element/mouseout_event
 /de/docs/DOM:element.onmouseup	/de/docs/Web/API/Element/mouseup_event
-/de/docs/DOM:element.onpaste	/de/docs/Web/API/HTMLElement/paste_event
+/de/docs/DOM:element.onpaste	/de/docs/Web/API/Element/paste_event
 /de/docs/DOM:element.onresize	/de/docs/Web/API/Window/resize_event
 /de/docs/DOM:element.onscroll	/de/docs/Web/API/Element/scroll_event
 /de/docs/DOM:element.ownerDocument	/de/docs/Web/API/Node/ownerDocument
@@ -3117,8 +3117,8 @@
 /de/docs/Document_Object_Model_(DOM)/element.onblur	/de/docs/Web/API/Window/blur_event
 /de/docs/Document_Object_Model_(DOM)/element.onchange	/de/docs/Web/API/HTMLElement/change_event
 /de/docs/Document_Object_Model_(DOM)/element.onclick	/de/docs/Web/API/Element/click_event
-/de/docs/Document_Object_Model_(DOM)/element.oncopy	/de/docs/Web/API/HTMLElement/copy_event
-/de/docs/Document_Object_Model_(DOM)/element.oncut	/de/docs/Web/API/HTMLElement/cut_event
+/de/docs/Document_Object_Model_(DOM)/element.oncopy	/de/docs/Web/API/Element/copy_event
+/de/docs/Document_Object_Model_(DOM)/element.oncut	/de/docs/Web/API/Element/cut_event
 /de/docs/Document_Object_Model_(DOM)/element.ondblclick	/de/docs/Web/API/Element/dblclick_event
 /de/docs/Document_Object_Model_(DOM)/element.onfocus	/de/docs/Web/API/Window/focus_event
 /de/docs/Document_Object_Model_(DOM)/element.onkeydown	/de/docs/Web/API/Element/keydown_event
@@ -3128,7 +3128,7 @@
 /de/docs/Document_Object_Model_(DOM)/element.onmousemove	/de/docs/Web/API/Element/mousemove_event
 /de/docs/Document_Object_Model_(DOM)/element.onmouseout	/de/docs/Web/API/Element/mouseout_event
 /de/docs/Document_Object_Model_(DOM)/element.onmouseup	/de/docs/Web/API/Element/mouseup_event
-/de/docs/Document_Object_Model_(DOM)/element.onpaste	/de/docs/Web/API/HTMLElement/paste_event
+/de/docs/Document_Object_Model_(DOM)/element.onpaste	/de/docs/Web/API/Element/paste_event
 /de/docs/Document_Object_Model_(DOM)/element.onresize	/de/docs/Web/API/Window/resize_event
 /de/docs/Document_Object_Model_(DOM)/element.onscroll	/de/docs/Web/API/Element/scroll_event
 /de/docs/Document_Object_Model_(DOM)/element.outerHTML	/de/docs/Web/API/Element/outerHTML
@@ -8398,7 +8398,7 @@
 /de/docs/Web/API/Document.scripts	/de/docs/Web/API/Document/scripts
 /de/docs/Web/API/Document.xmlEncoding	/de/docs/Web/API/Document/xmlEncoding
 /de/docs/Web/API/Document/Document:_DOMContentLoaded_event	/de/docs/Web/API/Document/DOMContentLoaded_event
-/de/docs/Web/API/Document/Document:_paste_event	/de/docs/Web/API/Document/paste_event
+/de/docs/Web/API/Document/Document:_paste_event	/de/docs/Web/API/Element/paste_event
 /de/docs/Web/API/Document/animationcancel_event	/de/docs/Web/API/Element/animationcancel_event
 /de/docs/Web/API/Document/animationend_event	/de/docs/Web/API/Element/animationend_event
 /de/docs/Web/API/Document/animationiteration_event	/de/docs/Web/API/Element/animationiteration_event
@@ -8407,7 +8407,9 @@
 /de/docs/Web/API/Document/baseURI	/de/docs/Web/API/Node/baseURI
 /de/docs/Web/API/Document/cancelFullscreen	/de/docs/Web/API/Document/exitFullscreen
 /de/docs/Web/API/Document/charset	/de/docs/Web/API/Document/characterSet
+/de/docs/Web/API/Document/copy_event	/de/docs/Web/API/Element/copy_event
 /de/docs/Web/API/Document/createEntityReference	/de/docs/Web/API/Document
+/de/docs/Web/API/Document/cut_event	/de/docs/Web/API/Element/cut_event
 /de/docs/Web/API/Document/defaultView/popstate_event	/de/docs/Web/API/Window/popstate_event
 /de/docs/Web/API/Document/defaultView/resize_event	/de/docs/Web/API/Window/resize_event
 /de/docs/Web/API/Document/defaultView/storage_event	/de/docs/Web/API/Window/storage_event
@@ -8463,6 +8465,7 @@
 /de/docs/Web/API/Document/onsubmit	/de/docs/Web/API/HTMLFormElement/submit_event
 /de/docs/Web/API/Document/onvisibilitychange	/de/docs/Web/API/Document/visibilitychange_event
 /de/docs/Web/API/Document/origin	/de/docs/Web/API/Window/origin
+/de/docs/Web/API/Document/paste_event	/de/docs/Web/API/Element/paste_event
 /de/docs/Web/API/Document/pointercancel_event	/de/docs/Web/API/Element/pointercancel_event
 /de/docs/Web/API/Document/pointerdown_event	/de/docs/Web/API/Element/pointerdown_event
 /de/docs/Web/API/Document/pointerenter_event	/de/docs/Web/API/Element/pointerenter_event
@@ -8903,9 +8906,9 @@
 /de/docs/Web/API/HTMLElement.offsetParent	/de/docs/Web/API/HTMLElement/offsetParent
 /de/docs/Web/API/HTMLElement.offsetTop	/de/docs/Web/API/HTMLElement/offsetTop
 /de/docs/Web/API/HTMLElement.offsetWidth	/de/docs/Web/API/HTMLElement/offsetWidth
-/de/docs/Web/API/HTMLElement.oncopy	/de/docs/Web/API/HTMLElement/copy_event
-/de/docs/Web/API/HTMLElement.oncut	/de/docs/Web/API/HTMLElement/cut_event
-/de/docs/Web/API/HTMLElement.onpaste	/de/docs/Web/API/HTMLElement/paste_event
+/de/docs/Web/API/HTMLElement.oncopy	/de/docs/Web/API/Element/copy_event
+/de/docs/Web/API/HTMLElement.oncut	/de/docs/Web/API/Element/cut_event
+/de/docs/Web/API/HTMLElement.onpaste	/de/docs/Web/API/Element/paste_event
 /de/docs/Web/API/HTMLElement.style	/de/docs/Web/API/HTMLElement/style
 /de/docs/Web/API/HTMLElement.tabIndex	/de/docs/Web/API/HTMLElement/tabIndex
 /de/docs/Web/API/HTMLElement.title	/de/docs/Web/API/HTMLElement/title
@@ -8915,6 +8918,8 @@
 /de/docs/Web/API/HTMLElement/animationiteration_event	/de/docs/Web/API/Element/animationiteration_event
 /de/docs/Web/API/HTMLElement/animationstart_event	/de/docs/Web/API/Element/animationstart_event
 /de/docs/Web/API/HTMLElement/beforeinput_event	/de/docs/Web/API/Element/beforeinput_event
+/de/docs/Web/API/HTMLElement/copy_event	/de/docs/Web/API/Element/copy_event
+/de/docs/Web/API/HTMLElement/cut_event	/de/docs/Web/API/Element/cut_event
 /de/docs/Web/API/HTMLElement/forceSpellCheck	/de/docs/Web/HTML/Reference/Global_attributes/spellcheck
 /de/docs/Web/API/HTMLElement/gotpointercapture_event	/de/docs/Web/API/Element/gotpointercapture_event
 /de/docs/Web/API/HTMLElement/input_event	/de/docs/Web/API/Element/input_event
@@ -8928,8 +8933,8 @@
 /de/docs/Web/API/HTMLElement/onchange	/de/docs/Web/API/HTMLElement/change_event
 /de/docs/Web/API/HTMLElement/onclick	/de/docs/Web/API/Element/click_event
 /de/docs/Web/API/HTMLElement/oncontextmenu	/de/docs/Web/API/Element/contextmenu_event
-/de/docs/Web/API/HTMLElement/oncopy	/de/docs/Web/API/HTMLElement/copy_event
-/de/docs/Web/API/HTMLElement/oncut	/de/docs/Web/API/HTMLElement/cut_event
+/de/docs/Web/API/HTMLElement/oncopy	/de/docs/Web/API/Element/copy_event
+/de/docs/Web/API/HTMLElement/oncut	/de/docs/Web/API/Element/cut_event
 /de/docs/Web/API/HTMLElement/ondblclick	/de/docs/Web/API/Element/dblclick_event
 /de/docs/Web/API/HTMLElement/onfocus	/de/docs/Web/API/Window/focus_event
 /de/docs/Web/API/HTMLElement/oninput	/de/docs/Web/API/Element/input_event
@@ -8942,12 +8947,13 @@
 /de/docs/Web/API/HTMLElement/onmouseout	/de/docs/Web/API/Element/mouseout_event
 /de/docs/Web/API/HTMLElement/onmouseover	/de/docs/Web/API/Element/mouseover_event
 /de/docs/Web/API/HTMLElement/onmouseup	/de/docs/Web/API/Element/mouseup_event
-/de/docs/Web/API/HTMLElement/onpaste	/de/docs/Web/API/HTMLElement/paste_event
+/de/docs/Web/API/HTMLElement/onpaste	/de/docs/Web/API/Element/paste_event
 /de/docs/Web/API/HTMLElement/onreset	/de/docs/Web/API/HTMLFormElement/reset_event
 /de/docs/Web/API/HTMLElement/onresize	/de/docs/Web/API/HTMLFormElement/reset_event
 /de/docs/Web/API/HTMLElement/onscroll	/de/docs/Web/API/Element/scroll_event
 /de/docs/Web/API/HTMLElement/onselect	/de/docs/Web/API/HTMLInputElement/select_event
 /de/docs/Web/API/HTMLElement/onsubmit	/de/docs/Web/API/HTMLFormElement/submit_event
+/de/docs/Web/API/HTMLElement/paste_event	/de/docs/Web/API/Element/paste_event
 /de/docs/Web/API/HTMLElement/pointercancel_event	/de/docs/Web/API/Element/pointercancel_event
 /de/docs/Web/API/HTMLElement/pointerdown_event	/de/docs/Web/API/Element/pointerdown_event
 /de/docs/Web/API/HTMLElement/pointerenter_event	/de/docs/Web/API/Element/pointerenter_event
@@ -10134,7 +10140,10 @@
 /de/docs/Web/API/SVGGeometryElement/getTotalPathLength	/de/docs/Web/API/SVGGeometryElement/pathLength
 /de/docs/Web/API/SVGGlyphElement	/de/docs/Web/API/SVGElement
 /de/docs/Web/API/SVGGlyphRefElement	/de/docs/Web/API/SVGElement
-/de/docs/Web/API/SVGGraphicsElement/SVGGraphicsElement:_cut_event	/de/docs/Web/API/SVGGraphicsElement/cut_event
+/de/docs/Web/API/SVGGraphicsElement/SVGGraphicsElement:_cut_event	/de/docs/Web/API/Element/cut_event
+/de/docs/Web/API/SVGGraphicsElement/copy_event	/de/docs/Web/API/Element/copy_event
+/de/docs/Web/API/SVGGraphicsElement/cut_event	/de/docs/Web/API/Element/cut_event
+/de/docs/Web/API/SVGGraphicsElement/paste_event	/de/docs/Web/API/Element/paste_event
 /de/docs/Web/API/SVGHKernElement	/de/docs/Web/API/SVGElement
 /de/docs/Web/API/SVGMatrix	/de/docs/Web/API/DOMMatrix
 /de/docs/Web/API/SVGMissingGlyphElement	/de/docs/Web/API/SVGElement
@@ -10649,6 +10658,8 @@
 /de/docs/Web/API/Window/content	/de/docs/Web/API/Window
 /de/docs/Web/API/Window/convertPointFromNodeToPage	/de/docs/Web/API/Window/webkitConvertPointFromNodeToPage
 /de/docs/Web/API/Window/convertPointFromPageToNode	/de/docs/Web/API/Window/webkitConvertPointFromPageToNode
+/de/docs/Web/API/Window/copy_event	/de/docs/Web/API/Element/copy_event
+/de/docs/Web/API/Window/cut_event	/de/docs/Web/API/Element/cut_event
 /de/docs/Web/API/Window/forward	/de/docs/Web/API/History/forward
 /de/docs/Web/API/Window/minimize	/de/docs/Web/API/Window
 /de/docs/Web/API/Window/mozAnimationStartTime	/de/docs/Web/API/Animation/startTime
@@ -10707,6 +10718,7 @@
 /de/docs/Web/API/Window/openDialog	/de/docs/Web/API/Window
 /de/docs/Web/API/Window/pageXOffset	/de/docs/Web/API/Window/scrollX
 /de/docs/Web/API/Window/pageYOffset	/de/docs/Web/API/Window/scrollY
+/de/docs/Web/API/Window/paste_event	/de/docs/Web/API/Element/paste_event
 /de/docs/Web/API/Window/removeEventListener	/de/docs/Web/API/EventTarget/removeEventListener
 /de/docs/Web/API/Window/resolveLocalFileSystemURL	/de/docs/Web/API/File_and_Directory_Entries_API#resolvelocalfilesystemurl()
 /de/docs/Web/API/Window/restore	/de/docs/Web/API/Window/moveTo
@@ -11081,8 +11093,8 @@
 /de/docs/Web/API/element.onblur	/de/docs/Web/API/Window/blur_event
 /de/docs/Web/API/element.onchange	/de/docs/Web/API/HTMLElement/change_event
 /de/docs/Web/API/element.onclick	/de/docs/Web/API/Element/click_event
-/de/docs/Web/API/element.oncopy	/de/docs/Web/API/HTMLElement/copy_event
-/de/docs/Web/API/element.oncut	/de/docs/Web/API/HTMLElement/cut_event
+/de/docs/Web/API/element.oncopy	/de/docs/Web/API/Element/copy_event
+/de/docs/Web/API/element.oncut	/de/docs/Web/API/Element/cut_event
 /de/docs/Web/API/element.ondblclick	/de/docs/Web/API/Element/dblclick_event
 /de/docs/Web/API/element.onfocus	/de/docs/Web/API/Window/focus_event
 /de/docs/Web/API/element.onkeydown	/de/docs/Web/API/Element/keydown_event
@@ -11092,7 +11104,7 @@
 /de/docs/Web/API/element.onmousemove	/de/docs/Web/API/Element/mousemove_event
 /de/docs/Web/API/element.onmouseout	/de/docs/Web/API/Element/mouseout_event
 /de/docs/Web/API/element.onmouseup	/de/docs/Web/API/Element/mouseup_event
-/de/docs/Web/API/element.onpaste	/de/docs/Web/API/HTMLElement/paste_event
+/de/docs/Web/API/element.onpaste	/de/docs/Web/API/Element/paste_event
 /de/docs/Web/API/element.onresize	/de/docs/Web/API/Window/resize_event
 /de/docs/Web/API/element.onscroll	/de/docs/Web/API/Element/scroll_event
 /de/docs/Web/API/element.onwheel	/de/docs/Web/API/Element/wheel_event
