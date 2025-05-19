@@ -1,14 +1,16 @@
 ---
-title: "Node: lookupPrefix()-Methode"
+title: "Node: lookupPrefix() Methode"
 short-title: lookupPrefix()
 slug: Web/API/Node/lookupPrefix
 l10n:
-  sourceCommit: aa8fa82a902746b0bd97839180fc2b5397088140
+  sourceCommit: e2d1c90778ec405cc0ee9cc3fe84f05b68a2c3b3
 ---
 
 {{APIRef("DOM")}}
 
-Die **`lookupPrefix()`**-Methode der [`Node`](/de/docs/Web/API/Node)-Schnittstelle gibt einen String zurück, der das Präfix für einen gegebenen Namespace-URI enthält, sofern vorhanden, und `null`, wenn nicht. Wenn mehrere Präfixe möglich sind, wird das erste Präfix zurückgegeben.
+Die **`lookupPrefix()`** Methode der [`Node`](/de/docs/Web/API/Node) Schnittstelle
+gibt einen String zurück, der das Präfix für einen gegebenen Namensraum-URI enthält, sofern vorhanden, und `null`, wenn nicht.
+Wenn mehrere Präfixe möglich sind, wird das erste Präfix zurückgegeben.
 
 ## Syntax
 
@@ -19,15 +21,17 @@ lookupPrefix(namespace)
 ### Parameter
 
 - `namespace`
-  - : Ein String, der den Namespace enthält, für den das Präfix gesucht wird.
+  - : Ein String, der den Namensraum enthält, für den das Präfix gesucht wird.
     > [!NOTE]
-    > Dieser Parameter ist nicht optional, kann aber auf `null` gesetzt werden.
+    > Dieser Parameter ist nicht optional, kann jedoch auf `null` gesetzt werden.
 
 ### Rückgabewert
 
-Ein String, der das entsprechende Präfix enthält, oder `null`, wenn keines gefunden wurde. Wenn `namespace` null oder der leere String ist, gibt `lookupPrefix()` `null` zurück.
+Ein String, der das entsprechende Präfix enthält, oder `null`, falls keines gefunden wurde.
+Wenn `namespace` null oder der leere String ist, gibt `lookupPrefix()` `null` zurück.
 
-Wenn der Knoten ein [`DocumentType`](/de/docs/Web/API/DocumentType) oder ein [`DocumentFragment`](/de/docs/Web/API/DocumentFragment) ist, gibt `lookupPrefix()` immer `null` zurück.
+Wenn der Knoten ein [`DocumentType`](/de/docs/Web/API/DocumentType) oder ein [`DocumentFragment`](/de/docs/Web/API/DocumentFragment) ist,
+gibt `lookupPrefix()` immer `null` zurück.
 
 ## Beispiel
 
@@ -83,4 +87,4 @@ button.addEventListener("click", () => {
 
 ## Siehe auch
 
-- [http://www.w3.org/TR/DOM-Level-3-Cor...amespacePrefix](https://www.w3.org/TR/DOM-Level-3-Core/core.html#Node3-lookupNamespacePrefix)
+- [https://www.w3.org/TR/DOM-Level-3-Cor...amespacePrefix](https://www.w3.org/TR/DOM-Level-3-Core/core.html#Node3-lookupNamespacePrefix)

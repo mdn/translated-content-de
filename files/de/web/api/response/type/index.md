@@ -3,53 +3,86 @@ title: "Response: type-Eigenschaft"
 short-title: type
 slug: Web/API/Response/type
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: b052f688e582abbbc82ce1f025bb4072dddc8be8
 ---
 
 {{APIRef("Fetch API")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`type`**-Eigenschaft des [`Response`](/de/docs/Web/API/Response)-Interfaces enthält den Typ der Antwort.
-Sie kann einer der folgenden sein:
-
-- `basic`: Normale, gleiche Herkunftsantwort, bei der alle Header mit Ausnahme von "Set-Cookie" offengelegt sind.
-- `cors`: Die Antwort wurde von einer gültigen Cross-Origin-Anfrage empfangen. [Bestimmte Header und der Körper](https://fetch.spec.whatwg.org/#concept-filtered-response-cors) können abgerufen werden.
-- `error`: Netzwerkfehler.
-  Es sind keine nützlichen Informationen zur Beschreibung des Fehlers verfügbar.
-  Der Status der Antwort ist 0, die Header sind leer und unveränderlich.
-  Dies ist der Typ für eine Antwort, die von `Response.error()` erhalten wurde.
-- `opaque`: Antwort für eine "no-cors"-Anfrage an eine Cross-Origin-Ressource.
-  [Stark eingeschränkt](https://fetch.spec.whatwg.org/#concept-filtered-response-opaque).
-- `opaqueredirect`: Die Fetch-Anfrage wurde mit `redirect: "manual"` gestellt.
-  Der Status der Antwort ist 0, die Header sind leer, der Körper ist null und der Trailer ist leer.
-
-> [!NOTE]
-> Eine "error"-Antwort wird einem Skript nie wirklich offengelegt: Eine solche Antwort auf einen [`fetch()`](/de/docs/Web/API/Window/fetch) würde das Versprechen zurückweisen.
+Die schreibgeschützte **`type`**-Eigenschaft der [`Response`](/de/docs/Web/API/Response)-Schnittstelle enthält den Typ der Antwort. Der Typ bestimmt, ob Skripte Zugriff auf den Antwortkörper und die Header haben.
 
 ## Wert
 
-Ein `ResponseType`-String, der den Typ der Antwort angibt.
+Ein String, der einen der folgenden Werte haben kann:
+
+- `basic`
+
+  - : Dies gilt in einem der folgenden Fälle:
+
+    - Die Anfrage ist gleicher Herkunft (same-origin).
+    - Das Schema der angeforderten URL ist [`data:`](/de/docs/Web/URI/Reference/Schemes/data).
+    - Der [`mode`](/de/docs/Web/API/Request/mode) der Anfrage ist `navigate` oder `websocket`.
+
+    Bei diesem Typ sind alle Antwort-Header freigegeben, außer {{httpheader("Set-Cookie")}}.
+
+- `cors`
+  - : Die Anfrage war von einer anderen Herkunft (cross-origin) und wurde erfolgreich unter Verwendung von [CORS](/de/docs/Web/HTTP/Guides/CORS) verarbeitet. Bei diesem Typ sind nur {{Glossary("CORS-safelisted_response_header", "CORS-safe-listente Antwortheader")}} freigegeben.
+- `error`
+
+  - : Ein Netzwerkfehler ist aufgetreten. Die [`status`](/de/docs/Web/API/Response/status)-Eigenschaft ist auf `0` gesetzt, [`body`](/de/docs/Web/API/Response/body) ist `null`, Header sind leer und unveränderlich.
+
+    Dies ist der Typ der Antwort, die von [`Response.error()`](/de/docs/Web/API/Response/error_static) zurückgegeben wird. Eine Antwort dieses Typs wird nicht von einem Aufruf von [`fetch()`](/de/docs/Web/API/Window/fetch) zurückgegeben, da bei einem Netzwerkfehler das Versprechen abgelehnt wird.
+
+- `opaque`
+  - : Eine Antwort auf eine Cross-Origin-Anfrage, deren [`mode`](/de/docs/Web/API/Request/mode) auf `no-cors` gesetzt war. Die [`status`](/de/docs/Web/API/Response/status)-Eigenschaft ist auf `0` gesetzt, [`body`](/de/docs/Web/API/Response/body) ist `null`, Header sind leer und unveränderlich.
+- `opaqueredirect`
+  - : Eine Antwort auf eine Anfrage, deren [`redirect`](/de/docs/Web/API/Request/redirect)-Option auf `manual` gesetzt war und die vom Server umgeleitet wurde. Die [`status`](/de/docs/Web/API/Response/status)-Eigenschaft ist auf `0` gesetzt, [`body`](/de/docs/Web/API/Response/body) ist `null`, Header sind leer und unveränderlich.
 
 ## Beispiele
 
-In unserem [Beispiel zur Fetch-Antwort](https://github.com/mdn/dom-examples/tree/main/fetch/fetch-response) (siehe [Fetch Response live](https://mdn.github.io/dom-examples/fetch/fetch-response/)) erstellen wir ein neues [`Request`](/de/docs/Web/API/Request)-Objekt mithilfe des [`Request()`](/de/docs/Web/API/Request/Request)-Konstruktors, dem wir einen JPG-Pfad übergeben.
-Wir rufen dann diese Anfrage mit [`fetch()`](/de/docs/Web/API/Window/fetch) ab, extrahieren einen Blob aus der Antwort mit [`Response.blob`](/de/docs/Web/API/Response/blob), erstellen daraus eine Objekt-URL mit [`URL.createObjectURL()`](/de/docs/Web/API/URL/createObjectURL_static) und zeigen das in einem {{htmlelement("img")}} an.
+### Eine grundlegende Antwort
 
-Beachten Sie, dass wir zu Beginn des `fetch()`-Blocks den Antwort-`type` in der Konsole protokollieren.
+Die folgende Anfrage gleicher Herkunft gibt eine `basic`-Antwort zurück:
 
 ```js
-const myImage = document.querySelector("img");
+const response = await fetch("flowers.jpg");
 
-const myRequest = new Request("flowers.jpg");
+console.log(response.type); // "basic"
+```
 
-fetch(myRequest)
-  .then((response) => {
-    console.log("response.type =", response.type); // response.type = 'basic'
-    return response.blob();
-  })
-  .then((myBlob) => {
-    const objectURL = URL.createObjectURL(myBlob);
-    myImage.src = objectURL;
-  });
+### Eine CORS-Antwort
+
+Angenommen, `https://example.org` ist nicht die Herkunft des Anfragenden und der Server antwortet mit den entsprechenden CORS-Headern, dann wird diese Anfrage eine `cors`-Antwort zurückgeben:
+
+```js
+const response = await fetch("https://example.org/flowers.jpg");
+
+console.log(response.type); // "cors"
+```
+
+### Eine nicht tranparente Antwort
+
+Die folgende Anfrage wird mit der Option [`no-cors`](/de/docs/Web/API/Request/mode#no-cors) gestellt und gibt daher eine `opaque`-Antwort zurück:
+
+```js
+const response = await fetch("https://example.org/flowers.jpg", {
+  mode: "no-cors",
+});
+
+console.log(response.type); // "opaque"
+console.log(response.body); // null
+console.log(response.status); // 0
+```
+
+### Eine Fehlerantwort
+
+Der folgende Code verwendet [`Response.error()`](/de/docs/Web/API/Response/error_static), um eine `error`-Antwort zu erstellen:
+
+```js
+const response = Response.error();
+
+console.log(response.type); // "error"
+console.log(response.body); // null
+console.log(response.status); // 0
 ```
 
 ## Spezifikationen
