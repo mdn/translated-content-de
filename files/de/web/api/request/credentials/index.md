@@ -1,33 +1,34 @@
 ---
-title: "Anfrage: credentials-Eigenschaft"
+title: "Anforderung: credentials-Eigenschaft"
 short-title: credentials
 slug: Web/API/Request/credentials
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: 4c442059c45e50cd19c024edd0ed76693df27191
 ---
 
 {{APIRef("Fetch API")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte Eigenschaft **`credentials`** des [`Request`](/de/docs/Web/API/Request)-Interfaces spiegelt den Wert wider, der dem [`Request()`](/de/docs/Web/API/Request/Request)-Konstruktor in der [`credentials`](/de/docs/Web/API/RequestInit#credentials)-Option übergeben wurde. Sie bestimmt, ob der Browser Berechtigungsnachweise mit der Anfrage sendet und ob irgendwelche **`Set-Cookie`**-Antwortheader berücksichtigt werden.
+Die schreibgeschützte **`credentials`**-Eigenschaft der [`Request`](/de/docs/Web/API/Request)-Schnittstelle spiegelt den Wert wider, der im [`Request()`](/de/docs/Web/API/Request/Request)-Konstruktor in der [`credentials`](/de/docs/Web/API/RequestInit#credentials)-Option angegeben wurde. Sie bestimmt, ob der Browser Anmeldedaten zusammen mit der Anfrage sendet, sowie ob jegliche **`Set-Cookie`**-Antwort-Header beachtet werden.
 
-Berechtigungsnachweise sind Cookies, {{Glossary("TLS", "TLS")}}-Client-Zertifikate oder Authentifizierungsheader, die einen Benutzernamen und ein Passwort enthalten.
+Anmeldedaten sind Cookies, {{Glossary("TLS", "TLS")}}-Client-Zertifikate oder Authentifizierungs-Header, die einen Benutzernamen und ein Passwort enthalten.
 
-Weitere Details finden Sie unter [Berechtigungsnachweise einbeziehen](/de/docs/Web/API/Fetch_API/Using_Fetch#including_credentials).
+Weitere Details finden Sie unter [Anmeldedaten einschließen](/de/docs/Web/API/Fetch_API/Using_Fetch#including_credentials).
 
 ## Wert
 
-Ein `String` mit einem der folgenden Werte:
+Ein String mit einem der folgenden Werte:
 
 - `omit`
-  - : Niemals Berechtigungsnachweise in der Anfrage senden oder in der Antwort einbeziehen.
+  - : Niemals Anmeldedaten in der Anfrage senden oder in der Antwort einschließen.
 - `same-origin`
-  - : Berechtigungsnachweise nur für same-origin-Anfragen senden und einbeziehen.
+  - : Nur Anmeldedaten für Anfragen gleicher Herkunft senden und einschließen.
+    Dies ist die Standardeinstellung.
 - `include`
-  - : Berechtigungsnachweise immer einbeziehen, auch bei Cross-Origin-Anfragen.
+  - : Immer Anmeldedaten einschließen, auch bei Anfragen von anderer Herkunft.
 
 ## Beispiele
 
-Im folgenden Schnipsel erstellen wir eine neue Anfrage mit dem [`Request()`](/de/docs/Web/API/Request/Request)-Konstruktor (für eine Bilddatei im gleichen Verzeichnis wie das Skript) und speichern dann die Berechtigungsnachweise der Anfrage in einer Variablen:
+Im folgenden Codeausschnitt erstellen wir eine neue Anfrage mit dem [`Request()`](/de/docs/Web/API/Request/Request)-Konstruktor (für eine Bilddatei im selben Verzeichnis wie das Skript) und speichern dann die Anmeldeinformationen der Anfrage in einer Variablen:
 
 ```js
 const request = new Request("flowers.jpg");
