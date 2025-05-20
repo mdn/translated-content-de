@@ -2,12 +2,12 @@
 title: "<h1>–<h6>: Die HTML-Abschnittsüberschriftselemente"
 slug: Web/HTML/Reference/Elements/Heading_Elements
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: 9d28a3ed06d1238750206e0150e4439888592969
 ---
 
 {{HTMLSidebar}}
 
-Die **`<h1>`** bis **`<h6>`** [HTML](/de/docs/Web/HTML) Elemente repräsentieren sechs Ebenen von Abschnittsüberschriften. `<h1>` ist die höchste Abschnittsebene und `<h6>` die niedrigste. Standardmäßig erstellen alle Überschriftselemente einen {{Glossary("Block-level_content", "Block-Level")}} Box im Layout, die auf einer neuen Zeile beginnt und die volle Breite ihres umgebenden Blocks einnimmt.
+Die **`<h1>`** bis **`<h6>`** [HTML](/de/docs/Web/HTML) Elemente repräsentieren sechs Ebenen von Abschnittsüberschriften. `<h1>` ist die höchste Abschnittsebene und `<h6>` die niedrigste. Standardmäßig erzeugen alle Überschriftselemente ein {{Glossary("Block-level_content", "Block-Level")}} Box in der Anordnung, die in einer neuen Zeile beginnt und die volle verfügbare Breite in ihrem umgebenden Block einnimmt.
 
 {{InteractiveExample("HTML Demo: &lt;h1-h6&gt;", "tabbed-standard")}}
 
@@ -54,29 +54,26 @@ h4 {
 
 Diese Elemente beinhalten nur die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
-## Verwendungshinweise
+## Hinweise zur Verwendung
 
-- Überschriftinformationen können von Benutzeragenten verwendet werden, um automatisch ein Inhaltsverzeichnis für ein Dokument zu erstellen.
-- Verwenden Sie keine Überschriftselemente, um Text zu vergrößern. Verwenden Sie stattdessen die {{Glossary("CSS", "CSS")}} {{cssxref("font-size")}} Eigenschaft.
-- Überspringen Sie keine Überschriftsebenen: Beginnen Sie immer mit `<h1>`, gefolgt von `<h2>` und so weiter.
+- Überschrifteninformationen können von Benutzeragenten verwendet werden, um automatisch ein Inhaltsverzeichnis für ein Dokument zu erstellen.
+- Verwenden Sie Überschriftselemente nicht, um Text zu verkleinern. Verwenden Sie stattdessen die {{Glossary("CSS", "CSS")}} {{cssxref("font-size")}} Eigenschaft.
+- Überspringen Sie keine Überschriftenebenen: Beginnen Sie immer mit `<h1>`, gefolgt von `<h2>` und so weiter.
 
-### Vermeiden Sie die Verwendung mehrerer `<h1>`-Elemente auf einer Seite
+### Vermeiden Sie die Verwendung mehrerer `<h1>` Elemente auf einer Seite
 
-Obwohl die Verwendung mehrerer `<h1>`-Elemente auf einer Seite durch den HTML-Standard erlaubt ist (sofern sie nicht [verschachtelt](#verschachtelung) sind), wird dies nicht als Best Practice angesehen. Eine Seite sollte im Allgemeinen ein einzelnes `<h1>`-Element haben, das den Inhalt der Seite beschreibt (ähnlich dem [`<title>`](/de/docs/Web/HTML/Reference/Elements/title) Element des Dokuments).
-
-> [!NOTE]
-> Das Verschachteln mehrerer `<h1>`-Elemente in verschachtelten [Abschnittselementen](/de/docs/Web/HTML/Reference/Elements#content_sectioning) war in älteren Versionen des HTML-Standards erlaubt. Dies wurde jedoch nie als Best Practice angesehen und ist nun nicht konform. Lesen Sie mehr unter [There Is No Document Outline Algorithm](https://adrianroselli.com/2016/08/there-is-no-document-outline-algorithm.html).
-
-Bevorzugen Sie die Verwendung von nur einem `<h1>` pro Seite und [verschachteln Sie Überschriften](#verschachtelung) ohne Ebenen zu überspringen.
-
-### Einheitliche Schriftgröße für `<h1>` angeben
-
-Der [HTML-Standard](https://html.spec.whatwg.org/multipage/rendering.html#sections-and-headings) spezifiziert, dass `<h1>`-Elemente in einem `<section>`, `<article>`, `<aside>` oder `<nav>`-Element als `<h2>` gerendert werden sollten (kleinere {{cssxref("font-size")}} mit einem angepassten {{cssxref("margin-block")}}), oder als `<h3>`, wenn sie eine weitere Ebene verschachtelt sind, und so weiter.
+Obwohl die Verwendung mehrerer `<h1>` Elemente auf einer Seite durch den HTML-Standard erlaubt ist (solange sie nicht [verschachtelt](#verschachtelung) sind), wird dies nicht als Best Practice angesehen. Eine Seite sollte im Allgemeinen ein einzelnes `<h1>` Element haben, das den Inhalt der Seite beschreibt (ähnlich dem [`<title>`](/de/docs/Web/HTML/Reference/Elements/title) Element des Dokuments).
 
 > [!NOTE]
-> Es gibt einen [Vorschlag](https://github.com/whatwg/html/issues/7867), diesen speziellen Standardstil zu entfernen, so dass `<h1>` immer den gleichen Standardstil hat. Dieser Vorschlag ist derzeit [in Firefox Nightly implementiert](/de/docs/Mozilla/Firefox/Experimental_features#ua_styles_for_h1_nested_in_sectioning_elements).
+> Die Verschachtelung mehrerer `<h1>` Elemente in verschachtelten [Abschnittselementen](/de/docs/Web/HTML/Reference/Elements#content_sectioning) war in älteren Versionen des HTML-Standards erlaubt. Dies wurde jedoch nie als Best Practice betrachtet und ist jetzt nicht mehr konform. Lesen Sie mehr in [There Is No Document Outline Algorithm](https://adrianroselli.com/2016/08/there-is-no-document-outline-algorithm.html).
 
-Um ein konsistentes `<h1>`-Rendering sicherzustellen, verwenden Sie die folgende Stilregel:
+Es wird bevorzugt, nur ein `<h1>` pro Seite zu verwenden und [Überschriften zu verschachteln](#verschachtelung), ohne Ebenen zu überspringen.
+
+### Einheitliche Schriftgröße für `<h1>` spezifizieren
+
+Vor Mai 2025 spezifizierte der [HTML-Standard](https://html.spec.whatwg.org/multipage/rendering.html#sections-and-headings), dass `<h1>` Elemente in einem `<section>`, `<article>`, `<aside>`, oder `<nav>` Element als `<h2>` (kleinere {{cssxref("font-size")}} mit angepasstem {{cssxref("margin-block")}}), oder als `<h3>` gerendert werden sollten, wenn sie eine Ebene tiefer verschachtelt sind, usw. Dieser speziell kontextabhängige Standardstil wurde nun [entfernt](https://github.com/whatwg/html/issues/7867).
+
+Um ein konsistentes `<h1>` Rendering für Browser zu gewährleisten, die den alten kontextabhängigen Standardstil implementieren, verwenden Sie die folgende Stilregel:
 
 ```css
 h1 {
@@ -85,7 +82,7 @@ h1 {
 }
 ```
 
-Alternativ, um andere Stilregeln, die auf `<h1>` abzielen, nicht zu überschreiben, können Sie {{cssxref(":where()")}} verwenden, was keine Spezifität hat:
+Alternativ können Sie zur Vermeidung der Überschreibung anderer Stilregeln, die auf `<h1>` abzielen, {{cssxref(":where()")}}, das keine Spezifität hat, verwenden:
 
 ```css
 :where(h1) {
@@ -98,7 +95,7 @@ Alternativ, um andere Stilregeln, die auf `<h1>` abzielen, nicht zu überschreib
 
 ### Navigation
 
-Eine häufige Navigationstechnik für Benutzer von Bildschirmlesesoftware ist das schnelle Springen von Überschrift zu Überschrift, um den Inhalt der Seite zu bestimmen. Aus diesem Grund ist es wichtig, keine Überschriftsebenen zu überspringen. Andernfalls kann Verwirrung entstehen, da die Person, die auf diese Weise navigiert, sich fragen könnte, wo die fehlende Überschrift ist.
+Eine häufige Navigationstechnik für Benutzer von Screenreadern ist das schnelle Springen von Überschrift zu Überschrift, um den Inhalt der Seite zu bestimmen. Deshalb ist es wichtig, keine oder mehrere Überschriftenebenen zu überspringen. Andernfalls kann es zu Verwirrung kommen, da die Person, die auf diese Weise navigiert, möglicherweise nicht weiß, wo die fehlende Überschrift ist.
 
 **Tun Sie dies nicht:**
 
@@ -118,9 +115,9 @@ Eine häufige Navigationstechnik für Benutzer von Bildschirmlesesoftware ist da
 
 #### Verschachtelung
 
-Überschriften können als Unterabschnitte verschachtelt werden, um die Struktur des Seiteninhalts widerzuspiegeln. Die meisten Bildschirmleser können auch eine geordnete Liste aller Überschriften auf einer Seite erstellen, was einer Person helfen kann, die Inhaltsstruktur schnell zu erkennen und zu verschiedenen Überschriften zu navigieren.
+Überschriften können als Unterabschnitte verschachtelt werden, um die Organisation des Inhalts der Seite widerzuspiegeln. Die meisten Screenreader können auch eine geordnete Liste aller Überschriften auf einer Seite generieren, die einer Person helfen kann, sich schnell über die Inhaltsstruktur zu orientieren und zu verschiedenen Überschriften zu navigieren.
 
-Angenommen, folgende Seitenstruktur liegt vor:
+Bei der folgenden Seitenstruktur:
 
 ```html
 <h1>Beetles</h1>
@@ -146,15 +143,15 @@ Angenommen, folgende Seitenstruktur liegt vor:
 <h3>Abdomen</h3>
 ```
 
-Bildschirmleser würden eine Liste wie diese erzeugen:
+Würde ein Screenreader eine Liste wie diese erzeugen:
 
 1. `h1` Käfer
 
    1. `h2` Etymologie
-   2. `h2` Verteilung und Vielfalt
+   2. `h2` Verbreitung und Vielfalt
    3. `h2` Evolution
 
-      1. `h3` Spätpaläozoikum
+      1. `h3` Spät-Paläozoikum
       2. `h3` Jura
       3. `h3` Kreidezeit
       4. `h3` Känozoikum
@@ -174,21 +171,21 @@ Bildschirmleser würden eine Liste wie diese erzeugen:
       4. `h3` Flügel
       5. `h3` Abdomen
 
-Wenn Überschriften verschachtelt sind, können Überschriftsebenen beim Schließen eines Unterabschnitts "übersprungen" werden.
+Wenn Überschriften verschachtelt sind, können beim Schließen eines Unterabschnitts Überschriftenebenen "übersprungen" werden.
 
 - [Überschriften • Seitenstruktur • WAI Web Accessibility Tutorials](https://www.w3.org/WAI/tutorials/page-structure/headings/)
-- [MDN Verständnis von WCAG, Richtlinie 1.3 Erklärungen](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.3_—_create_content_that_can_be_presented_in_different_ways)
-- [Verständnis von Erfolgskriterium 1.3.1 | W3C Verständnis von WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/content-structure-separation-programmatic.html)
-- [MDN Verständnis von WCAG, Richtlinie 2.4 Erklärungen](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Operable#guideline_2.4_—_navigable_provide_ways_to_help_users_navigate_find_content_and_determine_where_they_are)
-- [Verständnis von Erfolgskriterium 2.4.1 | W3C Verständnis von WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms-skip.html)
-- [Verständnis von Erfolgskriterium 2.4.6 | W3C Verständnis von WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms-descriptive.html)
-- [Verständnis von Erfolgskriterium 2.4.10 | W3C Verständnis von WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms-headings.html)
+- [MDN Verständnis WCAG, Richtlinien 1.3 Erklärungen](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.3_—_create_content_that_can_be_presented_in_different_ways)
+- [Verständnis von Erfolgskriterium 1.3.1 | W3C Verständnis WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/content-structure-separation-programmatic.html)
+- [MDN Verständnis WCAG, Richtlinien 2.4 Erklärungen](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Operable#guideline_2.4_—_navigable_provide_ways_to_help_users_navigate_find_content_and_determine_where_they_are)
+- [Verständnis von Erfolgskriterium 2.4.1 | W3C Verständnis WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms-skip.html)
+- [Verständnis von Erfolgskriterium 2.4.6 | W3C Verständnis WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms-descriptive.html)
+- [Verständnis von Erfolgskriterium 2.4.10 | W3C Verständnis WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms-headings.html)
 
-### Beschriftung von Abschnittsinhalt
+### Markierung von Abschnittsinhalten
 
-Eine weitere gängige Navigationstechnik für Benutzer von Bildschirmlesesoftware ist das Erzeugen einer Liste von [Abschnittsinhalten](/de/docs/Web/HTML/Reference/Elements#content_sectioning) und deren Verwendung, um das Layout der Seite zu bestimmen.
+Eine weitere häufige Navigationstechnik für Benutzer von Screenreadern besteht darin, eine Liste von [abschnittsweisem Inhalt](/de/docs/Web/HTML/Reference/Elements#content_sectioning) zu generieren und diese zur Bestimmung des Seitenlayouts zu nutzen.
 
-Abschnittsinhalte können mit einer Kombination der Attribute [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby) und [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id) beschriftet werden, wobei das Label den Zweck des Abschnitts präzise beschreibt. Diese Technik ist nützlich für Situationen, in denen sich mehr als ein Abschnittselement auf derselben Seite befindet.
+Abschnittsinhalte können mit einer Kombination der Attribute [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby) und [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id) markiert werden, wobei die Bezeichnung den Zweck des Abschnitts treffend beschreibt. Diese Technik ist nützlich in Situationen, in denen es auf derselben Seite mehr als ein Abschnittselement gibt.
 
 #### Beispiele für Abschnittsinhalte
 
@@ -212,10 +209,10 @@ Abschnittsinhalte können mit einer Kombination der Attribute [`aria-labelledby`
 
 {{EmbedLiveSample('Sectioning_content_examples')}}
 
-In diesem Beispiel würde die Bildschirmlesetechnologie ankündigen, dass es zwei {{HTMLElement("nav")}} Abschnitte gibt, einen namens "Hauptnavigation" und einen namens "Fußzeilennavigation". Wenn keine Labels bereitgestellt würden, müsste die Person, die Bildschirmlesesoftware verwendet, möglicherweise den Inhalt jedes `nav`-Elements untersuchen, um deren Zweck zu bestimmen.
+In diesem Beispiel würde die Screenreader-Technologie ankündigen, dass es zwei {{HTMLElement("nav")}} Abschnitte gibt, einer namens "Hauptnavigation" und einer namens "Fußzeilennavigation". Wenn keine Beschriftungen vorhanden wären, müsste die Person, die eine Screenreader-Software verwendet, unter Umständen den Inhalt jedes `nav` Elements untersuchen, um ihren Zweck zu bestimmen.
 
-- [Verwendung des Attributs aria-labelledby](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby)
-- [Beschriften von Regionen • Seitenstruktur • W3C WAI Web Accessibility Tutorials](https://www.w3.org/WAI/tutorials/page-structure/labels/#using-aria-labelledby)
+- [Verwendung des aria-labelledby Attributs](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby)
+- [Beschriftung von Regionen • Seitenstruktur • W3C WAI Web Accessibility Tutorials](https://www.w3.org/WAI/tutorials/page-structure/labels/#using-aria-labelledby)
 
 ## Beispiele
 
@@ -268,33 +265,33 @@ Der folgende Code zeigt einige Überschriften mit Inhalt darunter.
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
-          >Fließende Inhalte</a
-        >, Überschrift Inhalte, fühlbare Inhalte.
+          >Fluß-Inhalt</a
+        >, Überschrifteninhalt, greifbarer Inhalt.
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte Inhalte</th>
+      <th scope="row">Erlaubter Inhalt</th>
       <td>
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Phrasing-Inhalte</a
+          >Phrasierungsinhalt</a
         >.
       </td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl das Start- als auch das End-Tag sind obligatorisch.</td>
+      <td>Keine, sowohl das Start- als auch das End-Tag sind zwingend erforderlich.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
-          >fließende Inhalte</a
+          >Fluss-Inhalt</a
         > akzeptiert.
       </td>
     </tr>
     <tr>
-      <th scope="row">Implizite ARIA-Rolle</th>
+      <th scope="row">Implizierte ARIA-Rolle</th>
       <td>
         <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/heading_role"
           >Überschrift</a
@@ -309,7 +306,7 @@ Der folgende Code zeigt einige Überschriften mit Inhalt darunter.
       </td>
     </tr>
     <tr>
-      <th scope="row">DOM Interface</th>
+      <th scope="row">DOM-Schnittstelle</th>
       <td>[`HTMLHeadingElement`](/de/docs/Web/API/HTMLHeadingElement)</td>
     </tr>
   </tbody>
