@@ -2,7 +2,7 @@
 title: author
 slug: Mozilla/Add-ons/WebExtensions/manifest.json/author
 l10n:
-  sourceCommit: ae9ff189579379acf6aea6b4a1cb01ea1a96011d
+  sourceCommit: 570370b96885b4e2872342305353749b03206da3
 ---
 
 {{AddonSidebar}}
@@ -28,13 +28,13 @@ l10n:
   </tbody>
 </table>
 
-Der Autor der Erweiterung, vorgesehen zur Anzeige in der Benutzeroberfläche des Browsers. Der Typ und die Bedeutung dieses Schlüssels variieren je nach Browser und [manifest_version](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/manifest_version). Die Zeichenkette, die von diesem Wert gehalten wird, ist eine [lokalisierbare Eigenschaft](/de/docs/Mozilla/Add-ons/WebExtensions/Internationalization#internationalizing_manifest.json).
+Der Autor der Erweiterung. Er soll in der Benutzeroberfläche des Browsers angezeigt werden. Der durch den Wert gehaltene String ist eine [lokalisierbare Eigenschaft](/de/docs/Mozilla/Add-ons/WebExtensions/Internationalization#internationalizing_manifest.json).
 
-Chrome erwartet, dass dieser Schlüssel die E-Mail-Adresse des Autors der Erweiterung repräsentiert. In Manifest V2 muss der Wert eine Zeichenkette sein. Ab Manifest V3 bevorzugt Chrome, dass der Wert ein Objekt mit einer `email`-Eigenschaft und einem Zeichenkettenwert ist. Beim Veröffentlichen im Chrome Web Store wird jede Datenstruktur akzeptiert, aber der Zeichenkettenwert muss mit der E-Mail-Adresse des Kontos übereinstimmen, das zur Veröffentlichung der Erweiterung verwendet wird.
+Firefox erwartet, dass dieser Schlüssel den Namen der Person oder Entität darstellt, die die Erweiterung entwickelt hat. Wenn der [developer](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/developer)-Schlüssel auch als Objekt mit einer `name`-Eigenschaft angegeben ist, überschreibt der Wert von `name` den `author`-Schlüssel.
 
-Firefox erwartet, dass dieser Schlüssel den Namen der Person oder Organisation repräsentiert, die die Erweiterung entwickelt hat. Firefox erwartet eine Zeichenkette; wenn es als Objekt deklariert ist, ignoriert Firefox es. Wenn der [developer](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/developer)-Schlüssel ebenfalls als Objekt mit einer `name`-Eigenschaft angegeben ist, überschreibt der Wert von `name` den `author`-Schlüssel.
+Es wird empfohlen, in Firefox den `developer`-Schlüssel zur Identifizierung des Autors zu verwenden.
 
-Wenn Sie sowohl auf Chrome als auch auf Firefox abzielen, verwenden Sie den `author`-Schlüssel, um den Autor in Chrome zu identifizieren und den `developer`-Schlüssel, um den Autor in Firefox zu identifizieren.
+Seit Mai 2025 nutzen Chrome und der Chrome Web Store diesen Schlüssel nicht mehr.
 
 ## Beispiel
 
