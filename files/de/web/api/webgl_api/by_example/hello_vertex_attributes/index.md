@@ -2,18 +2,18 @@
 title: Hallo Vertex-Attribute
 slug: Web/API/WebGL_API/By_example/Hello_vertex_attributes
 l10n:
-  sourceCommit: 1eae3d383ad47b5e21bf25764d1d35487ea52bb8
+  sourceCommit: 611edf6335e4a833a6f394d0d98b117e7b0a36bf
 ---
 
-{{DefaultAPISidebar("WebGL")}}{{PreviousNext("Web/API/WebGL_API/By_example/Hello_GLSL","Web/API/WebGL_API/By_example/Textures_from_code")}}
+{{DefaultAPISidebar("WebGL")}}{{PreviousNext("Web/API/WebGL_API/By_example/Hello_GLSL", "Web/API/WebGL_API/By_example/Textures_from_code")}}
 
-Dieses WebGL-Beispiel zeigt, wie man Shader-Programmierung mit Benutzerinteraktion kombiniert, indem Benutzereingaben mithilfe von Vertex-Attributen an den Shader gesendet werden.
+Dieses WebGL-Beispiel zeigt, wie Shader-Programmierung und Benutzerinteraktion kombiniert werden können, indem Benutzereingaben unter Verwendung von Vertex-Attributen an den Shader gesendet werden.
 
-## Hallo-Welt-Programm in GLSL
+## Hello World-Programm in GLSL
 
-{{EmbedLiveSample("Hello_World_program_in_GLSL",660,425)}}
+{{EmbedLiveSample("Hello_World_program_in_GLSL", 660, 425)}}
 
-Anleitung, wie man Eingaben an ein Shader-Programm sendet, indem man Daten im GPU-Speicher speichert.
+Anleitung, wie Eingaben an ein Shader-Programm gesendet werden, indem Daten im GPU-Speicher gespeichert werden.
 
 ```html hidden
 <p>
@@ -68,11 +68,6 @@ button {
     gl_FragColor = vec4(0.18, 0.54, 0.34, 1.0);
   }
 </script>
-```
-
-```js hidden
-;(() => {
-  "use strict";
 ```
 
 ```js
@@ -171,10 +166,6 @@ function getRenderingContext() {
 }
 ```
 
-```js hidden
-})();
-```
-
 Der Quellcode dieses Beispiels ist auch auf [GitHub](https://github.com/idofilin/webgl-by-example/tree/master/hello-vertex-attributes) verfügbar.
 
-{{PreviousNext("Web/API/WebGL_API/By_example/Hello_GLSL","Web/API/WebGL_API/By_example/Textures_from_code")}}
+{{PreviousNext("Web/API/WebGL_API/By_example/Hello_GLSL", "Web/API/WebGL_API/By_example/Textures_from_code")}}

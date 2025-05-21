@@ -2,7 +2,7 @@
 title: matrix()
 slug: Web/CSS/transform-function/matrix
 l10n:
-  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
+  sourceCommit: abe75107f9c32e58db5fa69a32fe31c4c77708f1
 ---
 
 {{CSSRef}}
@@ -37,31 +37,30 @@ transform: matrix(0.1, 1, -0.3, 1, 0, 0);
 </section>
 ```
 
-> **Note:** `matrix(a, b, c, d, tx, ty)` ist eine Kurzform für
-> `matrix3d(a, b, 0, 0, c, d, 0, 0, 0, 0, 1, 0, tx, ty, 0, 1)`.
-
 ## Syntax
 
-Die `matrix()` Funktion wird mit sechs Werten angegeben. Die konstanten Werte werden implizit berücksichtigt und nicht als Parameter übergeben; die anderen Parameter werden in spaltenweisem Format beschrieben.
+Die `matrix()` Funktion wird mit sechs Werten angegeben. Die konstanten Werte sind gegeben und werden nicht als Parameter übergeben; die anderen Parameter werden in Spaltenreihenfolge beschrieben.
 
 ```css
 matrix(a, b, c, d, tx, ty)
 ```
 
+> **Note:** `matrix(a, b, c, d, tx, ty)` ist eine Kurzschreibweise für `matrix3d(a, b, 0, 0, c, d, 0, 0, 0, 0, 1, 0, tx, ty, 0, 1)`. Dies ist auch gleichbedeutend mit `matrix(scaleX, skewX, scaleY, skewY, translateX, translateY)`.
+
 ### Werte
 
 - _a_ _b_ _c_ _d_
-  - : Sind {{cssxref("&lt;number&gt;")}}s, die die lineare Transformation beschreiben.
+  - : Sind {{cssxref("&lt;number&gt;")}}-Werte, die die lineare Transformation beschreiben.
 - _tx_ _ty_
-  - : Sind {{cssxref("&lt;number&gt;")}}s, die die anzuwendende Translation beschreiben.
+  - : Sind {{cssxref("&lt;number&gt;")}}-Werte, die die zu anwendende Translation beschreiben.
 
 <table class="standard-table">
   <thead>
     <tr>
-      <th scope="col"><a href="/de/docs/Web/CSS/transform-function#cartesian_coordinates">Kartesische Koordinaten</a> auf <a href="https://en.wikipedia.org/wiki/Real_coordinate_space">ℝ^2</a></th>
-      <th scope="col"><a href="https://en.wikipedia.org/wiki/Homogeneous_coordinates">Homogene Koordinaten</a> auf <a href="https://en.wikipedia.org/wiki/Real_projective_plane">ℝℙ^2</a></th>
-      <th scope="col">Kartesische Koordinaten auf <a href="https://en.wikipedia.org/wiki/Real_coordinate_space">ℝ^3</a></th>
-      <th scope="col">Homogene Koordinaten auf <a href="https://en.wikipedia.org/wiki/Real_projective_space">ℝℙ^3</a></th>
+      <th scope="col"><a href="/de/docs/Web/CSS/transform-function#cartesian_coordinates">Kartesische Koordinaten</a> in <a href="https://de.wikipedia.org/wiki/Euklidischer_Raum">ℝ^2</a></th>
+      <th scope="col"><a href="https://de.wikipedia.org/wiki/Homogene_Koordinaten">Homogene Koordinaten</a> in <a href="https://de.wikipedia.org/wiki/Reelle_projektive_Ebene">ℝℙ^2</a></th>
+      <th scope="col">Kartesische Koordinaten in <a href="https://de.wikipedia.org/wiki/Euklidischer_Raum">ℝ^3</a></th>
+      <th scope="col">Homogene Koordinaten in <a href="https://de.wikipedia.org/wiki/Projektiver_Raum">ℝℙ^3</a></th>
     </tr>
   </thead>
   <tbody>

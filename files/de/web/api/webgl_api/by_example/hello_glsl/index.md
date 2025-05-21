@@ -2,17 +2,17 @@
 title: Hallo GLSL
 slug: Web/API/WebGL_API/By_example/Hello_GLSL
 l10n:
-  sourceCommit: 1eae3d383ad47b5e21bf25764d1d35487ea52bb8
+  sourceCommit: 611edf6335e4a833a6f394d0d98b117e7b0a36bf
 ---
 
 {{DefaultAPISidebar("WebGL")}}{{PreviousNext("Web/API/WebGL_API/By_example/Raining_rectangles","Web/API/WebGL_API/By_example/Hello_vertex_attributes")}}
 
-Dieses WebGL-Beispiel demonstriert ein sehr einfaches GLSL-Shader-Programm, das ein Quadrat in einer einheitlichen Farbe zeichnet.
+Dieses WebGL-Beispiel demonstriert ein sehr grundlegendes GLSL-Shader-Programm, das ein einfarbiges Quadrat zeichnet.
 
 > [!NOTE]
-> Dieses Beispiel wird höchstwahrscheinlich in allen modernen Desktop-Browsern funktionieren. Es könnte jedoch in einigen mobilen oder älteren Browsern nicht funktionieren. Wenn die Leinwand leer bleibt, können Sie die Ausgabe des nächsten Beispiels überprüfen, das genau dasselbe zeichnet. Denken Sie jedoch daran, die Erklärungen und den Code auf dieser Seite zu lesen, bevor Sie zum nächsten Beispiel übergehen.
+> Dieses Beispiel wird höchstwahrscheinlich in allen modernen Desktop-Browsern funktionieren. Es könnte jedoch in einigen mobilen oder älteren Browsern nicht funktionieren. Wenn die Leinwand leer bleibt, können Sie die Ausgabe des nächsten Beispiels überprüfen, das genau dasselbe zeichnet. Denken Sie jedoch daran, die Erklärungen und den Code auf dieser Seite durchzulesen, bevor Sie mit dem nächsten fortfahren.
 
-## Hello-World-Programm in GLSL
+## Hallo Welt Programm in GLSL
 
 {{EmbedLiveSample("Hello_World_program_in_GLSL",660,425)}}
 
@@ -63,11 +63,6 @@ button {
     gl_FragColor = vec4(0.18, 0.54, 0.34, 1.0);
   }
 </script>
-```
-
-```js hidden
-;(() => {
-  "use strict";
 ```
 
 ```js
@@ -149,10 +144,6 @@ function getRenderingContext() {
   gl.clear(gl.COLOR_BUFFER_BIT);
   return gl;
 }
-```
-
-```js hidden
-})();
 ```
 
 Der Quellcode dieses Beispiels ist auch auf [GitHub](https://github.com/idofilin/webgl-by-example/tree/master/hello-glsl) verfügbar.

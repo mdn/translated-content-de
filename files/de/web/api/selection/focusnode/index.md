@@ -3,19 +3,18 @@ title: "Selection: focusNode-Eigenschaft"
 short-title: focusNode
 slug: Web/API/Selection/focusNode
 l10n:
-  sourceCommit: f2f9346c0c0e9f6676f2df9f1850933e274401de
+  sourceCommit: 23de2280422ab52460507ff831915a08bb043d8e
 ---
 
 {{ ApiRef("DOM") }}
 
-Die schreibgeschützte Eigenschaft **`Selection.focusNode`** gibt das
-[`Node`](/de/docs/Web/API/Node)-Objekt zurück, in dem die Auswahl endet.
+Die **`Selection.focusNode`** schreibgeschützte Eigenschaft gibt den [`Node`](/de/docs/Web/API/Node) zurück, in dem die Auswahl endet. Sie kann `null` zurückgeben, wenn im Dokument nie eine Auswahl existierte (z. B. ein iframe, auf das nie geklickt wurde, oder der Node gehört zu einem anderen Dokumentbaum).
 
-Ein Benutzer kann eine Auswahl von links nach rechts (in Dokumentenreihenfolge) oder von rechts nach links (umgekehrte Dokumentenreihenfolge) treffen. Der Fokus ist dort, wo der Benutzer die Auswahl beendet hat. Dies kann visualisiert werden, indem Sie die <kbd>Shift</kbd>-Taste gedrückt halten und die Pfeiltasten auf Ihrer Tastatur verwenden, um die aktuelle Auswahl zu ändern. Der Fokus der Auswahl bewegt sich, aber der Anker der Auswahl, das andere Ende der Auswahl, bewegt sich nicht.
+Ein Benutzer kann eine Auswahl von links nach rechts (in Dokumentenreihenfolge) oder von rechts nach links (entgegengesetzt der Dokumentenreihenfolge) vornehmen. Der Fokus ist der Punkt, an dem der Benutzer die Auswahl beendet hat. Dies kann durch Halten der <kbd>Umschalt</kbd>-Taste und Drücken der Pfeiltasten auf der Tastatur visualisiert werden. Der Fokus der Auswahl bewegt sich, aber der Anker der Auswahl, das andere Ende der Auswahl, bewegt sich nicht.
 
 ## Wert
 
-Ein [`Node`](/de/docs/Web/API/Node)-Objekt.
+Ein [`Node`](/de/docs/Web/API/Node)-Objekt oder `null`.
 
 ## Spezifikationen
 
@@ -27,4 +26,5 @@ Ein [`Node`](/de/docs/Web/API/Node)-Objekt.
 
 ## Siehe auch
 
-- [`Selection`](/de/docs/Web/API/Selection), die Schnittstelle, zu der es gehört.
+- [`Selection`](/de/docs/Web/API/Selection)
+- [`Selection.anchorNode`](/de/docs/Web/API/Selection/anchorNode)

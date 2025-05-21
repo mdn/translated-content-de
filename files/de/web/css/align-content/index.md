@@ -2,14 +2,14 @@
 title: align-content
 slug: Web/CSS/align-content
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: 611edf6335e4a833a6f394d0d98b117e7b0a36bf
 ---
 
 {{CSSRef}}
 
-Die CSS-Eigenschaft **`align-content`** legt die Verteilung des Platzes zwischen und um Inhaltselemente entlang einer [Flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout)-{{Glossary("Cross_Axis", "Querachse")}} oder der Blockachse eines [Grid](/de/docs/Web/CSS/CSS_grid_layout)- oder {{Glossary("Block-level_content", "Block-Level")}}-Elements fest.
+Die [CSS](/de/docs/Web/CSS) **`align-content`**-Eigenschaft bestimmt die Verteilung des Raums zwischen und um die Inhaltselemente entlang einer [Flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout)'s {{Glossary("Cross_Axis", "Querachse")}} oder einer [Grid](/de/docs/Web/CSS/CSS_grid_layout)- oder {{Glossary("Block-level_content", "Block-Level")}}-Elements Blockachse.
 
-Das interaktive Beispiel unten verwendet Grid-Layout, um einige der Werte dieser Eigenschaft zu demonstrieren.
+Das interaktive Beispiel unten verwendet das Grid-Layout, um einige der Werte dieser Eigenschaft zu demonstrieren.
 
 {{InteractiveExample("CSS Demo: align-content")}}
 
@@ -57,7 +57,7 @@ align-content: space-around;
 }
 ```
 
-Diese Eigenschaft hat keine Wirkung auf einzeilige Flex-Container (d.h. solche mit `flex-wrap: nowrap`).
+Diese Eigenschaft hat keinen Effekt auf Flex-Container mit einer einzelnen Zeile (d.h. solche mit `flex-wrap: nowrap`).
 
 ## Syntax
 
@@ -99,42 +99,42 @@ align-content: unset;
 ### Werte
 
 - `normal`
-  - : Die Elemente sind in ihrer Standardposition verpackt, als ob kein `align-content`-Wert gesetzt wäre.
+  - : Die Elemente werden in ihrer Standardposition gepackt, als ob kein `align-content`-Wert gesetzt wurde.
 - `start`
-  - : Die Elemente sind direkt nebeneinander an der Startkante des Ausrichtungscontainers entlang der Querachse ausgerichtet.
+  - : Die Elemente sind bündig miteinander gegen die Startkante des Ausrichtungscontainers in der Querachse gepackt.
 - `center`
-  - : Die Elemente sind direkt nebeneinander in der Mitte des Ausrichtungscontainers entlang der Querachse ausgerichtet.
+  - : Die Elemente sind bündig miteinander in der Mitte des Ausrichtungscontainers entlang der Querachse gepackt.
 - `end`
-  - : Die Elemente sind direkt nebeneinander an der Endkante des Ausrichtungscontainers entlang der Querachse ausgerichtet.
+  - : Die Elemente sind bündig miteinander gegen die Endkante des Ausrichtungscontainers in der Querachse gepackt.
 - `flex-start`
-  - : Die Elemente sind direkt nebeneinander an der Kante des Ausrichtungscontainers, abhängig von der Flex-Container-Queranfangsseite, ausgerichtet.
+  - : Die Elemente sind bündig miteinander gegen die Kante des Ausrichtungscontainers gepackt, abhängig von der Quer-Startseite des Flex-Containers.
     Dies gilt nur für Flex-Layout-Elemente. Für Elemente, die keine Kinder eines Flex-Containers sind, wird dieser Wert wie `start` behandelt.
 - `flex-end`
-  - : Die Elemente sind direkt nebeneinander an der Kante des Ausrichtungscontainers, abhängig von der Flex-Container-Querendseite, ausgerichtet.
+  - : Die Elemente sind bündig miteinander gegen die Kante des Ausrichtungscontainers gepackt, abhängig von der Quer-Endseite des Flex-Containers.
     Dies gilt nur für Flex-Layout-Elemente. Für Elemente, die keine Kinder eines Flex-Containers sind, wird dieser Wert wie `end` behandelt.
 - `baseline`, `first baseline`, `last baseline`
 
-  - : Gibt eine Teilnahme an der ersten oder letzten Baseline-Ausrichtung an: richtet die Ausrichtungs-Baseline des ersten oder letzten Baseline-Sets der Box mit der entsprechenden Baseline im gemeinsamen ersten oder letzten Baseline-Set aller Boxen der Baseline-Teilungsgruppe aus.
+  - : Gibt die Teilnahme an der Ausrichtung der ersten oder letzten Baseline an: richtet die Ausrichtungsbaseline des Basislinien-Sets der Box mit der entsprechenden Basislinie im gemeinsamen ersten oder letzten Baseline-Set aller Boxen in ihrer Baseline-Teilungsgruppe aus.
 
-    ![die Grundlinie ist die Linie, auf der die meisten Buchstaben "sitzen" und unter der sich die Unterlängen erstrecken.](410px-typography_line_terms.svg.png)
+    ![Die Basislinie ist die Linie, auf der die meisten Buchstaben "sitzen" und unter der die Unterlängen hinausragen.](410px-typography_line_terms.svg.png)
 
-    Die Rückfallausrichtung für `first baseline` ist `start`, die für `last baseline` ist `end`.
+    Die Ersatz-Ausrichtung für `first baseline` ist `start`, die für `last baseline` ist `end`.
 
 - `space-between`
-  - : Die Elemente sind gleichmäßig im Ausrichtungscontainer entlang der Querachse verteilt. Der Abstand zwischen jedem Paar benachbarter Elemente ist gleich. Das erste Element ist an der Startkante des Ausrichtungscontainers entlang der Querachse direkt nebeneinander und das letzte Element an der Endkante des Ausrichtungscontainers entlang der Querachse direkt nebeneinander.
+  - : Die Elemente sind gleichmäßig innerhalb des Ausrichtungscontainers entlang der Querachse verteilt. Der Abstand zwischen jedem Paar von benachbarten Elementen ist derselbe. Das erste Element ist bündig mit der Startkante des Ausrichtungscontainers in der Querachse, und das letzte Element ist bündig mit der Endkante des Ausrichtungscontainers in der Querachse.
 - `space-around`
-  - : Die Elemente sind gleichmäßig im Ausrichtungscontainer entlang der Querachse verteilt. Der Abstand zwischen jedem Paar benachbarter Elemente ist gleich. Der Leerraum vor dem ersten und nach dem letzten Element entspricht der Hälfte des Abstands zwischen jedem Paar benachbarter Elemente.
+  - : Die Elemente sind gleichmäßig innerhalb des Ausrichtungscontainers entlang der Querachse verteilt. Der Abstand zwischen jedem Paar von benachbarten Elementen ist derselbe. Der Leerraum vor dem ersten und nach dem letzten Element ist halb so groß wie der Abstand zwischen jedem Paar benachbarter Elemente.
 - `space-evenly`
-  - : Die Elemente sind gleichmäßig im Ausrichtungscontainer entlang der Querachse verteilt. Der Abstand zwischen jedem Paar benachbarter Elemente, der Startkante und dem ersten Element, sowie der Endkante und dem letzten Element ist genau gleich.
+  - : Die Elemente sind gleichmäßig innerhalb des Ausrichtungscontainers entlang der Querachse verteilt. Der Abstand zwischen jedem Paar benachbarter Elemente, der Startkante und dem ersten Element sowie der Endkante und dem letzten Element ist exakt derselbe.
 - `stretch`
-  - : Wenn die kombinierte Größe der Elemente entlang der Querachse kleiner ist als die Größe des Ausrichtungscontainers, wird bei allen Elementen mit `auto`-Größe die Größe gleichmäßig (nicht proportional) erhöht, während weiterhin die durch {{cssxref("max-height")}}/{{cssxref("max-width")}} (oder entsprechende Funktionalität) auferlegten Einschränkungen respektiert werden, sodass die kombinierte Größe genau den Ausrichtungscontainer entlang der Querachse ausfüllt.
+  - : Wenn die kombinierte Größe der Elemente entlang der Querachse kleiner ist als die Größe des Ausrichtungscontainers, werden alle `auto`-größen Elemente gleichmäßig (nicht proportional) vergrößert, wobei die durch {{cssxref("max-height")}}/{{cssxref("max-width")}} (oder gleichwertige Funktionalität) auferlegten Einschränkungen respektiert werden, sodass die kombinierte Größe exakt den Ausrichtungscontainer entlang der Querachse ausfüllt.
 - `safe`
-  - : Wird zusammen mit einem Ausrichtungsschlüsselwort verwendet. Wenn das gewählte Schlüsselwort bedeutet, dass das Element den Ausrichtungscontainer verlässt und dadurch Datenverlust verursacht, wird das Element stattdessen so ausgerichtet, als wäre der Ausrichtungsmodus `start`.
+  - : Wird zusammen mit einem Ausrichtungs-Schlüsselwort verwendet. Wenn das gewählte Schlüsselwort bedeutet, dass das Element den Ausrichtungscontainer überläuft und Datenverluste verursacht, wird das Element stattdessen so ausgerichtet, als wäre der Ausrichtungsmodus `start`.
 - `unsafe`
-  - : Wird zusammen mit einem Ausrichtungsschlüsselwort verwendet. Unabhängig von den relativen Größen des Elements und des Ausrichtungscontainers und ob es zu einem Überlauf kommt, der Datenverlust verursacht, wird der angegebene Ausrichtungswert eingehalten.
+  - : Wird zusammen mit einem Ausrichtungs-Schlüsselwort verwendet. Unabhängig von den relativen Größen des Elements und des Ausrichtungscontainers und ob ein Überlauf auftreten könnte, der Datenverluste verursacht, wird der gegebene Ausrichtungswert eingehalten.
 
 > [!NOTE]
-> Die `<content-distribution>`-Werte (`space-between`, `space-around`, `space-evenly` und `stretch`) haben keine Wirkung im [Block-Layout](/de/docs/Web/CSS/CSS_box_alignment/Box_alignment_in_block_abspos_tables#align-content_and_justify-content), da der gesamte Inhalt in diesem Block als ein einziges {{Glossary("Alignment_Subject", "Ausrichtungsobjekt")}} behandelt wird.
+> Die `<content-distribution>`-Werte (`space-between`, `space-around`, `space-evenly` und `stretch`) haben keine Wirkung im [Block-Layout](/de/docs/Web/CSS/CSS_box_alignment/Box_alignment_in_block_abspos_tables#align-content_and_justify-content), da alle Inhalte in diesem Block als ein einziger {{Glossary("Alignment_Subject", "Ausrichtungs-Subjekt")}} behandelt werden.
 
 ## Formale Definition
 
@@ -146,15 +146,11 @@ align-content: unset;
 
 ## Beispiele
 
-### Auswirkungen verschiedener align-content-Werte
+### Effekte verschiedener align-content-Werte
 
-In diesem Beispiel können Sie zwischen drei verschiedenen Werten der {{cssxref("display")}}-Eigenschaft wechseln, einschließlich `flex`, `grid` und `block`. Sie können auch zwischen den verschiedenen Werten für `align-content` wechseln.
+In diesem Beispiel können Sie zwischen drei verschiedenen {{cssxref("display")}}-Eigenschaftenwerten wechseln, einschließlich `flex`, `grid` und `block`. Sie können auch zwischen den unterschiedlichen Werten für `align-content` wechseln.
 
 #### HTML
-
-```html-nolint hidden
-<div class="wrapper">
-```
 
 ```html
 <section>
@@ -167,46 +163,45 @@ In diesem Beispiel können Sie zwischen drei verschiedenen Werten der {{cssxref(
 </section>
 ```
 
-```html-nolint hidden
+```html hidden
 <fieldset class="controls">
-    <legend>Controls</legend>
-    <div class="row">
-      <label for="display">display: </label>
-      <select id="display">
-        <option value="block" selected>block</option>
-        <option value="flex">flex</option>
-        <option value="grid">grid</option>
-      </select>
-    </div>
-    <div class="row">
-      <label for="alignContent">align-content: </label>
-      <select id="alignContent">
-        <option value="normal" selected>normal</option>
-        <option value="start">start</option>
-        <option value="center">center</option>
-        <option value="end">end</option>
-        <option value="flex-start">flex-start</option>
-        <option value="flex-end">flex-end</option>
-        <option value="space-between">space-between</option>
-        <option value="space-around">space-around</option>
-        <option value="space-evenly">space-evenly</option>
-      </select>
-    </div>
-    <p>CSS applied</p>
-    <pre>
+  <legend>Controls</legend>
+  <div class="row">
+    <label for="display">display: </label>
+    <select id="display">
+      <option value="block" selected>block</option>
+      <option value="flex">flex</option>
+      <option value="grid">grid</option>
+    </select>
+  </div>
+  <div class="row">
+    <label for="alignContent">align-content: </label>
+    <select id="alignContent">
+      <option value="normal" selected>normal</option>
+      <option value="start">start</option>
+      <option value="center">center</option>
+      <option value="end">end</option>
+      <option value="flex-start">flex-start</option>
+      <option value="flex-end">flex-end</option>
+      <option value="space-between">space-between</option>
+      <option value="space-around">space-around</option>
+      <option value="space-evenly">space-evenly</option>
+    </select>
+  </div>
+  <p>CSS applied</p>
+  <pre>
 section {
   display: <span id="displayStyle">block</span>;
   align-content: <span id="align">normal</span>
 }
-    </pre>
-  </fieldset>
-</div>
+  </pre>
+</fieldset>
 ```
 
 #### CSS
 
 ```css hidden
-.wrapper {
+body {
   font-size: 1.25rem;
   display: flex;
   gap: 1rem;
@@ -278,7 +273,7 @@ Versuchen Sie, den `display`-Wert und den `align-content`-Wert zu ändern.
 
 {{EmbedLiveSample("Examples", 260, 310)}}
 
-Im [Block-Layout](/de/docs/Web/CSS/CSS_box_alignment/Box_alignment_in_block_abspos_tables#align-content_and_justify-content) werden Kindelemente als ein einziges Element behandelt, was bedeutet, dass `space-between`, `space-around` und `space-evenly` sich anders verhalten.
+Im [Block-Layout](/de/docs/Web/CSS/CSS_box_alignment/Box_alignment_in_block_abspos_tables#align-content_and_justify-content) werden Kindelemente als ein einzelnes Element behandelt, was bedeutet, dass sich `space-between`, `space-around` und `space-evenly` anders verhalten.
 
 ## Spezifikationen
 
@@ -290,10 +285,10 @@ Im [Block-Layout](/de/docs/Web/CSS/CSS_box_alignment/Box_alignment_in_block_absp
 
 ## Siehe auch
 
-- [Grundlagen des Flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox)
+- [Grundkonzepte von Flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox)
 - [Ausrichten von Elementen in einem Flex-Container](/de/docs/Web/CSS/CSS_flexible_box_layout/Aligning_items_in_a_flex_container)
-- [Kastenausrichtung im Grid-Layout](/de/docs/Web/CSS/CSS_box_alignment/Box_alignment_in_grid_layout)
-- [CSS-Kastenausrichtung](/de/docs/Web/CSS/CSS_box_alignment)
-- [Block und Inline-Layout im normalen Fluss](/de/docs/Web/CSS/CSS_display/Block_and_inline_layout_in_normal_flow)
+- [Kasten-Ausrichtung im Grid-Layout](/de/docs/Web/CSS/CSS_box_alignment/Box_alignment_in_grid_layout)
+- [CSS-Kasten-Ausrichtung](/de/docs/Web/CSS/CSS_box_alignment)
+- [Block- und Inline-Layout im Normalfluss](/de/docs/Web/CSS/CSS_display/Block_and_inline_layout_in_normal_flow)
 - {{Glossary("Block-level_content", "Block-Level-Inhalt")}}
 - {{CSSXRef("display")}}

@@ -2,18 +2,18 @@
 title: Texturen aus Code
 slug: Web/API/WebGL_API/By_example/Textures_from_code
 l10n:
-  sourceCommit: 1eae3d383ad47b5e21bf25764d1d35487ea52bb8
+  sourceCommit: 611edf6335e4a833a6f394d0d98b117e7b0a36bf
 ---
 
 {{DefaultAPISidebar("WebGL")}}{{PreviousNext("Web/API/WebGL_API/By_example/Hello_vertex_attributes","Web/API/WebGL_API/By_example/Video_textures")}}
 
-Dieses WebGL-Beispiel zeigt eine einfache Demonstration der prozeduralen Texturierung mit Fragment-Shadern. Das bedeutet, dass Sie Code verwenden, um Texturen zu erzeugen, die zum Schattieren von WebGL-Objekten verwendet werden.
+Dieses WebGL-Beispiel bietet eine einfache Demonstration der prozeduralen Texturierung mit Fragment-Shadern. Das heißt, es wird Code verwendet, um Texturen zu erzeugen, die zum Shading von WebGL-Objekten genutzt werden.
 
-## Texturen mit Code zeichnen
+## Zeichnen von Texturen mit Code
 
 {{EmbedLiveSample("Drawing_textures_with_code", 660, 425)}}
 
-Texturierung eines Punkt-Sprites mit Berechnungen, die pro Pixel im Fragment-Shader durchgeführt werden.
+Texturierung eines Punktsprites mit Berechnungen, die pro Pixel im Fragment-Shader durchgeführt werden.
 
 ```html hidden
 <p>Texture from code. Simple demonstration of procedural texturing</p>
@@ -71,11 +71,6 @@ button {
       0.0, 1.0 );
   }
 </script>
-```
-
-```js hidden
-;(() => {
-  "use strict";
 ```
 
 ```js
@@ -159,10 +154,6 @@ function getRenderingContext() {
 }
 ```
 
-```js hidden
-})();
-```
-
-Der Quellcode dieses Beispiels ist ebenfalls auf [GitHub](https://github.com/idofilin/webgl-by-example/tree/master/textures-from-code) verfügbar.
+Der Quellcode dieses Beispiels ist auch auf [GitHub](https://github.com/idofilin/webgl-by-example/tree/master/textures-from-code) verfügbar.
 
 {{PreviousNext("Web/API/WebGL_API/By_example/Hello_vertex_attributes","Web/API/WebGL_API/By_example/Video_textures")}}

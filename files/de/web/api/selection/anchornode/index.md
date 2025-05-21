@@ -3,23 +3,18 @@ title: "Selection: anchorNode-Eigenschaft"
 short-title: anchorNode
 slug: Web/API/Selection/anchorNode
 l10n:
-  sourceCommit: f2f9346c0c0e9f6676f2df9f1850933e274401de
+  sourceCommit: 23de2280422ab52460507ff831915a08bb043d8e
 ---
 
 {{ ApiRef("DOM") }}
 
-Die **`Selection.anchorNode`** schreibgeschützte Eigenschaft gibt den
-[`Node`](/de/docs/Web/API/Node) zurück, in dem die Auswahl beginnt.
+Die schreibgeschützte Eigenschaft **`Selection.anchorNode`** gibt den [`Node`](/de/docs/Web/API/Node) zurück, in dem die Auswahl beginnt. Sie kann `null` zurückgeben, wenn nie eine Auswahl im Dokument existierte (z. B. ein iframe, das nie angeklickt wurde, oder der Knoten zu einem anderen Dokumentbaum gehört).
 
-Ein Benutzer kann eine Auswahl von links nach rechts (in Dokumentreihenfolge) oder von rechts nach links
-(entgegen der Dokumentreihenfolge) treffen. Der Anker ist dort, wo der Benutzer die Auswahl begonnen hat. Dies kann
-veranschaulicht werden, indem Sie die Umschalttaste gedrückt halten und die Pfeiltasten auf Ihrer Tastatur drücken. Der
-Anker der Auswahl bewegt sich nicht, aber der Fokus der Auswahl, das andere Ende der
-Auswahl, bewegt sich.
+Ein Benutzer kann eine Auswahl von links nach rechts (in Dokumentreihenfolge) oder von rechts nach links (umgekehrte Dokumentreihenfolge) treffen. Der Anker ist der Punkt, an dem der Benutzer die Auswahl begonnen hat. Dies kann visualisiert werden, indem die <kbd>Umschalttaste</kbd> gehalten und die Pfeiltasten auf Ihrer Tastatur gedrückt werden. Der Anker der Auswahl bewegt sich nicht, aber der Fokus der Auswahl, das andere Ende der Auswahl, bewegt sich.
 
 ## Wert
 
-Ein [`Node`](/de/docs/Web/API/Node)-Objekt.
+Ein [`Node`](/de/docs/Web/API/Node)-Objekt oder `null`.
 
 ## Spezifikationen
 
@@ -31,4 +26,5 @@ Ein [`Node`](/de/docs/Web/API/Node)-Objekt.
 
 ## Siehe auch
 
-- [`Selection`](/de/docs/Web/API/Selection), die Schnittstelle, zu der es gehört.
+- [`Selection`](/de/docs/Web/API/Selection)
+- [`Selection.focusNode`](/de/docs/Web/API/Selection/focusNode)
