@@ -1,0 +1,9 @@
+{
+  "config": {
+    "extends": "./.markdownlint.jsonc",
+  },
+  "customRules": ["markdownlint-rule-search-replace"],
+  "ignores": [
+    "PROMPT.md",
+  ],
+}
