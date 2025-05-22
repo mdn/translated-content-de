@@ -46,7 +46,7 @@ Erhalten Sie detaillierte Informationen über die Konzepte, die Erweiterungen zu
 
 ## Benutzeroberfläche
 
-Entdecken Sie alle [Benutzeroberflächen](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface) -Komponenten, die Sie in Ihren Erweiterungen verwenden können, mit Codierungsbeispielen und Tipps.
+Entdecken Sie alle Komponenten der [Benutzeroberfläche](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface), die Sie in Ihren Erweiterungen verwenden können, mit Codierungsbeispielen und Tipps.
 
 ## Anleitung
 
