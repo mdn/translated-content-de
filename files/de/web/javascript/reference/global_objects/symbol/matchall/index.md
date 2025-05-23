@@ -2,19 +2,19 @@
 title: Symbol.matchAll
 slug: Web/JavaScript/Reference/Global_Objects/Symbol/matchAll
 l10n:
-  sourceCommit: e8320dfbed49d37589d0fe759ef6506885f340f7
+  sourceCommit: bccce51ad7f3fd5e5ff7e4231b6391a000c8faf6
 ---
 
 {{JSRef}}
 
-Die statische Dateneigenschaft **`Symbol.matchAll`** repräsentiert das [wohlbekannte Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#well-known_symbols) `Symbol.matchAll`. Die Methode {{jsxref("String.prototype.matchAll()")}} sucht dieses Symbol im ersten Argument für die Methode, die einen Iterator zurückgibt, der Übereinstimmungen des aktuellen Objekts mit einem String liefert.
+Die **`Symbol.matchAll`** statische Dateneigenschaft repräsentiert das [wohlbekannte Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#well-known_symbols) `Symbol.matchAll`. Die Methode {{jsxref("String.prototype.matchAll()")}} sucht dieses Symbol im ersten Argument für die Methode, die einen Iterator zurückgibt, der Übereinstimmungen des aktuellen Objekts mit einem String erzeugt.
 
 Für weitere Informationen siehe [`RegExp.prototype[Symbol.matchAll]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/Symbol.matchAll) und {{jsxref("String.prototype.matchAll()")}}.
 
 {{InteractiveExample("JavaScript Demo: Symbol.matchAll")}}
 
 ```js interactive-example
-const re = /[0-9]+/g;
+const re = /\d+/g;
 const str = "2016-01-02|2019-03-07";
 const result = re[Symbol.matchAll](str);
 
@@ -37,7 +37,7 @@ const str = "2016-01-02|2019-03-07";
 
 const numbers = {
   *[Symbol.matchAll](str) {
-    for (const n of str.matchAll(/[0-9]+/g)) yield n[0];
+    for (const n of str.matchAll(/\d+/g)) yield n[0];
   },
 };
 

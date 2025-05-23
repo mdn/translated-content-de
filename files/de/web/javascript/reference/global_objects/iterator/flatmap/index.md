@@ -2,12 +2,12 @@
 title: Iterator.prototype.flatMap()
 slug: Web/JavaScript/Reference/Global_Objects/Iterator/flatMap
 l10n:
-  sourceCommit: e8320dfbed49d37589d0fe759ef6506885f340f7
+  sourceCommit: 364a4d02b10854ab7cef4ff4b0ec3616d4e1c8ab
 ---
 
 {{JSRef}}
 
-Die **`flatMap()`** Methode von {{jsxref("Iterator")}} Instanzen gibt ein neues [Iterator-Hilfsobjekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator#iterator_helper_objects) zurück, das jedes Element im ursprünglichen Iterator nimmt, es durch eine Abbildungsfunktion ausführt und die von der Abbildungsfunktion zurückgegebenen Elemente liefert (die in einem anderen Iterator oder Iterable enthalten sind).
+Die **`flatMap()`** Methode von {{jsxref("Iterator")}} Instanzen gibt ein neues [Iterator-Helferobjekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator#iterator_helper_objects) zurück, das jedes Element des ursprünglichen Iterators nimmt, es durch eine Mapping-Funktion laufen lässt und die Elemente ausgibt, die von der Mapping-Funktion zurückgegeben werden (die in einem anderen Iterator oder einer anderen Iterierbaren enthalten sind).
 
 ## Syntax
 
@@ -18,7 +18,7 @@ flatMap(callbackFn)
 ### Parameter
 
 - `callbackFn`
-  - : Eine Funktion, die für jedes Element, das vom Iterator erzeugt wird, ausgeführt wird. Sie sollte einen Iterator oder ein Iterable zurückgeben, das die Elemente liefert, die von `flatMap()` geliefert werden sollen. Beachten Sie, dass im Gegensatz zu {{jsxref("Array.prototype.flatMap()")}} keine einzelnen Nicht-Iterator/Iterable-Werte zurückgegeben werden können. Die Funktion wird mit den folgenden Argumenten aufgerufen:
+  - : Eine Funktion, die für jedes vom Iterator produzierte Element ausgeführt wird. Sie sollte einen Iterator oder eine Iterierbare zurückgeben, die Elemente ausgibt, die von `flatMap()` ausgegeben werden. Beachten Sie, dass im Gegensatz zu {{jsxref("Array.prototype.flatMap()")}} keine einzelnen Nicht-Iterator/iterierbaren Werte zurückgegeben werden können. Die Funktion wird mit den folgenden Argumenten aufgerufen:
     - `element`
       - : Das aktuelle Element, das im Array verarbeitet wird.
     - `index`
@@ -26,16 +26,16 @@ flatMap(callbackFn)
 
 ### Rückgabewert
 
-Ein neues [Iterator-Hilfsobjekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator#iterator_helper_objects). Wenn die `next()`-Methode des Iterator-Hilfsobjekts das erste Mal aufgerufen wird, ruft sie `callbackFn` auf das erste von dem zugrunde liegenden Iterator produzierte Element auf, und der Rückgabewert, der ein Iterator oder Iterable sein sollte, wird von dem Iterator-Hilfsobjekt nacheinander geliefert (wie {{jsxref("Operators/yield*", "yield*")}}). Das nächste Element wird vom zugrunde liegenden Iterator geholt, wenn das vorherige von `callbackFn` zurückgegebene Element abgeschlossen ist. Wenn der zugrunde liegende Iterator abgeschlossen ist, wird auch das Iterator-Hilfsobjekt abgeschlossen (die `next()`-Methode erzeugt `{ value: undefined, done: true }`).
+Ein neues [Iterator-Helferobjekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator#iterator_helper_objects). Wenn die `next()` Methode des Iterator-Helfers das erste Mal aufgerufen wird, wird `callbackFn` auf das erste Element angewendet, das vom zugrunde liegenden Iterator produziert wird. Der Rückgabewert, der ein Iterator oder eine Iterierbare sein sollte, wird elementweise vom Iterator-Helfer ausgegeben (wie {{jsxref("Operators/yield*", "yield*")}}). Das nächste Element wird vom zugrunde liegenden Iterator abgefragt, wenn das vorherige von `callbackFn` zurückgegebene Element abgeschlossen ist. Wenn der zugrunde liegende Iterator abgeschlossen ist, wird auch der Iterator-Helfer abgeschlossen (die `next()` Methode produziert `{ value: undefined, done: true }`).
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn `callbackFn` einen Nicht-Iterator/Iterable-Wert oder ein String-Primitive zurückgibt.
+  - : Wird ausgelöst, wenn `callbackFn` einen Nicht-Iterator/iterierbaren Wert oder einen String-Primitive zurückgibt.
 
 ## Beschreibung
 
-`flatMap` akzeptiert zwei Arten von Rückgabewerten von `callbackFn`: einen Iterator oder ein Iterable. Sie werden auf die gleiche Weise wie bei {{jsxref("Iterator.from()")}} behandelt: Wenn der Rückgabewert Iterable ist, wird die `[Symbol.iterator]()` Methode aufgerufen und der Rückgabewert verwendet; andernfalls wird der Rückgabewert als Iterator behandelt und seine `next()`-Methode aufgerufen.
+`flatMap` akzeptiert zwei Arten von Rückgabewerten von `callbackFn`: einen Iterator oder eine Iterierbare. Diese werden auf dieselbe Weise wie in {{jsxref("Iterator.from()")}} behandelt: Wenn der Rückgabewert iterierbar ist, wird die `[Symbol.iterator]()` Methode aufgerufen und der Rückgabewert verwendet; andernfalls wird der Rückgabewert als Iterator behandelt und seine `next()` Methode aufgerufen.
 
 ```js
 [1, 2, 3]
@@ -67,6 +67,8 @@ Ein neues [Iterator-Hilfsobjekt](/de/docs/Web/JavaScript/Reference/Global_Object
             return it;
           },
         };
+      default:
+        return undefined;
     }
   })
   .toArray();
@@ -78,7 +80,7 @@ Ein neues [Iterator-Hilfsobjekt](/de/docs/Web/JavaScript/Reference/Global_Object
 
 ### Zusammenführen von Maps
 
-Das folgende Beispiel vereint zwei {{jsxref("Map")}} Objekte zu einem:
+Das folgende Beispiel fügt zwei {{jsxref("Map")}} Objekte zu einem zusammen:
 
 ```js
 const map1 = new Map([
@@ -97,15 +99,15 @@ console.log(merged.get("a")); // 1
 console.log(merged.get("e")); // 5
 ```
 
-Dies vermeidet das Erstellen temporärer Kopien des Inhalts der Map. Beachten Sie, dass das Array `[map1, map2]` zunächst in einen Iterator konvertiert werden muss (mithilfe von {{jsxref("Array.prototype.values()")}}), da {{jsxref("Array.prototype.flatMap()")}} nur Arrays, nicht aber Iterables abflacht.
+Dies vermeidet die Erstellung temporärer Kopien des Inhalts der Maps. Beachten Sie, dass das Array `[map1, map2]` zuerst in einen Iterator umgewandelt werden muss (mithilfe von {{jsxref("Array.prototype.values()")}}), da {{jsxref("Array.prototype.flatMap()")}} nur Arrays und nicht Iterierbare abflacht.
 
 ```js
 new Map([map1, map2].flatMap((x) => x)); // Map(1) {undefined => undefined}
 ```
 
-### Zurückgeben von Strings
+### Rückgabe von Strings
 
-Strings sind Iterable, aber `flatMap()` lehnt speziell String-Primitives, die von `callbackFn` zurückgegeben werden, ab, da das Verhalten des Iterierens nach Codepunkten oft nicht das ist, was man möchte.
+Strings sind iterierbar, aber `flatMap()` lehnt speziell String-Primitives ab, die von `callbackFn` zurückgegeben werden, weil das Verhalten der Iteration nach Codepunkten oft nicht das ist, was Sie möchten.
 
 ```js example-bad
 [1, 2, 3]
@@ -114,7 +116,7 @@ Strings sind Iterable, aber `flatMap()` lehnt speziell String-Primitives, die vo
   .toArray(); // TypeError: Iterator.prototype.flatMap called on non-object
 ```
 
-Man könnte es stattdessen in ein Array einwickeln, damit der gesamte String als ein Element geliefert wird:
+Sie könnten es in ein Array einwickeln, damit der gesamte String als einer ausgegeben wird:
 
 ```js
 [1, 2, 3]
@@ -123,7 +125,7 @@ Man könnte es stattdessen in ein Array einwickeln, damit der gesamte String als
   .toArray(); // ['1', '2', '3']
 ```
 
-Oder, wenn das Verhalten des Iterierens nach Codepunkten beabsichtigt ist, können Sie {{jsxref("Iterator.from()")}} verwenden, um es in einen richtigen Iterator zu konvertieren:
+Oder, wenn das Verhalten der Iteration nach Codepunkten beabsichtigt ist, können Sie {{jsxref("Iterator.from()")}} verwenden, um es in einen richtigen Iterator zu konvertieren:
 
 ```js
 [1, 2, 3]

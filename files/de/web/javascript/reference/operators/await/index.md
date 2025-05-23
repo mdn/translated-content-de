@@ -2,12 +2,12 @@
 title: await
 slug: Web/JavaScript/Reference/Operators/await
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: 364a4d02b10854ab7cef4ff4b0ec3616d4e1c8ab
 ---
 
 {{jsSidebar("Operators")}}
 
-Der **`await`** Operator wird verwendet, um auf ein {{jsxref("Promise")}} zu warten und dessen Erfüllungswert zu erhalten. Er kann nur innerhalb einer [asynchronen Funktion](/de/docs/Web/JavaScript/Reference/Statements/async_function) oder auf der obersten Ebene eines [Moduls](/de/docs/Web/JavaScript/Guide/Modules) verwendet werden.
+Der **`await`** Operator wird verwendet, um auf ein {{jsxref("Promise")}} zu warten und dessen Erfüllungswert zu erhalten. Er kann nur innerhalb einer [async function](/de/docs/Web/JavaScript/Reference/Statements/async_function) oder auf oberster Ebene eines [Moduls](/de/docs/Web/JavaScript/Guide/Modules) verwendet werden.
 
 ## Syntax
 
@@ -18,37 +18,37 @@ await expression
 ### Parameter
 
 - `expression`
-  - : Ein {{jsxref("Promise")}}, ein [thenable Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise#thenables) oder ein beliebiger Wert, auf den gewartet werden soll.
+  - : Ein {{jsxref("Promise")}}, ein [dannfähiges Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise#thenables) oder ein beliebiger Wert, auf den gewartet werden soll.
 
 ### Rückgabewert
 
-Der Erfüllungswert des Promises oder thenable Objekts oder, falls der Ausdruck nicht thenable ist, der eigene Wert des Ausdrucks.
+Der Erfüllungswert des Promises oder dannfähigen Objekts oder, falls der Ausdruck nicht dannfähig ist, der Wert des Ausdrucks selbst.
 
 ### Ausnahmen
 
-Wirft den Ablehnungsgrund, wenn das Promise oder thenable Objekt abgelehnt wird.
+Wirft den Ablehnungsgrund, wenn das Promise oder das dannfähige Objekt abgelehnt wird.
 
 ## Beschreibung
 
-`await` wird üblicherweise verwendet, um Promises zu entpacken, indem ein {{jsxref("Promise")}} als `expression` übergeben wird. Die Verwendung von `await` pausiert die Ausführung der umgebenden `async`-Funktion, bis das Promise erledigt ist (d.h. erfüllt oder abgelehnt). Wenn die Ausführung fortgesetzt wird, wird der Wert des `await`-Ausdrucks der des erfüllten Promises.
+`await` wird normalerweise verwendet, um Promises aufzulösen, indem ein {{jsxref("Promise")}} als `expression` übergeben wird. Mit `await` wird die Ausführung der umgebenden `async`-Funktion angehalten, bis das Promise abgeschlossen ist (also erfüllt oder abgelehnt). Wenn die Ausführung fortgesetzt wird, wird der Wert des `await`-Ausdrucks zu dem des erfüllten Promises.
 
-Wenn das Promise abgelehnt wird, wirft der `await`-Ausdruck den abgelehnten Wert. Die Funktion, die den `await`-Ausdruck enthält, wird [im Stack-Trace erscheinen](#verbesserung_des_stack-traces) des Fehlers. Andernfalls, wenn das abgelehnte Promise nicht abgewartet oder sofort zurückgegeben wird, erscheint die aufrufende Funktion nicht im Stack-Trace.
+Wenn das Promise abgelehnt wird, wirft der `await`-Ausdruck den abgelehnten Wert. Die Funktion, die den `await`-Ausdruck enthält, wird [im Stack-Trace erscheinen](#verbesserung_des_stack-traces) des Fehlers. Andernfalls, wenn das abgelehnte Promise nicht erwartet oder unmittelbar zurückgegeben wird, erscheint die aufrufende Funktion nicht im Stack.
 
-Der `expression` wird auf die gleiche Weise wie {{jsxref("Promise.resolve()")}} aufgelöst: Er wird immer in ein natives `Promise` umgewandelt und dann abgewartet. Wenn der `expression` ist ein:
+Der `expression`-Ausdruck wird auf die gleiche Weise wie {{jsxref("Promise.resolve()")}} aufgelöst: Er wird immer in ein natives `Promise` umgewandelt und dann erwartet. Wenn der `expression`-Ausdruck ist:
 
-- Natives `Promise` (was bedeutet, dass `expression` zu `Promise` oder einer Unterklasse gehört und `expression.constructor === Promise`): Das Promise wird direkt verwendet und nativ abgewartet, ohne `then()` aufzurufen.
-- [Thenable Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise#thenables) (einschließlich nicht-nativer Promises, Polyfill, Proxy, Unterklasse usw.): Ein neues Promise wird mit dem nativen [`Promise()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise/Promise) Konstruktor konstruiert, indem die `then()`-Methode des Objekts aufgerufen und ein Handler übergeben wird, der den `resolve`-Callback aufruft.
-- Nicht-thenable Wert: Ein bereits erfülltes `Promise` wird konstruiert und verwendet.
+- Ein natives `Promise` (das bedeutet, dass `expression` zu `Promise` oder einer Subklasse gehört, und `expression.constructor === Promise`): Das Promise wird direkt verwendet und nativ abgewartet, ohne `then()` aufzurufen.
+- Ein [dannfähiges Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise#thenables) (einschließlich nicht-nativer Promises, Polyfill, Proxy, Subklasse, etc.): Ein neues Promise wird mit dem nativen [`Promise()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise/Promise) Konstruktor erstellt, indem die `then()`-Methode des Objekts aufgerufen und ein Handler übergeben wird, der den `resolve`-Callback aufruft.
+- Ein nicht-dannfähiger Wert: Ein bereits erfülltes `Promise` wird erstellt und verwendet.
 
-Selbst wenn das verwendete Promise bereits erfüllt ist, pausiert die Ausführung der asynchronen Funktion, bis der nächste Tick erreicht ist. In der Zwischenzeit setzt der Aufrufer der asynchronen Funktion die Ausführung fort. [Siehe Beispiel unten.](#kontrolleffekte_von_`await`)
+Auch wenn das verwendete Promise bereits erfüllt ist, wird die Ausführung der async-Funktion immer noch bis zur nächsten Tick angehalten. In der Zwischenzeit wird die aufrufende Funktion der async-Funktion fortgesetzt. [Siehe Beispiel unten.](#kontrollflusseffekte_von_await)
 
-Da `await` nur innerhalb asynchroner Funktionen und Module gültig ist, die selbst asynchron sind und Promises zurückgeben, blockiert der `await`-Ausdruck nie den Hauptthread und verzögert nur die Ausführung von Code, der tatsächlich von dem Ergebnis abhängt, d.h. alles nach dem `await`-Ausdruck.
+Da `await` nur innerhalb von async-Funktionen und Modulen gültig ist, die ihrerseits asynchron sind und Promises zurückgeben, blockiert der `await`-Ausdruck niemals den Haupt-Thread und verschiebt nur die Ausführung von Code, der tatsächlich vom Ergebnis abhängt, d.h. alles nach dem `await`-Ausdruck.
 
 ## Beispiele
 
-### Warten auf die Erfüllung eines Promises
+### Warten, bis ein Promise erfüllt wird
 
-Wenn ein `Promise` an einen `await`-Ausdruck übergeben wird, wartet dieser, bis das `Promise` erfüllt ist, und gibt den Erfüllungswert zurück.
+Wenn ein `Promise` an einen `await`-Ausdruck übergeben wird, wartet er, bis das `Promise` erfüllt wird, und gibt den erfüllten Wert zurück.
 
 ```js
 function resolveAfter2Seconds(x) {
@@ -67,9 +67,9 @@ async function f1() {
 f1();
 ```
 
-### Thenable Objekte
+### Dannfähige Objekte
 
-[Thenable Objekte](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise#thenables) werden genauso aufgelöst wie tatsächliche `Promise` Objekte.
+[Dannfähige Objekte](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise#thenables) werden auf die gleiche Weise aufgelöst wie tatsächliche `Promise`-Objekte.
 
 ```js
 async function f2() {
@@ -101,7 +101,7 @@ f2();
 
 ### Umwandlung in Promise
 
-Wenn der Wert kein `Promise` ist, wandelt `await` den Wert in ein erfülltes `Promise` um und wartet darauf. Die Identität des abgewarteten Wertes ändert sich nicht, solange er keine aufrufbare `then`-Eigenschaft hat.
+Wenn der Wert kein `Promise` ist, wandelt `await` den Wert in ein erfülltes `Promise` um und wartet darauf. Die Identität des gewarteten Wertes ändert sich nicht, solange er keine aufrufbare `then`-Eigenschaft hat.
 
 ```js
 async function f3() {
@@ -122,16 +122,16 @@ Wenn das `Promise` abgelehnt wird, wird der abgelehnte Wert geworfen.
 ```js
 async function f4() {
   try {
-    const z = await Promise.reject(30);
+    const z = await Promise.reject(new Error("rejected!"));
   } catch (e) {
-    console.error(e); // 30
+    console.error(e); // Error: rejected!
   }
 }
 
 f4();
 ```
 
-Sie können abgelehnte Promises ohne `try`-Block behandeln, indem Sie vor dem Abwarten des Promises einen [`catch()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise/catch)-Handler anhängen.
+Sie können abgelehnte Promises ohne einen `try`-Block behandeln, indem Sie einen [`catch()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise/catch)-Handler vor dem Warten auf das Promise anketten.
 
 ```js
 const response = await promisedFunction().catch((err) => {
@@ -141,7 +141,7 @@ const response = await promisedFunction().catch((err) => {
 // response will be "default response" if the promise is rejected
 ```
 
-Dies basiert auf der Annahme, dass `promisedFunction()` nie synchron einen Fehler auslöst, sondern immer ein abgelehntes Promise zurückgibt. Dies ist der Fall bei den meisten gut gestalteten, Promise-basierten Funktionen, die normalerweise so aussehen:
+Dies basiert auf der Annahme, dass `promisedFunction()` nie synchron einen Fehler wirft, sondern immer ein abgelehntes Promise zurückgibt. Dies trifft auf die meisten richtig gestalteten, auf Promises basierenden Funktionen zu, die normalerweise wie folgt aussehen:
 
 ```js
 function promisedFunction() {
@@ -152,13 +152,13 @@ function promisedFunction() {
 }
 ```
 
-Wenn jedoch `promisedFunction()` einen Fehler synchron auslöst, wird der Fehler nicht vom `catch()`-Handler erfasst. In diesem Fall ist die `try...catch`-Anweisung notwendig.
+Wenn jedoch `promisedFunction()` tatsächlich synchron einen Fehler wirft, wird der Fehler nicht vom `catch()`-Handler erfasst. In diesem Fall ist der `try...catch`-Block erforderlich.
 
-### Top-Level `await`
+### Top-Level-Await
 
-Sie können das `await`-Schlüsselwort auch eigenständig (außerhalb einer asynchronen Funktion) auf der obersten Ebene eines [Moduls](/de/docs/Web/JavaScript/Guide/Modules) verwenden. Das bedeutet, dass Module mit Kindmodulen, die `await` verwenden, darauf warten, dass die Kindmodule ausgeführt werden, bevor sie selbst ausgeführt werden, während andere Kindmodule nicht am Laden gehindert werden.
+Sie können das Schlüsselwort `await` auf oberster Ebene eines [Moduls](/de/docs/Web/JavaScript/Guide/Modules) verwenden (außerhalb einer async-Funktion). Das bedeutet, dass Module mit Kind-Modulen, die `await` verwenden, warten, bis die Kind-Module ausgeführt werden, bevor sie selbst ausgeführt werden, ohne dass andere Kind-Module am Laden gehindert werden.
 
-Hier ist ein Beispiel für ein Modul, das die [Fetch API](/de/docs/Web/API/Fetch_API) verwendet und `await` innerhalb der [`export`](/de/docs/Web/JavaScript/Reference/Statements/export) Anweisung angibt. Alle Module, die dieses Modul einbinden, warten darauf, dass der Fetch-Abschluss erfolgt, bevor sie eigenen Code ausführen.
+Hier ist ein Beispiel für ein Modul, das die [Fetch API](/de/docs/Web/API/Fetch_API) verwendet und `await` innerhalb der [`export`](/de/docs/Web/JavaScript/Reference/Statements/export)-Anweisung angibt. Alle Module, die dieses enthalten, warten, bis der Fetch abgeschlossen ist, bevor sie einen Code ausführen.
 
 ```js
 // fetch request
@@ -167,9 +167,9 @@ const colors = fetch("../data/colors.json").then((response) => response.json());
 export default await colors;
 ```
 
-### Kontrolleffekte von `await`
+### Kontrollflusseffekte von await
 
-Wenn ein `await` in Code begegnet wird (entweder in einer asynchronen Funktion oder in einem Modul), wird der abgewartete Ausdruck ausgeführt, während aller Code, der vom Wert des Ausdrucks abhängt, pausiert. Die Steuerung verlässt die Funktion und kehrt zum Aufrufer zurück. Wenn der Wert des abgewarteten Ausdrucks aufgelöst ist, wird eine andere [Mikroaufgabe](/de/docs/Web/JavaScript/Reference/Execution_model) geplant, die den pausierten Code fortsetzt. Dies geschieht selbst dann, wenn der abgewartete Wert ein bereits erfülltes Promise ist oder kein Promise ist: Die Ausführung kehrt nicht zur aktuellen Funktion zurück, bis alle anderen bereits geplanten Mikroaufgaben verarbeitet sind. Betrachten Sie zum Beispiel den folgenden Code:
+Wenn in einem Code `await` auftritt (entweder in einer async-Funktion oder in einem Modul), wird der erwartete Ausdruck ausgeführt, während der gesamte Code, der von dem Ausdruckswert abhängt, pausiert wird. Die Kontrolle verlässt die Funktion und kehrt zum Aufrufer zurück. Wenn der Wert des gewarteten Ausdrucks aufgelöst ist, wird eine weitere [Mikroaufgabe](/de/docs/Web/JavaScript/Reference/Execution_model) geplant, die den pausierten Code fortsetzt. Dies geschieht auch, wenn der gewartete Wert ein bereits gelöstes Promise ist oder kein Promise: Die Ausführung kehrt nicht zur aktuellen Funktion zurück, bis alle anderen bereits geplanten Mikroaufgaben abgearbeitet sind. Zum Beispiel:
 
 ```js
 async function foo(name) {
@@ -189,7 +189,7 @@ foo("Second");
 // Second end
 ```
 
-In diesem Fall ist die Funktion `foo` synchron in ihrer Wirkung, weil sie keinen `await`-Ausdruck enthält. Die drei Anweisungen erfolgen im selben Tick. Daher führen die beiden Funktionsaufrufe alle Anweisungen in der Reihe aus. In Promise-Begriffen entspricht die Funktion:
+In diesem Fall ist die Funktion `foo` im Effekt synchron, da sie keinen `await`-Ausdruck enthält. Die drei Anweisungen passieren im selben Takt. Daher werden die beiden Funktionsaufrufe alle Anweisungen der Reihe nach ausgeführt. In Promise-Begriffen entspricht die Funktion:
 
 ```js
 function foo(name) {
@@ -202,7 +202,7 @@ function foo(name) {
 }
 ```
 
-Sobald jedoch ein `await` vorhanden ist, wird die Funktion asynchron, und die Ausführung der folgenden Anweisungen wird auf den nächsten Tick verschoben.
+Sobald es jedoch ein `await` gibt, wird die Funktion asynchron und die Ausführung der folgenden Anweisungen wird auf den nächsten Takt verschoben.
 
 ```js
 async function foo(name) {
@@ -222,7 +222,7 @@ foo("Second");
 // Second end
 ```
 
-Dies entspricht:
+Das entspricht:
 
 ```js
 function foo(name) {
@@ -235,9 +235,9 @@ function foo(name) {
 }
 ```
 
-Der zusätzliche `then()`-Handler kann mit dem Executor zusammengeführt werden, der dem Konstruktor übergeben wird, da er nicht auf eine asynchrone Operation wartet. Allerdings teilt seine Existenz den Code in eine zusätzliche Mikroaufgabe für jeden Aufruf von `foo`. Diese Mikroaufgaben werden geplant und in einer verwobenen Weise ausgeführt, was sowohl Ihren Code verlangsamen als auch unnötige Wettlaufbedingungen einführen kann. Stellen Sie daher sicher, `await` nur dann zu verwenden, wenn es notwendig ist (um Promises in ihre Werte zu entpacken).
+Der zusätzliche `then()`-Handler kann mit dem Ersteller zusammengeführt werden, der an den Konstruktor übergeben wird, da er nicht auf eine asynchrone Operation wartet. Sein Vorhandensein teilt den Code jedoch in eine zusätzliche Mikroaufgabe für jeden Aufruf von `foo`. Diese Mikroaufgaben werden geplant und in einem verflochtenen Muster ausgeführt, was sowohl den Code verlangsamen als auch unnötige Race-Bedingungen einführen kann. Daher stellen Sie sicher, dass Sie `await` nur dann verwenden, wenn es notwendig ist, um Promises in ihre Werte aufzulösen.
 
-Mikroaufgaben werden nicht nur durch Promise-Auflösungen, sondern auch durch andere Web-APIs geplant und sie werden mit derselben Priorität ausgeführt. Dieses Beispiel verwendet [`queueMicrotask()`](/de/docs/Web/API/Window/queueMicrotask), um zu demonstrieren, wie die Mikroaufgaben-Warteschlange verarbeitet wird, wenn jeder `await`-Ausdruck aufgerufen wird.
+Mikroaufgaben werden nicht nur durch Promise-Auflösung, sondern auch durch andere Web-APIs geplant, und sie werden mit derselben Priorität ausgeführt. Dieses Beispiel verwendet [`queueMicrotask()`](/de/docs/Web/API/Window/queueMicrotask), um zu demonstrieren, wie die Mikroaufgaben-Warteschlange verarbeitet wird, wenn jeder `await`-Ausdruck auftritt.
 
 ```js
 let i = 0;
@@ -278,11 +278,11 @@ console.log("script sync part end");
 // async function end
 ```
 
-In diesem Beispiel wird die `test()`-Funktion immer aufgerufen, bevor die asynchrone Funktion fortgesetzt wird, sodass die Mikroaufgaben, die sie jeweils planen, immer in einer verwobenen Weise ausgeführt werden. Auf der anderen Seite, da sowohl `await` als auch `queueMicrotask()` Mikroaufgaben planen, basiert die Reihenfolge der Ausführung immer auf der Reihenfolge der Planung. Deshalb erfolgt das Log "queueMicrotask() after calling async function" nach dem ersten Fortsetzen der asynchronen Funktion.
+In diesem Beispiel wird die `test()`-Funktion immer aufgerufen, bevor die async-Funktion fortgesetzt wird, sodass die Mikroaufgaben, die sie planen, immer in verflochtener Weise ausgeführt werden. Auf der anderen Seite, da sowohl `await` als auch `queueMicrotask()` Mikroaufgaben planen, basiert die Reihenfolge der Ausführung immer auf der Reihenfolge der Planung. Aus diesem Grund erfolgt das "queueMicrotask() after calling async function"-Log nach dem erstmaligen Fortsetzen der async-Funktion.
 
 ### Verbesserung des Stack-Traces
 
-Manchmal wird `await` weggelassen, wenn ein Promise direkt von einer asynchronen Funktion zurückgegeben wird.
+Manchmal wird `await` weggelassen, wenn ein Promise direkt aus einer async-Funktion zurückgegeben wird.
 
 ```js
 async function noAwait() {
@@ -292,7 +292,7 @@ async function noAwait() {
 }
 ```
 
-Betrachten Sie jedoch den Fall, in dem `lastAsyncTask` asynchron einen Fehler auslöst.
+Betrachten Sie jedoch den Fall, in dem `lastAsyncTask` asynchron einen Fehler wirft.
 
 ```js
 async function lastAsyncTask() {
@@ -310,7 +310,7 @@ noAwait();
 //    at lastAsyncTask
 ```
 
-Nur `lastAsyncTask` erscheint im Stack-Trace, weil das Promise abgelehnt wird, nachdem es bereits von `noAwait` zurückgegeben wurde – in gewisser Weise ist das Promise von `noAwait` unabhängig. Um den Stack-Trace zu verbessern, können Sie `await` verwenden, um das Promise zu entpacken, sodass die Ausnahme in die aktuelle Funktion geworfen wird. Die Ausnahme wird dann sofort in ein neues abgelehntes Promise verpackt, aber während der Fehlererstellung erscheint der Aufrufer im Stack-Trace.
+Nur `lastAsyncTask` erscheint im Stack-Trace, da das Promise abgelehnt wird, nachdem es bereits von `noAwait` zurückgegeben wurde — in gewisser Weise ist das Promise nicht mit `noAwait` verbunden. Um den Stack-Trace zu verbessern, können Sie `await` verwenden, um das Promise aufzulösen, sodass die Ausnahme in die aktuelle Funktion geworfen wird. Die Ausnahme wird dann sofort in ein neues abgelehntes Promise eingeschlossen, aber während der Fehlererstellung erscheint der Aufrufer im Stack-Trace.
 
 ```js
 async function lastAsyncTask() {
@@ -329,7 +329,7 @@ withAwait();
 //    at async withAwait
 ```
 
-Entgegen der weit verbreiteten Meinung ist `return await promise` mindestens genauso schnell wie `return promise`, aufgrund der Art und Weise, wie die Spezifikation und die Engines die Auflösung nativer Promises optimieren. Es gibt einen Vorschlag, um [`return promise` schneller zu machen](https://github.com/tc39/proposal-faster-promise-adoption) und Sie können auch über die [Optimierung von asynchronen Funktionen in V8](https://v8.dev/blog/fast-async) lesen. Daher ist `return await` bis auf stilistische Gründe fast immer vorzuziehen.
+Entgegen einiger populärer Meinungen ist `return await promise` mindestens genauso schnell wie `return promise`, aufgrund der Optimierung der Spezifikation und Engines zur Auflösung nativer Promises. Es gibt einen Vorschlag, [um `return promise` schneller zu machen](https://github.com/tc39/proposal-faster-promise-adoption) und Sie können auch über [V8's Optimierung von async-Funktionen](https://v8.dev/blog/fast-async) lesen. Ausgenommen stilistische Gründe ist `return await` daher fast immer vorzuziehen.
 
 ## Spezifikationen
 
@@ -341,8 +341,8 @@ Entgegen der weit verbreiteten Meinung ist `return await promise` mindestens gen
 
 ## Siehe auch
 
-- {{jsxref("Statements/async_function", "asynchrone Funktion")}}
-- [`async function` Ausdruck](/de/docs/Web/JavaScript/Reference/Operators/async_function)
+- {{jsxref("Statements/async_function", "async function")}}
+- [`async function` expression](/de/docs/Web/JavaScript/Reference/Operators/async_function)
 - {{jsxref("AsyncFunction")}}
-- [Top-Level await](https://v8.dev/features/top-level-await) auf v8.dev (2019)
-- [typescript-eslint Regel: `return-await`](https://typescript-eslint.io/rules/return-await/)
+- [Top-level await](https://v8.dev/features/top-level-await) auf v8.dev (2019)
+- [typescript-eslint-Regel: `return-await`](https://typescript-eslint.io/rules/return-await/)

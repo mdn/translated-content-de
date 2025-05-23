@@ -1,42 +1,42 @@
 ---
-title: Verwenden von Web Workers
+title: Verwendung von Web Workern
 slug: Web/API/Web_Workers_API/Using_web_workers
 l10n:
-  sourceCommit: be1922d62a0d31e4e3441db0e943aed8df736481
+  sourceCommit: 364a4d02b10854ab7cef4ff4b0ec3616d4e1c8ab
 ---
 
 {{DefaultAPISidebar("Web Workers API")}}
 
-Web Workers sind ein einfacher Weg für Webinhalte, um Skripte in Hintergrund-Threads auszuführen. Der Worker-Thread kann Aufgaben erledigen, ohne die Benutzeroberfläche zu beeinflussen. Zusätzlich können sie Netzwerk-Anfragen über die APIs [`fetch()`](/de/docs/Web/API/WorkerGlobalScope/fetch) oder [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) durchführen. Sobald erstellt, kann ein Worker Nachrichten an den JavaScript-Code senden, der ihn erstellt hat, indem er Nachrichten an einen von diesem Code angegebenen Ereignis-Handler postet (und umgekehrt).
+Web Worker sind ein einfaches Mittel, um Web-Content Skripte in Hintergrund-Threads ausführen zu lassen. Der Worker-Thread kann Aufgaben erledigen, ohne die Benutzeroberfläche zu stören. Zusätzlich können sie Netzwerk-Anfragen mithilfe der [`fetch()`](/de/docs/Web/API/WorkerGlobalScope/fetch) oder [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) APIs durchführen. Einmal erstellt, kann ein Worker Nachrichten an den JavaScript-Code senden, der ihn erstellt hat, indem er Nachrichten an einen Ereignishandler sendet, der von diesem Code spezifiziert wurde (und umgekehrt).
 
-Dieser Artikel bietet eine detaillierte Einführung in die Verwendung von Web Workers.
+Dieser Artikel bietet eine detaillierte Einführung in die Verwendung von Web Workern.
 
 ## Web Workers API
 
-Ein Worker ist ein Objekt, das über einen Konstruktor erstellt wird (z. B. [`Worker()`](/de/docs/Web/API/Worker/Worker)), das eine benannte JavaScript-Datei ausführt – diese Datei enthält den Code, der im Worker-Thread ausgeführt wird; Worker laufen in einem anderen globalen Kontext, der sich vom aktuellen [`window`](/de/docs/Web/API/Window) unterscheidet. Daher wird die Verwendung der Abkürzung [`window`](/de/docs/Web/API/Window), um den aktuellen globalen Bereich innerhalb eines [`Worker`](/de/docs/Web/API/Worker) zu erhalten (anstatt [`self`](/de/docs/Web/API/Window/self)), einen Fehler zurückgeben.
+Ein Worker ist ein Objekt, das mit einem Konstruktor erstellt wird (z.B. [`Worker()`](/de/docs/Web/API/Worker/Worker)), der eine benannte JavaScript-Datei ausführt — diese Datei enthält den Code, der im Worker-Thread ausgeführt wird; Worker laufen in einem anderen globalen Kontext, der sich von dem des aktuellen [`window`](/de/docs/Web/API/Window) unterscheidet. Daher führt die Verwendung der [`window`](/de/docs/Web/API/Window)-Abkürzung zur Erfassung des aktuellen globalen Bereichs (anstelle von [`self`](/de/docs/Web/API/Window/self)) innerhalb eines [`Worker`](/de/docs/Web/API/Worker) zu einem Fehler.
 
-Der Worker-Kontext wird im Fall von dedizierten Workern durch ein [`DedicatedWorkerGlobalScope`](/de/docs/Web/API/DedicatedWorkerGlobalScope) Objekt repräsentiert (standardmäßige Worker, die von einem einzigen Skript verwendet werden; geteilte Worker nutzen [`SharedWorkerGlobalScope`](/de/docs/Web/API/SharedWorkerGlobalScope)). Ein dedizierter Worker ist nur vom Skript aus zugänglich, das ihn zuerst gestartet hat, während geteilte Worker von mehreren Skripten aus zugänglich sind.
+Der Worker-Kontext wird durch ein [`DedicatedWorkerGlobalScope`](/de/docs/Web/API/DedicatedWorkerGlobalScope)-Objekt im Fall von dedizierten Workern repräsentiert (Standard-Worker, die von einem Einzel-Skript genutzt werden; gemeinsame Worker verwenden [`SharedWorkerGlobalScope`](/de/docs/Web/API/SharedWorkerGlobalScope)). Ein dedizierter Worker ist nur vom Skript zugänglich, das ihn zuerst erzeugt hat, während gemeinsame Worker von mehreren Skripten aus zugänglich sein können.
 
 > [!NOTE]
-> Siehe [Die Web Workers API Startseite](/de/docs/Web/API/Web_Workers_API) für Referenzdokumentationen zu Workern und zusätzliche Leitfäden.
+> Siehe [Die Web Workers API-Startseite](/de/docs/Web/API/Web_Workers_API) für Referenzdokumentation zu Workern und zusätzliche Leitfäden.
 
-Man kann im Worker-Thread beliebigen Code ausführen, mit einigen Ausnahmen. Zum Beispiel kann man nicht direkt das DOM vom Inneren eines Workers manipulieren oder einige Standardmethoden und -eigenschaften des [`window`](/de/docs/Web/API/Window) Objekts verwenden. Aber man kann eine große Anzahl von Elementen unter `window` nutzen, einschließlich [WebSockets](/de/docs/Web/API/WebSockets_API) und Daten-Speichermethoden wie [IndexedDB](/de/docs/Web/API/IndexedDB_API). Siehe [Funktionen und Klassen, die Workern zur Verfügung stehen](/de/docs/Web/API/Web_Workers_API/Functions_and_classes_available_to_workers) für mehr Details.
+Sie können beliebigen Code innerhalb des Worker-Threads ausführen, mit einigen Ausnahmen. Beispielsweise können Sie nicht direkt das DOM von innen einem Worker manipulieren oder einige Standardmethoden und -eigenschaften des [`window`](/de/docs/Web/API/Window) Objekts verwenden. Aber Sie können eine große Anzahl von unter `window` verfügbaren Elementen verwenden, einschließlich [WebSockets](/de/docs/Web/API/WebSockets_API) und Datenspeichermechanismen wie [IndexedDB](/de/docs/Web/API/IndexedDB_API). Siehe [Funktionen und Klassen, die Workern zur Verfügung stehen](/de/docs/Web/API/Web_Workers_API/Functions_and_classes_available_to_workers) für mehr Details.
 
-Daten werden zwischen Workern und dem Haupt-Thread über ein Nachrichtensystem gesendet – beide Seiten senden ihre Nachrichten mit der `postMessage()` Methode und antworten auf Nachrichten über den `onmessage` Ereignis-Handler (die Nachricht ist innerhalb des [`message`](/de/docs/Web/API/Worker/message_event) Ereignis-Datenattributs enthalten). Die Daten werden kopiert, anstatt geteilt.
+Daten werden zwischen Workern und dem Haupt-Thread über ein System von Nachrichten gesendet — beide Seiten senden ihre Nachrichten mit der Methode `postMessage()` und reagieren auf Nachrichten über den `onmessage`-Ereignishandler (die Nachricht ist im Datenattribut des [`message`](/de/docs/Web/API/Worker/message_event)-Ereignisses enthalten). Die Daten werden kopiert und nicht geteilt.
 
-Worker können auch neue Worker erstellen, solange diese Worker im gleichen {{Glossary("origin", "origin")}} wie die übergeordnete Seite gehostet werden.
+Worker können wiederum neue Worker erstellen, solange diese Worker innerhalb derselben {{Glossary("origin", "Origin")}} wie die übergeordnete Seite gehostet werden.
 
-Zusätzlich können Worker Netzwerk-Anfragen über die APIs [`fetch()`](/de/docs/Web/API/WorkerGlobalScope/fetch) oder [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) durchführen (obwohl zu beachten ist, dass das Attribut [`responseXML`](/de/docs/Web/API/XMLHttpRequest/responseXML) von `XMLHttpRequest` immer `null` sein wird).
+Außerdem können Worker Netzwerk-Anfragen mithilfe der [`fetch()`](/de/docs/Web/API/WorkerGlobalScope/fetch) oder [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) APIs durchführen (obwohl das [`responseXML`](/de/docs/Web/API/XMLHttpRequest/responseXML) Attribut von `XMLHttpRequest` immer `null` sein wird).
 
 ## Dedizierte Worker
 
-Wie oben erwähnt, ist ein dedizierter Worker nur durch das Skript zugänglich, das ihn aufgerufen hat. In diesem Abschnitt werden wir den JavaScript-Code in unserem [Grundlegenden Beispiel für dedizierte Worker](https://github.com/mdn/dom-examples/tree/main/web-workers/simple-web-worker) besprechen ([dedizierter Worker ausführen](https://mdn.github.io/dom-examples/web-workers/simple-web-worker/)): Dies erlaubt es Ihnen, zwei Zahlen einzugeben, die miteinander multipliziert werden. Die Zahlen werden an einen dedizierten Worker gesendet, miteinander multipliziert, und das Ergebnis wird an die Seite zurückgegeben und angezeigt.
+Wie bereits erwähnt, ist ein dedizierter Worker nur für das Skript zugänglich, das ihn aufgerufen hat. In diesem Abschnitt besprechen wir das JavaScript, das in unserem [einfachen Beispiel für einen dedizierten Worker](https://github.com/mdn/dom-examples/tree/main/web-workers/simple-web-worker) gefunden wird ([dedizierten Worker ausführen](https://mdn.github.io/dom-examples/web-workers/simple-web-worker/)): Dies ermöglicht Ihnen zwei Zahlen einzugeben, die miteinander multipliziert werden sollen. Die Zahlen werden an einen dedizierten Worker gesendet, miteinander multipliziert, und das Ergebnis wird an die Seite zurückgegeben und angezeigt.
 
-Dieses Beispiel ist eher trivial, aber wir haben beschlossen, es einfach zu halten, während wir Ihnen grundlegende Worker-Konzepte vorstellen. Fortgeschrittenere Details werden später im Artikel behandelt.
+Dieses Beispiel ist eher trivial, aber wir haben uns entschieden, es einfach zu halten, während wir Ihnen grundlegende Worker-Konzepte näher bringen. Fortgeschrittenere Details werden später im Artikel behandelt.
 
-### Erkennung der Worker-Funktion
+### Erkennung von Worker-Funktionalitäten
 
-Für eine etwas kontrolliertere Fehlerbehandlung und Abwärtskompatibilität ist es eine gute Idee, Ihren Worker-Zugriffscode im Folgenden zu verpacken ([main.js](https://github.com/mdn/dom-examples/blob/main/web-workers/simple-web-worker/main.js)):
+Für eine etwas kontrolliertere Fehlerbehandlung und Abwärtskompatibilität ist es eine gute Idee, Ihren Worker-Zugriffscode wie folgt zu kapseln ([main.js](https://github.com/mdn/dom-examples/blob/main/web-workers/simple-web-worker/main.js)):
 
 ```js
 if (window.Worker) {
@@ -44,26 +44,26 @@ if (window.Worker) {
 }
 ```
 
-### Starten eines dedizierten Workers
+### Erstellen eines dedizierten Workers
 
-Einen neuen Worker zu erstellen ist einfach. Alles, was Sie tun müssen, ist den [`Worker()`](/de/docs/Web/API/Worker/Worker) Konstruktor aufzurufen und die URI eines Skripts anzugeben, das im Worker-Thread ausgeführt werden soll ([main.js](https://github.com/mdn/dom-examples/blob/main/web-workers/simple-web-worker/main.js)):
+Das Erstellen eines neuen Workers ist einfach. Alles, was Sie tun müssen, ist den [`Worker()`](/de/docs/Web/API/Worker/Worker) Konstruktor aufzurufen und die URI eines Skripts anzugeben, das im Worker-Thread ausgeführt wird ([main.js](https://github.com/mdn/dom-examples/blob/main/web-workers/simple-web-worker/main.js)):
 
 ```js
 const myWorker = new Worker("worker.js");
 ```
 
 > [!NOTE]
-> Bundler, einschließlich [webpack](https://webpack.js.org/guides/web-workers/), [Vite](https://vite.dev/guide/features.html#web-workers) und [Parcel](https://parceljs.org/languages/javascript/#web-workers), empfehlen, URLs zu übergeben, die relativ zu [`import.meta.url`](/de/docs/Web/JavaScript/Reference/Operators/import.meta#url) im `Worker()` Konstruktor aufgelöst werden. Zum Beispiel:
+> Bundler, einschließlich [webpack](https://webpack.js.org/guides/web-workers/), [Vite](https://vite.dev/guide/features.html#web-workers), und [Parcel](https://parceljs.org/languages/javascript/#web-workers), empfehlen das Übergeben von URLs, die relativ zu [`import.meta.url`](/de/docs/Web/JavaScript/Reference/Operators/import.meta#url) aufgelöst werden, an den `Worker()` Konstruktor. Beispielsweise:
 >
 > ```js
 > const myWorker = new Worker(new URL("worker.js", import.meta.url));
 > ```
 >
-> Auf diese Weise ist der Pfad relativ zum aktuellen Skript anstatt zur aktuellen HTML-Seite, was es dem Bundler ermöglicht, Optimierungen wie Umbenennungen sicher durchzuführen (denn andernfalls könnte die `worker.js` URL auf eine Datei verweisen, die nicht vom Bundler kontrolliert wird, sodass keine Annahmen getroffen werden können).
+> Auf diese Weise ist der Pfad relativ zum aktuellen Skript statt zur aktuellen HTML-Seite, was dem Bundler erlaubt, sicher Optimierungen wie Umbenennung durchzuführen (da andernfalls die `worker.js` URL auf eine Datei zeigen könnte, die nicht vom Bundler kontrolliert wird, sodass er keine Annahmen treffen kann).
 
 ### Nachrichten an einen dedizierten Worker senden und empfangen
 
-Die Magie der Worker passiert über die [`postMessage()`](/de/docs/Web/API/Worker/postMessage) Methode und den [`onmessage`](/de/docs/Web/API/Worker/message_event) Ereignis-Handler. Wenn Sie eine Nachricht an den Worker senden wollen, posten Sie Nachrichten so ([main.js](https://github.com/mdn/dom-examples/blob/main/web-workers/simple-web-worker/main.js)):
+Die Magie von Workern geschieht über die [`postMessage()`](/de/docs/Web/API/Worker/postMessage) Methode und den [`onmessage`](/de/docs/Web/API/Worker/message_event) Ereignishandler. Wenn Sie eine Nachricht an den Worker senden möchten, senden Sie ihm Nachrichten wie folgt ([main.js](https://github.com/mdn/dom-examples/blob/main/web-workers/simple-web-worker/main.js)):
 
 ```js
 [first, second].forEach((input) => {
@@ -74,9 +74,9 @@ Die Magie der Worker passiert über die [`postMessage()`](/de/docs/Web/API/Worke
 });
 ```
 
-Hier haben wir zwei {{htmlelement("input")}} Elemente, die durch die Variablen `first` und `second` dargestellt werden; wenn sich der Wert eines der beiden ändert, wird `myWorker.postMessage([first.value,second.value])` verwendet, um die Werte in beide an den Worker zu senden, als ein Array. Sie können fast alles, was Sie wollen, in der Nachricht senden.
+Hier haben wir zwei {{htmlelement("input")}}-Elemente, die durch die Variablen `first` und `second` repräsentiert werden; wenn der Wert eines dieser Elemente geändert wird, wird `myWorker.postMessage([first.value,second.value])` verwendet, um den Wert innerhalb beider an den Worker zu senden, als ein Array. Sie können nahezu alles, was Sie möchten, in der Nachricht senden.
 
-Im Worker können wir reagieren, wenn die Nachricht empfangen wird, indem wir einen Ereignis-Handler-Block wie diesen schreiben ([worker.js](https://github.com/mdn/dom-examples/blob/main/web-workers/simple-web-worker/worker.js)):
+Im Worker können wir wie folgt reagieren, sobald die Nachricht empfangen wird ([worker.js](https://github.com/mdn/dom-examples/blob/main/web-workers/simple-web-worker/worker.js)):
 
 ```js
 onmessage = (e) => {
@@ -87,9 +87,9 @@ onmessage = (e) => {
 };
 ```
 
-Der `onmessage` Handler erlaubt es uns, Code auszuführen, wann immer eine Nachricht empfangen wird, wobei die Nachricht selbst im `data` Attribut des `message` Ereignisses verfügbar ist. Hier multiplizieren wir die beiden Zahlen und verwenden dann erneut `postMessage()`, um das Ergebnis an den Haupt-Thread zurückzusenden.
+Der `onmessage` Handler erlaubt es uns, Code auszuführen, wann immer eine Nachricht empfangen wird, wobei die Nachricht selbst im `data` Attribut des `message` Ereignisses verfügbar ist. Hier multiplizieren wir die beiden Zahlen miteinander und verwenden dann erneut `postMessage()`, um das Ergebnis an den Haupt-Thread zurückzusenden.
 
-Zurück im Haupt-Thread verwenden wir erneut `onmessage`, um auf die Nachricht zu reagieren, die vom Worker zurückgesendet wurde:
+Zurück im Haupt-Thread verwenden wir `onmessage` erneut, um auf die vom Worker zurückgesendete Nachricht zu reagieren:
 
 ```js
 myWorker.onmessage = (e) => {
@@ -98,17 +98,17 @@ myWorker.onmessage = (e) => {
 };
 ```
 
-Hier entnehmen wir die Nachrichtendaten und setzen sie als `textContent` des Ergebnis-Absatzes, damit der Benutzer das Ergebnis der Berechnung sehen kann.
+Hier erfassen wir die Ereignisdaten der Nachricht und setzen sie als `textContent` des Ergebnisabsatzes, damit der Benutzer das Ergebnis der Berechnung sehen kann.
 
 > [!NOTE]
-> Beachten Sie, dass `onmessage` und `postMessage()` an das `Worker` Objekt angehängt werden müssen, wenn sie im Hauptskript-Thread verwendet werden, aber nicht, wenn sie im Worker verwendet werden. Dies liegt daran, dass der Worker innerhalb des Workers effektiv der globale Bereich ist.
+> Beachten Sie, dass `onmessage` und `postMessage()` am `Worker` Objekt gehängt werden müssen, wenn sie im Hauptskript-Thread verwendet werden, aber nicht, wenn sie im Worker verwendet werden. Dies liegt daran, dass im Worker der Worker effektiv der globale Kontext ist.
 
 > [!NOTE]
-> Wenn eine Nachricht zwischen dem Haupt-Thread und dem Worker übergeben wird, wird sie kopiert oder "übertragen" (verschoben), nicht geteilt. Lesen Sie [Datenübertragung zu und von Workern: weitere Details](#transferring_data_to_and_from_workers_further_details) für eine viel gründlichere Erklärung.
+> Wenn eine Nachricht zwischen Haupt-Thread und Worker übergeben wird, wird sie kopiert oder "übertragen" (verschoben), nicht geteilt. Lesen Sie [Daten zu und von Workern übertragen: weitere Details](#transferring_data_to_and_from_workers_further_details) für eine viel gründlichere Erklärung.
 
-### Beenden eines Worker's
+### Einen Worker beenden
 
-Wenn Sie einen laufenden Worker sofort aus dem Haupt-Thread beenden müssen, können Sie dies tun, indem Sie die Method [`terminate`](/de/docs/Web/API/Worker) des Workers aufrufen:
+Wenn Sie einen laufenden Worker sofort vom Haupt-Thread aus beenden müssen, können Sie dies tun, indem Sie die [`terminate`](/de/docs/Web/API/Worker) Methode des Worker's aufrufen:
 
 ```js
 myWorker.terminate();
@@ -116,28 +116,28 @@ myWorker.terminate();
 
 Der Worker-Thread wird sofort beendet.
 
-### Fehlerbehandlung
+### Fehler behandeln
 
-Wenn ein Laufzeitfehler im Worker auftritt, wird sein `onerror` Ereignis-Handler aufgerufen. Es empfängt ein Ereignis mit dem Namen `error`, das das Interface `ErrorEvent` implementiert.
+Wenn ein Laufzeitfehler im Worker auftritt, wird der `onerror` Ereignishandler aufgerufen. Er erhält ein Ereignis namens `error`, das die `ErrorEvent` Schnittstelle implementiert.
 
-Das Ereignis wird nicht weitergeleitet und ist stornierbar; um die Standardaktion zu verhindern, kann der Worker die Methode [`preventDefault()`](/de/docs/Web/API/Event/preventDefault) des Error-Ereignisses aufrufen.
+Das Ereignis ist nicht auslösbar und kann abgebrochen werden; um zu verhindern, dass die Standardaktion ausgeführt wird, kann der Worker die `preventDefault()` Methode des Fehlerereignisses aufrufen.
 
-Das Error-Ereignis hat die folgenden drei Felder von Interesse:
+Das Fehlerereignis hat die folgenden drei Felder, die von Interesse sind:
 
 - `message`
-  - : Eine menschenlesbare Fehlermeldung.
+  - : Eine lesbare Fehlermeldung.
 - `filename`
   - : Der Name der Skriptdatei, in der der Fehler aufgetreten ist.
 - `lineno`
-  - : Die Zeilennummer der Skriptdatei, in der der Fehler aufgetreten ist.
+  - : Die Zeilennummer der Skriptdatei, bei der der Fehler aufgetreten ist.
 
-### Starten von Unterarbeitern
+### Sub-Worker erstellen
 
-Worker können, wenn sie möchten, andere Worker starten. So genannte Unterarbeiter müssen im gleichen Ursprungsbereich wie die übergeordnete Seite gehostet sein. Auch die URIs für Unterarbeiter werden relativ zur Position des übergeordneten Workers und nicht zur der besitzenden Seite aufgelöst. Dies erleichtert es den Workern, den Überblick zu behalten, wo sich ihre Abhängigkeiten befinden.
+Arbeitsprozesse können bei Bedarf weitere Arbeitsprozesse erstellen. So genannte Unterarbeitsprozesse müssen innerhalb derselben Origin wie die übergeordnete Seite gehostet werden. Auch die URIs für Unterarbeitsprozesse werden relativ zur Position des übergeordneten Arbeitsprozesses und nicht zur Seite aufgelöst. Dies erleichtert den Arbeitsprozessen das Nachverfolgen, wo sich ihre Abhängigkeiten befinden.
 
-### Importieren von Skripten und Bibliotheken
+### Skripte und Bibliotheken importieren
 
-Worker-Threads haben Zugriff auf eine globale Funktion, `importScripts()`, mit der sie Skripte importieren können. Es akzeptiert null oder mehr URIs als Parameter zu Ressourcen zum Importieren; alle folgenden Beispiele sind gültig:
+Worker-Threads haben Zugriff auf eine globale Funktion `importScripts()`, die es ihnen ermöglicht, Skripte zu importieren. Sie akzeptiert null oder mehr URIs als Parameter für die Ressourcen, die importiert werden sollen; alle folgenden Beispiele sind gültig:
 
 ```js
 importScripts(); /* imports nothing */
@@ -148,41 +148,41 @@ importScripts(
 ); /* You can import scripts from other origins */
 ```
 
-Der Browser lädt jedes gelistete Skript und führt es aus. Alle globalen Objekte aus jedem Skript können dann vom Worker verwendet werden. Wenn das Skript nicht geladen werden kann, wird `NETWORK_ERROR` ausgelöst und nachfolgender Code wird nicht ausgeführt. Zuvor ausgeführter Code (einschließlich zurückgestelltem Code unter Verwendung von [`setTimeout()`](/de/docs/Web/API/WorkerGlobalScope/setTimeout)) bleibt jedoch funktionsfähig. Funktionsdeklarationen **nach** der `importScripts()` Methode werden ebenfalls beibehalten, da diese immer vor dem Rest des Codes ausgewertet werden.
+Der Browser lädt jedes aufgelistete Skript und führt es aus. Alle globalen Objekte aus jedem Skript können dann vom Worker verwendet werden. Wenn das Skript nicht geladen werden kann, wird `NETWORK_ERROR` ausgelöst, und nachfolgender Code wird nicht mehr ausgeführt. Bereits ausgeführter Code (einschließlich verzögerter Code mit [`setTimeout()`](/de/docs/Web/API/WorkerGlobalScope/setTimeout)) bleibt jedoch weiterhin funktionsfähig. Funktionsdeklarationen **nach** der `importScripts()` Methode werden ebenfalls behalten, da diese immer vor dem restlichen Code ausgewertet werden.
 
 > [!NOTE]
-> Skripte können in beliebiger Reihenfolge heruntergeladen werden, werden jedoch in der Reihenfolge ausgeführt, in der Sie die Dateinamen in `importScripts()` übergeben. Dies geschieht synchron; `importScripts()` kehrt erst zurück, wenn alle Skripte geladen und ausgeführt wurden.
+> Skripte können in beliebiger Reihenfolge heruntergeladen werden, werden jedoch in der Reihenfolge ausgeführt, in der Sie die Dateinamen in `importScripts()` übergeben. Dies geschieht synchron; `importScripts()` gibt nicht zurück, bis alle Skripte geladen und ausgeführt wurden.
 
-## Geteilte Worker
+## Gemeinsame Worker
 
-Ein geteilter Worker ist von mehreren Skripten zugänglich – selbst wenn sie von verschiedenen Fenstern, iframes oder sogar Workern aufgerufen werden. In diesem Abschnitt werden wir den JavaScript-Code in unserem [Grundlegenden Beispiel für geteilte Worker](https://github.com/mdn/dom-examples/tree/main/web-workers/simple-shared-worker) besprechen ([geteilter Worker ausführen](https://mdn.github.io/dom-examples/web-workers/simple-shared-worker/)): Dies ist sehr ähnlich zum grundlegenden Beispiel für dedizierte Worker, mit dem Unterschied, dass es zwei verfügbare Funktionen gibt, die von verschiedenen Skriptdateien ausgeführt werden: _Multiplizieren zweier Zahlen_ oder _Quadrieren einer Zahl_. Beide Skripte verwenden denselben Worker, um die benötigte Berechnung durchzuführen.
+Ein gemeinsamer Worker ist von mehreren Skripten aus zugänglich — selbst wenn sie von verschiedenen Fenstern, iframes oder sogar Workern aufgerufen werden. In diesem Abschnitt werden wir das JavaScript diskutieren, das in unserem [Basic shared worker example](https://github.com/mdn/dom-examples/tree/main/web-workers/simple-shared-worker) ([run shared worker](https://mdn.github.io/dom-examples/web-workers/simple-shared-worker/)) gefunden wird: Dies ist dem grundlegenden dedizierten Worker-Beispiel sehr ähnlich, außer dass es zwei Funktionen gibt, die von verschiedenen Skriptdateien gehandhabt werden: _zwei Zahlen multiplizieren_ oder _eine Zahl quadrieren_. Beide Skripte verwenden denselben Worker, um die erforderliche Berechnung durchzuführen.
 
-Hier werden wir uns auf die Unterschiede zwischen dedizierten und geteilten Workern konzentrieren. Beachten Sie, dass wir in diesem Beispiel zwei HTML-Seiten haben, jede mit JavaScript, das den gleichen einzelnen Worker verwendet.
-
-> [!NOTE]
-> Wenn ein SharedWorker von mehreren Browsing-Kontexten aus zugänglich ist, müssen alle diese Browsing-Kontexte exakt den gleichen Ursprung (dasselbe Protokoll, denselben Host und denselben Port) teilen.
+Hier konzentrieren wir uns auf die Unterschiede zwischen dedizierten und gemeinsamen Workern. Beachten Sie, dass in diesem Beispiel zwei HTML-Seiten enthalten sind, jede mit einem JavaScript, das dasselbe einzelne Worker-File verwendet.
 
 > [!NOTE]
-> In Firefox können geteilte Worker nicht zwischen Dokumenten, die in privaten und nicht privaten Fenstern geladen sind, geteilt werden ([Firefox Fehler 1177621](https://bugzil.la/1177621)).
+> Wenn SharedWorker von mehreren Browsing-Kontexten aus zugänglich ist, müssen alle diese Browsing-Kontexte denselben Origin teilen (gleiches Protokoll, Host und Port).
 
-### Starten eines geteilten Workers
+> [!NOTE]
+> In Firefox können gemeinsame Worker nicht zwischen Dokumenten in privaten und nicht privaten Fenstern geteilt werden ([Firefox bug 1177621](https://bugzil.la/1177621)).
 
-Das Starten eines neuen geteilten Workers ist fast dasselbe wie bei einem dedizierten Worker, jedoch mit einem anderen Konstruktorname (siehe [index.html](https://github.com/mdn/dom-examples/blob/main/web-workers/simple-shared-worker/index.html) und [index2.html](https://github.com/mdn/dom-examples/blob/main/web-workers/simple-shared-worker/index2.html)) – jeder muss den Worker mit einem Code wie dem folgenden starten:
+### Erstellen eines gemeinsamen Workers
+
+Das Erstellen eines neuen gemeinsamen Workers ist fast dasselbe wie bei einem dedizierten Worker, jedoch mit einem anderen Konstrukturnamen (siehe [index.html](https://github.com/mdn/dom-examples/blob/main/web-workers/simple-shared-worker/index.html) und [index2.html](https://github.com/mdn/dom-examples/blob/main/web-workers/simple-shared-worker/index2.html)) — jeder muss den Worker mit Code wie dem folgenden starten:
 
 ```js
 const myWorker = new SharedWorker("worker.js");
 ```
 
-Ein großer Unterschied ist, dass man mit einem geteilten Worker über ein `port` Objekt kommunizieren muss – ein expliziter Port wird geöffnet, den die Skripte verwenden können, um mit dem Worker zu kommunizieren (dies geschieht implizit im Fall von dedizierten Workern).
+Ein großer Unterschied ist, dass Sie bei einem gemeinsamen Worker über ein `port` Objekt kommunizieren müssen — ein expliziter Port wird geöffnet, den die Skripte verwenden können, um mit dem Worker zu kommunizieren (dies geschieht implizit im Fall von dedizierten Workern).
 
-Die Portverbindung muss entweder implizit durch Verwendung des `onmessage` Ereignis-Handlers oder explizit mit der `start()` Methode gestartet werden, bevor Nachrichten gesendet werden können. Das Aufrufen von `start()` ist nur erforderlich, wenn das `message` Ereignis über die `addEventListener()` Methode verdrahtet wird.
+Die Portverbindung muss entweder implizit durch den `onmessage` Ereignishandler oder explizit mit der `start()` Methode gestartet werden, bevor Nachrichten gesendet werden können. Das Aufrufen von `start()` ist nur erforderlich, wenn das `message` Ereignis durch die `addEventListener()` Methode verdrahtet ist.
 
 > [!NOTE]
-> Beim Verwenden der `start()` Methode zum Öffnen der Portverbindung muss sie sowohl vom übergeordneten Thread als auch vom Worker-Thread aufgerufen werden, wenn eine Zwei-Wege-Kommunikation erforderlich ist.
+> Bei Verwendung der `start()` Methode zur Öffnung der Port-Verbindung muss sie sowohl vom übergeordneten Thread als auch vom Worker-Thread aufgerufen werden, wenn eine zweiseitige Kommunikation erforderlich ist.
 
-### Nachrichten an einen geteilten Worker senden und empfangen
+### Nachrichten an einen gemeinsamen Worker senden und empfangen
 
-Nun können Nachrichten an den Worker wie zuvor gesendet werden, aber die `postMessage()` Methode muss über das `port` Objekt aufgerufen werden (wieder werden Sie ähnliche Konstrukte in sowohl [multiply.js](https://github.com/mdn/dom-examples/blob/main/web-workers/simple-shared-worker/multiply.js) als auch [square.js](https://github.com/mdn/dom-examples/blob/main/web-workers/simple-shared-worker/square.js)):
+Jetzt können Nachrichten wie zuvor an den Worker gesendet werden, aber die `postMessage()` Methode muss über das Port-Objekt aufgerufen werden (wieder sehen Sie ähnliche Konstruktionen in [multiply.js](https://github.com/mdn/dom-examples/blob/main/web-workers/simple-shared-worker/multiply.js) und [square.js](https://github.com/mdn/dom-examples/blob/main/web-workers/simple-shared-worker/square.js)):
 
 ```js
 squareNumber.onchange = () => {
@@ -191,7 +191,7 @@ squareNumber.onchange = () => {
 };
 ```
 
-Nun zum Worker. Es gibt hier auch ein wenig mehr Komplexität ([worker.js](https://github.com/mdn/dom-examples/blob/main/web-workers/simple-shared-worker/worker.js)):
+Nun zum Worker. Hier gibt es auch mehr Komplexität ([worker.js](https://github.com/mdn/dom-examples/blob/main/web-workers/simple-shared-worker/worker.js)):
 
 ```js
 onconnect = (e) => {
@@ -204,13 +204,13 @@ onconnect = (e) => {
 };
 ```
 
-Zuerst verwenden wir einen `onconnect` Handler, um einen Code zu feuern, wenn eine Verbindung zum Port hergestellt wird (d.h. wenn der `onmessage` Ereignis-Handler im übergeordneten Thread eingerichtet ist oder wenn die `start()` Methode explizit im übergeordneten Thread aufgerufen wird).
+Erstens verwenden wir einen `onconnect` Handler, um Code auszuführen, wenn eine Verbindung zum Port stattfindet (d.h. wenn der `onmessage` Ereignishandler im übergeordneten Thread eingerichtet wird oder wenn die `start()` Methode im übergeordneten Thread explizit aufgerufen wird).
 
-Wir verwenden das `ports` Attribut dieses Ereignisobjekts, um den Port zu greifen und in einer Variablen zu speichern.
+Wir verwenden das `ports` Attribut dieses Ereignisobjekts, um den Port zu erfassen und in einer Variablen zu speichern.
 
-Als nächstes fügen wir einen `onmessage` Handler am Port hinzu, um die Berechnung durchzuführen und das Ergebnis an den Haupt-Thread zurückzugeben. Das Einrichten dieses `onmessage` Handlers im Worker-Thread öffnet auch implizit die Portverbindung zurück zum übergeordneten Thread, sodass der Aufruf von `port.start()` tatsächlich nicht erforderlich ist, wie oben erwähnt.
+Als nächstes fügen wir einen `onmessage` Handler am Port hinzu, um die Berechnung durchzuführen und die Ergebnisse an den Haupt-Thread zurückzugeben. Das Einrichten dieses `onmessage` Handlers im Worker-Thread öffnet auch implizit die Port-Verbindung zurück zum Haupt-Thread, daher ist der Aufruf von `port.start()` tatsächlich nicht erforderlich, wie oben beschrieben.
 
-Schließlich bearbeiten wir im Hauptskript die Nachricht (wiederum werden Sie ähnliche Konstrukte in sowohl [multiply.js](https://github.com/mdn/dom-examples/blob/main/web-workers/simple-shared-worker/multiply.js) als auch [square.js](https://github.com/mdn/dom-examples/blob/main/web-workers/simple-shared-worker/square.js) sehen):
+Schließlich bearbeiten wir im Hauptskript die Nachricht (wieder sehen Sie ähnliche Konstruktionen sowohl in [multiply.js](https://github.com/mdn/dom-examples/blob/main/web-workers/simple-shared-worker/multiply.js) als auch in [square.js](https://github.com/mdn/dom-examples/blob/main/web-workers/simple-shared-worker/square.js)):
 
 ```js
 myWorker.port.onmessage = (e) => {
@@ -219,33 +219,33 @@ myWorker.port.onmessage = (e) => {
 };
 ```
 
-Wenn eine Nachricht durch den Port vom Worker zurückkommt, setzen wir das Kalkulationsergebnis in den entsprechenden Ergebnisabsatz ein.
+Wenn eine Nachricht vom Worker durch den Port zurückkommt, fügen wir das Berechnungsergebnis in den entsprechenden Ergebnisabsatz ein.
 
-## Über Threadsicherheit
+## Über Thread-Sicherheit
 
-Das [`Worker`](/de/docs/Web/API/Worker) Interface startet echte OS-Level Threads, und aufmerksame Programmierer könnten befürchten, dass Concurrency "interessante" Effekte in Ihrem Code verursachen kann, wenn Sie nicht vorsichtig sind.
+Das [`Worker`](/de/docs/Web/API/Worker) Interface startet echte OS-Level Threads, und erfahrene Programmierer könnten besorgt sein, dass die Gleichzeitigkeit "interessante" Effekte in Ihrem Code verursachen könnte, wenn Sie nicht vorsichtig sind.
 
-Jedoch, da Web Worker sorgfältig kontrollierte Kommunikation zu anderen Threads haben, ist es tatsächlich sehr schwer, Concurrency-Probleme zu verursachen. Es gibt keinen Zugriff auf nicht-Thread-sichere Komponenten oder das DOM. Und man muss spezifische Daten in und aus einem Thread über serialisierte Objekte übergeben. Also muss man wirklich hart arbeiten, um Probleme in seinem Code zu verursachen.
+Da Web Worker jedoch kontrollierte Kommunikationspunkte mit anderen Threads haben, ist es tatsächlich sehr schwer, Konkurrenzprobleme zu verursachen. Es gibt keinen Zugriff auf nicht thread-sichere Komponenten oder das DOM. Und Sie müssen spezifische Daten durch serialisierte Objekte in und aus einem Thread übergeben. Deshalb müssen Sie sich stark bemühen, um Probleme in Ihrem Code zu verursachen.
 
-## Content Security Policy
+## Sicherheitsrichtlinien für Inhalte
 
-Worker gelten als haben ihren eigenen Ausführungskontext, der sich von dem Dokument unterscheidet, das sie erstellt hat. Deshalb werden sie im Allgemeinen nicht von der [Content Security Policy](/de/docs/Mozilla/Add-ons/WebExtensions/Content_Security_Policy) des Dokuments (oder übergeordneten Workers) reguliert, das sie erstellt hat. Wenn ein Dokument z. B. mit dem folgenden Header bereitgestellt wird:
+Worker werden als eigenständiger Ausführungskontext betrachtet, der sich von dem Dokument unterscheidet, das sie erstellt hat. Aus diesem Grund unterliegen sie im Allgemeinen nicht der [Sicherheitsrichtlinie für Inhalte](/de/docs/Mozilla/Add-ons/WebExtensions/Content_Security_Policy) des Dokuments (oder des übergeordneten Workers), das sie erstellt hat. Wenn zum Beispiel ein Dokument mit dem folgenden Header bereitgestellt wird:
 
 ```http
 Content-Security-Policy: script-src 'self'
 ```
 
-Unter anderem wird dies verhindern, dass Scripts, die es inkludiert, [`eval()`](/de/docs/Web/JavaScript/Reference/Global_Objects/eval) verwenden. Wenn das Script jedoch einen Worker erstellt, wird der im Kontext des Workers ausgeführte Code _in der Lage sein_, `eval()` zu verwenden.
+Unter anderem wird dies verhindern, dass Skripte [`eval()`](/de/docs/Web/JavaScript/Reference/Global_Objects/eval) verwenden. Wenn das Skript jedoch einen Worker erstellt, ist Code, der im Kontext des Workers ausgeführt wird, erlaubt `eval()` zu verwenden.
 
-Um eine Content Security Policy für den Worker festzulegen, verwenden Sie einen [Content-Security-Policy](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy) Antwort-Header für die Anfrage, die das Worker's Skript selbst liefert.
+Um eine Sicherheitsrichtlinie für Inhalte für den Worker festzulegen, setzen Sie einen [Content-Security-Policy](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy) Antwort-Header für die Anfrage, die das Worker-Skript selbst geliefert hat.
 
-Die Ausnahme dazu ist, wenn der Ursprung des Workers ein global einmaliger Bezeichner ist (zum Beispiel, wenn seine URL ein Schema von Daten oder Blob hat). In diesem Fall erbt der Worker die CSP des Dokuments oder Workers, der sie erstellt hat.
+Ausnahme ist, wenn der Ursprung des Worker-Skripts ein global eindeutiger Bezeichner ist (zum Beispiel, wenn seine URL ein Schema von data oder blob hat). In diesem Fall erbt der Worker die CSP des Dokuments oder Workers, der ihn erstellt hat.
 
-## Daten zu und von Workern übertragen: Weitere Details
+## Daten zu und von Workern übertragen: weitere Details
 
-Daten, die zwischen der Hauptseite und Workern übergeben werden, werden **kopiert**, nicht geteilt. Objekte werden seriell übergeben, wenn sie dem Worker übergeben werden, und werden anschließend am anderen Ende deserialisiert. Die Seite und der Worker **teilen nicht die gleiche Instanz**, sodass am Ende **ein Duplikat** an jedem Ende erstellt wird. Die meisten Browser implementieren diese Funktion als [strukturiertes Klonen](/de/docs/Web/API/Web_Workers_API/Structured_clone_algorithm).
+Daten, die zwischen der Hauptseite und Workern übergeben werden, werden **kopiert**, nicht geteilt. Objekte werden als in den Worker übergeben serialisiert und anschließend am anderen Ende deserialisiert. Die Seite und der Worker **teilen nicht dieselbe Instanz**, sodass letztendlich **ein Duplikat** am jeweiligen Ende entsteht. Die meisten Browser implementieren diese Funktion als [strukturierte Klonierung](/de/docs/Web/API/Web_Workers_API/Structured_clone_algorithm).
 
-Um dies zu veranschaulichen, erstellen wir eine Funktion namens `emulateMessage()`, die das Verhalten eines Werts simuliert, der beim Übergang von einem `worker` zur Hauptseite oder umgekehrt _geklont und nicht geteilt_ wird:
+Um dies zu veranschaulichen, erstellen wir eine Funktion namens `emulateMessage()`, die das Verhalten eines Wertes simuliert, der beim Übergang von einem `worker` zur Hauptseite oder umgekehrt _geklont und nicht geteilt_ wird:
 
 ```js
 function emulateMessage(vVal) {
@@ -287,7 +287,7 @@ alert(example5.constructor); // Animal
 alert(emulateMessage(example5).constructor); // Object
 ```
 
-Ein Wert, der geklont und nicht geteilt ist, wird _message_ genannt. Wie Sie wahrscheinlich schon wissen, können _messages_ mit `postMessage()` an und von dem Haupt-Thread gesendet werden, und das [`data`](/de/docs/Web/API/MessageEvent/data) Attribut des `message` Ereignisses enthält Daten, die vom Worker zurückgesendet werden.
+Ein Wert, der geklont und nicht geteilt wird, wird als _Nachricht_ bezeichnet. Wie Sie wahrscheinlich inzwischen wissen, können _Nachrichten_ mithilfe von `postMessage()` an und von dem Haupt-Thread gesendet werden. Das `data` Attribut des `message` Ereignisses enthält die vom Worker zurückgegebenen Daten.
 
 **example.html**: (die Hauptseite):
 
@@ -311,19 +311,18 @@ onmessage = (event) => {
 };
 ```
 
-Der [strukturierte Klon](/de/docs/Web/API/Web_Workers_API/Structured_clone_algorithm) Algorithmus kann JSON und einige Dinge akzeptieren, die JSON nicht kann – wie z. B. zirkuläre Referenzen.
+Der [strukturierte Klonierungsalgorithmus](/de/docs/Web/API/Web_Workers_API/Structured_clone_algorithm) kann JSON und einige Dinge akzeptieren, die JSON nicht kann — wie z.B. zyklische Referenzen.
 
-### Beispiele zum Übergeben von Daten
+### Beispiele zur Datenübertragung
 
-#### Beispiel 1: Fortgeschrittenes Übergeben von JSON-Daten und Erstellen eines Umschaltsystems
+#### Beispiel 1: Fortgeschrittene JSON-Datenübertragung und ein Umschaltsystem erstellen
 
-Wenn Sie komplexe Daten übergeben müssen und viele verschiedene Funktionen sowohl auf der Hauptseite als auch im Worker aufrufen müssen, können Sie ein System erstellen, das alles zusammen gruppiert.
+Wenn Sie komplexe Daten übergeben und viele verschiedene Funktionen sowohl auf der Hauptseite als auch im Worker aufrufen müssen, können Sie ein System erstellen, das alles gruppiert.
 
-Zuerst erstellen wir eine `QueryableWorker` Klasse, die die URL des Workers, einen Standard-Listener und einen Fehler-Handler nimmt, und diese Klasse wird eine Liste von Listenern verfolgen und uns helfen, mit dem Worker zu kommunizieren:
+Zuerst erstellen wir eine `QueryableWorker` Klasse, die die URL des Workers, einen Standardlistener und einen Fehlerbehandler übernimmt, und diese Klasse wird eine Liste von Listenern verfolgen und uns die Kommunikation mit dem Worker erleichtern.
 
 ```js
 function QueryableWorker(url, defaultListener, onError) {
-  const instance = this;
   const worker = new Worker(url);
   const listeners = {};
 
@@ -355,7 +354,7 @@ this.removeListeners = (name) => {
 };
 ```
 
-Hier lassen wir den Worker zwei einfache Operationen zur Veranschaulichung ausführen: die Differenz von zwei Zahlen ermitteln und nach drei Sekunden eine Warnung auslösen. Um dies zu erreichen, implementieren wir zuerst eine `sendQuery` Methode, die abfragt, ob der Worker tatsächlich über die entsprechenden Methoden verfügt, um das zu tun, was wir wollen.
+Hier lassen wir den Worker zwei einfache Operationen zur Veranschaulichung handhaben: die Differenz zweier Zahlen erhalten und eine Alert-Meldung nach drei Sekunden auslösen. Um dies zu erreichen, implementieren wir zunächst eine Methode `sendQuery`, die überprüft, ob der Worker tatsächlich die entsprechenden Methoden hat, um das zu tun, was wir wollen.
 
 ```js
 // This functions takes at least one argument, the method name we want to query.
@@ -373,7 +372,7 @@ this.sendQuery = (queryMethod, ...queryMethodArguments) => {
 };
 ```
 
-Wir beenden QueryableWorker mit der `onmessage` Methode. Wenn der Worker über die entsprechenden Methoden verfügt, die wir abgefragt haben, sollte er den Namen des entsprechenden Listeners und die Argumente, die er benötigt, zurückgeben, wir müssen sie einfach in `listeners` finden:
+Wir schließen `QueryableWorker` mit der `onmessage` Methode ab. Wenn der Worker die entsprechenden Methoden hat, die wir abgefragt haben, sollte er den Namen des entsprechenden Listeners und die Argumente, die er benötigt, zurückgeben. Wir müssen ihn nur in `listeners` finden:
 
 ```js
 worker.onmessage = (event) => {
@@ -392,7 +391,7 @@ worker.onmessage = (event) => {
 };
 ```
 
-Nun zum Worker. Zuerst müssen wir die Methoden zur Handhabung der zwei einfachen Operationen haben:
+Nun zum Worker. Zuerst müssen wir die Methoden haben, um die zwei einfachen Operationen zu handhaben:
 
 ```js
 const queryableFunctions = {
@@ -607,13 +606,13 @@ onmessage = (event) => {
 };
 ```
 
-Es ist möglich, den Inhalt jeder mainpage -> worker und worker -> mainpage Nachricht zu wechseln. Und die Eigenschaftsnamen "queryMethod", "queryMethodListeners", "queryMethodArguments" können alles sein, solange sie in `QueryableWorker` und `worker` konsistent sind.
+Es ist möglich, den Inhalt jeder Hauptseite -> Worker und Worker -> Hauptseite Nachricht zu ändern. Und die Eigenschaftsnamen "queryMethod", "queryMethodListeners", "queryMethodArguments" können alles sein, solange sie in `QueryableWorker` und dem `worker` konsistent sind.
 
-### Übergeben von Daten durch Eigentumsübertragung (übertragbare Objekte)
+### Datenübertragung durch Eigentumsübertragung (übertragbare Objekte)
 
-Moderne Browser enthalten eine weitere Möglichkeit, bestimmte Arten von Objekten mit hoher Leistung zu oder von einem Worker zu übergeben. [Transferable objects](/de/docs/Web/API/Web_Workers_API/Transferable_objects) werden von einem Kontext in einen anderen mit einer zero-copy Operation übertragen, was zu einer enormen Leistungsverbesserung beim Senden großer Datensätze führt.
+Moderne Browser enthalten einen zusätzlichen Weg, bestimmte Objekttypen mit hoher Leistung an oder von einem Worker zu übergeben. [Übertragbare Objekte](/de/docs/Web/API/Web_Workers_API/Transferable_objects) werden mit einer Zero-Copy-Operation von einem Kontext in einen anderen übertragen, was zu einer erheblichen Leistungssteigerung beim Senden großer Datensätze führt.
 
-Zum Beispiel, wenn Sie eine {{jsxref("ArrayBuffer")}} von Ihrer Hauptanwendung an ein Worker-Skript übertragen, wird der ursprüngliche {{jsxref("ArrayBuffer")}} gelöscht und ist nicht mehr verwendbar. Sein Inhalt wird (ganz wörtlich) in den Worker-Kontext übertragen.
+Wenn Sie beispielsweise ein {{jsxref("ArrayBuffer")}} von Ihrer Hauptanwendung an ein Worker-Skript übertragen, wird das ursprüngliche {{jsxref("ArrayBuffer")}} geleert und ist nicht mehr verwendbar. Sein Inhalt wird (buchstäblich) in den Worker-Kontext übertragen.
 
 ```js
 // Create a 32MB "file" and fill it with consecutive values from 0 to 255 – 32MB = 1024 * 1024 * 32
@@ -623,7 +622,7 @@ worker.postMessage(uInt8Array.buffer, [uInt8Array.buffer]);
 
 ## Eingebettete Worker
 
-Es gibt keinen "offiziellen" Weg, den Code eines Workers innerhalb einer Webseite einzubetten, so wie {{HTMLElement("script")}} Elemente dies für normale Skripte tun. Aber ein {{HTMLElement("script")}} Element, das kein `src` Attribut hat und ein `type` Attribut besitzt, das keinen ausführbaren MIME-Typ identifiziert, kann als Datenblockelement betrachtet werden, das JavaScript verwenden könnte. "Datenblöcke" sind eine allgemeinere HTML-Funktion, die fast alle Textdaten tragen kann. Ein Worker könnte also auf diese Weise eingebettet werden:
+Es gibt keinen "offiziellen" Weg, um den Code eines Workers innerhalb einer Webseite einzubetten, wie es bei {{HTMLElement("script")}} Elementen für normale Skripte der Fall ist. Ein {{HTMLElement("script")}} Element, das kein `src` Attribut hat und ein `type` Attribut, das keinen ausführbaren MIME-Typ identifiziert, kann jedoch als Data-Block Element betrachtet werden, das JavaScript verwenden könnte. "Datenblöcke" sind ein allgemeineres Feature von HTML, das fast alle Textdaten tragen kann. Also könnte ein Worker auf diese Weise eingebettet werden:
 
 ```html
 <!doctype html>
@@ -685,9 +684,9 @@ Es gibt keinen "offiziellen" Weg, den Code eines Workers innerhalb einer Webseit
 </html>
 ```
 
-Der eingebettete Worker ist jetzt in einer neuen benutzerdefinierten `document.worker` Eigenschaft eingebettet.
+Der eingebettete Worker ist nun in eine neue benutzerdefinierte `document.worker` Eigenschaft eingebettet.
 
-Es ist auch erwähnenswert, dass Sie auch eine Funktion in ein Blob konvertieren und dann eine Objekt-URL aus diesem Blob generieren können. Zum Beispiel:
+Es ist auch erwähnenswert, dass Sie eine Funktion in einen Blob umwandeln und dann eine Objekt-URL aus diesem Blob generieren können. Beispielsweise:
 
 ```js
 function fn2workerURL(fn) {
@@ -698,15 +697,15 @@ function fn2workerURL(fn) {
 
 ## Weitere Beispiele
 
-Dieser Abschnitt bietet weitere Beispiele dazu, wie man Web Workers verwendet.
+Dieser Abschnitt bietet weitere Beispiele für die Verwendung von Web Workern.
 
-### Durchführen von Berechnungen im Hintergrund
+### Berechnungen im Hintergrund durchführen
 
-Worker sind hauptsächlich nützlich, damit Ihr Code rechenintensive Berechnungen durchführen kann, ohne den Benutzeroberflächen-Thread zu blockieren. In diesem Beispiel wird ein Worker verwendet, um Fibonacci-Zahlen zu berechnen.
+Worker sind hauptsächlich nützlich, um Ihrem Code zu ermöglichen, prozessorintensive Berechnungen durchzuführen, ohne den Thread der Benutzeroberfläche zu blockieren. In diesem Beispiel wird ein Worker verwendet, um Fibonacci-Zahlen zu berechnen.
 
 #### Der JavaScript-Code
 
-Der folgende JavaScript-Code wird in der Datei "fibonacci.js" gespeichert, auf die im nächsten Abschnitt in HTML verwiesen wird.
+Der folgende JavaScript-Code wird in der Datei "fibonacci.js" gespeichert, die im nächsten Abschnitt im HTML referenziert wird.
 
 ```js
 self.onmessage = (event) => {
@@ -726,7 +725,7 @@ function fibonacci(num) {
 }
 ```
 
-Der Worker setzt die Eigenschaft `onmessage` auf eine Funktion, die empfangene Nachrichten behandelt, wenn die `postMessage()` Methode des Worker-Objekts aufgerufen wird. Diese führt die mathematischen Berechnungen durch und gibt schließlich das Ergebnis an den Haupt-Thread zurück.
+Der Worker setzt die Eigenschaft `onmessage` auf eine Funktion, die Nachrichten empfängt, wenn die `postMessage()` Methode des Worker-Objekts aufgerufen wird. Diese führt die Berechnung durch und gibt schließlich das Ergebnis an den Haupt-Thread zurück.
 
 #### Der HTML-Code
 
@@ -791,56 +790,56 @@ Der Worker setzt die Eigenschaft `onmessage` auf eine Funktion, die empfangene N
 </html>
 ```
 
-Die Webseite erstellt ein `<p>` Element mit der ID `result`, das verwendet wird, um das Ergebnis anzuzeigen, und startet dann den Worker. Nachdem der Worker gestartet wurde, wird der `onmessage` Handler konfiguriert, um die Ergebnisse anzuzeigen, indem der Inhalt des `<p>` Elements gesetzt wird, und der `onerror` Handler wird gesetzt, um die Fehlermeldung an die Devtools-Konsole zu protokollieren.
+Die Webseite erstellt ein `<p>` Element mit der ID `result`, das für die Anzeige des Ergebnisses verwendet wird, und startet dann den Worker. Nachdem der Worker gestartet wurde, wird der `onmessage` Handler konfiguriert, um das Ergebnis anzuzeigen, indem der Inhalt des `<p>` Elements gesetzt wird, und der `onerror` Handler wird gesetzt, um die Fehlermeldung in der Entwicklertools-Konsole zu protokollieren.
 
 Schließlich wird eine Nachricht an den Worker gesendet, um ihn zu starten.
 
-[Versuchen Sie dieses Beispiel live](https://mdn.github.io/dom-examples/web-workers/fibonacci-worker/).
+[Probieren Sie dieses Beispiel live aus](https://mdn.github.io/dom-examples/web-workers/fibonacci-worker/).
 
-### Aufgaben auf mehrere Worker aufteilen
+### Aufgaben auf mehrere Worker verteilen
 
-Da Mehrkern-Prozessoren immer häufiger werden, ist es oft nützlich, rechnerisch komplexe Aufgaben auf mehrere Worker aufzuteilen, die diese Aufgaben dann auf mehreren Prozessorkernen ausführen können.
+Da Multicore-Computer zunehmend üblich werden, ist es oft nützlich, rechnerisch komplexe Aufgaben auf mehrere Worker zu verteilen, die diese Aufgaben dann auf mehreren Prozessor-Kernen ausführen können.
 
-## Andere Arten von Workern
+## Andere Typen von Workern
 
-Zusätzlich zu den dedizierten und geteilten Web Workern gibt es andere Arten von Workern:
+Neben dedizierten und gemeinsamen Web Workern stehen auch andere Arten von Workern zur Verfügung:
 
-- [ServiceWorkers](/de/docs/Web/API/Service_Worker_API) fungieren im Wesentlichen als Proxy-Server, die zwischen Webanwendungen, dem Browser und dem Netzwerk (wenn verfügbar) stehen. Sie sollen (unter anderem) die Erstellung effektiver Offline-Erfahrungen ermöglichen, Netzwerk-Anfragen abfangen und entsprechende Maßnahmen basierend darauf ergreifen, ob das Netzwerk verfügbar ist und aktualisierte Assets auf dem Server vorhanden sind. Sie ermöglichen auch den Zugriff auf Push-Benachrichtigungen und Hintergrund-Sync-APIs.
-- [Audio Worklet](/de/docs/Web/API/Web_Audio_API#audio_processing_in_javascript) bieten die Möglichkeit, direkt skriptbasiertes Audioverarbeiten in einem Worklet-Kontext zu erledigen (eine leichte Version von Worker).
+- [ServiceWorkers](/de/docs/Web/API/Service_Worker_API) fungieren im Wesentlichen als Proxy-Server, die zwischen Web-Anwendungen und dem Browser und Netzwerk (wenn verfügbar) sitzen. Sie sollen (unter anderem) die Erstellung effektiver Offline-Erfahrungen ermöglichen, Netzwerk-Anfragen abfangen und entsprechende Maßnahmen basierend darauf ergreifen, ob das Netzwerk verfügbar ist und aktualisierte Assets auf dem Server vorhanden sind. Sie ermöglichen auch den Zugriff auf Push-Benachrichtigungen und Hintergrund-Sync-APIs.
+- [Audio Worklet](/de/docs/Web/API/Web_Audio_API#audio_processing_in_javascript) bieten die Möglichkeit, direktes geskriptetes Audio-Processing in einem Worklet (eine leichte Version des Workers)-Kontexts durchzuführen.
 
-## Debuggen von Worker-Threads
+## Debugging von Worker-Threads
 
-Die meisten Browser ermöglichen es Ihnen, Web Worker in ihren JavaScript-Debuggern _genau auf die gleiche Weise_ zu debuggen wie den Haupt-Thread! Zum Beispiel listen sowohl Firefox als auch Chrome JavaScript-Quelldateien für sowohl den Haupt-Thread als auch aktive Worker-Threads auf, und all diese Dateien können geöffnet werden, um Haltepunkte und Logpunkte zu setzen.
+Die meisten Browser ermöglichen es Ihnen, Web Worker in ihren JavaScript-Debuggern _genauso wie den Haupt-Thread_ zu debuggen! Beispielsweise listen sowohl Firefox als auch Chrome JavaScript-Quelldateien für den Haupt-Thread und aktive Worker-Threads auf, und alle diese Dateien können geöffnet werden, um Breakpoints und Logpoints zu setzen.
 
-Um zu lernen, wie man Web Worker debuggt, siehe die Dokumentation für den JavaScript-Debugger jedes Browsers:
+Um zu lernen, wie man Web Worker debuggt, lesen Sie bitte die Dokumentation des JavaScript-Debuggers für jeden Browser:
 
-- [Chrome Quellenpanel](https://developer.chrome.com/docs/devtools/sources)
-- [Firefox JavaScript-Debugger](https://firefox-source-docs.mozilla.org/devtools-user/debugger/)
+- [Chrome Sources Panel](https://developer.chrome.com/docs/devtools/sources)
+- [Firefox JavaScript Debugger](https://firefox-source-docs.mozilla.org/devtools-user/debugger/)
 
-Um Devtools für Web Worker zu öffnen, können Sie die folgenden URLs verwenden:
+Um Entwicklertools für Web Worker zu öffnen, können Sie die folgenden URLs verwenden:
 
 - Edge: `edge://inspect/`
 - Chrome: `chrome://inspect/`
 - Firefox: `about:debugging#/runtime/this-firefox`
 
-Diese Seiten zeigen einen Überblick über alle Service Worker. Sie müssen den relevanten nach der URL suchen und dann auf _inspektieren_ klicken, um Zugriff auf Devtools wie die Konsole und den Debugger für diesen Worker zu erhalten.
+Diese Seiten zeigen eine Übersicht über alle Service Worker. Sie müssen den relevanten anhand der URL finden und dann _inspect_ klicken, um auf Entwicklertools wie die Konsole und den Debugger für diesen Worker zuzugreifen.
 
-## Funktionen und Schnittstellen, die Workern zur Verfügung stehen
+## Funktionen und Schnittstellen, die in Workern verfügbar sind
 
-Sie können die meisten Standard-JavaScript-Funktionen in einem Web Worker verwenden, einschließlich:
+Sie können die meisten Standard-JavaScript-Funktionen innerhalb eines Web Workers nutzen, einschließlich:
 
 - [`Navigator`](/de/docs/Web/API/Navigator)
 - [`fetch()`](/de/docs/Web/API/WorkerGlobalScope/fetch)
 - {{jsxref("Global_Objects/Array", "Array")}}, {{jsxref("Global_Objects/Date", "Date")}}, {{jsxref("Global_Objects/Math", "Math")}}, und {{jsxref("Global_Objects/String", "String")}}
 - [`setTimeout()`](/de/docs/Web/API/WorkerGlobalScope/setTimeout) und [`setInterval()`](/de/docs/Web/API/WorkerGlobalScope/setInterval)
 
-Das Hauptsächliche, was Sie _nicht_ in einem Worker machen können, ist direkt die übergeordnete Seite zu beeinflussen. Dazu gehört die Manipulation des DOMs und die Verwendung der Objekte dieser Seite. Sie müssen es indirekt tun, indem Sie eine Nachricht zurück zum Hauptskript über [`DedicatedWorkerGlobalScope.postMessage()`](/de/docs/Web/API/DedicatedWorkerGlobalScope/postMessage) senden und dann die Änderungen im Ereignis-Handler vornehmen.
+Das Hauptmerkmal, das Sie _nicht_ in einem Worker tun können, ist, die übergeordnete Seite direkt zu beeinflussen. Dies schließt die Manipulation des DOMs und die Verwendung der Objekte dieser Seite ein. Sie müssen es indirekt tun, indem Sie eine Nachricht zurück an das Hauptskript über [`DedicatedWorkerGlobalScope.postMessage()`](/de/docs/Web/API/DedicatedWorkerGlobalScope/postMessage) senden und dann die Änderungen im Ereignishandler vornehmen.
 
 > [!NOTE]
-> Sie können testen, ob eine Methode Worker zur Verfügung steht, indem Sie die Seite: <https://worker-playground.glitch.me/> verwenden. Wenn Sie beispielsweise [`EventSource`](/de/docs/Web/API/EventSource) in die Seite auf Firefox 84 eingeben, werden Sie sehen, dass dies nicht in Service Workern unterstützt wird, aber in dedizierten und geteilten Workern.
+> Sie können testen, ob eine Methode für Worker verfügbar ist, indem Sie die Seite: <https://worker-playground.glitch.me/> verwenden. Zum Beispiel, wenn Sie [`EventSource`](/de/docs/Web/API/EventSource) auf der Seite in Firefox 84 eingeben, werden Sie sehen, dass dies nicht in Service Workern unterstützt wird, aber in dedizierten und gemeinsamen Workern.
 
 > [!NOTE]
-> Eine vollständige Liste der Funktionen, die Workern zur Verfügung stehen, finden Sie unter [Funktionen und Schnittstellen, die Workern zur Verfügung stehen](/de/docs/Web/API/Web_Workers_API/Functions_and_classes_available_to_workers).
+> Eine vollständige Liste der Funktionen, die Workern zur Verfügung stehen, finden Sie unter [Funktionen und Schnittstellen, die in Workern verfügbar sind](/de/docs/Web/API/Web_Workers_API/Functions_and_classes_available_to_workers).
 
 ## Spezifikationen
 

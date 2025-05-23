@@ -2,18 +2,18 @@
 title: WebGLShader
 slug: Web/API/WebGLShader
 l10n:
-  sourceCommit: 77d90a23ee0a3b5486a7963f68ad4e56efb06a7b
+  sourceCommit: 364a4d02b10854ab7cef4ff4b0ec3616d4e1c8ab
 ---
 
 {{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Der **WebGLShader** ist Teil der [WebGL API](/de/docs/Web/API/WebGL_API) und kann entweder ein Vertex- oder ein Fragment-Shader sein. Ein [`WebGLProgram`](/de/docs/Web/API/WebGLProgram) benötigt beide Shader-Typen.
+Der **WebGLShader** ist Teil der [WebGL API](/de/docs/Web/API/WebGL_API) und kann entweder ein Vertex- oder ein Fragment-Shader sein. Ein [`WebGLProgram`](/de/docs/Web/API/WebGLProgram) benötigt beide Arten von Shadern.
 
 {{InheritanceDiagram}}
 
 ## Beschreibung
 
-Um einen **WebGLShader** zu erstellen, verwenden Sie [`WebGLRenderingContext.createShader`](/de/docs/Web/API/WebGLRenderingContext/createShader), dann binden Sie den GLSL-Quellcode mit [`WebGLRenderingContext.shaderSource()`](/de/docs/Web/API/WebGLRenderingContext/shaderSource) und rufen schließlich [`WebGLRenderingContext.compileShader()`](/de/docs/Web/API/WebGLRenderingContext/compileShader) auf, um den Shader zu vervollständigen und zu kompilieren. An diesem Punkt ist der **WebGLShader** noch nicht in einer nutzbaren Form und muss noch an ein [`WebGLProgram`](/de/docs/Web/API/WebGLProgram) angehängt werden.
+Um einen **WebGLShader** zu erstellen, verwenden Sie [`WebGLRenderingContext.createShader`](/de/docs/Web/API/WebGLRenderingContext/createShader), verbinden dann den GLSL-Quellcode mit [`WebGLRenderingContext.shaderSource()`](/de/docs/Web/API/WebGLRenderingContext/shaderSource) und rufen schließlich [`WebGLRenderingContext.compileShader()`](/de/docs/Web/API/WebGLRenderingContext/compileShader) auf, um den Shader zu kompilieren und abzuschließen. Zu diesem Zeitpunkt ist der **WebGLShader** noch nicht in einer verwendbaren Form und muss einem [`WebGLProgram`](/de/docs/Web/API/WebGLProgram) angehängt werden.
 
 ```js
 function createShader(gl, sourceCode, type) {
@@ -30,13 +30,13 @@ function createShader(gl, sourceCode, type) {
 }
 ```
 
-Siehe [`WebGLProgram`](/de/docs/Web/API/WebGLProgram) für Informationen zum Anhängen der Shader.
+Weitere Informationen zum Anhängen der Shader finden Sie unter [`WebGLProgram`](/de/docs/Web/API/WebGLProgram).
 
 ## Beispiele
 
 ### Erstellen eines Vertex-Shaders
 
-Beachten Sie, dass es viele andere Strategien zum Schreiben und Zugreifen auf Shader-Quellcode-Strings gibt. Diese Beispiele dienen nur zu Illustrationszwecken.
+Beachten Sie, dass es viele andere Strategien gibt, um Shader-Quellcodestrings zu schreiben und darauf zuzugreifen. Diese Beispiele dienen nur zu Illustrationszwecken.
 
 ```js
 const vertexShaderSource =
@@ -52,8 +52,10 @@ const vertexShader = createShader(gl, vertexShaderSource, gl.VERTEX_SHADER);
 ### Erstellen eines Fragment-Shaders
 
 ```js
-const fragmentShaderSource =
-  "void main() {\n" + "  gl_FragColor = vec4(1.0, 1.0, 1.0, 1.0);\n" + "}\n";
+const fragmentShaderSource = `void main() {
+  gl_FragColor = vec4(1.0, 1.0, 1.0, 1.0);
+}
+`;
 
 // Use the createShader function from the example above
 const fragmentShader = createShader(

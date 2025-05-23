@@ -2,7 +2,7 @@
 title: "SyntaxError: ungültiger Unicode-Escape in regulärem Ausdruck"
 slug: Web/JavaScript/Reference/Errors/Regex_invalid_unicode_escape
 l10n:
-  sourceCommit: 6aaba8ce85edc3a92fd5e804002cc609c31ce73f
+  sourceCommit: 364a4d02b10854ab7cef4ff4b0ec3616d4e1c8ab
 ---
 
 {{jsSidebar("Errors")}}
@@ -23,7 +23,7 @@ SyntaxError: Invalid regular expression: invalid Unicode code point \u{} escape 
 
 ## Was ist schiefgelaufen?
 
-Im [Unicode-bewussten Modus](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicode#unicode-aware_mode) muss die `\c` [Escape-Sequenz](/de/docs/Web/JavaScript/Reference/Regular_expressions#escape_sequences) von einem Buchstaben zwischen `A` und `Z` oder `a` und `z` gefolgt werden, und die `\u` Escape-Sequenz muss entweder von 4 hexadezimalen Ziffern oder 1 bis 6 hexadezimalen Ziffern, die in geschweifte Klammern (`{}`) eingeschlossen sind, gefolgt werden. Außerdem müssen die Ziffern bei der Verwendung der `\u{xxx}`-Escape-Sequenz einen gültigen Unicode-Codepunkt darstellen, was bedeutet, dass ihr Wert `10FFFF` nicht überschreiten darf.
+Im [Unicode-affinen Modus](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicode#unicode-aware_mode) Modus muss die `\c` [Escape-Sequenz](/de/docs/Web/JavaScript/Reference/Regular_expressions#escape_sequences) von einem Buchstaben von `A` bis `Z` oder `a` bis `z` gefolgt werden, und die `\u` Escape-Sequenz muss entweder von 4 hexadezimalen Ziffern oder von 1 bis 6 hexadezimalen Ziffern, die in geschweifte Klammern (`{}`) eingeschlossen sind, gefolgt werden. Außerdem müssen bei der Verwendung der `\u{xxx}` Escape-Sequenz die Ziffern einen gültigen Unicode-Codepunkt darstellen, was bedeutet, dass sein Wert `10FFFF` nicht überschreiten darf.
 
 ## Beispiele
 
@@ -39,7 +39,7 @@ Im [Unicode-bewussten Modus](/de/docs/Web/JavaScript/Reference/Global_Objects/Re
 
 ```js example-good
 /\u0065/u; // Lowercase "e"
-/\u{1F600}/u; // Grinning face emoji
+/\u{1f600}/u; // Grinning face emoji
 /\cA/u; // U+0001 (Start of Heading)
 ```
 

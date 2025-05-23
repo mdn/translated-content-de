@@ -2,12 +2,12 @@
 title: Promise.prototype.then()
 slug: Web/JavaScript/Reference/Global_Objects/Promise/then
 l10n:
-  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
+  sourceCommit: 364a4d02b10854ab7cef4ff4b0ec3616d4e1c8ab
 ---
 
 {{JSRef}}
 
-Die **`then()`** Methode von {{jsxref("Promise")}} Instanzen akzeptiert bis zu zwei Argumente: Rückruffunktionen für die erfüllten und abgelehnten Fälle des `Promise`. Sie speichert die Rückrufe innerhalb des Promises, auf dem sie aufgerufen wird, und gibt sofort ein weiteres {{jsxref("Promise")}}-Objekt zurück, das Ihnen ermöglicht, Aufrufe anderer Promise-Methoden zu [verketteten](/de/docs/Web/JavaScript/Guide/Using_promises#chaining).
+Die **`then()`** Methode von {{jsxref("Promise")}} Instanzen nimmt bis zu zwei Argumente: Callback-Funktionen für die erfüllten und abgelehnten Fälle des `Promise`. Sie speichert die Callbacks innerhalb des Promises, auf dem sie aufgerufen wird, und gibt sofort ein weiteres {{jsxref("Promise")}} Objekt zurück, was es Ihnen ermöglicht, Aufrufe zu anderen Promisemethoden zu [verkette](/de/docs/Web/JavaScript/Guide/Using_promises#chaining).
 
 {{InteractiveExample("JavaScript Demo: Promise.prototype.then()")}}
 
@@ -33,42 +33,42 @@ then(onFulfilled, onRejected)
 
 - `onFulfilled`
 
-  - : Eine Funktion, die asynchron ausgeführt wird, wenn dieses Promise erfüllt wird. Ihr Rückgabewert wird zum Erfüllungswert des durch `then()` zurückgegebenen Promises. Die Funktion wird mit den folgenden Argumenten aufgerufen:
+  - : Eine Funktion, die asynchron ausgeführt wird, wenn dieses Versprechen erfüllt wird. Sein Rückgabewert wird der Erfüllungswert des von `then()` zurückgegebenen Versprechens. Die Funktion wird mit den folgenden Argumenten aufgerufen:
 
     - `value`
-      - : Der Wert, mit dem das Promise erfüllt wurde.
+      - : Der Wert, mit dem das Versprechen erfüllt wurde.
 
-    Wenn es keine Funktion ist, wird sie intern durch eine _Identitätsfunktion_ (`(x) => x`) ersetzt, die den Erfüllungswert einfach weitergibt.
+    Wenn es keine Funktion ist, wird es intern durch eine _Identity_-Funktion (`(x) => x`) ersetzt, die den Erfüllungswert einfach weitergibt.
 
 - `onRejected` {{optional_inline}}
 
-  - : Eine Funktion, die asynchron ausgeführt wird, wenn dieses Promise abgelehnt wird. Ihr Rückgabewert wird zum Erfüllungswert des durch `then()` zurückgegebenen Promises. Die Funktion wird mit den folgenden Argumenten aufgerufen:
+  - : Eine Funktion, die asynchron ausgeführt wird, wenn dieses Versprechen abgelehnt wird. Sein Rückgabewert wird der Erfüllungswert des von `then()` zurückgegebenen Versprechens. Die Funktion wird mit den folgenden Argumenten aufgerufen:
 
     - `reason`
-      - : Der Wert, mit dem das Promise abgelehnt wurde.
+      - : Der Wert, mit dem das Versprechen abgelehnt wurde.
 
-    Wenn es keine Funktion ist, wird sie intern durch eine _Wurf-Funktion_ (`(x) => { throw x; }`) ersetzt, die den erhaltenen Ablehnungsgrund wirft.
+    Wenn es keine Funktion ist, wird es intern durch eine _Thrower_-Funktion (`(x) => { throw x; }`) ersetzt, die den Ablehnungsgrund, den sie erhalten hat, wirft.
 
 ### Rückgabewert
 
-Gibt sofort ein neues {{jsxref("Promise")}} zurück. Dieses neue Promise ist beim Zurückgeben immer schwebend, unabhängig vom Status des aktuellen Promises.
+Gibt sofort ein neues {{jsxref("Promise")}} zurück. Dieses neue Versprechen ist immer schwebend, wenn es zurückgegeben wird, unabhängig vom Status des aktuellen Versprechens.
 
-Einer der `onFulfilled` und `onRejected` Handler wird ausgeführt, um die Erfüllung oder Ablehnung des aktuellen Promises zu behandeln. Der Aufruf erfolgt immer asynchron, selbst wenn das aktuelle Promise bereits abgeschlossen ist. Das Verhalten des zurückgegebenen Promises (nennen Sie es `p`) hängt vom Ausführungsergebnis des Handlers ab, indem es einer bestimmten Regelmenge folgt. Wenn die Handler-Funktion:
+Einer der Handler `onFulfilled` und `onRejected` wird ausgeführt, um die Erfüllung oder Ablehnung des aktuellen Versprechens zu behandeln. Der Aufruf erfolgt immer asynchron, selbst wenn das aktuelle Versprechen bereits erfüllt ist. Das Verhalten des zurückgegebenen Versprechens (nennen wir es `p`) hängt vom Ergebnis der Ausführung des Handlers ab, nach einem spezifischen Satz von Regeln. Wenn die Handler-Funktion:
 
-- einen Wert zurückgibt: wird `p` mit dem zurückgegebenen Wert erfüllt.
-- nichts zurückgibt: wird `p` mit `undefined` erfüllt.
-- einen Fehler wirft: wird `p` mit dem geworfenen Fehler abgelehnt.
-- ein bereits erfülltes Promise zurückgibt: wird `p` mit dem Wert dieses Promises erfüllt.
-- ein bereits abgelehntes Promise zurückgibt: wird `p` mit dem Wert dieses Promises abgelehnt.
-- ein weiteres schwebendes Promise zurückgibt: bleibt `p` schwebend und wird mit dem Wert dieses Promises erfüllt/abgelehnt, sobald dieses erfüllt/abgelehnt wird.
+- einen Wert zurückgibt: `p` wird mit dem zurückgegebenen Wert als Wert erfüllt.
+- nichts zurückgibt: `p` wird mit `undefined` als Wert erfüllt.
+- einen Fehler wirft: `p` wird mit dem geworfenen Fehler als Wert abgelehnt.
+- ein bereits erfülltes Versprechen zurückgibt: `p` wird mit dem Wert dieses Versprechens als Wert erfüllt.
+- ein bereits abgelehntes Versprechen zurückgibt: `p` wird mit dem Wert dieses Versprechens als Wert abgelehnt.
+- ein weiteres schwebendes Versprechen zurückgibt: `p` ist schwebend und wird sofort erfüllt/abgelehnt mit dem Wert dieses Versprechens, nachdem dieses erfüllt/abgelehnt wird.
 
 ## Beschreibung
 
-Die `then()` Methode plant Rückruffunktionen für den eventuellen Abschluss eines Promises — entweder Erfüllung oder Ablehnung. Es ist die primitive Methode von Promises: das [thenable](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise#thenables) Protokoll erwartet, dass alle Promise-ähnlichen Objekte eine `then()`-Methode bereitstellen, und die {{jsxref("Promise/catch", "catch()")}} und {{jsxref("Promise/finally", "finally()")}} Methoden funktionieren beide, indem sie die `then()`-Methode des Objekts aufrufen.
+Die `then()` Methode plant Callback-Funktionen für den endgültigen Abschluss eines Versprechens ein — entweder Erfüllung oder Ablehnung. Es ist die primitive Methode von Versprechen: das [thenable](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise#thenables) Protokoll erwartet von allen Versprechen-ähnlichen Objekten, dass sie eine `then()` Methode bereitstellen, und die {{jsxref("Promise/catch", "catch()")}} und {{jsxref("Promise/finally", "finally()")}} Methoden funktionieren beide, indem sie die `then()` Methode des Objekts aufrufen.
 
-Für mehr Informationen über den `onRejected` Handler siehe die {{jsxref("Promise/catch", "catch()")}} Referenz.
+Weitere Informationen über den `onRejected` Handler finden Sie unter der Referenz {{jsxref("Promise/catch", "catch()")}}.
 
-`then()` gibt ein neues Promise-Objekt zurück, verändert aber das Promise-Objekt, auf dem es aufgerufen wird, indem es die Handler zu einer internen Liste hinzufügt. Deshalb wird der Handler durch das Original-Promise beibehalten und seine Lebensdauer ist mindestens so lang wie die des Original-Promises. Zum Beispiel wird das folgende Beispiel schließlich den Speicher aufbrauchen, auch wenn das zurückgegebene Promise nicht beibehalten wird:
+`then()` gibt ein neues Versprechen-Objekt zurück, verändert aber das Versprechens-Objekt, auf dem es aufgerufen wird, indem es die Handler einer internen Liste hinzugefügt. Daher wird der Handler vom ursprünglichen Versprechen behalten und seine Lebensdauer ist mindestens so lange wie die Lebensdauer des ursprünglichen Versprechens. Zum Beispiel wird im folgenden Beispiel schließlich der Speicher ausgehen, obwohl das zurückgegebene Versprechen nicht behalten wird:
 
 ```js
 const pendingPromise = new Promise(() => {});
@@ -77,11 +77,11 @@ while (true) {
 }
 ```
 
-Wenn Sie die Methode `then()` zweimal auf demselben Promise-Objekt aufrufen (statt zu verketten), hat dieses Promise-Objekt zwei Paare von Abschluss-Handlern. Alle an dasselbe Promise-Objekt angehängten Handler werden immer in der Reihenfolge aufgerufen, in der sie hinzugefügt wurden. Zudem starten die zwei durch jeden Aufruf von `then()` zurückgegebenen Promises separate Ketten und warten nicht auf den Abschluss des jeweils anderen.
+Wenn Sie die `then()` Methode zweimal auf dasselbe Versprechens-Objekt aufrufen (anstatt zu verketteten), dann wird dieses Versprechens-Objekt zwei Paare von Abwicklungshandlern haben. Alle Handler, die an dasselbe Versprechens-Objekt angehängt sind, werden immer in der Reihenfolge aufgerufen, in der sie hinzugefügt wurden. Zudem beginnen die beiden von jedem Aufruf von `then()` zurückgegebenen Versprechen separate Ketten und warten nicht auf die Erfüllung des anderen.
 
-[Thenable](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise#thenables) Objekte, die entlang der `then()`-Kette entstehen, werden immer [aufgelöst](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise/Promise#the_resolve_function) — der `onFulfilled` Handler empfängt niemals ein thenable Objekt, und jedes thenable, das von einem der Handler zurückgegeben wird, wird immer aufgelöst, bevor es dem nächsten Handler übergeben wird. Dies liegt daran, dass beim Erstellen des neuen Promises die vom `executor` übergebenen `resolve` und `reject` Funktionen gespeichert werden, und wenn das aktuelle Promise abgeschlossen wird, wird die jeweilige Funktion mit dem Erfüllungswert oder Ablehnungsgrund aufgerufen. Die Auflösungslogik stammt von der `resolve` Funktion, die vom {{jsxref("Promise/Promise", "Promise()")}} Konstruktor übergeben wird.
+[Thenable](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise#thenables) Objekte, die entlang der `then()` Kette entstehen, werden immer [aufgelöst](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise/Promise#the_resolve_function) — der `onFulfilled` Handler erhält niemals ein thenable Objekt, und alle thenable, die von einem der Handler zurückgegeben werden, werden immer aufgelöst, bevor sie an den nächsten Handler übergeben werden. Dies liegt daran, dass beim Erstellen des neuen Versprechens die vom `executor` übergebenen `resolve`- und `reject`-Funktionen gespeichert werden und wenn das aktuelle Versprechen erfüllt ist, wird die jeweilige Funktion mit dem Erfüllungswert oder Ablehnungsgrund aufgerufen. Die Auflösungslogik stammt von der `resolve` Funktion, die vom {{jsxref("Promise/Promise", "Promise()")}} Konstruktor übergeben wird.
 
-`then()` unterstützt die Subklassierung, was bedeutet, dass es auf Instanzen von Unterklassen von `Promise` aufgerufen werden kann und das Ergebnis ein Promise des Unterklasstyps sein wird. Sie können den Typ des Rückgabewerts durch die [`[Symbol.species]`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise/Symbol.species) Eigenschaft anpassen.
+`then()` unterstützt Unterklassenbildung, was bedeutet, dass es auf Instanzen von Unterklassen von `Promise` aufgerufen werden kann und das Ergebnis wird ein Versprechen des Unterklassen-Typs sein. Sie können den Typ des Rückgabewertes über die [`[Symbol.species]`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise/Symbol.species) Eigenschaft anpassen.
 
 ## Beispiele
 
@@ -104,18 +104,18 @@ p1.then(
 );
 ```
 
-### Ein Nicht-Funktion als Parameter haben
+### Ein Nicht-Funktion als Parameter
 
 ```js
 Promise.resolve(1).then(2).then(console.log); // 1
-Promise.reject(1).then(2, 2).then(console.log, console.log); // 1
+Promise.reject(new Error("failed")).then(2, 2).then(console.log, console.log); // Error: failed
 ```
 
 ### Verkettung
 
 Die `then` Methode gibt ein neues `Promise` zurück, was die Verkettung von Methoden ermöglicht.
 
-Wenn die Funktion, die als Handler an `then` übergeben wird, ein `Promise` zurückgibt, wird ein gleichwertiges `Promise` dem nachfolgenden `then` in der Methoden-Kette ausgesetzt. Der folgende Ausschnitt simuliert asynchronen Code mit der `setTimeout` Funktion.
+Wenn die als Handler an `then` übergebene Funktion ein `Promise` zurückgibt, wird ein äquivalentes `Promise` dem nachfolgenden `then` in der Methodenkette zugänglich gemacht. Der unten stehende Ausschnitt simuliert asynchronen Code mit der `setTimeout` Funktion.
 
 ```js
 Promise.resolve("foo")
@@ -158,7 +158,7 @@ Promise.resolve("foo")
 // foobarbaz
 ```
 
-Der aus `then()` zurückgegebene Wert wird auf die gleiche Weise aufgelöst wie {{jsxref("Promise.resolve()")}}. Das bedeutet, dass [thenable Objekte](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise#thenables) unterstützt werden, und wenn der Rückgabewert kein Promise ist, wird er implizit in ein `Promise` gewickelt und dann aufgelöst.
+Der von `then()` zurückgegebene Wert wird auf die gleiche Weise aufgelöst wie {{jsxref("Promise.resolve()")}}. Dies bedeutet, dass [thenable Objekte](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise#thenables) unterstützt werden und wenn der Rückgabewert kein Versprechen ist, wird er implizit in ein `Promise` verpackt und dann aufgelöst.
 
 ```js
 const p2 = new Promise((resolve, reject) => {
@@ -177,7 +177,7 @@ p2.then((value) => {
 });
 ```
 
-Ein `then`-Aufruf gibt ein Promise zurück, das schließlich abgelehnt wird, wenn die Funktion einen Fehler wirft oder ein abgelehntes Promise zurückgibt.
+Ein `then` Aufruf gibt ein Versprechen zurück, das schließlich abgelehnt wird, wenn die Funktion einen Fehler wirft oder ein abgelehntes Versprechen zurückgibt.
 
 ```js
 Promise.resolve()
@@ -195,7 +195,7 @@ Promise.resolve()
   );
 ```
 
-In der Praxis ist es oft wünschenswert, abgelehnte Promises mit [`catch()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise/catch) abzufangen, anstatt die Zwei-Fall-Syntax von `then()` zu verwenden, wie unten demonstriert.
+In der Praxis ist es oft wünschenswerter, abgelehnte Versprechen mit [`catch()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise/catch) zu fangen, anstatt `then()`'s Syntax für zwei Fälle zu verwenden, wie im Folgenden gezeigt.
 
 ```js
 Promise.resolve()
@@ -211,10 +211,10 @@ Promise.resolve()
   });
 ```
 
-In allen anderen Fällen wird das zurückgegebene Promise schließlich erfüllt. Im folgenden Beispiel gibt das erste `then()` `42` in ein erfülltes Promise zurück, auch wenn das vorherige Promise in der Kette abgelehnt wurde.
+In allen anderen Fällen wird das zurückgegebene Versprechen schließlich erfüllt. Im folgenden Beispiel gibt das erste `then()` `42` in ein erfülltes Versprechen zurück, obwohl das vorherige Versprechen in der Kette abgelehnt wurde.
 
 ```js
-Promise.reject()
+Promise.reject(new Error("Oh no!"))
   .then(
     () => 99,
     () => 42,
@@ -222,7 +222,7 @@ Promise.reject()
   .then((solution) => console.log(`Resolved with ${solution}`)); // Fulfilled with 42
 ```
 
-Wenn `onFulfilled` ein Promise zurückgibt, wird der Rückgabewert von `then` basierend auf dem eventuellen Status des Promises erfüllt/abgelehnt.
+Wenn `onFulfilled` ein Versprechen zurückgibt, wird der Rückgabewert von `then` basierend auf dem endgültigen Zustand dieses Versprechens erfüllt/abgelehnt.
 
 ```js
 function resolveLater(resolve, reject) {
@@ -266,7 +266,7 @@ p3.then(
 );
 ```
 
-Sie können Verkettung verwenden, um eine Funktion mit einer Promise-basierten API über eine andere solche Funktion zu implementieren.
+Sie können die Verkettung verwenden, um eine Funktion mit einer Versprechen-basierten API auf einer anderen solchen Funktion zu implementieren.
 
 ```js
 function fetchCurrentData() {
@@ -290,7 +290,7 @@ function fetchCurrentData() {
 
 ### Asynchronität von then()
 
-Das folgende Beispiel zeigt die Asynchronität der `then` Methode.
+Das Folgende ist ein Beispiel, um die Asynchronität der `then` Methode zu demonstrieren.
 
 ```js
 // Using a resolved promise 'resolvedProm' for example,

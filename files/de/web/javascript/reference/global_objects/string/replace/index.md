@@ -2,12 +2,12 @@
 title: String.prototype.replace()
 slug: Web/JavaScript/Reference/Global_Objects/String/replace
 l10n:
-  sourceCommit: be1922d62a0d31e4e3441db0e943aed8df736481
+  sourceCommit: 364a4d02b10854ab7cef4ff4b0ec3616d4e1c8ab
 ---
 
 {{JSRef}}
 
-Die **`replace()`**-Methode von {{jsxref("String")}}-Werten gibt einen neuen String zurück, bei dem ein, einige oder alle Übereinstimmungen eines `pattern` durch ein `replacement` ersetzt werden. Das `pattern` kann ein String oder ein {{jsxref("RegExp")}} sein, und das `replacement` kann ein String oder eine Funktion sein, die für jede Übereinstimmung aufgerufen wird. Wenn `pattern` ein String ist, wird nur das erste Vorkommen ersetzt. Der ursprüngliche String bleibt unverändert.
+Die **`replace()`**-Methode von {{jsxref("String")}}-Werten gibt einen neuen String zurück, bei dem ein, einige oder alle Vorkommen eines `pattern` durch ein `replacement` ersetzt sind. Das `pattern` kann ein String oder ein {{jsxref("RegExp")}} sein, und das `replacement` kann ein String oder eine Funktion sein, die bei jedem Treffer aufgerufen wird. Wenn `pattern` ein String ist, wird nur das erste Vorkommen ersetzt. Der Original-String bleibt unverändert.
 
 {{InteractiveExample("JavaScript Demo: String.prototype.replace()")}}
 
@@ -31,46 +31,46 @@ replace(pattern, replacement)
 ### Parameter
 
 - `pattern`
-  - : Kann ein String oder ein Objekt mit einer [`Symbol.replace`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/replace)-Methode sein — das typische Beispiel ist ein [regulärer Ausdruck](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp). Jeder Wert, der die `Symbol.replace`-Methode nicht besitzt, wird in einen String umgewandelt.
+  - : Kann ein String oder ein Objekt mit einer [`Symbol.replace`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/replace)-Methode sein – das typische Beispiel ist ein [Regulärer Ausdruck](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp). Jeder Wert, der nicht die `Symbol.replace`-Methode hat, wird in einen String umgewandelt.
 - `replacement`
   - : Kann ein String oder eine Funktion sein.
-    - Wenn es ein String ist, wird es das Teilstring ersetzen, das vom `pattern` gefunden wurde. Eine Reihe spezieller Ersatzmuster wird unterstützt; siehe den Abschnitt [Spezifizieren eines Strings als Ersatz](#spezifizieren_eines_strings_als_ersatz) unten.
-    - Wenn es eine Funktion ist, wird sie für jedes Vorkommen aufgerufen und ihr Rückgabewert wird als Ersatztext verwendet. Die der Funktion übergebenen Argumente werden im Abschnitt [Spezifizieren einer Funktion als Ersatz](#spezifizieren_einer_funktion_als_ersatz) unten beschrieben.
+    - Wenn es ein String ist, wird er den durch `pattern` gefundenen Substring ersetzen. Eine Anzahl spezieller Ersetzungsmuster wird unterstützt; sehen Sie den Abschnitt [Angabe eines Strings als Ersetzung](#angabe_eines_strings_als_ersetzung) unten.
+    - Wenn es eine Funktion ist, wird sie bei jedem Treffer aufgerufen und ihr Rückgabewert wird als Ersetzungstext verwendet. Die Argumente, die dieser Funktion übergeben werden, sind im Abschnitt [Angabe einer Funktion als Ersetzung](#angabe_einer_funktion_als_ersetzung) beschrieben.
 
 ### Rückgabewert
 
-Ein neuer String, in dem ein, einige oder alle Übereinstimmungen des Musters durch den angegebenen Ersatz ersetzt wurden.
+Ein neuer String, bei dem ein, einige oder alle Übereinstimmungen des Musters durch die angegebene Ersetzung ersetzt wurden.
 
 ## Beschreibung
 
-Diese Methode verändert den String-Wert, auf den sie angewendet wird, nicht. Sie gibt einen neuen String zurück.
+Diese Methode verändert den String-Wert, auf dem sie aufgerufen wird, nicht. Sie gibt einen neuen String zurück.
 
 Ein String-Muster wird nur einmal ersetzt. Um eine globale Suche und Ersetzung durchzuführen, verwenden Sie einen regulären Ausdruck mit dem `g`-Flag oder verwenden Sie stattdessen [`replaceAll()`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/replaceAll).
 
-Wenn `pattern` ein Objekt mit einer [`Symbol.replace`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/replace)-Methode ist (einschließlich `RegExp`-Objekten), wird diese Methode mit dem Ziel-String und `replacement` als Argumente aufgerufen. Ihr Rückgabewert wird zum Rückgabewert von `replace()`. In diesem Fall ist das Verhalten von `replace()` vollständig durch die `[Symbol.replace]()`-Methode kodiert — zum Beispiel ist jede Erwähnung von "Capturing Groups" in der untenstehenden Beschreibung tatsächlich eine Funktionalität, die durch [`RegExp.prototype[Symbol.replace]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/Symbol.replace) bereitgestellt wird.
+Wenn `pattern` ein Objekt mit einer [`Symbol.replace`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/replace)-Methode ist (einschließlich `RegExp`-Objekten), wird diese Methode mit dem Zielstring und `replacement` als Argumente aufgerufen. Ihr Rückgabewert wird zum Rückgabewert von `replace()`. In diesem Fall ist das Verhalten von `replace()` vollständig durch die `[Symbol.replace]()`-Methode kodiert – zum Beispiel wird jede Erwähnung von "capture groups" in der untenstehenden Beschreibung tatsächlich durch die Funktionalität von [`RegExp.prototype[Symbol.replace]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/Symbol.replace) bereitgestellt.
 
-Wenn das `pattern` ein leerer String ist, wird der Ersatz an den Anfang des Strings angefügt.
+Wenn das `pattern` ein leerer String ist, wird die Ersetzung an den Anfang des Strings gestellt.
 
 ```js
 "xxx".replace("", "_"); // "_xxx"
 ```
 
-Ein regexp mit dem `g`-Flag ist der einzige Fall, in dem `replace()` mehr als einmal ersetzt. Weitere Informationen dazu, wie Regex-Eigenschaften (insbesondere das [sticky](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/sticky)-Flag) mit `replace()` interagieren, finden Sie unter [`RegExp.prototype[Symbol.replace]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/Symbol.replace).
+Ein Regex mit dem `g`-Flag ist der einzige Fall, in dem `replace()` mehrmals ersetzt. Für weitere Informationen darüber, wie Regex-Eigenschaften (insbesondere das [sticky](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/sticky)-Flag) mit `replace()` interagieren, siehe [`RegExp.prototype[Symbol.replace]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/Symbol.replace).
 
-### Spezifizieren eines Strings als Ersatz
+### Angabe eines Strings als Ersetzung
 
-Der Ersatzstring kann die folgenden speziellen Ersetzungsmuster enthalten:
+Der Ersetzungsstring kann die folgenden speziellen Ersetzungsmuster enthalten:
 
-| Muster    | Fügt ein                                                                                                     |
-| --------- | ------------------------------------------------------------------------------------------------------------ |
-| `$$`      | Fügt ein `"$"` ein.                                                                                          |
-| `$&`      | Fügt das gefundene Teilstring ein.                                                                           |
-| `` $` ``  | Fügt den Teil des Strings ein, der dem gefundenen Teilstring vorausgeht.                                     |
-| `$'`      | Fügt den Teil des Strings ein, der dem gefundenen Teilstring folgt.                                          |
-| `$n`      | Fügt die `n`te (`1`-indizierte) Capturing Group ein, wobei `n` eine positive ganze Zahl kleiner als 100 ist. |
-| `$<Name>` | Fügt die benannte Capturing Group ein, wobei `Name` der Gruppenname ist.                                     |
+| Muster    | Fügt ein                                                                                                    |
+| --------- | ----------------------------------------------------------------------------------------------------------- |
+| `$$`      | Fügt ein `"$"` ein.                                                                                         |
+| `$&`      | Fügt den übereinstimmenden Substring ein.                                                                   |
+| `` $` ``  | Fügt den Teil des Strings ein, der dem übereinstimmenden Substring vorausgeht.                              |
+| `$'`      | Fügt den Teil des Strings ein, der dem übereinstimmenden Substring folgt.                                   |
+| `$n`      | Fügt die `n`-te (`1`-basierte) Übernahmegruppe ein, wobei `n` eine positive ganze Zahl kleiner als 100 ist. |
+| `$<Name>` | Fügt die benannte Erfassungsgruppe ein, wobei `Name` der Gruppenname ist.                                   |
 
-`$n` und `$<Name>` sind nur verfügbar, wenn das `pattern`-Argument ein {{jsxref("RegExp")}}-Objekt ist. Wenn das `pattern` ein String ist oder wenn die entsprechende Capturing Group nicht im Regex vorhanden ist, wird das Muster als Literal ersetzt. Wenn die Gruppe vorhanden ist, aber nicht übereinstimmt (weil sie Teil einer Disjunktion ist), wird sie durch einen leeren String ersetzt.
+`$n` und `$<Name>` stehen nur zur Verfügung, wenn das `pattern`-Argument ein {{jsxref("RegExp")}}-Objekt ist. Wenn das `pattern` ein String ist oder die entsprechende Übernahmegruppe im Regex nicht vorhanden ist, wird das Muster als literal ersetzt. Wenn die Gruppe vorhanden ist, aber nicht übereinstimmt (weil sie Teil einer Disjunktion ist), wird sie durch einen leeren String ersetzt.
 
 ```js
 "foo".replace(/(f)/, "$2");
@@ -83,9 +83,9 @@ Der Ersatzstring kann die folgenden speziellen Ersetzungsmuster enthalten:
 // "oo"; the second group exists but isn't matched
 ```
 
-### Spezifizieren einer Funktion als Ersatz
+### Angabe einer Funktion als Ersetzung
 
-Sie können eine Funktion als zweiten Parameter angeben. In diesem Fall wird die Funktion aufgerufen, nachdem der Abgleich erfolgt ist. Das Ergebnis der Funktion (Rückgabewert) wird als Ersatzstring verwendet.
+Sie können eine Funktion als zweiten Parameter angeben. In diesem Fall wird die Funktion nach dem Match aufgerufen. Das Ergebnis der Funktion (Rückgabewert) wird als Ersetzungsstring verwendet.
 
 > [!NOTE]
 > Die oben genannten speziellen Ersetzungsmuster gelten _nicht_ für Strings, die von der Ersetzungsfunktion zurückgegeben werden.
@@ -101,36 +101,36 @@ function replacer(match, p1, p2, /* …, */ pN, offset, string, groups) {
 Die Argumente der Funktion sind wie folgt:
 
 - `match`
-  - : Das gefundene Teilstring. (Entspricht `$&` oben.)
+  - : Der übereinstimmende Substring. (Entspricht `$&` oben.)
 - `p1`, `p2`, …, `pN`
-  - : Der `n`te String, der von einer Capturing Group (einschließlich benannter Capturing Groups) gefunden wurde, sofern das erste Argument von `replace()` ein {{jsxref("RegExp")}}-Objekt ist. (Entspricht `$1`, `$2`, usw. oben.) Wenn zum Beispiel das Muster `/(\a+)(\b+)/` ist, dann ist `p1` der Match für `\a+` und `p2` der Match für `\b+`. Wenn die Gruppe Teil einer Disjunktion ist (z.B. `"abc".replace(/(a)|(b)/, replacer)`), wird die nicht übereinstimmende Alternative `undefined` sein.
+  - : Der `n`-te String, der durch eine Capture-Gruppe (einschließlich benannter Übernahmegruppen) gefunden wurde, vorausgesetzt das erste Argument an `replace()` ist ein {{jsxref("RegExp")}}-Objekt. (Entspricht `$1`, `$2`, etc. oben.) Wenn zum Beispiel das `pattern` `/(\a+)(\b+)/` ist, dann ist `p1` die Übereinstimmung für `\a+`, und `p2` ist die Übereinstimmung für `\b+`. Wenn die Gruppe Teil einer Disjunktion ist (z.B. `"abc".replace(/(a)|(b)/, replacer)`), ist die nicht übereinstimmende Alternative `undefined`.
 - `offset`
-  - : Der Versatz des gefundenen Teilstrings innerhalb des gesamten Strings, der untersucht wird. Zum Beispiel, wenn der gesamte String `'abcd'` war und das gefundene Teilstring `'bc'` war, dann wird dieses Argument `1` sein.
+  - : Der Offset des übereinstimmenden Substrings innerhalb des gesamten Strings, der untersucht wird. Zum Beispiel, wenn der gesamte String `'abcd'` war und der übereinstimmende Substring `'bc'`, dann wäre dieses Argument `1`.
 - `string`
-  - : Der gesamte untersuchte String.
+  - : Der gesamte String, der untersucht wird.
 - `groups`
-  - : Ein Objekt, dessen Schlüssel die verwendeten Gruppennamen und dessen Werte die gefundenen Teile (`undefined` bei nicht gefundenem) sind. Nur vorhanden, wenn das `pattern` mindestens eine benannte Capturing Group enthält.
+  - : Ein Objekt, dessen Schlüssel die verwendeten Gruppennamen sind und dessen Werte die übereinstimmenden Teile sind (`undefined` wenn nicht übereinstimmt). Nur vorhanden, wenn das `pattern` mindestens eine benannte Übernahmegruppe enthält.
 
-Die genaue Anzahl der Argumente hängt davon ab, ob das erste Argument ein {{jsxref("RegExp")}}-Objekt ist — und, falls ja, wie viele Capturing Groups es hat.
+Die genaue Anzahl der Argumente hängt davon ab, ob das erste Argument ein {{jsxref("RegExp")}}-Objekt ist und, falls ja, wie viele Capture-Gruppen es hat.
 
-Das folgende Beispiel setzt `newString` auf `'abc - 12345 - #$*%'`:
+Das folgende Beispiel wird `newString` auf `'abc - 12345 - #$*%'` setzen:
 
 ```js
 function replacer(match, p1, p2, p3, offset, string) {
   // p1 is non-digits, p2 digits, and p3 non-alphanumerics
   return [p1, p2, p3].join(" - ");
 }
-const newString = "abc12345#$*%".replace(/([^\d]*)(\d*)([^\w]*)/, replacer);
+const newString = "abc12345#$*%".replace(/(\D*)(\d*)(\W*)/, replacer);
 console.log(newString); // abc - 12345 - #$*%
 ```
 
-Die Funktion wird mehrfach für jedes vollständige Übereinstimmung aufgerufen, die ersetzt werden soll, wenn der reguläre Ausdruck im ersten Parameter global ist.
+Die Funktion wird mehrfach für jeden vollständigen Treffer, der ersetzt werden soll, aufgerufen, wenn der reguläre Ausdruck im ersten Parameter global ist.
 
 ## Beispiele
 
-### Den regulären Ausdruck in replace() definieren
+### Definieren des regulären Ausdrucks in replace()
 
-Im folgenden Beispiel wird der reguläre Ausdruck in `replace()` definiert und enthält das Ignore-Case-Flag.
+Im folgenden Beispiel wird der reguläre Ausdruck in `replace()` definiert und enthält das Klein-/Großbuchstaben ignorierende Flag.
 
 ```js
 const str = "Twas the night before Xmas...";
@@ -138,14 +138,14 @@ const newStr = str.replace(/xmas/i, "Christmas");
 console.log(newStr); // Twas the night before Christmas...
 ```
 
-Dies gibt `'Twas the night before Christmas...'` aus.
+Dies protokolliert `'Twas the night before Christmas...'`.
 
 > [!NOTE]
-> Weitere Erklärungen zu regulären Ausdrücken finden Sie im [Leitfaden für reguläre Ausdrücke](/de/docs/Web/JavaScript/Guide/Regular_expressions).
+> Siehe den [Reguläre Ausdrücke Leitfaden](/de/docs/Web/JavaScript/Guide/Regular_expressions) für weitere Erklärungen zu regulären Ausdrücken.
 
-### Verwenden des globalen und IgnoreCase-Flags mit replace()
+### Verwenden der Global- und IgnoreCase-Flags mit replace()
 
-Ein globales Ersetzen kann nur mit einem regulären Ausdruck durchgeführt werden. Im folgenden Beispiel enthält der reguläre Ausdruck die [globalen und Ignore-Case-Flags](/de/docs/Web/JavaScript/Guide/Regular_expressions#advanced_searching_with_flags), die es `replace()` ermöglichen, jedes Vorkommen von `'apples'` im String durch `'oranges'` zu ersetzen.
+Globale Ersetzung kann nur mit einem regulären Ausdruck durchgeführt werden. Im folgenden Beispiel enthält der reguläre Ausdruck die [Global- und IgnoreCase-Flags](/de/docs/Web/JavaScript/Guide/Regular_expressions#advanced_searching_with_flags), die es `replace()` erlauben, jedes Vorkommen von `'apples'` im String mit `'oranges'` zu ersetzen.
 
 ```js
 const re = /apples/gi;
@@ -154,11 +154,11 @@ const newStr = str.replace(re, "oranges");
 console.log(newStr); // oranges are round, and oranges are juicy.
 ```
 
-Dies gibt `'oranges are round, and oranges are juicy'` aus.
+Dies protokolliert `'oranges are round, and oranges are juicy'`.
 
 ### Wörter in einem String austauschen
 
-Das folgende Skript tauscht die Wörter im String aus. Für den Ersetzungstext verwendet das Skript [Capturing Groups](/de/docs/Web/JavaScript/Guide/Regular_expressions/Groups_and_backreferences) und die Ersetzungsmuster `$1` und `$2`.
+Das folgende Skript wechselt die Wörter im String. Für den Ersetzungstext verwendet das Skript [Capture-Gruppen](/de/docs/Web/JavaScript/Guide/Regular_expressions/Groups_and_backreferences) und die `$1` und `$2` Ersetzungsmuster.
 
 ```js
 const re = /(\w+)\s(\w+)/;
@@ -167,13 +167,13 @@ const newStr = str.replace(re, "$2, $1");
 console.log(newStr); // Cruz, Maria
 ```
 
-Dies gibt `'Cruz, Maria'` aus.
+Dies protokolliert `'Cruz, Maria'`.
 
-### Verwenden einer Inline-Funktion, die die gefundenen Zeichen ändert
+### Verwenden einer Inline-Funktion, die die übereinstimmenden Zeichen modifiziert
 
-In diesem Beispiel werden alle Vorkommen von Großbuchstaben im String in Kleinbuchstaben umgewandelt, und ein Bindestrich wird direkt vor der Fundstelle eingefügt. Das Wichtige hier ist, dass zusätzliche Operationen auf das gefundene Element erforderlich sind, bevor es als Ersatz zurückgegeben wird.
+In diesem Beispiel werden alle Vorkommen von Großbuchstaben im String in Kleinbuchstaben umgewandelt, und ein Bindestrich wird direkt vor dem Übereinstimmungsort eingefügt. Das Wichtige hier ist, dass zusätzliche Operationen am übereinstimmenden Element erforderlich sind, bevor es als Ersatz zurückgegeben wird.
 
-Die Ersetzungsfunktion akzeptiert das gefundene Snippet als Parameter und verwendet es, um den Fall zu transformieren und den Bindestrich vor der Rückgabe zu verketten.
+Die Ersetzungsfunktion akzeptiert das übereinstimmende Fragment als Parameter und verwendet es, um den Fall zu transformieren und den Bindestrich zu konkatenierten, bevor sie zurückkehrt.
 
 ```js
 function styleHyphenFormat(propertyName) {
@@ -186,20 +186,20 @@ function styleHyphenFormat(propertyName) {
 
 Gegeben `styleHyphenFormat('borderTop')`, gibt dies `'border-top'` zurück.
 
-Da wir das _Ergebnis_ der Übereinstimmung weiter transformieren möchten, bevor der endgültige Ersatz vorgenommen wird, müssen wir eine Funktion verwenden. Dies zwingt die Auswertung der Übereinstimmungen vor der Methode [`toLowerCase()`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/toLowerCase). Wenn wir versucht hätten, dies ohne Funktion zu tun, hätte die {{jsxref("String/toLowerCase", "toLowerCase()")}} keinen Effekt.
+Da wir das _Ergebnis_ des Matches weiter transformieren wollen, bevor die endgültige Ersetzung vorgenommen wird, müssen wir eine Funktion verwenden. Dies erzwingt die Auswertung des Matches vor der Methode [`toLowerCase()`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/toLowerCase). Wenn wir versucht hätten, dies mit dem Match ohne eine Funktion zu tun, würde die {{jsxref("String/toLowerCase", "toLowerCase()")}} keine Wirkung haben.
 
 ```js example-bad
 // Won't work
 const newString = propertyName.replace(/[A-Z]/g, "-" + "$&".toLowerCase());
 ```
 
-Dies liegt daran, dass `'$&'.toLowerCase()` zuerst als String-Literal ausgewertet würde (was zu derselben `'$&'` führt), bevor die Zeichen als Muster verwendet werden.
+Das liegt daran, dass `'$&'.toLowerCase()` zunächst als String-Literal ausgewertet würde (was zu demselben `'$&'` führt), bevor die Zeichen als Muster verwendet würden.
 
-### Ersetzen einer Fahrenheit-Gradzahl durch ihr Celsius-Äquivalent
+### Ersetzen eines Fahrenheit-Grads durch sein Celsius-Äquivalent
 
-Das folgende Beispiel ersetzt eine Fahrenheit-Gradzahl durch ihr entsprechendes Celsius-Äquivalent. Die Fahrenheit-Gradzahl sollte eine Zahl sein, die mit `"F"` endet. Die Funktion gibt die Celsius-Zahl zurück, die mit `"C"` endet. Wenn die Eingabenummer z.B. `"212F"` ist, gibt die Funktion `"100C"` zurück. Wenn die Nummer `"0F"` ist, gibt die Funktion `"-17.77777777777778C"` zurück.
+Das folgende Beispiel ersetzt einen Fahrenheit-Grad durch sein Äquivalent in Celsius. Der Fahrenheit-Grad sollte eine Zahl sein, die mit `"F"` endet. Die Funktion gibt die Celsius-Zahl zurück, die mit `"C"` endet. Wenn zum Beispiel die Eingabezahl `"212F"` ist, gibt die Funktion `"100C"` zurück. Wenn die Zahl `"0F"` ist, gibt die Funktion `"-17.77777777777778C"` zurück.
 
-Der reguläre Ausdruck `test` überprüft jede Zahl, die mit `F` endet. Die Anzahl der Fahrenheit-Grad ist über den zweiten Parameter der Funktion, `p1`, zugänglich. Die Funktion setzt die Celsius-Zahl basierend auf die Anzahl der in das `f2c()`-Array eingegebenen Fahrenheit-Grad. `f2c()` gibt dann die Celsius-Zahl zurück. Diese Funktion nähert sich Perl's `s///e`-Flag an.
+Der reguläre Ausdruck `test` prüft auf jede Zahl, die mit `F` endet. Die Zahl der Fahrenheit-Grade ist für die Funktion über ihren zweiten Parameter, `p1`, zugänglich. Die Funktion setzt die Celsius-Zahl basierend auf der Zahl der Fahrenheit-Grade, die als String an die `f2c()` Funktion übergeben werden. `f2c()` gibt dann die Celsius-Zahl zurück. Diese Funktion approximiert das `s///e`-Flag von Perl.
 
 ```js
 function f2c(x) {
@@ -212,16 +212,16 @@ function f2c(x) {
 }
 ```
 
-### Einen generischen Ersetzer erstellen
+### Erstellen eines allgemeinen Ersetzers
 
-Angenommen, wir möchten einen Ersetzer erstellen, der die Versatzdaten an jeden gefundenen String anhängt. Da die Ersetzerfunktion bereits den Parameter `offset` erhält, wird es trivial sein, wenn der Regex statisch bekannt ist.
+Angenommen, wir möchten einen Ersetzer erstellen, der die Offset-Daten an jeden übereinstimmenden String anhängt. Da die Ersetzerfunktion bereits den `offset`-Parameter erhält, wird es trivial, wenn der Regex statisch bekannt ist.
 
 ```js
 "abcd".replace(/(bc)/, (match, p1, offset) => `${match} (${offset}) `);
 // "abc (1) d"
 ```
 
-Dieser Ersetzer wäre jedoch schwer zu generalisieren, wenn wir möchten, dass er mit jedem Regex-Muster funktioniert. Der Ersetzer ist _variadic_ — die Anzahl der Argumente, die er erhält, hängt von der Anzahl der vorhandenen Capturing Groups ab. Wir können [Rest-Parameter](/de/docs/Web/JavaScript/Reference/Functions/rest_parameters) verwenden, aber es würde auch `offset`, `string` usw. in das Array aufnehmen. Die Tatsache, dass `groups` je nach Identität des Regex übergeben werden kann oder nicht, würde es auch erschweren, generisch zu wissen, welches Argument dem `offset` entspricht.
+Jedoch wäre es schwierig, diesen Ersetzer zu verallgemeinern, wenn wir möchten, dass er mit jedem Regex-Muster funktioniert. Der Ersetzer ist _variadic_ – die Anzahl der Argumente, die er erhält, hängt von der Anzahl der vorhandenen Capture-Gruppen ab. Wir können [Restparameter](/de/docs/Web/JavaScript/Reference/Functions/rest_parameters) verwenden, aber es würde auch `offset`, `string`, etc. in das Array aufnehmen. Die Tatsache, dass `groups` je nach Identität des Regex möglicherweise oder möglicherweise nicht übergeben wird, würde es auch schwer machen, generell zu wissen, welches Argument dem `offset` entspricht.
 
 ```js example-bad
 function addOffset(match, ...args) {
@@ -233,9 +233,9 @@ console.log("abcd".replace(/(bc)/, addOffset)); // "abc (1) d"
 console.log("abcd".replace(/(?<group>bc)/, addOffset)); // "abc (abcd) d"
 ```
 
-Das obige `addOffset`-Beispiel funktioniert nicht, wenn der Regex eine benannte Gruppe enthält, da in diesem Fall `args.at(-2)` der `string` anstelle des `offset` wäre.
+Das `addOffset` Beispiel oben funktioniert nicht, wenn der Regex eine benannte Gruppe enthält, weil in diesem Fall `args.at(-2)` der `string` statt des `offset` wäre.
 
-Stattdessen müssen Sie die letzten Argumente basierend auf dem Typ extrahieren, da `groups` ein Objekt ist, während `string` ein String ist.
+Stattdessen müssen Sie die letzten Argumente basierend auf dem Typ extrahieren, weil `groups` ein Objekt ist, während `string` ein String ist.
 
 ```js
 function addOffset(match, ...args) {
@@ -258,8 +258,8 @@ console.log("abcd".replace(/(?<group>bc)/, addOffset)); // "abc (1) d"
 
 ## Siehe auch
 
-- [Polyfill von `String.prototype.replace` in `core-js` mit Korrekturen und Implementierung modernen Verhaltens wie `Symbol.replace`-Unterstützung](https://github.com/zloirock/core-js#ecmascript-string-and-regexp)
-- Leitfaden zu [regulären Ausdrücken](/de/docs/Web/JavaScript/Guide/Regular_expressions)
+- [Polyfill von `String.prototype.replace` in `core-js` mit Korrekturen und Implementierung moderner Verhaltensweisen wie `Symbol.replace`-Unterstützung](https://github.com/zloirock/core-js#ecmascript-string-and-regexp)
+- [Reguläre Ausdrücke](/de/docs/Web/JavaScript/Guide/Regular_expressions) Leitfaden
 - {{jsxref("String.prototype.replaceAll()")}}
 - {{jsxref("String.prototype.match()")}}
 - {{jsxref("RegExp.prototype.exec()")}}

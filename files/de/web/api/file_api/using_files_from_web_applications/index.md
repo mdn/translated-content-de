@@ -1,13 +1,13 @@
 ---
-title: Dateien aus Webanwendungen verwenden
+title: Verwendung von Dateien in Webanwendungen
 slug: Web/API/File_API/Using_files_from_web_applications
 l10n:
-  sourceCommit: e4e57ab3ccb5f93319f8fe13848d4895d3e1e771
+  sourceCommit: 364a4d02b10854ab7cef4ff4b0ec3616d4e1c8ab
 ---
 
 {{DefaultAPISidebar("File API")}}{{AvailableInWorkers}}
 
-Mit der File API kann Webinhalt den Benutzer darum bitten, lokale Dateien auszuwählen und dann den Inhalt dieser Dateien zu lesen. Diese Auswahl kann entweder mit einem HTML-`{{HTMLElement("input/file", '&lt;input type="file"&gt;')}}`-Element oder per Drag-and-Drop erfolgen.
+Mit der File API kann Webinhalt den Benutzer bitten, lokale Dateien auszuwählen und dann den Inhalt dieser Dateien zu lesen. Diese Auswahl kann entweder mit einem HTML-`{{HTMLElement("input/file", '&lt;input type="file"&gt;')}}`-Element oder per Drag-and-Drop erfolgen.
 
 ## Zugriff auf ausgewählte Datei(en)
 
@@ -19,7 +19,7 @@ Betrachten Sie dieses HTML:
 
 Die File API ermöglicht den Zugriff auf eine [`FileList`](/de/docs/Web/API/FileList), die [`File`](/de/docs/Web/API/File)-Objekte enthält, die die vom Benutzer ausgewählten Dateien darstellen.
 
-Das `multiple`-Attribut auf dem `input`-Element erlaubt es dem Benutzer, mehrere Dateien auszuwählen.
+Das `multiple`-Attribut auf dem `input`-Element ermöglicht es dem Benutzer, mehrere Dateien auszuwählen.
 
 Zugriff auf die erste ausgewählte Datei mit einem klassischen DOM-Selektor:
 
@@ -29,7 +29,7 @@ const selectedFile = document.getElementById("input").files[0];
 
 ### Zugriff auf ausgewählte Datei(en) bei einem Änderungsereignis
 
-Es ist auch möglich (aber nicht zwingend erforderlich), auf die [`FileList`](/de/docs/Web/API/FileList) über das `change`-Ereignis zuzugreifen. Sie müssen [`EventTarget.addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) verwenden, um den `change`-Event-Listener hinzuzufügen, wie folgt:
+Es ist auch möglich (aber nicht zwingend erforderlich), auf die [`FileList`](/de/docs/Web/API/FileList) über das `change`-Ereignis zuzugreifen. Sie müssen [`EventTarget.addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) verwenden, um den `change`-Ereignislistener hinzuzufügen, etwa so:
 
 ```js
 const inputElement = document.getElementById("input");
@@ -41,24 +41,24 @@ function handleFiles() {
 
 ## Informationen über ausgewählte Datei(en) abrufen
 
-Das vom DOM bereitgestellte [`FileList`](/de/docs/Web/API/FileList)-Objekt listet alle vom Benutzer ausgewählten Dateien auf, von denen jede als ein [`File`](/de/docs/Web/API/File)-Objekt angegeben ist. Sie können feststellen, wie viele Dateien der Benutzer ausgewählt hat, indem Sie den Wert des `length`-Attributs der Dateiliste überprüfen:
+Das vom DOM bereitgestellte [`FileList`](/de/docs/Web/API/FileList)-Objekt listet alle Dateien auf, die der Benutzer ausgewählt hat, wobei jede als ein [`File`](/de/docs/Web/API/File)-Objekt angegeben wird. Sie können feststellen, wie viele Dateien der Benutzer ausgewählt hat, indem Sie den Wert des `length`-Attributs der Dateiliste überprüfen:
 
 ```js
 const numFiles = fileList.length;
 ```
 
-Individuelle [`File`](/de/docs/Web/API/File)-Objekte können abgerufen werden, indem Sie auf die Liste wie auf ein Array zugreifen.
+Einzelne [`File`](/de/docs/Web/API/File)-Objekte können durch Zugriff auf die Liste als ein Array abgerufen werden.
 
-Es gibt drei Attribute, die das [`File`](/de/docs/Web/API/File)-Objekt bereitstellt und die nützliche Informationen über die Datei enthalten.
+Es gibt drei Attribute, die vom [`File`](/de/docs/Web/API/File)-Objekt bereitgestellt werden und nützliche Informationen über die Datei enthalten.
 
 - `name`
-  - : Der Dateiname als schreibgeschützter String. Dies ist nur der Dateiname und umfasst keine Pfadinformationen.
+  - : Der Dateiname als schreibgeschützter String. Dies ist nur der Dateiname und enthält keine Pfadinformationen.
 - `size`
-  - : Die Größe der Datei in Bytes als schreibgeschützte 64-Bit-Ganzzahl.
+  - : Die Größe der Datei in Bytes als schreibgeschützter 64-Bit-Integer.
 - `type`
   - : Der MIME-Typ der Datei als schreibgeschützter String oder `""`, wenn der Typ nicht bestimmt werden konnte.
 
-### Beispiel: Dateigröße(n) anzeigen
+### Beispiel: Anzeigen der Größe von Datei(en)
 
 Das folgende Beispiel zeigt eine mögliche Verwendung der `size`-Eigenschaft:
 
@@ -128,9 +128,9 @@ Das folgende Beispiel zeigt eine mögliche Verwendung der `size`-Eigenschaft:
 </html>
 ```
 
-## Versteckte Datei-Input-Elemente mit der click()-Methode verwenden
+## Versteckte Datei-Eingabeelemente mit der `click()`-Methode verwenden
 
-Sie können das zugegebenermaßen unansehnliche Datei-{{HTMLElement("input")}}-Element verstecken und Ihre eigene Schnittstelle zum Öffnen des Dateiauswahlfensters und Anzeigen der vom Benutzer ausgewählten Dateien präsentieren. Dies können Sie tun, indem Sie das Eingabeelement mit `display:none` stylen und die [`click()`](/de/docs/Web/API/HTMLElement/click)-Methode auf dem {{HTMLElement("input")}}-Element aufrufen.
+Sie können das zugegebenermaßen unattraktive Datei-{{HTMLElement("input")}}-Element ausblenden und Ihre eigene Oberfläche für das Öffnen des Datei-Auswahldialogs und das Anzeigen der ausgewählten Datei(en) bereitstellen. Sie können dies erreichen, indem Sie das Eingabeelement mit `display:none` stylen und die [`click()`](/de/docs/Web/API/HTMLElement/click)-Methode auf das {{HTMLElement("input")}}-Element aufrufen.
 
 Betrachten Sie dieses HTML:
 
@@ -161,11 +161,11 @@ fileSelect.addEventListener(
 );
 ```
 
-Sie können das {{HTMLElement("button")}} nach Belieben stylen.
+Sie können den {{HTMLElement("button")}} nach Belieben stylen.
 
-## Verwenden eines Label-Elements zur Auslösung eines versteckten Datei-Inputs
+## Verwendung eines `label`-Elements zur Auslösung eines versteckten Datei-Eingabeelements
 
-Um das Öffnen des Dateiauswahlfensters ohne JavaScript (der click()-Methode) zu ermöglichen, kann ein {{HTMLElement("label")}}-Element verwendet werden. Beachten Sie, dass in diesem Fall das Eingabeelement nicht mit `display: none` (noch `visibility: hidden`) versteckt werden darf, da das Label sonst nicht über die Tastatur zugänglich wäre. Verwenden Sie stattdessen die [visually-hidden technique](https://www.a11yproject.com/posts/how-to-hide-content/).
+Um den Datei-Auswahl-Dialog zu öffnen, ohne JavaScript (die `click()`-Methode) zu verwenden, kann ein {{HTMLElement("label")}}-Element verwendet werden. Beachten Sie, dass in diesem Fall das Eingabeelement nicht mit `display: none` (noch `visibility: hidden`) verborgen werden darf, da das Label andernfalls nicht per Tastatur zugänglich wäre. Verwenden Sie stattdessen die [visuell versteckte Technik](https://www.a11yproject.com/posts/how-to-hide-content/).
 
 Betrachten Sie dieses HTML:
 
@@ -197,13 +197,13 @@ input.visually-hidden:is(:focus, :focus-within) + label {
 }
 ```
 
-Es ist nicht nötig, JavaScript-Code hinzuzufügen, um `fileElem.click()` aufzurufen. Auch in diesem Fall können Sie das Label-Element nach Belieben stylen. Sie müssen einen visuellen Hinweis für den Fokusstatus des versteckten Eingabefeldes auf seinem Label bereitstellen, sei es ein Outline wie oben gezeigt, oder Hintergrundfarbe oder Box-Shadow. (Zum Zeitpunkt des Schreibens zeigt Firefox diesen visuellen Hinweis für `<input type="file">`-Elemente nicht an.)
+Es ist nicht erforderlich, JavaScript-Code hinzuzufügen, um `fileElem.click()` aufzurufen. Auch in diesem Fall können Sie das Label-Element nach Belieben stylen. Sie müssen einen visuellen Hinweis auf den Fokusstatus des versteckten Eingabefelds auf dessen Label bereitstellen, sei es ein Umriss wie oben gezeigt, oder eine Hintergrundfarbe oder ein Box-Schatten. (Zum Zeitpunkt des Schreibens zeigt Firefox diesen visuellen Hinweis für `<input type="file">`-Elemente nicht an.)
 
-## Auswahl von Dateien per Drag-and-Drop
+## Dateien per Drag-and-Drop auswählen
 
-Sie können auch zulassen, dass der Benutzer Dateien in Ihre Webanwendung zieht.
+Sie können dem Benutzer auch erlauben, Dateien in Ihre Webanwendung zu ziehen und abzulegen.
 
-Der erste Schritt besteht darin, eine Drop-Zone einzurichten. Welcher Teil Ihres Inhalts Tropfen akzeptiert, kann je nach Design Ihrer Anwendung variieren, aber es ist einfach, ein Element dazu zu bringen, Drop-Ereignisse zu empfangen:
+Der erste Schritt besteht darin, eine Dropzone zu erstellen. Genau welcher Teil Ihres Inhalts das Ablegen akzeptieren soll, kann je nach Design Ihrer Anwendung variieren, aber es ist einfach, ein Element zu erstellen, das Drop-Ereignisse empfängt:
 
 ```js
 let dropbox;
@@ -214,9 +214,9 @@ dropbox.addEventListener("dragover", dragover, false);
 dropbox.addEventListener("drop", drop, false);
 ```
 
-In diesem Beispiel machen wir das Element mit der ID `dropbox` zu unserer Drop-Zone. Dies geschieht durch das Hinzufügen von Listeners für die [`dragenter`](/de/docs/Web/API/HTMLElement/dragenter_event), [`dragover`](/de/docs/Web/API/HTMLElement/dragover_event) und [`drop`](/de/docs/Web/API/HTMLElement/drop_event) Ereignisse.
+In diesem Beispiel machen wir das Element mit der ID `dropbox` zu unserer Dropzone. Dies wird durch das Hinzufügen von Listenern für die [`dragenter`](/de/docs/Web/API/HTMLElement/dragenter_event)-, [`dragover`](/de/docs/Web/API/HTMLElement/dragover_event)- und [`drop`](/de/docs/Web/API/HTMLElement/drop_event)-Ereignisse gemacht.
 
-Wir müssen in unserem Fall eigentlich nichts mit den `dragenter` und `dragover` Ereignissen machen, daher sind diese Funktionen beide einfach. Sie stoppen lediglich die Ausbreitung des Ereignisses und verhindern, dass die Standardaktion ausgeführt wird:
+Wir müssen in unserem Fall nichts mit den `dragenter`- und `dragover`-Ereignissen machen, daher sind diese Funktionen einfach. Sie stoppen lediglich die Ausbreitung des Ereignisses und verhindern die Standardaktion:
 
 ```js
 function dragenter(e) {
@@ -230,7 +230,7 @@ function dragover(e) {
 }
 ```
 
-Die eigentliche Magie passiert in der `drop()`-Funktion:
+Der eigentliche Zauber passiert in der `drop()`-Funktion:
 
 ```js
 function drop(e) {
@@ -244,11 +244,11 @@ function drop(e) {
 }
 ```
 
-Hier rufen wir das `dataTransfer`-Feld aus dem Ereignis ab, ziehen die Dateiliste daraus und übergeben diese dann an `handleFiles()`. Von diesem Punkt an ist die Handhabung der Dateien die gleiche, ob der Benutzer das `input`-Element oder Drag-and-Drop verwendet hat.
+Hier rufen wir das `dataTransfer`-Feld vom Ereignis ab, ziehen die Dateiliste daraus und übergeben diese an `handleFiles()`. Ab diesem Punkt ist die Handhabung der Dateien dieselbe, egal ob der Benutzer das `input`-Element oder Drag-and-Drop verwendet hat.
 
-## Beispiel: Thumbnails von Benutzer ausgewählten Bildern anzeigen
+## Beispiel: Thumbnails der vom Benutzer ausgewählten Bilder anzeigen
 
-Angenommen, Sie entwickeln die nächste großartige Foto-Sharing-Website und möchten HTML verwenden, um Vorschaubilder von Bildern anzuzeigen, bevor der Benutzer sie tatsächlich hochlädt. Sie können Ihr Eingabeelement oder Ihre Drop-Zone wie zuvor besprochen einrichten und sie eine Funktion wie die `handleFiles()`-Funktion unten aufrufen lassen.
+Angenommen, Sie entwickeln die nächste großartige Foto-Sharing-Website und möchten HTML verwenden, um Vorschaubilder der Bilder anzuzeigen, bevor der Benutzer sie tatsächlich hochlädt. Sie können Ihr Eingabeelement oder Ihre Dropzone wie oben beschrieben einrichten und sie eine Funktion wie die `handleFiles()`-Funktion unten aufrufen lassen.
 
 ```js
 function handleFiles(files) {
@@ -273,33 +273,33 @@ function handleFiles(files) {
 }
 ```
 
-Hier betrachtet unsere Schleife, die die vom Benutzer ausgewählten Dateien verarbeitet, das `type`-Attribut jeder Datei, um zu sehen, ob ihr MIME-Typ mit `image/` beginnt. Für jede Datei, die ein Bild ist, erstellen wir ein neues `img`-Element. CSS kann verwendet werden, um hübsche Ränder oder Schatten festzulegen und die Größe des Bildes zu spezifizieren, sodass dies hier nicht notwendig ist.
+Hier betrachtet unsere Schleife, die die vom Benutzer ausgewählten Dateien verarbeitet, das `type`-Attribut jeder Datei, um zu sehen, ob der MIME-Typ mit `image/` beginnt. Für jede Datei, die ein Bild ist, erstellen wir ein neues `img`-Element. CSS kann verwendet werden, um hübsche Ränder oder Schatten zu erstellen und die Größe des Bildes festzulegen, sodass dies hier nicht erforderlich ist.
 
-Jedes Bild erhält die CSS-Klasse `obj`, was es im DOM-Baum leicht auffindbar macht. Wir fügen jedem Bild auch ein `file`-Attribut hinzu, das die [`File`](/de/docs/Web/API/File) für das Bild spezifiziert; dies ermöglicht es uns, die Bilder für einen tatsächlichen Upload später abzurufen. Wir verwenden [`Node.appendChild()`](/de/docs/Web/API/Node/appendChild), um das neue Thumbnail in den Vorschaubereich unseres Dokuments hinzuzufügen.
+Jedem Bild wird die CSS-Klasse `obj` hinzugefügt, um es im DOM-Baum leicht zu finden. Wir fügen außerdem jedem Bild ein `file`-Attribut hinzu, das die [`File`](/de/docs/Web/API/File) für das Bild angibt; dies ermöglicht es uns, die Bilder für einen tatsächlichen Upload später abzurufen. Wir verwenden [`Node.appendChild()`](/de/docs/Web/API/Node/appendChild), um das neue Thumbnail in den Vorschaubereich unseres Dokuments hinzuzufügen.
 
-Als nächstes richten wir den [`FileReader`](/de/docs/Web/API/FileReader) ein, um das Bild asynchron zu laden und es an das `img`-Element anzuhängen. Nachdem wir das neue `FileReader`-Objekt erstellt haben, richten wir seine `onload`-Funktion ein und rufen dann `readAsDataURL()` auf, um den Lesevorgang im Hintergrund zu starten. Wenn der gesamte Inhalt der Bilddatei geladen ist, wird er in eine `data:`-URL konvertiert, die an den `onload`-Callback übergeben wird. Unsere Implementierung dieser Routine setzt das `src`-Attribut des `img`-Elements auf das geladene Bild, was dazu führt, dass das Bild im Thumbnail auf dem Bildschirm des Benutzers angezeigt wird.
+Anschließend richten wir den [`FileReader`](/de/docs/Web/API/FileReader) ein, um das Bild asynchron zu laden und dem `img`-Element hinzuzufügen. Nachdem wir das neue `FileReader`-Objekt erstellt haben, richten wir dessen `onload`-Funktion ein und rufen dann `readAsDataURL()` auf, um den Lesevorgang im Hintergrund zu starten. Wenn der gesamte Inhalt der Bilddatei geladen ist, werden sie in eine `data:`-URL umgewandelt, die an den `onload`-Callback übergeben wird. Unsere Implementierung dieser Routine setzt das `src`-Attribut des `img`-Elements auf das geladene Bild, was dazu führt, dass das Bild im Thumbnail auf dem Bildschirm des Benutzers erscheint.
 
-## Verwenden von Objekt-URLs
+## Verwendung von Objekt-URLs
 
-Die DOM-Methoden [`URL.createObjectURL()`](/de/docs/Web/API/URL/createObjectURL_static) und [`URL.revokeObjectURL()`](/de/docs/Web/API/URL/revokeObjectURL_static) ermöglichen es, einfache URL-Strings zu erstellen, die verwendet werden können, um auf beliebige Daten zuzugreifen, auf die mit einem DOM-`[`File`](/de/docs/Web/API/File)`-Objekt verwiesen werden kann, einschließlich lokaler Dateien auf dem Computer des Benutzers.
+Die DOM-Methoden [`URL.createObjectURL()`](/de/docs/Web/API/URL/createObjectURL_static) und [`URL.revokeObjectURL()`](/de/docs/Web/API/URL/revokeObjectURL_static) ermöglichen es Ihnen, einfache URL-Strings zu erstellen, die zum Referenzieren von Daten verwendet werden können, die mit einem DOM-`File`-Objekt angegeben werden können, einschließlich lokaler Dateien auf dem Computer des Benutzers.
 
-Wenn Sie ein [`File`](/de/docs/Web/API/File)-Objekt haben, auf das Sie aus dem HTML-Element über eine URL verweisen möchten, können Sie eine Objekt-URL dafür erstellen, wie folgt:
+Wenn Sie ein [`File`](/de/docs/Web/API/File)-Objekt haben, das Sie per URL aus HTML referenzieren möchten, können Sie ein Objekt-URL dafür wie folgt erstellen:
 
 ```js
 const objectURL = window.URL.createObjectURL(fileObj);
 ```
 
-Die Objekt-URL ist ein String, der das [`File`](/de/docs/Web/API/File)-Objekt identifiziert. Jedes Mal, wenn Sie [`URL.createObjectURL()`](/de/docs/Web/API/URL/createObjectURL_static) aufrufen, wird eine eindeutige Objekt-URL erstellt, auch wenn Sie bereits eine Objekt-URL für diese Datei erstellt haben. Jede dieser URLs muss freigeben werden. Während sie automatisch freigegeben werden, wenn das Dokument entladen wird, sollten Sie sie explizit freigeben, indem Sie [`URL.revokeObjectURL()`](/de/docs/Web/API/URL/revokeObjectURL_static) aufrufen, wenn Ihre Seite sie dynamisch verwendet.
+Die Objekt-URL ist ein String, der das [`File`](/de/docs/Web/API/File)-Objekt identifiziert. Jedes Mal, wenn Sie [`URL.createObjectURL()`](/de/docs/Web/API/URL/createObjectURL_static) aufrufen, wird eine eindeutige Objekt-URL erstellt, selbst wenn Sie schon eine Objekt-URL für diese Datei erstellt haben. Jede dieser URLs muss veröffentlicht werden. Während sie automatisch veröffentlicht werden, wenn das Dokument entladen wird, sollten Sie, wenn Ihre Seite sie dynamisch verwendet, diese explizit freigeben, indem Sie [`URL.revokeObjectURL()`](/de/docs/Web/API/URL/revokeObjectURL_static) aufrufen:
 
 ```js
 URL.revokeObjectURL(objectURL);
 ```
 
-## Beispiel: Objekt-URLs zum Anzeigen von Bildern verwenden
+## Beispiel: Objekt-URLs zur Anzeige von Bildern verwenden
 
-Dieses Beispiel verwendet Objekt-URLs, um Vorschaubilder anzuzeigen. Zusätzlich zeigt es andere Dateiinformationen wie Namen und Größen.
+Dieses Beispiel verwendet Objekt-URLs zur Anzeige von Bild-Thumbnails. Zusätzlich zeigt es andere Dateiinformationen, einschließlich ihrer Namen und Größen.
 
-Das HTML, das die Benutzeroberfläche bereitstellt, sieht so aus:
+Das HTML, das die Schnittstelle präsentiert, sieht so aus:
 
 ```html
 <input
@@ -314,7 +314,7 @@ Das HTML, das die Benutzeroberfläche bereitstellt, sieht so aus:
 </div>
 ```
 
-Dies legt unser Datei-{{HTMLElement("input")}}-Element sowie einen Link fest, der den Dateiauswahl-Bildschirm aufruft (da wir die Dateieingabe versteckt halten, um zu verhindern, dass diese wenig attraktive Benutzeroberfläche angezeigt wird). Dies wird im Abschnitt [Versteckte Datei-Input-Elemente mit der click()-Methode verwenden](#using_hidden_file_input_elements_using_the_click_method) erklärt, ebenso wie die Methode, die den Dateiauswahl-Bildschirm aufruft.
+Dies etabliert unser Datei-{{HTMLElement("input")}}-Element sowie einen Link, der den Datei-Auswahldialog aufruft (da wir das Datei-Eingabeelement versteckt halten, um zu vermeiden, dass diese weniger attraktive Benutzeroberfläche angezeigt wird). Dies wird im Abschnitt [Verwendung von versteckten Datei-Eingabeelementen mit der click()-Methode](#using_hidden_file_input_elements_using_the_click_method) erklärt, ebenso wie die Methode, die den Datei-Auswahldialog aufruft.
 
 Die `handleFiles()`-Methode folgt:
 
@@ -361,37 +361,38 @@ function handleFiles() {
 }
 ```
 
-Dies beginnt mit dem Abrufen der URL des {{HTMLElement("div")}} mit der ID `fileList`. Dies ist der Block, in dem wir unsere Dateiliste einschließlich der Vorschaubilder einfügen werden.
+Dies beginnt mit dem Abrufen der URL des {{HTMLElement("div")}} mit der ID `fileList`. Dies ist der Block, in den wir unsere Dateiliste einfügen, einschließlich Thumbnails.
 
-Wenn das [`FileList`](/de/docs/Web/API/FileList)-Objekt, das an `handleFiles()` übergeben wird, leer ist, setzen wir das innere HTML des Blocks auf "Keine Dateien ausgewählt!". Anderenfalls beginnen wir mit dem Aufbau unserer Dateiliste, wie folgt:
+Wenn das an `handleFiles()` übergebene [`FileList`](/de/docs/Web/API/FileList)-Objekt leer ist, setzen wir das innere HTML des Blocks, um "Keine Dateien ausgewählt!" anzuzeigen. Andernfalls beginnen wir damit, unsere Dateiliste zu erstellen, wie folgt:
 
-1. Ein neues ungeordnetes Listen-({{HTMLElement("ul")}})-Element wird erstellt.
-2. Das neue Listenelement wird in den {{HTMLElement("div")}}-Block eingefügt, indem die [`Node.appendChild()`](/de/docs/Web/API/Node/appendChild)-Methode aufgerufen wird.
-3. Für jede [`File`](/de/docs/Web/API/File) in der [`FileList`](/de/docs/Web/API/FileList), die durch `files` repräsentiert wird:
-   1. Ein neues Listenitem-({{HTMLElement("li")}})-Element wird erstellt und in die Liste eingefügt.
-   2. Ein neues Bild-({{HTMLElement("img")}})-Element wird erstellt.
-   3. Der Quellcode des Bildes wird auf eine neue Objekt-URL gesetzt, die die Datei darstellt, indem [`URL.createObjectURL()`](/de/docs/Web/API/URL/createObjectURL_static) aufgerufen wird, um die Blob-URL zu erstellen.
-   4. Die Höhe des Bildes wird auf 60 Pixel festgelegt.
-   5. Das neue Listenitem wird der Liste hinzugefügt.
+1. Ein neues ungeordnetes Listen- ({{HTMLElement("ul")}}) Element wird erstellt.
+2. Das neue Listenelement wird in den {{HTMLElement("div")}} Block eingefügt, indem dessen [`Node.appendChild()`](/de/docs/Web/API/Node/appendChild)-Methode aufgerufen wird.
+3. Für jede [`File`](/de/docs/Web/API/File) in der durch `files` repräsentierten [`FileList`](/de/docs/Web/API/FileList):
+
+   1. Ein neues Listenelement ({{HTMLElement("li")}}) wird erstellt und in die Liste eingefügt.
+   2. Ein neues Bild- ({{HTMLElement("img")}}) Element wird erstellt.
+   3. Die Quelle des Bildes wird auf eine neue Objekt-URL gesetzt, die die Datei repräsentiert, indem [`URL.createObjectURL()`](/de/docs/Web/API/URL/createObjectURL_static) verwendet wird, um die Blob-URL zu erstellen.
+   4. Die Höhe des Bildes wird auf 60 Pixel gesetzt.
+   5. Das neue Listenelement wird der Liste hinzugefügt.
 
 Hier ist eine Live-Demo des obigen Codes:
 
 {{EmbedLiveSample('Example_Using_object_URLs_to_display_images', '100%', '300px')}}
 
-Beachten Sie, dass wir die Objekt-URL nicht sofort widerrufen, nachdem das Bild geladen wurde, da dies das Bild für Benutzerinteraktionen unbrauchbar machen würde (wie z. B. Rechtsklicken, um das Bild zu speichern oder es in einem neuen Tab zu öffnen). Für langfristige Anwendungen sollten Sie Objekt-URLs widerrufen, wenn sie nicht mehr benötigt werden (z. B. wenn das Bild aus dem DOM entfernt wird), um Speicher freizugeben, indem Sie die [`URL.revokeObjectURL()`](/de/docs/Web/API/URL/revokeObjectURL_static)-Methode aufrufen und die Objekt-URL-String übergeben.
+Beachten Sie, dass wir die Objekt-URL nicht sofort widerrufen, nachdem das Bild geladen wurde, da dies das Bild für Benutzerinteraktionen unbrauchbar machen würde (wie das Rechtsklicken, um das Bild zu speichern oder es in einem neuen Tab zu öffnen). Für langlebige Anwendungen sollten Sie Objekt-URLs freigeben, wenn sie nicht mehr benötigt werden (z.B. wenn das Bild aus dem DOM entfernt wird), um Speicher freizugeben, indem Sie die Methode [`URL.revokeObjectURL()`](/de/docs/Web/API/URL/revokeObjectURL_static) aufrufen und die Objekt-URL-Zeichenfolge übergeben.
 
-## Beispiel: Eine vom Benutzer ausgewählte Datei hochladen
+## Beispiel: Hochladen einer vom Benutzer ausgewählten Datei
 
-Dieses Beispiel zeigt, wie Sie den Benutzer Dateien hochladen lassen (z. B. die Bilder, die im vorherigen Beispiel ausgewählt wurden) auf einen Server.
+Dieses Beispiel zeigt, wie Sie dem Benutzer ermöglichen, Dateien (wie die im vorherigen Beispiel ausgewählten Bilder) auf einen Server hochzuladen.
 
 > [!NOTE]
-> Es ist normalerweise vorzuziehen, HTTP-Anfragen mit der [Fetch API](/de/docs/Web/API/Fetch_API) anstelle von [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) zu machen. In diesem Fall möchten wir jedoch den Benutzer über den Upload-Fortschritt informieren, und dieses Feature wird von der Fetch API noch nicht unterstützt, daher verwendet das Beispiel `XMLHttpRequest`.
+> Es ist normalerweise vorzuziehen, HTTP-Anfragen mit der [Fetch API](/de/docs/Web/API/Fetch_API) statt mit [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) durchzuführen. In diesem Fall möchten wir jedoch dem Benutzer den Upload-Fortschritt anzeigen, und dieses Feature wird von der Fetch API noch nicht unterstützt. Daher verwendet das Beispiel `XMLHttpRequest`.
 >
-> Die Arbeit zur Standardisierung von Fortschrittsbenachrichtigungen mit der Fetch API wird unter <https://github.com/whatwg/fetch/issues/607> verfolgt.
+> Arbeiten zur Standardisierung von Fortschrittsbenachrichtigungen mit der Fetch API werden unter <https://github.com/whatwg/fetch/issues/607> verfolgt.
 
 ### Erstellen der Upload-Aufgaben
 
-Fortsetzend mit dem Code, der im vorherigen Beispiel die Thumbnails erstellt hat, erinnern Sie sich, dass jedes Thumbnail-Bild in der CSS-Klasse `obj` ist, mit der entsprechenden [`File`](/de/docs/Web/API/File) in einem `file`-Attribut angehängt. Dies ermöglicht uns, alle von Benutzer zum Hochladen ausgewählten Bilder mit [`Document.querySelectorAll()`](/de/docs/Web/API/Document/querySelectorAll) auszuwählen, wie folgt:
+Fortsetzend mit dem Code, der die Thumbnails im vorherigen Beispiel erstellt hat, denken Sie daran, dass jedes Thumbnail-Bild in der CSS-Klasse `obj` mit der entsprechenden [`File`](/de/docs/Web/API/File) in einem `file`-Attribut angehängt ist. Dies ermöglicht es uns, alle Bilder, die der Benutzer zum Hochladen ausgewählt hat, mit [`Document.querySelectorAll()`](/de/docs/Web/API/Document/querySelectorAll) auszuwählen, so:
 
 ```js
 function sendFiles() {
@@ -403,11 +404,11 @@ function sendFiles() {
 }
 ```
 
-`document.querySelectorAll` holt eine [`NodeList`](/de/docs/Web/API/NodeList) aller Elemente im Dokument mit der CSS-Klasse `obj`. In unserem Fall werden dies alle Bild-Thumbnails sein. Sobald wir diese Liste haben, ist es ein Kinderspiel, sie durchzugehen und für jedes eine neue `FileUpload`-Instanz zu erstellen. Jedes dieser Objekte kümmert sich um das Hochladen der entsprechenden Datei.
+`document.querySelectorAll` ruft eine [`NodeList`](/de/docs/Web/API/NodeList) aller Elemente im Dokument mit der CSS-Klasse `obj` ab. In unserem Fall werden dies alle Bild-Thumbnails sein. Sobald wir diese Liste haben, ist es trivial, sie durchzugehen und für jedes eine neue `FileUpload`-Instanz zu erstellen. Jede dieser Instanzen handhabt den Upload der entsprechenden Datei.
 
-### Den Upload-Prozess für eine Datei behandeln
+### Handhabung des Upload-Prozesses für eine Datei
 
-Die `FileUpload`-Funktion akzeptiert zwei Eingaben: ein Bild-Element und eine Datei, aus der die Bilddaten gelesen werden.
+Die `FileUpload`-Funktion akzeptiert zwei Eingaben: ein Bildelement und eine Datei, aus der die Bilddaten gelesen werden.
 
 ```js
 function FileUpload(img, file) {
@@ -416,13 +417,12 @@ function FileUpload(img, file) {
   const xhr = new XMLHttpRequest();
   this.xhr = xhr;
 
-  const self = this;
   this.xhr.upload.addEventListener(
     "progress",
     (e) => {
       if (e.lengthComputable) {
         const percentage = Math.round((e.loaded * 100) / e.total);
-        self.ctrl.update(percentage);
+        this.ctrl.update(percentage);
       }
     },
     false,
@@ -431,8 +431,8 @@ function FileUpload(img, file) {
   xhr.upload.addEventListener(
     "load",
     (e) => {
-      self.ctrl.update(100);
-      const canvas = self.ctrl.ctx.canvas;
+      this.ctrl.update(100);
+      const canvas = this.ctrl.ctx.canvas;
       canvas.parentNode.removeChild(canvas);
     },
     false,
@@ -474,20 +474,20 @@ function createThrobber(img) {
 }
 ```
 
-Die oben gezeigte `FileUpload()`-Funktion erstellt einen Fortschrittsbalken, der verwendet wird, um Fortschrittsinformationen anzuzeigen, und dann wird ein [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) erstellt, um den Upload der Daten zu handhaben.
+Die oben gezeigte `FileUpload()`-Funktion erstellt einen Throbber, der verwendet wird, um Fortschrittsinformationen anzuzeigen, und erstellt dann einen [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest), um das Hochladen der Daten zu handhaben.
 
-Bevor die Daten tatsächlich übertragen werden, werden mehrere vorbereitende Schritte unternommen:
+Bevor die Daten tatsächlich übertragen werden, werden mehrere Vorbereitungsmaßnahmen getroffen:
 
-1. Der `XMLHttpRequest`-Upload `progress`-Listener wird so eingestellt, dass der Fortschrittsbalken mit neuen Prozentinformationen aktualisiert wird, sodass der Fortschrittsbalken basierend auf den neuesten Informationen aktualisiert wird, während der Upload voranschreitet.
-2. Der `XMLHttpRequest`-Upload `load`-Ereignishandler wird so eingestellt, dass die Fortschrittsinformationen der Fortschrittsanzeige auf 100% aktualisiert werden, um sicherzustellen, dass der Fortschrittsbalken tatsächlich 100% erreicht (im Falle von Granularitätsproblemen während des Prozesses). Danach wird der Fortschrittsbalken entfernt, da er nicht mehr benötigt wird. Dies lässt den Fortschrittsbalken verschwinden, sobald der Upload abgeschlossen ist.
-3. Die Anforderung, die Bilddatei hochzuladen, wird durch Aufrufen der `XMLHttpRequest`-Methode `open()` geöffnet, um das Generieren eines POST-Requests zu starten.
-4. Der MIME-Typ für den Upload wird durch Aufrufen der `XMLHttpRequest`-Funktion `overrideMimeType()` festgelegt. In diesem Fall verwenden wir einen generischen MIME-Typ; je nach Anwendungsfall kann es erforderlich sein, den MIME-Typ überhaupt festzulegen oder nicht.
-5. Das `FileReader`-Objekt wird verwendet, um die Datei in eine binäre Zeichenkette zu konvertieren.
-6. Schließlich wird, wenn der Inhalt geladen wird, die `XMLHttpRequest`-Funktion `send()` aufgerufen, um den Inhalt der Datei hochzuladen.
+1. Der `XMLHttpRequest`-Upload-`progress`-Listener wird gesetzt, um den Throbber mit neuen Prozentsatzinformationen zu aktualisieren, sodass, während der Upload fortschreitet, der Throbber basierend auf den neuesten Informationen aktualisiert wird.
+2. Der `XMLHttpRequest`-Upload-`load`-Ereignishandler wird gesetzt, um die Throbber-Fortschrittsinformationen auf 100% zu aktualisieren, um sicherzustellen, dass der Fortschrittsindikator tatsächlich 100% erreicht (im Falle von Granularitätsanomalien im Prozess). Anschließend wird der Throbber entfernt, da er nicht mehr benötigt wird. Dies führt dazu, dass der Throbber nach Abschluss des Uploads verschwindet.
+3. Die Anfrage zum Hochladen der Bilddatei wird durch Aufrufen der `XMLHttpRequest`-Methode `open()` geöffnet, um mit der Erstellung einer POST-Anfrage zu beginnen.
+4. Der MIME-Typ für den Upload wird durch Aufrufen der `XMLHttpRequest`-Funktion `overrideMimeType()` gesetzt. In diesem Fall verwenden wir einen generischen MIME-Typ; Sie müssen möglicherweise den MIME-Typ je nach Anwendungsfall gar nicht setzen.
+5. Das `FileReader`-Objekt wird verwendet, um die Datei in einen binären String umzuwandeln.
+6. Schließlich wird, wenn der Inhalt geladen ist, die `XMLHttpRequest`-Funktion `send()` aufgerufen, um den Inhalt der Datei hochzuladen.
 
 ### Asynchrone Handhabung des Datei-Upload-Prozesses
 
-Dieses Beispiel, das PHP auf der Serverseite und JavaScript auf der Client-Seite verwendet, demonstriert das asynchrone Hochladen einer Datei.
+Dieses Beispiel, das PHP auf der Serverseite und JavaScript auf der Clientseite verwendet, demonstriert das asynchrone Hochladen einer Datei.
 
 ```php
 <?php
@@ -549,11 +549,11 @@ if (isset($_FILES["myFile"])) {
 </html>
 ```
 
-## Beispiel: Verwenden von Objekt-URLs zur Anzeige von PDFs
+## Beispiel: Verwendung von Objekt-URLs zur Anzeige von PDF
 
-Objekt-URLs können für andere Dinge als nur Bilder verwendet werden! Sie können verwendet werden, um eingebettete PDF-Dateien oder andere vom Browser darstellbare Ressourcen anzuzeigen.
+Objekt-URLs können auch für andere Dinge als nur Bilder verwendet werden! Sie können verwendet werden, um eingebettete PDF-Dateien oder andere Ressourcen anzuzeigen, die vom Browser angezeigt werden können.
 
-In Firefox muss die Einstellung `pdfjs.disabled` auf `false` gesetzt sein, damit das PDF im iframe eingebettet erscheint (anstatt als herunterladbare Datei angeboten zu werden).
+In Firefox muss der PDF-Viewer `pdfjs.disabled` auf `false` gesetzt werden, damit das PDF eingebettet im iframe erscheint (statt als herunterladbare Datei vorgeschlagen zu werden).
 
 ```html
 <iframe id="viewer"></iframe>
@@ -570,9 +570,9 @@ iframe.setAttribute("src", objURL);
 URL.revokeObjectURL(objURL);
 ```
 
-## Beispiel: Verwenden von Objekt-URLs mit anderen Dateitypen
+## Beispiel: Verwendung von Objekt-URLs mit anderen Dateitypen
 
-Sie können Dateien anderer Formate auf die gleiche Weise manipulieren. Hier ist, wie man hochgeladene Videos vorschaut:
+Sie können Dateien anderer Formate auf die gleiche Weise manipulieren. So können Sie hochgeladene Videos in der Vorschau anzeigen:
 
 ```js
 const video = document.getElementById("video");

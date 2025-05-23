@@ -13430,7 +13430,7 @@
 /de/docs/Web/HTTP/Headers/Feature-Policy/autoplay	/de/docs/Web/HTTP/Reference/Headers/Permissions-Policy/autoplay
 /de/docs/Web/HTTP/Headers/Feature-Policy/camera	/de/docs/Web/HTTP/Reference/Headers/Permissions-Policy/camera
 /de/docs/Web/HTTP/Headers/Feature-Policy/display-capture	/de/docs/Web/HTTP/Reference/Headers/Permissions-Policy/display-capture
-/de/docs/Web/HTTP/Headers/Feature-Policy/document-domain	/de/docs/Web/HTTP/Reference/Headers/Permissions-Policy/document-domain
+/de/docs/Web/HTTP/Headers/Feature-Policy/document-domain	/de/docs/Web/HTTP/Reference/Headers/Permissions-Policy
 /de/docs/Web/HTTP/Headers/Feature-Policy/encrypted-media	/de/docs/Web/HTTP/Reference/Headers/Permissions-Policy/encrypted-media
 /de/docs/Web/HTTP/Headers/Feature-Policy/fullscreen	/de/docs/Web/HTTP/Reference/Headers/Permissions-Policy/fullscreen
 /de/docs/Web/HTTP/Headers/Feature-Policy/gamepad	/de/docs/Web/HTTP/Reference/Headers/Permissions-Policy/gamepad
@@ -13487,7 +13487,7 @@
 /de/docs/Web/HTTP/Headers/Permissions-Policy/compute-pressure	/de/docs/Web/HTTP/Reference/Headers/Permissions-Policy/compute-pressure
 /de/docs/Web/HTTP/Headers/Permissions-Policy/cross-origin-isolated	/de/docs/Web/HTTP/Reference/Headers/Permissions-Policy/cross-origin-isolated
 /de/docs/Web/HTTP/Headers/Permissions-Policy/display-capture	/de/docs/Web/HTTP/Reference/Headers/Permissions-Policy/display-capture
-/de/docs/Web/HTTP/Headers/Permissions-Policy/document-domain	/de/docs/Web/HTTP/Reference/Headers/Permissions-Policy/document-domain
+/de/docs/Web/HTTP/Headers/Permissions-Policy/document-domain	/de/docs/Web/HTTP/Reference/Headers/Permissions-Policy
 /de/docs/Web/HTTP/Headers/Permissions-Policy/encrypted-media	/de/docs/Web/HTTP/Reference/Headers/Permissions-Policy/encrypted-media
 /de/docs/Web/HTTP/Headers/Permissions-Policy/fullscreen	/de/docs/Web/HTTP/Reference/Headers/Permissions-Policy/fullscreen
 /de/docs/Web/HTTP/Headers/Permissions-Policy/gamepad	/de/docs/Web/HTTP/Reference/Headers/Permissions-Policy/gamepad
@@ -13630,6 +13630,7 @@
 /de/docs/Web/HTTP/Public_Key_Pinning	/de/docs/Web/Security/Certificate_Transparency
 /de/docs/Web/HTTP/Range_requests	/de/docs/Web/HTTP/Guides/Range_requests
 /de/docs/Web/HTTP/Redirections	/de/docs/Web/HTTP/Guides/Redirections
+/de/docs/Web/HTTP/Reference/Headers/Permissions-Policy/document-domain	/de/docs/Web/HTTP/Reference/Headers/Permissions-Policy
 /de/docs/Web/HTTP/Resources_and_URIs	/de/docs/Web/HTTP/Guides/MIME_types
 /de/docs/Web/HTTP/Resources_and_specifications	/de/docs/Web/HTTP/Reference/Resources_and_specifications
 /de/docs/Web/HTTP/Response_codes	/de/docs/Web/HTTP/Reference/Status

@@ -2,22 +2,22 @@
 title: Regnende Rechtecke
 slug: Web/API/WebGL_API/By_example/Raining_rectangles
 l10n:
-  sourceCommit: 611edf6335e4a833a6f394d0d98b117e7b0a36bf
+  sourceCommit: 364a4d02b10854ab7cef4ff4b0ec3616d4e1c8ab
 ---
 
 {{DefaultAPISidebar("WebGL")}}{{PreviousNext("Web/API/WebGL_API/By_example/Scissor_animation","Web/API/WebGL_API/By_example/Hello_GLSL")}}
 
-Ein einfaches WebGL-Spiel, das das Löschen mit Volltonfarben, Scherenschnitt, Animation und Benutzerinteraktion demonstriert.
+Ein einfaches WebGL-Spiel, das das Löschen mit Vollfarben, das Ausschneiden, Animationen und Benutzerinteraktion demonstriert.
 
-## Animation und Benutzerinteraktion mit Scherenschnitt
+## Animation und Benutzerinteraktion mit Ausschneiden
 
 {{EmbedLiveSample("Animation_and_user_interaction_with_scissoring",660,425)}}
 
-Dies ist ein einfaches Spiel. Das Ziel: Versuchen Sie, so viele der fallenden Rechtecke wie möglich zu fangen, indem Sie auf sie klicken. In diesem Beispiel verwenden wir einen objektorientierten Ansatz für die angezeigten Rechtecke, der hilft, den Zustand des Rechtecks (seine Position, Farbe usw.) an einem Ort zu organisieren und den gesamten Code kompakter und wiederverwendbarer zu machen.
+Dies ist ein einfaches Spiel. Das Ziel: Versuchen Sie, so viele der regnenden Rechtecke wie möglich zu fangen, indem Sie darauf klicken. In diesem Beispiel verwenden wir einen objektorientierten Ansatz für die angezeigten Rechtecke, was hilft, den Zustand des Rechtecks (Position, Farbe usw.) an einem Ort organisiert zu halten und den gesamten Code kompakter und wiederverwendbarer zu gestalten.
 
-Dieses Beispiel kombiniert das Löschen des Zeichnungsbuffers mit Volltonfarben und Scherenschnitt-Operationen. Es ist eine Vorschau einer vollständigen grafischen Anwendung, die verschiedene Phasen der {{Glossary("WebGL", "WebGL")}}-Grafik-Pipeline und Zustandsmaschine manipuliert.
+Dieses Beispiel kombiniert das Löschen des Zeichenpuffers mit Vollfarben und Ausschneideoperationen. Es ist eine Vorschau auf eine vollständige grafische Anwendung, die verschiedene Phasen der {{Glossary("WebGL", "WebGL")}}-Grafikpipeline und Zustandsmaschine manipuliert.
 
-Darüber hinaus demonstriert das Beispiel, wie die WebGL-Funktionsaufrufe innerhalb einer Spielschleife integriert werden. Die Spielschleife ist verantwortlich für das Zeichnen der Animationsbilderrahmen und dafür, die Animation reaktionsfähig auf Benutzereingaben zu halten. Hier wird die Spielschleife mit Hilfe von Zeitüberschreitungen implementiert.
+Darüber hinaus zeigt das Beispiel, wie WebGL-Funktionsaufrufe innerhalb einer Spielschleife integriert werden können. Die Spielschleife ist verantwortlich für das Zeichnen der Animationsrahmen und dafür, die Animation auf Benutzereingaben zu reagieren zu lassen. Hier wird die Spielschleife mit Zeitlimits implementiert.
 
 ```html hidden
 <p>You caught <strong>0</strong>. You missed <strong>0</strong>.</p>
@@ -119,26 +119,26 @@ function playerClick(evt) {
   }
 }
 
-function Rectangle() {
-  // Keeping a reference to the new Rectangle object, rather
-  // than using the confusing this keyword.
-  const rect = this;
-  // We get three random numbers and use them for new rectangle
-  // size and position. For each we use a different number,
-  // because we want horizontal size, vertical size and
-  // position to be determined independently.
-  const randVec = getRandomVector();
-  rect.size = [5 + 120 * randVec[0], 5 + 120 * randVec[1]];
-  rect.position = [
-    randVec[2] * (gl.drawingBufferWidth - rect.size[0]),
-    gl.drawingBufferHeight,
-  ];
-  rect.velocity = 1.0 + 6.0 * Math.random();
-  rect.color = getRandomVector();
-  gl.clearColor(rect.color[0], rect.color[1], rect.color[2], 1.0);
-  function getRandomVector() {
-    return [Math.random(), Math.random(), Math.random()];
+class Rectangle {
+  constructor() {
+    // We get three random numbers and use them for new rectangle
+    // size and position. For each we use a different number,
+    // because we want horizontal size, vertical size and
+    // position to be determined independently.
+    const randVec = getRandomVector();
+    this.size = [5 + 120 * randVec[0], 5 + 120 * randVec[1]];
+    this.position = [
+      randVec[2] * (gl.drawingBufferWidth - this.size[0]),
+      gl.drawingBufferHeight,
+    ];
+    this.velocity = 1.0 + 6.0 * Math.random();
+    this.color = getRandomVector();
+    gl.clearColor(this.color[0], this.color[1], this.color[2], 1.0);
   }
+}
+
+function getRandomVector() {
+  return [Math.random(), Math.random(), Math.random()];
 }
 ```
 

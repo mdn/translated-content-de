@@ -2,12 +2,12 @@
 title: async function
 slug: Web/JavaScript/Reference/Statements/async_function
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: 364a4d02b10854ab7cef4ff4b0ec3616d4e1c8ab
 ---
 
 {{jsSidebar("Statements")}}
 
-Die **`async function`**-Deklaration erstellt eine {{Glossary("binding", "Bindung")}} einer neuen asynchronen Funktion für einen gegebenen Namen. Das `await`-Schlüsselwort ist innerhalb des Funktionskörpers erlaubt, wodurch asynchrones, auf Promises basierendes Verhalten in einem klareren Stil geschrieben werden kann, ohne die Notwendigkeit, Promise-Ketten explizit zu konfigurieren.
+Die Deklaration einer **`async function`** erstellt eine {{Glossary("binding", "Bindung")}} einer neuen asynchronen Funktion zu einem gegebenen Namen. Das Schlüsselwort `await` ist innerhalb des Funktionskörpers erlaubt, was es ermöglicht, asynchrones, auf Versprechen basiertes Verhalten in einem saubereren Stil zu schreiben und die Notwendigkeit der expliziten Konfiguration von Versprechenskette zu vermeiden.
 
 Sie können asynchrone Funktionen auch mithilfe des [`async function` Ausdrucks](/de/docs/Web/JavaScript/Reference/Operators/async_function) definieren.
 
@@ -47,34 +47,39 @@ async function name(param0, param1, /* …, */ paramN) {
 ```
 
 > [!NOTE]
-> Es darf kein Zeilenumbruch zwischen `async` und `function` sein, da sonst ein Semikolon [automatisch eingefügt](/de/docs/Web/JavaScript/Reference/Lexical_grammar#automatic_semicolon_insertion) wird, was zur Folge hat, dass `async` zu einem Bezeichner und der Rest zu einer `function`-Deklaration wird.
+> Es darf kein Zeilenumbruch zwischen `async` und `function` stehen, da ansonsten ein Semikolon [automatisch eingefügt](/de/docs/Web/JavaScript/Reference/Lexical_grammar#automatic_semicolon_insertion) wird, wodurch `async` zu einem Bezeichner wird und der Rest zu einer `function` Deklaration wird.
 
 ### Parameter
 
 - `name`
   - : Der Name der Funktion.
 - `param` {{optional_inline}}
-  - : Der Name eines formalen Parameters für die Funktion. Für die Syntax der Parameter siehe die [Funktionen-Referenz](/de/docs/Web/JavaScript/Guide/Functions#function_parameters).
+  - : Der Name eines formalen Parameters für die Funktion. Die Syntax der Parameter finden Sie im [Leitfaden zu Funktionen](/de/docs/Web/JavaScript/Guide/Functions#function_parameters).
 - `statements` {{optional_inline}}
-  - : Die Anweisungen, die den Körper der Funktion ausmachen. Der `await`-Mechanismus kann verwendet werden.
+  - : Die Anweisungen, die den Körper der Funktion bilden. Der `await`
+    Mechanismus kann verwendet werden.
 
 ## Beschreibung
 
-Eine `async function`-Deklaration erstellt ein {{jsxref("AsyncFunction")}}-Objekt. Jedes Mal, wenn eine asynchrone Funktion aufgerufen wird, gibt sie ein neues {{jsxref("Promise")}} zurück, das mit dem von der asynchronen Funktion zurückgegebenen Wert aufgelöst oder mit einer innerhalb der asynchronen Funktion nicht abgefangenen Ausnahme abgelehnt wird.
+Eine `async function`-Deklaration erstellt ein {{jsxref("AsyncFunction")}}-Objekt. Jedes Mal, wenn eine asynchrone Funktion aufgerufen wird, gibt sie ein neues {{jsxref("Promise")}} zurück, das mit dem von der asynchronen Funktion zurückgegebenen Wert aufgelöst oder mit einer in der asynchronen Funktion nicht abgefangenen Ausnahme abgelehnt wird.
 
-Asynchrone Funktionen können null oder mehr {{jsxref("Operators/await", "await")}}-Ausdrücke enthalten. Await-Ausdrücke lassen Funktionen, die ein Promise zurückgeben, so erscheinen, als seien sie synchron, indem die Ausführung ausgesetzt wird, bis das zurückgegebene Promise erfüllt oder abgelehnt wird. Der aufgelöste Wert des Promise wird als Rückgabewert des Await-Ausdrucks behandelt. Die Verwendung von `async` und `await` ermöglicht die Nutzung gewöhnlicher `try`/`catch`-Blöcke um asynchronen Code.
+Asynchrone Funktionen können null oder mehr {{jsxref("Operators/await", "await")}}-Ausdrücke enthalten. Await-Ausdrücke lassen Funktionen, die ein Versprechen zurückgeben, so aussehen, als ob sie synchron wären, indem sie die Ausführung aussetzen, bis das zurückgegebene Versprechen erfüllt oder abgelehnt wird. Der Aufgelöste Wert des Versprechens wird als Rückgabewert des await-Ausdrucks behandelt. Der Einsatz von `async` und `await` ermöglicht die Verwendung gewöhnlicher `try` / `catch`-Blöcke um asynchronen Code.
 
 > [!NOTE]
-> Das `await`-Schlüsselwort ist nur innerhalb von asynchronen Funktionen im regulären JavaScript-Code gültig. Wenn Sie es außerhalb des Körpers einer asynchronen Funktion verwenden, erhalten Sie einen {{jsxref("SyntaxError")}}.
+> Das Schlüsselwort `await` ist nur innerhalb von asynchronen Funktionen im regulären JavaScript-Code gültig. Wenn Sie es außerhalb des Körpers einer asynchronen Funktion verwenden, erhalten Sie einen {{jsxref("SyntaxError")}}.
 >
 > `await` kann eigenständig mit [JavaScript-Modulen](/de/docs/Web/JavaScript/Guide/Modules) verwendet werden.
 
 > [!NOTE]
-> Ziel von `async`/`await` ist es, die Syntax zu vereinfachen, die notwendig ist, um promise-basierte APIs zu nutzen. Das Verhalten von `async`/`await` ist ähnlich wie eine Kombination aus [Generatoren](/de/docs/Web/JavaScript/Guide/Iterators_and_generators) und Promises.
+> Der Zweck von `async`/`await` ist es, die Syntax
+> zu vereinfachen, die erforderlich ist, um auf Versprechen basierende APIs zu konsumieren. Das Verhalten
+> von `async`/`await` ähnelt der Kombination aus [Generatoren](/de/docs/Web/JavaScript/Guide/Iterators_and_generators) und
+> Versprechen.
 
-Asynchrone Funktionen geben immer ein Promise zurück. Wenn der Rückgabewert einer asynchronen Funktion nicht explizit ein Promise ist, wird er implizit in ein Promise gewickelt.
+Asynchrone Funktionen geben immer ein Versprechen zurück. Wenn der Rückgabewert einer asynchronen Funktion
+nicht explizit ein Versprechen ist, wird es implizit in ein Versprechen eingeschlossen.
 
-Beispielsweise, betrachten Sie den folgenden Code:
+Beispielsweise betrachten Sie den folgenden Code:
 
 ```js
 async function foo() {
@@ -82,7 +87,7 @@ async function foo() {
 }
 ```
 
-Er ist ähnlich wie:
+Es ist ähnlich wie:
 
 ```js
 function foo() {
@@ -90,7 +95,7 @@ function foo() {
 }
 ```
 
-Beachten Sie, dass selbst wenn der Rückgabewert einer asynchronen Funktion so behandelt wird, als wäre er in ein `Promise.resolve` gewickelt, sie nicht gleichwertig sind. Eine asynchrone Funktion wird einen anderen _Referenzwert_ zurückgeben, während `Promise.resolve` denselben Referenzwert zurückgibt, wenn der gegebene Wert ein Promise ist. Das kann ein Problem sein, wenn Sie die Gleichheit eines Promise und eines Rückgabewerts einer asynchronen Funktion überprüfen möchten.
+Beachten Sie, dass, obwohl der Rückgabewert einer asynchronen Funktion sich verhält, als ob er in ein `Promise.resolve` eingeschlossen wäre, sie nicht äquivalent sind. Eine asynchrone Funktion gibt eine andere _Referenz_ zurück, während `Promise.resolve` die gleiche Referenz zurückgibt, wenn der gegebene Wert ein Versprechen ist. Dies kann ein Problem sein, wenn Sie die Gleichheit eines Versprechens und eines Rückgabewertes einer asynchronen Funktion überprüfen möchten.
 
 ```js
 const p = new Promise((res, rej) => {
@@ -109,9 +114,9 @@ console.log(p === basicReturn()); // true
 console.log(p === asyncReturn()); // false
 ```
 
-Der Körper einer asynchronen Funktion kann so betrachtet werden, als sei er durch null oder mehr Await-Ausdrücke geteilt. Top-Level-Code, bis einschließlich des ersten Await-Ausdrucks (falls vorhanden), wird synchron ausgeführt. Auf diese Weise wird eine asynchrone Funktion ohne einen Await-Ausdruck synchron ausgeführt. Wenn jedoch ein Await-Ausdruck im Funktionskörper vorhanden ist, wird die asynchrone Funktion immer asynchron abgeschlossen.
+Der Körper einer asynchronen Funktion kann als in null oder mehr await-Ausdrücke unterteilt betrachtet werden. Top-Level-Code, bis einschließlich des ersten await-Ausdrucks (falls vorhanden), wird synchron ausgeführt. Auf diese Weise wird eine asynchrone Funktion ohne await-Ausdruck synchron ausgeführt. Wenn jedoch ein await-Ausdruck im Funktionskörper vorhanden ist, wird die asynchrone Funktion immer asynchron abgeschlossen.
 
-Beispielsweise:
+Beispiel:
 
 ```js
 async function foo() {
@@ -119,7 +124,7 @@ async function foo() {
 }
 ```
 
-Er ist auch gleichwertig zu:
+Es ist auch gleichwertig zu:
 
 ```js
 function foo() {
@@ -127,13 +132,26 @@ function foo() {
 }
 ```
 
-Code nach jedem Await-Ausdruck kann so betrachtet werden, als existiere er in einem `.then`-Rückruf. Auf diese Weise wird eine Promise-Kette mit jedem erneuten Durchlauf der Funktion progressiv aufgebaut. Der Rückgabewert bildet das letzte Glied in der Kette.
+Code nach jedem await-Ausdruck kann als in einem `.then`
+Callback existierend betrachtet werden. Auf diese Weise wird eine Versprechenskette progressiv mit jedem Wiedereintrittsschritt durch die Funktion aufgebaut. Der Rückgabewert bildet das letzte Glied in der Kette.
 
-Im folgenden Beispiel warten wir nacheinander auf zwei Promises. Der Fortschritt erfolgt durch die Funktion `foo` in drei Phasen.
+Im folgenden Beispiel warten wir nacheinander auf zwei Versprechen. Der Fortschritt bewegt sich durch die Funktion `foo` in drei Phasen.
 
-1. Die erste Zeile des Körpers der Funktion `foo` wird synchron ausgeführt, mit dem Pending-Promise, das mit dem Await-Ausdruck konfiguriert ist. Der Fortschritt durch `foo` wird dann ausgesetzt und die Kontrolle an die aufrufende Funktion zurückgegeben.
-2. Einige Zeit später, wenn das erste Promise entweder erfüllt oder abgelehnt wurde, kehrt die Kontrolle in `foo` zurück. Das Ergebnis der Erfüllung des ersten Promises (wenn es nicht abgelehnt wurde) wird vom Await-Ausdruck zurückgegeben. Hier wird `1` `result1` zugewiesen. Der Fortschritt geht weiter und der zweite Await-Ausdruck wird ausgewertet. Wieder wird der Fortschritt durch `foo` ausgesetzt und die Kontrolle wird abgegeben.
-3. Einige Zeit später, wenn das zweite Promise entweder erfüllt oder abgelehnt wurde, kehrt die Kontrolle erneut in `foo` zurück. Das Ergebnis der Auflösung des zweiten Promises wird vom zweiten Await-Ausdruck zurückgegeben. Hier wird `2` `result2` zugewiesen. Die Kontrolle wird auf den Rückgabewert bewegt (falls vorhanden). Der Standardrückgabewert von `undefined` wird als Auflösungswert des aktuellen Promises zurückgegeben.
+1. Die erste Zeile des Körpers der Funktion `foo` wird synchron ausgeführt,
+   wobei der await-Ausdruck mit dem noch ausstehenden Versprechen konfiguriert wird. Der Fortschritt durch
+   `foo` wird dann ausgesetzt und die Kontrolle wird an die Funktion zurückgegeben, die
+   `foo` aufgerufen hat.
+2. Einige Zeit später, wenn das erste Versprechen entweder erfüllt oder abgelehnt wurde,
+   geht die Kontrolle zurück zu `foo`. Das Ergebnis der ersten Erfüllung des Versprechens
+   (falls es nicht abgelehnt wurde) wird vom await-Ausdruck zurückgegeben. Hier wird `1`
+   `result1` zugewiesen. Der Fortschritt geht weiter und der zweite await-Ausdruck
+   wird ausgewertet. Erneut wird der Fortschritt durch `foo` ausgesetzt und die Kontrolle wird
+   zurückgegeben.
+3. Einige Zeit später, wenn das zweite Versprechen entweder erfüllt oder abgelehnt wurde,
+   wird die Kontrolle wieder zu `foo` aufgenommen. Das Ergebnis der zweiten Erfüllung des Versprechens
+   wird vom zweiten await-Ausdruck zurückgegeben. Hier wird `2`
+   `result2` zugewiesen. Die Kontrolle bewegt sich zum Rückgabewert (falls vorhanden). Der Standard-
+   Rückgabewert von `undefined` wird als Auflösungswert des aktuellen Versprechens zurückgegeben.
 
 ```js
 async function foo() {
@@ -147,20 +165,22 @@ async function foo() {
 foo();
 ```
 
-Beachten Sie, wie die Promise-Kette nicht auf einmal aufgebaut wird. Stattdessen wird die Promise-Kette in Stufen aufgebaut, wenn die Kontrolle sukzessiv von der asynchronen Funktion abgegeben und zurückgegeben wird. Daher müssen wir auf das Verhalten der Fehlerbehandlung achten, wenn wir es mit gleichzeitigen asynchronen Operationen zu tun haben.
+Beachten Sie, wie die Versprechenskette nicht auf einmal aufgebaut wird. Stattdessen wird die Versprechenskette in Stufen aufgebaut, wenn die Kontrolle nacheinander von der asynchronen Funktion abgegeben wird und an diese zurückkehrt. Aus diesem Grund müssen wir uns des Fehlerbehandlungsverhaltens bewusst sein, wenn wir mit gleichzeitigen asynchronen Operationen umgehen.
 
-Zum Beispiel führt der folgende Code zu einem unbehandelten Promise-Ablehnungsfehler, selbst wenn ein `.catch`-Handler weiter entlang der Promise-Kette konfiguriert ist. Das liegt daran, dass `p2` erst in die Promise-Kette eingebunden wird, wenn die Kontrolle von `p1` zurückkehrt.
+Beispielsweise wird im folgenden Code ein nicht behandelter Versprechensablehnungsfehler ausgelöst, selbst wenn ein `.catch`-Handler weiter entlang der Versprechenskette konfiguriert wurde. Dies liegt daran, dass `p2` nicht in die Versprechenskette "verkabelt" wird, bis die Kontrolle von `p1` zurückkehrt.
 
 ```js
 async function foo() {
   const p1 = new Promise((resolve) => setTimeout(() => resolve("1"), 1000));
-  const p2 = new Promise((_, reject) => setTimeout(() => reject("2"), 500));
+  const p2 = new Promise((_, reject) =>
+    setTimeout(() => reject(new Error("failed")), 500),
+  );
   const results = [await p1, await p2]; // Do not do this! Use Promise.all or Promise.allSettled instead.
 }
 foo().catch(() => {}); // Attempt to swallow all errors...
 ```
 
-`async function`-Deklarationen verhalten sich ähnlich wie {{jsxref("Statements/function", "function")}}-Deklarationen — sie werden an den Anfang ihres Gültigkeitsbereichs {{Glossary("Hoisting", "hochgehoben")}} und können überall in ihrem Gültigkeitsbereich aufgerufen werden, und sie können nur in bestimmten Kontexten erneut deklariert werden.
+`async function`-Deklarationen verhalten sich ähnlich wie {{jsxref("Statements/function", "function")}}-Deklarationen — sie werden {{Glossary("Hoisting", "gehoben")}} an den Anfang ihres Gültigkeitsbereichs und können überall in ihrem Gültigkeitsbereich aufgerufen werden, und sie können nur in bestimmten Kontexten erneut deklariert werden.
 
 ## Beispiele
 
@@ -254,24 +274,39 @@ setTimeout(concurrent1, 7000); // same as sequentialWait
 setTimeout(concurrent2, 10000); // after 1 second, logs "fast", then after 1 more second, "slow"
 ```
 
-#### await und Gleichzeitigkeit
+#### await und Nebenläufigkeit
 
-In `sequentialStart` pausiert die Ausführung 2 Sekunden für das erste `await` und dann eine weitere Sekunde für das zweite `await`. Der zweite Timer wird nicht erstellt, bis der erste bereits ausgelöst wurde, sodass der Code nach 3 Sekunden endet.
+In `sequentialStart` wird die Ausführung für 2 Sekunden für das erste
+`await` ausgesetzt, und dann noch eine weitere Sekunde für das zweite `await`. Der
+zweite Timer wird nicht erstellt, bevor der erste bereits ausgelöst wurde, sodass der Code
+nach 3 Sekunden endet.
 
-In `sequentialWait` werden beide Timer erstellt und dann `await`et. Die Timer laufen gleichzeitig, was bedeutet, dass der Code nach 2 statt 3 Sekunden endet, d.h. der langsamste Timer. Die `await`-Aufrufe laufen jedoch weiterhin in Serie, was bedeutet, dass das zweite `await` darauf wartet, dass das erste fertig ist. In diesem Fall wird das Ergebnis des schnellsten Timers nach dem langsamsten verarbeitet.
+In `sequentialWait` werden beide Timer erstellt und dann gewartet.
+Die Timer laufen parallel, was bedeutet, dass der Code in 2 statt 3 Sekunden endet,
+d.h. der langsamste Timer.
+Der `await`-Aufruf läuft jedoch immer noch in Serie, was bedeutet, dass der zweite
+`await` wartet, bis der erste fertig ist. In diesem Fall wird das Ergebnis des
+schnellsten Timers nach dem langsamsten verarbeitet.
 
-Wenn Sie nach dem gleichzeitigen Abschluss von zwei oder mehr Vorgängen sicher weitere Arbeiten ausführen möchten, müssen Sie einen Aufruf von {{jsxref("Promise.all()")}} oder {{jsxref("Promise.allSettled()")}} abwarten, bevor Sie diese Aufgabe ausführen.
+Wenn Sie sicher andere Aufgaben ausführen möchten, nachdem zwei oder mehr Aufgaben parallel ausgeführt und abgeschlossen sind, müssen Sie vor dieser Aufgabe einen Aufruf von {{jsxref("Promise.all()")}} oder {{jsxref("Promise.allSettled()")}} erwarten.
 
 > [!WARNING]
-> Die Funktionen `sequentialWait` und `concurrent1` sind funktional nicht gleichwertig.
+> Die Funktionen `sequentialWait` und `concurrent1`
+> sind funktional nicht äquivalent.
 >
-> In `sequentialWait`, wenn das Promise `fast` abgelehnt wird, bevor das Promise `slow` erfüllt ist, wird ein unbehandelter Promise-Ablehnungsfehler ausgelöst, unabhängig davon, ob der Aufrufer eine Catch-Klausel konfiguriert hat.
+> In `sequentialWait`, wenn das Versprechen `fast` abgelehnt wird, bevor das Versprechen
+> `slow` erfüllt wird, wird ein nicht behandelter Versprechensablehnungsfehler ausgelöst,
+> unabhängig davon, ob der Anrufer eine Catch-Klausel konfiguriert hat.
 >
-> In `concurrent1` verbindet `Promise.all` die Promise-Kette auf einmal, was bedeutet, dass der Vorgang sofort fehlschlägt, unabhängig von der Reihenfolge der Ablehnung der Promises, und der Fehler immer innerhalb der konfigurierten Promise-Kette auftritt, sodass er auf die normale Weise abgefangen werden kann.
+> In `concurrent1` verkabelt `Promise.all` die Versprechenskette
+> auf einmal, was bedeutet, dass der Vorgang in jedem Fall schnell ausfällt, unabhängig von der Reihenfolge der
+> Ablehnung der Versprechen, und der Fehler tritt immer innerhalb der konfigurierten
+> Versprechenskette auf, sodass dieser auf normale Weise gefangen werden kann.
 
-### Umschreiben einer Promise-Kette mit einer asynchronen Funktion
+### Umschreiben einer Versprechenskette mit einer asynchronen Funktion
 
-Eine API, die ein {{jsxref("Promise")}} zurückgibt, führt zu einer Promise-Kette, und sie teilt die Funktion in viele Teile. Betrachten Sie den folgenden Code:
+Eine API, die ein {{jsxref("Promise")}} zurückgibt, führt zu einer Versprechenskette, und sie
+splittet die Funktion in viele Teile. Betrachten Sie den folgenden Code:
 
 ```js
 function getProcessedData(url) {
@@ -281,7 +316,7 @@ function getProcessedData(url) {
 }
 ```
 
-er kann mit einer einzigen asynchronen Funktion wie folgt umgeschrieben werden:
+er kann mit einer einzigen asynchronen Funktion neu geschrieben werden, wie folgt:
 
 ```js
 async function getProcessedData(url) {
@@ -295,7 +330,7 @@ async function getProcessedData(url) {
 }
 ```
 
-Alternativ können Sie die Promise mit `catch()` verketten:
+Alternativ können Sie das Versprechen mit `catch()` verketten:
 
 ```js
 async function getProcessedData(url) {
@@ -304,7 +339,10 @@ async function getProcessedData(url) {
 }
 ```
 
-In den beiden umgeschriebenen Versionen beachten Sie, dass nach dem `return`-Schlüsselwort keine `await`-Anweisung steht, obwohl dies ebenfalls gültig wäre: Der Rückgabewert einer asynchronen Funktion wird implizit in {{jsxref("Promise.resolve")}} gewickelt - wenn er nicht bereits selbst ein Promise ist (wie in den Beispielen).
+In den beiden umgeschriebenen Versionen gibt es keine `await`-Anweisung nach dem
+`return`-Schlüsselwort, obwohl sie auch gültig wäre: Der Rückgabewert einer
+asynchronen Funktion wird implizit in {{jsxref("Promise.resolve")}} eingeschlossen - wenn
+er nicht bereits selbst ein Versprechen ist (wie in den Beispielen).
 
 ## Spezifikationen
 
@@ -316,14 +354,14 @@ In den beiden umgeschriebenen Versionen beachten Sie, dass nach dem `return`-Sch
 
 ## Siehe auch
 
-- [Leitfaden zu Funktionen](/de/docs/Web/JavaScript/Guide/Functions)
-- [Leitfaden zur Verwendung von Promises](/de/docs/Web/JavaScript/Guide/Using_promises)
+- [Leitfaden: Funktionen](/de/docs/Web/JavaScript/Guide/Functions)
+- [Leitfaden: Verwendung von Versprechen](/de/docs/Web/JavaScript/Guide/Using_promises)
 - [Funktionen](/de/docs/Web/JavaScript/Reference/Functions)
 - {{jsxref("AsyncFunction")}}
-- [`async function` Ausdruck](/de/docs/Web/JavaScript/Reference/Operators/async_function)
+- [`async function`-Ausdruck](/de/docs/Web/JavaScript/Reference/Operators/async_function)
 - {{jsxref("Statements/function", "function")}}
 - {{jsxref("Statements/function*", "function*")}}
 - {{jsxref("Statements/async_function*", "async function*")}}
 - {{jsxref("Operators/await", "await")}}
 - {{jsxref("Promise")}}
-- [Dekoration asynchroner JavaScript-Funktionen](https://innolitics.com/10x/javascript-decorators-for-promise-returning-functions/) auf innolitics.com (2016)
+- [Dekorieren von asynchronen JavaScript-Funktionen](https://innolitics.com/10x/javascript-decorators-for-promise-returning-functions/) auf innolitics.com (2016)

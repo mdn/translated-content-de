@@ -2,7 +2,7 @@
 title: Array.fromAsync()
 slug: Web/JavaScript/Reference/Global_Objects/Array/fromAsync
 l10n:
-  sourceCommit: dd668beef72fc6230ae5a0cbf1b8d68fbdc1c1ae
+  sourceCommit: 364a4d02b10854ab7cef4ff4b0ec3616d4e1c8ab
 ---
 
 {{JSRef}}
@@ -20,15 +20,15 @@ Array.fromAsync(arrayLike, mapFn, thisArg)
 ### Parameter
 
 - `arrayLike`
-  - : Ein asynchrones Iterable, ein Iterable oder ein array-ähnliches Objekt, das in ein Array konvertiert werden soll.
+  - : Ein asynchrones Iterable, Iterable oder array-ähnliches Objekt, das in ein Array konvertiert werden soll.
 - `mapFn` {{optional_inline}}
-  - : Eine Funktion, die auf jedes Element des Arrays angewendet wird. Wenn vorhanden, wird jeder Wert, der dem Array hinzugefügt werden soll, zuerst durch diese Funktion geleitet, und der Rückgabewert von `mapFn` wird stattdessen dem Array hinzugefügt (nachdem er [awaited](/de/docs/Web/JavaScript/Reference/Operators/await) wurde). Die Funktion wird mit den folgenden Argumenten aufgerufen:
+  - : Eine Funktion, die auf jedes Element des Arrays angewendet wird. Falls angegeben, wird jeder Wert, der zum Array hinzugefügt wird, zuerst durch diese Funktion geleitet, und der Rückgabewert von `mapFn` wird dem Array hinzugefügt (nachdem er [erwartet](/de/docs/Web/JavaScript/Reference/Operators/await) wurde). Die Funktion wird mit den folgenden Argumenten aufgerufen:
     - `element`
-      - : Das aktuelle Element, das im Array verarbeitet wird. Da alle Elemente zuerst [awaited](/de/docs/Web/JavaScript/Reference/Operators/await) werden, wird dieser Wert niemals ein [thenable](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise#thenables) sein.
+      - : Das aktuelle Element, das im Array verarbeitet wird. Da alle Elemente zuerst [erwartet](/de/docs/Web/JavaScript/Reference/Operators/await) werden, wird dieser Wert niemals ein [thenable](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise#thenables) sein.
     - `index`
       - : Der Index des aktuellen Elements, das im Array verarbeitet wird.
 - `thisArg` {{optional_inline}}
-  - : Wert, der als `this` beim Ausführen von `mapFn` verwendet wird.
+  - : Wert, der als `this` verwendet wird, wenn `mapFn` ausgeführt wird.
 
 ### Rückgabewert
 
@@ -36,27 +36,27 @@ Ein neues {{jsxref("Promise")}}, dessen Erfüllungswert eine neue {{jsxref("Arra
 
 ## Beschreibung
 
-`Array.fromAsync()` ermöglicht es Ihnen, Arrays zu erstellen aus:
+`Array.fromAsync()` ermöglicht die Erstellung von Arrays aus:
 
-- [asynchronen iterierbaren Objekten](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_async_iterator_and_async_iterable_protocols) (Objekte wie [`ReadableStream`](/de/docs/Web/API/ReadableStream) und {{jsxref("AsyncGenerator")}}); oder, wenn das Objekt nicht asynchron iterierbar ist,
-- [iterierbaren Objekten](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterable_protocol) (Objekte wie {{jsxref("Map")}} und {{jsxref("Set")}}); oder, wenn das Objekt nicht iterierbar ist,
-- array-ähnlichen Objekten (Objekten mit einer `length`-Eigenschaft und indizierten Elementen).
+- [Asynchronen iterierbaren Objekten](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_async_iterator_and_async_iterable_protocols) (Objekte wie z.B. [`ReadableStream`](/de/docs/Web/API/ReadableStream) und {{jsxref("AsyncGenerator")}}); oder, wenn das Objekt nicht asynchron iterierbar ist,
+- [Iterierbaren Objekten](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterable_protocol) (Objekte wie z.B. {{jsxref("Map")}} und {{jsxref("Set")}}); oder, wenn das Objekt nicht iterierbar ist,
+- Array-ähnlichen Objekten (Objekte mit einer `length`-Eigenschaft und indizierten Elementen).
 
-`Array.fromAsync()` durchläuft das asynchrone Iterable sehr ähnlich wie {{jsxref("Statements/for-await...of", "for await...of")}}. `Array.fromAsync()` ist im Verhalten fast gleichwertig mit {{jsxref("Array.from()")}}, außer den folgenden Punkten:
+`Array.fromAsync()` iteriert das asynchrone Iterable auf eine Weise, die der von {{jsxref("Statements/for-await...of", "for await...of")}} sehr ähnlich ist. `Array.fromAsync()` ist in Bezug auf das Verhalten fast gleichwertig zu {{jsxref("Array.from()")}}, mit den folgenden Unterschieden:
 
 - `Array.fromAsync()` behandelt asynchrone iterierbare Objekte.
-- `Array.fromAsync()` gibt ein {{jsxref("Promise")}} zurück, das auf die Array-Instanz erfüllt.
-- Wenn `Array.fromAsync()` mit einem nicht asynchronen iterierbaren Objekt aufgerufen wird, wird jedes Element, das dem Array hinzugefügt werden soll, zuerst [awaited](/de/docs/Web/JavaScript/Reference/Operators/await).
-- Wenn ein `mapFn` bereitgestellt wird, werden dessen Eingaben und Ausgaben intern awaited.
+- `Array.fromAsync()` gibt ein {{jsxref("Promise")}} zurück, das zur Array-Instanz erfüllt wird.
+- Wenn `Array.fromAsync()` mit einem nicht-asynchronen iterierbaren Objekt aufgerufen wird, wird jedes Element, das zum Array hinzugefügt werden soll, zuerst [erwartet](/de/docs/Web/JavaScript/Reference/Operators/await).
+- Wenn ein `mapFn` angegeben ist, werden dessen Eingaben und Ausgaben intern erwartet.
 
 `Array.fromAsync()` und {{jsxref("Promise.all()")}} können beide ein Iterable von Promises in ein Promise eines Arrays umwandeln. Es gibt jedoch zwei wesentliche Unterschiede:
 
-- `Array.fromAsync()` wartet auf jeden Wert, der aus dem Objekt nacheinander erzeugt wird. `Promise.all()` wartet auf alle Werte gleichzeitig.
-- `Array.fromAsync()` durchläuft das Iterable lazy und ruft den nächsten Wert erst ab, wenn der aktuelle abgeschlossen ist. `Promise.all()` ruft alle Werte im Voraus ab und wartet auf alle.
+- `Array.fromAsync()` wartet jeden Wert ab, der vom Objekt sequentiell geliefert wird. `Promise.all()` wartet alle Werte gleichzeitig ab.
+- `Array.fromAsync()` iteriert das Iterable lazy und ruft den nächsten Wert erst ab, wenn der aktuelle erledigt ist. `Promise.all()` ruft alle Werte im Voraus ab und wartet auf alle.
 
 ## Beispiele
 
-### Array aus einem asynchronen Iterable
+### Array von einem asynchronen Iterable
 
 ```js
 const asyncIterable = (async function* () {
@@ -70,7 +70,7 @@ Array.fromAsync(asyncIterable).then((array) => console.log(array));
 // [0, 1, 2, 3, 4]
 ```
 
-### Array aus einem synchronen Iterable
+### Array von einem synchronen Iterable
 
 ```js
 Array.fromAsync(
@@ -82,7 +82,7 @@ Array.fromAsync(
 // [[1, 2], [3, 4]]
 ```
 
-### Array aus einem synchronen Iterable, das Promises liefert
+### Array von einem synchronen Iterable, das Promises liefert
 
 ```js
 Array.fromAsync(
@@ -91,7 +91,7 @@ Array.fromAsync(
 // [1, 2, 3]
 ```
 
-### Array aus einem array-ähnlichen Objekt von Promises
+### Array von einem array-ähnlichen Objekt von Promises
 
 ```js
 Array.fromAsync({
@@ -105,7 +105,7 @@ Array.fromAsync({
 
 ### Verwendung von mapFn
 
-Sowohl die Eingabe als auch die Ausgabe von `mapFn` werden intern von `Array.fromAsync()` awaited.
+Sowohl die Eingaben als auch die Ausgaben von `mapFn` werden intern von `Array.fromAsync()` erwartet.
 
 ```js
 function delayedValue(v) {
@@ -121,7 +121,7 @@ Array.fromAsync(
 
 ### Vergleich mit Promise.all()
 
-`Array.fromAsync()` wartet auf jeden Wert, der aus dem Objekt nacheinander erzeugt wird. `Promise.all()` wartet auf alle Werte gleichzeitig.
+`Array.fromAsync()` wartet jeden Wert ab, der vom Objekt sequentiell geliefert wird. `Promise.all()` wartet alle Werte gleichzeitig ab.
 
 ```js
 function* makeIterableOfPromises() {
@@ -145,13 +145,13 @@ function* makeIterableOfPromises() {
 
 ### Keine Fehlerbehandlung für synchrone Iterables
 
-Ähnlich wie bei [`for await...of`](/de/docs/Web/JavaScript/Reference/Statements/for-await...of#iterating_over_sync_iterables_and_generators), wenn das Objekt, das durchlaufen wird, ein synchrones Iterable ist und ein Fehler beim Iterieren auftritt, die `return()`-Methode des zugrunde liegenden Iterators nicht aufgerufen wird, sodass der Iterator nicht geschlossen wird.
+Ähnlich wie bei [`for await...of`](/de/docs/Web/JavaScript/Reference/Statements/for-await...of#iterating_over_sync_iterables_and_generators), wenn das zu durchlaufende Objekt ein synchrones Iterable ist und während der Iteration ein Fehler auftritt, wird die `return()`-Methode des zugrunde liegenden Iterators nicht aufgerufen, sodass der Iterator nicht geschlossen wird.
 
 ```js
 function* generatorWithRejectedPromises() {
   try {
     yield 0;
-    yield Promise.reject(3);
+    yield Promise.reject(new Error("error"));
   } finally {
     console.log("called finally");
   }
@@ -164,11 +164,11 @@ function* generatorWithRejectedPromises() {
     console.log("caught", e);
   }
 })();
-// caught 3
+// caught Error: error
 // No "called finally" message
 ```
 
-Wenn Sie den Iterator schließen müssen, müssen Sie stattdessen eine {{jsxref("Statements/for...of", "for...of")}}-Schleife verwenden und jeden Wert selbst `await`en.
+Wenn Sie den Iterator schließen müssen, sollten Sie stattdessen eine {{jsxref("Statements/for...of", "for...of")}}-Schleife verwenden und jeden Wert selbst erwarten.
 
 ```js
 (async () => {
@@ -196,7 +196,7 @@ Wenn Sie den Iterator schließen müssen, müssen Sie stattdessen eine {{jsxref(
 ## Siehe auch
 
 - [Polyfill von `Array.fromAsync` in `core-js`](https://github.com/zloirock/core-js#arrayfromasync)
-- [Leitfaden zu Indexierten Sammlungen](/de/docs/Web/JavaScript/Guide/Indexed_collections)
+- [Leitfaden zu indizierten Sammlungen](/de/docs/Web/JavaScript/Guide/Indexed_collections)
 - {{jsxref("Array")}}
 - {{jsxref("Array/Array", "Array()")}}
 - {{jsxref("Array.of()")}}
