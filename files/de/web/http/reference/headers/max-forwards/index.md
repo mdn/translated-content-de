@@ -1,24 +1,25 @@
 ---
-title: Max-Forwards
+title: Max-Forwards header
+short-title: Max-Forwards
 slug: Web/HTTP/Reference/Headers/Max-Forwards
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: ee756fd51ccbc4820a4b334aa753648650ad1d51
 ---
 
 {{HTTPSidebar}}
 
-Der HTTP-**`Max-Forwards`**-{{Glossary("request_header", "Anforderungsheader")}} wird mit der {{HTTPMethod("TRACE")}}-Methode verwendet, um die Anzahl der Knoten (normalerweise {{Glossary("Proxy_server", "Proxys")}}), durch die die Anfrage geht, zu begrenzen. Sein Wert ist eine ganze Zahl, die die _maximale Anzahl_ der Knoten angibt, die besucht werden müssen. An jedem Knoten wird der Wert dekrementiert und die `TRACE`-Anfrage wird an den nächsten Knoten weitergeleitet, bis das Ziel erreicht ist oder der empfangene `Max-Forwards`-Wert null ist. Die Anfrage wird dann (unter Ausschluss sensibler Header, wo zutreffend) als der Body einer {{HTTPStatus("200")}}-Antwort zurückgesendet. Dadurch kann der Client sehen, was am anderen Ende der Anforderungskette empfangen wird (der {{HTTPHeader("Via")}}-Header ist von besonderem Interesse), zu Test- oder Diagnosezwecken.
+Der HTTP-**`Max-Forwards`**-{{Glossary("request_header", "Request-Header")}} wird mit der {{HTTPMethod("TRACE")}}-Methode verwendet, um die Anzahl der Knoten (in der Regel {{Glossary("Proxy_server", "Proxies")}}), durch die die Anfrage geleitet wird, zu begrenzen. Sein Wert ist eine Ganzzahl, die die _maximale Anzahl_ von Knoten angibt, die die Anfrage passieren muss. An jedem Knoten wird der Wert verringert, und die `TRACE`-Anfrage wird an den nächsten Knoten weitergeleitet, bis das Ziel erreicht ist oder der empfangene Wert von `Max-Forwards` null ist. Die Anfrage wird dann zurückgesendet (sensible Header werden dabei soweit möglich ausgeschlossen) und dient als Inhalt einer {{HTTPStatus("200")}}-Antwort. Dies ermöglicht es dem Client zu sehen, was am anderen Ende der Anfragestrecke empfangen wird (der {{HTTPHeader("Via")}}-Header ist dabei von besonderem Interesse) für Test- oder Diagnosezwecke.
 
-Wenn der `Max-Forwards`-Header in einer `TRACE`-Anfrage nicht vorhanden ist, nimmt ein Knoten an, dass es keine maximale Anzahl von Weiterleitungen gibt.
+Wenn der `Max-Forwards`-Header in einer `TRACE`-Anfrage nicht vorhanden ist, wird ein Knoten annehmen, dass es keine maximale Anzahl von Weiterleitungen gibt.
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>{{Glossary("Request_header", "Anforderungsheader")}}</td>
+      <td>{{Glossary("Request_header", "Request-Header")}}</td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Forbidden_request_header", "Verbotener Anforderungsheader")}}</th>
+      <th scope="row">{{Glossary("Forbidden_request_header", "Verbotener Request-Header")}}</th>
       <td>Nein</td>
     </tr>
   </tbody>
@@ -43,7 +44,7 @@ Max-Forwards: 10
 
 ## Browser-Kompatibilität
 
-Dieses Feature ist weder auf Browser ausgelegt noch in ihnen implementiert.
+Dieses Feature ist weder für Browser vorgesehen noch in ihnen implementiert.
 
 ## Siehe auch
 

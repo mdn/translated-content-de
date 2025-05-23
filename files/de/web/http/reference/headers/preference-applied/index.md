@@ -1,22 +1,23 @@
 ---
-title: Preference-Applied
+title: Preference-Applied header
+short-title: Preference-Applied
 slug: Web/HTTP/Reference/Headers/Preference-Applied
 l10n:
-  sourceCommit: 48e5f930bc2ac2d73650905ce0ee2cd36d6270ba
+  sourceCommit: ee756fd51ccbc4820a4b334aa753648650ad1d51
 ---
 
 {{HTTPSidebar}}
 
 Der HTTP-Header **`Preference-Applied`** informiert den Client darüber, welche Präferenzen aus dem {{httpheader("Prefer")}}-Request-Header vom Server angewendet wurden.
 
-Der Server gibt an, ob eine Präferenz auf eine Antwort angewendet wird, wenn dies für den Client sonst nicht eindeutig wäre.
+Der Server zeigt an, ob eine Präferenz auf eine Antwort angewendet wird, wenn dies für den Client sonst nicht eindeutig wäre.
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
       <td>
-        {{Glossary("Response_header", "Antwort-Header")}}
+        {{Glossary("Response_header", "Response-Header")}}
       </td>
     </tr>
     <tr>
@@ -25,7 +26,7 @@ Der Server gibt an, ob eine Präferenz auf eine Antwort angewendet wird, wenn di
     </tr>
     <tr>
       <th scope="row">
-        {{Glossary("CORS-safelisted_response_header", "CORS-Whitelist-Antwort-Header")}}
+        {{Glossary("CORS-safelisted_response_header", "CORS-safelisted Response-Header")}}
       </th>
       <td>Nein</td>
     </tr>
@@ -42,7 +43,7 @@ Preference-Applied: <preference>
 
 ### Server wendet Zeitzonenpräferenzen an
 
-Die folgende Anfrage zeigt an, dass der Client es vorzieht, Ereignisse in einer bestimmten Zeitzone darzustellen:
+Die folgende Anfrage zeigt an, dass der Client bevorzugt, dass Ereignisse in einer bestimmten Zeitzone dargestellt werden:
 
 ```http
 GET /events HTTP/1.1
@@ -71,5 +72,5 @@ Preference-Applied: timezone=America/Los_Angeles
 ## Siehe auch
 
 - {{HTTPHeader("Prefer")}}
-- [Prefer-Header](https://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#_Toc31358871) auf docs.oasis-open.org
-- [Prefer-Header](https://docs.postgrest.org/en/v12/references/api/preferences.html) auf docs.postgrest.org
+- [Prefer header](https://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#_Toc31358871) auf docs.oasis-open.org
+- [Prefer header](https://docs.postgrest.org/en/v12/references/api/preferences.html) auf docs.postgrest.org

@@ -1,25 +1,26 @@
 ---
-title: DELETE
+title: DELETE request method
+short-title: DELETE
 slug: Web/HTTP/Reference/Methods/DELETE
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: ee756fd51ccbc4820a4b334aa753648650ad1d51
 ---
 
 {{HTTPSidebar}}
 
 Die **`DELETE`** HTTP-Methode fordert den Server auf, eine angegebene Ressource zu löschen.
 
-Die `DELETE`-Methode hat keine definierten Semantiken für den Nachrichtenkörper, daher sollte dieser leer sein.
+Die `DELETE`-Methode hat keine definierten Semantiken für den Nachrichteninhalt, daher sollte dieser leer sein.
 
 <table class="properties">
   <tbody>
     <tr>
-      <th scope="row">Anfrage hat Körper</th>
-      <td>Kann sein</td>
+      <th scope="row">Anfrage hat einen Inhalt</th>
+      <td>Kann</td>
     </tr>
     <tr>
-      <th scope="row">Erfolgreiche Antwort hat Körper</th>
-      <td>Kann sein</td>
+      <th scope="row">Erfolgreiche Antwort hat einen Inhalt</th>
+      <td>Kann</td>
     </tr>
     <tr>
       <th scope="row">{{Glossary("Safe/HTTP", "Sicher")}}</th>
@@ -30,7 +31,7 @@ Die `DELETE`-Methode hat keine definierten Semantiken für den Nachrichtenkörpe
       <td>Ja</td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Cacheable", "Cacheable")}}</th>
+      <th scope="row">{{Glossary("Cacheable", "Cache-fähig")}}</th>
       <td>Nein</td>
     </tr>
     <tr>
@@ -49,11 +50,11 @@ DELETE <request-target>["?"<query>] HTTP/1.1
 ```
 
 - `<request-target>`
-  - : Identifiziert die Zielressource der Anfrage, wenn sie mit den im {{HTTPHeader("Host")}}-Header angegebenen Informationen kombiniert wird.
-    Dies ist ein absoluter Pfad (z.B. `/path/to/file.html`) in Anfragen an einen Ursprungsserver und eine absolute URL in Anfragen an Proxys (z.B. `http://www.example.com/path/to/file.html`).
+  - : Identifiziert die Zielressource der Anfrage, wenn kombiniert mit den Informationen im {{HTTPHeader("Host")}} Header.
+    Dies ist ein absoluter Pfad (z.B., `/path/to/file.html`) in Anfragen an einen Ursprungsserver, und eine absolute URL in Anfragen an Proxys (z.B., `http://www.example.com/path/to/file.html`).
 - `<query>` {{optional_inline}}
-  - : Eine optionale Abfragekomponente, die durch ein Fragezeichen `?` eingeleitet wird.
-    Häufig verwendet, um identifizierende Informationen in Form von `key=value`-Paaren zu übermitteln.
+  - : Eine optionale Abfragekomponente, der ein Fragezeichen `?` vorangestellt ist.
+    Häufig verwendet, um identifizierende Informationen in Form von `key=value` Paaren zu übermitteln.
 
 ## Beispiele
 
@@ -67,14 +68,14 @@ Host: example.com
 ```
 
 Wenn die Anfrage erfolgreich ist, gibt es mehrere mögliche [erfolgreiche Antwortstatuscodes](/de/docs/Web/HTTP/Reference/Status#successful_responses).
-Eine {{HTTPStatus("204", "204 No Content")}}-Antwort bedeutet, dass die Anfrage erfolgreich war und keine zusätzlichen Informationen an den Client zurückgesendet werden müssen:
+Eine {{HTTPStatus("204", "204 No Content")}}-Antwort bedeutet, dass die Anfrage erfolgreich war und keine zusätzlichen Informationen an den Client gesendet werden müssen:
 
 ```http
 HTTP/1.1 204 No Content
 Date: Wed, 04 Sep 2024 10:16:04 GMT
 ```
 
-Eine {{HTTPStatus("200", "200 OK")}}-Antwort bedeutet, dass die Anfrage erfolgreich war und der Antwortkörper eine Darstellung enthält, die das Ergebnis beschreibt:
+Eine {{HTTPStatus("200", "200 OK")}}-Antwort bedeutet, dass die Anfrage erfolgreich war und der Antwortinhalt eine Darstellung des Ergebnisses enthält:
 
 ```http
 HTTP/1.1 200 OK

@@ -1,15 +1,16 @@
 ---
-title: Alt-Svc
+title: Alt-Svc header
+short-title: Alt-Svc
 slug: Web/HTTP/Reference/Headers/Alt-Svc
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: ee756fd51ccbc4820a4b334aa753648650ad1d51
 ---
 
 {{HTTPSidebar}}
 
-Der HTTP **`Alt-Svc`** {{Glossary("response_header", "Antwort-Header")}} ermöglicht es einem Server anzugeben, dass ein anderer Netzwerkstandort (der "alternative Dienst") als autoritativ für diesen Ursprung behandelt werden kann, wenn zukünftige Anfragen gestellt werden.
+Der HTTP-**`Alt-Svc`**-{{Glossary("response_header", "Antwort-Header")}} ermöglicht es einem Server, anzugeben, dass ein anderer Netzwerkstandort (der "alternative Dienst") als maßgeblich für diesen Ursprung behandelt werden kann, wenn zukünftige Anfragen gestellt werden.
 
-Auf diese Weise können neue Protokollversionen beworben werden, ohne laufende Anfragen zu beeinflussen, und es kann den Servern helfen, den Datenverkehr zu verwalten. Die Verwendung eines alternativen Dienstes ist für den Endbenutzer nicht erkennbar; es ändert weder die URL noch den Ursprung der Anfrage und führt nicht zu zusätzlichen Round-Trips.
+Dies ermöglicht es, neue Protokollversionen zu bewerben, ohne laufende Anfragen zu beeinflussen, und kann auch Servern helfen, den Datenverkehr zu verwalten. Die Nutzung eines alternativen Dienstes ist für den Endnutzer nicht sichtbar; sie ändert nicht die URL oder den Ursprung der Anfrage und führt nicht zu zusätzlichen Round-Trips.
 
 <table class="properties">
   <tbody>
@@ -18,7 +19,7 @@ Auf diese Weise können neue Protokollversionen beworben werden, ohne laufende A
       <td>{{Glossary("Response_header", "Antwort-Header")}}</td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Forbidden_request_header", "Verbotener Anfrage-Header")}}</th>
+      <th scope="row">{{Glossary("Forbidden_request_header", "Verbotener Anforderungs-Header")}}</th>
       <td>Nein</td>
     </tr>
   </tbody>
@@ -35,20 +36,19 @@ Alt-Svc: <protocol-id>=<alt-authority>; ma=<max-age>; persist=1
 - `clear`
   - : Alle alternativen Dienste des Ursprungs werden ungültig gemacht.
 - `<protocol-id>`
-  - : Der {{Glossary("ALPN", "Application-Layer Protocol Negotiation (ALPN)")}} Protokoll-Identifier. Beispiele sind `h2` für HTTP/2 und `h3-25` für Entwurf 25 des HTTP/3 Protokolls.
+  - : Die {{Glossary("ALPN", "Application-Layer Protocol Negotiation (ALPN)")}}-Protokollkennung. Beispiele sind `h2` für HTTP/2 und `h3-25` für Entwurf 25 des HTTP/3-Protokolls.
 - `<alt-authority>`
-  - : Ein zitierter String, der die alternative Autorität angibt, bestehend aus einer optionalen Host-Überschreibung, einem Doppelpunkt und einer zwingenden Portnummer.
+  - : Ein um Anführungszeichen gesetzter String, der die alternative Instanz spezifiziert, bestehend aus einer optionalen Host-Überschreibung, einem Doppelpunkt und einer obligatorischen Portnummer.
 - `ma=<max-age>` {{optional_inline}}
-  - : Die Anzahl der Sekunden, für die der alternative Dienst als aktuell gilt.
-    Wenn nicht angegeben, beträgt der Standardwert 24 Stunden.
-    Einträge alternativer Dienste können bis zu `<max-age>` Sekunden, abzüglich des Alters der Antwort (aus dem {{HTTPHeader("Age")}} Header), zwischengespeichert werden.
-    Sobald der zwischengespeicherte Eintrag abläuft, kann der Client diesen alternativen Dienst nicht mehr für neue Verbindungen verwenden.
+  - : Die Anzahl der Sekunden, für die der alternative Dienst als aktuell angesehen wird.
+    Wird diese Angabe weggelassen, beträgt der Standardwert 24 Stunden.
+    Einträge von alternativen Diensten können bis zu `<max-age>` Sekunden zwischengespeichert werden, abzüglich der Alterung der Antwort (aus dem {{HTTPHeader("Age")}}-Header).
+    Nach Ablauf des zwischengespeicherten Eintrags kann der Client diesen alternativen Dienst nicht mehr für neue Verbindungen verwenden.
 - `persist=1` {{optional_inline}}
   - : Einträge werden nicht durch Änderungen der Netzwerkkonfiguration gelöscht.
-    Zwischengespeicherte Einträge alternativer Dienste werden normalerweise bei solchen Änderungen gelöscht.
+    Normalerweise werden zwischengespeicherte Einträge für alternative Dienste bei solchen Änderungen gelöscht.
 
-Mehrere Einträge können in einem einzigen `Alt-Svc` Header mit einem Komma als Trennzeichen angegeben werden.
-In diesem Fall werden frühere Einträge als bevorzugt betrachtet.
+Mehrere Einträge können in einem einzelnen `Alt-Svc`-Header durch Kommata getrennt angegeben werden. In diesem Fall werden frühere Einträge als vorzugswürdiger betrachtet.
 
 ## Beispiel
 
@@ -69,4 +69,4 @@ Alt-Svc: h3-25=":443"; ma=3600, h2=":443"; ma=3600
 
 ## Siehe auch
 
-- [Alternative Services](https://www.mnot.net/blog/2016/03/09/alt-svc) von HTTP-Arbeitsgruppenleiter, Mark Nottingham (2016)
+- [Alternative Services](https://www.mnot.net/blog/2016/03/09/alt-svc) von HTTP Working Group Vorsitzendem, Mark Nottingham (2016)

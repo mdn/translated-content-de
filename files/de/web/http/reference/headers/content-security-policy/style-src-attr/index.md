@@ -1,16 +1,16 @@
 ---
-title: "CSP: style-src-attr"
+title: "Content-Security-Policy: style-src-attr Anweisung"
+short-title: style-src-attr
 slug: Web/HTTP/Reference/Headers/Content-Security-Policy/style-src-attr
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: ee756fd51ccbc4820a4b334aa753648650ad1d51
 ---
 
 {{HTTPSidebar}}
 
-Die HTTP-Richtlinie {{HTTPHeader("Content-Security-Policy")}} (CSP) **`style-src-attr`** spezifiziert gültige Quellen für Inline-Stile, die auf einzelne DOM-Elemente angewendet werden.
+Die HTTP {{HTTPHeader("Content-Security-Policy")}} (CSP) **`style-src-attr`** Anweisung spezifiziert gültige Quellen für Inline-Stile, die auf einzelne DOM-Elemente angewendet werden.
 
-Die Richtlinie legt keine gültigen Quellen für {{HTMLElement("style")}}-Elemente und {{HTMLElement("link")}}-Elemente mit `rel="stylesheet"` fest.
-Diese werden mit {{CSP("style-src-elem")}} festgelegt (und gültige Quellen für alle Stile können mit {{CSP("style-src")}} festgelegt werden).
+Die Anweisung legt keine gültigen Quellen für {{HTMLElement("style")}}-Elemente und {{HTMLElement("link")}}-Elemente mit `rel="stylesheet"` fest. Diese werden mit {{CSP("style-src-elem")}} festgelegt (und gültige Quellen für alle Stile können mit {{CSP("style-src")}} festgelegt werden).
 
 <table class="properties">
   <tbody>
@@ -19,15 +19,14 @@ Diese werden mit {{CSP("style-src-elem")}} festgelegt (und gültige Quellen für
       <td>3</td>
     </tr>
     <tr>
-      <th scope="row">Richtlinientyp</th>
-      <td>{{Glossary("Fetch_directive", "Abrufrichtlinie")}}</td>
+      <th scope="row">Anweisungstyp</th>
+      <td>{{Glossary("Fetch_directive", "Fetch directive")}}</td>
     </tr>
     <tr>
-      <th scope="row">{{CSP("default-src")}} Fallback</th>
+      <th scope="row">{{CSP("default-src")}} Rückfall</th>
       <td>
         <p>
-          Ja.
-          Wenn diese Richtlinie fehlt, sucht der Benutzeragent nach der {{CSP("style-src")}}-Richtlinie, und wenn beide fehlen, wird auf die <code>default-src</code>-Richtlinie zurückgegriffen.
+          Ja. Wenn diese Anweisung fehlt, wird der User-Agent die {{CSP("style-src")}}-Anweisung suchen, und wenn beide fehlen, auf die <code>default-src</code>-Anweisung zurückfallen.
         </p>
       </td>
     </tr>
@@ -41,13 +40,13 @@ Content-Security-Policy: style-src-attr 'none';
 Content-Security-Policy: style-src-attr <source-expression-list>;
 ```
 
-Diese Richtlinie kann einen der folgenden Werte haben:
+Diese Anweisung kann einen der folgenden Werte haben:
 
 - `'none'`
   - : Keine Ressourcen dieses Typs dürfen geladen werden. Die einfachen Anführungszeichen sind obligatorisch.
 - `<source-expression-list>`
 
-  - : Eine durch Leerzeichen getrennte Liste von _Quellenausdrücken_. Ressourcen dieses Typs dürfen geladen werden, wenn sie mit einem der angegebenen Quellenausdrücke übereinstimmen. Für diese Richtlinie sind die folgenden Quellenausdrücke anwendbar:
+  - : Eine durch Leerzeichen getrennte Liste von _source expression_-Werten. Ressourcen dieses Typs dürfen geladen werden, wenn sie mit einem der angegebenen Quellenausdrücke übereinstimmen. Für diese Anweisung sind die folgenden Quellenausdrücke anwendbar:
 
     - [`'unsafe-hashes'`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy#unsafe-hashes)
     - [`'unsafe-inline'`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy#unsafe-inline)
@@ -62,15 +61,15 @@ Content-Security-Policy: style-src-attr <source>;
 
 ## Beispiele
 
-### Verstoßfälle
+### Verletzungsfälle
 
-Angenommen, dieser CSP-Header ist gesetzt:
+Angesichts dieses CSP-Headers:
 
 ```http
 Content-Security-Policy: style-src-attr 'none'
 ```
 
-…wird der unten stehende Inline-Stil nicht angewendet:
+…wird der unten angewendete Inline-Stil nicht angewendet:
 
 ```html
 <div style="display:none">Foo</div>
@@ -83,13 +82,13 @@ document.querySelector("div").setAttribute("style", "display:none;");
 document.querySelector("div").style.cssText = "display:none;";
 ```
 
-Stileigenschaften, die direkt auf die [`style`](/de/docs/Web/API/HTMLElement/style)-Eigenschaft des Elements gesetzt werden, werden nicht blockiert, sodass Benutzer Stile sicher über JavaScript manipulieren können:
+Stileigenschaften, die direkt auf der [`style`](/de/docs/Web/API/HTMLElement/style)-Eigenschaft des Elements gesetzt werden, werden nicht blockiert, was es Nutzern ermöglicht, Stile sicher über JavaScript zu manipulieren:
 
 ```js
 document.querySelector("div").style.display = "none";
 ```
 
-Beachten Sie, dass die Verwendung von JavaScript unabhängig davon durch die {{CSP("script-src")}} CSP-Richtlinie blockiert werden kann.
+Beachten Sie, dass die Verwendung von JavaScript unabhängig mit der {{CSP("script-src")}} CSP-Anweisung blockiert werden kann.
 
 ## Spezifikationen
 
@@ -104,7 +103,7 @@ Beachten Sie, dass die Verwendung von JavaScript unabhängig davon durch die {{C
 - {{HTTPHeader("Content-Security-Policy")}}
 - {{CSP("style-src")}}
 - {{CSP("style-src-elem")}}
-- {{HTTPHeader("Link")}} Header
+- {{HTTPHeader("Link")}} header
 - {{HTMLElement("style")}}, {{HTMLElement("link")}}
 - {{cssxref("@import")}}
 - [`CSSStyleSheet.insertRule()`](/de/docs/Web/API/CSSStyleSheet/insertRule)

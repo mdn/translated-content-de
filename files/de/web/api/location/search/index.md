@@ -1,30 +1,30 @@
 ---
-title: "Location: search-Eigenschaft"
+title: "Standort: search-Eigenschaft"
 short-title: search
 slug: Web/API/Location/search
 l10n:
-  sourceCommit: 8cc63f7e6619446ea38f6a38c457a597a9af564b
+  sourceCommit: 1eabc08d295e60d7d8eab6bce858d2fb0833be2b
 ---
 
 {{ApiRef("Location")}}
 
-Die **`search`**-Eigenschaft der [`Location`](/de/docs/Web/API/Location)-Schnittstelle ist eine Suchzeichenkette, auch als _Query-String_ bezeichnet, die eine Zeichenkette enthält, die mit einem `"?"` beginnt, gefolgt von den Parametern der URL des Standorts. Wenn die URL keine Suchabfrage enthält, enthält diese Eigenschaft eine leere Zeichenkette, `""`.
+Die **`search`**-Eigenschaft der [`Location`](/de/docs/Web/API/Location)-Schnittstelle ist eine Suchzeichenfolge, auch bekannt als _Abfragezeichenfolge_, die eine Zeichenfolge mit einem `"?"` ist, gefolgt von den Parametern der URL des Standorts. Wenn die URL keine Suchanfrage hat, enthält diese Eigenschaft eine leere Zeichenfolge, `""`.
 
-Diese Eigenschaft kann gesetzt werden, um den Query-String der URL zu ändern. Beim Setzen wird ein einzelnes `"?"`-Präfix zur angegebenen Zeichenkette hinzugefügt, falls es nicht bereits vorhanden ist. Das Setzen auf `""` entfernt den Query-String.
+Diese Eigenschaft kann gesetzt werden, um die Abfragezeichenfolge der URL zu ändern. Beim Setzen wird ein einzelnes `"?"`-Präfix zum bereitgestellten Wert hinzugefügt, falls nicht bereits vorhanden. Das Setzen auf `""` entfernt die Abfragezeichenfolge.
 
-Die Abfrage wird beim Setzen {{Glossary("Percent-encoding", "percent-codiert")}}, aber beim Lesen nicht dekodiert.
+Die Abfrage wird beim Setzen {{Glossary("Percent-encoding", "prozentkodiert")}}, aber beim Lesen nicht dekodiert.
 
 Moderne Browser bieten
 [`URLSearchParams`](/de/docs/Web/API/URLSearchParams/get#examples)
 und
-[`URL.searchParams`](/de/docs/Web/API/URL/searchParams#examples),
-um das Analysieren der Parameter aus dem Query-String zu erleichtern.
+[`URL.searchParams`](/de/docs/Web/API/URL/searchParams#examples)
+an, um das Auslesen der Parameter aus der Abfragezeichenfolge zu erleichtern.
 
 Siehe [`URL.search`](/de/docs/Web/API/URL/search) für weitere Informationen.
 
 ## Wert
 
-Eine Zeichenkette.
+Eine Zeichenfolge.
 
 ## Beispiele
 
@@ -35,7 +35,7 @@ const queryString = anchor.search; // Returns:'?q=123'
 
 // Further parsing:
 const params = new URLSearchParams(queryString);
-const q = parseInt(params.get("q")); // is the number 123
+const q = parseInt(params.get("q"), 10); // is the number 123
 ```
 
 ## Spezifikationen

@@ -2,46 +2,46 @@
 title: ExtendableEvent
 slug: Web/API/ExtendableEvent
 l10n:
-  sourceCommit: d8f04d843dd81ab8cea1cfc0577ae3c5c9b77d5c
+  sourceCommit: 4a0413ef319179b7d0d833c42a156629544c8248
 ---
 
 {{APIRef("Service Workers API")}}{{AvailableInWorkers("service")}}
 
-Das **`ExtendableEvent`**-Interface verlängert die Lebensdauer der [`install`](/de/docs/Web/API/ServiceWorkerGlobalScope/install_event) und [`activate`](/de/docs/Web/API/ServiceWorkerGlobalScope/activate_event) Ereignisse, die im globalen Kontext als Teil des Service-Worker-Lebenszyklus ausgelöst werden. Dies stellt sicher, dass keine funktionalen Ereignisse (wie [`FetchEvent`](/de/docs/Web/API/FetchEvent)) gesendet werden, bis Datenbankschemata aktualisiert und veraltete Cache-Einträge gelöscht wurden.
+Das **`ExtendableEvent`**-Interface verlängert die Lebensdauer der [`install`](/de/docs/Web/API/ServiceWorkerGlobalScope/install_event)- und [`activate`](/de/docs/Web/API/ServiceWorkerGlobalScope/activate_event)-Ereignisse, die im globalen Kontext als Teil des Service Worker-Lebenszyklus ausgelöst werden. Dies stellt sicher, dass keine funktionalen Ereignisse (wie zum Beispiel [`FetchEvent`](/de/docs/Web/API/FetchEvent)) ausgelöst werden, bis Datenbankschemas aktualisiert und veraltete Cache-Einträge gelöscht wurden.
 
-Wenn [`waitUntil()`](/de/docs/Web/API/ExtendableEvent/waitUntil) außerhalb des `ExtendableEvent`-Handlers aufgerufen wird, sollte der Browser einen `InvalidStateError` werfen; beachten Sie auch, dass mehrfache Aufrufe gestapelt werden, und die resultierenden Versprechen der Liste der [Lebenszeit-Verlängerungsversprechen](https://w3c.github.io/ServiceWorker/#extendableevent-extend-lifetime-promises) hinzugefügt werden.
+Wenn [`waitUntil()`](/de/docs/Web/API/ExtendableEvent/waitUntil) außerhalb des `ExtendableEvent`-Handlers aufgerufen wird, sollte der Browser einen `InvalidStateError` auslösen; beachten Sie auch, dass mehrere Aufrufe aufgestapelt werden und die resultierenden Versprechen zur Liste der [erweiterten Lebensdauerversprechen](https://w3c.github.io/ServiceWorker/#extendableevent-extend-lifetime-promises) hinzugefügt werden.
 
 Dieses Interface erbt vom [`Event`](/de/docs/Web/API/Event)-Interface.
 
 {{InheritanceDiagram}}
 
 > [!NOTE]
-> Dieses Interface ist nur verfügbar, wenn der globale Kontext ein [`ServiceWorkerGlobalScope`](/de/docs/Web/API/ServiceWorkerGlobalScope) ist. Es ist nicht verfügbar, wenn es ein [`Window`](/de/docs/Web/API/Window) oder der Kontext einer anderen Art von Worker ist.
+> Dieses Interface ist nur verfügbar, wenn der globale Kontext eine [`ServiceWorkerGlobalScope`](/de/docs/Web/API/ServiceWorkerGlobalScope) ist. Es ist nicht verfügbar, wenn es sich um ein [`Window`](/de/docs/Web/API/Window) oder den Kontext eines anderen Arbeitskontexts handelt.
 
 ## Konstruktor
 
 - [`ExtendableEvent()`](/de/docs/Web/API/ExtendableEvent/ExtendableEvent)
   - : Erstellt ein neues `ExtendableEvent`-Objekt.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-_Implementiert keine spezifischen Eigenschaften, erbt aber Eigenschaften von seinem Elternteil, [`Event`](/de/docs/Web/API/Event)._
+_Implementiert keine spezifischen Eigenschaften, erbt jedoch Eigenschaften von seinem übergeordneten Interface [`Event`](/de/docs/Web/API/Event)._
 
-## Instanz-Methoden
+## Instanzmethoden
 
-_Erbt Methoden von seinem Elternteil, [`Event`](/de/docs/Web/API/Event)_.
+_Erbt Methoden von seinem übergeordneten Interface [`Event`](/de/docs/Web/API/Event)_.
 
 - [`ExtendableEvent.waitUntil()`](/de/docs/Web/API/ExtendableEvent/waitUntil)
-  - : Verlängert die Lebensdauer des Ereignisses. Es soll im [`install`](/de/docs/Web/API/ServiceWorkerGlobalScope/install_event) [Ereignishandler](/de/docs/Web/Events/Event_handlers) für den [`installing`](/de/docs/Web/API/ServiceWorkerRegistration/installing) Worker und im [`activate`](/de/docs/Web/API/ServiceWorkerGlobalScope/activate_event) [Ereignishandler](/de/docs/Web/Events/Event_handlers) für den [`active`](/de/docs/Web/API/ServiceWorkerRegistration/active) Worker aufgerufen werden.
+  - : Verlängert die Lebensdauer des Ereignisses. Es soll im [`install`](/de/docs/Web/API/ServiceWorkerGlobalScope/install_event) [Ereignishandler](/de/docs/Web/Events/Event_handlers) für den [`installing`](/de/docs/Web/API/ServiceWorkerRegistration/installing)-Worker und im [`activate`](/de/docs/Web/API/ServiceWorkerGlobalScope/activate_event) [Ereignishandler](/de/docs/Web/Events/Event_handlers) für den [`active`](/de/docs/Web/API/ServiceWorkerRegistration/active)-Worker aufgerufen werden.
 
 ## Beispiele
 
-Dieses Codebeispiel stammt aus dem [Service Worker Prefetch Beispiel](https://github.com/GoogleChrome/samples/blob/gh-pages/service-worker/prefetch/service-worker.js) (siehe [Prefetch Beispiel live](https://googlechrome.github.io/samples/service-worker/prefetch/).) Der Code ruft [`ExtendableEvent.waitUntil()`](/de/docs/Web/API/ExtendableEvent/waitUntil) in [`oninstall`](/de/docs/Web/API/ServiceWorkerGlobalScope/install_event) auf und verzögert die Behandlung des [`ServiceWorkerRegistration.installing`](/de/docs/Web/API/ServiceWorkerRegistration/installing) Workers als installiert, bis das übergebene Versprechen erfolgreich aufgelöst wird. Das Versprechen wird aufgelöst, wenn alle Ressourcen abgerufen und im Cache gespeichert wurden oder wenn eine Ausnahme auftritt.
+Dieser Code-Schnipsel stammt aus dem [Beispiel zum Service Worker-Prefetching](https://github.com/GoogleChrome/samples/blob/gh-pages/service-worker/prefetch/service-worker.js) (siehe [Prefetch-Beispiel live](https://googlechrome.github.io/samples/service-worker/prefetch/).) Der Code ruft [`ExtendableEvent.waitUntil()`](/de/docs/Web/API/ExtendableEvent/waitUntil) in [`oninstall`](/de/docs/Web/API/ServiceWorkerGlobalScope/install_event) auf und verzögert die Behandlung des [`ServiceWorkerRegistration.installing`](/de/docs/Web/API/ServiceWorkerRegistration/installing) Workers bis zum erfolgreichen Abschluss des übergebenen Versprechens. Das Versprechen wird aufgelöst, wenn alle Ressourcen abgerufen und zwischengespeichert wurden, oder anderweitig, wenn eine Ausnahme auftritt.
 
-Der Code zeigt auch eine bewährte Methode zur Versionsverwaltung von Caches, die vom Service Worker verwendet werden. Obwohl es in diesem Beispiel nur einen Cache gibt, kann derselbe Ansatz für mehrere Caches verwendet werden. Es ordnet eine Kurzbezeichnung für einen Cache einem bestimmten, versionierten Cache-Namen zu.
+Der Code-Schnipsel zeigt auch eine bewährte Methode zur Versionierung von Caches, die vom Service Worker verwendet werden. Obwohl in diesem Beispiel nur ein Cache vorhanden ist, kann derselbe Ansatz für mehrere Caches verwendet werden. Es ordnet einem Cache eine Kurzidentifikation einem spezifischen, versionierten Cachenamen zu.
 
 > [!NOTE]
-> In Chrome sind Protokollierungsaussagen über die "Inspect"-Schnittstelle für den relevanten Service Worker zugänglich unter chrome://serviceworker-internals sichtbar.
+> In Chrome sind Protokollierungsanweisungen über die "Inspect"-Oberfläche des relevanten Service Workers zugänglich, die über chrome://serviceworker-internals aufgerufen wird.
 
 ```js
 const CACHE_VERSION = 1;
@@ -64,16 +64,15 @@ self.addEventListener("install", (event) => {
   event.waitUntil(
     caches
       .open(CURRENT_CACHES["prefetch"])
-      .then((cache) => {
-        return cache
-          .addAll(
-            urlsToPrefetch.map((urlToPrefetch) => {
-              return new Request(urlToPrefetch, { mode: "no-cors" });
-            }),
-          )
-          .then(() => {
-            console.log("All resources have been fetched and cached.");
-          });
+      .then((cache) =>
+        cache.addAll(
+          urlsToPrefetch.map(
+            (urlToPrefetch) => new Request(urlToPrefetch, { mode: "no-cors" }),
+          ),
+        ),
+      )
+      .then(() => {
+        console.log("All resources have been fetched and cached.");
       })
       .catch((error) => {
         console.error("Pre-fetching failed:", error);
@@ -83,7 +82,7 @@ self.addEventListener("install", (event) => {
 ```
 
 > [!NOTE]
-> Beim Abrufen von Ressourcen ist es sehr wichtig, `{mode: 'no-cors'}` zu verwenden, wenn die Möglichkeit besteht, dass die Ressourcen von einem Server bereitgestellt werden, der {{Glossary("CORS", "CORS")}} nicht unterstützt. In diesem Beispiel unterstützt [www.chromium.org](https://www.chromium.org/) kein CORS.
+> Beim Abrufen von Ressourcen ist es äußerst wichtig, `{mode: 'no-cors'}` zu verwenden, wenn die Möglichkeit besteht, dass die Ressourcen von einem Server bereitgestellt werden, der {{Glossary("CORS", "CORS")}} nicht unterstützt. In diesem Beispiel unterstützt [www.chromium.org](https://www.chromium.org/) kein CORS.
 
 ## Spezifikationen
 
@@ -95,6 +94,6 @@ self.addEventListener("install", (event) => {
 
 ## Siehe auch
 
-- [Arbeiten mit Service Workern](/de/docs/Web/API/Service_Worker_API/Using_Service_Workers)
-- [Grundlegendes Codebeispiel für Service Worker](https://github.com/mdn/dom-examples/tree/main/service-worker/simple-service-worker)
+- [Verwendung von Service Workern](/de/docs/Web/API/Service_Worker_API/Using_Service_Workers)
+- [Grundlegendes Codebeispiel für Service Workers](https://github.com/mdn/dom-examples/tree/main/service-worker/simple-service-worker)
 - [Verwendung von Web Workern](/de/docs/Web/API/Web_Workers_API/Using_web_workers)

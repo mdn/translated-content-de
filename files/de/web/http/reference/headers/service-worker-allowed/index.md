@@ -1,28 +1,29 @@
 ---
-title: Service-Worker-Allowed
+title: Service-Worker-Allowed header
+short-title: Service-Worker-Allowed
 slug: Web/HTTP/Reference/Headers/Service-Worker-Allowed
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: ee756fd51ccbc4820a4b334aa753648650ad1d51
 ---
 
 {{HTTPSidebar}}
 
-Der HTTP-**`Service-Worker-Allowed`**-{{Glossary("response_header", "Antwortheader")}} wird verwendet, um die Pfadeinschränkung für den Standard-`scope` eines Service-Workers zu erweitern.
+Der HTTP **`Service-Worker-Allowed`** {{Glossary("response_header", "Antwort-Header")}} wird verwendet, um die Pfadeinschränkung für den Standard-`scope` eines Service Workers zu erweitern.
 
-Standardmäßig ist der [`scope`](/de/docs/Web/API/ServiceWorkerContainer/register#scope) für eine Service-Worker-Registrierung das Verzeichnis, in dem sich das Service-Worker-Skript befindet.
-Zum Beispiel kann das Skript `sw.js`, das sich in `/js/sw.js` befindet, standardmäßig nur URLs unter `/js/` kontrollieren.
-Server können den `Service-Worker-Allowed`-Header verwenden, um einem Service-Worker zu erlauben, URLs außerhalb seines eigenen Verzeichnisses zu kontrollieren.
+Standardmäßig ist der [`scope`](/de/docs/Web/API/ServiceWorkerContainer/register#scope) für eine Service Worker-Registrierung das Verzeichnis, in dem das Service Worker-Skript befindet.
+Zum Beispiel, wenn sich das Skript `sw.js` in `/js/sw.js` befindet, kann es standardmäßig nur URLs unter `/js/` kontrollieren.
+Server können den `Service-Worker-Allowed`-Header verwenden, um einem Service Worker zu erlauben, URLs außerhalb seines eigenen Verzeichnisses zu kontrollieren.
 
-Ein Service-Worker fängt alle Netzwerkrequests innerhalb seines Geltungsbereichs ab, deshalb sollten Sie es vermeiden, zu weitreichende Bereiche zu benutzen, es sei denn, es ist notwendig.
+Ein Service Worker fängt alle Netzwerkanforderungen innerhalb seines Scopes ab, daher sollten Sie vermeiden, unnötig breite Scopes zu verwenden.
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>{{Glossary("Response_header", "Antwortheader")}}</td>
+      <td>{{Glossary("Response_header", "Antwort-Header")}}</td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Forbidden_request_header", "Verbotener Anfrageheader")}}</th>
+      <th scope="row">{{Glossary("Forbidden_request_header", "Verbotener Anforderungs-Header")}}</th>
       <td>Nein</td>
     </tr>
   </tbody>
@@ -37,13 +38,13 @@ Service-Worker-Allowed: <scope>
 ## Direktiven
 
 - `<scope>`
-  - : Ein String, der eine URL darstellt, die den Registrierungsbereich eines Service-Workers definiert; das heißt, welchen Bereich von URLs ein Service-Worker kontrollieren kann.
+  - : Ein String, der eine URL repräsentiert, die den Registrierungsbereich eines Service Workers definiert, das heißt, welchen Umfang der URLs ein Service Worker kontrollieren kann.
 
 ## Beispiele
 
-### Verwendung von Service-Worker-Allowed, um den Geltungsbereich eines Service-Workers zu erweitern
+### Verwendung von Service-Worker-Allowed zur Erweiterung des Service Worker-Scopes
 
-Das folgende JavaScript-Beispiel ist in `example.com/product/index.html` enthalten und versucht, einen Service-Worker mit einem Geltungsbereich zu [registrieren](/de/docs/Web/API/ServiceWorkerContainer/register), der für alle Ressourcen unter `example.com/` gilt.
+Das folgende JavaScript-Beispiel ist in `example.com/product/index.html` enthalten und versucht, einen Service Worker mit einem Scope zu [registrieren](/de/docs/Web/API/ServiceWorkerContainer/register), der für alle Ressourcen unter `example.com/` gilt.
 
 ```js
 navigator.serviceWorker.register("./sw.js", { scope: "/" }).then(
@@ -56,7 +57,7 @@ navigator.serviceWorker.register("./sw.js", { scope: "/" }).then(
 );
 ```
 
-Die HTTP-Antwort auf die Anfrage der Service-Worker-Skript-Ressource (`./sw.js`) enthält den `Service-Worker-Allowed`-Header, der auf `/` gesetzt ist:
+Die HTTP-Antwort auf die Anfrage nach der Skript-Ressource des Service Workers (`./sw.js`) enthält den `Service-Worker-Allowed`-Header gesetzt auf `/`:
 
 ```http
 HTTP/1.1 200 OK
@@ -66,7 +67,7 @@ Service-Worker-Allowed: /
 // sw.js contents…
 ```
 
-Wenn der Server den Header nicht setzt, schlägt die Service-Worker-Registrierung fehl, da die `scope`-Option (`{ scope: "/" }`) einen breiteren Geltungsbereich anfordert als das Verzeichnis, in dem sich das Service-Worker-Skript befindet (`/product/sw.js`).
+Wenn der Server den Header nicht setzt, schlägt die Registrierung des Service Workers fehl, da die `scope`-Option (`{ scope: "/" }`) einen breiteren Scope als das Verzeichnis, in dem sich das Service Worker-Skript befindet (`/product/sw.js`), anfordert.
 
 ## Spezifikationen
 
@@ -78,7 +79,7 @@ Wenn der Server den Header nicht setzt, schlägt die Service-Worker-Registrierun
 
 ## Siehe auch
 
-- {{HTTPHeader("Service-Worker")}} Header
+- {{HTTPHeader("Service-Worker")}}-Header
 - [Service Worker API](/de/docs/Web/API/Service_Worker_API)
 - [`ServiceWorkerRegistration`](/de/docs/Web/API/ServiceWorkerRegistration)
-- [Warum schlägt mein Service Worker bei der Registrierung fehl](/de/docs/Web/API/Service_Worker_API/Using_Service_Workers#why_is_my_service_worker_failing_to_register) in _Using Service Workers_.
+- [Warum scheitert meine Service Worker Registrierung](/de/docs/Web/API/Service_Worker_API/Using_Service_Workers#why_is_my_service_worker_failing_to_register) in _Using Service Workers_.

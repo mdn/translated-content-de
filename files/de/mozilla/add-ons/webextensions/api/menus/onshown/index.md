@@ -2,24 +2,24 @@
 title: menus.onShown
 slug: Mozilla/Add-ons/WebExtensions/API/menus/onShown
 l10n:
-  sourceCommit: 611edf6335e4a833a6f394d0d98b117e7b0a36bf
+  sourceCommit: e6d43da6c6d28a6ac92cdd47882809ffbdf987ce
 ---
 
 {{AddonSidebar}}
 
-Wird ausgelöst, wenn der Browser ein Menü angezeigt hat.
+Ausgelöst, wenn der Browser ein Menü angezeigt hat.
 
-Eine Erweiterung kann dieses Ereignis nutzen, um ihre Menüelemente mit Informationen zu aktualisieren, die nur verfügbar sind, sobald das Menü angezeigt wird. Typischerweise wird eine Erweiterung die Aktualisierung in ihrem `onShown`-Handler vornehmen und dann {{WebExtAPIRef("menus.refresh()")}} aufrufen, um das Menü selbst zu aktualisieren.
+Eine Erweiterung kann dieses Ereignis verwenden, um ihre Menüpunkte basierend auf Informationen zu aktualisieren, die erst verfügbar sind, wenn das Menü angezeigt wird. Typischerweise ermittelt eine Erweiterung die Aktualisierung in ihrem `onShown`-Handler und ruft dann {{WebExtAPIRef("menus.refresh()")}} auf, um das Menü selbst zu aktualisieren.
 
-Der Handler kann Menüelemente hinzufügen, entfernen oder aktualisieren.
+Der Handler kann Menüpunkte hinzufügen, entfernen oder aktualisieren.
 
-Zum Beispiel fügt die Beispielerweiterung [menu-labelled-open](https://github.com/mdn/webextensions-examples/tree/main/menu-labelled-open) ein Menüelement hinzu, das angezeigt wird, wenn der Benutzer auf einen Link klickt und das, wenn angeklickt, einfach den Link öffnet. Sie verwendet `onShown` und `refresh()`, um das Menüelement mit dem Hostnamen des Links zu versehen, damit der Benutzer leicht erkennen kann, wohin er gelangt, bevor er klickt.
+Zum Beispiel fügt die [menu-labelled-open](https://github.com/mdn/webextensions-examples/tree/main/menu-labelled-open) Beispielerweiterung einen Menüpunkt hinzu, der angezeigt wird, wenn der Benutzer auf einen Link klickt und der Link beim Klicken einfach geöffnet wird. Sie verwendet `onShown` und `refresh()`, um den Menüpunkt mit dem Hostnamen des Links zu versehen, damit der Benutzer leicht erkennen kann, wohin er gelangen wird, bevor er klickt.
 
-Beachten Sie, dass eine Erweiterung nicht zu viel Zeit verstreichen lassen sollte, bevor sie `refresh()` aufruft, da die Aktualisierung sonst für den Benutzer offensichtlich sein wird.
+Beachten Sie, dass eine Erweiterung nicht zu viel Zeit verstreichen lassen sollte, bevor sie `refresh()` aufruft, da die Aktualisierung sonst für den Benutzer bemerkbar sein kann.
 
-Dem Handler werden Informationen über das Menü und seinen Inhalt sowie einige Informationen von der Seite übergeben (wie der Link und/oder ausgewählter Text). Um Zugriff auf die Informationen von der Seite zu erhalten, muss Ihre Erweiterung über die [Host-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#host_permissions) dafür verfügen.
+Dem Handler werden einige Informationen über das Menü und dessen Inhalte sowie einige Informationen von der Seite (wie der Link und/oder der ausgewählte Text) übergeben. Um Zugriff auf die Informationen von der Seite zu erhalten, muss Ihre Erweiterung über die [Host-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#host_permissions) dafür verfügen.
 
-Wenn der `onShown`-Handler asynchrone APIs aufruft, ist es möglich, dass das Menü wieder geschlossen wurde, bevor der Handler die Ausführung fortsetzt. Daher sollte ein Handler, der asynchrone APIs aufruft, überprüfen, ob das Menü noch angezeigt wird, bevor es aktualisiert wird. Zum Beispiel:
+Wenn der `onShown`-Handler asynchrone APIs aufruft, ist es möglich, dass das Menü wieder geschlossen wurde, bevor der Handler die Ausführung wieder aufnimmt. Aus diesem Grund sollte ein Handler, der asynchrone APIs aufruft, prüfen, ob das Menü noch angezeigt wird, bevor es aktualisiert wird. Zum Beispiel:
 
 ```js
 let lastMenuInstanceId = 0;
@@ -44,11 +44,11 @@ browser.menus.onHidden.addListener(() => {
 });
 ```
 
-Es ist möglich, Menüs-API-Funktionen synchron aufzurufen, und in diesem Fall müssen Sie diese Überprüfung nicht durchführen:
+Beachten Sie, dass es möglich ist, `menus` API-Funktionen synchron aufzurufen. In diesem Fall müssen Sie diese Überprüfung nicht durchführen:
 
 ```js
 browser.menus.onShown.addListener(async (info, tab) => {
-  browser.menus.update(menuId /*, …*/);
+  browser.menus.update(menuId /*, … */);
   // Note: Not waiting for returned promise.
   browser.menus.refresh();
 });
@@ -61,7 +61,7 @@ browser.menus.onShown.addListener(async (info, tab) => {
   let menuInstanceId = nextMenuInstanceId++;
   lastMenuInstanceId = menuInstanceId;
 
-  await browser.menus.update(menuId /*, …*/);
+  await browser.menus.update(menuId /*, … */);
   // must now perform the check
   if (menuInstanceId !== lastMenuInstanceId) {
     return;
@@ -70,7 +70,7 @@ browser.menus.onShown.addListener(async (info, tab) => {
 });
 ```
 
-Firefox stellt dieses Ereignis sowohl im `contextMenus`-Namespace als auch im `menus`-Namespace zur Verfügung.
+Firefox stellt dieses Ereignis sowohl über den `contextMenus`-Namespace als auch über den `menus`-Namespace zur Verfügung.
 
 ## Syntax
 
@@ -85,11 +85,11 @@ Ereignisse haben drei Funktionen:
 - `addListener(listener)`
   - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Hört auf, dieses Ereignis zu hören. Das Argument `listener` ist der zu entfernende Listener.
+  - : Beendet das Lauschen auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
+  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es lauscht, andernfalls `false`.
 
-## addListener Syntax
+## addListener-Syntax
 
 ### Parameter
 
@@ -99,21 +99,21 @@ Ereignisse haben drei Funktionen:
 
     - `info`
 
-      - : `Object`. Dies ist ähnlich wie das {{WebExtAPIRef('menus.OnClickData')}}-Objekt, enthält jedoch zwei zusätzliche Eigenschaften:
+      - : `Object`. Dies ist ähnlich dem {{WebExtAPIRef('menus.OnClickData')}}-Objekt, enthält jedoch zwei zusätzliche Eigenschaften:
 
-        - `contexts`: ein Array aller zutreffenden {{WebExtAPIRef("menus.ContextType", "Kontexte")}}, die auf dieses Menü anwendbar sind.
-        - `menuIds`: ein Array von IDs aller Menüelemente, die zu dieser Erweiterung gehören und in diesem Menü angezeigt werden.
+        - `contexts`: ein Array aller {{WebExtAPIRef("menus.ContextType", "contexts")}}, die für dieses Menü anwendbar sind.
+        - `menuIds`: ein Array der IDs aller Menüeinträge dieser Erweiterung, die in diesem Menü angezeigt werden.
 
-        Im Vergleich zu `menus.OnClickData` weicht das `info`-Objekt auch dadurch ab, dass die Eigenschaften `menuItemId` und `modifiers` weggelassen werden, da diese natürlich erst verfügbar sind, wenn ein Menüelement ausgewählt wurde.
+        Im Vergleich zu `menus.OnClickData` enthält das `info` Objekt auch nicht die Eigenschaften `menuItemId` und `modifiers`, da diese natürlich erst verfügbar sind, wenn ein Menüpunkt ausgewählt wurde.
 
-        Die Eigenschaften `contexts`, `menuIds`, `frameId` und `editable` sind immer vorhanden. Alle anderen Eigenschaften in `info` werden nur bereitgestellt, wenn die Erweiterung die [Host-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#host_permissions) für die Seite hat.
+        Die Eigenschaften `contexts`, `menuIds`, `frameId` und `editable` werden immer bereitgestellt. Alle anderen Eigenschaften in `info` werden nur bereitgestellt, wenn die Erweiterung über die [Host-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#host_permissions) für die Seite verfügt.
 
     - `tab`
-      - : {{WebExtAPIRef('tabs.Tab')}}. Die Details des Tabs, in dem der Klick stattgefunden hat. Falls der Klick nicht in oder auf einem Tab stattgefunden hat, fehlt dieser Parameter.
+      - : {{WebExtAPIRef('tabs.Tab')}}. Die Details der Registerkarte, in der der Klick stattfand. Wenn der Klick nicht in oder auf einer Registerkarte stattfand, fehlt dieser Parameter.
 
 ## Beispiele
 
-Dieses Beispiel hört darauf, dass das Kontextmenü über einem Link angezeigt wird, und aktualisiert dann das `openLabelledId`-Menüelement mit dem Hostnamen des Links:
+Dieses Beispiel hört darauf, dass das Kontextmenü über einem Link angezeigt wird, und aktualisiert dann den Menüeintrag `openLabelledId` mit dem Hostnamen des Links:
 
 ```js
 function updateMenuItem(linkHostname) {

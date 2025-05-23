@@ -2,18 +2,18 @@
 title: Rekursion
 slug: Glossary/Recursion
 l10n:
-  sourceCommit: af98ab1715ff54825888ef1f7f13d6e3e3bf90b8
+  sourceCommit: f2dc3d5367203c860cf1a71ce0e972f018523849
 ---
 
 {{GlossarySidebar}}
 
-Der Vorgang, bei dem eine Funktion sich selbst aufruft, wird als Rekursion bezeichnet und wird verwendet, um Probleme zu lösen, die kleinere Teilprobleme enthalten. Eine rekursive Funktion kann zwei Eingaben erhalten: einen Basisfall (beendet die Rekursion) oder einen rekursiven Fall (setzt die Rekursion fort).
+Der Akt, bei dem eine Funktion sich selbst aufruft, wird als Rekursion bezeichnet und wird verwendet, um Probleme zu lösen, die kleinere Teilprobleme enthalten. Eine rekursive Funktion kann zwei Eingaben erhalten: einen Basisfall (beendet die Rekursion) oder einen rekursiven Fall (setzt die Rekursion fort).
 
 ## Beispiele
 
 ### Rekursive Funktion ruft sich selbst auf, bis Bedingung erfüllt ist
 
-Der folgende Python-Code definiert eine Funktion, die eine Zahl entgegennimmt, sie ausgibt und sich dann erneut mit dem Wert der Zahl -1 aufruft. Dies geschieht so lange, bis die Zahl gleich 0 ist, in welchem Fall sie stoppt.
+Der folgende Python-Code definiert eine Funktion, die eine Zahl erhält, sie ausdruckt und sich dann erneut mit dem Wert der Zahl -1 aufruft. Sie wiederholt diesen Vorgang, bis die Zahl 0 entspricht; dann stoppt sie.
 
 ```python
 def recurse(x):
@@ -24,8 +24,9 @@ def recurse(x):
 recurse(10)
 ```
 
-Die Ausgabe wird so aussehen:
+Die Ausgabe wird wie folgt aussehen:
 
+```plain
 10
 9
 8
@@ -36,10 +37,11 @@ Die Ausgabe wird so aussehen:
 3
 2
 1
+```
 
 ### Rekursion ist durch die Stapelgröße begrenzt
 
-Der folgende Code definiert eine Funktion, die die maximale Größe des Aufrufstapels zurückgibt, der in der JavaScript-Laufzeitumgebung verfügbar ist, in der der Code ausgeführt wird.
+Der folgende Code definiert eine Funktion, die die maximale Größe des Aufrufstapels im JavaScript-Laufzeitumgebung zurückgibt, in der der Code ausgeführt wird.
 
 ```js
 const getMaxCallStackSize = (i) => {
@@ -53,15 +55,14 @@ const getMaxCallStackSize = (i) => {
 console.log(getMaxCallStackSize(0));
 ```
 
-### Häufige Nutzungsbeispiele
+### Häufige Anwendungsbeispiele
 
 ```js
 const factorial = (n) => {
   if (n === 0) {
     return 1;
-  } else {
-    return n * factorial(n - 1);
   }
+  return n * factorial(n - 1);
 };
 console.log(factorial(10));
 // 3628800

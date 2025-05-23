@@ -1,13 +1,17 @@
 ---
-title: "CSP: worker-src"
+title: "Content-Security-Policy: worker-src Direktive"
+short-title: worker-src
 slug: Web/HTTP/Reference/Headers/Content-Security-Policy/worker-src
 l10n:
-  sourceCommit: e4e57ab3ccb5f93319f8fe13848d4895d3e1e771
+  sourceCommit: ee756fd51ccbc4820a4b334aa753648650ad1d51
 ---
 
 {{HTTPSidebar}}
 
-Die HTTP {{HTTPHeader("Content-Security-Policy")}} (CSP) **`worker-src`** Direktive gibt gültige Quellen für [`Worker`](/de/docs/Web/API/Worker), [`SharedWorker`](/de/docs/Web/API/SharedWorker) oder [`ServiceWorker`](/de/docs/Web/API/ServiceWorker) Skripte an.
+Die HTTP {{HTTPHeader("Content-Security-Policy")}} (CSP)
+**`worker-src`** Direktive legt gültige Quellen für
+[`Worker`](/de/docs/Web/API/Worker), [`SharedWorker`](/de/docs/Web/API/SharedWorker) oder [`ServiceWorker`](/de/docs/Web/API/ServiceWorker)
+Skripte fest.
 
 <table class="properties">
   <tbody>
@@ -20,10 +24,13 @@ Die HTTP {{HTTPHeader("Content-Security-Policy")}} (CSP) **`worker-src`** Direkt
       <td>{{Glossary("Fetch_directive", "Fetch-Direktive")}}</td>
     </tr>
     <tr>
-      <th scope="row">Fallback</th>
+      <th scope="row">Ersatzoption</th>
       <td>
         <p>
-          Wenn diese Direktive fehlt, sucht der Benutzeragent zuerst nach der {{CSP("child-src")}} Direktive, dann nach der {{CSP("script-src")}} Direktive und schließlich nach der {{CSP("default-src")}} Direktive, wenn es um die Ausführung von Workern geht.
+          Wenn diese Direktive fehlt, wird der User-Agent zuerst nach der
+          {{CSP("child-src")}} Direktive suchen, dann nach der
+          {{CSP("script-src")}} Direktive und schließlich nach der
+          {{CSP("default-src")}} Direktive, wenn es um die Ausführung von Workern geht.
         </p>
       </td>
     </tr>
@@ -40,10 +47,10 @@ Content-Security-Policy: worker-src <source-expression-list>;
 Diese Direktive kann einen der folgenden Werte haben:
 
 - `'none'`
-  - : Es dürfen keine Ressourcen dieses Typs geladen werden. Die einfachen Anführungszeichen sind zwingend erforderlich.
+  - : Keine Ressourcen dieses Typs dürfen geladen werden. Die einfachen Anführungszeichen sind zwingend erforderlich.
 - `<source-expression-list>`
 
-  - : Eine durch Leerzeichen getrennte Liste von _Quell-Ausdrucks_-Werten. Ressourcen dieses Typs dürfen geladen werden, wenn sie mit einem der angegebenen Quellausdrücke übereinstimmen. Für diese Direktive sind die folgenden Quell-Ausdruckswerte anwendbar:
+  - : Eine durch Leerzeichen getrennte Liste von _Source-Expression_-Werten. Ressourcen dieses Typs dürfen geladen werden, wenn sie mit einem der angegebenen Quellausdrücke übereinstimmen. Für diese Direktive sind die folgenden Quellausdrücke anwendbar:
 
     - [`<host-source>`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy#host-source)
     - [`<scheme-source>`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy#scheme-source)
@@ -53,13 +60,14 @@ Diese Direktive kann einen der folgenden Werte haben:
 
 ### Verletzungsfälle
 
-Angesichts dieses CSP-Headers:
+Angenommen, dieser CSP-Header:
 
 ```http
 Content-Security-Policy: worker-src https://example.com/
 ```
 
-[`Worker`](/de/docs/Web/API/Worker), [`SharedWorker`](/de/docs/Web/API/SharedWorker), [`ServiceWorker`](/de/docs/Web/API/ServiceWorker) werden blockiert und nicht geladen:
+[`Worker`](/de/docs/Web/API/Worker), [`SharedWorker`](/de/docs/Web/API/SharedWorker), [`ServiceWorker`](/de/docs/Web/API/ServiceWorker) werden
+blockiert und nicht geladen:
 
 ```html
 <script>
@@ -80,5 +88,5 @@ Content-Security-Policy: worker-src https://example.com/
 ## Siehe auch
 
 - {{HTTPHeader("Content-Security-Policy")}}
-- [CSP für Web Workers](/de/docs/Web/API/Web_Workers_API/Using_web_workers#content_security_policy)
+- [CSP für Web Worker](/de/docs/Web/API/Web_Workers_API/Using_web_workers#content_security_policy)
 - [`Worker`](/de/docs/Web/API/Worker), [`SharedWorker`](/de/docs/Web/API/SharedWorker), [`ServiceWorker`](/de/docs/Web/API/ServiceWorker)

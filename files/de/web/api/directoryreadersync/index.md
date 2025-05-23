@@ -2,24 +2,24 @@
 title: DirectoryReaderSync
 slug: Web/API/DirectoryReaderSync
 l10n:
-  sourceCommit: cbe4c570701052c120808ea54c24c46ec9734084
+  sourceCommit: e6d43da6c6d28a6ac92cdd47882809ffbdf987ce
 ---
 
 {{APIRef("File and Directory Entries API")}}{{Non-standard_Header}}{{Deprecated_Header}}
 
-Das `DirectoryReaderSync`-Interface ermöglicht das Lesen der Einträge in einem Verzeichnis.
+Das `DirectoryReaderSync`-Interface ermöglicht es Ihnen, die Einträge in einem Verzeichnis zu lesen.
 
 > [!WARNING]
-> Dieses Interface ist veraltet und gehört nicht mehr zum Standard.
-> _Verwenden Sie es nicht mehr._ Nutzen Sie stattdessen die [File and Directory Entries API](/de/docs/Web/API/File_and_Directory_Entries_API).
+> Dieses Interface ist veraltet und befindet sich nicht mehr auf dem Standardpfad.
+> _Verwenden Sie es nicht mehr._ Verwenden Sie stattdessen die [File and Directory Entries API](/de/docs/Web/API/File_and_Directory_Entries_API).
 
-## Grundlegende Konzepte
+## Grundkonzepte
 
-Bevor Sie die einzige Methode in diesem Interface aufrufen, [`readEntries()`](#readentries), erstellen Sie das [`DirectoryEntrySync`](/de/docs/Web/API/DirectoryEntrySync)-Objekt. Aber DirectoryEntrySync (ebenso wie [`FileEntrySync`](/de/docs/Web/API/FileEntrySync)) ist kein Datentyp, den Sie zwischen einer aufrufenden Anwendung und einem Web Worker-Thread übergeben können. Das ist nicht weiter schlimm, da Sie nicht unbedingt dasselbe JavaScript-Objekt in der Hauptanwendung und im Worker-Thread sehen müssen; Sie müssen lediglich auf dieselben Dateien zugreifen. Das kann erreicht werden, indem Sie eine Liste von `filesystem:` URLs — die einfach Zeichenketten sind — anstelle einer Liste von Einträgen übergeben. Sie können die `filesystem:` URL auch verwenden, um den Eintrag mit `solveLocalFileSystemURL()` nachzuschlagen. Dadurch erhalten Sie wieder ein DirectoryEntrySync- (sowie FileEntrySync-) Objekt.
+Bevor Sie die einzige Methode in diesem Interface, [`readEntries()`](#readentries), aufrufen, erstellen Sie das [`DirectoryEntrySync`](/de/docs/Web/API/DirectoryEntrySync)-Objekt. Aber DirectoryEntrySync (sowie [`FileEntrySync`](/de/docs/Web/API/FileEntrySync)) ist kein Datentyp, den Sie zwischen einer aufrufenden Anwendung und einem Web Worker-Thread übergeben können. Das ist kein großes Problem, da es nicht wirklich notwendig ist, dass die Hauptanwendung und der Worker-Thread dasselbe JavaScript-Objekt sehen; sie müssen nur auf dieselben Dateien zugreifen können. Sie können dies tun, indem Sie anstelle einer Liste von Einträgen eine Liste von `filesystem:` URLs übergeben, die einfach Strings sind. Sie können auch die `filesystem:` URL verwenden, um den Eintrag mit `resolveLocalFileSystemURL()` nachzuschlagen. Das bringt Sie zurück zu einem DirectoryEntrySync (sowie FileEntrySync)-Objekt.
 
 ### Beispiel
 
-Im folgenden Code-Schnipsel von [HTML5Rocks (web.dev)](https://web.dev/articles/filesystem-sync), erstellen wir Web Workers und übergeben Daten daraus an die Hauptanwendung.
+Im folgenden Codeausschnitt von [HTML5Rocks (web.dev)](https://web.dev/articles/filesystem-sync) erstellen wir Web Worker und übergeben Daten von diesen an die Hauptanwendung.
 
 ```js
 // Taking care of the browser-specific prefixes.
@@ -41,7 +41,7 @@ worker.onmessage = (e) => {
 worker.postMessage({ cmd: "list" });
 ```
 
-Das folgende ist der Code von `worker.js`, der den Inhalt des Verzeichnisses abruft.
+Das Folgende ist der `worker.js`-Code, der den Inhalt des Verzeichnisses abrufen kann.
 
 ```js
 // worker.js
@@ -81,7 +81,7 @@ self.onmessage = (e) => {
   }
 
   try {
-    const fs = requestFileSystemSync(TEMPORARY, 1024 * 1024 /*1MB*/);
+    const fs = requestFileSystemSync(TEMPORARY, 1024 * 1024 /* 1MB */);
 
     getAllEntries(fs.root.createReader());
 
@@ -96,7 +96,7 @@ self.onmessage = (e) => {
 
 ### readEntries()
 
-Gibt eine Liste von Einträgen aus einem spezifischen Verzeichnis zurück. Rufen Sie diese Methode auf, bis ein leeres Array zurückgegeben wird.
+Gibt eine Liste von Einträgen aus einem bestimmten Verzeichnis zurück. Rufen Sie diese Methode so lange auf, bis ein leeres Array zurückgegeben wird.
 
 #### Syntax
 
@@ -116,15 +116,15 @@ Array, das [`FileEntrySync`](/de/docs/Web/API/FileEntrySync) und [`DirectoryEntr
 
 Diese Methode kann eine [DOMException](/de/docs/Web/API/DOMException) mit den folgenden Codes auslösen:
 
-| Ausnahme            | Beschreibung                                                                      |
-| ------------------- | --------------------------------------------------------------------------------- |
-| `NOT_FOUND_ERR`     | Das Verzeichnis existiert nicht.                                                  |
-| `INVALID_STATE_ERR` | Das Verzeichnis wurde seit dem ersten Aufruf von readEntries geändert.            |
-| `SECURITY_ERR`      | Der Browser hat festgestellt, dass es unsicher war, die Metadaten nachzuschlagen. |
+| Ausnahme            | Beschreibung                                                                          |
+| ------------------- | ------------------------------------------------------------------------------------- |
+| `NOT_FOUND_ERR`     | Das Verzeichnis existiert nicht.                                                      |
+| `INVALID_STATE_ERR` | Das Verzeichnis wurde seit dem ersten Aufruf von readEntries geändert.                |
+| `SECURITY_ERR`      | Der Browser hat festgestellt, dass es nicht sicher war, die Metadaten nachzuschlagen. |
 
 ## Spezifikationen
 
-Diese Funktion ist nicht mehr Teil einer Spezifikation. Sie ist nicht mehr auf dem Weg, ein Standard zu werden.
+Dieses Feature ist nicht mehr Teil einer Spezifikation. Es ist nicht mehr auf dem Weg, ein Standard zu werden.
 
 ## Browser-Kompatibilität
 

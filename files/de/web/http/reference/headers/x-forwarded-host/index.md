@@ -1,17 +1,18 @@
 ---
-title: X-Forwarded-Host
+title: X-Forwarded-Host header
+short-title: X-Forwarded-Host
 slug: Web/HTTP/Reference/Headers/X-Forwarded-Host
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: ee756fd51ccbc4820a4b334aa753648650ad1d51
 ---
 
 {{HTTPSidebar}}
 
-Der HTTP **`X-Forwarded-Host`** (XFH) {{Glossary("request_header", "Request-Header")}} ist ein De-facto-Standard-Header zur Identifizierung des ursprünglichen Hosts, der vom Client im {{HTTPHeader("Host")}} HTTP-Request-Header angefordert wurde.
+Der HTTP-**`X-Forwarded-Host`** (XFH) {{Glossary("request_header", "Request-Header")}} ist ein de-facto Standard-Header, der zur Identifizierung des ursprünglichen Hosts verwendet wird, der vom Client im {{HTTPHeader("Host")}} HTTP-Request-Header angefordert wurde.
 
-Hostnamen und Ports von Reverse-{{Glossary("Proxy_server", "Proxies")}} (Load Balancer, CDNs) können sich von dem ursprünglichen Server, der die Anfrage bearbeitet, unterscheiden. In diesem Fall ist der `X-Forwarded-Host`-Header nützlich, um zu bestimmen, welcher `Host` ursprünglich verwendet wurde.
+Hostnamen und Ports von Reverse-{{Glossary("Proxy_server", "Proxys")}} (Load Balancers, CDNs) können sich vom Ursprungsserver, der die Anfrage bearbeitet, unterscheiden. In diesem Fall ist der `X-Forwarded-Host`-Header nützlich, um festzustellen, welcher `Host` ursprünglich verwendet wurde.
 
-Eine standardisierte Version dieses Headers ist der HTTP-{{HTTPHeader("Forwarded")}}-Header, obwohl er weitaus seltener verwendet wird.
+Eine standardisierte Version dieses Headers ist der HTTP-{{HTTPHeader("Forwarded")}}-Header, obwohl er viel seltener verwendet wird.
 
 <table class="properties">
   <tbody>
@@ -20,7 +21,7 @@ Eine standardisierte Version dieses Headers ist der HTTP-{{HTTPHeader("Forwarded
       <td>{{Glossary("Request_header", "Request-Header")}}</td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Forbidden_request_header", "Verbotener Request-Header")}}</th>
+      <th scope="row">{{Glossary("Forbidden_request_header", "Unzulässiger Request-Header")}}</th>
       <td>Nein</td>
     </tr>
   </tbody>
@@ -35,7 +36,7 @@ X-Forwarded-Host: <host>
 ## Direktiven
 
 - `<host>`
-  - : Der Domain-Name des weitergeleiteten Servers.
+  - : Der Domainname des weitergeleiteten Servers.
 
 ## Beispiele
 
@@ -45,10 +46,10 @@ X-Forwarded-Host: id42.example-cdn.com
 
 ## Spezifikationen
 
-Teil keiner aktuellen Spezifikation.
+Kein Teil einer aktuellen Spezifikation.
 
 ## Siehe auch
 
-- {{HTTPHeader("X-Forwarded-For")}}, {{HTTPHeader("X-Forwarded-Proto")}} Headers
+- {{HTTPHeader("X-Forwarded-For")}}, {{HTTPHeader("X-Forwarded-Proto")}} Header
 - {{HTTPHeader("Host")}}
 - {{HTTPHeader("Forwarded")}}

@@ -2,12 +2,12 @@
 title: tabs.Tab
 slug: Mozilla/Add-ons/WebExtensions/API/tabs/Tab
 l10n:
-  sourceCommit: da342187abedb56612c08b166eb5594552b670e4
+  sourceCommit: 3ffce2e0e798a46f6405d32a971d1ebf9874cdd4
 ---
 
 {{AddonSidebar}}
 
-Der Typ **`tabs.Tab`** enthält Informationen über einen Tab. Dies ermöglicht den Zugriff auf Informationen darüber, welcher Inhalt im Tab ist, wie groß der Inhalt ist, welche besonderen Zustände oder Einschränkungen gelten und so weiter.
+Der Typ **`tabs.Tab`** enthält Informationen über einen Tab. Dies bietet Zugriff auf Informationen darüber, welche Inhalte im Tab sind, wie groß der Inhalt ist, welche speziellen Zustände oder Einschränkungen in Kraft sind und so weiter.
 
 ## Typ
 
@@ -15,64 +15,64 @@ Werte dieses Typs sind Objekte. Sie enthalten die folgenden Eigenschaften:
 
 - `active`
 
-  - : `boolean`. Gibt an, ob der Tab in seinem Fenster aktiv ist. Dies kann auch wahr sein, wenn das Fenster des Tabs momentan nicht fokussiert ist.
+  - : `boolean`. Gibt an, ob der Tab in seinem Fenster aktiv ist. Dies kann auch dann wahr sein, wenn das Fenster des Tabs derzeit nicht fokussiert ist.
 
-    Der aktive Tab ist normalerweise der ausgewählte. Auf Firefox für Android öffnen Erweiterungs-Popups jedoch in einem neuen Tab. Wenn dieser Popup-Tab ausgewählt ist, wird der aktive Tab stattdessen derjenige sein, in dem das Popup geöffnet wurde.
+    Der aktive Tab ist normalerweise der ausgewählte. Auf Firefox für Android öffnen Erweiterungs-Popups jedoch in einem neuen Tab. Wenn dieser Popup-Tab ausgewählt wird, ist stattdessen der Tab aktiv, in dem das Popup geöffnet wurde.
 
 - `attention` {{optional_inline}}
-  - : `boolean`. Gibt an, ob der Tab Aufmerksamkeit erregt. Zum Beispiel, wenn der Tab ein modales Dialogfeld anzeigt, wird `attention` `true` sein.
+  - : `boolean`. Gibt an, ob der Tab Aufmerksamkeit erregt. Zum Beispiel, wenn der Tab einen modalen Dialog anzeigt, wird `attention` `true` sein.
 - `audible` {{optional_inline}}
-  - : `boolean`. Gibt an, ob der Tab Ton produziert. Der Benutzer wird den Ton jedoch nicht hören, wenn der Tab stummgeschaltet ist (siehe die `mutedInfo`-Eigenschaft).
+  - : `boolean`. Gibt an, ob der Tab Ton produziert. Der Benutzer wird den Ton jedoch nicht hören, wenn der Tab stummgeschaltet ist (siehe die Eigenschaft `mutedInfo`).
 - `autoDiscardable` {{optional_inline}}
-  - : `boolean`. Ob der Tab vom Browser entfernt werden kann. Der Standardwert ist `true`. Wenn auf `false` gesetzt, kann der Browser den Tab nicht automatisch entfernen. Der Tab kann jedoch durch {{WebExtAPIRef("tabs.discard")}} entfernt werden.
+  - : `boolean`. Gibt an, ob der Tab vom Browser verworfen werden kann. Der Standardwert ist `true`. Wenn auf `false` gesetzt, kann der Browser den Tab nicht automatisch verwerfen. Der Tab kann jedoch durch {{WebExtAPIRef("tabs.discard")}} verworfen werden.
 - `cookieStoreId` {{optional_inline}}
-  - : `string`. Der Cookie-Store des Tabs. Siehe [Arbeiten mit kontextabhängigen Identitäten](/de/docs/Mozilla/Add-ons/WebExtensions/Work_with_contextual_identities) für weitere Informationen.
+  - : `string`. Der Cookie-Speicher des Tabs. Weitere Informationen finden Sie unter [Mit kontextuellen Identitäten arbeiten](/de/docs/Mozilla/Add-ons/WebExtensions/Work_with_contextual_identities).
 - `discarded` {{optional_inline}}
-  - : `boolean`. Ob der Tab verworfen ist. Ein verworfener Tab ist einer, dessen Inhalt aus dem Speicher entladen wurde, aber immer noch in der Tab-Leiste sichtbar ist. Sein Inhalt wird neu geladen, wenn er das nächste Mal aktiviert wird.
+  - : `boolean`. Gibt an, ob der Tab verworfen wurde. Ein verworfener Tab ist einer, dessen Inhalt aus dem Speicher entladen wurde, aber weiterhin im Tabstreifen sichtbar ist. Sein Inhalt wird beim nächsten Aktivieren neu geladen.
 - `favIconUrl` {{optional_inline}}
-  - : `string`. Die URL des Favicons des Tabs. Nur vorhanden, wenn die Erweiterung die `"tabs"` [Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) oder [Host-Berechtigungen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#host_permissions) hat. Es kann auch `undefined` sein, wenn die Seite kein Favicon hat, oder eine leere Zeichenfolge, wenn der Tab lädt.
+  - : `string`. Die URL des Favicons des Tabs. Nur vorhanden, wenn die Erweiterung die Berechtigung `"tabs"` [Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) oder [Host-Berechtigungen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#host_permissions) hat. Es kann auch `undefined` sein, wenn die Seite kein Favicon hat, oder ein leerer String, wenn der Tab lädt.
 - `groupId` {{optional_inline}}
-  - : `integer`. Die ID der Tab-Gruppe, zu der der Tab gehört. Auf `-1` gesetzt, wenn der Tab keiner Tab-Gruppe angehört. Siehe {{WebExtAPIRef("tabs.group")}}.
+  - : `integer`. Die ID der Tab-Gruppe, zu der der Tab gehört. Wird auf `-1` gesetzt ({{WebExtAPIRef("tabGroups.TAB_GROUP_ID_NONE")}}), wenn der Tab keiner Tab-Gruppe angehört. Weitere Informationen zu Tab-Gruppen finden Sie unter {{WebExtAPIRef("tabGroups")}}.
 - `height` {{optional_inline}}
   - : `integer`. Die Höhe des Tabs in Pixeln.
 - `hidden`
-  - : `boolean`. Ob der Tab verborgen ist.
+  - : `boolean`. Gibt an, ob der Tab versteckt ist.
 - `highlighted`
 
-  - : `boolean`. Ob der Tab hervorgehoben ist, d.h. Teil der aktuellen Tab-Auswahl. Ein aktiver Tab ist immer hervorgehoben, aber einige Browser können es ermöglichen, zusätzliche Tabs hervorzuheben, z. B. durch Klicken bei gedrückter <kbd>Strg</kbd>-, <kbd>Umschalt</kbd>- oder <kbd>⌘ Command</kbd>-Taste.
+  - : `boolean`. Gibt an, ob der Tab hervorgehoben ist, d.h. Teil der aktuellen Tab-Auswahl ist. Ein aktiver Tab ist immer hervorgehoben, aber einige Browser erlauben möglicherweise zusätzliche Tabs zu markieren, zum Beispiel durch Klicken mit gedrückter <kbd>Ctrl</kbd>-, <kbd>Shift</kbd>- oder <kbd>⌘ Command</kbd>-Taste.
 
-    Firefox für Android unterstützt das Hervorheben mehrerer Tabs nicht.
+    Firefox für Android unterstützt keine Hervorhebung mehrerer Tabs.
 
 - `id` {{optional_inline}}
-  - : `integer`. Die ID des Tabs. Tab-IDs sind innerhalb einer Browser-Sitzung eindeutig. Die Tab-ID kann auch auf {{WebExtAPIRef('tabs.TAB_ID_NONE')}} gesetzt sein für Browserfenster, die keine Inhalts-Tabs hosten (zum Beispiel Entwicklertools-Fenster).
+  - : `integer`. Die ID des Tabs. Tab-IDs sind innerhalb einer Browsersitzung eindeutig. Die Tab-ID kann auch auf {{WebExtAPIRef('tabs.TAB_ID_NONE')}} gesetzt werden für Browserfenster, die keine Inhalts-Tabs hosten (zum Beispiel Devtools-Fenster).
 - `incognito`
-  - : `boolean`. Ob der Tab in einem privaten Fenster ist.
+  - : `boolean`. Gibt an, ob sich der Tab in einem privaten Fenster befindet.
 - `index`
   - : `integer`. Der nullbasierte Index des Tabs innerhalb seines Fensters.
 - `isArticle`
-  - : `boolean`. `True` wenn der Tab [im Reader-Modus gerendert](/de/docs/Mozilla/Add-ons/WebExtensions/API/tabs/toggleReaderMode) werden kann, andernfalls `false`.
+  - : `boolean`. True, wenn der Tab im [Leseansichtsmodus gerendert](/de/docs/Mozilla/Add-ons/WebExtensions/API/tabs/toggleReaderMode) werden kann, false andernfalls.
 - `isInReaderMode`
-  - : `boolean`. `True` wenn der Tab momentan [im Reader-Modus gerendert](/de/docs/Mozilla/Add-ons/WebExtensions/API/tabs/toggleReaderMode) wird, andernfalls `false`.
+  - : `boolean`. True, wenn der Tab derzeit im [Leseansichtsmodus gerendert](/de/docs/Mozilla/Add-ons/WebExtensions/API/tabs/toggleReaderMode) wird, false andernfalls.
 - `lastAccessed` {{optional_inline}}
-  - : `double`. Zeitpunkt, zu dem der Tab zuletzt aufgerufen wurde, in [Millisekunden seit der Epoche](https://en.wikipedia.org/wiki/Unix_time).
+  - : `double`. Zeit, zu der der Tab zuletzt aufgerufen wurde, in [Millisekunden seit der Epoche](https://en.wikipedia.org/wiki/Unix_time).
 - `mutedInfo` {{optional_inline}}
-  - : {{WebExtAPIRef('tabs.MutedInfo')}}. Der aktuelle stummgeschaltete Zustand für den Tab und der Grund für die letzte Zustandsänderung.
+  - : {{WebExtAPIRef('tabs.MutedInfo')}}. Der aktuelle Stummschaltungsstatus für den Tab und der Grund für die letzte Statusänderung.
 - `openerTabId` {{optional_inline}}
-  - : `integer`. Die ID des Tabs, der diesen Tab geöffnet hat, falls vorhanden. Diese Eigenschaft ist nur vorhanden, wenn der öffnende Tab noch existiert und sich im selben Fenster befindet.
+  - : `integer`. Die ID des Tabs, der diesen Tab geöffnet hat, falls vorhanden. Diese Eigenschaft ist nur vorhanden, wenn der öffnende Tab noch existiert und im selben Fenster ist.
 - `pendingUrl`
-  - : `string`. Die URL, zu der der Tab navigiert, bevor sie abgeschlossen wurde. Diese Eigenschaft ist nur vorhanden, wenn das Manifest der Erweiterung die "tabs"-Berechtigung enthält und eine ausstehende Navigation besteht.
+  - : `string`. Die URL, zu der der Tab navigiert, bevor sie festgelegt wurde. Diese Eigenschaft ist nur vorhanden, wenn das Manifest der Erweiterung die Berechtigung "tabs" enthält und eine ausstehende Navigation vorliegt.
 - `pinned`
-  - : `boolean`. Ob der Tab angeheftet ist.
+  - : `boolean`. Gibt an, ob der Tab angeheftet ist.
 - `selected` {{deprecated_inline}}
   - : `boolean`. Ob der Tab ausgewählt ist. Diese Eigenschaft wurde durch `active` und `highlighted` ersetzt.
 - `sessionId` {{optional_inline}}
-  - : `string`. Die Sitzungs-ID, die verwendet wird, um einen `Tab`, der von der {{WebExtAPIRef('sessions')}} API erhalten wurde, eindeutig zu identifizieren.
+  - : `string`. Die Sitzungs-ID, die verwendet wird, um einen `Tab` eindeutig zu identifizieren, der von der {{WebExtAPIRef('sessions')}} API erhalten wurde.
 - `status` {{optional_inline}}
   - : `string`. Entweder _loading_ oder _complete_.
 - `successorTabId` {{optional_inline}}
-  - : `integer` Die ID des Nachfolger-Tabs.
+  - : `integer`. Die ID des Nachfolgetabs des Tabs.
 - `title` {{optional_inline}}
-  - : `string`. Der Titel des Tabs. Nur vorhanden, wenn die Erweiterung die `"tabs"` [Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) oder [Host-Berechtigungen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#host_permissions) hat, die zur URL des Tabs passt.
+  - : `string`. Der Titel des Tabs. Nur vorhanden, wenn die Erweiterung die `"tabs"` [Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) oder [Host-Berechtigungen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#host_permissions) besitzt, die mit der URL des Tabs übereinstimmen.
 - `url` {{optional_inline}}
   - : `string`. Die URL des Dokuments, das der Tab anzeigt. Nur vorhanden, wenn die Erweiterung die `"tabs"` [Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) oder eine passende [Host-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#host_permissions) hat.
 - `width` {{optional_inline}}
@@ -87,7 +87,7 @@ Werte dieses Typs sind Objekte. Sie enthalten die folgenden Eigenschaften:
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#type-Tab) API von Chromium. Diese Dokumentation stammt aus [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code.
+> Diese API basiert auf Chromiums [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#type-Tab) API. Diese Dokumentation wird aus [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code abgeleitet.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

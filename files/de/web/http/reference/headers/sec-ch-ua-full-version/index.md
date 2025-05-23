@@ -1,29 +1,30 @@
 ---
-title: Sec-CH-UA-Full-Version
+title: Sec-CH-UA-Full-Version header
+short-title: Sec-CH-UA-Full-Version
 slug: Web/HTTP/Reference/Headers/Sec-CH-UA-Full-Version
 l10n:
-  sourceCommit: d8fbe1ea30dcc8fd707048a804f5070a729b57a7
+  sourceCommit: ee756fd51ccbc4820a4b334aa753648650ad1d51
 ---
 
 {{HTTPSidebar}}{{Deprecated_Header}}{{SecureContext_Header}}
 
 > [!NOTE]
-> Dies wird durch den Header {{HTTPHeader("Sec-CH-UA-Full-Version-List")}} ersetzt.
+> Dies wird durch den {{HTTPHeader("Sec-CH-UA-Full-Version-List")}} ersetzt.
 
-Der HTTP **`Sec-CH-UA-Full-Version`** {{Glossary("request_header", "Anforderungsheader")}} ist ein [User-Agent-Client-Hinweis](/de/docs/Web/HTTP/Guides/Client_hints#user_agent_client_hints), der die vollständige Versionszeichenfolge des User-Agents bereitstellt.
+Der HTTP **`Sec-CH-UA-Full-Version`** {{Glossary("request_header", "Request-Header")}} ist ein [User Agent Client Hint](/de/docs/Web/HTTP/Guides/Client_hints#user_agent_client_hints), der die vollständige Versionsnummer des User-Agents bereitstellt.
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
       <td>
-        {{Glossary("Request_header", "Anforderungsheader")}},
-        <a href="/de/docs/Web/HTTP/Guides/Client_hints">Client-Hinweis</a>
+        {{Glossary("Request_header", "Request-Header")}},
+        <a href="/de/docs/Web/HTTP/Guides/Client_hints">Client-Hint</a>
       </td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Forbidden_request_header", "Verbotener Anforderungsheader")}}</th>
-      <td>Ja (<code>Sec-</code> Präfix)</td>
+      <th scope="row">{{Glossary("Forbidden_request_header", "Verbotener Request-Header")}}</th>
+      <td>Ja (<code>Sec-</code>-Präfix)</td>
     </tr>
   </tbody>
 </table>
@@ -37,20 +38,20 @@ Sec-CH-UA-Full-Version: <version>
 ### Direktiven
 
 - `<version>`
-  - : Eine Zeichenkette, die die vollständige Versionsnummer enthält, z.B. "96.0.4664.93".
+  - : Ein String, der die vollständige Versionsnummer enthält, zum Beispiel "96.0.4664.93".
 
 ## Beispiele
 
 ### Verwendung von Sec-CH-UA-Full-Version
 
-Ein Server fordert den `Sec-CH-UA-Full-Version`-Header an, indem er das {{HTTPHeader("Accept-CH")}} in einer _Antwort_ auf eine beliebige Anfrage vom Client einfügt und den Namen des gewünschten Headers als Token verwendet:
+Ein Server fordert den `Sec-CH-UA-Full-Version`-Header an, indem er den {{HTTPHeader("Accept-CH")}} in einer _Antwort_ auf jede Anfrage vom Client einfügt und den gewünschten Headernamen als Token verwendet:
 
 ```http
 HTTP/1.1 200 OK
 Accept-CH: Sec-CH-UA-Full-Version
 ```
 
-Der Client kann sich entscheiden, den Hinweis bereitzustellen, und den `Sec-CH-UA-Full-Version`-Header zu nachfolgenden Anfragen hinzufügen. Zum Beispiel könnte der Client den Header wie folgt hinzufügen:
+Der Client kann entscheiden, ob er den Hint bereitstellt und den `Sec-CH-UA-Full-Version`-Header zu nachfolgenden Anfragen hinzufügt. Zum Beispiel könnte der Client den Header wie folgt hinzufügen:
 
 ```http
 GET /my/page HTTP/1.1
@@ -72,8 +73,8 @@ Sec-CH-UA-Platform: "Windows"
 
 ## Siehe auch
 
-- [Client-Hinweise](/de/docs/Web/HTTP/Guides/Client_hints)
+- [Client Hints](/de/docs/Web/HTTP/Guides/Client_hints)
 - [User-Agent Client Hints API](/de/docs/Web/API/User-Agent_Client_Hints_API)
 - {{HTTPHeader("Accept-CH")}}
-- [HTTP Caching: Vary](/de/docs/Web/HTTP/Guides/Caching#vary) und {{HTTPHeader("Vary")}}-Header
-- [Verbesserung der Benutzerprivatsphäre und der Entwicklererfahrung mit User-Agent Client Hints](https://developer.chrome.com/docs/privacy-security/user-agent-client-hints) (developer.chrome.com)
+- [HTTP-Caching: Vary](/de/docs/Web/HTTP/Guides/Caching#vary) und {{HTTPHeader("Vary")}}-Header
+- [Verbesserung des Datenschutzes des Nutzers und der Entwicklererfahrung mit User-Agent Client Hints](https://developer.chrome.com/docs/privacy-security/user-agent-client-hints) (developer.chrome.com)

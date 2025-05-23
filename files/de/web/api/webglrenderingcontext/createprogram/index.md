@@ -1,16 +1,16 @@
 ---
-title: "WebGLRenderingContext: createProgram()-Methode"
+title: "WebGLRenderingContext: createProgram() Methode"
 short-title: createProgram()
 slug: Web/API/WebGLRenderingContext/createProgram
 l10n:
-  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
+  sourceCommit: f2dc3d5367203c860cf1a71ce0e972f018523849
 ---
 
 {{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WebGLRenderingContext.createProgram()`**-Methode der
+Die **`WebGLRenderingContext.createProgram()`** Methode der
 [WebGL API](/de/docs/Web/API/WebGL_API) erstellt und initialisiert ein
-[`WebGLProgram`](/de/docs/Web/API/WebGLProgram)-Objekt.
+[`WebGLProgram`](/de/docs/Web/API/WebGLProgram) Objekt.
 
 ## Syntax
 
@@ -24,8 +24,9 @@ Keine.
 
 ### Rückgabewert
 
-Ein [`WebGLProgram`](/de/docs/Web/API/WebGLProgram)-Objekt, das eine Kombination aus zwei kompilierten
-[`WebGLShader`](/de/docs/Web/API/WebGLShader)s ist, bestehend aus einem Vertex-Shader und einem Fragment-Shader (beide in GLSL geschrieben). Diese werden dann zu einem verwendbaren Programm verknüpft.
+Ein [`WebGLProgram`](/de/docs/Web/API/WebGLProgram) Objekt, das aus zwei kompilierten
+[`WebGLShader`](/de/docs/Web/API/WebGLShader)s besteht: einem Vertex-Shader und einem Fragment-Shader (beide
+geschrieben in GLSL). Diese werden dann zu einem nutzbaren Programm verknüpft.
 
 ## Beispiele
 
@@ -42,11 +43,11 @@ gl.linkProgram(program);
 
 if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
   const info = gl.getProgramInfoLog(program);
-  throw `Could not compile WebGL program. \n\n${info}`;
+  throw new Error(`Could not compile WebGL program. \n\n${info}`);
 }
 ```
 
-Siehe [`WebGLShader`](/de/docs/Web/API/WebGLShader) für Informationen zur Erstellung des
+Siehe [`WebGLShader`](/de/docs/Web/API/WebGLShader) für Informationen zur Erstellung der
 `vertexShader` und `fragmentShader` im obigen Beispiel.
 
 ## Spezifikationen

@@ -1,13 +1,14 @@
 ---
-title: "Permissions-Policy: gyroscope"
+title: "Permissions-Policy: gyroscope-Direktive"
+short-title: gyroscope
 slug: Web/HTTP/Reference/Headers/Permissions-Policy/gyroscope
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: ee756fd51ccbc4820a4b334aa753648650ad1d51
 ---
 
 {{HTTPSidebar}} {{SeeCompatTable}}
 
-Die HTTP-{{HTTPHeader("Permissions-Policy")}}-Header-Direktive `gyroscope` steuert, ob das aktuelle Dokument Informationen über die Orientierung des Geräts über das [`Gyroscope`](/de/docs/Web/API/Gyroscope)-Interface sammeln darf.
+Der HTTP-Header {{HTTPHeader("Permissions-Policy")}} `gyroscope`-Direktive kontrolliert, ob das aktuelle Dokument Informationen über die Ausrichtung des Geräts über die [`Gyroscope`](/de/docs/Web/API/Gyroscope)-Schnittstelle sammeln darf.
 
 Insbesondere, wenn eine definierte Richtlinie die Nutzung dieser Funktion blockiert, werden Aufrufe des [`Gyroscope()`](/de/docs/Web/API/Gyroscope/Gyroscope)-Konstruktors eine [`DOMException`](/de/docs/Web/API/DOMException) vom Typ `SecurityError` auslösen.
 
@@ -18,11 +19,11 @@ Permissions-Policy: gyroscope=<allowlist>;
 ```
 
 - `<allowlist>`
-  - : Eine Liste von Ursprüngen, für die die Erlaubnis erteilt wird, die Funktion zu verwenden. Weitere Details finden Sie unter [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Reference/Headers/Permissions-Policy#syntax).
+  - : Eine Liste von Ursprüngen, für die die Erlaubnis zur Nutzung der Funktion gewährt wird. Siehe [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Reference/Headers/Permissions-Policy#syntax) für weitere Details.
 
 ## Standardrichtlinie
 
-Die Standard-Whitelist für `gyroscope` ist `self`.
+Die Standard-Allowlist für `gyroscope` ist `self`.
 
 ## Spezifikationen
 
@@ -35,4 +36,4 @@ Die Standard-Whitelist für `gyroscope` ist `self`.
 ## Siehe auch
 
 - {{HTTPHeader("Permissions-Policy")}}-Header
-- [Permissions-Richtlinie](/de/docs/Web/HTTP/Guides/Permissions_Policy)
+- [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Guides/Permissions_Policy)

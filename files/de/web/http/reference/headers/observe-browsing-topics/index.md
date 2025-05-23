@@ -1,29 +1,30 @@
 ---
-title: Observe-Browsing-Topics
+title: Observe-Browsing-Topics header
+short-title: Observe-Browsing-Topics
 slug: Web/HTTP/Reference/Headers/Observe-Browsing-Topics
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: ee756fd51ccbc4820a4b334aa753648650ad1d51
 ---
 
 {{HTTPSidebar}}{{SeeCompatTable}}{{non-standard_header}}
 
 > [!WARNING]
-> Dieses Feature wird derzeit von zwei Browseranbietern abgelehnt. Weitere Informationen zu den Ablehnungen finden Sie im Abschnitt [Standards positions](/de/docs/Web/API/Topics_API#standards_positions).
+> Diese Funktion wird derzeit von zwei Browser-Anbietern abgelehnt. Siehe den Abschnitt [Standards-Positionen](/de/docs/Web/API/Topics_API#standards_positions) für Details zur Ablehnung.
 
-Der HTTP **`Observe-Browsing-Topics`** {{Glossary("response_header", "Response-Header")}} wird verwendet, um Themen von Interesse zu kennzeichnen, die aus der URL der aufrufenden Website (d.h. der Seite, auf der die Ad-Tech {{HTMLElement("iframe")}} eingebettet ist) abgeleitet wurden, wie in der Antwort auf eine Anfrage beobachtet wird, die durch ein [Feature, das die Topics API aktiviert](/de/docs/Web/API/Topics_API/Using#what_api_features_enable_the_topics_api), generiert wurde. Der Browser wird diese Themen anschließend verwenden, um die Hauptthemen für den aktuellen Benutzer für zukünftige Epochen zu berechnen.
+Der HTTP-**`Observe-Browsing-Topics`**-{{Glossary("response_header", "Antwort-Header")}} wird verwendet, um Themen von Interesse zu kennzeichnen, die aus der URL der aufrufenden Seite (d.h. der Seite, auf der die Werbetechnologie wie ein {{HTMLElement("iframe")}} eingebettet ist) abgeleitet werden, wie sie in der Antwort auf eine durch eine [Funktion, die die Topics API aktiviert](/de/docs/Web/API/Topics_API/Using#what_api_features_enable_the_topics_api) erstellte Anfrage beobachtet werden. Der Browser wird diese Themen anschließend verwenden, um die wichtigsten Themen für den aktuellen Benutzer für zukünftige Zeiträume zu berechnen.
 
-Weitere Details finden Sie unter [Using the Topics API](/de/docs/Web/API/Topics_API/Using).
+Weitere Details finden Sie in [Verwendung der Topics API](/de/docs/Web/API/Topics_API/Using).
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
       <td>
-        {{Glossary("Response_header", "Response-Header")}}
+        {{Glossary("Response_header", "Antwort-Header")}}
       </td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Forbidden_request_header", "Verbotener Request-Header")}}</th>
+      <th scope="row">{{Glossary("Forbidden_request_header", "Verbotener Anforderungs-Header")}}</th>
       <td>Nein</td>
     </tr>
   </tbody>
@@ -38,11 +39,11 @@ Observe-Browsing-Topics: ?1
 ### Direktiven
 
 - `?1`
-  - : Eine Zeichenfolge, die erklärt, dass Themen von Interesse, die aus der URL der aufrufenden Website (d.h. der Seite, auf der die Ad-Tech `<iframe>` eingebettet ist) abgeleitet wurden, als beobachtet markiert sind. Der Browser wird diese Themen anschließend verwenden, um Themen von Interesse für einen Benutzer für zukünftige Epochen zu berechnen.
+  - : Eine Zeichenfolge, die erklärt, dass die aus der URL der aufrufenden Seite abgeleiteten Themen von Interesse (d.h. der Seite, auf der die Werbetechnologie `<iframe>` eingebettet ist) als beobachtet gekennzeichnet sind. Der Browser wird diese Themen anschließend verwenden, um die Themen von Interesse für einen Benutzer in zukünftigen Zeiträumen zu berechnen.
 
 ## Spezifikationen
 
-Dieses Feature ist nicht Teil eines offiziellen Standards, obwohl es im [Topics API Unofficial Proposal Draft](https://patcg-individual-drafts.github.io/topics/) spezifiziert wird.
+Diese Funktion ist kein Teil eines offiziellen Standards, obwohl sie im [Topics API Unofficial Proposal Draft](https://patcg-individual-drafts.github.io/topics/) spezifiziert ist.
 
 ## Browser-Kompatibilität
 

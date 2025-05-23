@@ -1,13 +1,15 @@
 ---
-title: Accept-CH
+title: Accept-CH header
+short-title: Accept-CH
 slug: Web/HTTP/Reference/Headers/Accept-CH
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: ee756fd51ccbc4820a4b334aa753648650ad1d51
 ---
 
 {{HTTPSidebar}}{{securecontext_header}}
 
-Der HTTP **`Accept-CH`** {{Glossary("response_header", "Antwortheader")}} kann von einem Server gesetzt werden, um anzugeben, welche [Client-Hint](/de/docs/Web/HTTP/Guides/Client_hints)-Header der Client in nachfolgenden Anfragen einschließen soll. Um sicherzustellen, dass Client-Hints zuverlässig gesendet werden, sollte der `Accept-CH`-Header für alle sicheren Anfragen beibehalten werden.
+Der HTTP-**`Accept-CH`**-{{Glossary("response_header", "Antwortheader")}} kann von einem Server gesetzt werden, um anzugeben, welche [Client-Hint](/de/docs/Web/HTTP/Guides/Client_hints)-Header vom Client in nachfolgenden Anfragen eingeschlossen werden sollen.
+Um sicherzustellen, dass Client-Hints zuverlässig gesendet werden, sollte der `Accept-CH`-Header für alle sicheren Anfragen beibehalten werden.
 
 <table class="properties">
   <tbody>
@@ -21,7 +23,7 @@ Der HTTP **`Accept-CH`** {{Glossary("response_header", "Antwortheader")}} kann v
     </tr>
     <tr>
       <th scope="row">
-        {{Glossary("CORS-safelisted_response_header", "CORS-gesicherte Antwortheader")}}
+        {{Glossary("CORS-safelisted_response_header", "CORS-safelisted Antwortheader")}}
       </th>
       <td>Nein</td>
     </tr>
@@ -41,7 +43,8 @@ Accept-CH: <ch-header-one>, <ch-header-two>
 
 ### Client-Hint-Antwortheader
 
-Die folgenden Antwortheader zeigen an, dass der Server `Viewport-Width` und `Width` [Geräte-Client-Hints](/de/docs/Web/HTTP/Guides/Client_hints#device_client_hints) in nachfolgenden Anfragen akzeptiert. Der {{HTTPHeader("Vary")}}-Header gibt an, welche Werte verwendet wurden, um [die Antwort zu variieren](/de/docs/Web/HTTP/Guides/Client_hints#caching_and_client_hints) basierend auf den akzeptierten Client-Hints.
+Die folgenden Antwortheader zeigen an, dass der Server `Viewport-Width` und `Width` [Geräte-Client-Hints](/de/docs/Web/HTTP/Guides/Client_hints#device_client_hints) in nachfolgenden Anfragen akzeptiert.
+Der {{HTTPHeader("Vary")}}-Header zeigt an, welche Werte verwendet wurden, um die [Antwort je nach akzeptierten Client-Hints zu variieren](/de/docs/Web/HTTP/Guides/Client_hints#caching_and_client_hints).
 
 ```http
 Accept-CH: Viewport-Width, Width

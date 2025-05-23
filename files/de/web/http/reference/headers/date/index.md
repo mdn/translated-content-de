@@ -1,13 +1,14 @@
 ---
-title: Date
+title: Date header
+short-title: Date
 slug: Web/HTTP/Reference/Headers/Date
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: ee756fd51ccbc4820a4b334aa753648650ad1d51
 ---
 
 {{HTTPSidebar}}
 
-Der HTTP **`Date`** {{Glossary("request_header", "Request-")}} und {{Glossary("response_header", "Response-Header")}} enthält das Datum und die Uhrzeit, zu der die Nachricht erzeugt wurde.
+Der HTTP **`Date`** {{Glossary("request_header", "Request-Header")}} und {{Glossary("response_header", "Response-Header")}} enthält das Datum und die Uhrzeit, zu der die Nachricht erstellt wurde.
 
 <table class="properties">
   <tbody>
@@ -34,27 +35,27 @@ Date: <day-name>, <day> <month> <year> <hour>:<minute>:<second> GMT
 ## Direktiven
 
 - `<day-name>`
-  - : Einer von `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat` oder `Sun` (Groß-/Kleinschreibung beachten).
+  - : Einer von `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat` oder `Sun` (case-sensitiv).
 - `<day>`
-  - : 2-stellige Tageszahl, z. B. "04" oder "23".
+  - : Zweistellige Tageszahl, z.B. "04" oder "23".
 - `<month>`
-  - : Einer von `Jan`, `Feb`, `Mar`, `Apr`, `May`, `Jun`, `Jul`, `Aug`, `Sep`, `Oct`, `Nov`, `Dec` (Groß-/Kleinschreibung beachten).
+  - : Einer von `Jan`, `Feb`, `Mar`, `Apr`, `May`, `Jun`, `Jul`, `Aug`, `Sep`, `Oct`, `Nov`, `Dec` (case-sensitiv).
 - `<year>`
-  - : 4-stellige Jahreszahl, z. B. "1990" oder "2016".
+  - : Vierstellige Jahreszahl, z.B. "1990" oder "2016".
 - `<hour>`
-  - : 2-stellige Stundenzahl, z. B. "09" oder "23".
+  - : Zweistellige Stundenanzeige, z.B. "09" oder "23".
 - `<minute>`
-  - : 2-stellige Minutenzahl, z. B. "04" oder "59".
+  - : Zweistellige Minutenanzeige, z.B. "04" oder "59".
 - `<second>`
-  - : 2-stellige Sekundenzahl, z. B. "04" oder "59".
+  - : Zweistellige Sekundenanzeige, z.B. "04" oder "59".
 - GMT
-  - : Greenwich Mean Time. HTTP-Daten werden immer in GMT und niemals in lokaler Zeit angegeben.
+  - : Greenwich Mean Time. HTTP-Daten werden immer in GMT ausgedrückt, niemals in lokaler Zeit.
 
 ## Beispiele
 
-### Response mit einem Date-Header
+### Antwort mit einem Date-Header
 
-Die folgende HTTP-Nachricht ist ein erfolgreicher `200` Status, mit einem `Date`-Header, der die Zeit angibt, zu der die Nachricht erzeugt wurde.
+Die folgende HTTP-Nachricht zeigt einen erfolgreichen `200`-Status, mit einem `Date`-Header, der die Zeit angibt, zu der die Nachricht erstellt wurde.
 Andere Header sind der Kürze halber weggelassen:
 
 ```http
@@ -65,9 +66,9 @@ Date: Tue, 29 Oct 2024 16:56:32 GMT
 <html lang="en-US" …
 ```
 
-### Versuch, den Feldwert in JavaScript zu setzen
+### Versuch, den Feldwert in JavaScript festzulegen
 
-Der `Date`-Header ist ein {{Glossary("Forbidden_request_header", "Verbotener Request-Header")}}, daher kann dieser Code das `Date`-Feld der Nachricht nicht setzen:
+Der `Date`-Header ist ein {{Glossary("Forbidden_request_header", "verbotener Request-Header")}}, daher kann dieser Code das Nachrichtenfeld `Date` nicht festlegen:
 
 ```js example-bad
 fetch("https://httpbin.org/get", {

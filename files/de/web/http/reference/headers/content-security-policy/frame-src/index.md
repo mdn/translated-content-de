@@ -1,19 +1,20 @@
 ---
-title: "CSP: frame-src"
+title: "Content-Security-Policy: frame-src Direktive"
+short-title: frame-src
 slug: Web/HTTP/Reference/Headers/Content-Security-Policy/frame-src
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: ee756fd51ccbc4820a4b334aa753648650ad1d51
 ---
 
 {{HTTPSidebar}}
 
 Die HTTP {{HTTPHeader("Content-Security-Policy")}} (CSP)
-**`frame-src`** Direktive legt gültige Quellen für verschachtelte
-Browsing-Kontexte fest, die mit Elementen wie {{HTMLElement("frame")}} und
+**`frame-src`** Direktive gibt gültige Quellen für verschachtelte
+Browsing-Kontexte an, die mit Elementen wie {{HTMLElement("frame")}} und
 {{HTMLElement("iframe")}} geladen werden.
 
-> **Note:** **`frame-src`** erlaubt es Ihnen, anzugeben, von wo iframes in einer Seite geladen werden dürfen.
-> Dies unterscheidet sich von **`frame-ancestors`**, das es ermöglicht, festzulegen, welche übergeordnete Quelle eine Seite einbetten darf.
+> **Note:** **`frame-src`** erlaubt Ihnen festzulegen, von wo aus iframes in einer Seite geladen werden dürfen.
+> Dies unterscheidet sich von **`frame-ancestors`**, die es Ihnen ermöglicht, festzulegen, welche übergeordnete Quelle eine Seite einbetten darf.
 
 <table class="properties">
   <tbody>
@@ -23,13 +24,13 @@ Browsing-Kontexte fest, die mit Elementen wie {{HTMLElement("frame")}} und
     </tr>
     <tr>
       <th scope="row">Direktivtyp</th>
-      <td>{{Glossary("Fetch_directive", "Fetch-Direktive")}}</td>
+      <td>{{Glossary("Fetch_directive", "Fetch directive")}}</td>
     </tr>
     <tr>
       <th scope="row">Fallback</th>
       <td>
-        Falls diese Direktive fehlt, wird der User Agent nach der
-        {{CSP("child-src")}} Direktive suchen (die auf die
+        Falls diese Direktive fehlt, sucht der User-Agent nach der
+        {{CSP("child-src")}} Direktive (die auf die
         {{CSP("default-src")}} Direktive zurückfällt).
       </td>
     </tr>
@@ -46,10 +47,10 @@ Content-Security-Policy: frame-src <source-expression-list>;
 Diese Direktive kann einen der folgenden Werte haben:
 
 - `'none'`
-  - : Keine Ressourcen dieses Typs dürfen geladen werden. Die einfachen Anführungszeichen sind obligatorisch.
+  - : Keine Ressourcen dieses Typs dürfen geladen werden. Die einfachen Anführungszeichen sind zwingend erforderlich.
 - `<source-expression-list>`
 
-  - : Eine durch Leerzeichen getrennte Liste von _Quellenausdruckswerten_. Ressourcen dieses Typs dürfen geladen werden, wenn sie mit einem der angegebenen Quellenausdrücke übereinstimmen. Für diese Direktive sind die folgenden Quellenausdruckswerte anwendbar:
+  - : Eine durch Leerzeichen getrennte Liste von _Quellausdruck_-Werten. Ressourcen dieses Typs dürfen geladen werden, wenn sie mit einem der angegebenen Quellausdrücke übereinstimmen. Für diese Direktive sind die folgenden Quellausdruckswerte anwendbar:
 
     - [`<host-source>`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy#host-source)
     - [`<scheme-source>`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy#scheme-source)
@@ -57,9 +58,9 @@ Diese Direktive kann einen der folgenden Werte haben:
 
 ## Beispiele
 
-### Verletzungsfälle
+### Verstöße
 
-Angenommen, dieser CSP-Header ist gegeben:
+Angenommen, dieser CSP-Header:
 
 ```http
 Content-Security-Policy: frame-src https://example.com/

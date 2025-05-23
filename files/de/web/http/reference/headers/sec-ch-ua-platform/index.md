@@ -1,17 +1,17 @@
 ---
-title: Sec-CH-UA-Platform
+title: Sec-CH-UA-Platform header
+short-title: Sec-CH-UA-Platform
 slug: Web/HTTP/Reference/Headers/Sec-CH-UA-Platform
 l10n:
-  sourceCommit: d8fbe1ea30dcc8fd707048a804f5070a729b57a7
+  sourceCommit: ee756fd51ccbc4820a4b334aa753648650ad1d51
 ---
 
 {{HTTPSidebar}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Der HTTP **`Sec-CH-UA-Platform`** {{Glossary("request_header", "Request-Header")}} ist ein [User-Agent-Client-Hinweis](/de/docs/Web/HTTP/Guides/Client_hints#user_agent_client_hints), der die Plattform oder das Betriebssystem angibt, auf dem der User-Agent ausgeführt wird.
-Zum Beispiel: "Windows" oder "Android".
+Der HTTP **`Sec-CH-UA-Platform`** {{Glossary("request_header", "Request-Header")}} ist ein [Benutzeragent-Client-Hinweis](/de/docs/Web/HTTP/Guides/Client_hints#user_agent_client_hints), der die Plattform oder das Betriebssystem angibt, auf dem der Benutzeragent ausgeführt wird. Zum Beispiel: "Windows" oder "Android".
 
-`Sec-CH-UA-Platform` ist ein [Low-Entropy-Hinweis](/de/docs/Web/HTTP/Guides/Client_hints#low_entropy_hints).
-Sofern er nicht durch eine Permissionsrichtlinie des User-Agents blockiert wird, wird er standardmäßig gesendet (ohne dass der Server durch das Senden von {{HTTPHeader("Accept-CH")}} zustimmen muss).
+`Sec-CH-UA-Platform` ist ein [Low Entropy Hint](/de/docs/Web/HTTP/Guides/Client_hints#low_entropy_hints).
+Sofern nicht durch eine Benutzeragenten-Berechtigungsrichtlinie blockiert, wird er standardmäßig gesendet (ohne dass der Server durch das Senden von {{HTTPHeader("Accept-CH")}} zustimmt).
 
 <table class="properties">
   <tbody>
@@ -44,8 +44,7 @@ Sec-CH-UA-Platform: <platform>
 
 ### Verwendung von Sec-CH-UA-Platform
 
-Da `Sec-CH-UA-Platform` ein [Low-Entropy-Hinweis](/de/docs/Web/HTTP/Guides/Client_hints#low_entropy_hints) ist, wird er typischerweise in allen Anfragen gesendet.
-Ein Browser, der auf einem macOS-Computer läuft, könnte den folgenden Header zu allen Anfragen hinzufügen.
+Da `Sec-CH-UA-Platform` ein [Low Entropy Hint](/de/docs/Web/HTTP/Guides/Client_hints#low_entropy_hints) ist, wird er typischerweise in allen Anfragen gesendet. Ein Browser, der auf einem macOS-Computer ausgeführt wird, könnte den folgenden Header zu allen Anfragen hinzufügen.
 
 ```http
 Sec-CH-UA-Platform: "macOS"
@@ -65,4 +64,4 @@ Sec-CH-UA-Platform: "macOS"
 - [User-Agent Client Hints API](/de/docs/Web/API/User-Agent_Client_Hints_API)
 - {{HTTPHeader("Accept-CH")}}
 - [HTTP-Caching: Vary](/de/docs/Web/HTTP/Guides/Caching#vary) und {{HTTPHeader("Vary")}}-Header
-- [Verbesserung des Datenschutzes der Benutzer und der Entwicklererfahrung mit User-Agent-Client-Hinweisen](https://developer.chrome.com/docs/privacy-security/user-agent-client-hints) (developer.chrome.com)
+- [Verbesserung der Benutzerprivatsphäre und der Entwicklererfahrung mit User-Agent Client Hints](https://developer.chrome.com/docs/privacy-security/user-agent-client-hints) (developer.chrome.com)

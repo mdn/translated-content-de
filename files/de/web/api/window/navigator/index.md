@@ -3,12 +3,12 @@ title: "Window: navigator-Eigenschaft"
 short-title: navigator
 slug: Web/API/Window/navigator
 l10n:
-  sourceCommit: cc070123f72376faec06e36622c4fc723a75325f
+  sourceCommit: f2dc3d5367203c860cf1a71ce0e972f018523849
 ---
 
 {{APIRef}}
 
-Die schreibgeschützte **`Window.navigator`**-Eigenschaft gibt eine Referenz auf das [`Navigator`](/de/docs/Web/API/Navigator)-Objekt zurück, das Methoden und Eigenschaften bezüglich der Anwendung enthält, die das Skript ausführt.
+Die schreibgeschützte Eigenschaft **`Window.navigator`** gibt eine Referenz auf das [`Navigator`](/de/docs/Web/API/Navigator)-Objekt zurück, welches Methoden und Eigenschaften bezüglich der Anwendung enthält, die das Skript ausführt.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Das [`navigator`](/de/docs/Web/API/Navigator)-Objekt.
 
 ## Beispiele
 
-### Beispiel 1: Browser-Erkennung und Rückgabe eines Strings
+### Beispiel 1: Browsererkennung und Rückgabe eines Strings
 
 ```js
 function getBrowserName(userAgent) {
@@ -43,9 +43,8 @@ function getBrowserName(userAgent) {
   } else if (userAgent.includes("Safari")) {
     // "Mozilla/5.0 (iPhone; CPU iPhone OS 15_6_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.6 Mobile/15E148 Safari/604.1"
     return "Apple Safari";
-  } else {
-    return "unknown";
   }
+  return "unknown";
 }
 
 const browserName = getBrowserName(navigator.userAgent);

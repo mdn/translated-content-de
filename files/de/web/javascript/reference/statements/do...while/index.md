@@ -2,12 +2,12 @@
 title: do...while
 slug: Web/JavaScript/Reference/Statements/do...while
 l10n:
-  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
+  sourceCommit: 373fcd42528fc9eafa3703dc99927cc56c75fa8d
 ---
 
 {{jsSidebar("Statements")}}
 
-Die **`do...while`** Anweisung erstellt eine Schleife, die eine angegebene Anweisung so lange ausführt, wie die Testbedingung als wahr ausgewertet wird. Die Bedingung wird nach der Ausführung der Anweisung ausgewertet, was dazu führt, dass die angegebene Anweisung mindestens einmal ausgeführt wird.
+Die **`do...while`**-Anweisung erstellt eine Schleife, die eine bestimmte Anweisung so lange ausführt, wie die Testbedingung als wahr bewertet wird. Die Bedingung wird nach der Ausführung der Anweisung ausgewertet, wodurch die angegebene Anweisung mindestens einmal ausgeführt wird.
 
 {{InteractiveExample("JavaScript Demo: do...while statement")}}
 
@@ -16,8 +16,8 @@ let result = "";
 let i = 0;
 
 do {
-  i = i + 1;
-  result = result + i;
+  i += 1;
+  result += i;
 } while (i < 5);
 
 console.log(result);
@@ -33,24 +33,25 @@ while (condition);
 ```
 
 - `statement`
-  - : Eine Anweisung, die mindestens einmal und erneut ausgeführt wird, solange die Bedingung als wahr ausgewertet wird. Sie können eine [Blockanweisung](/de/docs/Web/JavaScript/Reference/Statements/block) verwenden, um mehrere Anweisungen auszuführen.
+  - : Eine Anweisung, die mindestens einmal ausgeführt wird und erneut ausgeführt wird, solange die Bedingung als wahr bewertet wird. Sie können eine [Blockanweisung](/de/docs/Web/JavaScript/Reference/Statements/block) verwenden, um mehrere Anweisungen auszuführen.
 - `condition`
-  - : Ein Ausdruck, der _nach_ jedem Durchlauf der Schleife ausgewertet wird. Wenn diese Bedingung {{Glossary("Truthy", "als wahr ausgewertet wird")}}, wird `statement` erneut ausgeführt. Wenn die Bedingung {{Glossary("Falsy", "als falsch ausgewertet wird")}}, wird die Ausführung mit der Anweisung nach der `do...while` Schleife fortgesetzt.
+  - : Ein Ausdruck, der _nach_ jedem Durchlauf der Schleife ausgewertet wird. Wenn diese Bedingung als {{Glossary("Truthy", "wahr bewertet wird")}}, wird `statement` erneut ausgeführt. Wenn die Bedingung als {{Glossary("Falsy", "falsch bewertet wird")}}, wird die Ausführung mit der Anweisung nach der `do...while`-Schleife fortgesetzt.
 
 ## Beschreibung
 
-Wie bei anderen Schleifenanweisungen, können Sie [Steuerflussanweisungen](/de/docs/Web/JavaScript/Reference/Statements#control_flow) innerhalb von `statement` verwenden:
+Wie bei anderen Schleifenanweisungen können Sie [Kontrollflussanweisungen](/de/docs/Web/JavaScript/Reference/Statements#control_flow) innerhalb von `statement` verwenden:
 
-- {{jsxref("Statements/break", "break")}} stoppt die Ausführung von `statement` und wechselt zur ersten Anweisung nach der Schleife.
+- {{jsxref("Statements/break", "break")}} stoppt die Ausführung von `statement` und geht zur ersten Anweisung nach der Schleife.
 - {{jsxref("Statements/continue", "continue")}} stoppt die Ausführung von `statement` und bewertet `condition` erneut.
 
-Die Syntax der `do...while` Anweisung erfordert ein Semikolon am Ende, aber der [Automatische Semikolon-Einfügungsprozess](/de/docs/Web/JavaScript/Reference/Lexical_grammar#automatic_semicolon_insertion) kann eines einfügen, wenn das Fehlen eines Semikolons zu ungültiger Syntax führt.
+Die Syntax der `do...while`-Anweisung erfordert ein Semikolon am Ende, aber der Prozess der [automatischen Semikoloneinfügung](/de/docs/Web/JavaScript/Reference/Lexical_grammar#automatic_semicolon_insertion) kann eines für Sie einfügen, wenn das Fehlen eines Semikolons zu ungültiger Syntax führt.
 
 ## Beispiele
 
-### Verwendung von do...while
+### Verwenden von do...while
 
-Im folgenden Beispiel durchläuft die `do...while` Schleife mindestens einmal und wiederholt sich, bis `i` nicht mehr kleiner als 5 ist.
+Im folgenden Beispiel iteriert die `do...while`-Schleife mindestens einmal und
+wiederholt sich, bis `i` nicht mehr kleiner als 5 ist.
 
 ```js
 let result = "";
@@ -64,9 +65,9 @@ do {
 console.log(result);
 ```
 
-### Verwendung von false als do...while Bedingung
+### Verwenden von false als do...while-Bedingung
 
-Da die Anweisung immer einmal ausgeführt wird, ist `do...while (false)` dasselbe wie die Ausführung der Anweisung selbst. Dies ist ein gängiges Idiom in C-ähnlichen Sprachen, das es ermöglicht, `break` zu verwenden, um die verzweigte Logik frühzeitig zu verlassen.
+Da die Anweisung immer einmal ausgeführt wird, ist `do...while (false)` dasselbe wie das Ausführen der Anweisung selbst. Dies ist ein gängiges Idiom in C-ähnlichen Sprachen, das es Ihnen ermöglicht, `break` zu verwenden, um frühzeitig aus verzweigter Logik auszubrechen.
 
 ```js
 do {
@@ -86,7 +87,7 @@ do {
 // The rest of code
 ```
 
-In JavaScript gibt es einige Alternativen, wie die Verwendung einer [gelabelten Blockanweisung](/de/docs/Web/JavaScript/Reference/Statements/label) mit `break`:
+In JavaScript gibt es einige Alternativen, wie die Verwendung einer [beschrifteten Blockanweisung](/de/docs/Web/JavaScript/Reference/Statements/label) mit `break`:
 
 ```js
 handleFriends: {
@@ -124,7 +125,7 @@ function handleFriends() {
 }
 ```
 
-### Verwendung einer Zuweisung als Bedingung
+### Verwenden einer Zuweisung als Bedingung
 
 In einigen Fällen kann es sinnvoll sein, eine Zuweisung als Bedingung zu verwenden, wie in diesem Beispiel:
 
@@ -134,7 +135,7 @@ do {
 } while ((match = regexp.exec(str)));
 ```
 
-Aber wenn Sie dies tun, gibt es Lesbarkeitseinbußen. Die [`while`](/de/docs/Web/JavaScript/Reference/Statements/while) Dokumentation hat einen Abschnitt zu [Verwendung einer Zuweisung als Bedingung](/de/docs/Web/JavaScript/Reference/Statements/while#using_an_assignment_as_a_condition) mit unseren Empfehlungen.
+Aber wenn Sie das tun, gibt es Kompromisse bei der Lesbarkeit. Die [`while`](/de/docs/Web/JavaScript/Reference/Statements/while)-Dokumentation enthält einen Abschnitt [Verwendung einer Zuweisung als Bedingung](/de/docs/Web/JavaScript/Reference/Statements/while#using_an_assignment_as_a_condition) mit unseren Empfehlungen.
 
 ## Spezifikationen
 

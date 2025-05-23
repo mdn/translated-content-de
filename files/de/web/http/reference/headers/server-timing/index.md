@@ -1,23 +1,24 @@
 ---
-title: Server-Timing
+title: Server-Timing header
+short-title: Server-Timing
 slug: Web/HTTP/Reference/Headers/Server-Timing
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: ee756fd51ccbc4820a4b334aa753648650ad1d51
 ---
 
 {{HTTPSidebar}}
 
-Der HTTP-**`Server-Timing`**-{{Glossary("response_header", "Antwortheader")}} übermittelt eine oder mehrere Leistungsmetriken des Anforderungs-Antwort-Zyklus an den User-Agent.
-Er wird verwendet, um Backend-Server-Zeitmetriken (zum Beispiel Datenbank-Lese/Schreib-Zeit, CPU-Zeit, Dateisystemzugriff usw.) in den Entwicklerwerkzeugen des Browsers des Nutzers oder in der [`PerformanceServerTiming`](/de/docs/Web/API/PerformanceServerTiming)-Schnittstelle anzuzeigen.
+Der HTTP-**`Server-Timing`**-{{Glossary("response_header", "Antwort-Header")}} kommuniziert ein oder mehrere Leistungskennzahlen über den Anfrage-Antwort-Zyklus an den User-Agent.
+Er wird verwendet, um Backend-Server-Timing-Metriken (zum Beispiel Datenbank-Lese-/Schreibzugriffe, CPU-Zeit, Dateisystemzugriffe usw.) in den Entwickler-Tools im Browser des Benutzers oder in der [`PerformanceServerTiming`](/de/docs/Web/API/PerformanceServerTiming)-Schnittstelle anzuzeigen.
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Headertyp</th>
-      <td>{{Glossary("Response_header", "Antwortheader")}}</td>
+      <td>{{Glossary("Response_header", "Antwort-Header")}}</td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Forbidden_request_header", "Verbotener Anforderungsheader")}}</th>
+      <th scope="row">{{Glossary("Forbidden_request_header", "Verbotener Anfrage-Header")}}</th>
       <td>Nein</td>
     </tr>
   </tbody>
@@ -53,29 +54,29 @@ Server-Timing: db;dur=53, app;dur=47.2
 ## Direktiven
 
 - `<timing-metric>`
-  - : Eine durch Kommas getrennte Liste von einer oder mehreren Metriken mit folgenden, durch Semikolon getrennten Komponenten:
+  - : Eine durch Kommas getrennte Liste von einer oder mehreren Metriken mit den folgenden Komponenten, die durch Semikolon getrennt sind:
     - `<name>`
-      - : Ein Name-Token (keine Leerzeichen oder Sonderzeichen) für die Metrik, der implementierungsspezifisch oder vom Server definiert ist, wie `cacheHit`.
+      - : Ein Namenstoken (keine Leerzeichen oder Sonderzeichen) für die Metrik, die implementierungsspezifisch oder vom Server definiert ist, wie `cacheHit`.
     - `<duration>` {{optional_inline}}
-      - : Eine Dauer als die Zeichenkette `dur`, gefolgt von `=`, gefolgt von einem Wert wie `dur=23.2`.
+      - : Eine Dauer als die Zeichenkette `dur`, gefolgt von `=`, gefolgt von einem Wert, wie `dur=23.2`.
     - `<description>` {{optional_inline}}
-      - : Eine Beschreibung als die Zeichenkette `desc`, gefolgt von `=`, gefolgt von einem Wert als Token oder einem in Anführungszeichen stehenden String, wie `desc=prod` oder `desc="DB lookup"`.
+      - : Eine Beschreibung als die Zeichenkette `desc`, gefolgt von `=`, gefolgt von einem Wert als Token oder als zitierte Zeichenkette, wie `desc=prod` oder `desc="DB lookup"`.
 
-Namen und Beschreibungen sollten so kurz wie möglich gehalten werden (zum Beispiel Abkürzungen verwenden und optionale Werte weglassen), um den HTTP-Datenaufwand zu minimieren.
+Namen und Beschreibungen sollten so kurz wie möglich gehalten werden (zum Beispiel durch die Verwendung von Abkürzungen und das Weglassen optionaler Werte), um den HTTP-Daten-Overhead zu minimieren.
 
 ## Beschreibung
 
 ### Datenschutz und Sicherheit
 
-Der `Server-Timing`-Header kann potenziell sensible Anwendungs- und Infrastrukturinformationen preisgeben.
-Entscheiden Sie basierend auf dem Anwendungsfall, welche Metriken gesendet werden, wann sie gesendet werden und wer sie sehen soll.
-Zum Beispiel könnten Sie entscheiden, Metriken nur authentifizierten Nutzern anzuzeigen und nichts in öffentlichen Antworten preiszugeben.
+Der `Server-Timing`-Header kann potenziell sensible Informationen über Anwendungen und Infrastruktur preisgeben.
+Entscheiden Sie, welche Metriken gesendet werden sollen, wann sie gesendet werden sollen und wer sie sehen darf, basierend auf dem Anwendungsfall.
+Zum Beispiel können Sie entscheiden, nur authentifizierten Benutzern Metriken anzuzeigen und in öffentlichen Antworten nichts zu zeigen.
 
-### PerformanceServerTiming Schnittstelle
+### PerformanceServerTiming-Schnittstelle
 
-Neben der Anzeige von `Server-Timing`-Header-Metriken in den Entwicklerwerkzeugen des Browsers ermöglicht die [`PerformanceServerTiming`](/de/docs/Web/API/PerformanceServerTiming)-Schnittstelle es Tools, Metriken automatisch von JavaScript zu sammeln und zu verarbeiten. Diese Schnittstelle ist auf denselben Ursprung beschränkt, aber Sie können den {{HTTPHeader("Timing-Allow-Origin")}}-Header verwenden, um die Domänen zu spezifizieren, die Zugriff auf die Server-Metriken haben. Die Schnittstelle ist nur in sicheren Kontexten (HTTPS) in einigen Browsern verfügbar.
+Zusätzlich zur Anzeige der `Server-Timing`-Header-Metriken in den Entwicklerwerkzeugen des Browsers ermöglicht die [`PerformanceServerTiming`](/de/docs/Web/API/PerformanceServerTiming)-Schnittstelle Tools, Metriken automatisch aus JavaScript zu sammeln und zu verarbeiten. Diese Schnittstelle ist auf den gleichen Ursprung beschränkt, aber Sie können den {{HTTPHeader("Timing-Allow-Origin")}}-Header verwenden, um die Domänen anzugeben, die Zugriff auf die Server-Metriken haben dürfen. Die Schnittstelle ist nur in sicheren Kontexten (HTTPS) in einigen Browsern verfügbar.
 
-Die Komponenten des `Server-Timing`-Headers spiegeln sich in den [`PerformanceServerTiming`](/de/docs/Web/API/PerformanceServerTiming)-Eigenschaften wie folgt wider:
+Die Komponenten des `Server-Timing`-Headers werden wie folgt auf die [`PerformanceServerTiming`](/de/docs/Web/API/PerformanceServerTiming)-Eigenschaften abgebildet:
 
 - `"name"` -> [`PerformanceServerTiming.name`](/de/docs/Web/API/PerformanceServerTiming/name)
 - `"dur"` -> [`PerformanceServerTiming.duration`](/de/docs/Web/API/PerformanceServerTiming/duration)
@@ -85,7 +86,7 @@ Die Komponenten des `Server-Timing`-Headers spiegeln sich in den [`PerformanceSe
 
 ### Senden einer Metrik mit dem Server-Timing-Header
 
-Die folgende Antwort enthält eine Metrik `custom-metric` mit einer Dauer von `123,45` Millisekunden und einer Beschreibung "My custom metric":
+Die folgende Antwort enthält eine Metrik `custom-metric` mit einer Dauer von `123.45` Millisekunden und einer Beschreibung von "My custom metric":
 
 ```http
 Server-Timing: custom-metric;dur=123.45;desc="My custom metric"
@@ -93,8 +94,8 @@ Server-Timing: custom-metric;dur=123.45;desc="My custom metric"
 
 ### Server-Timing als HTTP-Trailer
 
-In der folgenden Antwort wird der {{HTTPHeader("Trailer")}}-Header verwendet, um anzugeben, dass ein `Server-Timing`-Header nach dem Antwortkörper folgt.
-Es wird eine Metrik `custom-metric` mit einer Dauer von `123,4` Millisekunden gesendet.
+In der folgenden Antwort wird der {{HTTPHeader("Trailer")}}-Header verwendet, um anzuzeigen, dass ein `Server-Timing`-Header dem Antwortkörper folgen wird.
+Eine Metrik `custom-metric` mit einer Dauer von `123.4` Millisekunden wird gesendet.
 
 ```http
 HTTP/1.1 200 OK
@@ -106,8 +107,8 @@ Server-Timing: custom-metric;dur=123.4
 ```
 
 > [!WARNING]
-> Nur die DevTools des Browsers können den `Server-Timing`-Header als HTTP-Trailer verwenden, um Informationen im Netzwerk -> Timings-Tab anzuzeigen.
-> Die Fetch-API kann nicht auf HTTP-Trailer zugreifen.
+> Nur die DevTools des Browsers können den `Server-Timing`-Header als HTTP-Trailer verwenden, um Informationen im Netzwerk-Tab -> Timings anzuzeigen.
+> Die Fetch API kann nicht auf HTTP-Trailer zugreifen.
 > Siehe [Browser-Kompatibilität](#browser-kompatibilität) für weitere Informationen.
 
 ## Spezifikationen

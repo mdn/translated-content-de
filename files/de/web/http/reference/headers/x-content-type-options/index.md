@@ -1,19 +1,20 @@
 ---
-title: X-Content-Type-Options
+title: X-Content-Type-Options header
+short-title: X-Content-Type-Options
 slug: Web/HTTP/Reference/Headers/X-Content-Type-Options
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: ee756fd51ccbc4820a4b334aa753648650ad1d51
 ---
 
 {{HTTPSidebar}}
 
-Der HTTP **`X-Content-Type-Options`** {{Glossary("response_header", "Antwort-Header")}} gibt an, dass die im {{HTTPHeader("Content-Type")}} Header angekündigten [MIME-Typen](/de/docs/Web/HTTP/Guides/MIME_types) respektiert und nicht geändert werden sollten. Der Header erlaubt es Ihnen, [MIME-Typ Sniffing](/de/docs/Web/HTTP/Guides/MIME_types#mime_sniffing) zu vermeiden, indem er spezifiziert, dass die MIME-Typen absichtlich konfiguriert sind.
+Der HTTP **`X-Content-Type-Options`** {{Glossary("response_header", "Antwort-Header")}} gibt an, dass die im {{HTTPHeader("Content-Type")}} Header beworbenen [MIME-Typen](/de/docs/Web/HTTP/Guides/MIME_types) respektiert und nicht verändert werden sollen. Der Header ermöglicht es Ihnen, [MIME-Typ-Sniffing](/de/docs/Web/HTTP/Guides/MIME_types#mime_sniffing) zu vermeiden, indem er angibt, dass die MIME-Typen absichtlich konfiguriert sind.
 
-Sicherheitstester von Websites erwarten üblicherweise, dass dieser Header gesetzt ist.
+Sicherheitstester für Webseiten erwarten in der Regel, dass dieser Header gesetzt ist.
 
 > [!NOTE]
-> Der `X-Content-Type-Options` Header gilt nur für die Anforderungsblockierung [aufgrund von `nosniff`](https://fetch.spec.whatwg.org/#ref-for-determine-nosniff) für [Anforderungsziele](/de/docs/Web/API/Request/destination) vom Typ `"script"` und `"style"`.
-> Er aktiviert jedoch auch den Schutz von [Cross-Origin Read Blocking (CORB)](https://chromium.googlesource.com/chromium/src/+/master/services/network/cross_origin_read_blocking_explainer.md#determining-whether-a-response-is-corb_protected) für HTML-, TXT-, JSON- und XML-Dateien (ausgenommen SVG `image/svg+xml`).
+> Der `X-Content-Type-Options` Header blockiert Anfragen nur aufgrund von `nosniff` für [Anfrageziele](/de/docs/Web/API/Request/destination) vom Typ `"script"` und `"style"`.
+> Zudem aktiviert er den [Cross-Origin Read Blocking (CORB)](https://chromium.googlesource.com/chromium/src/+/master/services/network/cross_origin_read_blocking_explainer.md#determining-whether-a-response-is-corb_protected) Schutz für HTML-, TXT-, JSON- und XML-Dateien (ausgenommen SVG `image/svg+xml`).
 
 <table class="properties">
   <tbody>
@@ -37,7 +38,7 @@ X-Content-Type-Options: nosniff
 ## Direktiven
 
 - `nosniff`
-  - : Blockiert eine Anfrage, wenn das Anforderungsziel vom Typ `style` ist und der MIME-Typ nicht `text/css` ist oder vom Typ `script` und der MIME-Typ kein [JavaScript MIME-Typ](https://html.spec.whatwg.org/multipage/scripting.html#javascript-mime-type) ist.
+  - : Blockiert eine Anfrage, wenn das Anfrageziel vom Typ `style` ist und der MIME-Typ nicht `text/css` ist, oder vom Typ `script` ist und der MIME-Typ kein [JavaScript MIME-Typ](https://html.spec.whatwg.org/multipage/scripting.html#javascript-mime-type) ist.
 
 ## Spezifikationen
 
@@ -51,7 +52,7 @@ X-Content-Type-Options: nosniff
 
 - {{HTTPHeader("Content-Type")}}
 - Die [ursprüngliche Definition](https://learn.microsoft.com/en-us/archive/blogs/ie/ie8-security-part-vi-beta-2-update) von X-Content-Type-Options durch Microsoft.
-- Verwenden Sie das [HTTP Observatory](/en-US/observatory) zur Überprüfung der Sicherheitskonfiguration von Websites (einschließlich dieses Headers).
-- [Vermeidung von MIME-Verwirrungsangriffen in Firefox](https://blog.mozilla.org/security/2016/08/26/mitigating-mime-confusion-attacks-in-firefox/)
+- Verwenden Sie [HTTP Observatory](/en-US/observatory), um die Sicherheitskonfiguration von Webseiten zu testen (einschließlich dieses Headers).
+- [Abmilderung von MIME-Verwirrungsangriffen in Firefox](https://blog.mozilla.org/security/2016/08/26/mitigating-mime-confusion-attacks-in-firefox/)
 - [Cross-Origin Read Blocking (CORB)](https://fetch.spec.whatwg.org/#corb)
-- [Google Docs CORB Erklärung](https://chromium.googlesource.com/chromium/src/+/master/services/network/cross_origin_read_blocking_explainer.md)
+- [Google Docs CORB-Erklärung](https://chromium.googlesource.com/chromium/src/+/master/services/network/cross_origin_read_blocking_explainer.md)

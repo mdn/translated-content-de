@@ -1,31 +1,31 @@
 ---
-title: Veraltete und obsolete Funktionen
+title: Veraltete und überholte Funktionen
 slug: Web/JavaScript/Reference/Deprecated_and_obsolete_features
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: f2dc3d5367203c860cf1a71ce0e972f018523849
 ---
 
 {{jsSidebar("Mehr")}}
 
-Diese Seite listet Funktionen von JavaScript auf, die veraltet (d.h. noch verfügbar, aber zur Entfernung vorgesehen) und obsolet sind (d.h. nicht mehr nutzbar).
+Diese Seite listet JavaScript-Funktionen auf, die veraltet sind (d.h. noch verfügbar, aber zur Entfernung vorgesehen) und überholt (d.h. nicht mehr nutzbar).
 
 ## Veraltete Funktionen
 
-Diese veralteten Funktionen können noch verwendet werden, sollten jedoch mit Vorsicht eingesetzt werden, da deren Implementierung in keinem JavaScript-Engine garantiert ist. Sie sollten daran arbeiten, deren Nutzung aus Ihrem Code zu entfernen.
+Diese veralteten Funktionen können noch verwendet werden, sollten jedoch mit Vorsicht eingesetzt werden, da sie nicht von jeder JavaScript-Engine implementiert werden müssen. Sie sollten daran arbeiten, deren Verwendung aus Ihrem Code zu entfernen.
 
-Einige dieser veralteten Funktionen sind in Abschnitt [Annex B](https://tc39.es/ecma262/multipage/additional-ecmascript-features-for-web-browsers.html) der ECMAScript-Spezifikation aufgeführt. Dieser Abschnitt ist als normativ optional beschrieben — Web-Browser-Hosts müssen diese Funktionen implementieren, während Nicht-Web-Hosts dies möglicherweise nicht tun. Diese Funktionen sind wahrscheinlich stabil, da ihre Entfernung Rückwärtskompatibilitätsprobleme verursachen und ältere Websites unbrauchbar machen würde. (JavaScript hat das Designziel "Don't break the web".) Sie sind jedoch nicht plattformübergreifend portabel und werden möglicherweise nicht von allen Analysewerkzeugen unterstützt, daher wird empfohlen, sie nicht zu verwenden, wie in der Einleitung von Annex B angegeben:
+Einige dieser veralteten Funktionen sind im [Anhang B](https://tc39.es/ecma262/multipage/additional-ecmascript-features-for-web-browsers.html) der ECMAScript-Spezifikation aufgelistet. Dieser Abschnitt wird als normativ optional beschrieben — das heißt, Webbrowser-Hosts müssen diese Funktionen implementieren, während Nicht-Web-Hosts dies möglicherweise nicht tun. Diese Funktionen sind wahrscheinlich stabil, da ihre Entfernung Rückwärtskompatibilitätsprobleme verursachen und ältere Websites beschädigen würde. (JavaScript hat das Designziel "Das Web nicht zerstören".) Dennoch sind sie nicht plattformübergreifend portabel und werden möglicherweise nicht von allen Analysetools unterstützt, daher wird empfohlen, sie nicht zu verwenden, wie in der Einleitung zu Anhang B angegeben:
 
-> … Alle in diesem Anhang beschriebenen Sprachfunktionen und Verhaltensweisen haben ein oder mehrere unerwünschte Merkmale und würden in Abwesenheit von Legacy-Nutzung aus dieser Spezifikation entfernt werden. …
+> … Alle in diesem Anhang spezifizierten Sprachfeatures und Verhaltensweisen haben eine oder mehrere unerwünschte Eigenschaften und würden ohne die Existenz älterer Nutzungen aus dieser Spezifikation entfernt werden. …
 >
-> … Programmierer sollten diese Funktionen und Verhaltensweisen nicht verwenden oder deren Existenz voraussetzen, wenn sie neuen ECMAScript-Code schreiben. …
+> … Programmierer sollten diese Features und Verhaltensweisen bei der Erstellung neuen ECMAScript-Codes weder verwenden noch deren Existenz annehmen. …
 
-Einige andere, obwohl sie sich im Hauptteil der Spezifikation befinden, sind ebenfalls als normativ optional markiert und sollten nicht angenommen werden.
+Einige andere, obwohl im Hauptteil der Spezifikation, sind ebenfalls als normativ optional gekennzeichnet und sollten nicht darauf aufgebaut werden.
 
 ### HTML-Kommentare
 
-JavaScript-Source, wenn als Skripte geparst, erlaubt HTML-ähnliche Kommentare, als ob das Skript Teil eines `<script>`-Tags wäre.
+JavaScript-Quellcode, wenn er als Skripte geparst wird, erlaubt HTML-ähnliche Kommentare, als ob das Skript Teil eines `<script>`-Tags wäre.
 
-Das Folgende ist gültiges JavaScript beim Ausführen in einem Web-Browser (oder Node.js, der die V8-Engine verwendet, die Chrome antreibt):
+Der folgende Code ist gültiges JavaScript, wenn es in einem Webbrowser (oder Node.js, das die V8-Engine von Chrome nutzt) ausgeführt wird:
 
 ```js
 <!-- comment
@@ -35,54 +35,54 @@ console.log("b");
 // Logs "a" and "b"
 ```
 
-`<!--` und `-->` beide verhalten sich wie `//`, d.h. sie beginnen Zeilenkommentare. `-->` ist nur am Anfang einer Zeile gültig (um Mehrdeutigkeiten mit einem postfix-Decrement gefolgt von einem Größer-als-Operator zu vermeiden), während `<!--` überall in der Zeile vorkommen kann.
+`<!--` und `-->` verhalten sich beide wie `//`, d.h. sie starten Zeilenkommentare. `-->` ist nur am Zeilenanfang gültig (um Mehrdeutigkeit mit einem Postfix-Dekrement, gefolgt von einem Größer-als-Operator zu vermeiden), während `<!--` überall in der Zeile vorkommen kann.
 
 ### RegExp
 
-Die folgenden Eigenschaften sind veraltet. Dies beeinflusst nicht ihre Nutzung in [Ersetzungsstrings](/de/docs/Web/JavaScript/Reference/Global_Objects/String/replace):
+Die folgenden Eigenschaften sind veraltet. Dies beeinflusst nicht ihre Verwendung in [Ersetzungs-Strings](/de/docs/Web/JavaScript/Reference/Global_Objects/String/replace):
 
 - [`$1–$9`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/n)
-  - : Parenthesierte Teilzeichenfolgen, wenn vorhanden.
+  - : Parenthesierte Substring-Übereinstimmungen, falls vorhanden.
 - [`input`, `$_`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/input)
-  - : Die Zeichenfolge, gegen die ein regulärer Ausdruck gematcht wird.
+  - : Der String, gegen den ein regulärer Ausdruck abgeglichen wird.
 - [`lastMatch`, `$&`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/lastMatch)
-  - : Die zuletzt gematchte Teilzeichenfolge.
+  - : Der zuletzt abgeglichene Substring.
 - [`lastParen`, `$+`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/lastParen)
-  - : Der letzte geparenthesierten Teilzeichenfolgentreffer, wenn vorhanden.
+  - : Die letzte parenthesierte Substring-Übereinstimmung, falls vorhanden.
 - [`leftContext`, `` $` ``](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/leftContext)
-  - : Die Teilzeichenfolge vor dem jüngsten Treffer.
+  - : Der Substring vor der letzten Übereinstimmung.
 - [`rightContext`, `$'`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/rightContext)
-  - : Die Teilzeichenfolge nach dem jüngsten Treffer.
+  - : Der Substring nach der letzten Übereinstimmung.
 
 > [!WARNING]
-> Vermeiden Sie die Verwendung dieser statischen Eigenschaften, da sie [Probleme beim Umgang mit externem Code](https://github.com/tc39/proposal-regexp-legacy-features/blob/master/subclass-restriction-motivation.md#legacy-static-properties-regexp1-etc) verursachen können!
+> Vermeiden Sie die Verwendung dieser statischen Eigenschaften, da sie [Probleme bei der Interaktion mit externem Code verursachen können](https://github.com/tc39/proposal-regexp-legacy-features/blob/master/subclass-restriction-motivation.md#legacy-static-properties-regexp1-etc)!
 
-Die Methode {{jsxref("RegExp/compile", "compile()")}} ist veraltet. Konstruieren Sie stattdessen eine neue `RegExp`-Instanz.
+Die {{jsxref("RegExp/compile", "compile()")}}-Methode ist veraltet. Erstellen Sie stattdessen eine neue `RegExp`-Instanz.
 
-Die folgenden regulären Ausdrücke-Syntaxen sind veraltet und nur im [Unicode-unaware mode](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicode#unicode-aware_mode) verfügbar. Im Unicode-aware mode sind sie alle Syntaxfehler:
+Die folgenden regulären Ausdrucks-Syntaxen sind veraltet und nur im [Unicode-unuptächtigen Modus](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicode#unicode-aware_mode) verfügbar. Im Unicode-bewussten Modus sind sie alle Syntaxfehler:
 
-- [Lookahead Assertions](/de/docs/Web/JavaScript/Reference/Regular_expressions/Lookahead_assertion) können [Quantoren](/de/docs/Web/JavaScript/Reference/Regular_expressions/Quantifier) haben.
-- [Rückverweise](/de/docs/Web/JavaScript/Reference/Regular_expressions/Backreference), die sich nicht auf eine vorhandene Erfassen-Gruppe beziehen, werden zu [alten Oktalauswertungen](#escape-sequenzen).
-- In [Zeichenklassen](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class) ist ein Zeichenbereich, bei dem eine Grenze eine Zeichenklasse ist, das `-` als ein literales Zeichen.
-- Eine nicht erkannte Escape-Sequenz wird zu einer ["Identitäts-Escape"](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_escape).
-- Escape-Sequenzen innerhalb von [Zeichenklassen](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class) der Form `\cX`, wobei `X` eine Zahl oder `_` ist, werden auf die gleiche Weise dekodiert wie diejenigen mit {{Glossary("ASCII", "ASCII")}}-Buchstaben: `\c0` ist dasselbe wie `\cP`, wenn modulo 32 betrachtet. Außerdem, wenn die Form `\cX` irgendwo auftritt, wo `X` nicht zu den anerkannten Zeichen gehört, wird der Backslash als literales Zeichen behandelt.
-- Die Sequenz `\k` innerhalb eines Regex, das keine [benannten Erfassungsgruppen](/de/docs/Web/JavaScript/Reference/Regular_expressions/Named_capturing_group) hat, wird als Identitäts-Escape behandelt.
-- Die Syntaxzeichen `]`, `{`, und `}` dürfen [wörtlich](/de/docs/Web/JavaScript/Reference/Regular_expressions/Literal_character) erscheinen, ohne dass sie maskiert werden, wenn sie nicht als Ende einer Zeichenklasse oder Quantifizierer-Delimiter interpretiert werden können.
+- [Lookahead-Behauptungen](/de/docs/Web/JavaScript/Reference/Regular_expressions/Lookahead_assertion) können [Quantoren](/de/docs/Web/JavaScript/Reference/Regular_expressions/Quantifier) haben.
+- [Rückverweise](/de/docs/Web/JavaScript/Reference/Regular_expressions/Backreference), die sich nicht auf eine bestehende erfasste Gruppe beziehen, werden zu [Legacy-Oktal-Escapes](#escape-sequenzen).
+- In [Zeichenklassen](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class), bei denen eine Grenze eine Zeichenklasse ist, wird das `-` zu einem literalen Charakter.
+- Eine nicht erkannte Escape-Sequenz wird zu einem ["Identity Escape"](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_escape).
+- Escape-Sequenzen innerhalb von [Zeichenklassen](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class) der Form `\cX`, wobei `X` eine Zahl oder `_` ist, werden auf die gleiche Weise wie diejenigen mit {{Glossary("ASCII", "ASCII")}}-Buchstaben dekodiert: `\c0` ist dasselbe wie `\cP`, wenn modulo 32 berechnet wird. Außerdem wird, wenn die Form `\cX` angetroffen wird, wo `X` nicht zu den anerkannten Zeichen gehört, das Backslash als ein literales Zeichen behandelt.
+- Die Sequenz `\k` innerhalb eines regulären Ausdrucks, der keine [benannten erfassten Gruppen](/de/docs/Web/JavaScript/Reference/Regular_expressions/Named_capturing_group) hat, wird als Identity Escape behandelt.
+- Die Syntaxzeichen `]`, `{`, und `}` können [buchstäblich](/de/docs/Web/JavaScript/Reference/Regular_expressions/Literal_character) erscheinen, ohne dass sie entkommen müssen, wenn sie nicht als Ende einer Zeichenklasse oder Quantifizierer-Delimiter interpretiert werden können.
 
 ### Funktion
 
 - Die {{jsxref("Function/caller", "caller")}}-Eigenschaft von Funktionen und die [`arguments.callee`](/de/docs/Web/JavaScript/Reference/Functions/arguments/callee)-Eigenschaft sind veraltet und im Strict-Modus nicht verfügbar.
-- Anstelle des Zugriffs auf `arguments` als Eigenschaft einer Funktion sollten Sie das {{jsxref("Functions/arguments", "arguments")}}-Objekt innerhalb von Funktionsabschlüssen verwenden.
+- Anstelle von `arguments` als Eigenschaft einer Funktion zuzugreifen, sollten Sie das {{jsxref("Functions/arguments", "arguments")}}-Objekt innerhalb von Funktionsclosure verwenden.
 
 ### Objekt
 
-- Die [`Object.prototype.__proto__`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/proto) Accessoren sind veraltet. Verwenden Sie stattdessen [`Object.getPrototypeOf`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/getPrototypeOf) und [`Object.setPrototypeOf`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/setPrototypeOf). Dies gilt nicht für den `__proto__`-Schlüssel in objektliteralen.
+- Die Accessoren [`Object.prototype.__proto__`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/proto) sind veraltet. Verwenden Sie stattdessen [`Object.getPrototypeOf`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/getPrototypeOf) und [`Object.setPrototypeOf`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/setPrototypeOf). Dies gilt nicht für den `__proto__`-Literal-Schlüssel in Objektliteralen.
 - Die Methoden [`Object.prototype.__defineGetter__`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/__defineGetter__), [`Object.prototype.__defineSetter__`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/__defineSetter__), [`Object.prototype.__lookupGetter__`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/__lookupGetter__), und [`Object.prototype.__lookupSetter__`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/__lookupSetter__) sind veraltet. Verwenden Sie stattdessen [`Object.getOwnPropertyDescriptor`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyDescriptor) und [`Object.defineProperty`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty).
 
 ### String
 
 - HTML-Wrapper-Methoden wie {{jsxref("String.prototype.fontsize")}} und {{jsxref("String.prototype.big")}}.
-- {{jsxref("String.prototype.substr")}} wird wahrscheinlich nicht so bald entfernt, aber es ist in Annex B definiert und daher normativ optional.
+- {{jsxref("String.prototype.substr")}} wird wahrscheinlich nicht so bald entfernt, ist aber in Anhang B definiert und daher normativ optional.
 - `String.prototype.trimLeft` und `String.prototype.trimRight` sollten durch {{jsxref("String.prototype.trimStart")}} und {{jsxref("String.prototype.trimEnd")}} ersetzt werden.
 
 ### Datum
@@ -92,28 +92,28 @@ Die folgenden regulären Ausdrücke-Syntaxen sind veraltet und nur im [Unicode-u
 
 ### Escape-Sequenzen
 
-- Oktale Escape-Sequenzen (\ gefolgt von einer, zwei oder drei Oktalziffern) sind in String- und regulären Ausdruck-Literalen veraltet.
-- Die Funktionen {{jsxref("escape()")}} und {{jsxref("unescape()")}} sind veraltet. Verwenden Sie {{jsxref("encodeURI()")}}, {{jsxref("encodeURIComponent()")}}, {{jsxref("decodeURI()")}}, oder {{jsxref("decodeURIComponent()")}}, um Escape-Sequenzen für Sonderzeichen zu kodieren und zu dekodieren.
+- Oktale Escape-Sequenzen (\ gefolgt von ein, zwei oder drei Oktalzahlen) sind im String- und regulären Ausdruck-Literalen veraltet.
+- Die Funktionen {{jsxref("escape()")}} und {{jsxref("unescape()")}} sind veraltet. Verwenden Sie {{jsxref("encodeURI()")}}, {{jsxref("encodeURIComponent()")}}, {{jsxref("decodeURI()")}} oder {{jsxref("decodeURIComponent()")}}, um Escape-Sequenzen für Sonderzeichen zu enkodieren und zu dekodieren.
 
 ### Anweisungen
 
 Die [`with`](/de/docs/Web/JavaScript/Reference/Statements/with)-Anweisung ist veraltet und im Strict-Modus nicht verfügbar.
 
-Initialisierer in `var`-Deklarationen von [`for...in`](/de/docs/Web/JavaScript/Reference/Statements/for...in)-Schleifen-Headern sind veraltet und führen im Strict-Modus zu [Syntaxfehlern](/de/docs/Web/JavaScript/Reference/Errors/Invalid_for-in_initializer). Der Initialisierer-Ausdruck wird ausgewertet und der Variable zugewiesen, aber der Wert wird sofort bei der ersten Iteration der Schleife neu zugewiesen.
+Initialisierer in `var`-Deklarationen von [`for...in`](/de/docs/Web/JavaScript/Reference/Statements/for...in)-Schleifenheadern sind veraltet und erzeugen [Syntaxfehler](/de/docs/Web/JavaScript/Reference/Errors/Invalid_for-in_initializer) im Strict-Modus. Der Initialisierungsausdruck wird ausgewertet und der Variable zugewiesen, aber der Wert würde sofort bei der ersten Iteration der Schleife erneut zugewiesen.
 
-Normalerweise kann der `catch`-Abschnitt einer [`try...catch`](/de/docs/Web/JavaScript/Reference/Statements/try...catch)-Anweisung keine Variablendeklarationen mit demselben Namen wie die im `catch()` gebundenen Variablen enthalten. Eine Erweiterungsgrammatik ermöglicht es dem `catch`-Abschnitt, eine [`var`](/de/docs/Web/JavaScript/Reference/Statements/var) deklarierte Variable mit demselben Namen wie dem `catch`-gebundenen Identifikator zu enthalten, aber nur, wenn die `catch`-Bindung ein einfacher Identifikator und kein [Destrukturierungsmuster](/de/docs/Web/JavaScript/Reference/Operators/Destructuring) ist. Allerdings würde die Initialisierung und Zuweisung dieser Variablen nur auf den `catch`-gebundenen Identifikator wirken, anstatt auf die obere Variablenebene, und das Verhalten könnte verwirrend sein.
+Normalerweise kann der `catch`-Block einer [`try...catch`](/de/docs/Web/JavaScript/Reference/Statements/try...catch)-Anweisung keine Variablendeklaration enthalten, die denselben Namen wie die im `catch()` gebundenen Variablen hat. Eine Erweiterungsgrammatik erlaubt, dass der `catch`-Block eine [`var`](/de/docs/Web/JavaScript/Reference/Statements/var)-deklarierte Variable mit demselben Namen wie der im `catch` gebundene Bezeichner enthält, aber nur, wenn die `catch`-Bindung ein einfacher Bezeichner und kein [Destrukturierungsmuster](/de/docs/Web/JavaScript/Reference/Operators/Destructuring) ist. Diese Variableninitialisierung und -zuweisung würde jedoch nur auf den im `catch` gebundenen Bezeichner wirken, statt auf die Variable des oberen Scopes, und das Verhalten könnte verwirrend sein.
 
 ```js
 var a = 2;
 try {
-  throw 42;
+  throw new Error();
 } catch (a) {
   var a = 1; // This 1 is assigned to the caught `a`, not the outer `a`.
 }
 console.log(a); // 2
 
 try {
-  throw 42;
+  throw new Error();
   // Note: identifier changed to `err` to avoid conflict with
   // the inner declaration of `a`.
 } catch (err) {
@@ -122,62 +122,62 @@ try {
 console.log(a); // 1
 ```
 
-Dies ist in Annex B der Spezifikation aufgeführt und kann daher nicht überall implementiert sein. Vermeiden Sie jegliche Namenskonflikte zwischen dem `catch`-gebundenen Identifikator und in dem `catch`-Block deklarierten Variablen.
+Dies ist im Anhang B der Spezifikation aufgeführt und kann daher nicht überall implementiert werden. Vermeiden Sie Namenskonflikte zwischen dem im `catch` gebundenen Bezeichner und den im `catch`-Block deklarierten Variablen.
 
-## Obsolete Funktionen
+## Überholte Funktionen
 
-Diese obsoleten Funktionen wurden vollständig aus JavaScript entfernt und können ab der angegebenen JavaScript-Version nicht mehr verwendet werden.
+Diese überholten Funktionen wurden vollständig aus JavaScript entfernt und können ab der angegebenen Version von JavaScript nicht mehr verwendet werden.
 
 ### RegExp
 
-Die folgenden sind jetzt Eigenschaften von `RegExp`-Instanzen, nicht mehr des `RegExp`-Konstruktors:
+Die folgenden sind jetzt Eigenschaften von `RegExp`-Instanzen und nicht mehr des `RegExp`-Konstruktors:
 
-| Eigenschaft                                                         | Beschreibung                                                                                                            |
-| ------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| {{jsxref("RegExp/global", "global")}}                               | Ob der reguläre Ausdruck gegen alle möglichen Übereinstimmungen in einem String getestet wird oder nur gegen die erste. |
-| {{jsxref("RegExp/ignoreCase", "ignoreCase")}}                       | Ob die Groß- und Kleinschreibung während eines Suchvorgangs ignoriert wird.                                             |
-| {{jsxref("RegExp/lastIndex", "lastIndex")}}                         | Der Index, an dem der nächste Suchvorgang beginnen soll.                                                                |
-| {{jsxref("RegExp/multiline", "multiline")}} (auch über `RegExp.$*`) | Ob in Strings über mehrere Zeilen hinweg gesucht werden soll.                                                           |
-| {{jsxref("RegExp/source", "source")}}                               | Der Text des Musters.                                                                                                   |
+| Eigenschaft                                                         | Beschreibung                                                                                                                   |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| {{jsxref("RegExp/global", "global")}}                               | Ob der reguläre Ausdruck gegen alle möglichen Übereinstimmungen in einem String getestet werden soll oder nur gegen die erste. |
+| {{jsxref("RegExp/ignoreCase", "ignoreCase")}}                       | Ob bei dem Versuch, eine Übereinstimmung in einem String zu finden, die Groß- und Kleinschreibung ignoriert werden soll.       |
+| {{jsxref("RegExp/lastIndex", "lastIndex")}}                         | Der Index, an dem die nächste Übereinstimmung begonnen wird.                                                                   |
+| {{jsxref("RegExp/multiline", "multiline")}} (auch über `RegExp.$*`) | Ob nach Übereinstimmungen in Strings über mehrere Zeilen hinweg gesucht werden soll.                                           |
+| {{jsxref("RegExp/source", "source")}}                               | Der Text des Musters.                                                                                                          |
 
-Die Methode `valueOf()` ist nicht mehr speziell für `RegExp`. Sie verwendet {{jsxref("Object.prototype.valueOf()")}}, die sich selbst zurückgibt.
+Die `valueOf()`-Methode ist nicht mehr speziell für `RegExp`. Sie verwendet {{jsxref("Object.prototype.valueOf()")}}, die sich selbst zurückgibt.
 
 ### Funktion
 
-- Die `arity`-Eigenschaft von Funktionen ist obsolet. Verwenden Sie stattdessen [`length`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/length).
+- Die `arity`-Eigenschaft von Funktionen ist überholt. Verwenden Sie stattdessen [`length`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/length).
 
 ### Objekt
 
-| Eigenschaft                  | Beschreibung                                                                                                                   | Alternative                                                                                                                                                                       |
-| ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `__count__`                  | Gibt die Anzahl der direkt auf einem benutzerdefinierten Objekt vorhandenen aufzählbaren Eigenschaften zurück.                 | [`Object.keys()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/keys)                                                                                                   |
-| `__parent__`                 | Zeigt auf den Kontext eines Objekts.                                                                                           | Keine direkte Ersatzlösung                                                                                                                                                        |
-| `__iterator__`               | Wird mit [Legacy-Iteratoren](#legacy-generator_und_iterator) verwendet.                                                        | [`Symbol.iterator`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/iterator) und die neuen [Iterationsprotokolle](/de/docs/Web/JavaScript/Reference/Iteration_protocols) |
-| `__noSuchMethod__`           | Eine Methode, die aufgerufen wird, wenn eine nicht vorhandene Eigenschaft als Methode aufgerufen wird.                         | {{jsxref("Proxy")}}                                                                                                                                                               |
-| `Object.prototype.eval()`    | Führt einen String aus JavaScript-Code im Kontext des angegebenen Objekts aus.                                                 | Keine direkte Ersatzlösung                                                                                                                                                        |
-| `Object.observe()`           | Asynchrones Beobachten von Änderungen an einem Objekt.                                                                         | {{jsxref("Proxy")}}                                                                                                                                                               |
-| `Object.unobserve()`         | Entfernt Beobachter.                                                                                                           | {{jsxref("Proxy")}}                                                                                                                                                               |
-| `Object.getNotifier()`       | Erstellt ein Notifizierungsobjekt, das es ermöglicht, beobachtbare Änderungen mit `Object.observe()` synthetisch auszulösen.   | Keine direkte Ersatzlösung                                                                                                                                                        |
-| `Object.prototype.watch()`   | Eine Handler-Rückruffunktion an eine Eigenschaft anhängen, die aufgerufen wird, wenn der Eigenschaft ein Wert zugewiesen wird. | {{jsxref("Proxy")}}                                                                                                                                                               |
-| `Object.prototype.unwatch()` | Entfernt `watch`-Handler bei einer Eigenschaft.                                                                                | {{jsxref("Proxy")}}                                                                                                                                                               |
+| Eigenschaft                  | Beschreibung                                                                                                                                 | Alternative                                                                                                                                                                       |
+| ---------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `__count__`                  | Gibt die Anzahl der aufzählbaren Eigenschaften direkt auf einem benutzerdefinierten Objekt zurück.                                           | [`Object.keys()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/keys)                                                                                                   |
+| `__parent__`                 | Zeigt auf den Kontext eines Objekts.                                                                                                         | Keine direkte Ersatz                                                                                                                                                              |
+| `__iterator__`               | Wird mit [Legacy-Iteratoren](#legacy-generator_und_-iterator) verwendet.                                                                     | [`Symbol.iterator`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/iterator) und die neuen [Iterationsprotokolle](/de/docs/Web/JavaScript/Reference/Iteration_protocols) |
+| `__noSuchMethod__`           | Eine Methode, die aufgerufen wird, wenn eine nicht existierende Eigenschaft als Methode aufgerufen wird.                                     | {{jsxref("Proxy")}}                                                                                                                                                               |
+| `Object.prototype.eval()`    | Führt einen JavaScript-Code-String im Kontext des spezifizierten Objekts aus.                                                                | Keine direkte Ersatz                                                                                                                                                              |
+| `Object.observe()`           | Asynchrones Beobachten der Änderungen an einem Objekt.                                                                                       | {{jsxref("Proxy")}}                                                                                                                                                               |
+| `Object.unobserve()`         | Entfernt Beobachter.                                                                                                                         | {{jsxref("Proxy")}}                                                                                                                                                               |
+| `Object.getNotifier()`       | Erstellt ein Benachrichtigungsobjekt, das es ermöglicht, eine synthetische Änderung zu erzeugen, die mit `Object.observe()` beobachtbar ist. | Keine direkte Ersatz                                                                                                                                                              |
+| `Object.prototype.watch()`   | Hängt einen Callback-Handler an eine Eigenschaft an, der aufgerufen wird, wenn die Eigenschaft zugewiesen wird.                              | {{jsxref("Proxy")}}                                                                                                                                                               |
+| `Object.prototype.unwatch()` | Entfernt Watch-Handler von einer Eigenschaft.                                                                                                | {{jsxref("Proxy")}}                                                                                                                                                               |
 
 ### String
 
-- Nicht-standardisierte generische String-Methoden wie `String.slice(myStr, 0, 12)`, `String.replace(myStr, /\./g, "!")` etc. wurden in Firefox 1.5 (JavaScript 1.6) eingeführt, in Firefox 53 veraltet und in Firefox 68 entfernt. Sie können Methoden auf {{jsxref("String", "String.prototype", "instanz_methoden")}} zusammen mit {{jsxref("Function.call")}} verwenden.
-- `String.prototype.quote` wurde in Firefox 37 entfernt.
-- Nicht-standardisierter `flags`-Parameter in {{jsxref("String.prototype.search")}}, {{jsxref("String.prototype.match")}}, und {{jsxref("String.prototype.replace")}} sind obsolet.
+- Nicht-standardisierte generische String-Methoden wie `String.slice(myStr, 0, 12)`, `String.replace(myStr, /\./g, "!")`, etc. wurden in Firefox 1.5 (JavaScript 1.6) eingeführt, in Firefox 53 als veraltet deklariert und in Firefox 68 entfernt. Sie können Methoden auf {{jsxref("String", "String.prototype", "instance_methods")}} in Verbindung mit {{jsxref("Function.call")}} verwenden.
+- `String.prototype.quote` wurde aus Firefox 37 entfernt.
+- Nicht-standardisierte `flags`-Parameter in {{jsxref("String.prototype.search")}}, {{jsxref("String.prototype.match")}}, und {{jsxref("String.prototype.replace")}} sind überholt.
 
 ### WeakMap
 
-- `WeakMap.prototype.clear()` wurde in Firefox 20 hinzugefügt und in Firefox 46 entfernt. Es ist nicht möglich, alle Schlüssel in einem [`WeakMap`](/de/docs/Web/JavaScript/Reference/Global_Objects/WeakMap) zu durchsuchen.
+- `WeakMap.prototype.clear()` wurde in Firefox 20 hinzugefügt und in Firefox 46 entfernt. Es ist nicht möglich, alle Schlüssel in einer [`WeakMap`](/de/docs/Web/JavaScript/Reference/Global_Objects/WeakMap) zu durchlaufen.
 
 ### Datum
 
-- `Date.prototype.toLocaleFormat()`, das eine Formatzeichenkette im selben Format wie die `strftime()`-Funktion in C verwendete, ist obsolet. Verwenden Sie [`toLocaleString()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleString) oder [`Intl.DateTimeFormat`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat) stattdessen.
+- `Date.prototype.toLocaleFormat()`, das eine Formatzeichenkette im gleichen Format wie die von der `strftime()`-Funktion in C erwartete verwendete, ist überholt. Verwenden Sie [`toLocaleString()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleString) oder [`Intl.DateTimeFormat`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat) stattdessen.
 
 ### Array
 
-- Nicht-standardisierte generische Array-Methoden wie `Array.slice(myArr, 0, 12)`, `Array.forEach(myArr, myFn)` etc. wurden in Firefox 1.5 (JavaScript 1.6) eingeführt, in Firefox 68 veraltet und in Firefox 71 entfernt. Sie können Methoden auf {{jsxref("Array", "Array.prototype", "instanz_methoden")}} zusammen mit {{jsxref("Function.call")}} verwenden.
+- Nicht-standardisierte generische Array-Methoden wie `Array.slice(myArr, 0, 12)`, `Array.forEach(myArr, myFn)`, etc. wurden in Firefox 1.5 (JavaScript 1.6) eingeführt, in Firefox 68 als veraltet deklariert und in Firefox 71 entfernt. Sie können Methoden auf {{jsxref("Array", "Array.prototype", "instance_methods")}} in Verbindung mit {{jsxref("Function.call")}} verwenden.
 
 | Eigenschaft         | Beschreibung                                     | Alternative         |
 | ------------------- | ------------------------------------------------ | ------------------- |
@@ -186,36 +186,36 @@ Die Methode `valueOf()` ist nicht mehr speziell für `RegExp`. Sie verwendet {{j
 
 ### Number
 
-- `Number.toInteger()` ist obsolet. Verwenden Sie stattdessen [`Math.floor`](/de/docs/Web/JavaScript/Reference/Global_Objects/Math/floor), [`Math.round`](/de/docs/Web/JavaScript/Reference/Global_Objects/Math/round), oder andere Methoden.
+- `Number.toInteger()` ist überholt. Verwenden Sie [`Math.floor`](/de/docs/Web/JavaScript/Reference/Global_Objects/Math/floor), [`Math.round`](/de/docs/Web/JavaScript/Reference/Global_Objects/Math/round) oder andere Methoden stattdessen.
 
 ### Proxy
 
-- `Proxy.create` und `Proxy.createFunction` sind obsolet. Verwenden Sie den {{jsxref("Proxy/Proxy", "Proxy()")}}-Konstruktor stattdessen.
-- Die folgenden Traps sind obsolet:
-  - `hasOwn` ([bug 980565](https://bugzil.la/980565), Firefox 33).
-  - `getEnumerablePropertyKeys` ([bug 783829](https://bugzil.la/783829), Firefox 37)
-  - `getOwnPropertyNames` ([bug 1007334](https://bugzil.la/1007334), Firefox 33)
-  - `keys` ([bug 1007334](https://bugzil.la/1007334), Firefox 33)
+- `Proxy.create` und `Proxy.createFunction` sind überholt. Verwenden Sie den {{jsxref("Proxy/Proxy", "Proxy()")}}-Konstruktor stattdessen.
+- Die folgenden Fallen sind überholt:
+  - `hasOwn` ([Bug 980565](https://bugzil.la/980565), Firefox 33).
+  - `getEnumerablePropertyKeys` ([Bug 783829](https://bugzil.la/783829), Firefox 37)
+  - `getOwnPropertyNames` ([Bug 1007334](https://bugzil.la/1007334), Firefox 33)
+  - `keys` ([Bug 1007334](https://bugzil.la/1007334), Firefox 33)
 
 ### ParallelArray
 
-- `ParallelArray` ist obsolet.
+- `ParallelArray` ist überholt.
 
 ### Anweisungen
 
-- `for each...in` ist obsolet. Verwenden Sie {{jsxref("Statements/for...of", "for...of")}} stattdessen.
-- Let-Blöcke und Let-Ausdrücke sind obsolet.
-- Ausdrucksabschlüsse (`function () 1` als Abkürzung für `function () { return 1; }`) sind obsolet. Verwenden Sie reguläre {{jsxref("Operators/function", "Funktionen")}} oder {{jsxref("Functions/Arrow_functions", "Pfeilfunktionen", "", 1)}} stattdessen.
+- `for each...in` ist überholt. Verwenden Sie {{jsxref("Statements/for...of", "for...of")}} stattdessen.
+- Let-Blocks und Let-Ausdrücke sind überholt.
+- Ausdrucksschließungen (`function () 1` als Kurzform für `function () { return 1; }`) sind überholt. Verwenden Sie reguläre {{jsxref("Operators/function", "Funktionen")}} oder {{jsxref("Functions/Arrow_functions", "Pfeilfunktionen", "", 1)}} stattdessen.
 
-### Erhalt von Quelltext
+### Erwerb von Quelltext
 
-Die `toSource()`-Methoden für Arrays, Zahlen, Strings usw. und die globale Funktion `uneval()` sind obsolet. Verwenden Sie [`toString()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/toString), oder schreiben Sie Ihre eigene Serialisierungsmethode.
+Die `toSource()`-Methoden von Arrays, Zahlen, Strings, etc. und die globale `uneval()`-Funktion sind überholt. Verwenden Sie [`toString()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/toString) oder schreiben Sie Ihre eigene Serialisierungsmethode stattdessen.
 
-### Legacy-Generator und Iterator
+### Legacy-Generator und -Iterator
 
-Legacy-Generator-Funktionsanweisungen und Legacy-Generator-Funktionsausdrücke wurden entfernt. Die Legacy-Generator-Funktionssyntax nutzt das `function`-Schlüsselwort, das automatisch zu einer Generator-Funktion wird, wenn es eine oder mehrere `yield`-Ausdrücke im Körper gibt — das ist jetzt ein Syntaxfehler. Verwenden Sie [`function*`-Anweisungen](/de/docs/Web/JavaScript/Reference/Statements/function*) und [`function*`-Ausdrücke](/de/docs/Web/JavaScript/Reference/Operators/function*) stattdessen.
+Legacy-Generator-Funktionsanweisungen und Legacy-Generator-Funktionsausdrücke sind entfernt. Die Legacy-Generator-Funktionssyntax verwendet das Schlüsselwort `function`, das automatisch zu einer Generator-Funktion wird, wenn es im Körper eine oder mehrere `yield`-Ausdrücke gibt — dies ist jetzt ein Syntaxfehler. Verwenden Sie stattdessen [`function*`-Anweisungen](/de/docs/Web/JavaScript/Reference/Statements/function*) und [`function*`-Ausdrücke](/de/docs/Web/JavaScript/Reference/Operators/function*).
 
-Array-Kompromisse und Generator-Kompromisse sind entfernt.
+Array-Comprehensions und Generator-Comprehensions sind entfernt.
 
 ```js-nolint
 // Legacy array comprehensions
@@ -229,13 +229,13 @@ Array-Kompromisse und Generator-Kompromisse sind entfernt.
 (for (x of iterable) for (y of iterable) x + y)
 ```
 
-Firefox implementierte vor Version 26 ein anderes Iterator-Protokoll, das dem Standard-Protokoll [Iterator protocol](/de/docs/Web/JavaScript/Reference/Iteration_protocols) ähnlich ist. Ein Objekt ist ein Legacy-Iterator, wenn es eine Methode `next()` implementiert, die bei jedem Aufruf einen Wert erzeugt und am Ende der Iteration ein `StopIteration`-Objekt wirft. Dieses Legacy-Iterator-Protokoll unterscheidet sich vom Standard-Iterator-Protokoll:
+Firefox implementierte vor Version 26 ein anderes Iterator-Protokoll, das dem standardmäßigen [Iterator-Protokoll](/de/docs/Web/JavaScript/Reference/Iteration_protocols) ähnlich ist. Ein Objekt ist ein Legacy-Iterator, wenn es eine `next()`-Methode implementiert, die bei jedem Aufruf einen Wert erzeugt und ein `StopIteration`-Objekt am Ende der Iteration wirft. Dieses Legacy-Iterator-Protokoll unterscheidet sich vom standardmäßigen Iterator-Protokoll:
 
-- Der Wert wurde direkt als Rückgabewert von Aufrufen an `next()` zurückgegeben, anstatt die `value`-Eigenschaft des `IteratorResult`-Objekts.
-- Der Abschluss der Iteration wurde durch das Werfen eines `StopIteration`-Objekts ausgedrückt, anstatt durch die `done`-Eigenschaft des `IteratorResult`-Objekts.
+- Der Wert wurde direkt als Rückgabewert von Aufrufen an `next()` zurückgegeben, anstatt der `value`-Eigenschaft des `IteratorResult`-Objekts.
+- Die Beendigung der Iteration wurde durch das Werfen eines `StopIteration`-Objekts ausgedrückt, anstelle der `done`-Eigenschaft des `IteratorResult`-Objekts.
 
-Dieses Feature, zusammen mit dem globalen Konstruktor `StopIteration`, wurde in Firefox 58+ entfernt. Für zukunftsorientierte Anwendungen ziehen Sie in Betracht, [`for...of`](/de/docs/Web/JavaScript/Reference/Statements/for...of)-Schleifen und das [Iterator-Protokoll](/de/docs/Web/JavaScript/Reference/Iteration_protocols) zu verwenden.
+Dieses Feature, zusammen mit der globalen `StopIteration`-Funktion, wurde in Firefox 58+ entfernt. Für zukünftige Verwendungszwecke sollten Sie die Verwendung von [`for...of`](/de/docs/Web/JavaScript/Reference/Statements/for...of) Schleifen und dem [Iterator-Protokoll](/de/docs/Web/JavaScript/Reference/Iteration_protocols) in Betracht ziehen.
 
 ### Scharfe Variablen
 
-Scharfe Variablen sind veraltet. Um zirkuläre Strukturen zu erstellen, verwenden Sie stattdessen temporäre Variablen.
+Scharfe Variablen sind überholt. Um zirkuläre Strukturen zu schaffen, verwenden Sie stattdessen temporäre Variablen.

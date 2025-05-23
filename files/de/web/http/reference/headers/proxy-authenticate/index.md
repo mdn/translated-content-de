@@ -1,14 +1,14 @@
 ---
-title: Proxy-Authenticate
+title: Proxy-Authenticate header
+short-title: Proxy-Authenticate
 slug: Web/HTTP/Reference/Headers/Proxy-Authenticate
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: ee756fd51ccbc4820a4b334aa753648650ad1d51
 ---
 
 {{HTTPSidebar}}
 
-Der HTTP **`Proxy-Authenticate`** {{Glossary("response_header", "Antwort-Header")}} definiert die [Authentifizierungsmethode](/de/docs/Web/HTTP/Guides/Authentication) (oder {{Glossary("Challenge", "Challenge")}}), die verwendet werden sollte, um Zugang zu einer Ressource hinter einem {{Glossary("proxy_server", "Proxy-Server")}} zu erhalten.
-Er wird in einer {{HTTPStatus("407", "407 Proxy Authentication Required")}} Antwort gesendet, damit ein Client sich gegenüber einem Proxy identifizieren kann, der Authentifizierung erfordert.
+Der HTTP **`Proxy-Authenticate`** {{Glossary("response_header", "Antwort-Header")}} definiert die [Authentifizierungsmethode](/de/docs/Web/HTTP/Guides/Authentication) (oder {{Glossary("Challenge", "Challenge")}}), die verwendet werden sollte, um auf eine Ressource hinter einem {{Glossary("proxy_server", "Proxy-Server")}} zuzugreifen. Er wird in einer {{HTTPStatus("407", "407 Proxy Authentication Required")}} Antwort gesendet, damit sich ein Client gegenüber einem Proxy, der eine Authentifizierung erfordert, identifizieren kann.
 
 <table class="properties">
   <tbody>
@@ -31,7 +31,7 @@ Eine durch Kommas getrennte Liste von einem oder mehreren Authentifizierungs-Cha
 Proxy-Authenticate: <challenge>
 ```
 
-Wobei ein `<challenge>` aus einem `<auth-scheme>` besteht, gefolgt von einem optionalen `<token68>` oder einer durch Kommas getrennten Liste von `<auth-params>`:
+Wobei ein `<challenge>` aus einem `<auth-scheme>`, gefolgt von einem optionalen `<token68>` oder einer durch Kommas getrennten Liste von `<auth-params>` besteht:
 
 ```plain
 challenge = <auth-scheme> <auth-param>, …, <auth-paramN>
@@ -47,8 +47,7 @@ Proxy-Authenticate: <auth-scheme> auth-param1=param-token1
 Proxy-Authenticate: <auth-scheme> auth-param1=param-token1, …, auth-paramN=param-tokenN
 ```
 
-Das Vorhandensein eines `token68` oder Authentifizierungsparametern hängt vom gewählten `<auth-scheme>` ab.
-Zum Beispiel erfordert die [Basic-Authentifizierung](/de/docs/Web/HTTP/Guides/Authentication#basic_authentication_scheme) ein `<realm>` und erlaubt die optionale Verwendung des `charset`-Schlüssels, unterstützt aber kein `token68`:
+Das Vorhandensein eines `token68` oder von Authentifizierungsparametern hängt vom gewählten `<auth-scheme>` ab. Zum Beispiel erfordert die [Basic-Authentifizierung](/de/docs/Web/HTTP/Guides/Authentication#basic_authentication_scheme) ein `<realm>` und gestattet die optionale Verwendung eines `charset` Schlüssels, unterstützt jedoch kein `token68`:
 
 ```http
 Proxy-Authenticate: Basic realm="Dev", charset="UTF-8"
@@ -57,34 +56,24 @@ Proxy-Authenticate: Basic realm="Dev", charset="UTF-8"
 ## Direktiven
 
 - `<auth-scheme>`
-  - : Ein nicht-empfindliches Token, das das verwendete [Authentifizierungsschema](/de/docs/Web/HTTP/Guides/Authentication#authentication_schemes) angibt.
-    Einige der häufigeren Typen sind [`Basic`](/de/docs/Web/HTTP/Guides/Authentication#basic_authentication_scheme), `Digest`, `Negotiate` und `AWS4-HMAC-SHA256`.
-    Die IANA führt eine [Liste der Authentifizierungsschemata](https://www.iana.org/assignments/http-authschemes/http-authschemes.xhtml), es gibt jedoch auch andere Schemata, die von Hostdiensten angeboten werden.
+  - : Ein nicht case-sensitives Token, das das verwendete [Authentifizierungsschema](/de/docs/Web/HTTP/Guides/Authentication#authentication_schemes) angibt. Einige der häufigeren Typen sind [`Basic`](/de/docs/Web/HTTP/Guides/Authentication#basic_authentication_scheme), `Digest`, `Negotiate` und `AWS4-HMAC-SHA256`. IANA führt eine [Liste der Authentifizierungsschemata](https://www.iana.org/assignments/http-authschemes/http-authschemes.xhtml), aber es gibt andere Schemata, die von Host-Diensten angeboten werden.
 - `<auth-param>` {{optional_inline}}
-  - : Ein Authentifizierungsparameter, dessen Format vom `<auth-scheme>` abhängt.
-    `<realm>` wird unten beschrieben, da es ein häufiger Authentifizierungsparameter unter vielen Auth-Schemas ist.
+  - : Ein Authentifizierungsparameter, dessen Format vom `<auth-scheme>` abhängt. `<realm>` wird unten beschrieben, da es ein gängiger Authentifizierungsparameter bei vielen Authentifizierungsschemata ist.
     - `<realm>` {{optional_inline}}
-      - : Der String `realm` gefolgt von `=` und einem in Anführungszeichen gesetzten String, der einen geschützten Bereich beschreibt, zum Beispiel `realm="staging environment"`.
-        Ein Bereich ermöglicht es einem Server, die durch ihn geschützten Bereiche zu partitionieren (wenn unterstützt von einem Schema, das solche Partitionierung erlaubt).
-        Einige Clients zeigen diesen Wert dem Benutzer an, um ihn darüber zu informieren, welche spezifischen Anmeldedaten erforderlich sind — obwohl die meisten Browser dies inzwischen nicht mehr tun, um Phishing entgegenzuwirken.
-        Das einzig zuverlässig unterstützte Zeichensatz für diesen Wert ist `us-ascii`.
-        Falls kein Bereich angegeben wird, zeigen Clients oft statt dessen einen formatierten Hostnamen an.
+      - : Der String `realm` gefolgt von `=` und einem in Anführungszeichen gesetzten String, der einen geschützten Bereich beschreibt, zum Beispiel `realm="staging environment"`. Ein Realm erlaubt es einem Server, die Bereiche, die er schützt, zu unterteilen (wenn dies durch ein Schema, das solche Unterteilungen erlaubt, unterstützt wird). Einige Clients zeigen diesen Wert dem Nutzer an, um ihn darüber zu informieren, welche bestimmten Anmeldedaten erforderlich sind – obwohl die meisten Browser damit aufgehört haben, um Phishing entgegenzuwirken. Der einzig zuverlässig unterstützte Zeichensatz für diesen Wert ist `us-ascii`. Wenn kein Realm angegeben ist, zeigen Clients häufig einen formatierten Hostnamen an.
 - `<token68>` {{optional_inline}}
-  - : Ein Token, das für einige Schemata nützlich sein kann.
-    Das Token erlaubt die 66 nicht reservierten URI-Zeichen plus einige andere.
-    Es kann {{Glossary("base64", "base64")}}, base64url, base32 oder base16 (hex) Codierung ohne oder mit Padding enthalten, jedoch ohne Leerzeichen.
-    Die `token68`-Alternative zu auth-param-Listen wird unterstützt, um die Konsistenz mit älteren Authentifizierungsschemata zu bewahren.
+  - : Ein Token, das für einige Schemata nützlich sein kann. Das Token erlaubt die 66 nicht reservierten URI-Zeichen plus einige andere. Es kann eine {{Glossary("base64", "base64")}}, base64url, base32 oder base16 (hex) Codierung mit oder ohne Padding enthalten, jedoch ohne Leerzeichen. Die `token68` Alternative zu Auth-param Listen wird zur Konsistenz mit älteren Authentifizierungsschemata unterstützt.
 
-Im Allgemeinen müssen Sie die relevanten Spezifikationen bezüglich der Authentifizierungsparameter überprüfen, die für jedes `<auth-scheme>` benötigt werden.
+Im Allgemeinen müssen Sie die relevanten Spezifikationen für die benötigten Authentifizierungsparameter für jedes `<auth-scheme>` prüfen.
 
 > [!NOTE]
-> Siehe {{HTTPHeader("WWW-Authenticate")}} für weitere Details über Authentifizierungsparameter.
+> Siehe {{HTTPHeader("WWW-Authenticate")}} für weitere Details zu Authentifizierungsparametern.
 
 ## Beispiele
 
 ### Proxy-Authenticate Basic auth
 
-Die folgende Antwort gibt an, dass ein Basic-Auth-Schema mit einem Bereich erforderlich ist:
+Die folgende Antwort zeigt an, dass ein Basic-Authentifizierungsschema mit einem Realm erforderlich ist:
 
 ```http
 Proxy-Authenticate: Basic realm="Staging server"

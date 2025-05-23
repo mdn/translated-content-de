@@ -1,23 +1,22 @@
 ---
-title: Keep-Alive
+title: Keep-Alive header
+short-title: Keep-Alive
 slug: Web/HTTP/Reference/Headers/Keep-Alive
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: ee756fd51ccbc4820a4b334aa753648650ad1d51
 ---
 
 {{HTTPSidebar}}
 
-Der HTTP-**`Keep-Alive`** {{Glossary("request_header", "Anforderungs-")}} und {{Glossary("response_header", "Antwortheader")}} erlaubt es dem Sender, Hinweise zu geben, wie eine Verbindung hinsichtlich eines Zeitlimits und einer maximalen Anzahl von Anfragen verwendet werden kann.
+Der HTTP **`Keep-Alive`** {{Glossary("request_header", "Anforderungs-")}} und {{Glossary("response_header", "Antwort-Header")}} ermöglicht es dem Absender, Hinweise zu geben, wie eine Verbindung in Bezug auf ein Timeout und eine maximale Anzahl von Anfragen genutzt werden kann.
 
 > [!NOTE]
 > Damit `Keep-Alive` eine Wirkung hat, muss die Nachricht auch einen {{HTTPHeader("Connection", "Connection: keep-alive")}} Header enthalten.
 
-HTTP/1.0 schließt die Verbindung standardmäßig nach jeder Anforderungs-/Antwortinteraktion, sodass für persistente Verbindungen in HTTP/1.0 eine explizite Aushandlung erforderlich ist.
-Einige Clients und Server möchten möglicherweise mit früheren Ansätzen für persistente Verbindungen kompatibel sein und können dies durch einen `Connection: keep-alive` Anforderungsheader tun.
-Zusätzliche Parameter für die Verbindung können mit dem `Keep-Alive` Header angefordert werden.
+HTTP/1.0 schließt die Verbindung standardmäßig nach jeder Anforderungs-/Antwort-Interaktion, daher müssen persistente Verbindungen in HTTP/1.0 explizit ausgehandelt werden. Einige Clients und Server möchten möglicherweise mit früheren Ansätzen für persistente Verbindungen kompatibel sein und können dies mit einem `Connection: keep-alive` Anforderungs-Header tun. Zusätzliche Parameter für die Verbindung können mit dem `Keep-Alive` Header angefordert werden.
 
 > [!WARNING]
-> Verbindungsspezifische Headerfelder wie {{HTTPHeader("Connection")}} und `Keep-Alive` sind in [HTTP/2](https://httpwg.org/specs/rfc9113.html#ConnectionSpecific) und [HTTP/3](https://httpwg.org/specs/rfc9114.html#header-formatting) verboten.
+> Verbindungsspezifische Kopfzeilenfelder wie {{HTTPHeader("Connection")}} und `Keep-Alive` sind in [HTTP/2](https://httpwg.org/specs/rfc9113.html#ConnectionSpecific) und [HTTP/3](https://httpwg.org/specs/rfc9114.html#header-formatting) verboten.
 > Chrome und Firefox ignorieren sie in HTTP/2-Antworten, aber Safari entspricht den Anforderungen der HTTP/2-Spezifikation und lädt keine Antwort, die sie enthält.
 
 <table class="properties">
@@ -25,12 +24,12 @@ Zusätzliche Parameter für die Verbindung können mit dem `Keep-Alive` Header a
     <tr>
       <th scope="row">Header-Typ</th>
       <td>
-        {{Glossary("Request_header", "Anforderungsheader")}},
-        {{Glossary("Response_header", "Antwortheader")}}
+        {{Glossary("Request_header", "Anforderungs-Header")}},
+        {{Glossary("Response_header", "Antwort-Header")}}
       </td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Forbidden_request_header", "Verbotener Anforderungsheader")}}</th>
+      <th scope="row">{{Glossary("Forbidden_request_header", "Verbotener Anforderungs-Header")}}</th>
       <td>Ja</td>
     </tr>
   </tbody>
@@ -45,15 +44,15 @@ Keep-Alive: <parameters>
 ## Direktiven
 
 - `<parameters>`
-  - : Eine kommagetrennte Liste von Parametern, die jeweils aus einem Bezeichner und einem Wert bestehen, die durch das Gleichheitszeichen (`=`) getrennt sind.
-    Die folgenden Bezeichner sind möglich:
+  - : Eine durch Kommata getrennte Liste von Parametern, die jeweils aus einem Bezeichner und einem durch das Gleichheitszeichen (`=`) getrennten Wert bestehen.
+    Folgende Bezeichner sind möglich:
     - `timeout`
-      - : Eine ganze Zahl, die die Zeit in Sekunden angibt, die der Host eine inaktive Verbindung geöffnet lässt, bevor sie geschlossen wird.
-        Eine Verbindung ist inaktiv, wenn weder Daten gesendet noch empfangen werden. Ein Host kann eine inaktive Verbindung länger als die `timeout` Sekunden offen halten, aber der Host sollte versuchen, eine Verbindung für mindestens die `timeout` Sekunden aufrechtzuerhalten.
+      - : Eine Ganzzahl, die die Zeit in Sekunden angibt, die der Host eine inaktive Verbindung offen lässt, bevor sie geschlossen wird.
+        Eine Verbindung ist inaktiv, wenn keine Daten von einem Host gesendet oder empfangen werden. Ein Host kann eine inaktive Verbindung länger als `timeout` Sekunden offen lassen, sollte jedoch versuchen, eine Verbindung mindestens für `timeout` Sekunden aufrechtzuerhalten.
     - `max`
-      - : Eine ganze Zahl, die die maximale Anzahl von Anfragen angibt, die bei dieser Verbindung gesendet werden können, bevor sie geschlossen wird.
-        Außer `0` wird dieser Wert für nicht-übertragene Verbindungen ignoriert, da eine andere Anfrage in der nächsten Antwort gesendet wird.
-        Eine HTTP-Pipeline kann ihn verwenden, um das Pipelining zu begrenzen.
+      - : Eine Ganzzahl, die die maximale Anzahl von Anfragen angibt, die über diese Verbindung gesendet werden können, bevor sie geschlossen wird.
+        Sofern nicht `0`, wird dieser Wert für nicht-„pipelined“ Verbindungen ignoriert, da eine weitere Anfrage in der nächsten Antwort gesendet wird.
+        Eine HTTP-Pipeline kann es verwenden, um das Pipelining zu begrenzen.
 
 ## Beispiele
 
@@ -83,4 +82,4 @@ Server: Apache
 ## Siehe auch
 
 - {{HTTPHeader("Connection")}}
-- [Verwaltung von Verbindungen in HTTP/1.x](/de/docs/Web/HTTP/Guides/Connection_management_in_HTTP_1.x)
+- [Verbindungsmanagement in HTTP/1.x](/de/docs/Web/HTTP/Guides/Connection_management_in_HTTP_1.x)

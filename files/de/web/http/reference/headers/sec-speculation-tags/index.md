@@ -1,15 +1,16 @@
 ---
-title: Sec-Speculation-Tags
+title: Sec-Speculation-Tags header
+short-title: Sec-Speculation-Tags
 slug: Web/HTTP/Reference/Headers/Sec-Speculation-Tags
 l10n:
-  sourceCommit: 6a5c619dfad295ca9a9d317a4088908cfd33e686
+  sourceCommit: ee756fd51ccbc4820a4b334aa753648650ad1d51
 ---
 
 {{HTTPSidebar}}{{SeeCompatTable}}
 
-Der HTTP **`Sec-Speculation-Tags`** {{Glossary("request_header", "Request-Header")}} enthält einen oder mehrere `tag` Werte aus den [Spekulationsregeln](/de/docs/Web/API/Speculation_Rules_API), die zur Spekulation geführt haben. Dies ermöglicht es einem Server, zu identifizieren, welche Regel(n) eine Spekulation verursacht haben und diese gegebenenfalls zu blockieren.
+Der HTTP **`Sec-Speculation-Tags`** {{Glossary("request_header", "Request-Header")}} enthält einen oder mehrere `tag`-Werte aus den [Spekulationsregeln](/de/docs/Web/API/Speculation_Rules_API), die zur Spekulation geführt haben. Dadurch kann ein Server identifizieren, welche Regel(n) eine Spekulation verursacht haben und sie möglicherweise blockieren.
 
-Ein CDN könnte beispielsweise Spekulationsregeln automatisch einfügen, aber Spekulationen für nicht im CDN zwischengespeicherte Ressourcen blockieren, um unbeabsichtigte Konsequenzen zu vermeiden. Der `Sec-Speculation-Tags` Header ermöglicht es dem CDN, zwischen den von ihm eingefügten Regeln (die in diesem Fall blockiert werden sollten) und den vom Website-Besitzer hinzugefügten Spekulationsregeln (die nicht blockiert werden sollten) zu unterscheiden.
+Beispielsweise könnte ein CDN automatisch Spekulationsregeln einfügen, jedoch Spekulationen für Ressourcen blockieren, die im CDN nicht zwischengespeichert sind, um unbeabsichtigte Konsequenzen zu vermeiden. Der `Sec-Speculation-Tags` Header ermöglicht dem CDN, zwischen den von ihm eingefügten Regeln (die in diesem Fall blockiert werden sollten) und den vom Website-Besitzer hinzugefügten Spekulationsregeln (die nicht blockiert werden sollten) zu unterscheiden.
 
 <table class="properties">
   <tbody>
@@ -33,7 +34,7 @@ Sec-Speculation-Tags: <tag-list>
 ## Direktiven
 
 - `<tag-list>`
-  - : Eine durch Kommas getrennte Liste von Tags, die auf [Speculation Rules API](/de/docs/Web/API/Speculation_Rules_API) Regeln hinweisen, die diese Anfrage möglicherweise initiiert haben. Siehe [JSON-Darstellung von Spekulationsregeln](/de/docs/Web/HTML/Reference/Elements/script/type/speculationrules#speculation_rules_json_representation) für die Syntaxreferenz.
+  - : Eine durch Kommas getrennte Liste von Tags, die angeben, welche [Speculation Rules API](/de/docs/Web/API/Speculation_Rules_API) Regeln diese Anfrage möglicherweise initiiert haben. Siehe [Spekulationsregeln JSON-Darstellung](/de/docs/Web/HTML/Reference/Elements/script/type/speculationrules#speculation_rules_json_representation) für die Syntaxreferenz.
 
 ## Beispiele
 
@@ -51,7 +52,7 @@ Sec-Speculation-Tags: <tag-list>
 </script>
 ```
 
-Wenn eine Spekulation aufgrund einer Spekulationsregel ohne Tag auftritt, wird `null` im `Sec-Speculation-Tags` Header gesendet.
+Wenn eine Spekulation aufgrund einer Spekulationsregel ohne Tag erfolgt, wird `null` im `Sec-Speculation-Tags` Header gesendet.
 
 ```http
 Sec-Speculation-Tags: null
@@ -72,7 +73,7 @@ Sec-Speculation-Tags: null
 </script>
 ```
 
-Wenn eine Spekulation aufgrund einer Spekulationsregel mit einem Tag auftritt, wird der Tag-Name im `Sec-Speculation-Tags` Header gesendet.
+Wenn eine Spekulation aufgrund einer Spekulationsregel mit einem Tag erfolgt, wird der Tag-Name im `Sec-Speculation-Tags` Header gesendet.
 
 ```http
 Sec-Speculation-Tags: "my-rule"
@@ -96,7 +97,7 @@ Der `tag` kann auf mehreren Ebenen festgelegt werden:
 </script>
 ```
 
-Alle übereinstimmenden Tags werden im `Sec-Speculation-Tags` Header gesendet, so dass in diesem Fall sowohl `"my-ruleset"` als auch `"my-rule"` gesendet würden:
+Alle übereinstimmenden Tags werden im `Sec-Speculation-Tags` Header gesendet, daher würden in diesem Fall sowohl `"my-ruleset"` als auch `"my-rule"` gesendet werden:
 
 ```http
 Sec-Speculation-Tags: "my-ruleset", "my-rule"
@@ -129,13 +130,13 @@ Sec-Speculation-Tags: "my-ruleset", "my-rule"
 </script>
 ```
 
-In diesem Beispiel, wenn die Spekulation durch das Überfahren des Links für 200 Millisekunden (`"eagerness": "moderate"`) initiiert wird, wird nur der `my-rule` Tag im Header gesendet:
+In diesem Beispiel, wenn die Spekulation durch das Überfahren des Links für 200 Millisekunden (`"eagerness": "moderate"`) initiiert wird, wird nur das `my-rule`-Tag im Header gesendet:
 
 ```http
 Sec-Speculation-Tags: "my-rule"
 ```
 
-Wenn jedoch der Link sofort angeklickt wird, ohne auf den 200 Millisekunden Hover zu warten, hätten beide Regeln eine Spekulation ausgelöst, daher würden beide Tags im Header enthalten sein:
+Wenn jedoch der Link sofort, ohne 200 Millisekunden zu warten, geklickt wird, hätten beide Regeln eine Spekulation ausgelöst, daher werden beide Tags im Header enthalten sein:
 
 ```http
 Sec-Speculation-Tags: "my-rule", "cdn-rule"
@@ -167,7 +168,7 @@ Sec-Speculation-Tags: "my-rule", "cdn-rule"
 </script>
 ```
 
-Ähnlich wie im vorherigen Beispiel, wenn der Link sofort geklickt wird, ohne auf den 200 Millisekunden Hover zu warten, hätten beide Regeln eine Spekulation ausgelöst, daher würden beide Tags im Header enthalten sein. Da jedoch die erste Regel kein `tag` Feld enthält, wird sie im Header mit einem `null` Wert dargestellt:
+Ähnlich zum vorherigen Beispiel, wenn der Link sofort ohne 200 Millisekunden zu warten angeklickt wird, hätten beide Regeln eine Spekulation ausgelöst, daher werden beide Tags im Header enthalten sein. Da die erste Regel jedoch kein `tag`-Feld enthält, wird sie im Header mit einem `null`-Wert dargestellt:
 
 ```http
 Sec-Speculation-Tags: null, "cdn-rule"

@@ -1,17 +1,18 @@
 ---
-title: Pragma
+title: Pragma header
+short-title: Pragma
 slug: Web/HTTP/Reference/Headers/Pragma
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: ee756fd51ccbc4820a4b334aa753648650ad1d51
 ---
 
 {{HTTPSidebar}}{{Deprecated_Header}}
 
-Der HTTP-Header **`Pragma`** ist ein implementierungsspezifischer Header, der entlang der Anforderungs-Antwort-Kette verschiedene Effekte haben kann. Dieser Header dient der Rückwärtskompatibilität mit HTTP/1.0-Caches, die den HTTP/1.1-Header {{HTTPHeader("Cache-Control")}} nicht unterstützen.
+Der HTTP-**`Pragma`**-Header ist ein implementierungsspezifischer Header, der in der Anforderungs-Antwort-Kette verschiedene Effekte haben kann. Dieser Header dient der Abwärtskompatibilität mit HTTP/1.0 Caches, die den HTTP/1.1 {{HTTPHeader("Cache-Control")}}-Header nicht unterstützen.
 
 > [!NOTE]
-> Der `Pragma`-Header ist nicht für HTTP-Antworten spezifiziert und ist daher kein zuverlässiger Ersatz für den HTTP/1.1-Header `Cache-Control`, obwohl sein Verhalten gleich `Cache-Control: no-cache` ist, wenn das `Cache-Control`-Headerfeld bei einer Anfrage weggelassen wird.
-> Verwenden Sie `Pragma` nur zur Rückwärtskompatibilität mit HTTP/1.0-Clients.
+> Der `Pragma`-Header ist für HTTP-Antworten nicht spezifiziert und daher kein zuverlässiger Ersatz für den HTTP/1.1 `Cache-Control`-Header, obwohl sein Verhalten dasselbe ist wie `Cache-Control: no-cache`, wenn das `Cache-Control`-Headerfeld in einer Anfrage weggelassen wird.
+> Verwenden Sie `Pragma` nur für die Abwärtskompatibilität mit HTTP/1.0-Clients.
 
 <table class="properties">
   <tbody>
@@ -19,7 +20,7 @@ Der HTTP-Header **`Pragma`** ist ein implementierungsspezifischer Header, der en
       <th scope="row">Header-Typ</th>
       <td>
         {{Glossary("Request_header", "Anforderungs-Header")}},
-        {{Glossary("Response_header", "Antwort-Header")}} (Verhalten der Antwort ist nicht spezifiziert und implementierungsspezifisch).
+        {{Glossary("Response_header", "Antwort-Header")}} (Antwortverhalten ist nicht spezifiziert und implementierungsspezifisch).
       </td>
     </tr>
     <tr>
@@ -44,7 +45,7 @@ Pragma: no-cache
 ## Direktiven
 
 - `no-cache`
-  - : Entspricht `Cache-Control: no-cache`. Zwingt Caches dazu, die Anfrage zur Validierung an den Ursprungsserver zu senden, bevor eine zwischengespeicherte Kopie freigegeben wird.
+  - : Entspricht `Cache-Control: no-cache`. Erzwingt, dass Caches die Anfrage an den Ursprungsserver zur Validierung senden, bevor eine zwischengespeicherte Kopie freigegeben wird.
 
 ## Beispiele
 

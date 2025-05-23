@@ -2,14 +2,14 @@
 title: Funktionen
 slug: Web/JavaScript/Guide/Functions
 l10n:
-  sourceCommit: 1b88b4d62918f6f13d1155825e3881f52d90206e
+  sourceCommit: f2dc3d5367203c860cf1a71ce0e972f018523849
 ---
 
-{{jsSidebar("JavaScript Leitfaden")}} {{PreviousNext("Web/JavaScript/Guide/Loops_and_iteration", "Web/JavaScript/Guide/Expressions_and_operators")}}
+{{jsSidebar("JavaScript Guide")}} {{PreviousNext("Web/JavaScript/Guide/Loops_and_iteration", "Web/JavaScript/Guide/Expressions_and_operators")}}
 
-Funktionen sind eine der grundlegenden Bausteine in JavaScript. Eine Funktion in JavaScript ist ähnlich einer Prozedur – eine Gruppe von Anweisungen, die eine Aufgabe ausführt oder einen Wert berechnet. Damit eine Prozedur jedoch als Funktion qualifiziert wird, sollte sie einige Eingaben annehmen und Ausgaben zurückgeben, wobei es eine offensichtliche Beziehung zwischen den Eingaben und Ausgaben geben sollte. Um eine Funktion zu nutzen, müssen Sie sie irgendwo im Gültigkeitsbereich definieren, von dem aus Sie sie aufrufen möchten.
+Funktionen sind einer der grundlegenden Bausteine in JavaScript. Eine Funktion in JavaScript ist ähnlich einer Prozedur—eine Reihe von Anweisungen, die eine Aufgabe ausführen oder einen Wert berechnen. Damit eine Prozedur jedoch als Funktion qualifiziert wird, sollte sie einige Eingaben entgegennehmen und eine Ausgabe liefern, wobei eine offensichtliche Beziehung zwischen Eingabe und Ausgabe bestehen sollte. Um eine Funktion zu verwenden, müssen Sie sie irgendwo im Gültigkeitsbereich definieren, von dem aus Sie sie aufrufen möchten.
 
-Siehe auch das [ausführliche Referenzkapitel über JavaScript-Funktionen](/de/docs/Web/JavaScript/Reference/Functions), um die Details kennenzulernen.
+Siehe auch das [umfassende Referenzkapitel über JavaScript-Funktionen](/de/docs/Web/JavaScript/Reference/Functions), um die Details kennenzulernen.
 
 ## Funktionen definieren
 
@@ -18,7 +18,7 @@ Siehe auch das [ausführliche Referenzkapitel über JavaScript-Funktionen](/de/d
 Eine **Funktionsdefinition** (auch **Funktionsdeklaration** oder **Funktionsanweisung** genannt) besteht aus dem [`function`](/de/docs/Web/JavaScript/Reference/Statements/function)-Schlüsselwort, gefolgt von:
 
 - Dem Namen der Funktion.
-- Einer Liste von Parametern der Funktion, eingeschlossen in runden Klammern und getrennt durch Kommas.
+- Einer Liste von Parametern für die Funktion, eingeschlossen in Klammern und durch Kommas getrennt.
 - Den JavaScript-Anweisungen, die die Funktion definieren, eingeschlossen in geschweiften Klammern, `{ /* … */ }`.
 
 Zum Beispiel definiert der folgende Code eine Funktion namens `square`:
@@ -29,11 +29,11 @@ function square(number) {
 }
 ```
 
-Die Funktion `square` nimmt einen Parameter namens `number`. Die Funktion besteht aus einer Anweisung, die besagt, den Parameter der Funktion (d.h. `number`) mit sich selbst multipliziert zurückzugeben. Die [`return`](/de/docs/Web/JavaScript/Reference/Statements/return)-Anweisung gibt den von der Funktion zurückgegebenen Wert an, der `number * number` ist.
+Die Funktion `square` nimmt einen Parameter entgegen, der `number` genannt wird. Die Funktion besteht aus einer Anweisung, die besagt, dass der Parameter der Funktion (d.h. `number`) mit sich selbst multipliziert zurückgegeben wird. Die [`return`](/de/docs/Web/JavaScript/Reference/Statements/return)-Anweisung gibt den von der Funktion zurückgegebenen Wert an, welcher `number * number` ist.
 
-Parameter werden im Wesentlichen **per Wert** an Funktionen übergeben – daher wird die Änderung, die eine komplett neue Zuweisung innerhalb des Funktionskörpers an einem Parameter vornimmt, nicht global oder in dem aufrufenden Code widergespiegelt.
+Parameter werden im Wesentlichen **als Wert** an Funktionen übergeben — das bedeutet, wenn der Code innerhalb des Funktionskörpers einem Parameter, der an die Funktion übergeben wurde, einen völlig neuen Wert zuweist, **spiegelt sich die Änderung nicht global oder im Code wider, der diese Funktion aufgerufen hat**.
 
-Wenn Sie ein Objekt als Parameter übergeben, und die Funktion die Eigenschaften des Objekts ändert, ist diese Änderung außerhalb der Funktion sichtbar, wie im folgenden Beispiel gezeigt:
+Wenn Sie ein Objekt als Parameter übergeben, sind Änderungen, die die Funktion an den Eigenschaften des Objekts vornimmt, außerhalb der Funktion sichtbar, wie im folgenden Beispiel gezeigt:
 
 ```js
 function myFunc(theObject) {
@@ -51,7 +51,7 @@ myFunc(myCar);
 console.log(myCar.make); // "Toyota"
 ```
 
-Wenn Sie ein Array als Parameter übergeben, und die Funktion einen der Werte des Arrays ändert, ist diese Änderung außerhalb der Funktion sichtbar, wie im folgenden Beispiel gezeigt:
+Wenn Sie ein Array als Parameter übergeben, sind Änderungen, die die Funktion an den Werten des Arrays vornimmt, außerhalb der Funktion sichtbar, wie im folgenden Beispiel gezeigt:
 
 ```js
 function myFunc(theArr) {
@@ -65,7 +65,7 @@ myFunc(arr);
 console.log(arr[0]); // 30
 ```
 
-Funktionsdeklarationen und -ausdrücke können verschachtelt werden, wodurch eine _Scope-Kette_ gebildet wird. Zum Beispiel:
+Funktionsdeklarationen und -ausdrücke können verschachtelt werden, was eine _Gültigkeitsbereichkette_ bildet. Zum Beispiel:
 
 ```js
 function addSquares(a, b) {
@@ -76,13 +76,13 @@ function addSquares(a, b) {
 }
 ```
 
-Siehe [Funktionen-Scope und Closures](#funktionen_gültigkeitsbereiche_und_closures) für weitere Informationen.
+Weitere Informationen finden Sie unter [Funktions-Gültigkeitsbereiche und Closures](#funktionsbereiche_und_closures).
 
 ### Funktionsausdrücke
 
 Während die obige Funktionsdeklaration syntaktisch eine Anweisung ist, können Funktionen auch durch einen [Funktionsausdruck](/de/docs/Web/JavaScript/Reference/Operators/function) erstellt werden.
 
-Eine solche Funktion kann **anonym** sein; sie muss keinen Namen haben. Zum Beispiel hätte die Funktion `square` als folgt definiert werden können:
+Eine solche Funktion kann **anonym** sein; sie muss keinen Namen haben. Zum Beispiel könnte die Funktion `square` wie folgt definiert werden:
 
 ```js
 const square = function (number) {
@@ -92,7 +92,7 @@ const square = function (number) {
 console.log(square(4)); // 16
 ```
 
-Jedoch _kann_ ein Name mit einem Funktionsausdruck angegeben werden. Das Angeben eines Namens ermöglicht es der Funktion, auf sich selbst zu verweisen, und erleichtert zudem die Identifizierung der Funktion in den Stack-Traces eines Debuggers:
+Allerdings _kann_ ein Name mit einem Funktionsausdruck angegeben werden. Das Bereitstellen eines Namens ermöglicht es der Funktion, sich selbst zu referenzieren, und erleichtert auch die Identifizierung der Funktion in den Stack-Traces eines Debuggers:
 
 ```js
 const factorial = function fac(n) {
@@ -102,7 +102,7 @@ const factorial = function fac(n) {
 console.log(factorial(3)); // 6
 ```
 
-Funktionsausdrücke sind praktisch, wenn eine Funktion als Argument an eine andere Funktion übergeben wird. Das folgende Beispiel definiert eine `map`-Funktion, die eine Funktion als erstes Argument und ein Array als zweites Argument erhalten soll. Dann wird sie mit einer Funktion aufgerufen, die durch einen Funktionsausdruck definiert ist:
+Funktionsausdrücke sind praktisch, wenn eine Funktion als Argument an eine andere Funktion übergeben wird. Das folgende Beispiel definiert eine `map`-Funktion, die eine Funktion als erstes Argument und ein Array als zweites Argument erhalten soll. Dann wird es mit einer Funktion aufgerufen, die durch einen Funktionsausdruck definiert ist:
 
 ```js
 function map(f, a) {
@@ -120,7 +120,7 @@ const cubedNumbers = map(function (x) {
 console.log(cubedNumbers); // [0, 1, 8, 125, 1000]
 ```
 
-In JavaScript kann eine Funktion basierend auf einer Bedingung definiert werden. Zum Beispiel wird die folgende Funktionsdefinition nur ausgeführt, wenn `num` gleich `0` ist:
+In JavaScript kann eine Funktion basierend auf einer Bedingung definiert werden. Zum Beispiel wird im folgenden Funktionsdefinition die Funktion `myFunc` nur definiert, wenn `num` gleich `0` ist:
 
 ```js
 let myFunc;
@@ -131,35 +131,34 @@ if (num === 0) {
 }
 ```
 
-Zusätzlich zur Definition von Funktionen, wie hier beschrieben, können Sie auch den {{jsxref("Function")}}-Konstruktor verwenden, um zur Laufzeit aus einer Zeichenkette Funktionen zu erstellen, ähnlich wie {{jsxref("Global_Objects/eval", "eval()")}}.
+Zusätzlich zur Definition von Funktionen, wie hier beschrieben, können Sie auch den {{jsxref("Function")}}-Konstruktor verwenden, um Funktionen aus einem String zur Laufzeit zu erstellen, ähnlich wie bei {{jsxref("Global_Objects/eval", "eval()")}}.
 
 Eine **Methode** ist eine Funktion, die eine Eigenschaft eines Objekts ist. Lesen Sie mehr über Objekte und Methoden in [Arbeiten mit Objekten](/de/docs/Web/JavaScript/Guide/Working_with_objects).
 
 ## Funktionen aufrufen
 
-Eine Funktion zu _definieren_ führt sie nicht aus. Durch die Definition wird die Funktion benannt und angegeben, was zu tun ist, wenn die Funktion aufgerufen wird.
+Eine Funktion zu _definieren_ führt sie nicht _aus_. Sie zu definieren, benennt die Funktion und spezifiert, was zu tun ist, wenn die Funktion aufgerufen wird.
 
-Das _Aufrufen_ der Funktion führt tatsächlich die angegebenen Aktionen mit den angegebenen Parametern aus. Zum Beispiel, wenn Sie die Funktion `square` definieren, könnten Sie sie wie folgt aufrufen:
+Das **Aufrufen** der Funktion führt tatsächlich die angegebenen Aktionen mit den angegebenen Parametern aus. Wenn Sie beispielsweise die Funktion `square` definieren, könnten Sie sie wie folgt aufrufen:
 
 ```js
 square(5);
 ```
 
-Die vorhergehende Anweisung ruft die Funktion mit einem Argument von `5` auf. Die Funktion führt ihre Anweisungen aus und gibt den Wert `25` zurück.
+Die vorangehende Anweisung ruft die Funktion mit einem Argument von `5` auf. Die Funktion führt ihre Anweisungen aus und gibt den Wert `25` zurück.
 
-Funktionen müssen _im Gültigkeitsbereich_ sein, wenn sie aufgerufen werden, aber die Funktionsdeklaration kann [gehoben](#funktion_hoisting) werden (unterhalb des Aufrufs im Code erscheinen). Der Gültigkeitsbereich einer Funktionsdeklaration ist die Funktion, in der sie deklariert wurde (oder das gesamte Programm, wenn sie auf der obersten Ebene deklariert ist).
+Funktionen müssen _im Gültigkeitsbereich_ sein, wenn sie aufgerufen werden, aber die Funktionsdeklaration kann [gehoben](#funktion_hoisting) werden (und im Code unter dem Aufruf erscheinen). Der Gültigkeitsbereich einer Funktionsdeklaration ist die Funktion, in der sie deklariert wird (oder das gesamte Programm, wenn sie auf höchster Ebene deklariert ist).
 
-Die Argumente einer Funktion sind nicht auf Zeichenfolgen und Zahlen beschränkt. Sie können ganze Objekte an eine Funktion übergeben. Die `showProps()`-Funktion (definiert in [Arbeiten mit Objekten](/de/docs/Web/JavaScript/Guide/Working_with_objects#objects_and_properties)) ist ein Beispiel für eine Funktion, die ein Objekt als Argument annimmt.
+Die Argumente einer Funktion sind nicht auf Strings und Zahlen beschränkt. Sie können ganze Objekte an eine Funktion übergeben. Die Funktion `showProps()` (definiert in [Arbeiten mit Objekten](/de/docs/Web/JavaScript/Guide/Working_with_objects#objects_and_properties)) ist ein Beispiel für eine Funktion, die ein Objekt als Argument nimmt.
 
-Eine Funktion kann sich selbst aufrufen. Zum Beispiel ist hier eine Funktion, die Fakultäten rekursiv berechnet:
+Eine Funktion kann sich selbst aufrufen. Zum Beispiel, hier ist eine Funktion, die rekursiv Fakultäten berechnet:
 
 ```js
 function factorial(n) {
   if (n === 0 || n === 1) {
     return 1;
-  } else {
-    return n * factorial(n - 1);
   }
+  return n * factorial(n - 1);
 }
 ```
 
@@ -173,9 +172,9 @@ console.log(factorial(4)); // 24
 console.log(factorial(5)); // 120
 ```
 
-Es gibt andere Möglichkeiten, Funktionen aufzurufen. Oft gibt es Fälle, in denen eine Funktion dynamisch aufgerufen werden muss, oder die Anzahl der Argumente, die einer Funktion übergeben werden, variiert, oder in denen der Kontext des Funktionsaufrufs zur Laufzeit auf ein bestimmtes Objekt eingestellt werden muss.
+Es gibt andere Möglichkeiten, Funktionen aufzurufen. Es gibt oft Fälle, in denen eine Funktion dynamisch aufgerufen werden muss, oder die Anzahl der Argumente für eine Funktion variiert, oder in denen der Kontext des Funktionsaufrufs auf ein bestimmtes Objekt festgelegt werden muss, das zur Laufzeit bestimmt wird.
 
-Es stellt sich heraus, dass _Funktionen selbst Objekte sind_ – und diese Objekte wiederum haben Methoden. (Siehe das {{jsxref("Function")}} Objekt.) Die Methoden [`call()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/call) und [`apply()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/apply) können verwendet werden, um dieses Ziel zu erreichen.
+Es stellt sich heraus, dass _Funktionen selbst Objekte_ sind — und diese Objekte haben wiederum Methoden. (Siehe das {{jsxref("Function")}}-Objekt.) Die Methoden [`call()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/call) und [`apply()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/apply) können verwendet werden, um dieses Ziel zu erreichen.
 
 ### Funktion Hoisting
 
@@ -189,7 +188,7 @@ function square(n) {
 }
 ```
 
-Dieser Code läuft ohne Fehler, obwohl die Funktion `square()` aufgerufen wird, bevor sie deklariert ist. Dies liegt daran, dass der JavaScript-Interpreter die gesamte Funktionsdeklaration an den Anfang des aktuellen Gültigkeitsbereichs hebt, sodass der obige Code äquivalent ist zu:
+Dieser Code wird ohne Fehler ausgeführt, obwohl die Funktion `square()` vor ihrer Deklaration aufgerufen wird. Das liegt daran, dass der JavaScript-Interpreter die gesamte Funktionsdeklaration an den Anfang des aktuellen Gültigkeitsbereichs hebt, so dass der obige Code gleichwertig ist mit:
 
 ```js
 // All function declarations are effectively at the top of the scope
@@ -200,7 +199,7 @@ function square(n) {
 console.log(square(5)); // 25
 ```
 
-Funktions-Hoisting funktioniert nur mit Funktions*deklarationen* – nicht mit Funktions*ausdrücken*. Der folgende Code wird nicht funktionieren:
+Das Hebe-Verhalten gilt nur für Funktions*deklarationen* — nicht für Funktions*ausdrücke*. Der folgende Code wird nicht funktionieren:
 
 ```js example-bad
 console.log(square(5)); // ReferenceError: Cannot access 'square' before initialization
@@ -211,7 +210,7 @@ const square = function (n) {
 
 ### Rekursion
 
-Eine Funktion kann sich selbst referenzieren und aufrufen. Sie kann entweder durch den Funktionsausdruck oder den Funktionsnamen der Deklaration referenziert werden, oder durch jede im Gültigkeitsbereich befindliche Variable, die auf das Funktionsobjekt verweist. Betrachten Sie zum Beispiel die folgende Funktionsdefinition:
+Eine Funktion kann sich selbst referenzieren und aufrufen. Sie kann entweder durch den Funktionsausdruck oder den Namen der Deklaration angesprochen werden oder durch jede im Gültigkeitsbereich befindliche Variable, die sich auf das Funktionsobjekt bezieht. Erwägen Sie das folgende Funktionsdefinition:
 
 ```js
 const foo = function bar() {
@@ -219,11 +218,11 @@ const foo = function bar() {
 };
 ```
 
-Innerhalb des Funktionskörpers können Sie auf die Funktion selbst entweder als `bar` oder `foo` verweisen und sich selbst mit `bar()` oder `foo()` aufrufen.
+Innerhalb des Funktionskörpers können Sie sich auf die Funktion selbst entweder als `bar` oder `foo` beziehen und sich selbst mit `bar()` oder `foo()` aufrufen.
 
-Eine Funktion, die sich selbst aufruft, wird als _rekursive Funktion_ bezeichnet. In gewisser Weise ist Rekursion analog zu einer Schleife. Beide führen denselben Code mehrere Male aus und benötigen beide eine Bedingung (um eine unendliche Schleife oder eher eine unendliche Rekursion in diesem Fall zu vermeiden).
+Eine Funktion, die sich selbst aufruft, wird als _rekursive Funktion_ bezeichnet. In gewisser Weise ist Rekursion analog zu einem Schleifen. Beide führen denselben Code mehrmals aus und beide erfordern eine Bedingung (um eine Endlosschleife oder genauer, eine endlos Rekursion in diesem Fall zu vermeiden).
 
-Betrachten Sie zum Beispiel die folgende Schleife:
+Erwägen Sie beispielsweise die folgende Schleife:
 
 ```js
 let x = 0;
@@ -234,7 +233,7 @@ while (x < 10) {
 }
 ```
 
-Es kann in eine rekursive Funktionsdeklaration umgewandelt werden, gefolgt von einem Aufruf dieser Funktion:
+Sie kann in eine rekursive Funktionsdeklaration umgewandelt werden, gefolgt von einem Aufruf dieser Funktion:
 
 ```js
 function loop(x) {
@@ -248,7 +247,7 @@ function loop(x) {
 loop(0);
 ```
 
-Einige Algorithmen können jedoch nicht einfach als iterative Schleifen sein. Zum Beispiel ist das Abrufen aller Schlüsselpunkte einer Baumstruktur (wie des [DOMs](/de/docs/Web/API/Document_Object_Model)) einfacher über Rekursion:
+Allerdings können nicht alle Algorithmen einfach in iterative Schleifen umgewandelt werden. Zum Beispiel ist das Abrufen aller Knoten einer Baumstruktur (wie dem [DOM](/de/docs/Web/API/Document_Object_Model)) über Rekursion einfacher:
 
 ```js
 function walkTree(node) {
@@ -262,11 +261,11 @@ function walkTree(node) {
 }
 ```
 
-Im Vergleich zur Funktion `loop` führt jeder rekursive Aufruf hier viele rekursive Aufrufe aus.
+Im Vergleich zur Funktion `loop` macht jeder rekursive Aufruf hier viele rekursive Aufrufe.
 
-Es ist möglich, jeden rekursiven Algorithmus in einen nicht-rekursiven zu konvertieren, aber die Logik ist oft viel komplexer, und dazu ist die Verwendung eines Stacks erforderlich.
+Es ist möglich, jeden rekursiven Algorithmus in einen nicht-rekursiven umzuwandeln, aber die Logik ist oft viel komplexer und erfordert die Verwendung eines Stapels.
 
-In der Tat verwendet Rekursion selbst einen Stack: den Funktions-Stack. Das stack-ähnliche Verhalten kann im folgenden Beispiel gesehen werden:
+Tatsächlich verwendet die Rekursion selbst einen Stapel: den Funktionsstapel. Das stapelähnliche Verhalten kann im folgenden Beispiel gesehen werden:
 
 ```js
 function foo(i) {
@@ -290,9 +289,9 @@ foo(3);
 // end: 3
 ```
 
-### Sofort ausgeführte Funktionsausdrücke (IIFE)
+### Sofortige aufgerufene Funktionsausdrücke (IIFE)
 
-Ein {{Glossary("IIFE", "sofort ausgeführter Funktionsausdruck (IIFE)")}} ist ein Code-Muster, das eine Funktion direkt aufruft, die als Ausdruck definiert ist. Es sieht so aus:
+Ein {{Glossary("IIFE", "sofortiger aufgerufener Funktionsausdruck (IIFE)")}} ist ein Code-Muster, das eine als Ausdruck definierte Funktion direkt aufruft. Es sieht so aus:
 
 ```js
 (function () {
@@ -305,16 +304,16 @@ const value = (function () {
 })();
 ```
 
-Anstatt die Funktion in einer Variablen zu speichern, wird die Funktion sofort aufgerufen. Dies ist fast gleichbedeutend damit, einfach den Funktionskörper zu schreiben, aber es gibt ein paar einzigartige Vorteile:
+Anstatt die Funktion in einer Variablen zu speichern, wird die Funktion sofort aufgerufen. Dies ist fast gleichwertig damit, den Funktionskörper einfach zu schreiben, aber es gibt einige einzigartige Vorteile:
 
-- Es erzeugt einen zusätzlichen [Gültigkeitsbereich](#funktionen_gültigkeitsbereiche_und_closures) von Variablen, was hilft, Variablen auf den Ort zu beschränken, an dem sie nützlich sind.
-- Es ist jetzt ein _Ausdruck_ anstatt einer Abfolge von _Anweisungen_. Dadurch können Sie komplexe Berechnungslogik beim Initialisieren von Variablen schreiben.
+- Es erstellt einen zusätzlichen [Gültigkeitsbereich](#funktionsbereiche_und_closures) von Variablen, der dazu beiträgt, Variablen auf den Ort zu beschränken, an dem sie nützlich sind.
+- Es ist jetzt ein _Ausdruck_ anstatt einer Folge von _Anweisungen_. Dies ermöglicht es Ihnen, komplexe Berechnungslogik beim Initialisieren von Variablen zu schreiben.
 
-Für weitere Informationen siehe den {{Glossary("IIFE", "IIFE")}} Glossareintrag.
+Für weitere Informationen siehe den {{Glossary("IIFE", "IIFE")}}-Glossareintrag.
 
-## Funktionen Gültigkeitsbereiche und Closures
+## Funktionsbereiche und Closures
 
-Funktionen bilden einen {{Glossary("Scope", "Gültigkeitsbereich")}} für Variablen – das bedeutet, dass Variablen, die innerhalb einer Funktion definiert sind, von außerhalb der Funktion aus nicht zugänglich sind. Der Gültigkeitsbereich der Funktion erbt von allen übergeordneten Gültigkeitsbereichen. Zum Beispiel kann eine Funktion, die im globalen Bereich definiert ist, auf alle im globalen Bereich definierten Variablen zugreifen. Eine Funktion, die innerhalb einer anderen Funktion definiert ist, kann auch auf alle Variablen zugreifen, die in ihrer übergeordneten Funktion definiert sind, sowie auf alle anderen Variablen, auf die die übergeordnete Funktion zugreifen kann. Andererseits hat die übergeordnete Funktion (und jeder andere übergeordnete Gültigkeitsbereich) _keinen_ Zugriff auf die Variablen und Funktionen, die in der inneren Funktion definiert sind. Dies bietet eine Art Kapselung für die Variablen in der inneren Funktion.
+Funktionen bilden einen {{Glossary("Scope", "Gültigkeitsbereich")}} für Variablen—das bedeutet, dass Variablen, die innerhalb einer Funktion definiert sind, von außerhalb der Funktion aus nicht zugegriffen werden können. Der Funktionsbereich erbt von allen oberen Bereichen. Zum Beispiel kann eine Funktion, die im globalen Bereich definiert ist, auf alle im globalen Bereich definierten Variablen zugreifen. Eine Funktion, die innerhalb einer anderen Funktion definiert ist, kann auch auf alle in ihrer übergeordneten Funktion definierten Variablen zugreifen, und auf alle anderen Variablen, auf die die übergeordnete Funktion zugreifen kann. Auf der anderen Seite hat die übergeordnete Funktion (und alle anderen übergeordneten Bereiche) keinen Zugriff auf die Variablen und Funktionen, die innerhalb der inneren Funktion definiert sind. Dies bietet eine Art von Kapselung für die Variablen in der inneren Funktion.
 
 ```js
 // The following variables are defined in the global scope
@@ -346,14 +345,14 @@ console.log(getScore()); // "Chamakh scored 5"
 
 ### Closures
 
-Der Funktionskörper wird auch als _Closure_ bezeichnet. Ein Closure ist ein Stück Quellcode (meistens eine Funktion), das sich auf einige Variablen bezieht, und das Closure "erinnert" sich an diese Variablen, auch wenn der Gültigkeitsbereich, in dem diese Variablen deklariert wurden, beendet wurde.
+Wir bezeichnen den Funktionskörper auch als _Closure_. Ein Closure ist ein beliebiges Stück Quellcode (häufiger eine Funktion), das sich auf einige Variablen bezieht, und das Closure "merkt sich" diese Variablen, selbst wenn der Bereich, in dem diese Variablen deklariert wurden, verlassen wurde.
 
-Closures werden normalerweise mit verschachtelten Funktionen illustriert, um zu zeigen, dass sie sich an Variablen über die Lebensdauer ihres übergeordneten Bereichs hinaus erinnern; aber eigentlich sind verschachtelte Funktionen unnötig. Technisch gesehen bilden alle Funktionen in JavaScript Closures – einige erfassen einfach nichts, und Closures müssen nicht einmal Funktionen sein. Die Schlüsselinhaltsstoffe für ein _nützliches_ Closure sind die folgenden:
+Closures werden normalerweise mit verschachtelten Funktionen veranschaulicht, um zu zeigen, dass sie sich Variablen über die Lebensdauer ihres Elternbereichs hinaus merken; aber eigentlich sind verschachtelte Funktionen unnötig. Technisch gesehen bilden alle Funktionen in JavaScript Closures—einige erfassen einfach nichts, und Closures müssen nicht einmal Funktionen sein. Die entscheidenden Zutaten für ein _nützliches_ Closure sind die folgenden:
 
-- Ein übergeordneter Gültigkeitsbereich, der einige Variablen oder Funktionen definiert. Es sollte eine klare Lebensdauer haben, was bedeutet, dass es zu einem bestimmten Zeitpunkt die Ausführung beenden sollte. Jeder Bereich, der nicht der globale Bereich ist, erfüllt diese Anforderung; dies schließt Blöcke, Funktionen, Module und mehr ein.
-- Ein innerer Bereich, der innerhalb des übergeordneten Gültigkeitsbereichs definiert ist und sich auf einige Variablen oder Funktionen bezieht, die im übergeordneten Gültigkeitsbereich definiert sind.
-- Der innere Bereich schafft es, über die Lebensdauer des übergeordneten Gültigkeitsbereichs hinaus zu überleben. Zum Beispiel wird es in einer Variablen gespeichert, die außerhalb des übergeordneten Gültigkeitsbereichs definiert ist, oder wird aus dem übergeordneten Gültigkeitsbereich zurückgegeben (wenn der übergeordnete Bereich eine Funktion ist).
-- Dann können Sie beim Aufrufen der Funktion außerhalb des übergeordneten Gültigkeitsbereichs immer noch auf die Variablen oder Funktionen zugreifen, die im übergeordneten Bereich definiert wurden, obwohl der übergeordnete Bereich die Ausführung beendet hat.
+- Ein übergeordneter Bereich, der einige Variablen oder Funktionen definiert. Er sollte eine klare Lebensdauer haben, was bedeutet, dass er die Ausführung zu einem bestimmten Zeitpunkt beenden sollte. Jeder Bereich, der nicht der globale Bereich ist, erfüllt diese Anforderung; dazu gehören Blöcke, Funktionen, Module und mehr.
+- Ein innerer Bereich, der innerhalb des übergeordneten Bereichs definiert ist und sich auf einige Variablen oder Funktionen bezieht, die im übergeordneten Bereich definiert sind.
+- Der innere Bereich überlebt über die Lebensdauer des übergeordneten Bereichs hinaus. Zum Beispiel wird er in einer Variablen gespeichert, die außerhalb des übergeordneten Bereichs definiert ist, oder er wird aus dem übergeordneten Bereich zurückgegeben (falls der übergeordnete Bereich eine Funktion ist).
+- Wenn Sie die Funktion außerhalb des übergeordneten Bereichs aufrufen, können Sie noch auf die Variablen oder Funktionen zugreifen, die im übergeordneten Bereich definiert wurden, obwohl der übergeordnete Bereich die Ausführung beendet hat.
 
 Das folgende ist ein typisches Beispiel für ein Closure:
 
@@ -371,7 +370,7 @@ const myPet = pet("Vivie");
 console.log(myPet()); // "Vivie"
 ```
 
-Es kann viel komplexer als der obige Code sein. Ein Objekt, das Methoden zum Manipulieren der inneren Variablen der äußeren Funktion enthält, kann zurückgegeben werden.
+Es kann viel komplexer sein als der obige Code. Ein Objekt, das Methoden zum Bearbeiten der inneren Variablen der äußeren Funktion enthält, kann zurückgegeben werden.
 
 ```js
 const createPet = function (name) {
@@ -414,7 +413,7 @@ console.log(pet.getSex()); // male
 console.log(pet.getName()); // Oliver
 ```
 
-Im obigen Code ist die `name`-Variable der äußeren Funktion für die inneren Funktionen zugänglich, und es gibt keine andere Möglichkeit, auf die inneren Variablen zuzugreifen, außer durch die inneren Funktionen. Die inneren Variablen der inneren Funktionen fungieren als sichere Speichereinheiten für die äußeren Argumente und Variablen. Sie halten "persistente" und "gekapselte" Daten, mit denen die inneren Funktionen arbeiten können. Die Funktionen müssen nicht einmal einer Variablen zugewiesen oder benannt werden.
+Im obigen Code ist die Variable `name` der äußeren Funktion für die inneren Funktionen zugänglich, und es gibt keine andere Möglichkeit, auf die inneren Variablen zuzugreifen als durch die inneren Funktionen. Die inneren Variablen der inneren Funktionen dienen als sichere Speicherorte für die äußeren Argumente und Variablen. Sie halten "persistente" und "gekapselte" Daten bereit, mit denen die inneren Funktionen arbeiten können. Die Funktionen müssen nicht einmal einer Variablen zugewiesen sein oder einen Namen haben.
 
 ```js
 const getCode = (function () {
@@ -428,17 +427,17 @@ const getCode = (function () {
 console.log(getCode()); // "0]Eal(eh&2"
 ```
 
-Im obigen Code verwenden wir das [IIFE](#immediately_invoked_function_expressions_iife)-Muster. Innerhalb dieses IIFE-Bereichs existieren zwei Werte: eine Variable `apiCode` und eine unbenannte Funktion, die zurückgegeben und der Variablen `getCode` zugewiesen wird. `apiCode` befindet sich im Gültigkeitsbereich der zurückgegebenen unbenannten Funktion, aber nicht im Gültigkeitsbereich eines anderen Teils des Programms, sodass es keine Möglichkeit gibt, den Wert von `apiCode` außer über die `getCode`-Funktion zu lesen.
+Im obigen Code verwenden wir das [IIFE](#immediately_invoked_function_expressions_iife)-Muster. Innerhalb dieses IIFE-Bereichs existieren zwei Werte: eine Variable `apiCode` und eine unbenannte Funktion, die zurückgegeben wird und der Variablen `getCode` zugewiesen wird. `apiCode` befindet sich im Gültigkeitsbereich der zurückgegebenen unbenannten Funktion, aber nicht im Gültigkeitsbereich eines anderen Teils des Programms, daher gibt es keine Möglichkeit, den Wert von `apiCode` außer über die Funktion `getCode` zu lesen.
 
 ### Mehrfach verschachtelte Funktionen
 
-Funktionen können mehrfach verschachtelt sein. Zum Beispiel:
+Funktionen können mehrmals verschachtelt werden. Zum Beispiel:
 
-- Eine Funktion (`A`) enthält eine Funktion (`B`), die ihrerseits eine Funktion (`C`) enthält.
-- Sowohl Funktion `B` als auch `C` bilden hier Closures. So kann `B` auf `A` zugreifen, und `C` kann auf `B` zugreifen.
-- Darüber hinaus kann `C`, da `C` auf `B` zugreifen kann, und `B` auf `A`, auch auf `A` zugreifen.
+- Eine Funktion (`A`) enthält eine Funktion (`B`), die selbst eine Funktion (`C`) enthält.
+- Sowohl `B` als auch `C` bilden hier Closures. Daher kann `B` auf `A` zugreifen und `C` kann auf `B` zugreifen.
+- Da `C` auf `B` zugreifen kann, das auf `A` zugreifen kann, kann `C` auch auf `A` zugreifen.
 
-Folglich können die Closures mehrere Gültigkeitsbereiche enthalten; sie enthalten rekursiv den Gültigkeitsbereich der Funktionen, die sie enthalten. Dies wird als _Scope-Chaining_ bezeichnet. Betrachten Sie das folgende Beispiel:
+Somit können die Closures mehrere Bereiche enthalten; sie enthalten rekursiv den Bereich der Funktionen, die sie enthalten. Dies wird als _Gültigkeitsbereich-Kette_ bezeichnet. Betrachten Sie das folgende Beispiel:
 
 ```js
 function A(x) {
@@ -455,15 +454,15 @@ A(1); // Logs 6 (which is 1 + 2 + 3)
 
 In diesem Beispiel greift `C` auf `B`'s `y` und `A`'s `x` zu. Dies ist möglich, weil:
 
-1. `B` bildet ein Closure, das `A` einbezieht (d.h. `B` kann auf Argumente und Variablen von `A` zugreifen).
-2. `C` bildet ein Closure, das `B` einbezieht.
-3. Da `C`'s Closure `B` einbezieht und `B`'s Closure `A` einbezieht, schließt `C`'s Closure auch `A` ein. Das bedeutet, `C` kann sowohl auf `B` als auch auf `A`s Argumente und Variablen zugreifen. Mit anderen Worten, `C` _verkettet_ die Gültigkeitsbereiche von `B` und `A`, _in dieser Reihenfolge_.
+1. `B` ein Closure bildet, das `A` einschließt (d.h. `B` kann auf die Argumente und Variablen von `A` zugreifen).
+2. `C` bildet ein Closure, das `B` einschließt.
+3. Da `C`'s Closure `B` einschließt und `B`'s Closure `A` einschließt, schließt `C`'s Closure auch `A` ein. Das bedeutet, `C` kann auf _sowohl_ `B` _als auch_ `A`'s Argumente und Variablen zugreifen. Mit anderen Worten, `C` _kettet_ die Bereiche von `B` und `A`, _in dieser Reihenfolge_.
 
-Das Umgekehrte ist jedoch nicht wahr. `A` kann nicht auf `C` zugreifen, da `A` auf kein Argument oder keine Variable von `B` zugreifen kann, deren Variable `C` ist. So bleibt `C` nur für `B` privat.
+Der Umkehrschluss ist jedoch nicht wahr. `A` kann nicht auf `C` zugreifen, weil `A` nicht auf ein Argument oder eine Variable von `B` zugreifen kann, von dem `C` eine Variable ist. Daher bleibt `C` nur für `B` privat.
 
 ### Namenskonflikte
 
-Wenn zwei Argumente oder Variablen in den Gültigkeitsbereichen eines Closure denselben Namen haben, gibt es einen _Namenskonflikt_. Mehr verschachtelte Gültigkeitsbereiche haben Vorrang. Daher hat der innerste Gültigkeitsbereich den höchsten Vorrang, während der äußerste Gültigkeitsbereich den niedrigsten hat. Dies ist die Gültigkeitsbereichs-Kette. Das erste in der Kette ist der innerste Gültigkeitsbereich, und das letzte ist der äußerste Gültigkeitsbereich. Betrachten Sie das folgende:
+Wenn zwei Argumente oder Variablen in den Bereichen eines Closures denselben Namen haben, liegt ein _Namenskonflikt_ vor. Mehr verschachtelte Bereiche haben Vorrang. Der innerste Bereich hat den höchsten Vorrang, während der äußerste Bereich den niedrigsten hat. Dies ist die Gültigkeitsbereich-Kette. Der erste in der Kette ist der innerste Bereich, und der letzte ist der äußerste Bereich. Betrachten Sie das folgende Beispiel:
 
 ```js
 function outside() {
@@ -477,21 +476,21 @@ function outside() {
 console.log(outside()(10)); // 20 (instead of 10)
 ```
 
-Der Namenskonflikt tritt bei der Anweisung `return x * 2` auf und findet zwischen `inside`'s Parameter `x` und `outside`'s Variable `x` statt. Die Gültigkeitsbereichs-Kette hier ist `inside` => `outside` => Globales Objekt. Daher hat `inside`'s `x` Vorrang vor `outside`'s `x`, und `20` (`inside`'s `x`) wird anstelle von `10` (`outside`'s `x`) zurückgegeben.
+Der Namenskonflikt tritt bei der Anweisung `return x * 2` auf und besteht zwischen `inside`'s Parameter `x` und `outside`'s Variable `x`. Die Gültigkeitsbereich-Kette hier ist `inside` => `outside` => globales Objekt. Daher hat `inside`'s `x` Vorrang vor `outside`'s `x`, und `20` (`inside`'s `x`) wird zurückgegeben anstelle von `10` (`outside`'s `x`).
 
-## Verwendung des arguments-Objekts
+## Verwenden des Arguments-Objekts
 
-Die Argumente einer Funktion werden in einem array-ähnlichen Objekt aufbewahrt. Innerhalb einer Funktion können Sie die ihr übergebenen Argumente wie folgt adressieren:
+Die Argumente einer Funktion werden in einem arrayähnlichen Objekt aufbewahrt. Innerhalb einer Funktion können Sie auf die ihr übergebenen Argumente wie folgt zugreifen:
 
 ```js
 arguments[i];
 ```
 
-wobei `i` die Ordnungszahl des Arguments ist, beginnend bei `0`. Das erste Argument, das an eine Funktion übergeben wird, wäre also `arguments[0]`. Die Gesamtzahl der Argumente wird durch `arguments.length` angezeigt.
+wobei `i` die Ordnungsnummer des Arguments ist, beginnend bei `0`. Das erste an eine Funktion übergebene Argument wäre `arguments[0]`. Die Gesamtzahl der Argumente wird durch `arguments.length` angegeben.
 
-Mithilfe des `arguments`-Objekts können Sie eine Funktion mit mehr Argumenten aufrufen, als sie formell annimmt. Dies ist oft nützlich, wenn Sie im Voraus nicht wissen, wie viele Argumente an die Funktion übergeben werden. Sie können `arguments.length` verwenden, um die Anzahl der tatsächlich an die Funktion übergebenen Argumente zu bestimmen, und dann auf jedes Argument mithilfe des `arguments`-Objekts zugreifen.
+Mithilfe des `arguments`-Objekts können Sie eine Funktion mit mehr Argumenten aufrufen, als sie formell akzeptieren soll. Dies ist oft nützlich, wenn Sie nicht im Voraus wissen, wie viele Argumente an die Funktion übergeben werden. Sie können `arguments.length` verwenden, um die tatsächliche Anzahl der an die Funktion übergebenen Argumente zu bestimmen, und dann auf jedes Argument mithilfe des `arguments`-Objekts zugreifen.
 
-Betrachten Sie zum Beispiel eine Funktion, die mehrere Zeichenfolgen zusammenfügt. Das einzig formelle Argument der Funktion ist eine Zeichenfolge, die die Zeichen angibt, die die zu verbindenden Elemente trennen. Die Funktion wird wie folgt definiert:
+Zum Beispiel, betrachten Sie eine Funktion, die mehrere Zeichenfolgen zusammenfügt. Das einzige formale Argument für die Funktion ist eine Zeichenfolge, die die Trennzeichen angibt, mit denen die Elemente zusammengefügt werden sollen. Die Funktion ist wie folgt definiert:
 
 ```js
 function myConcat(separator) {
@@ -504,7 +503,7 @@ function myConcat(separator) {
 }
 ```
 
-Sie können dieser Funktion eine beliebige Anzahl von Argumenten übergeben, und sie fügt jedes Argument in eine Zeichenfolgen-"Liste" zusammen:
+Sie können beliebig viele Argumente an diese Funktion übergeben, und sie fügt jedes Argument in eine Zeichenfolgenliste zusammen:
 
 ```js
 console.log(myConcat(", ", "red", "orange", "blue"));
@@ -518,21 +517,21 @@ console.log(myConcat(". ", "sage", "basil", "oregano", "pepper", "parsley"));
 ```
 
 > [!NOTE]
-> Die `arguments`-Variable ist "array-ähnlich", aber kein Array. Sie ist array-ähnlich, da sie einen Nummernindex und eine `length`-Eigenschaft hat. Sie besitzt jedoch _nicht_ alle Array-Manipulationsmethoden.
+> Die `arguments`-Variable ist „arrayähnlich“, aber kein Array. Sie ist arrayähnlich, da sie einen nummerierten Index und eine `length`-Eigenschaft hat. Sie besitzt jedoch _nicht_ alle Array-Manipulationsmethoden.
 
-Siehe das {{jsxref("Function")}}-Objekt in der JavaScript-Referenz für weitere Informationen.
+Weitere Informationen erhalten Sie im {{jsxref("Function")}}-Objekt im JavaScript-Referenzhandbuch.
 
-## Funktionsparameter
+## Parameter von Funktionen
 
-Es gibt zwei spezielle Arten von Parametersyntax: _Standardparameter_ und _Restparameter_.
+Es gibt zwei spezielle Arten von Parametern: _Standardparameter_ und _Restparameter_.
 
 ### Standardparameter
 
-In JavaScript standardmäßig sind die Parameter von Funktionen `undefined`. Es kann jedoch in einigen Situationen nützlich sein, einen anderen Standardwert zu setzen. Genau das tun Standardparameter.
+In JavaScript haben die Parameter von Funktionen standardmäßig den Wert `undefined`. Allerdings kann es in einigen Situationen nützlich sein, einen anderen Standardwert festzulegen. Genau das tun Standardparameter.
 
-In der Vergangenheit war die allgemeine Strategie zur Festlegung von Standardwerten, die Parameterwerte im Funktionskörper zu testen und einen Wert zuzuweisen, wenn sie `undefined` waren.
+Bisher bestand die allgemeine Strategie zur Festlegung von Standardwerten darin, die Parameterwerte im Funktionskörper zu prüfen und einen Wert zuzuweisen, wenn sie `undefined` sind.
 
-Im folgenden Beispiel wäre der Wert von `b` `undefined`, wenn kein Wert bereitgestellt wird, wenn `a*b` bewertet wird, und ein Aufruf von `multiply` würde normalerweise `NaN` zurückgeben. Dies wird jedoch durch die zweite Zeile in diesem Beispiel verhindert:
+Im folgenden Beispiel, wenn kein Wert für `b` bereitgestellt wird, wäre sein Wert `undefined` beim Auswerten von `a*b`, und ein Aufruf von `multiply` würde normalerweise `NaN` zurückgegeben. Dies wird jedoch durch die zweite Zeile in diesem Beispiel verhindert:
 
 ```js
 function multiply(a, b) {
@@ -553,13 +552,13 @@ function multiply(a, b = 1) {
 console.log(multiply(5)); // 5
 ```
 
-Für weitere Details siehe [Standardparameter](/de/docs/Web/JavaScript/Reference/Functions/Default_parameters) in der Referenz.
+Für weitere Details, siehe [Standardparameter](/de/docs/Web/JavaScript/Reference/Functions/Default_parameters) in der Referenz.
 
 ### Restparameter
 
-Die [Restparameter](/de/docs/Web/JavaScript/Reference/Functions/rest_parameters)-Syntax erlaubt es uns, eine unbestimmte Anzahl von Argumenten als Array darzustellen.
+Die [Restparameter]-Syntax ermöglicht es uns, eine unbestimmte Anzahl von Argumenten als Array darzustellen.
 
-Im folgenden Beispiel verwendet die Funktion `multiply` _Restparameter_, um Argumente vom zweiten bis zum letzten zu sammeln. Die Funktion multipliziert diese dann mit dem ersten Argument.
+Im folgenden Beispiel verwendet die Funktion `multiply` _Restparameter_, um Argumente von dem zweiten bis zum letzten zu sammeln. Die Funktion multipliziert diese dann mit dem ersten Argument.
 
 ```js
 function multiply(multiplier, ...theArgs) {
@@ -572,9 +571,9 @@ console.log(arr); // [2, 4, 6]
 
 ## Pfeilfunktionen
 
-Ein [Pfeilfunktions-Ausdruck](/de/docs/Web/JavaScript/Reference/Functions/Arrow_functions) (auch _fette Pfeil_ genannt, um von einer hypothetischen `->`-Syntax in zukünftigen JavaScript-Versionen zu unterscheiden) hat eine kürzere Syntax im Vergleich zu Funktionsausdrücken und hat kein eigenes [`this`](/de/docs/Web/JavaScript/Reference/Operators/this), [`arguments`](/de/docs/Web/JavaScript/Reference/Functions/arguments), [`super`](/de/docs/Web/JavaScript/Reference/Operators/super) oder [`new.target`](/de/docs/Web/JavaScript/Reference/Operators/new.target). Pfeilfunktionen sind immer anonym.
+Ein [Pfeilfunktionsausdruck](/de/docs/Web/JavaScript/Reference/Functions/Arrow_functions) (auch _fetter Pfeil_ genannt, um es von einem hypothetischen `->`-Syntax in zukünftigen JavaScript zu unterscheiden) hat eine kürzere Syntax im Vergleich zu Funktionsausdrücken und hat kein eigenes [`this`](/de/docs/Web/JavaScript/Reference/Operators/this), [`arguments`](/de/docs/Web/JavaScript/Reference/Functions/arguments), [`super`](/de/docs/Web/JavaScript/Reference/Operators/super) oder [`new.target`](/de/docs/Web/JavaScript/Reference/Operators/new.target). Pfeilfunktionen sind immer anonym.
 
-Zwei Faktoren beeinflussten die Einführung der Pfeilfunktionen: _kürzere Funktionen_ und _Nichthängen_ von `this`.
+Zwei Faktoren beeinflussten die Einführung von Pfeilfunktionen: _kürzere Funktionen_ und _keine Bindung von `this`_.
 
 ### Kürzere Funktionen
 
@@ -594,9 +593,9 @@ const a3 = a.map((s) => s.length);
 console.log(a3); // [8, 6, 7, 9]
 ```
 
-### Kein separates this
+### Kein gesondertes this
 
-Bis zu Pfeilfunktionen definierte jede neue Funktion ihren eigenen [`this`](/de/docs/Web/JavaScript/Reference/Operators/this)-Wert (ein neues Objekt im Fall eines Konstruktors, undefined bei [strict mode](/de/docs/Web/JavaScript/Reference/Strict_mode)-Funktionsaufrufen, das Basisobjekt, wenn die Funktion als "Objektmethode" aufgerufen wird, etc.). Das erwies sich als weniger ideal in einem objektorientierten Programmierstil.
+Bis zu Pfeilfunktionen definierte jede neue Funktion ihren eigenen [`this`](/de/docs/Web/JavaScript/Reference/Operators/this)-Wert (ein neues Objekt im Fall eines Konstruktors, undefined bei [striktem Modus](/de/docs/Web/JavaScript/Reference/Strict_mode)-Funktionsaufrufen, das Basisobjekt, wenn die Funktion als „Objektmethode“ aufgerufen wird, usw.). Dies erwies sich als weniger ideal bei einem objektorientierten Programmiersstil.
 
 ```js
 function Person() {
@@ -614,7 +613,7 @@ function Person() {
 const p = new Person();
 ```
 
-In ECMAScript 3/5 wurde dieses Problem behoben, indem der Wert in `this` einer Variablen zugewiesen wurde, die geschlossen werden konnte.
+In ECMAScript 3/5 wurde dieses Problem durch die Zuweisung des Werts in `this` an eine Variable gelöst, die geschlossen werden konnte.
 
 ```js
 function Person() {
@@ -631,9 +630,9 @@ function Person() {
 }
 ```
 
-Alternativ könnte eine [gebundene Funktion](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/bind) erstellt werden, sodass der korrekte `this`-Wert an die `growUp()`-Funktion übergeben würde.
+Alternativ hätte eine [gebundene Funktion](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/bind) erstellt werden können, so dass der korrekte `this`-Wert an die `growUp()`-Funktion übergeben würde.
 
-Ein Pfeilfunktion hat kein eigenes `this`; der `this`-Wert des umgebenden Ausführungskontexts wird verwendet. So hat im folgenden Code der `this` innerhalb der Funktion, die an `setInterval` übergeben wird, denselben Wert wie `this` in der umgebenden Funktion:
+Eine Pfeilfunktion hat kein eigenes `this`; der `this`-Wert des umschließenden Ausführungskontexts wird verwendet. Somit hat im folgenden Code das `this` innerhalb der Funktion, die an `setInterval` übergeben wird, denselben Wert wie `this` in der umschließenden Funktion:
 
 ```js
 function Person() {

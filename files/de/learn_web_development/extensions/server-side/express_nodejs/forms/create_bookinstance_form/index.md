@@ -1,13 +1,13 @@
 ---
-title: Buchinstanz-Formular erstellen
+title: Buchinstanz erstellen Formular
 slug: Learn_web_development/Extensions/Server-side/Express_Nodejs/forms/Create_BookInstance_form
 l10n:
-  sourceCommit: 48d220a8cffdfd5f088f8ca89724a9a92e34d8c0
+  sourceCommit: f2dc3d5367203c860cf1a71ce0e972f018523849
 ---
 
-Dieser Unterartikel zeigt, wie man eine Seite/ein Formular definiert, um `BookInstance`-Objekte zu erstellen. Dies ähnelt sehr dem Formular, das wir verwendet haben, um [`Book`-Objekte zu erstellen](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/forms/Create_book_form).
+Dieser Unterartikel zeigt, wie Sie eine Seite/ein Formular definieren, um `BookInstance` Objekte zu erstellen. Dies ähnelt sehr dem Formular, das wir zum [Erstellen von `Book` Objekten](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/forms/Create_book_form) verwendet haben.
 
-## Validierungs- und Sanitizing-Methoden importieren
+## Validierungs- und Säuberungsmethoden importieren
 
 Öffnen Sie **/controllers/bookinstanceController.js** und fügen Sie die folgenden Zeilen am Anfang der Datei hinzu:
 
@@ -17,13 +17,13 @@ const { body, validationResult } = require("express-validator");
 
 ## Controller—GET-Route
 
-Am Anfang der Datei benötigen wir das _Book_-Modul (notwendig, da jede `BookInstance` mit einem bestimmten `Book` verknüpft ist).
+Am Anfang der Datei benötigen Sie das _Book_ Modul (erforderlich, da jede `BookInstance` mit einem bestimmten `Book` verknüpft ist).
 
 ```js
 const Book = require("../models/book");
 ```
 
-Finden Sie die exportierte `bookinstance_create_get()`-Controller-Methode und ersetzen Sie sie durch den folgenden Code.
+Finden Sie die exportierte `bookinstance_create_get()` Controller-Methode und ersetzen Sie sie durch den folgenden Code.
 
 ```js
 // Display BookInstance create form on GET.
@@ -37,11 +37,11 @@ exports.bookinstance_create_get = asyncHandler(async (req, res, next) => {
 });
 ```
 
-Der Controller erhält eine sortierte Liste aller Bücher (`allBooks`) und übergibt sie über `book_list` an die Ansicht **`bookinstance_form.pug`** (zusammen mit einem `title`). Beachten Sie, dass noch kein Buch ausgewählt wurde, wenn wir dieses Formular zum ersten Mal anzeigen; daher übergeben wir die Variable `selected_book` nicht an `render()`. Deshalb wird `selected_book` im Template den Wert `undefined` haben.
+Der Controller erhält eine sortierte Liste aller Bücher (`allBooks`) und übergibt sie über `book_list` an die Ansicht **`bookinstance_form.pug`** (zusammen mit einem `title`). Beachten Sie, dass kein Buch ausgewählt wurde, wenn wir dieses Formular zum ersten Mal anzeigen, also übergeben wir die Variable `selected_book` nicht an `render()`. Aus diesem Grund hat `selected_book` im Template den Wert `undefined`.
 
 ## Controller—POST-Route
 
-Finden Sie die exportierte `bookinstance_create_post()`-Controller-Methode und ersetzen Sie sie durch den folgenden Code.
+Finden Sie die exportierte `bookinstance_create_post()` Controller-Methode und ersetzen Sie sie durch den folgenden Code.
 
 ```js
 // Handle BookInstance create on POST.
@@ -84,16 +84,15 @@ exports.bookinstance_create_post = [
         bookinstance: bookInstance,
       });
       return;
-    } else {
-      // Data from form is valid
-      await bookInstance.save();
-      res.redirect(bookInstance.url);
     }
+    // Data from form is valid
+    await bookInstance.save();
+    res.redirect(bookInstance.url);
   }),
 ];
 ```
 
-Die Struktur und das Verhalten dieses Codes sind analog zum Erstellen unserer anderen Objekte. Zuerst validieren und bereinigen wir die Daten. Falls die Daten ungültig sind, wird das Formular zusammen mit den ursprünglich vom Benutzer eingegebenen Daten und einer Liste von Fehlermeldungen erneut angezeigt. Wenn die Daten gültig sind, speichern wir den neuen `BookInstance`-Datensatz und leiten den Benutzer auf die Detailseite um.
+Die Struktur und das Verhalten dieses Codes ist dasselbe wie beim Erstellen unserer anderen Objekte. Zuerst validieren und säubern wir die Daten. Wenn die Daten ungültig sind, zeigen wir das Formular erneut zusammen mit den ursprünglich vom Benutzer eingegebenen Daten und einer Liste von Fehlermeldungen an. Wenn die Daten gültig sind, speichern wir den neuen `BookInstance` Datensatz und leiten den Benutzer zur Detailseite weiter.
 
 ## Ansicht
 
@@ -142,20 +141,19 @@ block content
 ```
 
 > [!NOTE]
-> Das obige Template codiert die _Status_-Werte (Maintenance, Available, usw.) fest und "merkt" sich nicht die vom Benutzer eingegebenen Werte.
-> Sollten Sie dies wünschen, ziehen Sie in Betracht, die Liste erneut zu implementieren, sodass Optionsdaten vom Controller übergeben und der ausgewählte Wert beim erneuten Anzeigen des Formulars gesetzt wird.
+> Das obige Template kodiert die _Status_ Werte (Wartung, Verfügbar, etc.) fest und "erinnert" sich nicht an die vom Benutzer eingegebenen Werte. Sollten Sie dies wünschen, überlegen Sie, die Liste neu zu implementieren, indem Sie Optionsdaten vom Controller übergeben und den ausgewählten Wert festlegen, wenn das Formular erneut angezeigt wird.
 
-Die Struktur und das Verhalten der Ansicht sind fast identisch mit dem **book_form.pug**-Template, daher werden wir darauf nicht im Detail eingehen. Eine bemerkenswerte Zeile ist jedoch die, in der wir das "zurückzugeben bis"-Datum auf `bookinstance.due_back_yyyy_mm_dd` setzen, wenn wir das Datumsfeld für eine vorhandene Instanz ausfüllen.
+Die Struktur und das Verhalten der Ansicht sind fast identisch mit dem **book_form.pug** Template, daher werden wir es nicht im Detail durchgehen. Das einzige, was zu beachten ist, ist die Zeile, in der wir das Datum "zurückgeben" auf `bookinstance.due_back_yyyy_mm_dd` setzen, wenn wir das Datumseingabefeld für eine bestehende Instanz ausfüllen.
 
 ```pug
 input#due_back.form-control(type='date', name='due_back' value=(undefined===bookinstance ? '' : bookinstance.due_back_yyyy_mm_dd))
 ```
 
-Der Datumswert muss im Format `YYYY-MM-DD` gesetzt werden, da dies von [`<input>`-Elementen mit `type="date"`](/de/docs/Web/HTML/Reference/Elements/input/date) erwartet wird. Allerdings wird das Datum nicht in diesem Format gespeichert, daher müssen wir es konvertieren, bevor wir den Wert in der Steuerung festlegen. Die Methode `due_back_yyyy_mm_dd()` wird im nächsten Abschnitt zum `BookInstance`-Modell hinzugefügt.
+Der Datumswert muss im Format `YYYY-MM-DD` gesetzt werden, da dies von [`<input>` Elementen mit `type="date"`](/de/docs/Web/HTML/Reference/Elements/input/date) erwartet wird. Allerdings wird das Datum nicht in diesem Format gespeichert, daher müssen wir es vor dem Setzen des Wertes im Steuerelement konvertieren. Die Methode `due_back_yyyy_mm_dd()` wird im nächsten Abschnitt zum `BookInstance` Modell hinzugefügt.
 
-## Modell—virtuelle `due_back_yyyy_mm_dd()`-Methode
+## Modell—virtuelle Methode `due_back_yyyy_mm_dd()`
 
-Öffnen Sie die Datei, in der Sie das `BookInstanceSchema`-Modell definiert haben (**models/bookinstance.js**). Fügen Sie die unten gezeigte virtuelle Funktion `due_back_yyyy_mm_dd()` hinzu (nach der virtuellen Funktion `due_back_formatted()`):
+Öffnen Sie die Datei, in der Sie das `BookInstanceSchema` Modell definiert haben (**models/bookinstance.js**). Fügen Sie die unten gezeigte virtuelle Funktion `due_back_yyyy_mm_dd()` hinzu (nach der virtuellen Funktion `due_back_formatted()`):
 
 ```js
 BookInstanceSchema.virtual("due_back_yyyy_mm_dd").get(function () {
@@ -165,11 +163,11 @@ BookInstanceSchema.virtual("due_back_yyyy_mm_dd").get(function () {
 
 ## Wie sieht es aus?
 
-Starten Sie die Anwendung und öffnen Sie Ihren Browser unter `http://localhost:3000/`. Wählen Sie dann den Link _Create new book instance (copy)_. Wenn alles korrekt eingerichtet ist, sollte Ihre Site ähnlich wie im folgenden Screenshot aussehen. Nachdem Sie eine gültige `BookInstance` übermittelt haben, sollte sie gespeichert werden und Sie werden zur Detailseite weitergeleitet.
+Führen Sie die Anwendung aus und öffnen Sie Ihren Browser unter `http://localhost:3000/`. Wählen Sie dann den Link _Create new book instance (copy)_ aus. Wenn alles korrekt eingerichtet ist, sollte Ihre Seite ungefähr so aussehen wie auf dem nachfolgenden Screenshot. Nachdem Sie eine gültige `BookInstance` eingereicht haben, sollte sie gespeichert werden, und Sie werden zur Detailseite weitergeleitet.
 
-![Erstellen Sie eine Buchinstanz der lokalen Bibliotheksanwendung Screenshot von localhost:3000. Die Seite ist in zwei Spalten unterteilt. Die schmale linke Spalte hat eine vertikale Navigationsleiste mit 10 Links, die in zwei Abschnitte durch eine hellfarbige horizontale Linie unterteilt sind. Der obere Abschnitt linkt zu bereits erstellten Daten. Die unteren Links führen zu Formularen zum Erstellen neuer Daten. Die breite rechte Spalte hat das Formular für die Buchinstanz mit einer 'Create BookInstance' Überschrift und vier Eingabefeldern mit den Bezeichnungen 'Book', 'Imprint', 'Date when book available' und 'Status'. Das Formular ist ausgefüllt. Es gibt einen 'Submit'-Button am unteren Ende des Formulars.](locallibary_express_bookinstance_create_empty.png)
+![Erstellen einer Buchinstanz der Bibliotheksanwendung Screenshot von localhost:3000. Die Seite ist in zwei Spalten unterteilt. Die schmale linke Spalte hat eine vertikale Navigationsleiste mit 10 Links, die durch eine helle horizontale Linie in zwei Abschnitte unterteilt sind. Der obere Abschnitt führt zu bereits erstellten Daten. Die unteren Links führen zu Formularen zur Erstellung neuer Daten. Die breite rechte Spalte enthält das Formular zum Erstellen einer Buchinstanz mit einer Überschrift 'Create BookInstance' und vier Eingabefeldern mit den Bezeichnungen 'Book', 'Imprint', 'Date when book available' und 'Status'. Das Formular ist ausgefüllt. Unten im Formular befindet sich ein 'Submit'-Button.](locallibary_express_bookinstance_create_empty.png)
 
 ## Nächste Schritte
 
-- Kehren Sie zurück zum [Express Tutorial Teil 6: Arbeiten mit Formularen](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/forms).
+- Kehren Sie zurück zum [Express Tutorial Part 6: Arbeiten mit Formularen](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/forms).
 - Fahren Sie mit dem nächsten Unterartikel von Teil 6 fort: [Autor löschen Formular](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/forms/Delete_author_form).

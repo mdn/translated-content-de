@@ -1,13 +1,14 @@
 ---
-title: Content-Range
+title: Content-Range header
+short-title: Content-Range
 slug: Web/HTTP/Reference/Headers/Content-Range
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: ee756fd51ccbc4820a4b334aa753648650ad1d51
 ---
 
 {{HTTPSidebar}}
 
-Der HTTP **`Content-Range`** {{Glossary("response_header", "Antwort-Header")}} wird in [Bereichsanfragen](/de/docs/Web/HTTP/Guides/Range_requests) verwendet, um anzuzeigen, wo der Inhalt eines Antwortkörpers in Bezug auf eine vollständige Ressource gehört.
+Der HTTP-**`Content-Range`**-{{Glossary("response_header", "Antwortheader")}} wird in [Bereichsanfragen](/de/docs/Web/HTTP/Guides/Range_requests) verwendet, um anzuzeigen, wo der Inhalt eines Antwortkörpers im Verhältnis zu einer vollständigen Ressource gehört.
 
 Er sollte nur in {{HTTPStatus("206", "206 Partial Content")}}- oder {{HTTPStatus("416", "416 Range Not Satisfiable")}}-Antworten enthalten sein.
 
@@ -16,17 +17,17 @@ Er sollte nur in {{HTTPStatus("206", "206 Partial Content")}}- oder {{HTTPStatus
     <tr>
       <th scope="row">Header-Typ</th>
       <td>
-        {{Glossary("Response_header", "Antwort-Header")}},
-        {{Glossary("Content_header", "Inhalts-Header")}}
+        {{Glossary("Response_header", "Antwortheader")}},
+        {{Glossary("Content_header", "Inhaltsheader")}}
       </td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Forbidden_request_header", "Verbotener Anfrage-Header")}}</th>
+      <th scope="row">{{Glossary("Forbidden_request_header", "Verbotener Anforderungsheader")}}</th>
       <td>Nein</td>
     </tr>
     <tr>
       <th scope="row">
-        {{Glossary("CORS-safelisted_request_header", "CORS-sicher gelisteter Anfrage-Header")}}
+        {{Glossary("CORS-safelisted_request_header", "CORS-safelisted Anforderungsheader")}}
       </th>
       <td>Nein</td>
     </tr>
@@ -44,19 +45,19 @@ Content-Range: <unit> */<size>
 ## Direktiven
 
 - `<unit>`
-  - : Die Einheit zur Spezifikation von Bereichen.
+  - : Die Einheit zur Angabe der Bereiche.
     Derzeit wird nur `bytes` unterstützt.
 - `<range>`
-  - : Ein Bereich im Format `<range-start>-<range-end>`, wobei `<range-start>` und `<range-end>` Ganzzahlen für den Start- und Endpunkt des Bereichs in der angegebenen `<unit>` sind (nullbasiert & inklusive).
+  - : Ein Bereich mit dem Format `<range-start>-<range-end>`, wobei `<range-start>` und `<range-end>` ganze Zahlen für die Start- und Endposition (nullbasiert & inklusive) des Bereichs in der angegebenen `<unit>` sind.
     `*` wird in einer {{HTTPStatus("416", "416 Range Not Satisfiable")}}-Antwort verwendet, um anzuzeigen, dass der Wert kein Bereich ist.
 - `<size>`
-  - : Die Gesamtlänge des Dokuments (oder `*` wenn unbekannt).
+  - : Die Gesamtlänge des Dokuments (oder `*`, falls unbekannt).
 
 ## Beispiele
 
-### Teilweise Inhalt-Antwort
+### Antwort mit Teilinhalt
 
-Diese {{HTTPStatus("206", "206 Partial Content")}}-Antwort zeigt eine Teilantwort, wobei der `Content-Range` angibt, dass sie die ersten 1024 Bytes einer 146515 Byte großen Datei enthält.
+Diese {{HTTPStatus("206", "206 Partial Content")}}-Antwort zeigt eine Teilantwort, wobei `Content-Range` angibt, dass sie die ersten 1024 Bytes einer 146515 Byte großen Datei enthält.
 
 ```http
 HTTP/2 206
@@ -70,7 +71,7 @@ content-range: bytes 0-1023/146515
 
 ### Bereich nicht erfüllbar
 
-Wenn der Server die angeforderte Bereichsanfrage nicht erfüllen kann, sollte er mit einem {{HTTPStatus("416", "416 Range Not Satisfiable")}}-Status antworten, und `Content-Range` sollte `*` für den Bereich zusammen mit der Gesamtlänge der Ressource angeben.
+Wenn der Server die angeforderte Bereichsanfrage nicht erfüllen kann, sollte er mit einem {{HTTPStatus("416", "416 Range Not Satisfiable")}}-Status antworten, und `Content-Range` sollte `*` für den Bereich zusammen mit der Gesamtgröße der Ressource spezifizieren.
 
 ```http
 HTTP/2 416
@@ -88,7 +89,7 @@ Content-Range: bytes */67589
 
 ## Siehe auch
 
-- [HTTP-Bereichsanfragen](/de/docs/Web/HTTP/Guides/Range_requests) Leitfaden
-- {{HTTPHeader("If-Range")}}, {{HTTPHeader("Range")}} Header
+- [Leitfaden zu HTTP-Bereichsanfragen](/de/docs/Web/HTTP/Guides/Range_requests)
+- {{HTTPHeader("If-Range")}}, {{HTTPHeader("Range")}}-Header
 - {{HTTPHeader("Content-Type")}}
-- {{HTTPStatus("206", "206 Partial Content")}}, {{HTTPStatus("416", "416 Range Not Satisfiable")}} Status-Codes
+- {{HTTPStatus("206", "206 Partial Content")}}, {{HTTPStatus("416", "416 Range Not Satisfiable")}}-Statuscodes

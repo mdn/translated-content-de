@@ -1,15 +1,17 @@
 ---
-title: X-DNS-Prefetch-Control
+title: X-DNS-Prefetch-Control header
+short-title: X-DNS-Prefetch-Control
 slug: Web/HTTP/Reference/Headers/X-DNS-Prefetch-Control
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: ee756fd51ccbc4820a4b334aa753648650ad1d51
 ---
 
 {{HTTPSidebar}}{{Non-standard_header}}
 
-Der HTTP-**`X-DNS-Prefetch-Control`**-{{Glossary("response_header", "Antwort-Header")}} steuert das DNS-Prefetching. Dabei handelt es sich um eine Funktion, bei der Browser proaktiv eine Domainnamensauflösung für Links durchführen, die der Benutzer eventuell anklicken möchte, sowie für URLs von Elementen, die im Dokument referenziert werden, einschließlich Bilder, CSS, JavaScript und Ähnliches.
+Der HTTP **`X-DNS-Prefetch-Control`** {{Glossary("response_header", "Antwort-Header")}} steuert das DNS-Prefetching, eine Funktion, bei der Browser proaktiv die Namensauflösung von Domains für Links durchführen, denen der Benutzer möglicherweise folgen möchte, sowie die URLs für im Dokument referenzierte Elemente, einschließlich Bilder, CSS, JavaScript usw.
 
-Die Absicht ist, dass das Prefetching im Hintergrund durchgeführt wird, sodass die {{Glossary("DNS", "DNS")}}-Auflösung abgeschlossen ist, wenn die referenzierten Elemente vom Browser benötigt werden. Dies reduziert die Latenzzeit, wenn der Benutzer beispielsweise auf einen Link klickt.
+Die Absicht ist, dass das Prefetching im Hintergrund durchgeführt wird, sodass die {{Glossary("DNS", "DNS")}}-Auflösung abgeschlossen ist, wenn die referenzierten Elemente vom Browser benötigt werden.
+Dies reduziert die Latenz, wenn der Benutzer beispielsweise auf einen Link klickt.
 
 <table class="properties">
   <tbody>
@@ -31,32 +33,41 @@ X-DNS-Prefetch-Control: on
 X-DNS-Prefetch-Control: off
 ```
 
-### Anweisungen
+### Direktiven
 
 - `on`
-  - : Aktiviert DNS-Prefetching. Dies ist das, was Browser tun, wenn sie die Funktion unterstützen und dieser Header nicht vorhanden ist.
+  - : Aktiviert das DNS-Prefetching. Dies ist das Verhalten von Browsern, die diese Funktion unterstützen, wenn dieser Header nicht vorhanden ist.
 - `off`
-  - : Deaktiviert DNS-Prefetching. Dies ist nützlich, wenn Sie die Links auf den Seiten nicht kontrollieren oder wissen, dass Sie keine Informationen an diese Domains weitergeben möchten.
+  - : Deaktiviert das DNS-Prefetching. Dies ist nützlich, wenn Sie die Links auf den Seiten nicht kontrollieren oder wissen, dass Sie keine Informationen an diese Domains weitergeben möchten.
 
 ## Beschreibung
 
-DNS-Anfragen sind im Hinblick auf die Bandbreite sehr klein, aber die Latenzzeit kann ziemlich hoch sein, insbesondere in Mobilfunknetzen. Durch das spekulative Vorabladen von DNS-Ergebnissen kann die Latenzzeit zu bestimmten Zeiten erheblich reduziert werden, zum Beispiel, wenn der Benutzer auf einen Link klickt. In einigen Fällen kann die Latenzzeit um eine Sekunde reduziert werden.
+DNS-Anfragen sind in Bezug auf Bandbreite sehr klein, aber die Latenz kann ziemlich hoch sein,
+insbesondere in mobilen Netzwerken. Durch spekulatives Prefetching von DNS-Ergebnissen kann die
+Latenz zu bestimmten Zeiten erheblich reduziert werden, z. B. wenn der Benutzer auf den Link klickt. In einigen
+Fällen kann die Latenz um eine Sekunde verringert werden.
 
-Die Implementierung dieses Prefetchings in einigen Browsern ermöglicht die Domainnamensauflösung parallel zur (anstatt seriell zur) tatsächlichen Seiteninhaltsabfrage. Auf diese Weise verursacht der hochverzögerte Domainnamensauflösungsprozess keine Verzögerung beim Abrufen der Inhalte.
+Die Implementierung dieses Prefetchings in einigen Browsern ermöglicht es, dass die Namensauflösung
+parallel (anstatt seriell) zum Abruf des eigentlichen Seiteninhalts durchgeführt wird. Dadurch verursacht der
+hochlatenzbehaftete Namensauflösungsprozess keine Verzögerung beim Abrufen von Inhalten.
 
-Die Ladezeiten von Seiten – insbesondere in Mobilfunknetzen – können auf diese Weise messbar verbessert werden. Wenn die Domainnamen für Bilder im Voraus aufgelöst werden können, bevor die Bilder angefordert werden, können Seiten, die viele Bilder laden, eine Verbesserung der Ladezeit von 5 % oder mehr erreichen.
+Die Ladezeiten von Seiten – insbesondere in mobilen Netzwerken – können auf diese Weise messbar verbessert werden. Wenn die Domain-Namen für Bilder im Voraus aufgelöst werden können, bevor die Bilder angefordert werden, können Seiten, die viele Bilder laden, eine Verbesserung der Ladezeit von 5 % oder mehr erfahren.
 
-### Konfigurierung des Prefetchings im Browser
+### Konfigurieren des Prefetchings im Browser
 
-Im Allgemeinen müssen Sie nichts unternehmen, um das Prefetching zu verwalten. Der Benutzer kann jedoch das Prefetching deaktivieren wollen. In Firefox kann dies durch Setzen der Einstellung `network.dns.disablePrefetch` auf `true` erreicht werden.
+Im Allgemeinen müssen Sie nichts tun, um das Prefetching zu verwalten. Der Benutzer könnte jedoch
+wünschen, das Prefetching zu deaktivieren. In Firefox kann dies durch Setzen der
+`network.dns.disablePrefetch`-Einstellung auf `true` erfolgen.
 
-Außerdem wird standardmäßig kein Prefetching von eingebetteten Link-Hostnamen bei Dokumenten durchgeführt, die über {{Glossary("HTTPS", "HTTPS")}} geladen werden. In Firefox kann diese Einstellung durch Setzen der Einstellung `network.dns.disablePrefetchFromHTTPS` auf `false` geändert werden.
+Standardmäßig wird auch das Prefetching der eingebetteten Link-Hostnamen bei über {{Glossary("HTTPS", "HTTPS")}} geladenen Dokumenten nicht durchgeführt. In Firefox kann dies durch Setzen der
+`network.dns.disablePrefetchFromHTTPS`-Einstellung auf `false` geändert werden.
 
 ## Beispiele
 
-### Prefetching aktivieren und deaktivieren
+### Ein- und Ausschalten des Prefetchings
 
-Sie können den `X-DNS-Prefetch-Control`-Header entweder serverseitig senden oder von einzelnen Dokumenten aus mit dem `http-equiv`-Attribut des {{HTMLElement("meta")}}-Elements setzen, so:
+Sie können den `X-DNS-Prefetch-Control`-Header serverseitig senden oder von
+einzelnen Dokumenten aus unter Verwendung des [`http-equiv`](/de/docs/Web/HTML/Reference/Elements/meta#http-equiv) Attributs im {{HTMLElement("meta")}}-Element, folgendermaßen:
 
 ```html
 <meta http-equiv="x-dns-prefetch-control" content="off" />
@@ -64,23 +75,29 @@ Sie können den `X-DNS-Prefetch-Control`-Header entweder serverseitig senden ode
 
 Sie können diese Einstellung rückgängig machen, indem Sie `content` auf `"on"` setzen.
 
-### Erzwingen der Auflösung bestimmter Hostnamen
+### Erzwingen der Suche nach bestimmten Hostnamen
 
-Sie können die Auflösung bestimmter Hostnamen erzwingen, ohne spezifische Anker zu verwenden, die diesen Hostnamen verwenden, indem Sie das `rel`-Attribut des {{HTMLElement("link")}}-Elements mit einem [Link-Typ](/de/docs/Web/HTML/Reference/Attributes/rel) von `dns-prefetch` verwenden:
+Sie können die Suche nach bestimmten Hostnamen erzwingen, ohne spezifische Anker mit
+diesem Hostnamen bereitzustellen, indem Sie das [`rel`](/de/docs/Web/HTML/Reference/Elements/link#rel) Attribut im
+{{HTMLElement("link")}}-Element mit einem [Linktyp](/de/docs/Web/HTML/Reference/Attributes/rel) von `dns-prefetch` verwenden:
 
 ```html
 <link rel="dns-prefetch" href="https://www.mozilla.org" />
 ```
 
-In diesem Beispiel wird der Domainname `www.mozilla.org` voraufgelöst.
+In diesem Beispiel wird der Domain-Name `www.mozilla.org` vorab aufgelöst.
 
-Ähnlich kann das Link-Element verwendet werden, um Hostnamen aufzulösen, ohne eine vollständige URL anzugeben, indem einfach der Hostname mit zwei Schrägstrichen vorangestellt wird:
+Auf ähnliche Weise kann das Link-Element verwendet werden, um Hostnamen ohne Angabe einer
+vollständigen URL aufzulösen, indem dem Hostnamen nur zwei Schrägstriche vorangestellt werden:
 
 ```html
 <link rel="dns-prefetch" href="//www.mozilla.org" />
 ```
 
-Erzwungenes Prefetching von Hostnamen kann nützlich sein, zum Beispiel auf der Startseite einer Website, um die Vorauflösung von Domainnamen zu erzwingen, die häufig auf der gesamten Website referenziert werden, auch wenn sie nicht auf der Startseite selbst verwendet werden. Dies verbessert die Gesamtleistung der Website, auch wenn die Leistung der Startseite möglicherweise nicht beeinflusst wird.
+Erzwungenes Prefetching von Hostnamen kann nützlich sein, beispielsweise auf der Homepage einer Website,
+um die Vorauflösung von Domain-Namen zu erzwingen, die häufig auf der gesamten Website referenziert werden, obwohl
+sie nicht auf der Homepage selbst verwendet werden. Dies wird die Gesamtleistung der Website verbessern,
+auch wenn die Leistung der Homepage möglicherweise nicht beeinflusst wird.
 
 ## Spezifikationen
 
@@ -92,5 +109,5 @@ Nicht Teil einer aktuellen Spezifikation.
 
 ## Siehe auch
 
-- [DNS Prefetching for Firefox (Blogeintrag)](https://bitsup.blogspot.com/2008/11/dns-prefetching-for-firefox.html)
-- [Wie Google Chrome die Kontrolle des DNS-Prefetchings handhabt](https://www.chromium.org/developers/design-documents/dns-prefetching/)
+- [DNS Prefetching für Firefox (Blogbeitrag)](https://bitsup.blogspot.com/2008/11/dns-prefetching-for-firefox.html)
+- [Google Chrome handelt DNS-Prefetching-Steuerung](https://www.chromium.org/developers/design-documents/dns-prefetching/)

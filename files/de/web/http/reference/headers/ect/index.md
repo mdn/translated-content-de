@@ -1,28 +1,30 @@
 ---
-title: ECT
+title: ECT header
+short-title: ECT
 slug: Web/HTTP/Reference/Headers/ECT
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: ee756fd51ccbc4820a4b334aa753648650ad1d51
 ---
 
 {{HTTPSidebar}} {{SeeCompatTable}}
 
 Der HTTP **`ECT`** {{Glossary("request_header", "Request-Header")}} wird in [Client Hints](/de/docs/Web/HTTP/Guides/Client_hints) verwendet, um den {{Glossary("effective_connection_type", "effektiven Verbindungstyp")}} anzugeben: `slow-2g`, `2g`, `3g` oder `4g`.
 
-Der Wert repräsentiert das "Netzwerkprofil", das am besten zur Latenz und Bandbreite der Verbindung passt, anstatt die tatsächlichen Mechanismen zu verwenden, die für die Datenübertragung benutzt werden. Zum Beispiel könnte `2g` verwendet werden, um eine langsame Wi-Fi-Verbindung mit hoher Latenz und geringer Bandbreite zu repräsentieren, während `4g` ein schnelles, auf Glasfaser basierendes Breitbandnetzwerk darstellen könnte.
+Der Wert repräsentiert das "Netzwerkprofil", das die Latenz und Bandbreite der Verbindung am besten beschreibt, anstatt der tatsächlichen Mechanismen, die zum Übertragen der Daten verwendet werden.
+Zum Beispiel könnte `2g` eine langsame WLAN-Verbindung mit hoher Latenz und niedriger Bandbreite darstellen, während `4g` ein schnelles glasfaserbasiertes Breitbandnetzwerk repräsentieren könnte.
 
-Der Hinweis ermöglicht es einem Server, basierend auf den allgemeinen Eigenschaften des Netzwerks zu entscheiden, welche Informationen gesendet werden. Beispielsweise könnte ein Server kleinere Versionen von Bildern und anderen Ressourcen auf weniger leistungsfähigen Verbindungen senden. Der Wert könnte auch als Ausgangspunkt verwendet werden, um zu bestimmen, welche Informationen gesendet werden, was durch Informationen in den {{HTTPHeader("RTT")}} und {{HTTPHeader("Downlink")}} Hinweisen weiter verfeinert wird.
+Der Hinweis ermöglicht es einem Server, basierend auf den breiten Charakteristiken des Netzwerks zu entscheiden, welche Informationen gesendet werden. Beispielsweise könnte ein Server sich entscheiden, kleinere Versionen von Bildern und anderen Ressourcen bei weniger leistungsfähigen Verbindungen zu senden. Der Wert könnte auch als Ausgangspunkt verwendet werden, um zu bestimmen, welche Informationen gesendet werden, was durch Informationen in {{HTTPHeader("RTT")}} und {{HTTPHeader("Downlink")}} Hinweisen weiter verfeinert wird.
 
 > [!NOTE]
-> Ein Server, der `ECT` in {{HTTPHeader("Accept-CH")}} angibt, kann es auch in {{HTTPHeader("Vary")}} angeben, um anzuzeigen, dass Antworten für verschiedene ECT-Werte zwischengespeichert werden sollten.
+> Ein Server, der `ECT` in {{HTTPHeader("Accept-CH")}} spezifiziert, kann es auch in {{HTTPHeader("Vary")}} angeben, um anzuzeigen, dass Antworten für verschiedene ECT-Werte zwischengespeichert werden sollten.
 
 <table class="properties">
   <tbody>
     <tr>
-      <th scope="row">Headertyp</th>
+      <th scope="row">Header-Typ</th>
       <td>
         {{Glossary("Request_header", "Request-Header")}},
-        <a href="/de/docs/Web/HTTP/Guides/Client_hints">Client Hint</a>
+        <a href="/de/docs/Web/HTTP/Guides/Client_hints">Client-Hinweis</a>
       </td>
     </tr>
     <tr>
@@ -45,13 +47,13 @@ ECT: <value>
 
 ## Beispiele
 
-Ein Server muss zunächst zustimmen, den `ECT`-Header zu empfangen, indem er den {{HTTPHeader("Accept-CH")}} Antwort-Header mit `ECT` sendet.
+Ein Server muss zuerst optieren, um den `ECT`-Header zu empfangen, indem er den {{HTTPHeader("Accept-CH")}} Antwort-Header mit `ECT` sendet.
 
 ```http
 Accept-CH: ECT
 ```
 
-Dann könnte der Client bei nachfolgenden Anfragen einen `ECT`-Header zurücksenden:
+Dann könnte der Client in nachfolgenden Anfragen einen `ECT`-Header zurücksenden:
 
 ```http
 ECT: 2g
@@ -67,7 +69,7 @@ ECT: 2g
 
 ## Siehe auch
 
-- [Verbesserung der Privatsphäre der Nutzer und der Entwicklererfahrung mit User-Agent Client Hints](https://developer.chrome.com/docs/privacy-security/user-agent-client-hints) (developer.chrome.com)
+- [Verbesserung des Datenschutzes und der Entwicklererfahrung mit User-Agent-Client-Hinweisen](https://developer.chrome.com/docs/privacy-security/user-agent-client-hints) (developer.chrome.com)
 - Netzwerk-Client-Hinweise
 
   - {{HTTPHeader("Downlink")}}

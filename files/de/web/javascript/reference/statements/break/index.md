@@ -2,12 +2,12 @@
 title: break
 slug: Web/JavaScript/Reference/Statements/break
 l10n:
-  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
+  sourceCommit: 373fcd42528fc9eafa3703dc99927cc56c75fa8d
 ---
 
 {{jsSidebar("Statements")}}
 
-Die **`break`**-Anweisung beendet die aktuelle Schleife oder {{jsxref("Statements/switch", "switch")}}-Anweisung und überträgt die Programmausführung auf die Anweisung, die der beendeten Anweisung folgt. Sie kann auch verwendet werden, um eine [markierte Anweisung](/de/docs/Web/JavaScript/Reference/Statements/label) zu überspringen, wenn sie innerhalb dieser markierten Anweisung verwendet wird.
+Die **`break`**-Anweisung beendet die aktuelle Schleife oder {{jsxref("Statements/switch", "switch")}}-Anweisung und überträgt die Programmkontrolle auf die Anweisung, welche der beendeten Anweisung folgt. Sie kann auch genutzt werden, um eine [benannte Anweisung](/de/docs/Web/JavaScript/Reference/Statements/label) zu überspringen, wenn sie innerhalb dieser benannten Anweisung verwendet wird.
 
 {{InteractiveExample("JavaScript Demo: break statement")}}
 
@@ -18,7 +18,7 @@ while (i < 6) {
   if (i === 3) {
     break;
   }
-  i = i + 1;
+  i += 1;
 }
 
 console.log(i);
@@ -33,21 +33,21 @@ break label;
 ```
 
 - `label` {{optional_inline}}
-  - : Kennzeichen, das mit dem Label der Anweisung verbunden ist, zu der abgebrochen werden soll. Wenn die `break`-Anweisung nicht innerhalb einer Schleife oder {{jsxref("Statements/switch", "switch")}} geschachtelt ist, ist der Label-Identifikator erforderlich.
+  - : Bezeichner, der mit der Bezeichnung der Anweisung verknüpft ist, zu der gesprungen werden soll. Falls sich die `break`-Anweisung nicht innerhalb einer Schleife oder eines {{jsxref("Statements/switch", "switch")}}-Blocks befindet, ist der Bezeichner erforderlich.
 
 ## Beschreibung
 
-Wenn `break;` gefunden wird, bricht das Programm aus der innersten `switch`- oder [Schleifen-](/de/docs/Web/JavaScript/Reference/Statements#iterations) Anweisung aus und setzt die Ausführung mit der nächsten Anweisung fort.
+Wenn `break;` auftritt, verlässt das Programm die innerste `switch`- oder [Schleifen](/de/docs/Web/JavaScript/Reference/Statements#iterations)-Anweisung und fährt mit der Ausführung der nächsten Anweisung fort.
 
-Wenn `break label;` gefunden wird, bricht das Programm aus der mit `label` gekennzeichneten Anweisung aus und setzt die Ausführung mit der nächsten Anweisung fort. Die `break`-Anweisung muss innerhalb des referenzierten Labels geschachtelt sein. Die gekennzeichnete Anweisung kann beliebige Anweisungen sein (häufig eine {{jsxref("Statements/block", "block", "", 1)}}-Anweisung); sie muss keine andere Schleifenanweisung sein.
+Wenn `break label;` auftritt, verlässt das Programm die mit `label` markierte Anweisung und fährt mit der Ausführung der nächsten Anweisung fort. Die `break`-Anweisung muss innerhalb der angegebenen Bezeichnung geschachtelt sein. Die benannte Anweisung kann jede beliebige Anweisung sein (häufig eine {{jsxref("Statements/block", "block", "", 1)}}-Anweisung); sie muss keine weitere Schleifenanweisung sein.
 
-Eine `break`-Anweisung, mit oder ohne folgendes Label, kann nicht auf der obersten Ebene eines Skripts, Moduls, Funktionskörpers oder [statischen Initialisierungsblocks](/de/docs/Web/JavaScript/Reference/Classes/Static_initialization_blocks) verwendet werden, selbst wenn die Funktion oder Klasse weiter innerhalb einer Schleife enthalten ist.
+Eine `break`-Anweisung, mit oder ohne folgendem Bezeichner, kann nicht auf der obersten Ebene eines Scripts, Moduls, Funktionskörpers oder [statischen Initialisierungsblocks](/de/docs/Web/JavaScript/Reference/Classes/Static_initialization_blocks) verwendet werden, selbst wenn die Funktion oder Klasse weiter innerhalb einer Schleife enthalten ist.
 
 ## Beispiele
 
 ### break in einer while-Schleife
 
-Die folgende Funktion enthält eine `break`-Anweisung, die die {{jsxref("Statements/while", "while")}}-Schleife beendet, wenn `i` 3 ist, und dann den Wert `3 * x` zurückgibt.
+Die folgende Funktion hat eine `break`-Anweisung, die die {{jsxref("Statements/while", "while")}}-Schleife beendet, wenn `i` den Wert 3 hat, und dann den Wert `3 * x` zurückgibt.
 
 ```js
 function testBreak(x) {
@@ -66,7 +66,7 @@ function testBreak(x) {
 
 ### break in switch-Anweisungen
 
-Der folgende Code enthält eine `break`-Anweisung, die die {{jsxref("Statements/switch", "switch")}}-Anweisung beendet, wenn ein Fall zutrifft und der entsprechende Code ausgeführt wurde.
+Der folgende Code hat eine `break`-Anweisung, die die {{jsxref("Statements/switch", "switch")}}-Anweisung beendet, wenn ein Fall abgeglichen ist und der entsprechende Code ausgeführt wurde.
 
 ```js
 const food = "sushi";
@@ -84,9 +84,9 @@ switch (food) {
 }
 ```
 
-### break in markierten Blöcken
+### break in benannten Blöcken
 
-Der folgende Code verwendet `break`-Anweisungen mit markierten Blöcken. Durch die Verwendung von `break outerBlock` wird die Steuerung zum Ende des als `outerBlock` markierten Blockes weitergeleitet.
+Der folgende Code verwendet `break`-Anweisungen mit benannten Blöcken. Durch die Verwendung von `break outerBlock` wird die Kontrolle an das Ende des als `outerBlock` markierten Blockes übertragen.
 
 ```js
 outerBlock: {
@@ -99,9 +99,9 @@ outerBlock: {
 }
 ```
 
-### Nicht-syntaktische break-Anweisungen
+### Unsyntaktische break-Anweisungen
 
-Eine `break`-Anweisung muss innerhalb eines beliebigen Labels geschachtelt sein, das sie referenziert. Der folgende Code verwendet ebenfalls `break`-Anweisungen mit markierten Blöcken, erzeugt jedoch einen Syntaxfehler, da seine `break`-Anweisung `block2` referenziert, aber nicht innerhalb von `block2` geschachtelt ist.
+Eine `break`-Anweisung muss innerhalb jeder Bezeichnung geschachtelt sein, auf die sie sich bezieht. Der folgende Code verwendet ebenfalls `break`-Anweisungen mit benannten Blöcken, erzeugt jedoch einen Syntaxfehler, da seine `break`-Anweisung auf `block2` verweist, ohne innerhalb von `block2` geschachtelt zu sein.
 
 ```js-nolint example-bad
 block1: {
@@ -114,7 +114,7 @@ block2: {
 }
 ```
 
-Syntaxfehler werden auch in den folgenden Codebeispielen erzeugt, die `break`-Anweisungen innerhalb von Funktionen verwenden, die in einer Schleife geschachtelt sind, oder markierten Blöcken, aus denen die `break`-Anweisungen ausbrechen sollen.
+Syntaxfehler werden auch in den folgenden Codebeispielen erzeugt, die `break`-Anweisungen innerhalb von Funktionen verwenden, die innerhalb einer Schleife oder eines benannten Blocks geschachtelt sind, aus denen die `break`-Anweisungen austreten sollen.
 
 ```js-nolint example-bad
 function testBreak(x) {

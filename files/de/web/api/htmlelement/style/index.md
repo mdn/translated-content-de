@@ -1,40 +1,40 @@
 ---
-title: "HTMLElement: style property"
+title: "HTMLElement: style-Eigenschaft"
 short-title: style
 slug: Web/API/HTMLElement/style
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: 1eabc08d295e60d7d8eab6bce858d2fb0833be2b
 ---
 
 {{APIRef("CSSOM")}}
 
-Die schreibgeschützte **`style`**-Eigenschaft des [`HTMLElement`](/de/docs/Web/API/HTMLElement) gibt den _Inline_-Stil eines Elements in Form eines Live-[`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration)-Objekts zurück, das eine Liste aller Stil-Eigenschaften für dieses Element enthält, mit Werten, die nur für die Attribute zugewiesen sind, die im Inline-[`style`](/de/docs/Web/HTML/Reference/Global_attributes/style)-Attribut des Elements definiert sind.
+Die schreibgeschützte **`style`**-Eigenschaft des [`HTMLElement`](/de/docs/Web/API/HTMLElement) gibt den _Inline_-Stil eines Elements in Form eines lebendigen [`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration)-Objekts zurück. Dieses Objekt enthält eine Liste aller Stileigenschaften für das Element, wobei nur Werte für die Attribute zugewiesen sind, die im Inline-`[`style`](/de/docs/Web/HTML/Reference/Global_attributes/style)`-Attribut des Elements definiert sind.
 
-Kurzschreibweisen werden erweitert. Wenn Sie `style="border-top: 1px solid black"` setzen, werden die Langschreibweisen ({{cssxref("border-top-color")}}, {{cssxref("border-top-style")}} und {{cssxref("border-top-width")}}) stattdessen gesetzt.
+Kurzschreibweisen werden expandiert. Wenn Sie `style="border-top: 1px solid black"` setzen, werden die Langschreibweisen ({{cssxref("border-top-color")}}, {{cssxref("border-top-style")}} und {{cssxref("border-top-width")}}) stattdessen gesetzt.
 
-Diese Eigenschaft ist schreibgeschützt, was bedeutet, dass es nicht möglich ist, ihr ein [`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration)-Objekt zuzuweisen. Dennoch ist es möglich, einen Inline-Stil festzulegen, indem Sie der `style`-Eigenschaft direkt einen _String_ zuweisen. In diesem Fall wird der String an [`CSSStyleDeclaration.cssText`](/de/docs/Web/API/CSSStyleDeclaration/cssText) weitergeleitet. Die Verwendung von `style` auf diese Weise überschreibt alle Inline-Stile des Elements vollständig.
+Diese Eigenschaft ist schreibgeschützt, was bedeutet, dass es nicht möglich ist, ein [`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration)-Objekt darauf zuzuweisen. Dennoch ist es möglich, einen Inline-Stil zu setzen, indem direkt ein _String_ der `style`-Eigenschaft zugewiesen wird. In diesem Fall wird der String an [`CSSStyleDeclaration.cssText`](/de/docs/Web/API/CSSStyleDeclaration/cssText) weitergeleitet. Die Verwendung von `style` auf diese Weise überschreibt alle Inline-Stile auf dem Element vollständig.
 
-Daher ist es allgemein vorzuziehen, spezifische Stile zu einem Element hinzuzufügen, ohne andere Stilwerte zu ändern, indem man einzelne Eigenschaften auf dem [`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration)-Objekt setzt. Beispielsweise können Sie `element.style.backgroundColor = "red"` schreiben.
+Um bestimmte Stile zu einem Element hinzuzufügen, ohne andere Stilwerte zu ändern, ist es daher in der Regel vorzuziehen, einzelne Eigenschaften auf dem [`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration)-Objekt festzulegen. Zum Beispiel können Sie `element.style.backgroundColor = "red"` schreiben.
 
-Eine Stildeklaration wird zurückgesetzt, indem sie auf `null` oder einen leeren String gesetzt wird, z. B. `elt.style.color = null`.
+Eine Stilerklärung wird zurückgesetzt, indem sie auf `null` oder einen leeren String gesetzt wird, z.B. `elt.style.color = null`.
 
 > [!NOTE]
-> CSS-Property-Namen werden nach diesen Regeln in JavaScript-Bezeichner konvertiert:
+> CSS-Eigenschaftsnamen werden mit diesen Regeln in JavaScript-Bezeichner umgewandelt:
 >
-> - Wenn die Eigenschaft aus einem Wort besteht, bleibt sie wie sie ist: `height` bleibt wie sie ist (in Kleinbuchstaben). Da `float` ein reserviertes Schlüsselwort in JavaScript ist, wurde dieser Eigenschaftsname historisch in `cssFloat` umgewandelt. Alle modernen Browser unterstützen inzwischen die direkte Verwendung von `float` in JavaScript, um auf die `float` CSS-Eigenschaft zuzugreifen. Dennoch wird `cssFloat` in älteren Browsern verwendet und wird in modernen Browsern weiterhin als Alias unterstützt.
-> - Wenn die Eigenschaft aus mehreren durch Bindestriche getrennten Wörtern besteht, werden die Bindestriche entfernt und sie wird in das {{Glossary("camel_case", "Camel Case")}} konvertiert: `background-attachment` wird zu `backgroundAttachment`.
+> - Wenn die Eigenschaft aus einem Wort besteht, bleibt sie unverändert: `height` bleibt (in Kleinbuchstaben). Da `float` ein reserviertes Schlüsselwort in JavaScript ist, wurde dieser Eigenschaftsname historisch in `cssFloat` umgewandelt. Alle modernen Browser unterstützen jetzt die direkte Verwendung von `float` in JavaScript, um auf die `float`-CSS-Eigenschaft zuzugreifen, aber `cssFloat` wird in älteren Browsern verwendet und wird als Alias in modernen Browsern weiterhin unterstützt.
+> - Wenn die Eigenschaft aus mehreren Wörtern besteht, die durch Bindestriche getrennt sind, werden die Bindestriche entfernt und sie wird in {{Glossary("camel_case", "camel case")}} konvertiert: `background-attachment` wird zu `backgroundAttachment`.
 >
-> Die `style`-Eigenschaft hat die gleiche Priorität in der CSS-Kaskade wie eine über das `style`-Attribut gesetzte Inline-Stildeklaration.
+> Die `style`-Eigenschaft hat die gleiche Priorität in der CSS-Cascade wie eine über das `style`-Attribut gesetzte Inline-Stilerklärung.
 
 ## Wert
 
-Ein Live-[`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration)-Objekt.
+Ein lebendiges [`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration)-Objekt.
 
 ## Beispiele
 
 ### Stilinformationen abrufen
 
-Der folgende Codeabschnitt demonstriert, wie die Werte, die über die `style`-Eigenschaft des Elements erhalten werden, sich auf den im HTML-Attribut festgelegten Stil beziehen:
+Das folgende Codebeispiel zeigt, wie sich die mit der `style`-Eigenschaft des Elements erhaltenen Werte auf den im HTML-Attribut gesetzten Stil beziehen:
 
 ```html
 <!doctype html>
@@ -59,7 +59,7 @@ for (const prop in elementStyle) {
   // We also ensure that the property is a numeric index (indicating an inline style)
   if (
     Object.hasOwn(elementStyle, prop) &&
-    !Number.isNaN(Number.parseInt(prop))
+    !Number.isNaN(Number.parseInt(prop, 10))
   ) {
     out.textContent += `${
       elementStyle[prop]
@@ -70,7 +70,7 @@ for (const prop in elementStyle) {
 
 {{EmbedLiveSample("Getting_style_information", "100", "130")}}
 
-Beachten Sie, dass `font-weight` nicht als Wert für `elementStyle` aufgeführt ist, da es nicht im `style`-Attribut des Elements selbst definiert ist. Vielmehr wird es von der Definition des übergeordneten Elements geerbt. Beachten Sie auch, dass die Kurzform-Eigenschaft {{cssxref("border-top")}}, die im `style`-Attribut definiert ist, nicht direkt aufgeführt ist. Stattdessen wird sie durch die drei entsprechenden Langform-Eigenschaften ({{cssxref("border-top-color")}}, {{cssxref("border-top-style")}}, und {{cssxref("border-top-width")}}) ersetzt.
+Beachten Sie, dass `font-weight` nicht als Wert für `elementStyle` aufgeführt ist, da es nicht im `style`-Attribut des Elements selbst definiert ist. Es wird stattdessen von der Definition des übergeordneten Elements vererbt. Beachten Sie auch, dass die im `style`-Attribut definierte Kurzschreibweise der {{cssxref("border-top")}}-Eigenschaft nicht direkt aufgeführt ist. Stattdessen wird sie durch die drei entsprechenden Langschreibweisen ({{cssxref("border-top-color")}}, {{cssxref("border-top-style")}} und {{cssxref("border-top-width")}}) ersetzt.
 
 ## Spezifikationen
 
@@ -86,4 +86,4 @@ Beachten Sie, dass `font-weight` nicht als Wert für `elementStyle` aufgeführt 
 - [`SVGElement.style`](/de/docs/Web/API/SVGElement/style)
 - [`MathMLElement.style`](/de/docs/Web/API/MathMLElement/style)
 - [`HTMLElement.attributeStyleMap`](/de/docs/Web/API/HTMLElement/attributeStyleMap)
-- HTML-[`style`](/de/docs/Web/HTML/Reference/Global_attributes/style)-Attribut
+- HTML-`style`-Attribut [`style`](/de/docs/Web/HTML/Reference/Global_attributes/style)

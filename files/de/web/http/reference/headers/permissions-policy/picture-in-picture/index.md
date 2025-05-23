@@ -1,15 +1,16 @@
 ---
-title: "Permissions-Policy: picture-in-picture"
+title: "Permissions-Policy: Bild-in-Bild-Direktive"
+short-title: picture-in-picture
 slug: Web/HTTP/Reference/Headers/Permissions-Policy/picture-in-picture
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: ee756fd51ccbc4820a4b334aa753648650ad1d51
 ---
 
 {{HTTPSidebar}} {{SeeCompatTable}}
 
-Die HTTP-{{HTTPHeader("Permissions-Policy")}}-Headerdirektive `picture-in-picture` steuert, ob das aktuelle Dokument berechtigt ist, ein Video im [Picture-in-Picture](/de/docs/Web/API/Picture-in-Picture_API)-Modus abzuspielen.
+Der HTTP-Header {{HTTPHeader("Permissions-Policy")}} mit der Direktive `picture-in-picture` steuert, ob das aktuelle Dokument ein Video im [Bild-in-Bild](/de/docs/Web/API/Picture-in-Picture_API) Modus abspielen darf.
 
-Insbesondere wenn eine definierte Richtlinie die Nutzung dieser Funktion blockiert, wird ein Aufruf von [`HTMLVideoElement.requestPictureInPicture()`](/de/docs/Web/API/HTMLVideoElement/requestPictureInPicture) eine [`DOMException`](/de/docs/Web/API/DOMException) vom Typ `SecurityError` auslösen.
+Insbesondere wird, wenn eine definierte Richtlinie die Nutzung dieser Funktion blockiert, ein Aufruf von [`HTMLVideoElement.requestPictureInPicture()`](/de/docs/Web/API/HTMLVideoElement/requestPictureInPicture) einen [`DOMException`](/de/docs/Web/API/DOMException) vom Typ `SecurityError` auslösen.
 
 ## Syntax
 
@@ -22,7 +23,7 @@ Permissions-Policy: picture-in-picture=<allowlist>;
 
 ## Standardrichtlinie
 
-Die Standard-Zugriffsliste für `picture-in-picture` ist `*`.
+Die Standard-Zulassungsliste für `picture-in-picture` ist `*`.
 
 ## Spezifikationen
 
@@ -34,5 +35,5 @@ Die Standard-Zugriffsliste für `picture-in-picture` ist `*`.
 
 ## Siehe auch
 
-- {{HTTPHeader("Permissions-Policy")}}-Header
-- [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Guides/Permissions_Policy)
+- {{HTTPHeader("Permissions-Policy")}} Header
+- [Permissions Policy](/de/docs/Web/HTTP/Guides/Permissions_Policy)

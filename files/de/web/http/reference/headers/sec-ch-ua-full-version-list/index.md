@@ -1,21 +1,21 @@
 ---
-title: Sec-CH-UA-Full-Version-List
+title: Sec-CH-UA-Full-Version-List header
+short-title: Sec-CH-UA-Full-Version-List
 slug: Web/HTTP/Reference/Headers/Sec-CH-UA-Full-Version-List
 l10n:
-  sourceCommit: d8fbe1ea30dcc8fd707048a804f5070a729b57a7
+  sourceCommit: ee756fd51ccbc4820a4b334aa753648650ad1d51
 ---
 
 {{HTTPSidebar}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Der HTTP **`Sec-CH-UA-Full-Version-List`** {{Glossary("request_header", "Request-Header")}} ist ein [User-Agent-Client-Hinweis](/de/docs/Web/HTTP/Guides/Client_hints#user_agent_client_hints), der die Marken- und vollständige Versionsinformation des User-Agents bereitstellt.
+Der HTTP **`Sec-CH-UA-Full-Version-List`** {{Glossary("request_header", "Request-Header")}} ist ein [User-Agent-Client-Hint](/de/docs/Web/HTTP/Guides/Client_hints#user_agent_client_hints), der die Marken- und vollständige Versionsinformationen des User-Agents bereitstellt.
 
-Der **`Sec-CH-UA-Full-Version-List`**-Header liefert die Marken- und vollständige Versionsinformation für jede mit dem Browser assoziierte Marke, in einer durch Kommas getrennten Liste.
+Der **`Sec-CH-UA-Full-Version-List`**-Header liefert die Marken- und vollständigen Versionsinformationen für jede Marke, die mit dem Browser verbunden ist, in einer kommagetrennten Liste.
 
-Der Header kann "gefälschte" Marken an jeder Position und mit jedem Namen enthalten.
-Dies ist ein Feature, das entwickelt wurde, um zu verhindern, dass Server unbekannte User-Agents gänzlich ablehnen und User-Agents dazu zwingen, über ihre Markenidentität zu lügen.
+Der Header kann "gefälschte" Marken in jeder Position und mit jedem Namen enthalten. Dies ist eine Funktion, die verhindern soll, dass Server unbekannte User-Agents sofort ablehnen, und erzwingt, dass User-Agents über ihre Markenidentität lügen.
 
 > [!NOTE]
-> Dies ist ähnlich wie {{HTTPHeader("Sec-CH-UA")}}, enthält jedoch die vollständige Versionsnummer anstelle der signifikanten Versionsnummer für jede Marke.
+> Dies ist ähnlich wie {{HTTPHeader("Sec-CH-UA")}}, beinhaltet jedoch die vollständige Versionsnummer anstelle der signifikanten Versionsnummer für jede Marke.
 
 <table class="properties">
   <tbody>
@@ -23,7 +23,7 @@ Dies ist ein Feature, das entwickelt wurde, um zu verhindern, dass Server unbeka
       <th scope="row">Header-Typ</th>
       <td>
         {{Glossary("Request_header", "Request-Header")}},
-        <a href="/de/docs/Web/HTTP/Guides/Client_hints">Client-Hinweis</a>
+        <a href="/de/docs/Web/HTTP/Guides/Client_hints">Client-Hint</a>
       </td>
     </tr>
     <tr>
@@ -35,7 +35,7 @@ Dies ist ein Feature, das entwickelt wurde, um zu verhindern, dass Server unbeka
 
 ## Syntax
 
-Eine durch Kommas getrennte Liste von Marken in der User-Agent-Markenliste und deren zugehörige vollständige Versionsnummer.
+Eine kommagetrennte Liste von Marken in der User-Agent-Markenliste und deren zugehöriger vollständiger Versionsnummer.
 Die Syntax für einen einzelnen Eintrag hat folgendes Format:
 
 ```http
@@ -45,31 +45,28 @@ Sec-CH-UA-Full-Version-List: "<brand>";v="<full version>", ...
 ### Direktiven
 
 - `<brand>`
-  - : Eine mit dem User-Agent assoziierte Marke, wie "Chromium", "Google Chrome".
-    Dies kann eine absichtlich falsche Marke sein wie `" Not A;Brand"` oder `"(Not(A:Brand"` (der tatsächliche Wert wird voraussichtlich im Laufe der Zeit ändern und unvorhersehbar sein).
+  - : Eine Marke, die mit dem User-Agent verbunden ist, wie "Chromium", "Google Chrome". Dies kann eine absichtlich falsche Marke sein wie `" Not A;Brand"` oder `"(Not(A:Brand"` (der tatsächliche Wert wird voraussichtlich im Laufe der Zeit ändern und unvorhersehbar sein).
 - `<full version>`
-  - : Eine vollständige Versionsnummer, wie z.B. 98.0.4750.0.
+  - : Eine vollständige Versionsnummer, wie 98.0.4750.0.
 
 ## Beschreibung
 
-Eine Marke ist ein Handelsname für den User-Agent wie: Chromium, Opera, Google Chrome, Microsoft Edge, Firefox und Safari.
-Ein User-Agent kann mehrere zugehörige Marken haben.
-Zum Beispiel basieren Opera, Chrome und Edge alle auf Chromium und werden beide Marken im `Sec-CH-UA-Full-Version-List`-Header angeben.
+Eine Marke ist ein Handelsname für den User-Agent, wie: Chromium, Opera, Google Chrome, Microsoft Edge, Firefox und Safari. Ein User-Agent kann mehrere verbundene Marken haben. Zum Beispiel basieren Opera, Chrome und Edge alle auf Chromium und werden beide Marken im `Sec-CH-UA-Full-Version-List`-Header angeben.
 
-Der Header ermöglicht es dem Server, seine Antwort basierend auf sowohl gemeinsamen Marken als auch auf spezifischen Anpassungen in ihren spezifischen jeweiligen Builds zu individualisieren.
+Der Header erlaubt es dem Server, seine Antwort basierend auf sowohl geteilten Marken als auch auf speziellen Anpassungen in ihren spezifischen jeweiligen Builds zu individualisieren.
 
 ## Beispiele
 
 ### Verwendung von Sec-CH-UA-Full-Version-List
 
-Ein Server fordert den `Sec-CH-UA-Full-Version-List`-Header an, indem er den {{HTTPHeader("Accept-CH")}} in eine _Antwort_ auf jede Anfrage vom Client einfügt und dabei den Namen des gewünschten Headers als Token verwendet:
+Ein Server fordert den `Sec-CH-UA-Full-Version-List`-Header an, indem er das {{HTTPHeader("Accept-CH")}} in einer _Antwort_ auf jede Anfrage des Clients inkludiert, wobei der Name des gewünschten Headers als Token verwendet wird:
 
 ```http
 HTTP/1.1 200 OK
 Accept-CH: Sec-CH-UA-Full-Version-List
 ```
 
-Der Client kann sich entscheiden, den Hinweis bereitzustellen und den `Sec-CH-UA-Full-Version-List`-Header zu nachfolgenden Anfragen hinzuzufügen, wie unten gezeigt:
+Der Client kann sich entscheiden, den Hint bereitzustellen, und den `Sec-CH-UA-Full-Version-List`-Header zu späteren Anfragen hinzuzufügen, wie unten gezeigt:
 
 ```http
 GET /my/page HTTP/1.1
@@ -91,8 +88,8 @@ Sec-CH-UA-Platform: "Linux"
 
 ## Siehe auch
 
-- [Client-Hinweise](/de/docs/Web/HTTP/Guides/Client_hints)
+- [Client-Hints](/de/docs/Web/HTTP/Guides/Client_hints)
 - [User-Agent Client Hints API](/de/docs/Web/API/User-Agent_Client_Hints_API)
 - {{HTTPHeader("Accept-CH")}}
 - [HTTP-Caching: Vary](/de/docs/Web/HTTP/Guides/Caching#vary) und {{HTTPHeader("Vary")}}-Header
-- [Verbesserung des Datenschutzes und der Entwicklererfahrung mit User-Agent-Client-Hinweisen](https://developer.chrome.com/docs/privacy-security/user-agent-client-hints) (developer.chrome.com)
+- [Verbesserung des Benutzerschutzes und des Entwicklungserlebnisses mit User-Agent-Client-Hints](https://developer.chrome.com/docs/privacy-security/user-agent-client-hints) (developer.chrome.com)

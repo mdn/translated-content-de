@@ -1,18 +1,19 @@
 ---
-title: Speculation-Rules
+title: Speculation-Rules header
+short-title: Speculation-Rules
 slug: Web/HTTP/Reference/Headers/Speculation-Rules
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: ee756fd51ccbc4820a4b334aa753648650ad1d51
 ---
 
 {{HTTPSidebar}}{{SeeCompatTable}}
 
-Der HTTP **`Speculation-Rules`** {{Glossary("response_header", "Antwort-Header")}} bietet eine oder mehrere URLs, die auf Textressourcen mit Spekulationsregel-JSON-Definitionen verweisen. Wenn die Antwort ein HTML-Dokument ist, werden diese Regeln zum Spekulationsregelsatz des Dokuments hinzugefügt. Weitere Informationen finden Sie in der [Speculation Rules API](/de/docs/Web/API/Speculation_Rules_API).
+Der HTTP **`Speculation-Rules`** {{Glossary("response_header", "Antwort-Header")}} bietet eine oder mehrere URLs, die auf Textressourcen mit Spekulationsregel-JSON-Definitionen verweisen. Wenn die Antwort ein HTML-Dokument ist, werden diese Regeln zum Spekulationsregel-Set des Dokuments hinzugefügt. Siehe die [Speculation Rules API](/de/docs/Web/API/Speculation_Rules_API) für weitere Informationen.
 
-Die Ressourcendatei, die die Spekulationsregeln im JSON-Format enthält, kann jeden gültigen Namen und jede beliebige Erweiterung haben, muss jedoch mit einem MIME-Typ `application/speculationrules+json` bereitgestellt werden.
+Die Ressourcendatei, die die Spekulationsregeln-JSON enthält, kann einen beliebigen gültigen Namen und eine beliebige Erweiterung haben, muss jedoch mit einem `application/speculationrules+json` MIME-Typ bereitgestellt werden.
 
 > [!NOTE]
-> Dieser Mechanismus bietet eine Alternative zur Spezifizierung der JSON-Definition innerhalb eines Inline-Elements [`<script type="speculationrules">`](/de/docs/Web/HTML/Reference/Elements/script/type/speculationrules). Die Angabe eines HTTP-Headers ist in Fällen nützlich, in denen Entwickler das Dokument selbst nicht direkt ändern können.
+> Dieser Mechanismus bietet eine Alternative zum Spezifizieren der JSON-Definition innerhalb eines Inline-[`<script type="speculationrules">`](/de/docs/Web/HTML/Reference/Elements/script/type/speculationrules)-Elements. Die Spezifikation eines HTTP-Headers ist nützlich in Fällen, in denen Entwickler das Dokument selbst nicht direkt ändern können.
 
 <table class="properties">
   <tbody>
@@ -21,7 +22,7 @@ Die Ressourcendatei, die die Spekulationsregeln im JSON-Format enthält, kann je
       <td>{{Glossary("Response_header", "Antwort-Header")}}</td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Forbidden_request_header", "Verbotener Anfrage-Header")}}</th>
+      <th scope="row">{{Glossary("Forbidden_request_header", "Verbotener Anforderungs-Header")}}</th>
       <td>Nein</td>
     </tr>
   </tbody>
@@ -36,7 +37,7 @@ Speculation-Rules: <url-list>
 ## Direktiven
 
 - `<url-list>`
-  - : Eine durch Kommas getrennte Liste von URLs, die auf Textressourcen mit Spekulationsregel-JSON-Definitionen verweisen. Das in den Textdateien enthaltene JSON muss denselben Regeln folgen wie das innerhalb von Inline-Elementen `<script type="speculationrules">`. Siehe [Spekulationsregeln JSON-Darstellung](/de/docs/Web/HTML/Reference/Elements/script/type/speculationrules#speculation_rules_json_representation) für die Syntaxreferenz.
+  - : Eine durch Kommas getrennte Liste von URLs, die auf Textressourcen mit Spekulationsregel-JSON-Definitionen verweisen. Das in den Textdateien enthaltene JSON muss den gleichen Regeln folgen wie das in Inline-`<script type="speculationrules">`-Elementen enthaltene. Siehe [Spekulationsregeln JSON-Syntaxreferenz](/de/docs/Web/HTML/Reference/Elements/script/type/speculationrules#speculation_rules_json_representation) für die Syntaxreferenz.
 
 ## Beispiele
 

@@ -1,30 +1,29 @@
 ---
-title: Accept-Patch
+title: Accept-Patch header
+short-title: Accept-Patch
 slug: Web/HTTP/Reference/Headers/Accept-Patch
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: ee756fd51ccbc4820a4b334aa753648650ad1d51
 ---
 
 {{HTTPSidebar}}
 
-Der HTTP **`Accept-Patch`** {{Glossary("response_header", "Antwort-Header")}} gibt die [Medientypen](/de/docs/Web/HTTP/Guides/MIME_types) an, die der Server in einer {{HTTPMethod("PATCH")}}-Anfrage verstehen kann.
-Beispielsweise könnte ein Server, der eine `PATCH`-Anfrage mit einem nicht unterstützten Medientyp erhält, mit {{HTTPStatus("415", "415 Unsupported Media Type")}} und einem `Accept-Patch`-Header antworten, der einen oder mehrere unterstützte Medientypen angibt.
+Der HTTP-**`Accept-Patch`**-{{Glossary("response_header", "Antwortheader")}} gibt an, welche [Medientypen](/de/docs/Web/HTTP/Guides/MIME_types) der Server in einer {{HTTPMethod("PATCH")}}-Anfrage verstehen kann. Beispielsweise könnte ein Server, der eine `PATCH`-Anfrage mit einem nicht unterstützten Medientyp erhält, mit {{HTTPStatus("415", "415 Unsupported Media Type")}} und einem `Accept-Patch`-Header antworten, der auf einen oder mehrere unterstützte Medientypen verweist.
 
-Der Header sollte in {{HTTPMethod("OPTIONS")}}-Anfragen an eine Ressource erscheinen, die die `PATCH`-Methode unterstützt.
-Ein `Accept-Patch`-Header in einer Antwort auf jede Anfragemethode bedeutet implizit, dass ein `PATCH` auf der Zielressource in der Anfrage erlaubt ist.
+Der Header sollte in {{HTTPMethod("OPTIONS")}}-Anfragen an eine Ressource erscheinen, die die `PATCH`-Methode unterstützt. Ein `Accept-Patch`-Header in einer Antwort auf jede Anfragemethode impliziert, dass ein `PATCH` auf der Zielressource in der Anfrage erlaubt ist.
 
 > [!NOTE]
 > IANA pflegt [eine Liste offizieller Inhaltscodierungen](https://www.iana.org/assignments/http-parameters/http-parameters.xhtml#content-coding).
-> Die `bzip`- und `bzip2`-Codierungen sind nicht standardmäßig, können aber in einigen Fällen, insbesondere zur Unterstützung älterer Systeme, verwendet werden.
+> Die `bzip`- und `bzip2`-Codierungen sind nicht standardmäßig, können aber in einigen Fällen verwendet werden, insbesondere zur Unterstützung älterer Systeme.
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>{{Glossary("Response_header", "Antwort-Header")}}</td>
+      <td>{{Glossary("Response_header", "Antwortheader")}}</td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Forbidden_request_header", "Unzulässiger Anfrage-Header")}}</th>
+      <th scope="row">{{Glossary("Forbidden_request_header", "Verbotener Anfrage-Header")}}</th>
       <td>Ja</td>
     </tr>
   </tbody>
@@ -65,11 +64,10 @@ Accept-Patch: text/plain;charset=utf-8
 
 ## Browser-Kompatibilität
 
-Browser-Kompatibilität ist für diesen Header nicht relevant.
-Der Server sendet den Header, und die Spezifikation definiert kein Verhalten des Clients.
+Die Browser-Kompatibilität ist für diesen Header nicht relevant. Der Server sendet den Header, und die Spezifikation definiert kein Clientverhalten.
 
 ## Siehe auch
 
 - {{HTTPHeader("Accept-Post")}}
 - {{HTTPStatus("415", "415 Unsupported Media Type")}}
-- {{HTTPMethod("PATCH")}} Anfragemethode
+- {{HTTPMethod("PATCH")}}-Anfragemethode

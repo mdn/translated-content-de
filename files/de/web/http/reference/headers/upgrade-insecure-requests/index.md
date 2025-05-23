@@ -1,22 +1,23 @@
 ---
-title: Upgrade-Insecure-Requests
+title: Upgrade-Insecure-Requests header
+short-title: Upgrade-Insecure-Requests
 slug: Web/HTTP/Reference/Headers/Upgrade-Insecure-Requests
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: ee756fd51ccbc4820a4b334aa753648650ad1d51
 ---
 
 {{HTTPSidebar}}
 
-Der HTTP **`Upgrade-Insecure-Requests`** {{Glossary("request_header", "Request-Header")}} sendet ein Signal an den Server, das die Präferenz des Clients für eine verschlüsselte und authentifizierte Antwort anzeigt und dass der Client die {{CSP("upgrade-insecure-requests")}} [CSP](/de/docs/Web/HTTP/Guides/CSP)-Direktive erfolgreich handhaben kann.
+Der HTTP **`Upgrade-Insecure-Requests`** {{Glossary("request_header", "Anforderungs-Header")}} sendet ein Signal an den Server, das die Präferenz des Clients für eine verschlüsselte und authentifizierte Antwort angibt und dass der Client die {{CSP("upgrade-insecure-requests")}} [CSP](/de/docs/Web/HTTP/Guides/CSP) Direktive erfolgreich verarbeiten kann.
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>{{Glossary("Request_header", "Request-Header")}}</td>
+      <td>{{Glossary("Request_header", "Anforderungs-Header")}}</td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Forbidden_request_header", "Verbotener Request-Header")}}</th>
+      <th scope="row">{{Glossary("Forbidden_request_header", "Verbotener Anforderungs-Header")}}</th>
       <td>Nein</td>
     </tr>
   </tbody>
@@ -31,13 +32,13 @@ Upgrade-Insecure-Requests: <boolean>
 ## Direktiven
 
 - `<boolean>`
-  - : `1` bedeutet 'true' und ist der einzige gültige Wert für dieses Feld.
+  - : `1` steht für 'wahr' und ist der einzige gültige Wert für dieses Feld.
 
 ## Beispiele
 
 ### Verwendung von Upgrade-Insecure-Requests
 
-Eine Anfrage des Clients signalisiert dem Server, dass sie die Upgrademechanismen von {{CSP("upgrade-insecure-requests")}} unterstützt:
+Die Anfrage eines Clients signalisiert dem Server, dass er die Upgrade-Mechanismen von {{CSP("upgrade-insecure-requests")}} unterstützt:
 
 ```http
 GET / HTTP/1.1
@@ -45,7 +46,7 @@ Host: example.com
 Upgrade-Insecure-Requests: 1
 ```
 
-Der Server kann nun zu einer sicheren Version der Seite umleiten. Ein {{HTTPHeader("Vary")}}-Header kann verwendet werden, damit die Seite nicht von Caches für Clients bereitgestellt wird, die den Upgrademechanismus nicht unterstützen.
+Der Server kann nun auf eine sichere Version der Seite umleiten. Ein {{HTTPHeader("Vary")}} Header kann verwendet werden, damit die Seite nicht von Caches an Clients ausgeliefert wird, die den Upgrade-Mechanismus nicht unterstützen.
 
 ```http
 Location: https://example.com/
@@ -63,5 +64,5 @@ Vary: Upgrade-Insecure-Requests
 ## Siehe auch
 
 - {{HTTPHeader("Content-Security-Policy")}}
-- CSP {{CSP("upgrade-insecure-requests")}}-Direktive
-- [HTTP Caching: Vary](/de/docs/Web/HTTP/Guides/Caching#vary) und {{HTTPHeader("Vary")}}-Header
+- CSP {{CSP("upgrade-insecure-requests")}} Direktive
+- [HTTP Caching: Vary](/de/docs/Web/HTTP/Guides/Caching#vary) und {{HTTPHeader("Vary")}} Header

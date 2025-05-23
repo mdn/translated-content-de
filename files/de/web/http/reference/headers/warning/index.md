@@ -1,33 +1,34 @@
 ---
-title: Warning
+title: Warning header
+short-title: Warning
 slug: Web/HTTP/Reference/Headers/Warning
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: ee756fd51ccbc4820a4b334aa753648650ad1d51
 ---
 
 {{HTTPSidebar}} {{deprecated_header}}
 
 > [!NOTE]
-> Der Header wurde als veraltet gekennzeichnet, da er nicht häufig generiert oder den Benutzern angezeigt wird (siehe [RFC9111](https://www.rfc-editor.org/rfc/rfc9111#field.warning)).
-> Einige Informationen können aus anderen Headern wie {{httpheader("Age")}} abgeleitet werden.
+> Der Header wurde als veraltet eingestuft, da er nicht weit verbreitet generiert oder den Benutzern angezeigt wird (siehe [RFC9111](https://www.rfc-editor.org/rfc/rfc9111#field.warning)).
+> Einige der Informationen können aus anderen Headern abgeleitet werden, wie z.B. {{httpheader("Age")}}.
 
-Der HTTP **`Warning`** {{Glossary("request_header", "Anfrage-")}} und {{Glossary("response_header", "Antwort-Header")}} enthält Informationen über mögliche Probleme mit dem Status der Nachricht.
-Mehr als ein `Warning`-Header kann in einer Antwort erscheinen.
+Der HTTP **`Warning`** {{Glossary("request_header", "Request-Header")}} und {{Glossary("response_header", "Response-Header")}} enthält Informationen über mögliche Probleme mit dem Status der Nachricht.
+Es können mehrere `Warning`-Header in einer Antwort erscheinen.
 
-`Warning`-Headerfelder können im Allgemeinen auf jede Nachricht angewendet werden.
-Einige Warncodes sind jedoch spezifisch für Caches und können nur auf Antwortnachrichten angewendet werden.
+Im Allgemeinen können `Warning`-Header-Felder auf jede Nachricht angewendet werden.
+Allerdings sind einige Warncodes spezifisch für Caches und können nur auf Antwortnachrichten angewendet werden.
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
       <td>
-        {{Glossary("Request_header", "Anfrage-Header")}},
-        {{Glossary("Response_header", "Antwort-Header")}}
+        {{Glossary("Request_header", "Request-Header")}},
+        {{Glossary("Response_header", "Response-Header")}}
       </td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Forbidden_request_header", "Verbotener Anfrage-Header")}}</th>
+      <th scope="row">{{Glossary("Forbidden_request_header", "Verbotener Request-Header")}}</th>
       <td>Nein</td>
     </tr>
   </tbody>
@@ -43,31 +44,31 @@ Warning: <warn-code> <warn-agent> <warn-text> [<warn-date>]
 
 - `<warn-code>`
 
-  - : Eine dreistellige Warnnummer. Die erste Ziffer gibt an, ob der `Warning` nach der Validierung aus einer gespeicherten Antwort gelöscht werden muss.
+  - : Eine dreistellige Warnnummer. Die erste Ziffer zeigt an, ob der `Warning`-Header nach der Validierung aus einer gespeicherten Antwort gelöscht werden muss.
 
-    - `1xx`-Warncodes beschreiben den Frische- oder Validierungsstatus der Antwort und werden von einem Cache nach erfolgreicher Validierung gelöscht.
-    - `2xx`-Warncodes beschreiben einen Aspekt der Darstellung, der durch eine Validierung nicht korrigiert wird, und werden nach der Validierung nicht von einem Cache gelöscht, außer es wird eine vollständige Antwort gesendet.
+    - `1xx` Warncodes beschreiben die Frische oder den Validierungsstatus der Antwort und werden von einem Cache nach erfolgreicher Validierung gelöscht.
+    - `2xx` Warncodes beschreiben einen Aspekt der Darstellung, der durch eine Validierung nicht korrigiert wird, und werden nach der Validierung nicht von einem Cache gelöscht, es sei denn, es wird eine vollständige Antwort gesendet.
 
 - `<warn-agent>`
-  - : Der Name oder Deckname des Servers oder der Software, die den `Warning`-Header hinzufügt (kann "-" sein, wenn der Agent unbekannt ist).
+  - : Der Name oder das Pseudonym des Servers oder der Software, die den `Warning`-Header hinzufügt (kann "-" sein, wenn der Agent unbekannt ist).
 - `<warn-text>`
-  - : Ein Begleittext, der den Fehler beschreibt.
+  - : Ein hinweisender Text, der den Fehler beschreibt.
 - `<warn-date>` {{optional_inline}}
-  - : Ein Datum. Wenn mehrere `Warning`-Header gesendet werden, fügen Sie ein Datum hinzu, das mit dem {{HTTPHeader("Date")}}-Header übereinstimmt.
+  - : Ein Datum. Wenn mehr als ein `Warning`-Header gesendet wird, fügen Sie ein Datum ein, das mit dem {{HTTPHeader("Date")}} Header übereinstimmt.
 
 ## Warncodes
 
 Das [HTTP Warn Codes-Register bei iana.org](https://www.iana.org/assignments/http-warn-codes/http-warn-codes.xhtml) definiert den Namensraum für Warncodes.
 
-| Code | Text                             | Beschreibung                                                                                                                                                                                              |
-| ---- | -------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 110  | Response is Stale                | Die vom Cache bereitgestellte Antwort ist veraltet (die für die Antwort festgelegte Ablaufzeit ist abgelaufen).                                                                                           |
-| 111  | Revalidation Failed              | Ein Versuch, die veraltete Antwort zu validieren, ist aufgrund einer Nichterreichbarkeit des Servers fehlgeschlagen.                                                                                      |
-| 112  | Disconnected Operation           | Der Cache ist absichtlich vom Rest des Netzwerks getrennt.                                                                                                                                                |
-| 113  | Heuristic Expiration             | Ein Cache hat heuristisch eine [Frische-Lebensdauer](/de/docs/Web/HTTP/Guides/Caching#fresh_and_stale_based_on_age) von mehr als 24 Stunden gewählt, und das Alter der Antwort ist größer als 24 Stunden. |
-| 199  | Miscellaneous Warning            | Beliebige Informationen, die einem Benutzer präsentiert oder protokolliert werden sollten.                                                                                                                |
-| 214  | Transformation Applied           | Von einem Proxy hinzugefügt, wenn er eine Transformation an der Darstellung vornimmt, z. B. Änderung der Inhaltskodierung, des Medientyps oder Ähnlichem.                                                 |
-| 299  | Miscellaneous Persistent Warning | Beliebige Informationen, die einem Benutzer präsentiert oder protokolliert werden sollten. Dieser Warncode ist ähnlich wie der Warncode 199 und zeigt zusätzlich eine dauerhafte Warnung an.              |
+| Code | Text                             | Beschreibung                                                                                                                                                                                               |
+| ---- | -------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 110  | Response is Stale                | Die von einem Cache bereitgestellte Antwort ist veraltet (die festgelegte Ablaufzeit für die Antwort ist abgelaufen).                                                                                      |
+| 111  | Revalidation Failed              | Ein Versuch, die veraltete Antwort zu validieren, schlug aufgrund der Unfähigkeit, den Server zu erreichen, fehl.                                                                                          |
+| 112  | Disconnected Operation           | Der Cache ist absichtlich vom Rest des Netzwerks getrennt.                                                                                                                                                 |
+| 113  | Heuristic Expiration             | Ein Cache hat heuristisch eine [Frischelebensdauer](/de/docs/Web/HTTP/Guides/Caching#fresh_and_stale_based_on_age) von mehr als 24 Stunden gewählt, und das Alter der Antwort beträgt mehr als 24 Stunden. |
+| 199  | Miscellaneous Warning            | Beliebige Informationen, die einem Benutzer angezeigt oder protokolliert werden sollten.                                                                                                                   |
+| 214  | Transformation Applied           | Wird von einem Proxy hinzugefügt, wenn es eine Transformation auf die Darstellung anwendet, wie z.B. das Ändern des content-coding, media-type oder Ähnliches.                                             |
+| 299  | Miscellaneous Persistent Warning | Beliebige Informationen, die einem Benutzer angezeigt oder protokolliert werden sollten. Dieser Warncode ist dem Warncode 199 ähnlich und zeigt zusätzlich eine anhaltende Warnung an.                     |
 
 ## Beispiele
 
@@ -89,4 +90,4 @@ Warning: 112 - "cache down" "Wed, 21 Oct 2015 07:28:00 GMT"
 ## Siehe auch
 
 - {{HTTPHeader("Date")}}
-- [HTTP-Antwortstatuscodes](/de/docs/Web/HTTP/Reference/Status)
+- [HTTP-Response-Statuscodes](/de/docs/Web/HTTP/Reference/Status)

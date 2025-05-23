@@ -2,20 +2,22 @@
 title: Bitweise Flags
 slug: Glossary/Bitwise_flags
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: e6d43da6c6d28a6ac92cdd47882809ffbdf987ce
 ---
 
 {{GlossarySidebar}}
 
-**Bitweise Flags** sind Mengen von Variablen, normalerweise einfache Zahlenwerte, die verwendet werden können, um spezifische Nutzungen oder Funktionen einer Methode oder einer anderen Code-Struktur zu aktivieren oder zu deaktivieren. Sie können dies schnell und effizient tun, da sie auf der Bit-Ebene arbeiten. Verwandte Flags in derselben Gruppe bekommen in der Regel komplementäre Werte, die verschiedene Bit-Positionen in einem einzelnen Wert (z. B. Hexadezimal) repräsentieren, sodass mehrere Flag-Einstellungen durch einen einzigen Wert dargestellt werden können.
+**Bitweise Flags** sind Mengen von Variablen, in der Regel einfache Zahlenwerte, die verwendet werden können, um bestimmte Verwendungen oder Funktionen einer Methode oder einer anderen Code-Struktur ein- oder auszuschalten. Sie können dies schnell und effizient tun, da sie auf Bit-Ebene operieren. Verwandte Flags in derselben Gruppe werden im Allgemeinen mit komplementären Werten versehen, die unterschiedliche Bitpositionen in einem einzelnen Wert (z.B. hexadezimal) repräsentieren, sodass mehrere Flag-Einstellungen durch einen einzigen Wert dargestellt werden können.
 
-Zum Beispiel wird im [WebGPU API](/de/docs/Web/API/WebGPU_API) eine [`GPUBuffer`](/de/docs/Web/API/GPUBuffer)-Objektinstanz mit der Methode [`GPUDevice.createBuffer()`](/de/docs/Web/API/GPUDevice/createBuffer) erstellt. Wenn Sie diese Methode aufrufen, definieren Sie eine `usage`-Eigenschaft im Deskriptor, die ein oder mehrere Flags enthält, die verschiedene erlaubte Nutzungen dieses Puffers aktivieren.
+Zum Beispiel wird in der [WebGPU API](/de/docs/Web/API/WebGPU_API) eine [`GPUBuffer`](/de/docs/Web/API/GPUBuffer)-Objektinstanz mit der [`GPUDevice.createBuffer()`](/de/docs/Web/API/GPUDevice/createBuffer)-Methode erstellt. Wenn Sie diese Methode aufrufen, definieren Sie eine `usage`-Eigenschaft im Deskriptor, die ein oder mehrere Flags enthält, die verschiedene erlaubte Verwendungen dieses Puffers aktivieren.
 
 ```js
-usage: GPUBufferUsage.COPY_SRC | GPUBufferUsage.MAP_WRITE;
+const descriptor = {
+  usage: GPUBufferUsage.COPY_SRC | GPUBufferUsage.MAP_WRITE,
+};
 ```
 
-Diese Werte sind innerhalb desselben Namensraums definiert, und jeder hat einen hexadezimalen Wert:
+Diese Werte werden im selben Namespace definiert, und jeder hat einen hexadezimalen Wert:
 
 | Nutzungs-Flag                  | Hexadezimale Darstellung | Dezimaläquivalent |
 | ------------------------------ | ------------------------ | ----------------- |
@@ -30,13 +32,13 @@ Diese Werte sind innerhalb desselben Namensraums definiert, und jeder hat einen 
 | `GPUBufferUsage.INDIRECT`      | 0x0100                   | 256               |
 | `GPUBufferUsage.QUERY_RESOLVE` | 0x0200                   | 512               |
 
-Wenn Sie die Eigenschaft [`GPUBuffer.usage`](/de/docs/Web/API/GPUBuffer/usage) abfragen, erhalten Sie eine einzelne Dezimalzahl zurück, die die Summe der verschiedenen Dezimalwerte für die verschiedenen Nutzungs-Flags ist. Um auf das obenstehende Beispiel zurückzukommen, würde die Abfrage von `GPUBuffer.usage` für den `GPUBuffer`, erstellt mit der vorher angegebenen Nutzung, Folgendes zurückgeben:
+Wenn Sie die Eigenschaft [`GPUBuffer.usage`](/de/docs/Web/API/GPUBuffer/usage) abfragen, erhalten Sie eine einzelne Dezimalzahl zurück, die die Summe der verschiedenen Dezimalwerte für die verschiedenen Nutzungs-Flags darstellt. Zurückkehrend zu dem obigen Beispiel, würde das Abfragen von `GPUBuffer.usage` für den `GPUBuffer`, der mit der zuvor spezifizierten Nutzung erstellt wurde, Folgendes zurückgeben:
 
 - Dezimaläquivalent von `GPUBufferUsage.COPY_SRC`, 4
 - Addiere das Dezimaläquivalent von `GPUBufferUsage.MAP_WRITE`, 2
 - Ergibt 6.
 
-Aufgrund der gewählten Werte für die verschiedenen Flags ist jede Kombination von Werten einzigartig, sodass das Programm auf einen Blick erkennen kann, welche Flags von einem einzelnen Wert gesetzt sind. Zusätzlich können Sie einfach testen, welche Flags im kombinierten Wert gesetzt sind, indem Sie den bitweisen AND-Operator verwenden:
+Aufgrund der gewählten Werte für die verschiedenen Flags ist jede Kombination von Werten einzigartig, sodass das Programm auf einen Blick erkennen kann, welche Flags aus einem einzigen Wert gesetzt sind. Darüber hinaus können Sie einfach testen, welche Flags im kombinierten Wert gesetzt sind, indem Sie den bitweisen Und-Operator verwenden:
 
 ```js
 if (buffer.usage & GPUBufferUsage.MAP_WRITE) {
@@ -46,5 +48,5 @@ if (buffer.usage & GPUBufferUsage.MAP_WRITE) {
 
 ## Siehe auch
 
-- [Bitwise Flags sind wunderbar, und hier ist der Grund](https://www.hendrik-erz.de/post/bitwise-flags-are-beautiful-and-heres-why)
+- [Bitwise Flags are Beautiful, and Here's Why](https://www.hendrik-erz.de/post/bitwise-flags-are-beautiful-and-heres-why)
 - [Bitweise Operation](https://en.wikipedia.org/wiki/Bitwise_operation) auf Wikipedia

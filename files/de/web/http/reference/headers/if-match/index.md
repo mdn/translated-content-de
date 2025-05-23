@@ -1,25 +1,25 @@
 ---
-title: If-Match
+title: If-Match header
+short-title: If-Match
 slug: Web/HTTP/Reference/Headers/If-Match
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: ee756fd51ccbc4820a4b334aa753648650ad1d51
 ---
 
 {{HTTPSidebar}}
 
-Der HTTP **`If-Match`** {{Glossary("request_header", "Request-Header")}} macht eine Anfrage [bedingt](/de/docs/Web/HTTP/Guides/Conditional_requests).
-Ein Server gibt Ressourcen für die Methoden {{HTTPMethod("GET")}} und {{HTTPMethod("HEAD")}} zurück oder lädt Ressourcen für {{HTTPMethod("PUT")}} und andere unsichere Methoden hoch, nur wenn die Ressource mit einem der {{HTTPHeader("ETag")}}-Werte im `If-Match`-Request-Header übereinstimmt.
-Wenn die Bedingung nicht erfüllt ist, wird stattdessen die {{HTTPStatus("412", "412 Precondition Failed")}}-Antwort zurückgegeben.
+Der HTTP-**`If-Match`**-{{Glossary("request_header", "Request-Header")}} macht eine Anfrage [bedingt](/de/docs/Web/HTTP/Guides/Conditional_requests).
+Ein Server wird Ressourcen für die Methoden {{HTTPMethod("GET")}} und {{HTTPMethod("HEAD")}} bereitstellen oder eine Ressource für {{HTTPMethod("PUT")}} und andere unsichere Methoden hochladen, nur wenn die Ressource mit einem der {{HTTPHeader("ETag")}}-Werte im `If-Match`-Request-Header übereinstimmt.
+Falls die Bedingung nicht übereinstimmt, wird stattdessen die Antwort {{HTTPStatus("412", "412 Precondition Failed")}} zurückgegeben.
 
 Der Vergleich mit dem gespeicherten {{HTTPHeader("ETag")}} verwendet den _starken Vergleichsalgorithmus_, was bedeutet, dass zwei Dateien byteweise identisch sein müssen.
-Wenn ein aufgelistetes `ETag` das Präfix `W/` hat, das einen schwachen Entitätstag anzeigt, wird dieser Vergleichsalgorithmus niemals übereinstimmen.
+Falls ein aufgelistetes `ETag` das `W/`-Präfix trägt, das auf einen schwachen Entity-Tag hinweist, wird dieser Vergleichsalgorithmus niemals passen.
 
-Es gibt zwei häufige Anwendungsfälle:
+Es gibt zwei übliche Anwendungsfälle:
 
-- Für die Methoden {{HTTPMethod("GET")}} und {{HTTPMethod("HEAD")}}, die in Kombination mit einem {{HTTPHeader("Range")}}-Header verwendet werden, kann sichergestellt werden, dass die neu angeforderten Bereiche
-  von derselben Ressource stammen wie der vorherige.
-- Für andere Methoden, insbesondere für {{HTTPMethod("PUT")}}, kann `If-Match` verwendet werden, um das [Problem des verlorenen Updates](https://www.w3.org/1999/04/Editing/#3.1) zu verhindern.
-  Es kann überprüft werden, ob die Änderung einer Ressource, die der Benutzer hochladen möchte, keine andere Änderung überschreibt, die seit dem Abrufen der ursprünglichen Ressource vorgenommen wurde.
+- Für die Methoden {{HTTPMethod("GET")}} und {{HTTPMethod("HEAD")}}, in Kombination mit einem {{HTTPHeader("Range")}}-Header, kann sichergestellt werden, dass die neuen angeforderten Bereiche von derselben Ressource stammen wie der vorherige.
+- Für andere Methoden, und insbesondere für {{HTTPMethod("PUT")}}, kann `If-Match` verwendet werden, um das [Problem verlorener Aktualisierungen](https://www.w3.org/1999/04/Editing/#3.1) zu verhindern.
+  Es kann überprüft werden, ob die Modifikation einer Ressource, die der Benutzer hochladen möchte, nicht eine andere Änderung überschreibt, die seit dem ursprünglichen Abruf der Ressource durchgeführt wurde.
 
 <table class="properties">
   <tbody>
@@ -44,13 +44,13 @@ If-Match: <etag_value>, <etag_value>, …
 ## Direktiven
 
 - `<etag_value>`
-  - : Entitätstags, die die angeforderten Ressourcen eindeutig darstellen.
-    Es handelt sich um eine Zeichenfolge von {{Glossary("ASCII", "ASCII")}}-Zeichen, die zwischen Anführungszeichen gesetzt sind (zum Beispiel `"675af34563dc-tr34"`).
-    Sie können mit `W/` versehen werden, um anzuzeigen, dass sie 'schwach' sind, d.h. dass sie die Ressource semantisch, aber nicht byteweise darstellen.
-    In einem `If-Match`-Header werden schwache Entitätstags jedoch niemals übereinstimmen.
+  - : Entity-Tags, die die angeforderten Ressourcen eindeutig darstellen.
+    Sie sind eine Zeichenfolge von {{Glossary("ASCII", "ASCII")}}-Zeichen, die in Anführungszeichen gesetzt sind (wie `"675af34563dc-tr34"`).
+    Sie können mit `W/` vorangestellt sein, um anzuzeigen, dass sie 'schwach' sind, d.h. dass sie die Ressource semantisch, aber nicht byteweise darstellen.
+    Allerdings werden in einem `If-Match`-Header schwache Entity-Tags niemals matchen.
 - `*`
-  - : Der Stern ist ein spezieller Wert, der jede Ressource darstellt.
-    Beachten Sie, dass dies als `false` übereinstimmen muss, wenn der Origin-Server keine aktuelle Darstellung für die Zielressource hat.
+  - : Der Asterisk ist ein spezieller Wert, der jede Ressource darstellt.
+    Beachten Sie, dass dies als `false` matchen muss, wenn der Ursprungsserver keine aktuelle Darstellung für die Zielressource hat.
 
 ## Beispiele
 

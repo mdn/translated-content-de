@@ -2,12 +2,12 @@
 title: <input type="file">
 slug: Web/HTML/Reference/Elements/input/file
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: f2dc3d5367203c860cf1a71ce0e972f018523849
 ---
 
 {{HTMLSidebar}}
 
-{{HTMLElement("input")}}-Elemente mit **`type="file"`** ermöglichen es dem Benutzer, eine oder mehrere Dateien aus dem Gerätespeicher auszuwählen. Sobald die Dateien ausgewählt sind, können sie mit [Formularübermittlung](/de/docs/Learn_web_development/Extensions/Forms) an einen Server hochgeladen oder mithilfe von JavaScript-Code und der [File API](/de/docs/Web/API/File_API/Using_files_from_web_applications) verarbeitet werden.
+{{HTMLElement("input")}}-Elemente mit **`type="file"`** ermöglichen es dem Nutzer, eine oder mehrere Dateien aus dem Gerätespeicher auszuwählen. Nach der Auswahl können die Dateien über [Formularübermittlung](/de/docs/Learn_web_development/Extensions/Forms) auf einen Server hochgeladen oder mit JavaScript-Code und [der File API](/de/docs/Web/API/File_API/Using_files_from_web_applications) manipuliert werden.
 
 {{InteractiveExample("HTML Demo: &lt;input type=&quot;file&quot;&gt;", "tabbed-shorter")}}
 
@@ -33,20 +33,20 @@ label {
 
 ## Wert
 
-Das [`value`](/de/docs/Web/HTML/Reference/Elements/input#value)-Attribut eines Datei-Inputs enthält einen String, der den Pfad zu den ausgewählten Datei(en) darstellt. Wenn noch keine Datei ausgewählt ist, ist der Wert ein leerer String (`""`). Wenn der Benutzer mehrere Dateien ausgewählt hat, repräsentiert der `value` die erste Datei in der Liste der ausgewählten Dateien. Die anderen Dateien können mithilfe der [Eigenschaft `HTMLInputElement.files` des Input-Elements](/de/docs/Web/API/File_API/Using_files_from_web_applications#getting_information_about_selected_files) identifiziert werden.
+Das [`value`](/de/docs/Web/HTML/Reference/Elements/input#value)-Attribut eines Datei-Inputs enthält einen String, der den Pfad zu den ausgewählten Dateien repräsentiert. Wenn noch keine Datei ausgewählt wurde, ist der Wert ein leerer String (`""`). Wenn der Nutzer mehrere Dateien ausgewählt hat, repräsentiert der `value` die erste Datei in der Liste der ausgewählten Dateien. Die anderen Dateien können über die [`HTMLInputElement.files`-Eigenschaft des Inputs](/de/docs/Web/API/File_API/Using_files_from_web_applications#getting_information_about_selected_files) identifiziert werden.
 
 > [!NOTE]
-> Der Wert ist [immer der Dateiname mit `C:\fakepath\` vorangestellt](https://html.spec.whatwg.org/multipage/input.html#fakepath-srsly), was nicht der tatsächliche Pfad der Datei ist. Dies verhindert, dass bösartige Software die Dateistruktur des Benutzers errät.
+> Der Wert ist [immer der Name der Datei, vorangestellt mit `C:\fakepath\`](https://html.spec.whatwg.org/multipage/input.html#fakepath-srsly), was nicht den tatsächlichen Pfad der Datei darstellt. Dies verhindert, dass schädliche Software die Verzeichnisstruktur des Nutzers errät.
 
 ## Zusätzliche Attribute
 
-Zusätzlich zu den allgemeinen Attributen, die von allen {{HTMLElement("input")}}-Elementen geteilt werden, unterstützen Eingaben vom Typ `file` auch die folgenden Attribute.
+Zusätzlich zu den allgemeinen Attributen, die alle {{HTMLElement("input")}}-Elemente teilen, unterstützen Inputs vom Typ `file` auch die folgenden Attribute.
 
 ### accept
 
-Der Wert des [`accept`](/de/docs/Web/HTML/Reference/Attributes/accept)-Attributs ist ein String, der die Dateitypen definiert, die der Dateieingang akzeptieren sollte. Dieser String ist eine durch Komma getrennte Liste von **[einzigartigen Dateityp-Spezifizierungen](#einzigartige_dateityp-spezifizierungen)**. Da ein gegebener Dateityp auf mehr als eine Weise identifiziert werden kann, ist es sinnvoll, eine umfassende Gruppe von Typspezifizierungen bereitzustellen, wenn Sie Dateien in einem bestimmten Format benötigen.
+Der Wert des [`accept`](/de/docs/Web/HTML/Reference/Attributes/accept)-Attributs ist ein String, der die Dateitypen definiert, die das Datei-Input akzeptieren soll. Dieser String ist eine kommagetrennte Liste von **[eindeutigen Dateityp-Spezifizierern](#eindeutige_dateityp-spezifizierer)**. Weil ein gegebener Dateityp auf mehr als eine Weise identifiziert werden kann, ist es nützlich, eine umfassende Menge von Typspezifizierern anzugeben, wenn Dateien eines bestimmten Formats benötigt werden.
 
-Zum Beispiel gibt es mehrere Möglichkeiten, Microsoft Word-Dateien zu identifizieren, sodass eine Website, die Word-Dateien akzeptiert, ein `<input>` wie dieses verwenden könnte:
+Zum Beispiel gibt es mehrere Möglichkeiten, Microsoft Word-Dateien zu identifizieren, daher könnte eine Website, die Word-Dateien akzeptiert, ein `<input>` wie dieses verwenden:
 
 ```html
 <input
@@ -57,41 +57,41 @@ Zum Beispiel gibt es mehrere Möglichkeiten, Microsoft Word-Dateien zu identifiz
 
 ### capture
 
-Der Wert des [`capture`](/de/docs/Web/HTML/Reference/Attributes/capture)-Attributs ist ein String, der festlegt, welche Kamera für die Erfassung von Bild- oder Videodaten verwendet werden soll, wenn das [`accept`](/de/docs/Web/HTML/Reference/Attributes/accept)-Attribut angibt, dass die Eingabe einer dieser Typen sein sollte. Ein Wert von `user` bedeutet, dass die benutzerseitige Kamera und/oder das Mikrofon verwendet werden sollten. Ein Wert von `environment` gibt an, dass die außen gerichtete Kamera und/oder das Mikrofon verwendet werden sollten. Wenn dieses Attribut fehlt, steht es dem {{Glossary("user_agent", "User Agent")}} frei, selbst zu entscheiden, was zu tun ist. Wenn der angeforderte Modus nicht verfügbar ist, kann der User Agent auf seinen bevorzugten Standardmodus zurückgreifen.
+Der Wert des [`capture`](/de/docs/Web/HTML/Reference/Attributes/capture)-Attributs ist ein String, der angibt, welche Kamera für die Aufnahme von Bild- oder Videodaten verwendet werden soll, falls das [`accept`](/de/docs/Web/HTML/Reference/Attributes/accept)-Attribut angibt, dass der Input von einem dieser Typen sein soll. Ein Wert von `user` bedeutet, dass die benutzerseitige Kamera und/oder das Mikrofon verwendet werden sollen. Ein Wert von `environment` gibt an, dass die nach außen gerichtete Kamera und/oder das Mikrofon verwendet werden sollen. Wenn dieses Attribut fehlt, steht es dem {{Glossary("user_agent", "User-Agent")}} frei, selbst zu entscheiden, was zu tun ist. Wenn der angeforderte Modus nicht verfügbar ist, kann der User-Agent auf seinen bevorzugten Standardmodus zurückgreifen.
 
-> **Hinweis:** `capture` war früher ein Boolean-Attribut, das bei Vorhandensein anforderte, dass die Medienaufnahmegeräte des Geräts, wie Kamera oder Mikrofon, verwendet werden, anstatt eine Dateiauswahl zu verlangen.
+> **Note:** `capture` war zuvor ein Boolean-Attribut, das, wenn vorhanden, verlangte, dass die Medienerfassungsgeräte des Geräts wie Kamera oder Mikrofon anstelle der Anforderung eines Datei-Inputs verwendet werden.
 
 ### multiple
 
-Wenn das `multiple`-Boolean-Attribut angegeben ist, erlaubt der Dateieingang dem Benutzer, mehr als eine Datei auszuwählen.
+Wenn das [`multiple`](/de/docs/Web/HTML/Reference/Attributes/multiple)-Boolean-Attribut angegeben ist, erlaubt das Datei-Input dem Nutzer, mehr als eine Datei auszuwählen.
 
-## Nicht-standardisierte Attribute
+## Nicht-standardmäßige Attribute
 
-Zusätzlich zu den oben aufgelisteten Attributen sind folgende nicht-standardisierte Attribute in einigen Browsern verfügbar. Sie sollten versuchen, deren Nutzung zu vermeiden, da dies die Fähigkeit Ihres Codes einschränkt, in Browsern zu funktionieren, die sie nicht implementieren.
+Zusätzlich zu den oben aufgeführten Attributen sind die folgenden nicht-standardmäßigen Attribute in einigen Browsern verfügbar. Sie sollten versuchen, ihre Verwendung zu vermeiden, da dies die Funktionsfähigkeit Ihres Codes in Browsern einschränkt, die sie nicht implementieren.
 
 ### `webkitdirectory`
 
-Das Boolean-Attribut `webkitdirectory`, wenn vorhanden, gibt an, dass nur Verzeichnisse zur Auswahl durch den Benutzer in der Dateiauswahloberfläche zur Verfügung stehen sollten. Siehe [`HTMLInputElement.webkitdirectory`](/de/docs/Web/API/HTMLInputElement/webkitdirectory) für zusätzliche Details und Beispiele.
+Das Boolean-Attribut `webkitdirectory`, falls vorhanden, gibt an, dass vom Nutzer nur Verzeichnisse in der Dateiauswahl-Schnittstelle ausgewählt werden sollen. Siehe [`HTMLInputElement.webkitdirectory`](/de/docs/Web/API/HTMLInputElement/webkitdirectory) für zusätzliche Details und Beispiele.
 
-Obwohl ursprünglich nur für WebKit-basierte Browser implementiert, kann `webkitdirectory` auch in Firefox verwendet werden. Trotz der relativ breiten Unterstützung ist es immer noch nicht standardisiert und sollte nur verwendet werden, wenn es keine Alternative gibt.
+Obwohl ursprünglich nur für WebKit-basierte Browser implementiert, ist `webkitdirectory` auch in Firefox verwendbar. Trotz der relativ breiten Unterstützung ist es noch nicht standardisiert und sollte nicht verwendet werden, es sei denn, es gibt keine Alternative.
 
-## Einzigartige Dateityp-Spezifizierungen
+## Eindeutige Dateityp-Spezifizierer
 
-Eine **einzigartige Dateityp-Spezifizierung** ist ein String, der eine Art von Datei beschreibt, die vom Benutzer in einem {{HTMLElement("input")}}-Element vom Typ `file` ausgewählt werden kann. Jede einzigartige Dateityp-Spezifizierung kann eine der folgenden Formen annehmen:
+Ein **eindeutiger Dateityp-Spezifizierer** ist ein String, der einen Dateityp beschreibt, der vom Nutzer in einem {{HTMLElement("input")}}-Element des Typs `file` ausgewählt werden kann. Jeder eindeutige Dateityp-Spezifizierer kann eine der folgenden Formen annehmen:
 
-- Eine gültige, nicht sensitivitätsunterscheidende Dateinamenerweiterung, die mit einem Punkt (".") Zeichen beginnt. Zum Beispiel: `.jpg`, `.pdf` oder `.doc`.
+- Eine gültige, fallunabhängige Dateinamenserweiterung, die mit einem Punkt (".") beginnt. Zum Beispiel: `.jpg`, `.pdf`, oder `.doc`.
 - Ein gültiger MIME-Typ-String, ohne Erweiterungen.
-- Der String `audio/*` bedeutet "jede Audiodatei".
-- Der String `video/*` bedeutet "jede Videodatei".
-- Der String `image/*` bedeutet "jede Bilddatei".
+- Der String `audio/*`, der "jede Audiodatei" bedeutet.
+- Der String `video/*`, der "jede Videodatei" bedeutet.
+- Der String `image/*`, der "jede Bilddatei" bedeutet.
 
-Das `accept`-Attribut nimmt einen String auf, der einen oder mehrere dieser einzigartigen Dateityp-Spezifizierungen als seinen Wert enthält, getrennt durch Kommas. Zum Beispiel könnte ein Dateiauswähler, der Inhalte benötigt, die als Bild dargestellt werden können, einschließlich sowohl Standard-Bildformaten als auch PDF-Dateien, so aussehen:
+Das `accept`-Attribut nimmt einen String als Wert, der einen oder mehrere dieser eindeutigen Dateityp-Spezifizierer enthält, getrennt durch Kommas. Zum Beispiel könnte ein Dateiauswahlfeld, das Inhalte benötigt, die als Bild präsentiert werden können, einschließlich sowohl standardmäßiger Bildformate als auch PDF-Dateien, so aussehen:
 
 ```html
 <input type="file" accept="image/*,.pdf" />
 ```
 
-## Verwendung von Dateieingaben
+## Verwendung von Datei-Inputs
 
 ### Ein einfaches Beispiel
 
@@ -118,43 +118,43 @@ Dies erzeugt die folgende Ausgabe:
 {{EmbedLiveSample('A_basic_example', 650, 90)}}
 
 > [!NOTE]
-> Sie können dieses Beispiel auch auf GitHub finden — siehe den [Quellcode](https://github.com/mdn/learning-area/blob/main/html/forms/file-examples/simple-file.html) und auch [sehen Sie es live](https://mdn.github.io/learning-area/html/forms/file-examples/simple-file.html).
+> Sie können dieses Beispiel auch auf GitHub finden — siehe den [Quellcode](https://github.com/mdn/learning-area/blob/main/html/forms/file-examples/simple-file.html) und [sehen Sie es live](https://mdn.github.io/learning-area/html/forms/file-examples/simple-file.html).
 
-Unabhängig vom Gerät oder Betriebssystem des Benutzers bietet der Dateieingang eine Schaltfläche, die einen Dateiauswahldialog öffnet, der es dem Benutzer ermöglicht, eine Datei auszuwählen.
+Unabhängig vom verwendeten Gerät oder Betriebssystem stellt das Datei-Input eine Schaltfläche bereit, die ein Dateiauswahl-Dialog öffnet, in dem der Nutzer eine Datei auswählen kann.
 
-Das Einbinden des [`multiple`](#multiple)-Attributs, wie oben gezeigt, legt fest, dass mehrere Dateien gleichzeitig ausgewählt werden können. Der Benutzer kann mehrere Dateien aus dem Dateiauswähler auf jede Weise auswählen, die von seiner gewählten Plattform ermöglicht wird (z. B. durch gleichzeitiges Drücken der <kbd>Shift</kbd>- oder <kbd>Control</kbd>-Taste und Klicken). Wenn Sie möchten, dass der Benutzer nur eine einzige Datei pro `<input>` auswählt, lassen Sie das `multiple`-Attribut weg.
+Das Einfügen des [`multiple`](#multiple)-Attributs, wie oben gezeigt, gibt an, dass mehrere Dateien gleichzeitig ausgewählt werden können. Der Nutzer kann mehrere Dateien aus der Dateiauswahl in jeder Weise auswählen, die seine Plattform zulässt (z. B. durch Drücken von <kbd>Shift</kbd> oder <kbd>Control</kbd> und dann Klicken). Wenn Sie möchten, dass der Nutzer nur eine Datei pro `<input>` auswählen kann, lassen Sie das `multiple`-Attribut weg.
 
 ### Informationen zu ausgewählten Dateien abrufen
 
-Die ausgewählten Dateien werden durch die `HTMLInputElement.files`-Eigenschaft des Elements zurückgegeben, die ein [`FileList`](/de/docs/Web/API/FileList)-Objekt ist, das eine Liste von [`File`](/de/docs/Web/API/File)-Objekten enthält. Die `FileList` verhält sich wie ein Array, sodass Sie seine `length`-Eigenschaft überprüfen können, um die Anzahl der ausgewählten Dateien zu ermitteln.
+Die ausgewählten Dateien werden durch die `HTMLInputElement.files`-Eigenschaft des Elements zurückgegeben, die ein [`FileList`](/de/docs/Web/API/FileList)-Objekt enthält, das eine Liste von [`File`](/de/docs/Web/API/File)-Objekten ist. Das `FileList` verhält sich wie ein Array, sodass Sie seine `length`-Eigenschaft überprüfen können, um die Anzahl der ausgewählten Dateien zu erhalten.
 
-Jedes `File`-Objekt enthält folgende Informationen:
+Jedes `File`-Objekt enthält die folgenden Informationen:
 
 - `name`
-  - : Der Dateiname.
+  - : Der Name der Datei.
 - `lastModified`
-  - : Eine Zahl, die das Datum und die Uhrzeit angibt, zu der die Datei zuletzt geändert wurde, in Millisekunden seit dem UNIX-Epoch (1. Januar 1970, um Mitternacht).
+  - : Eine Zahl, die das Datum und die Uhrzeit angibt, zu der die Datei zuletzt geändert wurde, in Millisekunden seit der UNIX-Epoche (1. Januar 1970, Mitternacht).
 - `lastModifiedDate` {{deprecated_inline}}
-  - : Ein {{jsxref("Date")}}-Objekt, das das Datum und die Uhrzeit darstellt, zu der die Datei zuletzt geändert wurde. _Dies ist veraltet und sollte nicht verwendet werden. Verwenden Sie stattdessen `lastModified`._
+  - : Ein {{jsxref("Date")}}-Objekt, das das Datum und die Uhrzeit repräsentiert, zu der die Datei zuletzt geändert wurde. _Dies ist veraltet und sollte nicht verwendet werden. Verwenden Sie stattdessen `lastModified`._
 - `size`
   - : Die Größe der Datei in Bytes.
 - `type`
   - : Der [MIME-Typ](/de/docs/Web/HTTP/Guides/MIME_types) der Datei.
 - `webkitRelativePath` {{non-standard_inline}}
-  - : Ein String, der den Pfad der Datei relativ zum Basisverzeichnis angibt, das in einem Verzeichniswähler ausgewählt wurde (d.h. ein `file`-Picker, bei dem das [`webkitdirectory`](#webkitdirectory)-Attribut gesetzt ist). _Dies ist nicht standardisiert und sollte mit Vorsicht verwendet werden._
+  - : Ein String, der den Pfad der Datei relativ zum Basisverzeichnis im Verzeichnisauswahl-Fenster angibt (d.h. ein `file`-Auswahlfeld, bei dem das [`webkitdirectory`](#webkitdirectory)-Attribut gesetzt ist). _Dies ist nicht standardisiert und sollte mit Vorsicht verwendet werden._
 
 ### Akzeptierte Dateitypen einschränken
 
-Oft möchten Sie nicht, dass der Benutzer beliebige Dateitypen auswählen kann; stattdessen möchten Sie oft, dass er Dateien eines bestimmten Typs oder Typs auswählt. Zum Beispiel, wenn Ihre Dateieingabe es Benutzern erlaubt, ein Profilbild hochzuladen, möchten Sie wahrscheinlich, dass sie webkompatible Bildformate wie {{Glossary("JPEG", "JPEG")}} oder {{Glossary("PNG", "PNG")}} auswählen.
+Oftmals möchten Sie nicht, dass der Nutzer beliebige Dateitypen auswählt; stattdessen möchten Sie häufig, dass er Dateien eines bestimmten Typs oder mehrerer Typen auswählt. Zum Beispiel, wenn Ihr Datei-Input es Nutzern ermöglicht, ein Profilbild hochzuladen, möchten Sie wahrscheinlich, dass sie webkompatible Bildformate wie {{Glossary("JPEG", "JPEG")}} oder {{Glossary("PNG", "PNG")}} auswählen.
 
-Akzeptable Dateitypen können mit dem [`accept`](#accept)-Attribut spezifiziert werden, das eine durch Kommas getrennte Liste zulässiger Dateierweiterungen oder MIME-Typen annimmt. Einige Beispiele:
+Akzeptable Dateitypen können mit dem [`accept`](#accept)-Attribut festgelegt werden, das eine kommagetrennte Liste erlaubter Dateierweiterungen oder MIME-Typen akzeptiert. Einige Beispiele:
 
 - `accept="image/png"` oder `accept=".png"` — Akzeptiert PNG-Dateien.
-- `accept="image/png, image/jpeg"` oder `accept=".png, .jpg, .jpeg"` — Akzeptiert PNG oder JPEG-Dateien.
-- `accept="image/*"` — Akzeptiert jede Datei mit einem `image/*` MIME-Typ. (Viele mobile Geräte lassen den Benutzer auch ein Bild mit der Kamera aufnehmen, wenn dies verwendet wird.)
-- `accept=".doc,.docx,.xml,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"` — Akzeptiert alles, was wie ein MS Word-Dokument aussieht.
+- `accept="image/png, image/jpeg"` oder `accept=".png, .jpg, .jpeg"` — Akzeptiert PNG- oder JPEG-Dateien.
+- `accept="image/*"` — Akzeptiert jede Datei mit einem `image/*`-MIME-Typ. (Viele mobile Geräte lassen den Nutzer mit dieser Option auch ein Bild mit der Kamera aufnehmen.)
+- `accept=".doc,.docx,.xml,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"` — Akzeptiert alles, was nach einem MS Word-Dokument aussieht.
 
-Schauen wir uns ein vollständigeres Beispiel an:
+Schauen wir uns ein umfassenderes Beispiel an:
 
 ```html
 <form method="post" enctype="multipart/form-data">
@@ -178,24 +178,24 @@ div {
 }
 ```
 
-Dies erzeugt eine ähnlich aussehende Ausgabe wie das vorherige Beispiel:
+Dies erzeugt eine ähnliche Ausgabe wie das vorherige Beispiel:
 
 {{EmbedLiveSample('Limiting_accepted_file_types', 650, 90)}}
 
 > [!NOTE]
-> Sie können dieses Beispiel auch auf GitHub finden — siehe den [Quellcode](https://github.com/mdn/learning-area/blob/main/html/forms/file-examples/file-with-accept.html) und auch [sehen Sie es live](https://mdn.github.io/learning-area/html/forms/file-examples/file-with-accept.html).
+> Sie können dieses Beispiel auch auf GitHub finden — siehe den [Quellcode](https://github.com/mdn/learning-area/blob/main/html/forms/file-examples/file-with-accept.html) und [sehen Sie es live](https://mdn.github.io/learning-area/html/forms/file-examples/file-with-accept.html).
 
-Es mag ähnlich aussehen, aber wenn Sie versuchen, eine Datei mit diesem Input auszuwählen, werden Sie sehen, dass der Dateiauswähler nur die Dateitypen, die im `accept`-Wert angegeben sind, zur Auswahl zulässt (die genaue Schnittstelle variiert je nach Browser und Betriebssystem).
+Es sieht ähnlich aus, aber wenn Sie versuchen, eine Datei mit diesem Input auszuwählen, werden Sie feststellen, dass der Dateiauswahl-Dialog nur die Dateitypen auswählen lässt, die im `accept`-Wert angegeben sind (die genaue Schnittstelle variiert je nach Browser und Betriebssystem).
 
-Das `accept`-Attribut validiert die Typen der ausgewählten Dateien nicht; es bietet Hinweise für Browser, Benutzer zu führen, die richtigen Dateitypen auszuwählen. Es ist in den meisten Fällen immer noch möglich für Benutzer, eine Option im Dateiauswähler zu aktivieren, die es ihnen ermöglicht, dies zu umgehen und jede Datei auszuwählen, die sie möchten, und dann unpassende Dateitypen auszuwählen.
+Das `accept`-Attribut validiert nicht die Typen der ausgewählten Dateien; es gibt Hinweise für Browser, um Nutzer dazu anzuleiten, die richtigen Dateitypen auszuwählen. In den meisten Fällen ist es Nutzern jedoch möglich, eine Option im Dateiauswahlfenster zu aktivieren, die es ermöglicht, dies zu überschreiben und jede gewünschte Datei auszuwählen, und dann die falschen Dateitypen auszuwählen.
 
-Aus diesem Grund sollten Sie sicherstellen, dass das `accept`-Attribut durch geeignete serverseitige Validierung gestützt wird.
+Aus diesem Grund sollten Sie sicherstellen, dass das `accept`-Attribut durch eine angemessene serverseitige Validierung unterstützt wird.
 
 ### Abbrüche erkennen
 
-Das `cancel`-Event wird ausgelöst, wenn der Benutzer seine Auswahl nicht ändert und die zuvor ausgewählten Dateien erneut auswählt. Das `cancel`-Event wird auch ausgelöst, wenn der Dateiauswahldialog durch die Schaltfläche "Abbrechen" oder die <kbd>Escape</kbd>-Taste geschlossen oder abgebrochen wird.
+Das `cancel`-Ereignis wird ausgelöst, wenn der Nutzer seine Auswahl nicht ändert und die zuvor ausgewählten Dateien erneut auswählt. Das `cancel`-Ereignis wird auch ausgelöst, wenn der Dateiauswahl-Dialog über die Schaltfläche "Abbrechen" oder die <kbd>Escape</kbd>-Taste geschlossen oder abgebrochen wird.
 
-Zum Beispiel wird der folgende Code eine Meldung an die Konsole ausgeben, wenn der Benutzer das Popup ohne Dateiauswahl schließt:
+Zum Beispiel wird der folgende Code in die Konsole loggen, wenn der Nutzer das Popup schließt, ohne eine Datei auszuwählen:
 
 ```js
 const elem = document.createElement("input");
@@ -211,25 +211,25 @@ elem.addEventListener("change", () => {
 elem.click();
 ```
 
-### Hinweise
+### Anmerkungen
 
-1. Sie können den Wert eines Dateiauswählers nicht über ein Skript festlegen — etwas wie das folgende hat keine Wirkung:
+1. Sie können den Wert eines Datei-Auswahlfelds nicht über ein Skript festlegen — das Ausführen von so etwas hat keinen Effekt:
 
    ```js
    const input = document.querySelector("input[type=file]");
    input.value = "foo";
    ```
 
-2. Wenn eine Datei über ein `<input type="file">` ausgewählt wird, wird der tatsächliche Pfad zur Quelldatei aus offensichtlichen Sicherheitsgründen nicht im `value`-Attribut des Inputs angezeigt. Stattdessen wird der Dateiname angezeigt, mit `C:\fakepath\` vorangestellt. Dafür gibt es einige historische Gründe, aber es wird von allen modernen Browsern unterstützt und ist tatsächlich [in der Spezifikation definiert](https://html.spec.whatwg.org/multipage/forms.html#fakepath-srsly).
+2. Wenn eine Datei mit einem `<input type="file">` ausgewählt wird, wird aus offensichtlichen Sicherheitsgründen nicht der echte Pfad zur Quelldatei im `value`-Attribut des Inputs angezeigt. Stattdessen wird der Dateiname mit `C:\fakepath\` davor angezeigt. Es gibt einige historische Gründe für dieses Eigenart, aber es wird in allen modernen Browsern unterstützt und ist tatsächlich [in der Spezifikation definiert](https://html.spec.whatwg.org/multipage/forms.html#fakepath-srsly).
 
 ## Beispiele
 
-In diesem Beispiel zeigen wir einen etwas fortgeschritteneren Dateiauswähler, der die Dateiinformationen nutzt, die in der `HTMLInputElement.files`-Eigenschaft verfügbar sind, sowie einige clevere Tricks zeigt.
+In diesem Beispiel stellen wir einen etwas fortschrittlicheren Dateiauswahl-Dialog vor, der die im `HTMLInputElement.files`-Eigenschaft verfügbaren Datei-Informationen nutzt und einige clevere Tricks zeigt.
 
 > [!NOTE]
-> Sie können den vollständigen Quellcode für dieses Beispiel auf GitHub sehen — [file-example.html](https://github.com/mdn/learning-area/blob/main/html/forms/file-examples/file-example.html) ([sehen Sie es auch live](https://mdn.github.io/learning-area/html/forms/file-examples/file-example.html)). Wir werden das CSS nicht erklären; der Schwerpunkt liegt auf JavaScript.
+> Sie können den vollständigen Quellcode für dieses Beispiel auf GitHub sehen — [file-example.html](https://github.com/mdn/learning-area/blob/main/html/forms/file-examples/file-example.html) ([sehen Sie es auch live](https://mdn.github.io/learning-area/html/forms/file-examples/file-example.html)). Wir werden das CSS nicht erklären; der Fokus liegt auf JavaScript.
 
-Zuerst sehen wir uns das HTML an:
+Zuerst schauen wir uns das HTML an:
 
 ```html
 <form method="post" enctype="multipart/form-data">
@@ -310,11 +310,11 @@ form button:active {
 }
 ```
 
-Dies ist ähnlich zu dem, was wir zuvor gesehen haben — nichts Besonderes zu kommentieren.
+Dies ist ähnlich zu dem, was wir bereits gesehen haben — nichts Besonderes zu kommentieren.
 
-Als nächstes gehen wir Schritt für Schritt durch das JavaScript.
+Als nächstes gehen wir das JavaScript durch.
 
-In den ersten Zeilen des Skripts erhalten wir Referenzen auf die Formulareingabe selbst und das {{htmlelement("div")}}-Element mit der Klasse `.preview`. Als nächstes verstecken wir das {{htmlelement("input")}}-Element — das machen wir, weil Dateieingaben oft hässlich, schwer zu stylen und in ihrem Design zwischen Browsern inkonsistent sind. Sie können das `input`-Element aktivieren, indem Sie sein {{htmlelement("label")}} anklicken, daher ist es besser, das `input` visuell zu verstecken und das Label wie eine Schaltfläche zu stylen, damit der Benutzer weiß, dass er mit ihm interagieren kann, wenn er Dateien hochladen möchte.
+In den ersten Zeilen des Skripts erhalten wir Referenzen auf das Formulareingabeelement selbst und das {{htmlelement("div")}}-Element mit der Klasse `.preview`. Als nächstes verstecken wir das {{htmlelement("input")}}-Element — wir tun dies, weil Datei-Inputs oft hässlich, schwer zu stylen und in ihrem Design über Browser hinweg uneinheitlich sind. Sie können das `input`-Element durch Klicken auf sein {{htmlelement("label")}} aktivieren, daher ist es besser, das `input`-Element visuell zu verstecken und das Label wie eine Schaltfläche zu stylen, damit der Nutzer weiß, dass er damit interagieren soll, wenn er Dateien hochladen möchte.
 
 ```js
 const input = document.querySelector("input");
@@ -323,27 +323,27 @@ const preview = document.querySelector(".preview");
 input.style.opacity = 0;
 ```
 
-> **Hinweis:** {{cssxref("opacity")}} wird verwendet, um die Dateieingabe zu verstecken, anstatt {{cssxref("visibility", "visibility: hidden")}} oder {{cssxref("display", "display: none")}}, weil unterstützende Technologie die beiden letzteren Stile so interpretiert, dass die Dateieingabe nicht interaktiv ist.
+> **Note:** {{cssxref("opacity")}} wird verwendet, um das Datei-Input zu verstecken, anstelle von {{cssxref("visibility", "visibility: hidden")}} oder {{cssxref("display", "display: none")}}, weil assistierende Technologien die beiden letzteren Stile als nicht interaktiv interpretieren.
 
-Als nächstes fügen wir der Eingabe einen [Ereignis-Listener](/de/docs/Web/API/EventTarget/addEventListener) hinzu, um auf Änderungen am ausgewählten Wert zu lauschen (in diesem Fall, wenn Dateien ausgewählt werden). Der Ereignis-Listener ruft unsere benutzerdefinierte Funktion `updateImageDisplay()` auf.
+Als nächstes fügen wir dem Input einen [Event-Listener](/de/docs/Web/API/EventTarget/addEventListener) hinzu, um auf Änderungen seines ausgewählten Werts zu hören (in diesem Fall, wenn Dateien ausgewählt werden). Der Event-Listener ruft unsere benutzerdefinierte `updateImageDisplay()`-Funktion auf.
 
 ```js
 input.addEventListener("change", updateImageDisplay);
 ```
 
-Jedes Mal, wenn die `updateImageDisplay()`-Funktion aufgerufen wird, führen wir Folgendes aus:
+Immer wenn die `updateImageDisplay()`-Funktion aufgerufen wird, führen wir Folgendes aus:
 
-- Verwenden Sie eine {{jsxref("Statements/while", "while")}}-Schleife, um die vorherigen Inhalte des Vorschau-`<div>` zu leeren.
-- Erfassen Sie das [`FileList`](/de/docs/Web/API/FileList)-Objekt, das die Informationen zu allen ausgewählten Dateien enthält, und speichern Sie es in einer Variablen namens `curFiles`.
-- Überprüfen Sie, ob keine Dateien ausgewählt wurden, indem Sie prüfen, ob `curFiles.length` gleich 0 ist. Wenn ja, geben Sie eine Nachricht in das Vorschau-`<div>` aus, die besagt, dass keine Dateien ausgewählt wurden.
-- Wenn Dateien _ausgewählt_ wurden, durchlaufen wir jede einzelne und geben Informationen darüber in das Vorschau-`<div>` aus. Beachten Sie dabei:
-- Wir verwenden die benutzerdefinierte `validFileType()`-Funktion, um zu überprüfen, ob die Datei vom richtigen Typ ist (z. B. den in dem `accept`-Attribut angegebenen Bildtypen).
-- Wenn dies der Fall ist, führen wir aus:
+- Wir verwenden eine {{jsxref("Statements/while", "while")}}-Schleife, um den vorherigen Inhalt des Vorschaudivs zu leeren.
+- Wir greifen das [`FileList`](/de/docs/Web/API/FileList)-Objekt ab, das die Informationen zu allen ausgewählten Dateien enthält, und speichern es in einer Variablen namens `curFiles`.
+- Wir überprüfen, ob keine Dateien ausgewählt wurden, indem wir prüfen, ob `curFiles.length` gleich 0 ist. Wenn ja, wird eine Nachricht in das Vorschaudiv gedruckt, dass keine Dateien ausgewählt wurden.
+- Wenn Dateien _ausgewählt_ wurden, durchlaufen wir jede einzelne und drucken Informationen darüber in das Vorschaudiv. Zu beachten ist hier:
+- Wir verwenden die benutzerdefinierte `validFileType()`-Funktion, um zu überprüfen, ob die Datei vom richtigen Typ ist (z. B. die im `accept`-Attribut angegebenen Bildtypen).
+- Wenn sie es ist, dann:
 
-  - Geben Sie den Namen und die Dateigröße in ein Listen-Element im vorherigen `<div>` aus (bezogen von `file.name` und `file.size`). Die benutzerdefinierte `returnFileSize()`-Funktion gibt eine schön formatierte Version der Größe in Bytes/KB/MB zurück (standardmäßig berichtet der Browser die Größe in absoluten Bytes).
-  - Erzeugen Sie eine Thumbnail-Vorschau des Bildes, indem Sie [`URL.createObjectURL(file)`](/de/docs/Web/API/URL/createObjectURL_static) aufrufen. Setzen Sie dann das Bild auch in das Listen-Element, indem Sie ein neues {{htmlelement("img")}} erstellen und sein [`src`](/de/docs/Web/HTML/Reference/Elements/img#src) auf das Thumbnail setzen.
+  - Drucken wir ihren Namen und ihre Dateigröße in ein Listenelement innerhalb des Vorschaudivs (erhalten von `file.name` und `file.size`). Die benutzerdefinierte `returnFileSize()`-Funktion gibt eine schön formatierte Version der Größe in Bytes/KB/MB zurück (standardmäßig gibt der Browser die Größe in absoluten Bytes an).
+  - Erstellen Sie eine Thumbnailvorschau des Bildes, indem Sie [`URL.createObjectURL(file)`](/de/docs/Web/API/URL/createObjectURL_static) aufrufen. Fügen Sie das Bild dann ebenfalls in das Listenelement ein, indem Sie ein neues {{htmlelement("img")}} erstellen und dessen [`src`](/de/docs/Web/HTML/Reference/Elements/img#src) auf das Thumbnail setzen.
 
-- Wenn der Dateityp ungültig ist, zeigen wir eine Nachricht in einem Listen-Element an, die dem Benutzer mitteilt, dass er einen anderen Dateityp auswählen muss.
+- Wenn der Dateityp ungültig ist, zeigen wir eine Nachricht innerhalb eines Listenelements an, dass der Nutzer einen anderen Dateityp auswählen muss.
 
 ```js
 function updateImageDisplay() {
@@ -384,7 +384,7 @@ function updateImageDisplay() {
 }
 ```
 
-Die benutzerdefinierte `validFileType()`-Funktion nimmt ein [`File`](/de/docs/Web/API/File)-Objekt als Parameter und verwendet dann {{jsxref("Array.prototype.includes()")}}, um zu überprüfen, ob ein Wert in den `fileTypes` das `type`-Eigenschaft der Datei entspricht. Wenn eine Übereinstimmung gefunden wird, gibt die Funktion `true` zurück. Wenn keine Übereinstimmung gefunden wird, gibt sie `false` zurück.
+Die benutzerdefinierte `validFileType()`-Funktion nimmt ein [`File`](/de/docs/Web/API/File)-Objekt als Parameter an und verwendet dann {{jsxref("Array.prototype.includes()")}}, um zu überprüfen, ob ein Wert in `fileTypes` mit der `type`-Eigenschaft der Datei übereinstimmt. Wird eine Übereinstimmung gefunden, gibt die Funktion `true` zurück. Wird keine Übereinstimmung gefunden, wird `false` zurückgegeben.
 
 ```js
 // https://developer.mozilla.org/en-US/docs/Web/Media/Guides/Formats/Image_types
@@ -406,7 +406,7 @@ function validFileType(file) {
 }
 ```
 
-Die `returnFileSize()`-Funktion nimmt eine Zahl (in Bytes, aus der aktuellen Datei `size`-Eigenschaft entnommen) und wandelt sie in eine schön formatierte Größe in Bytes/KB/MB um.
+Die `returnFileSize()`-Funktion nimmt eine Zahl (in Bytes, aus der `size`-Eigenschaft der aktuellen Datei) und wandelt sie in eine schön formatierte Größe in Bytes/KB/MB um.
 
 ```js
 function returnFileSize(number) {
@@ -414,14 +414,13 @@ function returnFileSize(number) {
     return `${number} bytes`;
   } else if (number >= 1e3 && number < 1e6) {
     return `${(number / 1e3).toFixed(1)} KB`;
-  } else {
-    return `${(number / 1e6).toFixed(1)} MB`;
   }
+  return `${(number / 1e6).toFixed(1)} MB`;
 }
 ```
 
 > [!NOTE]
-> Die Einheiten "KB" und "MB" verwenden hier die [SI-Präfix](https://en.wikipedia.org/wiki/Binary_prefix)-Konvention von 1KB = 1000B, ähnlich wie macOS. Verschiedene Systeme repräsentieren Dateigrößen unterschiedlich — zum Beispiel verwendet Ubuntu IEC-Präfixe, bei denen 1KiB = 1024B, während RAM-Spezifikationen oft SI-Präfixe verwenden, um Potenzen von zwei darzustellen (1KB = 1024B). Aus diesem Grund verwendeten wir `1e3` (`1000`) und `1e6` (`100000`) anstatt `1024` und `1048576`. In Ihrer Anwendung sollten Sie das Einheiten-System Ihren Benutzern klar kommunizieren, wenn die genaue Größe wichtig ist.
+> Die "KB"- und "MB"-Einheiten verwenden hier die [SI-Präfix](https://en.wikipedia.org/wiki/Binary_prefix)-Konvention von 1KB = 1000B, ähnlich wie macOS. Verschiedene Systeme stellen Dateigrößen unterschiedlich dar — zum Beispiel verwendet Ubuntu IEC-Präfixe, bei denen 1KiB = 1024B, während RAM-Spezifikationen oft SI-Präfixe verwenden, um Potenzen von zwei darzustellen (1KB = 1024B). Aus diesem Grund haben wir `1e3` (`1000`) und `1e6` (`1000000`) verwendet, anstelle von `1024` und `1048576`. In Ihrer Anwendung sollten Sie das Einheitensystem klar kommunizieren, wenn der genaue Wert wichtig ist.
 
 ```js hidden
 const button = document.querySelector("form button");
@@ -445,7 +444,7 @@ Das Beispiel sieht so aus; probieren Sie es aus:
       <td><strong><a href="#value">Wert</a></strong></td>
       <td>
         Ein String, der den Pfad zur ausgewählten
-        Datei darstellt.
+        Datei repräsentiert.
       </td>
     </tr>
     <tr>
@@ -483,7 +482,7 @@ Das Beispiel sieht so aus; probieren Sie es aus:
       </td>
     </tr>
     <tr>
-      <td><strong>Implizierte ARIA-Rolle</strong></td>
+      <td><strong>Implizite ARIA Rolle</strong></td>
       <td><a href="https://www.w3.org/TR/html-aria/#dfn-no-corresponding-role">keine entsprechende Rolle</a></td>
     </tr>
   </tbody>

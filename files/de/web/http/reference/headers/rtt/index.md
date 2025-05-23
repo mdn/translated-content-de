@@ -1,28 +1,29 @@
 ---
-title: RTT
+title: RTT header
+short-title: RTT
 slug: Web/HTTP/Reference/Headers/RTT
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: ee756fd51ccbc4820a4b334aa753648650ad1d51
 ---
 
 {{HTTPSidebar}} {{SeeCompatTable}}
 
-Der HTTP **`RTT`** {{Glossary("request_header", "Request-Header")}} ist ein [Client-Hint für das Netzwerk](/de/docs/Web/HTTP/Guides/Client_hints#network_client_hints), der die ungefähre Round-Trip-Zeit auf der Anwendungsschicht in Millisekunden bereitstellt. Der RTT-Hint umfasst die Serververarbeitungszeit, im Gegensatz zur RTT der Transportschicht.
+Der HTTP-**`RTT`**-{{Glossary("request_header", "Request-Header")}} ist ein [Netzwerk-Client-Hinweis](/de/docs/Web/HTTP/Guides/Client_hints#network_client_hints), der die ungefähre Round-Trip-Zeit auf der Anwendungsebene in Millisekunden angibt. Im Gegensatz zur RTT auf der Transportschicht beinhaltet der RTT-Hinweis die Server-Verarbeitungszeit.
 
-Der RTT-Wert wird auf die nächsten 25 Millisekunden gerundet, um {{Glossary("Fingerprinting", "Fingerprinting")}} zu verhindern, obwohl ein Angreifer viele andere Möglichkeiten haben könnte, um ähnliche Round-Trip-Informationen zu erhalten.
+Der RTT-Wert wird auf die nächsten 25 Millisekunden gerundet, um {{Glossary("Fingerprinting", "Fingerprinting")}} zu verhindern, obwohl ein Angreifer viele andere Mechanismen verwenden könnte, um ähnliche Round-Trip-Informationen zu erhalten.
 
-Dieser Hinweispunkt erlaubt es einem Server, auszuwählen, welche Informationen basierend auf der Netzwerkreaktionsfähigkeit/Latenz gesendet werden. Beispielsweise könnte er beschließen, weniger Ressourcen zu senden.
+Der Hinweis ermöglicht es einem Server zu wählen, welche Informationen basierend auf der Netzwerk-Reaktionsfähigkeit/-Latenz gesendet werden. Zum Beispiel könnte er entscheiden, weniger Ressourcen zu senden.
 
 > [!NOTE]
-> Der {{HTTPHeader("Vary")}}-Header wird in Antworten verwendet, um anzugeben, dass für jeden verschiedenen Wert des Headers eine andere Ressource gesendet wird (siehe [HTTP-Caching Vary](/de/docs/Web/HTTP/Guides/Caching#vary)). Selbst wenn `RTT` verwendet wird, um zu konfigurieren, welche Ressourcen gesendet werden, sollten Sie erwägen, es im {{HTTPHeader("Vary")}}-Header wegzulassen — es ändert sich wahrscheinlich häufig, was effektiv die Ressource nicht cachefähig macht.
+> Der {{HTTPHeader("Vary")}}-Header wird in Antworten verwendet, um anzuzeigen, dass für jeden unterschiedlichen Wert des Headers eine andere Ressource gesendet wird (siehe [HTTP-Caching Vary](/de/docs/Web/HTTP/Guides/Caching#vary)). Auch wenn `RTT` verwendet wird, um zu konfigurieren, welche Ressourcen gesendet werden, sollte erwogen werden, es im {{HTTPHeader("Vary")}}-Header wegzulassen — es ändert sich wahrscheinlich oft, was die Ressource effektiv uncacheable macht.
 
 <table class="properties">
   <tbody>
     <tr>
-      <th scope="row">Headertyp</th>
+      <th scope="row">Header-Typ</th>
       <td>
         {{Glossary("Request_header", "Request-Header")}},
-        <a href="/de/docs/Web/HTTP/Guides/Client_hints">Client-Hint</a>
+        <a href="/de/docs/Web/HTTP/Guides/Client_hints">Client-Hinweis</a>
       </td>
     </tr>
     <tr>
@@ -45,9 +46,9 @@ RTT: <number>
 
 ## Beispiele
 
-### Verwendung von RTT-Client-Hints
+### Verwendung von RTT-Client-Hinweisen
 
-Ein Server muss zunächst zustimmen, den `RTT`-Header zu empfangen, indem er den {{HTTPHeader("Accept-CH")}}-Antwortheader sendet, der `RTT` enthält.
+Ein Server muss zunächst zustimmen, den `RTT`-Header zu empfangen, indem er den {{HTTPHeader("Accept-CH")}}-Response-Header sendet, der `RTT` enthält.
 
 ```http
 Accept-CH: RTT
@@ -69,8 +70,8 @@ RTT: 125
 
 ## Siehe auch
 
-- {{HTTPHeader("Downlink")}}, {{HTTPHeader("ECT")}}, {{HTTPHeader("Save-Data")}} Netzwerk-Client-Hints
+- {{HTTPHeader("Downlink")}}, {{HTTPHeader("ECT")}}, {{HTTPHeader("Save-Data")}} Netzwerk-Client-Hinweise
 - {{HTTPHeader("Accept-CH")}}
 - [HTTP-Caching: Vary](/de/docs/Web/HTTP/Guides/Caching#vary) und {{HTTPHeader("Vary")}}
 - [`NetworkInformation.effectiveType`](/de/docs/Web/API/NetworkInformation/effectiveType)
-- [Verbesserung des Datenschutzes der Benutzer und der Entwicklererfahrung mit User-Agent Client Hints](https://developer.chrome.com/docs/privacy-security/user-agent-client-hints) (developer.chrome.com)
+- [Verbesserung des Datenschutzes der Nutzer und der Entwicklererfahrung mit User-Agent-Client-Hints](https://developer.chrome.com/docs/privacy-security/user-agent-client-hints) (developer.chrome.com)

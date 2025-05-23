@@ -2,50 +2,50 @@
 title: Background Tasks API
 slug: Web/API/Background_Tasks_API
 l10n:
-  sourceCommit: c30698b4a2affde9c64c6f6eb479e16f7b8fe481
+  sourceCommit: f2dc3d5367203c860cf1a71ce0e972f018523849
 ---
 
 {{DefaultAPISidebar("Background Tasks")}}
 
-Die **Kooperative Planung der Hintergrundaufgaben-API** (auch bekannt als Hintergrundaufgaben-API oder `requestIdleCallback()`-API) bietet die Möglichkeit, Aufgaben zu planen, die vom Benutzeragenten automatisch ausgeführt werden, wenn er feststellt, dass es dafür freie Zeit gibt.
+Die **Kooperative Planung der Hintergrundaufgaben-API** (auch als Hintergrundaufgaben-API oder `requestIdleCallback()`-API bezeichnet) bietet die Möglichkeit, Aufgaben in die Warteschlange zu stellen, die vom Benutzeragenten automatisch ausgeführt werden, wenn er feststellt, dass freie Zeit dafür vorhanden ist.
 
 > [!NOTE]
 > Diese API ist _nicht verfügbar_ in [Web Workers](/de/docs/Web/API/Web_Workers_API).
 
 ## Konzepte und Verwendung
 
-Der Hauptthread eines Webbrowsers dreht sich um seine Ereignisschleife. Dieser Code zeichnet alle anstehenden Updates auf das [`Document`](/de/docs/Web/API/Document), das derzeit angezeigt wird, führt den JavaScript-Code aus, den die Seite ausführen muss, akzeptiert Ereignisse von Eingabegeräten und verteilt diese Ereignisse an die Elemente, die sie empfangen sollen. Darüber hinaus behandelt die Ereignisschleife Interaktionen mit dem Betriebssystem, Updates der Benutzeroberfläche des Browsers und so weiter. Es ist ein extrem beschäftigtes Stück Code, und Ihr Haupt-JavaScript-Code kann genau in diesem Thread zusammen mit all dem ausgeführt werden. Sicherlich läuft der meiste, wenn nicht sogar der gesamte Code, der Änderungen am DOM vornehmen kann, im Hauptthread, da es üblich ist, dass Änderungen der Benutzeroberfläche nur für den Hauptthread verfügbar sind.
+Der Haupt-Thread eines Webbrowsers dreht sich um seine Ereignisschleife. Dieser Code zeichnet alle ausstehenden Updates für das aktuell angezeigte [`Document`](/de/docs/Web/API/Document), führt erforderlichen JavaScript-Code auf der Seite aus, akzeptiert Ereignisse von Eingabegeräten und leitet diese Ereignisse an die Elemente weiter, die sie empfangen sollen. Zusätzlich verarbeitet die Ereignisschleife Interaktionen mit dem Betriebssystem, Updates der Benutzeroberfläche des Browsers usw. Es ist ein äußerst beschäftigter Codeblock, und Ihr Haupt-JavaScript-Code kann genau in diesem Thread zusammen mit all dem ausgeführt werden. Sicherlich wird der meiste, wenn nicht sogar der ganze Code, der in der Lage ist, Änderungen am DOM vorzunehmen, im Haupt-Thread ausgeführt, da Änderungen an der Benutzeroberfläche normalerweise nur im Haupt-Thread verfügbar sind.
 
-Da Ereignisverarbeitung und Bildschirmaktualisierungen zwei der offensichtlichsten Möglichkeiten sind, wie Nutzer Leistungsprobleme bemerken, ist es wichtig, dass Ihr Code ein guter Webbürger ist und dazu beiträgt, Verzögerungen bei der Ausführung der Ereignisschleife zu verhindern. Bisher gab es keine Möglichkeit, dies zuverlässig zu tun, außer durch das Schreiben von Code, der so effizient wie möglich ist, und durch das Auslagern von so viel Arbeit wie möglich an [workers](/de/docs/Web/API/Web_Workers_API). [`Window.requestIdleCallback()`](/de/docs/Web/API/Window/requestIdleCallback) ermöglicht es, aktiv daran teilzunehmen, dass die Ereignisschleife des Browsers reibungslos läuft, indem der Browser Ihrem Code mitteilt, wie viel Zeit er sicher nutzen kann, ohne das System zum Verlangsamen zu bringen. Wenn Sie innerhalb des vorgegebenen Limits bleiben, können Sie die Benutzererfahrung erheblich verbessern.
+Da die Ereignisverarbeitung und Bildschirmaktualisierungen zwei der offensichtlichsten Wege sind, wie Benutzer Leistungsprobleme bemerken, ist es wichtig, dass Ihr Code ein guter Web-Bürger ist und dazu beiträgt, Verzögerungen in der Ausführung der Ereignisschleife zu verhindern. Bisher gab es keine Möglichkeit, dies zuverlässig zu tun, außer durch das Schreiben von so effizienten Code wie möglich und durch das Auslagern von so viel Arbeit wie möglich an [Workers](/de/docs/Web/API/Web_Workers_API). [`Window.requestIdleCallback()`](/de/docs/Web/API/Window/requestIdleCallback) ermöglicht es, aktiv dazu beizutragen, dass die Ereignisschleife des Browsers reibungslos läuft, indem der Browser Ihrem Code mitteilen kann, wie viel Zeit er sicher verwenden kann, ohne das System zu verlangsamen. Wenn Sie sich an das gegebene Limit halten, können Sie die Benutzererfahrung erheblich verbessern.
 
-### Das Beste aus Leerlaufrückrufen herausholen
+### Das Beste aus Leerlauf-Rückrufen herausholen
 
-Da Leerlaufrückrufe dazu vorgesehen sind, Ihrem Code eine Möglichkeit zu geben, mit der Ereignisschleife zu kooperieren, um sicherzustellen, dass das System ohne Überlastung optimal genutzt wird, was zu Verzögerungen oder anderen Leistungsproblemen führt, sollten Sie überlegen, wie Sie diese verwenden.
+Da Leerlauf-Rückrufe dazu gedacht sind, Ihrem Code eine Möglichkeit zu geben, mit der Ereignisschleife zu kooperieren, um sicherzustellen, dass das System optimal genutzt wird, ohne es zu überlasten, was in einer Verzögerung oder anderen Leistungsproblemen resultiert, sollten Sie sorgfältig überlegen, wie Sie sie verwenden.
 
-- **Verwenden Sie Leerlaufrückrufe für Aufgaben, die keine hohe Priorität haben.** Da Sie nicht wissen, wie viele Rückrufe eingerichtet wurden und wie ausgelastet das System des Nutzers ist, wissen Sie nicht, wie oft Ihr Rückruf ausgeführt wird (es sei denn, Sie spezifizieren einen `timeout`). Es gibt keine Garantie, dass jeder Durchlauf durch die Ereignisschleife (oder sogar jeder Bildschirmaktualisierungszyklus) Leerlaufrückrufe umfasst; wenn die Ereignisschleife die gesamte verfügbare Zeit verwendet, haben Sie Pech (es sei denn, Sie haben einen `timeout` verwendet).
-- **Leerlaufrückrufe sollten ihr Bestes tun, um die zugewiesene Zeit nicht zu überziehen.** Während der Browser, Ihr Code und das Web im Allgemeinen normal weiterlaufen, wenn Sie die vorgegebene Zeitgrenze überschreiten (selbst wenn Sie _weit_ darüber hinausgehen), dient die Zeitbeschränkung dazu, sicherzustellen, dass Sie dem System genug Zeit lassen, um den aktuellen Durchgang der Ereignisschleife abzuschließen und den nächsten zu beginnen, ohne dass anderer Code ins Stocken gerät oder Animationseffekte verzögert werden. Derzeit hat [`timeRemaining()`](/de/docs/Web/API/IdleDeadline/timeRemaining) ein oberes Limit von 50 Millisekunden, aber in der Realität haben Sie oft weniger Zeit als das, da die Ereignisschleife bereits in diese Zeit hineinfrisst bei komplexen Seiten, mit Browser-Erweiterungen, die Zeit beanspruchen, und so weiter.
-- **Vermeiden Sie Änderungen am DOM innerhalb Ihres Leerlaufrückrufs.** Wenn Ihr Rückruf ausgeführt wird, ist der aktuelle Frame bereits gezeichnet und alle Layout-Updates und Berechnungen sind abgeschlossen. Wenn Sie Änderungen vornehmen, die das Layout beeinflussen, könnten Sie eine Situation erzwingen, in der der Browser anhalten und Neuberechnungen durchführen muss, die ansonsten nicht notwendig wären. Wenn Ihr Rückruf das DOM ändern muss, sollte er [`Window.requestAnimationFrame()`](/de/docs/Web/API/Window/requestAnimationFrame) verwenden, um dies einzuplanen.
-- **Vermeiden Sie Aufgaben, deren Ausführungszeit nicht vorhersehbar ist.** Ihr Leerlaufrückruf sollte vermeiden, irgendetwas zu tun, das eine unvorhersehbare Zeit dauern könnte. Zum Beispiel sollte alles, was das Layout beeinflussen könnte, vermieden werden. Sie sollten auch vermeiden, {{jsxref("Promise")}}s aufzulösen oder abzulehnen, da dies den Handler für die Auflösung oder Ablehnung dieses Versprechens unmittelbar nach der Rückkehr Ihres Rückrufs aufrufen würde.
-- **Verwenden Sie Zeitlimits, wenn Sie es müssen, aber nur dann.** Die Verwendung von Zeitlimits kann sicherstellen, dass Ihr Code rechtzeitig ausgeführt wird, aber es kann Ihnen auch ermöglichen, Verzögerungen oder Animationsstörungen zu verursachen, indem Sie den Browser dazu zwingen, Sie aufzurufen, wenn nicht mehr genügend Zeit vorhanden ist, um ohne Beeinträchtigung der Leistung zu laufen.
+- **Verwenden Sie Leerlauf-Rückrufe für Aufgaben mit geringer Priorität.** Da Sie nicht wissen, wie viele Rückrufe eingerichtet wurden, und Sie nicht wissen, wie beschäftigt das System des Benutzers ist, wissen Sie nicht, wie oft Ihr Rückruf ausgeführt wird (es sei denn, Sie geben einen `timeout` an). Es gibt keine Garantie, dass jeder Durchlauf durch die Ereignisschleife (oder sogar jeder Bildschirmaktualisierungszyklus) irgendwelche Leerlauf-Rückrufe enthält; wenn die Ereignisschleife die gesamte verfügbare Zeit verwendet, haben Sie Pech (nochmals, es sei denn, Sie haben einen `timeout` verwendet).
+- **Leerlauf-Rückrufe sollten ihr Bestes tun, um die zugeteilte Zeit nicht zu überschreiten.** Während der Browser, Ihr Code und das Web im Allgemeinen normal weiterlaufen, wenn Sie das festgelegte Zeitlimit überschreiten (auch wenn Sie _weit_ darüber gehen), ist die Zeitbeschränkung dazu gedacht, sicherzustellen, dass Sie dem System genug Zeit lassen, um den aktuellen Durchlauf der Ereignisschleife zu beenden und zum nächsten zu gelangen, ohne dass anderer Code ins Stocken gerät oder Animationseffekte verzögern. Derzeit hat [`timeRemaining()`](/de/docs/Web/API/IdleDeadline/timeRemaining) eine Obergrenze von 50 Millisekunden, aber in Wirklichkeit werden Sie oft weniger Zeit haben, da die Ereignisschleife diese Zeit auf komplexen Websites bereits auffressen kann und Browsererweiterungen Prozessorzeit benötigen usw.
+- **Vermeiden Sie Änderungen am DOM innerhalb Ihres Leerlauf-Rückrufs.** Wenn Ihr Rückruf ausgeführt wird, ist der aktuelle Frame bereits gezeichnet und alle Layout-Updates und Berechnungen sind abgeschlossen. Wenn Sie Änderungen vornehmen, die sich auf das Layout auswirken, könnten Sie eine Situation erzwingen, in der der Browser anhalten und Neuberechnungen durchführen muss, die sonst unnötig wären. Wenn Ihr Rückruf das DOM ändern muss, sollte er [`Window.requestAnimationFrame()`](/de/docs/Web/API/Window/requestAnimationFrame) verwenden, um es zu planen.
+- **Vermeiden Sie Aufgaben, deren Laufzeit nicht vorhersehbar ist.** Ihr Leerlauf-Rückruf sollte vermeiden, irgendetwas zu tun, das eine unvorhersehbare Zeit in Anspruch nehmen könnte. Zum Beispiel sollte alles vermieden werden, was das Layout beeinflussen könnte. Sie sollten auch das Auflösen oder Ablehnen von {{jsxref("Promise")}}s vermeiden, da dies den Handler für die Erfüllung oder Ablehnung des Versprechens aufrufen würde, sobald Ihr Rückruf zurückkehrt.
+- **Verwenden Sie nur dann Timeouts, wenn es notwendig ist.** Die Verwendung von Timeouts kann sicherstellen, dass Ihr Code rechtzeitig ausgeführt wird, aber es kann auch zulassen, dass Sie Verzögerungen oder Animationsruckler verursachen, indem Sie dem Browser vorschreiben, Sie aufzurufen, wenn nicht genügend Zeit übrig ist, damit Sie ohne Leistungsunterbrechungen laufen können.
 
 ## Schnittstellen
 
-Die Hintergrundaufgaben-API fügt nur eine neue Schnittstelle hinzu:
+Die Hintergrundaufgaben-API fügt nur ein neues Interface hinzu:
 
 - [`IdleDeadline`](/de/docs/Web/API/IdleDeadline)
-  - : Ein Objekt dieses Typs wird an den Leerlaufrückruf weitergegeben und liefert eine Schätzung, wie lange die Leerlaufperiode voraussichtlich dauern wird, sowie ob der Rückruf ausgeführt wird, weil seine Timeout-Periode abgelaufen ist.
+  - : Ein Objekt dieses Typs wird an den Leerlauf-Rückruf übergeben, um eine Schätzung darüber abzugeben, wie lange die Leerlaufperiode voraussichtlich dauern wird, sowie ob der Rückruf läuft, weil seine Timeout-Periode abgelaufen ist.
 
 Die [`Window`](/de/docs/Web/API/Window)-Schnittstelle wird auch durch diese API erweitert, um die neuen Methoden [`requestIdleCallback()`](/de/docs/Web/API/Window/requestIdleCallback) und [`cancelIdleCallback()`](/de/docs/Web/API/Window/cancelIdleCallback) anzubieten.
 
 ## Beispiel
 
-In diesem Beispiel schauen wir uns an, wie Sie [`requestIdleCallback()`](/de/docs/Web/API/Window/requestIdleCallback) verwenden können, um zeitaufwändige, niederrangige Aufgaben während der Zeit auszuführen, in der der Browser ansonsten im Leerlauf wäre. Darüber hinaus demonstriert dieses Beispiel, wie Sie Updates an den Dokumentinhalt mit [`requestAnimationFrame()`](/de/docs/Web/API/Window/requestAnimationFrame) planen können.
+In diesem Beispiel schauen wir uns an, wie Sie [`requestIdleCallback()`](/de/docs/Web/API/Window/requestIdleCallback) verwenden können, um zeitaufwändige, niedrig priorisierte Aufgaben während der Zeit auszuführen, in der der Browser sonst im Leerlauf wäre. Darüber hinaus demonstriert dieses Beispiel, wie Dokumenteninhalt-Updates mit [`requestAnimationFrame()`](/de/docs/Web/API/Window/requestAnimationFrame) geplant werden.
 
-Im Folgenden finden Sie nur das HTML und JavaScript für dieses Beispiel. Das CSS wird nicht gezeigt, da es nicht besonders entscheidend für das Verständnis dieser Funktionalität ist.
+Nachfolgend finden Sie nur das HTML und JavaScript für dieses Beispiel. Das CSS wird nicht angezeigt, da es nicht besonders wichtig für das Verständnis dieser Funktionalität ist.
 
 ### HTML
 
-Um zu verstehen, was wir erreichen wollen, werfen wir einen Blick auf das HTML. Dies erstellt ein Feld (`id="container"`), das verwendet wird, um den Fortschritt einer Operation darzustellen (weil man ja nie weiß, wie lange das Dekodieren von "Quantenfilament-Tachyon-Emissionen" dauern wird), sowie ein zweites Hauptfeld (`id="logBox"`), das zur Anzeige von Textausgaben dient.
+Um sich darüber zu orientieren, was wir erreichen möchten, schauen wir uns das HTML an. Dies etabliert ein Feld (`id="container"`), das den Fortschritt einer Operation präsentiert (da Sie ja nie wissen, wie lange das Dekodieren von "Quantenfilament-Tachyonemissionen" dauert), sowie ein zweites Hauptfeld (`id="logBox"`), das zur Anzeige von Textausgaben verwendet wird.
 
 ```html
 <p>
@@ -72,7 +72,7 @@ Um zu verstehen, was wir erreichen wollen, werfen wir einen Blick auf das HTML. 
 </div>
 ```
 
-Das Fortschrittsfeld verwendet ein {{HTMLElement("progress")}}-Element, um den Fortschritt zu zeigen, zusammen mit einem Label mit Abschnitten, die geändert werden, um numerische Informationen über den Fortschritt darzustellen. Darüber hinaus gibt es einen "Start"-Button (kreativ mit der ID "startButton" versehen), den der Benutzer verwendet, um die Datenverarbeitung zu starten.
+Das Fortschrittsfeld verwendet ein {{HTMLElement("progress")}}-Element, um den Fortschritt anzuzeigen, zusammen mit einem Etikett mit Abschnitten, die geändert werden, um numerische Informationen über den Fortschritt zu präsentieren. Darüber hinaus gibt es einen "Start"-Button (kreativ mit der ID "startButton" versehen), den der Benutzer zum Starten der Datenverarbeitung verwenden wird.
 
 ```css hidden
 body {
@@ -151,7 +151,7 @@ body {
 
 ### JavaScript
 
-Jetzt, da die Dokumentenstruktur definiert ist, konstruieren Sie den JavaScript-Code, der die Arbeit übernehmen wird. Das Ziel: in der Lage sein, Anfragen zu stellen, um Funktionen in einer Warteschlange aufzurufen, mit einem Leerlaufrückruf, der diese Funktionen ausführt, wann immer das System lange genug im Leerlauf ist, um Fortschritte zu machen.
+Nun, da die Dokumentstruktur definiert ist, konstruieren wir den JavaScript-Code, der die Arbeit erledigen wird. Ziel: Anfragen zu Funktionen in eine Warteschlange stellen, die durch einen Leerlauf-Rückruf ausgeführt werden, wenn das System länger genug im Leerlauf ist, um Fortschritte zu machen.
 
 #### Variablendeklarationen
 
@@ -162,12 +162,12 @@ let currentTaskNumber = 0;
 let taskHandle = null;
 ```
 
-Diese Variablen werden verwendet, um die Liste der Aufgaben zu verwalten, die auf die Ausführung warten, sowie Statusinformationen über die Aufgabenwarteschlange und deren Ausführung:
+Diese Variablen werden verwendet, um die Liste der zu erledigenden Aufgaben zu verwalten, sowie Statusinformationen über die Aufgabenwarteschlange und deren Ausführung:
 
-- `taskList` ist ein {{jsxref("Array")}} von Objekten, die jeweils eine Aufgabe repräsentieren, die ausgeführt werden soll.
-- `totalTaskCount` ist ein Zähler für die Anzahl der Aufgaben, die zur Warteschlange hinzugefügt wurden; er wird nur nach oben gehen, niemals nach unten. Wir verwenden dies, um die Mathematik zu betreiben, um den Fortschritt als Prozentsatz der zu erledigenden Gesamtarbeit darzustellen.
+- `taskList` ist ein {{jsxref("Array")}} von Objekten, wobei jedes eine Aufgabe darstellt, die auf die Ausführung wartet.
+- `totalTaskCount` ist ein Zähler für die Anzahl der Aufgaben, die zur Warteschlange hinzugefügt wurden; er wird nur steigen, niemals sinken. Wir verwenden dies, um die Berechnung des Fortschritts als Prozentsatz der gesamten zu erledigenden Arbeit zu berechnen.
 - `currentTaskNumber` wird verwendet, um zu verfolgen, wie viele Aufgaben bisher bearbeitet wurden.
-- `taskHandle` ist eine Referenz auf die Aufgabe, die gerade bearbeitet wird.
+- `taskHandle` ist eine Referenz auf die aktuell bearbeitete Aufgabe.
 
 ```js
 const totalTaskCountElem = document.getElementById("totalTaskCount");
@@ -179,11 +179,11 @@ const logElem = document.getElementById("log");
 
 Als Nächstes haben wir Variablen, die auf die DOM-Elemente verweisen, mit denen wir interagieren müssen. Diese Elemente sind:
 
-- `totalTaskCountElem` ist das {{HTMLElement("span")}}, das wir verwenden, um die Gesamtzahl der erstellten Aufgaben in die Statusanzeige im Fortschrittsfeld einzufügen.
+- `totalTaskCountElem` ist das {{HTMLElement("span")}}-Element, das wir verwenden, um die Gesamtzahl der erstellten Aufgaben in die Statusanzeige im Fortschrittsfeld einzufügen.
 - `currentTaskNumberElem` ist das Element, das die Anzahl der bisher bearbeiteten Aufgaben anzeigt.
 - `progressBarElem` ist das {{HTMLElement("progress")}}-Element, das den Prozentsatz der bisher bearbeiteten Aufgaben anzeigt.
-- `startButtonElem` ist der Startknopf.
-- `logElem` ist das {{HTMLElement("div")}}, in das wir protokollierte Textnachrichten einfügen.
+- `startButtonElem` ist der Start-Button.
+- `logElem` ist das {{HTMLElement("div")}}, in das wir geloggte Textnachrichten einfügen.
 
 ```js
 let logFragment = null;
@@ -192,39 +192,35 @@ let statusRefreshScheduled = false;
 
 Schließlich richten wir ein paar Variablen für andere Elemente ein:
 
-- `logFragment` wird verwendet, um ein [`DocumentFragment`](/de/docs/Web/API/DocumentFragment) zu speichern, das von unseren Protokollierungsfunktionen generiert wird, um Inhalte zu erstellen, die in das Protokoll eingefügt werden sollen, wenn der nächste Animationsframe gerendert wird.
-- `statusRefreshScheduled` wird verwendet, um zu verfolgen, ob wir bereits ein Update des Statusanzeigefelds für den kommenden Frame eingeplant haben, damit wir es nur einmal pro Frame tun
+- `logFragment` wird verwendet, um ein [`DocumentFragment`](/de/docs/Web/API/DocumentFragment) zu speichern, das von unseren Logging-Funktionen generiert wird, um einfügebare Inhalte zu erstellen, die dem Log hinzugefügt werden können, wenn der nächste Frame gerendert wird.
+- `statusRefreshScheduled` wird verwendet, um zu verfolgen, ob wir bereits ein Update der Statusanzeigebox für den bevorstehenden Frame geplant haben, damit wir es nur einmal pro Frame tun.
 
 ```js hidden
-requestIdleCallback =
-  requestIdleCallback ||
-  ((handler) => {
-    const startTime = Date.now();
+window.requestIdleCallback ||= (handler) => {
+  const startTime = Date.now();
 
-    return setTimeout(() => {
-      handler({
-        didTimeout: false,
-        timeRemaining() {
-          return Math.max(0, 50.0 - (Date.now() - startTime));
-        },
-      });
-    }, 1);
-  });
+  return setTimeout(() => {
+    handler({
+      didTimeout: false,
+      timeRemaining() {
+        return Math.max(0, 50.0 - (Date.now() - startTime));
+      },
+    });
+  }, 1);
+};
 
-cancelIdleCallback =
-  cancelIdleCallback ||
-  ((id) => {
-    clearTimeout(id);
-  });
+window.cancelIdleCallback ||= (id) => {
+  clearTimeout(id);
+};
 ```
 
 #### Verwaltung der Aufgabenwarteschlange
 
-Als Nächstes schauen wir uns die Art und Weise an, wie wir die Aufgaben verwalten, die ausgeführt werden müssen. Wir werden dies tun, indem wir eine FIFO-Warteschlange von Aufgaben erstellen, die wir während der Leerlaufrückrufperiode ausführen, soweit die Zeit dies zulässt.
+Als Nächstes schauen wir uns an, wie wir die Aufgaben verwalten, die erledigt werden müssen. Wir werden dies tun, indem wir eine FIFO-Warteschlange von Aufgaben erstellen, die wir während des Leerlauf-Rückrufzeitraums ausführen, wenn Zeit vorhanden ist.
 
-##### Aufgaben in die Warteschlange einreihen
+##### Aufgaben in die Warteschlange stellen
 
-Zuerst brauchen wir eine Funktion, die Aufgaben zur späteren Ausführung in die Warteschlange einreiht. Diese Funktion, `enqueueTask()`, sieht folgendermaßen aus:
+Zuerst benötigen wir eine Funktion, die Aufgaben für die zukünftige Ausführung in die Warteschlange stellt. Diese Funktion, `enqueueTask()`, sieht folgendermaßen aus:
 
 ```js
 function enqueueTask(taskHandler, taskData) {
@@ -235,26 +231,24 @@ function enqueueTask(taskHandler, taskData) {
 
   totalTaskCount++;
 
-  if (!taskHandle) {
-    taskHandle = requestIdleCallback(runTaskQueue, { timeout: 1000 });
-  }
+  taskHandle ||= requestIdleCallback(runTaskQueue, { timeout: 1000 });
 
   scheduleStatusRefresh();
 }
 ```
 
-`enqueueTask()` akzeptiert als Eingabe zwei Parameter:
+`enqueueTask()` akzeptiert zwei Parameter als Eingabe:
 
 - `taskHandler` ist eine Funktion, die aufgerufen wird, um die Aufgabe zu bearbeiten.
-- `taskData` ist ein Objekt, das als Eingabeparameter in den Aufgaben-Handler übergeben wird, damit die Aufgabe benutzerspezifische Daten erhalten kann.
+- `taskData` ist ein Objekt, das dem Aufgaben-Handler als Eingabeparameter übergeben wird, um der Aufgabe das Empfangen von benutzerdefinierten Daten zu ermöglichen.
 
-Um die Aufgabe in die Warteschlange einzureihen, [fügen wir ein Objekt in das `taskList`-Array ein](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/push); das Objekt enthält die Werte `taskHandler` und `taskData` unter den Namen `handler` und `data`, und wir erhöhen `totalTaskCount`, das die Gesamtanzahl der jemals in die Warteschlange eingefügten Aufgaben widerspiegelt (wir verringern diesen Wert nicht, wenn Aufgaben aus der Warteschlange entfernt werden).
+Um die Aufgabe in die Warteschlange zu stellen, fügen wir ein Objekt an das `taskList`-Array an, das die `taskHandler`- und `taskData`-Werte unter den Namen `handler` bzw. `data` enthält, und erhöhen dann `totalTaskCount`, das die Gesamtzahl der jemals in die Warteschlange gestellten Aufgaben widerspiegelt (wir verringern es nicht, wenn Aufgaben aus der Warteschlange entfernt werden).
 
-Als nächstes überprüfen wir, ob wir bereits einen Leerlaufrückruf erstellt haben; wenn `taskHandle` 0 ist, wissen wir, dass noch kein Leerlaufrückruf vorhanden ist, also rufen wir [`requestIdleCallback()`](/de/docs/Web/API/Window/requestIdleCallback) auf, um einen zu erstellen. Er ist so konfiguriert, dass er eine Funktion namens `runTaskQueue()` aufruft, die wir uns gleich ansehen werden, und mit einem `timeout` von 1 Sekunde, damit er mindestens einmal pro Sekunde ausgeführt wird, auch wenn nicht wirklich Leerlaufzeit verfügbar ist.
+Als Nächstes überprüfen wir, ob bereits ein Leerlauf-Rückruf erstellt wurde; wenn `taskHandle` 0 ist, wissen wir, dass noch kein Leerlauf-Rückruf vorhanden ist, sodass wir [`requestIdleCallback()`](/de/docs/Web/API/Window/requestIdleCallback) aufrufen, um einen zu erstellen. Dieser ist so konfiguriert, dass er eine Funktion namens `runTaskQueue()` aufruft, die wir uns gleich ansehen werden, mit einem `timeout` von 1 Sekunde, sodass er mindestens einmal pro Sekunde ausgeführt wird, selbst wenn keine tatsächliche Leerlaufzeit verfügbar ist.
 
 ##### Aufgaben ausführen
 
-Unser Leerlaufrückruf-Handler, `runTaskQueue()`, wird aufgerufen, wenn der Browser feststellt, dass genug Leerlaufzeit verfügbar ist, um uns etwas Arbeit machen zu lassen oder unser Timeout von einer Sekunde abläuft. Diese Funktion hat die Aufgabe, unsere in die Warteschlange gestellten Aufgaben auszuführen.
+Unser Leerlauf-Rückruf-Handler, `runTaskQueue()`, wird aufgerufen, wenn der Browser feststellt, dass genügend Leerlaufzeit zur Verfügung steht, damit wir ein wenig Arbeit erledigen können, oder unser Timeout von einer Sekunde überschreitet. Die Aufgabe dieser Funktion besteht darin, unsere in die Warteschlange gestellten Aufgaben auszuführen.
 
 ```js
 function runTaskQueue(deadline) {
@@ -277,24 +271,24 @@ function runTaskQueue(deadline) {
 }
 ```
 
-`runTaskQueue()`s Kern ist eine Schleife, die fortfährt, solange noch Zeit übrig ist (ermittelt durch die Prüfung von [`deadline.timeRemaining`](/de/docs/Web/API/IdleDeadline/timeRemaining)), um sicherzustellen, dass es mehr als 0 ist oder das Zeitlimit erreicht wurde ([`deadline.didTimeout`](/de/docs/Web/API/IdleDeadline/didTimeout) ist wahr), und solange Aufgaben in der Aufgabenliste vorhanden sind.
+Der Kern von `runTaskQueue()` ist eine Schleife, die so lange fortgesetzt wird, wie noch Zeit übrig ist (wie durch die Überprüfung von [`deadline.timeRemaining`](/de/docs/Web/API/IdleDeadline/timeRemaining) bestimmt), um sicherzugehen, dass diese mehr als 0 ist, oder wenn das Timeout-Limit erreicht wurde ([`deadline.didTimeout`](/de/docs/Web/API/IdleDeadline/didTimeout) ist wahr), und solange noch Aufgaben in der Aufgabenliste vorhanden sind.
 
 Für jede Aufgabe in der Warteschlange, die wir ausführen können, tun wir Folgendes:
 
 1. Wir [entfernen das Aufgabenobjekt aus der Warteschlange](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/shift).
-2. Wir erhöhen `currentTaskNumber`, um zu verfolgen, wie viele Aufgaben wir ausgeführt haben.
-3. Wir rufen den Handler der Aufgabe auf, `task.handler`, und übergeben ihm das Datenobjekt der Aufgabe (`task.data`).
-4. Wir rufen eine Funktion `scheduleStatusRefresh()` auf, um die Planung eines Bildschirmupdates zur Aktualisierung der Fortschrittsanzeige zu bearbeiten.
+2. Wir erhöhen `currentTaskNumber`, um zu verfolgen, wie viele Aufgaben wir bisher ausgeführt haben.
+3. Wir rufen den Aufgaben-Handler der Aufgabe, `task.handler`, auf und übergeben dabei das Datenobjekt der Aufgabe (`task.data`).
+4. Wir rufen eine Funktion namens `scheduleStatusRefresh()` auf, um die Planung eines Bildschirms-Updates zur Aktualisierung unseres Fortschritts zu organisieren.
 
-Wenn die Zeit abläuft und noch Aufgaben in der Liste sind, rufen wir [`requestIdleCallback()`](/de/docs/Web/API/Window/requestIdleCallback) erneut auf, damit wir die Aufgaben fortsetzen können, sobald wieder Leerlaufzeit verfügbar ist. Wenn die Warteschlange leer ist, setzen wir `taskHandle` auf 0, um anzuzeigen, dass wir keinen Rückruf geplant haben. So wissen wir beim nächsten Aufruf von `enqueueTask()`, dass wir einen Rückruf anfordern müssen.
+Wenn die Zeit abläuft und noch Aufgaben in der Liste sind, rufen wir erneut [`requestIdleCallback()`](/de/docs/Web/API/Window/requestIdleCallback) auf, damit wir die Aufgaben fortsetzen können, die noch verfügbar sind, sobald es wieder Leerlaufzeit gibt. Wenn die Warteschlange leer ist, setzen wir den taskHandle auf 0, um anzuzeigen, dass wir keinen Rückruf geplant haben. Auf diese Weise wissen wir, dass wir beim nächsten Aufruf von `enqueueTask()` einen Rückruf anfordern müssen.
 
-#### Aktualisieren der Statusanzeige
+#### Aktualisierung der Statusanzeige
 
-Eine Sache, die wir tun wollen, ist, unser Dokument mit Protokollausgaben und Fortschrittsinformationen zu aktualisieren. Sie können jedoch das DOM nicht sicher innerhalb eines Leerlaufrückrufs ändern. Stattdessen verwenden wir [`requestAnimationFrame()`](/de/docs/Web/API/Window/requestAnimationFrame), um den Browser zu bitten, uns zu benachrichtigen, wenn es sicher ist, das Display zu aktualisieren.
+Eine Aufgabe, die wir ausführen müssen, ist die Aktualisierung unseres Dokuments mit Protokollausgaben und Fortschrittsinformationen. Da Sie das DOM nicht sicher innerhalb eines Leerlauf-Rückrufs ändern können, verwenden wir [`requestAnimationFrame()`](/de/docs/Web/API/Window/requestAnimationFrame), um den Browser zu bitten, uns anzurufen, wenn es sicher ist, die Anzeige zu aktualisieren.
 
-##### Anzeigeaktualisierungen planen
+##### Anzeigenaktualisierungen planen
 
-DOM-Änderungen werden durch den Aufruf der Funktion `scheduleStatusRefresh()` geplant.
+DOM-Änderungen werden geplant, indem die Funktion `scheduleStatusRefresh()` aufgerufen wird.
 
 ```js
 function scheduleStatusRefresh() {
@@ -305,11 +299,11 @@ function scheduleStatusRefresh() {
 }
 ```
 
-Dies ist eine einfache Funktion. Sie überprüft, ob wir bereits eine Anzeigeaktualisierung geplant haben, indem sie den Wert von `statusRefreshScheduled` überprüft. Wenn er `false` ist, rufen wir [`requestAnimationFrame()`](/de/docs/Web/API/Window/requestAnimationFrame) auf, um eine Aktualisierung zu planen, wobei wir die Funktion `updateDisplay()` zur Handhabung dieser Arbeit bereitstellen.
+Dies ist eine einfache Funktion. Sie überprüft, ob wir bereits ein Update der Anzeige geplant haben, indem sie den Wert von `statusRefreshScheduled` überprüft. Wenn er `false` ist, rufen wir [`requestAnimationFrame()`](/de/docs/Web/API/Window/requestAnimationFrame) auf, um ein Update zu planen, und geben dabei die Funktion `updateDisplay()` an, die diese Arbeit übernehmen soll.
 
 ##### Die Anzeige aktualisieren
 
-Die Funktion `updateDisplay()` ist verantwortlich für das Zeichnen der Inhalte des Fortschrittsfelds und des Protokolls. Sie wird vom Browser aufgerufen, wenn das DOM in einem sicheren Zustand ist, um während des Renderns des nächsten Frames Änderungen vorzunehmen.
+Die `updateDisplay()`-Funktion ist verantwortlich für das Zeichnen der Inhalte der Fortschrittsanzeige und des Protokolls. Sie wird vom Browser aufgerufen, wenn das DOM in einem sicheren Zustand ist, um Änderungen während des Prozesses zum Rendern des nächsten Frames anzuwenden.
 
 ```js
 function updateDisplay() {
@@ -341,44 +335,43 @@ function updateDisplay() {
 }
 ```
 
-Zuerst wird `scrolledToEnd` auf `true` gesetzt, wenn der Text im Protokoll bis zum Ende gescrollt ist; andernfalls wird er auf `false` gesetzt. Wir werden das verwenden, um zu bestimmen, ob wir die Scrollposition aktualisieren sollten, um sicherzustellen, dass das Protokoll am Ende bleibt, wenn wir mit dem Hinzufügen von Inhalten fertig sind.
+Zuerst wird `scrolledToEnd` auf `true` gesetzt, wenn der Text im Protokoll nach unten gescrollt ist; andernfalls wird es auf `false` gesetzt. Wir werden dies verwenden, um zu bestimmen, ob wir die Scrollposition aktualisieren sollten, um sicherzustellen, dass das Protokoll am Ende bleibt, wenn wir damit fertig sind, Inhalte hinzuzufügen.
 
-Als nächstes aktualisieren wir die Fortschritts- und Statusinformationen, wenn Aufgaben in die Warteschlange eingereiht wurden.
+Als Nächstes aktualisieren wir den Fortschritt und die Statusinformationen, wenn Aufgaben in die Warteschlange gestellt wurden.
 
-1. Wenn der aktuelle Maximalwert der Fortschrittsanzeige von der aktuellen Gesamtzahl der in die Warteschlange eingereihten Aufgaben (`totalTaskCount`) abweicht, aktualisieren wir den Inhalt der angezeigten Gesamtzahl der Aufgaben (`totalTaskCountElem`) und den Maximalwert der Fortschrittsleiste, damit sie richtig skaliert wird.
-2. Wir tun dasselbe mit der Anzahl der bisher verarbeiteten Aufgaben; wenn `progressBarElem.value` vom aktuell verarbeiteten Aufgabenanzahl (`currentTaskNumber`) abweicht, aktualisieren wir den angezeigten Wert der aktuell verarbeiteten Aufgabe und den aktuellen Wert der Fortschrittsleiste.
+1. Wenn der aktuelle Höchstwert der Fortschrittsanzeige anders als die aktuelle Gesamtzahl der in die Warteschlange gestellten Aufgaben (`totalTaskCount`) ist, aktualisieren wir den angezeigten Gesamtnummer der Aufgaben (`totalTaskCountElem`) und den Höchstwert der Fortschrittsanzeige, damit er richtig skaliert.
+2. Wir tun dasselbe mit der Anzahl der bisher bearbeiteten Aufgaben; wenn `progressBarElem.value` anders als die aktuell bearbeitete Aufgabe (`currentTaskNumber`) ist, aktualisieren wir den angezeigten Wert der aktuell bearbeiteten Aufgabe und den aktuellen Wert der Fortschrittsanzeige.
 
-Dann, wenn es Text gibt, der dem Protokoll hinzugefügt werden soll (das heißt, wenn `logFragment` nicht `null` ist), fügen wir ihn dem Protokollelement mit [`Element.appendChild()`](/de/docs/Web/API/Node/appendChild) hinzu und setzen `logFragment` auf `null`, damit wir es nicht nochmal hinzufügen.
+Dann, wenn Text darauf wartet, dem Protokoll hinzugefügt zu werden (d.h. wenn `logFragment` nicht `null` ist), fügen wir ihn dem Protokollelement mit [`Element.appendChild()`](/de/docs/Web/API/Node/appendChild) hinzu und setzen `logFragment` auf `null`, damit wir es nicht erneut hinzufügen.
 
-Wenn das Protokoll beim Start bis zum Ende gescrollt war, stellen wir sicher, dass es das immer noch ist. Dann setzen wir `statusRefreshScheduled` auf `false`, um anzuzeigen, dass wir die Aktualisierung bearbeitet haben und dass es sicher ist, eine neue anzufordern.
+Wenn das Protokoll zu Beginn nach unten gescrollt war, stellen wir sicher, dass es dies immer noch ist. Dann setzen wir `statusRefreshScheduled` auf `false`, um anzuzeigen, dass wir das Update verarbeitet haben und dass es sicher ist, ein neues anzufordern.
 
-#### Text dem Protokoll hinzufügen
+#### Text zum Protokoll hinzufügen
 
-Die Funktion `log()` fügt dem Protokoll den angegebenen Text hinzu. Da wir zum Zeitpunkt des Aufrufs von `log()` nicht wissen, ob es sicher ist, das DOM sofort zu berühren, werden wir den Protokolltext zwischenspeichern, bis es sicher ist, das Update vorzunehmen. Oben, im Code für `updateDisplay()`, finden Sie den Code, der den geloggten Text tatsächlich dem Protokollelement hinzufügt, wenn der Animationsframe aktualisiert wird.
+Die `log()`-Funktion fügt den angegebenen Text dem Protokoll hinzu. Da wir zum Zeitpunkt des Aufrufs von `log()` nicht wissen, ob es sicher ist, das DOM sofort zu berühren, werden wir den Protokolltext zwischenspeichern, bis es sicher ist, das Update durchzuführen. Oben, im Code für `updateDisplay()`, finden Sie den Code, der tatsächlich den geloggten Text zum Protokollelement hinzufügt, wenn der Animationsrahmen aktualisiert wird.
 
 ```js
 function log(text) {
-  if (!logFragment) {
-    logFragment = document.createDocumentFragment();
-  }
-
+  logFragment ??= document.createDocumentFragment();
   const el = document.createElement("div");
   el.textContent = text;
   logFragment.appendChild(el);
 }
 ```
 
-Zuerst erstellen wir ein [`DocumentFragment`](/de/docs/Web/API/DocumentFragment)-Objekt namens `logFragment`, falls noch keines existiert. Dieses Element ist ein Pseudo-DOM, in das wir Elemente einfügen können, ohne sofort das Haupt-DOM selbst zu ändern.
+Zuerst erstellen wir ein [`DocumentFragment`](/de/docs/Web/API/DocumentFragment)-Objekt namens `logFragment`, falls aktuell noch keines existiert. Dieses Element ist ein Pseudo-DOM, in das wir Elemente einfügen können, ohne das Haupt-DOM selbst sofort zu ändern.
 
-Dann erstellen wir ein neues {{HTMLElement("div")}}-Element und setzen dessen Inhalt, um dem Eingabe-`text` zu entsprechen. Anschließend fügen wir das neue Element an das Ende des Pseudo-DOM in `logFragment` an. `logFragment` wird Protokolleinträge bis zum nächsten Aufruf von `updateDisplay()` anhäufen, sobald das DOM bereit für die Änderungen ist.
+Dann erstellen wir ein neues {{HTMLElement("div")}}-Element und setzen dessen Inhalt auf das eingegebene `text`.
+Anschließend fügen wir das neue Element an das Ende des Pseudo-DOM in `logFragment`.
+`logFragment` wird Protokolleinträge anhäufen, bis das nächste Mal `updateDisplay()` aufgerufen wird, sobald das DOM für die Änderungen bereit ist.
 
 ### Aufgaben ausführen
 
-Nun, da wir den Aufgabenverwaltungs- und Anzeigepflegecode erstellt haben, können wir tatsächlich anfangen, Code einzurichten, der Aufgaben zum Erledigen von Arbeit ausführt.
+Jetzt, da wir die Aufgabenverwaltung und die Anzeigeaktualisierungscode erstellt haben, können wir tatsächlich beginnen, Code einzurichten, um Aufgaben auszuführen, die Arbeit erledigen.
 
 #### Der Aufgaben-Handler
 
-Die Funktion, die wir als Aufgabenhandler verwenden werden - das heißt, die Funktion, die als Wert der `handler`-Eigenschaft des Aufgabenobjekts verwendet wird - ist `logTaskHandler()`. Es ist eine einfache Funktion, die für jede Aufgabe eine Reihe von Dingen in das Protokoll ausgibt. In Ihrer eigenen Anwendung würden Sie diesen Code durch die Aufgabe ersetzen, die Sie während der Leerlaufzeit durchführen möchten. Denken Sie einfach daran, dass alles, was Sie tun möchten, das das DOM verändert, über [`requestAnimationFrame()`](/de/docs/Web/API/Window/requestAnimationFrame) behandelt werden muss.
+Die Funktion, die wir als unseren Aufgaben-Handler verwenden werden - das heißt, die Funktion, die als der Wert der `handler`-Eigenschaft des Aufgabenobjekts verwendet wird - ist `logTaskHandler()`. Es ist eine einfache Funktion, die für jede Aufgabe eine Menge Ausgaben ins Protokoll ausgibt. In Ihrer eigenen Anwendung würden Sie diesen Code durch die Aufgabe ersetzen, die Sie während der Leerlaufzeit ausführen möchten. Denken Sie daran, dass alles, was Sie tun möchten, das das DOM ändert, über [`requestAnimationFrame()`](/de/docs/Web/API/Window/requestAnimationFrame) behandelt werden muss.
 
 ```js
 function logTaskHandler(data) {
@@ -392,7 +385,7 @@ function logTaskHandler(data) {
 
 #### Das Hauptprogramm
 
-Alles wird ausgelöst, wenn der Nutzer den Startknopf klickt, was dazu führt, dass die Funktion `decodeTechnoStuff()` aufgerufen wird.
+Alles wird ausgelöst, wenn der Benutzer auf die Schaltfläche "Start" klickt, was dazu führt, dass die Funktion `decodeTechnoStuff()` aufgerufen wird.
 
 ```js hidden
 function getRandomIntInclusive(min, max) {
@@ -425,20 +418,20 @@ document
   .addEventListener("click", decodeTechnoStuff, false);
 ```
 
-`decodeTechnoStuff()` beginnt mit dem Nullstellen der Werte `totalTaskCount` (die Anzahl der so far in die Warteschlange eingefügten Aufgaben) und `currentTaskNumber` (die gerade ausgeführte Aufgabe) und ruft dann `updateDisplay()` auf, um die Anzeige auf den Zustand "es ist noch nichts passiert" zurückzusetzen.
+`decodeTechnoStuff()` beginnt damit, die Werte von totalTaskCount (die Anzahl der Aufgaben, die bisher zur Warteschlange hinzugefügt wurden) und currentTaskNumber (die aktuell ausgeführte Aufgabe) auf null zu setzen und anschließend `updateDisplay()` aufzurufen, um die Anzeige in ihren "nichts ist bisher passiert" Zustand zurückzusetzen.
 
-In diesem Beispiel wird eine zufällige Anzahl von Aufgaben (zwischen 100 und 200) erstellt. Dazu verwenden wir die in der Dokumentation zu {{jsxref("Math.random()")}} bereitgestellte Funktion [`getRandomIntInclusive()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Math/random#getting_a_random_integer_between_two_values_inclusive), um die Anzahl der zu erstellenden Aufgaben zu erhalten.
+Dieses Beispiel wird eine zufällige Anzahl von Aufgaben erstellen (zwischen 100 und 200 davon). Dazu verwenden wir die [`getRandomIntInclusive()`-Funktion](/de/docs/Web/JavaScript/Reference/Global_Objects/Math/random#getting_a_random_integer_between_two_values_inclusive), das als Beispiel in der Dokumentation für {{jsxref("Math.random()")}} bereitgestellt wird, um die Anzahl der zu erstellenden Aufgaben zu erhalten.
 
-Dann starten wir eine Schleife, um die tatsächlichen Aufgaben zu erstellen. Für jede Aufgabe erstellen wir ein Objekt, `taskData`, das zwei Attribute beinhaltet:
+Dann starten wir eine Schleife, um die tatsächlichen Aufgaben zu erstellen. Für jede Aufgabe erstellen wir ein Objekt, `taskData`, das zwei Eigenschaften umfasst:
 
-- `count` ist die Anzahl der Zeichenfolgen, die die Aufgabe in das Protokoll ausgeben soll.
-- `text` ist der Text, der die Anzahl der in `count` angegebenen Male in das Protokoll ausgegeben werden soll.
+- `count` ist die Anzahl der Zeichenketten, die von der Aufgabe ins Protokoll ausgegeben werden sollen.
+- `text` ist der Text, der so oft wie durch `count` angegeben ins Protokoll ausgegeben werden soll.
 
-Jede Aufgabe wird dann durch den Aufruf von `enqueueTask()`, wobei `logTaskHandler()` als Handlerfunktion und das `taskData`-Objekt als das an die Funktion zu übergebende Objekt angegeben wird, in die Warteschlange gestellt.
+Jede Aufgabe wird dann durch Aufruf von `enqueueTask()` in die Warteschlange gestellt, wobei wir `logTaskHandler()` als Handler-Funktion und das `taskData`-Objekt als Objekt übergeben, das der Funktion bei ihrem Aufruf übergeben wird.
 
 ### Ergebnis
 
-Unten ist das tatsächliche funktionierende Ergebnis des obigen Codes. Probieren Sie es aus, experimentieren Sie damit in den Entwicklerwerkzeugen Ihres Browsers und experimentieren Sie mit dem Einsatz in Ihrem eigenen Code.
+Unten ist das tatsächlich funktionierende Ergebnis des oben gezeigten Codes. Probieren Sie es aus, spielen Sie damit in den Entwicklertools Ihres Browsers und experimentieren Sie mit der Verwendung in Ihrem eigenen Code.
 
 {{ EmbedLiveSample('Example', 600, 700) }}
 

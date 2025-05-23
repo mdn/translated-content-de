@@ -1,26 +1,27 @@
 ---
-title: Attribution-Reporting-Eligible
+title: Attribution-Reporting-Eligible header
+short-title: Attribution-Reporting-Eligible
 slug: Web/HTTP/Reference/Headers/Attribution-Reporting-Eligible
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: ee756fd51ccbc4820a4b334aa753648650ad1d51
 ---
 
 {{HTTPSidebar}}{{SeeCompatTable}}
 
-Der HTTP **`Attribution-Reporting-Eligible`** {{Glossary("request_header", "Anforderungs-Header")}} zeigt an, dass die entsprechende Antwort berechtigt ist, eine Attributionsquelle oder einen Auslöser zu registrieren.
+Der HTTP-**`Attribution-Reporting-Eligible`**-{{Glossary("request_header", "Request-Header")}} zeigt an, dass die entsprechende Antwort berechtigt ist, eine Attributionsquelle oder einen Trigger zu registrieren.
 
-Dieser Header wird nie manuell gesetzt, sondern vom Browser als Antwort auf verschiedene HTML-Element- oder JavaScript-Anforderungseinstellungen gesendet. Abhängig von den erlaubten Registrierungen, die im Wert von `Attribution-Reporting-Eligible` angegeben sind, wird erwartet, dass der Server entweder mit einem {{HTTPHeader("Attribution-Reporting-Register-Source")}}- oder {{HTTPHeader("Attribution-Reporting-Register-Trigger")}}-Header antwortet, um die Registrierung einer Attributionsquelle beziehungsweise eines Auslösers abzuschließen.
+Dieser Header wird niemals manuell gesetzt, sondern vom Browser als Reaktion auf verschiedene HTML-Element- oder JavaScript-Anforderungseinstellungen gesendet. Abhängig von den in dem Wert von `Attribution-Reporting-Eligible` angegebenen zulässigen Registrierungen wird erwartet, dass der Server entweder mit einem {{HTTPHeader("Attribution-Reporting-Register-Source")}} oder {{HTTPHeader("Attribution-Reporting-Register-Trigger")}} Header antwortet, um die Registrierung einer Attributionsquelle bzw. eines Triggers abzuschließen.
 
-Weitere Details finden Sie in der [Attribution Reporting API](/de/docs/Web/API/Attribution_Reporting_API).
+Siehe die [Attribution Reporting API](/de/docs/Web/API/Attribution_Reporting_API) für mehr Details.
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>{{Glossary("Request_header", "Anforderungs-Header")}}</td>
+      <td>{{Glossary("Request_header", "Request-Header")}}</td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Forbidden_request_header", "Verbotener Anforderungs-Header")}}</th>
+      <th scope="row">{{Glossary("Forbidden_request_header", "Verbotener Request-Header")}}</th>
       <td>Nein</td>
     </tr>
   </tbody>
@@ -35,15 +36,15 @@ Attribution-Reporting-Eligible: <allowed-registrations>
 ## Direktiven
 
 - `<allowed-registrations>`
-  - : Ein strukturiertes Header-Wörterbuch, das die in der entsprechenden Antwort erlaubten Registrierungen darstellt. Mögliche Schlüssel sind:
+  - : Ein strukturiertes Header-Dictionary, das die in der entsprechenden Antwort zulässigen Registrierungen darstellt. Mögliche Schlüssel sind:
     - `event-source`
       - : Eine [ereignisbasierte Attributionsquelle](/de/docs/Web/API/Attribution_Reporting_API/Registering_sources#event-based_attribution_sources) kann registriert werden.
     - `navigation-source`
       - : Eine [navigationsbasierte Attributionsquelle](/de/docs/Web/API/Attribution_Reporting_API/Registering_sources#navigation-based_attribution_sources) kann registriert werden.
     - `trigger`
-      - : Ein [Attributionsauslöser](/de/docs/Web/API/Attribution_Reporting_API/Registering_triggers) kann registriert werden.
+      - : Ein [Attribution Trigger](/de/docs/Web/API/Attribution_Reporting_API/Registering_triggers) kann registriert werden.
 
-Jede Antwort in einer Umleitungskette kann höchstens eine Quelle oder einen Auslöser registrieren.
+Jede Antwort in einer Umleitungskette kann höchstens eine Quelle oder einen Trigger registrieren.
 
 ## Beispiele
 

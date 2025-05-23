@@ -1,17 +1,24 @@
 ---
-title: "Permissions-Policy: geolocation"
+title: "Permissions-Policy: geolocation directive"
+short-title: geolocation
 slug: Web/HTTP/Reference/Headers/Permissions-Policy/geolocation
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: ee756fd51ccbc4820a4b334aa753648650ad1d51
 ---
 
 {{HTTPSidebar}}{{SeeCompatTable}}
 
-Die HTTP-Direktive {{HTTPHeader("Permissions-Policy")}} `geolocation` steuert, ob das aktuelle Dokument die [`Geolocation`](/de/docs/Web/API/Geolocation)-Schnittstelle verwenden darf.
+Der HTTP-{{HTTPHeader("Permissions-Policy")}}-Header
+`geolocation`-Direktive steuert, ob das aktuelle Dokument die
+[`Geolocation`](/de/docs/Web/API/Geolocation)-Schnittstelle verwenden darf.
 
-Insbesondere wenn eine definierte Richtlinie die Nutzung dieser Funktion blockiert, führen Aufrufe von [`getCurrentPosition()`](/de/docs/Web/API/Geolocation/getCurrentPosition) und [`watchPosition()`](/de/docs/Web/API/Geolocation/watchPosition) dazu, dass die Rückruffunktionen mit einem [`GeolocationPositionError`](/de/docs/Web/API/GeolocationPositionError)-Code von `PERMISSION_DENIED` aufgerufen werden.
+Insbesondere, wenn eine definierte Richtlinie die Nutzung dieser Funktion blockiert, werden Aufrufe von
+[`getCurrentPosition()`](/de/docs/Web/API/Geolocation/getCurrentPosition) und
+[`watchPosition()`](/de/docs/Web/API/Geolocation/watchPosition) dazu führen, dass die Rückruffunktionen dieser Methoden mit einem [`GeolocationPositionError`](/de/docs/Web/API/GeolocationPositionError)-Code von
+`PERMISSION_DENIED` aufgerufen werden.
 
-Standardmäßig kann die Geolocation-API in obersten Dokumenten und deren gleichherkunft Kinderrahmen verwendet werden. Diese Direktive erlaubt oder verhindert den Zugriff auf Geolocation durch fremdherkunft Frames. Dazu gehören auch gleichherkunft Frames.
+Standardmäßig kann die Geolocation-API in obersten Dokumentenebenen und deren
+gleichherkunftsbezogenen Kindrahmen verwendet werden. Diese Direktive erlaubt oder verhindert, dass nicht gleichherkunftsbezogene Rahmen auf Geolocation zugreifen. Dies schließt auch gleichherkunftsbezogene Rahmen ein.
 
 ## Syntax
 
@@ -20,7 +27,7 @@ Permissions-Policy: geolocation=<allowlist>;
 ```
 
 - `<allowlist>`
-  - : Eine Liste von Ursprüngen, für die die Erlaubnis zur Nutzung dieser Funktion erteilt wird. Weitere Einzelheiten finden Sie unter [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Reference/Headers/Permissions-Policy#syntax).
+  - : Eine Liste von Ursprüngen, für die die Erlaubnis gewährt wird, die Funktion zu nutzen. Siehe [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Reference/Headers/Permissions-Policy#syntax) für weitere Details.
 
 ## Standardrichtlinie
 
@@ -30,7 +37,7 @@ Die Standard-Whitelist für `geolocation` ist `self`.
 
 ### Allgemeines Beispiel
 
-SecureCorp Inc. möchte die Geolocation-API in allen Browsing-Kontexten deaktivieren, außer für den eigenen Ursprung und jene, deren Ursprung `https://example.com` ist. Dies kann durch die Bereitstellung des folgenden HTTP-Antwort-Headers zur Definition einer Berechtigungsrichtlinie erfolgen:
+SecureCorp Inc. möchte die Geolocation-API in allen Browsing-Kontexten deaktivieren, außer für den eigenen Ursprung und für diejenigen, deren Ursprung `https://example.com` ist. Dies kann durch die Bereitstellung des folgenden HTTP-Antwort-Headers zur Definition einer Permissions Policy erreicht werden:
 
 ```http
 Permissions-Policy: geolocation=(self "https://example.com")
@@ -38,19 +45,19 @@ Permissions-Policy: geolocation=(self "https://example.com")
 
 ### Mit einem `<iframe>`-Element
 
-FastCorp Inc. möchte `geolocation` für alle fremdherkunft Kinderrahmen deaktivieren, außer für ein spezifisches `<iframe>`. Dies kann durch die Bereitstellung des folgenden HTTP-Antwort-Headers zur Definition einer Berechtigungsrichtlinie erfolgen:
+FastCorp Inc. möchte `geolocation` für alle nicht gleichherkunftsbezogenen Kindrahmen deaktivieren, außer für ein spezifisches `<iframe>`. Dies kann durch die Bereitstellung des folgenden HTTP-Antwort-Headers zur Definition einer Permissions Policy erreicht werden:
 
 ```http
 Permissions-Policy: geolocation=(self)
 ```
 
-Dann schließen Sie ein {{HTMLElement('iframe','allow','#Attributes')}}-Attribut auf dem `<iframe>`-Element ein:
+Dann wird ein {{HTMLElement('iframe','allow','#Attributes')}}-Attribut auf dem `<iframe>`-Element eingeschlossen:
 
 ```html
 <iframe src="https://other.com/map" allow="geolocation"></iframe>
 ```
 
-Interessanterweise können `allow`-Attribute Funktionen in bestimmten Rahmen selektiv aktivieren und in anderen nicht, selbst wenn diese Rahmen Dokumente aus der gleichen Herkunft enthalten.
+Interessanterweise können `allow`-Attribute selektiv Funktionen in bestimmten Rahmen aktivieren, und nicht in anderen, selbst wenn diese Rahmen Dokumente vom gleichen Ursprung enthalten.
 
 ## Spezifikationen
 
@@ -62,5 +69,5 @@ Interessanterweise können `allow`-Attribute Funktionen in bestimmten Rahmen sel
 
 ## Siehe auch
 
-- {{HTTPHeader("Permissions-Policy")}} Header
-- [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Guides/Permissions_Policy)
+- {{HTTPHeader("Permissions-Policy")}}-Header
+- [Permissions Policy](/de/docs/Web/HTTP/Guides/Permissions_Policy)

@@ -1,22 +1,23 @@
 ---
-title: X-Powered-By
+title: X-Powered-By header
+short-title: X-Powered-By
 slug: Web/HTTP/Reference/Headers/X-Powered-By
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: ee756fd51ccbc4820a4b334aa753648650ad1d51
 ---
 
 {{HTTPSidebar}}
 
-Der HTTP **`X-Powered-By`** [Antwort-Header](/de/docs/Glossary/Response_header) ist ein nicht-standardmäßiger Header, der die Anwendung oder das Framework identifiziert, das die Antwort generiert hat.
+Der HTTP-**`X-Powered-By`**-{{Glossary("response_header", "Antwortheader")}} ist ein nicht standardmäßiger Header zur Identifizierung der Anwendung oder des Frameworks, das die Antwort generiert hat.
 
 <table class="properties">
   <tbody>
     <tr>
-      <th scope="row">Header-Typ</th>
-      <td>[Antwort-Header](/de-DE/docs/Glossary/Response_header)</td>
+      <th scope="row">Headertyp</th>
+      <td>{{Glossary("Response_header", "Antwortheader")}}</td>
     </tr>
     <tr>
-      <th scope="row">[Verbotener Antwort-Header-Name](/de-DE/docs/Glossary/Forbidden_response_header_name)</th>
+      <th scope="row">{{Glossary("Forbidden_response_header_name", "Verbotener Antwortheadername")}}</th>
       <td>Nein</td>
     </tr>
   </tbody>
@@ -31,13 +32,13 @@ X-Powered-By: <application>
 ## Direktiven
 
 - `<application>`
-  - : Eine Zeichenfolge, die die Serveranwendung oder das Framework beschreibt.
+  - : Eine Zeichenkette, die die Serveranwendung oder das Framework beschreibt.
 
 ## Beispiele
 
-### Express X-Powered-By Header
+### Express X-Powered-By-Header
 
-Express-Anwendungen fügen normalerweise den `X-Powered-By` Header in Antworten ein, wobei die Zeichenfolge `express` als Feldwert verwendet wird:
+Express-Anwendungen fügen in der Regel den `X-Powered-By`-Header mit der Zeichenfolge `express` als Wert in die Antworten ein:
 
 ```http
 X-Powered-By: express

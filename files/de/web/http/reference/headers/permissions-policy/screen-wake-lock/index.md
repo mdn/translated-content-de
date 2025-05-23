@@ -1,15 +1,16 @@
 ---
-title: "Permissions-Policy: screen-wake-lock"
+title: "Permissions-Policy: screen-wake-lock-Direktive"
+short-title: screen-wake-lock
 slug: Web/HTTP/Reference/Headers/Permissions-Policy/screen-wake-lock
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: ee756fd51ccbc4820a4b334aa753648650ad1d51
 ---
 
 {{HTTPSidebar}}{{SeeCompatTable}}
 
-Die HTTP-{{HTTPHeader("Permissions-Policy")}}-Direktive **`screen-wake-lock`** steuert, ob das aktuelle Dokument die Verwendung der [Screen Wake Lock API](/de/docs/Web/API/Screen_Wake_Lock_API) erlauben darf, um anzuzeigen, dass das Gerät den Bildschirm nicht dimmen oder ausschalten soll.
+Der HTTP {{HTTPHeader("Permissions-Policy")}}-Header mit der **`screen-wake-lock`**-Direktive steuert, ob das aktuelle Dokument die [Screen Wake Lock API](/de/docs/Web/API/Screen_Wake_Lock_API) verwenden darf, um anzuzeigen, dass das Gerät den Bildschirm nicht dimmen oder ausschalten soll.
 
-Konkret wird bei einer definierten Richtlinie, die die Verwendung dieser Funktion blockiert, ein Aufruf von [`WakeLock.request()`](/de/docs/Web/API/WakeLock/request) ein {{jsxref("Promise")}} zurückgeben, das mit einem [`DOMException`](/de/docs/Web/API/DOMException) vom Typ `NotAllowedError` abgelehnt wird.
+Insbesondere wenn eine definierte Richtlinie die Nutzung dieses Features blockiert, werden Aufrufe von [`WakeLock.request()`](/de/docs/Web/API/WakeLock/request) ein {{jsxref("Promise")}} zurückgeben, das mit einer [`DOMException`](/de/docs/Web/API/DOMException) vom Typ `NotAllowedError` abgelehnt wird.
 
 ## Syntax
 
@@ -18,11 +19,11 @@ Permissions-Policy: screen-wake-lock=<allowlist>;
 ```
 
 - `<allowlist>`
-  - : Eine Liste von Ursprüngen, für die die Berechtigung zur Nutzung der Funktion erteilt wird. Siehe [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Reference/Headers/Permissions-Policy#syntax) für weitere Details.
+  - : Eine Liste von Ursprüngen, für die die Erlaubnis zur Nutzung des Features erteilt wird. Siehe [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Reference/Headers/Permissions-Policy#syntax) für weitere Details.
 
 ## Standardrichtlinie
 
-Die Standard-allowlist für `screen-wake-lock` ist `self`.
+Die Standard-`allowlist` für `screen-wake-lock` ist `self`.
 
 ## Spezifikationen
 
@@ -36,4 +37,4 @@ Die Standard-allowlist für `screen-wake-lock` ist `self`.
 
 - [Screen Wake Lock API](/de/docs/Web/API/Screen_Wake_Lock_API)
 - {{HTTPHeader('Permissions-Policy')}}-Header
-- [Permissions Policy](/de/docs/Web/HTTP/Guides/Permissions_Policy)
+- [Berechtigungsrichtlinien](/de/docs/Web/HTTP/Guides/Permissions_Policy)

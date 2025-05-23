@@ -1,13 +1,14 @@
 ---
-title: "CSP: img-src"
+title: "Content-Security-Policy: img-src-Direktive"
+short-title: img-src
 slug: Web/HTTP/Reference/Headers/Content-Security-Policy/img-src
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: ee756fd51ccbc4820a4b334aa753648650ad1d51
 ---
 
 {{HTTPSidebar}}
 
-Die HTTP-Direktive {{HTTPHeader("Content-Security-Policy")}} **`img-src`** gibt gültige Quellen für Bilder und Favicons an.
+Die HTTP-{{HTTPHeader("Content-Security-Policy")}}-Direktive **`img-src`** gibt gültige Quellen für Bilder und Favoritenicons an.
 
 <table class="properties">
   <tbody>
@@ -16,14 +17,14 @@ Die HTTP-Direktive {{HTTPHeader("Content-Security-Policy")}} **`img-src`** gibt 
       <td>1</td>
     </tr>
     <tr>
-      <th scope="row">Direktiventyp</th>
-      <td>{{Glossary("Fetch_directive", "Abrufdirektive")}}</td>
+      <th scope="row">Direktivtyp</th>
+      <td>{{Glossary("Fetch_directive", "Fetch-Direktive")}}</td>
     </tr>
     <tr>
-      <th scope="row">{{CSP("default-src")}} Fallback</th>
+      <th scope="row">{{CSP("default-src")}}-Fallback</th>
       <td>
-        Ja. Wenn diese Direktive fehlt, wird der User-Agent nach der
-        <code>default-src</code>-Direktive suchen.
+        Ja. Wenn diese Direktive fehlt, sucht der Benutzeragent nach der
+        <code>default-src</code>-Direktive.
       </td>
     </tr>
   </tbody>
@@ -39,10 +40,10 @@ Content-Security-Policy: img-src <source-expression-list>;
 Diese Direktive kann einen der folgenden Werte haben:
 
 - `'none'`
-  - : Keine Ressourcen dieses Typs dürfen geladen werden. Die einfachen Anführungszeichen sind obligatorisch.
+  - : Keine Ressourcen dieses Typs dürfen geladen werden. Die Anführungszeichen sind zwingend erforderlich.
 - `<source-expression-list>`
 
-  - : Eine durch Leerzeichen getrennte Liste von _Quell-Ausdrucks_-Werten. Ressourcen dieses Typs dürfen geladen werden, wenn sie mit einem der angegebenen Quellausdrücke übereinstimmen. Für diese Direktive sind die folgenden Quellausdruckswerte anwendbar:
+  - : Eine durch Leerzeichen getrennte Liste von _source expression_-Werten. Ressourcen dieses Typs dürfen geladen werden, wenn sie mit einem der angegebenen Quellausdrücke übereinstimmen. Für diese Direktive sind die folgenden Quellausdrücke anwendbar:
 
     - [`<host-source>`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy#host-source)
     - [`<scheme-source>`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy#scheme-source)
@@ -50,9 +51,9 @@ Diese Direktive kann einen der folgenden Werte haben:
 
 ## Beispiele
 
-### Verletzungsfälle
+### Verstoßfälle
 
-Gegeben ist dieser CSP-Header:
+Gegeben dieser CSP-Header:
 
 ```http
 Content-Security-Policy: img-src https://example.com/

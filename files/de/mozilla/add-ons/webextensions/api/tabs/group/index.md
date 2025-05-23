@@ -2,17 +2,19 @@
 title: tabs.group()
 slug: Mozilla/Add-ons/WebExtensions/API/tabs/group
 l10n:
-  sourceCommit: 77d90a23ee0a3b5486a7963f68ad4e56efb06a7b
+  sourceCommit: 3ffce2e0e798a46f6405d32a971d1ebf9874cdd4
 ---
 
 {{AddonSidebar}}
 
-Fügt eine oder mehrere Registerkarten zu einer Gruppe hinzu oder, wenn keine Gruppe angegeben ist, fügt die Registerkarten einer neuen Gruppe hinzu. Alle Registerkarten in einer Registerkartengruppe müssen nebeneinander liegen, und Registerkarten werden bei Bedarf verschoben. Alle angehefteten Registerkarten werden vor dem Gruppieren gelöst.
+Fügt eine oder mehrere Registerkarten zu einer Gruppe hinzu oder, falls keine Gruppe angegeben ist, fügt die Registerkarten einer neuen Gruppe hinzu. Alle Registerkarten in einer Gruppe müssen benachbart sein, und wenn nötig, werden Registerkarten verschoben. Alle angehefteten Registerkarten werden vor dem Gruppieren gelöst.
 
-Wenn ein Aufruf Registerkarten aus Registerkartengruppen verschiebt und eine dieser Registerkartengruppen dadurch leer wird, werden die leeren Registerkartengruppen entfernt.
+Wenn ein Aufruf Registerkarten aus Gruppen entfernt und eine dieser Gruppen dadurch leer wird, werden die leeren Registerkartengruppen entfernt.
 
 > [!NOTE]
-> Die Methode `tabs.group()` ist nicht der einzige Weg, Registerkarten zu gruppieren. Eine Registerkarte tritt auch einer Registerkartengruppe bei, wenn {{WebExtAPIRef("tabs.move")}} sie zwischen Registerkarten platziert, die Teil einer Registerkartengruppe sind.
+> Die Methode `tabs.group()` ist nicht der einzige Weg, um Registerkarten zu gruppieren. Eine Registerkarte tritt auch einer Gruppe bei, wenn {{WebExtAPIRef("tabs.move")}} sie zwischen Registerkarten platziert, die Teil einer Gruppe sind.
+
+Für weitere Informationen zu Registerkartengruppen siehe {{WebExtAPIRef("tabGroups")}}.
 
 ## Syntax
 
@@ -36,17 +38,17 @@ let grouping = browser.tabs.group(
           - : `integer`. Das Fenster der neuen Gruppe. Standardmäßig das [aktuelle Fenster](/de/docs/Mozilla/Add-ons/WebExtensions/API/windows/getCurrent).
 
     - `groupId` {{optional_inline}}
-      - : `integer`. Die ID der Gruppe, zu der die Registerkarten hinzugefügt werden sollen. Wenn nicht angegeben, wird eine neue Gruppe erstellt.
+      - : `integer`. Die ID der Gruppe, zu der die Registerkarten hinzugefügt werden sollen. Wenn nicht angegeben, wird eine Gruppe erstellt.
     - `tabIds`
-      - : `integer` oder `array` von `integer`. Die Registerkarten-ID oder Liste von Registerkarten-IDs, die zur Gruppe hinzugefügt werden sollen. Muss mindestens eine Registerkarten-ID enthalten.
+      - : `integer` oder `array` von `integer`. Die Registerkarten-ID oder Liste der Registerkarten-IDs, die der Gruppe hinzugefügt werden sollen. Muss mindestens eine Registerkarten-ID enthalten.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem Integer erfüllt wird, der die `groupId` der Registerkartengruppe enthält, zu der die Registerkarten hinzugefügt wurden. Wenn die `groupId` nicht gefunden wird, eine der `tabIds` ungültig ist, die `windowId` ungültig ist oder ein anderer Fehler auftritt, wird das Promise mit einer Fehlermeldung abgelehnt. Bei einem Validierungsfehler werden die Registerkarten nicht geändert.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einer Ganzzahl erfüllt wird, die die `groupId` der Gruppe enthält, zu der die Registerkarten hinzugefügt wurden. Wenn die `groupId` nicht gefunden wird, eine der `tabIds` ungültig ist, die `windowId` ungültig ist oder ein anderer Fehler auftritt, wird das Promise mit einer Fehlermeldung abgelehnt. Bei einem Validierungsfehler werden die Registerkarten nicht verändert.
 
 ## Beispiele
 
-Erstellen Sie zwei Registerkarten und fügen Sie sie in eine neue Gruppe ein, dann erstellen Sie eine weitere Registerkarte und fügen sie der Gruppe hinzu.
+Erstellen Sie zwei Registerkarten und fügen Sie sie in eine neue Gruppe ein, erstellen Sie dann eine weitere Registerkarte und fügen Sie diese der Gruppe hinzu.
 
 ```js
 // Create two tabs and put them in a new group.
@@ -64,7 +66,7 @@ await browser.tabs.group({
 });
 ```
 
-Erstellen Sie eine Registerkarte und passen Sie deren Gruppierung an die der aktuellen Registerkarte an.
+Erstellen Sie eine Registerkarte und passen Sie ihre Gruppierung an die der aktuellen Registerkarte an.
 
 ```js
 let [oldTab] = await browser.tabs.query({

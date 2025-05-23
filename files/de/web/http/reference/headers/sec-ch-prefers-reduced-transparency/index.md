@@ -1,17 +1,18 @@
 ---
-title: Sec-CH-Prefers-Reduced-Transparency
+title: Sec-CH-Prefers-Reduced-Transparency header
+short-title: Sec-CH-Prefers-Reduced-Transparency
 slug: Web/HTTP/Reference/Headers/Sec-CH-Prefers-Reduced-Transparency
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: ee756fd51ccbc4820a4b334aa753648650ad1d51
 ---
 
 {{HTTPSidebar}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Der HTTP **`Sec-CH-Prefers-Reduced-Transparency`** {{Glossary("request_header", "Request-Header")}} ist ein [Client-Hinweis des Benutzeragenten](/de/docs/Web/HTTP/Guides/Client_hints#user_preference_media_features_client_hints), der die Präferenz des Benutzeragenten für reduzierte Transparenz anzeigt.
+Der HTTP **`Sec-CH-Prefers-Reduced-Transparency`** {{Glossary("request_header", "Request-Header")}} ist ein [Client-Hint des Benutzer-Agents](/de/docs/Web/HTTP/Guides/Client_hints#user_preference_media_features_client_hints), der die Präferenz des Benutzer-Agents für reduzierte Transparenz angibt.
 
-Wenn ein Server über den {{httpheader("Accept-CH")}} Header einem Client signalisiert, dass er `Sec-CH-Prefers-Reduced-Transparency` akzeptiert, kann der Client mit diesem Header antworten, um die Präferenz des Benutzers für reduzierte Transparenz anzuzeigen. Der Server kann dem Client entsprechend angepasste Inhalte senden — zum Beispiel CSS oder Bilder — um die Transparenz der Inhalte zu verringern.
+Wenn ein Server über den {{httpheader("Accept-CH")}}-Header einem Client signalisiert, dass er `Sec-CH-Prefers-Reduced-Transparency` akzeptiert, kann der Client daraufhin mit diesem Header antworten, um die Benutzerpräferenz für reduzierte Transparenz anzuzeigen. Der Server kann dem Client entsprechend angepasste Inhalte senden — zum Beispiel CSS oder Bilder — um die Transparenz der Inhalte zu reduzieren.
 
-Dieser Header basiert auf der {{cssxref("@media/prefers-reduced-transparency", "prefers-reduced-transparency")}} Media-Query.
+Dieser Header ist dem {{cssxref("@media/prefers-reduced-transparency", "prefers-reduced-transparency")}} Media Query nachempfunden.
 
 <table class="properties">
   <tbody>
@@ -19,12 +20,12 @@ Dieser Header basiert auf der {{cssxref("@media/prefers-reduced-transparency", "
       <th scope="row">Header-Typ</th>
       <td>
         {{Glossary("Request_header", "Request-Header")}},
-        <a href="/de/docs/Web/HTTP/Guides/Client_hints">Client-Hinweis</a>
+        <a href="/de/docs/Web/HTTP/Guides/Client_hints">Client-Hint</a>
       </td>
     </tr>
     <tr>
       <th scope="row">{{Glossary("Forbidden_request_header", "Verbotener Request-Header")}}</th>
-      <td>Ja (<code>Sec-</code> Präfix)</td>
+      <td>Ja (<code>Sec-</code>-Präfix)</td>
     </tr>
   </tbody>
 </table>
@@ -38,7 +39,7 @@ Sec-CH-Prefers-Reduced-Transparency: <preference>
 ### Direktiven
 
 - `<preference>`
-  - : Die Präferenz des Benutzeragenten für reduzierte Transparenz. Diese wird oft aus der Einstellung des zugrunde liegenden Betriebssystems übernommen. Der Wert dieser Direktive kann entweder `no-preference` oder `reduce` sein.
+  - : Die Präferenz des Benutzer-Agents für reduzierte Transparenz. Diese wird oft aus den Einstellungen des zugrunde liegenden Betriebssystems entnommen. Der Wert dieser Direktive kann entweder `no-preference` oder `reduce` sein.
 
 ## Beispiele
 
@@ -51,7 +52,7 @@ GET / HTTP/1.1
 Host: example.com
 ```
 
-Der Server antwortet und teilt dem Client über {{httpheader("Accept-CH")}} mit, dass er `Sec-CH-Prefers-Reduced-Transparency` akzeptiert. In diesem Beispiel wird außerdem {{httpheader("Critical-CH")}} verwendet, um anzuzeigen, dass `Sec-CH-Prefers-Reduced-Transparency` als [kritischer Client-Hinweis](/de/docs/Web/HTTP/Guides/Client_hints#critical_client_hints) betrachtet wird.
+Der Server antwortet und teilt dem Client über {{httpheader("Accept-CH")}} mit, dass er `Sec-CH-Prefers-Reduced-Transparency` akzeptiert. In diesem Beispiel wird auch {{httpheader("Critical-CH")}} verwendet, was darauf hinweist, dass `Sec-CH-Prefers-Reduced-Transparency` als ein [kritischer Client-Hint](/de/docs/Web/HTTP/Guides/Client_hints#critical_client_hints) betrachtet wird.
 
 ```http
 HTTP/1.1 200 OK
@@ -62,9 +63,9 @@ Critical-CH: Sec-CH-Prefers-Reduced-Transparency
 ```
 
 > [!NOTE]
-> Wir haben auch `Sec-CH-Prefers-Reduced-Transparency` im {{httpheader("Vary")}} Header angegeben, um dem Browser mitzuteilen, dass sich die gelieferten Inhalte basierend auf diesem Header-Wert unterscheiden werden — selbst wenn die URL gleich bleibt —, sodass der Browser nicht einfach eine bestehende zwischengespeicherte Antwort verwenden sollte, sondern diese Antwort separat zwischenspeichern sollte. Jeder im `Critical-CH` Header angegebene Header sollte auch in den `Accept-CH` und `Vary` Headern vorhanden sein.
+> Wir haben `Sec-CH-Prefers-Reduced-Transparency` auch im {{httpheader("Vary")}}-Header angegeben, um dem Browser anzuzeigen, dass der gelieferte Inhalt auf der Grundlage dieses Header-Wertes unterschiedlich sein wird — selbst wenn die URL gleich bleibt —, sodass der Browser nicht einfach eine vorhandene zwischengespeicherte Antwort verwenden und stattdessen diese Antwort separat zwischenspeichern sollte. Jeder im `Critical-CH`-Header aufgelistete Header sollte auch in den `Accept-CH`- und `Vary`-Headers vorhanden sein.
 
-Der Client wiederholt automatisch die Anfrage (aufgrund des oben angegebenen `Critical-CH`), um dem Server über `Sec-CH-Prefers-Reduced-Transparency` mitzuteilen, dass eine Benutzerpräferenz für reduzierte Transparenz besteht:
+Der Client wiederholt die Anfrage automatisch (aufgrund des oben spezifizierten `Critical-CH`), und teilt dem Server über `Sec-CH-Prefers-Reduced-Transparency` mit, dass er eine Benutzerpräferenz für reduzierte Transparenz hat:
 
 ```http
 GET / HTTP/1.1
@@ -72,7 +73,7 @@ Host: example.com
 Sec-CH-Prefers-Reduced-Transparency: "reduce"
 ```
 
-Der Client wird den Header in nachfolgenden Anfragen in der aktuellen Sitzung einbeziehen, es sei denn, das `Accept-CH` ändert sich in den Antworten, um anzuzeigen, dass er vom Server nicht mehr unterstützt wird.
+Der Client wird den Header in nachfolgenden Anfragen in der aktuellen Sitzung aufnehmen, es sei denn, `Accept-CH` ändert sich in den Antworten, um anzuzeigen, dass er vom Server nicht mehr unterstützt wird.
 
 ## Spezifikationen
 
@@ -84,8 +85,8 @@ Der Client wird den Header in nachfolgenden Anfragen in der aktuellen Sitzung ei
 
 ## Siehe auch
 
-- [Client-Hinweise](/de/docs/Web/HTTP/Guides/Client_hints)
+- [Client-Hints](/de/docs/Web/HTTP/Guides/Client_hints)
 - [User-Agent Client Hints API](/de/docs/Web/API/User-Agent_Client_Hints_API)
 - {{HTTPHeader("Accept-CH")}}
-- [HTTP-Caching: Vary](/de/docs/Web/HTTP/Guides/Caching#vary) und der {{HTTPHeader("Vary")}} Header
-- [Verbesserung der Privatsphäre der Benutzer und der Entwicklererfahrung mit User-Agent Client Hints](https://developer.chrome.com/docs/privacy-security/user-agent-client-hints) (developer.chrome.com)
+- [HTTP-Caching: Vary](/de/docs/Web/HTTP/Guides/Caching#vary) und der {{HTTPHeader("Vary")}}-Header
+- [Verbesserung der Privatsphäre der Nutzer und der Entwicklererfahrung mit User-Agent-Client-Hints](https://developer.chrome.com/docs/privacy-security/user-agent-client-hints) (developer.chrome.com)

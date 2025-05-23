@@ -1,19 +1,21 @@
 ---
-title: "Permissions-Policy: cross-origin-isolated"
+title: "Permissions-Policy: `cross-origin-isolated` Direktive"
+short-title: cross-origin-isolated
 slug: Web/HTTP/Reference/Headers/Permissions-Policy/cross-origin-isolated
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: ee756fd51ccbc4820a4b334aa753648650ad1d51
 ---
 
 {{HTTPSidebar}} {{SeeCompatTable}}
 
-Der HTTP-Header {{HTTPHeader("Permissions-Policy")}} mit der Direktive `cross-origin-isolated` steuert, ob das aktuelle Dokument APIs verwenden darf, die [cross-origin isolation](/de/docs/Web/API/Window/crossOriginIsolated) erfordern.
+Der HTTP-Header {{HTTPHeader("Permissions-Policy")}} mit der `cross-origin-isolated` Direktive steuert, ob das aktuelle Dokument APIs verwenden darf, die [cross-origin isolation](/de/docs/Web/API/Window/crossOriginIsolated) erfordern.
 
-Konkret wird, wenn eine definierte Richtlinie die Nutzung dieses Features blockiert, die Eigenschaft [`Window.crossOriginIsolated`](/de/docs/Web/API/Window/crossOriginIsolated) und [`WorkerGlobalScope.crossOriginIsolated`](/de/docs/Web/API/WorkerGlobalScope/crossOriginIsolated) immer `false` zurückgeben, und das Dokument profitiert nicht von reduzierten Beschränkungen bei der Nutzung einiger APIs, die nur Dokumenten mit cross-origin isolation gewährt werden. Dies gilt unabhängig von den {{HTTPHeader("Cross-Origin-Embedder-Policy")}} und {{HTTPHeader("Cross-Origin-Opener-Policy")}} Headern, und ob das Dokument cross-origin isoliert gewesen wäre, wenn die Erlaubnis erteilt worden wäre.
+Insbesondere wird, wenn eine definierte Richtlinie die Verwendung dieser Funktion blockiert, die Eigenschaft [`Window.crossOriginIsolated`](/de/docs/Web/API/Window/crossOriginIsolated) und [`WorkerGlobalScope.crossOriginIsolated`](/de/docs/Web/API/WorkerGlobalScope/crossOriginIsolated) immer `false` zurückgeben. Das Dokument wird somit nicht von reduzierten Einschränkungen bei der Nutzung einiger APIs profitieren, die nur für cross-origin isolierte Dokumente zugänglich sind. Dies gilt unabhängig von den {{HTTPHeader("Cross-Origin-Embedder-Policy")}} und {{HTTPHeader("Cross-Origin-Opener-Policy")}} Headers und unabhängig davon, ob das Dokument cross-origin isoliert gewesen wäre, wenn die Erlaubnis erteilt worden wäre.
 
-Die APIs, die diese Berechtigung erfordern, umfassen die Verwendung von {{jsxref("SharedArrayBuffer")}} Objekten und [`Performance.now()`](/de/docs/Web/API/Performance/now) mit nicht gedrosselten Timern — siehe [`Window.crossOriginIsolated`](/de/docs/Web/API/Window/crossOriginIsolated) für Informationen über andere eingeschränkte APIs.
+Zu den APIs, die diese Erlaubnis benötigen, gehört die Verwendung von {{jsxref("SharedArrayBuffer")}} Objekten und [`Performance.now()`](/de/docs/Web/API/Performance/now) mit ungedrosselten Timern — siehe [`Window.crossOriginIsolated`](/de/docs/Web/API/Window/crossOriginIsolated) für Informationen zu anderen eingeschränkten APIs.
 
-Die Berechtigung kann verwendet werden, um Einschränkungen für den Zugriff auf die sensiblen APIs aufrechtzuerhalten, es sei denn, sie werden tatsächlich von einem cross-origin isolierten Dokument benötigt. Beachten Sie, dass, wenn das Feature nicht erlaubt ist, es ansonsten jedoch cross-origin isoliert gewesen wäre, es in allen anderen Aspekten immer noch cross-origin isoliert ist. Zum Beispiel wird es nur eine {{Glossary("Browsing_context", "Browsing-Kontext-Gruppe")}} mit Dokumenten im selben Ursprung teilen.
+Die Erlaubnis kann genutzt werden, um Einschränkungen für den Zugriff auf die sensiblen APIs aufrechtzuerhalten, es sei denn, sie werden tatsächlich von einem cross-origin isolierten Dokument benötigt.
+Beachten Sie, dass, wenn die Funktion nicht erlaubt ist, aber ansonsten cross-origin isoliert gewesen wäre, sie in allen anderen Aspekten dennoch cross-origin isoliert bleibt. Zum Beispiel wird es nur eine {{Glossary("Browsing_context", "browsing context group")}} mit Dokumenten des gleichen Ursprungs teilen.
 
 ## Syntax
 
@@ -22,11 +24,12 @@ Permissions-Policy: cross-origin-isolated=<allowlist>;
 ```
 
 - `<allowlist>`
-  - : Eine Liste von einem oder mehreren Ursprüngen, für die die Erlaubnis zur Nutzung des Features erteilt wird. Siehe [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Reference/Headers/Permissions-Policy#syntax) für weitere Details.
+  - : Eine Liste von einer oder mehreren Ursprüngen, für die die Erlaubnis zur Nutzung der Funktion erteilt wird.
+    Siehe [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Reference/Headers/Permissions-Policy#syntax) für weitere Details.
 
 ## Standardrichtlinie
 
-Die Standard-Allowed-Liste für `cross-origin-isolated` ist `self`.
+Die Standard-Whitelist für `cross-origin-isolated` ist `self`.
 
 ## Spezifikationen
 

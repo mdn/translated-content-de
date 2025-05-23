@@ -3,23 +3,23 @@ title: "HTMLTableCellElement: colSpan-Eigenschaft"
 short-title: colSpan
 slug: Web/API/HTMLTableCellElement/colSpan
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: 373fcd42528fc9eafa3703dc99927cc56c75fa8d
 ---
 
 {{ APIRef("HTML DOM") }}
 
-Die **`colSpan`** Eigenschaft des [`HTMLTableCellElement`](/de/docs/Web/API/HTMLTableCellElement) Schnittstelle gibt an, wie viele Spalten diese Zelle überspannen muss; dies ermöglicht es der Zelle, Platz über mehrere Spalten der Tabelle einzunehmen. Sie entspricht dem [`colspan`](/de/docs/Web/HTML/Reference/Elements/td#colspan) Attribut.
+Die **`colSpan`**-Eigenschaft der [`HTMLTableCellElement`](/de/docs/Web/API/HTMLTableCellElement)-Schnittstelle stellt die Anzahl der Spalten dar, die diese Zelle überspannen muss; dadurch kann die Zelle den Raum über mehrere Spalten der Tabelle einnehmen. Sie spiegelt das [`colspan`](/de/docs/Web/HTML/Reference/Elements/td#colspan)-Attribut wider.
 
 ## Wert
 
-Eine positive Zahl, die die Anzahl der Spalten repräsentiert.
+Eine positive Zahl, die die Anzahl der Spalten darstellt.
 
 > [!NOTE]
-> Beim Setzen eines neuen Wertes wird der Wert auf die nächstgelegene streng positive Zahl _geklammert_.
+> Beim Setzen eines neuen Wertes wird der Wert auf die nächstgelegene strikt positive Zahl _eingeschränkt_.
 
 ## Beispiele
 
-Dieses Beispiel bietet zwei Schaltflächen, um die Spaltenbreite der ersten Zelle des Körpers zu ändern.
+Dieses Beispiel bietet zwei Schaltflächen, um die Spaltenüberspannung der ersten Zelle des Körperbereichs zu ändern.
 
 ### HTML
 
@@ -82,14 +82,14 @@ const increaseButton = document.getElementById("increase");
 const decreaseButton = document.getElementById("decrease");
 
 increaseButton.addEventListener("click", () => {
-  cell.colSpan = cell.colSpan + 1;
+  cell.colSpan += 1;
 
   // Update the display
   output.textContent = cell.colSpan;
 });
 
 decreaseButton.addEventListener("click", () => {
-  cell.colSpan = cell.colSpan - 1;
+  cell.colSpan -= 1;
 
   // Update the display
   output.textContent = cell.colSpan;

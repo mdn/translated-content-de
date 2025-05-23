@@ -2,17 +2,19 @@
 title: tabs.ungroup()
 slug: Mozilla/Add-ons/WebExtensions/API/tabs/ungroup
 l10n:
-  sourceCommit: da342187abedb56612c08b166eb5594552b670e4
+  sourceCommit: 3ffce2e0e798a46f6405d32a971d1ebf9874cdd4
 ---
 
 {{AddonSidebar}}
 
-Entfernt einen oder mehrere Tabs aus ihren jeweiligen Tab-Gruppen. Falls Gruppen leer werden, werden sie gelöscht.
+Entfernt einen oder mehrere Tabs aus ihren jeweiligen Tab-Gruppen. Wenn Gruppen leer werden, werden sie gelöscht.
 
-Alle Tabs in einer Tab-Gruppe müssen benachbart sein. Falls nötig, wird ein nicht gruppierter Tab vor oder nach der Tab-Gruppe verschoben, um diese Anforderung zu erfüllen.
+Alle Tabs in einer Tab-Gruppe müssen aneinander angrenzen. Falls erforderlich, wird ein nicht gruppierter Tab vor oder nach der Tab-Gruppe verschoben, um diese Anforderung zu erfüllen.
 
 > [!NOTE]
-> Die Methode `tabs.ungroup()` ist nicht der einzige Weg, Tabs zu entgruppieren. Ein Tab wird auch entgruppiert, wenn es durch einen Aufruf von {{WebExtAPIRef("tabs.move")}} mit einem `index`, der außerhalb einer Tab-Gruppe liegt, verschoben wird.
+> Die Methode `tabs.ungroup()` ist nicht der einzige Weg, um Tabs zu entgruppieren. Ein Tab wird auch dann entgruppiert, wenn er verschoben wird, indem {{WebExtAPIRef("tabs.move")}} mit einem `index` aufgerufen wird, der außerhalb einer Tab-Gruppe liegt.
+
+Weitere Informationen zu Tab-Gruppen finden Sie unter {{WebExtAPIRef("tabGroups")}}.
 
 ## Syntax
 
@@ -31,7 +33,7 @@ let ungrouping = browser.tabs.ungroup(
 
 Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente aufgelöst wird.
 
-Wenn einige der `tabIds` ungültig sind, wird das Promise abgelehnt, ohne die Tabs zu ändern.
+Wenn eine der `tabIds` ungültig ist, wird das Promise abgelehnt, ohne die Tabs zu verändern.
 
 ## Beispiele
 

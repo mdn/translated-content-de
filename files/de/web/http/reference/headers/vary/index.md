@@ -1,17 +1,16 @@
 ---
-title: Vary
+title: Vary header
+short-title: Vary
 slug: Web/HTTP/Reference/Headers/Vary
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: ee756fd51ccbc4820a4b334aa753648650ad1d51
 ---
 
 {{HTTPSidebar}}
 
-Der HTTP **`Vary`** {{Glossary("response_header", "Antwort-Header")}} beschreibt die Teile der Anfragenachricht (außer Methode und URL), die den Inhalt der Antwort beeinflusst haben, in der er vorkommt.
-Das Einschließen eines `Vary`-Headers stellt sicher, dass Antworten separat basierend auf den im `Vary`-Feld aufgeführten Headern zwischengespeichert werden.
-Meistens wird dies verwendet, um einen Cache-Schlüssel zu erstellen, wenn [Inhaltsverhandlung](/de/docs/Web/HTTP/Guides/Content_negotiation) in Gebrauch ist.
+Der HTTP **`Vary`**-{{Glossary("response_header", "Antwort-Header")}} beschreibt die Teile der Anfragenachricht (außer Methode und URL), die den Inhalt der Antwort beeinflusst haben, in der er vorkommt. Das Einfügen eines `Vary`-Headers stellt sicher, dass Antworten basierend auf den im `Vary`-Feld aufgeführten Headern separat zwischengespeichert werden. Dies wird am häufigsten verwendet, um einen Cache-Schlüssel zu erstellen, wenn die [Inhaltsverhandlung](/de/docs/Web/HTTP/Guides/Content_negotiation) aktiv ist.
 
-Der gleiche `Vary`-Headerwert sollte für alle Antworten für eine bestimmte URL verwendet werden, einschließlich {{HTTPStatus("304")}} `Not Modified`-Antworten und der "Standard"-Antwort.
+Der gleiche `Vary`-Header-Wert sollte für alle Antworten einer bestimmten URL verwendet werden, einschließlich {{HTTPStatus("304")}} `Not Modified`-Antworten und der "Standard"-Antwort.
 
 <table class="properties">
   <tbody>
@@ -28,7 +27,7 @@ Der gleiche `Vary`-Headerwert sollte für alle Antworten für eine bestimmte URL
 
 ## Syntax
 
-Entweder `*` als Platzhalter oder ein oder mehrere Headernamen in einer kommagetrennten Liste:
+Entweder `*` als Platzhalter oder ein oder mehrere Header-Namen in einer kommagetrennten Liste:
 
 ```http
 Vary: *
@@ -38,9 +37,9 @@ Vary: <header-name>, …, <header-nameN>
 ## Direktiven
 
 - `*` (Platzhalter)
-  - : Faktoren außer Anforderungs-Headers beeinflussten die Erstellung dieser Antwort. Impliziert, dass die Antwort nicht zwischenspeicherbar ist.
+  - : Andere als Anforderungs-Header beeinflussten die Erstellung dieser Antwort. Bedeutet, dass die Antwort nicht zwischenspeicherbar ist.
 - `<header-name>`
-  - : Ein Anforderungs-Headername, der die Erstellung dieser Antwort beeinflusst haben könnte.
+  - : Ein Anforderungs-Header-Name, der die Erstellung dieser Antwort beeinflusst haben könnte.
 
 ## Spezifikationen
 

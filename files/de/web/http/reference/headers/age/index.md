@@ -1,16 +1,17 @@
 ---
-title: Age
+title: Age header
+short-title: Age
 slug: Web/HTTP/Reference/Headers/Age
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: ee756fd51ccbc4820a4b334aa753648650ad1d51
 ---
 
 {{HTTPSidebar}}
 
-Der HTTP **`Age`** {{Glossary("response_header", "Antwortheader")}} gibt die Zeit in Sekunden an, die ein Objekt im Proxy-Cache war.
+Der HTTP-**`Age`**-{{Glossary("response_header", "Antwortheader")}} gibt die Zeit in Sekunden an, die ein Objekt in einem Proxy-Cache war.
 
-Der Header-Wert ist normalerweise nahe bei null.
-Wenn der Wert `0` ist, wurde das Objekt wahrscheinlich vom Ursprungsserver abgerufen; andernfalls wird der Wert normalerweise als Differenz zwischen dem aktuellen Datum des Proxys und dem im HTTP-Antwort enthaltenen allgemeinen {{HTTPHeader("Date")}}-Header berechnet.
+Der Headerwert ist normalerweise nahe null.
+Wenn der Wert `0` beträgt, wurde das Objekt wahrscheinlich vom Ursprungsserver abgerufen; andernfalls wird der Wert normalerweise als Differenz zwischen dem aktuellen Datum des Proxys und dem allgemeinen {{HTTPHeader("Date")}}-Header berechnet, der in der HTTP-Antwort enthalten ist.
 
 <table class="properties">
   <tbody>
@@ -19,7 +20,7 @@ Wenn der Wert `0` ist, wurde das Objekt wahrscheinlich vom Ursprungsserver abger
       <td>{{Glossary("Response_header", "Antwortheader")}}</td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Forbidden_request_header", "Unzulässiger Anforderungsheader")}}</th>
+      <th scope="row">{{Glossary("Forbidden_request_header", "Verbotener Anforderungsheader")}}</th>
       <td>Nein</td>
     </tr>
   </tbody>
@@ -34,7 +35,7 @@ Age: <delta-seconds>
 ## Direktiven
 
 - `<delta-seconds>`
-  - : Eine nicht-negative Ganzzahl, die die Zeit in Sekunden darstellt, die das Objekt im Proxy-Cache war.
+  - : Eine nicht-negative ganze Zahl, die die Zeit in Sekunden darstellt, die das Objekt in einem Proxy-Cache war.
 
 ## Beispiele
 

@@ -1,13 +1,14 @@
 ---
-title: Access-Control-Allow-Methods
+title: Access-Control-Allow-Methods header
+short-title: Access-Control-Allow-Methods
 slug: Web/HTTP/Reference/Headers/Access-Control-Allow-Methods
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: ee756fd51ccbc4820a4b334aa753648650ad1d51
 ---
 
 {{HTTPSidebar}}
 
-Der HTTP **`Access-Control-Allow-Methods`** {{Glossary("response_header", "Antwort-Header")}} gibt an, welche ein oder mehrere [HTTP-Anfragemethoden](/de/docs/Web/HTTP/Reference/Methods) zulässig sind, wenn auf eine Ressource als Antwort auf eine {{Glossary("preflight_request", "Preflight-Anfrage")}} zugegriffen wird.
+Der HTTP-**`Access-Control-Allow-Methods`**-{{Glossary("response_header", "Antwort-Header")}} gibt an, welche [HTTP-Anfragemethoden](/de/docs/Web/HTTP/Reference/Methods) beim Zugriff auf eine Ressource im Antwortkontext auf eine {{Glossary("preflight_request", "Vorab-Anfrage")}} erlaubt sind.
 
 <table class="properties">
   <tbody>
@@ -16,7 +17,7 @@ Der HTTP **`Access-Control-Allow-Methods`** {{Glossary("response_header", "Antwo
       <td>{{Glossary("Response_header", "Antwort-Header")}}</td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Forbidden_request_header", "Verbotener Anfrage-Header")}}</th>
+      <th scope="row">{{Glossary("Forbidden_request_header", "Verbotener Anforderungs-Header")}}</th>
       <td>Nein</td>
     </tr>
   </tbody>
@@ -32,10 +33,10 @@ Access-Control-Allow-Methods: *
 ## Direktiven
 
 - `<method>`
-  - : Eine kommagetrennte Liste der zulässigen Anfragemethoden. `GET`, `HEAD` und `POST` sind immer erlaubt, unabhängig davon, ob sie in diesem Header angegeben sind, da sie als [CORS-gesicherte Methode](https://fetch.spec.whatwg.org/#cors-safelisted-method) definiert sind.
+  - : Eine durch Kommas getrennte Liste der erlaubten Anfragemethoden. `GET`, `HEAD` und `POST` sind immer erlaubt, unabhängig davon, ob sie in diesem Header angegeben sind, da sie als [CORS-safelisted method](https://fetch.spec.whatwg.org/#cors-safelisted-method)s definiert sind.
 - `*` (Wildcard)
   - : Alle HTTP-Methoden.
-    Diese Bedeutung hat es nur für Anfragen ohne Anmeldeinformationen (Anfragen ohne [HTTP-Cookies](/de/docs/Web/HTTP/Guides/Cookies) oder HTTP-Authentifizierungsinformationen). Bei Anfragen mit Anmeldeinformationen wird es als der buchstäbliche Methodenname `*` ohne besondere Semantik behandelt.
+    Dies hat nur dann Bedeutung, wenn es sich um Anfragen ohne Anmeldeinformationen handelt (Anfragen ohne [HTTP-Cookies](/de/docs/Web/HTTP/Guides/Cookies) oder HTTP-Authentifizierungsinformationen). Bei Anfragen mit Anmeldeinformationen wird es als der buchstäbliche Methodenname `*` ohne besondere Semantik behandelt.
 
 ## Beispiele
 

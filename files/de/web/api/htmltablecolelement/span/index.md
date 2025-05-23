@@ -3,23 +3,23 @@ title: "HTMLTableColElement: span-Eigenschaft"
 short-title: span
 slug: Web/API/HTMLTableColElement/span
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: 373fcd42528fc9eafa3703dc99927cc56c75fa8d
 ---
 
 {{ APIRef("HTML DOM") }}
 
-Die **`span`**-Eigenschaft des [`HTMLTableColElement`](/de/docs/Web/API/HTMLTableColElement)-Interfaces im Nur-Lese-Modus repräsentiert die Anzahl der Spalten, die dieses {{htmlelement("col")}}- oder {{htmlelement("colgroup")}}-Element überspannen muss; dies ermöglicht es, dass die Spalte Platz über mehrere Spalten der Tabelle hinweg einnimmt. Sie entspricht dem [`span`](/de/docs/Web/HTML/Reference/Elements/col#span)-Attribut.
+Die schreibgeschützte **`span`**-Eigenschaft des [`HTMLTableColElement`](/de/docs/Web/API/HTMLTableColElement)-Interfaces steht für die Anzahl der Spalten, die dieses {{htmlelement("col")}} oder {{htmlelement("colgroup")}} überspannen muss. Dadurch kann die Spalte Platz über mehrere Spalten der Tabelle einnehmen. Sie spiegelt das [`span`](/de/docs/Web/HTML/Reference/Elements/col#span)-Attribut wider.
 
 ## Wert
 
 Eine positive Zahl, die die Anzahl der Spalten darstellt.
 
 > [!NOTE]
-> Beim Festlegen eines neuen Wertes wird der Wert auf die nächste eindeutig positive Zahl (bis zu 1000) _geklammert_.
+> Beim Festlegen eines neuen Wertes wird der Wert auf die nächstgelegene strikt positive Zahl (bis zu 1000) _geklammert_.
 
 ## Beispiele
 
-Dieses Beispiel bietet zwei Schaltflächen, um die Spaltenanzahl der ersten Zelle des Körpers zu ändern.
+Dieses Beispiel bietet zwei Schaltflächen, um die Spannweite der Spalte der ersten Zelle des Körpers zu ändern.
 
 ### HTML
 
@@ -86,14 +86,14 @@ const increaseButton = document.getElementById("increase");
 const decreaseButton = document.getElementById("decrease");
 
 increaseButton.addEventListener("click", () => {
-  col.span = col.span + 1;
+  col.span += 1;
 
   // Update the display
   output.textContent = col.span;
 });
 
 decreaseButton.addEventListener("click", () => {
-  col.span = col.span - 1;
+  col.span -= 1;
 
   // Update the display
   output.textContent = col.span;

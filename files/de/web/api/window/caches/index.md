@@ -3,12 +3,12 @@ title: "Window: caches-Eigenschaft"
 short-title: caches
 slug: Web/API/Window/caches
 l10n:
-  sourceCommit: 2e327846966abb10de0b1c9bedc584caab71ec97
+  sourceCommit: 4a0413ef319179b7d0d833c42a156629544c8248
 ---
 
 {{APIRef("Service Workers API")}}{{securecontext_header}}
 
-Die schreibgeschützte **`caches`**-Eigenschaft der [`Window`](/de/docs/Web/API/Window)-Schnittstelle gibt das [`CacheStorage`](/de/docs/Web/API/CacheStorage)-Objekt zurück, das mit dem aktuellen Kontext verknüpft ist. Dieses Objekt ermöglicht Funktionen wie das Speichern von Ressourcen für die Offline-Nutzung und das Erstellen benutzerdefinierter Antworten auf Anfragen.
+Die schreibgeschützte **`caches`**-Eigenschaft der [`Window`](/de/docs/Web/API/Window)-Schnittstelle gibt das [`CacheStorage`](/de/docs/Web/API/CacheStorage)-Objekt zurück, das mit dem aktuellen Kontext verknüpft ist. Dieses Objekt ermöglicht Funktionen wie das Speichern von Ressourcen zur Offline-Nutzung und das Erstellen benutzerdefinierter Antworten auf Anfragen.
 
 ## Wert
 
@@ -19,9 +19,7 @@ Ein [`CacheStorage`](/de/docs/Web/API/CacheStorage)-Objekt.
 Das folgende Beispiel zeigt, wie ein Fenster zwischengespeicherte Daten abrufen kann.
 
 ```js
-window.caches.open("v1").then((cache) => {
-  return cache.match("/list");
-});
+caches.open("v1").then((cache) => cache.match("/list"));
 ```
 
 ## Spezifikationen
