@@ -3,20 +3,20 @@ title: "Benachrichtigung: maxActions statische Eigenschaft"
 short-title: maxActions
 slug: Web/API/Notification/maxActions_static
 l10n:
-  sourceCommit: 43f272adb6ac15537cff3728c78ddf234485fff8
+  sourceCommit: caa4012f6c46e355ad9840a3603ab69cb436d36f
 ---
 
-{{APIRef("Web Notifications")}}{{SecureContext_Header}} {{AvailableInWorkers}}
+{{APIRef("Web Notifications")}}{{SecureContext_Header}} {{AvailableInWorkers}}{{SeeCompatTable}}
 
-Die Read-only statische Eigenschaft **`maxActions`** der [`Notification`](/de/docs/Web/API/Notification)-Schnittstelle gibt die maximale Anzahl an Aktionen zurück, die von dem Gerät und dem User-Agent unterstützt wird. Effektiv ist dies die maximale Anzahl von Elementen im [`Notification.actions`](/de/docs/Web/API/Notification/actions)-Array, die vom User-Agent beachtet werden.
+Die **`maxActions`** schreibgeschützte statische Eigenschaft der [`Notification`](/de/docs/Web/API/Notification)-Schnittstelle gibt die maximale Anzahl von Aktionen zurück, die vom Gerät und dem Benutzeragenten unterstützt werden. Praktisch gesehen ist dies die maximale Anzahl von Elementen im [`Notification.actions`](/de/docs/Web/API/Notification/actions)-Array, die vom Benutzeragenten respektiert werden.
 
 ## Wert
 
-Eine ganze Zahl, die die größte Anzahl von Benachrichtigungsaktionen anzeigt, die dem Benutzer vom User-Agent und dem Gerät präsentiert werden können.
+Eine ganze Zahl, die die größte Anzahl von Benachrichtigungsaktionen angibt, die dem Benutzer vom Benutzeragenten und dem Gerät präsentiert werden können.
 
 ## Beispiele
 
-Das folgende Beispiel protokolliert die maximale Anzahl der unterstützten Aktionen.
+Der folgende Ausschnitt protokolliert die maximale Anzahl der unterstützten Aktionen.
 
 ```js
 const maxActions = Notification.maxActions;
@@ -35,5 +35,5 @@ console.log(
 
 ## Siehe auch
 
-- [Verwendung der Notifications-API](/de/docs/Web/API/Notifications_API/Using_the_Notifications_API)
+- [Verwendung der Notifications API](/de/docs/Web/API/Notifications_API/Using_the_Notifications_API)
 - [`Notification.actions`](/de/docs/Web/API/Notification/actions)

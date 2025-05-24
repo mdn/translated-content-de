@@ -1,17 +1,17 @@
 ---
-title: "LanguageDetector: `create()` statische Methode"
+title: "LanguageDetector: create() static method"
 short-title: create()
 slug: Web/API/LanguageDetector/create_static
 l10n:
-  sourceCommit: 19e7cdb9bbf52c909ba417c88e768fb287c38ad1
+  sourceCommit: caa4012f6c46e355ad9840a3603ab69cb436d36f
 ---
 
-{{APIRef("Translator and Language Detector APIs")}}{{securecontext_header}}
+{{APIRef("Translator and Language Detector APIs")}}{{securecontext_header}}{{SeeCompatTable}}
 
-Die statische Methode **`create()`** der [`LanguageDetector`](/de/docs/Web/API/LanguageDetector)-Schnittstelle erstellt eine neue `LanguageDetector`-Instanz, um Sprachen zu erkennen.
+Die statische Methode **`create()`** der [`LanguageDetector`](/de/docs/Web/API/LanguageDetector)-Schnittstelle erstellt eine neue `LanguageDetector`-Instanz zur Erkennung von Sprachen.
 
 > [!NOTE]
-> Die Methode `create()` erfordert {{Glossary("Transient_activation", "transiente Aktivierung")}}, das heißt, sie muss als Reaktion auf eine Benutzeraktion wie einen Mausklick oder Tastendruck aufgerufen werden.
+> Die `create()`-Methode erfordert eine {{Glossary("Transient_activation", "transiente Aktivierung")}}, das heißt, sie muss als Reaktion auf eine Benutzeraktion wie einen Mausklick oder das Drücken eines Buttons aufgerufen werden.
 
 ## Syntax
 
@@ -26,11 +26,11 @@ LanguageDetector.create(options)
   - : Ein Objekt, das Konfigurationsoptionen für den `LanguageDetector` angibt. Mögliche Werte sind:
 
     - `expectedInputLanguages`
-      - : Ein Array von Zeichenfolgen, das die erwarteten Sprachen des Eingabetextes angibt, um die Genauigkeit der Spracherkennung zu verbessern. Diese sollten gültige [BCP 47 Sprachtags](https://de.wikipedia.org/wiki/IETF-Sprachcode#Liste_der_h%C3%A4ufigen_prim%C3%A4ren_Sprachen-Subtags) (wie in [RFC 5646](https://datatracker.ietf.org/doc/html/rfc5646) spezifiziert) sein. Standardwert ist `["en"]`.
+      - : Ein Array von Strings, das die erwarteten Sprachen des Eingabetextes angibt, was zur Verbesserung der Genauigkeit der Spracherkennung beiträgt. Diese sollten gültige [BCP 47-Sprachtags](https://en.wikipedia.org/wiki/IETF_language_tag#List_of_common_primary_language_subtags) sein (wie in [RFC 5646](https://datatracker.ietf.org/doc/html/rfc5646) spezifiziert). Standardmäßig `["en"]`.
     - `monitor` {{optional_inline}}
-      - : Eine Callback-Funktion mit einem [`CreateMonitor`](/de/docs/Web/API/CreateMonitor)-Argument, die das Monitoring des Downloadfortschritts des KI-Modells ermöglicht.
+      - : Eine Callback-Funktion mit einem [`CreateMonitor`](/de/docs/Web/API/CreateMonitor)-Argument, das die Überwachung des Downloadfortschritts des KI-Modells ermöglicht.
     - `signal` {{optional_inline}}
-      - : Eine Instanz des [`AbortSignal`](/de/docs/Web/API/AbortSignal)-Objekts, die es erlaubt, die `create()`-Operation über den zugehörigen [`AbortController`](/de/docs/Web/API/AbortController) abzubrechen.
+      - : Eine Instanz eines [`AbortSignal`](/de/docs/Web/API/AbortSignal)-Objekts, die es erlaubt, den `create()`-Vorgang über den zugehörigen [`AbortController`](/de/docs/Web/API/AbortController) abzubrechen.
 
 ### Rückgabewert
 
@@ -48,13 +48,13 @@ Ein {{jsxref("Promise")}}, das mit einer `LanguageDetector`-Objektinstanz erfül
   - : Wird ausgelöst, wenn:
     - Die Nutzung der Methode durch eine {{httpheader('Permissions-Policy/language-detector','language-detector')}} {{httpheader("Permissions-Policy")}} blockiert wird.
     - Der Benutzer den Download des KI-Modells in irgendeiner Weise blockiert hat.
-    - Die Methode `create()` nicht durch {{Glossary("transient_activation", "transiente Aktivierung")}} aufgerufen wurde.
+    - Die `create()`-Methode nicht über eine {{Glossary("transient_activation", "transiente Aktivierung")}} aufgerufen wurde.
 - `NotSupportedError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn:
     - Die in `expectedInputLanguages` angegebenen Sprachtags ungültig oder nicht unterstützt sind.
-    - Kein KI-Modell vorhanden ist, um die spezifizierten `expectedInputLanguages` zu unterstützen.
+    - Kein KI-Modell verfügbar ist, um die angegebenen `expectedInputLanguages` zu unterstützen.
 - `OperationError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Allgemeine Ausnahme, die ausgelöst wird, wenn die Erstellung des `LanguageDetector` aus irgendeinem anderen Grund fehlgeschlagen ist.
+  - : Allgemeiner Ausnahmefehler, der ausgelöst wird, wenn die Erstellung des `LanguageDetector` aus einem anderen Grund fehlschlägt.
 
 ## Beispiele
 
@@ -76,4 +76,4 @@ const detector = await LanguageDetector.create({
 
 ## Siehe auch
 
-- [Verwendung der Translator- und Language Detector APIs](/de/docs/Web/API/Translator_and_Language_Detector_APIs/Using)
+- [Verwendung der Übersetzer- und Spracherkennung-APIs](/de/docs/Web/API/Translator_and_Language_Detector_APIs/Using)
