@@ -3,16 +3,16 @@ title: "RTCError: sdpLineNumber-Eigenschaft"
 short-title: sdpLineNumber
 slug: Web/API/RTCError/sdpLineNumber
 l10n:
-  sourceCommit: 954612667bafd71241a93e8554e8f11afc474ff3
+  sourceCommit: ca5cf1046e4619808440e4505d9fa579a1309ead
 ---
 
 {{APIRef("WebRTC")}}
 
-Die schreibgeschützte Eigenschaft **`sdpLineNumber`** der Schnittstelle [`RTCError`](/de/docs/Web/API/RTCError) gibt die Zeilennummer innerhalb des {{Glossary("SDP", "SDP")}} an, bei der ein Syntaxfehler beim Parsen auftrat.
+Die schreibgeschützte Eigenschaft **`sdpLineNumber`** des [`RTCError`](/de/docs/Web/API/RTCError)-Interfaces gibt die Zeilennummer innerhalb des {{Glossary("SDP", "SDP")}} an, an der ein Syntaxfehler beim Parsen aufgetreten ist.
 
 ## Wert
 
-Ein vorzeichenloser ganzzahliger Wert, der die Zeile innerhalb des SDP angibt, bei der der durch das `RTCError`-Objekt beschriebene Syntaxfehler aufgetreten ist. Die Zeilen sind beginnend mit Zeile 1 nummeriert.
+Ein vorzeichenloser Ganzzahlwert, der die Zeile innerhalb des SDP angibt, an der der durch das `RTCError`-Objekt beschriebene Syntaxfehler auftrat. Die Zeilen sind ab Zeile 1 nummeriert.
 
 Diese Eigenschaft ist `null`, es sei denn, der Wert von [`errorDetail`](/de/docs/Web/API/RTCError/errorDetail) ist `sdp-syntax-error`.
 

@@ -3,20 +3,20 @@ title: "HTMLTableSectionElement: rows-Eigenschaft"
 short-title: rows
 slug: Web/API/HTMLTableSectionElement/rows
 l10n:
-  sourceCommit: 1197521ff42256b9d298144330cfd5b6e0d98c33
+  sourceCommit: 58cc81b21f777d745877ec1430df8ba2852ff411
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`rows`**-Schreibgeschützte Eigenschaft der [`HTMLTableSectionElement`](/de/docs/Web/API/HTMLTableSectionElement)-Schnittstelle gibt eine Live-[`HTMLCollection`](/de/docs/Web/API/HTMLCollection) zurück, die die Zeilen im Abschnitt enthält. Die `HTMLCollection` ist live und wird automatisch aktualisiert, wenn Zeilen hinzugefügt oder entfernt werden.
+Die schreibgeschützte **`rows`**-Eigenschaft des [`HTMLTableSectionElement`](/de/docs/Web/API/HTMLTableSectionElement) Interfaces gibt eine Live-`[`HTMLCollection`](/de/docs/Web/API/HTMLCollection)` zurück, die die Zeilen im Abschnitt enthält. Die `HTMLCollection` ist live und wird automatisch aktualisiert, wenn Zeilen hinzugefügt oder entfernt werden.
 
 ## Wert
 
-Eine Live-[`HTMLCollection`](/de/docs/Web/API/HTMLCollection) von [`HTMLTableRowElement`](/de/docs/Web/API/HTMLTableRowElement)-Objekten.
+Eine Live-`[`HTMLCollection`](/de/docs/Web/API/HTMLCollection)` von [`HTMLTableRowElement`](/de/docs/Web/API/HTMLTableRowElement)-Objekten.
 
 ## Beispiele
 
-In diesem Beispiel ermöglichen zwei Schaltflächen, Zeilen zum Tabellenkörperabschnitt hinzuzufügen und zu entfernen; zudem wird ein {{HTMLElement("output")}}-Element mit der Anzahl der aktuell in der Tabelle vorhandenen Zeilen aktualisiert.
+In diesem Beispiel erlauben zwei Schaltflächen das Hinzufügen und Entfernen von Zeilen aus dem Tabellenkörperabschnitt; außerdem wird ein {{HTMLElement("output")}}-Element mit der aktuellen Anzahl der Zeilen in der Tabelle aktualisiert.
 
 ### HTML
 

@@ -1,20 +1,20 @@
 ---
-title: "HTMLTableSectionElement: insertRow()-Methode"
+title: "HTMLTableSectionElement: insertRow() Methode"
 short-title: insertRow()
 slug: Web/API/HTMLTableSectionElement/insertRow
 l10n:
-  sourceCommit: 1197521ff42256b9d298144330cfd5b6e0d98c33
+  sourceCommit: 58cc81b21f777d745877ec1430df8ba2852ff411
 ---
 
 {{APIRef("HTML DOM")}}
 
 Die **`insertRow()`**-Methode der [`HTMLTableSectionElement`](/de/docs/Web/API/HTMLTableSectionElement)-Schnittstelle fügt eine neue Zeile
-({{HtmlElement("tr")}}) in das angegebene Tabellensektionselement ({{HTMLElement("thead")}}, {{HTMLElement("tfoot")}} oder
+({{HtmlElement("tr")}}) in das angegebene Tabellenabschnittselement ({{HTMLElement("thead")}}, {{HTMLElement("tfoot")}} oder
 {{HTMLElement("tbody")}}) ein und gibt dann eine Referenz auf diese neue Zeile zurück.
 
-> **Note:** `insertRow()` fügt die Zeile direkt in die
-> Sektion ein. Die Zeile muss nicht separat angehängt werden, wie es der Fall wäre, wenn
-> [`Document.createElement()`](/de/docs/Web/API/Document/createElement) verwendet wurde, um das neue
+> **Note:** `insertRow()` fügt die Zeile direkt in den
+> Abschnitt ein. Die Zeile muss nicht separat hinzugefügt werden, wie es der Fall wäre, wenn
+> [`Document.createElement()`](/de/docs/Web/API/Document/createElement) verwendet worden wäre, um das neue
 > `<tr>`-Element zu erstellen.
 
 ## Syntax
@@ -27,13 +27,12 @@ insertRow(index)
 ### Parameter
 
 - `index` {{optional_inline}}
-  - : Der Zeilenindex der neuen Zeile. Wenn `index` `-1` ist oder gleich der Anzahl der Zeilen,
-    wird die Zeile als letzte Zeile angehängt.
+  - : Der Zeilenindex der neuen Zeile. Wenn `index` `-1` oder gleich der Anzahl der Zeilen ist, wird die Zeile als letzte Zeile angefügt.
     Wenn `index` weggelassen wird, ist der Standardwert `-1`.
 
 ### Rückgabewert
 
-Ein [`HTMLTableRowElement`](/de/docs/Web/API/HTMLTableRowElement), das die neue Zeile referenziert.
+Ein [`HTMLTableRowElement`](/de/docs/Web/API/HTMLTableRowElement), das auf die neue Zeile verweist.
 
 ### Ausnahmen
 
@@ -42,7 +41,7 @@ Ein [`HTMLTableRowElement`](/de/docs/Web/API/HTMLTableRowElement), das die neue 
 
 ## Beispiele
 
-In diesem Beispiel ermöglichen zwei Schaltflächen das Hinzufügen und Entfernen von Zeilen aus dem Tabellenkörperabschnitt; es wird auch ein {{HTMLElement("output")}}-Element mit der aktuellen Anzahl der Zeilen in der Tabelle aktualisiert.
+In diesem Beispiel ermöglichen zwei Schaltflächen, Zeilen im Tabellenkörperbereich hinzuzufügen und zu entfernen; es aktualisiert auch ein {{HTMLElement("output")}}-Element mit der Anzahl der aktuell in der Tabelle vorhandenen Zeilen.
 
 ### HTML
 

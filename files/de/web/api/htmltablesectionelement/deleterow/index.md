@@ -3,13 +3,12 @@ title: "HTMLTableSectionElement: deleteRow()-Methode"
 short-title: deleteRow()
 slug: Web/API/HTMLTableSectionElement/deleteRow
 l10n:
-  sourceCommit: 1197521ff42256b9d298144330cfd5b6e0d98c33
+  sourceCommit: 58cc81b21f777d745877ec1430df8ba2852ff411
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`deleteRow()`**-Methode des [`HTMLTableSectionElement`](/de/docs/Web/API/HTMLTableSectionElement)-Interfaces entfernt eine
-spezifische Zeile ({{HtmlElement("tr")}}) aus einem gegebenen {{HtmlElement("section")}}.
+Die **`deleteRow()`**-Methode der [`HTMLTableSectionElement`](/de/docs/Web/API/HTMLTableSectionElement)-Schnittstelle entfernt eine bestimmte Zeile ({{HtmlElement("tr")}}) aus einem gegebenen {{HtmlElement("section")}}.
 
 ## Syntax
 
@@ -20,9 +19,7 @@ deleteRow(index)
 ### Parameter
 
 - `index`
-  - : `index` ist eine Ganzzahl, die die zu löschende Zeile angibt.
-    Jedoch kann der spezielle Index `-1` verwendet werden, um die letzte Zeile des
-    Abschnitts zu entfernen.
+  - : `index` ist ein ganzzahliger Wert, der die Zeile darstellt, die gelöscht werden soll. Der spezielle Index `-1` kann jedoch verwendet werden, um die allerletzte Zeile des Abschnitts zu entfernen.
 
 ### Rückgabewert
 
@@ -31,11 +28,11 @@ Keiner ({{jsxref("undefined")}}).
 ### Ausnahmen
 
 - `IndexSizeError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn `index` größer oder gleich der Anzahl der verfügbaren Zeilen ist oder kleiner als `-1`, außer `-1` selbst.
+  - : Wird ausgelöst, wenn `index` größer oder gleich der Anzahl der verfügbaren Zeilen ist oder ein negativer Wert, der nicht `-1` ist.
 
 ## Beispiele
 
-In diesem Beispiel ermöglichen zwei Schaltflächen das Hinzufügen und Entfernen von Zeilen aus dem Tabellenkörperabschnitt; es aktualisiert auch ein {{HTMLElement("output")}}-Element mit der Anzahl der aktuell in der Tabelle vorhandenen Zeilen.
+In diesem Beispiel ermöglichen zwei Schaltflächen das Hinzufügen und Entfernen von Zeilen aus dem Tabellenkörperschaftsabschnitt; es aktualisiert auch ein {{HTMLElement("output")}}-Element mit der Anzahl der derzeit in der Tabelle vorhandenen Zeilen.
 
 ### HTML
 

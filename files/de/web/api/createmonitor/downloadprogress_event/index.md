@@ -3,21 +3,21 @@ title: "CreateMonitor: downloadprogress-Ereignis"
 short-title: downloadprogress
 slug: Web/API/CreateMonitor/downloadprogress_event
 l10n:
-  sourceCommit: 683890a47fa52942b23dd4406c7f095bb70b1c59
+  sourceCommit: ca5cf1046e4619808440e4505d9fa579a1309ead
 ---
 
 {{APIRef("Summarizer API")}}{{SeeCompatTable}}
 
-Das **`downloadprogress`**-Ereignis der [`CreateMonitor`](/de/docs/Web/API/CreateMonitor)-Schnittstelle wird ausgelöst, wenn Fortschritte beim Herunterladen des KI-Modells gemacht werden.
+Das **`downloadprogress`**-Ereignis der [`CreateMonitor`](/de/docs/Web/API/CreateMonitor)-Schnittstelle wird ausgelöst, wenn ein Fortschritt beim Herunterladen des KI-Modells gemacht wird.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
-```js
-addEventListener("downloadprogress", (event) => {});
+```js-nolint
+addEventListener("downloadprogress", (event) => { })
 
-ondownloadprogress = (event) => {};
+ondownloadprogress = (event) => { }
 ```
 
 ## Ereignistyp
@@ -28,7 +28,7 @@ Ein [`ProgressEvent`](/de/docs/Web/API/ProgressEvent). Erbt von [`Event`](/de/do
 
 ## Beispiele
 
-Siehe die Hauptseite zu [`CreateMonitor`](/de/docs/Web/API/CreateMonitor) für ein Beispiel.
+Sehen Sie sich die Hauptseite von [`CreateMonitor`](/de/docs/Web/API/CreateMonitor) für ein Beispiel an.
 
 ## Spezifikationen
 
@@ -41,4 +41,4 @@ Siehe die Hauptseite zu [`CreateMonitor`](/de/docs/Web/API/CreateMonitor) für e
 ## Siehe auch
 
 - [Verwendung der Summarizer API](/de/docs/Web/API/Summarizer_API/Using)
-- [Web AI-Demos](https://chrome.dev/web-ai-demos/) auf chrome.dev.
+- [Web AI Demos](https://chrome.dev/web-ai-demos/) auf chrome.dev.

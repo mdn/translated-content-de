@@ -1,14 +1,14 @@
 ---
-title: "LanguageDetector: `availability()` statische Methode"
+title: "LanguageDetector: availability() statische Methode"
 short-title: availability()
 slug: Web/API/LanguageDetector/availability_static
 l10n:
-  sourceCommit: caa4012f6c46e355ad9840a3603ab69cb436d36f
+  sourceCommit: ca5cf1046e4619808440e4505d9fa579a1309ead
 ---
 
 {{APIRef("Translator and Language Detector APIs")}}{{securecontext_header}}{{SeeCompatTable}}
 
-Die **`availability()`** statische Methode der [`LanguageDetector`](/de/docs/Web/API/LanguageDetector)-Schnittstelle gibt einen enumerierten Wert zurück, der anzeigt, ob das AI-Modell des Browsers eine gegebene `LanguageDetector`-Konfiguration unterstützt.
+Die statische Methode **`availability()`** der [`LanguageDetector`](/de/docs/Web/API/LanguageDetector) Schnittstelle gibt einen enumerierten Wert zurück, der anzeigt, ob das KI-Modell des Browsers eine gegebene `LanguageDetector`-Konfiguration unterstützt.
 
 ## Syntax
 
@@ -20,10 +20,10 @@ LanguageDetector.availability(options)
 
 - `options`
 
-  - : Ein Objekt mit den Konfigurationsoptionen für den `LanguageDetector`. Mögliche Werte sind:
+  - : Ein Objekt, das Konfigurationsoptionen für den `LanguageDetector` angibt. Mögliche Werte sind:
 
     - `expectedInputLanguages`
-      - : Ein Array von Strings, das die erwarteten Sprachen des Eingabetextes angibt, dessen Sprache erkannt werden soll. Diese sollten gültige [BCP 47 Sprach-Tags](https://en.wikipedia.org/wiki/IETF_language_tag#List_of_common_primary_language_subtags) sein (wie in [RFC 5646](https://datatracker.ietf.org/doc/html/rfc5646) beschrieben). Standardmäßig `["en"]`
+      - : Ein Array von Zeichenfolgen, das die erwarteten Sprachen des Eingabetextes angibt, dessen Sprache erkannt werden soll. Diese sollten gültige [BCP 47 Sprach-Tags](https://en.wikipedia.org/wiki/IETF_language_tag#List_of_common_primary_language_subtags) sein (wie in [RFC 5646](https://datatracker.ietf.org/doc/html/rfc5646) spezifiziert). Standard ist `["en"]`
 
 ### Rückgabewert
 
@@ -34,32 +34,32 @@ Mögliche Werte sind:
 - `available`
   - : Der Browser unterstützt die gegebene Konfiguration und sie kann sofort verwendet werden.
 - `downloadable`
-  - : Der Browser unterstützt die gegebene Konfiguration, muss aber zuerst ein AI-Modell oder einige Anpassungsdaten für das Modell herunterladen.
+  - : Der Browser unterstützt die gegebene Konfiguration, aber er muss zuerst ein KI-Modell oder einige Feindaten für das Modell herunterladen.
 - `downloading`
-  - : Der Browser unterstützt die gegebene Konfiguration, muss jedoch einen laufenden Download abschließen, bevor er fortfahren kann.
+  - : Der Browser unterstützt die gegebene Konfiguration, aber er muss einen laufenden Download abschließen, bevor er fortfahren kann.
 - `unavailable`
   - : Der Browser unterstützt die gegebene Konfiguration nicht.
 
 ### Ausnahmen
 
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Ausgelöst, wenn das [`Document`](/de/docs/Web/API/Document) der Seite noch nicht aktiv ist.
+  - : Wird ausgelöst, wenn das [`Document`](/de/docs/Web/API/Document) der Seite noch nicht aktiv ist.
 - `OperationError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Ausgelöst, wenn die Initialisierung des AI-Modells aus irgendeinem Grund fehlgeschlagen ist.
+  - : Wird ausgelöst, wenn die Initialisierung des KI-Modells aus irgendeinem Grund fehlgeschlagen ist.
 - `UnknownError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Ausgelöst, wenn der `availability()`-Aufruf aus einem anderen Grund fehlgeschlagen ist oder aus einem Grund, den der User-Agent nicht offenlegen wollte.
+  - : Wird ausgelöst, wenn der `availability()` Aufruf aus einem anderen Grund oder einem Grund, den der Benutzeragent nicht offenlegen wollte, fehlgeschlagen ist.
 
-Wenn die Nutzung der Methode durch eine {{httpheader('Permissions-Policy/language-detector','language-detector')}} {{httpheader("Permissions-Policy")}} blockiert wird, schlägt das Promise mit einem Wert von `unavailable` fehl.
+Wenn die Nutzung der Methode durch eine {{httpheader('Permissions-Policy/language-detector','language-detector')}} {{httpheader("Permissions-Policy")}} blockiert wird, lehnt das Versprechen mit einem Wert von `unavailable` ab.
 
 ## Beispiele
 
-### Grundlegende Verwendung von `availability()`
+### Grundlegende Nutzung von `availability()`
 
-Im folgenden Schnipsel prüfen wir die Verfügbarkeit des Modells zur Erkennung einiger Sprachen mit der `availability()`-Methode:
+Im folgenden Code-Ausschnitt prüfen wir zunächst die Verfügbarkeit des Modells zur Erkennung einiger Sprachen mit der `availability()` Methode:
 
-- Wenn es `unavailable` zurückgibt, drucken wir eine entsprechende Fehlermeldung in die Konsole.
-- Wenn es `available` zurückgibt, erstellen wir einen Sprachdetektor mit der [`create()`](/de/docs/Web/API/LanguageDetector/create_static)-Methode und übergeben die `expectedInputLanguages`. Das erforderliche AI-Modell ist verfügbar, daher können wir es sofort verwenden.
-- Wenn es einen anderen Wert zurückgibt (d.h. `downloadable` oder `downloading`), führen wir denselben `create()`-Methodenaufruf aus, fügen jedoch dieses Mal einen `monitor` hinzu, der den Prozentsatz des heruntergeladenen Modells jedes Mal protokolliert, wenn das [`downloadprogress`](/de/docs/Web/API/CreateMonitor/downloadprogress_event)-Ereignis ausgelöst wird.
+- Wenn es `unavailable` zurückgibt, wird eine entsprechende Fehlermeldung in die Konsole ausgegeben.
+- Wenn es `available` zurückgibt, erstellen wir einen Sprachdetektor mit der [`create()`](/de/docs/Web/API/LanguageDetector/create_static) Methode, indem wir ihm die `expectedInputLanguages` übergeben. Das benötigte KI-Modell ist verfügbar, daher können wir es sofort verwenden.
+- Wenn es einen anderen Wert zurückgibt (d.h. `downloadable` oder `downloading`), führen wir denselben `create()` Methodeaufruf aus, aber diesmal schließen wir einen `monitor` ein, der den Prozentsatz des heruntergeladenen Modells jedes Mal protokolliert, wenn das [`downloadprogress`](/de/docs/Web/API/CreateMonitor/downloadprogress_event) Ereignis ausgelöst wird.
 
 ```js
 async function getDetector(languages) {
@@ -87,7 +87,7 @@ async function getDetector(languages) {
 const detector = await getDetector(["en-US", "zh"]);
 ```
 
-### Erkennung der Sprachunterstützung
+### Erkennung von Sprachunterstützung
 
 ```js
 async function langSupport(language) {
@@ -112,4 +112,4 @@ await langSupport("zh");
 
 ## Siehe auch
 
-- [Using the Translator and Language Detector APIs](/de/docs/Web/API/Translator_and_Language_Detector_APIs/Using)
+- [Verwendung der Translator und Language Detector APIs](/de/docs/Web/API/Translator_and_Language_Detector_APIs/Using)
