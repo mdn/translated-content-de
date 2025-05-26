@@ -2,13 +2,12 @@
 title: String.prototype.padStart()
 slug: Web/JavaScript/Reference/Global_Objects/String/padStart
 l10n:
-  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
+  sourceCommit: 317ebb3f4a08f541def39c8052d04478ee556b83
 ---
 
 {{JSRef}}
 
-Die **`padStart()`**-Methode von {{jsxref("String")}}-Werten füllt diesen String mit einem anderen String (mehrfach, falls erforderlich) auf, bis der resultierende
-String die angegebene Länge erreicht. Die Auffüllung erfolgt vom Anfang dieses Strings an.
+Die **`padStart()`**-Methode von {{jsxref("String")}}-Werten füllt diesen String mit einem angegebenen String auf (wiederholt und/oder gekürzt, falls nötig), so dass der resultierende String eine gegebene Länge hat. Das Padding wird vom Anfang des Strings angewendet.
 
 {{InteractiveExample("JavaScript Demo: String.prototype.padStart()")}}
 
@@ -36,17 +35,17 @@ padStart(targetLength, padString)
 ### Parameter
 
 - `targetLength`
-  - : Die Länge des resultierenden Strings, nachdem der aktuelle `str` aufgefüllt wurde. Wenn der Wert kleiner oder gleich der Länge von `str` ist, wird `str` unverändert zurückgegeben.
+  - : Die Länge des resultierenden Strings, nachdem der aktuelle `str` aufgefüllt wurde. Wenn der Wert kleiner oder gleich `str.length` ist, wird `str` unverändert zurückgegeben.
 - `padString` {{optional_inline}}
-  - : Der String, mit dem der aktuelle `str` aufgefüllt wird. Wenn `padString` zu lang ist, um innerhalb der `targetLength` zu bleiben, wird er vom Ende her abgeschnitten. Der Standardwert ist das Unicode-Leerzeichen (U+0020).
+  - : Der String, mit dem der aktuelle `str` aufgefüllt wird. Wenn `padString` zu lang ist, um innerhalb `targetLength` zu bleiben, wird er am Ende abgeschnitten. Der Standardwert ist das Leerzeichen (U+0020).
 
 ### Rückgabewert
 
-Ein {{jsxref("String")}} der angegebenen `targetLength`, mit `padString` vom Anfang an angewendet.
+Ein {{jsxref("String")}} mit der angegebenen `targetLength`, wobei `padString` am Anfang angewendet wird.
 
 ## Beispiele
 
-### Grundlegende Beispiele
+### Verwendung von String.prototype.padStart()
 
 ```js
 "abc".padStart(10); // "       abc"
@@ -56,7 +55,7 @@ Ein {{jsxref("String")}} der angegebenen `targetLength`, mit `padString` vom Anf
 "abc".padStart(1); // "abc"
 ```
 
-### Feste Breite zur String-Nummer-Konvertierung
+### Festbreiten-Zahlenumwandlung
 
 ```js
 // JavaScript version of: (unsigned)

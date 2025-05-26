@@ -2,12 +2,12 @@
 title: String.prototype.padEnd()
 slug: Web/JavaScript/Reference/Global_Objects/String/padEnd
 l10n:
-  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
+  sourceCommit: 317ebb3f4a08f541def39c8052d04478ee556b83
 ---
 
 {{JSRef}}
 
-Die **`padEnd()`**-Methode der {{jsxref("String")}}-Werte fügt diesem String eine angegebene Zeichenfolge hinzu (wenn nötig wiederholt), sodass die resultierende Zeichenfolge eine bestimmte Länge erreicht. Das Padding wird vom Ende dieses Strings angewendet.
+Die **`padEnd()`**-Methode von {{jsxref("String")}}-Werten füllt diesen String mit einem angegebenen String auf (wiederholt und/oder gekürzt, falls nötig), sodass der resultierende String eine bestimmte Länge hat. Die Auffüllung erfolgt vom Ende dieses Strings aus.
 
 {{InteractiveExample("JavaScript Demo: String.prototype.padEnd()")}}
 
@@ -33,17 +33,17 @@ padEnd(targetLength, padString)
 ### Parameter
 
 - `targetLength`
-  - : Die Länge der resultierenden Zeichenfolge, nachdem der aktuelle `str` gepolstert wurde. Wenn der Wert kleiner oder gleich `str.length` ist, wird der aktuelle String unverändert zurückgegeben.
+  - : Die Länge des resultierenden Strings, nachdem der aktuelle `str` aufgefüllt wurde. Wenn der Wert kleiner oder gleich `str.length` ist, wird `str` unverändert zurückgegeben.
 - `padString` {{optional_inline}}
-  - : Die Zeichenfolge, mit der der aktuelle `str` gefüllt werden soll. Wenn `padString` zu lang ist, um innerhalb `targetLength` zu bleiben, wird es gekürzt: Für von links nach rechts lesende Sprachen wird der linkste Teil angewendet und für von rechts nach links lesende Sprachen der rechtsste Teil. Der Standardwert für diesen Parameter ist " " (`U+0020`).
+  - : Der String, mit dem der aktuelle `str` aufgefüllt werden soll. Wenn `padString` zu lang ist, um innerhalb der `targetLength` zu bleiben, wird er am Ende gekürzt. Der Standardwert ist das Leerzeichen (U+0020).
 
 ### Rückgabewert
 
-Eine {{jsxref("String")}} der angegebenen `targetLength` mit dem `padString` am Ende des aktuellen `str`.
+Ein {{jsxref("String")}} der angegebenen `targetLength` mit `padString`, das am Ende angewendet wurde.
 
 ## Beispiele
 
-### Verwendung von padEnd
+### Verwendung von String.prototype.padEnd()
 
 ```js
 "abc".padEnd(10); // "abc       "
