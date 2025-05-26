@@ -1,14 +1,14 @@
 ---
-title: "TaskSignal: any() statische Methode"
+title: "TaskSignal: `any()` statische Methode"
 short-title: any()
 slug: Web/API/TaskSignal/any_static
 l10n:
-  sourceCommit: 759102220c07fb140b3e06971cd5981d8f0f134f
+  sourceCommit: 18094648e338ee13dbe6b1a982157144b691af8e
 ---
 
 {{APIRef("Prioritized Task Scheduling API")}}{{SeeCompatTable}}{{AvailableInWorkers}}
 
-Die **`TaskSignal.any()`** statische Methode nimmt ein iterierbares Objekt von [`AbortSignal`](/de/docs/Web/API/AbortSignal)-Objekten und gibt ein [`TaskSignal`](/de/docs/Web/API/TaskSignal) zurück. Das zurückgegebene Task-Signal wird abgebrochen, wenn eines der Abbruchsignale abgebrochen wird.
+Die statische Methode **`TaskSignal.any()`** nimmt ein iterierbares Objekt von [`AbortSignal`](/de/docs/Web/API/AbortSignal)-Objekten und gibt ein [`TaskSignal`](/de/docs/Web/API/TaskSignal) zurück. Das zurückgegebene Task-Signal wird abgebrochen, wenn eines der Abbruchsignale abgebrochen wird.
 
 Wenn das Task-Signal abgebrochen wird, wird seine [`reason`](/de/docs/Web/API/AbortSignal/reason)-Eigenschaft auf den Grund des ersten abgebrochenen Signals gesetzt.
 
@@ -26,26 +26,26 @@ TaskSignal.any(signals, init)
 - `init` {{optional_inline}}
   - : Enthält optionale Konfigurationsparameter. Derzeit ist nur eine Eigenschaft definiert:
     - `priority` {{optional_inline}}
-      - : Eine der folgenden Optionen:
-        - Ein String, der entweder `user-blocking`, `user-visible` oder `background` ist.
+      - : Eine der folgenden:
+        - Ein [priority](/de/docs/Web/API/Prioritized_Task_Scheduling_API#task_priorities)-String, der entweder `user-blocking`, `user-visible` oder `background` ist.
         - Ein [`TaskSignal`](/de/docs/Web/API/TaskSignal).
 
 ### Rückgabewert
 
-Eine `TaskSignal`-Instanz. Sie wird abgebrochen, wenn das erste Signal in `signals` abgebrochen wird. Wenn dies geschieht:
+Eine `TaskSignal`-Instanz. Sie wird abgebrochen, wenn das erste Signal in `signals` abgebrochen wird. In diesem Fall:
 
-- Ihre [`reason`](/de/docs/Web/API/AbortSignal/reason)-Eigenschaft wird auf den Grund des Signals gesetzt, das dieses Signal zum Abbruch gebracht hat.
+- Wird seine [`reason`](/de/docs/Web/API/AbortSignal/reason)-Eigenschaft auf den Grund des Signals gesetzt, das dieses Signal zum Abbruch gebracht hat.
 
-- Ihre [`priority`](/de/docs/Web/API/TaskSignal/priority)-Eigenschaft wird durch den `priority`-Parameter bestimmt:
+- Wird seine [`priority`](/de/docs/Web/API/TaskSignal/priority)-Eigenschaft durch den `priority`-Parameter bestimmt:
 
-  - Wenn der `priority`-Parameter ein String war, wird er den Wert des Strings haben.
-  - Wenn der `priority`-Parameter ein `TaskSignal` war, wird er den Wert der `priority` dieses Signals haben.
+  - Wenn der `priority`-Parameter ein String war, wird er der Wert des Strings sein.
+  - Wenn der `priority`-Parameter ein `TaskSignal` war, wird er der Wert der [`priority`](/de/docs/Web/API/TaskSignal/priority)-Eigenschaft dieses Signals sein.
 
 ## Beispiele
 
 ### Verwendung von `TaskSignal.any()`
 
-Dieses Beispiel demonstriert die Kombination sowohl eines Signals von einem [`TaskController`](/de/docs/Web/API/TaskController) als auch eines Timeout-Signals von [`TaskSignal.timeout()`](/de/docs/Web/API/AbortSignal/timeout_static).
+Dieses Beispiel zeigt die Kombination eines Signals von einem [`TaskController`](/de/docs/Web/API/TaskController) und eines Timeout-Signals von [`TaskSignal.timeout()`](/de/docs/Web/API/AbortSignal/timeout_static).
 
 ```js
 const cancelDownloadButton = document.getElementById("cancelDownloadButton");

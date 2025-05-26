@@ -2,12 +2,12 @@
 title: forced-color-adjust
 slug: Web/CSS/forced-color-adjust
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: 8697d1b0b7ace72cffe786933aae6c2f9b454b14
 ---
 
 {{CSSRef}}
 
-Die **`forced-color-adjust`** [CSS](/de/docs/Web/CSS) Eigenschaft erlaubt es Autoren, bestimmte Elemente vom Zwangsfarbmodus auszunehmen. Dadurch wird die Kontrolle über diese Werte wieder an das CSS zurückgegeben.
+Die **`forced-color-adjust`** [CSS](/de/docs/Web/CSS) Eigenschaft ermöglicht es Autoren, bestimmte Elemente vom Zwangsfarbmodus auszuschließen. Dadurch wird die Kontrolle über diese Werte zurück an CSS gegeben.
 
 ## Syntax
 
@@ -29,15 +29,15 @@ Der Wert der `forced-color-adjust`-Eigenschaft muss eines der folgenden Schlüss
 ### Werte
 
 - `auto`
-  - : Die Farben des Elements werden vom {{Glossary("user_agent", "User-Agent")}} im Zwangsfarbmodus angepasst. Dies ist der Standard.
+  - : Die Farben des Elements werden im Zwangsfarbmodus vom {{Glossary("user_agent", "Benutzeragenten")}} angepasst. Dies ist der Standardwert.
 - `none`
-  - : Die Farben des Elements werden im Zwangsfarbmodus nicht automatisch vom {{Glossary("user_agent", "User-Agent")}} angepasst.
+  - : Die Farben des Elements werden im Zwangsfarbmodus nicht automatisch vom {{Glossary("user_agent", "Benutzeragenten")}} angepasst.
 - `preserve-parent-color`
-  - : Im Zwangsfarbmodus, falls die {{cssxref("color")}}-Eigenschaft von ihrem Elternteil erbt (d.h. es gibt keinen [kaskadierten Wert](/de/docs/Web/CSS/CSS_cascade/Cascade) oder der kaskadierte Wert ist `currentcolor`, {{cssxref("inherit")}}, oder ein anderes Schlüsselwort, das vom Elternteil erbt), dann wird er zum [verwendeten Farbwert](/de/docs/Web/CSS/CSS_cascade/Value_processing#used_value) der `color`-Eigenschaft des Elternteils berechnet. In allen anderen Fällen verhält es sich wie `none`.
+  - : Im Zwangsfarbmodus, wenn die {{cssxref("color")}} Eigenschaft vom übergeordneten Element erbt (d.h. es gibt keinen [kaskadierten Wert](/de/docs/Web/CSS/CSS_cascade/Cascade) oder der kaskadierte Wert ist `currentcolor`, {{cssxref("inherit")}} oder ein anderes Schlüsselwort, das vom übergeordneten Element erbt), wird es zum [verwendeten Farbwert](/de/docs/Web/CSS/CSS_cascade/Value_processing#used_value) der `color` Eigenschaft seines übergeordneten Elements berechnet. In allen anderen Fällen verhält es sich wie `none`.
 
-## Verwendungsnotizen
+## Anwendungshinweise
 
-Diese Eigenschaft sollte nur verwendet werden, um Änderungen vorzunehmen, die die Farb- und Kontrastsanforderungen eines Nutzers unterstützen. Zum Beispiel, wenn Ihnen bewusst wird, dass die vom {{Glossary("user_agent", "User-Agent")}} vorgenommenen Farboptimierungen zu einer schlechten Erfahrung in einem Hochkontrast- oder Dunkelmodus führen. Die Verwendung dieser Eigenschaft würde es ermöglichen, das Ergebnis in diesem Modus anzupassen, um ein besseres Erlebnis zu bieten. **Sie sollte nicht verwendet werden, um die Entscheidungen der Nutzer zu ignorieren**.
+Diese Eigenschaft sollte nur verwendet werden, um Änderungen vorzunehmen, die den Farb- und Kontrastanforderungen eines Benutzers unterstützen. Zum Beispiel, wenn Sie erkennen, dass die Farboptimierungen des {{Glossary("user_agent", "Benutzeragenten")}} zu einem schlechten Erlebnis in einem Hochkontrast- oder Dunkelmodus führen. Die Verwendung dieser Eigenschaft würde es ermöglichen, das Ergebnis in diesem Modus anzupassen, um ein besseres Erlebnis zu bieten. **Es sollte nicht verwendet werden, um zu verhindern, dass Benutzerentscheidungen respektiert werden**.
 
 ## Formale Definition
 
@@ -51,9 +51,9 @@ Diese Eigenschaft sollte nur verwendet werden, um Änderungen vorzunehmen, die d
 
 ### Farben beibehalten
 
-Im folgenden Beispiel verwendet die erste Box das vom Benutzer eingestellte Farbschema. Beispielsweise im Windows Hochkontrastmodus mit schwarzem Schema, wird sie einen schwarzen Hintergrund und weißen Text haben. Die zweite Box wird die auf der `.box`-Klasse gesetzten Website-Farben beibehalten.
+Im folgenden Beispiel wird das erste Feld das vom Benutzer eingestellte Farbschema verwenden. Zum Beispiel wird es im Windows-Hochkontrastmodus mit schwarzem Schema einen schwarzen Hintergrund und weißen Text haben. Das zweite Feld wird die auf der `.box` Klasse festgelegten Site-Farben beibehalten.
 
-Durch die Verwendung des {{cssxref("@media/forced-colors", "forced-colors")}} Media-Features können Sie neben der `forced-color-adjust`-Eigenschaft weitere Optimierungen für den Zwangsfarbmodus hinzufügen.
+Durch die Verwendung der {{cssxref("@media/forced-colors", "forced-colors")}} Medienfunktion könnten Sie weitere Optimierungen für den Zwangsfarbmodus neben der `forced-color-adjust` Eigenschaft hinzufügen.
 
 #### CSS
 
@@ -89,9 +89,9 @@ Durch die Verwendung des {{cssxref("@media/forced-colors", "forced-colors")}} Me
 
 {{EmbedLiveSample("Preserving_colors", 640, 300)}}
 
-Der folgende Screenshot zeigt das oben abgebildete Bild im Windows Hochkontrastmodus:
+Der folgende Screenshot zeigt das Bild oben im Windows-Hochkontrastmodus:
 
-![Das obige Beispiel im Hochkontrastmodus zeigt die erste Box mit einem schwarzen Hintergrund und die zweite mit dem grauen Hintergrund des CSS.](windows-high-contrast.jpg)
+![Das obige Beispiel im Hochkontrastmodus zeigt das erste Feld mit einem schwarzen Hintergrund, das zweite mit dem grauen Hintergrund des CSS.](windows-high-contrast.jpg)
 
 ## Spezifikationen
 
@@ -103,5 +103,5 @@ Der folgende Screenshot zeigt das oben abgebildete Bild im Windows Hochkontrastm
 
 ## Siehe auch
 
-- [Styling für Windows Hochkontrast mit Standards für Zwangsfarben.](https://blogs.windows.com/msedgedev/2020/09/17/styling-for-windows-high-contrast-with-new-standards-for-forced-colors/)
+- [Styling für Windows-Hochkontrast mit Standards für erzwungene Farben.](https://blogs.windows.com/msedgedev/2020/09/17/styling-for-windows-high-contrast-with-new-standards-for-forced-colors/)
 - {{cssxref("print-color-adjust")}}

@@ -2,25 +2,28 @@
 title: Experimentelle Funktionen in Firefox
 slug: Mozilla/Firefox/Experimental_features
 l10n:
-  sourceCommit: 06da984158beb546ba84bd1d064a482485035fda
+  sourceCommit: 87391741ac46ed05fbe7217e6d937702470b8e86
 ---
 
 {{FirefoxSidebar}}
 
-Diese Seite listet experimentelle und teilweise implementierte Funktionen von Firefox auf, darunter solche für vorgeschlagene oder fortschrittliche Webplattform-Standards, zusammen mit Informationen über die Builds, in denen sie vorhanden sind, ob sie "standardmäßig" aktiviert sind oder nicht, und welche _Voreinstellung_ verwendet werden kann, um sie zu aktivieren oder deaktivieren. Dies ermöglicht es Ihnen, die Funktionen zu testen, bevor sie veröffentlicht werden.
+Diese Seite listet experimentelle und teilweise implementierte Funktionen in Firefox auf, einschließlich derjenigen für vorgeschlagene oder hochmoderne Webplattform-Standards, zusammen mit Informationen zu den Builds, in denen sie vorhanden sind, ob sie "standardmäßig" aktiviert sind oder nicht, und welche _Einstellung_ verwendet werden kann, um sie zu aktivieren oder zu deaktivieren.
+Dies ermöglicht es Ihnen, die Funktionen zu testen, bevor sie veröffentlicht werden.
 
-Neue Funktionen erscheinen zuerst im [Firefox Nightly](https://www.mozilla.org/en-US/firefox/channel/desktop/) Build, wo sie oft standardmäßig aktiviert sind. Sie propagieren dann weiter zur [Firefox Developer Edition](https://www.mozilla.org/en-US/firefox/developer/) und schließlich zum Release-Build. Sobald eine Funktion in einem Release-Build standardmäßig aktiviert ist, wird sie nicht mehr als experimentell betrachtet und sollte aus dem Thema entfernt werden.
+Neue Funktionen erscheinen zunächst im [Firefox Nightly](https://www.mozilla.org/en-US/firefox/channel/desktop/) Build, wo sie oft standardmäßig aktiviert sind.
+Später gelangen sie in die [Firefox Developer Edition](https://www.mozilla.org/en-US/firefox/developer/) und letztendlich in den Release-Build.
+Nachdem eine Funktion standardmäßig in einem Release-Build aktiviert wurde, wird sie nicht mehr als experimentell betrachtet und sollte aus dem Thema entfernt werden.
 
-Experimentelle Funktionen können mittels des [Firefox Konfigurationseditors](https://support.mozilla.org/en-US/kb/about-config-editor-firefox) (geben Sie `about:config` in die Firefox-Adressleiste ein) aktiviert oder deaktiviert werden, indem die unten aufgeführte zugehörige _Voreinstellung_ geändert wird.
+Experimentelle Funktionen können über den [Firefox-Konfigurationseditor](https://support.mozilla.org/en-US/kb/about-config-editor-firefox) (geben Sie `about:config` in die Firefox-Adressleiste ein) durch Änderung der unten aufgeführten zugehörigen _Einstellung_ aktiviert oder deaktiviert werden.
 
 > [!NOTE]
-> Für Editoren: Wenn Sie Funktionen zu diesen Tabellen hinzufügen, versuchen Sie bitte, einen Link zum relevanten Bug oder den Bugs mit `[Firefox bug <Nummer>](https://bugzil.la/<Nummer>)` anzufügen.
+> Für Redakteure - Wenn Sie Funktionen zu diesen Tabellen hinzufügen, versuchen Sie bitte, einen Link zu dem entsprechenden Bug oder den Bugs mit `[Firefox bug <Nummer>](https://bugzil.la/<Nummer>)` anzugeben.
 
 ## HTML
 
 ### Layout für input type="search"
 
-Das Layout für `input type="search"` wurde aktualisiert. Dies führt dazu, dass ein Suchfeld ein Löschsymbol erhält, sobald jemand eingibt, um andere Browserimplementierungen nachzuahmen. (Siehe [Firefox Bug 558594](https://bugzil.la/558594) für mehr Details.)
+Das Layout für `input type="search"` wurde aktualisiert. Dies bewirkt, dass ein Suchfeld ein Löschsymbol hat, sobald jemand beginnt, darin zu tippen, um anderen Browserimplementierungen zu entsprechen. (Siehe [Firefox bug 558594](https://bugzil.la/558594) für weitere Details.)
 
 <table>
   <thead>
@@ -52,15 +55,15 @@ Das Layout für `input type="search"` wurde aktualisiert. Dies führt dazu, dass
       <td>Nein</td>
     </tr>
     <tr>
-      <th>Voreinstellungsname</th>
+      <th>Einstellungsname</th>
       <td colspan="2"><code>layout.forms.input-type-search.enabled</code></td>
     </tr>
   </tbody>
 </table>
 
-### Passwort-Anzeige umschalten
+### Passwortanzeige umschalten
 
-HTML-Passworteingabeelemente ([`<input type="password">`](/de/docs/Web/HTML/Reference/Elements/input/password)) enthalten ein "Auge"-Symbol, das umgeschaltet werden kann, um den Passworttext anzuzeigen oder zu verbergen ([Firefox Bug 502258](https://bugzil.la/502258)).
+HTML-Passwort-Eingabeelemente ([`<input type="password">`](/de/docs/Web/HTML/Reference/Elements/input/password)) enthalten ein "Auge"-Symbol, das umgeschaltet werden kann, um den Passworttext anzuzeigen oder zu verbergen ([Firefox bug 502258](https://bugzil.la/502258)).
 
 <table>
   <thead>
@@ -92,7 +95,7 @@ HTML-Passworteingabeelemente ([`<input type="password">`](/de/docs/Web/HTML/Refe
       <td>Nein</td>
     </tr>
     <tr>
-      <th>Voreinstellungsname</th>
+      <th>Einstellungsname</th>
       <td colspan="2"><code>layout.forms.reveal-password-button.enabled</code></td>
     </tr>
   </tbody>
@@ -102,7 +105,7 @@ HTML-Passworteingabeelemente ([`<input type="password">`](/de/docs/Web/HTML/Refe
 
 ### Hex-Boxen zur Anzeige von Steuerzeichen
 
-Diese Funktion rendert Steuerzeichen (Unicode-Kategorie Cc) außer Tabulator (`U+0009`), Zeilenumbruch (`U+000A`), Form Feed (`U+000C`) und Wagenrücklauf (`U+000D`) als Hex-Box, wenn sie unerwartet sind. (Siehe [Firefox Bug 1099557](https://bugzil.la/1099557) für mehr Details.)
+Diese Funktion rendert Steuerzeichen (Unicode-Kategorie Cc) außer _Tabulator_ (`U+0009`), _Zeilenumbruch_ (`U+000A`), _Form Feed_ (`U+000C`) und _Wagenrücklauf_ (`U+000D`) als Hex-Box, wenn sie nicht erwartet werden. (Siehe [Firefox bug 1099557](https://bugzil.la/1099557) für weitere Details.)
 
 <table>
   <thead>
@@ -134,7 +137,7 @@ Diese Funktion rendert Steuerzeichen (Unicode-Kategorie Cc) außer Tabulator (`U
       <td>Nein</td>
     </tr>
     <tr>
-      <th>Voreinstellungsname</th>
+      <th>Einstellungsname</th>
       <td colspan="2">
         <code>layout.css.control-characters.visible</code>
       </td>
@@ -144,7 +147,7 @@ Diese Funktion rendert Steuerzeichen (Unicode-Kategorie Cc) außer Tabulator (`U
 
 ### initial-letter Eigenschaft
 
-Die {{cssxref("initial-letter")}} CSS-Eigenschaft ist Teil der [CSS Inline Layout](https://drafts.csswg.org/css-inline/) Spezifikation und erlaubt es, wie heruntergefallene, erhobene und versunkene Anfangsbuchstaben angezeigt werden. (Siehe [Firefox Bug 1223880](https://bugzil.la/1223880) für mehr Details.)
+Die {{cssxref("initial-letter")}} CSS-Eigenschaft ist Teil der [CSS Inline Layout](https://drafts.csswg.org/css-inline/) Spezifikation und ermöglicht es Ihnen, festzulegen, wie fallende, gehobene und versenkte Anfangsbuchstaben angezeigt werden. (Siehe [Firefox bug 1223880](https://bugzil.la/1223880) für weitere Details.)
 
 <table>
   <thead>
@@ -176,7 +179,7 @@ Die {{cssxref("initial-letter")}} CSS-Eigenschaft ist Teil der [CSS Inline Layou
       <td>Nein</td>
     </tr>
     <tr>
-      <th>Voreinstellungsname</th>
+      <th>Einstellungsname</th>
       <td colspan="2"><code>layout.css.initial-letter.enabled</code></td>
     </tr>
   </tbody>
@@ -184,7 +187,7 @@ Die {{cssxref("initial-letter")}} CSS-Eigenschaft ist Teil der [CSS Inline Layou
 
 ### fit-content() Funktion
 
-Die {{cssxref("fit-content_function", "fit-content()")}} Funktion bezieht sich auf {{cssxref("width")}} und andere Größenangabe-Eigenschaften. Diese Funktion wird bereits gut für CSS Grid Layout Spurgrößen unterstützt. (Siehe [Firefox Bug 1312588](https://bugzil.la/1312588) für mehr Details.)
+Die {{cssxref("fit-content_function", "fit-content()")}} Funktion, so wie sie auf {{cssxref("width")}} und andere Größenanpassungseigenschaften angewendet wird. Diese Funktion wird bereits gut für das Größenlayout von CSS Grid Layout-Spuren unterstützt. (Siehe [Firefox bug 1312588](https://bugzil.la/1312588) für weitere Details.)
 
 <table>
   <thead>
@@ -216,7 +219,7 @@ Die {{cssxref("fit-content_function", "fit-content()")}} Funktion bezieht sich a
       <td>Nein</td>
     </tr>
     <tr>
-      <th>Voreinstellungsname</th>
+      <th>Einstellungsname</th>
       <td colspan="2"><code>layout.css.fit-content-function.enabled</code></td>
     </tr>
   </tbody>
@@ -224,15 +227,17 @@ Die {{cssxref("fit-content_function", "fit-content()")}} Funktion bezieht sich a
 
 ### Scroll-gesteuerte Animationen
 
-Früher "scroll-verknüpfte Animationen" genannt, basieren [scroll-gesteuerte Animationen](/de/docs/Web/CSS/CSS_scroll-driven_animations) auf der Scroll-Position eines Bildlaufleiste anstatt der Zeit oder einer anderen Dimension. Die {{cssxref('scroll-timeline-name')}} und {{cssxref('scroll-timeline-axis')}} Eigenschaften (und die {{cssxref('scroll-timeline')}} Kurzschreibweise) erlauben es Ihnen anzugeben, dass eine bestimmte Bildlaufleiste in einem bestimmten benannten Container als Quelle für eine scroll-gesteuerte Animation verwendet werden kann. Die Scroll-Timeline kann dann mit einer [Animation](/de/docs/Web/CSS/CSS_animations) verbunden werden, indem die {{cssxref('animation-timeline')}} Eigenschaft auf den mit `scroll-timeline-name` definierten Namen gesetzt wird.
+Früher als "scroll-verknüpfte Animationen" bezeichnet, hängt eine [scroll-gesteuerte Animation](/de/docs/Web/CSS/CSS_scroll-driven_animations) von der Scrollposition eines Scrollbalkens statt von der Zeit oder einer anderen Dimension ab.
+Die Eigenschaften {{cssxref('scroll-timeline-name')}} und {{cssxref('scroll-timeline-axis')}} (und die Kurzform {{cssxref('scroll-timeline')}}) ermöglichen es Ihnen, anzugeben, dass ein bestimmter Scrollbalken in einem bestimmten benannten Container als Quelle für eine scroll-gesteuerte Animation verwendet werden kann.
+Die Scroll-Zeitachse kann dann mit einer [Animation](/de/docs/Web/CSS/CSS_animations) verknüpft werden, indem die Eigenschaft {{cssxref('animation-timeline')}} auf den Namen gesetzt wird, der mit `scroll-timeline-name` festgelegt wurde.
 
-Beim Verwenden der {{cssxref('scroll-timeline')}} Kurzschreibweise muss die Reihenfolge der Eigenschaftswerte {{cssxref('scroll-timeline-name')}} gefolgt von {{cssxref('scroll-timeline-axis')}} sein. Die Lang- und Kurzschreibweisen sind beide hinter der Voreinstellung verfügbar.
+Beim Verwenden der Kurzform {{cssxref('scroll-timeline')}} muss die Reihenfolge der Eigenschaftswerte {{cssxref('scroll-timeline-name')}} gefolgt von {{cssxref('scroll-timeline-axis')}} sein. Die Langform- und Kurzformeigenschaften sind beide hinter der Einstellung verfügbar.
 
-Alternativ können Sie die [`scroll()`](/de/docs/Web/CSS/animation-timeline/scroll) funktionale Notation mit {{cssxref('animation-timeline')}} verwenden, um anzugeben, dass eine Bildlaufleistenachse in einem Vorfahrselement für die Timeline verwendet wird.
+Alternativ können Sie die funktionale Notation [`scroll()`](/de/docs/Web/CSS/animation-timeline/scroll) mit {{cssxref('animation-timeline')}} verwenden, um anzugeben, dass eine Scrollbalkenachse in einem Vorfahrenelement für die Zeitachse verwendet wird.
 
-Für mehr Informationen, siehe [Firefox Bug 1807685](https://bugzil.la/1807685), [Firefox Bug 1804573](https://bugzil.la/1804573), [Firefox Bug 1809005](https://bugzil.la/1809005), [Firefox Bug 1676791](https://bugzil.la/1676791), [Firefox Bug 1754897](https://bugzil.la/1754897), [Firefox Bug 1817303](https://bugzil.la/1817303), und [Firefox Bug 1737918](https://bugzil.la/1737918).
+Für weitere Informationen siehe [Firefox bug 1807685](https://bugzil.la/1807685), [Firefox bug 1804573](https://bugzil.la/1804573), [Firefox bug 1809005](https://bugzil.la/1809005), [Firefox bug 1676791](https://bugzil.la/1676791), [Firefox bug 1754897](https://bugzil.la/1754897), [Firefox bug 1817303](https://bugzil.la/1817303), und [Firefox bug 1737918](https://bugzil.la/1737918).
 
-Die {{cssxref('timeline-scope')}}, {{cssxref('animation-range-start')}} und {{cssxref('animation-range-end')}} Eigenschaften (und die {{cssxref('animation-range')}} Kurzschreibweise) werden noch nicht unterstützt. Für mehr Informationen, siehe [Firefox Bug 1676779](https://bugzil.la/1676779).
+Die Eigenschaften {{cssxref('timeline-scope')}}, {{cssxref('animation-range-start')}} und {{cssxref('animation-range-end')}} (und die Kurzform {{cssxref('animation-range')}}) werden noch nicht unterstützt. Für weitere Informationen siehe [Firefox bug 1676779](https://bugzil.la/1676779).
 
 <table>
   <thead>
@@ -264,15 +269,15 @@ Die {{cssxref('timeline-scope')}}, {{cssxref('animation-range-start')}} und {{cs
       <td>Nein</td>
     </tr>
     <tr>
-      <th>Voreinstellungsname</th>
+      <th>Einstellungsname</th>
       <td colspan="2"><code>layout.css.scroll-driven-animations.enabled</code></td>
     </tr>
   </tbody>
 </table>
 
-### @scope Regel
+### @scope at-rule
 
-Die [@scope](/de/docs/Web/CSS/@scope) [CSS](/de/docs/Web/CSS) [At-Regel](/de/docs/Web/CSS/CSS_syntax/At-rule) erlaubt es Ihnen, spezifische Kind-Elemente auszuwählen, ohne die Spezifität der CSS-Selektoren übermäßig zu erhöhen ([Firefox Bug 1886441](https://bugzil.la/1886441)).
+Die [@scope](/de/docs/Web/CSS/@scope) [CSS](/de/docs/Web/CSS) [at-rule](/de/docs/Web/CSS/CSS_syntax/At-rule) ermöglicht es Ihnen, spezifische Kindelemente auszuwählen, ohne die Spezifität von Selektoren übermäßig zu erhöhen ([Firefox bug 1886441](https://bugzil.la/1886441)).
 
 <table>
   <thead>
@@ -304,7 +309,7 @@ Die [@scope](/de/docs/Web/CSS/@scope) [CSS](/de/docs/Web/CSS) [At-Regel](/de/doc
       <td>Nein</td>
     </tr>
     <tr>
-      <th>Voreinstellungsname</th>
+      <th>Einstellungsname</th>
       <td colspan="2"><code>layout.css.at-scope.enabled</code></td>
     </tr>
   </tbody>
@@ -312,7 +317,8 @@ Die [@scope](/de/docs/Web/CSS/@scope) [CSS](/de/docs/Web/CSS) [At-Regel](/de/doc
 
 ### font-variant-emoji Eigenschaft
 
-Die CSS [`font-variant-emoji`](/de/docs/Web/CSS/font-variant-emoji) Eigenschaft erlaubt es, einen Standard-Darstellungsstil für die Anzeige von Emojis festzulegen. Siehe ([Firefox Bug 1461589](https://bugzil.la/1461589)) für mehr Details.
+Die CSS [`font-variant-emoji`](/de/docs/Web/CSS/font-variant-emoji) Eigenschaft ermöglicht es Ihnen, einen Standarddarstellungsstil für die Anzeige von Emojis festzulegen.
+Siehe ([Firefox bug 1461589](https://bugzil.la/1461589)) für weitere Details.
 
 <table>
   <thead>
@@ -344,15 +350,16 @@ Die CSS [`font-variant-emoji`](/de/docs/Web/CSS/font-variant-emoji) Eigenschaft 
       <td>Nein</td>
     </tr>
     <tr>
-      <th>Voreinstellungsname</th>
+      <th>Einstellungsname</th>
       <td colspan="2"><code>layout.css.font-variant-emoji.enabled</code></td>
     </tr>
   </tbody>
 </table>
 
-### prefers-reduced-transparency Medienfunktion
+### prefers-reduced-transparency Medienmerkmal
 
-Die CSS [`prefers-reduced-transparency`](/de/docs/Web/CSS/@media/prefers-reduced-transparency) Medienfunktion erlaubt es, zu erkennen, ob ein Benutzer die Einstellung aktiviert hat, um die Menge von transparenten oder halbtransparenten Layer-Effekten auf ihrem Gerät zu minimieren. Siehe ([Firefox Bug 1736914](https://bugzil.la/1736914)) für mehr Details.
+Das CSS [`prefers-reduced-transparency`](/de/docs/Web/CSS/@media/prefers-reduced-transparency) Medienmerkmal ermöglicht es Ihnen zu erkennen, ob ein Benutzer die Einstellung aktiviert hat, um die Anzahl der transparenten oder transluzenten Schichteffekte auf seinem Gerät zu minimieren.
+Siehe ([Firefox bug 1736914](https://bugzil.la/1736914)) für weitere Details.
 
 <table>
   <thead>
@@ -384,15 +391,16 @@ Die CSS [`prefers-reduced-transparency`](/de/docs/Web/CSS/@media/prefers-reduced
       <td>Nein</td>
     </tr>
     <tr>
-      <th>Voreinstellungsname</th>
+      <th>Einstellungsname</th>
       <td colspan="2"><code>layout.css.prefers-reduced-transparency.enabled</code></td>
     </tr>
   </tbody>
 </table>
 
-### inverted-colors Medienfunktion
+### inverted-colors Medienmerkmal
 
-Die CSS [`inverted-colors`](/de/docs/Web/CSS/@media/inverted-colors) Medienfunktion ermöglicht es zu erkennen, ob ein Benutzeragent oder das zugrunde liegende Betriebssystem die Farben invertiert. Siehe ([Firefox Bug 1794628](https://bugzil.la/1794628)) für mehr Details.
+Das CSS [`inverted-colors`](/de/docs/Web/CSS/@media/inverted-colors) Medienmerkmal ermöglicht es Ihnen zu erkennen, ob ein Benutzeragent oder das zugrunde liegende Betriebssystem Farben invertiert.
+Siehe ([Firefox bug 1794628](https://bugzil.la/1794628)) für weitere Details.
 
 <table>
   <thead>
@@ -424,55 +432,17 @@ Die CSS [`inverted-colors`](/de/docs/Web/CSS/@media/inverted-colors) Medienfunkt
       <td>Nein</td>
     </tr>
     <tr>
-      <th>Voreinstellungsname</th>
+      <th>Einstellungsname</th>
       <td colspan="2"><code>layout.css.inverted-colors.enabled</code></td>
     </tr>
   </tbody>
 </table>
 
-### Benannte View Progress Timelines Eigenschaft
+### Named view progress timelines Eigenschaft
 
-Die CSS [`view-timeline-name`](/de/docs/Web/CSS/view-timeline-name) Eigenschaft ermöglicht es, einem bestimmten Element einen Namen zu geben, der angibt, dass das Vorfahr-Scroller-Element die Quelle einer View Progress Timeline ist. Der Name kann dann der `animation-timeline` zugewiesen werden, die dann das zugeordnete Element animiert, während es sich durch den sichtbaren Bereich seines Vorfahr-Scrollers bewegt. Siehe ([Firefox Bug 1737920](https://bugzil.la/1737920)) für mehr Details.
-
-<table>
-  <thead>
-    <tr>
-      <th>Release-Kanal</th>
-      <th>Version hinzugefügt</th>
-      <th>Standardmäßig aktiviert?</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>Nightly</th>
-      <td>114</td>
-      <td>Nein</td>
-    </tr>
-    <tr>
-      <th>Developer Edition</th>
-      <td>114</td>
-      <td>Nein</td>
-    </tr>
-    <tr>
-      <th>Beta</th>
-      <td>114</td>
-      <td>Nein</td>
-    </tr>
-    <tr>
-      <th>Release</th>
-      <td>114</td>
-      <td>Nein</td>
-    </tr>
-    <tr>
-      <th>Voreinstellungsname</th>
-      <td colspan="2"><code>layout.css.scroll-driven-animations.enabled</code></td>
-    </tr>
-  </tbody>
-</table>
-
-### Anonyme View Progress Timelines Funktion
-
-Die CSS [`view()`](/de/docs/Web/CSS/animation-timeline/view) Funktion ermöglicht es, dass die `animation-timeline` für ein Element eine View Progress Timeline ist, die das Element animiert, während es sich durch den sichtbaren Bereich seines Vorfahr-Scrollers bewegt. Die Funktion definiert die Achse des übergeordnete Element, das die Timeline liefert, zusammen mit dem Rand innerhalb des sichtbaren Bereichs, bei dem die Animation startet und endet. Siehe ([Firefox Bug 1808410](https://bugzil.la/1808410)) für mehr Details.
+Die CSS [`view-timeline-name`](/de/docs/Web/CSS/view-timeline-name) Eigenschaft ermöglicht es Ihnen, einem bestimmten Element einen Namen zu geben, das identifiziert, dass sein Vorfahren-Scroller-Element die Quelle einer Ansichtsfortschritt-Zeitachse ist.
+Der Name kann dann der `animation-timeline` zugewiesen werden, die dann das zugehörige Element animiert, während es durch den sichtbaren Bereich seines Vorfahren-Scrollers bewegt wird.
+Siehe ([Firefox bug 1737920](https://bugzil.la/1737920)) für weitere Details.
 
 <table>
   <thead>
@@ -504,17 +474,59 @@ Die CSS [`view()`](/de/docs/Web/CSS/animation-timeline/view) Funktion ermöglich
       <td>Nein</td>
     </tr>
     <tr>
-      <th>Voreinstellungsname</th>
+      <th>Einstellungsname</th>
       <td colspan="2"><code>layout.css.scroll-driven-animations.enabled</code></td>
     </tr>
   </tbody>
 </table>
 
-### Anbieter-spezifische Transform-Eigenschaften
+### Anonyme Ansichtsfortschritt-Zeitachsen-Funktion
 
-Die `-moz-` präfixierten [CSS Transform](/de/docs/Web/CSS/CSS_transforms) Eigenschaften können durch Setzen der `layout.css.prefixes.transforms` Voreinstellung auf `false` deaktiviert werden. Ziel ist es, diese zu deaktivieren, sobald die standardmäßigen CSS Zoom-Eigenschaften gut unterstützt werden. ([Firefox Bug 1886134](https://bugzil.la/1886134), [Firefox Bug 1855763](https://bugzil.la/1855763)).
+Die CSS [`view()`](/de/docs/Web/CSS/animation-timeline/view) Funktion ermöglicht es Ihnen anzugeben, dass die `animation-timeline` für ein Element eine Ansichtsfortschritt-Zeitachse ist, die das Element animiert, während es durch den sichtbaren Bereich seines Vorfahren-Scrollers bewegt wird.
+Die Funktion definiert die Achse des übergeordneten Elements, das die Zeitachse bereitstellt, sowie den Einzug innerhalb des sichtbaren Bereichs, an dem die Animation beginnt und endet.
+Siehe ([Firefox bug 1808410](https://bugzil.la/1808410)) für weitere Details.
 
-Insbesondere wird diese Voreinstellung die folgenden präfixierten Eigenschaften deaktivieren:
+<table>
+  <thead>
+    <tr>
+      <th>Release-Kanal</th>
+      <th>Version hinzugefügt</th>
+      <th>Standardmäßig aktiviert?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Nightly</th>
+      <td>114</td>
+      <td>Nein</td>
+    </tr>
+    <tr>
+      <th>Developer Edition</th>
+      <td>114</td>
+      <td>Nein</td>
+    </tr>
+    <tr>
+      <th>Beta</th>
+      <td>114</td>
+      <td>Nein</td>
+    </tr>
+    <tr>
+      <th>Release</th>
+      <td>114</td>
+      <td>Nein</td>
+    </tr>
+    <tr>
+      <th>Einstellungsname</th>
+      <td colspan="2"><code>layout.css.scroll-driven-animations.enabled</code></td>
+    </tr>
+  </tbody>
+</table>
+
+### Von Anbietern vorgespannte Transformations-Eigenschaften
+
+Die `-moz-` vorangestellten [CSS-Transformations](/de/docs/Web/CSS/CSS_transforms) Eigenschaften können deaktiviert werden, indem die `layout.css.prefixes.transforms` Einstellung auf `false` gesetzt wird. Das Ziel ist es, diese zu deaktivieren, sobald die standardmäßigen CSS-Zoomeigenschaften gut unterstützt werden. ([Firefox bug 1886134](https://bugzil.la/1886134), [Firefox bug 1855763](https://bugzil.la/1855763)).
+
+Diese Einstellung deaktiviert speziell die folgenden vorangestellten Eigenschaften:
 
 - `-moz-backface-visibility`
 - `-moz-perspective`
@@ -553,7 +565,7 @@ Insbesondere wird diese Voreinstellung die folgenden präfixierten Eigenschaften
       <td>Ja</td>
     </tr>
     <tr>
-      <th>Voreinstellungsname</th>
+      <th>Einstellungsname</th>
       <td colspan="2">
       <code>layout.css.prefixes.transforms</code>
     </td>
@@ -561,12 +573,12 @@ Insbesondere wird diese Voreinstellung die folgenden präfixierten Eigenschaften
   </tbody>
 </table>
 
-### UA-Stile für `<h1>` verschachtelt in Gliederungselementen
+### UA-Stile für `<h1>` eingebettet in sektionierende Elemente
 
-Die `<h1>` Überschrift verringert nun nicht mehr die Schriftgröße, wenn sie innerhalb von [Gliederungselementen](/de/docs/Web/HTML/Guides/Content_categories#sectioning_content) `<article>`, `<aside>`, `<nav>`, und `<section>` verschachtelt ist. Die UA-Stile für `<h1>` innerhalb von Gliederungselementen sind nicht mehr relevant, da der Umrissalgorithmus [entfernt wurde](https://github.com/whatwg/html/pull/7829) aus der HTML-Spezifikation. ([Firefox Bug 1883896](https://bugzil.la/1883896)).
+Das `<h1>` Überschriftselement verringert jetzt nicht mehr die Schriftgröße, wenn es in [sektionierende Elemente](/de/docs/Web/HTML/Guides/Content_categories#sectioning_content) wie `<article>`, `<aside>`, `<nav>`, und `<section>` eingebettet ist. Die UA-Stile für `<h1>`, die in sektionierende Elemente eingebettet sind, sind nicht mehr relevant, da der Outline-Algorithmus [aus der HTML-Spezifikation entfernt wurde](https://github.com/whatwg/html/pull/7829). ([Firefox bug 1883896](https://bugzil.la/1883896)).
 
 > [!NOTE]
-> Die Voreinstellung für diese Funktion funktioniert umgekehrt: Sie ist im Nightly Build auf `false` gesetzt, was die UA-Stilierung für Überschriften in Gliederungselementen entfernt. In allen anderen Kanälen ist sie auf `true` gesetzt, was die bestehende UA-Stilierung für die verschachtelten Überschriften beibehält.
+> Die Einstellung für diese Funktion funktioniert umgekehrt: Sie ist auf `false` im Nightly-Build gesetzt, das die UA-Stilgebung für Überschriften in sektionierenden Elementen entfernt. In allen anderen Kanälen ist sie auf `true` gesetzt, was die bestehende UA-Stilgebung für die eingebetteten Überschriften beibehält.
 
 <table>
   <thead>
@@ -598,7 +610,7 @@ Die `<h1>` Überschrift verringert nun nicht mehr die Schriftgröße, wenn sie i
       <td>Ja</td>
     </tr>
     <tr>
-      <th>Voreinstellungsname</th>
+      <th>Einstellungsname</th>
       <td colspan="2">
         <code>layout.css.h1-in-section-ua-styles.enabled</code>
       </td>
@@ -608,7 +620,8 @@ Die `<h1>` Überschrift verringert nun nicht mehr die Schriftgröße, wenn sie i
 
 ### `shape()` Funktion
 
-Die CSS [`shape()`](/de/docs/Web/CSS/basic-shape/shape) Funktion ist ein [`<basic-shape>`](/de/docs/Web/CSS/basic-shape) Datentyp, mit dem Sie eine Form in den {{cssxref("clip-path")}} und {{cssxref("offset-path")}} Eigenschaften mit einem oder mehreren "Shape-Befehlen" definieren können. Diese Befehle sind den [SVG Path-Befehlen](/de/docs/Web/SVG/Reference/Attribute/d#path_commands) sehr ähnlich. Die `shape()` Funktion ist in gewisser Hinsicht der {{cssxref("basic-shape/path","path()")}} Funktion ähnlich, aber im Gegensatz zu `path()`, das die [SVG Path](/de/docs/Web/SVG/Reference/Element/path) Syntax verwendet, nutzt `shape()` die Standard-CSS-Syntax. Dadurch können Sie leicht Formen erstellen und bearbeiten und auch CSS-Mathematikfunktionen verwenden. Für mehr Details siehe [Firefox Bug 1823463](https://bugzil.la/1823463) für den `shape()` Funktionssupport in `clip-path`, [Firefox Bug 1884424](https://bugzil.la/1884424) für den Support der Funktion in `offset-path`, und [Firefox Bug 1884425](https://bugzil.la/1884425) für die Unterstützung der Interpolation.
+Die CSS [`shape()`](/de/docs/Web/CSS/basic-shape/shape) Funktion ist ein [`<basic-shape>`](/de/docs/Web/CSS/basic-shape) Datentyp, der es Ihnen ermöglicht, eine Form in den {{cssxref("clip-path")}} und {{cssxref("offset-path")}} Eigenschaften mit einem oder mehreren "Formbefehlen" zu definieren. Diese Befehle sind den [SVG-Pfadbefehlen](/de/docs/Web/SVG/Reference/Attribute/d#path_commands) sehr ähnlich. Die `shape()` Funktion ähnelt in gewisser Hinsicht der {{cssxref("basic-shape/path","path()")}} Funktion, aber im Gegensatz zu `path()`, die die [SVG-Pfad](/de/docs/Web/SVG/Reference/Element/path) Syntax verwendet, benutzt `shape()` die standardmäßige CSS-Syntax. Dies ermöglicht Ihnen, Formen einfach zu erstellen und zu bearbeiten und ebenfalls CSS-Mathematik-Funktionen zu verwenden.
+Für mehr Details, siehe [Firefox bug 1823463](https://bugzil.la/1823463) für die `shape()` Funktionsunterstützung in `clip-path`, [Firefox bug 1884424](https://bugzil.la/1884424) für die Unterstützung der Funktion in `offset-path`, und [Firefox bug 1884425](https://bugzil.la/1884425) für ihre Interpolationsunterstützung.
 
 <table>
   <thead>
@@ -640,15 +653,15 @@ Die CSS [`shape()`](/de/docs/Web/CSS/basic-shape/shape) Funktion ist ein [`<basi
       <td>Nein</td>
     </tr>
     <tr>
-      <th>Voreinstellungsname</th>
+      <th>Einstellungsname</th>
       <td colspan="2"><code>layout.css.basic-shape-shape.enabled</code></td>
     </tr>
   </tbody>
 </table>
 
-### Symmetrische `letter-spacing`
+### Symmetrisches `letter-spacing`
 
-Die CSS {{cssxref("letter-spacing")}} Eigenschaft teilt jetzt den festgelegten Buchstabenabstand gleichmäßig auf beiden Seiten jedes Zeichens auf. Dies unterscheidet sich vom aktuellen Verhalten, bei dem der Abstand hauptsächlich auf einer Seite hinzugefügt wird. Dieser Ansatz kann den Textabstand verbessern, insbesondere bei gemischter Richtungstext [Firefox Bug 1891446](https://bugzil.la/1891446).
+Die CSS {{cssxref("letter-spacing")}} Eigenschaft teilt jetzt den angegebenen Buchstabenabstand gleichmäßig auf beiden Seiten jedes Zeichens auf. Das steht im Gegensatz zum aktuellen Verhalten, bei dem der Abstand hauptsächlich auf einer Seite hinzugefügt wird. Dieser Ansatz kann die Textabstände verbessern, insbesondere in gemischtrichtungalen Texten [Firefox bug 1891446](https://bugzil.la/1891446).
 
 <table>
   <thead>
@@ -680,15 +693,15 @@ Die CSS {{cssxref("letter-spacing")}} Eigenschaft teilt jetzt den festgelegten B
       <td>Nein</td>
     </tr>
     <tr>
-      <th>Voreinstellungsname</th>
+      <th>Einstellungsname</th>
       <td colspan="2"><code>layout.css.letter-spacing.model</code></td>
     </tr>
   </tbody>
 </table>
 
-### `calc()` Farbkanalunterstützung in relativen Farben
+### `calc()` Unterstützung von Farbkanälen in relativen Farben
 
-Die CSS [`calc()`](/de/docs/Web/CSS/calc) Funktion kann nun Farbkanäle in [relativen Farben](/de/docs/Web/CSS/CSS_colors/Relative_colors#using_math_functions) analysieren, was es Ihnen ermöglicht, Änderungen an Farben in verschiedenen Farbräumen oder bei der Verwendung verschiedener funktioneller Notationen korrekt zu berechnen [Firefox Bug 1889561](https://bugzil.la/1889561).
+Die CSS [`calc()`](/de/docs/Web/CSS/calc) Funktion kann jetzt Farbkanäle in [relativen Farben](/de/docs/Web/CSS/CSS_colors/Relative_colors#using_math_functions) parsen, sodass Sie Änderungen an Farben in verschiedenen Farbräumen oder mit unterschiedlichen Funktionsnotationen korrekt berechnen können [Firefox bug 1889561](https://bugzil.la/1889561).
 
 <table>
   <thead>
@@ -720,17 +733,19 @@ Die CSS [`calc()`](/de/docs/Web/CSS/calc) Funktion kann nun Farbkanäle in [rela
       <td>Nein</td>
     </tr>
     <tr>
-      <th>Voreinstellungsname</th>
+      <th>Einstellungsname</th>
       <td colspan="2"><code>layout.css.relative-color-syntax.enabled</code></td>
     </tr>
   </tbody>
 </table>
 
-### CSS-Anker-Positionierung
+### CSS Ankerpositionierung
 
-Das [CSS Anchor Positioning](/de/docs/Web/CSS/CSS_anchor_positioning) Modul definiert eine Reihe von Funktionen, die es ermöglichen, Elemente als Ankerelemente zu definieren, und für andere Elemente, sich relativ zu Ankerelementen zu positionieren. Dies ermöglicht es beispielsweise, Tooltipps neben dem zugehörigen Inhalt anzuzeigen, während er durch den Viewport scrollt, sich zu bewegen, wenn er den Viewport überlaufen würde, und zu verschwinden, wenn der Anker außerhalb des Bildschirms bewegt wird. Die Reihe von Funktionen wird schrittweise hinter einer Voreinstellung eingeführt ([Firefox Bug 1838746](https://bugzil.la/1838746)).
+Das [CSS Anchor Positioning](/de/docs/Web/CSS/CSS_anchor_positioning) Modul definiert eine Reihe von Eigenschaften, die es ermöglichen, Elemente als Ankerelemente zu definieren, und andere Elemente relativ zu Ankerelementen zu positionieren.
+Dies ermöglicht es beispielsweise, Tooltips zusammen mit dem zugehörigen Inhalt anzuzeigen, während er durch den Ansichtsbereich scrollt, sich bei Bedarf bewegt, wenn er den Ansichtsbereich überläuft, und verschwindet, wenn der Anker vom Bildschirm verschwindet.
+Der Satz von Funktionen wird progressiv hinter einer Einstellung ausgerollt ([Firefox bug 1838746](https://bugzil.la/1838746)).
 
-Die umgesetzten Teile umfassen:
+Die Teile, die implementiert wurden, umfassen:
 
 - [`CSSPositionTryRule`](/de/docs/Web/API/CSSPositionTryRule) und [`CSSPositionTryDescriptors`](/de/docs/Web/API/CSSPositionTryDescriptors) (Firefox 131).
 
@@ -764,15 +779,15 @@ Die umgesetzten Teile umfassen:
       <td>Nein</td>
     </tr>
     <tr>
-      <th>Voreinstellungsname</th>
+      <th>Einstellungsname</th>
       <td colspan="2"><code>layout.css.anchor-positioning.enabled</code></td>
     </tr>
   </tbody>
 </table>
 
-### `::details-content` Pseudoelement
+### `::details-content` Pseudo-Element
 
-Das CSS {{cssxref("::details-content")}} Pseudoelement ermöglicht es, den Inhalt des {{htmlElement("details")}} Elements zu stylen ([Firefox Bug 1901037](https://bugzil.la/1901037)).
+Das CSS {{cssxref("::details-content")}} Pseudo-Element ermöglicht es Ihnen, den Inhalt des {{htmlElement("details")}} Elements zu stylen ([Firefox bug 1901037](https://bugzil.la/1901037)).
 
 <table>
   <thead>
@@ -804,19 +819,19 @@ Das CSS {{cssxref("::details-content")}} Pseudoelement ermöglicht es, den Inhal
       <td>Nein</td>
     </tr>
     <tr>
-      <th>Voreinstellungsname</th>
+      <th>Einstellungsname</th>
       <td colspan="2"><code>layout.css.details-content.enabled</code></td>
     </tr>
   </tbody>
 </table>
 
-### Erlaube Pseudoelemente nach elementgestützten Pseudoelementen
+### Erlauben von Pseudo-Elementen nach elementgestützten Pseudo-Elementen
 
-Es wurde begonnen, [Pseudoelemente](/de/docs/Web/CSS/Pseudo-elements) wie {{cssxref("::first-letter")}} und {{cssxref("::before")}} zu ermöglichen, an [elementgestützte Pseudoelemente](/de/docs/Web/CSS/Pseudo-elements#element-backed_pseudo-elements) wie {{cssxref("::details-content")}} und {{cssxref("::file-selector-button")}} angehängt zu werden.
+Es wurde begonnen, zu ermöglichen, dass [Pseudo-Elemente](/de/docs/Web/CSS/Pseudo-elements) wie {{cssxref("::first-letter")}} und {{cssxref("::before")}} an [elementgestützte Pseudo-Elemente](/de/docs/Web/CSS/Pseudo-elements#element-backed_pseudo-elements) wie {{cssxref("::details-content")}} und {{cssxref("::file-selector-button")}} angehängt werden können.
 
-Dies ermöglicht es Benutzern beispielsweise, den ersten Buchstaben des {{htmlElement("details")}} Elements mit dem CSS-Selektor `::details-content::first-letter` zu stylen oder Inhalt vor einem {{HTMLElement("input") }} von [`type="file"`](/de/docs/Web/HTML/Reference/Elements/input/file) mit dem CSS-Selektor `::file-selector-button::before` hinzuzufügen.
+Dies wird es Benutzern erlauben, zum Beispiel den ersten Buchstaben des {{htmlElement("details")}} Elements zu stylen, indem der CSS-Selektor `::details-content::first-letter` verwendet wird, oder Inhalt vor einem {{HTMLElement("input")}} vom [`type="file"`](/de/docs/Web/HTML/Reference/Elements/input/file) hinzufügen, indem der CSS-Selektor `::file-selector-button::before` verwendet wird.
 
-Derzeit kann nur das Parsen von `::details-content::first-letter` unterstützt werden, indem `@supports(::details-content::first-letter)` verwendet wird und die Voreinstellung für das [::details-content Pseudoelement](#details-content_pseudo-element) aktiviert sein muss, um dies zu testen. Das `::file-selector-button` Pseudoelement ist noch nicht als ein elementgestütztes Pseudoelement markiert, sodass es derzeit keine Möglichkeit gibt, dies zu testen. ([Firefox Bug 1953557](https://bugzil.la/1953557)).
+Derzeit kann nur die Unterstützung für `::details-content::first-letter` geparst werden, indem `@supports(::details-content::first-letter)` verwendet wird und die Einstellung für das [::details-content Pseudo-Element](#details-content_pseudo-element) aktiviert wird, um dies zu testen. Das `::file-selector-button` Pseudo-Element is noch nicht als Elementbasiertes Pseudo-Element markiert, sodass es derzeit keine Möglichkeit gibt, dies zu testen. ([Firefox bug 1953557](https://bugzil.la/1953557)).
 
 <table>
   <thead>
@@ -848,7 +863,7 @@ Derzeit kann nur das Parsen von `::details-content::first-letter` unterstützt w
       <td>Nein</td>
     </tr>
     <tr>
-      <th>Voreinstellungsname</th>
+      <th>Einstellungsname</th>
       <td colspan="2"><code>layout.css.details-content.enabled</code></td>
     </tr>
   </tbody>
@@ -862,7 +877,7 @@ Keine.
 
 ### Temporal API
 
-Die `withCalendar()` Methode für [`PlainDate`](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainDate/withCalendar), [`PlainDateTime`](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainDateTime/withCalendar) und [`ZonedDateTime`](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime/withCalendar) Objekte innerhalb des [Temporal Objekts](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal) haben derzeit die folgenden [`Kalendertypen`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/supportedValuesOf#supported_calendar_types) in allen anderen Versionen als Firefox Nightly deaktiviert ([Firefox Bug 1912511](https://bugzil.la/1912511) und [Firefox Bug 1954138](https://bugzil.la/1954138)):
+Die `withCalendar()` Methode für [`PlainDate`](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainDate/withCalendar), [`PlainDateTime`](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainDateTime/withCalendar) und [`ZonedDateTime`](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime/withCalendar) Objekte innerhalb des [Temporal Objekts](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal) haben derzeit die folgenden [`Kalender` Typen](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/supportedValuesOf#supported_calendar_types) in allen Versionen außer Firefox Nightly deaktiviert ([Firefox bug 1912511](https://bugzil.la/1912511) und [Firefox bug 1954138](https://bugzil.la/1954138)):
 
 - `islamic`
 - `islamic-rgsa`
@@ -898,8 +913,51 @@ Die `withCalendar()` Methode für [`PlainDate`](/de/docs/Web/JavaScript/Referenc
       <td>Nein</td>
     </tr>
     <tr>
-      <th>Voreinstellungsname</th>
+      <th>Einstellungsname</th>
       <td colspan="2">N/A</td>
+    </tr>
+  </tbody>
+</table>
+
+### Atomics
+
+#### Atomics.waitAsync()
+
+Die {{jsxref("Atomics.waitAsync()")}} statische Methode wartet asynchron auf einem gemeinsamen Speicherort und gibt ein Objekt zurück, das das Ergebnis der Operation darstellt.
+Sie ist nicht blockierend und im Hauptthread verwendbar. ([Firefox bug 1467846](https://bugzil.la/1467846)).
+
+<table>
+  <thead>
+    <tr>
+      <th>Release-Kanal</th>
+      <th>Version hinzugefügt</th>
+      <th>Standardmäßig aktiviert?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Nightly</th>
+      <td>140</td>
+      <td>Nein</td>
+    </tr>
+    <tr>
+      <th>Developer Edition</th>
+      <td>140</td>
+      <td>Nein</td>
+    </tr>
+    <tr>
+      <th>Beta</th>
+      <td>140</td>
+      <td>Nein</td>
+    </tr>
+    <tr>
+      <th>Release</th>
+      <td>140</td>
+      <td>Nein</td>
+    </tr>
+    <tr>
+      <th>Einstellungsname</th>
+      <td colspan="2"><code>javascript.options.atomics_wait_async</code></td>
     </tr>
   </tbody>
 </table>
@@ -908,13 +966,13 @@ Die `withCalendar()` Methode für [`PlainDate`](/de/docs/Web/JavaScript/Referenc
 
 ### CloseWatcher-Schnittstelle
 
-Eingebaute Web-Komponenten mit "open" und "close" Semantik, wie modale Dialoge und Popovers, können mithilfe von geräte-nativen Mechanismen geschlossen werden. Zum Beispiel können Sie auf Android einen Dialog mit der Zurück-Taste schließen. Die [`CloseWatcher`](/de/docs/Web/API/CloseWatcher)-Schnittstelle ermöglicht es Entwicklern, UI-Komponenten zu implementieren, wie benutzerdefinierte Seitenleisten, die auf ähnliche Weise mit nativen Mechanismen geschlossen werden können. ([Firefox Bug 1888729](https://bugzil.la/1888729)).
+Eingebaute Web-Komponenten mit "öffnen" und "schließen"-Semantik, wie modale Dialoge und Popovers, können mit geräteinternen Mechanismen geschlossen werden. Beispielsweise können Sie auf Android einen Dialog mithilfe der Zurück-Taste schließen. Die [`CloseWatcher`](/de/docs/Web/API/CloseWatcher) Schnittstelle ermöglicht es Entwicklern, UI-Komponenten zu implementieren, wie benutzerdefinierte Sidebars, die ebenfalls mit nativen Mechanismen geschlossen werden können. ([Firefox Bug 1888729](https://bugzil.la/1888729)).
 
 <table>
   <thead>
     <tr>
       <th>Release-Kanal</th>
-      <th>Hinzugefügte Version</th>
+      <th>Version hinzugefügt</th>
       <th>Standardmäßig aktiviert?</th>
     </tr>
   </thead>
@@ -940,7 +998,7 @@ Eingebaute Web-Komponenten mit "open" und "close" Semantik, wie modale Dialoge u
       <td>Nein</td>
     </tr>
     <tr>
-      <th>Verwendungspräferenzname</th>
+      <th>Präferenzname</th>
       <td colspan="2"><code>dom.closewatcher.enabled</code></td>
     </tr>
   </tbody>
@@ -948,18 +1006,18 @@ Eingebaute Web-Komponenten mit "open" und "close" Semantik, wie modale Dialoge u
 
 ### Trusted Types API
 
-Die [Trusted Types API](/de/docs/Web/API/Trusted_Types_API) bietet Mechanismen zur Sicherstellung, dass Funktionen, die potenziell als Vektoren für XSS-Angriffe genutzt werden können, nur mit Daten aufgerufen werden können, die validiert oder bereinigt wurden.
+Die [Trusted Types API](/de/docs/Web/API/Trusted_Types_API) bietet Mechanismen, um sicherzustellen, dass Funktionen, die potenziell als Vektoren für XSS-Angriffe verwendet werden können, nur mit Daten aufgerufen werden können, die validiert oder bereinigt wurden.
 
 > [!NOTE]
-> Zum Zeitpunkt des Schreibens wurden noch nicht genügend Teile der API implementiert, um effektiv getestet werden zu können.
-> Diese Anmerkung wird entfernt, sobald die API fertig ist.
+> Zum Zeitpunkt des Schreibens wurde noch nicht genug von der API implementiert, um sie effektiv testbar zu machen.
+> Diese Notiz wird entfernt, sobald sie bereit ist.
 
 Dieser Teil der API wurde implementiert:
 
 - [`TrustedTypePolicyFactory`](/de/docs/Web/API/TrustedTypePolicyFactory):
   - [`getAttributeType()`](/de/docs/Web/API/TrustedTypePolicyFactory/getAttributeType) und [`getPropertyType()`](/de/docs/Web/API/TrustedTypePolicyFactory/getPropertyType) ([Firefox Bug 1917783](https://bugzil.la/1917783), [Firefox Bug 1917784](https://bugzil.la/1917784)).
-- Die Methoden [`write()`](/de/docs/Web/API/Document/write) und [`writeln()`](/de/docs/Web/API/Document/writeln) der [`Document`](/de/docs/Web/API/Document)-Schnittstelle akzeptieren jetzt [`TrustedHTML`](/de/docs/Web/API/TrustedHTML)-Objekte als Parameter, zusätzlich zu Strings. ([Firefox Bug 1906301](https://bugzil.la/1906301)).
-- Die Eigenschaften [`text`](/de/docs/Web/API/HTMLScriptElement/text), [`innerText`](/de/docs/Web/API/HTMLElement/innerText), und [`textContent`](/de/docs/Web/API/Node/textContent) der [`HTMLScriptElement`](/de/docs/Web/API/HTMLScriptElement)-Schnittstelle akzeptieren nun [`TrustedScript`](/de/docs/Web/API/TrustedScript)-Objekte als Wert, während [`src`](/de/docs/Web/API/HTMLScriptElement/src) [`TrustedScriptURL`](/de/docs/Web/API/TrustedScriptURL)-Werte akzeptiert. ([Firefox Bug 1905706](https://bugzil.la/1905706)).
+- Die Methoden [`write()`](/de/docs/Web/API/Document/write) und [`writeln()`](/de/docs/Web/API/Document/writeln) der [`Document`](/de/docs/Web/API/Document) Schnittstelle akzeptieren jetzt [`TrustedHTML`](/de/docs/Web/API/TrustedHTML) Objekte als Parameter, zusätzlich zu Strings. ([Firefox Bug 1906301](https://bugzil.la/1906301)).
+- Die Eigenschaften [`text`](/de/docs/Web/API/HTMLScriptElement/text), [`innerText`](/de/docs/Web/API/HTMLElement/innerText), und [`textContent`](/de/docs/Web/API/Node/textContent) der [`HTMLScriptElement`](/de/docs/Web/API/HTMLScriptElement) Schnittstelle akzeptieren jetzt [`TrustedScript`](/de/docs/Web/API/TrustedScript) Objekte als Wert, während [`src`](/de/docs/Web/API/HTMLScriptElement/src) [`TrustedScriptURL`](/de/docs/Web/API/TrustedScriptURL) Werte akzeptiert. ([Firefox Bug 1905706](https://bugzil.la/1905706)).
 - Die Methoden [`Window.setInterval()`](/de/docs/Web/API/Window/setInterval) und [`Window.setTimeout()`](/de/docs/Web/API/Window/setTimeout) können mit einem [`TrustedScript`](/de/docs/Web/API/TrustedScript) aufgerufen werden. ([Firefox Bug 1931290](https://bugzil.la/1931290)).
 - Die globale Eigenschaft [`trustedTypes`](/de/docs/Web/API/Window/trustedTypes) ist verfügbar, um auf die Trusted Types API zuzugreifen.
 - Die Eigenschaften [`Element.innerHTML`](/de/docs/Web/API/Element/innerHTML) und [`ShadowRoot.innerHTML`](/de/docs/Web/API/ShadowRoot/innerHTML) können mit [trusted types](/de/docs/Web/API/Trusted_Types_API) aufgerufen werden.
@@ -968,7 +1026,7 @@ Dieser Teil der API wurde implementiert:
   <thead>
     <tr>
       <th>Release-Kanal</th>
-      <th>Hinzugefügte Version</th>
+      <th>Version hinzugefügt</th>
       <th>Standardmäßig aktiviert?</th>
     </tr>
   </thead>
@@ -994,21 +1052,21 @@ Dieser Teil der API wurde implementiert:
       <td>Nein</td>
     </tr>
     <tr>
-      <th>Verwendungspräferenzname</th>
+      <th>Präferenzname</th>
       <td colspan="2"><code>dom.security.trusted_types.enabled</code></td>
     </tr>
   </tbody>
 </table>
 
-### HTML-Sanitizer-API
+### HTML Sanitizer API
 
-Die [HTML Sanitizer API](/de/docs/Web/API/HTML_Sanitizer_API) ermöglicht es Entwicklern, nicht vertrauenswürdige HTML-Strings zu bereinigen, um sie sicher in das DOM eines Dokuments einzufügen.
+Die [HTML Sanitizer API](/de/docs/Web/API/HTML_Sanitizer_API) ermöglicht es Entwicklern, nicht vertrauenswürdige HTML-Strings zu nehmen und sie für eine sichere Einfügung in das DOM eines Dokuments zu bereinigen.
 
 <table>
   <thead>
     <tr>
       <th>Release-Kanal</th>
-      <th>Hinzugefügte Version</th>
+      <th>Version hinzugefügt</th>
       <th>Standardmäßig aktiviert?</th>
     </tr>
   </thead>
@@ -1034,61 +1092,21 @@ Die [HTML Sanitizer API](/de/docs/Web/API/HTML_Sanitizer_API) ermöglicht es Ent
       <td>Nein</td>
     </tr>
     <tr>
-      <th>Verwendungspräferenzname</th>
+      <th>Präferenzname</th>
       <td colspan="2"><code>dom.security.sanitizer.enabled</code></td>
-    </tr>
-  </tbody>
-</table>
-
-### Escape von < und > in Attributen bei der HTML-Serialisierung
-
-Firefox ersetzt die Zeichen `<` und `>` durch `&lt;` und `&gt;` (jeweils) in Attributen beim Serialisieren von HTML. Dies verhindert bestimmte Exploits, bei denen HTML serialisiert und dann in das DOM zurückinjiziert wird. Die betroffenen Methoden und Eigenschaften sind: [`Element.innerHTML`](/de/docs/Web/API/Element/innerHTML), [`Element.outerHTML`](/de/docs/Web/API/Element/outerHTML), [`Element.getHTML()`](/de/docs/Web/API/Element/getHTML), [`ShadowRoot.innerHTML`](/de/docs/Web/API/ShadowRoot/innerHTML), und [`ShadowRoot.getHTML()`](/de/docs/Web/API/ShadowRoot/getHTML). ([Firefox Bug 1941347](https://bugzil.la/1941347)).
-
-<table>
-  <thead>
-    <tr>
-      <th>Release-Kanal</th>
-      <th>Hinzugefügte Version</th>
-      <th>Standardmäßig aktiviert?</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>Nightly</th>
-      <td>139</td>
-      <td>Ja</td>
-    </tr>
-    <tr>
-      <th>Developer Edition</th>
-      <td>139</td>
-      <td>Nein</td>
-    </tr>
-    <tr>
-      <th>Beta</th>
-      <td>139</td>
-      <td>Nein</td>
-    </tr>
-    <tr>
-      <th>Release</th>
-      <td>139</td>
-      <td>Nein</td>
-    </tr>
-    <tr>
-      <th>Verwendungspräferenzname</th>
-      <td colspan="2"><code>dom.security.html_serialization_escape_lt_gt</code></td>
     </tr>
   </tbody>
 </table>
 
 ### Entfernung von MutationEvent
 
-[`MutationEvent`](/de/docs/Web/API/MutationEvent) und seine zugehörigen Ereignisse (`DOMSubtreeModified`, `DOMNodeInserted`, `DOMNodeRemoved`, `DOMCharacterDataModified`, `DOMAttrModified`) stehen vor der Entfernung und wurden in Nightly deaktiviert. ([Firefox Bug 1951772](https://bugzil.la/1951772)).
+[`MutationEvent`](/de/docs/Web/API/MutationEvent) und seine zugehörigen Ereignisse (`DOMSubtreeModified`, `DOMNodeInserted`, `DOMNodeRemoved`, `DOMCharacterDataModified`, `DOMAttrModified`) stehen zur Entfernung an und wurden in Nightly deaktiviert. ([Firefox Bug 1951772](https://bugzil.la/1951772)).
 
 <table>
   <thead>
     <tr>
       <th>Release-Kanal</th>
-      <th>Hinzugefügte Version</th>
+      <th>Version hinzugefügt</th>
       <th>Standardmäßig aktiviert?</th>
     </tr>
   </thead>
@@ -1114,21 +1132,21 @@ Firefox ersetzt die Zeichen `<` und `>` durch `&lt;` und `&gt;` (jeweils) in Att
       <td>Ja</td>
     </tr>
     <tr>
-      <th>Verwendungspräferenzname</th>
+      <th>Präferenzname</th>
       <td colspan="2"><code>dom.mutation_events.enabled</code></td>
     </tr>
   </tbody>
 </table>
 
-### Entfernung der Ereignisse `beforescriptexecute` und `afterscriptexecute`
+### Entfernung der `beforescriptexecute`- und `afterscriptexecute`-Ereignisse
 
-Die nicht standardisierten Ereignisse [`beforescriptexecute`](/de/docs/Web/API/Document/beforescriptexecute_event) und [`afterscriptexecute`](/de/docs/Web/API/Document/afterscriptexecute_event) auf der [`Document`](/de/docs/Web/API/Document)-Schnittstelle sowie [`afterscriptexecute`](/de/docs/Web/API/Element/afterscriptexecute_event) und [`beforescriptexecute`](/de/docs/Web/API/Element/beforescriptexecute_event) auf der [`Element`](/de/docs/Web/API/Element)-Schnittstelle stehen vor der Entfernung. Sie wurden in Nightly deaktiviert. ([Firefox Bug 1954685](https://bugzil.la/1954685)).
+Die nicht standardmäßigen Ereignisse [`beforescriptexecute`](/de/docs/Web/API/Document/beforescriptexecute_event) und [`afterscriptexecute`](/de/docs/Web/API/Document/afterscriptexecute_event) auf der [`Document`](/de/docs/Web/API/Document)-Schnittstelle und [`afterscriptexecute`](/de/docs/Web/API/Element/afterscriptexecute_event) und [`beforescriptexecute`](/de/docs/Web/API/Element/beforescriptexecute_event) auf der [`Element`](/de/docs/Web/API/Element)-Schnittstelle stehen zur Entfernung an. Sie wurden in Nightly deaktiviert. ([Firefox Bug 1954685](https://bugzil.la/1954685)).
 
 <table>
   <thead>
     <tr>
       <th>Release-Kanal</th>
-      <th>Hinzugefügte Version</th>
+      <th>Version hinzugefügt</th>
       <th>Standardmäßig aktiviert?</th>
     </tr>
   </thead>
@@ -1154,7 +1172,7 @@ Die nicht standardisierten Ereignisse [`beforescriptexecute`](/de/docs/Web/API/D
       <td>Ja</td>
     </tr>
     <tr>
-      <th>Verwendungspräferenzname</th>
+      <th>Präferenzname</th>
       <td colspan="2"><code>dom.events.script_execute.enable</code></td>
     </tr>
   </tbody>
@@ -1162,13 +1180,13 @@ Die nicht standardisierten Ereignisse [`beforescriptexecute`](/de/docs/Web/API/D
 
 ### PerformanceEventTiming.interactionId
 
-[`PerformanceEventTiming.interactionId`](/de/docs/Web/API/PerformanceEventTiming/interactionId) kann verwendet werden, um die Latenzzeit von Ereignissen zu messen, die durch eine bestimmte Benutzerinteraktion ausgelöst wurden. ([Firefox Bug 1934683](https://bugzil.la/1934683)).
+[`PerformanceEventTiming.interactionId`](/de/docs/Web/API/PerformanceEventTiming/interactionId) kann verwendet werden, um die Latenzzeit für Ereignisse zu messen, die durch eine bestimmte Benutzerinteraktion ausgelöst wurden. ([Firefox Bug 1934683](https://bugzil.la/1934683)).
 
 <table>
   <thead>
     <tr>
       <th>Release-Kanal</th>
-      <th>Hinzugefügte Version</th>
+      <th>Version hinzugefügt</th>
       <th>Standardmäßig aktiviert?</th>
     </tr>
   </thead>
@@ -1194,21 +1212,21 @@ Die nicht standardisierten Ereignisse [`beforescriptexecute`](/de/docs/Web/API/D
       <td>Nein</td>
     </tr>
     <tr>
-      <th>Verwendungspräferenzname</th>
+      <th>Präferenzname</th>
       <td colspan="2"><code>dom.performance.event_timing.enable_interactionid</code></td>
     </tr>
   </tbody>
 </table>
 
-### Eigenschaften Notification actions und maxActions
+### Notification-Aktionen und maxActions-Eigenschaften
 
-Die schreibgeschützte Eigenschaft [`actions`](/de/docs/Web/API/Notification/actions) und die statische schreibgeschützte Eigenschaft [`maxActions`](/de/docs/Web/API/Notification/maxActions_static) der [`Notification`](/de/docs/Web/API/Notification)-Schnittstelle werden in Nightly auf dem Desktop unterstützt. Diese enthalten die Benachrichtigungsaktionen, die mit [`ServiceWorkerRegistration.showNotification()`](/de/docs/Web/API/ServiceWorkerRegistration/showNotification) gesetzt wurden, sowie die maximale Anzahl der Aktionen, die festgelegt werden können. ([Firefox Bug 1225110](https://bugzil.la/1225110), [Firefox Bug 1963263](https://bugzil.la/1963263)).
+Die Eigenschaft [`actions`](/de/docs/Web/API/Notification/actions) im Nur-Lese-Zugriff und die statische Nur-Lese-Eigenschaft [`maxActions`](/de/docs/Web/API/Notification/maxActions_static) der [`Notification`](/de/docs/Web/API/Notification)-Schnittstelle werden in Nightly auf dem Desktop unterstützt. Diese enthalten die Benachrichtigungsaktionen, die mit [`ServiceWorkerRegistration.showNotification()`](/de/docs/Web/API/ServiceWorkerRegistration/showNotification) festgelegt wurden, und die maximale Anzahl von Aktionen, die festgelegt werden können. ([Firefox Bug 1225110](https://bugzil.la/1225110), [Firefox Bug 1963263](https://bugzil.la/1963263)).
 
 <table>
   <thead>
     <tr>
       <th>Release-Kanal</th>
-      <th>Hinzugefügte Version</th>
+      <th>Version hinzugefügt</th>
       <th>Standardmäßig aktiviert?</th>
     </tr>
   </thead>
@@ -1234,27 +1252,27 @@ Die schreibgeschützte Eigenschaft [`actions`](/de/docs/Web/API/Notification/act
       <td>Nein</td>
     </tr>
     <tr>
-      <th>Verwendungspräferenzname</th>
+      <th>Präferenzname</th>
       <td colspan="2"><code>dom.webnotifications.actions.enabled</code></td>
     </tr>
   </tbody>
 </table>
 
-### Grafik: Canvas, WebGL und WebGPU
+### Grafiken: Canvas, WebGL und WebGPU
 
 #### WebGL: Entwurfserweiterungen
 
-Wenn diese Präferenz aktiviert ist, werden alle WebGL-Erweiterungen, die sich derzeit im "Entwurf"-Status befinden und getestet werden, zur Verwendung aktiviert. Derzeit gibt es keine WebGL-Erweiterungen, die von Firefox getestet werden.
+Wenn diese Präferenz aktiviert ist, werden alle WebGL-Erweiterungen, die sich derzeit im "Entwurfs"-Status befinden und getestet werden, zur Verwendung aktiviert. Derzeit werden keine WebGL-Erweiterungen von Firefox getestet.
 
 #### WebGPU-API
 
-Die [WebGPU API](/de/docs/Web/API/WebGPU_API) bietet Unterstützung auf niedriger Ebene für die Durchführung von Berechnungen und Grafikwiedergaben mithilfe der [Graphics Processing Unit](https://en.wikipedia.org/wiki/Graphics_Processing_Unit) (GPU) des Benutzergeräts oder -computers. Weitere Informationen zum Fortschritt dieser API finden Sie in [Firefox Bug 1602129](https://bugzil.la/1602129).
+Die [WebGPU API](/de/docs/Web/API/WebGPU_API) bietet Unterstützung auf niedriger Ebene für die Durchführung von Berechnungen und Grafikdarstellungen mit der [Grafikverarbeitungseinheit (GPU)](https://en.wikipedia.org/wiki/Graphics_Processing_Unit) des Geräts oder Computers des Benutzers. Siehe [Firefox Bug 1602129](https://bugzil.la/1602129) für den Fortschritt dieser API.
 
 <table>
   <thead>
     <tr>
       <th>Release-Kanal</th>
-      <th>Hinzugefügte Version</th>
+      <th>Version hinzugefügt</th>
       <th>Standardmäßig aktiviert?</th>
     </tr>
   </thead>
@@ -1280,27 +1298,27 @@ Die [WebGPU API](/de/docs/Web/API/WebGPU_API) bietet Unterstützung auf niedrige
       <td>Nein</td>
     </tr>
     <tr>
-      <th>Verwendungspräferenzname</th>
+      <th>Präferenzname</th>
       <td colspan="2"><code>dom.webgpu.enabled</code></td>
     </tr>
   </tbody>
 </table>
 
-### Reporting-API-Unterstützung für CSP-Verletzungen
+### Unterstützung der Reporting-API für CSP-Verletzungen
 
-Die [Reporting API](/de/docs/Web/API/Reporting_API) hat nun Unterstützung für das Melden von [Content Security Policy (CSP)](/de/docs/Web/HTTP/Guides/CSP)-Verletzungen.
+Die [Reporting-API](/de/docs/Web/API/Reporting_API) unterstützt jetzt das Melden von Verletzungen der [Content Security Policy (CSP)](/de/docs/Web/HTTP/Guides/CSP).
 
-[`Report`](/de/docs/Web/API/Report)-Instanzen, die von der [`ReportingObserver`](/de/docs/Web/API/ReportingObserver)-Schnittstelle zurückgegeben werden, können jetzt einen `type`-Wert von `"csp-violation"` und eine `body`-Eigenschaft enthalten, die eine Instanz der [`CSPViolationReportBody`](/de/docs/Web/API/CSPViolationReportBody)-Schnittstelle darstellt. Dies ermöglicht es, CSP-Verletzungen innerhalb einer Webseite zu melden.
+[`Report`](/de/docs/Web/API/Report)-Instanzen, die von der [`ReportingObserver`](/de/docs/Web/API/ReportingObserver)-Schnittstelle zurückgegeben werden, können jetzt einen `type`-Wert von `"csp-violation"` und eine `body`-Eigenschaft enthalten, die eine Instanz der [`CSPViolationReportBody`](/de/docs/Web/API/CSPViolationReportBody)-Schnittstelle enthält. Dies ermöglicht es, CSP-Verletzungen innerhalb einer Webseite zu melden.
 
-CSP-Verletzungsberichte können auch an entfernte Endpunkte gesendet werden, die im CSP-{{CSP("report-to")}}-Direktive mit Namen angegeben sind – die Namen der Endpunkte und entsprechende URLs müssen zunächst in den HTTP-Headern {{httpheader('Reporting-Endpoints')}} oder {{httpheader('Report-To')}} definiert werden. Der Bericht ist eine Serialisierung des oben beschriebenen [`Report`](/de/docs/Web/API/Report)-Objekts, mit einer `body`-Eigenschaft, die eine Serialisierung einer [`CSPViolationReportBody`](/de/docs/Web/API/CSPViolationReportBody)-Instanz darstellt.
+Berichte über CSP-Verletzungen können auch an entfernte Endpunkte gesendet werden, die im CSP {{CSP("report-to")}}-Direktive namentlich angegeben sind — Endpunktsnamen und entsprechende URLs müssen zuerst in den {{httpheader('Reporting-Endpoints')}} oder {{httpheader('Report-To')}} HTTP-Response-Headern definiert werden. Der Bericht ist eine Serialisierung des oben beschriebenen [`Report`](/de/docs/Web/API/Report)-Objekts, mit einer `body`-Eigenschaft, die eine Serialisierung einer [`CSPViolationReportBody`](/de/docs/Web/API/CSPViolationReportBody)-Instanz ist.
 
-Dieser Verletzungsbericht ersetzt einen ähnlichen CSP-spezifischen Mechanismus zum Senden von Verletzungsberichten, der das CSP-{{CSP("report-uri")}}-Direktive verwendet, um die URL des Reporting-Endpunkts festzulegen, und ein [CSP-spezifisches JSON-Verletzungsbericht-Format](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/report-uri#violation_report_syntax) aufweist. ([Firefox Bug 1391243](https://bugzil.la/1391243)).
+Dieser Verletzungsbericht ersetzt einen ähnlichen CSP-spezifischen Mechanismus zum Senden von Verletzungsberichten, der die CSP {{CSP("report-uri")}}-Direktive verwendet, um die URL des Meldeendpunkts festzulegen, und ein [CSP-spezifisches JSON-Verletzungsberichtsformat](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/report-uri#violation_report_syntax) hat. ([Firefox Bug 1391243](https://bugzil.la/1391243)).
 
 <table>
   <thead>
     <tr>
       <th>Release-Kanal</th>
-      <th>Hinzugefügte Version</th>
+      <th>Version hinzugefügt</th>
       <th>Standardmäßig aktiviert?</th>
     </tr>
   </thead>
@@ -1326,7 +1344,7 @@ Dieser Verletzungsbericht ersetzt einen ähnlichen CSP-spezifischen Mechanismus 
       <td>Nein</td>
     </tr>
     <tr>
-      <th>Verwendungspräferenzname</th>
+      <th>Präferenzname</th>
       <td colspan="2"><code>dom.reporting.enabled</code></td>
     </tr>
   </tbody>
@@ -1334,17 +1352,17 @@ Dieser Verletzungsbericht ersetzt einen ähnlichen CSP-spezifischen Mechanismus 
 
 ### WebRTC und Medien
 
-Die folgenden experimentellen Funktionen umfassen diejenigen, die in der [WebRTC API](/de/docs/Web/API/WebRTC_API), der [Web Audio API](/de/docs/Web/API/Web_Audio_API), der [Media Source Extensions API](/de/docs/Web/API/Media_Source_Extensions_API), der [Encrypted Media Extensions API](/de/docs/Web/API/Encrypted_Media_Extensions_API) und der [Media Capture and Streams API](/de/docs/Web/API/Media_Capture_and_Streams_API) zu finden sind.
+Die folgenden experimentellen Funktionen umfassen die [WebRTC API](/de/docs/Web/API/WebRTC_API), die [Web Audio API](/de/docs/Web/API/Web_Audio_API), die [Media Source Extensions API](/de/docs/Web/API/Media_Source_Extensions_API), die [Encrypted Media Extensions API](/de/docs/Web/API/Encrypted_Media_Extensions_API) und die [Media Capture and Streams API](/de/docs/Web/API/Media_Capture_and_Streams_API).
 
-#### Asynchrone SourceBuffer-Hinzufügung und -Entfernung
+#### Asynchrone SourceBuffer-Hinzufügen und -Entfernen
 
-Dies fügt die auf Versprechen basierenden Methoden [`appendBufferAsync()`](/de/docs/Web/API/SourceBuffer/appendBufferAsync) und [`removeAsync()`](/de/docs/Web/API/SourceBuffer/removeAsync) für die Hinzufügung und Entfernung von Medienquellenpuffern zur [`SourceBuffer`](/de/docs/Web/API/SourceBuffer)-Schnittstelle hinzu. Weitere Informationen finden Sie in [Firefox Bug 1280613](https://bugzil.la/1280613) und [Firefox Bug 778617](https://bugzil.la/778617).
+Dies fügt die auf Versprechen basierenden Methoden [`appendBufferAsync()`](/de/docs/Web/API/SourceBuffer/appendBufferAsync) und [`removeAsync()`](/de/docs/Web/API/SourceBuffer/removeAsync) hinzu, um Medienquellenpuffer zur [`SourceBuffer`](/de/docs/Web/API/SourceBuffer)-Schnittstelle hinzuzufügen und zu entfernen. Siehe [Firefox Bug 1280613](https://bugzil.la/1280613) und [Firefox Bug 778617](https://bugzil.la/778617) für weitere Informationen.
 
 <table>
   <thead>
     <tr>
       <th>Release-Kanal</th>
-      <th>Hinzugefügte Version</th>
+      <th>Version hinzugefügt</th>
       <th>Standardmäßig aktiviert?</th>
     </tr>
   </thead>
@@ -1370,27 +1388,27 @@ Dies fügt die auf Versprechen basierenden Methoden [`appendBufferAsync()`](/de/
       <td>Nein</td>
     </tr>
     <tr>
-      <th>Verwendungspräferenzname</th>
+      <th>Präferenzname</th>
       <td colspan="2"><code>media.mediasource.experimental.enabled</code></td>
     </tr>
   </tbody>
 </table>
 
-#### AVIF-Konformitätsstrenge
+#### AVIF-Konformität und Strenge
 
-Die Einstellung `image.avif.compliance_strictness` kann verwendet werden, um die _Strenge_ bei der Verarbeitung von [AVIF](/de/docs/Web/Media/Guides/Formats/Image_types#avif_image)-Bildern zu steuern. Dies ermöglicht es Firefox-Nutzern, Bilder darzustellen, die auf einigen anderen Browsern angezeigt werden, selbst wenn sie nicht strikt konform sind.
+Die Präferenz `image.avif.compliance_strictness` kann verwendet werden, um die _Strenge_ zu steuern, die beim Verarbeiten von [AVIF](/de/docs/Web/Media/Guides/Formats/Image_types#avif_image) Bildern angewendet wird. Dies ermöglicht es Firefox-Benutzern, Bilder anzuzeigen, die auf einigen anderen Browsern gerendert werden, auch wenn sie nicht strikt konform sind.
 
 Zulässige Werte sind:
 
-- `0`: Akzeptiere Bilder mit Spezifikationsverletzungen sowohl in Empfehlungen ("sollte"-Sprache) als auch in Anforderungen ("muss"-Sprache), sofern sie sicher oder unmissverständlich interpretiert werden können.
-- `1` (Standard): Verweigere Verletzungen von Anforderungen, erlaube jedoch Verletzungen von Empfehlungen.
-- `2`: Strikt. Verweigere jegliche Verletzungen in Anforderungen oder Empfehlungen.
+- `0`: Akzeptieren von Bildern mit Verstößen gegen die Spezifikationen in Empfehlungen ("sollte"-Sprache) und Anforderungen ("muss"-Sprache), vorausgesetzt, sie können sicher oder eindeutig interpretiert werden.
+- `1` (Standard): Ablehnen von Verstößen gegen Anforderungen, aber Zulassen von Verstößen gegen Empfehlungen.
+- `2`: Streng. Ablehnen von Verstößen gegen Anforderungen oder Empfehlungen.
 
 <table>
   <thead>
     <tr>
       <th>Release-Kanal</th>
-      <th>Hinzugefügte Version</th>
+      <th>Version hinzugefügt</th>
       <th>Standardwert</th>
     </tr>
   </thead>
@@ -1416,23 +1434,23 @@ Zulässige Werte sind:
       <td>1</td>
     </tr>
     <tr>
-      <th>Verwendungspräferenzname</th>
+      <th>Präferenzname</th>
       <td colspan="2"><code>image.avif.compliance_strictness</code></td>
     </tr>
   </tbody>
 </table>
 
-#### JPEG XL-Unterstützung
+#### Unterstützung von JPEG XL
 
-Firefox unterstützt [JPEG XL](https://jpeg.org/jpegxl/)-Bilder, wenn diese Funktion aktiviert ist. Weitere Details finden Sie in [Firefox Bug 1539075](https://bugzil.la/1539075).
+Firefox unterstützt [JPEG XL](https://jpeg.org/jpegxl/) Bilder, wenn diese Funktion aktiviert ist. Weitere Einzelheiten finden Sie im [Firefox Bug 1539075](https://bugzil.la/1539075).
 
-Beachten Sie, dass die Funktion, wie unten gezeigt, nur in Nightly-Builds verfügbar ist (unabhängig davon, ob die Präferenz gesetzt ist).
+Es ist zu beachten, dass, wie unten gezeigt, die Funktion nur in Nightly-Builds verfügbar ist (unabhängig davon, ob die Präferenz gesetzt ist).
 
 <table>
   <thead>
     <tr>
       <th>Release-Kanal</th>
-      <th>Hinzugefügte Version</th>
+      <th>Version hinzugefügt</th>
       <th>Standardmäßig aktiviert?</th>
     </tr>
   </thead>
@@ -1458,7 +1476,7 @@ Beachten Sie, dass die Funktion, wie unten gezeigt, nur in Nightly-Builds verfü
       <td>—</td>
     </tr>
     <tr>
-      <th>Verwendungspräferenzname</th>
+      <th>Präferenzname</th>
       <td colspan="2"><code>image.jxl.enabled</code></td>
     </tr>
   </tbody>
@@ -1466,13 +1484,13 @@ Beachten Sie, dass die Funktion, wie unten gezeigt, nur in Nightly-Builds verfü
 
 ### CSS Custom Highlight API
 
-Die [CSS Custom Highlight API](/de/docs/Web/API/CSS_Custom_Highlight_API) bietet einen Mechanismus zum Styling beliebiger Textbereiche in einem Dokument (verallgemeinert das Verhalten anderer Highlight-Pseudoelemente wie {{cssxref('::selection')}}, {{cssxref('::spelling-error')}}, {{cssxref('::grammar-error')}}, und {{cssxref('::target-text')}}). Die Bereiche werden in JavaScript mit [`Range`](/de/docs/Web/API/Range)-Instanzen definiert, die in einem [`Highlight`](/de/docs/Web/API/Highlight) gruppiert und dann unter einem Namen mit [`HighlightRegistry`](/de/docs/Web/API/HighlightRegistry) registriert werden. Das CSS-Pseudoelement [`::highlight`](/de/docs/Web/CSS/::highlight) wird verwendet, um Stile auf ein registriertes Highlight anzuwenden. Weitere Details finden Sie in [Firefox Bug 1703961](https://bugzil.la/1703961).
+Die [CSS Custom Highlight API](/de/docs/Web/API/CSS_Custom_Highlight_API) bietet einen Mechanismus zum Stylen beliebiger Textbereiche in einem Dokument (Verallgemeinerung des Verhaltens anderer Highlight-Pseudo-Elemente wie {{cssxref('::selection')}}, {{cssxref('::spelling-error')}}, {{cssxref('::grammar-error')}}, und {{cssxref('::target-text')}}). Die Bereiche werden in JavaScript mit [`Range`](/de/docs/Web/API/Range)-Instanzen definiert, die in einem [`Highlight`](/de/docs/Web/API/Highlight) gruppiert sind, und dann mit einem Namen mit [`HighlightRegistry`](/de/docs/Web/API/HighlightRegistry) registriert. Das CSS [`::highlight`](/de/docs/Web/CSS/::highlight)-Pseudo-Element wird verwendet, um Styles auf ein registriertes Highlight anzuwenden. Weitere Details finden Sie in [Firefox Bug 1703961](https://bugzil.la/1703961).
 
 <table>
   <thead>
     <tr>
       <th>Release-Kanal</th>
-      <th>Hinzugefügte Version</th>
+      <th>Version hinzugefügt</th>
       <th>Standardmäßig aktiviert?</th>
     </tr>
   </thead>
@@ -1498,23 +1516,23 @@ Die [CSS Custom Highlight API](/de/docs/Web/API/CSS_Custom_Highlight_API) bietet
       <td>Nein</td>
     </tr>
     <tr>
-      <th>Verwendungspräferenzname</th>
+      <th>Präferenzname</th>
       <td colspan="2"><code>dom.customHighlightAPI.enabled</code></td>
     </tr>
   </tbody>
 </table>
 
-### WebVR-API
+### WebVR API
 
-#### WebVR-API (Deaktiviert)
+#### WebVR API (Deaktiviert)
 
-Die veraltete [WebVR-API](/de/docs/Web/API/WebVR_API) steht vor ihrer Entfernung. Sie ist standardmäßig in allen Builds deaktiviert [Firefox Bug 1750902](https://bugzil.la/1750902).
+Die veraltete [WebVR API](/de/docs/Web/API/WebVR_API) steht zur Entfernung an. Sie ist standardmäßig in allen Builds deaktiviert [Firefox Bug 1750902](https://bugzil.la/1750902).
 
 <table>
   <thead>
     <tr>
       <th>Release-Kanal</th>
-      <th>Entfernte Version</th>
+      <th>Version entfernt</th>
       <th>Standardmäßig aktiviert?</th>
     </tr>
   </thead>
@@ -1540,25 +1558,25 @@ Die veraltete [WebVR-API](/de/docs/Web/API/WebVR_API) steht vor ihrer Entfernung
       <td>Nein</td>
     </tr>
     <tr>
-      <th>Verwendungspräferenzname</th>
+      <th>Präferenzname</th>
       <td colspan="2"><code>dom.vr.enabled</code></td>
     </tr>
   </tbody>
 </table>
 
-### HTML-DOM-API
+### HTML DOM API
 
-#### Selektionen über Schatten-DOM-Grenzen hinweg
+#### Selektionen, die über Grenzen des Shadow-DOMs hinweggehen
 
-Die [`Selection.getComposedRanges()`](/de/docs/Web/API/Selection/getComposedRanges)-Methode kann verwendet werden, um ein Array von [`StaticRange`](/de/docs/Web/API/StaticRange)-Objekten zu erhalten, die den aktuell ausgewählten Bereich oder die Bereiche darstellen. Im Gegensatz zu [`Selection.getRangeAt()`](/de/docs/Web/API/Selection/getRangeAt) kann diese Methode Bereiche mit Anker- oder Fokus-Knoten innerhalb eines Schatten-DOMs zurückgeben, jedoch nur, wenn sie die [`ShadowRoot`](/de/docs/Web/API/ShadowRoot)-Objekte enthält, die diese Knoten enthalten. Andernfalls gibt sie einen Bereich zurück, der neu zugeordnet wurde, um das Host-Element des Schattenwurzelknotens einzubeziehen, das den Knoten enthält. Die Methoden der `Selection` [`setBaseAndExtent()`](/de/docs/Web/API/Selection/setBaseAndExtent), [`collapse()`](/de/docs/Web/API/Selection/collapse) und [`extend()`](/de/docs/Web/API/Selection/extend) wurden ebenfalls modifiziert, um Knoten innerhalb einer Schattenwurzel zu akzeptieren.
+Die Methode [`Selection.getComposedRanges()`](/de/docs/Web/API/Selection/getComposedRanges) kann verwendet werden, um ein Array von [`StaticRange`](/de/docs/Web/API/StaticRange)-Objekten zu erhalten, das den aktuell ausgewählten Bereich oder die Bereiche darstellt. Anders als [`Selection.getRangeAt()`](/de/docs/Web/API/Selection/getRangeAt) kann diese Methode Bereiche mit Anker- oder Fokus-Knoten innerhalb eines Shadow-DOM zurückgeben, jedoch nur, wenn sie die [`ShadowRoot`](/de/docs/Web/API/ShadowRoot)-Objekte enthält, die diese Knoten enthalten. Andernfalls gibt sie einen Bereich zurück, der auf den Host-Knoten des Shadow-Roots, der den Knoten enthält, neu bezogen wird. Die `Selection`-Methoden [`setBaseAndExtent()`](/de/docs/Web/API/Selection/setBaseAndExtent), [`collapse()`](/de/docs/Web/API/Selection/collapse), und [`extend()`](/de/docs/Web/API/Selection/extend) wurden ebenfalls geändert, um Knoten innerhalb eines Shadow-Roots zu akzeptieren.
 
-Benutzerauswahlen über Maus, Tastatur usw. können überall im Dokument beginnen und enden, einschließlich innerhalb aller offenen oder geschlossenen Schattentrees. ([Firefox Bug 1867058](https://bugzil.la/1867058)).
+Benutzerauswahl über Maus, Tastatur usw. kann überall im Dokument beginnen und enden, einschließlich innerhalb von geöffneten oder geschlossenen Shadow-Bäumen. ([Firefox Bug 1867058](https://bugzil.la/1867058)).
 
 <table>
   <thead>
     <tr>
       <th>Release-Kanal</th>
-      <th>Hinzugefügte Version</th>
+      <th>Version hinzugefügt</th>
       <th>Standardmäßig aktiviert?</th>
     </tr>
   </thead>
@@ -1584,7 +1602,7 @@ Benutzerauswahlen über Maus, Tastatur usw. können überall im Dokument beginne
       <td>Nein</td>
     </tr>
     <tr>
-      <th>Verwendungspräferenzname</th>
+      <th>Präferenzname</th>
       <td colspan="2"><code>dom.shadowdom.selection_across_boundary.enabled</code></td>
     </tr>
   </tbody>
@@ -1592,13 +1610,13 @@ Benutzerauswahlen über Maus, Tastatur usw. können überall im Dokument beginne
 
 #### HTMLMediaElement-Eigenschaften: audioTracks und videoTracks
 
-Die Aktivierung dieser Funktion fügt die Eigenschaften [`HTMLMediaElement.audioTracks`](/de/docs/Web/API/HTMLMediaElement/audioTracks) und [`HTMLMediaElement.videoTracks`](/de/docs/Web/API/HTMLMediaElement/videoTracks) zu allen HTML-Medienelementen hinzu. Da Firefox jedoch derzeit keine mehreren Audio- und Videospuren unterstützt, sind die häufigsten Anwendungsfälle für diese Eigenschaften nicht funktionsfähig, und sie sind daher standardmäßig deaktiviert. Weitere Informationen finden Sie in [Firefox Bug 1057233](https://bugzil.la/1057233).
+Das Aktivieren dieser Funktion fügt die Eigenschaften [`HTMLMediaElement.audioTracks`](/de/docs/Web/API/HTMLMediaElement/audioTracks) und [`HTMLMediaElement.videoTracks`](/de/docs/Web/API/HTMLMediaElement/videoTracks) zu allen HTML-Medienelementen hinzu. Da Firefox jedoch derzeit keine Unterstützung für mehrere Audio- und Videospuren bietet, funktionieren die häufigsten Anwendungsfälle für diese Eigenschaften nicht und sind daher standardmäßig deaktiviert. Weitere Details finden Sie im [Firefox Bug 1057233](https://bugzil.la/1057233).
 
 <table>
   <thead>
     <tr>
       <th>Release-Kanal</th>
-      <th>Hinzugefügte Version</th>
+      <th>Version hinzugefügt</th>
       <th>Standardmäßig aktiviert?</th>
     </tr>
   </thead>
@@ -1624,21 +1642,21 @@ Die Aktivierung dieser Funktion fügt die Eigenschaften [`HTMLMediaElement.audio
       <td>Nein</td>
     </tr>
     <tr>
-      <th>Verwendungspräferenzname</th>
+      <th>Präferenzname</th>
       <td colspan="2"><code>media.track.enabled</code></td>
     </tr>
   </tbody>
 </table>
 
-#### GeometryUtils-Methoden: convertPointFromNode(), convertRectFromNode() und convertQuadFromNode()
+#### GeometryUtils-Methoden: convertPointFromNode(), convertRectFromNode(), und convertQuadFromNode()
 
-Die `GeometryUtils`-Methoden `convertPointFromNode()`, `convertRectFromNode()` und `convertQuadFromNode()` projizieren den angegebenen Punkt, das Rechteck oder das Viereck von dem [`Node`](/de/docs/Web/API/Node), auf dem sie aufgerufen werden, zu einem anderen Knoten. (Weitere Einzelheiten siehe [Firefox Bug 918189](https://bugzil.la/918189)).
+Die `GeometryUtils`-Methoden `convertPointFromNode()`, `convertRectFromNode()`, und `convertQuadFromNode()` mappen den angegebenen Punkt, das Rechteck oder das Viereck vom [`Node`](/de/docs/Web/API/Node), auf dem sie aufgerufen werden, zu einem anderen Knoten. (Siehe [Firefox Bug 918189](https://bugzil.la/918189) für weitere Details.)
 
 <table>
   <thead>
     <tr>
       <th>Release-Kanal</th>
-      <th>Hinzugefügte Version</th>
+      <th>Version hinzugefügt</th>
       <th>Standardmäßig aktiviert?</th>
     </tr>
   </thead>
@@ -1664,7 +1682,7 @@ Die `GeometryUtils`-Methoden `convertPointFromNode()`, `convertRectFromNode()` u
       <td>Nein</td>
     </tr>
     <tr>
-      <th>Verwendungspräferenzname</th>
+      <th>Präferenzname</th>
       <td colspan="2"><code>layout.css.convertFromNode.enable</code></td>
     </tr>
   </tbody>
@@ -1672,13 +1690,13 @@ Die `GeometryUtils`-Methoden `convertPointFromNode()`, `convertRectFromNode()` u
 
 #### GeometryUtils-Methode: getBoxQuads()
 
-Die `GeometryUtils`-Methode `getBoxQuads()` gibt die CSS-Boxen für einen [`Node`](/de/docs/Web/API/Node) relativ zu einem anderen Knoten oder Ansichtsfenster zurück. (Weitere Einzelheiten siehe [Firefox Bug 917755](https://bugzil.la/917755)).
+Die `GeometryUtils`-Methode `getBoxQuads()` gibt die CSS-Boxen für einen [`Node`](/de/docs/Web/API/Node) relativ zu einem anderen Knoten oder Viewport zurück. (Siehe [Firefox Bug 917755](https://bugzil.la/917755) für weitere Details.)
 
 <table>
   <thead>
     <tr>
       <th>Release-Kanal</th>
-      <th>Hinzugefügte Version</th>
+      <th>Version hinzugefügt</th>
       <th>Standardmäßig aktiviert?</th>
     </tr>
   </thead>
@@ -1704,23 +1722,23 @@ Die `GeometryUtils`-Methode `getBoxQuads()` gibt die CSS-Boxen für einen [`Node
       <td>Nein</td>
     </tr>
     <tr>
-      <th>Verwendungspräferenzname</th>
+      <th>Präferenzname</th>
       <td colspan="2"><code>layout.css.getBoxQuads.enabled</code></td>
     </tr>
   </tbody>
 </table>
 
-### Zahlungsanforderungs-API
+### Payment Request API
 
-#### Primäre Zahlungsabwicklung
+#### Primäres Zahlungsmanagement
 
-Die [Payment Request API](/de/docs/Web/API/Payment_Request_API) bietet Unterstützung für die Abwicklung webbasierter Zahlungen innerhalb von Webinhalten oder Apps. Aufgrund eines Bugs, der während der Tests der Benutzeroberfläche aufgetreten ist, haben wir entschieden, die Veröffentlichung dieser API zu verschieben, während Diskussionen über potenzielle Änderungen an der API geführt werden. Die Arbeit ist im Gange. (Weitere Informationen siehe [Firefox Bug 1318984](https://bugzil.la/1318984)).
+Die [Payment Request API](/de/docs/Web/API/Payment_Request_API) bietet Unterstützung für die Abwicklung webbasierten Bezahlens innerhalb von Webinhalten oder Apps. Aufgrund eines während der Testphase der Benutzeroberfläche aufgetretenen Fehlers haben wir beschlossen, die Veröffentlichung dieser API zu verschieben, während Diskussionen über potenzielle Änderungen an der API stattfinden. Die Arbeiten laufen noch. (Siehe [Firefox Bug 1318984](https://bugzil.la/1318984) für weitere Details.)
 
 <table>
   <thead>
     <tr>
       <th>Release-Kanal</th>
-      <th>Hinzugefügte Version</th>
+      <th>Version hinzugefügt</th>
       <th>Standardmäßig aktiviert?</th>
     </tr>
   </thead>
@@ -1746,7 +1764,7 @@ Die [Payment Request API](/de/docs/Web/API/Payment_Request_API) bietet Unterstü
       <td>Nein</td>
     </tr>
     <tr>
-      <th>Verwendungspräferenzname</th>
+      <th>Präferenzname</th>
       <td colspan="2">
         <code>dom.payments.request.enabled</code> und<br /><code
           >dom.payments.request.supportedRegions</code
@@ -1756,15 +1774,15 @@ Die [Payment Request API](/de/docs/Web/API/Payment_Request_API) bietet Unterstü
   </tbody>
 </table>
 
-### WebShare-API
+### WebShare API
 
-Die [Web Share API](/de/docs/Web/API/Web_Share_API) erlaubt das Teilen von Dateien, URLs und anderen Daten von einer Site aus. Diese Funktion ist auf Android in allen Builds aktiviert, aber auf dem Desktop hinter einer Präferenz (sofern unten nicht anders angegeben).
+Die [Web Share API](/de/docs/Web/API/Web_Share_API) ermöglicht das Teilen von Dateien, URLs und anderen Daten von einer Seite. Diese Funktion ist auf Android in allen Builds aktiviert, aber auf dem Desktop hinter einer Präferenz (es sei denn, unten anders angegeben).
 
 <table>
   <thead>
     <tr>
       <th>Release-Kanal</th>
-      <th>Geänderte Version</th>
+      <th>Version geändert</th>
       <th>Standardmäßig aktiviert?</th>
     </tr>
   </thead>
@@ -1790,23 +1808,23 @@ Die [Web Share API](/de/docs/Web/API/Web_Share_API) erlaubt das Teilen von Datei
       <td>Nein (Desktop). Ja (Android).</td>
     </tr>
     <tr>
-      <th>Verwendungspräferenzname</th>
+      <th>Präferenzname</th>
       <td colspan="2"><code>dom.webshare.enabled</code></td>
     </tr>
   </tbody>
 </table>
 
-### Bildschirmorientierungs-API
+### Screen Orientation API
 
 #### ScreenOrientation.lock()
 
-Die Methode [`ScreenOrientation.lock()`](/de/docs/Web/API/ScreenOrientation/lock) ermöglicht das Sperren eines Gerätes auf eine bestimmte Ausrichtung, wenn sie vom Gerät unterstützt wird und durch die vorgegebenen Sperranforderungen des Browsers erlaubt ist. Typischerweise ist das Sperren der Ausrichtung nur auf mobilen Geräten erlaubt, wenn das Dokument im Vollbildmodus angezeigt wird. Weitere Informationen finden Sie in [Firefox Bug 1697647](https://bugzil.la/1697647).
+Die Methode [`ScreenOrientation.lock()`](/de/docs/Web/API/ScreenOrientation/lock) erlaubt es, ein Gerät auf eine bestimmte Orientierung zu sperren, sofern es vom Gerät unterstützt wird und die Sperranforderungen des Browsers erfüllt sind. In der Regel ist das Sperren der Orientierung nur auf Mobilgeräten erlaubt, wenn das Dokument im Vollbildmodus angezeigt wird. Siehe [Firefox Bug 1697647](https://bugzil.la/1697647) für weitere Details.
 
 <table>
   <thead>
     <tr>
       <th>Release-Kanal</th>
-      <th>Geänderte Version</th>
+      <th>Version geändert</th>
       <th>Standardmäßig aktiviert?</th>
     </tr>
   </thead>
@@ -1832,21 +1850,21 @@ Die Methode [`ScreenOrientation.lock()`](/de/docs/Web/API/ScreenOrientation/lock
       <td>Nein</td>
     </tr>
     <tr>
-      <th>Verwendungspräferenzname</th>
+      <th>Präferenzname</th>
       <td colspan="2"><code>dom.screenorientation.allow-lock</code></td>
     </tr>
   </tbody>
 </table>
 
-### API für priorisierte Aufgabenplanung
+### Prioritized Task Scheduling API
 
-Die [Prioritized Task Scheduling API](/de/docs/Web/API/Prioritized_Task_Scheduling_API) bietet eine standardisierte Möglichkeit, alle Aufgaben einer Anwendung zu priorisieren, unabhängig davon, ob sie im Code eines Website-Entwicklers oder in Drittanbieter-Bibliotheken und -Frameworks definiert sind. Die Unterstützung für den größten Teil der API wurde hinter einer Präferenz in Firefox Version 101 hinzugefügt. Firefox Version 139 fügt Unterstützung für [`scheduler.yield()`](/de/docs/Web/API/Scheduler/yield) hinzu und aktiviert die API in der Nightly-Version. ([Firefox Bug 1734997](https://bugzil.la/1734997) und [Firefox Bug 1920115](https://bugzil.la/1920115)).
+Die [Priorisierte Aufgabenscheduling-API](/de/docs/Web/API/Prioritized_Task_Scheduling_API) bietet eine standardisierte Methode, um alle Aufgaben zu priorisieren, die zu einer Anwendung gehören, egal ob sie im Code eines Webseitenentwicklers oder in Bibliotheken und Frameworks von Drittanbietern definiert sind. Ab Firefox Version 140 ist die API sowohl funktionskomplett als auch im Nightly-Release aktiviert. ([Firefox Bug 1734997](https://bugzil.la/1734997) und [Firefox Bug 1920115](https://bugzil.la/1920115)).
 
 <table>
   <thead>
     <tr>
       <th>Release-Kanal</th>
-      <th>Geänderte Version</th>
+      <th>Version geändert</th>
       <th>Standardmäßig aktiviert?</th>
     </tr>
   </thead>
@@ -1872,21 +1890,21 @@ Die [Prioritized Task Scheduling API](/de/docs/Web/API/Prioritized_Task_Scheduli
       <td>Nein</td>
     </tr>
     <tr>
-      <th>Verwendungspräferenzname</th>
+      <th>Präferenzname</th>
       <td colspan="2"><code>dom.enable_web_task_scheduling</code></td>
     </tr>
   </tbody>
 </table>
 
-### Benachrichtigungen-API
+### Notifications API
 
-Benachrichtigungen haben die [`requireInteraction`](/de/docs/Web/API/Notification/requireInteraction)-Eigenschaft standardmäßig auf Windows-Systemen und in der Nightly-Version auf "true" gesetzt ([Firefox Bug 1794475](https://bugzil.la/1794475)).
+Benachrichtigungen haben die Eigenschaft [`requireInteraction`](/de/docs/Web/API/Notification/requireInteraction) standardmäßig auf true gesetzt auf Windows-Systemen und im Nightly-Release ([Firefox Bug 1794475](https://bugzil.la/1794475)).
 
 <table>
   <thead>
     <tr>
       <th>Release-Kanal</th>
-      <th>Geänderte Version</th>
+      <th>Version geändert</th>
       <th>Standardmäßig aktiviert?</th>
     </tr>
   </thead>
@@ -1912,7 +1930,7 @@ Benachrichtigungen haben die [`requireInteraction`](/de/docs/Web/API/Notificatio
       <td>Nur Windows</td>
     </tr>
     <tr>
-      <th>Verwendungspräferenzname</th>
+      <th>Präferenzname</th>
       <td colspan="2"><code>dom.webnotifications.requireinteraction.enabled</code></td>
     </tr>
   </tbody>
@@ -1920,13 +1938,13 @@ Benachrichtigungen haben die [`requireInteraction`](/de/docs/Web/API/Notificatio
 
 ### View Transition API
 
-Die [View Transition API](/de/docs/Web/API/View_Transition_API) bietet einen Mechanismus zum einfachen Erstellen von animierten Übergängen zwischen verschiedenen Ansichten einer Website. Dies ist besonders nützlich für {{Glossary("SPA", "SPAs (Single-Page-Applications)")}}. ([Firefox Bug 1950759](https://bugzil.la/1950759)).
+Die [View Transition API](/de/docs/Web/API/View_Transition_API) bietet einen Mechanismus, um animierte Übergänge zwischen verschiedenen Website-Ansichten einfach zu erstellen. Dies ist besonders nützlich für {{Glossary("SPA", "SPAs (Single-Page-Anwendungen)")}}. ([Firefox Bug 1950759](https://bugzil.la/1950759)).
 
 <table>
   <thead>
     <tr>
       <th>Release-Kanal</th>
-      <th>Geänderte Version</th>
+      <th>Version geändert</th>
       <th>Standardmäßig aktiviert?</th>
     </tr>
   </thead>
@@ -1952,23 +1970,23 @@ Die [View Transition API](/de/docs/Web/API/View_Transition_API) bietet einen Mec
       <td>Nein</td>
     </tr>
     <tr>
-      <th>Verwendungspräferenzname</th>
-      <td colspan="2">N/A</td>
+      <th>Präferenzname</th>
+      <td colspan="2">N/V</td>
     </tr>
   </tbody>
 </table>
 
 ## Sicherheit und Datenschutz
 
-### Blockieren von Klartextanfragen von Flash auf verschlüsselten Seiten
+### Blockieren von Klartext-Anfragen von Flash auf verschlüsselten Seiten
 
-Um Man-in-the-Middle (MitM)-Angriffe zu mildern, die durch Flash-Inhalte auf verschlüsselten Seiten verursacht werden, wurde eine Präferenz hinzugefügt, um `OBJECT_SUBREQUEST`s als aktive Inhalte zu behandeln. Weitere Informationen finden Sie in [Firefox Bug 1190623](https://bugzil.la/1190623).
+Um Man-in-the-Middle (MitM)-Angriffe durch Flash-Inhalte auf verschlüsselten Seiten zu mildern, wurde eine Präferenz hinzugefügt, um `OBJECT_SUBREQUEST`s als aktiven Inhalt zu behandeln. Siehe [Firefox Bug 1190623](https://bugzil.la/1190623) für weitere Details.
 
 <table>
   <thead>
     <tr>
       <th>Release-Kanal</th>
-      <th>Hinzugefügte Version</th>
+      <th>Version hinzugefügt</th>
       <th>Standardmäßig aktiviert?</th>
     </tr>
   </thead>
@@ -1994,7 +2012,7 @@ Um Man-in-the-Middle (MitM)-Angriffe zu mildern, die durch Flash-Inhalte auf ver
       <td>Nein</td>
     </tr>
     <tr>
-      <th>Verwendungspräferenzname</th>
+      <th>Präferenzname</th>
       <td colspan="2">
         <code>security.mixed_content.block_object_subrequest</code>
       </td>
@@ -2004,13 +2022,13 @@ Um Man-in-the-Middle (MitM)-Angriffe zu mildern, die durch Flash-Inhalte auf ver
 
 ### Kennzeichnung unsicherer Seiten
 
-Die beiden Präferenzen `security.insecure_connection_text_*` fügen ein "Nicht sicher"-Textlabel in die Adressleiste ein, neben dem traditionellen Schloss-Symbol, wenn eine Seite unsicher geladen wird (also mit {{Glossary("HTTP", "HTTP")}} statt mit {{Glossary("HTTPS", "HTTPS")}}). Die Präferenz `browser.urlbar.trimHttps` kürzt das `https:`-Präfix in der URL-Leiste. Weitere Informationen finden Sie in [Firefox Bug 1853418](https://bugzil.la/1853418).
+Die beiden `security.insecure_connection_text_*`-Präferenzen fügen ein "Nicht sicher"-Textlabel in der Adressleiste neben dem traditionellen Schlosssymbol hinzu, wenn eine Seite unsicher geladen wird (also mit {{Glossary("HTTP", "HTTP")}} statt {{Glossary("HTTPS", "HTTPS")}}). Die Präferenz `browser.urlbar.trimHttps` kürzt das `https:`-Präfix aus den URLs in der Adresszeile. Siehe [Firefox Bug 1853418](https://bugzil.la/1853418) für weitere Details.
 
 <table>
   <thead>
     <tr>
       <th>Release-Kanal</th>
-      <th>Hinzugefügte Version</th>
+      <th>Version hinzugefügt</th>
       <th>Standardmäßig aktiviert?</th>
     </tr>
   </thead>
@@ -2036,11 +2054,11 @@ Die beiden Präferenzen `security.insecure_connection_text_*` fügen ein "Nicht 
       <td>Nein</td>
     </tr>
     <tr>
-      <th>Verwendungspräferenzname</th>
+      <th>Präferenzname</th>
       <td colspan="2">
         <code>security.insecure_connection_text.enabled</code> für den normalen Browsing-Modus;
-        <code>security.insecure_connection_text.pbmode.enabled</code> für den privaten Modus
-        <code>browser.urlbar.trimHttps</code> zum Kürzen des HTTPS-Präfixes
+        <code>security.insecure_connection_text.pbmode.enabled</code> für den privaten Browsing-Modus
+        <code>browser.urlbar.trimHttps</code> zum Kürzen des https-Präfixes
       </td>
     </tr>
   </tbody>
@@ -2048,15 +2066,15 @@ Die beiden Präferenzen `security.insecure_connection_text_*` fügen ein "Nicht 
 
 ### Berechtigungspolitik / Feature-Politik
 
-[Permissions Policy](/de/docs/Web/HTTP/Guides/Permissions_Policy) ermöglicht es Webentwicklern, das Verhalten bestimmter Funktionen und APIs im Browser selektiv zu aktivieren, zu deaktivieren und zu ändern. Es ist der CSP ähnlich, kontrolliert jedoch Funktionen statt Sicherheitsverhalten. Dies wird in Firefox als **Feature-Policy** implementiert, der Name, der in einer früheren Version der Spezifikation verwendet wurde.
+[Permissions Policy](/de/docs/Web/HTTP/Guides/Permissions_Policy) ermöglicht es Webentwicklern, bestimmte Funktionen und APIs im Browser selektiv zu aktivieren, zu deaktivieren und das Verhalten zu ändern. Sie ähnelt CSP, steuert jedoch Funktionen statt Sicherheitsverhalten. Dies wird in Firefox als **Feature Policy** implementiert, dem Namen, der in einer früheren Version der Spezifikation verwendet wurde.
 
-Beachten Sie, dass unterstützte Richtlinien über das [`allow`](/de/docs/Web/HTML/Reference/Elements/iframe#allow)-Attribut auf `<iframe>`-Elementen gesetzt werden können, selbst wenn die Benutzerpräferenz nicht gesetzt ist.
+Es ist zu beachten, dass unterstützte Richtlinien durch das [`allow`](/de/docs/Web/HTML/Reference/Elements/iframe#allow)-Attribut auf `<iframe>`-Elementen gesetzt werden können, auch wenn die Benutzerpräferenz nicht gesetzt ist.
 
 <table>
   <thead>
     <tr>
       <th>Release-Kanal</th>
-      <th>Hinzugefügte Version</th>
+      <th>Version hinzugefügt</th>
       <th>Standardmäßig aktiviert?</th>
     </tr>
   </thead>
@@ -2082,7 +2100,7 @@ Beachten Sie, dass unterstützte Richtlinien über das [`allow`](/de/docs/Web/HT
       <td>Nein</td>
     </tr>
     <tr>
-      <th>Verwendungspräferenzname</th>
+      <th>Präferenzname</th>
       <td colspan="2">
         <code>dom.security.featurePolicy.header.enabled</code>
       </td>
@@ -2090,15 +2108,15 @@ Beachten Sie, dass unterstützte Richtlinien über das [`allow`](/de/docs/Web/HT
   </tbody>
 </table>
 
-### Datenschutzerhaltende Attribution-API (PPA)
+### Datenschutzbewahrende Attributions-API (PPA)
 
-Die [PPA API](https://support.mozilla.org/en-US/kb/privacy-preserving-attribution) bietet eine Alternative zur Benutzerverfolgung für Werbeattribution mit dem neuen `navigator.privateAttribution`-Objekt mit den Methoden `saveImpression()` und `measureConversion()`. Lesen Sie mehr über PPA [im ursprünglichen Erklärer](https://github.com/mozilla/explainers/tree/main/archive/ppa-experiment) und der [vorgeschlagenen Spezifikation](https://w3c.github.io/ppa/). Dieses Experiment kann für Websites über [Origin Trials](https://wiki.mozilla.org/Origin_Trials) oder im Browser durch Setzen der Präferenz auf `1` aktiviert werden. ([Firefox Bug 1900929](https://bugzil.la/1900929)).
+[PPA API](https://support.mozilla.org/en-US/kb/privacy-preserving-attribution) bietet eine Alternative zur Benutzerverfolgung für Werbezuschreibungen mit dem neuen `navigator.privateAttribution`-Objekt mit den Methoden `saveImpression()` und `measureConversion()`. Lesen Sie mehr über PPA [im ursprünglichen Erklärer](https://github.com/mozilla/explainers/tree/main/archive/ppa-experiment) und die [vorgeschlagene Spezifikation](https://w3c.github.io/ppa/). Dieses Experiment kann für Webseiten über [Origin Trial](https://wiki.mozilla.org/Origin_Trials) oder im Browser aktiviert werden, indem die Präferenz auf `1` gesetzt wird. ([Firefox Bug 1900929](https://bugzil.la/1900929)).
 
 <table>
   <thead>
     <tr>
       <th>Release-Kanal</th>
-      <th>Hinzugefügte Version</th>
+      <th>Version hinzugefügt</th>
       <th>Standardmäßig aktiviert?</th>
     </tr>
   </thead>
@@ -2124,7 +2142,7 @@ Die [PPA API](https://support.mozilla.org/en-US/kb/privacy-preserving-attributio
       <td>Nein</td>
     </tr>
     <tr>
-      <th>Verwendungspräferenzname</th>
+      <th>Präferenzname</th>
       <td colspan="2">
         <code>dom.origin-trials.private-attribution.state</code>
       </td>
@@ -2136,13 +2154,13 @@ Die [PPA API](https://support.mozilla.org/en-US/kb/privacy-preserving-attributio
 
 ### Accept-Header mit MIME-Typ image/jxl
 
-Der HTTP-Header [`Accept`](/de/docs/Web/HTTP/Reference/Headers/Accept) in [Standardanforderungen und Bildanforderungen](/de/docs/Web/HTTP/Guides/Content_negotiation/List_of_default_Accept_values) kann über eine Präferenz so konfiguriert werden, dass die Unterstützung für den `image/jxl`-MIME-Typ angezeigt wird.
+Der HTTP [`Accept`](/de/docs/Web/HTTP/Reference/Headers/Accept)-Header in [Standardanfragen und Bildanfragen](/de/docs/Web/HTTP/Guides/Content_negotiation/List_of_default_Accept_values) kann über eine Präferenz konfiguriert werden, um Unterstützung für den `image/jxl` MIME-Typ anzuzeigen.
 
 <table>
   <thead>
     <tr>
       <th>Release-Kanal</th>
-      <th>Hinzugefügte Version</th>
+      <th>Version hinzugefügt</th>
       <th>Standardmäßig aktiviert?</th>
     </tr>
   </thead>
@@ -2168,7 +2186,7 @@ Der HTTP-Header [`Accept`](/de/docs/Web/HTTP/Reference/Headers/Accept) in [Stand
       <td>Nein</td>
     </tr>
     <tr>
-      <th>Verwendungspräferenzname</th>
+      <th>Präferenzname</th>
       <td colspan="2">
         <code>image.jxl.enabled</code>
       </td>
@@ -2176,15 +2194,15 @@ Der HTTP-Header [`Accept`](/de/docs/Web/HTTP/Reference/Headers/Accept) in [Stand
   </tbody>
 </table>
 
-### SameSite=Lax als Standard
+### SameSite=Lax standardmäßig
 
-[`SameSite` Cookies](/de/docs/Web/HTTP/Reference/Headers/Set-Cookie#samesitesamesite-value) haben einen Standardwert von `Lax`. Mit dieser Einstellung werden Cookies nur gesendet, wenn ein Benutzer zur Ursprungs-Website navigiert, nicht jedoch für standortübergreifende Unteranforderungen, um Bilder oder Frames in eine Drittanbieter-Website zu laden, und so weiter. Weitere Details finden Sie in [Firefox Bug 1617609](https://bugzil.la/1617609).
+[`SameSite` Cookies](/de/docs/Web/HTTP/Reference/Headers/Set-Cookie#samesitesamesite-value) haben einen Standardwert von `Lax`. Mit dieser Einstellung werden Cookies nur gesendet, wenn ein Benutzer zur Ursprungsseite navigiert, nicht für cross-site Subanfragen zum Laden von Bildern oder Frames auf eine Drittanbieterseite usw. Für weitere Details siehe [Firefox Bug 1617609](https://bugzil.la/1617609).
 
 <table>
   <thead>
     <tr>
       <th>Release-Kanal</th>
-      <th>Hinzugefügte Version</th>
+      <th>Version hinzugefügt</th>
       <th>Standardmäßig aktiviert?</th>
     </tr>
   </thead>
@@ -2210,7 +2228,7 @@ Der HTTP-Header [`Accept`](/de/docs/Web/HTTP/Reference/Headers/Accept) in [Stand
       <td>Nein</td>
     </tr>
     <tr>
-      <th>Verwendungspräferenzname</th>
+      <th>Präferenzname</th>
       <td colspan="2"><code>network.cookie.sameSite.laxByDefault</code></td>
     </tr>
   </tbody>
@@ -2218,15 +2236,15 @@ Der HTTP-Header [`Accept`](/de/docs/Web/HTTP/Reference/Headers/Accept) in [Stand
 
 ### Access-Control-Allow-Headers-Wildcard deckt Authorization nicht ab
 
-Der [`Access-Control-Allow-Headers`](/de/docs/Web/HTTP/Reference/Headers/Access-Control-Allow-Headers) ist ein Antwort-Header auf eine {{Glossary("Preflight_request", "CORS-Vorabfrage")}}, der angibt, welche Anfrage-Header im endgültigen Request enthalten sein dürfen. Die Antwortdirektive kann ein Wildcard (`*`) enthalten, welches angibt, dass der endgültige Request alle Header außer dem `Authorization`-Header enthalten darf.
+Die [`Access-Control-Allow-Headers`](/de/docs/Web/HTTP/Reference/Headers/Access-Control-Allow-Headers) ist ein Antwortheader auf eine {{Glossary("Preflight_request", "CORS-Prüfanfrage")}}, die anzeigt, welche Anfrageheader in die endgültige Anfrage eingeschlossen werden können. Die Antwortdirektive kann ein Wildcard (`*`) enthalten, das angibt, dass der endgültige Antrag alle Header außer dem `Authorization`-Header enthalten darf.
 
-Standardmäßig umfasst Firefox den `Authorization`-Header im endgültigen Request, nachdem eine Antwort mit `Access-Control-Allow-Headers: *` empfangen wurde. Setzen Sie die Präferenz auf `false`, um sicherzustellen, dass Firefox den `Authorization`-Header nicht einschließt. Weitere Details finden Sie in [Firefox Bug 1687364](https://bugzil.la/1687364).
+Standardmäßig enthält Firefox den `Authorization`-Header in der endgültigen Anfrage nach Erhalt einer Antwort mit `Access-Control-Allow-Headers: *`. Setzen Sie die Präferenz auf `false`, um sicherzustellen, dass Firefox den `Authorization`-Header nicht einbezieht. Für weitere Details siehe [Firefox Bug 1687364](https://bugzil.la/1687364).
 
 <table>
   <thead>
     <tr>
       <th>Release-Kanal</th>
-      <th>Hinzugefügte Version</th>
+      <th>Version hinzugefügt</th>
       <th>Standardmäßig aktiviert?</th>
     </tr>
   </thead>
@@ -2252,7 +2270,7 @@ Standardmäßig umfasst Firefox den `Authorization`-Header im endgültigen Reque
       <td>Ja</td>
     </tr>
     <tr>
-      <th>Verwendungspräferenzname</th>
+      <th>Präferenzname</th>
       <td colspan="2"><code>network.cors_preflight.authorization_covered_by_wildcard</code></td>
     </tr>
   </tbody>
@@ -2260,10 +2278,10 @@ Standardmäßig umfasst Firefox den `Authorization`-Header im endgültigen Reque
 
 ## Entwicklertools
 
-Die Entwicklertools von Mozilla entwickeln sich ständig weiter. Wir experimentieren mit neuen Ideen, fügen neue Funktionen hinzu und testen sie auf den Kanälen Nightly und Developer Edition, bevor wir sie auf Beta und Release freigeben. Die unten aufgeführten Funktionen sind die derzeitige Auswahl an experimentellen Funktionen für Entwicklertools.
+Die Entwicklertools von Mozilla entwickeln sich ständig weiter. Wir experimentieren mit neuen Ideen, fügen neue Funktionen hinzu und testen sie in den Nightly- und Developer Edition-Kanälen, bevor wir sie für die Beta- und Release-Versionen freigeben. Die untenstehenden Funktionen sind der aktuelle Bestand an experimentellen Entwicklertools-Funktionen.
 
 ## Siehe auch
 
-- [Firefox Entwicklerversionen – Release Notes](/de/docs/Mozilla/Firefox/Releases)
+- [Firefox Entwickler-Release-Notizen](/de/docs/Mozilla/Firefox/Releases)
 - [Firefox Nightly](https://www.mozilla.org/en-US/firefox/channel/desktop/)
 - [Firefox Developer Edition](https://www.mozilla.org/en-US/firefox/developer/)
