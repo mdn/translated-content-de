@@ -1,19 +1,19 @@
 ---
-title: ::view-transition-new
+title: ::view-transition-new()
 slug: Web/CSS/::view-transition-new
 l10n:
-  sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
+  sourceCommit: 5de337827007e2a7fb89261215b6dbcf4caafafa
 ---
 
 {{CSSRef}}
 
-Das **`::view-transition-new`** [CSS](/de/docs/Web/CSS) [Pseudoelement](/de/docs/Web/CSS/Pseudo-elements) repräsentiert den "neuen" Ansichtsstatus eines View-Transitions — eine Schnappschuss-Live-Darstellung des Zustands nach der Transition.
+Das **`::view-transition-new()`** [CSS](/de/docs/Web/CSS) [Pseudoelement](/de/docs/Web/CSS/Pseudo-elements) repräsentiert den "neuen" Ansichtsstatus eines Ansichtstransfers — eine Schnappschuss-Live-Darstellung des Zustands nach dem Übergang.
 
-Während einer View-Transition wird `::view-transition-new` im zugehörigen Pseudoelement-Baum wie in [Der Pseudoelement-Baum der View-Transition](/de/docs/Web/API/View_Transition_API/Using#the_view_transition_pseudo-element_tree) beschrieben, eingeschlossen. Es ist immer nur ein Kind von {{cssxref("::view-transition-image-pair")}} und hat niemals eigene Kinder.
+Während eines Ansichtstransfers wird `::view-transition-new()` im zugehörigen Pseudoelement-Baum enthalten, wie im Abschnitt [Der Ansichtstransfer-Pseudoelementbaum](/de/docs/Web/API/View_Transition_API/Using#the_view_transition_pseudo-element_tree) erläutert. Es ist immer nur ein Kind eines {{cssxref("::view-transition-image-pair()")}} und hat niemals eigene Kinder.
 
-Es handelt sich um ein ersetztes Element und kann daher mit Eigenschaften wie {{cssxref("object-fit")}} und {{cssxref("object-position")}} manipuliert werden. Es hat natürliche Maße, die der Größe des Inhalts entsprechen.
+Es ist ein Ersatz-Element und kann daher mit Eigenschaften wie {{cssxref("object-fit")}} und {{cssxref("object-position")}} manipuliert werden. Es hat natürliche Dimensionen, die der Größe des Inhalts entsprechen.
 
-Das folgende Standardstyling ist im UA-Stylesheet enthalten:
+Die folgende Standard-Stilgebung ist im UA-Stylesheet enthalten:
 
 ```css
 :root::view-transition-old(*),
@@ -46,24 +46,26 @@ Das folgende Standardstyling ist im UA-Stylesheet enthalten:
 ```
 
 > [!NOTE]
-> Zusätzliche View-Transition-Stile werden ebenfalls eingerichtet, um `::view-transition-new` zu animieren. Diese werden während der Ansichtstransition dynamisch generiert; siehe die Abschnitte [Setup-Transition-Pseudoelemente](https://drafts.csswg.org/css-view-transitions-1/#setup-transition-pseudo-elements) und [Update-Pseudoelement-Stile](https://drafts.csswg.org/css-view-transitions-1/#update-pseudo-element-styles) in der Spezifikation für weitere Details.
+> Zusätzliche Stilgebungen für Ansichtstransfers werden ebenfalls eingerichtet, um `::view-transition-new()` zu animieren. Diese werden während des Ansichtstransfers dynamisch generiert; siehe die Abschnitte der Spezifikation [Übergangspseudoelemente einrichten](https://drafts.csswg.org/css-view-transitions-1/#setup-transition-pseudo-elements) und [Pseudoelement-Stile aktualisieren](https://drafts.csswg.org/css-view-transitions-1/#update-pseudo-element-styles) für weitere Details.
 
 ## Syntax
 
 ```css-nolint
-::view-transition-new(<pt-name-selector>) {
+::view-transition-new([ <pt-name-selector> <pt-class-selector>? ] | <pt-class-selector>) {
   /* ... */
 }
 ```
 
-`<pt-name-selector>` kann einen der folgenden Werte annehmen:
+### Parameter
 
 - `*`
-  - : Veranlasst, dass das Pseudoelement mit allen View-Transition-Gruppen übereinstimmt.
+  - : Der [universelle Selektor (`*`)](/de/docs/Web/CSS/Universal_selectors); wählt alle Ansichtstransfergruppen auf einer Seite aus.
 - `root`
-  - : Veranlasst, dass das Pseudoelement mit der Standard-`root`-View-Transition-Snapshot-Gruppe übereinstimmt, die vom Benutzeragenten erstellt wurde, um die Ansichtstransition für die gesamte Seite zu enthalten. Diese Gruppe umfasst jedes Element, dem keine spezifische eigene View-Transition-Snapshot-Gruppe über die {{cssxref("view-transition-name")}}-Eigenschaft zugewiesen wurde.
-- {{cssxref("custom-ident")}}
-  - : Veranlasst, dass das Pseudoelement mit einer spezifischen View-Transition-Snapshot-Gruppe übereinstimmt, die erstellt wurde, indem der gegebene {{cssxref("custom-ident")}} einem Element über die {{cssxref("view-transition-name")}}-Eigenschaft zugewiesen wurde.
+  - : Veranlasst das Pseudoelement, zur Standard-`root`-Ansichtstransfer-Schnappschussgruppe zu passen, die vom Benutzeragenten erstellt wird, um den Ansichtstransfer für die gesamte Seite zu enthalten. Diese Gruppe umfasst jedes Element, das seiner eigenen spezifischen Ansichtstransfer-Schnappschussgruppe nicht zugewiesen ist, über die Eigenschaft {{cssxref("view-transition-name")}}.
+- `<pt-name-selector>`
+  - : Der {{cssxref("custom-ident")}}, der als Wert der Eigenschaft {{cssxref("view-transition-name")}} festgelegt ist.
+- `<pt-class-selector>`
+  - : Der {{cssxref("custom-ident")}}, der als Wert der Eigenschaft {{cssxref("view-transition-class")}} festgelegt ist, vorangestellt mit einem Punkt (`.`).
 
 ## Beispiele
 
@@ -118,4 +120,4 @@ figcaption {
 ## Siehe auch
 
 - [View Transition API](/de/docs/Web/API/View_Transition_API)
-- [Fließende Übergänge mit der View Transition API](https://developer.chrome.com/docs/web-platform/view-transitions/)
+- [Sanfte Übergänge mit der View Transition API](https://developer.chrome.com/docs/web-platform/view-transitions/)
