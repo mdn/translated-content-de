@@ -1,18 +1,18 @@
 ---
-title: "SpeechRecognition: soundstart Ereignis"
+title: "SpeechRecognition: soundstart-Ereignis"
 short-title: soundstart
 slug: Web/API/SpeechRecognition/soundstart_event
 l10n:
-  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
+  sourceCommit: ffa6f5871f50856c60983a125cef7de267be7aeb
 ---
 
 {{APIRef("Web Speech API")}}
 
-Das **`soundstart`** Ereignis der [Web Speech API](/de/docs/Web/API/Web_Speech_API) wird ausgelöst, wenn irgendein Ton — erkennbarer Sprachinhalt oder nicht — festgestellt wurde.
+Das **`soundstart`**-Ereignis der [Web Speech API](/de/docs/Web/API/Web_Speech_API) wird ausgelöst, wenn ein beliebiges Geräusch — erkennbarer Sprach oder nicht — erkannt wurde.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Eigenschaft für den Ereignis-Handler.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js-nolint
 addEventListener("soundstart", (event) => { })
@@ -26,10 +26,10 @@ Ein generisches [`Event`](/de/docs/Web/API/Event) ohne zusätzliche Eigenschafte
 
 ## Beispiele
 
-Sie können das `soundstart` Ereignis in einer [`addEventListener`](/de/docs/Web/API/EventTarget/addEventListener) Methode verwenden:
+Sie können das `soundstart`-Ereignis in einer [`addEventListener`](/de/docs/Web/API/EventTarget/addEventListener)-Methode verwenden:
 
 ```js
-const recognition = new webkitSpeechRecognition() || new SpeechRecognition();
+const recognition = new (SpeechRecognition || webkitSpeechRecognition)();
 
 recognition.addEventListener("soundstart", () => {
   console.log("Some sound is being received");

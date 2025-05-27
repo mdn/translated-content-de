@@ -3,18 +3,18 @@ title: "SpeechSynthesisUtterance: lang-Eigenschaft"
 short-title: lang
 slug: Web/API/SpeechSynthesisUtterance/lang
 l10n:
-  sourceCommit: 759102220c07fb140b3e06971cd5981d8f0f134f
+  sourceCommit: b5437b737639d6952d18b95ebd1045ed73e4bfa7
 ---
 
 {{APIRef("Web Speech API")}}
 
-Die **`lang`**-Eigenschaft des [`SpeechSynthesisUtterance`](/de/docs/Web/API/SpeechSynthesisUtterance)-Interfaces ruft die Sprache der Äußerung ab und setzt sie.
+Die **`lang`**-Eigenschaft der [`SpeechSynthesisUtterance`](/de/docs/Web/API/SpeechSynthesisUtterance)-Schnittstelle ruft die Sprache der Äußerung ab und setzt sie.
 
-Wenn sie nicht festgelegt ist, wird die Sprachangabe der Anwendung (d.h. der [`lang`](/de/docs/Web/HTML/Reference/Global_attributes/lang)-Wert des {{htmlelement("html")}}) verwendet oder, falls auch dies nicht festgelegt ist, der Standardwert des Benutzeragenten.
+Wenn sie nicht festgelegt ist, wird die Sprache der App (d.h. der {{htmlelement("html")}}-[`lang`](/de/docs/Web/HTML/Reference/Global_attributes/lang)-Wert) verwendet, oder die Benutzeragenten-Voreinstellung, falls diese ebenfalls nicht festgelegt ist.
 
 ## Wert
 
-Ein String, der ein BCP 47-Sprachtag darstellt.
+Ein String, der einen BCP 47-Sprachcode darstellt.
 
 ## Beispiele
 
@@ -35,9 +35,9 @@ inputForm.onsubmit = (event) => {
   const utterThis = new SpeechSynthesisUtterance(inputTxt.value);
   const selectedOption =
     voiceSelect.selectedOptions[0].getAttribute("data-name");
-  for (let i = 0; i < voices.length; i++) {
-    if (voices[i].name === selectedOption) {
-      utterThis.voice = voices[i];
+  for (const voice of voices) {
+    if (voice.name === selectedOption) {
+      utterThis.voice = voice;
     }
   }
   utterThis.lang = "en-US";

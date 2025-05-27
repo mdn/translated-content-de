@@ -3,16 +3,16 @@ title: "SpeechRecognition: soundend-Ereignis"
 short-title: soundend
 slug: Web/API/SpeechRecognition/soundend_event
 l10n:
-  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
+  sourceCommit: ffa6f5871f50856c60983a125cef7de267be7aeb
 ---
 
 {{APIRef("Web Speech API")}}
 
-Das **`soundend`**-Ereignis der [Web Speech API](/de/docs/Web/API/Web_Speech_API) wird ausgelöst, wenn ein Geräusch — ob erkennbarer Sprache oder nicht — nicht mehr erkannt wird.
+Das **`soundend`**-Ereignis der [Web Speech API](/de/docs/Web/API/Web_Speech_API) wird ausgelöst, wenn ein beliebiges Geräusch – erkennbares Sprechen oder nicht – nicht mehr erkannt wird.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js-nolint
 addEventListener("soundend", (event) => { })
@@ -29,14 +29,14 @@ Ein generisches [`Event`](/de/docs/Web/API/Event) ohne zusätzliche Eigenschafte
 Sie können das `soundend`-Ereignis in einer [`addEventListener`](/de/docs/Web/API/EventTarget/addEventListener)-Methode verwenden:
 
 ```js
-const recognition = new webkitSpeechRecognition() || new SpeechRecognition();
+const recognition = new (SpeechRecognition || webkitSpeechRecognition)();
 
 recognition.addEventListener("soundend", (event) => {
   console.log("Sound has stopped being received");
 });
 ```
 
-Oder verwenden Sie die `onsoundend`-Ereignis-Handler-Eigenschaft:
+Oder die `onsoundend`-Ereignishandler-Eigenschaft verwenden:
 
 ```js
 recognition.onsoundend = (event) => {

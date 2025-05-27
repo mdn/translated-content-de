@@ -1,16 +1,16 @@
 ---
-title: "VideoEncoder: configure()-Methode"
+title: "VideoEncoder: configure() Methode"
 short-title: configure()
 slug: Web/API/VideoEncoder/configure
 l10n:
-  sourceCommit: 27bceead8e9b1fe9c92df0fa5e418f81bd5b9fdf
+  sourceCommit: 2c0f972d873ea2db5163dbcb12987847124751ad
 ---
 
 {{APIRef("WebCodecs API")}}{{SecureContext_Header}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`configure()`**-Methode der [`VideoEncoder`](/de/docs/Web/API/VideoEncoder)-Schnittstelle ändert den [`state`](/de/docs/Web/API/VideoEncoder/state) des Encoders zu "configured" und bereitet den Encoder asynchron darauf vor, [`VideoEncoder`](/de/docs/Web/API/VideoEncoder)-Eingaben zum Kodieren mit den angegebenen Parametern zu akzeptieren. Falls der Encoder die angegebenen Parameter nicht unterstützt oder aus anderen Gründen nicht initialisiert werden kann, wird ein Fehler über den im [`VideoEncoder`](/de/docs/Web/API/VideoEncoder)-Konstruktor bereitgestellten Fehler-Callback gemeldet.
+Die **`configure()`** Methode der [`VideoEncoder`](/de/docs/Web/API/VideoEncoder) Schnittstelle ändert den [`state`](/de/docs/Web/API/VideoEncoder/state) des Encoders auf "configured" und bereitet den Encoder asynchron vor, um [`VideoEncoder`](/de/docs/Web/API/VideoEncoder)s für die Kodierung mit den angegebenen Parametern zu akzeptieren. Wenn der Encoder die angegebenen Parameter nicht unterstützt oder aus anderen Gründen nicht initialisiert werden kann, wird ein Fehler über den Fehler-Callback gemeldet, der dem [`VideoEncoder`](/de/docs/Web/API/VideoEncoder)-Konstruktor übergeben wird.
 
-Falls der [`VideoEncoder`](/de/docs/Web/API/VideoEncoder) zuvor konfiguriert wurde, wird die neue Konfiguration erst angewendet, wenn alle vorherigen Aufgaben abgeschlossen sind.
+Wenn der [`VideoEncoder`](/de/docs/Web/API/VideoEncoder) zuvor konfiguriert wurde, wird die neue Konfiguration erst angewendet, wenn alle vorherigen Aufgaben abgeschlossen sind.
 
 ## Syntax
 
@@ -21,50 +21,50 @@ configure(config)
 ### Parameter
 
 - `config`
-  - : Ein Dictionary-Objekt mit den folgenden Elementen:
+  - : Ein Wörterbuchobjekt mit den folgenden Mitgliedern:
     - `codec`
-      - : Ein String, der einen [gültigen Codec-String](https://www.w3.org/TR/webcodecs-codec-registry/#audio-codec-registry) enthält. Siehe ["codecs" Parameter](/de/docs/Web/Media/Guides/Formats/codecs_parameter#codec_options_by_container) für Details zur Konstruktion des Codec-Strings.
+      - : Ein String, der einen [gültigen Codec-String](https://www.w3.org/TR/webcodecs-codec-registry/#audio-codec-registry) enthält. Siehe ["codecs" Parameter](/de/docs/Web/Media/Guides/Formats/codecs_parameter#codec_options_by_container) für Details zur Konstruktion von Codec-Strings.
     - `width` {{optional_inline}}
-      - : Eine Ganzzahl, die die Breite jedes Ausgabe-`EncodedVideoChunk` in Pixeln darstellt, bevor Anpassungen des Verhältnisses vorgenommen werden.
+      - : Ein Integer, der die Breite jedes Ausgabe- [`EncodedVideoChunk`](/de/docs/Web/API/EncodedVideoChunk) in Pixeln repräsentiert, vor jeglichen Verhältnis-Anpassungen.
     - `height` {{optional_inline}}
-      - : Eine Ganzzahl, die die Höhe jedes Ausgabe-`EncodedVideoChunk` in Pixeln darstellt, bevor Anpassungen des Verhältnisses vorgenommen werden.
+      - : Ein Integer, der die Höhe jedes Ausgabe- [`EncodedVideoChunk`](/de/docs/Web/API/EncodedVideoChunk) in Pixeln repräsentiert, vor jeglichen Verhältnis-Anpassungen.
     - `displayWidth` {{optional_inline}}
-      - : Eine Ganzzahl, die die beabsichtigte Anzeigebreite jedes Ausgabe-`EncodedVideoChunk` in Pixeln bei der Anzeige darstellt.
+      - : Ein Integer, der die beabsichtigte Anzeigebreite jedes Ausgabe- [`EncodedVideoChunk`](/de/docs/Web/API/EncodedVideoChunk) in Pixeln bei der Anzeige repräsentiert.
     - `displayHeight` {{optional_inline}}
-      - : Eine Ganzzahl, die die vertikale Dimension jedes Ausgabe-`EncodedVideoChunk` in Pixeln bei der Anzeige darstellt.
+      - : Ein Integer, der die vertikale Dimension jedes Ausgabe- [`EncodedVideoChunk`](/de/docs/Web/API/EncodedVideoChunk) in Pixeln bei der Anzeige repräsentiert.
     - `hardwareAcceleration`
-      - : Ein Hinweis zur Konfiguration der Hardwarebeschleunigungsmethode dieses Codecs. Einer von:
+      - : Ein Hinweis, der die Hardware-Beschleunigungsmethode dieses Codecs konfiguriert. Eine der folgenden Optionen:
         - `"no-preference"`
         - `"prefer-hardware"`
         - `"prefer-software"`
     - `bitrate`
-      - : Eine Ganzzahl, die die durchschnittliche Bitrate des kodierten Videos in Einheiten von Bits pro Sekunde enthält.
+      - : Ein Integer, der die durchschnittliche Bitrate des kodierten Videos in Einheiten von Bits pro Sekunde enthält.
     - `framerate`
-      - : Eine Ganzzahl, die die erwartete Bildrate in Bildern pro Sekunde enthält.
+      - : Ein Integer, der die erwartete Bildrate in Bildern pro Sekunde enthält.
     - `alpha`
-      - : Ein String, der angibt, ob die Alphakomponente der `VideoFrame`-Eingaben beibehalten oder vor dem Kodieren verworfen werden soll. Einer von:
-        - `"discard"` (Standardeinstellung)
+      - : Ein String, der angibt, ob die Alphakomponente der `VideoFrame` Eingaben beibehalten oder vor der Kodierung verworfen werden soll. Einer der folgenden:
+        - `"discard"` (Standard)
         - `"keep"`
     - `scalabilityMode`
-      - : Ein String, der einen Identifier für einen kodierenden Skalierbarkeitsmodus enthält, wie in [WebRTC](https://w3c.github.io/webrtc-svc/#scalabilitymodes*) definiert.
+      - : Ein String, der einen Kodierungs-Scalability-Modus-Bezeichner wie in [WebRTC](https://w3c.github.io/webrtc-svc/#scalabilitymodes*) definiert enthält.
     - `bitrateMode` {{optional_inline}}
-      - : Ein String, der einen Bitratenmodus enthält. Einer von:
+      - : Ein String, der einen Bitratenmodus enthält. Einer der folgende:
         - `"constant"`
-          - : Der Encoder wird eine konstante Bitrate anstreben.
-        - `"variable"` (Standardeinstellung)
-          - : Der Encoder wird eine variable Bitrate anstreben und dadurch bei komplexen Signalen mehr Speicherplatz und bei weniger komplexen Signalen weniger Speicherplatz verwenden.
+          - : Der Encoder wird auf eine konstante Bitrate abzielen.
+        - `"variable"` (Standard)
+          - : Der Encoder wird auf eine variable Bitrate abzielen, wodurch mehr Platz für komplexe Signale und weniger Platz für weniger komplexe Signale genutzt werden kann.
         - `"quantizer"`
-          - : Der Encoder wird die `bitrate`-Option außer Acht lassen und stattdessen codec-spezifische Quantisiererwerte verwenden, die für jeden Frame im `options`-Parameter von [`VideoEncoder.encode()`](/de/docs/Web/API/VideoEncoder/encode) angegeben werden.
+          - : Der Encoder wird die `bitrate` Option ignorieren und stattdessen codec-spezifische Quantisierungswerte verwenden, die für jedes Bild im `options` Parameter zu [`VideoEncoder.encode()`](/de/docs/Web/API/VideoEncoder/encode) angegeben sind.
     - `latencyMode` {{optional_inline}}
-      - : Ein String, der einen Wert enthält, mit dem das Latenzverhalten dieses Codecs konfiguriert wird. Einer von:
-        - `"quality"` (Standardeinstellung)
-          - : Der Encoder sollte für die Kodierungsqualität optimieren.
+      - : Ein String, der einen Wert enthält, der das Latenzverhalten dieses Codecs konfiguriert. Einer der folgende:
+        - `"quality"` (Standard)
+          - : Der Encoder sollte die Kodierqualität optimieren.
         - `"realtime"`
-          - : Der Encoder sollte für geringe Latenz optimieren und kann sogar Frames auslassen, um die `framerate` einzuhalten.
+          - : Der Encoder sollte für niedrige Latenz optimieren und kann sogar Bilder überspringen, um die `framerate` zu ehren.
 
 ### Rückgabewert
 
-Keine ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
@@ -82,7 +82,7 @@ Das folgende Beispiel erstellt einen neuen [`VideoEncoder`](/de/docs/Web/API/Vid
 ```js
 const init = {
   output: handleChunk,
-  error: (e) => {
+  error(e) {
     console.log(e.message);
   },
 };

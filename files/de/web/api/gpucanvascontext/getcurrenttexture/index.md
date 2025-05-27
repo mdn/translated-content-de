@@ -1,9 +1,9 @@
 ---
-title: "GPUCanvasContext: getCurrentTexture()-Methode"
+title: "GPUCanvasContext: getCurrentTexture() Methode"
 short-title: getCurrentTexture()
 slug: Web/API/GPUCanvasContext/getCurrentTexture
 l10n:
-  sourceCommit: 77d90a23ee0a3b5486a7963f68ad4e56efb06a7b
+  sourceCommit: 2c0f972d873ea2db5163dbcb12987847124751ad
 ---
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
@@ -22,12 +22,12 @@ Keine.
 
 ### Rückgabewert
 
-Eine Instanz des [`GPUTexture`](/de/docs/Web/API/GPUTexture)-Objekts.
+Ein [`GPUTexture`](/de/docs/Web/API/GPUTexture)-Objekt-Instanz.
 
 ### Ausnahmen
 
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn `getCurrentTexture()` auf dem Canvas-Kontext aufgerufen wird, bevor er konfiguriert wurde (d.h. bevor [`GPUCanvasContext.configure()`](/de/docs/Web/API/GPUCanvasContext/configure) aufgerufen wurde).
+  - : Wird ausgelöst, wenn `getCurrentTexture()` im Canvas-Kontext aufgerufen wird, bevor er konfiguriert wurde (d.h. bevor [`GPUCanvasContext.configure()`](/de/docs/Web/API/GPUCanvasContext/configure) aufgerufen wurde).
 
 ## Beispiele
 
@@ -36,7 +36,7 @@ const canvas = document.querySelector("#gpuCanvas");
 const context = canvas.getContext("webgpu");
 
 context.configure({
-  device: device,
+  device,
   format: navigator.gpu.getPreferredCanvasFormat(),
   alphaMode: "premultiplied",
 });

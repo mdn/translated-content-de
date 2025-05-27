@@ -1,17 +1,17 @@
 ---
-title: "SpeechSynthesisVoice: default Eigenschaft"
+title: "SpeechSynthesisVoice: default-Eigenschaft"
 short-title: default
 slug: Web/API/SpeechSynthesisVoice/default
 l10n:
-  sourceCommit: 22080a7cc403f7f45c8e85065b182c9f0d4d383c
+  sourceCommit: b5437b737639d6952d18b95ebd1045ed73e4bfa7
 ---
 
 {{APIRef("Web Speech API")}}
 
-Die **`default`**-Eigenschaft (nur lesbar) der Schnittstelle [`SpeechSynthesisVoice`](/de/docs/Web/API/SpeechSynthesisVoice) gibt einen booleschen Wert zurück, der angibt, ob die Stimme die Standardstimme für die aktuelle App (`true`) ist oder nicht (`false`).
+Die **`default`** schreibgeschützte Eigenschaft des [`SpeechSynthesisVoice`](/de/docs/Web/API/SpeechSynthesisVoice)-Interfaces gibt einen booleschen Wert zurück, der anzeigt, ob die Stimme die Standardstimme für die aktuelle Anwendung ist (`true`) oder nicht (`false`).
 
 > [!NOTE]
-> Bei einigen Geräten könnte es sich um die Standardstimme für die Sprache der Stimme handeln. Die Spezifikation ist nicht sehr klar, welche es sein sollte, daher können einige Implementierungen abweichen.
+> Bei einigen Geräten könnte es die Standardstimme für die Sprache der Stimme sein. Die Spezifikation ist nicht sehr klar, welche es sein sollte, daher können einige Implementierungen abweichen.
 
 ## Wert
 
@@ -20,16 +20,16 @@ Ein boolescher Wert.
 ## Beispiele
 
 ```js
-for (let i = 0; i < voices.length; i++) {
+for (const voice of voices) {
   const option = document.createElement("option");
-  option.textContent = `${voices[i].name} (${voices[i].lang})`;
+  option.textContent = `${voice.name} (${voice.lang})`;
 
-  if (voices[i].default) {
+  if (voice.default) {
     option.textContent += " — DEFAULT";
   }
 
-  option.setAttribute("data-lang", voices[i].lang);
-  option.setAttribute("data-name", voices[i].name);
+  option.setAttribute("data-lang", voice.lang);
+  option.setAttribute("data-name", voice.name);
   voiceSelect.appendChild(option);
 }
 ```

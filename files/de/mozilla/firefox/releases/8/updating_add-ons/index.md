@@ -1,59 +1,59 @@
 ---
-title: Aktualisierung von Add-ons für Firefox 8
+title: Aktualisieren von Add-ons für Firefox 8
 slug: Mozilla/Firefox/Releases/8/Updating_add-ons
 l10n:
-  sourceCommit: 5ae01a458eced9772d628f91d035ada423cd073c
+  sourceCommit: cb25e0acbd9f0af27c4a99965cb962230d49a35d
 ---
 
 {{FirefoxSidebar}}
 
-Dieser Artikel bietet Informationen zu den Schritten, die Sie unternehmen müssen, um Ihr bestehendes Add-on für die Kompatibilität mit Firefox 8 zu aktualisieren. Eine vollständige Liste aller Änderungen in Firefox 8 finden Sie unter [Firefox 8 für Entwickler](/de/docs/Mozilla/Firefox/Releases/8).
+Dieser Artikel bietet Informationen zu den Schritten, die Sie unternehmen müssen, um Ihr bestehendes Add-on für die Kompatibilität mit Firefox 8 zu aktualisieren. Siehe [Firefox 8 für Entwickler](/de/docs/Mozilla/Firefox/Releases/8) für eine vollständige Liste aller Änderungen in Firefox 8.
 
 ## Müssen Sie überhaupt etwas tun?
 
-Wenn Ihr Add-on auf [addons.mozilla.org](https://addons.mozilla.org/en-US/firefox/) (AMO) vertrieben wird, wurde es durch ein automatisches Kompatibilitätsprüfwerkzeug überprüft. Add-ons, die keine in Firefox 8 geänderten APIs nutzen und keine binären Komponenten haben (die [für jede Hauptversion von Firefox neu kompiliert werden müssen](/de/docs/Mozilla/Developer_guide/Interface_Compatibility#binary_interfaces)), wurden auf AMO automatisch aktualisiert, um anzuzeigen, dass sie in Firefox 8 funktionieren.
+Wenn Ihr Add-on auf [addons.mozilla.org](https://addons.mozilla.org/de/firefox/) (AMO) verteilt wird, wurde es von einem automatisierten Tool zur Überprüfung der Kompatibilität geprüft. Add-ons, die keine APIs verwenden, die in Firefox 8 geändert wurden, und keine binären Komponenten haben (die [für jede Hauptversion von Firefox neu kompiliert werden müssen](/de/docs/Mozilla/Developer_guide/Interface_Compatibility#binary_interfaces)), wurden auf AMO automatisch aktualisiert, um anzuzeigen, dass sie in Firefox 8 funktionieren.
 
-Deshalb sollten Sie bei AMO nachsehen, ob Ihr Add-on überhaupt irgendwelche Anpassungen benötigt.
+Sie sollten also zunächst AMO besuchen und prüfen, ob Ihr Add-on überhaupt Arbeit erfordert.
 
 > [!NOTE]
-> Sie sollten Ihr Add-on in Firefox 8 dennoch testen, auch wenn es automatisch aktualisiert wurde. Es gibt Randfälle, die möglicherweise nicht automatisch erkannt werden.
+> Sie sollten Ihr Add-on trotzdem in Firefox 8 testen, auch wenn es automatisch aktualisiert wurde. Es gibt spezielle Fälle, die möglicherweise nicht automatisch erkannt werden.
 
-Sobald Sie bestätigt haben, dass Änderungen erforderlich sind, kehren Sie zu dieser Seite zurück und lesen Sie weiter.
+Sobald Sie bestätigt haben, dass Änderungen erforderlich sind, kommen Sie zurück zu dieser Seite und lesen Sie weiter.
 
 ## Hinweis zum Entwicklungsprozess
 
-Es ist wichtig zu beachten, dass Firefox 8 beim ersten Start nun nach Drittanbieter-Add-ons sucht und eine Benutzeroberfläche anzeigt, die es den Nutzern ermöglicht, zu entscheiden, ob sie aktiviert werden sollen oder nicht. Wenn Sie Ihr Add-on zur Testzwecken in das Profilverzeichnis einfügen, wird Firefox es beim ersten Start nicht automatisch aktivieren, sondern stattdessen diese Benutzeroberfläche anzeigen.
+Es ist erwähnenswert, dass Firefox 8 beim Start jetzt auf Add-ons von Drittanbietern prüft und beim ersten Start eine Benutzeroberfläche anzeigt, mit der Benutzer entscheiden können, ob sie diese aktivieren möchten oder nicht. Wenn Sie Ihr Add-on in das Profilverzeichnis legen, um es zu testen, wird Firefox es beim ersten Start nicht automatisch aktivieren, sondern stattdessen diese Benutzeroberfläche zeigen.
 
-Sie können dies umgehen, indem Sie die Einstellung `extensions.autoDisableScopes` auf 14 setzen. Dies sollte nur für Entwicklungs- und Testzwecke erfolgen.
+Sie können dies vermeiden, indem Sie die Einstellung `extensions.autoDisableScopes` auf 14 setzen. Dies sollte nur zu Entwicklungs- und Testzwecken erfolgen.
 
 ## Schnittstellen wurden zusammengeführt
 
-Im Rahmen unserer fortlaufenden Bemühungen, die internen Strukturen von Gecko zu optimieren, wurden einige Schnittstellen zusammengeführt:
+Im Rahmen unserer laufenden Bemühungen, die internen Abläufe von Gecko zu optimieren, wurden einige Schnittstellen zusammengeführt:
 
-- `nsIDOMWindowInternal` wurde in `nsIDOMWindow` integriert. Die `nsIDOMWindowInternal` Schnittstelle existiert zwar noch, ist aber leer und wird in Firefox 9 vollständig entfernt. Sie sollten Ihren Code aktualisieren, der von der Existenz von `nsIDOMWindowInternal` abhängt, und stattdessen nach `nsIDOMWindow` suchen.
-- Alle Subschnittstellen von `nsISelection` wurden in die Basis-Schnittstelle `nsISelection` integriert. Falls Sie zufällig nach `nsISelection2` oder `nsISelection3` gesucht haben, sollten Sie Ihren Code aktualisieren.
+- `nsIDOMWindowInternal` wurde in `nsIDOMWindow` integriert. Die `nsIDOMWindowInternal`-Schnittstelle existiert noch, ist jedoch leer und wird in Firefox 9 vollständig entfernt. Sie sollten jeden Code aktualisieren, der auf die Existenz von `nsIDOMWindowInternal` angewiesen ist, sodass stattdessen `nsIDOMWindow` verwendet wird.
+- Alle Unter-Schnittstellen von `nsISelection` wurden in die Basis-Schnittstelle `nsISelection` integriert. Falls Sie zufällig zuvor nach `nsISelection2` oder `nsISelection3` gesucht haben, sollten Sie Ihren Code aktualisieren.
 
-## Verbesserte Datumshandhabung
+## Verbesserung der Datumshandhabung
 
-Da das JavaScript [`Date`](/de/docs/Web/JavaScript/Reference/Global_Objects/Date) Objekt jetzt ISO 8601-Daten parsen kann, wurde das [`ISO8601DateUtils.jsm`](/de/docs/JavaScript_code_modules/ISO8601DateUtils.jsm) Code-Modul entfernt. Wenn Sie dieses Code-Modul verwendet haben, sollten Sie Ihren Code aktualisieren, um stattdessen die Methoden auf `Date` zu verwenden.
+Jetzt, da das JavaScript [`Date`](/de/docs/Web/JavaScript/Reference/Global_Objects/Date)-Objekt ISO 8601-Daten parsen kann, wurde das [`ISO8601DateUtils.jsm`](/de/docs/JavaScript_code_modules/ISO8601DateUtils.jsm)-Modul entfernt. Wenn Sie dieses Modul verwendet haben, sollten Sie Ihren Code aktualisieren, um stattdessen die Methoden von `Date` zu verwenden.
 
-## DOM-Änderungen
+## Änderungen im DOM
 
 Es gab einige Änderungen im DOM, die sich auf Add-ons auswirken:
 
-### Auswahländerungen
+### Änderungen an Selection
 
-Früher hat [`Document.getSelection()`](/de/docs/Web/API/Document/getSelection) eine stringifizierte Version der Auswahl zurückgegeben, anstatt das [`Selection`](/de/docs/Web/API/Selection) Objekt selbst. Dieses nicht standardmäßige Verhalten wurde korrigiert.
+In der Vergangenheit gab [`Document.getSelection()`](/de/docs/Web/API/Document/getSelection) eine String-Darstellung der Auswahl zurück, anstatt das [`Selection`](/de/docs/Web/API/Selection)-Objekt selbst. Dieses nicht standardmäßige Verhalten wurde korrigiert.
 
-### Potentielle Namenskonflikte
+### Potenzielle Namenskonflikte
 
-Als die DOM-Datei-API hinzugefügt wurde, wurde eine neue globale Variable namens [`File`](/de/docs/Web/API/File) hinzugefügt; dies kann mit Objekten in Ihren Skripten in Konflikt stehen. Wenn Sie globale Variablen mit dem Namen `File` haben, sollten Sie sie umbenennen.
+Als die DOM File API hinzugefügt wurde, wurde ein neues globales Objekt namens [`File`](/de/docs/Web/API/File) hinzugefügt; dies kann mit Objekten in Ihren Skripten in Konflikt stehen. Wenn Sie globale Objekte mit dem Namen `File` haben, sollten Sie diese umbenennen.
 
-Ebenso wurde ein neuer globaler Name, `ChromeWorker`, eingeführt, um zu unterstützen, dass Worker aus Chrome-Code verwendet werden können. Sollten Sie zufällig globale Variablen mit diesem Namen haben, sollten Sie sie umbenennen.
+Ähnlich wurde ein neues globales Objekt, `ChromeWorker`, eingeführt, um die Verwendung von Workers in Chrome-Code zu unterstützen. Falls Sie zufällig globale Objekte mit diesem Namen haben, sollten Sie diese umbenennen.
 
 ## Sicherheitsänderungen
 
-Unterstützung für SSL 2.0 wurde entfernt. Dies sollte keine aktuellen Add-ons betreffen. Allerdings wurde zur Referenz sehr alter Code entfernt sowie die Unterstützung für die Präferenzen `security.enable_ssl2` (die standardmäßig auf false gesetzt ist) sowie alle Präferenzen, die mit `security.ssl2.` beginnen.
+Die Unterstützung für SSL 2.0 wurde entfernt. Dies sollte sich auf keine aktuellen Add-ons auswirken. Zur Information: Einige sehr alte Codes wurden entfernt, ebenso wie die Unterstützung für die Präferenzen `security.enable_ssl2` (die standardmäßig auf false gesetzt ist) und alle Präferenzen, die mit `security.ssl2` beginnen.
 
 ## Siehe auch
 

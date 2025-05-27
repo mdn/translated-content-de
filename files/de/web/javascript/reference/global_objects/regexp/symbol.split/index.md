@@ -2,12 +2,12 @@
 title: RegExp.prototype[Symbol.split]()
 slug: Web/JavaScript/Reference/Global_Objects/RegExp/Symbol.split
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: 2c0f972d873ea2db5163dbcb12987847124751ad
 ---
 
 {{JSRef}}
 
-Die **`[Symbol.split]()`**-Methode von {{jsxref("RegExp")}}-Instanzen legt fest, wie [`String.prototype.split`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/split) funktionieren soll, wenn der reguläre Ausdruck als Trennzeichen übergeben wird.
+Die Methode **`[Symbol.split]()`** von {{jsxref("RegExp")}}-Instanzen legt fest, wie [`String.prototype.split`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/split) sich verhalten soll, wenn der reguläre Ausdruck als Trennzeichen übergeben wird.
 
 {{InteractiveExample("JavaScript Demo: RegExp.prototype[Symbol.split]()")}}
 
@@ -22,7 +22,7 @@ class RegExp1 extends RegExp {
 console.log("2016-01-02".split(new RegExp1("-")));
 // Expected output: Array ["(2016)", "(01)", "(02)"]
 
-console.log("2016-01-02".split(new RegExp("-")));
+console.log("2016-01-02".split(/-/));
 // Expected output: Array ["2016", "01", "02"]
 ```
 
@@ -36,17 +36,17 @@ regexp[Symbol.split](str, limit)
 ### Parameter
 
 - `str`
-  - : Das Ziel der Split-Operation.
+  - : Das Ziel der Teilungsoperation.
 - `limit` {{optional_inline}}
-  - : Eine Ganzzahl, die eine Begrenzung für die Anzahl der gefundenen Splits angibt. Die `[Symbol.split]()`-Methode teilt dennoch bei jedem Treffer des `this` RegExp-Musters (oder wie oben in der Syntax beschrieben des `regexp`), bis die Anzahl der geteilten Elemente dem `limit` entspricht oder der String keinem `this`-Muster mehr entspricht.
+  - : Ganzzahl, die eine Begrenzung der Anzahl der gefundenen Teilungen angibt. Die Methode `[Symbol.split]()` teilt bei jedem Treffer von `diesem` regulären Ausdrucksmuster (oder, in der obigen Syntax, `regexp`), bis die Anzahl der geteilten Elemente das `limit` erreicht oder der String nicht mehr das Muster erfüllt.
 
 ### Rückgabewert
 
-Ein {{jsxref("Array")}}, das Unterstrings als Elemente enthält. Capturing Groups werden einbezogen.
+Ein {{jsxref("Array")}}, das Teilstrings als Elemente enthält. Eingefangene Gruppen werden einbezogen.
 
 ## Beschreibung
 
-Diese Methode wird intern in {{jsxref("String.prototype.split()")}} aufgerufen, wenn ein `RegExp` als Trennzeichen verwendet wird. Zum Beispiel liefern die folgenden zwei Beispiele das gleiche Ergebnis.
+Diese Methode wird intern in {{jsxref("String.prototype.split()")}} aufgerufen, wenn ein `RegExp` als Trennzeichen übergeben wird. Zum Beispiel liefern die folgenden zwei Beispiele dasselbe Ergebnis.
 
 ```js
 "a-b-c".split(/-/);
@@ -54,24 +54,24 @@ Diese Methode wird intern in {{jsxref("String.prototype.split()")}} aufgerufen, 
 /-/[Symbol.split]("a-b-c");
 ```
 
-Diese Methode existiert, um das Verhalten von `split()` in `RegExp`-Subklassen anzupassen.
+Diese Methode existiert, um das Verhalten von `split()` in `RegExp`-Unterklassen anzupassen.
 
-Die `RegExp.prototype[Symbol.split]()`-Basismethode weist die folgenden Verhaltensweisen auf:
+Die Basismethode `RegExp.prototype[Symbol.split]()` zeigt die folgenden Verhaltensweisen:
 
-- Sie verwendet [`[Symbol.species]`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/Symbol.species), um ein neues RegExp zu erstellen, wodurch verhindert wird, dass das ursprüngliche RegExp in irgendeiner Weise verändert wird.
-- Das `g`- ("global")-Flag des RegExp wird ignoriert, und das `y`- ("sticky")-Flag wird immer angewendet, auch wenn es ursprünglich nicht vorhanden war.
-- Wenn der Zielstring leer ist und das RegExp leere Strings treffen kann (zum Beispiel `/a?/`), wird ein leeres Array zurückgegeben. Andernfalls, wenn das RegExp mit einem leeren String nicht übereinstimmen kann, wird `[""]` zurückgegeben.
-- Die Übereinstimmung erfolgt durch kontinuierliche Aufrufe von `this.exec()`. Da das RegExp immer sticky ist, bewegt es sich entlang des Strings und gibt jedes Mal einen passenden String, einen Index und alle capturing groups zurück.
-- Für jede Übereinstimmung wird zuerst der Substring zwischen dem Ende des zuletzt gematchten Strings und dem Anfang des aktuell gematchten Strings zum Ergebnis-Array hinzugefügt. Anschließend werden die Werte der capturing groups einzeln hinzugefügt.
-- Wenn der aktuelle Treffer ein leerer String ist oder das RegExp an der aktuellen Position nicht übereinstimmt (da es sticky ist), wird der `lastIndex` dennoch vorgerückt — falls das RegExp [Unicode-bewusst](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicode#unicode-aware_mode) ist, um einen Unicode-Codepunkt; andernfalls um eine UTF-16-Codeeinheit.
-- Wenn das RegExp nicht mit dem Zielstring übereinstimmt, wird der Zielstring unverändert in ein Array eingebettet zurückgegeben.
-- Die Länge des zurückgegebenen Arrays wird niemals das angegebene `limit`-Parameter überschreiten (falls vorhanden), wobei trotzdem versucht wird, so nah wie möglich heranzukommen. Daher können der letzte Treffer und dessen capturing groups möglicherweise nicht vollständig im zurückgegebenen Array enthalten sein, wenn das Array bereits gefüllt ist.
+- Sie beginnt mit dem Verwenden von [`[Symbol.species]`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/Symbol.species), um einen neuen Regulären Ausdruck zu erstellen, und vermeidet so jede Veränderung des ursprünglichen regulären Ausdrucks.
+- Das `g` ("global")-Flag des regulären Ausdrucks wird ignoriert, und das `y` ("sticky")-Flag wird immer angewendet, auch wenn es ursprünglich nicht vorhanden war.
+- Wenn der Zielstring leer ist und der reguläre Ausdruck leere Strings treffen kann (zum Beispiel `/a?/`), wird ein leeres Array zurückgegeben. Andernfalls, wenn der reguläre Ausdruck keinen leeren String treffen kann, wird `[""]` zurückgegeben.
+- Die Übereinstimmung erfolgt, indem kontinuierlich `this.exec()` aufgerufen wird. Da der reguläre Ausdruck immer sticky ist, bewegt er sich entlang des Strings, wobei er jedes Mal einen passenden String, Index und alle eingefangenen Gruppen liefert.
+- Für jeden Treffer wird zuerst der Teilstring zwischen dem Ende des letzten Übereinstimmungsstrings und dem Anfang des aktuellen Übereinstimmungsstrings dem Ergebnisarray hinzugefügt. Dann werden die Werte der eingefangenen Gruppen einzeln hinzugefügt.
+- Wenn der aktuelle Treffer ein leerer String ist oder der reguläre Ausdruck an der aktuellen Position nicht trifft (da er sticky ist), wird der `lastIndex` trotzdem vorgerückt — wenn der reguläre Ausdruck [Unicode-bewusst](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicode#unicode-aware_mode) ist, wird er um einen Unicode-Codepunkt vorgerückt; ansonsten um eine UTF-16-Codeeinheit.
+- Wenn der reguläre Ausdruck den Zielstring nicht trifft, wird der Zielstring unverändert in einem Array zurückgegeben.
+- Die Länge des zurückgegebenen Arrays wird nie die `limit`-Grenze überschreiten, wenn angegeben, während versucht wird, so nah wie möglich daran zu kommen. Daher könnten der letzte Treffer und seine eingefangenen Gruppen möglicherweise nicht alle im zurückgegebenen Array enthalten sein, wenn das Array bereits gefüllt ist.
 
 ## Beispiele
 
 ### Direkter Aufruf
 
-Diese Methode kann nahezu genauso genutzt werden wie {{jsxref("String.prototype.split()")}}, mit Ausnahme des unterschiedlichen `this` und der unterschiedlichen Reihenfolge der Argumente.
+Diese Methode kann fast auf die gleiche Weise wie {{jsxref("String.prototype.split()")}} verwendet werden, außer der unterschiedlichen `this`-Referenz und der anderen Reihenfolge der Argumente.
 
 ```js
 const re = /-/g;
@@ -80,9 +80,9 @@ const result = re[Symbol.split](str);
 console.log(result); // ["2016", "01", "02"]
 ```
 
-### Verwendung von `[Symbol.split]()` in Subklassen
+### Verwendung von `[Symbol.split]()` in Unterklassen
 
-Subklassen von {{jsxref("RegExp")}} können die `[Symbol.split]()`-Methode überschreiben, um das Standardverhalten zu ändern.
+Unterklassen von {{jsxref("RegExp")}} können die Methode `[Symbol.split]()` überschreiben, um das Standardverhalten zu ändern.
 
 ```js
 class MyRegExp extends RegExp {

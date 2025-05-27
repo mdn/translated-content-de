@@ -1,18 +1,18 @@
 ---
-title: "AudioContext: setSinkId() Methode"
+title: "AudioContext: setSinkId()-Methode"
 short-title: setSinkId()
 slug: Web/API/AudioContext/setSinkId
 l10n:
-  sourceCommit: 3fcc43c9a6dd8e2eac385da0496586105256a468
+  sourceCommit: cb25e0acbd9f0af27c4a99965cb962230d49a35d
 ---
 
 {{APIRef("Web Audio API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die **`setSinkId()`** Methode der [`AudioContext`](/de/docs/Web/API/AudioContext) Schnittstelle setzt das Ausgabe-Audiogerät für den `AudioContext`. Wenn keine Sink-ID explizit gesetzt wird, wird das standardmäßige System-Audioausgabegerät verwendet.
+Die **`setSinkId()`**-Methode der [`AudioContext`](/de/docs/Web/API/AudioContext)-Schnittstelle setzt das Ausgabegerät für den `AudioContext`. Wenn keine spezifische Sink-ID gesetzt wird, wird das standardmäßige Audioausgabegerät des Systems verwendet.
 
-Um das Audiogerät auf ein anderes als das Standardgerät zu setzen, benötigt der Entwickler die Berechtigung zum Zugriff auf Audio-Geräte. Falls erforderlich, kann der Benutzer aufgefordert werden, die benötigte Berechtigung über einen Aufruf von [`MediaDevices.getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) zu erteilen.
+Um das Audiogerät auf ein anderes als das Standardgerät zu setzen, benötigt der Entwickler eine Genehmigung zum Zugriff auf Audiogeräte. Falls erforderlich, kann der Benutzer aufgefordert werden, die erforderliche Erlaubnis über einen Aufruf von [`MediaDevices.getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) zu erteilen.
 
-Außerdem kann diese Funktion durch eine [`speaker-selection`](/de/docs/Web/HTTP/Reference/Headers/Permissions-Policy/speaker-selection) [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Guides/Permissions_Policy) blockiert werden.
+Zusätzlich kann dieses Feature durch eine [`speaker-selection`](/de/docs/Web/HTTP/Reference/Headers/Permissions-Policy/speaker-selection) [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Guides/Permissions_Policy) blockiert werden.
 
 ## Syntax
 
@@ -25,15 +25,15 @@ setSinkId(sinkId)
 - `sinkId`
   - : Die Sink-ID des Geräts, das Sie als Audioausgabegerät festlegen möchten. Dies kann einen der folgenden Wertetypen annehmen:
     - String
-      - : Ein String, der die Sink-ID darstellt, die beispielsweise über die `deviceId` Eigenschaft der [`MediaDeviceInfo`](/de/docs/Web/API/MediaDeviceInfo) Objekte abgerufen wurde, die von [`MediaDevices.enumerateDevices()`](/de/docs/Web/API/MediaDevices/enumerateDevices) zurückgegeben werden.
+      - : Ein String, der die Sink-ID darstellt, abgerufen beispielsweise über die `deviceId`-Eigenschaft der [`MediaDeviceInfo`](/de/docs/Web/API/MediaDeviceInfo)-Objekte, die von [`MediaDevices.enumerateDevices()`](/de/docs/Web/API/MediaDevices/enumerateDevices) zurückgegeben werden.
     - `AudioSinkOptions`
-      - : Ein Objekt, das verschiedene Optionen für eine Sink-ID darstellt. Derzeit hat es eine einzige Eigenschaft, `type`, mit dem Wert `none`. Wenn dieser Parameter gesetzt wird, wird das Audio verarbeitet, ohne über ein Audioausgabegerät abgespielt zu werden. Dies ist eine nützliche Option, um den Energieverbrauch zu minimieren, wenn Sie keine Wiedergabe zusammen mit der Verarbeitung benötigen.
+      - : Ein Objekt, das verschiedene Optionen für eine Sink-ID darstellt. Momentan nimmt dies eine einzelne Eigenschaft, `type`, mit einem Wert von `none` an. Wenn dieser Parameter gesetzt ist, wird das Audio verarbeitet, ohne über ein Audioausgabegerät abgespielt zu werden. Dies ist eine nützliche Option, um den Energieverbrauch zu minimieren, wenn keine Wiedergabe zusammen mit der Verarbeitung benötigt wird.
 
 ### Rückgabewert
 
 Ein {{jsxref("Promise")}}, das mit einem Wert von `undefined` erfüllt wird.
 
-Der Versuch, die Sink-ID auf ihren bestehenden Wert zu setzen (z.B. zurückgegeben von [`AudioContext.sinkId`](/de/docs/Web/API/AudioContext/sinkId)), wirft keine Fehler, beendet aber den Prozess sofort.
+Der Versuch, die Sink-ID auf ihren bestehenden Wert zu setzen (d.h. den von [`AudioContext.sinkId`](/de/docs/Web/API/AudioContext/sinkId) zurückgegebenen), wirft keine Fehler, sondern bricht den Prozess sofort ab.
 
 ### Ausnahmen
 
@@ -42,11 +42,11 @@ Der Versuch, die Sink-ID auf ihren bestehenden Wert zu setzen (z.B. zurückgegeb
 - `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn der Browser keine Berechtigung zum Zugriff auf Audiogeräte hat.
 - `NotFoundError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn die übergebene `sinkId` keinem auf dem System gefundenen Audiogerät entspricht.
+  - : Wird ausgelöst, wenn die übergebene `sinkId` keiner auf dem System gefundenen Audiogerät entspricht.
 
 ## Beispiele
 
-In unserem [SetSinkId-Testbeispiel](https://set-sink-id.glitch.me/) (schauen Sie sich den [Quellcode](https://glitch.com/edit/#!/set-sink-id) an), erstellen wir einen Audiografen, der eine dreisekündige Wellen von weißem Rauschen über einen [`AudioBufferSourceNode`](/de/docs/Web/API/AudioBufferSourceNode) erzeugt, den wir auch durch einen [`GainNode`](/de/docs/Web/API/GainNode) laufen lassen, um die Lautstärke etwas zu senken.
+In unserem [SetSinkId-Testbeispiel](https://set-sink-id.glitch.me/) (sehen Sie sich den [Quellcode](https://glitch.com/edit/#!/set-sink-id) an), erstellen wir ein Audiograph, das einen dreisekündigen Schwall von weißem Rauschen über einen [`AudioBufferSourceNode`](/de/docs/Web/API/AudioBufferSourceNode) erzeugt, den wir auch durch einen [`GainNode`](/de/docs/Web/API/GainNode) laufen lassen, um die Lautstärke etwas zu reduzieren.
 
 ```js
 mediaDeviceBtn.addEventListener("click", async () => {
@@ -88,12 +88,12 @@ mediaDeviceBtn.addEventListener("click", async () => {
 });
 ```
 
-Wir bieten dem Benutzer auch ein Dropdown-Menü, damit er das Audioausgabegerät spontan ändern kann. Dafür:
+Wir bieten dem Benutzer auch ein Dropdown-Menü, um das Audioausgabegerät im laufenden Betrieb zu ändern. Um dies zu tun, führen wir folgende Schritte aus:
 
-1. Stellen wir eine Schaltfläche bereit, um das Dropdown-Menü zu füllen. Wir rufen zuerst [`MediaDevices.getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) auf, um die benötigten Berechtigungen zu aktivieren, die wir für die Geräteliste benötigen. Dann verwenden wir [`MediaDevices.enumerateDevices()`](/de/docs/Web/API/MediaDevices/enumerateDevices), um alle verfügbaren Geräte abzurufen. Wir durchlaufen die verschiedenen Geräte und machen jedes als Option in einem {{htmlelement("select")}} Element verfügbar. Wir erstellen auch eine "Keine"-Option für den Fall, dass Sie Ihr Audio in keinem Ausgang wiedergeben möchten.
-2. Fügen wir einen [`change`](/de/docs/Web/API/HTMLElement/change_event) Ereignis-Listener zum {{htmlelement("select")}} Element hinzu, um die Sink-ID und damit das Audioausgabegerät zu ändern, wenn ein neuer Wert ausgewählt wird. Wenn "Keine" im Dropdown gewählt wird, rufen wir `setSinkId()` mit dem Objektparameter `{ type : 'none' }` auf, um kein Audiogerät auszuwählen, andernfalls führen wir es mit der Audio-Geräte-ID aus, die im `value` Attribut des `<select>` Elements als Parameter enthalten ist.
+1. Wir stellen eine Schaltfläche bereit, um das Dropdown-Menü zu füllen. Zuerst rufen wir [`MediaDevices.getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) auf, um die Berechtigungsanfrage zu starten, die für die Geräteauflistung erforderlich ist, und verwenden dann [`MediaDevices.enumerateDevices()`](/de/docs/Web/API/MediaDevices/enumerateDevices), um alle verfügbaren Geräte zu erhalten. Wir schleifen durch die verschiedenen Geräte und machen jedes als Option in einem {{htmlelement("select")}}-Element verfügbar. Wir erstellen auch eine "Keine"-Option für den Fall, dass Sie Ihr Audio nicht über eine Ausgabe abspielen möchten.
+2. Wir fügen einen [`change`](/de/docs/Web/API/HTMLElement/change_event)-Ereignislistener zum {{htmlelement("select")}}-Element hinzu, um die Sink-ID und damit das Audioausgabegerät zu ändern, wenn ein neuer Wert ausgewählt wird. Wenn "Keine" im Dropdown-Menü ausgewählt ist, rufen wir `setSinkId()` mit dem `{ type : 'none' }`-Objektparameter auf, um kein Audiogerät auszuwählen, andernfalls führen wir es mit der im `<select>`-Element enthaltenen Audio-Geräte-ID im `value`-Attribut als Parameter aus.
 
-Das Ausgabegerät kann während der Audiowiedergabe geändert werden, ebenso wie davor oder zwischen den Wiedergaben.
+Das Ausgabegerät kann während der Audiowiedergabe, sowie davor oder zwischen den Wiedergaben geändert werden.
 
 ## Spezifikationen
 
@@ -105,7 +105,7 @@ Das Ausgabegerät kann während der Audiowiedergabe geändert werden, ebenso wie
 
 ## Siehe auch
 
-- [SetSinkId Testbeispiel](https://set-sink-id.glitch.me/)
-- [Ändern des Zielausgabegeräts im Web Audio](https://developer.chrome.com/blog/audiocontext-setsinkid/)
+- [SetSinkId-Testbeispiel](https://set-sink-id.glitch.me/)
+- [Ändern des Ausgabegeräts in Web Audio](https://developer.chrome.com/blog/audiocontext-setsinkid/)
 - [`AudioContext.sinkId`](/de/docs/Web/API/AudioContext/sinkId)
 - [`sinkchange`](/de/docs/Web/API/AudioContext/sinkchange_event)

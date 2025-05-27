@@ -2,19 +2,19 @@
 title: Object.create()
 slug: Web/JavaScript/Reference/Global_Objects/Object/create
 l10n:
-  sourceCommit: 3dbbefa32758e2a1ca9a37c2788370c06aae2738
+  sourceCommit: 2c0f972d873ea2db5163dbcb12987847124751ad
 ---
 
 {{JSRef}}
 
-Die statische Methode **`Object.create()`** erstellt ein neues Objekt, wobei ein bestehendes Objekt als Prototyp des neu erstellten Objekts verwendet wird.
+Die statische Methode **`Object.create()`** erstellt ein neues Objekt, indem sie ein vorhandenes Objekt als Prototyp für das neu erstellte Objekt verwendet.
 
 {{InteractiveExample("JavaScript Demo: Object.create()", "taller")}}
 
 ```js interactive-example
 const person = {
   isHuman: false,
-  printIntroduction: function () {
+  printIntroduction() {
     console.log(`My name is ${this.name}. Am I human? ${this.isHuman}`);
   },
 };
@@ -40,11 +40,11 @@ Object.create(proto, propertiesObject)
 - `proto`
   - : Das Objekt, das der Prototyp des neu erstellten Objekts sein soll.
 - `propertiesObject` {{optional_inline}}
-  - : Wenn angegeben und nicht {{jsxref("undefined")}}, ein Objekt, dessen [enumerierbare eigene Eigenschaften](/de/docs/Web/JavaScript/Guide/Enumerability_and_ownership_of_properties) Eigenschaftsbeschreibungen angeben, die dem neu erstellten Objekt mit den entsprechenden Eigenschaftsnamen hinzugefügt werden sollen. Diese Eigenschaften entsprechen dem zweiten Argument von {{jsxref("Object.defineProperties()")}}.
+  - : Falls angegeben und nicht {{jsxref("undefined")}}, ein Objekt, dessen [aufzählbare eigene Eigenschaften](/de/docs/Web/JavaScript/Guide/Enumerability_and_ownership_of_properties) Eigenschaftsbeschreibungen spezifizieren, die dem neu erstellten Objekt unter den entsprechenden Eigenschaftsnamen hinzugefügt werden. Diese Eigenschaften entsprechen dem zweiten Argument von {{jsxref("Object.defineProperties()")}}.
 
 ### Rückgabewert
 
-Ein neues Objekt mit dem angegebenen Prototypobjekt und den Eigenschaften.
+Ein neues Objekt mit dem angegebenen Prototyp-Objekt und den Eigenschaften.
 
 ### Ausnahmen
 
@@ -55,7 +55,7 @@ Ein neues Objekt mit dem angegebenen Prototypobjekt und den Eigenschaften.
 
 ### Klassische Vererbung mit Object.create()
 
-Unten ist ein Beispiel dafür, wie `Object.create()` verwendet werden kann, um klassische Vererbung zu erreichen. Dies ist eine einzelne Vererbung, die JavaScript unterstützt.
+Unten ist ein Beispiel, wie `Object.create()` verwendet werden kann, um klassische Vererbung zu erreichen. Dies ist für eine einfache Vererbung, die alles ist, was JavaScript unterstützt.
 
 ```js
 // Shape - superclass
@@ -96,11 +96,11 @@ console.log("Is rect an instance of Shape?", rect instanceof Shape); // true
 rect.move(1, 1); // Logs 'Shape moved.'
 ```
 
-Beachten Sie, dass es bei der Verwendung von `create()` einige Nachteile gibt, wie das erneute Hinzufügen der [`constructor`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/constructor) Eigenschaft, um eine korrekte Semantik sicherzustellen. Obwohl `Object.create()` eine bessere Leistung als die Veränderung des Prototyps mit {{jsxref("Object.setPrototypeOf()")}} haben soll, ist der Unterschied tatsächlich vernachlässigbar, wenn noch keine Instanzen erstellt wurden und der Zugriff auf Eigenschaften noch nicht optimiert wurde. In modernem Code sollte in jedem Fall die [class](/de/docs/Web/JavaScript/Reference/Classes)-Syntax bevorzugt werden.
+Beachten Sie, dass es Einschränkungen bei der Verwendung von `create()` gibt, wie z.B. das Hinzufügen der [`constructor`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/constructor) Eigenschaft, um semantische Korrektheit zu gewährleisten. Obwohl `Object.create()` einer besseren Leistung nachgesagt wird als das Ändern des Prototyps mit {{jsxref("Object.setPrototypeOf()")}}, ist der Unterschied tatsächlich vernachlässigbar, wenn keine Instanzen erstellt wurden und auf Eigenschaften noch nicht optimiert zugegriffen wurde. In modernem Code sollte in jedem Fall die [class](/de/docs/Web/JavaScript/Reference/Classes) Syntax bevorzugt werden.
 
-### Verwenden des propertiesObject-Arguments mit Object.create()
+### Verwendung des propertiesObject-Arguments mit Object.create()
 
-`Object.create()` ermöglicht die präzise Kontrolle über den Objekt-Erstellungsprozess. Die [Objekt-Initialisierer-Syntax](/de/docs/Web/JavaScript/Reference/Operators/Object_initializer) ist tatsächlich eine Syntaxvereinfachung von `Object.create()`. Mit `Object.create()` können wir Objekte mit einem festgelegten Prototyp und einigen Eigenschaften erstellen. Beachten Sie, dass der zweite Parameter Schlüssel auf _Eigenschaftsbeschreibungen_ zuordnet — das bedeutet, dass Sie auch die Enumerierbarkeit, Konfigurierbarkeit usw. jeder Eigenschaft steuern können, was Sie mit Objektinitialisierern nicht können.
+`Object.create()` ermöglicht eine fein abgestimmte Kontrolle über den Objekt-Erstellungsprozess. Die [Objekt-Initialisierungssyntax](/de/docs/Web/JavaScript/Reference/Operators/Object_initializer) ist tatsächlich ein syntaktischer Zucker von `Object.create()`. Mit `Object.create()` können wir Objekte mit einem bestimmten Prototyp und auch einigen Eigenschaften erstellen. Beachten Sie, dass der zweite Parameter Schlüssel auf _Eigenschaftsbeschreibungen_ abbildet – das bedeutet, dass Sie die Aufzählbarkeit, Konfigurierbarkeit usw. jeder Eigenschaft ebenfalls kontrollieren können, was bei Objekt-Initialisierern nicht möglich ist.
 
 ```js
 o = {};
@@ -131,7 +131,7 @@ o = Object.create(Object.prototype, {
 o = Object.create({}, { p: { value: 42 } });
 ```
 
-Mit `Object.create()` können wir ein Objekt [mit `null` als Prototyp](/de/docs/Web/JavaScript/Reference/Global_Objects/Object#null-prototype_objects) erstellen. Die äquivalente Syntax in Objektinitialisierern wäre der [`__proto__`](/de/docs/Web/JavaScript/Reference/Operators/Object_initializer#prototype_setter)-Schlüssel.
+Mit `Object.create()` können wir ein Objekt [mit `null` als Prototyp](/de/docs/Web/JavaScript/Reference/Global_Objects/Object#null-prototype_objects) erstellen. Die entsprechende Syntax bei Objekt-Initialisierern wäre der [`__proto__`](/de/docs/Web/JavaScript/Reference/Operators/Object_initializer#prototype_setter) Schlüssel.
 
 ```js
 o = Object.create(null);
@@ -139,7 +139,7 @@ o = Object.create(null);
 o = { __proto__: null };
 ```
 
-Standardmäßig sind Eigenschaften _nicht_ schreibbar, enumerierbar oder konfigurierbar.
+Standardmäßig sind Eigenschaften _nicht_ schreibbar, aufzählbar oder konfigurierbar.
 
 ```js
 o.p = 24; // throws in strict mode
@@ -155,7 +155,7 @@ delete o.p;
 // false; throws in strict mode
 ```
 
-Um eine Eigenschaft mit denselben Attributen wie in einem Initialisierer anzugeben, müssen `writable`, `enumerable` und `configurable` explizit angegeben werden.
+Um eine Eigenschaft mit denselben Attributen wie in einem Initialisierer anzugeben, spezifizieren Sie `writable`, `enumerable` und `configurable` explizit.
 
 ```js
 o2 = Object.create(
@@ -174,7 +174,7 @@ o2 = Object.create(
 // which will create an object with prototype { p: 42 }
 ```
 
-Sie können `Object.create()` verwenden, um das Verhalten des [`new`](/de/docs/Web/JavaScript/Reference/Operators/new)-Operators zu imitieren.
+Sie können `Object.create()` verwenden, um das Verhalten des [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) Operators nachzuahmen.
 
 ```js
 function Constructor() {}
@@ -183,7 +183,7 @@ o = new Constructor();
 o = Object.create(Constructor.prototype);
 ```
 
-Natürlich kann die Methode `Object.create()` keinen tatsächlichen Initialisierungscode in der `Constructor`-Funktion widerspiegeln.
+Natürlich kann die `Object.create()` Methode, wenn es tatsächlichen Initialisierungscode in der `Constructor` Funktion gibt, diesen nicht wiedergeben.
 
 ## Spezifikationen
 

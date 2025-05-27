@@ -2,20 +2,20 @@
 title: Multi-Touch-Interaktion
 slug: Web/API/Touch_events/Multi-touch_interaction
 l10n:
-  sourceCommit: 00f46adb5616d826821d63b11eac285faf1cf4a5
+  sourceCommit: b5437b737639d6952d18b95ebd1045ed73e4bfa7
 ---
 
 {{DefaultAPISidebar("Touch Events")}}
 
-Die Touch-Event-Schnittstellen unterstützen anwendungsspezifische Single- und Multi-Touch-Interaktionen. Allerdings können die Schnittstellen für Programmierer etwas schwierig zu verwenden sein, da sich Touch-Events stark von anderen DOM-Eingabeereignissen unterscheiden, wie z. B. [Maus-Events](/de/docs/Web/API/MouseEvent). Die in diesem Leitfaden beschriebene Anwendung zeigt, wie man Touch-Events für einfache Single- und Multi-Touch-Interaktionen verwendet, die Grundlagen, die benötigt werden, um anwendungsspezifische Gesten zu erstellen.
+Die Touch-Event-Schnittstellen unterstützen anwendungsspezifische Einzel- und Multi-Touch-Interaktionen. Für Programmierer können die Schnittstellen jedoch etwas knifflig sein, da Touch-Events sich stark von anderen DOM-Eingabeereignissen, wie zum Beispiel [Mausereignissen](/de/docs/Web/API/MouseEvent), unterscheiden. Die in diesem Leitfaden beschriebene Anwendung zeigt, wie Touch-Events für einfache Einzel- und Multi-Touch-Interaktionen genutzt werden, was die Grundlagen darstellt, die zur Erstellung anwendungsspezifischer Gesten notwendig sind.
 
-Eine _Live_-Version dieser Anwendung ist auf [GitHub](https://mdn.github.io/dom-examples/touchevents/Multi-touch_interaction.html) verfügbar. Der [Quellcode ist auf GitHub verfügbar](https://github.com/mdn/dom-examples/tree/main/touchevents) und Pull-Requests sowie [Fehlerberichte](https://github.com/mdn/dom-examples/issues) sind willkommen.
+Eine _Live_-Version dieser Anwendung ist auf [GitHub](https://mdn.github.io/dom-examples/touchevents/Multi-touch_interaction.html) verfügbar. Der [Quellcode ist auf GitHub verfügbar](https://github.com/mdn/dom-examples/tree/main/touchevents) und Pull-Anfragen sowie [Fehlermeldungen](https://github.com/mdn/dom-examples/issues) sind willkommen.
 
 ## Beispiel
 
-Dieses Beispiel demonstriert die Verwendung der Touch-Events [`touchstart`](/de/docs/Web/API/Element/touchstart_event), [`touchmove`](/de/docs/Web/API/Element/touchmove_event), [`touchcancel`](/de/docs/Web/API/Element/touchcancel_event) und [`touchend`](/de/docs/Web/API/Element/touchend_event) für die folgenden Gesten: Einfache Berührung, zwei gleichzeitige Berührungen, mehr als zwei gleichzeitige Berührungen, 1-Finger-Wischbewegung und 2-Finger-Bewegen/Kneifen/Wischen.
+Dieses Beispiel demonstriert die Verwendung der Touch-Events [`touchstart`](/de/docs/Web/API/Element/touchstart_event), [`touchmove`](/de/docs/Web/API/Element/touchmove_event), [`touchcancel`](/de/docs/Web/API/Element/touchcancel_event) und [`touchend`](/de/docs/Web/API/Element/touchend_event) für die folgenden Gesten: Einzel-Touch, zwei (gleichzeitige) Berührungen, mehr als zwei gleichzeitige Berührungen, 1-Finger-Wischen und 2-Finger-Bewegung/Zoom/Wischen.
 
-### Berührungsziele definieren
+### Touch-Ziele definieren
 
 Die Anwendung verwendet {{HTMLElement("div")}}-Elemente, um vier Berührungsbereiche darzustellen.
 
@@ -46,7 +46,7 @@ Die Anwendung verwendet {{HTMLElement("div")}}-Elemente, um vier Berührungsbere
 
 ### Globaler Zustand
 
-`tpCache` wird verwendet, um Berührungspunkte für die Verarbeitung außerhalb des Ereignisses, in dem sie ausgelöst wurden, zu speichern.
+`tpCache` wird verwendet, um Berührungspunkte zu zwischenspeichern, damit sie außerhalb des Ereignisses verarbeitet werden können, in dem sie ausgelöst wurden.
 
 ```js
 // Log events flag
@@ -58,7 +58,7 @@ const tpCache = [];
 
 ### Ereignis-Handler registrieren
 
-Ereignis-Handler werden für alle vier Typen von Touch-Events registriert. Die Ereignistypen [`touchend`](/de/docs/Web/API/Element/touchend_event) und [`touchcancel`](/de/docs/Web/API/Element/touchcancel_event) verwenden denselben Handler.
+Ereignis-Handler werden für alle vier Touch-Event-Typen registriert. Die Ereignistypen [`touchend`](/de/docs/Web/API/Element/touchend_event) und [`touchcancel`](/de/docs/Web/API/Element/touchcancel_event) verwenden denselben Handler.
 
 ```js
 function set_handlers(name) {
@@ -79,9 +79,9 @@ function init() {
 }
 ```
 
-### Move/Pinch/Zoom-Handler
+### Bewegung/Zoom/Pinch-Handler
 
-Diese Funktion bietet eine sehr grundlegende Unterstützung für die horizontale Bewegungs-/Kneif- und Zoom-Verarbeitung bei 2 Berührungen. Der Code enthält keine Fehlerbehandlung oder vertikales Bewegen. Beachten Sie, dass die _Schwelle_ für die Erkennung von Kneif- und Zoombewegungen anwendungsspezifisch (und geräteabhängig) ist.
+Diese Funktion bietet sehr grundlegende Unterstützung für 2-Touch-Horizontalbewegung/Zoom/Pinch-Behandlung. Der Code enthält keine Fehlerbehandlung oder vertikale Bewegungen. Beachten Sie, dass die _Schwelle_ für die Erkennung von Zoom- und Pinch-Bewegungen anwendungsspezifisch (und geräteabhängig) ist.
 
 ```js
 // This is a very basic 2-touch move/pinch/zoom handler that does not include
@@ -118,9 +118,9 @@ function handle_pinch_zoom(ev) {
 }
 ```
 
-### Touch-Start-Handler
+### Touchstart-Handler
 
-Der [`touchstart`](/de/docs/Web/API/Element/touchstart_event)-Ereignis-Handler speichert Berührungspunkte, um 2-Bereichs-Gesten zu unterstützen. Er ruft auch [`preventDefault()`](/de/docs/Web/API/Event/preventDefault) auf, um zu verhindern, dass der Browser eine weitere Ereignisverarbeitung durchführt (zum Beispiel die Emulation von Maus-Events).
+Der [`touchstart`](/de/docs/Web/API/Element/touchstart_event) Ereignis-Handler speichert Berührungspunkte für die Unterstützung von 2-Touch-Gesten zwischen. Er ruft auch [`preventDefault()`](/de/docs/Web/API/Event/preventDefault) auf, um zu verhindern, dass der Browser weiteres Event-Handling anwendet (zum Beispiel die Emulation von Mausereignissen).
 
 ```js
 function start_handler(ev) {
@@ -132,8 +132,8 @@ function start_handler(ev) {
   ev.preventDefault();
   // Cache the touch points for later processing of 2-touch pinch/zoom
   if (ev.targetTouches.length === 2) {
-    for (let i = 0; i < ev.targetTouches.length; i++) {
-      tpCache.push(ev.targetTouches[i]);
+    for (const touch of ev.targetTouches) {
+      tpCache.push(touch);
     }
   }
   if (logEvents) log("touchStart", ev, true);
@@ -141,9 +141,9 @@ function start_handler(ev) {
 }
 ```
 
-### Touch-Move-Handler
+### Touchmove-Handler
 
-Der [`touchmove`](/de/docs/Web/API/Element/touchmove_event)-Handler ruft aus dem oben genannten Grund [`preventDefault()`](/de/docs/Web/API/Event/preventDefault) auf und ruft den Pinch/Zoom-Handler auf.
+Der [`touchmove`](/de/docs/Web/API/Element/touchmove_event) Handler ruft [`preventDefault()`](/de/docs/Web/API/Event/preventDefault) aus demselben Grund wie oben erwähnt auf und startet den Pinch/Zoom-Handler.
 
 ```js
 function move_handler(ev) {
@@ -170,9 +170,9 @@ function move_handler(ev) {
 }
 ```
 
-### Touch-End-Handler
+### Touchend-Handler
 
-Der [`touchend`](/de/docs/Web/API/Element/touchend_event)-Handler stellt die Hintergrundfarbe des Ereignisziels auf ihre ursprüngliche Farbe zurück.
+Der [`touchend`](/de/docs/Web/API/Element/touchend_event) Handler stellt die Hintergrundfarbe des Ereignisziels zurück auf ihre ursprüngliche Farbe.
 
 ```js
 function end_handler(ev) {
@@ -188,7 +188,7 @@ function end_handler(ev) {
 
 ### Anwendungs-UI
 
-Die Anwendung verwendet {{HTMLElement("div")}}-Elemente für die Berührungsbereiche und stellt Schaltflächen bereit, um das Logging zu aktivieren und das Log zu löschen.
+Die Anwendung verwendet {{HTMLElement("div")}}-Elemente für die Berührungsbereiche und bietet Schaltflächen zum Aktivieren der Protokollierung und zum Löschen des Protokolls.
 
 ```html
 <div id="target1">Tap, Hold or Swipe me 1</div>
@@ -203,13 +203,13 @@ Die Anwendung verwendet {{HTMLElement("div")}}-Elemente für die Berührungsbere
 <output></output>
 ```
 
-### Verschiedene Funktionen
+### Sonstige Funktionen
 
-Diese Funktionen unterstützen die Anwendung, sind aber nicht direkt in den Ereignisfluss involviert.
+Diese Funktionen unterstützen die Anwendung, sind jedoch nicht direkt in den Ereignisfluss eingebunden.
 
-#### Hintergrundfarbe aktualisieren
+#### Aktualisierung der Hintergrundfarbe
 
-Die Hintergrundfarbe der Berührungsbereiche ändert sich wie folgt: keine Berührung ist `weiß`; eine Berührung ist `gelb`; zwei gleichzeitige Berührungen sind `pink`, und drei oder mehr gleichzeitige Berührungen sind `hellblau`. Siehe [Touch-Move-Handler](#touch-move-handler) für Informationen über die Änderung der Hintergrundfarbe, wenn eine 2-Finger-Bewegung/Kneifen/Zoom erkannt wird.
+Die Hintergrundfarbe der Berührungsbereiche ändert sich wie folgt: keine Berührung ist `weiß`; eine Berührung ist `gelb`; zwei gleichzeitige Berührungen sind `pink` und drei oder mehr gleichzeitige Berührungen sind `hellblau`. Siehe [Touchmove-Handler](#touchmove-handler) für Informationen zum Ändern der Hintergrundfarbe, wenn eine 2-Finger-Bewegung/Zoom/Pinch erkannt wird.
 
 ```js
 function update_background(ev) {
@@ -236,7 +236,7 @@ function update_background(ev) {
 
 #### Ereignisprotokollierung
 
-Die Funktionen werden verwendet, um Ereignisaktivitäten im Anwendungsfenster zu protokollieren, um das Debugging zu unterstützen und den Ereignisfluss kennenzulernen.
+Die Funktionen werden verwendet, um die Ereignisaktivität im Anwendungsfenster zu protokollieren, um das Debuggen und das Lernen über den Ereignisfluss zu unterstützen.
 
 ```js
 function enableLog(ev) {
@@ -253,8 +253,8 @@ function log(name, ev, printTargetIds) {
 
   if (printTargetIds) {
     s = "";
-    for (let i = 0; i < ev.targetTouches.length; i++) {
-      s += `... id = ${ev.targetTouches[i].identifier}\n`;
+    for (const touch of ev.targetTouches) {
+      s += `... id = ${touch.identifier}\n`;
     }
     o.innerText += s;
   }

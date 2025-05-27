@@ -2,51 +2,51 @@
 title: Arbeiten mit kontextuellen Identitäten
 slug: Mozilla/Add-ons/WebExtensions/Work_with_contextual_identities
 l10n:
-  sourceCommit: b16d05494dd1252531451ebc3e995ea0f2a9007b
+  sourceCommit: cb25e0acbd9f0af27c4a99965cb962230d49a35d
 ---
 
 {{AddonSidebar}}
 
-Viele Menschen müssen oder möchten mit dem Web interagieren, indem sie mehrere Persönlichkeiten verwenden. Sie könnten Konten für webbasierte Arbeit und persönliche E-Mails haben. Möglicherweise melden sie sich aus ihren sozialen Medien ab, bevor sie Online-Shopping betreiben, um sicherzustellen, dass Tracking-Skripte auf den Shopping-Seiten ihre sozialen Medien nicht erfassen können. Benutzer verwenden oft ein Standard- und ein privates Browserfenster oder zwei verschiedene Browser, um diese Anforderungen zu erfüllen.
+Viele Menschen benötigen oder möchten mit mehreren Personas im Internet interagieren. Sie könnten Konten für webbasierte Arbeit und private E-Mails haben. Möglicherweise melden sie sich von ihren sozialen Medien ab, bevor sie auf Online-Shopping zugreifen, um sicherzustellen, dass Tracking-Skripte auf den Shopping-Seiten ihre sozialen Aktivitäten nicht erfassen können. Benutzer verwenden oft ein Standard- und ein privates Browserfenster oder zwei verschiedene Browser, um diesen Anforderungen gerecht zu werden.
 
-Um diesem Bedürfnis gerecht zu werden, enthält Firefox eine Funktion, die als kontextuelle Identitäten, Container-Tabs oder Kontocontainer bekannt ist. Diese Funktion ermöglicht die Erstellung eines Cookie-Containers (Speicher) für jede der Identitäten, die der Benutzer in seinem Browser verwenden möchte. Tabs können einer dieser Identitäten zugeordnet werden, wodurch Cookies von denen anderer Identitäten im Browser getrennt bleiben. Der praktische Vorteil davon ist, dass ein Benutzer beispielsweise eine persönliche und eine Arbeitsidentität haben könnte. Sie können dann beispielsweise die persönliche Identität in einem Tab verwenden, in dem sie sich in ihr persönliches Webmail einloggen, und die Arbeitsidentität in einem anderen Tab, in dem sie sich in ihr Arbeits-Webmail einloggen.
+Um dieses Bedürfnis zu adressieren, enthält Firefox eine Funktion, die als kontextuelle Identitäten, Container-Tabs oder Account-Container bekannt ist. Diese Funktion ermöglicht die Erstellung eines Cookie-Containers (Speicher) für jede der Identitäten, die der Benutzer in seinem Browser verwenden möchte. Tabs können mit einer dieser Identitäten verknüpft werden, wodurch Cookies von denen anderer Identitäten im Browser getrennt bleiben. Der praktische Nutzen davon ist, dass ein Benutzer beispielsweise eine persönliche und eine Arbeitsidentität haben könnte. Er kann dann zum Beispiel die persönliche Identität in einem Tab verwenden, wo er sich in seine persönliche Webmail einloggt, und die Arbeitsidentität in einem anderen Tab, wo er sich in seine Arbeitswebmail einloggt.
 
-Für mehr Hintergrundinformationen zu dieser Funktion siehe:
+Weitere Hintergrundinformationen zu dieser Funktion finden Sie in folgenden Quellen:
 
-- [Verwalten Sie Ihre mehreren Online-Persönlichkeiten in Firefox Multi-Account Containers](https://blog.mozilla.org/en/firefox/introducing-firefox-multi-account-containers/)
-- [Sicherheits-/Kontextuelle Identitätsprojekt/Container](https://wiki.mozilla.org/Security/Contextual_Identity_Project/Containers)
-- [Unterstützungsartikel zu Containern in Firefox](https://support.mozilla.org/en-US/kb/containers?redirectlocale=en-US&as=u&redirectslug=containers-experiment&utm_source=inproduct)
+- [Put your multiple online personalities in Firefox Multi-Account Containers](https://blog.mozilla.org/en/firefox/introducing-firefox-multi-account-containers/)
+- [Security/Contextual Identity Project/Containers](https://wiki.mozilla.org/Security/Contextual_Identity_Project/Containers)
+- [Firefox-Hilfeseite über Container](https://support.mozilla.org/en-US/kb/containers?redirectlocale=en-US&as=u&redirectslug=containers-experiment&utm_source=inproduct)
 
-## APIs für die Arbeit mit kontextuellen Identitäten
+## APIs zur Arbeit mit kontextuellen Identitäten
 
-Abhängig von der Natur Ihrer Erweiterung möchten Sie möglicherweise kontextuelle Identitäten verwalten, Objekte, die Ihre Erweiterung manipuliert, mit kontextuellen Identitäten verknüpfen, oder beides.
+Je nach Art Ihrer Erweiterung möchten Sie möglicherweise kontextuelle Identitäten verwalten, Objekte, die Ihre Erweiterung manipuliert, mit kontextuellen Identitäten verknüpfen oder beides.
 
-### Verwalten von kontextuellen Identitäten
+### Verwaltung von kontextuellen Identitäten
 
-Um kontextuelle Identitäten zu verwalten, verwenden Sie die {{WebExtAPIRef("contextualIdentities")}} API. Diese API ermöglicht es Ihnen, kontextuelle Identitäten hinzuzufügen, abzufragen, zu aktualisieren und zu löschen. Wenn Sie eine kontextuelle Identität erstellen, wird ihr eine eindeutige `cookieStoreId` zugewiesen. Sie verwenden diese ID, um mit Entitäten zu arbeiten, die mit der kontextuellen Identität verbunden sind.
+Um kontextuelle Identitäten zu verwalten, verwenden Sie die {{WebExtAPIRef("contextualIdentities")}} API. Diese API ermöglicht es Ihnen, kontextuelle Identitäten hinzuzufügen, abzufragen, zu aktualisieren und zu löschen. Wenn Sie eine kontextuelle Identität erstellen, erhält sie eine eindeutige `cookieStoreId`. Diese ID verwenden Sie, um mit Entitäten zu arbeiten, die mit der kontextuellen Identität in Verbindung stehen.
 
 ### Verwendung von `cookieStoreId`
 
-Mehrere Erweiterungs-APIs enthalten die `cookieStoreId` in Objekten, um Erweiterungen zu ermöglichen, diese Objekte mit spezifischen kontextuellen Identitäten zu verknüpfen.
+Mehrere Erweiterungs-APIs beinhalten die `cookieStoreId` in Objekten, um es Erweiterungen zu ermöglichen, diese Objekte mit bestimmten kontextuellen Identitäten zu verknüpfen.
 
-- {{WebExtAPIRef("browsingData.removeCookies()")}} und {{WebExtAPIRef("browsingData.removeLocalStorage()")}}, bei denen Sie {{WebExtAPIRef("browsingData.removalOptions")}} verwenden, um festzulegen, aus welchem Cookie-Speicher die Elemente entfernt werden.
-- {{WebExtAPIRef("contentScripts.register")}} ermöglicht es Ihnen, ein Inhalts-Skript zu registrieren, das auf Dokumente beschränkt ist, die mit einem oder mehreren `cookieStoreIds` verknüpft sind.
+- {{WebExtAPIRef("browsingData.removeCookies()")}} und {{WebExtAPIRef("browsingData.removeLocalStorage()")}}, bei denen Sie {{WebExtAPIRef("browsingData.removalOptions")}} verwenden, um festzulegen, aus welchem Cookie-Speicher Artikel entfernt werden.
+- {{WebExtAPIRef("contentScripts.register")}} ermöglicht es Ihnen, ein Inhaltsskript zu registrieren, das auf Dokumente beschränkt ist, die mit einem oder mehreren `cookieStoreIds` verknüpft sind.
 - {{WebExtAPIRef("downloads")}}, wo Sie einen Download mit einem Cookie-Speicher verknüpfen können.
 - {{WebExtAPIRef("proxy")}}, wo die Details, die an den {{WebExtAPIRef("proxy.onRequest")}} Listener übergeben werden, den mit der Anforderung verknüpften Cookie-Speicher identifizieren.
-- {{WebExtAPIRef("tabs")}}, wo Sie einen Tab in einem Container-Tab {{WebExtAPIRef("tabs.create", "erstellen")}} können, die `cookieStoreId` eines Tabs {{WebExtAPIRef("tabs.tab", "abrufen")}} können und Tabs basierend auf ihrem zugeordneten Cookie-Speicher {{WebExtAPIRef("tabs.query", "abfragen")}} können.
-- {{WebExtAPIRef("userScripts_legacy.register", "userScripts.register()")}} (nur Legacy-Version, Manifest V2) ermöglicht es Ihnen, ein Inhalts-Skript zu registrieren, das auf Dokumente beschränkt ist, die mit einem oder mehreren `cookieStoreIds` verknüpft sind.
+- {{WebExtAPIRef("tabs")}}, wo Sie einen Tab in einem Container-Tab {{WebExtAPIRef("tabs.create","erstellen")}} können, die `cookieStoreId` für einen Tab {{WebExtAPIRef("tabs.tab","abrufen")}} und Tabs basierend auf ihrem zugehörigen Cookie-Speicher {{WebExtAPIRef("tabs.query","abfragen")}} können.
+- {{WebExtAPIRef("userScripts_legacy.register","userScripts.register()")}} (Legacy-Version, nur Manifest V2) ermöglicht es Ihnen, ein Inhaltsskript zu registrieren, das auf Dokumente beschränkt ist, die mit einem oder mehreren `cookieStoreIds` verknüpft sind.
 - {{WebExtAPIRef("webRequest")}}, bei dem alle Ereignisse die `cookieStoreId` der Anforderung zurückgeben.
-- {{WebExtAPIRef("windows.create")}}, wo Sie den Cookie-Speicher für die Tabs angeben können, die einem Fenster hinzugefügt werden, wenn es erstellt wird.
+- {{WebExtAPIRef("windows.create")}}, wo Sie den Cookie-Speicher für die Tabs, die zu einem Fenster hinzugefügt werden, wenn es erstellt wird, angeben können.
 
 ## Berechtigungen
 
-Um die {{WebExtAPIRef("contextualIdentities")}} API zu verwenden, müssen Sie die Berechtigung "contextualIdentities" in Ihre [manifest.json](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) Datei einschließen.
+Um die {{WebExtAPIRef("contextualIdentities")}} API zu verwenden, müssen Sie die "contextualIdentities" [Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) in Ihrer [manifest.json](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json) Datei angeben.
 
-Wenn eine API das Modifizieren von Cookies ermöglicht, benötigen Sie die Berechtigung "cookies". Beispielsweise erfordert die Verwendung von `cookieStoreId` in {{WebExtAPIRef("tabs.query")}} nicht die "cookies"-API, da das Lesen der Eigenschaft keine Auswirkungen auf die Cookies in den Containern hat. Die Verwendung von {{WebExtAPIRef("tabs.create")}} erfordert jedoch die Berechtigung, da der geöffnete Tab Cookies in einem Container lesen und ändern kann.
+Wenn eine API es ermöglicht, Cookies zu ändern, benötigen Sie die "cookies" Berechtigung. Zum Beispiel erfordert die Verwendung von `cookieStoreId` in {{WebExtAPIRef("tabs.query")}} nicht die "cookies" API, da das Lesen der Eigenschaft die Cookies in den Containern nicht beeinflusst. Die Verwendung von {{WebExtAPIRef("tabs.create")}} erfordert jedoch die Berechtigung, da die geöffneten Tabs Cookies in einem Container lesen und ändern können.
 
-## Beispiel-Durchlauf
+## Beispiel-Walkthrough
 
-Die Beispiel-Erweiterung [contextual-identities](https://github.com/mdn/webextensions-examples/tree/main/contextual-identities) bietet eine Toolbar-Schaltfläche mit einem Popup, das die Identitäten im Browser auflistet. Für jede Identität bietet die Erweiterung die Option, einen Tab unter Verwendung ihres Cookie-Containers zu erstellen oder alle ihre Tabs zu entfernen.
+Die Beispiel-Erweiterung [contextual-identities](https://github.com/mdn/webextensions-examples/tree/main/contextual-identities) bietet eine Toolbar-Schaltfläche mit einem Popup, das die Identitäten im Browser auflistet. Für jede Identität bietet die Erweiterung Optionen, um einen Tab mit ihrem Cookie-Container zu erstellen oder alle ihre Tabs zu entfernen.
 
 Hier ist ein kurzes Video der Erweiterung in Aktion:
 
@@ -56,7 +56,7 @@ Hier ist ein kurzes Video der Erweiterung in Aktion:
 
 Die Hauptmerkmale der [manifest.json](https://github.com/mdn/webextensions-examples/blob/main/contextual-identities/manifest.json) Datei sind:
 
-- der Berechtigungsantrag:
+- die Berechtigungsanforderung:
 
   ```json
     "permissions": [
@@ -65,7 +65,7 @@ Die Hauptmerkmale der [manifest.json](https://github.com/mdn/webextensions-examp
     ],
   ```
 
-- Spezifikation der Toolbar-Schaltfläche (browserAction), die Zugriff auf die Funktionen der Erweiterung bietet:
+- die Spezifikation der Toolbar-Schaltfläche (browserAction), die Zugriff auf die Funktionen der Erweiterung bietet:
 
   ```json
     "browser_action": {
@@ -78,7 +78,7 @@ Die Hauptmerkmale der [manifest.json](https://github.com/mdn/webextensions-examp
 
 ## context.html
 
-Ein Popup auf der Toolbar-Schaltfläche bietet die Benutzeroberfläche der Erweiterung. [context.html](https://github.com/mdn/webextensions-examples/blob/main/contextual-identities/context.html) implementiert dieses Popup, aber es ist nur eine Hülle, in die das context.js-Skript die Liste der kontextuellen Identitäten und deren verwandte Optionen schreibt.
+Ein Popup auf der Toolbar-Schaltfläche bietet die Benutzeroberfläche der Erweiterung. [context.html](https://github.com/mdn/webextensions-examples/blob/main/contextual-identities/context.html) implementiert dieses Popup, aber es ist nur eine Hülle, in die das Skript context.js die Liste der kontextuellen Identitäten und ihre zugehörigen Optionen schreibt.
 
 ```html
 <body>
@@ -91,15 +91,15 @@ Ein Popup auf der Toolbar-Schaltfläche bietet die Benutzeroberfläche der Erwei
 
 ## context.js
 
-Alle Funktionen der Erweiterung werden über [context.js](https://github.com/mdn/webextensions-examples/blob/main/contextual-identities/context.js) implementiert, welches aufgerufen wird, wann immer das Toolbar-Popup angezeigt wird.
+Alle Funktionen der Erweiterung werden durch [context.js](https://github.com/mdn/webextensions-examples/blob/main/contextual-identities/context.js) implementiert, das jedes Mal aufgerufen wird, wenn das Toolbar-Popup angezeigt wird.
 
-Das Skript holt zuerst das 'identity-list'-`<div>` von context.html.
+Das Skript holt zuerst den 'identity-list' `<div>` aus context.html.
 
 ```js
 let div = document.getElementById("identity-list");
 ```
 
-Dann prüft es, ob die Funktion der kontextuellen Identitäten im Browser aktiviert ist. Falls nicht, wird dem Popup eine Information hinzugefügt, wie man es aktiviert.
+Es prüft dann, ob die Funktion für kontextuelle Identitäten im Browser aktiviert ist. Wenn nicht, wird dem Popup eine Information hinzugefügt, wie man sie aktiviert.
 
 ```js
 if (browser.contextualIdentities === undefined) {
@@ -108,9 +108,9 @@ if (browser.contextualIdentities === undefined) {
 } else {
 ```
 
-Firefox wird mit der deaktivierten Funktion der kontextuellen Identität installiert. Es wird aktiviert, wenn eine Erweiterung, die die `contextualIdentities` API verwendet, installiert wird. Der Benutzer kann die Funktion jedoch über eine Option auf der Einstellungsseite (about:preferences) deaktivieren, daher die Notwendigkeit der Überprüfung.
+Firefox wird standardmäßig mit deaktivierter Funktion für kontextuelle Identitäten installiert. Sie wird aktiviert, wenn eine Erweiterung, die die `contextualIdentities` API verwendet, installiert wird. Der Benutzer kann die Funktion jedoch über eine Option auf der Einstellungsseite (about:preferences) deaktivieren, weshalb eine Prüfung erforderlich ist.
 
-Das Skript verwendet nun {{WebExtAPIRef("contextualIdentities.query.")}} um zu bestimmen, ob im Browser kontextuelle Identitäten definiert sind. Falls keine vorhanden sind, wird eine Nachricht an das Popup hinzugefügt und das Skript stoppt.
+Das Skript verwendet nun {{WebExtAPIRef("contextualIdentities.query")}}, um festzustellen, ob im Browser kontextuelle Identitäten definiert sind. Falls keine existieren, wird eine Nachricht zum Popup hinzugefügt und das Skript stoppt.
 
 ```js
   browser.contextualIdentities.query({}).then((identities) => {
@@ -120,7 +120,7 @@ Das Skript verwendet nun {{WebExtAPIRef("contextualIdentities.query.")}} um zu b
     }
 ```
 
-Wenn kontextuelle Identitäten vorhanden sind – Firefox wird mit vier Standard-Identitäten ausgeliefert – durchläuft das Skript jede von ihnen und fügt ihren Namen, gestylt in ihrer gewählten Farbe, dem `<div>` Element hinzu. Die Funktion `createOptions()` fügt dann die Optionen "erstellen" oder "alles schließen" dem `<div>` hinzu, bevor es dem Popup hinzugefügt wird.
+Wenn kontextuelle Identitäten vorhanden sind—Firefox kommt mit vier Standardidentitäten—durchläuft das Skript jede davon und fügt ihren Namen, in der gewählten Farbe gestylt, dem `<div>` Element hinzu. Die Funktion `createOptions()` fügt dann die Optionen "erstellen" oder "alle schließen" dem `<div>` hinzu, bevor es zum Popup hinzugefügt wird.
 
 ```js
     for (const identity of identities) {
@@ -150,13 +150,13 @@ function createOptions(node, identity) {
 }
 ```
 
-Das Skript wartet nun, dass der Benutzer eine Option im Popup auswählt.
+Das Skript wartet jetzt darauf, dass der Benutzer eine Option im Popup auswählt.
 
 ```js
 function eventHandler(event) {
 ```
 
-Wenn der Benutzer die Option anklickt, einen Tab für eine Identität zu erstellen, wird einer mit {{WebExtAPIRef("tabs.create")}} unter Verwendung der Cookie-Store-ID der Identität geöffnet.
+Wenn der Benutzer die Option auswählt, einen Tab für eine Identität zu erstellen, wird einer durch {{WebExtAPIRef("tabs.create")}} geöffnet, indem die Cookie-Store-ID der Identität übergeben wird.
 
 ```js
 if (event.target.dataset.action === "create") {
@@ -167,7 +167,7 @@ if (event.target.dataset.action === "create") {
 }
 ```
 
-Wenn der Benutzer die Option auswählt, alle Tabs für die Identität zu schließen, führt das Skript eine {{WebExtAPIRef("tabs.query")}} aus, um alle Tabs zu erhalten, die den Cookie-Store der Identität verwenden. Das Skript übergibt dann diese Liste der Tabs an {{WebExtAPIRef("tabs.remove")}}.
+Wenn der Benutzer die Option auswählt, alle Tabs für die Identität zu schließen, führt das Skript eine {{WebExtAPIRef("tabs.query")}} durch, um alle Tabs zu erhalten, die den Cookie-Store der Identität verwenden. Das Skript übergibt dann diese Liste von Tabs an {{WebExtAPIRef("tabs.remove")}}.
 
 ```js
   if (event.target.dataset.action === "close-all") {
@@ -185,7 +185,7 @@ Wenn der Benutzer die Option auswählt, alle Tabs für die Identität zu schlie�
 
 ## Mehr erfahren
 
-Wenn Sie mehr über die contextualIdentities API erfahren möchten, schauen Sie sich an:
+Wenn Sie mehr über die contextualIdentities API erfahren möchten, sehen Sie sich folgende Ressourcen an:
 
-- [Konzept der kontextuellen Identitäten API Referenz](/de/docs/Mozilla/Add-ons/WebExtensions/API/contextualIdentities).
-- [Multi-Account Containers](https://github.com/mozilla/multi-account-containers/#readme) Quellcode der Erweiterung. Dies ist der Quellcode für die [Firefox Multi-Account Containers](https://addons.mozilla.org/en-US/firefox/addon/multi-account-containers/) Erweiterung. Diese Erweiterung bietet Benutzern erweiterte Funktionen für kontextuelle Identitäten, beispielsweise die Möglichkeit, die neue Tab-Schaltfläche lang zu klicken und dann die Identität auszuwählen, die im neuen Tab verwendet werden soll. Es zeigt die Fähigkeiten der kontextuellen Identitäten und ist sehr zu empfehlen.
+- [Referenz zur contextualIdentities API](/de/docs/Mozilla/Add-ons/WebExtensions/API/contextualIdentities).
+- [Source Code der Multi-Account Containers](https://github.com/mozilla/multi-account-containers/#readme) Erweiterung. Dies ist der Code für die [Firefox Multi-Account Containers](https://addons.mozilla.org/en-US/firefox/addon/multi-account-containers/) Erweiterung. Diese Erweiterung bietet den Benutzern eine erweiterte Funktionalität für kontextuelle Identitäten, wie die Möglichkeit, die neue Tab-Taste lange zu drücken und dann die zu verwendende Identität im neuen Tab auszuwählen. Sie zeigt die Fähigkeiten kontextueller Identitäten und ist einen Blick wert.

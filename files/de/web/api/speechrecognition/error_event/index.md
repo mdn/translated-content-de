@@ -3,7 +3,7 @@ title: "SpeechRecognition: error-Ereignis"
 short-title: error
 slug: Web/API/SpeechRecognition/error_event
 l10n:
-  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
+  sourceCommit: ffa6f5871f50856c60983a125cef7de267be7aeb
 ---
 
 {{APIRef("Web Speech API")}}
@@ -12,7 +12,7 @@ Das **`error`**-Ereignis des [`SpeechRecognition`](/de/docs/Web/API/SpeechRecogn
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignisbehandlungseigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignisbehandlungs-Eigenschaft.
 
 ```js-nolint
 addEventListener("error", (event) => { })
@@ -28,26 +28,26 @@ Ein [`SpeechRecognitionErrorEvent`](/de/docs/Web/API/SpeechRecognitionErrorEvent
 
 ## Ereigniseigenschaften
 
-_Zusätzlich zu den unten aufgeführten Eigenschaften sind Eigenschaften der übergeordneten Schnittstelle, [`Event`](/de/docs/Web/API/Event), verfügbar._
+_Neben den unten aufgeführten Eigenschaften sind Eigenschaften der übergeordneten Schnittstelle, [`Event`](/de/docs/Web/API/Event), verfügbar._
 
 - [`SpeechRecognitionErrorEvent.error`](/de/docs/Web/API/SpeechRecognitionErrorEvent/error) {{ReadOnlyInline}}
   - : Gibt den Typ des aufgetretenen Fehlers zurück.
 - [`SpeechRecognitionErrorEvent.message`](/de/docs/Web/API/SpeechRecognitionErrorEvent/message) {{ReadOnlyInline}}
-  - : Gibt eine Nachricht zurück, die den Fehler genauer beschreibt.
+  - : Gibt eine Nachricht zurück, die den Fehler detaillierter beschreibt.
 
 ## Beispiele
 
 Sie können das `error`-Ereignis in einer [`addEventListener`](/de/docs/Web/API/EventTarget/addEventListener)-Methode verwenden:
 
 ```js
-const recognition = new webkitSpeechRecognition() || new SpeechRecognition();
+const recognition = new (SpeechRecognition || webkitSpeechRecognition)();
 
 recognition.addEventListener("error", (event) => {
   console.error(`Speech recognition error detected: ${event.error}`);
 });
 ```
 
-Oder verwenden Sie die Eigenschaft des `onerror`-Ereignishandlers:
+Oder verwenden Sie die `onerror`-Ereignisbehandlungs-Eigenschaft:
 
 ```js
 recognition.onerror = (event) => {

@@ -3,23 +3,23 @@ title: "HTMLTableCellElement: rowSpan-Eigenschaft"
 short-title: rowSpan
 slug: Web/API/HTMLTableCellElement/rowSpan
 l10n:
-  sourceCommit: 373fcd42528fc9eafa3703dc99927cc56c75fa8d
+  sourceCommit: ffa6f5871f50856c60983a125cef7de267be7aeb
 ---
 
 {{ APIRef("HTML DOM") }}
 
-Die **`rowSpan`** schreibgeschützte Eigenschaft des [`HTMLTableCellElement`](/de/docs/Web/API/HTMLTableCellElement) Schnittstelle stellt die Anzahl der Zeilen dar, die diese Zelle überspannen muss; damit kann die Zelle Platz über mehrere Zeilen der Tabelle einnehmen. Sie spiegelt das [`rowspan`](/de/docs/Web/HTML/Reference/Elements/td#colspan) Attribut wider.
+Die **`rowSpan`**-Eigenschaft des [`HTMLTableCellElement`](/de/docs/Web/API/HTMLTableCellElement)-Interfaces ist eine schreibgeschützte Eigenschaft, die die Anzahl der Zeilen darstellt, die diese Zelle überspannen muss; dies ermöglicht es der Zelle, Platz über mehrere Zeilen der Tabelle hinweg einzunehmen. Sie entspricht dem [`rowspan`](/de/docs/Web/HTML/Reference/Elements/td#colspan)-Attribut.
 
 ## Wert
 
-Eine positive Zahl, die die Anzahl der Zeilen darstellt. Wenn sie `0` ist, bedeutet es alle verbleibenden Zeilen in der Spalte.
+Eine positive Zahl, die die Anzahl der Zeilen darstellt. Wenn sie `0` ist, bedeutet dies alle verbleibenden Zeilen in der Spalte.
 
 > [!NOTE]
-> Beim Festlegen eines neuen Wertes wird ein Wert, der nicht 0 ist, auf die nächste strikt positive Zahl _begrenzt_.
+> Beim Setzen eines neuen Wertes wird ein von 0 abweichender Wert auf die nächstgelegene strikt positive Zahl _geklammert_.
 
 ## Beispiele
 
-Dieses Beispiel bietet zwei Schaltflächen, um die Zeilenspanne der ersten Zelle des Körpers zu ändern.
+Dieses Beispiel bietet zwei Buttons, um die Zeilenspanne der ersten Zelle des Körpers zu ändern.
 
 ### HTML
 
@@ -93,7 +93,7 @@ decreaseButton.addEventListener("click", () => {
   cell.rowSpan -= 1;
 
   // Update the display
-  output.textContent = `${cell.rowSpan == 0 ? "all remaining" : cell.rowSpan}`;
+  output.textContent = `${cell.rowSpan === 0 ? "all remaining" : cell.rowSpan}`;
 });
 ```
 

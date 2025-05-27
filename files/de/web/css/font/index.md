@@ -2,12 +2,12 @@
 title: font
 slug: Web/CSS/font
 l10n:
-  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
+  sourceCommit: b5437b737639d6952d18b95ebd1045ed73e4bfa7
 ---
 
 {{CSSRef}}
 
-Die **`font`** CSS-[Kurzschreibweise](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties) setzt alle verschiedenen Eigenschaften eines Font-Elements. Alternativ setzt sie den Font eines Elements auf einen Systemfont.
+Die **`font`** CSS-[Kurzschreibweiseigenschaft](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties) setzt alle verschiedenen Eigenschaften der Schriftart eines Elements fest. Alternativ stellt sie die Schriftart eines Elements auf eine Systemschriftart ein.
 
 {{InteractiveExample("CSS Demo: font")}}
 
@@ -72,11 +72,11 @@ section {
 }
 ```
 
-Wie bei jeder Kurzschreibweise wird jeder individuelle Wert, der nicht spezifiziert ist, auf seinen entsprechenden Anfangswert gesetzt (möglicherweise werden Werte überschrieben, die zuvor mit Nicht-Kurzschreibweise-Eigenschaften gesetzt wurden). Obwohl nicht direkt durch `font` einstellbar, werden die Langformen {{cssxref("font-size-adjust")}} und {{cssxref("font-kerning")}} ebenfalls auf ihre Anfangswerte zurückgesetzt.
+Wie bei jeder Kurzschreibweiseigenschaft wird jeder einzelne Wert, der nicht angegeben ist, auf seinen entsprechenden Anfangswert gesetzt (möglicherweise überschreibt er zuvor festgelegte Werte, die mit Nicht-Kurzschreibweise-Eigenschaften definiert wurden). Auch wenn sie nicht direkt durch `font` gesetzt werden können, werden die Langformen {{cssxref("font-size-adjust")}} und {{cssxref("font-kerning")}} ebenfalls auf ihre Anfangswerte zurückgesetzt.
 
-## Bestandteileigenschaften
+## Zusammengehörige Eigenschaften
 
-Diese Eigenschaft ist eine Kurzschreibweise für die folgenden CSS-Eigenschaften:
+Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
 
 - {{cssxref("font-family")}}
 - {{cssxref("font-size")}}
@@ -105,18 +105,18 @@ font: ultra-condensed small-caps 1.2em "Fira Sans", sans-serif;
 font: caption;
 ```
 
-Die `font`-Eigenschaft kann entweder als ein einziges Schlüsselwort, das einen Systemfont auswählt, oder als eine Kurzschreibweise für verschiedene font-bezogene Eigenschaften angegeben werden.
+Die `font`-Eigenschaft kann entweder als ein einziges Schlüsselwort angegeben werden, das eine Systemschriftart auswählt, oder als Kurzform für verschiedene schriftbezogene Eigenschaften.
 
 Wenn `font` als Systemschlüsselwort angegeben wird, muss es eines der folgenden sein: `caption`, `icon`, `menu`, `message-box`, `small-caption`, `status-bar`.
 
-Wenn `font` als Kurzschreibweise für mehrere font-bezogene Eigenschaften angegeben wird, dann:
+Wenn `font` als Kurzform für mehrere schriftbezogene Eigenschaften angegeben wird, dann:
 
-- muss es Werte für folgende enthalten:
+- muss es Werte enthalten für:
 
   - {{cssxref("&lt;font-size&gt;")}}
   - {{cssxref("&lt;font-family&gt;")}}
 
-- kann es optional Werte für folgende enthalten:
+- kann es optional Werte enthalten für:
 
   - {{cssxref("&lt;font-style&gt;")}}
   - {{cssxref("&lt;font-variant&gt;")}}
@@ -125,10 +125,10 @@ Wenn `font` als Kurzschreibweise für mehrere font-bezogene Eigenschaften angege
   - {{cssxref("&lt;line-height&gt;")}}
 
 - `font-style`, `font-variant` und `font-weight` müssen `font-size` vorausgehen.
-- `font-variant` darf nur die in CSS 2.1 definierten Werte spezifizieren, das heißt `normal` und `small-caps`.
-- `font-stretch` darf nur einen einzelnen Schlüsselwortwert darstellen.
-- `line-height` muss unmittelbar auf `font-size` folgen, vorangestellt von "/", wie folgt: `16px/3`.
-- `font-family` muss als letzter Wert angegeben werden.
+- `font-variant` darf nur die in CSS 2.1 definierten Werte enthalten, nämlich `normal` und `small-caps`.
+- `font-stretch` darf nur ein einzelnes Schlüsselwort sein.
+- `line-height` muss unmittelbar auf `font-size` folgen, durch "/" getrennt, zum Beispiel: `16px/3`.
+- `font-family` muss der letzte angegebene Wert sein.
 
 ### Werte
 
@@ -147,22 +147,22 @@ Wenn `font` als Kurzschreibweise für mehrere font-bezogene Eigenschaften angege
 - `<'font-family'>`
   - : Siehe die {{cssxref("font-family")}} CSS-Eigenschaft.
 
-#### Systemfont-Werte
+#### Werte für Systemschriftarten
 
 - `caption`
-  - : Der Systemfont, der für beschriftete Steuerelemente verwendet wird (z. B. Schaltflächen, Dropdowns usw.).
+  - : Die Systemschriftart, die für beschriftete Steuerelemente verwendet wird (z.B. Schaltflächen, Dropdowns, etc.).
 - `icon`
-  - : Der Systemfont, der zur Beschriftung von Symbolen verwendet wird.
+  - : Die Systemschriftart, die zur Beschriftung von Symbolen verwendet wird.
 - `menu`
-  - : Der Systemfont, der in Menüs verwendet wird (z. B. Dropdown-Menüs und Menüliste).
+  - : Die Systemschriftart, die in Menüs verwendet wird (z.B. Dropdown-Menüs und Menüliste).
 - `message-box`
-  - : Der Systemfont, der in Dialogfeldern verwendet wird.
+  - : Die Systemschriftart, die in Dialogfeldern verwendet wird.
 - `small-caption`
-  - : Der Systemfont, der zur Beschriftung kleiner Steuerelemente verwendet wird.
+  - : Die Systemschriftart, die zur Beschriftung kleiner Steuerelemente verwendet wird.
 - `status-bar`
-  - : Der Systemfont, der in Fensterstatusleisten verwendet wird.
-- Präfixierte Systemfont-Schlüsselwörter
-  - : Browser implementieren oft mehrere, präfixierte Schlüsselwörter: Gecko implementiert `-moz-window`, `-moz-document`, `-moz-desktop`, `-moz-info`, `-moz-dialog`, `-moz-button`, `-moz-pull-down-menu`, `-moz-list` und `-moz-field`.
+  - : Die Systemschriftart, die in Statusleisten von Fenstern verwendet wird.
+- Vorangestellte Systemschrift-Schlüsselwörter
+  - : Browser implementieren häufig mehrere weitere, vorangestellte Schlüsselwörter: Gecko implementiert `-moz-window`, `-moz-document`, `-moz-desktop`, `-moz-info`, `-moz-dialog`, `-moz-button`, `-moz-pull-down-menu`, `-moz-list` und `-moz-field`.
 
 ## Formale Definition
 
@@ -174,7 +174,7 @@ Wenn `font` als Kurzschreibweise für mehrere font-bezogene Eigenschaften angege
 
 ## Beispiele
 
-### Font-Eigenschaften einstellen
+### Schriftarteigenschaften setzen
 
 ```css
 /* Set the font size to 12px and the line height to 14px.
@@ -523,13 +523,13 @@ function getProperties() {
 
 function getCheckedValue(radioName) {
   const radios = document.forms[0].elements[radioName];
-  for (let i = 0; i < radios.length; i++) {
-    if (radios[i].checked) {
+  for (const radio of radios) {
+    if (radio.checked) {
       const curElemName = `input_${radioName}`;
       const curElem = document.getElementById(curElemName);
-      curElem.value = radios[i].value;
+      curElem.value = radio.value;
 
-      return radios[i].value;
+      return radio.value;
     }
   }
 }
@@ -565,4 +565,4 @@ setCss();
 
 - {{cssxref("font-style")}}
 - {{cssxref("font-weight")}}
-- [Lernen: Grundlegende Text- und Fontgestaltung](/de/docs/Learn_web_development/Core/Text_styling/Fundamentals)
+- [Lernen: Grundlagen der Text- und Schriftgestaltung](/de/docs/Learn_web_development/Core/Text_styling/Fundamentals)

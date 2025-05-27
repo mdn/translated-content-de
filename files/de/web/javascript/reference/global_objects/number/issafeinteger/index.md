@@ -2,12 +2,12 @@
 title: Number.isSafeInteger()
 slug: Web/JavaScript/Reference/Global_Objects/Number/isSafeInteger
 l10n:
-  sourceCommit: e8320dfbed49d37589d0fe759ef6506885f340f7
+  sourceCommit: 2c0f972d873ea2db5163dbcb12987847124751ad
 ---
 
 {{JSRef}}
 
-Die statische Methode **`Number.isSafeInteger()`** bestimmt, ob der bereitgestellte Wert eine Zahl ist, die ein _sicherer Integer_ ist.
+Die **`Number.isSafeInteger()`** statische Methode bestimmt, ob der angegebene Wert eine Zahl ist, die ein _sicherer Integer_ ist.
 
 {{InteractiveExample("JavaScript Demo: Number.isSafeInteger()")}}
 
@@ -19,10 +19,10 @@ function warn(x) {
   return "Precision may be lost!";
 }
 
-console.log(warn(Math.pow(2, 53)));
+console.log(warn(2 ** 53));
 // Expected output: "Precision may be lost!"
 
-console.log(warn(Math.pow(2, 53) - 1));
+console.log(warn(2 ** 53 - 1));
 // Expected output: "Precision safe."
 ```
 
@@ -35,7 +35,7 @@ Number.isSafeInteger(testValue)
 ### Parameter
 
 - `testValue`
-  - : Der Wert, der darauf getestet werden soll, ob er ein sicherer Integer ist.
+  - : Der zu testende Wert, ob er ein sicherer Integer ist.
 
 ### Rückgabewert
 
@@ -43,14 +43,14 @@ Der boolesche Wert `true`, wenn der gegebene Wert eine Zahl ist, die ein sichere
 
 ## Beschreibung
 
-Sichere Integer bestehen aus allen ganzen Zahlen von -(2<sup>53</sup> - 1) bis 2<sup>53</sup> - 1, einschließlich (±9,007,199,254,740,991). Ein sicherer Integer ist ein Integer, der:
+Die sicheren Integer bestehen aus allen ganzen Zahlen von -(2<sup>53</sup> - 1) bis 2<sup>53</sup> - 1, einschließlich (±9.007.199.254.740.991). Ein sicherer Integer ist ein Integer, der:
 
-- genau als IEEE-754-Doppelpräzisionszahl dargestellt werden kann, und
-- dessen IEEE-754-Darstellung nicht das Ergebnis ist, wenn ein anderer Integer gerundet wird, um in die IEEE-754-Darstellung zu passen.
+- genau als eine IEEE-754 Doppelpräzisionszahl dargestellt werden kann, und
+- dessen IEEE-754-Darstellung nicht das Ergebnis der Rundung eines anderen Integers ist, um zur IEEE-754-Darstellung zu passen.
 
-Beispielsweise ist 2<sup>53</sup> - 1 ein sicherer Integer: er kann genau dargestellt werden, und kein anderer Integer rundet auf ihn unter irgendeinem IEEE-754-Rundungsmodus. Im Gegensatz dazu ist 2<sup>53</sup> _kein_ sicherer Integer: er kann in IEEE-754 genau dargestellt werden, aber der Integer 2<sup>53</sup> + 1 kann nicht direkt in IEEE-754 dargestellt werden, sondern rundet unter Rundung auf die nächste Zahl und Rundung auf Null auf 2<sup>53</sup>.
+Zum Beispiel ist 2<sup>53</sup> - 1 ein sicherer Integer: Er kann genau dargestellt werden, und kein anderer Integer wird unter einem IEEE-754-Rundungsmodus auf ihn gerundet. Im Gegensatz dazu ist 2<sup>53</sup> _kein_ sicherer Integer: Er kann genau in IEEE-754 dargestellt werden, aber der Integer 2<sup>53</sup> + 1 kann nicht direkt in IEEE-754 dargestellt werden, sondern wird stattdessen auf 2<sup>53</sup> unter Rundungen auf das Nächste und Null gerundet.
 
-Um Werte größer oder kleiner als \~9 Billiarden mit voller Genauigkeit zu handhaben, ist die Verwendung einer [Arbiträrpräzisions-Arithmetik-Bibliothek](https://en.wikipedia.org/wiki/Arbitrary-precision_arithmetic) erforderlich. Siehe [Was jeder Programmierer über Gleitkomma-Arithmetik wissen muss](https://floating-point-gui.de/) für mehr Informationen über Gleitkommadarstellungen von Zahlen.
+Das genaue Arbeiten mit Werten größer oder kleiner als ca. 9 Billiarden erfordert die Verwendung einer [Arbiträrpräzisions-Arithmetikbibliothek](https://de.wikipedia.org/wiki/Arbiträrpräzise_Arithmetik). Siehe [What Every Programmer Needs to Know about Floating Point Arithmetic](https://floating-point-gui.de/) für weitere Informationen über Gleitpunktdarstellungen von Zahlen.
 
 Für größere Integer sollten Sie den {{jsxref("BigInt")}}-Typ in Betracht ziehen.
 

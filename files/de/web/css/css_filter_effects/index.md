@@ -1,17 +1,17 @@
 ---
-title: CSS-Filtereffekte
+title: CSS Filter-Effekte
 slug: Web/CSS/CSS_filter_effects
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: ffa6f5871f50856c60983a125cef7de267be7aeb
 ---
 
 {{CSSRef}}
 
-Die Eigenschaften im **CSS-Filtereffekte**-Modul ermöglichen es Ihnen, eine Methode zur Verarbeitung der Darstellung eines Elements festzulegen, bevor das Element im Dokument angezeigt wird. Beispiele für solche Effekte sind das Weichzeichnen und Ändern der Farbintensität eines Elements.
+Die Eigenschaften im **CSS Filter Effects** Modul erlauben es Ihnen, eine Methode zu definieren, um die Darstellung eines Elements zu verarbeiten, bevor das Element im Dokument angezeigt wird. Beispiele für solche Effekte sind das Weichzeichnen und das Ändern der Farbintensität eines Elements.
 
 ### Filtereffekte in Aktion
 
-Spielen Sie mit den verschiedenen Schiebereglern, um die Filtereffekte auf das unten stehende Bild anzuwenden.
+Verwenden Sie die verschiedenen Schieberegler, um Filtereffekte auf das untenstehende Bild anzuwenden.
 
 ```html hidden live-sample___filters
 <article>
@@ -196,7 +196,7 @@ function changeCSS() {
 }
 function blur() {
   let blurValue = document.getElementsByName("blur")[0].value;
-  return blurValue == "0" ? "" : `blur(${blurValue}rem) `;
+  return blurValue === "0" ? "" : `blur(${blurValue}rem) `;
 }
 function brightness() {
   let brightnessValue = document.getElementsByName("brightness")[0].value;
@@ -206,37 +206,37 @@ function brightness() {
 }
 function contrast() {
   let contrastValue = document.getElementsByName("contrast")[0].value;
-  return contrastValue == 1 ? "" : `contrast(${contrastValue}) `;
+  return contrastValue === 1 ? "" : `contrast(${contrastValue}) `;
 }
 function dropShadow() {
   let dropShadowValue = document.getElementsByName("dropShadow")[0].value;
-  return dropShadowValue == 0
+  return dropShadowValue === 0
     ? ""
     : `drop-shadow(${dropShadowValue}rem ${dropShadowValue}rem 0rem orange) `;
 }
 function grayscale() {
   let grayscaleValue = document.getElementsByName("grayscale")[0].value;
-  return grayscaleValue == 0 ? "" : `grayscale(${grayscaleValue}) `;
+  return grayscaleValue === 0 ? "" : `grayscale(${grayscaleValue}) `;
 }
 function hueRotate() {
   let hueRotateValue = document.getElementsByName("hueRotate")[0].value;
-  return hueRotateValue == 0 ? "" : `hue-rotate(${hueRotateValue}turn) `;
+  return hueRotateValue === 0 ? "" : `hue-rotate(${hueRotateValue}turn) `;
 }
 function invert() {
   let invertValue = document.getElementsByName("invert")[0].value;
-  return invertValue == 0 ? "" : `invert(${invertValue}) `;
+  return invertValue === 0 ? "" : `invert(${invertValue}) `;
 }
 function opacity() {
   let opacityValue = document.getElementsByName("opacity")[0].value;
-  return opacityValue == 1 ? "" : `opacity(${opacityValue}) `;
+  return opacityValue === 1 ? "" : `opacity(${opacityValue}) `;
 }
 function saturate() {
   let saturateValue = document.getElementsByName("saturate")[0].value;
-  return saturateValue == 1 ? "" : `saturate(${saturateValue}) `;
+  return saturateValue === 1 ? "" : `saturate(${saturateValue}) `;
 }
 function sepia() {
   let sepiaValue = document.getElementsByName("sepia")[0].value;
-  return sepiaValue == 0 ? "" : `sepia(${sepiaValue})`;
+  return sepiaValue === 0 ? "" : `sepia(${sepiaValue})`;
 }
 ```
 
@@ -262,8 +262,8 @@ function sepia() {
 
 ## Leitfäden
 
-- [Using CSS filter effects](/de/docs/Web/CSS/CSS_filter_effects/Using_filter_effects)
-  - : Überblick über die Konzepte rund um CSS-Filtereffekte, einschließlich Eigenschaften, Filterfunktionen und SVG-Filter, mit einer Erklärung der Filterwerte, Quellreihenfolge und Wertinteraktionen.
+- [Verwendung von CSS-Filtereffekten](/de/docs/Web/CSS/CSS_filter_effects/Using_filter_effects)
+  - : Überblick über die Konzepte zu CSS-Filtereffekten, einschließlich Eigenschaften, Filterfunktionen und SVG-Filter, mit einer Erklärung der Filterwerte, Quellreihenfolge und Werteinteraktionen.
 
 ## Verwandte Konzepte
 
@@ -284,5 +284,5 @@ function sepia() {
 
 ## Siehe auch
 
-- Eigenschaften im [CSS compositing and blending](/de/docs/Web/CSS/CSS_compositing_and_blending) Modul ermöglichen das Mischen der Hintergrundebenen eines Elements miteinander und das Mischen eines Elements mit seinem Container.
-- Das SVG-Element {{SVGElement("filter")}} und die SVG-Filter-Primitiven: {{SVGElement("feSpotLight")}}, {{SVGElement("feBlend")}}, {{SVGElement("feColorMatrix")}}, {{SVGElement("feComponentTransfer")}}, {{SVGElement("feComposite")}}, {{SVGElement("feConvolveMatrix")}}, {{SVGElement("feDiffuseLighting")}}, {{SVGElement("feDisplacementMap")}}, {{SVGElement("feDropShadow")}}, {{SVGElement("feFlood")}}, {{SVGElement("feGaussianBlur")}}, {{SVGElement("feImage")}}, {{SVGElement("feMerge")}}, {{SVGElement("feMorphology")}}, {{SVGElement("feOffset")}}, {{SVGElement("feSpecularLighting")}}, {{SVGElement("feTile")}}, {{SVGElement("feTurbulence")}}
+- Eigenschaften im Modul [CSS Compositing und Blending](/de/docs/Web/CSS/CSS_compositing_and_blending) ermöglichen das Mischen von Hintergrundebenen eines Elements und das Mischen eines Elements mit seinem Container
+- Das SVG {{SVGElement("filter")}}-Element und die SVG-Filterprimitiven: {{SVGElement("feSpotLight")}}, {{SVGElement("feBlend")}}, {{SVGElement("feColorMatrix")}}, {{SVGElement("feComponentTransfer")}}, {{SVGElement("feComposite")}}, {{SVGElement("feConvolveMatrix")}}, {{SVGElement("feDiffuseLighting")}}, {{SVGElement("feDisplacementMap")}}, {{SVGElement("feDropShadow")}}, {{SVGElement("feFlood")}}, {{SVGElement("feGaussianBlur")}}, {{SVGElement("feImage")}}, {{SVGElement("feMerge")}}, {{SVGElement("feMorphology")}}, {{SVGElement("feOffset")}}, {{SVGElement("feSpecularLighting")}}, {{SVGElement("feTile")}}, {{SVGElement("feTurbulence")}}

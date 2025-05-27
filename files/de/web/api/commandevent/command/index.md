@@ -3,12 +3,12 @@ title: "CommandEvent: command-Eigenschaft"
 short-title: command
 slug: Web/API/CommandEvent/command
 l10n:
-  sourceCommit: af550427ce6ddc8b22dae1f6c8a109ed4a5fbd91
+  sourceCommit: ffa6f5871f50856c60983a125cef7de267be7aeb
 ---
 
 {{APIRef("Invoker Commands API")}}
 
-Die schreibgeschützte **`command`**-Eigenschaft des [`CommandEvent`](/de/docs/Web/API/CommandEvent) Interfaces gibt einen String zurück, der den Wert der [`command`](/de/docs/Web/API/HTMLButtonElement/command)-Eigenschaft zu dem Zeitpunkt enthält, an dem das Ereignis ausgelöst wurde.
+Die schreibgeschützte **`command`**-Eigenschaft des [`CommandEvent`](/de/docs/Web/API/CommandEvent)-Interfaces gibt einen String zurück, der den Wert der [`command`](/de/docs/Web/API/HTMLButtonElement/command)-Eigenschaft zum Zeitpunkt der Auslösung des Ereignisses enthält.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein String.
 
 ## Beispiele
 
-Im folgenden einfachen Beispiel haben wir einen Ereignis-Listener eingerichtet, der auf den "show-modal"-Befehl hört:
+Im folgenden einfachen Beispiel haben wir einen Ereignis-Listener eingerichtet, um auf den "show-modal"-Befehl zu hören:
 
 ```js
 document.body.addEventListener(
@@ -24,7 +24,7 @@ document.body.addEventListener(
   (event) => {
     const theAction = event.command;
 
-    if (theAction == "show-modal") {
+    if (theAction === "show-modal") {
       console.log("Showing modal dialog");
     }
   },

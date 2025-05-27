@@ -2,17 +2,16 @@
 title: -webkit-text-stroke
 slug: Web/CSS/-webkit-text-stroke
 l10n:
-  sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
+  sourceCommit: edb16c0a662d7e719efe67561389a7a087c1ace9
 ---
 
 {{CSSRef}}
 
-Die **`-webkit-text-stroke`**-[CSS](/de/docs/Web/CSS)-Eigenschaft legt die [Breite](/de/docs/Web/CSS/length) und die [Farbe](/de/docs/Web/CSS/color_value) der Umrandung von Textzeichen fest. Dies ist eine Kurzschreibweise für die Langschreib-Eigenschaften {{cssxref("-webkit-text-stroke-width")}} und {{cssxref("-webkit-text-stroke-color")}}.
+Die **`-webkit-text-stroke`** [CSS](/de/docs/Web/CSS) Eigenschaft bestimmt die [Breite](/de/docs/Web/CSS/length) und [Farbe](/de/docs/Web/CSS/color_value) von Umrandungen für Textzeichen. Dies ist eine Kurzform für die Langform-Eigenschaften {{cssxref("-webkit-text-stroke-width")}} und {{cssxref("-webkit-text-stroke-color")}}.
 
 ```css
 /* Width and color values */
 -webkit-text-stroke: 4px navy;
-text-stroke: 4px navy;
 
 /* Global values */
 -webkit-text-stroke: inherit;
@@ -22,9 +21,9 @@ text-stroke: 4px navy;
 -webkit-text-stroke: unset;
 ```
 
-## Bestandteileigenschaften
+## Zusammengesetzte Eigenschaften
 
-Diese Eigenschaft ist eine Kurzschreibweise für die folgenden CSS-Eigenschaften:
+Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
 
 - [`-webkit-text-stroke-color`](/de/docs/Web/CSS/-webkit-text-stroke-color)
 - [`-webkit-text-stroke-width`](/de/docs/Web/CSS/-webkit-text-stroke-width)
@@ -81,7 +80,7 @@ Diese Eigenschaft ist eine Kurzschreibweise für die folgenden CSS-Eigenschaften
 ## Siehe auch
 
 - [Introducing Text-Stroke](https://webkit.org/blog/85/introducing-text-stroke/) auf webkit.org (2006)
-- [CSS-Tricks-Artikel, der dieses Feature erklärt](https://css-tricks.com/adding-stroke-to-web-text/)
+- [CSS-Tricks Artikel, der dieses Feature erklärt](https://css-tricks.com/adding-stroke-to-web-text/)
 - {{cssxref("-webkit-text-stroke-width")}}
 - {{cssxref("-webkit-text-stroke-color")}}
 - {{cssxref("-webkit-text-fill-color")}}

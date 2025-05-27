@@ -2,12 +2,12 @@
 title: SpeechSynthesisErrorEvent
 slug: Web/API/SpeechSynthesisErrorEvent
 l10n:
-  sourceCommit: 759102220c07fb140b3e06971cd5981d8f0f134f
+  sourceCommit: b5437b737639d6952d18b95ebd1045ed73e4bfa7
 ---
 
 {{APIRef("Web Speech API")}}
 
-Die Schnittstelle **`SpeechSynthesisErrorEvent`** der [Web Speech API](/de/docs/Web/API/Web_Speech_API) enthält Informationen über Fehler, die bei der Verarbeitung von [`SpeechSynthesisUtterance`](/de/docs/Web/API/SpeechSynthesisUtterance)-Objekten im Sprachdienst auftreten.
+Die **`SpeechSynthesisErrorEvent`**-Schnittstelle der [Web Speech API](/de/docs/Web/API/Web_Speech_API) enthält Informationen über Fehler, die bei der Verarbeitung von [`SpeechSynthesisUtterance`](/de/docs/Web/API/SpeechSynthesisUtterance)-Objekten im Sprachdienst auftreten.
 
 {{InheritanceDiagram}}
 
@@ -18,14 +18,14 @@ Die Schnittstelle **`SpeechSynthesisErrorEvent`** der [Web Speech API](/de/docs/
 
 ## Instanz-Eigenschaften
 
-_`SpeechSynthesisErrorEvent` erweitert die Schnittstelle [`SpeechSynthesisEvent`](/de/docs/Web/API/SpeechSynthesisEvent), welche Eigenschaften von ihrer übergeordneten Schnittstelle [`Event`](/de/docs/Web/API/Event) erbt._
+_`SpeechSynthesisErrorEvent` erweitert die [`SpeechSynthesisEvent`](/de/docs/Web/API/SpeechSynthesisEvent)-Schnittstelle, die Eigenschaften von ihrer Elternschnittstelle, [`Event`](/de/docs/Web/API/Event), erbt._
 
 - [`SpeechSynthesisErrorEvent.error`](/de/docs/Web/API/SpeechSynthesisErrorEvent/error) {{ReadOnlyInline}}
-  - : Gibt einen Fehlercode zurück, der angibt, was bei einem Sprachsyntheseversuch schiefgegangen ist.
+  - : Gibt einen Fehlercode zurück, der angibt, was bei einem Sprachsyntheseversuch schiefgelaufen ist.
 
 ## Instanz-Methoden
 
-_`SpeechSynthesisErrorEvent` erweitert die Schnittstelle [`SpeechSynthesisEvent`](/de/docs/Web/API/SpeechSynthesisEvent), welche Methoden von ihrer übergeordneten Schnittstelle [`Event`](/de/docs/Web/API/Event) erbt._
+_`SpeechSynthesisErrorEvent` erweitert die [`SpeechSynthesisEvent`](/de/docs/Web/API/SpeechSynthesisEvent)-Schnittstelle, die Methoden von ihrer Elternschnittstelle, [`Event`](/de/docs/Web/API/Event), erbt._
 
 ## Beispiele
 
@@ -46,9 +46,9 @@ inputForm.onsubmit = (event) => {
   const utterThis = new SpeechSynthesisUtterance(inputTxt.value);
   const selectedOption =
     voiceSelect.selectedOptions[0].getAttribute("data-name");
-  for (let i = 0; i < voices.length; i++) {
-    if (voices[i].name === selectedOption) {
-      utterThis.voice = voices[i];
+  for (const voice of voices) {
+    if (voice.name === selectedOption) {
+      utterThis.voice = voice;
     }
   }
 

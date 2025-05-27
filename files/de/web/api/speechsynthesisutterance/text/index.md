@@ -3,18 +3,18 @@ title: "SpeechSynthesisUtterance: text-Eigenschaft"
 short-title: text
 slug: Web/API/SpeechSynthesisUtterance/text
 l10n:
-  sourceCommit: 759102220c07fb140b3e06971cd5981d8f0f134f
+  sourceCommit: b5437b737639d6952d18b95ebd1045ed73e4bfa7
 ---
 
 {{APIRef("Web Speech API")}}
 
-Die **`text`**-Eigenschaft der [`SpeechSynthesisUtterance`](/de/docs/Web/API/SpeechSynthesisUtterance)-Schnittstelle legt den Text fest, der synthetisiert wird, wenn die Äußerung gesprochen wird, und liest ihn aus.
+Die **`text`**-Eigenschaft der Schnittstelle [`SpeechSynthesisUtterance`](/de/docs/Web/API/SpeechSynthesisUtterance) ruft den Text ab oder setzt ihn, der synthetisiert wird, wenn der Ausspruch gesprochen wird.
 
-Der Text kann als einfacher Text oder als wohlgeformtes [SSML](https://www.w3.org/TR/speech-synthesis/)-Dokument vorliegen. Die SSML-Tags werden von Geräten entfernt, die SSML nicht unterstützen.
+Der Text kann als reiner Text oder als wohlgeformtes [SSML](https://www.w3.org/TR/speech-synthesis/)-Dokument bereitgestellt werden. Die SSML-Tags werden von Geräten entfernt, die SSML nicht unterstützen.
 
 ## Wert
 
-Ein String, der den zu synthetisierenden Text repräsentiert. Die maximale Länge des Textes, der in jeder Äußerung gesprochen werden kann, beträgt 32.767 Zeichen.
+Ein String, der den zu synthetisierenden Text darstellt. Die maximale Länge des Textes, der in jedem Ausspruch gesprochen werden kann, beträgt 32.767 Zeichen.
 
 ## Beispiele
 
@@ -35,9 +35,9 @@ inputForm.onsubmit = (event) => {
   const utterThis = new SpeechSynthesisUtterance(inputTxt.value);
   const selectedOption =
     voiceSelect.selectedOptions[0].getAttribute("data-name");
-  for (let i = 0; i < voices.length; i++) {
-    if (voices[i].name === selectedOption) {
-      utterThis.voice = voices[i];
+  for (const voice of voices) {
+    if (voice.name === selectedOption) {
+      utterThis.voice = voice;
     }
   }
   console.log(utterThis.text);

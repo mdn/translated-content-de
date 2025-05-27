@@ -3,30 +3,30 @@ title: "SpeechSynthesisVoice: lang-Eigenschaft"
 short-title: lang
 slug: Web/API/SpeechSynthesisVoice/lang
 l10n:
-  sourceCommit: 101ffc9479db6aaa530f2aac3992734dd97d1b86
+  sourceCommit: b5437b737639d6952d18b95ebd1045ed73e4bfa7
 ---
 
 {{APIRef("Web Speech API")}}
 
-Die **`lang`** schreibgeschützte Eigenschaft des [`SpeechSynthesisVoice`](/de/docs/Web/API/SpeechSynthesisVoice)-Interfaces gibt einen BCP 47-Sprach-Tag zurück, der die Sprache der Stimme angibt.
+Die schreibgeschützte **`lang`**-Eigenschaft des [`SpeechSynthesisVoice`](/de/docs/Web/API/SpeechSynthesisVoice)-Interfaces gibt ein BCP 47-Sprachtag zurück, das die Sprache der Stimme angibt.
 
 ## Wert
 
-Ein String, der die Sprache des Geräts darstellt.
+Ein String, der die Sprache des Geräts repräsentiert.
 
 ## Beispiele
 
 ```js
-for (let i = 0; i < voices.length; i++) {
+for (const voice of voices) {
   const option = document.createElement("option");
-  option.textContent = `${voices[i].name} (${voices[i].lang})`;
+  option.textContent = `${voice.name} (${voice.lang})`;
 
-  if (voices[i].default) {
+  if (voice.default) {
     option.textContent += " — DEFAULT";
   }
 
-  option.setAttribute("data-lang", voices[i].lang);
-  option.setAttribute("data-name", voices[i].name);
+  option.setAttribute("data-lang", voice.lang);
+  option.setAttribute("data-name", voice.name);
   voiceSelect.appendChild(option);
 }
 ```

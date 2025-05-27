@@ -3,13 +3,12 @@ title: "DataTransferItemList: add() Methode"
 short-title: add()
 slug: Web/API/DataTransferItemList/add
 l10n:
-  sourceCommit: 53b1989260054e651bcf001bacee9b843b8ca9c8
+  sourceCommit: b5437b737639d6952d18b95ebd1045ed73e4bfa7
 ---
 
 {{APIRef("HTML Drag and Drop API")}}
 
-Die **`DataTransferItemList.add()`** Methode erstellt ein neues
-[`DataTransferItem`](/de/docs/Web/API/DataTransferItem) mit den angegebenen Daten und fügt es der Drag-Datenliste hinzu. Das Element kann eine [`File`](/de/docs/Web/API/File) oder ein String eines bestimmten Typs sein. Wenn das Element erfolgreich zur Liste hinzugefügt wird, wird das neu erstellte [`DataTransferItem`](/de/docs/Web/API/DataTransferItem) Objekt zurückgegeben.
+Die **`DataTransferItemList.add()`** Methode erstellt ein neues [`DataTransferItem`](/de/docs/Web/API/DataTransferItem) mit den angegebenen Daten und fügt es der Drag-Datenliste hinzu. Das Element kann eine [`File`](/de/docs/Web/API/File) oder eine Zeichenkette eines bestimmten Typs sein. Wenn das Element erfolgreich zur Liste hinzugefügt wird, wird das neu erstellte [`DataTransferItem`](/de/docs/Web/API/DataTransferItem) Objekt zurückgegeben.
 
 ## Syntax
 
@@ -21,20 +20,20 @@ add(file)
 ### Parameter
 
 - `data`
-  - : Ein String, der die Daten des Drag-Elements darstellt.
+  - : Ein String, der die Daten des Ziehelements darstellt.
 - `type`
-  - : Ein String des Typs des Drag-Elements. Einige Beispieltypen sind `text/html` und `text/plain`.
+  - : Ein String des Typs des Ziehelements. Einige Beispieltypen sind `text/html` und `text/plain`.
 - `file`
   - : Ein [`File`](/de/docs/Web/API/File) Objekt. In diesem Fall muss kein Typ angegeben werden.
 
 ### Rückgabewert
 
-Ein [`DataTransferItem`](/de/docs/Web/API/DataTransferItem), das die angegebenen Daten enthält. Wenn das Drag-Element nicht erstellt werden konnte (zum Beispiel, wenn das zugehörige [`DataTransfer`](/de/docs/Web/API/DataTransfer) Objekt keinen Datenspeicher hat), wird `null` zurückgegeben.
+Ein [`DataTransferItem`](/de/docs/Web/API/DataTransferItem), das die angegebenen Daten enthält. Wenn das Ziehelement nicht erstellt werden konnte (zum Beispiel, wenn das zugehörige [`DataTransfer`](/de/docs/Web/API/DataTransfer) Objekt keinen Datenspeicher hat), wird `null` zurückgegeben.
 
 ### Ausnahmen
 
 - `NotSupportedError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der String `data` übergeben wurde und die Liste bereits ein Element enthält, dessen [`kind`](/de/docs/Web/API/DataTransferItem/kind) `"Plain Unicode string"` ist und dessen Typ dem angegebenen Typ-Parameter entspricht.
+  - : Wird ausgelöst, wenn der `data` String-Parameter bereitgestellt wurde und die Liste bereits ein Element enthält, dessen [`kind`](/de/docs/Web/API/DataTransferItem/kind) `"Plain Unicode string"` ist und dessen Typ dem angegebenen Typ-Parameter entspricht.
 
 ## Beispiele
 
@@ -94,25 +93,21 @@ function dragstart_handler(ev) {
 function drop_handler(ev) {
   console.log("Drop");
   ev.preventDefault();
-  const data = event.dataTransfer.items;
   // Loop through the dropped items and log their data
-  for (let i = 0; i < data.length; i++) {
-    if (data[i].kind === "string" && data[i].type.match("^text/plain")) {
+  for (const item of event.dataTransfer.items) {
+    if (item.kind === "string" && item.type.match("^text/plain")) {
       // This item is the target node
-      data[i].getAsString((s) => {
+      item.getAsString((s) => {
         ev.target.appendChild(document.getElementById(s));
       });
-    } else if (data[i].kind === "string" && data[i].type.match("^text/html")) {
+    } else if (item.kind === "string" && item.type.match("^text/html")) {
       // Drag data item is HTML
-      data[i].getAsString((s) => {
+      item.getAsString((s) => {
         console.log(`… Drop: HTML = ${s}`);
       });
-    } else if (
-      data[i].kind === "string" &&
-      data[i].type.match("^text/uri-list")
-    ) {
+    } else if (item.kind === "string" && item.type.match("^text/uri-list")) {
       // Drag data item is URI
-      data[i].getAsString((s) => {
+      item.getAsString((s) => {
         console.log(`… Drop: URI = ${s}`);
       });
     }
@@ -141,7 +136,7 @@ function dragend_handler(ev) {
 
 {{EmbedLiveSample('Examples', 400, 300)}}
 
-{{LiveSampleLink('Examples', 'Ergebnislink')}}
+{{LiveSampleLink('Examples', 'Result link')}}
 
 ## Spezifikationen
 

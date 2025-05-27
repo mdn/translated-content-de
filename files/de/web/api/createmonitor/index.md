@@ -2,14 +2,14 @@
 title: CreateMonitor
 slug: Web/API/CreateMonitor
 l10n:
-  sourceCommit: 683890a47fa52942b23dd4406c7f095bb70b1c59
+  sourceCommit: 2c0f972d873ea2db5163dbcb12987847124751ad
 ---
 
 {{APIRef("Summarizer API")}}{{SeeCompatTable}}
 
-Die **`CreateMonitor`**-Schnittstelle liefert Informationen über den Fortschritt des Downloads eines KI-Modells oder einiger Feinabstimmungsdaten für das Modell.
+Die **`CreateMonitor`** Schnittstelle bietet Informationen über den Fortschritt eines AI-Modell-Downloads oder einiger Feinabstimmungsdaten für das Modell.
 
-Es kann verwendet werden über:
+Sie kann über folgende Methoden verwendet werden:
 
 - [`Summarizer.create()`](/de/docs/Web/API/Summarizer/create_static)
 - [`LanguageDetector.create()`](/de/docs/Web/API/LanguageDetector/create_static)
@@ -19,22 +19,22 @@ Es kann verwendet werden über:
 
 ## Ereignisse
 
-_Erbt Ereignisse von seinem Elternteil, [`EventTarget`](/de/docs/Web/API/EventTarget)._
+_Erbt Ereignisse von ihrem Elternteil, [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
 - [`downloadprogress`](/de/docs/Web/API/CreateMonitor/downloadprogress_event) {{Experimental_Inline}}
-  - : Wird ausgelöst, wenn Fortschritte beim Download des KI-Modells gemacht werden.
+  - : Wird ausgelöst, wenn Fortschritte beim AI-Modell-Download gemacht werden.
 
 ## Beispiele
 
-### Grundlegende `CreateMonitor`-Nutzung
+### Grundlegende Verwendung von `CreateMonitor`
 
-Eine `CreateMonitor`-Instanz wird über die `monitor`-Eigenschaft der `create()`-Methode einer KI-API verwendet (unten wird [`Summarizer.create()`](/de/docs/Web/API/Summarizer/create_static) gezeigt). Die `monitor`-Eigenschaft nimmt eine Callback-Funktion als Wert, deren Argument die `CreateMonitor`-Instanz ist. Sie können dann den Download-Fortschritt über das [`downloadprogress`](/de/docs/Web/API/CreateMonitor/downloadprogress_event)-Ereignis der Instanz überwachen.
+Eine `CreateMonitor`-Instanz wird über die `monitor`-Eigenschaft einer `create()`-Methode einer AI-API verwendet (nachfolgend ist [`Summarizer.create()`](/de/docs/Web/API/Summarizer/create_static) gezeigt). Die `monitor`-Eigenschaft nimmt eine Callback-Funktion als Wert, deren Argument die `CreateMonitor`-Instanz ist. Sie können dann den Download-Fortschritt über das [`downloadprogress`](/de/docs/Web/API/CreateMonitor/downloadprogress_event)-Ereignis der Instanz überwachen.
 
 ```js
 const summarizer = await Summarizer.create({
   sharedContext:
     "A general summary to help a user decide if the text is worth reading",
-  monitor: (monitor) => {
+  monitor(monitor) {
     monitor.addEventListener("downloadprogress", (e) => {
       console.log(`download progress: ${e.loaded}/${e.total}`);
     });
@@ -46,13 +46,13 @@ const summary = await summarizer.summarize(myText);
 
 ## Spezifikationen
 
-{{Specifications}}
+{{Spezifikationen}}
 
 ## Browser-Kompatibilität
 
-{{Compat}}
+{{Kompatibilität}}
 
 ## Siehe auch
 
-- [Verwendung der Summarizer-API](/de/docs/Web/API/Summarizer_API/Using)
+- [Verwendung der Summarizer API](/de/docs/Web/API/Summarizer_API/Using)
 - [Web AI-Demos](https://chrome.dev/web-ai-demos/) auf chrome.dev.

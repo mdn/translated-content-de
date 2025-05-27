@@ -2,30 +2,30 @@
 title: Grundlegende HTML-Syntax
 slug: Learn_web_development/Core/Structuring_content/Basic_HTML_syntax
 l10n:
-  sourceCommit: 427efbee9e0da53517f45420af87a66a2a6b6e19
+  sourceCommit: cb25e0acbd9f0af27c4a99965cb962230d49a35d
 ---
 
 {{NextMenu("Learn_web_development/Core/Structuring_content/Webpage_metadata", "Learn_web_development/Core/Structuring_content")}}
 
-In diesem Artikel behandeln wir die absoluten Grundlagen von HTML. Um Ihnen den Einstieg zu erleichtern, definiert dieser Artikel Elemente, Attribute und alle anderen wichtigen Begriffe, die Sie möglicherweise gehört haben. Außerdem wird erklärt, wie diese in HTML passen. Sie werden lernen, wie HTML-Elemente strukturiert sind, wie eine typische HTML-Seite aufgebaut ist und welche anderen wichtigen grundlegenden Sprachmerkmale es gibt. Auf dem Weg dorthin wird es auch Gelegenheit geben, mit HTML zu experimentieren!
+In diesem Artikel behandeln wir die absoluten Grundlagen von HTML. Um Ihnen den Einstieg zu erleichtern, definiert dieser Artikel Elemente, Attribute und alle anderen wichtigen Begriffe, die Sie vielleicht gehört haben. Er erklärt auch, wie diese in HTML passen. Sie werden lernen, wie HTML-Elemente strukturiert sind, wie eine typische HTML-Seite aufgebaut ist und andere wichtige grundlegende Sprachfunktionen. Unterwegs haben Sie die Möglichkeit, auch mit HTML zu experimentieren!
 
 <table>
   <tbody>
     <tr>
       <th scope="row">Voraussetzungen:</th>
       <td>
-        <a href="/de/docs/Learn_web_development/Getting_started/Environment_setup/Installing_software">Grundlegende Software installiert</a> und Grundkenntnisse im <a href="/de/docs/Learn_web_development/Getting_started/Environment_setup/Dealing_with_files">Umgang mit Dateien</a>.
+        <a href="/de/docs/Learn_web_development/Getting_started/Environment_setup/Installing_software">Grundlegende Software installiert</a> und Grundkenntnisse in <a href="/de/docs/Learn_web_development/Getting_started/Environment_setup/Dealing_with_files">Arbeiten mit Dateien</a>.
       </td>
     </tr>
     <tr>
       <th scope="row">Lernziele:</th>
       <td>
         <ul>
-          <li>Die Anatomie eines HTML-Elements — Element, öffnendes Tag, Inhalt, schließendes Tag, Attribute.</li>
+          <li>Die Anatomie eines HTML-Elements — Element, öffnender Tag, Inhalt, schließender Tag, Attribute.</li>
           <li>Der HTML-Body und seine Funktion als Container für den Seiteninhalt.</li>
-          <li>Was <a href="/de/docs/Glossary/Void_element">leere Elemente</a> (auch bekannt als Void-Elemente) sind und wie sie sich von anderen Elementen unterscheiden.</li>
-          <li>Die Notwendigkeit eines Doctypes am Anfang von HTML-Dokumenten. Sein ursprünglich beabsichtigter Zweck und die Tatsache, dass er jetzt eher ein historisches Relikt ist.</li>
-          <li>Verständnis, dass HTML korrekt verschachtelt sein muss.</li>
+          <li>Was <a href="/de/docs/Glossary/Void_element">leere Elemente</a> sind und wie sie sich von anderen Elementen unterscheiden.</li>
+          <li>Die Notwendigkeit eines Doctypes oben in HTML-Dokumenten. Seine ursprünglich beabsichtigte Rolle und die Tatsache, dass er heute eher ein historisches Relikt ist.</li>
+          <li>Das Verständnis dafür, dass HTML korrekt verschachtelt sein muss.</li>
         </ul>
       </td>
     </tr>
@@ -34,47 +34,47 @@ In diesem Artikel behandeln wir die absoluten Grundlagen von HTML. Um Ihnen den 
 
 ## Was ist HTML?
 
-{{Glossary("HTML", "HTML")}} (HyperText Markup Language) ist eine _Markup-Sprache_, die Webbrowsern mitteilt, wie die von Ihnen besuchten Webseiten strukturiert werden sollen. Es kann so kompliziert oder so einfach sein, wie der Webentwickler es möchte. HTML besteht aus einer Reihe von {{Glossary("Element", "Elementen")}}, die Sie verwenden, um verschiedene Teile von Inhalten einzuschließen, zu umschließen oder _auszuzeichnen_, damit sie auf eine bestimmte Weise erscheinen oder funktionieren. Mit den umschließenden {{Glossary("Tag", "Tags")}} kann Inhalt zu einem Hyperlink werden, um zu einer anderen Seite zu verbinden, Wörter kursiv zu machen und so weiter. Zum Beispiel betrachte die folgende Textzeile:
+{{Glossary("HTML", "HTML")}} (HyperText Markup Language) ist eine _Markup-Sprache_, die Webbrowsern mitteilt, wie die von Ihnen besuchten Webseiten strukturiert werden sollen. Es kann so kompliziert oder einfach sein, wie der Webentwickler es wünscht. HTML besteht aus einer Reihe von {{Glossary("Element", "Elementen")}}, die Sie verwenden, um verschiedene Teile des Inhalts einzuschließen, zu umwickeln oder zu _markieren_, damit sie auf eine bestimmte Weise erscheinen oder agieren. Die einschließenden {{Glossary("Tag", "Tags")}} können Inhalte in einen Hyperlink verwandeln, um zu einer anderen Seite zu verbinden, Wörter kursiv darstellen und so weiter. Betrachten Sie zum Beispiel die folgende Textzeile:
 
 ```plain
 My cat is very grumpy
 ```
 
-Wenn wir möchten, dass der Text für sich alleine steht, könnten wir angeben, dass es sich um einen Absatz handelt, indem wir ihn in einem Absatz-Element ({{htmlelement("p")}}) einschließen:
+Wenn wir wollen, dass der Text für sich allein steht, können wir angeben, dass es ein Absatz ist, indem wir ihn in ein Absatz- ({{htmlelement("p")}}) Element einschließen:
 
 ```html
 <p>My cat is very grumpy</p>
 ```
 
-HTML befindet sich in Textdateien, die als **HTML-Dokumente** oder einfach nur **Dokumente** bezeichnet werden, mit der Dateierweiterung `.html`. Wo wir zuvor über Webseiten gesprochen haben, enthält ein HTML-Dokument den Inhalt der Webseite und gibt ihre Struktur vor.
+HTML befindet sich in Textdateien, die als **HTML-Dokumente** oder einfach als **Dokumente** bezeichnet werden, mit einer `.html` Dateierweiterung. Wo wir zuvor über Webseiten gesprochen haben, enthält ein HTML-Dokument den Inhalt der Webseite und spezifiziert deren Struktur.
 
-Die häufigste HTML-Datei, die Sie antreffen werden, ist `index.html`, die in der Regel verwendet wird, um den Inhalt der Startseite einer Website zu enthalten. Es ist auch üblich, Unterordner mit eigenen `index.html` zu sehen, sodass eine Website mehrere Indexdateien an verschiedenen Stellen haben kann.
+Die häufigste HTML-Datei, die Sie antreffen werden, ist `index.html`, die im Allgemeinen verwendet wird, um den Inhalt der Startseite einer Website zu enthalten. Es ist auch üblich, Unterordner mit ihren eigenen `index.html` zu sehen, sodass eine Website mehrere Indexdateien an verschiedenen Stellen haben kann.
 
 > [!NOTE]
-> Tags in HTML sind nicht case-sensitiv. Das bedeutet, dass sie in Groß- oder Kleinbuchstaben geschrieben werden können. Zum Beispiel könnte ein {{htmlelement("title")}}-Tag als `<title>`, `<TITLE>`, `<Title>`, `<TiTlE>`, etc., geschrieben werden und es würde funktionieren. Es ist jedoch bewährte Praxis, alle Tags in Kleinbuchstaben zu schreiben, um Konsistenz und Lesbarkeit zu gewährleisten.
+> Tags in HTML sind nicht case-sensitive. Dies bedeutet, dass sie in Groß- oder Kleinbuchstaben geschrieben werden können. Zum Beispiel könnte ein {{htmlelement("title")}} Tag als `<title>`, `<TITLE>`, `<Title>`, `<TiTlE>` usw. geschrieben werden und würde funktionieren. Es ist jedoch am besten, alle Tags aus Gründen der Konsistenz und Lesbarkeit in Kleinbuchstaben zu schreiben.
 
 ## Anatomie eines HTML-Elements
 
-Lassen Sie uns unser Absatzelement aus dem vorherigen Abschnitt näher betrachten:
+Lassen Sie uns unser Absatzelement aus dem vorherigen Abschnitt weiter untersuchen:
 
-![Ein Beispiel für ein Code-Snippet, das die Struktur eines HTML-Elements zeigt.<p> Meine Katze ist sehr mürrisch </p>.](grumpy-cat-small.png)
+![Ein Beispielcode-Snippet, das die Struktur eines HTML-Elements demonstriert.<p> Meine Katze ist sehr mürrisch </p>.](grumpy-cat-small.png)
 
 Die Anatomie unseres Elements ist:
 
-- **Das öffnende Tag:** Dies besteht aus dem Namen des Elements (in diesem Beispiel _p_ für Absatz), eingeschlossen in öffnenden und schließenden Winkelklammern. Dieses öffnende Tag markiert, wo das Element beginnt oder zu wirken beginnt. In diesem Beispiel steht es vor dem Beginn des Absatztextes.
-- **Der Inhalt:** Dies ist der Inhalt des Elements. In diesem Beispiel ist dies der Absatztext.
-- **Das schließende Tag:** Dies ist das gleiche wie das öffnende Tag, außer dass es einen Schrägstrich vor dem Elementnamen enthält. Dies markiert, wo das Element endet. Das Fehlen eines schließenden Tags ist ein häufiger Anfängerfehler, der eigenartige Ergebnisse erzeugen kann.
+- **Der öffnende Tag:** Dieser besteht aus dem Namen des Elements (in diesem Beispiel _p_ für Paragraph), eingeschlossen in öffnenden und schließenden spitzen Klammern. Dieser öffnende Tag markiert, wo das Element beginnt oder anfängt, wirksam zu werden. In diesem Beispiel geht er dem Beginn des Absatztextes voraus.
+- **Der Inhalt:** Dies ist der Inhalt des Elements. In diesem Beispiel ist es der Absatztext.
+- **Der schließende Tag:** Dieser ist derselbe wie der öffnende Tag, außer dass er einen Schrägstrich vor dem Elementnamen enthält. Dies markiert, wo das Element endet. Das Nichthinzufügen eines schließenden Tags ist ein häufiger Anfängerfehler, der seltsame Ergebnisse erzeugen kann.
 
-Das Element besteht aus dem öffnenden Tag, gefolgt von Inhalt und gefolgt vom schließenden Tag.
+Das Element ist der öffnende Tag, gefolgt vom Inhalt, gefolgt vom schließenden Tag.
 
 > [!NOTE]
-> Schauen Sie sich bei unserem Lernpartner Scrimba das [HTML-Tags](https://scrimba.com/learn-html-and-css-c0p/~02?via=mdn) <sup>[_MDN-Lernpartner_](/de/docs/MDN/Writing_guidelines/Learning_content#partner_links_and_embeds)</sup>-Scrim für eine interaktive Erklärung von HTML-Tags an.
+> Besuchen Sie unseren Lernpartner Scrimba's [HTML-Tags](https://scrimba.com/learn-html-and-css-c0p/~02?via=mdn) <sup>[_MDN Lernpartner_](/de/docs/MDN/Writing_guidelines/Learning_content#partner_links_and_embeds)</sup> Scrim für eine interaktive Erklärung von HTML-Tags.
 
-### Aktives Lernen: Erstellen Ihres ersten HTML-Elements
+### Aktives Lernen: Ihr erstes HTML-Element erstellen
 
-Bearbeiten Sie die folgende Zeile im Bereich "Editierbarer Code", indem Sie sie mit den Tags `<em>` und `</em>.` umschließen. Um das Element zu _öffnen_, setzen Sie das öffnende Tag `<em>` am Anfang der Zeile. Um das Element zu _schließen_, setzen Sie das schließende Tag `</em>` am Ende der Zeile. Dadurch sollte der Text kursiv formatiert werden! Sehen Sie, wie sich Ihre Änderungen im _Ausgabe_-Bereich live aktualisieren.
+Bearbeiten Sie die untenstehende Zeile im "Bearbeitbaren Code"-Bereich, indem Sie sie mit den Tags `<em>` und `</em>` umschließen. Um _das Element zu öffnen_, setzen Sie den öffnenden Tag `<em>` am Anfang der Zeile. Um _das Element zu schließen_, setzen Sie den schließenden Tag `</em>` am Ende der Zeile. Dadurch sollte die Zeile kursiv formatiert werden! Sehen Sie, wie Ihre Änderungen live im _Ausgabebereich_ aktualisiert werden.
 
-Wenn Sie einen Fehler machen, können Sie Ihre Arbeit mit der _Zurücksetzen_-Taste löschen. Wenn Sie wirklich feststecken, drücken Sie die _Lösung anzeigen_-Taste, um die Antwort zu sehen.
+Wenn Sie einen Fehler machen, können Sie Ihre Arbeit mit der _Zurücksetzen_-Schaltfläche löschen. Wenn Sie wirklich feststecken, drücken Sie die _Lösung anzeigen_-Schaltfläche, um die Antwort zu sehen.
 
 ```html hidden
 <h2>Live output</h2>
@@ -203,25 +203,25 @@ textarea.onkeyup = () => {
 
 ### Verschachtelung von Elementen
 
-Elemente können innerhalb anderer Elemente platziert werden. Dies wird als _Verschachtelung_ bezeichnet. Wenn wir angeben wollten, dass unsere Katze **sehr** mürrisch ist, könnten wir das Wort _sehr_ in ein {{htmlelement("strong")}}-Element einschließen, was bedeutet, dass das Wort eine stärkere Textformatierung haben soll:
+Elemente können in andere Elemente eingefügt werden. Dies nennt man _Verschachtelung_. Wenn wir sagen wollten, dass unsere Katze **sehr** mürrisch ist, könnten wir das Wort _sehr_ in ein {{htmlelement("strong")}} Element einfügen, was bedeutet, dass das Wort eine starke(re) Textformatierung haben soll:
 
 ```html
 <p>My cat is <strong>very</strong> grumpy.</p>
 ```
 
-Es gibt eine richtige und eine falsche Art, Verschachtelungen zu machen. Im obigen Beispiel haben wir das `p`-Element zuerst geöffnet, dann das `strong`-Element. Für eine korrekte Verschachtelung sollten wir das `strong`-Element zuerst schließen, bevor wir das `p`-Element schließen.
+Es gibt einen richtigen und einen falschen Weg, um zu schachteln. Im obigen Beispiel öffneten wir das `p`-Element zuerst, dann öffneten wir das `strong`-Element. Für eine korrekte Verschachtelung sollten wir das `strong`-Element zuerst schließen, bevor wir das `p` schließen.
 
-Das folgende Beispiel zeigt die _falsche_ Art, Verschachtelungen zu machen:
+Folgendes ist ein Beispiel für die _falsche_ Art zu schachteln:
 
 ```html-nolint example-bad
 <p>My cat is <strong>very grumpy.</p></strong>
 ```
 
-Die **Tags müssen so geöffnet und geschlossen werden, dass sie ineinander oder außerhalb voneinander sind**. Bei der Art von Überschneidung im obigen Beispiel, muss der Browser erraten, was Sie beabsichtigt haben. Diese Art von Raten kann zu unerwarteten Ergebnissen führen.
+**Die Tags müssen so geöffnet und geschlossen werden, dass sie innerhalb oder außerhalb voneinander liegen.** Mit der Art von Überlappung im obigen Beispiel muss der Browser Ihre Absicht erraten. Diese Art des Ratens kann zu unerwarteten Ergebnissen führen.
 
 ### Leere Elemente
 
-Nicht alle Elemente folgen dem Muster eines öffnenden Tags, Inhalts und eines schließenden Tags. Einige Elemente bestehen aus einem einzelnen Tag, das typischerweise verwendet wird, um etwas in das Dokument einzufügen oder einzubetten. Solche Elemente werden {{Glossary("void_element", "leere Elemente")}} genannt. Zum Beispiel bettet das {{htmlelement("img")}}-Element eine Bilddatei auf eine Seite ein:
+Nicht alle Elemente folgen dem Muster eines öffnenden Tags, Inhalts und eines schließenden Tags. Einige Elemente bestehen aus einem einzigen Tag, das typischerweise verwendet wird, um etwas in das Dokument einzufügen/einzubetten. Solche Elemente werden {{Glossary("void_element", "leere Elemente")}} genannt. Zum Beispiel bettet das {{htmlelement("img")}} Element eine Bilddatei auf eine Seite ein:
 
 ```html
 <img
@@ -229,50 +229,50 @@ Nicht alle Elemente folgen dem Muster eines öffnenden Tags, Inhalts und eines s
   alt="Firefox icon" />
 ```
 
-Dies würde folgendes ausgeben:
+Dies würde das Folgende ausgeben:
 
 {{ EmbedLiveSample('Void_elements', 700, 300, "", "") }}
 
 > [!NOTE]
-> In HTML ist es nicht erforderlich, ein `/` am Ende eines Void-Element-Tags hinzuzufügen, zum Beispiel: `<img src="images/cat.jpg" alt="cat" />`. Es ist jedoch auch eine gültige Syntax, und Sie können dies tun, wenn Sie möchten, dass Ihr HTML auch als XML gültig ist.
+> In HTML gibt es keine Anforderung, am Ende eines leeren Element-Tags ein `/` hinzuzufügen, zum Beispiel: `<img src="images/cat.jpg" alt="cat" />`. Es ist jedoch auch eine gültige Syntax, und Sie können dies tun, wenn Sie möchten, dass Ihr HTML gültiges XML ist.
 
 ## Attribute
 
 Elemente können auch Attribute haben. Attribute sehen so aus:
 
-![Absatz-Tag mit hervorgehobenem 'class="editor-note"'-Attribut](grumpy-cat-attribute-small.png)
+![Absatztag mit Attribut 'class="editor-note"' hervorgehoben](grumpy-cat-attribute-small.png)
 
-Attribute enthalten zusätzliche Informationen über das Element, die nicht im Inhalt erscheinen. In diesem Beispiel ist das **`class`**-Attribut ein Identifizierungsname, der verwendet wird, um das Element mit Stilinformationen zu versehen.
+Attribute enthalten zusätzliche Informationen über das Element, die nicht im Inhalt erscheinen. In diesem Beispiel ist das **`class`**-Attribut ein identifizierender Name, der verwendet wird, um das Element mit Stilinformationen zu versehen.
 
 Ein Attribut sollte haben:
 
-- Einen Abstand zwischen dem Attribut und dem Elementnamen. (Für ein Element mit mehr als einem Attribut sollten die Attribute ebenfalls durch Leerzeichen getrennt werden.)
+- Ein Leerzeichen zwischen diesem und dem Elementnamen. (Für ein Element mit mehr als einem Attribut sollten die Attribute ebenfalls durch Leerzeichen getrennt werden.)
 - Den Attributnamen, gefolgt von einem Gleichheitszeichen.
-- Einen Attributwert, eingeschlossen in öffnende und schließende Anführungszeichen.
+- Einen Attributwert, umschlossen von öffnenden und schließenden Anführungszeichen.
 
 ### Aktives Lernen: Attribute zu einem Element hinzufügen
 
-Das `<img>`-Element kann eine Reihe von Attributen haben, einschließlich:
+Das `<img>` Element kann eine Reihe von Attributen aufnehmen, einschließlich:
 
 - `src`
-  - : Das `src`-Attribut ist ein **erforderliches** Attribut, das den Speicherort des Bildes angibt. Zum Beispiel: `src="https://raw.githubusercontent.com/mdn/beginner-html-site/gh-pages/images/firefox-icon.png"`.
+  - : Das `src` Attribut ist ein **erforderliches** Attribut, das den Speicherort des Bildes angibt. Zum Beispiel: `src="https://raw.githubusercontent.com/mdn/beginner-html-site/gh-pages/images/firefox-icon.png"`.
 - `alt`
-  - : Das `alt`-Attribut gibt eine Textbeschreibung des Bildes an. Zum Beispiel: `alt="Das Firefox-Symbol"`.
+  - : Das `alt` Attribut spezifiziert eine Textbeschreibung des Bildes. Zum Beispiel: `alt="Das Firefox-Symbol"`.
 - `width`
-  - : Das `width`-Attribut gibt die Breite des Bildes an, wobei die Einheit Pixel ist. Zum Beispiel: `width="300"`.
+  - : Das `width` Attribut gibt die Breite des Bildes mit der Einheit Pixel an. Zum Beispiel: `width="300"`.
 - `height`
-  - : Das `height`-Attribut gibt die Höhe des Bildes an, wobei die Einheit Pixel ist. Zum Beispiel: `height="300"`.
+  - : Das `height` Attribut spezifiziert die Höhe des Bildes mit der Einheit Pixel. Zum Beispiel: `height="300"`.
 
-Bearbeiten Sie die folgende Zeile im _Eingabe_-Bereich, um sie in ein Bild zu verwandeln.
+Bearbeiten Sie die untenstehende Zeile im _Eingabebereich_, um sie in ein Bild zu verwandeln.
 
-1. Finden Sie ein beliebiges Bild online, klicken Sie mit der rechten Maustaste darauf und wählen Sie _Bildlink/-adresse kopieren_.
-2. Fügen Sie im folgenden Bereich das `src`-Attribut hinzu und füllen Sie es mit dem Link aus Schritt 1.
-3. Setzen Sie das `alt`-Attribut.
-4. Fügen Sie die `width`- und `height`-Attribute hinzu.
+1. Finden Sie Ihr Lieblingsbild online, klicken Sie mit der rechten Maustaste darauf und drücken Sie _Bildlink/-adresse kopieren_.
+2. Fügen Sie im Bereich unten das `src` Attribut hinzu und füllen Sie es mit dem Link aus Schritt 1.
+3. Setzen Sie das `alt` Attribut.
+4. Fügen Sie die Attribute `width` und `height` hinzu.
 
-Sie können Ihre Änderungen live im _Ausgabe_-Bereich sehen.
+Sie werden in der Lage sein, Ihre Änderungen live im _Ausgabebereich_ zu sehen.
 
-Wenn Sie einen Fehler machen, können Sie ihn immer mit der _Zurücksetzen_-Taste zurücksetzen. Wenn Sie wirklich feststecken, drücken Sie die _Lösung anzeigen_-Taste, um die Antwort zu sehen.
+Wenn Sie einen Fehler machen, können Sie ihn jederzeit mit der _Zurücksetzen_-Schaltfläche zurücksetzen. Wenn Sie wirklich feststecken, drücken Sie die _Lösung anzeigen_-Taste, um die Antwort zu sehen.
 
 ```html hidden
 <h2>Live output</h2>
@@ -404,13 +404,13 @@ textarea.onkeyup = () => {
 
 ### Boolesche Attribute
 
-Manchmal werden Sie Attribute sehen, die ohne Werte geschrieben sind. Dies ist völlig akzeptabel. Diese werden {{Glossary("Boolean/HTML", "boolesche Attribute")}} genannt. Wenn ein boolesches Attribut ohne Wert oder mit einem beliebigen Wert, sogar wie `"false"`, geschrieben wird, ist das boolesche Attribut immer auf true gesetzt. Ansonsten, falls das Attribut nicht in einem HTML-Tag geschrieben ist, ist das Attribut auf false gesetzt. Die Spezifikation erfordert, dass der Attributwert entweder der leere String ist (einschließlich wenn das Attribut keinen Wert explizit angegeben hat) oder derselbe wie der Attributname, aber andere Werte funktionieren gleich. Betrachten Sie beispielsweise das [`disabled`](/de/docs/Web/HTML/Reference/Elements/input#disabled)-Attribut, das Sie Formular-Eingabeelementen zuweisen können. (Sie verwenden dies, um die Formulareingabeelemente zu _deaktivieren_, damit der Benutzer keine Einträge machen kann. Die deaktivierten Elemente haben typischerweise ein ausgegrautes Aussehen.) Zum Beispiel:
+Manchmal sehen Sie Attribute, die ohne Werte geschrieben werden. Dies ist völlig akzeptabel. Diese werden {{Glossary("Boolean/HTML", "Boolesche Attribute")}} genannt. Wenn ein boolesches Attribut ohne einen Wert geschrieben wird oder mit einem beliebigen Wert, auch `"false"`, wird das boolesche Attribut immer auf true gesetzt. Andernfalls, wenn das Attribut nicht in einem HTML-Tag geschrieben wird, wird das Attribut auf false gesetzt. Die Spezifikation erfordert, dass der Wert des Attributs entweder der leere String (einschließlich, wenn dem Attribut kein Wert explizit zugewiesen wird) oder derselbe wie der Name des Attributs ist, aber andere Werte funktionieren genauso. Betrachten Sie zum Beispiel das [`disabled`](/de/docs/Web/HTML/Reference/Elements/input#disabled) Attribut, das Sie Formulareingabeelementen zuweisen können. (Sie verwenden dies, um die Formulareingabeelemente zu _deaktivieren_, sodass der Benutzer keine Eingaben machen kann. Die deaktivierten Elemente haben typischerweise ein ausgegrautes Erscheinungsbild.) Zum Beispiel:
 
 ```html
 <input type="text" disabled="disabled" />
 ```
 
-Als Abkürzung ist es akzeptabel, dies wie folgt zu schreiben:
+Kurz gesagt, es ist akzeptabel, dies wie folgt zu schreiben:
 
 ```html
 <!-- using the disabled attribute prevents the end user from entering text into the input box -->
@@ -420,33 +420,33 @@ Als Abkürzung ist es akzeptabel, dies wie folgt zu schreiben:
 <input type="text" />
 ```
 
-Zum Vergleich enthält das obige Beispiel auch ein nicht deaktiviertes Formular-Eingabeelement. Der HTML-Code aus dem obigen Beispiel erzeugt dieses Ergebnis:
+Zum Vergleich enthält das obige Beispiel auch ein nicht-deaktiviertes Formulareingabeelement. Das HTML aus dem obigen Beispiel ergibt dieses Ergebnis:
 
 {{ EmbedLiveSample('Boolean_attributes', 700, 100, "", "") }}
 
-### Weglassen von Anführungszeichen um Attributwerte
+### Auslassen von Anführungszeichen um Attributwerte
 
-Wenn Sie Code für viele andere Websites ansehen, stoßen Sie möglicherweise auf eine Reihe von seltsamen Markup-Stilen, einschließlich Attributwerten ohne Anführungszeichen. Dies ist unter bestimmten Umständen erlaubt, kann aber unter anderen Umständen Ihr Markup auch beschädigen. Das Element im unten stehenden Code-Snippet, `<a>`, wird Anker genannt. Anker umschließen Text und verwandeln ihn in Links. Das `href`-Attribut gibt die Webadresse an, auf die der Link zeigt. Sie können diese grundlegende Version unten schreiben, mit _nur_ dem `href`-Attribut, wie folgt:
+Wenn Sie sich den Code für viele andere Websites ansehen, können Sie auf eine Reihe von seltsamen Markup-Stilen stoßen, einschließlich Attributwerte ohne Anführungszeichen. Dies ist unter bestimmten Umständen erlaubt, kann aber auch Ihr Markup in anderen Umständen brechen. Das Element im folgenden Codeausschnitt, `<a>`, wird als Anker bezeichnet. Anker umschließen Text und verwandeln ihn in Links. Das `href` Attribut gibt die Webadresse an, auf die der Link verweist. Sie können diese grundlegende Version unten mit _nur_ dem `href` Attribut schreiben, wie folgt:
 
 ```html
 <a href=https://www.mozilla.org/>favorite website</a>
 ```
 
-Anker können auch ein `title`-Attribut haben, eine Beschreibung der verlinkten Seite. Sobald wir jedoch das `title` auf die gleiche Weise wie das `href`-Attribut hinzufügen, gibt es Probleme:
+Anker können auch ein `title` Attribut haben, eine Beschreibung der verlinkten Seite. Sobald wir jedoch das `title` auf die gleiche Weise wie das `href` Attribut hinzufügen, gibt es Probleme:
 
 ```html-nolint example-bad
 <a href=https://www.mozilla.org/ title=The Mozilla homepage>favorite website</a>
 ```
 
-Wie oben geschrieben, missinterpretiert der Browser das Markup und hält das `title`-Attribut für drei Attribute: ein title-Attribut mit dem Wert `The` und zwei boolesche Attribute, `Mozilla` und `homepage`. Offensichtlich ist dies nicht beabsichtigt! Es wird zu Fehlern oder unerwartetem Verhalten führen, wie Sie im folgenden Live-Beispiel sehen können. Versuchen Sie, den Link zu überfahren, um den Titeltext anzuzeigen!
+Wie oben geschrieben, missversteht der Browser das Markup und hält das `title` Attribut für drei Attribute: ein title Attribut mit dem Wert `The` und zwei boolesche Attribute, `Mozilla` und `homepage`. Offensichtlich ist dies nicht beabsichtigt! Es wird zu Fehlern oder unerwartetem Verhalten führen, wie Sie im Live-Beispiel unten sehen können. Versuchen Sie, über den Link zu schweben, um den Titeltext zu sehen!
 
 {{ EmbedLiveSample('Omitting_quotes_around_attribute_values', 700, 100, "", "") }}
 
-Fügen Sie immer die Attribut-Anführungszeichen hinzu. Es verhindert solche Probleme und führt zu lesbarerem Code.
+Schließen Sie die Attributanführungszeichen immer ein. Dies vermeidet solche Probleme und führt zu besser lesbarem Code.
 
-### Einfache oder doppelte Anführungszeichen?
+### Einzel- oder doppelte Anführungszeichen?
 
-In diesem Artikel werden die Attribute in doppelte Anführungszeichen eingeschlossen. Sie können jedoch auch einfache Anführungszeichen in einigen HTML-Codes sehen. Dies ist eine Stilfrage. Sie können wählen, welche Sie bevorzugen. Beide dieser Zeilen sind gleichwertig:
+In diesem Artikel werden Sie auch bemerken, dass die Attribute in doppelte Anführungszeichen eingeschlossen sind. Sie könnten jedoch in einigen HTML-Codes auch einfache Anführungszeichen sehen. Dies ist eine Stilfrage. Sie können frei wählen, welche Sie bevorzugen. Beide dieser Zeilen sind gleichwertig:
 
 ```html-nolint
 <a href='https://www.example.com'>A link to my example.</a>
@@ -454,13 +454,13 @@ In diesem Artikel werden die Attribute in doppelte Anführungszeichen eingeschlo
 <a href="https://www.example.com">A link to my example.</a>
 ```
 
-Stellen Sie sicher, dass Sie keine einfachen und doppelten Anführungszeichen mischen. Dieses Beispiel (unten) zeigt eine Art Mischung von Anführungszeichen, die nicht funktionieren wird:
+Stellen Sie sicher, dass Sie keine einfachen Anführungszeichen und doppelten Anführungszeichen mischen. Dieses Beispiel (unten) zeigt eine Art Mischung von Anführungszeichen, die schiefgehen wird:
 
 ```html-nolint example-bad
 <a href="https://www.example.com'>A link to my example.</a>
 ```
 
-Wenn Sie jedoch einen Typ Anführungszeichen verwenden, können Sie den anderen Typ von Anführungszeichen _innerhalb_ Ihrer Attributwerte einfügen:
+Wenn Sie jedoch eine Art von Anführungszeichen verwenden, können Sie die andere Art von Anführungszeichen _innerhalb_ Ihrer Attributwerte einfügen:
 
 ```html
 <a href="https://www.example.com" title="Isn't this fun?">
@@ -468,8 +468,8 @@ Wenn Sie jedoch einen Typ Anführungszeichen verwenden, können Sie den anderen 
 </a>
 ```
 
-Um Anführungszeichen innerhalb anderer Anführungszeichen desselben Typs (einfache oder doppelte Anführungszeichen) zu verwenden, verwenden Sie {{Glossary("character_reference", "Zeichenreferenzen")}}.
-Zum Beispiel wird dies nicht funktionieren:
+Um Anführungszeichen innerhalb anderer Anführungszeichen desselben Typs (einfach oder doppelt) zu verwenden, verwenden Sie {{Glossary("character_reference", "Zeichenreferenzen")}}.
+Zum Beispiel wird dies brechen:
 
 ```html-nolint example-bad
 <a href="https://www.example.com" title="An "interesting" reference">A link to my example.</a>
@@ -483,7 +483,7 @@ Stattdessen müssen Sie dies tun:
 
 ## Anatomie eines HTML-Dokuments
 
-Einzelne HTML-Elemente sind für sich wenig nützlich. Schauen wir uns als nächstes an, wie einzelne Elemente sich kombinieren, um eine vollständige HTML-Seite zu bilden:
+Einzelne HTML-Elemente sind nicht besonders nützlich für sich allein. Lassen Sie uns als Nächstes untersuchen, wie einzelne Elemente zusammenkommen, um eine gesamte HTML-Seite zu bilden:
 
 ```html
 <!doctype html>
@@ -500,45 +500,45 @@ Einzelne HTML-Elemente sind für sich wenig nützlich. Schauen wir uns als näch
 
 Hier haben wir:
 
-1. `<!doctype html>`: Der Doctype. Als HTML jung war (1991-1992), waren Doctypes als Links zu einem Satz von Regeln gedacht, denen die HTML-Seite folgen musste, um als gutes HTML angesehen zu werden. Doctypes sahen früher so aus:
+1. `<!doctype html>`: Den Doctype. Als HTML jung war (1991-1992), sollten Doctypes als Links zu einer Reihe von Regeln fungieren, denen die HTML-Seite folgen musste, um als gutes HTML zu gelten. Doctypes sahen früher etwa so aus:
 
    ```html
    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
    ```
 
-   In jüngerer Zeit ist der Doctype ein historisches Relikt, das eingefügt werden muss, damit alles andere richtig funktioniert. `<!doctype html>` ist die kürzeste Zeichenfolge, die als gültiger Doctype zählt. Das ist alles, was Sie wissen müssen!
+   In jüngerer Zeit ist der Doctype ein historisches Relikt, das enthalten sein muss, damit alles andere richtig funktioniert. `<!doctype html>` ist die kürzeste Zeichenkette, die als gültiger Doctype zählt. Das ist alles, was Sie wissen müssen!
 
-2. `<html></html>`: Das {{htmlelement("html")}}-Element. Dieses Element umschließt den gesamten Inhalt der Seite. Es wird manchmal als das Wurzelelement bezeichnet.
-3. `<head></head>`: Das {{htmlelement("head")}}-Element. Dieses Element dient als Container für alles, was Sie auf der HTML-Seite einfügen möchten, **was nicht der Inhalt** ist, den die Seite den Betrachtern zeigt. Dazu gehören Schlüsselwörter und eine Seitenbeschreibung, die in den Suchergebnissen erscheinen würden, CSS zur Gestaltung von Inhalten, Zeichensatzdeklarationen und mehr. Sie werden mehr darüber im nächsten Artikel der Reihe erfahren.
-4. `<meta charset="utf-8">`: Das {{htmlelement("meta")}}-Element. Dieses Element repräsentiert Metadaten, die nicht durch andere HTML-Metadaten-Elemente wie {{htmlelement("base")}}, {{htmlelement("link")}}, {{htmlelement("script")}}, {{htmlelement("style")}} oder {{htmlelement("title")}} dargestellt werden können. Das [`charset`](/de/docs/Web/HTML/Reference/Elements/meta#charset)-Attribut gibt die Zeichencodierung für Ihr Dokument als UTF-8 an, die die meisten Zeichen aus der großen Mehrheit der menschlichen Schriftsysteme enthält. Mit dieser Einstellung kann die Seite jetzt jeden Textinhalt verarbeiten, den sie möglicherweise enthält. Es gibt keinen Grund, dies nicht zu setzen, und es kann helfen, einige Probleme später zu vermeiden.
-5. `<title></title>`: Das {{htmlelement("title")}}-Element. Dieses setzt den Titel der Seite, der der Titel ist, der im Browser-Tab erscheint, in dem die Seite geladen wird. Der Seitentitel wird auch verwendet, um die Seite zu beschreiben, wenn sie als Lesezeichen gespeichert wird.
-6. `<body></body>`: Das {{htmlelement("body")}}-Element. Dies enthält _alle_ Inhalte, die auf der Seite angezeigt werden, einschließlich Text, Bilder, Videos, Spiele, abspielbare Audiodateien oder was auch immer.
+2. `<html></html>`: Das {{htmlelement("html")}} Element. Dieses Element umschließt den gesamten Inhalt der Seite. Es wird manchmal als Wurzelelement bezeichnet.
+3. `<head></head>`: Das {{htmlelement("head")}} Element. Dieses Element fungiert als Container für alles, was Sie auf der HTML-Seite aufnehmen möchten, **was nicht der Inhalt ist**, den die Seite den Betrachtern zeigt. Dazu gehören Schlüsselwörter und eine Seitenbeschreibung, die in den Suchergebnissen erscheinen würde, CSS zur Gestaltung von Inhalten, Zeichensatzdeklarationen und mehr. Sie werden mehr darüber im nächsten Artikel der Serie lernen.
+4. `<meta charset="utf-8">`: Das {{htmlelement("meta")}} Element. Dieses Element stellt Metadaten dar, die nicht durch andere HTML-Metadaten-bezogene Elemente wie {{htmlelement("base")}}, {{htmlelement("link")}}, {{htmlelement("script")}}, {{htmlelement("style")}} oder {{htmlelement("title")}} dargestellt werden können. Das [`charset`](/de/docs/Web/HTML/Reference/Elements/meta#charset) Attribut spezifiziert die Zeichenkodierung für Ihr Dokument als UTF-8, die die meisten Zeichen aus den meisten menschlichen Schriftsystemen umfasst. Mit dieser Einstellung kann die Seite jetzt mit jedem Textinhalt umgehen, den sie enthalten könnte. Es gibt keinen Grund, dies nicht zu setzen, und es kann helfen, einige spätere Probleme zu vermeiden.
+5. `<title></title>`: Das {{htmlelement("title")}} Element. Dies stellt den Titel der Seite ein, welcher der Titel ist, der in dem Browser-Tab angezeigt wird, in dem die Seite geladen ist. Der Seitentitel wird auch verwendet, um die Seite zu beschreiben, wenn sie als Lesezeichen gesetzt wird.
+6. `<body></body>`: Das {{htmlelement("body")}} Element. Dies enthält _alle_ Inhalte, die auf der Seite angezeigt werden, einschließlich Text, Bildern, Videos, Spielen, abspielbaren Audiotracks oder was auch immer.
 
-### Aktives Lernen: Hinzufügen von Funktionen zu einem HTML-Dokument
+### Aktives Lernen: Einem HTML-Dokument einige Funktionen hinzufügen
 
-Wenn Sie experimentieren möchten, indem Sie ein bisschen HTML auf Ihrem lokalen Computer schreiben, können Sie:
+Wenn Sie auf Ihrem lokalen Computer etwas mit dem Schreiben von HTML experimentieren möchten, können Sie:
 
-1. Kopieren Sie das oben aufgeführte HTML-Seiten-Beispiel.
+1. Kopieren Sie das oben aufgeführte HTML-Seitenbeispiel.
 2. Erstellen Sie eine neue Datei in Ihrem Texteditor.
 3. Fügen Sie den Code in die neue Textdatei ein.
 4. Speichern Sie die Datei als `index.html`.
 
 > [!NOTE]
-> Sie können diese grundlegende HTML-Vorlage auch im [MDN Learning Area GitHub-Repositorium](https://github.com/mdn/learning-area/blob/main/html/introduction-to-html/getting-started/index.html) finden.
+> Sie können diese grundlegende HTML-Vorlage auch im [MDN Learning Area GitHub Repo](https://github.com/mdn/learning-area/blob/main/html/introduction-to-html/getting-started/index.html) finden.
 
-Jetzt können Sie diese Datei in einem Webbrowser öffnen, um zu sehen, wie der gerenderte Code aussieht. Bearbeiten Sie den Code und aktualisieren Sie den Browser, um das Ergebnis zu sehen. Zuerst sieht die Seite so aus:
+Sie können diese Datei jetzt in einem Webbrowser öffnen, um zu sehen, wie der gerenderte Code aussieht. Bearbeiten Sie den Code und aktualisieren Sie den Browser, um das Ergebnis anzusehen. Anfangs sieht die Seite so aus:
 
-![Eine einfache HTML-Seite, die sagt: Dies ist meine Seite](template-screenshot.png)
+![Eine einfache HTML-Seite, die sagt, dass dies meine Seite ist](template-screenshot.png)
 
-In dieser Übung können Sie den Code lokal auf Ihrem Computer bearbeiten, wie zuvor beschrieben, oder Sie können ihn im untenstehenden Beispiel bearbeiten (das bearbeitbare Beispiel zeigt nur den Inhalt des {{htmlelement("body")}}-Elements in diesem Fall). Schärfen Sie Ihre Fähigkeiten, indem Sie die folgenden Aufgaben umsetzen:
+In dieser Übung können Sie den Code lokal auf Ihrem Computer bearbeiten, wie zuvor beschrieben, oder Sie können ihn im Beispiel-Fenster unten bearbeiten (das bearbeitbare Beispiel-Fenster stellt nur den Inhalt des {{htmlelement("body")}}-Elements dar, in diesem Fall). Schärfen Sie Ihre Fähigkeiten, indem Sie die folgenden Aufgaben erledigen:
 
-- Fügen Sie direkt unter dem öffnenden Tag des {{htmlelement("body")}}-Elements einen Haupttitel für das Dokument hinzu. Dieser sollte in einem `<h1>` öffnenden Tag und einem `</h1>` schließenden Tag eingeschlossen sein.
-- Bearbeiten Sie den Absatz-Inhalt, um Text über ein Thema einzufügen, das Sie interessant finden.
-- Lassen Sie wichtige Wörter fett hervorstechen, indem Sie sie in einem `<strong>` öffnenden Tag und einem `</strong>` schließenden Tag einschließen.
-- Fügen Sie Ihrem Absatz einen Link hinzu, wie [früher im Artikel erläutert](#active_learning_adding_attributes_to_an_element).
-- Fügen Sie ein Bild in Ihr Dokument ein. Platzieren Sie es unter dem Absatz, wie [früher im Artikel erläutert](#leere_elemente). Verdienen Sie Bonuspunkte, wenn es Ihnen gelingt, auf ein anderes Bild zu verlinken (entweder lokal auf Ihrem Computer oder irgendwo anders im Web).
+- Fügen Sie direkt unter dem öffnenden Tag des {{htmlelement("body")}} Elements einen Haupttitel für das Dokument hinzu. Dieser sollte in einen `<h1>` öffnenden Tag und einen `</h1>` schließenden Tag eingeschlossen werden.
+- Bearbeiten Sie den Absatzinhalt, um Text über ein Thema einzufügen, das Sie interessant finden.
+- Lassen Sie wichtige Wörter fett hervortreten, indem Sie sie in einen `<strong>` öffnenden Tag und einen `</strong>` schließenden Tag einschließen.
+- Fügen Sie Ihrem Absatz einen Link hinzu, wie [früher im Artikel erklärt](#active_learning_adding_attributes_to_an_element).
+- Fügen Sie Ihrem Dokument ein Bild hinzu. Platzieren Sie es unter dem Absatz, wie [früher im Artikel erklärt](#leere_elemente). Verdienen Sie Bonuspunkte, wenn es Ihnen gelingt, ein anderes Bild zu verlinken (entweder lokal auf Ihrem Computer oder woanders im Web).
 
-Wenn Sie einen Fehler machen, können Sie ihn immer mit der _Zurücksetzen_-Taste zurücksetzen. Wenn Sie wirklich feststecken, drücken Sie die _Lösung anzeigen_-Taste, um die Antwort zu sehen.
+Wenn Sie einen Fehler machen, können Sie ihn immer mit der _Zurücksetzen_-Schaltfläche zurücksetzen. Wenn Sie wirklich feststecken, drücken Sie die _Lösung anzeigen_-Taste, um die Antwort zu sehen.
 
 ```html hidden
 <h2>Live output</h2>
@@ -677,7 +677,7 @@ textarea.onkeyup = () => {
 
 ### Leerzeichen in HTML
 
-In den obigen Beispielen haben Sie möglicherweise bemerkt, dass im Code viel Leerraum enthalten ist. Dieser ist optional. Diese beiden Code-Snippets sind gleichwertig:
+In den obigen Beispielen haben Sie vielleicht bemerkt, dass im Code viele Leerzeichen enthalten sind. Dies ist optional. Diese beiden Code-Snippets sind gleichwertig:
 
 ```html-nolint
 <p id="noWhitespace">Dogs are silly.</p>
@@ -687,17 +687,17 @@ In den obigen Beispielen haben Sie möglicherweise bemerkt, dass im Code viel Le
         silly.</p>
 ```
 
-Unabhängig davon, wie viel Leerraum Sie im Inhalt eines HTML-Elements verwenden (was ein oder mehrere Leerzeichenzeichen, aber auch Zeilenumbrüche umfassen kann), reduziert der HTML-Parser jede Leerzeichenfolge auf ein einzelnes Leerzeichen, wenn der Code gerendert wird. Warum also so viel Leerraum verwenden? Die Antwort ist Lesbarkeit.
+Egal wie viele Leerzeichen Sie innerhalb des Inhalts eines HTML-Elements verwenden (die ein oder mehrere Leerzeichen, aber auch Zeilenumbrüche umfassen können), der HTML-Parser reduziert jede Sequenz von Leerzeichen auf ein einzelnes Leerzeichen, wenn der Code gerendert wird. Warum verwenden wir also so viele Leerzeichen? Die Antwort ist Lesbarkeit.
 
-Es kann einfacher sein zu verstehen, was in Ihrem Code vor sich geht, wenn Sie ihn schön formatiert haben. In unserem HTML haben wir jedes verschachtelte Element um zwei Leerzeichen mehr eingerückt als das, in dem es sich befindet. Es liegt an Ihnen, den Stil der Formatierung zu wählen (wie viele Leerzeichen für jede Ebene der Einrückung zum Beispiel), aber Sie sollten überlegen, es zu formatieren.
+Es kann einfacher zu verstehen sein, was in Ihrem Code vor sich geht, wenn Sie ihn schön formatiert haben. In unserem HTML haben wir jedes verschachtelte Element um zwei Leerzeichen mehr eingerückt als das, in dem es sich befindet. Es liegt an Ihnen, den Stil der Formatierung zu wählen (wie viele Leerzeichen für jede Verschachtelungsebene beispielsweise), aber Sie sollten erwägen, ihn zu formatieren.
 
-Werfen wir einen Blick darauf, wie der Browser die beiden Absätze oben mit und ohne Leerraum rendert:
+Sehen wir uns an, wie der Browser die beiden Absätze oben mit und ohne Leerzeichen rendert:
 
 {{ EmbedLiveSample('Whitespace_in_HTML', 700, 100) }}
 
 > [!NOTE]
-> Der Zugriff auf das [innerHTML](/de/docs/Web/API/Element/innerHTML) von Elementen aus JavaScript wird den gesamten Leerraum intakt halten.
-> Dies kann zu unerwarteten Ergebnissen führen, wenn der Leerraum vom Browser getrimmt wird.
+> Wenn auf die [innerHTML](/de/docs/Web/API/Element/innerHTML) von Elementen aus JavaScript zugegriffen wird, bleibt der gesamte Leerraum erhalten.
+> Dies kann unerwartete Ergebnisse liefern, wenn der Leerraum vom Browser abgeschnitten wird.
 
 ```js
 const noWhitespace = document.getElementById("noWhitespace").innerHTML;
@@ -711,21 +711,21 @@ console.log(whitespace);
 //        silly."
 ```
 
-## Zeichenreferenzen: Sonderzeichen in HTML einfügen
+## Zeichenreferenzen: Einschließen spezieller Zeichen in HTML
 
-In HTML sind die Zeichen `<`, `>`, `"`, `'` und `&` Sonderzeichen. Sie sind Teile der HTML-Syntax selbst. Wie fügen Sie also eines dieser Sonderzeichen in Ihren Text ein? Zum Beispiel, wenn Sie ein Kaufmanns-Und oder ein Kleiner-Zeichen verwenden möchten und es nicht als Code interpretiert werden soll.
+In HTML sind die Zeichen `<`, `>`, `"`, `'` und `&` spezielle Zeichen. Sie sind Teile der HTML-Syntax selbst. Wie schließen Sie also eines dieser Sonderzeichen in Ihren Text ein? Zum Beispiel, wenn Sie ein kaufmännisches Und-Zeichen oder ein kleiner Zeichen verwenden möchten, und es nicht als Code interpretiert werden soll.
 
-Sie tun dies mit {{Glossary("character_reference", "Zeichenreferenzen")}}. Das sind spezielle Codes, die Zeichen repräsentieren, um in diesen genauen Situationen verwendet zu werden. Jede Zeichenreferenz beginnt mit einem Ampersand (&) und endet mit einem Semikolon (;).
+Sie tun dies mit {{Glossary("character_reference", "Zeichenreferenzen")}}. Dies sind spezielle Codes, die Zeichen darstellen sollen, die in genau diesen Fällen verwendet werden. Jede Zeichenreferenz beginnt mit einem Kaufmännischen Und-Zeichen (&) und endet mit einem Semikolon (;).
 
-| Buchstäbliches Zeichen | Zeichenreferenz-Äquivalent |
-| ---------------------- | -------------------------- |
-| <                      | `&lt;`                     |
-| >                      | `&gt;`                     |
-| "                      | `&quot;`                   |
-| '                      | `&apos;`                   |
-| &                      | `&amp;`                    |
+| Literalzeichen | Zeichenreferenz-Äquivalent |
+| -------------- | -------------------------- |
+| <              | `&lt;`                     |
+| >              | `&gt;`                     |
+| "              | `&quot;`                   |
+| '              | `&apos;`                   |
+| &              | `&amp;`                    |
 
-Das Zeichenreferenz-Äquivalent kann leicht erinnert werden, weil der Text, den es verwendet, als kleiner als für `&lt;`, Anführungszeichen für `&quot;` und ähnlich für andere gesehen werden kann. Mehr Informationen über Entitätsreferenzen finden Sie in der [Liste der XML- und HTML-Zeichenentitäts-Referenzen](https://en.wikipedia.org/wiki/List_of_XML_and_HTML_character_entity_references) (Wikipedia).
+Das Zeichenreferenz-Äquivalent kann leicht eingeprägt werden, da der verwendete Text als kleiner als für `&lt;`, Zitat für `&quot;` und ähnlich für andere gesehen werden kann. Um mehr über Entity-Referenzen zu erfahren, siehe [Liste der XML- und HTML-Zeichen-Entity-Referenzen](https://en.wikipedia.org/wiki/List_of_XML_and_HTML_character_entity_references) (Wikipedia).
 
 Im folgenden Beispiel gibt es zwei Absätze:
 
@@ -735,18 +735,18 @@ Im folgenden Beispiel gibt es zwei Absätze:
 <p>In HTML, you define a paragraph using the &lt;p&gt; element.</p>
 ```
 
-Im Live-Ergebnis unten sehen Sie, dass der erste Absatz falsch gegangen ist. Der Browser interpretiert die zweite Instanz von `<p>` als Beginn eines neuen Absatzes. Der zweite Absatz sieht in Ordnung aus, da er mit Zeichenreferenz-Winkelklammern versehen ist.
+Im Live-Ausgang unten sehen Sie, dass im ersten Absatz etwas schief gelaufen ist. Der Browser interpretiert das zweite Vorkommen von `<p>` als Beginn eines neuen Absatzes. Der zweite Absatz sieht in Ordnung aus, da er Winkelklammen mit Zeichenreferenzen enthält.
 
 {{ EmbedLiveSample('Entity_references_Including_special_characters_in_HTML', 700, 200, "", "") }}
 
 > [!NOTE]
-> Sie müssen keine Entitätsreferenzen für andere Symbole verwenden, da moderne Browser die tatsächlichen Symbole problemlos verarbeiten, solange die [Zeichencodierung Ihrer HTML-Datei auf UTF-8 eingestellt ist](/de/docs/Learn_web_development/Core/Structuring_content/Webpage_metadata#specifying_your_documents_character_encoding).
+> Sie müssen keine Entity-Referenzen für andere Symbole verwenden, da moderne Browser die tatsächlichen Symbole problemlos verarbeiten, solange die [Zeichenkodierung Ihres HTMLs auf UTF-8 eingestellt ist](/de/docs/Learn_web_development/Core/Structuring_content/Webpage_metadata#specifying_your_documents_character_encoding).
 
 ## HTML-Kommentare
 
-HTML hat einen Mechanismus, um Kommentare im Code zu schreiben. Browser ignorieren Kommentare und machen sie somit für den Benutzer unsichtbar. Zweck der Kommentare ist es, Notizen im Code einzufügen, um Ihre Logik oder Codierung zu erklären. Dies ist sehr nützlich, wenn Sie zu einem Code zurückkehren, nachdem Sie lange genug weg waren, um sich nicht mehr vollständig daran zu erinnern. Ebenso sind Kommentare von unschätzbarem Wert, wenn verschiedene Personen Änderungen und Aktualisierungen vornehmen.
+HTML verfügt über einen Mechanismus zur Erstellung von Kommentaren im Code. Browser ignorieren Kommentare, was sie für den Benutzer effektiv unsichtbar macht. Der Zweck von Kommentaren besteht darin, Ihnen zu ermöglichen, Notizen im Code zu hinterlassen, um Ihre Logik oder Codierung zu erklären. Dies ist sehr nützlich, wenn Sie nach längerer Abwesenheit zu einem Code zurückkehren, den Sie nicht mehr vollständig im Gedächtnis haben. Ebenso sind Kommentare unverzichtbar, wenn verschiedene Personen Änderungen und Aktualisierungen vornehmen.
 
-Um einen HTML-Kommentar zu schreiben, umschließen Sie ihn mit den speziellen Markierungen `<!--` und `-->`. Zum Beispiel:
+Um einen HTML-Kommentar zu schreiben, schließen Sie ihn in die speziellen Markierungen `<!--` und `-->` ein. Zum Beispiel:
 
 ```html
 <p>I'm not inside a comment</p>
@@ -754,20 +754,20 @@ Um einen HTML-Kommentar zu schreiben, umschließen Sie ihn mit den speziellen Ma
 <!-- <p>I am!</p> -->
 ```
 
-Wie Sie unten sehen können, wird nur der erste Absatz im Live-Ergebnis angezeigt.
+Wie Sie unten sehen können, wird im Live-Ausgang nur der erste Absatz angezeigt.
 
 {{ EmbedLiveSample('HTML_comments', 700, 100, "", "") }}
 
 ## Zusammenfassung
 
-Sie haben es bis zum Ende des Artikels geschafft! Wir hoffen, dass Ihnen die Tour durch die Grundlagen von HTML gefallen hat.
+Sie haben es bis ans Ende des Artikels geschafft! Wir hoffen, dass Ihnen Ihre Tour durch die Grundlagen von HTML gefallen hat.
 
-An diesem Punkt sollten Sie verstehen, wie HTML aussieht und wie es auf grundlegender Ebene funktioniert. Sie sollten auch in der Lage sein, einige Elemente und Attribute zu schreiben. Die nachfolgenden Artikel dieses Moduls gehen tiefer auf einige der hier eingeführten Themen ein und präsentieren auch andere Konzepte der Sprache.
+An diesem Punkt sollten Sie verstehen, wie HTML aussieht und wie es auf einfacher Basis funktioniert. Sie sollten auch in der Lage sein, ein paar Elemente und Attribute zu schreiben. Die nachfolgenden Artikel dieses Moduls gehen weiter auf einige der hier eingeführten Themen ein und präsentieren weitere Konzepte der Sprache.
 
-- Wenn Sie mehr über HTML lernen, sollten Sie die Grundlagen von CSS (Cascading Style Sheets) erlernen. [CSS](/de/docs/Learn_web_development/Core/Styling_basics) ist die Sprache, die verwendet wird, um Webseiten zu stylen, wie zum Beispiel das Ändern von Schriftarten oder Farben oder das Ändern des Seitenlayouts. HTML und CSS funktionieren gut zusammen, wie Sie bald entdecken werden.
+- Wenn Sie beginnen, mehr über HTML zu lernen, sollten Sie die Grundlagen von CSS (Cascading Style Sheets) lernen. [CSS](/de/docs/Learn_web_development/Core/Styling_basics) ist die Sprache, die verwendet wird, um Webseiten zu gestalten, wie das Ändern von Schriftarten oder Farben oder das Ändern des Layouts der Seite. HTML und CSS funktionieren gut zusammen, wie Sie bald entdecken werden.
 
 ## Siehe auch
 
-- [Farbe auf HTML-Elemente mit CSS anwenden](/de/docs/Web/CSS/CSS_colors/Applying_color)
+- [Anwenden von Farbe auf HTML-Elemente mit CSS](/de/docs/Web/CSS/CSS_colors/Applying_color)
 
 {{NextMenu("Learn_web_development/Core/Structuring_content/Webpage_metadata", "Learn_web_development/Core/Structuring_content")}}

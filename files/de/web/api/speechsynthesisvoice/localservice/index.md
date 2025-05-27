@@ -3,16 +3,14 @@ title: "SpeechSynthesisVoice: localService-Eigenschaft"
 short-title: localService
 slug: Web/API/SpeechSynthesisVoice/localService
 l10n:
-  sourceCommit: 101ffc9479db6aaa530f2aac3992734dd97d1b86
+  sourceCommit: b5437b737639d6952d18b95ebd1045ed73e4bfa7
 ---
 
 {{APIRef("Web Speech API")}}
 
-Die **`localService`** schreibgeschützte Eigenschaft des
-[`SpeechSynthesisVoice`](/de/docs/Web/API/SpeechSynthesisVoice)-Interfaces gibt einen booleschen Wert zurück,
-der angibt, ob die Stimme von einem lokalen Sprachsynthesizer-Dienst (`true`) oder einem Remote-Sprachsynthesizer-Dienst (`false`) bereitgestellt wird.
+Die schreibgeschützte Eigenschaft **`localService`** des [`SpeechSynthesisVoice`](/de/docs/Web/API/SpeechSynthesisVoice)-Interfaces gibt einen booleschen Wert zurück, der angibt, ob die Stimme von einem lokalen Sprachsynthesizer-Dienst bereitgestellt wird (`true`) oder von einem entfernten Sprachsynthesizer-Dienst (`false`).
 
-Diese Eigenschaft wird bereitgestellt, um eine Unterscheidung zu ermöglichen, falls einige Sprachoptionen von einem Remote-Dienst bereitgestellt werden. Es ist möglich, dass Remote-Stimmen zusätzliche Latenz, Bandbreite oder Kosten mit sich bringen, sodass eine solche Unterscheidung nützlich sein kann.
+Diese Eigenschaft wird bereitgestellt, um eine Unterscheidung zu ermöglichen, falls einige Sprachoptionen von einem entfernten Dienst angeboten werden; es ist möglich, dass entfernte Stimmen zusätzliche Latenz, Bandbreite oder Kosten mit sich bringen, daher kann eine solche Unterscheidung nützlich sein.
 
 ## Wert
 
@@ -21,18 +19,18 @@ Ein boolescher Wert.
 ## Beispiele
 
 ```js
-for (let i = 0; i < voices.length; i++) {
+for (const voice of voices) {
   const option = document.createElement("option");
-  option.textContent = `${voices[i].name} (${voices[i].lang})`;
+  option.textContent = `${voice.name} (${voice.lang})`;
 
-  if (voices[i].default) {
+  if (voice.default) {
     option.textContent += " — DEFAULT";
   }
 
-  console.log(voices[i].localService);
+  console.log(voice.localService);
 
-  option.setAttribute("data-lang", voices[i].lang);
-  option.setAttribute("data-name", voices[i].name);
+  option.setAttribute("data-lang", voice.lang);
+  option.setAttribute("data-name", voice.name);
   voiceSelect.appendChild(option);
 }
 ```

@@ -2,17 +2,17 @@
 title: StyleSheetList
 slug: Web/API/StyleSheetList
 l10n:
-  sourceCommit: 364a4d02b10854ab7cef4ff4b0ec3616d4e1c8ab
+  sourceCommit: b5437b737639d6952d18b95ebd1045ed73e4bfa7
 ---
 
 {{APIRef("CSSOM")}}
 
-Das `StyleSheetList`-Interface repräsentiert eine Liste von [`CSSStyleSheet`](/de/docs/Web/API/CSSStyleSheet)-Objekten. Eine Instanz dieses Objekts kann von [`Document.styleSheets`](/de/docs/Web/API/Document/styleSheets) zurückgegeben werden.
+Das `StyleSheetList`-Interface repräsentiert eine Liste von [`CSSStyleSheet`](/de/docs/Web/API/CSSStyleSheet)-Objekten. Eine Instanz dieses Objekts kann durch [`Document.styleSheets`](/de/docs/Web/API/Document/styleSheets) zurückgegeben werden.
 
-Es handelt sich um ein array-ähnliches Objekt, das jedoch nicht mit {{jsxref("Array")}}-Methoden durchlaufen werden kann. Es kann jedoch in einer standardmäßigen {{jsxref("Statements/for", "for")}}-Schleife über seine Indizes durchlaufen oder in ein {{jsxref("Array")}} umgewandelt werden.
+Es handelt sich um ein array-ähnliches Objekt, das jedoch nicht mit {{jsxref("Array")}}-Methoden iteriert werden kann. Es kann jedoch in einer standardmäßigen {{jsxref("Statements/for", "for")}}-Schleife über seine Indizes iteriert oder in ein {{jsxref("Array")}} umgewandelt werden.
 
 > [!NOTE]
-> Typischerweise umschließen Listeninterfaces wie `StyleSheetList` {{jsxref("Array")}}-Typen, sodass Sie `Array`-Methoden auf ihnen verwenden können.
+> Typischerweise umschließen Listen-Interfaces wie `StyleSheetList` {{jsxref("Array")}}-Typen, sodass Sie `Array`-Methoden darauf verwenden können.
 > Dies ist hier aus [historischen Gründen](https://stackoverflow.com/questions/74630989/why-use-domstringlist-rather-than-an-array/74641156#74641156) nicht der Fall.
 > Sie können jedoch `StyleSheetList` in ein `Array` umwandeln, um diese Methoden zu verwenden (siehe das Beispiel unten).
 
@@ -24,18 +24,15 @@ Es handelt sich um ein array-ähnliches Objekt, das jedoch nicht mit {{jsxref("A
 ## Instanz-Methoden
 
 - [`StyleSheetList.item()`](/de/docs/Web/API/StyleSheetList/item)
-  - : Gibt das [`CSSStyleSheet`](/de/docs/Web/API/CSSStyleSheet)-Objekt an dem übergebenen Index zurück oder `null`, wenn für diesen Index kein Element existiert.
+  - : Gibt das [`CSSStyleSheet`](/de/docs/Web/API/CSSStyleSheet)-Objekt am übergebenen Index zurück oder `null`, wenn kein Element für diesen Index existiert.
 
 ## Beispiele
 
-### CSSStyleSheet-Objekte mit einer for-Schleife abrufen
+### CSSStyleSheet-Objekte mit einer for-Schleife erhalten
 
 ```js
-const styleSheet = [];
-const styleSheets = document.styleSheets;
-
-for (let i = 0; i < styleSheets.length; i++) {
-  styleSheet.push(styleSheets[i]);
+for (const styleSheet of document.styleSheets) {
+  console.log(styleSheet); // A CSSStyleSheet object
 }
 ```
 

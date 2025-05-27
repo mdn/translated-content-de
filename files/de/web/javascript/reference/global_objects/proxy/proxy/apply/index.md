@@ -2,12 +2,12 @@
 title: handler.apply()
 slug: Web/JavaScript/Reference/Global_Objects/Proxy/Proxy/apply
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: 2c0f972d873ea2db5163dbcb12987847124751ad
 ---
 
 {{JSRef}}
 
-Die Methode **`handler.apply()`** ist eine Falle für die `[[Call]]` [interne Objektmethode](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods), die bei Operationen wie Funktionsaufrufen verwendet wird.
+Die **`handler.apply()`** Methode ist eine Falle für die `[[Call]]` [interne Objektmethode](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods), welche von Operationen wie Funktionsaufrufen verwendet wird.
 
 {{InteractiveExample("JavaScript Demo: handler.apply()", "taller")}}
 
@@ -17,7 +17,7 @@ function sum(a, b) {
 }
 
 const handler = {
-  apply: function (target, thisArg, argumentsList) {
+  apply(target, thisArg, argumentsList) {
     console.log(`Calculate sum: ${argumentsList}`);
     // Expected output: "Calculate sum: 1,2"
 
@@ -44,22 +44,22 @@ new Proxy(target, {
 
 ### Parameter
 
-Die folgenden Parameter werden an die Methode `apply()` übergeben. `this` ist an den Handler gebunden.
+Die folgenden Parameter werden an die `apply()` Methode übergeben. `this` ist an den Handler gebunden.
 
 - `target`
-  - : Das Zielobjekt, das aufrufbar ist.
+  - : Das aufrufbare Zielobjekt.
 - `thisArg`
-  - : Das `this`-Argument für den Aufruf.
+  - : Das `this` Argument für den Aufruf.
 - `argumentsList`
   - : Ein {{jsxref("Array")}}, das die an die Funktion übergebenen Argumente enthält.
 
 ### Rückgabewert
 
-Die Methode `apply()` kann jeden Wert zurückgeben, der den Rückgabewert des Funktionsaufrufs repräsentiert.
+Die `apply()` Methode kann jeden Wert zurückgeben, der den Rückgabewert des Funktionsaufrufs darstellt.
 
 ## Beschreibung
 
-### Abfangmechanismen
+### Abfangmöglichkeiten
 
 Diese Falle kann folgende Operationen abfangen:
 
@@ -71,9 +71,9 @@ Oder jede andere Operation, die die `[[Call]]` [interne Methode](/de/docs/Web/Ja
 
 ### Invarianten
 
-Die `[[Call]]`-interne Methode des Proxys wirft einen {{jsxref("TypeError")}}, wenn die Handler-Definition eine der folgenden Invarianten verletzt:
+Die `[[Call]]` interne Methode des Proxys wirft einen {{jsxref("TypeError")}}, wenn die Handler-Definition eine der folgenden Invarianten verletzt:
 
-- Das `target` muss selbst aufrufbar sein. Das bedeutet, es muss ein Funktionsobjekt sein.
+- Das `target` muss selbst aufrufbar sein. Das heißt, es muss ein Funktionsobjekt sein.
 
 ## Beispiele
 
@@ -104,7 +104,7 @@ console.log(p(1, 2, 3)); // "called: 1,2,3"
 ## Siehe auch
 
 - {{jsxref("Proxy")}}
-- [`Proxy()`-Konstruktor](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy)
+- [`Proxy()` Konstruktor](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy)
 - {{jsxref("Function.prototype.apply()")}}
 - {{jsxref("Function.prototype.call()")}}
 - {{jsxref("Reflect.apply()")}}

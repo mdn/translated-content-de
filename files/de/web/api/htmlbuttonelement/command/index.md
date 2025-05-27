@@ -1,14 +1,14 @@
 ---
-title: "HTMLButtonElement: command-Eigenschaft"
+title: "HTMLButtonElement: command Eigenschaft"
 short-title: command
 slug: Web/API/HTMLButtonElement/command
 l10n:
-  sourceCommit: af550427ce6ddc8b22dae1f6c8a109ed4a5fbd91
+  sourceCommit: ffa6f5871f50856c60983a125cef7de267be7aeb
 ---
 
 {{APIRef("Invoker Commands API")}}
 
-Die **`command`**-Eigenschaft der [`HTMLButtonElement`](/de/docs/Web/API/HTMLButtonElement)-Schnittstelle erhält und setzt die Aktion, die auf ein Element ausgeführt werden soll, das von diesem Button gesteuert wird. Damit dies eine Wirkung hat, muss [`commandfor`](/de/docs/Web/HTML/Reference/Elements/button#commandfor) gesetzt sein.
+Die **`command`**-Eigenschaft des [`HTMLButtonElement`](/de/docs/Web/API/HTMLButtonElement)-Interfaces ruft die Aktion ab, die auf einem von dieser Schaltfläche gesteuerten Element ausgeführt werden soll, und setzt diese. Damit dies Wirkung zeigt, muss [`commandfor`](/de/docs/Web/HTML/Reference/Elements/button#commandfor) gesetzt sein.
 
 Sie spiegelt das HTML-Attribut [`command`](/de/docs/Web/HTML/Reference/Elements/button#command) wider.
 
@@ -37,7 +37,7 @@ const toggleBtn = document.getElementById("toggleBtn");
 toggleBtn.command = "show-popover";
 ```
 
-### Benutzerdefiniertes Beispiel, mit Ereignissen
+### Benutzerdefiniertes Beispiel unter Verwendung von Ereignissen
 
 ```html
 <button commandfor="the-image" command="--rotate-left">Rotate Left</button>
@@ -51,9 +51,9 @@ toggleBtn.command = "show-popover";
 const image = document.getElementById("the-image");
 
 image.addEventListener("command", (event) => {
-  if (event.command == "--rotate-left") {
+  if (event.command === "--rotate-left") {
     event.target.style.rotate = "-90deg";
-  } else if (event.command == "--rotate-right") {
+  } else if (event.command === "--rotate-right") {
     event.target.style.rotate = "90deg";
   }
 });

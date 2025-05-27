@@ -3,16 +3,16 @@ title: "SpeechRecognition: audiostart-Ereignis"
 short-title: audiostart
 slug: Web/API/SpeechRecognition/audiostart_event
 l10n:
-  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
+  sourceCommit: ffa6f5871f50856c60983a125cef7de267be7aeb
 ---
 
 {{APIRef("Web Speech API")}}
 
-Das **`audiostart`**-Ereignis der [Web Speech API](/de/docs/Web/API/Web_Speech_API) wird ausgelöst, wenn der User-Agent begonnen hat, Audio für die Spracherkennung aufzunehmen.
+Das **`audiostart`**-Ereignis der [Web Speech API](/de/docs/Web/API/Web_Speech_API) wird ausgelöst, wenn der Benutzeragent beginnt, Audio für die Spracherkennung aufzunehmen.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js-nolint
 addEventListener("audiostart", (event) => { })
@@ -29,14 +29,14 @@ Ein generisches [`Event`](/de/docs/Web/API/Event) ohne zusätzliche Eigenschafte
 Sie können das `audiostart`-Ereignis in einer [`addEventListener`](/de/docs/Web/API/EventTarget/addEventListener)-Methode verwenden:
 
 ```js
-const recognition = new webkitSpeechRecognition() || new SpeechRecognition();
+const recognition = new (SpeechRecognition || webkitSpeechRecognition)();
 
 recognition.addEventListener("audiostart", () => {
   console.log("Audio capturing started");
 });
 ```
 
-Oder verwenden Sie die `onaudiostart`-Ereignishandler-Eigenschaft:
+Oder Sie verwenden die `onaudiostart`-Ereignis-Handler-Eigenschaft:
 
 ```js
 recognition.onaudiostart = () => {

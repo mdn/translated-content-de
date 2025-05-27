@@ -2,12 +2,12 @@
 title: font-weight
 slug: Web/CSS/font-weight
 l10n:
-  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
+  sourceCommit: edb16c0a662d7e719efe67561389a7a087c1ace9
 ---
 
 {{CSSRef}}
 
-Die **`font-weight`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Dicke (oder Fettdruck) der Schriftart fest. Die verfügbaren Dicken hängen von der aktuell gesetzten {{cssxref("font-family")}} ab.
+Die **`font-weight`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Stärke (oder Fetter) der Schriftart fest. Die verfügbaren Stärken hängen von der aktuell eingestellten {{cssxref("font-family")}} ab.
 
 {{InteractiveExample("CSS Demo: font-weight")}}
 
@@ -83,7 +83,7 @@ font-weight: revert-layer;
 font-weight: unset;
 ```
 
-Die `font-weight`-Eigenschaft wird entweder mit einem `<font-weight-absolute>`-Wert oder einem relativen Gewichtswert angegeben, wie unten aufgelistet.
+Die Eigenschaft `font-weight` wird entweder mit einem `<font-weight-absolute>`-Wert oder einem relativen Gewichtswert angegeben, wie unten aufgeführt.
 
 ### Werte
 
@@ -93,41 +93,41 @@ Die `font-weight`-Eigenschaft wird entweder mit einem `<font-weight-absolute>`-W
 
 - `bold`
 
-  - : Fettgedrucktes Schriftgewicht. Entspricht `700`.
+  - : Fettschrift-Gewicht. Entspricht `700`.
 
 - `<number>`
 
-  - : Ein {{cssxref("&lt;number&gt;")}}-Wert zwischen 1 und 1000, einschließlich beider Werte. Höhere Zahlen repräsentieren Gewichte, die fetter sind als (oder genauso fett wie) niedrigere Zahlen. Dies ermöglicht eine feingranulare Kontrolle für [variable Schriftarten](#variable_schriftarten). Bei nicht variablen Schriftarten wird, wenn das genau spezifizierte Gewicht nicht verfügbar ist, ein [Fallback-Gewicht](#fallback-gewichte)-Algorithmus verwendet — numerische Werte, die durch 100 teilbar sind, entsprechen gängigen Gewichtsnamen, wie im Abschnitt [Mapping der gängigen Gewichtsnamen](#mapping_der_gängigen_gewichtsnamen) unten beschrieben.
+  - : Ein {{cssxref("&lt;number&gt;")}} Wert zwischen 1 und 1000, einschließlich beider Werte. Höhere Zahlen stehen für Gewichtungen, die fetter sind als (oder so fett wie) niedrigere Zahlen. Dies ermöglicht eine feingranulare Steuerung für [variable Schriften](#variable_schriften). Für nicht variable Schriften wird, wenn das exakt angegebene Gewicht nicht verfügbar ist, ein [Fallback-Gewicht](#fallback-gewichte) Algorithmus verwendet — numerische Werte, die durch 100 teilbar sind, entsprechen den üblichen Gewichtsnamen, wie im Abschnitt [Zuordnung von gebräuchlichen Gewichtsnamen](#zuordnung_von_gebräuchlichen_gewichtsnamen) unten beschrieben.
 
 - `lighter`
 
-  - : Ein relatives Schriftgewicht, das leichter ist als das übergeordnete Element. Bitte beachten Sie, dass nur vier Schriftgewichte für die Berechnung relativer Gewichtungen in Betracht gezogen werden; siehe den Abschnitt [Bedeutung relativer Gewichtungen](#bedeutung_relativer_gewichtungen) unten.
+  - : Ein relatives Schriftgewicht, das leichter ist als das Elternelement. Beachten Sie, dass nur vier Schriftgewichte für die Berechnung relativer Gewichte betrachtet werden. Weitere Informationen finden Sie im Abschnitt [Bedeutung relativer Gewichte](#bedeutung_relativer_gewichte) unten.
 
 - `bolder`
-  - : Ein relatives Schriftgewicht, das schwerer ist als das übergeordnete Element. Bitte beachten Sie, dass nur vier Schriftgewichte für die Berechnung relativer Gewichtungen in Betracht gezogen werden; siehe den Abschnitt [Bedeutung relativer Gewichtungen](#bedeutung_relativer_gewichtungen) unten.
+  - : Ein relatives Schriftgewicht, das schwerer ist als das Elternelement. Beachten Sie, dass nur vier Schriftgewichte für die Berechnung relativer Gewichte betrachtet werden. Weitere Informationen finden Sie im Abschnitt [Bedeutung relativer Gewichte](#bedeutung_relativer_gewichte) unten.
 
 ### Fallback-Gewichte
 
-Wenn das genaue angegebene Gewicht nicht verfügbar ist, wird die folgende Regel angewendet, um das tatsächlich gerenderte Gewicht zu bestimmen:
+Wenn das genaue angegebene Gewicht nicht verfügbar ist, wird die folgende Regel verwendet, um das tatsächlich dargestellte Gewicht zu bestimmen:
 
-- Wenn das angegebene Zielgewicht zwischen `400` und `500` liegt, einschließlich:
+- Wenn das angegebene Zielgewicht zwischen `400` und `500` einschließlich liegt:
 
   - Suchen Sie nach verfügbaren Gewichten zwischen dem Ziel und `500` in aufsteigender Reihenfolge.
-  - Wenn kein Treffer gefunden wird, suchen Sie in absteigender Reihenfolge nach verfügbaren Gewichten, die niedriger als das Ziel sind.
-  - Wenn kein Treffer gefunden wird, suchen Sie in aufsteigender Reihenfolge nach verfügbaren Gewichten, die größer als `500` sind.
+  - Wenn keine Übereinstimmung gefunden wird, suchen Sie nach verfügbaren Gewichten, die kleiner sind als das Ziel, in absteigender Reihenfolge.
+  - Wenn keine Übereinstimmung gefunden wird, suchen Sie nach verfügbaren Gewichten, die größer als `500` sind, in aufsteigender Reihenfolge.
 
-- Wenn ein Gewicht unter `400` angegeben wird, suchen Sie in absteigender Reihenfolge nach verfügbaren Gewichten, die niedriger als das Ziel sind. Wenn kein Treffer gefunden wird, suchen Sie in aufsteigender Reihenfolge nach verfügbaren Gewichten, die größer als das Ziel sind.
+- Wenn ein Gewicht kleiner als `400` angegeben wird, suchen Sie nach verfügbaren Gewichten, die kleiner sind als das Ziel, in absteigender Reihenfolge. Wenn keine Übereinstimmung gefunden wird, suchen Sie nach verfügbaren Gewichten, die größer als das Ziel sind, in aufsteigender Reihenfolge.
 
-- Wenn ein Gewicht über `500` angegeben wird, suchen Sie in aufsteigender Reihenfolge nach verfügbaren Gewichten, die größer als das Ziel sind. Wenn kein Treffer gefunden wird, suchen Sie in absteigender Reihenfolge nach verfügbaren Gewichten, die niedriger als das Ziel sind.
+- Wenn ein Gewicht größer als `500` angegeben wird, suchen Sie nach verfügbaren Gewichten, die größer sind als das Ziel, in aufsteigender Reihenfolge. Wenn keine Übereinstimmung gefunden wird, suchen Sie nach verfügbaren Gewichten, die kleiner sind als das Ziel, in absteigender Reihenfolge.
 
 > [!NOTE]
-> Der Fallback-Gewichts-Algorithmus wird nur für das Rendering verwendet. Der berechnete Wert der Eigenschaft bleibt der angegebene Wert.
+> Der Fallback-Gewichtsalgorithmus wird nur für die Darstellung verwendet. Der berechnete Wert der Eigenschaft ist weiterhin der angegebene Wert.
 
-### Bedeutung relativer Gewichtungen
+### Bedeutung relativer Gewichte
 
-Wenn `lighter` oder `bolder` angegeben ist, zeigt die folgende Tabelle, wie das absolute Schriftgewicht des Elements bestimmt wird.
+Wenn `lighter` oder `bolder` angegeben wird, zeigt das unten stehende Diagramm, wie das absolute Schriftgewicht des Elements bestimmt wird.
 
-Beachten Sie, dass bei der Verwendung relativer Gewichtungen nur vier Schriftgewichte berücksichtigt werden — dünn (100), normal (400), fett (700) und schwer (900). Wenn eine Schriftfamilie mehr Gewichte verfügbar hat, werden diese für die Berechnung relativer Gewichtungen ignoriert.
+Beachten Sie, dass bei der Verwendung relativer Gewichte nur vier Schriftgewichte betrachtet werden — dünn (100), normal (400), fett (700) und schwer (900). Wenn eine Schriftfamilie mehr Gewichte zur Verfügung hat, werden diese für die Berechnung relativer Gewichte ignoriert.
 
 <table class="standard-table">
   <thead>
@@ -186,30 +186,30 @@ Beachten Sie, dass bei der Verwendung relativer Gewichtungen nur vier Schriftgew
   </tbody>
 </table>
 
-### Mapping der gängigen Gewichtsnamen
+### Zuordnung von gebräuchlichen Gewichtsnamen
 
-Die numerischen Werte `100` bis `900` entsprechen grob den folgenden gängigen Gewichtsnamen (siehe die [OpenType-Spezifikation](https://learn.microsoft.com/en-us/typography/opentype/spec/os2#usweightclass)):
+Die numerischen Werte `100` bis `900` entsprechen in etwa den folgenden gebräuchlichen Gewichtsnamen (siehe die [OpenType-Spezifikation](https://learn.microsoft.com/en-us/typography/opentype/spec/os2#usweightclass)):
 
-| Wert | Gängiger Gewichtname                                                                                                                 |
-| ---- | ------------------------------------------------------------------------------------------------------------------------------------ |
-| 100  | Dünn (Hairline)                                                                                                                      |
-| 200  | Extra leicht (Ultra Light)                                                                                                           |
-| 300  | Leicht                                                                                                                               |
-| 400  | Normal (Regular)                                                                                                                     |
-| 500  | Mittel                                                                                                                               |
-| 600  | Halbfett (Demi Bold)                                                                                                                 |
-| 700  | Fett                                                                                                                                 |
-| 800  | Extra Fett (Ultra Bold)                                                                                                              |
-| 900  | Schwarz (Heavy)                                                                                                                      |
-| 950  | [Extra Schwarz (Ultra Black)](https://learn.microsoft.com/en-us/dotnet/api/system.windows.fontweights?view=netframework-4.8#remarks) |
+| Wert | Gebräuchlicher Gewichtname                                                                                                             |
+| ---- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| 100  | Dünn (Haarfein)                                                                                                                        |
+| 200  | Extra-Licht (Ultra-Licht)                                                                                                              |
+| 300  | Licht                                                                                                                                  |
+| 400  | Normal (Regulär)                                                                                                                       |
+| 500  | Mittel                                                                                                                                 |
+| 600  | Halbfett (Demi Bold)                                                                                                                   |
+| 700  | Fett                                                                                                                                   |
+| 800  | Extra-Fett (Ultra-Fett)                                                                                                                |
+| 900  | Schwarz (Schwer)                                                                                                                       |
+| 950  | [Extra-Schwarz (Ultra-Schwarz)](https://learn.microsoft.com/en-us/dotnet/api/system.windows.fontweights?view=netframework-4.8#remarks) |
 
-### Variable Schriftarten
+### Variable Schriften
 
-Während viele Schriftarten ein bestimmtes Gewicht haben, das einer der Zahlen in der [Mapping der gängigen Gewichtsnamen](#mapping_der_gängigen_gewichtsnamen) entspricht, unterstützen die meisten variablen Schriftarten einen Bereich von Gewichten, die eine viel feinere Granularität bieten, was Designern und Entwicklern mehr Kontrolle über das gewählte Gewicht gibt.
+Während viele Schriften ein bestimmtes Gewicht haben, das einem der Zahlen im Abschnitt [Zuordnung von gebräuchlichen Gewichtsnamen](#zuordnung_von_gebräuchlichen_gewichtsnamen) entspricht, unterstützen die meisten variablen Schriften eine Reihe von Gewichten, die eine viel feinere Granularität bieten, sodass Designer und Entwickler mehr Kontrolle über das gewählte Gewicht haben.
 
-Für TrueType- oder OpenType-Variable-Schriftarten wird die "wght"-Variation verwendet, um unterschiedliche Breiten zu implementieren.
+Für TrueType- oder OpenType-Variable-Schriften wird die "wght"-Variation verwendet, um unterschiedliche Breiten zu implementieren.
 
-Diese Demo wird mit `font-weight: 500;` geladen. Ändern Sie den Wert der `font-weight`-Eigenschaft im `.sample`-Selektor, um das Gewicht des Textes zu ändern (z. B. 200, 700). Klicken Sie auf "Play" in den Codeblöcken unten, um das Beispiel im MDN Playground zu bearbeiten:
+Dieses Demo wird mit `font-weight: 500;` geladen. Ändern Sie den Wert der `font-weight`-Eigenschaft im `.sample`-Selektor, um das Gewicht des Textes zu ändern (z.B. 200, 700). Klicken Sie auf "Play" in den Codeblöcken unten, um das Beispiel im MDN Playground zu bearbeiten:
 
 ```html live-sample___font-weight-example
 <p class="sample">
@@ -229,9 +229,8 @@ Diese Demo wird mit `font-weight: 500;` geladen. Ändern Sie den Wert der `font-
 .sample {
   text-transform: uppercase;
   font-weight: 500;
-  font:
-    1.5rem "MutatorSans",
-    sans-serif;
+  font-size: 1.5rem;
+  font-family: "MutatorSans", sans-serif;
 }
 ```
 
@@ -239,10 +238,10 @@ Diese Demo wird mit `font-weight: 500;` geladen. Ändern Sie den Wert der `font-
 
 ## Barrierefreiheit
 
-Personen mit Sehbehinderungen können Schwierigkeiten haben, Texte zu lesen, die mit einem `font-weight`-Wert von `100` (Dünn/Hairline) oder `200` (Extra Leicht) eingestellt sind, insbesondere wenn die Schrift eine [niedrige Kontrastfarbverhältnis](/de/docs/Web/CSS/color#accessibility) hat.
+Menschen mit Sehbehinderungen können Schwierigkeiten beim Lesen von Text mit einem `font-weight`-Wert von `100` (Dünn/Haarfein) oder `200` (Extra-Licht) haben, insbesondere wenn die Schrift eine [geringe Kontrastfarbe](/de/docs/Web/CSS/color#accessibility) hat.
 
-- [MDN Verständnis WCAG, Richtlinie 1.4 Erklärungen](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background)
-- [Verständnis des Erfolgskriteriums 1.4.8 | W3C Verständnis WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-visual-presentation.html)
+- [MDN Verstehen WCAG, Leitlinie 1.4 Erklärungen](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background)
+- [Verstehen des Erfolgskriteriums 1.4.8 | W3C Verständliche WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-visual-presentation.html)
 
 ## Formale Definition
 
@@ -254,7 +253,7 @@ Personen mit Sehbehinderungen können Schwierigkeiten haben, Texte zu lesen, die
 
 ## Beispiele
 
-### Schriftgewichte einstellen
+### Festlegen von Schriftgewichten
 
 #### HTML
 
@@ -309,6 +308,6 @@ span {
 
 - {{cssxref("font-family")}}
 - {{cssxref("font-style")}}
-- SVG {{SVGAttr("font-weight")}} Attribut
-- [Lernen: Grundlagen der Text- und Schriftgestaltung](/de/docs/Learn_web_development/Core/Text_styling/Fundamentals)
+- SVG-{{SVGAttr("font-weight")}} Attribut
+- [Lernen: Grundlegendes Text- und Schriftstyling](/de/docs/Learn_web_development/Core/Text_styling/Fundamentals)
 - [CSS-Schriften](/de/docs/Web/CSS/CSS_fonts) Modul

@@ -2,14 +2,14 @@
 title: call
 slug: WebAssembly/Reference/Control_flow/call
 l10n:
-  sourceCommit: c0fc8c988385a0ce8ff63887f9a3263caf55a1f9
+  sourceCommit: 2c0f972d873ea2db5163dbcb12987847124751ad
 ---
 
-**`call`** ruft eine Funktion auf, wobei `return_call` die Tail-Call-Version davon ist. `call_indirect` ruft eine Funktion in einer Tabelle auf mit der `return_call_indirect` Tail-Call-Version ebenfalls.
+**`call`** ruft eine Funktion auf, wobei `return_call` die Tail-Call-Version davon ist. `call_indirect` ruft eine Funktion in einer Tabelle mit der `return_call_indirect` Tail-Call-Version ebenfalls auf.
 
 ## Beispiele
 
-Aufrufen der `greet` Funktion, die aus JavaScript mit `call` importiert wurde:
+Aufruf der `greet` Funktion, die aus JavaScript importiert wurde, mit `call`:
 
 {{InteractiveExample("Wat Demo: call", "tabbed-standard")}}
 
@@ -32,7 +32,7 @@ Aufrufen der `greet` Funktion, die aus JavaScript mit `call` importiert wurde:
 const url = "{%wasm-url%}";
 await WebAssembly.instantiateStreaming(fetch(url), {
   env: {
-    greet: function () {
+    greet() {
       console.log("Hello");
       // Expected output: "Hello"
     },
@@ -40,7 +40,7 @@ await WebAssembly.instantiateStreaming(fetch(url), {
 });
 ```
 
-Berechnung der Fakultät einer Zahl mithilfe von `return_call` und Protokollierung des Ergebnisses mit der exportierten `fac` Funktion:
+Berechnung der Fakultät einer Zahl mit `return_call` und Protokollierung des Ergebnisses mit der exportierten `fac` Funktion:
 
 {{InteractiveExample("Wat Demo: return_call", "tabbed-standard")}}
 
@@ -84,14 +84,14 @@ console.log(result);
 call $greet
 ```
 
-| Anweisung              | Binäroperand |
-| ---------------------- | ------------ |
-| `call`                 | `0x10`       |
-| `call_indirect`        | `0x11`       |
-| `return_call`          | `0x12`       |
-| `return_call_indirect` | `0x13`       |
+| Anweisung              | Binärer Opcode |
+| ---------------------- | -------------- |
+| `call`                 | `0x10`         |
+| `call_indirect`        | `0x11`         |
+| `return_call`          | `0x12`         |
+| `return_call_indirect` | `0x13`         |
 
 ## Siehe auch
 
-- [Tail Call Extension proposal overview](https://github.com/WebAssembly/tail-call/blob/main/proposals/tail-call/Overview.md)
-- [V8 on WebAssembly tail calls support](https://v8.dev/blog/wasm-tail-call)
+- [Übersicht über den Vorschlag zur Tail Call-Erweiterung](https://github.com/WebAssembly/tail-call/blob/main/proposals/tail-call/Overview.md)
+- [V8 über die Unterstützung von WebAssembly-Tail-Calls](https://v8.dev/blog/wasm-tail-call)
