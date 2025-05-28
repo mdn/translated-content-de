@@ -1,14 +1,14 @@
 ---
-title: "AudioDecoder: configure()-Methode"
+title: "AudioDecoder: configure() Methode"
 short-title: configure()
 slug: Web/API/AudioDecoder/configure
 l10n:
-  sourceCommit: 27bceead8e9b1fe9c92df0fa5e418f81bd5b9fdf
+  sourceCommit: 941ade970fd7ebad52af692b6ac27cfd96f94100
 ---
 
 {{securecontext_header}}{{APIRef("WebCodecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`configure()`**-Methode des [`AudioDecoder`](/de/docs/Web/API/AudioDecoder)-Interfaces stellt eine Steuerungsnachricht in die Warteschlange, um den Audiodecoder für das Dekodieren von Datenblöcken zu konfigurieren.
+Die **`configure()`**-Methode der [`AudioDecoder`](/de/docs/Web/API/AudioDecoder)-Schnittstelle reiht eine Steuerungsnachricht ein, um den Audiodecoder zum Dekodieren von Chunks zu konfigurieren.
 
 ## Syntax
 
@@ -21,16 +21,16 @@ configure(config)
 - `config`
   - : Ein Wörterbuchobjekt, das die folgenden Mitglieder enthält:
     - `codec`
-      - : Ein String, der einen [gültigen Codec-String](https://www.w3.org/TR/webcodecs-codec-registry/#audio-codec-registry) enthält. Siehe ["codecs"-Parameter](/de/docs/Web/Media/Guides/Formats/codecs_parameter#codec_options_by_container) für Details zur Konstruktion von Codec-Strings.
+      - : Ein String mit einem [gültigen Codec-String](https://w3c.github.io/webcodecs/codec_registry.html#audio-codec-registry). Einzelheiten zur Erstellung von Codec-Strings finden Sie im ["codecs"-Parameter](/de/docs/Web/Media/Guides/Formats/codecs_parameter#codec_options_by_container).
     - `sampleRate`
-      - : Eine Ganzzahl, die die Anzahl der Abtastungen pro Sekunde darstellt.
+      - : Eine Ganzzahl, die die Anzahl der Frame-Samples pro Sekunde darstellt.
     - `numberOfChannels`
       - : Eine Ganzzahl, die die Anzahl der Audiokanäle darstellt.
     - `description` {{optional_inline}}
-      - : Ein {{jsxref("ArrayBuffer")}}, ein {{jsxref("TypedArray")}} oder ein {{jsxref("DataView")}}, das eine Sequenz von codecspezifischen Bytes, häufig als Extradata bekannt, enthält.
+      - : Ein {{jsxref("ArrayBuffer")}}, ein {{jsxref("TypedArray")}} oder ein {{jsxref("DataView")}}, das eine Sequenz von codec-spezifischen Bytes enthält, die häufig als Extradata bekannt sind.
 
 > [!NOTE]
-> Die Einträge im [WebCodecs Codec Registry](https://www.w3.org/TR/webcodecs-codec-registry/#audio-codec-registry) verweisen auf eine Spezifikation, die beschreibt, ob und wie das optionale `description`-Mitglied zu befüllen ist.
+> Die Registrierungen im [WebCodecs Codec Registry](https://w3c.github.io/webcodecs/codec_registry.html#audio-codec-registry) verweisen auf eine Spezifikation, die beschreibt, ob und wie das optionale `description`-Mitglied zu füllen ist.
 
 ### Rückgabewert
 
@@ -39,15 +39,15 @@ Keiner ({{jsxref("undefined")}}).
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn das bereitgestellte `config` ungültig ist.
+  - : Wird ausgelöst, wenn die bereitgestellte `config` ungültig ist.
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn der [`state`](/de/docs/Web/API/AudioDecoder/state) `"closed"` ist.
 - `NotSupportedError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn das bereitgestellte `config` gültig ist, aber der User-Agent keinen Codec bereitstellen kann, der dieses Profil dekodieren kann.
+  - : Wird ausgelöst, wenn die bereitgestellte `config` gültig ist, aber der Benutzeragent keinen Codec bereitstellen kann, der dieses Profil dekodieren kann.
 
 ## Beispiele
 
-Im folgenden Beispiel wird der `audioDecoder` mit dem `opus`-Codec konfiguriert.
+Das folgende Beispiel konfiguriert den `audioDecoder` mit dem `opus`-Codec.
 
 ```js
 audioDecoder.configure({

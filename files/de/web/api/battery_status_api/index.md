@@ -2,29 +2,29 @@
 title: Battery Status API
 slug: Web/API/Battery_Status_API
 l10n:
-  sourceCommit: be8f7f155a48e11b30c240f8731afb1845f85378
+  sourceCommit: 941ade970fd7ebad52af692b6ac27cfd96f94100
 ---
 
 {{DefaultAPISidebar("Battery API")}}{{securecontext_header}}
 
-Die **Battery Status API**, häufiger als **Battery API** bezeichnet, stellt Informationen über den Ladezustand der Systembatterie bereit und ermöglicht es Ihnen, Benachrichtigungen über Ereignisse zu erhalten, die gesendet werden, wenn sich der Batteriestand oder der Ladezustand ändert. Dies kann verwendet werden, um die Ressourcennutzung Ihrer App anzupassen, um den Batterieverbrauch zu verringern, wenn die Batterie schwach ist, oder um Änderungen zu speichern, bevor die Batterie leer ist, um Datenverlust zu vermeiden.
+Die **Battery Status API**, häufiger als **Battery API** bezeichnet, liefert Informationen über den Ladezustand des Akkusystems und ermöglicht es Ihnen, durch Ereignisse benachrichtigt zu werden, die gesendet werden, wenn sich der Batteriestand oder der Ladezustand ändert. Dies kann verwendet werden, um die Ressourcennutzung Ihrer App anzupassen, um den Batterieabfluss zu verringern, wenn der Batteriestand niedrig ist, oder um Änderungen zu speichern, bevor der Akku leer ist, um Datenverlust zu verhindern.
 
 > [!NOTE]
-> Diese API ist _nicht verfügbar_ in [Web Workers](/de/docs/Web/API/Web_Workers_API) (nicht über [`WorkerNavigator`](/de/docs/Web/API/WorkerNavigator) bereitgestellt).
+> Diese API ist in [Web Workers](/de/docs/Web/API/Web_Workers_API) _nicht verfügbar_ (nicht über [`WorkerNavigator`](/de/docs/Web/API/WorkerNavigator) zugänglich).
 
 ## Schnittstellen
 
 - [`BatteryManager`](/de/docs/Web/API/BatteryManager)
-  - : Bietet Informationen über den Ladezustand der Systembatterie.
+  - : Liefert Informationen über den Ladezustand des Akkusystems.
 
-### Erweiterungen zu anderen Schnittstellen
+### Erweiterungen für andere Schnittstellen
 
 - [`Navigator.getBattery()`](/de/docs/Web/API/Navigator/getBattery)
   - : Gibt ein {{JSxRef("Promise")}} zurück, das mit einem [`BatteryManager`](/de/docs/Web/API/BatteryManager)-Objekt aufgelöst wird.
 
 ## Beispiel
 
-In diesem Beispiel überwachen wir Änderungen sowohl des Ladezustands (ob wir angesteckt und geladen sind oder nicht) als auch Änderungen des Batteriestands und der Zeit. Dies wird durch das Abhören der Ereignisse [`chargingchange`](/de/docs/Web/API/BatteryManager/chargingchange_event), [`levelchange`](/de/docs/Web/API/BatteryManager/levelchange_event), [`chargingtimechange`](/de/docs/Web/API/BatteryManager/chargingtimechange_event), [`dischargingtimechange`](/de/docs/Web/API/BatteryManager/dischargingtimechange_event) erreicht.
+In diesem Beispiel überwachen wir sowohl Änderungen des Ladezustands (ob wir angeschlossen und aufgeladen werden) als auch Änderungen des Batteriestands und der Zeit. Dies geschieht, indem wir auf die Ereignisse [`chargingchange`](/de/docs/Web/API/BatteryManager/chargingchange_event), [`levelchange`](/de/docs/Web/API/BatteryManager/levelchange_event), [`chargingtimechange`](/de/docs/Web/API/BatteryManager/chargingtimechange_event), [`dischargingtimechange`](/de/docs/Web/API/BatteryManager/dischargingtimechange_event) lauschen.
 
 ```js
 navigator.getBattery().then((battery) => {
@@ -66,7 +66,7 @@ navigator.getBattery().then((battery) => {
 });
 ```
 
-Siehe auch [das Beispiel in der Spezifikation](https://www.w3.org/TR/battery-status/#examples).
+Siehe auch [das Beispiel in der Spezifikation](https://w3c.github.io/battery/#examples).
 
 ## Spezifikationen
 
@@ -78,4 +78,4 @@ Siehe auch [das Beispiel in der Spezifikation](https://www.w3.org/TR/battery-sta
 
 ## Siehe auch
 
-- [Hacks-Blogbeitrag - Using the Battery API](https://hacks.mozilla.org/2012/02/using-the-battery-api-part-of-webapi/)
+- [Hacks Blog-Post - Using the Battery API](https://hacks.mozilla.org/2012/02/using-the-battery-api-part-of-webapi/)

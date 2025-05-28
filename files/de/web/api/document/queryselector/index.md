@@ -3,18 +3,18 @@ title: "Dokument: querySelector() Methode"
 short-title: querySelector()
 slug: Web/API/Document/querySelector
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: 941ade970fd7ebad52af692b6ac27cfd96f94100
 ---
 
 {{ApiRef("DOM")}}
 
-Die [`Document`](/de/docs/Web/API/Document)-Methode **`querySelector()`** gibt das erste [`Element`](/de/docs/Web/API/Element) innerhalb des Dokuments zurück, das dem angegebenen [CSS-Selektor](/de/docs/Web/CSS/CSS_selectors) oder einer Gruppe von CSS-Selektoren entspricht. Wenn keine Übereinstimmungen gefunden werden, wird `null` zurückgegeben.
+Die Methode **`querySelector()`** von [`Document`](/de/docs/Web/API/Document) gibt das erste [`Element`](/de/docs/Web/API/Element) im Dokument zurück, das dem angegebenen [CSS-Selektor](/de/docs/Web/CSS/CSS_selectors) oder einer Gruppe von CSS-Selektoren entspricht. Wenn keine Übereinstimmungen gefunden werden, wird `null` zurückgegeben.
 
-Die Übereinstimmung erfolgt durch eine tiefenorientierte pre-order Traversierung der Knoten des Dokuments, beginnend mit dem ersten Element im Dokumentenmarkup und iterierend durch sequentielle Knoten nach Reihenfolge der Anzahl der Kindknoten.
+Die Übereinstimmung erfolgt durch eine präorder-tiefe Durchquerung der Knoten des Dokuments, beginnend mit dem ersten Element im Markup des Dokuments und iterierend durch sequentielle Knoten in der Reihenfolge der Anzahl der Kindknoten.
 
-Wenn der angegebene Selektor eine ID anspricht, die im Dokument fälschlicherweise mehr als einmal verwendet wird, wird das erste Element mit dieser ID zurückgegeben.
+Wenn der angegebene Selektor einer ID entspricht, die fälschlicherweise mehrmals im Dokument verwendet wird, wird das erste Element mit dieser ID zurückgegeben.
 
-[CSS-Pseudoelemente](/de/docs/Web/CSS/Pseudo-elements) werden niemals Elemente zurückgeben, wie im [Selectors API](https://www.w3.org/TR/selectors-api/#grammar) spezifiziert.
+[CSS-Pseudoelemente](/de/docs/Web/CSS/Pseudo-elements) werden niemals Elemente zurückgeben.
 
 ## Syntax
 
@@ -26,26 +26,27 @@ querySelector(selectors)
 
 - `selectors`
 
-  - : Ein String, der einen oder mehrere Selektoren enthält, die übereinstimmen sollen. Dieser String muss ein gültiger CSS-Selektor-String sein; ist er es nicht, wird eine `SyntaxError`-Ausnahme geworfen.
+  - : Ein String, der einen oder mehrere Selektoren enthält, die übereinstimmen sollen. Dieser String muss ein gültiger CSS-Selektor-String sein; ist er es nicht, wird eine `SyntaxError`-Ausnahme ausgelöst.
 
-    Beachten Sie, dass die HTML-Spezifikation nicht verlangt, dass Attributwerte gültige CSS-Identifier sind. Wenn ein [`class`](/de/docs/Web/HTML/Reference/Global_attributes/class)- oder [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id)-Attributwert kein gültiger CSS-Identifier ist, müssen Sie es entweder mit [`CSS.escape()`](/de/docs/Web/API/CSS/escape_static) auf den Wert escapen, oder eine der Techniken verwenden, die unter [Zeichen escapen](/de/docs/Web/CSS/ident#escaping_characters) beschrieben sind. Sehen Sie [Attributwerte escapen](#attributwerte_escapen) für ein Beispiel.
+    Beachten Sie, dass die HTML-Spezifikation nicht erfordert, dass Attributwerte gültige CSS-Bezeichner sind. Wenn ein [`class`](/de/docs/Web/HTML/Reference/Global_attributes/class)- oder [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id)-Attributwert kein gültiger CSS-Bezeichner ist, dann müssen Sie ihn vor der Verwendung in einem Selektor maskieren, entweder indem Sie [`CSS.escape()`](/de/docs/Web/API/CSS/escape_static) auf den Wert anwenden oder eine der in [Zeichen maskieren](/de/docs/Web/CSS/ident#escaping_characters) beschriebenen Techniken verwenden. Siehe [Attributwerte maskieren](#attributwerte_maskieren) für ein Beispiel.
 
 ### Rückgabewert
 
-Ein [`Element`](/de/docs/Web/API/Element)-Objekt, das das erste Element im Dokument repräsentiert, das dem angegebenen Satz von [CSS-Selektoren](/de/docs/Web/CSS/CSS_selectors) entspricht. Wenn keine Übereinstimmungen gefunden werden, wird `null` zurückgegeben.
+Ein [`Element`](/de/docs/Web/API/Element)-Objekt, das das erste Element im Dokument repräsentiert, das dem angegebenen Satz von [CSS-Selektoren](/de/docs/Web/CSS/CSS_selectors) entspricht, oder es wird `null` zurückgegeben, wenn keine Übereinstimmungen vorhanden sind.
 
 Wenn Sie eine Liste aller Elemente benötigen, die den angegebenen Selektoren entsprechen, sollten Sie stattdessen [`querySelectorAll()`](/de/docs/Web/API/Document/querySelectorAll) verwenden.
 
 ### Ausnahmen
 
 - `SyntaxError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird geworfen, wenn die Syntax der angegebenen _selectors_ ungültig ist.
+  - : Wird ausgelöst, wenn die Syntax der angegebenen _Selectors_ ungültig ist.
 
 ## Beispiele
 
 ### Das erste Element finden, das einer Klasse entspricht
 
-In diesem Beispiel wird das erste Element im Dokument mit der Klasse `myclass` zurückgegeben:
+In diesem Beispiel wird das erste Element im Dokument mit der Klasse
+`myclass` zurückgegeben:
 
 ```js
 const el = document.querySelector(".myclass");
@@ -53,7 +54,7 @@ const el = document.querySelector(".myclass");
 
 ### Komplexe Selektoren
 
-Selektoren können auch sehr leistungsfähig sein, wie im folgenden Beispiel gezeigt. Hier wird das erste {{HTMLElement("input")}}-Element mit dem Namen "login" (`<input name="login"/>`), das innerhalb eines {{HTMLElement("div")}}-Elements mit der Klasse "user-panel main" (`<div class="user-panel main">`) im Dokument liegt, zurückgegeben:
+Selektoren können auch sehr leistungsfähig sein, wie im folgenden Beispiel gezeigt wird. Hier wird das erste {{HTMLElement("input")}}-Element mit dem Namen "login" (`<input name="login"/>`) innerhalb eines {{HTMLElement("div")}}-Elements mit der Klasse "user-panel main" (`<div class="user-panel main">`) im Dokument zurückgegeben:
 
 ```js
 const el = document.querySelector("div.user-panel.main input[name='login']");
@@ -61,7 +62,7 @@ const el = document.querySelector("div.user-panel.main input[name='login']");
 
 ### Negation
 
-Da alle CSS-Selektor-Strings gültig sind, können Sie Selektoren auch negieren:
+Da alle CSS-Selektor-Strings gültig sind, können Sie auch Selektoren negieren:
 
 ```js
 const el = document.querySelector(
@@ -69,17 +70,17 @@ const el = document.querySelector(
 );
 ```
 
-Dies wird ein Eingabefeld mit einem übergeordneten `div` mit der Klasse `user-panel`, aber nicht der Klasse `main` auswählen.
+Dies wird ein `input`-Element mit einem übergeordneten `div` mit der Klasse `user-panel`, aber nicht der `main`-Klasse auswählen.
 
-### Attributwerte escapen
+### Attributwerte maskieren
 
-Dieses Beispiel zeigt, dass, wenn ein HTML-Dokument eine [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id) enthält, die kein gültiger [CSS-Identifier](/de/docs/Web/CSS/ident) ist, wir den Attributwert escapen müssen, bevor wir ihn in `querySelector()` verwenden.
+Dieses Beispiel zeigt, dass, wenn ein HTML-Dokument eine [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id) enthält, die kein gültiger [CSS-Bezeichner](/de/docs/Web/CSS/ident) ist, wir den Attributwert vor der Verwendung in `querySelector()` maskieren müssen.
 
 #### HTML
 
-Im folgenden Code hat ein {{htmlelement("div")}}-Element eine `id` von `"this?element"`, die kein gültiger CSS-Identifier ist, da das `"?"`-Zeichen in CSS-Identifikatoren nicht erlaubt ist.
+Im folgenden Code hat ein {{htmlelement("div")}}-Element eine `id` von `"this?element"`, die kein gültiger CSS-Bezeichner ist, da das Zeichen `"?"` in CSS-Bezeichnern nicht erlaubt ist.
 
-Wir haben auch drei Schaltflächen und ein {{htmlelement("pre")}}-Element für die Fehlerprotokollierung.
+Wir haben auch drei Schaltflächen und ein {{htmlelement("pre")}}-Element für das Fehlerprotokoll.
 
 ```html
 <div id="this?element"></div>
@@ -104,11 +105,11 @@ div {
 
 #### JavaScript
 
-Alle drei Schaltflächen versuchen beim Klick, das `<div>` auszuwählen und dann seine Hintergrundfarbe auf einen zufälligen Wert zu setzen.
+Alle drei Schaltflächen versuchen beim Klicken, das `<div>` auszuwählen und dann seine Hintergrundfarbe auf einen zufälligen Wert zu setzen.
 
-- Die erste Schaltfläche verwendet den Wert `"this?element"` direkt.
-- Die zweite Schaltfläche escapet den Wert mit [`CSS.escape()`](/de/docs/Web/API/CSS/escape_static).
-- Die dritte Schaltfläche escapet das `"?"`-Zeichen explizit mit einem Backslash. Beachten Sie, dass wir auch den Backslash selbst escapen müssen, indem wir einen weiteren Backslash verwenden, wie: `"\\?"`.
+- Die erste Schaltfläche verwendet den `"this?element"`-Wert direkt.
+- Die zweite Schaltfläche maskiert den Wert mit [`CSS.escape()`](/de/docs/Web/API/CSS/escape_static).
+- Die dritte Schaltfläche maskiert explizit das `"?"`-Zeichen mit einem Backslash. Beachten Sie, dass wir den Backslash selbst auch mit einem weiteren Backslash maskieren müssen, wie: `"\\?"`.
 
 ```js
 const log = document.querySelector("#log");
@@ -144,7 +145,7 @@ document.querySelector("#manual-escape").addEventListener("click", () => {
 
 #### Ergebnis
 
-Das Klicken der ersten Schaltfläche gibt einen Fehler zurück, während die zweite und dritte Schaltfläche ordnungsgemäß funktionieren.
+Das Klicken auf die erste Schaltfläche führt zu einem Fehler, während die zweite und dritte Schaltfläche ordnungsgemäß funktionieren.
 
 {{embedlivesample("escaping_attribute_values", "", 200)}}
 
@@ -158,7 +159,7 @@ Das Klicken der ersten Schaltfläche gibt einen Fehler zurück, während die zwe
 
 ## Siehe auch
 
-- [Lokalisieren von DOM-Elementen mit Selektoren](/de/docs/Web/API/Document_Object_Model/Locating_DOM_elements_using_selectors)
+- [DOM-Elemente mit Selektoren finden](/de/docs/Web/API/Document_Object_Model/Locating_DOM_elements_using_selectors)
 - [`Element.querySelector()`](/de/docs/Web/API/Element/querySelector)
 - [`Document.querySelectorAll()`](/de/docs/Web/API/Document/querySelectorAll)
 - [`Element.querySelectorAll()`](/de/docs/Web/API/Element/querySelectorAll)

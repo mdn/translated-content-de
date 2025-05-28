@@ -3,16 +3,16 @@ title: "IDBObjectStore: createIndex() Methode"
 short-title: createIndex()
 slug: Web/API/IDBObjectStore/createIndex
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: 941ade970fd7ebad52af692b6ac27cfd96f94100
 ---
 
 {{ APIRef("IndexedDB") }} {{AvailableInWorkers}}
 
-Die **`createIndex()`**-Methode der [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)-Schnittstelle erstellt und gibt ein neues [`IDBIndex`](/de/docs/Web/API/IDBIndex)-Objekt in der verbundenen Datenbank zurück. Es erstellt ein neues Feld/Spalte, das einen neuen Datenpunkt definiert, der jeder Datenbankaufzeichnung hinzugefügt wird.
+Die **`createIndex()`** Methode der [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore) Schnittstelle erstellt und gibt ein neues [`IDBIndex`](/de/docs/Web/API/IDBIndex) Objekt in der verbundenen Datenbank zurück. Es erstellt ein neues Feld beziehungsweise eine neue Spalte, die einen neuen Datenpunkt für jeden Datensatz in der Datenbank definiert.
 
-Bedenken Sie, dass IndexedDB-Indizes _jede_ JavaScript-Datenart enthalten können; IndexedDB verwendet den [structured clone algorithm](/de/docs/Web/API/Web_Workers_API/Structured_clone_algorithm), um gespeicherte Objekte zu serialisieren, was die Speicherung einfacher und komplexer Objekte ermöglicht.
+Bitte beachten Sie, dass IndexedDB-Indizes _jeden_ JavaScript-Datentyp enthalten können; IndexedDB verwendet den [structured clone algorithm](/de/docs/Web/API/Web_Workers_API/Structured_clone_algorithm), um gespeicherte Objekte zu serialisieren, was die Speicherung einfacher und komplexer Objekte ermöglicht.
 
-Beachten Sie, dass diese Methode nur innerhalb eines `VersionChange`-Transaktionsmodus-Callbacks aufgerufen werden darf.
+Beachten Sie, dass diese Methode nur aus einem `VersionChange` Transaktionsmodus-Callback aufgerufen werden darf.
 
 ## Syntax
 
@@ -24,46 +24,49 @@ createIndex(indexName, keyPath, options)
 ### Parameter
 
 - `indexName`
-  - : Der Name des zu erstellenden Indexes. Beachten Sie, dass es möglich ist, einen Index mit einem leeren Namen zu erstellen.
+  - : Der Name des zu erstellenden Index. Beachten Sie, dass es möglich ist, einen Index mit einem leeren Namen zu erstellen.
 - `keyPath`
-  - : Der Schlüsselpfad, den der Index verwenden soll. Beachten Sie, dass es möglich ist, einen Index mit einem leeren `keyPath` zu erstellen, und auch eine Sequenz (Array) als `keyPath` zu übergeben.
+  - : Der Schlüsselpfad, den der Index verwenden soll. Beachten Sie, dass es möglich ist, einen Index mit einem leeren `keyPath` zu erstellen und auch eine Sequenz (ein Array) als `keyPath` zu übergeben.
 - `options` {{optional_inline}}
 
   - : Ein Objekt, das die folgenden Eigenschaften enthalten kann:
     - `unique`
-      - : Wenn `true`, wird der Index keine doppelten Werte für einen einzelnen Schlüssel zulassen. Standardmäßig `false`.
+      - : Wenn `true`, lässt der Index keine doppelten Werte für einen einzelnen Schlüssel zu. Standardmäßig `false`.
     - `multiEntry`
-      - : Wenn `true`, wird der Index für jedes Array-Element einen Eintrag im Index hinzufügen, wenn der `keyPath` zu einem Array aufgelöst wird. Wenn `false`, wird ein einzelner Eintrag hinzugefügt, der das Array enthält. Standardmäßig `false`.
+      - : Wenn `true`, fügt der Index einen Eintrag im Index für jedes Array-Element hinzu, wenn der `keyPath` zu einem Array aufgelöst wird.
+        Wenn `false`, wird ein einzelner Eintrag mit dem gesamten Array hinzugefügt. Standardmäßig `false`.
     - `locale` {{non-standard_inline}} {{deprecated_inline}}
-      - : Ermöglicht die Angabe einer Locale für den Index. Alle auf den Daten basierenden Sortiervorgänge über Schlüsselbereiche hinweg werden dann den Sortierreihenfolgen dieser Locale gehorchen. Sie können den Wert auf drei Arten angeben:
-        - `string`: Ein String, der einen bestimmten Locale-Code enthält, z.B., `en-US` oder `pl`.
-        - `auto`: Die standardmäßige Plattform-Locale wird verwendet (kann durch Benutzereinstellungen geändert werden).
-        - `null` oder `undefined`: Wenn keine Locale angegeben ist, wird die normale JavaScript-Sortierung verwendet — nicht locale-bewusst.
+      - : Ermöglicht Ihnen, eine Gebietsschema für den Index festzulegen.
+        Alle Sortieroperationen, die auf den Daten über Schlüsselbereiche durchgeführt werden, befolgen dann die Sortierregeln dieses Gebietsschemas.
+        Sie können den Wert auf eine der folgenden Arten angeben:
+        - `string`: Ein String, der einen spezifischen Gebietsschema-Code enthält, z.B. `en-US` oder `pl`.
+        - `auto`: Das Standardgebietsschema der Plattform wird verwendet (kann durch die Einstellungen des Benutzeragenten geändert werden).
+        - `null` oder `undefined`: Wenn kein Gebietsschema angegeben ist, wird die normale JavaScript-Sortierung verwendet — nicht sprachabhängig.
 
 ### Rückgabewert
 
-Ein [`IDBIndex`](/de/docs/Web/API/IDBIndex)-Objekt: der neu erstellte Index.
+Ein [`IDBIndex`](/de/docs/Web/API/IDBIndex) Objekt: der neu erstellte Index.
 
 ### Ausnahmen
 
-Diese Methode kann eine [`DOMException`](/de/docs/Web/API/DOMException) der folgenden Typen auslösen:
+Diese Methode kann eine [`DOMException`](/de/docs/Web/API/DOMException) einer der folgenden Typen auslösen:
 
 - `ConstraintError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn ein Index mit demselben Namen bereits in der Datenbank existiert. Indexnamen sind groß-/kleinschreibungssensitiv.
 - `InvalidAccessError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der angegebene Schlüsselpfad eine Sequenz ist und `multiEntry` im `objectParameters`-Objekt auf `true` gesetzt ist.
+  - : Wird ausgelöst, wenn der angegebene Schlüsselpfad eine Sequenz ist und `multiEntry` im `objectParameters` Objekt auf `true` gesetzt ist.
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn:
-    - Die Methode nicht innerhalb eines `versionchange`-Transaktionsmodus-Callbacks aufgerufen wurde, d.h. von innerhalb eines [`onupgradeneeded`](/de/docs/Web/API/IDBOpenDBRequest/upgradeneeded_event)-Handlers.
-    - Der Objekt-Store gelöscht wurde.
+    - Die Methode nicht von einem `versionchange` Transaktionsmodus-Callback aus aufgerufen wurde, d.h. aus einem [`onupgradeneeded`](/de/docs/Web/API/IDBOpenDBRequest/upgradeneeded_event) Handler.
+    - Der Objektspeicher gelöscht wurde.
 - `SyntaxError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der angegebene `keyPath` kein <a href="https://www.w3.org/TR/IndexedDB/#dfn-valid-key-path">gültiger Schlüsselpfad</a> ist.
+  - : Wird ausgelöst, wenn der angegebene `keyPath` kein [gültiger Schlüsselpfad](https://w3c.github.io/IndexedDB/#valid-key-path) ist.
 - `TransactionInactiveError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn die Transaktion, zu der dieses [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore) gehört, nicht aktiv ist (z.B. gelöscht oder entfernt wurde). In Firefox vor der Version 41 wurde in diesem Fall ebenfalls ein `InvalidStateError` ausgelöst, was irreführend war; dies wurde nun behoben (siehe [Firefox bug 1176165](https://bugzil.la/1176165)).
+  - : Wird ausgelöst, wenn die Transaktion, zu der dieses [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore) gehört, nicht aktiv ist (z.B. gelöscht oder entfernt wurde.) In Firefox vor Version 41 wurde in diesem Fall ebenfalls ein `InvalidStateError` ausgelöst, was irreführend war; dies wurde nun behoben (siehe [Firefox Bug 1176165](https://bugzil.la/1176165).)
 
 ## Beispiele
 
-Im folgenden Beispiel können Sie den [`onupgradeneeded`](/de/docs/Web/API/IDBOpenDBRequest/upgradeneeded_event)-Handler sehen, der verwendet wird, um die Datenbankstruktur zu aktualisieren, wenn eine Datenbank mit einer höheren Versionsnummer geladen wird. `createIndex()` wird verwendet, um neue Indizes im Objekt-Store zu erstellen. Für ein vollständiges Arbeitsbeispiel, sehen Sie sich unsere [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) App an ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
+Im folgenden Beispiel sehen Sie, wie der [`onupgradeneeded`](/de/docs/Web/API/IDBOpenDBRequest/upgradeneeded_event) Handler verwendet wird, um die Datenbankstruktur zu aktualisieren, wenn eine Datenbank mit einer höheren Versionsnummer geladen wird. `createIndex()` wird verwendet, um neue Indizes im Objektspeicher zu erstellen. Für ein vollständiges funktionierendes Beispiel sehen Sie unsere [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) App ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
 
 ```js
 let db;
@@ -133,5 +136,5 @@ DBOpenRequest.onupgradeneeded = (event) => {
 - Verwendung von Transaktionen: [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)
 - Festlegen eines Schlüsselbereichs: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
 - Abrufen und Ändern Ihrer Daten: [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)
-- Verwendung von Kursen: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
-- Referenzbeispiel: [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
+- Verwendung von Cursoren: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
+- Beispielreferenz: [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).

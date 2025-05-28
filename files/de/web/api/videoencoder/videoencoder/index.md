@@ -3,12 +3,12 @@ title: "VideoEncoder: VideoEncoder() Konstruktor"
 short-title: VideoEncoder()
 slug: Web/API/VideoEncoder/VideoEncoder
 l10n:
-  sourceCommit: 3789de65bd11453c4cb24625723f81a7e8fcdd56
+  sourceCommit: 941ade970fd7ebad52af692b6ac27cfd96f94100
 ---
 
 {{APIRef("WebCodecs API")}}{{SecureContext_Header}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Der **`VideoEncoder()`** Konstruktor erstellt ein neues [`VideoEncoder`](/de/docs/Web/API/VideoEncoder)-Objekt mit dem bereitgestellten `options.output` Callback als Ausgabe-Callback und dem bereitgestellten `options.error` Callback als Fehler-Callback und setzt den [`VideoEncoder.state`](/de/docs/Web/API/VideoEncoder/state) auf `"unconfigured"`.
+Der **`VideoEncoder()`** Konstruktor erstellt ein neues [`VideoEncoder`](/de/docs/Web/API/VideoEncoder)-Objekt, wobei die bereitgestellte `options.output`-Rückruffunktion als Ausgaberückruf und die bereitgestellte `options.error`-Rückruffunktion als Fehlerrückruf zugewiesen werden. Zudem wird der [`VideoEncoder.state`](/de/docs/Web/API/VideoEncoder/state) auf `"unconfigured"` gesetzt.
 
 ## Syntax
 
@@ -19,43 +19,42 @@ new VideoEncoder(options)
 ### Parameter
 
 - `options`
-  - : Ein Objekt, das zwei erforderliche Callbacks enthält.
+  - : Ein Objekt, das zwei erforderliche Rückruffunktionen enthält.
     - `output`
-      - : Ein Callback, das ein [`EncodedVideoChunk`](/de/docs/Web/API/EncodedVideoChunk)-Objekt als erstes Argument und ein optionales Metadata-Objekt als zweites Argument nimmt. Das Metadata-Objekt hat drei Mitglieder:
+      - : Eine Rückruffunktion, die ein [`EncodedVideoChunk`](/de/docs/Web/API/EncodedVideoChunk)-Objekt als erstes Argument und optional ein Metadatenobjekt als zweites Argument erhält. Das Metadatenobjekt hat drei Mitglieder:
         - `decoderConfig` {{Optional_Inline}}
-          - : Ein Objekt, das enthält:
+          - : Ein Objekt, das folgendes enthält:
             - `codec`
-              - : Ein String, der einen [gültigen Codec-String](https://www.w3.org/TR/webcodecs-codec-registry/#video-codec-registry) enthält.
+              - : Ein String, der einen [gültigen Codec-String](https://w3c.github.io/webcodecs/codec_registry.html#video-codec-registry) enthält.
             - `description` {{Optional_Inline}}
-              - : Ein {{jsxref("ArrayBuffer")}}, eine {{jsxref("TypedArray")}}, oder eine {{jsxref("DataView")}}, die eine Sequenz von codec-spezifischen Bytes enthält, allgemein bekannt als "extradata".
+              - : Ein {{jsxref("ArrayBuffer")}}, eine {{jsxref("TypedArray")}} oder eine {{jsxref("DataView")}}, die eine Folge von codecspezifischen Bytes enthält, allgemein bekannt als "extradata".
             - `codedWidth` {{Optional_Inline}}
-              - : Eine Ganzzahl, die die Breite des [`VideoFrame`](/de/docs/Web/API/VideoFrame) in Pixeln repräsentiert, möglicherweise einschließlich unsichtbarer Abstände und bevor mögliche Verhältnis-Anpassungen berücksichtigt werden.
+              - : Eine Ganzzahl, die die Breite des [`VideoFrame`](/de/docs/Web/API/VideoFrame) in Pixeln darstellt, möglicherweise einschließlich nicht sichtbarer Auffüllung und vor möglichen Verhältnis-Anpassungen.
             - `codedHeight` {{Optional_Inline}}
-              - : Eine Ganzzahl, die die Höhe des [`VideoFrame`](/de/docs/Web/API/VideoFrame) in Pixeln repräsentiert, möglicherweise einschließlich unsichtbarer Abstände und bevor mögliche Verhältnis-Anpassungen berücksichtigt werden.
+              - : Eine Ganzzahl, die die Höhe des [`VideoFrame`](/de/docs/Web/API/VideoFrame) in Pixeln darstellt, möglicherweise einschließlich nicht sichtbarer Auffüllung und vor möglichen Verhältnis-Anpassungen.
             - `displayAspectWidth` {{Optional_Inline}}
-              - : Eine Ganzzahl, die die horizontale Dimension des {{Glossary("aspect_ratio", "Seitenverhältnisses")}} des [`VideoFrame`](/de/docs/Web/API/VideoFrame) bei der Anzeige repräsentiert.
+              - : Eine Ganzzahl, die die horizontale Abmessung des {{Glossary("aspect_ratio", "Seitenverhältnisses")}} des [`VideoFrame`](/de/docs/Web/API/VideoFrame) bei der Wiedergabe darstellt.
             - `displayAspectHeight` {{Optional_Inline}}
-              - : Eine Ganzzahl, die die vertikale Dimension des Seitenverhältnisses des [`VideoFrame`](/de/docs/Web/API/VideoFrame) bei der Anzeige repräsentiert.
+              - : Eine Ganzzahl, die die vertikale Abmessung des Seitenverhältnisses des [`VideoFrame`](/de/docs/Web/API/VideoFrame) bei der Wiedergabe darstellt.
             - `colorSpace` {{Optional_Inline}}
-              - : Ein Objekt, das Sie dem [`VideoColorSpace`](/de/docs/Web/API/VideoColorSpace) Konstruktor als `init`-Argument übergeben, das den [`VideoFrame.colorSpace`](/de/docs/Web/API/VideoFrame/colorSpace) für [`VideoFrames`](/de/docs/Web/API/VideoFrame), die mit diesem `decoderConfig`-Objekt verbunden sind, konfiguriert. Wenn `colorSpace` existiert, überschreiben die bereitgestellten Werte alle Onstream-Werte aus dem Bitstream.
+              - : Ein Objekt, das an den [`VideoColorSpace`](/de/docs/Web/API/VideoColorSpace)-Konstruktor als `init`-Argument übergeben wird und den [`VideoFrame.colorSpace`](/de/docs/Web/API/VideoFrame/colorSpace) für die mit diesem `decoderConfig`-Objekt verknüpften [`VideoFrames`](/de/docs/Web/API/VideoFrame) konfiguriert. Wenn `colorSpace` existiert, überschreiben die angegebenen Werte alle im Bitstream enthaltenen In-Band-Werte.
             - `hardwareAcceleration` {{Optional_Inline}}
-              - : Ein String, der die Hardwarebeschleunigung für diesen Codec konfiguriert. Standardmäßig auf `"no-preference"` gesetzt. Optionen sind:
+              - : Ein String, der die Hardware-Beschleunigung für diesen Codec konfiguriert. Standardwert ist `"no-preference"`. Optionen sind:
                 - `"no-preference"`
                 - `"prefer-hardware"`
                 - `"prefer-software"`
             - `optimizeForLatency` {{Optional_Inline}}
-              - : Ein boolescher Wert, der angibt, ob der ausgewählte Decoder so konfiguriert werden sollte, dass die Anzahl der [`EncodedVideoChunks`](/de/docs/Web/API/EncodedVideoChunk) minimiert wird, die dekodiert werden müssen, bevor ein [`VideoFrame`](/de/docs/Web/API/VideoFrame) ausgegeben wird.
+              - : Ein boolean, der angibt, ob der ausgewählte Decoder so konfiguriert werden soll, dass die Anzahl der [`EncodedVideoChunks`](/de/docs/Web/API/EncodedVideoChunk), die decodiert werden müssen, bevor ein [`VideoFrame`](/de/docs/Web/API/VideoFrame) ausgegeben wird, minimiert wird.
         - `svc` {{Optional_Inline}}
-          - : Ein optionales Objekt mit nur einem Mitglied: `temporalLayerId`, welches eine Zahl ist, die die [temporale Schicht](https://w3c.github.io/webcodecs/#temporal-layer) für das zugehörige [`EncodedVideoChunk`](/de/docs/Web/API/EncodedVideoChunk) identifiziert.
+          - : Ein optionales Objekt mit nur einem Mitglied: `temporalLayerId`, was eine Nummer ist, die die [Zeitliche Ebene](https://w3c.github.io/webcodecs/#temporal-layer) für das zugehörige [`EncodedVideoChunk`](/de/docs/Web/API/EncodedVideoChunk) identifiziert.
         - `alphaSideData` {{Optional_Inline}}
-          - : Ein {{jsxref("ArrayBuffer")}}, eine {{jsxref("TypedArray")}}, oder eine {{jsxref("DataView")}},
-            die die zusätzlichen Alpha-Kanal-Daten des [`EncodedVideoChunk`](/de/docs/Web/API/EncodedVideoChunk) enthält.
+          - : Ein {{jsxref("ArrayBuffer")}}, eine {{jsxref("TypedArray")}} oder eine {{jsxref("DataView")}}, die die zusätzlichen Alpha-Kanal-Daten des [`EncodedVideoChunk`](/de/docs/Web/API/EncodedVideoChunk) enthält.
     - `error`
-      - : Ein Callback, das ein {{jsxref("Error")}}-Objekt als einziges Argument nimmt.
+      - : Eine Rückruffunktion, die ein {{jsxref("Error")}}-Objekt als einziges Argument erhält.
 
 ## Beispiele
 
-Im folgenden Beispiel wird ein `VideoEncoder` mit den zwei erforderlichen Callback-Funktionen erstellt, eine zur Verarbeitung der kodierten Frames und die andere zur Fehlerbehandlung.
+Im folgenden Beispiel wird ein `VideoEncoder` mit den zwei erforderlichen Rückruffunktionen erstellt, eine zur Verarbeitung des kodierten Frames und die andere zur Behandlung von Fehlern.
 
 ```js
 const videoEncoder = new VideoEncoder({
