@@ -3,12 +3,12 @@ title: "Summarizer: summarizeStreaming() Methode"
 short-title: summarizeStreaming()
 slug: Web/API/Summarizer/summarizeStreaming
 l10n:
-  sourceCommit: ca5cf1046e4619808440e4505d9fa579a1309ead
+  sourceCommit: 3e4f9ff802c6393edf7c17ff0d9c30d0de79663e
 ---
 
 {{APIRef("Summarizer API")}}{{SeeCompatTable}}
 
-Die **`summarizeStreaming()`** Methode der [`Summarizer`](/de/docs/Web/API/Summarizer) Schnittstelle generiert eine neue Zusammenfassung als [`ReadableStream`](/de/docs/Web/API/ReadableStream).
+Die **`summarizeStreaming()`** Methode der [`Summarizer`](/de/docs/Web/API/Summarizer) Schnittstelle erzeugt eine neue Zusammenfassung als [`ReadableStream`](/de/docs/Web/API/ReadableStream).
 
 ## Syntax
 
@@ -20,32 +20,32 @@ summarizeStreaming(input, options)
 ### Parameter
 
 - `input`
-  - : Ein String, der den Text darstellt, der zusammengefasst werden soll.
+  - : Ein String, der den zu zusammenfassenden Text darstellt.
 - `options` {{optional_inline}}
-  - : Ein Objekt, das Konfigurationsoptionen für den `summarizeStreaming()` Vorgang angibt. Mögliche Werte sind:
+  - : Ein Objekt, das Konfigurationsoptionen für den `summarizeStreaming()` Vorgang spezifiziert. Mögliche Werte sind:
     - `context`
-      - : Ein String, der den Kontext beschreibt, in dem der Eingabetext verwendet wird. Dies hilft dem `Summarizer`, eine passendere Zusammenfassung zu erstellen.
+      - : Ein String, der den Kontext beschreibt, in dem der Eingabetext verwendet wird, was dem `Summarizer` hilft, eine passendere Zusammenfassung zu erstellen.
     - `signal`
-      - : Eine Instanz des [`AbortSignal`](/de/docs/Web/API/AbortSignal) Objekts, die es ermöglicht, den `summarizeStreaming()` Vorgang über den zugehörigen [`AbortController`](/de/docs/Web/API/AbortController) abzubrechen.
+      - : Eine Instanz eines [`AbortSignal`](/de/docs/Web/API/AbortSignal) Objekts, das es ermöglicht, den `summarizeStreaming()` Vorgang über den zugehörigen [`AbortController`](/de/docs/Web/API/AbortController) abzubrechen.
 
 ### Rückgabewert
 
-Ein [`ReadableStream`](/de/docs/Web/API/ReadableStream), der die generierte Zusammenfassung enthält.
+Ein [`ReadableStream`](/de/docs/Web/API/ReadableStream), der die erzeugte Zusammenfassung enthält.
 
 ### Ausnahmen
 
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn das aktuelle [`Document`](/de/docs/Web/API/Document) nicht aktiv ist.
 - `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn die Verwendung der Summarizer API durch eine {{httpheader('Permissions-Policy/summarizer','summarizer')}} {{httpheader("Permissions-Policy")}} blockiert wird.
+  - : Wird ausgelöst, wenn die Nutzung der Summarizer API durch eine {{httpheader('Permissions-Policy/summarizer','summarizer')}} {{httpheader("Permissions-Policy")}} blockiert ist.
 - `NotReadableError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn die Ausgabezusammenfassung vom Benutzeragenten gefiltert wurde, beispielsweise weil sie als schädlich, ungenau oder unsinnig erkannt wurde.
+  - : Wird ausgelöst, wenn die Ausgangszusammenfassung vom Benutzeragent herausgefiltert wurde, zum Beispiel, weil sie als schädlich, ungenau oder unsinnig erkannt wurde.
 - `NotSupportedError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der bereitgestellte `context` in einer Sprache ist, die der `Summarizer` nicht unterstützt.
+  - : Wird ausgelöst, wenn der bereitgestellte `context` nicht in einer vom `Summarizer` unterstützten Sprache vorliegt.
 - `QuotaExceededError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn der Zusammenfassungsvorgang das verfügbare [`inputQuota`](/de/docs/Web/API/Summarizer/inputQuota) überschreitet.
 - `UnknownError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der `summarizeStreaming()` Aufruf aus einem anderen Grund fehlschlug oder ein Grund, den der Benutzeragent nicht mitteilen wollte.
+  - : Wird ausgelöst, wenn der `summarizeStreaming()` Aufruf aus einem anderen Grund fehlschlug oder einen Grund, den der Benutzeragent nicht preisgeben wollte.
 
 ## Beispiele
 
@@ -55,7 +55,7 @@ Ein [`ReadableStream`](/de/docs/Web/API/ReadableStream), der die generierte Zusa
 const summarizer = await Summarizer.create({
   sharedContext:
     "A general summary to help a user decide if the text is worth reading",
-  type: "tl;dr",
+  type: "tldr",
   length: "short",
 });
 

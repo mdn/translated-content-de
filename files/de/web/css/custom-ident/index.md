@@ -2,48 +2,48 @@
 title: <custom-ident>
 slug: Web/CSS/custom-ident
 l10n:
-  sourceCommit: a075805de90029b65fa5cfcc8ea43737728320f5
+  sourceCommit: 017d2a4152d195a3f57849d23bc9cc6ebce3d0da
 ---
 
 {{CSSRef}}
 
-Der **`<custom-ident>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_data_types) bezeichnet eine beliebige benutzerdefinierte Zeichenfolge, die als {{Glossary("identifier", "Identifier")}} verwendet wird. Er ist case-sensitiv, und bestimmte Werte sind in verschiedenen Kontexten verboten, um Mehrdeutigkeiten zu vermeiden.
+Der **`<custom-ident>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_data_types) bezeichnet eine beliebige, vom Benutzer definierte Zeichenfolge, die als {{Glossary("identifier", "Identifier")}} verwendet wird. Er ist case-sensitiv, und bestimmte Werte sind in verschiedenen Kontexten verboten, um Mehrdeutigkeiten zu vermeiden.
 
 ## Syntax
 
-Die Syntax von `<custom-ident>` ähnelt den CSS-Identifikatoren (wie z. B. Eigenschaftsnamen), mit der Ausnahme, dass es [case-sensitiv](https://en.wikipedia.org/wiki/Case_sensitivity) ist. Er besteht aus einem oder mehreren Zeichen, wobei Zeichen Folgendes sein können:
+Die Syntax von `<custom-ident>` ähnelt der von CSS-Identifikatoren (wie Eigenschaftsnamen), mit dem Unterschied, dass sie [case-sensitiv](https://en.wikipedia.org/wiki/Case_sensitivity) ist. Sie besteht aus einem oder mehreren Zeichen, wobei die Zeichen wie folgt sein können:
 
-- ein beliebiges alphabetisches Zeichen (`A` bis `Z`, oder `a` bis `z`),
-- eine beliebige Dezimalziffer (`0` bis `9`),
+- beliebige alphabetische Zeichen (`A` bis `Z` oder `a` bis `z`),
+- beliebige Dezimalziffern (`0` bis `9`),
 - ein Bindestrich (`-`),
 - ein Unterstrich (`_`),
-- ein [escaped character](#zeichen_escapen) (vorangestellt von einem Backslash, `\`),
-- ein [Unicode](https://en.wikipedia.org/wiki/Unicode)-Zeichen (im Format eines Backslashes, `\`, gefolgt von ein bis sechs hexadezimalen Ziffern, die dessen Unicode-Codepunkt darstellen)
+- ein [escaped character](#zeichen_entkommen) (eingeleitet durch einen Backslash, `\`),
+- ein [Unicode](https://en.wikipedia.org/wiki/Unicode)-Zeichen (im Format eines Backslashs, `\`, gefolgt von eins bis sechs hexadezimalen Ziffern, die den Unicode-Codepunkt darstellen)
 
-Beachten Sie, dass `id1`, `Id1`, `iD1` und `ID1` unterschiedliche Identifikatoren darstellen, da sie [case-sensitiv](https://en.wikipedia.org/wiki/Case_sensitivity) sind.
+Beachten Sie, dass `id1`, `Id1`, `iD1` und `ID1` aufgrund der [case-Sensitivität](https://en.wikipedia.org/wiki/Case_sensitivity) unterschiedliche Identifikatoren sind.
 
-### Zeichen escapen
+### Zeichen entkommen
 
-Jeder Unicode-Codepunkt kann als Teil eines `<custom-ident>` oder eines in Anführungszeichen gesetzten {{cssxref("string")}} durch Escaping eingebunden werden.
+Jeder Unicode-Codepunkt kann als Teil eines `<custom-ident>` oder eines gequoteten {{cssxref("string")}} enthalten sein, indem er escapiert wird.
 
-In CSS gibt es mehrere Möglichkeiten, ein Zeichen zu escapen. Escape-Sequenzen beginnen mit einem Backslash (`\`) und setzen sich fort mit:
+In CSS gibt es mehrere Möglichkeiten, ein Zeichen zu escapen. Escape-Sequenzen beginnen mit einem Backslash (`\`) und werden fortgesetzt mit:
 
-- Ein bis sechs hexadezimale (`ABCDEF0123456789`) Ziffern. Die hexadezimalen Ziffern können optional durch Leerzeichen gefolgt werden. Die hexadezimale Escape-Sequenz wird durch den Unicode-Codepunkt ersetzt, dessen Wert durch diese Ziffern angegeben ist. Das Leerzeichen ermöglicht es, dass die Sequenzen von tatsächlichen hexadezimalen Ziffern (im Gegensatz zu ersetzten) gefolgt werden können.
-- Jedem Unicode-Codepunkt, der keine hexadezimale Ziffer oder kein Zeilenumbruchzeichen ist.
+- Einem bis sechs hexadezimalen (`ABCDEF0123456789`) Ziffern. Die hexadezimalen Ziffern können optional durch ein Leerzeichen gefolgt werden. Die hexadezimale Escape-Sequenz wird durch den Unicode-Codepunkt ersetzt, dessen Wert durch diese Ziffern angegeben wird. Das Leerzeichen ermöglicht es den Sequenzen, von tatsächlichen hexadezimalen Ziffern gefolgt zu werden (im Gegensatz zu ersetzten).
+- Jedem Unicode-Codepunkt, der keine hexadezimale Ziffer oder ein Zeilenumbruchzeichen ist.
 
 Beispiele:
 
 - "&B" kann als `\26 B` oder `\000026B` geschrieben werden.
 - "hi.there" kann als `hi\.there` oder `hi\002Ethere` geschrieben werden.
-- "toto?" kann als `toto\?`, `toto\3F`, oder `toto\00003F` geschrieben werden.
+- "toto?" kann als `toto\?`, `toto\3F` oder `toto\00003F` geschrieben werden.
 
-Um tatsächlich Leerzeichen nach einer Escape-Sequenz einzufügen, fügen Sie zwei Leerzeichen in die Escape-Sequenz ein.
+Um tatsächlich ein Leerzeichen nach einer Escape-Sequenz einzufügen, fügen Sie zwei Leerzeichen in die Escape-Sequenz ein.
 
 ### Verbotene Werte
 
-Ein `<custom-ident>` darf nicht in einfachen oder doppelten Anführungszeichen gesetzt werden, da dies identisch mit einem {{CSSxRef("&lt;string&gt;")}} wäre. Außerdem darf das erste Zeichen keine Dezimalziffer sein, noch ein Bindestrich (`-`), gefolgt von einer Dezimalziffer.
+Ein `<custom-ident>` darf nicht in einfache oder doppelte Anführungszeichen gesetzt werden, da dies identisch mit einem {{CSSxRef("&lt;string&gt;")}} wäre. Zudem darf das erste Zeichen keine Dezimalziffer sein, noch ein Bindestrich (`-`), gefolgt von einer Dezimalziffer.
 
-Um Mehrdeutigkeiten zu vermeiden, verbietet jede Eigenschaft, die `<custom-ident>` verwendet, die Nutzung bestimmter Werte:
+Um Mehrdeutigkeit zu vermeiden, verbietet jede Eigenschaft, die `<custom-ident>` verwendet, die Nutzung spezifischer Werte:
 
 - {{CSSxRef("animation-name")}}
   - : Verbietet die globalen CSS-Werte (`unset`, `initial` und `inherit`) sowie `none`.
@@ -57,7 +57,7 @@ Um Mehrdeutigkeiten zu vermeiden, verbietet jede Eigenschaft, die `<custom-ident
     - `inline`
     - `outside`
 
-    Außerdem gibt es einige vordefinierte Werte, die von den verschiedenen Browsern implementiert werden:
+    Darüber hinaus sind einige vordefinierte Werte von den verschiedenen Browsern implementiert:
 
     - `disc`
     - `circle`
@@ -115,8 +115,8 @@ Um Mehrdeutigkeiten zu vermeiden, verbietet jede Eigenschaft, die `<custom-ident
     - `disclosure-open`
     - `disclosure-close`
 
-- {{CSSxRef("grid-row-start")}}, {{CSSxRef("grid-row-end")}}, {{CSSxRef("grid-column-start")}}, {{CSSxRef("grid-column-end")}}
-  - : Verbietet den Wert `span`.
+- {{CSSxRef("grid-row-start")}}, {{CSSxRef("grid-row-end")}}, {{CSSxRef("grid-column-start")}}, {{CSSxRef("grid-column-end")}}, {{CSSxRef("grid-template-rows")}}, {{CSSxRef("grid-template-columns")}}
+  - : Verbietet die Werte `span` und `auto`.
 - {{CSSxRef("view-transition-name")}}
   - : Verbietet die globalen CSS-Werte (`unset`, `initial` und `inherit`) sowie `none`.
 - {{CSSxRef("will-change")}}
@@ -151,7 +151,7 @@ scooby.doo        Only alphanumeric characters, _, and - needn't be escaped.
 
 ## Browser-Kompatibilität
 
-_Da dieser Typ kein echter Typ ist, sondern ein Komforttyp, der die Beschreibung der erlaubten Werte vereinfacht, gibt es keine spezifischen Informationen zur Browser-Kompatibilität._
+_Da dieser Typ kein echter Typ, sondern ein Hilfstyp ist, der zur Vereinfachung der Beschreibung zulässiger Werte verwendet wird, gibt es keine Browser-Kompatibilitätsinformationen._
 
 ## Siehe auch
 

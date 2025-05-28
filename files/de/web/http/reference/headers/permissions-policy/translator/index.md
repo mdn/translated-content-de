@@ -1,15 +1,16 @@
 ---
-title: "Permissions-Policy: translator"
+title: "Permissions-Policy: Übersetzer-Direktive"
+short-title: translator
 slug: Web/HTTP/Reference/Headers/Permissions-Policy/translator
 l10n:
-  sourceCommit: 19e7cdb9bbf52c909ba417c88e768fb287c38ad1
+  sourceCommit: a94222db08ada9dfbbdb880c064df91853204743
 ---
 
 {{HTTPSidebar}}{{SeeCompatTable}}
 
-Die HTTP-{{HTTPHeader("Permissions-Policy")}}-Header-Direktive `translator` steuert den Zugriff auf die Übersetzungsfunktionalität der [Translator und Language Detector APIs](/de/docs/Web/API/Translator_and_Language_Detector_APIs).
+Der HTTP-{{HTTPHeader("Permissions-Policy")}}-Header `translator`-Direktive steuert den Zugriff auf die Übersetzungsfunktionalität der [Translator und Language Detector APIs](/de/docs/Web/API/Translator_and_Language_Detector_APIs).
 
-Insbesondere, wenn eine definierte Richtlinie die Nutzung blockiert, schlagen alle Versuche, die Übersetzungsmethoden der API aufzurufen, mit einem `NotAllowedError`-[`DOMException`](/de/docs/Web/API/DOMException) fehl.
+Insbesondere, wenn eine definierte Richtlinie die Nutzung blockiert, werden alle Versuche, die Übersetzungsmethoden der API aufzurufen, mit einem `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException) fehlschlagen.
 
 ## Syntax
 
@@ -18,11 +19,11 @@ Permissions-Policy: translator=<allowlist>;
 ```
 
 - `<allowlist>`
-  - : Eine Liste von Ursprüngen, für die die Erlaubnis erteilt wird, die Funktion zu nutzen. Siehe [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Reference/Headers/Permissions-Policy#syntax) für weitere Details.
+  - : Eine Liste von Ursprüngen, für die die Erlaubnis erteilt wurde, das Feature zu verwenden. Weitere Details finden Sie unter [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Reference/Headers/Permissions-Policy#syntax).
 
 ## Standardrichtlinie
 
-Die Standard-Whitelist für `translator` ist `self`.
+Die Standard-`allowlist` für `translator` ist `self`.
 
 ## Spezifikationen
 
@@ -35,4 +36,4 @@ Die Standard-Whitelist für `translator` ist `self`.
 ## Siehe auch
 
 - {{HTTPHeader("Permissions-Policy")}}-Header
-- [Permissions Policy](/de/docs/Web/HTTP/Guides/Permissions_Policy)
+- [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Guides/Permissions_Policy)

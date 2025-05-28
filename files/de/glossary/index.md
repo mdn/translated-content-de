@@ -1,16 +1,15 @@
 ---
-title: "MDN Web Docs Glossar: Definitionen von Web-bezogenen Begriffen"
-short-title: Glossar
+title: Glossar der Web-Begriffe
+short-title: Glossary
 slug: Glossary
 l10n:
-  sourceCommit: 9409e72722add6d1c4baeaf7b262c9b0985c0bcf
+  sourceCommit: 6d68286c31edbbbb9ae4fd2f18e727e8e0141402
 ---
 
 {{GlossarySidebar}}
 
-Webtechnologien enthalten lange Listen von Fachbegriffen und Abkürzungen, die in Dokumentationen und beim Codieren verwendet werden. Dieses Glossar bietet Definitionen von Wörtern und Abkürzungen, die Sie kennen müssen, um erfolgreich das Web zu verstehen und dafür zu entwickeln.
+Webtechnologien verwenden viele Arten von Fachjargon, Akronymen und Abkürzungen in Dokumentationen, Code und anderen Kontexten. Dieses Glossar bietet Definitionen der Wörter und Abkürzungen, die Sie kennen müssen, um das Web erfolgreich zu verstehen und dafür zu entwickeln.
 
-Glossarbegriffe können aus der Seitenleiste ausgewählt werden.
+Nutzen Sie die Seitenleiste, um die Begriffe im Glossar zu durchsuchen oder zu einem bestimmten Begriff zu springen. Sie können auch die Suchfunktion "Filter" oben in der Seitenleiste verwenden, um schnell einen Begriff zu finden.
 
-> [!NOTE]
-> Dieses Glossar ist ein nie endendes Projekt. Sie können dabei helfen, es zu verbessern, indem Sie [neue Einträge schreiben](/de/docs/MDN/Writing_guidelines/Howto/Write_a_new_entry_in_the_glossary) oder die bestehenden verbessern.
+Sie können helfen, indem Sie [neue Begriffe](/de/docs/MDN/Writing_guidelines/Howto/Write_a_new_entry_in_the_glossary) beitragen oder die bestehenden Definitionen verbessern.

@@ -1,36 +1,36 @@
 ---
-title: "Summarizer: length Eigenschaft"
+title: "Summarizer: `length`-Eigenschaft"
 short-title: length
 slug: Web/API/Summarizer/length
 l10n:
-  sourceCommit: 683890a47fa52942b23dd4406c7f095bb70b1c59
+  sourceCommit: 3e4f9ff802c6393edf7c17ff0d9c30d0de79663e
 ---
 
 {{APIRef("Summarizer API")}}{{SeeCompatTable}}
 
-Die **`length`** schreibgeschützte Eigenschaft des [`Summarizer`](/de/docs/Web/API/Summarizer) Interfaces gibt die relative Länge der generierten Zusammenfassungen zurück.
+Die **`length`**-Eigenschaft des [`Summarizer`](/de/docs/Web/API/Summarizer)-Interfaces ist eine schreibgeschützte Eigenschaft, die die relative Länge der erzeugten Zusammenfassungen zurückgibt.
 
 ## Wert
 
-Ein enumerierter Wert, der die relative Länge der generierten Zusammenfassungen angibt, deren genaue Natur vom `Summarizer` [`type`](/de/docs/Web/API/Summarizer/type) Wert abhängt.
+Ein enumerierter Wert, der die relative Länge der erzeugten Zusammenfassungen angibt, wobei die genaue Art je nach `type`-Wert des `Summarizer` unterschiedlich ist.
 
 Mögliche Werte sind:
 
 - `short`
   - : Eine "kurze" Zusammenfassung
-    - Bei `type` `tl;dr` und `teaser` sollte die Zusammenfassung in einen Satz passen.
-    - Bei `type` `key-points` sollte die Zusammenfassung aus nicht mehr als drei Aufzählungspunkten bestehen.
-    - Bei `type` `headline` sollte die Zusammenfassung aus nicht mehr als 12 Wörtern bestehen.
+    - Für `type` `tldr` und `teaser` sollte die Zusammenfassung in einen Satz passen.
+    - Für `type` `key-points` sollte die Zusammenfassung nicht mehr als drei Aufzählungspunkte umfassen.
+    - Für `type` `headline` sollte die Zusammenfassung nicht mehr als 12 Wörter umfassen.
 - `medium`
   - : Eine "mittlere" Zusammenfassung
-    - Bei `type` `tl;dr` und `teaser` sollte die Zusammenfassung in einen kurzen Absatz passen.
-    - Bei `type` `key-points` sollte die Zusammenfassung aus nicht mehr als fünf Aufzählungspunkten bestehen.
-    - Bei `type` `headline` sollte die Zusammenfassung aus nicht mehr als 17 Wörtern bestehen.
+    - Für `type` `tldr` und `teaser` sollte die Zusammenfassung in einen kurzen Absatz passen.
+    - Für `type` `key-points` sollte die Zusammenfassung nicht mehr als fünf Aufzählungspunkte umfassen.
+    - Für `type` `headline` sollte die Zusammenfassung nicht mehr als 17 Wörter umfassen.
 - `long`
   - : Eine "lange" Zusammenfassung
-    - Bei `type` `tl;dr` und `teaser` sollte die Zusammenfassung in einen Absatz passen.
-    - Bei `type` `key-points` sollte die Zusammenfassung aus nicht mehr als sieben Aufzählungspunkten bestehen.
-    - Bei `type` `headline` sollte die Zusammenfassung aus nicht mehr als 22 Wörtern bestehen.
+    - Für `type` `tldr` und `teaser` sollte die Zusammenfassung in einen Absatz passen.
+    - Für `type` `key-points` sollte die Zusammenfassung nicht mehr als sieben Aufzählungspunkte umfassen.
+    - Für `type` `headline` sollte die Zusammenfassung nicht mehr als 22 Wörter umfassen.
 
 ## Beispiele
 
@@ -55,4 +55,4 @@ console.log(summarizer.length);
 ## Siehe auch
 
 - [Verwendung der Summarizer API](/de/docs/Web/API/Summarizer_API/Using)
-- [Web AI-Demos](https://chrome.dev/web-ai-demos/) auf chrome.dev.
+- [Web AI Demos](https://chrome.dev/web-ai-demos/) auf chrome.dev.

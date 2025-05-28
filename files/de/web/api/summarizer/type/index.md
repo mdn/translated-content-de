@@ -3,35 +3,35 @@ title: "Summarizer: type-Eigenschaft"
 short-title: type
 slug: Web/API/Summarizer/type
 l10n:
-  sourceCommit: 683890a47fa52942b23dd4406c7f095bb70b1c59
+  sourceCommit: d80455b193a5e5f1789e4c941aaaecaae3034d5b
 ---
 
 {{APIRef("Summarizer API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte **`type`**-Eigenschaft des [`Summarizer`](/de/docs/Web/API/Summarizer)-Interfaces gibt den Typ der Zusammenfassung zurück, die vom `Summarizer` generiert wird.
+Die schreibgeschützte **`type`**-Eigenschaft der [`Summarizer`](/de/docs/Web/API/Summarizer)-Schnittstelle gibt den Typ der Zusammenfassung zurück, die vom `Summarizer` erstellt wird.
 
 ## Wert
 
-Ein enumerierter Wert, der angibt, in welcher Form die Zusammenfassung generiert wird; mögliche Werte sind:
+Ein enumerierter Wert, der die Form der zu erstellenden Zusammenfassung angibt; mögliche Werte sind:
 
 - `headline`
-  - : Eine einzelne Satzüberschrift, die den Hauptpunkt des Eingabetextes erfasst.
+  - : Eine einzelne Satzüberschrift des Artikels, die den Hauptpunkt des eingegebenen Textes erfasst.
 - `key-points`
-  - : Eine Liste mit Aufzählungszeichen, die die wichtigsten im Eingabetext präsentierten Punkte angibt.
+  - : Eine Aufzählungsliste, die die wichtigsten im eingegebenen Text präsentierten Punkte angibt.
 - `teaser`
-  - : Ein "Teaser"-Absatz, der die interessantesten oder fesselndsten Punkte des Eingabetextes zusammenfasst und den Leser dazu motiviert, mehr zu lesen.
-- `tl;dr`
-  - : Eine kurze, prägnante Übersicht, die als Zusammenfassung für vielbeschäftigte Leser gedacht ist.
+  - : Ein "Teaser"-Absatz, der die interessantesten oder spannendsten Punkte des eingegebenen Textes zusammenfasst und darauf abzielt, den Leser dazu zu bewegen, mehr zu lesen.
+- `tldr`
+  - : Eine kurze, prägnante Übersicht, die als Zusammenfassung für einen vielbeschäftigten Leser gedacht ist.
 
 ## Beispiele
 
 ```js
 const summarizer = await Summarizer.create({
-  type: "tl;dr",
+  type: "tldr",
   // ...
 });
 
-// Logs "tl;dr"
+// Logs "tldr"
 console.log(summarizer.type);
 ```
 
@@ -46,4 +46,4 @@ console.log(summarizer.type);
 ## Siehe auch
 
 - [Verwendung der Summarizer API](/de/docs/Web/API/Summarizer_API/Using)
-- [Web AI-Demonstrationen](https://chrome.dev/web-ai-demos/) auf chrome.dev
+- [Web-AI-Demos](https://chrome.dev/web-ai-demos/) auf chrome.dev

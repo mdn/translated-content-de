@@ -1,25 +1,25 @@
 ---
-title: Nutzung der Summarizer-API
+title: Verwendung der Summarizer-API
 slug: Web/API/Summarizer_API/Using
 l10n:
-  sourceCommit: 2c0f972d873ea2db5163dbcb12987847124751ad
+  sourceCommit: 3e4f9ff802c6393edf7c17ff0d9c30d0de79663e
 ---
 
 {{DefaultAPISidebar("Summarizer API")}}
 
-Die [Summarizer-API](/de/docs/Web/API/Summarizer_API) bietet einen asynchronen, auf {{jsxref("Promise")}} basierenden Mechanismus, mit dem eine Webseite einen Textinhalt in das interne KI-Modell des Browsers einspeisen und eine Zusammenfassung des Textes basierend auf angegebenen Optionen anfordern kann. Dieser Artikel erklärt, wie Sie die Grundlagen der Summarizer-API verwenden.
+Die [Summarizer-API](/de/docs/Web/API/Summarizer_API) bietet einen asynchronen ({{jsxref("Promise")}}-basierten) Mechanismus für eine Website, um einen Textkörper in das interne AI-Modell des Browsers einzuspeisen und eine Zusammenfassung des Textes basierend auf angegebenen Optionen anzufordern. Dieser Artikel erklärt, wie man die Grundlagen der Summarizer-API verwendet.
 
-## Erstellen eines Summarizers
+## Erstellung eines Summarizers
 
-Die gesamte Funktionalität der Summarizer-API wird über eine einzige Schnittstelle zugänglich gemacht — [`Summarizer`](/de/docs/Web/API/Summarizer).
+Die gesamte Funktionalität der Summarizer-API wird über ein einziges Interface bereitgestellt — [`Summarizer`](/de/docs/Web/API/Summarizer).
 
-Der erste Schritt, damit das KI-Modell des Browsers eine Zusammenfassung erstellt, besteht darin, eine Instanz eines `Summarizer`-Objekts zu erstellen. Dies erfolgt mit der statischen Methode [`Summarizer.create()`](/de/docs/Web/API/Summarizer/create_static), die ein Optionsobjekt als Argument nimmt, das angibt, welche Art von Zusammenfassung Sie erstellen möchten:
+Der erste Schritt, um das AI-Modell des Browsers dazu zu bringen, eine Zusammenfassung auszugeben, ist die Erstellung einer Instanz des `Summarizer`-Objekts. Dies geschieht mit der statischen Methode [`Summarizer.create()`](/de/docs/Web/API/Summarizer/create_static), die ein Optionsobjekt als Argument entgegennimmt, das Optionen dafür angibt, welche Art von Zusammenfassung erstellt werden soll:
 
 ```js
 const summarizer = await Summarizer.create({
   sharedContext:
     "A general summary to help a user decide if the text is worth reading",
-  type: "tl;dr",
+  type: "tldr",
   length: "short",
   format: "markdown",
   expectedInputLanguages: ["en-US"],
@@ -27,22 +27,22 @@ const summarizer = await Summarizer.create({
 });
 ```
 
-Die Option [`sharedContext`](/de/docs/Web/API/Summarizer/sharedContext) bietet einen String, der dem KI-Modell hilft, eine angemessenere Zusammenfassung für den Kontext zu schreiben, in dem der Text verwendet wird, während [`type`](/de/docs/Web/API/Summarizer/type) angibt, welche Art von Zusammenfassung Sie bereitstellen möchten, wie etwa wesentliche Punkte oder eine "tl;dr"-Zusammenfassung.
+Die Option [`sharedContext`](/de/docs/Web/API/Summarizer/sharedContext) stellt einen String bereit, der dem AI-Modell hilft, eine passendere Zusammenfassung für den Kontext zu schreiben, in dem der Text verwendet wird, während der [`type`](/de/docs/Web/API/Summarizer/type) angibt, welche Art von Zusammenfassung gewünscht wird, wie z.B. Schlüsselpunkte oder eine "tldr"-Zusammenfassung.
 
-Wir spezifizieren auch die gewünschte [`length`](/de/docs/Web/API/Summarizer/length), das Ausgabe-[`format`](/de/docs/Web/API/Summarizer/format), die [`expectedInputLanguages`](/de/docs/Web/API/Summarizer/expectedInputLanguages) und die gewünschte [`outputLanguage`](/de/docs/Web/API/Summarizer/outputLanguage). Wenn die Eingabe- und Ausgabesprachen nicht angegeben sind, wird die Sprache des Eingabetexts automatisch erkannt und die Ausgabesprache entspricht der Eingabesprache.
+Es wird auch die gewünschte [`length`](/de/docs/Web/API/Summarizer/length), das Ausgabe[`format`](/de/docs/Web/API/Summarizer/format), die [`expectedInputLanguages`](/de/docs/Web/API/Summarizer/expectedInputLanguages) und die gewünschte [`outputLanguage`](/de/docs/Web/API/Summarizer/outputLanguage) angegeben. Wenn die Eingabe- und Ausgabesprachen nicht spezifiziert sind, wird die Sprache des Eingabetextes automatisch erkannt, und die Ausgabesprache entspricht der Eingabesprache.
 
-Wenn das KI-Modell des Browsers die angegebenen Eingabe- oder Ausgabesprachen nicht unterstützt, wird ein Fehler ausgelöst.
+Wenn das AI-Modell des Browsers die angegebenen Eingabe- oder Ausgabesprachen nicht unterstützt, wird ein Fehler ausgelöst.
 
 > [!NOTE]
-> Schauen Sie sich die Referenzseite zu [`create()`](/de/docs/Web/API/Summarizer/create_static) für die vollständige Liste der verfügbaren Optionen an.
+> Siehe die [`create()`](/de/docs/Web/API/Summarizer/create_static)-Referenzseite für die vollständige Liste der verfügbaren Optionen.
 
-## Konfigurationsunterstützung überprüfen
+## Überprüfung der Konfigurationsunterstützung
 
-Bevor Sie einen `Summarizer` erstellen, können Sie überprüfen, ob Ihre gewünschte Konfiguration vom aktuellen Browser unterstützt wird, indem Sie die statische Methode [`Summarizer.availability()`](/de/docs/Web/API/Summarizer/availability_static) verwenden. Zum Beispiel:
+Bevor Sie einen `Summarizer` erstellen, können Sie mit der statischen Methode [`Summarizer.availability()`](/de/docs/Web/API/Summarizer/availability_static) überprüfen, ob Ihre gewünschte Konfiguration vom aktuellen Browser unterstützt wird. Zum Beispiel:
 
 ```js
 const availability = await Summarizer.availability({
-  type: "tl;dr",
+  type: "tldr",
   length: "short",
   format: "markdown",
   expectedInputLanguages: ["en-US"],
@@ -50,27 +50,27 @@ const availability = await Summarizer.availability({
 });
 ```
 
-Diese Methode gibt einen enumerierten Wert zurück, der angibt, ob Unterstützung für die angegebenen Optionen verfügbar ist oder sein wird:
+Diese Methode gibt einen Enumerationswert zurück, der anzeigt, ob die Unterstützung für die angegebene Optionen verfügbar ist oder sein wird:
 
-- `downloadable` bedeutet, dass der Browser die angeforderten Optionen unterstützt, aber zuerst ein KI-Modell oder einige Feindaten für das Modell herunterladen muss.
-- `downloading` bedeutet, dass der Browser die angeforderten Optionen unterstützt, jedoch den laufenden Download abschließen muss, bevor er fortfahren kann.
-- `available` bedeutet, dass der Browser die gegebene Konfiguration unterstützt, ohne zusätzliche Downloads zu erfordern.
+- `downloadable` bedeutet, dass der Browser die angeforderten Optionen unterstützt, jedoch zuerst ein AI-Modell oder einige Fine-Tuning-Daten für das Modell heruntergeladen werden müssen.
+- `downloading` bedeutet, dass der Browser die angeforderten Optionen unterstützt, aber einen laufenden Download abschließen muss, bevor er fortfahren kann.
+- `available` bedeutet, dass der Browser die gegebene Konfiguration unterstützt, ohne dass neue Downloads erforderlich sind.
 - `unavailable` bedeutet, dass der Browser die gegebene Konfiguration nicht unterstützt.
 
-Falls ein Download erforderlich ist, wird dieser automatisch vom Browser gestartet, sobald eine `Summarizer`-Instanz mit der Methode `create()` erstellt wird. Sie können den Downloadfortschritt automatisch mit einem [Monitor](#überwachung_des_downloadfortschritts) verfolgen.
+Wenn ein Download erforderlich ist, wird er automatisch vom Browser gestartet, sobald eine `Summarizer`-Instanz mit der `create()`-Methode erstellt wird. Sie können den Fortschritt des Downloads automatisch mit einem [Monitor](#überwachung_des_download-fortschritts) verfolgen.
 
-## Zusammenfassung erzeugen
+## Erstellung einer Zusammenfassung
 
-Wenn Sie festgestellt haben, dass Ihre gewünschte Konfiguration funktioniert und Sie eine `Summarizer`-Instanz erstellt haben, können Sie sie verwenden, um eine Zusammenfassung zu generieren, indem Sie die Instanzmethode [`Summarizer.summarize()`](/de/docs/Web/API/Summarizer/summarize) aufrufen und ihr den zu zusammenfassenden Text als Argument übergeben.
+Wenn Sie festgestellt haben, dass Ihre gewünschte Konfiguration funktioniert und Sie eine `Summarizer`-Instanz erstellt haben, können Sie diese verwenden, um eine Zusammenfassung zu erstellen, indem Sie die [`Summarizer.summarize()`](/de/docs/Web/API/Summarizer/summarize)-Instanzmethode aufrufen, wobei Sie den Text, der zusammengefasst werden soll, als Argument übergeben.
 
 ```js
 const summary = await summarizer.summarize(myTextString);
 console.log(summary);
 ```
 
-Es akzeptiert optional ein Optionsobjekt als zweites Argument, das einen `context`-String spezifisch für diese Zusammenfassung und ein Abbruch-`signal` [/de/docs/Web/API/AbortSignal) enthalten kann, mit dem die Anforderung zur Zusammenfassung abgebrochen werden kann (siehe nächsten Abschnitt).
+Es kann auch optional ein Optionsobjekt als zweites Argument akzeptiert werden, das einen spezifischen `context`-String für diese Zusammenfassung und ein Abbruch [`signal`](/de/docs/Web/API/AbortSignal) akzeptiert, das es ermöglicht, die Anforderung der Zusammenfassung abzubrechen (siehe nächster Abschnitt).
 
-Es gibt eine Streaming-Version der Methode `summarize()` — [`Summarizer.summarizeStreaming()`](/de/docs/Web/API/Summarizer/summarizeStreaming) — die es erlaubt, die Zusammenfassung als [`ReadableStream`](/de/docs/Web/API/ReadableStream) zurückzugeben:
+Es gibt eine Streaming-Version der `summarize()`-Methode — [`Summarizer.summarizeStreaming()`](/de/docs/Web/API/Summarizer/summarizeStreaming) — die es ermöglicht, die Zusammenfassung als [`ReadableStream`](/de/docs/Web/API/ReadableStream) zurückzugeben:
 
 ```js
 const stream = summarizer.summarizeStreaming(myTextString);
@@ -84,11 +84,11 @@ console.log("Stream complete");
 summaryOutput.textContent = summary;
 ```
 
-Nachdem eine `Summarizer`-Instanz erstellt wurde, können Sie sie wieder entfernen, indem Sie die Instanzmethode [`Summarizer.destroy()`](/de/docs/Web/API/Summarizer/destroy) verwenden. Es macht Sinn, `Summarizer`-Objekte zu löschen, wenn sie nicht mehr verwendet werden, da sie erhebliche Ressourcen in Anspruch nehmen.
+Nachdem eine `Summarizer`-Instanz erstellt wurde, können Sie sie wieder entfernen, indem Sie die [`Summarizer.destroy()`](/de/docs/Web/API/Summarizer/destroy)-Instanzmethode verwenden. Es ist sinnvoll, `Summarizer`-Objekte zu zerstören, wenn sie nicht mehr verwendet werden, da sie erhebliche Ressourcen in ihrer Handhabung binden.
 
 ## Abbrechen von Zusammenfassungsvorgängen
 
-Sie können einen ausstehenden `create()`, `summarize()` oder `summarizeStreaming()` Vorgang mit einem [`AbortController`](/de/docs/Web/API/AbortController) abbrechen:
+Sie können einen ausstehenden `create()`, `summarize()` oder `summarizeStreaming()`-Vorgang mit einem [`AbortController`](/de/docs/Web/API/AbortController) abbrechen:
 
 ```js
 const controller = new AbortController();
@@ -101,17 +101,18 @@ const summary = await summarizer.summarize(myTextString, {
 controller.abort();
 ```
 
-## Überwachung des Downloadfortschritts
+## Überwachung des Download-Fortschritts
 
-Wenn das KI-Modell für einen bestimmten Summarizer heruntergeladen wird (`availability()` gibt `downloadable` und `downloading` zurück), ist es hilfreich, dem Benutzer Feedback zu geben, um ihm mitzuteilen, wie lange er warten muss, bis der Vorgang abgeschlossen ist.
+Wenn das AI-Modell für einen bestimmten Summarizer heruntergeladen wird (`availability()` gibt `downloadable` und `downloading` zurück), ist es hilfreich, dem Benutzer eine Rückmeldung zu geben, um ihm zu sagen, wie lange er warten muss, bis der Vorgang abgeschlossen ist.
 
-Die Methode `Summarizer.create()` kann eine `monitor`-Eigenschaft akzeptieren, deren Wert eine Callback-Funktion ist, die eine Instanz von [`CreateMonitor`](/de/docs/Web/API/CreateMonitor) als Argument nimmt. `CreateMonitor` hat ein [`downloadprogress`](/de/docs/Web/API/CreateMonitor/downloadprogress_event) Ereignis, das ausgelöst wird, wenn Fortschritte beim Herunterladen des KI-Modells gemacht werden. Sie können dieses Ereignis verwenden, um Ladefortschrittsdaten anzuzeigen:
+Die `Summarizer.create()`-Methode kann eine `monitor`-Eigenschaft akzeptieren, deren Wert eine Callback-Funktion ist, die eine [`CreateMonitor`](/de/docs/Web/API/CreateMonitor)-Instanz als Argument nimmt. `CreateMonitor` verfügt über ein [`downloadprogress`](/de/docs/Web/API/CreateMonitor/downloadprogress_event)-Ereignis, das ausgelöst wird, wenn Fortschritte beim Herunterladen des AI-Modells gemacht werden.
+Sie können dieses Ereignis verwenden, um Ladefortschrittsdaten zu veröffentlichen:
 
 ```js
 const summarizer = await Summarizer.create({
   sharedContext:
     "A general summary to help a user decide if the text is worth reading",
-  type: "tl;dr",
+  type: "tldr",
   length: "short",
   monitor(monitor) {
     monitor.addEventListener("downloadprogress", (e) => {
@@ -121,19 +122,19 @@ const summarizer = await Summarizer.create({
 });
 ```
 
-## Nutzungsquoten
+## Nutzungskontingente
 
-Einige Implementierungen haben ein Eingabe-Limit, das bestimmt, wie viele Vorgänge eine Webseite in einem bestimmten Zeitraum anfordern kann. Die gesamte Quote kann über die [`Summarizer.inputQuota`](/de/docs/Web/API/Summarizer/inputQuota) Eigenschaft abgerufen werden, während die Nutzung der Quote für einen bestimmten Zusammenfassungsvorgang mittels der Methode [`Summarizer.measureInputUsage()`](/de/docs/Web/API/Summarizer/measureInputUsage) ermittelt werden kann:
+Einige Implementierungen haben ein Eingabekontingent, das regelt, wie viele Vorgänge eine Website in einem bestimmten Zeitraum anfordern kann. Das Gesamtkontingent kann über die [`Summarizer.inputQuota`](/de/docs/Web/API/Summarizer/inputQuota)-Eigenschaft abgerufen werden, während die Nutzung des Kontingents für eine bestimmte Zusammenfassungsoperation mit der [`Summarizer.measureInputUsage()`](/de/docs/Web/API/Summarizer/measureInputUsage)-Methode zurückgegeben werden kann:
 
-Beispielsweise erstellen wir im folgenden Codeausschnitt eine neue `Summarizer`-Instanz mit [`create()`](/de/docs/Web/API/Summarizer/create_static), dann geben wir die gesamte Eingabe-Quote über `inputQuota` zurück und die Nutzung der Eingabe-Quote zur Zusammenfassung einer bestimmten Textzeichenfolge über `measureInputUsage()`.
+Zum Beispiel erstellen wir im unten stehenden Codeausschnitt eine neue `Summarizer`-Instanz mit [`create()`](/de/docs/Web/API/Summarizer/create_static), dann geben wir das gesamte Eingabekontingent über `inputQuota` und die Nutzung des Eingabekontingents für das Zusammenfassen eines bestimmten Text-Strings über `measureInputUsage()` zurück.
 
-Dann prüfen wir, ob die individuelle Eingabenutzung für diese Zeichenfolge größer ist als die insgesamt verfügbare Quote. Falls ja, werfen wir einen entsprechenden Fehler; wenn nicht, beginnen wir mit der Zusammenfassung der Zeichenfolge mit [`summarize()`](/de/docs/Web/API/Summarizer/summarize).
+Wir testen dann, ob die individuelle Eingabenutzung für diesen String größer ist als das insgesamt verfügbare Kontingent. Wenn ja, werfen wir einen entsprechenden Fehler; wenn nicht, beginnen wir mit dem Zusammenfassen des Strings mit [`summarize()`](/de/docs/Web/API/Summarizer/summarize).
 
 ```js
 const summarizer = await Summarizer.create({
   sharedContext:
     "A general summary to help a user decide if the text is worth reading",
-  type: "tl;dr",
+  type: "tldr",
   length: "short",
 });
 
@@ -149,15 +150,15 @@ if (inputUsage > totalInputQuota) {
 }
 ```
 
-Wenn Sie versuchen, einen Zusammenfassungsvorgang auszuführen, der die verfügbare Quote überschreitet, wird ein `QuotaExceededError` [`DOMException`](/de/docs/Web/API/DOMException) ausgelöst.
+Wenn Sie versuchen, eine Zusammenfassungsoperation auszuführen, die das verfügbare Kontingent überschreitet, wird eine `QuotaExceededError`-[`DOMException`](/de/docs/Web/API/DOMException) geworfen.
 
 ## Komplettes Beispiel
 
-Werfen wir einen Blick auf ein vollständiges Beispiel, das die Summarizer-API in Aktion zeigt.
+Schauen wir uns ein komplettes Beispiel an, das die Summarizer-API in Aktion zeigt.
 
 ### HTML
 
-In unserem Markup definieren wir zuerst ein Eingabe{{htmlelement("form")}}, das dem Benutzer ermöglicht, den zu zusammenfassenden Text und Konfigurationsoptionen festzulegen. Dazu gehört ein {{htmlelement("textarea")}}, in das der zu zusammenfassende Text eingegeben wird, ein {{htmlelement("output")}}-Element, um die Zeichenanzahl des vom Benutzer festgelegten Textes anzuzeigen, sowie zwei {{htmlelement("select")}}-Elemente zur Auswahl eines Summarizer-[`type`](/de/docs/Web/API/Summarizer/type) und der [`length`](/de/docs/Web/API/Summarizer/length).
+In unserem Markup definieren wir zuerst ein Eingabe{{htmlelement("form")}}, das dem Benutzer ermöglicht, den Text festzulegen, der zusammengefasst werden soll, und Konfigurationsoptionen. Dazu gehören ein {{htmlelement("textarea")}} zum Eingeben des zusammenzufassenden Textes, ein {{htmlelement("output")}}-Element, um die Zeichenanzahl des vom Benutzer festgelegten Textes anzuzeigen, und zwei {{htmlelement("select")}}-Elemente zur Auswahl eines Summarizer-`type`s und der `length`.
 
 ```html live-sample___summarizer-example
 <h2>Input</h2>
@@ -174,7 +175,7 @@ In unserem Markup definieren wir zuerst ein Eingabe{{htmlelement("form")}}, das 
       <option value="headline">Headline</option>
       <option value="key-points">Key points</option>
       <option value="teaser">Teaser</option>
-      <option value="tl;dr" selected>tl;dr</option>
+      <option value="tldr" selected>tldr</option>
     </select>
   </div>
   <div>
@@ -189,7 +190,7 @@ In unserem Markup definieren wir zuerst ein Eingabe{{htmlelement("form")}}, das 
 </form>
 ```
 
-Die zweite Hälfte unseres Markups umfasst ein {{htmlelement("p")}}-Element, um die generierte Zusammenfassung anzuzeigen, und ein zweites {{htmlelement("output")}}-Element, um die Zeichenanzahl der Zusammenfassung anzuzeigen.
+Die zweite Hälfte unseres Markup enthält ein {{htmlelement("p")}}-Element, um die generierte Zusammenfassung anzuzeigen, und ein zweites {{htmlelement("output")}}-Element, um die Zeichenanzahl der Zusammenfassung anzuzeigen.
 
 ```html live-sample___summarizer-example
 <h2>Summary output</h2>
@@ -237,11 +238,11 @@ textarea,
 }
 ```
 
-Beachten Sie, dass wir das CSS für dieses Beispiel nicht zeigen werden, da keines davon relevant ist, um die Summarizer-API zu verstehen.
+Beachten Sie, dass wir das CSS für dieses Beispiel nicht anzeigen werden, da nichts davon relevant für das Verständnis der Summarizer-API ist.
 
 ### JavaScript
 
-In unserem Skript beginnen wir mit dem Abrufen von Referenzen zu dem `<form>`, `<textarea>`, dem Submit-`<button>`, der Ausgabesumme-`<p>`, und den beiden `<output>`-Elementen.
+In unserem Skript beginnen wir damit, Referenzen zum `<form>`, `<textarea>`, zum Senden-`<button>`, zur Zusammenfassungsausgabe-`<p>` und zu zwei `<output>`-Elementen zu erstellen.
 
 ```js live-sample___summarizer-example
 const form = document.querySelector("form");
@@ -253,17 +254,17 @@ const inputCount = document.querySelector(".input-count");
 const outputCount = document.querySelector(".output-count");
 ```
 
-Anschließend verwenden wir die Methode [`EventTarget.addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), um auf zwei Sets von Ereignissen zu hören:
+Als nächstes verwenden wir die Methode [`EventTarget.addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), um zwei Sätze von Ereignissen zu hören:
 
-- `submit`-Ereignisse auf dem `<form>`-Element; wenn der Submit-Button geklickt wird, wird die Funktion `handleSubmission()` aufgerufen.
-- `input`-Ereignisse auf dem `<textarea>`-Element; wenn der aktuelle Wert des `<textarea>` geändert wird, wird die Funktion `updateInputCount()` aufgerufen.
+- `submit`-Ereignisse auf dem `<form>`-Element; wenn der Senden-Button geklickt wird, wird die Funktion `handleSubmission()` aufgerufen.
+- `input`-Ereignisse auf dem `<textarea>`-Element; wenn der aktuelle `<textarea>`-Wert geändert wird, wird die Funktion `updateInputCount()` aufgerufen.
 
 ```js live-sample___summarizer-example
 form.addEventListener("submit", handleSubmission);
 textarea.addEventListener("input", updateInputCount);
 ```
 
-Die Funktion `updateInputCount()`, die als nächstes definiert wird, setzt das [`textContent`](/de/docs/Web/API/Node/textContent) des ersten `<output>`-Elements auf einen String, der die Länge des `<textarea>`-Werts enthält. Wir definieren auch eine Gegenstück-Funktion `displayOutputCount()`, die dasselbe für das zweite `<output>`-Element tut. Diese wird erst gegen Ende der Funktion `handleSubmission()` aufgerufen, nachdem die Zusammenfassung zurückgegeben wurde.
+Die als nächstes definierte Funktion `updateInputCount()` setzt den [`textContent`](/de/docs/Web/API/Node/textContent) des ersten `<output>`-Elements auf einen String, der die Länge des `<textarea>`-Werts enthält. Wir definieren auch eine Gegenstückfunktion `displayOutputCount()`, die dasselbe für das zweite `<output>`-Element tut. Dies wird erst gegen Ende der `handleSubmission()`-Funktion aufgerufen, nachdem die Zusammenfassung zurückgegeben wurde.
 
 ```js live-sample___summarizer-example
 function updateInputCount() {
@@ -275,11 +276,11 @@ function displayOutputCount() {
 }
 ```
 
-Nun definieren wir die Funktion `handleSubmission()` selbst. Nachdem wir die standardmäßige Formularübermittlung verhindert haben, erstellen wir ein neues [`FormData`](/de/docs/Web/API/FormData)-Objekt, das alle unsere `<form>`-Daten-Namens/Werte-Paare enthält. Dann führen wir einige Datenvalidierungstests durch, um zu überprüfen, ob der `<textarea>`-Inhalt (`summaryText`) leer oder zu kurz ist, um die Zyklen zu verschwenden, und eine Fehlermeldung innerhalb der Summen-Ausgabe-`<p>` anzuzeigen, falls dem so ist.
+Jetzt definieren wir die `handleSubmission()`-Funktion selbst. Nachdem das Standardformulardatum verhindert wurde, erstellen wir einen neuen [`FormData`](/de/docs/Web/API/FormData)-Objektinstanz, die all unsere `<form>`-Daten in Form von Namen/Wert-Paaren enthält. Dann führen wir einige Datenvalidierungen durch, bei denen überprüft wird, ob der `<textarea>`-Inhalt (`summaryText`) leer ist oder zu kurz, um Zyklen zu verschwenden, und eine Fehlermeldung im Zusammenfassungsausgabe-`<p>` gedruckt wird, falls dies so ist.
 
-Wenn der Text die Tests bestanden hat, erstellen wir ein `Summarizer`-Objekt mit der Methode `create()`, indem wir ihr einen `sharedContext`-String und die im Formular ausgewählten Werte `type` (`summaryType`) und `length` (`summaryLength`) übergeben. Dann setzen wir das Ausgabesummen-`<p>` und `<output>` auf "ausstehende" Meldungen und deaktivieren den `<submit>`-Button, während wir die Operation `summarize()` ausführen.
+Hat der Text die Tests bestanden, erstellen wir ein `Summarizer`-Objekt mit der `create()`-Methode, indem wir ihr einen `sharedContext`-String und die im Formular ausgewählten Werte für `type` (`summaryType`) und `length` (`summaryLength`) übergeben. Dann setzen wir die Ausgabesummary im `<p>` und `<output>` auf "ausstehende" Nachrichten und deaktivieren den `<submit>`-Button, während wir die `summarize()`-Operation ausführen.
 
-Nachdem der Wert `summary` erfolgreich zurückgegeben wurde, setzen wir ihn als die `textContent` des Ausgabesummen-`<p>`-Elements, rufen `displayOutputCount()` auf, um die Ausgabenzeichenanzahl im zweiten `<output>`-Element anzuzeigen, und aktivieren den Submit-`<button>` wieder.
+Nachdem der `summary`-Wert erfolgreich zurückgegeben wurde, setzen wir ihn als `textContent` des Ausgabesummary-`<p>`-Elements, rufen `displayOutputCount()` auf, um die Zahl der Ausgabenzeichen im zweiten `<output>`-Element anzuzeigen, und aktivieren den Senden-`<button>` wieder.
 
 ```js live-sample___summarizer-example
 async function handleSubmission(e) {
@@ -318,7 +319,7 @@ async function handleSubmission(e) {
 }
 ```
 
-Der letzte Schritt besteht darin, die Funktion `updateInputCount()` auf der obersten Ebene des Skripts aufzurufen, um sicherzustellen, dass das erste `<output>`-Element, das die Eingabeanzahl enthält, beim Laden der Seite immer den korrekten Wert anzeigt.
+Der letzte Schritt besteht darin, die Funktion `updateInputCount()` auf der obersten Ebene des Skripts aufzurufen, um sicherzustellen, dass das erste `<output>`-Element, das die Eingabeanzahl enthält, immer den richtigen Wert beim Laden der Seite anzeigt.
 
 ```js live-sample___summarizer-example
 updateInputCount();
@@ -326,12 +327,12 @@ updateInputCount();
 
 ### Ergebnis
 
-Das gerenderte Beispiel sieht wie folgt aus:
+Das gerenderte Beispiel sieht folgendermaßen aus:
 
 {{EmbedLiveSample("summarizer-example", , "750px", , , , "summarizer", "allow-forms")}}
 
-Versuchen Sie, einen Textkörper in das "Input"-`<textarea>` einzugeben und dann den Submit-Button zu drücken, um eine KI-generierte Zusammenfassung zu erstellen. Der Text von Ihrer Lieblings-Wikipedia-Seite wäre ideal. Versuchen Sie, mehrere Zusammenfassungen mit verschiedenen Optionen zu erstellen, um zu sehen, wie sie das Ergebnis beeinflussen.
+Versuchen Sie, einen Textkörper in das "Eingabe"-`<textarea>` einzugeben und dann die Schaltfläche zum Abschicken zu drücken, um eine AI-generierte Zusammenfassung zu erzeugen. Der Text Ihrer Lieblings-Wikipedia-Seite wäre ideal. Versuchen Sie, mehrere Zusammenfassungen mit unterschiedlichen Kombinationen von Optionen zu erzeugen, um zu sehen, wie sie die Ausgabe beeinflussen.
 
 ## Siehe auch
 
-- [Web AI Demos](https://chrome.dev/web-ai-demos/) auf chrome.dev
+- [Web AI-Demos](https://chrome.dev/web-ai-demos/) auf chrome.dev

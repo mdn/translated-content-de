@@ -1,14 +1,14 @@
 ---
-title: "Summarizer: measureInputUsage()-Methode"
+title: "Summarizer: measureInputUsage() Methode"
 short-title: measureInputUsage()
 slug: Web/API/Summarizer/measureInputUsage
 l10n:
-  sourceCommit: 683890a47fa52942b23dd4406c7f095bb70b1c59
+  sourceCommit: 3e4f9ff802c6393edf7c17ff0d9c30d0de79663e
 ---
 
 {{APIRef("Summarizer API")}}{{SeeCompatTable}}
 
-Die **`measureInputUsage()`**-Methode der [`Summarizer`](/de/docs/Web/API/Summarizer)-Schnittstelle gibt an, wie viel [`inputQuota`](/de/docs/Web/API/Summarizer/inputQuota) durch eine Zusammenfassungsoperation für einen gegebenen Texteingang verbraucht werden würde.
+Die **`measureInputUsage()`** Methode der [`Summarizer`](/de/docs/Web/API/Summarizer) Schnittstelle gibt an, wie viel [`inputQuota`](/de/docs/Web/API/Summarizer/inputQuota) durch eine Zusammenfassung für einen gegebenen Texteingang verbraucht würde.
 
 ## Syntax
 
@@ -20,42 +20,42 @@ measureInputUsage(input, options)
 ### Parameter
 
 - `input`
-  - : Ein String, der den Eingabetext repräsentiert, für den Sie eine Eingabenutzungsmessung wünschen.
+  - : Ein String, der den Eingabetext darstellt, für den Sie einen Eingabenutzungswert erhalten möchten.
 - `options` {{optional_inline}}
-  - : Ein Objekt, das Konfigurationsoptionen für die `measureInputUsage()`-Operation spezifiziert. Mögliche Werte umfassen:
+  - : Ein Objekt, das Konfigurationsoptionen für den `measureInputUsage()`-Vorgang angibt. Mögliche Werte sind:
     - `context`
-      - : Ein String, der den Kontext beschreibt, in dem der Eingabetext verwendet wird, um eine geeignetere Zusammenfassung zu generieren.
+      - : Ein String, der den Kontext beschreibt, in dem der Eingabetext verwendet würde, um eine geeignetere Zusammenfassung zu erzeugen.
     - `signal`
-      - : Ein [`AbortSignal`](/de/docs/Web/API/AbortSignal)-Objekt, das es erlaubt, die `measureInputUsage()`-Operation über den zugehörigen [`AbortController`](/de/docs/Web/API/AbortController) abzubrechen.
+      - : Eine Instanz des [`AbortSignal`](/de/docs/Web/API/AbortSignal) Objekts, die es ermöglicht, den `measureInputUsage()`-Vorgang über den zugehörigen [`AbortController`](/de/docs/Web/API/AbortController) abzubrechen.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das sich mit einer Zahl erfüllt, die die [`inputQuota`](/de/docs/Web/API/Summarizer/inputQuota)-Nutzung des gegebenen Eingabetextes angibt.
+Ein {{jsxref("Promise")}}, das mit einer Zahl erfüllt wird, die die Nutzung der [`inputQuota`](/de/docs/Web/API/Summarizer/inputQuota) des gegebenen Eingabetextes angibt.
 
 ### Ausnahmen
 
 - `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn die Nutzung der Summarizer-API durch eine {{httpheader('Permissions-Policy/summarizer', 'summarizer')}} {{httpheader("Permissions-Policy")}} blockiert ist.
+  - : Wird ausgelöst, wenn die Nutzung der Summarizer API durch eine {{httpheader('Permissions-Policy/summarizer','summarizer')}} {{httpheader("Permissions-Policy")}} gesperrt wird.
 - `NotReadableError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn die Ausgabezusammenfassung vom Benutzeragenten gefiltert wurde, z. B. weil sie als schädlich, ungenau oder unsinnig erkannt wurde.
+  - : Wird ausgelöst, wenn die Ausgabezusammenfassung durch den Benutzer-Agent gefiltert wurde, zum Beispiel, weil sie als schädlich, ungenau oder unsinnig erkannt wurde.
 - `NotSupportedError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der bereitgestellte `context` nicht in einer Sprache vorliegt, die der `Summarizer` unterstützt.
+  - : Wird ausgelöst, wenn der bereitgestellte `context` nicht in einer vom `Summarizer` unterstützten Sprache ist.
 - `UnknownError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der `measureInputUsage()`-Aufruf aus einem anderen Grund fehlgeschlagen ist, oder aus einem Grund, den der Benutzeragent nicht offenlegen wollte.
+  - : Wird ausgelöst, wenn der `measureInputUsage()`-Aufruf aus einem anderen Grund fehlgeschlagen ist, oder aus einem Grund, den der Benutzer-Agent nicht offenlegen wollte.
 
 ## Beispiele
 
-### Überprüfen, ob genügend Kontingent vorhanden ist
+### Überprüfen, ob Sie über ausreichend Quota verfügen
 
-Im folgenden Beispiel erstellen wir eine neue `Summarizer`-Instanz mit Hilfe von [`create()`](/de/docs/Web/API/Summarizer/create_static) und geben dann das gesamte Eingabekontingent über [`inputQuota`](/de/docs/Web/API/Summarizer/inputQuota) und die Eingabenutzung für die Zusammenfassung eines bestimmten Textstrings über `measureInputUsage()` zurück.
+Im folgenden Beispiel erstellen wir eine neue `Summarizer`-Instanz mit [`create()`](/de/docs/Web/API/Summarizer/create_static), dann geben wir die gesamte Eingabequote über [`inputQuota`](/de/docs/Web/API/Summarizer/inputQuota) und die Eingabenutzungsquote für die Zusammenfassung eines bestimmten Textstrings über `measureInputUsage()` zurück.
 
-Dann prüfen wir, ob die individuelle Nutzung dieses Strings größer ist als das insgesamt verfügbare Kontingent. Falls ja, werfen wir einen entsprechenden Fehler; andernfalls beginnen wir mit der Zusammenfassung des Strings unter Verwendung von [`summarize()`](/de/docs/Web/API/Summarizer/summarize).
+Wir überprüfen dann, ob die individuelle Eingabenutzung für diesen String größer ist als die insgesamt verfügbare Quote. Ist dies der Fall, werfen wir einen entsprechenden Fehler; ist dies nicht der Fall, beginnen wir mit der Zusammenfassung des Strings mithilfe von [`summarize()`](/de/docs/Web/API/Summarizer/summarize).
 
 ```js
 const summarizer = await Summarizer.create({
   sharedContext:
     "A general summary to help a user decide if the text is worth reading",
-  type: "tl;dr",
+  type: "tldr",
   length: "short",
 });
 
