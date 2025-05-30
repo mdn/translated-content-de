@@ -1,18 +1,18 @@
 ---
-title: "Element: DOMActivate Ereignis"
+title: "Element: DOMActivate-Event"
 short-title: DOMActivate
 slug: Web/API/Element/DOMActivate_event
 l10n:
-  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
+  sourceCommit: 6d2000984203c51f1aad49107ebcebe14d3c1238
 ---
 
 {{APIRef}}{{Deprecated_Header}}
 
-Das **`DOMActivate`** Ereignis wird bei einem Element ausgelöst, wenn es aktiv wird, beispielsweise wenn darauf geklickt wird oder eine Taste verwendet wird, um es zu navigieren.
+Das **`DOMActivate`**-Ereignis wird bei einem Element ausgelöst, wenn es aktiv wird, z. B. wenn es mit der Maus angeklickt wird oder ein Tastendruck zur Navigation zu diesem verwendet wird.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Event-Handler-Eigenschaft.
 
 ```js-nolint
 addEventListener("DOMActivate", (event) => { })
@@ -45,10 +45,17 @@ Ein [`MouseEvent`](/de/docs/Web/API/MouseEvent). Erbt von [`UIEvent`](/de/docs/W
 
   <!-- JavaScript to change the radius -->
   <script>
-    <![CDATA[ function change(evt) { const circle = evt.target; const
-    currentRadius = circle.getFloatTrait("r"); if (currentRadius === 100) {
-    circle.setFloatTrait("r", currentRadius * 2); } else {
-    circle.setFloatTrait("r", currentRadius * 0.5); } } ]]>
+    <![CDATA[
+    function change(evt) {
+      const circle = evt.target;
+      const currentRadius = circle.getFloatTrait("r");
+      if (currentRadius === 100) {
+        circle.setFloatTrait("r", currentRadius * 2);
+      } else {
+        circle.setFloatTrait("r", currentRadius * 0.5);
+      }
+    }
+    ]]>
   </script>
 
   <!-- Act on each DOMActivate event -->

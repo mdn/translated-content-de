@@ -3,12 +3,12 @@ title: "ConstantSourceNode: ConstantSourceNode() Konstruktor"
 short-title: ConstantSourceNode()
 slug: Web/API/ConstantSourceNode/ConstantSourceNode
 l10n:
-  sourceCommit: c7edf2734fccb185c5e93ee114ea3d5edc0177b5
+  sourceCommit: 6d2000984203c51f1aad49107ebcebe14d3c1238
 ---
 
 {{APIRef("Web Audio API")}}
 
-Der **`ConstantSourceNode()`** Konstruktor erstellt eine neue Instanz eines [`ConstantSourceNode`](/de/docs/Web/API/ConstantSourceNode)-Objekts, das eine Audioquelle darstellt, die konstant Proben ausgibt, deren Werte immer gleich sind.
+Der **`ConstantSourceNode()`**-Konstruktor erstellt eine neue Instanz eines [`ConstantSourceNode`](/de/docs/Web/API/ConstantSourceNode)-Objekts, das eine Audioquelle darstellt, die ständig Proben mit gleichbleibenden Werten ausgibt.
 
 ## Syntax
 
@@ -22,14 +22,14 @@ new ConstantSourceNode(context, options)
   - : Ein [`AudioContext`](/de/docs/Web/API/AudioContext), der den Audiokontext repräsentiert, mit dem der Knoten verknüpft werden soll.
 - `options`
 
-  - : Ein `ConstantSourceOptions` Wörterbuch-Objekt, das die Eigenschaften definiert, die der `ConstantSourceNode` haben soll:
+  - : Ein `ConstantSourceOptions`-Wörterbuchobjekt, das die Eigenschaften definiert, die der `ConstantSourceNode` haben soll:
 
     - `offset`
-      - : Ein schreibgeschütztes [`AudioParam`](/de/docs/Web/API/AudioParam), das den konstanten Wert angibt, der von der Quelle erzeugt wird. Der Standardwert ist 1.0. Der normale Bereich liegt zwischen \-1.0 und 1.0, aber der Wert kann irgendwo im Bereich von `-Infinity` bis `+Infinity` liegen.
+      - : Ein schreibgeschützter [`AudioParam`](/de/docs/Web/API/AudioParam), der den konstanten Wert angibt, der von der Quelle generiert wird. Der Standardwert ist 1,0. Der normale Bereich liegt zwischen \-1,0 und 1,0, aber der Wert kann überall im Bereich von `-Infinity` bis `Infinity` liegen.
 
 ## Beispiele
 
-In diesem Beispiel wird ein Audiokontext erstellt, dann wird ein `ConstantSourceNode` mit einem `offset` von 0.5 eingerichtet.
+In diesem Beispiel wird ein Audiokontext erstellt, dann wird ein `ConstantSourceNode` eingerichtet, dessen `offset` auf 0,5 initialisiert wird.
 
 ```js
 let audioContext = new AudioContext();
@@ -38,7 +38,7 @@ let myConstantSource = new ConstantSourceNode(audioContext, { offset: 0.5 });
 ```
 
 > [!NOTE]
-> Der neue `ConstantSourceNode`, der durch den Konstruktor erstellt wurde, hat eine [`channelCount`](/de/docs/Web/API/AudioNode/channelCount) von 2\.
+> Der neue `ConstantSourceNode`, der durch den Konstruktor erstellt wurde, hat einen [`channelCount`](/de/docs/Web/API/AudioNode/channelCount) von 2\.
 
 ## Spezifikationen
 

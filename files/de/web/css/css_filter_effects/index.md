@@ -1,17 +1,17 @@
 ---
-title: CSS Filtereffekte
+title: CSS-Filtereffekte
 slug: Web/CSS/CSS_filter_effects
 l10n:
-  sourceCommit: 14acf1aa7885157debdf1b6111f4bd10c064ec60
+  sourceCommit: 6d2000984203c51f1aad49107ebcebe14d3c1238
 ---
 
 {{CSSRef}}
 
-Die Eigenschaften des **CSS Filter Effects** Moduls ermöglichen es, eine Methode zur Verarbeitung der Darstellung eines Elements festzulegen, bevor das Element im Dokument angezeigt wird. Beispiele für solche Effekte sind das Weichzeichnen und das Verändern der Farbintensität eines Elements.
+Die Eigenschaften im **CSS-Filtereffekte**-Modul ermöglichen es Ihnen, eine Methode zu definieren, um die Darstellung eines Elements zu verarbeiten, bevor das Element im Dokument angezeigt wird. Beispiele für solche Effekte sind die Unschärfe und die Änderung der Farbintensität eines Elements.
 
 ### Filtereffekte in Aktion
 
-Spielen Sie mit den verschiedenen Schiebereglern, um Filtereffekte auf das Bild unten anzuwenden.
+Spielen Sie mit den verschiedenen Schiebereglern, um Filtereffekte auf das untenstehende Bild anzuwenden.
 
 ```html hidden live-sample___filters
 <article>
@@ -178,19 +178,22 @@ document.querySelector("button").addEventListener(
 );
 
 function changeCSS() {
-  let currentFilter =
-    "filter: " +
-    blur() +
-    brightness() +
-    contrast() +
-    dropShadow() +
-    grayscale() +
-    hueRotate() +
-    invert() +
-    opacity() +
-    saturate() +
-    sepia() +
-    ";";
+  let currentFilter = "filter: ";
+  for (const filter of [
+    blur(),
+    brightness(),
+    contrast(),
+    dropShadow(),
+    grayscale(),
+    hueRotate(),
+    invert(),
+    opacity(),
+    saturate(),
+    sepia(),
+  ]) {
+    currentFilter += filter;
+  }
+  currentFilter += ";";
   image.setAttribute("style", currentFilter);
   output.innerText = currentFilter;
 }
@@ -263,7 +266,7 @@ function sepia() {
 ## Leitfäden
 
 - [Verwendung von CSS-Filtereffekten](/de/docs/Web/CSS/CSS_filter_effects/Using_filter_effects)
-  - : Überblick über die Konzepte rund um CSS-Filtereffekte, einschließlich Eigenschaften, Filterfunktionen und SVG-Filter, mit einer Erklärung der Filterwerte, Quellreihenfolge und Wertinteraktionen.
+  - : Überblick über die Konzepte rund um CSS-Filtereffekte, einschließlich Eigenschaften, Filterfunktionen und SVG-Filter, mit einer Erklärung der Filterwerte, Quellreihenfolge und Wert-Interaktionen.
 
 ## Verwandte Konzepte
 
@@ -284,5 +287,5 @@ function sepia() {
 
 ## Siehe auch
 
-- Eigenschaften im [CSS Compositing und Blending](/de/docs/Web/CSS/CSS_compositing_and_blending) Modul ermöglichen das Mischen der Hintergrundebenen eines Elements und das Mischen eines Elements mit seinem Container
-- Das SVG {{SVGElement("filter")}} Element und die SVG-Filterprimitive: {{SVGElement("feSpotLight")}}, {{SVGElement("feBlend")}}, {{SVGElement("feColorMatrix")}}, {{SVGElement("feComponentTransfer")}}, {{SVGElement("feComposite")}}, {{SVGElement("feConvolveMatrix")}}, {{SVGElement("feDiffuseLighting")}}, {{SVGElement("feDisplacementMap")}}, {{SVGElement("feDropShadow")}}, {{SVGElement("feFlood")}}, {{SVGElement("feGaussianBlur")}}, {{SVGElement("feImage")}}, {{SVGElement("feMerge")}}, {{SVGElement("feMorphology")}}, {{SVGElement("feOffset")}}, {{SVGElement("feSpecularLighting")}}, {{SVGElement("feTile")}}, {{SVGElement("feTurbulence")}}
+- Eigenschaften im [CSS-Compositing und -Blending](/de/docs/Web/CSS/CSS_compositing_and_blending)-Modul ermöglichen das Mischen der Hintergrundebenen eines Elements und das Mischen eines Elements mit seinem Container
+- Das SVG-Element {{SVGElement("filter")}} und die SVG-Filterprimitiven: {{SVGElement("feSpotLight")}}, {{SVGElement("feBlend")}}, {{SVGElement("feColorMatrix")}}, {{SVGElement("feComponentTransfer")}}, {{SVGElement("feComposite")}}, {{SVGElement("feConvolveMatrix")}}, {{SVGElement("feDiffuseLighting")}}, {{SVGElement("feDisplacementMap")}}, {{SVGElement("feDropShadow")}}, {{SVGElement("feFlood")}}, {{SVGElement("feGaussianBlur")}}, {{SVGElement("feImage")}}, {{SVGElement("feMerge")}}, {{SVGElement("feMorphology")}}, {{SVGElement("feOffset")}}, {{SVGElement("feSpecularLighting")}}, {{SVGElement("feTile")}}, {{SVGElement("feTurbulence")}}

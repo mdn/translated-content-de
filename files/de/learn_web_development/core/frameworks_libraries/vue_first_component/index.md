@@ -1,16 +1,16 @@
 ---
-title: Erstellen unseres ersten Vue-Komponenten
+title: Erstellen unserer ersten Vue-Komponente
 slug: Learn_web_development/Core/Frameworks_libraries/Vue_first_component
 l10n:
-  sourceCommit: 48d220a8cffdfd5f088f8ca89724a9a92e34d8c0
+  sourceCommit: 6d2000984203c51f1aad49107ebcebe14d3c1238
 ---
 
 {{PreviousMenuNext("Learn_web_development/Core/Frameworks_libraries/Vue_getting_started","Learn_web_development/Core/Frameworks_libraries/Vue_rendering_lists", "Learn_web_development/Core/Frameworks_libraries")}}
 
-Nun ist es an der Zeit, tiefer in Vue einzutauchen und unsere eigene benutzerdefinierte Komponente zu erstellen – wir beginnen mit der Erstellung einer Komponente, die jedes Element in der To-Do-Liste repräsentiert. Dabei werden wir einige wichtige Konzepte kennenlernen, wie das Aufrufen von Komponenten innerhalb anderer Komponenten, das Übergeben von Daten an sie über `props` und das Speichern von Datenzuständen.
+Nun ist es an der Zeit, tiefer in Vue einzutauchen und unsere eigene benutzerdefinierte Komponente zu erstellen – wir beginnen damit, eine Komponente zu erstellen, die jedes Element in der To-Do-Liste darstellt. Dabei werden wir einige wichtige Konzepte kennenlernen, wie das Aufrufen von Komponenten innerhalb anderer Komponenten, das Übergeben von Daten über Props und das Speichern von Zustandsdaten.
 
 > [!NOTE]
-> Wenn Sie Ihren Code mit unserer Version vergleichen müssen, finden Sie die fertige Version des Beispiel-Vue-App-Codes in unserem [todo-vue repository](https://github.com/mdn/todo-vue). Für eine Live-Version besuchen Sie <https://mdn.github.io/todo-vue/>.
+> Wenn Sie Ihren Code mit unserer Version vergleichen müssen, finden Sie eine fertige Version des Beispiel-Codes der Vue-App in unserem [todo-vue Repository](https://github.com/mdn/todo-vue). Für eine Live-Version siehe <https://mdn.github.io/todo-vue/>.
 
 <table>
   <tbody>
@@ -18,17 +18,30 @@ Nun ist es an der Zeit, tiefer in Vue einzutauchen und unsere eigene benutzerdef
       <th scope="row">Voraussetzungen:</th>
       <td>
         <p>
-          Vertrautheit mit den Kernsprachen <a href="/de/docs/Learn_web_development/Core/Structuring_content">HTML</a>,
+          Vertrautheit mit den grundlegenden Sprachen <a href="/de/docs/Learn_web_development/Core/Structuring_content">HTML</a>,
           <a href="/de/docs/Learn_web_development/Core/Styling_basics">CSS</a> und
           <a href="/de/docs/Learn_web_development/Core/Scripting">JavaScript</a>,
-          sowie Kenntnisse über das
-          <a href="/de/docs/Learn_web_development/Getting_started/Environment_setup/Command_line">Terminal/Kommandozeile</a>.
+          Wissen über die
+          <a
+            href="/de/docs/Learn_web_development/Getting_started/Environment_setup/Command_line"
+            >Terminal/Command Line</a
+          >.
         </p>
         <p>
-          Vue-Komponenten werden als Kombination aus JavaScript-Objekten geschrieben, die die Daten der App verwalten, und einer HTML-basierten Vorlagensyntax, die auf die zugrunde liegende DOM-Struktur abbildet. Für die Installation und die Verwendung einiger fortschrittlicher Funktionen von Vue (wie Single-File-Komponenten oder Renderfunktionen) benötigen Sie ein Terminal mit
-          <a href="https://nodejs.org/en/download" rel="noopener noreferrer" target="_blank">Node</a>
+          Vue-Komponenten werden als Kombination aus JavaScript-Objekten geschrieben, die die Daten der App verwalten, und einer HTML-basierten Templatesyntax, die auf die zugrunde liegende DOM-Struktur abbildet. Für die Installation und um einige der fortschrittlicheren Features von Vue zu nutzen (wie Single File Components oder Render-Funktionen), benötigen Sie ein Terminal mit
+          <a
+            href="https://nodejs.org/en/download"
+            rel="noopener noreferrer"
+            target="_blank"
+            >Node</a
+          >
           und
-          <a href="https://www.npmjs.com/get-npm" rel="noopener noreferrer" target="_blank">npm</a>
+          <a
+            href="https://www.npmjs.com/get-npm"
+            rel="noopener noreferrer"
+            target="_blank"
+            >npm</a
+          >
           installiert.
         </p>
       </td>
@@ -36,7 +49,8 @@ Nun ist es an der Zeit, tiefer in Vue einzutauchen und unsere eigene benutzerdef
     <tr>
       <th scope="row">Ziel:</th>
       <td>
-        Lernen, wie man eine Vue-Komponente erstellt, sie in einer anderen Komponente rendert, Daten mittels `props` in sie übergibt und ihren Zustand speichert.
+        Zu lernen, wie man eine Vue-Komponente erstellt, sie in einer anderen
+        Komponente rendert, Daten über Props in sie hineinpasst und ihren Zustand speichert.
       </td>
     </tr>
   </tbody>
@@ -44,13 +58,13 @@ Nun ist es an der Zeit, tiefer in Vue einzutauchen und unsere eigene benutzerdef
 
 ## Erstellen einer ToDoItem-Komponente
 
-Lassen Sie uns unsere erste Komponente erstellen, die ein einzelnes To-Do-Element anzeigt. Wir werden dies verwenden, um unsere Liste von Aufgaben zu erstellen.
+Lassen Sie uns unsere erste Komponente erstellen, die ein einzelnes To-Do-Element anzeigt. Diese werden wir nutzen, um unsere Liste von Todos zu erstellen.
 
-1. Erstellen Sie in Ihrem Verzeichnis `moz-todo-vue/src/components` eine neue Datei namens `ToDoItem.vue`. Öffnen Sie die Datei in Ihrem Code-Editor.
-2. Erstellen Sie den Vorlagenabschnitt der Komponente, indem Sie `<template></template>` oben in die Datei einfügen.
-3. Erstellen Sie einen `<script></script>`-Abschnitt unterhalb Ihres Vorlagenabschnitts. Fügen Sie innerhalb der `<script>`-Tags ein standardmäßig exportiertes Objekt `export default {}` hinzu, das Ihr Komponentenobjekt ist.
+1. Erstellen Sie in Ihrem `moz-todo-vue/src/components`-Verzeichnis eine neue Datei mit dem Namen `ToDoItem.vue`. Öffnen Sie die Datei in Ihrem Code-Editor.
+2. Erstellen Sie den Template-Abschnitt der Komponente, indem Sie `<template></template>` an den Anfang der Datei hinzufügen.
+3. Erstellen Sie einen `<script></script>`-Abschnitt unter Ihrem Template-Abschnitt. Fügen Sie innerhalb der `<script>`-Tags ein standardmäßig exportiertes Objekt `export default {}` hinzu, das Ihr Komponentenobjekt ist.
 
-Ihre Datei sollte jetzt so aussehen:
+Ihre Datei sollte nun so aussehen:
 
 ```vue
 <template></template>
@@ -59,10 +73,10 @@ export default {};
 </script>
 ```
 
-Nun können wir beginnen, tatsächliche Inhalte zu unserem `ToDoItem` hinzuzufügen. Vue-Vorlagen dürfen derzeit nur ein einzelnes Root-Element haben — ein Element muss alles innerhalb des Vorlagenabschnitts umschließen (dies wird sich ändern, wenn Vue 3 herauskommt). Wir verwenden dafür ein [`<div>`](/de/docs/Web/HTML/Reference/Elements/div) als Wurzelelement.
+Wir können nun beginnen, tatsächliche Inhalte zu unserem `ToDoItem` hinzuzufügen. Vue-Templates dürfen derzeit nur ein einziges Root-Element haben – ein Element muss alles im Template-Abschnitt umschließen (dies wird sich ändern, wenn Vue 3 herauskommt). Wir verwenden ein [`<div>`](/de/docs/Web/HTML/Reference/Elements/div) für dieses Root-Element.
 
-1. Fügen Sie jetzt ein leeres `<div>` innerhalb Ihrer Komponentenvorlage hinzu.
-2. Lassen Sie uns in diesem `<div>` ein Kontrollkästchen und ein entsprechendes Label hinzufügen. Fügen Sie dem Kontrollkästchen eine `id` und dem Label ein `for`-Attribut hinzu, das das Kontrollkästchen wie unten gezeigt mit dem Label verknüpft.
+1. Fügen Sie nun ein leeres `<div>` in Ihr Komponententemplate ein.
+2. Fügen Sie innerhalb dieses `<div>` ein Kontrollkästchen und ein entsprechendes Label hinzu. Fügen Sie dem Kontrollkästchen eine `id` hinzu und ein `for`-Attribut, das das Kontrollkästchen mit dem Label verknüpft, wie unten gezeigt.
 
    ```vue
    <template>
@@ -73,20 +87,20 @@ Nun können wir beginnen, tatsächliche Inhalte zu unserem `ToDoItem` hinzuzufü
    </template>
    ```
 
-### Verwenden von TodoItem innerhalb unserer App
+### Verwenden von TodoItem in unserer App
 
-Das ist alles in Ordnung, aber wir haben die Komponente noch nicht zu unserer App hinzugefügt, sodass es keinen Weg gibt, sie zu testen und zu sehen, ob alles funktioniert. Fügen wir sie jetzt hinzu.
+Das ist alles in Ordnung, aber wir haben die Komponente noch nicht zu unserer App hinzugefügt, also gibt es keine Möglichkeit, sie zu testen und zu sehen, ob alles funktioniert. Lassen Sie uns dies nun tun.
 
-1. Öffnen Sie `App.vue` erneut.
-2. Fügen Sie oben in Ihrem `<script>`-Tag Folgendes hinzu, um Ihre `ToDoItem`-Komponente zu importieren:
+1. Öffnen Sie erneut `App.vue`.
+2. Fügen Sie oben in Ihrem `<script>`-Tag das Folgende hinzu, um Ihre `ToDoItem`-Komponente zu importieren:
 
    ```js
    import ToDoItem from "./components/ToDoItem.vue";
    ```
 
-3. Fügen Sie in Ihrem Komponentenobjekt die Eigenschaft `components` hinzu und in dieser Eigenschaft fügen Sie Ihre `ToDoItem`-Komponente hinzu, um sie zu registrieren.
+3. Fügen Sie in Ihrem Komponentenobjekt die Eigenschaft `components` hinzu und fügen Sie darin Ihre `ToDoItem`-Komponente hinzu, um sie zu registrieren.
 
-Ihre `<script>`-Inhalte sollten nun so aussehen:
+Der Inhalt Ihres `<script>`-Tags sollte nun so aussehen:
 
 ```js
 import ToDoItem from "./components/ToDoItem.vue";
@@ -99,15 +113,15 @@ export default {
 };
 ```
 
-Dies ist die gleiche Art und Weise, wie der `HelloWorld`-Komponente zuvor durch das Vue CLI registriert wurde.
+Dies ist dasselbe, wie die `HelloWorld`-Komponente zuvor vom Vue CLI registriert wurde.
 
-Um die `ToDoItem`-Komponente tatsächlich in der App zu rendern, müssen Sie in Ihr `<template>`-Element gehen und sie als `<to-do-item></to-do-item>`-Element aufrufen. Beachten Sie, dass der Komponenten-Dateiname und seine Darstellung in JavaScript in PascalCase (z. B. `ToDoList`) ist, und das entsprechende benutzerdefinierte Element in {{Glossary("kebab_case", "Kebab-Case")}} (z. B. `<to-do-list>`).
-Es ist notwendig, diesen Gehäusestil zu verwenden, wenn Sie Vue-Vorlagen [direkt im DOM schreiben](https://vuejs.org/guide/essentials/component-basics.html#dom-template-parsing-caveats).
+Um die `ToDoItem`-Komponente tatsächlich in der App zu rendern, müssen Sie in Ihr `<template>`-Element gehen und es als `<to-do-item></to-do-item>`-Element aufrufen. Beachten Sie, dass der Komponentenname der Datei und seine Darstellung in JavaScript in PascalCase (z.B. `ToDoList`) ist und das entsprechende benutzerdefinierte Element in {{Glossary("kebab_case", "kebab-case")}} (z.B. `<to-do-list>`).
+Es ist notwendig, diesen Stil der Namenskonvention zu verwenden, wenn Sie Vue-Templates [direkt im DOM](https://vuejs.org/guide/essentials/component-basics.html#dom-template-parsing-caveats) schreiben.
 
-1. Erstellen Sie unterhalb des [`<h1>`](/de/docs/Web/HTML/Reference/Elements/Heading_Elements) ein ungeordnetes Listenelement ([`<ul>`](/de/docs/Web/HTML/Reference/Elements/ul)), das ein einzelnes Listenelement ([`<li>`](/de/docs/Web/HTML/Reference/Elements/li)) enthält.
-2. Fügen Sie innerhalb des Listenelements `<to-do-item></to-do-item>` hinzu.
+1. Erstellen Sie unter dem [`<h1>`](/de/docs/Web/HTML/Reference/Elements/Heading_Elements) eine ungeordnete Liste ([`<ul>`](/de/docs/Web/HTML/Reference/Elements/ul)) mit einem einzelnen Listenelement ([`<li>`](/de/docs/Web/HTML/Reference/Elements/li)).
+2. Fügen Sie in das Listenelement `<to-do-item></to-do-item>` ein.
 
-Der `<template>`-Abschnitt Ihrer `App.vue`-Datei sollte jetzt ungefähr so aussehen:
+Der `<template>`-Abschnitt Ihrer `App.vue`-Datei sollte nun in etwa so aussehen:
 
 ```vue
 <div id="app">
@@ -120,42 +134,42 @@ Der `<template>`-Abschnitt Ihrer `App.vue`-Datei sollte jetzt ungefähr so ausse
 </div>
 ```
 
-Wenn Sie Ihre gerenderte App erneut überprüfen, sollten Sie nun Ihr gerendertes `ToDoItem` sehen, bestehend aus einem Kontrollkästchen und einem Label.
+Wenn Sie Ihre gerenderte App erneut überprüfen, sollten Sie jetzt Ihre gerenderte `ToDoItem`-Komponente sehen, die aus einem Kontrollkästchen und einem Label besteht.
 
-![Der aktuelle Renderingzustand der App, die einen Titel der To-Do-Liste, und ein einzelnes Kontrollkästchen und Label enthält](rendered-todoitem.png)
+![Der aktuelle Rendering-Zustand der App, der einen Titel der To-Do-Liste und ein einzelnes Kontrollkästchen mit Label umfasst](rendered-todoitem.png)
 
-## Komponenten dynamisch mit Props gestalten
+## Komponenten dynamisch machen mit Props
 
-Unsere `ToDoItem`-Komponente ist immer noch nicht sehr nützlich, da wir sie nur einmal auf einer Seite wirklich einfügen können (IDs müssen eindeutig sein) und wir keine Möglichkeit haben, den Labeltext festzulegen. Nichts davon ist dynamisch.
+Unsere `ToDoItem`-Komponente ist immer noch nicht sehr nützlich, weil wir sie eigentlich nur einmal auf einer Seite verwenden können (IDs müssen eindeutig sein), und wir haben keine Möglichkeit, den Labeltext festzulegen. Nichts davon ist dynamisch.
 
-Was wir brauchen, ist ein gewisser Komponentenstatus. Dies kann erreicht werden, indem wir `props` zu unserer Komponente hinzufügen. Sie können `props` als Inputs in einer Funktion betrachten. Der Wert eines `props` gibt Komponenten einen Anfangszustand, der ihre Anzeige beeinflusst.
+Was wir benötigen, ist ein gewisser Komponentenstatus. Dies kann erreicht werden, indem wir der Komponente Props hinzufügen. Sie können sich Props wie Eingaben in einer Funktion vorstellen. Der Wert eines Props gibt Komponenten einen Anfangszustand, der ihre Anzeige beeinflusst.
 
 ### Registrieren von Props
 
-In Vue gibt es zwei Möglichkeiten, `props` zu registrieren:
+In Vue gibt es zwei Möglichkeiten, Props zu registrieren:
 
-- Der erste Weg besteht darin, `props` einfach als eine Liste von Zeichenfolgen in einem Array aufzulisten. Jeder Eintrag im Array entspricht dem Namen eines `props`.
-- Der zweite Weg besteht darin, `props` als ein Objekt zu definieren, wobei jeder Schlüssel dem `props`-Namen entspricht. Das Auflisten von `props` als Objekt ermöglicht es Ihnen, Standardwerte anzugeben, `props` als erforderlich zu markieren, eine grundlegende Objekt-Typisierung (speziell für JavaScript Primitive) durchzuführen und eine einfache `props`-Validierung durchzuführen.
+- Die erste Möglichkeit besteht darin, Props einfach als Array von Strings aufzulisten. Jeder Eintrag im Array entspricht dem Namen eines Props.
+- Die zweite Möglichkeit besteht darin, Props als Objekt zu definieren, wobei jeder Schlüssel dem Namen des Props entspricht. Wenn Props als Objekt aufgelistet werden, können Sie Standardwerte angeben, Props als erforderlich markieren, grundlegendes Objekttyping durchführen (speziell im Hinblick auf primitiven JavaScript-Typen), und einfache Prop-Validierung durchführen.
 
 > [!NOTE]
-> Die Prop-Validierung erfolgt nur im Entwicklungsmodus, sodass Sie sich im Produktionsmodus nicht streng darauf verlassen können. Darüber hinaus werden Prop-Validierungsfunktionen vor der Erstellung der Komponenteninstanz aufgerufen, sodass sie keinen Zugriff auf den Komponentenstatus (oder andere `props`) haben.
+> Die Prop-Validierung findet nur im Entwicklungsmodus statt, daher können Sie sich im Produktionseinsatz nicht darauf verlassen. Zusätzlich werden Prop-Validierungsfunktionen aufgerufen, bevor die Instanz der Komponente erstellt wird, sodass sie keinen Zugriff auf den Komponentenstatus (oder andere Props) haben.
 
-Für diese Komponente verwenden wir die Objektregistrierungsmethode.
+Für diese Komponente verwenden wir die Methode zur Objektregistrierung.
 
-1. Gehen Sie zurück zu Ihrer Datei `ToDoItem.vue`.
-2. Fügen Sie eine `props`-Eigenschaft innerhalb des `export default {}`-Objekts hinzu, das ein leeres Objekt enthält.
+1. Gehen Sie zurück zu Ihrer `ToDoItem.vue` Datei.
+2. Fügen Sie eine `props`-Eigenschaft im exportieren `default {}` Objekt hinzu, das ein leeres Objekt enthält.
 3. Fügen Sie in diesem Objekt zwei Eigenschaften mit den Schlüsseln `label` und `done` hinzu.
-4. Der Wert des `label`-Schlüssels sollte ein Objekt mit 2 Eigenschaften sein (oder **props**, wie sie im Kontext des zur Verfügung stehenden für die Komponenten genannt werden).
+4. Der Wert des `label`-Schlüssels sollte ein Objekt mit 2 Eigenschaften (oder **Props**) sein, wie sie im Kontext der Verfügbarkeit für die Komponente genannt werden.
 
-   1. Die erste ist eine `required`-Eigenschaft, die den Wert `true` hat. Dies wird Vue mitteilen, dass wir von jeder Instanz dieser Komponente erwarten, dass sie ein Labelfeld hat. Vue wird uns warnen, wenn eine `ToDoItem`-Komponente kein Labelfeld hat.
-   2. Die zweite Eigenschaft, die wir hinzufügen, ist eine `type`-Eigenschaft. Setzen Sie den Wert für diese Eigenschaft als JavaScript `String` Type (beachten Sie das große "S"). Dies sagt Vue, dass wir davon ausgehen, dass der Wert dieser Eigenschaft eine Zeichenfolge ist.
+   1. Die erste ist eine `required`-Eigenschaft, die den Wert `true` hat. Dies wird Vue mitteilen, dass wir erwarten, dass jede Instanz dieser Komponente ein Labelfeld hat. Vue wird uns warnen, wenn eine `ToDoItem`-Komponente kein Labelfeld hat.
+   2. Die zweite Eigenschaft, die wir hinzufügen werden, ist eine `type`-Eigenschaft. Setzen Sie den Wert für diese Eigenschaft als den JavaScript-Typ `String` (beachten Sie das große "S"). Dies teilt Vue mit, dass wir erwarten, dass der Wert dieser Eigenschaft ein String ist.
 
-5. Nun zum `done` prop.
+5. Nun zur `done`-Prop.
 
-   1. Fügen Sie zunächst ein `default`-Feld mit einem Wert von `false` hinzu. Dies bedeutet, dass, wenn kein `done`-Prop an eine `ToDoItem`-Komponente übergeben wird, das `done`-Prop den Wert false hat (beachten Sie, dass dies nicht erforderlich ist — wir benötigen `default` nur bei nicht erforderlichen `props`).
-   2. Fügen Sie als nächstes ein `type`-Feld mit einem Wert von `Boolean` hinzu. Dies sagt Vue, dass wir erwarten, dass der Wert `props` ein JavaScript-boolean-Typ ist.
+   1. Fügen Sie zuerst ein `default`-Feld hinzu, mit einem Wert von `false`. Dies bedeutet, dass, wenn kein `done`-Prop an eine `ToDoItem`-Komponente übergeben wird, das `done`-Prop den Wert false haben wird (bedenken Sie, dass dies nicht erforderlich ist – wir benötigen nur `default` für nicht erforderliche Props).
+   2. Fügen Sie als Nächstes ein `type`-Feld mit einem Wert von `Boolean` hinzu. Dies sagt Vue, dass wir erwarten, dass der Wert-Prop ein JavaScript-Boolean-Typ ist.
 
-Ihr Komponentenobjekt sollte nun so aussehen:
+Ihr Komponentenobjekt sollte jetzt so aussehen:
 
 ```js
 export default {
@@ -166,15 +180,15 @@ export default {
 };
 ```
 
-### Verwenden der registrierten Props
+### Verwenden registrierter Props
 
-Mit diesen in das Komponentenobjekt definierten `props` können wir diese Variablenwerte jetzt in unserer Vorlage verwenden. Fügen wir zunächst das `label` `props` zur Komponentenvorlage hinzu.
+Mit diesen innerhalb des Komponentenobjekts definierten Props können wir diese Variablenwerte nun innerhalb unseres Templates verwenden. Lassen Sie uns beginnen, das Prop `label` in das Komponententemplate einzufügen.
 
 Ersetzen Sie in Ihrem `<template>` den Inhalt des `<label>`-Elements durch `\{{label}}`.
 
-`\{{}}` ist eine spezielle Vorlagensyntax in Vue, mit der wir das Ergebnis von JavaScript-Ausdrücken, die in unserer Klasse definiert sind, in unserer Vorlage ausgeben können, einschließlich Werten und Methoden. Es ist wichtig zu wissen, dass Inhalte innerhalb von `\{{}}` als Text und nicht als HTML angezeigt werden. In diesem Fall geben wir den Wert des `label` `props` aus.
+`\{{}}` ist eine spezielle Templatesyntax in Vue, die uns ermöglicht, das Ergebnis von JavaScript-Ausdrücken, die in unserer Klasse definiert sind, innerhalb unseres Templates zu drucken, einschließlich Werten und Methoden. Es ist wichtig zu wissen, dass der Inhalt von `\{{}}` als Text und nicht als HTML angezeigt wird. In diesem Fall drucken wir den Wert des Props `label`.
 
-Der Vorlagenabschnitt Ihrer Komponente sollte nun so aussehen:
+Ihr Komponenten-Templateabschnitt sollte jetzt so aussehen:
 
 ```vue
 <template>
@@ -185,7 +199,7 @@ Der Vorlagenabschnitt Ihrer Komponente sollte nun so aussehen:
 </template>
 ```
 
-Gehen Sie zurück zu Ihrem Browser und Sie werden sehen, dass das To-Do-Element wie zuvor gerendert wird, jedoch ohne Label (oh nein!). Gehen Sie zu den DevTools Ihres Browsers und Sie werden eine Warnung dieser Art in der Konsole sehen:
+Gehen Sie zurück zu Ihrem Browser und Sie werden sehen, dass das To-Do-Element wie zuvor gerendert wird, aber ohne ein Label (oh nein!). Gehen Sie zu den DevTools Ihres Browsers und Sie sehen eine Warnung in der Konsole, die in etwa so aussieht:
 
 ```plain
 [Vue warn]: Missing required prop: "label"
@@ -197,25 +211,25 @@ found in
           <Root>
 ```
 
-Dies liegt daran, dass wir das `label` als erforderliches `props` markiert haben, aber wir haben der Komponente dieses `props` nie gegeben — wir haben definiert, wo es in der Vorlage verwendet werden soll, aber wir haben es nicht in die Komponente übergeben, wenn wir sie aufrufen. Lassen Sie uns das beheben.
+Dies liegt daran, dass wir das `label` als ein erforderliches Prop markiert haben, aber wir haben der Komponente dieses Prop nie gegeben – wir haben definiert, wo wir es im Template verwenden wollen, aber wir haben es nicht in die Komponente übergeben, wenn wir sie aufrufen. Lassen Sie uns das beheben.
 
-Fügen Sie in Ihrer Datei `App.vue` ein `label` `props` zur `<to-do-item></to-do-item>`-Komponente hinzu, genau wie ein reguläres HTML-Attribut:
+Fügen Sie in Ihrer `App.vue`-Datei ein `label`-Prop zur `<to-do-item></to-do-item>`-Komponente hinzu, genau wie ein reguläres HTML-Attribut:
 
 ```vue
 <to-do-item label="My ToDo Item"></to-do-item>
 ```
 
-Jetzt werden Sie das Label in Ihrer App sehen und die Warnung wird nicht wieder in der Konsole ausgegeben.
+Jetzt sehen Sie das Label in Ihrer App und die Warnung wird nicht mehr in der Konsole ausgegeben.
 
-Das sind also `props` in wenigen Worten. Als nächstes gehen wir darauf ein, wie Vue den Datenstatus erhält.
+Das sind also Props in Kürze. Weiter geht's zur Datenhaltung in Vue.
 
-## Vue-Objekt `data`
+## Vue's Datenobjekt
 
-Wenn Sie den Wert der `label` `props`, die in den `<to-do-item></to-do-item>`-Aufruf in Ihrer `App`-Komponente übergeben werden, ändern, sollten Sie sehen, dass es sich aktualisiert. Das ist großartig. Wir haben ein Kontrollkästchen mit einem aktualisierbaren Label. Wir machen jedoch derzeit nichts mit dem "done" prop — wir können die Kontrollkästchen in der UI abhaken, aber nirgendwo in der App zeichnen wir auf, ob ein To-Do-Element tatsächlich erledigt ist.
+Wenn Sie den Wert des `label`-Props ändern, das in Ihren `<to-do-item></to-do-item>`-Aufruf in Ihrer `App`-Komponente eingegeben wurde, sollten Sie eine Aktualisierung sehen. Das ist großartig. Wir haben ein Kontrollkästchen mit einem aktualisierbaren Label. Allerdings machen wir derzeit nichts mit dem "done"-Prop – wir können die Kontrollkästchen in der Benutzeroberfläche aktivieren, aber nirgends in der App wird aufgezeichnet, ob ein To-Do-Element tatsächlich abgeschlossen ist.
 
-Um dies zu erreichen, möchten wir das `done`-Prop mit dem `checked`-Attribut auf dem [`<input>`](/de/docs/Web/HTML/Reference/Elements/input)-Element binden, damit es als Protokoll dafür dienen kann, ob das Kontrollkästchen aktiviert oder nicht. Es ist jedoch wichtig, dass `props` als Einweg-Datenbindung fungieren — eine Komponente sollte den Wert ihrer eigenen `props` niemals ändern. Es gibt viele Gründe dafür. Zum Teil können Komponenten, die `props` bearbeiten, das Debuggen zu einer Herausforderung machen. Wenn ein Wert an mehrere Kinder übergeben wird, könnte es schwierig sein, zu verfolgen, woher die Änderungen an diesem Wert kommen. Außerdem kann das Ändern von `props` dazu führen, dass Komponenten neu gerendert werden. Das Ändern von `props` in einer Komponente würde also das Neurendern der Komponente auslösen, was wiederum die Mutation auslösen könnte.
+Um dies zu erreichen, möchten wir das `done`-Prop der Komponente an das `checked`-Attribut auf dem [`<input>`](/de/docs/Web/HTML/Reference/Elements/input)-Element binden, sodass es als Aufzeichnung darüber dient, ob das Kontrollkästchen aktiviert ist oder nicht. Allerdings ist es wichtig, dass Props als eindirektionale Datenbindung dienen — eine Komponente sollte den Wert ihrer eigenen Props niemals ändern. Dafür gibt es viele Gründe. Unter anderem können Komponenten beim Bearbeiten von Props das Debugging erschweren. Wenn ein Wert an mehrere Kinder übergeben wird, könnte es schwierig sein nachzuverfolgen, woher die Änderungen an diesem Wert kamen. Darüber hinaus können das Ändern von Props dazu führen, dass Komponenten neu gerendert werden. Also würde das Mutieren von Props in einer Komponente das Neurendern der Komponente auslösen, was wiederum die Mutation erneut auslösen könnte.
 
-Um dies zu umgehen, können wir den `done`-Zustand mit der `data`-Eigenschaft von Vue verwalten. Die `data`-Eigenschaft ist, wo Sie den lokalen Status in einer Komponente verwalten können, sie liegt innerhalb des Komponentenobjekts neben der `props`-Eigenschaft und hat die folgende Struktur:
+Um dies zu umgehen, können wir den `done`-Zustand mit Hilfe der `data`-Eigenschaft von Vue verwalten. Die `data`-Eigenschaft ist der Ort, an dem Sie lokalen Zustand in einer Komponente verwalten können; sie lebt im Komponentenobjekt neben der `props`-Eigenschaft und hat folgende Struktur:
 
 ```js
 export default {
@@ -229,16 +243,16 @@ export default {
 };
 ```
 
-Sie werden feststellen, dass die `data`-Eigenschaft eine Funktion ist. Dies geschieht, um die Datenwerte für jede Instanz einer Komponente zur Laufzeit einzigartig zu halten — die Funktion wird separat für jede Komponenteninstanz aufgerufen. Wenn Sie Daten nur als Objekt deklariert hätten, würden alle Instanzen dieser Komponente dieselben Werte teilen. Dies ist ein Nebeneffekt der Art und Weise, wie Vue Komponenten registriert, und etwas, das Sie nicht wollen.
+Sie werden feststellen, dass die `data`-Eigenschaft eine Funktion ist. Dies dient dazu, die Datenwerte für jede Instanz einer Komponente zur Laufzeit einzigartig zu halten – die Funktion wird separat für jede Komponenteninstanz aufgerufen. Wenn Sie die Daten einfach als Objekt deklarieren würden, würden alle Instanzen dieser Komponente dieselben Werte teilen. Dies ist ein Nebeneffekt der Art und Weise, wie Vue Komponenten registriert, und etwas, das Sie nicht möchten.
 
-Sie verwenden `this`, um von innerhalb der Daten auf die `props` und andere Attribute einer Komponente zuzugreifen, wie Sie es erwarten könnten. Wir werden dies in einem Moment sehen.
+Sie verwenden `this`, um auf die Props und andere Eigenschaften einer Komponente von innerhalb der Daten zuzugreifen, wie Sie vielleicht erwarten würden. Ein Beispiel dazu werden wir in Kürze sehen.
 
 > [!NOTE]
-> Aufgrund der Funktionsweise von `this` in Pfeilfunktionen (Bindung an den Kontext des übergeordneten Elements), könnten Sie von innerhalb von `data` auf keine der erforderlichen Attribute zugreifen, wenn Sie eine Pfeilfunktion verwenden. Verwenden Sie daher keine Pfeilfunktion für die `data`-Eigenschaft.
+> Aufgrund der Art und Weise, wie `this` in Pfeilfunktionen (Binding an den Kontext des Elternteils) funktioniert, könnten Sie keine der notwendigen Attribute von innen aus `data` zugreifen, wenn Sie eine Pfeilfunktion verwenden würden. Verwenden Sie also keine Pfeilfunktion für die `data`-Eigenschaft.
 
-Fügen wir also unserer `ToDoItem`-Komponente eine `data`-Eigenschaft hinzu. Diese wird ein Objekt mit einer einzigen Eigenschaft zurückgeben, die wir `isDone` nennen, deren Wert `this.done` ist.
+Also lassen Sie uns eine `data`-Eigenschaft zu unserer `ToDoItem` Komponente hinzufügen. Diese wird ein Objekt zurückgeben, das eine einzelne Eigenschaft enthält, die wir `isDone` nennen werden, deren Wert `this.done` ist.
 
-Aktualisieren Sie das Komponentenobjekt so:
+Aktualisieren Sie das Komponentenobjekt wie folgt:
 
 ```js
 export default {
@@ -254,17 +268,17 @@ export default {
 };
 ```
 
-Vue macht hier ein bisschen Magie — es bindet alle Ihre `props` direkt an die Komponenteninstanz, sodass wir nicht `this.props.done` aufrufen müssen. Es bindet auch andere Attribute (`data`, die Sie bereits gesehen haben, und andere wie `methods`, `computed`, etc.) direkt an die Instanz. Dies geschieht teilweise, um sie für Ihre Vorlage verfügbar zu machen. Der Nachteil dabei ist, dass Sie die Schlüssel über diese Attribute hinweg eindeutig halten müssen. Deshalb haben wir unser `data`-Attribut `isDone` anstelle von `done` genannt.
+Vue macht hier ein wenig Magie – es bindet alle Ihre Props direkt an die Komponenteninstanz, sodass wir nicht `this.props.done` aufrufen müssen. Es bindet auch andere Attribute (`data`, die Sie bereits gesehen haben, und andere wie `methods`, `computed`, etc.) direkt an die Instanz. Das ist teilweise so, damit sie Ihrem Template zur Verfügung stehen. Der Nachteil davon ist, dass Sie die Schlüssel in diesen Attributen einzigartig halten müssen. Deshalb haben wir unser Datenattribut `isDone` genannt und nicht `done`.
 
-Jetzt müssen wir die `isDone`-Eigenschaft an unsere Komponente anhängen. In ähnlicher Weise wie Vue `\{{}}`-Ausdrücke verwendet, um JavaScript-Ausdrücke innerhalb von Vorlagen anzuzeigen, hat Vue eine spezielle Syntax, um JavaScript-Ausdrücke mit HTML-Elementen und Komponenten zu verknüpfen: **`v-bind`**. Der `v-bind`-Ausdruck sieht so aus:
+Also müssen wir jetzt die `isDone`-Eigenschaft an unsere Komponente binden. In ähnlicher Weise wie Vue `\{{}}`-Ausdrücke verwendet, um JavaScript-Ausdrücke in Templates anzuzeigen, hat Vue eine spezielle Syntax, um JavaScript-Ausdrücke an HTML-Elemente und -Komponenten zu binden: **`v-bind`**. Der `v-bind`-Ausdruck sieht folgendermaßen aus:
 
 ```plain
 v-bind:attribute="expression"
 ```
 
-Mit anderen Worten, Sie präfixieren das Attribut/prop, das Sie binden möchten, mit `v-bind:`. In den meisten Fällen können Sie eine Abkürzung für die `v-bind`-Eigenschaft verwenden, indem Sie das Attribut/prop einfach mit einem Doppelpunkt präfixieren. So funktioniert `:attribut="expression"` genauso wie `v-bind:attribut="expression"`.
+Mit anderen Worten, Sie setzen das Attribut/Prop, das Sie binden möchten, mit `v-bind:` davor. In den meisten Fällen können Sie eine Abkürzung für die `v-bind`-Eigenschaft verwenden, indem Sie einfach das Attribut/Prop mit einem Doppelpunkt davor notieren. Also funktioniert `:attribute="expression"` genauso wie `v-bind:attribute="expression"`.
 
-Im Fall des Kontrollkästchens in unserer `ToDoItem`-Komponente können wir `v-bind` verwenden, um die `isDone`-Eigenschaft mit dem `checked`-Attribut auf dem `<input>`-Element zu verknüpfen. Beide folgenden sind gleichwertig:
+Also im Fall vom Kontrollkästchen in unserer `ToDoItem` Komponente können wir `v-bind` verwenden, um die `isDone`-Eigenschaft an das `checked`-Attribut auf dem `<input>`-Element zu mappen. Beide Varianten sind äquivalent:
 
 ```vue
 <input type="checkbox" id="todo-item" v-bind:checked="isDone" />
@@ -272,11 +286,11 @@ Im Fall des Kontrollkästchens in unserer `ToDoItem`-Komponente können wir `v-b
 <input type="checkbox" id="todo-item" :checked="isDone" />
 ```
 
-Sie sind frei, das Muster zu verwenden, das Ihnen besser gefällt. Es ist jedoch am besten, es konsistent zu halten. Da die Kurzsyntax häufiger verwendet wird, wird dieses Tutorial diesem Muster folgen.
+Sie können das Muster verwenden, das Ihnen am liebsten ist. Es ist jedoch am besten, es konsistent zu halten. Da die Abkürzung häufiger verwendet wird, bleibt dieses Tutorial bei diesem Muster.
 
-Also lasst es uns tun. Aktualisieren Sie Ihr `<input>`-Element jetzt, um `:checked="isDone"` einzuschließen.
+Also lassen Sie uns das tun. Aktualisieren Sie Ihr `<input>`-Element jetzt, um `:checked="isDone"` einzufügen.
 
-Testen Sie Ihre Komponente, indem Sie `:done="true"` an den `ToDoItem`-Aufruf in `App.vue` übergeben. Beachten Sie, dass Sie die `v-bind`-Syntax verwenden müssen, da sonst `true` als Zeichenfolge übergeben wird. Das angezeigte Kontrollkästchen sollte aktiviert sein.
+Testen Sie Ihre Komponente, indem Sie `:done="true"` beim Aufruf von `ToDoItem` in `App.vue` übergeben. Beachten Sie, dass Sie die `v-bind`-Syntax verwenden müssen, weil andernfalls `true` als String übergeben wird. Das angezeigte Kontrollkästchen sollte aktiviert sein.
 
 ```vue
 <template>
@@ -291,15 +305,15 @@ Testen Sie Ihre Komponente, indem Sie `:done="true"` an den `ToDoItem`-Aufruf in
 </template>
 ```
 
-Versuchen Sie, `true` in `false` zu ändern und umgekehrt, laden Sie Ihre App jeweils dazwischen neu, um zu sehen, wie sich der Zustand ändert.
+Versuchen Sie, `true` in `false` und zurück zu ändern, und laden Sie Ihre App jeweils neu, um zu sehen, wie sich der Zustand ändert.
 
-## Todo-Elementen eine eindeutige ID zuweisen
+## Todos eine eindeutige ID geben
 
-Großartig! Wir haben jetzt ein funktionierendes Kontrollkästchen, bei dem wir den Zustand programmatisch festlegen können. Wir können jedoch derzeit nur eine `ToDoList`-Komponente zur Seite hinzufügen, da die `id` fest kodiert ist. Dies würde zu Fehlern mit unterstützender Technologie führen, da die `id` benötigt wird, um die Labels korrekt mit ihren Kontrollkästchen zu verbinden. Um dies zu beheben, können wir die `id` programmgesteuert in den Komponentendaten festlegen.
+Großartig! Wir haben jetzt ein funktionierendes Kontrollkästchen, bei dem wir den Zustand programmatisch festlegen können. Allerdings können wir derzeit nur eine `ToDoList`-Komponente auf der Seite hinzufügen, da die `id` fest kodiert ist. Dies würde zu Fehlern mit unterstützender Technologie führen, da die `id` benötigt wird, um Labels korrekt den Kontrollkästchen zuzuordnen. Um dies zu beheben, können wir die `id` programmatisch in den Komponentendaten setzen.
 
-Wir können die Methode [`Crypto.randomUUID()`](/de/docs/Web/API/Crypto/randomUUID) verwenden, um eine eindeutige Zeichenfolge zu generieren, um die Komponenten-`id`s einzigartig zu halten. `randomUUID()` ist in modernen Browsern eingebaut und bietet eine einfache Möglichkeit, die Einzigartigkeit zu gewährleisten, ohne auf externe Bibliotheken angewiesen zu sein.
+Wir können die [`Crypto.randomUUID()`](/de/docs/Web/API/Crypto/randomUUID)-Methode verwenden, um eine eindeutige Zeichenfolge zu generieren, um die Komponenten-IDs einzigartig zu halten. `randomUUID()` ist in modernen Browsern eingebaut und bietet eine einfache Möglichkeit, Einzigartigkeit ohne Abhängigkeit von externen Bibliotheken sicherzustellen.
 
-Fügen Sie als nächstes ein `id`-Feld zur `data`-Eigenschaft hinzu, wie unten gezeigt; dies verwendet `crypto.randomUUID()`, um eine eindeutige Zeichenfolge zurückzugeben, die wir dann mit `todo-` voranstellen:
+Fügen Sie als Nächstes ein `id`-Feld zur `data`-Eigenschaft hinzu, wie unten gezeigt; das verwendet `crypto.randomUUID()`, um eine eindeutige Zeichenfolge zurückzugeben, die wir dann mit `todo-` voranstellen:
 
 ```js
 export default {
@@ -310,13 +324,13 @@ export default {
   data() {
     return {
       isDone: this.done,
-      id: "todo-" + crypto.randomUUID(),
+      id: `todo-${crypto.randomUUID()}`,
     };
   },
 };
 ```
 
-Binden Sie anschließend die `id` sowohl an das `id`-Attribut unseres Kontrollkästchens als auch an das `for`-Attribut des Labels, indem Sie die vorhandenen `id`- und `for`-Attribute wie folgt aktualisieren:
+Bindet als nächstes die `id` sowohl an das `id`-Attribut unseres Kontrollkästchens als auch an das `for`-Attribut des Labels, und aktualisieren Sie die vorhandenen `id` und `for` Attribute wie gezeigt:
 
 ```vue
 <template>
@@ -329,8 +343,8 @@ Binden Sie anschließend die `id` sowohl an das `id`-Attribut unseres Kontrollk�
 
 ## Zusammenfassung
 
-Das war's für diesen Artikel. An diesem Punkt haben wir eine gut funktionierende `ToDoItem`-Komponente, die ein anzuzeigendes Label verwenden kann, ihren überprüften Status speichert und mit einer eindeutigen `id` jedes Mal gerendert wird, wenn sie aufgerufen wird. Sie können überprüfen, ob die eindeutigen `id`s funktionieren, indem Sie vorübergehend weitere `<to-do-item></to-do-item>`-Aufrufe in `App.vue` hinzufügen und dann ihre gerenderte Ausgabe mit den DevTools Ihres Browsers überprüfen.
+Und das war's für diesen Artikel. An diesem Punkt haben wir eine gut funktionierende `ToDoItem`-Komponente, der ein anzuzeigendes Label übergeben werden kann, die ihren geprüften Zustand speichert und die bei jedem Aufruf mit einer eindeutigen `id` gerendert wird. Sie können überprüfen, ob die eindeutigen `id`s funktionieren, indem Sie vorübergehend weitere `<to-do-item></to-do-item>`-Aufrufe in `App.vue` hinzufügen und dann die gerenderte Ausgabe mit den DevTools Ihres Browsers überprüfen.
 
-Nun sind wir bereit, mehrere `ToDoItem`-Komponenten zu unserer App hinzuzufügen. Im nächsten Artikel werden wir darauf eingehen, wie wir einen Satz von Todo-Elementdaten zu unserer `App.vue`-Komponente hinzufügen, die wir dann durchschleifen und innerhalb von `ToDoItem`-Komponenten mit der `v-for`-Direktive anzeigen.
+Jetzt sind wir bereit, mehrere `ToDoItem`-Komponenten zu unserer App hinzuzufügen. In unserem nächsten Artikel werden wir uns ansehen, wie wir einen Satz von ToDo-Elementdaten zu unserer `App.vue`-Komponente hinzufügen, die wir dann durchlaufen und innerhalb von `ToDoItem`-Komponenten mit dem `v-for`-Direktiv anzeigen.
 
 {{PreviousMenuNext("Learn_web_development/Core/Frameworks_libraries/Vue_getting_started","Learn_web_development/Core/Frameworks_libraries/Vue_rendering_lists", "Learn_web_development/Core/Frameworks_libraries")}}

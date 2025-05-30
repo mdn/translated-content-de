@@ -2,12 +2,12 @@
 title: String.prototype.repeat()
 slug: Web/JavaScript/Reference/Global_Objects/String/repeat
 l10n:
-  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
+  sourceCommit: 6d2000984203c51f1aad49107ebcebe14d3c1238
 ---
 
 {{JSRef}}
 
-Die **`repeat()`**-Methode von {{jsxref("String")}}-Werten erstellt und gibt einen neuen String zurück, der die angegebene Anzahl von Kopien dieses Strings enthält, die zusammenkonkateniert sind.
+Die **`repeat()`** Methode von {{jsxref("String")}}-Werten erstellt und gibt einen neuen String zurück, welcher die angegebene Anzahl von Kopien dieses Strings enthält, die miteinander verkettet sind.
 
 {{InteractiveExample("JavaScript Demo: String.prototype.repeat()", "shorter")}}
 
@@ -27,7 +27,7 @@ repeat(count)
 ### Parameter
 
 - `count`
-  - : Eine ganze Zahl zwischen `0` und {{jsxref("Number/POSITIVE_INFINITY", "+Infinity")}}, die angibt, wie oft der String wiederholt werden soll.
+  - : Eine ganze Zahl zwischen `0` und {{jsxref("Number/POSITIVE_INFINITY", "Infinity")}}, die angibt, wie oft der String wiederholt werden soll.
 
 ### Rückgabewert
 

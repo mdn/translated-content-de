@@ -2,19 +2,19 @@
 title: class
 slug: Web/SVG/Reference/Attribute/class
 l10n:
-  sourceCommit: 3c83d88f02f33f4066224e9f624a17dd2a0b0d19
+  sourceCommit: 6d2000984203c51f1aad49107ebcebe14d3c1238
 ---
 
-Weist einem Element einen Klassennamen oder eine Menge von Klassennamen zu. Sie können demselben Klassennamen oder denselben Klassennamen eine beliebige Anzahl von Elementen zuweisen, jedoch müssen mehrere Klassennamen durch Leerzeichen getrennt werden.
+Weist einem Element einen Klassennamen oder eine Menge von Klassennamen zu. Sie können denselben Klassennamen oder dieselben Klassennamen einer beliebigen Anzahl von Elementen zuweisen. Mehrere Klassennamen müssen jedoch durch Leerzeichen getrennt werden.
 
 Der Klassenname eines Elements erfüllt zwei Hauptfunktionen:
 
-- Als Selektor im Stylesheet, wenn ein Autor Stilinformationen einer Gruppe von Elementen zuweist.
-- Zur allgemeinen Verwendung durch den Browser.
+- Als Selektor in einem Stylesheet, wenn ein Autor Stilinformationen einer Gruppe von Elementen zuweist.
+- Für die allgemeine Nutzung durch den Browser.
 
-Sie können diese Klasse verwenden, um SVG-Inhalte mit CSS zu stylen.
+Sie können diese Klasse verwenden, um SVG-Inhalte mit CSS zu gestalten.
 
-## Nutzungskontext
+## Verwendungskontext
 
 <table class="properties">
   <tbody>
@@ -38,7 +38,7 @@ Sie können diese Klasse verwenden, um SVG-Inhalte mit CSS zu stylen.
       <th scope="row">Normatives Dokument</th>
       <td>
         <a href="https://www.w3.org/TR/SVG/styling.html#ClassAttribute"
-          >SVG 1.1 (2nd Edition): Das class-Attribut</a
+          >SVG 1.1 (2nd Edition): The class attribute</a
         >
       </td>
     </tr>
@@ -58,14 +58,14 @@ Sie können diese Klasse verwenden, um SVG-Inhalte mit CSS zu stylen.
       xmlns="http://www.w3.org/2000/svg">
       <style>
         <![CDATA[
-            rect.rectClass {
-                stroke: #000066;
-                fill:   #00cc00;
-            }
-            circle.circleClass {
-                stroke: #006600;
-                fill:   #cc0000;
-            }
+          rect.rectClass {
+            stroke: #000066;
+            fill: #00cc00;
+          }
+          circle.circleClass {
+            stroke: #006600;
+            fill: #cc0000;
+          }
         ]]>
       </style>
 
@@ -78,7 +78,7 @@ Sie können diese Klasse verwenden, um SVG-Inhalte mit CSS zu stylen.
 
 ## Elemente
 
-Die folgenden Elemente können das Attribut `class` verwenden:
+Die folgenden Elemente können das `class`-Attribut verwenden:
 
 - {{ SVGElement("a") }}
 - {{ SVGElement("circle") }}

@@ -2,12 +2,12 @@
 title: preserveAspectRatio
 slug: Web/SVG/Reference/Attribute/preserveAspectRatio
 l10n:
-  sourceCommit: 874ad29df9150037acb8a4a3e7550a302c90a080
+  sourceCommit: bb1ba995f354182f3d1d0ac5decbf8d67c654ad5
 ---
 
-Das **`preserveAspectRatio`**-Attribut gibt an, wie ein Element mit einem bestehenden {{Glossary("aspect_ratio", "Seitenverhältnis")}} in einen Viewport mit einem anderen Seitenverhältnis passen muss.
+Das **`preserveAspectRatio`** Attribut gibt an, wie ein Element mit einer viewBox (die ein gegebenes {{Glossary("aspect_ratio", "Aspektverhältnis")}} bereitstellt) in einen Viewport mit einem anderen Aspektverhältnis passen muss.
 
-Das Seitenverhältnis eines SVG-Bildes wird durch das {{SVGAttr('viewBox')}}-Attribut definiert. Daraus folgt, dass `preserveAspectRatio` keine Auswirkung auf die Skalierung von SVG hat, wenn `viewBox` nicht gesetzt ist (außer im Fall des {{SVGElement('image')}}-Elements, bei dem sich `preserveAspectRatio` wie unten beschrieben anders verhält).
+Das Aspektverhältnis eines SVG-Bildes wird durch das {{SVGAttr('viewBox')}} Attribut definiert. Wenn `viewBox` also nicht gesetzt ist, hat das `preserveAspectRatio` Attribut keinen Einfluss auf das Scaling von SVG (außer im Fall des {{SVGElement('image')}} Elements, wo `preserveAspectRatio` wie unten beschrieben anders funktioniert).
 
 ## Syntax
 
@@ -15,95 +15,95 @@ Das Seitenverhältnis eines SVG-Bildes wird durch das {{SVGAttr('viewBox')}}-Att
 preserveAspectRatio="<align> [<meet or slice>]"
 ```
 
-Der Wert des `preserveAspectRatio`-Attributs besteht aus bis zu zwei Schlüsselwörtern: einem erforderlichen Ausrichtungswert und einem optionalen `meet`- oder `slice`-Schlüsselwort.
+Der Wert des `preserveAspectRatio` Attributs besteht aus bis zu zwei Schlüsselwörtern: einem erforderlichen Ausrichtungswert und einem optionalen `meet` oder `slice` Schlüsselwort.
 
-Der Ausrichtungswert gibt an, ob eine gleichmäßige Skalierung erzwungen werden soll und, wenn ja, welche Methode zur Ausrichtung verwendet werden soll, falls das Seitenverhältnis des {{SVGAttr("viewBox")}} nicht mit dem des Viewports übereinstimmt. `xMidYMid` ist der Standardwert. Der Ausrichtungswert muss einer der folgenden Schlüsselwortwerte sein:
+Der Ausrichtungswert gibt an, ob eine einheitliche Skalierung erzwungen werden soll, und wenn ja, welche Ausrichtungsmethode verwendet werden soll, falls das Aspektverhältnis der {{SVGAttr("viewBox")}} nicht mit dem Aspektverhältnis des Viewports übereinstimmt. `xMidYMid` ist der Standardwert. Der Ausrichtungswert muss einer der folgenden Schlüsselwortwerte sein:
 
 - `none`
 
-  - : Erzwingt keine gleichmäßige Skalierung. Skalieren Sie den grafischen Inhalt des gegebenen Elements bei Bedarf ungleichmäßig, sodass der Begrenzungsrahmen des Elements genau dem Viewport-Rechteck entspricht. Beachten Sie, dass wenn `<align>` auf `none` gesetzt ist, der optionale `<meetOrSlice>`-Wert ignoriert wird.
+  - : Erzwingt keine gleichmäßige Skalierung. Skaliert den grafischen Inhalt des gegebenen Elements ungleichmäßig, falls nötig, sodass der Begrenzungsrahmen des Elements genau mit dem Rechteck des Viewports übereinstimmt. Beachten Sie, dass, wenn `<align>` `none` ist, der optionale `<meetOrSlice>` Wert ignoriert wird.
 
 - `xMinYMin`
 
-  - : Erzwingt gleichmäßige Skalierung.
-    Richten Sie das `<min-x>` des {{SVGAttr("viewBox")}}-Elements mit dem kleinsten X-Wert des Viewports aus.
-    Richten Sie das `<min-y>` des {{SVGAttr("viewBox")}}-Elements mit dem kleinsten Y-Wert des Viewports aus.
+  - : Erzwingt eine gleichmäßige Skalierung.
+    Richtet das `<min-x>` der {{SVGAttr("viewBox")}} des Elements an dem kleinsten X-Wert des Viewports aus.
+    Richtet das `<min-y>` der {{SVGAttr("viewBox")}} des Elements an dem kleinsten Y-Wert des Viewports aus.
 
 - `xMidYMin`
 
-  - : Erzwingt gleichmäßige Skalierung.
-    Richten Sie den mittleren X-Wert des {{SVGAttr("viewBox")}}-Elements mit dem mittleren X-Wert des Viewports aus.
-    Richten Sie das `<min-y>` des {{SVGAttr("viewBox")}}-Elements mit dem kleinsten Y-Wert des Viewports aus.
+  - : Erzwingt eine gleichmäßige Skalierung.
+    Richtet den mittleren X-Wert der {{SVGAttr("viewBox")}} des Elements an dem mittleren X-Wert des Viewports aus.
+    Richtet das `<min-y>` der {{SVGAttr("viewBox")}} des Elements an dem kleinsten Y-Wert des Viewports aus.
 
 - `xMaxYMin`
 
-  - : Erzwingt gleichmäßige Skalierung.
-    Richten Sie das `<min-x>+<width>` des {{SVGAttr("viewBox")}}-Elements mit dem maximalen X-Wert des Viewports aus.
-    Richten Sie das `<min-y>` des {{SVGAttr("viewBox")}}-Elements mit dem kleinsten Y-Wert des Viewports aus.
+  - : Erzwingt eine gleichmäßige Skalierung.
+    Richtet das `<min-x>+<width>` der {{SVGAttr("viewBox")}} des Elements an dem maximalen X-Wert des Viewports aus.
+    Richtet das `<min-y>` der {{SVGAttr("viewBox")}} des Elements an dem kleinsten Y-Wert des Viewports aus.
 
 - `xMinYMid`
 
-  - : Erzwingt gleichmäßige Skalierung.
-    Richten Sie das `<min-x>` des {{SVGAttr("viewBox")}}-Elements mit dem kleinsten X-Wert des Viewports aus.
-    Richten Sie den mittleren Y-Wert des {{SVGAttr("viewBox")}}-Elements mit dem mittleren Y-Wert des Viewports aus.
+  - : Erzwingt eine gleichmäßige Skalierung.
+    Richtet das `<min-x>` der {{SVGAttr("viewBox")}} des Elements an dem kleinsten X-Wert des Viewports aus.
+    Richtet den mittleren Y-Wert der {{SVGAttr("viewBox")}} des Elements an dem mittleren Y-Wert des Viewports aus.
 
 - `xMidYMid`
 
-  - : Erzwingt gleichmäßige Skalierung.
-    Richten Sie den mittleren X-Wert des {{SVGAttr("viewBox")}}-Elements mit dem mittleren X-Wert des Viewports aus.
-    Richten Sie den mittleren Y-Wert des {{SVGAttr("viewBox")}}-Elements mit dem mittleren Y-Wert des Viewports aus. Dies ist der Standardwert.
+  - : Erzwingt eine gleichmäßige Skalierung.
+    Richtet den mittleren X-Wert der {{SVGAttr("viewBox")}} des Elements an dem mittleren X-Wert des Viewports aus.
+    Richtet den mittleren Y-Wert der {{SVGAttr("viewBox")}} des Elements an dem mittleren Y-Wert des Viewports aus. Dies ist der Standardwert.
 
 - `xMaxYMid`
 
-  - : Erzwingt gleichmäßige Skalierung.
-    Richten Sie das `<min-x>+<width>` des {{SVGAttr("viewBox")}}-Elements mit dem maximalen X-Wert des Viewports aus.
-    Richten Sie den mittleren Y-Wert des {{SVGAttr("viewBox")}}-Elements mit dem mittleren Y-Wert des Viewports aus.
+  - : Erzwingt eine gleichmäßige Skalierung.
+    Richtet das `<min-x>+<width>` der {{SVGAttr("viewBox")}} des Elements an dem maximalen X-Wert des Viewports aus.
+    Richtet den mittleren Y-Wert der {{SVGAttr("viewBox")}} des Elements an dem mittleren Y-Wert des Viewports aus.
 
 - `xMinYMax`
 
-  - : Erzwingt gleichmäßige Skalierung.
-    Richten Sie das `<min-x>` des {{SVGAttr("viewBox")}}-Elements mit dem kleinsten X-Wert des Viewports aus.
-    Richten Sie das `<min-y>+<height>` des {{SVGAttr("viewBox")}}-Elements mit dem maximalen Y-Wert des Viewports aus.
+  - : Erzwingt eine gleichmäßige Skalierung.
+    Richtet das `<min-x>` der {{SVGAttr("viewBox")}} des Elements an dem kleinsten X-Wert des Viewports aus.
+    Richtet das `<min-y>+<height>` der {{SVGAttr("viewBox")}} des Elements an dem maximalen Y-Wert des Viewports aus.
 
 - `xMidYMax`
 
-  - : Erzwingt gleichmäßige Skalierung.
-    Richten Sie den mittleren X-Wert des {{SVGAttr("viewBox")}}-Elements mit dem mittleren X-Wert des Viewports aus.
-    Richten Sie das `<min-y>+<height>` des {{SVGAttr("viewBox")}}-Elements mit dem maximalen Y-Wert des Viewports aus.
+  - : Erzwingt eine gleichmäßige Skalierung.
+    Richtet den mittleren X-Wert der {{SVGAttr("viewBox")}} des Elements an dem mittleren X-Wert des Viewports aus.
+    Richtet das `<min-y>+<height>` der {{SVGAttr("viewBox")}} des Elements an dem maximalen Y-Wert des Viewports aus.
 
 - `xMaxYMax`
 
-  - : Erzwingt gleichmäßige Skalierung.
-    Richten Sie das `<min-x>+<width>` des {{SVGAttr("viewBox")}}-Elements mit dem maximalen X-Wert des Viewports aus.
-    Richten Sie das `<min-y>+<height>` des {{SVGAttr("viewBox")}}-Elements mit dem maximalen Y-Wert des Viewports aus.
+  - : Erzwingt eine gleichmäßige Skalierung.
+    Richtet das `<min-x>+<width>` der {{SVGAttr("viewBox")}} des Elements an dem maximalen X-Wert des Viewports aus.
+    Richtet das `<min-y>+<height>` der {{SVGAttr("viewBox")}} des Elements an dem maximalen Y-Wert des Viewports aus.
 
-Die folgenden zwei Schlüsselwörter bestimmen, wie das SVG relativ zu den Grenzen des Containers skaliert werden soll. Die Angabe des `meet`- oder `slice`-Referenzwertes ist optional, und wenn angegeben, muss es eines der beiden Schlüsselwörter sein. `meet` ist der Standardwert.
+Die folgenden zwei Schlüsselwörter bestimmen, wie das SVG im Verhältnis zu den Begrenzungen des Containers skaliert werden soll. Die Angabe des `meet` oder `slice` Bezugs ist optional und, falls angegeben, muss es eines von nur zwei Schlüsselwörtern sein. `meet` ist der Standardwert.
 
 - `meet`
 
   - : Skaliert die Grafik so, dass:
 
-    - Das Seitenverhältnis erhalten bleibt.
-    - Die gesamte {{SVGAttr("viewBox")}} innerhalb des Viewports sichtbar ist.
-    - Die {{SVGAttr("viewBox")}} maximal vergrößert wird, während die anderen Kriterien weiterhin erfüllt sind.
+    - Das Aspektverhältnis beibehalten wird.
+    - Die gesamte {{SVGAttr("viewBox")}} im Viewport sichtbar ist.
+    - Die {{SVGAttr("viewBox")}} so weit wie möglich vergrößert wird, während dennoch die weiteren Kriterien erfüllt werden.
 
-    In diesem Fall, wenn das Seitenverhältnis der Grafik nicht mit dem Viewport übereinstimmt, wird ein Teil des Viewports über die Grenzen der {{SVGAttr("viewBox")}} hinausragen (d.h. der Bereich, in den die {{SVGAttr("viewBox")}} zeichnet, wird kleiner als der Viewport sein).
+    In diesem Fall, wenn das Aspektverhältnis der Grafik nicht mit dem Viewport übereinstimmt, dehnt sich ein Teil des Viewports über die Grenzen der {{SVGAttr("viewBox")}} hinaus aus (d.h. der Bereich, in den die {{SVGAttr("viewBox")}} gezeichnet wird, ist kleiner als der Viewport).
 
 - `slice`
 
   - : Skaliert die Grafik so, dass:
 
-    - Das Seitenverhältnis erhalten bleibt.
-    - Der gesamte Viewport von der {{SVGAttr("viewBox")}} abgedeckt wird.
-    - Die {{SVGAttr("viewBox")}} maximal verkleinert wird, während die anderen Kriterien weiterhin erfüllt sind.
+    - Das Aspektverhältnis beibehalten wird.
+    - Der gesamte Viewport von der {{SVGAttr("viewBox")}} abgedeckt ist.
+    - Die {{SVGAttr("viewBox")}} so weit wie möglich verkleinert wird, während dennoch die weiteren Kriterien erfüllt werden.
 
-    In diesem Fall, wenn das Seitenverhältnis der {{SVGAttr("viewBox")}} nicht mit dem Viewport übereinstimmt, wird ein Teil der {{SVGAttr("viewBox")}} über die Grenzen des Viewports hinausragen (d.h. der Bereich, in den die {{SVGAttr("viewBox")}} zeichnet, wird größer als der Viewport sein).
+    In diesem Fall, wenn das Aspektverhältnis der {{SVGAttr("viewBox")}} nicht mit dem Viewport übereinstimmt, dehnt sich ein Teil der {{SVGAttr("viewBox")}} über die Grenzen des Viewports hinaus aus (d.h. der Bereich, in den die {{SVGAttr("viewBox")}} gezeichnet wird, ist größer als der Viewport).
 
 ## Beispiele
 
-### Nutzung von `meet`, wenn Breite > Höhe
+### Verwendung von `meet` wenn Breite > Höhe
 
-Dieses Beispiel zeigt die Verwendung von `meet`, wenn die `width` des Elements größer als die `height` ist. Es präsentiert drei Varianten mit drei unterschiedlichen Ausrichtungswerten: `xMidYMid`, `xMinYMid` und `xMaxYMid`.
+Dieses Beispiel zeigt die Verwendung von `meet`, wenn die `Breite` des Elements größer ist als seine `Höhe`. Es präsentiert drei Variationen mit drei verschiedenen Ausrichtungswerten: `xMidYMid`, `xMinYMid` und `xMaxYMid`.
 
 ```css hidden
 html,
@@ -194,9 +194,9 @@ rect:active {
 
 {{EmbedLiveSample('Using meet when width height', '100%', 200)}}
 
-### Nutzung von `slice`, wenn Breite > Höhe
+### Verwendung von `slice` wenn Breite > Höhe
 
-Dieses Beispiel zeigt die Verwendung von `slice`, wenn die `width` des Elements größer als die `height` ist. Es präsentiert drei Varianten mit drei unterschiedlichen Ausrichtungswerten: `xMidYMin`, `xMidYMid` und `xMidYMax`.
+Dieses Beispiel zeigt die Verwendung von `slice`, wenn die `Breite` des Elements größer ist als seine `Höhe`. Es präsentiert drei Variationen mit drei verschiedenen Ausrichtungswerten: `xMidYMin`, `xMidYMid` und `xMidYMax`.
 
 ```css hidden
 html,
@@ -287,9 +287,9 @@ rect:active {
 
 {{EmbedLiveSample('Using slice when width height', '100%', 200)}}
 
-### Nutzung von `meet`, wenn Höhe > Breite
+### Verwendung von `meet` wenn Höhe > Breite
 
-Dieses Beispiel zeigt die Verwendung von `meet`, wenn die `height` des Elements größer als die `width` ist. Es präsentiert drei Varianten mit drei unterschiedlichen Ausrichtungswerten: `xMidYMin`, `xMidYMid` und `xMidYMax`.
+Dieses Beispiel zeigt die Verwendung von `meet`, wenn die `Höhe` des Elements größer ist als seine `Breite`. Es präsentiert drei Variationen mit drei verschiedenen Ausrichtungswerten: `xMidYMin`, `xMidYMid` und `xMidYMax`.
 
 ```css hidden
 html,
@@ -380,9 +380,9 @@ rect:active {
 
 {{EmbedLiveSample('Using meet when height width', '100%', 200)}}
 
-### Nutzung von `slice`, wenn Höhe > Breite
+### Verwendung von `slice` wenn Höhe > Breite
 
-Dieses Beispiel zeigt die Verwendung von `slice`, wenn die `height` des Elements größer als die `width` ist. Es präsentiert drei Varianten mit drei unterschiedlichen Ausrichtungswerten: `xMinYMid`, `xMidYMid` und `xMaxYMid`.
+Dieses Beispiel zeigt die Verwendung von `slice`, wenn die `Höhe` des Elements größer ist als seine `Breite`. Es präsentiert drei Variationen mit drei verschiedenen Ausrichtungswerten: `xMinYMid`, `xMidYMid` und `xMaxYMid`.
 
 ```css hidden
 html,
@@ -397,14 +397,13 @@ body {
 }
 ```
 
-```html
+```html-nolint
 <svg viewBox="-1 -1 202 80" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <path
       id="smiley"
       d="M50,10 A40,40,1,1,1,50,90 A40,40,1,1,1,50,10 M30,40 Q36,35,42,40 M58,40 Q64,35,70,40 M30,60 Q50,75,70,60 Q50,75,30,60" />
   </defs>
-</svg>
 ```
 
 ```html
@@ -438,18 +437,21 @@ body {
 ```
 
 ```html
-  <rect x="70" y="0" width="30" height="75">
-    <title>xMaxYMid slice</title>
-  </rect>
-  <svg
-    viewBox="0 0 100 100"
-    width="30"
-    height="75"
-    preserveAspectRatio="xMaxYMid slice"
-    x="70"
-    y="0">
-    <use href="#smiley" />
-  </svg>
+<rect x="70" y="0" width="30" height="75">
+  <title>xMaxYMid slice</title>
+</rect>
+<svg
+  viewBox="0 0 100 100"
+  width="30"
+  height="75"
+  preserveAspectRatio="xMaxYMid slice"
+  x="70"
+  y="0">
+  <use href="#smiley" />
+</svg>
+```
+
+```html-nolint
 </svg>
 ```
 
@@ -471,9 +473,9 @@ rect:active {
 
 {{EmbedLiveSample('Using slice height width', '100%', 200)}}
 
-### Verwendung des `none`-Ausrichtungswertes
+### Verwendung des `none` Ausrichtungswerts
 
-Dieses Beispiel zeigt ein Element, bei dem der Ausrichtungswert auf `none` gesetzt ist.
+Dieses Beispiel zeigt ein Element mit dem Ausrichtungswert `none`.
 
 ```css hidden
 html,
@@ -488,30 +490,32 @@ body {
 }
 ```
 
-```html
+```html-nolint
 <svg viewBox="-1 -1 192 62" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <path
       id="smiley"
       d="M50,10 A40,40,1,1,1,50,90 A40,40,1,1,1,50,10 M30,40 Q36,35,42,40 M58,40 Q64,35,70,40 M30,60 Q50,75,70,60 Q50,75,30,60" />
   </defs>
-</svg>
 ```
 
 ```html
-  <!-- none -->
-  <rect x="0" y="0" width="160" height="60">
-    <title>none</title>
-  </rect>
-  <svg
-    viewBox="0 0 100 100"
-    width="160"
-    height="60"
-    preserveAspectRatio="none"
-    x="0"
-    y="0">
-    <use href="#smiley" />
-  </svg>
+<!-- none -->
+<rect x="0" y="0" width="160" height="60">
+  <title>none</title>
+</rect>
+<svg
+  viewBox="0 0 100 100"
+  width="160"
+  height="60"
+  preserveAspectRatio="none"
+  x="0"
+  y="0">
+  <use href="#smiley" />
+</svg>
+```
+
+```html-nolint
 </svg>
 ```
 
@@ -535,7 +539,7 @@ rect:active {
 
 ## Elemente
 
-Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
+Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 - {{SVGElement("svg")}}
 - {{SVGElement("symbol")}}
@@ -547,7 +551,7 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 ### feImage
 
-Für {{SVGElement('feImage')}} definiert `preserveAspectRatio`, wie das referenzierte Bild in das durch das `<feImage>`-Element definierte Rechteck passen soll.
+Für {{SVGElement('feImage')}} definiert `preserveAspectRatio`, wie das referenzierte Bild in das durch das `<feImage>` Element definierte Rechteck passen soll.
 
 <table class="properties">
   <tbody>
@@ -568,7 +572,7 @@ Für {{SVGElement('feImage')}} definiert `preserveAspectRatio`, wie das referenz
 
 ### image
 
-Für {{SVGElement('image')}} definiert `preserveAspectRatio`, wie das referenzierte Bild in das durch das `<image>`-Element definierte Rechteck passen soll.
+Für {{SVGElement('image')}} definiert `preserveAspectRatio`, wie das referenzierte Bild in das durch das `<image>` Element definierte Rechteck passen soll.
 
 <table class="properties">
   <tbody>

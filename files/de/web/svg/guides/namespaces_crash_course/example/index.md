@@ -2,12 +2,12 @@
 title: Beispiel
 slug: Web/SVG/Guides/Namespaces_crash_course/Example
 l10n:
-  sourceCommit: 1eabc08d295e60d7d8eab6bce858d2fb0833be2b
+  sourceCommit: 6d2000984203c51f1aad49107ebcebe14d3c1238
 ---
 
-In diesem Beispiel verwenden wir {{Glossary("XHTML", "XHTML")}}, [SVG](/de/docs/Web/SVG), [JavaScript](/de/docs/Web/JavaScript) und das [DOM](/de/docs/Web/API/Document_Object_Model), um einen Schwarm von „Motes“ zu animieren. Diese „Motes“ werden von zwei grundlegenden Prinzipien gesteuert. Erstens versucht jedes „Mote“ sich in Richtung des Mauszeigers zu bewegen, und zweitens versucht jedes „Mote“ sich von der durchschnittlichen Position der anderen „Motes“ zu entfernen. Kombiniert ergibt dies ein sehr natürlich aussehendes Verhalten.
+In diesem Beispiel verwenden wir {{Glossary("XHTML", "XHTML")}}, [SVG](/de/docs/Web/SVG), [JavaScript](/de/docs/Web/JavaScript) und das [DOM](/de/docs/Web/API/Document_Object_Model), um ein Schwarm von "Motes" zu animieren. Diese Motes werden durch zwei grundlegende Prinzipien gesteuert. Erstens versucht jedes Mote, sich auf den Mauszeiger zuzubewegen, und zweitens versucht jedes Mote, sich vom durchschnittlichen Mote-Standort zu entfernen. Kombiniert ergibt das dieses sehr natürlich aussehende Verhalten.
 
-[Sehen Sie sich das Beispiel an](https://mdn.dev/archives/media/samples/svg/swarm-of-motes.xhtml). Das verlinkte Beispiel wurde mit den besten Praktiken von 2006 geschrieben. Das untenstehende Beispiel wurde auf moderne JavaScript-Best Practices aktualisiert. Beide funktionieren.
+[Beispiel ansehen](https://mdn.dev/archives/media/samples/svg/swarm-of-motes.xhtml). Das verlinkte Beispiel wurde mit den Best Practices von 2006 geschrieben. Das folgende Beispiel wurde auf moderne JavaScript-Best Practices aktualisiert. Beide funktionieren.
 
 ```xml
 <?xml version='1.0'?>
@@ -17,23 +17,21 @@ In diesem Beispiel verwenden wir {{Glossary("XHTML", "XHTML")}}, [SVG](/de/docs/
   <title>A swarm of motes</title>
   <style>
   <![CDATA[
-    label, input
-    {
-      width: 150px;
-      display: block;
-      float: left;
-      margin-bottom: 10px;
-    }
-    label
-    {
-      text-align: right;
-      width: 75px;
-      padding-right: 20px;
-    }
-    br
-    {
-      clear: left;
-    }
+label,
+input {
+  width: 150px;
+  display: block;
+  float: left;
+  margin-bottom: 10px;
+}
+label {
+  text-align: right;
+  width: 75px;
+  padding-right: 20px;
+}
+br {
+  clear: left;
+}
   ]]>
   </style>
   </head>
@@ -56,9 +54,9 @@ cy='150' r='7' fill='#0000ff' fill-opacity='0.5'/>
     <script>
     <![CDATA[
       // foil spam bots
-      let email = '@riovia.net';
-      email ='nick' + email;
-      document.getElementById('email-me').href = 'mailto:'+email;
+      let email = "@riovia.net";
+      email = "nick" + email;
+      document.getElementById("email-me").href = "mailto:" + email;
     ]]>
     </script>
     This software is free for you to use in any way whatsoever,

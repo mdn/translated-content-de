@@ -3,7 +3,7 @@ title: "DataTransfer: types-Eigenschaft"
 short-title: types
 slug: Web/API/DataTransfer/types
 l10n:
-  sourceCommit: 980b5a01c4527ef69fee3b865c68ee3ffb09d612
+  sourceCommit: 6d2000984203c51f1aad49107ebcebe14d3c1238
 ---
 
 {{APIRef("HTML Drag and Drop API")}}
@@ -12,11 +12,12 @@ Die schreibgeschützte Eigenschaft **`DataTransfer.types`** gibt die verfügbare
 
 ## Wert
 
-Ein Array der Datenformate. Jedes Format ist ein String, der in der Regel ein MIME-Typ wie `text/plain` oder `text/html` ist. Wenn der Ziehvorgang keine Daten enthält, wird diese Liste leer sein. Wenn Dateien in den Ziehvorgang einbezogen sind, wird einer der Typen der String `Files` sein.
+Ein Array der Datenformate. Jedes Format ist ein String, der im Allgemeinen ein MIME-Typ ist, wie `text/plain` oder `text/html`. Wenn der Drag-Vorgang keine Daten enthält, ist diese Liste leer. Wenn Dateien in den Drag-Vorgang einbezogen sind, wird einer der Typen der String `Files` sein.
 
 ## Beispiele
 
-Dieses Beispiel zeigt die Verwendung der `types`- und [`items`](/de/docs/Web/API/DataTransfer/items)-Eigenschaften.
+Dieses Beispiel zeigt die Verwendung der Eigenschaften `types` und
+[`items`](/de/docs/Web/API/DataTransfer/items).
 
 ```html
 <!doctype html>
@@ -34,7 +35,7 @@ Dieses Beispiel zeigt die Verwendung der `types`- und [`items`](/de/docs/Web/API
   </style>
   <script>
     function dragstart_handler(ev) {
-      console.log("dragStart: target.id = " + ev.target.id);
+      console.log(`dragStart: target.id = ${ev.target.id}`);
 
       // Add this element's id to the drag payload so the drop handler will
       // know which element to add to its tree
@@ -43,7 +44,7 @@ Dieses Beispiel zeigt die Verwendung der `types`- und [`items`](/de/docs/Web/API
     }
 
     function drop_handler(ev) {
-      console.log("drop: target.id = " + ev.target.id);
+      console.log(`drop: target.id = ${ev.target.id}`);
       ev.preventDefault();
 
       // Get the id of the target and add the moved element to the target's DOM
@@ -103,7 +104,7 @@ Dieses Beispiel zeigt die Verwendung der `types`- und [`items`](/de/docs/Web/API
 
 ## Siehe auch
 
-- [Drag and drop](/de/docs/Web/API/HTML_Drag_and_Drop_API)
-- [Drag-Operationen](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_operations)
+- [Drag and Drop](/de/docs/Web/API/HTML_Drag_and_Drop_API)
+- [Drag-Vorgänge](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_operations)
 - [Empfohlene Drag-Typen](/de/docs/Web/API/HTML_Drag_and_Drop_API/Recommended_drag_types)
 - [DataTransfer-Test - Einfügen oder Ziehen](https://codepen.io/tech_query/pen/MqGgap)

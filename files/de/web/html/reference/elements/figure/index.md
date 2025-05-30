@@ -2,12 +2,12 @@
 title: "<figure>: Das Figure-Element mit optionaler Beschriftung"
 slug: Web/HTML/Reference/Elements/figure
 l10n:
-  sourceCommit: 58fda7e192fc7d82880f310d8f912ba2f50cd0d5
+  sourceCommit: 6d2000984203c51f1aad49107ebcebe14d3c1238
 ---
 
 {{HTMLSidebar}}
 
-Das **`<figure>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert eigenständige Inhalte, die potenziell mit einer optionalen Beschriftung versehen sind, welche mittels des {{HTMLElement("figcaption")}}-Elements spezifiziert wird. Die Figur, ihre Beschriftung und ihre Inhalte werden als eine einzelne Einheit betrachtet.
+Das **`<figure>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert eigenständige Inhalte, möglicherweise mit einer optionalen Beschriftung, die mit dem {{HTMLElement("figcaption")}}-Element angegeben wird. Die Figur, ihre Beschriftung und ihre Inhalte werden als eine Einheit betrachtet.
 
 {{InteractiveExample("HTML Demo: &lt;figure&gt;", "tabbed-shorter")}}
 
@@ -46,13 +46,13 @@ figcaption {
 
 ## Attribute
 
-Dieses Element umfasst nur die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
+Dieses Element enthält nur die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
 ## Verwendungshinweise
 
-- Üblicherweise ist ein `<figure>` ein Bild, eine Illustration, ein Diagramm, ein Code-Schnipsel usw., das im Hauptfluss eines Dokuments referenziert wird, aber ohne Auswirkungen auf den Hauptfluss in einen anderen Teil des Dokuments oder in einen Anhang verschoben werden kann.
-- Eine Beschriftung kann mit dem `<figure>`-Element assoziiert werden, indem man ein {{HTMLElement("figcaption")}} hineinsetzt (als erstes oder letztes Kind). Das erste im figure gefundene `<figcaption>`-Element wird als Beschriftung der Figur dargestellt.
-- Das `<figcaption>` bietet den {{Glossary("accessible_name", "zugänglichen Namen")}} für das übergeordnete `<figure>`.
+- Ein `<figure>` ist in der Regel ein Bild, eine Illustration, ein Diagramm, ein Code-Snippet usw., das im Hauptteil eines Dokuments referenziert wird, aber an eine andere Stelle des Dokuments oder in einen Anhang verschoben werden kann, ohne den Hauptfluss zu beeinflussen.
+- Eine Beschriftung kann dem `<figure>`-Element zugeordnet werden, indem ein {{HTMLElement("figcaption")}} innerhalb davon eingefügt wird (als erstes oder letztes Kind). Das erste `<figcaption>`-Element, das in der Figur gefunden wird, wird als Beschriftung der Figur präsentiert.
+- Das `<figcaption>` bietet den {{Glossary("accessible_name", "zugänglichen Namen")}} für das Eltern-`<figure>`.
 
 ## Beispiele
 
@@ -75,20 +75,19 @@ Dieses Element umfasst nur die [globalen Attribute](/de/docs/Web/HTML/Reference/
 
 {{EmbedLiveSample("Images", "100%", 375)}}
 
-### Code-Schnipsel
+### Code-Snippets
 
 ```html
 <figure>
   <figcaption>Get browser details using <code>navigator</code>.</figcaption>
   <pre>
 function NavigatorExample() {
-  var txt;
-  txt = "Browser CodeName: " + navigator.appCodeName + "; ";
-  txt+= "Browser Name: " + navigator.appName + "; ";
-  txt+= "Browser Version: " + navigator.appVersion  + "; ";
-  txt+= "Cookies Enabled: " + navigator.cookieEnabled  + "; ";
-  txt+= "Platform: " + navigator.platform  + "; ";
-  txt+= "User-agent header: " + navigator.userAgent  + "; ";
+  let txt = `Browser CodeName: ${navigator.appCodeName};\n`;
+  txt += `Browser Name: ${navigator.appName};\n`;
+  txt += `Browser Version: ${navigator.appVersion};\n`;
+  txt += `Cookies Enabled: ${navigator.cookieEnabled};\n`;
+  txt += `Platform: ${navigator.platform};\n`;
+  txt += `User-agent header: ${navigator.userAgent};`;
   console.log("NavigatorExample", txt);
 }
   </pre>
@@ -146,15 +145,14 @@ function NavigatorExample() {
       <td>
         <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
           >Flussinhalt</a
-        >
-        und
+        >,
         <a href="/de/docs/Web/HTML/Guides/Content_categories#palpable_content"
-          >fühlbarer Inhalt</a
+          >greifbarer Inhalt</a
         >.
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubter Inhalt</th>
+      <th scope="row">Zulässige Inhalte</th>
       <td>
         Ein {{HTMLElement("figcaption")}}-Element, gefolgt von
         <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
@@ -164,17 +162,16 @@ function NavigatorExample() {
       </td>
     </tr>
     <tr>
-      <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl der öffnende als auch der schließende Tag sind erforderlich.</td>
+      <th scope="row">Weglassen des Tags</th>
+      <td>Keine, sowohl das Start- als auch das End-Tag sind obligatorisch.</td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte Eltern</th>
+      <th scope="row">Zulässige Eltern</th>
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
           >Flussinhalt</a
-        >
-        akzeptiert.
+        > akzeptiert.
       </td>
     </tr>
     <tr>
@@ -186,14 +183,16 @@ function NavigatorExample() {
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte ARIA-Rollen</th>
+      <th scope="row">Zulässige ARIA-Rollen</th>
       <td>
         Ohne
-        <a href="/de/docs/Web/HTML/Reference/Elements/figcaption">figcaption</a> Nachfahren: <a href="https://www.w3.org/TR/html-aria/#dfn-any-role">beliebige Rolle</a>, ansonsten keine erlaubten Rollen
+        <a href="/de/docs/Web/HTML/Reference/Elements/figcaption">figcaption</a>-Nachkommen:
+        <a href="https://www.w3.org/TR/html-aria/#dfn-any-role">any</a>,
+        ansonsten keine erlaubten Rollen
       </td>
     </tr>
     <tr>
-      <th scope="row">DOM-Schnittstelle</th>
+      <th scope="row">DOM-Interface</th>
       <td>[`HTMLElement`](/de/docs/Web/API/HTMLElement)</td>
     </tr>
   </tbody>

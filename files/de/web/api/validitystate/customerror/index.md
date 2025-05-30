@@ -3,24 +3,27 @@ title: "ValidityState: customError-Eigenschaft"
 short-title: customError
 slug: Web/API/ValidityState/customError
 l10n:
-  sourceCommit: ffa6f5871f50856c60983a125cef7de267be7aeb
+  sourceCommit: 6d2000984203c51f1aad49107ebcebe14d3c1238
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die schreibgeschützte **`customError`**-Eigenschaft des [`ValidityState`](/de/docs/Web/API/ValidityState)-Interfaces gibt `true` zurück, wenn ein Element die in der benutzerdefinierten Gültigkeit festgelegte Validierung, die durch die [`setCustomValidity()`](/de/docs/Web/API/HTMLInputElement/setCustomValidity)-Methode des Elements gesetzt wurde, nicht erfüllt.
+Die schreibgeschützte **`customError`**-Eigenschaft der [`ValidityState`](/de/docs/Web/API/ValidityState)-Schnittstelle gibt `true` zurück, wenn ein Element nicht die Validierungsvoraussetzungen erfüllt, die durch die Methode [`setCustomValidity()`](/de/docs/Web/API/HTMLInputElement/setCustomValidity) festgelegt wurden.
 
 ## Wert
 
-Ein booleanes Wert, das `true` ist, wenn eine benutzerdefinierte Fehlermeldung auf eine nicht leere Zeichenfolge gesetzt wurde.
+Ein Boolean, der `true` ist, wenn eine benutzerdefinierte Fehlermeldung auf einen nicht-leeren String gesetzt wurde.
 
 ## Beispiele
 
 ### Erkennen eines benutzerdefinierten Fehlers
 
-In diesem Beispiel setzt [`setCustomValidity()`](/de/docs/Web/API/HTMLInputElement/setCustomValidity) eine benutzerdefinierte Fehlermeldung, wenn eine Formularübermittlung Benutzereingaben enthält, die als ungültig angesehen werden. Der "Eingabe validieren"-Button ruft [`reportValidity()`](/de/docs/Web/API/HTMLInputElement/reportValidity) auf, das eine Validierungsmeldung unter dem Element anzeigt, wenn ein Benutzer Werte eingibt, die nicht den [Formularbeschränkungen](/de/docs/Web/HTML/Guides/Constraint_validation#constraint_validation_process) entsprechen.
+In diesem Beispiel setzt [`setCustomValidity()`](/de/docs/Web/API/HTMLInputElement/setCustomValidity) eine benutzerdefinierte Fehlermeldung, wenn eine Formularübermittlung Benutzereingaben enthält, die als ungültig gelten.
+Die Schaltfläche "Eingabe validieren" ruft [`reportValidity()`](/de/docs/Web/API/HTMLInputElement/reportValidity) auf, das eine Validierungsmeldung unter dem Element anzeigt, wenn ein Benutzer Werte eingibt, die nicht den [Formularbeschränkungen](/de/docs/Web/HTML/Guides/Constraint_validation#constraint_validation_process) entsprechen.
 
-Wenn Sie die Texte "good" oder "fine" eingeben und versuchen, die Eingabe zu validieren, wird das Feld als ungültig markiert, bis die benutzerdefinierte Fehlermeldung gelöscht wird (auf eine leere Zeichenfolge gesetzt wird). Zum Vergleich gibt es ein [`minlength`](/de/docs/Web/HTML/Reference/Attributes/minlength)-Attribut auf dem Eingabeelement, das es uns ermöglicht, den [`tooShort`-Gültigkeitszustand](/de/docs/Web/API/ValidityState/tooShort) zu demonstrieren, wenn der Benutzer weniger als zwei Zeichen eingibt. Wenn der Wert im Formular-Steuerelement ungültig ist, hat die Eingabe selbst dann einen roten Umriss, wenn kein benutzerdefinierter Fehler vorhanden ist.
+Wenn Sie den Text "good" oder "fine" eingeben und versuchen, die Eingabe zu validieren, wird das Feld als ungültig markiert, bis die benutzerdefinierte Fehlermeldung gelöscht (auf einen leeren String gesetzt) wird.
+Zum Vergleich gibt es ein [`minlength`](/de/docs/Web/HTML/Reference/Attributes/minlength)-Attribut auf dem Eingabe-Element, das es uns ermöglicht, den [`tooShort`-Validitätszustand](/de/docs/Web/API/ValidityState/tooShort) zu demonstrieren, wenn der Benutzer weniger als zwei Zeichen eingibt.
+Wenn der Wert im Formularsteuerelement ungültig ist, hat die Eingabe ein rotes Umriss, auch wenn kein benutzerdefinierter Fehler vorliegt.
 
 #### HTML
 
@@ -83,7 +86,7 @@ const validateInput = () => {
   userInput.reportValidity();
   if (userInput.validity.customError) {
     // We can handle custom validity states here
-    log("Custom validity error: " + userInput.validationMessage);
+    log(`Custom validity error: ${userInput.validationMessage}`);
   } else {
     log(userInput.validationMessage);
   }

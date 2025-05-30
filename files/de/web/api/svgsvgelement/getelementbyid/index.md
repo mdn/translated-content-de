@@ -1,14 +1,14 @@
 ---
-title: "SVGSVGElement: getElementById() Methode"
+title: "SVGSVGElement: getElementById()-Methode"
 short-title: getElementById()
 slug: Web/API/SVGSVGElement/getElementById
 l10n:
-  sourceCommit: 6d35583226f1ca3bac852506014f973113c0a8a2
+  sourceCommit: 6d2000984203c51f1aad49107ebcebe14d3c1238
 ---
 
 {{APIRef("SVG")}}
 
-Die `getElementById()`-Methode der [`SVGSVGElement`](/de/docs/Web/API/SVGSVGElement)-Schnittstelle durchsucht das SVG-Dokumentfragment (d.h. die Suche ist auf einen Teilbaum des Dokuments beschränkt) nach einem [`Element`](/de/docs/Web/API/Element), dessen `id`-Eigenschaft mit der angegebenen Zeichenkette übereinstimmt.
+Die Methode `getElementById()` des [`SVGSVGElement`](/de/docs/Web/API/SVGSVGElement)-Interfaces durchsucht das SVG-Dokument-Fragment (d.h. die Suche ist auf einen Teilbaum des Dokuments beschränkt) nach einem [`Element`](/de/docs/Web/API/Element), dessen `id`-Eigenschaft mit der angegebenen Zeichenkette übereinstimmt.
 
 ## Syntax
 
@@ -19,15 +19,15 @@ getElementById(id)
 ### Parameter
 
 - `id`
-  - : Die ID des zu lokalisierenden Elements. Die ID ist eine auf Groß- und Kleinschreibung achtende Zeichenkette, die innerhalb des SVG-Dokumentfragments eindeutig ist; nur ein Element sollte eine gegebene ID haben.
+  - : Die ID des Elements, das gesucht werden soll. Die ID ist eine Groß-/Kleinschreibung beachtende Zeichenkette, die innerhalb des SVG-Dokument-Fragments eindeutig sein muss; nur ein Element sollte eine gegebene ID besitzen.
 
 ### Rückgabewert
 
-Ein [`Element`](/de/docs/Web/API/Element)-Objekt, das das DOM-Elementobjekt beschreibt, das mit der angegebenen ID übereinstimmt, oder `null`, wenn kein übereinstimmendes Element im SVG-Dokumentfragment gefunden wurde.
+Ein [`Element`](/de/docs/Web/API/Element)-Objekt, das das DOM-Element-Objekt beschreibt, das der angegebenen ID entspricht, oder `null`, wenn kein passendes Element im SVG-Dokument-Fragment gefunden wurde.
 
 ## Beispiele
 
-### Abrufen eines Elements nach ID
+### Abrufen eines Elements mittels ID
 
 ```html
 <svg
@@ -49,7 +49,7 @@ const elementDisplay = document.getElementById("elementDisplay");
 getElementButton.addEventListener("click", () => {
   const circleElement = svgElement.getElementById("circle1");
   if (circleElement) {
-    elementDisplay.textContent = "Element found: " + circleElement.tagName;
+    elementDisplay.textContent = `Element found: ${circleElement.tagName}`;
   } else {
     elementDisplay.textContent = "Element not found.";
   }

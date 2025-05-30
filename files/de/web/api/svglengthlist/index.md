@@ -2,30 +2,30 @@
 title: SVGLengthList
 slug: Web/API/SVGLengthList
 l10n:
-  sourceCommit: d2457d93858bde8da4c6db79d9c7e5c1c5799441
+  sourceCommit: 6d2000984203c51f1aad49107ebcebe14d3c1238
 ---
 
 {{APIRef("SVG")}}
 
 Die **`SVGLengthList`**-Schnittstelle definiert eine Liste von [`SVGLength`](/de/docs/Web/API/SVGLength)-Objekten. Sie wird für die Eigenschaften [`baseVal`](/de/docs/Web/API/SVGAnimatedLengthList/baseVal) und [`animVal`](/de/docs/Web/API/SVGAnimatedLengthList/animVal) von [`SVGAnimatedLengthList`](/de/docs/Web/API/SVGAnimatedLengthList) verwendet.
 
-Ein `SVGLengthList`-Objekt kann als schreibgeschützt festgelegt werden, was bedeutet, dass Versuche, das Objekt zu ändern, zu einer Ausnahme führen.
+Ein `SVGLengthList`-Objekt kann als schreibgeschützt bezeichnet werden, was bedeutet, dass Versuche, das Objekt zu ändern, zu einer Ausnahme führen.
 
-Ein `SVGLengthList`-Objekt ist indizierbar und kann wie ein Array zugegriffen werden.
+Ein `SVGLengthList`-Objekt ist indexierbar und kann wie ein Array zugegriffen werden.
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
 - [`length`](/de/docs/Web/API/SVGLengthList/length)
   - : Die Anzahl der Elemente in der Liste.
 - [`numberOfItems`](/de/docs/Web/API/SVGLengthList/numberOfItems)
   - : Die Anzahl der Elemente in der Liste.
 
-## Instanzmethoden
+## Instanz-Methoden
 
 - [`appendItem()`](/de/docs/Web/API/SVGLengthList/appendItem)
-  - : Fügt ein neues Element am Ende der Liste ein.
+  - : Fügt ein neues Element am Ende der Liste hinzu.
 - [`clear()`](/de/docs/Web/API/SVGLengthList/clear)
-  - : Löscht alle vorhandenen Elemente aus der Liste, sodass eine leere Liste entsteht.
+  - : Löscht alle vorhandenen Elemente aus der Liste, sodass das Ergebnis eine leere Liste ist.
 - [`initialize()`](/de/docs/Web/API/SVGLengthList/initialize)
   - : Löscht alle vorhandenen Elemente aus der Liste und initialisiert die Liste neu, um das durch den Parameter angegebene einzelne Element zu halten.
 - [`getItem()`](/de/docs/Web/API/SVGLengthList/getItem)
@@ -41,7 +41,7 @@ Ein `SVGLengthList`-Objekt ist indizierbar und kann wie ein Array zugegriffen we
 
 ### Verwendung von SVGLengthList
 
-Ein `SVGLengthList`-Objekt kann von einem [`SVGAnimatedLengthList`](/de/docs/Web/API/SVGAnimatedLengthList)-Objekt abgerufen werden, welches selbst aus vielen animierbaren Längenattributen abrufbar ist, wie z.B. [`SVGTextPositioningElement.x`](/de/docs/Web/API/SVGTextPositioningElement/x).
+Ein `SVGLengthList`-Objekt kann von einem [`SVGAnimatedLengthList`](/de/docs/Web/API/SVGAnimatedLengthList)-Objekt abgerufen werden, das selbst von vielen animierbaren Längenattributen wie [`SVGTextPositioningElement.x`](/de/docs/Web/API/SVGTextPositioningElement/x) abgerufen werden kann.
 
 #### HTML
 
@@ -85,7 +85,7 @@ function resetSpacing() {
 function printList() {
   output.textContent = "";
   for (let i = 0; i < list.length; i++) {
-    output.innerText += list.getItem(i).value + "\n";
+    output.innerText += `${list.getItem(i).value}\n`;
   }
 }
 printList();

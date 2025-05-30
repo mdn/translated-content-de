@@ -2,20 +2,20 @@
 title: WebDriver
 slug: Web/WebDriver
 l10n:
-  sourceCommit: 57b855a52a2d2e8914a30e3a47567bff0806ae23
+  sourceCommit: 6d2000984203c51f1aad49107ebcebe14d3c1238
 ---
 
-WebDriver ist eine Fernsteuerungsschnittstelle, die es ermöglicht, Benutzeragenten zu inspizieren und zu steuern. Es bietet ein plattform- und sprachenneutrales Kommunikationsprotokoll, mit dem Programme außerhalb des Prozesses das Verhalten von Webbrowsern aus der Ferne anweisen können.
+WebDriver ist eine Fernsteuerungsschnittstelle, die die Untersuchung und Steuerung von Benutzeragenten ermöglicht. Sie bietet ein plattform- und sprachneutrales Wire-Protokoll als Mittel, um aus Prozessen heraus das Verhalten von Webbrowsern fernzusteuern.
 
-Die Fähigkeit, Anweisungssets zu schreiben, die in vielen Browsern auf verschiedenen Plattformen austauschbar ausgeführt werden können, ist entscheidend, um den Benutzern ein konsistentes Erlebnis zu bieten. Mit der neuen Entwicklung auf der Webplattform, der zunehmenden Vielfalt an Geräten und dem Bedarf an echter Interoperabilität zwischen den Technologien, bietet WebDriver Werkzeuge für das [Cross-Browser-Testing](/de/docs/Learn_web_development/Extensions/Testing/Introduction).
+Die Fähigkeit, Anweisungssätze zu schreiben, die in vielen Browsern auf verschiedenen Plattformen austauschbar ausgeführt werden können, ist entscheidend, um den Benutzern ein konsistentes Erlebnis zu bieten. Mit der neuen Welle von Entwicklungen auf der Webplattform, der zunehmenden Vielfalt an Geräten und der Forderung nach echter Interoperabilität zwischen den Technologien bietet WebDriver Tools für das [Cross-Browser-Testing](/de/docs/Learn_web_development/Extensions/Testing/Introduction).
 
-Bereitgestellt wird ein Satz von Schnittstellen, um DOM-Elemente in Webdokumenten zu entdecken und zu manipulieren und das Verhalten eines Benutzeragenten zu steuern. Es ist in erster Linie dazu gedacht, Webautoren das Schreiben von Tests zu ermöglichen, die einen Benutzeragenten aus einem separaten Steuerprozess automatisieren, kann aber auch so verwendet werden, dass Skripte im Browser einen — möglicherweise separaten — Browser steuern.
+Es wird eine Reihe von Schnittstellen bereitgestellt, um DOM-Elemente in Webdokumenten zu entdecken und zu manipulieren und das Verhalten eines Benutzeragenten zu steuern. Sie ist in erster Linie dazu gedacht, Webautoren das Schreiben von Tests zu ermöglichen, die einen Benutzeragenten von einem separaten Steuerprozess aus automatisieren. Sie kann aber auch so verwendet werden, dass In-Browser-Skripte einen – möglicherweise separaten – Browser steuern können.
 
 ## Verwendung
 
-Was ermöglicht Ihnen WebDriver zu tun und wie sieht es aus? Da WebDriver sprachneutral ist, hängt die Antwort auf diese Frage davon ab, welchen WebDriver-Client Sie verwenden und welche Sprache Sie wählen.
+Was ermöglicht Ihnen WebDriver und wie sieht es aus? Da WebDriver sprachunabhängig ist, hängt die Antwort auf diese Frage davon ab, welchen WebDriver-Client Sie verwenden und welche Sprache Sie wählen.
 
-Aber wenn Sie einen populären Client verwenden, der in Python geschrieben ist, könnte Ihre Interaktion mit WebDriver so aussehen:
+Aber mit einem beliebten Client, der in Python geschrieben ist, könnte Ihre Interaktion mit WebDriver so aussehen:
 
 ```python
 from selenium import webdriver
@@ -28,7 +28,7 @@ with webdriver.Firefox() as driver:
 
     driver.get("https://google.com/ncr")
     wait = WebDriverWait(driver, 10)
-    driver.find_element(By.NAME, "q").send_keys("cheese" + Keys.RETURN)
+    driver.find_element(By.NAME, "q").send_keys(f"cheese{Keys.RETURN}")
     wait.until(presence_of_element_located((By.XPATH, '//*[@id="rcnt"]')))
     results = driver.find_elements(By.XPATH, "//a[@href]")
 
@@ -36,7 +36,7 @@ with webdriver.Firefox() as driver:
         print(f'#{i} {elem.text} ({elem.get_attribute("href")})')
 ```
 
-Dies könnte eine Ausgabe erzeugen, die dieser ähnelt:
+Dies könnte eine Ausgabe produzieren, die in etwa so aussieht:
 
 ```plain
 #1 Cheese - Wikipedia (https://en.wikipedia.org/wiki/Cheese)
@@ -64,5 +64,5 @@ Dies könnte eine Ausgabe erzeugen, die dieser ähnelt:
 
 ## Siehe auch
 
-- [Testing](/de/docs/Learn_web_development/Extensions/Testing)
+- [Testen](/de/docs/Learn_web_development/Extensions/Testing)
 - [Selenium-Dokumentation](https://www.selenium.dev/documentation/)

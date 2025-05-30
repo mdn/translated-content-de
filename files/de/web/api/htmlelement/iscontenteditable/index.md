@@ -3,12 +3,12 @@ title: "HTMLElement: isContentEditable-Eigenschaft"
 short-title: isContentEditable
 slug: Web/API/HTMLElement/isContentEditable
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: 6d2000984203c51f1aad49107ebcebe14d3c1238
 ---
 
 {{ APIRef("HTML DOM") }}
 
-Die **`HTMLElement.isContentEditable`** schreibgeschützte Eigenschaft
+Die schreibgeschützte Eigenschaft **`HTMLElement.isContentEditable`**
 gibt einen booleschen Wert zurück, der `true` ist, wenn der Inhalt des Elements
 bearbeitbar ist; andernfalls gibt sie `false` zurück.
 
@@ -37,8 +37,8 @@ const secondParagraph = document.getElementById("secondParagraph");
 const infoText1 = document.getElementById("infoText1");
 const infoText2 = document.getElementById("infoText2");
 
-infoText1.textContent += " " + firstParagraph.isContentEditable;
-infoText2.textContent += " " + secondParagraph.isContentEditable;
+infoText1.textContent += ` ${firstParagraph.isContentEditable}`;
+infoText2.textContent += ` ${secondParagraph.isContentEditable}`;
 ```
 
 ### Ergebnis

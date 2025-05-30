@@ -1,15 +1,15 @@
 ---
-title: Methodendefinitionen
+title: Methoden-Definitionen
 slug: Web/JavaScript/Reference/Functions/Method_definitions
 l10n:
-  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
+  sourceCommit: 6d2000984203c51f1aad49107ebcebe14d3c1238
 ---
 
 {{jsSidebar("Functions")}}
 
-**Methodendefinition** ist eine kürzere Syntax zur Definition einer Funktions-Eigenschaft in einem Objekt-Initializer. Sie kann auch in [Klassen](/de/docs/Web/JavaScript/Reference/Classes) verwendet werden.
+Die **Methoden-Definition** ist eine kürzere Syntax zur Definition einer Funktions-Eigenschaft in einem Objekt-Initializer. Sie kann auch in [Klassen](/de/docs/Web/JavaScript/Reference/Classes) verwendet werden.
 
-{{InteractiveExample("JavaScript Demo: Methodendefinitionen")}}
+{{InteractiveExample("JavaScript Demo: Method definitions")}}
 
 ```js interactive-example
 const obj = {
@@ -41,9 +41,9 @@ console.log(obj.foo());
 
 ## Beschreibung
 
-Die Kurzsyntax ähnelt der Syntax für [getter](/de/docs/Web/JavaScript/Reference/Functions/get) und [setter](/de/docs/Web/JavaScript/Reference/Functions/set).
+Die Kurzschreibweise ist der [getter](/de/docs/Web/JavaScript/Reference/Functions/get) und [setter](/de/docs/Web/JavaScript/Reference/Functions/set) Syntax ähnlich.
 
-Angenommen, Sie haben folgenden Code:
+Angenommen, der folgende Code:
 
 ```js
 const obj = {
@@ -56,7 +56,7 @@ const obj = {
 };
 ```
 
-Sie können dies jetzt zu folgendem verkürzen:
+Dieser kann nun verkürzt werden zu:
 
 ```js
 const obj = {
@@ -69,15 +69,15 @@ const obj = {
 };
 ```
 
-Eigenschaften, die mit dieser Syntax definiert werden, sind Eigen-Eigenschaften des erstellten Objekts und sind konfigurierbar, aufzählbar und beschreibbar, genau wie normale Eigenschaften.
+Eigenschaften, die mit dieser Syntax definiert werden, sind eigene Eigenschaften des erstellten Objekts und sind konfigurierbar, aufzählbar und beschreibbar, genau wie normale Eigenschaften.
 
-Die Eigenschaften [`function*`](/de/docs/Web/JavaScript/Reference/Statements/function*), [`async function`](/de/docs/Web/JavaScript/Reference/Statements/async_function) und [`async function*`](/de/docs/Web/JavaScript/Reference/Statements/async_function*) haben alle ihre jeweiligen Methodensyntaxen; siehe untenstehende Beispiele.
+[`function*`](/de/docs/Web/JavaScript/Reference/Statements/function*), [`async function`](/de/docs/Web/JavaScript/Reference/Statements/async_function), und [`async function*`](/de/docs/Web/JavaScript/Reference/Statements/async_function*) Eigenschaften haben alle ihre jeweiligen Methodensyntaxen; siehe Beispiele unten.
 
-Beachten Sie jedoch, dass die Methodensyntax nicht einem normalen Property mit einer Funktion als Wert entspricht — es gibt semantische Unterschiede. Dies macht die in Objektliteralen definierten Methoden konsistenter mit Methoden in [Klassen](/de/docs/Web/JavaScript/Reference/Classes).
+Beachten Sie jedoch, dass die Methodensyntax nicht einer normalen Eigenschaft mit einer Funktion als Wert entspricht — es gibt semantische Unterschiede. Dies macht Methoden, die in Objektliteralen definiert sind, konsistenter mit Methoden in [Klassen](/de/docs/Web/JavaScript/Reference/Classes).
 
-### Methodendefinitionen sind nicht konstruierbar
+### Methoden-Definitionen sind nicht konstruierbar
 
-Methoden können keine Konstruktoren sein! Sie werfen einen {{jsxref("TypeError")}}, wenn Sie versuchen, sie zu instanziieren. Andererseits kann eine als Funktion erstellte Eigenschaft als Konstruktor verwendet werden.
+Methoden können keine Konstruktoren sein! Sie werden einen {{jsxref("TypeError")}} werfen, wenn Sie versuchen, sie zu instanziieren. Andererseits kann eine als Funktion erstellte Eigenschaft als Konstruktor verwendet werden.
 
 ```js example-bad
 const obj = {
@@ -86,9 +86,9 @@ const obj = {
 new obj.method(); // TypeError: obj.method is not a constructor
 ```
 
-### Verwendung von super in Methodendefinitionen
+### Verwenden von super in Methoden-Definitionen
 
-Nur als Methoden definierte Funktionen haben Zugriff auf das [`super`](/de/docs/Web/JavaScript/Reference/Operators/super) Schlüsselwort. `super.prop` sucht die Eigenschaft im Prototyp des Objekts, auf dem die Methode initialisiert wurde.
+Nur Funktionen, die als Methoden definiert sind, haben Zugriff auf das [`super`](/de/docs/Web/JavaScript/Reference/Operators/super) Schlüsselwort. `super.prop` sucht die Eigenschaft im Prototyp des Objekts, auf dem die Methode initialisiert wurde.
 
 ```js-nolint example-bad
 const obj = {
@@ -103,7 +103,7 @@ const obj = {
 
 ## Beispiele
 
-### Verwendung von Methodendefinitionen
+### Verwenden von Methoden-Definitionen
 
 ```js
 const obj = {
@@ -115,9 +115,9 @@ const obj = {
 console.log(obj.b()); // "foo"
 ```
 
-### Methodendefinitionen in Klassen
+### Methoden-Definitionen in Klassen
 
-Sie können die exakt gleiche Syntax verwenden, um öffentliche Instanzmethoden zu definieren, die in Klasseninstanzen verfügbar sind. In Klassen benötigen Sie das Komma-Trennzeichen zwischen Methoden nicht.
+Sie können die exakt gleiche Syntax verwenden, um öffentliche Instanzmethoden zu definieren, die auf Klasseninstanzen verfügbar sind. In Klassen benötigen Sie das Kommatrennzeichen zwischen Methoden nicht.
 
 ```js
 class ClassWithPublicInstanceMethod {
@@ -133,9 +133,9 @@ const instance = new ClassWithPublicInstanceMethod();
 console.log(instance.publicMethod()); // "hello world"
 ```
 
-Öffentliche Instanzmethoden sind in der `prototype`-Eigenschaft der Klasse definiert und werden somit von allen Instanzen der Klasse geteilt. Sie sind beschreibbar, nicht aufzählbar und konfigurierbar.
+Öffentliche Instanzmethoden werden auf der `prototype` Eigenschaft der Klasse definiert und werden daher von allen Instanzen der Klasse geteilt. Sie sind beschreibbar, nicht aufzählbar und konfigurierbar.
 
-Innerhalb von Instanzmethoden funktionieren [`this`](/de/docs/Web/JavaScript/Reference/Operators/this) und [`super`](/de/docs/Web/JavaScript/Reference/Operators/super) wie in normalen Methoden. Normalerweise bezieht sich `this` auf die Instanz selbst. In Unterklassen ermöglicht `super` den Zugriff auf den Prototyp des Objekts, an dem die Methode angehängt ist, wodurch das Aufrufen von Methoden der Oberklasse möglich wird.
+Innerhalb von Instanzmethoden funktionieren [`this`](/de/docs/Web/JavaScript/Reference/Operators/this) und [`super`](/de/docs/Web/JavaScript/Reference/Operators/super) wie in normalen Methoden. Normalerweise bezieht sich `this` auf die Instanz selbst. In Unterklassen erlaubt `super` Ihnen den Zugriff auf den Prototyp des Objekts, an das die Methode angehängt ist, was Ihnen erlaubt, Methoden der Oberklasse aufzurufen.
 
 ```js
 class BaseClass {
@@ -155,11 +155,11 @@ const instance = new SubClass();
 console.log(instance.subPublicMethod()); // "hello world"
 ```
 
-Statische Methoden und private Methoden verwenden ähnliche Syntaxen, die auf den Seiten zu [`static`](/de/docs/Web/JavaScript/Reference/Classes/static) und [privaten Eigenschaften](/de/docs/Web/JavaScript/Reference/Classes/Private_properties) beschrieben sind.
+Statische Methoden und private Methoden verwenden ähnliche Syntaxen, die auf den Seiten zu [`static`](/de/docs/Web/JavaScript/Reference/Classes/static) und [private properties](/de/docs/Web/JavaScript/Reference/Classes/Private_properties) beschrieben werden.
 
-### Berechnete Eigenschaftsnamen
+### Berechnete Eigenschaften-Namen
 
-Die Methodensyntax unterstützt auch [berechnete Eigenschaftsnamen](/de/docs/Web/JavaScript/Reference/Operators/Object_initializer#computed_property_names).
+Die Methodensyntax unterstützt auch [berechnete Eigenschaften-Namen](/de/docs/Web/JavaScript/Reference/Operators/Object_initializer#computed_property_names).
 
 ```js
 const bar = {
@@ -169,19 +169,19 @@ const bar = {
   foo1() {
     return 1;
   },
-  ["foo" + 2]() {
+  ["foo".toUpperCase()]() {
     return 2;
   },
 };
 
 console.log(bar.foo0()); // 0
 console.log(bar.foo1()); // 1
-console.log(bar.foo2()); // 2
+console.log(bar.FOO()); // 2
 ```
 
 ### Generator-Methoden
 
-Beachten Sie, dass das Sternchen (`*`) in der Generator-Methodensyntax _vor_ dem Generatoreigenschaftsnamen stehen muss. (Das heißt, `* g(){}` funktioniert, aber `g *(){}` nicht.)
+Beachten Sie, dass das Sternchen (`*`) in der Generator-Methoden-Syntax _vor_ dem Eigenschaften-Namen des Generators stehen muss. (Das heißt, `* g(){}` wird funktionieren, aber `g *(){}` nicht.)
 
 ```js
 // Using a named property
@@ -227,7 +227,7 @@ const obj2 = {
 };
 ```
 
-### Asynchrone Generatormethoden
+### Asynchrone Generator-Methoden
 
 ```js
 // Using a named property
@@ -263,5 +263,5 @@ const obj2 = {
 - [Funktionen](/de/docs/Web/JavaScript/Reference/Functions)
 - [`get`](/de/docs/Web/JavaScript/Reference/Functions/get)
 - [`set`](/de/docs/Web/JavaScript/Reference/Functions/set)
-- [Objekt-Initializer](/de/docs/Web/JavaScript/Reference/Operators/Object_initializer)
+- [Objektinitialisierer](/de/docs/Web/JavaScript/Reference/Operators/Object_initializer)
 - {{jsxref("Statements/class", "class")}}

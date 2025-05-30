@@ -3,12 +3,12 @@ title: "Element: localName-Eigenschaft"
 short-title: localName
 slug: Web/API/Element/localName
 l10n:
-  sourceCommit: be1922d62a0d31e4e3441db0e943aed8df736481
+  sourceCommit: 6d2000984203c51f1aad49107ebcebe14d3c1238
 ---
 
 {{APIRef("DOM")}}
 
-Die nur-lesbare **`Element.localName`**-Eigenschaft gibt den lokalen Teil des qualifizierten Namens eines Elements zurück.
+Die schreibgeschützte Eigenschaft **`Element.localName`** gibt den lokalen Teil des qualifizierten Namens eines Elements zurück.
 
 ## Wert
 
@@ -16,21 +16,21 @@ Ein String, der den lokalen Teil des qualifizierten Namens des Elements darstell
 
 ## Beispiele
 
-(Muss mit XML-Inhaltstypen wie `text/xml` oder `application/xhtml+xml` bereitgestellt werden.)
+(Muss mit dem XML-Content-Type ausgeliefert werden, wie zum Beispiel `text/xml` oder `application/xhtml+xml`.)
 
 ```xml
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:svg="http://www.w3.org/2000/svg">
 <head>
   <script><![CDATA[
-  function test() {
-    const text = document.getElementById('text');
-    const circle = document.getElementById('circle');
+function test() {
+  const text = document.getElementById("text");
+  const circle = document.getElementById("circle");
 
-    text.value = "<svg:circle> has:\n" +
-                 "localName = '" + circle.localName + "'\n" +
-                 "namespaceURI = '" + circle.namespaceURI + "'";
-  }
+  text.value = `<svg:circle> has:
+localName = "${circle.localName}"
+namespaceURI = "${circle.namespaceURI}"`;
+}
   ]]></script>
 </head>
 <body onload="test()">
@@ -44,9 +44,9 @@ Ein String, der den lokalen Teil des qualifizierten Namens des Elements darstell
 </html>
 ```
 
-## Hinweise
+## Anmerkungen
 
-Der lokale Name eines Knotens ist derjenige Teil des qualifizierten Namens des Knotens, der hinter dem Doppelpunkt steht. Qualifizierte Namen werden typischerweise in XML als Teil des/der Namensräume der jeweiligen XML-Dokumente verwendet. Zum Beispiel ist in dem qualifizierten Namen `comm:partners` `partners` der lokale Name und `comm` das Präfix:
+Der lokale Name eines Knotens ist der Teil des qualifizierten Namens des Knotens, der nach dem Doppelpunkt kommt. Qualifizierte Namen werden typischerweise in XML als Teil des oder der Namespaces der jeweiligen XML-Dokumente verwendet. Zum Beispiel im qualifizierten Namen `comm:partners` ist `partners` der lokale Name und `comm` das Präfix:
 
 ```xml
 <comm:business id="soda_shop" type="brick_n_mortar" xmlns:comm="http://example.com/comm">
@@ -58,7 +58,7 @@ Der lokale Name eines Knotens ist derjenige Teil des qualifizierten Namens des K
 ```
 
 > [!NOTE]
-> Auch wenn die Eigenschaft den Fall der internen DOM-Speicherung zurückgibt, die in Kleinbuchstaben erfolgt, beachten Sie, dass die [`tagName`](/de/docs/Web/API/Element/tagName) Eigenschaft Großbuchstaben für HTML-Elemente in HTML-DOMs zurückgibt.
+> Während die Eigenschaft den Fall der internen DOM-Speicherung, welcher klein geschrieben ist, zurückgibt, beachten Sie, dass die [`tagName`](/de/docs/Web/API/Element/tagName)-Eigenschaft Großbuchstaben für HTML-Elemente in HTML DOMs zurückgibt.
 
 ## Spezifikationen
 

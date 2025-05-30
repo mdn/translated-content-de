@@ -3,20 +3,20 @@ title: "HTMLElement: offsetLeft-Eigenschaft"
 short-title: offsetLeft
 slug: Web/API/HTMLElement/offsetLeft
 l10n:
-  sourceCommit: 0916e1754652f3a7c663ef031faa26c98f492023
+  sourceCommit: 6d2000984203c51f1aad49107ebcebe14d3c1238
 ---
 
 {{ APIRef("HTML DOM") }}
 
-Die **`offsetLeft`** schreibgeschützte Eigenschaft des [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Interfaces gibt die Anzahl der Pixel zurück, um die die _obere linke Ecke_ des aktuellen Elements nach links innerhalb des [`HTMLElement.offsetParent`](/de/docs/Web/API/HTMLElement/offsetParent)-Knotens verschoben ist.
+Die schreibgeschützte **`offsetLeft`**-Eigenschaft der [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Schnittstelle gibt die Anzahl der Pixel zurück, um die die _obere linke Ecke_ des aktuellen Elements innerhalb des [`HTMLElement.offsetParent`](/de/docs/Web/API/HTMLElement/offsetParent)-Knotens nach links versetzt ist.
 
-Für Block-Level-Elemente beschreiben `offsetTop`, `offsetLeft`, `offsetWidth` und `offsetHeight` die Begrenzungsbox eines Elements relativ zum `offsetParent`.
+Für Block-Elemente beschreiben `offsetTop`, `offsetLeft`, `offsetWidth` und `offsetHeight` die Rahmenbox eines Elements relativ zum `offsetParent`.
 
-Jedoch beschreiben `offsetTop` und `offsetLeft` für Inline-Level-Elemente (wie `<span>`), die von einer Zeile zur nächsten umgebrochen werden können, die Positionen der _ersten_ Begrenzungsbox (verwenden Sie [`Element.getClientRects()`](/de/docs/Web/API/Element/getClientRects), um deren Breite und Höhe zu erhalten), während `offsetWidth` und `offsetHeight` die Abmessungen der _umgebenden_ Begrenzungsbox beschreiben (verwenden Sie [`Element.getBoundingClientRect()`](/de/docs/Web/API/Element/getBoundingClientRect), um deren Position zu erhalten). Daher wird eine Box mit der linken Position, der oberen Position, der Breite und der Höhe von `offsetLeft`, `offsetTop`, `offsetWidth` und `offsetHeight` keine Begrenzungsbox für ein Span mit umbrochenem Text sein.
+Für Inline-Elemente (wie `<span>`) dagegen, die von einer Zeile zur nächsten umbrechen können, beschreiben `offsetTop` und `offsetLeft` die Positionen der _ersten_ Rahmenbox (verwenden Sie [`Element.getClientRects()`](/de/docs/Web/API/Element/getClientRects), um deren Breite und Höhe zu ermitteln), während `offsetWidth` und `offsetHeight` die Abmessungen der _begrenzenden_ Rahmenbox beschreiben (verwenden Sie [`Element.getBoundingClientRect()`](/de/docs/Web/API/Element/getBoundingClientRect), um deren Position zu ermitteln). Daher wird eine Box mit den Maßen `offsetLeft`, `offsetTop`, `offsetWidth` und `offsetHeight` keine Begrenzungsbox für ein umbrochenes Span-Element sein.
 
 ## Wert
 
-Ein Integer.
+Ein ganzzahliger Wert.
 
 ## Beispiele
 
@@ -29,9 +29,9 @@ if (tOLeft > 5) {
 }
 ```
 
-Dieses Beispiel zeigt einen 'langen' Satz, der innerhalb eines Divs mit blauem Rand umbrochen wird, und eine rote Box, die die Grenzen des Span beschreiben sollte.
+Dieses Beispiel zeigt einen 'langen' Satz, der sich in einem div mit blauer Umrandung umbricht, und eine rote Box, die eigentlich die Grenzen des Spans beschreiben sollte.
 
-![Ein Satz, der lautet: Kurzes Span. Dieser Text befindet sich vollständig innerhalb eines Divs mit blauem Rand. Ein Satz, der lautet: Langes Span, das innerhalb dieses Divs umbrochen wird. Die Wörter "langes Span, das umbrochen wird" befinden sich in einer Box mit rotem Rand. Die Wörter "innerhalb dieses Divs" befinden sich innerhalb des Divs mit blauem Rand. ](offsetleft.jpg)
+![Ein Satz, der lautet: Short span. Dieser Text befindet sich vollständig innerhalb eines div mit blauer Umrandung. Ein Satz, der lautet: Long span that wraps within this div. Die Wörter "long span that wraps" befinden sich in einem Kasten mit roter Umrandung. Die Wörter "within this div" befinden sich im div mit der blauen Umrandung. ](offsetleft.jpg)
 
 ```html
 <div
@@ -47,10 +47,10 @@ Dieses Beispiel zeigt einen 'langen' Satz, der innerhalb eines Divs mit blauem R
 <script>
   const box = document.getElementById("box");
   const longSpan = document.getElementById("long-span");
-  box.style.left = longSpan.offsetLeft + document.body.scrollLeft + "px";
-  box.style.top = longSpan.offsetTop + document.body.scrollTop + "px";
-  box.style.width = longSpan.offsetWidth + "px";
-  box.style.height = longSpan.offsetHeight + "px";
+  box.style.left = `${longSpan.offsetLeft}${document.body.scrollLeft}px`;
+  box.style.top = `${longSpan.offsetTop}${document.body.scrollTop}px`;
+  box.style.width = `${longSpan.offsetWidth}px`;
+  box.style.height = `${longSpan.offsetHeight}px`;
 </script>
 ```
 
@@ -64,7 +64,7 @@ Dieses Beispiel zeigt einen 'langen' Satz, der innerhalb eines Divs mit blauem R
 
 ## Siehe auch
 
-- [Bestimmung der Abmessungen von Elementen](/de/docs/Web/API/CSS_Object_Model/Determining_the_dimensions_of_elements)
+- [Bestimmen der Abmessungen von Elementen](/de/docs/Web/API/CSS_Object_Model/Determining_the_dimensions_of_elements)
 - [`Element.clientLeft`](/de/docs/Web/API/Element/clientLeft)
 - [`Element.scrollLeft`](/de/docs/Web/API/Element/scrollLeft)
 - [`HTMLElement.offsetHeight`](/de/docs/Web/API/HTMLElement/offsetHeight)

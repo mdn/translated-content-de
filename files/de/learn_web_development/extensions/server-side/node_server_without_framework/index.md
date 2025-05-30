@@ -2,14 +2,15 @@
 title: Node.js-Server ohne Framework
 slug: Learn_web_development/Extensions/Server-side/Node_server_without_framework
 l10n:
-  sourceCommit: e4e57ab3ccb5f93319f8fe13848d4895d3e1e771
+  sourceCommit: 6d2000984203c51f1aad49107ebcebe14d3c1238
 ---
 
-Dieser Artikel zeigt einen statischen Dateiserver, der in [Node.js](https://nodejs.org/en/) ohne Verwendung von Frameworks erstellt wurde. Der aktuelle Stand von Node.js ist so, dass fast alles, was wir für den statischen Dateiserver benötigen, von eingebauten APIs und ein paar Zeilen Code bereitgestellt wird.
+Dieser Artikel zeigt einen statischen Dateiserver, der in [Node.js](https://nodejs.org/en/) ohne Verwendung von Frameworks erstellt wurde.
+Der aktuelle Stand von Node.js bietet fast alles, was wir für den statischen Dateiserver benötigen, durch integrierte APIs und einige wenige Zeilen Code.
 
 ## Beispiel
 
-Ein statischer Dateiserver, der mit Node.js erstellt wurde:
+Ein in Node.js erstellter statischer Dateiserver:
 
 ```js
 import * as fs from "node:fs";
@@ -41,7 +42,7 @@ const prepareFile = async (url) => {
   const pathTraversal = !filePath.startsWith(STATIC_PATH);
   const exists = await fs.promises.access(filePath).then(...toBool);
   const found = !pathTraversal && exists;
-  const streamPath = found ? filePath : STATIC_PATH + "/404.html";
+  const streamPath = found ? filePath : `${STATIC_PATH}/404.html`;
   const ext = path.extname(streamPath).substring(1).toLowerCase();
   const stream = fs.createReadStream(streamPath);
   return { found, ext, stream };
@@ -71,7 +72,7 @@ import * as http from "node:http";
 import * as path from "node:path";
 ```
 
-Als nächstes haben wir eine Funktion zur Erstellung des Servers. `https.createServer` gibt ein `Server`-Objekt zurück, das wir starten können, indem wir auf `PORT` lauschen.
+Als Nächstes haben wir eine Funktion zur Erstellung des Servers. `https.createServer` gibt ein `Server`-Objekt zurück, das wir durch Abhören auf `PORT` starten können.
 
 ```js
 http
@@ -83,11 +84,14 @@ http
 console.log(`Server running at http://127.0.0.1:${PORT}/`);
 ```
 
-Die asynchrone Funktion `prepareFile` gibt die Struktur zurück: `{ found: boolean, ext: string, stream: ReadableStream }`. Wenn die Datei bereitgestellt werden kann (der Serverprozess Zugriff hat und keine Pfad-Durchquerungsschwachstelle gefunden wird), geben wir den HTTP-Status `200` als `statusCode` zurück, der Erfolg anzeigt (andernfalls geben wir `HTTP 404` zurück). Beachten Sie, dass andere Statuscodes in `http.STATUS_CODES` gefunden werden können. Mit dem Status `404` geben wir den Inhalt der Datei `'/404.html'` zurück.
+Die asynchrone Funktion `prepareFile` gibt die Struktur zurück: `{ found: boolean, ext: string, stream: ReadableStream }`.
+Wenn die Datei bereitgestellt werden kann (der Serverprozess hat Zugriff und es wird keine Pfad-Traversal-Sicherheitslücke gefunden), geben wir den HTTP-Status `200` als `statusCode` zurück, was Erfolg anzeigt (anderenfalls geben wir `HTTP 404` zurück).
+Beachten Sie, dass andere Statuscodes in `http.STATUS_CODES` zu finden sind.
+Mit dem Status `404` geben wir den Inhalt der Datei `'/404.html'` zurück.
 
-Die Erweiterung der angeforderten Datei wird geparst und in Kleinbuchstaben umgewandelt. Danach durchsuchen wir die `MIME_TYPES`-Sammlung nach den richtigen [MIME-Typen](/de/docs/Web/HTTP/Guides/MIME_types). Wenn keine Übereinstimmungen gefunden werden, verwenden wir `application/octet-stream` als Standardtyp.
+Die Erweiterung der angeforderten Datei wird analysiert und in Kleinbuchstaben umgewandelt. Danach durchsuchen wir die `MIME_TYPES`-Sammlung nach den richtigen [MIME-Typen](/de/docs/Web/HTTP/Guides/MIME_types). Wenn keine Übereinstimmungen gefunden werden, verwenden wir `application/octet-stream` als Standardtyp.
 
-Schließlich, wenn es keine Fehler gibt, senden wir die angeforderte Datei. Der `file.stream` wird einen `Readable`-Stream enthalten, der in `res` (eine Instanz des `Writable`-Streams) geleitet wird.
+Schließlich, wenn keine Fehler auftreten, senden wir die angeforderte Datei. Der `file.stream` wird einen `Readable`-Stream enthalten, der in `res` (eine Instanz des `Writable`-Streams) geleitet wird.
 
 ```js
 res.writeHead(statusCode, { "Content-Type": mimeType });

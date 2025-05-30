@@ -1,26 +1,24 @@
 ---
-title: "ValidityState: valueMissing Eigenschaft"
+title: "ValidityState: Eigenschaft valueMissing"
 short-title: valueMissing
 slug: Web/API/ValidityState/valueMissing
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: 6d2000984203c51f1aad49107ebcebe14d3c1238
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die schreibgeschützte **`valueMissing`**-Eigenschaft des [`ValidityState`](/de/docs/Web/API/ValidityState) Interfaces zeigt an, ob ein erforderliches [`required`](/de/docs/Web/HTML/Reference/Attributes/required) Steuerelement, wie ein {{HTMLElement("input")}}, {{HTMLElement("select")}} oder {{HTMLElement("textarea")}}, einen leeren Wert hat.
+Die schreibgeschützte **`valueMissing`**-Eigenschaft des [`ValidityState`](/de/docs/Web/API/ValidityState)-Interfaces gibt an, ob ein erforderliches [`required`](/de/docs/Web/HTML/Reference/Attributes/required)-Steuerelement, wie ein {{HTMLElement("input")}}, {{HTMLElement("select")}} oder {{HTMLElement("textarea")}}, einen leeren Wert hat.
 
-Wenn das `required`-Attribut gesetzt ist und keine {{HTMLElement("option")}} ausgewählt ist oder ein `<textarea>` oder ein benutzerbearbeitbares `<input>` leer ist, wird die `valueMissing`-Eigenschaft `true` sein. Die Eigenschaft ist nur `true`, wenn das Feld erforderlich ist und keinen Wert hat; ist das Feld nicht erforderlich oder ist das Feld erforderlich und hat einen Wert, ist der Wert `false`.
+Wenn das `required`-Attribut gesetzt ist und keine {{HTMLElement("option")}} ausgewählt ist oder ein `<textarea>` oder ein vom Benutzer editierbares `<input>` leer ist, wird die `valueMissing`-Eigenschaft `true` sein. Die Eigenschaft ist nur `true`, wenn das Feld erforderlich ist und keinen Wert hat; wenn das Feld nicht erforderlich ist oder wenn das Feld erforderlich ist und einen Wert hat, ist der Wert `false`.
 
 ## Wert
 
-Ein Boolean, der `true` ist, wenn der `ValidityState` nicht gesetzt ist und das `required`-Attribut gesetzt ist.
+Ein boolescher Wert, der `true` ist, wenn der `ValidityState` nicht gesetzt ist und das `required`-Attribut vorhanden ist.
 
 ### Fehlender erforderlicher Eingabewert
 
-Das folgende Beispiel überprüft die Gültigkeit eines [numerischen Eingabeelements](/de/docs/Web/HTML/Reference/Elements/input/number).
-Beschränkungen wurden mit dem [`min`-Attribut](/de/docs/Web/HTML/Reference/Elements/input/number#min) hinzugefügt, das einen Mindestwert von `18` für die Eingabe setzt, sowie mit dem [`required`-Attribut](/de/docs/Web/HTML/Reference/Attributes/required), das leere Werte nicht zulässt.
-Wenn der Benutzer einen Wert eingibt, der keine Zahl größer als 17 ist, schlägt die Validierung der Beschränkung fehl, und die Stile, die mit {{cssxref(":invalid")}} übereinstimmen, werden angewendet.
+Das folgende Beispiel überprüft die Gültigkeit eines [numerischen Eingabeelements](/de/docs/Web/HTML/Reference/Elements/input/number). Es wurden Einschränkungen hinzugefügt, indem das [`min`-Attribut](/de/docs/Web/HTML/Reference/Elements/input/number#min) verwendet wurde, das einen Mindestwert von `18` für die Eingabe festlegt, und das [`required`-Attribut](/de/docs/Web/HTML/Reference/Attributes/required), das leere Werte nicht zulässt. Wenn der Benutzer einen Wert eingibt, der keine Zahl größer als 17 ist, schlägt die Einschränkungsvalidierung des Elements fehl, und die Stile, die {{cssxref(":invalid")}} entsprechen, werden angewendet.
 
 ```css
 input:invalid {
@@ -60,7 +58,7 @@ userInput.addEventListener("input", () => {
   } else if (userInput.validity.valueMissing) {
     log("Required field cannot be empty.");
   } else {
-    log("Bad input detected: " + userInput.validationMessage);
+    log(`Bad input detected: ${userInput.validationMessage}`);
   }
 });
 ```

@@ -2,7 +2,7 @@
 title: cloneInto()
 slug: Mozilla/Add-ons/WebExtensions/Content_scripts/cloneInto
 l10n:
-  sourceCommit: 6d311a5f07c97dbcd7bb9a6d49c2fe820a228659
+  sourceCommit: 6d2000984203c51f1aad49107ebcebe14d3c1238
 ---
 
 {{AddonSidebar()}}
@@ -13,13 +13,13 @@ Diese Funktion bietet eine sichere Möglichkeit, ein Objekt, das in einem privil
 var clonedObject = cloneInto(myObject, targetWindow);
 ```
 
-Sie können den Klon dann einem Objekt im Zielbereich als Expando-Eigenschaft zuweisen, und Skripte, die in diesem Bereich laufen, können darauf zugreifen:
+Sie können den Klon dann einem Objekt im Zielbereich als Expando-Eigenschaft zuweisen, und Skripte, die in diesem Bereich ausgeführt werden, können darauf zugreifen:
 
 ```js
 targetWindow.foo = clonedObject;
 ```
 
-Dies ermöglicht es privilegiertem Code, wie beispielsweise einer Erweiterung, ein Objekt mit weniger privilegiertem Code, wie einem Skript auf einer Webseite, zu teilen.
+Dies ermöglicht es privilegiertem Code, wie z. B. einer Erweiterung, ein Objekt mit weniger privilegiertem Code, wie z. B. einem Skript auf einer Webseite, zu teilen.
 
 ## Syntax
 
@@ -36,13 +36,13 @@ let clonedObject = cloneInto(
 - `obj`
   - : `object`. Das zu klonende Objekt.
 - `targetScope`
-  - : `object`. Das Objekt, dem das Objekt angefügt werden soll.
+  - : `object`. Das Objekt, an das das Objekt angehängt werden soll.
 - `options` {{optional_inline}}
   - : `object`. Optionen für die Funktion.
     - `cloneFunctions` {{optional_inline}}
-      - : `boolean`. Ob die Funktionen des Objekts geklont werden sollen. Standardmäßig `false`. Geklonte Funktionen haben dieselbe Semantik wie Funktionen, die mit [`exportFunction`](/de/docs/Mozilla/Add-ons/WebExtensions/Content_scripts/exportFunction) exportiert werden. Siehe [Klonen von Objekten, die Funktionen enthalten](#klonen_von_objekten,_die_funktionen_enthalten). {{optional_inline}}
+      - : `boolean`. Ob die Funktionen des Objekts geklont werden sollen. Standardmäßig `false`. Geklonte Funktionen haben dieselben Semantiken wie Funktionen, die mit [`exportFunction`](/de/docs/Mozilla/Add-ons/WebExtensions/Content_scripts/exportFunction) exportiert werden. Siehe [Klonen von Objekten, die Funktionen haben](#klonen_von_objekten,_die_funktionen_haben). {{optional_inline}}
     - `wrapReflectors` {{optional_inline}}
-      - : `boolean`. Ob DOM-Objekte per Referenz statt geklont übergeben werden sollen. DOM-Objekte sind normalerweise nicht klonbar. Standardmäßig `false`. Siehe [Klonen von Objekten, die DOM-Elemente enthalten](#klonen_von_objekten,_die_dom-elemente_enthalten).
+      - : `boolean`. Ob DOM-Objekte per Referenz übergeben werden sollen, anstatt geklont zu werden. DOM-Objekte sind normalerweise nicht klonbar. Standardmäßig `false`. Siehe [Klonen von Objekten, die DOM-Elemente enthalten](#klonen_von_objekten,_die_dom-elemente_enthalten).
 
 ### Rückgabewert
 
@@ -78,16 +78,16 @@ Natürlich müssen Sie den Klon nicht dem Fenster selbst zuweisen; Sie können i
 window.foo.addonScriptObject = cloneInto(addonScriptObject, window);
 ```
 
-Sie können es auch an eine im Seitenskript definierte Funktion übergeben. Angenommen, das Seitenskript definiert eine Funktion wie diese:
+Sie können es auch in eine im Seitenskript definierte Funktion übergeben. Angenommen, das Seitenskript definiert eine Funktion wie diese:
 
 ```js
 // page script
 function foo(greeting) {
-  console.log("they said: " + greeting.message);
+  console.log(`they said: ${greeting.message}`);
 }
 ```
 
-Das Inhalts-Skript kann ein Objekt definieren, es klonen und diese Funktion übergeben:
+Das Inhalts-Skript kann ein Objekt definieren, es klonen und in diese Funktion übergeben:
 
 ```js
 // content script
@@ -95,9 +95,9 @@ var addonScriptObject = { message: "hello from your extension" };
 window.foo(cloneInto(addonScriptObject, window)); // "they said: hello from your extension"
 ```
 
-### Klonen von Objekten, die Funktionen enthalten
+### Klonen von Objekten, die Funktionen haben
 
-Wenn das zu klonende Objekt Funktionen enthält, müssen Sie das Flag `{cloneFunctions:true}` übergeben, sonst erhalten Sie einen Fehler. Wenn Sie dieses Flag übergeben, werden die Funktionen im Objekt mit demselben Mechanismus geklont, der in [`exportFunction`](/de/docs/Mozilla/Add-ons/WebExtensions/Content_scripts/exportFunction) verwendet wird:
+Wenn das zu klonende Objekt Funktionen enthält, müssen Sie das `{cloneFunctions:true}`-Flag verwenden, sonst erhalten Sie einen Fehler. Wenn Sie dieses Flag verwenden, werden die Funktionen im Objekt mit demselben Mechanismus geklont, der in [`exportFunction`](/de/docs/Mozilla/Add-ons/WebExtensions/Content_scripts/exportFunction) verwendet wird:
 
 ```js
 // content script
@@ -125,7 +125,7 @@ test.addEventListener(
 
 ### Klonen von Objekten, die DOM-Elemente enthalten
 
-Standardmäßig schlägt die Klonoperation fehl, wenn das zu klonende Objekt von C++ reflektierte Objekte wie DOM-Elemente enthält. Wenn Sie das Flag `{wrapReflectors:true}` übergeben, enthält das zu klonende Objekt diese Objekte:
+Standardmäßig schlägt der Klonvorgang fehl, wenn das zu klonende Objekt Objekte enthält, die aus C++ reflektiert werden, wie z. B. DOM-Elemente, mit einem Fehler. Wenn Sie das `{wrapReflectors:true}`-Flag verwenden, enthält das geklonte Objekt diese Objekte:
 
 ```js
 // content script
@@ -149,7 +149,7 @@ test.addEventListener(
 );
 ```
 
-Der Zugriff auf diese Objekte im Zielbereich unterliegt den üblichen [Skript-Sicherheitsüberprüfungen](https://firefox-source-docs.mozilla.org/dom/scriptSecurity/index.html).
+Der Zugriff auf diese Objekte im Zielbereich unterliegt den normalen [Skript-Sicherheitsüberprüfungen](https://firefox-source-docs.mozilla.org/dom/scriptSecurity/index.html).
 
 {{WebExtExamples}}
 

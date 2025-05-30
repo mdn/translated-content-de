@@ -1,14 +1,14 @@
 ---
-title: "Document: anchors Eigenschaft"
+title: "Dokument: anchors-Eigenschaft"
 short-title: anchors
 slug: Web/API/Document/anchors
 l10n:
-  sourceCommit: 10609d35e92f68f2dacbb1be07d31e736a2b487a
+  sourceCommit: 6d2000984203c51f1aad49107ebcebe14d3c1238
 ---
 
 {{APIRef("DOM")}} {{Deprecated_Header}}
 
-Die **`anchors`**-Eigenschaft des [`Document`](/de/docs/Web/API/Document)-Interfaces ist eine schreibgeschützte Eigenschaft, die eine Liste aller Anker im Dokument zurückgibt.
+Die schreibgeschützte **`anchors`**-Eigenschaft der [`Document`](/de/docs/Web/API/Document)-Schnittstelle gibt eine Liste aller Anker im Dokument zurück.
 
 ## Wert
 
@@ -22,7 +22,7 @@ if (document.anchors.length >= 5) {
 }
 ```
 
-Das folgende Beispiel zeigt, wie ein Inhaltsverzeichnis automatisch mit jedem Anker auf der Seite gefüllt wird:
+Das folgende Beispiel füllt ein Inhaltsverzeichnis automatisch mit jedem Anker auf der Seite:
 
 ```html
 <!doctype html>
@@ -36,7 +36,7 @@ Das folgende Beispiel zeigt, wie ein Inhaltsverzeichnis automatisch mit jedem An
         for (const anchor of document.anchors) {
           const li = document.createElement("li");
           const newAnchor = document.createElement("a");
-          newAnchor.href = "#" + anchor.name;
+          newAnchor.href = `#${anchor.name}`;
           newAnchor.textContent = anchor.text;
           li.appendChild(newAnchor);
           toc.appendChild(li);
@@ -70,7 +70,7 @@ Das folgende Beispiel zeigt, wie ein Inhaltsverzeichnis automatisch mit jedem An
 
 ## Hinweise
 
-Aus Gründen der Abwärtskompatibilität enthält die zurückgegebene Menge von Ankern nur solche, die mit dem `name`-Attribut erstellt wurden, nicht die, die mit dem `id`-Attribut erstellt wurden.
+Aus Gründen der Abwärtskompatibilität enthält die zurückgegebene Menge von Ankern nur solche, die mit dem `name`-Attribut und nicht mit dem `id`-Attribut erstellt wurden.
 
 ## Spezifikationen
 

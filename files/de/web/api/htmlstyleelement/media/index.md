@@ -3,12 +3,12 @@ title: "HTMLStyleElement: media-Eigenschaft"
 short-title: media
 slug: Web/API/HTMLStyleElement/media
 l10n:
-  sourceCommit: acfe8c9f1f4145f77653a2bc64a9744b001358dc
+  sourceCommit: 6d2000984203c51f1aad49107ebcebe14d3c1238
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`HTMLStyleElement.media`**-Eigenschaft gibt das vorgesehene Zielmedium für Style-Informationen an.
+Die **`HTMLStyleElement.media`**-Eigenschaft gibt das vorgesehene Zielmedium für Stilinformationen an.
 
 ## Wert
 
@@ -37,8 +37,14 @@ Ein String, der ein einzelnes Medium oder eine durch Kommas getrennte Liste besc
   </head>
   <body>
     <script>
-      alert("LinkedStyle: " + document.getElementById("LinkedStyle").media); // 'screen'
-      alert("InlineStyle: " + document.getElementById("InlineStyle").media); // 'screen, print'
+      console.log(
+        "LinkedStyle: ",
+        document.getElementById("LinkedStyle").media,
+      ); // 'screen'
+      console.log(
+        "InlineStyle: ",
+        document.getElementById("InlineStyle").media,
+      ); // 'screen, print'
     </script>
   </body>
 </html>

@@ -2,13 +2,13 @@
 title: alignment-baseline
 slug: Web/SVG/Reference/Attribute/alignment-baseline
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: 6d2000984203c51f1aad49107ebcebe14d3c1238
 ---
 
-Das **`alignment-baseline`** Attribut legt fest, wie ein Objekt in Bezug auf sein Elternteil ausgerichtet wird. Diese Eigenschaft gibt an, welche Basislinie dieses Elements mit der entsprechenden Basislinie des Elternteils ausgerichtet werden soll. So können beispielsweise {{Glossary("/Baseline/Typography", "alphabetische Basislinien")}} im römischen Text bei Änderungen der Schriftgröße ausgerichtet bleiben. Standardmäßig wird die Basislinie mit demselben Namen wie der berechnete Wert der `alignment-baseline` Eigenschaft verwendet.
+Das **`alignment-baseline`** Attribut gibt an, wie ein Objekt in Bezug auf sein übergeordnetes Element ausgerichtet wird. Diese Eigenschaft spezifiziert, welche Grundlinie dieses Elements mit der entsprechenden Grundlinie des übergeordneten Elements ausgerichtet werden soll. Dadurch können beispielsweise {{Glossary("/Baseline/Typography", "alphabetische Grundlinien")}} in römischem Text bei Änderungen der Schriftgröße ausgerichtet bleiben. Standardmäßig wird die Grundlinie mit dem gleichen Namen wie der berechnete Wert der `alignment-baseline` Eigenschaft verwendet.
 
 > [!NOTE]
-> Als Präsentationsattribut hat `alignment-baseline` auch ein entsprechendes CSS-Attribut: {{cssxref("alignment-baseline")}}. Wenn beide angegeben sind, hat die CSS-Eigenschaft Vorrang.
+> Als Präsentationsattribut hat `alignment-baseline` auch ein entsprechendes CSS-Property: {{cssxref("alignment-baseline")}}. Wenn beide angegeben sind, hat die CSS-Eigenschaft Vorrang.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -44,51 +44,51 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 </table>
 
 - `auto` {{deprecated_inline}}
-  - : Der Wert ist die dominierende Basislinie des Skripts, zu dem das Zeichen gehört - d.h. verwenden Sie die dominierende Basislinie des Elternteils.
+  - : Der Wert ist die dominante Grundlinie des Skripts, zu dem das Zeichen gehört - d.h. verwenden Sie die dominante Grundlinie des Elternteils.
 - `baseline`
-  - : Verwendet die {{svgattr("dominant-baseline")}} Auswahl des Elternteils. Passt die entsprechende {{Glossary("baseline/typography", "Basislinie")}} des Box mit der seines Elternteils an.
+  - : Verwendet die {{svgattr("dominant-baseline")}} Wahl des Elternteils. Passt die entsprechende {{Glossary("baseline/typography", "Grundlinie")}} der Box an die des Elternteils an.
 - `before-edge` {{deprecated_inline}}
-  - : Der Ausrichtungspunkt des auszurichtenden Objekts wird mit der "before-edge" Basislinie des übergeordneten Textelementinhalts ausgerichtet.
+  - : Der Ausrichtungspunkt des auszurichtenden Objekts wird mit der "before-edge" Grundlinie des übergeordneten Textinhaltelements ausgerichtet.
 - `text-bottom`
-  - : Passt den unteren Rand des Box an den oberen Rand des Inhaltsbereichs des Elternteils an.
+  - : Passt die Unterseite der Box an die Oberseite des Inhaltsbereichs des Elternteils an.
 - `text-before-edge`
 
-  - : Der Ausrichtungspunkt des auszurichtenden Objekts wird mit der "text-before-edge" Basislinie des übergeordneten Textelementinhalts ausgerichtet.
+  - : Der Ausrichtungspunkt des auszurichtenden Objekts wird mit der "text-before-edge" Grundlinie des übergeordneten Textinhaltelements ausgerichtet.
 
     > [!NOTE]
     > Dieses Schlüsselwort kann auf `text-top` abgebildet werden.
 
 - `middle`
-  - : Richtet den vertikalen Mittelpunkt der Box mit der Basislinie des übergeordneten Box plus der halben x-Höhe des Elternteils aus.
+  - : Richtet den vertikalen Mittelpunkt der Box an der Grundlinie der Elternbox plus die halbe x-Höhe des Elternteils aus.
 - `central`
-  - : Passt die zentrale Basislinie des Box an die zentrale Basislinie seines Elternteils an.
+  - : Passt die zentrale Grundlinie der Box an die zentrale Grundlinie ihres Elternteils an.
 - `after-edge` {{deprecated_inline}}
-  - : Der Ausrichtungspunkt des auszurichtenden Objekts wird mit der "after-edge" Basislinie des übergeordneten Textelementinhalts ausgerichtet.
+  - : Der Ausrichtungspunkt des auszurichtenden Objekts wird mit der "after-edge" Grundlinie des übergeordneten Textinhaltelements ausgerichtet.
 - `text-top`
-  - : Passt den oberen Rand des Box an den oberen Rand des Inhaltsbereichs des Elternteils an.
+  - : Passt die Oberseite der Box an die Oberseite des Inhaltsbereichs des Elternteils an.
 - `text-after-edge`
 
-  - : Der Ausrichtungspunkt des auszurichtenden Objekts wird mit der "text-after-edge" Basislinie des übergeordneten Textelementinhalts ausgerichtet.
+  - : Der Ausrichtungspunkt des auszurichtenden Objekts wird mit der "text-after-edge" Grundlinie des übergeordneten Textinhaltelements ausgerichtet.
 
     > [!NOTE]
     > Dieses Schlüsselwort kann auf `text-bottom` abgebildet werden.
 
 - `ideographic`
-  - : Passt die ideographische Zeichenbasislinie des Box an die seines Elternteils an.
+  - : Passt die ideografische Zeichen-Gesicht-Unterseiten-Grundlinie der Box an die ihrer Elternbox an.
 - `alphabetic`
-  - : Passt die alphabetische Basislinie des Box an die seines Elternteils an.
+  - : Passt die alphabetische Grundlinie der Box an die ihrer Elternbox an.
 - `hanging`
-  - : Der Ausrichtungspunkt des auszurichtenden Objekts wird mit der "hanging" Basislinie des übergeordneten Textelementinhalts ausgerichtet.
+  - : Der Ausrichtungspunkt des auszurichtenden Objekts wird mit der "hanging" Grundlinie des übergeordneten Textinhaltelements ausgerichtet.
 - `mathematical`
-  - : Passt die mathematische Basislinie des Box an die seines Elternteils an.
+  - : Passt die mathematische Grundlinie der Box an die ihrer Elternbox an.
 - `top`
-  - : Richtet den oberen Rand des ausgerichteten Teilbaums mit dem oberen Rand des Linien-Box aus.
+  - : Richtet die Oberseite des ausgerichteten Teilbaums an der Oberseite der Line-Box aus.
 - `center`
-  - : Richtet den Mittelpunkt des ausgerichteten Teilbaums mit dem Mittelpunkt des Linien-Box aus.
+  - : Richtet die Mitte des ausgerichteten Teilbaums an der Mitte der Line-Box aus.
 - `bottom`
-  - : Richtet den unteren Rand des ausgerichteten Teilbaums mit dem unteren Rand des Linien-Box aus.
+  - : Richtet die Unterseite des ausgerichteten Teilbaums an der Unterseite der Line-Box aus.
 
-SVG 2 führt einige Änderungen in der Definition dieser Eigenschaft ein. Insbesondere: Die Werte `auto`, `before-edge` und `after-edge` wurden entfernt. Aus Gründen der Abwärtskompatibilität kann `text-before-edge` auf `text-top` und `text-after-edge` auf `text-bottom` abgebildet werden. Weder `text-before-edge` noch `text-after-edge` sollten mit der {{cssxref("vertical-align")}} Eigenschaft verwendet werden.
+SVG 2 führt einige Änderungen in der Definition dieser Eigenschaft ein. Insbesondere: die Werte `auto`, `before-edge` und `after-edge` wurden entfernt. Aus Gründen der Abwärtskompatibilität kann `text-before-edge` auf `text-top` und `text-after-edge` auf `text-bottom` abgebildet werden. Weder `text-before-edge` noch `text-after-edge` sollten mit der {{cssxref("vertical-align")}} Eigenschaft verwendet werden.
 
 ## Beispiel
 
@@ -121,7 +121,7 @@ SVG 2 führt einige Änderungen in der Definition dieser Eigenschaft ein. Insbes
 
   <style>
     <![CDATA[
-      text{
+      text {
         font: bold 36px Verdana, Helvetica, Arial, sans-serif;
       }
     ]]>
@@ -131,7 +131,7 @@ SVG 2 führt einige Änderungen in der Definition dieser Eigenschaft ein. Insbes
 
 {{EmbedLiveSample("Example")}}
 
-Für die Objektausrichtung in anderen Elementen (wie {{SVGElement("text")}}) siehe {{SVGAttr("dominant-baseline")}}.
+Für die Objekt-Ausrichtung in anderen Elementen (wie {{SVGElement("text")}}) siehe {{SVGAttr("dominant-baseline")}}.
 
 ## Spezifikationen
 
