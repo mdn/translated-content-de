@@ -3,18 +3,18 @@ title: "ServiceWorkerGlobalScope: cookiechange-Ereignis"
 short-title: cookiechange
 slug: Web/API/ServiceWorkerGlobalScope/cookiechange_event
 l10n:
-  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
+  sourceCommit: 828ae6eee278f30c3fa3677a74915d28d9e338b2
 ---
 
-{{APIRef("Cookie Store API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers("service")}}
+{{APIRef("Cookie Store API")}}{{SecureContext_Header}}{{AvailableInWorkers("service")}}
 
-Das **`cookiechange`**-Ereignis der [`ServiceWorkerGlobalScope`](/de/docs/Web/API/ServiceWorkerGlobalScope)-Schnittstelle wird ausgelöst, wenn eine Cookie-Änderung eintritt, die mit der Cookie-Änderungsabonnementliste des Service Workers übereinstimmt.
+Das **`cookiechange`**-Ereignis der [`ServiceWorkerGlobalScope`](/de/docs/Web/API/ServiceWorkerGlobalScope)-Schnittstelle wird ausgelöst, wenn eine Cookie-Änderung auftritt, die der Cookie-Änderungs-Abonnementliste des Service Workers entspricht.
 
-Dieses Ereignis kann nicht abgebrochen werden und ist nicht bubbles.
+Dieses Ereignis kann nicht abgebrochen werden und wird nicht weitergeleitet.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Event-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js-nolint
 addEventListener("cookiechange", (event) => { })

@@ -3,41 +3,43 @@ title: "EventTarget: addEventListener() Methode"
 short-title: addEventListener()
 slug: Web/API/EventTarget/addEventListener
 l10n:
-  sourceCommit: be1922d62a0d31e4e3441db0e943aed8df736481
+  sourceCommit: 14acf1aa7885157debdf1b6111f4bd10c064ec60
 ---
 
 {{APIRef("DOM")}}{{AvailableInWorkers}}
 
-Die **`addEventListener()`**-Methode des [`EventTarget`](/de/docs/Web/API/EventTarget)-Interfaces richtet eine Funktion ein, die immer dann aufgerufen wird, wenn das spezifizierte Ereignis an das Ziel übermittelt wird.
+Die **`addEventListener()`** Methode der [`EventTarget`](/de/docs/Web/API/EventTarget) Schnittstelle
+richtet eine Funktion ein, die aufgerufen wird, wann immer das angegebene Ereignis an das Ziel übermittelt wird.
 
-Gängige Ziele sind [`Element`](/de/docs/Web/API/Element) oder dessen Kinder, [`Document`](/de/docs/Web/API/Document) und [`Window`](/de/docs/Web/API/Window), aber das Ziel kann jedes Objekt sein, das Ereignisse unterstützt (wie z.B. [`IDBRequest`](/de/docs/Web/API/IDBRequest)).
+Gängige Ziele sind [`Element`](/de/docs/Web/API/Element) oder dessen Kinder, [`Document`](/de/docs/Web/API/Document) und [`Window`](/de/docs/Web/API/Window),
+aber das Ziel kann jedes Objekt sein, das Ereignisse unterstützt (z. B. [`IDBRequest`](/de/docs/Web/API/IDBRequest)).
 
 > [!NOTE]
-> Die `addEventListener()`-Methode ist die _empfohlene_ Methode, um einen Ereignis-Listener zu registrieren. Die Vorteile sind:
+> Die `addEventListener()` Methode ist der _empfohlene_ Weg, einen Ereignis-Listener zu registrieren. Die Vorteile sind wie folgt:
 >
-> - Sie ermöglicht es, mehr als einen Handler für ein Ereignis hinzuzufügen. Dies ist besonders
+> - Sie ermöglicht das Hinzufügen mehrerer Handler für ein Ereignis. Dies ist besonders
 >   nützlich für Bibliotheken, JavaScript-Module oder jede andere Art von
->   Code, der gut mit anderen Bibliotheken oder Erweiterungen zusammenarbeiten muss.
-> - Im Gegensatz zur Verwendung einer `onXYZ`-Eigenschaft gibt sie Ihnen eine feinere Kontrolle über die Phase, in der der Listener aktiviert wird (capturing vs. bubbling).
+>   Code, der gut mit anderen Bibliotheken oder Erweiterungen funktionieren muss.
+> - Im Gegensatz zur Verwendung einer `onXYZ` Eigenschaft bietet sie eine detailliertere Kontrolle über die Phase, in der der Listener aktiviert wird (Erfassung vs. Blasen).
 > - Sie funktioniert bei jedem Ereignisziel, nicht nur bei HTML- oder SVG-Elementen.
 
-Die Methode `addEventListener()` funktioniert, indem sie eine Funktion oder ein Objekt, das eine `handleEvent()`-Funktion implementiert, zur Liste der Ereignis-Listener für den spezifizierten Ereignistyp hinzufügt
-auf dem [`EventTarget`](/de/docs/Web/API/EventTarget), auf dem es aufgerufen wird. Wenn die Funktion oder das Objekt bereits in der Liste der Ereignis-Listener für dieses Ziel vorhanden ist, wird die Funktion oder das Objekt nicht zum zweiten Mal hinzugefügt.
+Die Methode `addEventListener()` funktioniert, indem sie eine Funktion oder ein Objekt, das eine `handleEvent()` Funktion implementiert, zur Liste der Ereignis-Listener für den angegebenen Ereignistyp
+auf der [`EventTarget`](/de/docs/Web/API/EventTarget), auf der sie aufgerufen wird, hinzufügt. Wenn die Funktion oder das Objekt bereits in der Liste der Ereignis-Listener für dieses Ziel enthalten ist, wird die Funktion oder das Objekt nicht ein zweites Mal hinzugefügt.
 
 > [!NOTE]
-> Wenn eine bestimmte anonyme Funktion in der Liste der für ein bestimmtes Ziel registrierten Ereignis-Listener ist und dann später im Code eine identische anonyme Funktion in einem `addEventListener`-Aufruf angegeben wird, wird die zweite Funktion _auch_ zur Liste der Ereignis-Listener für dieses Ziel hinzugefügt.
+> Wenn eine bestimmte anonyme Funktion in der Liste der Ereignis-Listener registriert ist, die für ein bestimmtes Ziel registriert sind, und später im Code eine identische anonyme Funktion in einem `addEventListener` Aufruf angegeben wird, wird die zweite Funktion _auch_ zur Liste der Ereignis-Listener für dieses Ziel hinzugefügt.
 >
-> Tatsächlich sind anonyme Funktionen nicht identisch, selbst wenn sie mit unverändertem
-> Quellcode, der wiederholt aufgerufen wird, _definiert_ werden, **selbst in einer Schleife**.
+> Tatsächlich sind anonyme Funktionen nicht identisch, auch wenn sie mit
+> dem _gleichen_ unveränderten Quellcode mehrfach definiert werden, **sogar in einer Schleife**.
 >
 > Das wiederholte Definieren derselben namenlosen Funktion in solchen Fällen kann
 > problematisch sein. (Siehe [Speicherprobleme](#speicherprobleme), unten.)
 
-Wenn ein Ereignis-Listener während der Verarbeitung des Ereignisses zu einem [`EventTarget`](/de/docs/Web/API/EventTarget) von innen eines anderen Listeners hinzugefügt wird —
+Wenn ein Ereignis-Listener für ein [`EventTarget`](/de/docs/Web/API/EventTarget) aus einem anderen Listener heraus hinzugefügt wird —
 das heißt, während der Verarbeitung des Ereignisses —
 wird dieses Ereignis den neuen Listener nicht auslösen.
-Jedoch kann der neue Listener während einer späteren Phase des Ereignis-Flusses ausgelöst werden,
-wie z. B. während der Bubbling-Phase.
+Der neue Listener kann jedoch in einer späteren Phase des Ereignisablaufs ausgelöst werden,
+z. B. während der Bubbling-Phase.
 
 ## Syntax
 
@@ -50,67 +52,75 @@ addEventListener(type, listener, useCapture)
 ### Parameter
 
 - `type`
-  - : Ein faltenempfindlicher String, der den [Ereignistyp](/de/docs/Web/Events) darstellt, für den Sie zuhören möchten.
+  - : Ein auf Groß- und Kleinschreibung achtender String, der den [Ereignistyp](/de/docs/Web/Events) darstellt, auf den gehört werden soll.
 - `listener`
-  - : Das Objekt, das eine Benachrichtigung erhält (ein Objekt, das das
-    [`Event`](/de/docs/Web/API/Event)-Interface implementiert), wenn ein Ereignis des spezifizierten Typs eintritt. Muss
-    `null`, ein Objekt mit einer `handleEvent()`-Methode oder eine JavaScript-
+  - : Das Objekt, das eine Benachrichtigung erhält (ein Objekt, das die
+    [`Event`](/de/docs/Web/API/Event) Schnittstelle implementiert), wenn ein Ereignis des angegebenen Typs auftritt. Dies muss
+    `null`, ein Objekt mit einer `handleEvent()` Methode oder eine JavaScript
     [Funktion](/de/docs/Web/JavaScript/Guide/Functions) sein. Siehe
-    [Der Event-Listener-Callback](#der_event-listener-callback) für Details zum Callback selbst.
+    [Der Ereignis-Listener Callback](#der_ereignis-listener_callback) für Details zum Callback selbst.
 - `options` {{optional_inline}}
 
-  - : Ein Objekt, das Merkmale über den Ereignis-Listener spezifiziert. Die verfügbaren
+  - : Ein Objekt, das Merkmale des Ereignis-Listeners beschreibt. Die verfügbaren
     Optionen sind:
 
     - `capture` {{optional_inline}}
-      - : Ein boolescher Wert, der angibt, dass Ereignisse dieses Typs an den registrierten `listener` übergeben werden, bevor sie an ein darunterliegendes `EventTarget` im DOM-Baum übergeben werden. Wenn nicht angegeben, ist der Standard `false`.
+      - : Ein boolescher Wert, der angibt, dass Ereignisse dieses Typs an den registrierten `listener` gesendet werden,
+        bevor sie an ein darunterliegendes `EventTarget` im DOM-Baum gesendet werden. Wenn nicht angegeben, ist der Standardwert `false`.
     - `once` {{optional_inline}}
       - : Ein boolescher Wert, der angibt, dass der `listener`
-        höchstens einmal nach dem Hinzufügen aufgerufen werden soll. Wenn `true`, wird der
-        `listener` automatisch entfernt, wenn er aufgerufen wird. Wenn nicht angegeben, ist der Standard `false`.
+        höchstens einmal nach dem Hinzufügen aufgerufen werden sollte. Wenn `true`, wird der
+        `listener` automatisch entfernt, wenn er aufgerufen wird. Wenn nicht angegeben, ist der Standardwert `false`.
     - `passive` {{optional_inline}}
 
-      - : Ein boolescher Wert, der angibt, dass die durch `listener` spezifizierte Funktion niemals [`preventDefault()`](/de/docs/Web/API/Event/preventDefault) aufrufen wird. Wenn ein passiver Listener `preventDefault()` aufruft, passiert nichts und möglicherweise wird eine Konsolenwarnung generiert.
+      - : Ein boolescher Wert, der, falls `true`, angibt, dass die von `listener` angegebene Funktion niemals [`preventDefault()`](/de/docs/Web/API/Event/preventDefault) aufrufen wird. Wenn ein passiver Listener `preventDefault()` aufruft, wird nichts passieren und möglicherweise wird eine Konsolenwarnung generiert.
 
-        Wenn diese Option nicht angegeben ist, ist der Standard `false`, außer dass in Browsern außer Safari der Standard `true` für [`wheel`](/de/docs/Web/API/Element/wheel_event), [`mousewheel`](/de/docs/Web/API/Element/mousewheel_event), [`touchstart`](/de/docs/Web/API/Element/touchstart_event) und [`touchmove`](/de/docs/Web/API/Element/touchmove_event) Ereignisse ist. Siehe [Verwendung passiver Listener](#verwendung_passiver_listener) um mehr zu erfahren.
+        Wenn diese Option nicht angegeben wird, ist der Standardwert `false` – außer dass dieser in Browsern außer Safari bei den Ereignissen [`wheel`](/de/docs/Web/API/Element/wheel_event), [`mousewheel`](/de/docs/Web/API/Element/mousewheel_event), [`touchstart`](/de/docs/Web/API/Element/touchstart_event) und [`touchmove`](/de/docs/Web/API/Element/touchmove_event) `true` ist. Siehe [Verwendung von passiven Listenern](#verwendung_von_passiven_listenern), um mehr zu erfahren.
 
     - `signal` {{optional_inline}}
-      - : Ein [`AbortSignal`](/de/docs/Web/API/AbortSignal). Der Listener wird entfernt, wenn die [`abort()`](/de/docs/Web/API/AbortController/abort)-Methode des [`AbortController`](/de/docs/Web/API/AbortController), dem das `AbortSignal` gehört, aufgerufen wird. Wenn nicht angegeben, ist kein `AbortSignal` mit dem Listener verbunden.
+      - : Ein [`AbortSignal`](/de/docs/Web/API/AbortSignal). Der Listener wird entfernt, wenn die [`abort()`](/de/docs/Web/API/AbortController/abort) Methode des [`AbortController`](/de/docs/Web/API/AbortController), das das `AbortSignal` besitzt, aufgerufen wird. Wenn nicht angegeben, ist mit dem Listener kein `AbortSignal` verknüpft.
 
 - `useCapture` {{optional_inline}}
 
-  - : Ein boolescher Wert, der angibt, ob Ereignisse dieses Typs an den registrierten `listener` _bevor_ sie an ein darunterliegendes `EventTarget` im DOM-Baum übergeben werden. Ereignisse, die den Baum nach oben durchlaufen, werden keinen Listener auslösen, der zum Verwenden von Capture bestimmt ist. Ereignis bubbling und capturing sind zwei Wege der Ereignisweitergabe, die in einem Element auftreten, das in ein anderes Element eingebettet ist, wenn beide Elemente einen Handler für dieses Ereignis registriert haben. Der Ereignisweitergabemodus bestimmt die Reihenfolge, in der Elemente das Ereignis empfangen. Siehe [DOM Level 3 Events](https://www.w3.org/TR/DOM-Level-3-Events/#event-flow) und [JavaScript Ereignis-Reihenfolge](https://www.quirksmode.org/js/events_order.html#link4) für eine detaillierte Erklärung.
-    Wenn nicht angegeben, ist der Standard für `useCapture` `false`.
+  - : Ein boolescher Wert, der angibt, ob Ereignisse dieses Typs an
+    den registrierten `listener` _bevor_ sie an
+    das darunterliegende `EventTarget` im DOM-Baum gesendet werden. Ereignisse, die
+    durch den Baum nach oben wandern, lösen keinen Listener aus, der zum Erfassen verwendet werden soll. Ereignis-
+    propagation und Erfassung sind zwei Arten der Weiterleitung von Ereignissen, die in einem Element
+    auftreten, das in ein anderes Element eingebettet ist, wenn beide Elemente einen Handler für
+    dieses Ereignis registriert haben. Der Propagationsmodus des Ereignisses bestimmt die Reihenfolge, in der die Elemente
+    das Ereignis empfangen. Siehe [DOM Level 3 Events](https://www.w3.org/TR/DOM-Level-3-Events/#event-flow) und [JavaScript-Ereignisreihenfolge](https://www.quirksmode.org/js/events_order.html#link4) für eine ausführliche Erklärung.
+    Wird nichts angegeben, lautet der Standardwert für `useCapture` `false`.
 
     > [!NOTE]
-    > Für Ereignis-Listener, die an das Ereignisziel angehängt sind, befindet sich das Ereignis in der Zielphase, im Gegensatz zur Capture- und Bubbling-Phase.
-    > Ereignis-Listener in der _Capture_-Phase werden vor Ereignis-Listenern in den Ziel- und Bubbling-Phasen aufgerufen.
+    > Für an das Ereignisziel angebundene Ereignis-Listener befindet sich das Ereignis in der Zielphase, nicht in den Erfassungs- und Bubbling-Phasen.
+    > Ereignis-Listener in der _Erfassungs_- Phase werden vor Ereignis-Listener in den Ziel- und Bubbling-Phasen aufgerufen.
 
 - `wantsUntrusted` {{optional_inline}} {{non-standard_inline}}
-  - : Ein Firefox (Gecko)-spezifischer Parameter. Wenn `true`, empfängt der Listener
-    synthetische Ereignisse, die von Webinhalten gesendet werden (der Standard ist `false` für
-    Browser {{Glossary("chrome", "chrome")}} und `true` für normale Webseiten). Diese
-    Parameter ist nützlich für Code, der in Add-ons gefunden wird, sowie den Browser selbst.
+  - : Ein spezifischer Firefox (Gecko) Parameter. Wenn `true`, erhält der Listener
+    synthetische Ereignisse, die von Webinhalten gesendet werden (der Standardwert ist `false` für
+    Browser {{Glossary("chrome", "Chrome")}} und `true` für reguläre Webseiten). Dieser
+    Parameter ist nützlich für Code, der in Add-ons sowie im Browser selbst gefunden wird.
 
 ### Rückgabewert
 
-Kein ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
-## Verwendungshinweise
+## Nutzungshinweise
 
-### Der Event-Listener-Callback
+### Der Ereignis-Listener Callback
 
-Der Ereignis-Listener kann entweder als eine Callback-Funktion oder als
-ein Objekt angegeben werden, dessen `handleEvent()`-Methode als Callback-Funktion dient.
+Der Ereignis-Listener kann entweder als Callback-Funktion oder
+als Objekt angegeben werden, dessen `handleEvent()` Methode als Callback-Funktion dient.
 
-Die Callback-Funktion selbst hat die gleichen Parameter und gibt denselben Wert zurück wie die
-`handleEvent()`-Methode; das heißt, der Callback akzeptiert einen einzelnen Parameter: ein
-Objekt, das auf [`Event`](/de/docs/Web/API/Event) basiert und das das aufgetretene Ereignis beschreibt, und er gibt
+Die Callback-Funktion selbst hat die gleichen Parameter und Rückgabewerte wie die
+`handleEvent()` Methode; das heißt, der Callback akzeptiert einen einzelnen Parameter: ein
+Objekt basierend auf [`Event`](/de/docs/Web/API/Event), das das aufgetretene Ereignis beschreibt, und gibt
 nichts zurück.
 
-Zum Beispiel könnte ein Ereignis-Handler-Callback, der sowohl
-[`fullscreenchange`](/de/docs/Web/API/Element/fullscreenchange_event) und
-[`fullscreenerror`](/de/docs/Web/API/Element/fullscreenerror_event) behandelt, so aussehen:
+Beispielsweise könnte ein Ereignis-Handler-Callback, der sowohl
+[`fullscreenchange`](/de/docs/Web/API/Element/fullscreenchange_event) als auch
+[`fullscreenerror`](/de/docs/Web/API/Element/fullscreenerror_event) behandeln kann, folgendermaßen aussehen:
 
 ```js
 function handleEvent(event) {
@@ -122,15 +132,15 @@ function handleEvent(event) {
 }
 ```
 
-### Der Wert von "this" innerhalb des Handlers
+### Der Wert von "this" im Handler
 
-Es ist oft wünschenswert, auf das Element zuzugreifen, auf dem der Ereignis-Handler ausgelöst wurde,
-zum Beispiel, wenn ein generischer Handler für eine Reihe ähnlicher Elemente verwendet wird.
+Es ist oft wünschenswert, auf das Element zu verweisen, auf dem der Ereignis-Handler ausgelöst wurde,
+wie beim Einsatz eines generischen Handlers für eine Gruppe ähnlicher Elemente.
 
-Wenn Sie eine Handler-Funktion mit `addEventListener()` an ein Element anhängen,
-wird der Wert von {{jsxref("Operators/this","this")}} innerhalb des Handlers eine Referenz auf
-das Element sein. Es wird derselbe Wert sein wie der der `currentTarget`-Eigenschaft des
-Ereignis-Arguments, das an den Handler übergeben wird.
+Beim Anbringen einer Handler-Funktion an ein Element mit `addEventListener()`,
+wird der Wert von {{jsxref("Operators/this","this")}} im Handler als Referenz auf
+das Element. Es wird dasselbe sein wie der Wert der `currentTarget` Eigenschaft des
+Ereignisarguments, das an den Handler übergeben wird.
 
 ```js
 my_element.addEventListener("click", function (e) {
@@ -139,7 +149,7 @@ my_element.addEventListener("click", function (e) {
 });
 ```
 
-Zur Erinnerung: [Arrow-Funktionen haben keinen eigenen `this`-Kontext](/de/docs/Web/JavaScript/Reference/Functions/Arrow_functions#cannot_be_used_as_methods).
+Zur Erinnerung: [Pfeilfunktionen haben keinen eigenen `this` Kontext](/de/docs/Web/JavaScript/Reference/Functions/Arrow_functions#cannot_be_used_as_methods).
 
 ```js
 my_element.addEventListener("click", (e) => {
@@ -148,7 +158,7 @@ my_element.addEventListener("click", (e) => {
 });
 ```
 
-Wenn ein Ereignis-Handler (zum Beispiel [`onclick`](/de/docs/Web/API/Element/click_event)) an einem Element im HTML-Quellcode spezifiziert ist, wird der JavaScript-Code im Attributwert effektiv in eine Handler-Funktion eingebunden, die den Wert von `this` in einer Weise bindet, die mit `addEventListener()` konsistent ist; ein Vorkommen von `this` innerhalb des Codes stellt eine Referenz auf das Element dar.
+Wenn ein Ereignishandler (zum Beispiel [`onclick`](/de/docs/Web/API/Element/click_event)) im HTML-Quelltext auf einem Element angegeben wird, wird der JavaScript-Code im Attributwert effektiv in eine Handler-Funktion eingebunden, die den Wert von `this` auf eine Weise bindet, die mit `addEventListener()` konsistent ist; ein Vorkommen von `this` innerhalb des Codes stellt eine Referenz auf das Element dar.
 
 ```html
 <table id="my_table" onclick="console.log(this.id);">
@@ -157,8 +167,8 @@ Wenn ein Ereignis-Handler (zum Beispiel [`onclick`](/de/docs/Web/API/Element/cli
 </table>
 ```
 
-Beachten Sie, dass der Wert von `this` innerhalb einer Funktion, die vom Code
-im Attributwert _aufgerufen_ wird, sich gemäß den [Standardregeln](/de/docs/Web/JavaScript/Reference/Operators/this) verhält. Dies wird
+Beachten Sie, dass der Wert von `this` innerhalb einer Funktion, _die vom_ Code
+im Attributwert aufgerufen wird, gemäß den [Standardregeln](/de/docs/Web/JavaScript/Reference/Operators/this) verhält. Dies wird
 im folgenden Beispiel gezeigt:
 
 ```html
@@ -173,17 +183,17 @@ im folgenden Beispiel gezeigt:
 </table>
 ```
 
-Der Wert von `this` innerhalb `logID()` ist eine Referenz auf das globale
-Objekt [`Window`](/de/docs/Web/API/Window) (oder `undefined` im Fall des [strict modes](/de/docs/Web/JavaScript/Reference/Strict_mode).
+Der Wert von `this` innerhalb von `logID()` ist eine Referenz auf das globale
+Objekt [`Window`](/de/docs/Web/API/Window) (oder `undefined` im Fall von [Strict Mode](/de/docs/Web/JavaScript/Reference/Strict_mode).
 
-#### Spezifizierung von "this" mithilfe von bind()
+#### Festlegen von "this" mit bind()
 
-Die {{jsxref("Function.prototype.bind()")}}-Methode ermöglicht es Ihnen, einen festen
-`this`-Kontext für alle nachfolgenden Aufrufe zu etablieren — damit umgehen Sie Probleme, bei denen nicht klar ist, was `this` sein wird, je nach
-dem Kontext, aus dem Ihre Funktion aufgerufen wurde. Beachten Sie jedoch, dass Sie
-eine Referenz auf den Listener behalten müssen, um ihn später entfernen zu können.
+Die {{jsxref("Function.prototype.bind()")}} Methode ermöglicht es, einen festen
+`this` Kontext für alle nachfolgenden Aufrufe zu definieren — wodurch Probleme umgangen werden, bei denen unklar ist, was `this` sein wird, abhängig davon,
+von welchem Kontext aus Ihre Funktion aufgerufen wurde. Beachten Sie jedoch, dass Sie einen
+Referenz auf den Listener bereithalten müssen, damit Sie ihn später entfernen können.
 
-Hier ist ein Beispiel mit und ohne `bind()`:
+Dies ist ein Beispiel mit und ohne `bind()`:
 
 ```js
 class Something {
@@ -205,8 +215,8 @@ class Something {
 const s = new Something(document.body);
 ```
 
-Eine andere Lösung besteht darin, eine spezielle Funktion namens `handleEvent()` zu verwenden, um
-alle Ereignisse zu erfassen:
+Eine weitere Lösung ist die Verwendung einer speziellen Funktion namens `handleEvent()`, um
+beliebige Ereignisse abzufangen:
 
 ```js
 class Something {
@@ -232,7 +242,7 @@ class Something {
 const s = new Something(document.body);
 ```
 
-Eine andere Möglichkeit zur Handhabung der Referenz zu `this` besteht darin, eine Arrow-Funktion zu verwenden, die keinen eigenen `this`-Kontext erzeugt.
+Eine weitere Möglichkeit, den Verweis auf `this` zu handhaben, ist die Verwendung einer Pfeilfunktion, die keinen separaten `this` Kontext erstellt.
 
 ```js
 class SomeClass {
@@ -261,14 +271,14 @@ const myObject = new SomeClass();
 myObject.register();
 ```
 
-### Daten in und aus einem Ereignis-Listener übertragen
+### Daten in und aus einem Ereignis-Listener ein- und ausgeben
 
-Ereignis-Listener nehmen nur ein Argument,
+Ereignis-Listener nehmen nur ein Argument an,
 ein [`Event`](/de/docs/Web/API/Event) oder eine Unterklasse von `Event`,
-die automatisch an den Listener übergeben wird, und der Rückgabewert wird ignoriert.
-Um daher Daten in und aus einem Ereignis-Listener zu bekommen, erstellen Sie [Closures](/de/docs/Web/JavaScript/Guide/Closures) anstatt Daten durch Parameter und Rückgabewerte zu übergeben.
+das automatisch an den Listener übergeben wird, und der Rückgabewert wird ignoriert.
+Daher müssen Sie anstelle das Daten durch Parameter und Rückgabewerte weiterzugegeben, [Closures](/de/docs/Web/JavaScript/Guide/Closures) erstellen, um Daten in und aus einem Ereignis-Listener zu bekommen.
 
-Die als Ereignis-Listener übergebenen Funktionen haben Zugriff auf alle Variablen, die in den äußeren Scopes deklariert sind, die die Funktion enthalten.
+Die als Ereignis-Listener übergebenen Funktionen haben Zugang zu allen Variablen, die in den äußeren Gültigkeitsbereichen deklariert sind, die die Funktion enthalten.
 
 ```js
 const myButton = document.getElementById("my-button-id");
@@ -285,7 +295,7 @@ myButton.addEventListener("click", () => {
 console.log(someString); // Expected Value: 'Data' (will never output 'Data Again')
 ```
 
-Lesen Sie [den Funktions-Leitfaden](/de/docs/Web/JavaScript/Guide/Functions#function_scopes_and_closures) für weitere Informationen über Funktions-Scopes.
+Lesen Sie [den Funktionsleitfaden](/de/docs/Web/JavaScript/Guide/Functions#function_scopes_and_closures) für weitere Informationen über Funktionsbereiche.
 
 ### Speicherprobleme
 
@@ -313,39 +323,39 @@ for (const elem of elems) {
 }
 ```
 
-Im ersten Fall oben wird in jeder
-Iteration der Schleife eine neue (anonyme) Handler-Funktion erstellt. Im zweiten Fall wird dieselbe zuvor deklarierte Funktion als
-Ereignis-Handler verwendet, was zu einem geringeren Speicherverbrauch führt, da nur
-eine Handler-Funktion erstellt wird. Zudem ist es im ersten Fall nicht möglich,
-[`removeEventListener()`](/de/docs/Web/API/EventTarget/removeEventListener) aufzurufen, da keine
-Referenz zur anonymen Funktion aufbewahrt wird (oder hier, nicht zu irgendeiner der mehreren
-anonymen Funktionen, die die Schleife möglicherweise erstellt). Im zweiten Fall ist es möglich,
-`myElement.removeEventListener("click", processEvent, false)`
-aufzurufen, weil `processEvent` die Funktionsreferenz ist.
+Im ersten Beispiel oben wird bei jeder
+Iteration der Schleife eine neue (anonyme) Handler-Funktion erstellt. Im zweiten Fall wird die gleiche vorher deklarierte Funktion als
+Ereignishandler verwendet, was einen geringeren Speicherverbrauch zur Folge hat, da nur
+eine Handler-Funktion erstellt wird. Darüber hinaus ist es im ersten Fall nicht möglich
+, [`removeEventListener()`](/de/docs/Web/API/EventTarget/removeEventListener) aufzurufen, weil keine
+Referenz zur anonymen Funktion aufbewahrt wird (oder hier, nicht zu einer der
+mehreren anonymen Funktionen, die die Schleife erstellen könnte). Im zweiten Fall ist es möglich,
+`myElement.removeEventListener("click", processEvent, false)` zu tun,
+weil `processEvent` die Funktionsreferenz ist.
 
-Tatsächlich ist in Bezug auf den Speicherverbrauch nicht das Fehlen einer Funktionsreferenz
-das wirkliche Problem; vielmehr ist es das Fehlen einer _statischen_ Funktionsreferenz.
+Tatsächlich ist in Bezug auf den Speicherverbrauch das Nichtbehalten einer Funktionsreferenz nicht
+das eigentliche Problem; sondern eher das Nichtbehalten einer _statischen_ Funktionsreferenz.
 
-### Verwendung passiver Listener
+### Verwendung von passiven Listenern
 
-Wenn ein Ereignis eine Standardaktion hat – zum Beispiel ein [`wheel`](/de/docs/Web/API/Element/wheel_event)-Ereignis, das standardmäßig den Container scrollt – kann der Browser die Standardaktion im Allgemeinen nicht starten, bevor der Ereignis-Listener beendet ist, weil er nicht im Voraus weiß, ob der Ereignis-Listener die Standardaktion möglicherweise mit einem Aufruf von [`Event.preventDefault()`](/de/docs/Web/API/Event/preventDefault) abbricht. Wenn der Ereignis-Listener zu lange dauert, kann dies zu einer spürbaren Verzögerung, auch bekannt als {{Glossary("jank", "Jank")}}, führen, bevor die Standardaktion ausgeführt werden kann.
+Wenn ein Ereignis eine Standardaktion hat – zum Beispiel ein [`wheel`](/de/docs/Web/API/Element/wheel_event) Ereignis, das den Container standardmäßig scrollt — ist der Browser im Allgemeinen nicht in der Lage, die Standardaktion zu starten, solange der Ereignis-Listener noch arbeitet, da er im Voraus nicht weiß, ob der Ereignis-Listener die Standardaktion möglicherweise durch Aufruf von [`Event.preventDefault()`](/de/docs/Web/API/Event/preventDefault) abbrechen kann. Wenn der Ereignis-Listener zu lange für die Ausführung benötigt, kann dies zu einer merklichen Verzögerung führen, die auch als {{Glossary("jank", "Ruck")}} bekannt ist, bevor die Standardaktion ausgeführt werden kann.
 
-Durch das Setzen der `passive`-Option auf `true` erklärt ein Ereignis-Listener, dass er die Standardaktion nicht abbrechen wird, sodass der Browser die Standardaktion sofort starten kann, ohne auf das Ende des Listeners zu warten. Wenn der Listener dann `Event.preventDefault()` aufruft, hat dies keine Auswirkungen.
+Durch das Setzen der `passive` Option auf `true` erklärt ein Ereignis-Listener, dass er die Standardaktion nicht abbrechen wird, sodass der Browser die Standardaktion sofort starten kann, ohne auf das Ende des Listeners zu warten. Wenn der Listener dann [`Event.preventDefault()`](/de/docs/Web/API/Event/preventDefault) aufruft, hat dies keine Wirkung.
 
-Die Spezifikation für `addEventListener()` definiert den Standardwert für die `passive`-Option immer als `false`. Um jedoch die Leistungsverbesserungen beim Scrollen passiver Listener im Legacy-Code zu realisieren, haben moderne Browser den Standardwert der `passive`-Option für die [`wheel`](/de/docs/Web/API/Element/wheel_event), [`mousewheel`](/de/docs/Web/API/Element/mousewheel_event), [`touchstart`](/de/docs/Web/API/Element/touchstart_event) und [`touchmove`](/de/docs/Web/API/Element/touchmove_event)-Ereignisse auf dokumentbezogene Knoten wie [`Window`](/de/docs/Web/API/Window), [`Document`](/de/docs/Web/API/Document) und [`Document.body`](/de/docs/Web/API/Document/body) auf `true` geändert. Dies verhindert, dass der Ereignis-Listener das Ereignis [abbrechen](/de/docs/Web/API/Event/preventDefault), sodass es das Seitenrendering während des Scrollens des Benutzers nicht blockieren kann.
+Die Spezifikation für `addEventListener()` definiert den Standardwert für die `passive` Option immer als `false`. Um jedoch die Scroll-Leistungssteigerungen passiver Listener in älterem Code zu realisieren, haben moderne Browser den Standardwert der `passive` Option geändert, um für die [`wheel`](/de/docs/Web/API/Element/wheel_event), [`mousewheel`](/de/docs/Web/API/Element/mousewheel_event), [`touchstart`](/de/docs/Web/API/Element/touchstart_event) und [`touchmove`](/de/docs/Web/API/Element/touchmove_event) Ereignisse auf Dokumentebenenknoten [`Window`](/de/docs/Web/API/Window), [`Document`](/de/docs/Web/API/Document) und [`Document.body`](/de/docs/Web/API/Document/body) zu `true` zu machen. Das verhindert, dass der Ereignis-Listener [das Ereignis abbricht](/de/docs/Web/API/Event/preventDefault), sodass es das Rendering der Seite nicht blockieren kann, während der Benutzer scrollt.
 
-Deshalb müssen Sie, wenn Sie dieses Verhalten überschreiben und sicherstellen möchten, dass die `passive`-Option `false` ist, explizit die Option auf `false` setzen (anstatt sich auf den Standardwert zu verlassen).
+Deshalb müssen Sie, wenn Sie dieses Verhalten überschreiben und sicherstellen möchten, dass die `passive` Option `false` ist, die Option explizit auf `false` setzen (anstatt sich auf den Standardwert zu verlassen).
 
-Sie müssen sich keine Sorgen um den Wert von `passive` für das grundlegende [`scroll`](/de/docs/Web/API/Element/scroll_event)-Ereignis machen.
-Da es nicht abgebrochen werden kann, können Ereignis-Listener das Seitenrendering sowieso nicht blockieren.
+Sie müssen sich keine Sorgen um den Wert von `passive` für das grundlegende [`scroll`](/de/docs/Web/API/Element/scroll_event) Ereignis machen.
+Da es nicht abgebrochen werden kann, können Ereignis-Listener das Seiten-Rendering ohnehin nicht blockieren.
 
-Siehe [Verbesserung der Scrollleistung durch Nutzung passiver Listener](#verbesserung_der_scroll-leistung_durch_verwendung_passiver_listener) für ein Beispiel, das die Wirkung passiver Listener zeigt.
+Siehe [Verbesserung der Scroll-Leistung durch Verwendung passiver Listener](#verbesserte_scroll-leistung_mit_passiven_listenern) für ein Beispiel, das die Wirkung passiver Listener zeigt.
 
 ## Beispiele
 
-### Einen einfachen Listener hinzufügen
+### Einfachen Listener hinzufügen
 
-Dieses Beispiel zeigt, wie man `addEventListener()` verwendet, um auf Mausklicks auf ein Element zu achten.
+Dieses Beispiel demonstriert, wie `addEventListener()` verwendet wird, um auf Mausklicks auf ein Element zu achten.
 
 #### HTML
 
@@ -375,17 +385,17 @@ const el = document.getElementById("outside");
 el.addEventListener("click", modifyText, false);
 ```
 
-In diesem Code ist `modifyText()` ein Listener für `click`-Ereignisse
-über `addEventListener()` registriert. Ein Klick irgendwo in der Tabelle
-wird an den Handler übergeben und führt `modifyText()` aus.
+In diesem Code ist `modifyText()` ein Listener für `click` Events,
+der mit `addEventListener()` registriert wurde. Ein Klick irgendwo in der Tabelle sprudelt
+zum Handler hoch und führt `modifyText()` aus.
 
 #### Ergebnis
 
 {{EmbedLiveSample('Add_a_simple_listener')}}
 
-### Einen abbruchbaren Listener hinzufügen
+### Einen abbrechbaren Listener hinzufügen
 
-Dieses Beispiel zeigt, wie man einen `addEventListener()` hinzufügt, der mit einem [`AbortSignal`](/de/docs/Web/API/AbortSignal) abgebrochen werden kann.
+Dieses Beispiel demonstriert, wie ein `addEventListener()` hinzugefügt werden kann, das mit einem [`AbortSignal`](/de/docs/Web/API/AbortSignal) abgebrochen werden kann.
 
 #### HTML
 
@@ -420,7 +430,7 @@ function modifyText() {
 }
 ```
 
-Im obigen Beispiel ändern wir den Code des vorherigen Beispiels so, dass nach dem Ändern des Inhalts der zweiten Zeile zu "drei", wir `abort()` aus dem [`AbortController`](/de/docs/Web/API/AbortController) aufrufen, den wir an den `addEventListener()`-Aufruf übergeben haben. Dies führt dazu, dass der Wert für immer "drei" bleibt, da wir keinen Code mehr haben, der auf ein Klick-Ereignis achtet.
+Im oben genannten Beispiel ändern wir den Code im vorherigen Beispiel so, dass nachdem der Inhalt der zweiten Zeile auf "three" geändert wird, wir `abort()` des [`AbortController`](/de/docs/Web/API/AbortController) aufrufen, das wir an den `addEventListener()` Aufruf übergeben haben. Das führt dazu, dass der Wert für immer "three" bleibt, weil wir keinen weiteren Code haben, der auf ein Klick-Ereignis lauscht.
 
 #### Ergebnis
 
@@ -428,8 +438,8 @@ Im obigen Beispiel ändern wir den Code des vorherigen Beispiels so, dass nach d
 
 ### Ereignis-Listener mit anonymer Funktion
 
-Hier werden wir uns ansehen, wie man eine anonyme Funktion verwendet, um Parameter in den
-Ereignis-Listener zu übertragen.
+Hier werfen wir einen Blick darauf, wie eine anonyme Funktion verwendet wird, um Parameter in den
+Ereignis-Listener zu übergeben.
 
 #### HTML
 
@@ -448,9 +458,9 @@ Ereignis-Listener zu übertragen.
 
 ```js
 // Function to change the content of t2
-function modifyText(new_text) {
+function modifyText(newText) {
   const t2 = document.getElementById("t2");
-  t2.firstChild.nodeValue = new_text;
+  t2.firstChild.nodeValue = newText;
 }
 
 // Function to add event listener to table
@@ -464,17 +474,17 @@ el.addEventListener(
 );
 ```
 
-Beachten Sie, dass der Listener eine anonyme Funktion ist, die Code kapselt, der wiederum
-in der Lage ist, Parameter an die `modifyText()`-Funktion zu senden, die
-für die Reaktion auf das Ereignis verantwortlich ist.
+Beachten Sie, dass der Listener eine anonyme Funktion ist, die Code einkapselt, der dann
+Parameter an die `modifyText()` Funktion senden kann, die
+für die tatsächliche Reaktion auf das Ereignis verantwortlich ist.
 
 #### Ergebnis
 
 {{EmbedLiveSample('Event_listener_with_anonymous_function')}}
 
-### Ereignis-Listener mit einer Arrow-Funktion
+### Ereignis-Listener mit einer Pfeilfunktion
 
-Dieses Beispiel zeigt einen Ereignis-Listener, der mit Arrow-Funktionsnotation
+Dieses Beispiel demonstriert einen Ereignis-Listener, der mit der Pfeilfunktionsnotation
 implementiert ist.
 
 #### HTML
@@ -494,9 +504,9 @@ implementiert ist.
 
 ```js
 // Function to change the content of t2
-function modifyText(new_text) {
+function modifyText(newText) {
   const t2 = document.getElementById("t2");
-  t2.firstChild.nodeValue = new_text;
+  t2.firstChild.nodeValue = newText;
 }
 
 // Add event listener to table with an arrow function
@@ -514,13 +524,13 @@ el.addEventListener(
 
 {{EmbedLiveSample('Event_listener_with_an_arrow_function')}}
 
-Bitte beachten Sie, dass während anonyme und Arrow-Funktionen ähnlich sind, sie unterschiedliche
-`this`-Binds haben. Anonyme (und alle traditionellen JavaScript-Funktionen)
-erstellen ihre eigenen `this`-Binds, während Arrow-Funktionen den
-`this`-Bind der umgebenden Funktion erben.
+Bitte beachten Sie, dass, obwohl anonyme und Pfeilfunktionen ähnlich sind, sie unterschiedliche
+`this` Bindungen haben. Während anonyme (und alle traditionellen JavaScript-Funktionen)
+ihre eigenen `this` Bindungen erstellen, erben Pfeilfunktionen die
+`this` Bindung der umgebenden Funktion.
 
 Das bedeutet, dass die Variablen und Konstanten, die der umgebenden Funktion zur Verfügung stehen,
-auch dem Ereignis-Handler zur Verfügung stehen, wenn eine Arrow-Funktion verwendet wird.
+auch dem Ereignis-Handler zur Verfügung stehen, wenn eine Pfeilfunktion verwendet wird.
 
 ### Beispiel für die Verwendung von Optionen
 
@@ -664,9 +674,9 @@ Klicken Sie auf die äußeren, mittleren und inneren Container, um zu sehen, wie
 
 ### Ereignis-Listener mit mehreren Optionen
 
-Sie können mehr als eine der Optionen im `options`-Parameter setzen. Im folgenden Beispiel setzen wir zwei Optionen:
+Sie können mehr als eine der Optionen im `options` Parameter festlegen. Im folgenden Beispiel setzen wir zwei Optionen:
 
-- `passive`, um zu bestätigen, dass der Handler nicht [`preventDefault()`](/de/docs/Web/API/Event/preventDefault) aufruft.
+- `passive`, um sicherzustellen, dass der Handler nicht [`preventDefault()`](/de/docs/Web/API/Event/preventDefault) aufruft
 - `once`, um sicherzustellen, dass der Ereignis-Handler nur einmal aufgerufen wird.
 
 #### HTML
@@ -716,9 +726,9 @@ addListener();
 
 {{EmbedLiveSample('Event_listener_with_multiple_options')}}
 
-### Verbesserung der Scroll-Leistung durch Verwendung passiver Listener
+### Verbesserte Scroll-Leistung mit passiven Listenern
 
-Das folgende Beispiel zeigt den Effekt der Einstellung von `passive`. Es beinhaltet ein {{htmlelement("div")}}, das etwas Text enthält, und ein Kontrollkästchen.
+Das folgende Beispiel zeigt die Wirkung des Setzens von `passive`. Es enthält ein {{htmlelement("div")}} mit etwas Text und einem Kontrollkästchen.
 
 #### HTML
 
@@ -755,7 +765,7 @@ Das folgende Beispiel zeigt den Effekt der Einstellung von `passive`. Es beinhal
 
 #### JavaScript
 
-Der Code fügt einen Listener für das [`wheel`](/de/docs/Web/API/Element/wheel_event)-Ereignis des Containers hinzu, das standardmäßig den Container scrollt. Der Listener führt eine langlaufende Operation aus. Zunächst wird der Listener mit der `passive`-Option hinzugefügt, und wann immer das Kontrollkästchen umgeschaltet wird, schaltet der Code die `passive`-Option um.
+Der Code fügt dem [`wheel`](/de/docs/Web/API/Element/wheel_event) Ereignis des Containers einen Listener hinzu, das standardmäßig den Container scrollt. Der Listener führt eine lang laufende Operation aus. Zunächst wird der Listener mit der `passive` Option hinzugefügt, und wann immer das Kontrollkästchen umgeschaltet wird, schaltet der Code die `passive` Option um.
 
 ```js
 const passive = document.querySelector("#passive");
@@ -800,10 +810,10 @@ function wheelHandler() {
 
 #### Ergebnis
 
-Der Effekt ist, dass:
+Die Wirkung ist, dass:
 
-- Zunächst ist der Listener passiv, sodass das Scrollen des Containers mit dem Rad sofort ist.
-- Wenn Sie "passiv" deaktivieren und versuchen, den Container mit dem Rad zu scrollen, gibt es eine spürbare Verzögerung, bevor der Container scrollt, da der Browser warten muss, bis der lang andauernde Listener beendet ist.
+- Zunächst ist der Listener passiv, sodass das Scrollen des Containers mit dem Rad sofort erfolgt.
+- Wenn Sie "passiv" abwählen und versuchen, den Container mit dem Rad zu scrollen, dann gibt es eine merkliche Verzögerung, bevor der Container scrollt, weil der Browser warten muss, bis der lang laufende Listener abgeschlossen ist.
 
 {{EmbedLiveSample("Improving scroll performance using passive listeners", 100, 300)}}
 
@@ -819,4 +829,4 @@ Der Effekt ist, dass:
 
 - [`EventTarget.removeEventListener()`](/de/docs/Web/API/EventTarget/removeEventListener)
 - [Erstellen und Auslösen benutzerdefinierter Ereignisse](/de/docs/Web/Events/Creating_and_triggering_events)
-- [Weitere Details zur Verwendung von `this` in Ereignis-Handlern](https://www.quirksmode.org/js/this.html)
+- [Mehr Details zur Verwendung von `this` in Ereignis-Handlern](https://www.quirksmode.org/js/this.html)

@@ -1,25 +1,25 @@
 ---
-title: "<selectedcontent>: Das Anzeigeelement für die ausgewählte Option"
+title: "<selectedcontent>: Das Element zur Anzeige der ausgewählten Option"
 slug: Web/HTML/Reference/Elements/selectedcontent
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: fe7daa11ab05d6689bfb9dd65eadd7ad439d9941
 ---
 
 {{HTMLSidebar}}{{SeeCompatTable}}{{non-standard_header}}
 
-Das **`<selectedcontent>`** [HTML](/de/docs/Web/HTML)-Element kann verwendet werden, um den Inhalt der aktuell ausgewählten `<option>` innerhalb eines geschlossenen `<select>`-Elements anzuzeigen.
+Das **`<selectedcontent>`**-Element [HTML](/de/docs/Web/HTML) kann verwendet werden, um den Inhalt der aktuell ausgewählten `<option>` innerhalb eines geschlossenen `<select>`-Elements anzuzeigen.
 
 ## Attribute
 
-Das `<selectedcontent>`-Element enthält die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes), aber diese werden im Wesentlichen ignoriert, weil das Element, wenn es korrekt als Kind eines Select-Buttons verwendet wird, als [inert](/de/docs/Web/HTML/Reference/Global_attributes/inert) gerendert wird.
+Das `<selectedcontent>`-Element enthält die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes), diese werden jedoch im Wesentlichen ignoriert, da das Element, wenn es korrekt als Kind eines Select-Buttons verwendet wird, [inert](/de/docs/Web/HTML/Reference/Global_attributes/inert) gerendert wird.
 
-Der Select-Button und sein gesamter Inhalt sind standardmäßig inert, so dass, wenn interaktive Kinder (zum Beispiel Links oder Buttons) darin enthalten sind, er dennoch wie ein einzelner Button für Interaktionszwecke behandelt wird.
+Der Select-Button und all sein Inhalt sind standardmäßig träge, so dass, wenn interaktive Kinder (zum Beispiel Links oder Buttons) darin enthalten sind, er dennoch als einzelner Button betrachtet wird, was die Interaktion betrifft.
 
-Es sind keine anderen Attribute auf `<selectedcontent>` definiert.
+Keine weiteren Attribute sind auf `<selectedcontent>` definiert.
 
 ## Beschreibung
 
-Beim Erstellen eines [anpassbaren Select-Elements](/de/docs/Learn_web_development/Extensions/Forms/Customizable_select) können Sie das `<selectedcontent>`-Element innerhalb eines {{htmlelement("button")}}-Elements einfügen, welches wiederum das erste Kind des `<select>`-Elements sein muss:
+Beim Erstellen eines [anpassbaren Select-Elements](/de/docs/Learn_web_development/Extensions/Forms/Customizable_select) können Sie das `<selectedcontent>`-Element innerhalb eines {{htmlelement("button")}}-Elements einfügen, das wiederum das erste Kind des `<select>`-Elements sein muss:
 
 ```html
 <select>
@@ -31,19 +31,22 @@ Beim Erstellen eines [anpassbaren Select-Elements](/de/docs/Learn_web_developmen
 </select>
 ```
 
-`<selectedcontent>` enthält einen Klon des aktuell ausgewählten {{htmlelement("option")}}-Elementinhalts eines {{htmlelement("select")}}-Elements, erstellt mit [`cloneNode()`](/de/docs/Web/API/Node/cloneNode) im Hintergrund.
+`<selectedcontent>` enthält einen Klon des aktuell ausgewählten {{htmlelement("option")}}-Elementinhalts eines {{htmlelement("select")}}-Elements, erstellt mittels [`cloneNode()`](/de/docs/Web/API/Node/cloneNode).
 
-Jeder nachfolgende `<select>`-Inhalt wird in den Dropdown-Picker aufgenommen.
+Jeglicher nachfolgende `<select>`-Inhalt wird im Dropdown-Picker enthalten sein.
 
-Immer wenn sich die ausgewählte `<option>` eines `<select>`-Elements von einer Option zu einer anderen ändert, wird der Inhalt des `<selectedcontent>`-Elements entfernt und durch eine neue geklonte Kopie der DOM-Struktur der neu ausgewählten <code>option</code> ersetzt, die mit [`cloneNode()`](/de/docs/Web/API/Node/cloneNode) erstellt wird.
+Wann immer das ausgewählte `<option>`-Element eines `<select>`-Elements von einer Option zur anderen wechselt, wird der Inhalt des `<selectedcontent>`-Elements entfernt und durch eine neue geklonte Kopie der DOM-Struktur der neu ausgewählten `<option>` ersetzt, die ebenfalls mittels [`cloneNode()`](/de/docs/Web/API/Node/cloneNode) erstellt wurde. Dynamische Änderungen am Inhalt des ausgewählten `<option>`-Elements, die nach der Erstellung des `<select>`-Elements vorgenommen werden, werden nicht automatisch zum `<selectedcontent>`-Element geklont und müssen manuell vom Entwickler aktualisiert werden.
 
-## Styling mit CSS
+> [!WARNING]
+> Insbesondere kann dies Probleme bei Websites verursachen, die populäre JavaScript-Frameworks für die Front-End-Entwicklung verwenden, wo {{htmlelement("option")}}-Elemente nach ihrer Erstellung dynamisch aktualisiert werden, da diese Updates nicht zum `<selectedcontent>`-Element geklont werden.
 
-Es ist nützlich, den Inhalt der aktuell ausgewählten `<option>` innerhalb des Select-Buttons mit CSS-Stilen anzuvisieren, ohne das Styling des Inhalts im Picker zu beeinflussen.
+## Stilgebung mit CSS
 
-Zum Beispiel können Ihre `<option>`-Elemente Icons, Bilder oder sogar Videos enthalten. Dieser Inhalt könnte im Picker gut aussehen, könnte aber den Select-Button vergrößern, unordentlich wirken und das umgebende Layout beeinflussen.
+Es ist nützlich, den Inhalt des aktuell ausgewählten `<option>`-Elements gezielt mit CSS-Stilen anzusprechen, so wie er innerhalb des Select-Buttons erscheint, ohne dass dies die Gestaltung des Inhalts beeinflusst, wie er im Picker erscheint.
 
-Dies könnte behoben werden, indem der problematische Inhalt versteckt wird, wenn er innerhalb von `<selectedcontent>` enthalten ist. Zum Beispiel:
+Zum Beispiel können Ihre `<option>`-Elemente Symbole, Bilder oder sogar Videos enthalten. Dieser Inhalt könnte im Picker schön aussehen, könnte aber dazu führen, dass der Select-Button größer wird, unordentlich aussieht und das umgebende Layout beeinflusst.
+
+Dies könnte behoben werden, indem der problematische Inhalt verborgen wird, wenn er sich innerhalb von `<selectedcontent>` befindet. Zum Beispiel:
 
 ```css
 selectedcontent img {
@@ -52,13 +55,13 @@ selectedcontent img {
 ```
 
 > [!NOTE]
-> Wenn die `<button>`- und/oder `<selectedcontent>`-Elemente nicht innerhalb des `<select>`-Markups enthalten sind, platziert der Browser den ausgewählten Optionsinhalt implizit im Select-Button, aber dieses Anvisieren ist dann nicht möglich.
+> Wenn die `<button>`- und/oder `<selectedcontent>`-Elemente nicht innerhalb des `<select>`-Markup enthalten sind, wird der Browser den ausgewählten Optionsinhalt implizit innerhalb des Select-Buttons platzieren, aber dieses Targeting wird nicht möglich sein.
 
 ## Beispiele
 
-Ein komplettes Beispiel, das das `<selectedcontent>`-Element enthält, finden Sie in unserem [Leitfaden für anpassbare Select-Elemente](/de/docs/Learn_web_development/Extensions/Forms/Customizable_select).
+Sie können ein vollständiges Beispiel, das das `<selectedcontent>`-Element enthält, in unserem [Leitfaden zu anpassbaren Select-Elementen](/de/docs/Learn_web_development/Extensions/Forms/Customizable_select) sehen.
 
-## Technische Zusammenfassung
+## Technische Übersicht
 
 <table class="properties">
   <tbody>
@@ -69,13 +72,13 @@ Ein komplettes Beispiel, das das `<selectedcontent>`-Element enthält, finden Si
         >
       </th>
       <td>
-        Keine
+       Keine
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubter Inhalt</th>
+      <th scope="row">Zulässiger Inhalt</th>
       <td>
-        Spiegelt den Inhalt der ausgewählten {{htmlelement("option")}} wider.
+        Spiegelt den Inhalt der ausgewählten {{htmlelement("option")}}.
       </td>
     </tr>
     <tr>
@@ -83,7 +86,7 @@ Ein komplettes Beispiel, das das `<selectedcontent>`-Element enthält, finden Si
       <td>Keine, sowohl das Start- als auch das End-Tag sind obligatorisch.</td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte Eltern</th>
+      <th scope="row">Zulässige Eltern</th>
       <td>
         Ein {{htmlelement("button")}}-Element, das das erste Kind eines {{htmlelement("select")}}-Elements ist.
       </td>
@@ -95,7 +98,7 @@ Ein komplettes Beispiel, das das `<selectedcontent>`-Element enthält, finden Si
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte ARIA-Rollen</th>
+      <th scope="row">Zulässige ARIA-Rollen</th>
       <td>
         Keine
       </td>

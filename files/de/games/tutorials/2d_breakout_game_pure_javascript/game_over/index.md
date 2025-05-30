@@ -2,20 +2,20 @@
 title: Spielende
 slug: Games/Tutorials/2D_Breakout_game_pure_JavaScript/Game_over
 l10n:
-  sourceCommit: ffa6f5871f50856c60983a125cef7de267be7aeb
+  sourceCommit: 14acf1aa7885157debdf1b6111f4bd10c064ec60
 ---
 
 {{GamesSidebar}}
 
 {{PreviousNext("Games/Workflows/2D_Breakout_game_pure_JavaScript/Paddle_and_keyboard_controls", "Games/Workflows/2D_Breakout_game_pure_JavaScript/Build_the_brick_field")}}
 
-Dies ist der **5. Schritt** von 10 des [Gamedev Canvas-Tutorials](/de/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript). Sie können den Quellcode, wie er nach Abschluss dieser Lektion aussehen sollte, unter [Gamedev-Canvas-workshop/lesson5.html](https://github.com/end3r/Gamedev-Canvas-workshop/blob/gh-pages/lesson05.html) finden.
+Dies ist der **5. Schritt** von 10 des [Gamedev Canvas Tutorials](/de/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript). Den Quellcode, wie er nach Abschluss dieser Lektion aussehen sollte, finden Sie unter [Gamedev-Canvas-workshop/lesson5.html](https://github.com/end3r/Gamedev-Canvas-workshop/blob/gh-pages/lesson05.html).
 
-Es macht Spaß, den Ball von den Wänden abprallen zu sehen und das Paddel bewegen zu können, aber abgesehen davon macht das Spiel nichts und hat weder Fortschritt noch ein Ziel. Es wäre gut aus Sicht des Gameplays, verlieren zu können. Die Logik des Verlierens bei Breakout lautet, dass wenn Sie den Ball mit dem Paddel verpassen und ihn den unteren Rand des Bildschirms erreichen lassen, dann ist das Spiel vorbei.
+Es macht Spaß, den Ball von den Wänden abprallen zu sehen und das Paddel zu bewegen, aber ansonsten macht das Spiel nichts und hat weder Fortschritt noch Endziel. Aus Sicht des Gameplays wäre es gut, verlieren zu können. Die Logik beim Verlieren in Breakout ist, dass, wenn Sie den Ball mit dem Paddel verfehlen und er den unteren Rand des Bildschirms erreicht, das Spiel vorbei ist.
 
 ## Spielende implementieren
 
-Lassen Sie uns versuchen, das Spielende in unser Spiel zu implementieren. Hier ist der Code aus der dritten Lektion, bei der wir den Ball von den Wänden abprallen ließen:
+Versuchen wir, ein Spielende in unser Spiel zu implementieren. Hier ist der Codeausschnitt aus der dritten Lektion, in der wir den Ball von den Wänden abprallen ließen:
 
 ```js
 if (x + dx > canvas.width - ballRadius || x + dx < ballRadius) {
@@ -27,27 +27,27 @@ if (y + dy > canvas.height - ballRadius || y + dy < ballRadius) {
 }
 ```
 
-Anstatt den Ball von allen vier Wänden abprallen zu lassen, erlauben wir jetzt nur noch drei — links, oben und rechts. Wenn die untere Wand getroffen wird, endet das Spiel. Wir werden den zweiten if-Block so bearbeiten, dass er ein if-else-Block wird, der unseren "Spielende"-Zustand auslöst, wenn der Ball die untere Kante der Leinwand erreicht. Vorerst zeigen wir eine Warnmeldung und starten das Spiel neu, indem wir die Seite neu laden.
+Anstatt den Ball von allen vier Wänden abprallen zu lassen, erlauben wir es jetzt nur noch bei drei — links, oben und rechts. Das Treffen der unteren Wand beendet das Spiel. Wir ändern den zweiten `if`-Block so, dass er ein `if else`-Block ist, der unseren "Game Over"-Zustand auslöst, wenn der Ball den unteren Rand der Leinwand berührt. Für den Moment zeigen wir eine Warnmeldung an und starten das Spiel durch Neuladen der Seite neu.
 
-Fügen Sie zunächst eine Deklaration für die Variable `interval` auf der obersten Ebene hinzu, vor allen Funktionen:
+Fügen Sie zuerst eine Deklaration für die Variable `interval` auf oberster Ebene ein, bevor Sie Funktionen definieren:
 
 ```js
 let interval = 0;
 ```
 
-Dann ersetzen Sie die Stelle, an der Sie ursprünglich `setInterval()` aufgerufen haben:
+Dann ersetzen Sie, wo Sie ursprünglich `setInterval()` aufgerufen haben:
 
 ```js
 setInterval(draw, 10);
 ```
 
-mit:
+durch:
 
 ```js
 interval = setInterval(draw, 10);
 ```
 
-Dann ersetzen Sie die zweite if-Anweisung mit der folgenden:
+Ersetzen Sie dann die zweite `if`-Anweisung mit der folgenden:
 
 ```js
 if (y + dy < ballRadius) {
@@ -59,9 +59,9 @@ if (y + dy < ballRadius) {
 }
 ```
 
-## Dem Paddel erlauben, den Ball zu treffen
+## Lassen Sie das Paddel den Ball treffen
 
-Das Letzte, was in dieser Lektion zu tun ist, ist eine Art Kollisionserkennung zwischen dem Ball und dem Paddel zu erstellen, damit er davon abprallen und in den Spielbereich zurückkehren kann. Am einfachsten ist es zu prüfen, ob sich die Mitte des Balls zwischen den linken und rechten Rändern des Paddels befindet. Aktualisieren Sie das letzte Stück Code, das Sie geändert haben, erneut auf Folgendes:
+Das Letzte, was in dieser Lektion zu tun ist, ist eine Art Kollisionserkennung zwischen dem Ball und dem Paddel zu erstellen, damit er abprallen und in den Spielbereich zurückkehren kann. Das Einfachste ist, zu überprüfen, ob sich das Zentrum des Balls zwischen dem linken und rechten Rand des Paddels befindet. Aktualisieren Sie den zuletzt modifizierten Code erneut folgendermaßen:
 
 ```js
 if (y + dy < ballRadius) {
@@ -77,11 +77,11 @@ if (y + dy < ballRadius) {
 }
 ```
 
-Wenn der Ball den unteren Rand der Leinwand trifft, müssen wir überprüfen, ob er das Paddel trifft. Wenn ja, prallt er ab, wie Sie es erwarten würden; andernfalls ist das Spiel wie zuvor vorbei.
+Wenn der Ball den unteren Rand der Leinwand trifft, müssen wir überprüfen, ob er das Paddel trifft. Wenn ja, prallt er ab, wie Sie es erwarten würden; wenn nicht, ist das Spiel wie zuvor vorbei.
 
 ## Vergleichen Sie Ihren Code
 
-Sehen Sie, wie Ihr Code mit dem Live-Beispiel unten verglichen wird:
+Vergleichen Sie Ihren Code mit dem Live-Beispiel unten:
 
 ```html hidden
 <canvas id="myCanvas" width="480" height="320"></canvas>
@@ -184,19 +184,20 @@ function startGame() {
   interval = setInterval(draw, 10);
 }
 
-document.getElementById("runButton").addEventListener("click", function () {
+const runButton = document.getElementById("runButton");
+runButton.addEventListener("click", () => {
   startGame();
-  this.disabled = true;
+  runButton.disabled = true;
 });
 ```
 
 {{embedlivesample("compare_your_code", 600, 360)}}
 
 > [!NOTE]
-> Versuchen Sie, den Ball schneller bewegen zu lassen, wenn er das Paddel trifft.
+> Versuchen Sie, den Ball schneller zu machen, wenn er das Paddel trifft.
 
 ## Nächste Schritte
 
-Wir kommen bisher recht gut voran und unser Spiel macht jetzt, da Sie verlieren können, viel mehr Spaß! Aber es fehlt noch etwas. Lassen Sie uns zum sechsten Kapitel übergehen — [Baue das Ziegelfeld](/de/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript/Build_the_brick_field) — und einige Ziegel erstellen, die der Ball zerstören kann.
+Wir sind bisher ziemlich gut vorangekommen und unser Spiel wird deutlich spielenswerter, jetzt wo man verlieren kann! Aber es fehlt noch etwas. Gehen wir weiter zum sechsten Kapitel — [Build the brick field](/de/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript/Build_the_brick_field) — und erstellen einige Ziegelsteine, um den Ball zu zerstören.
 
 {{PreviousNext("Games/Workflows/2D_Breakout_game_pure_JavaScript/Paddle_and_keyboard_controls", "Games/Workflows/2D_Breakout_game_pure_JavaScript/Build_the_brick_field")}}

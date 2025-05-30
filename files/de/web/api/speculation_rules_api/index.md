@@ -2,23 +2,23 @@
 title: Speculation Rules API
 slug: Web/API/Speculation_Rules_API
 l10n:
-  sourceCommit: cb25e0acbd9f0af27c4a99965cb962230d49a35d
+  sourceCommit: 08d05cdb5579ad780d418a9b55da7220f491de8d
 ---
 
 {{SeeCompatTable}}{{DefaultAPISidebar("Speculation Rules API")}}
 
-Die **Speculation Rules API** wurde entwickelt, um die Leistung zukünftiger Navigationen zu verbessern. Sie richtet sich an Dokument-URLs und nicht an spezifische Ressourcen-Dateien, was sie für Multi-Page-Anwendungen (MPAs) sinnvoller macht als für Single-Page-Anwendungen (SPAs).
+Die **Speculation Rules API** wurde entwickelt, um die Leistung für zukünftige Navigationen zu verbessern. Sie zielt auf Dokument-URLs anstatt auf spezifische Ressourcen-Dateien und ist daher sinnvoll für Multi-Page-Anwendungen (MPA) im Gegensatz zu Single-Page-Anwendungen (SPA).
 
-Die Speculation Rules API bietet eine Alternative zu dem weit verbreiteten [`<link rel="prefetch">`](/de/docs/Web/HTML/Reference/Attributes/rel/prefetch)-Feature und ist dafür ausgelegt, die Chrome-exklusive veraltete Funktion [`<link rel="prerender">`](/de/docs/Web/HTML/Reference/Attributes/rel/prerender) zu ersetzen. Sie bietet viele Verbesserungen gegenüber diesen Technologien sowie eine ausdrucksstärkere und konfigurierbare Syntax, um festzulegen, welche Dokumente vorgeladen oder vorgerendert werden sollen.
+Die Speculation Rules API bietet eine Alternative zur weit verbreiteten [`<link rel="prefetch">`](/de/docs/Web/HTML/Reference/Attributes/rel/prefetch) Funktion und ist darauf ausgelegt, die nur in Chrome verfügbare, aber veraltete [`<link rel="prerender">`](/de/docs/Web/HTML/Reference/Attributes/rel/prerender) Funktion zu ersetzen. Sie bietet viele Verbesserungen gegenüber diesen Technologien sowie eine ausdrucksvollere, konfigurierbare Syntax zur Spezifizierung, welche Dokumente vorab abgerufen oder vorgeladen werden sollen.
 
 > [!NOTE]
-> Die Speculation Rules API behandelt keine Subresource-Preloads; hierfür müssen Sie `<link rel="prefetch">` verwenden.
+> Die Speculation Rules API kümmert sich nicht um das Vorabladen von Subressourcen; dafür benötigen Sie `<link rel="prefetch">`.
 
 ## Konzepte und Nutzung
 
-Speculation-Rules können innerhalb von Inline-Elementen [`<script type="speculationrules">`](/de/docs/Web/HTML/Reference/Elements/script/type/speculationrules) und in externen Textdateien, die durch den {{httpheader("Speculation-Rules")}}-Response-Header referenziert werden, angegeben werden. Die Regeln werden als JSON-Struktur spezifiziert.
+Spekulationsregeln können innerhalb von Inline-Elementen [`<script type="speculationrules">`](/de/docs/Web/HTML/Reference/Elements/script/type/speculationrules) und externen Textdateien, die durch den {{httpheader("Speculation-Rules")}} Antwort-Header referenziert werden, angegeben werden. Die Regeln sind als JSON-Struktur spezifiziert.
 
-Ein Script-Beispiel:
+Ein Skript-Beispiel:
 
 ```html
 <script type="speculationrules">
@@ -47,7 +47,7 @@ Ein Script-Beispiel:
 </script>
 ```
 
-Speculation-Rules, die ein `<script>`-Element verwenden, müssen ausdrücklich in der {{httpheader("Content-Security-Policy")}} [`script-src`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/script-src)-Direktive erlaubt werden, wenn die Seite diese enthält. Dies geschieht durch Hinzufügen einer der `'inline-speculation-rules'`-Quellen, einer Hash-Quelle oder einer Nonce-Quelle.
+Spekulationsregeln, die ein `<script>`-Element verwenden, müssen explizit in der {{httpheader("Content-Security-Policy")}} [`script-src`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/script-src) Directive erlaubt werden, falls die Seite diese enthält. Dies geschieht durch Hinzufügen der Quelle `'inline-speculation-rules'`, einer Hash-Quelle oder einer Nonce-Quelle.
 
 Ein HTTP-Header-Beispiel:
 
@@ -55,63 +55,63 @@ Ein HTTP-Header-Beispiel:
 Speculation-Rules: "/rules/prefetch.json"
 ```
 
-Die Textressource, die das Speculation-Rules-JSON enthält, kann einen beliebigen gültigen Namen und eine beliebige Erweiterung haben, muss jedoch mit einem `application/speculationrules+json`-MIME-Typ bereitgestellt werden.
+Die Textressource, die das JSON der Spekulationsregeln enthält, kann jeden gültigen Namen und jede Erweiterung aufweisen, muss jedoch mit einem MIME-Typ von `application/speculationrules+json` ausgeliefert werden.
 
 > [!NOTE]
-> Regeln können sowohl mit einem Inline-Skript als auch mit dem HTTP-Header gleichzeitig angegeben werden — alle auf ein Dokument angewandten Regeln werden analysiert und zur Liste der Speculation-Rules des Dokuments hinzugefügt.
+> Regeln können sowohl mit einem Inline-Skript als auch mit dem HTTP-Header gleichzeitig spezifiziert werden — alle auf ein Dokument angewendeten Regeln werden analysiert und zur Spekulationsregel-Liste des Dokuments hinzugefügt.
 
-Sie geben ein unterschiedliches Array an, um die Regeln für jede spekulative Ladeart zu enthalten (zum Beispiel `"prerender"` oder `"prefetch"`). Jede Regel ist in einem Objekt enthalten, das beispielsweise eine Liste von Ressourcen zum Vorladen sowie Optionen wie eine explizite {{httpheader("Referrer-Policy")}}-Einstellung für jede Regel festlegt. Beachten Sie, dass vorgerenderte URLs ebenfalls vorgeladen werden.
+Für jeden Typ von spekulativem Laden (zum Beispiel „prerender“ oder „prefetch“) geben Sie ein anderes Array an, das die Regeln enthält. Jede Regel ist in einem Objekt enthalten, das zum Beispiel eine Liste von zu ladenden Ressourcen angibt, sowie Optionen wie eine explizite {{httpheader("Referrer-Policy")}} Einstellung für jede Regel. Beachten Sie, dass vorgeladene URLs auch vorab abgerufen werden.
 
 Siehe [`<script type="speculationrules">`](/de/docs/Web/HTML/Reference/Elements/script/type/speculationrules) für eine vollständige Erklärung der verfügbaren Syntax.
 
-### Verwenden von Prefetching
+### Verwendung von Prefetching
 
-Das Einschließen von `prefetch`-Regeln in einem `<script type="speculationrules">`-Element oder einem `Speculation-Rules`-Header führt dazu, dass unterstützende Browser den Antworttext der referenzierten Seiten herunterladen, jedoch keine der von der Seite referenzierten Subressourcen. Wenn eine vorgeladene Seite angesteuert wird, wird sie viel schneller gerendert, als wenn sie nicht vorgeladen wäre.
+Das Einschließen von `prefetch`-Regeln in einem `<script type="speculationrules">`-Element oder `Speculation-Rules`-Header veranlasst unterstützende Browser, den Antwortkörper der referenzierten Seiten herunterzuladen, jedoch keine der von der Seite referenzierten Subressourcen. Wenn auf eine vorab geladene Seite navigiert wird, wird diese viel schneller gerendert, als wenn sie nicht vorab geladen worden wäre.
 
-Die Ergebnisse werden in einem pro-Dokument-Arbeitsspeicher-Cache gespeichert. Alle zwischengespeicherten Prefetches werden verworfen, wenn Sie die aktuelle Seite verlassen, außer natürlich bei einem vorgeladenen Dokument, das Sie dann ansteuern.
+Die Ergebnisse werden in einem speicherinternen Cache pro Dokument gespeichert. Jegliche zwischengespeicherten Prefetches werden verworfen, wenn Sie die aktuelle Seite verlassen, außer natürlich einem vorab geladenen Dokument, zu dem Sie dann navigieren.
 
-Das bedeutet, dass, wenn Sie etwas vorladen, zu dem der Nutzer nicht navigiert, dies im Allgemeinen eine Ressourcenverschwendung darstellt, obwohl das Ergebnis den HTTP-Cache auffüllen kann, wenn dies durch Header erlaubt wird. Dennoch sind die anfänglichen Kosten eines Prefetchs viel geringer als die eines Prerenders, sodass Sie ermutigt werden, das Prefetching umfangreich zu übernehmen, beispielsweise alle signifikanten Seiten Ihrer Website vorzuladen, sofern diese sicher vorgeladen werden können (siehe [Unsichere Bedingungen für spekulatives Laden](#unsichere_bedingungen_für_spekulatives_laden) für weitere Details).
+Dies bedeutet, dass es allgemein eine Verschwendung von Ressourcen ist, wenn Sie etwas vorab laden, zu dem der Benutzer nicht navigiert, obwohl das Ergebnis den HTTP-Cache bevölkern kann, wenn die Header es zulassen. Dennoch sind die anfänglichen Kosten eines Prefetches viel geringer als die anfänglichen Kosten eines Prerenders, sodass Sie ermutigt werden, das Prefetching umfassend zu nutzen, zum Beispiel alle wichtigen Seiten Ihrer Website vorab zu laden, vorausgesetzt, dass es sicher ist, diese vorab zu laden (siehe [Unsichere spekulative Ladebedingungen](#unsichere_spekulative_ladebedingungen) für weitere Details).
 
-Prefetches innerhalb derselben Domäne und domänenübergreifende Prefetches funktionieren, aber domänenübergreifende Prefetches sind eingeschränkt (siehe ["same-site" und "cross-site"](https://web.dev/articles/same-site-same-origin#same-site-cross-site) für eine Erklärung des Unterschieds zwischen den beiden). Aus Datenschutzgründen funktionieren domänenübergreifende Prefetches derzeit nur, wenn der Nutzer für die Zielseite keine Cookies gesetzt hat — wir möchten nicht, dass Websites die Nutzeraktivität über vorgeladene Seiten (die sie möglicherweise niemals tatsächlich besuchen) basierend auf zuvor gesetzten Cookies nachverfolgen können.
-
-> [!NOTE]
-> In Zukunft wird ein Opt-in für domänenübergreifende Prefetches über den {{httpheader("Supports-Loading-Mode")}}-Header bereitgestellt, aber zum Zeitpunkt des Schreibens war dies noch nicht implementiert (nur ein Opt-in für domänenübergreifendes, gleichseitiges [Prerendering](#verwenden_von_prerendering) war verfügbar).
-
-Für Browser, die dies unterstützen, sollte das Prefetch der Speculation-Rules gegenüber älteren Prefetch-Mechanismen bevorzugt werden, nämlich [`<link rel="prefetch">`](/de/docs/Web/HTML/Reference/Attributes/rel/prefetch) und [`fetch()`](/de/docs/Web/API/Window/fetch) mit einer `priority: "low"`-Option. Da wir wissen, dass das Prefetch der Speculation-Rules für Navigationen und nicht für allgemeines Ressourcenvorladen gedacht ist:
-
-- Es kann für domänenübergreifende Navigationen verwendet werden, wohingegen `<link rel="prefetch">` dies nicht kann.
-- Es wird nicht von {{httpheader("Cache-Control")}}-Headern blockiert, wohingegen `<link rel="prefetch">` dies oft tut.
-
-Zusätzlich:
-
-- Senkt das Speculation-Rules-Prefetch bei Bedarf automatisch die Priorität (`fetch()` tut dies nicht).
-- Respektiert es die Nutzereinstellungen. Zum Beispiel wird Prefetching nicht durchgeführt, wenn das Nutzergerät im Energiesparmodus oder im Datensparmodus ist.
-- Speichert es die vorgeladenen Ressourcen in einem pro-Dokument-Arbeitsspeicher-Cache anstelle des HTTP-Caches, was zu einem etwas schnelleren Prefetching führen kann.
-
-### Verwenden von Prerendering
-
-Das Einschließen von `prerender`-Regeln in einem `<script type="speculationrules">`-Element oder einem `Speculation-Rules`-Header führt dazu, dass unterstützende Browser den Inhalt in ein unsichtbares Tab laden, das in einem pro-Dokument-Arbeitsspeicher-Cache gespeichert wird. Dies umfasst das Laden aller Subressourcen, das Ausführen von JavaScript und sogar das Laden von Subressourcen und das Ausführen von Datenanforderungen, die von JavaScript gestartet werden. Alle zwischengespeicherten Prerenders und deren Subressourcen werden verworfen, wenn Sie die aktuelle Seite verlassen, außer natürlich bei einem vorgerenderten Dokument, das Sie dann ansteuern.
-
-Zukünftige Navigationen zu einer vorgerenderten Seite werden nahezu sofort sein. Der Browser aktiviert das unsichtbare Tab anstelle des üblichen Navigationsprozesses und ersetzt die alte Vordergrundseite durch die vorgerenderte Seite. Wenn eine Seite aktiviert wird, bevor sie vollständig vorgerendert ist, wird sie im aktuellen Zustand aktiviert und lädt dann weiter, was bedeutet, dass Sie dennoch eine erhebliche Leistungsverbesserung sehen werden.
-
-Prerendering verwendet Arbeitsspeicher und Netzwerkbandbreite. Wenn Sie etwas vorladen, zu dem der Nutzer nicht navigiert, sind diese verschwendet (obwohl das Ergebnis den HTTP-Cache füllen kann, wenn dies durch Header erlaubt wird, was eine spätere Nutzung ermöglichen könnte). Die anfänglichen Kosten eines Prerenders sind viel größer als die Kosten eines Prefetchs, und andere Bedingungen könnten den Inhalt auch unsicher zum Vorladen machen (siehe [Unsichere Bedingungen für spekulatives Laden](#unsichere_bedingungen_für_spekulatives_laden) für weitere Details). Daher wird empfohlen, Prerendering sparsamer zu verwenden, wobei sorgfältig die Fälle zu berücksichtigen sind, in denen die Wahrscheinlichkeit hoch ist, dass die Seite angesteuert wird, und Sie denken, dass der Nutzen für die Benutzererfahrung die zusätzlichen Kosten wert ist.
+Sowohl same-site als auch cross-site Prefetches funktionieren, jedoch sind cross-site Prefetches eingeschränkt (siehe ["same-site" und "cross-site"](https://web.dev/articles/same-site-same-origin#same-site-cross-site) für eine Erklärung des Unterschieds zwischen den beiden). Aus Datenschutzgründen funktionieren cross-site Prefetches derzeit nur, wenn der Benutzer keine Cookies für die Zielsite gesetzt hat — wir möchten nicht, dass Websites die Benutzeraktivität über vorab geladene Seiten (die sie vielleicht nie tatsächlich besuchen) basierend auf zuvor gesetzten Cookies verfolgen können.
 
 > [!NOTE]
-> Um das Ausmaß der potenziellen Ressourcenverschwendung ins Verhältnis zu setzen, verwendet ein Prerender etwa die gleiche Menge an Ressourcen wie das Rendern eines {{htmlelement("iframe")}}.
+> In Zukunft wird eine Opt-In-Möglichkeit für cross-site Prefetches über den {{httpheader("Supports-Loading-Mode")}} Header bereitgestellt, aber dies war zum Zeitpunkt des Schreibens noch nicht implementiert (nur das Opt-In für cross-origin, same-site [prerendering](#verwendung_von_prerendering) war verfügbar).
+
+Für Browser, die es unterstützen, sollte das Spekulationsregeln-Prefetching gegenüber älteren Prefetch-Mechanismen bevorzugt werden, nämlich [`<link rel="prefetch">`](/de/docs/Web/HTML/Reference/Attributes/rel/prefetch) und [`fetch()`](/de/docs/Web/API/Window/fetch) mit einer `priority: "low"` Option. Da wir wissen, dass Spekulationsregeln-Prefetches für Navigationen sind und nicht für allgemeines Ressourcen-Prefetching:
+
+- Kann es für cross-site Navigationen verwendet werden, während `<link rel="prefetch">` dies nicht kann.
+- Wird nicht durch {{httpheader("Cache-Control")}} Header blockiert, während `<link rel="prefetch">` dies häufig tut.
+
+Außerdem:
+
+- Senkt die Priorität automatisch, wenn nötig (`fetch()` tut dies nicht).
+- Respektiert die Konfiguration des Benutzers. Zum Beispiel passiert Prefetching nicht, wenn das Gerät des Benutzers im Batterispar- oder Datensparmodus ist.
+- Speichert die vorab geladenen Ressourcen in einem speicherinternen Cache pro Dokument im Gegensatz zum HTTP-Cache, was zu einem etwas schnelleren Prefetching führen kann.
+
+### Verwendung von Prerendering
+
+Das Einschließen von `prerender`-Regeln in einem `<script type="speculationrules">`-Element oder `Speculation-Rules`-Header führt dazu, dass unterstützende Browser den Inhalt in einem unsichtbaren Tab abrufen, rendern und laden, der in einem speicherinternen Cache pro Dokument gespeichert wird. Dies schließt das Laden aller Subressourcen, das Ausführen aller JavaScript-Dateien und sogar das Laden von Subressourcen und das Ausführen von Datenabrufen ein, die von JavaScript gestartet werden. Jegliche zwischengespeicherten Prerender und deren Subressourcen werden verworfen, wenn Sie die aktuelle Seite verlassen, außer natürlich einem vorgeladenen Dokument, zu dem Sie dann navigieren.
+
+Zukünftige Navigationen zu einer vorgeladenen Seite werden nahezu augenblicklich sein. Der Browser aktiviert den unsichtbaren Tab anstelle des normalen Navigationsprozesses, ersetzt die alte Vordergrundseite durch die vorgeladene Seite. Wenn eine Seite aktiviert wird, bevor sie vollständig vorgeladen wurde, wird sie in ihrem aktuellen Zustand aktiviert und dann weiter geladen, was bedeutet, dass Sie immer noch eine signifikante Leistungsverbesserung sehen werden.
+
+Prerendering verwendet Speicher und Netzwerkbandbreite. Wenn Sie etwas vorgeladen haben, zu dem der Benutzer nicht navigiert, sind diese Ressourcen verschwendet (obwohl das Ergebnis den HTTP-Cache bevölkern kann, wenn die Header es zulassen, was eine spätere Nutzung ermöglicht). Die anfänglichen Kosten eines Prerenders sind viel größer als die anfänglichen Kosten eines Prefetches, und andere Bedingungen könnten den Inhalt auch unsicher zum Prerendern machen (siehe [Unsichere spekulative Ladebedingungen](#unsichere_spekulative_ladebedingungen) für weitere Details). Daher werden Sie ermutigt, Prerendering sparsamer einzusetzen, sorgfältig Fälle zu berücksichtigen, in denen die Wahrscheinlichkeit hoch ist, dass die Seite geladen wird, und wenn Sie denken, dass der Benutzererlebnisvorteil die zusätzlichen Kosten wert ist.
 
 > [!NOTE]
-> Viele APIs werden automatisch aufgeschoben, wenn sie vorgerendert werden/bis sie aktiviert werden. Weitere Details finden Sie unter [Plattformfunktionen, die während des Prerenderings aufgeschoben oder eingeschränkt werden](#plattformfunktionen,_die_während_des_prerenderings_aufgeschrieben_oder_eingeschränkt_werden).
+> Um die Menge an potenzieller Ressourcenverschwendung ins Verhältnis zu setzen: Ein Prerender verwendet ungefähr so viele Ressourcen wie das Rendern eines {{htmlelement("iframe")}}.
 
-Prerendering ist standardmäßig auf gleichseitige Dokumente beschränkt. Domänenübergreifendes, gleichseitiges Prerendering ist möglich — es erfordert, dass das Navigationstarget ein Opt-in über den {{httpheader("Supports-Loading-Mode")}}-Header mit einem Wert von `credentialed-prerender` durchführt. Domänenübergreifendes Prerendering ist derzeit nicht möglich.
+> [!NOTE]
+> Viele APIs werden automatisch aufgeschoben, wenn sie vorgeladen oder bis zur Aktivierung ausgeführt werden. Siehe [Plattform-Funktionen, die während des Prerenderings aufgeschoben oder eingeschränkt sind](#plattform-funktionen,_die_während_des_prerenderings_aufgeschoben_oder_eingeschränkt_sind) für weitere Details.
 
-Für Browser, die dies unterstützen, sollte das Prerender der Speculation-Rules gegenüber älteren Prerender-Mechanismen bevorzugt werden, nämlich [`<link rel="prerender">`](/de/docs/Web/HTML/Reference/Attributes/rel/prerender):
+Prerendering ist standardmäßig auf gleichartige Dokumente beschränkt. Cross-origin, same-site Prerendering ist möglich – es erfordert, dass das Navigationsziel ein Opt-In durch Setzen des {{httpheader("Supports-Loading-Mode")}} Headers mit einem Wert von `credentialed-prerender` durchführt. Cross-site Prerendering ist derzeit nicht möglich.
 
-- `<link rel="prerender">` ist spezifisch für Chrome und wurde nie standardisiert, und das Chrome-Entwicklungsteam befindet sich im Prozess, es einzustellen.
-- Es lädt Subressourcen, die über JavaScript geladen werden, wohingegen `<link rel="prerender">` dies nicht tut.
-- Es wird nicht von {{httpheader("Cache-Control")}}-Einstellungen blockiert, wohingegen `<link rel="prerender">` dies oft tut.
-- Speculation-Rules-Prerender sollte als ein Hinweis und eine fortschreitende Verbesserung betrachtet werden. Im Gegensatz zu `<link rel="prerender">` ist es ein spekulativer Hinweis und der Browser kann basierend auf den Nutzer-Einstellungen, aktuellem Arbeitsspeicherverbrauch oder anderen Heuristiken entscheiden, den Hinweis nicht zu beachten.
+Für Browser, die es unterstützen, sollte das Spekulationsregeln-Prerendering gegenüber älteren Prerender-Mechanismen bevorzugt werden, nämlich [`<link rel="prerender">`](/de/docs/Web/HTML/Reference/Attributes/rel/prerender):
 
-### Spekulationsregeln API-Funktionserkennung
+- `<link rel="prerender">` ist Chrome-spezifisch und wurde nie standardisiert, und das Chrome-Entwicklungsteam ist dabei, es auslaufen zu lassen.
+- Es lädt Subressourcen, die über JavaScript geladen werden, während `<link rel="prerender">` dies nicht tut.
+- Wird nicht durch {{httpheader("Cache-Control")}} Einstellungen blockiert, während `<link rel="prerender">` dies häufig tut.
+- Das Spekulationsregeln-Prerendering sollte als Hinweis und progressive Verbesserung behandelt werden. Anders als `<link rel="prerender">` ist es ein spekulativer Hinweis, und der Browser kann sich entscheiden, den Hinweis aufgrund von Benutzereinstellungen, aktuellem Speicherverbrauch oder anderen Heuristiken nicht zu beachten.
+
+### Funktionsdetektion der Speculation Rules API
 
 Sie können überprüfen, ob die Speculation Rules API unterstützt wird, indem Sie den folgenden Code verwenden:
 
@@ -124,7 +124,7 @@ if (
 }
 ```
 
-Sie möchten beispielsweise möglicherweise Spekulationsregeln für Prefetching in unterstützenden Browsern einfügen, aber eine ältere Technologie wie `<link rel="prefetch">` in anderen verwenden:
+Zum Beispiel möchten Sie möglicherweise Spekulationsregeln zum Prefetching in unterstützende Browser einfügen, aber eine ältere Technologie wie `<link rel="prefetch">` in anderen verwenden:
 
 ```js
 if (
@@ -151,13 +151,13 @@ if (
 }
 ```
 
-## Erkennung vorgeladener und vorgerenderter Seiten
+## Erkennung von vorab geladenen und vorgeladenen Seiten
 
-Dieser Abschnitt behandelt verschiedene Möglichkeiten zur Erkennung, ob eine angeforderte Seite vorgeladen oder vorgerendert wurde.
+Dieser Abschnitt betrachtet verschiedene Methoden, um zu erkennen, ob eine angeforderte Seite vorab geladen oder vorgeladen wurde.
 
-### Serverseitige Erkennung
+### Server-seitige Erkennung
 
-Anfragen vorgeladener und vorgerenderter Seiten werden mit dem {{httpheader("Sec-Purpose")}}-Request-Header gesendet:
+Anfragen für vorab geladene und vorgeladene Seiten werden mit dem {{httpheader("Sec-Purpose")}} Anfrage-Header gesendet:
 
 Für Prefetch:
 
@@ -171,13 +171,13 @@ Für Prerender:
 Sec-Purpose: prefetch;prerender
 ```
 
-Server können basierend auf diesem Header antworten, zum Beispiel um spekulative Ladeanfragen zu protokollieren, andere Inhalte zurückzugeben oder sogar zu verhindern, dass spekulative Ladevorgänge stattfinden. Wenn ein Nicht-Erfolgs-Statuscode zurückgegeben wird (irgendein HTTP-Status außerhalb des 200-299 Bereichs nach Redirects), wird die Seite nicht vorgeladen/vorgerendert. Zusätzlich verhindern auch die Statuscodes 204 und 205 das Vorladen (aber nicht das Prefetch).
+Server können auf Basis dieses Headers antworten, zum Beispiel, um spekulative Ladeanfragen zu protokollieren, anderen Inhalt zurückzugeben oder sogar das spekulative Laden zu verhindern. Wenn ein nicht-erfolgreicher Antwortcode zurückgegeben wird (jeder HTTP-Status, der nicht im Bereich 200-299 nach Umleitungen liegt), wird die Seite nicht vorab geladen bzw. vorgeladen. Außerdem verhindern auch die Statuscodes 204 und 205 das Prerendering (aber nicht das Prefetching).
 
-Die Verwendung eines Nicht-Erfolgs-Codes (zum Beispiel eines 503) ist der einfachste Weg, um serverseitig spekulatives Laden zu verhindern, obwohl es normalerweise eine bessere Herangehensweise ist, das Vorladen/Prerendering zuzulassen und JavaScript zu verwenden, um Aktionen zu verzögern, die nur geschehen sollen, wenn die Seite tatsächlich angezeigt wird.
+Der einfachste Weg, um spekulatives Laden serverseitig zu verhindern, ist die Verwendung eines nicht-erfolgreichen Codes (zum Beispiel ein 503), obwohl es normalerweise ein besserer Ansatz ist, das Prefetch bzw. Prerender zuzulassen und JavaScript zu verwenden, um Aktionen zu verzögern, die nur dann stattfinden sollen, wenn die Seite tatsächlich betrachtet wird.
 
 ### JavaScript-Prefetch-Erkennung
 
-Wenn eine Seite vorgeladen wird, gibt ihr [`PerformanceResourceTiming.deliveryType`](/de/docs/Web/API/PerformanceResourceTiming/deliveryType)-Eintrag einen Wert von `"navigational-prefetch"` zurück. Sie könnten das Folgende verwenden, um eine Funktion auszuführen, wenn ein Leistungseintrag vom Typ `"navigational-prefetch"` empfangen wird:
+Wenn eine Seite vorab geladen wird, gibt der [`PerformanceResourceTiming.deliveryType`](/de/docs/Web/API/PerformanceResourceTiming/deliveryType) Eintrag einen Wert von `"navigational-prefetch"` zurück. Sie könnten das Folgende verwenden, um eine Funktion auszuführen, wenn ein Performance-Eintrag des Typs `"navigational-prefetch"` empfangen wird:
 
 ```js
 if (
@@ -188,11 +188,11 @@ if (
 }
 ```
 
-Diese Technik ist nützlich, wenn Sie die Leistung messen oder wenn Sie Aktionen verzögern möchten, die Probleme verursachen könnten, wenn sie während des Prefetching auftreten (siehe [Unsicheres Prefetching](#unsicheres_prefetching)).
+Diese Technik ist nützlich bei der Messung der Leistung oder wenn Sie Aktionen verzögern möchten, die Probleme verursachen könnten, wenn sie während des Prefetches auftreten (siehe [Unsicheres Prefetching](#unsicheres_prefetching)).
 
 ### JavaScript-Prerender-Erkennung
 
-Um eine Aktivität auszuführen, während die Seite vorgerendert wird, können Sie die [`Document.prerendering`](/de/docs/Web/API/Document/prerendering)-Eigenschaft überprüfen. Sie könnten zum Beispiel einige Analysen durchführen:
+Um eine Aktivität auszuführen, während die Seite vorgeladen wird, können Sie die [`Document.prerendering`](/de/docs/Web/API/Document/prerendering) Eigenschaft prüfen. Sie könnten zum Beispiel einige Analysetätigkeiten ausführen:
 
 ```js
 if (document.prerendering) {
@@ -200,7 +200,7 @@ if (document.prerendering) {
 }
 ```
 
-Wenn ein vorgerendertes Dokument aktiviert wird, wird [`PerformanceNavigationTiming.activationStart`](/de/docs/Web/API/PerformanceNavigationTiming/activationStart) auf einen [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) gesetzt, der die Zeit zwischen dem Start des Prerenders und der Aktivierung des Dokuments darstellt. Die folgende Funktion kann sowohl vorgerenderte als auch vorgerenderte Seiten prüfen:
+Wenn ein vorgeladenes Dokument aktiviert wird, wird [`PerformanceNavigationTiming.activationStart`](/de/docs/Web/API/PerformanceNavigationTiming/activationStart) auf einen [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) gesetzt, der die Zeitspanne zwischen dem Start des Prerenders und der Aktivierung des Dokuments repräsentiert. Die folgende Funktion kann sowohl auf vorgeladene als auch auf vorgeladene Seiten prüfen:
 
 ```js
 function pagePrerendered() {
@@ -211,7 +211,7 @@ function pagePrerendered() {
 }
 ```
 
-Wenn die Seite durch den Nutzer aufgerufen wird, wird das vorgerenderte Dokument durch das Ereignis [`prerenderingchange`](/de/docs/Web/API/Document/prerenderingchange_event) aktiviert. Dieses kann verwendet werden, um Aktivitäten zu starten, die zuvor standardmäßig beim Laden der Seite gestartet wurden, die aber bis zur Ansicht der Seite durch den Nutzer verzögert werden sollen. Der folgende Code richtet einen Ereignis-Listener ein, um eine Funktion auszuführen, nachdem das Prerendering auf einer vorgerenderten Seite abgeschlossen ist, oder sie sofort auf einer nicht vorgerenderten Seite auszuführen:
+Wenn die vorgeladene Seite vom Benutzer aktiviert wird, wird das [`prerenderingchange`](/de/docs/Web/API/Document/prerenderingchange_event) Ereignis ausgelöst. Dies kann verwendet werden, um Aktivitäten zu ermöglichen, die zuvor standardmäßig bei der Seitenladung gestartet wurden, die Sie jedoch verzögern möchten, bis die Seite vom Benutzer betrachtet wird. Der folgende Code richtet einen Ereignis-Listener ein, um eine Funktion auszuführen, sobald das Prerendering abgeschlossen ist, auf einer vorgeladenen Seite, oder sie sofort auf einer nicht vorgeladenen Seite auszuführen:
 
 ```js
 if (document.prerendering) {
@@ -223,176 +223,182 @@ if (document.prerendering) {
 }
 ```
 
-## Unsichere Bedingungen für spekulatives Laden
+## Unsichere spekulative Ladebedingungen
 
-Dieser Abschnitt behandelt Bedingungen, auf die Sie achten sollten, unter denen Prefetching und/oder Prerendering **unsicher** sind. Das bedeutet, dass das Prefetching/Prerendering von Seiten, die diese Bedingungen aufweisen, in Ihrem Code gemildert oder ganz vermieden werden muss.
+Dieser Abschnitt behandelt Bedingungen, auf die Sie achten sollten, unter denen Prefetching und/oder Prerendering **unsicher** sind. Dies bedeutet, dass das Prefetchen/Prerendern von Seiten, die diese Bedingungen aufweisen, in Ihrem Code abgeschwächt oder ganz vermieden werden muss.
 
 ### Unsicheres Prefetching
 
-Wie bereits erwähnt, empfehlen wir, das Prefetching umfassend anzuwenden, da das Risiko-Ertrags-Verhältnis relativ gering ist — das Potenzial für Ressourcenverschwendung ist minimal, und die Leistungsverbesserungen können erheblich sein. Sie müssen jedoch sicherstellen, dass vorgeladene Seiten keine Probleme im Ablauf Ihrer Anwendung verursachen.
+Wie bereits erwähnt, empfehlen wir, Prefetching umfassend zu nutzen, da das Risiko im Verhältnis zum Nutzen relativ gering ist — das Potenzial für Ressourcenverschwendung ist minimal, und die Leistungsverbesserungen können signifikant sein. Sie müssen jedoch sicherstellen, dass vorab geladene Seiten den Ablauf Ihrer Anwendung nicht stören.
 
-Wenn ein Prefetch durchgeführt wird, lädt der Browser den Antworttext der referenzierten Seite über eine einzelne GET-Anfrage herunter, zu der der Nutzer möglicherweise zu einem späteren Zeitpunkt navigieren wird. Probleme können speziell dann auftreten, wenn die URL der Anfrage einen serverinitiierten Nebeneffekt bewirkt, den Sie erst auslösen möchten, wenn zur URL navigiert wird.
+Wenn ein Prefetch durchgeführt wird, lädt der Browser den Antwortkörper der referenzierten Seite über eine einzige GET-Anfrage herunter, die der Benutzer möglicherweise zu einem späteren Zeitpunkt besucht. Probleme können insbesondere auftreten, wenn die URL der Anfrage einen serverseitig initiierten Nebeneffekt ausführt, den Sie nicht haben möchten, bevor die URL aufgerufen wird.
 
 Zum Beispiel:
 
 - Abmelde-URLs.
-- URL für den Sprachwechsel.
-- "Zum Warenkorb hinzufügen"-URLs.
-- Anmelde-Flow-URLs, bei denen der Server eine SMS sendet, zum Beispiel als Einmalpasswort (OTP).
-- URLs, die die Nutzungsbegrenzung eines Benutzers erhöhen, wie das Konsumieren ihres monatlichen kostenlosen Artikelkontingents oder das Starten eines Timers für ihre monatlichen Minuten.
-- URLs, die serverseitiges Ad Conversion Tracking initiieren.
+- Sprachwechsel-URLs.
+- "In den Warenkorb"-URLs.
+- Anmeldefluss-URLs, bei denen der Server bewirkt, dass eine SMS gesendet wird, zum Beispiel als Einmalpasswort (OTP).
+- URLs, die die Nutzungszulassungszähler eines Benutzers erhöhen, wie das Ausschöpfen des monatlichen Gratisartikelkontingents oder das Starten des Timers für die monatlichen Minuten.
+- URLs, die serverseitiges Ad-Conversion-Tracking initiieren.
 
-Solche Probleme können auf dem Server abgemildert werden, indem Sie den {{httpheader("Sec-Purpose", "Sec-Purpose: prefetch")}}-Header beobachten, während die Anfragen eingehen, und dann spezifischen Code laufen lassen, um problematische Funktionalität zu verzögern. Später, wenn die Seite tatsächlich angesteuert wird, können Sie die verzögerte Funktionalität bei Bedarf über JavaScript initiieren.
-
-> [!NOTE]
-> Weitere Details zum Erkennungscode finden Sie im Abschnitt [Erkennung vorgeladener und vorgerenderter Seiten](#erkennung_vorgeladener_und_vorgerenderter_seiten).
-
-Es ist auch potenziell riskant, ein Dokument vorzuziehen, dessen serverseitiger Inhalt sich aufgrund von Aktionen änden kann, die der Benutzer auf der aktuellen Seite durchführen kann. Dies könnte beispielsweise Flash-Sale-Seiten oder Sitzpläne in Kinosälen umfassen. Testen Sie solche Fälle sorgfältig und vermeiden Sie Probleme, indem Sie die Inhalte aktualisieren, sobald die Seite geladen ist. Siehe [Server-gerenderter variierender Zustand](#server-gerenderter_variierender_zustand) für weitere Details zu solchen Fällen.
+Solche Probleme können auf dem Server abgeschwächt werden, indem auf den {{httpheader("Sec-Purpose", "Sec-Purpose: prefetch")}} Header geachtet wird, während die Anfragen eingehen, und spezifischer Code ausgeführt wird, um problematische Funktionalität zu verzögern. Später, wenn die Seite tatsächlich aufgerufen wird, können Sie die aufgeschobene Funktionalität bei Bedarf über JavaScript initiieren.
 
 > [!NOTE]
-> Browser werden vorgeladene Seiten für kurze Zeit zwischenspeichern (Chrome zum Beispiel speichert sie für 5 Minuten), bevor sie verworfen werden, sodass in jedem Fall Ihre Benutzer möglicherweise Inhalte sehen, die bis zu 5 Minuten alt sind.
+> Weitere Details zum Erkennungscode finden Sie im Abschnitt [Erkennung von vorab geladenen und vorgeladenen Seiten](#erkennung_von_vorab_geladenen_und_vorgeladenen_seiten).
 
-Prefetching ist sicher, wenn alle Nebeneffekte des Ladens der Seite aus der Ausführung von JavaScript resultieren, da das JavaScript nicht ausgeführt wird, bis es aktiviert wird.
+Es ist auch potenziell riskant, ein Dokument vorab zu laden, dessen serverseitig gerenderter Inhalt sich aufgrund von Aktionen ändern wird, die der Benutzer auf der aktuellen Seite durchführen kann. Dies könnte zum Beispiel Flash-Sale-Seiten oder Sitzpläne in Kinos betreffen. Testen Sie solche Fälle sorgfältig und mildern Sie die Probleme ab, indem Sie den Inhalt aktualisieren, sobald die Seite geladen ist. Siehe [Server-gerenderter variierender Status](#server-gerenderter_variierender_status) für weitere Details zu diesen Fällen.
 
-Ein letzter Tipp ist, die URLs zu überprüfen, die in Ihrer {{Glossary("robots.txt", "robots.txt")}}-Datei als nicht zulässig aufgeführt sind — normalerweise zeigen diese URLs auf Seiten, die nur von authentifizierten Benutzern zugegriffen werden können und daher nicht in Suchmaschinenergebnissen enthalten sein sollten. Viele dieser URLs sind unbedenklich, aber es kann ein guter Ausgangspunkt sein, um auf URLs zu stoßen, die für Prefetching unsicher sind (d.h. sie unterliegen den oben beschriebenen Bedingungen).
+> [!NOTE]
+> Browser werden vorab geladene Seiten für kurze Zeit zwischenspeichern (Chrome speichert sie zum Beispiel 5 Minuten lang), bevor sie verworfen werden, sodass Ihre Benutzer möglicherweise Inhalte sehen, die bis zu 5 Minuten veraltet sind.
+
+Veraltete Prefetches können mithilfe des {{httpheader("Clear-Site-Data#prefetchCache", "prefetchCache")}} Wertes des {{httpheader("Clear-Site-Data")}} Antwort-Headers gelöscht werden. Dies könnte zum Beispiel verwendet werden, wenn die Statusänderung von Anforderungen bedeutet, dass die zwischengespeicherten Daten nicht mehr gültig sind, zum Beispiel beim Abmelden von einer Seite.
+
+Prefetching ist sicher, wenn alle Nebeneffekte des Abrufens der Seite durch JavaScript-Ausführung verursacht werden, da das JavaScript erst nach der Aktivierung ausgeführt wird.
+
+Ein letzter Tipp ist, die in Ihrer {{Glossary("robots.txt", "robots.txt")}} Datei als verboten aufgeführten URLs zu überprüfen — normalerweise verweisen diese URLs auf Seiten, die nur von authentifizierten Benutzern aufgerufen werden können und daher nicht in Suchmaschinenergebnissen erscheinen sollen. Viele davon sind in Ordnung, aber es kann ein guter Ort sein, um URLs zu finden, die unsicher zum Prefetchen sind (d.h. sie weisen die oben beschriebenen Bedingungen auf).
 
 ### Unsicheres Prerendering
 
-Prerendering ist riskanter als Prefetching und sollte daher sparsamer durchgeführt werden, in Fällen, wo es sich lohnt. Es gibt mehr unsichere Bedingungen, auf die bei Prerendering zu achten ist, also obwohl der Nutzen höher ist, ist das Risiko es auch.
+Prerendering ist risikoreicher als Prefetching und sollte daher sparsamer eingesetzt werden, in Fällen, in denen es sich lohnt. Es gibt mehr unsichere Bedingungen, die Sie beim Prerendering beachten sollten, sodass zwar die Belohnung höher ist, das Risiko aber auch.
 
-Wenn ein Prerender durchgeführt wird, lädt der Browser die URL und rendert und lädt den Inhalt in eine unsichtbare Registerkarte. Dies schließt das Ausführen des Inhalts JavaScript und das Laden aller Subressourcen ein, einschließlich jener, die durch JavaScript geladen wurden. Der Inhalt kann potenziell unsicher zum Prerendern sein, wenn eine der folgenden Bedingungen vorliegt:
+Wenn ein Prerender durchgeführt wird, lädt der Browser die URL über GET und rendert und lädt den Inhalt in einem unsichtbaren Tab. Dies schließt das Ausführen des Inhalts-JavaScripts und das Laden aller Subressourcen mit ein, einschließlich derer, die durch JavaScript geladen werden. Inhalte können potenziell unsicher zum Prerendern sein, wenn eine der folgenden Bedingungen beobachtet wird:
 
-- Die URL ist [unsicher zum Prefetch](#unsicheres_prefetching). Lesen Sie den vorherigen Abschnitt erneut, wenn Sie dies noch nicht getan haben, und verstehen Sie, dass diese Bedingungen auch für unsicheres Prerendering gleichermaßen gelten.
-- Das JavaScript der Seite modifiziert den clientseitigen Speicher (zum Beispiel [Web-Storage](/de/docs/Web/API/Web_Storage_API) oder [IndexedDB](/de/docs/Web/API/IndexedDB_API)) beim Laden in einer Weise, die verwirrende Effekte in andere, nicht vorgerenderte Seiten erzeugen könnte, die der Benutzer anschaut.
-- Die Seite führt JavaScript aus oder lädt Bilder, die Nebeneffekte haben, wie das Senden von Analysen, das Aufzeichnen von Ad-Impressionen, oder sonstiges Modifizieren des Applikationszustands, als ob der Benutzer bereits damit interagiert hat. Wiederum könnte dies den Fluss der Anwendung beeinträchtigen oder falsche Leistungs- oder Nutzungsberichte verursachen. Siehe [Server-gerenderter variierender Zustand](#server-gerenderter_variierender_zustand) für weitere Details zu solchen Anwendungsfällen.
+- Die URL ist [unsicher zum Prefetchen](#unsicheres_prefetching). Lesen Sie den vorherigen Abschnitt durch, wenn Sie dies noch nicht getan haben, und verstehen Sie, dass diese Bedingungen gleichermaßen auf unsicheres Prerendering zutreffen.
+- Das JavaScript der Seite ändert clientseitigen Speicher (zum Beispiel [Web Storage](/de/docs/Web/API/Web_Storage_API) oder [IndexedDB](/de/docs/Web/API/IndexedDB_API)) beim Laden auf eine Weise, die möglicherweise verwirrende Effekte in anderen, nicht vorgeladenen Seiten verursacht, die der Benutzer gerade besucht.
+- Die Seite führt JavaScript aus oder lädt Bilder, die Nebeneffekte verursachen, wie das Senden von Analysedaten, das Aufzeichnen von Ad-Impressionen oder anderweitig den Zustand der Anwendung ändern, als ob der Benutzer bereits interagiert hätte. Auch hier kann dies den Ablauf der Anwendung stören oder zu einer falschen Leistungs- oder Nutzungsberichterstellung führen. Siehe [Server-gerenderter variierender Status](#server-gerenderter_variierender_status) für weitere Details zu solchen Anwendungsfällen.
 
-Um solche Probleme zu mindern, können Sie die folgenden Ansätze verwenden:
+Um solche Probleme zu mindern, können Sie die folgenden Techniken verwenden:
 
-- Beobachten Sie den {{httpheader("Sec-Purpose", "Sec-Purpose: prefetch")}}-Header auf dem Server, während die Anfragen eingehen, und verarbeiten Sie die Anfragen spezifischen Code zu verwenden, um problematische Funktionalität zu verzögern.
-- Verwenden Sie das [`prerenderingchange`](/de/docs/Web/API/Document/prerenderingchange_event)-Ereignis, um zu erkennen, wann die vorgerenderte Seite tatsächlich aktiviert wird und führen Sie entsprechenden Code aus. Dies ist in zwei Fällen nützlich:
-  - Das Aufschieben von Code, der Problem verursachen könnte, wenn er vor der Ansicht der Seite ausgeführt wird. Zum Beispiel möchten Sie möglicherweise erst nach der Aktivierung clientseitigen Speicher aktualisieren oder serverseitigen Zustände mit JavaScript ändern. Dies kann Situationen vermeiden, in denen die Benutzeroberfläche und der Applikationszustand nicht mehr synchron laufen, wie ein Warenkorb, der keine Artikel zeigt, obwohl der Nutzer welche hinzugefügt hat.
-  - Falls das Obige nicht möglich ist, können Sie trotzdem Code nach der Aktivierung erneut ausführen, um die App erneut zu aktualisieren. Zum Beispiel könnte eine hochdynamische Flash-Sale-Seite Content-Updates von einer Drittanbieter-Bibliothek empfangen. Wenn Sie die Updates nicht verzögern können, können Sie immer noch neue Updates holen, sobald die Seite angezeigt wird. Vorgerenderte Seiten können in Echtzeit über die [Broadcast Channel API](/de/docs/Web/API/Broadcast_Channel_API) oder einen andere Mechanismen wie [`fetch()`](/de/docs/Web/API/Window/fetch) oder ein [`WebSocket`](/de/docs/Web/API/WebSocket) aktualisiert werden. Dies garantiert, dass der Benutzer aktuelle Inhalte nach der Aktivierung des Prerenders sieht.
-- Verwalten Sie Ihren Drittanbieter-Analyse-Skripten sorgfältig — verwenden Sie nach Möglichkeit skripts, die prerendering-bewusst sind (zum Beispiel verwenden Sie die [`Document.prerendering`](/de/docs/Web/API/Document/prerendering)-Eigenschaft, um die Ausführung auf vorgerenderten Seiten zu verschieben) wie Google Analytics oder NewRelic.
-  - Beachten Sie, dass das Laden von Inhalten von domänenübergreifenden {{htmlelement("iframe")}} während des Prerenderings verzögert wird, bis die Seite aktiviert wird. Dies wird gemacht, um Komplikationen zu vermeiden, die durch das Laden domänenübergreifender Seiten verursacht werden, die sich des Prerenderings nicht bewusst sind, und um Komplexitäten im Umgang mit den anzuzeigenden Anmeldeinformationen und Speicher zu vermeiden. Es bedeutet, dass Benutzer in manchen Fällen zunächst leere Felder sehen können, aber es bedeutet auch, dass die meisten Drittanbieter-Widgets wie Ad-Tech während des Prerenderings sicher verwendet werden können.
-  - Für Drittanbieter-Skripte, die sich nicht des Prerenderings bewusst zu sein, vermeiden Sie das Laden bis nach der Aktivierung mit dem [`prerenderingchange`](/de/docs/Web/API/Document/prerenderingchange_event)-Ereignis, wie oben erörtert.
+- Achten Sie bei den eingehenden Anfragen auf den {{httpheader("Sec-Purpose", "Sec-Purpose: prefetch")}} Header am Server und führen Sie dann spezifischen Code aus, um problematische Funktionalität zu verzögern.
+- Verwenden Sie das [`prerenderingchange`](/de/docs/Web/API/Document/prerenderingchange_event) Ereignis, um zu erkennen, wann die vorgeladene Seite tatsächlich aktiviert wird, und führen Sie dann Code aus. Dies ist in zwei Fällen nützlich:
+  - Verzögern von Code, der Probleme verursachen könnte, wenn er vor der Ansicht der Seite ausgeführt wird. Zum Beispiel möchten Sie möglicherweise warten, bis nach der Aktivierung, um clientseitigen Speicher zu aktualisieren oder serverseitigen Status mithilfe von JavaScript zu ändern. Dies kann Situationen vermeiden, in denen die Benutzeroberfläche und der Anwendungsstatus außer Sync geraten, zum Beispiel ein Einkaufswagen, der keine Artikel anzeigt, obwohl der Benutzer welche hinzugefügt hat.
+  - Wenn das Obige nicht möglich ist, können Sie den Code dennoch nach der Aktivierung erneut ausführen, um die App wieder auf den neuesten Stand zu bringen. Zum Beispiel könnte eine stark dynamische Flash-Verkaufsseite auf Inhaltsaktualisierungen aus einer Drittanbieter-Bibliothek angewiesen sein. Wenn Sie die Aktualisierungen nicht verzögern können, können Sie frische Aktualisierungen anfordern, sobald der Benutzer die Seite betrachtet. Vorgeladene Seiten können in Echtzeit mit der [Broadcast Channel API](/de/docs/Web/API/Broadcast_Channel_API) oder einem anderen Mechanismus wie [`fetch()`](/de/docs/Web/API/Window/fetch) oder einem [`WebSocket`](/de/docs/Web/API/WebSocket) aktualisiert werden. Dies stellt sicher, dass der Benutzer nach der Aktivierung des Prerenders aktuelle Inhalte sieht.
+- Verwalten Sie Ihre Drittanbieter-Analysetools sorgfältig — verwenden Sie nach Möglichkeit Skripte, die sich der Prerendering-Aware sind (zum Beispiel die [`Document.prerendering`](/de/docs/Web/API/Document/prerendering) Eigenschaft verwenden, um ihre Ausführung auf Prerendering-Seiten zu verzögern), wie Google Analytics oder NewRelic.
+  - Beachten Sie, dass das Laden von Inhalten von Cross-Origin {{htmlelement("iframe")}}s während des Prerenderings bis nach der Aktivierung verzögert wird. Dies wird getan, um Unterbrechungen zu vermeiden, die durch das Laden von Cross-Origin-Seiten verursacht werden, die sich des Prerenderings nicht bewusst sind, und um komplexe Fragen darüber zu vermeiden, welche Anmeldeinformationen und Speicher für diese Frames sichtbar sind. Dies bedeutet, dass Benutzer in einigen Fällen möglicherweise zunächst leere Frames sehen, aber es bedeutet auch, dass die meisten Drittanbieter-Widgets wie die Ad-Tech sicher während des Prerenderings verwendet werden können.
+  - Für Drittanbieter-Skripte, die sich des Prerenderings nicht bewusst sind, vermeiden Sie deren Laden bis nach der Aktivierung mit dem [`prerenderingchange`](/de/docs/Web/API/Document/prerenderingchange_event) Ereignis, wie zuvor erwähnt.
 
-### Server-gerenderter variierender Zustand
+### Server-gerenderter variierender Status
 
-Es gibt zwei Haupttypen von servergerenderten Zustand, die berücksichtigt werden müssen: **veralteter Zustand** und **benutzerspezifischer Zustand**. Dies kann sowohl unsicherer für Prefetching als auch Prerendering sein.
+Es gibt zwei Haupttypen von serverseitig gerendertem Zustand, um die Sie sich kümmern müssen: **veralteter Zustand** und **benutzerspezifischer Zustand**. Dies kann sowohl unsicheres Prefetching als auch Prerendering verursachen.
 
-- Veralteter Zustand: Nehmen Sie ein Beispiel für eine servergerenderte Liste von Blog-Kommentaren, die zwischen dem Prerendering des Blog-Posts und seiner Ansicht veraltet sein könnte. Dies könnte besonders problematisch sein, wenn die aktuelle Seite ein Admin-Panel ist, wo der Nutzer Spam-Kommentare löscht. Wenn der Nutzer dann zum Blog-Post navigiert, könnten sie verwirrt sein, warum sie die Spam-Kommentare, die sie gerade gelöscht haben, sehen können.
-- Benutzerspezifischer Zustand: Nehmen Sie ein Beispiel, bei dem der Anmeldestatus über einen Cookie nachverfolgt wird. Probleme wie die folgenden können auftreten:
-  - Der Nutzer besucht `https://site.example/a` in Tab 1 und `https://site.example/b` in Tab 2, während er abgemeldet ist.
-  - `https://site.example/b` vorladen `https://site.example/c`. Es wird im abgemeldeten Zustand vorgeladen.
+- Veralteter Zustand: Erwägen Sie das Beispiel einer serverseitig gerenderten Liste von Blog-Kommentaren, die zwischen dem Prerender einer Blog-Seite und ihrer Ansicht veraltet sein könnten. Dies könnte besonders problematisch sein, wenn die aktuelle Seite ein Admin-Panel ist, wo der Benutzer gerade Spam-Kommentare löscht. Wenn der Benutzer dann zur Blog-Seite navigiert, könnte er verwirrt sein, warum er die Spam-Kommentare sieht, die er gerade gelöscht hat.
+- Benutzerspezifischer Zustand: Erwägen Sie das Beispiel des Trackings des Anmeldestatus über ein Cookie. Probleme könnten wie folgt auftreten:
+  - Der Benutzer besucht `https://site.example/a` in Tab 1 und `https://site.example/b` in Tab 2, während er abgemeldet ist.
+  - `https://site.example/b` lädt `https://site.example/c` vor. Es wird in einem abgemeldeten Zustand vorgeladen.
   - Der Benutzer meldet sich auf `https://site.example` in Tab 1 an.
-  - Der Benutzer wechselt zu Tab 2 und klickt den Link zu `https://site.example/c`, was die vorgerenderte Seite aktiviert.
-  - Tab 2 zeigt eine abgemeldete Ansicht von `https://site.example/c`, was den Benutzer verwirrt, da er dachte, dass er angemeldet war.
+  - Der Benutzer wechselt zu Tab 2 und klickt auf den Link zu `https://site.example/c`, der die vorgeladene Seite aktiviert.
+  - Tab 2 zeigt eine abgemeldete Ansicht von `https://site.example/c`, was den Benutzer verwirrt, da er dachte, dass er angemeldet ist.
 
-Benutzerspezifische Zustandsprobleme können auch bei anderen Benutzereinstellungen auftreten, wie Sprachpräferenzen, Dunkelmodus-Einstellungen oder beim Hinzufügen von Artikeln in den Warenkorb. Sie können auch auftreten, wenn nur ein einzelner Tab beteiligt ist:
+Benutzerspezifische Zustandsprobleme können für andere Benutzereinstellungen auftreten, zum Beispiel Spracheinstellungen, Dark-Mode-Präferenzen oder das Hinzufügen von Artikeln zu einem Warenkorb. Sie können auch auftreten, wenn nur ein einzelner Tab beteiligt ist:
 
 - Angenommen, der Benutzer besucht `https://site.example/product`.
-- `https://site.example.com/product` prerendert `https://site.example.com/cart`. Es wird mit 0 Artikeln im Warenkorb prerendert.
-- Der Benutzer klickt auf die "In den Warenkorb"-Schaltflächen, die eine Abrufanfrage auslösen, um den Artikel in den Warenkorb des Benutzers einzufügen (ohne Seitenneuladen).
-- Der Benutzer klickt auf den Link zu `https://site.example.com/cart`, was die vorgerenderte Seite aktiviert.
-- Der Benutzer sieht einen leeren Warenkorb, obwohl er gerade etwas hinzugefügt hat.
+- `https://site.example.com/product` lädt `https://site.example.com/cart` vor. Es wird mit 0 Artikeln im Warenkorb vorgeladen.
+- Der Benutzer klickt auf die Schaltfläche "In den Warenkorb", die eine Abrufanforderung zum Hinzufügen des Artikels in den Warenkorb des Benutzers auslöst (ohne Neuladen der Seite).
+- Der Benutzer klickt auf den Link zu `https://site.example.com/cart`, der die vorgeladene Seite aktiviert.
+- Der Benutzer sieht einen leeren Warenkorb, obwohl er etwas hinzugefügt hat.
 
-Die beste Minderung für diese Fälle, und in der Tat, wann immer Inhalte mit dem Server aus der Synchronisation geraten können, ist, dass Seiten sich selbst aktualisieren, wenn nötig. Beispielsweise könnte ein Server die [Broadcast Channel API](/de/docs/Web/API/Broadcast_Channel_API) oder einen anderen Mechanismus wie [`fetch()`](/de/docs/Web/API/Window/fetch) oder ein [`WebSocket`](/de/docs/Web/API/WebSocket) verwenden. Seiten können sich dann angemessen aktualisieren, auch spekulativ geladene Seiten, die noch nicht aktiviert wurden.
+Die beste Abschwächung für diese Fälle ist, dass sich Seiten bei Bedarf selbst aktualisieren. Zum Beispiel könnte ein Server die [Broadcast Channel API](/de/docs/Web/API/Broadcast_Channel_API), oder einen anderen Mechanismus wie [`fetch()`](/de/docs/Web/API/Window/fetch) oder ein [`WebSocket`](/de/docs/Web/API/WebSocket) verwenden. Seiten können sich dann angemessen aktualisieren, einschließlich spekulativ geladener Seiten, die noch nicht aktiviert wurden.
 
-## Sitzungsverlauf-Verhalten für vorgerenderte Dokumente
+Wo Aktualisierungen nicht möglich sind, können Spekulationen mithilfe des {{httpheader("Clear-Site-Data")}} Antwort-Headers mit den Werten {{httpheader("Clear-Site-Data#prefetchCache", `prefetchCache`)}} oder {{httpheader("Clear-Site-Data#prerenderCache", `prerenderCache`)}} (oder beiden) gelöscht werden, sofern zutreffend.
 
-Das Aktivieren eines dokuments prirendering/prendereded funktioniert wie jede konventionelle Navigation, aus der Sicht des end-nutzers. Das aktivierte Dokument wird im Tab angezeigt und dem Sitzungsverlauf angehängt, und alle vorhandenen Vorwärtsverlaufseinträge werden entfernt. Alle Navigationen innerhalb des prerenderingbrowsingcontex vor der Aktivierung beeinflussen nicht den Sitzungsverlauf.
+Der Header kann bei allen same-site HTTP-Anfragen zurückgegeben werden (wie einer `/api/add-to-cart` API-Anforderung).
 
-Aus der Sicht des Entwicklers kann ein prerenderingdokument als **trivialer Sitzungsverlauf** betrachtet werden, bei dem nur ein Eintrag — der aktuelle Eintrag — existiert. Alle Navigationen innerhalb des prerenderingkontexts werden effektiv ersetzt.
+## Sitzungsverlaufverhalten für vorgeladene Dokumente
 
-Während API-Funktionen, die auf Sitzungsverlauf operieren (zum Beispiel [`History`](/de/docs/Web/API/History) und [`Navigation`](/de/docs/Web/API/Navigation)) in prerenderingdokumenten aufgerufen werden können, operieren diese nur auf den trivialen Sitzungsverlauf des Kontexts. Infolgedessen nehmen prerenderingdokumente nicht am gemeinsamen Sitzungsverlauf ihrer verweisenden Seite teil. Beispielsweise können sie nicht zu ihrem Verweisenden über [`History.back()`](/de/docs/Web/API/History/back) navigieren.
+Die Aktivierung eines Prerendering/vorgeladenen Dokuments verhält sich aus Endbenutzersicht wie jede konventionelle Navigation. Das aktivierte Dokument wird im Tab angezeigt und dem Sitzungsverlauf hinzugefügt, und alle vorhandenen Weiterhistorieneinträge werden abgeschnitten. Alle Navigationen, die innerhalb des Prerendering-Browsing-Kontexts _vor_ der Aktivierung stattfinden, wirken sich nicht auf den Sitzungsverlauf aus.
 
-Dieses Design stellt sicher, dass Benutzer die erwartete Erfahrung machen, wenn sie die Zurücktaste verwenden — d.h. dass sie zurück zu dem Letzten, was sie gesehen haben, gebracht werden. Sobald ein prerenderingdokument aktiviert wird, wird nur ein einziger Sitzungsverlaufseintrag dem gemeinsamen Sitzungsverlauf angehängt, wodurch alle vorherigen Navigationen ignoriert werden, die innerhalb des prerenderingbrowsingcontext stattfanden. Der Versuch, einen Schritt im gemeinsamen Sitzungsverlauf zurückzugehen — zum Beispiel, indem man die Zurücktaste drückt — bringt den Benutzer zurück zur Verweisseite.
+Aus Entwicklersicht kann ein Prerendering-Dokument so betrachtet werden, als hätte es einen **trivialen Sitzungsverlauf**, in dem nur ein Eintrag existiert — der aktuelle Eintrag. Alle Navigationen innerhalb des Prerendering-Kontexts werden effektiv ersetzt.
 
-## Plattformfunktionen, die während des Prerenderings aufgeschrieben oder eingeschränkt werden
+Während API-Funktionen, die auf dem Sitzungsverlauf operieren (zum Beispiel [`History`](/de/docs/Web/API/History) und [`Navigation`](/de/docs/Web/API/Navigation)), innerhalb der Prerendering-Dokumente aufgerufen werden können, operieren sie nur auf dem trivialen Sitzungsverlauf des Kontexts. Folglich nehmen Prerendering-Dokumente nicht am gemeinsamen Sitzungsverlauf ihrer verweisenden Seite teil. Zum Beispiel können sie ihren Referrer nicht über [`History.back()`](/de/docs/Web/API/History/back) navigieren.
 
-Da eine vorgerenderte Seite in einem versteckten Zustand geöffnet wird, werden mehrere Eingenschaften der API-Funktionen, die potenziell intrusive Verhaltensweisen verursachen, in diesem Zustand nicht aktiviert und stattdessen **zurückgestellt** bis die Seite aktiviert wird. Andere Web-Plattformeigenschaften, die bei Prerendering problematisch sind, sind insgesamt eingeschränkt. Dieser Abschnitt liefert Details darüber, welche Eigenschaften zurückgestellt oder eingeschränkt werden.
+Dieses Design stellt sicher, dass Benutzer die erwartete Erfahrung beim Verwenden der Zurücktaste machen — d.h. dass sie zurück zur letzten von ihnen gesehenen Seite gelangen. Sobald ein Prerendering-Dokument aktiviert wird, wird nur ein Sitzungsverlaufeintrag dem gemeinsamen Sitzungsverlauf hinzugefügt, wobei alle vorherigen Navigationen ignoriert werden, die im Prerendering-Browsing-Kontext stattgefunden haben. Ein Schritt zurück im gemeinsamen Sitzungsverlauf — zum Beispiel durch Drücken der Zurücktaste — führt den Benutzer zurück zur Referrer-Seite.
+
+## Plattform-Funktionen, die während des Prerenderings aufgeschoben oder eingeschränkt sind
+
+Da eine vorgeladene Seite in einem versteckten Zustand geöffnet wird, werden mehrere API-Funktionen, die potenziell störende Verhaltensweisen verursachen, in diesem Zustand nicht aktiviert und stattdessen **zurückgestellt**, bis die Seite aktiviert wird. Andere Webplattform-Funktionen, die problematisch sind, wenn sie vorgeladen werden, sind vollständig eingeschränkt. Dieser Abschnitt bietet Details zu den Funktionen, die zurückgestellt oder eingeschränkt sind.
 
 > [!NOTE]
-> In den wenigen Fällen, in denen es nicht möglich ist, aufgeschobene und eingeschränkte Optionen zu verwenden, wird das Prerender abgebrochen.
+> In wenigen Fällen, in denen ein Aufschieben und Einschränken nicht möglich ist, wird das Prerender abgebrochen.
 
-### Asynchrone API-Rückstellung
+### Asynchrone API-Aufschiebung
 
-Rückstellung bedeutet, dass die API-Funktion sofort ein ausstehendes Versprechen zurückgibt und dann nichts tut, bis die Seite aktiviert wird. Nach der Aktivierung läuft die Funktion normal weiter und das Versprechen wird normal gelöst oder abgelehnt.
+Aufschieben bedeutet, dass die API-Funktion sofort ein pendenten Promise zurückgibt und dann nichts tut, bis die Seite aktiviert wird. Nach der Aktivierung läuft die Funktionalität wie gewohnt und das Promise wird normal aufgelöst oder abgelehnt.
 
-Die folgenden asynchronen Funktionen Ergebnisse werden in prerendereddokumten bis zur ihrer Aktivierung aufgerufen:
+Die Ergebnisse der folgenden asynchronen Funktionen werden in vorgeladenen Dokumenten bis zu ihrer Aktivierung zurückgestellt:
 
-- [Audio-Ausgabegeräte-API](/de/docs/Web/API/Audio_Output_Devices_API): [`MediaDevices.selectAudioOutput()`](/de/docs/Web/API/MediaDevices/selectAudioOutput)
-- [Hintergrund-Abruf-API](/de/docs/Web/API/Background_Fetch_API): [`BackgroundFetchManager.fetch()`](/de/docs/Web/API/BackgroundFetchManager/fetch)
+- [Audio Output Devices API](/de/docs/Web/API/Audio_Output_Devices_API): [`MediaDevices.selectAudioOutput()`](/de/docs/Web/API/MediaDevices/selectAudioOutput)
+- [Background Fetch API](/de/docs/Web/API/Background_Fetch_API): [`BackgroundFetchManager.fetch()`](/de/docs/Web/API/BackgroundFetchManager/fetch)
 - [Broadcast Channel API](/de/docs/Web/API/Broadcast_Channel_API): [`BroadcastChannel.postMessage()`](/de/docs/Web/API/BroadcastChannel/postMessage)
 - [Credential Management API](/de/docs/Web/API/Credential_Management_API): [`CredentialsContainer.create()`](/de/docs/Web/API/CredentialsContainer/create), [`CredentialsContainer.get()`](/de/docs/Web/API/CredentialsContainer/get), [`CredentialsContainer.store()`](/de/docs/Web/API/CredentialsContainer/store)
-- [Erweiterte Medien-API](/de/docs/Web/API/Encrypted_Media_Extensions_API): [`Navigator.requestMediaKeySystemAccess()`](/de/docs/Web/API/Navigator/requestMediaKeySystemAccess)
+- [Encrypted Media Extensions API](/de/docs/Web/API/Encrypted_Media_Extensions_API): [`Navigator.requestMediaKeySystemAccess()`](/de/docs/Web/API/Navigator/requestMediaKeySystemAccess)
 - [Gamepad API](/de/docs/Web/API/Gamepad_API): [`Navigator.getGamepads()`](/de/docs/Web/API/Navigator/getGamepads), [`gamepadconnected`](/de/docs/Web/API/Window/gamepadconnected_event) Ereignis, [`gamepaddisconnected`](/de/docs/Web/API/Window/gamepaddisconnected_event) Ereignis
 - [Geolocation API](/de/docs/Web/API/Geolocation_API): [`Geolocation.getCurrentPosition()`](/de/docs/Web/API/Geolocation/getCurrentPosition), [`Geolocation.watchPosition()`](/de/docs/Web/API/Geolocation/watchPosition), [`Geolocation.clearWatch()`](/de/docs/Web/API/Geolocation/clearWatch)
-- [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement) API: Die Wiedergabezeit wird nicht voranschreiten, während sich das enthaltende Dokument im Prerenderingstatus befindet
-- [Leerlauferkennung-API](/de/docs/Web/API/Idle_Detection_API): [`IdleDetector.start()`](/de/docs/Web/API/IdleDetector/start)
-- [Medienaufnahme- und Streams-API](/de/docs/Web/API/Media_Capture_and_Streams_API): [`MediaDevices.getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) (und die veraltete [`Navigator.getUserMedia()`](/de/docs/Web/API/Navigator/getUserMedia) Version), [`MediaDevices.enumerateDevices()`](/de/docs/Web/API/MediaDevices/enumerateDevices)
-- [Benachrichtigungs-API](/de/docs/Web/API/Notifications_API): [`Notification()`](/de/docs/Web/API/Notification/Notification) Konstruktor, [`Notification.requestPermission()`](/de/docs/Web/API/Notification/requestPermission_static)
-- [Push-API](/de/docs/Web/API/Push_API): [`PushManager.subscribe()`](/de/docs/Web/API/PushManager/subscribe)
-- [Bildschirmorientierungs-API](/de/docs/Web/API/Screen_Orientation_API): [`ScreenOrientation.lock()`](/de/docs/Web/API/ScreenOrientation/lock), [`ScreenOrientation.unlock()`](/de/docs/Web/API/ScreenOrientation/unlock)
-- [Sensor-APIs](/de/docs/Web/API/Sensor_APIs): [`Sensor.start()`](/de/docs/Web/API/Sensor/start)
-- [Service Worker-API](/de/docs/Web/API/Service_Worker_API): [`ServiceWorker.postMessage()`](/de/docs/Web/API/ServiceWorker/postMessage), [`ServiceWorkerContainer.register()`](/de/docs/Web/API/ServiceWorkerContainer/register), [`ServiceWorkerRegistration.update()`](/de/docs/Web/API/ServiceWorkerRegistration/update), [`ServiceWorkerRegistration.unregister()`](/de/docs/Web/API/ServiceWorkerRegistration/unregister)
-- [Speicher-API](/de/docs/Web/API/Storage_API): [`StorageManager.persist()`](/de/docs/Web/API/StorageManager/persist)
-- [Web Audio API](/de/docs/Web/API/Web_Audio_API): [`AudioContext`](/de/docs/Web/API/AudioContext)s dürfen nicht starten, während das enthaltende Dokument prerendering ist
-- [Web Bluetooth API](/de/docs/Web/API/Web_Bluetooth_API): [`Bluetooth.getDevices()`](/de/docs/Web/API/Bluetooth/getDevices), [`Bluetooth.requestDevice()`](/de/docs/Web/API/Bluetooth/requestDevice)
-- [WebHID API](/de/docs/Web/API/WebHID_API): [`HID.getDevices()`](/de/docs/Web/API/HID/getDevices), [`HID.requestDevice()`](/de/docs/Web/API/HID/requestDevice)
-- [Web Locks API](/de/docs/Web/API/Web_Locks_API): [`LockManager.query()`](/de/docs/Web/API/LockManager/query), [`LockManager.request()`](/de/docs/Web/API/LockManager/request)
-- [Web MIDI API](/de/docs/Web/API/Web_MIDI_API): [`Navigator.requestMIDIAccess()`](/de/docs/Web/API/Navigator/requestMIDIAccess)
-- [Web NFC API](/de/docs/Web/API/Web_NFC_API): [`NDefReader.write()`](/de/docs/Web/API/NDEFReader/write), [`NDefReader.scan()`](/de/docs/Web/API/NDEFReader/scan)
-- [Web Seriell-API](/de/docs/Web/API/Web_Serial_API): [`Serial.getPorts()`](/de/docs/Web/API/Serial/getPorts), [`Serial.requestPort()`](/de/docs/Web/API/Serial/requestPort)
-- [Web Speech API](/de/docs/Web/API/Web_Speech_API): [`SpeechRecognition.abort()`](/de/docs/Web/API/SpeechRecognition/abort), [`SpeechRecognition.start()`](/de/docs/Web/API/SpeechRecognition/start), [`SpeechRecognition.stop()`](/de/docs/Web/API/SpeechRecognition/stop), [`SpeechSynthesis.cancel()`](/de/docs/Web/API/SpeechSynthesis/cancel), [`SpeechSynthesis.pause()`](/de/docs/Web/API/SpeechSynthesis/pause), [`SpeechSynthesis.resume()`](/de/docs/Web/API/SpeechSynthesis/resume), [`SpeechSynthesis.speak()`](/de/docs/Web/API/SpeechSynthesis/speak)
-- [WebUSB API](/de/docs/Web/API/WebUSB_API): [`USB.getDevices()`](/de/docs/Web/API/USB/getDevices), [`USB.requestDevice()`](/de/docs/Web/API/USB/requestDevice)
-- [WebXR-Geräte-API](/de/docs/Web/API/WebXR_Device_API): [`XRSystem.requestSession()`](/de/docs/Web/API/XRSystem/requestSession)
+- [`HTMLMediaElement`](/en-US/docs<Web/API/HTMLMediaElement) API: Die Wiedergabeposition wird nicht fortschreiten, während das enthaltene Dokument vorgeladen wird
+- [Idle Detection API](/de/docs/Web/API/Idle_Detection_API): [`IdleDetector.start()`](/de/docs/Web/API/IdleDetector/start)
+- [Media Capture and Streams API](/de/docs/Web/API/Media_Capture_and_Streams_API): [`MediaDevices.getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) (und die Legacy-Version [`Navigator.getUserMedia()`](/de/docs/Web/API/Navigator/getUserMedia)), [`MediaDevices.enumerateDevices()`](/de/docs/Web/API/MediaDevices/enumerateDevices)
+- [Notifications API](/de/docs/Web/API/Notifications_API): [`Notification()`](/de/docs/Web/API/Notification/Notification) Konstruktor, [`Notification.requestPermission()`](/de/docs/Web/API/Notification/requestPermission_static)
+- [Push API](/de/docs/Web/API/Push_API): [`PushManager.subscribe()`](/de/docs/Web/API/PushManager/subscribe)
+- [Screen Orientation API](/de/docs/Web/API/Screen_Orientation_API): [`ScreenOrientation.lock()`](/de/docs/Web/API/ScreenOrientation/lock), [`ScreenOrientation.unlock()`](/de/docs/Web/API/ScreenOrientation/unlock)
+- [Sensor APIs](/de/docs/Web/API/Sensor_APIs): [`Sensor.start()`](/de/docs/Web/API/Sensor/start)
+- [Service Worker API](/de/docs/Web/API/Service_Worker_API): [`ServiceWorker.postMessage()`](/de/docs/Web/API/ServiceWorker/postMessage), [`ServiceWorkerContainer.register()`](/de/docs/Web/API/ServiceWorkerContainer/register), [`ServiceWorkerRegistration.update()`](/de/docs/Web/API/ServiceWorkerRegistration/update), [`ServiceWorkerRegistration.unregister()`](/de/docs/Web/API/ServiceWorkerRegistration/unregister)
+- [Storage API](/de/docs/Web/API/Storage_API): [`StorageManager.persist()`](/de/docs/Web/API/StorageManager/persist)
+- [Web Audio API](/de/docs/Web/API/Web_Audio_API): [`AudioContext`](/de/docs/Web/API/AudioContext)s dürfen nicht starten, während das enthaltene Dokument vorgeladen wird
+- [Web Bluetooth API](/de/docs/Web_API/Web_Bluetooth_API): [`Bluetooth.getDevices()`](/de/docs/Web_API/Bluetooth/getDevices), [`Bluetooth.requestDevice()`](/de/docs/Web/API/Bluetooth/requestDevice)
+- [WebHID API](/de/docs/Web_API/WebHID_API): [`HID.getDevices()`](/de/docs/Web_API/HID/getDevices), [`HID.requestDevice()`](/de/docs/Web_API/HID/requestDevice)
+- [Web Locks API](/de/docs/Web_API/Web_Locks_API): [`LockManager.query()`](/de/docs/Web_API/LockManager/query), [`LockManager.request()`](/de/docs/Web_API/LockManager/request)
+- [Web MIDI API](/de/docs/Web_API/Web_MIDI_API): [`Navigator.requestMIDIAccess()`](/de/docs/Web/API/Navigator/requestMIDIAccess)
+- [Web NFC API](/de/docs/Web_API/Web_NFC_API): [`NDefReader.write()`](/de/docs/Web/API/NDEFReader/write), [`NDefReader.scan()`](/de/docs/Web/API/NDEFReader/scan)
+- [Web Serial API](/de/docs/Web_API/Web_Serial_API): [`Serial.getPorts()`](/de/docs/Web/API/Serial/getPorts), [`Serial.requestPort()`](/de/docs/Web/API/Serial/requestPort)
+- [Web Speech API](/de/docs/Web_API/Web_Speech_API): [`SpeechRecognition.abort()`](/de/docs/Web/API/SpeechRecognition/abort), [`SpeechRecognition.start()`](/de/docs/Web/API/SpeechRecognition/start), [`SpeechRecognition.stop()`](/de/docs/Web/API/SpeechRecognition/stop), [`SpeechSynthesis.cancel()`](/de/docs/Web/API/SpeechSynthesis/cancel), [`SpeechSynthesis.pause()`](/de/docs/Web/API/SpeechSynthesis/pause), [`SpeechSynthesis.resume()`](/de/docs/Web/API/SpeechSynthesis/resume), [`SpeechSynthesis.speak()`](/de/docs/Web/API/SpeechSynthesis/speak)
+- [WebUSB API](/de/docs/Web_API/WebUSB_API): [`USB.getDevices()`](/de/docs/Web_API/USB/getDevices), [`USB.requestDevice()`](/de/docs/Web_API/USB/requestDevice)
+- [WebXR Device API](/de/docs/Web_API/WebXR_Device_API): [`XRSystem.requestSession()`](/de/docs/Web/API/XRSystem/requestSession)
 
 ### Implizit eingeschränkte APIs
 
-Die folgenden Funktionen werden in nicht aktivierten Dokumenten automatisch fehlschlagen oder nicht ausgeführt.
+Die folgenden Funktionen werden in nicht aktivierten Dokumenten automatisch fehlschlagen oder ohne Wirkung ausgeführt.
 
-APIs, die {{Glossary("transient_activation", "transiente Aktivierung")}} oder {{Glossary("sticky_activation", "sticky-activation")}} erfordern:
+APIs, die {{Glossary("transient_activation", "transiente Aktivierung")}} oder {{Glossary("sticky_activation", "dauerhafte Aktivierung")}} erfordern:
 
-- Bestätigungsdialoge erstellt durch das [`beforeunload`](/de/docs/Web/API/Window/beforeunload_event) Ereignis
-- Das Feuern von irgendeinem Ereignis in der [Zwischenablage-API](/de/docs/Web/API/Clipboard_API).
-- [Dateisystem-API](/de/docs/Web/API/File_System_API): [`Window.showDirectoryPicker()`](/de/docs/Web/API/Window/showDirectoryPicker), [`Window.showOpenFilePicker()`](/de/docs/Web/API/Window/showOpenFilePicker), [`Window.showSaveFilePicker()`](/de/docs/Web/API/Window/showSaveFilePicker)
-- [Vollbild-API](/de/docs/Web/API/Fullscreen_API): [`Element.requestFullscreen()`](/de/docs/Web/API/Element/requestFullscreen)
-- [Leerlauferkennung-API](/de/docs/Web/API/Idle_Detection_API): [`IdleDetector.requestPermission()`](/de/docs/Web/API/IdleDetector/requestPermission_static)
-- [Tastatur-API](/de/docs/Web/API/Keyboard_API): [`Keyboard.lock()`](/de/docs/Web/API/Keyboard/lock) (im Vollbildmodus erforderlich)
-- [Zahlungsanforderungs-API](/de/docs/Web/API/Payment_Request_API): [`PaymentRequest.show()`](/de/docs/Web/API/PaymentRequest/show)
-- [Präsentations-API](/de/docs/Web/API/Presentation_API): [`PresentationRequest.start()`](/de/docs/Web/API/PresentationRequest/start)
-- [Pointer-Lock-API](/de/docs/Web/API/Pointer_Lock_API): [`Element.requestPointerLock()`](/de/docs/Web/API/Element/requestPointerLock)
-- [Bildschirmaufnahme-API](/de/docs/Web/API/Screen_Capture_API): [`MediaDevices.getDisplayMedia()`](/de/docs/Web/API/MediaDevices/getDisplayMedia)
-- [Web Share API](/de/docs/Web/API/Web_Share_API): [`Navigator.share()`](/de/docs/Web/API/Navigator/share)
+- Bestätigungsdialoge, die durch das [`beforeunload`](/de/docs/Web/API/Window/beforeunload_event) Ereignis generiert werden
+- Das Auslösen von Ereignissen in der [Zwischenablage-API](/de/docs/Web/API/Clipboard_API).
+- [File System API](/de/docs/Web/API/File_System_API): [`Window.showDirectoryPicker()`](/de/docs/Web_API/Window/showDirectoryPicker), [`Window.showOpenFilePicker()`](/de/docs/Web/API/Window/showOpenFilePicker), [`Window.showSaveFilePicker()`](/de/docs/Web/API/Window/showSaveFilePicker)
+- [Fullscreen API](/de/docs/Web_API/Fullscreen_API): [`Element.requestFullscreen()`](/de/docs/Web/API/Element/requestFullscreen)
+- [Idle Detection API](/de/docs/Web_API/Idle_Detection_API): [`IdleDetector.requestPermission()`](/de/docs/Web_API/IdleDetector/requestPermission_static)
+- [Keyboard API](/de/docs/Web/API/Keyboard_API): [`Keyboard.lock()`](/de/docs/Web/API/Keyboard/lock) (was Vollbildmodus erfordert)
+- [Payment Request API](/de/docs/Web/API/Payment_Request_API): [`PaymentRequest.show()`](/de/docs/Web/API/PaymentRequest/show)
+- [Presentation API](/de/docs/Web/API/Presentation_API): [`PresentationRequest.start()`](/de/docs/Web/API/PresentationRequest/start)
+- [Pointer Lock API](/de/docs/Web/API/Pointer_Lock_API): [`Element.requestPointerLock()`](/de/docs/Web/API/Element/requestPointerLock)
+- [Screen Capture API](/de/docs/Web/API/Screen_Capture_API): [`MediaDevices.getDisplayMedia()`](/de/docs/Web/API/MediaDevices/getDisplayMedia)
+- [Web Share API](/de/docs/Web_API/Web_Share_API): [`Navigator.share()`](/de/docs/Web/API/Navigator/share)
 - [`Window.open()`](/de/docs/Web/API/Window/open)
 
-APIs, die erfordern, dass das enthaltende Dokument fokussiert ist:
+APIs, die erfordern, dass das enthaltene Dokument fokussiert ist:
 
-- [Zwischenablage-API](/de/docs/Web/API/Clipboard_API): [`Clipboard.read()`](/de/docs/Web/API/Clipboard/read), [`Clipboard.readText()`](/de/docs/Web/API/Clipboard/readText), [`Clipboard.write()`](/de/docs/Web/API/Clipboard/write), [`Clipboard.writeText()`](/de/docs/Web/API/Clipboard/writeText)
+- [Zwischenablage-API](/de/docs/Web_API/Clipboard_API): [`Clipboard.read()`](/de/docs/Web_API/Clipboard/read), [`Clipboard.readText()`](/de/docs/Web_API/Clipboard/readText), [`Clipboard.write()`](/de/docs/Web_API/Clipboard/write), [`Clipboard.writeText()`](/de/docs/Web_API/Clipboard/writeText)
 
-APIs, die erfordern, dass der [`Document.visibilityState`](/de/docs/Web/API/Document/visibilityState) des enthaltenden Dokuments `"sichtbar"` ist:
+APIs, die erfordern, dass der [`Document.visibilityState`](/de/docs/Web_API/Document/visibilityState) als `"visible"` festgelegt ist:
 
-- [Bild-im-Bild-API](/de/docs/Web/API/Picture-in-Picture_API): [`HTMLVideoElement.requestPictureInPicture()`](/de/docs/Web/API/HTMLVideoElement/requestPictureInPicture) (erfordert den Sichtbarkeitszustand des enthaltenen Dokuments auf `"sichtbar"`, _oder_ {{Glossary("transient_activation", "transiente Aktivierung")}})
-- [Bildschirm-Wake-Lock-API](/de/docs/Web/API/Screen_Wake_Lock_API): [`WakeLock.request()`](/de/docs/Web/API/WakeLock/request)
+- [Picture-in-Picture API](/de/docs/Web/API/Picture-in-Picture_API): [`HTMLVideoElement.requestPictureInPicture()`](/de/docs/Web/API/HTMLVideoElement/requestPictureInPicture) (erfordert, dass der Sichtbarkeitszustand des enthaltenen Dokuments `"visible"` ist, _oder_ {{Glossary("transient_activation", "transiente Aktivierung")}})
+- [Screen Wake Lock API](/de/docs/Web/API/Screen_Wake_Lock_API): [`WakeLock.request()`](/de/docs/Web/API/WakeLock/request)
 
 ### Andere eingeschränkte Funktionen
 
-- Download-Links, d.h. {{htmlelement("a")}} und {{htmlelement("area")}}-Elemente mit dem `download`-Attribut, werden ihre Downloads verzögern, bis das Prerendering abgeschlossen ist.
-- Keine domänenübergreifenden Navigationen: Jedes prerenderingdokument, das zu einer anderen Seite navigiert, wird sofort verworfen, bevor eine Anfrage an diese andere Seite gesendet wird.
-- Eingeschränkte URLs: Prerenderingdokumente können keine nicht-HTTP(S)-Top-Level-URLs bereitstellen. Das Einschließen der folgenden URL-Typen führt dazu, dass das Prerender sofort verworfen wird:
+- Download-Links, d.h. {{htmlelement("a")}} und {{htmlelement("area")}} Elemente mit dem `download` Attribut, werden ihre Downloads verzögern, bis das Prerendering abgeschlossen ist.
+- Keine Cross-Site-Navigationen: Jedes Dokument, das während des Prerenderings zu einer anderen Website navigiert, wird sofort verworfen, bevor eine Anfrage an die andere Website gesendet wird.
+- Eingeschränkte URLs: Dokumente, die vorgeladen werden, können keine nicht-HTTP(S) Top-Level-URLs hosten. Das Einbeziehen der folgenden URL-Typen führt dazu, dass das Prerender sofort verworfen wird:
   - [`javascript:` URLs](/de/docs/Web/URI/Reference/Schemes/javascript)
   - [`data:` URLs](/de/docs/Web/URI/Reference/Schemes/data)
   - `blob:` URLs
   - `about:` URLs, einschließlich `about:blank` und `about:srcdoc`
-- Sitzungsspeicher: [`Window.sessionStorage`](/de/docs/Web/API/Window/sessionStorage) kann verwendet werden, aber das Verhalten ist sehr spezifisch, um zu vermeiden, dass Seiten brechen, die erwarten, dass nur eine Seite auf den Tab-Sitzungsspeicher auf einmal zugreift. Eine prerenderte Seite beginnt daher mit einem Klon des Tab-Sitzungsspeicherzustands von dem, als sie erstellt wurde. Bei der Aktivierung wird der Klon des Sitzungsspeichers der prerendereten Seite verworfen und der Hauptzählerspeicherzustand des Tabs stattdessen verwendet. Seiten, die Sitzspeicher verwenden, können das [`prerenderingchange`](/de/docs/Web/API/Document/prerenderingchange_event)-Ereignis verwenden, um zu erkennen, wann dieser Speicheraustausch auftritt.
+- Sitzungspeicherung: [`Window.sessionStorage`](/de/docs/Web/API/Window/sessionStorage) kann verwendet werden, aber das Verhalten ist sehr spezifisch, um zu vermeiden, dass Websites brechen, die erwarten, dass nur eine Seite den Sitzungspeicher des Tabs zu einer Zeit zugreift. Eine vorgeladene Seite beginnt daher mit einem Klon des Sitzungspeicherzustands des Tabs von dem Zeitpunkt an, als sie erstellt wurde. Nach der Aktivierung wird der Klon des Speichers der vorgeladenen Seite verworfen und der Hauptspeicherzustand des Tabs wird stattdessen verwendet. Seiten, die Sitzungspeicherung verwenden, können das [`prerenderingchange`](/de/docs/Web/API/Document/prerenderingchange_event) Ereignis verwenden, um zu erkennen, wann dieser Speicheraustausch erfolgt.
 - [`Window.print()`](/de/docs/Web/API/Window/print): Alle Aufrufe dieser Methode werden ignoriert.
-- "Einfache Dialogmethoden" sind wie folgt eingeschränkt:
+- "Einfache Dialog-Methoden" sind wie folgt eingeschränkt:
   - [`Window.alert()`](/de/docs/Web/API/Window/alert) gibt sofort zurück, ohne einen Dialog anzuzeigen.
   - [`Window.confirm()`](/de/docs/Web/API/Window/confirm) gibt sofort `false` zurück, ohne einen Dialog anzuzeigen.
   - [`Window.prompt()`](/de/docs/Web/API/Window/prompt) gibt sofort einen leeren String (`""`) zurück, ohne einen Dialog anzuzeigen.
-- Dedizierte / geteilte Arbeitsscripts werden geladen, aber deren Ausführung bis zur Aktivierung des prerendered-Dokuments zurückgesetzt.
-- Cross-origin {{htmlelement("iframe")}}-Ladungen werden während des Prerenderings verzögert, bis die Seite aktiviert wird.
+- Dedizierte/geteilte Worker-Skripts werden geladen, aber ihre Ausführung wird aufgeschoben, bis das vorgeladene Dokument aktiviert wird.
+- Cross-Origin {{htmlelement("iframe")}}-Ladungen werden während des Prerenderings verzögert, bis die Seite aktiviert wird.
 
 ## Schnittstellen
 
@@ -400,32 +406,34 @@ Die Speculation Rules API definiert keine eigenen Schnittstellen.
 
 ### Erweiterungen zu anderen Schnittstellen
 
-- [`Document.prerendering`](/de/docs/Web/API/Document/prerendering) {{experimental_inline}}
-  - : Eine boolesche Eigenschaft, die `true` zurückgibt, wenn das Dokument derzeit im Prerendering-Prozess ist.
-- [`prerenderingchange`](/de/docs/Web/API/Document/prerenderingchange_event) Ereignis {{experimental_inline}}
-  - : Wird auf einem vorgerenderten Dokument ausgelöst, wenn es aktiviert wird (d.h. der Nutzer betrachtet die Seite).
+- [`Document.prerendering`](/de/docs/Web_API/Document/prerendering) {{experimental_inline}}
+  - : Eine boolesche Eigenschaft, die `true` zurückgibt, wenn das Dokument derzeit im Prozess des Prerenderings ist.
+- [`prerenderingchange`](/de/docs/Web_API/Document/prerenderingchange_event) Ereignis {{experimental_inline}}
+  - : Wird auf einem vorgeladenen Dokument ausgelöst, wenn es aktiviert wird (d.h. der Benutzer die Seite ansieht).
 - [`PerformanceNavigationTiming.activationStart`](/de/docs/Web/API/PerformanceNavigationTiming/activationStart) {{experimental_inline}}
-  - : Eine Zahl, die die Zeit zwischen dem Start eines Dokuments zum Prerendering und der Aktivierung darstellt.
+  - : Eine Zahl, die die Zeit zwischen dem Start des Prerenderings eines Dokuments und seiner Aktivierung darstellt.
 - [`PerformanceResourceTiming.deliveryType`](/de/docs/Web/API/PerformanceResourceTiming/deliveryType) `"navigational-prefetch"` Wert {{experimental_inline}}
-  - : Signalisieren, dass der Typ eines Leistungseintrags ein Prefetch ist.
+  - : Signalisiert, dass der Typ eines Performance-Eintrags ein Prefetch ist.
 
-## HTTP Headers
+## HTTP-Header
 
 - {{httpheader("Content-Security-Policy")}} `'inline-speculation-rules'` Wert {{experimental_inline}}
-  - : Wird verwendet, um dem Nutzern von `<script type="speculationrules">` die Definition der Spekulationsregeln zuzulassen, wenn das Dokument abgeholt wird.
+  - : Wird verwendet, um das Festlegen von Spekulationsregeln auf dem Dokument, das abgerufen wird, mithilfe von `<script type="speculationrules">` zu erlauben.
+- {{httpheader("Clear-Site-Data")}} `'prefetchCache'` und `'prerenderCache'` Werte {{experimental_inline}}
+  - : Verwendung, um Spekulationen zu löschen. Zum Beispiel, wenn Statusänderungen dazu führen, dass die Spekulationen veraltet sind.
 - {{httpheader("Speculation-Rules")}} {{experimental_inline}}
-  - : Bietet eine Liste von URLs, die auf Textressourcen mit Spekulationsregel-JSON-Definitionen verweisen. Wenn die Antwort ein HTML-Dokument ist, werden diese Regeln zum Spekulationsregelsatz des Dokuments hinzugefügt.
+  - : Liefert eine Liste von URLs, die auf Textressourcen mit Spekulationsregel-JSON-Definitionen verweisen. Wenn die Antwort ein HTML-Dokument ist, werden diese Regeln zum Spekulationsregel-Set des Dokuments hinzugefügt.
 - {{httpheader("Supports-Loading-Mode")}} {{experimental_inline}}
-  - : Von einem Navigationstarget gesetzt, um das Verwenden verschiedener risikoreicher Ladearten zu ermöglichen. Zum Beispiel erfordert dungeonsübergreifendes, gleichsetiges Prerendering einen `Supports-Loading-Mode`-Wert von `credentialed-prerender`.
+  - : Wird von einem Navigationsziel gesetzt, um sich für die Verwendung verschiedener risikoreicher Ladearten anzumelden. Zum Beispiel erfordert das Cross-Origin, same-site Prerendering einen `Supports-Loading-Mode` Wert von `credentialed-prerender`.
 
 ## HTML-Funktionen
 
 - [`<script type="speculationrules">`](/de/docs/Web/HTML/Reference/Elements/script/type/speculationrules) {{experimental_inline}}
-  - : Wird verwendet, um ein Set aus Prefetch- und/oder Prerender-Spekulationsregeln innerhalb des aktuellen Dokuments zu definieren, die zum Spekulationsregelsatz des Dokumentes hinzugefügt werden.
+  - : Wird verwendet, um eine Reihe von Prefetch- und/oder Prerender-Spekulationsregeln innerhalb des aktuellen Dokuments zu definieren, die zum Spekulationsregel-Set des Dokuments hinzugefügt werden.
 
 ## Beispiele
 
-Ein [komplettes Prerender-Demo finden Sie hier](https://prerender-demos.glitch.me/).
+Sie können [hier eine vollständige Prerender-Demo finden](https://prerender-demos.glitch.me/).
 
 ## Spezifikationen
 
@@ -437,5 +445,5 @@ Ein [komplettes Prerender-Demo finden Sie hier](https://prerender-demos.glitch.m
 
 ## Siehe auch
 
-- [Prerender-Seiten in Chrome für sofortige Seitennavigationen](https://developer.chrome.com/docs/web-platform/prerender-pages) auf developer.chrome.com (2023)
-- [Spekulatives Laden](/de/docs/Web/Performance/Guides/Speculative_loading) für einen Vergleich von Spekulationsregeln und anderen ähnlichen Leistungsverbesserungsmerkmalen.
+- [Prerendering von Seiten in Chrome für sofortige Seitennavigationen](https://developer.chrome.com/docs/web-platform/prerender-pages) auf developer.chrome.com (2023)
+- [Spekulatives Laden](/de/docs/Web/Performance/Guides/Speculative_loading) für einen Vergleich von Spekulationsregeln und anderen ähnlichen Leistungsverbesserungsfunktionen.

@@ -1,21 +1,22 @@
 ---
-title: "MouseEvent: Eigenschaft movementY"
+title: "MouseEvent: movementY-Eigenschaft"
 short-title: movementY
 slug: Web/API/MouseEvent/movementY
 l10n:
-  sourceCommit: cfb7587e3e3122630ad6cbd94d834ecadbe0a746
+  sourceCommit: 58fda7e192fc7d82880f310d8f912ba2f50cd0d5
 ---
 
 {{APIRef("Pointer Lock API")}}
 
-Die schreibgeschützte **`movementY`**-Eigenschaft der [`MouseEvent`](/de/docs/Web/API/MouseEvent)-Schnittstelle gibt den Unterschied in der Y-Koordinate des Mauszeigers zwischen dem aktuellen Ereignis und dem vorherigen [`mousemove`](/de/docs/Web/API/Element/mousemove_event)-Ereignis an. Mit anderen Worten, der Wert der Eigenschaft wird wie folgt berechnet: `currentEvent.movementY = currentEvent.screenY - previousEvent.screenY`.
+Die schreibgeschützte **`movementY`**-Eigenschaft des [`MouseEvent`](/de/docs/Web/API/MouseEvent)-Interfaces liefert die Differenz in der Y-Koordinate des Mauszeigers zwischen dem gegebenen Ereignis und dem vorherigen [`mousemove`](/de/docs/Web/API/Element/mousemove_event)-Ereignis.
+Anders ausgedrückt wird der Wert der Eigenschaft so berechnet: `currentEvent.movementY = currentEvent.screenY - previousEvent.screenY`.
 
 > [!WARNING]
-> Browser [verwenden unterschiedliche Einheiten für `movementY` und [`screenY`](/de/docs/Web/API/MouseEvent/screenY)](https://github.com/w3c/pointerlock/issues/42) als in der Spezifikation definiert. Abhängig vom Browser und Betriebssystem können die Einheiten von `movementY` ein physischer Pixel, ein logischer Pixel oder ein CSS-Pixel sein. Sie sollten in Erwägung ziehen, die Bewegungseigenschaften zu vermeiden und stattdessen das Delta zwischen den aktuellen Clientwerten ([`screenX`](/de/docs/Web/API/MouseEvent/screenX), [`screenY`](/de/docs/Web/API/MouseEvent/screenY)) und den vorherigen Clientwerten zu berechnen.
+> Browser [verwenden unterschiedliche Einheiten für `movementY` und `screenY`](https://github.com/w3c/pointerlock/issues/42) als die in der Spezifikation definierten. Abhängig vom Browser und Betriebssystem können die `movementY`-Einheiten ein physikalisches Pixel, ein logisches Pixel oder ein CSS-Pixel sein. Es könnte ratsam sein, die Bewegungseigenschaften zu vermeiden und stattdessen das Delta zwischen den aktuellen Client-Werten ([`screenX`](/de/docs/Web/API/MouseEvent/screenX), [`screenY`](/de/docs/Web/API/MouseEvent/screenY)) und den vorherigen Client-Werten zu berechnen.
 
 ## Wert
 
-Eine Zahl. Immer null bei jedem anderen [`MouseEvent`](/de/docs/Web/API/MouseEvent) außer `mousemove`.
+Eine Zahl. Immer null bei jedem [`MouseEvent`](/de/docs/Web/API/MouseEvent) außer bei `mousemove`.
 
 ## Beispiele
 

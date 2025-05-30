@@ -2,29 +2,29 @@
 title: Strikter Modus
 slug: Web/JavaScript/Reference/Strict_mode
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: 14acf1aa7885157debdf1b6111f4bd10c064ec60
 ---
 
-{{jsSidebar("More")}}
+{{jsSidebar("Mehr")}}
 
 > [!NOTE]
-> Manchmal wird der Standardmodus ohne strikte Einschränkungen als _{{Glossary("Sloppy_mode", "sloppy mode")}}_ bezeichnet. Dies ist kein offizieller Begriff, aber seien Sie sich dessen bewusst, nur für den Fall.
+> Manchmal wird der Standard, der Nicht-Strikte Modus, als _{{Glossary("Sloppy_mode", "sloppy mode")}}_ bezeichnet. Dies ist kein offizieller Begriff, aber es ist ratsam, sich dessen bewusst zu sein, für den Fall.
 
-Der strikte Modus von JavaScript ist eine Möglichkeit, eine eingeschränkte Variante von JavaScript zu wählen und damit implizit den "{{Glossary("Sloppy_mode", "sloppy mode")}}" abzuwählen. Der strikte Modus ist nicht nur ein Teilmenge: Er hat _absichtlich_ andere Semantiken als normaler Code. Strikter Modus-Code und nicht-strikter Modus-Code können koexistieren, sodass Skripte schrittweise in den strikten Modus übergehen können.
+Der strikte Modus von JavaScript ist eine Möglichkeit, sich in eine eingeschränkte Variante von JavaScript "einzuwählen" und damit implizit den "{{Glossary("Sloppy_mode", "sloppy mode")}}" abzuwählen. Der strikte Modus ist nicht nur eine Teilmenge: Er hat _absichtlich_ andere Semantik als normaler Code. Strikt-Modus-Code und Nicht-Strikt-Modus-Code können koexistieren, sodass Skripte schrittweise in den Strikten Modus wechseln können.
 
-Der strikte Modus bewirkt mehrere Änderungen an den normalen JavaScript-Semantiken:
+Der strikte Modus macht mehrere Änderungen an der normalen JavaScript-Semantik:
 
-1. Er eliminiert einige JavaScript-Fehler, indem sie in Fehlermeldungen umgewandelt werden.
-2. Er behebt Fehler, die es JavaScript-Engines erschweren, Optimierungen durchzuführen: Strikter Modus-Code kann manchmal schneller ausgeführt werden als identischer Code, der sich nicht im strikten Modus befindet.
-3. Er verbietet einige Syntaxen, die wahrscheinlich in zukünftigen Versionen von ECMAScript definiert werden.
+1. Beseitigt einige stille JavaScript-Fehler, indem sie in Fehler umgewandelt werden.
+2. Behebt Fehler, die es JavaScript-Engines erschweren, Optimierungen durchzuführen: Strikt-Modus-Code kann manchmal schneller ausgeführt werden als identischer Code, der nicht im Strikten Modus ist.
+3. Verbietet einige Syntax, die wahrscheinlich in zukünftigen Versionen von ECMAScript definiert wird.
 
-## Aktivierung des strikten Modus
+## Aufrufen des strikten Modus
 
-Der strikte Modus gilt für _gesamte Skripte_ oder _einzelne Funktionen_. Er gilt nicht für [Block-Anweisungen](/de/docs/Web/JavaScript/Reference/Statements/block), die in `{}`-Klammern eingeschlossen sind; der Versuch, ihn auf solche Kontexte anzuwenden, hat keine Wirkung. [`eval`](/de/docs/Web/JavaScript/Reference/Global_Objects/eval)-Code, [`Function`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/Function)-Code, [Ereignis-Handler](/de/docs/Web/HTML/Reference/Attributes#event_handler_attributes)-Attribute, Strings, die an [`setTimeout()`](/de/docs/Web/API/Window/setTimeout) übergeben werden, und verwandte Funktionen sind entweder Funktionskörper oder gesamte Skripte, und die Aktivierung des strikten Modus in ihnen funktioniert wie erwartet.
+Der strikte Modus gilt für _ganze Skripte_ oder für _einzelne Funktionen_. Er gilt nicht für [Blockanweisungen](/de/docs/Web/JavaScript/Reference/Statements/block), die in `{}` Klammern eingeschlossen sind; der Versuch, ihn auf solche Kontexte anzuwenden, hat keine Wirkung. [`eval`](/de/docs/Web/JavaScript/Reference/Global_Objects/eval)-Code, [`Function`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/Function)-Code, [Ereignishandler](/de/docs/Web/HTML/Reference/Attributes#event_handler_attributes)-Attribute, an [`setTimeout()`](/de/docs/Web/API/Window/setTimeout) übergebene Strings und verwandte Funktionen sind entweder Funktionskörper oder ganze Skripte, und das Aufrufen des Strikten Modus in ihnen funktioniert wie erwartet.
 
 ### Strikter Modus für Skripte
 
-Um den strikten Modus für ein gesamtes Skript zu aktivieren, setzen Sie die _genaue_ Anweisung `"use strict";` (oder `'use strict';`) vor alle anderen Anweisungen.
+Um den Strikten Modus für ein gesamtes Skript aufzurufen, platzieren Sie die _genaue_ Anweisung `"use strict";` (oder `'use strict';`) vor allen anderen Anweisungen.
 
 ```js
 // Whole-script strict mode syntax
@@ -34,7 +34,7 @@ const v = "Hi! I'm a strict mode script!";
 
 ### Strikter Modus für Funktionen
 
-Ebenso sollte, um den strikten Modus für eine Funktion zu aktivieren, die _genaue_ Anweisung `"use strict";` (oder `'use strict';`) im Funktionskörper vor alle anderen Anweisungen gesetzt werden.
+Ebenso, um den Strikten Modus für eine Funktion aufzurufen, platzieren Sie die _genaue_ Anweisung `"use strict";` (oder `'use strict';`) im Funktionskörper vor allen anderen Anweisungen.
 
 ```js
 function myStrictFunction() {
@@ -50,7 +50,7 @@ function myNotStrictFunction() {
 }
 ```
 
-Die `"use strict"`-Direktive kann nur auf den Körper von Funktionen mit einfachen Parametern angewendet werden. Die Verwendung von `"use strict"` in Funktionen mit [rest-](/de/docs/Web/JavaScript/Reference/Functions/rest_parameters), [default-](/de/docs/Web/JavaScript/Reference/Functions/Default_parameters) oder [destrukturierten](/de/docs/Web/JavaScript/Reference/Operators/Destructuring) Parametern ist ein [Syntaxfehler](/de/docs/Web/JavaScript/Reference/Errors/Strict_non_simple_params).
+Die `"use strict"` Direktive kann nur auf den Körper von Funktionen mit einfachen Parametern angewendet werden. Die Verwendung von `"use strict"` in Funktionen mit [rest](/de/docs/Web/JavaScript/Reference/Functions/rest_parameters), [default](/de/docs/Web/JavaScript/Reference/Functions/Default_parameters) oder [destructured](/de/docs/Web/JavaScript/Reference/Operators/Destructuring) Parametern ist ein [Syntaxfehler](/de/docs/Web/JavaScript/Reference/Errors/Strict_non_simple_params).
 
 ```js-nolint example-bad
 function sum(a = 1, b = 2) {
@@ -62,7 +62,7 @@ function sum(a = 1, b = 2) {
 
 ### Strikter Modus für Module
 
-Der gesamte Inhalt von [JavaScript-Modulen](/de/docs/Web/JavaScript/Guide/Modules) befindet sich automatisch im strikten Modus, ohne dass eine Anweisung erforderlich ist, um ihn zu initiieren.
+Der gesamte Inhalt von [JavaScript-Modulen](/de/docs/Web/JavaScript/Guide/Modules) befindet sich automatisch im Strikten Modus, ohne dass eine Anweisung erforderlich ist, um ihn zu aktivieren.
 
 ```js
 function myStrictFunction() {
@@ -73,7 +73,7 @@ export default myStrictFunction;
 
 ### Strikter Modus für Klassen
 
-Alle Teile des Körpers einer [Klasse](/de/docs/Web/JavaScript/Reference/Classes) sind strikte Modus-Codes, einschließlich sowohl [Klassen-Deklarationen](/de/docs/Web/JavaScript/Reference/Statements/class) als auch [Klassen-Ausdrücken](/de/docs/Web/JavaScript/Reference/Operators/class).
+Alle Teile des Körpers einer [Klasse](/de/docs/Web/JavaScript/Reference/Classes) sind Strikt-Modus-Code, einschließlich sowohl [Klassendeklarationen](/de/docs/Web/JavaScript/Reference/Statements/class) als auch [Klassen-Ausdrücken](/de/docs/Web/JavaScript/Reference/Operators/class).
 
 ```js
 class C1 {
@@ -94,21 +94,23 @@ delete Object.prototype; // Will not throw error
 
 ## Änderungen im strikten Modus
 
-Der strikte Modus ändert sowohl die Syntax als auch das Laufzeitverhalten. Die Änderungen fallen im Allgemeinen in diese Kategorien:
+Der Umgang mit Syntax und Laufzeitverhalten ändert sich im Strikten Modus. Änderungen fallen im Allgemeinen in diese Kategorien:
 
-- Änderungen, die Fehler in Fehler (als Syntaxfehler oder zur Laufzeit) umwandeln
-- Änderungen, die die Auflösung von Variablenverweisen vereinfachen
+- Änderungen, die Fehler als (Syntaxfehler oder zur Laufzeit) umwandeln
+- Änderungen, die die Auflösung von Variablenreferenzen vereinfachen
 - Änderungen, die `eval` und `arguments` vereinfachen
-- Änderungen, die es einfacher machen, "sicheres" JavaScript zu schreiben
-- Änderungen, die die zukünftige Entwicklung von ECMAScript antizipieren.
+- Änderungen, die das Schreiben von "sicherem" JavaScript erleichtern
+- Änderungen, die die zukünftige Entwicklung von ECMAScript vorwegnehmen.
 
-### Fehler in Fehler umwandeln
+### Umwandeln von Fehlern in Fehler
 
-Der strikte Modus verwandelt einige zuvor akzeptierte Fehler in tatsächliche Fehler. JavaScript wurde entwickelt, um für unerfahrene Entwickler einfach zu sein, und manchmal verleiht es Operationen, die Fehler sein sollten, nicht-fehlerhafte Semantik. Manchmal behebt dies das unmittelbare Problem, aber manchmal schafft es in der Zukunft schlimmere Probleme. Der strikte Modus behandelt diese Fehler als Fehler, damit sie entdeckt und umgehend behoben werden können.
+Im Strikten Modus werden einige zuvor akzeptierte Fehler in Fehler umgewandelt. JavaScript wurde entwickelt, um es Anfängern einfach zu machen, und manchmal gibt es Operationen, die eigentlich Fehler sein sollten, eine nicht-fehlerhafte Semantik. Manchmal löst dies das unmittelbare Problem, aber manchmal schafft es schlimmere Probleme in der Zukunft. Der Strikte Modus behandelt diese Fehler als Fehler, damit sie entdeckt und schnell behoben werden.
 
-#### Zuweisung an nicht deklarierte Variablen
+#### Zuweisen zu nicht deklarierten Variablen
 
-Der strikte Modus macht es unmöglich, versehentlich globale Variablen zu erstellen. Im sloppy mode führt ein Tippfehler bei einer Variablen in einer Zuweisung dazu, dass eine neue Eigenschaft am globalen Objekt erstellt wird, die "weiter funktioniert". Zuweisungen, die versehentlich globale Variablen erstellen würden, führen im strikten Modus zu einem Fehler:
+Der Strikte Modus macht es unmöglich, versehentlich globale Variablen zu erstellen. Im Sloppy Modus führt das versehentliche Schreiben einer Variable in einer Zuweisung dazu, dass eine neue Eigenschaft im globalen Objekt erstellt wird und weiterhin "arbeitet". Zuweisungen, die versehentlich globale Variablen erstellen würden, werfen im Strikten Modus einen Fehler:
+
+<!-- cSpell:ignore mistypeVarible -->
 
 ```js
 "use strict";
@@ -120,15 +122,15 @@ let mistypeVariable;
 mistypeVarible = 17;
 ```
 
-#### Scheitern bei der Zuweisung zu Objekteigenschaften
+#### Fehlgeschlagene Zuweisung zu Objekteigenschaften
 
-Der strikte Modus bewirkt, dass Zuweisungen, die andernfalls stillschweigend fehlschlagen würden, eine Ausnahme auslösen. Es gibt drei Möglichkeiten, eine Objekteigenschaftszuweisung fehlschlagen zu lassen:
+Der Strikte Modus führt für Zuweisungen, die ansonsten stillschweigend fehlschlagen würden, zu einer Ausnahme. Es gibt drei Möglichkeiten, wie eine Eigenschaftszuweisung fehlschlagen kann:
 
-- Zuweisung zu einer nicht beschreibbaren Dateneigenschaft
-- Zuweisung zu einer nur lesbaren Zugriffseigenschaft
-- Zuweisung zu einer neuen Eigenschaft eines [nicht erweiterbaren](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/isExtensible) Objekts
+- Zuweisung zu einer nicht schreibbaren Dateneigenschaft
+- Zuweisung zu einer nur lesenden Zugriffs-Funktionseigenschaft
+- Zuweisung zu einer neuen Eigenschaft auf einem [nicht erweiterbaren](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/isExtensible) Objekt
 
-Beispielsweise ist [`NaN`](/de/docs/Web/JavaScript/Reference/Global_Objects/NaN) eine nicht beschreibbare globale Variable. Im sloppy mode bewirkt die Zuweisung an `NaN` nichts; der Entwickler erhält kein Fehlerrückmeldung. Im strikten Modus löst die Zuweisung an `NaN` eine Ausnahme aus.
+Zum Beispiel ist [`NaN`](/de/docs/Web/JavaScript/Reference/Global_Objects/NaN) eine nicht-schreibbare globale Variable. Im Sloppy Modus macht das Zuweisen zu `NaN` nichts; der Entwickler erhält kein Fehlerrückmeldung. Im Strikten Modus wirft das Zuweisen zu `NaN` eine Ausnahme.
 
 ```js
 "use strict";
@@ -156,9 +158,9 @@ Object.preventExtensions(fixed);
 fixed.newProp = "ohai"; // TypeError
 ```
 
-#### Scheitern beim Löschen von Objekteigenschaften
+#### Fehlgeschlagenes Löschen von Objekteigenschaften
 
-Versuche, eine [nicht konfigurierbare oder anderweitig nicht löschbare (z. B. wird es von einem Proxy abgefangen, dessen [`deleteProperty`](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy/deleteProperty) Handler `false` zurückgibt)](/de/docs/Web/JavaScript/Reference/Operators/delete) Eigenschaft zu löschen, führen im strikten Modus zu Fehlern (wobei der Versuch vorher keine Auswirkungen hatte):
+Versuche, eine nicht-konfigurierbare oder anderweitig unlöschbare ([z.B. wird sie von einem Proxy mithilfe des [`deleteProperty`](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy/deleteProperty)-Handlers, der `false` zurückgibt, abgefangen) Eigenschaft im Strikten Modus zu löschen, werfen einen Fehler (wo der Versuch zuvor keinen Effekt gehabt hätte).
 
 ```js
 "use strict";
@@ -166,7 +168,7 @@ delete Object.prototype; // TypeError
 delete [].length; // TypeError
 ```
 
-Der strikte Modus verbietet auch das Löschen einfacher Namen. `delete name` im strikten Modus ist ein Syntaxfehler:
+Der Strikte Modus verbietet auch das Löschen einfacher Namen. `delete name` im Strikten Modus ist ein Syntaxfehler:
 
 ```js-nolint example-bad
 "use strict";
@@ -175,7 +177,7 @@ var x;
 delete x; // syntax error
 ```
 
-Wenn der Name eine konfigurierbare globale Eigenschaft ist, gehen Sie ihm mit [`globalThis`](/de/docs/Web/JavaScript/Reference/Global_Objects/globalThis) voraus, um ihn zu löschen.
+Wenn der Name eine konfigurierbare globale Eigenschaft ist, sollte er mit [`globalThis`](/de/docs/Web/JavaScript/Reference/Global_Objects/globalThis) verwendet werden, um ihn zu löschen.
 
 ```js example-good
 "use strict";
@@ -185,7 +187,7 @@ delete globalThis.x;
 
 #### Doppelte Parameternamen
 
-Der strikte Modus erfordert, dass Funktionsparameternamen eindeutig sind. Im sloppy mode überdeckt das letzte doppelt vorhandene Argument vorangegangene Argumente mit demselben Namen. Diese vorherigen Argumente sind weiterhin über [`arguments`](/de/docs/Web/JavaScript/Reference/Functions/arguments) verfügbar, sodass sie nicht vollständig unzugänglich sind. Dennoch macht dieses Verbergen wenig Sinn und ist wahrscheinlich unerwünscht (es könnte z. B. einen Tippfehler verbergen), also ist im strikten Modus ein doppelter Argumentname ein Syntaxfehler:
+Der Strikte Modus erfordert, dass Funktionsparameter-Namen eindeutig sind. Im Sloppy Modus verbirgt das gleiche Argument, das zuletzt aufgerufen wurde, frühere gleichnamige Argumente. Diese früheren Argumente bleiben durch [`arguments`](/de/docs/Web/JavaScript/Reference/Functions/arguments) zugänglich, sodass sie nicht vollständig unzugänglich sind. Dennoch ergibt dieses Verbergen wenig Sinn und ist wahrscheinlich unerwünscht (es könnte einen Tippfehler verbergen), sodass doppelte Argumentnamen im Strikten Modus einen Syntaxfehler darstellen:
 
 ```js-nolint example-bad
 function sum(a, a, c) {
@@ -195,11 +197,11 @@ function sum(a, a, c) {
 }
 ```
 
-Es ist auch ein Syntaxfehler im nicht-strikten Modus, doppelte Parameternamen zu haben, wenn die Funktion einen Standard-, Rest- oder destrukturierten Parameter hat.
+Es ist auch ein Syntaxfehler im Nicht-Strikten Modus, doppelte Parameternamen zu haben, wenn die Funktion einen Standardparameter, Restparameter oder destrukturierte Parameter hat.
 
-#### Legacy Oktal-Literale
+#### Veraltete Oktalliterale
 
-Der strikte Modus [verbietet ein mit `0` vorangestelltes Oktal-Literal](/de/docs/Web/JavaScript/Reference/Errors/Deprecated_octal_literal). Im sloppy mode wird eine mit `0` beginnende Zahl wie `0644` als Oktalzahl interpretiert (`0644 === 420`), wenn alle Ziffern kleiner als 8 sind. Unerfahrene Entwickler glauben manchmal, dass ein führender Null keine semantische Bedeutung hat, also könnten sie sie als Ausrichtungsgerät verwenden – aber das ändert die Bedeutung der Zahl! Die Syntax mit vorangestellter Null für Oktal ist selten nützlich und kann versehentlich verwendet werden, sodass der strikte Modus sie zu einem Syntaxfehler macht:
+Der Strikte Modus [verbietet ein `0`-präfixiertes Oktalliteral](/de/docs/Web/JavaScript/Reference/Errors/Deprecated_octal_literal). Im Sloppy Modus wird eine Zahl, die mit einer `0` beginnt, wie `0644`, als Oktalzahl interpretiert (`0644 === 420`), wenn alle Ziffern kleiner als 8 sind. Anfängerentwickler glauben manchmal, dass ein führendes Nullpräfix keine semantische Bedeutung hat, sodass sie es möglicherweise als Ausrichtungswerkzeug verwenden – aber dies ändert die Bedeutung der Zahl! Eine führende Nullsyntax für Oktalzahlen ist selten nützlich und kann versehentlich verwendet werden, weshalb der Strikte Modus sie als Syntaxfehler betrachtet:
 
 ```js-nolint example-bad
 "use strict";
@@ -209,18 +211,18 @@ const sum =
   142;
 ```
 
-Die standardisierte Art, Oktalliterale zu notieren, ist über das `0o` Präfix. Zum Beispiel:
+Die standardisierte Methode zur Angabe von Oktalliteralen ist das `0o` Präfix. Zum Beispiel:
 
 ```js example-good
 const sumWithOctal = 0o10 + 8;
 console.log(sumWithOctal); // 16
 ```
 
-Oktale Escape-Sequenzen, wie `"\45"`, was `"%"` entspricht, können verwendet werden, um Zeichen durch erweiterte-{{Glossary("ASCII", "ASCII")}}-Zeichencodes in Oktal darzustellen. Im strikten Modus ist dies ein [Syntaxfehler](/de/docs/Web/JavaScript/Reference/Errors/Deprecated_octal_escape_sequence). Formal ist es nicht erlaubt, `\` gefolgt von einer Dezimalziffer, die keine `0` ist, oder `\0` gefolgt von einer Dezimalziffer zu haben; zum Beispiel `\9` und `\07`.
+Oktale Escape-Sequenzen, wie `"\45"`, was `"%"` entspricht, können verwendet werden, um Zeichen durch erweiterte-{{Glossary("ASCII", "ASCII")}} Zeichencode-Nummern im Oktal darzustellen. Im Strikten Modus ist dies ein [Syntaxfehler](/de/docs/Web/JavaScript/Reference/Errors/Deprecated_octal_escape_sequence). Formell ist es nicht erlaubt, ein `\` gefolgt von einer Dezimalziffer, die nicht `0` ist, zu haben, oder `\0` gefolgt von einer Dezimalziffer; zum Beispiel `\9` und `\07`.
 
-#### Eigenschaften auf primitive Werte setzen
+#### Setzen von Eigenschaften auf primitive Werte
 
-Der strikte Modus verbietet das Setzen von Eigenschaften auf {{Glossary("Primitive", "primäre")}} Werte. Der Zugriff auf eine Eigenschaft eines Primitiven erstellt implizit ein Wrapper-Objekt, das nicht beobachtbar ist, somit wird im sloppy mode das Setzen von Eigenschaften ignoriert (no-op). Im strikten Modus wird eine {{jsxref("TypeError")}} ausgelöst.
+Der Strikte Modus verbietet das Setzen von Eigenschaften auf {{Glossary("Primitive", "primitive")}} Werte. Der Zugriff auf eine Eigenschaft auf einem primitiven Wert erstellt implizit ein Wrapper-Objekt, das nicht beobachtbar ist, sodass das Setzen von Eigenschaften im Sloppy Modus ignoriert wird (keine Wirkung). Im Strikten Modus wird ein {{jsxref("TypeError")}} ausgelöst.
 
 ```js
 "use strict";
@@ -232,7 +234,7 @@ false.true = ""; // TypeError
 
 #### Doppelte Eigenschaftsnamen
 
-Doppelte Eigenschaftsnamen wurden im strikten Modus als {{jsxref("SyntaxError")}} betrachtet. Mit der Einführung von [berechneten Eigenschaftsnamen](/de/docs/Web/JavaScript/Reference/Operators/Object_initializer#computed_property_names), die Duplizierung zur Laufzeit möglich machen, wurde diese Beschränkung in ES2015 aufgehoben.
+Doppelte Eigenschaftsnamen wurden früher als {{jsxref("SyntaxError")}} im Strikten Modus betrachtet. Mit der Einführung von [berechneten Eigenschaftsnamen](/de/docs/Web/JavaScript/Reference/Operators/Object_initializer#computed_property_names), die Duplikate zur Laufzeit möglich machen, wurde diese Einschränkung in ES2015 entfernt.
 
 ```js
 "use strict";
@@ -240,15 +242,15 @@ const o = { p: 1, p: 2 }; // syntax error prior to ECMAScript 2015
 ```
 
 > [!NOTE]
-> Das Machen von Code, der bisher ein Fehler war, zu nicht Fehlern zu machen, wird immer als rückwärtskompatibel betrachtet. Dies ist ein guter Bestandteil der Sprache, die streng im Hinblick auf Fehler ist: Sie lässt Raum für zukünftige semantische Änderungen.
+> Es wird immer als rückwärtskompatibel angesehen, Code, der früher Fehler ausgelöst hat, nicht mehr als Fehler zu behandeln. Dies ist ein guter Teil der Sprache, die streng darauf ist, Fehler zu werfen: Es lässt Raum für zukünftige semantische Änderungen.
 
-### Vereinfachung des Geltungsbereichs-Managements
+### Vereinfachung des Blickmanagements
 
-Der strikte Modus vereinfacht, wie Variablennamen bestimmten Variablendefinitionen im Code zugeordnet werden. Viele Compiler-Optimierungen hängen von der Fähigkeit ab, zu sagen, dass die Variable _X_ an _diesem_ Ort gespeichert ist: Dies ist entscheidend, um JavaScript-Code vollständig zu optimieren. JavaScript macht es manchmal unmöglich, diese grundlegende Zuordnung von Namen zu Variablendefinitionen im Code bis zur Laufzeit durchzuführen. Der strikte Modus entfernt die meisten Fälle, in denen dies geschieht, sodass der Compiler strikte Modus-Codes besser optimieren kann.
+Der strikte Modus vereinfacht, wie Variablennamen einer bestimmten Variablen-Definition im Code zugeordnet werden. Viele Compiler-Optimierungen hängen davon ab, sagen zu können, dass die Variable _X_ an _diesem_ Ort gespeichert ist: Dies ist entscheidend für die vollständige Optimierung von JavaScript-Code. JavaScript macht es manchmal unmöglich, diese grundlegende Zuordnung von Namen zu Variablen-Definitionen im Code bis zur Laufzeit durchzuführen. Der strikte Modus entfernt die meisten Fälle, in denen dies passiert, sodass der Compiler den Strikt-Modus-Code besser optimieren kann.
 
 #### Entfernung der with-Anweisung
 
-Der strikte Modus verbietet [`with`](/de/docs/Web/JavaScript/Reference/Statements/with). Das Problem mit `with` ist, dass jeder Name im Block zur Laufzeit entweder einer Eigenschaft des übergebenen Objekts oder einer Variable im umgebenden (oder sogar globalen) Geltungsbereich zugeordnet werden könnte; es ist unmöglich, dies vorher zu wissen. Der strikte Modus macht `with` zu einem Syntaxfehler, sodass es keine Chance gibt, dass ein Name in einem `with` zur Laufzeit auf einen unbekannten Ort verweist:
+Der Strikte Modus verbietet [`with`](/de/docs/Web/JavaScript/Reference/Statements/with). Das Problem bei `with` ist, dass jeder Name im Block zur Laufzeit entweder einer Eigenschaft des übergebenen Objekts oder einer Variablen im umgebenden (oder sogar globalen) Bereich zugeordnet werden könnte; es ist unmöglich, dies vorher zu wissen. Der strikte Modus macht `with` zu einem Syntaxfehler, sodass es keine Möglichkeit gibt, dass ein Name in `with` zur Laufzeit auf eine unbekannte Stelle verweist:
 
 ```js-nolint example-bad
 "use strict";
@@ -263,11 +265,11 @@ with (obj) {
 }
 ```
 
-Die Alternative, das Objekt einem kurzen Namen einer Variablen zuzuweisen und dann auf die entsprechende Eigenschaft an dieser Variablen zuzugreifen, steht bereit, um `with` zu ersetzen.
+Die Alternative, das Objekt einer kurzen Namensvariablen zuzuweisen und dann auf die entsprechende Eigenschaft dieser Variablen zuzugreifen, steht bereit, um `with` zu ersetzen.
 
-#### Nicht-leckendes eval
+#### Nicht durchlässiges eval
 
-Im strikten Modus, [`eval` fügt der umgebenden Geltungsbereich keine neuen Variablen hinzu](https://whereswalden.com/2011/01/10/new-es5-strict-mode-support-new-vars-created-by-strict-mode-eval-code-are-local-to-that-code-only/). Im sloppy mode wird durch `eval("var x;")` eine Variable `x` in den umgebenden Funktions- oder globalen Bereich eingeführt. Dies bedeutet, dass in einer Funktion, die einen Aufruf von `eval` enthält, jeder Name, der sich nicht auf ein Argument oder eine lokale Variable bezieht, zur Laufzeit einer bestimmten Definition zugeordnet werden muss (weil dieses `eval` möglicherweise eine neue Variable eingeführt hat, die die äußere Variable verdecken würde). Im strikten Modus erstellt `eval` nur für den ausgewerteten Code Variablen, sodass `eval` nicht beeinflussen kann, ob ein Name sich auf eine äußere Variable oder eine lokale Variable bezieht:
+Im strikten Modus [führt `eval` keine neuen Variablen in den umgebenden Bereich ein](https://whereswalden.com/2011/01/10/new-es5-strict-mode-support-new-vars-created-by-strict-mode-eval-code-are-local-to-that-code-only/). Im Sloppy Modus führt `eval("var x;")` eine Variable `x` in die umgebende Funktion oder den globalen Bereich ein. Dies bedeutet, dass im Allgemeinen in einer Funktion, die `eval` enthält, jeder Name, der nicht auf ein Argument oder eine lokale Variable verweist, zur Laufzeit einer bestimmten Definition zugeordnet werden muss (da dieses `eval` möglicherweise eine neue Variable eingeführt hat, die die äußere Variable verdecken würde). Im Strikten Modus erstellt `eval` Variablen nur für den ausgewerteten Code, sodass `eval` nicht beeinflussen kann, ob ein Name auf eine äußere Variable oder eine lokale Variable verweist:
 
 ```js
 var x = 17;
@@ -276,19 +278,19 @@ console.assert(x === 17);
 console.assert(evalX === 42);
 ```
 
-Ob der String, der an `eval()` übergeben wird, im strikten Modus ausgewertet wird, hängt davon ab, wie `eval()` aufgerufen wird ([direktes eval oder indirektes eval](/de/docs/Web/JavaScript/Reference/Global_Objects/eval#direct_and_indirect_eval)).
+Ob der String, der `eval()` übergeben wird, im Strikten Modus ausgewertet wird, hängt davon ab, wie `eval()` aufgerufen wird ([direktes eval oder indirektes eval](/de/docs/Web/JavaScript/Reference/Global_Objects/eval#direct_and_indirect_eval)).
 
-#### Block-scoped Funktionsdeklarationen
+#### Block-scopierte Funktionsdeklarationen
 
-Die JavaScript-Sprachspezifikation hatte von Beginn an nicht erlaubt, Funktionsdeklarationen in Blockanweisungen zu verschachteln. Dies war jedoch so intuitiv, dass die meisten Browser es als erweiterte Grammatik implementierten. Leider divergierten die Semantiken der Implementierungen, und es wurde unmöglich, dass die Sprachspezifikation alle Implementierungen in Einklang bringt. Daher sind [mit Block scoped Funktionsdeklarationen](/de/docs/Web/JavaScript/Reference/Statements/function#block-level_function_declaration) nur im strikten Modus explizit spezifiziert (während sie im strikten Modus einst untersagt waren), während das Verhalten im sloppy mode zwischen Browsern unterschiedlich bleibt.
+Die JavaScript-Sprachspezifikation erlaubte seit ihrem Beginn keine Funktionsdeklarationen, die in Blockanweisungen verschachtelt waren. Es war jedoch so intuitiv, dass die meisten Browser es als Erweiterungsgrammatik implementierten. Leider divergierten die Semantiken der Implementierungen, und es wurde für die Sprachspezifikation unmöglich, alle Implementierungen in Einklang zu bringen. Daher sind [block-scopierte Funktionsdeklarationen](/de/docs/Web/JavaScript/Reference/Statements/function#block-level_function_declaration) nur explizit im Strikten Modus spezifiziert (während sie im Strikten Modus einmal verboten waren), während das Sloppy-Modus-Verhalten unter Browsern weiterhin divergiert.
 
 ### Vereinfachung von eval und arguments
 
-Der strikte Modus macht [`arguments`](/de/docs/Web/JavaScript/Reference/Functions/arguments) und [`eval`](/de/docs/Web/JavaScript/Reference/Global_Objects/eval) weniger bizarr magisch. Beide beinhalten eine beträchtliche Menge an magischem Verhalten im sloppy mode: `eval`, um Bindungen hinzuzufügen oder zu entfernen und Bindungswerte zu ändern, und `arguments` synchronisiert benannte Argumente mit seinen indizierten Eigenschaften. Der strikte Modus macht große Fortschritte dahingehend, `eval` und `arguments` als Schlüsselwörter zu behandeln.
+Der Strikte Modus macht [`arguments`](/de/docs/Web/JavaScript/Reference/Functions/arguments) und [`eval`](/de/docs/Web/JavaScript/Reference/Global_Objects/eval) weniger bizarr magisch. Beide beinhalten eine beträchtliche Menge an magischem Verhalten im Sloppy Modus: `eval`, um Bindungen hinzuzufügen oder zu entfernen und Bindungswerte zu ändern, und `arguments`, das benannte Argumente mit seinen indizierten Eigenschaften synchronisiert. Der Strikte Modus macht große Fortschritte, `eval` und `arguments` als Schlüsselwörter zu behandeln.
 
-#### Verhindern des Bindens oder Zuweisens von eval und arguments
+#### Verhindern der Bindung oder Zuweisung von eval und arguments
 
-Die Namen `eval` und `arguments` können in der Sprachsyntax nicht gebunden oder zugewiesen werden. Alle diese Versuche sind Syntaxfehler:
+Die Namen `eval` und `arguments` können nicht an eine andere Stelle im Sprachsyntax gebunden oder zugewiesen werden. Alle diese Versuche, dies zu tun, sind Syntaxfehler:
 
 ```js-nolint example-bad
 "use strict";
@@ -305,9 +307,9 @@ const y = function eval() {};
 const f = new Function("arguments", "'use strict'; return 17;");
 ```
 
-#### Kein Synchronisieren zwischen Parametern und Argumenten-Indizes
+#### Keine Synchronisation zwischen Parametern und Argumentindizes
 
-Der strikte Modus-Code synchronisiert die Indizes des `arguments`-Objekts nicht mit jeder Parameterbindung. In einer sloppy mode-Funktion, deren erstes Argument `arg` ist, setzt `arg` auch `arguments[0]` und umgekehrt (es sei denn, es wurden keine Argumente bereitgestellt oder `arguments[0]` wird gelöscht). `arguments`-Objekte für strikte Modus-Funktionen speichern die ursprünglichen Argumente, wenn die Funktion aufgerufen wurde. `arguments[i]` verfolgt nicht den Wert des entsprechenden benannten Arguments, und ein benanntes Argument verfolgt nicht den Wert im entsprechenden `arguments[i]`.
+Strikter Modus-Code synchronisiert die Indizes des `arguments`-Objekts nicht mit jeder Parameterbindung. In einer Sloppy-Modus-Funktion, deren erstes Argument `arg` ist, setzt das Setzen von `arg` auch `arguments[0]` und umgekehrt (es sei denn, es wurden keine Argumente bereitgestellt oder `arguments[0]` wird gelöscht). `arguments`-Objekte für Strikt-Modus-Funktionen speichern die ursprünglichen Argumente, als die Funktion aufgerufen wurde. `arguments[i]` verfolgt nicht den Wert des entsprechenden benannten Arguments, noch verfolgt ein benanntes Argument den Wert im entsprechenden `arguments[i]`.
 
 ```js
 function f(a) {
@@ -320,13 +322,13 @@ console.assert(pair[0] === 42);
 console.assert(pair[1] === 17);
 ```
 
-### "Sichern" des JavaScripts
+### "Sichern" von JavaScript
 
-Der strikte Modus macht es einfacher, "sicheres" JavaScript zu schreiben. Einige Websites bieten mittlerweile Möglichkeiten für Benutzer, JavaScript zu schreiben, das von der Website _im Auftrag anderer Benutzer_ ausgeführt wird. JavaScript in Browsern kann auf die privaten Informationen des Benutzers zugreifen, sodass solches JavaScript teilweise transformiert werden muss, bevor es ausgeführt wird, um den Zugriff auf verbotene Funktionen zu zensieren. Die Flexibilität von JavaScript macht es faktisch unmöglich, dies ohne viele Laufzeitüberprüfungen zu tun. Bestimmte Sprachfunktionen sind so allgegenwärtig, dass das Durchführen von Laufzeitüberprüfungen erhebliche Leistungskosten hat. Einige Anpassungen im strikten Modus, insbesondere durch die Anforderung, dass von Benutzern eingereichtes JavaScript strikten Modus-Code sein muss und dass es in einer bestimmten Weise aufgerufen wird, reduzieren den Bedarf für diese Laufzeitüberprüfungen erheblich.
+Der Strikte Modus erleichtert das Schreiben von "sicherem" JavaScript. Einige Websites bieten jetzt Möglichkeiten, wie Benutzer JavaScript schreiben können, das von der Website _im Namen anderer Benutzer_ ausgeführt wird. JavaScript in Browsern kann auf private Informationen des Benutzers zugreifen, sodass ein solches JavaScript teilweise transformiert werden muss, bevor es ausgeführt wird, um den Zugriff auf verbotene Funktionalität zu zensieren. JavaScripts Flexibilität macht es im Wesentlichen unmöglich, dies ohne viele Laufzeitüberprüfungen zu tun. Bestimmte Sprachfunktionen sind so weit verbreitet, dass das Durchführen von Laufzeitüberprüfungen erhebliche Leistungskosten verursacht. Einige Anpassungen im Strikten Modus, sowie die Anforderung, dass benutzerübermitteltes JavaScript Strikt-Modus-Code sein muss und es auf eine bestimmte Weise aufgerufen wird, reduzieren den Bedarf an diesen Laufzeitüberprüfungen erheblich.
 
-#### Kein Ersetzen von this
+#### Keine this-Substitution
 
-Der im strikten Modus an eine Funktion übergebene Wert von `this` wird nicht gezwungen, ein Objekt zu sein (auch bekannt als "verpackt"). Bei einer sloppy mode Funktion ist `this` immer ein Objekt: entweder das bereitgestellte Objekt, wenn es mit einem objektwerten `this` aufgerufen wird; oder der verpackte Wert von `this`, wenn es mit einem primitiven Wert als `this` aufgerufen wird; oder dem globalen Objekt, wenn es mit `undefined` oder `null` als `this` aufgerufen wird. (Benutzen Sie [`call`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/call), [`apply`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/apply) oder [`bind`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/bind) um einen bestimmten `this` anzugeben.) Nicht nur ist automatisches Verpacken ein Leistungskostenfaktor, sondern das Bereitstellen des globalen Objekts in Browsern ist ein Sicherheitsrisiko, weil das globale Objekt den Zugriff auf Funktionen ermöglicht, die "sichere" JavaScript-Umgebungen einschränken müssen. Daher wird bei einer strikten Modus-Funktion das angegebene `this` nicht in ein Objekt verpackt, und wenn nicht angegeben, ist `this` `undefined` anstelle von [`globalThis`](/de/docs/Web/JavaScript/Reference/Global_Objects/globalThis):
+Der im Strikten Modus an eine Funktion übergebene Wert `this` wird nicht dazu gezwungen, ein Objekt zu sein (auch bekannt als "boxing"). Für eine Sloppy-Modus-Funktion ist `this` immer ein Objekt: entweder das bereitgestellte Objekt, wenn `this` mit einem objektbewerteten Wert aufgerufen wurde, oder der "geboxte" Wert von `this`, wenn es mit einem primitiven Wert aufgerufen wurde, oder das globale Objekt, wenn es mit `undefined` oder `null` aufgerufen wurde. (Verwenden Sie [`call`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/call), [`apply`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/apply) oder [`bind`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/bind), um ein bestimmtes `this` anzugeben.) Nicht nur ist automatisches Boxing ein Leistungskostenfaktor, sondern das Aussetzen des globalen Objekts in Browsern ist ein Sicherheitsrisiko, da das globale Objekt Zugriff auf Funktionalität bietet, die "sichere" JavaScript-Umgebungen einschränken müssen. Daher wird für eine Strikt-Modus-Funktion das angegebene `this` nicht zu einem Objekt "geboxt", und wenn nicht spezifiziert, ist `this` `undefined` anstelle von [`globalThis`](/de/docs/Web/JavaScript/Reference/Global_Objects/globalThis):
 
 ```js
 "use strict";
@@ -340,9 +342,9 @@ console.assert(fun.call(undefined) === undefined);
 console.assert(fun.bind(true)() === true);
 ```
 
-#### Entfernung von Stack-Inspection-Eigenschaften
+#### Entfernen von Stack-Walking-Eigenschaften
 
-Im strikten Modus ist es nicht mehr möglich, den JavaScript-Stack zu "durchlaufen". Viele Implementierungen verwendeten einige erweiterte Eigenschaften, die es ermöglichen, den aufrufenden Caller einer Funktion zu ermitteln. Wenn eine Funktion `fun` gerade aufgerufen wird, ist [`fun.caller`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/caller) die Funktion, die `fun` zuletzt aufgerufen hat, und [`fun.arguments`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/arguments) sind die `arguments` für diese Aufruf von `fun`. Beide Erweiterungen sind problematisch für "sicheres" JavaScript, weil sie es ermöglichen, dass "abgesichertes" Code auf "privilegierte" Funktionen und deren (möglicherweise nicht gesicherte) Argumente zugreifen kann. Wenn `fun` im strikten Modus ist, sind sowohl `fun.caller` als auch `fun.arguments` nicht löschbare Eigenschaften, die beim Setzen oder Abfragen eine Ausnahme auslösen:
+Im Strikten Modus ist es nicht mehr möglich, den JavaScript-Stack zu "durchlaufen". Viele Implementierungen haben früher einige Erweiterungsfunktionen implementiert, die es möglich machten, den übergeordneten Anrufer einer Funktion zu erkennen. Wenn eine Funktion `fun` im Begriff ist, aufgerufen zu werden, ist [`fun.caller`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/caller) die Funktion, die `fun` zuletzt aufgerufen hat, und [`fun.arguments`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/arguments) sind die `arguments` für diesen Aufruf von `fun`. Beide Erweiterungen sind problematisch für "sicheres" JavaScript, weil sie es "gesichertem" Code ermöglichen, auf "privilegierte" Funktionen und deren (möglicherweise ungesicherte) Argumente zuzugreifen. Wenn `fun` im Strikten Modus ist, sind sowohl `fun.caller` als auch `fun.arguments` nicht löschbare Eigenschaften, die beim Setzen oder Abrufen einen Fehler auslösen:
 
 ```js
 function restricted() {
@@ -356,21 +358,21 @@ function privilegedInvoker() {
 privilegedInvoker();
 ```
 
-Ähnliches gilt für [`arguments.callee`](/de/docs/Web/JavaScript/Reference/Functions/arguments/callee), das nicht länger unterstützt wird. Im sloppy mode bezieht sich `arguments.callee` auf die umgebende Funktion. Dieser Anwendungsfall ist schwach: Benennen Sie die umgebende Funktion! Darüber hinaus behindert `arguments.callee` erheblich Optimierungen wie das Inline-Schalten von Funktionen, weil es möglich gemacht werden muss, eine Referenz auf die nicht-inlinestrukturierte Funktion bereitzustellen, wenn `arguments.callee` zugegriffen wird. `arguments.callee` für strikte Modus-Funktionen ist eine nicht löschbare Eigenschaft, die einen Fehler auswirft, wenn sie gesetzt oder abgefragt wird:
+In ähnlicher Weise wird [`arguments.callee`](/de/docs/Web/JavaScript/Reference/Functions/arguments/callee) nicht mehr unterstützt. Im Sloppy Modus bezieht sich `arguments.callee` auf die umschließende Funktion. Dieser Anwendungsfall ist schwach: Benennen Sie die umschließende Funktion! Darüber hinaus behindert `arguments.callee` erheblich Optimierungen wie das Inlining von Funktionen, da es ermöglicht werden muss, einen Verweis auf die un-inline-ite Funktion bereitzustellen, wenn `arguments.callee` zugegriffen wird. `arguments.callee` für Strikt-Modus-Funktionen ist eine nicht löschbare Eigenschaft, die einen Fehler auslöst, wenn sie gesetzt oder abgerufen wird:
 
 ```js
 "use strict";
-const f = function () {
+function f() {
   return arguments.callee;
-};
+}
 f(); // throws a TypeError
 ```
 
-### Zukunftssicherung von JavaScript
+### Zukunftssicher machen von JavaScript
 
 #### Zusätzliche reservierte Wörter
 
-[Reservierte Wörter](/de/docs/Web/JavaScript/Reference/Lexical_grammar#reserved_words) sind Bezeichner, die nicht als Variablennamen verwendet werden dürfen. Der strikte Modus reserviert einige mehr Namen als der sloppy mode, einige davon werden bereits in der Sprache verwendet, und einige davon sind für die Zukunft reserviert, um zukünftige Syntaxerweiterungen einfacher umsetzen zu können.
+[Reservierte Wörter](/de/docs/Web/JavaScript/Reference/Lexical_grammar#reserved_words) sind Bezeichner, die nicht als Variablennamen verwendet werden können. Der Strikte Modus reserviert einige mehr Namen als der Sloppy Modus, von denen einige bereits in der Sprache verwendet werden und einige für die Zukunft reserviert sind, um zukünftige Syntaxerweiterungen einfacher zu implementieren.
 
 - `implements`
 - `interface`
@@ -384,45 +386,45 @@ f(); // throws a TypeError
 
 ## Übergang in den strikten Modus
 
-Der strikte Modus wurde so gestaltet, dass der Übergang schrittweise gemacht werden kann. Es ist möglich, jede Datei einzeln zu ändern und sogar den Code auf die Funktionsebene schrittweise in den strikten Modus zu überführen.
+Der Strikte Modus wurde so gestaltet, dass der Übergang in ihn schrittweise erfolgen kann. Es ist möglich, jede Datei einzeln zu ändern und sogar den Code bis auf die Funktionsebene in den Strikten Modus zu überführen.
 
-Sie können eine Codebasis in den strikten Modus migrieren, indem Sie zunächst `"use strict"` zu einem Quellcodeabschnitt hinzufügen und dann alle Ausführungsfehler beheben, während Sie auf semantische Unterschiede achten.
+Sie können eine Codebasis in den Strikten Modus migrieren, indem Sie zunächst `"use strict"` zu einem Stück Quellcode hinzufügen und dann alle Ausführungsfehler beheben, während Sie auf semantische Unterschiede achten.
 
 ### Syntaxfehler
 
-Beim Hinzufügen von `'use strict';` führen die folgenden Fälle zu einem {{jsxref("SyntaxError")}}, bevor das Skript ausgeführt wird:
+Beim Hinzufügen von `'use strict';` werden die folgenden Fälle einen {{jsxref("SyntaxError")}} auslösen, bevor das Skript ausgeführt wird:
 
-- Oktal-Syntax `const n = 023;`
+- Oktalsyntax `const n = 023;`
 - [`with`](/de/docs/Web/JavaScript/Reference/Statements/with)-Anweisung
-- Verwendung von [`delete`](/de/docs/Web/JavaScript/Reference/Operators/delete) auf einem Variablennamen `delete myVariable`;
-- Verwendung von [`eval`](/de/docs/Web/JavaScript/Reference/Global_Objects/eval) oder [`arguments`](/de/docs/Web/JavaScript/Reference/Functions/arguments) als Variable oder Funktionsargumentname
-- Verwendung eines der neu reservierten [Schlüsselwörter](/de/docs/Web/JavaScript/Reference/Lexical_grammar#reserved_words) (in Vorbereitung auf zukünftige Sprachfeatures): `implements`, `interface`, `let`, `package`, `private`, `protected`, `public`, `static` und `yield`
-- Deklaration von zwei Funktionsparametern mit demselben Namen `function f(a, b, b) {}`
-- Deklaration desselben Eigenschaftsnamens zweimal in einem Objektliteral `{a: 1, b: 3, a: 7}`. Diese Einschränkung wurde später entfernt ([Bug 1041128](https://bugzil.la/1041128)).
+- Verwenden von [`delete`](/de/docs/Web/JavaScript/Reference/Operators/delete) auf einem Variablennamen `delete myVariable`;
+- Verwenden von [`eval`](/de/docs/Web/JavaScript/Reference/Global_Objects/eval) oder [`arguments`](/de/docs/Web/JavaScript/Reference/Functions/arguments) als Variablen oder Funktionsargumentnamen
+- Verwenden eines der neu [reservierten Schlüsselwörter](/de/docs/Web/JavaScript/Reference/Lexical_grammar#reserved_words) (in Aussicht auf zukünftige Sprachfunktionen): `implements`, `interface`, `let`, `package`, `private`, `protected`, `public`, `static`, und `yield`
+- Deklarieren zweier Funktionsparameter mit demselben Namen `function f(a, b, b) {}`
+- Deklarieren desselben Eigenschaften-Namens zweimal in einem Objektliteral `{a: 1, b: 3, a: 7}`. Diese Einschränkung wurde später entfernt ([Bug 1041128](https://bugzil.la/1041128)).
 
-Diese Fehler sind gut, weil sie schlichte Fehler oder schlechte Praktiken aufdecken. Sie treten auf, bevor der Code ausgeführt wird, sodass sie leicht zu entdecken sind, solange der Code vom Laufzeitsystem geparst wird.
+Diese Fehler sind gut, weil sie offensichtliche Fehler oder schlechte Praktiken aufdecken. Sie treten auf, bevor der Code ausgeführt wird, sodass sie leicht entdeckt werden können, solange der Code vom Laufzeitsystem geparst wird.
 
 ### Neue Laufzeitfehler
 
-JavaScript scheiterte früher stillschweigend in Kontexten, in denen das, was getan wurde, ein Fehler hätte sein sollen. Der strikte Modus wirft in solchen Fällen einen Fehler. Wenn Ihre Codebasis solche Fälle enthält, sind Tests notwendig, um sicherzustellen, dass nichts kaputt geht. Sie können nach solchen Fehlern auf der Funktionsebene screenen.
+JavaScript schlug früher in Kontexten, in denen das, was getan wurde, ein Fehler sein sollte, stillschweigend fehl. Der Strikte Modus wirft in solchen Fällen nun einen Fehler. Wenn Ihre Codebasis solche Fälle enthält, wird das Testen notwendig sein, um sicherzustellen, dass nichts defekt ist. Sie können nach solchen Fehlern auf Funktionsebenen-Schranke suchen.
 
-- Eine nicht deklarierte Variable wirft einen {{jsxref("ReferenceError")}}. Dies setzte früher eine Eigenschaft am globalen Objekt, was selten die erwartete Wirkung ist. Wenn Sie wirklich einen Wert am globalen Objekt setzen möchten, weisen Sie ihn explizit als Eigenschaft auf `globalThis` zu.
-- Scheitern bei der Zuweisung zu einer Objekteigenschaft (z. B. sie ist schreibgeschützt) wirft einen {{jsxref("TypeError")}}. Im sloppy mode scheiterte das stille.
-- Das Löschen einer nicht löschbaren Eigenschaft wirft einen {{jsxref("TypeError")}}. Im sloppy mode scheiterte das stille.
-- Der Zugriff auf [`arguments.callee`](/de/docs/Web/JavaScript/Reference/Functions/arguments/callee), [`strictFunction.caller`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/caller), oder [`strictFunction.arguments`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/arguments) wirft einen {{jsxref("TypeError")}}, wenn die Funktion im strikten Modus ist. Wenn Sie `arguments.callee` verwenden, um die Funktion rekursiv aufzurufen, können Sie stattdessen einen benannten Funktionsausdruck verwenden.
+- Das Zuweisen zu einer nicht deklarierten Variablen wirft einen {{jsxref("ReferenceError")}}. Früher wurde dadurch eine Eigenschaft auf dem globalen Objekt gesetzt, was selten der erwartete Effekt ist. Wenn Sie wirklich einen Wert auf das globale Objekt setzen möchten, weisen Sie ihn explizit als Eigenschaft von `globalThis` zu.
+- Das Fehlschlagen bei der Zuweisung zu einer Eigenschaft eines Objekts (z.B. sie ist schreibgeschützt) wirft einen {{jsxref("TypeError")}}. Im Sloppy Modus würde dies stillschweigend fehlschlagen.
+- Das Löschen einer nicht-löschbaren Eigenschaft wirft einen {{jsxref("TypeError")}}. Im Sloppy Modus würde dies stillschweigend fehlschlagen.
+- Der Zugriff auf [`arguments.callee`](/de/docs/Web/JavaScript/Reference/Functions/arguments/callee), [`strictFunction.caller`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/caller) oder [`strictFunction.arguments`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/arguments) wirft einen {{jsxref("TypeError")}}, wenn die Funktion im Strikten Modus ist. Wenn Sie `arguments.callee` verwenden, um die Funktion rekursiv aufzurufen, können Sie stattdessen einen benannten Funktionsausdruck verwenden.
 
 ### Semantische Unterschiede
 
-Diese Unterschiede sind sehr subtile Unterschiede. Es ist möglich, dass eine Testreihe diese Art von subtilen Unterschieden nicht erkennt. Eine sorgfältige Überprüfung Ihrer Codebasis wird wahrscheinlich notwendig sein, um sicherzugehen, dass diese Unterschiede nicht die Semantik Ihres Codes beeinträchtigen. Glücklicherweise kann diese sorgfältige Überprüfung schrittweise auf Funktionsebene erfolgen.
+Diese Unterschiede sind sehr subtile Unterschiede. Es ist möglich, dass ein Testsatz diese Art von subtilem Unterschied nicht erfasst. Eine sorgfältige Überprüfung Ihrer Codebasis wird wahrscheinlich notwendig sein, um sicherzustellen, dass diese Unterschiede die Semantik Ihres Codes nicht beeinträchtigen. Zum Glück kann diese sorgfältige Überprüfung schrittweise auf Funktionsebenen durchgeführt werden.
 
 - `this`
-  - : Im sloppy mode führten Funktionsaufrufe wie `f()` dazu, dass das globale Objekt als `this`-Wert übergeben wurde. Im strikten Modus ist nun `undefined`. Wenn eine Funktion mit [`call`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/call) oder [`apply`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/apply) aufgerufen wurde, wenn der Wert ein primitiver Wert war, wurde dieser in ein Objekt (oder das globale Objekt für `undefined` und `null`) verpackt. Im strikten Modus wird der Wert direkt ohne Umwandlung oder Ersatz übergeben.
+  - : Im Sloppy Modus, würden Funktionsaufrufe wie `f()` das globale Objekt als `this`-Wert übergeben. Im Strikten Modus ist es jetzt `undefined`. Wenn eine Funktion mit [`call`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/call) oder [`apply`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/apply) aufgerufen wurde, wenn der Wert ein primitiver Wert war, wurde dieser in ein Objekt (oder das globale Objekt für `undefined` und `null`) "geboxt". Im Strikten Modus wird der Wert direkt ohne Umwandlung oder Ersatz übergeben.
 - `arguments`
-  - : Im sloppy mode führte die Änderung eines Werts im `arguments`-Objekt zur Änderung des entsprechenden benannten Arguments. Dies machte Optimierungen für JavaScript-Engines kompliziert und erschwerte das Lesen/Verstehen von Code. Im strikten Modus wird das `arguments`-Objekt erstellt und mit den gleichen Werten wie die benannten Argumente initialisiert, aber Änderungen an entweder dem `arguments`-Objekt oder den benannten Argumenten werden nicht in einander widerspiegeln.
+  - : Im Sloppy Modus, das Ändern eines Werts im `arguments`-Objekt ändert das entsprechende benannte Argument. Dies machte Optimierungen für JavaScript-Engines kompliziert und machte den Code schwerer lesbar/verstehbar. Im Strikten Modus wird das `arguments`-Objekt erstellt und mit denselben Werten wie die benannten Argumente initialisiert, aber Änderungen an entweder dem `arguments`-Objekt oder den benannten Argumenten werden nicht wechselseitig widergespiegelt.
 - `eval`
-  - : Im strikten Modus-Code erstellt `eval` keine neue Variable im Geltungsbereich, aus dem es aufgerufen wurde. Auch wird natürlich der String im strikten Modus ausgewertet. Gründliche Tests sind notwendig, um sicherzustellen, dass nichts kaputt geht. Wenn Sie `eval` nicht wirklich benötigen, kann das Nichtverwenden von `eval` eine weitere pragmatische Lösung sein.
-- Block-scoped Funktionsdeklarationen
-  - : Im sloppy mode kann eine Funktionsdeklaration innerhalb eines Blocks außerhalb des Blocks sichtbar und sogar aufrufbar sein. Im strikten Modus ist eine Funktionsdeklaration innerhalb eines Blocks nur innerhalb des Blocks sichtbar.
+  - : Im Strikten Modus erstellt `eval` keine neue Variable im Bereich, von dem aus es aufgerufen wurde. Auch wird natürlich im Strikten Modus der String mit Regeln des Strikten Modus ausgewertet. Umfassende Tests müssen durchgeführt werden, um sicherzustellen, dass nichts kaputt geht. Wenn Sie `eval` nicht wirklich benötigen, kann eine andere pragmatische Lösung sein, es nicht zu verwenden.
+- Block-scopierte Funktionsdeklarationen
+  - : Im Sloppy Modus kann eine Funktionsdeklaration innerhalb eines Blocks außerhalb des Blocks sichtbar und sogar aufrufbar sein. Im Strikten Modus ist eine Funktionsdeklaration innerhalb eines Blocks nur innerhalb des Blocks sichtbar.
 
 ## Spezifikationen
 
@@ -430,5 +432,5 @@ Diese Unterschiede sind sehr subtile Unterschiede. Es ist möglich, dass eine Te
 
 ## Siehe auch
 
-- [JavaScript Module](/de/docs/Web/JavaScript/Guide/Modules) Leitfaden
+- [JavaScript-Module](/de/docs/Web/JavaScript/Guide/Modules) Leitfaden
 - [Lexikalische Grammatik](/de/docs/Web/JavaScript/Reference/Lexical_grammar)

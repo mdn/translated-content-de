@@ -2,7 +2,7 @@
 title: Temporal.PlainMonthDay.from()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainMonthDay/from
 l10n:
-  sourceCommit: 1b77d85af82183b835cf253e885dca26cba93eb5
+  sourceCommit: 58fda7e192fc7d82880f310d8f912ba2f50cd0d5
 ---
 
 {{JSRef}}{{SeeCompatTable}}
@@ -22,59 +22,59 @@ Temporal.PlainMonthDay.from(info, options)
 
   - : Eines der folgenden:
 
-    - Eine {{jsxref("Temporal.PlainMonthDay")}} Instanz, die eine Kopie der Instanz erstellt.
-    - Ein [RFC 9557](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainMonthDay#rfc_9557_format) String, der ein Datum und optional einen Kalender enthält. Wenn der Kalender nicht `iso8601` ist, ist ein Jahr erforderlich.
+    - Eine Instanz von {{jsxref("Temporal.PlainMonthDay")}}, die eine Kopie der Instanz erstellt.
+    - Ein [RFC 9557](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainMonthDay#rfc_9557_format) String, der ein Datum und optional einen Kalender enthält. Wenn der Kalender nicht `iso8601` ist, wird ein Jahr benötigt.
     - Ein Objekt, das die folgenden Eigenschaften enthält (in der Reihenfolge, in der sie abgerufen und validiert werden):
 
       - `calendar` {{optional_inline}}
-        - : Ein String, der der {{jsxref("Temporal/PlainMonthDay/calendarId", "calendarId")}} Eigenschaft entspricht. Standardmäßig `"iso8601"`. Alle anderen Eigenschaften werden in diesem Kalendersystem interpretiert (im Gegensatz zum {{jsxref("Temporal/PlainMonthDay/PlainMonthDay", "Temporal.PlainMonthDay()")}} Konstruktor, der die Werte im ISO-Kalendersystem interpretiert). Siehe [`Intl.supportedValuesOf()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/supportedValuesOf#supported_calendar_types) für eine Liste der häufig unterstützten Kalendertypen.
+        - : Ein String, der der {{jsxref("Temporal/PlainMonthDay/calendarId", "calendarId")}}-Eigenschaft entspricht. Standardmäßig `"iso8601"`. Alle anderen Eigenschaften werden in diesem Kalendersystem interpretiert (anders als der {{jsxref("Temporal/PlainMonthDay/PlainMonthDay", "Temporal.PlainMonthDay()")}} Konstruktor, der die Werte im ISO-Kalendersystem interpretiert). Siehe [`Intl.supportedValuesOf()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/supportedValuesOf#supported_calendar_types) für eine Liste häufig unterstützter Kalendertypen.
       - `day`
-        - : Eine ganze Zahl, die der {{jsxref("Temporal/PlainMonthDay/day", "day")}} Eigenschaft entspricht. Muss positiv sein, unabhängig von der `overflow`-Option.
+        - : Eine Ganzzahl, die der {{jsxref("Temporal/PlainMonthDay/day", "day")}}-Eigenschaft entspricht. Muss positiv sein, unabhängig von der `overflow`-Option.
       - `era` und `eraYear`
-        - : Ein String und eine ganze Zahl, die anstelle von `year` verwendet werden können. Siehe {{jsxref("Temporal/PlainDate/era", "era")}} und {{jsxref("Temporal/PlainDate/eraYear", "eraYear")}} von `PlainDate`. Werden nur verwendet, wenn das Kalendersystem Epochen hat. `era` und `eraYear` müssen gleichzeitig angegeben werden. Wenn `month` angegeben ist, muss mindestens eines von `era`+`eraYear` oder `year` angegeben werden. Wenn alle `era`, `eraYear` und `year` vorhanden sind, müssen sie konsistent sein.
+        - : Ein String und eine Ganzzahl, die anstelle von `year` verwendet werden können. Siehe {{jsxref("Temporal/PlainDate/era", "era")}} und {{jsxref("Temporal/PlainDate/eraYear", "eraYear")}} von `PlainDate`. Werden nur verwendet, wenn das Kalendersystem Epochen hat. `era` und `eraYear` müssen gleichzeitig angegeben werden. Wenn `month` angegeben ist, muss mindestens eines von `eraYear` (zusammen mit `era`) oder `year` angegeben werden. Wenn alle `era`, `eraYear` und `year` angegeben sind, müssen sie konsistent sein.
       - `month`
-        - : Eine positive ganze Zahl, die anstelle von `monthCode` verwendet werden kann. Siehe {{jsxref("Temporal/PlainDate/month", "month")}} von `PlainDate`. Muss positiv sein, unabhängig von der `overflow`-Option. Wenn `month` angegeben ist und der Kalender nicht `iso8601` ist, muss auch `year` (oder `era` + `eraYear` als Ersatz) angegeben werden, da derselbe `month` in verschiedenen Jahren zu mehreren möglichen `monthCode`-Werten führen kann. Mindestens eines von `month` oder `monthCode` muss angegeben werden. Wenn sowohl `month` als auch `monthCode` angegeben sind, müssen sie konsistent sein.
+        - : Eine positive Ganzzahl, die anstelle von `monthCode` verwendet werden kann. Siehe {{jsxref("Temporal/PlainDate/month", "month")}} von `PlainDate`. Muss positiv sein, unabhängig von der `overflow`-Option. Wenn `month` angegeben ist und der Kalender nicht `iso8601` ist, muss auch `year` (oder `eraYear` zusammen mit `era` als Ersatz) angegeben werden, da derselbe `month` in verschiedenen Jahren zu mehreren möglichen `monthCode`-Werten führen kann. Mindestens eines von `month` oder `monthCode` muss angegeben werden. Wenn sowohl `month` als auch `monthCode` angegeben sind, müssen sie konsistent sein.
       - `monthCode`
-        - : Entspricht der {{jsxref("Temporal/PlainMonthDay/monthCode", "monthCode")}} Eigenschaft. Mindestens eines von `month` oder `monthCode` muss angegeben werden. Wenn sowohl `month` als auch `monthCode` angegeben sind, müssen sie konsistent sein.
+        - : Entspricht der {{jsxref("Temporal/PlainMonthDay/monthCode", "monthCode")}}-Eigenschaft. Mindestens eines von `month` oder `monthCode` muss angegeben werden. Wenn sowohl `month` als auch `monthCode` angegeben sind, müssen sie konsistent sein.
       - `year`
-        - : Eine ganze Zahl, die verwendet wird, um `month` zu disambiguieren, falls angegeben, da für einige Kalender derselbe `month` unterschiedliche `monthCode` in verschiedenen Jahren bedeuten kann. Siehe {{jsxref("Temporal/PlainDate/year", "year")}} von `PlainDate`. Wenn ein Jahr angegeben ist, validiert die `overflow`-Option den Monat-Tag im angegebenen Jahr, nicht nur in jedem Jahr. Wenn `month` angegeben ist, muss mindestens eines von `era`+`eraYear` oder `year` angegeben werden. Wenn alle `era`, `eraYear` und `year` vorhanden sind, müssen sie konsistent sein.
+        - : Eine Ganzzahl, die dazu verwendet wird, `month` zu entwirren, falls angegeben, da für einige Kalender derselbe `month` in verschiedenen Jahren unterschiedliche `monthCode` bedeuten kann. Siehe {{jsxref("Temporal/PlainDate/year", "year")}} von `PlainDate`. Wenn ein Jahr angegeben wird, validiert die `overflow`-Option den Monat-Tag im angegebenen Jahr, nicht nur in einem beliebigen Jahr. Wenn `month` angegeben ist, muss mindestens eines von `eraYear` (zusammen mit `era`) oder `year` angegeben werden. Wenn alle `era`, `eraYear` und `year` angegeben sind, müssen sie konsistent sein.
 
 - `options` {{optional_inline}}
   - : Ein Objekt, das die folgende Eigenschaft enthält:
     - `overflow` {{optional_inline}}
-      - : Ein String, der das Verhalten angibt, wenn eine Datumskomponente außerhalb des gültigen Bereichs liegt (bei Verwendung des Objekt-`info`). Mögliche Werte sind:
-        - `"constrain"` (Vorgabe)
-          - : Die Datumskomponente wird auf den gültigen Bereich [begrenzt](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainDate#invalid_date_clamping).
+      - : Ein String, der das Verhalten bestimmt, wenn eine Datumskomponente außerhalb des Bereichs liegt (bei Verwendung des Objekts `info`). Mögliche Werte sind:
+        - `"constrain"` (Standard)
+          - : Die Datumskomponente wird auf den gültigen Bereich [eingeschränkt](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainDate#invalid_date_clamping).
         - `"reject"`
-          - : Ein {{jsxref("RangeError")}} wird ausgelöst, wenn die Datumskomponente außerhalb des gültigen Bereichs liegt.
+          - : Ein {{jsxref("RangeError")}} wird ausgelöst, wenn die Datumskomponente außerhalb des Bereichs liegt.
 
 ### Rückgabewert
 
-Ein neues `Temporal.PlainMonthDay`-Objekt, das den durch `info` im angegebenen `calendar` spezifizierten Monat und Tag darstellt.
+Ein neues `Temporal.PlainMonthDay`-Objekt, das den Monat und den Tag darstellt, die von `info` im angegebenen `calendar` festgelegt werden.
 
-Jedes `PlainMonthDay` speichert intern ein vollständiges ISO-8601-Datum, das denselben Monat-Tag im Zielkalender hat, wie er angezeigt wird. Das Bezugsjahr ist sichtbar, wenn es mit {{jsxref("Temporal/PlainMonthDay/toString", "toString()")}} in einen String umgewandelt wird, was ein ISO-Datum ausgibt. Das Bezugsjahr wird willkürlich, aber konsistent gewählt (d.h. jedes `(monthCode, day)`-Paar ordnet dem gleichen ISO-Bezugsjahr zu). Es wird nicht das Jahr verwendet, das in der Eingabe angegeben ist. Stattdessen wird das Bezugsjahr gewählt, indem das letzte Datum vor dem 31. Dezember 1972 gefunden wird, das denselben Monat-Tag im Zielkalender hat, oder das früheste Datum nach dem 31. Dezember 1972, wenn kein solches Datum existiert.
+Jeder `PlainMonthDay` speichert intern ein vollständiges ISO 8601-Datum, das denselben Monat-Tag im Zielkalender hat, wie er angezeigt wird. Das Referenzjahr ist sichtbar, wenn es mit {{jsxref("Temporal/PlainMonthDay/toString", "toString()")}} als ISO-Datum formatiert wird. Das Referenzjahr wird willkürlich, aber konsistent gewählt (das heißt, jedes `(monthCode, day)`-Paar wird immer demselben ISO-Referenzjahr zugeordnet). Es wird nicht das in der Eingabe bereitgestellte Jahr verwendet. Stattdessen wird das Referenzjahr gewählt, indem das neueste Datum vor dem 31. Dezember 1972 gesucht wird, das denselben Monat-Tag im Zielkalender hat, oder das früheste Datum nach dem 31. Dezember 1972, wenn ein solches Datum nicht existiert.
 
-Zum Beispiel ist für gregorianisch-abgeleitete Kalender das Bezugsjahr 1972. Für den hebräischen Kalender ist das Bezugsjahr 1972 im gregorianischen Kalender, aber wenn der Monat Adar I (`M05L`) ist, was ein Schaltmonat ist, ist das Bezugsjahr stattdessen 1970 (5730 im hebräischen Kalender), weil das nächste Schaltjahr 1973 (5733 im hebräischen Kalender) ist, das nach 1972 liegt.
+Zum Beispiel beträgt bei gregorianisch abgeleiteten Kalendern das Referenzjahr 1972. Beim Hebräischen Kalender ist das Referenzjahr 1972 im Gregorianischen Kalender, aber wenn der Monat Adar I (`M05L`) ist, welches ein Schaltmonat ist, beträgt das Referenzjahr 1970 (5730 im Hebräischen Kalender), da das nächste Schaltjahr 1973 (5733 im Hebräischen Kalender) ist, welches nach 1972 liegt.
 
-Diese Kanonisierung des Bezugsjahres gewährleistet, dass {{jsxref("Temporal/PlainMonthDay/equals", "equals()")}} die zugrunde liegenden ISO-Daten direkt vergleichen kann, ohne zusätzliche Berechnungen.
+Diese Referenzjahr-Kanonisierung stellt sicher, dass {{jsxref("Temporal/PlainMonthDay/equals", "equals()")}} die zugrunde liegenden ISO-Daten direkt vergleichen kann, ohne zusätzliche Berechnungen.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : In einem der folgenden Fälle ausgelöst:
+  - : Wird in einem der folgenden Fälle ausgelöst:
     - `info` ist kein Objekt oder String.
     - `options` ist kein Objekt oder `undefined`.
-    - Die angegebenen Eigenschaften reichen nicht aus, um ein Datum unmissverständlich zu bestimmen. Normalerweise müssen ein `year` (oder `era` und `eraYear`), ein `month` und ein `day` oder ein `monthCode` und ein `day` angegeben werden.
+    - Die bereitgestellten Eigenschaften sind unzureichend, um ein Datum eindeutig zu bestimmen. Normalerweise müssen `year` (oder `era` und `eraYear`), `month` und `day` oder `monthCode` und `day` angegeben werden.
 - {{jsxref("RangeError")}}
-  - : In einem der folgenden Fälle ausgelöst:
-    - Die angegebenen Eigenschaften, die dieselbe Komponente spezifizieren, sind inkonsistent.
-    - Die angegebenen nicht-numerischen Eigenschaften sind nicht gültig; zum Beispiel, wenn `monthCode` niemals ein gültiger Monatscode in diesem Kalender ist.
-    - Die angegebenen numerischen Eigenschaften liegen außerhalb des gültigen Bereichs, und `options.overflow` ist auf `"reject"` gesetzt.
-    - Die Info liegt nicht im [darstellbaren Bereich](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#representable_dates), der ±(10<sup>8</sup> + 1) Tage oder etwa ±273,972.6 Jahre vom Unix-Epoch umfasst.
+  - : Wird in einem der folgenden Fälle ausgelöst:
+    - Die bereitgestellten Eigenschaften, die dieselbe Komponente spezifizieren, sind inkonsistent.
+    - Die bereitgestellten nicht-numerischen Eigenschaften sind nicht gültig; zum Beispiel, wenn `monthCode` in diesem Kalender niemals ein gültiger Monatscode ist.
+    - Die bereitgestellten numerischen Eigenschaften liegen außerhalb des Bereichs, und `options.overflow` ist auf `"reject"` gesetzt.
+    - Die Info liegt nicht im [darstellbaren Bereich](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#representable_dates), der ±(10<sup>8</sup> + 1) Tage oder etwa ±273.972,6 Jahre vom Unix-Epoch umfasst.
 
 ## Beispiele
 
-### Ein PlainMonthDay aus einem Objekt erstellen
+### Erstellen eines PlainMonthDay aus einem Objekt
 
 ```js
 // Month code + day
@@ -107,15 +107,15 @@ const md5 = Temporal.PlainMonthDay.from({
 console.log(md5.toString()); // 1970-02-07[u-ca=hebrew]
 ```
 
-### Überlaufverhalten steuern
+### Steuerung des Überlaufverhaltens
 
-Standardmäßig werden Werte außerhalb des gültigen Bereichs auf den gültigen Bereich begrenzt. Ein Monat-Tag ohne explizites Bezugsjahr ist gültig, solange es ein Jahr gibt, in dem es gültig ist, auch wenn es nicht jedes Jahr vorkommt. Wenn Jahr, Monat und Tag alle angegeben sind, könnten die Regeln zur Zuordnung zu einem gültigen Monat-Tag komplex und spezifisch für jeden Kalender sein, aber hier ist das übliche Verhalten:
+Standardmäßig werden Werte außerhalb des Bereichs auf den gültigen Bereich beschränkt. Ein Monat-Tag ohne explizites Referenzjahr ist gültig, solange es ein Jahr gibt, in dem es gültig ist, auch wenn es nicht jedes Jahr auftritt. Wenn Jahr, Monat und Tag alle angegeben sind, könnten die Regeln zur Zuordnung zu einem gültigen Monat-Tag komplex und spezifisch für jeden Kalender sein, aber hier ist das übliche Verhalten:
 
-- Wenn die `year`/`month` Kombination ungültig ist, wird der `month` auf einen gültigen `monthCode` im Jahr begrenzt.
-- Wenn die `year`/`monthCode` Kombination ungültig ist, wird ein anderes Jahr gewählt, um den `monthCode` beizubehalten.
-- Der `day` wird im gegebenen Jahr-Monat begrenzt, um einen gültigen Monat-Tag zu erhalten.
+- Ist die `year`/`month`-Kombination ungültig, wird der `month` eingeschränkt, um einen gültigen `monthCode` im Jahr zu erhalten.
+- Ist die `year`/`monthCode`-Kombination ungültig, wird ein anderes Jahr gewählt, um den `monthCode` unverändert zu lassen.
+- Der `day` wird im angegebenen Jahr-Monat eingeschränkt, um einen gültigen Monat-Tag zu erhalten.
 
-Dies ist leicht anders als das übliche [Datumseinschränken](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainDate#invalid_date_clamping), das das Jahr über den Monatscode bevorzugt.
+Dies unterscheidet sich leicht von der üblichen [Datumseinschränkung](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainDate#invalid_date_clamping), die das Jahr über den Monatscode bevorzugt.
 
 ```js
 // Month always out of range

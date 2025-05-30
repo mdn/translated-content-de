@@ -2,20 +2,20 @@
 title: Object.prototype.__proto__
 slug: Web/JavaScript/Reference/Global_Objects/Object/proto
 l10n:
-  sourceCommit: 3dbbefa32758e2a1ca9a37c2788370c06aae2738
+  sourceCommit: 14acf1aa7885157debdf1b6111f4bd10c064ec60
 ---
 
 {{JSRef}}{{Deprecated_Header}}
 
 > [!WARNING]
-> Das Ändern des `[[Prototype]]` eines Objekts ist aufgrund der Art und Weise, wie moderne JavaScript-Engines den Zugriff auf Eigenschaften optimieren, in jedem Browser und jeder JavaScript-Engine momentan eine sehr langsame Operation. Darüber hinaus sind die Auswirkungen der Änderung von Vererbung subtil und weitreichend und beschränken sich nicht nur auf die Zeit, die im `obj.__proto__ = ...`-Statement verbracht wird, sondern können sich auf **_jeglichen_** Code auswirken, der auf ein beliebiges Objekt zugreift, dessen `[[Prototype]]` verändert wurde. Weitere Informationen finden Sie in [JavaScript engine fundamentals: optimizing prototypes](https://mathiasbynens.be/notes/prototypes).
+> Das Ändern des `[[Prototype]]` eines Objekts ist aufgrund der Optimierung von Eigenschaftszugriffen in modernen JavaScript-Engines derzeit in jedem Browser und jeder JavaScript-Engine eine sehr langsame Operation. Darüber hinaus sind die Effekte der Veränderung der Vererbung subtil und weitreichend und nicht auf die verbrachte Zeit in der Anweisung `obj.__proto__ = ...` beschränkt, sondern können sich auf **_jeden_** Code erstrecken, der Zugriff auf irgendein Objekt hat, dessen `[[Prototype]]` verändert wurde. Weitere Informationen finden Sie in [JavaScript engine fundamentals: optimizing prototypes](https://mathiasbynens.be/notes/prototypes).
 
 > [!NOTE]
-> Die Verwendung von `__proto__` ist umstritten und wird nicht empfohlen. Seine Existenz und sein genaues Verhalten wurden nur als Legacy-Funktion standardisiert, um die Web-Kompatibilität sicherzustellen, während es mehrere Sicherheitsprobleme und potenzielle Fallstricke bietet. Für bessere Unterstützung ziehen Sie {{jsxref("Object.getPrototypeOf()")}}/{{jsxref("Reflect.getPrototypeOf()")}} und {{jsxref("Object.setPrototypeOf()")}}/{{jsxref("Reflect.setPrototypeOf()")}} vor.
+> Die Verwendung von `__proto__` ist umstritten und wird nicht empfohlen. Seine Existenz und das genaue Verhalten wurden nur als älteres Merkmal standardisiert, um die Web-Kompatibilität sicherzustellen, während es mehrere Sicherheitsprobleme und potenzielle Fehlerquellen aufweist. Für eine bessere Unterstützung verwenden Sie stattdessen {{jsxref("Object.getPrototypeOf()")}}/{{jsxref("Reflect.getPrototypeOf()")}} und {{jsxref("Object.setPrototypeOf()")}}/{{jsxref("Reflect.setPrototypeOf()")}}.
 
-Die **`__proto__`** Accessor-Eigenschaft von {{jsxref("Object")}}-Instanzen gibt das [`[[Prototype]]`](/de/docs/Web/JavaScript/Guide/Inheritance_and_the_prototype_chain) (entweder ein Objekt oder {{jsxref("Operators/null", "null")}}) dieses Objekts preis.
+Die **`__proto__`** Accessor-Eigenschaft von {{jsxref("Object")}}-Instanzen legt den [`[[Prototype]]`](/de/docs/Web/JavaScript/Guide/Inheritance_and_the_prototype_chain) (entweder ein Objekt oder {{jsxref("Operators/null", "null")}}) dieses Objekts offen.
 
-Die `__proto__`-Eigenschaft kann auch in einer Objektliteraldarstellung verwendet werden, um das Objekt-`[[Prototype]]` bei der Erstellung festzulegen, als Alternative zu {{jsxref("Object.create()")}}. Siehe: [Objektinitialisierer / Literalsyntax](/de/docs/Web/JavaScript/Reference/Operators/Object_initializer). Diese Syntax ist standardisiert und für Implementierungen optimiert und unterscheidet sich erheblich von `Object.prototype.__proto__`.
+Die `__proto__`-Eigenschaft kann auch in einer Objekt-Literal-Definition verwendet werden, um das Objekt-`[[Prototype]]` bei der Erstellung festzulegen, als Alternative zu {{jsxref("Object.create()")}}. Siehe: [Objektinitialisierer / Literal-Syntax](/de/docs/Web/JavaScript/Reference/Operators/Object_initializer). Diese Syntax ist standardisiert und in Implementierungen optimiert und unterscheidet sich erheblich von `Object.prototype.__proto__`.
 
 ## Syntax
 
@@ -25,24 +25,24 @@ obj.__proto__
 
 ### Rückgabewert
 
-Bei Verwendung als Getter gibt es das `[[Prototype]]` des Objekts zurück.
+Wird sie als Getter verwendet, gibt sie das `[[Prototype]]` des Objekts zurück.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn versucht wird, das Prototype eines [nicht erweiterbaren](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/isExtensible) Objekts oder eines [unveränderlichen Prototype-Exotischen Objekts](https://tc39.es/ecma262/multipage/ordinary-and-exotic-objects-behaviours.html#sec-immutable-prototype-exotic-objects), wie `Object.prototype` oder [`window`](/de/docs/Web/API/Window), festzulegen.
+  - : Wird ausgelöst, wenn versucht wird, das Prototype eines [nicht erweiterbaren](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/isExtensible) Objekts oder eines [unveränderlichen specialesPrototype-Objekts](https://tc39.es/ecma262/multipage/ordinary-and-exotic-objects-behaviours.html#sec-immutable-prototype-exotic-objects) wie `Object.prototype` oder [`window`](/de/docs/Web/API/Window) zu setzen.
 
 ## Beschreibung
 
-Die `__proto__` Getter-Funktion gibt den Wert des internen `[[Prototype]]` eines Objekts preis. Für Objekte, die mithilfe eines Objektliterals erstellt wurden (es sei denn, Sie verwenden die [prototype setter](/de/docs/Web/JavaScript/Reference/Operators/Object_initializer#prototype_setter) Syntax), ist dieser Wert `Object.prototype`. Für Objekte, die mit Array-Literalen erstellt wurden, ist dieser Wert [`Array.prototype`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array). Für Funktionen ist dieser Wert {{jsxref("Function.prototype")}}. Weitere Informationen zur Prototype-Kette finden Sie in [Vererbung und die Prototype-Kette](/de/docs/Web/JavaScript/Guide/Inheritance_and_the_prototype_chain).
+Die `__proto__`-Getter-Funktion legt den Wert des internen `[[Prototype]]` eines Objekts offen. Für Objekte, die mit einem Objekt-Literal erstellt werden (sofern Sie nicht die [prototype setter](/de/docs/Web/JavaScript/Reference/Operators/Object_initializer#prototype_setter) Syntax verwenden), ist dieser Wert `Object.prototype`. Für Objekte, die mit Array-Literalen erstellt werden, ist dieser Wert [`Array.prototype`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array). Für Funktionen ist dieser Wert {{jsxref("Function.prototype")}}. Sie können mehr über die Prototypen-Kette in [Vererbung und die Prototypen-Kette](/de/docs/Web/JavaScript/Guide/Inheritance_and_the_prototype_chain) lesen.
 
-Der `__proto__` Setter ermöglicht das Ändern des `[[Prototype]]` eines Objekts. Der angegebene Wert muss ein Objekt oder {{jsxref("Operators/null", "null")}} sein. Jeder andere Wert hat keine Wirkung.
+Der `__proto__`-Setter ermöglicht das Ändern des `[[Prototype]]` eines Objekts. Der angegebene Wert muss ein Objekt oder {{jsxref("Operators/null", "null")}} sein. Jeder andere Wert wird nichts bewirken.
 
-Im Gegensatz zu {{jsxref("Object.getPrototypeOf()")}} und {{jsxref("Object.setPrototypeOf()")}}, die immer als statische Eigenschaften auf `Object` verfügbar sind und stets das interne `[[Prototype]]` widerspiegeln, existiert die `__proto__`-Eigenschaft nicht immer als Eigenschaft auf allen Objekten und spiegelt daher `[[Prototype]]` nicht zuverlässig wider.
+Im Gegensatz zu {{jsxref("Object.getPrototypeOf()")}} und {{jsxref("Object.setPrototypeOf()")}}, die immer als statische Eigenschaften auf `Object` verfügbar sind und immer die interne `[[Prototype]]`-Eigenschaft widerspiegeln, existiert die `__proto__`-Eigenschaft nicht immer als Eigenschaft auf allen Objekten und spiegelt daher `[[Prototype]]` nicht zuverlässig wider.
 
-Die `__proto__`-Eigenschaft ist lediglich eine Accessor-Eigenschaft auf `Object.prototype`, bestehend aus einer Getter- und einer Setter-Funktion. Ein Eigenschaftszugriff auf `__proto__`, der letztlich auf `Object.prototype` zugreift, wird diese Eigenschaft finden, aber ein Zugriff, der `Object.prototype` nicht abfragt, wird dies nicht. Wenn eine andere `__proto__`-Eigenschaft gefunden wird, bevor `Object.prototype` abgefragt wird, wird diese Eigenschaft die auf `Object.prototype` gefundene Eigenschaft verdecken.
+Die `__proto__`-Eigenschaft ist nur eine Accessor-Eigenschaft auf `Object.prototype`, die aus einer Getter- und einer Setter-Funktion besteht. Ein Eigenschaftszugriff auf `__proto__`, der letztendlich `Object.prototype` konsultiert, wird diese Eigenschaft finden, aber ein Zugriff, der `Object.prototype` nicht konsultiert, wird das nicht. Wenn eine andere `__proto__`-Eigenschaft gefunden wird, bevor `Object.prototype` konsultiert wird, wird diese Eigenschaft die auf `Object.prototype` gefundene verbergen.
 
-[`null`-Prototype-Objekte](/de/docs/Web/JavaScript/Reference/Global_Objects/Object#null-prototype_objects) erben keine Eigenschaften von `Object.prototype`, einschließlich der `__proto__`-Accessoreigenschaft. Wenn Sie versuchen, `__proto__` auf einem solchen Objekt zu lesen, ist der Wert immer `undefined`, unabhängig vom tatsächlichen `[[Prototype]]` des Objekts, und jede Zuweisung an `__proto__` würde eine neue Eigenschaft namens `__proto__` erstellen, anstatt das Prototype des Objekts festzulegen. Des Weiteren kann `__proto__` als eigene Eigenschaft auf jeder Objektinstanz über {{jsxref("Object.defineProperty()")}} neu definiert werden, ohne den Setter auszulösen. In diesem Fall ist `__proto__` kein Accessor mehr für `[[Prototype]]`. Daher sollten Sie immer {{jsxref("Object.getPrototypeOf()")}} und {{jsxref("Object.setPrototypeOf()")}} bevorzugen, um das `[[Prototype]]` eines Objekts zu setzen und abzurufen.
+[`Null`-Prototyp-Objekte](/de/docs/Web/JavaScript/Reference/Global_Objects/Object#null-prototype_objects) erben keine Eigenschaft von `Object.prototype`, einschließlich der `__proto__`-Accessor-Eigenschaft. Wenn Sie versuchen, `__proto__` auf einem solchen Objekt zu lesen, ist der Wert immer `undefined`, unabhängig vom tatsächlichen `[[Prototype]]` des Objekts, und jede Zuweisung an `__proto__` würde eine neue Eigenschaft namens `__proto__` erstellen, anstatt das Prototype des Objekts zu setzen. Darüber hinaus kann `__proto__` als eigene Eigenschaft auf jeder Objektinstanz über {{jsxref("Object.defineProperty()")}} ohne Auslösen des Setters neu definiert werden. In diesem Fall wird `__proto__` nicht länger ein Accessor für `[[Prototype]]` sein. Deshalb sollten Sie immer {{jsxref("Object.getPrototypeOf()")}} und {{jsxref("Object.setPrototypeOf()")}} verwenden, um das `[[Prototype]]` eines Objekts zu setzen und zu bekommen.
 
 ## Beispiele
 
@@ -62,7 +62,7 @@ console.log(shape.__proto__ === Circle); // false
 ```
 
 ```js
-const ShapeA = function () {};
+function ShapeA() {}
 const ShapeB = {
   a() {
     console.log("aaa");
@@ -78,7 +78,7 @@ console.log(ShapeA.prototype === shapeA.__proto__); // true
 ```
 
 ```js
-const ShapeC = function () {};
+function ShapeC() {}
 const ShapeD = {
   a() {
     console.log("a");
