@@ -2,124 +2,124 @@
 title: Drittanbieter-Cookies
 slug: Web/Privacy/Guides/Third-party_cookies
 l10n:
-  sourceCommit: 6a5c619dfad295ca9a9d317a4088908cfd33e686
+  sourceCommit: 86fa532a00024e7c85a4c0d6339adce8b1bd9f61
 ---
 
-Dieser Artikel erklärt, was Drittanbieter-Cookies sind, beschreibt die damit verbundenen Probleme und erklärt, wie Sie diese Probleme umgehen können.
+Dieser Artikel erläutert, was Drittanbieter-Cookies sind, beschreibt die mit ihnen verbundenen Probleme und erklärt, wie Sie diese Probleme umgehen können.
 
 ## Was sind Drittanbieter-Cookies?
 
-Ein [Cookie](/de/docs/Web/HTTP/Guides/Cookies) ist mit einer bestimmten Domain und einem bestimmten Schema (normalerweise `https`) verbunden und kann auch mit Subdomains assoziiert werden, wenn das {{HTTPHeader("Set-Cookie")}}-Attribut `Domain` gesetzt ist.
+Ein [Cookie](/de/docs/Web/HTTP/Guides/Cookies) ist mit einer bestimmten Domain und einem Schema (in der Regel `https`) verknüpft und kann auch mit Subdomains verknüpft sein, wenn das {{HTTPHeader("Set-Cookie")}}-Attribut `Domain` gesetzt ist.
 
-- Wenn die Cookie-Domain und das Schema mit der aktuellen Seite übereinstimmen, die der Benutzer ansieht (die URL in der Adressleiste des Browsers), wird das Cookie als vom selben Standort wie die Seite stammend angesehen und als _Erstanbieter-Cookie_ bezeichnet.
-- Wenn die Domain und das Schema unterschiedlich sind, wird das Cookie nicht als vom selben Standort stammend angesehen und als _Drittanbieter-Cookie_ bezeichnet.
+- Wenn die Cookie-Domain und das Schema mit der aktuellen Seite übereinstimmen, die der Benutzer ansieht (die URL, die in der Adressleiste des Browsers angezeigt wird), wird das Cookie als von derselben Website wie die Seite stammend betrachtet und als _Erstanbieter-Cookie_ bezeichnet.
+- Wenn die Domain und das Schema unterschiedlich sind, wird das Cookie nicht als von derselben Website stammend betrachtet und als _Drittanbieter-Cookie_ bezeichnet.
 
 > [!NOTE]
-> Drittanbieter-Cookies werden manchmal als _cross-site cookies_ bezeichnet. Dies ist möglicherweise ein genauerer Name, da _Drittanbieter-Cookies_ auf eine Zugehörigkeit zu einem Drittunternehmen oder einer Drittorganisation hindeuten. Das Verhalten und die potenziellen Probleme sind jedoch gleich, unabhängig davon, ob Sie alle beteiligten Seiten besitzen oder nicht. Zum Beispiel könnte eine Seite auf Ressourcen wie Bilder von einer anderen Domain zugreifen, die sie besitzt.
+> Drittanbieter-Cookies werden manchmal als _cross-site cookies_ bezeichnet. Dies ist möglicherweise ein treffenderer Name, da _Drittanbieter-Cookies_ auf den Besitz durch ein drittes Unternehmen oder eine Organisation hinweisen. Das Verhalten und die potenziellen Probleme bleiben jedoch gleich, unabhängig davon, ob Sie alle beteiligten Websites besitzen oder nicht. Zum Beispiel könnte eine Website Ressourcen wie Bilder von einer anderen Domain abrufen, die sie besitzt.
 
-Ein Erstanbieter-Cookie kann gesetzt werden, wenn ein Benutzer eine Seite zum ersten Mal besucht, einem internen Link zu einer anderen Seite auf derselben Website folgt oder eine Ressource anfordert, die sich auf derselben Seite befindet (zum Beispiel ein eingebettetes Bild, eine Web-Schriftart oder eine JavaScript-Datei).
+Ein Erstanbieter-Cookie kann gesetzt werden, wenn ein Benutzer erstmals eine Seite besucht, einem internen Link zu einer anderen Seite auf derselben Website folgt oder eine Ressource anfordert, die sich auf derselben Website befindet (zum Beispiel ein eingebettetes Bild, eine Webschriftart oder eine JavaScript-Datei).
 
-Drittanbieter-Cookies werden in den folgenden allgemeinen Situationen gesendet:
+Drittanbieter-Cookies werden in den folgenden häufigen Situationen gesendet:
 
-- Wenn ein Link auf einer Seite angeklickt wird, um zu einer anderen Seite zu navigieren.
-- Wenn eine Seite Komponenten von anderen Seiten einbettet, wie Bilder oder andere Dokumente, die in {{htmlelement("iframe")}}s eingebettet sind (oft als _Drittanbieter-Inhalt_ bezeichnet). Neben der ursprünglichen Anfrage für die Komponente können diese Komponenten weitere Anfragen generieren, die weitere Drittanbieter-Cookies setzen.
+- Wenn auf einer Website ein Link angeklickt wird, um zu einer anderen Website zu navigieren.
+- Wenn eine Seite Komponenten von anderen Websites einbettet, wie Bilder oder andere Dokumente, die in {{htmlelement("iframe")}}s eingebettet sind (oftmals als _Drittanbieter-Inhalte_ bezeichnet). Neben der ursprünglichen Anforderung für die Komponente können diese Komponenten weitere Anforderungen generieren, die mehr Drittanbieter-Cookies setzen.
 
 ## Wofür werden Drittanbieter-Cookies verwendet?
 
-Drittanbieter-Cookies, die beim Klick auf Links zu anderen Seiten gesetzt werden, werden für eine Vielzahl von Zwecken verwendet. Zum Beispiel könnten Sie einen Affiliate-Link zu einer Partnerseite haben und ein Cookie setzen, wenn der Benutzer dem Link folgt, damit ein Belohnungsbanner mit einem Rabatt angezeigt werden kann, wenn ein bestimmtes Produkt gekauft wird, oder eine Provision dem Referrer zurückgezahlt werden kann.
+Drittanbieter-Cookies, die gesetzt werden, wenn Links zu anderen Websites angeklickt werden, werden für eine Vielzahl von Zwecken verwendet. Zum Beispiel könnten Sie einen Affiliate-Link zu einer Partnerseite haben und ein Cookie setzen, wenn der Benutzer dem Link folgt, damit ein Belohnungsbanner mit einem Rabatt angezeigt werden kann, wenn ein bestimmtes Produkt gekauft wird, oder eine Provision an den Verweisenden zurückgezahlt werden kann.
 
-Drittanbieter-Inhalte, die Cookies setzen, haben ebenfalls viele verschiedene Verwendungen. Zum Beispiel könnten Sie ein Anmelde-Widget haben, das auf mehreren unterschiedlichen, aber verwandten Seiten eingebettet ist und ein Cookie über alle Websites teilt, das bestätigt, dass der Benutzer angemeldet ist, damit er sich nicht auf jeder Seite erneut anmelden muss.
+Drittanbieter-Inhalte, die Cookies setzen, haben ebenfalls viele verschiedene Verwendungszwecke. Zum Beispiel könnten Sie ein Anmelde-Widget haben, das auf mehreren unterschiedlichen, aber verwandten Websites eingebettet ist und ein Cookie über alle Websites teilt, das bestätigt, dass der Benutzer angemeldet ist, sodass er sich nicht erneut auf jeder Website anmelden muss.
 
-Andere Anwendungsfälle für Drittanbieter-Cookies sind:
+Weitere Anwendungsfälle für Drittanbieter-Cookies sind:
 
-- Teilen von Benutzereinstellungen oder Themeninformationen über mehrere Seiten hinweg.
-- Sammeln von Analysen über mehrere Websites hinweg.
-- Zählen von Anzeigenimpressionen und Aufzeichnen von Benutzerinteressen, um Ad-Tech-Plattformen zu ermöglichen, relevantere Anzeigen zu schalten.
+- Teilen von Benutzerpräferenzen oder Themeneinstellungen über mehrere Websites.
+- Sammlung von Analysen über mehrere Websites.
+- Zählen von Anzeigenimpressionen und Aufzeichnen von Benutzerinteressen, um Ad-Tech-Plattformen die Schaltung relevanterer Anzeigen zu ermöglichen.
 
-Lassen Sie uns das oben erwähnte Anmelde-Widget-Beispiel mit einer fiktiven Firma weiter illustrieren, die separate Domains für ihren Online-Shop (`shop.site`), Community-Diskussionsforen (`forum.site`) und Kundenservice und Retouren (`service.site`) hat.
+Lassen Sie uns das oben genannte Anmelde-Widget-Beispiel mit einem fiktiven Unternehmen weiter veranschaulichen, das separate Domains für seinen Online-Shop (`shop.site`), Diskussionsforen der Community (`forum.site`) und den Kundenservice und Rückgaben (`service.site`) hat.
 
-Jede der drei Seiten hat ein eingebettetes Anmelde-Widget, das unter `auth.site` gehostet wird, um den Anmeldestatus auf den Seiten zu erhalten. Ein Benutzer kann sich auf eine dieser Seiten anmelden und ein Cookie im Browser für `auth.site` erstellen, das eine Sitzungs-ID enthält. Wenn der Benutzer zu einer der anderen Seiten geht, hat die eingebettete Instanz von `auth.site` Zugriff auf das Sitzungs-ID-Cookie, das beim Anmelden auf der ersten Seite gesetzt wurde. Es kann es an den Server senden, prüfen, ob es noch gültig ist, und den Benutzer sofort auf dieser Seite anmelden.
+Jede der drei Websites hat ein eingebettetes Anmelde-Widget, das bei `auth.site` gehostet wird, um den Anmeldestatus über die Websites hinweg beizubehalten. Ein Benutzer kann sich auf einer dieser Websites anmelden und dabei ein Cookie im Browser für `auth.site` setzen, das eine Sitzungs-ID enthält. Wenn der Benutzer zu einer der anderen Websites geht, hat die eingebettete `auth.site`-Instanz Zugriff auf das Sitzungs-ID-Cookie, das gesetzt wurde, als der Benutzer sich auf der ersten Website anmeldete. Dieses Cookie kann an den Server gesendet, überprüft und auf der neuen Website sofort angemeldet werden.
 
-![Visuelle Darstellung der oben beschriebenen Drittanbieter-Anmeldungssystembeschreibung](https://mdn.github.io/shared-assets/images/diagrams/http/cookies/3pc-example.png)
+![visuelle Darstellung der oben beschriebenen Drittanbieter-Anmeldesystembeschreibung](https://mdn.github.io/shared-assets/images/diagrams/http/cookies/3pc-example.png)
 
 ## Was ist das Problem mit Drittanbieter-Cookies?
 
-Die oben genannten Anwendungsfälle klingen harmlos genug. Jedoch können Drittanbieter-Cookies auch ohne Einwilligung der Benutzer für illegitime Zwecke verwendet werden, die technisch nicht von gültigen Anwendungsfällen zu unterscheiden sind.
+Die oben beschriebenen Anwendungsfälle klingen harmlos genug. Drittanbieter-Cookies können jedoch auch ohne Zustimmung des Benutzers für illegitime Zwecke verwendet werden, die technisch nicht von gültigen Anwendungsfällen zu unterscheiden sind.
 
-Das Folgen eines Links zu einem Drittanbieter oder die Interaktion mit Drittanbieter-Inhalten, die in einem `<iframe>` eingebettet sind (zum Beispiel das Ausfüllen eines Formulars oder das Klicken eines Buttons), könnte zur Folge haben, dass Cookies gesetzt werden, die die Benutzerinformationen in die Hände von jemandem bringen, den sie nicht erwartet haben. Diese Informationen könnten verwendet werden, um:
+Das Folgen eines Links zu einem Drittanbieter oder das Interagieren mit eingebetteten Inhalten in einem `<iframe>` (zum Beispiel das Ausfüllen eines Formulars oder das Klicken auf einen Button) könnte dazu führen, dass Cookies gesetzt werden, die die Informationen eines Benutzers in die Hände von jemandem legen, den er nicht erwartet hat. Diese Informationen könnten verwendet werden, um:
 
-- Benutzer im Internet mit gezielter Werbung zu verfolgen, wann immer sie nach Informationen zu einem bestimmten Produkt suchen.
+- Benutzer mit zielgerichteten Anzeigen auf der gesamten Internetpräsenz zu verfolgen, wann immer sie nach Informationen zu einem bestimmten Produkt suchen.
 - Benutzer mit Spam-E-Mails oder Telefonanrufen zu belästigen.
-- Ihr Verhalten so zu manipulieren, dass sie bestimmte Optionen auswählen, die den Affiliate-Umsatz erhöhen oder die Statistiken manipulieren.
+- Ihr Verhalten zu manipulieren, um bestimmte Entscheidungen zu treffen, die den Affiliate-Umsatz steigern oder Statistiken manipulieren.
 
-Einzeln betrachtet sind solche Fälle schon schlimm genug, aber es wird noch schlimmer. Drittanbieter-Server können Informationen aus mehreren Drittanbieter-Cookies kombinieren, die über verschiedene eingebettete Seiten hinweg gesetzt sind, um ein detailliertes Profil der Browsing-Historie, Interessen, Gewohnheiten und persönlichen Informationen eines Benutzers zu erstellen. Dies kann genutzt werden, um unheimliche, invasive Benutzererlebnisse zu schaffen, Benutzer zu betrügen oder sogar Identitätsdiebstahl zu begehen.
+Einzeln betrachtet sind solche Fälle schlimm genug, aber es wird noch schlimmer. Drittanbieter-Server können Informationen aus mehreren Drittanbieter-Cookies, die über verschiedene Websites hinweg gesetzt werden, auf denen die Drittanbieter-Inhalte eingebettet sind, kombinieren, um ein detailliertes Profil über den Browserverlauf, Interessen, Gewohnheiten und persönliche Informationen eines Benutzers zu erstellen. Dies kann dazu verwendet werden, gruselige, invasive Nutzererfahrungen zu kreieren, Benutzer zu betrügen oder sogar Identitätsdiebstahl zu begehen.
 
 In solchen Fällen werden Drittanbieter-Cookies als _Tracking-Cookies_ bezeichnet.
 
 > [!NOTE]
-> Benutzerdaten, die auf illegitime Weise gewonnen werden, werden auch oft an andere Dritte verkauft, was das Problem weiter vervielfacht.
+> Benutzerinformationen, die auf illegitime Weise gewonnen wurden, werden oft auch an andere Dritte verkauft, wodurch das Problem weiter multipliziert wird.
 
-Gesetzgebung wie die [Allgemeine Datenschutzverordnung](https://gdpr.eu/) (GDPR) in der Europäischen Union und der [California Consumer Privacy Act](https://www.oag.ca.gov/privacy/ccpa) (CCPA) haben dazu beigetragen, indem sie Unternehmen gesetzlich verpflichten, transparent über die gesetzten Cookies und die gesammelten Informationen zu sein. Beispiele sind die Aufforderung an Kunden, der Datensammlung zuzustimmen, ihnen die Möglichkeit zu geben, zu sehen, welche Daten ein Unternehmen über sie speichert, und die Daten bei Bedarf zu löschen. Dennoch ist es für die Kunden nicht immer klar, wie ihre Daten genutzt werden.
+Gesetze wie die [Allgemeine Datenschutzverordnung](https://gdpr.eu/) (GDPR) in der Europäischen Union und der [California Consumer Privacy Act](https://www.oag.ca.gov/privacy/ccpa) (CCPA) in Kalifornien haben geholfen, indem sie es zu einer gesetzlichen Verpflichtung gemacht haben, dass Unternehmen transparent über die von ihnen gesetzten Cookies und die von ihnen gesammelten Informationen sind. Beispiele hierfür sind die Aufforderung an Kunden, sich für eine solche Datensammlung zu entscheiden, ihnen zu erlauben zu sehen, welche Daten ein Unternehmen über sie hält, und diese zu löschen, wenn sie dies wünschen. Es ist jedoch immer noch nicht immer klar für Kunden, wie ihre Daten verwendet werden.
 
 ## Wie gehen Browser mit Drittanbieter-Cookies um?
 
-Browseranbieter wissen, dass Benutzer das oben beschriebene Verhalten nicht mögen, und haben daher alle damit begonnen, Drittanbieter-Cookies standardmäßig zu blockieren, während sie gleichzeitig Ausnahmen und Heuristiken in ihren Quellcode integrieren, um langjährige Probleme mit Drittanbieter-Cookies auf beliebten Websites zu umgehen.
+Browser-Hersteller wissen, dass Benutzer das oben beschriebene Verhalten nicht mögen, und haben daher damit begonnen, Drittanbieter-Cookies standardmäßig zu blockieren und gleichzeitig Ausnahmen und Heuristiken in ihren Quellcode zu integrieren, um langjährige Drittanbieter-Cookie-Probleme mit beliebten Websites zu lösen.
 
-- Die [Anti-Tracking-Richtlinie](https://wiki.mozilla.org/Security/Anti_tracking_policy) von Mozilla hat dazu geführt, dass Firefox standardmäßig Drittanbieter-Cookies von bekannten Trackern blockiert (siehe [Firefox-Tracking-Schutz](/de/docs/Web/Privacy/Guides/Firefox_tracking_protection) und [Erweiterter Tracking-Schutz](https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop)). Der Erweiterte Tracking-Schutz kann auf Standard, Streng oder Benutzerdefiniert eingestellt werden. Der [Standardmodus](https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop#w_standard-enhanced-tracking-protection) aktiviert den [kompletten Cookie-Schutz](https://blog.mozilla.org/en/mozilla/firefox-rolls-out-total-cookie-protection-by-default-to-all-users-worldwide/), der Drittanbieter-Cookies ein separates Cookie-Glas pro Seite gibt, wodurch ein Tracking über mehrere Seiten verhindert wird. Im [Strengmodus](https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop#w_strict-enhanced-tracking-protection) blockiert Firefox alle Drittanbieter-Cookies.
-- Apple hat ebenfalls eine ähnliche [Tracking-Verhinderungsrichtlinie](https://webkit.org/tracking-prevention-policy/); diese hat zu einem ähnlichen Satz von Drittanbieter-Cookie-Schutzvorkehrungen geführt, die standardmäßig aktiviert sind; siehe [Intelligente Tracking-Verhinderung](https://webkit.org/tracking-prevention/#intelligent-tracking-prevention-itp) (ITP) für Einzelheiten.
-- Zum Zeitpunkt des Schreibens blockiert Google Chrome standardmäßig nur Drittanbieter-Cookies im Inkognito-Modus, obwohl Benutzer es so einstellen können, dass Drittanbieter-Cookies jederzeit blockiert werden, wenn sie dies über `chrome://settings` wünschen. Google hat begonnen, Drittanbieter-Cookies für einen begrenzten Prozentsatz der Chrome-Nutzer zu deaktivieren, um die Auswirkungen zu testen, die das haben wird, während gleichzeitig Technologien entwickelt werden, um wichtige Anwendungsfälle ohne Drittanbieter-Cookies zu ermöglichen. Siehe [Ersetzen von Drittanbieter-Cookies](#ersetzen_von_drittanbieter-cookies) für Einzelheiten.
-- Edge blockiert Tracker von unbesuchten Seiten und blockiert standardmäßig bekannte schädliche Tracker. Zum Zeitpunkt des Schreibens erkundet Microsoft auch, Drittanbieter-Cookies standardmäßig in Edge zu blockieren. Siehe [Tracking-Prävention](https://learn.microsoft.com/en-us/microsoft-edge/web-platform/tracking-prevention) für weitere Informationen.
-- Der [Brave-Browser](https://brave.com/) blockiert standardmäßig Tracking-Cookies.
+- Mozillas [Anti-Tracking-Richtlinie](https://wiki.mozilla.org/Security/Anti_tracking_policy) hat dazu geführt, dass Firefox Drittanbieter-Cookies von bekannten Trackern standardmäßig blockiert (siehe [Firefox-Tracking-Schutz](/de/docs/Web/Privacy/Guides/Firefox_tracking_protection) und [Erweiterter Tracking-Schutz](https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop)). Der Erweiterte Tracking-Schutz kann auf Standard, Streng oder Benutzerdefiniert gesetzt werden. Der [Standardmodus](https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop#w_standard-enhanced-tracking-protection) aktiviert den [Total Cookie Protection](https://blog.mozilla.org/en/mozilla/firefox-rolls-out-total-cookie-protection-by-default-to-all-users-worldwide/), der Drittanbieter-Cookies ein separates Cookie-Behältnis pro Website zuweist, wodurch ein cross-site tracking verhindert wird. Im [Strengen Modus](https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop#w_strict-enhanced-tracking-protection) blockiert Firefox alle Drittanbieter-Cookies.
+- Apple hat ebenfalls eine ähnliche [Tracking-Präventionsrichtlinie](https://webkit.org/tracking-prevention-policy/); deren Befolgung hat zu einem ähnlichen Satz von Drittanbieter-Cookie-Schutzmaßnahmen geführt, die standardmäßig aktiviert sind; siehe [Intelligent Tracking Prevention](https://webkit.org/tracking-prevention/#intelligent-tracking-prevention-itp) (ITP) für Details.
+- Zum Zeitpunkt des Schreibens blockiert Google Chrome Drittanbieter-Cookies standardmäßig nur im Inkognito-Modus, obwohl Benutzer sie so einstellen können, dass Drittanbieter-Cookies jederzeit blockiert werden, falls sie dies wünschen, über `chrome://settings`. Google hat begonnen, Drittanbieter-Cookies für einen begrenzten Prozentsatz von Chrome-Nutzern zu deaktivieren, um die Auswirkungen zu testen, während gleichzeitig Technologien entwickelt werden, um wichtige Anwendungsfälle zu ermöglichen, ohne dass Drittanbieter-Cookies erforderlich sind. Siehe [Ersetzen von Drittanbieter-Cookies](#ersetzen_von_drittanbieter-cookies) für Details.
+- Edge blockiert Tracker von nicht besuchten Websites und blockiert bekannte schädliche Tracker standardmäßig. Zum Zeitpunkt des Schreibens erforscht Microsoft auch die Möglichkeit, Drittanbieter-Cookies in Edge standardmäßig zu blockieren. Siehe [Tracking-Prävention](https://learn.microsoft.com/en-us/microsoft-edge/web-platform/tracking-prevention) für weitere Informationen.
+- Der [Brave-Browser](https://brave.com/) blockiert Tracking-Cookies standardmäßig.
 
-Es ist möglich, die Nutzung von Drittanbieter-Cookies in Firefox fallweise über die Browsereinstellungen zu erlauben. In Safari hingegen sind die Kontrollmöglichkeiten begrenzter — Sie können die Seitenübergreifende Tracking-Verhinderung ausschalten, aber der Zugriff auf Drittanbieter-Cookies pro Frame kann nur auf Code-Ebene über die [Storage Access API](/de/docs/Web/API/Storage_Access_API) erfolgen.
+Es ist möglich, die Nutzung von Drittanbieter-Cookies von Fall zu Fall in Firefox über die Browsereinstellungen zuzulassen. In Safari ist die Kontrolle jedoch eingeschränkter – Sie können die Nachverfolgungsprävention bei Website-übergreifendem Tracking ausschalten, aber der Zugriff auf Drittanbieter-Cookies pro Frame kann nur auf Codeebene über die [Storage Access API](/de/docs/Web/API/Storage_Access_API) erfolgen.
 
 > [!NOTE]
-> Drittanbieter-Cookies (oder einfach Tracking-Cookies) können auch durch Browser-Erweiterungen blockiert werden.
+> Drittanbieter-Cookies (oder einfach Tracking-Cookies) können auch durch Browsererweiterungen blockiert werden.
 
-Das Blockieren von Cookies kann dazu führen, dass einige Drittanbieter-Komponenten (wie soziale Medien-Widgets) nicht wie vorgesehen funktionieren. Da Browser weitere Einschränkungen für Drittanbieter-Cookies auferlegen, sollten Entwickler beginnen, Wege zu suchen, um ihre Abhängigkeit von ihnen zu reduzieren: siehe [Ersetzen von Drittanbieter-Cookies](#ersetzen_von_drittanbieter-cookies).
+Das Blockieren von Cookies kann dazu führen, dass einige Drittanbieter-Komponenten (wie Social-Media-Widgets) nicht wie vorgesehen funktionieren. Da Browser immer mehr Einschränkungen für Drittanbieter-Cookies auferlegen, sollten Entwickler beginnen, nach Wegen zu suchen, ihre Abhängigkeit von diesen zu reduzieren: siehe [Ersetzen von Drittanbieter-Cookies](#ersetzen_von_drittanbieter-cookies).
 
 ## Verwendung von Drittanbieter-Cookies
 
 ### Aktivieren von Drittanbieter-Cookies mit `SameSite`
 
-Das Attribut [`SameSite`](/de/docs/Web/HTTP/Reference/Headers/Set-Cookie#samesitesamesite-value) ermöglicht es Servern zu spezifizieren, ob/wann Drittanbieter-Cookies gesendet werden. Wenn Sie `SameSite` in Ihren `Set-Cookie`-Headern nicht angeben, wird der Standardwert `Lax` verwendet. Dies weist den Browser an, Drittanbieter-Cookies nicht zu senden, es sei denn, der Benutzer navigiert von einer anderen Seite zur Ursprungsseite des Cookies. Dies ist nützlich, wenn Sie Cookies sofort senden möchten, sobald ein Benutzer von einer anderen Seite zu Ihrer Seite navigiert, um zum Beispiel die Erfahrung sofort zu personalisieren, sobald er dort ankommt.
+Das [`SameSite`](/de/docs/Web/HTTP/Reference/Headers/Set-Cookie#samesitesamesite-value)-Attribut lässt Server angeben, ob/wann Drittanbieter-Cookies gesendet werden. Wenn Sie `SameSite` in Ihren `Set-Cookie`-Headern nicht angeben, wird der Standardwert `Lax` verwendet. Dies weist den Browser an, keine Drittanbieter-Cookies zu senden, außer wenn der Benutzer zur Ursprungsseite des Cookies von einer anderen Website navigiert. Dies ist nützlich, wenn Sie Cookies sofort senden möchten, sobald ein Benutzer von einer anderen Website zu Ihrer Website navigiert, zum Beispiel um die Erfahrung sofort zu personalisieren.
 
-Es ist jedoch unbrauchbar, wenn Sie Seitenübergreifende Inhalte über mehrere Seiten hinweg in `<iframe>`s einbetten möchten und auf Drittanbieter-Cookies für die Funktionalität angewiesen sind, zum Beispiel im Fall des oben besprochenen Anmelde-Beispiels. In solchen Fällen müssen Sie explizit `SameSite=None` setzen, um es dem Browser zu ermöglichen, diese Cookies zu übertragen:
+Dies ist jedoch nicht nützlich, wenn Sie über mehrere Webseiten hinweg Inhalte einbetten möchten, die in `<iframe>`s eingebettet sind und auf Drittanbieter-Cookies für die Funktionalität angewiesen sind, wie im oben dargestellten Anmelde-Beispiel. In solchen Fällen müssen Sie `SameSite=None` explizit setzen, um dem Browser zu erlauben, diese Cookies zu verteilen:
 
 ```http
 Set-Cookie: widget_session=7yjgj57e4n3d; SameSite=None; Secure; HttpOnly
 ```
 
-Beachten Sie, dass wenn `SameSite=None` gesetzt ist, auch das Attribut `Secure` gesetzt sein muss — `SameSite=None` erfordert einen _sicheren Kontext_. In dem obigen Beispiel haben wir auch das Attribut `HttpOnly` gesetzt, um den JavaScript-Zugriff auf das Cookie zu deaktivieren (z. B. über [`Document.cookie`](/de/docs/Web/API/Document/cookie)). Cookies, die sensible Informationen beibehalten, sollten immer das Attribut `HttpOnly` gesetzt haben — es wäre wirklich unsicher, sie JavaScript zugänglich zu machen. Diese Vorsichtsmaßnahme trägt dazu bei, Cross-Site-Scripting-Angriffe ([XSS](/de/docs/Web/Security/Types_of_attacks#cross-site_scripting_xss)) abzuschwächen.
+Beachten Sie, dass wenn `SameSite=None` gesetzt wird, auch das `Secure`-Attribut gesetzt sein muss — `SameSite=None` erfordert einen _sicheren Kontext_. Im obigen Beispiel haben wir auch das Attribut `HttpOnly` gesetzt, um den JavaScript-Zugriff auf das Cookie zu deaktivieren (z.B. über [`Document.cookie`](/de/docs/Web/API/Document/cookie)). Cookies, die sensible Informationen speichern, sollten immer das `HttpOnly`-Attribut gesetzt haben — es wäre wirklich unsicher, sie JavaScript zugänglich zu machen. Diese Vorsichtsmaßnahme hilft, Cross-Site-Scripting ([XSS](/de/docs/Web/Security/Attacks/XSS))-Angriffe abzumildern.
 
 > [!NOTE]
-> Cookies, die für sensible Informationen verwendet werden, sollten ebenfalls eine kurze [Lebensdauer](/de/docs/Web/HTTP/Guides/Cookies#removal_defining_the_lifetime_of_a_cookie) haben.
+> Cookies, die für sensible Informationen verwendet werden, sollten auch eine kurze [Lebensdauer](/de/docs/Web/HTTP/Guides/Cookies#removal_defining_the_lifetime_of_a_cookie) haben.
 
 ### Übergang von Drittanbieter-Cookies
 
-Es gibt mehrere Strategien, um zu helfen, Probleme auf Seiten zu minimieren, bei denen Drittanbieter-Cookies blockiert werden:
+Es gibt mehrere Strategien, um Seiten zu helfen, Brüche in Browsern zu minimieren, in denen Drittanbieter-Cookies blockiert werden:
 
-1. Überprüfen Sie Ihre Verwendung von Drittanbieter-Cookies. Cookies müssen das Attribut `SameSite=None` gesetzt haben, um in einem Seitenübergreifenden Kontext verwendet zu werden. Sie können daher Drittanbieter-Cookies identifizieren, indem Sie in Ihrem Code nach `SameSite=None` suchen oder gespeicherte `SameSite=None`-Cookies in Ihren Browser-Entwicklungstools überprüfen, zum Beispiel im [Firefox Storage Inspector](https://firefox-source-docs.mozilla.org/devtools-user/storage_inspector/). Chromes [Issues panel](https://developer.chrome.com/docs/devtools/issues/) berichtet auch über [Probleme mit dem Blockieren von Drittanbieter-Cookies](https://privacysandbox.google.com/cookies/prepare/audit-cookies#chrome-dev-tools) sowie eine Liste der betroffenen Cookies.
-2. Testen Sie Ihre Funktionalität mit blockierten Drittanbieter-Cookies, um zu sehen, was kaputtgeht. Sie könnten feststellen, dass einige Cookies nicht mehr benötigt werden.
-3. Zunächst einmal könnten Sie Ihren Code robuster machen, damit er eine weniger personalisierte Erfahrung bietet, wenn Drittanbieter-Cookie-Daten nicht verfügbar sind, anstatt sie vollständig zu brechen. Befolgen Sie die Prinzipien der {{Glossary("Graceful_degradation", "graceful degradation")}}.
-4. Sammeln Sie Daten über alternative Mittel wie Benutzerumfragen oder Quiz oder betrachten Sie die Daten, die Sie bereits haben, um Trends abzuleiten (zum Beispiel Produktbestellhistorien).
-5. Verwenden Sie einen alternativen client-seitigen Speichermechanismus wie [Web Storage](/de/docs/Web/API/Web_Storage_API), um Daten zu speichern, oder bedenken Sie eine serverseitige Lösung.
-6. Wenn Ihre Drittanbieter-Cookies nur über eine geringe Anzahl verwandter, bekannter Websites verwendet werden, könnten Sie die [Storage Access API](/de/docs/Web/API/Storage_Access_API) und/oder [Related Website Sets](/de/docs/Web/API/Storage_Access_API/Related_website_sets) verwenden, um nur für diese spezifischen Websites den Zugriff auf Drittanbieter-Cookies über Seiten hinweg zu ermöglichen. Storage Access fordert den Benutzer auf, eine Erlaubnis zu geben, damit eine Website Drittanbieter-Cookies auf einer Pro-Frame-Basis verwenden kann.
-   - Wenn Sie bereits eine Lösung mit der Storage Access API für Firefox oder Safari implementiert haben, ist jetzt ein guter Zeitpunkt, Ihre Implementierung im Vergleich zum Verhalten von Chrome zu überprüfen, das in Version 119 eine vollständige Unterstützung erhalten hat.
-   - Related Website Sets kann als progressive Verbesserung der Storage Access API betrachtet werden: Die API kann auf die gleiche Weise verwendet werden, aber Websites im Set fordern die Benutzer nicht um Erlaubnis, Drittanbieter-Cookies zu verwenden.
-7. Wenn Ihre Drittanbieter-Cookies eins-zu-eins mit den Top-Level-Seiten verwendet werden, auf denen sie generiert wurden, könnten Sie [Partitionierte Cookies](/de/docs/Web/Privacy/Guides/Privacy_sandbox/Partitioned_cookies) (CHIPS, auch bekannt als partitionierte Cookies) verwenden, um Ihre Cookies in einen partitionierten Speicher mit einem separaten Cookie-Glas pro Top-Level-Seite zu optieren. Dies erfordert nur das Hinzufügen des `partitioned`-Attributs zu Ihren bestehenden seitenübergreifenden Cookies. Sie können dann uneingeschränkt verwendet werden, können aber nicht mit anderen Seiten geteilt werden. Beachten Sie, dass CHIPS derzeit nur in Chromium verfügbar ist.
+1. Überprüfen Sie Ihre Verwendung von Drittanbieter-Cookies. Cookies müssen das Attribut `SameSite=None` gesetzt haben, um in einem Cross-Site-Kontext verwendet zu werden. Sie können daher Drittanbieter-Cookies identifizieren, indem Sie nach `SameSite=None` in Ihrem Code suchen oder in Ihren Browser-Entwicklertools gespeicherte `SameSite=None`-Cookies überprüfen, zum Beispiel im [Firefox-Speicherinspektor](https://firefox-source-docs.mozilla.org/devtools-user/storage_inspector/). Das Chrome-[Issues-Panel](https://developer.chrome.com/docs/devtools/issues/) [meldet auch Probleme mit der Blockierung von Drittanbieter-Cookies](https://privacysandbox.google.com/cookies/prepare/audit-cookies#chrome-dev-tools) zusammen mit einer Liste der betroffenen Cookies.
+2. Testen Sie Ihre Funktionalität mit blockierten Drittanbieter-Cookies, um zu sehen, was nicht funktioniert. Möglicherweise stellen Sie fest, dass einige Cookies nicht mehr benötigt werden.
+3. Zumindest anfangs könnten Sie Ihren Code widerstandsfähiger machen, sodass er eine weniger personalisierte Erfahrung bietet, wenn Drittanbieter-Cookie-Daten nicht verfügbar sind, anstatt vollständig zu brechen. Folgen Sie den Prinzipien der {{Glossary("Graceful_degradation", "fortschreitenden Degradation")}}.
+4. Sammeln Sie Daten auf alternative Weise, wie durch Benutzerumfragen oder Quizze, oder untersuchen Sie vorhandene Daten, um Trends abzuleiten (zum Beispiel Bestellhistorien von Produkten).
+5. Verwenden Sie einen alternativen clientseitigen Speichermechanismus wie [Web Storage](/de/docs/Web/API/Web_Storage_API), um Daten zu speichern, oder ziehen Sie eine serverseitige Lösung in Betracht.
+6. Wenn Ihre Drittanbieter-Cookies nur über eine kleine Anzahl verwandter, bekannter Websites verwendet werden, könnten Sie die [Storage Access API](/de/docs/Web/API/Storage_Access_API) und/oder [Related Website Sets](/de/docs/Web/API/Storage_Access_API/Related_website_sets) verwenden, um den Zugriff auf Drittanbieter-Cookies nur für diese speziellen Seiten zu erlauben. Die Storage Access API fordert den Benutzer auf, die Erlaubnis zu erteilen, dass eine Seite Drittanbieter-Cookies nutzen darf, basierend auf jedem einzelnen Frame.
+   - Wenn Sie bereits eine Lösung mithilfe der Storage Access API für Firefox oder Safari implementiert haben, ist dies ein guter Zeitpunkt, Ihre Implementierung gegenüber dem Verhalten in Chrome zu überprüfen, das in Version 119 auf vollständige Unterstützung aktualisiert wurde.
+   - Related Website Sets kann als progressive Verbesserung der Storage Access API betrachtet werden: Die API kann auf die gleiche Weise verwendet werden, aber Websites im Set werden die Benutzer nicht um Erlaubnis bitten, um auf Drittanbieter-Cookies zuzugreifen.
+7. Wenn Ihre Drittanbieter-Cookies auf einer 1:1-Basis mit den obersten Seiten, auf denen sie generiert werden, verwendet werden, könnten Sie [Cookies Having Independent Partitioned State](/de/docs/Web/Privacy/Guides/Privacy_sandbox/Partitioned_cookies) (CHIPS, auch partitionierte Cookies genannt) verwenden, um Ihre Cookies in partitionierten Speicher mit einem separaten Cookie-Behälter pro oberster Website zu übertragen. Dies erfordert nur das Hinzufügen des `partitioned`-Attributs zu Ihren bestehenden Website-übergreifenden Cookies. Sie können dann uneingeschränkt verwendet werden, aber sie können nicht mit anderen Seiten geteilt werden. Beachten Sie, dass CHIPS derzeit nur von Chromium unterstützt wird.
 
 ## Ersetzen von Drittanbieter-Cookies
 
-Es stehen mehrere Funktionen für Entwickler zur Verfügung, die die Nutzung von Drittanbieter-Cookies einstellen möchten, um die Privatsphäre der Benutzer zu respektieren und das Tracking zu minimieren, während sie weiterhin verwandte Anwendungsfälle implementieren. Einige dieser Funktionen befinden sich in einer frühen experimentellen Phase, sind jedoch eine Überlegung wert, wenn Sie beginnen, sich auf die Zukunft vorzubereiten.
+Es stehen mehrere Funktionen zur Verfügung, um Entwicklern zu helfen, die Drittanbieter-Cookies nicht mehr verwenden möchten, um die Privatsphäre der Benutzer zu respektieren und das Tracking zu minimieren, während sie verwandte Anwendungsfälle weiter umsetzen. Einige dieser Funktionen befinden sich in einem frühen experimentellen Stadium, aber sie sind eine Überlegung wert, wenn Sie damit beginnen, sich auf die Zukunft vorzubereiten.
 
-Sie können beginnen, die verschiedenen Funktionen im [Privacy Sandbox](/de/docs/Web/Privacy/Guides/Privacy_sandbox) Projekt von Google zu erkunden, um zu sehen, ob sie zu Ihrem Anwendungsfall passen (diese sind derzeit experimentell und nur in Chromium):
+Sie können beginnen, die verschiedenen in Googles [Privacy Sandbox](/de/docs/Web/Privacy/Guides/Privacy_sandbox) Projekt verfügbaren Funktionen zu erkunden, um zu sehen, ob sie in Ihren Anwendungsfall passen (sie sind derzeit experimentell und nur in Chromium verfügbar):
 
-- [Federated Credential Management](/de/docs/Web/API/FedCM_API) (FedCM) API: Ermöglicht föderierte Identitätsdienste, die Benutzern das Anmelden bei mehreren Websites und Diensten ermöglichen.
-- [Private State Tokens](https://privacysandbox.google.com/protections/private-state-tokens): Ermöglicht Betrugs- und Spam-Schutz durch den Austausch eingeschränkter, nicht identifizierender Informationen über Websites hinweg.
-- [Topics API](/de/docs/Web/API/Topics_API): Ermöglicht interessenbasierte Werbung und inhaltsbasierte Personalisierung.
-- [Protected Audience API](https://privacysandbox.google.com/private-advertising/protected-audience): Verwendet Daten von einer App oder Website, um bei einem Besuch einer anderen App oder Website eine Anzeige auszuwählen.
-- [Attribution Reporting API](https://privacysandbox.google.com/private-advertising/attribution-reporting): Ermöglicht die Messung von Anzeigenimpressionen und Konversionen.
+- [Federated Credential Management](/de/docs/Web/API/FedCM_API) (FedCM) API: Ermöglicht föderierte Identitätsdienste, die es Benutzern ermöglichen, sich bei mehreren Websites und Diensten anzumelden.
+- [Private State Tokens](https://privacysandbox.google.com/protections/private-state-tokens): Ermöglichen Anti-Betrug und Anti-Spam, indem begrenzte, nicht identifizierende Informationen zwischen Websites ausgetauscht werden.
+- [Topics API](/de/docs/Web/API/Topics_API): Ermöglicht interessenbasierte Werbung und Content-Personalisierung.
+- [Protected Audience API](https://privacysandbox.google.com/private-advertising/protected-audience): Verwenden Sie Daten aus einer App oder Website, um eine Anzeige auszuwählen, wenn der Benutzer eine andere App oder Website besucht.
+- [Attribution Reporting API](https://privacysandbox.google.com/private-advertising/attribution-reporting): Ermöglicht die Messung von Anzeigenimpressionen und Conversions.
 
 ## Siehe auch
 

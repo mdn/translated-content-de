@@ -1,19 +1,23 @@
 ---
-title: Cross-site scripting (XSS)
+title: Cross-site Scripting (XSS)
 slug: Glossary/Cross-site_scripting
 l10n:
-  sourceCommit: 7a551aaa034fbada3eb99e6fc924a0313b78307f
+  sourceCommit: 86fa532a00024e7c85a4c0d6339adce8b1bd9f61
 ---
 
 {{GlossarySidebar}}
 
-**Cross-site scripting** (XSS) ist ein Sicherheitsangriff, der es einem Angreifer ermöglicht, bösartigen Client-seitigen Code in eine Website einzufügen. Dieser Code wird von den Opfern ausgeführt und ermöglicht es den Angreifern, Zugriffskontrollen zu umgehen und Benutzer zu imitieren. Laut der Open Web Application Security Project war XSS die [siebt häufigste Schwachstelle bei Webanwendungen](<https://owasp.org/www-project-top-ten/OWASP_Top_Ten_2017/Top_10-2017_A7-Cross-Site_Scripting_(XSS)>) im Jahr 2017.
+Ein **Cross-site Scripting** (XSS) Angriff ist ein Angriff, bei dem ein Angreifer ein Ziel dazu bringt, bösartigen Code auszuführen, als ob dieser Teil der Website wäre. Der Code kann dann alles tun, was der eigene Code der Website tun kann. Zum Beispiel könnte der Angreifer:
 
-Diese Angriffe sind erfolgreich, wenn die Webanwendung nicht genügend Validierungen oder Codierungen anwendet. Der Browser des Benutzers kann nicht erkennen, dass das bösartige Skript unzuverlässig ist und gewährt ihm daher Zugriff auf Cookies, Session-Tokens oder andere sensible, seitenbezogene Informationen oder lässt das bösartige Skript den {{Glossary("HTML", "HTML")}}-Inhalt umschreiben.
+- Auf alle Inhalte der geladenen Seiten der Website und auf jegliche Inhalte im lokalen Speicher zugreifen und diese ändern
+- HTTP-Anfragen mit den Anmeldeinformationen des Benutzers stellen, wodurch er sich als der Benutzer ausgeben oder auf sensible Daten zugreifen kann
+
+Alle XSS-Angriffe hängen davon ab, dass eine Website zwei Dinge tut:
+
+1. Akzeptieren von Eingaben, die von einem Angreifer gefertigt worden sein könnten
+2. Einschließen dieser Eingaben in eine Seite, ohne sie zu bereinigen: das bedeutet, ohne sicherzustellen, dass sie nicht als JavaScript ausführbar sind
 
 ## Siehe auch
 
-- [Arten von Angriffen: Cross-site scripting (XSS)](/de/docs/Web/Security/Types_of_attacks#cross-site_scripting_xss)
-- [Cross-site scripting](https://de.wikipedia.org/wiki/Cross-site_scripting) auf Wikipedia
-- [Cross-site scripting auf OWASP](https://owasp.org/www-community/attacks/xss/)
-- [Ein weiterer Artikel über Cross-site scripting](https://www.acunetix.com/blog/articles/dom-xss-explained/)
+- [Cross-site Scripting (XSS)](/de/docs/Web/Security/Attacks/XSS)
+- [Cross-site Scripting auf OWASP](https://owasp.org/www-community/attacks/xss/)

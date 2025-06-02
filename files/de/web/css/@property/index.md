@@ -2,14 +2,14 @@
 title: "@property"
 slug: Web/CSS/@property
 l10n:
-  sourceCommit: a850ca867a8b380a53320bab6870fb7335f22d52
+  sourceCommit: 5be0cd7ad28c5b4d0bd31d8d17d28574ad342423
 ---
 
 {{CSSRef}}
 
-Die **`@property`** [CSS](/de/docs/Web/CSS) [At-Regel](/de/docs/Web/CSS/CSS_syntax/At-rule) ist Teil der [CSS Houdini](/de/docs/Web/API/Houdini_APIs)-API. Sie erlaubt es Entwicklern, [CSS-Custom-Properties](/de/docs/Web/CSS/--*) explizit zu definieren, mit der Möglichkeit, den Typ von Eigenschaften zu überprüfen, Einschränkungen festzulegen, Standardwerte zu setzen und zu definieren, ob eine Custom Property Werte erben kann oder nicht.
+Die **`@property`** [CSS](/de/docs/Web/CSS) [at-rule](/de/docs/Web/CSS/CSS_syntax/At-rule) ist Teil der [CSS Houdini](/de/docs/Web/API/Houdini_APIs) API-Sammlung. Sie ermöglicht es Entwicklern, [CSS-Benutzerdefinierte Eigenschaften](/de/docs/Web/CSS/--*) explizit zu definieren, was das Überprüfen und Einschränken von Eigenschaftstypen, das Setzen von Standardwerten und das Festlegen, ob eine benutzerdefinierte Eigenschaft Werte erben kann oder nicht, erlaubt.
 
-Die `@property`-Regel stellt eine Registrierung von Custom Properties direkt in einem Stylesheet dar, ohne dass JavaScript ausgeführt werden muss. Gültige `@property`-Regeln führen zu einer registrierten Custom Property, ähnlich wie ein Aufruf von [`registerProperty()`](/de/docs/Web/API/CSS/registerProperty_static) mit entsprechenden Parametern.
+Die `@property` Regel repräsentiert eine Registrierung benutzerdefinierter Eigenschaften direkt in einem Stylesheet, ohne dass JavaScript ausgeführt werden muss. Gültige `@property` Regeln führen zu einer registrierten benutzerdefinierten Eigenschaft, was dem Aufruf von [`registerProperty()`](/de/docs/Web/API/CSS/registerProperty_static) mit äquivalenten Parametern ähnelt.
 
 ## Syntax
 
@@ -21,28 +21,31 @@ Die `@property`-Regel stellt eine Registrierung von Custom Properties direkt in 
 }
 ```
 
-Der Name der Custom Property ist ein [`<dashed-ident>`](/de/docs/Web/CSS/dashed-ident), der mit `--` beginnt und durch einen gültigen, benutzerdefinierten Bezeichner folgt. Der Name ist case-sensitiv (Groß-/Kleinschreibung wird beachtet).
+Der Name der benutzerdefinierten Eigenschaft ist ein [`<dashed-ident>`](/de/docs/Web/CSS/dashed-ident), das mit `--` beginnt und von einem gültigen, benutzerdefinierten Bezeichner gefolgt wird. Er ist case-sensitiv.
 
 ### Deskriptoren
 
 - {{cssxref("@property/syntax","syntax")}}
-  - : Ein String, der die erlaubten Wertetypen für die registrierte Custom Property beschreibt.
-    Kann ein Datentyp-Name sein (wie `<color>`, `<length>`, `<number>` usw.) mit Multiplikatoren (`+`, `#`) und Kombinatoren (`|`), oder ein benutzerdefiniertes `ident`.
-    Siehe die Seite des [syntax](/de/docs/Web/CSS/@property/syntax)-Deskriptors für weitere Details.
+  - : Ein String, der die erlaubten Wertetypen für die registrierte benutzerdefinierte Eigenschaft beschreibt.
+    Kann ein Datentypname (wie `<color>`, `<length>` oder `<number>`, etc.) mit Multiplikatoren (`+`, `#`) und Kombinatoren (`|`) oder ein benutzerdefiniertes Ident sein.
+    Weitere Details finden Sie auf der Seite zum [Syntax](/de/docs/Web/CSS/@property/syntax) Deskriptor.
 - {{cssxref("@property/inherits","inherits")}}
-  - : Ein Boolean-Wert, der steuert, ob die durch `@property` angegebene Custom Property standardmäßig Werte erbt.
+  - : Ein boolescher Wert, der steuert, ob die durch `@property` registrierte benutzerdefinierte Eigenschaft standardmäßig vererbt wird.
 - {{cssxref("@property/initial-value","initial-value")}}
-  - : Ein Wert, der den Startwert der Eigenschaft festlegt.
+  - : Ein Wert, der den Anfangswert für die Eigenschaft setzt.
 
 ## Beschreibung
 
-Die folgenden Bedingungen müssen erfüllt sein, damit die `@property`-Regel gültig ist:
+Die folgenden Bedingungen müssen erfüllt sein, damit die `@property` Regel gültig ist:
 
-- Die `@property`-Regel muss sowohl den {{cssxref("@property/syntax","syntax")}}-Deskriptor als auch den {{cssxref("@property/inherits","inherits")}}-Deskriptor enthalten.
-  Wenn einer von beiden fehlt, ist die gesamte `@property`-Regel ungültig und wird ignoriert.
-- Der {{cssxref("@property/initial-value","initial-value")}}-Deskriptor ist optional, wenn der `syntax`-Deskriptor die universelle Syntaxdefinition (`syntax: "*"`) verwendet.
-  Wenn der `initial-value`-Deskriptor erforderlich ist, aber fehlt, ist die gesamte `@property`-Regel ungültig und wird ignoriert.
-- Unbekannte Deskriptoren sind ungültig und werden ignoriert, machen jedoch die `@property`-Regel nicht ungültig.
+- Die `@property` Regel muss sowohl die {{cssxref("@property/syntax","syntax")}} als auch die {{cssxref("@property/inherits","inherits")}} Deskriptoren enthalten.
+  Fehlt einer von beiden, ist die gesamte `@property` Regel ungültig und wird ignoriert.
+- Der {{cssxref("@property/initial-value","initial-value")}} Deskriptor ist optional, wenn der Wert des `syntax` Deskriptors die universelle Syntaxdefinition ist (also `syntax: "*"`).
+  Wenn der `initial-value` Deskriptor erforderlich, aber weggelassen wird, ist die gesamte `@property` Regel ungültig und wird ignoriert.
+- Wenn der Wert des `syntax` Deskriptors nicht die universelle Syntaxdefinition ist, muss der {{cssxref("@property/initial-value","initial-value")}} Deskriptor einen [rechenunabhängigen](https://drafts.css-houdini.org/css-properties-values-api-1/#computationally-independent) Wert haben.
+  Das bedeutet, dass der Wert in einen berechneten Wert umgewandelt werden kann, ohne von anderen Werten abhängig zu sein, abgesehen von "globalen" Definitionen, die unabhängig von CSS sind.
+  Zum Beispiel ist `10px` rechnerisch unabhängig—es ändert sich nicht, wenn es in einen berechneten Wert umgewandelt wird. `2in` ist ebenfalls gültig, da `1in` immer 96px entspricht. `3em` ist jedoch nicht gültig, da der Wert eines `em` vom Elternelement abhängt {{cssxref("font-size")}}.
+- Unbekannte Deskriptoren sind ungültig und werden ignoriert, machen aber die `@property` Regel nicht ungültig.
 
 ## Formale Syntax
 
@@ -50,9 +53,9 @@ Die folgenden Bedingungen müssen erfüllt sein, damit die `@property`-Regel gü
 
 ## Beispiele
 
-### Verwendung von `@property`, um eine Custom Property zu registrieren und zu verwenden
+### Verwenden von `@property` zum Registrieren und Verwenden einer benutzerdefinierten Eigenschaft
 
-In diesem Beispiel definieren wir zwei Custom Properties, `--item-size` und `--item-color`, die wir nutzen, um die Größe (Breite und Höhe) und die Hintergrundfarbe der drei folgenden Elemente zu definieren.
+In diesem Beispiel definieren wir zwei benutzerdefinierte Eigenschaften, `--item-size` und `--item-color`, die wir verwenden werden, um die Größe (Breite und Höhe) und die Hintergrundfarbe der drei folgenden Elemente zu definieren.
 
 ```html
 <div class="container">
@@ -62,7 +65,7 @@ In diesem Beispiel definieren wir zwei Custom Properties, `--item-size` und `--i
 </div>
 ```
 
-Der folgende Code verwendet die CSS-`@property`-At-Regel, um eine Custom Property mit dem Namen `--item-size` zu definieren. Die Eigenschaft setzt den Anfangswert auf `40%` und beschränkt gültige Werte auf {{cssxref("percentage")}}-Werte. Dies bedeutet, dass die Größe eines Elements, wenn sie als Wert verwendet wird, immer relativ zur Größe des Elternelements ist. Die Eigenschaft ist erbbar.
+Der folgende Code verwendet die CSS `@property` at-rule, um eine benutzerdefinierte Eigenschaft namens `--item-size` zu definieren. Die Eigenschaft setzt den Anfangswert auf `40%`, begrenzt gültige Werte nur auf {{cssxref("percentage")}} Werte. Das bedeutet, wenn sie als Wert für die Größe eines Elements verwendet wird, ist ihre Größe immer relativ zur Größe des übergeordneten Elements. Die Eigenschaft ist vererbbar.
 
 ```css
 @property --item-size {
@@ -72,7 +75,7 @@ Der folgende Code verwendet die CSS-`@property`-At-Regel, um eine Custom Propert
 }
 ```
 
-Wir definieren eine zweite Custom Property, `--item-color`, mit [JavaScript](/de/docs/Web/JavaScript) statt CSS. Die [`registerProperty()`](/de/docs/Web/API/CSS/registerProperty_static)-Methode von JavaScript ist äquivalent zur `@property`-At-Regel. Die Eigenschaft ist definiert mit einem Anfangswert von `aqua`, akzeptiert nur Werte vom Typ [`<color>`](/de/docs/Web/CSS/color_value), und ist nicht erbbar.
+Wir definieren eine zweite benutzerdefinierte Eigenschaft, `--item-color`, mit [JavaScript](/de/docs/Web/JavaScript) anstelle von CSS. Die JavaScript-Methode [`registerProperty()`](/de/docs/Web/API/CSS/registerProperty_static) ist äquivalent zur `@property` at-rule. Die Eigenschaft ist so definiert, dass sie einen anfänglichen Wert von `aqua` hat, nur [`<color>`](/de/docs/Web/CSS/color_value) Werte akzeptiert und nicht vererbt wird.
 
 ```js
 window.CSS.registerProperty({
@@ -83,7 +86,7 @@ window.CSS.registerProperty({
 });
 ```
 
-Wir verwenden die beiden Custom Properties, um die Elemente zu gestalten:
+Wir verwenden die beiden benutzerdefinierten Eigenschaften, um die Elemente zu stylen:
 
 ```css
 .container {
@@ -118,13 +121,13 @@ Wir verwenden die beiden Custom Properties, um die Elemente zu gestalten:
 
 {{ EmbedLiveSample('examples', '100%', '250px') }}
 
-Die beiden Custom Properties `--item-size: 20%` und `--item-color: orange;` werden auf das Elternelement `container` gesetzt und überschreiben die Standardwerte `40%` und `aqua`, die beim Definieren dieser Custom Properties festgelegt wurden. Die Größe ist erbbar; die Farbe nicht.
+Die beiden benutzerdefinierten Eigenschaften, `--item-size: 20%` und `--item-color: orange;` sind auf dem `container`-Element gesetzt, wodurch die `40%` und `aqua` Standardwerte überschrieben werden, die bei der Definition dieser benutzerdefinierten Eigenschaften festgelegt wurden. Die Größe ist so eingestellt, dass sie vererbbar ist; die Farbe ist es nicht.
 
-Für Element eins wurden keine dieser Custom Properties festgelegt. Da `--item-size` erbbar ist, wird der Wert `20%`, der im Elternelement `container` definiert ist, übernommen. Andererseits wird die Eigenschaft `--item-color` nicht vererbt, sodass der Standardanfangswert `aqua` verwendet wird.
+Für Element eins sind keine dieser benutzerdefinierten Eigenschaften eingestellt. Die `--item-size` ist vererbbar, sodass der Wert `20%`, der auf seinem übergeordneten `container` gesetzt ist, verwendet wird. Andererseits ist die Eigenschaft `--item-color` nicht vererbbar, sodass der auf dem übergeordneten Element gesetzte Wert `orange` nicht berücksichtigt wird. Stattdessen wird der Standardanfangswert `aqua` verwendet.
 
-Für Element zwei werden globale CSS-Schlüsselwörter für beide Custom Properties gesetzt, die gültige Werte für alle Wertetypen sind und daher unabhängig vom Wert des `syntax`-Deskriptors gültig sind. `--item-size` wird auf `initial` gesetzt und verwendet den `initial-value: 40%;`-Wert, der in der `@property`-Deklaration gesetzt wurde. Der Wert `initial` bedeutet, dass der `initialValue`-Wert der Eigenschaft verwendet wird. `--item-color` wird auf `inherit` gesetzt, wodurch der `orange`-Wert explizit vom Elternelement geerbt wird, auch wenn die Custom Property ansonsten nicht erblich ist. Aus diesem Grund ist Element zwei orange.
+Für Element zwei sind die globalen CSS-Schlüsselwörter für beide benutzerdefinierten Eigenschaften gesetzt, die für alle Wertetypen gültige Werte sind und daher unabhängig vom Wert des `syntax` Deskriptor gültig sind. Die `--item-size` ist auf `initial` gesetzt und verwendet den `initial-value: 40%;` in der `@property`-Deklaration gesetzt. Der `initial` Wert bedeutet, dass der `initialValue` Wert für die Eigenschaft verwendet wird. Die `--item-color` ist auf `inherit` gesetzt, erbt explizit den `orange` Wert von ihrem übergeordneten Element, obwohl die benutzerdefinierte Eigenschaft sonst nicht vererbt werden soll. Deshalb ist Element zwei orange.
 
-Für Element drei wird der Wert `--item-size` auf `1000px` gesetzt. Während `1000px` ein {{cssxref("length")}}-Wert ist, erfordert die `@property`-Deklaration, dass der Wert ein `<percentage>` ist. Daher ist diese Deklaration ungültig und wird ignoriert, was bedeutet, dass der erblich gesetzte Wert `20%` auf das Elternelement angewendet wird. Der Wert `xyz` ist ebenfalls ungültig. Da `registerProperty()` `--item-color` so definiert hat, dass es nicht erblich ist, wird der Standardanfangswert `aqua` verwendet und nicht der `orange`-Wert des Elternteils.
+Für Element drei wird der `--item-size` Wert auf `1000px` gesetzt. Während `1000px` ein {{cssxref("length")}} Wert ist, erfordert die `@property` Deklaration, dass der Wert ein `<percentage>` ist, sodass die Deklaration nicht gültig ist und ignoriert wird, was bedeutet, dass das vererbbare `20%`, das auf dem übergeordneten Element gesetzt ist, verwendet wird. Der `xyz` Wert ist ebenfalls ungültig. Da `registerProperty()` festgelegt hat, dass `--item-color` nicht vererbt wird, wird der Standardanfangswert `aqua` verwendet und nicht der `orange` Wert des übergeordneten Elements.
 
 ## Spezifikationen
 
@@ -141,5 +144,5 @@ Für Element drei wird der Wert `--item-size` auf `1000px` gesetzt. Während `10
 - [CSS Painting API](/de/docs/Web/API/CSS_Painting_API)
 - [CSS Typed Object Model](/de/docs/Web/API/CSS_Typed_OM_API)
 - [Houdini APIs](/de/docs/Web/API/Houdini_APIs)
-- [CSS-Custom-Properties verwenden (Variablen)](/de/docs/Web/CSS/CSS_cascading_variables/Using_CSS_custom_properties) Leitfaden
-- [CSS-Custom-Properties für kaskadierende Variablen](/de/docs/Web/CSS/CSS_cascading_variables) Modul
+- [Using CSS custom properties (variables)](/de/docs/Web/CSS/CSS_cascading_variables/Using_CSS_custom_properties) Leitfaden
+- [CSS custom properties for cascading variables](/de/docs/Web/CSS/CSS_cascading_variables) Modul
