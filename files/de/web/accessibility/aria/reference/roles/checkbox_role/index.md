@@ -1,12 +1,12 @@
 ---
-title: "ARIA: checkbox role"
+title: "ARIA: Rolle `checkbox`"
 short-title: checkbox
 slug: Web/Accessibility/ARIA/Reference/Roles/checkbox_role
 l10n:
-  sourceCommit: f2dc3d5367203c860cf1a71ce0e972f018523849
+  sourceCommit: fc52eb81b630ca02c16addc346924295bdb5aaa8
 ---
 
-Die `checkbox`-Rolle ist für anklickbare interaktive Steuerelemente vorgesehen. Elemente, die `role="checkbox"` enthalten, müssen auch das [`aria-checked`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-checked)-Attribut enthalten, um den Status der Checkbox für unterstützende Technologien offenzulegen.
+Die Rolle `checkbox` ist für interaktive, überprüfbare Steuerelemente vorgesehen. Elemente, die `role="checkbox"` enthalten, müssen auch das Attribut [`aria-checked`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-checked) einbeziehen, um den Status des Kontrollkästchens für unterstützende Technologien zugänglich zu machen.
 
 ```html
 <span
@@ -18,7 +18,7 @@ Die `checkbox`-Rolle ist für anklickbare interaktive Steuerelemente vorgesehen.
 ```
 
 > [!NOTE]
-> Die erste Regel von ARIA besagt: Wenn ein nativer HTML-Tag oder ein Attribut die benötigte Semantik und das erforderliche Verhalten erfüllt, verwenden Sie es anstelle eines neu genutzten Elements mit zugefügtem ARIA. Nutzen Sie stattdessen die native [HTML-Checkbox des `<input type="checkbox">`](/de/docs/Web/HTML/Reference/Elements/input/checkbox) (mit einem zugehörigen {{HTMLElement('label')}}), die alle erforderlichen Funktionen nativ bereitstellt:
+> Die erste Regel von ARIA lautet, dass ein nativer HTML-Tag oder ein Attribut, das die gewünschten Semantiken und Verhaltensweisen bietet, verwendet werden sollte, anstatt ein Element umzufunktionieren und ARIA hinzuzufügen. Verwenden Sie stattdessen das native [HTML-Kontrollkästchen `<input type="checkbox">`](/de/docs/Web/HTML/Reference/Elements/input/checkbox) (mit einem zugeordneten {{HTMLElement('label')}}), das alle erforderlichen Funktionen bietet:
 
 ```html
 <input type="checkbox" id="chk1-label" name="RememberPreferences" />
@@ -27,17 +27,17 @@ Die `checkbox`-Rolle ist für anklickbare interaktive Steuerelemente vorgesehen.
 
 ## Beschreibung
 
-Die native HTML-Checkbox ([`<input type="checkbox">`](/de/docs/Web/HTML/Reference/Elements/input/checkbox)) Formularsteuerung hat zwei Zustände ("ausgewählt" oder "nicht ausgewählt"), mit einem über JavaScript setzbaren [`indeterminate`](/de/docs/Web/HTML/Reference/Elements/input/checkbox#indeterminate_state_checkboxes)-Status. Ebenso kann ein Element mit `role="checkbox"` drei Zustände über das `aria-checked`-Attribut offenlegen: `true`, `false` oder `mixed`.
+Das native HTML-Kontrollkästchen ([`<input type="checkbox">`](/de/docs/Web/HTML/Reference/Elements/input/checkbox)) Formularsteuerelement hat zwei Zustände ("aktiviert" oder "nicht aktiviert"), mit einem [`indeterminate`](/de/docs/Web/HTML/Reference/Elements/input/checkbox#indeterminate_state_checkboxes) Zustand, der über JavaScript einstellbar ist. Ebenso kann ein Element mit `role="checkbox"` drei Zustände über das Attribut `aria-checked` ausweisen: `true`, `false` oder `mixed`.
 
-Da eine Checkbox ein interaktives Steuerelement ist, muss sie fokussierbar und über die Tastatur zugänglich sein. Wenn die Rolle auf ein nicht fokussierbares Element angewendet wird, verwenden Sie das [`tabindex`](/de/docs/Web/HTML/Reference/Global_attributes/tabindex)-Attribut, um dies zu ändern. Die erwartete Tastenkombination zum Aktivieren einer Checkbox ist die <kbd>Leertaste</kbd>.
+Da ein Kontrollkästchen ein interaktives Steuerelement ist, muss es fokussierbar und über die Tastatur zugänglich sein. Wenn die Rolle auf ein nicht-fokussierbares Element angewendet wird, verwenden Sie das Attribut [`tabindex`](/de/docs/Web/HTML/Reference/Global_attributes/tabindex), um dies zu ändern. Die erwartete Tastenkombination zur Aktivierung eines Kontrollkästchens ist die <kbd>Leertaste</kbd>.
 
-Der Entwickler muss den Wert des `aria-checked`-Attributs dynamisch ändern, wenn die Checkbox aktiviert wird.
+Der Entwickler muss den Wert des Attributs `aria-checked` dynamisch ändern, wenn das Kontrollkästchen aktiviert wird.
 
 ### Alle Nachkommen sind präsentational
 
-Es gibt einige Arten von Benutzeroberflächenkomponenten, die, wenn sie in einer Plattform-Barrierefreiheits-API dargestellt werden, nur Text enthalten können. Barrierefreiheits-APIs haben keine Möglichkeit, semantische Elemente in einer `checkbox` darzustellen. Um mit dieser Einschränkung umzugehen, wenden Browser automatisch die Rolle [`presentation`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/presentation_role) auf alle Nachkommenelemente eines `checkbox`-Elements an, da es sich um eine Rolle handelt, die keine semantischen Kinder unterstützt.
+Es gibt einige Arten von Benutzeroberflächenkomponenten, die, wenn sie in einer Plattform-Zugränglichkeits-API dargestellt werden, nur Text enthalten können. Zugränglichkeits-APIs haben keine Möglichkeit, semantische Elemente darzustellen, die in einem `checkbox` enthalten sind. Um mit dieser Einschränkung umzugehen, wenden Browser automatisch die Rolle [`presentation`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/presentation_role) auf alle Nachkommenelemente eines `checkbox`-Elements an, da es sich um eine Rolle handelt, die keine semantischen Kinder unterstützt.
 
-Beispielsweise betrachten Sie das folgende `checkbox`-Element, das eine Überschrift enthält.
+Betrachten Sie beispielsweise das folgende `checkbox`-Element, das eine Überschrift enthält.
 
 ```html
 <div role="checkbox"><h6>Name of my checkbox</h6></div>
@@ -49,47 +49,47 @@ Da Nachkommen von `checkbox` präsentational sind, ist der folgende Code gleichw
 <div role="checkbox"><h6 role="presentation">Name of my checkbox</h6></div>
 ```
 
-Aus der Perspektive eines Benutzers unterstützender Technologie existiert die Überschrift nicht, da die vorherigen Code-Snippets im {{Glossary("Accessibility_tree", "Barrierefreiheit-Baum")}} gleichwertig zu Folgendem sind:
+Aus der Perspektive der Benutzer von unterstützender Technologie existiert die Überschrift nicht, da die vorhergehenden Code-Schnipsel gleichwertig mit dem folgenden im {{Glossary("Accessibility_tree", "Zugänglichkeitsbaum")}} sind:
 
 ```html
 <div role="checkbox">Name of my checkbox</div>
 ```
 
-### Zugehörige WAI-ARIA-Rollen, Zustände und Eigenschaften
+### Zugehörige WAI-ARIA Rollen, Zustände und Eigenschaften
 
 - [`aria-checked`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-checked)
 
-  - : Der Wert von `aria-checked` definiert den Zustand einer Checkbox. Dieses Attribut hat einen von drei möglichen Werten:
+  - : Der Wert von `aria-checked` definiert den Status eines Kontrollkästchens. Dieses Attribut hat einen von drei möglichen Werten:
 
     - `true`
-      - : Die Checkbox ist ausgewählt.
+      - : Das Kontrollkästchen ist aktiviert.
     - `false`
-      - : Die Checkbox ist nicht ausgewählt.
+      - : Das Kontrollkästchen ist nicht aktiviert.
     - `mixed`
-      - : Die Checkbox ist teilweise ausgewählt oder unbestimmt.
+      - : Das Kontrollkästchen ist teilweise aktiviert oder nicht eindeutig.
 
 - `tabindex="0"`
-  - : Wird verwendet, um es fokussierbar zu machen, damit der Nutzer unterstützender Technologie es direkt tabularisieren und sofort lesen kann.
+  - : Wird verwendet, um es fokussierbar zu machen, sodass der Benutzer der unterstützenden Technologie mit der Tabulatortaste darauf zugreifen und sofort lesen kann.
 
 ### Tastaturinteraktionen
 
-| Taste                | Funktion               |
-| -------------------- | ---------------------- |
-| <kbd>Leertaste</kbd> | Aktiviert die Checkbox |
+| Taste                | Funktion                       |
+| -------------------- | ------------------------------ |
+| <kbd>Leertaste</kbd> | Aktiviert das Kontrollkästchen |
 
 ### Erforderliches JavaScript
 
 #### Erforderliche Ereignishandler
 
 - `onclick`
-  - : Behandeln Sie Mausklicks sowohl auf die Checkbox als auch auf das zugehörige Label, das den Zustand der Checkbox verändert, indem der Wert des `aria-checked`-Attributs und das Erscheinungsbild der Checkbox so verändert werden, dass sie für den sehenden Benutzer als ausgewählt oder nicht ausgewählt erscheint.
+  - : Behandelt Mausklicks sowohl auf das Kontrollkästchen als auch auf das zugehörige Label, das den Zustand des Kontrollkästchens durch Ändern des Wertes des Attributs `aria-checked` und das Erscheinungsbild des Kontrollkästchens so ändert, dass es für sehende Benutzer als aktiviert oder deaktiviert erscheint.
 - `onKeyDown`
 
-  - : Verarbeiten Sie den Fall, in dem der Benutzer die <kbd>Leertaste</kbd> drückt, um den Zustand der Checkbox zu ändern, indem der Wert des `aria-checked`-Attributs und das Erscheinungsbild der Checkbox so verändert werden, dass sie für den sehenden Benutzer als ausgewählt oder nicht ausgewählt erscheint.
+  - : Behandelt den Fall, dass der Benutzer die <kbd>Leertaste</kbd> drückt, um den Zustand des Kontrollkästchens zu ändern, indem er den Wert des Attributs `aria-checked` ändert und das Erscheinungsbild des Kontrollkästchens so anpasst, dass es für sehende Benutzer als aktiviert oder deaktiviert erscheint.
 
 ## Beispiele
 
-Das folgende Beispiel erstellt ein ansonsten nicht-semantisches Checkbox-Element mithilfe von CSS und JavaScript, um den ausgewählten oder nicht ausgewählten Status des Elements zu verwalten.
+Das folgende Beispiel erstellt ein ansonsten nicht-semantisches Kontrollkästchenelement unter Verwendung von CSS und JavaScript, um den aktivierten oder deaktivierten Status des Elements zu handhaben.
 
 ### HTML
 
@@ -98,16 +98,9 @@ Das folgende Beispiel erstellt ein ansonsten nicht-semantisches Checkbox-Element
   role="checkbox"
   id="chkPref"
   aria-checked="false"
-  onclick="changeCheckbox()"
-  onKeyDown="changeCheckbox(event.code)"
   tabindex="0"
   aria-labelledby="chk1-label"></span>
-<label
-  id="chk1-label"
-  onclick="changeCheckbox()"
-  onKeyDown="changeCheckbox(event.code)"
-  >Remember my preferences</label
->
+<label id="chk1-label">Remember my preferences</label>
 ```
 
 ### CSS
@@ -133,8 +126,10 @@ Das folgende Beispiel erstellt ein ansonsten nicht-semantisches Checkbox-Element
 ### JavaScript
 
 ```js
+const item = document.getElementById("chkPref");
+const label = document.getElementById("chk1-label");
+
 function changeCheckbox(code) {
-  const item = document.getElementById("chkPref");
   const checked = item.getAttribute("aria-checked");
 
   if (code && code !== "Space") {
@@ -146,40 +141,51 @@ function changeCheckbox(code) {
     item.setAttribute("aria-checked", "true");
   }
 }
+
+item.addEventListener("keydown", (event) => {
+  changeCheckbox(event.code);
+});
+
+label.addEventListener("keydown", (event) => {
+  changeCheckbox(event.code);
+});
+
+item.addEventListener("click", changeCheckbox);
+label.addEventListener("click", changeCheckbox);
 ```
 
 {{EmbedLiveSample("Examples", 230, 250)}}
 
-## Barrierefreiheitsbedenken
+## Zugänglichkeitsbedenken
 
-Wenn die `checkbox`-Rolle zu einem Element hinzugefügt wird, sollte der User-Agent Folgendes tun:
+Wenn die Rolle `checkbox` zu einem Element hinzugefügt wird, sollte der Benutzeragent Folgendes tun:
 
-- Das Element im Barrierefreiheits-API des Betriebssystems als Checkbox-Rolle darstellen.
-- Wenn sich der `aria-checked`-Wert ändert, ein Barrierefreiheits-Zustandsänderungsereignis senden.
+- Das Element im Zugänglichkeits-API des Betriebssystems als `checkbox`-Rolle ausweisen.
+- Wenn sich der Wert von `aria-checked` ändert, ein Ereignis für den zugänglichen Statuswechsel senden.
 
-Produkte unterstützender Technologien sollten Folgendes tun:
+Produkte für unterstützende Technologien sollten Folgendes tun:
 
-- Screenreader sollten das Element als Checkbox ankündigen und optional Anweisungen geben, wie es aktiviert werden kann.
+- Bildschirmleseprogramme sollten das Element als Kontrollkästchen ankündigen und optional Anweisungen zur Aktivierung bereitstellen.
 
-Personen, die Checkboxen implementieren, sollten Folgendes tun:
+Personen, die Kontrollkästchen implementieren, sollten Folgendes tun:
 
-- Sicherstellen, dass die Checkbox sowohl über Tastatursteuerelemente als auch über Klicks erreicht und interagiert werden kann
-- Das `aria-checked`-Attribut nach Benutzereingriffen aktuell halten
-- Stile bereitstellen, die anzeigen, wann die Checkbox fokussiert ist
+- Sicherstellen, dass das Kontrollkästchen sowohl über Tastatursteuerungen als auch Mausklicks erreicht und verwendet werden kann.
+- Das Attribut `aria-checked` nach Benutzerinteraktionen auf dem aktuellsten Stand halten.
+- Stile bereitstellen, die anzeigen, wenn das Kontrollkästchen fokussiert ist.
 
 > [!NOTE]
-> Die Meinungen darüber, wie unterstützende Technologien mit dieser Technik umgehen sollten, können variieren. Die oben bereitgestellten Informationen sind eine dieser Meinungen und können sich ändern.
+> Es können unterschiedliche Meinungen darüber bestehen, wie unterstützende Technologien diese Technik behandeln sollten. Die oben bereitgestellten Informationen sind eine dieser Meinungen und können sich ändern.
 
 ## Beste Praktiken
 
-Die erste Regel von ARIA ist: Wenn ein nativer HTML-Tag oder ein Attribut die benötigte Semantik und das erforderliche Verhalten erfüllt, verwenden Sie es anstelle eines neu genutzten Elements mit einer ARIA-Rolle, -Zustand oder -Eigenschaft, um es zugänglich zu machen. Daher wird empfohlen, das native [HTML-Checkbox](/de/docs/Web/HTML/Reference/Elements/input/checkbox)-Formularsteuerelement zu verwenden, anstatt die Funktionalität einer Checkbox mit JavaScript und ARIA neu zu erstellen.
+Die erste Regel von ARIA ist: Wenn ein nativer HTML-Tag oder ein Attribut die gewünschten Semantiken und Verhaltensweisen bietet, verwenden Sie diesen statt ein Element umzufunktionieren und ihm eine ARIA-Rolle, einen Zustand oder eine Eigenschaft hinzuzufügen, um es zugänglich zu machen. Daher wird empfohlen, das native [HTML-Kontrollkästchen](/de/docs/Web/HTML/Reference/Elements/input/checkbox) zu verwenden, anstatt die Funktionalität eines Kontrollkästchens mit JavaScript und ARIA nachzubilden.
 
 ## Siehe auch
 
 - [`<input type="checkbox">`](/de/docs/Web/HTML/Reference/Elements/input/checkbox)
-- [ARIA: `radio` role](/de/docs/Web/Accessibility/ARIA/Reference/Roles/radio_role)
-- [ARIA: `menuitem` role](/de/docs/Web/Accessibility/ARIA/Reference/Roles/menuitem_role)
-- [ARIA: `menuitemcheckbox` role](/de/docs/Web/Accessibility/ARIA/Reference/Roles/menuitemcheckbox_role)
-- [ARIA: `menuitemradio` role](/de/docs/Web/Accessibility/ARIA/Reference/Roles/menuitemradio_role)
-- [ARIA: `switch` role](/de/docs/Web/Accessibility/ARIA/Reference/Roles/switch_role)
-- [ARIA: `option` role](/de/docs/Web/Accessibility/ARIA/Reference/Roles/option_role)
+- [ARIA: Rolle `radio`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/radio_role)
+- [ARIA: Rolle `menuitem`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/menuitem_role)
+- [ARIA: Rolle `menuitemcheckbox`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/menuitemcheckbox_role)
+- [ARIA: Rolle `menuitemradio`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/menuitemradio_role)
+- [ARIA: Rolle `switch`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/switch_role)
+- [ARIA: Rolle `option`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/option_role)

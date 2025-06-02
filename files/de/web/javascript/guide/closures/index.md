@@ -2,14 +2,14 @@
 title: Closures
 slug: Web/JavaScript/Guide/Closures
 l10n:
-  sourceCommit: 14acf1aa7885157debdf1b6111f4bd10c064ec60
+  sourceCommit: e779eeec61df5e639c37a895b5cdc648c4601cb4
 ---
 
 {{jsSidebar("Intermediate")}}
 
-Ein **Closure** ist die Kombination einer Funktion, die zusammengebündelt (eingeschlossen) ist, mit Referenzen auf ihren umgebenden Zustand (die **lexikalische Umgebung**). Anders ausgedrückt, ein Closure gibt einer Funktion Zugriff auf ihren äußeren Gültigkeitsbereich. In JavaScript werden Closures jedes Mal erstellt, wenn eine Funktion erstellt wird, und zwar zum Zeitpunkt der Funktionserstellung.
+Ein **Closure** ist die Kombination einer Funktion, die zusammen (eingeschlossen) mit Referenzen zu ihrem umgebenden Status (der **lexikalischen Umgebung**) gebündelt ist. Mit anderen Worten, ein Closure ermöglicht einer Funktion den Zugriff auf ihren äußeren Geltungsbereich. In JavaScript wird ein Closure jedes Mal erstellt, wenn eine Funktion erstellt wird, also zum Zeitpunkt der Funktionserstellung.
 
-## Lexikalische Bereichseinschränkung
+## Lexikalische Bindung
 
 Betrachten Sie den folgenden Beispielcode:
 
@@ -25,13 +25,13 @@ function init() {
 init();
 ```
 
-`init()` erstellt eine lokale Variable mit dem Namen `name` und eine Funktion namens `displayName()`. Die Funktion `displayName()` ist eine innere Funktion, die innerhalb von `init()` definiert ist und nur innerhalb des Körpers der `init()`-Funktion verfügbar ist. Beachten Sie, dass die `displayName()`-Funktion keine eigenen lokalen Variablen hat. Da innere Funktionen jedoch Zugriff auf die Variablen der äußeren Bereiche haben, kann `displayName()` auf die in der übergeordneten Funktion `init()` deklarierte Variable `name` zugreifen.
+`init()` erstellt eine lokale Variable namens `name` und eine Funktion namens `displayName()`. Die Funktion `displayName()` ist eine innere Funktion, die innerhalb von `init()` definiert ist und nur im Körper der `init()`-Funktion verfügbar ist. Beachten Sie, dass die Funktion `displayName()` keine eigenen lokalen Variablen hat. Da innere Funktionen jedoch Zugriff auf die Variablen äußerer Geltungsbereiche haben, kann `displayName()` auf die in der übergeordneten Funktion `init()` deklarierte Variable `name` zugreifen.
 
-Führen Sie den Code mit [diesem JSFiddle-Link](https://jsfiddle.net/3dxck52m/) aus und beachten Sie, dass die `console.log()`-Anweisung innerhalb der `displayName()`-Funktion erfolgreich den Wert der `name`-Variablen anzeigt, die in ihrer übergeordneten Funktion deklariert ist. Dies ist ein Beispiel für _lexikalische Bereichseinschränkung_, die beschreibt, wie ein Parser Variablennamen auflöst, wenn Funktionen verschachtelt sind. Das Wort _lexikalisch_ bezieht sich darauf, dass die lexikalische Bereichseinschränkung den Ort verwendet, an dem eine Variable im Quellcode deklariert ist, um zu bestimmen, wo diese Variable verfügbar ist. Verschachtelte Funktionen haben Zugriff auf Variablen, die in ihrem äußeren Bereich deklariert sind.
+Wenn Sie diesen Code in Ihrer Konsole ausführen, können Sie sehen, dass die `console.log()`-Anweisung innerhalb der Funktion `displayName()` erfolgreich den Wert der Variablen `name` anzeigt, die in ihrer übergeordneten Funktion deklariert ist. Dies ist ein Beispiel für _lexikalische Bindung_, die beschreibt, wie ein Parser Variablennamen auflöst, wenn Funktionen verschachtelt sind. Das Wort _lexikalisch_ bezieht sich darauf, dass die lexikalische Bindung den Ort verwendet, an dem eine Variable im Quellcode deklariert ist, um festzustellen, wo diese Variable verfügbar ist. Verschachtelte Funktionen haben Zugriff auf Variablen, die in ihrem äußeren Geltungsbereich deklariert sind.
 
-### Bereichseinschränkungen mit let und const
+### Geltungsbereich mit let und const
 
-Traditionell (vor ES6) hatten JavaScript-Variablen nur zwei Arten von Gültigkeitsbereichen: _Funktionbereich_ und _globaler Bereich_. Variablen, die mit `var` deklariert sind, haben entweder einen Funktionenbereich oder einen globalen Bereich, abhängig davon, ob sie innerhalb oder außerhalb einer Funktion deklariert sind. Dies kann kompliziert sein, denn Blöcke mit geschweiften Klammern erstellen keine Bereiche:
+Traditionell (vor ES6) hatten JavaScript-Variablen nur zwei Arten von Geltungsbereichen: _Funktions-Geltungsbereich_ und _globaler Geltungsbereich_. Variablen, die mit `var` deklariert sind, haben entweder einen Funktions-Geltungsbereich oder einen globalen Geltungsbereich, abhängig davon, ob sie innerhalb einer Funktion oder außerhalb einer Funktion deklariert sind. Dies kann knifflig sein, da Blöcke mit geschweiften Klammern keinen Geltungsbereich erzeugen:
 
 ```js
 if (Math.random() > 0.5) {
@@ -42,9 +42,9 @@ if (Math.random() > 0.5) {
 console.log(x);
 ```
 
-Für Personen aus anderen Sprachen (z.B. C, Java), in denen Blöcke Bereiche erstellen, sollte der obige Code einen Fehler in der `console.log`-Zeile werfen, da wir außerhalb des Bereichs von `x` in einem der Blöcke sind. Da Blöcke jedoch keine Bereiche für `var` erstellen, erzeugen die `var`-Anweisungen hier tatsächlich eine globale Variable. Es gibt auch [ein praktisches Beispiel](#creating_closures_in_loops_a_common_mistake), das unten eingeführt wird und veranschaulicht, wie dies tatsächliche Fehler verursachen kann, wenn es mit Closures kombiniert wird.
+Für Menschen aus anderen Programmiersprachen (z.B. C, Java), bei denen Blöcke Geltungsbereiche erzeugen, sollte der obige Code einen Fehler in der `console.log`-Zeile auslösen, da wir uns außerhalb des Geltungsbereichs von `x` in jedem Block befinden. Da Blöcke jedoch keine Geltungsbereiche für `var` erzeugen, erstellen die `var`-Anweisungen hier tatsächlich eine globale Variable. Es gibt auch [ein praktisches Beispiel](#creating_closures_in_loops_a_common_mistake), das unten eingeführt wird und zeigt, wie dies in Kombination mit Closures tatsächlich Fehler verursachen kann.
 
-In ES6 führte JavaScript die `let`- und `const`-Deklarationen ein, die es Ihnen unter anderem, wie [temporäre Totzonen](/de/docs/Web/JavaScript/Reference/Statements/let#temporal_dead_zone_tdz), ermöglichen, blockbezogene Variablen zu erstellen.
+In ES6 führte JavaScript die Deklarationen `let` und `const` ein, die, neben anderen Dingen wie [temporäre tote Zonen](/de/docs/Web/JavaScript/Reference/Statements/let#temporal_dead_zone_tdz), es ermöglichen, blockgebundene Variablen zu erstellen.
 
 ```js
 if (Math.random() > 0.5) {
@@ -55,7 +55,7 @@ if (Math.random() > 0.5) {
 console.log(x); // ReferenceError: x is not defined
 ```
 
-Im Wesentlichen werden Blöcke in ES6 endlich als Bereiche behandelt, jedoch nur, wenn Sie Variablen mit `let` oder `const` deklarieren. Zudem führte ES6 [Module](/de/docs/Web/JavaScript/Guide/Modules) ein, die eine andere Art von Gültigkeitsbereich einführten. Closures können Variablen in all diesen Bereichen erfassen, die wir später einführen werden.
+Im Wesentlichen werden Blöcke in ES6 endlich als Geltungsbereiche behandelt, aber nur, wenn Sie Variablen mit `let` oder `const` deklarieren. Darüber hinaus führte ES6 [Module](/de/docs/Web/JavaScript/Guide/Modules) ein, die eine weitere Art von Geltungsbereich einführten. Closures können Variablen in all diesen Geltungsbereichen erfassen, die wir später einführen werden.
 
 ## Closure
 
@@ -74,13 +74,13 @@ const myFunc = makeFunc();
 myFunc();
 ```
 
-Die Ausführung dieses Codes hat genau denselben Effekt wie das vorherige Beispiel der `init()`-Funktion oben. Der Unterschied (und das Interessante) ist, dass die innere Funktion `displayName()` von der äußeren Funktion zurückgegeben wird, _bevor sie ausgeführt wird_.
+Das Ausführen dieses Codes hat genau denselben Effekt wie das vorherige Beispiel der `init()`-Funktion oben. Was anders (und interessant) ist, ist, dass die innere Funktion `displayName()` von der äußeren Funktion _bevor sie ausgeführt wird_ zurückgegeben wird.
 
-Auf den ersten Blick mag es unintuitiv erscheinen, dass dieser Code weiterhin funktioniert. In einigen Programmiersprachen existieren die lokalen Variablen innerhalb einer Funktion nur für die Dauer der Ausführung dieser Funktion. Nachdem `makeFunc()` die Ausführung beendet hat, könnten Sie erwarten, dass die `name`-Variable nicht mehr zugänglich ist. Da der Code jedoch wie erwartet funktioniert, ist dies offensichtlich nicht der Fall in JavaScript.
+Auf den ersten Blick mag es unintuitiv erscheinen, dass dieser Code immer noch funktioniert. In einigen Programmiersprachen existieren die lokalen Variablen innerhalb einer Funktion nur für die Dauer der Ausführung dieser Funktion. Sobald `makeFunc()` beendet ist, könnte man erwarten, dass die Variable `name` nicht mehr zugänglich ist. Da der Code jedoch wie erwartet funktioniert, ist dies offensichtlich nicht der Fall in JavaScript.
 
-Der Grund dafür ist, dass Funktionen in JavaScript Closures bilden. Ein _Closure_ ist die Kombination einer Funktion und der lexikalischen Umgebung, in der diese Funktion deklariert wurde. Diese Umgebung besteht aus allen Variablen, die zum Zeitpunkt der Erzeugung des Closures im Gültigkeitsbereich waren. In diesem Fall ist `myFunc` eine Referenz auf die Instanz der Funktion `displayName`, die erstellt wird, wenn `makeFunc` ausgeführt wird. Die Instanz von `displayName` behält eine Referenz auf ihre lexikalische Umgebung bei, in der die Variable `name` existiert. Aus diesem Grund bleibt die Variable `name` verfügbar, wenn `myFunc` aufgerufen wird, und "Mozilla" wird an `console.log` übergeben.
+Der Grund ist, dass Funktionen in JavaScript Closures bilden. Ein _Closure_ ist die Kombination aus einer Funktion und der lexikalischen Umgebung, in der diese Funktion deklariert wurde. Diese Umgebung besteht aus allen Variablen, die zum Zeitpunkt der Erstellung des Closures im Geltungsbereich waren. In diesem Fall ist `myFunc` eine Referenz auf die Instanz der Funktion `displayName`, die erstellt wird, wenn `makeFunc` ausgeführt wird. Die Instanz von `displayName` behält eine Referenz auf ihre lexikalische Umgebung, in der die Variable `name` existiert. Aus diesem Grund bleibt bei der Ausführung von `myFunc` die Variable `name` verfügbar, und "Mozilla" wird an `console.log` übergeben.
 
-Hier ein etwas interessanteres Beispiel – eine `makeAdder`-Funktion:
+Hier ist ein etwas interessanteres Beispiel — eine `makeAdder`-Funktion:
 
 ```js
 function makeAdder(x) {
@@ -96,21 +96,21 @@ console.log(add5(2)); // 7
 console.log(add10(2)); // 12
 ```
 
-In diesem Beispiel haben wir eine Funktion `makeAdder(x)` definiert, die ein einzelnes Argument `x` annimmt und eine neue Funktion zurückgibt. Die zurückgegebene Funktion nimmt ein einzelnes Argument `y` an und gibt die Summe von `x` und `y` zurück.
+In diesem Beispiel haben wir eine Funktion `makeAdder(x)` definiert, die ein einziges Argument `x` annimmt und eine neue Funktion zurückgibt. Die zurückgegebene Funktion nimmt ein einziges Argument `y` an und gibt die Summe von `x` und `y` zurück.
 
-Im Wesentlichen ist `makeAdder` ein Funktionsfabrikator. Es erstellt Funktionen, die einen spezifischen Wert zu ihrem Argument addieren können. Im obigen Beispiel erstellt die Funktionsfabrik zwei neue Funktionen: eine, die fünf zu ihrem Argument addiert, und eine, die 10 addiert.
+Im Wesentlichen ist `makeAdder` eine Funktionsfabrik. Sie erstellt Funktionen, die einen bestimmten Wert zu ihrem Argument hinzufügen können. Im obigen Beispiel erstellt die Funktionsfabrik zwei neue Funktionen — eine, die fünf zu ihrem Argument hinzufügt, und eine, die 10 hinzufügt.
 
-`add5` und `add10` bilden beide Closures. Sie teilen sich dieselbe Funktionskörperdefinition, speichern aber unterschiedliche lexikalische Umgebungen. In der lexikalischen Umgebung von `add5` ist `x` 5, während in der lexikalischen Umgebung von `add10` `x` 10 ist.
+`add5` und `add10` bilden beide Closures. Sie teilen dieselbe Funktionskörper-Definition, speichern jedoch unterschiedliche lexikalische Umgebungen. In der lexikalischen Umgebung von `add5` ist `x` 5, während in der lexikalischen Umgebung für `add10` `x` 10 ist.
 
 ## Praktische Closures
 
-Closures sind nützlich, weil sie es Ihnen ermöglichen, Daten (die lexikalische Umgebung) mit einer Funktion zu verknüpfen, die auf diesen Daten arbeitet. Dies hat offensichtliche Parallelen zur objektorientierten Programmierung, bei der Objekte es ermöglichen, Daten (die Eigenschaften des Objekts) mit einer oder mehreren Methoden zu verknüpfen.
+Closures sind nützlich, da sie es Ihnen ermöglichen, Daten (die lexikalische Umgebung) mit einer Funktion zu verknüpfen, die auf diesen Daten arbeitet. Dies hat offensichtliche Parallelen zur objektorientierten Programmierung, bei der Objekte es Ihnen ermöglichen, Daten (die Objekteigenschaften) mit einer oder mehreren Methoden zu verknüpfen.
 
-Dementsprechend können Sie ein Closure überall dort einsetzen, wo Sie normalerweise ein Objekt mit nur einer einzigen Methode verwenden würden.
+Daher können Sie ein Closure überall dort verwenden, wo Sie normalerweise ein Objekt mit nur einer Methode verwenden würden.
 
-Situationen, in denen Sie dies tun möchten, treten insbesondere im Web häufig auf. Ein großer Teil des in Frontend-JavaScript geschriebenen Codes ist ereignisbasiert. Sie definieren ein Verhalten und hängen es dann an ein Ereignis, das durch den Benutzer ausgelöst wird (wie ein Klick oder ein Tastendruck). Der Code wird als Rückruf angehängt (eine einzelne Funktion, die als Reaktion auf das Ereignis ausgeführt wird).
+Situationen, in denen Sie dies tun könnten, sind insbesondere im Web häufig. Ein Großteil des in Front-End-JavaScript geschriebenen Codes ist ereignisbasiert. Sie definieren ein Verhalten und hängen es dann an ein Ereignis, das durch den Benutzer ausgelöst wird (wie ein Klick oder ein Tastendruck). Der Code wird als Callback angefügt (eine einzelne Funktion, die als Reaktion auf das Ereignis ausgeführt wird).
 
-Angenommen, wir möchten Schaltflächen zu einer Seite hinzufügen, um die Textgröße anzupassen. Eine Möglichkeit, dies zu tun, besteht darin, die Schriftgröße des `<body>`-Elements (in Pixeln) anzugeben und dann die Größe der anderen Elemente auf der Seite (wie Überschriften) mit der relativen `em`-Einheit festzulegen:
+Angenommen, wir möchten der Seite Buttons hinzufügen, um die Textgröße anzupassen. Eine Möglichkeit, dies zu tun, besteht darin, die Schriftgröße des `<body>`-Elements (in Pixel) anzugeben und dann die Größe der anderen Elemente auf der Seite (wie Überschriften) mit der relativen `em`-Einheit zu setzen:
 
 ```css
 body {
@@ -127,13 +127,13 @@ h2 {
 }
 ```
 
-Solche interaktiven Schaltflächen zur Textgröße können die `font-size`-Eigenschaft des `<body>`-Elements ändern, und die Anpassungen werden durch die relativen Einheiten von anderen Elementen auf der Seite übernommen.
+Solche interaktiven Textgrößenbuttons können die `font-size`-Eigenschaft des `<body>`-Elements ändern, und die Anpassungen werden von anderen Elementen auf der Seite dank der relativen Einheiten übernommen.
 
-Hier ist der JavaScript-Code:
+Hier das JavaScript:
 
 ```js
 function makeSizer(size) {
-  return function () {
+  return () => {
     document.body.style.fontSize = `${size}px`;
   };
 }
@@ -143,7 +143,7 @@ const size14 = makeSizer(14);
 const size16 = makeSizer(16);
 ```
 
-`size12`, `size14` und `size16` sind nun Funktionen, die den Text des Hauptbereichs auf 12, 14 und 16 Pixel vergrößern. Sie können sie an Schaltflächen anhängen, wie im folgenden Codebeispiel gezeigt.
+`size12`, `size14` und `size16` sind nun Funktionen, die den Body-Text auf 12, 14 und 16 Pixel anpassen. Sie können sie an Buttons anhängen, wie im folgenden Codebeispiel gezeigt.
 
 ```js
 document.getElementById("size-12").onclick = size12;
@@ -155,17 +155,18 @@ document.getElementById("size-16").onclick = size16;
 <button id="size-12">12</button>
 <button id="size-14">14</button>
 <button id="size-16">16</button>
+<p>This is some text that will change size when you click the buttons above.</p>
 ```
 
-Führen Sie den Code mit [JSFiddle](https://jsfiddle.net/hotae160/) aus.
+{{EmbedLiveSample("practical closures", "", "200")}}
 
-## Emulieren privater Methoden mit Closures
+## Emulation privater Methoden mit Closures
 
 Sprachen wie Java erlauben es Ihnen, Methoden als privat zu deklarieren, was bedeutet, dass sie nur von anderen Methoden in derselben Klasse aufgerufen werden können.
 
-JavaScript hatte vor [Klassen](/de/docs/Web/JavaScript/Reference/Classes) keine native Möglichkeit, [private Methoden](/de/docs/Web/JavaScript/Reference/Classes/Private_properties#private_methods) zu deklarieren, aber es war möglich, private Methoden mithilfe von Closures zu emulieren. Private Methoden sind nicht nur nützlich, um den Zugriff auf den Code einzuschränken. Sie bieten auch eine leistungsstarke Möglichkeit, Ihren globalen Namensraum zu verwalten.
+JavaScript hatte vor [Klassen](/de/docs/Web/JavaScript/Reference/Classes) keine native Möglichkeit, [private Methoden](/de/docs/Web/JavaScript/Reference/Classes/Private_properties#private_methods) zu deklarieren, aber es war möglich, private Methoden mit Closures zu emulieren. Private Methoden sind nicht nur nützlich, um den Zugriff auf Code zu beschränken. Sie bieten auch eine leistungsstarke Möglichkeit, Ihren globalen Namensraum zu verwalten.
 
-Der folgende Code zeigt, wie Sie Closures verwenden, um öffentliche Funktionen zu definieren, die auf private Funktionen und Variablen zugreifen können. Beachten Sie, dass diese Closures das [Modul-Design-Muster](https://www.google.com/search?q=javascript+module+pattern) befolgen.
+Der folgende Code veranschaulicht, wie Sie mithilfe von Closures öffentliche Funktionen definieren können, die auf private Funktionen und Variablen zugreifen können. Beachten Sie, dass diese Closures dem [Modul-Entwurfsmuster](https://www.google.com/search?q=javascript+module+pattern) folgen.
 
 ```js
 const counter = (function () {
@@ -199,11 +200,11 @@ counter.decrement();
 console.log(counter.value()); // 1.
 ```
 
-In vorherigen Beispielen hatte jedes Closure seine eigene lexikalische Umgebung. Hier gibt es jedoch eine einzige lexikalische Umgebung, die von den drei Funktionen geteilt wird: `counter.increment`, `counter.decrement` und `counter.value`.
+In vorherigen Beispielen hatte jedes Closure seine eigene lexikalische Umgebung. Hier jedoch gibt es eine einzige lexikalische Umgebung, die von den drei Funktionen `counter.increment`, `counter.decrement` und `counter.value` geteilt wird.
 
-Die geteilte lexikalische Umgebung wird im Körper einer anonymen Funktion erstellt, _die ausgeführt wird, sobald sie definiert ist_ (auch bekannt als {{Glossary("IIFE", "IIFE")}}). Die lexikalische Umgebung enthält zwei private Elemente: eine Variable namens `privateCounter` und eine Funktion namens `changeBy`. Sie können weder auf eines dieser privaten Mitglieder außerhalb der anonymen Funktion zugreifen. Stattdessen greifen Sie indirekt auf sie zu, indem Sie die drei öffentlichen Funktionen verwenden, die aus dem anonymen Wrapper zurückgegeben werden.
+Die gemeinsame lexikalische Umgebung wird im Körper einer anonymen Funktion erstellt, _die ausgeführt wird, sobald sie definiert wurde_ (auch bekannt als {{Glossary("IIFE", "IIFE")}}). Die lexikalische Umgebung enthält zwei private Elemente: eine Variable namens `privateCounter` und eine Funktion namens `changeBy`. Sie können von außerhalb der anonymen Funktion nicht auf diese privaten Mitglieder zugreifen. Stattdessen greifen Sie indirekt über die drei öffentlichen Funktionen darauf zu, die aus der anonymen Wrapper-Funktion zurückgegeben werden.
 
-Diese drei öffentlichen Funktionen bilden Closures, die dieselbe lexikalische Umgebung teilen. Dank der lexikalischen Bereichseinschränkung in JavaScript haben sie jeweils Zugriff auf die `privateCounter`-Variable und die `changeBy`-Funktion.
+Diese drei öffentlichen Funktionen bilden Closures, die dieselbe lexikalische Umgebung teilen. Dank der lexikalischen Bindung in JavaScript haben sie jeweils Zugriff auf die Variable `privateCounter` und die Funktion `changeBy`.
 
 ```js
 function makeCounter() {
@@ -240,14 +241,14 @@ console.log(counter1.value()); // 1.
 console.log(counter2.value()); // 0.
 ```
 
-Beachten Sie, wie die beiden Zähler ihre Unabhängigkeit voneinander bewahren. Jedes Closure referenziert eine andere Version der `privateCounter`-Variable durch sein eigenes Closure. Jedes Mal, wenn einer der Zähler aufgerufen wird, ändert sich seine lexikalische Umgebung durch Änderung des Werts dieser Variable. Ändert sich der Wert der Variablen in einem Closure, hat dies keine Auswirkungen auf den Wert im anderen Closure.
+Beachten Sie, wie die beiden Zähler ihre Unabhängigkeit voneinander aufrechterhalten. Jedes Closure referenziert eine andere Version der Variablen `privateCounter` über sein eigenes Closure. Jedes Mal, wenn einer der Zähler aufgerufen wird, ändert sich seine lexikalische Umgebung, indem der Wert dieser Variablen geändert wird. Änderungen am Variablenwert in einem Closure wirken sich nicht auf den Wert im anderen Closure aus.
 
 > [!NOTE]
-> Die Verwendung von Closures auf diese Weise bietet Vorteile, die normalerweise mit objektorientierter Programmierung verbunden sind. Insbesondere _Datenverbergung_ und _Kapselung_.
+> Die Verwendung von Closures auf diese Weise bietet Vorteile, die normalerweise der objektorientierten Programmierung zugeschrieben werden. Insbesondere _Datenverbergung_ und _Kapselung_.
 
-## Gültigkeitsbereichskette von Closures
+## Closure-Geltungsbereichskette
 
-Der Zugriff einer verschachtelten Funktion auf den Gültigkeitsbereich der äußeren Funktion umfasst den umgebenden Gültigkeitsbereich der äußeren Funktion – was effektiv eine Kette von Funktionsbereichen erstellt. Um dies zu demonstrieren, betrachten Sie den folgenden Beispielcode.
+Der Zugriff einer geschachtelten Funktion auf den Geltungsbereich der äußeren Funktion umfasst den umschließenden Geltungsbereich der äußeren Funktion — effektiv wird eine Kette von Funktionsgeltungsbereichen erstellt. Um dies zu verdeutlichen, betrachten Sie den folgenden Beispielcode.
 
 ```js
 // global scope
@@ -291,9 +292,9 @@ const result = sum4(4);
 console.log(result); // 20
 ```
 
-Im obigen Beispiel gibt es eine Reihe von verschachtelten Funktionen, die alle Zugriff auf den Gültigkeitsbereich der äußeren Funktionen haben. In diesem Zusammenhang können wir sagen, dass Closures Zugriff auf _alle_ äußeren Bereiche haben.
+Im obigen Beispiel gibt es eine Serie von verschachtelten Funktionen, die alle Zugriff auf den äußeren Geltungsbereich der Funktionen haben. In diesem Kontext kann man sagen, dass Closures Zugriff auf _alle_ äußeren Geltungsbereiche haben.
 
-Closures können auch Variablen in Blockbereichen und Modulbereichen erfassen. Zum Beispiel erstellt das folgende eine Closure über die blockgebundene Variable `y`:
+Closures können auch Variablen in Block- und Modul-Geltungsbereichen erfassen. Beispielweise wird im Folgenden ein Closure über die blockgebundene Variable `y` erstellt:
 
 ```js
 function outer() {
@@ -320,7 +321,7 @@ export const setX = (val) => {
 };
 ```
 
-Hier exportiert das Modul ein Paar von Getter-Setter-Funktionen, die über die modulgebundene Variable `x` schließen. Selbst wenn `x` nicht direkt von anderen Modulen zugänglich ist, kann es mit den Funktionen gelesen und beschrieben werden.
+Hier exportiert das Modul ein Paar von Getter-Setter-Funktionen, die über die modulgebundene Variable `x` schließen. Selbst wenn `x` von anderen Modulen aus nicht direkt zugänglich ist, kann es mit den Funktionen gelesen und beschrieben werden.
 
 ```js
 import { getX, setX } from "./myModule.js";
@@ -330,7 +331,7 @@ setX(6);
 console.log(getX()); // 6
 ```
 
-Closures können auch über importierte Werte schließen, die als _lebendige {{Glossary("binding", "Bindungen")}}_ betrachtet werden, weil sich der importierte Wert entsprechend ändert, wenn sich der Originalwert ändert.
+Closures können auch über importierte Werte schließen, die als _aktive {{Glossary("binding", "Bindungen")}}_ angesehen werden, da sich der importierte Wert entsprechend ändert, wenn sich der ursprüngliche Wert ändert.
 
 ```js
 // myModule.js
@@ -358,16 +359,16 @@ console.log(getX()); // 2
 
 ## Erstellen von Closures in Schleifen: Ein häufiger Fehler
 
-Vor der Einführung des [`let`](/de/docs/Web/JavaScript/Reference/Statements/let) Schlüsselworts trat häufig ein Problem mit Closures auf, wenn Sie sie innerhalb einer Schleife erstellten. Um dies zu demonstrieren, betrachten Sie den folgenden Beispielcode.
+Vor der Einführung des [`let`](/de/docs/Web/JavaScript/Reference/Statements/let)-Schlüsselworts trat ein häufiges Problem mit Closures auf, wenn Sie diese innerhalb einer Schleife erstellt haben. Um dies zu verdeutlichen, betrachten Sie den folgenden Beispielcode.
 
-```html
+```html live-sample___closures_bad
 <p id="help">Helpful notes will appear here</p>
 <p>Email: <input type="text" id="email" name="email" /></p>
 <p>Name: <input type="text" id="name" name="name" /></p>
 <p>Age: <input type="text" id="age" name="age" /></p>
 ```
 
-```js
+```js example-bad live-sample___closures_bad
 function showHelp(help) {
   document.getElementById("help").textContent = help;
 }
@@ -391,17 +392,24 @@ function setupHelp() {
 setupHelp();
 ```
 
-Probieren Sie den Code in [JSFiddle](https://jsfiddle.net/v7gjv/8164/) aus.
+{{EmbedLiveSample("closures_bad", "", "200")}}
 
-Das `helpText`-Array definiert drei hilfreiche Hinweise, die jeweils mit der ID eines Eingabefelds im Dokument verknüpft sind. Die Schleife durchläuft diese Definitionen und verbindet jeweils ein `onfocus`-Ereignis, das die zugehörige Hilfsmethode anzeigt.
+Das `helpText`-Array definiert drei hilfreiche Hinweise, die jeweils mit der ID eines Eingabefelds im Dokument verknüpft sind. Die Schleife durchläuft diese Definitionen und verbindet ein `onfocus`-Ereignis mit jedem, das die zugehörige Hilfe-Methode anzeigt.
 
-Wenn Sie diesen Code ausprobieren, werden Sie feststellen, dass er nicht wie erwartet funktioniert. Egal, auf welches Feld Sie klicken, die Nachricht über Ihr Alter wird angezeigt.
+Wenn Sie diesen Code ausprobieren, werden Sie feststellen, dass er nicht wie erwartet funktioniert. Unabhängig davon, welches Feld Sie fokussieren, wird die Nachricht über Ihr Alter angezeigt.
 
-Der Grund dafür ist, dass die an `onfocus` zugewiesenen Funktionen Closures bilden. Sie bestehen aus der Funktionsdefinition und der erfassten Umgebung aus dem Gültigkeitsbereich der Funktion `setupHelp`. Drei Closures wurden durch die Schleife erstellt, aber jedes teilt die gleiche einzelne lexikalische Umgebung, die eine Variable mit sich ändernden Werten (`item`) hat. Dies liegt daran, dass die Variable `item` mit `var` deklariert ist und daher aufgrund von Hoisting den Gültigkeitsbereich der Funktion hat. Der Wert von `item.help` wird bestimmt, wenn die `onfocus` Rückrufe ausgeführt werden. Da die Schleife bis zu diesem Zeitpunkt bereits abgeschlossen ist, zeigt das `item`-Variablenobjekt (das von allen drei Closures geteilt wird) auf den letzten Eintrag in der `helpText`-Liste.
+Der Grund dafür ist, dass die den `onfocus`-Ereignissen zugewiesenen Funktionen Closures bilden; sie bestehen aus der Funktionsdefinition und der erfassten Umgebung aus dem Geltungsbereich der Funktion `setupHelp`. Drei Closures wurden durch die Schleife erstellt, aber jedes teilt dieselbe einzelne lexikalische Umgebung, die eine Variable mit sich ändernden Werten (`item`) hat. Dies liegt daran, dass die Variable `item` mit `var` deklariert ist und somit aufgrund von Hoisting einen Funktions-Geltungsbereich hat. Der Wert von `item.help` wird bestimmt, wenn die `onfocus`-Callbacks ausgeführt werden. Da die Schleife zu diesem Zeitpunkt bereits abgeschlossen ist, zeigt das `item`-Variablenobjekt (das von allen drei Closures geteilt wird) auf den letzten Eintrag in der `helpText`-Liste.
 
-Eine Lösung in diesem Fall ist, mehr Closures zu verwenden: insbesondere, um eine Funktionsfabrik zu verwenden, wie zuvor beschrieben:
+Eine Lösung in diesem Fall ist die Verwendung von mehr Closures: insbesondere die Verwendung eines Funktionsfabrik-Konzepts, wie zuvor beschrieben:
 
-```js
+```html hidden live-sample___closures_factory
+<p id="help">Helpful notes will appear here</p>
+<p>Email: <input type="text" id="email" name="email" /></p>
+<p>Name: <input type="text" id="name" name="name" /></p>
+<p>Age: <input type="text" id="age" name="age" /></p>
+```
+
+```js live-sample___closures_factory
 function showHelp(help) {
   document.getElementById("help").textContent = help;
 }
@@ -428,11 +436,11 @@ function setupHelp() {
 setupHelp();
 ```
 
-Führen Sie den Code mit [diesem JSFiddle-Link](https://jsfiddle.net/v7gjv/9573/) aus.
+{{EmbedLiveSample("closures_factory", "", "200")}}
 
-Dies funktioniert wie erwartet. Statt dass alle Rückrufe eine einzige lexikalische Umgebung teilen, erstellt die `makeHelpCallback`-Funktion _eine neue lexikalische Umgebung_ für jeden Rückruf, in der sich `help` auf den entsprechenden String aus dem `helpText`-Array bezieht.
+Dies funktioniert wie erwartet. Anstatt dass die Callbacks ein einzelnes lexikalisches Umfeld teilen, erstellt die Funktion `makeHelpCallback` _ein neues lexikalisches Umfeld_ für jeden Callback, in dem sich `help` auf den entsprechenden String aus dem `helpText`-Array bezieht.
 
-Eine andere Möglichkeit, das obige Beispiel zu schreiben, besteht darin, anonyme Closures zu verwenden:
+Eine andere Möglichkeit, das Obige unter Verwendung anonymer Closures zu schreiben, ist:
 
 ```js
 function showHelp(help) {
@@ -459,7 +467,7 @@ function setupHelp() {
 setupHelp();
 ```
 
-Wenn Sie nicht mehr Closures verwenden möchten, können Sie auch das [`let`](/de/docs/Web/JavaScript/Reference/Statements/let)- oder [`const`](/de/docs/Web/JavaScript/Reference/Statements/const)-Schlüsselwort verwenden:
+Wenn Sie keine zusätzlichen Closures verwenden möchten, können Sie die Schlüsselwörter [`let`](/de/docs/Web/JavaScript/Reference/Statements/let) oder [`const`](/de/docs/Web/JavaScript/Reference/Statements/const) verwenden:
 
 ```js
 function showHelp(help) {
@@ -484,9 +492,9 @@ function setupHelp() {
 setupHelp();
 ```
 
-Dieses Beispiel verwendet `const` statt `var`, sodass jede Closure die blockgebundene Variable bindet, was bedeutet, dass keine zusätzlichen Closures erforderlich sind.
+Dieses Beispiel verwendet `const` anstelle von `var`, sodass jedes Closure die blockgebundene Variable bindet, was bedeutet, dass keine zusätzlichen Closures erforderlich sind.
 
-Eine weitere Alternative könnte es sein, `forEach()` zu verwenden, um über das `helpText`-Array zu iterieren und einen Listener für jedes [`<input>`](/de/docs/Web/HTML/Reference/Elements/input) anzuhängen, wie gezeigt:
+Eine weitere Alternative könnte die Verwendung von `forEach()` sein, um über das `helpText`-Array zu iterieren und einen Listener an jedes [`<input>`](/de/docs/Web/HTML/Reference/Elements/input) anzuhängen, wie gezeigt:
 
 ```js
 function showHelp(help) {
@@ -512,9 +520,9 @@ setupHelp();
 
 ## Leistungsüberlegungen
 
-Wie bereits erwähnt, verwaltet jede Instanz einer Funktion ihren eigenen Gültigkeitsbereich und ihr eigenes Closure. Daher ist es unklug, Funktionen unnötigerweise innerhalb anderer Funktionen zu erstellen, wenn Closures für eine bestimmte Aufgabe nicht benötigt werden, da dies die Skriptleistung sowohl in Bezug auf die Verarbeitungszeit als auch auf den Speicherverbrauch negativ beeinflusst.
+Wie bereits erwähnt, verwaltet jede Funktionsinstanz ihren eigenen Geltungsbereich und ihr eigenes Closure. Daher ist es unklug, Funktionen unnötigerweise innerhalb anderer Funktionen zu erstellen, wenn keine Closures für eine bestimmte Aufgabe benötigt werden, da dies die Skriptleistung sowohl in Bezug auf die Verarbeitungsgeschwindigkeit als auch auf den Speicherverbrauch negativ beeinflussen wird.
 
-Zum Beispiel sollten Methoden normalerweise mit dem Prototyp des Objekts verknüpft werden, anstatt im Konstruktor des Objekts definiert zu werden, wenn ein neues Objekt/eine Klasse erstellt wird. Der Grund dafür ist, dass die Methoden jedes Mal neu zugewiesen würden, wenn der Konstruktor aufgerufen wird (das heißt, für jede Objekterzeugung).
+Wenn Sie beispielsweise ein neues Objekt/eine neue Klasse erstellen, sollten Methoden normalerweise dem Prototyp des Objekts zugeordnet werden, anstatt in den Objektkonstruktor definiert zu werden. Der Grund dafür ist, dass die Methoden jedes Mal neu zugewiesen würden, wenn der Konstruktor aufgerufen wird (das heißt, bei jeder Objekterstellung).
 
 Betrachten Sie den folgenden Fall:
 
@@ -532,7 +540,7 @@ function MyObject(name, message) {
 }
 ```
 
-Da der vorherige Code nicht von den Vorteilen der Verwendung von Closures in diesem speziellen Fall profitiert, könnten wir ihn stattdessen umschreiben, um die Verwendung von Closures zu vermeiden:
+Da der vorhergehende Code in diesem speziellen Fall keine Vorteile aus der Nutzung von Closures zieht, könnten wir ihn stattdessen umschreiben, um auf die Verwendung von Closures zu verzichten:
 
 ```js
 function MyObject(name, message) {
@@ -549,7 +557,7 @@ MyObject.prototype = {
 };
 ```
 
-Allerdings wird nicht empfohlen, den Prototyp neu zu definieren. Das folgende Beispiel fügt stattdessen dem vorhandenen Prototyp Elemente hinzu:
+Das Neudefinieren des Prototyps wird jedoch nicht empfohlen. Das folgende Beispiel fügt stattdessen dem vorhandenen Prototyp hinzu:
 
 ```js
 function MyObject(name, message) {
@@ -564,4 +572,4 @@ MyObject.prototype.getMessage = function () {
 };
 ```
 
-In den beiden vorherigen Beispielen kann der geerbte Prototyp von allen Objekten geteilt werden, und die Methodendefinitionen müssen nicht bei jeder Objekterzeugung erfolgen. Weitere Informationen finden Sie unter [Vererbung und die Prototypenkette](/de/docs/Web/JavaScript/Guide/Inheritance_and_the_prototype_chain).
+In den beiden vorherigen Beispielen kann der geerbte Prototyp von allen Objekten geteilt werden, und die Methoden müssen nicht bei jeder Objekterstellung definiert werden. Weitere Informationen finden Sie unter [Vererbung und die Prototypkette](/de/docs/Web/JavaScript/Guide/Inheritance_and_the_prototype_chain).

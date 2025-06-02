@@ -2,12 +2,12 @@
 title: text-align-last
 slug: Web/CSS/text-align-last
 l10n:
-  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
+  sourceCommit: fc52eb81b630ca02c16addc346924295bdb5aaa8
 ---
 
 {{CSSRef}}
 
-Die **`text-align-last`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, wie die letzte Zeile eines Blocks oder eine Zeile, direkt vor einem erzwungenen Zeilenumbruch, ausgerichtet wird.
+Die **`text-align-last`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, wie die letzte Zeile eines Blocks oder einer Zeile, direkt vor einem erzwungenen Zeilenumbruch, ausgerichtet wird.
 
 {{InteractiveExample("CSS Demo: text-align-last")}}
 
@@ -26,7 +26,7 @@ text-align-last: left;
 ```html interactive-example
 <section id="default-example">
   <div>
-    <p id="example-element" style="text-align: justify">
+    <p id="example-element">
       Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
       aliquip ex ea commodo consequat.
     </p>
@@ -41,6 +41,10 @@ section {
 
 #default-example > div {
   width: 250px;
+}
+
+#example-element {
+  text-align: justify;
 }
 ```
 
@@ -67,19 +71,19 @@ text-align-last: unset;
 ### Werte
 
 - `auto`
-  - : Die betroffene Zeile wird gemäß dem Wert von {{cssxref("text-align")}} ausgerichtet, es sei denn, {{cssxref("text-align")}} ist `justify`. In diesem Fall ist die Wirkung dieselbe wie bei der Einstellung von `text-align-last` auf `start`.
+  - : Die betroffene Zeile wird entsprechend dem Wert von {{cssxref("text-align")}} ausgerichtet, es sei denn, {{cssxref("text-align")}} ist `justify`, in welchem Fall die Wirkung der Einstellung von `text-align-last` auf `start` entspricht.
 - `start`
   - : Entspricht `left`, wenn die Richtung von links nach rechts ist, und `right`, wenn die Richtung von rechts nach links ist.
 - `end`
   - : Entspricht `right`, wenn die Richtung von links nach rechts ist, und `left`, wenn die Richtung von rechts nach links ist.
 - `left`
-  - : Der Inline-Inhalt wird am linken Rand des Linienkastens ausgerichtet.
+  - : Der inline Inhalt wird am linken Rand des Linienkastens ausgerichtet.
 - `right`
-  - : Der Inline-Inhalt wird am rechten Rand des Linienkastens ausgerichtet.
+  - : Der inline Inhalt wird am rechten Rand des Linienkastens ausgerichtet.
 - `center`
-  - : Der Inline-Inhalt wird innerhalb des Linienkastens zentriert.
+  - : Der inline Inhalt wird innerhalb des Linienkastens zentriert.
 - `justify`
-  - : Der Text wird ausgeglichen. Der Text sollte seine linken und rechten Kanten an den linken und rechten Inhaltsecken des Absatzes ausrichten.
+  - : Der Text wird gerechtfertigt. Der Text sollte so ausgerichtet werden, dass die linken und rechten Ränder mit den linken und rechten Inhaltsrändern des Absatzes übereinstimmen.
 
 ## Formale Definition
 
@@ -91,7 +95,7 @@ text-align-last: unset;
 
 ## Beispiele
 
-### Die letzte Zeile ausgleichen
+### Die letzte Zeile rechtfertigen
 
 ```html hidden
 <p>

@@ -2,39 +2,39 @@
 title: "<marquee>: Das Marquee-Element"
 slug: Web/HTML/Reference/Elements/marquee
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: fc52eb81b630ca02c16addc346924295bdb5aaa8
 ---
 
 {{HTMLSidebar}}{{Deprecated_Header}}
 
-Das **`<marquee>`** [HTML](/de/docs/Web/HTML)-Element wird verwendet, um einen scrollenden Textbereich einzufügen. Mit seinen Attributen können Sie steuern, was passiert, wenn der Text die Ränder seines Inhaltsbereichs erreicht.
+Das **`<marquee>`** [HTML](/de/docs/Web/HTML)-Element wird verwendet, um einen scrollbaren Textbereich einzufügen. Sie können mit seinen Attributen steuern, was passiert, wenn der Text die Ränder seines Inhaltsbereichs erreicht.
 
-Das HTML `<marquee>`-Element ist veraltet und seine Verwendung wird stark abgeraten. Wenn Sie den Effekt von scrollendem Text oder kontinuierlichen Elementen erzeugen müssen, sollten Sie stattdessen [CSS-Animationen](/de/docs/Web/CSS/CSS_animations) mit [CSS-Transformationen](/de/docs/Web/CSS/CSS_transforms/Using_CSS_transforms) verwenden, um Inhalte reibungslos zu animieren. Zusätzlich sollten Sie die [`prefers-reduced-motion`](/de/docs/Web/CSS/@media/prefers-reduced-motion) CSS {{cssxref("@media")}} Abfrage einschließen, um die Animation basierend auf den Benutzerpräferenzen zu stoppen und so die Benutzererfahrung und Barrierefreiheit zu verbessern.
+Das HTML-Element `<marquee>` ist veraltet und seine Verwendung wird dringend abgeraten. Wenn Sie den Effekt von scrollendem Text oder kontinuierlichen Elementen erzeugen müssen, sollten Sie [CSS-Animationen](/de/docs/Web/CSS/CSS_animations) mit [CSS-Transforms](/de/docs/Web/CSS/CSS_transforms/Using_CSS_transforms) anstelle von `<marquee>`-Elementen verwenden, um Inhalte sanft zu animieren. Zusätzlich sollten Sie die CSS-{{cssxref("@media")}}-Abfrage [`prefers-reduced-motion`](/de/docs/Web/CSS/@media/prefers-reduced-motion) einbeziehen, um die Animation basierend auf Benutzerpräferenzen zu stoppen, wodurch die Benutzererfahrung und Zugänglichkeit verbessert wird.
 
 ## Attribute
 
 - `behavior` {{Deprecated_Inline}}
-  - : Legt fest, wie der Text innerhalb des Marquees gescrollt wird. Mögliche Werte sind `scroll`, `slide` und `alternate`. Wenn kein Wert angegeben ist, ist der Standardwert `scroll`.
+  - : Bestimmt, wie der Text innerhalb des Marquees gescrollt wird. Mögliche Werte sind `scroll`, `slide` und `alternate`. Wenn kein Wert angegeben ist, ist der Standardwert `scroll`.
 - `bgcolor` {{Deprecated_Inline}}
-  - : Setzt die Hintergrundfarbe durch Farbnamen oder hexadezimalen Wert.
+  - : Legt die Hintergrundfarbe über einen Farbnamen oder einen Hexadezimalwert fest.
 - `direction` {{Deprecated_Inline}}
-  - : Bestimmt die Scrollrichtung innerhalb des Marquees. Mögliche Werte sind `left`, `right`, `up` und `down`. Wenn kein Wert angegeben ist, ist der Standardwert `left`.
+  - : Bestimmt die Richtung des Scrollens innerhalb des Marquees. Mögliche Werte sind `left`, `right`, `up` und `down`. Wenn kein Wert angegeben ist, ist der Standardwert `left`.
 - `height` {{Deprecated_Inline}}
-  - : Setzt die Höhe in Pixeln oder Prozentwerten.
+  - : Legt die Höhe in Pixeln oder Prozentwerten fest.
 - `hspace` {{Deprecated_Inline}}
-  - : Setzt den horizontalen Rand.
+  - : Legt den horizontalen Rand fest.
 - `loop` {{Deprecated_Inline}}
-  - : Bestimmt, wie oft das Marquee scrollt. Wenn kein Wert angegeben ist, liegt der Standardwert bei −1, was bedeutet, dass das Marquee kontinuierlich scrollt.
+  - : Legt die Anzahl der Male fest, die der Marquee scrollt. Wenn kein Wert angegeben ist, ist der Standardwert −1, was bedeutet, dass der Marquee kontinuierlich scrollt.
 - `scrollamount` {{Deprecated_Inline}}
-  - : Bestimmt die Scrollmenge bei jedem Intervall in Pixeln. Der Standardwert ist 6.
+  - : Legt die Scrollmenge bei jedem Intervall in Pixeln fest. Der Standardwert ist 6.
 - `scrolldelay` {{Deprecated_Inline}}
-  - : Setzt das Intervall zwischen jedem Scrollvorgang in Millisekunden. Der Standardwert ist 85. Beachten Sie, dass jeder Wert kleiner als 60 ignoriert wird und der Wert 60 verwendet wird, es sei denn `truespeed` ist angegeben.
+  - : Legt das Intervall zwischen jedem Scrollvorgang in Millisekunden fest. Der Standardwert ist 85. Beachten Sie, dass jeder Wert kleiner als 60 ignoriert wird und der Wert 60 anstelle davon verwendet wird, es sei denn, `truespeed` ist angegeben.
 - `truespeed` {{Deprecated_Inline}}
   - : Standardmäßig werden `scrolldelay`-Werte unter 60 ignoriert. Wenn `truespeed` vorhanden ist, werden diese Werte nicht ignoriert.
 - `vspace` {{Deprecated_Inline}}
-  - : Setzt den vertikalen Rand in Pixeln oder Prozentwerten.
+  - : Legt den vertikalen Rand in Pixeln oder Prozentwerten fest.
 - `width` {{Deprecated_Inline}}
-  - : Setzt die Breite in Pixeln oder Prozentwerten.
+  - : Legt die Breite in Pixeln oder Prozentwerten fest.
 
 ## Beispiele
 
@@ -48,16 +48,22 @@ Das HTML `<marquee>`-Element ist veraltet und seine Verwendung wird stark abgera
   width="250"
   height="200"
   behavior="alternate"
-  style="border:solid">
+  class="outlined">
   <marquee behavior="alternate">This text will bounce</marquee>
 </marquee>
+```
+
+```css
+.outlined {
+  border: solid;
+}
 ```
 
 ### Ergebnis
 
 {{EmbedLiveSample("Examples", 600, 450)}}
 
-## Technische Übersicht
+## Technische Zusammenfassung
 
 <table class="properties">
   <tbody>
@@ -80,6 +86,6 @@ Das HTML `<marquee>`-Element ist veraltet und seine Verwendung wird stark abgera
 
 - CSS {{cssxref("transform")}} Eigenschaft
 - CSS {{cssxref("translate")}} Eigenschaft
-- [CSS-Transformationen](/de/docs/Web/CSS/CSS_transforms) Modul
-- [CSS-Animationen](/de/docs/Web/CSS/CSS_animations) Modul
+- [CSS Transforms](/de/docs/Web/CSS/CSS_transforms) Modul
+- [CSS Animationen](/de/docs/Web/CSS/CSS_animations) Modul
 - [`HTMLMarqueeElement`](/de/docs/Web/API/HTMLMarqueeElement)

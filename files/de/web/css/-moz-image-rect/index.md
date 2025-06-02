@@ -2,12 +2,12 @@
 title: -moz-image-rect
 slug: Web/CSS/-moz-image-rect
 l10n:
-  sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
+  sourceCommit: fc52eb81b630ca02c16addc346924295bdb5aaa8
 ---
 
 {{CSSRef}}{{Non-standard_Header}}{{Deprecated_Header}}
 
-Der **`-moz-image-rect`** Wert für [CSS](/de/docs/Web/CSS) {{CSSxRef("background-image")}} ermöglicht es Ihnen, einen Teil eines größeren Bildes als Hintergrund zu verwenden.
+Der **`-moz-image-rect`** Wert für [CSS](/de/docs/Web/CSS) {{CSSxRef("background-image")}} ermöglicht Ihnen, einen Ausschnitt eines größeren Bildes als Hintergrund zu verwenden.
 
 ## Syntax
 
@@ -18,33 +18,33 @@ Der **`-moz-image-rect`** Wert für [CSS](/de/docs/Web/CSS) {{CSSxRef("backgroun
 ### Werte
 
 - {{CSSxRef("url_value", "&lt;url&gt;")}}
-  - : Die URI des Bildes, aus dem das Teilbild entnommen wird.
+  - : Die URI des Bildes, aus dem der Teilausschnitt genommen werden soll.
 - `top`
-  - : Die obere Kante, angegeben als ein {{CSSxRef("&lt;integer&gt;")}} oder {{CSSxRef("&lt;percentage&gt;")}}, des Teilbildes innerhalb des angegebenen Bildes.
+  - : Der obere Rand, angegeben als {{CSSxRef("&lt;integer&gt;")}} oder {{CSSxRef("&lt;percentage&gt;")}}, des Teilausschnitts innerhalb des angegebenen Bildes.
 - `right`
-  - : Die rechte Kante, angegeben als ein {{CSSxRef("&lt;integer&gt;")}} oder {{CSSxRef("&lt;percentage&gt;")}}, des Teilbildes innerhalb des angegebenen Bildes.
+  - : Der rechte Rand, angegeben als {{CSSxRef("&lt;integer&gt;")}} oder {{CSSxRef("&lt;percentage&gt;")}}, des Teilausschnitts innerhalb des angegebenen Bildes.
 - `bottom`
-  - : Die untere Kante, angegeben als ein {{CSSxRef("&lt;integer&gt;")}} oder {{CSSxRef("&lt;percentage&gt;")}}, des Teilbildes innerhalb des angegebenen Bildes.
+  - : Der untere Rand, angegeben als {{CSSxRef("&lt;integer&gt;")}} oder {{CSSxRef("&lt;percentage&gt;")}}, des Teilausschnitts innerhalb des angegebenen Bildes.
 - `left`
-  - : Die linke Kante, angegeben als ein {{CSSxRef("&lt;integer&gt;")}} oder {{CSSxRef("&lt;percentage&gt;")}}, des Teilbildes innerhalb des angegebenen Bildes.
+  - : Der linke Rand, angegeben als {{CSSxRef("&lt;integer&gt;")}} oder {{CSSxRef("&lt;percentage&gt;")}}, des Teilausschnitts innerhalb des angegebenen Bildes.
 
 ## Beschreibung
 
-Mit dieser Eigenschaft können Sie beispielsweise verschiedene Teile eines größeren Bildes als Hintergründe in verschiedenen Teilen Ihres Inhalts verwenden.
+Diese Eigenschaft ermöglicht es Ihnen, beispielsweise verschiedene Teile eines größeren Bildes als Hintergründe in verschiedenen Teilen Ihres Inhalts zu verwenden.
 
-Dies funktioniert sehr ähnlich wie die {{CSSxRef("-moz-image-region")}} Eigenschaft, die mit der {{CSSxRef("list-style-image")}} Eigenschaft verwendet wird, um Teile eines Bildes als Aufzählungszeichen in Listen zu verwenden. Diese Eigenschaft kann jedoch für beliebige CSS-Hintergründe verwendet werden.
+Dies funktioniert sehr ähnlich wie die {{CSSxRef("-moz-image-region")}} Eigenschaft, die zusammen mit der {{CSSxRef("list-style-image")}} Eigenschaft verwendet wird, um Teile eines Bildes als Aufzählungszeichen in Listen zu verwenden. Diese Eigenschaft kann jedoch für jeden CSS-Hintergrund genutzt werden.
 
-Die Syntax für das Rechteck ist ähnlich der Funktion [`rect()`](/de/docs/Web/CSS/shape#syntax), die einen {{CSSxRef("&lt;shape&gt;")}} CSS-Typ erzeugt. Alle vier Werte beziehen sich auf die obere linke Ecke des Bildes.
+Die Syntax für das Rechteck ähnelt der [`rect()`](/de/docs/Web/CSS/shape#syntax) Funktion, die einen {{CSSxRef("&lt;shape&gt;")}} CSS-Typ erzeugt. Alle vier Werte beziehen sich auf die obere linke Ecke des Bildes.
 
 ## Beispiele
 
-Dieses Beispiel lädt ein Bild und verwendet es in vier Segmenten, um das Firefox-Logo in vier {{HTMLElement("div")}} Blöcken darzustellen. Durch Klicken auf deren Container werden die vier Segmente rotiert, indem die Werte der {{CSSxRef("background-image")}} Eigenschaft zwischen den vier {{HTMLElement("div")}} Blöcken ausgetauscht werden.
+Dieses Beispiel lädt ein Bild und verwendet es in vier Segmenten, um das Firefox-Logo in vier {{HTMLElement("div")}} Blöcken darzustellen. Durch Klicken auf deren Container rotieren die vier Segmente, indem die Werte der {{CSSxRef("background-image")}} Eigenschaft zwischen den vier {{HTMLElement("div")}} Blöcken ausgetauscht werden.
 
 ### CSS
 
-Das CSS definiert einen Containerstil und dann die Stile für die vier Boxen, die das vollständige Bild bilden.
+Das CSS definiert einen Container-Stil und dann die Stile für die vier Boxen, die das komplette Bild ausmachen.
 
-Der Container sieht wie folgt aus:
+Der Container sieht folgendermaßen aus:
 
 ```css
 #container {
@@ -59,13 +59,15 @@ Der Container sieht wie folgt aus:
 }
 ```
 
-Danach werden die vier Boxen definiert, die die Segmente des Bildes bestimmen. Sehen wir uns diese nacheinander an.
+Dann werden die vier Boxen, die die Segmente des Bildes definieren, einzeln betrachtet.
 
 ```css
 #box1 {
   background-image: -moz-image-rect(url(firefox.png), 0%, 50%, 50%, 0%);
   width: 133px;
   height: 136px;
+  left: 0px;
+  top: 0px;
   position: absolute;
 }
 ```
@@ -77,6 +79,8 @@ Dies ist die obere linke Ecke des Bildes. Es definiert ein Rechteck, das das obe
   background-image: -moz-image-rect(url(firefox.png), 0%, 100%, 50%, 50%);
   width: 133px;
   height: 136px;
+  left: 133px;
+  top: 0px;
   position: absolute;
 }
 ```
@@ -90,12 +94,16 @@ Die anderen Ecken folgen einem ähnlichen Muster:
   background-image: -moz-image-rect(url(firefox.png), 50%, 50%, 100%, 0%);
   width: 133px;
   height: 136px;
+  left: 0px;
+  top: 136px;
   position: absolute;
 }
 #box4 {
   background-image: -moz-image-rect(url(firefox.png), 50%, 100%, 100%, 50%);
   width: 133px;
   height: 136px;
+  left: 133px;
+  top: 136px;
   position: absolute;
 }
 ```
@@ -105,19 +113,19 @@ Die anderen Ecken folgen einem ähnlichen Muster:
 Wir fügen einen Container mit vier Boxen ein:
 
 ```html
-<div id="container" onclick="rotate()">
-  <div id="box1" style="left:0px;top:0px;">Top left</div>
-  <div id="box2" style="left:133px;top:0px;">Top right</div>
-  <div id="box3" style="left:0px;top:136px;">Bottom left</div>
-  <div id="box4" style="left:133px;top:136px;">Bottom right</div>
+<div id="container">
+  <div id="box1">Top left</div>
+  <div id="box2">Top right</div>
+  <div id="box3">Bottom left</div>
+  <div id="box4">Bottom right</div>
 </div>
 ```
 
-Dies platziert die vier Segmente unseres Bildes in einem zweireihigen, zweispaltigen Gitternetz. Diese vier Segmente sind alle innerhalb eines größeren {{HTMLElement("div")}} Blocks enthalten, dessen Hauptzweck es ist, Klickereignisse zu empfangen und an unseren JavaScript-Code weiterzuleiten.
+Dies platziert die vier Segmente unseres Bildes in einem zwei-zu-zwei Raster. Diese vier Segmente sind alle in einem größeren {{HTMLElement("div")}} Block enthalten, dessen Hauptzweck es ist, Klick-Ereignisse zu empfangen und an unseren JavaScript-Code weiterzuleiten.
 
-### Der JavaScript-Code
+### JavaScript
 
-Dieser Code behandelt das Klickereignis, wenn der Container einen Mausklick erhält.
+Dieser Code behandelt das Klick-Ereignis, wenn der Container einen Mausklick erhält.
 
 ```js
 function rotate() {
@@ -137,11 +145,13 @@ function rotate() {
     prevStyle = curStyle;
   }
 }
+
+document.getElementById("container").addEventListener("click", rotate);
 ```
 
-Er verwendet [`window.getComputedStyle()`](/de/docs/Web/API/Window/getComputedStyle), um den Stil jedes Elements abzurufen und es auf das nächste Element zu verschieben. Beachten Sie, dass zu Beginn eine Kopie des Stils der letzten Box gespeichert wird, da dieser durch den Stil des dritten Elements überschrieben wird. Durch das Kopieren der Werte der {{CSSxRef("background-image")}} Eigenschaft von einem Element zum nächsten bei jedem Mausklick erzielen wir den gewünschten Effekt.
+Dies verwendet [`window.getComputedStyle()`](/de/docs/Web/API/Window/getComputedStyle), um den Stil jedes Elements abzurufen und ihn auf das folgende Element zu verschieben. Beachten Sie, dass es, bevor es damit beginnt, eine Kopie des Stils des letzten Kastens speichert, da dieser durch den dritten Elementstil überschrieben wird. Durch das Kopieren der Werte der {{CSSxRef("background-image")}} Eigenschaft von einem Element zum nächsten bei jedem Mausklick erzielen wir den gewünschten Effekt.
 
-### Wie es aussieht
+### Was es ausmacht
 
 {{EmbedLiveSample("Examples","400","400")}}
 
@@ -155,5 +165,5 @@ Nicht Teil eines Standards.
 
 ## Siehe auch
 
-- [Mozilla CSS-Erweiterungen](/de/docs/Web/CSS/Mozilla_Extensions)
+- [Mozilla CSS Erweiterungen](/de/docs/Web/CSS/Mozilla_Extensions)
 - [CSS Backgrounds and Borders Modul](/de/docs/Web/CSS/CSS_backgrounds_and_borders)

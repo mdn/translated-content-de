@@ -2,7 +2,7 @@
 title: -webkit-mask-repeat-y
 slug: Web/CSS/-webkit-mask-repeat-y
 l10n:
-  sourceCommit: 0d43b58f31f30e5dbafd9c117a467e389cc8b176
+  sourceCommit: 0145c6497d2f2206dca1326593fe308f7b771a08
 ---
 
 {{CSSRef}}{{Non-standard_header}}
@@ -34,13 +34,13 @@ Die Eigenschaft `-webkit-mask-repeat-y` legt fest, ob und wie ein Maskenbild ver
 - repeat
   - : Das Maskenbild wird vertikal wiederholt.
 - no-repeat
-  - : Das Maskenbild wird nicht vertikal wiederholt; es wird nur eine Kopie des Maskenbildes in vertikaler Richtung gezeichnet. Der vertikale Rest des Inhalts des maskierten Elements wird nicht angezeigt.
+  - : Das Maskenbild wird nicht vertikal wiederholt; es wird nur eine Kopie des Maskenbilds in vertikaler Richtung gezeichnet. Der vertikale Rest des Inhalts des maskierten Elements wird nicht angezeigt.
 - repeat
   - : Das Maskenbild wird vertikal wiederholt.
 - space
-  - : Das Bild wird so oft wie möglich ohne Abschneiden wiederholt. Die ersten und letzten Bilder werden an den oberen und unteren Rand des Elements angeheftet, und der Freiraum wird gleichmäßig zwischen den Bildern verteilt. Die Eigenschaft {{cssxref("mask-position")}} wird ignoriert, es sei denn, nur ein Bild kann ohne Abschneiden angezeigt werden. Der einzige Fall, in dem beim Verwenden von space abgeschnitten wird, ist, wenn nicht genug Platz für die Anzeige eines Bildes vorhanden ist.
+  - : Das Bild wird so oft wie möglich ohne Beschneidung wiederholt. Die ersten und letzten Bilder sind an die obere und untere Kante des Elements gepinnt, und der Leerraum wird gleichmäßig zwischen den Bildern verteilt. Die Eigenschaft {{cssxref("mask-position")}} wird ignoriert, es sei denn, es kann nur ein Bild ohne Beschneidung angezeigt werden. Der einzige Fall, in dem bei der Verwendung von space eine Beschneidung erfolgt, ist, wenn nicht genügend Platz vorhanden ist, um ein Bild anzuzeigen.
 - round
-  - : Wenn der verfügbare vertikale Platz größer wird, werden die wiederholten Bilder gedehnt (ohne Lücken zu lassen), bis Platz für ein weiteres Bild vorhanden ist. Wenn ein weiteres Bild hinzugefügt wird, werden alle aktuellen Bilder komprimiert, um Platz zu schaffen. Beispiel: Ein Bild mit einer ursprünglichen Höhe von 260px, das dreimal wiederholt wird, könnte sich dehnen, bis jede Wiederholung 300px hoch ist, und dann wird ein weiteres Bild hinzugefügt. Sie werden dann auf eine Höhe von 225px komprimiert.
+  - : Wenn der verfügbare vertikale Raum zunimmt, strecken sich die wiederholten Bilder (lassen keine Lücken), bis Platz für ein weiteres Bild vorhanden ist. Wenn das nächste Bild hinzugefügt wird, komprimieren alle aktuellen Bilder, um Platz zu schaffen. Beispiel: Ein Bild mit einer ursprünglichen Höhe von 260px, das dreimal wiederholt wird, könnte sich so weit strecken, dass jede Wiederholung 300px hoch ist, und dann wird ein weiteres Bild hinzugefügt. Diese komprimieren sich dann auf eine Höhe von 225px.
 
 ## Formale Definition
 
@@ -48,11 +48,11 @@ Die Eigenschaft `-webkit-mask-repeat-y` legt fest, ob und wie ein Maskenbild ver
 
 ## Formale Syntax
 
-{{CSSSyntaxRaw(`-webkit-mask-repeat-y = repeat | no-repeat | space | round`)}}
+{{CSSSyntaxRaw(`-webkit-mask-repeat-y = [ repeat | no-repeat | space | round ]#`)}}
 
 ## Beispiele
 
-### Verwendung eines wiederholenden oder nicht wiederholenden Maskenbildes
+### Verwendung eines sich wiederholenden oder nicht wiederholenden Maskenbilds
 
 ```css
 .example-one {
@@ -68,7 +68,7 @@ Die Eigenschaft `-webkit-mask-repeat-y` legt fest, ob und wie ein Maskenbild ver
 
 ### Verwendung mehrerer Maskenbilder
 
-Sie können einen anderen `<repeat-style>` für jedes Maskenbild angeben, getrennt durch Kommas:
+Sie können für jedes Maskenbild einen anderen `<repeat-style>` angeben, getrennt durch Kommata:
 
 ```css
 .example-three {
@@ -77,7 +77,7 @@ Sie können einen anderen `<repeat-style>` für jedes Maskenbild angeben, getren
 }
 ```
 
-Jedes Bild wird mit dem entsprechenden Wiederholungsstil abgeglichen, vom zuerst angegebenen bis zum zuletzt angegebenen.
+Jedes Bild wird mit dem entsprechenden Wiederholungsstil von zuerst angegeben bis zuletzt übereinstimmt.
 
 ## Spezifikationen
 

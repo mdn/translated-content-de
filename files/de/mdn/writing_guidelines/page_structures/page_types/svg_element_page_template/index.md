@@ -1,18 +1,18 @@
 ---
-title: SVG-Elementseitenvorlage
+title: SVG-Element-Seitenschablone
 slug: MDN/Writing_guidelines/Page_structures/Page_types/SVG_element_page_template
 l10n:
-  sourceCommit: da12dd76d4c9863ce4f9c436f5e2373fe541e1c7
+  sourceCommit: 295ba1fd21904ca1abc56ff7f120a398d411fe87
 ---
 
-> **Note:** _Entfernen Sie diese gesamte erläuternde Notiz vor der Veröffentlichung_
+> **Note:** _Entfernen Sie diesen gesamten erläuternden Hinweis vor der Veröffentlichung_
 >
 > ---
 >
-> **Metadaten der Seite:**
+> **Seiten-Metadaten:**
 >
-> Die Metadaten am Anfang der Seite werden verwendet, um "Seitenmetadaten" zu definieren.
-> Die Werte sollten entsprechend für das jeweilige Element aktualisiert werden.
+> Das Frontmatter oben auf der Seite wird verwendet, um "Seiten-Metadaten" zu definieren.
+> Die Werte sollten entsprechend aktualisiert werden für das jeweilige Element.
 >
 > ```md
 > ---
@@ -30,54 +30,55 @@ l10n:
 >
 > - **title**
 >   - : Titelüberschrift, die oben auf der Seite angezeigt wird.
->     Formatieren Sie es als **<**_NameOfTheElement_**>**.
->     Zum Beispiel hat das "[g](/de/docs/Web/SVG/Reference/Element/g)"-Element einen _Titel_ von `<g>`.
+>     Formatieren als **<**_NameOfTheElement_**>**.
+>     Zum Beispiel hat das Element "[g](/de/docs/Web/SVG/Reference/Element/g)" einen _Titel_ von `<g>`.
 > - **slug**
->   - : Das Ende des URL-Pfads nach `https://developer.mozilla.org/de/docs/`.
+>   - : Das Ende des URL-Pfades nach `https://developer.mozilla.org/de/docs/`.
 >     Dies wird formatiert wie `Web/SVG/Reference/Element/NameOfTheElement`.
 > - **page-type**
 >   - : Immer `svg-element`.
 > - **status**
->   - : Flags, die den Status dieses Features beschreiben. Ein Array, das einen oder mehrere der folgenden Werte enthalten kann: `experimental`, `deprecated`, `non-standard`. Dieser Schlüssel sollte nicht manuell gesetzt werden: Er wird automatisch basierend auf den Werten in den Browser-Kompatibilitätsdaten für das Feature gesetzt. Siehe ["Wie Feature-Status hinzugefügt oder aktualisiert werden"](/de/docs/MDN/Writing_guidelines/Page_structures/Feature_status#how_feature_statuses_are_added_or_updated).
+>   - : Kennzeichen, die den Status dieses Features beschreiben. Ein Array, das einen oder mehrere der folgenden enthalten kann: `experimental`, `deprecated`, `non-standard`. Dieser Schlüssel sollte nicht manuell gesetzt werden: er wird automatisch basierend auf Werten in den Browser-Kompatibilitätsdaten für das Feature gesetzt. Siehe ["Wie Feature-Status hinzugefügt oder aktualisiert werden"](/de/docs/MDN/Writing_guidelines/Page_structures/Feature_status#how_feature_statuses_are_added_or_updated).
 > - **browser-compat**
 >
->   - : Ersetzen Sie den Platzhalterwert `svg.elements.NameOfTheElement` mit der Abfragezeichenfolge für das Element im [Browser-Kompatibilitätsdatenspeicher](https://github.com/mdn/browser-compat-data).
->     Die Toolchain verwendet den Schlüssel automatisch, um die Kompatibilitäts- und Spezifikationsabschnitte zu füllen (Ersetzen der `\{{Compat}}` und `\{{Specifications}}` Makros).
+>   - : Ersetzen Sie den Platzhalterwert `svg.elements.NameOfTheElement` durch die Abfragezeichenfolge für das Element im [Browser-Kompatibilitätsdatensatz](https://github.com/mdn/browser-compat-data).
+>     Die Toolchain verwendet automatisch den Schlüssel, um die Abschnitte "Kompatibilität" und "Spezifikation" zu füllen (Ersetzung der Makros `\{{Compat}}` und `\{{Specifications}}`).
 >
->     Beachten Sie, dass Sie zunächst möglicherweise einen Eintrag für das Element in unserem [Browser-Kompatibilitätsdatenspeicher](https://github.com/mdn/browser-compat-data) erstellen/aktualisieren müssen, und der Eintrag muss Spezifikationsinformationen enthalten.
->     Siehe unseren [Leitfaden, wie das geht](/de/docs/MDN/Writing_guidelines/Page_structures/Compatibility_tables).
+>     Beachten Sie, dass Sie zuerst einen Eintrag für das Element in unserem [Browser-Kompatibilitätsdatensatz](https://github.com/mdn/browser-compat-data) erstellen/aktualisieren müssen, und der Eintrag muss Spezifikationsinformationen enthalten.
+>     Siehe unseren [Leitfaden zur Vorgehensweise](/de/docs/MDN/Writing_guidelines/Page_structures/Compatibility_tables).
 >
 > - **sidebar**
 >   - : Dies ist `svgref` für alle SVG-Leitfaden- und Referenzseiten.
->     Siehe [Seitenstrukturen: Seitenleisten](/de/docs/MDN/Writing_guidelines/Page_structures/Sidebars) für Details.
+>     Siehe [Seitenerstellungen: Seitenleisten](/de/docs/MDN/Writing_guidelines/Page_structures/Sidebars) für Einzelheiten.
 >
 > ---
 >
-> **Makros am Seitenanfang**
+> **Makros am Anfang der Seite**
 >
-> Eine Reihe von Makros erscheint am Anfang des Inhaltsabschnitts unmittelbar nach den Seitenmetadaten.
-> Diese Makros werden automatisch von den Werkzeugen hinzugefügt, daher vermeiden Sie es, sie hinzuzufügen oder zu entfernen:
+> Eine Reihe von Makros erscheint am Anfang des Inhaltsbereichs sofort nach dem Frontmatter der Seite.
+> Diese Makros werden automatisch durch Tools hinzugefügt, daher vermeiden Sie das Hinzufügen oder Entfernen von ihnen:
 >
-> - `\{{SeeCompatTable}}` — dies erzeugt ein **Dies ist eine experimentelle Technologie**-Banner, das darauf hinweist, dass die Technologie [experimentell](/de/docs/MDN/Writing_guidelines/Experimental_deprecated_obsolete#experimental) ist.
->   Wenn es experimentell ist und die Technologie in Firefox hinter einem Pref versteckt ist, sollten Sie auch einen Eintrag dafür auf der Seite [Experimentelle Features in Firefox](/de/docs/Mozilla/Firefox/Experimental_features) ausfüllen.
-> - `\{{Deprecated_Header}}` — dies erzeugt ein **Veraltet**-Banner, das darauf hinweist, dass die Verwendung der Technologie [nicht empfohlen](/de/docs/MDN/Writing_guidelines/Experimental_deprecated_obsolete#deprecated) wird.
-> - `\{{Non-standard_Header}}` — dies erzeugt ein **Nicht standardisiert**-Banner, das darauf hinweist, dass das Feature nicht Teil einer Spezifikation ist.
+> - `\{{SeeCompatTable}}` — erzeugt ein **Dies ist eine experimentelle Technologie**-Banner, das anzeigt, dass die Technologie [experimentell ist](/de/docs/MDN/Writing_guidelines/Experimental_deprecated_obsolete#experimental).
+>   Falls es experimentell ist und die Technologie hinter einem Pref in Firefox verborgen ist, sollten Sie auch einen Eintrag dafür auf der Seite [Experimentelle Features in Firefox](/de/docs/Mozilla/Firefox/Experimental_features) ausfüllen.
+> - `\{{Deprecated_Header}}` — erzeugt ein **Veraltetes**-Banner, das anzeigt, dass die Verwendung der Technologie [nicht empfohlen wird](/de/docs/MDN/Writing_guidelines/Experimental_deprecated_obsolete#deprecated).
+> - `\{{Non-standard_Header}}` — erzeugt ein **Nicht-standardisiertes**-Banner, das anzeigt, dass das Feature nicht Teil einer Spezifikation ist.
 >
 > Siehe ["Wie Feature-Status hinzugefügt oder aktualisiert werden"](/de/docs/MDN/Writing_guidelines/Page_structures/Feature_status#how_feature_statuses_are_added_or_updated) für Informationen.
 >
-> Beispiele für die **Experimentell**, **Veraltet**, und **Nicht standardisiert**-Banner werden nach diesem Notizblock gezeigt.
+> Beispiele der **Experimentellen**, **Veralteten** und **Nicht-standardisierten** Banner werden nach diesem Hinweisblock gezeigt.
 >
-> _Vergessen Sie nicht, diese gesamte erläuternde Notiz vor der Veröffentlichung zu entfernen_
+> _Denken Sie daran, diesen gesamten erläuternden Hinweis vor der Veröffentlichung zu entfernen_
 
 {{SeeCompatTable}}{{Deprecated_Header}}{{Non-standard_Header}}
 
-Beginnen Sie den Inhalt auf der Seite mit einem einführenden Absatz — beginnen Sie mit der Benennung des Elements und sagen Sie, was es tut. Idealerweise sollte dies ein oder zwei kurze Sätze umfassen.
+Beginnen Sie den Inhalt auf der Seite mit einem einleitenden Absatz — beginnen Sie damit, das Element zu benennen und zu erklären, was es tut.
+Dies sollte idealerweise ein oder zwei kurze Sätze sein.
 
-## Verwendungskontext
+## Nutzungskontext
 
 `\{{svginfo}}`
 
-Damit die korrekten Informationen hier erscheinen, füllen Sie einen Eintrag für das Element im `\{{svginfo}}`-Makro aus, falls es dort noch nicht enthalten ist.
+Damit die korrekte Information hier erscheint, füllen Sie einen Eintrag für das Element im `\{{svginfo}}`-Makro aus, falls es dort noch nicht vorhanden ist.
 
 _Um dieses Makro zu verwenden, entfernen Sie die Backticks und den Backslash in der Markdown-Datei._
 
@@ -95,12 +96,11 @@ _Um dieses Makro zu verwenden, entfernen Sie die Backticks und den Backslash in 
 ### Spezifische Attribute
 
 - Fügen Sie eine Aufzählungsliste
-- aller SVG-Attribute hinzu,
-- die es annehmen kann
+- aller SVG-Attribute hinzu, die es annehmen kann
 
 ## DOM-Schnittstelle
 
-Dieses Element implementiert die `\{{domxref("NameOfSVGDOMElement")}}`-Schnittstelle.
+Dieses Element implementiert die `\{{domxref("NameOfSVGElement")}}`-Schnittstelle.
 
 ## Beispiele
 
@@ -108,21 +108,21 @@ Beachten Sie, dass wir den Plural "Beispiele" verwenden, auch wenn die Seite nur
 
 ### Eine beschreibende Überschrift
 
-Jedes Beispiel muss eine H3-Überschrift (`###`) haben, die das Beispiel benennt. Die Überschrift sollte beschreibend sein, was das Beispiel macht. Zum Beispiel sagt "Ein einfaches Beispiel" nichts über das Beispiel aus und ist daher keine gute Überschrift. Die Überschrift sollte prägnant sein. Für eine längere Beschreibung verwenden Sie den Absatz nach der Überschrift.
+Jedes Beispiel muss eine H3-Überschrift (`###`) haben, die das Beispiel benennt. Die Überschrift sollte beschreiben, was das Beispiel tut. Zum Beispiel sagt "Ein einfaches Beispiel" nichts über das Beispiel aus und ist daher keine gute Überschrift. Die Überschrift sollte prägnant sein. Für eine längere Beschreibung nutzen Sie den Absatz nach der Überschrift.
 
-Siehe unsern Leitfaden, wie man [Code-Beispiele](/de/docs/MDN/Writing_guidelines/Page_structures/Code_examples) hinzufügt, für weitere Informationen.
+Siehe unseren Leitfaden zum Hinzufügen von [Code-Beispielen](/de/docs/MDN/Writing_guidelines/Page_structures/Code_examples) für weitere Informationen.
 
 > [!NOTE]
-> Manchmal möchten Sie auf Beispiele auf einer anderen Seite verlinken.
+> Manchmal möchten Sie auf Beispiele verlinken, die auf einer anderen Seite angegeben sind.
 >
-> **Szenario 1:** Wenn Sie einige Beispiele auf dieser Seite haben und einige weitere Beispiele auf einer anderen Seite:
+> **Szenario 1:** Wenn Sie einige Beispiele auf dieser Seite haben und weitere Beispiele auf einer anderen Seite:
 >
-> Fügen Sie eine H3-Überschrift (`###`) für jedes Beispiel auf dieser Seite ein und dann eine letzte H3-Überschrift (`###`) mit dem Text "Weitere Beispiele", unter der Sie auf die Beispiele auf anderen Seiten verlinken können. Zum Beispiel:
+> Fügen Sie eine H3-Überschrift (`###`) für jedes Beispiel auf dieser Seite hinzu und dann eine abschließende H3-Überschrift (`###`) mit dem Text "Weitere Beispiele", unter der Sie auf die Beispiele auf anderen Seiten verlinken können. Beispielsweise:
 >
 > ```md
 > ## Beispiele
 >
-> ### Verwendung der Fetch-API
+> ### Verwenden der Fetch-API
 >
 > Beispiel von Fetch
 >
@@ -133,12 +133,12 @@ Siehe unsern Leitfaden, wie man [Code-Beispiele](/de/docs/MDN/Writing_guidelines
 >
 > **Szenario 2:** Wenn Sie _nur_ Beispiele auf einer anderen Seite haben und keine auf dieser Seite:
 >
-> Fügen Sie keine H3-Überschriften hinzu; fügen Sie die Links direkt unter der H2-Überschrift "Beispiele" hinzu. Zum Beispiel:
+> Fügen Sie keine H3-Überschriften hinzu; fügen Sie die Links direkt unter der H2-Überschrift "Beispiele" hinzu. Beispielsweise:
 >
 > ```md
 > ## Beispiele
 >
-> Für Beispiele dieser API, siehe [die Seite über fetch()](https://example.org/).
+> Für Beispiele zu dieser API siehe [die Seite über fetch()](https://example.org/).
 > ```
 
 ## Spezifikationen
@@ -155,8 +155,8 @@ _Um dieses Makro zu verwenden, entfernen Sie die Backticks und den Backslash in 
 
 ## Siehe auch
 
-Fügen Sie Links zu Referenzseiten und Leitfäden hinzu, die sich auf das aktuelle Element beziehen. Weitere Richtlinien finden Sie im Abschnitt [Siehe auch](/de/docs/MDN/Writing_guidelines/Writing_style_guide#see_also_section) im _Leitfaden für Schreibstil_.
+Fügen Sie Links zu Referenzseiten und Leitfäden hinzu, die sich auf das aktuelle Element beziehen. Für weitere Richtlinien, siehe den Abschnitt [Siehe auch](/de/docs/MDN/Writing_guidelines/Writing_style_guide#see_also_section) im _Writing style guide_.
 
 - link1
 - link2
-- extern_link (Jahr)
+- external_link (Jahr)

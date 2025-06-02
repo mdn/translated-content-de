@@ -1,13 +1,13 @@
 ---
-title: "<small>: das Nebentextelement"
+title: "<small>: das Side-Comment-Element"
 slug: Web/HTML/Reference/Elements/small
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: fc52eb81b630ca02c16addc346924295bdb5aaa8
 ---
 
 {{HTMLSidebar}}
 
-Das **`<small>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert Nebenkommentare und Kleingedrucktes, wie urheberrechtliche und rechtliche Texte, unabhängig von seiner stilisierten Darstellung. Standardmäßig rendert es den Text innerhalb um eine Schriftgröße kleiner, zum Beispiel von `small` zu `x-small`.
+Das **`<small>`** [HTML](/de/docs/Web/HTML) Element repräsentiert Nebenkommentare und Kleingedrucktes, wie Urheberrechts- und Rechtstexte, unabhängig von seiner gestylten Präsentation. Standardmäßig rendert es den Text in einer Schriftgröße kleiner, wie von `small` zu `x-small`.
 
 {{InteractiveExample("HTML Demo: &lt;small&gt;", "tabbed-shorter")}}
 
@@ -52,13 +52,19 @@ Dieses Element enthält nur die [globalen Attribute](/de/docs/Web/HTML/Reference
 
 {{EmbedLiveSample("Basic_usage")}}
 
-### Alternative mit CSS
+### CSS-Alternative
 
 ```html
 <p>
   This is the first sentence.
-  <span style="font-size:0.8em">This whole sentence is in small letters.</span>
+  <span class="small">This whole sentence is in small letters.</span>
 </p>
+```
+
+```css
+.small {
+  font-size: 0.8em;
+}
 ```
 
 #### Ergebnis
@@ -67,7 +73,7 @@ Dieses Element enthält nur die [globalen Attribute](/de/docs/Web/HTML/Reference
 
 ## Hinweise
 
-Obwohl das `<small>`-Element, wie die {{htmlelement("b")}}- und {{htmlelement("i")}}-Elemente, als Verletzung des Prinzips der Trennung von Struktur und Präsentation wahrgenommen werden kann, sind alle drei in HTML gültig. Autoren sollten ihr bestes Urteilsvermögen nutzen, um zu entscheiden, ob sie `<small>` oder CSS verwenden.
+Obwohl das `<small>` Element, wie die {{htmlelement("b")}} und {{htmlelement("i")}} Elemente, als Verletzung des Prinzips der Trennung von Struktur und Präsentation wahrgenommen werden kann, sind alle drei in HTML gültig. Autoren werden ermutigt, ihr bestes Urteilsvermögen zu nutzen, um zu bestimmen, ob `<small>` oder CSS verwendet werden soll.
 
 ## Technische Zusammenfassung
 
@@ -81,34 +87,34 @@ Obwohl das `<small>`-Element, wie die {{htmlelement("b")}}- und {{htmlelement("i
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
-          >Flussinhalt</a
+          >Flow-Inhalt</a
         >,
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Phrase-Inhalt</a
+          >Phrasing-Inhalt</a
         >.
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubter Inhalt</th>
+      <th scope="row">Zulässiger Inhalt</th>
       <td>
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Phrase-Inhalt</a
+          >Phrasing-Inhalt</a
         >
       </td>
     </tr>
     <tr>
-      <th scope="row">Weglassen des Tags</th>
-      <td>Keines; es muss sowohl ein Start-Tag als auch ein End-Tag haben.</td>
+      <th scope="row">Tag-Auslassung</th>
+      <td>Keine; muss sowohl ein Start-Tag als auch ein End-Tag haben.</td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte Eltern</th>
+      <th scope="row">Zulässige Eltern</th>
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Phrase-Inhalt</a
+          >Phrasing-Inhalt</a
         > akzeptiert, oder jedes Element, das
         <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
-          >Flussinhalt</a
+          >Flow-Inhalt</a
         > akzeptiert.
       </td>
     </tr>
@@ -123,8 +129,8 @@ Obwohl das `<small>`-Element, wie die {{htmlelement("b")}}- und {{htmlelement("i
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte ARIA-Rollen</th>
-      <td>Beliebig</td>
+      <th scope="row">Zulässige ARIA-Rollen</th>
+      <td>Jede</td>
     </tr>
     <tr>
       <th scope="row">DOM-Schnittstelle</th>
@@ -147,4 +153,4 @@ Obwohl das `<small>`-Element, wie die {{htmlelement("b")}}- und {{htmlelement("i
 - {{HTMLElement("sub")}} und {{HTMLElement("sup")}}
 - {{HTMLElement("font")}}
 - {{HTMLElement("style")}}
-- HTML 4.01 Spezifikation: [Font Styles](https://www.w3.org/TR/html4/present/graphics.html#h-15.2)
+- HTML 4.01-Spezifikation: [Font Styles](https://www.w3.org/TR/html4/present/graphics.html#h-15.2)

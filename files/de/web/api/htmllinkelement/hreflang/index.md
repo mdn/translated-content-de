@@ -3,12 +3,12 @@ title: "HTMLLinkElement: hreflang-Eigenschaft"
 short-title: hreflang
 slug: Web/API/HTMLLinkElement/hreflang
 l10n:
-  sourceCommit: 1a790d83cbfcd76ac05a1b18697597f8d110d2cf
+  sourceCommit: 0145c6497d2f2206dca1326593fe308f7b771a08
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`hreflang`**-Eigenschaft des [`HTMLLinkElement`](/de/docs/Web/API/HTMLLinkElement)-Interfaces wird verwendet, um die Sprache und die geografische Ausrichtung einer Seite anzugeben. Dieser Hinweis kann von Browsern genutzt werden, um die passendere Seite auszuwählen oder um das {{Glossary("SEO", "SEO")}} zu verbessern.
+Die **`hreflang`**-Eigenschaft des [`HTMLLinkElement`](/de/docs/Web/API/HTMLLinkElement)-Interfaces wird verwendet, um die Sprache und die geografische Zielausrichtung einer Seite anzuzeigen. Dieser Hinweis kann von Browsern verwendet werden, um die geeignetere Seite auszuwählen oder um das {{Glossary("SEO", "SEO")}} zu verbessern.
 
 Sie spiegelt das `hreflang`-Attribut des {{HTMLElement("link")}}-Elements wider und ist der leere String (`""`), wenn kein `hreflang`-Attribut vorhanden ist.
 
@@ -31,7 +31,7 @@ Ein String, der ein Sprach-Tag enthält, oder der leere String (`""`), wenn kein
 ```css
 .tag {
   margin-left: 20px;
-  font: bold;
+  font-weight: bold;
   font-size: 24px;
 }
 ```

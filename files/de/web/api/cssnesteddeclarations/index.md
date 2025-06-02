@@ -2,18 +2,18 @@
 title: CSSNestedDeclarations
 slug: Web/API/CSSNestedDeclarations
 l10n:
-  sourceCommit: af98ab1715ff54825888ef1f7f13d6e3e3bf90b8
+  sourceCommit: 0145c6497d2f2206dca1326593fe308f7b771a08
 ---
 
 {{APIRef("CSSOM")}}
 
-Das **`CSSNestedDeclarations`** Interface der [CSS Rule API](/de/docs/Web/API/CSSRule) wird verwendet, um verschachtelte [`CSSRule`](/de/docs/Web/API/CSSRule)s zu gruppieren.
+Das **`CSSNestedDeclarations`**-Interface der [CSS Rule API](/de/docs/Web/API/CSSRule) wird verwendet, um verschachtelte [`CSSRule`](/de/docs/Web/API/CSSRule)s zu gruppieren.
 
-Das Interface ermöglicht es dem [CSS Object Model (CSSOM](/de/docs/Web/API/CSS_Object_Model), die Struktur von CSS-Dokumenten mit verschachtelten CSS-Regeln zu spiegeln und sicherzustellen, dass Regeln in der Reihenfolge analysiert und ausgewertet werden, in der sie deklariert werden.
+Das Interface ermöglicht es, dass das [CSS Object Model (CSSOM](/de/docs/Web/API/CSS_Object_Model) die Struktur von CSS-Dokumenten mit verschachtelten CSS-Regeln widerspiegelt, und stellt sicher, dass Regeln in der Reihenfolge analysiert und ausgewertet werden, in der sie deklariert sind.
 
 > [!NOTE]
 > Implementierungen, die dieses Interface nicht unterstützen, könnten verschachtelte Regeln in der falschen Reihenfolge analysieren.
-> Siehe [Browser-Kompatibilität](#browser-kompatibilität) für weitere Informationen.
+> Siehe [Browser-Kompatibilität](#browser-kompatibilität) für mehr Informationen.
 
 {{InheritanceDiagram}}
 
@@ -32,12 +32,12 @@ _Keine spezifischen Methoden; erbt Methoden von seinem Vorfahren [`CSSRule`](/de
 
 ### CSS
 
-Das unten stehende CSS enthält einen Selektor `.foo`, der zwei Deklarationen und eine Medienabfrage enthält.
+Der unten stehende CSS-Code enthält einen Selektor `.foo`, der zwei Deklarationen und eine Medienabfrage enthält.
 
 ```css
 .foo {
   background-color: silver;
-  @media (screen) {
+  @media screen {
     color: tomato;
   }
   color: black;
@@ -46,15 +46,15 @@ Das unten stehende CSS enthält einen Selektor `.foo`, der zwei Deklarationen un
 
 Dies wird durch eine Anzahl von JavaScript-Objekten im [CSS Object Model](/de/docs/Web/API/CSS_Object_Model) dargestellt:
 
-- Ein [`CSSStyleRule`](/de/docs/Web/API/CSSStyleRule) Objekt, das die `background-color: silver` Regel repräsentiert.
+- Ein [`CSSStyleRule`](/de/docs/Web/API/CSSStyleRule)-Objekt, das die Regel `background-color: silver` repräsentiert.
   Dies kann über `document.styleSheets[0].cssRules[0]` zurückgegeben werden.
-- Ein [`CSSMediaRule`](/de/docs/Web/API/CSSMediaRule) Objekt, das die `@media (screen)` Regel repräsentiert und über `document.styleSheets[0].cssRules[0].cssRules[0]` zurückgegeben werden kann.
-  - Das `CSSMediaRule` Objekt enthält ein `CSSNestedDeclaration` Objekt, das die `color: tomato` Regel repräsentiert, die in der `@media (screen)` Regel verschachtelt ist.
+- Ein [`CSSMediaRule`](/de/docs/Web/API/CSSMediaRule)-Objekt, das die Regel `@media screen` repräsentiert, und das über `document.styleSheets[0].cssRules[0].cssRules[0]` zurückgegeben werden kann.
+  - Das `CSSMediaRule`-Objekt enthält ein `CSSNestedDeclaration`-Objekt, das die Regel `color: tomato` repräsentiert, die durch die Regel `@media screen` verschachtelt ist.
     Dies kann über `document.styleSheets[0].cssRules[0].cssRules[0].cssRules[0]` zurückgegeben werden.
-- Die letzte Regel ist ein `CSSNestedDeclaration` Objekt, das die `color: black` Regel im Stylesheet repräsentiert, und über `document.styleSheets[0].cssRules[0].cssRules[1]` zurückgegeben werden kann.
+- Die letzte Regel ist ein `CSSNestedDeclaration`-Objekt, das die Regel `color: black` im Stylesheet repräsentiert und über `document.styleSheets[0].cssRules[0].cssRules[1]` zurückgegeben werden kann.
 
 > [!NOTE]
-> Alle Top-Level-Stile nach der ersten `CSSNestedDeclaration` müssen ebenfalls als `CSSNestedDeclaration` Objekte dargestellt werden, um der [CSS-Nested-Declarations-Regel](/de/docs/Web/CSS/CSS_nesting/Using_CSS_nesting#nested_declarations_rule) zu folgen.
+> Alle Ebenenstile nach der ersten `CSSNestedDeclaration` müssen ebenfalls als `CSSNestedDeclaration`-Objekte dargestellt werden, um der [CSS-Regel für verschachtelte Deklarationen](/de/docs/Web/CSS/CSS_nesting/Using_CSS_nesting#nested_declarations_rule) zu folgen.
 
 ### CSSOM (CSS Object Model)
 
@@ -82,4 +82,4 @@ Dies wird durch eine Anzahl von JavaScript-Objekten im [CSS Object Model](/de/do
 ## Siehe auch
 
 - [`CSSNestedDeclarations.style`](/de/docs/Web/API/CSSNestedDeclarations/style)
-- [Die verschachtelte Deklarationsregel](/de/docs/Web/CSS/CSS_nesting/Using_CSS_nesting#nested_declarations_rule)
+- [Die Regel für verschachtelte Deklarationen](/de/docs/Web/CSS/CSS_nesting/Using_CSS_nesting#nested_declarations_rule)
