@@ -3,29 +3,37 @@ title: "DOMRectList: length-Eigenschaft"
 short-title: length
 slug: Web/API/DOMRectList/length
 l10n:
-  sourceCommit: f8554061e8e76aaa3f08ba1b5f9b939d436f5ded
+  sourceCommit: 06bb5f22d50ff3579a12aebf7e8c9f02cfa2468b
 ---
 
 {{APIRef("Geometry Interfaces")}}
 
-Die schreibgeschützte **`length`**-Eigenschaft des [`DOMRectList`](/de/docs/Web/API/DOMRectList)-Interfaces gibt die Anzahl der [`DOMRect`](/de/docs/Web/API/DOMRect)-Objekte in der Liste zurück.
+Die schreibgeschützte **`length`**-Eigenschaft der [`DOMRectList`](/de/docs/Web/API/DOMRectList)-Schnittstelle gibt die Anzahl der [`DOMRect`](/de/docs/Web/API/DOMRect)-Objekte in der Liste zurück.
 
 ## Wert
 
-Ein positiver ganzzahliger Wert, der die Anzahl der `DOMRect`-Objekte in der `DOMRectList` darstellt. Wenn keine Rechtecke in der Liste vorhanden sind, ist `length` `0`.
+Eine positive ganze Zahl, die die Anzahl der `DOMRect`-Objekte in der `DOMRectList` darstellt. Wenn keine Rechtecke in der Liste vorhanden sind, ist `length` `0`.
 
 ## Beispiele
 
-Im folgenden Beispiel rufen wir die Liste der Rechtecke für ein {{htmlelement("div")}}-Element mithilfe von [`Element.getClientRects()`](/de/docs/Web/API/Element/getClientRects) ab. Wir zeigen dann die Anzahl der Rechtecke in der Liste innerhalb eines anderen `<div>`-Elements auf der Seite an.
+Im folgenden Beispiel rufen wir die Liste der Rechtecke für ein {{htmlelement("div")}}-Element mit [`Element.getClientRects()`](/de/docs/Web/API/Element/getClientRects) ab. Anschließend zeigen wir die Anzahl der Rechtecke in der Liste innerhalb eines anderen `<div>`-Elements auf der Seite an.
 
 Zuerst das HTML:
 
 ```html
-<div id="box" style="width: 50px; height: 20px; border: 1px solid black;"></div>
+<div id="box"></div>
 <div id="output"></div>
 ```
 
-Nun das JavaScript:
+```css
+#box {
+  width: 50px;
+  height: 20px;
+  border: 1px solid black;
+}
+```
+
+Nun der JavaScript-Code:
 
 ```js
 const box = document.getElementById("box");
@@ -35,7 +43,7 @@ const output = document.getElementById("output");
 output.textContent = `Number of rectangles: ${rects.length}`;
 ```
 
-Das Ausgabeergebnis sieht so aus:
+Die Ausgabe sieht so aus:
 
 {{ EmbedLiveSample('Examples', '100%', 60) }}
 

@@ -1,39 +1,39 @@
 ---
-title: Verwenden der EditContext-API
+title: Verwendung der EditContext API
 slug: Web/API/EditContext_API/Guide
 l10n:
-  sourceCommit: 759102220c07fb140b3e06971cd5981d8f0f134f
+  sourceCommit: 11906b6f8b1f8fd153832851431089eecb46c261
 ---
 
 {{DefaultAPISidebar("EditContext API")}}
 
-Die **[EditContext API](/de/docs/Web/API/EditContext_API)** kann verwendet werden, um Rich-Text-Editoren im Web zu erstellen, die erweiterte Texteingabeerlebnisse unterstützen, wie z. B. die {{Glossary("Input_Method_Editor", "Input Method Editor")}} (IME)-Komposition, Emoji-Auswahl oder andere plattformabhängige, bearbeitungsbezogene Benutzeroberflächen.
+Die **[EditContext API](/de/docs/Web/API/EditContext_API)** kann verwendet werden, um Rich-Text-Editoren im Web zu erstellen, die erweiterte Texterfahrungen unterstützen, wie z.B. {{Glossary("Input_Method_Editor", "Input-Methoden-Editor")}} (IME) Zusammensetzung, Emoji-Auswahl oder andere plattform-spezifische Bearbeitungsbezogene UI-Oberflächen.
 
-Dieser Artikel behandelt die notwendigen Schritte, um einen Texteditor mit der EditContext-API zu erstellen. In diesem Leitfaden überprüfen Sie die Hauptschritte zur Erstellung eines einfachen HTML-Code-Editors, der die Syntax des Codes während der Eingabe hervorhebt und die IME-Komposition unterstützt.
+Dieser Artikel erläutert die notwendigen Schritte, um einen Texteditor mit der EditContext API zu erstellen. In diesem Leitfaden werden Sie die Hauptschritte überprüfen, die beim Erstellen eines einfachen HTML-Codeeditors erforderlich sind, der die Syntax des Codes beim Tippen hervorhebt und der die IME-Zusammensetzung unterstützt.
 
 ## Endgültiger Code und Live-Demo
 
-Um den endgültigen Code zu sehen, schauen Sie sich den [Quellcode](https://github.com/mdn/dom-examples/tree/main/edit-context/html-editor) auf GitHub an. Es ist eine gute Idee, den Quellcode offen zu halten, während Sie lesen, da das Tutorial nur die wichtigsten Teile des Codes zeigt.
+Um den endgültigen Code zu sehen, schauen Sie sich den [Quellcode](https://github.com/mdn/dom-examples/tree/main/edit-context/html-editor) auf GitHub an. Es ist eine gute Idee, den Quellcode beim Lesen offen zu halten, da das Tutorial nur die wichtigsten Teile des Codes zeigt.
 
-Der Quellcode ist in die folgenden Dateien organisiert:
+Der Quellcode ist in folgende Dateien organisiert:
 
-- [index.html](https://github.com/mdn/dom-examples/blob/main/edit-context/html-editor/index.html) enthält das Element der Editor-Oberfläche und lädt den notwendigen CSS- und JavaScript-Code für die Demo.
-- [styles.css](https://github.com/mdn/dom-examples/blob/main/edit-context/html-editor/styles.css) enthält die Stile für die Editor-Oberfläche.
-- [editor.js](https://github.com/mdn/dom-examples/blob/main/edit-context/html-editor/editor.js) enthält den JavaScript-Code, der die Editor-Oberfläche einrichtet, den HTML-Code rendert und Benutzereingaben verarbeitet.
-- [tokenizer.js](https://github.com/mdn/dom-examples/blob/main/edit-context/html-editor/tokenizer.js) enthält den JavaScript-Code, der den HTML-Code in separate Tokens aufteilt, wie z. B. öffnende Tags, schließende Tags und Textknoten.
-- [converter.js](https://github.com/mdn/dom-examples/blob/main/edit-context/html-editor/converter.js) enthält den JavaScript-Code, der zwischen den Zeichen-Offests, die die EditContext-API verwendet, und den DOM-Knoten, die der Browser für Textauswahlen verwendet, konvertiert.
+- [index.html](https://github.com/mdn/dom-examples/blob/main/edit-context/html-editor/index.html) enthält das Editor-UI-Element und lädt den notwendigen CSS- und JavaScript-Code für die Demo.
+- [styles.css](https://github.com/mdn/dom-examples/blob/main/edit-context/html-editor/styles.css) enthält die Stile für das Editor-UI.
+- [editor.js](https://github.com/mdn/dom-examples/blob/main/edit-context/html-editor/editor.js) enthält den JavaScript-Code, der das Editor-UI einrichtet, den HTML-Code rendert und Benutzereingaben verarbeitet.
+- [tokenizer.js](https://github.com/mdn/dom-examples/blob/main/edit-context/html-editor/tokenizer.js) enthält den JavaScript-Code, der den HTML-Code in separate Tokens aufteilt, wie Öffnungstags, Schließungs-Tags und Textknoten.
+- [converter.js](https://github.com/mdn/dom-examples/blob/main/edit-context/html-editor/converter.js) enthält den JavaScript-Code, der zwischen den Zeichenoffsets, die die EditContext API verwendet, und den DOM-Knoten, die der Browser für Textauswahlen verwendet, konvertiert.
 
-Um die Live-Demo zu verwenden, öffnen Sie [Edit Context API: HTML editor demo](https://mdn.github.io/dom-examples/edit-context/html-editor/) in einem Browser, der die EditContext-API unterstützt.
+Um die Live-Demo zu nutzen, öffnen Sie [Edit Context API: HTML-Editor-Demo](https://mdn.github.io/dom-examples/edit-context/html-editor/) in einem Browser, der die EditContext API unterstützt.
 
-## Erstellen der Editor-Oberfläche
+## Erstellen der Editor-Benutzeroberfläche
 
-Der erste Schritt besteht darin, die Benutzeroberfläche für den Editor zu erstellen. Der Editor ist ein {{HTMLElement("div")}}-Element, bei dem das [`spellcheck`](/de/docs/Web/HTML/Reference/Global_attributes/spellcheck)-Attribut auf `false` gesetzt ist, um die Rechtschreibprüfung zu deaktivieren:
+Der erste Schritt ist das Erstellen der Benutzeroberfläche für den Editor. Der Editor ist ein {{HTMLElement("div")}}-Element mit dem [`spellcheck`](/de/docs/Web/HTML/Reference/Global_attributes/spellcheck)-Attribut, das auf `false` gesetzt ist, um die Rechtschreibprüfung zu deaktivieren:
 
 ```html
 <div id="html-editor" spellcheck="false"></div>
 ```
 
-Um das Editor-Element zu stylen, wird der folgende CSS-Code verwendet. Der Code sorgt dafür, dass der Editor den gesamten Ansichtsbereich füllt und scrollt, wenn der Inhalt zu groß ist, um hineinzupassen. Die {{cssxref("white-space")}}-Eigenschaft wird verwendet, um Leerzeichen zu erhalten, die im HTML-Text-Eingabetext gefunden werden, und die {{cssxref("tab-size")}}-Eigenschaft wird verwendet, um Tab-Zeichen als zwei Leerzeichen darzustellen. Schließlich werden einige Standard-Hintergrund-, Text- und Caret-Farben festgelegt:
+Um das Editor-Element zu stylen, wird der folgende CSS-Code verwendet. Der Code macht, dass der Editor den gesamten Ansichtsbereich ausfüllt und scrollt, wenn zu viel Inhalt vorhanden ist, um zu passen. Die {{cssxref("white-space")}}-Eigenschaft wird ebenfalls verwendet, um Leerzeichenzeichen zu erhalten, die im HTML-Eingabetext gefunden wurden, und die {{cssxref("tab-size")}}-Eigenschaft wird verwendet, um Tabulator-Zeichen als zwei Leerzeichen zu rendern. Schließlich werden einige Standardhintergrund-, Text- und Cursorfarben festgelegt:
 
 ```css
 #html-editor {
@@ -52,13 +52,13 @@ Um das Editor-Element zu stylen, wird der folgende CSS-Code verwendet. Der Code 
 }
 ```
 
-## Den Editor editierbar machen
+## Den Editor bearbeitbar machen
 
-Um ein Element im Web editierbar zu machen, verwendet man meist ein {{HTMLElement("input")}}-Element, ein {{HTMLElement("textarea")}}-Element oder das [`contenteditable`](/de/docs/Web/HTML/Reference/Global_attributes/contenteditable)-Attribut.
+Um ein Element im Web bearbeitbar zu machen, verwenden Sie meistens ein {{HTMLElement("input")}}-Element, ein {{HTMLElement("textarea")}}-Element oder das [`contenteditable`](/de/docs/Web/HTML/Reference/Global_attributes/contenteditable)-Attribut.
 
-Mit der EditContext-API können Sie jedoch andere Elementtypen ohne die Verwendung eines Attributs editierbar machen. Um die Liste der Elemente zu sehen, die mit der EditContext-API verwendet werden können, lesen Sie [Mögliche Elemente](/de/docs/Web/API/HTMLElement/editContext#possible_elements) auf der Webseite der `editContext`-Eigenschaft von HTMLElement.
+Mit der EditContext API können Sie jedoch andere Arten von Elementen ohne Verwendung eines Attributs bearbeitbar machen. Um die Liste der Elemente zu sehen, die mit der EditContext API verwendet werden können, sehen Sie [Mögliche Elemente](/de/docs/Web/API/HTMLElement/editContext#possible_elements) auf der `editContext`-Eigenschaftsseite des HTMLElement.
 
-Um den Editor editierbar zu machen, erstellt die Demo-App eine [`EditContext`](/de/docs/Web/API/EditContext)-Instanz, übergibt dem Konstruktor einige anfängliche HTML-Texte und setzt dann die [`editContext`](/de/docs/Web/API/HTMLElement/editContext)-Eigenschaft des Editor-Elements auf die `EditContext`-Instanz:
+Um den Editor bearbeitbar zu machen, erstellt die Demo-App eine [`EditContext`](/de/docs/Web/API/EditContext)-Instanz, übergibt dem Konstruktor einigen anfänglichen HTML-Text und setzt dann die [`editContext`](/de/docs/Web/API/HTMLElement/editContext)-Eigenschaft des Editor-Elements auf die `EditContext`-Instanz:
 
 ```js
 // Retrieve the editor element from the DOM.
@@ -73,27 +73,27 @@ const editContext = new EditContext({
 editorEl.editContext = editContext;
 ```
 
-Diese Codezeilen machen das Editor-Element fokussierbar. Das Eingeben von Text in das Element löst das [`textupdate`](/de/docs/Web/API/EditContext/textupdate_event)-Ereignis auf der `EditContext`-Instanz aus.
+Diese Codezeilen machen das Editor-Element fokussierbar. Das Eingeben von Text im Element löst das [`textupdate`](/de/docs/Web/API/EditContext/textupdate_event)-Ereignis auf der `EditContext`-Instanz aus.
 
-## Rendern des Textes und der Benutzerauswahl
+## Rendering des Textes und der Benutzerauswahl
 
 Um den syntaxhervorgehobenen HTML-Code im Editor zu rendern, wenn der Benutzer Text eingibt, verwendet die Demo-App eine Funktion namens `render()`, die aufgerufen wird, wenn neuer Text eingegeben wird, Zeichen gelöscht werden oder wenn die Auswahl geändert wird.
 
 ### Tokenisieren des HTML-Codes
 
-Eines der ersten Dinge, die die `render()`-Funktion tut, ist das Tokenisieren des HTML-Textinhalts. Das Tokenisieren des HTML-Textinhalts ist notwendig, um die HTML-Syntax hervorzuheben und umfasst das Lesen des HTML-Code-Strings und das Bestimmen, wo jedes öffnende Tag, schließende Tag, Attribut, Kommentarknoten und Textknoten beginnt und endet.
+Eines der ersten Dinge, die die `render()`-Funktion tut, ist das Tokenisieren des HTML-Textinhalts. Das Tokenisieren des HTML-Textinhalts ist notwendig, um die HTML-Syntax hervorzuheben, und beinhaltet das Lesen der HTML-Code-Zeichenfolge und das Bestimmen, wo jedes Öffnungstag, Schließungs-Tag, Attribut, Kommentar-Knoten und Textknoten beginnt und endet.
 
-Die Demo-App verwendet die `tokenizeHTML()`-Funktion, um dies zu erreichen, die zeichenweise über den String iteriert und dabei einen Zustandsautomaten aufrechterhält. Sie können den Quellcode für die `tokenizeHTML()`-Funktion in [tokenizer.js](https://github.com/mdn/dom-examples/blob/main/edit-context/html-editor/tokenizer.js) auf GitHub sehen.
+Die Demo-App verwendet die `tokenizeHTML()`-Funktion, um dies zu erreichen, die Zeichen für Zeichen über die Zeichenfolge iteriert, während sie einen Zustandsautomaten aufrechterhält. Sie können den Quellcode für die `tokenizeHTML()`-Funktion in [tokenizer.js](https://github.com/mdn/dom-examples/blob/main/edit-context/html-editor/tokenizer.js) auf GitHub sehen.
 
-Die Funktion wird in die HTML-Datei der Demo-App wie folgt importiert:
+Die Funktion wird wie folgt in die Demo-App HTML-Datei importiert:
 
 ```js
 import { tokenizeHTML } from "./tokenizer.js";
 ```
 
-### Rendern des Textes
+### Rendering des Textes
 
-Immer wenn die `render()`-Funktion aufgerufen wird, was beim Texteingeben oder wenn sich die Auswahl ändert passiert, entfernt die Funktion den Inhalt im Editor-Element und rendert dann jedes Token als separates HTML-Element:
+Jedes Mal, wenn die `render()`-Funktion aufgerufen wird, was bei der Eingabe von Text oder bei Änderungen der Auswahl der Fall ist, entfernt die Funktion den Inhalt im Editor-Element und rendert dann jedes Token als separates HTML-Element:
 
 ```js
 // Stores the list of HTML tokens.
@@ -127,9 +127,9 @@ function render(text, selectionStart, selectionEnd) {
 }
 ```
 
-Die EditContext-API gibt die Möglichkeit, zu kontrollieren, wie der bearbeitete Text gerendert wird. Die obige Funktion rendert ihn mit Hilfe von HTML-Elementen, aber sie könnte ihn auch auf andere Weise rendern, einschließlich des Renderns in ein `<canvas>`-Element.
+Die EditContext API ermöglicht die Kontrolle darüber, wie der bearbeitete Text gerendert wird. Die obige Funktion rendert diesen durch die Verwendung von HTML-Elementen, könnte ihn aber auch auf andere Weise rendern, einschließlich des Renders in ein `<canvas>`-Element.
 
-Die Demo-App führt die `render()`-Funktion bei Bedarf aus. Dies schließt einmal beim Start der App mit ein und dann erneut, wenn der Benutzer Text eingibt, indem das [`textupdate`](/de/docs/Web/API/EditContext/textupdate_event)-Ereignis überwacht wird:
+Die Demo-App führt die `render()`-Funktion bei Bedarf aus. Dazu gehört einmal beim Start der App und dann erneut, wenn der Benutzer Text eingibt, indem auf das [`textupdate`](/de/docs/Web/API/EditContext/textupdate_event)-Ereignis gehört wird:
 
 ```js
 // Listen to the EditContext's textupdate event.
@@ -142,9 +142,9 @@ editContext.addEventListener("textupdate", (e) => {
 render(editContext.text, editContext.selectionStart, editContext.selectionEnd);
 ```
 
-### Stylen der Tokens
+### Styling der Tokens
 
-Wie im vorherigen Codebeispiel der `render()`-Funktion gesehen, wird jedem Token ein Klassenname zugewiesen, der dem Token-Typ entspricht. Die Demo-App verwendet diesen Klassennamen, um die Tokens mit CSS zu stylen, wie unten gezeigt:
+Wie im vorherigen Codebeispiel der `render()`-Funktion gezeigt, wird jedem Token ein Klassenname zugewiesen, der dem Token-Typ entspricht, den es darstellt. Die Demo-App nutzt diesen Klassennamen, um die Tokens mit CSS zu stylen, wie unten gezeigt:
 
 ```css
 .token-openTagStart,
@@ -198,16 +198,16 @@ Wie im vorherigen Codebeispiel der `render()`-Funktion gesehen, wird jedem Token
 }
 ```
 
-### Rendern der Auswahl
+### Rendering der Auswahl
 
-Obwohl die Demo-App ein `<div>`-Element für den Editor verwendet, das bereits das Anzeigen eines blinkenden Textcursors und das Hervorheben von Benutzerauswahlen unterstützt, erfordert die EditContext-API dennoch das Rendern der Auswahl. Dies liegt daran, dass die EditContext-API mit anderen Elementtypen verwendet werden kann, die diese Verhaltensweisen nicht unterstützen. Das selbstständige Rendern der Auswahl gibt uns auch mehr Kontrolle darüber, wie die Auswahl angezeigt wird. Schließlich, da die `render()`-Funktion den HTML-Inhalt des Editor-Elements jedes Mal löscht, wenn sie ausgeführt wird, wird eine eventuell vom Benutzer vorgenommene Auswahl beim nächsten Ausführen der `render()`-Funktion verworfen.
+Obwohl die Demo-App ein `<div>`-Element für den Editor verwendet, welches bereits das Anzeigen eines blinkenden Textcursors und das Hervorheben von Benutzerauswahlen unterstützt, erfordert die EditContext API dennoch das Rendering der Auswahl. Dies liegt daran, dass die EditContext API auch mit anderen Arten von Elementen verwendet werden kann, die diese Fähigkeiten nicht unterstützen. Das eigene Rendering der Auswahl gibt uns auch mehr Kontrolle darüber, wie die Auswahl angezeigt wird. Schließlich wird durch das Löschen des HTML-Inhalts des Editor-Elements bei jedem Lauf der `render()`-Funktion jede Auswahl, die der Benutzer möglicherweise getroffen hat, bei jedem erneuten Ausführen der `render()`-Funktion verloren.
 
-Um die Auswahl zu rendern, verwendet die Demo-App die Methode [`Selection.setBaseAndExtent()`](/de/docs/Web/API/Selection/setBaseAndExtent) am Ende der `render()`-Funktion. Um die `setBaseAndExtent()`-Methode zu verwenden, benötigen wir ein Paar von DOM-Knoten und Zeichen-Offests, die den Anfang und das Ende der Auswahl darstellen. Die EditContext-API hält jedoch den Zustand für die aktuelle Auswahl nur als Paar von Anfangs- und Endzeichenoffests im gesamten Bearbeitungspuffer. Der Demo-App-Code verwendet eine weitere Funktion namens `fromOffsetsToSelection()`, um diese Zeichenoffests in vier Werte zu konvertieren:
+Um die Auswahl zu rendern, verwendet die Demo-App die [`Selection.setBaseAndExtent()`](/de/docs/Web/API/Selection/setBaseAndExtent)-Methode am Ende der `render()`-Funktion. Um die `setBaseAndExtent()`-Methode zu verwenden, benötigen wir ein Paar von DOM-Knoten und Zeichenoffsets, die den Beginn und das Ende der Auswahl darstellen. Da jedoch die EditContext API den Status der aktuellen Auswahl nur als ein Paar von Start- und Endzeichenoffsets in den gesamten Editierpuffer speichert, verwendet der Code der Demo-App eine andere Funktion, `fromOffsetsToSelection()`, die diese Zeichenoffsets in vier Werte umwandelt:
 
-- Der DOM-Knoten, der den Anfang der Auswahl enthält.
-- Eine Zahl, die die Zeichenposition des Auswahlanfangs innerhalb des Startknotens darstellt.
+- Der DOM-Knoten, der den Start der Auswahl enthält.
+- Eine Zahl, die die Zeichenposition des Startes der Auswahl innerhalb des Startknotens darstellt.
 - Der DOM-Knoten, der das Ende der Auswahl enthält.
-- Eine Zahl, die die Zeichenposition des Auswahlendes innerhalb des Endknotens darstellt.
+- Eine Zahl, die die Zeichenposition des Endes der Auswahl innerhalb des Endknotens darstellt.
 
 ```js
 function render(text, selectionStart, selectionEnd) {
@@ -216,7 +216,7 @@ function render(text, selectionStart, selectionEnd) {
 
   // Convert the start/end offsets to a DOM selection.
   const { anchorNode, anchorOffset, extentNode, extentOffset } =
-    fromOffsetsToSelection(selectionStart, selectionEnd);
+    fromOffsetsToSelection(selectionStart, selectionEnd, editorEl);
 
   // Render the selection in the editor element.
   document
@@ -225,15 +225,15 @@ function render(text, selectionStart, selectionEnd) {
 }
 ```
 
-Sie können den Code für die Funktion `fromOffsetsToSelection()` in der Datei [converter.js](https://github.com/mdn/dom-examples/blob/main/edit-context/html-editor/converter.js) sehen.
+Den Code für die Funktion `fromOffsetsToSelection()` finden Sie in der [converter.js](https://github.com/mdn/dom-examples/blob/main/edit-context/html-editor/converter.js)-Datei.
 
-## Aktualisieren der Steuerelementgrenzen
+## Aktualisieren der Steuerelement-Grenzen
 
-Die EditContext-API bietet uns viel Flexibilität, um unsere eigene Texteditor-Benutzeroberfläche zu definieren. Dies bedeutet jedoch auch, dass wir einige Dinge handhaben müssen, die normalerweise vom Browser oder Betriebssystem (OS) abgewickelt werden.
+Die EditContext API gibt uns viel Flexibilität, um unsere eigene Texteditor-Benutzeroberfläche zu definieren. Dies bedeutet jedoch auch, dass wir einige Dinge selbst handhaben müssen, die normalerweise vom Browser oder Betriebssystem (OS) gehandhabt werden.
 
-Zum Beispiel müssen wir dem OS mitteilen, wo sich der bearbeitbare Textbereich auf der Seite befindet. Auf diese Weise kann das OS jede Textbearbeitungs-Benutzeroberfläche, die der Benutzer möglicherweise für die Texteingabe verwendet, wie ein IME-Kompositionsfenster, korrekt positionieren.
+Zum Beispiel müssen wir dem Betriebssystem mitteilen, wo sich der bearbeitbare Textbereich auf der Seite befindet. Auf diese Weise kann das Betriebssystem jede textbearbeitende Oberfläche, mit der der Benutzer Text komponiert, richtig positionieren, wie z.B. ein IME-Kompositionsfenster.
 
-Die Demo-App verwendet die Methode [`EditContext.updateControlBounds()`](/de/docs/Web/API/EditContext/updateControlBounds), der ein [`DOMRect`](/de/docs/Web/API/DOMRect)-Objekt übergeben wird, das die Grenzen des bearbeitbaren Textbereichs darstellt. Die Demo-App ruft diese Methode auf, wenn der Editor initialisiert wird, und erneut, wenn das Fenster geändert wird:
+Die Demo-App verwendet die [`EditContext.updateControlBounds()`](/de/docs/Web/API/EditContext/updateControlBounds)-Methode, wobei sie ein [`DOMRect`](/de/docs/Web/API/DOMRect)-Objekt bereitstellt, das die Grenzen des bearbeitbaren Textbereichs darstellt. Die Demo-App ruft diese Methode auf, wenn der Editor initialisiert wird, und erneut, wenn das Fenster skaliert wird:
 
 ```js
 function updateControlBounds() {
@@ -251,11 +251,11 @@ updateControlBounds();
 window.addEventListener("resize", updateControlBounds);
 ```
 
-## Verarbeiten der Tasten Tab, Enter und anderer Textbearbeitungstasten
+## Umgang mit Tab, Enter und anderen Texteingabetasten
 
-Das zuvor verwendete `textupdate`-Ereignis wird nicht ausgelöst, wenn der Benutzer die <kbd>Tab</kbd>- oder <kbd>Enter</kbd>-Tasten drückt, daher müssen wir diese Tasten separat behandeln.
+Das im vorherigen Abschnitt verwendete `textupdate`-Ereignis wird nicht ausgelöst, wenn der Benutzer die <kbd>Tab</kbd>- oder <kbd>Enter</kbd>-Tasten drückt, daher müssen wir diese Tasten separat behandeln.
 
-Um sie zu behandeln, verwendet die Demo-App einen Ereignis-Listener für das [`keydown`](/de/docs/Web/API/Element/keydown_event)-Ereignis auf dem Editor-Element und verwendet diesen Listener, um den Textinhalt und die Auswahl der `EditContext`-Instanz zu aktualisieren, wie unten gezeigt:
+Um sie zu handhaben, verwendet die Demo-App einen Ereignis-Listener für das [`keydown`](/de/docs/Web/API/Element/keydown_event)-Ereignis auf dem Editor-Element und nutzt diesen Listener, um den Textinhalt und die Auswahl der `EditContext`-Instanz zu aktualisieren, wie unten gezeigt:
 
 ```js
 // Handle key presses that are not already handled by the EditContext.
@@ -305,17 +305,17 @@ editorEl.addEventListener("keydown", (e) => {
 });
 ```
 
-Der obige Code ruft auch die `updateSelection()`-Funktion auf, um die Auswahl zu aktualisieren, nachdem der Textinhalt aktualisiert wurde. Weitere Informationen finden Sie unter [Aktualisieren des Auswahldzustands und der Auswahlgrenzen](#aktualisieren_des_auswahlzustands_und_der_auswahlgrenzen).
+Der oben angezeigte Code ruft auch die `updateSelection()`-Funktion auf, um die Auswahl nach der Aktualisierung des Textinhalts zu aktualisieren. Weitere Informationen finden Sie unter [Aktualisieren des Auswahl-Status und der Auswahlgrenzen](#aktualisieren_des_auswahl-status_und_der_auswahlgrenzen) weiter unten.
 
-Wir könnten den Code verbessern, indem wir andere Tastenkombinationen behandeln, wie <kbd>Strg</kbd>+<kbd>C</kbd> und <kbd>Strg</kbd>+<kbd>V</kbd>, um Text zu kopieren und einzufügen, oder <kbd>Strg</kbd>+<kbd>Z</kbd> und <kbd>Strg</kbd>+<kbd>Y</kbd>, um Textänderungen rückgängig zu machen und wiederherzustellen.
+Wir könnten den Code verbessern, indem wir andere Tastenkombinationen wie <kbd>Strg</kbd>+<kbd>C</kbd> und <kbd>Strg</kbd>+<kbd>V</kbd> zum Kopieren und Einfügen von Text oder <kbd>Strg</kbd>+<kbd>Z</kbd> und <kbd>Strg</kbd>+<kbd>Y</kbd> zum Rückgängig machen und Wiederholen von Textänderungen behandeln.
 
-## Aktualisieren des Auswahlzustands und der Auswahlgrenzen
+## Aktualisieren des Auswahl-Status und der Auswahlgrenzen
 
-Wie wir zuvor gesehen haben, behandelt die `render()`-Funktion das Rendern der aktuellen Benutzerauswahl im Editor-Element. Aber die Demo-App muss auch den Auswahlzustand und die Grenzen _aktualisieren_, wenn der Benutzer die Auswahl ändert. Die EditContext-API erledigt dies nicht automatisch, da die Editor-Benutzeroberfläche möglicherweise auf andere Weise implementiert wird, z. B. durch die Verwendung eines `<canvas>`-Elements.
+Wie wir bereits gesehen haben, kümmert sich die `render()`-Funktion um das Rendering der aktuellen Benutzerauswahl im Editor-Element. Aber die Demo-App muss auch den Auswahl-Status und die Grenzen aktualisieren, wenn der Benutzer die Auswahl ändert. Die EditContext API tut dies nicht automatisch, wiederum weil die Editor-Benutzeroberfläche möglicherweise auf andere Weise implementiert wurde, zum Beispiel durch die Verwendung eines `<canvas>`-Elements.
 
-Um zu wissen, wann der Benutzer die Auswahl ändert, verwendet die Demo-App das [`selectionchange`](/de/docs/Web/API/Document/selectionchange_event)-Ereignis und die Methode [`Document.getSelection()`](/de/docs/Web/API/Document/getSelection), die ein [`Selection`](/de/docs/Web/API/Selection)-Objekt liefern, das uns sagt, wo sich die Auswahl des Benutzers befindet. Mit diesen Informationen aktualisiert die Demo-App den Auswahlzustand und die Auswahlgrenzen der EditContext über die Methoden [`EditContext.updateSelection()`](/de/docs/Web/API/EditContext/updateSelection) und [`EditContext.updateSelectionBounds()`](/de/docs/Web/API/EditContext/updateSelectionBounds). Dies wird vom OS verwendet, um das IME-Kompositionsfenster korrekt zu positionieren.
+Um zu wissen, wann der Benutzer die Auswahl ändert, verwendet die Demo-App das [`selectionchange`](/de/docs/Web/API/Document/selectionchange_event)-Ereignis und die [`Document.getSelection()`](/de/docs/Web/API/Document/getSelection)-Methode, die ein [`Selection`](/de/docs/Web/API/Selection)-Objekt bereitstellt, das uns mitteilt, wo sich die Auswahl des Benutzers befindet. Mit diesen Informationen aktualisiert die Demo-App den Auswahl-Status und die Auswahlgrenzen der EditContext mit den Methoden [`EditContext.updateSelection()`](/de/docs/Web/API/EditContext/updateSelection) und [`EditContext.updateSelectionBounds()`](/de/docs/Web/API/EditContext/updateSelectionBounds). Dies wird vom Betriebssystem verwendet, um das IME-Kompositionsfenster korrekt zu positionieren.
 
-Da die EditContext-API jedoch Zeichen-Offests verwendet, um die Auswahl darzustellen, verwendet die Demo-App außerdem eine Funktion, `fromSelectionToOffsets()`, die DOM-Auswahlobjekte in Zeichen-Offests umwandelt.
+Da die EditContext API jedoch Zeichenoffsets verwendet, um die Auswahl darzustellen, verwendet die Demo-App auch eine Funktion, `fromSelectionToOffsets()`, die DOM-Auswahlobjekte in Zeichenoffsets konvertiert.
 
 ```js
 // Listen to selectionchange events to let the
@@ -341,15 +341,15 @@ function updateSelection(start, end) {
 }
 ```
 
-Sie können den Code für die Funktion `fromSelectionToOffsets()` in der Datei [converter.js](https://github.com/mdn/dom-examples/blob/main/edit-context/html-editor/converter.js) sehen.
+Den Code für die Funktion `fromSelectionToOffsets()` finden Sie in der [converter.js](https://github.com/mdn/dom-examples/blob/main/edit-context/html-editor/converter.js)-Datei.
 
-## Berechnung der Zeichenbegrenzungen
+## Berechnen der Zeichen-Grenzen
 
-Zusätzlich zur Verwendung der Methoden [`EditContext.updateControlBounds()`](/de/docs/Web/API/EditContext/updateControlBounds) und [`EditContext.updateSelectionBounds()`](/de/docs/Web/API/EditContext/updateSelectionBounds), um dem OS zu helfen, eine eventuell verwendete Textbearbeitungs-Benutzeroberfläche zu positionieren, benötigt das OS noch eine weitere Information: die Position und Größe bestimmter Zeichen innerhalb des Editor-Elements.
+Zusätzlich zur Verwendung der Methoden [`EditContext.updateControlBounds()`](/de/docs/Web/API/EditContext/updateControlBounds) und [`EditContext.updateSelectionBounds()`](/de/docs/Web/API/EditContext/updateSelectionBounds), um dem Betriebssystem zu helfen, eine Texteingabe-Benutzeroberfläche, die der Benutzer möglicherweise verwendet, zu positionieren, gibt es noch ein weiteres Informationsstück, das das Betriebssystem benötigt: die Position und Größe bestimmter Zeichen innerhalb des Editor-Elements.
 
-Um dies zu tun, hört die Demo-App auf das [`characterboundsupdate`](/de/docs/Web/API/EditContext/characterboundsupdate_event)-Ereignis, verwendet es, um die Grenzen einiger Zeichen im Editor-Element zu berechnen, und verwendet dann die Methode [`EditContext.updateCharacterBounds()`](/de/docs/Web/API/EditContext/updateCharacterBounds), um die Zeichenbegrenzungen zu aktualisieren.
+Um dies zu tun, lauscht die Demo-App dem [`characterboundsupdate`](/de/docs/Web/API/EditContext/characterboundsupdate_event)-Ereignis, verwendet es, um die Grenzen einiger der Zeichen im Editor-Element zu berechnen und verwendet dann die [`EditContext.updateCharacterBounds()`](/de/docs/Web/API/EditContext/updateCharacterBounds)-Methode, um die Zeichen-Grenzen zu aktualisieren.
 
-Wie bereits gesehen, kennt die EditContext-API nur Zeichen-Offests, was bedeutet, dass das `characterboundsupdate`-Ereignis die Start- und Endoffests für die Zeichen angibt, für die es Grenzen benötigt. Die Demo-App verwendet eine weitere Funktion, `fromOffsetsToRenderedTokenNodes()`, um die DOM-Elemente zu finden, in denen diese Zeichen gerendert wurden, und verwendet diese Informationen, um die erforderlichen Grenzen zu berechnen.
+Wie bereits gesehen, kennt die EditContext API nur Zeichenoffsets, was bedeutet, dass das `characterboundsupdate`-Ereignis die Start- und Endoffsets für die Zeichen bereitstellt, für die sie Grenzen benötigt. Die Demo-App verwendet eine weitere Funktion, `fromOffsetsToRenderedTokenNodes()`, um die DOM-Elemente zu finden, in denen diese Zeichen gerendert wurden, und verwendet diese Informationen, um die erforderlichen Grenzen zu berechnen.
 
 ```js
 // Listen to the characterboundsupdate event to know when character bounds
@@ -375,15 +375,15 @@ editContext.addEventListener("characterboundsupdate", (e) => {
 });
 ```
 
-Sie können den Code für die Funktion `fromOffsetsToRenderedTokenNodes()` in der Datei [converter.js](https://github.com/mdn/dom-examples/blob/main/edit-context/html-editor/converter.js) sehen.
+Den Code für die Funktion `fromOffsetsToRenderedTokenNodes()` finden Sie in der [converter.js](https://github.com/mdn/dom-examples/blob/main/edit-context/html-editor/converter.js)-Datei.
 
-## Anwenden von IME-Kompositionstextformatierungen
+## Anwenden von IME-Kompositionstextformaten
 
-Die Demo-App geht einen letzten Schritt, um die IME-Komposition vollständig zu unterstützen. Wenn der Benutzer Text mit einem IME verfasst, kann das IME entscheiden, dass bestimmte Teile des verfassten Textes anders formatiert werden sollten, um den Kompositionszustand anzuzeigen. Zum Beispiel könnte das IME entscheiden, den Text zu unterstreichen.
+Die Demo-App durchläuft einen letzten Schritt, um die IME-Komposition vollständig zu unterstützen. Wenn der Benutzer Text mit einem IME eingibt, kann das IME entscheiden, dass bestimmte Teile des eingegebenen Textes anders formatiert werden sollten, um den Kompositionszustand anzuzeigen. Beispielsweise könnte das IME entscheiden, den Text zu unterstreichen.
 
-Da es die Verantwortung der Demo-App ist, den Inhalt im editierbaren Textbereich zu rendern, liegt es auch in ihrer Verantwortung, die erforderlichen IME-Formatierungen anzuwenden. Die Demo-App erreicht dies, indem sie auf das [`textformatupdate`](/de/docs/Web/API/EditContext/textformatupdate_event)-Ereignis hört, um zu erfahren, wann das IME Textformate anwenden möchte, wo und welche Formate angewendet werden sollen.
+Da es in der Verantwortung der Demo-App liegt, den Inhalt im bearbeitbaren Textbereich zu rendern, liegt es auch in ihrer Verantwortung, die notwendigen IME-Formatierungen anzuwenden. Die Demo-App erreicht dies, indem sie dem [`textformatupdate`](/de/docs/Web/API/EditContext/textformatupdate_event)-Ereignis lauscht, um zu erkennen, wann das IME Textformate anwenden möchte, wo und welche Formate anzuwenden sind.
 
-Wie im folgenden Codeausschnitt gezeigt, verwendet die Demo-App das `textformatupdate`-Ereignis und die Funktion `fromOffsetsToSelection()` erneut, um den Textrahmen zu finden, den die IME-Komposition formatieren möchte:
+Wie im folgenden Code-Snippet gezeigt, verwendet die Demo-App das `textformatupdate`-Ereignis und die Funktion `fromOffsetsToSelection()` erneut, um den Textbereich zu finden, den die IME-Komposition formatieren möchte:
 
 ```js
 editContext.addEventListener("textformatupdate", (e) => {
@@ -404,7 +404,7 @@ editContext.addEventListener("textformatupdate", (e) => {
 });
 ```
 
-Der obige Ereignishandler ruft die Funktion `addHighlight()` auf, um den Text zu formatieren. Diese Funktion verwendet die [CSS Custom Highlight API](/de/docs/Web/API/CSS_Custom_Highlight_API), um die Textformats anzuzeigen. Die CSS Custom Highlight API bietet einen Mechanismus zum Stylen beliebiger Textbereiche, indem JavaScript verwendet wird, um die Bereiche zu erstellen und CSS, um sie zu stylen. Um diese API zu verwenden, wird das {{cssxref("::highlight", "::highlight()")}}-Pseudo-Element genutzt, um die Highlight-Stile zu definieren:
+Der obige Ereignishandler ruft die Funktion `addHighlight()` auf, um Text zu formatieren. Diese Funktion verwendet die [CSS Custom Highlight API](/de/docs/Web/API/CSS_Custom_Highlight_API), um die Textformate darzustellen. Die CSS Custom Highlight API bietet einen Mechanismus zum Stylen beliebiger Textranges durch die Verwendung von JavaScript zur Erstellung der Ranges und CSS zum Stylen. Um diese API zu verwenden, wird das {{cssxref("::highlight", "::highlight()")}} Pseudoelement verwendet, um die Highlight-Stile zu definieren:
 
 ```css
 ::highlight(ime-solid-thin) {
@@ -426,7 +426,7 @@ Der obige Ereignishandler ruft die Funktion `addHighlight()` auf, um den Text zu
 /* Other highlights are omitted for brevity. */
 ```
 
-[`Highlight`](/de/docs/Web/API/Highlight)-Instanzen werden ebenfalls erstellt, in einem Objekt gespeichert und im [`HighlightRegistry`](/de/docs/Web/API/HighlightRegistry) mit Hilfe der [`CSS.highlights`](/de/docs/Web/API/CSS/highlights_static)-Eigenschaft registriert:
+[`Highlight`](/de/docs/Web/API/Highlight)-Instanzen werden auch erstellt, in einem Objekt gespeichert und im [`HighlightRegistry`](/de/docs/Web/API/HighlightRegistry) durch die Verwendung der [`CSS.highlights`](/de/docs/Web/API/CSS/highlights_static)-Eigenschaft registriert:
 
 ```js
 // Instances of CSS custom Highlight objects, used to render
@@ -449,7 +449,7 @@ for (const [key, value] of Object.entries(imeHighlights)) {
 }
 ```
 
-Mit diesem Vorgehen verwendet die `addHighlight()`-Funktion [`Range`](/de/docs/Web/API/Range)-Objekte für die Bereichen, die gestylt werden müssen und fügt sie dem `Highlight`-Objekt hinzu:
+Mit diesem Mechanismus verwendet die `addHighlight()`-Funktion [`Range`](/de/docs/Web/API/Range)-Objekte für die Ranges, die gestylt werden müssen, und fügt sie dem `Highlight`-Objekt hinzu:
 
 ```js
 function addHighlight(selection, underlineStyle, underlineThickness) {
@@ -472,11 +472,11 @@ function addHighlight(selection, underlineStyle, underlineThickness) {
 
 ## Zusammenfassung
 
-Dieser Artikel zeigte Ihnen, wie Sie die EditContext-API verwenden, um einen einfachen HTML-Code-Editor zu erstellen, der die IME-Komposition und Syntaxhervorhebung unterstützt.
+Dieser Artikel zeigte Ihnen, wie Sie die EditContext API verwenden, um einen einfachen HTML-Codeeditor zu erstellen, der die IME-Zusammensetzung und die Syntax-Hervorhebung unterstützt.
 
-Den finalen Code und die Live-Demo finden Sie auf GitHub: [Live-Demo](https://mdn.github.io/dom-examples/edit-context/html-editor/) und [Quellcode](https://github.com/mdn/dom-examples/tree/main/edit-context/html-editor).
+Den endgültigen Code und die Live-Demo finden Sie auf GitHub: [Live-Demo](https://mdn.github.io/dom-examples/edit-context/html-editor/) und [Quellcode](https://github.com/mdn/dom-examples/tree/main/edit-context/html-editor).
 
-Wichtiger ist, dass dieser Artikel gezeigt hat, dass die EditContext-API viel Flexibilität hinsichtlich der Benutzeroberfläche Ihres Editors bietet. Basierend auf dieser Demo könnten Sie einen ähnlichen Texteditor erstellen, der ein `<canvas>`-Element verwendet, um den syntaxhervorgehobenen HTML-Code anstelle des `<div>`-Elements zu rendern, das die Demo verwendet. Sie könnten auch ändern, wie jedes Token gerendert wird oder wie die Auswahl gerendert wird.
+Wichtig ist, dass dieser Artikel Ihnen gezeigt hat, dass die EditContext API viel Flexibilität in Bezug auf die Benutzeroberfläche Ihres Editors bietet. Basierend auf dieser Demo könnten Sie einen ähnlichen Texteditor erstellen, der ein `<canvas>`-Element verwendet, um den syntaxhervorgehobenen HTML-Code zu rendern, anstelle des `<div>`, das die Demo verwendet. Sie könnten auch ändern, wie jedes Token gerendert wird, oder wie die Auswahl gerendert wird.
 
 ## Siehe auch
 

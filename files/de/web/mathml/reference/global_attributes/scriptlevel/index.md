@@ -2,10 +2,29 @@
 title: scriptlevel
 slug: Web/MathML/Reference/Global_attributes/scriptlevel
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: 06bb5f22d50ff3579a12aebf7e8c9f02cfa2468b
 ---
 
-Das **`scriptlevel`** [globale Attribut](/de/docs/Web/MathML/Reference/Global_attributes) legt die [math-depth](/de/docs/Web/CSS/math-depth) eines MathML-Elements fest. Es ermöglicht das Überschreiben von Regeln aus dem [User-Agent-Stylesheet](/de/docs/Web/CSS/CSS_cascade/Cascade#user-agent_stylesheets), die die automatische Berechnung der [Schriftgröße](/de/docs/Web/CSS/font-size) innerhalb von MathML-Formeln definieren.
+Das **`scriptlevel`** [Globale Attribut](/de/docs/Web/MathML/Reference/Global_attributes) legt die [math-depth](/de/docs/Web/CSS/math-depth) eines MathML-Elements fest. Es erlaubt das Überschreiben von Regeln aus dem [Benutzeragenten-Stylesheet](/de/docs/Web/CSS/CSS_cascade/Cascade#user-agent_stylesheets), die eine automatische Berechnung der [Schriftgröße](/de/docs/Web/CSS/font-size) innerhalb von MathML-Formeln definieren.
+
+## Syntax
+
+```html-nolint
+<math scriptlevel="-1"> <!-- decrease math-depth by 1 -->
+<math scriptlevel="+2"> <!-- increase math-depth by 2 -->
+<math scriptlevel="0"> <!-- reset math-depth to 0 -->
+```
+
+### Werte
+
+Wenn `<U>` eine vorzeichenlose [Ganzzahl](/de/docs/Web/CSS/integer) ist (d.h. das Vorzeichen wurde entfernt), dann sind die akzeptierten Werte:
+
+- `<U>`
+  - : Setzt die `math-depth` auf den Wert `<U>`. Dies setzt die `Schriftgröße` des Elements auf denselben Wert wie der von Elementen in der angegebenen Tiefe.
+- `+<U>`
+  - : Setzt die `math-depth` auf den Wert `add(<U>)`. Dies verkleinert die `Schriftgröße` des Elements um das `<U>`-Fache.
+- `-<U>`
+  - : Setzt die `math-depth` auf den Wert `add(-<U>)`. Dies vergrößert die `Schriftgröße` des Elements um das `<U>`-Fache.
 
 ## Beispiel
 
@@ -19,11 +38,15 @@ body {
   display: grid;
   place-items: center;
 }
+
+math {
+  font-size: 24px;
+}
 ```
 
 ```html
 <!-- math-depth defaults to 0 on the <math> root. -->
-<math style="font-size: 24px">
+<math>
   <msubsup>
     <!-- math-depth and font-size remain unchanged on the base. -->
     <mtext>base</mtext>
@@ -38,25 +61,6 @@ body {
 </math>
 ```
 
-## Syntax
-
-```html-nolint
-<math scriptlevel="-1"> <!-- decrease math-depth by 1 -->
-<math scriptlevel="+2"> <!-- increase math-depth by 2 -->
-<math scriptlevel="0"> <!-- reset math-depth to 0 -->
-```
-
-### Werte
-
-Wenn `<U>` eine nicht signierte [Ganzzahl](/de/docs/Web/CSS/integer) ist (d.h. ohne vorangestelltes Vorzeichen), dann sind die akzeptierten Werte:
-
-- `<U>`
-  - : Setzt die `math-depth` auf den Wert `<U>`. Dies setzt die `font-size` des Elements auf denselben Wert wie die der Elemente in der angegebenen Tiefe.
-- `+<U>`
-  - : Setzt die `math-depth` auf den Wert `add(<U>)`. Dadurch wird die `font-size` des Elements um `<U>`-mal verkleinert.
-- `-<U>`
-  - : Setzt die `math-depth` auf den Wert `add(-<U>)`. Dadurch wird die `font-size` des Elements um `<U>`-mal vergrößert.
-
 {{EmbedLiveSample("Example", "", 150)}}
 
 ## Spezifikationen
@@ -70,7 +74,7 @@ Wenn `<U>` eine nicht signierte [Ganzzahl](/de/docs/Web/CSS/integer) ist (d.h. o
 ## Siehe auch
 
 - Alle [globalen Attribute](/de/docs/Web/MathML/Reference/Global_attributes).
-- Das [displaystyle](/de/docs/Web/MathML/Reference/Global_attributes/displaystyle) globale Attribut.
+- Das globale Attribut [displaystyle](/de/docs/Web/MathML/Reference/Global_attributes/displaystyle).
 - {{cssxref("font-size")}}
 - {{cssxref("math-depth")}}
 - {{cssxref("math-style")}}

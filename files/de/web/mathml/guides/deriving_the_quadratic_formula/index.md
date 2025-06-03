@@ -1,14 +1,14 @@
 ---
-title: Ableitung der quadratischen Formel
+title: Herleitung der quadratischen Formel
 short-title: Quadratische Formel
 slug: Web/MathML/Guides/Deriving_the_quadratic_formula
 l10n:
-  sourceCommit: c263f06fa14ed56153e345006bb459c9df014b98
+  sourceCommit: 06bb5f22d50ff3579a12aebf7e8c9f02cfa2468b
 ---
 
-Diese Seite skizziert die Ableitung der [Quadratischen Formel](https://en.wikipedia.org/wiki/Quadratic_formula). Neun Gleichungen sind im {{MathMLElement("mtable")}}-Element angeordnet, um die Schritte der Ableitung am Gleichheitszeichen auszurichten. Einige Schritte sind mit farbigem Text kommentiert. Die Ableitung wird auch im [LaTeX](https://www.latex-project.org/)-Format im {{MathMLElement("annotation")}}-Element dargestellt.
+Diese Seite beschreibt die Herleitung der [quadratischen Formel](https://en.wikipedia.org/wiki/Quadratic_formula). Neun Gleichungen sind im {{MathMLElement("mtable")}}-Element organisiert, um die Schritte der Herleitung nach dem Gleichheitszeichen auszurichten. Einige Schritte sind mit farbigem Text kommentiert. Die Herleitung wird auch im [LaTeX](https://www.latex-project.org/)-Format im {{MathMLElement("annotation")}}-Element dargestellt.
 
-## Ableitung
+## Herleitung
 
 Wir nehmen eine quadratische Gleichung in ihrer allgemeinen Form und lösen nach x auf.
 
@@ -113,7 +113,7 @@ Wir nehmen eine quadratische Gleichung in ihrer allgemeinen Form und lösen nach
         </mtd>
         <mtd>
           <mrow>
-            <mtext style="color: red; font-size: smaller">Divide out leading coefficient.</mtext>
+            <mtext class="explanation">Divide out leading coefficient.</mtext>
           </mrow>
         </mtd>
       </mtr>
@@ -199,7 +199,7 @@ Wir nehmen eine quadratische Gleichung in ihrer allgemeinen Form und lösen nach
         </mtd>
         <mtd>
           <mrow>
-            <mtext style="color: red; font-size: smaller">Complete the square.</mtext>
+            <mtext class="explanation">Complete the square.</mtext>
           </mrow>
         </mtd>
       </mtr>
@@ -263,7 +263,7 @@ Wir nehmen eine quadratische Gleichung in ihrer allgemeinen Form und lösen nach
         </mtd>
         <mtd>
           <mrow>
-            <mtext style="color: red; font-size: smaller">Discriminant revealed.</mtext>
+            <mtext class="explanation">Discriminant revealed.</mtext>
           </mrow>
         </mtd>
       </mtr>
@@ -319,7 +319,7 @@ Wir nehmen eine quadratische Gleichung in ihrer allgemeinen Form und lösen nach
         </mtd>
         <mtd>
           <mrow>
-            <mtext style="color: red; font-size: smaller"></mtext>
+            <mtext class="explanation"></mtext>
           </mrow>
         </mtd>
       </mtr>
@@ -372,7 +372,7 @@ Wir nehmen eine quadratische Gleichung in ihrer allgemeinen Form und lösen nach
         </mtd>
         <mtd>
           <mrow>
-            <mtext style="color: red; font-size: smaller"></mtext>
+            <mtext class="explanation"></mtext>
           </mrow>
         </mtd>
       </mtr>
@@ -425,7 +425,7 @@ Wir nehmen eine quadratische Gleichung in ihrer allgemeinen Form und lösen nach
         </mtd>
         <mtd>
           <mrow>
-            <mtext style="color: red; font-size: smaller">There's the vertex formula.</mtext>
+            <mtext class="explanation">There's the vertex formula.</mtext>
           </mrow>
         </mtd>
       </mtr>
@@ -467,7 +467,7 @@ Wir nehmen eine quadratische Gleichung in ihrer allgemeinen Form und lösen nach
         </mtd>
         <mtd>
           <mrow>
-            <mtext style="color: red; font-size: smaller"></mtext>
+            <mtext class="explanation"></mtext>
           </mrow>
         </mtd>
       </mtr>
@@ -490,3 +490,10 @@ Wir nehmen eine quadratische Gleichung in ihrer allgemeinen Form und lösen nach
 </math>
 ```
 <!-- prettier-ignore-end -->
+
+```css
+.explanation {
+  color: red;
+  font-size: smaller;
+}
+```

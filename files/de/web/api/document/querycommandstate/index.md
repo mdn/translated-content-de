@@ -1,9 +1,9 @@
 ---
-title: "Document: queryCommandState() Methode"
+title: "Dokument: queryCommandState() Methode"
 short-title: queryCommandState()
 slug: Web/API/Document/queryCommandState
 l10n:
-  sourceCommit: 20c51db7895b1b6f41d4fa90e71830f4b6678eea
+  sourceCommit: 06bb5f22d50ff3579a12aebf7e8c9f02cfa2468b
 ---
 
 {{ApiRef("DOM")}}{{deprecated_header}}{{Non-standard_header}}
@@ -19,7 +19,7 @@ queryCommandState(command)
 ### Parameter
 
 - `command`
-  - : Ein Befehl von [`Document.execCommand()`](/de/docs/Web/API/Document/execCommand)
+  - : Ein Befehl aus [`Document.execCommand()`](/de/docs/Web/API/Document/execCommand)
 
 ### Rückgabewert
 
@@ -31,10 +31,8 @@ queryCommandState(command)
 
 ```html
 <div contenteditable="true">Select a part of this text!</div>
-<button onclick="makeBold();">Test the state of the 'bold' command</button>
-
+<button>Test the state of the 'bold' command</button>
 <hr />
-
 <div id="output"></div>
 ```
 
@@ -65,6 +63,8 @@ function makeBold() {
   document.querySelector("#output").textContent = `Output: ${message}`;
   document.execCommand("bold");
 }
+
+document.querySelector("button").addEventListener("click", makeBold);
 ```
 
 ### Ergebnis
@@ -73,7 +73,7 @@ function makeBold() {
 
 ## Spezifikationen
 
-Dieses Feature ist Teil keiner aktuellen Spezifikation. Es befindet sich nicht mehr auf dem Weg, ein Standard zu werden.
+Diese Funktion ist Teil keiner aktuellen Spezifikation. Sie ist nicht mehr auf dem Weg, ein Standard zu werden.
 
 ## Browser-Kompatibilität
 
@@ -83,4 +83,4 @@ Dieses Feature ist Teil keiner aktuellen Spezifikation. Es befindet sich nicht m
 
 - [`HTMLElement.contentEditable`](/de/docs/Web/API/HTMLElement/contentEditable)
 - [`document.designMode`](/de/docs/Web/API/Document/designMode)
-- Browser-Bugs im Zusammenhang mit `queryCommandState()`: [Scribes Dokumentation zu "Browser Inconsistencies"](https://github.com/guardian/scribe/blob/master/BROWSERINCONSISTENCIES.md#documentquerycommandstate)
+- Browserfehler im Zusammenhang mit `queryCommandState()`: [Scribe's "Browser Inconsistencies" Dokumentation](https://github.com/guardian/scribe/blob/master/BROWSERINCONSISTENCIES.md#documentquerycommandstate)

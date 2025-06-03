@@ -1,8 +1,9 @@
 ---
 title: Firefox 141 für Entwickler
+short-title: Firefox 141 (Nightly)
 slug: Mozilla/Firefox/Releases/141
 l10n:
-  sourceCommit: 05a220b3155a2755ebcd2229eb094db5ad4ae9f4
+  sourceCommit: 8827bbbc544491e3b0b23a6b2c85b7a8db9b41bb
 ---
 
 Dieser Artikel bietet Informationen über die Änderungen in Firefox 141, die Entwickler betreffen.
@@ -10,31 +11,31 @@ Firefox 141 ist die aktuelle [Nightly-Version von Firefox](https://www.mozilla.o
 
 ## Änderungen für Webentwickler
 
-### Entwickler-Tools
+### Entwicklerwerkzeuge
 
 ### HTML
 
-#### Entfernt
+#### Entfernungen
 
 ### CSS
 
-#### Entfernt
+#### Entfernungen
 
 ### JavaScript
 
-#### Entfernt
+#### Entfernungen
 
 ### SVG
 
-#### Entfernt
+#### Entfernungen
 
 ### HTTP
 
-#### Entfernt
+#### Entfernungen
 
 ### Sicherheit
 
-#### Entfernt
+#### Entfernungen
 
 ### APIs
 
@@ -42,13 +43,13 @@ Firefox 141 ist die aktuelle [Nightly-Version von Firefox](https://www.mozilla.o
 
 #### Medien, WebRTC und Web Audio
 
-#### Entfernt
+#### Entfernungen
 
 ### WebAssembly
 
-#### Entfernt
+#### Entfernungen
 
-### WebDriver-Konformität (WebDriver BiDi, Marionette)
+### WebDriver-Kompatibilität (WebDriver BiDi, Marionette)
 
 #### Allgemein
 
@@ -58,15 +59,15 @@ Firefox 141 ist die aktuelle [Nightly-Version von Firefox](https://www.mozilla.o
 
 ## Änderungen für Add-on-Entwickler
 
-### Entfernt
+### Entfernungen
 
 ### Sonstiges
 
-## Experimentelle Webfunktionen
+## Experimentelle Web-Features
 
-Diese Funktionen werden in Firefox 141 ausgeliefert, sind jedoch standardmäßig deaktiviert.
-Um sie auszuprobieren, suchen Sie nach der entsprechenden Einstellung auf der `about:config`-Seite und setzen Sie diese auf `true`.
-Sie finden weitere derartige Funktionen auf der Seite [Experimentelle Funktionen](/de/docs/Mozilla/Firefox/Experimental_features).
+Diese Features sind in Firefox 141 enthalten, jedoch standardmäßig deaktiviert.
+Um sie auszuprobieren, suchen Sie auf der `about:config`-Seite nach der entsprechenden Einstellung und setzen Sie diese auf `true`.
+Weitere solche Features finden Sie auf der Seite [Experimentelle Features](/de/docs/Mozilla/Firefox/Experimental_features).
 
 ## Ältere Versionen
 

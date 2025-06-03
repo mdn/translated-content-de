@@ -1,18 +1,18 @@
 ---
-title: "DocumentFragment: querySelector()-Methode"
+title: "DocumentFragment: querySelector() Methode"
 short-title: querySelector()
 slug: Web/API/DocumentFragment/querySelector
 l10n:
-  sourceCommit: dcbb1d99185118360cc84b3a0e935e77fe0a03e3
+  sourceCommit: 06bb5f22d50ff3579a12aebf7e8c9f02cfa2468b
 ---
 
 {{ApiRef("DOM")}}
 
-Die **`DocumentFragment.querySelector()`**-Methode gibt das erste Element oder `null` zurück, falls keine Übereinstimmungen gefunden werden. Dies geschieht innerhalb des [`DocumentFragment`](/de/docs/Web/API/DocumentFragment) (mittels Tiefensuche im Dokument). Die Methode durchsucht die Knoten des Dokuments in Vorbestellung und sucht nach übereinstimmenden Selektorgruppen.
+Die **`DocumentFragment.querySelector()`**-Methode gibt das erste Element zurück oder `null`, wenn keine Übereinstimmungen gefunden werden, innerhalb des [`DocumentFragment`](/de/docs/Web/API/DocumentFragment) (unter Verwendung der Tiefenpriorität im Vorabreiterdurchlauf der Knotensequenz des Dokuments), das der angegebenen Gruppe von Selektoren entspricht.
 
-Falls der Selektor eine ID trifft und diese ID irrtümlich mehrfach im Dokument verwendet wird, gibt die Methode das erste übereinstimmende Element zurück.
+Falls der Selektor einer ID entspricht und diese ID fälschlicherweise mehrmals im Dokument verwendet wird, wird das erste übereinstimmende Element zurückgegeben.
 
-Wenn die im Parameter angegebenen Selektoren ungültig sind, wird eine [`DOMException`](/de/docs/Web/API/DOMException) mit dem Wert `SYNTAX_ERR` ausgelöst.
+Falls die im Parameter angegebenen Selektoren ungültig sind, wird ein [`DOMException`](/de/docs/Web/API/DOMException) mit einem `SYNTAX_ERR`-Wert ausgelöst.
 
 ## Syntax
 
@@ -23,11 +23,11 @@ querySelector(selectors)
 ### Parameter
 
 - `selectors`
-  - : Ein String, der einen oder mehrere CSS-Selektoren enthält, getrennt durch Kommas.
+  - : Ein Zeichenfolgenwert, der einen oder mehrere durch Kommas getrennte CSS-Selektoren enthält.
 
 ### Rückgabewert
 
-Ein [`Element`](/de/docs/Web/API/Element)-Objekt, das das erste Element im Dokument darstellt, das den angegebenen Satz von [CSS-Selektoren](/de/docs/Web/CSS/CSS_selectors) entspricht, oder `null`, falls keine Übereinstimmungen vorhanden sind.
+Ein [`Element`](/de/docs/Web/API/Element)-Objekt, das das erste Element im Dokument darstellt, das der angegebenen Gruppe von [CSS-Selektoren](/de/docs/Web/CSS/CSS_selectors) entspricht, oder es wird `null` zurückgegeben, wenn keine Übereinstimmungen vorhanden sind.
 
 ## Beispiele
 
@@ -41,18 +41,18 @@ const el = documentfragment.querySelector(".myclass");
 
 ### CSS-Syntax und das Argument der Methode
 
-Das Argument als String, das an `querySelector` übergeben wird, muss der CSS-Syntax folgen. Um ID oder Selektoren zu treffen, die der CSS-Syntax nicht folgen (zum Beispiel durch unpassende Verwendung von Semikolon oder Leerzeichen), muss das fehlerhafte Zeichen zwingend mit einem doppelten Backslash maskiert werden:
+Das an `querySelector` übergebene Zeichenkettenargument muss der CSS-Syntax entsprechen. Um IDs oder Selektoren abzugleichen, die nicht der CSS-Syntax entsprechen (zum Beispiel durch unangemessene Verwendung von Semikolon oder Leerzeichen), ist es zwingend erforderlich, das falsche Zeichen mit einem doppelten Rückstrich zu maskieren:
 
 ```html
 <div id="foo\bar"></div>
 <div id="foo:bar"></div>
+```
 
-<script>
-  document.querySelector("#foo\bar"); // Does not match anything
-  document.querySelector("#foo\\\\bar"); // Match the first div
-  document.querySelector("#foo:bar"); // Does not match anything
-  document.querySelector("#foo\\:bar"); // Match the second div
-</script>
+```js
+document.querySelector("#foo\bar"); // Does not match anything
+document.querySelector("#foo\\\\bar"); // Match the first div
+document.querySelector("#foo:bar"); // Does not match anything
+document.querySelector("#foo\\:bar"); // Match the second div
 ```
 
 ## Spezifikationen
@@ -65,4 +65,4 @@ Das Argument als String, das an `querySelector` übergeben wird, muss der CSS-Sy
 
 ## Siehe auch
 
-- Die [`DocumentFragment`](/de/docs/Web/API/DocumentFragment)-Schnittstelle, zu der es gehört.
+- Das [`DocumentFragment`](/de/docs/Web/API/DocumentFragment)-Interface, zu dem es gehört.

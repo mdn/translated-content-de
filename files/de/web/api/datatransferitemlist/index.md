@@ -2,41 +2,74 @@
 title: DataTransferItemList
 slug: Web/API/DataTransferItemList
 l10n:
-  sourceCommit: 980b5a01c4527ef69fee3b865c68ee3ffb09d612
+  sourceCommit: 06bb5f22d50ff3579a12aebf7e8c9f02cfa2468b
 ---
 
 {{APIRef("HTML Drag and Drop API")}}
 
-Das **`DataTransferItemList`**-Objekt ist eine Liste von [`DataTransferItem`](/de/docs/Web/API/DataTransferItem)-Objekten, die Elemente darstellen, die gezogen werden. Während eines _Ziehvorgangs_ hat jedes [`DragEvent`](/de/docs/Web/API/DragEvent) eine [`dataTransfer`](/de/docs/Web/API/DragEvent/dataTransfer)-Eigenschaft und diese Eigenschaft ist eine `DataTransferItemList`.
+Das **`DataTransferItemList`**-Objekt ist eine Liste von [`DataTransferItem`](/de/docs/Web/API/DataTransferItem)-Objekten, die Elemente darstellen, die gezogen werden. Während eines _Drag-and-Drop-Vorgangs_ hat jedes [`DragEvent`](/de/docs/Web/API/DragEvent) eine [`dataTransfer`](/de/docs/Web/API/DragEvent/dataTransfer)-Eigenschaft, und diese Eigenschaft ist eine `DataTransferItemList`.
 
 Die einzelnen Elemente können mit der [Klammernotation](/de/docs/Web/JavaScript/Reference/Operators/Property_accessors#bracket_notation) `[]` zugegriffen werden.
 
-`DataTransferItemList` wurde primär für die [HTML Drag and Drop API](/de/docs/Web/API/HTML_Drag_and_Drop_API) entworfen und wird immer noch im HTML-Bereich des Drag & Drop spezifiziert, aber es wird jetzt auch von anderen APIs verwendet, wie z.B. [`ClipboardEvent.clipboardData`](/de/docs/Web/API/ClipboardEvent/clipboardData) und [`InputEvent.dataTransfer`](/de/docs/Web/API/InputEvent/dataTransfer). Die Dokumentation von `DataTransferItemList` wird hauptsächlich seine Verwendung in Drag-and-Drop-Vorgängen besprechen, und Sie sollten die Dokumentation der anderen APIs für die Verwendung von `DataTransferItemList` in diesen Kontexten konsultieren.
+`DataTransferItemList` wurde in erster Linie für die [HTML Drag and Drop API](/de/docs/Web/API/HTML_Drag_and_Drop_API) entwickelt und ist immer noch im HTML-Drag-and-Drop-Abschnitt spezifiziert. Es wird jedoch jetzt auch von anderen APIs verwendet, wie z. B. [`ClipboardEvent.clipboardData`](/de/docs/Web/API/ClipboardEvent/clipboardData) und [`InputEvent.dataTransfer`](/de/docs/Web/API/InputEvent/dataTransfer). Die Dokumentation von `DataTransferItemList` wird hauptsächlich ihre Verwendung in Drag-and-Drop-Operationen diskutieren. Sie sollten jedoch die Dokumentationen der anderen APIs für die Verwendung von `DataTransferItemList` in diesen Kontexten konsultieren.
 
 Diese Schnittstelle hat keinen Konstruktor.
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
 - [`DataTransferItemList.length`](/de/docs/Web/API/DataTransferItemList/length) {{ReadOnlyInline}}
-  - : Ein `unsigned long`, das die Anzahl der Ziehelemente in der Liste ist.
+  - : Ein `unsigned long`, der die Anzahl der Drag-Elemente in der Liste darstellt.
 
-## Instanzmethoden
+## Instanz-Methoden
 
 - [`DataTransferItemList.add()`](/de/docs/Web/API/DataTransferItemList/add)
-  - : Fügt ein Element (entweder ein [`File`](/de/docs/Web/API/File)-Objekt oder eine Zeichenkette) zur Ziehelementliste hinzu und gibt ein [`DataTransferItem`](/de/docs/Web/API/DataTransferItem)-Objekt für das neue Element zurück.
+  - : Fügt der Drag-Element-Liste ein Element (entweder ein [`File`](/de/docs/Web/API/File)-Objekt oder einen String) hinzu und gibt ein [`DataTransferItem`](/de/docs/Web/API/DataTransferItem)-Objekt für das neue Element zurück.
 - [`DataTransferItemList.remove()`](/de/docs/Web/API/DataTransferItemList/remove)
-  - : Entfernt das Ziehelement aus der Liste an der angegebenen Stelle.
+  - : Entfernt das Drag-Element aus der Liste an dem angegebenen Index.
 - [`DataTransferItemList.clear()`](/de/docs/Web/API/DataTransferItemList/clear)
-  - : Entfernt alle Ziehelemente aus der Liste.
+  - : Entfernt alle Drag-Elemente aus der Liste.
 
 ## Beispiel
 
-Dieses Beispiel zeigt, wie man Drag and Drop verwendet.
+Dieses Beispiel zeigt, wie Drag and Drop verwendet wird.
+
+### HTML
+
+```html
+<div>
+  <p id="source" draggable="true">
+    Select this element, drag it to the Drop Zone and then release the selection
+    to move the element.
+  </p>
+</div>
+<div id="target">Drop Zone</div>
+```
+
+### CSS
+
+```css
+div {
+  margin: 0em;
+  padding: 2em;
+}
+
+#source {
+  color: blue;
+  border: 1px solid black;
+}
+
+#target {
+  border: 1px solid black;
+}
+```
 
 ### JavaScript
 
 ```js
-function dragstartHandler(ev) {
+const source = document.getElementById("source");
+const target = document.getElementById("target");
+
+source.addEventListener("dragstart", (ev) => {
   console.log("dragStart");
 
   // Add this element's id to the drag payload so the drop handler will
@@ -47,9 +80,17 @@ function dragstartHandler(ev) {
   // Add some other items to the drag payload
   dataList.add("<p>Paragraph…</p>", "text/html");
   dataList.add("http://www.example.org", "text/uri-list");
-}
+});
 
-function dropHandler(ev) {
+source.addEventListener("dragend", (ev) => {
+  console.log("dragEnd");
+  const dataList = ev.dataTransfer.items;
+
+  // Clear any remaining drag data
+  dataList.clear();
+});
+
+target.addEventListener("drop", (ev) => {
   console.log("Drop");
   ev.preventDefault();
 
@@ -72,62 +113,15 @@ function dropHandler(ev) {
       });
     }
   }
-}
+});
 
-function dragoverHandler(ev) {
+target.addEventListener("dragover", (ev) => {
   console.log("dragOver");
   ev.preventDefault();
 
   // Set the dropEffect to move
   ev.dataTransfer.dropEffect = "move";
-}
-
-function dragendHandler(ev) {
-  console.log("dragEnd");
-  const dataList = ev.dataTransfer.items;
-
-  // Clear any remaining drag data
-  dataList.clear();
-}
-```
-
-### HTML
-
-```html
-<div>
-  <p
-    id="source"
-    ondragstart="dragstartHandler(event);"
-    ondragend="dragendHandler(event);"
-    draggable="true">
-    Select this element, drag it to the Drop Zone and then release the selection
-    to move the element.
-  </p>
-</div>
-<div
-  id="target"
-  ondrop="dropHandler(event);"
-  ondragover="dragoverHandler(event);">
-  Drop Zone
-</div>
-```
-
-### CSS
-
-```css
-div {
-  margin: 0em;
-  padding: 2em;
-}
-
-#source {
-  color: blue;
-  border: 1px solid black;
-}
-
-#target {
-  border: 1px solid black;
-}
+});
 ```
 
 ### Ergebnis

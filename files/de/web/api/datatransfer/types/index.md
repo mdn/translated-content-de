@@ -3,16 +3,16 @@ title: "DataTransfer: types-Eigenschaft"
 short-title: types
 slug: Web/API/DataTransfer/types
 l10n:
-  sourceCommit: 6d2000984203c51f1aad49107ebcebe14d3c1238
+  sourceCommit: 06bb5f22d50ff3579a12aebf7e8c9f02cfa2468b
 ---
 
 {{APIRef("HTML Drag and Drop API")}}
 
-Die schreibgeschützte Eigenschaft **`DataTransfer.types`** gibt die verfügbaren Typen zurück, die in den [`items`](/de/docs/Web/API/DataTransfer/items) vorhanden sind.
+Die schreibgeschützte Eigenschaft **`DataTransfer.types`** gibt die verfügbaren Typen zurück, die in den [`items`](/de/docs/Web/API/DataTransfer/items) existieren.
 
 ## Wert
 
-Ein Array der Datenformate. Jedes Format ist ein String, der im Allgemeinen ein MIME-Typ ist, wie `text/plain` oder `text/html`. Wenn der Drag-Vorgang keine Daten enthält, ist diese Liste leer. Wenn Dateien in den Drag-Vorgang einbezogen sind, wird einer der Typen der String `Files` sein.
+Ein Array der Datenformate. Jedes Format ist eine Zeichenkette, die im Allgemeinen ein MIME-Typ wie `text/plain` oder `text/html` ist. Wenn der Ziehvorgang keine Daten enthielt, wird diese Liste leer sein. Wenn beim Ziehvorgang Dateien enthalten sind, dann wird einer der Typen die Zeichenkette `Files` sein.
 
 ## Beispiele
 
@@ -20,79 +20,73 @@ Dieses Beispiel zeigt die Verwendung der Eigenschaften `types` und
 [`items`](/de/docs/Web/API/DataTransfer/items).
 
 ```html
-<!doctype html>
-<html lang="en">
-  <title>Examples of DataTransfer.{types,items} properties</title>
-  <meta content="width=device-width" />
-  <style>
-    div {
-      margin: 0em;
-      padding: 2em;
-    }
-    #target {
-      border: 1px solid black;
-    }
-  </style>
-  <script>
-    function dragstart_handler(ev) {
-      console.log(`dragStart: target.id = ${ev.target.id}`);
-
-      // Add this element's id to the drag payload so the drop handler will
-      // know which element to add to its tree
-      ev.dataTransfer.setData("text/plain", ev.target.id);
-      ev.dataTransfer.effectAllowed = "move";
-    }
-
-    function drop_handler(ev) {
-      console.log(`drop: target.id = ${ev.target.id}`);
-      ev.preventDefault();
-
-      // Get the id of the target and add the moved element to the target's DOM
-      const data = ev.dataTransfer.getData("text");
-      ev.target.appendChild(document.getElementById(data));
-
-      // Print each format type
-      for (let i = 0; i < ev.dataTransfer.types.length; i++) {
-        console.log(`… types[${i}] = ${ev.dataTransfer.types[i]}`);
-      }
-
-      // Print each item's "kind" and "type"
-      for (let i = 0; i < ev.dataTransfer.items.length; i++) {
-        console.log(
-          `… items[${i}].kind = ${ev.dataTransfer.items[i].kind}; type = ${ev.dataTransfer.items[i].type}`,
-        );
-      }
-    }
-
-    function dragover_handler(ev) {
-      console.log("dragOver");
-      ev.preventDefault();
-      // Set the dropEffect to move
-      ev.dataTransfer.dropEffect = "move";
-    }
-  </script>
-  <body>
-    <h1>
-      Examples of <code>DataTransfer</code>.{<code>types</code>,
-      <code>items</code>} properties
-    </h1>
-    <ul>
-      <li id="i1" ondragstart="dragstart_handler(event);" draggable="true">
-        Drag Item 1 to the Drop Zone
-      </li>
-      <li id="i2" ondragstart="dragstart_handler(event);" draggable="true">
-        Drag Item 2 to the Drop Zone
-      </li>
-    </ul>
-    <div
-      id="target"
-      ondrop="drop_handler(event);"
-      ondragover="dragover_handler(event);">
-      Drop Zone
-    </div>
-  </body>
-</html>
+<ul>
+  <li id="i1" draggable="true">Drag Item 1 to the Drop Zone</li>
+  <li id="i2" draggable="true">Drag Item 2 to the Drop Zone</li>
+</ul>
+<div id="target">Drop Zone</div>
+<pre id="output"></pre>
 ```
+
+```css
+div {
+  margin: 0em;
+  padding: 2em;
+}
+#target {
+  border: 1px solid black;
+}
+```
+
+```js
+const output = document.getElementById("output");
+function log(msg) {
+  output.textContent += `${msg}\n`;
+}
+
+document.querySelectorAll("li").forEach((item) => {
+  item.addEventListener("dragstart", dragstart_handler);
+});
+
+function dragstart_handler(ev) {
+  log(`dragStart: target.id = ${ev.target.id}`);
+
+  // Add this element's id to the drag payload so the drop handler will
+  // know which element to add to its tree
+  ev.dataTransfer.setData("text/plain", ev.target.id);
+  ev.dataTransfer.effectAllowed = "move";
+}
+
+const target = document.getElementById("target");
+
+target.addEventListener("drop", (ev) => {
+  log(`drop: target.id = ${ev.target.id}`);
+  ev.preventDefault();
+
+  // Get the id of the target and add the moved element to the target's DOM
+  const data = ev.dataTransfer.getData("text");
+  ev.target.appendChild(document.getElementById(data));
+
+  // Print each format type
+  for (let i = 0; i < ev.dataTransfer.types.length; i++) {
+    log(`… types[${i}] = ${ev.dataTransfer.types[i]}`);
+  }
+
+  // Print each item's "kind" and "type"
+  for (let i = 0; i < ev.dataTransfer.items.length; i++) {
+    log(
+      `… items[${i}].kind = ${ev.dataTransfer.items[i].kind}; type = ${ev.dataTransfer.items[i].type}`,
+    );
+  }
+});
+
+target.addEventListener("dragover", (ev) => {
+  ev.preventDefault();
+  ev.dataTransfer.dropEffect = "move";
+});
+```
+
+{{EmbedLiveSample("examples", "", 400)}}
 
 ## Spezifikationen
 
@@ -105,6 +99,6 @@ Dieses Beispiel zeigt die Verwendung der Eigenschaften `types` und
 ## Siehe auch
 
 - [Drag and Drop](/de/docs/Web/API/HTML_Drag_and_Drop_API)
-- [Drag-Vorgänge](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_operations)
-- [Empfohlene Drag-Typen](/de/docs/Web/API/HTML_Drag_and_Drop_API/Recommended_drag_types)
+- [Selectieren von Ziehoperationen](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_operations)
+- [Empfohlene Zieh-Typen](/de/docs/Web/API/HTML_Drag_and_Drop_API/Recommended_drag_types)
 - [DataTransfer-Test - Einfügen oder Ziehen](https://codepen.io/tech_query/pen/MqGgap)

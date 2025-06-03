@@ -2,10 +2,10 @@
 title: <mspace>
 slug: Web/MathML/Reference/Element/mspace
 l10n:
-  sourceCommit: c263f06fa14ed56153e345006bb459c9df014b98
+  sourceCommit: 06bb5f22d50ff3579a12aebf7e8c9f02cfa2468b
 ---
 
-Das **`<mspace>`**-Element von [MathML](/de/docs/Web/MathML) wird verwendet, um einen Leerraum anzuzeigen, dessen Größe durch seine Attribute festgelegt wird.
+Das **`<mspace>`** [MathML](/de/docs/Web/MathML)-Element wird verwendet, um einen Leerraum anzuzeigen, dessen Größe durch seine Attribute festgelegt wird.
 
 ## Attribute
 
@@ -19,20 +19,22 @@ Die Attribute dieses Elements umfassen die [globalen MathML-Attribute](/de/docs/
   - : Ein {{cssxref("length-percentage")}}, das die gewünschte Breite des Leerraums angibt.
 
 > [!NOTE]
-> Für die Attribute `depth`, `height`, `width` können einige Browser auch [veraltete MathML-Längen](/de/docs/Web/MathML/Reference/Values#legacy_mathml_lengths) akzeptieren.
+> Bei den Attributen `depth`, `height` und `width` können einige Browser auch [veraltete MathML-Längen](/de/docs/Web/MathML/Reference/Values#legacy_mathml_lengths) akzeptieren.
 
 ## Beispiele
 
 ```html
 <math display="block">
   <mn>1</mn>
-  <mspace
-    depth="40px"
-    height="20px"
-    width="100px"
-    style="background: lightblue" />
+  <mspace depth="40px" height="20px" width="100px" />
   <mn>2</mn>
 </math>
+```
+
+```css
+mspace {
+  background: lightblue;
+}
 ```
 
 {{EmbedLiveSample('Examples')}}
