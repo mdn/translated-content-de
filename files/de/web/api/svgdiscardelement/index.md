@@ -2,24 +2,24 @@
 title: SVGDiscardElement
 slug: Web/API/SVGDiscardElement
 l10n:
-  sourceCommit: 828ae6eee278f30c3fa3677a74915d28d9e338b2
+  sourceCommit: 5972b3bca23954d676bfbb29cafc822a75ca08aa
 ---
 
-{{APIRef("SVG")}}{{deprecated_header}}{{SeeCompatTable}}
+{{APIRef("SVG")}}{{deprecated_header}}
 
-Die **`SVGDiscardElement`**-Schnittstelle ist eine Schnittstelle für das veraltete `<discard>`-Element.
+Das **`SVGDiscardElement`**-Interface ist ein Interface für das veraltete `<discard>`-Element.
 
-Beachten Sie, dass sie keinen Zugriff auf die spezifischen Attribute des `<discard>`-Elements (`begin` und `href`) bietet.
+Beachten Sie, dass es keinen Zugriff auf die spezifischen Attribute des `<discard>`-Elements (`begin` und `href`) bietet.
 
 {{InheritanceDiagram}}
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-_Diese Schnittstelle erbt auch Eigenschaften von ihrem übergeordneten Element, [`SVGAnimationElement`](/de/docs/Web/API/SVGAnimationElement)._
+_Dieses Interface erbt auch Eigenschaften von seinem übergeordneten Element, [`SVGAnimationElement`](/de/docs/Web/API/SVGAnimationElement)._
 
-## Instanz-Methoden
+## Instanzmethoden
 
-_Methoden werden von ihrer übergeordneten Schnittstelle [`SVGAnimationElement`](/de/docs/Web/API/SVGAnimationElement) geerbt._
+_Erbt Methoden von seinem übergeordneten Interface, [`SVGAnimationElement`](/de/docs/Web/API/SVGAnimationElement)._
 
 ## Spezifikationen
 
