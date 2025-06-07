@@ -2,12 +2,29 @@
 title: <polygon>
 slug: Web/SVG/Reference/Element/polygon
 l10n:
-  sourceCommit: 34c204f8f6c3f7ac60ebb23fca9798680aee9956
+  sourceCommit: ac806e34aba086be141689c64dc4dd73636fbd62
 ---
 
-Das **`<polygon>`** [SVG](/de/docs/Web/SVG) Element definiert eine geschlossene Form, die aus einer Reihe miteinander verbundener gerader Liniensegmente besteht. Der letzte Punkt ist mit dem ersten Punkt verbunden.
+Das **`<polygon>`** [SVG](/de/docs/Web/SVG)-Element definiert eine geschlossene Form, die aus einer Reihe verbundener gerader Liniensegmente besteht. Der letzte Punkt ist mit dem ersten Punkt verbunden.
 
-Für offene Formen siehe das {{SVGElement("polyline")}} Element.
+Für offene Formen siehe das {{SVGElement("polyline")}}-Element.
+
+## Verwendungskontext
+
+{{svginfo}}
+
+## Attribute
+
+- {{SVGAttr('points')}}
+  - : Dieses Attribut definiert die Liste der Punkte (Paare von `x,y`-Koordinaten) zum Zeichnen des Polygons.
+    _Wertetyp_: [**\<number>**](/de/docs/Web/SVG/Guides/Content_type#number)+; _Standardwert_: `""`; _Animierbar_: **ja**
+- {{SVGAttr("pathLength")}}
+  - : Dieses Attribut ermöglicht es, die Gesamtlänge des Pfades in Benutzereinheiten anzugeben.
+    _Wertetyp_: [**\<number>**](/de/docs/Web/SVG/Guides/Content_type#number); _Standardwert_: _keiner_; _Animierbar_: **ja**
+
+## DOM-Schnittstelle
+
+Dieses Element implementiert die [`SVGPolygonElement`](/de/docs/Web/API/SVGPolygonElement)-Schnittstelle.
 
 ## Beispiel
 
@@ -31,19 +48,6 @@ svg {
 
 {{EmbedLiveSample('Example', 100, 100)}}
 
-## Attribute
-
-- {{SVGAttr('points')}}
-  - : Dieses Attribut definiert die Liste der Punkte (Paarungen von `x,y` absoluten Koordinaten), die erforderlich sind, um das Polygon zu zeichnen.
-    _Werttyp_: [**\<number>**](/de/docs/Web/SVG/Guides/Content_type#number)+; _Standardwert_: `""`; _Animierbar_: **ja**
-- {{SVGAttr("pathLength")}}
-  - : Dieses Attribut ermöglicht die Angabe der Gesamtlänge des Pfades in Benutzereinheiten.
-    _Werttyp_: [**\<number>**](/de/docs/Web/SVG/Guides/Content_type#number); _Standardwert_: _none_; _Animierbar_: **ja**
-
-## Nutzungskontext
-
-{{svginfo}}
-
 ## Spezifikationen
 
 {{Specifications}}
@@ -54,7 +58,7 @@ svg {
 
 ## Siehe auch
 
-- [SVG Präsentationsattribute](/de/docs/Web/SVG/Reference/Attribute#presentation_attributes) einschließlich {{SVGAttr("fill")}} und {{SVGAttr("stroke")}}
+- [SVG-Präsentationsattribute](/de/docs/Web/SVG/Reference/Attribute#presentation_attributes) einschließlich {{SVGAttr("fill")}} und {{SVGAttr("stroke")}}
 
 - **Andere grundlegende SVG-Formen:**
 

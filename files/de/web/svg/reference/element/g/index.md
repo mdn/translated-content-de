@@ -2,12 +2,24 @@
 title: <g>
 slug: Web/SVG/Reference/Element/g
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: ac806e34aba086be141689c64dc4dd73636fbd62
 ---
 
 Das **`<g>`** [SVG](/de/docs/Web/SVG)-Element ist ein Container, der verwendet wird, um andere SVG-Elemente zu gruppieren.
 
-Transformationen, die auf das `<g>`-Element angewendet werden, wirken sich auf seine Kindelemente aus, und seine Attribute werden von seinen Kindern geerbt. Es kann auch verwendet werden, um mehrere Elemente zu gruppieren, die später mit dem {{SVGElement("use")}}-Element referenziert werden können.
+Transformationen, die auf das `<g>`-Element angewendet werden, werden auf seine Kind-Elemente ausgeführt, und seine Attribute werden von seinen Kindern geerbt. Es kann auch mehrere Elemente gruppieren, um später mit dem {{SVGElement("use")}}-Element referenziert zu werden.
+
+## Verwendungskontext
+
+{{svginfo}}
+
+## Attribute
+
+Dieses Element enthält nur globale Attribute.
+
+## DOM-Schnittstelle
+
+Dieses Element implementiert die [`SVGGElement`](/de/docs/Web/API/SVGGElement)-Schnittstelle.
 
 ## Beispiel
 
@@ -30,10 +42,6 @@ svg {
 ```
 
 {{EmbedLiveSample('Example', 100, '100%')}}
-
-## Nutzungskontext
-
-{{svginfo}}
 
 ## Spezifikationen
 

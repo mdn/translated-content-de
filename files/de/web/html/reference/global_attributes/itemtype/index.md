@@ -1,32 +1,33 @@
 ---
-title: itemtype
+title: HTML-Attribut itemtype (global)
+short-title: itemtype
 slug: Web/HTML/Reference/Global_attributes/itemtype
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: 7885271e36e9d2744296c01f400653f63caa6f75
 ---
 
 {{HTMLSidebar("Global_attributes")}}
 
-Das [globale Attribut](/de/docs/Web/HTML/Reference/Global_attributes) **`itemtype`** gibt die URL des Vokabulars an, das verwendet wird, um `itemprop`'s (Elementeigenschaften) in der Datenstruktur zu definieren.
+Das [globale Attribut](/de/docs/Web/HTML/Reference/Global_attributes) **`itemtype`** gibt die URL des Vokabulars an, das zur Definition von `itemprop` (Elementeigenschaften) in der Datenstruktur verwendet wird.
 
-[`itemscope`](/de/docs/Web/HTML/Reference/Global_attributes/itemscope) wird verwendet, um den Geltungsbereich festzulegen, in dem das durch `itemtype` festgelegte Vokabular aktiv sein wird.
+[`itemscope`](/de/docs/Web/HTML/Reference/Global_attributes/itemscope) wird verwendet, um den Bereich festzulegen, in dem das Vokabular, das durch `itemtype` festgelegt wird, innerhalb der Datenstruktur aktiv sein wird.
 
-Google und andere große Suchmaschinen unterstützen das [schema.org](https://schema.org/) Vokabular für strukturierte Daten. Dieses Vokabular definiert eine standardisierte Menge von Typnamen und Eigenschaftsnamen. Zum Beispiel gibt `MusicEvent` ein Konzert an, mit [`startDate`](https://schema.org/startDate) und [`location`](https://schema.org/location) Eigenschaften, die die wichtigsten Details des Konzerts festlegen. In diesem Fall wäre [`MusicEvent`](https://schema.org/MusicEvent) die URL, die von `itemtype` verwendet wird, mit `startDate` und `location` als `itemprop`'s, die [`MusicEvent`](https://schema.org/MusicEvent) definiert.
+Google und andere große Suchmaschinen unterstützen das [schema.org](https://schema.org/) Vokabular für strukturierte Daten. Dieses Vokabular definiert einen Standard-Satz von Typnamen und Eigenschaftsnamen. Zum Beispiel steht `MusicEvent` für eine Konzertveranstaltung, mit den Eigenschaften [`startDate`](https://schema.org/startDate) und [`location`](https://schema.org/location), die die wichtigsten Details des Konzerts angeben. In diesem Fall wäre [`MusicEvent`](https://schema.org/MusicEvent) die URL, die von `itemtype` verwendet wird, mit `startDate` und location als `itemprop`, die [`MusicEvent`](https://schema.org/MusicEvent) definiert.
 
 > [!NOTE]
-> Weitere Informationen über `itemtype` Attribute finden Sie unter <https://schema.org/Thing>
+> Mehr über `itemtype` Attribute finden Sie unter <https://schema.org/Thing>
 
-- Das **itemtype** Attribut muss einen Wert haben, der eine ungeordnete Menge von einzigartigen Tokens ist, die groß- und kleinschreibungssensitiv sind, wobei jedes eine gültige und absolute URL ist und alle das gleiche Vokabular verwenden sollen. Der Wert des Attributs muss mindestens ein Token haben.
-- Die Elementtypen müssen alle Typen sein, die in anwendbaren Spezifikationen definiert sind (wie z.B. [schema.org](https://schema.org/)) und müssen alle dasselbe Vokabular verwenden.
-- Das itemtype Attribut kann nur bei Elementen angegeben werden, die ein itemscope Attribut spezifiziert haben.
-- Das itemid Attribut kann nur bei Elementen angegeben werden, die sowohl ein itemscope Attribut als auch ein itemtype Attribut spezifiziert haben. Sie dürfen nur bei Elementen mit einem itemscope Attribut angegeben werden, dessen itemtype Attribut ein Vokabular angibt, das keine globalen Kennungen für Elemente unterstützt, wie es durch die Spezifikation dieses Vokabulars definiert ist.
-- Die genaue Bedeutung einer globalen Kennung wird durch die Spezifikation des Vokabulars bestimmt. Es obliegt solchen Spezifikationen zu definieren, ob mehrere Elemente derselben globalen Kennung (ob auf derselben Seite oder auf verschiedenen Seiten) existieren dürfen und welche Verarbeitungsregeln für dieses Vokabular mit Bezug auf die Behandlung des Falls mehrerer Elemente mit derselben ID gelten.
+- Das **itemtype**-Attribut muss einen Wert haben, der eine ungeordnete Menge von einzigartigen, fallunempfindlichen Tokens ist, wobei jedes eine gültige und absolute URL ist und alle definiert sind, das gleiche Vokabular zu verwenden. Der Wert des Attributs muss mindestens ein Token enthalten.
+- Die Item-Typen müssen alle Typen sein, die in anwendbaren Spezifikationen (wie [schema.org](https://schema.org/)) definiert sind und müssen alle definiert sein, um das gleiche Vokabular zu verwenden.
+- Das itemtype-Attribut kann nur auf Elementen angegeben werden, die ein itemscope-Attribut angegeben haben.
+- Das itemid-Attribut kann nur auf Elementen angegeben werden, die sowohl ein itemscope-Attribut als auch ein itemtype-Attribut angegeben haben. Sie dürfen nur auf Elementen angegeben werden, die ein itemscope-Attribut haben, dessen itemtype-Attribut ein Vokabular angibt, das globale Bezeichner für Elemente, wie in der Spezifikation dieses Vokabulars definiert, nicht unterstützt.
+- Die genaue Bedeutung eines globalen Bezeichners wird durch die Spezifikation des Vokabulars bestimmt. Es liegt an diesen Spezifikationen zu definieren, ob mehrere Elemente mit demselben globalen Bezeichner (ob auf derselben Seite oder auf verschiedenen Seiten) vorhanden sein dürfen und welche Verarbeitungsregeln für dieses Vokabular gelten, in Bezug auf die Handhabung des Falls mehrerer Elemente mit derselben ID.
 
 ## Beispiele
 
-### Darstellung von strukturierten Daten für ein Produkt
+### Darstellung strukturierter Daten für ein Produkt
 
-Dieses Beispiel verwendet Mikrodateneigenschaften, um strukturierte Daten für ein Produkt darzustellen, wie folgt:
+Dieses Beispiel verwendet Microdata-Attribute, um strukturierte Daten für ein Produkt darzustellen, wie folgt:
 
 <table class="standard-table">
   <tbody>
@@ -51,8 +52,8 @@ Dieses Beispiel verwendet Mikrodateneigenschaften, um strukturierte Daten für e
       <td>itemprop</td>
       <td>description</td>
       <td>
-        Eleganter als der klassische Amboss von ACME, ist der Executive Anvil perfekt für
-        Geschäftsreisende, die etwas suchen, das aus der Höhe fallen kann.
+        Schlanker als ACME's Classic Anvil, ist der Executive Anvil perfekt für
+        den Geschäftsreisenden, der etwas zum Fallenlassen aus der Höhe sucht.
       </td>
     </tr>
     <tr>
@@ -131,7 +132,7 @@ Dieses Beispiel verwendet Mikrodateneigenschaften, um strukturierte Daten für e
 </table>
 
 > [!NOTE]
-> Ein praktisches Werkzeug zum Extrahieren von Mikrodatensätzen aus HTML ist das [Structured Data Testing Tool](https://developers.google.com/search/docs/appearance/structured-data) von Google. Probieren Sie es mit dem hier gezeigten HTML aus.
+> Ein praktisches Werkzeug zum Extrahieren von Microdata-Strukturen aus HTML ist Googles [Structured Data Testing Tool](https://developers.google.com/search/docs/appearance/structured-data). Probieren Sie es mit dem hier gezeigten HTML aus.
 
 #### HTML
 
@@ -189,7 +190,7 @@ Dieses Beispiel verwendet Mikrodateneigenschaften, um strukturierte Daten für e
 
 #### Ergebnis
 
-{{EmbedLiveSample('Representing structured data for a product', '', '400')}}
+{{EmbedLiveSample('Darstellung strukturierter Daten für ein Produkt', '', '400')}}
 
 ## Spezifikationen
 
@@ -198,7 +199,7 @@ Dieses Beispiel verwendet Mikrodateneigenschaften, um strukturierte Daten für e
 ## Siehe auch
 
 - [Andere verschiedene globale Attribute](/de/docs/Web/HTML/Reference/Global_attributes)
-- Andere mit Mikrodata verwandte globale Attribute:
+- Andere mit Microdata verbundene globale Attribute:
 
   - [`itemid`](/de/docs/Web/HTML/Reference/Global_attributes/itemid)
   - [`itemprop`](/de/docs/Web/HTML/Reference/Global_attributes/itemprop)

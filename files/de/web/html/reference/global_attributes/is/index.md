@@ -1,21 +1,22 @@
 ---
-title: is
+title: HTML ist ein globales Attribut
+short-title: is
 slug: Web/HTML/Reference/Global_attributes/is
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: 7885271e36e9d2744296c01f400653f63caa6f75
 ---
 
 {{HTMLSidebar("Global_attributes")}}
 
-> **Hinweis:** [Safari plant nicht, benutzerdefinierte eingebaute Elemente zu unterstützen](https://github.com/WebKit/standards-positions/issues/97) und [Browseranbieter erforschen alternative Lösungen zur Anpassung von eingebauten Elementen](https://github.com/WICG/webcomponents/issues/1029). Überprüfen Sie den Abschnitt zur [Browser-Kompatibilität](#browser-kompatibilität) für Informationen zur Unterstützung.
+> **Note:** [Safari plant nicht, benutzerdefinierte eingebaute Elemente zu unterstützen](https://github.com/WebKit/standards-positions/issues/97) und [Browser-Anbieter erforschen alternative Lösungen zur Anpassung eingebauter Elemente](https://github.com/WICG/webcomponents/issues/1029). Überprüfen Sie den Abschnitt zur [Browser-Kompatibilität](#browser-kompatibilität) für Unterstützungshinweise.
 
-Das **`is`** [globale Attribut](/de/docs/Web/HTML/Reference/Global_attributes) erlaubt Ihnen zu spezifizieren, dass ein standardmäßiges HTML-Element sich wie ein definiertes benutzerdefiniertes eingebautes Element verhalten soll (siehe [Verwendung von benutzerdefinierten Elementen](/de/docs/Web/API/Web_components/Using_custom_elements) für weitere Details).
+Das **`is`**-[globale Attribut](/de/docs/Web/HTML/Reference/Global_attributes) ermöglicht Ihnen, anzugeben, dass ein standardmäßiges HTML-Element wie ein definiertes benutzerdefiniertes eingebautes Element verhalten soll (siehe [Verwendung benutzerdefinierter Elemente](/de/docs/Web/API/Web_components/Using_custom_elements) für weitere Details).
 
-Dieses Attribut kann nur verwendet werden, wenn der angegebene Name des benutzerdefinierten Elements im aktuellen Dokument erfolgreich [definiert](/de/docs/Web/API/CustomElementRegistry/define) wurde und den Elementtyp erweitert, auf den es angewendet wird.
+Dieses Attribut kann nur verwendet werden, wenn der angegebene Name des benutzerdefinierten Elements erfolgreich im aktuellen Dokument [definiert](/de/docs/Web/API/CustomElementRegistry/define) wurde und den Typ des Elements erweitert, auf das es angewendet wird.
 
 ## Beispiele
 
-Der folgende Code stammt aus unserem [Wortzähl-Webkomponenten](https://github.com/mdn/web-components-examples/tree/main/word-count-web-component) Beispiel ([sehen Sie es direkt hier](https://mdn.github.io/web-components-examples/word-count-web-component/)).
+Der folgende Code stammt aus unserem [word-count-web-component](https://github.com/mdn/web-components-examples/tree/main/word-count-web-component)-Beispiel ([siehe es auch live](https://mdn.github.io/web-components-examples/word-count-web-component/)).
 
 ```js
 // Create a class for the element

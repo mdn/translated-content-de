@@ -3,19 +3,20 @@ title: "WorkerNavigator: globalPrivacyControl-Eigenschaft"
 short-title: globalPrivacyControl
 slug: Web/API/WorkerNavigator/globalPrivacyControl
 l10n:
-  sourceCommit: c1fd7dc9410c14ec9e00b3ec35b7b94d43296389
+  sourceCommit: f89740247002fb71eb339af142482900f3c32349
 ---
 
 {{APIRef("DOM")}}{{SeeCompatTable}}{{AvailableInWorkers("worker")}}
 
-Die schreibgeschützte Eigenschaft **`WorkerNavigator.globalPrivacyControl`** gibt die [Global Privacy Control](https://globalprivacycontrol.org/)-Einstellung des Benutzers für die aktuelle Webseite zurück. Diese Einstellung gibt an, ob der Benutzer der Webseite oder dem Dienst zustimmt, seine persönlichen Informationen an Dritte zu verkaufen oder zu teilen.
+Die **`WorkerNavigator.globalPrivacyControl`** schreibgeschützte Eigenschaft gibt die [Global Privacy Control](https://globalprivacycontrol.org/)-Einstellung des Benutzers für die aktuelle Website zurück.
+Diese Einstellung gibt an, ob der Benutzer der Website oder dem Dienst zustimmt, seine persönlichen Informationen an Dritte zu verkaufen oder zu teilen.
 
-Der Wert der Eigenschaft reflektiert den Wert des {{httpheader("Sec-GPC")}} HTTP-Headers.
+Der Wert der Eigenschaft entspricht dem des {{httpheader("Sec-GPC")}} HTTP-Headers.
 
 ## Wert
 
-`true`, wenn der Benutzer ausdrücklich _nicht_ der Zustimmung zum Verkauf oder Teilen seiner Daten zustimmt.
-`false`, wenn der Benutzer entweder die Zustimmung erteilt oder keine Präferenz angegeben hat.
+`true`, wenn der Benutzer ausdrücklich _kein_ Einverständnis erteilt, seine Daten zu verkaufen oder zu teilen.
+`false`, wenn der Benutzer entweder zustimmt oder keine Präferenz angegeben hat.
 
 ## Beispiel
 
@@ -34,7 +35,6 @@ console.log(navigator.globalPrivacyControl);
 
 ## Siehe auch
 
-- {{HTTPHeader("Sec-GPC")}}-Header
+- {{HTTPHeader("Sec-GPC")}} Header
 - [globalprivacycontrol.org](https://globalprivacycontrol.org/)
-- [Global Privacy Control Spec](https://privacycg.github.io/gpc-spec/)
 - [Do Not Track auf Wikipedia](https://en.wikipedia.org/wiki/Do_Not_Track)

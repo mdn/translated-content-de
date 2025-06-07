@@ -3,20 +3,20 @@ title: "Document: linkColor-Eigenschaft"
 short-title: linkColor
 slug: Web/API/Document/linkColor
 l10n:
-  sourceCommit: b25d8774aa7bcc6a053e26cf804ad454f51e134b
+  sourceCommit: cac79d099b0a4e48456cb53eb2435f6acf03e188
 ---
 
 {{APIRef("DOM")}} {{Deprecated_header}}
 
-Die **`Document.linkColor`**-Eigenschaft ruft die Farbe von Links innerhalb des Dokuments ab oder setzt sie.
+Die **`Document.linkColor`**-Eigenschaft liest/setzt die Farbe der Links innerhalb des Dokuments.
 
-Diese Eigenschaft ist veraltet. Alternativ können Sie die CSS-{{cssxref("color")}}-Eigenschaft entweder auf HTML-Ankerlinks ({{HtmlElement("a")}}) oder auf {{cssxref(":link")}}-Pseudoklassen anwenden. Eine weitere Alternative ist `document.body.link`, obwohl dies [in HTML 4.01 veraltet ist](https://www.w3.org/TR/html401/struct/global.html#adef-link).
+Diese Eigenschaft ist veraltet. Als Alternative können Sie die CSS-{{cssxref("color")}}-Eigenschaft entweder auf HTML-Ankerlinks ({{HtmlElement("a")}}) oder auf {{cssxref(":link")}}-Pseudoklassen anwenden.
 
 ## Wert
 
 Ein String, der die Farbe als Wort (z.B. `red`) oder als Hexadezimalwert (z.B. `#ff0000`) darstellt.
 
-Wenn der Wert auf `null` gesetzt wird, wird dieser `null`-Wert in den leeren String (`""`) umgewandelt, sodass `document.linkColor = null` gleichbedeutend ist mit `document.linkColor = ""`.
+Wenn sie auf den Wert `null` gesetzt wird, wird dieser Wert in den leeren String (`""`) umgewandelt, sodass `document.linkColor = null` äquivalent zu `document.linkColor = ""` ist.
 
 ## Beispiele
 
@@ -32,7 +32,7 @@ document.linkColor = "blue";
 
 {{Compat}}
 
-Der Standardwert für diese Eigenschaft in Mozilla Firefox ist blau (`#0000ee` in hexadezimaler Schreibweise).
+Der Standardwert für diese Eigenschaft in Mozilla Firefox ist blau (`#0000ee` in Hexadezimal).
 
 ## Siehe auch
 

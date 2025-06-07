@@ -1,53 +1,53 @@
 ---
-title: Datum
+title: Date
 slug: Web/JavaScript/Reference/Global_Objects/Date
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: 4a77365ec768047609ef48da746f5954e291430d
 ---
 
 {{JSRef}}
 
-JavaScript **`Date`**-Objekte repräsentieren einen einzelnen Moment in der Zeit in einem plattformunabhängigen Format. `Date`-Objekte kapseln eine ganze Zahl, die Millisekunden seit Mitternacht des 1. Januar 1970, UTC (der _Epoche_), darstellt.
+JavaScript **`Date`** Objekte repräsentieren einen bestimmten Moment in der Zeit in einem plattformunabhängigen Format. `Date`-Objekte kapseln eine ganze Zahl, die die Millisekunden seit Mitternacht am 1. Januar 1970, UTC (der _Epoch_) darstellt.
 
 > [!NOTE]
-> Mit der Einführung der {{jsxref("Temporal")}}-API wird das `Date`-Objekt als ein veraltetes Feature betrachtet. Ziehen Sie in Betracht, `Temporal` für neuen Code zu verwenden und bestehenden Code nach Möglichkeit darauf zu migrieren (prüfen Sie die [Browser-Kompatibilität](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#browser_compatibility)). Wir werden bald einen Leitfaden zur Verwendung verfassen!
+> Mit der Einführung der {{jsxref("Temporal")}} API wird das `Date`-Objekt als veraltetes Feature betrachtet. Erwägen Sie, `Temporal` für neuen Code zu verwenden und vorhandenen Code darauf zu migrieren, wenn möglich (siehe die [Browser-Kompatibilität](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#browser_compatibility)). Wir werden bald einen Nutzungsleitfaden verfassen!
 
 ## Beschreibung
 
-### Die Epoche, Zeitstempel und ungültige Datumswerte
+### Die Epoche, Zeitstempel und ungültige Datumsangaben
 
-Ein JavaScript-Datum wird grundlegend als die Zeit in Millisekunden spezifiziert, die seit der [Epoche](https://tc39.es/ecma262/multipage/numbers-and-dates.html#sec-time-values-and-time-range) verstrichen ist, welche als Mitternacht des 1. Januar 1970, UTC, definiert ist (entspricht der {{Glossary("Unix_time", "UNIX-Epoche")}}). Dieser Zeitstempel ist _zeitzonenunabhängig_ und definiert eindeutig einen Moment in der Geschichte.
+Ein JavaScript-Datum wird grundsätzlich als die Zeit in Millisekunden seit der [Epoche](https://tc39.es/ecma262/multipage/numbers-and-dates.html#sec-time-values-and-time-range) angegeben, die als Mitternacht am 1. Januar 1970, UTC (gleichwertig der {{Glossary("Unix_time", "UNIX-Epoche")}}) definiert ist. Dieser Zeitstempel ist _zeitzonen-unabhängig_ und definiert einen einzigartigen Moment in der Geschichte.
 
 > [!NOTE]
-> Während der Zeitwert im Kern eines Date-Objekts UTC ist, funktionieren die grundlegenden Methoden, um Datum und Zeit oder ihre Komponenten abzurufen, alle in der lokalen (d.h. auf dem Hostsystem basierenden) Zeitzone und Verschiebung.
+> Während der Zeitwert im Herzen eines Date-Objekts UTC ist, arbeiten die grundlegenden Methoden zum Abrufen des Datums und der Uhrzeit oder ihrer Komponenten alle in der lokalen (d.h. der Zeitzone und dem Offset des Hostsystems).
 
-Der maximale Zeitstempel, der von einem `Date`-Objekt dargestellt werden kann, ist etwas kleiner als die maximale sichere Ganzzahl ({{jsxref("Number.MAX_SAFE_INTEGER")}}, welches 9.007.199.254.740.991 ist). Ein `Date`-Objekt kann maximal ±8.640.000.000.000.000 Millisekunden oder ±100.000.000 (einhundert Millionen) Tage relativ zur Epoche darstellen. Dies ist der Bereich vom 20. April 271.821 v. Chr. bis zum 13. September 275.760 n. Chr. Jeder Versuch, eine Zeit außerhalb dieses Bereichs darzustellen, führt dazu, dass das `Date`-Objekt einen Zeitstempelwert von [`NaN`](/de/docs/Web/JavaScript/Reference/Global_Objects/NaN) hält, was ein „Ungültiges Datum“ ist.
+Der maximale Zeitstempel, der durch ein `Date`-Objekt darstellbar ist, ist etwas kleiner als die maximale sichere Ganzzahl ({{jsxref("Number.MAX_SAFE_INTEGER")}}, was 9,007,199,254,740,991 ist). Ein `Date`-Objekt kann maximal ±8,640,000,000,000,000 Millisekunden oder ±100,000,000 (einhundert Millionen) Tage relativ zur Epoche repräsentieren. Dies ist der Bereich vom 20. April 271821 v. Chr. bis zum 13. September 275760 n. Chr. Jeder Versuch, eine Zeit außerhalb dieses Bereichs darzustellen, führt dazu, dass das `Date`-Objekt einen Zeitstempelwert von [`NaN`](/de/docs/Web/JavaScript/Reference/Global_Objects/NaN) hält, was ein "Ungültiges Datum" ist.
 
 ```js
 console.log(new Date(8.64e15).toString()); // "Sat Sep 13 275760 00:00:00 GMT+0000 (Coordinated Universal Time)"
 console.log(new Date(8.64e15 + 1).toString()); // "Invalid Date"
 ```
 
-Es gibt verschiedene Methoden, die es Ihnen erlauben, mit dem im Datum gespeicherten Zeitstempel zu interagieren:
+Es gibt verschiedene Methoden, die es Ihnen ermöglichen, mit dem im Datum gespeicherten Zeitstempel zu interagieren:
 
 - Sie können direkt mit dem Zeitstempelwert interagieren, indem Sie die Methoden {{jsxref("Date/getTime", "getTime()")}} und {{jsxref("Date/setTime", "setTime()")}} verwenden.
-- Die Methoden {{jsxref("Date/valueOf", "valueOf()")}} und [`[Symbol.toPrimitive]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Date/Symbol.toPrimitive) (wenn `"number"` übergeben wird) — die automatisch bei der [Zahlenumwandlung](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion) aufgerufen werden — geben den Zeitstempel zurück, wodurch `Date`-Objekte sich wie ihre Zeitstempel in Zahlkontexten verhalten.
+- Die Methoden {{jsxref("Date/valueOf", "valueOf()")}} und [`[Symbol.toPrimitive]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Date/Symbol.toPrimitive) (wenn `"number"` übergeben wird) — die automatisch bei [number coercion](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion) aufgerufen werden — geben den Zeitstempel zurück, wodurch `Date`-Objekte sich wie ihre Zeitstempel verhalten, wenn sie in Zahlkontexten verwendet werden.
 - Alle statischen Methoden ({{jsxref("Date.now()")}}, {{jsxref("Date.parse()")}}, und {{jsxref("Date.UTC()")}}) geben Zeitstempel anstelle von `Date`-Objekten zurück.
 - Der {{jsxref("Date/Date", "Date()")}}-Konstruktor kann mit einem Zeitstempel als einzigem Argument aufgerufen werden.
 
 ### Datumskomponenten und Zeitzonen
 
-Ein Datum wird intern als eine einzige Zahl dargestellt, der _Zeitstempel_. Beim Umgang damit muss der Zeitstempel als strukturiertes Datum-Zeit-Darstellung interpretiert werden. Es gibt immer zwei Möglichkeiten, einen Zeitstempel zu interpretieren: als lokale Zeit oder als Coordinated Universal Time (UTC), die globale Standardzeit, die durch die Weltzeit definiert ist. Die lokale Zeitzone wird nicht im Datumsobjekt gespeichert, sondern durch die Hostumgebung (Gerät des Benutzers) bestimmt.
+Ein Datum wird intern als eine einzige Zahl, der _Zeitstempel_, dargestellt. Bei der Interaktion mit ihm muss der Zeitstempel als strukturierte Datum-Uhrzeit-Darstellung interpretiert werden. Es gibt immer zwei Möglichkeiten, einen Zeitstempel zu interpretieren: als eine lokale Zeit oder als Coordinated Universal Time (UTC), die global standardisierte Zeit, die durch den World Time Standard definiert ist. Die lokale Zeitzone wird nicht im Date-Objekt gespeichert, sondern vom Host-Umfeld (Benutzergerät) bestimmt.
 
 > [!NOTE]
-> UTC sollte nicht mit der [Greenwich Mean Time](https://en.wikipedia.org/wiki/Greenwich_Mean_Time) (GMT) verwechselt werden, da sie nicht immer gleich sind — dies wird detaillierter auf der verlinkten Wikipedia-Seite erklärt.
+> UTC sollte nicht mit der [Greenwich Mean Time](https://en.wikipedia.org/wiki/Greenwich_Mean_Time) (GMT) verwechselt werden, da sie nicht immer gleich sind — dies wird im verlinkten Wikipedia-Artikel ausführlicher erklärt.
 
-Beispielsweise repräsentiert der Zeitstempel 0 einen einzigartigen Moment in der Geschichte, kann aber auf zwei Arten interpretiert werden:
+Zum Beispiel repräsentiert der Zeitstempel 0 einen einzigartigen Moment in der Geschichte, kann aber auf zwei Arten interpretiert werden:
 
-- Als UTC-Zeit ist es Mitternacht des 1. Januar 1970, UTC,
-- Als lokale Zeit in New York (UTC-5) ist es 19:00:00 am 31. Dezember 1969.
+- Als UTC-Zeit ist es Mitternacht am Beginn des 1. Januar 1970, UTC,
+- Als lokale Zeit in New York (UTC-5) ist es 19:00:00 Uhr am 31. Dezember 1969.
 
-Die Methode {{jsxref("Date/getTimezoneOffset", "getTimezoneOffset()")}} gibt den Unterschied zwischen UTC und der lokalen Zeit in Minuten zurück. Beachten Sie, dass die Zeitzonenverschiebung nicht nur von der aktuellen Zeitzone, sondern auch von der durch das `Date`-Objekt repräsentierten Zeit abhängt, aufgrund von Sommerzeit und historischen Änderungen. Im Wesentlichen ist die Zeitzonenverschiebung die Verschiebung von UTC-Zeit, zur Zeit, die durch das `Date`-Objekt und am Standort der Hostumgebung dargestellt wird.
+Die Methode {{jsxref("Date/getTimezoneOffset", "getTimezoneOffset()")}} gibt die Differenz zwischen UTC und der lokalen Zeit in Minuten zurück. Beachten Sie, dass der Zeitzonen-Offset nicht nur von der aktuellen Zeitzone, sondern auch von der durch das `Date`-Objekt repräsentierten Zeit abhängt, aufgrund der Sommerzeitumstellung und historischer Änderungen. Im Wesentlichen ist der Zeitzonen-Offset die Differenz zur UTC-Zeit, zur Zeit, die durch das `Date`-Objekt repräsentiert wird, und am Standort des Host-Umfelds.
 
 Es gibt zwei Gruppen von `Date`-Methoden: Eine Gruppe holt und setzt verschiedene Datumskomponenten, indem der Zeitstempel als lokale Zeit interpretiert wird, während die andere UTC verwendet.
 
@@ -59,9 +59,9 @@ Es gibt zwei Gruppen von `Date`-Methoden: Eine Gruppe holt und setzt verschieden
       <th colspan="2">UTC</th>
     </tr>
     <tr>
-      <th>Abrufen</th>
+      <th>Holen</th>
       <th>Setzen</th>
-      <th>Abrufen</th>
+      <th>Holen</th>
       <th>Setzen</th>
     </tr>
   </thead>
@@ -116,180 +116,180 @@ Es gibt zwei Gruppen von `Date`-Methoden: Eine Gruppe holt und setzt verschieden
       <td>{{jsxref("Date/setUTCMilliseconds", "setUTCMilliseconds()")}}</td>
     </tr>
     <tr>
-      <td>Wochentag</td>
+      <td>Tag (der Woche)</td>
       <td>{{jsxref("Date/getDay", "getDay()")}}</td>
-      <td>N/V</td>
+      <td>Nicht zutreffend</td>
       <td>{{jsxref("Date/getUTCDay", "getUTCDay()")}}</td>
-      <td>N/V</td>
+      <td>Nicht zutreffend</td>
     </tr>
   </tbody>
 </table>
 
-Der {{jsxref("Date/Date", "Date()")}}-Konstruktor kann mit zwei oder mehr Argumenten aufgerufen werden, wobei diese als Jahr, Monat, Tag, Stunde, Minute, Sekunde und Millisekunde interpretiert werden, jeweils in lokaler Zeit. {{jsxref("Date.UTC()")}} funktioniert ähnlich, aber es interpretiert die Komponenten als UTC-Zeit und akzeptiert auch ein einzelnes Argument, das das Jahr repräsentiert.
+Der {{jsxref("Date/Date", "Date()")}}-Konstruktor kann mit zwei oder mehr Argumenten aufgerufen werden, in welchem Fall sie als Jahr, Monat, Tag, Stunde, Minute, Sekunde und Millisekunde in lokaler Zeit interpretiert werden. {{jsxref("Date.UTC()")}} funktioniert ähnlich, interpretiert die Komponenten jedoch als UTC-Zeit und akzeptiert auch ein einziges Argument, das das Jahr darstellt.
 
 > [!NOTE]
-> Einige Methoden, einschließlich des `Date()`-Konstruktors, `Date.UTC()` sowie der veralteten {{jsxref("Date/getYear", "getYear()")}}/{{jsxref("Date/setYear", "setYear()")}}-Methoden, interpretieren ein zweistelliges Jahr als ein Jahr in den 1900er Jahren. Beispielsweise wird `new Date(99, 5, 24)` als 24. Juni 1999 interpretiert, nicht als 24. Juni 99. Siehe [Interpretation von zweistelligen Jahren](#interpretation_von_zweistelligen_jahren) für mehr Informationen.
+> Einige Methoden, einschließlich des `Date()`-Konstruktors, `Date.UTC()`, und der veralteten {{jsxref("Date/getYear", "getYear()")}}/{{jsxref("Date/setYear", "setYear()")}}-Methoden, interpretieren ein zweistelliges Jahr als ein Jahr in den 1900er Jahren. Zum Beispiel wird `new Date(99, 5, 24)` als 24. Juni 1999 interpretiert, nicht als 24. Juni 99. Siehe [Interpretation von zweistelligen Jahren](#interpretation_zweistelliger_jahre) für weitere Informationen.
 
-Wenn ein Segment seinen erwarteten Bereich über- oder unterschreitet, „trägt es normalerweise zum nächsten größeren Segment bei“ oder „leiht von diesem aus“. Zum Beispiel, wenn der Monat auf 12 gesetzt wird (Monate sind nullbasiert, also ist Dezember 11), wird es zum Januar des nächsten Jahres. Wenn der Tag des Monats auf 0 gesetzt wird, wird es der letzte Tag des vorherigen Monats. Dies gilt auch für Daten, die mit dem [Datums-Zeit-String-Format](#datums-zeit-string-format) angegeben sind.
+Wenn ein Segment seinen erwarteten Bereich über- oder unterschreitet, "trägt" es normalerweise zum höheren Segment hinzu oder leiht sich davon. Zum Beispiel, wenn der Monat auf 12 gesetzt wird (Monate beginnen bei null, also ist Dezember 11), wird es zum Januar des nächsten Jahres. Wenn der Tag des Monats auf 0 gesetzt wird, wird es zum letzten Tag des vorherigen Monats. Dies gilt auch für Daten, die mit dem [Datums-Zeit-Format](#datums-zeit-format) festgelegt werden.
 
-### Datums-Zeit-String-Format
+### Datums-Zeit-Format
 
-Es gibt viele Möglichkeiten, ein Datum als String zu formatieren. Die JavaScript-Spezifikation spezifiziert nur ein Format, das universell unterstützt werden soll: das [_Datums-Zeit-String-Format_](https://tc39.es/ecma262/multipage/numbers-and-dates.html#sec-date-time-string-format), eine Vereinfachung des ISO 8601-Kalenderdatums im erweiterten Format. Das Format ist wie folgt:
+Es gibt viele Möglichkeiten, ein Datum als Zeichenfolge zu formatieren. Die JavaScript-Spezifikation legt nur ein Format fest, das universell unterstützt werden muss: das [_Datums-Zeit-Format_](https://tc39.es/ecma262/multipage/numbers-and-dates.html#sec-date-time-string-format), eine Vereinfachung des ISO 8601-Kalenderdatums im erweiterten Format. Das Format ist wie folgt:
 
 ```plain
 YYYY-MM-DDTHH:mm:ss.sssZ
 ```
 
-- `YYYY` ist das Jahr, mit vier Ziffern (`0000` bis `9999`), oder als _erweitertes Jahr_ mit `+` oder `-`, gefolgt von sechs Ziffern. Das Vorzeichen ist für erweiterte Jahre erforderlich. `-000000` ist explizit als gültiges Jahr nicht erlaubt.
-- `MM` ist der Monat, mit zwei Ziffern (`01` bis `12`). Standardmäßig `01`.
-- `DD` ist der Tag des Monats, mit zwei Ziffern (`01` bis `31`). Standardmäßig `01`.
-- `T` ist ein buchstäblicher Charakter, der den Beginn des _Zeit_ Teils des Strings anzeigt. Das `T` ist erforderlich, wenn der Zeitteil angegeben wird.
-- `HH` ist die Stunde, mit zwei Ziffern (`00` bis `23`). Als Sonderfall ist `24:00:00` erlaubt und wird als Mitternacht am Beginn des nächsten Tages interpretiert. Standardmäßig `00`.
-- `mm` ist die Minute, mit zwei Ziffern (`00` bis `59`). Standardmäßig `00`.
-- `ss` ist die Sekunde, mit zwei Ziffern (`00` bis `59`). Standardmäßig `00`.
-- `sss` ist die Millisekunde, mit drei Ziffern (`000` bis `999`). Standardmäßig `000`.
-- `Z` ist die Zeitzonenverschiebung, die entweder der buchstäbliche Charakter `Z` (anzeigend UTC) oder `+` oder `-`, gefolgt von `HH:mm`, der Verschiebung in Stunden und Minuten von UTC sein kann.
+- `YYYY` ist das Jahr, mit vier Ziffern (`0000` bis `9999`), oder als _erweitertes Jahr_ mit `+` oder `-` gefolgt von sechs Ziffern. Das Vorzeichen ist bei erweiterten Jahren erforderlich. `-000000` ist ausdrücklich als gültiges Jahr ausgeschlossen.
+- `MM` ist der Monat, mit zwei Ziffern (`01` bis `12`). Standardwert ist `01`.
+- `DD` ist der Tag des Monats, mit zwei Ziffern (`01` bis `31`). Standardwert ist `01`.
+- `T` ist ein buchstäblicher Zeichen, das den Beginn des \_Zeit-\_Teils der Zeichenfolge anzeigt. Das `T` ist erforderlich, wenn der Zeitteil angegeben wird.
+- `HH` ist die Stunde, mit zwei Ziffern (`00` bis `23`). Als Sonderfall ist `24:00:00` erlaubt und wird als Mitternacht am Beginn des nächsten Tages interpretiert. Standardwert ist `00`.
+- `mm` ist die Minute, mit zwei Ziffern (`00` bis `59`). Standardwert ist `00`.
+- `ss` ist die Sekunde, mit zwei Ziffern (`00` bis `59`). Standardwert ist `00`.
+- `sss` ist die Millisekunde, mit drei Ziffern (`000` bis `999`). Standardwert ist `000`.
+- `Z` ist der Zeitzonenversatz, der entweder das buchstäbliche Zeichen `Z` sein kann (was UTC anzeigt), oder `+` oder `-` gefolgt von `HH:mm`, dem Versatz in Stunden und Minuten von UTC.
 
-Verschiedene Komponenten können weggelassen werden, so dass die folgenden alle gültig sind:
+Verschiedene Komponenten können ausgelassen werden, sodass die folgenden alle gültig sind:
 
 - Nur-Datum-Form: `YYYY`, `YYYY-MM`, `YYYY-MM-DD`
-- Datum-Zeit-Form: Eine der oben genannten Nur-Datum-Formen, gefolgt von `T`, gefolgt von `HH:mm`, `HH:mm:ss`, oder `HH:mm:ss.sss`. Jede Kombination kann durch eine Zeitzonenverschiebung ergänzt werden.
+- Datum-Uhrzeit-Form: eine der oben genannten Nur-Datum-Formen, gefolgt von `T`, gefolgt von `HH:mm`, `HH:mm:ss` oder `HH:mm:ss.sss`. Jede Kombination kann mit einem Zeitzonenoffset abgeschlossen werden.
 
-Zum Beispiel sind `"2011-10-10"` (_Nur-Datum_ Form), `"2011-10-10T14:48:00"` (_Datum-Zeit_ Form) oder `"2011-10-10T14:48:00.000+09:00"` (_Datum-Zeit_ Form mit Millisekunden und Zeitzone) alle gültige Datums-Zeit-Strings.
+Zum Beispiel sind `"2011-10-10"` (_Nur-Datum-Form_), `"2011-10-10T14:48:00"` (_Datum-Uhrzeit-Form_) oder `"2011-10-10T14:48:00.000+09:00"` (_Datum-Uhrzeit-Form mit Millisekunden und Zeitzone_) alle gültige Datums-Zeit-Zeichenfolgen.
 
-Wenn die Zeitzonenverschiebung fehlt, werden **Nur-Datum-Formen als UTC-Zeit und Datum-Zeit-Formen als lokale Zeit interpretiert.** Die Interpretation als UTC-Zeit ist auf einen historischen Spezifikationsfehler zurückzuführen, der nicht mit ISO 8601 übereinstimmte, aber nicht geändert werden konnte, aufgrund der Web-Kompatibilität. Siehe [Defekter Parser – Ein Web-Realitätsproblem](https://maggiepint.com/2017/04/11/fixing-javascript-date-web-compatibility-and-reality/).
+Wenn der Zeitzonenversatz fehlt, **werden Nur-Datum-Formen als UTC-Zeit und Datum-Uhrzeit-Formen als lokale Zeit interpretiert.** Die Interpretation als UTC-Zeit ist auf einen historischen Spezifikationsfehler zurückzuführen, der nicht mit ISO 8601 konsistent war, aber aufgrund der Web-Kompatibilität nicht geändert werden konnte. Siehe [Defekter Parser – Ein Web-Realitätsproblem](https://maggiepint.com/2017/04/11/fixing-javascript-date-web-compatibility-and-reality/).
 
-{{jsxref("Date.parse()")}} und der {{jsxref("Date/Date", "Date()")}}-Konstruktor akzeptieren beide Strings im Datums-Zeit-String-Format als Eingabe. Darüber hinaus dürfen Implementierungen andere Datumsformate unterstützen, wenn die Eingabe diesem Format nicht entspricht.
+{{jsxref("Date.parse()")}} und der {{jsxref("Date/Date", "Date()")}}-Konstruktor akzeptieren beide Zeichenfolgen im Datums-Zeit-Zeichenfolgenformat als Eingabe. Darüber hinaus ist es Implementierungen erlaubt, andere Datumsformate zu unterstützen, wenn die Eingabe diesem Format nicht entspricht.
 
-Die Methode {{jsxref("Date/toISOString", "toISOString()")}} gibt eine String-Darstellung des Datums im Datums-Zeit-String-Format zurück, wobei die Zeitzonenverschiebung immer auf `Z` (UTC) gesetzt ist.
+Die Methode {{jsxref("Date/toISOString", "toISOString()")}} gibt eine Zeichenfolgenrepräsentation des Datums im Datums-Zeit-Zeichenfolgenformat zurück, wobei der Zeitzonenversatz immer auf `Z` (UTC) gesetzt ist.
 
 > [!NOTE]
-> Ihnen wird empfohlen, dafür zu sorgen, dass Ihre Eingabe dem oben beschriebenen Datums-Zeit-String-Format entspricht, um maximale Kompatibilität zu gewährleisten, da die Unterstützung anderer Formate nicht garantiert ist. Es gibt jedoch einige Formate, die in allen großen Implementierungen unterstützt werden — wie das {{rfc(2822)}}-Format — in diesem Fall kann deren Verwendung akzeptabel sein. Führen Sie immer [Browser-übergreifende Tests](/de/docs/Learn_web_development/Extensions/Testing) durch, um sicherzustellen, dass Ihr Code in allen Ziel-Browsern funktioniert. Eine Bibliothek kann helfen, wenn viele verschiedene Formate berücksichtigt werden sollen.
+> Es wird empfohlen, sicherzustellen, dass Ihre Eingabe dem oben stehenden Datums-Zeit-Zeichenfolgenformat für maximale Kompatibilität entspricht, da die Unterstützung für andere Formate nicht garantiert ist. Es gibt jedoch einige Formate, die von allen großen Implementierungen unterstützt werden — wie das {{rfc(2822)}}-Format — in welchem Fall deren Verwendung akzeptabel sein kann. Führen Sie immer [Cross-Browser-Tests](/de/docs/Learn_web_development/Extensions/Testing) durch, um sicherzustellen, dass Ihr Code in allen Zielbrowsern funktioniert. Eine Bibliothek kann helfen, wenn viele verschiedene Formate unterstützt werden sollen.
 
-Nicht standardisierte Strings können je nach Implementierung auf beliebige Weise analysiert werden, einschließlich der Zeitzone — die meisten Implementierungen verwenden standardmäßig die lokale Zeitzone. Implementierungen sind nicht verpflichtet, ungültiges Datum für außerbörsischen Dateikomponenten zurückzugeben, obwohl sie dies normalerweise tun. Ein String kann Dateikomponenten innerhalb der Grenze haben (mit den oben definierten Grenzen), stellt aber in Wirklichkeit kein Datum dar (zum Beispiel "30. Februar"). Implementierungen verhalten sich in diesem Fall inkonsistent. Die Seite [`Date.parse()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Date/parse#examples) bietet mehr Beispiele zu diesen nicht standardisierten Fällen.
+Nicht-standardisierte Zeichenfolgen können beliebig von der Implementierung geparst werden, einschließlich der Zeitzone — die meisten Implementierungen verwenden standardmäßig die lokale Zeitzone. Implementierungen sind nicht verpflichtet, ein ungültiges Datum für außer Betrag liegende Datumskomponenten zurückzugeben, obwohl sie dies normalerweise tun. Eine Zeichenfolge kann innerhalb der oben definierten Datumskomponenten liegen, repräsentiert aber nicht wirklich ein Datum (zum Beispiel "30. Februar"). Implementierungen verhalten sich in diesem Fall inkonsistent. Die Seite [`Date.parse()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Date/parse#examples) bietet weitere Beispiele zu diesen nicht-standardisierten Fällen.
 
 ### Andere Möglichkeiten, ein Datum zu formatieren
 
-- {{jsxref("Date/toISOString", "toISOString()")}} gibt einen String im Format `1970-01-01T00:00:00.000Z` zurück (das oben eingeführte Datums-Zeit-String-Format, welches vereinfacht [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) ist). {{jsxref("Date/toJSON", "toJSON()")}} ruft `toISOString()` auf und gibt das Ergebnis zurück.
-- {{jsxref("Date/toString", "toString()")}} gibt einen String im Format `Thu Jan 01 1970 00:00:00 GMT+0000 (Coordinated Universal Time)` zurück, während {{jsxref("Date/toDateString", "toDateString()")}} und {{jsxref("Date/toTimeString", "toTimeString()")}} die Datums- und Zeitanteile des Strings zurückgeben. [`[Symbol.toPrimitive]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Date/Symbol.toPrimitive) (wenn `"string"` oder `"default"` übergeben wird) ruft `toString()` auf und gibt das Ergebnis zurück.
-- {{jsxref("Date/toUTCString", "toUTCString()")}} gibt einen String im Format `Thu, 01 Jan 1970 00:00:00 GMT` (verallgemeinertes {{rfc(7231)}}) zurück.
-- {{jsxref("Date/toLocaleDateString", "toLocaleDateString()")}}, {{jsxref("Date/toLocaleTimeString", "toLocaleTimeString()")}}, und {{jsxref("Date/toLocaleString", "toLocaleString()")}} verwenden lokal spezifische Datums- und Zeitformate, die normalerweise von der [`Intl`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl) API bereitgestellt werden.
+- {{jsxref("Date/toISOString", "toISOString()")}} gibt eine Zeichenfolge im Format `1970-01-01T00:00:00.000Z` zurück (das oben eingeführte Datums-Zeit-Zeichenfolgenformat, das ein vereinfachtes [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) ist). {{jsxref("Date/toJSON", "toJSON()")}} ruft `toISOString()` auf und gibt das Ergebnis zurück.
+- {{jsxref("Date/toString", "toString()")}} gibt eine Zeichenfolge im Format `Thu Jan 01 1970 00:00:00 GMT+0000 (Coordinated Universal Time)` zurück, während {{jsxref("Date/toDateString", "toDateString()")}} und {{jsxref("Date/toTimeString", "toTimeString()")}} jeweils das Datums- und Uhrzeit-Teilstück der Zeichenfolge zurückgeben. [`[Symbol.toPrimitive]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Date/Symbol.toPrimitive) (wenn `"string"` oder `"default"` übergeben wird) ruft `toString()` auf und gibt das Ergebnis zurück.
+- {{jsxref("Date/toUTCString", "toUTCString()")}} gibt eine Zeichenfolge im Format `Thu, 01 Jan 1970 00:00:00 GMT` (verallgemeinertes {{rfc(7231)}}) zurück.
+- {{jsxref("Date/toLocaleDateString", "toLocaleDateString()")}}, {{jsxref("Date/toLocaleTimeString", "toLocaleTimeString()")}}, und {{jsxref("Date/toLocaleString", "toLocaleString()")}} verwenden gebietsabhängige Datums- und Uhrzeitformate, die normalerweise von der [Intl](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl) API bereitgestellt werden.
 
-Siehe den Abschnitt [Formate der Rückgabewerte der toString-Methode](#formate_der_rückgabewerte_der_tostring-methode) für Beispiele.
+Siehe den Abschnitt [Formate der `toString`-Methoden-Rückgabewerte](#formate_der_tostring-methoden-rückgabewerte) für Beispiele.
 
 ## Konstruktor
 
 - {{jsxref("Date/Date", "Date()")}}
-  - : Wenn als Konstruktor aufgerufen, gibt es ein neues `Date`-Objekt zurück. Wenn als Funktion aufgerufen, gibt es eine String-Darstellung des aktuellen Datums und der aktuellen Zeit zurück.
+  - : Wenn als Konstruktor aufgerufen, gibt es ein neues `Date`-Objekt zurück. Wenn als Funktion aufgerufen, gibt es eine Zeichenfolgenrepräsentation des aktuellen Datums und der Uhrzeit zurück.
 
 ## Statische Methoden
 
 - {{jsxref("Date.now()")}}
-  - : Gibt den Zahlenwert zurück, der der aktuellen Zeit entspricht — die Anzahl der Millisekunden seit dem 1. Januar 1970 00:00:00 UTC, wobei Schaltsekunden ignoriert werden.
+  - : Gibt den numerischen Wert zurück, der der aktuellen Zeit entspricht—die Anzahl der Millisekunden seit dem 1. Januar 1970 00:00:00 UTC, ohne Berücksichtigung von Schaltsekunden.
 - {{jsxref("Date.parse()")}}
-  - : Parst eine String-Darstellung eines Datums und gibt die Anzahl der Millisekunden seit dem 1. Januar 1970 00:00:00 UTC zurück, wobei Schaltsekunden ignoriert werden.
+  - : Parst eine Zeichenfolgenrepräsentation eines Datums und gibt die Anzahl der Millisekunden seit dem 1. Januar 1970 00:00:00 UTC zurück, ohne Berücksichtigung von Schaltsekunden.
 - {{jsxref("Date.UTC()")}}
-  - : Akzeptiert die gleichen Parameter wie die längste Form des Konstruktors (d.h. 2 bis 7) und gibt die Anzahl der Millisekunden seit dem 1. Januar 1970 00:00:00 UTC zurück, wobei Schaltsekunden ignoriert werden.
+  - : Akzeptiert die gleichen Parameter wie die längste Form des Konstruktors (d.h. 2 bis 7) und gibt die Anzahl der Millisekunden seit dem 1. Januar 1970 00:00:00 UTC zurück, ohne Berücksichtigung von Schaltsekunden.
 
 ## Instanzeigenschaften
 
 Diese Eigenschaften sind auf `Date.prototype` definiert und werden von allen `Date`-Instanzen geteilt.
 
 - {{jsxref("Object/constructor", "Date.prototype.constructor")}}
-  - : Die Konstrukturfunktion, die das Instanzobjekt erstellt hat. Für `Date`-Instanzen ist der Anfangswert der {{jsxref("Date/Date", "Date")}}-Konstruktor.
+  - : Die Konstrukturfunktion, die das Instanzobjekt erstellt hat. Für `Date`-Instanzen ist der Initialwert der {{jsxref("Date/Date", "Date")}}-Konstruktor.
 
 ## Instanzmethoden
 
 - {{jsxref("Date.prototype.getDate()")}}
-  - : Gibt den Tag des Monats (`1` – `31`) für das angegebene Datum entsprechend der lokalen Zeit zurück.
+  - : Gibt den Tag des Monats (`1` – `31`) für das angegebene Datum gemäß lokaler Zeit zurück.
 - {{jsxref("Date.prototype.getDay()")}}
-  - : Gibt den Wochentag (`0` – `6`) für das angegebene Datum entsprechend der lokalen Zeit zurück.
+  - : Gibt den Wochentag (`0` – `6`) für das angegebene Datum gemäß lokaler Zeit zurück.
 - {{jsxref("Date.prototype.getFullYear()")}}
-  - : Gibt das Jahr (4 Ziffern für 4-stellige Jahre) des angegebenen Datums entsprechend der lokalen Zeit zurück.
+  - : Gibt das Jahr (4 Ziffern für 4-stellige Jahre) des angegebenen Datums gemäß lokaler Zeit zurück.
 - {{jsxref("Date.prototype.getHours()")}}
-  - : Gibt die Stunde (`0` – `23`) im angegebenen Datum entsprechend der lokalen Zeit zurück.
+  - : Gibt die Stunde (`0` – `23`) im angegebenen Datum gemäß lokaler Zeit zurück.
 - {{jsxref("Date.prototype.getMilliseconds()")}}
-  - : Gibt die Millisekunden (`0` – `999`) im angegebenen Datum entsprechend der lokalen Zeit zurück.
+  - : Gibt die Millisekunden (`0` – `999`) im angegebenen Datum gemäß lokaler Zeit zurück.
 - {{jsxref("Date.prototype.getMinutes()")}}
-  - : Gibt die Minuten (`0` – `59`) im angegebenen Datum entsprechend der lokalen Zeit zurück.
+  - : Gibt die Minuten (`0` – `59`) im angegebenen Datum gemäß lokaler Zeit zurück.
 - {{jsxref("Date.prototype.getMonth()")}}
-  - : Gibt den Monat (`0` – `11`) im angegebenen Datum entsprechend der lokalen Zeit zurück.
+  - : Gibt den Monat (`0` – `11`) im angegebenen Datum gemäß lokaler Zeit zurück.
 - {{jsxref("Date.prototype.getSeconds()")}}
-  - : Gibt die Sekunden (`0` – `59`) im angegebenen Datum entsprechend der lokalen Zeit zurück.
+  - : Gibt die Sekunden (`0` – `59`) im angegebenen Datum gemäß lokaler Zeit zurück.
 - {{jsxref("Date.prototype.getTime()")}}
-  - : Gibt den Zahlenwert des angegebenen Datums als die Anzahl der Millisekunden seit dem 1. Januar 1970 00:00:00 UTC zurück. (Negative Werte werden für frühere Zeiten zurückgegeben.)
+  - : Gibt den numerischen Wert des angegebenen Datums als die Anzahl der Millisekunden seit dem 1. Januar 1970 00:00:00 UTC zurück. (Negative Werte werden für frühere Zeiten zurückgegeben.)
 - {{jsxref("Date.prototype.getTimezoneOffset()")}}
-  - : Gibt die Zeitzonenverschiebung in Minuten für die aktuelle Locale zurück.
+  - : Gibt den Zeitzonen-Offset in Minuten für den aktuellen Ort zurück.
 - {{jsxref("Date.prototype.getUTCDate()")}}
-  - : Gibt den Tag (Datum) des Monats (`1` – `31`) im angegebenen Datum entsprechend der Universalzeit zurück.
+  - : Gibt den Tag (Datum) des Monats (`1` – `31`) im angegebenen Datum gemäß der Weltzeit zurück.
 - {{jsxref("Date.prototype.getUTCDay()")}}
-  - : Gibt den Wochentag (`0` – `6`) im angegebenen Datum entsprechend der Universalzeit zurück.
+  - : Gibt den Wochentag (`0` – `6`) im angegebenen Datum gemäß der Weltzeit zurück.
 - {{jsxref("Date.prototype.getUTCFullYear()")}}
-  - : Gibt das Jahr (4 Ziffern für 4-stellige Jahre) im angegebenen Datum entsprechend der Universalzeit zurück.
+  - : Gibt das Jahr (4 Ziffern für 4-stellige Jahre) im angegebenen Datum gemäß der Weltzeit zurück.
 - {{jsxref("Date.prototype.getUTCHours()")}}
-  - : Gibt die Stunden (`0` – `23`) im angegebenen Datum entsprechend der Universalzeit zurück.
+  - : Gibt die Stunden (`0` – `23`) im angegebenen Datum gemäß der Weltzeit zurück.
 - {{jsxref("Date.prototype.getUTCMilliseconds()")}}
-  - : Gibt die Millisekunden (`0` – `999`) im angegebenen Datum entsprechend der Universalzeit zurück.
+  - : Gibt die Millisekunden (`0` – `999`) im angegebenen Datum gemäß der Weltzeit zurück.
 - {{jsxref("Date.prototype.getUTCMinutes()")}}
-  - : Gibt die Minuten (`0` – `59`) im angegebenen Datum entsprechend der Universalzeit zurück.
+  - : Gibt die Minuten (`0` – `59`) im angegebenen Datum gemäß der Weltzeit zurück.
 - {{jsxref("Date.prototype.getUTCMonth()")}}
-  - : Gibt den Monat (`0` – `11`) im angegebenen Datum entsprechend der Universalzeit zurück.
+  - : Gibt den Monat (`0` – `11`) im angegebenen Datum gemäß der Weltzeit zurück.
 - {{jsxref("Date.prototype.getUTCSeconds()")}}
-  - : Gibt die Sekunden (`0` – `59`) im angegebenen Datum entsprechend der Universalzeit zurück.
+  - : Gibt die Sekunden (`0` – `59`) im angegebenen Datum gemäß der Weltzeit zurück.
 - {{jsxref("Date.prototype.getYear()")}} {{deprecated_inline}}
-  - : Gibt das Jahr (gewöhnlich 2–3 Ziffern) im angegebenen Datum entsprechend der lokalen Zeit zurück. Verwenden Sie stattdessen {{jsxref("Date/getFullYear", "getFullYear()")}}.
+  - : Gibt das Jahr (gewöhnlich 2–3 Ziffern) im angegebenen Datum gemäß lokaler Zeit zurück. Verwenden Sie {{jsxref("Date/getFullYear", "getFullYear()")}} stattdessen.
 - {{jsxref("Date.prototype.setDate()")}}
-  - : Setzt den Tag des Monats für ein angegebenes Datum entsprechend der lokalen Zeit.
+  - : Legt den Tag des Monats für ein angegebenes Datum gemäß lokaler Zeit fest.
 - {{jsxref("Date.prototype.setFullYear()")}}
-  - : Setzt das volle Jahr (z.B. 4 Ziffern für 4-stellige Jahre) für ein angegebenes Datum entsprechend der lokalen Zeit.
+  - : Legt das volle Jahr (z. B. 4 Ziffern für 4-stellige Jahre) für ein angegebenes Datum gemäß lokaler Zeit fest.
 - {{jsxref("Date.prototype.setHours()")}}
-  - : Setzt die Stunden für ein angegebenes Datum entsprechend der lokalen Zeit.
+  - : Legt die Stunden für ein angegebenes Datum gemäß lokaler Zeit fest.
 - {{jsxref("Date.prototype.setMilliseconds()")}}
-  - : Setzt die Millisekunden für ein angegebenes Datum entsprechend der lokalen Zeit.
+  - : Legt die Millisekunden für ein angegebenes Datum gemäß lokaler Zeit fest.
 - {{jsxref("Date.prototype.setMinutes()")}}
-  - : Setzt die Minuten für ein angegebenes Datum entsprechend der lokalen Zeit.
+  - : Legt die Minuten für ein angegebenes Datum gemäß lokaler Zeit fest.
 - {{jsxref("Date.prototype.setMonth()")}}
-  - : Setzt den Monat für ein angegebenes Datum entsprechend der lokalen Zeit.
+  - : Legt den Monat für ein angegebenes Datum gemäß lokaler Zeit fest.
 - {{jsxref("Date.prototype.setSeconds()")}}
-  - : Setzt die Sekunden für ein angegebenes Datum entsprechend der lokalen Zeit.
+  - : Legt die Sekunden für ein angegebenes Datum gemäß lokaler Zeit fest.
 - {{jsxref("Date.prototype.setTime()")}}
   - : Setzt das `Date`-Objekt auf die durch die Anzahl der Millisekunden seit dem 1. Januar 1970 00:00:00 UTC repräsentierte Zeit. Verwenden Sie negative Zahlen für frühere Zeiten.
 - {{jsxref("Date.prototype.setUTCDate()")}}
-  - : Setzt den Tag des Monats für ein angegebenes Datum entsprechend der Universalzeit.
+  - : Legt den Tag des Monats für ein angegebenes Datum gemäß der Weltzeit fest.
 - {{jsxref("Date.prototype.setUTCFullYear()")}}
-  - : Setzt das volle Jahr (z.B. 4 Ziffern für 4-stellige Jahre) für ein angegebenes Datum entsprechend der Universalzeit.
+  - : Legt das volle Jahr (z. B. 4 Ziffern für 4-stellige Jahre) für ein angegebenes Datum gemäß der Weltzeit fest.
 - {{jsxref("Date.prototype.setUTCHours()")}}
-  - : Setzt die Stunde für ein angegebenes Datum entsprechend der Universalzeit.
+  - : Legt die Stunde für ein angegebenes Datum gemäß der Weltzeit fest.
 - {{jsxref("Date.prototype.setUTCMilliseconds()")}}
-  - : Setzt die Millisekunden für ein angegebenes Datum entsprechend der Universalzeit.
+  - : Legt die Millisekunden für ein angegebenes Datum gemäß der Weltzeit fest.
 - {{jsxref("Date.prototype.setUTCMinutes()")}}
-  - : Setzt die Minuten für ein angegebenes Datum entsprechend der Universalzeit.
+  - : Legt die Minuten für ein angegebenes Datum gemäß der Weltzeit fest.
 - {{jsxref("Date.prototype.setUTCMonth()")}}
-  - : Setzt den Monat für ein angegebenes Datum entsprechend der Universalzeit.
+  - : Legt den Monat für ein angegebenes Datum gemäß der Weltzeit fest.
 - {{jsxref("Date.prototype.setUTCSeconds()")}}
-  - : Setzt die Sekunden für ein angegebenes Datum entsprechend der Universalzeit.
+  - : Legt die Sekunden für ein angegebenes Datum gemäß der Weltzeit fest.
 - {{jsxref("Date.prototype.setYear()")}} {{deprecated_inline}}
-  - : Setzt das Jahr (gewöhnlich 2–3 Ziffern) für ein angegebenes Datum entsprechend der lokalen Zeit. Verwenden Sie stattdessen {{jsxref("Date/setFullYear", "setFullYear()")}}.
+  - : Legt das Jahr (gewöhnlich 2–3 Ziffern) für ein angegebenes Datum gemäß lokaler Zeit fest. Verwenden Sie {{jsxref("Date/setFullYear", "setFullYear()")}} stattdessen.
 - {{jsxref("Date.prototype.toDateString()")}}
-  - : Gibt den „Datum“-Teil des `Date` als einen menschenlesbaren String wie `'Thu Apr 12 2018'` zurück.
+  - : Gibt den "Datum"-Teil des `Date` als menschenlesbare Zeichenfolge wie `'Thu Apr 12 2018'` zurück.
 - {{jsxref("Date.prototype.toISOString()")}}
-  - : Konvertiert ein Datum in einen String im ISO 8601 Extended Format.
+  - : Konvertiert ein Datum in eine Zeichenfolge im erweiterten ISO 8601-Format.
 - {{jsxref("Date.prototype.toJSON()")}}
-  - : Gibt einen String zurück, der das `Date` unter Verwendung von {{jsxref("Date/toISOString", "toISOString()")}} repräsentiert. Soll implizit durch {{jsxref("JSON.stringify()")}} aufgerufen werden.
+  - : Gibt eine Zeichenfolge zurück, die das `Date` mit Hilfe von {{jsxref("Date/toISOString", "toISOString()")}} darstellt. Soll implizit von {{jsxref("JSON.stringify()")}} aufgerufen werden.
 - {{jsxref("Date.prototype.toLocaleDateString()")}}
-  - : Gibt einen String mit einer lokalitätssensitiven Darstellung des Datumsanteils dieses Datums basierend auf Systemeinstellungen zurück.
+  - : Gibt eine Zeichenfolge mit einer ortsempfindlichen Darstellung des Datumsabschnitts dieses Datums basierend auf den Systemeinstellungen zurück.
 - {{jsxref("Date.prototype.toLocaleString()")}}
-  - : Gibt einen String mit einer lokalitätssensitiven Darstellung dieses Datums zurück. Überschreibt die Methode {{jsxref("Object.prototype.toLocaleString()")}}.
+  - : Gibt eine Zeichenfolge mit einer ortsempfindlichen Darstellung dieses Datums zurück. Überschreibt die Methode {{jsxref("Object.prototype.toLocaleString()")}}.
 - {{jsxref("Date.prototype.toLocaleTimeString()")}}
-  - : Gibt einen String mit einer lokalitätssensitiven Darstellung des Zeitanteils dieses Datums, basierend auf Systemeinstellungen, zurück.
+  - : Gibt eine Zeichenfolge mit einer ortsempfindlichen Darstellung des Zeitabschnitts dieses Datums, basierend auf den Systemeinstellungen, zurück.
 - {{jsxref("Date.prototype.toString()")}}
-  - : Gibt einen String zurück, der das angegebene `Date`-Objekt repräsentiert. Überschreibt die Methode {{jsxref("Object.prototype.toString()")}}.
+  - : Gibt eine Zeichenfolge zurück, die das angegebene `Date`-Objekt darstellt. Überschreibt die Methode {{jsxref("Object.prototype.toString()")}}.
 - {{jsxref("Date.prototype.toTemporalInstant()")}} {{experimental_inline}}
-  - : Gibt ein neues {{jsxref("Temporal.Instant")}}-Objekt mit dem gleichen {{jsxref("Temporal/Instant/epochMilliseconds", "epochMilliseconds")}}-Wert wie der [Zeitstempel](#the_epoch_timestamps_and_invalid_date) dieses Datums zurück.
+  - : Gibt ein neues {{jsxref("Temporal.Instant")}}-Objekt mit dem gleichen {{jsxref("Temporal/Instant/epochMilliseconds", "epochMilliseconds")}}-Wert wie dieser Datums[zeitstempel](#the_epoch_timestamps_and_invalid_date) zurück.
 - {{jsxref("Date.prototype.toTimeString()")}}
-  - : Gibt den „Zeit“-Teil des `Date` als einen menschenlesbaren String zurück.
+  - : Gibt den "Zeit"-Teil des `Date` als menschenlesbare Zeichenfolge zurück.
 - {{jsxref("Date.prototype.toUTCString()")}}
-  - : Konvertiert ein Datum in einen String unter Verwendung der UTC-Zeitzone.
+  - : Konvertiert ein Datum in eine Zeichenfolge unter Verwendung der UTC-Zeitzone.
 - {{jsxref("Date.prototype.valueOf()")}}
   - : Gibt den primitiven Wert eines `Date`-Objekts zurück. Überschreibt die Methode {{jsxref("Object.prototype.valueOf()")}}.
 - [`Date.prototype[Symbol.toPrimitive]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Date/Symbol.toPrimitive)
@@ -297,12 +297,12 @@ Diese Eigenschaften sind auf `Date.prototype` definiert und werden von allen `Da
 
 ## Beispiele
 
-### Verschiedene Wege, ein Date-Objekt zu erstellen
+### Mehrere Möglichkeiten, ein Date-Objekt zu erstellen
 
-Die folgenden Beispiele zeigen verschiedene Möglichkeiten, um JavaScript-Daten zu erstellen:
+Die folgenden Beispiele zeigen verschiedene Möglichkeiten auf, JavaScript-Daten zu erstellen:
 
 > [!NOTE]
-> Ein Datum aus einem String zu erstellen hat viele Verhaltensinkonsistenzen. Siehe [Datums-Zeit-String-Format](#datums-zeit-string-format) für Vorbehalte zur Verwendung unterschiedlicher Formate.
+> Ein Datum aus einer Zeichenfolge zu erstellen, hat viele Verhaltensinkonsistenzen. Siehe [Datums-Zeit-Format](#datums-zeit-format) für Risiken bei der Verwendung unterschiedlicher Formate.
 
 ```js
 const today = new Date();
@@ -313,7 +313,7 @@ const birthday4 = new Date(1995, 11, 17, 3, 24, 0);
 const birthday5 = new Date(628021800000); // passing epoch timestamp
 ```
 
-### Formate der Rückgabewerte der toString-Methode
+### Formate der toString-Methoden-Rückgabewerte
 
 ```js
 const date = new Date("2020-05-12T23:50:21.817Z");
@@ -350,9 +350,9 @@ const [hour, minutes, seconds] = [
 // [16, 45, 30]
 ```
 
-### Interpretation von zweistelligen Jahren
+### Interpretation zweistelliger Jahre
 
-`new Date()` weist unerwünschtes, inkonsistentes Verhalten mit zweistelligen Jahreswerten auf; insbesondere wenn ein `new Date()`-Aufruf einen zweistelligen Jahreswert erhält, wird dieser Jahrwert nicht als literales Jahr behandelt und wie angegeben verwendet, sondern wird stattdessen als relativer Offset interpretiert – in einigen Fällen als ein Offset vom Jahr `1900`, aber in anderen Fällen als ein Offset vom Jahr `2000`.
+`new Date()` zeigt ein unerwünschtes, inkonsistentes Verhalten mit zweistelligen Jahreswerten; insbesondere, wenn einem `new Date()`-Aufruf ein zweistelliger Jahreswert übergeben wird, wird dieser Jahreswert nicht als wörtliches Jahr behandelt und direkt verwendet, sondern als relativer Offset interpretiert — in einigen Fällen als ein Offset vom Jahr `1900`, in anderen Fällen als ein Offset vom Jahr `2000`.
 
 ```js
 let date = new Date(98, 1); // Sun Feb 01 1998 00:00:00 GMT+0000 (GMT)
@@ -366,7 +366,7 @@ date.setYear(22);
 date.toString(); // Wed Feb 01 1922 00:00:00 GMT+0000 (GMT)
 ```
 
-Um also Daten zwischen den Jahren `0` und `99` zu erstellen und zu erhalten, verwenden Sie stattdessen die bevorzugten Methoden {{jsxref("Date/setFullYear", "setFullYear()")}} und {{jsxref("Date/getFullYear", "getFullYear()")}}:.
+Um also Daten zwischen den Jahren `0` und `99` zu erzeugen und zu erhalten, verwenden Sie stattdessen die bevorzugten Methoden {{jsxref("Date/setFullYear", "setFullYear()")}} und {{jsxref("Date/getFullYear", "getFullYear()")}}:.
 
 ```js
 // Preferred method; never interprets any value as being a relative offset,
@@ -379,9 +379,9 @@ date.getFullYear(); // 22 (not 1922, not 2022)
 
 ### Berechnung der verstrichenen Zeit
 
-Die folgenden Beispiele zeigen, wie die verstrichene Zeit zwischen zwei JavaScript-Daten in Millisekunden bestimmt werden kann.
+Die folgenden Beispiele zeigen, wie die verstrichene Zeit zwischen zwei JavaScript-Daten in Millisekunden bestimmt wird.
 
-Aufgrund der unterschiedlichen Längen der Tage (aufgrund des Wechsels zur Sommerzeit), Monate und Jahre erfordert die Darstellung der verstrichenen Zeit in Einheiten größer als Stunden, Minuten und Sekunden die Bewältigung mehrerer Probleme und sollte gründlich recherchiert werden, bevor sie versucht wird.
+Aufgrund der unterschiedlichen Längen von Tagen (aufgrund der Sommerzeitumstellung), Monaten und Jahren erfordert die Angabe der verstrichenen Zeit in Einheiten, die größer sind als Stunden, Minuten und Sekunden, die Berücksichtigung einer Reihe von Problemen, die gründlich erforscht werden sollten, bevor man es versucht.
 
 ```js
 // Using Date objects
@@ -418,7 +418,7 @@ const yourFunctionReturn = printElapsedTime(yourFunction);
 ```
 
 > [!NOTE]
-> In Browsern, die das High-Resolution-Zeit-Feature der [Performance-API](/de/docs/Web/API/Performance_API) unterstützen, kann [`Performance.now()`](/de/docs/Web/API/Performance/now) zuverlässigere und präzisere Messungen der verstrichenen Zeit liefern als {{jsxref("Date.now()")}}.
+> In Browsern, die die [Performance-API](/de/docs/Web/API/Performance_API)'s hochauflösende Zeitfunktion unterstützen, kann [`Performance.now()`](/de/docs/Web/API/Performance/now) zuverlässigere und präzisere Messungen der verstrichenen Zeit bieten als {{jsxref("Date.now()")}}.
 
 ### Die Anzahl der Sekunden seit der ECMAScript-Epoche erhalten
 
@@ -426,7 +426,7 @@ const yourFunctionReturn = printElapsedTime(yourFunction);
 const seconds = Math.floor(Date.now() / 1000);
 ```
 
-In diesem Fall ist es wichtig, nur eine ganze Zahl zurückzugeben — daher genügt eine einfache Division nicht. Es ist auch wichtig, nur tatsächlich verstrichene Sekunden zurückzugeben. (Deshalb verwendet dieser Code {{jsxref("Math.floor()")}} und _nicht_ {{jsxref("Math.round()")}}.)
+In diesem Fall ist es wichtig, nur eine ganze Zahl zurückzugeben — daher reicht eine einfache Division nicht aus. Es ist auch wichtig, nur tatsächlich verstrichene Sekunden zurückzugeben. (Deshalb verwendet dieser Code {{jsxref("Math.floor()")}}, und _nicht_ {{jsxref("Math.round()")}}.)
 
 ## Spezifikationen
 

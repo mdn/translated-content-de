@@ -1,18 +1,19 @@
 ---
-title: virtualkeyboardpolicy
+title: HTML `virtualkeyboardpolicy` globales Attribut
+short-title: virtualkeyboardpolicy
 slug: Web/HTML/Reference/Global_attributes/virtualkeyboardpolicy
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: 7885271e36e9d2744296c01f400653f63caa6f75
 ---
 
 {{HTMLSidebar("Global_attributes")}}{{SeeCompatTable}}
 
-Das **`virtualkeyboardpolicy`** [globale Attribut](/de/docs/Web/HTML/Reference/Global_attributes) ist ein aufgezähltes Attribut. Wenn es auf einem Element angegeben ist, dessen Inhalt bearbeitbar ist (zum Beispiel ein {{htmlelement("input")}} oder {{htmlelement("textarea")}} Element oder ein Element mit dem [`contenteditable`](/de/docs/Web/HTML/Reference/Global_attributes/contenteditable) Attribut gesetzt), steuert es das Verhalten der virtuellen Bildschirmtastatur auf Geräten wie Tablets, Mobiltelefonen oder anderen Geräten, bei denen eine Hardwaretastatur möglicherweise nicht verfügbar ist.
+Das **`virtualkeyboardpolicy`** [globale Attribut](/de/docs/Web/HTML/Reference/Global_attributes) ist ein aufgezähltes Attribut. Wenn es an einem Element angegeben ist, dessen Inhalt bearbeitbar ist (zum Beispiel ein {{htmlelement("input")}}- oder {{htmlelement("textarea")}}-Element oder ein Element mit dem Attribut [`contenteditable`](/de/docs/Web/HTML/Reference/Global_attributes/contenteditable)), steuert es das Verhalten der virtuellen Bildschirmtastatur auf Geräten wie Tablets, Mobiltelefonen oder anderen Geräten, bei denen eine Hardwaretastatur möglicherweise nicht verfügbar ist.
 
 Das Attribut muss einen der folgenden Werte annehmen:
 
-- `auto` oder ein _leerer String_, was die virtuelle Tastatur automatisch anzeigt, wenn das Element fokussiert oder angetippt wird.
-- `manual`, das Fokus und Tippen auf dem Element vom Zustand der virtuellen Tastatur entkoppelt.
+- `auto` oder ein _leerer String_, was die virtuelle Tastatur automatisch anzeigt, wenn das Element fokussiert oder angeklickt wird.
+- `manual`, was den Fokus und das Anklicken des Elements vom Zustand der virtuellen Tastatur entkoppelt.
 
 ## Spezifikationen
 

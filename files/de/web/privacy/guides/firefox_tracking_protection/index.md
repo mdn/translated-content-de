@@ -2,53 +2,55 @@
 title: Firefox-Tracking-Schutz
 slug: Web/Privacy/Guides/Firefox_tracking_protection
 l10n:
-  sourceCommit: 06bb5f22d50ff3579a12aebf7e8c9f02cfa2468b
+  sourceCommit: 0e638cb6498f7ae7dc1cb5c39fea99b00084c1e7
 ---
+
+Diese Seite beschreibt, wie der eingebaute Tracking-Schutz von Firefox funktioniert und wie er das Laden von Inhalten von Drittanbietern beeinflusst. Das Verständnis darüber, wie der Tracking-Schutz funktioniert, hilft sicherzustellen, dass Ihre Website wie erwartet funktioniert, wenn Ihre Besucher ihn aktiviert haben.
 
 ## Was ist Tracking-Schutz?
 
-Firefox Desktop und Firefox für Android beinhalten einen eingebauten Tracking-Schutz. In privaten Fenstern (Tabs, in Firefox für Android) blockiert Firefox Inhalte, die von Domains geladen werden, die Benutzer über Websites hinweg verfolgen (z. B. durch [Drittanbieter-Cookies](/de/docs/Web/Privacy/Guides/Third-party_cookies)).
+Firefox Desktop und Firefox für Android beinhalten einen eingebauten Tracking-Schutz. In privaten Fenstern (Tabs in Firefox für Android) blockiert Firefox Inhalte, die von Domains geladen werden, die Benutzer über Websites hinweg verfolgen (d.h. über [Third-party cookies](/de/docs/Web/Privacy/Guides/Third-party_cookies)).
 
-Wenn blockierte Inhalte Teil des Seitenlayouts sind, können Benutzer Layoutprobleme bemerken, wo Firefox diese Ladevorgänge blockiert hat. Manchmal bemerken Benutzer überhaupt nichts, wenn das Seitenraster so funktioniert, dass andere Seitenelemente in die von blockierten Elementen hinterlassenen Lücken rutschen.
+Wenn blockierte Inhalte Teil des Seitenlayouts sind, können Benutzer Layoutprobleme bemerken, wo Firefox diese Ladevorgänge blockiert hat. Manchmal merken Benutzer es gar nicht, wenn das Seitengitter so funktioniert, dass andere Seitenelemente in die Löcher gleiten, die von blockierten Elementen hinterlassen wurden.
 
-Wenn Firefox Inhalte blockiert, wird eine Nachricht in die Web-Konsole geloggt wie diese:
+Wenn Firefox Inhalte blockiert, wird eine Nachricht in der Webkonsole protokolliert wie diese:
 
 ```plain
 The resource at "http://some/url" was blocked because tracking protection is enabled.
 ```
 
-Beachten Sie, dass Sie mit Firefox für Android auf die Konsolenausgabe über den Remote-Debugger zugreifen können.
+Beachten Sie, dass Sie mit Firefox für Android auf die Konsolenausgabe mit Hilfe des Remote-Debuggers zugreifen können.
 
-![Seiteninformation zeigt mögliche blockierte Inhalte.](blocked_content.png)
+![Seiteninformation, die mögliche blockierte Inhalte zeigt.](blocked_content.png)
 
-Klicken Sie auf das ⓘ-Symbol in der Adressleiste, um Informationen über die aktuell geladene Seite anzuzeigen. Das erscheinende Popup benachrichtigt Sie, wenn Inhalte blockiert wurden. Sie können auch den Tracking-Schutz vollständig deaktivieren, indem Sie auf die Trackingeinstellungen zugreifen.
+Klicken Sie auf das ⓘ-Symbol in der Adressleiste, um Informationen über die aktuell geladene Seite anzuzeigen. Das erscheinende Popup benachrichtigt Sie, wenn Inhalte blockiert wurden. Sie können den Tracking-Schutz auch vollständig deaktivieren, wenn Sie dies wünschen, indem Sie auf die Tracking-Einstellungen zugreifen.
 
-Wenn Tracking-Cookies vorhanden waren, könnten Sie die Liste anzeigen, indem Sie im obigen Bild auf "Blocking Tracking Cookies" klicken, um das folgende Popup anzuzeigen:
+Wenn Tracking-Cookies vorhanden wären, könnten Sie die Liste anzeigen, indem Sie auf "Blocking Tracking Cookies" im obigen Bild klicken, um folgendes Popup anzuzeigen:
 
-![Seiteninformation zeigt Cookies und Situsdaten.](tracking_cookies.png)
+![Seiteninformation, die Cookies und Websitedaten zeigt.](tracking_cookies.png)
 
-Sie können auf "Inhaltsblockierung verwalten" klicken, um die Blockierungseinstellungen zu ändern:
+Sie können auf "Manage Content Blocking" klicken, um die Blockierungseinstellungen zu ändern:
 
-![Es gibt 3 Ebenen der Inhaltsblockierung, Standard, Strikt oder Benutzerdefiniert, die immer aktiv sein oder nur aktiv sein können, wenn Firefox eingestellt ist, bekannte Tracker zu blockieren.](content_blocking.png)
+![Es gibt 3 Ebenen der Inhaltsblockierung: Standard, Streng oder Benutzerdefiniert, die immer eingeschaltet oder nur dann eingeschaltet werden können, wenn Firefox so eingestellt ist, dass bekannte Tracker blockiert werden.](content_blocking.png)
 
 ## Wie entscheidet Firefox, was blockiert wird?
 
 Inhalte werden basierend auf der Domain blockiert, von der sie geladen werden sollen.
 
-Firefox wird mit einer Liste von Websites geliefert, die als Nutzer über Websites hinweg verfolgend identifiziert wurden. Wenn der Tracking-Schutz aktiviert ist, blockiert Firefox Inhalte von Websites in dieser Liste.
+Firefox wird mit einer Liste von Websites ausgeliefert, die als Überkreuz-Tracking von Benutzern identifiziert wurden. Wenn der Tracking-Schutz aktiviert ist, blockiert Firefox Inhalte von Websites auf dieser Liste.
 
-Websites, die Benutzer verfolgen, sind meist Drittanbieter-Werbe- und Analysewebsites.
+Websites, die Benutzer verfolgen, sind meist Drittanbieter-Werbe- und Analyse-Seiten.
 
 ## Was bedeutet das für Ihre Website?
 
-In erster Linie bedeutet es, dass bei aktiviertem Tracking-Schutz:
+In erster Linie bedeutet es, dass, wenn der Tracking-Schutz aktiviert ist:
 
-- Inhalte, die von Drittanbieter-Trackern bereitgestellt werden, für Benutzer nicht sichtbar sind.
-- Ihre Seite keine Drittanbieter-Werbe- oder Analysedienste nutzen kann, die Tracking betreiben.
+- Inhalte, die von Drittanbieter-Trackern bereitgestellt werden, für Benutzer nicht sichtbar sein werden.
+- Ihre Website keine Drittanbieter-Werbe- oder Analysedienste nutzen kann, die sich mit Tracking beschäftigen.
 
-Subtiler ist, dass andere Teile Ihrer Seite, die davon abhängen, dass Tracker geladen werden, ebenfalls nicht funktionieren, wenn der Tracking-Schutz aktiviert ist. Beispielsweise, wenn Ihre Seite einen Callback enthält, der ausgeführt wird, wenn Inhalte von einer Tracking-Site geladen werden, wird der Callback nicht ausgeführt.
+Subtiler ist, dass wenn andere Teile Ihrer Website darauf angewiesen sind, dass Tracker geladen werden, diese Teile ebenfalls nicht funktionieren, wenn der Tracking-Schutz aktiviert ist. Zum Beispiel, wenn Ihre Website einen Callback enthält, der ausgeführt wird, wenn Inhalte von einer Tracking-Site geladen wurden, wird dieser Callback nicht ausgeführt.
 
-Sie sollten Google Analytics beispielsweise nicht auf folgende Weise verwenden:
+Zum Beispiel sollten Sie Google Analytics nicht auf folgende Weise verwenden:
 
 ```js example-bad
 function trackLink(url, event) {
@@ -68,7 +70,7 @@ document.querySelectorAll("a").forEach((link) => {
 });
 ```
 
-Stattdessen sollten Sie den Fall berücksichtigen, wenn Google Analytics fehlt, indem Sie überprüfen, ob das `ga`-Objekt initialisiert wurde:
+Stattdessen sollten Sie den Fall berücksichtigen, in dem Google Analytics fehlt, indem Sie prüfen, ob das `ga`-Objekt initialisiert wurde:
 
 ```js example-good
 function trackLink(url, event) {
@@ -95,4 +97,4 @@ document.querySelectorAll("a").forEach((link) => {
 Weitere Informationen zu dieser Technik finden Sie unter [Google Analytics, Privacy, and Event Tracking](https://hacks.mozilla.org/2016/01/google-analytics-privacy-and-event-tracking/).
 
 > [!NOTE]
-> Sich auf einen Drittanbieter in dieser Weise zu verlassen, ist ohnehin keine gute Praxis, da Ihre Seite dann kaputtgehen kann, wenn der Drittanbieter langsam oder nicht verfügbar ist, oder wenn der Tracker durch ein Add-on blockiert wurde.
+> Sich auf diese Weise auf einen Drittanbieter zu verlassen, ist ohnehin keine gute Praxis, da Ihre Seite dann gestört werden kann, wenn der Drittanbieter langsam oder nicht verfügbar ist oder wenn der Tracker durch ein Add-on blockiert wurde.

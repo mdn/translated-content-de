@@ -1,24 +1,24 @@
 ---
-title: "<big>: Das Größere Textelement"
+title: "<big>: Das Element für größeren Text"
 slug: Web/HTML/Reference/Elements/big
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: cac79d099b0a4e48456cb53eb2435f6acf03e188
 ---
 
 {{HTMLSidebar}}{{deprecated_header}}
 
-Das veraltete **`<big>`**-[HTML](/de/docs/Web/HTML)-Element zeigt den umschlossenen Text in einer Schriftgröße, die eine Stufe größer ist als der umgebende Text (zum Beispiel wird `medium` zu `large`). Die Größe wird auf die maximal zulässige Schriftgröße des Browsers begrenzt.
+Das **`<big>`** [HTML](/de/docs/Web/HTML) veraltete Element stellt den eingeschlossenen Text in einer Schriftgröße dar, die um eine Stufe größer ist als der umgebende Text (zum Beispiel wird `medium` zu `large`). Die Größe ist auf die vom Browser maximal erlaubte Schriftgröße begrenzt.
 
 > [!WARNING]
-> Dieses Element wurde aus der Spezifikation entfernt und sollte nicht mehr verwendet werden. Verwenden Sie die CSS-Property {{cssxref("font-size")}}, um die Schriftgröße anzupassen.
+> Dieses Element wurde aus der Spezifikation entfernt und sollte nicht mehr verwendet werden. Verwenden Sie die CSS-Eigenschaft {{cssxref("font-size")}}, um die Schriftgröße anzupassen.
 
 ## Attribute
 
-Dieses Element hat, abgesehen von den [globalen Attributen](/de/docs/Web/HTML/Reference/Global_attributes), die allen Elementen gemeinsam sind, keine weiteren Attribute.
+Dieses Element hat keine anderen Attribute als die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes), die allen Elementen gemeinsam sind.
 
 ## Beispiele
 
-Hier sehen wir Beispiele für die Verwendung von `<big>` gefolgt von einem Beispiel, wie man dasselbe Ergebnis mit moderner CSS-Syntax erreichen kann.
+Hier sehen wir Beispiele, die die Verwendung von `<big>` zeigen, gefolgt von einem Beispiel, das zeigt, wie mit moderner CSS-Syntax dieselben Ergebnisse erzielt werden können.
 
 ### Verwendung von big
 
@@ -39,7 +39,7 @@ Dieses Beispiel verwendet das veraltete `<big>`-Element, um die Größe eines Te
 
 ### Verwendung von CSS `font-size`
 
-Dieses Beispiel verwendet die CSS-Property {{cssxref("font-size")}}, um die Schriftgröße um eine Stufe zu erhöhen.
+Dieses Beispiel verwendet die CSS-Eigenschaft {{cssxref("font-size")}}, um die Schriftgröße um eine Stufe zu erhöhen.
 
 #### CSS
 
@@ -66,7 +66,7 @@ Dieses Beispiel verwendet die CSS-Property {{cssxref("font-size")}}, um die Schr
 
 Dieses Element implementiert die [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Schnittstelle.
 
-<!-- ## Technische Zusammenfassung -->
+<!-- ## Technical summary -->
 
 ## Spezifikationen
 
@@ -80,4 +80,3 @@ Dieses Element implementiert die [`HTMLElement`](/de/docs/Web/API/HTMLElement)-S
 
 - CSS: {{cssxref("font-size")}}, {{cssxref("font")}}
 - HTML: {{htmlelement("small")}}, {{htmlelement("font")}}, {{htmlelement("style")}}
-- HTML 4.01 Spezifikation: [Font Styles](https://www.w3.org/TR/html4/present/graphics.html#h-15.2)

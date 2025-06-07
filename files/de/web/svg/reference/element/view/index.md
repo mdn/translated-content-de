@@ -2,10 +2,10 @@
 title: <view>
 slug: Web/SVG/Reference/Element/view
 l10n:
-  sourceCommit: 34c204f8f6c3f7ac60ebb23fca9798680aee9956
+  sourceCommit: ac806e34aba086be141689c64dc4dd73636fbd62
 ---
 
-Das **`<view>`** [SVG](/de/docs/Web/SVG)-Element definiert eine bestimmte Ansicht eines SVG-Dokuments. Eine spezifische Ansicht kann angezeigt werden, indem das `<view>`-Element über seine [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id) als Ziel eines URL-Fragments referenziert wird.
+Das **`<view>`** [SVG](/de/docs/Web/SVG) Element definiert eine spezielle Ansicht eines SVG-Dokuments. Eine bestimmte Ansicht kann angezeigt werden, indem das [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id)-Attribut des `<view>`-Elements als Ziel-Fragment einer URL referenziert wird.
 
 ## Verwendungskontext
 
@@ -14,14 +14,18 @@ Das **`<view>`** [SVG](/de/docs/Web/SVG)-Element definiert eine bestimmte Ansich
 ## Attribute
 
 - {{SVGAttr("preserveAspectRatio")}}
-  - : Dieses Attribut definiert, wie das SVG-Fragment verzerrt werden muss, wenn es in einem Container mit einem anderen {{Glossary("aspect_ratio", "Seitenverhältnis")}} eingebettet ist.
-    _Werttyp_: (`none` | `xMinYMin` | `xMidYMin` | `xMaxYMin` | `xMinYMid` | `xMidYMid` | `xMaxYMid` | `xMinYMax` | `xMidYMax` | `xMaxYMax`) (`meet` | `slice`)?; _Standardwert_: `xMidYMid meet`; _Animierbar_: **ja**
+  - : Dieses Attribut definiert, wie das SVG-Fragment deformiert werden muss, wenn es in einem Container mit einem anderen {{Glossary("aspect_ratio", "Seitenverhältnis")}} eingebettet wird.
+    _Wertetyp_: (`none` | `xMinYMin` | `xMidYMin` | `xMaxYMin` | `xMinYMid` | `xMidYMid` | `xMaxYMid` | `xMinYMax` | `xMidYMax` | `xMaxYMax`) (`meet` | `slice`)?; _Standardwert_: `xMidYMid meet`; _Animierbar_: **ja**
 - {{SVGAttr("viewBox")}}
-  - : Dieses Attribut definiert die Grenze des SVG-Viewports für das Musterfragment.
-    _Werttyp_: **[\<list-of-numbers>](/de/docs/Web/SVG/Guides/Content_type#list-of-ts)**; _Standardwert_: keiner; _Animierbar_: **ja**
+  - : Dieses Attribut definiert die Begrenzung des SVG-Ansichtsfensters für das Musterfragment.
+    _Wertetyp_: **[\<list-of-numbers>](/de/docs/Web/SVG/Guides/Content_type#list-of-ts)**; _Standardwert_: keiner; _Animierbar_: **ja**
 - {{SVGAttr("zoomAndPan")}} {{Deprecated_Inline}} {{Non-standard_Inline}}
   - : Dieses Attribut gibt an, ob das SVG-Dokument vergrößert und verschoben werden kann.
-    _Werttyp_: **disable | magnify**; _Standardwert_: magnify; _Animierbar_: **nein**
+    _Wertetyp_: **disable | magnify**; _Standardwert_: magnify; _Animierbar_: **nein**
+
+## DOM-Schnittstelle
+
+Dieses Element implementiert die [`SVGViewElement`](/de/docs/Web/API/SVGViewElement) Schnittstelle.
 
 ## Beispiel
 

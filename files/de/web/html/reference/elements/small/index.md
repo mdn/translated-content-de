@@ -1,13 +1,13 @@
 ---
-title: "<small>: Das Side-Comment-Element"
+title: "<small>: Das Seitenelement für Kommentare"
 slug: Web/HTML/Reference/Elements/small
 l10n:
-  sourceCommit: 5698ba3454ba5f45e90562ba5df3865bf4f2ff94
+  sourceCommit: cac79d099b0a4e48456cb53eb2435f6acf03e188
 ---
 
 {{HTMLSidebar}}
 
-Das **`<small>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert Nebenkommentare und Kleingedrucktes, wie z. B. Urheberrechts- und rechtliche Texte, unabhängig von seiner gestylten Darstellung. Standardmäßig rendert es den Text innerhalb des Elements in einer Schriftgröße kleiner, wie von `small` zu `x-small`.
+Das **`<small>`**-[HTML](/de/docs/Web/HTML)-Element repräsentiert Nebenkommentare und Kleingedrucktes, wie Copyright- und Rechtstext, unabhängig von seiner gestylten Darstellung. Standardmäßig wird der Text innerhalb eines `<small>`-Elements eine Schriftgröße kleiner dargestellt, zum Beispiel von `small` zu `x-small`.
 
 {{InteractiveExample("HTML Demo: &lt;small&gt;", "tabbed-shorter")}}
 
@@ -35,7 +35,7 @@ small {
 
 ## Attribute
 
-Dieses Element umfasst nur die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
+Dieses Element beinhaltet nur die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
 ## Beispiele
 
@@ -73,9 +73,9 @@ Dieses Element umfasst nur die [globalen Attribute](/de/docs/Web/HTML/Reference/
 
 ## Hinweise
 
-Obwohl das `<small>`-Element, ähnlich wie die {{htmlelement("b")}}- und {{htmlelement("i")}}-Elemente, möglicherweise als Verletzung des Prinzips der Trennung zwischen Struktur und Präsentation wahrgenommen wird, sind alle drei in HTML gültig. Autoren werden ermutigt, ihr bestes Urteil anzuwenden, wenn sie entscheiden, ob sie `<small>` oder CSS verwenden.
+Obwohl das `<small>`-Element, ähnlich wie die {{htmlelement("b")}}- und {{htmlelement("i")}}-Elemente, möglicherweise als Verletzung des Prinzips der Trennung zwischen Struktur und Präsentation angesehen werden könnte, sind alle drei in HTML gültig. Autoren sind aufgefordert, ihr bestes Urteilsvermögen einzusetzen, um zu entscheiden, ob `<small>` oder CSS verwendet werden soll.
 
-## Technische Übersicht
+## Technische Zusammenfassung
 
 <table class="properties">
   <tbody>
@@ -87,10 +87,10 @@ Obwohl das `<small>`-Element, ähnlich wie die {{htmlelement("b")}}- und {{htmle
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
-          >Flussinhalt</a
+          >Fließender Inhalt</a
         >,
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Textinhalt</a
+          >Phraseninhalt</a
         >.
       </td>
     </tr>
@@ -98,23 +98,23 @@ Obwohl das `<small>`-Element, ähnlich wie die {{htmlelement("b")}}- und {{htmle
       <th scope="row">Erlaubter Inhalt</th>
       <td>
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Textinhalt</a
+          >Phraseninhalt</a
         >
       </td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine; muss sowohl einen Start- als auch einen End-Tag haben.</td>
+      <td>Keine; es muss sowohl ein Start- als auch ein End-Tag haben.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Textinhalt</a
+          >Phraseninhalt</a
         > akzeptiert, oder jedes Element, das
         <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
-          >Flussinhalt</a
+          >fließenden Inhalt</a
         > akzeptiert.
       </td>
     </tr>
@@ -130,7 +130,7 @@ Obwohl das `<small>`-Element, ähnlich wie die {{htmlelement("b")}}- und {{htmle
     </tr>
     <tr>
       <th scope="row">Erlaubte ARIA-Rollen</th>
-      <td>Beliebig</td>
+      <td>Beliebige</td>
     </tr>
     <tr>
       <th scope="row">DOM-Schnittstelle</th>
@@ -153,4 +153,3 @@ Obwohl das `<small>`-Element, ähnlich wie die {{htmlelement("b")}}- und {{htmle
 - {{HTMLElement("sub")}} und {{HTMLElement("sup")}}
 - {{HTMLElement("font")}}
 - {{HTMLElement("style")}}
-- HTML 4.01 Spezifikation: [Schriftstile](https://www.w3.org/TR/html4/present/graphics.html#h-15.2)

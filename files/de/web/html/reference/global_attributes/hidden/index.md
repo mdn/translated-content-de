@@ -1,13 +1,14 @@
 ---
-title: hidden
+title: HTML `hidden` globales Attribut
+short-title: hidden
 slug: Web/HTML/Reference/Global_attributes/hidden
 l10n:
-  sourceCommit: b114c920cc7dea474cfe05b7bacd053a1b2d411f
+  sourceCommit: 7885271e36e9d2744296c01f400653f63caa6f75
 ---
 
 {{HTMLSidebar("Global_attributes")}}
 
-Das **`hidden`** [globale Attribut](/de/docs/Web/HTML/Reference/Global_attributes) ist ein {{Glossary("enumerated", "aufgezähltes")}} Attribut, das angibt, dass der Browser den Inhalt des Elements nicht rendern soll. Zum Beispiel kann es verwendet werden, um Elemente der Seite zu verbergen, die nicht genutzt werden können, bis der Anmeldevorgang abgeschlossen ist.
+Das **`hidden`** [globale Attribut](/de/docs/Web/HTML/Reference/Global_attributes) ist ein {{Glossary("enumerated", "aufzählbares")}} Attribut, das angibt, dass der Browser die Inhalte des Elements nicht rendern soll. Zum Beispiel kann es verwendet werden, um Elemente der Seite auszublenden, die erst genutzt werden können, wenn der Anmeldevorgang abgeschlossen ist.
 
 {{InteractiveExample("HTML Demo: hidden", "tabbed-shorter")}}
 
@@ -34,14 +35,13 @@ p {
 
 ## Beschreibung
 
-Das `hidden`-Attribut gibt an, dass der Inhalt eines Elements dem Benutzer nicht angezeigt werden soll.
-Das Attribut nimmt einen der folgenden Werte an:
+Das `hidden`-Attribut gibt an, dass der Inhalt eines Elements dem Benutzer nicht präsentiert werden soll. Das Attribut kann einen der folgenden Werte annehmen:
 
 - das Schlüsselwort `hidden`
 - das Schlüsselwort `until-found`
-- einen leeren String oder keinen Wert
+- ein leerer String oder kein Wert
 
-Ungültige `hidden`-Attributwerte versetzen das Element ebenfalls in den _hidden_-Zustand. Daher befinden sich alle folgenden Elemente im [_hidden_](#der_verborgene_zustand)-Zustand:
+Ungültige `hidden`-Attributwerte versetzen das Element ebenfalls in den _hidden_-Zustand. Daher befinden sich alle folgenden Elemente im [_hidden_](#der_hidden-zustand) Zustand:
 
 ```html
 <span hidden>I'm hidden</span>
@@ -50,54 +50,48 @@ Ungültige `hidden`-Attributwerte versetzen das Element ebenfalls in den _hidden
 <span hidden="bananas">I'm equally as hidden!</span>
 ```
 
-Das Schlüsselwort `until-found` versetzt das Element in den [_hidden until found_](#der_verborgen_bis_gefunden_zustand)-Zustand:
+Das Schlüsselwort `until-found` versetzt das Element in den [_hidden until found_](#der_hidden_until_found-zustand) Zustand:
 
 ```html
 <span hidden="until-found">I'm hidden until found</span>
 ```
 
-### Der verborgene Zustand
+### Der hidden-Zustand
 
-Der _verborgene_ Zustand zeigt an, dass das Element derzeit nicht relevant für die Seite ist oder dass es verwendet wird, um Inhalte für die Wiederverwendung durch andere Teile der Seite zu deklarieren und nicht direkt dem Benutzer angezeigt werden soll. Der Browser wird Elemente im _verborgenen_ Zustand nicht rendern.
+Der _hidden_-Zustand zeigt an, dass das Element momentan nicht relevant für die Seite ist oder dass es dazu verwendet wird, Inhalte zur Wiederverwendung durch andere Teile der Seite bereitzustellen und nicht direkt dem Benutzer präsentiert werden soll. Der Browser wird Elemente im _hidden_-Zustand nicht rendern.
 
-Webbrowser können den _verborgenen_ Zustand mit `display: none` implementieren, in welchem Fall das Element nicht an der Seiten-Layoutgestaltung teilnimmt.
-Zusätzlich wird das Ändern des Werts der CSS-Eigenschaft {{cssxref("display")}} auf einem verborgenen Element den _verborgenen_ Zustand überschreiben.
-Beispielsweise werden Elemente, die mit `display: block` gestylt sind, trotz der Anwesenheit des `hidden`-Attributs angezeigt.
+Webbrowser können den _hidden_-Zustand mit `display: none` implementieren, wodurch das Element nicht am Seitenlayout teilnimmt. Außerdem überschreibt das Ändern des CSS {{cssxref("display")}}-Eigenschaftswerts eines verborgenen Elements den _hidden_-Zustand. Beispielsweise werden Elemente, die mit `display: block` gestaltet sind, dargestellt, trotz der Anwesenheit des `hidden`-Attributs.
 
-### Der verborgen bis gefunden Zustand
+### Der hidden until found-Zustand
 
-Im _verborgen bis gefunden_ Zustand ist das Element verborgen, aber sein Inhalt wird für die "Finden auf Seite"-Funktion des Browsers oder die Fragmentnavigation zugänglich sein.
-Wenn diese Funktionen ein Scrollen zu einem Element in einem _verborgen bis gefunden_-Teilbaum verursachen, wird der Browser:
+Im _hidden until found_-Zustand ist das Element verborgen, aber sein Inhalt ist für die "Auf Seite suchen"-Funktion des Browsers oder die Fragmentnavigation zugänglich. Wenn diese Funktionen dazu führen, dass zu einem Element in einem _hidden until found_-Teilbaum gescrollt wird, wird der Browser:
 
-1. Ein [`beforematch`](/de/docs/Web/API/Element/beforematch_event) Ereignis auf dem verborgenen Element auslösen
+1. Ein [`beforematch`](/de/docs/Web/API/Element/beforematch_event)-Ereignis auf dem verborgenen Element auslösen
 2. Das `hidden`-Attribut vom Element entfernen
 3. Zum Element scrollen
 
-Dies ermöglicht es Ihnen, einen Abschnitt von Inhalten zu kollabieren, während es den Benutzern trotzdem ermöglicht wird, ihn durch Suche oder Navigation zu finden.
+Dies ermöglicht es Ihnen, einen Abschnitt von Inhalten zu komprimieren, während die Benutzer dennoch in der Lage sind, ihn durch Suche oder Navigation zu finden.
 
-Browser implementieren _verborgen bis gefunden_ typischerweise mit {{cssxref("content-visibility", "content-visibility: hidden")}}.
-Das bedeutet, dass, im Gegensatz zu Elementen im _verborgenen_ Zustand, Elemente im _verborgen bis gefunden_ Zustand Boxen generieren, und:
+Browser implementieren _hidden until found_ typischerweise mit {{cssxref("content-visibility", "content-visibility: hidden")}}. Dies bedeutet, dass, im Gegensatz zu Elementen im _hidden_-Zustand, Elemente im _hidden until-found_-Zustand Boxen erzeugen, und:
 
-- sie an der Seiten-Layoutgestaltung teilnehmen
-- ihre Ränder, Umrandungen, Abstände und Hintergründe gerendert werden
+- sie am Seitenlayout teilnehmen
+- ihre Ränder, Rahmen, Abstände und Hintergründe gerendert werden
 
-Außerdem muss das Element von [Layout-Einschränkungen](/de/docs/Web/CSS/CSS_containment) betroffen sein, um sichtbar gemacht zu werden.
-Wenn das Element im _verborgen bis gefunden_-Zustand einen `display`-Wert von `none`, `contents` oder `inline` hat, wird es durch "Finden auf Seite" oder Fragmentnavigation nicht sichtbar gemacht.
+Auch muss das Element von der [Layout-Eindämmung](/de/docs/Web/CSS/CSS_containment) betroffen sein, um enthüllt zu werden. Wenn das Element im _hidden until found_-Zustand einen `display`-Wert von `none`, `contents` oder `inline` hat, wird das Element von "Auf Seite suchen" oder der Fragmentnavigation nicht enthüllt.
 
-## Verwendungshinweise
+## Nutzungshinweise
 
-Das `hidden`-Attribut darf nicht verwendet werden, um Inhalte nur aus einer Darstellung zu verbergen.
-Wenn etwas als verborgen markiert ist, ist es aus allen Darstellungen, inklusive zum Beispiel Bildschirmlesegeräten, verborgen.
+Das `hidden`-Attribut darf nicht verwendet werden, um Inhalte nur in einer Präsentation zu verbergen. Wenn etwas als verborgen markiert ist, ist es in allen Präsentationen versteckt, einschließlich Bildungswerkzeugen, wie z.B. Bildschirmleser.
 
-Verborgene Elemente sollten nicht von sichtbaren Elementen verlinkt werden, es sei denn, es wird `hidden="until-found"` verwendet.
+Verborgene Elemente sollten nicht mit sichtbaren Elementen verlinkt werden, es sei denn, Sie verwenden `hidden="until-found"`.
 Zum Beispiel wäre es falsch, das `href`-Attribut zu verwenden, um zu einem Abschnitt mit dem `hidden`-Attribut zu verlinken.
-Wenn der Inhalt nicht zutreffend oder relevant ist, sollte er nicht verlinkt werden.
+Wenn der Inhalt nicht anwendbar oder relevant ist, sollte er nicht verlinkt werden.
 
-Es ist jedoch in Ordnung, das ARIA-Attribut [`aria-describedby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-describedby) zu verwenden, um auf verborgene Beschreibungen zu verweisen. Während das Verbergen der Beschreibungen impliziert, dass sie für sich genommen nicht nützlich sind, können sie in dieser Weise referenziert nützlichen Kontext bieten.
+Es ist jedoch in Ordnung, das ARIA-Attribut [`aria-describedby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-describedby) zu verwenden, um auf versteckte Beschreibungen zu verweisen. Während das Verbergen der Beschreibungen impliziert, dass sie für sich allein nicht nützlich sind, können sie beim Verweisen auf diese Weise hilfreichen Kontext liefern.
 
-Ebenso könnte ein Canvas-Element mit dem `hidden`-Attribut von einer skriptbasierten Grafik-Engine als Off-Screen-Puffer verwendet werden, und ein Formularelement könnte auf ein verborgenes Formular-Element durch sein Formular-Attribut verweisen.
+Ebenso könnte ein Canvas-Element mit dem `hidden`-Attribut von einer skriptgesteuerten Grafik-Engine als Off-Screen-Puffer verwendet werden, und ein Formularelement könnte sich mit seinem `form`-Attribut auf ein verborgenes Formularelement beziehen.
 
-Abschließend beachten Sie, dass Elemente, die Nachkommen eines verborgenen Elements sind, weiterhin aktiv sind, was bedeutet, dass Skriptelemente weiterhin ausgeführt werden können und Formularelemente weiterhin abgesendet werden können:
+Schließlich ist zu beachten, dass Elemente, die Nachkommen eines verborgenen Elements sind, immer noch aktiv sind, was bedeutet, dass Skriptelemente weiterhin ausgeführt werden können und Formularelemente weiterhin senden können:
 
 ```html
 <div hidden>
@@ -111,8 +105,7 @@ Abschließend beachten Sie, dass Elemente, die Nachkommen eines verborgenen Elem
 
 ### Verwendung des hidden-Attributs
 
-In diesem Beispiel haben wir drei {{HTMLElement("div")}}-Elemente. Das erste und das dritte sind nicht verborgen, während das zweite ein `hidden`-Attribut hat.
-Beachten Sie, dass das verborgene Element keine generierte Box hat.
+In diesem Beispiel haben wir drei {{HTMLElement("div")}}-Elemente. Das erste und das dritte sind nicht versteckt, während das zweite ein `hidden`-Attribut hat. Beachten Sie, dass das verborgene Element keine erzeugte Box hat.
 
 ```html
 <div>I'm not hidden</div>
@@ -135,12 +128,9 @@ div {
 
 ### Verwendung des until-found-Werts
 
-In diesem Beispiel haben wir drei {{HTMLElement("div")}}-Elemente.
-Das erste und das dritte sind sichtbar, während das zweite die Attribute `hidden="until-found"` und `id="until-found-box"` hat.
-Das Element mit einer `id` von `until-found-box` hat eine gepunktete rote Umrandung und einen grauen Hintergrund.
+In diesem Beispiel haben wir drei {{HTMLElement("div")}}-Elemente. Das erste und das dritte sind sichtbar, während das zweite die Attribute `hidden="until-found"` und `id="until-found-box"` besitzt. Das Element mit einer `until-found-box`-ID hat einen gepunkteten roten Rand und einen grauen Hintergrund.
 
-Wir haben auch einen Link, der auf das "`until-found-box`"-Fragment zielt, und JavaScript, das auf das `beforematch`-Ereignis lauscht, das sich an diesem verborgenen Element ereignet.
-Der Ereignishandler ändert den Textinhalt der Box, um eine Aktion zu veranschaulichen, die erfolgen kann, wenn der _verborgen bis gefunden_-Zustand entfernt werden soll.
+Wir haben auch einen Link, der auf das Fragment `"until-found-box"` zielt, und JavaScript, das auf das `beforematch`-Ereignis wartet, das auf diesem verborgenen Element ausgelöst wird. Der Ereignis-Handler ändert den Textinhalt der Box, um eine Aktion zu veranschaulichen, die auftreten kann, wenn der _hidden until found_-Zustand entfernt werden soll.
 
 #### HTML
 
@@ -200,8 +190,7 @@ document.querySelector("#reset").addEventListener("click", () => {
 
 #### Ergebnis
 
-Beim Anklicken des Links "Gehe zu verborgenen Inhalten" wird zum _verborgen bis gefunden_-Element navigiert. Das `beforematch`-Ereignis wird ausgelöst, der Textinhalt wird aktualisiert und das Element wird sichtbar.
-Beachten Sie, dass der Inhalt des Elements verborgen ist, das Element jedoch weiterhin eine generierte Box hat, die Platz im Layout einnimmt, und Hintergrund und Umrandungen gerendert werden.
+Beim Klicken auf den Link "Zum versteckten Inhalt gehen" wird zum _hidden until found_-Element navigiert. Das `beforematch`-Ereignis wird ausgelöst, der Textinhalt wird aktualisiert, und das Element wird sichtbar. Beachten Sie, dass obwohl der Inhalt des Elements verborgen ist, das Element immer noch eine erzeugte Box hat, die im Layout Platz einnimmt und mit Hintergrund und Rändern gerendert wird.
 
 Um das Beispiel erneut auszuführen, klicken Sie auf "Zurücksetzen".
 

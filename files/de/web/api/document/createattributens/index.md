@@ -1,18 +1,14 @@
 ---
-title: "Document: createAttributeNS() Methode"
+title: "Dokument: Methode createAttributeNS()"
 short-title: createAttributeNS()
 slug: Web/API/Document/createAttributeNS
 l10n:
-  sourceCommit: 5c0d26f70b80e5511496f49cb5dc0405de98c562
+  sourceCommit: cac79d099b0a4e48456cb53eb2435f6acf03e188
 ---
 
 {{ ApiRef("DOM") }}
 
-Die **`Document.createAttributeNS()`**-Methode erstellt ein neues Attributknoten
-mit der angegebenen Namespace-URI und dem qualifizierten Namen und gibt es zurück.
-Das erstellte Objekt ist ein Knoten, der die
-[`Attr`](/de/docs/Web/API/Attr)-Schnittstelle implementiert. Das DOM erzwingt nicht, welche Art von Attributen
-auf diese Weise einem bestimmten Element hinzugefügt werden können.
+Die Methode **`Document.createAttributeNS()`** erstellt einen neuen Attributknoten mit dem angegebenen Namensraum-URI und qualifizierten Namen und gibt ihn zurück. Das erstellte Objekt ist ein Knoten, der die [`Attr`](/de/docs/Web/API/Attr)-Schnittstelle implementiert. Das DOM erzwingt nicht, welche Art von Attributen auf diese Weise zu einem bestimmten Element hinzugefügt werden können.
 
 ## Syntax
 
@@ -23,7 +19,7 @@ createAttributeNS(namespaceURI, qualifiedName)
 ### Parameter
 
 - `namespaceURI`
-  - : Ein String, der die [`namespaceURI`](/de/docs/Web/API/Attr/namespaceURI) angibt, die dem Attribut zugeordnet werden soll. Einige wichtige Namespace-URIs sind:
+  - : Ein String, der den [`namespaceURI`](/de/docs/Web/API/Attr/namespaceURI) angibt, der dem Attribut zugeordnet werden soll. Einige wichtige Namensraum-URIs sind:
     - [HTML](/de/docs/Web/HTML)
       - : `http://www.w3.org/1999/xhtml`
     - [SVG](/de/docs/Web/SVG)
@@ -31,8 +27,7 @@ createAttributeNS(namespaceURI, qualifiedName)
     - [MathML](/de/docs/Web/MathML)
       - : `http://www.w3.org/1998/Math/MathML`
 - `qualifiedName`
-  - : Ein String, der den Namen des zu erstellenden Attributs spezifiziert.
-    Die [`name`](/de/docs/Web/API/Attr/name)-Eigenschaft des erstellten Attributs wird mit dem Wert von `qualifiedName` initialisiert.
+  - : Ein String, der den Namen des zu erstellenden Attributs angibt. Die [`name`](/de/docs/Web/API/Attr/name)-Eigenschaft des erstellten Attributs wird mit dem Wert von `qualifiedName` initialisiert.
 
 ### Rückgabewert
 
@@ -41,9 +36,9 @@ Der neue [`Attr`](/de/docs/Web/API/Attr)-Knoten.
 ### Ausnahmen
 
 - `NamespaceError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der Wert von [`namespaceURI`](#namespaceuri) keine gültige Namespace-URI ist.
+  - : Wird ausgelöst, wenn der Wert von [`namespaceURI`](#namespaceuri) kein gültiger Namensraum-URI ist.
 - `InvalidCharacterError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der Wert von [`qualifiedName`](#qualifiedname) kein gültiger [XML-Name](https://www.w3.org/TR/REC-xml/#dt-name) ist; zum Beispiel, wenn er mit einer Zahl, einem Bindestrich oder einem Punkt beginnt oder Zeichen enthält, die nicht alphanumerisch, Unterstriche, Bindestriche oder Punkte sind.
+  - : Wird ausgelöst, wenn der Wert von [`qualifiedName`](#qualifiedname) kein gültiger [XML-Name](https://www.w3.org/TR/xml/#dt-name) ist; zum Beispiel, wenn er mit einer Zahl, einem Bindestrich oder Punkt beginnt oder Zeichen enthält, die keine alphanumerischen Zeichen, Unterstriche, Bindestriche oder Punkte sind.
 
 ## Beispiele
 

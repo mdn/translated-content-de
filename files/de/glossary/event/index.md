@@ -2,7 +2,7 @@
 title: Event
 slug: Glossary/Event
 l10n:
-  sourceCommit: 50e5edd07155de2eec2a8b6b2ad95820748cfec7
+  sourceCommit: cac79d099b0a4e48456cb53eb2435f6acf03e188
 ---
 
 {{GlossarySidebar}}
@@ -12,5 +12,5 @@ Events sind Ereignisse, die von {{Glossary("DOM", "DOM")}}-Elementen generiert w
 ## Siehe auch
 
 - [Event-Dokumentation auf MDN](/de/docs/Web/API/Event)
-- [Offizielle Webseite](https://www.w3.org/TR/DOM-Level-2-Events/events.html)
-- [DOM Events](https://en.wikipedia.org/wiki/DOM_Events) auf Wikipedia
+- [Events](https://dom.spec.whatwg.org/#events)-Abschnitt in der DOM-Spezifikation
+- [DOM-Events](https://en.wikipedia.org/wiki/DOM_Events) auf Wikipedia

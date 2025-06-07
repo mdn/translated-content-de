@@ -2,19 +2,23 @@
 title: <switch>
 slug: Web/SVG/Reference/Element/switch
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: ac806e34aba086be141689c64dc4dd73636fbd62
 ---
 
-Das **`<switch>`** [SVG](/de/docs/Web/SVG)-Element evaluiert die {{SVGAttr("requiredFeatures")}}, {{SVGAttr("requiredExtensions")}} und {{SVGAttr("systemLanguage")}} Attribute seiner direkten Kindelemente in der Reihenfolge und rendert dann das erste Kind, bei dem diese Attribute als wahr ausgewertet werden.
+Das **`<switch>`** [SVG](/de/docs/Web/SVG)-Element evaluiert die Attribute {{SVGAttr("requiredFeatures")}}, {{SVGAttr("requiredExtensions")}} und {{SVGAttr("systemLanguage")}} auf seinen direkten Kindelementen in der Reihenfolge und rendert dann das erste Kind, bei dem diese Attribute als wahr bewertet werden.
 
-Andere direkte Kindelemente werden übersprungen und daher nicht gerendert. Wenn ein Kindelement ein Containerelement ist, wie {{SVGElement("g")}}, wird auch sein Unterbaum verarbeitet/gerendert oder übersprungen/nicht gerendert.
+Andere direkte Kinder werden übersprungen und daher nicht gerendert. Wenn ein Kindelement ein Container-Element wie {{SVGElement("g")}} ist, wird sein Unterbaum ebenfalls verarbeitet/gerendert oder übersprungen/nicht gerendert.
 
 > [!NOTE]
-> Die Eigenschaften `display` und `visibility` haben keinen Einfluss auf die Verarbeitung des `<switch>`-Elements. Insbesondere hat das Setzen von `display:none` auf ein Kind keinen Effekt auf die Wahr-/Falsch-Prüfung der `<switch>`-Verarbeitung.
+> Die Eigenschaften `display` und `visibility` haben keinen Einfluss auf die Verarbeitung des `<switch>`-Elements. Insbesondere hat das Setzen von `display:none` auf einem Kind keinen Einfluss auf den Wahrheitswert-Test für die Verarbeitung des `<switch>`-Elements.
 
-## Verwendungskontext
+## Verwendungszusammenhang
 
 {{svginfo}}
+
+## Attribute
+
+Dieses Element umfasst nur globale Attribute.
 
 ## DOM-Schnittstelle
 
@@ -22,7 +26,7 @@ Dieses Element implementiert die [`SVGSwitchElement`](/de/docs/Web/API/SVGSwitch
 
 ## SVG \<switch>-Beispiel
 
-Dieses Beispiel zeigt, wie je nach Spracheinstellung des Browsers unterschiedliche Textinhalte angezeigt werden. Das `switch`-Element zeigt das erste seiner Kindelemente an, dessen `systemLanguage`-Attribut mit der Sprache des Benutzers übereinstimmt, oder das Fallback-Element ohne `systemLanguage`-Attribut, wenn keines übereinstimmt.
+Dieses Beispiel demonstriert das Anzeigen unterschiedlicher Textinhalte in Abhängigkeit von den Spracheinstellungen des Browsers. Das `<switch>`-Element zeigt das erste seiner Kindelemente an, dessen `systemLanguage`-Attribut mit der Sprache des Benutzers übereinstimmt, oder das Fallback-Element ohne `systemLanguage`-Attribut, wenn keines von ihnen übereinstimmt.
 
 ### HTML
 

@@ -1,28 +1,26 @@
 ---
-title: "Document: alinkColor-Eigenschaft"
+title: "Dokumentation: alinkColor-Eigenschaft"
 short-title: alinkColor
 slug: Web/API/Document/alinkColor
 l10n:
-  sourceCommit: 4656260748aea78929639c4bf776d643d9911a82
+  sourceCommit: cac79d099b0a4e48456cb53eb2435f6acf03e188
 ---
 
 {{APIRef("DOM")}}{{Deprecated_header}}
 
-Gibt die Farbe eines aktiven Links im Dokumentenkörper zurück oder legt diese fest. Ein Link ist aktiv während der Zeit zwischen den `mousedown`- und `mouseup`-Ereignissen.
+Gibt die Farbe eines aktiven Links im Dokumentkörper zurück oder legt diese fest. Ein Link ist aktiv während der Zeit zwischen den `mousedown`- und `mouseup`-Ereignissen.
 
 ## Wert
 
-Ein String, der den Namen der Farbe (z.B. `blue`, `darkblue`, etc.) oder den hexadezimalen Wert der Farbe (z.B. `#0000FF`) enthält.
+Ein String, der den Namen der Farbe enthält (z. B., `blue`, `darkblue`, usw.) oder den hexadezimalen Wert der Farbe (z. B., `#0000FF`).
 
-Wenn auf den `null`-Wert gesetzt, wird dieser `null`-Wert in den leeren String (`""`) umgewandelt, sodass `document.alinkColor = null` gleichbedeutend mit `document.alinkColor = ""` ist.
+Wird der Wert auf `null` gesetzt, wird dieser `null`-Wert in den leeren String (`""`) umgewandelt, sodass `document.alinkColor = null` äquivalent zu `document.alinkColor = ""` ist.
 
 ## Hinweise
 
-Der Standardwert für diese Eigenschaft in Mozilla Firefox ist rot (`#ee0000` in Hexadezimal).
+Der Standardwert für diese Eigenschaft in Mozilla Firefox ist rot (`#ee0000` in hexadezimaler Darstellung).
 
-`document.alinkColor` ist im [DOM Level 2 HTML](https://www.w3.org/TR/DOM-Level-2-HTML/html.html#ID-26809268) veraltet. Eine Alternative ist der CSS-Selektor {{Cssxref(":active")}}.
-
-Eine weitere Alternative ist `document.body.aLink`, obwohl dies im [HTML 4.01](https://www.w3.org/TR/html401/struct/global.html#adef-alink) zugunsten der CSS-Alternative ebenfalls veraltet ist.
+`document.alinkColor` ist im [HTML-Spezifikation](https://html.spec.whatwg.org/multipage/obsolete.html#dom-document-alinkcolor) veraltet. Eine Alternative ist der CSS-Selektor {{Cssxref(":active")}}.
 
 Firefox unterstützt sowohl `alinkColor`/`:active` als auch {{Cssxref(":focus")}}.
 

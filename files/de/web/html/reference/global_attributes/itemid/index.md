@@ -1,26 +1,27 @@
 ---
-title: itemid
+title: HTML itemid Globalattribut
+short-title: itemid
 slug: Web/HTML/Reference/Global_attributes/itemid
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: 7885271e36e9d2744296c01f400653f63caa6f75
 ---
 
 {{HTMLSidebar("Global_attributes")}}
 
-Das **`itemid`** [globale Attribut](/de/docs/Web/HTML/Reference/Global_attributes) liefert Mikrodaten in Form eines einzigartigen, globalen Identifikators eines Elements.
+Das **`itemid`** [Globalattribut](/de/docs/Web/HTML/Reference/Global_attributes) bietet Mikrodaten in Form eines einzigartigen, globalen Identifikators eines Elements.
 
-Ein `itemid`-Attribut kann nur für ein Element angegeben werden, das sowohl das Attribut [`itemscope`](/de/docs/Web/HTML/Reference/Global_attributes/itemscope) als auch das Attribut [`itemtype`](/de/docs/Web/HTML/Reference/Global_attributes/itemtype) besitzt. Zudem kann `itemid` nur für Elemente angegeben werden, die ein `itemscope`-Attribut besitzen, dessen entsprechendes `itemtype` sich auf ein Vokabular bezieht oder eines definiert, das globale Identifikatoren unterstützt.
+Ein `itemid`-Attribut kann nur für ein Element angegeben werden, das sowohl das [`itemscope`](/de/docs/Web/HTML/Reference/Global_attributes/itemscope)- als auch das [`itemtype`](/de/docs/Web/HTML/Reference/Global_attributes/itemtype)-Attribut besitzt. Außerdem kann `itemid` nur für Elemente angegeben werden, die ein `itemscope`-Attribut haben, dessen entsprechendes `itemtype` auf einen Vokabular verweist oder eines definiert, das globale Identifikatoren unterstützt.
 
-Die genaue Bedeutung eines globalen Identifikators von `itemtype` wird durch die Definition dieses Identifikators innerhalb des angegebenen Vokabulars bereitgestellt. Das Vokabular definiert, ob mehrere Elemente mit dem gleichen globalen Identifikator koexistieren können und, falls ja, wie mit Elementen mit demselben Identifikator umgegangen wird.
+Die genaue Bedeutung eines globalen Identifikators von `itemtype` wird durch die Definition dieses Identifikators innerhalb des angegebenen Vokabulars bereitgestellt. Das Vokabular definiert, ob mehrere Elemente mit demselben globalen Identifikator koexistieren können und, falls ja, wie Elemente mit demselben Identifikator behandelt werden.
 
 > [!NOTE]
 > Die {{Glossary("WHATWG", "WHATWG")}}-Definition gibt an, dass ein `itemid` eine {{Glossary("URL", "URL")}} sein muss. Das folgende Beispiel zeigt jedoch korrekt, dass auch ein {{Glossary("URN", "URN")}} verwendet werden kann. Diese Inkonsistenz kann die unvollständige Natur der Mikrodaten-Spezifikation widerspiegeln.
 
 ## Beispiele
 
-### Darstellung strukturierter Daten für ein Buch
+### Strukturierte Daten für ein Buch darstellen
 
-Dieses Beispiel verwendet Mikrodaten-Attribute, um die folgenden strukturierten Daten darzustellen:
+Dieses Beispiel verwendet Mikrodatenattribute, um die folgenden strukturierten Daten darzustellen:
 
 <table class="standard-table">
   <tbody>
@@ -75,8 +76,8 @@ Dieses Beispiel verwendet Mikrodaten-Attribute, um die folgenden strukturierten 
 
 ## Siehe auch
 
-- Alle [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
-- Andere mit Mikrodaten verbundene globale Attribute:
+- Alle [Globalattribute](/de/docs/Web/HTML/Reference/Global_attributes).
+- Andere mikrodatenbezogene Globalattribute:
 
   - [`itemprop`](/de/docs/Web/HTML/Reference/Global_attributes/itemprop)
   - [`itemref`](/de/docs/Web/HTML/Reference/Global_attributes/itemref)

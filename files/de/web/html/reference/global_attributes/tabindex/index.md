@@ -1,13 +1,14 @@
 ---
-title: tabindex
+title: HTML tabindex globales Attribut
+short-title: tabindex
 slug: Web/HTML/Reference/Global_attributes/tabindex
 l10n:
-  sourceCommit: 7dda25db814fed5ae7498baaee80009b3569a8dc
+  sourceCommit: 7885271e36e9d2744296c01f400653f63caa6f75
 ---
 
 {{HTMLSidebar("Global_attributes")}}
 
-Das **`tabindex`** [globales Attribut](/de/docs/Web/HTML/Reference/Global_attributes) ermöglicht es Entwicklern, HTML-Elemente fokussierbar zu machen, sie start- oder ausschließbar in der sequentiellen Fokussierung zu machen (normalerweise mit der <kbd>Tab</kbd>-Taste, daher der Name) und ihre relative Reihenfolge für die sequentielle Navigationsfokussierung zu bestimmen.
+Das **`tabindex`** [globale Attribut](/de/docs/Web/HTML/Reference/Global_attributes) ermöglicht es Entwicklern, HTML-Elemente fokussierbar zu machen, sie in der sequentiellen Fokussierung (in der Regel mit der <kbd>Tab</kbd>-Taste, daher der Name) zuzulassen oder zu verhindern, und bestimmt deren relative Reihenfolge für die sequentielle Fokusnavigation.
 
 {{InteractiveExample("HTML Demo: tabindex", "tabbed-standard")}}
 
@@ -41,34 +42,34 @@ div:focus {
 }
 ```
 
-Es akzeptiert einen ganzzahligen Wert, mit unterschiedlichen Ergebnissen, abhängig vom Wert der Zahl:
+Es akzeptiert einen ganzzahligen Wert, mit unterschiedlichen Ergebnissen in Abhängigkeit vom Wert der ganzen Zahl:
 
 > [!NOTE]
-> Wenn ein HTML-Element gerendert wird und das `tabindex`-Attribut mit einem beliebigen gültigen ganzzahligen Wert besitzt, kann das Element mit JavaScript fokussiert werden (indem die Methode [`focus()`](/de/docs/Web/API/HTMLElement/focus) aufgerufen wird) oder visuell durch Klicken mit der Maus. Der spezifische `tabindex`-Wert steuert, ob das Element `tabbable` ist (d.h. über die sequentielle Tastaturnavigation, normalerweise mit der <kbd>Tab</kbd>-Taste, erreichbar ist).
+> Wenn ein HTML-Element gerendert wird und das `tabindex` Attribut mit einem beliebigen gültigen Ganzzahlwert versehen ist, kann das Element mit JavaScript fokussiert werden (durch Aufruf der [`focus()`](/de/docs/Web/API/HTMLElement/focus) Methode) oder visuell durch Klicken mit der Maus. Der spezifische `tabindex` Wert steuert, ob das Element `tabbable` ist (d.h. über sequentielle Tastaturnavigation erreichbar, üblicherweise mit der <kbd>Tab</kbd>-Taste).
 
-- Ein _negativer Wert_ (der genaue negative Wert spielt tatsächlich keine Rolle, normalerweise `tabindex="-1"`) bedeutet, dass das Element nicht über die sequentielle Tastaturnavigation erreichbar ist.
+- Ein _negativer Wert_ (der genaue negative Wert spielt tatsächlich keine Rolle, normalerweise `tabindex="-1"`) bedeutet, dass das Element über die sequentielle Tastaturnavigation nicht erreichbar ist.
 
-  > **Hinweis:** `tabindex="-1"` kann nützlich für Elemente sein, die nicht direkt über die <kbd>Tab</kbd>-Taste angesteuert werden sollen, aber dennoch die Tastaturfokussierung auf sie gesetzt werden muss. Beispiele sind ein außerhalb des Bildschirms liegendes modales Fenster, das fokussiert werden soll, wenn es sichtbar wird, oder eine Formularfehlermeldung, die sofort fokussiert werden soll, wenn ein fehlerhaftes Formular übermittelt wird.
+  > **Hinweis:** `tabindex="-1"` kann nützlich sein für Elemente, die nicht direkt mit der <kbd>Tab</kbd>-Taste navigiert werden sollen, aber die Tastaturfokussierung darauf gesetzt werden muss. Beispiele sind ein ausgeblendetes modales Fenster, das fokussiert werden soll, wenn es angezeigt wird, oder eine Fehlermeldung bei der Formularübermittlung, die sofort fokussiert werden soll, wenn ein fehlerhaftes Formular abgeschickt wird.
 
-- `tabindex="0"` bedeutet, dass das Element in der sequentiellen Tastaturnavigation fokussierbar sein soll, nach allen positiven `tabindex`-Werten. Die Fokussierungsreihenfolge dieser Elemente richtet sich nach ihrer Reihenfolge im Dokumentenquelltext.
-- Ein _positiver Wert_ bedeutet, dass das Element in der sequentiellen Tastaturnavigation fokussierbar sein soll, wobei seine Reihenfolge durch den Wert der Zahl definiert ist. Das heißt, `tabindex="4"` wird vor `tabindex="5"` und `tabindex="0"` fokussiert, aber nach `tabindex="3"`. Wenn mehrere Elemente denselben positiven `tabindex`-Wert teilen, folgt ihre relative Reihenfolge zueinander ihrer Position im Dokumentenquelltext. Der maximale Wert für `tabindex` ist 32767.
-- Wenn das `tabindex`-Attribut ohne gesetzten Wert enthalten ist, wird durch den Benutzeragenten bestimmt, ob das Element fokussierbar ist.
+- `tabindex="0"` bedeutet, dass das Element in der sequentiellen Tastaturnavigation fokussierbar sein soll, nach allen positiven `tabindex` Werten. Die Fokussier-Reihenfolge dieser Elemente wird durch ihre Reihenfolge im Dokumentquelltext definiert.
+- Ein _positiver Wert_ bedeutet, dass das Element in der sequentiellen Tastaturnavigation fokussierbar sein soll, mit seiner Reihenfolge definiert durch den Wert der Zahl. Das heißt, `tabindex="4"` wird vor `tabindex="5"` und `tabindex="0"`, aber nach `tabindex="3"` fokussiert. Wenn mehrere Elemente denselben positiven `tabindex` Wert haben, folgt ihre relative Reihenfolge zueinander ihrer Position im Dokumentquelltext. Der maximale Wert für `tabindex` ist 32767.
+- Wenn das `tabindex` Attribut ohne gesetzten Wert eingeschlossen ist, wird bestimmt, ob das Element fokussierbar ist, durch den User-Agent.
 
   > [!WARNING]
-  > Es wird empfohlen, ausschließlich `0` und `-1` als `tabindex`-Werte zu verwenden. Vermeiden Sie `tabindex`-Werte größer als `0` und CSS-Eigenschaften, die die Reihenfolge fokussierbarer HTML-Elemente ändern können ([Reihenfolge von Flex-Elementen](/de/docs/Web/CSS/CSS_flexible_box_layout/Ordering_flex_items)). Dies erschwert es Menschen, die auf die Tastaturnavigation oder assistive Technologien angewiesen sind, die Seiteninhalte zu navigieren und zu bedienen. Stattdessen sollten Sie das Dokument in einer logischen Reihenfolge verfassen.
+  > Es wird empfohlen, nur die Werte `0` und `-1` als `tabindex` Werte zu verwenden. Vermeiden Sie die Verwendung von `tabindex` Werten größer als `0` und CSS-Eigenschaften, die die Reihenfolge fokussierbarer HTML-Elemente ändern können ([Reihenfolge von Flex-Elementen](/de/docs/Web/CSS/CSS_flexible_box_layout/Ordering_flex_items)). Andernfalls wird es für Personen, die auf die Navigation mit der Tastatur oder assistive Technologien angewiesen sind, schwierig, Seiteninhalte zu navigieren und zu bedienen. Stattdessen sollten Sie das Dokument mit den Elementen in einer logischen Reihenfolge schreiben.
 
-Einige fokussierbare HTML-Elemente haben standardmäßig einen `tabindex`-Wert von `0`, der durch den {{Glossary("User_agent", "Benutzeragenten")}} gesetzt wird. Zu diesen Elementen gehören ein {{HTMLElement("a")}} oder {{HTMLElement("area")}} mit `href`-Attribut, {{HTMLElement("button")}}, {{HTMLElement("frame")}} {{deprecated_inline}}, {{HTMLElement("iframe")}}, {{HTMLElement("input")}}, {{HTMLElement("object")}}, {{HTMLElement("select")}}, {{HTMLElement("textarea")}}, und SVG {{SVGElement("a")}}-Elemente oder ein {{HTMLElement("summary")}}-Element, das eine Zusammenfassung für ein {{HTMLElement("details")}}-Element bereitstellt. Entwickler sollten das `tabindex`-Attribut nicht zu diesen Elementen hinzufügen, es sei denn, es ändert das Standardverhalten (zum Beispiel, indem ein negativer Wert hinzugefügt wird, wird das Element aus der Fokussierungsreihenfolge entfernt).
+Einige fokussierbare HTML-Elemente haben standardmäßig einen `tabindex`-Wert von `0`, der vom {{Glossary("User_agent", "User-Agent")}} festgelegt wird. Diese Elemente sind ein {{HTMLElement("a")}} oder {{HTMLElement("area")}} mit `href` Attribut, {{HTMLElement("button")}}, {{HTMLElement("frame")}} {{deprecated_inline}}, {{HTMLElement("iframe")}}, {{HTMLElement("input")}}, {{HTMLElement("object")}}, {{HTMLElement("select")}}, {{HTMLElement("textarea")}}, und das SVG {{SVGElement("a")}} Element, oder ein {{HTMLElement("summary")}} Element, das eine Zusammenfassung für ein {{HTMLElement("details")}} Element liefert. Entwickler sollten diesen Elementen kein `tabindex` Attribut hinzufügen, es sei denn, es ändert das Standardverhalten (zum Beispiel wird das Element durch das Einschließen eines negativen Wertes aus der Fokusnavigationsreihenfolge entfernt).
 
 > [!WARNING]
-> Das tabindex-Attribut darf nicht auf das {{HTMLElement("dialog")}}-Element angewendet werden.
+> Das tabindex Attribut darf nicht auf dem {{HTMLElement("dialog")}} Element verwendet werden.
 
-## Barrierefreiheitsbedenken
+## Barrierefreiheit
 
-Vermeiden Sie die Verwendung des `tabindex`-Attributs in Verbindung mit nicht-[interaktiven Inhalten](/de/docs/Web/HTML/Guides/Content_categories#interactive_content), um etwas, das interaktiv sein soll, per Tastatureingabe fokussierbar zu machen. Ein Beispiel hierfür wäre die Verwendung eines {{HTMLElement("div")}}-Elements zur Beschreibung eines Buttons anstelle des {{HTMLElement("button")}}-Elements.
+Vermeiden Sie die Verwendung des `tabindex` Attributs in Verbindung mit nicht-[interaktiven Inhalten](/de/docs/Web/HTML/Guides/Content_categories#interactive_content), um etwas, das als interaktiv gedacht ist, durch Tastatureingabe fokussierbar zu machen. Ein Beispiel dafür wäre die Verwendung eines {{HTMLElement("div")}} Elements zur Beschreibung eines Buttons, anstelle des {{HTMLElement("button")}} Elements.
 
-Interaktive Komponenten, die mithilfe nicht-interaktiver Elemente erstellt werden, sind nicht im [Barrierefreiheitsbaum](/de/docs/Learn_web_development/Core/Accessibility/What_is_accessibility#accessibility_apis) gelistet. Das verhindert, dass assistive Technologien diese Komponenten navigieren und manipulieren können. Die Inhalte sollten semantisch mithilfe interaktiver Elemente ({{HTMLElement("a")}}, {{HTMLElement("button")}}, {{HTMLElement("details")}}, {{HTMLElement("input")}}, {{HTMLElement("select")}}, {{HTMLElement("textarea")}}, usw.) beschrieben werden. Diese Elemente haben eine eingebaute Rolle und Zustände, die den Status für die Barrierefreiheit kommunizieren, die anderweitig von [ARIA](/de/docs/Web/Accessibility/ARIA) verwaltet werden müssten.
+Interaktive Komponenten, die mit nicht-interaktiven Elementen erstellt wurden, sind nicht im [Barrierefreiheitsbaum](/de/docs/Learn_web_development/Core/Accessibility/What_is_accessibility#accessibility_apis) aufgeführt. Dies verhindert, dass assistive Technologien diese Komponenten navigieren und manipulieren können. Der Inhalt sollte semantisch mit interaktiven Elementen ({{HTMLElement("a")}}, {{HTMLElement("button")}}, {{HTMLElement("details")}}, {{HTMLElement("input")}}, {{HTMLElement("select")}}, {{HTMLElement("textarea")}}, etc.) beschrieben werden. Diese Elemente haben eingebaute Rollen und Zustände, die den Status an die Barrierefreiheit kommunizieren würden, der ansonsten durch [ARIA](/de/docs/Web/Accessibility/ARIA) verwaltet werden müsste.
 
-- [Verwendung des tabindex-Attributs | The Paciello Group](https://www.tpgi.com/using-the-tabindex-attribute/)
+- [Verwendung des tabindex Attributs | The Paciello Group](https://www.tpgi.com/using-the-tabindex-attribute/)
 
 ## Spezifikationen
 
@@ -82,5 +83,5 @@ Interaktive Komponenten, die mithilfe nicht-interaktiver Elemente erstellt werde
 
 - Alle [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes)
 - [`HTMLElement.tabIndex`](/de/docs/Web/API/HTMLElement/tabIndex), das dieses Attribut widerspiegelt
-- Barrierefreiheitsprobleme mit `tabindex`: siehe [Don't Use Tabindex Greater than 0](https://adrianroselli.com/2014/11/dont-use-tabindex-greater-than-0.html) von Adrian Roselli
+- Barrierefreiheitsprobleme mit `tabindex`: siehe [Tabindex größer als 0 nicht verwenden](https://adrianroselli.com/2014/11/dont-use-tabindex-greater-than-0.html) von Adrian Roselli
 - {{Glossary("Reading_order", "Lesereihenfolge")}}

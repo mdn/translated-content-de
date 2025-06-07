@@ -2,13 +2,33 @@
 title: <style>
 slug: Web/SVG/Reference/Element/style
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: ac806e34aba086be141689c64dc4dd73636fbd62
 ---
 
-Das **`<style>`** [SVG](/de/docs/Web/SVG)-Element ermöglicht das direkte Einbetten von Stylesheets in SVG-Inhalte.
+Das **`<style>`** [SVG](/de/docs/Web/SVG)-Element ermöglicht es, Stylesheets direkt im SVG-Inhalt einzubetten.
 
 > [!NOTE]
-> Das `style`-Element von SVG hat dieselben Attribute wie das entsprechende Element in HTML (siehe HTML's {{HTMLElement("style")}} Element).
+> Das `style`-Element in SVG hat dieselben Attribute wie das entsprechende Element in HTML (siehe das HTML-{{HTMLElement("style")}}-Element).
+
+## Verwendungskontext
+
+{{svginfo}}
+
+## Attribute
+
+- {{SVGAttr("type")}}
+  - : Dieses Attribut definiert den Typ der Stylesheet-Sprache als Medien-Typ-String.
+    _Werttyp_: {{Glossary("MIME_type", "**`<media-type>`**")}}; _Standardwert_: `text/css`; _Animierbar_: **nein**
+- {{SVGAttr("media")}}
+  - : Dieses Attribut definiert, für welches {{cssxref('@media', 'Medium')}} die Styles gelten.
+    _Werttyp_: [**`<media-query-list>`**](/de/docs/Web/CSS/@media#syntax); _Standardwert_: `all`; _Animierbar_: **nein**
+- {{SVGAttr("title")}}
+  - : Dieses Attribut ist der Titel des Stylesheets, der verwendet werden kann, um zwischen [alternativen Stylesheets](/de/docs/Web/HTML/Reference/Attributes/rel/alternate_stylesheet) zu wechseln.
+    _Werttyp_: [**`<string>`**](/de/docs/Web/CSS/string); _Standardwert_: _none_; _Animierbar_: **nein**
+
+## DOM-Schnittstelle
+
+Dieses Element implementiert die [`SVGStyleElement`](/de/docs/Web/API/SVGStyleElement)-Schnittstelle.
 
 ## Beispiel
 
@@ -35,22 +55,6 @@ svg {
 ```
 
 {{EmbedLiveSample('Example', 150, '100%')}}
-
-## Attribute
-
-- {{SVGAttr("type")}}
-  - : Dieses Attribut definiert den Typ der Stylesheet-Sprache, die als Medientyp-String verwendet werden soll.
-    _Wertetyp_: {{Glossary("MIME_type", "**`<media-type>`**")}}; _Standardwert_: `text/css`; _Animierbar_: **nein**
-- {{SVGAttr("media")}}
-  - : Dieses Attribut definiert, auf welche {{cssxref('@media', 'Medien')}} der Stil angewendet wird.
-    _Wertetyp_: [**`<media-query-list>`**](/de/docs/Web/CSS/@media#syntax); _Standardwert_: `all`; _Animierbar_: **nein**
-- {{SVGAttr("title")}}
-  - : Dieses Attribut ist der Titel des Stylesheets, der verwendet werden kann, um zwischen [alternativen Stylesheets](/de/docs/Web/HTML/Reference/Attributes/rel/alternate_stylesheet) zu wechseln.
-    _Wertetyp_: [**`<string>`**](/de/docs/Web/CSS/string); _Standardwert_: _none_; _Animierbar_: **nein**
-
-## Nutzungskontext
-
-{{svginfo}}
 
 ## Spezifikationen
 

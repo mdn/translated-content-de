@@ -2,14 +2,26 @@
 title: <desc>
 slug: Web/SVG/Reference/Element/desc
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: ac806e34aba086be141689c64dc4dd73636fbd62
 ---
 
-Das **`<desc>`** [SVG](/de/docs/Web/SVG)-Element bietet eine zugängliche, lange Textbeschreibung jedes SVG-[Container-Elements](/de/docs/Web/SVG/Reference/Element#container_elements) oder [Grafik-Elements](/de/docs/Web/SVG/Reference/Element#graphics_elements).
+Das **`<desc>`** [SVG](/de/docs/Web/SVG) Element bietet eine zugängliche, ausführliche Beschreibung in Textform für jedes SVG [Container-Element](/de/docs/Web/SVG/Reference/Element#container_elements) oder [Grafik-Element](/de/docs/Web/SVG/Reference/Element#graphics_elements).
 
-Text in einem `<desc>`-Element wird nicht als Teil der Grafik gerendert. Wenn das Element durch sichtbaren Text beschrieben werden kann, ist es möglich, diesen Text mit dem [`aria-describedby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-describedby)-Attribut zu referenzieren. Wenn `aria-describedby` verwendet wird, hat es Vorrang vor `<desc>`.
+Text in einem `<desc>`-Element wird nicht als Teil der Grafik gerendert. Wenn das Element durch sichtbaren Text beschrieben werden kann, ist es möglich, diesen Text mit dem [`aria-describedby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-describedby) Attribut zu referenzieren. Wenn `aria-describedby` verwendet wird, hat es Vorrang vor `<desc>`.
 
-Der versteckte Text eines `<desc>`-Elements kann auch mit dem sichtbaren Text anderer Elemente verkettet werden, indem mehrere IDs in einem `aria-describedby`-Wert verwendet werden. In diesem Fall muss das `<desc>`-Element eine ID zur Referenzierung bereitstellen.
+Der versteckte Text eines `<desc>`-Elements kann auch mit dem sichtbaren Text anderer Elemente durch die Verwendung mehrerer IDs in einem `aria-describedby` Wert verknüpft werden. In diesem Fall muss das `<desc>`-Element eine ID zur Referenzierung bereitstellen.
+
+## Verwendungskontext
+
+{{svginfo}}
+
+## Attribute
+
+Dieses Element enthält nur globale Attribute.
+
+## DOM-Schnittstelle
+
+Dieses Element implementiert die [`SVGDescElement`](/de/docs/Web/API/SVGDescElement) Schnittstelle.
 
 ## Beispiel
 
@@ -33,14 +45,6 @@ svg {
 ```
 
 {{EmbedLiveSample('Example', 150, '100%')}}
-
-## Attribute
-
-Dieses Element beinhaltet nur globale Attribute
-
-## Verwendungskontext
-
-{{svginfo}}
 
 ## Spezifikationen
 

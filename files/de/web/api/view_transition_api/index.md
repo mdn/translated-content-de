@@ -2,89 +2,90 @@
 title: View Transition API
 slug: Web/API/View_Transition_API
 l10n:
-  sourceCommit: 5de337827007e2a7fb89261215b6dbcf4caafafa
+  sourceCommit: c1079d8b83ce25341085abe533388ba1ffe342cf
 ---
 
 {{DefaultAPISidebar("View Transition API")}}
 
-Die **View Transition API** bietet einen Mechanismus, um einfach animierte Übergänge zwischen verschiedenen Ansichten einer Website zu erstellen. Dies umfasst die Animation zwischen DOM-Zuständen in einer Single-Page-App (SPA) und die Animation der Navigation zwischen Dokumenten in einer Multi-Page-App (MPA).
+Die **View Transition API** bietet ein Mechanismus, um einfach animierte Übergänge zwischen verschiedenen Ansichten einer Website zu erstellen. Dies umfasst das Animieren zwischen DOM-Zuständen in einer Single-Page-App (SPA) und das Animieren der Navigation zwischen Dokumenten in einer Multi-Page-App (MPA).
 
-## Konzepte und Nutzung
+## Konzepte und Verwendung
 
-Ansichtsübergänge sind eine beliebte Designwahl, um die kognitive Belastung der Nutzer zu reduzieren, ihnen zu helfen, im Kontext zu bleiben, und die wahrgenommene Ladezeit zu verringern, während sie zwischen Zuständen oder Ansichten einer Anwendung wechseln.
+Ansichtsübergänge sind eine beliebte Designwahl, um die kognitive Belastung der Benutzer zu reduzieren, ihnen zu helfen, sich im Kontext zu halten, und wahrgenommene Ladezeiten zu verringern, während sie sich zwischen Zuständen oder Ansichten einer Anwendung bewegen.
 
-Allerdings war es historisch gesehen schwierig, Ansichtsübergänge im Web zu erstellen:
+Allerdings war das Erstellen von Ansichtsübergängen im Web historisch gesehen schwierig:
 
-- Übergänge zwischen Zuständen in Single-Page-Apps (SPAs) erfordern in der Regel erhebliche CSS- und JavaScript-Arbeit, um:
-  - Das Laden und die Positionierung des alten und neuen Inhalts zu handhaben.
+- Übergänge zwischen Zuständen in Single-Page-Apps (SPAs) erfordern das Schreiben von bedeutendem CSS und JavaScript, um:
+  - Das Laden und Positionieren der alten und neuen Inhalte zu handhaben.
   - Die alten und neuen Zustände zu animieren, um den Übergang zu erstellen.
-  - Zu verhindern, dass versehentliche Nutzerinteraktionen mit dem alten Inhalt Probleme verursachen.
-  - Den alten Inhalt nach Abschluss des Übergangs zu entfernen.
-    Barrierefreiheitsprobleme wie der Verlust der Leseposition, Verwirrung des Fokus und seltsames Verhalten der Live-Region-Ankündigung können ebenfalls, infolge der gleichzeitigen Präsenz des alten und neuen Inhalts im DOM, auftreten.
-- Dokumentübergreifende Ansichtsübergänge (d.h. über Navigationen zwischen verschiedenen Seiten in MPAs) waren historisch gesehen unmöglich.
+  - Zu verhindern, dass versehentliche Benutzerinteraktionen mit dem alten Inhalt Probleme verursachen.
+  - Den alten Inhalt zu entfernen, sobald der Übergang abgeschlossen ist.
+    Barrierefreiheitsprobleme wie Verlust der Leseposition, Fokusverwirrungen und seltsames Verhalten von Live-Region-Ankündigungen können ebenfalls auftreten, wenn der neue und der alte Inhalt gleichzeitig im DOM vorhanden sind.
+- Dokumentenübergreifende Ansichtsübergänge (d.h. Navigationen zwischen verschiedenen Seiten in MPAs) waren historisch gesehen unmöglich.
 
 Die View Transition API bietet eine einfache Möglichkeit, die erforderlichen Ansichtsänderungen und Übergangsanimationen für beide oben genannten Anwendungsfälle zu handhaben.
 
-Das Erstellen eines Ansichtsübergangs, der die Standardübergangsanimationen des Browsers verwendet, ist sehr schnell umsetzbar, und es gibt Funktionen, die es Ihnen ermöglichen, sowohl die Übergangsanimation anzupassen als auch den Ansichtsübergang selbst zu manipulieren (zum Beispiel die Umstände festzulegen, unter denen die Animation übersprungen wird), sowohl für SPA als auch MPA Ansichtsübergänge.
+Das Erstellen eines Ansichtsübergangs, der die Standard-Übergangsanimationen des Browsers verwendet, ist sehr schnell durchzuführen, und es gibt Funktionen, die es Ihnen ermöglichen, sowohl die Übergangsanimation anzupassen als auch den Ansichtsübergang selbst zu manipulieren (zum Beispiel die Umstände anzugeben, unter denen die Animation übersprungen wird), für sowohl SPA- als auch MPA-Ansichtsübergänge.
 
-Weitere Informationen finden Sie unter [Using the View Transition API](/de/docs/Web/API/View_Transition_API/Using).
+Siehe [Verwendung der View Transition API](/de/docs/Web/API/View_Transition_API/Using) für mehr Informationen.
 
 ## Schnittstellen
 
 - [`ViewTransition`](/de/docs/Web/API/ViewTransition)
-  - : Repräsentiert einen Ansichtsübergang und bietet Funktionen zum Reagieren auf den Übergang, wenn er verschiedene Zustände erreicht (z.B. bereit für die Animation oder Animation abgeschlossen) oder den Übergang ganz zu überspringen.
+  - : Repräsentiert einen Ansichtsübergang und bietet Funktionalität, um auf das Erreichen verschiedener Zustände des Übergangs zu reagieren (z. B. bereit, die Animation auszuführen, oder Animation abgeschlossen) oder den Übergang vollständig zu überspringen.
 
-## Erweiterungen zu anderen Schnittstellen
+## Erweiterungen für andere Schnittstellen
 
 - [`Document.startViewTransition()`](/de/docs/Web/API/Document/startViewTransition)
-  - : Startet einen neuen, gleichen Dokument- (SPA) Ansichtsübergang und gibt ein [`ViewTransition`](/de/docs/Web/API/ViewTransition)-Objekt zurück, um ihn zu repräsentieren.
+  - : Startet einen neuen gleich-Dokument (SPA) Ansichtsübergang und gibt ein [`ViewTransition`](/de/docs/Web/API/ViewTransition)-Objekt zurück, um ihn darzustellen.
 - [`PageRevealEvent`](/de/docs/Web/API/PageRevealEvent)
-  - : Das Ereignisobjekt für das [`pagereveal`](/de/docs/Web/API/Window/pagereveal_event)-Ereignis. Bei einer dokumentübergreifenden Navigation ermöglicht es Ihnen, den zugehörigen Ansichtsübergang zu manipulieren (mit Zugriff auf das relevante [`ViewTransition`](/de/docs/Web/API/ViewTransition)-Objekt) vom Dokument aus, zu dem navigiert wird, wenn ein Ansichtsübergang durch die Navigation ausgelöst wurde.
+  - : Das Ereignisobjekt für das [`pagereveal`](/de/docs/Web/API/Window/pagereveal_event)-Ereignis. Während einer dokumentenübergreifenden Navigation erlaubt es Ihnen, den zugehörigen Ansichtsübergang zu manipulieren (indem auf das relevante [`ViewTransition`](/de/docs/Web/API/ViewTransition)-Objekt zugegriffen wird) aus dem Dokument heraus, zu dem navigiert wird, falls ein Ansichtsübergang durch die Navigation ausgelöst wurde.
 - [`PageSwapEvent`](/de/docs/Web/API/PageSwapEvent)
-  - : Das Ereignisobjekt für das [`pageswap`](/de/docs/Web/API/Window/pageswap_event)-Ereignis. Bei einer dokumentübergreifenden Navigation ermöglicht es Ihnen, den zugehörigen Ansichtsübergang zu manipulieren (mit Zugriff auf das relevante [`ViewTransition`](/de/docs/Web/API/ViewTransition)-Objekt) vom Dokument aus, von dem aus navigiert wird, wenn ein Ansichtsübergang durch die Navigation ausgelöst wurde. Es bietet auch Zugriff auf Informationen zur Navigationsart und den aktuellen, sowie den Ziel-Dokumentgeschichteeinträgen.
+  - : Das Ereignisobjekt für das [`pageswap`](/de/docs/Web/API/Window/pageswap_event)-Ereignis. Während einer dokumentenübergreifenden Navigation erlaubt es Ihnen, den zugehörigen Ansichtsübergang zu manipulieren (indem auf das relevante [`ViewTransition`](/de/docs/Web/API/ViewTransition)-Objekt zugegriffen wird) aus dem Dokument heraus, von dem navigiert wird, falls ein Ansichtsübergang durch die Navigation ausgelöst wurde. Es bietet auch Zugriff auf Informationen über den Navigationstyp sowie die aktuellen und Ziel-Dokumenthistorieeinträge.
 - Das [`Window`](/de/docs/Web/API/Window) [`pagereveal`](/de/docs/Web/API/Window/pagereveal_event)-Ereignis
-  - : Wird ausgelöst, wenn ein Dokument das erste Mal gerendert wird, entweder beim Laden eines frischen Dokuments aus dem Netzwerk oder beim Aktivieren eines Dokuments (entweder aus dem {{Glossary("bfcache", "back/forward cache")}} (bfcache) oder {{Glossary("Prerender", "prerender")}}).
+  - : Wird ausgelöst, wenn ein Dokument erstmals gerendert wird, sei es beim Laden eines neuen Dokuments aus dem Netzwerk oder beim Aktivieren eines Dokuments (entweder aus dem {{Glossary("bfcache", "back/forward cache")}} (bfcache) oder {{Glossary("Prerender", "prerender")}}).
 - Das [`Window`](/de/docs/Web/API/Window) [`pageswap`](/de/docs/Web/API/Window/pageswap_event)-Ereignis
-  - : Wird ausgelöst, wenn ein Dokument kurz vor dem Entladen aufgrund einer Navigation steht.
+  - : Wird ausgelöst, wenn ein Dokument aufgrund einer Navigation entladen werden soll.
 
-## HTML-Ergänzungen
+## HTML-Erweiterungen
 
 - [`<link rel="expect">`](/de/docs/Web/HTML/Reference/Attributes/rel#expect)
-  - : Identifiziert die kritischsten Inhalte im zugehörigen Dokument für die initiale Ansicht der Seite durch den Nutzer. Das Dokument-Rendering wird blockiert, bis die kritischen Inhalte erkannt wurden, um einen konsistenten ersten Anstrich zu gewährleisten — und somit auch einen konsistenten Ansichtsübergang – in allen unterstützenden Browsern.
+  - : Identifiziert den kritischsten Inhalt im zugehörigen Dokument für die anfängliche Ansicht der Seite des Benutzers. Das Rendern des Dokuments wird blockiert, bis der kritische Inhalt analysiert wurde, um eine konsistente erste Darstellung — und daher einen Ansichtsübergang — in allen unterstützenden Browsern zu gewährleisten.
 
-## CSS-Ergänzungen
+## CSS-Erweiterungen
 
-### At-Regeln
+### At-Rules
 
 - {{cssxref("@view-transition")}}
-  - : Im Falle einer dokumentübergreifenden Navigation wird `@view-transition` verwendet, um das aktuelle und das Ziel-Dokument in einen Ansichtsübergang einzubeziehen.
+  - : Im Falle einer dokumentenübergreifenden Navigation wird `@view-transition` verwendet, um das aktuelle und das Zieldokument dafür anzumelden, einen Ansichtsübergang zu durchlaufen.
 
 ### Eigenschaften
 
 - {{cssxref("view-transition-name")}}
-  - : Verleiht dem ausgewählten Element einen separaten Identifikationsnamen und bewirkt, dass es an einem separaten Ansichtsübergang, als dem Root-Ansichtsübergang — oder keinem Ansichtsübergang, wenn der Wert `none` angegeben ist.
+  - : Gibt den Ansichtsübergang-Snapshot an, an dem ausgewählte Elemente teilnehmen, wodurch ein Element separat vom Rest der Seite während eines Ansichtsübergangs animiert werden kann.
 - {{cssxref("view-transition-class")}}
-  - : Bietet eine zusätzliche Methode, um ausgewählte Elemente, die einen `view-transition-name` haben, zu stylen.
+  - : Bietet eine zusätzliche Methode zum Stylen ausgewählter Elemente, die einen `view-transition-name` haben.
 
-### Pseudoelemente
+### Pseudo-Elemente
 
 - {{cssxref("::view-transition")}}
-  - : Der Ursprung des Ansichtsübergangs-Overlays, das alle Ansichtsübergänge enthält und über allen anderen Seiteninhalten liegt.
+  - : Die Wurzel des Ansichtsübergangs-Overlays, das alle Ansichtsübergänge enthält und über dem restlichen Seiteninhalt liegt.
 - {{cssxref("::view-transition-group()")}}
-  - : Der Ursprung eines einzelnen Ansichtsübergangs.
+  - : Die Wurzel eines einzelnen Ansichtsübergangs.
 - {{cssxref("::view-transition-image-pair()")}}
   - : Der Container für die alten und neuen Ansichten eines Ansichtsübergangs — vor und nach dem Übergang.
 - {{cssxref("::view-transition-old()")}}
-  - : Eine statische Momentaufnahme der alten Ansicht, vor dem Übergang.
+  - : Ein statischer Schnappschuss der alten Ansicht, vor dem Übergang.
 - {{cssxref("::view-transition-new()")}}
   - : Eine Live-Darstellung der neuen Ansicht, nach dem Übergang.
 
 ## Beispiele
 
-- [Basic View Transitions SPA demo](https://mdn.github.io/dom-examples/view-transitions/spa/): Eine grundlegende Bildgalerie-Demo mit Ansichtsübergängen, die separate Animationen zwischen alten und neuen Bildern sowie alten und neuen Bildunterschriften zeigt.
-- [Basic View Transitions MPA demo](https://mdn.github.io/dom-examples/view-transitions/mpa/): Eine Beispielseite mit zwei Seiten, die die Nutzung von dokumentübergreifenden (MPA) Ansichtsübergängen demonstriert, bietet einen benutzerdefinierten "hochwischen"-Übergang, wenn zwischen den beiden Seiten navigiert wird.
-- [HTTP 203 playlist](https://http203-playlist.netlify.app/): Eine Videoplayer-Demo-App, die mehrere verschiedene SPA-Ansichtsübergänge zeigt, von denen viele in [Smooth transitions with the View Transition API](https://developer.chrome.com/docs/web-platform/view-transitions/) erklärt werden.
-- [List of Chrome DevRel team members](https://view-transitions.chrome.dev/profiles/mpa/): Eine einfache Teamprofilseite-App, die zeigt, wie die [`pagereveal`](/de/docs/Web/API/Window/pagereveal_event)- und [`pageswap`](/de/docs/Web/API/Window/pageswap_event)-Ereignisse verwendet werden, um die ausgehenden und eingehenden Animationen eines dokumentübergreifenden Ansichtsübergangs basierend auf den "von" und "zu" URLs anzupassen.
+- [Grundlegende View Transitions SPA-Demo](https://mdn.github.io/dom-examples/view-transitions/spa/): Eine grundlegende Bildgalerie-Demo mit Ansichtsübergängen, die separate Animationen zwischen alten und neuen Bildern und alten und neuen Bildunterschriften bietet.
+- [Grundlegende View Transitions MPA-Demo](https://mdn.github.io/dom-examples/view-transitions/mpa/): Eine beispielhafte Zwei-Seiten-Site, die die Verwendung von dokumentenübergreifenden (MPA) Ansichtsübergängen demonstriert und einen benutzerdefinierten "Nach-oben-wischen"-Übergang bietet, wenn zwischen den beiden Seiten navigiert wird.
+- [View Transitions match-element Demo](https://mdn.github.io/dom-examples/view-transitions/match-element/): Eine SPA mit animierten Listenpunkten, die die Verwendung des Wertes `match-element` der Eigenschaft `view-transition-name` demonstriert.
+- [HTTP 203 Playlist](https://http203-playlist.netlify.app/): Eine Videoplayer-Demo-App, die mehrere verschiedene SPA-Ansichtsübergänge bietet, von denen viele in [Smooth transitions with the View Transition API](https://developer.chrome.com/docs/web-platform/view-transitions/) erklärt werden.
+- [Chrome DevRel View Transitions Demos](https://view-transitions.chrome.dev/): Eine Serie von View Transition API-Demos.
 
 ## Spezifikationen
 

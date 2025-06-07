@@ -2,10 +2,27 @@
 title: <path>
 slug: Web/SVG/Reference/Element/path
 l10n:
-  sourceCommit: 34c204f8f6c3f7ac60ebb23fca9798680aee9956
+  sourceCommit: ac806e34aba086be141689c64dc4dd73636fbd62
 ---
 
-Das **`<path>`** [SVG](/de/docs/Web/SVG) Element ist das generische Element zur Definition einer Form. Alle grundlegenden Formen können mit einem path-Element erstellt werden.
+Das **`<path>`** [SVG](/de/docs/Web/SVG)-Element ist das generische Element zur Definition einer Form. Alle grundlegenden Formen können mit einem path-Element erstellt werden.
+
+## Nutzungskontext
+
+{{svginfo}}
+
+## Attribute
+
+- {{SVGAttr("d")}}
+  - : Dieses Attribut definiert die Form des Pfades.
+    _Wertetyp_: **\<string>**; _Standardwert_: `''`; _Animierbar_: **ja**
+- {{SVGAttr("pathLength")}}
+  - : Dieses Attribut ermöglicht es Autoren, die Gesamtlänge des Pfades in Benutzereinheiten anzugeben.
+    _Wertetyp_: [**\<number>**](/de/docs/Web/SVG/Guides/Content_type#number); _Standardwert_: _none_; _Animierbar_: **ja**
+
+## DOM-Schnittstelle
+
+Dieses Element implementiert die Schnittstelle [`SVGPathElement`](/de/docs/Web/API/SVGPathElement).
 
 ## Beispiel
 
@@ -29,19 +46,6 @@ svg {
 ```
 
 {{EmbedLiveSample('Example', 100, 100)}}
-
-## Attribute
-
-- {{SVGAttr("d")}}
-  - : Dieses Attribut definiert die Form des Pfads.
-    _Wertetyp_: **\<string>**; _Standardwert_: `''`; _Animierbar_: **ja**
-- {{SVGAttr("pathLength")}}
-  - : Dieses Attribut ermöglicht es Autoren, die Gesamtlänge des Pfads in Benutzereinheiten anzugeben.
-    _Wertetyp_: [**\<number>**](/de/docs/Web/SVG/Guides/Content_type#number); _Standardwert_: _none_; _Animierbar_: **ja**
-
-## Verwendungskontext
-
-{{svginfo}}
 
 ## Spezifikationen
 

@@ -1,13 +1,14 @@
 ---
-title: accesskey
+title: HTML accesskey globales Attribut
+short-title: accesskey
 slug: Web/HTML/Reference/Global_attributes/accesskey
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: 7885271e36e9d2744296c01f400653f63caa6f75
 ---
 
 {{HTMLSidebar("Global_attributes")}}
 
-Das **`accesskey`** [globale Attribut](/de/docs/Web/HTML/Reference/Global_attributes) bietet einen Hinweis zur Erzeugung einer Tastenkombination für das aktuelle Element. Der Attributwert muss aus einem einzelnen druckbaren Zeichen bestehen (einschließlich Akzenten und anderen Zeichen, die über die Tastatur erzeugt werden können).
+Das **`accesskey`** [globale Attribut](/de/docs/Web/HTML/Reference/Global_attributes) bietet einen Hinweis zur Generierung einer Tastenkombination für das aktuelle Element. Der Attributwert muss aus einem einzigen druckbaren Zeichen bestehen (dazu gehören Akzentzeichen und andere Zeichen, die über die Tastatur generiert werden können).
 
 {{InteractiveExample("HTML Demo: accesskey", "tabbed-shorter")}}
 
@@ -22,7 +23,7 @@ b {
 }
 ```
 
-Die Art und Weise, wie der `accesskey` aktiviert wird, hängt vom Browser und dessen Plattform ab:
+Die Art und Weise, wie die `accesskey`-Kombination aktiviert wird, hängt vom Browser und dessen Plattform ab:
 
 <table class="standard-table">
   <tbody>
@@ -66,16 +67,16 @@ Die Art und Weise, wie der `accesskey` aktiviert wird, hängt vom Browser und de
   </tbody>
 </table>
 
-## Barrierefreiheit
+## Barrierefreiheit Bedenken
 
-Es gibt zahlreiche Bedenken bezüglich des `accesskey`-Attributs:
+Es gibt zahlreiche Bedenken im Zusammenhang mit dem `accesskey`-Attribut:
 
-- Ein `accesskey`-Wert kann mit einer System- oder Browser-Tastenkombination oder mit der Funktionalität von unterstützender Technologie in Konflikt stehen. Was für eine Kombination aus Betriebssystem, unterstützender Technologie und Browser funktioniert, mag für andere Kombinationen nicht funktionieren.
-- Bestimmte `accesskey`-Werte sind möglicherweise auf bestimmten Tastaturen nicht vorhanden, insbesondere wenn die Internationalisierung relevant ist. Die Anpassung an spezifische Sprachen könnte also weitere Probleme verursachen.
-- `accesskey`-Werte, die auf Zahlen beruhen, könnten für Personen mit kognitiven Einschränkungen verwirrend sein, wenn die Zahl keine logische Verbindung zu der Funktion hat, die sie auslöst.
-- Es muss sichergestellt werden, dass die Benutzer wissen, dass `accesskey`s vorhanden sind, damit sie über die Funktionalität informiert sind. Wenn das System über keine Methode verfügt, den Benutzer über diese Funktion zu informieren, könnte der Benutzer `accesskey`s versehentlich aktivieren.
+- Ein `accesskey`-Wert kann mit einer System- oder Browser-Tastenkombination oder der Funktionalität von unterstützenden Technologien in Konflikt stehen. Was für eine Kombination aus Betriebssystem, unterstützender Technologie und Browser funktioniert, funktioniert möglicherweise nicht mit anderen Kombinationen.
+- Bestimmte `accesskey`-Werte sind möglicherweise nicht auf bestimmten Tastaturen vorhanden, insbesondere wenn die Internationalisierung eine Rolle spielt. Die Anpassung an spezifische Sprachen könnte daher weitere Probleme verursachen.
+- `accesskey`-Werte, die auf Zahlen basieren, können für Personen mit kognitiven Bedenken verwirrend sein, da die Zahl keine logische Verbindung zu der von ihr ausgelösten Funktionalität hat.
+- Den Benutzer darüber informieren, dass `accesskey`s vorhanden sind, damit sie sich der Funktionalität bewusst sind. Wenn dem System eine Methode fehlt, den Benutzer über diese Funktion zu informieren, könnte der Benutzer versehentlich `accesskey`s aktivieren.
 
-Aufgrund dieser Probleme wird im Allgemeinen davon abgeraten, `accesskey`s für die meisten allgemeinen Websites und Web-Apps zu verwenden.
+Aufgrund dieser Probleme wird allgemein geraten, `accesskey`s nicht für die meisten allgemeingültigen Websites und Web-Apps zu verwenden.
 
 - [WebAIM: Tastaturzugänglichkeit - Accesskey](https://webaim.org/techniques/keyboard/accesskey#spec)
 

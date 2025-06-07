@@ -1,28 +1,29 @@
 ---
-title: anchor
+title: HTML `anchor` globales Attribut
+short-title: anchor
 slug: Web/HTML/Reference/Global_attributes/anchor
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: 7885271e36e9d2744296c01f400653f63caa6f75
 ---
 
 {{HTMLSidebar("Global_attributes")}}{{Non-standard_Header}}{{SeeCompatTable}}
 
-Das **`anchor`** [Globale Attribut](/de/docs/Web/HTML/Reference/Global_attributes) wird verwendet, um ein positioniertes Element mit einem Ankerelement zu verknüpfen. Der Wert des Attributs ist der [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id)-Wert des Elements, mit dem Sie das positionierte Element verankern möchten. Das Element kann dann mithilfe von [CSS-Ankerpositionierung](/de/docs/Web/CSS/CSS_anchor_positioning/Using) positioniert werden.
+Das **`anchor`** [globale Attribut](/de/docs/Web/HTML/Reference/Global_attributes) wird verwendet, um ein positioniertes Element mit einem Anker-Element zu verknüpfen. Der Wert des Attributs ist der [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id)-Wert des Elements, das Sie als Anker für das positionierte Element verwenden möchten. Das Element kann dann mithilfe von [CSS-Anker-Positionierung](/de/docs/Web/CSS/CSS_anchor_positioning/Using) positioniert werden.
 
 > [!NOTE]
-> Alternativ können Sie ein positioniertes Element mit einem Ankerelement über CSS verknüpfen, indem Sie die {{cssxref("anchor-name")}}- und {{cssxref("position-anchor")}}-Eigenschaften verwenden. Falls beide Ankertechniken auf dasselbe Element angewendet werden, hat die CSS-Technik Vorrang vor der HTML-Technik.
+> Alternativ können Sie ein positioniertes Element über CSS mit einem Anker-Element verknüpfen, indem Sie die Eigenschaften {{cssxref("anchor-name")}} und {{cssxref("position-anchor")}} verwenden. Wenn beide Verankerungstechniken auf demselben Element verwendet werden, hat die CSS-Technik Vorrang vor der HTML-Technik.
 
 ## Beispiele
 
 ### Grundlegende Verwendung des `anchor`-Attributs
 
-Im folgenden Beispiel wird HTML verwendet, um ein positioniertes Element mit einem Anker zu verbinden. CSS wird dann verwendet, um das positionierte Element rechts vom Anker zu verankern.
+Das folgende Beispiel verwendet HTML, um ein positioniertes Element mit einem Anker zu verknüpfen. CSS wird dann verwendet, um das positionierte Element rechts vom Anker anzuheften.
 
 #### HTML
 
-Wir erstellen ein {{htmlelement("div")}}-Element mit einer `id` von `example-anchor`. Dies ist unser Ankerelement. Dann fügen wir ein weiteres `<div>` hinzu, bei dem das `anchor`-Attribut auf `example-anchor` gesetzt ist. Dies bestimmt, dass das erste `<div>` als Anker für das zweite `<div>` dient und die beiden miteinander verbindet.
+Wir erstellen ein {{htmlelement("div")}}-Element mit einer `id` von `example-anchor`. Dies ist unser Anker-Element. Anschließend fügen wir ein weiteres `<div>` mit dem `anchor`-Attribut hinzu, das auf `example-anchor` gesetzt ist. Dies bestimmt das erste `<div>` als Anker für das zweite `<div>` und verknüpft die beiden miteinander.
 
-Wir fügen auch etwas Fülltext um die beiden `<div>`-Elemente hinzu, um den {{htmlelement("body")}} höher zu machen, sodass er scrollt.
+Wir fügen auch etwas Fülltext um die beiden `<div>`s hinzu, um den {{htmlelement("body")}} höher zu machen, sodass er scrollen kann.
 
 ```html
 <p>
@@ -82,12 +83,12 @@ body {
 }
 ```
 
-Wir verwenden CSS, um das `infobox`-Element in ein _ankerpositioniertes Element_ zu konvertieren und relativ zu seinem Anker zu positionieren. Wir setzen seine:
+Wir verwenden CSS, um das `infobox`-Element in ein _anker-positioniertes Element_ zu konvertieren und relativ zu seinem Anker zu positionieren. Wir setzen dazu:
 
-- {{cssxref("position")}}-Eigenschaft auf `fixed`, um es in ein positioniertes Element zu konvertieren, sodass es relativ zur Position des Ankers positioniert werden kann.
-- {{cssxref("left")}}-Eigenschaft zu einer {{cssxref("anchor()")}}-Funktion mit dem Wert `right`. Dies verankert das positionierte Element an seinem Anker und positioniert dessen linke Kante bündig zur rechten Kante des Ankers.
-- {{cssxref("align-self")}}-Eigenschaft auf [`anchor-center`](/de/docs/Web/CSS/CSS_anchor_positioning/Using#centering_on_the_anchor_using_anchor-center). Dadurch wird die Infobox mittig in der Inline-Richtung zum Anker ausgerichtet.
-- {{cssxref("margin-left")}} auf `10px`, um Abstand zwischen dem ankerpositionierten Element und seinem Anker zu schaffen.
+- Die {{cssxref("position")}}-Eigenschaft auf `fixed`, um es in ein positioniertes Element zu verwandeln, sodass es relativ zur Position des Ankers positioniert werden kann.
+- Die {{cssxref("left")}}-Eigenschaft auf eine {{cssxref("anchor()")}}-Funktion mit einem Wert von `right`. Dies verbindet das positionierte Element mit seinem Anker, indem es seine linke Kante bündig an die rechte Kante des Ankers positioniert.
+- Die {{cssxref("align-self")}}-Eigenschaft auf [`anchor-center`](/de/docs/Web/CSS/CSS_anchor_positioning/Using#centering_on_the_anchor_using_anchor-center). Dies bewirkt, dass die Infobox zentral zur Mitte des Ankers in der Inline-Richtung ausgerichtet wird.
+- {{cssxref("margin-left")}} auf `10px`, um Platz zwischen dem anker-positionierten Element und seinem Anker zu schaffen.
 
 ```css
 .infobox {
@@ -100,7 +101,7 @@ Wir verwenden CSS, um das `infobox`-Element in ein _ankerpositioniertes Element_
 
 #### Ergebnis
 
-Scrollen Sie das Beispiel, um zu sehen, wie die Infobox an den Anker gebunden ist. Wenn das `anchor`-Attribut unterstützt wird, wird die Infobox rechts vom Anker fixiert. Wenn nicht unterstützt, wird die Infobox am Ansichtsfenster fixiert.
+Scrollen Sie das Beispiel, um zu sehen, wie die Infobox an den Anker gekoppelt ist. Wenn das `anchor`-Attribut unterstützt wird, wird die Infobox rechts vom Anker fixiert. Wenn nicht unterstützt, wird die Infobox zum Viewport fixiert.
 
 {{EmbedLiveSample("Basic `anchor` attribute usage", "100%", 225)}}
 
@@ -115,6 +116,6 @@ Dieses Attribut ist derzeit nicht Teil der HTML-Spezifikation. Lesen Sie die Dis
 ## Siehe auch
 
 - [`HTMLElement.anchorElement`](/de/docs/Web/API/HTMLElement/anchorElement)
-- CSS {{cssxref("anchor-name")}} Eigenschaft
-- CSS {{cssxref("position-anchor")}} Eigenschaft
-- [CSS-Ankerpositionierungs](/de/docs/Web/CSS/CSS_anchor_positioning)-Modul
+- CSS {{cssxref("anchor-name")}}-Eigenschaft
+- CSS {{cssxref("position-anchor")}}-Eigenschaft
+- [CSS-Anker-Positionierung](/de/docs/Web/CSS/CSS_anchor_positioning) Modul

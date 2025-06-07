@@ -2,16 +2,16 @@
 title: Kommentare
 slug: Web/CSS/CSS_syntax/Comments
 l10n:
-  sourceCommit: a850ca867a8b380a53320bab6870fb7335f22d52
+  sourceCommit: cac79d099b0a4e48456cb53eb2435f6acf03e188
 ---
 
 {{CSSRef}}
 
-Ein CSS-**Kommentar** wird verwendet, um erklärende Notizen im Code hinzuzufügen oder den Browser daran zu hindern, bestimmte Teile des Stylesheets zu interpretieren. Kommentare haben absichtlich keinen Einfluss auf das Layout eines Dokuments.
+Ein CSS **Kommentar** wird verwendet, um erklärende Notizen zum Code hinzuzufügen oder um zu verhindern, dass der Browser bestimmte Teile des Stylesheets interpretiert. Kommentare haben von Haus aus keine Auswirkung auf das Layout eines Dokuments.
 
 ## Syntax
 
-Kommentare können überall dort platziert werden, wo Leerzeichen innerhalb eines Stylesheets zulässig sind. Sie können sich auf einer einzelnen Zeile befinden oder sich über mehrere Zeilen erstrecken.
+Kommentare können überall dort platziert werden, wo Leerzeichen in einem Stylesheet erlaubt sind. Sie können einzeilig oder über mehrere Zeilen hinweg verwendet werden.
 
 ```css
 /* Comment */
@@ -41,7 +41,7 @@ span {
 
 ## Hinweise
 
-Die `/* */`-Kommentarsyntax wird sowohl für einzeilige als auch mehrzeilige Kommentare verwendet. Es gibt keine andere Möglichkeit, Kommentare in externen Stylesheets anzugeben. Wenn jedoch das {{htmlelement("style")}}-Element verwendet wird, können Sie `<!-- -->` nutzen, um CSS vor älteren Browsern zu verbergen, auch wenn dies nicht empfohlen wird. Wie in den meisten Programmiersprachen, die die `/* */`-Kommentarsyntax verwenden, können Kommentare nicht verschachtelt werden. Das bedeutet, dass die erste Instanz von `*/`, die auf eine Instanz von `/*` folgt, den Kommentar schließt.
+Die `/* */` Kommentarsyntax wird sowohl für einzeilige als auch mehrzeilige Kommentare verwendet. Es gibt keine andere Möglichkeit, Kommentare in externen Stylesheets zu spezifizieren. Wenn jedoch das {{htmlelement("style")}} Element verwendet wird, können Sie `<!-- -->` nutzen, um CSS vor älteren Browsern zu verstecken, obwohl dies nicht empfohlen wird. Wie bei den meisten Programmiersprachen, die die `/* */` Kommentarsyntax nutzen, können Kommentare nicht verschachtelt werden. Mit anderen Worten, das erste Vorkommen von `*/`, das auf ein `/*` folgt, schließt den Kommentar.
 
 ## Spezifikationen
 
@@ -49,6 +49,6 @@ Die `/* */`-Kommentarsyntax wird sowohl für einzeilige als auch mehrzeilige Kom
 
 ## Siehe auch
 
-- [CSS-Syntax](/de/docs/Web/CSS/CSS_syntax)-Modul
-- [Syntax](/de/docs/Web/CSS/CSS_syntax/Syntax)-Leitfaden
+- [CSS-Syntax](/de/docs/Web/CSS/CSS_syntax) Modul
+- [Syntax](/de/docs/Web/CSS/CSS_syntax/Syntax) Leitfaden
 - [CSS-Fehlerbehandlung](/de/docs/Web/CSS/CSS_syntax/Error_handling)

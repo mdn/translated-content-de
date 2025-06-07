@@ -1,158 +1,211 @@
 ---
-title: 2D-Kollisionserkennung
+title: 2D-Kollisionsdetektion
 slug: Games/Techniques/2D_collision_detection
 l10n:
-  sourceCommit: 33e22d8d3b374f47040fff448d91478d67e35c05
+  sourceCommit: b8000eedf02c0fbcc2979d53e7843bcba5668930
 ---
 
 {{GamesSidebar}}
 
-Algorithmen zur Erkennung von Kollisionen in 2D-Spielen hängen von den Arten von Formen ab, die kollidieren können (z.B. Rechteck zu Rechteck, Rechteck zu Kreis, Kreis zu Kreis). Normalerweise haben Sie eine einfache generische Form, die die Entität abdeckt und als "Hitbox" bekannt ist. Auch wenn die Kollision nicht pixelgenau ist, sieht sie gut genug aus und ist bei mehreren Entitäten leistungsfähig. Dieser Artikel bietet einen Überblick über die gebräuchlichsten Techniken zur Bereitstellung der Kollisionserkennung in 2D-Spielen.
+Algorithmen zur Kollisionsdetektion in 2D-Spielen hängen von den Arten der Formen ab, die kollidieren können (z.B. Rechteck zu Rechteck, Rechteck zu Kreis, Kreis zu Kreis). Im Allgemeinen haben Sie eine einfache generische Form, die die Entität als "Hitbox" abdeckt, sodass die Kollision, auch wenn sie nicht pixelgenau ist, gut genug aussieht und leistungsfähig bei mehreren Entitäten ist. Dieser Artikel bietet einen Überblick über die gebräuchlichsten Techniken zur Bereitstellung von Kollisionsdetektion in 2D-Spielen.
 
-## Achsen-ausgerichtete Begrenzungsbox
+## Engine-Code
 
-Eine der einfacheren Formen der Kollisionserkennung besteht zwischen zwei rechteckigen, achsen-ausgerichteten Formen – also ohne Rotation. Der Algorithmus funktioniert, indem sichergestellt wird, dass es keine Lücke zwischen den 4 Seiten der Rechtecke gibt. Jede Lücke bedeutet, dass keine Kollision vorliegt.
+Die Demos auf dieser Seite basieren nicht auf externen Bibliotheken, daher implementieren wir die gesamte Orchestrierung selbst, einschließlich Rendering, Benutzersteuerung und Aufruf von Verhaltensweisen jeder Entität. Der Code wird unten gezeigt (er wird nicht für jedes Beispiel wiederholt):
 
-```html hidden
-<div id="cr-stage"></div>
-<p>
-  Move the rectangle with arrow keys. Green means collision, blue means no
-  collision.
-</p>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/crafty/0.5.4/crafty-min.js"></script>
+```html live-sample___box_collision_ex live-sample___circle_collision_ex
+<div id="container"></div>
 ```
 
-```js
-Crafty.init(200, 200);
+```css live-sample___box_collision_ex live-sample___circle_collision_ex
+.entity {
+  display: inline-block;
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  background-color: blue;
+}
 
-const dim1 = { x: 5, y: 5, w: 50, h: 50 };
-const dim2 = { x: 20, y: 10, w: 60, h: 40 };
+.movable {
+  left: 50px;
+  top: 50px;
+  background-color: red;
+}
 
-const rect1 = Crafty.e("2D, Canvas, Color").attr(dim1).color("red");
-
-const rect2 = Crafty.e("2D, Canvas, Color, Keyboard, Fourway")
-  .fourway(2)
-  .attr(dim2)
-  .color("blue");
-
-rect2.bind("EnterFrame", function () {
-  if (
-    rect1.x < rect2.x + rect2.w &&
-    rect1.x + rect1.w > rect2.x &&
-    rect1.y < rect2.y + rect2.h &&
-    rect1.y + rect1.h > rect2.y
-  ) {
-    // Collision detected!
-    this.color("green");
-  } else {
-    // No collision
-    this.color("blue");
-  }
-});
-```
-
-{{ EmbedLiveSample('Axis-Aligned_Bounding_Box', '700', '300') }}
-
-> **Hinweis:** [Ein weiteres Beispiel ohne Canvas oder externe Bibliotheken](https://jsfiddle.net/jlr7245/217jrozd/3/).
-
-## Kreiskollision
-
-Eine weitere einfache Form zur Kollisionserkennung besteht zwischen zwei Kreisen. Dieser Algorithmus funktioniert, indem die Mittelpunkte der beiden Kreise genommen werden und sichergestellt wird, dass der Abstand zwischen den Mittelpunkten kleiner ist als die Summe der beiden Radien.
-
-```html hidden
-<div id="cr-stage"></div>
-<p>
-  Move the circle with arrow keys. Green means collision, blue means no
-  collision.
-</p>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/crafty/0.5.4/crafty-min.js"></script>
-```
-
-```css hidden
-#cr-stage {
-  position: static !important;
-  height: 200px !important;
+.collision-state {
+  background-color: green !important;
 }
 ```
 
-```js
-Crafty.init(200, 200);
-
-const dim1 = { x: 5, y: 5 };
-const dim2 = { x: 20, y: 20 };
-
-Crafty.c("Circle", {
-  circle(radius, color) {
-    this.radius = radius;
-    this.w = this.h = radius * 2;
-    this.color = color || "#000000";
-
-    this.bind("Move", Crafty.DrawManager.drawAll);
-    return this;
-  },
-
-  draw() {
-    const ctx = Crafty.canvas.context;
-    ctx.save();
-    ctx.fillStyle = this.color;
-    ctx.beginPath();
-    ctx.arc(
-      this.x + this.radius,
-      this.y + this.radius,
-      this.radius,
-      0,
-      Math.PI * 2,
+```js live-sample___box_collision_ex live-sample___circle_collision_ex
+const collider = {
+  moveableEntity: null,
+  staticEntities: [],
+  checkCollision() {
+    // Important: the isCollidingWith method is what we are implementing
+    const isColliding = this.staticEntities.some((staticEntity) =>
+      this.moveableEntity.isCollidingWith(staticEntity),
     );
-    ctx.closePath();
-    ctx.fill();
-    ctx.restore();
+    this.moveableEntity.setCollisionState(isColliding);
   },
-});
+};
 
-const circle1 = Crafty.e("2D, Canvas, Circle").attr(dim1).circle(15, "red");
+const container = document.getElementById("container");
 
-const circle2 = Crafty.e("2D, Canvas, Circle, Fourway")
-  .fourway(2)
-  .attr(dim2)
-  .circle(20, "blue");
+class BaseEntity {
+  ref;
+  position;
+  constructor(position) {
+    this.position = position;
+    this.ref = document.createElement("div");
+    this.ref.classList.add("entity");
+    this.ref.style.left = `${this.position.x}px`;
+    this.ref.style.top = `${this.position.y}px`;
+    container.appendChild(this.ref);
+  }
+  shiftPosition(dx, dy) {
+    this.position.x += dx;
+    this.position.y += dy;
+    this.redraw();
+  }
+  redraw() {
+    this.ref.style.left = `${this.position.x}px`;
+    this.ref.style.top = `${this.position.y}px`;
+  }
+  setCollisionState(isColliding) {
+    if (isColliding && !this.ref.classList.contains("collision-state")) {
+      this.ref.classList.add("collision-state");
+    } else if (!isColliding) {
+      this.ref.classList.remove("collision-state");
+    }
+  }
+  isCollidingWith(other) {
+    throw new Error("isCollidingWith must be implemented in subclasses");
+  }
+}
 
-circle2.bind("EnterFrame", function () {
-  const dx = circle1.x + circle1.radius - (circle2.x + circle2.radius);
-  const dy = circle1.y + circle1.radius - (circle2.y + circle2.radius);
-  const distance = Math.sqrt(dx * dx + dy * dy);
-
-  const colliding = distance < circle1.radius + circle2.radius;
-  this.color = colliding ? "green" : "blue";
+document.addEventListener("keydown", (e) => {
+  e.preventDefault();
+  switch (e.key) {
+    case "ArrowLeft":
+      collider.moveableEntity.shiftPosition(-5, 0);
+      break;
+    case "ArrowUp":
+      collider.moveableEntity.shiftPosition(0, -5);
+      break;
+    case "ArrowRight":
+      collider.moveableEntity.shiftPosition(5, 0);
+      break;
+    case "ArrowDown":
+      collider.moveableEntity.shiftPosition(0, 5);
+      break;
+  }
+  collider.checkCollision();
 });
 ```
 
-{{ EmbedLiveSample('Circle_Collision', '700', '300') }}
+## Achsen-aligned Bounding Box
+
+Eine der einfacheren Formen der Kollisionsdetektion erfolgt zwischen zwei rechwinkligen Rechtecken, die achsen-aligned sind - das bedeutet keine Rotation. Der Algorithmus arbeitet, indem er sicherstellt, dass keine Lücke zwischen einer der vier Seiten der Rechtecke besteht. Jede Lücke bedeutet, dass keine Kollision vorliegt.
+
+```js live-sample___box_collision_ex
+class BoxEntity extends BaseEntity {
+  width = 20;
+  height = 20;
+
+  isCollidingWith(other) {
+    return (
+      this.position.x < other.position.x + other.width &&
+      this.position.x + this.width > other.position.x &&
+      this.position.y < other.position.y + other.height &&
+      this.position.y + this.height > other.position.y
+    );
+  }
+}
+```
+
+```js hidden live-sample___box_collision_ex
+for (let i = 0; i < 100; i++) {
+  collider.staticEntities.push(
+    new BoxEntity({
+      x: Math.floor(Math.random() * 500),
+      y: Math.floor(Math.random() * 500),
+    }),
+  );
+}
+
+const moveableEntity = new BoxEntity({ x: 500, y: 500 });
+moveableEntity.ref.classList.add("movable");
+collider.moveableEntity = moveableEntity;
+```
+
+{{EmbedLiveSample("box_collision_ex", "", 550)}}
+
+## Kreis-Kollision
+
+Eine weitere einfache Form für die Kollisionsdetektion erfolgt zwischen zwei Kreisen. Dieser Algorithmus arbeitet, indem er die Mittel- punkte der beiden Kreise nimmt und sicherstellt, dass der Abstand zwischen den Mittelpunkten kleiner ist als die Summe der beiden Radien.
+
+```css live-sample___circle_collision_ex
+.entity {
+  border-radius: 50%;
+}
+```
+
+```js live-sample___circle_collision_ex
+class CircleEntity extends BaseEntity {
+  radius = 10;
+
+  isCollidingWith(other) {
+    const dx =
+      this.position.x + this.radius - (other.position.x + other.radius);
+    const dy =
+      this.position.y + this.radius - (other.position.y + other.radius);
+    const distance = Math.sqrt(dx * dx + dy * dy);
+    return distance < this.radius + other.radius;
+  }
+}
+```
+
+```js hidden live-sample___circle_collision_ex
+for (let i = 0; i < 100; i++) {
+  collider.staticEntities.push(
+    new CircleEntity({
+      x: Math.floor(Math.random() * 500),
+      y: Math.floor(Math.random() * 500),
+    }),
+  );
+}
+
+const moveableEntity = new CircleEntity({ x: 500, y: 500 });
+moveableEntity.ref.classList.add("movable");
+collider.moveableEntity = moveableEntity;
+```
 
 > [!NOTE]
-> Die `x`- und `y`-Koordinaten der Kreise beziehen sich auf die oberen linken Ecken, daher müssen wir den Radius addieren, um ihre Mittelpunkte zu vergleichen.
+> Die `x`- und `y`-Koordinaten der Kreise beziehen sich auf ihre oberen linken Ecken, daher müssen wir den Radius addieren, um ihre Mittelpunkte zu vergleichen.
 
-> **Hinweis:** [Hier ist ein weiteres Beispiel ohne Canvas oder externe Bibliotheken.](https://jsfiddle.net/jlr7245/teb4znk0/20/)
+{{EmbedLiveSample("circle_collision_ex", "", 550)}}
 
-## Trennachsentheorem
+## Satz der Trennenden Achse (Separating Axis Theorem)
 
-Dies ist ein Kollisionsalgorithmus, der eine Kollision zwischen zwei _konvexen_ Polygonen erkennen kann. Er ist komplizierter zu implementieren als die oben genannten Methoden, aber leistungsfähiger. Die Komplexität eines solchen Algorithmus bedeutet, dass wir Performance-Optimierungen in Erwägung ziehen müssen, was im nächsten Abschnitt behandelt wird.
+Dies ist ein Kollisionsalgorithmus, der eine Kollision zwischen zwei _konvexen_ Polygonen erkennen kann. Er ist komplizierter zu implementieren als die oben genannten Methoden, ist jedoch leistungsstärker. Die Komplexität eines solchen Algorithmus bedeutet, dass wir eine Leistungsoptimierung in Betracht ziehen müssen, die im nächsten Abschnitt behandelt wird.
 
-Das Implementieren von SAT liegt außerhalb des Rahmens dieser Seite, daher siehe die empfohlenen Tutorials unten:
+Die Implementierung des SAT ist außerhalb des Umfangs dieser Seite, sehen Sie sich daher die unten empfohlenen Tutorials an:
 
-1. [Erklärung des Trennachsentheorems (SAT)](https://www.sevenson.com.au/programming/sat/)
-2. [Kollisionserkennung und Reaktion](https://www.metanetsoftware.com/technique/tutorialA.html)
-3. [Kollisionserkennung unter Verwendung des Trennachsentheorems](https://code.tutsplus.com/collision-detection-using-the-separating-axis-theorem--gamedev-169t)
-4. [SAT (Trennachsentheorem)](https://dyn4j.org/2010/01/sat/)
-5. [Trennachsentheorem](https://programmerart.weebly.com/separating-axis-theorem.html)
+1. [Separating Axis Theorem (SAT) Erklärung](https://www.sevenson.com.au/programming/sat/)
+2. [Kollisionsdetektion und -reaktion](https://www.metanetsoftware.com/technique/tutorialA.html)
+3. [Kollisionsdetektion mit dem Satz der Trennenden Achse](https://code.tutsplus.com/collision-detection-using-the-separating-axis-theorem--gamedev-169t)
+4. [SAT (Separating Axis Theorem)](https://dyn4j.org/2010/01/sat/)
+5. [Satz der Trennenden Achse](https://programmerart.weebly.com/separating-axis-theorem.html)
 
 ## Kollisionsleistung
 
-Während einige dieser Algorithmen zur Kollisionserkennung einfach genug zu berechnen sind, können sie eine Verschwendung von Rechenzyklen sein, wenn _jede_ Entität mit jeder anderen Entität getestet wird. Normalerweise wird die Kollision in Spielen in zwei Phasen aufgeteilt, grob und eng.
+Während einige dieser Algorithmen zur Kollisionsdetektion einfach genug zu berechnen sind, kann es eine Verschwendung von Zyklen sein, _jede_ Entität mit jeder anderen zu testen. Spiele unterteilen die Kollision in der Regel in zwei Phasen: eine grobe und eine genaue.
 
 ### Grobe Phase
 
-Die grobe Phase sollte Ihnen eine Liste von Entitäten geben, die _kollidieren könnten_. Dies kann mit einer räumlichen Datenstruktur implementiert werden, die Ihnen eine ungefähre Vorstellung davon gibt, wo die Entität existiert und was sich um sie herum befindet. Einige Beispiele für räumliche Datenstrukturen sind Quad Trees, R-Trees oder ein räumliches Hashmap.
+In der groben Phase sollten Sie eine Liste von Entitäten erhalten, die _möglicherweise_ kollidieren. Dies kann mit einer räumlichen Datenstruktur implementiert werden, die Ihnen eine grobe Vorstellung davon gibt, wo sich die Entität befindet und was sich um sie herum befindet. Einige Beispiele für räumliche Datenstrukturen sind Quad Trees, R-Trees oder ein räumliches Hashmap.
 
-### Enge Phase
+### Genaue Phase
 
-Wenn Sie eine kleine Liste von Entitäten zu überprüfen haben, möchten Sie einen engen Phasen-Algorithmus (wie die oben genannten) verwenden, um eine sichere Antwort darauf zu geben, ob eine Kollision vorliegt oder nicht.
+Wenn Sie eine kleine Liste von zu überprüfenden Entitäten haben, möchten Sie einen Algorithmus der genauen Phase verwenden (wie die oben genannten), um eine sichere Antwort darauf zu geben, ob eine Kollision vorliegt oder nicht.

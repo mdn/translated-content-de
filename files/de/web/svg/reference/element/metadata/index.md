@@ -2,14 +2,18 @@
 title: <metadata>
 slug: Web/SVG/Reference/Element/metadata
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: ac806e34aba086be141689c64dc4dd73636fbd62
 ---
 
-Das **`<metadata>`** [SVG](/de/docs/Web/SVG)-Element fügt SVG-Inhalten Metadaten hinzu. Metadaten sind strukturierte Informationen über Daten. Der Inhalt von `<metadata>` sollte Elemente aus anderen {{Glossary("XML", "XML")}}-{{Glossary("namespace", "Namensräumen")}} wie {{Glossary("RDF", "RDF")}}, [FOAF](<https://en.wikipedia.org/wiki/FOAF_(ontology)>) usw. enthalten.
+Das **`<metadata>`** [SVG](/de/docs/Web/SVG)-Element fügt SVG-Inhalten Metadaten hinzu. Metadaten sind strukturierte Informationen über Daten. Die Inhalte von `<metadata>` sollten Elemente aus anderen {{Glossary("XML", "XML")}}-{{Glossary("namespace", "Namensräumen")}} wie {{Glossary("RDF", "RDF")}}, [FOAF](<https://en.wikipedia.org/wiki/FOAF_(ontology)>), usw. sein.
 
-## Verwendungskontext
+## Nutzungskontext
 
 {{svginfo}}
+
+## Attribute
+
+Dieses Element enthält nur globale Attribute.
 
 ## DOM-Schnittstelle
 

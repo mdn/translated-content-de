@@ -2,10 +2,10 @@
 title: name
 slug: Web/XML/XPath/Reference/Functions/name
 l10n:
-  sourceCommit: 3e1b5277c6451e7d27ab628f23fb9702947a7a7b
+  sourceCommit: cac79d099b0a4e48456cb53eb2435f6acf03e188
 ---
 
-Die `name`-Funktion gibt einen String zurück, der den QName des ersten Knotens in einer angegebenen Knotenmenge darstellt.
+Die `name`-Funktion gibt einen String zurück, der den QName des ersten Knotens in einem gegebenen Knoten-Set darstellt.
 
 ## Syntax
 
@@ -16,7 +16,7 @@ name( [node-set] )
 ### Parameter
 
 - `node-set` (optional)
-  - : Der QName des ersten Knotens in dieser Knotenmenge wird zurückgegeben. Wenn dieses Argument weggelassen wird, wird der aktuelle Kontextknoten verwendet.
+  - : Der QName des ersten Knotens in diesem Knoten-Set wird zurückgegeben. Wenn dieses Argument weggelassen wird, wird der aktuelle Kontextknoten verwendet.
 
 ### Rückgabewert
 
@@ -24,7 +24,7 @@ Ein String, der den QName eines Knotens darstellt.
 
 ## Beschreibung
 
-- Der [QName](https://www.w3.org/TR/REC-xml-names/#NT-QName) ist der qualifizierte Name des Knotens, einschließlich seines Namensraum-Präfixes und seines lokalen Namens.
+- Der [QName](https://www.w3.org/TR/xml-names/#NT-QName) ist der qualifizierte Name des Knotens, einschließlich seines Namespace-Präfixes und seines lokalen Namens.
 
 ## Spezifikationen
 

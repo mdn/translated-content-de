@@ -1,39 +1,40 @@
 ---
-title: autocapitalize
+title: HTML `autocapitalize` Globalattribut
+short-title: autocapitalize
 slug: Web/HTML/Reference/Global_attributes/autocapitalize
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: 7885271e36e9d2744296c01f400653f63caa6f75
 ---
 
 {{HTMLSidebar("Global_attributes")}}
 
-Das **`autocapitalize`** [globale Attribut](/de/docs/Web/HTML/Reference/Global_attributes) ist ein {{Glossary("Enumerated", "enumeriertes")}} Attribut, das steuert, ob eingegebener Text automatisch großgeschrieben wird und, wenn ja, in welcher Weise. Dies ist relevant für:
+Das **`autocapitalize`** [globale Attribut](/de/docs/Web/HTML/Reference/Global_attributes) ist ein {{Glossary("Enumerated", "aufzählbares")}} Attribut, das steuert, ob eingegebener Text automatisch großgeschrieben wird und in welcher Weise dies erfolgt. Dies ist relevant für:
 
 - {{htmlelement("input")}}- und {{htmlelement("textarea")}}-Elemente.
-- Jedes Element mit der Einstellung [`contenteditable`](/de/docs/Web/HTML/Reference/Global_attributes/contenteditable).
+- Jedes Element, bei dem [`contenteditable`](/de/docs/Web/HTML/Reference/Global_attributes/contenteditable) aktiviert ist.
 
-`autocapitalize` hat keinen Effekt auf das Verhalten beim Tippen auf einer physischen Tastatur. Es beeinflusst das Verhalten anderer Eingabemechanismen, wie virtuelle Tastaturen auf mobilen Geräten und Spracheingabe. Dies kann Benutzern helfen, die Dateneingabe schneller und einfacher zu gestalten, indem z. B. der erste Buchstabe jedes Satzes automatisch großgeschrieben wird.
+`autocapitalize` beeinflusst das Verhalten beim Tippen auf einer physischen Tastatur nicht. Es beeinflusst das Verhalten anderer Eingabemechanismen wie virtuelle Tastaturen auf mobilen Geräten und Spracheingabe. Dies kann Benutzern helfen, die Dateneingabe schneller und einfacher zu gestalten, indem z. B. der erste Buchstabe jedes Satzes automatisch großgeschrieben wird.
 
 ## Wert
 
 Mögliche Werte sind:
 
 - `none` oder `off`
-  - : Keinen Text automatisch großschreiben.
+  - : Kein Text wird automatisch großgeschrieben.
 - `sentences` oder `on`
-  - : Automatisch das erste Zeichen jedes Satzes großschreiben.
+  - : Der erste Buchstabe jedes Satzes wird automatisch großgeschrieben.
 - `words`
-  - : Automatisch das erste Zeichen jedes Wortes großschreiben.
+  - : Der erste Buchstabe jedes Wortes wird automatisch großgeschrieben.
 - `characters`
-  - : Automatisch jedes Zeichen großschreiben.
+  - : Jedes Zeichen wird automatisch großgeschrieben.
 
-## Anwendungshinweise
+## Verwendungshinweise
 
-- `autocapitalize` kann auf `<input>`- und `<textarea>`-Elemente gesetzt werden, _sowie_ auf die sie umgebenden {{htmlelement("form")}}-Elemente. Wenn `autocapitalize` auf einem `<form>`-Element gesetzt ist, wird das Autokapitalisierungsverhalten für alle enthaltenen `<input>`s und `<textarea>`s festgelegt und übersteuert alle `autocapitalize`-Werte, die auf enthaltenen Elementen gesetzt sind.
-- `autocapitalize` hat keinen Effekt auf die Typen `url`, `email` oder `password` von `<input>`-Elementen, bei denen die Autokapitalisierung nie aktiviert ist.
-- Wenn `autocapitalize` nicht angegeben ist, variiert das übernommene Standardverhalten zwischen den Browsern. Zum Beispiel:
-  - Chrome und Safari standardmäßig auf `on`/`sentences`
-  - Firefox standardmäßig auf `off`/`none`.
+- `autocapitalize` kann auf `<input>`- und `<textarea>`-Elementen _sowie_ auf den enthaltenen {{htmlelement("form")}}-Elementen gesetzt werden. Wenn `autocapitalize` auf einem `<form>`-Element gesetzt ist, bestimmt es das Autokapitalisierungsverhalten für alle enthaltenen `<input>`- und `<textarea>`-Elemente und überschreibt alle auf enthaltenen Elementen gesetzten `autocapitalize`-Werte.
+- `autocapitalize` hat keine Wirkung auf die `<input>`-Typen `url`, `email` oder `password`, bei denen eine Großschreibung niemals aktiviert ist.
+- Wo `autocapitalize` nicht spezifiziert ist, variiert das angenommene Standardverhalten zwischen den Browsern. Zum Beispiel:
+  - Chrome und Safari standardmäßig `on`/`sentences`
+  - Firefox standardmäßig `off`/`none`.
 
 ## Beispiele
 
