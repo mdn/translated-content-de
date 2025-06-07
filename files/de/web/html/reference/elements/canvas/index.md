@@ -1,68 +1,71 @@
 ---
-title: "<canvas>: Das Grafik-Canvas-Element"
+title: "<canvas>: Das Grafik-Zeichenfläche Element"
 slug: Web/HTML/Reference/Elements/canvas
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: c1564acf160ef4b320fb7b89ab65211b9c50cf1b
 ---
 
 {{HTMLSidebar}}
 
-Verwenden Sie das **HTML-`<canvas>`-Element** zusammen mit entweder der [Canvas-Scripting-API](/de/docs/Web/API/Canvas_API) oder der [WebGL-API](/de/docs/Web/API/WebGL_API), um Grafiken und Animationen zu zeichnen.
+Verwenden Sie das **HTML `<canvas>` Element** zusammen mit entweder der [Canvas-Scripting-API](/de/docs/Web/API/Canvas_API) oder der [WebGL-API](/de/docs/Web/API/WebGL_API), um Grafiken und Animationen zu zeichnen.
 
 ## Attribute
 
-Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
+Die Attribute dieses Elements umfassen die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
 - `height`
-  - : Die Höhe des Koordinatenraums in CSS-Pixeln. Standardwert ist 150.
+  - : Die Höhe des Koordinatenraums in CSS-Pixeln. Standardmäßig 150.
 - `moz-opaque` {{non-standard_inline}} {{deprecated_inline}}
-  - : Lässt das Canvas wissen, ob Transparenz eine Rolle spielt. Wenn das Canvas weiß, dass keine Transparenz vorliegt, kann die Malleistung optimiert werden. Dies wird nur von Mozilla-basierten Browsern unterstützt; verwenden Sie stattdessen die standardisierte Methode [`canvas.getContext('2d', { alpha: false })`](/de/docs/Web/API/HTMLCanvasElement/getContext).
+  - : Informiert die Canvas darüber, ob Transluzenz eine Rolle spielt. Wenn die Canvas weiß, dass keine Transluzenz vorliegt, kann die Malleistung optimiert werden. Dies wird nur von Mozilla-basierten Browsern unterstützt; verwenden Sie stattdessen den standardisierten Aufruf [`canvas.getContext('2d', { alpha: false })`](/de/docs/Web/API/HTMLCanvasElement/getContext).
 - `width`
-  - : Die Breite des Koordinatenraums in CSS-Pixeln. Standardwert ist 300.
+  - : Die Breite des Koordinatenraums in CSS-Pixeln. Standardmäßig 300.
 
-## Verwendungshinweise
+## Anwendungshinweise
 
 ### Alternativer Inhalt
 
-Sie sollten alternativen Inhalt innerhalb des `<canvas>`-Blocks bereitstellen. Dieser Inhalt wird sowohl in älteren Browsern, die Canvas nicht unterstützen, als auch in Browsern mit deaktiviertem JavaScript angezeigt.
+Sie sollten alternativen Inhalt innerhalb des `<canvas>` Blocks bereitstellen. Dieser Inhalt wird sowohl in älteren Browsern, die Canvas nicht unterstützen, als auch in Browsern mit deaktiviertem JavaScript gerendert.
 
-### Schließendes `</canvas>`-Tag
+### Schließendes `</canvas>` Tag
 
-Im Gegensatz zum {{HTMLElement("img")}}-Element **erfordert** das `<canvas>`-Element das Schließen des Tags (`</canvas>`).
+Im Gegensatz zum {{HTMLElement("img")}} Element **erfordert** das `<canvas>` Element das Schließen des Tags (`</canvas>`).
 
-### Die Größe des Canvas mit CSS gegenüber HTML anpassen
+### Größenanpassung der Canvas mit CSS versus HTML
 
-Die angezeigte Größe des Canvas kann mit CSS geändert werden, aber wenn Sie dies tun, wird das Bild während des Renderings skaliert, um die gestylte Größe anzupassen, was dazu führen kann, dass die endgültige Grafikdarstellung verzerrt wird.
+Die angezeigte Größe der Canvas kann mit CSS geändert werden, aber wenn Sie dies tun, wird das Bild während des Renderings skaliert, um die gestylte Größe anzupassen, was dazu führen kann, dass die endgültige Grafikverarbeitung verzerrt wird.
 
-Es ist besser, Ihre Canvas-Abmessungen direkt über die `width`- und `height`-Attribute an den `<canvas>`-Elementen festzulegen, entweder direkt im HTML oder über JavaScript.
+Es ist besser, die Dimensionen Ihrer Canvas durch Setzen der `width` und `height` Attribute direkt auf den `<canvas>` Elementen zu spezifizieren, entweder direkt im HTML oder mittels JavaScript.
 
 ### Maximale Canvas-Größe
 
-Die genaue maximale Größe eines `<canvas>`-Elements hängt vom Browser und der Umgebung ab. Während in den meisten Fällen die maximalen Abmessungen über 10.000 x 10.000 Pixel hinausgehen, beschränken iOS-Geräte die Canvas-Größe auf nur 4.096 x 4.096 Pixel. Siehe [Canvas-Größenlimits in verschiedenen Browsern und Geräten](https://jhildenbiddle.github.io/canvas-size/#/?id=test-results).
+Die genaue maximale Größe eines `<canvas>` Elements hängt vom Browser und der Umgebung ab. Während in den meisten Fällen die maximalen Abmessungen 10.000 x 10.000 Pixel überschreiten, beschränken iOS-Geräte die Canvas-Größe auffällig auf nur 4.096 x 4.096 Pixel. Siehe [Canvas-Größenlimits in verschiedenen Browsern und Geräten](https://jhildenbiddle.github.io/canvas-size/#/?id=test-results).
 
 > [!NOTE]
-> Wenn die maximalen Abmessungen oder die Fläche überschritten werden, wird das Canvas unbrauchbar — Zeichenbefehle funktionieren nicht.
+> Das Überschreiten der maximalen Dimensionen oder Fläche macht die Canvas unbrauchbar — Zeichenbefehle werden nicht funktionieren.
 
-### Verwenden eines Offscreen-Canvas
+### Verwenden einer Offscreen-Canvas
 
-Ein Canvas kann mit der [`OffscreenCanvas`](/de/docs/Web/API/OffscreenCanvas)-API gerendert werden, bei der das Dokument und das Canvas entkoppelt sind. Der Vorteil ist, dass ein [Worker-Thread](/de/docs/Web/API/Web_Workers_API/Using_web_workers) das Canvas-Rendering übernehmen kann und der Hauptthread Ihrer Webanwendung nicht durch Canvas-Operationen blockiert wird. Durch Parallelisierung der Arbeit bleiben andere UI-Elemente Ihrer Webanwendung reaktionsfähig, selbst wenn Sie komplexe Grafiken auf einem Offscreen-Canvas ausführen. Weitere Informationen finden Sie in der Dokumentation zur [`OffscreenCanvas`](/de/docs/Web/API/OffscreenCanvas)-API.
+Eine Canvas kann mit der [`OffscreenCanvas`](/de/docs/Web/API/OffscreenCanvas) API gerendert werden, bei der Dokument und Canvas entkoppelt sind.
+Der Vorteil besteht darin, dass ein [Worker-Thread](/de/docs/Web/API/Web_Workers_API/Using_web_workers) die Canvas-Rendering übernehmen kann und der Haupt-Thread Ihrer Webanwendung nicht durch Canvas-Operationen blockiert wird.
+Durch die Parallelisierung der Arbeit bleiben andere UI-Elemente Ihrer Webanwendung auch dann reaktionsfähig, wenn Sie komplexe Grafiken auf einer Offscreen-Canvas ausführen.
+Weitere Informationen finden Sie in der [`OffscreenCanvas`](/de/docs/Web/API/OffscreenCanvas) API-Dokumentation.
 
 ## Barrierefreiheit
 
 ### Alternativer Inhalt
 
-Das `<canvas>`-Element selbst ist nur eine Bitmap und liefert keine Informationen über gezeichnete Objekte. Canvas-Inhalte werden Barrierefreiheitstools nicht wie semantisches HTML bereitgestellt. Im Allgemeinen sollten Sie darauf verzichten, Canvas auf einer zugänglichen Website oder App zu verwenden. Die folgenden Leitfäden können Ihnen helfen, es zugänglicher zu machen.
+Das `<canvas>` Element ist für sich genommen nur ein Bitmap und liefert keine Informationen über gezeichnete Objekte. Canvas-Inhalte werden nicht als semantisches HTML an Barrierefreiheitstools weitergegeben. Im Allgemeinen sollten Sie vermeiden, Canvas auf einer zugänglichen Website oder App zu verwenden. Die folgenden Leitfäden können helfen, es zugänglicher zu machen.
 
-- [Canvas-Zugänglichkeitsanwendungsfälle](https://www.w3.org/WAI/PF/HTML/wiki/Canvas_Accessibility_Use_Cases)
-- [Probleme der Barrierefreiheit des Canvas-Elements](https://www.w3.org/html/wg/wiki/AddedElementCanvas)
-- [HTML Canvas-Zugänglichkeit in Firefox 13 – von Steve Faulkner](https://www.tpgi.com/html5-canvas-accessibility-in-firefox-13/)
-- [Best Practices für interaktive Canvas-Elemente](https://html.spec.whatwg.org/multipage/scripting.html#best-practices)
+- [Canvas Accessibility Use Cases](https://www.w3.org/WAI/PF/HTML/wiki/Canvas_Accessibility_Use_Cases)
+- [Canvas Element Accessibility Issues](https://www.w3.org/html/wg/wiki/AddedElementCanvas)
+- [HTML Canvas Accessibility in Firefox 13 – von Steve Faulkner](https://www.tpgi.com/html5-canvas-accessibility-in-firefox-13/)
+- [Best Practices for Interactive Canvas Elements](https://html.spec.whatwg.org/multipage/scripting.html#best-practices)
 
 ## Beispiele
 
 ### HTML
 
-Dieses Codebeispiel fügt Ihrem HTML-Dokument ein Canvas-Element hinzu. Ein Fallback-Text wird bereitgestellt, falls ein Browser das Canvas nicht lesen oder rendern kann.
+Dieses Code-Snippet fügt Ihrem HTML-Dokument ein Canvas-Element hinzu. Ein Fallback-Text wird bereitgestellt, falls ein Browser die Canvas nicht lesen oder rendern kann.
 
 ```html
 <canvas width="120" height="120">
@@ -72,7 +75,7 @@ Dieses Codebeispiel fügt Ihrem HTML-Dokument ein Canvas-Element hinzu. Ein Fall
 
 ### JavaScript
 
-Rufen Sie dann im JavaScript-Code [`HTMLCanvasElement.getContext()`](/de/docs/Web/API/HTMLCanvasElement/getContext) auf, um einen Zeichenkontext zu erhalten und mit dem Zeichnen auf das Canvas zu beginnen:
+Anschließend rufen Sie im JavaScript-Code [`HTMLCanvasElement.getContext()`](/de/docs/Web/API/HTMLCanvasElement/getContext) auf, um einen Zeichenkontext zu erhalten und beginnen, auf die Canvas zu zeichnen:
 
 ```js
 const canvas = document.querySelector("canvas");
@@ -92,50 +95,65 @@ ctx.fillRect(10, 10, 100, 100);
   <tbody>
     <tr>
       <th scope="row">
-        <a href="/de/docs/Web/HTML/Guides/Content_categories">Inhaltskategorien</a>
+        <a href="/de/docs/Web/HTML/Guides/Content_categories"
+          >Inhaltskategorien</a
+        >
       </th>
       <td>
-        <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content">Fließ-Inhalt</a>,
-        <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content">phrasing-Inhalt</a>,
-        <a href="/de/docs/Web/HTML/Guides/Content_categories#embedded_content">eingebetteter Inhalt</a>, fühlbarer Inhalt.
+        <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
+          >Fließender Inhalt</a
+        >,
+        <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
+          >Phraseninhalt</a
+        >,
+        <a href="/de/docs/Web/HTML/Guides/Content_categories#embedded_content"
+          >eingebetteter Inhalt</a
+        >, greifbarer Inhalt.
       </td>
     </tr>
     <tr>
       <th scope="row">Erlaubter Inhalt</th>
       <td>
-        Transparenter Inhalt, aber ohne
-        <a href="/de/docs/Web/HTML/Guides/Content_categories#interactive_content">interaktiven Inhalt</a>
-        als Nachkommen, außer für {{HTMLElement("a")}}-Elemente,
-        {{HTMLElement("button")}}-Elemente,
-        {{HTMLElement("input")}}-Elemente, deren
-        <a href="/de/docs/Web/HTML/Reference/Elements/input#type"><code>type</code></a>-Attribut
+        Transparent, aber ohne
+        <a
+          href="/de/docs/Web/HTML/Guides/Content_categories#interactive_content"
+          >interaktive Inhalte</a
+        >
+        als Nachkommen, außer für {{HTMLElement("a")}} Elemente,
+        {{HTMLElement("button")}} Elemente,
+        {{HTMLElement("input")}} Elemente, deren
+        <a href="/de/docs/Web/HTML/Reference/Elements/input#type"><code>type</code></a> Attribut
         <code>checkbox</code>, <code>radio</code> oder <code>button</code> ist.
       </td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keiner, sowohl das Anfangs- als auch das End-Tag sind obligatorisch.</td>
+      <td>Keine, sowohl das Start- als auch das End-Tag sind obligatorisch.</td>
     </tr>
     <tr>
-      <th scope="row">Zulässige Eltern</th>
+      <th scope="row">Erlaubte Eltern</th>
       <td>
         Jedes Element, das
-        <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content">phrasing-Inhalt</a>
+        <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
+          >Phraseninhalt</a
+        >
         akzeptiert.
       </td>
     </tr>
     <tr>
       <th scope="row">Implizierte ARIA-Rolle</th>
       <td>
-        <a href="https://www.w3.org/TR/html-aria/#dfn-no-corresponding-role">Keine entsprechende Rolle</a>
+        <a href="https://w3c.github.io/html-aria/#dfn-no-corresponding-role"
+          >Keine entsprechende Rolle</a
+        >
       </td>
     </tr>
     <tr>
       <th scope="row">Erlaubte ARIA-Rollen</th>
-      <td>Beliebig</td>
+      <td>Beliebige</td>
     </tr>
     <tr>
-      <th scope="row">DOM-Interface</th>
+      <th scope="row">DOM-Schnittstelle</th>
       <td>[`HTMLCanvasElement`](/de/docs/Web/API/HTMLCanvasElement)</td>
     </tr>
   </tbody>
@@ -154,11 +172,11 @@ ctx.fillRect(10, 10, 100, 100);
 - [Canvas API](/de/docs/Web/API/Canvas_API)
 - [Canvas-Tutorial](/de/docs/Web/API/Canvas_API/Tutorial)
 - [OffscreenCanvas](/de/docs/Web/API/OffscreenCanvas)
-- [Canvas-Spickzettel](https://simon.html5.org/dump/html5-canvas-cheat-sheet.html) (2009)
-- [Canvas-Spickzettel](https://websitesetup.org/wp-content/uploads/2015/11/Infopgraphic-CanvasCheatSheet-Final2.pdf) (pdf) (2015)
-- [Safari HTML-Canvas-Leitfaden](https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/HTML-canvas-guide/Introduction/Introduction.html) über Apple (2013)
-- [`CanvasRenderingContext2D` Kontext zum Zeichnen in 2D für ein Canvas-Element](https://developer.apple.com/documentation/webkitjs/canvasrenderingcontext2d) über Apple.com
+- [Canvas Cheat Sheet](https://simon.html5.org/dump/html5-canvas-cheat-sheet.html) (2009)
+- [Canvas Cheat Sheet](https://websitesetup.org/wp-content/uploads/2015/11/Infopgraphic-CanvasCheatSheet-Final2.pdf) (pdf) (2015)
+- [Safari HTML Canvas Leitfaden](https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/HTML-canvas-guide/Introduction/Introduction.html) über Apple (2013)
+- [`CanvasRenderingContext2D` 2D-Zeichenkontext für ein Canvas-Element](https://developer.apple.com/documentation/webkitjs/canvasrenderingcontext2d) über Apple.com
 - [WebGL](/de/docs/Web/API/WebGL_API) API
 - {{HTMLElement("img")}}
 - [SVG](/de/docs/Web/SVG)
-- [HTML-Video und -Audio](/de/docs/Learn_web_development/Core/Structuring_content/HTML_video_and_audio)
+- [HTML Video und Audio](/de/docs/Learn_web_development/Core/Structuring_content/HTML_video_and_audio)

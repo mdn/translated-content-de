@@ -2,14 +2,14 @@
 title: "<dt>: Das Beschreibungsterm-Element"
 slug: Web/HTML/Reference/Elements/dt
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: c1564acf160ef4b320fb7b89ab65211b9c50cf1b
 ---
 
 {{HTMLSidebar}}
 
-Das **`<dt>`** [HTML](/de/docs/Web/HTML) Element spezifiziert einen Begriff in einer Beschreibungs- oder Definitionsliste und muss daher innerhalb eines {{HTMLElement("dl")}} Elements verwendet werden. Es wird normalerweise von einem {{HTMLElement("dd")}} Element gefolgt; jedoch weisen mehrere `<dt>` Elemente in Folge auf mehrere Begriffe hin, die alle durch das unmittelbar folgende {{HTMLElement("dd")}} Element definiert werden.
+Das **`<dt>`** [HTML](/de/docs/Web/HTML) Element spezifiziert einen Begriff in einer Beschreibungs- oder Definitionsliste und muss daher innerhalb eines {{HTMLElement("dl")}} Elements verwendet werden. Es wird üblicherweise von einem {{HTMLElement("dd")}} Element gefolgt; jedoch weisen mehrere aufeinanderfolgende `<dt>` Elemente auf mehrere Begriffe hin, die alle durch das unmittelbar folgende {{HTMLElement("dd")}} Element definiert werden.
 
-Das nachfolgende {{HTMLElement("dd")}} (**Description Details**) Element liefert die Definition oder anderen verwandten Text, der mit dem Begriff verbunden ist, der mit `<dt>` angegeben wurde.
+Das folgende {{HTMLElement("dd")}} (**Beschreibungseinzelheiten**) Element liefert die Definition oder andere verwandte Texte, die dem mit `<dt>` angegebenen Begriff zugeordnet sind.
 
 {{InteractiveExample("HTML Demo: &lt;dt&gt;", "tabbed-standard")}}
 
@@ -50,7 +50,7 @@ Dieses Element enthält nur die [globalen Attribute](/de/docs/Web/HTML/Reference
 
 ## Beispiele
 
-Für Beispiele siehe die [für das `<dl>` Element bereitgestellten Beispiele](/de/docs/Web/HTML/Reference/Elements/dl#examples).
+Für Beispiele siehe die [bereitgestellten Beispiele für das `<dl>` Element](/de/docs/Web/HTML/Reference/Elements/dl#examples).
 
 ## Technische Zusammenfassung
 
@@ -68,24 +68,25 @@ Für Beispiele siehe die [für das `<dl>` Element bereitgestellten Beispiele](/d
       <th scope="row">Erlaubter Inhalt</th>
       <td>
         <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
-          >Flussinhalt</a
+          >Fließender Inhalt</a
         >, jedoch ohne {{HTMLElement("header")}},
-        {{HTMLElement("footer")}}, Strukturierungsinhalt oder Überschrifteninhalte als Nachkommen.
+        {{HTMLElement("footer")}}, Gliederungsinhalte oder
+        Überschrifteninhalte als Nachfahren.
       </td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
       <td>
-        Das Start-Tag ist erforderlich. Das End-Tag kann ausgelassen werden, wenn dieses Element
-        unmittelbar von einem anderen <code>&#x3C;dt></code> Element oder einem
-        {{HTMLElement("dd")}} Element gefolgt wird oder wenn es keinen weiteren Inhalt
-        im Elternelement gibt.
+        Das Start-Tag ist erforderlich. Das End-Tag kann weggelassen werden, wenn diesem Element
+        sofort ein anderes <code>&#x3C;dt></code> Element oder ein
+        {{HTMLElement("dd")}} Element folgt, oder wenn es keinen weiteren Inhalt im
+        Elternelement gibt.
       </td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
       <td>
-        Ein {{HTMLElement("dl")}} oder (im {{Glossary("WHATWG", "WHATWG")}} HTML,
+        Ein {{HTMLElement("dl")}} oder (in {{Glossary("WHATWG", "WHATWG")}} HTML,
         {{Glossary("W3C", "W3C")}} HTML 5.2 und später) ein
         {{HTMLElement("div")}}, das ein Kind eines
         {{HTMLElement("dl")}} ist.<br />Dieses Element kann vor einem
@@ -96,7 +97,7 @@ Für Beispiele siehe die [für das `<dl>` Element bereitgestellten Beispiele](/d
     <tr>
       <th scope="row">Implizierte ARIA-Rolle</th>
       <td>
-        <a href="https://www.w3.org/TR/html-aria/#dfn-no-corresponding-role"
+        <a href="https://w3c.github.io/html-aria/#dfn-no-corresponding-role"
           >Keine entsprechende Rolle</a
         >
       </td>

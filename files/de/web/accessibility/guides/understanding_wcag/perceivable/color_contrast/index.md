@@ -1,31 +1,31 @@
 ---
-title: Farbkontrast
+title: Farbkonstrast
 slug: Web/Accessibility/Guides/Understanding_WCAG/Perceivable/Color_contrast
 l10n:
-  sourceCommit: 8941e7636bfc91985ca5a486e7228b681e1aa272
+  sourceCommit: c1564acf160ef4b320fb7b89ab65211b9c50cf1b
 ---
 
-Der [Farbkontrast](https://www.w3.org/TR/WCAG21/#dfn-contrast-ratio) zwischen Hintergrund- und Vordergrundinhalten (in der Regel Text) sollte groß genug sein, um die Lesbarkeit sicherzustellen.
+Der [Farbkontrast](https://w3c.github.io/wcag/guidelines/22/#dfn-contrast-ratio) zwischen Hintergrund und Vordergrundinhalten (das ist normalerweise Text) sollte groß genug sein, um Lesbarkeit zu gewährleisten.
 
-Beim Entwerfen von benutzerfreundlichen Oberflächen für unterschiedliche Sehfähigkeiten empfehlen die WCAG-Richtlinien folgende Kontrastverhältnisse:
+Beim Entwerfen von lesbaren Oberflächen für unterschiedliche Sehfähigkeiten empfehlen die WCAG-Richtlinien die folgenden Kontrastverhältnisse:
 
-| Art des Inhalts                                                                      | Mindestverhältnis (AA-Bewertung) | Erweitertes Verhältnis (AAA-Bewertung) |
-| ------------------------------------------------------------------------------------ | -------------------------------- | -------------------------------------- |
-| Fließtext                                                                            | 4.5 : 1                          | 7 : 1                                  |
-| Großflächiger Text (120-150% größer als Fließtext)                                   | 3 : 1                            | 4.5 : 1                                |
-| Aktive Benutzeroberflächenkomponenten und grafische Objekte wie Symbole und Grafiken | 3 : 1                            | Nicht definiert                        |
+| Art des Inhalts                                                                      | Mindestverhältnis (AA-Bewertung) | Erhöhtes Verhältnis (AAA-Bewertung) |
+| ------------------------------------------------------------------------------------ | -------------------------------- | ----------------------------------- |
+| Fließtext                                                                            | 4,5 : 1                          | 7 : 1                               |
+| Großflächiger Text (120-150 % größer als Fließtext)                                  | 3 : 1                            | 4,5 : 1                             |
+| Aktive Benutzeroberflächenkomponenten und grafische Objekte wie Symbole und Grafiken | 3 : 1                            | Nicht definiert                     |
 
-Diese Verhältnisse gelten nicht für "beiläufigen" Text, wie inaktive Steuerungen, Logos oder rein dekorativen Text.
+Diese Verhältnisse gelten nicht für "zufälligen" Text, wie inaktive Steuerelemente, Logos oder rein dekorativen Text.
 
-Siehe den Abschnitt [Lösung](#lösung) unten für weitere Informationen.
+Weitere Informationen finden Sie im untenstehenden Abschnitt [Lösung](#lösung).
 
-Ein guter Farbkontrast auf Ihrer Website ist für alle Benutzer vorteilhaft, insbesondere jedoch für Benutzer mit bestimmten Arten von Farbenblindheit und ähnlichen Zuständen, die einen geringen Kontrast erleben und Schwierigkeiten haben, ähnliche Farben zu unterscheiden. Da sie helle und dunkle Bereiche nicht so gut wahrnehmen können wie Personen ohne solche Bedingungen, haben sie Schwierigkeiten, Kanten, Ränder und andere Details zu erkennen.
+Ein guter Farbkontrast auf Ihrer Website kommt all Ihren Benutzern zugute, ist jedoch besonders vorteilhaft für Benutzer mit bestimmten Arten von Farbschwäche und ähnlichen Bedingungen, die geringen Kontrast erleben und Schwierigkeiten haben, ähnliche Farben zu unterscheiden. Dies liegt daran, dass sie helle und dunkle Bereiche nicht so leicht erkennen wie Personen ohne solche Bedingungen und daher Schwierigkeiten haben, Kanten, Ränder und andere Details zu sehen.
 
-Ein ansprechendes Design auf Ihrer Website ist gut, aber das Design ist wertlos, wenn Ihre Benutzer Ihre Inhalte nicht lesen können.
+Es ist gut, ein cooles Design auf Ihrer Website zu haben, aber das Design ist wertlos, wenn Ihre Benutzer den Inhalt nicht lesen können.
 
 ## Beispiele
 
-Schauen wir uns einige HTML- und CSS-Codes an:
+Schauen wir uns etwas HTML- und CSS-Code an:
 
 ```html
 <div class="good">Good contrast</div>
@@ -46,11 +46,11 @@ div {
 }
 ```
 
-Beide Textstücke haben ihre standardmäßige schwarze Farbe.
+Beide Textstücke haben ihre Standard-Schwarzfarbe.
 
 ### Guter Kontrast
 
-Die "gute" `<div>` hat einen neonblauen Hintergrund, wodurch der Text leicht zu lesen ist:
+Das "gute" `<div>` hat einen neongrünen Hintergrund, was den Text leicht lesbar macht:
 
 ```html
 <div class="good">Good contrast</div>
@@ -77,7 +77,7 @@ div {
 
 ### Schlechter Kontrast
 
-Die "schlechte" `<div>` hat hingegen einen sehr dunklen violetten Hintergrund, wodurch der Text viel schwerer zu lesen ist:
+Das "schlechte" `<div>` hingegen hat einen sehr dunkellila Hintergrund, was den Text viel schwerer lesbar macht:
 
 ```html
 <div class="bad">Bad contrast</div>
@@ -104,35 +104,35 @@ div {
 
 ## Lösung
 
-Bei der Auswahl eines Farbschemas für Ihre Website sollten Sie Vorder- und Hintergrundfarben mit gutem Kontrast wählen. Machen Sie den Farbkontrast so gut wie möglich innerhalb Ihrer Designbeschränkungen — idealerweise streben Sie die AAA-Bewertung an (siehe 1.4.6 unten), erfüllen Sie jedoch zumindest die AA-Bewertung (siehe 1.4.3 unten).
+Wählen Sie bei der Auswahl eines Farbschemas für Ihre Website Vordergrund- und Hintergrundfarben, die einen guten Kontrast haben. Machen Sie den Farbkontrast so gut wie möglich innerhalb Ihrer Designvorgaben — streben Sie idealerweise die AAA-Bewertung an (siehe 1.4.6 unten), treffen Sie jedoch mindestens die AA-Bewertung (siehe 1.4.3 unten).
 
-Wenn Sie nicht-Text-Inhalte wie Videos oder Animationen einbeziehen, sollten Sie 1.4.11 befolgen (siehe ebenfalls unten).
+Wenn Sie nichttextliche Inhalte wie Videos oder Animationen einfügen, sollten Sie 1.4.11 befolgen (siehe unten).
 
-Um Ihren Kontrast während der Farbauswahl zu überprüfen, verwenden Sie ein Werkzeug wie WebAIMs [Color Contrast Checker](https://webaim.org/resources/contrastchecker/).
+Um Ihren Kontrast zu überprüfen, während Sie Ihre Farbentscheidungen treffen, verwenden Sie ein Tool wie den [Color Contrast Checker](https://webaim.org/resources/contrastchecker/) von WebAIM.
 
-Sie können auch den Farbkontrast in Echtzeit mit den Entwicklertools von Firefox überprüfen – siehe den [Barrierefreiheit-Inspektor](https://firefox-source-docs.mozilla.org/devtools-user/accessibility_inspector/index.html) Leitfaden, insbesondere den Abschnitt [Barrierefreiheitsprobleme überprüfen](https://firefox-source-docs.mozilla.org/devtools-user/accessibility_inspector/index.html#check-for-accessibility-issues). Versuchen Sie, es an den Live-Beispielen im Beschreibungsabschnitt zu verwenden.
+Sie können auch den Farbkontrast spontan mit den Entwicklertools von Firefox überprüfen — siehe den [Barrierefreiheit-Inspektor](https://firefox-source-docs.mozilla.org/devtools-user/accessibility_inspector/index.html) Leitfaden, insbesondere den Abschnitt [Auf Barrierefreiheitsprobleme prüfen](https://firefox-source-docs.mozilla.org/devtools-user/accessibility_inspector/index.html#check-for-accessibility-issues). Versuchen Sie, es an den Live-Beispielen im Beschreibungsabschnitt zu verwenden.
 
-## Verwandte WCAG-Erfolgskriterien
+## Relevante WCAG-Erfolgskriterien
 
-- [1.4.3 Mindestkontrast (AA)](https://www.w3.org/TR/WCAG21/#contrast-minimum)
+- [1.4.3 Minimalkontrast (AA)](https://w3c.github.io/wcag/guidelines/22/#contrast-minimum)
 
-  - : Der Farbkontrast zwischen Hintergrund- und Vordergrundinhalten sollte ein Mindestniveau haben, um die Lesbarkeit sicherzustellen:
+  - : Der Farbkontrast zwischen Hintergrund und Vordergrund sollte auf einem Mindestniveau sein, um die Lesbarkeit sicherzustellen:
 
-    - Text und sein Hintergrund sollten ein Kontrastverhältnis von mindestens 4.5:1 haben.
-    - Überschrift (oder einfach größerer) Text sollte ein Verhältnis von mindestens 3:1 haben. Größerer Text ist definiert als mindestens 18pt, oder 14pt fett.
+    - Text und sein Hintergrund sollten ein Kontrastverhältnis von mindestens 4,5:1 haben.
+    - Überschriftstext (oder einfach größerer Text) sollte ein Verhältnis von mindestens 3:1 haben. Größerer Text wird als mindestens 18pt oder 14pt fett definiert.
 
-- [1.4.6 Erweiterter Kontrast (AAA)](https://www.w3.org/TR/WCAG21/#contrast-enhanced)
+- [1.4.6 Erhöhter Kontrast (AAA)](https://w3c.github.io/wcag/guidelines/22/#contrast-enhanced)
 
-  - : Dies folgt auf und baut auf Kriterium 1.4.3 auf.
+  - : Dies folgt dem Kriterium 1.4.3 und baut darauf auf.
 
     - Text und sein Hintergrund sollten ein Kontrastverhältnis von mindestens 7:1 haben.
-    - Überschrift (oder einfach größerer) Text sollte ein Verhältnis von mindestens 4.5:1 haben.
+    - Überschriftstext (oder einfach größerer Text) sollte ein Verhältnis von mindestens 4,5:1 haben.
 
-- [1.4.11 Nicht-Text-Kontrast (AA)](https://www.w3.org/TR/WCAG21/#non-text-contrast) (hinzugefügt in 2.1)
-  - : Es sollte ein Mindestfarbkontrastverhältnis von 3:1 für Benutzeroberflächenkomponenten und grafische Objekte geben.
+- [1.4.11 Nicht-Text-Kontrast (AA)](https://w3c.github.io/wcag/guidelines/22/#non-text-contrast)
+  - : Es sollte ein Mindestfarbkontrastverhältnis von 3 zu 1 für Benutzeroberflächenkomponenten und grafische Objekte geben.
 
 ## Siehe auch
 
 - [Farbe und Farbkontrast](/de/docs/Learn_web_development/Core/Accessibility/CSS_and_JavaScript#color_and_color_contrast)
-- [Mehrere Beschriftungen](/de/docs/Learn_web_development/Extensions/Forms/How_to_structure_a_web_form#multiple_labels)
-- [Verständnis des Nicht-Text-Kontrasts](https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast.html)
+- [Mehrere Bezeichnungen](/de/docs/Learn_web_development/Extensions/Forms/How_to_structure_a_web_form#multiple_labels)
+- [Verstehen des Nicht-Text-Kontrasts](https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast.html)

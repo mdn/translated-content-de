@@ -1,12 +1,12 @@
 ---
-title: "ARIA: contentinfo Rolle"
+title: "ARIA: `contentinfo`-Rolle"
 short-title: contentinfo
 slug: Web/Accessibility/ARIA/Reference/Roles/contentinfo_role
 l10n:
-  sourceCommit: a8b25483994fa47cf949b432ddf34a6bce2ddb2e
+  sourceCommit: c1564acf160ef4b320fb7b89ab65211b9c50cf1b
 ---
 
-Die `contentinfo` Rolle definiert eine Fußzeile, die identifizierende Informationen wie Copyright-Informationen, Navigationslinks und Datenschutzerklärungen enthält, die in jedem Dokument innerhalb einer Website zu finden sind. Dieser Abschnitt wird allgemein als Fußzeile bezeichnet.
+Die `contentinfo`-Rolle definiert einen Footer, der Identifizierungsinformationen wie Urheberrechtsinformationen, Navigationslinks und Datenschutzerklärungen enthält, die in jedem Dokument einer Website zu finden sind. Dieser Abschnitt wird allgemein als Footer bezeichnet.
 
 ```html
 <div role="contentinfo">
@@ -15,7 +15,7 @@ Die `contentinfo` Rolle definiert eine Fußzeile, die identifizierende Informati
 </div>
 ```
 
-Dies ist eine Website-Fußzeile. Die Verwendung des {{HTMLElement('footer')}} Elements wird stattdessen empfohlen:
+Dies ist ein Website-Footer. Es wird empfohlen, stattdessen das {{HTMLElement('footer')}}-Element zu verwenden:
 
 ```html
 <footer>
@@ -26,12 +26,12 @@ Dies ist eine Website-Fußzeile. Die Verwendung des {{HTMLElement('footer')}} El
 
 ## Beschreibung
 
-Die `contentinfo` Rolle ist [ein Orientierungspunkt](/de/docs/Web/Accessibility/ARIA/Reference/Roles#3._landmark_roles), der zur Identifizierung einer Seitenfußzeile verwendet wird. Orientierungspunkte können von assistiven Technologien genutzt werden, um schnell große Dokumentenabschnitte zu identifizieren und zu navigieren. Seiten sollten nur ein `contentinfo` Orientierungspunkt auf Top-Level pro Seite enthalten.
+Die `contentinfo`-Rolle ist [eine Landmarke](/de/docs/Web/Accessibility/ARIA/Reference/Roles#3._landmark_roles), die verwendet wird, um einen Seiten-Footer zu identifizieren. Landmarken können von assistiven Technologien genutzt werden, um schnell große Abschnitte des Dokuments zu identifizieren und zu navigieren. Seiten sollten nur eine oberste `contentinfo`-Landmarke pro Seite enthalten.
 
-Jede Seite sollte nur einen `contentinfo` Orientierungspunkt enthalten, der entweder durch die Verwendung des {{HTMLElement('footer')}} Elements oder durch die Deklaration von `role="contentinfo"` erstellt wird. `contentinfo` Orientierungspunkte, die in Inhalte eingebettet über {{HTMLElement('iframe')}} vorhanden sind, zählen nicht zu diesem Limit.
+Jede Seite sollte nur eine `contentinfo`-Landmarke enthalten, die entweder durch die Nutzung des {{HTMLElement('footer')}}-Elements erstellt wird oder durch Deklaration von `role="contentinfo"`. `contentinfo`-Landmarken, die in Inhalte eingebettet sind, die über {{HTMLElement('iframe')}} eingebettet sind, zählen nicht zu diesem Limit.
 
 > [!NOTE]
-> Die Verwendung des {{HTMLElement('footer')}} Elements kommuniziert automatisch, dass ein Abschnitt die Rolle `contentinfo` hat. Entwickler sollten stets das korrekte semantische HTML-Element anstatt ARIA verwenden und sicherstellen, dass sie in VoiceOver {{HTMLElement('footer#accessibility', 'auf bekannte Probleme testen')}}.
+> Die Verwendung des {{HTMLElement('footer')}}-Elements wird automatisch kommunizieren, dass ein Abschnitt die Rolle `contentinfo` hat. Entwickler sollten stets das richtige semantische HTML-Element der Verwendung von ARIA vorziehen und sicherstellen, dass sie bei VoiceOver {{HTMLElement('footer#accessibility', 'auf bekannte Probleme testen')}}.
 
 ## Beispiele
 
@@ -55,27 +55,27 @@ Jede Seite sollte nur einen `contentinfo` Orientierungspunkt enthalten, der entw
 </body>
 ```
 
-## Barrierefreiheit Bedenken
+## Barrierefreiheitserwägungen
 
-### Sparsam verwenden
+### Sparsame Nutzung
 
-[Orientierungspunkte](/de/docs/Web/Accessibility/ARIA/Reference/Roles#3._landmark_roles) sind dazu gedacht, größere allgemeine Abschnitte eines Dokuments zu identifizieren. Die Verwendung zu vieler Orientierungspunkte kann "Geräusche" in Bildschirmlesegeräten erzeugen, was das Verständnis des allgemeinen Seitenlayouts erschwert.
+[Landmarkenrollen](/de/docs/Web/Accessibility/ARIA/Reference/Roles#3._landmark_roles) sind dazu gedacht, größere Gesamtabschnitte des Dokuments zu identifizieren. Die Verwendung von zu vielen Landmarkenrollen kann "Geräusche" in Screenreadern erzeugen und es schwierig machen, das Gesamtlayout der Seite zu verstehen.
 
-### Ein `contentinfo` Orientierungspunkt pro Seite
+### Eine `contentinfo`-Landmarke pro Seite
 
-#### Das `<body>` Element
+#### Das `<body>`-Element
 
-Es sollte in jedem Dokument nur ein `contentinfo` Orientierungspunkt geben, der als unmittelbarer Nachfahre des {{HTMLElement('body')}} Elements verwendet wird.
+Es sollte nur eine `contentinfo`-Landmarke pro Dokument geben, die als unmittelbarer Nachkomme des {{HTMLElement('body')}}-Elements verwendet wird.
 
-#### Mega-Fußzeilen
+#### Mega-Footer
 
-Fügen Sie keine zusätzlichen {{HTMLElement('footer')}} Elemente oder `contentinfo` Orientierungspunkte in die Fußzeile des Dokuments ein. Verwenden Sie stattdessen andere [Inhaltsstrukturierungselemente](/de/docs/Web/HTML/Reference/Elements#content_sectioning).
+Vermeiden Sie es, zusätzliche {{HTMLElement('footer')}}-Elemente oder `contentinfo`-Landmarken innerhalb des Footers des Dokuments zu verschachteln. Verwenden Sie stattdessen andere [Inhaltsstrukturierungselemente](/de/docs/Web/HTML/Reference/Elements#content_sectioning).
 
-### Orientierungspunkte kennzeichnen
+### Landmarken beschriften
 
-#### Mehrere Orientierungspunkte
+#### Mehrere Landmarken
 
-Wenn es mehr als eine `contentinfo` Rolle oder ein {{HTMLElement('footer')}} Element in einem Dokument gibt, versehen Sie jeden Orientierungspunkt mit einem Label mit dem [`aria-label`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label) Attribut. Dieses Label ermöglicht es Benutzern von assistiven Technologien, schnell den Zweck jedes Orientierungspunkts zu verstehen.
+Wenn es in einem Dokument mehr als eine `contentinfo`-Landmarkenrolle oder ein {{HTMLElement('footer')}}-Element gibt, geben Sie für jede Landmarke ein Label mit dem [`aria-label`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label)-Attribut an. Dieses Label ermöglicht assistiven Technologie-Nutzern ein schnelles Verständnis des Zwecks jeder Landmarke.
 
 ```html
 <body>
@@ -102,17 +102,17 @@ Wenn es mehr als eine `contentinfo` Rolle oder ein {{HTMLElement('footer')}} Ele
 
 #### Redundante Beschreibungen
 
-Bildschirmlesegeräte kündigen die Art der Rolle des Orientierungspunkts an. Aus diesem Grund ist es nicht erforderlich, im Label zu beschreiben, was der Orientierungspunkt ist. Zum Beispiel kann eine Deklaration von `role="contentinfo"` mit einem `aria-label="Footer"` redundant als „contentinfo footer“ angekündigt werden.
+Screenreader geben die Art der Rolle der Landmarke bekannt. Deshalb müssen Sie nicht beschreiben, was die Landmarke in ihrem Label ist. Zum Beispiel kann eine Deklaration von `role="contentinfo"` mit einem `aria-label="Footer"` redundant als "contentinfo footer" angekündigt werden.
 
 ## Beste Praktiken
 
 ### Bevorzugen Sie HTML
 
-Wenn es ein unmittelbarer Nachkomme des {{HTMLElement('body')}} ist, wird durch die Verwendung des {{HTMLElement('footer')}} Elements automatisch kommuniziert, dass ein Abschnitt die Rolle `contentinfo` hat (mit Ausnahme eines {{HTMLElement('footer#accessibility', 'bekannten Problems')}} in VoiceOver). Wenn möglich, bevorzugen Sie es, `<footer>` zu verwenden. Beachten Sie, dass ein `footer` Element, das innerhalb eines `article`, `aside`, `main`, `nav` oder `section` verschachtelt ist, nicht als `contentinfo` betrachtet wird.
+Wenn es ein unmittelbarer Nachkomme von {{HTMLElement('body')}} ist, wird die Verwendung des {{HTMLElement('footer')}}-Elements automatisch kommunizieren, dass ein Abschnitt die Rolle `contentinfo` hat (bis auf {{HTMLElement('footer#accessibility', 'ein bekanntes Problem')}} bei VoiceOver). Wenn möglich, bevorzugen Sie die Verwendung von `<footer>`. Beachten Sie, dass ein `footer`-Element, das in einem `article`, `aside`, `main`, `nav` oder `section` verschachtelt ist, nicht als `contentinfo` gilt.
 
 ### Zusätzliche Vorteile
 
-Bestimmte Technologien wie Browser-Erweiterungen können Listen aller auf einer Seite vorhandenen Orientierungspunkte erzeugen, sodass auch Nicht-Bildschirmleser-Benutzer schnell große Dokumentenabschnitte identifizieren und navigieren können.
+Bestimmte Technologien wie Browser-Erweiterungen können Listen aller auf einer Seite vorhandenen Landmarkenrollen erstellen, sodass auch Nicht-Screenreader-Nutzer schnell große Abschnitte des Dokuments identifizieren und navigieren können.
 
 - [Landmarks Browser-Erweiterung](https://matatk.agrip.org.uk/landmarks/)
 
@@ -122,9 +122,8 @@ Bestimmte Technologien wie Browser-Erweiterungen können Listen aller auf einer 
 
 ## Siehe auch
 
-- Das {{HTMLElement('footer')}} Element
-- [contentinfo (role): Accessible Rich Internet Applications (WAI-ARIA) 1.1](https://www.w3.org/TR/wai-aria/#contentinfo)
-- [Using HTML sections and outlines](/de/docs/Web/HTML/Reference/Elements/Heading_Elements)
-- [Using WAI-ARIA Landmarks – 2013 | The Paciello Group](https://www.tpgi.com/using-wai-aria-landmarks-2013/)
+- Das {{HTMLElement('footer')}}-Element
+- [Verwendung von HTML-Sektionen und -Gliederungen](/de/docs/Web/HTML/Reference/Elements/Heading_Elements)
+- [Verwendung von WAI-ARIA-Landmarken – 2013 | The Paciello Group](https://www.tpgi.com/using-wai-aria-landmarks-2013/)
 - [Accessible Landmarks | scottohara.me](https://www.scottohara.me/blog/2018/03/03/landmarks.html)
 - [The Footer Element Update | HTML5 Doctor](https://html5doctor.com/the-footer-element-update/)

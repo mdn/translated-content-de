@@ -2,12 +2,12 @@
 title: "<figcaption>: Das Figure Caption-Element"
 slug: Web/HTML/Reference/Elements/figcaption
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: c1564acf160ef4b320fb7b89ab65211b9c50cf1b
 ---
 
 {{HTMLSidebar}}
 
-Das **`<figcaption>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert eine Beschriftung oder Legende, die den restlichen Inhalt seines übergeordneten {{HTMLElement("figure")}}-Elements beschreibt und dem `<figure>` eine {{Glossary("accessible_description", "zugängliche Beschreibung")}} bietet.
+Das **`<figcaption>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert eine Bildunterschrift oder Legende, die den Rest des Inhalts des übergeordneten {{HTMLElement("figure")}}-Elements beschreibt und dem `<figure>` eine {{Glossary("accessible_description", "zugängliche Beschreibung")}} liefert.
 
 {{InteractiveExample("HTML Demo: &lt;figcaption&gt;", "tabbed-shorter")}}
 
@@ -46,11 +46,11 @@ figcaption {
 
 ## Attribute
 
-Dieses Element umfasst nur die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
+Dieses Element enthält nur die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
 ## Beispiele
 
-Bitte sehen Sie sich die {{HTMLElement("figure")}}-Seite für Beispiele zu `<figcaption>` an.
+Bitte sehen Sie sich die Seite von {{HTMLElement("figure")}} für Beispiele zu `<figcaption>` an.
 
 ## Technische Zusammenfassung
 
@@ -74,7 +74,7 @@ Bitte sehen Sie sich die {{HTMLElement("figure")}}-Seite für Beispiele zu `<fig
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl das Start- als auch das End-Tag sind obligatorisch.</td>
+      <td>Keine, sowohl das Start- als auch das End-Tag sind erforderlich.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
@@ -86,7 +86,7 @@ Bitte sehen Sie sich die {{HTMLElement("figure")}}-Seite für Beispiele zu `<fig
     <tr>
       <th scope="row">Implizite ARIA-Rolle</th>
       <td>
-        <a href="https://www.w3.org/TR/html-aria/#dfn-no-corresponding-role"
+        <a href="https://w3c.github.io/html-aria/#dfn-no-corresponding-role"
           >Keine entsprechende Rolle</a
         >
       </td>

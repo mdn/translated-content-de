@@ -1,13 +1,13 @@
 ---
-title: "<map>: Das Image-Map-Element"
+title: "<map>: Das Bild-Karten-Element"
 slug: Web/HTML/Reference/Elements/map
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: c1564acf160ef4b320fb7b89ab65211b9c50cf1b
 ---
 
 {{HTMLSidebar}}
 
-Das **`<map>`** [HTML](/de/docs/Web/HTML)-Element wird zusammen mit {{HTMLElement("area")}}-Elementen verwendet, um eine Image Map (ein klickbares Link-Bereich) zu definieren.
+Das **`<map>`**-[HTML](/de/docs/Web/HTML)-Element wird zusammen mit {{HTMLElement("area")}}-Elementen verwendet, um eine Bildkarte (einen klickbaren Linkbereich) zu definieren.
 
 {{InteractiveExample("HTML Demo: &lt;map&gt;", "tabbed-standard")}}
 
@@ -46,14 +46,14 @@ img {
 
 ## Attribute
 
-Dieses Element beinhaltet die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
+Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
 - `name`
-  - : Das `name`-Attribut gibt der Map einen Namen, sodass sie referenziert werden kann. Das Attribut muss vorhanden sein und einen nicht-leeren Wert ohne Leerzeichen enthalten. Der Wert des `name`-Attributs darf nicht mit dem `name`-Attribut eines anderen `<map>`-Elements im gleichen Dokument übereinstimmen. Wenn auch das [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id)-Attribut angegeben ist, müssen beide Attribute denselben Wert haben.
+  - : Das `name`-Attribut gibt der Karte einen Namen, sodass sie referenziert werden kann. Das Attribut muss vorhanden sein und einen nicht-leeren Wert ohne Leerzeichen enthalten. Der Wert des `name`-Attributs darf nicht gleich dem Wert des `name`-Attributs eines anderen `<map>`-Elements im selben Dokument sein. Wenn das [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id)-Attribut ebenfalls angegeben ist, müssen beide Attribute denselben Wert haben.
 
 ## Beispiele
 
-### Image Map mit zwei Bereichen
+### Bildkarte mit zwei Bereichen
 
 Klicken Sie auf den linken Papagei für JavaScript oder auf den rechten Papagei für CSS.
 
@@ -94,34 +94,34 @@ Klicken Sie auf den linken Papagei für JavaScript oder auf den rechten Papagei 
         <a href="/de/docs/Web/HTML/Guides/Content_categories">Inhaltskategorien</a>
       </th>
       <td>
-        <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content">Fließende Inhalte</a>,
-        <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content">Phrasing-Inhalte</a>, palpable Inhalte.
+        <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content">Flussinhalt</a>,
+        <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content">Satzinhalt</a>, fühlbarer Inhalt.
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte Inhalte</th>
+      <th scope="row">Erlaubter Inhalt</th>
       <td>
         Jedes
-        <a href="/de/docs/Web/HTML/Guides/Content_categories#transparent_content_model">transparente</a>
+        <a href="/de/docs/Web/HTML/Guides/Content_categories#transparent_content_model">transparentes</a>
         Element.
       </td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl das Start- als auch das End-Tag sind obligatorisch.</td>
+      <td>Keine, sowohl das Start- als auch das Endtag sind obligatorisch.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
       <td>
         Jedes Element, das
-        <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content">Phrasing-Inhalte</a>
+        <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content">Satzinhalt</a>
         akzeptiert.
       </td>
     </tr>
     <tr>
       <th scope="row">Implizite ARIA-Rolle</th>
       <td>
-        <a href="https://www.w3.org/TR/html-aria/#dfn-no-corresponding-role">Keine entsprechende Rolle</a>
+        <a href="https://w3c.github.io/html-aria/#dfn-no-corresponding-role">Keine entsprechende Rolle</a>
       </td>
     </tr>
     <tr>

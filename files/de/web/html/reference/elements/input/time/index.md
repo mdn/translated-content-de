@@ -2,14 +2,14 @@
 title: <input type="time">
 slug: Web/HTML/Reference/Elements/input/time
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: c1564acf160ef4b320fb7b89ab65211b9c50cf1b
 ---
 
 {{HTMLSidebar}}
 
-{{htmlelement("input")}}-Elemente vom Typ **`time`** erstellen Eingabefelder, die den Benutzer dazu bringen, einfach eine Zeit (Stunden und Minuten sowie optional Sekunden) einzugeben.
+{{htmlelement("input")}}-Elemente des Typs **`time`** erstellen Eingabefelder, die den Benutzer dazu bringen sollen, auf einfache Weise eine Uhrzeit (Stunden und Minuten, und optional Sekunden) einzugeben.
 
-Obwohl das Erscheinungsbild der Benutzeroberfläche des Steuerelements vom Browser und Betriebssystem abhängt, sind die Funktionen dieselben. Der Wert ist immer eine in 24-Stunden-Format `HH:mm` oder `HH:mm:ss` formatierte Zeit mit führenden Nullen, unabhängig vom Eingabeformat der Benutzeroberfläche.
+Obwohl das Erscheinungsbild der Benutzeroberfläche vom Browser und Betriebssystem abhängt, sind die Funktionen dieselben. Der Wert ist immer eine im 24-Stunden-Format angegebene Zeit `HH:mm` oder `HH:mm:ss` mit führenden Nullen, unabhängig vom Eingabeformat der Benutzeroberfläche.
 
 {{InteractiveExample("HTML Demo: &lt;input type=&quot;time&quot;&gt;", "tabbed-standard")}}
 
@@ -41,9 +41,9 @@ label {
 }
 ```
 
-### Den Wert-Attribut setzen
+### Das value-Attribut setzen
 
-Sie können einen Standardwert für die Eingabe festlegen, indem Sie beim Erstellen des `<input>`-Elements einen gültigen Zeitwert im [`value`](/de/docs/Web/HTML/Reference/Elements/input#value)-Attribut angeben, zum Beispiel:
+Sie können einen Standardwert für die Eingabe setzen, indem Sie beim Erstellen des `<input>`-Elements einen gültigen Zeitwert im [`value`](/de/docs/Web/HTML/Reference/Elements/input#value)-Attribut hinzufügen, wie folgt:
 
 ```html
 <label for="appointment-time">Choose an appointment time: </label>
@@ -54,24 +54,24 @@ Sie können einen Standardwert für die Eingabe festlegen, indem Sie beim Erstel
   value="13:30" />
 ```
 
-{{ EmbedLiveSample('Setting_the_value_attribute', 600, 60) }}
+{{EmbedLiveSample('Setting_the_value_attribute', 600, 60)}}
 
-### Den Wert mittels JavaScript setzen
+### Den Wert mit JavaScript setzen
 
-Sie können den Zeitwert auch in JavaScript mit der [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement) `value`-Eigenschaft abrufen und setzen, zum Beispiel:
+Sie können den Zeitwert auch in JavaScript mit der `value`-Eigenschaft des [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement) abrufen und setzen, zum Beispiel:
 
 ```js
 const timeControl = document.querySelector('input[type="time"]');
 timeControl.value = "15:30";
 ```
 
-### Format des Zeitwertes
+### Format des Zeitwerts
 
-Der `value` des `time`-Inputs ist stets in einem 24-Stunden-Format mit führenden Nullen: `HH:mm`, unabhängig vom Eingabeformat, das wahrscheinlich basierend auf der Lokalisierung des Benutzers (oder durch den Benutzer-Agenten) ausgewählt wird. Wenn die Zeit Sekunden umfasst (siehe [Verwendung des step-Attributs](#verwendung_des_step-attributs)), ist das Format immer `HH:mm:ss`. Mehr über das Format des Zeitwerts, der von diesem Eingabetyp verwendet wird, können Sie bei [Zeitstrings](/de/docs/Web/HTML/Guides/Date_and_time_formats#time_strings) lernen.
+Der `value` des `time`-Inputs ist immer im 24-Stunden-Format mit führenden Nullen: `HH:mm`, unabhängig vom Eingabeformat, das wahrscheinlich basierend auf den Locale-Einstellungen des Benutzers (oder durch den User Agent) ausgewählt wird. Wenn die Zeit Sekunden beinhaltet (siehe [Verwendung des step-Attributs](#verwendung_des_step-attributs)), ist das Format immer `HH:mm:ss`. Sie können mehr über das Format des Zeitwerts erfahren, der von diesem Eingabetyp verwendet wird, unter [Zeitstrings](/de/docs/Web/HTML/Guides/Date_and_time_formats#time_strings).
 
-In diesem Beispiel können Sie den Wert der Zeiteingabe sehen, indem Sie eine Zeit eingeben und sehen, wie sie sich danach ändert.
+In diesem Beispiel können Sie den Wert der Zeiteingabe sehen, indem Sie eine Zeit eingeben und beobachten, wie sie sich anschließend ändert.
 
-Zuerst ein Blick auf das HTML. Wir fügen ein Label und ein Input hinzu und ergänzen ein {{HTMLElement("p")}}-Element mit einem {{HTMLElement("span")}}, um den Wert des `time`-Inputs anzuzeigen:
+Zuerst ein Blick auf das HTML. Wir fügen ein Label und eine Eingabe ein und ergänzen ein {{HTMLElement("p")}}-Element mit einem {{HTMLElement("span")}}, um den Wert der `time`-Eingabe anzuzeigen:
 
 ```html
 <form>
@@ -84,7 +84,7 @@ Zuerst ein Blick auf das HTML. Wir fügen ein Label und ein Input hinzu und erg�
 </form>
 ```
 
-Der JavaScript-Code ergänzt die Zeiteingabe um Code, der das [`input`](/de/docs/Web/API/Element/input_event)-Ereignis überwacht, das jedes Mal ausgelöst wird, wenn sich der Inhalt eines Input-Elements ändert. Wenn dies geschieht, werden die Inhalte des `<span>` mit dem neuen Wert des Input-Elements ersetzt.
+Der JavaScript-Code fügt der Zeiteingabe Code hinzu, um auf das [`input`](/de/docs/Web/API/Element/input_event)-Ereignis zu warten, das jedes Mal ausgelöst wird, wenn sich der Inhalt eines Eingabeelements ändert. Wenn dies passiert, werden die Inhalte des `<span>` durch den neuen Wert des Eingabeelements ersetzt.
 
 ```js
 const startTime = document.getElementById("startTime");
@@ -101,52 +101,52 @@ startTime.addEventListener(
 
 {{EmbedLiveSample("Time_value_format", 600, 80)}}
 
-Wenn ein Formular mit einer Zeiteingabe gesendet wird, wird der Wert kodiert, bevor er in die Formulardaten aufgenommen wird. Der Formulareintrag für eine Zeiteingabe hat stets die Form `name=HH%3Amm`, oder `name=HH%3Amm%3Ass`, wenn Sekunden einbezogen sind (siehe [Verwendung des step-Attributs](#verwendung_des_step-attributs)).
+Wenn ein Formular mit einer `time`-Eingabe übermittelt wird, wird der Wert kodiert, bevor er in die Formulardaten aufgenommen wird. Der Formulareintrag für eine Zeiteingabe hat immer die Form `name=HH%3Amm`, oder `name=HH%3Amm%3Ass`, wenn Sekunden inkludiert sind (siehe [Verwendung des step-Attributs](#verwendung_des_step-attributs)).
 
 ## Zusätzliche Attribute
 
-Zusätzlich zu den allgemeinen Attributen, die alle {{HTMLElement("input")}}-Elemente offerieren, bieten `time`-Inputs folgende Attribute.
+Zusätzlich zu den allgemein für {{HTMLElement("input")}}-Elemente geltenden Attributen bieten `time`-Eingaben die folgenden Attribute.
 
 > [!NOTE]
-> Im Gegensatz zu vielen Datentypen verfügen Zeitwerte über eine **periodische Domäne**, was bedeutet, dass die Werte einen höchsten möglichen Wert erreichen, um dann wieder zum Anfang zurückzukehren. Zum Beispiel bedeutet das Festlegen eines `min` von `14:00` und eines `max` von `2:00`, dass die zulässigen Zeitwerte um 2:00 Uhr beginnen, durch Mitternacht bis zum nächsten Tag laufen und um 2:00 Uhr enden. Siehe mehr im Abschnitt [min und max über Mitternacht setzen](#min_und_max_über_mitternacht_setzen) in diesem Artikel.
+> Anders als bei vielen Datentypen haben Zeitwerte eine **periodische Domäne**, was bedeutet, dass die Werte den höchstmöglichen Wert erreichen und dann wieder von vorne beginnen. Zum Beispiel bedeutet die Angabe eines `min` von `14:00` und eines `max` von `2:00`, dass die zulässigen Zeitwerte um 14:00 Uhr beginnen, bis Mitternacht und zum nächsten Tag laufen und um 2:00 Uhr enden. Weitere Informationen finden Sie im Abschnitt [min und max über Mitternacht setzen](#erstellen_von_min_und_max_über_mitternacht_hinweg) dieses Artikels.
 
 ### list
 
-Der Wert des list-Attributs ist die [`id`](/de/docs/Web/API/Element/id) eines {{HTMLElement("datalist")}}-Elements, das sich im selben Dokument befindet. Die {{HTMLElement("datalist")}} bietet dem Benutzer eine Liste vordefinierter Werte zur Auswahl für diese Eingabe. Werte in der Liste, die nicht mit dem [`type`](/de/docs/Web/HTML/Reference/Elements/input#type) kompatibel sind, werden nicht in die vorgeschlagenen Optionen aufgenommen. Die bereitgestellten Werte sind Vorschläge, keine Anforderungen: Benutzer können aus dieser vordefinierten Liste auswählen oder einen anderen Wert angeben.
+Der Wert des list-Attributs ist die [`id`](/de/docs/Web/API/Element/id) eines {{HTMLElement("datalist")}}-Elements, das im selben Dokument enthalten ist. Das {{HTMLElement("datalist")}} bietet eine Liste vordefinierter Werte, die dem Benutzer für diese Eingabe vorgeschlagen werden sollen. Alle Werte in der Liste, die nicht mit dem [`type`](/de/docs/Web/HTML/Reference/Elements/input#type) kompatibel sind, werden nicht in die vorgeschlagenen Optionen aufgenommen. Die bereitgestellten Werte sind Vorschläge, keine Anforderungen: Benutzer können aus dieser vordefinierten Liste auswählen oder einen anderen Wert eingeben.
 
 ### max
 
-Ein String, der die späteste akzeptierte Zeit angibt, im selben [Zeitwertformat](#format_des_zeitwertes), wie oben beschrieben. Wenn der vorgegebene String keine gültige Zeit ist, wird kein maximaler Wert gesetzt.
+Ein String, der die späteste akzeptierte Zeit angibt, im selben [Zeitwertformat](#format_des_zeitwerts) wie oben beschrieben. Wenn der angegebene String keine gültige Zeit darstellt, wird kein Maximalwert eingestellt.
 
 ### min
 
-Ein String, der die früheste akzeptierte Zeit angibt, im [Zeitwertformat](#format_des_zeitwertes), wie vorher beschrieben. Wenn der angegebene Wert kein gültiger Zeitstring ist, wird kein Mindestwert gesetzt.
+Ein String, der die früheste akzeptierte Zeit angibt, gegeben im [Zeitwertformat](#format_des_zeitwerts), das zuvor beschrieben wurde. Wenn der angegebene Wert keine gültige Zeitzeichenfolge ist, wird kein Minimalwert gesetzt.
 
 ### readonly
 
-Ein Boolean-Attribut, das bei Vorhandensein bedeutet, dass dieses Feld vom Benutzer nicht bearbeitet werden kann. Sein `value` kann jedoch weiterhin durch direktes Setzen der [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement) `value`-Eigenschaft durch JavaScript-Code geändert werden.
+Ein Boolean-Attribut, welches, wenn vorhanden, bedeutet, dass dieses Feld vom Benutzer nicht bearbeitet werden kann. Sein `value` kann jedoch weiterhin durch direktes Setzen der `value`-Eigenschaft des [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement) durch JavaScript-Code geändert werden.
 
 > [!NOTE]
-> Da ein schreibgeschütztes Feld keinen Wert haben kann, hat `required` keinen Effekt auf Eingaben, bei denen das `readonly`-Attribut ebenfalls angegeben ist.
+> Da ein schreibgeschütztes Feld keinen Wert besitzen kann, hat `required` keine Auswirkung auf Eingaben mit dem ebenfalls angegebenen `readonly`-Attribut.
 
 ### step
 
-Das `step`-Attribut ist eine Zahl, die die Granularität angibt, der der Wert entsprechen muss, oder der besondere Wert `any`, der unten beschrieben wird. Nur Werte, die gleich der Grundlage für die Schrittgröße sind ([`min`](#min), falls angegeben, [`value`](/de/docs/Web/HTML/Reference/Elements/input#value) ansonsten, und ein entsprechender Standardwert, wenn keiner von beidem angegeben ist), sind zulässig.
+Das `step`-Attribut ist eine Zahl, die die Granularität angibt, an die der Wert halten muss, oder den speziellen Wert `any`, der unten beschrieben wird. Nur Werte, die gleich dem Ausgangspunkt für das Inkrement sind ([`min`](#min), falls angegeben, andernfalls [`value`](/de/docs/Web/HTML/Reference/Elements/input#value) und ein entsprechender Standardwert, wenn keiner dieser Werte angegeben ist) sind gültig.
 
-Ein String-Wert von `any` bedeutet, dass keine Schrittweise impliziert ist und jeglicher Wert erlaubt ist (unter Ausnahmen anderer Einschränkungen, wie [`min`](#min) und [`max`](#max)).
+Ein String-Wert von `any` bedeutet, dass kein Inkrement impliziert ist und jeder Wert erlaubt ist (unter Ausschluss anderer Einschränkungen, wie [`min`](#min) und [`max`](#max)).
 
 > [!NOTE]
-> Wenn die vom Benutzer eingegebenen Daten nicht der Schrittkonfiguration entsprechen, kann der {{Glossary("user_agent", "Benutzer-Agent")}} möglicherweise auf den nächstgelegenen gültigen Wert runden, wobei Zahlen in positiver Richtung bevorzugt werden, wenn es zwei gleich nahe Optionen gibt.
+> Wenn die vom Benutzer eingegebenen Daten nicht den Inkrementationskonfigurationen entsprechen, kann der {{Glossary("user_agent", "User Agent")}} zum nächsten gültigen Wert runden, wobei Zahlen in positiver Richtung bevorzugt werden, wenn es zwei gleich nahe Optionen gibt.
 
-Für `time`-Eingaben wird der Wert von `step` in Sekunden angegeben, mit einem Skalierungsfaktor von 1000 (da der zugrunde liegende numerische Wert in Millisekunden ist). Der Standardwert von `step` ist 60, was 60 Sekunden (bzw. 1 Minute oder 60.000 Millisekunden) entspricht.
+Für `time`-Eingaben wird der Wert von `step` in Sekunden angegeben, mit einem Skalierungsfaktor von 1000 (da der zugrundeliegende Zahlwert in Millisekunden ist). Der Standardwert von `step` ist 60, was 60 Sekunden (oder 1 Minute bzw. 60.000 Millisekunden) angibt.
 
-Wenn `any` als Wert für `step` festgelegt ist, werden die standardmäßigen 60 Sekunden verwendet und der Sekundenwert wird in der Benutzeroberfläche nicht angezeigt.
+Wenn `any` als Wert für `step` gesetzt ist, wird der Standardwert von 60 Sekunden verwendet, und der Sekundenwert wird in der Benutzeroberfläche nicht angezeigt.
 
-## Zeit-Eingaben verwenden
+## Verwendung von Zeiteingaben
 
 ### Grundlegende Verwendung von Zeit
 
-Die einfachste Verwendung von `<input type="time">` besteht aus einer einfachen Kombination aus `<input>` und {{htmlelement("label")}}-Element, wie unten gezeigt:
+Die grundlegendste Verwendung von `<input type="time">` umfasst eine einfache Kombination aus `<input>` und {{htmlelement("label")}}, wie unten gezeigt:
 
 ```html
 <form>
@@ -157,15 +157,15 @@ Die einfachste Verwendung von `<input type="time">` besteht aus einer einfachen 
 
 {{EmbedLiveSample('Basic_uses_of_time', 600, 40)}}
 
-### Kontrolle der Eingabegröße
+### Steuerung der Eingabegröße
 
-`<input type="time">` unterstützt keine Form-Attributgrößen wie [`size`](/de/docs/Web/HTML/Reference/Elements/input#size), da Zeiten immer ungefähr gleich lang sind. Sie müssen auf [CSS](/de/docs/Web/CSS) zurückgreifen, um Größenanforderungen zu erfüllen.
+`<input type="time">` unterstützt keine Formulargrößenattribute wie [`size`](/de/docs/Web/HTML/Reference/Elements/input#size), da Zeiten immer ungefähr die gleiche Anzahl an Zeichen haben. Sie müssen auf [CSS](/de/docs/Web/CSS) zurückgreifen, um Größenanforderungen zu erfüllen.
 
-### Verwendung des Step-Attributs
+### Verwendung des step-Attributs
 
-Sie können das [`step`](/de/docs/Web/HTML/Reference/Elements/input#step)-Attribut verwenden, um den Betrag zu variieren, um den die Zeit erhöht oder verringert wird (zum Beispiel, damit die Zeit bei einem Klick auf die kleinen Pfeilsteuerungen jeweils um 10 Minuten bewegt wird).
+Sie können das [`step`](/de/docs/Web/HTML/Reference/Elements/input#step)-Attribut verwenden, um die Größe des Zeitsprungs zu variieren, wenn die Zeit erhöht oder verringert wird (zum Beispiel, so dass sich die Zeit bei jedem Klick auf die kleinen Pfeil-Widgets um 10 Minuten pro Schritt bewegt).
 
-Es nimmt einen ganzzahligen Wert an, der die Anzahl der Sekunden definiert, um die Sie die Zeit erhöhen möchten; der Standardwert ist 60 Sekunden. Wenn dies als Standard festgelegt ist, beschränken sich die meisten Benutzer-Agenten-Zeit-UIs auf Stunden und Minuten, aber nicht auf Sekunden. Die Einbeziehung des [`step`](/de/docs/Web/HTML/Reference/Elements/input#step)-Attributs mit einem numerischen Wert, der nicht durch 60 teilbar ist, fügt Sekunden zur Benutzeroberfläche hinzu, wenn der `min` oder `max`-Wert die Sekunden nicht bereits sichtbar gemacht hat.
+Es nimmt einen ganzzahligen Wert an, der die Anzahl der Sekunden definiert, um die Sie erhöhen möchten; der Standardwert ist 60 Sekunden. Mit dieser Vorgabe zeigt die Benutzeroberfläche der meisten User Agents Stunden und Minuten, aber keine Sekunden. Die Einbeziehung des [`step`](/de/docs/Web/HTML/Reference/Elements/input#step)-Attributs mit jedem anderen numerischen Wert als einem Wert, der durch `60` teilbar ist, fügt Sekunden zur Benutzeroberfläche hinzu, wenn nicht bereits der `min`- oder `max`-Wert die Sichtbarkeit der Sekunden verursacht hat.
 
 ```html
 <form>
@@ -176,15 +176,15 @@ Es nimmt einen ganzzahligen Wert an, der die Anzahl der Sekunden definiert, um d
 
 {{EmbedLiveSample('Using_the_step_attribute', 600, 40)}}
 
-Um Minuten oder Stunden als Schritt festzulegen, geben Sie die Anzahl der Minuten oder Stunden in Sekunden an, zum Beispiel 120 für 2 Minuten oder 7200 für 2 Stunden.
+Um Minuten oder Stunden als Schritt festzulegen, geben Sie die Anzahl der Minuten oder Stunden in Sekunden an, z.B. 120 für 2 Minuten oder 7200 für 2 Stunden.
 
 ## Validierung
 
-Standardmäßig wendet `<input type="time">` keinerlei Validierung auf eingegebene Werte an, außer dass die Benutzeroberfläche des Benutzer-Agenten normalerweise verhindert, dass Sie etwas anderes als einen Zeitwert eingeben. Dies ist hilfreich, aber Sie können sich nicht vollständig darauf verlassen, dass der Wert ein korrekter Zeitstring ist, da er möglicherweise ein leerer String (`""`) ist, was erlaubt ist.
+Standardmäßig wendet `<input type="time">` keine Validierung auf die eingegebenen Werte an, abgesehen von der Tatsache, dass die Benutzeroberfläche des User Agents Ihnen im Allgemeinen nicht erlaubt, etwas anderes als einen Zeitwert einzugeben. Das ist hilfreich, aber Sie können sich nicht vollständig darauf verlassen, dass der Wert eine korrekte Zeitzeichenfolge ist, da er eine leere Zeichenfolge (`""`) sein könnte, was zulässig ist.
 
 ### Maximale und minimale Zeiten festlegen
 
-Sie können die [`min`](/de/docs/Web/HTML/Reference/Elements/input#min)- und [`max`](/de/docs/Web/HTML/Reference/Elements/input#max)-Attribute verwenden, um die gültigen Zeiten einzuschränken, die vom Benutzer ausgewählt werden können. Im folgenden Beispiel legen wir eine Mindestzeit von `12:00` und eine Höchstzeit von `18:00` fest:
+Sie können die [`min`](/de/docs/Web/HTML/Reference/Elements/input#min)- und [`max`](/de/docs/Web/HTML/Reference/Elements/input#max)-Attribute verwenden, um die gültigen Zeiten einzuschränken, die der Benutzer auswählen kann. Im folgenden Beispiel legen wir eine minimale Zeit von `12:00` und eine maximale Zeit von `18:00` fest:
 
 ```html
 <form>
@@ -201,9 +201,9 @@ Sie können die [`min`](/de/docs/Web/HTML/Reference/Elements/input#min)- und [`m
 </form>
 ```
 
-{{ EmbedLiveSample('Setting_maximum_and_minimum_times', 600, 40) }}
+{{EmbedLiveSample('Setting_maximum_and_minimum_times', 600, 40)}}
 
-Hier ist das CSS, das im obigen Beispiel verwendet wird. Hier nutzen wir die {{cssxref(":valid")}}- und {{cssxref(":invalid")}}-CSS-Eigenschaften, um das Eingabefeld basierend darauf zu stylen, ob der aktuelle Wert gültig ist. Wir fügen ein Icon als generiertes Inhaltsicon auf einem {{htmlelement("span")}} neben der Eingabe hinzu.
+Hier ist das CSS, das im obigen Beispiel verwendet wird. Wir verwenden die {{cssxref(":valid")}}- und {{cssxref(":invalid")}}-CSS-Eigenschaften, um die Eingabe basierend darauf zu stylen, ob der aktuelle Wert gültig ist. Wir fügen ein generiertes Inhaltsicon auf einem {{htmlelement("span")}} neben dem Input hinzu.
 
 ```css
 div {
@@ -232,13 +232,13 @@ input:valid + span::after {
 }
 ```
 
-Das Ergebnis ist hier, dass:
+Das Ergebnis hier ist, dass:
 
-- Nur Zeiten zwischen 12:00 und 18:00 als gültig angesehen werden; Zeiten außerhalb dieses Bereichs werden als ungültig gekennzeichnet.
+- Nur Zeiten zwischen 12:00 und 18:00 als gültig angesehen werden; Zeiten außerhalb dieses Bereichs werden als ungültig markiert.
 
-#### Min und max über Mitternacht setzen
+#### Erstellen von min und max über Mitternacht hinweg
 
-Indem ein [`min`](/de/docs/Web/HTML/Reference/Elements/input#min)-Attribut größer als das [`max`](/de/docs/Web/HTML/Reference/Elements/input#max)-Attribut festgelegt wird, wird der gültige Zeitbereich um Mitternacht herum verlängert, um einen gültigen Zeitbereich zu erzeugen. Diese Funktionalität wird von keiner anderen Eingabetype unterstützt.
+Durch Setzen eines [`min`](/de/docs/Web/HTML/Reference/Elements/input#min)-Attributs größer als das [`max`](/de/docs/Web/HTML/Reference/Elements/input#max)-Attribut wird der gültige Zeitbereich über Mitternacht hinweg gruppiert, um einen gültigen Zeitraum zu erstellen. Diese Funktionalität wird von keinem anderen Eingabetyp unterstützt.
 
 ```js
 const input = document.createElement("input");
@@ -256,9 +256,9 @@ if (input.validity.valid && input.type === "time") {
 
 ### Zeiten erforderlich machen
 
-Zudem können Sie das [`required`](/de/docs/Web/HTML/Reference/Elements/input#required)-Attribut verwenden, um die Angabe der Zeit als zwingend erforderlich zu kennzeichnen. Browser zeigen einen Fehler an, wenn versucht wird, eine Zeit zu übermitteln, die außerhalb der festgelegten Grenzen liegt, oder ein leeres Zeitfeld.
+Zusätzlich können Sie das [`required`](/de/docs/Web/HTML/Reference/Elements/input#required)-Attribut verwenden, um die Eingabe der Zeit verpflichtend zu machen. Browser zeigen einen Fehler an, wenn Sie versuchen, eine Zeit zu übermitteln, die außerhalb der festgelegten Grenzen liegt, oder ein leeres Zeitfeld.
 
-Sehen wir uns ein Beispiel an; hier haben wir Mindest- und Höchstzeiten festgelegt und das Feld ebenfalls als erforderlich markiert:
+Schauen wir uns ein Beispiel an; hier haben wir Mindest- und Höchstzeiten festgelegt und das Feld ebenfalls als erforderlich markiert:
 
 ```html
 <form>
@@ -281,16 +281,16 @@ Sehen wir uns ein Beispiel an; hier haben wir Mindest- und Höchstzeiten festgel
 </form>
 ```
 
-Wenn Sie versuchen, das Formular mit einer unvollständigen Zeit (oder mit einer Zeit außerhalb der festgelegten Grenzen) einzureichen, zeigt der Browser einen Fehler an. Probieren Sie jetzt mit dem Beispiel herum:
+Wenn Sie versuchen, das Formular mit einer unvollständigen Zeit (oder einer Zeit außerhalb der festgelegten Grenzen) abzusenden, zeigt der Browser einen Fehler an. Versuchen Sie jetzt, mit dem Beispiel zu experimentieren:
 
-{{ EmbedLiveSample('Making_times_required', 600, 120) }}
+{{EmbedLiveSample('Making_times_required', 600, 120)}}
 
 > [!WARNING]
-> Die HTML-Formularvalidierung ist _kein_ Ersatz für Skripte, die sicherstellen, dass die eingegebenen Daten das richtige Format haben. Es ist sehr einfach für jemanden, die HTML zu ändern, um die Validierung zu umgehen oder sie ganz zu entfernen. Es ist auch möglich, dass jemand Ihr HTML vollständig umgeht und die Daten direkt an Ihren Server übermittelt. Wenn Ihr serverseitiger Code die empfangenen Daten nicht validiert, kann es zu Problemen kommen, wenn unerwartet formatierte Daten (oder Daten, die zu groß, vom falschen Typ usw. sind) übermittelt werden.
+> Die HTML-Formularvalidierung ist _keinesfalls_ ein Ersatz für Skripte, die sicherstellen, dass die eingegebenen Daten im richtigen Format vorliegen. Es ist viel zu einfach für jemanden, das HTML so zu ändern, dass die Validierung umgangen oder ganz entfernt wird. Es ist auch möglich, dass jemand Ihr HTML vollständig umgeht und die Daten direkt an Ihren Server sendet. Wenn Ihr serverseitiger Code die empfangenen Daten nicht validiert, könnte eine Katastrophe drohen, wenn falsch formatierte Daten (oder zu große, falsche Daten) übermittelt werden.
 
 ## Beispiele
 
-In diesem Beispiel erstellen wir ein Oberflächenelement zur Auswahl einer Zeit mit dem nativen Picker, der mit `<input type="time">` erstellt wurde:
+In diesem Beispiel erstellen wir ein Interface-Element zur Auswahl der Zeit mit dem nativen Picker, der mit `<input type="time">` erstellt wird:
 
 ### HTML
 
@@ -336,7 +336,7 @@ input:valid + span::after {
 
 ### Ergebnis
 
-{{ EmbedLiveSample('Examples', 600, 140) }}
+{{EmbedLiveSample('Examples', 600, 140)}}
 
 ## Technische Zusammenfassung
 
@@ -354,7 +354,7 @@ input:valid + span::after {
       </td>
     </tr>
     <tr>
-      <td><strong>Unterstützte gemeinsame Attribute</strong></td>
+      <td><strong>Unterstützte allgemeine Attribute</strong></td>
       <td>
         <a href="/de/docs/Web/HTML/Reference/Elements/input#autocomplete"><code>autocomplete</code></a>,
         <a href="/de/docs/Web/HTML/Reference/Elements/input#list"><code>list</code></a>,
@@ -386,7 +386,7 @@ input:valid + span::after {
     </tr>
      <tr>
       <td><strong>Implizite ARIA-Rolle</strong></td>
-      <td><a href="https://www.w3.org/TR/html-aria/#dfn-no-corresponding-role">Keine entsprechende Rolle</a></td>
+      <td><a href="https://w3c.github.io/html-aria/#dfn-no-corresponding-role">keine entsprechende Rolle</a></td>
     </tr>
   </tbody>
 </table>
@@ -405,6 +405,6 @@ input:valid + span::after {
 - [`<input type="datetime-local">`](/de/docs/Web/HTML/Reference/Elements/input/datetime-local)
 - [`<input type="week">`](/de/docs/Web/HTML/Reference/Elements/input/week)
 - [`<input type="month">`](/de/docs/Web/HTML/Reference/Elements/input/month)
-- Das generische {{HTMLElement("input")}}-Element und die Schnittstelle zu dessen Manipulation, [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)
-- [Datums- und Zeitformate, die in HTML verwendet werden](/de/docs/Web/HTML/Guides/Date_and_time_formats)
-- [Anleitung zum Datum- und Zeit-Picker](/de/docs/Learn_web_development/Extensions/Forms/HTML5_input_types#date_and_time_pickers)
+- Das generische {{HTMLElement("input")}}-Element und die Schnittstelle zur Manipulation, [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)
+- [Verwendete Datums- und Zeitformate im HTML](/de/docs/Web/HTML/Guides/Date_and_time_formats)
+- [Eingabetypen für Datum und Uhrzeit Anleitung](/de/docs/Learn_web_development/Extensions/Forms/HTML5_input_types#date_and_time_pickers)

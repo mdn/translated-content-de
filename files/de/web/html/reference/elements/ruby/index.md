@@ -1,15 +1,15 @@
 ---
-title: "<ruby>: Das Ruby-Anmerkungselement"
+title: "<ruby>: Das Ruby-Annotationselement"
 slug: Web/HTML/Reference/Elements/ruby
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: c1564acf160ef4b320fb7b89ab65211b9c50cf1b
 ---
 
 {{HTMLSidebar}}
 
-Das **`<ruby>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert kleine Anmerkungen, die über, unter oder neben dem Basistext angezeigt werden. Es wird üblicherweise verwendet, um die Aussprache von ostasiatischen Zeichen darzustellen. Es kann auch zur Annotation anderer Texte verwendet werden, diese Nutzung ist jedoch weniger verbreitet.
+Das **`<ruby>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert kleine Anmerkungen, die über, unter oder neben dem Basistext dargestellt werden. Es wird normalerweise zur Anzeige der Aussprache von ostasiatischen Zeichen verwendet. Es kann auch zur Annotation anderer Textarten verwendet werden, allerdings ist diese Nutzung weniger verbreitet.
 
-Der Begriff _ruby_ stammt ursprünglich aus [einer Maßeinheit, die von Schriftsetzern verwendet wurde](<https://en.wikipedia.org/wiki/Agate_(typography)>), und bezeichnet die kleinste Textgröße, die auf Zeitungspapier gedruckt werden kann und dabei lesbar bleibt.
+Der Begriff _ruby_ stammt ursprünglich von [einer Maßeinheit, die von Setzern verwendet wird](<https://en.wikipedia.org/wiki/Agate_(typography)>), und bezieht sich auf die kleinste Größe, bei der Text auf Zeitungspapier gedruckt werden kann, während er noch lesbar bleibt.
 
 {{InteractiveExample("HTML Demo: &lt;ruby&gt;", "tabbed-shorter")}}
 
@@ -25,7 +25,7 @@ ruby {
 
 ## Attribute
 
-Dieses Element beinhaltet nur die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
+Dieses Element enthält nur die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
 ## Beispiele
 
@@ -51,45 +51,57 @@ Dieses Element beinhaltet nur die [globalen Attribute](/de/docs/Web/HTML/Referen
 
 {{EmbedLiveSample('Example 1: Word')}}
 
-## Technische Übersicht
+## Technische Zusammenfassung
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">
-        <a href="/de/docs/Web/HTML/Guides/Content_categories">Inhaltskategorien</a>
+        <a href="/de/docs/Web/HTML/Guides/Content_categories"
+          >Inhaltskategorien</a
+        >
       </th>
       <td>
-        <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content">Fließender Inhalt</a>,
-        <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content">formulierender Inhalt</a>, spürbarer Inhalt.
+        <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
+          >Fließinhalt</a
+        >,
+        <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
+          >Phrasierungsinhalt</a
+        >, greifbarer Inhalt.
       </td>
     </tr>
     <tr>
       <th scope="row">Erlaubter Inhalt</th>
       <td>
-        <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content">Formulierender Inhalt</a>.
+        <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
+          >Phrasierungsinhalt</a
+        >.
       </td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl das Start- als auch das End-Tag sind obligatorisch.</td>
+      <td>Keine, sowohl das Start- als auch das End-Tag sind erforderlich.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
       <td>
         Jedes Element, das
-        <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content">formulierenden Inhalt</a> akzeptiert.
+        <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
+          >Phrasierungsinhalt</a
+        > akzeptiert.
       </td>
     </tr>
     <tr>
       <th scope="row">Implizite ARIA-Rolle</th>
       <td>
-        <a href="https://www.w3.org/TR/html-aria/#dfn-no-corresponding-role">Keine entsprechende Rolle</a>
+        <a href="https://w3c.github.io/html-aria/#dfn-no-corresponding-role"
+          >Keine entsprechende Rolle</a
+        >
       </td>
     </tr>
     <tr>
       <th scope="row">Erlaubte ARIA-Rollen</th>
-      <td>Beliebige</td>
+      <td>Beliebig</td>
     </tr>
     <tr>
       <th scope="row">DOM-Schnittstelle</th>

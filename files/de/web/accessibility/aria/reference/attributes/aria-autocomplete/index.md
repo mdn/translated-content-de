@@ -1,44 +1,44 @@
 ---
-title: "ARIA: aria-autocomplete-Attribut"
+title: "ARIA: aria-autocomplete Attribut"
 short-title: aria-autocomplete
 slug: Web/Accessibility/ARIA/Reference/Attributes/aria-autocomplete
 l10n:
-  sourceCommit: a8b25483994fa47cf949b432ddf34a6bce2ddb2e
+  sourceCommit: c1564acf160ef4b320fb7b89ab65211b9c50cf1b
 ---
 
-Das `aria-autocomplete`-Attribut gibt an, ob die Eingabe von Text bei einer [`combobox`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/combobox_role), [`searchbox`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/searchbox_role) oder [`textbox`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/textbox_role) die Anzeige einer oder mehrerer Vorhersagen des gewünschten Werts des Benutzers auslösen könnte und wie die Vorhersagen präsentiert werden, falls sie gemacht werden.
+Das `aria-autocomplete` Attribut gibt an, ob die Eingabe von Text eine Anzeige von einer oder mehreren Vorhersagen für den beabsichtigten Wert des Benutzers für eine [`combobox`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/combobox_role), [`searchbox`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/searchbox_role) oder [`textbox`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/textbox_role) auslösen könnte und wie Vorhersagen präsentiert werden, falls sie getroffen werden.
 
 ## Beschreibung
 
-Autovervollständigung ist eine Benutzeroberflächenfunktion, bei der während der Eingabe in ein Feld Inline-Vorschläge gemacht werden. Vorgeschlagener Text zur Vervollständigung des Feldwerts erscheint dynamisch im Feld nach dem Eingabecursor, und der vorgeschlagene Wert wird übernommen, wenn der Benutzer eine Aktion durchführt, wie beispielsweise das Drücken der Tabulatortaste, die den Fokus vom Feld entfernt.
+Autovervollständigung ist ein Feature der Benutzeroberfläche, bei dem während der Eingabe eines Benutzers in ein Eingabefeld Vorschläge gemacht werden. Vorgeschlagene Texte zur Vervollständigung des Feldwerts erscheinen dynamisch im Feld nach dem Eingabecursor, und der vorgeschlagene Wert wird der Wert, wenn der Benutzer eine Aktion ausführt, wie z. B. Tabben, die den Fokus vom Feld entfernt.
 
-Die `aria-autocomplete`-Eigenschaft beschreibt das Modell der Autovervollständigungsinteraktion, das eine Textbox, eine Suchbox oder eine Kombobox verwenden wird, um Benutzern dynamisch bei der Texteingabe zu helfen. Sie unterscheidet zwischen zwei Modellen: dem **Inline**-Modell (`aria-autocomplete="inline"`), das einen einzigen vorhergesagten Wert präsentiert, und dem **Listen**-Modell (`aria-autocomplete="list"`), das eine Sammlung möglicher Werte in einem separaten Element präsentiert, das neben oder unter dem Texteingabefeld erscheint, ähnlich einem {{HTMLElement('datalist')}}. Ein dritter Wert, `aria-autocomplete="both"` ist für Fälle gedacht, in denen die Oberfläche eine Liste präsentiert und gleichzeitig einen vorhergesagten Wert enthält. Der Standardwert ist `none`, was bedeutet, dass die Textbox, Suchbox oder Kombobox keinen autovervollständigten Wert bereitstellt.
+Die `aria-autocomplete` Eigenschaft beschreibt das Art des Interaktionsmodells der Autovervollständigung, das eine Textbox, Suchbox oder Combobox verwenden wird, um Benutzern dynamisch bei der Vervollständigung von Texteingaben zu helfen. Es unterscheidet zwischen zwei Modellen: dem **inline** Modell (`aria-autocomplete="inline"`), das einen einzelnen vorhergesagten Wert präsentiert, und dem **list** Modell (`aria-autocomplete="list"`), das eine Sammlung möglicher Werte in einem separaten Element darstellt, das neben oder unter dem Texteingabefeld auftaucht, ähnlich wie ein {{HTMLElement('datalist')}}. Ein dritter Wert, `aria-autocomplete="both"`, ist für den Fall gedacht, dass die Benutzeroberfläche eine Liste präsentiert, während sie auch einen vorhergesagten Wert einschließt. Der Standardwert ist `none`, was bedeutet, dass die Textbox, Suchbox oder Combobox keinen Auto-Vervollständigungswert bereitstellen wird.
 
-Das `aria-autocomplete`-Attribut beschreibt nur den Typ des prädiktiven Verhaltens für ein Eingabeelement für unterstützende Technologien; es stellt nicht die Funktionalität bereit. Die tatsächliche Autovervollständigung sollte mit HTML-Attributen oder JavaScript bereitgestellt werden.
+Die `aria-autocomplete` Eigenschaft beschreibt nur die Art des prädiktiven Verhaltens für ein Eingabeelement für unterstützende Technologien; sie bietet nicht die Funktionalität. Die eigentliche Autovervollständigung sollte mit HTML-Attributen oder JavaScript bereitgestellt werden.
 
-Wenn der vorgeschlagene Autovervollständigungswert vorgeschlagene Werte bietet, die nicht von der Eingabe des Benutzers abhängig sind, sollten Sie erwägen, die Autovervollständigung für alle wegzulassen. Ein Beispiel ist eine Suchbox-Eingabe, die ungefilterte kürzliche Suchbegriffe anzeigt, die für ein Marketingteam auf einer E-Commerce-Seite nützlich sein könnte, aber wahrscheinlich nicht für den Benutzer eines Bildschirmlesers. Wenn es am besten ist, keinen Wert für `aria-autocomplete` anzugeben oder den Wert auf den Standardwert `none` zu setzen, benötigen wahrscheinlich auch Ihre nicht-unterstützenden Technologiebenutzer keine dieser Funktionen.
+Wenn der vorgeschlagene Autovervollständigungswert vorgeschlagene Werte bietet, die nicht von der Eingabe des Benutzers abhängig sind, ziehen Sie in Betracht, die Autovervollständigung für alle wegzulassen. Zum Beispiel könnte eine Suchbox-Eingabe, die ungefilterte kürzliche Suchbegriffe anzeigt, für ein Marketingteam auf einer E-Commerce-Site hilfreich sein, aber wahrscheinlich nicht für den Benutzer eines Screenreaders. Wenn es am besten ist, keinen Wert für `aria-autocomplete` anzugeben oder den Wert auf den Standardwert `none` zu setzen, benötigen wahrscheinlich auch Ihre Nutzer ohne unterstützende Technologie diese Funktion nicht.
 
-Beim Implementieren der Autovervollständigungsfunktionalität sollten Sie sicherstellen, dass der vorgeschlagene Teil des Werts als ausgewählter Text präsentiert wird, um zwischen der Benutzereingabe und dem Vorschlag unterscheiden zu können. Stellen Sie sicher, dass, wenn der vorgeschlagene Wert nicht der gewünschte Wert ist, Benutzer den Vorschlag leicht löschen oder diesen durch den weiteren Tippen ersetzen können.
+Wenn Sie Autovervollständigungsfunktionen implementieren, stellen Sie sicher, dass der vorgeschlagene Teil des Wertes als ausgewählter Text präsentiert wird, um zwischen der Benutzereingabe und dem Vorschlag unterscheiden zu können. Stellen Sie sicher, dass Benutzer, wenn der vorgeschlagene Wert nicht der gewünschte Wert ist, den Vorschlag einfach löschen oder durch Fortsetzung der Eingabe ersetzen können.
 
-Wenn eine Liste von Werten implementiert wird, sollte der DOM-Fokus auf der Texteingabe verbleiben, während die Vorschlagsliste angezeigt wird.
+Beim Implementieren einer Liste von Werten sollte der DOM-Fokus auf dem Texteingabefeld bleiben, während die Vorschlagsliste angezeigt wird.
 
-- Verwenden Sie [`aria-controls`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-controls) mit dem Wert der ID der vorgeschlagenen Werteliste.
-- Nutzen Sie [`aria-haspopup`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-haspopup), das zur Rolle des Elements passt, das die Sammlung vorgeschlagener Werte enthält.
-- Verwenden Sie, falls erforderlich, Fokussierungselemente, einschließlich [`aria-activedescendant`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-activedescendant), wenn der Sammlung-Container dies unterstützt.
-- Verwenden Sie den [`aria-expanded`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-expanded)-Zustand am Element mit der Rolle [`combobox`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/combobox_role), um zu kommunizieren, dass die Liste angezeigt wird.
+- Fügen Sie [`aria-controls`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-controls) mit dem Wert der ID der vorgeschlagenen Werteliste hinzu.
+- Fügen Sie [`aria-haspopup`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-haspopup) hinzu, das der Rolle des Elements entspricht, das die Sammlung vorgeschlagener Werte enthält.
+- Verwalten Sie den Fokus, falls erforderlich, einschließlich der Verwendung von [`aria-activedescendant`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-activedescendant), falls das Sammlungselement dies unterstützt.
+- Verwenden Sie den Zustand [`aria-expanded`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-expanded) auf dem Element mit der Rolle [`combobox`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/combobox_role), um zu kommunizieren, dass die Liste angezeigt wird.
 
-Wenn ein Wert aus der Autovervollständigungsliste automatisch angenommen wird, sobald das Feld den Fokus verliert, muss die Liste in einer Rolle enthalten sein, die `aria-activedescendant` unterstützt, wobei der Wert von `aria-activedescendant` im Eingabefeld dynamisch angepasst wird, um auf das Element mit dem ausgewählten Vorschlag zu verweisen.
+Wenn ein Autovervollständigungslistenwert automatisch akzeptiert wird, wenn das Feld den Fokus verliert, muss die Liste in einer Rolle enthalten sein, die `aria-activedescendant` unterstützt, wobei der Wert von `aria-activedescendant` im Eingabefeld dynamisch angepasst wird, um auf das Element mit dem ausgewählten Vorschlag zu verweisen.
 
 ## Werte
 
 - `none` (Standard)
-  - : Wenn ein Benutzer eine Eingabe macht, wird keine automatische Vorschlagsanzeige angezeigt.
+  - : Wenn ein Benutzer eine Eingabe macht, wird kein automatischer Vorschlag angezeigt.
 - `inline`
-  - : `aria-autocomplete="inline"` Text, der einen Weg zur Vervollständigung der bereitgestellten Eingabe vorschlägt, kann dynamisch nach dem Cursor eingefügt werden.
+  - : `aria-autocomplete="inline"` Text, der eine Möglichkeit zur Vervollständigung der bereitgestellten Eingabe vorschlägt, kann dynamisch nach dem Caret eingefügt werden.
 - `list`
-  - : `aria-autocomplete="list"` Wenn ein Benutzer eine Eingabe macht, kann ein Element, das eine Sammlung von Werten enthält, die die bereitgestellte Eingabe vervollständigen könnten, angezeigt werden.
+  - : `aria-autocomplete="list"` Wenn ein Benutzer eine Eingabe macht, kann ein Element mit einer Sammlung von Werten angezeigt werden, die die bereitgestellte Eingabe vervollständigen könnten.
 - `both`
-  - : `aria-autocomplete="both"` Eine Eingabe, die beide Modelle gleichzeitig anbietet. Wenn ein Benutzer eine Eingabe macht, kann ein Element, das eine Sammlung von Werten enthält, die die bereitgestellte Eingabe vervollständigen könnten, angezeigt werden. Wenn angezeigt, wird ein Wert in der Sammlung automatisch ausgewählt, und der Text, der benötigt wird, um den automatisch ausgewählten Wert zu vervollständigen, erscheint nach dem Cursor in der Eingabe.
+  - : `aria-autocomplete="both"` Eine Eingabe bietet beide Modelle gleichzeitig. Wenn ein Benutzer eine Eingabe macht, kann ein Element mit einer Sammlung von Werten angezeigt werden, die die bereitgestellte Eingabe vervollständigen könnten. Falls angezeigt, wird ein Wert in der Sammlung automatisch ausgewählt, und der Text zur Vervollständigung des automatisch ausgewählten Wertes erscheint nach dem Caret in der Eingabe.
 
 ## Zugehörige Rollen
 
@@ -46,7 +46,7 @@ Verwendet in Rollen:
 
 - [`combobox`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/combobox_role) Rolle
 - [`textbox`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/textbox_role) Rolle
-- erbt von der [`searchbox`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/searchbox_role) Rolle
+- Erbt von [`searchbox`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/searchbox_role) Rolle
 
 ## Spezifikationen
 
@@ -62,5 +62,5 @@ Verwendet in Rollen:
 - [`aria-haspopup`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-haspopup) Attribut
 - [`aria-activedescendant`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-activedescendant) Attribut
 - [`aria-expanded`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-expanded) Attribut
-- [Editierbare Kombobox mit sowohl Liste als auch Inline Autovervollständigungs-Beispiel](https://www.w3.org/TR/wai-aria-practices-1.2/examples/combobox/combobox-autocomplete-both.html)
+- [Editable Combobox With Both List and Inline Autocomplete Example](https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-autocomplete-both/)
 - [Event.ariaAutoComplete](/de/docs/Web/API/Element/ariaAutoComplete)

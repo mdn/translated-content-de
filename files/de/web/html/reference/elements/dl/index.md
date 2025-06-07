@@ -1,13 +1,13 @@
 ---
-title: "<dl>: Das Beschreibungsliste-Element"
+title: "<dl>: Das Description List-Element"
 slug: Web/HTML/Reference/Elements/dl
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: c1564acf160ef4b320fb7b89ab65211b9c50cf1b
 ---
 
 {{HTMLSidebar}}
 
-Das **`<dl>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert eine Beschreibungsliste. Das Element umfasst eine Liste von Gruppen von Begriffen (spezifiziert mit dem {{HTMLElement("dt")}}-Element) und Beschreibungen (bereitgestellt durch {{HTMLElement("dd")}}-Elemente). Häufige Anwendungen für dieses Element sind die Implementierung eines Glossars oder die Darstellung von Metadaten (eine Liste von Schlüssel-Wert-Paaren).
+Das **`<dl>`** [HTML](/de/docs/Web/HTML)-Element stellt eine Beschreibungsliste dar. Das Element umschließt eine Liste von Gruppen aus Begriffen (angegeben mittels des {{HTMLElement("dt")}}-Elements) und Beschreibungen (bereitgestellt durch {{HTMLElement("dd")}}-Elemente). Häufige Verwendungen für dieses Element sind die Implementierung eines Glossars oder die Anzeige von Metadaten (einer Liste von Schlüssel-Wert-Paaren).
 
 {{InteractiveExample("HTML Demo: &lt;dl&gt;", "tabbed-standard")}}
 
@@ -44,15 +44,14 @@ dd {
 
 ## Attribute
 
-Dieses Element umfasst nur die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
+Dieses Element beinhaltet nur die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
 ## Barrierefreiheit
 
-Jeder Screenreader präsentiert `<dl>`-Inhalte unterschiedlich, einschließlich der Gesamtanzahl, Kontext von Begriffen/Beschreibungen und Navigationsmethoden. Diese Unterschiede sind nicht unbedingt Fehler.
-Ab iOS 14 gibt VoiceOver an, dass `<dl>`-Inhalte eine Liste sind, wenn mit dem virtuellen Cursor navigiert wird (nicht über den Alles-vorlesen-Befehl). VoiceOver unterstützt keine Listen-Navigationsbefehle mit `<dl>`. Seien Sie vorsichtig beim Anwenden der ARIA-Rollen `term` und `definition` auf `<dl>`-Konstrukte, da VoiceOver (macOS und iOS) anpassen wird, wie sie angekündigt werden.
+Jeder Screenreader gibt `<dl>`-Inhalte unterschiedlich wieder, einschließlich der Gesamtanzahl, des Kontextes von Begriffen/Beschreibungen und der Navigationsmethoden. Diese Unterschiede sind nicht unbedingt Fehler. Ab iOS 14 wird VoiceOver ankündigen, dass `<dl>`-Inhalte eine Liste sind, wenn mit dem virtuellen Cursor navigiert wird (nicht über den Befehl „Alles lesen“). VoiceOver unterstützt keine Listennavigationsbefehle mit `<dl>`. Seien Sie vorsichtig beim Anwenden von ARIA-Rollen „term“ und „definition“ auf `<dl>`-Konstrukte, da VoiceOver (macOS und iOS) die Art und Weise, wie sie angekündigt werden, ändert.
 
-- [VoiceOver on iOS 14 Supports Description Lists](https://adrianroselli.com/2020/09/voiceover-on-ios-14-supports-description-lists.html)
-- [Brief Note on Description List Support](https://adrianroselli.com/2022/12/brief-note-on-description-list-support.html)
+- [VoiceOver auf iOS 14 unterstützt Beschreibungsliste](https://adrianroselli.com/2020/09/voiceover-on-ios-14-supports-description-lists.html)
+- [Kurze Anmerkung zur Unterstützung von Beschreibungsliste](https://adrianroselli.com/2022/12/brief-note-on-description-list-support.html)
 
 ## Beispiele
 
@@ -122,7 +121,7 @@ Es ist auch möglich, mehrere Begriffe mit mehreren entsprechenden Beschreibunge
 
 ### Metadaten
 
-Beschreibungslisten sind nützlich zur Anzeige von Metadaten als Liste von Schlüssel-Wert-Paaren.
+Beschreibungsliste sind nützlich, um Metadaten als eine Liste von Schlüssel-Wert-Paaren darzustellen.
 
 ```html
 <dl>
@@ -141,7 +140,7 @@ Beschreibungslisten sind nützlich zur Anzeige von Metadaten als Liste von Schl�
 
 {{EmbedLiveSample('Metadata')}}
 
-Tipp: Es kann hilfreich sein, einen Trennzeichen für Schlüssel-Wert in CSS zu definieren, zum Beispiel:
+Tipp: Es kann hilfreich sein, in CSS einen Schlüssel-Wert-Trenner zu definieren, wie zum Beispiel:
 
 ```css
 dt::after {
@@ -149,9 +148,9 @@ dt::after {
 }
 ```
 
-### Umhüllung von Name-Wert-Gruppen in `div`-Elementen
+### Einwickeln von Name-Wert-Gruppen in `div`-Elemente
 
-HTML erlaubt das Umhüllen jeder Name-Wert-Gruppe in einem `<dl>`-Element in einem {{HTMLElement("div")}}-Element. Dies kann nützlich sein, wenn [Mikrodaten](/de/docs/Web/HTML/Guides/Microdata) genutzt werden, oder wenn [globale Attribute](/de/docs/Web/HTML/Reference/Global_attributes) auf eine ganze Gruppe anwendbar sind oder zu Stilzwecken.
+HTML erlaubt das Einwickeln jeder Name-Wert-Gruppe in einem `<dl>`-Element in ein {{HTMLElement("div")}}-Element. Dies kann nützlich sein, wenn [Microdata](/de/docs/Web/HTML/Guides/Microdata) verwendet werden, oder wenn [globale Attribute](/de/docs/Web/HTML/Reference/Global_attributes) auf eine ganze Gruppe angewendet werden sollen, oder für Styling-Zwecke.
 
 ```html
 <dl>
@@ -180,9 +179,9 @@ HTML erlaubt das Umhüllen jeder Name-Wert-Gruppe in einem `<dl>`-Element in ein
 
 ## Anmerkungen
 
-Verwenden Sie dieses Element (noch {{HTMLElement("ul")}}-Elemente) nicht, um lediglich eine Einrückung auf einer Seite zu erstellen. Obwohl es funktioniert, ist dies eine schlechte Praxis und verschleiert die Bedeutung von Beschreibungslisten.
+Verwenden Sie dieses Element (und auch keine {{HTMLElement("ul")}}-Elemente) nicht, um lediglich eine Einrückung auf einer Seite zu erstellen. Obwohl es funktioniert, ist dies eine schlechte Praxis und verdeckt die Bedeutung von Beschreibungsliste.
 
-Um die Einrückung eines Beschreibungstermst zu ändern, verwenden Sie die [CSS](/de/docs/Web/CSS) {{cssxref("margin")}}-Eigenschaft.
+Um die Einrückung eines Beschreibungsbegriffs zu ändern, verwenden Sie die [CSS](/de/docs/Web/CSS) {{cssxref("margin")}}-Eigenschaft.
 
 ## Technische Zusammenfassung
 
@@ -196,43 +195,35 @@ Um die Einrückung eines Beschreibungstermst zu ändern, verwenden Sie die [CSS]
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
-          >Fluss-Inhalt</a
-        >, und wenn die Kinder des <code>&#x3C;dl></code>-Elements eine Name-Wert-Gruppe umfassen, greifbarer Inhalt.
+          >Flow-Inhalte</a
+        >, und wenn die Kinder des <code>&#x3C;dl></code>-Elements eine Name-Wert-Gruppe enthalten, sichtbare Inhalte.
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubter Inhalt</th>
+      <th scope="row">Erlaubte Inhalte</th>
       <td>
         <p>
-          Entweder: Null oder mehr Gruppen bestehend aus einem oder mehreren
-          {{HTMLElement("dt")}}-Elementen gefolgt von einem oder mehreren
-          {{HTMLElement("dd")}}-Elementen, optional vermischt mit
-          {{HTMLElement("script")}}- und
-          {{HTMLElement("template")}}-Elementen.<br />Oder: (in
-          {{Glossary("WHATWG", "WHATWG")}} HTML, {{Glossary("W3C", "W3C")}} HTML 5.2
-          und später) Ein oder mehrere {{HTMLElement("div")}}-Elemente,
-          optional vermischt mit {{HTMLElement("script")}}- und
-          {{HTMLElement("template")}}-Elementen.
+          Entweder: Null oder mehr Gruppen, jede bestehend aus einem oder mehreren {{HTMLElement("dt")}}-Elementen, gefolgt von einem oder mehreren {{HTMLElement("dd")}}-Elementen, optional vermischt mit {{HTMLElement("script")}}- und {{HTMLElement("template")}}-Elementen.<br />Oder: (in {{Glossary("WHATWG", "WHATWG")}} HTML, {{Glossary("W3C", "W3C")}} HTML 5.2 und später) Ein oder mehrere {{HTMLElement("div")}}-Elemente, optional vermischt mit {{HTMLElement("script")}}- und {{HTMLElement("template")}}-Elementen.
         </p>
       </td>
     </tr>
     <tr>
-      <th scope="row">Tag-Weglassung</th>
-      <td>Keine, sowohl das Anfangs- als auch das End-Tag sind erforderlich.</td>
+      <th scope="row">Auslassen des Tags</th>
+      <td>Keine, sowohl das Start- als auch das End-Tag sind erforderlich.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
-          >Fluss-Inhalt</a
+          >Flow-Inhalte</a
         > akzeptiert.
       </td>
     </tr>
     <tr>
-      <th scope="row">Implizite ARIA-Rolle</th>
+      <th scope="row">Implizierte ARIA-Rolle</th>
       <td>
-        <a href="https://www.w3.org/TR/html-aria/#dfn-no-corresponding-role"
+        <a href="https://w3c.github.io/html-aria/#dfn-no-corresponding-role"
           >Keine entsprechende Rolle</a
         >
       </td>

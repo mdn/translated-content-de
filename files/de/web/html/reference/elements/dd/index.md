@@ -1,13 +1,13 @@
 ---
-title: "<dd>: Das Description Details-Element"
+title: "<dd>: Das Beschreibungselement"
 slug: Web/HTML/Reference/Elements/dd
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: c1564acf160ef4b320fb7b89ab65211b9c50cf1b
 ---
 
 {{HTMLSidebar}}
 
-Das **`<dd>`** [HTML](/de/docs/Web/HTML)-Element liefert die Beschreibung, Definition oder den Wert für den vorangehenden Begriff ({{HTMLElement("dt")}}) in einer Definitionsliste ({{HTMLElement("dl")}}).
+Das **`<dd>`** [HTML](/de/docs/Web/HTML)-Element liefert die Beschreibung, Definition oder den Wert für den vorhergehenden Begriff ({{HTMLElement("dt")}}) in einer Beschreibungsliste ({{HTMLElement("dl")}}).
 
 {{InteractiveExample("HTML Demo: &lt;dd&gt;", "tabbed-standard")}}
 
@@ -48,7 +48,7 @@ Dieses Element beinhaltet nur die [globalen Attribute](/de/docs/Web/HTML/Referen
 
 ## Beispiele
 
-Für Beispiele siehe die [bereitgestellten Beispiele für das `<dl>`-Element](/de/docs/Web/HTML/Reference/Elements/dl#examples).
+Für Beispiele, siehe die [für das `<dl>`-Element bereitgestellten Beispiele](/de/docs/Web/HTML/Reference/Elements/dl#examples).
 
 ## Technische Zusammenfassung
 
@@ -56,32 +56,42 @@ Für Beispiele siehe die [bereitgestellten Beispiele für das `<dl>`-Element](/d
   <tbody>
     <tr>
       <th scope="row">
-        <a href="/de/docs/Web/HTML/Guides/Content_categories">Inhaltskategorien</a>
+        <a href="/de/docs/Web/HTML/Guides/Content_categories"
+          >Inhaltskategorien</a
+        >
       </th>
       <td>Keine.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubter Inhalt</th>
       <td>
-        <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content">Fließender Inhalt</a>.
+        <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
+          >Flow Content</a
+        >.
       </td>
     </tr>
     <tr>
-      <th scope="row">Tag-Auslassung</th>
+      <th scope="row">Weglassen des Tags</th>
       <td>
-        Der Start-Tag ist erforderlich. Der End-Tag kann weggelassen werden, wenn dieses Element unmittelbar von einem anderen <code>&#x3C;dd></code>-Element oder einem {{HTMLElement("dt")}}-Element gefolgt wird oder wenn kein weiterer Inhalt im Elternelement vorhanden ist.
+        Das Start-Tag ist erforderlich. Das End-Tag kann weggelassen werden, wenn dieses Element unmittelbar von einem anderen <code>&#x3C;dd&gt;</code>-Element oder einem {{HTMLElement("dt")}}-Element gefolgt wird oder wenn es keinen weiteren Inhalt im Elternelement gibt.
       </td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
       <td>
-        Ein {{HTMLElement("dl")}} oder ein {{HTMLElement("div")}}, das ein Kind eines {{HTMLElement("dl")}} ist.<br />Dieses Element kann nach einem {{HTMLElement("dt")}} oder einem anderen <code>&lt;dd&gt;</code>-Element verwendet werden.
+        Ein {{HTMLElement("dl")}} oder ein
+        {{HTMLElement("div")}}, das ein Kind von einem
+        {{HTMLElement("dl")}} ist.<br />Dieses Element kann nach einem
+        {{HTMLElement("dt")}} oder einem anderen <code>&lt;dd&gt;</code>
+        Element verwendet werden.
       </td>
     </tr>
     <tr>
       <th scope="row">Implizite ARIA-Rolle</th>
       <td>
-        <a href="https://www.w3.org/TR/html-aria/#dfn-no-corresponding-role">Keine entsprechende Rolle</a>
+        <a href="https://w3c.github.io/html-aria/#dfn-no-corresponding-role"
+          >Keine entsprechende Rolle</a
+        >
       </td>
     </tr>
     <tr>

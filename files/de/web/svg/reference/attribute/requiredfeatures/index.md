@@ -2,16 +2,16 @@
 title: requiredFeatures
 slug: Web/SVG/Reference/Attribute/requiredFeatures
 l10n:
-  sourceCommit: 6a5c619dfad295ca9a9d317a4088908cfd33e686
+  sourceCommit: c1564acf160ef4b320fb7b89ab65211b9c50cf1b
 ---
 
 {{Deprecated_Header}}
 
-Das **`requiredFeatures`**-Attribut enthält eine Liste von Feature-Strings, wobei die einzelnen Strings durch Leerzeichen getrennt werden. Es bestimmt, ob alle benannten Features vom Browser unterstützt werden; wenn alle unterstützt werden, wird das Attribut als `true` bewertet und das Element gerendert; andernfalls wird das Attribut als `false` bewertet und das aktuelle Element sowie dessen Kinder werden übersprungen und nicht gerendert. Dies bietet eine Möglichkeit, SVGs so zu entwerfen, dass sie bei fehlenden Features elegant zurückfallen.
+Das **`requiredFeatures`**-Attribut nimmt eine Liste von Feature-Strings, wobei die einzelnen Strings durch Leerzeichen getrennt sind. Es bestimmt, ob alle der benannten Merkmale vom Browser unterstützt werden; wenn alle unterstützt werden, ergibt das Attribut `true` und das Element wird gerendert; andernfalls ergibt es `false` und das aktuelle Element sowie dessen Kinder werden übersprungen und somit nicht gerendert. Dies bietet eine Möglichkeit, SVG so zu entwerfen, dass es sich anpasst, wenn Funktionen nicht verfügbar sind.
 
-Wenn das Attribut nicht vorhanden ist, wird sein implizit bewerteter Wert als `true` angenommen. Wenn eine null- oder leere Zeichenkette dem Attribut `requiredFeatures` zugewiesen wird, wird das Attribut als `false` bewertet.
+Wenn das Attribut nicht vorhanden ist, ist sein implizit bewerteter Wert `true`. Wenn ein Null-String oder leerer String-Wert dem Attribut `requiredFeatures` gegeben wird, wird das Attribut auf `false` bewertet.
 
-`requiredFeatures` wird oft in Verbindung mit dem {{SVGElement("switch")}}-Element verwendet. Wenn `requiredFeatures` in anderen Situationen verwendet wird, stellt es einen einfachen Schalter am gegebenen Element dar, ob das Element gerendert werden soll oder nicht.
+`requiredFeatures` wird häufig in Verbindung mit dem {{SVGElement("switch")}}-Element verwendet. Wenn `requiredFeatures` in anderen Situationen verwendet wird, stellt es einen einfachen Schalter an dem jeweiligen Element dar, ob es gerendert werden soll oder nicht.
 
 Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
@@ -70,7 +70,7 @@ text {
 
 {{EmbedLiveSample("Example", "250", "100")}}
 
-## Nutzungshinweise
+## Hinweise zur Verwendung
 
 <table class="properties">
   <tbody>
@@ -87,8 +87,8 @@ text {
     <tr>
       <th scope="row">Standardwert</th>
       <td>
-        <code>true</code> wenn nicht definiert, <code>false</code> wenn null oder leerer
-        String als Wert
+        <code>true</code> wenn nicht definiert, <code>false</code> wenn null oder
+        leerer String als Wert
       </td>
     </tr>
     <tr>
@@ -99,11 +99,11 @@ text {
 </table>
 
 - `<list-of-features>`
-  - : Dies ist eine Liste von Feature-Strings, die durch Leerzeichen getrennt werden. Bestimmt, ob alle benannten _Features_ vom Browser unterstützt werden. Siehe [Feature-Strings](#feature-strings) unten für eine Liste der erlaubten Werte.
+  - : Dies ist eine Liste von Feature-Strings, getrennt durch Leerzeichen. Bestimmt, ob alle der benannten _Features_ vom Browser unterstützt werden. Siehe [Feature-Strings](#feature-strings) unten für eine Liste der zulässigen Werte.
 
 ## Feature-Strings
 
-Die folgenden sind die Feature-Strings für das `requiredFeatures`-Attribut. Diese gleichen Feature-Strings gelten für den [`hasFeature`](/de/docs/Web/API/DOMImplementation/hasFeature)-Methodenaufruf, der Teil der Unterstützung der SVG-DOM für die [`DOMImplementation`](/de/docs/Web/API/DOMImplementation)-Schnittstelle ist. In einigen Fällen mappt der Feature-String direkt auf eine Reihe von Attributen, Eigenschaften oder Elementen, in anderen repräsentieren sie eine Funktionalität des Browsers. Beachten Sie, dass sich Format und Benennung der Feature-Strings von SVG 1.0 zu SVG 1.1 geändert haben. Die SVG 1.0-Feature-Strings sind hier nicht aufgeführt, können jedoch in der [SVG-Spezifikation](https://www.w3.org/TR/SVG/feature.html) gefunden werden. Einige Browser unterstützen SVG 1.0-Feature-Strings aus Kompatibilitätsgründen. Die SVG 1.0-Feature-Strings gelten jedoch als veraltet.
+Die folgenden sind die Feature-Strings für das `requiredFeatures`-Attribut. Diese gleichen Feature-Strings gelten für den [`hasFeature`](/de/docs/Web/API/DOMImplementation/hasFeature)-Methodenaufruf, der Teil der SVG-DOM-Unterstützung für die [`DOMImplementation`](/de/docs/Web/API/DOMImplementation)-Schnittstelle ist. In einigen Fällen beziehen sich die Feature-Strings direkt auf eine Menge von Attributen, Eigenschaften oder Elementen, in anderen repräsentieren sie eher eine Funktionalität des Browsers. Beachten Sie, dass sich das Format und die Benennung von Feature-Strings von SVG 1.0 zu SVG 1.1 geändert haben. Die SVG 1.0-Feature-Strings werden hier nicht aufgeführt; einige Browser unterstützen die SVG 1.0-Feature-Strings aus Kompatibilitätsgründen. Allerdings werden die SVG 1.0-Feature-Strings als veraltet angesehen.
 
 - `http://www.w3.org/TR/SVG11/feature#SVG`
 
@@ -150,14 +150,14 @@ Die folgenden sind die Feature-Strings für das `requiredFeatures`-Attribut. Die
     - `http://www.w3.org/TR/SVG11/feature#Extensibility`
 
 - `http://www.w3.org/TR/SVG11/feature#SVGDOM-static`
-  - : Der Browser unterstützt alle DOM-Schnittstellen und -Methoden der Sprachfeatures für `http://www.w3.org/TR/SVG11/feature#SVG-static`.
+  - : Der Browser unterstützt alle DOM-Interfaces und Methoden für die Sprachfeatures von `http://www.w3.org/TR/SVG11/feature#SVG-static`.
 - `http://www.w3.org/TR/SVG11/feature#SVG-animation`
-  - : Der Browser unterstützt alle Sprachfeatures von `http://www.w3.org/TR/SVG11/feature#SVG-static` plus das Feature `http://www.w3.org/TR/SVG11/feature#Animation`.
+  - : Der Browser unterstützt alle Sprachfeatures von `http://www.w3.org/TR/SVG11/feature#SVG-static` sowie das Feature `http://www.w3.org/TR/SVG11/feature#Animation`.
 - `http://www.w3.org/TR/SVG11/feature#SVGDOM-animation`
-  - : Der Browser unterstützt alle DOM-Schnittstellen und -Methoden, die den Sprachfeatures für `http://www.w3.org/TR/SVG11/feature#SVG-animation` entsprechen.
+  - : Der Browser unterstützt alle DOM-Interfaces und Methoden, die den Sprachfeatures für `http://www.w3.org/TR/SVG11/feature#SVG-animation` entsprechen.
 - `http://www.w3.org/TR/SVG11/feature#SVG-dynamic`
 
-  - : Der Browser unterstützt alle Sprachfeatures von `http://www.w3.org/TR/SVG11/feature#SVG-animation` plus die folgenden Features:
+  - : Der Browser unterstützt alle Sprachfeatures von `http://www.w3.org/TR/SVG11/feature#SVG-animation` sowie die folgenden Features:
 
     - `http://www.w3.org/TR/SVG11/feature#Hyperlinking`
     - `http://www.w3.org/TR/SVG11/feature#Scripting`
@@ -168,7 +168,7 @@ Die folgenden sind die Feature-Strings für das `requiredFeatures`-Attribut. Die
     - `http://www.w3.org/TR/SVG11/feature#AnimationEventsAttribute`
 
 - `http://www.w3.org/TR/SVG11/feature#SVGDOM-dynamic`
-  - : Der Browser unterstützt alle DOM-Schnittstellen und -Methoden der Sprachfeatures für `http://www.w3.org/TR/SVG11/feature#SVG-dynamic`.
+  - : Der Browser unterstützt alle DOM-Interfaces und Methoden zu den Sprachfeatures für `http://www.w3.org/TR/SVG11/feature#SVG-dynamic`.
 - `http://www.w3.org/TR/SVG11/feature#CoreAttribute`
   - : Der Browser unterstützt die {{SVGAttr("id")}}, {{SVGAttr("xml:lang")}} und {{SVGAttr("xml:space")}} Attribute
 - `http://www.w3.org/TR/SVG11/feature#Structure`
@@ -178,7 +178,7 @@ Die folgenden sind die Feature-Strings für das `requiredFeatures`-Attribut. Die
 - `http://www.w3.org/TR/SVG11/feature#ContainerAttribute`
   - : Der Browser unterstützt das `enable-background` Attribut
 - `http://www.w3.org/TR/SVG11/feature#ConditionalProcessing`
-  - : Der Browser unterstützt das {{SVGElement("switch")}} Element, und die `requiredFeatures`, {{SVGAttr("requiredExtensions")}}, {{SVGAttr("systemLanguage")}} Attribute
+  - : Der Browser unterstützt das {{SVGElement("switch")}} Element und die `requiredFeatures`, {{SVGAttr("requiredExtensions")}}, {{SVGAttr("systemLanguage")}} Attribute
 - `http://www.w3.org/TR/SVG11/feature#Image`
   - : Der Browser unterstützt das {{SVGElement("image")}} Element.
 - `http://www.w3.org/TR/SVG11/feature#Style`

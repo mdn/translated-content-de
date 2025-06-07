@@ -1,13 +1,13 @@
 ---
-title: "<style>: Das Style-Informationselement"
+title: "<style>: Das Style-Information-Element"
 slug: Web/HTML/Reference/Elements/style
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: c1564acf160ef4b320fb7b89ab65211b9c50cf1b
 ---
 
 {{HTMLSidebar}}
 
-Das **`<style>`** [HTML](/de/docs/Web/HTML)-Element enthält Style-Informationen für ein Dokument oder einen Teil eines Dokuments. Es enthält CSS, das auf den Inhalt des Dokuments angewendet wird, der das `<style>`-Element enthält.
+Das **`<style>`** [HTML](/de/docs/Web/HTML) Element enthält Style-Informationen für ein Dokument oder einen Teil eines Dokuments. Es enthält CSS, das auf den Inhalt des Dokumentes, das das `<style>` Element enthält, angewendet wird.
 
 {{InteractiveExample("HTML Demo: &lt;style&gt;", "tabbed-standard")}}
 
@@ -37,30 +37,30 @@ p {
 }
 ```
 
-Das `<style>`-Element muss im {{htmlelement("head")}} des Dokuments enthalten sein. Im Allgemeinen ist es besser, Ihre Styles in externen Stylesheets zu platzieren und sie mit {{htmlelement("link")}}-Elementen anzuwenden.
+Das `<style>` Element muss innerhalb des {{htmlelement("head")}} des Dokuments eingefügt werden. Im Allgemeinen ist es besser, Ihre Styles in externen Stylesheets zu platzieren und sie durch {{htmlelement("link")}} Elemente anzuwenden.
 
-Wenn Sie mehrere `<style>`- und `<link>`-Elemente in Ihr Dokument aufnehmen, werden sie in der Reihenfolge angewendet, in der sie im Dokument enthalten sind. Stellen Sie sicher, dass Sie sie in der richtigen Reihenfolge einfügen, um unerwartete Kaskadenprobleme zu vermeiden.
+Wenn Sie mehrere `<style>` und `<link>` Elemente in Ihr Dokument einfügen, werden sie in der Reihenfolge im DOM angewendet, in der sie im Dokument enthalten sind — stellen Sie sicher, dass Sie sie in der richtigen Reihenfolge einfügen, um unerwartete Kaskadeneffekte zu vermeiden.
 
-In ähnlicher Weise wie bei `<link>`-Elementen können `<style>`-Elemente `media`-Attribute enthalten, die [Media Queries](/de/docs/Web/CSS/CSS_media_queries) umfassen und es Ihnen ermöglichen, interne Stylesheets abhängig von Medienmerkmalen wie der Viewport-Breite selektiv auf Ihr Dokument anzuwenden.
+Genau wie `<link>` Elemente können `<style>` Elemente `media` Attribute enthalten, die [Media Queries](/de/docs/Web/CSS/CSS_media_queries) enthalten, sodass Sie interne Stylesheets selektiv auf Ihr Dokument anwenden können, abhängig von Medienmerkmalen wie der Breite des Viewports.
 
 ## Attribute
 
 Dieses Element umfasst die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
 - `blocking`
-  - : Dieses Attribut weist explizit darauf hin, dass bestimmte Operationen beim Abrufen kritischer Subressourcen blockiert werden sollten. [`@import`](/de/docs/Web/CSS/@import)-Stile gelten allgemein als kritische Subressourcen, während [`background-image`](/de/docs/Web/CSS/background-image) und Schriftarten dies nicht sind. Die zu blockierenden Operationen müssen eine durch Leerzeichen getrennte Liste der unten aufgeführten Blockierungstokens sein.
-    - `render`: Das Rendern des Inhalts auf dem Bildschirm wird blockiert.
+  - : Dieses Attribut gibt explizit an, dass bestimmte Operationen beim Abruf kritischer Subressourcen blockiert werden sollen. [`@import`](/de/docs/Web/CSS/@import)-ierte Stylesheets gelten allgemein als kritische Subressourcen, während [`background-image`](/de/docs/Web/CSS/background-image) und Schriftarten dies nicht sind. Die zu blockierenden Operationen müssen eine durch Leerzeichen getrennte Liste der unten aufgeführten Blockierungs-Token sein.
+    - `render`: Das Rendern von Inhalten auf dem Bildschirm wird blockiert.
 - `media`
-  - : Dieses Attribut definiert, auf welche Medien der Style angewendet werden soll. Sein Wert ist eine [Media Query](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries), die standardmäßig auf `all` gesetzt ist, wenn das Attribut fehlt.
+  - : Dieses Attribut definiert, auf welche Medien der Style angewendet werden soll. Sein Wert ist eine [Media Query](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries), die standardmäßig `all` ist, wenn das Attribut fehlt.
 - `nonce`
-  - : Ein kryptographischer Nonce (einmal verwendete Nummer), der verwendet wird, um Inline-Styles in einer [style-src Content-Security-Policy](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/style-src) zuzulassen. Der Server muss bei jeder Übertragung einer Richtlinie einen eindeutigen Nonce-Wert generieren. Es ist entscheidend, einen Nonce bereitzustellen, der nicht erraten werden kann, da sonst das Umgehen der Richtlinie einer Ressource trivial ist.
+  - : Eine kryptografische Nonce (Zahl, die einmal verwendet wird), die verwendet wird, um Inline-Styles in einer [style-src Content-Security-Policy](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/style-src) zu erlauben. Der Server muss bei jeder Übermittlung einer Richtlinie einen eindeutigen Nonce-Wert generieren. Es ist entscheidend, eine Nonce bereitzustellen, die nicht erraten werden kann, da es sonst trivial wäre, die Richtlinie einer Ressource zu umgehen.
 - `title`
-  - : Dieses Attribut spezifiziert [alternative Stylesheet](/de/docs/Web/HTML/Reference/Attributes/rel/alternate_stylesheet)-Sets.
+  - : Dieses Attribut gibt [alternative Stylesheets](/de/docs/Web/HTML/Reference/Attributes/rel/alternate_stylesheet) an.
 
 ### Veraltete Attribute
 
 - `type` {{deprecated_inline}}
-  - : Dieses Attribut sollte nicht bereitgestellt werden: Wenn es vorhanden ist, sind die einzigen zulässigen Werte der leere String oder eine nicht case-sensitive Übereinstimmung zu `text/css`.
+  - : Dieses Attribut sollte nicht bereitgestellt werden: Wenn es vorhanden ist, sind die einzigen erlaubten Werte der leere String oder ein nicht case-sensitives Übereinstimmungsmuster für `text/css`.
 
 ## Beispiele
 
@@ -92,7 +92,7 @@ Im folgenden Beispiel wenden wir ein kurzes Stylesheet auf ein Dokument an:
 
 ### Mehrere Style-Elemente
 
-In diesem Beispiel haben wir zwei `<style>`-Elemente eingefügt – beachten Sie, wie die widersprüchlichen Deklarationen im späteren `<style>`-Element die Deklarationen im früheren überschreiben, wenn sie die gleiche [Spezifität](/de/docs/Web/CSS/CSS_cascade/Specificity) haben.
+In diesem Beispiel haben wir zwei `<style>` Elemente eingefügt — beachten Sie, wie die widersprüchlichen Deklarationen im späteren `<style>` Element diejenigen im früheren überschreiben, wenn sie die gleiche [Spezifität](/de/docs/Web/CSS/CSS_cascade/Specificity) haben.
 
 ```html
 <!doctype html>
@@ -127,7 +127,7 @@ In diesem Beispiel haben wir zwei `<style>`-Elemente eingefügt – beachten Sie
 
 ### Einfügen einer Media Query
 
-In diesem Beispiel bauen wir auf dem vorherigen auf und fügen ein `media`-Attribut im zweiten `<style>`-Element ein, sodass es nur angewendet wird, wenn der Viewport weniger als 500px breit ist.
+In diesem Beispiel bauen wir auf dem vorherigen auf, indem wir ein `media` Attribut im zweiten `<style>` Element einfügen, sodass es nur angewendet wird, wenn der Viewport weniger als 500px breit ist.
 
 ```html
 <!doctype html>
@@ -166,46 +166,38 @@ In diesem Beispiel bauen wir auf dem vorherigen auf und fügen ein `media`-Attri
   <tbody>
     <tr>
       <th>
-        <a href="/de/docs/Web/HTML/Guides/Content_categories"
-          >Inhaltskategorien</a
-        >
+        <a href="/de/docs/Web/HTML/Guides/Content_categories">Inhaltskategorien</a>
       </th>
       <td>
-        <a href="/de/docs/Web/HTML/Guides/Content_categories#metadata_content"
-          >Metadateninhalte</a
-        >.
+        <a href="/de/docs/Web/HTML/Guides/Content_categories#metadata_content">Metadaten-Inhalte</a>.
       </td>
     </tr>
     <tr>
-      <th>Erlaubter Inhalt</th>
+      <th>Zulässiger Inhalt</th>
       <td>
-        Textinhalt, der mit dem <code>type</code>-Attribut übereinstimmt, also
-        <code>text/css</code>.
+        Textinhalt, der mit dem <code>type</code> Attribut übereinstimmt, d.h. <code>text/css</code>.
       </td>
     </tr>
     <tr>
       <th>Tag-Auslassung</th>
-      <td>Kein Tag kann weggelassen werden.</td>
+      <td>Kein Tag darf weggelassen werden.</td>
     </tr>
     <tr>
-      <th>Erlaubte Eltern</th>
+      <th>Zulässige Eltern</th>
       <td>
         Jedes Element, das
-        <a href="/de/docs/Web/HTML/Guides/Content_categories#metadata_content"
-          >Metadateninhalte</a
-        > akzeptiert.
+        <a href="/de/docs/Web/HTML/Guides/Content_categories#metadata_content">Metadaten-Inhalte</a>
+        akzeptiert.
       </td>
     </tr>
     <tr>
       <th scope="row">Implizite ARIA-Rolle</th>
       <td>
-        <a href="https://www.w3.org/TR/html-aria/#dfn-no-corresponding-role"
-          >Keine entsprechende Rolle</a
-        >
+        <a href="https://w3c.github.io/html-aria/#dfn-no-corresponding-role">Keine entsprechende Rolle</a>
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte ARIA-Rollen</th>
+      <th scope="row">Zulässige ARIA-Rollen</th>
       <td>Keine <code>role</code> erlaubt</td>
     </tr>
     <tr>
@@ -225,5 +217,5 @@ In diesem Beispiel bauen wir auf dem vorherigen auf und fügen ein `media`-Attri
 
 ## Siehe auch
 
-- Das {{HTMLElement("link")}}-Element, das es uns ermöglicht, externe Stylesheets auf ein Dokument anzuwenden.
+- Das {{HTMLElement("link")}} Element, das es ermöglicht, externe Stylesheets auf ein Dokument anzuwenden.
 - [Alternative Stylesheets](/de/docs/Web/HTML/Reference/Attributes/rel/alternate_stylesheet)

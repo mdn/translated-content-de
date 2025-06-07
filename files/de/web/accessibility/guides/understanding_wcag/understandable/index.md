@@ -1,14 +1,14 @@
 ---
-title: Verstehbar
+title: Verständlich
 slug: Web/Accessibility/Guides/Understanding_WCAG/Understandable
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: c1564acf160ef4b320fb7b89ab65211b9c50cf1b
 ---
 
-Dieser Artikel bietet praktische Ratschläge, wie Sie Ihre Webinhalte so schreiben können, dass sie den Erfolgskriterien des **Verstehbar**-Prinzips der Web Content Accessibility Guidelines (WCAG) 2.0 und 2.1 entsprechen. Verstehbar bedeutet, dass Informationen und die Bedienung der Benutzeroberfläche verständlich sein müssen.
+Dieser Artikel bietet praktische Ratschläge, wie Sie Ihre Webinhalte so verfassen, dass sie den Erfolgskriterien entsprechen, die im **Verständlich**-Prinzip der Web Content Accessibility Guidelines (WCAG) 2.0 und 2.1 dargelegt sind. Verständlich bedeutet, dass Informationen und die Bedienung der Benutzeroberfläche verständlich sein müssen.
 
 > [!NOTE]
-> Um die W3C-Definitionen für Verstehbar und deren Richtlinien und Erfolgskriterien zu lesen, siehe [Prinzip 3: Verstehbar — Informationen und die Bedienung der Benutzeroberfläche müssen verständlich sein](https://www.w3.org/TR/WCAG21/#understandable).
+> Um die W3C-Definitionen für Verständlich sowie die dazugehörigen Richtlinien und Erfolgskriterien zu lesen, siehe [Prinzip 3: Verständlich — Informationen und die Bedienung der Benutzeroberfläche müssen verständlich sein](https://w3c.github.io/wcag/guidelines/22/#understandable).
 
 ## Richtlinie 3.1 — Lesbar: Machen Sie Textinhalte lesbar und verständlich
 
@@ -18,7 +18,7 @@ Diese Richtlinie konzentriert sich darauf, Textinhalte so verständlich wie mög
   <thead>
     <tr>
       <th scope="col">Erfolgskriterien</th>
-      <th scope="col">Wie man die Kriterien erfüllt</th>
+      <th scope="col">Wie Sie den Kriterien entsprechen</th>
       <th scope="col">Praktische Ressource</th>
     </tr>
   </thead>
@@ -26,24 +26,20 @@ Diese Richtlinie konzentriert sich darauf, Textinhalte so verständlich wie mög
     <tr>
       <td>3.1.1 Sprache der Seite (A)</td>
       <td>
-        Die Standardsprache einer jeden Webseite sollte über den Code erkennbar sein. Dies ist wichtig, um sicherzustellen, dass der Leser auf einer Seite gelandet ist, die in einer für ihn geeigneten Sprache verfasst ist. Der einfachste Weg, dies zu erreichen, ist das Setzen des <a href="/de/docs/Web/HTML/Reference/Global_attributes/lang">lang</a>-Attributs im {{htmlelement("html")}}-Element der Seite mit einem Wert, der dem Sprachcode entspricht, der am besten der Sprache entspricht, in der die Seite geschrieben ist.
+        Die Standardsprache jeder Webseite sollte über den Code erkennbar sein. Dies ist wichtig, um sicherzustellen, dass der Leser auf einer in einer für ihn geeigneten Sprache verfassten Seite angekommen ist. Der einfachste Weg, dies zu erreichen, ist das Setzen des <a href="/de/docs/Web/HTML/Reference/Global_attributes/lang">lang</a>-Attributs auf dem {{htmlelement("html")}}-Element der Seite, wobei der Wert dem Sprachcode entspricht, der die Sprache der Seite am besten repräsentiert.
       </td>
       <td>
-        Siehe
-        <a
-          href="/de/docs/Learn_web_development/Core/Structuring_content/Webpage_metadata#setting_the_primary_language_of_the_document"
-          >Festlegen der Hauptsprache des Dokuments</a
-        >.
+        Siehe <a href="/de/docs/Learn_web_development/Core/Structuring_content/Webpage_metadata#setting_the_primary_language_of_the_document">Festlegung der Primärsprache des Dokuments</a>.
       </td>
     </tr>
     <tr>
-      <td>3.1.2 Sprache von Teilen (AA)</td>
+      <td>3.1.2 Sprache der Teile (AA)</td>
       <td>
         <p>
-          In Fällen, in denen der Inhalt einer Seite Wörter oder Ausdrücke in einer anderen Sprache als der Hauptsprache enthält, verwenden Sie das <a href="/de/docs/Web/HTML/Reference/Global_attributes/lang">lang</a>-Attribut auf einem Element, das um den betreffenden Begriff gewickelt ist (z.B. ein {{htmlelement("span")}}, wenn kein semantisches Element verfügbar ist), um eine geeignete Sprache dafür zu setzen.
+          Wenn der Inhalt einer Seite Wörter oder Ausdrücke enthält, die in einer anderen Sprache als die Primärsprache verfasst sind, sollte das <a href="/de/docs/Web/HTML/Reference/Global_attributes/lang">lang</a>-Attribut auf einem um den entsprechenden Begriff gewickelten Element (z.B. ein {{htmlelement("span")}}, wenn kein semantisches Element verfügbar ist) verwendet werden, um eine geeignete Sprache festzulegen.
         </p>
         <p>
-          Es ist nicht erforderlich, eine andere Sprache für Wörter oder Ausdrücke zu setzen, die unabhängig von der Sprache gleich sind (zum Beispiel Eigennamen, technische Begriffe, die nicht Teil einer bestimmten Sprache sind).
+          Sie müssen keine andere Sprache für Wörter oder Ausdrücke festlegen, die unabhängig von der Sprache gleich sind (z.B. Eigennamen, technische Begriffe, die nicht zu einer bestimmten Sprache gehören).
         </p>
       </td>
       <td></td>
@@ -51,12 +47,7 @@ Diese Richtlinie konzentriert sich darauf, Textinhalte so verständlich wie mög
     <tr>
       <td>3.1.3 Ungewöhnliche Wörter (AAA)</td>
       <td>
-        Wo technische Begriffe, Fachjargon oder idiomatische Ausdrücke/Slang verwendet werden, sollten dafür Definitionen bereitgestellt werden. Ihre Website sollte ein Glossar bereitstellen, das Definitionen dieser Wörter/Begriffe enthält, auf das Sie dann verlinken können, wenn sie erscheinen, oder zumindest Definitionen im umgebenden Text oder in einer
-        <a
-          href="/de/docs/Learn_web_development/Core/Structuring_content/Lists#description_lists"
-          >Beschreibungsliste</a
-        >
-        am Ende der Seite bereitstellen.
+        Wenn technische Begriffe, Fachjargon oder Redewendungen/Slang verwendet werden, sollten Definitionen für solche Ausdrücke/Wörter bereitgestellt werden. Ihre Seite sollte ein Glossar enthalten, das Definitionen solcher Wörter/Begriffe enthält, auf die Sie dann verlinken können, wenn sie erscheinen, oder zumindest Definitionen irgendwo im umgebenden Text oder in einer <a href="/de/docs/Learn_web_development/Core/Structuring_content/Lists#description_lists">Beschreibungsliste</a> am Ende der Seite bereitstellen.
       </td>
       <td></td>
     </tr>
@@ -64,28 +55,24 @@ Diese Richtlinie konzentriert sich darauf, Textinhalte so verständlich wie mög
       <td>3.1.4 Abkürzungen (AAA)</td>
       <td>
         <p>
-          Wo Abkürzungen verwendet werden, sollten Sie eine Ergänzung oder eine Definition dieser bereitstellen.
+          Wenn Abkürzungen verwendet werden, sollten Sie eine Erweiterung oder erforderlichenfalls eine Definition bereitstellen.
         </p>
         <p>
-          Das {{htmlelement("abbr")}}-Element wird oft als bevorzugte Methode zum Bereitstellen einer Erweiterung für eine Abkürzung angesehen — es nimmt ein <a href="/de/docs/Web/HTML/Reference/Global_attributes/title">title</a>-Attribut an, das die Erweiterung enthält, und diese erscheint, wenn Sie mit der Maus über das Akronym fahren. Jedoch sind die Titelinhalte nicht über die Tastatur zugänglich, noch werden sie zuverlässig von Bildschirmlesegeräten vorgelesen. Eine bessere Methode, um dies zu handhaben, besteht darin, Links zu Glossarseiten bereitzustellen, die die Akronymerweiterung und -erklärung enthalten, oder zumindest sie im umgebenden Text im Kontext einzuschließen.
+          Das {{htmlelement("abbr")}}-Element wird oft als bevorzugte Methode angesehen, um eine Erweiterung für eine Abkürzung bereitzustellen — es nimmt ein <a href="/de/docs/Web/HTML/Reference/Global_attributes/title">title</a>-Attribut auf, das die Erweiterung enthält, und dies erscheint, wenn die Abkürzung mit der Maus überfahren wird. Der Titelinhalt ist jedoch nicht über die Tastatur zugänglich und wird auch nicht zuverlässig von Bildschirmlesern vorgelesen. Eine bessere Methode, damit umzugehen, besteht darin, wieder auf Glossarseiten zu verlinken, die die Abkürzungserweiterung und Erklärung enthalten, oder zumindest diese im umgebenden Text im Kontext einzuschließen.
         </p>
       </td>
       <td>
-        Siehe
-        <a
-          href="/de/docs/Learn_web_development/Core/Structuring_content/Advanced_text_features#abbreviations"
-          >Abkürzungen</a
-        >.
+        Siehe <a href="/de/docs/Learn_web_development/Core/Structuring_content/Advanced_text_features#abbreviations">Abkürzungen</a>.
       </td>
     </tr>
     <tr>
-      <td>3.1.5 Lesbarkeit (AAA)</td>
+      <td>3.1.5 Lesestufe (AAA)</td>
       <td>
         <p>
-          Wenn Text bereitgestellt wird, der ein höheres Leseverständnis als das der unteren Sekundarstufe erfordert (normalerweise Kinder im Alter von 11-14 Jahren), stellen Sie ergänzendes Erklärmaterial bereit, um Menschen zu helfen, die es nicht lesen können, oder bieten Sie eine alternative Version an, die auf dem Niveau der unteren Sekundarstufe geschrieben ist.
+          Wenn Text bereitgestellt wird, der ein höheres Leseverständnis als das Niveau der Sekundarstufe erfordert (normalerweise Kinder im Alter von 11-14 Jahren), sollten ergänzende Erläuterungen bereitgestellt werden, um Personen zu helfen, die ihn nicht lesen können, oder eine alternative Version angeboten werden, die auf dem Niveau der Sekundarstufe verfasst ist.
         </p>
         <p>
-          Das bedeutet nicht, dass alle Inhalte von jedem verstanden werden müssen, aber der Schreibstil sollte für alle zugänglich sein. Es ist besser, alle Inhalte auf dem Niveau der unteren Sekundarstufe zu schreiben, auch technische Dokumentationen wie Programmieranleitungen, es sei denn, es gibt einen guten Grund, dies nicht zu tun (z.B. ein alternativer Stil für poetische Effekte) oder sie müssen in einem strikten Stil verfasst werden (z.B. W3C-Spezifikationen).
+          Das bedeutet nicht, dass alle Themen von jedem verstanden werden sollten, sondern dass der Schreibstil für jeden zugänglich sein sollte. Es ist besser, alle Inhalte auf Sekundarstufenniveau zu verfassen, selbst technische Dokumentationen wie Programmieranleitungen, es sei denn, es gibt einen guten Grund dagegen (z.B. ein alternativer Stil für poetische Effekte) oder sie müssen in einem strikten Stil verfasst werden (z.B. W3C-Spezifikationen).
         </p>
       </td>
       <td></td>
@@ -94,31 +81,23 @@ Diese Richtlinie konzentriert sich darauf, Textinhalte so verständlich wie mög
       <td>3.1.6 Aussprache (AAA)</td>
       <td>
         <p>
-          Ein Mechanismus sollte bereitgestellt werden, um Benutzern den Zugang zur Aussprache von Wörtern zu ermöglichen, wo dies erforderlich ist, um den Inhalt vollständig zu verstehen.
+          Ein Mechanismus sollte bereitgestellt werden, der Benutzern den Zugang zur Aussprache von Wörtern ermöglicht, wo es erforderlich ist, um den Inhalt vollständig zu verstehen.
         </p>
         <p>
-          Das HTML-{{htmlelement("audio")}}-Element kann verwendet werden, um eine Steuerung zu erstellen, die dem Leser ermöglicht, eine Audiodatei mit der korrekten Aussprache abzuspielen, und es macht auch Sinn, einen textuellen Aussprachehinweis nach schwierigen Wörtern zu inkludieren, so wie es in Wörterbucheinträgen üblich ist.
+          Mit dem HTML-{{htmlelement("audio")}}-Element kann ein Steuerelement erstellt werden, das dem Leser ermöglicht, eine Audiodatei abzuspielen, die die korrekte Aussprache enthält. Es macht auch Sinn, einen textuellen Ausspracheführer nach schwierigen Wörtern einzufügen, ähnlich wie in Wörterbucheinträgen.
         </p>
       </td>
       <td>
-        Siehe
-        <a
-          href="/de/docs/Learn_web_development/Core/Structuring_content/HTML_video_and_audio"
-          >Video- und Audioinhalte</a
-        >, und
-        <a
-          href="https://www.oxfordlearnersdictionaries.com/us/about/pronunciation_english.html"
-          >Ausspracheführer für das englische Wörterbuch</a
-        >
+        Siehe <a href="/de/docs/Learn_web_development/Core/Structuring_content/HTML_video_and_audio">Video- und Audioinhalte</a> und <a href="https://www.oxfordlearnersdictionaries.com/us/about/pronunciation_english.html">Ausspracheführer für Englisch Wörterbuch</a>.
       </td>
     </tr>
   </tbody>
 </table>
 
 > [!NOTE]
-> Siehe auch die WCAG-Beschreibung für [Richtlinie 3.1 Lesbar: Machen Sie Textinhalte lesbar und verständlich](https://www.w3.org/TR/WCAG21/#readable).
+> Siehe auch die WCAG-Beschreibung für [Richtlinie 3.1 Lesbar: Machen Sie Textinhalte lesbar und verständlich](https://w3c.github.io/wcag/guidelines/22/#readable).
 
-## Richtlinie 3.2 — Vorhersehbar: Lassen Sie Webseiten auf vorhersehbare Weise erscheinen und funktionieren
+## Richtlinie 3.2 — Vorhersehbar: Webseiten sollen auf vorhersehbare Weise erscheinen und funktionieren
 
 Diese Richtlinie konzentriert sich darauf, Benutzeroberflächen intuitiv und verständlich zu gestalten.
 
@@ -126,7 +105,7 @@ Diese Richtlinie konzentriert sich darauf, Benutzeroberflächen intuitiv und ver
   <thead>
     <tr>
       <th scope="col">Erfolgskriterien</th>
-      <th scope="col">Wie man die Kriterien erfüllt</th>
+      <th scope="col">Wie Sie den Kriterien entsprechen</th>
       <th scope="col">Praktische Ressource</th>
     </tr>
   </thead>
@@ -135,29 +114,24 @@ Diese Richtlinie konzentriert sich darauf, Benutzeroberflächen intuitiv und ver
       <td>3.2.1 Bei Fokus (A)</td>
       <td>
         <p>
-          Wenn ein Steuerelement oder ein anderes Seitenelement den Fokus erhält, sollte es den Kontext nicht so verändern, dass der Benutzer verwirrt oder desorientiert wird.
+          Wenn ein Steuerelement oder ein anderes Seitenelement den Fokus erhält, sollte es den Kontext nicht in einer Weise ändern, die den Benutzer verwirren oder desorientieren könnte.
         </p>
         <p>
-          Dies ist eine Frage des sinnvollen Designs — Benutzer möchten nicht von Schnittstellen überrascht werden; sie möchten, dass Dinge intuitiv und erwartungsgemäß funktionieren. Zum Beispiel sollte das Fokussieren auf eine Navigationsmenüoption nicht die angezeigte Seite ändern — sie sollte aktiviert werden, bevor sich die Anzeige ändert.
+          Dies ist eine Frage des umsichtigen Designs — Menschen wollen keine Benutzeroberflächen, die sie überraschen; sie wollen, dass die Dinge intuitiv und erwartungsgemäß funktionieren. Beispielsweise sollte das Fokussieren einer Navigationsmenüoption die angezeigte Seite nicht ändern — sie sollte aktiviert werden, bevor sich die Anzeige ändert.
         </p>
       </td>
       <td>
-        <code>Element</code>'s [`focus`](/de/docs/Web/API/Element/focus_event) Ereignis enthält einige nützliche Informationen. Siehe auch
-        <a
-          href="/de/docs/Learn_web_development/Core/Accessibility/HTML#building_keyboard_accessibility_back_in"
-          >Keyboard-Zugänglichkeit wieder einbauen</a
-        >
-        für nützliche Implementierungsideen.
+        Das <code>Element</code>'s [`focus`](/de/docs/Web/API/Element/focus_event)-Ereignis enthält einige nützliche Informationen. Siehe auch <a href="/de/docs/Learn_web_development/Core/Accessibility/HTML#building_keyboard_accessibility_back_in">Keyboard-Zugänglichkeit neu einbauen</a> für einige nützliche Implementierungsideen.
       </td>
     </tr>
     <tr>
       <td>3.2.2 Bei Eingabe (A)</td>
       <td>
         <p>
-          Wenn Daten in ein Steuerelement eingegeben werden oder eine Einstellung geändert wird, sollte der Kontext nicht unerwartet geändert werden. Der Benutzer sollte gewarnt oder über die bevorstehende Änderung informiert werden, bevor sie erfolgt.
+          Wenn Daten in ein Steuerelement eingegeben werden oder eine Einstellung geändert wird, sollte der Kontext nicht unerwartet geändert werden. Der Benutzer sollte gewarnt/beraten werden, bevor die Änderung erfolgt.
         </p>
         <p>
-          Auch hier sollte sinnvolles Design implementiert werden. Wenn zum Beispiel das Drücken eines Buttons die Anwendung dazu bringt, die aktuelle Ansicht zu verlassen, sollte der Benutzer aufgefordert werden, diese Aktion zu bestätigen, seine Arbeit zu speichern, falls zutreffend, usw.
+          Wiederum sollte ein umsichtiges Design implementiert werden. Beispielsweise sollte der Benutzer gewarnt werden oder die Möglichkeit haben, eine Aktion zu bestätigen oder seine Arbeit zu speichern, bevor eine Taste gedrückt wird, die dazu führt, dass die Anwendung die aktuelle Ansicht verlässt.
         </p>
       </td>
       <td>
@@ -168,228 +142,202 @@ Diese Richtlinie konzentriert sich darauf, Benutzeroberflächen intuitiv und ver
       <td>3.2.3 Konsistente Navigation (AA)</td>
       <td>
         <p>
-          Der Stil und die Anordnung von Navigationsmenüs/-steuerelementen sollten zwischen verschiedenen Seiten oder Ansichten einer Webseite konsistent sein, und die bestehenden Elemente sollten in derselben Reihenfolge erscheinen, auch wenn zum Beispiel neue Elemente hinzugefügt werden. Wenn der Benutzer eine Änderung initiiert hat, z.B. eine andere Farbschema- oder Positionswahl für die Navigation, sollte seine Wahl auf allen Seiten respektiert werden.
+          Der Stil und die Platzierung des Navigationsmenüs/der Steuerungen sollten zwischen verschiedenen Seiten oder Ansichten einer Webseite konsistent sein, und die vorhandenen Elemente sollten in derselben Reihenfolge erscheinen, selbst wenn z.B. neue Elemente hinzugefügt werden. Wenn der Benutzer eine Änderung vorgenommen hat, z.B. ein anderes Farbschema oder eine andere Position für die Navigation ausgewählt hat, sollte seine Wahl auf allen Seiten respektiert werden.
         </p>
         <p>
-          Wiederum sinnvolles Design — machen Sie die Navigationselemente auf allen Seiten oder Ansichten gleich.
+          Wiederum umsichtiges Design — machen Sie die Navigationselemente auf allen Seiten oder Ansichten gleich.
         </p>
       </td>
       <td>
-        Siehe
-        <a href="/de/docs/Learn_web_development/Core/Accessibility/HTML#structure_page_sections_logically"
-          >Strukturieren Sie Seitensektionen logisch</a
-        >
-        für Informationen über moderne Layout-Markup. Siehe auch
-        <a
-          href="/de/docs/Learn_web_development/Core/Text_styling/Styling_links#styling_links_as_buttons"
-          >Links als Buttons stylen</a
-        >
-        für ein nützliches Beispiel für ein zugängliches Navigationsmenü.
+        Siehe <a href="/de/docs/Learn_web_development/Core/Accessibility/HTML#structure_page_sections_logically">Strukturieren von Seitensektionen logisch</a> für Informationen über modernes Markup für Layouts. Siehe auch <a href="/de/docs/Learn_web_development/Core/Text_styling/Styling_links#styling_links_as_buttons">Verlinkungen als Schaltflächen stylen</a> für ein nützliches Beispiel für ein zugängliches Navigationsmenü.
       </td>
     </tr>
     <tr>
       <td>3.2.4 Konsistente Identifikation (AA)</td>
       <td>
         <p>
-          Steuerelemente oder Komponenten, die dieselbe Funktionalität haben, sollten auf dieselbe Weise über verschiedene Seiten oder Ansichten hinweg identifiziert werden. Ein Währungsrechner, der auf jeder Seite einer weltweiten Reise-Website erscheint, sollte zum Beispiel semantisch und bezüglich der Labels genau gleich sein.
+          Steuerelemente oder Komponenten mit derselben Funktionalität sollten auf verschiedenen Seiten oder Ansichten auf dieselbe Weise identifiziert werden. Ein Währungsumrechner, der beispielsweise auf jeder Seite einer Weltreise-Website erscheint, sollte semantisch und hinsichtlich der Bezeichnungen identisch sein.
         </p>
-        <p>Wiederum sinnvolles Design!</p>
+        <p>Wiederum umsichtiges Design!</p>
       </td>
       <td>
-        "Labels" können sich auf beschreibende Informationen im Textinhalt oder HTML-Formular-Labels beziehen. Siehe
-        <a href="/de/docs/Learn_web_development/Core/Accessibility/HTML#use_meaningful_text_labels"
-          >Verwenden Sie bedeutungsvolle Text-Labels</a
-        >
-        für weitere Informationen.
+        "Labels" können sich auf beschreibende Informationen in Textinhalten oder HTML-Formularbeschriftungen beziehen. Siehe <a href="/de/docs/Learn_web_development/Core/Accessibility/HTML#use_meaningful_text_labels">Verwendung bedeutungsvoller Textlabels</a> für weitere Informationen.
       </td>
     </tr>
     <tr>
-      <td>3.2.5 Änderungswunsch (AAA)</td>
+      <td>3.2.5 Änderung auf Anfrage (AAA)</td>
       <td>
         <p>
-          Kontextänderungen, die möglicherweise Benutzer verwirren oder desorientieren können, sollten nur dann auftreten, wenn sie vom Benutzer angefordert werden, ODER der Benutzer sollte in der Lage sein, sie auszuschalten.
+          Änderungen im Kontext, die Benutzer möglicherweise verwirren oder desorientieren könnten, sollten nur auf Nutzeranfrage erfolgen oder Benutzer sollten in der Lage sein, sie zu deaktivieren.
         </p>
         <p>
-          Wenn Sie etwas haben müssen, das die aktuelle Ansicht erheblich ändert (z.B. Inhalte oder Steuerelemente), lassen Sie den Benutzer steuern, wann sie möchten, dass diese Änderung stattfindet (z.B. welche Seite angezeigt wird, wann zum nächsten Foto in der Galerie übergegangen wird...)
+          Wenn Sie etwas benötigen, das die aktuelle Ansicht erheblich verändert (z.B. Inhalt oder Steuerelemente), lassen Sie den Benutzer steuern, wann diese Änderung erfolgen soll (z.B. welche Seite angezeigt werden soll, wann zum nächsten Foto in der Galerie gewechselt werden soll...).
         </p>
         <p>
-          Wenn Sie etwas wie ein Karussell auf einer Seite haben müssen, geben Sie eine Option, um das automatische Fortschreiten zu stoppen. Besser, solche Funktionalitäten zu vermeiden, wenn möglich.
+          Wenn Sie etwas wie ein Karussell auf einer Seite benötigen, bieten Sie eine Option an, um das automatische Fortschreiten zu stoppen. Besser ist es, solche Funktionalitäten möglichst zu vermeiden.
         </p>
       </td>
-      </tr>
-      <tr>
+    </tr>
+    <tr>
       <td> 3.2.6 Konsistente Hilfe (A)</td>
-      <td> <p>Webseiten, die Hilfe-Mechanismen enthalten, einschließlich Selbsthilfeoptionen und menschliche Kontaktdaten, die auf mehreren Webseiten wiederholt werden, müssen diese Mechanismen in derselben Reihenfolge auf allen Seiten platzieren, es sei denn, eine Änderung wird vom Benutzer initiiert.</p>
-      <td> <p>Weitere Informationen finden Sie in der <a href="https://www.w3.org/WAI/WCAG22/Understanding/consistent-help">Dokumentation zur konsistenten Hilfe</a> für diesen Standard. </p>
+      <td>
+        <p>Webseiten, die Hilfemechanismen enthalten, einschließlich Selbsthilfeoptionen und Kontaktdetails, die auf mehreren Webseiten wiederholt werden, müssen diese Mechanismen in derselben Reihenfolge auf allen Seiten platzieren, es sei denn, eine Änderung wurde vom Benutzer initiiert.</p>
+      <td>
+        <p>Lesen Sie die <a href="https://www.w3.org/WAI/WCAG22/Understanding/consistent-help">dokumentierte konsistente Hilfe</a> für diese Norm, um mehr zu erfahren.</p>
       </td>
       </td>
-      <tr>
     </tr>
   </tbody>
 </table>
 
 > [!NOTE]
-> Siehe auch die WCAG-Beschreibung für [Richtlinie 3.2 Vorhersehbar: Lassen Sie Webseiten auf vorhersehbare Weise erscheinen und funktionieren](https://www.w3.org/TR/WCAG21/#predictable).
+> Siehe auch die WCAG-Beschreibung für [Richtlinie 3.2 Vorhersehbar: Webseiten sollen auf vorhersehbare Weise erscheinen und funktionieren](https://w3c.github.io/wcag/guidelines/22/#predictable).
 
-## Richtlinie 3.3 — Eingabeunterstützung: Helfen Sie Benutzern Fehler zu vermeiden und zu korrigieren
+## Richtlinie 3.3 — Eingabeunterstützung: Helfen Sie Benutzern, Fehler zu vermeiden und zu korrigieren
 
-Diese Richtlinie konzentriert sich darauf, Benutzern zu helfen, die korrekten Informationen mit möglichst wenigen Fehlern einzugeben.
+Diese Richtlinie konzentriert sich darauf, Benutzern dabei zu helfen, korrekte Informationen einzugeben, wenn erforderlich, mit minimalen Fehlern.
 
 <table class="standard-table">
   <thead>
     <tr>
       <th scope="col">Erfolgskriterien</th>
-      <th scope="col">Wie man die Kriterien erfüllt</th>
+      <th scope="col">Wie Sie den Kriterien entsprechen</th>
       <th scope="col">Praktische Ressource</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>3.3.1 Fehleridentifikation (A)</td>
+      <td>3.3.1 Fehleridentifizierung (A)</td>
       <td>
         <p>
-          Wenn ein Benutzer ein Formular ausfüllt oder zwischen Optionen auswählt, sollte jeder erkannte Fehler dem Benutzer deutlich mitgeteilt werden, zusammen mit dem Formularsteuerelement, mit dem der Fehler zusammenhängt.
+          Wenn ein Benutzer ein Formular ausfüllt oder zwischen Optionen wählt, sollte ein entdeckter Fehler dem Benutzer klar gemeldet werden, zusammen mit dem Formularelement, auf das sich der Fehler bezieht.
         </p>
         <p>
-          Es wird empfohlen, clientseitige Fehlererkennung und -behandlung zu implementieren, über HTML-Formularvalidierungsfunktionen oder JavaScript, was auch immer für Ihre Situation am besten geeignet ist. Wenn ein Fehler erkannt wird, sollte eine intuitive Fehlermeldung neben dem fehlerhaften Formulareingabefeld angezeigt werden, um dem Benutzer zu helfen, seine Eingaben zu korrigieren. Für Benutzer von Bildschirmlesegeräten können Sie aria live-Regionen verwenden, um den Benutzer über eine Änderung auf der Seite zu informieren.
+          Es ist ratsam, eine clientseitige Fehlererkennung und -behandlung zu implementieren, entweder über HTML-Formularvalidierungsfunktionen und/oder JavaScript, je nachdem, was für Ihre Situation am besten geeignet ist. Wenn ein Fehler erkannt wird, sollte neben dem Formulareingabefeld, das den Fehler verursacht, eine intuitive Fehlermeldung angezeigt werden, um dem Benutzer zu helfen, seine Eingaben zu korrigieren. Für Bildschirmleser-Benutzer können Sie ARIA-Live-Regionen verwenden, um den Benutzer auf eine Änderung auf der Seite aufmerksam zu machen.
         </p>
         <div class="note notecard">
           <p>
-            <strong>Hinweis:</strong> Serverseitige Validierung sollte <em>immer</em> zusätzlich zur clientseitigen Validierung verwendet werden. Die clientseitige Validierung ist zu einfach zu deaktivieren oder auf andere Weise zu umgehen, daher kann sie nicht allein darauf verlassen werden.
+            <strong>Hinweis:</strong> Die serverseitige Validierung sollte <em>immer</em> zusammen mit der clientseitigen Validierung verwendet werden. Die clientseitige Validierung lässt sich zu leicht deaktivieren oder umgehen, daher kann nicht allein auf sie vertraut werden.
           </p>
         </div>
       </td>
       <td>
-        Siehe
-        <a href="/de/docs/Learn_web_development/Extensions/Forms/Form_validation"
-          >Formulardatenvalidierung</a
-        >
-        für umfassende Validierungsinformationen, und
-        <a
-          href="/de/docs/Learn_web_development/Core/Accessibility/WAI-ARIA_basics#dynamic_content_updates"
-          >WAI-ARIA: Dynamische Inhaltsaktualisierungen</a
-        >
-        für Informationen über Live-Regionen.
+        Siehe <a href="/de/docs/Learn_web_development/Extensions/Forms/Form_validation">Datenvalidierung von Formularen</a> für umfassende Validierungsinformationen und <a href="/de/docs/Learn_web_development/Core/Accessibility/WAI-ARIA_basics#dynamic_content_updates">WAI-ARIA: Dynamische Inhaltsaktualisierungen</a> für Informationen über Live-Regionen.
       </td>
     </tr>
     <tr>
-      <td>3.3.2 Labels oder Anweisungen (A)</td>
+      <td>3.3.2 Beschriftungen oder Anweisungen (A)</td>
       <td>
         <p>
-          Klare Anweisungen sollten bereitgestellt werden, wenn eine Dateneingabe erforderlich ist. Wenn eine kurze Anweisung oder Aufforderung erforderlich ist, können Sie {{htmlelement("label")}}-Elemente für einzelne Eingaben wie Name oder Alter verwenden, eine Kombination aus {{htmlelement("label")}}s und {{htmlelement("fieldset")}}s/{{htmlelement("legend")}}s für mehrere Eingaben, die zusammengehören (wie die Elemente eines Geburtsdatums oder einer Postadresse).
+          Klare Anweisungen sollten bereitgestellt werden, wenn eine Dateneingabe erforderlich ist. Wenn eine kurze Anweisung oder Eingabeaufforderung erforderlich ist, können Sie {{htmlelement("label")}}-Elemente für einzelne Eingaben wie Name oder Alter verwenden, eine Kombination aus {{htmlelement("label")}}s und {{htmlelement("fieldset")}}s/{{htmlelement("legend")}}s für mehrere Eingaben, die zusammengehören (wie die Elemente eines Geburtsdatums oder einer Postadresse).
         </p>
         <p>
-          Wenn eine komplexere Erklärung erforderlich ist, können Sie immer auch erläuternde Absätze einschließen, oder vielleicht müssen Sie versuchen, Ihre Formulare intuitiver zu gestalten.
+          Wenn eine komplexere Erklärung erforderlich ist, können Sie immer erklärende Absätze einfügen oder vielleicht müssen Sie versuchen, Ihre Formulare intuitiver zu gestalten.
         </p>
       </td>
       <td>
         <ul>
           <li>
-            <a
-              href="/de/docs/Learn_web_development/Core/Accessibility/HTML#use_meaningful_text_labels"
-              >Verwenden Sie bedeutungsvolle Text-Labels</a
-            >
+            <a href="/de/docs/Learn_web_development/Core/Accessibility/HTML#use_meaningful_text_labels">Verwendung bedeutungsvoller Textlabels</a>
           </li>
           <li>
-            <a href="/de/docs/Learn_web_development/Extensions/Forms/How_to_structure_a_web_form"
-              >Wie man ein HTML-Formular strukturiert</a
-            >
+            <a href="/de/docs/Learn_web_development/Extensions/Forms/How_to_structure_a_web_form">Wie man ein HTML-Formular strukturiert</a>
           </li>
           <li>
-            <a
-              href="/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Text_labels_and_names"
-              >Text-Labels und Namen</a
-            >
+            <a href="/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Text_labels_and_names">Textlabels und Namen</a>
           </li>
         </ul>
       </td>
     </tr>
     <tr>
-      <td>3.3.3 Fehler-Vorschlag (AA)</td>
+      <td>3.3.3 Fehlerhinweise (AA)</td>
       <td>
         <p>
-          Wenn ein Fehler erkannt wird und Vorschläge zur Korrektur bekannt sind, sollten diese dem Benutzer zur Verfügung gestellt werden (z.B. das Vorschlagen von Alternativen, wenn der Benutzer einen Benutzernamen auswählt und einen wählt, der bereits vergeben ist), es sei denn, dies würde ein Sicherheitsproblem (z.B. beim Eingeben eines Passworts) oder ein Kontextproblem (z.B. wenn sie versuchen, eine Frage in einer Quiz-App zu beantworten) verursachen.
+          Wenn ein Fehler erkannt wird und Korrekturvorschläge bekannt sind, stellen Sie diese dem Benutzer bereit (z.B. Alternativen vorschlagen, wenn der Benutzer einen Benutzernamen auswählt, der bereits vergeben ist), es sei denn, dies würde ein Sicherheitsproblem oder Kontextproblem verursachen (z.B. beim Eingeben eines Passworts).
         </p>
         <p>
-          In solchen Fällen, wenn dies angebracht ist, verwenden Sie wahrscheinlich eine Kombination aus JavaScript und serverseitiger Funktionalität, um zu überprüfen, ob der Eintrag korrekt ist, und wenn nicht, welche möglichen Vorschläge dem Benutzer gegeben werden können. Solche Vorschläge sollten nützlich im Kontext angezeigt werden, genau wie Fehlermeldungen (siehe 3.3.1).
+          In solchen Fällen wird, wo dies angemessen ist, wahrscheinlich eine Kombination aus JavaScript und serverseitigen Funktionen verwendet, um zu prüfen, ob der Eintrag korrekt ist, und wenn nicht, welche brauchbaren Vorschläge dem Benutzer gemacht werden können. Solche Vorschläge sollten nützlich im Kontext angezeigt werden, genau wie Fehlermeldungen (siehe 3.3.1).
         </p>
       </td>
-      <td>Noch keine Tutorial-Vorschläge.</td>
+      <td>Derzeit keine Tutorials vorgeschlagen.</td>
     </tr>
     <tr>
-      <td>3.3.4 Fehler-Prävention (Rechtlich, Finanziell, Daten) (AA)</td>
+      <td>3.3.4 Fehlervermeidung (Rechtlich, Finanziell, Daten) (AA)</td>
       <td>
         <p>
-          Im Fall von Formularen, die die Eingabe sensibler Daten erfordern (wie rechtliche Vereinbarungen, E-Commerce-Transaktionen oder persönliche Daten), sollte mindestens eines der folgenden Kriterien zutreffen:
+          Bei Formularen, die die Eingabe sensibler Daten erfordern (wie rechtliche Vereinbarungen, E-Commerce-Transaktionen oder persönliche Daten), sollte mindestens eines der folgenden zutreffen:
         </p>
         <ul>
-          <li>Einsendungen sind reversibel.</li>
+          <li>Einsendungen sind umkehrbar.</li>
           <li>
-            Daten werden auf Fehler überprüft, und dem Benutzer wird die Möglichkeit gegeben, diese zu korrigieren.
+            Daten werden auf Fehler überprüft und dem Benutzer wird Gelegenheit gegeben, sie zu korrigieren.
           </li>
           <li>
-            Es steht ein Mechanismus zur Verfügung, um Informationen vor der endgültigen Übermittlung zu bestätigen und zu korrigieren.
+            Ein Mechanismus steht zur Verfügung, um Informationen vor der endgültigen Einsendung zu bestätigen und zu korrigieren.
           </li>
         </ul>
       </td>
       <td>
         <p>
-          <strong>Reversibel</strong> — für jede Ansicht, in der Daten eingegeben werden können, stellen Sie eine äquivalente Ansicht bereit, die es ermöglicht, einen Eintrag zu bearbeiten oder sogar zu löschen, wie angebracht (siehe zum Beispiel
-          <a href="/de/docs/Learn_web_development/Extensions/Server-side/Django">Django-Web-Framework</a
-          >).
+          <strong>Umkehrbar</strong> — für jede Ansicht, in der Daten eingegeben werden können, bieten Sie eine äquivalente Ansicht, die es ermöglicht, einen Eintrag zu bearbeiten oder sogar zu löschen, je nach Bedarf (z.B. siehe <a href="/de/docs/Learn_web_development/Extensions/Server-side/Django">Django-Web-Framework</a>).
         </p>
         <p>
-          <strong>Datenüberprüfung</strong> — wie in 3.3.1 behandelt, sollte eine Kombination aus client- und serverseitiger Validierung verwendet werden, um Fehler zu erkennen und hilfreiche Meldungen an den Benutzer anzuzeigen, um ihm die Korrektur seiner Eingaben zu ermöglichen.
+          <strong>Datenüberprüfung</strong> — wie in 3.3.1 behandelt, sollte eine Kombination aus clientseitiger und serverseitiger Validierung verwendet werden, um Fehler zu erkennen und hilfreiche Meldungen anzuzeigen, die es dem Benutzer ermöglichen, seine Eingaben zu korrigieren.
         </p>
         <p>
-          <strong>Bestätigen und korrigieren</strong> — wo angebracht, sollte der Benutzer nach dem Ausfüllen einer Reihe von Formularfeldern zur Durchführung einer Aufgabe (wie dem Kauf eines Produkts) einen Bestätigungsbildschirm sehen, auf dem er seine Eingaben überprüfen und alles korrigieren kann, was nicht richtig aussieht. Dieses Muster wird häufig auf E-Commerce-Websites wie Amazon verwendet.
+          <strong>Bestätigen und korrigieren</strong> — wo dies angemessen ist, sollte der Benutzer nach dem Ausfüllen einer Reihe von Formularfeldern zur Erledigung einer Aufgabe (z.B. Kauf eines Produkts) eine Bestätigungsseite erhalten, auf der er seine Eingaben überprüfen und korrigieren kann, was nicht richtig aussieht. Dieses Muster wird häufig auf E-Commerce-Seiten wie Amazon verwendet.
         </p>
       </td>
     </tr>
     <tr>
-      <td>3.3.5 Kontext-sensitive Hilfe ist verfügbar (AAA)</td>
+      <td>3.3.5 Kontextsensitive Hilfe ist verfügbar (AAA)</td>
       <td>
-        Bereitstellen von Anweisungen und anderen angemessenen Hinweisen im Kontext, um das Ausfüllen und Einreichen von Formularen zu unterstützen.
+        Stellen Sie Anleitungen und andere passende Hinweise im Kontext bereit, um das Ausfüllen und Einsenden von Formularen zu erleichtern.
       </td>
       <td>
-        Dies baut wirklich auf 3.3.1 und anderen ähnlichen Kriterien auf, erfordert jedoch umfassendere kontextuelle Hilfeinformationen und -dienste, z.B. Bereitstellung eines speziellen Links zu einer Hilfeseite oder einem Dienst auf jeder Seite, Bereitstellung von Beispielen, die zeigen, wie eine erfolgreiche Eingabe aussehen sollte.
+        Dies baut wirklich nur auf 3.3.1 und anderen ähnlichen Kriterien auf, erfordert jedoch umfassendere kontextbezogene Hilfeinformationen und -dienste, z.B. Bereitstellung eines dedizierten Links zu einer Hilfeseite oder einem Hilfedienst auf jeder Seite, Bereitstellung von Beispielen, die zeigen, wie ein erfolgreiches Ausfüllen aussehen sollte.
       </td>
     </tr>
     <tr>
-      <td>3.3.6 Fehler-Prävention (Alle) (AAA)</td>
+      <td>3.3.6 Fehlervermeidung (Alle) (AAA)</td>
       <td>
-        Dieses Prinzip baut auf 3.3.4 auf und erweitert seine Anforderungen auf alle Benutzereingabesituationen, nicht nur solche, die sensible Daten betreffen.
+        Dieses Prinzip baut auf 3.3.4 auf und erweitert dessen Anforderungen auf alle Benutzereingabesituationen, nicht nur solche, die sensible Daten betreffen.
       </td>
-      <td>Wiederum siehe 3.3.4.</td>
+      <td>Siehe erneut 3.3.4.</td>
       </tr>
       <tr>
-      <td>3.3.7 Redundante Eingabe (A)</td>
+      <td> 3.3.7 Redundante Eingabe (A) </td>
       <td>
-      Informationen, die notwendig sind und die der Benutzer im gleichen Prozess oder Benutzerfluss zuvor eingegeben oder bereitgestellt hat, werden entweder automatisch vorausgefüllt oder dem Benutzer aus einer Liste von Optionen auswählbar angeboten, es sei denn, das Wiederholen der Informationen ist aus Sicherheitsgründen erforderlich, oder die Informationen sind nicht mehr gültig.
+      Informationen, die benötigt werden und die zuvor vom Benutzer im selben Prozess oder Benutzerfluss eingegeben oder bereitgestellt wurden, werden entweder automatisch ausgefüllt oder können vom Benutzer aus einer Liste von Optionen ausgewählt werden, es sei denn, eine erneute Eingabe der Informationen ist essentiell oder aus Sicherheitsgründen erforderlich oder die Informationen sind nicht mehr gültig.
       </td>
-      <td>Weitere Informationen finden Sie im <a href="https://www.w3.org/WAI/WCAG22/Understanding/redundant-entry">Verständnispunkt redundante Eingabe</a>.</td>
+      <td>Lesen Sie <a href="https://www.w3.org/WAI/WCAG22/Understanding/redundant-entry">Verständnis der redundanten Eingabe</a>, um mehr zu erfahren.</td>
       </tr>
       <tr>
-      <td>3.3.8 Zugängliche Authentifizierung (Minimum) (AA)</td>
-      <td>Kognitive Funktionstests, wie z.B. das Merken eines Passworts, sind in keinem Schritt eines Authentifizierungsprozesses erforderlich, es sei denn, es wird eine Alternative bereitgestellt, wie z.B. die Erkennung eines Objekts oder personalisierten Inhalts (z.B. Bilder, Videos und Audio), oder ein Mechanismus zur Unterstützung (z.B. Kopieren und Einfügen und automatisches Speichern von Passwörtern).</td>
-      <td> Weitere Informationen zu diesem Standard finden Sie in der <a href="https://www.w3.org/WAI/WCAG22/Understanding/accessible-authentication-minimum">Dokumentation zur zugänglichen Authentifizierung</a>.</td>
+      <td> 3.3.8 Zugängliche Authentifizierung (Minimum) (AA)</td>
+      <td>
+Für keinen Schritt in einem Authentifizierungsprozess sind kognitive Funktionstests, wie das Erinnern eines Passworts, erforderlich, es sei denn, es wird eine Alternative bereitgestellt, wie die Erkennung von Objekten oder persönlichen Inhalten (z.B. Bilder, Videos und Audio), oder ein Mechanismus zur Unterstützung (z.B. Kopieren und Einfügen und automatisches Speichern von Passwörtern).
+      </td>
+      <td>Lesen Sie die <a href="https://www.w3.org/WAI/WCAG22/Understanding/accessible-authentication-minimum">dokumentierte zugängliche Authentifizierung</a> für diesen Standard, um mehr zu erfahren.</td>
     </tr>
     <tr>
-      <td>3.3.9 Zugängliche Authentifizierung (Erweitert) (AAA)</td>
-      <td>Ein kognitiver Funktionstest, wie z.B. das Merken eines Passworts, darf in keinem Schritt eines Authentifizierungsprozesses ohne Bereitstellung einer Alternative erforderlich sein, die nicht auf einem kognitiven Funktionstest beruht oder eine Möglichkeit bietet, den Benutzer bei der Durchführung des kognitiven Funktionstests zu unterstützen. Authentifizierungstests, die den Benutzer erfordern, Objekte zu erkennen oder nicht-textuelle Inhalte zu identifizieren, die der Benutzer der Website bereitgestellt hat, sind zulässig.</td>
-<td>Weitere Informationen finden Sie in der <a href="https://www.w3.org/WAI/WCAG22/Understanding/accessible-authentication-enhanced">Erweiterte zugängliche Authentifizierungsdokumentation (AAA)</a>.</td>
+    <td> 3.3.9 Zugängliche Authentifizierung (Erweitert) (AAA)
+    </td>
+    <td>
+    Ein kognitiver Funktionstest, wie das Erinnern eines Passworts, darf für keinen Schritt in einem Authentifizierungsprozess ohne Bereitstellung einer Alternative erforderlich sein, die sich nicht auf einen kognitiven Funktionstest stützt, oder bietet einen Mechanismus, der den Benutzer bei der Durchführung des kognitiven Funktionstests unterstützt. Authentifizierungstests, die vom Benutzer verlangen, Objekte oder nicht-textuellen Inhalt zu erkennen, den der Benutzer der Webseite zur Verfügung gestellt hat, sind erlaubt.
+    </td>
+    <td>Lesen Sie die <a href="https://www.w3.org/WAI/WCAG22/Understanding/accessible-authentication-enhanced">erweiterte Dokumentation zur zugänglichen Authentifizierung (AAA)</a>, um mehr zu erfahren.</td>
     </tr>
   </tbody>
 </table>
 
 > [!NOTE]
-> Siehe auch die WCAG-Beschreibung für [Richtlinie 3.3 Eingabeunterstützung: Helfen Sie Benutzern Fehler zu vermeiden und zu korrigieren](https://www.w3.org/TR/WCAG21/#input-assistance).
+> Siehe auch die WCAG-Beschreibung für [Richtlinie 3.3 Eingabeunterstützung: Helfen Sie Benutzern, Fehler zu vermeiden und zu korrigieren](https://w3c.github.io/wcag/guidelines/22/#input-assistance).
 
 ## Siehe auch
 
 - [WCAG](/de/docs/Web/Accessibility/Guides/Understanding_WCAG)
 
-  1. [Wahrnehmbar](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable)
+  1. [Sichtbar](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable)
   2. [Bedienbar](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Operable)
-  3. Verstehbar
+  3. Verständlich
   4. [Robust](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Robust)

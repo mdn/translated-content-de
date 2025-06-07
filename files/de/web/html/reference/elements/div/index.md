@@ -2,12 +2,12 @@
 title: "<div>: Das Content-Division-Element"
 slug: Web/HTML/Reference/Elements/div
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: c1564acf160ef4b320fb7b89ab65211b9c50cf1b
 ---
 
 {{HTMLSidebar}}
 
-Das **`<div>`** [HTML](/de/docs/Web/HTML)-Element ist der generische Container für Flussinhalt. Es hat keine Auswirkung auf den Inhalt oder das Layout, bis es in irgendeiner Weise mit {{Glossary("CSS", "CSS")}} gestylt wird (z.B. das Styling wird direkt darauf angewendet, oder es wird ein Layoutmodell wie [Flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout) auf das Elternelement angewendet).
+Das **`<div>`**-[HTML](/de/docs/Web/HTML)-Element ist der generische Container für Flussinhalte. Es hat keine Auswirkung auf den Inhalt oder das Layout, bis es in irgendeiner Weise mit {{Glossary("CSS", "CSS")}} gestylt wird (z. B. wird das Styling direkt angewendet oder ein Layoutmodell wie [Flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout) auf das Elternelement angewendet).
 
 {{InteractiveExample("HTML Demo: &lt;div&gt;", "tabbed-standard")}}
 
@@ -39,22 +39,22 @@ Das **`<div>`** [HTML](/de/docs/Web/HTML)-Element ist der generische Container f
 }
 ```
 
-Als "reiner" Container repräsentiert das `<div>`-Element von sich aus nichts. Stattdessen wird es verwendet, um Inhalte zu gruppieren, damit sie leicht mit den Attributen [`class`](/de/docs/Web/HTML/Reference/Global_attributes/class) oder [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id) gestylt werden können. Es kann auch verwendet werden, um einen Teil eines Dokuments als in einer anderen Sprache geschrieben zu kennzeichnen (mittels des [`lang`](/de/docs/Web/HTML/Reference/Global_attributes/lang)-Attributs) und so weiter.
+Als "reiner" Container stellt das `<div>`-Element an sich nichts dar. Stattdessen wird es verwendet, um Inhalte zu gruppieren, damit sie einfach mit den Attributen [`class`](/de/docs/Web/HTML/Reference/Global_attributes/class) oder [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id) gestylt werden können, einen Abschnitt eines Dokuments als in einer anderen Sprache verfasst zu markieren (mittels des [`lang`](/de/docs/Web/HTML/Reference/Global_attributes/lang)-Attributs) usw.
 
 ## Attribute
 
-Dieses Element schließt die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes) ein.
+Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
 > [!NOTE]
 > Das `align`-Attribut ist veraltet; verwenden Sie es nicht mehr. Stattdessen sollten Sie CSS-Eigenschaften oder Techniken wie [CSS Grid](/de/docs/Web/CSS/CSS_grid_layout) oder [CSS Flexbox](/de/docs/Learn_web_development/Core/CSS_layout/Flexbox) verwenden, um `<div>`-Elemente auf der Seite auszurichten und zu positionieren.
 
-## Nutzungshinweise
+## Verwendungshinweise
 
 - Das `<div>`-Element sollte nur verwendet werden, wenn kein anderes semantisches Element (wie {{HTMLElement("article")}} oder {{HTMLElement("nav")}}) geeignet ist.
 
 ## Barrierefreiheit
 
-Das `<div>`-Element hat [eine implizite Rolle von `generic`](https://www.w3.org/TR/wai-aria-1.2/#generic), und nicht keine. Dies kann bestimmte ARIA-Kombinationsdeklarationen beeinflussen, die ein direktes Nachkommenselement mit einer bestimmten Rolle erwarten, um ordnungsgemäß zu funktionieren.
+Das `<div>`-Element hat [eine implizite Rolle von `generic`](https://w3c.github.io/aria/#generic), und nicht `none`. Dies kann bestimmte ARIA-Kombinationen beeinflussen, die von einem direkten Nachfahrenelement mit einer bestimmten Rolle erwarten, ordnungsgemäß zu funktionieren.
 
 ## Beispiele
 
@@ -74,7 +74,7 @@ Das `<div>`-Element hat [eine implizite Rolle von `generic`](https://www.w3.org/
 
 ### Ein gestyltes Beispiel
 
-Dieses Beispiel erstellt ein schattiertes Kästchen, indem ein Stil mit CSS auf das `<div>` angewendet wird. Beachten Sie die Verwendung des [`class`](/de/docs/Web/HTML/Reference/Global_attributes/class)-Attributs auf dem `<div>`, um den Stil namens `"shadowbox"` auf das Element anzuwenden.
+Dieses Beispiel erstellt eine Box mit Schatten, indem ein Stil auf das `<div>` mit CSS angewendet wird. Beachten Sie die Verwendung des [`class`](/de/docs/Web/HTML/Reference/Global_attributes/class)-Attributs beim `<div>`, um den Stil namens `"shadowbox"` auf das Element anzuwenden.
 
 #### HTML
 
@@ -112,34 +112,34 @@ Dieses Beispiel erstellt ein schattiertes Kästchen, indem ein Stil mit CSS auf 
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
-          >Flussinhalt</a
-        >, <a href="/de/docs/Web/HTML/Guides/Content_categories#palpable_content">fühlbarer Inhalt</a>.
+          >Flussinhalte</a
+        >, <a href="/de/docs/Web/HTML/Guides/Content_categories#palpable_content">fühlbare Inhalte</a>.
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubter Inhalt</th>
+      <th scope="row">Erlaubte Inhalte</th>
       <td>
         <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
-          >Flussinhalt</a
-        >.<br />Oder (im {{Glossary("WHATWG", "WHATWG")}} HTML): Wenn das Elternelement ein
+          >Flussinhalte</a
+        >.<br />Oder (in {{Glossary("WHATWG", "WHATWG")}} HTML): Wenn das Elternelement ein
         {{HTMLElement("dl")}}-Element ist: ein oder mehrere
         {{HTMLElement("dt")}}-Elemente gefolgt von einem oder mehreren
-        {{HTMLElement("dd")}}-Elementen, optional vermischt mit
+        {{HTMLElement("dd")}}-Elementen, optional durchmischt mit
         {{HTMLElement("script")}}- und
         {{HTMLElement("template")}}-Elementen.
       </td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl der Start- als auch der Endtag sind obligatorisch.</td>
+      <td>Keine, sowohl das Start- als auch das End-Tag sind obligatorisch.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
-          >Flussinhalt</a
-        > akzeptiert.<br />Oder (im {{Glossary("WHATWG", "WHATWG")}} HTML):
+          >Flussinhalte</a
+        > akzeptiert.<br />Oder (in {{Glossary("WHATWG", "WHATWG")}} HTML):
         {{HTMLElement("dl")}}-Element.
       </td>
     </tr>
@@ -175,4 +175,4 @@ Dieses Beispiel erstellt ein schattiertes Kästchen, indem ein Stil mit CSS auf 
 ## Siehe auch
 
 - Semantische Abschnittselemente: {{HTMLElement("section")}}, {{HTMLElement("article")}}, {{HTMLElement("nav")}}, {{HTMLElement("header")}}, {{HTMLElement("footer")}}
-- {{HTMLElement("span")}}-Element für Stil von Phraseninhalt
+- {{HTMLElement("span")}}-Element für das Styling von Phraseninhalt

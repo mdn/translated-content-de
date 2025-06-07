@@ -2,12 +2,12 @@
 title: line-height
 slug: Web/CSS/line-height
 l10n:
-  sourceCommit: 19c64b411b90f999565db9fdb815463ba66c9714
+  sourceCommit: c1564acf160ef4b320fb7b89ab65211b9c50cf1b
 ---
 
 {{CSSRef}}
 
-Die **`line-height`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt die Höhe einer Zeilenbox in horizontalen [Schreibmodi](/de/docs/Web/CSS/writing-mode#vertical-rl) fest. In vertikalen Schreibmodi legt sie die Breite einer Zeilenbox fest. Sie wird häufig verwendet, um den Abstand zwischen Textzeilen festzulegen. Bei Block-Elementen in horizontalen Schreibmodi bestimmt sie die bevorzugte Höhe der Zeilenboxen innerhalb des Elements und bei nicht-{{Glossary("Replaced_elements", "ersetzten")}} Inline-Elementen die Höhe, die zur Berechnung der Zeilenbox-Höhe verwendet wird.
+Die **`line-height`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Höhe einer Zeilenbox in horizontalen [Schreibmodi](/de/docs/Web/CSS/writing-mode#vertical-rl) fest. In vertikalen Schreibmodi legt sie die Breite einer Zeilenbox fest. Sie wird üblicherweise verwendet, um den Abstand zwischen Textzeilen festzulegen. Bei Block-Elementen in horizontalen Schreibmodi gibt sie die bevorzugte Höhe der Zeilenboxen innerhalb des Elements an, und bei nicht-{{Glossary("Replaced_elements", "ersetzten")}} Inline-Elementen gibt sie die Höhe an, die zur Berechnung der Zeilenboxhöhe verwendet wird.
 
 {{InteractiveExample("CSS Demo: line-height")}}
 
@@ -71,29 +71,29 @@ line-height: revert-layer;
 line-height: unset;
 ```
 
-Die `line-height`-Eigenschaft wird als einer der folgenden Werte angegeben:
+Die `line-height` Eigenschaft wird als eines der folgenden angegeben:
 
 - eine `<number>`
 - eine `<length>`
-- eine `<percentage>`
+- ein `<percentage>`
 - das Schlüsselwort `normal`.
 
 ### Werte
 
 - `normal`
-  - : Abhängig vom Benutzeragenten. Desktop-Browser (einschließlich Firefox) verwenden einen Standardwert von ungefähr **`1,2`**, abhängig von der `font-family` des Elements.
+  - : Hängt vom Benutzeragenten ab. Desktop-Browser (einschließlich Firefox) verwenden einen Standardwert von ungefähr **`1.2`**, abhängig von der `font-family` des Elements.
 - `<number>` (einheitslos)
-  - : Der verwendete Wert ist dieser einheitslose {{cssxref("&lt;number&gt;")}}, multipliziert mit der eigenen Schriftgröße des Elements. Der berechnete Wert ist derselbe wie der angegebene `<number>`. In den meisten Fällen **ist dies die bevorzugte Methode**, um `line-height` festzulegen und unerwartete Ergebnisse aufgrund von Vererbung zu vermeiden.
+  - : Der verwendete Wert ist diese einheitslose {{cssxref("&lt;number&gt;")}} multipliziert mit der eigenen Schriftgröße des Elements. Der berechnete Wert ist derselbe wie die angegebene `<number>`. In den meisten Fällen **ist dies die bevorzugte Methode**, um `line-height` festzulegen und unerwartete Ergebnisse aufgrund von Vererbung zu vermeiden.
 - `<length>`
-  - : Die angegebene {{cssxref("&lt;length&gt;")}} wird bei der Berechnung der Zeilenbox-Höhe verwendet. In **em**-Einheiten angegebene Werte können unerwartete Ergebnisse erzeugen (siehe Beispiel unten).
+  - : Die angegebene {{cssxref("&lt;length&gt;")}} wird in der Berechnung der Zeilenboxhöhe verwendet. Werte, die in **em**-Einheiten angegeben sind, können unerwartete Ergebnisse liefern (siehe Beispiel unten).
 - `<percentage>`
-  - : Relativ zur Schriftgröße des Elements selbst. Der berechnete Wert ist diese {{cssxref("&lt;percentage&gt;")}}, multipliziert mit der berechneten Schriftgröße des Elements. **Prozentzahlen** können unerwartete Ergebnisse erzeugen (siehe das zweite Beispiel unten).
+  - : Relativ zur Schriftgröße des Elements selbst. Der berechnete Wert ist dieser {{cssxref("&lt;percentage&gt;")}} multipliziert mit der berechneten Schriftgröße des Elements. **Prozentwerte** können unerwartete Ergebnisse liefern (siehe das zweite Beispiel unten).
 
 ## Barrierefreiheit
 
-Verwenden Sie für `line-height` einen Mindestwert von `1,5` für den Hauptabsatzinhalt. Dies hilft Menschen mit Sehschwächen sowie Menschen mit kognitiven Beeinträchtigungen wie Dyslexie. Wenn die Seite gezoomt wird, um die Schriftgröße zu erhöhen, stellt ein einheitsloser Wert sicher, dass die Zeilenhöhe proportional skaliert wird.
+Verwenden Sie einen Mindestwert von `1.5` für `line-height` für den Hauptabsatzinhalt. Dies hilft Menschen mit Sehbehinderungen sowie Menschen mit kognitiven Beeinträchtigungen wie Legasthenie. Wenn die Seite vergrößert wird, um die Textgröße zu erhöhen, stellt die Verwendung eines einheitslosen Wertes sicher, dass sich die Zeilenhöhe proportional skaliert.
 
-[W3C Verständnis von WCAG 2.1](https://www.w3.org/TR/WCAG21/#visual-presentation)
+[W3C Understanding WCAG 2.2](https://w3c.github.io/wcag/guidelines/22/#visual-presentation)
 
 ## Formale Definition
 
@@ -105,7 +105,7 @@ Verwenden Sie für `line-height` einen Mindestwert von `1,5` für den Hauptabsat
 
 ## Beispiele
 
-### Grundlegendes Beispiel
+### Einfaches Beispiel
 
 ```css
 /* All rules below have the same resultant line height */
@@ -137,11 +137,11 @@ div {
 }
 ```
 
-Es ist oft bequemer, `line-height` mit dem {{cssxref("font")}}-Shorthand festzulegen, wie oben gezeigt, aber dies erfordert, dass die `font-family`-Eigenschaft ebenfalls angegeben wird.
+Es ist oft bequemer, `line-height` unter Verwendung der {{cssxref("font")}} Kurzschreibweise einzustellen, wie oben gezeigt, aber dies erfordert, dass die `font-family` Eigenschaft ebenfalls angegeben wird.
 
-### Bevorzugen Sie einheitslose Zahlen für `line-height`-Werte
+### Bevorzugen Sie einheitslose Zahlen für `line-height` Werte
 
-Dieses Beispiel zeigt, warum es besser ist, {{cssxref("&lt;number&gt;")}}-Werte anstelle von {{cssxref("&lt;length&gt;")}}-Werten zu verwenden. Wir werden zwei {{HTMLElement("div")}}-Elemente verwenden. Das erste Div, mit dem grünen Rand, verwendet einen einheitslosen `line-height`-Wert. Das zweite Div, mit dem roten Rand, verwendet einen `line-height`-Wert in `em`.
+Dieses Beispiel zeigt, warum es besser ist, {{cssxref("&lt;number&gt;")}} Werte statt {{cssxref("&lt;length&gt;")}} Werte zu verwenden. Wir werden zwei {{HTMLElement("div")}} Elemente verwenden. Das erste div mit dem grünen Rand verwendet einen einheitslosen `line-height` Wert. Das zweite div mit dem roten Rand verwendet einen in `em`s definierten `line-height` Wert.
 
 #### HTML
 
@@ -189,9 +189,9 @@ h1 {
 
 {{EmbedLiveSample('Prefer_unitless_numbers_for_line-height_values', 600, 200)}}
 
-### Abstand zwischen Linien in vertikalen Schreibmodi
+### Abstand zwischen Zeilen in vertikalen Schreibmodi
 
-Die `line-height`-Eigenschaft kann verwendet werden, um den Abstand zwischen vertikalen Linien in vertikalen Schreibmodi anzupassen.
+Die `line-height` Eigenschaft kann verwendet werden, um den Abstand zwischen vertikalen Linien in vertikalen Schreibmodi anzupassen.
 
 ```html hidden
 <div class="haiku">

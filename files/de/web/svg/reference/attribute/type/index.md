@@ -2,18 +2,18 @@
 title: type
 slug: Web/SVG/Reference/Attribute/type
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: c1564acf160ef4b320fb7b89ab65211b9c50cf1b
 ---
 
-Das `type`-Attribut ist ein generisches Attribut und hat unterschiedliche Bedeutungen basierend auf dem Kontext, in dem es verwendet wird.
+Das Attribut `type` ist ein generisches Attribut, dessen Bedeutung je nach Kontext, in dem es verwendet wird, unterschiedlich ist.
 
-- Für das {{SVGElement("animateTransform")}}-Element definiert es die Art der Transformation, deren Werte sich im Laufe der Zeit ändern.
-- Für das {{SVGElement("feColorMatrix")}}-Element gibt es die Art der Matrixoperation an. Das Schlüsselwort `matrix` zeigt an, dass eine vollständige 5x4-Matrix von Werten bereitgestellt wird. Die anderen Schlüsselwörter sind bequeme Abkürzungen, um gängige Farboperationen auszuführen, ohne eine vollständige Matrix anzugeben.
-- Für die Elemente {{SVGElement("feFuncR")}}, {{SVGElement("feFuncG")}}, {{SVGElement("feFuncB")}} und {{SVGElement("feFuncA")}} gibt es die Art der Komponententransferfunktion an.
-- Für das {{SVGElement("feTurbulence")}}-Element gibt es an, ob die Filterprimitive eine Rausch- oder Turbulenzfunktion ausführen soll.
-- Für die {{SVGElement("style")}}- und {{SVGElement("script")}}-Elemente definiert es den Inhaltstyp des Elements.
+- Für das Element {{SVGElement("animateTransform")}} definiert es die Art der Transformation, deren Werte sich im Laufe der Zeit ändern.
+- Für das Element {{SVGElement("feColorMatrix")}} gibt es die Art der Matrixoperation an. Das Schlüsselwort `matrix` zeigt an, dass eine vollständige 5x4-Matrix von Werten bereitgestellt wird. Die anderen Schlüsselwörter stellen bequeme Abkürzungen dar, um häufig genutzte Farboperationen durchführen zu können, ohne eine vollständige Matrix anzugeben.
+- Für die Elemente {{SVGElement("feFuncR")}}, {{SVGElement("feFuncG")}}, {{SVGElement("feFuncB")}} und {{SVGElement("feFuncA")}} zeigt es die Art der Komponentenübertragungsfunktion an.
+- Für das Element {{SVGElement("feTurbulence")}} gibt es an, ob die Filterprimitive eine Rausch- oder Turbulenzfunktion ausführen soll.
+- Für die Elemente {{SVGElement("style")}} und {{SVGElement("script")}} definiert es den Inhaltstyp des Elements.
 
-Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
+Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 - {{SVGElement("animateTransform")}}
 - {{SVGElement("feColorMatrix")}}
@@ -27,7 +27,7 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 ## Verwendungskontext
 
-### Für das &lt;animateTransform&gt;-Element
+### Für die &lt;animateTransform&gt;-Elemente
 
 SVG-Element: {{SVGElement("animateTransform")}}
 
@@ -52,8 +52,8 @@ SVG-Element: {{SVGElement("animateTransform")}}
       <th scope="row">Normatives Dokument</th>
       <td>
         <a
-          href="https://www.w3.org/TR/SVG11/animate.html#AnimateTransformElementTypeAttribute"
-          >SVG 1.1 (2. Ausgabe)</a
+          href="https://svgwg.org/specs/animations/#AnimateTransformElementTypeAttribute"
+          >Scalable Vector Graphics (SVG) 2</a
         >
       </td>
     </tr>
@@ -85,9 +85,9 @@ SVG-Element: {{SVGElement("feColorMatrix")}}
       <th scope="row">Normatives Dokument</th>
       <td>
         <a
-          href="https://www.w3.org/TR/SVG11/filters.html#feColorMatrixTypeAttribute"
+          href="https://drafts.fxtf.org/filter-effects/#element-attrdef-fecolormatrix-type"
           rel="external"
-          >SVG 1.1 (2. Ausgabe)</a
+          >Filter Effects Module Level 1</a
         >
       </td>
     </tr>
@@ -119,9 +119,9 @@ SVG-Elemente: {{SVGElement("feFuncR")}}, {{SVGElement("feFuncG")}}, {{SVGElement
       <th scope="row">Normatives Dokument</th>
       <td>
         <a
-          href="https://www.w3.org/TR/SVG11/filters.html#feComponentTransferTypeAttribute"
+          href="https://drafts.fxtf.org/filter-effects/#element-attrdef-fecomponenttransfer-type"
           rel="external"
-          >SVG 1.1 (2. Ausgabe)</a
+          >Filter Effects Module Level 1</a
         >
       </td>
     </tr>
@@ -152,9 +152,9 @@ SVG-Element: {{SVGElement("feTurbulence")}}
       <th scope="row">Normatives Dokument</th>
       <td>
         <a
-          href="https://www.w3.org/TR/SVG11/filters.html#feTurbulenceTypeAttribute"
+          href="https://drafts.fxtf.org/filter-effects/#element-attrdef-feturbulence-type"
           rel="external"
-          >SVG 1.1 (2. Ausgabe)</a
+          >Filter Effects Module Level 1</a
         >
       </td>
     </tr>
@@ -183,13 +183,13 @@ SVG-Elemente: {{SVGElement("style")}}, {{SVGElement("script")}}
       <th scope="row">Normatives Dokument</th>
       <td>
         <a
-          href="https://www.w3.org/TR/SVG11/script.html#ScriptElementTypeAttribute"
+          href="https://svgwg.org/svg2-draft/interact.html#ScriptElementTypeAttribute"
           rel="external"
-          >SVG 1.1 (2. Ausgabe) : script</a
+          >Scalable Vector Graphics (SVG) 2</a
         ><br /><a
-          href="https://www.w3.org/TR/SVG11/styling.html#StyleElementTypeAttribute"
+          href="https://svgwg.org/svg2-draft/styling.html#StyleElementTypeAttribute"
           rel="external"
-          >SVG 1.1 (2. Ausgabe) : style</a
+          >Scalable Vector Graphics (SVG) 2</a
         >
       </td>
     </tr>

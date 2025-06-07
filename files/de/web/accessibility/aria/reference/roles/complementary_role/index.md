@@ -1,12 +1,12 @@
 ---
-title: "ARIA: complementary Rolle"
+title: "ARIA: complementary role"
 short-title: complementary
 slug: Web/Accessibility/ARIA/Reference/Roles/complementary_role
 l10n:
-  sourceCommit: a8b25483994fa47cf949b432ddf34a6bce2ddb2e
+  sourceCommit: c1564acf160ef4b320fb7b89ab65211b9c50cf1b
 ---
 
-Die `complementary` [Landmark-Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles#3._landmark_roles) wird verwendet, um einen unterstützenden Abschnitt zu kennzeichnen, der sich auf den Hauptinhalt bezieht, jedoch auch allein stehen kann, wenn er getrennt wird. Diese Abschnitte werden häufig als Seitenleisten oder Hinweiskästen präsentiert. Wenn möglich, verwenden Sie stattdessen das [HTML \<aside>-Element](/de/docs/Web/HTML/Reference/Elements/aside).
+Die `complementary`-Rolle [landmark role](/de/docs/Web/Accessibility/ARIA/Reference/Roles#3._landmark_roles) wird verwendet, um einen unterstützenden Abschnitt zu kennzeichnen, der sich auf den Hauptinhalt bezieht, aber auch eigenständig bestehen kann. Diese Abschnitte werden häufig als Seitenleisten oder Hinweisboxen dargestellt. Wenn möglich, verwenden Sie das [HTML-Element \<aside>](/de/docs/Web/HTML/Reference/Elements/aside).
 
 ```html
 <div role="complementary">
@@ -19,10 +19,10 @@ Dies ist eine Seitenleiste, die Links zu Projektsponsoren enthält.
 
 ## Beschreibung
 
-Die `complementary` Rolle ist [eine Landmark](/de/docs/Web/Accessibility/ARIA/Guides/Techniques#landmark_roles) Rolle. Landmarks können von unterstützenden Technologien verwendet werden, um schnell große Abschnitte des Dokuments zu identifizieren und zu navigieren. Inhalte, die innerhalb eines Containers mit der `complementary` Landmark-Rolle aufgeführt sind, sollten Sinn ergeben, auch wenn sie vom Hauptinhalt des Dokuments getrennt sind.
+Die `complementary`-Rolle ist [eine Landmarke](/de/docs/Web/Accessibility/ARIA/Guides/Techniques#landmark_roles). Landmarken können von unterstützenden Technologien verwendet werden, um große Abschnitte des Dokuments schnell zu identifizieren und zu navigieren. Der Inhalt, der sich in einem Container mit der `complementary`-Landmarkenrolle befindet, sollte auch dann sinnvoll sein, wenn er vom Hauptinhalt des Dokuments getrennt ist.
 
 > [!NOTE]
-> Die Verwendung des {{HTMLElement('aside')}}-Elements wird automatisch mitteilen, dass ein Abschnitt die Rolle `complementary` hat. Entwickler sollten immer die korrekten semantischen HTML-Elemente der Verwendung von ARIA vorziehen.
+> Die Verwendung des {{HTMLElement('aside')}}-Elements kommuniziert automatisch, dass ein Abschnitt die Rolle `complementary` hat. Entwickler sollten immer die Verwendung des korrekten semantischen HTML-Elements gegenüber ARIA bevorzugen.
 
 ## Beispiele
 
@@ -43,21 +43,21 @@ Die `complementary` Rolle ist [eine Landmark](/de/docs/Web/Accessibility/ARIA/Gu
 </div>
 ```
 
-## Barrierefreiheitsbedenken
+## Barrierefreiheit
 
-[Landmark-Rollen](/de/docs/Web/Accessibility/ARIA/Guides/Techniques#landmark_roles) sollen sparsam verwendet werden, um größere Gesamtabschnitte eines Dokuments zu identifizieren. Die Verwendung zu vieler Landmark-Rollen kann in Screenreadern "Geräusche" erzeugen, die es schwierig machen, das Gesamtlayout der Seite zu verstehen.
+[Landmarkenrollen](/de/docs/Web/Accessibility/ARIA/Guides/Techniques#landmark_roles) sollten sparsam verwendet werden, um größere allgemeine Abschnitte des Dokuments zu identifizieren. Die Verwendung zu vieler Landmarkenrollen kann "Rauschen" in Bildschirmlesegeräten erzeugen, was es schwierig macht, das Gesamtlayout der Seite zu verstehen.
 
-## Beste Praktiken
+## Best Practices
 
-### HTML bevorzugen
+### Bevorzugen Sie HTML
 
-Die Verwendung des {{HTMLElement('aside')}}-Elements wird automatisch mitteilen, dass ein Abschnitt die Rolle `complementary` hat. Wenn möglich, ziehen Sie die Verwendung vor.
+Die Verwendung des {{HTMLElement('aside')}}-Elements kommuniziert automatisch, dass ein Abschnitt die Rolle `complementary` hat. Verwenden Sie es nach Möglichkeit bevorzugt.
 
-### Landmarks kennzeichnen
+### Markieren von Landmarken
 
-#### Mehrere Landmarks
+#### Mehrfache Landmarken
 
-Wenn es in einem Dokument mehr als eine `complementary`-Landmark-Rolle oder ein {{HTMLElement('aside')}}-Element gibt, versehen Sie jede Landmark mit einem Label unter Verwendung des [`aria-label`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label) Attributs oder, wenn das aside einen geeignet beschreibenden Titel hat, verweisen Sie darauf mit dem [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby) Attribut. Dieses Label ermöglicht es einem Benutzer von unterstützender Technologie, schnell den Zweck jeder Landmark zu verstehen.
+Wenn es in einem Dokument mehr als eine `complementary`-Landmarkenrolle oder ein {{HTMLElement('aside')}}-Element gibt, versehen Sie jedes Landmarke mit einem Label mithilfe des [`aria-label`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label)-Attributs oder, wenn das `aside` einen passenden beschreibenden Titel hat, verweisen Sie darauf mit dem [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby)-Attribut. Dieses Label ermöglicht es einem Benutzer von unterstützenden Technologien, schnell den Zweck jeder Landmarke zu verstehen.
 
 ```html
 <aside aria-label="Note about usage">
@@ -73,13 +73,13 @@ Wenn es in einem Dokument mehr als eine `complementary`-Landmark-Rolle oder ein 
 
 #### Redundante Beschreibungen
 
-Screenreader kündigen den Typ der Rolle an, die die Landmark ist. Aus diesem Grund müssen Sie in ihrem Label nicht beschreiben, was die Landmark ist. Beispiel: Eine Deklaration von `role="complementary"` mit einem `aria-label="Sidebar"` könnte redundant als „complementary sidebar“ angekündigt werden.
+Bildschirmlesegeräte kündigen die Art der Rolle der Landmarke an. Daher müssen Sie die Landmarke in ihrem Label nicht beschreiben. Beispielsweise kann eine Deklaration von `role="complementary"` mit einem `aria-label="Sidebar"` redundant als "complementary sidebar" angekündigt werden.
 
 ### Zusätzliche Vorteile
 
-Bestimmte Technologien wie Browser-Erweiterungen können Listen aller auf einer Seite vorhandenen Landmark-Rollen generieren, sodass auch Nicht-Screenreader-Benutzer große Abschnitte des Dokuments schnell identifizieren und navigieren können.
+Bestimmte Technologien, wie z.B. Browser-Erweiterungen, können Listen aller auf einer Seite vorhandenen Landmarkenrollen generieren, was es auch Nicht-Bildschirmleser-Benutzern ermöglicht, große Abschnitte des Dokuments schnell zu identifizieren und zu navigieren.
 
-- [Landmarks Browser-Erweiterung](https://matatk.agrip.org.uk/landmarks/)
+- [Landmarks-Browser-Erweiterung](https://matatk.agrip.org.uk/landmarks/)
 
 ## Spezifikationen
 
@@ -88,9 +88,8 @@ Bestimmte Technologien wie Browser-Erweiterungen können Listen aller auf einer 
 ## Siehe auch
 
 - [\<aside>: Das Aside-Element](/de/docs/Web/HTML/Reference/Elements/aside)
-- [complementary (Rolle): Accessible Rich Internet Applications (WAI-ARIA) 1.1](https://www.w3.org/TR/wai-aria/#complementary)
 - [Verwendung von HTML-Abschnitten und -Gliederungen](/de/docs/Web/HTML/Reference/Elements/Heading_Elements)
-- [Landmark-Rollen: Verwendung von ARIA: Rollen, Zustände und Eigenschaften](/de/docs/Web/Accessibility/ARIA/Guides/Techniques#landmark_roles)
+- [Landmarkenrollen: Verwendung von ARIA: Roles, States und Properties](/de/docs/Web/Accessibility/ARIA/Guides/Techniques#landmark_roles)
 - [Verwendung von WAI-ARIA Landmarks – 2013 | The Paciello Group](https://www.tpgi.com/using-wai-aria-landmarks-2013/)
-- [Zugängliche Landmarks | scottohara.me](https://www.scottohara.me/blog/2018/03/03/landmarks.html)
+- [Accessible Landmarks | scottohara.me](https://www.scottohara.me/blog/2018/03/03/landmarks.html)
 - [Aside Revisited | HTML5 Doctor](https://html5doctor.com/aside-revisited/)
