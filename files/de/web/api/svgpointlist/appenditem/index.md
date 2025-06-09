@@ -3,12 +3,12 @@ title: "SVGPointList: appendItem() Methode"
 short-title: appendItem()
 slug: Web/API/SVGPointList/appendItem
 l10n:
-  sourceCommit: 00f46adb5616d826821d63b11eac285faf1cf4a5
+  sourceCommit: 43a8839abdfb01d4388f11a028582bec4e7ead18
 ---
 
 {{APIRef("SVG")}}
 
-Die **`appendItem()`** Methode der [`SVGPointList`](/de/docs/Web/API/SVGPointList) Schnittstelle fügt einen [`point`](/de/docs/Web/API/SVGPoint) am Ende der Liste hinzu.
+Die **`appendItem()`**-Methode der [`SVGPointList`](/de/docs/Web/API/SVGPointList)-Schnittstelle fügt ein [`DOMPoint`](/de/docs/Web/API/DOMPoint) am Ende der Liste hinzu.
 
 ## Syntax
 
@@ -19,11 +19,11 @@ appendItem(obj)
 ### Parameter
 
 - `obj`
-  - : Ein [`SVGPoint`](/de/docs/Web/API/SVGPoint)-Objekt, das die Koordinaten des anzufügenden Punktes enthält.
+  - : Ein [`DOMPoint`](/de/docs/Web/API/DOMPoint)-Objekt, das die Koordinaten des anzuhängenden Punkts enthält.
 
 ### Rückgabewert
 
-Das angefügte [`SVGPoint`](/de/docs/Web/API/SVGPoint)-Objekt.
+Das [`DOMPoint`](/de/docs/Web/API/DOMPoint)-Objekt, das hinzugefügt wurde.
 
 ### Ausnahmen
 
@@ -32,7 +32,7 @@ Das angefügte [`SVGPoint`](/de/docs/Web/API/SVGPoint)-Objekt.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt ein SVG, das ein {{SVGElement("polyline")}} mit fünf Koordinatenpaaren enthält. Ein neues [`SVGPoint`](/de/docs/Web/API/SVGPoint) wird erstellt und der Liste hinzugefügt.
+Das folgende Beispiel zeigt ein SVG, das eine {{SVGElement("polyline")}} mit fünf Koordinatenpaaren enthält. Ein neuer [`DOMPoint`](/de/docs/Web/API/DOMPoint) wird erstellt und zur Liste hinzugefügt.
 
 ```html
 <svg id="svg" viewBox="-10 -10 120 120" xmlns="http://www.w3.org/2000/svg">
@@ -45,11 +45,11 @@ Das folgende Beispiel zeigt ein SVG, das ein {{SVGElement("polyline")}} mit fün
 ```
 
 ```js
-let example = document.getElementById("example");
-let svgPoint = document.getElementById("svg").createSVGPoint();
-svgPoint.y = 10;
-svgPoint.x = 10;
-console.log(example.points.appendItem(svgPoint));
+const example = document.getElementById("example");
+const point = document.getElementById("svg").createSVGPoint();
+point.y = 10;
+point.x = 10;
+console.log(example.points.appendItem(point));
 ```
 
 ## Spezifikationen

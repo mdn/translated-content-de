@@ -2,32 +2,31 @@
 title: Listen
 slug: Learn_web_development/Core/Structuring_content/Lists
 l10n:
-  sourceCommit: 37e3b0f8b54e70dd13aed1f7a8dc8378683e547e
+  sourceCommit: 6ae99fce9ad06ef87a294409d2e2f0d2bdce857f
 ---
 
 {{PreviousMenuNext("Learn_web_development/Core/Structuring_content/Emphasis_and_importance", "Learn_web_development/Core/Structuring_content/Structuring_documents", "Learn_web_development/Core/Structuring_content")}}
 
-Nun wenden wir uns den Listen zu. Listen sind überall im Leben zu finden—von Ihrer Einkaufsliste über die Liste der Anweisungen, denen Sie unbewusst folgen, um jeden Tag zu Ihrem Haus zu gelangen, bis hin zu den Anleitungen, denen Sie in diesen Tutorials folgen! Es überrascht Sie möglicherweise nicht, dass HTML eine praktische Reihe von Elementen hat, die es uns ermöglichen, verschiedene Arten von Listen zu definieren. Im Web gibt es drei Arten von Listen: ungeordnete, geordnete und Definitionslisten. Diese Lektion zeigt Ihnen, wie Sie die verschiedenen Arten verwenden.
+Wenden wir uns nun den Listen zu. Listen sind überall im Leben zu finden – von Ihrer Einkaufsliste bis hin zur Liste der Anweisungen, denen Sie unbewusst folgen, um jeden Tag zu Ihrem Haus zu gelangen, bis hin zu den Listen von Anweisungen, denen Sie in diesen Tutorials folgen! Es überrascht Sie vielleicht nicht, dass HTML eine praktische Menge an Elementen bietet, mit denen wir verschiedene Arten von Listen definieren können. Im Web haben wir drei Arten von Listen: ungeordnete, geordnete und Definitionslisten. Diese Lektion zeigt Ihnen, wie Sie die unterschiedlichen Typen verwenden.
 
 <table>
   <tbody>
     <tr>
       <th scope="row">Voraussetzungen:</th>
       <td>
-        Grundkenntnisse in HTML, wie im
+        Grundkenntnisse in HTML, wie sie in
         <a href="/de/docs/Learn_web_development/Core/Structuring_content/Basic_HTML_syntax"
           >Grundlegende HTML-Syntax</a
-        >
-        behandelt.
+        >behandelt werden.
       </td>
     </tr>
     <tr>
       <th scope="row">Lernziele:</th>
       <td>
         <ul>
-          <li>Die HTML-Struktur für die drei Arten von Listen — ungeordnet, geordnet und Beschreibung.</li>
+          <li>Die HTML-Struktur für die drei Arten von Listen — ungeordnet, geordnet und Definition.</li>
           <li>Die korrekte Verwendung für jeden Listentyp.</li>
-          <li>Die breiteren Anwendungsfälle von Listen, wie z.B. Navigationsmenüs.</li>
+          <li>Die breiteren Anwendungsbereiche von Listen, wie Navigationsmenüs.</li>
         </ul>
       </td>
     </tr>
@@ -36,7 +35,7 @@ Nun wenden wir uns den Listen zu. Listen sind überall im Leben zu finden—von 
 
 ## Ungeordnete Listen
 
-Ungeordnete Listen werden verwendet, um Listen von Elementen zu kennzeichnen, bei denen die Reihenfolge der Elemente keine Rolle spielt. Nehmen wir als Beispiel eine Einkaufsliste:
+Ungeordnete Listen werden verwendet, um Listen von Elementen zu markieren, bei denen die Reihenfolge der Elemente keine Rolle spielt. Nehmen wir als Beispiel eine Einkaufsliste:
 
 ```plain
 milk
@@ -45,8 +44,7 @@ bread
 hummus
 ```
 
-In diesem Beispiel können die Elemente in beliebiger Reihenfolge stehen. Um diese Liste in HTML zu erstellen, fassen wir zunächst die gesamte Liste in ein {{htmlelement("ul")}}-Element (ungeordnete Liste) ein.
-Dann fassen wir jedes Element in ein {{htmlelement("li")}}-Element (Listenelement) ein:
+In diesem Beispiel können die Artikel in beliebiger Reihenfolge vorliegen. Um diese Liste in HTML zu erstellen, umschließen wir zunächst die gesamte Liste mit einem {{htmlelement("ul")}}-Element (ungeordnete Liste). Dann umschließen wir jedes Element mit einem {{htmlelement("li")}}-Element (Listenelement):
 
 ```html
 <ul>
@@ -57,143 +55,24 @@ Dann fassen wir jedes Element in ein {{htmlelement("li")}}-Element (Listenelemen
 </ul>
 ```
 
-### Aktives Lernen: Markieren einer ungeordneten Liste
+### Eine ungeordnete Liste markieren
 
-Versuchen Sie, das Live-Beispiel unten zu bearbeiten, um Ihre eigene HTML-unbestellte Liste zu erstellen.
+Um Ihnen etwas Übung zu verschaffen, möchten wir, dass Sie die vorherige Liste selbst markieren:
 
-```html hidden
-<h2>Live output</h2>
+1. Klicken Sie auf **"Play"** in der gerenderten Code-Ausgabe unten, um das Beispiel im MDN Playground zu bearbeiten.
+2. Verwandeln Sie die einzelnen Textelemente in eine ungeordnete Liste.
 
-<div class="output" style="min-height: 50px;"></div>
+Wenn Sie einen Fehler machen, können Sie Ihre Arbeit mit der _Zurücksetzen_-Schaltfläche im MDN Playground löschen. Wenn Sie nicht weiterkommen, schauen Sie sich noch einmal das vorherige Code-Snippet an.
 
-<h2>Editable code</h2>
-<p class="a11y-label">
-  Press Esc to move focus away from the code area (Tab inserts a tab character).
-</p>
-
-<textarea id="code" class="input" style="min-height: 100px; width: 95%">
-milk
-eggs
-bread
-hummus
-</textarea>
-
-<div class="playable-buttons">
-  <input id="reset" type="button" value="Reset" />
-  <input id="solution" type="button" value="Show solution" />
-</div>
+```html hidden live-sample___lists_1
+milk eggs bread hummus
 ```
 
-```css hidden
-html {
-  font-family: sans-serif;
-}
+{{ EmbedLiveSample('lists_1', "100%", 60) }}
 
-h2 {
-  font-size: 16px;
-}
+## Geordnete Listen
 
-.a11y-label {
-  margin: 0;
-  text-align: right;
-  font-size: 0.7rem;
-  width: 98%;
-}
-
-body {
-  margin: 10px;
-  background: #f5f9fa;
-}
-```
-
-```js hidden
-const textarea = document.getElementById("code");
-const reset = document.getElementById("reset");
-const solution = document.getElementById("solution");
-const output = document.querySelector(".output");
-const code = textarea.value;
-let userEntry = textarea.value;
-
-function updateCode() {
-  output.innerHTML = textarea.value;
-}
-
-const htmlSolution =
-  "<ul>\n<li>milk</li>\n<li>eggs</li>\n<li>bread</li>\n<li>hummus</li>\n</ul>";
-let solutionEntry = htmlSolution;
-
-reset.addEventListener("click", () => {
-  textarea.value = code;
-  userEntry = textarea.value;
-  solutionEntry = htmlSolution;
-  solution.value = "Show solution";
-  updateCode();
-});
-
-solution.addEventListener("click", () => {
-  if (solution.value === "Show solution") {
-    textarea.value = solutionEntry;
-    solution.value = "Hide solution";
-  } else {
-    textarea.value = userEntry;
-    solution.value = "Show solution";
-  }
-  updateCode();
-});
-
-textarea.addEventListener("input", updateCode);
-window.addEventListener("load", updateCode);
-
-// stop tab key tabbing out of textarea and
-// make it write a tab at the caret position instead
-
-textarea.onkeydown = (e) => {
-  if (e.code === "Tab") {
-    e.preventDefault();
-    insertAtCaret("\t");
-  }
-
-  if (e.code === "Escape") {
-    textarea.blur();
-  }
-};
-
-function insertAtCaret(text) {
-  const scrollPos = textarea.scrollTop;
-  let caretPos = textarea.selectionStart;
-
-  const front = textarea.value.substring(0, caretPos);
-  const back = textarea.value.substring(
-    textarea.selectionEnd,
-    textarea.value.length,
-  );
-  textarea.value = front + text + back;
-  caretPos += text.length;
-  textarea.selectionStart = caretPos;
-  textarea.selectionEnd = caretPos;
-  textarea.focus();
-  textarea.scrollTop = scrollPos;
-}
-
-// Update the saved userCode every time the user updates the text area code
-textarea.onkeyup = () => {
-  // We only want to save the state when the user code is being shown,
-  // not the solution, so that solution is not saved over the user code
-  if (solution.value === "Show solution") {
-    userEntry = textarea.value;
-  } else {
-    solutionEntry = textarea.value;
-  }
-
-  updateCode();
-};
-```
-
-{{ EmbedLiveSample('Active_learning_Marking_up_an_unordered_list', 700, 400, "", "") }}
-
-## Geordnet
-
-Geordnete Listen sind Listen, bei denen die Reihenfolge der Elemente _tatsächlich_ wichtig ist. Nehmen wir ein Set von Anweisungen als Beispiel:
+Geordnete Listen sind Listen, bei denen die Reihenfolge der Elemente _wichtig_ ist. Nehmen wir als Beispiel eine Wegbeschreibung:
 
 ```plain
 Drive to the end of the road
@@ -203,7 +82,7 @@ Turn left at the third roundabout
 The school is on your right, 300 meters up the road
 ```
 
-Die Markup-Struktur ist dieselbe wie bei ungeordneten Listen, außer dass Sie die Listenelemente in ein {{htmlelement("ol")}}-Element und nicht in ein `<ul>` einwickeln müssen:
+Die Markup-Struktur ist die gleiche wie bei ungeordneten Listen, außer dass Sie die Listenelemente in ein {{htmlelement("ol")}}-Element anstelle von `<ul>` einfügen müssen:
 
 ```html
 <ol>
@@ -215,308 +94,88 @@ Die Markup-Struktur ist dieselbe wie bei ungeordneten Listen, außer dass Sie di
 </ol>
 ```
 
-### Aktives Lernen: Markieren einer geordneten Liste
+### Eine geordnete Liste markieren
 
-Versuchen Sie, das Live-Beispiel unten zu bearbeiten, um Ihre eigene HTML-geordnete Liste zu erstellen.
+Wieder Zeit zum Üben! Genau wie bei der vorherigen Aufgabe möchten wir, dass Sie die vorherige geordnete Liste selbst markieren.
 
-```html hidden
-<h2>Live output</h2>
+1. Klicken Sie auf **"Play"** in der gerenderten Code-Ausgabe unten, um das Beispiel im MDN Playground zu bearbeiten.
+2. Verwandeln Sie die einzelnen Textelemente in eine geordnete Liste.
 
-<div class="output" style="min-height: 50px;"></div>
+Wenn Sie einen Fehler machen, können Sie Ihre Arbeit mit der _Zurücksetzen_-Schaltfläche im MDN Playground löschen. Wenn Sie nicht weiterkommen, schauen Sie sich noch einmal das vorherige Code-Snippet an.
 
-<h2>Editable code</h2>
-<p class="a11y-label">
-  Press Esc to move focus away from the code area (Tab inserts a tab character).
-</p>
-
-<textarea id="code" class="input" style="min-height: 200px; width: 95%">
-Drive to the end of the road
-Turn right
-Go straight across the first two roundabouts
-Turn left at the third roundabout
-The school is on your right, 300 meters up the road
-</textarea>
-
-<div class="playable-buttons">
-  <input id="reset" type="button" value="Reset" />
-  <input id="solution" type="button" value="Show solution" />
-</div>
+```html hidden live-sample___lists_2
+Drive to the end of the road Turn right Go straight across the first two
+roundabouts Turn left at the third roundabout The school is on your right, 300
+meters up the road
 ```
 
-```css hidden
-html {
-  font-family: sans-serif;
-}
+{{ EmbedLiveSample('lists_2', "100%", 60) }}
 
-h2 {
-  font-size: 16px;
-}
+## Unsere Rezeptseite markieren
 
-.a11y-label {
-  margin: 0;
-  text-align: right;
-  font-size: 0.7rem;
-  width: 98%;
-}
+Nun zu einer echten Herausforderung! An diesem Punkt des Artikels haben Sie alle Informationen, die Sie benötigen, um einen etwas komplexeren Inhaltsbereich zu markieren. Wir möchten, dass Sie die Anweisungen für unser Lieblingshummus-Rezept markieren.
 
-body {
-  margin: 10px;
-  background: #f5f9fa;
-}
-```
+Sie können entweder:
 
-```js hidden
-const textarea = document.getElementById("code");
-const reset = document.getElementById("reset");
-const solution = document.getElementById("solution");
-const output = document.querySelector(".output");
-const code = textarea.value;
-let userEntry = textarea.value;
+- Eine lokale Kopie unserer [text-start.html](https://github.com/mdn/learning-area/blob/main/html/introduction-to-html/html-text-formatting/text-start.html) Startdatei speichern und die Arbeit in Ihrem Code-Editor durchführen.
+- Klicken Sie auf **"Play"** in der gerenderten Code-Ausgabe unten, um das Beispiel im MDN Playground zu bearbeiten.
 
-function updateCode() {
-  output.innerHTML = textarea.value;
-}
+Die Anweisungen, denen Sie folgen sollen, sind:
 
-const htmlSolution =
-  "<ol>\n<li>Drive to the end of the road</li>\n<li>Turn right</li>\n<li>Go straight across the first two roundabouts</li>\n<li>Turn left at the third roundabout</li>\n<li>The school is on your right, 300 meters up the road</li>\n</ol>";
-let solutionEntry = htmlSolution;
+1. Markieren Sie den Hauptseitentitel mithilfe eines `<h1>`-Elements und die drei Untertitel mithilfe von `<h2>`-Elementen.
+2. Es gibt fünf Textzeilen, die sinnvollerweise mit `<p>`-Elementen markiert werden können. Tun Sie dies jetzt.
+3. Markieren Sie die Liste der Zutaten als ungeordnete Liste.
+4. Markieren Sie die Liste der Anweisungen als geordnete Liste.
 
-reset.addEventListener("click", () => {
-  textarea.value = code;
-  userEntry = textarea.value;
-  solutionEntry = htmlSolution;
-  solution.value = "Show solution";
-  updateCode();
-});
+Wenn Sie einen Fehler machen, können Sie Ihre Arbeit mit der _Zurücksetzen_-Schaltfläche im MDN Playground löschen. Wenn Sie wirklich nicht weiterkommen, können Sie sich die Lösung unterhalb der Code-Ausgabe ansehen.
 
-solution.addEventListener("click", () => {
-  if (solution.value === "Show solution") {
-    textarea.value = solutionEntry;
-    solution.value = "Hide solution";
-  } else {
-    textarea.value = userEntry;
-    solution.value = "Show solution";
-  }
-  updateCode();
-});
-
-textarea.addEventListener("input", updateCode);
-window.addEventListener("load", updateCode);
-
-// stop tab key tabbing out of textarea and
-// make it write a tab at the caret position instead
-
-textarea.onkeydown = (e) => {
-  if (e.code === "Tab") {
-    e.preventDefault();
-    insertAtCaret("\t");
-  }
-
-  if (e.code === "Escape") {
-    textarea.blur();
-  }
-};
-
-function insertAtCaret(text) {
-  const scrollPos = textarea.scrollTop;
-  let caretPos = textarea.selectionStart;
-
-  const front = textarea.value.substring(0, caretPos);
-  const back = textarea.value.substring(
-    textarea.selectionEnd,
-    textarea.value.length,
-  );
-  textarea.value = front + text + back;
-  caretPos += text.length;
-  textarea.selectionStart = caretPos;
-  textarea.selectionEnd = caretPos;
-  textarea.focus();
-  textarea.scrollTop = scrollPos;
-}
-
-// Update the saved userCode every time the user updates the text area code
-textarea.onkeyup = () => {
-  // We only want to save the state when the user code is being shown,
-  // not the solution, so that solution is not saved over the user code
-  if (solution.value === "Show solution") {
-    userEntry = textarea.value;
-  } else {
-    solutionEntry = textarea.value;
-  }
-
-  updateCode();
-};
-```
-
-{{ EmbedLiveSample('Active_learning_Marking_up_an_ordered_list', 700, 500, "", "") }}
-
-## Aktives Lernen: Markieren unserer Rezeptseite
-
-An diesem Punkt im Artikel haben Sie alle Informationen, die Sie benötigen, um unser Rezeptseiten-Beispiel zu markieren. Sie können sich entscheiden, entweder eine lokale Kopie unserer [text-start.html](https://github.com/mdn/learning-area/blob/main/html/introduction-to-html/html-text-formatting/text-start.html) Startdatei zu speichern und dort die Arbeit zu erledigen oder es im bearbeitbaren Beispiel unten zu tun. Es lokal zu machen, ist wahrscheinlich besser, da Sie so die Arbeit, die Sie leisten, speichern können, während sie im bearbeitbaren Beispiel beim nächsten Öffnen der Seite verloren geht. Beide haben Vor- und Nachteile.
-
-```html hidden
-<h2>Live output</h2>
-
-<div class="output" style="min-height: 50px;"></div>
-
-<h2>Editable code</h2>
-<p class="a11y-label">
-  Press Esc to move focus away from the code area (Tab inserts a tab character).
-</p>
-
-<textarea id="code" class="input" style="min-height: 200px; width: 95%">
+```html-nolint live-sample___lists_3
 Quick hummus recipe
 
-  This recipe makes quick, tasty hummus, with no messing. It has been adapted from a number of different recipes that I have read over the years.
+This recipe makes quick, tasty hummus, with no messing. It has been adapted from a number of different recipes that I have read over the years.
 
-  Hummus is a delicious thick paste used heavily in Greek and Middle Eastern dishes. It is very tasty with salad, grilled meats and pitta breads.
+Hummus is a delicious thick paste used heavily in Greek and Middle Eastern dishes. It is very tasty with salad, grilled meats and pitta breads.
 
-  Ingredients
+Ingredients
 
-  1 can (400g) of chick peas (garbanzo beans)
-  175g of tahini
-  6 sundried tomatoes
-  Half a red pepper
-  A pinch of cayenne pepper
-  1 clove of garlic
-  A dash of olive oil
+1 can (400g) of chick peas (garbanzo beans)
+175g of tahini
+6 sundried tomatoes
+Half a red pepper
+A pinch of cayenne pepper
+1 clove of garlic
+A dash of olive oil
 
-  Instructions
+Instructions
 
-  Remove the skin from the garlic, and chop coarsely
-  Remove all the seeds and stalk from the pepper, and chop coarsely
-  Add all the ingredients into a food processor
-  Process all the ingredients into a paste
-  If you want a coarse "chunky" hummus, process it for a short time
-  If you want a smooth hummus, process it for a longer time
+Remove the skin from the garlic, and chop coarsely
+Remove all the seeds and stalk from the pepper, and chop coarsely
+Add all the ingredients into a food processor
+Process all the ingredients into a paste
+If you want a coarse "chunky" hummus, process it for a short time
+If you want a smooth hummus, process it for a longer time
 
-  For a different flavor, you could try blending in a small measure of lemon and coriander, chili pepper, lime and chipotle, harissa and mint, or spinach and feta cheese. Experiment and see what works for you.
+For a different flavor, you could try blending in a small measure of lemon and coriander, chili pepper, lime and chipotle, harissa and mint, or spinach and feta cheese. Experiment and see what works for you.
 
-  Storage
+Storage
 
-  Refrigerate the finished hummus in a sealed container. You should be able to use it for about a week after you've made it. If it starts to become fizzy, you should definitely discard it.
+Refrigerate the finished hummus in a sealed container. You should be able to use it for about a week after you've made it. If it starts to become fizzy, you should definitely discard it.
 
-  Hummus is suitable for freezing; you should thaw it and use it within a couple of months.
-</textarea>
-
-<div class="playable-buttons">
-  <input id="reset" type="button" value="Reset" />
-  <input id="solution" type="button" value="Show solution" />
-</div>
+Hummus is suitable for freezing; you should thaw it and use it within a couple of months.
 ```
 
-```css hidden
-html {
-  font-family: sans-serif;
-}
+{{ EmbedLiveSample('lists_3', "100%", 260) }}
 
-h2 {
-  font-size: 16px;
-}
+<details>
+<summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-.a11y-label {
-  margin: 0;
-  text-align: right;
-  font-size: 0.7rem;
-  width: 98%;
-}
+Sie finden ein Beispiel für das korrekte HTML für dieses Beispiel unter [text-complete.html](https://github.com/mdn/learning-area/blob/main/html/introduction-to-html/html-text-formatting/text-complete.html) in unserem GitHub-Repo.
 
-body {
-  margin: 10px;
-  background: #f5f9fa;
-}
-```
+</details>
 
-```js hidden
-const textarea = document.getElementById("code");
-const reset = document.getElementById("reset");
-const solution = document.getElementById("solution");
-const output = document.querySelector(".output");
-const code = textarea.value;
-let userEntry = textarea.value;
+## Verschachteln von Listen
 
-function updateCode() {
-  output.innerHTML = textarea.value;
-}
-
-const htmlSolution =
-  '<h1>Quick hummus recipe</h1>\n\n<p>This recipe makes quick, tasty hummus, with no messing. It has been adapted from a number of different recipes that I have read over the years.</p>\n\n<p>Hummus is a delicious thick paste used heavily in Greek and Middle Eastern dishes. It is very tasty with salad, grilled meats and pitta breads.</p>\n\n<h2>Ingredients</h2>\n\n<ul>\n<li>1 can (400g) of chick peas (garbanzo beans)</li>\n<li>175g of tahini</li>\n<li>6 sundried tomatoes</li>\n<li>Half a red pepper</li>\n<li>A pinch of cayenne pepper</li>\n<li>1 clove of garlic</li>\n<li>A dash of olive oil</li>\n</ul>\n\n<h2>Instructions</h2>\n\n<ol>\n<li>Remove the skin from the garlic, and chop coarsely.</li>\n<li>Remove all the seeds and stalk from the pepper, and chop coarsely.</li>\n<li>Add all the ingredients into a food processor.</li>\n<li>Process all the ingredients into a paste.</li>\n<li>If you want a coarse "chunky" hummus, process it for a short time.</li>\n<li>If you want a smooth hummus, process it for a longer time.</li>\n</ol>\n\n<p>For a different flavor, you could try blending in a small measure of lemon and coriander, chili pepper, lime and chipotle, harissa and mint, or spinach and feta cheese. Experiment and see what works for you.</p>\n\n<h2>Storage</h2>\n\n<p>Refrigerate the finished hummus in a sealed container. You should be able to use it for about a week after you\'ve made it. If it starts to become fizzy, you should definitely discard it.</p>\n\n<p>Hummus is suitable for freezing; you should thaw it and use it within a couple of months.</p>';
-let solutionEntry = htmlSolution;
-
-reset.addEventListener("click", () => {
-  textarea.value = code;
-  userEntry = textarea.value;
-  solutionEntry = htmlSolution;
-  solution.value = "Show solution";
-  updateCode();
-});
-
-solution.addEventListener("click", () => {
-  if (solution.value === "Show solution") {
-    textarea.value = solutionEntry;
-    solution.value = "Hide solution";
-  } else {
-    textarea.value = userEntry;
-    solution.value = "Show solution";
-  }
-  updateCode();
-});
-
-textarea.addEventListener("input", updateCode);
-window.addEventListener("load", updateCode);
-
-// stop tab key tabbing out of textarea and
-// make it write a tab at the caret position instead
-
-textarea.onkeydown = (e) => {
-  if (e.code === "Tab") {
-    e.preventDefault();
-    insertAtCaret("\t");
-  }
-
-  if (e.code === "Escape") {
-    textarea.blur();
-  }
-};
-
-function insertAtCaret(text) {
-  const scrollPos = textarea.scrollTop;
-  let caretPos = textarea.selectionStart;
-
-  const front = textarea.value.substring(0, caretPos);
-  const back = textarea.value.substring(
-    textarea.selectionEnd,
-    textarea.value.length,
-  );
-  textarea.value = front + text + back;
-  caretPos += text.length;
-  textarea.selectionStart = caretPos;
-  textarea.selectionEnd = caretPos;
-  textarea.focus();
-  textarea.scrollTop = scrollPos;
-}
-
-// Update the saved userCode every time the user updates the text area code
-textarea.onkeyup = () => {
-  // We only want to save the state when the user code is being shown,
-  // not the solution, so that solution is not saved over the user code
-  if (solution.value === "Show solution") {
-    userEntry = textarea.value;
-  } else {
-    solutionEntry = textarea.value;
-  }
-
-  updateCode();
-};
-```
-
-{{ EmbedLiveSample('Active_learning_Marking_up_our_recipe_page', 900, 620, "", "") }}
-
-Wenn Sie stecken bleiben, können Sie jederzeit die _Lösung anzeigen_ -Taste drücken oder unser Beispiel [text-complete.html](https://github.com/mdn/learning-area/blob/main/html/introduction-to-html/html-text-formatting/text-complete.html) in unserem GitHub-Repo ansehen.
-
-## Verschachtelte Listen
-
-Es ist absolut in Ordnung, eine Liste in eine andere Liste einzufügen. Möglicherweise möchten Sie einige Unterpunkte unter einem obersten Punkt haben. Nehmen wir die zweite Liste aus unserem Rezeptbeispiel:
+Es ist vollkommen in Ordnung, eine Liste innerhalb einer anderen Liste zu verschachteln. Möglicherweise möchten Sie einige Unterpunkte unter einem Hauptpunkt haben. Nehmen wir die zweite Liste aus unserem Rezeptbeispiel:
 
 ```html
 <ol>
@@ -529,7 +188,7 @@ Es ist absolut in Ordnung, eine Liste in eine andere Liste einzufügen. Möglich
 </ol>
 ```
 
-Da die letzten beiden Punkte sehr eng mit dem vorherigen Punkt verwandt sind (sie lesen sich wie Unteranweisungen oder Auswahlmöglichkeiten, die unter diesen Punkt passen), könnte es sinnvoll sein, sie in ihre eigene ungeordnete Liste zu verschachteln und diese Liste in den aktuellen vierten Punkt einzufügen. Das würde so aussehen:
+Da die letzten beiden Punkte in sehr engem Zusammenhang mit dem vorherigen stehen (sie lesen sich wie Unteranweisungen oder Optionen, die unter diesen Punkt passen), könnte es sinnvoll sein, sie in einer eigenen ungeordneten Liste zu verschachteln und diese Liste im aktuellen vierten Punkt einzufügen. Das würde so aussehen:
 
 ```html
 <ol>
@@ -548,11 +207,11 @@ Da die letzten beiden Punkte sehr eng mit dem vorherigen Punkt verwandt sind (si
 </ol>
 ```
 
-Versuchen Sie, zum vorherigen aktiven Lernbeispiel zurückzukehren und die zweite Liste so zu aktualisieren.
+Versuchen Sie, zur vorherigen Aufgabe zurückzukehren und die zweite Liste auf diese Weise zu aktualisieren.
 
 ## Definitionslisten
 
-Der Zweck von Definitionslisten ist es, eine Gruppe von Elementen und deren zugehörige Beschreibungen zu markieren, wie Begriffe und Definitionen oder Fragen und Antworten. Betrachten wir ein Beispiel für eine Gruppe von Begriffen und Definitionen:
+Der Zweck von Definitionslisten besteht darin, eine Reihe von Elementen und ihre zugehörigen Beschreibungen zu markieren, wie Begriffe und Definitionen oder Fragen und Antworten. Schauen wir uns ein Beispiel für eine Reihe von Begriffen und Definitionen an:
 
 ```plain
 soliloquy
@@ -563,9 +222,9 @@ aside
 In drama, where a character shares a comment only with the audience for humorous or dramatic effect. This is usually a feeling, thought or piece of additional background information
 ```
 
-Definitionslisten verwenden einen anderen Wrapper als die anderen Listentypen — {{htmlelement("dl")}}; zusätzlich wird jeder Begriff in ein {{htmlelement("dt")}} (Beschreibungsbegriff) eingeschlossen, und jede Beschreibung wird in ein {{htmlelement("dd")}} (Beschreibungsdefinition) Element eingeschlossen.
+Definitionslisten verwenden eine andere Umhüllung als die anderen Listentypen — {{htmlelement("dl")}}; außerdem wird jeder Begriff in ein {{htmlelement("dt")}}-Element (Definitionsbegriff) und jede Beschreibung in ein {{htmlelement("dd")}}-Element (Definitionsbeschreibung) eingefasst.
 
-### Beispiel einer Definitionsliste
+### Beispiel für eine Definitionsliste
 
 Lassen Sie uns unser Beispiel fertig markieren:
 
@@ -591,7 +250,7 @@ Lassen Sie uns unser Beispiel fertig markieren:
 </dl>
 ```
 
-Die Standard-Stile des Browsers zeigen Definitionslisten mit den Beschreibungen etwas eingerückt von den Begriffen an.
+Die Standardstile des Browsers zeigen Definitionslisten mit etwas weiter eingerückten Beschreibungen an.
 
 {{EmbedLiveSample('Description_list_example', '100%', '285px')}}
 
@@ -617,152 +276,52 @@ Es ist erlaubt, einen einzelnen Begriff mit mehreren Beschreibungen zu haben, zu
 
 {{EmbedLiveSample('Multiple_descriptions_for_one_term', '100%', '193px')}}
 
-### Aktives Lernen: Markieren eines Sets von Definitionen
+### Ein Set von Definitionen markieren
 
-Jetzt ist es an der Zeit, dass Sie selbst mit Definitionslisten experimentieren; fügen Sie Elemente zum Rohtext im _Input_-Feld hinzu, sodass es im _Output_-Feld als Definitionsliste erscheint. Sie könnten versuchen, Ihre eigenen Begriffe und Beschreibungen zu verwenden, wenn Sie möchten.
+Nun ist es an der Zeit, dass Sie selbst eine Definitionsliste markieren:
 
-Wenn Sie einen Fehler machen, können Sie jederzeit mit der _Zurücksetzen_-Taste zurücksetzen. Wenn Sie wirklich feststecken, drücken Sie die _Lösung anzeigen_-Taste, um die Antwort zu sehen.
+1. Klicken Sie auf **"Play"** im Codeblock unten, um das Beispiel im MDN Playground zu bearbeiten.
+2. Verwenden Sie geeignete Elemente, um die drei Begriffe und vier Beschreibungen im Inhalt zu markieren. Beachten Sie, dass der dritte Begriff zwei Beschreibungen hat.
 
-```html hidden
-<h2>Live output</h2>
+Wenn Sie einen Fehler machen, können Sie Ihre Arbeit mit der _Zurücksetzen_-Schaltfläche im MDN Playground löschen. Wenn Sie wirklich nicht weiterkommen, können Sie sich die Lösung unterhalb des Codeblocks ansehen.
 
-<div class="output" style="min-height: 50px;"></div>
-
-<h2>Editable code</h2>
-<p class="a11y-label">
-  Press Esc to move focus away from the code area (Tab inserts a tab character).
-</p>
-
-<textarea id="code" class="input" style="min-height: 100px; width: 95%">
-Bacon
+```html-nolint live-sample___lists_4
+Love
 The glue that binds the world together.
 Eggs
 The glue that binds the cake together.
 Coffee
 The drink that gets the world running in the morning.
 A light brown color.
-</textarea>
-
-<div class="playable-buttons">
-  <input id="reset" type="button" value="Reset" />
-  <input id="solution" type="button" value="Show solution" />
-</div>
 ```
 
-```css hidden
-html {
-  font-family: sans-serif;
-}
+{{ EmbedLiveSample('lists_4', "100%", 60) }}
 
-h2 {
-  font-size: 16px;
-}
+<details>
+<summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-.a11y-label {
-  margin: 0;
-  text-align: right;
-  font-size: 0.7rem;
-  width: 98%;
-}
+Ihr fertiges HTML sollte so aussehen:
 
-body {
-  margin: 10px;
-  background: #f5f9fa;
-}
+```html
+<dl>
+  <dt>Love</dt>
+  <dd>The glue that binds the world together.</dd>
+  <dt>Eggs</dt>
+  <dd>The glue that binds the cake together.</dd>
+  <dt>Coffee</dt>
+  <dd>The drink that gets the world running in the morning.</dd>
+  <dd>A light brown color.</dd>
+</dl>
 ```
 
-```js hidden
-const textarea = document.getElementById("code");
-const reset = document.getElementById("reset");
-const solution = document.getElementById("solution");
-const output = document.querySelector(".output");
-const code = textarea.value;
-let userEntry = textarea.value;
-
-function updateCode() {
-  output.innerHTML = textarea.value;
-}
-
-const htmlSolution =
-  "<dl>\n <dt>Bacon</dt>\n <dd>The glue that binds the world together.</dd>\n <dt>Eggs</dt>\n <dd>The glue that binds the cake together.</dd>\n <dt>Coffee</dt>\n <dd>The drink that gets the world running in the morning.</dd>\n <dd>A light brown color.</dd>\n</dl>";
-let solutionEntry = htmlSolution;
-
-reset.addEventListener("click", () => {
-  textarea.value = code;
-  userEntry = textarea.value;
-  solutionEntry = htmlSolution;
-  solution.value = "Show solution";
-  updateCode();
-});
-
-solution.addEventListener("click", () => {
-  if (solution.value === "Show solution") {
-    textarea.value = solutionEntry;
-    solution.value = "Hide solution";
-  } else {
-    textarea.value = userEntry;
-    solution.value = "Show solution";
-  }
-  updateCode();
-});
-
-textarea.addEventListener("input", updateCode);
-window.addEventListener("load", updateCode);
-
-// stop tab key tabbing out of textarea and
-// make it write a tab at the caret position instead
-
-textarea.onkeydown = (e) => {
-  if (e.code === "Tab") {
-    e.preventDefault();
-    insertAtCaret("\t");
-  }
-
-  if (e.code === "Escape") {
-    textarea.blur();
-  }
-};
-
-function insertAtCaret(text) {
-  const scrollPos = textarea.scrollTop;
-  let caretPos = textarea.selectionStart;
-
-  const front = textarea.value.substring(0, caretPos);
-  const back = textarea.value.substring(
-    textarea.selectionEnd,
-    textarea.value.length,
-  );
-  textarea.value = front + text + back;
-  caretPos += text.length;
-  textarea.selectionStart = caretPos;
-  textarea.selectionEnd = caretPos;
-  textarea.focus();
-  textarea.scrollTop = scrollPos;
-}
-
-// Update the saved userCode every time the user updates the text area code
-
-textarea.onkeyup = () => {
-  // We only want to save the state when the user code is being shown,
-  // not the solution, so that solution is not saved over the user code
-  if (solution.value === "Show solution") {
-    userEntry = textarea.value;
-  } else {
-    solutionEntry = textarea.value;
-  }
-
-  updateCode();
-};
-```
-
-{{ EmbedLiveSample('Active_learning_Marking_up_a_set_of_definitions', 700, 350) }}
+</details>
 
 ## Testen Sie Ihre Fähigkeiten!
 
-Sie haben das Ende dieser Reihe von drei Artikeln über grundlegende semantische HTML-Elemente erreicht, aber können Sie sich noch an die wichtigsten Informationen erinnern? Sie finden einige weitere Tests, um zu überprüfen, ob Sie diese Informationen behalten haben, bevor Sie weitermachen — siehe [Testen Sie Ihre Fähigkeiten: HTML-Textgrundlagen](/de/docs/Learn_web_development/Core/Structuring_content/Test_your_skills/HTML_text_basics).
+Sie haben das Ende dieser Reihe von drei Artikeln über grundlegende HTML-Semantikelemente erreicht, aber erinnern Sie sich an die wichtigsten Informationen? Sie können weitere Tests finden, um zu überprüfen, ob Sie diese Informationen behalten haben, bevor Sie weitermachen — siehe [Testen Sie Ihre Fähigkeiten: Grundlagen des HTML-Textes](/de/docs/Learn_web_development/Core/Structuring_content/Test_your_skills/HTML_text_basics).
 
 ## Zusammenfassung
 
-Das war’s über Listen. Als nächstes werden wir eine Diskussion auf höherer Ebene führen. Wir haben gezeigt, wie man einige einzelne Seitenfunktionen umsetzt, aber wie strukturiert man eine ganze HTML-Seite? Die Strukturierung von Dokumenten ist als Nächstes an der Reihe.
+Das war es zu Listen. Als nächstes gehen wir zu einer Diskussion auf höherer Ebene über. Wir haben gezeigt, wie man einige einzelne Seitenfeatures implementiert, aber was ist mit dem Strukturieren einer gesamten HTML-Seite? Die Strukturierung von Dokumenten ist als nächstes dran.
 
 {{PreviousMenuNext("Learn_web_development/Core/Structuring_content/Emphasis_and_importance", "Learn_web_development/Core/Structuring_content/Structuring_documents", "Learn_web_development/Core/Structuring_content")}}

@@ -2,37 +2,12 @@
 title: SVGPoint
 slug: Web/API/SVGPoint
 l10n:
-  sourceCommit: b25d8774aa7bcc6a053e26cf804ad454f51e134b
+  sourceCommit: 43a8839abdfb01d4388f11a028582bec4e7ead18
 ---
 
 {{APIRef("SVG")}}{{Deprecated_Header}}
 
-> **Warning:** `SVGPoint` ist veraltet.
-> Verwenden Sie stattdessen [`DOMPoint`](/de/docs/Web/API/DOMPoint) oder [`DOMPointReadOnly`](/de/docs/Web/API/DOMPointReadOnly).
-
-Ein `SVGPoint` repräsentiert einen 2D- oder 3D-Punkt im SVG-Koordinatensystem.
-
-## Syntax
-
-```js-nolint
-createSVGPoint()
-```
-
-### Wert
-
-Der zurückgegebene Wert ist ein `SVGPoint` Objekt.
-
-## Beispiel
-
-```js
-// Create an SVGPoint in the user coordinate system
-let s = document.getElementById("SVG-ElementID").createSVGPoint();
-
-// Then, set the x and y values of the returned SVGPoint object
-// (which is the variable `s`)
-s.y = 10;
-s.x = 10;
-```
+Ein **`SVGPoint`** repräsentiert einen 2D- oder 3D-Punkt im SVG-Koordinatensystem. In SVG 2 wurde es durch [`DOMPoint`](/de/docs/Web/API/DOMPoint) und [`DOMPointReadOnly`](/de/docs/Web/API/DOMPointReadOnly) ersetzt. Alle APIs, die früher ein `SVGPoint` zurückgegeben haben, einschließlich [`SVGSVGElement.createSVGPoint()`](/de/docs/Web/API/SVGSVGElement/createSVGPoint), geben jetzt stattdessen einen [`DOMPoint`](/de/docs/Web/API/DOMPoint) zurück.
 
 ## Spezifikationen
 

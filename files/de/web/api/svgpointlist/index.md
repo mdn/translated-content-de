@@ -2,14 +2,14 @@
 title: SVGPointList
 slug: Web/API/SVGPointList
 l10n:
-  sourceCommit: 77d90a23ee0a3b5486a7963f68ad4e56efb06a7b
+  sourceCommit: 43a8839abdfb01d4388f11a028582bec4e7ead18
 ---
 
 {{APIRef("SVG")}}
 
-Das **`SVGPointList`**-Interface repräsentiert eine Liste von [`SVGPoint`](/de/docs/Web/API/SVGPoint)-Objekten.
+Die **`SVGPointList`**-Schnittstelle repräsentiert eine Liste von [`DOMPoint`](/de/docs/Web/API/DOMPoint)-Objekten.
 
-Eine `SVGPointList` kann als schreibgeschützt bezeichnet werden, was bedeutet, dass Versuche, das Objekt zu ändern, zu einem Auslösen einer Ausnahme führen.
+Eine `SVGPointList` kann als schreibgeschützt gekennzeichnet sein, was bedeutet, dass Versuche, das Objekt zu ändern, zu einer Ausnahme führen.
 
 ## Instanz-Eigenschaften
 
@@ -23,11 +23,11 @@ Eine `SVGPointList` kann als schreibgeschützt bezeichnet werden, was bedeutet, 
 - [`SVGPointList.clear()`](/de/docs/Web/API/SVGPointList/clear)
   - : Entfernt alle Elemente in der Liste.
 - [`SVGPointList.initialize()`](/de/docs/Web/API/SVGPointList/initialize)
-  - : Entfernt zuerst alle Elemente in der Liste und fügt dann einen einzelnen Wert zur Liste hinzu.
+  - : Entfernt zuerst alle Elemente in der Liste und fügt dann einen einzigen Wert zur Liste hinzu.
 - [`SVGPointList.getItem()`](/de/docs/Web/API/SVGPointList/getItem)
-  - : Holt ein Element aus der Liste an einer angegebenen Position.
+  - : Ruft ein Element aus der Liste an einer angegebenen Position ab.
 - [`SVGPointList.insertItemBefore()`](/de/docs/Web/API/SVGPointList/insertItemBefore)
-  - : Fügt ein Element an einer bestimmten Position in die Liste ein.
+  - : Fügt ein Element an einer angegebenen Position in die Liste ein.
 - [`SVGPointList.replaceItem()`](/de/docs/Web/API/SVGPointList/replaceItem)
   - : Ersetzt ein Element in der Liste durch ein neues Element.
 - [`SVGPointList.removeItem()`](/de/docs/Web/API/SVGPointList/removeItem)

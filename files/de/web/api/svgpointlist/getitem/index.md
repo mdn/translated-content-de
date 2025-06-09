@@ -3,12 +3,12 @@ title: "SVGPointList: getItem()-Methode"
 short-title: getItem()
 slug: Web/API/SVGPointList/getItem
 l10n:
-  sourceCommit: 101ffc9479db6aaa530f2aac3992734dd97d1b86
+  sourceCommit: 43a8839abdfb01d4388f11a028582bec4e7ead18
 ---
 
 {{APIRef("SVG")}}
 
-Die **`getItem()`**-Methode der Schnittstelle [`SVGPointList`](/de/docs/Web/API/SVGPointList) holt ein Element aus der Liste am angegebenen Index.
+Die **`getItem()`**-Methode der [`SVGPointList`](/de/docs/Web/API/SVGPointList)-Schnittstelle holt ein Element aus der Liste an dem angegebenen Index.
 
 ## Syntax
 
@@ -23,7 +23,7 @@ getItem(index)
 
 ### Rückgabewert
 
-Ein [`SVGPoint`](/de/docs/Web/API/SVGPoint)-Objekt.
+Ein [`DOMPoint`](/de/docs/Web/API/DOMPoint)-Objekt.
 
 ### Ausnahmen
 
@@ -32,7 +32,7 @@ Ein [`SVGPoint`](/de/docs/Web/API/SVGPoint)-Objekt.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt ein SVG, das eine {{SVGElement("polyline")}} mit fünf Koordinatenpaaren enthält. Der [`SVGPoint`](/de/docs/Web/API/SVGPoint) am Index `0`.
+Das folgende Beispiel zeigt ein SVG, das ein {{SVGElement("polyline")}} mit fünf Koordinatenpaaren enthält. Der [`DOMPoint`](/de/docs/Web/API/DOMPoint) am Index `0`.
 
 ```html
 <svg id="svg" viewBox="-10 -10 120 120" xmlns="http://www.w3.org/2000/svg">
@@ -45,7 +45,7 @@ Das folgende Beispiel zeigt ein SVG, das eine {{SVGElement("polyline")}} mit fü
 ```
 
 ```js
-let example = document.getElementById("example");
+const example = document.getElementById("example");
 console.log(example.points.getItem(0));
 ```
 
