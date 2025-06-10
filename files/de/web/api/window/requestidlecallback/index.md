@@ -3,17 +3,17 @@ title: "Window: requestIdleCallback() Methode"
 short-title: requestIdleCallback()
 slug: Web/API/Window/requestIdleCallback
 l10n:
-  sourceCommit: 1b4e6d1156e8471d38deeea1567c35ef412c5f42
+  sourceCommit: eca008fcfa2d482164b7989254e77ed1817d7388
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`window.requestIdleCallback()`** Methode stellt eine Funktion in die Warteschlange, die während der Leerlaufzeiten eines Browsers aufgerufen werden soll. Dies ermöglicht es Entwicklern, Hintergrund- und niedrig priorisierte Arbeiten in der Haupt-Ereignisschleife auszuführen, ohne latenzkritische Ereignisse wie Animationen und Eingabereaktionen zu beeinträchtigen. Funktionen werden in der Regel in der Reihenfolge des Eintreffens (first-in-first-out) aufgerufen; Callbacks, die eine `timeout`-Angabe haben, können jedoch bei Bedarf außer der Reihe aufgerufen werden, um sie vor Ablauf des Zeitlimits auszuführen.
+Die **`window.requestIdleCallback()`** Methode reiht eine Funktion ein, die während der Leerlaufzeiten eines Browsers aufgerufen werden soll. Dies ermöglicht Entwicklern, Hintergrund- und Arbeiten mit niedriger Priorität im Hauptthread durchzuführen, ohne latenzkritische Ereignisse wie Animationen und Eingabeantworten zu beeinträchtigen. Funktionen werden im Allgemeinen in der Reihenfolge ihres Eingangs aufgerufen; jedoch können Callbacks, die eine `timeout`-Einstellung haben, außer der Reihe aufgerufen werden, wenn dies notwendig ist, um sie vor Ablauf des Zeitlimits auszuführen.
 
-Sie können `requestIdleCallback()` innerhalb einer Leerlauf-Callback-Funktion aufrufen, um einen weiteren Callback zu planen, der frühestens beim nächsten Durchlauf der Ereignisschleife stattfinden soll.
+Sie können `requestIdleCallback()` innerhalb einer Leerlaufrückruffunktion aufrufen, um einen weiteren Callback zu planen, der nicht früher als beim nächsten Durchlauf der Ereignisschleife stattfindet.
 
 > [!NOTE]
-> Eine `timeout`-Option wird für erforderliche Arbeiten nachdrücklich empfohlen, da sonst möglicherweise mehrere Sekunden vergehen, bevor der Callback ausgelöst wird.
+> Eine `timeout`-Option wird für erforderliche Arbeiten dringend empfohlen, da es ansonsten möglich ist, dass mehrere Sekunden vergehen, bevor der Callback ausgelöst wird.
 
 ## Syntax
 
@@ -25,21 +25,21 @@ requestIdleCallback(callback, options)
 ### Parameter
 
 - `callback`
-  - : Eine Referenz auf eine Funktion, die in naher Zukunft aufgerufen werden soll, wenn die Ereignisschleife im Leerlauf ist. Der Callback-Funktion wird ein [`IdleDeadline`](/de/docs/Web/API/IdleDeadline) Objekt übergeben, das die verfügbare Zeit beschreibt und ob der Callback ausgeführt wurde, weil die Zeitüberschreitung abgelaufen ist.
+  - : Eine Referenz auf eine Funktion, die in naher Zukunft aufgerufen werden soll, wenn die Ereignisschleife im Leerlauf ist. Der Rückruf-Funktion wird ein [`IdleDeadline`](/de/docs/Web/API/IdleDeadline) Objekt übergeben, das beschreibt, wie viel Zeit verfügbar ist und ob der Callback aufgrund des abgelaufenen Zeitlimits ausgeführt wurde.
 - `options` {{optional_inline}}
 
-  - : Beinhaltet optionale Konfigurationsparameter. Derzeit ist nur eine Eigenschaft definiert:
+  - : Enthält optionale Konfigurationsparameter. Derzeit ist nur eine Eigenschaft definiert:
 
     - `timeout`
-      - : Wenn die durch diesen Parameter dargestellte Millisekundenanzahl verstrichen ist und der Callback noch nicht aufgerufen wurde, wird eine Aufgabe zur Ausführung des Callbacks in die Ereignisschleife gestellt (auch wenn dies ein Risiko negativer Leistungsauswirkungen birgt). `timeout` muss einen positiven Wert haben oder wird ignoriert.
+      - : Wenn die Anzahl der durch diesen Parameter repräsentierten Millisekunden verstrichen ist und der Callback noch nicht aufgerufen wurde, wird eine Aufgabe zur Ausführung des Callbacks in die Ereignisschleife gestellt (selbst wenn dadurch ein negativer Leistungseinfluss riskiert wird). `timeout` muss ein positiver Wert sein oder wird ignoriert.
 
 ### Rückgabewert
 
-Eine ID, die verwendet werden kann, um den Callback abzubrechen, indem sie in die [`window.cancelIdleCallback()`](/de/docs/Web/API/Window/cancelIdleCallback) Methode übergeben wird.
+Eine ID, die verwendet werden kann, um den Callback zu stornieren, indem sie in die Methode [`window.cancelIdleCallback()`](/de/docs/Web/API/Window/cancelIdleCallback) übergeben wird.
 
 ## Beispiele
 
-Siehe unser [vollständiges Beispiel](/de/docs/Web/API/Background_Tasks_API#example) im Artikel [Kooperative Planung der Hintergrundaufgaben-API](/de/docs/Web/API/Background_Tasks_API).
+Siehe unser [vollständiges Beispiel](/de/docs/Web/API/Background_Tasks_API#example) im Artikel [Kooperatives Scheduling der Background Tasks API](/de/docs/Web/API/Background_Tasks_API).
 
 ## Spezifikationen
 
