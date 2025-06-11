@@ -1,14 +1,16 @@
 ---
-title: "HTMLInputElement: select()-Methode"
+title: "HTMLInputElement: Methode select()"
 short-title: select()
 slug: Web/API/HTMLInputElement/select
 l10n:
-  sourceCommit: a3d9f61a8990ba7b53bda9748d1f26a9e9810b18
+  sourceCommit: 7cd51a73ad94df604db79ccacbbe0513d0967650
 ---
 
 {{ APIRef("HTML DOM") }}
 
-Die **`HTMLInputElement.select()`**-Methode wählt den gesamten Text in einem {{HTMLElement("textarea")}}-Element oder in einem {{HTMLElement("input")}}-Element aus, das ein Textfeld enthält.
+Die **`HTMLInputElement.select()`**-Methode markiert den gesamten Text
+in einem {{HTMLElement("textarea")}}-Element oder in einem {{HTMLElement("input")}}-Element,
+das ein Textfeld enthält.
 
 ## Syntax
 
@@ -26,13 +28,14 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Klicken Sie auf die Schaltfläche in diesem Beispiel, um den gesamten Text im `<input>`-Element auszuwählen.
+Klicken Sie in diesem Beispiel auf die Schaltfläche, um den gesamten Text im
+`<input>`-Element auszuwählen.
 
 ### HTML
 
 ```html
 <input type="text" id="text-box" size="20" value="Hello world!" />
-<button onclick="selectText()">Select text</button>
+<button>Select text</button>
 ```
 
 ### JavaScript
@@ -43,25 +46,17 @@ function selectText() {
   input.focus();
   input.select();
 }
+
+document.querySelector("button").addEventListener("click", selectText);
 ```
 
 ### Ergebnis
 
 {{EmbedLiveSample("Examples")}}
 
-## Hinweise
+## Anmerkungen
 
-Das Aufrufen von `element.select()` fokussiert nicht unbedingt das Eingabefeld. Daher wird es oft mit [`HTMLElement.focus`](/de/docs/Web/API/HTMLElement/focus) verwendet.
-
-In Browsern, in denen es nicht unterstützt wird, kann es durch einen Aufruf von [HTMLInputElement.setSelectionRange()](/de/docs/Web/API/HTMLInputElement/setSelectionRange) mit den Parametern 0 und der Länge des Wertes des Eingabefelds ersetzt werden:
-
-```html
-<input onClick="this.select();" value="Sample Text" />
-<!-- equivalent to -->
-<input
-  onClick="this.setSelectionRange(0, this.value.length);"
-  value="Sample Text" />
-```
+Ein Aufruf von `element.select()` wird das Eingabefeld nicht notwendigerweise fokussieren, daher wird es oft zusammen mit [`HTMLElement.focus`](/de/docs/Web/API/HTMLElement/focus) verwendet.
 
 ## Spezifikationen
 

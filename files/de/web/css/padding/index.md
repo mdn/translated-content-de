@@ -2,12 +2,12 @@
 title: padding
 slug: Web/CSS/padding
 l10n:
-  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
+  sourceCommit: 0dcad86763896bba7f8e1ddc30c6dfd2aa664c6b
 ---
 
 {{CSSRef}}
 
-Die **`padding`**-[CSS](/de/docs/Web/CSS) [Kurzschreibweise](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties) legt den [Innenabstand](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model#padding_area) auf allen vier Seiten eines Elements gleichzeitig fest.
+Die **`padding`** [CSS](/de/docs/Web/CSS) [Kurzschreibweise](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties) setzt den [Abstandsbereich](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model#padding_area) auf allen vier Seiten eines Elements gleichzeitig.
 
 {{InteractiveExample("CSS Demo: padding")}}
 
@@ -54,12 +54,12 @@ padding: 0;
 }
 ```
 
-Der Innenabstand eines Elements ist der Raum zwischen seinem Inhalt und seinem Rahmen.
+Der Abstandsbereich eines Elements ist der Raum zwischen seinem Inhalt und seinem Rahmen.
 
 > [!NOTE]
-> Padding schafft zusätzlichen Raum innerhalb eines Elements. Im Gegensatz dazu schafft {{cssxref("margin")}} zusätzlichen Raum _um_ ein Element herum.
+> Padding erzeugt zusätzlichen Raum innerhalb eines Elements. Im Gegensatz dazu erzeugt {{cssxref("margin")}} zusätzlichen Raum _um_ ein Element herum.
 
-## Einzelbestandteile
+## Einzelne Eigenschaften
 
 Diese Eigenschaft ist eine Kurzschreibweise für die folgenden CSS-Eigenschaften:
 
@@ -91,31 +91,31 @@ padding: revert-layer;
 padding: unset;
 ```
 
-Die `padding`-Eigenschaft kann mit einem, zwei, drei oder vier Werten angegeben werden. Jeder Wert ist ein {{cssxref("&lt;length&gt;")}} oder ein {{cssxref("&lt;percentage&gt;")}}. Negative Werte sind ungültig.
+Die `padding`-Eigenschaft kann mit einem, zwei, drei oder vier Werten angegeben werden. Jeder Wert ist eine {{cssxref("&lt;length&gt;")}} oder ein {{cssxref("&lt;percentage&gt;")}}. Negative Werte sind ungültig.
 
-- Wenn **ein** Wert angegeben wird, gilt derselbe Innenabstand für **alle vier Seiten**.
-- Wenn **zwei** Werte angegeben werden, gilt der erste Innenabstand für **oben und unten**, der zweite für **links und rechts**.
-- Wenn **drei** Werte angegeben werden, gilt der erste Innenabstand für **oben**, der zweite für **rechts und links**, der dritte für **unten**.
-- Wenn **vier** Werte angegeben werden, gelten die Innenabstände der Reihenfolge nach für **oben**, **rechts**, **unten** und **links** (im Uhrzeigersinn).
+- Wenn **ein** Wert angegeben ist, gilt derselbe Abstand für **alle vier Seiten**.
+- Wenn **zwei** Werte angegeben sind, gilt der erste Abstand für **oben und unten**, der zweite für **links und rechts**.
+- Wenn **drei** Werte angegeben sind, gilt der erste Abstand für **oben**, der zweite für **rechts und links**, der dritte für **unten**.
+- Wenn **vier** Werte angegeben sind, gelten die Abstände für **oben**, **rechts**, **unten** und **links** in dieser Reihenfolge (im Uhrzeigersinn).
 
 ### Werte
 
 - {{cssxref("&lt;length&gt;")}}
-  - : Die Größe des Innenabstands als fester Wert.
+  - : Die Größe des Abstands als fester Wert.
 - {{cssxref("&lt;percentage&gt;")}}
-  - : Die Größe des Innenabstands als Prozentsatz, relativ zur Inline-Größe (_Breite_ in einer horizontalen Sprache, definiert durch {{cssxref("writing-mode")}}) des [umschließenden Blocks](/de/docs/Web/CSS/CSS_display/Containing_block).
+  - : Die Größe des Abstands als Prozentsatz, relativ zur Inlinegröße (_Breite_ in einer horizontalen Sprache, definiert durch {{cssxref("writing-mode")}}) des [umfassenden Blocks](/de/docs/Web/CSS/CSS_display/Containing_block).
 
 ## Formale Definition
 
 {{cssinfo}}
 
-## Formale Syntax
+## Formaler Syntax
 
 {{csssyntax}}
 
 ## Beispiele
 
-### Innenabstand mit Pixeln festlegen
+### Padding mit Pixeln setzen
 
 #### HTML
 
@@ -142,7 +142,7 @@ h3 {
 
 {{EmbedLiveSample('Setting_padding_with_pixels', '100%', 300)}}
 
-### Innenabstand mit Pixeln und Prozentsätzen festlegen
+### Padding mit Pixeln und Prozentangaben setzen
 
 ```css
 padding: 5%; /* All sides: 5% padding */
@@ -175,5 +175,5 @@ padding: 1em 3px 30px 5px; /* top:    1em padding  */
 - {{cssxref("padding-top")}}, {{cssxref("padding-right")}}, {{cssxref("padding-bottom")}}, und {{cssxref("padding-left")}}
 - {{cssxref("padding-block-start")}}, {{cssxref("padding-block-end")}}, {{cssxref("padding-inline-start")}}, und {{cssxref("padding-inline-end")}}
 - {{cssxref("padding-block")}} und {{cssxref("padding-inline")}} Kurzschreibweisen
-- [Einführung in das CSS-Grundmodul des Box-Modells](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model)
-- [CSS-Box-Modell](/de/docs/Web/CSS/CSS_box_model) Modul
+- [Einführung in das CSS-Boxmodell](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model) Leitfaden
+- [CSS-Boxmodell](/de/docs/Web/CSS/CSS_box_model) Modul

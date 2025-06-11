@@ -5473,7 +5473,7 @@
 /de/docs/Learn/HTML/Multimedia_and_embedding/Other_embedding_technologies	/de/docs/Learn_web_development/Core/Structuring_content/General_embedding_technologies
 /de/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images	/de/docs/Web/HTML/Guides/Responsive_images
 /de/docs/Learn/HTML/Multimedia_and_embedding/Video_and_audio_content	/de/docs/Learn_web_development/Core/Structuring_content/HTML_video_and_audio
-/de/docs/Learn/HTML/Multimedia_and_embedding/Video_and_audio_content/Test_your_skills:_Multimedia_and_embedding	/de/docs/Learn_web_development/Core/Structuring_content/Test_your_skills/Multimedia_and_embedding
+/de/docs/Learn/HTML/Multimedia_and_embedding/Video_and_audio_content/Test_your_skills:_Multimedia_and_embedding	/de/docs/Learn_web_development/Core/Structuring_content/Test_your_skills/Audio_and_video
 /de/docs/Learn/HTML/Tables	/de/docs/Learn_web_development/Core/Structuring_content/HTML_table_basics
 /de/docs/Learn/HTML/Tables/Advanced	/de/docs/Learn_web_development/Core/Structuring_content/Table_accessibility
 /de/docs/Learn/HTML/Tables/Basics	/de/docs/Learn_web_development/Core/Structuring_content/HTML_table_basics
@@ -5784,7 +5784,8 @@
 /de/docs/Learn_web_development/Core/Structuring_content/HTML_images/Test_your_skills	/de/docs/Learn_web_development/Core/Structuring_content/Test_your_skills/Images
 /de/docs/Learn_web_development/Core/Structuring_content/HTML_images/Test_your_skills:_HTML_images	/de/docs/Learn_web_development/Core/Structuring_content/Test_your_skills/Images
 /de/docs/Learn_web_development/Core/Structuring_content/HTML_text_fundamentals	/de/docs/Learn_web_development/Core/Structuring_content/Headings_and_paragraphs
-/de/docs/Learn_web_development/Core/Structuring_content/HTML_video_and_audio/Test_your_skills:_Multimedia_and_embedding	/de/docs/Learn_web_development/Core/Structuring_content/Test_your_skills/Multimedia_and_embedding
+/de/docs/Learn_web_development/Core/Structuring_content/HTML_video_and_audio/Test_your_skills:_Multimedia_and_embedding	/de/docs/Learn_web_development/Core/Structuring_content/Test_your_skills/Audio_and_video
+/de/docs/Learn_web_development/Core/Structuring_content/Test_your_skills/Multimedia_and_embedding	/de/docs/Learn_web_development/Core/Structuring_content/Test_your_skills/Audio_and_video
 /de/docs/Learn_web_development/Core/Structuring_content/Test_your_skills:_Advanced_HTML_text	/de/docs/Learn_web_development/Core/Structuring_content/Test_your_skills/Advanced_HTML_text
 /de/docs/Learn_web_development/Core/Structuring_content/Test_your_skills:_HTML_text_basics	/de/docs/Learn_web_development/Core/Structuring_content/Test_your_skills/HTML_text_basics
 /de/docs/Learn_web_development/Core/Structuring_content/Test_your_skills:_Links	/de/docs/Learn_web_development/Core/Structuring_content/Test_your_skills/Links

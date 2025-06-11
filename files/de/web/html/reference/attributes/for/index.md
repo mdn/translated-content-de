@@ -3,12 +3,12 @@ title: "HTML-Attribut: for"
 short-title: for
 slug: Web/HTML/Reference/Attributes/for
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: d9b6cad3b5e14b42061608fb5283e32c75808a3d
 ---
 
 {{HTMLSidebar}}
 
-Das **`for`**-Attribut ist ein erlaubtes Attribut für {{htmlelement("label")}} und {{htmlelement("output")}}. Wenn es in einem `<label>`-Element verwendet wird, gibt es das Formularelement an, das dieses Label beschreibt. Wird es in einem `<output>`-Element verwendet, ermöglicht es eine explizite Beziehung zwischen den Elementen, deren Werte im Output verwendet werden.
+Das **`for`**-Attribut ist ein zulässiges Attribut für {{htmlelement("label")}} und {{htmlelement("output")}}. Wenn es auf einem `<label>`-Element verwendet wird, gibt es das Formularelement an, das dieses Label beschreibt. Wenn es auf einem `<output>`-Element verwendet wird, erlaubt es eine explizite Beziehung zwischen den Elementen, die Werte repräsentieren, die in der Ausgabe verwendet werden.
 
 {{InteractiveExample("HTML Demo: for", "tabbed-shorter")}}
 
@@ -61,15 +61,15 @@ firstNameEl.addEventListener("input", updateOutput);
 lastNameEl.addEventListener("input", updateOutput);
 ```
 
-## Verwendung
+## Nutzungsnotizen
 
-Wird das `for`-Attribut in einem `<label>`-Element genutzt, hat es einen Wert, der der `id` des zugehörigen Formularelements entspricht.
+Wenn es als Attribut von `<label>` verwendet wird, hat das `for`-Attribut einen Wert, der die `id` des zugehörigen Formularelements ist.
 
 ```html
 <label for="username">Your name</label> <input type="text" id="username" />
 ```
 
-Wird das `for`-Attribut in einem `<output>`-Element verwendet, hat es einen Wert, der eine durch Leerzeichen getrennte Liste der `id`-Werte der Elemente ist, die zur Erstellung des Outputs genutzt werden.
+Wenn es als Attribut von `<output>` verwendet wird, hat das `for`-Attribut einen Wert, der eine durch Leerzeichen getrennte Liste der `id`-Werte der Elemente ist, die zur Erstellung der Ausgabe verwendet werden.
 
 ```html
 <input type="range" id="b" name="b" value="50" /> +
@@ -79,7 +79,7 @@ Wird das `for`-Attribut in einem `<output>`-Element verwendet, hat es einen Wert
 
 ## Beispiele
 
-Beispiele zur Verwendung finden Sie auf den Elementseiten für {{htmlelement("label")}} und {{htmlelement("output")}}.
+Siehe Beispiele für die Verwendung auf den Seiten der Elemente {{htmlelement("label")}} und {{htmlelement("output")}}.
 
 ## Spezifikationen
 

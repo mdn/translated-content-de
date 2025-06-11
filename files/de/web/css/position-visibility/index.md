@@ -2,12 +2,12 @@
 title: position-visibility
 slug: Web/CSS/position-visibility
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: 0dcad86763896bba7f8e1ddc30c6dfd2aa664c6b
 ---
 
 {{CSSRef}}{{seecompattable}}
 
-Die **`position-visibility`** [CSS](/de/docs/Web/CSS) Eigenschaft ermöglicht das bedingte Verbergen eines nach Anker positionierten Elements, beispielsweise ob es über das umgebende Element oder den Ansichtsbereich hinausragt.
+Die **`position-visibility`** [CSS](/de/docs/Web/CSS)-Eigenschaft ermöglicht das bedingte Ausblenden eines anchorgebundenen Elements, abhängig davon, ob es beispielsweise sein enthaltendes Element oder den Viewport überläuft.
 
 ## Syntax
 
@@ -30,39 +30,39 @@ position-visibility: unset;
 - `always`
   - : Das positionierte Element wird immer angezeigt.
 - `anchors-visible`
-  - : Wenn der Anker vollständig verborgen ist, sei es durch Überlauf aus dem umgebenden Element (oder dem Ansichtsbereich) oder durch Überlagerung mit anderen Elementen, wird das positionierte Element stark verborgen.
+  - : Wenn das Anchor-Element vollständig versteckt ist, entweder weil es sein enthaltendes Element (oder den Viewport) überläuft oder von anderen Elementen überdeckt wird, wird das positionierte Element stark versteckt.
 - `no-overflow`
-  - : Wenn das positionierte Element beginnt, aus seinem umgebenden Element oder dem Ansichtsbereich zu überlaufen, wird es stark verborgen.
+  - : Wenn das positionierte Element beginnt, sein enthaltendes Element oder den Viewport zu überlaufen, wird es stark versteckt.
 
-Die Spezifikation definiert auch den Wert `anchors-valid`, der jedoch noch in keinem Browser implementiert wurde.
+Die Spezifikation definiert auch den Wert `anchors-valid`, der jedoch in keinem Browser implementiert wurde.
 
 ## Beschreibung
 
-In einigen Situationen möchten Sie ein nach Anker positioniertes Element möglicherweise nicht anzeigen. Zum Beispiel, wenn der zugehörige Anker aus dem Sichtbereich gescrollt wurde, das nach Anker positionierte Element jedoch sonst noch teilweise oder vollständig sichtbar wäre, könnte es unklar sein, worauf es sich bezieht und unnötig Platz einnehmen, weshalb Sie möchten, dass es vollständig verborgen wird.
+In einigen Situationen möchten Sie möglicherweise ein anchorgebundenes Element nicht anzeigen. Wenn zum Beispiel das zugehörige Anchor-Element vom Bildschirm gescrollt wurde, das anchorgebundene Element jedoch ansonsten noch teilweise oder vollständig sichtbar wäre, kann es unklar sein, worauf es sich bezieht und nimmt unnötig Platz ein. Daher möchten Sie es möglicherweise vollständig ausblenden.
 
-Die Eigenschaft `position-visibility` kann verwendet werden, um das nach Anker positionierte Element `always` anzuzeigen oder bedingt zu verbergen, wenn das zugehörige Ankerelement vollständig verborgen ist (`anchors-visible`) oder wenn das nach Anker positionierte Element selbst teilweise verborgen ist (`no-overflow`).
+Die Eigenschaft `position-visibility` kann verwendet werden, um das anchorgebundene Element `immer` anzuzeigen oder bedingt auszublenden, wenn das zugehörige Anchor-Element vollständig versteckt ist (`anchors-visible`) oder wenn das anchorgebundene Element selbst teilweise versteckt ist (`no-overflow`).
 
-Wenn ein Element aufgrund von `position-visibility` verborgen wird, spricht man von **stark verborgen**. Dies bedeutet, dass es so agieren wird, als hätten es und seine Nachkommenelemente einen {{cssxref("visibility")}}-Wert von `hidden`, unabhängig davon, welchen tatsächlichen Sichtbarkeitswert sie haben.
+Wenn ein Element aufgrund von `position-visibility` ausgeblendet wird, wird es als **stark versteckt** bezeichnet. Das bedeutet, dass es so wirkt, als hätten es und seine Nachkommen-Elemente einen {{cssxref("visibility")}}-Wert von `hidden`, unabhängig von ihrem tatsächlichen Sichtbarkeitswert.
 
-`position-visibility` sollte nur in Situationen verwendet werden, in denen das vollständige Verbergen des positionierten Elements bevorzugt wird. In den meisten Fällen ist es sinnvoller, zu versuchen, die Platzierung der positionierten Elemente zu ändern, wenn sie beginnen, überzulaufen, um sie auf dem Bildschirm und damit nutzbar zu halten. Dies kann mit der {{cssxref("position-try-fallbacks")}}-Eigenschaft und der {{cssxref("@position-try")}}-At-Regel erreicht werden. Lesen Sie den [Überlauf behandeln: Rückfalloptionen ausprobieren und bedingtes Verbergen](/de/docs/Web/CSS/CSS_anchor_positioning/Try_options_hiding) Leitfaden für weitere Informationen.
+`position-visibility` sollte nur in Situationen verwendet werden, in denen es bevorzugt wird, das positionierte Element vollständig auszublenden. In den meisten Fällen ist es sinnvoller, zu versuchen, die Platzierung von positionierten Elementen zu ändern, wenn sie beginnen, den Bildschirm zu überlaufen, um sie auf dem Bildschirm und nutzbar zu halten. Dies kann mit der Eigenschaft {{cssxref("position-try-fallbacks")}} und der Regel {{cssxref("@position-try")}} erfolgen. Weitere Informationen finden Sie im [Fallback-Optionen und bedingtes Verstecken bei Überlauf](/de/docs/Web/CSS/CSS_anchor_positioning/Try_options_hiding)-Leitfaden.
 
 ## Formale Definition
 
 {{cssinfo}}
 
-## Formaler Syntax
+## Formale Syntax
 
 {{csssyntax}}
 
 ## Beispiele
 
-### Grundlegende Verwendung
+### Grundlegende Nutzung
 
-Dieses Beispiel ermöglicht die Änderung des Wertes der `position-visibility`-Eigenschaft eines nach Anker positionierten Elements, um die Auswirkungen jedes Wertes zu demonstrieren.
+Dieses Beispiel ermöglicht das Ändern des Werts der `position-visibility`-Eigenschaft eines anchorgebundenen Elements, um die Effekte jedes Wertes zu demonstrieren.
 
 #### HTML
 
-Wir spezifizieren zwei {{htmlelement("div")}} Elemente; ein Ankerelement mit einer Klasse von `anchor` und ein positioniertes Element mit einer Klasse von `infobox`.
+Wir spezifizieren zwei {{htmlelement("div")}}-Elemente: ein Anchor-Element mit einer Klasse von `anchor` und ein positioniertes Element mit einer Klasse von `infobox`.
 
 ```html hidden
 <p>
@@ -141,11 +141,11 @@ Wir spezifizieren zwei {{htmlelement("div")}} Elemente; ein Ankerelement mit ein
 </form>
 ```
 
-Das HTML enthält auch Fülltext, um den Inhalt höher als den Ansichtsbereich zu machen, sodass Scrollen erforderlich ist. Wir haben auch ein {{htmlelement("fieldset")}} mit einer Gruppe von [Radio-Inputs](/de/docs/Web/HTML/Reference/Elements/input/radio) mit verschiedenen `position-visibility`-Werten hinzugefügt. Die Markierung dafür wird der Kürze halber nicht gezeigt.
+Das HTML enthält auch Fülltext, um den Inhalt größer als den Viewport zu machen, sodass Scrollen erforderlich ist. Wir haben auch ein {{htmlelement("fieldset")}} mit einer Gruppe von [Radio-Inputs](/de/docs/Web/HTML/Reference/Elements/input/radio) mit verschiedenen `position-visibility`-Werten eingefügt. Der Markup für diese wird der Kürze halber nicht gezeigt.
 
 #### CSS
 
-Wir gestalten ein `anchor` `<div>` als Ankerelement und binden das `infobox` `<div>` daran. Das relevante CSS ist wie folgt:
+Wir stylen ein `anchor` `<div>` als Anchor-Element und binden das `infobox` `<div>` daran. Der relevante CSS-Code ist wie folgt:
 
 ```css hidden
 body {
@@ -197,7 +197,7 @@ form {
 
 #### JavaScript
 
-Wir fügen einen [`change`](/de/docs/Web/API/HTMLElement/change_event) Ereignishandler auf den Radioknöpfen hinzu, sodass wir, wenn ein neuer Wert ausgewählt wird, den `position-visibility` Eigenschaftswert der Infobox aktualisieren.
+Wir fügen einen [`change`](/de/docs/Web/API/HTMLElement/change_event)-Event-Handler auf den Radio-Buttons hinzu, sodass beim Auswählen eines neuen Werts der `position-visibility`-Wert der Infobox aktualisiert wird.
 
 ```js
 const infobox = document.querySelector(".infobox");
@@ -214,7 +214,7 @@ function setPositionVisibility(e) {
 
 #### Ergebnis
 
-Wählen Sie verschiedene `position-visibility` Werte aus und scrollen Sie dann die Seite nach oben und unten, um deren Effekte zu sehen. Mit `position-visibility: always` gesetzt, wird das positionierte Element nicht verborgen. Mit `position-visibility: anchors-visible` gesetzt, wird das positionierte Element nur sichtbar sein, wenn der Anker teilweise oder vollständig auf dem Bildschirm ist. Mit `position-visibility: no-overflow` gesetzt, wird das positionierte Element verborgen, sobald es beginnt, aus dem Ansichtsbereich zu überlaufen.
+Wählen Sie verschiedene `position-visibility`-Werte aus und scrollen Sie dann die Seite auf und ab, um deren Effekte zu sehen. Mit `position-visibility: always` wird das positionierte Element nicht versteckt. Mit `position-visibility: anchors-visible` wird das positionierte Element nur sichtbar sein, wenn der Anchor teilweise oder vollständig auf dem Bildschirm ist. Mit `position-visibility: no-overflow` wird das positionierte Element ausgeblendet, sobald es beginnt, den Viewport zu überlaufen.
 
 {{ EmbedLiveSample("Basic usage", "100%", "180") }}
 
@@ -232,6 +232,6 @@ Wählen Sie verschiedene `position-visibility` Werte aus und scrollen Sie dann d
 - {{cssxref("position-anchor")}}
 - {{cssxref("position")}}
 - {{cssxref("position-area")}}
-- [CSS Anker-Positionierung](/de/docs/Web/CSS/CSS_anchor_positioning) Modul
-- [Verwendung von CSS Anker-Positionierung](/de/docs/Web/CSS/CSS_anchor_positioning/Using) Leitfaden
-- [Überlauf behandeln: Rückfalloptionen ausprobieren und bedingtes Verbergen](/de/docs/Web/CSS/CSS_anchor_positioning/Try_options_hiding) Leitfaden
+- [CSS-Ankerpositionierung](/de/docs/Web/CSS/CSS_anchor_positioning) Modul
+- [Verwendung der CSS-Ankerpositionierung](/de/docs/Web/CSS/CSS_anchor_positioning/Using) Leitfaden
+- [Fallback-Optionen und bedingtes Verstecken bei Überlauf](/de/docs/Web/CSS/CSS_anchor_positioning/Try_options_hiding) Leitfaden

@@ -2,34 +2,34 @@
 title: Skalierung von SVG-Hintergründen
 slug: Web/CSS/CSS_backgrounds_and_borders/Scaling_of_SVG_backgrounds
 l10n:
-  sourceCommit: f6497ec3b1a28d7b0a99f5d13e81027204293fa3
+  sourceCommit: 0dcad86763896bba7f8e1ddc30c6dfd2aa664c6b
 ---
 
 {{CSSRef}}
 
-Aufgrund der Flexibilität von SVG-Bildern gibt es einiges zu beachten, wenn man sie als Hintergrundbilder mit der {{ cssxref("background-image") }} Eigenschaft verwendet, und noch mehr, wenn man sie mit der {{ cssxref("background-size") }} Eigenschaft skaliert. Dieser Artikel beschreibt, wie die Skalierung von SVG-Bildern beim Einsatz dieser Eigenschaften gehandhabt wird.
+Angesichts der Flexibilität von SVG-Bildern gibt es viel zu beachten, wenn Sie sie als Hintergrundbilder mit der {{cssxref("background-image")}} Eigenschaft verwenden, und noch mehr zu beachten, wenn Sie sie mit der {{cssxref("background-size")}} Eigenschaft skalieren. Dieser Artikel beschreibt, wie die Skalierung von SVG-Bildern bei Verwendung dieser Eigenschaften gehandhabt wird.
 
 ## Der Hintergrund-Skalierungsalgorithmus
 
-Der Algorithmus zur Bestimmung der Hintergrundgröße eines Hintergrundbildes lässt sich größtenteils durch diese vier Regeln zusammenfassen. Es gibt einige Ausnahmefälle, die von diesen Regeln nicht abgedeckt werden, aber sie decken die Mehrheit der Fälle ab.
+Der Algorithmus, der verwendet wird, um die Größe des Hintergrundbildes zu bestimmen, kann größtenteils durch diese vier Regeln zusammengefasst werden. Es gibt einige Randfälle, die nicht von diesen Regeln abgedeckt sind, aber sie decken die Mehrheit der Fälle ab.
 
-1. Wenn {{ cssxref("background-size") }} eine feste Dimension angibt (d.h. Prozentsätze und relative Einheiten werden durch ihren Kontext festgelegt), gewinnt diese Dimension.
-2. Wenn das Bild ein intrinsisches Verhältnis hat (d.h. sein Breite:Höhe-Verhältnis konstant ist, wie z.B. 16:9, 4:3, 2.39:1, 1:1 und so weiter), wird die gerenderte Größe dieses Verhältnis beibehalten.
+1. Wenn {{cssxref("background-size")}} eine feste Dimension angibt (d.h. Prozentsätze und relative Einheiten sind durch ihren Kontext festgelegt), gewinnt diese Dimension.
+2. Wenn das Bild ein intrinsisches Verhältnis hat (d.h. das Breiten-Höhen-Verhältnis ist konstant, wie z.B. 16:9, 4:3, 2.39:1, 1:1 usw.), bleibt die gerenderte Größe in diesem Verhältnis.
 3. Wenn das Bild eine Größe angibt und die Größe nicht durch `constrain` oder `cover` modifiziert wird, gewinnt die angegebene Größe.
-4. Wenn keiner der oben genannten Fälle zutrifft, wird das Bild in derselben Größe wie der Hintergrundbereich gerendert.
+4. Wenn keiner der obigen Fälle zutrifft, wird das Bild in der gleichen Größe wie der Hintergrundbereich gerendert.
 
-Es ist wichtig zu beachten, dass der Hintergrund-Skalierungsalgorithmus nur die Dimensionen und Proportionen eines Bildes berücksichtigt oder deren Fehlen. Ein SVG-Bild mit festen Dimensionen wird genauso behandelt wie ein Rasterbild derselben Größe.
+Es ist wichtig zu beachten, dass der Hintergrund-Skalierungsalgorithmus nur auf die Dimensionen und Proportionen des Bildes achtet, oder auf deren Fehlen. Ein SVG-Bild mit festen Dimensionen wird genauso behandelt wie ein Rasterbild der gleichen Größe.
 
 > [!NOTE]
-> Wenn Sie versuchen, Ihr SVG mit CSS auf ein anderes {{Glossary("aspect_ratio", "Seitenverhältnis")}} zu strecken—zum Beispiel, um es über den Seitenhintergrund zu erstrecken—stellen Sie sicher, dass Ihr SVG `preserveAspectRatio="none"` enthält. Erfahren Sie mehr über {{svgattr("preserveAspectRatio")}}.
+> Wenn Sie versuchen, Ihr SVG mit CSS auf ein anderes {{Glossary("aspect_ratio", "Seitenverhältnis")}} zu strecken – beispielsweise um es über den gesamten Seitenhintergrund zu strecken – stellen Sie sicher, dass Ihr SVG `preserveAspectRatio="none"` enthält. Erfahren Sie mehr über {{svgattr("preserveAspectRatio")}}.
 
 ## Beispiele für Quellbilder
 
-Bevor Sie sich ansehen, wie verschiedene Arten von SVG-Quellbildern mit {{ cssxref("background-size") }} aussehen, ist es hilfreich, sich einige Beispiel-Quellbilder mit unterschiedlichen Dimensionen und Größeneinstellungen anzusehen, die wir später als unsere `background-image` Werte in unseren Beispielen verwenden werden. Der Browser rendert {{SVGelement("svg")}}-Bilder standardmäßig `300px` breit und `150px` hoch.
+Bevor Sie mit den Ergebnissen der Verwendung verschiedener Arten von SVG-Quellbildern und deren Darstellung mit {{cssxref("background-size")}} beginnen, ist es hilfreich, sich einige Beispielquellbilder anzusehen, die unterschiedliche Dimensionen und Größeneinstellungen haben, die wir später als unsere `background-image` Werte in unseren Beispielen verwenden werden. Der Browser rendert {{SVGelement("svg")}} Bilder standardmäßig mit `300px` Breite und `150px` Höhe.
 
-### Ohne Dimensionen und Proportionen
+### Ohne Maße und proportionenlos
 
-Dieses SVG-Gradientenbild ist sowohl dimensionslos als auch proportionslos. Es ist egal, in welcher Größe es vorliegt, und es muss kein bestimmtes Seitenverhältnis beibehalten werden. Dies wäre ein guter Gradient für einen Desktop-Hintergrund, der unabhängig von der Bildschirmgröße und dem Verhältnis funktionieren würde.
+Dieses SVG-Verlaufsbild ist sowohl maßlos als auch proportionenlos. Es kümmert sich nicht um seine Größe, noch darum, ein bestimmtes Seitenverhältnis beizubehalten. Dies wäre ein guter Hintergrundverlauf für den Desktop, der unabhängig von Ihrer Bildschirmgröße und Ihrem Seitenverhältnis funktioniert.
 
 ```html
 <svg>
@@ -46,9 +46,9 @@ Dieses SVG-Gradientenbild ist sowohl dimensionslos als auch proportionslos. Es i
 
 {{ EmbedLiveSample('Dimensionless_and_proportionless', 200, 180) }}
 
-### Eine angegebene Dimension und proportionslos
+### Eine festgelegte Dimension und proportionenlos
 
-Dieses Bild gibt eine Breite von 100 Pixeln an, aber keine Höhe oder ein intrinsisches Verhältnis. Es ist sozusagen ein dünner Tapetenstreifen, der über die gesamte Höhe eines Blocks gestreckt werden könnte.
+Dieses Bild gibt eine Breite von 100 Pixeln an, aber keine Höhe oder intrinsisches Verhältnis. Dies ist im Grunde ein dünner Tapetenstreifen, der über die gesamte Höhe eines Blocks gestreckt werden könnte.
 
 ```html
 <svg width="100">
@@ -65,11 +65,11 @@ Dieses Bild gibt eine Breite von 100 Pixeln an, aber keine Höhe oder ein intrin
 
 {{ EmbedLiveSample('One specified dimension and proportionless', 200, 180) }}
 
-### Eine angegebene Dimension mit intrinsischem Verhältnis
+### Eine festgelegte Dimension mit intrinsischem Verhältnis
 
-Dieses Bild gibt eine Höhe von 100 Pixeln an, aber keine Breite. Es gibt auch ein intrinsisches Seitenverhältnis von 3:4 an. Dies stellt sicher, dass das Breite:Höhe-Verhältnis immer 3:4 ist, es sei denn, es wird absichtlich auf eine unverhältnismäßige Größe skaliert (d.h. indem explizit sowohl Breite als auch Höhe angegeben werden, die nicht diesem Verhältnis entsprechen).
+Dieses Bild gibt eine Höhe von 100 Pixeln an, aber keine Breite, und gibt auch ein intrinsisches Seitenverhältnis von 3:4 an. Das stellt sicher, dass sein Breiten-Höhen-Verhältnis immer 3:4 ist, es sei denn, es wird absichtlich auf eine unverhältnismäßige Größe skaliert (d.h. indem sowohl Breite als auch Höhe explizit angegeben werden, die nicht in diesem Verhältnis stehen).
 
-Dies ist sehr ähnlich wie die Angabe einer bestimmten Breite und Höhe, da Sie, sobald Sie eine Dimension und ein Verhältnis haben, die andere Dimension impliziert ist.
+Dies ist sehr ähnlich wie das Festlegen einer spezifischen Breite und Höhe; sobald man eine Dimension und ein Verhältnis hat, ist die andere Dimension impliziert.
 
 ```html
 <svg height="100" viewBox="0 0 3 4" preserveAspectRatio="none">
@@ -88,7 +88,7 @@ Dies ist sehr ähnlich wie die Angabe einer bestimmten Breite und Höhe, da Sie,
 
 ### Keine Breite oder Höhe mit intrinsischem Verhältnis
 
-Dieses Bild gibt weder eine Breite noch eine Höhe an; stattdessen gibt es ein intrinsisches Verhältnis von 1:1 an. Es ist immer quadratisch und kann in jeder Größe verwendet werden, z.B. 32x32, 128x128 oder 512x512.
+Dieses Bild gibt weder eine Breite noch eine Höhe an; stattdessen gibt es ein intrinsisches Verhältnis von 1:1 an. Es ist immer quadratisch und in jeder Größe verwendbar, z.B. 32x32, 128x128 oder 512x512.
 
 ```html
 <svg viewBox="0 0 1 1" preserveAspectRatio="none">
@@ -107,7 +107,7 @@ Dieses Bild gibt weder eine Breite noch eine Höhe an; stattdessen gibt es ein i
 
 ## Skalierungsbeispiele
 
-Nun lassen Sie uns einige Beispiele sehen, was passiert, wenn wir unterschiedliche Skalierungen auf diese Bilder anwenden. In jedem der unten stehenden Beispiele sind die umgebenden {{htmlelement("div")}} Elemente 300 Pixel breit und 200 Pixel hoch, mit einem 2 Pixel breiten Rand. Um sicherzustellen, dass wir das SVG-Hintergrundbild nur einmal für diese Demonstrationen darstellen, setzen wir {{ cssxref("background-repeat") }} auf `no-repeat`.
+Schauen wir uns nun einige Beispiele an, was passiert, wenn wir diese Bilder unterschiedlich skalieren. In jedem der folgenden Beispiele sind die umschließenden {{htmlelement("div")}} Elemente 300 Pixel breit und 200 Pixel hoch, mit einem 2 Pixel breiten Rahmen. Um sicherzustellen, dass wir das SVG-Hintergrundbild nur einmal für diese Demonstrationen anzeigen, setzen wir {{cssxref("background-repeat")}} auf `no-repeat`.
 
 ```css
 div {
@@ -118,13 +118,13 @@ div {
 }
 ```
 
-### Festgelegte Längen für beide Dimensionen angeben
+### Festlegen fester Längen für beide Dimensionen
 
-Wenn Sie {{ cssxref("background-size") }} verwenden, um feste Längen für beide Dimensionen anzugeben, werden diese Längen immer verwendet, gemäß Regel 1 oben. Mit anderen Worten, das Bild wird immer auf die von Ihnen angegebenen Abmessungen gestreckt, unabhängig davon, ob das Quellbild seine Dimensionen und/oder sein Seitenverhältnis angegeben hat oder nicht.
+Wenn Sie {{cssxref("background-size")}} verwenden, um feste Längen für beide Dimensionen festzulegen, werden diese Längen gemäß Regel 1 immer verwendet. Mit anderen Worten, das Bild wird immer auf die von Ihnen festgelegten Dimensionen gestreckt, unabhängig davon, ob das Quellbild seine Dimensionen und/oder sein Seitenverhältnis angegeben hat oder nicht.
 
 #### Keine Dimensionen oder intrinsisches Verhältnis
 
-In diesem Beispiel hat das Bild keine Dimensionen oder ein intrinsisches Verhältnis:
+In diesem Beispiel hat das Bild keine Dimensionen oder ein intrinsisches Verhältnis gesetzt:
 
 ```html hidden live-sample___scaling1
 <div></div>
@@ -148,9 +148,9 @@ div {
 
 {{ EmbedLiveSample('scaling1', 200, 230) }}
 
-#### Eine angegebene Dimension, kein intrinsisches Verhältnis
+#### Eine festgelegte Dimension, kein intrinsisches Verhältnis
 
-In diesem Beispiel hat das Bild eine Dimension angegeben, aber kein intrinsisches Verhältnis:
+In diesem Beispiel hat das Bild eine festgelegte Dimension, aber kein intrinsisches Verhältnis:
 
 ```html hidden live-sample___scaling2
 <div></div>
@@ -174,13 +174,13 @@ div {
 
 {{ EmbedLiveSample('scaling2', 200, 230) }}
 
-#### Eine angegebene Dimension mit intrinsischem Verhältnis
+#### Eine festgelegte Dimension mit intrinsischem Verhältnis
 
 ```html hidden live-sample___scaling3
 <div></div>
 ```
 
-In diesem Beispiel hat das Bild eine Dimension ausdrücklich festgelegt, zusammen mit einem intrinsischen Verhältnis, was bedeutet, dass beide Dimensionen effektiv definiert sind. Eine absolute Höhe und Breite für `background-size` festzulegen, überschreibt die in der SVG festgelegten Dimensionen:
+In diesem Beispiel hat das Bild eine Dimension explizit festgelegt, zusammen mit einem intrinsischen Verhältnis, was bedeutet, dass beide Dimensionen effektiv definiert sind. Das Festlegen einer absoluten Höhe und Breite für `background-size` überschreibt die im SVG festgelegten Dimensionen:
 
 ```css hidden live-sample___scaling3
 div {
@@ -200,7 +200,7 @@ div {
 
 {{ EmbedLiveSample('scaling3', 200, 230) }}
 
-#### Keine angegebene Breite oder Höhe mit intrinsischem Verhältnis
+#### Keine festgelegte Breite oder Höhe mit intrinsischem Verhältnis
 
 In diesem Beispiel hat das Bild ein intrinsisches Verhältnis, aber keine Dimensionen festgelegt:
 
@@ -228,13 +228,13 @@ div {
 
 ### Verwenden von contain oder cover
 
-Die Angabe von `cover` für {{ cssxref("background-size") }} macht das Bild so klein wie möglich, während es immer noch den gesamten Hintergrundbereich abdeckt. `contain` hingegen macht das Bild so groß wie möglich, ohne vom Hintergrundbereich abgeschnitten zu werden.
+Das Angeben von `cover` für {{cssxref("background-size")}} macht das Bild so klein wie möglich, während es den gesamten Hintergrundbereich abdeckt. `contain` hingegen macht das Bild so groß wie möglich, ohne vom Hintergrundbereich abgeschnitten zu werden.
 
-Für ein Bild mit einem intrinsischen Verhältnis passt genau eine Größe für die `cover`/fit-Kriterien allein. Wenn jedoch kein intrinsisches Verhältnis angegeben ist, reichen `cover`/fit nicht aus, sodass die großen/kleinen Einschränkungen die resultierende Größe bestimmen.
+Für ein Bild mit einem intrinsischen Verhältnis passt genau eine Größe zu den alleinigen Kriterien `cover`/fit. Aber wenn kein intrinsisches Verhältnis angegeben ist, sind `cover`/fit nicht ausreichend, sodass die großen/kleinen Einschränkungen die resultierende Größe auswählen.
 
 #### Keine Dimensionen oder intrinsisches Verhältnis
 
-In diesem Beispiel hat das Bild keine Dimensionen oder ein intrinsisches Verhältnis festgelegt. Wenn ein Bild keine Dimensionen oder ein intrinsisches Verhältnis angibt, gelten weder Regel 2 noch Regel 3, sodass Regel 4 greift: Das Hintergrundbild wird über den gesamten Hintergrundbereich gerendert. Dies erfüllt die größten-oder-kleinsten Einschränkungen.
+In diesem Beispiel hat das Bild keine Dimensionen oder ein intrinsisches Verhältnis gesetzt. Wenn ein Bild weder Dimensionen noch ein intrinsisches Verhältnis angibt, gelten weder Regel 2 noch Regel 3, sodass Regel 4 greift: das Hintergrundbild wird über den gesamten Hintergrundbereich gerendert. Dies erfüllt die größte-oder-kleinste Einschränkung.
 
 ```html hidden live-sample___cc1
 <div></div>
@@ -258,9 +258,9 @@ div {
 
 {{ EmbedLiveSample('cc1', 200, 230) }}
 
-#### Eine angegebene Dimension, kein intrinsisches Verhältnis
+#### Eine festgelegte Dimension, kein intrinsisches Verhältnis
 
-In diesem Beispiel, bei dem das Bild eine Dimension hat, aber kein intrinsisches Verhältnis, gilt Regel 4 und das Bild wird angepasst, um den gesamten Hintergrundbereich zu bedecken.
+In diesem Beispiel, wobei das Bild eine Dimension angegeben hat, aber kein intrinsisches Verhältnis, gilt Regel 4 und das Bild wird skaliert, um den gesamten Hintergrundbereich abzudecken.
 
 ```html hidden live-sample___cc2
 <div></div>
@@ -284,19 +284,19 @@ div {
 
 {{ EmbedLiveSample('cc2', 200, 230) }}
 
-#### Eine angegebene Dimension mit intrinsischem Verhältnis
+#### Eine festgelegte Dimension mit intrinsischem Verhältnis
 
-In diesen Beispielen hat das Bild eine Dimension ausdrücklich festgelegt, zusammen mit einem intrinsischen Verhältnis.
+In diesen Beispielen hat das Bild eine Dimension explizit festgelegt, zusammen mit einem intrinsischen Verhältnis.
 
-Die Dinge ändern sich, wenn Sie ein intrinsisches Verhältnis angeben. In diesem Fall ist Regel 1 nicht relevant, also wird Regel 2 angewendet: Wir versuchen, jedes intrinsische Verhältnis zu bewahren (unter Beachtung von `contain` oder `cover`). Zum Beispiel bedeutet die Erhaltung eines 3:4-intrinsischen Seitenverhältnisses für eine 300x200-Box mit `contain`, ein 150x200-Hintergrund zu zeichnen.
+Die Dinge ändern sich, wenn Sie ein intrinsisches Verhältnis angeben. In diesem Fall ist Regel 1 nicht relevant, sodass Regel 2 angewendet wird: wir versuchen, ein intrinsisches Verhältnis zu wahren (während wir `contain` oder `cover` respektieren). Zum Beispiel bedeutet das Bewahren eines 3:4 intrinsischen Seitenverhältnisses für eine 300x200 Box mit `contain`, einen 150x200 Hintergrund zu zeichnen.
 
-##### Fall "contain"
+##### contain-Fall
 
 ```html hidden live-sample___cc3
 <div></div>
 ```
 
-Angesichts dieses CSS:
+Mit diesem CSS:
 
 ```css hidden live-sample___cc3
 div {
@@ -316,9 +316,9 @@ div {
 
 {{ EmbedLiveSample('cc3', 200, 230) }}
 
-Beachten Sie, wie das gesamte Bild gerendert wird und so gut wie möglich in die Box passt, ohne dass ein Teil davon abgeschnitten wird.
+Beachten Sie, wie das gesamte Bild gerendert wird und so gut wie möglich in die Box passt, ohne dass Teile davon abgeschnitten werden.
 
-##### Fall "cover"
+##### cover-Fall
 
 ```html hidden live-sample___cc5
 <div></div>
@@ -342,13 +342,13 @@ div {
 
 {{ EmbedLiveSample('cc5', 200, 230) }}
 
-Hier wird das 3:4-Verhältnis beibehalten, während das Bild trotzdem über die gesamte Box gestreckt wird. Dadurch wird der untere Teil des Bildes abgeschnitten.
+Hier wird das 3:4 Verhältnis beibehalten, während das Bild so gestreckt wird, dass es die gesamte Box ausfüllt. Das führt dazu, dass der untere Teil des Bildes abgeschnitten wird.
 
 #### Keine Dimensionen mit intrinsischem Verhältnis
 
-Diese Beispiele verwenden das Bild mit einem intrinsischen Verhältnis, aber ohne definierte Dimensionen. Wenn Sie ein Bild mit keinen intrinsischen Dimensionen, aber einem intrinsischen Verhältnis verwenden, funktionieren die Dinge ähnlich.
+Diese Beispiele verwenden das Bild mit einem festgelegten intrinsischen Verhältnis, aber ohne definierte Dimensionen. Bei der Verwendung eines Bildes ohne intrinsische Dimensionen, aber mit einem intrinsischen Verhältnis, funktioniert alles ähnlich.
 
-##### Fall "contain"
+##### contain-Fall
 
 ```html hidden live-sample___cc6
 <div></div>
@@ -372,9 +372,9 @@ div {
 
 {{ EmbedLiveSample('cc6', 200, 230) }}
 
-Beachten Sie, dass das Bild so dimensioniert ist, dass die kleinste Dimension passt, während das 1:1-Verhältnis beibehalten wird.
+Beachten Sie, dass das Bild so skaliert wird, dass es die kleinste Dimension ausfüllt, während das 1:1-Seitenverhältnis beibehalten wird.
 
-##### Fall "cover"
+##### cover-Fall
 
 ```html hidden live-sample___cc7
 <div></div>
@@ -398,15 +398,15 @@ div {
 
 {{ EmbedLiveSample('cc7', 200, 230) }}
 
-Hier wird das Bild so dimensioniert, dass es die größte Dimension füllt. Das 1:1-Verhältnis wurde beibehalten, obwohl dies bei diesem Quellbild schwer zu erkennen ist.
+Hier wird das Bild so skaliert, dass es die größte Dimension ausfüllt. Das 1:1-Seitenverhältnis wurde beibehalten, obwohl dies bei diesem Quellbild schwer zu erkennen sein kann.
 
-### Automatische Größenanpassung mit "auto" für beide Dimensionen
+### Automatische Größenbestimmung mit "auto" für beide Dimensionen
 
-Wenn {{ cssxref("background-size") }} auf `auto` oder `auto auto` gesetzt ist, besagt Regel 2, dass das Rendering jedes angegebene intrinsische Verhältnis bewahren muss.
+Wenn {{cssxref("background-size")}} auf `auto` oder `auto auto` gesetzt ist, besagt Regel 2, dass das Rendern jedes angegebene intrinsische Verhältnis beibehalten muss.
 
 #### Keine Dimensionen oder intrinsisches Verhältnis
 
-Wenn Hintergrundbilder automatisch skaliert werden, ohne dass ein intrinsisches Verhältnis oder Dimensionen angegeben sind, tritt Regel 4 in Kraft und das Bild wird so gerendert, dass es den Hintergrundbereich ausfüllt.
+Beim automatischen Skalieren von Hintergrundbildern ohne angegebenes intrinsisches Verhältnis oder Dimensionen greift Regel 4, und das Bild wird so gerendert, dass es den Hintergrundbereich vollständig ausfüllt.
 
 ```html hidden live-sample___both-auto1
 <div></div>
@@ -432,7 +432,7 @@ div {
 
 #### Eine Dimension und kein intrinsisches Verhältnis
 
-Wenn kein intrinsisches Verhältnis angegeben ist, aber wenigstens eine Dimension, greift Regel 3 und wir rendern das Bild entsprechend diesen Dimensionen.
+Wenn kein intrinsisches Verhältnis angegeben ist, aber mindestens eine Dimension festgelegt ist, greift Regel 3, und wir rendern das Bild unter Berücksichtigung dieser Dimensionen.
 
 ```html hidden live-sample___both-auto2
 <div></div>
@@ -456,11 +456,11 @@ div {
 
 {{ EmbedLiveSample('both-auto2', 200, 230) }}
 
-Beachten Sie hier, dass die Breite, die im Quell-SVG auf 100 Pixel festgelegt ist, beachtet wird, während die Höhe den Hintergrundbereich ausfüllt, da sie nicht angegeben ist (weder explizit noch durch ein intrinsisches Verhältnis).
+Beachten Sie hier, dass die Breite, die im Quell-SVG mit 100 Pixeln angegeben ist, beachtet wird, während die Höhe den Hintergrundbereich füllt, da sie nicht angegeben ist (weder explizit noch durch ein intrinsisches Verhältnis).
 
 #### Eine Dimension und ein intrinsisches Verhältnis
 
-Wenn wir ein intrinsisches Verhältnis mit einer festen Dimension haben, werden beide Dimensionen fixiert. Wie zuvor erwähnt, bedeutet das Wissen um eine Dimension und ein Verhältnis dasselbe wie die explizite Angabe beider Dimensionen.
+Wenn wir ein intrinsisches Verhältnis mit einer festen Dimension haben, fixiert das beide Dimensionen. Wie bereits erwähnt, entspricht das Wissen über eine Dimension und ein Verhältnis dem expliziten Festlegen beider Dimensionen.
 
 ```html hidden live-sample___both-auto3
 <div></div>
@@ -484,11 +484,11 @@ div {
 
 {{ EmbedLiveSample('both-auto3', 200, 230) }}
 
-Da dieses Bild eine explizite Höhe von `100px` hat. Mit dem 3:4-Verhältnis, das im SVG festgelegt ist, beträgt die Breite des Bildes im Fall von `auto` 75 Pixel.
+Da dieses Bild eine explizite Höhe von `100px` hat. Mit dem im SVG festgelegten 3:4-Verhältnis beträgt die Breite des Bildes im Falle von `auto` 75 Pixel.
 
 #### Keine festen Dimensionen mit intrinsischem Verhältnis
 
-Wenn ein intrinsisches Verhältnis angegeben ist, aber keine Dimensionen, wird Regel 4 angewendet — außer dass Regel 2 auch gilt. Das Bild wird daher genauso gerendert wie im Fall `contain`.
+Wenn ein intrinsisches Verhältnis angegeben ist, aber keine Dimensionen, wird Regel 4 angewendet — außer dass Regel 2 auch gilt. Das Bild wird daher genauso gerendert wie im `contain`-Fall.
 
 ```html hidden live-sample___both-auto4
 <div></div>
@@ -512,13 +512,13 @@ div {
 
 {{ EmbedLiveSample('both-auto4', 200, 230) }}
 
-### Verwendung von "auto" und einer spezifischen Länge
+### Verwenden von "auto" und einer spezifischen Länge
 
-Gemäß Regel 1 werden angegebene Dimensionen immer verwendet, daher müssen wir unsere Regeln nur anwenden, um die zweite Dimension zu bestimmen.
+Gemäß Regel 1 werden spezifizierte Dimensionen immer verwendet, daher müssen wir unsere Regeln nur anwenden, um die zweite Dimension zu bestimmen.
 
 #### Keine Dimensionen oder intrinsisches Verhältnis
 
-Wenn das Bild keine Dimensionen oder ein intrinsisches Verhältnis hat, gilt Regel 4 und wir verwenden die Dimension des Hintergrundbereichs, um den Wert für die `auto` Dimension zu bestimmen.
+Wenn das Bild keine Dimensionen oder ein intrinsisches Verhältnis hat, gilt Regel 4, und wir verwenden die Dimension des Hintergrundbereichs, um den Wert für die `auto`-Dimension zu bestimmen.
 
 ```html hidden live-sample___auto0
 <div></div>
@@ -542,11 +542,11 @@ div {
 
 {{ EmbedLiveSample('auto0', 200, 230) }}
 
-Hier wird die Breite mithilfe der Breite des Hintergrundbereichs gemäß Regel 4 bestimmt, während die Höhe die `140px`, die im CSS angegeben sind, beträgt.
+Hier wird die Breite unter Verwendung der Breite des Hintergrundbereichs gemäß Regel 4 bestimmt, während die Höhe die im CSS angegebene `140px` beträgt.
 
-#### Eine angegebene Dimension ohne intrinsisches Verhältnis
+#### Eine festgelegte Dimension mit keinem intrinsischen Verhältnis
 
-Wenn das Bild eine angegebene Dimension hat, aber kein intrinsisches Verhältnis, wird diese Dimension gemäß Regel 3 verwendet, wenn diese Dimension im CSS auf `auto` gesetzt ist.
+Wenn das Bild eine festgelegte Dimension hat, aber kein intrinsisches Verhältnis, wird diese festgelegte Dimension gemäß Regel 3 verwendet, wenn diese Dimension im CSS auf `auto` festgelegt ist.
 
 ```html hidden live-sample___auto1
 <div></div>
@@ -570,7 +570,7 @@ div {
 
 {{ EmbedLiveSample('auto1', 200, 230) }}
 
-Hier überschreibt die im CSS angegebene `200px` Breite die im SVG angegebene `100px` Breite gemäß Regel 1. Da kein intrinsisches Verhältnis oder Höhe angegeben ist, wählt `auto` die Höhe des Hintergrundbereichs als Höhe für das gerenderte Bild aus.
+Hier überschreibt die im CSS angegebene `200px` die im SVG angegebene `100px` Breite gemäß Regel 1. Da kein intrinsisches Verhältnis oder Höhe angegeben ist, wählt `auto` die Höhe des Hintergrundbereichs als Höhe für das gerenderte Bild.
 
 ```html hidden live-sample___auto2
 <div></div>
@@ -594,11 +594,11 @@ div {
 
 {{ EmbedLiveSample('auto2', 200, 230) }}
 
-In diesem Fall ist die Breite als `auto` im CSS angegeben, sodass die im SVG angegebenen `100px` ausgewählt werden, gemäß Regel 3. Die Höhe wird auf `125px` im CSS festgelegt, daher wird diese gemäß Regel 1 ausgewählt.
+In diesem Fall ist die Breite im CSS als `auto` festgelegt, daher wird die im SVG angegebene `100px` Breite gemäß Regel 3 gewählt. Die Höhe ist im CSS auf `125px` festgelegt, daher wird diese gemäß Regel 1 gewählt.
 
-#### Eine angegebene Dimension mit intrinsischem Verhältnis
+#### Eine festgelegte Dimension mit intrinsischem Verhältnis
 
-Wenn eine Dimension angegeben ist, wendet Regel 1 diese Dimension aus dem SVG auf den gerenderten Hintergrund an, es sei denn, sie wird ausdrücklich vom CSS überschrieben. Wenn auch ein intrinsisches Verhältnis angegeben ist, wird dieses verwendet, um die andere Dimension zu bestimmen.
+Wenn eine Dimension angegeben ist, wird diese Dimension aus dem SVG zum gerenderten Hintergrund angewendet, es sei denn, sie wird speziell durch das CSS überschrieben. Wenn ein intrinsisches Verhältnis ebenfalls angegeben ist, wird dieses verwendet, um die andere Dimension zu bestimmen.
 
 ```html hidden live-sample___auto3
 <div></div>
@@ -622,11 +622,11 @@ div {
 
 {{ EmbedLiveSample('auto3', 200, 230) }}
 
-In diesem Fall verwenden wir die im CSS festgelegte Breite des Bildes von `150px`, daher wird Regel 1 angewendet. Das intrinsische Seitenverhältnis von 3:4 bestimmt dann die Höhe für den `auto` Fall.
+In diesem Fall verwenden wir die im CSS festgelegte Breite des Bildes von `150px`, sodass Regel 1 angewendet wird. Das intrinsische 3:4 Seitenverhältnis bestimmt dann die Höhe für den `auto`-Fall.
 
 #### Keine angegebenen Dimensionen mit intrinsischem Verhältnis
 
-Wenn im SVG keine Dimensionen angegeben sind, wird die im CSS angegebene Dimension angewendet, und dann wird das intrinsische Verhältnis verwendet, um die andere Dimension auszuwählen, gemäß Regel 2.
+Wenn keine Dimensionen im SVG angegeben sind, wird die im CSS spezifizierte Dimension angewendet, dann wird das intrinsische Verhältnis verwendet, um die andere Dimension gemäß Regel 2 zu bestimmen.
 
 ```html hidden live-sample___auto4
 <div></div>
@@ -650,9 +650,9 @@ div {
 
 {{ EmbedLiveSample('auto4', 200, 230) }}
 
-Die Breite wird im CSS mit `150px` festgelegt. Der `auto`-Wert für die Höhe wird mithilfe dieser Breite und dem 1:1-Seitenverhältnis ebenfalls auf `150px` berechnet.
+Die Breite wird im CSS auf `150px` festgelegt. Der `auto`-Wert für die Höhe wird unter Verwendung dieser Breite und des 1:1 Verhältnisses ebenfalls auf `150px` berechnet.
 
 ## Siehe auch
 
 - {{cssxref("background-size")}}
-- [CSS-Hintergründe und Rahmen](/de/docs/Web/CSS/CSS_backgrounds_and_borders) Modul
+- [CSS Hintergründe und Rahmen](/de/docs/Web/CSS/CSS_backgrounds_and_borders) Modul

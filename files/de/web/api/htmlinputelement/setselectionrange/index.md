@@ -3,22 +3,22 @@ title: "HTMLInputElement: setSelectionRange() Methode"
 short-title: setSelectionRange()
 slug: Web/API/HTMLInputElement/setSelectionRange
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: 7cd51a73ad94df604db79ccacbbe0513d0967650
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`HTMLInputElement.setSelectionRange()`** Methode legt die Start- und Endpositionen der aktuellen Textauswahl in einem {{HTMLElement("input")}} oder {{HTMLElement("textarea")}} Element fest.
+Die **`HTMLInputElement.setSelectionRange()`**-Methode legt die Start- und Endpositionen der aktuellen Textauswahl in einem {{HTMLElement("input")}}- oder {{HTMLElement("textarea")}}-Element fest.
 
-Das Element muss fokussiert sein, damit der Aufruf eine Wirkung hat.
+Das Element muss fokussiert sein, damit der Aufruf Wirkung zeigt.
 
-Optional können Sie die Richtung angeben, in die die Auswahl betrachtet werden soll. Dies ermöglicht es Ihnen anzugeben, dass die Auswahl beispielsweise durch Klicken und Ziehen des Nutzers vom Ende des ausgewählten Textes zum Anfang erfolgt ist.
+Optional können Sie die Richtung angeben, in der die Auswahl vorgenommen wurde. Damit können Sie beispielsweise angeben, dass die Auswahl vom Benutzer erstellt wurde, indem er vom Ende des ausgewählten Textes zum Anfang gezogen hat.
 
-Diese Methode aktualisiert die [`HTMLInputElement.selectionStart`](/de/docs/Web/API/HTMLInputElement/selectionStart), [`HTMLInputElement.selectionEnd`](/de/docs/Web/API/HTMLInputElement/selectionEnd) und [`HTMLInputElement.selectionDirection`](/de/docs/Web/API/HTMLInputElement/selectionDirection) Eigenschaften in einem Aufruf.
+Diese Methode aktualisiert die Eigenschaften [`HTMLInputElement.selectionStart`](/de/docs/Web/API/HTMLInputElement/selectionStart), [`HTMLInputElement.selectionEnd`](/de/docs/Web/API/HTMLInputElement/selectionEnd) und [`HTMLInputElement.selectionDirection`](/de/docs/Web/API/HTMLInputElement/selectionDirection) in einem Aufruf.
 
-Das Element muss einer der folgenden Eingabetypen haben: [`password`](/de/docs/Web/HTML/Reference/Elements/input/password), [`search`](/de/docs/Web/HTML/Reference/Elements/input/search), [`tel`](/de/docs/Web/HTML/Reference/Elements/input/tel), [`text`](/de/docs/Web/HTML/Reference/Elements/input/text) oder [`url`](/de/docs/Web/HTML/Reference/Elements/input/url). Andernfalls wirft der Browser eine `InvalidStateError` Ausnahme.
+Das Element muss einen der folgenden Eingabetypen haben: [`password`](/de/docs/Web/HTML/Reference/Elements/input/password), [`search`](/de/docs/Web/HTML/Reference/Elements/input/search), [`tel`](/de/docs/Web/HTML/Reference/Elements/input/tel), [`text`](/de/docs/Web/HTML/Reference/Elements/input/text) oder [`url`](/de/docs/Web/HTML/Reference/Elements/input/url). Andernfalls wirft der Browser eine `InvalidStateError`-Ausnahme.
 
-Wenn Sie den gesamten Text eines Eingabeelements auswählen möchten, können Sie stattdessen die [HTMLInputElement.select()](/de/docs/Web/API/HTMLInputElement/select) Methode verwenden.
+Wenn Sie **alle** Texte eines Eingabeelements auswählen möchten, können Sie stattdessen die Methode [HTMLInputElement.select()](/de/docs/Web/API/HTMLInputElement/select) verwenden.
 
 ## Syntax
 
@@ -30,18 +30,18 @@ setSelectionRange(selectionStart, selectionEnd, selectionDirection)
 ### Parameter
 
 - `selectionStart`
-  - : Der 0-basierte Index des ersten ausgewählten Zeichens. Ein Index, der größer als die Länge des Wertes des Elements ist, wird als Zeiger auf das Ende des Wertes behandelt.
+  - : Der 0-basierte Index des ersten ausgewählten Zeichens. Ein Index, der größer als die Länge des Werts des Elements ist, wird als Zeiger auf das Ende des Wertes behandelt.
 - `selectionEnd`
 
-  - : Der 0-basierte Index des Zeichens _nach_ dem letzten ausgewählten Zeichen. Ein Index, der größer als die Länge des Wertes des Elements ist, wird als Zeiger auf das Ende des Wertes behandelt. Wenn `selectionEnd` kleiner als `selectionStart` ist, werden beide als der Wert von `selectionEnd` behandelt.
+  - : Der 0-basierte Index des Zeichens _nach_ dem letzten ausgewählten Zeichen. Ein Index, der größer als die Länge des Werts des Elements ist, wird als Zeiger auf das Ende des Wertes behandelt. Wenn `selectionEnd` kleiner als `selectionStart` ist, werden beide als Wert von `selectionEnd` behandelt.
 
 - `selectionDirection` {{optional_inline}}
 
-  - : Ein String, der die Richtung angibt, in der die Auswahl betrachtet wird. Mögliche Werte:
+  - : Ein Zeichenfolgenwert, der die Richtung angibt, in der die Auswahl vorgenommen wurde. Mögliche Werte:
 
     - `"forward"`
     - `"backward"`
-    - `"none"` falls die Richtung unbekannt oder irrelevant ist. Standardwert.
+    - `"none"` wenn die Richtung unbekannt oder irrelevant ist. Standardwert.
 
 ### Rückgabewert
 
@@ -54,13 +54,13 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Klicken Sie auf die Schaltfläche in diesem Beispiel, um das dritte, vierte und fünfte Zeichen im Textfeld auszuwählen ("zil" im Wort "Mozilla").
+Klicken Sie in diesem Beispiel auf den Button, um die dritte, vierte und fünfte Zeichen in der Textbox auszuwählen ("zil" im Wort "Mozilla").
 
 ### HTML
 
 ```html
 <input type="text" id="text-box" size="20" value="Mozilla" />
-<button onclick="selectText()">Select text</button>
+<button>Select text</button>
 ```
 
 ### JavaScript
@@ -71,6 +71,8 @@ function selectText() {
   input.focus();
   input.setSelectionRange(2, 5);
 }
+
+document.querySelector("button").addEventListener("click", selectText);
 ```
 
 ### Ergebnis

@@ -1,40 +1,41 @@
 ---
 title: Block- und Inline-Layout im normalen Fluss
+short-title: Block- und Inline-Layout
 slug: Web/CSS/CSS_display/Block_and_inline_layout_in_normal_flow
 l10n:
-  sourceCommit: 6d55eec58e38583da60aa635d41393ad051d1c6d
+  sourceCommit: 0dcad86763896bba7f8e1ddc30c6dfd2aa664c6b
 ---
 
 {{CSSRef}}
 
 In diesem Leitfaden werden wir die Grundlagen erkunden, wie Block- und Inline-Elemente sich verhalten, wenn sie Teil des normalen Flusses sind.
 
-Normaler Fluss ist in der [CSS 2.1 Spezifikation](https://www.w3.org/TR/CSS2/visuren.html#normal-flow) definiert, die erklärt, dass alle Boxen im normalen Fluss Teil eines _Formatierungskontexts_ sein werden. Sie können entweder Block oder Inline sein, aber nicht beides gleichzeitig. Wir beschreiben Block-Level-Boxen als Teilnehmer an einem _Block-Formatierungskontext_ und Inline-Level-Boxen als Teilnehmer an einem _Inline-Formatierungskontext_.
+Der normale Fluss ist in der [CSS 2.1-Spezifikation](https://www.w3.org/TR/CSS2/visuren.html#normal-flow) definiert, die erklärt, dass alle Boxen im normalen Fluss Teil eines _Formatierungskontexts_ sind. Sie können entweder Block- oder Inline-Elemente sein, aber nicht beides gleichzeitig. Wir beschreiben Block-Level-Boxen als Teilnehmer eines _Block-Formatierungskontexts_ und Inline-Level-Boxen als Teilnehmer eines _Inline-Formatierungskontexts_.
 
-Das Verhalten von Elementen, die einen Block- oder Inline-Formatierungskontext haben, ist ebenfalls in dieser Spezifikation definiert. Für Elemente mit einem Block-Formatierungskontext sagt die Spezifikation:
+Das Verhalten von Elementen, die einen Block- oder Inline-Formatierungskontext haben, ist ebenfalls in dieser Spezifikation definiert. Für Elemente mit einem Block-Formatierungskontext besagt die Spezifikation:
 
-> "In einem Block-Formatierungskontext werden Boxen nacheinander vertikal angeordnet, beginnend am oberen Rand eines umschließenden Blockes. Der vertikale Abstand zwischen zwei benachbarten Boxen wird durch die 'margin'-Eigenschaften bestimmt. Vertikale Ränder zwischen benachbarten Block-Level-Boxen in einem Block-Formatierungskontext kollabieren.
-> In einem Block-Formatierungskontext berührt der linke äußere Rand jeder Box den linken Rand des umschließenden Blocks (bei einer von rechts nach links formatierenden Ausrichtung berühren sich rechte Ränder)." - 9.4.1
+> "In einem Block-Formatierungskontext werden Boxen eine nach der anderen vertikal ausgehend von oben in einem umgebenden Block angeordnet. Der vertikale Abstand zwischen zwei benachbarten Boxen wird durch die 'margin'-Eigenschaften bestimmt. Vertikale Abstände zwischen angrenzenden Block-Level-Boxen in einem Block-Formatierungskontext kollabieren.\
+> In einem Block-Formatierungskontext berührt die linke Außenseite jeder Box die linke Kante des umgebenden Blocks (bei rechts-nach-links-Formatierung berühren sich die rechten Kanten)." - 9.4.1
 
 Für Elemente mit einem Inline-Formatierungskontext:
 
-> "In einem Inline-Formatierungskontext werden Boxen horizontal, eine nach der anderen, angeordnet, beginnend am oberen Rand eines umschließenden Blocks. Horizontale Abstände, Rahmen und Abstände werden zwischen diesen Boxen respektiert. Die Boxen können auf verschiedene Weise vertikal ausgerichtet werden: ihre Böden oder Oberseiten können ausgerichtet werden, oder die Baselines des Textes innerhalb von ihnen können ausgerichtet werden. Der rechteckige Bereich, der die Boxen enthält, die eine Zeile bilden, wird als Zeilenbox bezeichnet." - 9.4.2
+> "In einem Inline-Formatierungskontext werden Boxen horizontal, eine nach der anderen, ausgehend von oben in einem umgebenden Block angeordnet. Zwischen diesen Boxen werden horizontale Abstände, Ränder und Polsterungen respektiert. Die Boxen können vertikal auf verschiedene Arten ausgerichtet werden: ihre Unterseiten oder Oberseiten können ausgerichtet werden, oder die Grundlinien des Textes innerhalb von ihnen können ausgerichtet werden. Der rechteckige Bereich, der die Boxen enthält, die eine Linie bilden, wird als Linienbox bezeichnet." - 9.4.2
 
-Beachten Sie, dass die CSS 2.1-Spezifikation Dokumente als in einem horizontalen, von oben nach unten schreibenden Modus beschreibt. Zum Beispiel durch die Beschreibung des vertikalen Abstands zwischen Blockboxen. Das Verhalten bei Block- und Inline-Elementen ist dasselbe, wenn in einem vertikalen Schreibmodus gearbeitet wird; wir untersuchen dies in unserem [Flusslayout und Schreibmodi](/de/docs/Web/CSS/CSS_display/Flow_layout_and_writing_modes) Leitfaden.
+Beachten Sie, dass die CSS 2.1-Spezifikation Dokumente als in einem horizontalen, von oben nach unten verlaufenden Schreibmodus beschreibt. Zum Beispiel durch die Beschreibung des vertikalen Abstands zwischen Block-Boxen. Das Verhalten bei Block- und Inline-Elementen ist das gleiche, wenn man in einem vertikalen Schreibmodus arbeitet; wir erkunden dies in unserem [Flow-Layout und Schreibmodi](/de/docs/Web/CSS/CSS_display/Flow_layout_and_writing_modes) Leitfaden.
 
 ## Elemente, die an einem Block-Formatierungskontext teilnehmen
 
-Block-Elemente in einem horizontalen Schreibmodus wie Englisch, werden vertikal, eins unter dem anderen angeordnet.
+Block-Elemente in einem horizontalen Schreibmodus wie Englisch, werden vertikal, eines unter dem anderen angeordnet.
 
 ![Inline-Richtung ist horizontal. Block-Richtung ist vertikal.](mdn-horizontal.png)
 
-In einem vertikalen Schreibmodus dann würden sie sich horizontal anordnen.
+In einem vertikalen Schreibmodus würden sie dann horizontal angeordnet.
 
 ![Inline-Richtung ist vertikal. Block-Richtung ist horizontal.](mdn-vertical.png)
 
-In diesem Leitfaden werden wir auf Englisch arbeiten und daher in einem horizontalen Schreibmodus. Alles Beschriebene sollte jedoch auf die gleiche Weise funktionieren, wenn Ihr Dokument in einem vertikalen Schreibmodus ist.
+In diesem Leitfaden arbeiten wir in Englisch und daher in einem horizontalen Schreibmodus. Alles Beschriebene sollte jedoch auf die gleiche Weise funktionieren, wenn Ihr Dokument in einem vertikalen Schreibmodus ist.
 
-Wie in der Spezifikation definiert, sind die Abstände zwischen zwei Blockboxen das, was die Trennung zwischen den Elementen schafft. Wir können dies mit dem Layout von zwei Absätzen sehen, denen ich einen Rand hinzugefügt habe. Das Standard-Browser-Stylesheet fügt den Absätzen durch Hinzufügen eines Abstands nach oben und unten einen Abstand hinzu.
+Wie in der Spezifikation definiert, sind es die Abstände zwischen zwei Block-Boxen, die eine Trennung zwischen den Elementen schaffen. Wir können dies mit dem Layout von zwei Absätzen sehen, denen ich eine Umrandung hinzugefügt habe. Das standardmäßige Browser-Stylesheet fügt durch Hinzufügen eines Abstandes zum oberen und unteren Rand der Absätze eine Trennung zwischen den Absätzen hinzu.
 
 ```html live-sample___normal-flow
 <div class="box">
@@ -62,7 +63,7 @@ p {
 
 {{EmbedLiveSample("normal-flow", "", "200px")}}
 
-Wenn wir die Abstände auf dem Absatz-Element auf `0` setzen, dann werden die Ränder sich berühren.
+Wenn wir die Abstände auf dem Absatz-Element auf `0` setzen, berühren sich die Umrandungen.
 
 ```html live-sample___normal-flow-margin-zero
 <div class="box">
@@ -91,7 +92,7 @@ p {
 
 {{EmbedLiveSample("normal-flow-margin-zero")}}
 
-Standardmäßig werden Block-Elemente den gesamten Platz in der Inline-Richtung einnehmen, sodass sich unsere Absätze ausbreiten und so groß wie möglich innerhalb ihres umschließenden Blocks werden. Wenn wir ihnen eine Breite geben, werden sie weiterhin eins unter dem anderen angeordnet, selbst wenn es Platz gäbe, damit sie nebeneinander stehen. Jeder beginnt an der Startkante des umschließenden Blocks, also dem Punkt, an dem Sätze in diesem Schreibmodus beginnen würden.
+Standardmäßig nutzen Block-Elemente den gesamten Platz in der Inline-Richtung, sodass unsere Absätze sich ausbreiten und so groß wie möglich innerhalb ihres umgebenden Blocks werden. Wenn wir ihnen eine Breite geben, werden sie weiterhin übereinander angeordnet, selbst wenn Platz wäre, um sie nebeneinander zu platzieren. Jedes wird am Startkante des umgebenden Blocks beginnen, also an der Stelle, an der normalerweise die Sätze in diesem Schreibmodus beginnen würden.
 
 ```html live-sample___normal-flow-width
 <div class="box">
@@ -120,11 +121,11 @@ p {
 
 {{EmbedLiveSample("normal-flow-width", "", "370px")}}
 
-### Ränder kollabieren
+### Zusammenfallen von Abständen
 
-Die Spezifikation erklärt, dass Ränder zwischen Block-Elementen _kollabieren_. Das bedeutet, dass wenn Sie ein Element mit einem oberen Rand direkt nach einem Element mit einem unteren Rand haben, anstatt dass der gesamte Raum die Summe dieser beiden Ränder ist, der Rand kollabiert und damit so groß wie der größere der beiden Ränder wird.
+Die Spezifikation erklärt, dass Abstände zwischen Block-Elementen _zusammenfallen_. Das bedeutet, dass wenn Sie ein Element mit einem oberen Abstand direkt nach einem Element mit einem unteren Abstand haben, statt dass der gesamte Raum die Summe dieser beiden Abstände ist, der Abstand zusammenfällt und im Wesentlichen so groß wie der größere der beiden Abstände wird.
 
-Im folgenden Beispiel haben die Absätze einen oberen Rand von `20px` und einen unteren Rand von `40px`. Die Größe des Randes zwischen den Absätzen beträgt `40px`, da der kleinere obere Rand des zweiten Absatzes mit dem größeren unteren Rand des ersten Absatzes kollabiert ist.
+Im folgenden Beispiel haben die Absätze einen oberen Abstand von `20px` und einen unteren von `40px`. Die Größe des Abstandes zwischen den Absätzen beträgt `40px`, da der kleinere obere Abstand des zweiten Absatzes mit dem größeren unteren Abstand des ersten zusammengefallen ist.
 
 ```html live-sample___normal-flow-collapsing
 <div class="box">
@@ -153,16 +154,16 @@ p {
 
 {{EmbedLiveSample("normal-flow-collapsing", "", "230px")}}
 
-Sie können mehr über Ränder-Kollaps in unserem Artikel [Mastering Margin Collapsing](/de/docs/Web/CSS/CSS_box_model/Mastering_margin_collapsing) lesen.
+Sie können mehr über das Zusammenfallen von Abständen in unserem Artikel [Beherrschung von zusammenfallenden Abständen](/de/docs/Web/CSS/CSS_box_model/Mastering_margin_collapsing) lesen.
 
 > [!NOTE]
-> Wenn Sie nicht sicher sind, ob Ränder kollabieren, überprüfen Sie die Box-Modell-Werte in Ihren Browser-Entwicklertools. Dies gibt Ihnen die tatsächliche Größe des Randes, was Ihnen helfen kann, zu identifizieren, was passiert.
+> Wenn Sie sich nicht sicher sind, ob Abstände zusammenfallen, überprüfen Sie die Box-Modell-Werte in den Entwicklerwerkzeugen Ihres Browsers. Dies zeigt Ihnen die tatsächliche Größe des Abstandes und kann Ihnen helfen zu erkennen, was passiert.
 >
-> ![Screenshot des Box-Modell-Panels in den Browser-Entwicklungstools, das die vier Werte für Rand, Rahmen und Auffüllung zusammen mit Höhe und Breite in einer Grafik oben zeigt und Box-Sizing, Anzeige, Float, Zeilenhöhe, Position und Z-Index unter der Grafik auflistet.](box-model.png)
+> ![Screenshot des Boxmoduls in den Entwicklerwerkzeugen des Browsers, das die vier Werte für Abstand, Rand und Polsterung zusammen mit Höhe und Breite in einer Grafik oben zeigt und box-sizing, Darstellung, Fluss, Zeilenhöhe, Position, und z-index unter der Grafik auflistet.](box-model.png)
 
 ## Elemente, die an einem Inline-Formatierungskontext teilnehmen
 
-Inline-Elemente werden nacheinander in der Richtung angezeigt, in der Sätze in diesem bestimmten Schreibmodus laufen. Während wir normalerweise nicht dazu neigen, Inline-Elemente als Boxen wahrzunehmen, haben sie, wie alles in CSS, Boxen. Diese Inline-Boxen sind nacheinander angeordnet. Wenn im umschließenden Block nicht genug Platz für alle Boxen ist, kann eine Box auf eine neue Zeile umgebrochen werden. Die erstellten Zeilen werden als Zeilenboxen bezeichnet.
+Inline-Elemente werden eines nach dem anderen in der Richtung angezeigt, in die Sätze in diesem speziellen Schreibmodus verlaufen. Während wir normalerweise nicht dazu neigen, bei Inline-Elementen an eine Box zu denken, haben sie wie alles in CSS eine solche. Diese Inline-Boxen werden nacheinander angeordnet. Gibt es nicht genug Platz im umgebenden Block für alle Boxen, kann eine Box auf eine neue Linie umgebrochen werden. Die erstellten Linien werden als Linienboxen bezeichnet.
 
 Im folgenden Beispiel haben wir drei Inline-Boxen, die durch einen Absatz mit einem {{HTMLElement("strong")}}-Element darin erstellt wurden.
 
@@ -176,9 +177,9 @@ Im folgenden Beispiel haben wir drei Inline-Boxen, die durch einen Absatz mit ei
 
 {{EmbedLiveSample("inline")}}
 
-Die Boxen um die Wörter vor dem `<strong>` Element und nach dem `</strong>` Element werden als anonyme Boxen bezeichnet, Boxen, die eingeführt wurden, um sicherzustellen, dass alles in einer Box verpackt ist, aber solche, die wir nicht direkt anvisieren können.
+Die Boxen um die Wörter vor dem `<strong>`-Element und nach dem `</strong>`-Element werden als anonyme Boxen bezeichnet, Boxen, die eingeführt werden, um sicherzustellen, dass alles in einer Box verpackt ist, aber solche, die wir nicht direkt ansprechen können.
 
-Die Größe der Zeilenbox in der Blockrichtung (also die Höhe beim Arbeiten auf Englisch) wird durch die höchste Box innerhalb davon definiert. Im nächsten Beispiel ist das `<strong>` Element 300%; da dieser Inhalt sich über zwei Zeilen erstreckt, definiert es jetzt die Höhe der Zeilenboxen dieser beiden Zeilen.
+Die Größe der Linienbox in der Block-Richtung (also die Höhe bei Arbeiten in Englisch) wird durch die höchste Box in ihr definiert. Im nächsten Beispiel ist das `<strong>`-Element 300%; da sich dieser Inhalt über zwei Zeilen erstreckt, definiert es jetzt die Höhe der Linienboxen dieser zwei Zeilen.
 
 ```html live-sample___line-box
 <p>
@@ -196,15 +197,15 @@ strong {
 
 {{EmbedLiveSample("line-box")}}
 
-Erfahren Sie mehr darüber, wie sich Block- und Inline-Boxen in unserem Leitfaden zum [visuellen Formatierungsmodell](/de/docs/Web/CSS/CSS_display/Visual_formatting_model) verhalten.
+Erfahren Sie mehr darüber, wie sich Block- und Inline-Boxen verhalten, in unserem Leitfaden zum [visuellen Formatierungsmodell](/de/docs/Web/CSS/CSS_display/Visual_formatting_model).
 
-## Die display-Eigenschaft und Flusslayout
+## Die display-Eigenschaft und Fluss-Layout
 
-Zusätzlich zu den in CSS2.1 existierenden Regeln beschreiben neue Ebenen von CSS weiter das Verhalten von Block- und Inline-Boxen. Die {{cssxref("display")}}-Eigenschaft definiert, wie sich eine Box und alle Boxen innerhalb davon verhalten. In der CSS Display Model Level 3 können wir mehr darüber erfahren, wie die `display`-Eigenschaft das Verhalten von Boxen und den von ihnen generierten Boxen verändert.
+Zusätzlich zu den in CSS 2.1 existierenden Regeln beschreiben neue Stufen von CSS das Verhalten von Block- und Inline-Boxen weiter. Die {{cssxref("display")}}-Eigenschaft definiert, wie eine Box und jede Box in ihr sich verhält. Im CSS-Anzeigemodell Stufe 3 können wir mehr darüber erfahren, wie die `display`-Eigenschaft das Verhalten von Boxen und den Boxen, die sie erzeugen, ändert.
 
-Der Anzeigentyp eines Elements definiert den äußeren Anzeigentyp; dieser bestimmt, wie die Box neben anderen Elementen im gleichen Formatierungskontext angezeigt wird. Es definiert auch den inneren Anzeigentyp, der bestimmt, wie sich Boxen innerhalb dieses Elements verhalten. Wir können dies sehr deutlich sehen, wenn wir ein Flex-Layout betrachten. Im folgenden Beispiel habe ich ein {{HTMLElement("div")}}, das ich mit `display: flex` versehen habe. Der Flex-Container verhält sich wie ein Block-Element: Er wird in einer neuen Zeile angezeigt und nimmt den gesamten Platz ein, den er in der Inline-Richtung kann. Dies ist der äußere Anzeigentyp von `block`.
+Der Anzeige-Typ eines Elements definiert den äußeren Anzeige-Typ; dies diktiert, wie die Box neben anderen Elementen im selben Formatierungskontext angezeigt wird. Es definiert auch den inneren Anzeige-Typ, der bestimmt, wie Boxen in diesem Element sich verhalten. Dies wird sehr deutlich, wenn man ein flexibles Layout betrachtet. Im unten stehenden Beispiel habe ich einen {{HTMLElement("div")}}, dem ich `display: flex` gegeben habe. Das Flex-Container verhält sich wie ein Block-Element: Es wird in einer neuen Zeile angezeigt und nimmt den gesamten Platz ein, den es in der Inline-Richtung einnehmen kann. Dies ist der äußere Anzeige-Typ von `block`.
 
-Die Flex-Elemente jedoch nehmen an einem Flex-Formatierungskontext teil, weil ihr Elternteil das Element mit `display: flex` ist, das einen inneren Anzeigentyp von `flex` hat und den Flex-Formatierungskontext für die direkten Kinder festlegt.
+Die Flex-Elemente hingegen nehmen an einem Flex-Formatierungskontext teil, weil ihr übergeordnetes Element das Element mit `display: flex` ist, welches einen inneren Anzeige-Typ von `flex` hat und den Flex-Formatierungskontext für die direkten Kinder etabliert.
 
 ```html live-sample___flex
 <div class="container">
@@ -230,13 +231,13 @@ Die Flex-Elemente jedoch nehmen an einem Flex-Formatierungskontext teil, weil ih
 
 {{EmbedLiveSample("flex")}}
 
-Daher können Sie denken, dass jede Box in CSS auf diese Weise funktioniert. Die Box selbst hat einen äußeren Anzeigentyp, sodass sie weiß, wie sie neben anderen Boxen zu verhalten ist. Sie hat dann einen inneren Anzeigentyp, der die Art und Weise ändert, wie sich ihre Kinder verhalten. Diese Kinder haben dann auch einen äußeren und inneren Anzeigentyp. Die Flex-Elemente im vorherigen Beispiel werden zu Flex-Level-Boxen, sodass ihr äußerer Anzeigentyp durch die Teilnahme am Flex-Formatierungskontext bestimmt wird. Sie haben jedoch einen inneren Anzeigentyp von _flow_, was bedeutet, dass ihre Kinder am normalen Fluss teilnehmen. Elemente, die innerhalb unseres Flex-Elements verschachtelt sind, legen sich als Block- und Inline-Elemente aus, es sei denn, etwas ändert ihren Anzeigentyp.
+Daher können Sie sich jedes Boxen in CSS, das auf diese Weise arbeitet, vorstellen. Die Box selbst hat einen äußeren Anzeige-Typ, so dass sie weiß, wie sie sich neben anderen Boxen verhält. Dann hat sie einen inneren Anzeige-Typ, der verändert, wie ihre Kinder sich verhalten. Diese Kinder haben dann auch einen äußeren und inneren Anzeige-Typ. Die Flex-Elemente im vorherigen Beispiel werden zu Flex-Level-Boxen, so dass ihr äußerer Anzeige-Typ durch die Art und Weise bestimmt wird, dass sie Teil des Flex-Formatierungskontexts sind. Sie haben jedoch einen inneren Anzeige-Typ von _Fluss_, was bedeutet, dass ihre Kinder am normalen Fluss teilnehmen. In den Flex-Elementen verschachtelte Elemente legen sich als Block- und Inline-Elemente aus, es sei denn, etwas ändert ihren Anzeige-Typ.
 
-Dieses Konzept des äußeren und inneren Anzeigentyps ist wichtig, da es uns sagt, dass ein Container, der eine Layout-Methode wie Flexbox (`display: flex`) und Grid-Layout (`display: grid`) verwendet, weiterhin an Block- und Inline-Layout teilnimmt, da der äußere Anzeigentyp dieser Methoden `block` ist.
+Dieses Konzept des äußeren und inneren Anzeige-Typs ist wichtig, da es uns sagt, dass ein Container, der eine Layoutmethode wie flexbox (`display: flex`) und Raster-Layout (`display: grid`) verwendet, immer noch an Block- und Inline-Layout teilnimmt, da der äußere Anzeige-Typ dieser Methoden `block` ist.
 
-### Änderung des Formatierungskontexts, in dem ein Element teilnimmt
+### Ändern des Formatierungskontexts, an dem ein Element teilnimmt
 
-Browser zeigen Elemente in Block- oder Inline-Formatierungskontexten basierend auf dem an, was normalerweise für dieses Element sinnvoll ist. Zum Beispiel wird ein {{HTMLElement("strong")}}-Element verwendet, um einen Inhalt stark zu betonen und wird standardmäßig in Browsern fett angezeigt. Es würde normalerweise keinen Sinn machen, dass dieses `<strong>`-Element als Block-Level-Element angezeigt wird, das in eine neue Zeile umbricht. Wenn Sie jedoch alle `<strong>`-Elemente als Block-Boxen anzeigen möchten, könnten Sie dies tun, indem Sie `strong { display: block; }` festlegen. Die Möglichkeit, Inhalte mit CSS zu gestalten, bedeutet, dass Sie immer die geeignetsten semantischen HTML-Elemente verwenden können, um Ihren Inhalt zu kennzeichnen, und dann ändern, wie sie mit CSS angezeigt werden.
+Browser zeigen Elemente in Block- oder Inline-Formatierungskontexten basierend darauf an, was normalerweise für dieses Element sinnvoll ist. Zum Beispiel wird ein {{HTMLElement("strong")}}-Element verwendet, um einen Inhaltsteil stark zu betonen und wird standardmäßig fett in Browsern angezeigt. Es würde allgemein keinen Sinn machen, dass dieses `<strong>`-Element als Block-Level-Element angezeigt wird, das in eine neue Zeile umbricht. Wenn Sie jedoch möchten, dass alle `<strong>`-Elemente als Block-Box angezeigt werden, könnten Sie dies tun, indem Sie `strong { display: block; }` setzen. Die Fähigkeit, Inhalte mit CSS zu stylen, bedeutet, dass Sie immer die am besten geeigneten semantischen HTML-Elemente verwenden können, um Ihre Inhalte zu kennzeichnen und dann ändern, wie sie mit CSS angezeigt werden.
 
 ```html live-sample___change-formatting
 <p>
@@ -256,11 +257,11 @@ strong {
 
 ## Zusammenfassung
 
-In diesem Leitfaden haben wir uns angesehen, wie Elemente im normalen Fluss als Block- und Inline-Elemente angezeigt werden. Aufgrund des Standardverhaltens dieser Elemente wird ein HTML-Dokument ganz ohne CSS-Styling auf eine lesbare Weise angezeigt. Indem Sie verstehen, wie der normale Fluss funktioniert, wird Ihnen das Layouten einfacher fallen, da Sie den Ausgangspunkt verstehen, um Veränderungen daran vorzunehmen, wie Elemente angezeigt werden.
+In diesem Leitfaden haben wir uns angesehen, wie Elemente im normalen Fluss als Block- und Inline-Elemente angezeigt werden. Aufgrund des Standardverhaltens dieser Elemente wird ein HTML-Dokument ohne jegliche CSS-Stilgebung auf eine lesbare Weise angezeigt. Durch das Verständnis, wie der normale Fluss funktioniert, wird Ihnen das Layout leichter fallen, da Sie den Ausgangspunkt verstehen, um Änderungen an der Anzeige der Elemente vorzunehmen.
 
 ## Siehe auch
 
-- [CSS-Grundboxmodell](/de/docs/Web/CSS/CSS_box_model)
+- [CSS-Grundlegendes Box-Modell](/de/docs/Web/CSS/CSS_box_model)
 - [Lernen: Normaler Fluss](/de/docs/Learn_web_development/Core/CSS_layout/Introduction#normal_layout_flow)
-- {{Glossary("Inline-level_content", "Inhalt auf Inline-Ebene")}}
-- {{Glossary("Block-level_content", "Inhalt auf Block-Ebene")}}
+- {{Glossary("Inline-level_content", "Inline-Level-Elemente")}}
+- {{Glossary("Block-level_content", "Block-Level-Elemente")}}

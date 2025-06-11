@@ -1,36 +1,37 @@
 ---
 title: Formen aus Box-Werten
+short-title: Box-Werte für Formen
 slug: Web/CSS/CSS_shapes/From_box_values
 l10n:
-  sourceCommit: b17ca921175c0a92d21c6c4effbc7fa3dc348a8e
+  sourceCommit: 0dcad86763896bba7f8e1ddc30c6dfd2aa664c6b
 ---
 
 {{CSSRef}}
 
-Eine einfache Möglichkeit, eine Form zu erstellen, ist die Verwendung eines Wertes aus dem [CSS Box Model](/de/docs/Web/CSS/CSS_box_model)-Modul. Dieser Artikel erklärt, wie das gemacht wird.
+Eine einfache Möglichkeit, eine Form zu erstellen, besteht darin, einen Wert aus dem [CSS-Box-Modell](/de/docs/Web/CSS/CSS_box_model)-Modul zu verwenden. Dieser Artikel erklärt, wie man das macht.
 
-Die im {{cssxref("box-edge")}} als Formwert zulässigen Box-Werte sind:
+Die erlaubten {{cssxref("box-edge")}} Box-Werte als Formwert sind:
 
 - `content-box`
 - `padding-box`
 - `border-box`
 - `margin-box`
 
-Auch die {{cssxref("border-radius")}}-Werte werden unterstützt. Das bedeutet, dass Sie einem Element eine gekrümmte Grenze geben und Ihren Inhalt um die entstandene Form herumfließen lassen können.
+Auch die {{cssxref("border-radius")}} Werte werden unterstützt. Das bedeutet, dass Sie einem Element eine gebogene Grenze geben und Ihren Inhalt um die erstellte Form fließen lassen können.
 
 ## CSS-Box-Modell
 
-Die oben aufgeführten Werte entsprechen den verschiedenen Teilen des CSS Box Models. Eine Box in CSS hat Inhalt, Auffüllung, Rahmen und Rand.
+Die oben aufgeführten Werte entsprechen den verschiedenen Teilen des CSS-Box-Modells. Eine Box in CSS hat Inhalt, Auffüllung (Padding), Rahmen und Rand (Margin).
 
-![Das Box-Modell besteht aus den Margin-, Border-, Padding- und Content-Boxen.](box-model.png)
+![Das Box-Modell besteht aus den Rand-, Rahmen-, Auffüllungs- und Inhaltsboxen.](box-model.png)
 
-Durch die Verwendung von Box-Werten für Formen können wir unseren Inhalt um die durch diese Werte definierten Kanten fließen lassen. In jedem der unten stehenden Beispiele verwende ich ein Element, das Auffüllung, einen Rahmen und einen Rand definiert hat, damit Sie die verschiedenen Möglichkeiten sehen können, wie Inhalte fließen.
+Durch die Verwendung von Box-Werten für Formen können wir unseren Inhalt um die durch diese Werte definierten Kanten wickeln. In jedem der folgenden Beispiele verwende ich ein Element, das Auffüllung, einen Rahmen und einen Rand definiert hat, damit Sie die verschiedenen Arten sehen können, auf die sich der Inhalt bewegt.
 
 ### margin-box
 
-Die `margin-box` ist die Form, die durch den Außenrand definiert wird und den Eckradius der Form einschließt, falls {{cssxref("border-radius")}} zur Definition des Elements verwendet wurde.
+Die `margin-box` ist die Form, die durch die äußere Randkante definiert wird und umfasst den Eckradius der Form, sollte {{cssxref("border-radius")}} bei der Definition des Elements verwendet worden sein.
 
-Im untenstehenden Beispiel haben wir ein zirkuläres lila Element, das ein {{htmlelement("div")}} mit einer Höhe, Breite und Hintergrundfarbe ist. Die `border-radius`-Eigenschaft wurde verwendet, um einen Kreis durch die Einstellung `border-radius: 50%` zu erstellen. Da das Element einen Rand hat, sehen Sie, dass der Inhalt um die kreisförmige Form und den darauf angewendeten Rand fließt.
+Im folgenden Beispiel haben wir ein kreisförmiges, violettes Element, das ein {{htmlelement("div")}} mit einer festgelegten Höhe, Breite und Hintergrundfarbe ist. Die `border-radius` Eigenschaft wurde verwendet, um einen Kreis zu erstellen, indem `border-radius: 50%` gesetzt wurde. Da das Element einen Rand (Margin) hat, können Sie sehen, dass der Inhalt um die kreisförmige Form und den darauf angewendeten Rand fließt.
 
 ```html live-sample___margin-box
 <div class="box">
@@ -68,9 +69,9 @@ body {
 
 ### border-box
 
-Der `border-box`-Wert ist die Form, die durch die Außenkante des Rahmens definiert wird. Diese Form folgt allen normalen Formregeln des äußeren Randradius. Sie haben weiterhin einen Rahmen, selbst wenn Sie die CSS-Eigenschaft {{cssxref("border")}} nicht verwendet haben. In diesem Fall ist sie identisch mit `padding-box`, der Form, die durch die äußere Auffüllungskante definiert wird.
+Der `border-box` Wert ist die Form, die durch die äußere Rahmenskante definiert wird. Diese Form folgt allen normalen Regeln für die Border-Radius-Formung der Außenkante des Rahmens. Sie haben weiterhin einen Rahmen, selbst wenn Sie nicht die CSS {{cssxref("border")}} Eigenschaft verwendet haben. In diesem Fall entspricht er der `padding-box`, der Form, die durch die äußere Auffüllungskante definiert wird.
 
-Im untenstehenden Beispiel können Sie sehen, wie der Text nun der vom Rahmen erstellten Linie folgt. Ändern Sie die Rahmengröße, und der Inhalt wird ihr folgen.
+Im folgenden Beispiel sehen Sie, wie der Text nun der durch den Rahmen erstellten Linie folgt. Ändern Sie die Rahmengröße, und der Inhalt wird dieser folgen.
 
 ```html hidden live-sample___border-box
 <div class="box">
@@ -111,7 +112,7 @@ body {
 
 ### padding-box
 
-Der `padding-box`-Wert definiert die Form, die durch die äußere Auffüllungskante eingeschlossen wird. Diese Form folgt allen normalen Formregeln des inneren Randradius. Wenn Sie keine Auffüllung haben, ist `padding-box` identisch mit `content-box`.
+Der `padding-box` Wert definiert die Form, die durch die äußere Auffüllungskante eingeschlossen wird. Diese Form folgt allen normalen Regeln für die Border-Radius-Formung der Innenkante des Rahmens. Wenn Sie keine Auffüllung haben, entspricht `padding-box` der `content-box`.
 
 ```html hidden live-sample___padding-box
 <div class="box">
@@ -152,7 +153,7 @@ body {
 
 ### content-box
 
-Der `content-box`-Wert definiert die Form, die durch die äußere Kanten des Inhalts eingeschlossen wird. Jeder Eckradius dieser Box ist der `border-radius` minus `border-width` und `padding`, oder `0`, je nachdem, welcher Wert größer ist. Dies bedeutet, dass es unmöglich ist, hier einen negativen Wert zu haben.
+Der `content-box` Wert definiert die Form, die durch die äußere Inhaltkante eingeschlossen wird. Jeder Eckradius dieser Box ist der `border-radius`, abzüglich `border-width` und `padding`, oder `0`, je nachdem, welcher Wert größer ist. Das bedeutet, dass hier kein negativer Wert möglich ist.
 
 ```html hidden live-sample___content-box
 <div class="box">
@@ -191,11 +192,11 @@ body {
 
 {{EmbedLiveSample("content-box", "", "250px")}}
 
-## Wann Box-Werte verwendet werden sollten
+## Wann sollten Box-Werte verwendet werden
 
-Die Verwendung von Box-Werten ist eine Möglichkeit, Formen zu erstellen; dies funktioniert jedoch von Natur aus nur mit sehr einfachen Formen, die mit der Eigenschaft `border-radius` definiert werden können. Die oben gezeigten Beispiele zeigen einen solchen Anwendungsfall. Sie können eine kreisförmige Form mit `border-radius` erstellen und dann Text darum herum krümmen.
+Die Verwendung von Box-Werten ist eine Möglichkeit, Formen zu erstellen; allerdings funktioniert das natürlich nur mit sehr einfachen Formen, die sich mit der `border-radius` Eigenschaft definieren lassen. Die gezeigten Beispiele oben zeigen einen solchen Anwendungsfall. Sie können eine kreisförmige Form mit `border-radius` erstellen und dann den Text darum herum fließen lassen.
 
-Mit dieser einfachen Technik können Sie einige interessante Effekte erzielen. In meinem letzten Beispiel in diesem Abschnitt habe ich zwei Elemente links und rechts schweben lassen, wobei jedes einen Borderradius von 100 % in Richtung des dem Text am nächsten gelegenen Bereichs hat.
+Mit dieser einfachen Technik können Sie einige interessante Effekte erzeugen. In meinem letzten Beispiel in diesem Abschnitt habe ich zwei Elemente links und rechts floaten lassen, wobei ich jedem einen Eckradius von 100% in Richtung des Textes gegeben habe.
 
 ```html live-sample___bottom-margin-box
 <div class="box">
@@ -243,4 +244,4 @@ body {
 
 {{EmbedLiveSample("bottom-margin-box", "", "240px")}}
 
-Für komplexere Formen müssen Sie einen der [grundlegenden Formen](/de/docs/Web/CSS/CSS_shapes/Basic_shapes) als Wert verwenden oder Ihre Form aus einem Bild definieren, wie es in anderen Leitfäden in diesem Abschnitt behandelt wird.
+Für komplexere Formen müssen Sie einen der [Grundformen](/de/docs/Web/CSS/CSS_shapes/Basic_shapes) als Wert verwenden oder Ihre Form aus einem Bild definieren, wie es in anderen Leitfäden in diesem Abschnitt behandelt wird.

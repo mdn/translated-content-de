@@ -1,21 +1,22 @@
 ---
 title: Ausrichten von Elementen in einem Flex-Container
+short-title: Ausrichten von Flex-Elementen
 slug: Web/CSS/CSS_flexible_box_layout/Aligning_items_in_a_flex_container
 l10n:
-  sourceCommit: f69b6432763c02faff0fa7e4a36ded410960227e
+  sourceCommit: 0dcad86763896bba7f8e1ddc30c6dfd2aa664c6b
 ---
 
 {{CSSRef}}
 
-Einer der Gründe, warum Flexbox so nützlich ist, ist die Möglichkeit der richtigen Ausrichtung, einschließlich einer schnellen Methode zum vertikalen Zentrieren von Elementen. In diesem Leitfaden werden wir uns intensiv damit beschäftigen, wie die Ausrichtungs- und Begründungseigenschaften in Flexbox funktionieren.
+Einer der Gründe, warum Flexbox so nützlich ist, liegt darin, dass es eine korrekte Ausrichtung ermöglicht, einschließlich einer schnellen Methode zur vertikalen Zentrierung von Elementen. In diesem Leitfaden werden wir uns detailliert ansehen, wie die Ausrichtungs- und Rechtfertigungseigenschaften in Flexbox funktionieren.
 
 ## Verwendung von Ausrichtung in Flexbox
 
-Flexbox bietet mehrere Eigenschaften zur Steuerung der Ausrichtung und des Abstands, wobei `align-items` und `justify-content` grundsätzlich für das Zentrieren von Elementen wichtig sind. Um ein Element zu zentrieren, verwenden wir die {{cssxref("align-items")}} Eigenschaft, um das Element auf der {{Glossary("cross_axis", "Kreuzachse")}} auszurichten, die in diesem Fall die {{Glossary("Flow_relative_values", "Blockachse")}} ist, die vertikal verläuft. Wir verwenden {{cssxref("justify-content")}}, um das Element auf der Hauptachse auszurichten, die in diesem Fall die Inline-Achse ist, die horizontal verläuft.
+Flexbox bietet mehrere Eigenschaften zur Kontrolle der Ausrichtung und des Abstands, wobei `align-items` und `justify-content` grundlegend für die Zentrierung von Elementen sind. Um ein Element zu zentrieren, verwenden wir die {{cssxref("align-items")}}-Eigenschaft, um das Element auf der {{Glossary("cross_axis", "Querachse")}} auszurichten, die in diesem Fall die {{Glossary("Flow_relative_values", "Blockachse")}} ist und vertikal verläuft. Wir verwenden {{cssxref("justify-content")}}, um das Element auf der Hauptachse auszurichten, die in diesem Fall die Inlineachse ist und horizontal verläuft.
 
-![Die Kreuzachse ist die vertikale Achse und die Hauptachse ist die horizontale Achse.](align1.png)
+![Die Querachse ist die vertikale Achse und die Hauptachse ist die horizontale Achse.](align1.png)
 
-Ändern Sie die Größe des Containers oder des verschachtelten Elements im folgenden Code-Beispiel. Das verschachtelte Element bleibt immer zentriert.
+Verändern Sie die Größe des Containers oder des verschachtelten Elements im untenstehenden Codebeispiel. Das verschachtelte Element bleibt immer zentriert.
 
 ```html live-sample___intro
 <div class="box">
@@ -42,29 +43,29 @@ Flexbox bietet mehrere Eigenschaften zur Steuerung der Ausrichtung und des Absta
 
 {{EmbedLiveSample("intro")}}
 
-## Eigenschaften zur Steuerung der Ausrichtung in Flexbox
+## Eigenschaften zur Kontrolle der Ausrichtung in Flexbox
 
 Die Eigenschaften, die wir in diesem Leitfaden betrachten werden, sind wie folgt.
 
 - {{cssxref("justify-content")}}: Steuert die Ausrichtung aller Elemente auf der Hauptachse.
-- {{cssxref("align-items")}}: Steuert die Ausrichtung aller Elemente auf der Kreuzachse.
-- {{cssxref("align-self")}}: Steuert die Ausrichtung eines einzelnen Flex-Elements auf der Kreuzachse.
-- {{cssxref("align-content")}}: Steuert den Abstand zwischen Flex-Linien auf der Kreuzachse.
-- {{cssxref("gap")}}, {{cssxref("column-gap")}}, und {{cssxref("row-gap")}}: Werden verwendet, um Abstände oder Rinnen zwischen Flex-Elementen zu erstellen.
+- {{cssxref("align-items")}}: Steuert die Ausrichtung aller Elemente auf der Querachse.
+- {{cssxref("align-self")}}: Steuert die Ausrichtung eines einzelnen Flex-Elements auf der Querachse.
+- {{cssxref("align-content")}}: Steuert den Raum zwischen Flex-Linien auf der Querachse.
+- {{cssxref("gap")}}, {{cssxref("column-gap")}}, und {{cssxref("row-gap")}}: Dienen dazu, Lücken oder Rinnen zwischen Flex-Elementen zu erzeugen.
 
-Wir werden auch entdecken, wie automatische Ränder für die Ausrichtung in Flexbox verwendet werden können.
+Wir werden auch entdecken, wie automatische Ränder zur Ausrichtung in Flexbox verwendet werden können.
 
-## Ausrichten von Elementen auf der Kreuzachse
+## Ausrichtung von Elementen auf der Querachse
 
-Die {{cssxref("align-items")}} Eigenschaft, die auf den Flex-Container gesetzt ist, und die {{cssxref("align-self")}} Eigenschaft, die auf Flex-Elemente gesetzt ist, steuern die Ausrichtung von Flex-Elementen auf der Kreuzachse. Die Kreuzachse verläuft entlang der Spalten, wenn {{cssxref("flex-direction")}} `row` ist, und entlang der Reihen, wenn `flex-direction` `column` ist.
+Die {{cssxref("align-items")}}-Eigenschaft, die auf den Flex-Container angewendet wird, und die {{cssxref("align-self")}}-Eigenschaft, die auf Flex-Elemente angewendet wird, steuern die Ausrichtung der Flex-Elemente auf der Querachse. Die Querachse verläuft entlang der Spalten, wenn {{cssxref("flex-direction")}} `row` ist, und entlang der Reihen, wenn `flex-direction` `column` ist.
 
-In diesem grundlegenden Flex-Beispiel verwenden wir die Kreuzachsen-Ausrichtung. Wenn wir `display: flex` zu einem Container hinzufügen, werden die Kindelemente zu Flex-Elementen, die in einer Reihe angeordnet sind. Standardmäßig werden sie alle gestreckt, um die Höhe des höchsten Elements zu erreichen, da dieses Element die Höhe der Elemente auf der Kreuzachse definiert. Wenn der Flex-Container eine festgelegte Höhe hat, werden die Elemente auf diese Höhe gestreckt, unabhängig davon, wie viel Inhalt in jedem Element ist.
+In diesem grundlegenden Flex-Beispiel verwenden wir die Ausrichtung auf der Querachse. Wenn wir `display: flex` zu einem Container hinzufügen, werden die Kind-Elemente zu Flex-Elementen, die in einer Reihe angeordnet sind. Standardmäßig werden sie alle auf die Höhe des höchsten Elements gestreckt, da dieses Element die Höhe der Elemente auf der Querachse definiert. Wenn der Flex-Container eine festgelegte Höhe hat, strecken sich die Elemente auf diese Höhe, unabhängig davon, wie viel Inhalt sich in jedem Element befindet.
 
-![Drei Elemente, eines mit zusätzlichem Text, wodurch es größer ist als die anderen.](align2.png)
+![Drei Elemente, eines mit zusätzlichem Text, der es größer macht als die anderen.](align2.png)
 
-![Drei Elemente gestreckt auf 200 Pixel Höhe](align3.png)
+![Drei Elemente, gestreckt auf 200 Pixel Höhe](align3.png)
 
-Der Grund, warum die Elemente die gleiche Höhe haben, ist, dass der Anfangswert von `align-items`, die Eigenschaft, die die Ausrichtung auf der Kreuzachse steuert, auf `stretch` gesetzt ist.
+Der Grund, warum die Elemente die gleiche Höhe haben, liegt darin, dass der Anfangswert von `align-items`, der die Ausrichtung auf der Querachse steuert, auf `stretch` gesetzt ist.
 
 Wir können andere Werte verwenden, um zu steuern, wie die Elemente ausgerichtet werden:
 
@@ -78,7 +79,7 @@ Wir können andere Werte verwenden, um zu steuern, wie die Elemente ausgerichtet
 - `align-items: first baseline`
 - `align-items: last baseline`
 
-Im folgenden Beispiel ist der Wert von `align-items` `stretch`. Probieren Sie die anderen Werte aus und sehen Sie, wie die Elemente im Flex-Container gegeneinander ausgerichtet werden.
+Im untenstehenden Beispiel ist der Wert von `align-items` `stretch`. Versuchen Sie die anderen Werte und sehen Sie, wie die Elemente im Flex-Container zueinander ausgerichtet sind.
 
 ```html live-sample___align-items
 <div class="box">
@@ -105,11 +106,11 @@ Im folgenden Beispiel ist der Wert von `align-items` `stretch`. Probieren Sie di
 
 {{EmbedLiveSample("align-items")}}
 
-### Ein einzelnes Element mit `align-self` ausrichten
+### Ausrichten eines Elements mit `align-self`
 
-Die `align-items` Eigenschaft setzt die `align-self` Eigenschaft auf alle Flex-Elemente als Gruppe. Das bedeutet, dass Sie die {{cssxref("align-self")}} Eigenschaft explizit deklarieren können, um ein einzelnes Element zu targetieren. Die `align-self` Eigenschaft akzeptiert alle dieselben Werte wie `align-items`, plus einen Wert von `auto`, der den Wert auf den im Flex-Container definierten Wert zurücksetzt.
+Die `align-items`-Eigenschaft setzt die `align-self`-Eigenschaft auf alle Flex-Elemente als Gruppe. Das bedeutet, dass Sie explizit die {{cssxref("align-self")}}-Eigenschaft deklarieren können, um ein einzelnes Element zu targetieren. Die `align-self`-Eigenschaft nimmt alle gleichen Werte wie `align-items` an, plus einen Wert von `auto`, der den Wert auf denjenigen zurücksetzt, der auf dem Flex-Container definiert ist.
 
-Im nächsten Live-Beispiel hat der Flex-Container `align-items: flex-start`, was bedeutet, dass die Elemente alle am Anfang der Kreuzachse ausgerichtet sind. Mit dem `first-child` Selektor ist das erste Element auf `align-self: stretch` gesetzt. Ein anderes Element mit der `selected` Klasse hat `align-self: center` gesetzt. Ändern Sie den Wert von `align-items` oder ändern Sie die Werte von `align-self` auf den einzelnen Elementen, um zu sehen, wie dies funktioniert.
+In diesem nächsten Live-Beispiel hat der Flex-Container `align-items: flex-start`, was bedeutet, dass die Elemente alle am Anfang der Querachse ausgerichtet sind. Mithilfe des `first-child`-Selectors wird das erste Element auf `align-self: stretch` gesetzt. Ein anderes Element mit der `selected`-Klasse hat `align-self: center` gesetzt. Ändern Sie den Wert von `align-items` oder die Werte von `align-self` auf den einzelnen Elementen, um zu sehen, wie das funktioniert.
 
 ```html live-sample___align-self
 <div class="box">
@@ -145,15 +146,15 @@ Im nächsten Live-Beispiel hat der Flex-Container `align-items: flex-start`, was
 
 ### Ändern der Hauptachse
 
-Bisher haben wir das Ausrichtungsverhalten betrachtet, wenn `flex-direction` standardmäßig auf `row` gesetzt ist, während wir in einer Sprache arbeiten, die von oben nach unten geschrieben wird, mit einer horizontalen Hauptachse und einer vertikalen Kreuzachse.
+Bisher haben wir das Ausrichtungsverhalten betrachtet, wenn `flex-direction` standardmäßig `row` ist, während in einer von oben nach unten geschriebenen Sprache mit einer horizontalen Hauptachse und einer vertikalen Querachse gearbeitet wird.
 
-![Drei Elemente, das erste ausgerichtet auf flex-start, das zweite auf center, das dritte auf flex-end. Ausrichtung auf die vertikale Achse.](align4.png)
+![Drei Elemente, das erste zu flex-start, das zweite zu center, das dritte zu flex-end ausgerichtet. Ausrichtung auf der vertikalen Achse.](align4.png)
 
-Wenn wir den gleichen Schreibmodus beibehalten, werden bei Änderung von `flex-direction` zu `column` die `align-items` und `align-self` Eigenschaften die Elemente nach links und rechts statt oben und unten ausrichten; diese Eigenschaften richten weiterhin die Elemente entlang der Kreuzachse aus, aber die Kreuzachse ist jetzt horizontal!
+Wenn bei gleicher Schreibrichtung `flex-direction` auf `column` geändert wird, richten die `align-items`- und `align-self`-Eigenschaften die Elemente nach links und rechts statt nach oben und unten aus; diese Eigenschaften richten immer noch Gegenstände entlang der Querachse aus, aber die Querachse ist jetzt horizontal!
 
-![Drei Elemente, das erste ausgerichtet auf flex-start, das zweite auf center, das dritte auf flex-end. Ausrichtung auf die horizontale Achse.](align5.png)
+![Drei Elemente, das erste zu flex-start, das zweite zu center, das dritte zu flex-end ausgerichtet. Ausrichtung auf der horizontalen Achse.](align5.png)
 
-Probieren Sie dies im folgenden Beispiel aus, das einen Flex-Container mit `flex-direction: column` hat und ansonsten genau dasselbe ist wie das vorherige Beispiel.
+Sie können dies im untenstehenden Beispiel ausprobieren, das einen Flex-Container mit `flex-direction: column` hat, aber ansonsten genau wie das vorherige Beispiel ist.
 
 ```html live-sample___align-self-column
 <div class="box">
@@ -188,13 +189,13 @@ Probieren Sie dies im folgenden Beispiel aus, das einen Flex-Container mit `flex
 
 {{EmbedLiveSample("align-self-column", "", "300px")}}
 
-## Inhalt auf der Kreuzachse mit der `align-content` Eigenschaft ausrichten
+## Ausrichtung von Inhalten auf der Querachse mit der `align-content`-Eigenschaft
 
-Bisher haben wir uns darauf konzentriert, Elemente oder einzelne Elemente innerhalb des Bereichs eines {{Glossary("flex_container", "Flex-Containers")}} mit einer einzigen Flex-Linie auszurichten. Wenn Flex-Elemente über mehrere Linien hinweg erlaubt sind, kann die {{cssxref("align-content")}} Eigenschaft verwendet werden, um die Verteilung des Raums zwischen den Linien zu steuern, auch bekannt als **Verpacken von Flex-Linien**.
+Bisher haben wir uns darauf konzentriert, Elemente oder einzelne Elemente innerhalb des Bereichs eines {{Glossary("flex_container", "Flex-Containers")}} auszurichten, der eine einzige Zeile von Flex-Elementen enthält. Wenn Flex-Elemente erlaubt sind, sich über mehrere Linien zu erstrecken, kann die {{cssxref("align-content")}}-Eigenschaft verwendet werden, um die Verteilung des Raumes zwischen den Linien zu kontrollieren, auch bekannt als **Verpackung von Flex-Linien**.
 
-Damit `align-content` eine Wirkung hat, muss die Dimension der Kreuzachse (in diesem Fall die Höhe) des Flex-Containers größer sein, als nötig, um die Elemente anzuzeigen. Dann wirkt sie auf alle Elemente als Gruppe. Die `align-content` Werte bestimmen, was mit dem zusätzlichen verfügbaren Raum passiert und wie das gesamte Set von Elementen darin ausgerichtet wird.
+Damit `align-content` Wirkung hat, muss die Querachsendimension (in diesem Fall die Höhe) des Flex-Containers größer sein als nötig, um die Elemente anzuzeigen. Dann arbeitet es auf alle Elemente als Satz. Die `align-content`-Werte bestimmen, was mit dem zusätzlichen verfügbaren Raum und der Ausrichtung des gesamten Elementsatzes innerhalb dieses Raums passiert.
 
-Die `align-content` Eigenschaft nimmt die folgenden Werte:
+Die `align-content`-Eigenschaft nimmt die folgenden Werte an:
 
 - `align-content: flex-start`
 - `align-content: flex-end`
@@ -205,14 +206,14 @@ Die `align-content` Eigenschaft nimmt die folgenden Werte:
 - `align-content: space-around`
 - `align-content: space-evenly`
 - `align-content: stretch`
-- `align-content: normal` (verhält sich wie `stretch`)
+- `align-content: normal` (benimmt sich wie `stretch`)
 - `align-content: baseline`
 - `align-content: first baseline`
 - `align-content: last baseline`
 
-Im Live-Beispiel unten hat der Flex-Container eine Höhe von `400 Pixel`, was mehr ist als nötig, um unsere Elemente anzuzeigen. Der Wert von `align-content` ist `space-between`, was bedeutet, dass der verfügbare Raum _zwischen_ den Flex-Linien aufgeteilt wird, die auf der Kreuzachse bündig mit dem Anfang und Ende des Containers platziert sind.
+Im Live-Beispiel unten hat der Flex-Container eine Höhe von `400 Pixel`, was mehr ist, als benötigt wird, um unsere Elemente anzuzeigen. Der Wert von `align-content` ist `space-between`, was bedeutet, dass der verfügbare Raum _zwischen_ den Flex-Linien verteilt wird, die bündig mit dem Anfang und Ende des Containers auf der Querachse platziert sind.
 
-Probieren Sie die anderen Werte aus, um zu sehen, wie die `align-content` Eigenschaft funktioniert.
+Probieren Sie die anderen Werte aus, um zu sehen, wie die `align-content`-Eigenschaft funktioniert.
 
 ```html live-sample___align-content
 <div class="box">
@@ -255,7 +256,7 @@ Probieren Sie die anderen Werte aus, um zu sehen, wie die `align-content` Eigens
 
 {{EmbedLiveSample("align-content", "", "380px")}}
 
-Wir können wieder unsere `flex-direction` auf `column` umschalten, um zu sehen, wie sich diese Eigenschaft verhält, wenn wir mit Spalten arbeiten. Wie zuvor benötigen wir genügend Raum auf der Kreuzachse, um etwas freien Raum zu haben, nachdem alle Elemente angezeigt wurden.
+Wieder können wir unsere `flex-direction` zu `column` wechseln, um zu sehen, wie sich diese Eigenschaft verhält, wenn wir nach Spalte arbeiten. Wie zuvor benötigen wir genügend Raum in der Querachse, um nach der Anzeige aller Elemente einige Freiräume zu haben.
 
 ```html live-sample___align-content-column
 <div class="box">
@@ -299,15 +300,15 @@ Wir können wieder unsere `flex-direction` auf `column` umschalten, um zu sehen,
 
 {{EmbedLiveSample("align-content-column", "", "380px")}}
 
-## Ausrichten von Inhalt auf der Hauptachse
+## Ausrichtung von Inhalten auf der Hauptachse
 
-Nachdem wir gesehen haben, wie die Ausrichtung auf der Kreuzachse funktioniert, können wir einen Blick auf die Hauptachse werfen. Hier steht uns nur eine Eigenschaft zur Verfügung — `justify-content`. Dies liegt daran, dass wir nur mit den Elementen als Gruppe auf der Hauptachse arbeiten. Mit `justify-content` steuern wir, was mit dem verfügbaren Raum passiert, wenn mehr Raum vorhanden ist, als nötig ist, um die Elemente anzuzeigen.
+Nun, da wir gesehen haben, wie Ausrichtung auf der Querachse funktioniert, können wir einen Blick auf die Hauptachse werfen. Hier steht uns nur eine Eigenschaft zur Verfügung — `justify-content`. Das liegt daran, dass wir nur mit Elementen als Gruppe auf der Hauptachse arbeiten. Mit `justify-content` kontrollieren wir, was mit verfügbarer Raumausnutzung passiert, sollte mehr Raum vorhanden sein, als für die Anzeige der Elemente benötigt wird.
 
-In unserem ersten Beispiel mit `display: flex` auf dem Container werden die Elemente als Reihe angezeigt und alle am Anfang des Containers ausgerichtet. Dies liegt daran, dass der Anfangswert von `justify-content` `normal` ist, was sich wie `start` verhält. Jeder verfügbare Raum befindet sich am Ende der Elemente.
+In unserem Anfangsbeispiel mit `display: flex` auf dem Container werden die Elemente wie eine Reihe angezeigt und alle am Anfang des Containers ausgerichtet. Dies liegt am Anfangswert von `justify-content`, der `normal` ist, was sich wie `start` verhält. Jeder verfügbare Raum befindet sich am Ende der Artikel.
 
-![Drei Elemente, jeweils 100 Pixel breit in einem 500 Pixel Container. Der verfügbare Raum ist am Ende der Elemente.](align6.png)
+![Drei Elemente, jeweils 100 Pixel breit in einem 500-Pixel-Container. Der verfügbare Raum befindet sich am Ende der Artikel.](align6.png)
 
-Die `baseline` Werte sind in dieser Dimension nicht relevant. Ansonsten nimmt die `justify-content` Eigenschaft die gleichen Werte wie `align-content` an.
+Die `baseline`-Werte sind in dieser Dimension nicht relevant. Ansonsten akzeptiert die `justify-content`-Eigenschaft die gleichen Werte wie `align-content`.
 
 - `justify-content: flex-start`
 - `justify-content: flex-end`
@@ -319,10 +320,10 @@ Die `baseline` Werte sind in dieser Dimension nicht relevant. Ansonsten nimmt di
 - `justify-content: space-between`
 - `justify-content: space-around`
 - `justify-content: space-evenly`
-- `justify-content: stretch` (verhält sich wie `start`)
-- `justify-content: normal` (verhält sich wie stretch, was sich wie start verhält)
+- `justify-content: stretch` (benimmt sich wie start)
+- `justify-content: normal` (benimmt sich wie stretch, was sich wie start benimmt)
 
-Im folgenden Beispiel ist der Wert von `justify-content` `space-between`. Der verfügbare Raum nach der Anzeige der Elemente wird zwischen den Elementen verteilt. Das linke und rechte Element sind bündig mit dem Anfang und Ende ausgerichtet.
+Im folgenden Beispiel ist der Wert von `justify-content` `space-between`. Der verfügbare Raum nach der Anzeige der Elemente wird zwischen den Elementen verteilt. Das linke und rechte Element stehen bündig mit dem Anfang und Ende.
 
 ```html live-sample___justify-content
 <div class="box">
@@ -350,7 +351,7 @@ Im folgenden Beispiel ist der Wert von `justify-content` `space-between`. Der ve
 
 {{EmbedLiveSample("justify-content")}}
 
-Wenn die Hauptachse in der Blockrichtung ist, weil `flex-direction` auf `column` gesetzt ist, wird `justify-content` den Raum zwischen den Elementen in dieser Dimension verteilen, solange im Flex-Container genügend Raum zum Verteilen vorhanden ist.
+Wenn die Hauptachse in der Blockrichtung liegt, weil `flex-direction` auf `column` eingestellt ist, dann wird `justify-content` den Raum zwischen den Elementen in dieser Dimension verteilen, solange im Flex-Container Raum verteilt werden kann.
 
 ```html live-sample___justify-content-column
 <div class="box">
@@ -382,15 +383,15 @@ Wenn die Hauptachse in der Blockrichtung ist, weil `flex-direction` auf `column`
 
 ### Ausrichtung und Schreibmodi
 
-Beachten Sie, dass bei all diesen Ausrichtungsmethoden die Werte von `start` und `end` schreibmodusabhängig sind. Wenn der Wert von `justify-content` `start` ist und der Schreibmodus von links nach rechts, wie im Englischen, werden die Elemente beginnend von der linken Seite des Containers ausgerichtet.
+Denken Sie daran, dass bei all diesen Ausrichtungsmethoden die Werte von `start` und `end` schreibmodusabhängig sind. Wenn der Wert von `justify-content` `start` ist und der Schreibmodus von links nach rechts ist, wie im Englischen, werden die Elemente beginnend auf der linken Seite des Containers ausgerichtet.
 
-![Drei Elemente, die auf der linken Seite ausgerichtet sind](basics5.png)
+![Drei Elemente links ausgerichtet](basics5.png)
 
-Wenn jedoch der Schreibmodus von rechts nach links ist, wie im Arabischen, werden die Elemente beginnend von der rechten Seite des Containers ausgerichtet.
+Wenn der Schreibmodus jedoch von rechts nach links ist, wie im Arabischen, werden die Elemente beginnend auf der rechten Seite des Containers ausgerichtet.
 
-![Drei Elemente, die von rechts ausgerichtet sind](basics6.png)
+![Drei Elemente vom rechten Rand aus ausgerichtet](basics6.png)
 
-Im Live-Beispiel unten ist die `direction` Eigenschaft auf `rtl` gesetzt, um einen rechts-nach-links-Flow für unsere Elemente zu erzwingen. Sie können dies entfernen oder die Werte von `justify-content` ändern, um zu sehen, wie sich Flexbox verhält, wenn der Anfang der Inline-Richtung auf der rechten Seite liegt.
+Das Live-Beispiel unten hat die `direction`-Eigenschaft auf `rtl` gesetzt, um einen Rechts-nach-Links-Fluss für unsere Elemente zu erzwingen. Sie können dies entfernen oder die Werte von `justify-content` ändern, um zu sehen, wie Flexbox sich verhält, wenn der Beginn der Inline-Richtung rechts liegt.
 
 ```html live-sample___justify-content-writing-mode
 <div class="box">
@@ -421,9 +422,9 @@ Im Live-Beispiel unten ist die `direction` Eigenschaft auf `rtl` gesetzt, um ein
 
 ## Ausrichtung und `flex-direction`
 
-Die Richtung des `start` der Linie ändert sich auch, wenn Sie die `flex-direction` Eigenschaft ändern — beispielsweise, indem Sie `row-reverse` anstelle von `row` verwenden.
+Die Richtung des Linienbeginns ändert sich ebenfalls, wenn Sie die `flex-direction`-Eigenschaft ändern — zum Beispiel durch die Verwendung von `row-reverse` statt `row`.
 
-Im nächsten Beispiel definieren `flex-direction: row-reverse` und `justify-content: flex-end` die Richtung und den Ort der Elemente innerhalb des Flex-Containers. In einer von links nach rechts schreibenden Sprache sind die Elemente auf der linken Seite ausgerichtet. Versuchen Sie, `flex-direction: row-reverse` auf `flex-direction: row` zu ändern. Sie werden sehen, dass die Elemente jetzt auf die rechte Seite verschoben werden und die visuelle Reihenfolge der Elemente umgekehrt ist.
+Im nächsten Beispiel definieren `flex-direction: row-reverse` und `justify-content: flex-end` die Richtung und den Standort der Elemente innerhalb des Flex-Containers. In einer von links nach rechts geschriebenen Sprache richten sich die Elemente auf der linken Seite aus. Versuchen Sie, `flex-direction: row-reverse` zu `flex-direction: row` zu ändern. Sie werden sehen, dass sich die Elemente nun an der rechten Seite positionieren und die visuelle Reihenfolge der Elemente auf den Kopf gestellt wird.
 
 ```html live-sample___justify-content-reverse
 <div class="box">
@@ -452,33 +453,33 @@ Im nächsten Beispiel definieren `flex-direction: row-reverse` und `justify-cont
 
 {{EmbedLiveSample("justify-content-reverse")}}
 
-Auch wenn dies etwas verwirrend erscheinen mag, ist die Regel, die man sich merken sollte, dass, sofern Sie nichts ändern, Flex-Elemente sich in der Richtung anordnen, in der Wörter in der Sprache Ihres Dokuments entlang der Inline-, Zeilenachse angeordnet sind. `start` und `flex-start` werden dort sein, wo der Anfang eines Satzes von Text beginnen würde.
+Während dies alles ein wenig verwirrend erscheinen mag, ist die Regel, die Sie sich merken sollten, dass, solange Sie nichts daran ändern, sich Flex-Elemente in der Richtung anordnen, in der Worte in der Sprache Ihres Dokuments entlang der Inline- oder Reihenachse angeordnet sind. `start` und `flex-start` werden dort sein, wo der Anfang eines Satzes Text wäre.
 
-![Diagramm zeigt start auf der linken Seite und end auf der rechten Seite.](align8.png)
+![Diagramm, das den Anfang auf der linken Seite und das Ende auf der rechten Seite zeigt.](align8.png)
 
-Sie können sie in der Blockrichtung für die Sprache Ihres Dokuments anzeigen lassen, indem Sie `flex-direction: column` wählen. Dann werden `start` und `flex-start` dort sein, wo der Anfang Ihres ersten Absatzes von Text beginnen würde.
+Sie können sie in die Blockrichtung für die Sprache Ihres Dokuments umschalten, indem Sie `flex-direction: column` auswählen. Dann werden `start` und `flex-start` dort sein, wo der Anfang Ihres ersten Absatzes Text wäre.
 
-![Diagramm zeigt start oben und end unten.](align10.png)
+![Diagramm, das den Anfang oben und das Ende unten zeigt.](align10.png)
 
-Wenn Sie `flex-direction` auf einen der umgekehrten Werte ändern, werden sie sich vom Endpunkt und in der umgekehrten Reihenfolge der Art und Weise, wie Wörter in der Sprache Ihres Dokuments geschrieben werden, anordnen. Dann werden `start` und `flex-start` sich an das Ende dieser Achse ändern — also den Ort, an dem Ihre Zeilen umgebrochen würden, wenn Sie in Reihen arbeiten, oder am Ende Ihres letzten Absatzes von Text in der Blockrichtung.
+Wenn Sie `flex-direction` auf einen der umgekehrten Werte ändern, legen sie sich vom Endpunkt aus in umgekehrter Reihenfolge zu der Weise an, wie Worte in der Sprache Ihres Dokuments geschrieben werden. Dann ändern sich `start` und `flex-start` an das Ende dieser Achse — also an den Ort, an dem Ihre Zeilen umbrochen werden würden, wenn Sie in Reihen arbeiten, oder am Ende Ihres letzten Absatzes Text in der Blockrichtung.
 
-![Diagramm zeigt start auf der rechten Seite und end auf der linken Seite.](align9.png)
+![Diagramm, das den Anfang auf der rechten Seite und das Ende auf der linken Seite zeigt.](align9.png)
 
-![Diagramm zeigt end oben und start unten](align11.png)
+![Diagramm, das das Ende oben und den Anfang unten zeigt](align11.png)
 
-## Verwenden von automatischen Rändern für Hauptachsen-Ausrichtung
+## Verwendung von automatischen Rändern für die Ausrichtung auf der Hauptachse
 
-Wir haben keine `justify-items` oder `justify-self` Eigenschaft für die Hauptachse, da unsere Elemente auf dieser Achse als Gruppe behandelt werden. Es ist jedoch möglich, durch die Verwendung von automatischen Rändern zusammen mit Flexbox einige individuelle Ausrichtungen vorzunehmen, um ein Element oder eine Gruppe von Elementen von anderen zu trennen.
+Uns steht keine `justify-items` oder `justify-self` Eigenschaft auf der Hauptachse zur Verfügung, da unsere Elemente auf dieser Achse als Gruppe behandelt werden. Trotzdem ist es möglich, einige Einzelpositionierungen zu erreichen, um ein Element oder eine Gruppe von Elementen von anderen zu trennen, indem man automatische Ränder zusammen mit Flexbox verwendet.
 
-Ein gängiges Muster ist eine Navigationsleiste, bei der einige Schlüsselelemente rechts ausgerichtet sind, während die Hauptgruppe links verbleibt. Man könnte denken, dass dies ein Anwendungsfall für eine `justify-self` Eigenschaft sein sollte. Betrachten Sie jedoch das folgende Bild. Als Beispiel nehmen Sie das folgende Bild mit drei Elementen auf einer Seite und zwei auf der anderen. Wenn `justify-self` auf Flex-Elementen funktionieren würde und auf Element _d_ gesetzt wäre, würde es auch die Ausrichtung von Element _e_ ändern, das folgt, was möglicherweise nicht beabsichtigt ist.
+Ein häufiges Muster ist eine Navigationsleiste, bei der einige Schlüsselelemente rechts ausgerichtet sind und die Hauptgruppe links. Vielleicht denken Sie, dass dies ein Anwendungsfall für eine `justify-self`-Eigenschaft sein sollte. Betrachten Sie jedoch das folgende Bild mit fünf Elementen, von denen zwei berühmte Elemente auf der einen und drei auf der anderen Seite auftreten. Wenn `justify-self` mit Flex-Elementen funktionieren würde und auf Element _d_ gesetzt wäre, würde es auch die Ausrichtung des darauf folgenden Elements _e_ ändern, was unter Umständen möglicherweise nicht gewünscht wird.
 
 ![Fünf Elemente, in zwei Gruppen. Drei links und zwei rechts.](align7.png)
 
-Stattdessen kann das Element _d_ durch festgelegte CSS-Ränder verschoben werden.
+Stattdessen kann das Element _d_ mit CSS-Rändern verschoben werden.
 
-In diesem Live-Beispiel wird das vierte Element durch Setzen von {{cssxref("margin-left")}} auf `auto` von den ersten drei Elementen getrennt, was den gesamten Raum, den es auf seiner Achse kann, einnimmt. So funktioniert das Zentrieren eines Blocks mit {{cssxref("margin")}} auto links und rechts. Jede Seite versucht, so viel Raum wie möglich einzunehmen, und so wird der Block in die Mitte geschoben.
+In diesem Live-Beispiel wird das Element 4 von den ersten drei Elementen durch {{cssxref("margin-left")}} auf `auto` getrennt, das den gesamten Raum aufnimmt, den es in seiner Achse beanspruchen kann. Dies ist, wie die Zentrierung eines Blocks mit {{cssxref("margin")}} Auto links und rechts funktioniert. Jede Seite versucht, so viel Raum zu beanspruchen wie möglich, und so wird der Block in die Mitte gedrückt.
 
-In diesem Live-Beispiel sind die Flex-Elemente mit den Grundflexwerten in einer Reihe angeordnet, und die Klasse `push`, die auf das vierte Element angewandt wird, setzt `margin-left: auto` auf dieses Element. Versuchen Sie, die Klasse auf dem vierten Element zu entfernen oder die Klasse zu einem anderen Element hinzuzufügen, um zu sehen, wie es funktioniert.
+In diesem Live-Beispiel werden die Flex-Elemente in einer Reihe mit den grundlegenden Flex-Werten angeordnet, und die Klasse `push` wird auf das vierte Element angewendet, wodurch `margin-left: auto` auf dieses Element angewendet wird. Versuchen Sie, die Klasse auf dem vierten Element zu entfernen oder die Klasse auf ein anderes Element anzuwenden, um zu sehen, wie es funktioniert.
 
 ```html live-sample___auto-margins
 <div class="box">
@@ -509,12 +510,12 @@ In diesem Live-Beispiel sind die Flex-Elemente mit den Grundflexwerten in einer 
 
 {{EmbedLiveSample("auto-margins")}}
 
-## Erstellen von Abständen zwischen Elementen
+## Erstellen von Lücken zwischen Elementen
 
-Um einen Abstand zwischen Flex-Elementen zu erstellen, verwenden Sie die Eigenschaften {{cssxref("gap")}}, {{cssxref("column-gap")}} und {{cssxref("row-gap")}}. Die {{cssxref("column-gap")}} Eigenschaft erzeugt Abstände zwischen den Elementen in einer Reihe. Die {{cssxref("row-gap")}} Eigenschaft erzeugt Abstände zwischen Flex-Linien, wenn Sie {{cssxref("flex-wrap")}} auf `wrap` gesetzt haben.
+Um Lücken zwischen Flex-Elementen zu schaffen, verwenden Sie die {{cssxref("gap")}}, {{cssxref("column-gap")}} und {{cssxref("row-gap")}} Eigenschaften. Die {{cssxref("column-gap")}}-Eigenschaft erzeugt Lücken zwischen Elementen in einer Reihe. Die {{cssxref("row-gap")}}-Eigenschaft erzeugt Lücken zwischen Flex-Linien, wenn Sie {{cssxref("flex-wrap")}} auf `wrap` eingestellt haben.
 
-Die {{cssxref("gap")}} Eigenschaft ist eine Kurzform, die sowohl `row-gap` als auch `column-gap` festlegt.
-Die Abstände zwischen Flex-Elementen oder Flex-Linien hängen von der Richtung ab. Wenn die {{cssxref("flex-direction")}} Eigenschaft Reihen erstellt, definiert der erste Wert den Abstand zwischen Flex-Linien, und der zweite Wert definiert den Abstand zwischen den Elementen innerhalb jeder Zeile. Bei Spalten (wenn `flex-direction` auf `column` oder `column-reverse` gesetzt ist) definiert der erste Wert den Abstand zwischen Flex-Elementen, und der zweite Wert definiert die Abstände zwischen Flex-Linien.
+Die {{cssxref("gap")}}-Eigenschaft ist eine Kurzform, die sowohl `row-gap` als auch `column-gap` festlegt.
+Die Lücken zwischen Flex-Elementen oder Flex-Linien hängen von der Richtung ab. Wenn die {{cssxref("flex-direction")}}-Eigenschaft Reihen erzeugt, definiert der erste Wert die Lücke zwischen Flex-Linien, und der zweite Wert definiert die Lücke zwischen den Elementen innerhalb jeder Zeile. Bei Spalten (wenn `flex-direction` auf `column` oder `column-reverse` eingestellt ist), definiert der erste Wert die Lücke zwischen Flex-Elementen, und der zweite Wert definiert die Lücken zwischen Flex-Linien.
 
 ```html live-sample___gap
 <div class="box">
@@ -550,6 +551,6 @@ Die Abstände zwischen Flex-Elementen oder Flex-Linien hängen von der Richtung 
 ## Siehe auch
 
 - [CSS Box-Ausrichtung](/de/docs/Web/CSS/CSS_box_alignment) Modul
-- [CSS Flexibles Box-Layout](/de/docs/Web/CSS/CSS_flexible_box_layout) Modul
-- [Box-Ausrichtung in Flexbox](/de/docs/Web/CSS/CSS_box_alignment/Box_alignment_in_flexbox)
-- [Box-Ausrichtung im Grid-Layout](/de/docs/Web/CSS/CSS_box_alignment/Box_alignment_in_grid_layout)
+- [CSS Flexibler Box-Layout](/de/docs/Web/CSS/CSS_flexible_box_layout) Modul
+- [Ausrichtung in Flexbox](/de/docs/Web/CSS/CSS_box_alignment/Box_alignment_in_flexbox)
+- [Ausrichtung im Rasterlayout](/de/docs/Web/CSS/CSS_box_alignment/Box_alignment_in_grid_layout)

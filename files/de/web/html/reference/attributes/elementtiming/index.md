@@ -3,30 +3,30 @@ title: "HTML-Attribut: elementtiming"
 short-title: elementtiming
 slug: Web/HTML/Reference/Attributes/elementtiming
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: d9b6cad3b5e14b42061608fb5283e32c75808a3d
 ---
 
 {{HTMLSidebar}}
 
-Das **`elementtiming`**-Attribut wird verwendet, um anzuzeigen, dass ein Element zum Tracking durch [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver)-Objekte mit dem Typ `"element"` markiert ist. Weitere Details finden Sie in der [`PerformanceElementTiming`](/de/docs/Web/API/PerformanceElementTiming)-Schnittstelle.
+Das **`elementtiming`**-Attribut wird verwendet, um anzugeben, dass ein Element zur Verfolgung durch [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver)-Objekte mit dem Typ `"element"` markiert ist. Weitere Details finden Sie in der [`PerformanceElementTiming`](/de/docs/Web/API/PerformanceElementTiming)-Schnittstelle.
 
-Dieses Attribut kann auf {{htmlelement("img")}}, {{SVGElement("image")}}-Elemente innerhalb eines {{SVGElement("svg")}}, Posterbilder von {{htmlelement("video")}}-Elementen, Elemente mit einem {{cssxref("background-image")}} und auf Elemente, die Textknoten enthalten, wie ein {{htmlelement("p")}}, angewendet werden.
+Dieses Attribut kann auf {{htmlelement("img")}}, {{SVGElement("image")}}-Elemente innerhalb eines {{SVGElement("svg")}}, Posterbilder von {{htmlelement("video")}}-Elementen, Elemente mit einem {{cssxref("background-image")}} und Elemente, die Textknoten enthalten, wie z.B. ein {{htmlelement("p")}}, angewendet werden.
 
 Im DOM wird dieses Attribut als [`Element.elementTiming`](/de/docs/Web/API/Element/elementTiming) widergespiegelt.
 
-## Verwendung
+## Hinweise zur Verwendung
 
-Der Wert, der für `elementtiming` angegeben wird, wird zu einem Bezeichner für das beobachtete Element.
+Der für `elementtiming` angegebene Wert wird zu einem Bezeichner für das beobachtete Element.
 
 ```html
 <img alt="alt" src="img.jpg" elementtiming="label for element" />
 ```
 
-Gute Kandidaten für Elemente, die Sie möglicherweise beobachten möchten, sind:
+Gute Kandidaten für Elemente, die Sie beobachten möchten, sind:
 
-- Das Hauptbild für einen Artikel.
-- Der Titel eines Blogbeitrags.
-- Bilder in einem Karussell für eine Shopping-Seite.
+- Das Hauptbild eines Artikels.
+- Ein Blog-Beitragstitel
+- Bilder in einem Karussell für eine Einkaufsseite.
 - Das Posterbild für das Hauptvideo auf einer Seite.
 
 ## Beispiele

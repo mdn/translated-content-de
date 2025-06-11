@@ -1,104 +1,98 @@
 ---
-title: "MouseEvent: layerX Eigenschaft"
+title: "MouseEvent: layerX-Eigenschaft"
 short-title: layerX
 slug: Web/API/MouseEvent/layerX
 l10n:
-  sourceCommit: ef75c1741b450c2331204be5563ee964ad5f4c48
+  sourceCommit: 7cd51a73ad94df604db79ccacbbe0513d0967650
 ---
 
 {{APIRef("UI Events")}}{{Non-standard_Header}}
 
-Die schreibgeschützte Eigenschaft **`MouseEvent.layerX`** gibt die horizontale Koordinate des Ereignisses relativ zur aktuellen Schicht zurück.
+Die schreibgeschützte Eigenschaft **`MouseEvent.layerX`** gibt die horizontale Koordinate des Ereignisses relativ zur aktuellen Ebene zurück.
 
 Diese Eigenschaft berücksichtigt das Scrollen der Seite und gibt einen Wert relativ zum gesamten Dokument zurück, es sei denn, das Ereignis tritt innerhalb eines positionierten Elements auf, in welchem Fall der zurückgegebene Wert relativ zur oberen linken Ecke des positionierten Elements ist.
 
 ## Wert
 
-Ein ganzzahliger Wert in Pixeln für die x-Koordinate des Mauszeigers, als das Mausereignis ausgelöst wurde.
+Ein ganzzahliger Wert in Pixeln für die x-Koordinate des Mauszeigers, wenn das Mausereignis ausgelöst wurde.
 
 ## Beispiele
 
 ```html
-<html lang="en">
-  <head>
-    <title>pageX\pageY & layerX\layerY example</title>
+<p>To display the mouse coordinates please click anywhere on the page.</p>
 
-    <script>
-      function showCoords(evt) {
-        const form = document.forms.form_coords;
-        const parent_id = evt.target.parentNode.id;
-        form.parentId.value = parent_id;
-        form.pageXCoords.value = evt.pageX;
-        form.pageYCoords.value = evt.pageY;
-        form.layerXCoords.value = evt.layerX;
-        form.layerYCoords.value = evt.layerY;
-      }
-    </script>
+<div id="d1">
+  <span>
+    This is an un-positioned div so clicking it will return layerX/layerY values
+    almost the same as pageX/PageY values.
+  </span>
+</div>
 
-    <style>
-      #d1 {
-        border: solid blue 1px;
-        padding: 20px;
-      }
+<div id="d2">
+  <span>
+    This is a positioned div so clicking it will return layerX/layerY values
+    that are relative to the top-left corner of this positioned element. Note
+    the pageX\pageY properties still return the absolute position in the
+    document, including page scrolling.
+  </span>
 
-      #d2 {
-        position: absolute;
-        top: 180px;
-        left: 80%;
-        right: auto;
-        width: 40%;
-        border: solid blue 1px;
-        padding: 20px;
-      }
+  <span>
+    Make the page scroll more! This is a positioned div so clicking it will
+    return layerX/layerY values that are relative to the top-left corner of this
+    positioned element. Note the pageX\pageY properties still return the
+    absolute position in the document, including page scrolling.
+  </span>
+</div>
 
-      #d3 {
-        position: absolute;
-        top: 240px;
-        left: 20%;
-        width: 50%;
-        border: solid blue 1px;
-        padding: 10px;
-      }
-    </style>
-  </head>
+<div id="d3">
+  <form name="form_coords" id="form1">
+    Parent Element id: <input type="text" name="parentId" size="7" /><br />
+    pageX: <input type="text" name="pageXCoords" size="7" /> pageY:
+    <input type="text" name="pageYCoords" size="7" /><br />
+    layerX: <input type="text" name="layerXCoords" size="7" /> layerY:
+    <input type="text" name="layerYCoords" size="7" />
+  </form>
+</div>
+```
 
-  <body onmousedown="showCoords(event)">
-    <p>To display the mouse coordinates please click anywhere on the page.</p>
+```css
+#d1 {
+  border: solid blue 1px;
+  padding: 20px;
+}
 
-    <div id="d1">
-      <span>
-        This is an un-positioned div so clicking it will return layerX/layerY
-        values almost the same as pageX/PageY values.
-      </span>
-    </div>
+#d2 {
+  position: absolute;
+  top: 180px;
+  left: 80%;
+  right: auto;
+  width: 40%;
+  border: solid blue 1px;
+  padding: 20px;
+}
 
-    <div id="d2">
-      <span>
-        This is a positioned div so clicking it will return layerX/layerY values
-        that are relative to the top-left corner of this positioned element.
-        Note the pageX\pageY properties still return the absolute position in
-        the document, including page scrolling.
-      </span>
+#d3 {
+  position: absolute;
+  top: 240px;
+  left: 20%;
+  width: 50%;
+  border: solid blue 1px;
+  padding: 10px;
+}
+```
 
-      <span>
-        Make the page scroll more! This is a positioned div so clicking it will
-        return layerX/layerY values that are relative to the top-left corner of
-        this positioned element. Note the pageX\pageY properties still return
-        the absolute position in the document, including page scrolling.
-      </span>
-    </div>
+```js
+function showCoords(evt) {
+  const form = document.forms.form_coords;
+  const parentId = evt.target.parentNode.id;
+  form.parentId.value = parentId;
+  form.pageXCoords.value = evt.pageX;
+  form.pageYCoords.value = evt.pageY;
+  form.layerXCoords.value = evt.layerX;
+  form.layerYCoords.value = evt.layerY;
+}
 
-    <div id="d3">
-      <form name="form_coords" id="form1">
-        Parent Element id: <input type="text" name="parentId" size="7" /><br />
-        pageX: <input type="text" name="pageXCoords" size="7" /> pageY:
-        <input type="text" name="pageYCoords" size="7" /><br />
-        layerX: <input type="text" name="layerXCoords" size="7" /> layerY:
-        <input type="text" name="layerYCoords" size="7" />
-      </form>
-    </div>
-  </body>
-</html>
+window.addEventListener("mousedown", showCoords);
 ```
 
 ## Spezifikationen

@@ -2,101 +2,101 @@
 title: HTMLTextAreaElement
 slug: Web/API/HTMLTextAreaElement
 l10n:
-  sourceCommit: a61be259435257328a25c462cb0f42bc91981a6f
+  sourceCommit: 7cd51a73ad94df604db79ccacbbe0513d0967650
 ---
 
 {{APIRef("HTML DOM")}}
 
-Das **`HTMLTextAreaElement`** Interface bietet Eigenschaften und Methoden zur Manipulation des Layouts und der Präsentation von {{HTMLElement("textarea")}}-Elementen.
+Das **`HTMLTextAreaElement`**-Interface bietet Eigenschaften und Methoden zum Manipulieren des Layouts und der Präsentation von {{HTMLElement("textarea")}}-Elementen.
 
 {{InheritanceDiagram}}
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-_Erbt auch Eigenschaften von seiner Elternschnittstelle, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
+_Erbt außerdem Eigenschaften von seinem Eltern-Interface [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
 - [`autocomplete`](/de/docs/Web/API/HTMLTextAreaElement/autocomplete)
   - : Ein String, der das [`autocomplete`](/de/docs/Web/HTML/Reference/Elements/textarea#autocomplete)-Attribut des Elements darstellt.
 - [`cols`](/de/docs/Web/API/HTMLTextAreaElement/cols)
   - : Eine Zahl, die das [`cols`](/de/docs/Web/HTML/Reference/Elements/textarea#cols)-Attribut des Elements darstellt und die sichtbare Breite des Textbereichs angibt.
 - [`defaultValue`](/de/docs/Web/API/HTMLTextAreaElement/defaultValue)
-  - : Ein String, der den Standardwert der Steuerung darstellt, der sich wie die [`Node.textContent`](/de/docs/Web/API/Node/textContent)-Eigenschaft verhält.
+  - : Ein String, der den Standardwert des Steuerelements darstellt und sich wie die [`Node.textContent`](/de/docs/Web/API/Node/textContent)-Eigenschaft verhält.
 - [`dirName`](/de/docs/Web/API/HTMLTextAreaElement/dirName)
   - : Ein String, der die Richtung des Elements darstellt.
 - [`disabled`](/de/docs/Web/API/HTMLTextAreaElement/disabled)
-  - : Ein Boolean, der das [`disabled`](/de/docs/Web/HTML/Reference/Elements/textarea#disabled)-Attribut des Elements darstellt und anzeigt, dass die Steuerung nicht für die Interaktion verfügbar ist.
+  - : Ein Boolean, der das [`disabled`](/de/docs/Web/HTML/Reference/Elements/textarea#disabled)-Attribut des Elements darstellt und angibt, dass das Steuerelement nicht zur Interaktion verfügbar ist.
 - [`form`](/de/docs/Web/API/HTMLTextAreaElement/form) {{ReadOnlyInline}}
-  - : Gibt eine Referenz auf das übergeordnete Formularelement zurück. Wenn dieses Element nicht in einem Formularelement enthalten ist, kann es das [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id)-Attribut eines beliebigen {{HTMLElement("form")}}-Elements im selben Dokument oder der Wert `null` sein.
+  - : Gibt eine Referenz auf das übergeordnete Formularelement zurück. Wenn dieses Element nicht in einem Formularelement enthalten ist, kann es das [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id)-Attribut eines beliebigen {{HTMLElement("form")}}-Elements im selben Dokument sein oder den Wert `null` haben.
 - [`labels`](/de/docs/Web/API/HTMLTextAreaElement/labels) {{ReadOnlyInline}}
   - : Gibt eine [`NodeList`](/de/docs/Web/API/NodeList) der mit diesem Element verbundenen {{HTMLElement("label")}}-Elemente zurück.
 - [`maxLength`](/de/docs/Web/API/HTMLTextAreaElement/maxLength)
-  - : Eine Zahl, die das [`maxlength`](/de/docs/Web/HTML/Reference/Elements/textarea#maxlength)-Attribut des Elements darstellt und die maximale Anzahl an Zeichen angibt, die der Benutzer eingeben kann. Diese Einschränkung wird nur überprüft, wenn sich der Wert ändert.
+  - : Eine Zahl, die das [`maxlength`](/de/docs/Web/HTML/Reference/Elements/textarea#maxlength)-Attribut des Elements darstellt und die maximale Anzahl von Zeichen angibt, die der Benutzer eingeben kann. Diese Einschränkung wird nur bewertet, wenn sich der Wert ändert.
 - [`minLength`](/de/docs/Web/API/HTMLTextAreaElement/minLength)
-  - : Eine Zahl, die das [`minlength`](/de/docs/Web/HTML/Reference/Elements/textarea#minlength)-Attribut des Elements darstellt und die minimale Anzahl an Zeichen angibt, die der Benutzer eingeben kann. Diese Einschränkung wird nur überprüft, wenn sich der Wert ändert.
+  - : Eine Zahl, die das [`minlength`](/de/docs/Web/HTML/Reference/Elements/textarea#minlength)-Attribut des Elements darstellt und die minimale Anzahl von Zeichen angibt, die der Benutzer eingeben kann. Diese Einschränkung wird nur bewertet, wenn sich der Wert ändert.
 - [`name`](/de/docs/Web/API/HTMLTextAreaElement/name)
-  - : Ein String, der das [`name`](/de/docs/Web/HTML/Reference/Elements/textarea#name)-Attribut des Elements darstellt und den Namen der Steuerung enthält.
+  - : Ein String, der das [`name`](/de/docs/Web/HTML/Reference/Elements/textarea#name)-Attribut des Elements darstellt und den Namen des Steuerelements enthält.
 - [`placeholder`](/de/docs/Web/API/HTMLTextAreaElement/placeholder)
-  - : Ein String, der das [`placeholder`](/de/docs/Web/HTML/Reference/Elements/textarea#placeholder)-Attribut des Elements darstellt und einen Hinweis darauf gibt, was der Benutzer in die Steuerung eingeben soll.
+  - : Ein String, der das [`placeholder`](/de/docs/Web/HTML/Reference/Elements/textarea#placeholder)-Attribut des Elements darstellt und einen Hinweis an den Benutzer enthält, was im Steuerelement eingegeben werden soll.
 - [`readOnly`](/de/docs/Web/API/HTMLTextAreaElement/readOnly)
-  - : Ein Boolean, der das [`readonly`](/de/docs/Web/HTML/Reference/Elements/textarea#readonly)-Attribut des Elements darstellt, das angibt, dass der Benutzer den Wert der Steuerung nicht ändern darf.
+  - : Ein Boolean, der das [`readonly`](/de/docs/Web/HTML/Reference/Elements/textarea#readonly)-Attribut des Elements darstellt und angibt, dass der Benutzer den Wert des Steuerelements nicht ändern kann.
 - [`required`](/de/docs/Web/API/HTMLTextAreaElement/required)
-  - : Ein Boolean, der das [`required`](/de/docs/Web/HTML/Reference/Elements/textarea#required)-Attribut des Elements darstellt, das angibt, dass der Benutzer einen Wert angeben muss, bevor das Formular gesendet wird.
+  - : Ein Boolean, der das [`required`](/de/docs/Web/HTML/Reference/Elements/textarea#required)-Attribut des Elements darstellt und angibt, dass der Benutzer vor dem Absenden des Formulars einen Wert angeben muss.
 - [`rows`](/de/docs/Web/API/HTMLTextAreaElement/rows)
-  - : Eine Zahl, die das [`rows`](/de/docs/Web/HTML/Reference/Elements/textarea#rows)-Attribut des Elements darstellt und die Anzahl der sichtbaren Textzeilen für die Steuerung angibt.
+  - : Eine Zahl, die das [`rows`](/de/docs/Web/HTML/Reference/Elements/textarea#rows)-Attribut des Elements darstellt und die Anzahl sichtbarer Textzeilen für das Steuerelement angibt.
 - [`selectionDirection`](/de/docs/Web/API/HTMLTextAreaElement/selectionDirection)
-  - : Ein String, der die Richtung der Selektion angibt. Dies ist `forward`, wenn die Selektion in der Start-zu-End-Richtung der aktuellen Region durchgeführt wurde, oder `backward` für die entgegengesetzte Richtung. Es kann auch `none` sein, wenn die Richtung unbekannt ist.
+  - : Ein String, der die Richtung angibt, in der die Auswahl erfolgte. Dies ist `forward`, wenn die Auswahl in der Start-zu-Ende-Richtung der aktuellen Sprache erfolgte, oder `backward` für die entgegengesetzte Richtung. Dies kann auch `none` sein, wenn die Richtung unbekannt ist.
 - [`selectionEnd`](/de/docs/Web/API/HTMLTextAreaElement/selectionEnd)
-  - : Eine Zahl, die den Index des Endes des ausgewählten Textes darstellt. Wenn kein Text ausgewählt ist, enthält sie den Index des Zeichens, das dem Eingabecursor folgt. Wird diese Eigenschaft gesetzt, verhält sich die Steuerung so, als wäre `setSelectionRange()` mit diesem als zweites Argument und `selectionStart` als erstes Argument aufgerufen worden.
+  - : Eine Zahl, die den Index des Endes des ausgewählten Textes darstellt. Wenn kein Text ausgewählt ist, enthält sie den Index des Zeichens, das dem Eingabecursor folgt. Beim Setzen verhält sich das Steuerelement so, als ob `setSelectionRange()` mit diesem als zweitem Argument und `selectionStart` als erstem Argument aufgerufen worden wäre.
 - [`selectionStart`](/de/docs/Web/API/HTMLTextAreaElement/selectionStart)
-  - : Eine Zahl, die den Index des Anfangs des ausgewählten Textes darstellt. Wenn kein Text ausgewählt ist, enthält sie den Index des Zeichens, das dem Eingabecursor folgt. Wird diese Eigenschaft gesetzt, verhält sich die Steuerung so, als wäre `setSelectionRange()` mit diesem als erstes Argument und `selectionEnd` als zweites Argument aufgerufen worden.
+  - : Eine Zahl, die den Index des Anfangs des ausgewählten Textes darstellt. Wenn kein Text ausgewählt ist, enthält sie den Index des Zeichens, das dem Eingabecursor folgt. Beim Setzen verhält sich das Steuerelement so, als ob `setSelectionRange()` mit diesem als erstem Argument und `selectionEnd` als zweitem Argument aufgerufen worden wäre.
 - [`textLength`](/de/docs/Web/API/HTMLTextAreaElement/textLength) {{ReadOnlyInline}}
-  - : Gibt die Codepunktlänge des `value` der Steuerung zurück. Entspricht dem Lesen von `value.length`.
+  - : Gibt die Länge des Steuerwerts in Codepunkten zurück. Dasselbe wie das Lesen von `value.length`.
 - [`type`](/de/docs/Web/API/HTMLTextAreaElement/type) {{ReadOnlyInline}}
   - : Gibt den String `textarea` zurück.
 - [`validationMessage`](/de/docs/Web/API/HTMLTextAreaElement/validationMessage) {{ReadOnlyInline}}
-  - : Gibt eine lokalisierte Nachricht zurück, die die Validierungsbeschränkungen beschreibt, die die Steuerung nicht erfüllt (falls vorhanden). Dies ist ein leerer String, wenn die Steuerung kein Kandidat für die Einschränkungsvalidierung ist (`willValidate` ist `false`) oder seine Einschränkungen erfüllt.
+  - : Gibt eine lokalisierte Nachricht zurück, die die Validierungseinschränkungen beschreibt, die das Steuerelement nicht erfüllt (falls vorhanden). Dies ist der leere String, wenn das Steuerelement kein Kandidat für die Beschränkungsvalidierung ist (`willValidate` ist `false`) oder es seine Beschränkungen erfüllt.
 - [`validity`](/de/docs/Web/API/HTMLTextAreaElement/validity) {{ReadOnlyInline}}
-  - : Gibt den Gültigkeitszustand zurück, in dem sich dieses Element befindet.
+  - : Gibt den Gültigkeitsstatus zurück, in dem sich dieses Element befindet.
 - [`value`](/de/docs/Web/API/HTMLTextAreaElement/value)
-  - : Ein String, der den unverarbeiteten Wert in der Steuerung darstellt.
+  - : Ein String, der den unverarbeiteten Wert enthält, der im Steuerelement enthalten ist.
 - [`willValidate`](/de/docs/Web/API/HTMLTextAreaElement/willValidate) {{ReadOnlyInline}}
-  - : Gibt zurück, ob das Element ein Kandidat für die Einschränkungsvalidierung ist. `false`, wenn irgendwelche Bedingungen es von der Einschränkungsvalidierung ausschließen, einschließlich seiner `readOnly` oder `disabled` Eigenschaft ist `true`.
+  - : Gibt zurück, ob das Element ein Kandidat für die Beschränkungsvalidierung ist. `false`, wenn Bedingungen es von der Beschränkungsvalidierung ausschließen, einschließlich wenn seine `readOnly`- oder `disabled`-Eigenschaft `true` ist.
 - [`wrap`](/de/docs/Web/API/HTMLTextAreaElement/wrap)
-  - : Ein String, der das [`wrap`](/de/docs/Web/HTML/Reference/Elements/textarea#wrap)-Attribut des Elements darstellt und angibt, wie die Steuerung Text umbrechen soll.
+  - : Ein String, der das [`wrap`](/de/docs/Web/HTML/Reference/Elements/textarea#wrap)-Attribut des Elements darstellt und angibt, wie das Steuerelement den Text umbricht.
 
-## Instanz-Methoden
+## Instanzmethoden
 
-_Erbt auch Methoden von seiner Elternschnittstelle, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
+_Erbt außerdem Methoden von seinem Eltern-Interface [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
 - [`checkValidity()`](/de/docs/Web/API/HTMLTextAreaElement/checkValidity)
-  - : Gibt `false` zurück, wenn das Element ein Kandidat für die Einschränkungsvalidierung ist und seine Einschränkungen nicht erfüllt. In diesem Fall löst es auch ein abbrechbares `invalid`-Ereignis an der Steuerung aus. Es gibt `true` zurück, wenn die Steuerung kein Kandidat für die Einschränkungsvalidierung ist oder seine Einschränkungen erfüllt.
+  - : Gibt `false` zurück, wenn das Element ein Kandidat für die Beschränkungsvalidierung ist und es seine Beschränkungen nicht erfüllt. In diesem Fall löst es auch ein stornierbares `invalid`-Ereignis am Steuerelement aus. Es gibt `true` zurück, wenn das Steuerelement kein Kandidat für die Beschränkungsvalidierung ist oder wenn es seine Beschränkungen erfüllt.
 - [`reportValidity()`](/de/docs/Web/API/HTMLTextAreaElement/reportValidity)
-  - : Diese Methode berichtet dem Benutzer über die Probleme mit den Einschränkungen des Elements, falls vorhanden. Wenn es Probleme gibt, löst es ein abbrechbares `invalid`-Ereignis am Element aus und gibt `false` zurück; wenn keine Probleme vorliegen, gibt es `true` zurück.
+  - : Diese Methode berichtet dem Benutzer über die Probleme mit den Einschränkungen des Elements, falls vorhanden. Wenn es Probleme gibt, löst es ein stornierbares `invalid`-Ereignis am Element aus und gibt `false` zurück; wenn es keine Probleme gibt, gibt es `true` zurück.
 - [`select()`](/de/docs/Web/API/HTMLTextAreaElement/select)
-  - : Wählt den Inhalt der Steuerung aus.
+  - : Wählt den Inhalt des Steuerelements aus.
 - [`setCustomValidity()`](/de/docs/Web/API/HTMLTextAreaElement/setCustomValidity)
-  - : Setzt eine benutzerdefinierte Fehlermeldung für das Element. Wenn diese Nachricht nicht der leere String ist, leidet das Element unter einem benutzerdefinierten Gültigkeitsfehler und validiert nicht.
+  - : Setzt eine benutzerdefinierte Fehlermeldung für das Element. Wenn diese Nachricht nicht der leere String ist, leidet das Element an einem benutzerdefinierten Gültigkeitsfehler und wird nicht validiert.
 - [`setRangeText()`](/de/docs/Web/API/HTMLTextAreaElement/setRangeText)
   - : Ersetzt einen Textbereich im Element durch neuen Text.
 - [`setSelectionRange()`](/de/docs/Web/API/HTMLTextAreaElement/setSelectionRange)
-  - : Wählt einen Textbereich im Element aus (fokussiert es jedoch nicht).
+  - : Wählt einen Textbereich im Element aus (fokussiert ihn jedoch nicht).
 
 ## Ereignisse
 
-_Erbt auch Ereignisse von seiner Elternschnittstelle, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
+_Erbt außerdem Ereignisse von seinem Eltern-Interface [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
-Diese Ereignisse können Sie mithilfe von [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder durch Zuweisen eines Ereignis-Listeners an die `oneventname`-Eigenschaft dieser Schnittstelle abhören:
+Hören Sie auf diese Ereignisse mit [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder indem Sie einen Ereignis-Listener der `oneventname`-Eigenschaft dieses Interfaces zuweisen:
 
-- [`select`](/de/docs/Web/API/HTMLTextAreaElement/select_event) Ereignis
+- [`select`](/de/docs/Web/API/HTMLTextAreaElement/select_event)-Ereignis
   - : Wird ausgelöst, wenn ein Text ausgewählt wurde.
-- [`selectionchange`](/de/docs/Web/API/HTMLTextAreaElement/selectionchange_event) Ereignis
+- [`selectionchange`](/de/docs/Web/API/HTMLTextAreaElement/selectionchange_event)-Ereignis
   - : Wird ausgelöst, wenn die Textauswahl in einem {{HTMLElement("textarea")}}-Element geändert wurde.
 
 ## Beispiele
 
-### Beispiel für selbstvergrößerndes Textarea
+### Beispiel für automatisch wachsendes Textfeld
 
-Lassen Sie ein Textarea beim Tippen automatisch wachsen:
+Machen Sie ein Textfeld beim Tippen automatisch wachsend:
 
 #### JavaScript
 
@@ -106,6 +106,10 @@ function autoGrow(field) {
     field.style.height = `${field.scrollHeight}px`;
   }
 }
+
+document.querySelector("textarea").addEventListener("keyup", (e) => {
+  autoGrow(e.target);
+});
 ```
 
 #### CSS
@@ -124,7 +128,7 @@ textarea.no-scrollbars {
 <form>
   <fieldset>
     <legend>Your comments</legend>
-    <p><textarea class="no-scrollbars" onkeyup="autoGrow(this);"></textarea></p>
+    <p><textarea class="no-scrollbars"></textarea></p>
     <p><input type="submit" value="Send" /></p>
   </fieldset>
 </form>
@@ -134,7 +138,7 @@ textarea.no-scrollbars {
 
 ### Beispiel zum Einfügen von HTML-Tags
 
-Fügen Sie einige HTML-Tags in ein Textarea ein:
+Fügen Sie einige HTML-Tags in ein Textfeld ein:
 
 ```js live-sample___insert-html
 function insert(startTag, endTag) {
@@ -176,7 +180,7 @@ link.addEventListener("click", (e) => insertURL());
 code.addEventListener("click", (e) => insert("<code>", "</code>"));
 ```
 
-Dekorieren Sie das Span, damit es sich wie ein Link verhält:
+Dekorieren Sie das `span`, um sich wie ein Link zu verhalten:
 
 ```css live-sample___insert-html
 .intLink {

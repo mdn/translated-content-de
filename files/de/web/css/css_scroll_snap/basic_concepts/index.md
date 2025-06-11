@@ -1,29 +1,30 @@
 ---
 title: Grundkonzepte des Scroll-Snap
+short-title: Basic concepts
 slug: Web/CSS/CSS_scroll_snap/Basic_concepts
 l10n:
-  sourceCommit: 5f76b99045f87349ed030bbd6a3c2e43badb3c22
+  sourceCommit: 0dcad86763896bba7f8e1ddc30c6dfd2aa664c6b
 ---
 
 {{CSSRef}}
 
-Die Eigenschaften im Modul [CSS scroll snap](/de/docs/Web/CSS/CSS_scroll_snap) ermöglichen es Ihnen, zu definieren, wie das Scrollen beim Durchlaufen eines Dokuments an bestimmten Punkten einrasten kann.
+Die Eigenschaften im [CSS scroll snap](/de/docs/Web/CSS/CSS_scroll_snap) Modul ermöglichen es Ihnen, festzulegen, wie das Scrollen an bestimmten Punkten einrastet, während ein Benutzer durch ein Dokument scrollt.
 
-Das {{Glossary("Scroll_snap", "scroll snap")}}-Feature erlaubt es Ihnen, die Einrastpositionen zu definieren, zu denen der Scrollport eines {{Glossary("Scroll_container", "scroll container")}} nach Abschluss eines Scrollvorgangs gelangen kann.
+Das {{Glossary("Scroll_snap", "scroll snap")}} Feature ermöglicht es Ihnen, die Einrastpunkte festzulegen, an denen ein {{Glossary("Scroll_container", "scroll container")}}'s Scrollfenster möglicherweise endet oder "einrastet", nachdem ein Scrollvorgang abgeschlossen ist.
 
 ## Wichtige Eigenschaften für CSS scroll snap
 
-Bevor Sie Scroll-Snapping definieren können, müssen Sie das Scrollen in einem Scroll-Container aktivieren. Dies können Sie tun, indem Sie sicherstellen, dass der Scroll-Container eine definierte Größe hat und dass {{cssxref("overflow")}} aktiviert ist.
+Bevor Sie das Scroll-Einrasten definieren können, müssen Sie das Scrollen in einem Scroll-Container aktivieren. Dies können Sie tun, indem Sie sicherstellen, dass der Scroll-Container eine definierte Größe hat und {{cssxref("overflow")}} aktiviert ist.
 
-Danach können Sie das Scroll-Snapping am Scroll-Container mit den folgenden zwei Schlüsseleigenschaften definieren:
+Sie können dann das Scroll-Einrasten im Scroll-Container mithilfe der folgenden zwei Schlüsseleigenschaften definieren:
 
-- {{cssxref("scroll-snap-type")}}: Mit dieser Eigenschaft können Sie festlegen, ob der scrollbare Viewport einrasten kann, ob das Einrasten erforderlich oder optional ist und auf welcher Achse das Einrasten erfolgen soll.
-- {{cssxref("scroll-snap-align")}}: Diese Eigenschaft wird für jedes Kind des Scroll-Containers gesetzt und Sie können damit die Einrastposition jedes Kindes oder das Fehlen einer solchen definieren.
-- {{cssxref("scroll-snap-stop")}}: Diese Eigenschaft sorgt dafür, dass ein Kind während des Scrollens eingerastet und nicht übergangen wird.
-- {{cssxref("scroll-margin")}}: Diese Eigenschaft kann an Kindelementen gesetzt werden, die während des Scrollens eingerastet werden, um einen Abstand von der definierten Box zu schaffen.
-- {{cssxref("scroll-padding")}}: Diese Eigenschaft kann auf den Scroll-Container gesetzt werden, um einen Einrastversatz zu schaffen.
+- {{cssxref("scroll-snap-type")}}: Mit dieser Eigenschaft können Sie festlegen, ob das scrollbare Ansichtsfenster einrasten kann, ob Einrasten erforderlich oder optional ist, und auf welcher Achse das Einrasten erfolgen soll.
+- {{cssxref("scroll-snap-align")}}: Diese Eigenschaft wird bei jedem Kind des Scroll-Containers eingestellt, und Sie können sie verwenden, um die Einrastposition jedes Kindes oder das Fehlen einer solchen zu definieren.
+- {{cssxref("scroll-snap-stop")}}: Diese Eigenschaft stellt sicher, dass ein Kind während des Scrollens eingerastet wird und nicht übersprungen werden kann.
+- {{cssxref("scroll-margin")}}: Diese Eigenschaft kann bei Kindelementen eingestellt werden, die während des Scrollens eingerastet werden, um einen Rand nach außen vom definierten Kasten zu schaffen.
+- {{cssxref("scroll-padding")}}: Diese Eigenschaft kann im Scroll-Container eingestellt werden, um einen Einrastversatz zu erzeugen.
 
-Das unten stehende Beispiel demonstriert das Scroll-Snapping entlang der vertikalen Achse, die durch `scroll-snap-type` definiert wird. Zusätzlich wird `scroll-snap-align` auf alle Kinder des `<section>`-Elements angewendet und bestimmt den Punkt, an dem das Scrollen jedes Kindes enden soll.
+Das folgende Beispiel demonstriert das Scroll-Einrasten entlang der vertikalen Achse, die durch `scroll-snap-type` definiert wird. Zusätzlich wird `scroll-snap-align` auf alle Kinder des `<section>` Elements angewendet, was den Punkt vorgibt, an dem das Scrollen jedes Kindes stoppen sollte.
 
 ```html live-sample___mandatory-y
 <article class="scroller">
@@ -75,16 +76,16 @@ body {
 
 ## Verwendung von scroll-snap-type
 
-Die {{CSSxRef("scroll-snap-type")}}-Eigenschaft muss die Achse kennen, entlang der das Scroll-Snapping erfolgt. Dies kann `x`, `y` oder die logischen Zuordnungen `block` oder `inline` sein. Sie können auch das Schlüsselwort `both` verwenden, um das Scroll-Snapping entlang beider Achsen zu ermöglichen.
+Die {{CSSxRef("scroll-snap-type")}} Eigenschaft muss wissen, auf welcher Achse das Scroll-Einrasten stattfindet. Dies kann `x`, `y` oder die logischen Zuordnungen `block` oder `inline` sein. Sie können auch das Schlüsselwort `both` verwenden, um das Scroll-Einrasten auf beiden Achsen funktionieren zu lassen.
 
-Sie können außerdem die Schlüsselwörter `mandatory` oder `proximity` verwenden. Das Schlüsselwort `mandatory` weist den Browser an, dass der Inhalt _muss_ an einen bestimmten Punkt einrasten, egal wo sich das Scrollen befindet. Das Schlüsselwort `proximity` bedeutet, dass der Inhalt möglicherweise an den Punkt einrastet, es aber nicht muss.
+Sie können auch die Schlüsselwörter `mandatory` oder `proximity` verwenden. Das Schlüsselwort `mandatory` teilt dem Browser mit, dass der Inhalt unabhängig davon, wo sich der Scroll befindet, an einem bestimmten Punkt einrasten _muss_. Das Schlüsselwort `proximity` bedeutet, dass der Inhalt an dem Punkt einrasten kann, aber nicht muss.
 
-Die Verwendung von `mandatory` sorgt für ein sehr konsistentes Scroll-Erlebnis – Sie wissen, dass der Browser immer an jedem definierten Punkt einrastet. Das bedeutet, dass Sie sicher sein können, dass etwas, das Sie am oberen Rand des Bildschirms erwarten, dort sein wird, wenn das Scrollen endet. Es kann jedoch Probleme verursachen, wenn der Inhalt größer ist als erwartet – Benutzer könnten sich in der frustrierenden Situation wiederfinden, dass sie niemals an einen bestimmten Punkt im Inhalt scrollen können. Daher sollte die Verwendung von `mandatory` sorgfältig überlegt erfolgen und nur in Situationen eingesetzt werden, in denen Sie wissen, wie viel Inhalt auf dem Bildschirm oder im scrollbaren Abschnitt zu jeder Zeit vorhanden ist.
+Die Verwendung von `mandatory` schafft ein sehr konsistentes Scroll-Erlebnis — Sie wissen, dass der Browser immer zu jedem definierten Punkt einrasten wird. Dies bedeutet, dass Sie sicher sein können, dass etwas, das Sie erwarten, sich am oberen Rand des Bildschirms zu befinden, nach dem Scrollen dort sein wird. Allerdings kann es Probleme verursachen, wenn der Inhalt größer ist als erwartet — Benutzer könnten sich in der frustrierenden Situation befinden, niemals in der Lage zu sein, einen bestimmten Punkt im Inhalt zu scrollen und anzusehen. Daher sollte die Verwendung von `mandatory` sorgfältig in Betracht gezogen und nur in Situationen verwendet werden, in denen Sie wissen, wie viel Inhalt jederzeit auf dem Bildschirm oder im scrollbaren Abschnitt vorhanden ist.
 
 > [!NOTE]
-> Verwenden Sie niemals `mandatory`, wenn der Inhalt in einem Ihrer Kindelemente den übergeordneten Container überläuft, da der Benutzer nicht in der Lage sein wird, den überlaufenden Inhalt ins Blickfeld zu scrollen.
+> Verwenden Sie niemals `mandatory`, wenn der Inhalt innerhalb eines Ihrer Kindelemente über den übergeordneten Container hinausläuft, da der Benutzer nicht in der Lage sein wird, den überlaufenden Inhalt in den sichtbaren Bereich zu scrollen.
 
-Der `proximity`-Wert rastet Kindelemente nur dann an einer Position ein, wenn sie sich in der Nähe befinden, wobei die Browser den genauen Abstand bestimmen.
+Der `proximity` Wert lässt Kindelemente nur dann an einer Position einrasten, wenn sie sich in der Nähe befinden, wobei die genauen Abstände von den Browsern bestimmt werden.
 Klicken Sie auf "Play", um das Beispiel unten im MDN Playground zu bearbeiten. Wechseln Sie den Wert von `scroll-snap-type` zwischen `mandatory` und `proximity`, um den Effekt auf das Scroll-Erlebnis zu sehen.
 
 ```html live-sample___mandatory-proximity
@@ -153,12 +154,12 @@ body {
 
 {{EmbedLiveSample("mandatory-proximity", "", "350px")}}
 
-Im obigen Beispiel sind sowohl {{cssxref("height", "height: 300px;")}} als auch {{cssxref("overflow-y", "overflow-y: scroll;")}} auf dem Scroll-Container gesetzt.
-Wenn der Inhalt nicht seinen Container überläuft, gibt es nichts zu scrollen.
+Im obigen Beispiel sind sowohl {{cssxref("height", "height: 300px;")}} als auch {{cssxref("overflow-y", "overflow-y: scroll;")}} auf den Scroll-Container gesetzt.
+Wenn der Inhalt seinen Container nicht überläuft, gibt es nichts zu scrollen.
 
 ## Verwendung von scroll-snap-align
 
-Die gültigen Werte für die {{CSSxRef("scroll-snap-align")}}-Eigenschaft umfassen `start`, `end`, `center` und `none`. Diese Werte werden verwendet, um den Punkt im Scroll-Container anzuzeigen, an dem der Inhalt einrasten soll. Klicken Sie im Beispiel unten auf "Play" und ändern Sie den Wert von `scroll-snap-align`, um zu sehen, wie sich dies auf das Scrollverhalten auswirkt.
+Gültige Werte für die {{CSSxRef("scroll-snap-align")}} Eigenschaft umfassen `start`, `end`, `center` und `none`. Diese Werte werden verwendet, um den Punkt im Scroll-Container anzugeben, an dem der Inhalt einrasten soll. Klicken Sie im untenstehenden Beispiel auf "Play" und ändern Sie den Wert von `scroll-snap-align`, um zu sehen, wie sich dies auf das Scrollverhalten auswirkt.
 
 ```html hidden live-sample___align
 <article class="scroller">
@@ -226,13 +227,13 @@ body {
 
 {{EmbedLiveSample("align", "", "250px")}}
 
-Wenn `scroll-snap-type` `mandatory` ist und `scroll-snap-align` auf einem Kind entweder auf `none` gesetzt oder nicht gesetzt ist (in diesem Fall wird es standardmäßig auf `none` gesetzt), kann der Benutzer dieses Element nicht ins Blickfeld scrollen.
+Wenn `scroll-snap-type` auf `mandatory` gesetzt ist und `scroll-snap-align` bei einem Kind entweder auf `none` gesetzt oder nicht gesetzt ist (wobei es standardmäßig auf `none` gesetzt wird), wird der Benutzer nicht in der Lage sein, dieses Element in den sichtbaren Bereich zu scrollen.
 
 ## Verwendung von scroll-padding
 
-Wenn Sie `start` oder `end` verwenden und nicht möchten, dass der Inhalt direkt am Rand des Scroll-Containers einrastet, oder wenn Sie möchten, dass die Einrastposition leicht vom Zentrum versetzt ist, wenn `center` verwendet wird, verwenden Sie die {{CSSxRef("scroll-padding")}}-Eigenschaft oder die entsprechenden Langform-Werte, um etwas Polsterung hinzuzufügen.
+Wenn Sie `start` oder `end` verwenden und nicht möchten, dass der Inhalt direkt am Rand des Scroll-Containers einrastet, oder wenn Sie möchten, dass die Einrastposition leicht von der Mitte versetzt wird, wenn Sie `center` verwenden, setzen Sie die {{CSSxRef("scroll-padding")}} Eigenschaft oder deren äquivalenten Langformwerte ein, um etwas Padding hinzuzufügen.
 
-Im Beispiel unten ist `scroll-padding` auf `50px` gesetzt. Wenn der Inhalt am Anfang des zweiten und dritten Abschnitts einrastet, stoppt das Scrollen 50 Pixel vom Anfang des Abschnitts entfernt. Versuchen Sie, den `scroll-padding`-Wert zu ändern, um zu sehen, wie sich dies auf die Distanz auswirkt.
+Im Beispiel unten ist `scroll-padding` auf `50px` gesetzt. Wenn der Inhalt an den Anfang des zweiten und dritten Abschnitts einrastet, stoppt das Scrollen 50 Pixel vom Anfang des Abschnitts entfernt. Versuchen Sie, den `scroll-padding` Wert zu ändern, um zu sehen, wie sich dies auf den Abstand auswirkt.
 
 ```html live-sample___scroll-padding
 <article class="scroller">
@@ -283,7 +284,7 @@ body {
 
 {{EmbedLiveSample("scroll-padding", "", "350px")}}
 
-Dies kann nützlich sein, wenn Sie ein [fixed](/de/docs/Web/CSS/position#fixed_positioning) Element wie eine Navigationsleiste haben, die sonst den gescrollten Inhalt überlappen könnte. Mit `scroll-padding` können Sie Platz für das feste Element reservieren, wie im unten stehenden Beispiel gezeigt, wo das `<h1>`-Element auf dem Bildschirm bleibt, während der Inhalt darunter scrollt. Ohne Polsterung würde die Überschrift beim Einrasten einen Teil des Inhalts überlappen.
+Dies ist potenziell nützlich, wenn Sie ein [festes](/de/docs/Web/CSS/position#fixed_positioning) Element wie eine Navigationsleiste haben, das sonst gescrollten Inhalt überlappen könnte. Durch die Verwendung von `scroll-padding` können Sie Platz für das feste Element reservieren, wie im Beispiel unten gezeigt, bei dem das `<h1>` Element auf dem Bildschirm bleibt, während der Inhalt darunter scrollt. Ohne Padding würde die Überschrift einen Teil des Inhalts überlappen, wenn das Einrasten erfolgt.
 
 ```html hidden live-sample___scroll-padding-sticky
 <article class="scroller">
@@ -352,7 +353,7 @@ body {
 
 ## Verwendung von scroll-margin
 
-Die {{CSSxRef("scroll-margin")}}-Eigenschaft oder die Langform-Werte der Scroll-Margin können an Kindelementen gesetzt werden, um einen Abstand von der definierten Box zu schaffen. Dadurch können unterschiedliche Mengen an Platz für verschiedene Kindelemente bereitgestellt werden und sie kann zusammen mit `scroll-padding` am übergeordneten Element verwendet werden.
+Die {{CSSxRef("scroll-margin")}} Eigenschaft oder die Langformwerte der Rollränder können bei Kind-Elementen gesetzt werden und definieren einen Rand nach außen vom definierten Kasten. Dies ermöglicht unterschiedliche Platzmengen für unterschiedliche Kindelemente und kann in Verbindung mit `scroll-padding` auf dem Elternteil verwendet werden.
 
 ```html hidden live-sample___scroll-margin
 <article class="scroller">
@@ -405,14 +406,14 @@ body {
 
 ## Verwendung von scroll-snap-stop
 
-Verwenden Sie die {{CSSxRef("scroll-snap-stop")}}-Eigenschaft, um anzugeben, ob das Scrollen an den definierten Einrastpunkten stoppen muss. In den obigen Beispielen würde dies bedeuten, dass das Scrollen am Anfang jedes Abschnitts stoppt oder Abschnitte überspringen kann.
+Durch die Verwendung der {{CSSxRef("scroll-snap-stop")}} Eigenschaft können Sie bestimmen, ob das Scrollen an den definierten Einrastpunkten stoppen muss. In den obigen Beispielen würde dies bedeuten, dass das Scrollen am Anfang jedes Abschnitts stoppt oder Abschnitte überspringen kann.
 
-Mit dieser Eigenschaftsdefinition können Sie sicherstellen, dass Benutzer jeden Abschnitt des Scrollbereichs sehen und nicht versehentlich daran vorbeiscrollen. Allerdings kann diese Einstellung auch die Benutzererfahrung negativ beeinflussen, indem sie verhindert, dass der Benutzer schnell zu seinem gewünschten Inhalt scrollt.
+Mit dieser Eigenschaftendefinition können Sie sicherstellen, dass Benutzer jeden Abschnitt des Scrollers sehen und nicht versehentlich an ihnen vorbeiscrollen. Allerdings kann diese Einstellung auch die Benutzererfahrung negativ beeinflussen, indem sie verhindert, dass der Benutzer schnell zu dem gewünschten Inhalt scrollt.
 
 ## Siehe auch
 
 - [CSS scroll snap](/de/docs/Web/CSS/CSS_scroll_snap) Modul
-- [Gut kontrolliertes Scrollen mit CSS scroll snap](https://web.dev/articles/css-scroll-snap) auf web.dev (2021)
-- [Praktisches CSS Scroll Snapping](https://css-tricks.com/practical-css-scroll-snapping/) auf CSS-Tricks (2020)
+- [Gut gesteuertes Scrollen mit CSS scroll snap](https://web.dev/articles/css-scroll-snap) auf web.dev (2021)
+- [Praktisches CSS-Einrasten beim Scrollen](https://css-tricks.com/practical-css-scroll-snapping/) auf CSS-Tricks (2020)
 - [CSS scroll snap](https://12daysofweb.dev/2022/css-scroll-snap/) auf 12 Days of Web (2019)
-- [Scroll snap Beispiele](https://codepen.io/collection/KpqBGW) auf CodePen
+- [Scroll-Snap-Beispiele](https://codepen.io/collection/KpqBGW) auf CodePen

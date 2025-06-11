@@ -1,42 +1,40 @@
 ---
-title: Pinch-Zoom-Gesten
+title: Gesten für Kneifen und Zoomen
 slug: Web/API/Pointer_events/Pinch_zoom_gestures
 l10n:
-  sourceCommit: f2088b8912ef205a737551441d54b73507bd3ac6
+  sourceCommit: 7cd51a73ad94df604db79ccacbbe0513d0967650
 ---
 
 {{DefaultAPISidebar("Pointer Events")}}
 
-Das Hinzufügen von _Gesten_ zu einer Anwendung kann die Benutzererfahrung erheblich verbessern. Es gibt viele Arten von Gesten, von der einfachen Ein-Finger-_Wisch_-Geste bis zur komplexeren Mehrfachberührungs-_Dreh_-Geste, bei der sich die Berührungspunkte (auch _Zeiger_ genannt) in verschiedene Richtungen bewegen.
+Das Hinzufügen von _Gesten_ zu einer Anwendung kann die Benutzererfahrung erheblich verbessern. Es gibt viele Arten von Gesten, von der einfachen Einfinger-_Wisch_-Geste bis zur komplexeren Mehrfinger-_Dreh_Geste, bei der sich die Berührungspunkte (auch \_Zeiger_ genannt) in unterschiedliche Richtungen bewegen.
 
-Dieses Beispiel zeigt, wie man die _Pinch/Zoom_-Geste erkennt, die [Pointer Events](/de/docs/Web/API/Pointer_events) verwendet, um festzustellen, ob der Benutzer zwei Zeiger näher zusammen oder weiter voneinander entfernt bewegt.
+Dieses Beispiel zeigt, wie Sie die _Kneifen/Zoomen_-Geste erkennen können. Es verwendet [Pointer Events](/de/docs/Web/API/Pointer_events), um zu erkennen, ob der Benutzer zwei Zeiger näher zueinander oder weiter voneinander entfernt bewegt.
 
-Eine _Live_-Version dieser Anwendung ist auf [GitHub](https://mdn.github.io/dom-examples/pointerevents/Pinch_zoom_gestures.html) verfügbar. Der [Quellcode ist auf GitHub verfügbar](https://github.com/mdn/dom-examples/blob/main/pointerevents/Pinch_zoom_gestures.html); Pull-Anfragen und [Fehlermeldungen](https://github.com/mdn/dom-examples/issues) sind willkommen.
+Eine _Live_-Version dieser Anwendung ist auf [GitHub](https://mdn.github.io/dom-examples/pointerevents/Pinch_zoom_gestures.html) verfügbar. Der [Quellcode ist auf GitHub verfügbar](https://github.com/mdn/dom-examples/blob/main/pointerevents/Pinch_zoom_gestures.html); Pull-Requests und [Fehlermeldungen](https://github.com/mdn/dom-examples/issues) sind willkommen.
 
 ## Beispiel
 
-In diesem Beispiel verwenden Sie die [Pointer Events](/de/docs/Web/API/Pointer_events), um gleichzeitig zwei Zeigegeräte beliebigen Typs zu erkennen, einschließlich Finger, Mäuse und Stifte. Die Pinch-In-Geste (herauszoomen), bei der die beiden Zeiger zueinander bewegt werden, ändert die Hintergrundfarbe des Ziel-Elements auf `lightblue`. Die Pinch-Out-Geste (hineinzoomen), bei der die beiden Zeiger voneinander weg bewegt werden, ändert die Hintergrundfarbe des Ziel-Elements auf `pink`.
+In diesem Beispiel verwenden Sie die [Pointer Events](/de/docs/Web/API/Pointer_events), um gleichzeitig zwei Zeigegeräte beliebigen Typs zu erkennen, einschließlich Finger, Maus und Stifte. Die Hereinzoomen (Verkleinern)-Geste, bei der die beiden Zeiger zueinander bewegt werden, ändert die Hintergrundfarbe des Zielelements auf `lightblue`. Die Herauszoomen (Vergrößern)-Geste, bei der die beiden Zeiger voneinander entfernt werden, ändert die Hintergrundfarbe des Zielelements auf `pink`.
 
 ### Berührungsziel definieren
 
-Die Anwendung verwendet {{HTMLElement("div")}}, um die Zielbereiche der Zeiger zu definieren.
+Die Anwendung verwendet ein {{HTMLElement("div")}}, um die Zielbereiche der Zeiger zu definieren.
 
-```html
-<style>
-  div {
-    margin: 0em;
-    padding: 2em;
-  }
-  #target {
-    background: white;
-    border: 1px solid black;
-  }
-</style>
+```css
+div {
+  margin: 0em;
+  padding: 2em;
+}
+#target {
+  background: white;
+  border: 1px solid black;
+}
 ```
 
 ### Globaler Zustand
 
-Die Unterstützung einer Zwei-Zeiger-Geste erfordert das Bewahren des Ereigniszustands eines Zeigers während verschiedener Ereignisphasen. Diese Anwendung verwendet zwei globale Variablen, um den Ereigniszustand zwischenspeichern.
+Das Unterstützen einer Zwei-Zeiger-Geste erfordert, den Ereigniszustand eines Zeigers während verschiedener Ereignisphasen beizubehalten. Diese Anwendung verwendet zwei globale Variablen, um den Ereigniszustand zu zwischenspeichern.
 
 ```js
 // Global vars to cache event state
@@ -44,29 +42,27 @@ const evCache = [];
 let prevDiff = -1;
 ```
 
-### Ereignis-Handler registrieren
+### Ereignishandler registrieren
 
-Ereignis-Handler werden für die folgenden Pointer Events registriert: [`pointerdown`](/de/docs/Web/API/Element/pointerdown_event), [`pointermove`](/de/docs/Web/API/Element/pointermove_event) und [`pointerup`](/de/docs/Web/API/Element/pointerup_event). Der Handler für [`pointerup`](/de/docs/Web/API/Element/pointerup_event) wird auch für die [`pointercancel`](/de/docs/Web/API/Element/pointercancel_event), [`pointerout`](/de/docs/Web/API/Element/pointerout_event) und [`pointerleave`](/de/docs/Web/API/Element/pointerleave_event) Ereignisse verwendet, da diese vier Ereignisse in dieser Anwendung die gleichen Semantiken haben.
+Ereignishandler werden für die folgenden Pointer Events registriert: [`pointerdown`](/de/docs/Web/API/Element/pointerdown_event), [`pointermove`](/de/docs/Web/API/Element/pointermove_event) und [`pointerup`](/de/docs/Web/API/Element/pointerup_event). Der Handler für [`pointerup`](/de/docs/Web/API/Element/pointerup_event) wird für die [`pointercancel`](/de/docs/Web/API/Element/pointercancel_event), [`pointerout`](/de/docs/Web/API/Element/pointerout_event) und [`pointerleave`](/de/docs/Web/API/Element/pointerleave_event) Ereignisse verwendet, da diese vier Ereignisse in dieser Anwendung dieselbe Semantik haben.
 
 ```js
-function init() {
-  // Install event handlers for the pointer target
-  const el = document.getElementById("target");
-  el.onpointerdown = pointerdownHandler;
-  el.onpointermove = pointermoveHandler;
+// Install event handlers for the pointer target
+const el = document.getElementById("target");
+el.onpointerdown = pointerdownHandler;
+el.onpointermove = pointermoveHandler;
 
-  // Use same handler for pointer{up,cancel,out,leave} events since
-  // the semantics for these events - in this app - are the same.
-  el.onpointerup = pointerupHandler;
-  el.onpointercancel = pointerupHandler;
-  el.onpointerout = pointerupHandler;
-  el.onpointerleave = pointerupHandler;
-}
+// Use same handler for pointer{up,cancel,out,leave} events since
+// the semantics for these events - in this app - are the same.
+el.onpointerup = pointerupHandler;
+el.onpointercancel = pointerupHandler;
+el.onpointerout = pointerupHandler;
+el.onpointerleave = pointerupHandler;
 ```
 
-### Pointer down
+### Zeiger herunter
 
-Das [`pointerdown`](/de/docs/Web/API/Element/pointerdown_event)-Ereignis wird ausgelöst, wenn ein Zeiger (Maus, Stift/Stylus oder Berührungspunkt auf einem Touchscreen) Kontakt mit der _Kontaktfläche_ aufnimmt. In dieser Anwendung muss der Ereigniszustand zwischengespeichert werden, falls dieses Down-Ereignis Teil einer Zwei-Zeiger-Pinch/Zoom-Geste ist.
+Das [`pointerdown`](/de/docs/Web/API/Element/pointerdown_event)-Ereignis wird ausgelöst, wenn ein Zeiger (Maus, Stift/Stylus oder Berührungspunkt auf einem Touchscreen) Kontakt mit der _Kontaktoberfläche_ herstellt. In dieser Anwendung muss der Zustand des Ereignisses zwischengespeichert werden, falls dieses Down-Ereignis Teil einer Zwei-Zeiger-Kneifen/Zoom-Geste ist.
 
 ```js
 function pointerdownHandler(ev) {
@@ -77,11 +73,11 @@ function pointerdownHandler(ev) {
 }
 ```
 
-### Pointer move
+### Zeiger bewegen
 
-Der [`pointermove`](/de/docs/Web/API/Element/pointermove_event)-Ereignis-Handler erkennt, ob ein Benutzer eine Zwei-Zeiger-Pinch/Zoom-Geste ausführt. Wenn zwei Zeiger gedrückt sind und der Abstand zwischen den Zeigern zunimmt (was ein Pinch-Out oder Hereinzoomen bedeutet), wird die Hintergrundfarbe des Elements auf `pink` geändert, und wenn der Abstand zwischen den Zeigern abnimmt (ein Pinch-In oder Herauszoomen), wird die Hintergrundfarbe auf `lightblue` geändert. In einer weiter entwickelten Anwendung könnte die Bestimmung von Pinch-In oder Pinch-Out verwendet werden, um anwendungsspezifische Semantiken anzuwenden.
+Der [`pointermove`](/de/docs/Web/API/Element/pointermove_event)-Ereignishandler erkennt, ob ein Benutzer eine Zwei-Zeiger-Kneifen/Zoom-Geste verwendet. Wenn zwei Zeiger heruntergedrückt sind und der Abstand zwischen den Zeigern zunimmt (signalisierend ein Herauszoomen oder Vergrößern), wird die Hintergrundfarbe des Elements auf `pink` geändert, und wenn der Abstand zwischen den Zeigern abnimmt (ein Hereinzoomen oder Verkleinern), wird die Hintergrundfarbe auf `lightblue` geändert. In einer anspruchsvolleren Anwendung könnte die Bestimmung des Herein- oder Herauszoomens verwendet werden, um anwendungsspezifische Semantiken anzuwenden.
 
-Während dieses Ereignis verarbeitet wird, wird der Rahmen des Ziels auf `gestrichelt` gesetzt, um eine klare visuelle Anzeige zu bieten, dass das Element ein Bewegungsereignis empfangen hat.
+Wenn dieses Ereignis verarbeitet wird, wird der Rahmen des Ziels auf `dashed` gesetzt, um eine klare visuelle Anzeige zu bieten, dass das Element ein Bewegungsereignis empfangen hat.
 
 ```js
 function pointermoveHandler(ev) {
@@ -126,11 +122,11 @@ function pointermoveHandler(ev) {
 }
 ```
 
-### Pointer up
+### Zeiger hoch
 
-Das [`pointerup`](/de/docs/Web/API/Element/pointerup_event)-Ereignis wird ausgelöst, wenn ein Zeiger von der _Kontaktfläche_ angehoben wird. Wenn dies geschieht, wird das Ereignis aus dem Ereignis-Cache entfernt und die Hintergrundfarbe und der Rahmen des Ziel-Elements werden auf ihre ursprünglichen Werte zurückgesetzt.
+Das [`pointerup`](/de/docs/Web/API/Element/pointerup_event)-Ereignis wird ausgelöst, wenn ein Zeiger von der _Kontaktoberfläche_ entfernt wird. Wenn dies geschieht, wird das Ereignis aus dem Ereigniscache entfernt und die Hintergrundfarbe und der Rahmen des Zielelements werden auf ihre ursprünglichen Werte zurückgesetzt.
 
-In dieser Anwendung wird dieser Handler auch für die [`pointercancel`](/de/docs/Web/API/Element/pointercancel_event), [`pointerleave`](/de/docs/Web/API/Element/pointerleave_event) und [`pointerout`](/de/docs/Web/API/Element/pointerout_event) Ereignisse verwendet.
+In dieser Anwendung wird dieser Handler auch für [`pointercancel`](/de/docs/Web/API/Element/pointercancel_event), [`pointerleave`](/de/docs/Web/API/Element/pointerleave_event) und [`pointerout`](/de/docs/Web/API/Element/pointerout_event) Ereignisse verwendet.
 
 ```js
 function pointerupHandler(ev) {
@@ -150,32 +146,36 @@ function pointerupHandler(ev) {
 
 ### Anwendungs-UI
 
-Die Anwendung verwendet ein {{HTMLElement("div")}}-Element für den Berührungsbereich und stellt Schaltflächen zum Aktivieren des Loggings und zum Löschen des Logs bereit.
+Die Anwendung verwendet ein {{HTMLElement("div")}}-Element für den Berührungsbereich und bietet Schaltflächen zum Aktivieren eines Protokolls und zum Löschen des Protokolls.
 
-Um zu verhindern, dass das Standard-Touch-Verhalten des Browsers die Pointer-Behandlung dieser Anwendung überschreibt, wird die {{cssxref("touch-action")}}-Eigenschaft auf das {{HTMLElement("body")}}-Element angewendet.
+Um zu verhindern, dass das Standard-Touch-Verhalten des Browsers die Zeigerbehandlung dieser Anwendung überschreibt, wird die {{cssxref("touch-action")}}-Eigenschaft auf das {{HTMLElement("body")}}-Element angewendet.
 
 ```html
-<body onload="init();" style="touch-action:none">
-  <div id="target">
-    Touch and Hold with 2 pointers, then pinch in or out.<br />
-    The background color will change to pink if the pinch is opening (Zoom In)
-    or changes to lightblue if the pinch is closing (Zoom out).
-  </div>
-  <!-- UI for logging/debugging -->
-  <button id="log" onclick="enableLog(event);">Start/Stop event logging</button>
-  <button id="clearlog" onclick="clearLog(event);">Clear the log</button>
-  <p></p>
-  <output></output>
-</body>
+<div id="target">
+  Touch and Hold with 2 pointers, then pinch in or out.<br />
+  The background color will change to pink if the pinch is opening (Zoom In) or
+  changes to lightblue if the pinch is closing (Zoom out).
+</div>
+<!-- UI for logging/debugging -->
+<button id="log">Start/Stop event logging</button>
+<button id="clear-log">Clear the log</button>
+<p></p>
+<output></output>
+```
+
+```css
+body {
+  touch-action: none; /* Prevent default touch behavior */
+}
 ```
 
 ### Verschiedene Funktionen
 
-Diese Funktionen unterstützen die Anwendung, sind aber nicht direkt in den Ereignisfluss eingebunden.
+Diese Funktionen unterstützen die Anwendung, sind jedoch nicht direkt im Ereignisfluss beteiligt.
 
 #### Cache-Verwaltung
 
-Diese Funktion hilft bei der Verwaltung der globalen Ereignis-Caches `evCache`.
+Diese Funktion hilft bei der Verwaltung der globalen Ereigniscaches `evCache`.
 
 ```js
 function removeEvent(ev) {
@@ -189,11 +189,14 @@ function removeEvent(ev) {
 
 #### Ereignisprotokollierung
 
-Diese Funktionen werden verwendet, um Ereignisaktivitäten an das Anwendungsfenster zu senden (zur Unterstützung von Debugging und zum Verstehen des Ereignisflusses).
+Diese Funktionen werden verwendet, um die Ereignisaktivität an das Anwendungsfenster zu senden (um das Debuggen und Erlernen des Ereignisflusses zu unterstützen).
 
 ```js
 // Log events flag
 let logEvents = false;
+
+document.getElementById("log").addEventListener("click", enableLog);
+document.getElementById("clear-log").addEventListener("click", clearLog);
 
 // Logging/debugging functions
 function enableLog(ev) {
@@ -218,6 +221,6 @@ function clearLog(event) {
 
 ## Siehe auch
 
-- [Pointer Events jetzt in Firefox Nightly](https://hacks.mozilla.org/2015/08/pointer-events-now-in-firefox-nightly/); Mozilla Hacks; von Matt Brubeck und Jason Weathersby; 04-Aug-2015
+- [Pointer Events jetzt im Firefox Nightly](https://hacks.mozilla.org/2015/08/pointer-events-now-in-firefox-nightly/); Mozilla Hacks; von Matt Brubeck und Jason Weathersby; 04. Aug. 2015
 - [jQuery Pointer Events Polyfill](https://github.com/jquery-archive/PEP)
 - [Gesten](https://m2.material.io/design/interaction/gestures.html); Material Design

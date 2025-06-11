@@ -2,18 +2,18 @@
 title: Verwendung der HTML Sanitizer API
 slug: Web/API/HTML_Sanitizer_API/Using_the_HTML_Sanitizer_API
 l10n:
-  sourceCommit: f9e87cf7d09830e097a2aadb5e507eb12c9a4514
+  sourceCommit: 6534e53abb2de32fbf2f68c0992865c379aa58f3
 ---
 
 {{DefaultAPISidebar("HTML Sanitizer API")}}
 
-Die [HTML Sanitizer API](/de/docs/Web/API/HTML_Sanitizer_API) bietet Methoden, die es Entwicklern ermöglichen, untrusted HTML sicher in ein [`Element`](/de/docs/Web/API/Element), eine [`ShadowRoot`](/de/docs/Web/API/ShadowRoot) oder ein [`Document`](/de/docs/Web/API/Document) zu injizieren. Die API gibt Entwicklern auch die Flexibilität, bei Bedarf weiter einzuschränken oder zu erweitern, welche HTML-Entitäten erlaubt sind.
+Die [HTML Sanitizer API](/de/docs/Web/API/HTML_Sanitizer_API) stellt Methoden bereit, die Entwicklern ermöglichen, untrusted HTML sicher in ein [`Element`](/de/docs/Web/API/Element), einen [`ShadowRoot`](/de/docs/Web/API/ShadowRoot) oder ein [`Document`](/de/docs/Web/API/Document) einzufügen. Die API bietet Entwicklern auch die Flexibilität, bei Bedarf die erlaubten HTML-Entitäten weiter zu beschränken oder zu erweitern.
 
-## Sichere Standard-Sanitisierung
+## Sichere Bereinigung standardmäßig
 
-Der häufigste Anwendungsfall für die API ist das sichere Einfügen eines benutzerdefinierten Strings in ein [`Element`](/de/docs/Web/API/Element). Sofern der einzufügende String _nicht zwingend_ unsichere HTML-Entitäten enthalten muss, können Sie [`Element.setHTML()`](/de/docs/Web/API/Element/setHTML) als Drop-in-Ersatz für [`Element.innerHTML`](/de/docs/Web/API/Element/innerHTML) verwenden.
+Der häufigste Anwendungsfall für die API ist das sichere Einfügen eines von Benutzern bereitgestellten Strings in ein [`Element`](/de/docs/Web/API/Element). Sofern der einzufügende String _keine_ unsicheren HTML-Entitäten enthalten muss, können Sie [`Element.setHTML()`](/de/docs/Web/API/Element/setHTML) als Ersatz für [`Element.innerHTML`](/de/docs/Web/API/Element/innerHTML) verwenden.
 
-Zum Beispiel entfernt der folgende Code alle XSS-unsicheren Elemente und Attribute im Eingabestring (in diesem Fall das {{htmlelement("script")}}-Element), zusammen mit allen Elementen, die gemäß der HTML-Spezifikation nicht als Kinder des Ziel-Elements erlaubt sind:
+Zum Beispiel wird der folgende Code alle XSS-unsicheren Elemente und Attribute im Eingabestring entfernen (in diesem Fall das {{htmlelement("script")}}-Element) sowie alle Elemente, die laut HTML-Spezifikation nicht als Kinder des Ziel-Elements erlaubt sind:
 
 ```js
 const untrustedString = "abc <script>alert(1)<" + "/script> def";
@@ -29,9 +29,9 @@ Die anderen XSS-sicheren Methoden, [`ShadowRoot.setHTML()`](/de/docs/Web/API/Sha
 
 ### Sichere Methoden schränken erlaubte Entitäten weiter ein
 
-Sie können die HTML-Entitäten, die Sie zulassen oder entfernen möchten, angeben, indem Sie einen [`Sanitizer`](/de/docs/Web/API/Sanitizer) als zweiten Parameter bei allen Sanitizer-Methoden übergeben.
+Sie können die HTML-Entitäten angeben, die Sie zulassen oder entfernen möchten, indem Sie einen [`Sanitizer`](/de/docs/Web/API/Sanitizer) als zweiten Parameter an alle Sanitizer-Methoden übergeben.
 
-Wenn beispielsweise nur {{htmlelement("p")}}- und {{htmlelement("a")}}-Elemente im Kontext von "someElement" erwartet werden, könnten Sie eine Sanitizer-Konfiguration erstellen, die nur diese Elemente zulässt:
+Zum Beispiel, wenn Sie wissen, dass nur {{htmlelement("p")}}- und {{htmlelement("a")}}-Elemente im Kontext von „someElement“ unten erwartet werden, können Sie eine Sanitizer-Konfiguration erstellen, die nur diese Elemente zulässt:
 
 ```js
 sanitizerOne = Sanitizer({ elements: ["p", "a"] });
@@ -39,15 +39,15 @@ sanitizerOne.allowAttribute("href");
 someElement.setHTML(untrustedString, { sanitizer: sanitizerOne });
 ```
 
-Beachten Sie jedoch, dass die unsicheren HTML-Entitäten bei der Verwendung der sicheren Methoden immer entfernt werden. Wird eine permissive Sanitizer-Konfiguration mit den sicheren Methoden verwendet, erlaubt sie entweder die gleichen oder weniger Entitäten als die Standardkonfiguration.
+Beachten Sie jedoch, dass unsichere HTML-Entitäten immer entfernt werden, wenn Sie die sicheren Methoden verwenden. Bei Verwendung mit den sicheren Methoden wird eine freizügige Sanitizer-Konfiguration entweder dieselben oder weniger Entitäten als die Standardkonfiguration zulassen.
 
-## Zulassen unsicherer Sanitisierung
+## Zulassen unsicherer Bereinigung
 
-Manchmal möchten Sie vielleicht Eingaben injizieren, die potenziell unsichere Elemente oder Attribute enthalten müssen. In diesem Fall können Sie eine der XSS-unsicheren Methoden der API verwenden: [`Element.setHTMLUnsafe()`](/de/docs/Web/API/Element/setHTMLUnsafe), [`ShadowRoot.setHTMLUnsafe()`](/de/docs/Web/API/ShadowRoot/setHTMLUnsafe) und [`Document.parseHTMLUnsafe()`](/de/docs/Web/API/Document/parseHTMLUnsafe_static).
+Manchmal möchten Sie möglicherweise Eingaben einfügen, die potenziell unsichere Elemente oder Attribute enthalten müssen. In diesem Fall können Sie eine der API-Methoden verwenden, die für XSS-Unsicherheit nicht sicher sind: [`Element.setHTMLUnsafe()`](/de/docs/Web/API/Element/setHTMLUnsafe), [`ShadowRoot.setHTMLUnsafe()`](/de/docs/Web/API/ShadowRoot/setHTMLUnsafe), und [`Document.parseHTMLUnsafe()`](/de/docs/Web/API/Document/parseHTMLUnsafe_static).
 
-Ein üblicher Ansatz ist es, beim Standard-Sanitizer zu beginnen, der nur sichere Elemente zulässt, und dann nur die unsicheren Entitäten zuzulassen, die wir in der Eingabe erwarten.
+Ein übliches Vorgehen ist, mit dem Standardsanitizer zu beginnen, der nur sichere Elemente zulässt, und dann nur die unsicheren Entitäten zu erlauben, die wir in der Eingabe erwarten.
 
-Zum Beispiel erlaubt im folgenden Sanitizer alle sicheren Elemente, und wir erlauben zusätzlich den unsicheren `onclick`-Handler nur auf `button`-Elementen.
+Zum Beispiel werden im folgenden Sanitizer alle sicheren Elemente zugelassen, und wir erlauben darüber hinaus nur den unsicheren `onclick`-Handler auf `button`-Elementen:
 
 ```js
 const untrustedString = '<button onclick="alert(1)">Button text</button>';
@@ -58,15 +58,15 @@ sanitizerOne.allowElement({ name: "button", attributes: ["onclick"] });
 someElement.setHTMLUnsafe(untrustedString, { sanitizer: sanitizerOne });
 ```
 
-Mit diesem Code würde `alert(1)` erlaubt, was ein potenzielles Problem darstellt, dass das Attribut zu bösartigen Zwecken verwendet werden könnte. Wir wissen jedoch, dass alle anderen XSS-unsicheren HTML-Entitäten entfernt wurden, sodass wir uns nur um diesen einen Fall kümmern müssen und andere Schutzmaßnahmen einbauen können.
+Mit diesem Code wäre das `alert(1)` erlaubt, und es besteht ein potenzielles Problem, dass das Attribut für böswillige Zwecke verwendet werden könnte. Wir wissen jedoch, dass alle anderen XSS-unsicheren HTML-Entitäten entfernt wurden, sodass wir uns nur um diesen einen Fall kümmern müssen und andere Maßnahmen ergreifen können.
 
-Die unsicheren Methoden verwenden jede bereitgestellte Sanitizer-Konfiguration (oder keine), daher müssen Sie vorsichtiger sein als bei der Verwendung der sicheren Methoden.
+Die unsicheren Methoden verwenden jede von Ihnen bereitgestellte Sanitizer-Konfiguration (oder keine), daher müssen Sie vorsichtiger sein als bei der Verwendung der sicheren Methoden.
 
-## Zulassungs-Konfigurationen
+## Zulassungskonfigurationen
 
-Sie können eine ["allow"-Sanitizer-Konfiguration](/de/docs/Web/API/HTML_Sanitizer_API#allow_and_remove_configurations) erstellen, indem Sie nur den Satz von HTML-Elementen und -Attributen angeben, die Sie beim Verwenden des Sanitizers erlauben möchten. Diese Form der Konfiguration ist leicht zu verstehen und nützlich, wenn Sie genau wissen, welche HTML-Entitäten im Zielkontext erlaubt sein sollten.
+Sie können eine ["Allow"-Sanitizer-Konfiguration](/de/docs/Web/API/HTML_Sanitizer_API#allow_and_remove_configurations) erstellen, indem Sie nur die Menge an HTML-Elementen und Attributen angeben, die Sie beim Verwenden des Sanitizers zulassen möchten. Diese Form der Konfiguration ist leicht verständlich und nützlich, wenn Sie genau wissen, welche HTML-Entitäten im Zielkontext erlaubt sein sollten.
 
-Zum Beispiel erlaubt die folgende Konfiguration die {{htmlelement("p")}}- und {{htmlelement("div")}}-Elemente und die Attribute `cite` und `onclick`. Sie ersetzt auch {{htmlelement("b")}}-Elemente durch deren Inhalt (dies ist eine Form des "Erlaubens", da der Inhalt des Elements nicht entfernt wird).
+Zum Beispiel erlaubt die folgende Konfiguration die {{htmlelement("p")}}- und {{htmlelement("div")}}-Elemente sowie die Attribute `cite` und `onclick`. Außerdem ersetzt sie {{htmlelement("b")}}-Elemente durch ihren Inhalt (dies ist eine Form des „Zulassens“, da der Inhalt des Elements nicht entfernt wird).
 
 ```js
 const sanitizer = Sanitizer({
@@ -78,9 +78,9 @@ const sanitizer = Sanitizer({
 
 ### Erlauben von Elementen
 
-Die erlaubten Elemente können mit der [`elements`](/de/docs/Web/API/SanitizerConfig#elements)-Eigenschaft der [`SanitizerConfig`](/de/docs/Web/API/SanitizerConfig)-Instanz angegeben werden, die dem `Sanitizer()`-Konstruktor (oder direkt den Sanitisierungsmethoden) übergeben wird.
+Die erlaubten Elemente können mit der [`elements`](/de/docs/Web/API/SanitizerConfig#elements)-Eigenschaft der [`SanitizerConfig`](/de/docs/Web/API/SanitizerConfig)-Instanz angegeben werden, die dem `Sanitizer()`-Konstruktor übergeben wird (oder direkt den Bereinigungsmethoden).
 
-Der einfachste Weg, die Eigenschaft zu verwenden, ist ein Array von Elementnamen anzugeben:
+Der einfachste Weg, die Eigenschaft zu verwenden, besteht darin, ein Array von Elementnamen anzugeben:
 
 ```js
 const sanitizer = Sanitizer({
@@ -88,7 +88,7 @@ const sanitizer = Sanitizer({
 });
 ```
 
-Sie können jedoch auch jedes der erlaubten Elemente mit einem Objekt spezifizieren, das seinen `name` und `namespace` definiert, wie unten gezeigt (`Sanitizer` wird automatisch einen Namespace ableiten, wenn möglich).
+Sie können jedoch auch jedes der erlaubten Elemente mithilfe eines Objekts angeben, das seinen `name` und `namespace` definiert, wie unten gezeigt (der `Sanitizer` wird automatisch ein Namespace ableiten, wenn dies möglich ist).
 
 ```js
 const sanitizer = Sanitizer({
@@ -105,7 +105,7 @@ const sanitizer = Sanitizer({
 });
 ```
 
-Sie können die Elemente dem `Sanitizier` mit seiner API hinzufügen. Hier fügen wir die gleichen Elemente zu einem leeren Sanitizer hinzu:
+Sie können die Elemente über die API dem `Sanitizer` hinzufügen. Hier fügen wir die gleichen Elemente zu einem leeren Sanitizer hinzu:
 
 ```js
 const sanitizer = Sanitizer({});
@@ -116,11 +116,11 @@ sanitizer.allowElement({
 });
 ```
 
-### Erlauben globaler Attribute
+### Erlauben von globalen Attributen
 
-Um Attribute global zu erlauben, auf jedem Element, wo es laut HTML-Spezifikation erlaubt ist, können Sie die [`attributes`](/de/docs/Web/API/SanitizerConfig#attributes_2)-Eigenschaft der [`SanitizerConfig`](/de/docs/Web/API/SanitizerConfig) verwenden.
+Um Attribute global, auf jedem Element, das durch die HTML-Spezifikation erlaubt ist, zuzulassen, können Sie die [`attributes`](/de/docs/Web/API/SanitizerConfig#attributes_2)-Eigenschaft der [`SanitizerConfig`](/de/docs/Web/API/SanitizerConfig) verwenden.
 
-Der einfachste Weg, die `attributes`-Eigenschaft zu verwenden, ist ein Array von Attributnamen anzugeben:
+Der einfachste Weg, die `attributes`-Eigenschaft zu verwenden, besteht darin, ein Array von Attributnamen anzugeben:
 
 ```js
 const sanitizer = Sanitizer({
@@ -128,7 +128,7 @@ const sanitizer = Sanitizer({
 });
 ```
 
-Sie können auch jedes Attribut mit den Eigenschaften `name` und `namespace` genauso wie Elemente angeben:
+Ebenso können Sie jedes Attribut mit den `name`- und `namespace`-Eigenschaften genauso wie Elemente spezifizieren:
 
 ```js
 const sanitizer = Sanitizer({
@@ -145,7 +145,7 @@ const sanitizer = Sanitizer({
 });
 ```
 
-Sie können auch jedes der erlaubten Attribute dem `Sanitizer` mit seiner `allowAttribute()`-Methode hinzufügen:
+Sie können auch jedes der erlaubten Attribute mithilfe der `allowAttribute()`-Methode des `Sanitizer` hinzufügen:
 
 ```js
 const sanitizer = Sanitizer({});
@@ -153,13 +153,13 @@ sanitizer.allowAttribute("cite");
 sanitizer.allowAttribute("onclick");
 ```
 
-### Erlauben/Entfernen von Attributen auf einem bestimmten Element
+### Erlauben/Entfernen von Attributen an einem bestimmten Element
 
-Sie können auch Attribute auf einem bestimmten Element erlauben oder entfernen. Beachten Sie, dass dies Teil einer "allow"-Konfiguration ist, weil Sie in diesem Fall immer noch erlauben, dass das Element injiziert wird.
+Sie können auch Attribute an einem bestimmten Element erlauben oder entfernen. Beachten Sie, dass dies Teil einer „Allow-Konfiguration“ ist, da Sie in diesem Fall das Element weiterhin zur Injektion zulassen.
 
-Um ein Attribut auf einem Element zu erlauben, können Sie das Element als Objekt mit den Eigenschaften `name` und `attributes` angeben. Die [`attributes`](/de/docs/Web/API/SanitizerConfig#attributes)-Eigenschaft enthält ein Array der erlaubten Attribute auf dem Element.
+Um ein Attribut an einem Element zu erlauben, können Sie das Element als Objekt mit den Eigenschaften `name` und `attributes` angeben. Die [`attributes`](/de/docs/Web/API/SanitizerConfig#attributes)-Eigenschaft enthält ein Array der an dem Element erlaubten Attribute.
 
-Unten zeigen wir einen Sanitizer, wo die {{htmlelement("div")}}, {{htmlelement("a")}} und {{htmlelement("span")}}-Elemente erlaubt sind, und das {{htmlelement("a")}}-Element zusätzlich die `href`, `rel`, `hreflang` und `type`-Attribute erlaubt.
+Unten zeigen wir einen Sanitizer, bei dem die {{htmlelement("div")}}, {{htmlelement("a")}}, und {{htmlelement("span")}}-Elemente erlaubt sind, und das {{htmlelement("a")}}-Element zusätzlich die Attribute `href`, `rel`, `hreflang` und `type` zulässt.
 
 ```js
 const sanitizer = Sanitizer({
@@ -171,7 +171,7 @@ const sanitizer = Sanitizer({
 });
 ```
 
-In ähnlicher Weise können wir die Attribute, die auf einem Element nicht erlaubt sind, mit einem Elementobjekt und der [`removeAttributes`](/de/docs/Web/API/SanitizerConfig#removeattributes)-Eigenschaft angeben. Zum Beispiel würde der folgende Sanitizer das `type`-Attribut von allen `<a>`-Elementen entfernen.
+Genauso können wir Attribute, die an einem Element nicht erlaubt sind, mithilfe eines Elementobjekts mit der [`removeAttributes`](/de/docs/Web/API/SanitizerConfig#removeattributes)-Eigenschaft angeben. Zum Beispiel würde der folgende Sanitizer das `type`-Attribut von allen `<a>`-Elementen entfernen.
 
 ```js
 const sanitizer = Sanitizer({
@@ -179,15 +179,15 @@ const sanitizer = Sanitizer({
 });
 ```
 
-In beiden Fällen können Sie auch jedes Attribut als Objekt mit den Eigenschaften `name` und `namespace` angeben. Sie können die Attributeigenschaften auch unter Verwendung desselben Elementobjekts setzten, das an [`Sanitizer.allowElement()`](/de/docs/Web/API/Sanitizer/allowElement) übergeben wird.
+In beiden Fällen können Sie auch jedes Attribut als Objekt mit `name`- und `namespace`-Eigenschaften angeben. Sie können auch die Attribut-Eigenschaften mithilfe des gleichen Elementobjekts festlegen, das an [`Sanitizer.allowElement()`](/de/docs/Web/API/Sanitizer/allowElement) übergeben wird.
 
-Beachten Sie jedoch, dass Sie in einem Aufruf nicht sowohl die `attributes`- als auch `removeAttributes`-Eigenschaften für ein Element angeben können. Der Versuch, dies zu tun, wird eine Ausnahme auslösen.
+Beachten Sie jedoch, dass Sie nicht sowohl Element-Attribute als auch `removeAttributes` in einem Aufruf angeben können. Der Versuch, dies zu tun, führt zu einer Ausnahme.
 
 ### Ersetzen von Kinderelementen
 
-Sie können ein Array von Elementen angeben, die durch ihren inneren Inhalt ersetzt werden sollen. Dies wird am häufigsten verwendet, um Stile von Elementen zu entfernen.
+Sie können ein Array von Elementen angeben, die durch ihren inneren Inhalt ersetzt werden sollen. Dies wird am häufigsten verwendet, um Styles von Elementen zu entfernen.
 
-Zum Beispiel verwendet der folgende Code die [`replaceWithChildrenElements`](/de/docs/Web/API/SanitizerConfig#replacewithchildrenelements)-Eigenschaft der [`SanitizerConfig`](/de/docs/Web/API/SanitizerConfig), um anzugeben, dass das {{htmlelement("b")}}-Element ersetzt werden soll:
+Zum Beispiel verwendet der folgende Code die [`replaceWithChildrenElements`](/de/docs/Web/API/SanitizerConfig#replacewithchildrenelements)-Eigenschaft der [`SanitizerConfig`](/de/docs/Web/API/SanitizerConfig) um zu spezifizieren, dass das {{htmlelement("b")}}-Element ersetzt werden sollte:
 
 ```js
 const replaceBoldSanitizer = Sanitizer({
@@ -202,7 +202,7 @@ targetElement.setHTML("This <b>highlighting</b> isn't needed", {
 targetElement.log(targetElement.innerHTML); // This highlighting isn't needed
 ```
 
-Wie bei Elementen und Attributen können Sie auch die Ersatzelemente mit einem Namespace angeben oder die [`Sanitizer.replaceElementWithChildren()`](/de/docs/Web/API/Sanitizer/replaceElementWithChildren)-Methode verwenden:
+Wie bei Elementen und Attributen können Sie die Ersatzelemente auch mit einem Namespace spezifizieren oder die [`Sanitizer.replaceElementWithChildren()`](/de/docs/Web/API/Sanitizer/replaceElementWithChildren)-Methode verwenden:
 
 ```js
 const sanitizer = Sanitizer({});
@@ -213,14 +213,14 @@ sanitizer.replaceElementWithChildren({
 });
 ```
 
-## Entferner-Konfigurationen
+## Entfernungs-Konfigurationen
 
-Sie können eine ["remove"-Sanitizer-Konfiguration](/de/docs/Web/API/HTML_Sanitizer_API#allow_and_remove_configurations) erstellen, indem Sie den Satz von HTML-Elementen und -Attributen angeben, die Sie aus der Eingabe entfernen möchten, wenn Sie den Sanitizer verwenden. Alle anderen Elemente und Attribute sind durch die Konfiguration erlaubt, obwohl sie entfernt werden können, wenn Sie die Konfiguration in einer sicheren Sanitisierungsmethode verwenden.
+Sie können eine ["Remove"-Sanitizer-Konfiguration](/de/docs/Web/API/HTML_Sanitizer_API#allow_and_remove_configurations) erstellen, indem Sie die Menge an HTML-Elementen und Attributen angeben, die Sie aus der Eingabe entfernen möchten, wenn Sie den Sanitizer verwenden. Alle anderen Elemente und Attribute sind durch die Konfiguration erlaubt, obwohl sie entfernt werden können, wenn Sie die Konfiguration in einer sicheren Bereinigungsmethode verwenden.
 
 > [!NOTE]
-> Eine Sanitizer-Konfiguration kann entweder Zulassungslisten oder Entfernung ausmachen, jedoch nicht beides.
+> Eine Sanitizer-Konfiguration kann Allow-Listen oder Remove-Listen enthalten, aber nicht beides.
 
-Zum Beispiel entfernt die folgende Konfiguration die {{htmlelement("script")}}, {{htmlelement("div")}} und {{htmlelement("span")}}-Elemente sowie das `onclick`-Attribut.
+Zum Beispiel entfernt die folgende Konfiguration die {{htmlelement("script")}}, {{htmlelement("div")}}, und {{htmlelement("span")}}-Elemente und auch das `onclick`-Attribut.
 
 ```js
 const sanitizer = Sanitizer({
@@ -229,7 +229,7 @@ const sanitizer = Sanitizer({
 });
 ```
 
-Das Angeben von Elementen zum Entfernen ist nützlicher, wenn Sie eine vorhandene Konfiguration optimieren möchten. Zum Beispiel betrachten Sie den Fall, in dem wir den (sicheren) Standard-Sanitizer verwenden, aber auch sicherstellen möchten
+Elemente zu entfernen ist nützlicher, wenn Sie eine bestehende Konfiguration anpassen möchten. Betrachten Sie zum Beispiel den Fall, dass wir den (sicheren) Standardsanitizer verwenden, aber auch sicherstellen möchten, dass
 
 ```js
 const sanitizer = Sanitizer();
@@ -243,9 +243,9 @@ const sanitizer = Sanitizer({
 
 ### Entfernen von Elementen
 
-Die [`removeElements`](/de/docs/Web/API/SanitizerConfig#removeelements)-Eigenschaft einer [`SanitizerConfig`](/de/docs/Web/API/SanitizerConfig) Instanz kann verwendet werden, um die zu entfernenden Elemente anzugeben.
+Die [`removeElements`](/de/docs/Web/API/SanitizerConfig#removeelements)-Eigenschaft einer [`SanitizerConfig`](/de/docs/Web/API/SanitizerConfig)-Instanz kann verwendet werden, um die zu entfernenden Elemente anzugeben.
 
-Der einfachste Weg, die Eigenschaft zu verwenden, ist ein Array von Elementnamen anzugeben:
+Der einfachste Weg, die Eigenschaft zu verwenden, besteht darin, ein Array von Elementnamen anzugeben:
 
 ```js
 const sanitizer = Sanitizer({
@@ -253,7 +253,7 @@ const sanitizer = Sanitizer({
 });
 ```
 
-Wie beim [Erlauben von Elementen](#erlauben_von_elementen) können Sie auch jedes der zu entfernenden Elemente mit einem Objekt angeben, das seinen `name` und `namespace` definiert. Sie können auch die entfernten Elemente mit der `Sanitizer` API konfigurieren, wie gezeigt:
+Wie beim [Erlauben von Elementen](#erlauben_von_elementen) können Sie jedes der zu entfernenden Elemente auch mit einem Objekt spezifizieren, das seinen `name` und `namespace` definiert. Sie können die entfernten Elemente auch mithilfe der `Sanitizer`-API konfigurieren, wie gezeigt:
 
 ```js
 const sanitizer = Sanitizer({});
@@ -266,9 +266,9 @@ sanitizer.removeElement({
 
 ### Entfernen von Attributen
 
-Die [`removeElements`](/de/docs/Web/API/SanitizerConfig#removeelements)-Eigenschaft der [`SanitizerConfig`](/de/docs/Web/API/SanitizerConfig) kann verwendet werden, um anzugeben, welche Attribute global entfernt werden sollen.
+Die [`removeElements`](/de/docs/Web/API/SanitizerConfig#removeelements)-Eigenschaft der [`SanitizerConfig`](/de/docs/Web/API/SanitizerConfig) kann verwendet werden, um Attribute anzugeben, die global entfernt werden sollen.
 
-Der einfachste Weg, die Eigenschaft zu verwenden, ist ein Array von Elementnamen anzugeben:
+Der einfachste Weg, die Eigenschaft zu verwenden, besteht darin, ein Array von Elementnamen anzugeben:
 
 ```js
 const sanitizer = Sanitizer({
@@ -276,7 +276,7 @@ const sanitizer = Sanitizer({
 });
 ```
 
-Sie können auch jedes der Elemente mit einem Objekt angeben, das seinen `name` und `namespace` definiert, und auch [`Sanitizer.removeAttribute()`](/de/docs/Web/API/Sanitizer/removeAttribute) verwenden, um ein Attribut hinzuzufügen, das von allen Elementen entfernt werden soll.
+Sie können jedes der Elemente auch mithilfe eines Objekts angeben, das seinen `name` und `namespace` definiert, und auch [`Sanitizer.removeAttribute()`](/de/docs/Web/API/Sanitizer/removeAttribute) verwenden, um ein Attribut hinzuzufügen, das aus allen Elementen entfernt werden soll.
 
 ```js
 const sanitizer = Sanitizer({});
@@ -284,11 +284,11 @@ sanitizer.removeAttribute("onclick");
 sanitizer.removeAttribute("lang");
 ```
 
-## Kommentare und Daten-Attribute
+## Kommentare und Datenattribute
 
-Die [`SanitizerConfig`](/de/docs/Web/API/SanitizerConfig) kann auch verwendet werden, um anzugeben, ob Kommentare und `data-`-Attribute aus dem injizierten Inhalt gefiltert werden, mit den [comments](/de/docs/Web/API/SanitizerConfig#comments) und [dataAttributes](/de/docs/Web/API/SanitizerConfig#dataattributes) booleschen Eigenschaften.
+Die [`SanitizerConfig`](/de/docs/Web/API/SanitizerConfig) kann auch verwendet werden, um anzugeben, ob Kommentare und `data-`-Attribute aus eingefügtem Inhalt gefiltert werden sollen, mithilfe der Eigenschaften [comments](/de/docs/Web/API/SanitizerConfig#comments) und [dataAttributes](/de/docs/Web/API/SanitizerConfig#dataattributes).
 
-Um sowohl Kommentare als auch Datenattribute zuzulassen, könnten Sie eine Konfiguration wie diese verwenden:
+Um sowohl Kommentare als auch Datenattribute zu erlauben, könnten Sie eine Konfiguration wie diese verwenden:
 
 ```js
 const sanitizer = Sanitizer({
@@ -297,7 +297,7 @@ const sanitizer = Sanitizer({
 });
 ```
 
-Sie können auf ähnliche Weise Kommentare oder Datenattribute in einem bestehenden Sanitizer mit den Methoden [`Sanitizer.setComments()`](/de/docs/Web/API/Sanitizer/setComments) und [`Sanitizer.setDataAttributes()`](/de/docs/Web/API/Sanitizer/setDataAttributes) aktivieren oder deaktivieren:
+Sie können auch Kommentare oder Datenattribute auf einem bestehenden Sanitizer mit den Methoden [`Sanitizer.setComments()`](/de/docs/Web/API/Sanitizer/setComments) und [`Sanitizer.setDataAttributes()`](/de/docs/Web/API/Sanitizer/setDataAttributes) aktivieren oder deaktivieren:
 
 ```js
 const sanitizer = Sanitizer({});
@@ -307,28 +307,28 @@ sanitizer.setDataAttributes(true);
 
 ## Sanitizer vs SanitizerConfig
 
-Alle Sanitisierungsmethoden können eine Sanitizer-Konfiguration erhalten, die entweder eine [`Sanitizer`](/de/docs/Web/API/Sanitizer) oder [`SanitizerConfig`](/de/docs/Web/API/SanitizerConfig) Instanz ist.
+Alle Bereinigungsmethoden können mit einer Sanitizer-Konfiguration, die entweder eine [`Sanitizer`](/de/docs/Web/API/Sanitizer) oder eine [`SanitizerConfig`](/de/docs/Web/API/SanitizerConfig)-Instanz ist, verwendet werden.
 
-Das [`Sanitizer`](/de/docs/Web/API/Sanitizer)-Objekt ist eine Hülle um die [`SanitizerConfig`](/de/docs/Web/API/SanitizerConfig), die zusätzliche nützliche Funktionalitäten bietet:
+Das [`Sanitizer`](/de/docs/Web/API/Sanitizer)-Objekt ist eine Hülle um [`SanitizerConfig`](/de/docs/Web/API/SanitizerConfig), die zusätzliche nützliche Funktionalität bietet:
 
-- Der Standardkonstruktor erstellt eine Konfiguration, die alle XSS-sicheren Elemente und Attribute erlaubt und daher ein guter Ausgangspunkt ist, um entweder etwas restriktivere oder etwas weniger restriktive Sanitisierer zu erstellen.
-- Wenn Sie die Methoden verwenden, um HTML-Entitäten zu erlauben oder zu entfernen, werden die Entitäten aus den "gegenteiligen" Listen entfernt. Diese Normalisierungen machen die Konfiguration effizienter.
-- Die [`Sanitizer.removeUnsafe()`](/de/docs/Web/API/Sanitizer/removeUnsafe)-Methode kann verwendet werden, um alle XSS-unsicheren Entitäten aus einer bestehenden Konfiguration zu entfernen.
-- Sie können die Konfiguration exportieren, um genau zu sehen, welche Entitäten erlaubt und welche verworfen werden.
+- Der Standardkonstruktor erzeugt eine Konfiguration, die alle XSS-sicheren Elemente und Attribute zulässt und daher einen guten Ausgangspunkt für die Erstellung von entweder etwas mehr oder etwas weniger restriktiven Sanitisern darstellt.
+- Wenn Sie die Methoden verwenden, um HTML-Entitäten zu erlauben oder zu entfernen, werden die Entitäten aus den „entgegengesetzten“ Listen entfernt. Diese Normalisierungen machen die Konfiguration effizienter.
+- Die Methode [`Sanitizer.removeUnsafe()`](/de/docs/Web/API/Sanitizer/removeUnsafe) kann verwendet werden, um alle XSS-unsicheren Entitäten aus einer bestehenden Konfiguration zu entfernen.
+- Sie können die Konfiguration exportieren, um genau zu sehen, welche Entitäten erlaubt und entfernt werden.
 
-Beachten Sie jedoch, dass Sie, wenn Sie die sicheren Sanitisierungsmethoden verwenden können, möglicherweise überhaupt keine Sanitizer-Konfiguration definieren müssen.
+Beachten Sie jedoch, dass Sie möglicherweise keine Sanitizer-Konfiguration definieren müssen, wenn Sie die sicheren Bereinigungsmethoden verwenden können.
 
 ## Beispiele
 
-Für andere Beispiele siehe die [HTML Sanitizer API](/de/docs/Web/API/HTML_Sanitizer_API) und die einzelnen Methoden der [`Sanitizer`](/de/docs/Web/API/Sanitizer)-Schnittstelle.
+Für weitere Beispiele siehe die [HTML Sanitizer API](/de/docs/Web/API/HTML_Sanitizer_API) und die einzelnen Methoden der [`Sanitizer`](/de/docs/Web/API/Sanitizer)-Schnittstelle.
 
 ### Sanitizer-Demo
 
-Dieses Beispiel zeigt, wie Sie die Methoden des [`Sanitizer`](/de/docs/Web/API/Sanitizer) verwenden können, um einen Sanitizer zu aktualisieren. Das Ergebnis ist eine Demonstrationsschnittstelle, auf der Benutzer Elemente und Attribute zu den Zulassungs- und Entfernung Listen hinzufügen können, um deren Auswirkungen zu sehen, wenn der Sanitizer mit [`Element.setHTML()`](/de/docs/Web/API/Element/setHTML) und [`Element.setHTMLUnsafe()`](/de/docs/Web/API/Element/setHTMLUnsafe) verwendet wird.
+Dieses Beispiel zeigt, wie Sie die [`Sanitizer`](/de/docs/Web/API/Sanitizer)-Methoden verwenden können, um einen Sanitizer zu aktualisieren. Das Ergebnis ist eine Demonstrationsschnittstelle, bei der Sie Elemente und Attribute zu den Allow- und Remove-Listen hinzufügen können und deren Auswirkungen sehen, wenn der Sanitizer mit [`Element.setHTML()`](/de/docs/Web/API/Element/setHTML) und [`Element.setHTMLUnsafe()`](/de/docs/Web/API/Element/setHTMLUnsafe) verwendet wird.
 
 #### HTML
 
-Zuerst definieren wir Schaltflächen, um den Standard-Sanitizer oder einen leeren Sanitizer zurückzusetzen.
+Zuerst definieren wir Schaltflächen, um den Standardsanitizer oder einen leeren Sanitizer zurückzusetzen.
 
 ```html
 <div class="button-group">
@@ -337,7 +337,7 @@ Zuerst definieren wir Schaltflächen, um den Standard-Sanitizer oder einen leere
 </div>
 ```
 
-Dies wird gefolgt von {{htmlelement("select")}}-Elementen, die es Benutzern ermöglichen, Elemente auszuwählen, die den Zulassungs- und Entfernen Listen für Elemente und Attribute hinzugefügt werden sollen.
+Dies wird gefolgt von {{htmlelement("select")}}-Elementen, um Benutzern die Möglichkeit zu geben, Elemente auszuwählen, die zu den Allow- und Remove-Listen für Elemente und Attribute hinzugefügt werden sollen.
 
 ```html
 <div class="select-group">
@@ -389,7 +389,7 @@ Dies wird gefolgt von {{htmlelement("select")}}-Elementen, die es Benutzern erm�
 </div>
 ```
 
-Dann fügen wir Schaltflächen hinzu, um Kommentare und Datenattribute zum Zulassen/Entfernen umzuschalten.
+Dann fügen wir Schaltflächen hinzu, um Kommentare und Datenattribute zum Erlauben/Entfernen zu wechseln.
 
 ```html
 <div class="button-group">
@@ -398,7 +398,7 @@ Dann fügen wir Schaltflächen hinzu, um Kommentare und Datenattribute zum Zulas
 </div>
 ```
 
-Die restlichen Elemente zeigen den zu analysierenden String (editierbar) und das Ergebnis dieser beiden Strings, wenn sie in ein Element mit `setHTML()` und `setHTMLUnsafe()` injiziert werden, jeweils:
+Die verbleibenden Elemente zeigen den zu parsenen String (editierbar) und das Ergebnis dieser beiden Strings, wenn sie jeweils in ein Element mittels `setHTML()` und `setHTMLUnsafe()` eingefügt werden:
 
 ```html
 <div>
@@ -433,16 +433,16 @@ function log(text) {
 }
 ```
 
-Der Code prüft zunächst, ob die [`Sanitizer`](/de/docs/Web/API/Sanitizer)-Schnittstelle unterstützt wird. Anschließend wird ein String mit "unsicherem HTML" definiert, der eine Mischung aus XSS-sicheren und XSS-unsicheren Elementen (wie {{htmlelement("script")}}) enthält. Dieser wird als Text in das erste Textfeld eingefügt. Das Textfeld ist bearbeitbar, sodass Benutzer den Text später bei Bedarf ändern können.
+Der Code testet zuerst, ob die [`Sanitizer`](/de/docs/Web/API/Sanitizer)-Schnittstelle unterstützt wird. Danach wird ein String von „unsicherem HTML“ definiert, der eine Mischung aus XSS-sicheren und XSS-unsicheren Elementen (wie {{htmlelement("script")}}) enthält. Dieses wird als Text in das erste Textfeld eingefügt. Das Textfeld ist editierbar, sodass Nutzer den Text später bei Bedarf ändern können.
 
-Dann holen wir die Elemente für die Textbereiche `setHTML` und `setHTMLUnsafe`, in denen wir das geparste HTML schreiben werden, und erstellen eine leere `Sanitizer`-Konfiguration. Die Methode `applySanitizer()` wird mit dem neuen Sanitizer aufgerufen, um das Ergebnis der Sanitisierung des initialen Strings mit sowohl einem sicheren als auch einem unsichern Sanitizer zu protokollieren.
+Wir erhalten dann die Elemente für die `setHTML`- und `setHTMLUnsafe`-Textfelder, wo wir das geparste HTML schreiben, und erstellen eine leere `Sanitizer`-Konfiguration. Die `applySanitizer()`-Methode wird mit dem neuen Sanitizer aufgerufen, um das Ergebnis der Bereinigung des Startstrings durch einen sicheren und unsicheren Sanitizer zu protokollieren.
 
 ```js
 if ("Sanitizer" in window) {
   // Define unsafe string of HTML
   const initialHTMLString =
     `<div id="mainDiv"><!-- HTML comment -->
-    <p data-paratest="true">This is a paragraph. <button onclick="alert('You clicked the button!')">Click me</button></p>
+    <p data-test="true">This is a paragraph. <button onclick="alert('You clicked the button!')">Click me</button></p>
     <p>Be <b>bold</b> and brave!</p>
     <script>alert(1)<` + "/script></div>";
 
@@ -458,7 +458,7 @@ if ("Sanitizer" in window) {
   applySanitizer(sanitizer);
 ```
 
-Die Protokollierungsmethode `applySanitizer()` wird unten gezeigt. Diese erhält den anfänglichen Inhalt des "untrusted String" aus dem ersten Textfeld und analysiert ihn mit den Methoden [`Element.setHTML()`](/de/docs/Web/API/Element/setHTML) und [`Element.setHTMLUnsafe()`](/de/docs/Web/API/Element/setHTMLUnsafe) unter Verwendung des übergebenen `sanitizer`-Arguments in die jeweiligen Textfelder. In jedem Fall wird das injizierte HTML dann mit `innerHTML` aus dem Element gelesen und als `innerText` in das Element zurückgeschrieben (damit es für Menschen lesbar ist).
+Die protokollierende `applySanitizer()`-Methode wird unten gezeigt. Diese erhält den ursprünglichen Inhalt des „untrusted string“ aus dem ersten Textfeld und parst ihn unter Verwendung der Methoden [`Element.setHTML()`](/de/docs/Web/API/Element/setHTML) und [`Element.setHTMLUnsafe()`](/de/docs/Web/API/Element/setHTMLUnsafe) mit dem übergebenen `sanitizer`-Argument in die jeweiligen Textfelder. In jedem Fall wird das eingefügte HTML dann über `innerHTML` aus dem Element gelesen und wieder als `innerText` in das Element geschrieben (sodass es menschlich lesbar ist).
 
 Der Code protokolliert dann die aktuelle Sanitizer-Konfiguration, die er mit [`Sanitizer.get()`](/de/docs/Web/API/Sanitizer/get) erhält.
 
@@ -481,7 +481,7 @@ function applySanitizer(sanitizer) {
 }
 ```
 
-Als nächstes holen wir Elemente für jede der Schaltflächen und Auswahllisten.
+Als nächstes erhalten wir Elemente für jede der Schaltflächen und Auswahllisten.
 
 ```js
 const defaultSanitizerBtn = document.querySelector("#defaultSanitizerBtn");
@@ -497,7 +497,7 @@ const toggleDataAttributesBtn = document.querySelector(
 );
 ```
 
-Die Handler für die ersten beiden Schaltflächen erstellen den Standard- und den leeren Sanitizer. Die zuvor gezeigte Methode `applySanitizer()` wird verwendet, um den Sanitizer auszuführen und die Protokolle zu aktualisieren.
+Die Handler für die ersten beiden Schaltflächen erstellen jeweils den Standard- und leeren Sanitizer. Die vorher gezeigte `applySanitizer()`-Methode wird verwendet, um den Sanitizer auszuführen und die Protokolle zu aktualisieren.
 
 ```js
 defaultSanitizerBtn.addEventListener("click", () => {
@@ -511,7 +511,7 @@ emptySanitizerBtn.addEventListener("click", () => {
 });
 ```
 
-Die Handler für die Auswahllisten werden als nächstes gezeigt. Diese rufen die zugehörige Sanitizer-Methode auf dem aktuellen Sanitizer auf, wenn ein neues Element oder Attribut ausgewählt wird. Zum Beispiel ruft der Listener für `allowElementSelect` [`Sanitizer.allowElement()`](/de/docs/Web/API/Sanitizer/allowElement) auf, um das ausgewählte Element zu den erlaubten Elementen hinzuzufügen. In jedem Fall protokolliert `applySanitizer()` die Ergebnisse unter Verwendung des aktuellen Sanitizers.
+Die Handler für die Auswahllisten werden als nächstes gezeigt. Diese rufen die zugehörige Sanitizer-Methode am aktuellen Sanitizer auf, sobald ein neues Element oder Attribut ausgewählt wird. Beispielsweise ruft der Listener für `allowElementSelect` [`Sanitizer.allowElement()`](/de/docs/Web/API/Sanitizer/allowElement) auf, um das ausgewählte Element zu den erlaubten Elementen hinzuzufügen. In jedem Fall protokolliert `applySanitizer()` die Ergebnisse mit dem aktuellen Sanitizer.
 
 ```js
 allowElementSelect.addEventListener("change", (event) => {
@@ -540,7 +540,7 @@ removeAttributeSelect.addEventListener("change", (event) => {
 });
 ```
 
-Die Handler für die letzten beiden Schaltflächen werden unten gezeigt. Diese schalten den Wert der Variablen `dataAttributesActive` und `commentsActive` um und verwenden dann diese Werte in [`Sanitizer.setComments()`](/de/docs/Web/API/Sanitizer/setComments) und [`Sanitizer.setDataAttributes()`](/de/docs/Web/API/Sanitizer/setDataAttributes). Beachten Sie, dass wenn die Kommentare anfänglich deaktiviert sind, der erste Druck auf die Schaltfläche möglicherweise keine Wirkung zeigt!
+Die Handler für die letzten beiden Schaltflächen sind unten gezeigt. Diese wechseln den Wert der Variablen `dataAttributesActive` und `commentsActive` und verwenden dann diese Werte in [`Sanitizer.setComments()`](/de/docs/Web/API/Sanitizer/setComments) und [`Sanitizer.setDataAttributes()`](/de/docs/Web/API/Sanitizer/setDataAttributes). Beachten Sie, dass, wenn die Kommentare anfänglich deaktiviert sind, das erste Drücken der Schaltfläche keine Wirkung haben könnte!
 
 ```js
 let dataAttributesActive = true;
@@ -567,8 +567,8 @@ toggleDataAttributesBtn.addEventListener("click", () => {
 
 #### Ergebnisse
 
-Das Ergebnis wird unten gezeigt. Wählen Sie die oberen Schaltflächen, um einen neuen Standard- oder leeren Sanitizer festzulegen. Sie können dann die Auswahllisten verwenden, um einige Elemente und Attribute zu den jeweiligen Zulassungs- und Entfernung Listen des Sanitizers hinzuzufügen und die anderen Schaltflächen verwenden, um Kommentare ein- oder auszuschalten. Die aktuelle Sanitizer-Konfiguration wird protokolliert. Der Text im oberen Textbereich wird unter Verwendung der aktuellen Sanitizer-Konfiguration gesäubert und mit `setHTML()` und `setHTMLUnsafe()` geparst.
+Das Ergebnis ist unten dargestellt. Wählen Sie die oberen Schaltflächen, um jeweils einen neuen Standard- oder leeren Sanitizer festzulegen. Sie können dann die Auswahllisten verwenden, um einige Elemente und Attribute zu den jeweiligen Allow- und Remove-Listen des Sanitizers hinzuzufügen und mit den anderen Schaltflächen Kommentare ein- und auszuschalten. Die aktuelle Sanitizer-Konfiguration wird protokolliert. Der Text im oberen Textbereich wird mit der aktuellen Sanitizer-Konfiguration bereinigt und mit `setHTML()` und `setHTMLUnsafe()` geparst.
 
-{{EmbedLiveSample("Sanitizer demo","100","650px")}}
+{{EmbedLiveSample("Sanitizer-Demo","100","650px")}}
 
-Beachten Sie, dass das Hinzufügen von Elementen und Attributen zu den Zulassungs-Listen sie aus den Entfernungs-Listen entfernt, und umgekehrt. Beachten Sie auch, dass Sie Elemente im Sanitizer erlauben können, die mit den unsicheren Methoden injiziert werden, jedoch nicht mit den sicheren Methoden.
+Beachten Sie, dass das Hinzufügen von Elementen und Attributen zu den Allow-Listen sie aus den Remove-Listen entfernt und umgekehrt. Beachten Sie auch, dass Sie Elemente in einem Sanitizer erlauben können, die mit den unsicheren Methoden, aber nicht mit den sicheren Methoden injiziert werden.

@@ -2,7 +2,7 @@
 title: padding-bottom
 slug: Web/CSS/padding-bottom
 l10n:
-  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
+  sourceCommit: 0dcad86763896bba7f8e1ddc30c6dfd2aa664c6b
 ---
 
 {{CSSRef}}
@@ -54,12 +54,12 @@ padding-bottom: 0;
 }
 ```
 
-Der Abstandbereich eines Elements ist der Raum zwischen seinem Inhalt und seiner Umrandung.
+Der Abstand eines Elements ist der Raum zwischen seinem Inhalt und seinem Rahmen.
 
 ![Die Wirkung der CSS-Eigenschaft padding-bottom auf das Element-Box](padding-bottom.svg)
 
 > [!NOTE]
-> Die {{cssxref("padding")}} Eigenschaft kann verwendet werden, um mit einer einzigen Deklaration die Abstände auf allen vier Seiten eines Elements festzulegen.
+> Die {{cssxref("padding")}} Eigenschaft kann verwendet werden, um Abstände auf allen vier Seiten eines Elements mit einer einzigen Deklaration festzulegen.
 
 ## Syntax
 
@@ -80,14 +80,14 @@ padding-bottom: revert-layer;
 padding-bottom: unset;
 ```
 
-Die `padding-bottom` Eigenschaft wird als einzelner Wert aus der untenstehenden Liste angegeben. Anders als bei Rändern sind negative Werte für Abstände nicht erlaubt.
+Die `padding-bottom` Eigenschaft wird als ein einzelner Wert angegeben, der aus der unten stehenden Liste gewählt wird. Anders als bei Margen sind negative Werte für Padding nicht erlaubt.
 
 ### Werte
 
 - {{cssxref("&lt;length&gt;")}}
   - : Die Größe des Abstands als fester Wert. Muss nicht negativ sein.
 - {{cssxref("&lt;percentage&gt;")}}
-  - : Die Größe des Abstands als Prozentsatz, bezogen auf die Inline-Größe (_Breite_ in einer horizontalen Sprache, definiert durch {{cssxref("writing-mode")}}) des [umschließenden Blocks](/de/docs/Web/CSS/CSS_display/Containing_block). Muss nicht negativ sein.
+  - : Die Größe des Abstands als Prozentsatz, relativ zur Inline-Größe (_Breite_ in einer horizontalen Sprache, definiert durch {{cssxref("writing-mode")}}) des [umschließenden Blocks](/de/docs/Web/CSS/CSS_display/Containing_block). Muss nicht negativ sein.
 
 ## Formale Definition
 
@@ -99,7 +99,7 @@ Die `padding-bottom` Eigenschaft wird als einzelner Wert aus der untenstehenden 
 
 ## Beispiele
 
-### Abstand unten mit Pixeln und Prozentangaben festlegen
+### Einstellung des unteren Abstands mit Pixeln und Prozentsätzen
 
 ```css
 .content {
@@ -121,8 +121,8 @@ Die `padding-bottom` Eigenschaft wird als einzelner Wert aus der untenstehenden 
 ## Siehe auch
 
 - {{cssxref("padding-top")}}, {{cssxref("padding-right")}}, und {{cssxref("padding-left")}}
-- {{cssxref("padding")}} Kurznotation
+- {{cssxref("padding")}} Kurzform
 - {{cssxref("padding-block-start")}}, {{cssxref("padding-block-end")}}, {{cssxref("padding-inline-start")}}, und {{cssxref("padding-inline-end")}}
-- {{cssxref("padding-block")}} und {{cssxref("padding-inline")}} Kurznotationen
-- [Einführung in das grundlegende CSS-Boxmodell](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model)
+- {{cssxref("padding-block")}} und {{cssxref("padding-inline")}} Kurzformen
+- [Einführung in das CSS-Boxmodell](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model) Leitfaden
 - [CSS-Boxmodell](/de/docs/Web/CSS/CSS_box_model) Modul
