@@ -1,22 +1,22 @@
 ---
-title: "CSSPropertyRule: Eigenschaft initialValue"
+title: "CSSPropertyRule: initialValue-Eigenschaft"
 short-title: initialValue
 slug: Web/API/CSSPropertyRule/initialValue
 l10n:
-  sourceCommit: 77d90a23ee0a3b5486a7963f68ad4e56efb06a7b
+  sourceCommit: 636b90011532e3fd2cf9333aaf1754fdc8de7938
 ---
 
 {{APIRef("CSS Properties and Values API")}}
 
-Die schreibgeschützte **`initialValue`**-Eigenschaft der [`CSSPropertyRule`](/de/docs/Web/API/CSSPropertyRule)-Schnittstelle gibt den anfänglichen Wert der benutzerdefinierten Eigenschaftsregistrierung zurück, die durch die {{cssxref("@property")}}-Regel dargestellt wird, und steuert den anfänglichen Wert der Eigenschaft.
+Die schreibgeschützte **`initialValue`** nullable Eigenschaft der [`CSSPropertyRule`](/de/docs/Web/API/CSSPropertyRule)-Schnittstelle gibt den Anfangswert der benutzerdefinierten Eigenschaftsregistrierung zurück, die durch die {{cssxref("@property")}}-Regel repräsentiert wird, und steuert den Anfangswert der Eigenschaft.
 
 ## Wert
 
-Ein String, der ein {{CSSXref("&lt;declaration-value&gt;")}} ist, wie in [CSS Syntax 3](https://www.w3.org/TR/css-syntax-3/#typedef-declaration-value) definiert.
+Ein String, der ein [`<declaration-value>`](https://drafts.csswg.org/css-syntax/#typedef-declaration-value) ist.
 
 ## Beispiele
 
-Dieses Stylesheet enthält eine einzige {{cssxref("@property")}}-Regel. Die erste zurückgegebene [`CSSRule`](/de/docs/Web/API/CSSRule) wird eine `CSSPropertyRule` sein, die diese Regel repräsentiert. Die `initialValue`-Eigenschaft gibt den String `"#c0ffee"` zurück, da dies der Wert der `initial-value`-Eigenschaft im CSS ist.
+Dieses Stylesheet enthält eine einzelne {{cssxref("@property")}}-Regel. Die erste zurückgegebene [`CSSRule`](/de/docs/Web/API/CSSRule) wird eine `CSSPropertyRule` sein, die diese Regel darstellt. Die `initialValue`-Eigenschaft gibt den String `"#c0ffee"` zurück, was dem Wert der `initial-value`-Eigenschaft im CSS entspricht.
 
 ```css
 @property --property-name {

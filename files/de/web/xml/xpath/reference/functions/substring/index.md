@@ -2,7 +2,7 @@
 title: substring
 slug: Web/XML/XPath/Reference/Functions/substring
 l10n:
-  sourceCommit: 3e1b5277c6451e7d27ab628f23fb9702947a7a7b
+  sourceCommit: 636b90011532e3fd2cf9333aaf1754fdc8de7938
 ---
 
 Die Funktion `substring` gibt einen Teil eines gegebenen Strings zurück.
@@ -17,12 +17,11 @@ substring(string, start, length)
 ### Parameter
 
 - `string`
-  - : Der zu bewertende String.
+  - : Der zu evaluierende String.
 - `start`
-  - : Die Position innerhalb von `string`, an der der Substring beginnt.
+  - : Die Position innerhalb von `string`, an der der Teilstring beginnt.
 - `length` {{optional_inline}}
-  - : Die Länge des Substrings.
-    Wenn dieser Parameter weggelassen wird, enthält der zurückgegebene String alle Zeichen von der Position `start` bis zum Ende von `string`.
+  - : Die Länge des Teilstrings. Wenn dieser weggelassen wird, enthält der zurückgegebene String jedes Zeichen von der `start`-Position bis zum Ende von `string`.
 
 ### Rückgabewert
 
@@ -30,11 +29,11 @@ Ein String.
 
 ## Beschreibung
 
-Wie bei anderen XPath-Funktionen ist die Position nicht nullbasiert. Das erste Zeichen im String hat die Position 1, nicht 0.
+Wie bei anderen XPath-Funktionen beginnt die Position nicht bei null. Das erste Zeichen im String hat die Position 1, nicht 0.
 
 ## Spezifikationen
 
-[XPath 1.0 4.2](https://www.w3.org/TR/1999/REC-xpath-19991116/#function-substring)
+[XPath 1.0 4.2](https://www.w3.org/TR/xpath-10/#function-substring)
 
 ## Gecko-Unterstützung
 

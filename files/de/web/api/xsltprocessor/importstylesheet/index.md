@@ -3,12 +3,12 @@ title: "XSLTProcessor: importStylesheet() Methode"
 short-title: importStylesheet()
 slug: Web/API/XSLTProcessor/importStylesheet
 l10n:
-  sourceCommit: f8e4bb60080838e2283604c6f5ace423c7dc861e
+  sourceCommit: 636b90011532e3fd2cf9333aaf1754fdc8de7938
 ---
 
 {{APIRef("XSLT")}}
 
-Die `importStylesheet()`-Methode des [`XSLTProcessor`](/de/docs/Web/API/XSLTProcessor)-Interfaces importiert ein XSLT-Stylesheet für den Prozessor.
+Die Methode `importStylesheet()` des [`XSLTProcessor`](/de/docs/Web/API/XSLTProcessor)-Interfaces importiert ein XSLT-Stylesheet für den Prozessor.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ importStylesheet(style)
 ### Parameter
 
 - `style`
-  - : Der zu importierende [`Node`](/de/docs/Web/API/Node). Es kann sich um ein XML-Dokument handeln (das ist ein [`Document`](/de/docs/Web/API/Document) mit [`doctype`](/de/docs/Web/API/Document/doctype) dessen [`name`](/de/docs/Web/API/DocumentType/name) `"xml"` ist), das ein XSLT-Stylesheet oder eine [literal result element transform](https://www.w3.org/TR/xslt/#result-element-stylesheet) enthält, oder um ein [`Element`](/de/docs/Web/API/Element), das ein `<xsl:stylesheet>` oder `<xsl:transform>` darstellt.
+  - : Der zu importierende [`Node`](/de/docs/Web/API/Node). Es kann sich um ein XML-Dokument handeln (das ist ein [`Document`](/de/docs/Web/API/Document) mit [`doctype`](/de/docs/Web/API/Document/doctype), dessen [`name`](/de/docs/Web/API/DocumentType/name) `"xml"` ist), das ein XSLT-Stylesheet oder ein [literal result element transform](https://www.w3.org/TR/xslt-30/#literal-result-element) enthält, oder um ein [`Element`](/de/docs/Web/API/Element), das ein `<xsl:stylesheet>` oder `<xsl:transform>` darstellt.
 
 ### Rückgabewert
 

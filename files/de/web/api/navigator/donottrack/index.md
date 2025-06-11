@@ -3,18 +3,18 @@ title: "Navigator: doNotTrack-Eigenschaft"
 short-title: doNotTrack
 slug: Web/API/Navigator/doNotTrack
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: 636b90011532e3fd2cf9333aaf1754fdc8de7938
 ---
 
 {{ApiRef("HTML DOM")}}{{Deprecated_header}}{{non-standard_header}}
 
-Die **`Navigator.doNotTrack`**-Eigenschaft gibt die Do Not Track-Einstellung des Nutzers zurück, die anzeigt, ob der Nutzer von Websites und Werbeanbietern verlangt, sie nicht zu verfolgen.
+Die **`Navigator.doNotTrack`**-Eigenschaft gibt die Do Not Track-Einstellung des Benutzers zurück, die angibt, ob der Benutzer Websites und Werbeanbieter darum bittet, ihn nicht zu verfolgen.
 
-Der Wert der Eigenschaft spiegelt den des {{httpheader("DNT")}} HTTP-Headers wider, d.h. die Werte können `"1"`, `"0"` oder `null` sein.
+Der Wert der Eigenschaft entspricht dem des {{httpheader("DNT")}} HTTP-Headers, d.h. Werte von `"1"`, `"0"` oder `null`.
 
-Die gesamte DNT (Do Not Track)-Spezifikation wurde eingestellt. Das Design des Mechanismus war fehlerhaft, da es sich um eine kooperative Funktion zwischen Nutzern, Websites und Browsern handelte. Die Idee war, dass der Nutzer der _Website_ mitteilt, sie nicht zu verfolgen, und die _Website_ würde dem nachkommen. Allerdings gibt es keine strikte Durchsetzung dieser Richtlinie, weshalb Werbe-Websites den DNT-Header ignorierten und die Nutzer dennoch verfolgten. Die Funktion ist daher nutzlos. Darüber hinaus ist sie schädlich, da sie im Header mehr {{Glossary("Fingerprinting", "Benutzer-Fingerabdrücke")}} hinterlässt, die genutzt werden können, um Nutzer noch mehr zu verfolgen.
+Die gesamte DNT (Do Not Track)-Spezifikation wurde eingestellt. Das Design des Mechanismus war fehlerhaft, da es sich um ein kooperatives Feature zwischen Benutzern, Websites und Browsern handelte. Die Idee ist, dass der Benutzer der _Website_ mitteilt, ihn nicht zu verfolgen, und die _Website_ dem zustimmt. Allerdings gibt es keine strenge Durchsetzung dieser Richtlinie, sodass Werbewebsites die DNT-Header ignorierten und Benutzer dennoch verfolgten. Das Feature ist daher nutzlos. Zudem ist es schädlich, da es mehr Benutzer-{{Glossary("Fingerprinting", "Fingerabdrücke")}} im Header hinterlässt, die zur weiteren Verfolgung der Benutzer verwendet werden können.
 
-Browser erkunden andere, besser durchsetzbare Datenschutzfunktionen, wie zum Beispiel [globale Datenschutzkontrolle](/de/docs/Web/API/Navigator/globalPrivacyControl), Einschränkungen bei Drittanbieter-Cookies und mehr.
+Browser erforschen derzeit andere, besser durchsetzbare Datenschutzfunktionen, wie z. B. die [globale Datenschutzkontrolle](/de/docs/Web/API/Navigator/globalPrivacyControl), Beschränkungen für Cookies von Drittanbietern und mehr.
 
 ## Wert
 
@@ -29,7 +29,7 @@ console.log(navigator.doNotTrack);
 
 ## Spezifikationen
 
-Teil der eingestellten [Tracking Preference Expression (DNT)](https://www.w3.org/TR/tracking-dnt/#dom-navigator-donottrack)-Spezifikation.
+Teil der eingestellten [Tracking Preference Expression (DNT)](https://w3c.github.io/dnt/drafts/tracking-dnt.html#dom-navigator-donottrack)-Spezifikation.
 
 ## Browser-Kompatibilität
 

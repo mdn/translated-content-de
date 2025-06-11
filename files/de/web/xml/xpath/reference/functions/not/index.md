@@ -2,10 +2,10 @@
 title: not
 slug: Web/XML/XPath/Reference/Functions/not
 l10n:
-  sourceCommit: 3e1b5277c6451e7d27ab628f23fb9702947a7a7b
+  sourceCommit: 636b90011532e3fd2cf9333aaf1754fdc8de7938
 ---
 
-Die Funktion `not` bewertet einen booleschen Ausdruck und gibt den entgegengesetzten Wert zurück.
+Die `not` Funktion bewertet einen booleschen Ausdruck und gibt den gegenteiligen Wert zurück.
 
 ## Syntax
 
@@ -16,16 +16,16 @@ not( expression )
 ### Parameter
 
 - `expression`
-  - : Der Ausdruck wird genau so ausgewertet, als ob er als Argument an die Funktion [boolean()](/de/docs/Web/XML/XPath/Reference/Functions/boolean) übergeben würde.
+  - : Der Ausdruck wird exakt so ausgewertet, als ob er als Argument an die [boolean()](/de/docs/Web/XML/XPath/Reference/Functions/boolean) Funktion übergeben worden wäre.
 
 ### Rückgabewert
 
-`true` für einen Ausdruck, der zu `false` ausgewertet wird; `false` für einen Ausdruck, der zu `true` ausgewertet wird.
+True für einen Ausdruck, der zu false ausgewertet wird; false für einen Ausdruck, der zu true ausgewertet wird.
 
 ## Beschreibung
 
-- Diese Funktion sollte sich ähnlich wie die Funktion [boolean()](/de/docs/Web/XML/XPath/Reference/Functions/boolean) verhalten, außer dass sie den entgegengesetzten Wert zurückgibt.
-- Sie können testen, ob ein Element ein bestimmtes Attribut **nicht** hat.
+- Diese Funktion sollte sich ähnlich wie die [boolean()](/de/docs/Web/XML/XPath/Reference/Functions/boolean) Funktion verhalten, außer dass sie den gegenteiligen Wert zurückgibt.
+- Sie können testen, ob ein Element ein bestimmtes Attribut nicht hat.
 
   ```xml
   <xsl:for-each match="//a[not(@name and @name = 'badname')]">
@@ -37,7 +37,7 @@ not( expression )
 
 ## Spezifikationen
 
-[XPath 1.0 4.3](https://www.w3.org/TR/1999/REC-xpath-19991116/#function-not)
+[XPath 1.0 4.3](https://www.w3.org/TR/xpath-10/#function-not)
 
 ## Gecko-Unterstützung
 

@@ -2,12 +2,12 @@
 title: font-size
 slug: Web/CSS/font-size
 l10n:
-  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
+  sourceCommit: 636b90011532e3fd2cf9333aaf1754fdc8de7938
 ---
 
 {{CSSRef}}
 
-Die **`font-size`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Größe der Schriftart fest. Durch Ändern der Schriftgröße werden auch die Größen der schriftgrößenabhängigen {{cssxref("&lt;length&gt;")}}-Einheiten, wie `em`, `ex` usw., aktualisiert.
+Die **`font-size`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt die Größe der Schrift fest. Eine Änderung der Schriftgröße aktualisiert auch die Größen der schriftgrößenrelativen {{cssxref("&lt;length&gt;")}} Einheiten wie `em`, `ex` usw.
 
 {{InteractiveExample("CSS Demo: font-size")}}
 
@@ -82,48 +82,48 @@ font-size: unset;
 
 - `xx-small`, `x-small`, `small`, `medium`, `large`, `x-large`, `xx-large`, `xxx-large`
 
-  - : [Absolutgrößen-](/de/docs/Web/CSS/absolute-size) Schlüsselwörter, basierend auf der Standardschriftgröße des Benutzers (die `medium` ist).
+  - : [Absolute Größen](/de/docs/Web/CSS/absolute-size)-Schlüsselwörter, basierend auf der Standard-Schriftgröße des Nutzers (welche `medium` ist).
 
 - `larger`, `smaller`
 
-  - : [Relativgrößen-](/de/docs/Web/CSS/relative-size) Schlüsselwörter. Die Schrift wird im Vergleich zur Schriftgröße des Elternelements größer oder kleiner, ungefähr um das Verhältnis, das verwendet wird, um die oben genannten Absolutgröße-Schlüsselwörter zu trennen.
+  - : [Relative Größen](/de/docs/Web/CSS/relative-size)-Schlüsselwörter. Die Schrift wird relativ zur Schriftgröße des übergeordneten Elements größer oder kleiner sein, ungefähr im Verhältnis zu den oben genannten absoluten Größen.
 
 - {{cssxref("&lt;length&gt;")}}
 
-  - : Ein positiver {{cssxref("&lt;length&gt;")}}-Wert. Für die meisten schriftbezogenen Einheiten (wie `em` und `ex`) ist die Schriftgröße relativ zur Schriftgröße des Elternelements.
+  - : Ein positiver {{cssxref("&lt;length&gt;")}}-Wert. Für die meisten schriftgrößenrelativen Einheiten (wie z. B. `em` und `ex`) ist die Schriftgröße relativ zur Schriftgröße des übergeordneten Elements.
 
-    Bei schriftbezogenen Einheiten, die auf dem Wurzelelement basieren (wie `rem`), ist die Schriftgröße relativ zur Größe der Schriftart, die vom {{HTMLElement("html")}} (Wurzel-)Element verwendet wird.
+    Für root-basierte, schriftgrößenrelative Einheiten (wie `rem`) ist die Schriftgröße relativ zur Größe der Schrift, die das {{HTMLElement("html")}} (root) Element verwendet.
 
 - {{cssxref("&lt;percentage&gt;")}}
 
-  - : Ein positiver {{cssxref("&lt;percentage&gt;")}}-Wert, relativ zur Schriftgröße des Elternelements.
+  - : Ein positiver {{cssxref("&lt;percentage&gt;")}}-Wert, relativ zur Schriftgröße des übergeordneten Elements.
     > [!NOTE]
-    > Um die Barrierefreiheit zu maximieren, ist es im Allgemeinen am besten, Werte zu verwenden, die relativ zur Standardschriftgröße des Benutzers sind.
+    > Um die Zugänglichkeit zu maximieren, ist es generell am besten, Werte zu verwenden, die relativ zur Standard-Schriftgröße des Nutzers sind.
 
 - `math`
-  - : [Skalierungsregeln](https://w3c.github.io/mathml-core/#the-math-script-level-property) werden angewendet, wenn der berechnete Wert der `font-size`-Eigenschaft für mathematische Elemente relativ zur `font-size` des enthaltenen Elternteils bestimmt wird.
-    Siehe die [math-depth](/de/docs/Web/CSS/math-depth) Eigenschaft für weitere Informationen.
+  - : [Skalierungsregeln](https://w3c.github.io/mathml-core/#the-math-script-level-property) werden angewendet, wenn der berechnete Wert der `font-size`-Eigenschaft für mathematische Elemente relativ zur `font-size` des enthaltenen übergeordneten Elements ermittelt wird.
+    Siehe die [math-depth](/de/docs/Web/CSS/math-depth)-Eigenschaft für weitere Informationen.
 
 ## Beschreibung
 
-Es gibt verschiedene Möglichkeiten, die Schriftgröße anzugeben, einschließlich Schlüsselwörtern oder Zahlenwerten für Pixel oder Ems. Wählen Sie die geeignete Methode basierend auf den Anforderungen der speziellen Webseite.
+Es gibt verschiedene Möglichkeiten, die Schriftgröße festzulegen, darunter Schlüsselwörter oder numerische Werte für Pixel oder Ems. Wählen Sie die geeignete Methode basierend auf den Anforderungen der jeweiligen Webseite.
 
 ### Schlüsselwörter
 
-Schlüsselwörter sind eine gute Möglichkeit, die Schriftgröße im Web festzulegen. Indem Sie eine Schlüsselwort-Schriftgröße auf das {{HTMLElement("body")}}-Element festlegen, können Sie überall auf der Seite relativ zur Schriftgröße skalieren, was Ihnen die Möglichkeit gibt, die Schrift leicht auf der gesamten Seite nach oben oder unten zu skalieren.
+Schlüsselwörter sind eine gute Möglichkeit, die Schriftgröße im Web festzulegen. Durch das Setzen einer Schlüsselwort-Schriftgröße auf dem {{HTMLElement("body")}}-Element können Sie relative Schriftgrößen überall sonst auf der Seite festlegen, was Ihnen die Möglichkeit gibt, die Schriftgröße auf der gesamten Seite einfach zu skalieren.
 
 ### Pixel
 
-Das Festlegen der Schriftgröße in Pixelwerten (`px`) ist eine gute Wahl, wenn Pixelgenauigkeit erforderlich ist. Ein px-Wert ist statisch. Dies ist eine betriebssystemunabhängige und browserübergreifende Methode, die Browser buchstäblich dazu auffordert, die Buchstaben genau mit der in Pixeln angegebenen Höhe darzustellen. Die Ergebnisse können je nach Browser leicht variieren, da diese möglicherweise unterschiedliche Algorithmen verwenden, um einen ähnlichen Effekt zu erzielen.
+Das Festlegen der Schriftgröße in Pixelwerten (`px`) ist eine gute Wahl, wenn Sie Pixelgenauigkeit benötigen. Ein px-Wert ist statisch. Dies ist eine betriebssystemunabhängige und browserübergreifende Methode, den Browsern buchstäblich zu sagen, die Buchstaben mit genau der angegebenen Anzahl von Pixeln in der Höhe darzustellen. Die Ergebnisse können zwischen den Browsern leicht variieren, da sie möglicherweise unterschiedliche Algorithmen verwenden, um einen ähnlichen Effekt zu erzielen.
 
-Schriftgrößeneinstellungen können auch in Kombination verwendet werden. Zum Beispiel, wenn ein Elternelement auf `16px` gesetzt ist und sein Kindelement auf `larger`, wird das Kindelement größer als das Elternelement auf der Seite angezeigt.
+Schrifteinstellungskonfigurationen können auch in Kombination verwendet werden. Wenn beispielsweise das übergeordnete Element auf `16px` eingestellt ist und das Kind-Element auf `larger`, wird das Kind-Element auf der Seite größer als das übergeordnete Element angezeigt.
 
 > [!NOTE]
-> Schriftgrößen in `px` zu definieren ist _[nicht barrierefrei](https://en.wikipedia.org/wiki/Web_accessibility)_, da der Benutzer in einigen Browsern die Schriftgröße nicht ändern kann. Beispielsweise möchten Benutzer mit eingeschränktem Sehvermögen die Schriftgröße möglicherweise viel größer einstellen als die vom Webdesigner gewählte Größe. Vermeiden Sie es, sie für Schriftgrößen zu verwenden, wenn Sie ein inklusives Design erstellen möchten.
+> Das Definieren von Schriftgrößen in `px` ist _[nicht barrierefrei](https://en.wikipedia.org/wiki/Web_accessibility)_, da der Benutzer in einigen Browsern die Schriftgröße nicht ändern kann. Zum Beispiel möchten Benutzer mit eingeschränkter Sehkraft die Schriftgröße möglicherweise viel größer einstellen, als sie der Webdesigner gewählt hat. Vermeiden Sie deren Verwendung für Schriftgrößen, wenn Sie ein inklusives Design erstellen möchten.
 
 ### Ems
 
-Die Verwendung eines `em`-Werts erzeugt eine dynamische oder berechnete Schriftgröße (historisch leitet sich die `em`-Einheit von der Breite eines großen "M" in einem bestimmten Schriftbild ab.). Der numerische Wert fungiert als Multiplikator der `font-size`-Eigenschaft des Elements, auf das es angewendet wird. Betrachten Sie dieses Beispiel:
+Die Verwendung eines `em`-Wertes erstellt eine dynamische oder berechnete Schriftgröße (historisch wurde die `em`-Einheit aus der Breite eines Großbuchstabens "M" in einer bestimmten Schriftart abgeleitet). Der numerische Wert fungiert als Multiplikator für die `font-size`-Eigenschaft des Elements, auf dem sie verwendet wird. Betrachten Sie dieses Beispiel:
 
 ```css
 p {
@@ -131,21 +131,21 @@ p {
 }
 ```
 
-In diesem Fall wird die Schriftgröße der `<p>`-Elemente doppelt so groß sein wie die berechnete `font-size`, die von `<p>`-Elementen geerbt wird. Ebenso entspricht eine `font-size` von `1em` der berechneten `font-size` des Elements, auf das sie angewendet wird.
+In diesem Fall wird die Schriftgröße der `<p>`-Elemente das Doppelte der berechneten `font-size` sein, die von den `<p>`-Elementen geerbt wird. Damit entspricht eine `font-size` von `1em` der berechneten `font-size` des Elements, auf dem sie verwendet wird.
 
-Wenn auf keinen der Vorfahren der `<p>`-Elemente eine `font-size` gesetzt wurde, entspricht `1em` der Standardschriftgröße des Browsers, die normalerweise `16px` beträgt. Standardmäßig entspricht daher `1em` `16px` und `2em` `32px`. Wenn Sie beispielsweise eine `font-size` von `20px` auf das `<body>`-Element setzen, entspricht `1em` auf den `<p>`-Elementen stattdessen `20px`, und `2em` entspricht `40px`.
+Wurde auf keinem der Vorfahren der `<p>`-Elemente eine `font-size` festgelegt, entspricht `1em` der Standard-Schriftgröße des Browsers, die normalerweise `16px` beträgt. Somit entspricht `1em` standardmäßig `16px` und `2em` entspricht `32px`. Wenn Sie zum Beispiel eine `font-size` von 20px auf dem `<body>`-Element festlegen, würde `1em` auf den `<p>`-Elementen stattdessen `20px` entsprechen und `2em` `40px`.
 
-Um das `em`-Äquivalent für einen benötigten Pixelwert zu berechnen, können Sie diese Formel verwenden:
+Um das `em` Äquivalent für jeden erforderlichen Pixelwert zu berechnen, können Sie diese Formel verwenden:
 
 ```plain
 em = desired element pixel value / parent element font-size in pixels
 ```
 
-Angenommen, die `font-size` des `<body>` der Seite ist auf `16px` eingestellt. Wenn die gewünschte Schriftgröße `12px` beträgt, sollten Sie `0.75em` angeben (da 12/16 = 0.75). Ebenso, wenn Sie eine Schriftgröße von `10px` wünschen, geben Sie `0.625em` an (10/16 = 0.625); für `22px` geben Sie `1.375em` an (22/16).
+Angenommen, die `font-size` des `<body>` der Seite ist auf `16px` eingestellt. Wenn die gewünschte Schriftgröße `12px` beträgt, dann sollten Sie `0.75em` angeben (da 12/16 = 0.75). Ähnlich, wenn Sie eine Schriftgröße von `10px` wünschen, dann geben Sie `0.625em` an (10/16 = 0.625); für `22px`, geben Sie `1.375em` an (22/16).
 
-Die `em`-Einheit ist eine sehr nützliche Einheit in CSS, da sie ihre Länge automatisch an die Schriftart anpasst, die der Leser verwenden möchte.
+Das `em` ist eine sehr nützliche Einheit im CSS, da sie ihre Länge automatisch relativ zu der Schrift anpasst, die der Leser zu verwenden wählt.
 
-Ein wichtiger Punkt: em-Werte kumulieren sich. Betrachten Sie das folgende HTML und CSS:
+Ein wichtiger Punkt, den man beachten sollte: em-Werte addieren sich. Betrachten Sie das folgende HTML und CSS:
 
 ```css
 html {
@@ -166,13 +166,13 @@ Das Ergebnis ist:
 
 {{EmbedLiveSample("Ems", 400, 100)}}
 
-Angenommen, die Standardschriftgröße des Browsers beträgt 16px, würden die Wörter "outer" mit 25.6px gerendert, aber das Wort "inner" würde bei 40.96px gerendert. Dies liegt daran, dass die `font-size` des inneren {{HTMLElement("span")}} 1.6em beträgt, was relativ zur `font-size` des darüber liegenden Elements ist, welches wiederum relativ zur `font-size` seines Elternteils ist. Dies wird oft als **Kumulierung** bezeichnet.
+Unter der Annahme, dass die Standard-`font-size` des Browsers `16px` ist, würden die Wörter "outer" bei `25.6px` gerendert, aber das Wort "inner" würde bei `40.96px` gerendert. Dies liegt daran, dass die `font-size` des inneren {{HTMLElement("span")}} 1.6em ist, die relativ zur `font-size` seines Elternteils ist, das wiederum relativ zur `font-size` seines Elternteils ist. Dies wird oft als **Kompostierung** bezeichnet.
 
 ### Rems
 
-`rem`-Werte wurden erfunden, um das Problem der Kumulierung zu umgehen. `rem`-Werte sind relativ zum Root-`html`-Element, nicht zum Elternelement. Mit anderen Worten, sie lassen Sie eine Schriftgröße auf relative Weise ohne Beeinträchtigung durch die Größe des Elternelements angeben, wodurch die Kumulierung beseitigt wird.
+`rem` Werte wurden erfunden, um das Kompostierungsproblem zu umgehen. `rem` Werte sind relativ zu dem `html`-Element, nicht dem übergeordneten Element. Mit anderen Worten, damit können Sie eine Schriftgröße auf relative Weise festlegen, ohne von der Größe des übergeordneten Elements beeinflusst zu werden, wodurch die Kompostierung eliminiert wird.
 
-Der CSS-Code unten ist nahezu identisch mit dem vorherigen Beispiel. Der einzige Unterschied besteht darin, dass die Einheit in `rem` geändert wurde.
+Das unten stehende CSS ist fast identisch mit dem vorherigen Beispiel. Die einzige Ausnahme ist, dass die Einheit in `rem` geändert wurde.
 
 ```css
 html {
@@ -183,7 +183,7 @@ span {
 }
 ```
 
-Dann wenden wir dieses CSS auf dasselbe HTML an, das wie folgt aussieht:
+Dann wenden wir dieses CSS auf das gleiche HTML an, das so aussieht:
 
 ```html
 <span>Outer <span>inner</span> outer</span>
@@ -191,13 +191,13 @@ Dann wenden wir dieses CSS auf dasselbe HTML an, das wie folgt aussieht:
 
 {{EmbedLiveSample("Rems", 400, 100)}}
 
-In diesem Beispiel werden die Wörter "outer inner outer" alle bei 25.6px angezeigt (vorausgesetzt, dass die Schriftgröße des Browsers auf dem Standardwert von 16px belassen wurde).
+In diesem Beispiel werden die Wörter "outer inner outer" alle bei `25.6px` angezeigt (vorausgesetzt, dass die `font-size` des Browsers auf dem Standardwert von `16px` belassen wurde).
 
 ### Ex
 
-Wie die `em`-Einheit wird die `font-size` eines Elements, das mithilfe der `ex`-Einheit festgelegt wird, berechnet oder ist dynamisch. Es verhält sich genau auf dieselbe Weise, außer dass beim Festlegen der `font-size`-Eigenschaft unter Verwendung von `ex`-Einheiten die `font-size` der x-Höhe der [ersten verfügbaren Schriftart](https://www.w3.org/TR/css-fonts-3/#first-available-font) entspricht, die auf der Seite verwendet wird. Der Zahlenwert multipliziert die geerbte `font-size` des Elements, und die `font-size` kumuliert sich relativ.
+Wie die `em`-Einheit wird auch die `font-size` eines Elements, das mit der `ex`-Einheit festgelegt wird, berechnet oder ist dynamisch. Sie verhält sich genau auf die gleiche Weise, außer dass beim Festlegen der `font-size`-Eigenschaft unter Verwendung von `ex`-Einheiten die `font-size` der x-Höhe der [ersten verfügbaren Schriftart](https://drafts.csswg.org/css-fonts/#first-available-font) entspricht, die auf der Seite verwendet wird. Der Zahlenwert multipliziert die geerbte `font-size` des Elements und die `font-size` wird relativ addiert.
 
-Siehe den W3C Editor's Draft für eine detailliertere Beschreibung von [schriftbezogenen Längeneinheiten](https://drafts.csswg.org/css-values-4/#font-relative-length) wie `ex`.
+Siehe den W3C Editor's Draft für eine detailliertere Beschreibung der [schriftgrößenrelativen Längeneinheiten](https://drafts.csswg.org/css-values-4/#font-relative-length) wie `ex`.
 
 ## Formale Definition
 
@@ -209,7 +209,7 @@ Siehe den W3C Editor's Draft für eine detailliertere Beschreibung von [schriftb
 
 ## Beispiele
 
-### Schriftgrößen setzen
+### Schriftgrößen festlegen
 
 #### CSS
 
@@ -257,4 +257,4 @@ Siehe den W3C Editor's Draft für eine detailliertere Beschreibung von [schriftb
 - {{cssxref("math-depth")}}
 - {{cssxref("math-style")}}
 - SVG {{SVGAttr("font-size")}} Attribut
-- [Lernen: Grundlegendes zu Text- und Schriftgestaltung](/de/docs/Learn_web_development/Core/Text_styling/Fundamentals)
+- [Lernen: Grundlegende Text- und Schriftgestaltung](/de/docs/Learn_web_development/Core/Text_styling/Fundamentals)

@@ -2,25 +2,25 @@
 title: dominant-baseline
 slug: Web/SVG/Reference/Attribute/dominant-baseline
 l10n:
-  sourceCommit: 3c83d88f02f33f4066224e9f624a17dd2a0b0d19
+  sourceCommit: 636b90011532e3fd2cf9333aaf1754fdc8de7938
 ---
 
-Das **`dominant-baseline`** Attribut legt die dominante Basislinie fest, die verwendet wird, um den Text und die Inline-Inhalte des Kastens auszurichten. Es gibt auch die Standardausrichtungsbasislinie aller Kästen an, die an der Basislinienausrichtung im Ausrichtungskontext des Kastens teilnehmen.
+Das **Attribut `dominant-baseline`** gibt die dominante Grundlinie an, die verwendet wird, um den Text und die Inhalte auf Inline-Ebene des Elements auszurichten. Es zeigt auch die Standardausrichtungsgrundlinie aller Boxen an, die an der Grundlinienausrichtung im Ausrichtungskontext der Box teilnehmen.
 
 Es wird verwendet, um eine skalierte Grundlinientabelle zu bestimmen oder neu zu bestimmen. Eine skalierte Grundlinientabelle ist ein zusammengesetzter Wert mit drei Komponenten:
 
-1. einem Basislinien-Identifikator für die dominante Basislinie,
+1. einem Grundlinien-Identifikator für die dominante Grundlinie,
 2. einer Grundlinientabelle und
-3. einer Schriftgröße der Grundlinientabelle.
+3. einer Grundlinientabellenschriftgröße.
 
-Einige Werte der Eigenschaft bestimmen alle drei Werte neu, andere wiederum stellen nur die Schriftgröße der Grundlinientabelle neu ein. Wenn der Initialwert `auto` ein unerwünschtes Ergebnis liefern würde, kann diese Eigenschaft verwendet werden, um explizit die gewünschte skalierte Basislinientabelle festzulegen.
+Einige Werte der Eigenschaft bestimmen alle drei Werte neu, andere stellen nur die Schriftgröße der Grundlinientabelle wieder her. Wenn der Anfangswert `auto` ein unerwünschtes Ergebnis liefern würde, kann mit dieser Eigenschaft explizit die gewünschte skalierte Grundlinientabelle festgelegt werden.
 
-Wenn es in der nominalen Schrift keine Grundlinientabelle gibt oder wenn der Eintrag für die gewünschte Basislinie in der Grundlinientabelle fehlt, kann der Browser Heuristiken verwenden, um die Position der gewünschten Basislinie zu bestimmen.
+Wenn es keine Grundlinientabelle in der nominalen Schriftart gibt oder wenn die Grundlinientabelle keinen Eintrag für die gewünschte Grundlinie enthält, darf der Browser Heuristiken verwenden, um die Position der gewünschten Grundlinie zu bestimmen.
 
 > [!NOTE]
-> Als Präsentationsattribut hat `dominant-baseline` auch ein entsprechendes CSS-Attribut: {{cssxref("dominant-baseline")}}. Wenn beide angegeben sind, hat die CSS-Eigenschaft Vorrang.
+> Als Präsentationsattribut hat `dominant-baseline` auch eine CSS-Eigenschaft als Gegenstück: {{cssxref("dominant-baseline")}}. Wenn beide angegeben sind, hat die CSS-Eigenschaft Vorrang.
 
-Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
+Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 - {{SVGElement("text")}}
 - {{SVGElement("textPath")}}
@@ -56,7 +56,7 @@ text {
 
 {{EmbedLiveSample("Example", "200", "120")}}
 
-## Anwendungshinweise
+## Anmerkungen zur Verwendung
 
 <table class="properties">
   <tbody>
@@ -64,7 +64,7 @@ text {
       <th scope="row">Wert</th>
       <td>
         <code>auto</code>
-        <a href="https://www.w3.org/TR/css3-values/#comb-one">|</a>
+        <a href="/de/docs/Web/CSS/CSS_Values_and_Units/Value_definition_syntax#single_bar">|</a>
         <code>text-bottom</code> | <code>alphabetic</code> |
         <code>ideographic</code> | <code>middle</code> | <code>central</code> |
         <code>mathematical</code> | <code>hanging</code> | <code>text-top</code>
@@ -83,40 +83,40 @@ text {
 
 - `auto`
 
-  - : Wenn diese Eigenschaft auf einem {{SVGElement("text")}} Element auftritt, hängt der berechnete Wert vom Wert des {{SVGAttr("writing-mode")}} Attributs ab.
+  - : Wenn diese Eigenschaft auf einem {{SVGElement("text")}}-Element auftritt, hängt der berechnete Wert vom Wert des Attributs {{SVGAttr("writing-mode")}} ab.
 
-    Wenn der {{SVGAttr("writing-mode")}} horizontal ist, dann ist der Wert der dominanten Basislinienkomponente `alphabetic`. Andernfalls, wenn der {{SVGAttr("writing-mode")}} vertikal ist, ist der Wert der dominanten Basislinienkomponente `central`.
+    Wenn der {{SVGAttr("writing-mode")}} horizontal ist, dann ist der Wert der Komponente der dominanten Grundlinie `alphabetic`. Andernfalls, wenn der {{SVGAttr("writing-mode")}} vertikal ist, dann ist der Wert der Komponente der dominanten Grundlinie `central`.
 
-    Wenn diese Eigenschaft auf einem {{SVGElement("tspan")}} oder {{SVGElement("textPath")}} Element auftritt, bleiben die dominante Basislinie und die Komponenten der Grundlinientabelle dieselben wie die des übergeordneten Textelementes.
+    Wenn diese Eigenschaft auf einem {{SVGElement("tspan")}}- oder {{SVGElement("textPath")}}-Element auftritt, bleiben die dominante Grundlinie und die Komponenten der Grundlinientabelle dieselben wie bei dem übergeordneten Textinhaltselement.
 
-    Wenn der berechnete {{SVGAttr("baseline-shift")}} Wert tatsächlich die Basislinie verschiebt, wird die Komponente der Schriftgröße der Grundlinientabelle auf den Wert des {{SVGAttr("font-size")}} Attributs des Elements gesetzt, auf dem das `dominant-baseline` Attribut auftritt, andernfalls bleibt die Schriftgröße der Grundlinientabelle dieselbe wie die des Elements.
+    Wenn der berechnete Wert {{SVGAttr("baseline-shift")}} die Grundlinie tatsächlich verschiebt, wird die Schriftgröße der Komponente der Grundlinientabelle auf den Wert des Attributs {{SVGAttr("font-size")}} auf dem Element festgelegt, bei dem das `dominant-baseline` Attribut auftritt. Andernfalls bleibt die Schriftgröße der Grundlinientabelle dieselbe wie bei dem Element.
 
-    Wenn es kein übergeordnetes Textelement gibt, wird der Wert der skalierten Basislinientabelle wie oben für {{SVGElement("text")}} Elemente konstruiert.
+    Wenn es kein übergeordnetes Textinhaltselement gibt, wird der Wert der skalierten Grundlinientabelle wie oben für {{SVGElement("text")}}-Elemente konstruiert.
 
 - `use-script` {{deprecated_inline}}
-  - : Die dominante Basislinie und die Komponenten der Grundlinientabelle werden durch Bestimmung des vorherrschenden Schriftsystems des Zeichendateninhalts festgelegt. Der {{SVGAttr("writing-mode")}}, ob horizontal oder vertikal, wird verwendet, um die entsprechende Menge von Grundlinientabellen auszuwählen und die dominante Basislinie wird verwendet, um die Grundlinientabelle auszuwählen, die dieser Basislinie entspricht. Die Schriftgrößenkomponente der Grundlinientabelle wird auf den Wert des {{SVGAttr("font-size")}} Attributs des Elements gesetzt, auf dem das `dominant-baseline` Attribut auftritt.
+  - : Die dominante Grundlinie und die Komponenten der Grundlinientabelle werden durch Bestimmung des vorherrschenden Schriftsystems des Zeicheninhalts festgelegt. Der {{SVGAttr("writing-mode")}}, sei es horizontal oder vertikal, wird verwendet, um das geeignete Set von Grundlinientabellen auszuwählen, und die dominante Grundlinie wird verwendet, um die Grundlinientabelle auszuwählen, die dieser Grundlinie entspricht. Die Schriftgröße der Grundlinientabelle wird auf den Wert des Attributs {{SVGAttr("font-size")}} auf dem Element festgelegt, bei dem das `dominant-baseline` Attribut auftritt.
 - `no-change` {{deprecated_inline}}
-  - : Die dominante Basislinie, die Grundlinientabelle und die Schriftgröße der Grundlinientabelle bleiben dieselben wie die des übergeordneten Textelements.
+  - : Die dominante Grundlinie, die Grundlinientabelle und die Schriftgröße der Grundlinientabelle bleiben dieselben wie bei dem übergeordneten Textinhaltselement.
 - `reset-size` {{deprecated_inline}}
-  - : Die dominante Basislinie und die Grundlinientabelle bleiben dieselben, aber die Schriftgröße der Grundlinientabelle wird auf den Wert des {{SVGAttr("font-size")}} Attributs auf diesem Element geändert. Dies skaliert die Grundlinientabelle für die aktuelle {{SVGAttr("font-size")}} neu.
+  - : Die dominante Grundlinie und die Grundlinientabelle bleiben dieselben, aber die Schriftgröße der Grundlinientabelle wird auf den Wert des Attributs {{SVGAttr("font-size")}} auf diesem Element geändert. Dies skaliert die Grundlinientabelle für die aktuelle {{SVGAttr("font-size")}}.
 - `ideographic`
-  - : Der Basislinien-Identifikator für die dominante Basislinie wird auf `ideographic` festgelegt, die abgeleitete Grundlinientabelle wird unter Verwendung der `ideographic` Grundlinientabelle in der Schriftart konstruiert und die Schriftgrößenkomponente der Grundlinientabelle wird auf den Wert des {{SVGAttr("font-size")}} Attributs auf diesem Element geändert.
+  - : Der Grundlinien-Identifikator für die dominante Grundlinie wird auf `ideographic` gesetzt, die abgeleitete Grundlinientabelle wird unter Verwendung der `ideographic` Grundlinientabelle in der Schrift erstellt, und die Schriftgröße der Grundlinientabelle wird auf den Wert des Attributs {{SVGAttr("font-size")}} auf diesem Element geändert.
 - `alphabetic`
-  - : Der Basislinien-Identifikator für die dominante Basislinie wird auf `alphabetic` festgelegt, die abgeleitete Grundlinientabelle wird unter Verwendung der `alphabetic` Grundlinientabelle in der Schriftart konstruiert und die Schriftgrößenkomponente der Grundlinientabelle wird auf den Wert des {{SVGAttr("font-size")}} Attributs auf diesem Element geändert.
+  - : Der Grundlinien-Identifikator für die dominante Grundlinie ist `alphabetic`. Die abgeleitete Grundlinientabelle wird mit der `alphabetic` Grundlinientabelle in der Schrift konstruiert, und die Schriftgröße der Grundlinientabelle wird auf den Wert des Attributs {{SVGAttr("font-size")}} dieses Elements geändert.
 - `hanging`
-  - : Der Basislinien-Identifikator für die dominante Basislinie wird auf `hanging` festgelegt, die abgeleitete Grundlinientabelle wird unter Verwendung der `hanging` Grundlinientabelle in der Schriftart konstruiert und die Schriftgrößenkomponente der Grundlinientabelle wird auf den Wert des {{SVGAttr("font-size")}} Attributs auf diesem Element geändert.
+  - : Der Grundlinien-Identifikator für die dominante Grundlinie wird auf `hanging` gesetzt. Die abgeleitete Grundlinientabelle wird mit der `hanging` Grundlinientabelle in der Schrift erstellt, und die Schriftgröße der Grundlinientabelle wird auf den Wert des Attributs {{SVGAttr("font-size")}} auf diesem Element geändert.
 - `mathematical`
-  - : Der Basislinien-Identifikator für die dominante Basislinie wird auf `mathematical` festgelegt, die abgeleitete Grundlinientabelle wird unter Verwendung der `mathematical` Grundlinientabelle in der Schriftart konstruiert und die Schriftgrößenkomponente der Grundlinientabelle wird auf den Wert des {{SVGAttr("font-size")}} Attributs auf diesem Element geändert.
+  - : Der Grundlinien-Identifikator für die dominante Grundlinie wird auf `mathematical` gesetzt. Die abgeleitete Grundlinientabelle wird mit der `mathematical` Grundlinientabelle in der Schrift konstruiert, und die Schriftgröße der Grundlinientabelle wird auf den Wert des Attributs {{SVGAttr("font-size")}} dieses Elements geändert.
 - `central`
-  - : Der Basislinien-Identifikator für die dominante Basislinie wird auf `central` festgelegt. Die abgeleitete Grundlinientabelle wird aus den definierten Basislinien in einer Grundlinientabelle in der Schriftart konstruiert. Diese Schrift-Grundlinientabelle wird unter Verwendung der folgenden Prioritätsreihenfolge von Grundlinientabellennamen ausgewählt: `ideographic`, `alphabetic`, `hanging`, `mathematical`. Die Schriftgrößenkomponente der Grundlinientabelle wird auf den Wert des {{SVGAttr("font-size")}} Attributs auf diesem Element geändert.
+  - : Der Grundlinien-Identifikator für die dominante Grundlinie ist `central`. Die abgeleitete Grundlinientabelle wird aus den definierten Grundlinien in einer Grundlinientabelle der Schrift erstellt. Diese Grundlinientabelle wird in der folgenden Prioritätsreihenfolge der Grundlinientabellennamen gewählt: `ideographic`, `alphabetic`, `hanging`, `mathematical`. Die Schriftgröße der Grundlinientabelle wird auf den Wert des Attributs {{SVGAttr("font-size")}} auf diesem Element geändert.
 - `middle`
-  - : Der Basislinien-Identifikator für die dominante Basislinie wird auf `middle` festgelegt. Die abgeleitete Grundlinientabelle wird aus den definierten Basislinien in einer Grundlinientabelle in der Schriftart konstruiert. Diese Schrift-Grundlinientabelle wird unter Verwendung der folgenden Prioritätsreihenfolge von Grundlinientabellennamen ausgewählt: `alphabetic`, `ideographic`, `hanging`, `mathematical`. Die Schriftgrößenkomponente der Grundlinientabelle wird auf den Wert des {{SVGAttr("font-size")}} Attributs auf diesem Element geändert.
+  - : Der Grundlinien-Identifikator für die dominante Grundlinie ist `middle`. Die abgeleitete Grundlinientabelle wird aus den definierten Grundlinien in einer Grundlinientabelle der Schrift erstellt. Diese Schriftgrundlinientabelle wird unter Verwendung der folgenden Prioritätsreihenfolge der Grundlinientabellennamen gewählt: `alphabetic`, `ideographic`, `hanging`, `mathematical`. Die Schriftgröße der Grundlinientabelle wird auf den Wert des Attributs {{SVGAttr("font-size")}} auf diesem Element geändert.
 - `text-after-edge`
-  - : Der Basislinien-Identifikator für die dominante Basislinie wird auf `text-after-edge` festgelegt. Die abgeleitete Grundlinientabelle wird aus den definierten Basislinien in einer Grundlinientabelle in der Schriftart konstruiert. Welche Schrift-Grundlinientabelle aus den in der Schriftart vorhandenen Grundlinientabellen verwendet wird, hängt vom Browser ab. Die Schriftgrößenkomponente der Grundlinientabelle wird auf den Wert des {{SVGAttr("font-size")}} Attributs auf diesem Element geändert.
+  - : Der Grundlinien-Identifikator für die dominante Grundlinie wird auf `text-after-edge` gesetzt. Die abgeleitete Grundlinientabelle wird aus den definierten Grundlinien in einer Grundlinientabelle der Schrift erstellt. Die Wahl, welche Schriftgrundlinientabelle zu verwenden ist, ist browserabhängig. Die Schriftgröße der Grundlinientabelle wird auf den Wert des Attributs {{SVGAttr("font-size")}} auf diesem Element geändert.
 - `text-before-edge`
-  - : Der Basislinien-Identifikator für die dominante Basislinie wird auf `text-before-edge` festgelegt. Die abgeleitete Grundlinientabelle wird aus den definierten Basislinien in einer Grundlinientabelle in der Schriftart konstruiert. Welche Grundlinientabelle aus den in der Schriftart vorhandenen Grundlinientabellen verwendet wird, hängt vom Browser ab. Die Schriftgrößenkomponente der Grundlinientabelle wird auf den Wert des {{SVGAttr("font-size")}} Attributs auf diesem Element geändert.
+  - : Der Grundlinien-Identifikator für die dominante Grundlinie wird auf `text-before-edge` gesetzt. Die abgeleitete Grundlinientabelle wird aus den definierten Grundlinien in einer Grundlinientabelle der Schrift erstellt. Die Wahl, welche Grundlinientabelle aus den Grundlinientabellen der Schrift zu verwenden ist, ist browserabhängig. Die Schriftgröße der Grundlinientabelle wird auf den Wert des Attributs {{SVGAttr("font-size")}} auf diesem Element geändert.
 - `text-top`
-  - : Dieser Wert verwendet die Oberseite des Em-Kastens als Basislinie.
+  - : Dieser Wert verwendet die Oberseite der Em-Box als Grundlinie.
 
 ### SVG
 
@@ -168,11 +168,11 @@ text {
 
 ## Spezifikationen
 
-{{Spezifikationen}}
+{{Specifications}}
 
 ## Browser-Kompatibilität
 
-{{Kompat}}
+{{Compat}}
 
 ## Siehe auch
 

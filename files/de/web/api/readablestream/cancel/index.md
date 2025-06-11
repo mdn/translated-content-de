@@ -1,16 +1,16 @@
 ---
-title: "ReadableStream: cancel()-Methode"
+title: "ReadableStream: cancel() Methode"
 short-title: cancel()
 slug: Web/API/ReadableStream/cancel
 l10n:
-  sourceCommit: d8b4431bfde42f1bc195239ea1f378d763f8163e
+  sourceCommit: 4e6960933897e3a08b780f57e13e26bf2be820aa
 ---
 
 {{APIRef("Streams")}}{{AvailableInWorkers}}
 
-Die **`cancel()`**-Methode der [`ReadableStream`](/de/docs/Web/API/ReadableStream)-Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das erfüllt wird, wenn der Stream abgebrochen wird.
+Die **`cancel()`**-Methode des [`ReadableStream`](/de/docs/Web/API/ReadableStream)-Interfaces gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, wenn der Stream abgebrochen wird.
 
-`cancel()` wird verwendet, wenn Sie vollständig mit dem Stream fertig sind und keine weiteren Daten mehr benötigen, selbst wenn noch Datenstücke in der Warteschlange stehen. Diese Daten gehen verloren, nachdem `cancel()` aufgerufen wurde, und der Stream ist nicht mehr lesbar. Um diese Datenstücke dennoch zu lesen und den Stream nicht vollständig loszuwerden, würde man [`ReadableStreamDefaultController.close()`](/de/docs/Web/API/ReadableStreamDefaultController/close) verwenden.
+`cancel` wird verwendet, wenn Sie den Stream vollständig fertiggestellt haben und keine weiteren Daten mehr benötigen, selbst wenn es noch auf die Verarbeitung wartende Datenblöcke gibt. Diese Daten gehen nach dem Aufruf von `cancel` verloren, und der Stream ist nicht mehr lesbar. Um diese Datenblöcke dennoch zu lesen und den Stream nicht vollständig zu verwerfen, würden Sie [`ReadableStreamDefaultController.close()`](/de/docs/Web/API/ReadableStreamDefaultController/close) verwenden.
 
 ## Syntax
 
@@ -22,21 +22,33 @@ cancel(reason)
 ### Parameter
 
 - `reason` {{optional_inline}}
-  - : Ein menschenlesbarer Grund für die Stornierung.
-    Dieser wird an die zugrunde liegende Quelle übergeben, die ihn verwenden kann oder nicht.
+  - : Ein für Menschen lesbarer Grund für den Abbruch.
+    Dieser wird an die zugrunde liegende Quelle übergeben, die ihn möglicherweise verwendet oder ignoriert.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das sich mit dem Wert `undefined` erfüllt.
+Ein {{jsxref("Promise")}}, das mit einem `undefined`-Wert erfüllt wird.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Der Stream, den Sie zu stornieren versuchen, ist kein [`ReadableStream`](/de/docs/Web/API/ReadableStream) oder ist gesperrt.
+  - : Der Stream, den Sie versuchen abzubrechen, ist kein [`ReadableStream`](/de/docs/Web/API/ReadableStream) oder ist gesperrt.
 
 ## Beispiele
 
-Im Beispiel von Jake Archibald zur [Stornierung eines fetch](https://jsbin.com/gameboy/edit?js,console) wird ein Stream verwendet, um das WHATWG HTML-Spezifikationsdokument Stück für Stück abzurufen; jedes Stück wird nach dem String "service workers" durchsucht. Wenn der Suchbegriff gefunden wird, wird `cancel()` verwendet, um den Stream abzubrechen – die Aufgabe ist abgeschlossen und daher nicht mehr erforderlich.
+Im folgenden Beispiel wird ein Stream verwendet, um die WHATWG-HTML-Spezifikation stückweise abzurufen; jeder Block wird nach dem String "service workers" durchsucht. Wenn der Suchbegriff gefunden wird, wird `cancel()` verwendet, um den Stream abzubrechen – die Aufgabe ist erledigt, daher wird er nicht mehr benötigt.
+
+```html
+<pre id="output"></pre>
+```
+
+```js hidden
+const output = document.getElementById("output");
+
+function log(text) {
+  output.textContent += text + "\n";
+}
+```
 
 ```js
 const searchTerm = "service workers";
@@ -46,11 +58,11 @@ const contextAfter = 30;
 const caseInsensitive = true;
 const url = "https://html.spec.whatwg.org/";
 
-console.log(`Searching '${url}' for '${searchTerm}'`);
+log(`Searching '${url}' for '${searchTerm}'`);
 
 fetch(url)
   .then((response) => {
-    console.log("Received headers");
+    log("Received headers");
 
     const decoder = new TextDecoder();
     const reader = response.body.getReader();
@@ -63,12 +75,12 @@ fetch(url)
 
     return reader.read().then(function process(result) {
       if (result.done) {
-        console.log("Failed to find match");
+        log("Failed to find match");
         return;
       }
 
       bytesReceived += result.value.length;
-      console.log(`Received ${bytesReceived} bytes of data so far`);
+      log(`Received ${bytesReceived} bytes of data so far`);
 
       buffer += decoder.decode(result.value, { stream: true });
 
@@ -84,18 +96,18 @@ fetch(url)
       } else if (
         buffer.slice(matchFoundAt + toMatch.length).length >= contextAfter
       ) {
-        console.log("Here's the match:");
-        console.log(
+        log("Here's the match:");
+        log(
           buffer.slice(
             Math.max(0, matchFoundAt - contextBefore),
             matchFoundAt + toMatch.length + contextAfter,
           ),
         );
-        console.log("Cancelling fetch");
+        log("Cancelling fetch");
         reader.cancel();
         return;
       } else {
-        console.log("Found match, but need more context…");
+        log("Found match, but need more context…");
       }
 
       // keep reading
@@ -103,12 +115,14 @@ fetch(url)
     });
   })
   .catch((err) => {
-    console.error(
+    log(
       "Something went wrong. See devtools for details. Does the response lack CORS headers?",
     );
     throw err;
   });
 ```
+
+{{EmbedLiveSample("examples", "", 300)}}
 
 ## Spezifikationen
 
@@ -120,5 +134,5 @@ fetch(url)
 
 ## Siehe auch
 
-- [`ReadableStream()`](/de/docs/Web/API/ReadableStream/ReadableStream)-Konstruktor
+- [`ReadableStream()`](/de/docs/Web/API/ReadableStream/ReadableStream) Konstruktor
 - [Verwendung von lesbaren Streams](/de/docs/Web/API/Streams_API/Using_readable_streams)

@@ -2,10 +2,10 @@
 title: name
 slug: Web/XML/XPath/Reference/Functions/name
 l10n:
-  sourceCommit: cac79d099b0a4e48456cb53eb2435f6acf03e188
+  sourceCommit: 636b90011532e3fd2cf9333aaf1754fdc8de7938
 ---
 
-Die `name`-Funktion gibt einen String zurück, der den QName des ersten Knotens in einem gegebenen Knoten-Set darstellt.
+Die Funktion `name` gibt einen String zurück, der den QName des ersten Knotens in einem gegebenen Knoten-Set darstellt.
 
 ## Syntax
 
@@ -28,7 +28,7 @@ Ein String, der den QName eines Knotens darstellt.
 
 ## Spezifikationen
 
-[XPath 1.0 4.1](https://www.w3.org/TR/1999/REC-xpath-19991116/#function-local-name)
+[XPath 1.0 4.1](https://www.w3.org/TR/xpath-10/#function-local-name)
 
 ## Gecko-Unterstützung
 

@@ -1,14 +1,14 @@
 ---
-title: "Sanitizer: setDataAttributes()-Methode"
+title: "Sanitizer: Methode setDataAttributes()"
 short-title: setDataAttributes()
 slug: Web/API/Sanitizer/setDataAttributes
 l10n:
-  sourceCommit: 2033446e38e93f71eb28a0efd3f663a8e0e7aeb7
+  sourceCommit: baec726bf3fe1bd82cf22a0f8ba9523e0f7ccd80
 ---
 
-{{APIRef("HTML Sanitizer API")}}
+{{APIRef("HTML Sanitizer API")}}{{SeeCompatTable}}
 
-Die **`setDataAttributes()`**-Methode der [`Sanitizer`](/de/docs/Web/API/Sanitizer)-Schnittstelle legt fest, ob [Datenattribute](/de/docs/Web/HTML/Reference/Global_attributes/data-*) vom Sanitizer zugelassen oder entfernt werden.
+Die **`setDataAttributes()`**-Methode des [`Sanitizer`](/de/docs/Web/API/Sanitizer)-Interfaces legt fest, ob [Datenattribute](/de/docs/Web/HTML/Reference/Global_attributes/data-*) vom Sanitizer zugelassen oder entfernt werden.
 
 Die Methode setzt die [`dataAttributes`](/de/docs/Web/API/SanitizerConfig#dataattributes)-Eigenschaft in der Konfiguration dieses Sanitizers.
 
@@ -22,7 +22,7 @@ setDataAttributes(allow);
 
 - `allow`
 
-  - : `true`, wenn Datenattribute erlaubt sind, und `false`, wenn sie entfernt werden sollen.
+  - : `true`, wenn Datenattribute zugelassen sind, und `false`, wenn sie entfernt werden sollen.
 
 ### Rückgabewert
 

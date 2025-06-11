@@ -2,10 +2,10 @@
 title: number
 slug: Web/XML/XPath/Reference/Functions/number
 l10n:
-  sourceCommit: 3e1b5277c6451e7d27ab628f23fb9702947a7a7b
+  sourceCommit: 636b90011532e3fd2cf9333aaf1754fdc8de7938
 ---
 
-Die Funktion `number` konvertiert ein Objekt in eine Zahl und gibt die Zahl zurück.
+Die `number` Funktion konvertiert ein Objekt in eine Zahl und gibt die Zahl zurück.
 
 ## Syntax
 
@@ -24,14 +24,14 @@ Die resultierende Zahl nach der Konvertierung des Objekts.
 
 ## Beschreibung
 
-- Strings werden in eine Zahl konvertiert, indem führende Leerzeichen im String vor der Zahl entfernt und Leerzeichen nach der Zahl ignoriert werden. Wenn der String nicht diesem Muster entspricht, wird der String in `NaN` konvertiert.
-- Der boolesche Wert `true` wird in 1 konvertiert. `false` wird in 0 konvertiert.
-- Eine Knotenmenge wird zuerst in einen String konvertiert, als ob sie durch einen Aufruf der Funktion [string()](/de/docs/Web/XML/XPath/Reference/Functions/string) umgewandelt würde, und dann auf die gleiche Weise wie ein String-Argument konvertiert.
-- Ein Objekt eines anderen Typs als die vier grundlegenden Typen wird auf eine Weise in eine Zahl konvertiert, die vom jeweiligen Typ abhängt.
+- Zeichenfolgen werden in eine Zahl umgewandelt, indem führende Leerzeichen in der Zeichenfolge vor der Zahl entfernt werden und Leerzeichen nach der Zahl ignoriert werden. Wenn die Zeichenfolge diesem Muster nicht entspricht, wird sie in NaN umgewandelt.
+- Boolean true wird in 1 konvertiert. False wird in 0 konvertiert.
+- Ein Knoten-Set wird zuerst in eine Zeichenfolge umgewandelt, als ob durch einen Aufruf der [string()](/de/docs/Web/XML/XPath/Reference/Functions/string) Funktion, und dann auf die gleiche Weise wie ein Zeichenfolgenargument konvertiert.
+- Ein Objekt eines anderen Typs als der vier Basistypen wird in einer Weise, die von diesem Typ abhängt, in eine Zahl konvertiert.
 
 ## Spezifikationen
 
-[XPath 1.0 4.4](https://www.w3.org/TR/1999/REC-xpath-19991116/#function-number)
+[XPath 1.0 4.4](https://www.w3.org/TR/xpath-10/#function-number)
 
 ## Gecko-Unterstützung
 

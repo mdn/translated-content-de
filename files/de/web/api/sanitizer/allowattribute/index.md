@@ -1,18 +1,19 @@
 ---
-title: "Sanitizer: allowAttribute()-Methode"
+title: "Sanitizer: allowAttribute() Methode"
 short-title: allowAttribute()
 slug: Web/API/Sanitizer/allowAttribute
 l10n:
-  sourceCommit: 2033446e38e93f71eb28a0efd3f663a8e0e7aeb7
+  sourceCommit: baec726bf3fe1bd82cf22a0f8ba9523e0f7ccd80
 ---
 
-{{APIRef("HTML Sanitizer API")}}
+{{APIRef("HTML Sanitizer API")}}{{SeeCompatTable}}
 
-Die **`allowAttribute()`**-Methode der [`Sanitizer`](/de/docs/Web/API/Sanitizer)-Schnittstelle legt fest, dass ein Attribut für alle Elemente erlaubt ist.
+Die **`allowAttribute()`** Methode des [`Sanitizer`](/de/docs/Web/API/Sanitizer)-Interfaces definiert ein Attribut, das bei allen Elementen erlaubt sein soll.
 
-Das angegebene Attribut wird zur Liste der [`attributes`](/de/docs/Web/API/SanitizerConfig#attributes_2) in der Konfiguration dieses Sanitizers hinzugefügt. Das Attribut wird aus der Liste der [`removeAttributes`](/de/docs/Web/API/SanitizerConfig#removeattributes_2) entfernt, falls es dort vorhanden ist.
+Das angegebene Attribut wird der Liste der [`attributes`](/de/docs/Web/API/SanitizerConfig#attributes_2) in der Konfiguration dieses Sanitizers hinzugefügt.
+Falls das Attribut in der [`removeAttributes`](/de/docs/Web/API/SanitizerConfig#removeattributes_2) Liste vorhanden ist, wird es daraus entfernt.
 
-Beachten Sie, dass um Attribute nur auf spezifischen Elementen zu erlauben oder nicht zu erlauben, die Methode [`Sanitizer.allowElement()`](/de/docs/Web/API/Sanitizer/allowElement) verwendet wird.
+Beachten Sie, dass zum Erlauben/Verbieten von Attributen nur auf spezifischen Elementen die Methode [`Sanitizer.allowElement()`](/de/docs/Web/API/Sanitizer/allowElement) verwendet werden sollte.
 
 ## Syntax
 
@@ -24,22 +25,22 @@ allowAttribute(attribute)
 
 - `attribute`
 
-  - : Ein String, der den Namen des Attributs angibt, das global bei Elementen erlaubt werden soll, oder ein Objekt mit den folgenden Eigenschaften:
+  - : Ein String, der den Namen des Attributs angibt, das global bei Elementen erlaubt sein soll, oder ein Objekt mit den folgenden Eigenschaften:
 
     - `name`
       - : Ein String, der den Namen des Attributs enthält.
     - `namespace` {{optional_inline}}
-      - : Ein String, der den Namensraum des Attributs enthält, der standardmäßig `null` ist.
+      - : Ein String, der den Namespace des Attributs enthält. Standardmäßig ist dieser `null`.
 
 ### Rückgabewert
 
-Kein Wert (`undefined`).
+Kein (`undefined`).
 
 ## Beispiele
 
-### Anleitung zum Erlauben spezifischer Attribute auf Elementen
+### Anleitung: Wie man spezifische Attribute bei Elementen erlaubt
 
-Dieses Beispiel zeigt, wie `allowAttribute()` verwendet wird, um festzulegen, dass ein Attribut auf Elementen erlaubt ist.
+Dieses Beispiel zeigt, wie `allowAttribute()` verwendet wird, um anzugeben, dass ein Attribut bei Elementen erlaubt ist.
 
 ```html hidden
 <pre id="log"></pre>
@@ -63,7 +64,8 @@ function log(text) {
 
 #### JavaScript
 
-Der Code erstellt zuerst ein neues `Sanitizer`-Objekt, das anfangs keine Attribute erlaubt. Wir rufen dann `allowAttribute()` mit den Attributen `title` und `mathcolor` auf.
+Der Code erstellt zunächst ein neues `Sanitizer`-Objekt, das anfänglich keine Attribute erlaubt.
+Dann rufen wir `allowAttribute()` mit den Attributen `title` und `mathcolor` auf.
 
 ```js hidden
 if ("Sanitizer" in window) {
@@ -93,7 +95,8 @@ log(JSON.stringify(sanitizerConfig, null, 2));
 
 #### Ergebnisse
 
-Die endgültige Konfiguration wird unten protokolliert. Beachten Sie, wie beide Attribute nun zur Liste der [`attributes`](/de/docs/Web/API/SanitizerConfig#attributes_2) hinzugefügt sind (andere Attribute werden bei Verwendung des Sanitizers nicht auf Elementen erlaubt).
+Die endgültige Konfiguration wird unten protokolliert.
+Beachten Sie, wie beide Attribute jetzt zur [`attributes`](/de/docs/Web/API/SanitizerConfig#attributes_2) Liste hinzugefügt sind (andere Attribute werden bei Elementen nicht erlaubt, wenn der Sanitizer verwendet wird).
 
 {{EmbedLiveSample("How to allow specific attributes on elements","100","480px")}}
 

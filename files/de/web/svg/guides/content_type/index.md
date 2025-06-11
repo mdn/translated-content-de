@@ -2,24 +2,24 @@
 title: Inhaltstyp
 slug: Web/SVG/Guides/Content_type
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: 636b90011532e3fd2cf9333aaf1754fdc8de7938
 ---
 
-SVG verwendet eine Reihe von Datentypen. Dieser Artikel listet diese Typen zusammen mit ihrer Syntax und Beschreibung ihrer Verwendung auf.
+SVG verwendet eine Vielzahl von Datentypen. Dieser Artikel listet diese Typen zusammen mit ihrer Syntax und Beschreibungen, wofür sie verwendet werden, auf.
 
 ## Winkel
 
 - \<angle>
 
-  - : Winkel werden auf zwei Arten angegeben. Wenn sie im Wert einer Eigenschaft in einem Stylesheet verwendet werden, wird ein \<angle> wie folgt definiert:
+  - : Winkel werden auf zwei Arten angegeben. Wenn sie als Wert einer Eigenschaft in einem Stylesheet verwendet werden, wird ein \<angle> wie folgt definiert:
 
     ```plain
     angle ::= number (~"deg" | ~"grad" | ~"rad")?
     ```
 
-    wobei `deg` Grad, `grad` Gradian und `rad` Radiant bedeutet.
+    wobei `deg` Grad, `grad` Gon und `rad` Radianten bezeichnet.
 
-    Für in CSS2 definierte Eigenschaften muss eine Winkel-Einheit angegeben werden. Bei Winkelwerten in SVG-spezifischen Eigenschaften und den entsprechenden Präsentationsattributen ist die Angabe der Winkel-Einheit optional. Sofern nicht angegeben, wird der Winkelwert als Grad angenommen. In Präsentationsattributen für alle Eigenschaften, ob in SVG1.1 oder CSS2 definiert, muss der Winkelbezeichner, falls angegeben, in Kleinbuchstaben sein.
+    Für Eigenschaften, die in CSS2 definiert sind, muss ein Winkel-Einheitenkennzeichen angegeben werden. Für Winkelwerte in SVG-spezifischen Eigenschaften und deren entsprechenden Präsentationsattributen ist das Winkel-Einheitenkennzeichen optional. Wenn es nicht angegeben wird, wird der Winkelwert in Grad angenommen. In Präsentationsattributen für alle Eigenschaften, ob in SVG1.1 oder CSS2 definiert, muss das Winkelkennzeichen, falls angegeben, in Kleinbuchstaben sein.
 
     Wenn Winkel in einem SVG-Attribut verwendet werden, wird \<angle> stattdessen wie folgt definiert:
 
@@ -27,27 +27,27 @@ SVG verwendet eine Reihe von Datentypen. Dieser Artikel listet diese Typen zusam
     angle ::= number ("deg" | "grad" | "rad")?
     ```
 
-    Die Einheitenbezeichner in solchen \<angle>-Werten müssen in Kleinbuchstaben sein.
+    Die Einheitenkennzeichen in solchen \<angle>-Werten müssen in Kleinbuchstaben sein.
 
-    Im SVG-DOM werden \<angle>-Werte mithilfe von [`SVGAngle`](/de/docs/Web/API/SVGAngle) oder [`SVGAnimatedAngle`](/de/docs/Web/API/SVGAnimatedAngle) Objekten dargestellt.
+    Im SVG-DOM werden \<angle>-Werte mithilfe von [`SVGAngle`](/de/docs/Web/API/SVGAngle) oder [`SVGAnimatedAngle`](/de/docs/Web/API/SVGAnimatedAngle)-Objekten dargestellt.
 
-## Anything
+## Beliebig
 
 - \<anything>
 
-  - : Der Basistyp \<anything> ist eine Sequenz von null oder mehr Zeichen. Genauer gesagt:
+  - : Der grundlegende Typ \<anything> ist eine Sequenz von null oder mehr Zeichen. Genauer:
 
     ```plain
     anything ::= Char*
     ```
 
-    wobei Char jedes gültige, nicht-kontrollierende Unicode-Zeichen ist.
+    wobei Char jedes gültige Unicode-Zeichen sein kann, das kein Steuerzeichen ist.
 
-## Clock-value
+## Uhrenwert
 
 - \<clock-value>
 
-  - : Clock-Werte haben die gleiche Syntax wie in der [SMIL Animation](https://www.w3.org/TR/smil-animation/#Timing-ClockValueSyntax) Spezifikation. Die Grammatik für Clock-Werte wird hier wiederholt:
+  - : Uhrenwerte haben die gleiche Syntax wie in der [SMIL Animation](https://www.w3.org/TR/smil-animation/#Timing-ClockValueSyntax)-Spezifikation. Die Grammatik für Uhrenwerte wird hier wiederholt:
 
     ```plain
     Clock-val         ::= Full-clock-val | Partial-clock-val
@@ -65,23 +65,23 @@ SVG verwendet eine Reihe von Datentypen. Dieser Artikel listet diese Typen zusam
     DIGIT             ::= [0-9]
     ```
 
-    Bei `Timecount`-Werten ist das Standardmetrische Suffix `s` (für Sekunden). Eingebettete Leerzeichen sind in Clock-Werten nicht erlaubt, obwohl führende und nachfolgende Leerzeichen ignoriert werden.
+    Für `Timecount`-Werte ist das standardmäßige metrische Suffix `s` (für Sekunden). In Uhrenwerten sind keine eingebetteten Leerzeichen erlaubt, obwohl führende und nachfolgende Leerzeichen ignoriert werden.
 
-    Die folgenden sind Beispiele für gültige Clock-Werte:
+    Die folgenden sind Beispiele für zulässige Uhrenwerte:
 
-    - Volle Clock-Werte:
+    - Volle Uhrenwerte:
       - `02:30:03` = 2 Stunden, 30 Minuten und 3 Sekunden
       - `50:00:10.25` = 50 Stunden, 10 Sekunden und 250 Millisekunden
-    - Partielle Clock-Werte:
+    - Partieller Uhrenwert:
       - `02:33` = 2 Minuten und 33 Sekunden
       - `00:10.5` = 10,5 Sekunden = 10 Sekunden und 500 Millisekunden
-    - Timecount-Werte:
+    - Zeitwerte:
       - `3.2h` = 3,2 Stunden = 3 Stunden und 12 Minuten
       - `45min` = 45 Minuten
       - `30s` = 30 Sekunden
       - `5ms` = 5 Millisekunden
       - `12.467` = 12 Sekunden und 467 Millisekunden
-    - Bruchwerte sind nur (im Basis-10) Fließkomma-Definitionen von Sekunden. Beispielsweise:
+    - Bruchteilwerte sind nur (Basis 10) Gleitkommadefinitionen von Sekunden. Daher:
       - `00.5s` = 500 Millisekunden
       - `00:00.005` = 5 Millisekunden
 
@@ -89,132 +89,135 @@ SVG verwendet eine Reihe von Datentypen. Dieser Artikel listet diese Typen zusam
 
 - \<color>
 
-  - : Der Basistyp \<color> ist eine mit CSS2 kompatible Spezifikation einer Farbe im sRGB-Farbraum. \<color> gilt für die Nutzung des {{SVGAttr("color")}} Attributs in SVG und ist ein Bestandteil der Definitionen der Attribute {{SVGAttr("fill")}}, {{SVGAttr("stroke")}}, {{SVGAttr("stop-color")}}, {{SVGAttr("flood-color")}}, und {{SVGAttr("lighting-color")}}, die auch optionale ICC-basierte Farbspezifikationen bieten.
+  - : Der grundlegende Typ \<color> ist eine CSS2-kompatible Spezifikation für eine Farbe im sRGB-Farbraum. \<color> gilt für die Verwendung des {{SVGAttr("color")}}-Attributs in SVG und ist ein Bestandteil der Definitionen der Attribute {{SVGAttr("fill")}}, {{SVGAttr("stroke")}}, {{SVGAttr("stop-color")}}, {{SVGAttr("flood-color")}} und {{SVGAttr("lighting-color")}}, die auch optionale ICC-basierte Farbspezifikationen bieten.
 
-    Die Definition von \<color> in SVG entspricht genau der CSS-Definition {{cssxref("color_value", "&lt;color&gt;")}}.
+    Die Definition von \<color> in SVG ist genau dieselbe wie die CSS {{cssxref("color_value", "&lt;color&gt;")}}-Definition.
 
 ## Koordinate
 
 - \<coordinate>
 
-  - : Eine \<coordinate> ist eine Länge im Benutzerkoordinatensystem, die die gegebene Entfernung vom Ursprung des Benutzerkoordinatensystems entlang der relevanten Achse (der x-Achse für X-Koordinaten, der y-Achse für Y-Koordinaten) darstellt. Ihre Syntax entspricht der des [\<length>](#länge).
+  - : Eine \<coordinate> ist eine Länge im Benutzerkoordinatensystem, die den gegebenen Abstand vom Ursprung des Benutzerkoordinatensystems entlang der relevanten Achse (der x-Achse für x-Koordinaten, der y-Achse für y-Koordinaten) darstellt. Ihre Syntax ist dieselbe wie für [\<length>](#länge).
 
-    Im SVG-DOM wird eine \<coordinate> als [`SVGLength`](/de/docs/Web/API/SVGLength) oder [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength) dargestellt.
+    Im SVG-DOM wird eine \<coordinate> als [`SVGLength`](/de/docs/Web/API/SVGLength) oder ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength) dargestellt.
 
 ## Frequenz
 
 - \<frequency>
 
-  - : Frequenzwerte werden mit akustischen Eigenschaften verwendet. Wie in CSS2 definiert, ist ein Frequenzwert eine [\<number>](#nummer), gefolgt von einem Frequenzeinheit-Bezeichner. Die Frequenz-Einheitsbezeichner sind:
+  - : Frequenzwerte werden mit auralen Eigenschaften verwendet. Wie in CSS2 definiert, ist ein Frequenzwert ein [\<number>](#nummer), dem unmittelbar ein Frequenzeinheitenkennzeichen folgt. Die Frequenzeinheitenkennzeichen sind:
 
     - `Hz`: Hertz
-    - `kHz`: Kilo Hertz
+    - `kHz`: Kilohertz
 
     Frequenzwerte dürfen nicht negativ sein.
 
 ## FuncIRI
 
 - \<FuncIRI>
-  - : Funktionale Notation für einen Verweis. Die Syntax für diesen Verweis entspricht der [CSS-URI](/de/docs/Web/CSS/url_value).
+  - : Funktionale Notation für eine Referenz. Die Syntax für diese Referenz ist dieselbe wie der [CSS URI](/de/docs/Web/CSS/url_value).
 
 ## Ganzzahl
 
 - \<integer>
 
-  - : Eine \<integer> wird als ein optionales Vorzeichenzeichen (`+` oder `-`) gefolgt von einer oder mehreren Ziffern `0` bis `9` angegeben:
+  - : Eine \<integer> wird als optionales Vorzeichenzeichen (`+` oder `-`) gefolgt von einer oder mehreren Ziffern `0` bis `9` angegeben:
 
     ```plain
     integer ::= [+-]? [0-9]+
     ```
 
-    Sofern das Vorzeichenzeichen nicht vorhanden ist, ist die Zahl nicht-negativ.
+    Wenn das Vorzeichenzeichen nicht vorhanden ist, ist die Zahl nicht negativ.
 
-    Sofern nicht anders angegeben, umfasst der Bereich für eine \<integer> mindestens `-2147483648` bis `2147483647`.
+    Sofern nicht anders für ein bestimmtes Attribut oder eine Eigenschaft angegeben, umfasst der Bereich für eine \<integer> (mindestens) `-2147483648` bis `2147483647`.
 
-    Im SVG-DOM wird eine \<integer> als `number` oder [`SVGAnimatedInteger`](/de/docs/Web/API/SVGAnimatedInteger) dargestellt.
+    Im SVG-DOM wird eine \<integer> als `number` oder als [`SVGAnimatedInteger`](/de/docs/Web/API/SVGAnimatedInteger) dargestellt.
 
 ## IRI
 
 - \<IRI>
 
-  - : Ein **I**nternationalized **R**esource **I**dentifier.
+  - : Ein **I**nternationalisierter **R**essourcen-**I**dentifikator.
 
-    Im Internet werden Ressourcen mit _IRIs_ (Internationalisierte Ressourcenkennungen) identifiziert. Beispielsweise könnte eine SVG-Datei namens `someDrawing.svg`, die unter `http://example.com` gefunden wird, den folgenden _IRI_ haben:
+    Im Internet werden Ressourcen durch _IRIs_ (Internationalisierte Ressourcenidentifikatoren) identifiziert. Ein Beispiel für eine SVG-Datei namens `someDrawing.svg`, die unter `http://example.com` liegt, könnte das folgende _IRI_ sein:
 
     ```plain
     http://example.com/someDrawing.svg
     ```
 
-    Ein _IRI_ kann auch ein bestimmtes Element innerhalb eines XML-Dokuments adressieren, indem ein _IRI_-Fragmentbezeichner als Teil des _IRI_ aufgenommen wird. Ein _IRI_, das einen _IRI_-Fragmentbezeichner enthält, besteht aus einem optionalen Basis-_IRI_, gefolgt von einem `#`-Zeichen und dem _IRI_-Fragmentbezeichner. Zum Beispiel kann der folgende _IRI_ verwendet werden, um das Element mit der ID `Lamppost` innerhalb der Datei `someDrawing.svg` anzugeben:
+    Ein _IRI_ kann auch ein bestimmtes Element innerhalb eines XML-Dokuments ansprechen, indem es einen Fragmentbezeichner als Teil des _IRI_s enthält. Ein \_IRI_, der einen Fragmentbezeichner enthält, besteht aus einem optionalen Basis-_IRI_, gefolgt von einem `#`-Zeichen, gefolgt vom _IRI_-Fragmentbezeichner. Zum Beispiel kann das folgende _IRI_ verwendet werden, um das Element zu spezifizieren, dessen ID `Lamppost` innerhalb der Datei `someDrawing.svg` ist:
 
     ```plain
     http://example.com/someDrawing.svg#Lamppost
     ```
 
-    _IRIs_ werden im Attribut {{SVGAttr("href")}} verwendet.
-    Einige Attribute erlauben sowohl _IRIs_ als auch Textzeichenketten als Inhalt. Um eine Textzeichenkette von einem relativen IRI zu unterscheiden, wird die funktionale Notation \<FuncIRI> verwendet. Dies ist ein _IRI_, der mit einer funktionalen Notation begrenzt ist. Hinweis: Aus historischen Gründen sind die Begrenzer `url(` und `)`, um mit den CSS-Spezifikationen kompatibel zu sein. Die _FuncIRI_-Form wird in Präsentationsattributen verwendet.
+    _IRIs_ werden im {{SVGAttr("href")}}-Attribut verwendet.
+    Einige Attribute erlauben sowohl _IRIs_ als auch Textzeichenketten als Inhalt. Um eine Textzeichenkette von einem relativen IRI zu unterscheiden, wird die funktionale Notation \<FuncIRI> verwendet. Dies ist ein _IRI_, das mit einer funktionalen Notation umgeben ist. Hinweis: Aus historischen Gründen sind die Trennzeichen `url(` und `)`, zur Kompatibilität mit den CSS-Spezifikationen. Die _FuncIRI_-Form wird in Präsentationsattributen verwendet.
 
-    SVG macht extensiven Gebrauch von _IRI_-Verweisen, sowohl absolut als auch relativ, auf andere Objekte. Beispielsweise, um ein Rechteck mit einem linearen Farbverlauf zu füllen, definieren Sie zuerst ein {{SVGElement("linearGradient")}} Element und geben ihm eine ID, wie in:
+    SVG macht umfangreichen Gebrauch von _IRI_-Referenzen, sowohl absolut als auch relativ, zu anderen Objekten. Zum Beispiel, um ein Rechteck mit einem linearen Farbverlauf zu füllen, definieren Sie zuerst ein {{SVGElement("linearGradient")}}-Element und geben ihm eine ID, wie in:
 
     ```html
     <linearGradient xml:id="MyGradient">...</linearGradient>
     ```
 
-    Anschließend verweisen Sie auf den linearen Farbverlauf als den Wert des {{SVGAttr("fill")}} Attributs für das Rechteck, wie im folgenden Beispiel:
+    Sie verweisen dann auf den linearen Farbverlauf als den Wert des {{SVGAttr("fill")}}-Attributs für das Rechteck, wie im folgenden Beispiel:
 
     ```html
     <rect fill="url(#MyGradient)" />
     ```
 
-    SVG unterstützt zwei Arten von _IRI_-Verweisen:
+    SVG unterstützt zwei Typen von _IRI_-Referenzen:
 
-    - **lokale _IRI_-Verweise**, bei denen der IRI-Verweis kein \<absoluteIRI> oder \<relativeIRI> enthält und somit nur einen Fragmentbezeichner enthält (d.h. `#<elementID>` oder `#xpointer(id<elementID>)`).
-    - **nicht-lokale _IRI_-Verweise**, bei denen der IRI-Verweis ein \<absoluteIRI> oder \<relativeIRI> enthält.
+    - **lokale _IRI_-Referenzen**, bei denen die IRI-Referenz kein \<absoluteIRI> oder \<relativeIRI> enthält und somit nur einen Fragmentbezeichner enthält (d.h. `#<elementID>` oder `#xpointer(id<elementID>)`).
+    - **nicht-lokale _IRI_-Referenzen**, bei denen die _IRI_-Referenz ein \<absoluteIRI> oder \<relativeIRI> enthält.
 
-      Für die vollständige Spezifikation von IRI-Verweisen in SVG siehe [SVG 1.1 (2. Auflage): IRI-Verweise](https://www.w3.org/TR/SVG/linking.html#IRIReference).
+    IRI ist jetzt ein zurückgezogenes Konzept in SVG 2, ersetzt durch den universellen [URL](#url)-Typ.
 
 ## Länge
 
 - \<length>
 
-  - : Eine Länge ist eine Distanzmessung, angegeben als Zahl zusammen mit einer Einheit. Die SVG2-Spezifikation stimmt mit den CSS {{cssxref("length")}} Datentypen und Einheiten für die Attributsyntax und Werte überein. Eine Längeneinheit muss angegeben werden, und die Werte der Längeneinheiten sind nicht groß- und kleinschreibungssensitiv. Die Syntax folgt der CSS `<length>`-Syntax:
+  - : Eine Länge ist eine Distanzmessung, angegeben als Zahl zusammen mit einer Einheit.
+    Die SVG2-Spezifikation stimmt mit den CSS {{cssxref("length")}} Datentypen und Einheiten für die Attributsyntax und -werte überein.
+    Ein Längeneinheitenkennzeichen muss angegeben werden und die Werte der Längeneinheitenkennzeichen sind nicht case-sensitiv.
+    Die Syntax folgt der CSS `<length>`-Syntax:
 
     ```plain
     length ::= <number> (<absolute-length> | <relative-length>)?
     ```
 
-    Für die in SVG1.1 definierten SVG-spezifischen Eigenschaften und ihre entsprechenden Präsentationsattribute sind die Einheitenbezeichner in Werten optional. Wenn nicht angegeben, stellt der Längenwert eine Distanz im aktuellen Benutzerkoordinatensystem dar. Längenbezeichner müssen in Kleinbuchstaben geschrieben werden, wenn sie in Präsentationsattributen für alle Eigenschaften verwendet werden, egal ob sie in SVG oder in CSS definiert sind. Diese Groß- und Kleinschreibungsempfindlichkeit wird in SVG2 gelockert, um mit CSS übereinzustimmen.
+    Für SVG-spezifische Eigenschaften, die in SVG1.1 definiert sind, und ihren entsprechenden Präsentationsattributen sind die Einheitenkennzeichen in den Werten optional. Wenn nicht angegeben, stellt der Längenwert eine Distanz im aktuellen Benutzerkoordinatensystem dar. Längenkennzeichen müssen in Kleinbuchstaben sein, wenn sie in Präsentationsattributen für alle Eigenschaften verwendet werden, ob sie in SVG oder CSS definiert sind. Diese Schreibempfindlichkeit wird in SVG2 gelockert, um mit CSS übereinzustimmen.
 
-    Beachten Sie, dass die Nicht-Eigenschaftsdefinition von \<length> auch ein Prozentzeichen (`%`) als Einheit erlaubt.
-    Die Bedeutung eines prozentualen Längenwertes hängt von dem Attribut ab, für das der prozentuale Längenwert angegeben wurde. Zwei häufige Fälle sind:
+    Beachten Sie, dass die Definition ohne Eigenschaft \<length> auch einen Prozentwert (`%`) als Einheitenkennzeichen erlaubt.
+    Die Bedeutung eines prozentualen Längenwerts hängt von dem Attribut ab, für das der prozentuale Längenwert angegeben wurde. Zwei häufige Fälle sind:
 
-    - wenn ein prozentualer Längenwert einen Prozentsatz der Ansichtsbreite oder -höhe darstellt
-    - wenn ein prozentualer Längenwert einen Prozentsatz der Begrenzungsboxbreite oder -höhe eines gegebenen Objekts darstellt.
+    - wenn ein prozentualer Längenwert einen Prozentsatz der Viewport-Breite oder -Höhe darstellt
+    - wenn ein prozentualer Längenwert einen Prozentsatz der Breite oder Höhe der Begrenzungsbox eines bestimmten Objekts darstellt.
 
-    Im SVG-DOM werden \<length>-Werte mit [`SVGLength`](/de/docs/Web/API/SVGLength) oder [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength) Objekten dargestellt.
+    Im SVG-DOM werden \<length>-Werte mithilfe von [`SVGLength`](/de/docs/Web/API/SVGLength) oder [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength)-Objekten dargestellt.
 
 ## Liste von Ts
 
 - \<list-of-Ts>
 
-  - : (Wo _T_ ein Typ ist.) Eine Liste besteht aus einer getrennten Sequenz von Werten. Sofern nicht ausdrücklich anders beschrieben, können Listen in den XML-Attributen von SVG entweder durch Kommas (mit optionalem Leerzeichen davor oder danach) oder durch Leerzeichen getrennt werden.
+  - : (Dabei ist _T_ ein gewisser Typ.) Eine Liste besteht aus einer getrennten Sequenz von Werten. Es sei denn, es ist explizit anders beschrieben, Listen in den XML-Attributen von SVG können sowohl durch Kommata getrennt (mit optionalem Leerzeichen vor oder nach dem Komma) oder durch Leerzeichen getrennt sein.
 
-    Leerzeichen in Listen wird definiert als eines oder mehrere der folgenden aufeinander folgenden Zeichen: "space" (`U+0020`), "tab" (`U+0009`), "line feed" (`U+000A`), "carriage return" (`U+000D`), und "form-feed" (`U+000C`).
+    Leerzeichen in Listen werden definiert als eines oder mehrere der folgenden aufeinanderfolgenden Zeichen: "space" (`U+0020`), "tab" (`U+0009`), "line feed" (`U+000A`), "carriage return" (`U+000D`) und "form-feed" (`U+000C`).
 
-    Das Folgende ist eine Vorlage für eine EBNF-Grammatik, die die \<list-of-Ts> Syntax beschreibt:
+    Das Folgende ist ein Template für eine EBNF-Grammatik, die die \<list-of-Ts>-Syntax beschreibt:
 
     ```plain
     list-of-Ts ::= T
                     | T, list-of-Ts
     ```
 
-    Im SVG-DOM werden Werte eines \<list-of-Ts> Typs durch eine schnittstellenspezifische Darstellung für den speziellen Typ _T_ repräsentiert. Zum Beispiel wird eine \<list-of-lengths> im SVG-DOM unter Verwendung eines [`SVGLengthList`](/de/docs/Web/API/SVGLengthList) oder [`SVGAnimatedLengthList`](/de/docs/Web/API/SVGAnimatedLengthList) Objekts dargestellt.
+    Im SVG-DOM werden Werte vom Typ \<list-of-Ts> durch eine schnittstellenspezifische Darstellung für den jeweiligen Typ _T_ repräsentiert. Zum Beispiel wird eine \<list-of-lengths> im SVG-DOM mithilfe eines [`SVGLengthList`](/de/docs/Web/API/SVGLengthList) oder [`SVGAnimatedLengthList`](/de/docs/Web/API/SVGAnimatedLengthList)-Objekts dargestellt.
 
 ## Name
 
 - \<name>
 
-  - : Ein Name, der eine Zeichenkette ist, bei der wenige Zeichen von syntaktischer Bedeutung ausgeschlossen sind.
+  - : Ein Name, der eine Zeichenkette ist, bei der einige Zeichen mit syntaktischer Bedeutung nicht erlaubt sind.
 
     ```plain
     name  ::= [^,()#x20#x9#xD#xA] /* any char except ",", "(", ")" or wsp */
@@ -233,51 +236,51 @@ SVG verwendet eine Reihe von Datentypen. Dieser Artikel listet diese Typen zusam
 
     Diese Syntax entspricht der Definition in CSS (CSS2, Abschnitt 4.3.1).
 
-    Wenn sie in einem SVG-Attribut verwendet werden, wird ein \<number> anders definiert, um Zahlen mit großen Größenordnungen prägnanter spezifizieren zu können:
+    Wenn sie in einem SVG-Attribut verwendet werden, wird ein \<number> anders definiert, um Zahlen mit großen Größenordnungen prägnanter angeben zu können:
 
     ```plain
     number ::= integer ([Ee] integer)?
                 | [+-]? [0-9]* "." [0-9]+ ([Ee] integer)?
     ```
 
-    Im SVG-DOM wird eine \<number> als Float, [`SVGNumber`](/de/docs/Web/API/SVGNumber) oder [`SVGAnimatedNumber`](/de/docs/Web/API/SVGAnimatedNumber) dargestellt.
+    Im SVG-DOM wird ein \<number> als float, [`SVGNumber`](/de/docs/Web/API/SVGNumber) oder als [`SVGAnimatedNumber`](/de/docs/Web/API/SVGAnimatedNumber) dargestellt.
 
-## Nummer-optional-Nummer
+## Nummer-optionale-Nummer
 
 - \<number-optional-number>
 
-  - : Ein Paar von \<number>, bei dem die zweite \<number> optional ist.
+  - : Ein Paar von \<number>s, wobei der zweite \<number> optional ist.
 
     ```plain
     number-optional-number ::= number
                                 | number, number
     ```
 
-    Im SVG-DOM wird ein \<number-optional-number> unter Verwendung eines Paares von [`SVGAnimatedInteger`](/de/docs/Web/API/SVGAnimatedInteger) oder [`SVGAnimatedNumber`](/de/docs/Web/API/SVGAnimatedNumber) Objekten dargestellt.
+    Im SVG-DOM wird ein \<number-optional-number> mithilfe eines Paares von [`SVGAnimatedInteger`](/de/docs/Web/API/SVGAnimatedInteger) oder [`SVGAnimatedNumber`](/de/docs/Web/API/SVGAnimatedNumber)-Objekten dargestellt.
 
 ## Opazitätswert
 
 - \<opacity-value>
-  - : Die Opazität der Farbe oder des Inhalts, mit dem das aktuelle Objekt gefüllt ist, als [\<number>](#nummer). Alle Werte außerhalb des Bereichs `0.0` (vollständig transparent) bis `1.0` (vollständig opak) werden auf diesen Bereich begrenzt.
+  - : Die Opazität der Farbe oder des Inhalts, mit dem das aktuelle Objekt gefüllt ist, als [\<number>](#nummer). Jegliche Werte außerhalb des Bereichs `0.0` (vollständig transparent) bis `1.0` (vollständig opak) werden in diesen Bereich eingegrenzt.
 
 ## Farbe
 
 - \<paint>
 
-  - : Die Werte für die Eigenschaften {{SVGAttr("fill")}} und {{SVGAttr("stroke")}} definieren die Art der Farbe, die beim Füllen oder Umrahmen eines bestimmten Grafikelements verwendet wird.
+  - : Die Werte für die Eigenschaften {{SVGAttr("fill")}} und {{SVGAttr("stroke")}} definieren die Art der Farbe, die zum Füllen oder Umranden eines bestimmten Grafikelements verwendet werden soll.
     Die verfügbaren Optionen und die Syntax für \<paint> sind:
 
     ```plain
     paint ::= none | <color> | <url> [none | <color>]? | context-fill | context-stroke
     ```
 
-    Die Werte `context-fill` und `context-stroke` ermöglichen die Vererbung von Werten in [marker](/de/docs/Web/SVG/Reference/Element/marker) und [use](/de/docs/Web/SVG/Reference/Element/use) Elementen.
+    Die `context-fill` und `context-stroke` Werte ermöglichen das Erben von Werten in [marker](/de/docs/Web/SVG/Reference/Element/marker) und [use](/de/docs/Web/SVG/Reference/Element/use) Elementen.
 
-## Prozent
+## Prozentsatz
 
 - \<percentage>
 
-  - : Prozentsätze werden als Zahl gefolgt von einem Prozentzeichen `%` angegeben:
+  - : Prozentsätze werden als Zahl gefolgt von einem `%`-Zeichen angegeben:
 
     ```plain
     percentage ::= number "%"
@@ -285,15 +288,15 @@ SVG verwendet eine Reihe von Datentypen. Dieser Artikel listet diese Typen zusam
 
     Beachten Sie, dass die Definition von \<number> davon abhängt, ob der Prozentsatz in einem Stylesheet oder in einem Attribut angegeben wird, das nicht auch ein Präsentationsattribut ist.
 
-    Prozentwerte sind immer relativ zu einem anderen Wert (zum Beispiel eine Länge). Jedes Attribut oder jede Eigenschaft, die Prozentwerte zulässt, definiert auch die Referenz-Distanzmessung, auf die sich der Prozentsatz bezieht.
+    Prozentwerte beziehen sich immer auf einen anderen Wert (zum Beispiel eine Länge). Jedes Attribut oder jede Eigenschaft, die Prozentsätze erlaubt, definiert auch das Referenzmaß, auf das sich der Prozentsatz bezieht.
 
-    Im SVG-DOM wird ein \<percentage> unter Verwendung eines [`SVGNumber`](/de/docs/Web/API/SVGNumber) oder [`SVGAnimatedNumber`](/de/docs/Web/API/SVGAnimatedNumber) Objekts dargestellt.
+    Im SVG-DOM wird ein \<percentage> mithilfe eines [`SVGNumber`](/de/docs/Web/API/SVGNumber) oder eines [`SVGAnimatedNumber`](/de/docs/Web/API/SVGAnimatedNumber)-Objekts dargestellt.
 
 ## Zeit
 
 - \<time>
 
-  - : Ein Zeitwert ist ein \<number>, dem unmittelbar ein Zeitbezeichner folgt. Die Zeitbezeichner sind:
+  - : Ein Zeitwert ist eine \<number> direkt gefolgt von einem Zeiteinheitskennzeichen. Die Zeiteinheitenkennzeichen sind:
 
     - `ms`: Millisekunden
     - `s`: Sekunden
@@ -302,9 +305,9 @@ SVG verwendet eine Reihe von Datentypen. Dieser Artikel listet diese Typen zusam
 
 - \<transform-list>
 
-  - : Eine \<transform-list> wird verwendet, um eine Liste von Koordinatensystemtransformationen zu spezifizieren. Eine detaillierte Beschreibung der möglichen Werte für eine \<transform-list> wird in der {SVGAttr("transform")}} Attributdefinition gegeben.
+  - : Eine \<transform-list> wird verwendet, um eine Liste von Koordinatensystem-Transformationen zu spezifizieren. Eine detaillierte Beschreibung der möglichen Werte für eine \<transform-list> finden Sie in der {{SVGAttr("transform")}}-Attributdefinition.
 
-    Im SVG-DOM wird ein \<transform-list> Wert unter Verwendung eines [`SVGTransformList`](/de/docs/Web/API/SVGTransformList) oder [`SVGAnimatedTransformList`](/de/docs/Web/API/SVGAnimatedTransformList) Objekts dargestellt.
+    Im SVG-DOM wird ein \<transform-list>-Wert mithilfe eines [`SVGTransformList`](/de/docs/Web/API/SVGTransformList) oder eines [`SVGAnimatedTransformList`](/de/docs/Web/API/SVGAnimatedTransformList)-Objekts dargestellt.
 
 ## URL
 
@@ -314,4 +317,4 @@ SVG verwendet eine Reihe von Datentypen. Dieser Artikel listet diese Typen zusam
 
     Eine URL ist eine Sequenz von {{Glossary("Unicode", "Unicode")}}-Zeichen, die eine Adresse zu einer internen oder externen Ressource bildet.
 
-    Vor SVG 2 wurde der eingeschränktere [IRI](#iri)-Inhaltstyp stattdessen verwendet, da die URL-Spezifikation zuvor nicht standardisiert war.
+    Vor SVG 2 wurde der eingeschränktere [IRI](#iri) Inhaltstyp verwendet, da die URL-Spezifikation vorher nicht standardisiert war.

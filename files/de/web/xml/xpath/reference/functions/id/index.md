@@ -2,10 +2,10 @@
 title: id
 slug: Web/XML/XPath/Reference/Functions/id
 l10n:
-  sourceCommit: 3e1b5277c6451e7d27ab628f23fb9702947a7a7b
+  sourceCommit: 636b90011532e3fd2cf9333aaf1754fdc8de7938
 ---
 
-Die Funktion `id` findet Knoten, die den angegebenen IDs entsprechen, und gibt eine Knotenmenge zurück, die die identifizierten Knoten enthält.
+Die Funktion `id` findet Knoten, die den angegebenen IDs entsprechen, und gibt eine Knotenmenge mit den identifizierten Knoten zurück.
 
 ## Syntax
 
@@ -16,20 +16,20 @@ id( expression )
 ### Parameter
 
 - `expression`
-  - : Wenn `expression` eine Knotenmenge ist, wird der Zeichenfolgenwert jedes Knotens in der Knotenmenge als individuelle ID behandelt. Die zurückgegebene Knotenmenge enthält die Knoten, die diesen IDs entsprechen.
-    Wenn `expression` eine Zeichenkette oder etwas anderes als eine Knotenmenge ist, wird `expression` als eine durch Leerzeichen getrennte Liste von IDs behandelt. Die zurückgegebene Knotenmenge enthält die Knoten, die diesen IDs entsprechen.
+  - : Wenn `expression` eine Knotenmenge ist, wird der Zeichenfolgenwert jedes Knotens in der Knotenmenge als individuelle ID behandelt. Die zurückgegebene Knotenmenge sind die Knoten, die diesen IDs entsprechen.
+    Wenn `expression` eine Zeichenfolge oder etwas anderes als eine Knotenmenge ist, wird `expression` als durch Leerzeichen getrennte Liste von IDs behandelt. Die zurückgegebene Knotenmenge sind die Knoten, die diesen IDs entsprechen.
 
 ### Rückgabewert
 
-Eine Knotenmenge, die die durch die angegebene ID oder IDs identifizierten Knoten enthält.
+Eine Knotenmenge, die den durch die angegebene ID oder IDs identifizierten Knoten oder Knoten entspricht.
 
 ## Beschreibung
 
-- Die DTD des XML-Dokuments bestimmt, welches Attribut eine ID ist. Siehe [XPath 1.0 5.2.1](https://www.w3.org/TR/xpath/#unique-id)
+- Das DTD des XML-Dokuments bestimmt, welches Attribut eine ID ist. Siehe [XPath 1.0 5.2.1](https://www.w3.org/TR/xpath-10/#unique-id)
 
 ## Spezifikationen
 
-[XPath 1.0 4.1](https://www.w3.org/TR/1999/REC-xpath-19991116/#function-id)
+[XPath 1.0 4.1](https://www.w3.org/TR/xpath-10/#function-id)
 
 ## Gecko-Unterstützung
 

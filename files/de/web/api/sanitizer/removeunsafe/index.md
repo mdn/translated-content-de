@@ -3,18 +3,18 @@ title: "Sanitizer: removeUnsafe()-Methode"
 short-title: removeUnsafe()
 slug: Web/API/Sanitizer/removeUnsafe
 l10n:
-  sourceCommit: 2033446e38e93f71eb28a0efd3f663a8e0e7aeb7
+  sourceCommit: baec726bf3fe1bd82cf22a0f8ba9523e0f7ccd80
 ---
 
-{{APIRef("HTML Sanitizer API")}}
+{{APIRef("HTML Sanitizer API")}}{{SeeCompatTable}}
 
-Die **`removeUnsafe()`**-Methode der [`Sanitizer`](/de/docs/Web/API/Sanitizer)-Schnittstelle konfiguriert die Sanitizer-Konfiguration so, dass alle Elemente, Attribute und Event-Handler-Inhaltsattribute, die vom Browser als XSS-unsicher betrachtet werden, entfernt werden.
+Die **`removeUnsafe()`**-Methode der [`Sanitizer`](/de/docs/Web/API/Sanitizer)-Schnittstelle konfiguriert die Sanitizer-Konfiguration so, dass alle Elemente, Attribute und Event-Handler-Inhaltsattribute, die vom Browser als XSS-unsafe angesehen werden, entfernt werden.
 
-Die unsicheren Elemente und Attribute werden zur Konfiguration hinzugefügt, indem [`Sanitizer.removeElement()`](/de/docs/Web/API/Sanitizer/removeElement) und [`Sanitizer.removeAttribute()`](/de/docs/Web/API/Sanitizer/removeAttribute) jeweils aufgerufen werden. Dies fügt sie den Disallow-Listen der Sanitizer-Konfiguration hinzu: [`removeElements`](/de/docs/Web/API/SanitizerConfig#removeelements) und [`removeAttributes`](/de/docs/Web/API/SanitizerConfig#removeattributes_2), und entfernt sie (falls vorhanden) von den Allow-Listen der Konfiguration: [`elements`](/de/docs/Web/API/SanitizerConfig#removeelements), [`replaceWithChildrenElements`](/de/docs/Web/API/SanitizerConfig#replacewithchildrenelements) und [`attributes`](/de/docs/Web/API/SanitizerConfig#attributes).
+Die unsicheren Elemente und Attribute werden zur Konfiguration hinzugefügt, indem [`Sanitizer.removeElement()`](/de/docs/Web/API/Sanitizer/removeElement) und [`Sanitizer.removeAttribute()`](/de/docs/Web/API/Sanitizer/removeAttribute) jeweils aufgerufen werden. Dadurch werden sie zu den Disallow-Listen der Sanitizer-Konfiguration hinzugefügt: [`removeElements`](/de/docs/Web/API/SanitizerConfig#removeelements) und [`removeAttributes`](/de/docs/Web/API/SanitizerConfig#removeattributes_2), und wenn vorhanden, aus den Allow-Listen der Konfiguration entfernt: [`elements`](/de/docs/Web/API/SanitizerConfig#removeelements), [`replaceWithChildrenElements`](/de/docs/Web/API/SanitizerConfig#replacewithchildrenelements) und [`attributes`](/de/docs/Web/API/SanitizerConfig#attributes).
 
-Die Methode kann aufgerufen werden, um jede benutzerdefinierte Konfiguration XSS-sicher zu machen. Wenn sie mit einer Konfiguration verwendet wird, die die Allow-Listen verwendet, werden die XSS-unsicheren Einheiten aus diesen Listen entfernt. Wenn sie mit einer Konfiguration verwendet wird, die nur die Disallow- ("remove")-Listen verwendet, stellt sie sicher, dass die Konfiguration die unsicheren Elemente in diesen Listen enthält.
+Die Methode kann aufgerufen werden, um jede benutzerdefinierte Konfiguration XSS-sicher zu machen. Wenn sie mit einer Konfiguration verwendet wird, die Allow-Listen verwendet, entfernt sie die XSS-unsicheren Entitäten aus diesen Listen. Wenn sie mit einer Konfiguration verwendet wird, die nur die Disallow- ("remove")-Listen verwendet, stellt sie sicher, dass die Konfiguration die unsicheren Elemente in diesen Listen beinhaltet.
 
-Beachten Sie, dass, wenn Sie den Sanitizer mit einem der "sicheren" HTML-Setter verwenden, wie z. B. [`Element.setHTML()`](/de/docs/Web/API/Element/setHTML) und [`ShadowRoot.setHTML()`](/de/docs/Web/API/ShadowRoot/setHTML), Sie diese Methode nicht aufrufen müssen, um den Sanitizer sicher zu machen. Bei Verwendung in diesen Settern wird die Methode implizit aufgerufen, ohne die übergebene `Sanitizer`-Instanz zu ändern.
+Beachten Sie, dass, wenn Sie den Sanitizer mit einem der "sicheren" HTML-Setter wie [`Element.setHTML()`](/de/docs/Web/API/Element/setHTML) und [`ShadowRoot.setHTML()`](/de/docs/Web/API/ShadowRoot/setHTML) verwenden, Sie diese Methode nicht aufrufen müssen, um den Sanitizer sicher zu machen. Bei der Verwendung in diesen Settern wird die Methode implizit aufgerufen, ohne dass die übergebene `Sanitizer`-Instanz modifiziert wird.
 
 ## Syntax
 
@@ -28,7 +28,7 @@ Keine.
 
 ### Rückgabewert
 
-Keiner (`undefined`).
+Kein Rückgabewert (`undefined`).
 
 ## Beispiele
 
@@ -70,9 +70,9 @@ function log(text) {
 
 #### JavaScript
 
-Der Code erstellt zuerst ein neues `Sanitizer`-Objekt, das das sichere Element {{htmlelement("p")}}, die unsicheren Elemente {{htmlelement("script")}} und {{htmlelement("iframe")}}, und das unsichere `onwebkitanimationend`-Event-Handler-Attribut zulässt.
+Der Code erstellt zuerst ein neues `Sanitizer`-Objekt, das das sichere Element {{htmlelement("p")}}, die unsicheren Elemente {{htmlelement("script")}} und {{htmlelement("iframe")}} sowie das unsichere `onwebkitanimationend` Event-Handler-Attribut erlaubt.
 
-Der Code ruft dann `removeUnsafe()` auf den Sanitizer auf und protokolliert dessen Konfiguration.
+Der Code ruft dann `removeUnsafe()` auf dem Sanitizer auf und protokolliert seine Konfiguration.
 
 ```js hidden
 if ("Sanitizer" in window) {
@@ -102,7 +102,7 @@ log(JSON.stringify(sanitizerConfig, null, 2));
 
 #### Ergebnisse
 
-Die resultierende Konfiguration wird unten gezeigt. Beachten Sie, wie die unsicheren Elemente und Attribute von den "Allow"-Listen zu den entsprechenden "Remove"-Listen verschoben wurden. In diesem Fall bleibt uns {{htmlelement("p")}} in den erlaubten Elementen, sodass nur `<p>`-Elemente im Eingabedokument importiert werden, wenn der Sanitizer verwendet wird.
+Die resultierende Konfiguration wird unten gezeigt. Beachten Sie, wie die unsicheren Elemente und Attribute von den "Allow"-Listen zu den entsprechenden "Remove"-Listen entfernt wurden. In diesem Fall haben wir immer noch {{htmlelement("p")}} in den erlaubten Elementen, sodass beim Einsatz des Sanitizers nur `<p>`-Elemente im Input importiert werden.
 
 {{EmbedLiveSample("Making a sanitizer configuration safe","100","480px")}}
 

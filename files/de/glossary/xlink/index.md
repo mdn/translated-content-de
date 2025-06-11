@@ -2,14 +2,14 @@
 title: XLink
 slug: Glossary/XLink
 l10n:
-  sourceCommit: ada5fa5ef15eadd44b549ecf906423b4a2092f34
+  sourceCommit: 636b90011532e3fd2cf9333aaf1754fdc8de7938
 ---
 
 {{GlossarySidebar}}
 
-XLink ist ein W3C-Standard, der verwendet wird, um Links zwischen XML und XML oder anderen Dokumenten zu beschreiben. Einige seiner Verhaltensweisen sind der Implementierung überlassen, um zu bestimmen, wie sie gehandhabt werden sollen.
+XLink ist ein W3C-Standard, der verwendet wird, um Links zwischen XML und XML oder anderen Dokumenten zu beschreiben. Einige seiner Verhaltensweisen liegen im Ermessen der Implementierung, wie sie gehandhabt werden sollen.
 
-Einfache XLinks werden "unterstützt" in Firefox (zumindest in SVG und MathML), obwohl sie nicht als Links funktionieren, wenn man ein einfaches XML-Dokument mit XLinks lädt und versucht, auf die entsprechenden Punkte im XML-Baum zu klicken.
+Einfache XLinks werden in Firefox (zumindest in SVG und MathML) "unterstützt", allerdings funktionieren sie nicht als Links, wenn man ein einfaches XML-Dokument mit XLinks lädt und versucht, auf die relevanten Punkte im XML-Baum zu klicken.
 
 Für diejenigen, die XLink 1.0 für reguläre Links umständlich fanden, entfällt in XLink 1.1 die Notwendigkeit, `xlink:type="simple"` für einfache Links anzugeben.
 
@@ -17,8 +17,7 @@ XLink wird in [SVG](/de/docs/Web/SVG), [MathML](/de/docs/Web/MathML) und anderen
 
 ### Spezifikationen
 
-- [XLink 1.0](https://www.w3.org/TR/xlink/)
-- [XLink 1.1](https://www.w3.org/TR/xlink11/) (derzeit ein Arbeitsentwurf)
+- [XLink 1.1](https://www.w3.org/TR/xlink/)
 
 ### Siehe auch
 

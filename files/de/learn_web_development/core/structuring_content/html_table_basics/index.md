@@ -1,35 +1,36 @@
 ---
 title: Grundlagen von HTML-Tabellen
-short-title: Grundlagen der Tabelle
+short-title: Grundlagen der Tabellen
 slug: Learn_web_development/Core/Structuring_content/HTML_table_basics
 l10n:
-  sourceCommit: 48d220a8cffdfd5f088f8ca89724a9a92e34d8c0
+  sourceCommit: 457970ed3317a36731f4fa098cfda585a396b3b7
 ---
 
 {{PreviousMenuNext("Learn_web_development/Core/Structuring_content/Mozilla_splash_page", "Learn_web_development/Core/Structuring_content/Table_accessibility", "Learn_web_development/Core/Structuring_content")}}
 
-Dieser Artikel führt Sie in HTML-Tabellen ein und behandelt die grundlegenden Konzepte wie Zeilen, Zellen, Überschriften, das Zusammenführen von Zellen über mehrere Spalten und Zeilen hinweg und wie man alle Zellen in einer Spalte für Styling-Zwecke gruppiert.
+Dieser Artikel vermittelt Ihnen den Einstieg in HTML-Tabellen und behandelt die Grundlagen wie Zeilen, Zellen, Überschriften, das Zusammenfassen von mehreren Spalten und Zeilen und wie Sie alle Zellen einer Spalte für Stilzwecke gruppieren können.
 
 <table>
   <tbody>
     <tr>
       <th scope="row">Voraussetzungen:</th>
       <td>
-        Grundkenntnisse in HTML, wie sie in
+        Grundlegende HTML-Kenntnisse, wie im
         <a href="/de/docs/Learn_web_development/Core/Structuring_content/Basic_HTML_syntax"
           >Grundlegende HTML-Syntax</a
-        > behandelt werden.
+        >
+        behandelt.
       </td>
     </tr>
     <tr>
       <th scope="row">Lernziele:</th>
       <td>
         <ul>
-          <li>Wofür Tabellen gedacht sind — um tabellarische Daten zu strukturieren.</li>
-          <li>Wofür Tabellen nicht gedacht sind — Layout oder <em>alles andere</em>.</li>
-          <li>Basis-Tabellensyntax — <code>&lt;table&gt;</code>, <code>&lt;tr&gt;</code> und <code>&lt;td&gt;</code>.</li>
+          <li>Wofür Tabellen gedacht sind — Strukturierung von Tabellendaten.</li>
+          <li>Wofür Tabellen nicht gedacht sind — Layout oder <em>irgendetwas anderes</em>.</li>
+          <li>Grundlegende Tabellen-Syntax — <code>&lt;table&gt;</code>, <code>&lt;tr&gt;</code> und <code>&lt;td&gt;</code>.</li>
           <li>Definieren von Tabellenüberschriften mit <code>&lt;th&gt;</code>.</li>
-          <li>Verwenden von <code>colspan</code> und <code>rowspan</code>, um mehrere Spalten und Zeilen zu überspannen.</li>
+          <li>Mehrere Spalten und Zeilen mit <code>colspan</code> und <code>rowspan</code> zusammenfassen.</li>
         </ul>
       </td>
     </tr>
@@ -38,21 +39,21 @@ Dieser Artikel führt Sie in HTML-Tabellen ein und behandelt die grundlegenden K
 
 ## Was ist eine Tabelle?
 
-Eine Tabelle ist ein strukturierter Satz von Daten, bestehend aus Zeilen und Spalten (**tabellarische Daten**). Eine Tabelle ermöglicht es Ihnen, schnell und einfach Werte zu finden, die eine Art Verbindung zwischen verschiedenen Datentypen anzeigen, wie zum Beispiel eine Person und ihr Alter, ein Wochentag oder der Zeitplan eines örtlichen Schwimmbads.
+Eine Tabelle ist ein strukturiertes Datenset, das aus Zeilen und Spalten besteht (**Tabellendaten**). Eine Tabelle ermöglicht es Ihnen, schnell und einfach Werte zu finden, die eine Verbindung zwischen verschiedenen Datentypen anzeigen, beispielsweise eine Person und ihr Alter oder ein Wochentag oder der Stundenplan für ein örtliches Schwimmbad.
 
-![Eine Beispielstabelle, die Namen und Alter einiger Personen zeigt - Chris 38, Dennis 45, Sarah 29, Karen 47.](numbers-table.png)
+![Ein Beispiel für eine Tabelle, die Namen und Alter einiger Personen zeigt - Chris 38, Dennis 45, Sarah 29, Karen 47.](numbers-table.png)
 
-![Ein Schwimmplan zeigt eine Beispiel-Datentabelle](swimming-timetable.png)
+![Ein Schwimmstundenplan, der eine Beispieldatentabelle zeigt](swimming-timetable.png)
 
-Tabellen werden sehr häufig in der Gesellschaft verwendet und das schon seit langer Zeit, was durch dieses US-amerikanische Zensusdokument von 1800 belegt wird:
+Tabellen werden sehr häufig in der menschlichen Gesellschaft verwendet und das schon seit langer Zeit, wie dieses US-Volkszählungsdokument aus dem Jahr 1800 zeigt:
 
-![Ein sehr altes Pergamentdokument; die Daten sind nicht leicht lesbar, aber es zeigt eindeutig eine verwendete Datentabelle.](1800-census.jpg)
+![Ein sehr altes Pergamentdokument; die Daten sind nicht leicht lesbar, aber es zeigt deutlich eine Datentabelle.](1800-census.jpg)
 
-Es ist daher kein Wunder, dass die Erfinder von HTML eine Möglichkeit bereitgestellt haben, um tabellarische Daten im Web zu strukturieren und darzustellen.
+Es ist daher kein Wunder, dass die Ersteller von HTML eine Methode bereitgestellt haben, um tabellarische Daten im Web zu strukturieren und darzustellen.
 
 ### Wie funktioniert eine Tabelle?
 
-Der Zweck einer Tabelle ist, dass sie starr ist. Informationen werden durch visuelle Assoziationen zwischen Zeilen- und Spaltenüberschriften leicht interpretiert. Schauen Sie zum Beispiel auf die folgende Tabelle und finden Sie einen Jupitermond-Gasplaneten mit 62 Monden. Sie können die Antwort finden, indem Sie die relevanten Zeilen- und Spaltenüberschriften assoziieren.
+Der Zweck einer Tabelle besteht darin, dass sie starr ist. Informationen werden durch visuelle Assoziationen zwischen Zeilen- und Spaltenüberschriften leicht interpretiert. Schauen Sie sich zum Beispiel die folgende Tabelle an und finden Sie einen jovianischen Gasriesen mit 62 Monden. Sie können die Antwort finden, indem Sie die relevanten Zeilen- und Spaltenüberschriften verknüpfen.
 
 ```html hidden
 <table>
@@ -216,39 +217,39 @@ td {
 
 {{EmbedLiveSample("How_does_a_table_work", 100, 560)}}
 
-Wenn HTML-Tabellen korrekt implementiert sind, werden sie von Barrierefreiheitswerkzeugen wie Bildschirmlesern gut behandelt, sodass eine erfolgreiche HTML-Tabelle das Erlebnis sowohl für sehende als auch für sehbehinderte Nutzer verbessern sollte.
+Wenn sie korrekt implementiert sind, werden HTML-Tabellen gut von Barrierefreiheitswerkzeugen wie Bildschirmlesern gehandhabt, sodass eine erfolgreiche HTML-Tabelle das Erlebnis sowohl für sehende als auch für sehbehinderte Benutzer verbessern sollte.
 
-### Styling einer Tabelle
+### Tabellen-Styling
 
-Sie können sich auch das [Live-Beispiel auf GitHub](https://mdn.github.io/learning-area/html/tables/assessment-finished/planets-data.html) ansehen! Eine Sache, die Ihnen auffallen wird, ist, dass die Tabelle dort etwas lesbarer aussieht — dies liegt daran, dass die Tabelle, die Sie oben auf dieser Seite sehen, minimal gestylt ist, während die GitHub-Version eine umfangreichere CSS-Formatierung hat.
+Sie können sich auch das [Live-Planeten-Datenbeispiel](https://mdn.github.io/learning-area/html/tables/assessment-finished/planets-data.html) auf GitHub ansehen! Eine Sache, die Ihnen auffallen wird, ist, dass die Tabelle dort etwas lesbarer ist — das liegt daran, dass die Tabelle, die Sie oben auf dieser Seite sehen, ein minimales Styling hat, während die GitHub-Version mehr bedeutendes CSS hat.
 
-Um keinen falschen Eindruck zu erwecken; damit Tabellen im Web effektiv sind, müssen Sie etwas Styling-Informationen mit [CSS](/de/docs/Learn_web_development/Core/Styling_basics) bereitstellen und eine gute solide Struktur mit HTML schaffen. In dieser Lektion konzentrieren wir uns auf den HTML-Teil; mehr über das Styling von Tabellen erfahren Sie später, in unserer Lektion [Stil von Tabellen](/de/docs/Learn_web_development/Core/Styling_basics/Tables).
+Täuschen Sie sich nicht; damit Tabellen im Web effektiv sind, müssen Sie einige Stilinformationen mit [CSS](/de/docs/Learn_web_development/Core/Styling_basics) bereitstellen, sowie eine gute solide Struktur mit HTML. In dieser Lektion konzentrieren wir uns auf den HTML-Teil; Sie werden mehr über das Styling von Tabellen später in unserer Lektion [Tabellen stylen](/de/docs/Learn_web_development/Core/Styling_basics/Tables) erfahren.
 
-Wir konzentrieren uns in diesem Modul nicht auf CSS, aber wir haben ein minimales CSS-Stylesheet bereitgestellt, das Sie verwenden können, um Ihre Tabellen lesbarer als den Standard ohne jegliches Styling zu machen. Sie können das [Stylesheet hier](https://github.com/mdn/learning-area/blob/main/html/tables/basic/minimal-table.css) finden, und Sie können auch eine [HTML-Vorlage](https://github.com/mdn/learning-area/blob/main/html/tables/basic/blank-template.html) finden, die das Stylesheet anwendet — diese zusammen geben Ihnen einen guten Ausgangspunkt, um mit HTML-Tabellen zu experimentieren.
+Wir werden uns in diesem Modul nicht auf CSS konzentrieren, aber wir haben Ihnen ein minimales CSS-Stylesheet zur Verfügung gestellt, das Ihre Tabellen lesbarer macht als die Standardeinstellung ohne irgendein Styling. Sie können das [Stylesheet hier](https://github.com/mdn/learning-area/blob/main/html/tables/basic/minimal-table.css) finden und Sie können auch eine [HTML-Vorlage](https://github.com/mdn/learning-area/blob/main/html/tables/basic/blank-template.html) finden, die das Stylesheet anwendet — zusammen bieten sie einen guten Ausgangspunkt, um mit HTML-Tabellen zu experimentieren.
 
-### Wann sollte man HTML-Tabellen vermeiden?
+### Wann sollten Sie HTML-Tabellen vermeiden?
 
-HTML-Tabellen sollten für tabellarische Daten verwendet werden (Informationen, die leicht in Zeilen und Spalten verarbeitet werden können) — dafür sind sie ausgelegt. Leider haben viele Menschen früher HTML-Tabellen verwendet, um Webseiten zu gestalten, zum Beispiel eine Zeile, um eine Seitenüberschrift zu enthalten, eine Zeile für jede Inhaltskolonne, eine Zeile für den Fußzeilenbereich usw. Diese Technik wurde verwendet, da die CSS-Unterstützung in den verschiedenen Browsern früher viel eingeschränkter war. Moderne Browser haben eine solide CSS-Unterstützung, daher sind tabellenbasierte Layouts inzwischen äußerst selten, aber man kann sie in einigen Ecken des Webs noch finden.
+HTML-Tabellen sollten für tabellarische Daten verwendet werden (Informationen, die in Zeilen und Spalten leicht zu bearbeiten sind) — dafür sind sie gedacht. Leider haben viele Menschen früher HTML-Tabellen verwendet, um Webseiten zu layouten, zum Beispiel eine Zeile, um einen Seitenheader zu enthalten, eine Zeile, um jede Inhalts-Spalte zu enthalten, eine Zeile, um die Fußzeile zu enthalten, usw. Diese Technik wurde in der Vergangenheit verwendet, weil die CSS-Unterstützung über verschiedene Browser hinweg früher wesentlich eingeschränkter war. Moderne Browser haben solide CSS-Unterstützung, daher sind tabellenbasierte Layouts nicht mehr erforderlich. Tabelle-Layouts sind jetzt äußerst selten, aber Sie könnten sie in einigen Ecken des Internets immer noch sehen.
 
-Kurz gesagt, die Verwendung von Tabellen für Layout anstelle von [CSS-Layouttechniken](/de/docs/Learn_web_development/Core/CSS_layout) ist eine schlechte Idee. Die Hauptgründe dafür sind:
+Kurz gesagt, die Verwendung von Tabellen für Layouts anstelle von [CSS-Layout-Techniken](/de/docs/Learn_web_development/Core/CSS_layout) ist eine schlechte Idee. Die Hauptgründe sind folgende:
 
-1. **Layout-Tabellen reduzieren die Barrierefreiheit für sehbehinderte Nutzer**: [Bildschirmleser](/de/docs/Learn_web_development/Core/Accessibility/Tooling#screen_readers), die von blinden Menschen verwendet werden, interpretieren die Tags, die in einer HTML-Seite existieren, und lesen die Inhalte dem Benutzer vor. Da Tabellen nicht das richtige Werkzeug für Layouts sind und das Markup komplexer ist als bei CSS-Layouttechniken, wird die Ausgabe der Bildschirmleser verwirrend für deren Nutzer sein.
-2. **Tabellen produzieren Tag-Salat**: Wie bereits erwähnt, beinhalten Tabellenlayouts in der Regel komplexere Markup-Strukturen als richtige Layouttechniken. Dies kann dazu führen, dass der Code schwerer zu schreiben, zu pflegen und zu debuggen ist.
-3. **Tabellen sind nicht automatisch responsiv**: Wenn Sie richtige Layout-Container verwenden (wie {{htmlelement("header")}}, {{htmlelement("section")}}, {{htmlelement("article")}}, oder {{htmlelement("div")}}), ist deren Breite standardmäßig 100% ihres Elternelements. Tabellen hingegen sind standardmäßig nach ihrem Inhalt dimensioniert, sodass zusätzliche Maßnahmen erforderlich sind, um Styling von Tabellenlayouts effektiv über verschiedene Geräte hinweg zu verwenden.
+1. **Layout-Tabellen verringern die Zugänglichkeit für sehbehinderte Benutzer**: [Bildschirmleser](/de/docs/Learn_web_development/Core/Accessibility/Tooling#screen_readers), die von blinden Personen verwendet werden, interpretieren die Tags, die in einer HTML-Seite existieren, und lesen die Inhalte dem Benutzer vor. Da Tabellen nicht das richtige Werkzeug für Layouts sind und das Markup komplexer ist als bei CSS-Layout-Techniken, wird die Ausgabe der Bildschirmleser für ihre Benutzer verwirrend sein.
+2. **Tabellen erzeugen Tag-Salat**: Wie oben erwähnt, beinhalten Tabellen-Layouts in der Regel komplexere Markup-Strukturen als ordnungsgemäße Layout-Techniken. Dies kann dazu führen, dass der Code schwerer zu schreiben, zu warten und zu debuggen ist.
+3. **Tabellen sind nicht automatisch responsiv**: Wenn Sie ordnungsgemäße Layout-Container verwenden (wie {{htmlelement("header")}}, {{htmlelement("section")}}, {{htmlelement("article")}} oder {{htmlelement("div")}}), beträgt ihre Breite standardmäßig 100% ihres übergeordneten Elements. Tabellen hingegen sind standardmäßig nach ihrem Inhalt dimensioniert, sodass zusätzliche Maßnahmen erforderlich sind, um die Tabellenlayout-Styling effektiv auf eine Vielzahl von Geräten anzuwenden.
 
-## Aktives Lernen: Erstellen Ihrer ersten Tabelle
+## Erstellen Ihrer ersten Tabelle
 
-Wir haben genug über Tabellentheorie gesprochen, also lasst uns ein Praxisbeispiel machen und Schritt für Schritt eine einfache Tabelle erstellen.
+Wir haben genug über Tabellentheorie gesprochen, also lassen Sie uns in ein praktisches Beispiel eintauchen und Ihnen helfen, eine einfache Tabelle zu erstellen.
 
-1. Machen Sie zuerst eine lokale Kopie von [blank-template.html](https://github.com/mdn/learning-area/blob/main/html/tables/basic/blank-template.html) und [minimal-table.css](https://github.com/mdn/learning-area/blob/main/html/tables/basic/minimal-table.css) in einem neuen Verzeichnis auf Ihrer lokalen Maschine.
-2. Der Inhalt jeder Tabelle wird von diesen zwei Tags eingeschlossen: **[`<table></table>`](/de/docs/Web/HTML/Reference/Elements/table)**. Fügen Sie diese in den Körper Ihres HTML ein.
-3. Der kleinste Container innerhalb einer Tabelle ist eine Tabellenzelle, die durch ein **[`<td>`](/de/docs/Web/HTML/Reference/Elements/td)**-Element erstellt wird ('td' steht für 'table data'). Fügen Sie das folgende in Ihre Tabellentags ein:
+1. Erstellen Sie zunächst eine Kopie von [blank-template.html](https://github.com/mdn/learning-area/blob/main/html/tables/basic/blank-template.html) und [minimal-table.css](https://github.com/mdn/learning-area/blob/main/html/tables/basic/minimal-table.css) in einem neuen Verzeichnis auf Ihrem lokalen Rechner. Die HTML-Vorlage enthält bereits ein `<link>`-Element, um das CSS auf das HTML anzuwenden, sodass Sie sich darüber keine Gedanken machen müssen.
+2. Der Inhalt jeder Tabelle ist von diesen zwei Tags umschlossen: **[`<table></table>`](/de/docs/Web/HTML/Reference/Elements/table)**. Fügen Sie diese in den Body Ihres HTML-Dokumentes ein.
+3. Der kleinste Container innerhalb einer Tabelle ist eine Tabellenzelle, die mit einem **[`<td>`](/de/docs/Web/HTML/Reference/Elements/td)**-Element erstellt wird ("td" steht für "table data"). Fügen Sie das folgende innerhalb Ihrer Tabellen-Tags ein:
 
    ```html
    <td>Hi, I'm your first cell.</td>
    ```
 
-4. Wenn wir eine Zeile von vier Zellen wollen, müssen wir diese Tags dreimal kopieren. Aktualisieren Sie den Inhalt Ihrer Tabelle, um so auszusehen:
+4. Wenn wir eine Zeile mit vier Zellen haben möchten, müssen wir diese Tags dreimal kopieren. Aktualisieren Sie den Inhalt Ihrer Tabelle, um so auszusehen:
 
    ```html
    <td>Hi, I'm your first cell.</td>
@@ -257,9 +258,9 @@ Wir haben genug über Tabellentheorie gesprochen, also lasst uns ein Praxisbeisp
    <td>I'm your fourth cell.</td>
    ```
 
-Wie Sie sehen werden, werden die Zellen nicht untereinander platziert, sondern sie sind automatisch in derselben Zeile ausgerichtet. Jedes `<td>`-Element erstellt eine einzelne Zelle und zusammen bilden sie die erste Zeile. Jede Zelle, die wir hinzufügen, lässt die Zeile länger werden.
+Wie Sie sehen werden, werden die Zellen nicht untereinander platziert, sondern sie sind automatisch in derselben Zeile nebeneinander ausgerichtet. Jedes `<td>`-Element erstellt eine einzelne Zelle und zusammen bilden sie die erste Zeile. Jede Zelle, die wir hinzufügen, lässt die Zeile länger werden.
 
-Um zu verhindern, dass diese Zeile weiter wächst, und um nachfolgende Zellen in einer zweiten Zeile anzufangen, müssen wir das **[`<tr>`](/de/docs/Web/HTML/Reference/Elements/tr)**-Element verwenden ('tr' steht für 'table row'). Lassen Sie uns dies nun untersuchen.
+Um zu verhindern, dass diese Zeile wächst und um nachfolgende Zellen in einer zweiten Zeile zu platzieren, müssen wir das **[`<tr>`](/de/docs/Web/HTML/Reference/Elements/tr)**-Element verwenden ('tr' steht für 'table row'). Schauen wir uns das jetzt genauer an.
 
 1. Platzieren Sie die vier Zellen, die Sie bereits erstellt haben, innerhalb von `<tr>`-Tags, wie folgt:
 
@@ -272,13 +273,14 @@ Um zu verhindern, dass diese Zeile weiter wächst, und um nachfolgende Zellen in
    </tr>
    ```
 
-2. Jetzt, da Sie eine Zeile haben, versuchen Sie eine oder zwei weitere zu erstellen — jede Zeile muss in ein zusätzliches `<tr>`-Element eingeschlossen werden, mit jeder Zelle in einem `<td>`.
+2. Jetzt, wo Sie eine Zeile erstellt haben, versuchen Sie ein oder zwei weitere zu erstellen — jede Zeile muss in einem zusätzlichen `<tr>`-Element eingeschlossen sein, wobei jede Zelle in einem `<td>` enthalten ist.
 
-### Ergebnis
+<details>
+<summary>Hier klicken, um die Lösung anzuzeigen</summary>
 
-Das sollte zu einer Tabelle führen, die etwa so aussieht:
+Ihr fertiges HTML sollte in etwa so aussehen:
 
-```html hidden
+```html
 <table>
   <tr>
     <td>Hi, I'm your first cell.</td>
@@ -296,27 +298,15 @@ Das sollte zu einer Tabelle führen, die etwa so aussieht:
 </table>
 ```
 
-```css hidden
-table {
-  border-collapse: collapse;
-}
-td,
-th {
-  border: 1px solid black;
-  padding: 10px 20px;
-}
-```
+Sie können diesen Code auch auf GitHub unter [simple-table.html](https://github.com/mdn/learning-area/blob/main/html/tables/basic/simple-table.html) finden ([sehen Sie sich auch die live Version an](https://mdn.github.io/learning-area/html/tables/basic/simple-table.html)).
 
-{{EmbedLiveSample("Result")}}
+</details>
 
-> [!NOTE]
-> Sie finden dies auch auf GitHub als [simple-table.html](https://github.com/mdn/learning-area/blob/main/html/tables/basic/simple-table.html) ([sehen Sie es auch live](https://mdn.github.io/learning-area/html/tables/basic/simple-table.html)).
+## Hinzufügen von Kopfzeilen mit \<th>-Elementen
 
-## Hinzufügen von Überschriften mit \<th>-Elementen
+Nun wenden wir uns den Tabellenüberschriften zu — speziellen Zellen, die am Anfang einer Zeile oder Spalte stehen und den Datentyp definieren, den diese Zeile oder Spalte enthält (als Beispiel siehe die "Person" und "Age" Zellen im ersten Beispiel, das in diesem Artikel gezeigt wird). Um zu veranschaulichen, warum sie nützlich sind, sehen Sie sich das folgende Tabellenbeispiel an. Zuerst der Quellcode:
 
-Lassen Sie uns nun unsere Aufmerksamkeit auf Tabellenüberschriften richten — spezielle Zellen, die am Anfang einer Zeile oder Spalte stehen und die Art von Daten definieren, die die Zeile oder Spalte enthält (siehe zum Beispiel die Zellen "Person" und "Alter" im ersten in diesem Artikel gezeigten Beispiel). Um zu verdeutlichen, warum sie nützlich sind, schauen Sie sich das folgende Tabellenbeispiel an. Zuerst der Quellcode:
-
-```html
+```html live-sample___table-headers
 <table>
   <tr>
     <td>&nbsp;</td>
@@ -356,7 +346,7 @@ Lassen Sie uns nun unsere Aufmerksamkeit auf Tabellenüberschriften richten — 
 </table>
 ```
 
-```css hidden
+```css hidden live-sample___table-headers
 table {
   border-collapse: collapse;
 }
@@ -367,39 +357,85 @@ th {
 }
 ```
 
-Nun die tatsächlich gerenderte Tabelle:
+Und jetzt die tatsächlich gerenderte Tabelle:
 
-{{EmbedLiveSample("Adding_headers_with_th_elements", "", "250")}}
+{{EmbedLiveSample("table-headers", "", "250")}}
 
-Das Problem hier ist, dass, obwohl Sie irgendwie verstehen können, was vor sich geht, es nicht so einfach ist, Daten zu kreuzreferenzieren, wie es sein könnte. Wenn die Spalten- und Zeilenüberschriften in irgendeiner Weise hervorstechen würden, wäre es viel besser.
+Das Problem hier ist, dass, obwohl Sie irgendwie erkennen können, was vor sich geht, es nicht so einfach ist, Daten quer zu referenzieren, wie es sein könnte. Wenn die Spalten- und Zeilenüberschriften in irgendeiner Weise hervorgehoben wären, wäre es viel besser.
 
-### Aktives Lernen: Tabellenüberschriften
+### Hinzufügen von Kopfzeilen zur Hundetabelle
 
-Lassen Sie uns versuchen, diese Tabelle zu verbessern.
+Jetzt möchten wir, dass Sie versuchen, das Beispiel der Hundetabelle zu verbessern, indem Sie einige Überschriften hinzufügen.
 
-1. Erstellen Sie zuerst eine lokale Kopie unserer [dogs-table.html](https://github.com/mdn/learning-area/blob/main/html/tables/basic/dogs-table.html) und [minimal-table.css](https://github.com/mdn/learning-area/blob/main/html/tables/basic/minimal-table.css) Dateien in einem neuen Verzeichnis auf Ihrer lokalen Maschine. Das HTML enthält dasselbe Hunde-Beispiel, das Sie oben gesehen haben.
-2. Um die Tabellenüberschriften sowohl optisch als auch semantisch als Überschriften zu erkennen, können Sie das **[`<th>`](/de/docs/Web/HTML/Reference/Elements/th)**-Element verwenden ('th' steht für 'table header'). Dies funktioniert genau so wie ein `<td>`, außer dass es eine Überschrift und keine normale Zelle bezeichnet. Gehen Sie in Ihr HTML und ändern Sie alle `<td>`-Elemente, die die Tabellenüberschriften umgeben, in `<th>`-Elemente.
-3. Speichern Sie Ihr HTML und laden Sie es in einem Browser, und Sie sollten sehen, dass die Überschriften nun wie Überschriften aussehen.
+1. Erstellen Sie zuerst eine lokale Kopie unserer [dogs-table.html](https://github.com/mdn/learning-area/blob/main/html/tables/basic/dogs-table.html) und [minimal-table.css](https://github.com/mdn/learning-area/blob/main/html/tables/basic/minimal-table.css) Dateien in einem neuen Verzeichnis auf Ihrem lokalen Rechner.
+2. Um die Tabellenüberschriften sowohl visuell als auch semantisch als Überschriften zu erkennen, können Sie das **[`<th>`](/de/docs/Web/HTML/Reference/Elements/th)**-Element verwenden ("th" steht für "table header"). Dies funktioniert genauso wie ein `<td>`, außer dass es eine Überschrift und keine normale Zelle bezeichnet. Gehen Sie in Ihr HTML und ändern Sie alle `<td>`-Elemente, die die Tabellenüberschriften umgeben, in `<th>`-Elemente.
+3. Speichern Sie Ihr HTML und laden Sie es in einem Browser, und Sie sollten sehen, dass die Überschriften jetzt wie Überschriften aussehen.
 
-> [!NOTE]
-> Sie können unser fertiges Beispiel auf GitHub als [dogs-table-fixed.html](https://github.com/mdn/learning-area/blob/main/html/tables/basic/dogs-table-fixed.html) finden ([sehen Sie es auch live](https://mdn.github.io/learning-area/html/tables/basic/dogs-table-fixed.html)).
+<details>
+<summary>Hier klicken, um die Lösung anzuzeigen</summary>
 
-### Warum sind Überschriften nützlich?
-
-Wir haben diese Frage bereits teilweise beantwortet — es ist einfacher, die Daten zu finden, die Sie suchen, wenn die Überschriften deutlich hervorstechen, und das Design sieht einfach allgemein besser aus.
-
-> [!NOTE]
-> Tabellenüberschriften haben standardmäßig ein gewisses Styling — sie sind fett und zentriert, auch wenn Sie kein eigenes Styling zur Tabelle hinzufügen, um sie hervorzuheben.
-
-Tabellenüberschriften haben auch den zusätzlichen Vorteil — zusammen mit dem `scope`-Attribut (über das wir im nächsten Artikel lernen werden), ermöglichen sie es, Tabellen barrierefreier zu gestalten, indem jede Überschrift mit allen Daten in derselben Zeile oder Spalte verknüpft wird. Bildschirmleser sind dann in der Lage, eine ganze Zeile oder Spalte von Daten auf einmal vorzulesen, was ziemlich nützlich ist.
-
-## Erlauben, dass Zellen mehrere Zeilen und Spalten überspannen
-
-Manchmal möchten wir, dass Zellen mehrere Zeilen oder Spalten überspannen. Nehmen Sie folgendes einfaches Beispiel, das die Namen gemeinsamer Tiere zeigt. In einigen Fällen möchten wir die Namen der Männchen und Weibchen neben dem Tiernamen anzeigen. Manchmal nicht, und in solchen Fällen soll der Tiername die ganze Tabelle überspannen.
-
-Das anfängliche Markup sieht so aus:
+Ihr fertiges HTML sollte in etwa so aussehen:
 
 ```html
+<table>
+  <tr>
+    <td>&nbsp;</td>
+    <th>Knocky</th>
+    <th>Flor</th>
+    <th>Ella</th>
+    <th>Juan</th>
+  </tr>
+  <tr>
+    <th>Breed</th>
+    <td>Jack Russell</td>
+    <td>Poodle</td>
+    <td>Streetdog</td>
+    <td>Cocker Spaniel</td>
+  </tr>
+  <tr>
+    <th>Age</th>
+    <td>16</td>
+    <td>9</td>
+    <td>10</td>
+    <td>5</td>
+  </tr>
+  <tr>
+    <th>Owner</th>
+    <td>Mother-in-law</td>
+    <td>Me</td>
+    <td>Me</td>
+    <td>Sister-in-law</td>
+  </tr>
+  <tr>
+    <th>Eating Habits</th>
+    <td>Eats everyone's leftovers</td>
+    <td>Nibbles at food</td>
+    <td>Hearty eater</td>
+    <td>Will eat till he explodes</td>
+  </tr>
+</table>
+```
+
+Sie können diesen Code auch auf GitHub unter [dogs-table-fixed.html](https://github.com/mdn/learning-area/blob/main/html/tables/basic/dogs-table-fixed.html) finden ([sehen Sie sich auch die live Version an](https://mdn.github.io/learning-area/html/tables/basic/dogs-table-fixed.html)).
+
+</details>
+
+### Warum sind Kopfzeilen nützlich?
+
+Wir haben diese Frage teilweise bereits beantwortet — es ist einfacher, die gesuchten Daten zu finden, wenn die Überschriften klar hervorstechen, und das Design sieht im Allgemeinen einfach besser aus.
+
+> [!NOTE]
+> Tabellenüberschriften kommen mit einem gewissen Standard-CSS-Styling — sie sind fett und zentriert, auch wenn Sie Ihrem Tisch kein eigenes Styling hinzufügen, um ihnen zu helfen, sich abzuheben.
+
+Tabellenüberschriften haben auch einen zusätzlichen Vorteil — zusammen mit dem `scope`-Attribut (das wir im nächsten Artikel kennenlernen werden) ermöglichen sie es Ihnen, Tabellen barrierefreier zu gestalten, indem Sie jede Überschrift mit allen Daten in derselben Zeile oder Spalte assoziieren. Bildschirmleser sind dann in der Lage, eine ganze Zeile oder Spalte von Daten auf einmal vorzulesen, was ziemlich nützlich ist.
+
+## Ermöglichen, dass Zellen mehrere Zeilen und Spalten überspannen
+
+Manchmal möchten wir, dass Zellen mehrere Zeilen oder Spalten überspannen. Betrachten Sie das folgende einfache Beispiel, das die Namen gewöhnlicher Tiere zeigt. In einigen Fällen möchten wir die Namen der Männchen und Weibchen neben dem Namen des Tieres anzeigen. Manchmal wollen wir das nicht, und in solchen Fällen wollen wir einfach, dass der Tiername die gesamte Tabelle überspannt.
+
+Das initiale Markup sieht so aus:
+
+```html live-sample___multiple-rows-columns
 <table>
   <tr>
     <th>Animals</th>
@@ -427,7 +463,7 @@ Das anfängliche Markup sieht so aus:
 </table>
 ```
 
-```css hidden
+```css hidden live-sample___multiple-rows-columns
 table {
   border-collapse: collapse;
 }
@@ -438,24 +474,60 @@ th {
 }
 ```
 
-Aber die Ausgabe entspricht nicht ganz unseren Vorstellungen:
+Aber die Ausgabe liefert uns nicht ganz das, was wir wollen:
 
-{{EmbedLiveSample("Allowing_cells_to_span_multiple_rows_and_columns", "", "350")}}
+{{EmbedLiveSample("multiple-rows-columns", "", "350")}}
 
-Wir brauchen eine Möglichkeit, "Animals", "Hippopotamus" und "Crocodile" über zwei Spalten zu spannen, und "Horse" und "Chicken" über zwei Zeilen nach unten. Glücklicherweise haben Tabellenüberschriften und Zellen die Attribute `colspan` und `rowspan`, die es uns ermöglichen, genau das zu tun. Beide akzeptieren einen wertlosen Zahlenwert, der der Anzahl der Zeilen oder Spalten entspricht, die Sie überspannen möchten. Zum Beispiel macht `colspan="2"` eine Zelle über zwei Spalten.
+### Korrigieren des Layouts mit `rowspan` und `colspan`
+
+Wir benötigen eine Möglichkeit, um "Animals", "Hippopotamus" und "Crocodile" über zwei Spalten zu erstrecken, und "Horse" und "Chicken" vertikal über zwei Zeilen zu erstrecken. Glücklicherweise haben Tabellenüberschriften und -zellen die Attribute `colspan` und `rowspan`, die es uns ermöglichen, genau das zu tun. Beide akzeptieren einen ohne Einheit angegebenen Zahlenwert, der die Anzahl der Zeilen oder Spalten angibt, die überspannt werden sollen. Zum Beispiel macht `colspan="2"` eine Zelle über zwei Spalten hinaus.
 
 Lassen Sie uns `colspan` und `rowspan` verwenden, um diese Tabelle zu verbessern.
 
-1. Erstellen Sie zuerst eine lokale Kopie unserer [animals-table.html](https://github.com/mdn/learning-area/blob/main/html/tables/basic/animals-table.html) und [minimal-table.css](https://github.com/mdn/learning-area/blob/main/html/tables/basic/minimal-table.css) Dateien in einem neuen Verzeichnis auf Ihrer lokalen Maschine. Das HTML enthält dasselbe Tier-Beispiel, das Sie oben gesehen haben.
+1. Erstens, erstellen Sie eine lokale Kopie unserer [animals-table.html](https://github.com/mdn/learning-area/blob/main/html/tables/basic/animals-table.html) und [minimal-table.css](https://github.com/mdn/learning-area/blob/main/html/tables/basic/minimal-table.css) Dateien in einem neuen Verzeichnis auf Ihrem lokalen Rechner. Das HTML enthält dasselbe Tierbeispiel, das Sie oben gesehen haben.
 2. Verwenden Sie als Nächstes `colspan`, um "Animals", "Hippopotamus" und "Crocodile" über zwei Spalten zu spannen.
 3. Verwenden Sie schließlich `rowspan`, um "Horse" und "Chicken" über zwei Zeilen zu spannen.
-4. Speichern und öffnen Sie Ihren Code in einem Browser, um die Verbesserung zu sehen.
+4. Speichern Sie Ihren Code und öffnen Sie ihn in einem Browser, um die Verbesserung zu sehen.
 
-> [!NOTE]
-> Sie können unser fertiges Beispiel auf GitHub als [animals-table-fixed.html](https://github.com/mdn/learning-area/blob/main/html/tables/basic/animals-table-fixed.html) finden ([sehen Sie es auch live](https://mdn.github.io/learning-area/html/tables/basic/animals-table-fixed.html)).
+<details>
+<summary>Hier klicken, um die Lösung anzuzeigen</summary>
+
+Ihr fertiges HTML sollte in etwa so aussehen:
+
+```html
+<table>
+  <tr>
+    <th colspan="2">Animals</th>
+  </tr>
+  <tr>
+    <th colspan="2">Hippopotamus</th>
+  </tr>
+  <tr>
+    <th rowspan="2">Horse</th>
+    <td>Mare</td>
+  </tr>
+  <tr>
+    <td>Stallion</td>
+  </tr>
+  <tr>
+    <th colspan="2">Crocodile</th>
+  </tr>
+  <tr>
+    <th rowspan="2">Chicken</th>
+    <td>Hen</td>
+  </tr>
+  <tr>
+    <td>Rooster</td>
+  </tr>
+</table>
+```
+
+Sie können diesen Code auch auf GitHub unter [animals-table-fixed.html](https://github.com/mdn/learning-area/blob/main/html/tables/basic/animals-table-fixed.html) finden ([sehen Sie sich auch die live Version an](https://mdn.github.io/learning-area/html/tables/basic/animals-table-fixed.html)).
+
+</details>
 
 ## Zusammenfassung
 
-Damit endet das Grundlagenwissen zu HTML-Tabellen. Im nächsten Artikel werden wir uns weitere Funktionen ansehen, die verwendet werden können, um HTML-Tabellen für sehbehinderte Menschen zugänglicher zu machen.
+Damit sind die Grundlagen von HTML-Tabellen abgeschlossen. Im nächsten Artikel schauen wir uns einige weitere Funktionen an, die verwendet werden können, um HTML-Tabellen für sehbehinderte Menschen zugänglicher zu machen.
 
 {{PreviousMenuNext("Learn_web_development/Core/Structuring_content/Mozilla_splash_page", "Learn_web_development/Core/Structuring_content/Table_accessibility", "Learn_web_development/Core/Structuring_content")}}

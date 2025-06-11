@@ -1,23 +1,23 @@
 ---
-title: Matrizenberechnung für das Web
+title: Matrizenmathematik für das Web
 slug: Web/API/WebGL_API/Matrix_math_for_the_web
 l10n:
-  sourceCommit: 14bbb5e28cc560752ed4c8e88479c4bb5d661953
+  sourceCommit: b9d83ba81dd56671d054e64978eb22c07a96912b
 ---
 
 {{DefaultAPISidebar("WebGL")}}
 
-Matrizen können verwendet werden, um Transformationen von Objekten im Raum darzustellen und sind entscheidend für viele Arten von Berechnungen bei der Erstellung von Bildern und der Visualisierung von Daten im Web. Dieser Artikel untersucht, wie Matrizen erstellt werden und wie sie mit [CSS-Transformationen](/de/docs/Web/CSS/CSS_transforms/Using_CSS_transforms) und dem `matrix3d`-Transformationstyp verwendet werden.
+Matrizen können verwendet werden, um Transformationen von Objekten im Raum darzustellen und werden für viele wichtige Berechnungen beim Erstellen von Bildern und Visualisieren von Daten im Web eingesetzt. Dieser Artikel untersucht, wie Matrizen erstellt werden und wie sie mit [CSS-Transformationen](/de/docs/Web/CSS/CSS_transforms/Using_CSS_transforms) und dem `matrix3d`-Transformationstyp verwendet werden können.
 
-Während dieser Artikel [CSS](/de/docs/Web/CSS) zur Vereinfachung der Erklärungen verwendet, sind Matrizen ein Kernelement, das von vielen verschiedenen Technologien genutzt wird, einschließlich [WebGL](/de/docs/Web/API/WebGL_API), der [WebXR](/de/docs/Web/API/WebXR_Device_API) (VR und AR) API und [GLSL-Shadern](/de/docs/Games/Techniques/3D_on_the_web/GLSL_Shaders).
+Obwohl dieser Artikel [CSS](/de/docs/Web/CSS) zur Vereinfachung der Erklärungen verwendet, sind Matrizen ein Kernkonzept, das von vielen verschiedenen Technologien genutzt wird, darunter [WebGL](/de/docs/Web/API/WebGL_API), die [WebXR](/de/docs/Web/API/WebXR_Device_API) (VR und AR) API und [GLSL Shader](/de/docs/Games/Techniques/3D_on_the_web/GLSL_Shaders).
 
 ## Transformationsmatrizen
 
-Es gibt viele Typen von Matrizen, aber die, die für uns von Interesse sind, sind die 3D-Transformationsmatrizen. Diese Matrizen bestehen aus einem Satz von 16 Werten, die in einem Raster von 4×4 angeordnet sind. In [JavaScript](/de/docs/Web/JavaScript) lässt sich eine Matrix leicht als Array darstellen.
+Es gibt viele Matrizenarten, aber die, die uns interessieren, sind die 3D-Transformationsmatrizen. Diese Matrizen bestehen aus einem Satz von 16 Werten, die in einem 4×4 Raster angeordnet sind. In [JavaScript](/de/docs/Web/JavaScript) ist es einfach, eine Matrix als Array darzustellen.
 
-Beginnen wir mit der Betrachtung der **Einheitsmatrix**. Diese ist eine spezielle Transformationsmatrix, die ähnlich wie die Zahl 1 bei der Skalarmultiplikation funktioniert; genauso wie n \* 1 = n ergibt, führt die Multiplikation einer beliebigen Matrix mit der Einheitsmatrix zu einer resultierenden Matrix, deren Werte mit der Originalmatrix übereinstimmen.
+Beginnen wir mit der Betrachtung der **Identitätsmatrix**. Dies ist eine spezielle Transformationsmatrix, die ähnlich wie die Zahl 1 bei der Skalarenmultiplikation funktioniert; genau wie n \* 1 = n, ergibt das Multiplizieren jeder Matrix mit der Identitätsmatrix eine Matrix, deren Werte mit der ursprünglichen Matrix übereinstimmen.
 
-Die Einheitsmatrix sieht in JavaScript so aus:
+Die Identitätsmatrix sieht in JavaScript so aus:
 
 ```js
 // prettier-ignore
@@ -29,9 +29,9 @@ const identityMatrix = [
 ];
 ```
 
-Wie sieht die Multiplikation mit der Einheitsmatrix aus? Das einfachste Beispiel ist die Multiplikation eines einzelnen Punktes mit der Einheitsmatrix. Da ein 3D-Punkt nur drei Werte (`x`, `y` und `z`) benötigt und die Transformationsmatrix eine 4×4-Werte-Matrix ist, müssen wir dem Punkt eine vierte Dimension hinzufügen. Diese Dimension wird konventionell als **Perspektive** bezeichnet und durch den Buchstaben `w` dargestellt. Für eine typische Position führt das Festlegen von `w` auf 1 dazu, dass die Mathematik richtig funktioniert.
+Wie sieht das Multiplizieren mit der Identitätsmatrix aus? Das einfachste Beispiel ist das Multiplizieren eines einzelnen Punktes mit der Identitätsmatrix. Da ein 3D-Punkt nur drei Werte benötigt (`x`, `y` und `z`), und die Transformationsmatrix eine 4×4-Wertematrix ist, müssen wir dem Punkt eine vierte Dimension hinzufügen. Diese Dimension wird konventionell **Perspektive** genannt und mit dem Buchstaben `w` dargestellt. Für eine typische Position führt das Setzen von `w` auf 1 dazu, dass die Mathematik aufgeht.
 
-Nach dem Hinzufügen der `w`-Komponente zum Punkt ist zu bemerken, wie sauber die Matrix und der Punkt übereinstimmen:
+Nachdem der `w`-Komponente zum Punkt hinzugefügt wurde, sehen Sie, wie sauber die Matrix und der Punkt übereinstimmen:
 
 ```js-nolint
 [1, 0, 0, 0,
@@ -42,9 +42,9 @@ Nach dem Hinzufügen der `w`-Komponente zum Punkt ist zu bemerken, wie sauber di
 [4, 3, 2, 1]; // Point at [x, y, z, w]
 ```
 
-Die `w`-Komponente hat einige zusätzliche Verwendungszwecke, die außerhalb des Geltungsbereichs dieses Artikels liegen. Sehen Sie sich den Artikel über [WebGL-Modell-View-Projektion](/de/docs/Web/API/WebGL_API/WebGL_model_view_projection) an, um zu erfahren, wie sie nützlich sein kann.
+Die `w`-Komponente hat einige zusätzliche Verwendungen, die außerhalb des Umfangs dieses Artikels liegen. Schauen Sie sich den Artikel über [WebGL Modellansicht-Projektion](/de/docs/Web/API/WebGL_API/WebGL_model_view_projection) an, um zu sehen, wie er nützlich ist.
 
-### Multiplikation einer Matrix und eines Punktes
+### Multiplizieren einer Matrix und eines Punktes
 
 In unserem Beispielcode haben wir eine Funktion definiert, um eine Matrix und einen Punkt zu multiplizieren — `multiplyMatrixAndPoint()`:
 
@@ -92,7 +92,7 @@ function multiplyMatrixAndPoint(matrix, point) {
 ```
 
 > [!NOTE]
-> Unsere Beispiele auf dieser Seite verwenden Zeilenvektoren, um Punkte darzustellen, und die Rechtsmultiplikation, um Transformationsmatrizen anzuwenden. Das bedeutet, dass `point * matrix` durchgeführt wird, wobei `point` ein 4x1-Zeilenvektor ist. Wenn Sie Spaltenvektoren und Linksmultiplikation verwenden möchten, müssen Sie die Multiplikationsfunktion entsprechend anpassen und jede unten eingeführte Matrix transponieren.
+> Unsere Beispiele auf dieser Seite verwenden Zeilenvektoren, um Punkte darzustellen, und Rechtsmultiplikation, um Transformationsmatrizen anzuwenden. Das heißt, das oben macht `point * matrix`, wobei `point` ein 4x1-Zeilenvektor ist. Wenn Sie Spaltenvektoren und Linksmultiplikation verwenden möchten, müssen Sie die Multiplikationsfunktion entsprechend anpassen und jede unten eingeführte Matrix transponieren.
 >
 > Zum Beispiel sieht die unten eingeführte [`translationMatrix`](#translationsmatrix) ursprünglich so aus:
 >
@@ -103,7 +103,7 @@ function multiplyMatrixAndPoint(matrix, point) {
 >  x, y, z, 1]
 > ```
 >
-> Nach der Transposition würde sie so aussehen:
+> Nach der Transposition sieht sie so aus:
 >
 > ```js-nolint
 > [1, 0, 0, x,
@@ -112,18 +112,18 @@ function multiplyMatrixAndPoint(matrix, point) {
 >  0, 0, 0, 1]
 > ```
 
-Nun können wir mit der oben genannten Funktion einen Punkt mit der Matrix multiplizieren. Bei der Verwendung der Einheitsmatrix sollte ein Punkt zurückgegeben werden, der identisch mit dem Original ist, da ein Punkt (oder eine andere Matrix), der mit der Einheitsmatrix multipliziert wird, immer gleich sich selbst ist:
+Nun können wir mit der obigen Funktion einen Punkt mit der Matrix multiplizieren. Bei Verwendung der Identitätsmatrix sollte sie einen Punkt zurückgeben, der mit dem ursprünglichen identisch ist, da ein Punkt (oder eine andere Matrix), multipliziert mit der Identitätsmatrix, immer sich selbst ergibt:
 
 ```js
 // sets identityResult to [4,3,2,1]
 const identityResult = multiplyMatrixAndPoint(identityMatrix, [4, 3, 2, 1]);
 ```
 
-Dass der gleiche Punkt zurückgegeben wird, ist nicht sehr nützlich, aber es gibt andere Arten von Matrizen, die nützliche Operationen auf Punkte anwenden können. Die nächsten Abschnitte werden einige dieser Matrizen demonstrieren.
+Das Zurückgeben desselben Punktes ist nicht sehr nützlich, aber es gibt andere Matrizenarten, die nützliche Operationen auf Punkten ausführen können. Die nächsten Abschnitte demonstrieren einige dieser Matrizen.
 
-### Multiplikation von zwei Matrizen
+### Zwei Matrizen multiplizieren
 
-Zusätzlich zur Multiplikation einer Matrix mit einem Punkt können Sie auch zwei Matrizen miteinander multiplizieren. Die Funktion von oben kann in diesem Prozess helfen:
+Zusätzlich zum Multiplizieren einer Matrix mit einem Punkt können Sie auch zwei Matrizen miteinander multiplizieren. Die Funktion von oben kann in diesem Prozess hilfreich wiederverwendet werden:
 
 ```js live-sample___translation_matrix_ex live-sample___scale_matrix_ex live-sample___rotation_matrix_ex live-sample___matrix_composition_ex
 // matrixB • matrixA
@@ -182,13 +182,13 @@ const someMatrixResult = multiplyMatrices(identityMatrix, someMatrix);
 ```
 
 > [!WARNING]
-> Diese Matrixfunktionen sind für die Klarheit der Erklärung geschrieben, nicht für Geschwindigkeit oder Speichermanagement. Diese Funktionen erzeugen viele neue Arrays, was bei Echtzeitoperationen aufgrund der Garbage Collection besonders teuer sein kann. In echtem Produktionscode wäre es am besten, optimierte Funktionen zu verwenden. [glMatrix](https://glmatrix.net/) ist ein Beispiel für eine Bibliothek, die sich auf Geschwindigkeit und Leistung konzentriert. Der Schwerpunkt in der glMatrix-Bibliothek liegt darauf, Zielarrays vor der Aktualisierungsschleife zuzuweisen.
+> Diese Matrixfunktionen sind für die Klarheit der Erklärung geschrieben, nicht für Geschwindigkeit oder Speicherverwaltung. Diese Funktionen erzeugen viele neue Arrays, was besonders bei Echtzeitoperationen aufgrund der Speicherbereinigung kostspielig sein kann. In echtem Produktionscode wäre es am besten, optimierte Funktionen zu verwenden. [glMatrix](https://glmatrix.net/) ist ein Beispiel für eine Bibliothek, die auf Geschwindigkeit und Leistung fokussiert ist. Der Fokus der glMatrix-Bibliothek liegt darauf, Zielarrays zu haben, die vor der Aktualisierungsschleife zugewiesen werden.
 
 ## Translationsmatrix
 
-Eine **Translationsmatrix** basiert auf der Einheitsmatrix und wird in 3D-Grafiken verwendet, um einen Punkt oder ein Objekt in eine oder mehrere der drei Richtungen (`x`, `y` und/oder `z`) zu bewegen. Die einfachste Vorstellung von einer Translation ist das Anheben einer Kaffeetasse. Die Kaffeetasse muss aufrecht gehalten und in der gleichen Position ausgerichtet sein, damit kein Kaffee verschüttet wird. Sie kann vom Tisch in die Luft und im Raum hin- und herbewegt werden.
+Eine **Translationsmatrix** basiert auf der Identitätsmatrix und wird in 3D-Grafiken verwendet, um einen Punkt oder ein Objekt in eine oder mehrere der drei Richtungen (`x`, `y` und/oder `z`) zu bewegen. Der einfachste Weg, über eine Translation nachzudenken, ist wie das Aufheben einer Kaffeetasse. Die Kaffeetasse muss aufrecht gehalten und gleich orientiert bleiben, damit kein Kaffee verschüttet wird. Sie kann in der Luft vom Tisch und herum im Raum bewegt werden.
 
-Um tatsächlich den Kaffee zu trinken, können Sie nur mit einer Translationsmatrix nichts anfangen, da Sie die Tasse kippen oder drehen müssen, um den Kaffee in den Mund zu gießen. Wir betrachten später die Art von Matrix (klug als **[Rotationsmatrix](#rotationsmatrix)** bezeichnet), die Sie dafür verwenden.
+Sie können den Kaffee nicht tatsächlich trinken, indem Sie nur eine Translationsmatrix verwenden, denn um ihn zu trinken, müssen Sie in der Lage sein, die Tasse zu kippen oder zu drehen, um den Kaffee in Ihren Mund zu gießen. Wir werden später den Matrizen-Typ (treffend **[Rotationsmatrix](#rotationsmatrix)** genannt) betrachten, den Sie dazu verwenden können.
 
 ```js live-sample___translation_matrix_ex live-sample___matrix_composition_ex
 function translate(x, y, z) {
@@ -202,11 +202,11 @@ function translate(x, y, z) {
 }
 ```
 
-Setzen Sie die Entfernungen entlang der drei Achsen an die entsprechenden Positionen in der Translationsmatrix und multiplizieren Sie diese dann mit dem Punkt oder der Matrix, die Sie durch den 3D-Raum bewegen müssen.
+Platzieren Sie die Abstände entlang der drei Achsen in den entsprechenden Positionen in der Translationsmatrix und multiplizieren Sie sie dann mit dem Punkt oder der Matrix, die Sie durch den 3D-Raum bewegen müssen.
 
-## Manipulieren des DOM mit einer Matrix
+## Manipulation des DOM mit einer Matrix
 
-Eine wirklich einfache Möglichkeit, eine Matrix zu verwenden, ist die Verwendung der CSS {{cssxref("transform-function/matrix3d","matrix3d()")}} {{cssxref("transform")}}. Zuerst richten wir ein einfaches {{htmlelement("div")}} mit etwas Inhalt ein. Der Stil wird nicht angezeigt, er ist aber auf eine feste Breite und Höhe eingestellt und auf der Seite zentriert. Das `<div>` hat einen Übergang für die Transformation gesetzt, so dass die Matrix animiert wird, was es leicht macht zu sehen, was getan wird.
+Eine wirklich einfache Möglichkeit, eine Matrix zu verwenden, ist die Verwendung der CSS {{cssxref("transform-function/matrix3d","matrix3d()")}} {{cssxref("transform")}}. Zuerst richten wir ein einfaches {{htmlelement("div")}} mit etwas Inhalt ein. Die Stilsetzung wird nicht gezeigt, aber sie ist auf eine feste Breite und Höhe gesetzt und in der Mitte der Seite zentriert. Das `<div>` hat eine Transition für die Transformation festgelegt, sodass die Matrix animiert ist, was es einfach macht zu sehen, was getan wird.
 
 ```html live-sample___translation_matrix_ex live-sample___scale_matrix_ex live-sample___rotation_matrix_ex live-sample___matrix_composition_ex
 <div class="transformable ghost">
@@ -258,7 +258,7 @@ Eine wirklich einfache Möglichkeit, eine Matrix zu verwenden, ist die Verwendun
 }
 ```
 
-Schließlich erzeugen wir für jedes Beispiel eine 4×4-Matrix und aktualisieren den Stil des `<div>`, um eine Transformation darauf anzuwenden, die auf eine `matrix3d` gesetzt ist. Beachten Sie, dass die Matrix, obwohl sie aus 4 Zeilen und 4 Spalten besteht, sich zu einer einzigen Zeile mit 16 Werten zusammenzieht. Matrizen werden in JavaScript immer in eindimensionalen Listen gespeichert.
+Schließlich werden wir für jedes Beispiel eine 4×4-Matrix generieren und dann den Stil des `<div>` aktualisieren, um eine Transformation darauf anzuwenden, die auf `matrix3d` gesetzt ist. Beachten Sie, dass, obwohl die Matrix aus 4 Zeilen und 4 Spalten besteht, sie zu einer einzelnen Zeile von 16 Werten kollabiert. Matrizen werden in JavaScript immer in eindimensionalen Listen gespeichert.
 
 ```js live-sample___translation_matrix_ex live-sample___scale_matrix_ex live-sample___rotation_matrix_ex live-sample___matrix_composition_ex
 // Create the matrix3d style property from a matrix array
@@ -273,7 +273,7 @@ function setTransform(matrix) {
 }
 ```
 
-Für ein Beispiel verwenden wir die `translate()`-Funktion aus dem [Translationsmatrix](#translationsmatrix)-Abschnitt oben, um das `<div>` um 100 Pixel nach unten und 50 Pixel nach rechts zu bewegen. Der `z`-Wert wird auf 0 gesetzt, sodass es sich nicht in die dritte Dimension bewegt.
+In einem Beispiel verwenden wir die `translate()`-Funktion aus dem Abschnitt [Translationsmatrix](#translationsmatrix), um das `<div>` 100 Pixel nach unten und 50 Pixel nach rechts zu bewegen. Der `z`-Wert wird auf 0 gesetzt, sodass es sich nicht in der dritten Dimension bewegt.
 
 ```js live-sample___translation_matrix_ex
 const translationMatrix = translate(50, 100, 0);
@@ -282,11 +282,11 @@ setTransform(translationMatrix);
 
 {{EmbedLiveSample("translation_matrix_ex", "", 350)}}
 
-## Skalierungsmatrix
+## Skalierungs-Matrix
 
-Eine **Skalierungsmatrix** vergrößert oder verkleinert ein Objekt in einer oder mehreren Dimensionen: Breite, Höhe und Tiefe. In typischen (kartesischen) Koordinaten führt dies zu einer Streckung oder Kontraktion des Objekts in den entsprechenden Richtungen.
+Eine **Skalierungs-Matrix** vergrößert oder verkleinert etwas in einer oder mehreren der drei Dimensionen: Breite, Höhe und Tiefe. In typischen (kartesischen) Koordinaten verursacht dies das Strecken oder Kontraktieren des Objekts in den entsprechenden Richtungen.
 
-Der Betrag der Änderung, der auf jede der Breite, Höhe und Tiefe angewendet werden soll, wird diagonal beginnend in der oberen linken Ecke platziert und arbeitet sich in Richtung der unteren rechten Ecke vor.
+Die Menge der Änderung, die auf jede der Breite, Höhe und Tiefe angewendet werden soll, wird diagonal beginnend in der oberen linken Ecke platziert und arbeitet sich zu den unteren rechten durch.
 
 ```js live-sample___scale_matrix_ex live-sample___matrix_composition_ex
 function scale(x, y, z) {
@@ -309,9 +309,9 @@ setTransform(scaleMatrix);
 
 ## Rotationsmatrix
 
-Eine **Rotationsmatrix** wird verwendet, um einen Punkt oder ein Objekt zu drehen. Rotationsmatrizen sehen etwas komplizierter aus als Skalierungs- und Transformationsmatrizen. Sie verwenden trigonometrische Funktionen, um die Rotation durchzuführen. Obwohl dieser Abschnitt die Schritte nicht im Detail aufschlüsseln wird (sehen Sie sich [diesen Artikel auf Wolfram MathWorld](https://mathworld.wolfram.com/RotationMatrix.html) für eine detaillierte Erklärung an), nehmen Sie dieses Beispiel zur Veranschaulichung.
+Eine **Rotationsmatrix** wird verwendet, um einen Punkt oder ein Objekt zu drehen. Rotationsmatrizen sehen etwas komplizierter aus als Skalierungs- und Transformationsmatrizen. Sie verwenden trigonometrische Funktionen, um die Drehung durchzuführen. Während dieser Abschnitt die Schritte nicht bis ins letzte Detail aufschlüsselt (siehe [diesen Artikel auf Wolfram MathWorld](https://mathworld.wolfram.com/RotationMatrix.html) für Details), dient dieses Beispiel zur Veranschaulichung.
 
-Hier ist zunächst ein Code, der einen Punkt um den Ursprung ohne Matrizen dreht.
+Zuerst hier ein Code, der einen Punkt um den Ursprung dreht, ohne Matrizen zu verwenden.
 
 ```js
 // Manually rotating a point about the origin without matrices
@@ -329,13 +329,13 @@ const transformedPoint = [
 ];
 ```
 
-Es ist möglich, diese Schritte in eine Matrix zu kodieren und sowohl für die `x-`, `y-` als auch `z`-Dimensionen zu verwenden. Hier ist eine Reihe von Funktionen, die Rotationsmatrizen für die Rotation um jede der drei Achsen zurückgeben. Eine große Anmerkung ist, dass keine Perspektive angewendet wird, sodass es vielleicht noch nicht sehr 3D erscheint. Die Flachheit ist vergleichbar damit, wenn eine Kamera wirklich nah an ein Objekt in der Ferne heranzoomt – der Sinn für Perspektive verschwindet.
+Es ist möglich, diese Art von Schritten in einer Matrix zu kodieren und dies für jede der `x`, `y` und `z` Dimensionen zu tun. Hier ist eine Reihe von Funktionen, die Rotationsmatrizen für die Rotation um jede der drei Achsen zurückgeben. Ein wichtiger Punkt ist, dass keine Perspektive angewendet wird, sodass es sich möglicherweise noch nicht sehr 3D anfühlt. Die Flachheit entspricht dem Zeitpunkt, wenn eine Kamera sehr nah an ein Objekt in der Entfernung heranzoomt — der Sinn für Perspektive verschwindet.
 
 ```js live-sample___rotation_matrix_ex live-sample___matrix_composition_ex
 const sin = Math.sin;
 const cos = Math.cos;
 
-function rotateAroundXAxis(a) {
+function rotateX(a) {
   // prettier-ignore
   return [
     1, 0, 0, 0,
@@ -345,7 +345,7 @@ function rotateAroundXAxis(a) {
   ];
 }
 
-function rotateAroundYAxis(a) {
+function rotateY(a) {
   // prettier-ignore
   return [
     cos(a), 0, sin(a), 0,
@@ -355,7 +355,7 @@ function rotateAroundYAxis(a) {
   ];
 }
 
-function rotateAroundZAxis(a) {
+function rotateZ(a) {
   // prettier-ignore
   return [
     cos(a), -sin(a), 0, 0,
@@ -367,7 +367,7 @@ function rotateAroundZAxis(a) {
 ```
 
 ```js live-sample___rotation_matrix_ex
-const rotateZMatrix = rotateAroundZAxis(Math.PI * 0.3);
+const rotateZMatrix = rotateZ(Math.PI * 0.3);
 setTransform(rotateZMatrix);
 ```
 
@@ -375,23 +375,23 @@ setTransform(rotateZMatrix);
 
 ## Matrizenkomposition
 
-Die wahre Stärke von Matrizen zeigt sich in der **Matrizenkomposition**. Wenn Matrizen einer bestimmten Klasse miteinander multipliziert werden, bewahren sie die Historie der Transformationen und sind umkehrbar. Das bedeutet, dass wenn eine Translations-, Rotations- und Skalierungsmatrix zusammen kombiniert werden und die Reihenfolge der Matrizen umgekehrt und erneut angewendet wird, die ursprünglichen Punkte zurückgegeben werden.
+Die wahre Kraft der Matrizen kommt von der **Matrizenkomposition**. Wenn Matrizen einer bestimmten Klasse miteinander multipliziert werden, bewahren sie die Geschichte der Transformationen und sind reversibel. Das bedeutet, dass wenn eine Translation, Rotation und Skalierungs-Matrix zusammen kombiniert werden, wenn die Reihenfolge der Matrizen umgekehrt und neu angewendet wird, dann die ursprünglichen Punkte zurückgegeben werden.
 
-Die Reihenfolge, in der Matrizen multipliziert werden, ist wichtig. Bei der Multiplikation von Zahlen ist sowohl a \* b = c als auch b \* a = c wahr. Zum Beispiel 3 \* 4 = 12 und 4 \* 3 = 12. In der Mathematik würden diese Zahlen als **kommutativ** beschrieben werden. Matrizen sind _nicht_ garantiert gleich, wenn die Reihenfolge geändert wird, daher sind Matrizen **nicht-kommutativ**.
+Die Reihenfolge der Matrizenmultiplikation ist wichtig. Bei der Multiplikation von Zahlen ist a \* b = c und b \* a = c sind beide wahr. Zum Beispiel 3 \* 4 = 12 und 4 \* 3 = 12. In der Mathematik würde man diese Zahlen als **kommutativ** beschreiben. Matrizen sind _nicht_ garantiert gleich, wenn die Reihenfolge geändert wird, daher sind Matrizen **nicht kommutativ**.
 
-Ein weiteres Gedankenexperiment ist, dass die Matrixmultiplikation in WebGL und CSS in umgekehrter Reihenfolge erfolgen muss, wie es intuitiv passiert. Zum Beispiel würde das Verkleinern um 80%, das Bewegen um 200 Pixel nach unten und dann das Drehen um den Ursprung um 90 Grad in etwa wie folgt im Pseudocode aussehen.
+Ein weiterer Kniff ist, dass die Matrizenmultiplikation in WebGL und CSS in der umgekehrten Reihenfolge erfolgen muss, in der die Operationen intuitiv erfolgen. Wenn man zum Beispiel etwas um 80% verkleinern, 200 Pixel nach unten bewegen und dann um den Ursprung 90 Grad drehen möchte, würde das in Pseudocode etwa so aussehen.
 
 ```plain
 transformation = rotate * translate * scale
 ```
 
-### Komponieren mehrerer Transformationen
+### Zusammensetzen mehrerer Transformationen
 
-Die Funktion, die wir verwenden werden, um unsere Matrizen zu komponieren, ist `multiplyArrayOfMatrices()`, die Teil des am Anfang dieses Artikels eingeführten Satzes von Hilfsfunktionen ist. Sie nimmt ein Array von Matrizen und multipliziert sie miteinander, wobei das Ergebnis zurückgegeben wird. In WebGL-Shader-Code ist dies in die Sprache eingebaut und der `*`-Operator kann verwendet werden.
+Die Funktion, die wir zum Zusammensetzen unserer Matrizen verwenden werden, ist `multiplyArrayOfMatrices()`, die Teil der Anfang des Artikels eingeführten Hilfsfunktionen ist. Sie nimmt ein Array von Matrizen und multipliziert sie miteinander, wobei das Ergebnis zurückgegeben wird. In WebGL-Shader-Code ist dies in die Sprache integriert und der `*`-Operator kann verwendet werden.
 
 ```js live-sample___matrix_composition_ex
 const transformMatrix = multiplyArrayOfMatrices([
-  rotateAroundZAxis(Math.PI * 0.5), // Step 3: rotate around 90 degrees
+  rotateZ(Math.PI * 0.5), // Step 3: rotate around 90 degrees
   translate(0, 200, 0), // Step 2: move down 200 pixels
   scale(0.8, 0.8, 0.8), // Step 1: scale down
 ]);
@@ -401,14 +401,14 @@ setTransform(transformMatrix);
 
 {{EmbedLiveSample("matrix_composition_ex", "", 350)}}
 
-Schließlich ein unterhaltsamer Schritt, um zu zeigen, wie Matrizen arbeiten, besteht darin, die Schritte umzukehren, um die Matrix wieder zur ursprünglichen Einheitsmatrix zu bringen.
+Schließlich, ein lustiger Schritt, um zu zeigen, wie Matrizen funktionieren, besteht darin, die Schritte umzukehren, um die Matrix zurück zur ursprünglichen Identitätsmatrix zu bringen.
 
 ```js
 const transformMatrix = multiplyArrayOfMatrices([
   scale(1.25, 1.25, 1.25), // Step 6: scale back up
   translate(0, -200, 0), // Step 5: move back up
-  rotateAroundZAxis(-Math.PI * 0.5), // Step 4: rotate back
-  rotateAroundZAxis(Math.PI * 0.5), // Step 3: rotate around 90 degrees
+  rotateZ(-Math.PI * 0.5), // Step 4: rotate back
+  rotateZ(Math.PI * 0.5), // Step 3: rotate around 90 degrees
   translate(0, 200, 0), // Step 2: move down 200 pixels
   scale(0.8, 0.8, 0.8), // Step 1: scale down
 ]);
@@ -416,6 +416,6 @@ const transformMatrix = multiplyArrayOfMatrices([
 
 ## Warum Matrizen wichtig sind
 
-Matrizen sind wichtig, weil sie eine kleine Menge von Zahlen darstellen, die ein breites Spektrum von Transformationen im Raum beschreiben können. Sie können leicht in Programmen geteilt werden. Unterschiedliche Koordinatenräume können mit Matrizen beschrieben werden, und eine gewisse Matrixmultiplikation wird einen Satz von Daten von einem Koordinatenraum in einen anderen verschieben. Matrizen behalten effektiv jeden Teil der vorherigen Transformationen, die zur Generierung verwendet wurden, in sich.
+Matrizen sind wichtig, weil sie eine kleine Menge an Zahlen darstellen, die eine Vielzahl von Transformationen im Raum beschreiben können. Sie können leicht in Programmen ausgetauscht werden. Verschiedene Koordinatensysteme können mit Matrizen beschrieben werden, und einige Matrizenmultiplikationen bewegen einen Datensatz von einem Koordinatenraum in einen anderen. Matrizen merken sich effektiv jeden Teil der vorherigen Transformationen, die zu ihrer Erzeugung verwendet wurden.
 
-Für Verwendungen in WebGL ist die Grafikkarte besonders gut darin, eine große Anzahl von Punkten im Raum mit Matrizen zu multiplizieren. Verschiedene Operationen wie das Positionieren von Punkten, das Berechnen von Beleuchtungseffekten und das Posieren von animierten Charakteren bauen alle auf diesem grundlegenden Werkzeug auf.
+Für Anwendungen in WebGL ist die Grafikkarte besonders gut darin, eine große Anzahl von Punkten im Raum mit Matrizen zu multiplizieren. Verschiedene Operationen wie das Positionieren von Punkten, das Berechnen von Licht und das Posen animierter Charaktere basieren alle auf diesem grundlegenden Werkzeug.

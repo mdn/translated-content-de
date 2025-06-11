@@ -2,10 +2,10 @@
 title: translate
 slug: Web/XML/XPath/Reference/Functions/translate
 l10n:
-  sourceCommit: 3e1b5277c6451e7d27ab628f23fb9702947a7a7b
+  sourceCommit: 636b90011532e3fd2cf9333aaf1754fdc8de7938
 ---
 
-Die Funktion `translate` wertet einen String und eine Menge von Zeichen zur Übersetzung aus und gibt den übersetzten String zurück.
+Die `translate`-Funktion wertet eine Zeichenkette und eine Menge von Zeichen, die übersetzt werden sollen, aus und gibt die übersetzte Zeichenkette zurück.
 
 ## Syntax
 
@@ -16,21 +16,21 @@ translate(string, abc, XYZ)
 ### Parameter
 
 - `string`
-  - : Der zu bewertende String.
+  - : Die Zeichenkette, die ausgewertet wird.
 - `abc`
-  - : Die Zeichenkette, deren Zeichen ersetzt werden sollen.
+  - : Die Zeichenkette aus Zeichen, die ersetzt werden soll.
 - `XYZ`
-  - : Die Zeichenkette, die zur Ersetzung verwendet wird. Das erste Zeichen in `XYZ` ersetzt jedes Vorkommen des ersten Zeichens von `abc`, das im `string` erscheint.
+  - : Die Zeichenkette der Zeichen, die zum Ersetzen verwendet werden. Das erste Zeichen in `XYZ` ersetzt jedes Auftreten des ersten Zeichens in `abc`, das in `string` erscheint.
 
 ### Rückgabewert
 
-Der übersetzte String.
+Die übersetzte Zeichenkette.
 
 ## Beschreibung
 
-XPath weist darauf hin, dass die Funktion `translate` keine ausreichende Lösung für die Groß- und Kleinschreibung in allen Sprachen darstellt. Eine zukünftige Version von XPath könnte zusätzliche Funktionen für die Groß- und Kleinschreibungsumwandlung bereitstellen.
+XPath weist darauf hin, dass die translate-Funktion keine ausreichende Lösung für die Groß-/Kleinschreibungsumwandlung in allen Sprachen ist. Eine zukünftige Version von XPath könnte zusätzliche Funktionen für die Groß-/Kleinschreibungsumwandlung bereitstellen.
 
-Dies ist jedoch derzeit die beste Annäherung an eine Funktion, die einen String in Groß- oder Kleinbuchstaben umwandeln kann.
+Jedoch ist dies derzeit das Nächste, was wir an einer Funktion haben, die eine Zeichenkette in Groß- oder Kleinbuchstaben umwandeln kann.
 
 Beispiel
 
@@ -44,7 +44,7 @@ Ausgabe
 THE QUICK BROWN FOX.
 ```
 
-- Wenn `abc` länger ist als `XYZ`, werden alle Zeichen in `abc`, die keine entsprechenden Zeichen in `XYZ` haben, entfernt.
+- Wenn `abc` länger ist als `XYZ`, werden alle Vorkommen von Zeichen in `abc`, die kein entsprechendes Zeichen in `XYZ` haben, entfernt.
 
 Beispiel
 
@@ -62,7 +62,7 @@ The quick red fdx.
 
 ## Spezifikationen
 
-[XPath 1.0 4.2](https://www.w3.org/TR/1999/REC-xpath-19991116/#function-translate)
+[XPath 1.0 4.2](https://www.w3.org/TR/xpath-10/#function-translate)
 
 ## Gecko-Unterstützung
 

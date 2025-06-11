@@ -1,13 +1,13 @@
 ---
-title: "<table>: Das Tabellenelement"
+title: "<table>: Das Table-Element"
 slug: Web/HTML/Reference/Elements/table
 l10n:
-  sourceCommit: 874ad29df9150037acb8a4a3e7550a302c90a080
+  sourceCommit: 41cf05afdfff38fb460f7cae5b9523405c842ac6
 ---
 
 {{HTMLSidebar}}
 
-Das **`<table>`** [HTML](/de/docs/Web/HTML)-Element stellt tabellarische Daten dar, das heißt, Informationen, die in einer zweidimensionalen Tabelle präsentiert werden, bestehend aus Zeilen und Spalten von Zellen, die Daten enthalten.
+Das **`<table>`** [HTML](/de/docs/Web/HTML) Element repräsentiert tabellarische Daten – Informationen, die in einer zweidimensionalen Tabelle aus Zeilen und Spalten von Zellen mit Daten dargestellt werden.
 
 {{InteractiveExample("HTML Demo: &lt;table&gt;", "tabbed-taller")}}
 
@@ -99,54 +99,54 @@ tfoot td {
 
 ## Attribute
 
-Dieses Element umfasst die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
+Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
 ### Veraltete Attribute
 
-Die folgenden Attribute sind veraltet und sollten nicht mehr verwendet werden. Sie sind hier nur aus Referenzgründen dokumentiert, um bei der Aktualisierung vorhandenen Codes zu helfen und aus historischem Interesse.
+Die folgenden Attribute sind veraltet und sollten nicht verwendet werden. Sie sind unten zur Referenz dokumentiert, um bestehenden Code zu aktualisieren oder aus historischem Interesse.
 
 - `align` {{deprecated_inline}}
 
-  - : Bestimmt die horizontale Ausrichtung der Tabelle innerhalb ihres Elternelements. Die möglichen {{Glossary("enumerated", "aufzählbaren")}} Werte sind `left`, `center` und `right`. Verwenden Sie stattdessen die CSS-Eigenschaften {{cssxref("margin-inline-start")}} und {{cssxref("margin-inline-end")}}, da dieses Attribut veraltet ist.
+  - : Spezifiziert die horizontale Ausrichtung der Tabelle innerhalb ihres Elternelements. Die möglichen {{Glossary("enumerated", "enumerierten")}} Werte sind `left`, `center` und `right`. Verwenden Sie stattdessen die {{cssxref("margin-inline-start")}} und {{cssxref("margin-inline-end")}} CSS-Eigenschaften, da dieses Attribut veraltet ist.
 
 - `bgcolor` {{deprecated_inline}}
 
-  - : Definiert die Hintergrundfarbe der Tabelle. Der Wert ist eine HTML-Farbe; entweder ein [6-stelliges hexadezimales RGB-Code](/de/docs/Web/CSS/hex-color), dem ein `#` vorangestellt ist, oder ein [Farbname](/de/docs/Web/CSS/named-color). Andere CSS-{{cssxref("color_value", "&lt;color&gt")}}-Werte werden nicht unterstützt. Verwenden Sie stattdessen die CSS-Eigenschaft {{cssxref("background-color")}}, da dieses Attribut veraltet ist.
+  - : Definiert die Hintergrundfarbe der Tabelle. Der Wert ist eine HTML-Farbe, entweder ein [6-stelliger hexadezimaler RGB-Code](/de/docs/Web/CSS/hex-color), eingeleitet durch ein `#`, oder ein [Farbbegriff](/de/docs/Web/CSS/named-color). Andere CSS {{cssxref("color_value", "&lt;color&gt;")}} Werte werden nicht unterstützt. Verwenden Sie stattdessen die {{cssxref("background-color")}} CSS-Eigenschaft, da dieses Attribut veraltet ist.
 
 - `border` {{deprecated_inline}}
 
-  - : Definiert als nicht-negative Ganzzahl (in Pixeln) die Größe des Rahmens, der die Tabelle umgibt. Wenn auf `0` gesetzt, wird das [`frame`](#frame)-Attribut auf void gesetzt. Verwenden Sie stattdessen die CSS-Eigenschaft {{cssxref("border")}}, da dieses Attribut veraltet ist.
+  - : Definiert, als nicht-negativer Ganzzahlwert (in Pixeln), die Größe des Rahmens um die Tabelle. Wenn auf `0` gesetzt, wird das [`frame`](#frame) Attribut auf void gesetzt. Verwenden Sie stattdessen die {{cssxref("border")}} CSS-Eigenschaft, da dieses Attribut veraltet ist.
 
 - `cellpadding` {{deprecated_inline}}
 
-  - : Definiert den Abstand zwischen dem Inhalt einer Zelle und ihrem Rand. Dieses Attribut ist obsolet: Verwenden Sie stattdessen die CSS-Eigenschaft {{cssxref("padding")}} auf die Elemente {{HTMLElement("th")}} und {{HTMLElement("td")}}.
+  - : Definiert den Abstand zwischen dem Inhalt einer Zelle und ihrem Rand. Dieses Attribut ist veraltet: Verwenden Sie stattdessen die {{cssxref("padding")}} CSS-Eigenschaft auf den {{HTMLElement("th")}} und {{HTMLElement("td")}} Elementen.
 
 - `cellspacing` {{deprecated_inline}}
 
-  - : Definiert die Größe des Abstands zwischen zwei Zellen. Dieses Attribut ist obsolet: Anstelle dessen setzen Sie die CSS-Eigenschaft {{cssxref("border-spacing")}} auf das `<table>`-Element. Beachten Sie, dass dies keine Wirkung hat, wenn die CSS-Eigenschaft des `<table>`-Elements {{cssxref("border-collapse")}} auf `collapse` gesetzt ist.
+  - : Definiert die Größe des Abstands zwischen zwei Zellen. Dieses Attribut ist veraltet: Verwenden Sie stattdessen die {{cssxref("border-spacing")}} CSS-Eigenschaft auf dem `<table>`-Element. Beachten Sie, dass dies keine Wirkung hat, wenn die {{cssxref("border-collapse")}} CSS-Eigenschaft des `<table>`-Elements auf `collapse` gesetzt ist.
 
 - `frame` {{deprecated_inline}}
 
-  - : Definiert, welche Seite des Rahmens rund um die Tabelle angezeigt werden muss. Die möglichen {{Glossary("enumerated", "aufzählbaren")}} Werte sind `void`, `above`, `below`, `hsides`, `vsides`, `lhs`, `rhs`, `box` und `border`. Verwenden Sie stattdessen die CSS-Eigenschaften {{cssxref("border-style")}} und {{cssxref("border-width")}}, da dieses Attribut veraltet ist.
+  - : Definiert, welche Seite des Rahmens um die Tabelle angezeigt werden muss. Die möglichen {{Glossary("enumerated", "enumerierten")}} Werte sind `void`, `above`, `below`, `hsides`, `vsides`, `lhs`, `rhs`, `box` und `border`. Verwenden Sie die {{cssxref("border-style")}} und {{cssxref("border-width")}} CSS-Eigenschaften stattdessen, da dieses Attribut veraltet ist.
 
 - `rules` {{deprecated_inline}}
 
-  - : Definiert, wo Regeln (Rahmen) in der Tabelle angezeigt werden. Die möglichen {{Glossary("enumerated", "aufzählbaren")}} Werte sind `none` (Standardwert), `groups` ({{HTMLElement("thead")}}, {{HTMLElement("tbody")}} und {{HTMLElement("tfoot")}}-Elemente), `rows` (horizontale Linien), `cols` (vertikale Linien) und `all` (Rahmen um jede Zelle). Verwenden Sie stattdessen die CSS-Eigenschaft {{cssxref("border")}} auf die entsprechenden tabellenbezogenen Elemente sowie auf das `<table>` selbst, da dieses Attribut veraltet ist.
+  - : Definiert, wo Regeln (Ränder) in der Tabelle angezeigt werden. Die möglichen {{Glossary("enumerated", "enumerierten")}} Werte sind `none` (Standardwert), `groups` ({{HTMLElement("thead")}}, {{HTMLElement("tbody")}} und {{HTMLElement("tfoot")}} Elemente), `rows` (horizontale Linien), `cols` (vertikale Linien) und `all` (Rand um jede Zelle). Verwenden Sie stattdessen die {{cssxref("border")}} CSS-Eigenschaft auf den entsprechenden tabellenbezogenen Elementen sowie auf dem `<table>` selbst, da dieses Attribut veraltet ist.
 
 - `summary` {{deprecated_inline}}
 
-  - : Definiert einen alternativen Text, der den Inhalt der Tabelle zusammenfasst. Verwenden Sie stattdessen das Element {{htmlelement("caption")}}, da dieses Attribut veraltet ist.
+  - : Definiert einen alternativen Text, der den Inhalt der Tabelle zusammenfasst. Verwenden Sie das {{htmlelement("caption")}}-Element stattdessen, da dieses Attribut veraltet ist.
 
 - `width` {{deprecated_inline}}
 
-  - : Bestimmt die Breite der Tabelle. Verwenden Sie stattdessen die CSS-Eigenschaft {{cssxref("width")}}, da dieses Attribut veraltet ist.
+  - : Spezifiziert die Breite der Tabelle. Verwenden Sie die {{cssxref("width")}} CSS-Eigenschaft stattdessen, da dieses Attribut veraltet ist.
 
     > [!NOTE]
-    > Obwohl keine HTML-Spezifikation `height` als ein `<table>`-Attribut enthält, unterstützen einige Browser eine nicht standardmäßige Interpretation von `height`. Der einheitenlose Wert legt eine minimale absolute Höhe in Pixeln fest. Wenn als Prozentwert festgelegt, bezieht sich die minimale Tabellenhöhe relativ zur Höhe des Elternelements. Verwenden Sie stattdessen die CSS-Eigenschaft {{cssxref("min-height")}}, da dieses Attribut veraltet ist.
+    > Obwohl keine HTML-Spezifikation `height` als ein `<table>`-Attribut enthält, unterstützen einige Browser eine nicht-standardmäßige Interpretation von `height`. Der wertelose Wert setzt eine minimale absolute Höhe in Pixeln. Wenn als Prozentwert festgelegt, wird die minimale Tabellenhöhe relativ zur Höhe des Elternelements angegeben. Verwenden Sie die {{cssxref("min-height")}} CSS-Eigenschaft stattdessen, da dieses Attribut veraltet ist.
 
-## Visuelles Layout von Tabelleninhalten
+## Visuelle Struktur von Tabelleneinhalten
 
-Folgende Elemente sind Teil der Tabellenstruktur:
+Die folgenden Elemente sind Teil der Tabellenstruktur:
 
 - {{HTMLElement("caption")}}
 - {{HTMLElement("thead")}}
@@ -158,75 +158,75 @@ Folgende Elemente sind Teil der Tabellenstruktur:
 - {{HTMLElement("td")}}
 - {{HTMLElement("tfoot")}}
 
-Der `<table>`-Block erzeugt einen Tabellen-Formatierungs-Kontext. Elemente innerhalb der `<table>` erzeugen rechteckige Boxen. Jede Box belegt eine Anzahl von Tabellenzellen nach folgenden Regeln:
+Die `<table>`-Box stellt einen Tabellengliederungskontext her. Elemente innerhalb der `<table>` erzeugen rechteckige Boxen. Jede Box nimmt eine Anzahl von Tabellenzellen gemäß den folgenden Regeln in Anspruch:
 
-1. Die Zeilenboxen füllen die Tabelle in der Reihenfolge des Quellcodes von oben nach unten. Jede Zeilenbox belegt eine Reihe von Zellen.
-2. Eine Zeilengruppe-Box belegt eine oder mehrere Zeilenboxen.
-3. Spaltenboxen werden in der Reihenfolge des Quellcodes nebeneinander platziert. Abhängig vom Wert des [`dir`](/de/docs/Web/HTML/Reference/Global_attributes/dir)-Attributs werden die Spalten von links nach rechts oder von rechts nach links angeordnet. Eine Spaltenbox belegt eine oder mehrere Spalten von Tabellenzellen.
-4. Eine Spaltengruppe-Box belegt eine oder mehrere Spaltenboxen.
-5. Eine Zellbox kann sich über mehrere Zeilen und Spalten erstrecken. Benutzeragenten trimmen Zellen, um sie in die verfügbare Anzahl von Zeilen und Spalten zu passen.
+1. Die Zeilenboxen füllen die Tabelle in der Reihenfolge des Quellcodes von oben nach unten. Jede Zeilenbox belegt eine Zeile von Zellen.
+2. Eine Zeilengruppenbox belegt eine oder mehrere Zeilenboxen.
+3. Spaltenboxen werden nebeneinander in der Reihenfolge des Quellcodes platziert. Abhängig vom Wert des [`dir`](/de/docs/Web/HTML/Reference/Global_attributes/dir) Attributs werden die Spalten von links nach rechts oder von rechts nach links angeordnet. Eine Spaltenbox belegt eine oder mehrere Spalten von Tabellenzellen.
+4. Eine Spaltengruppenbox belegt eine oder mehrere Spaltenboxen.
+5. Eine Zellenbox kann über mehrere Zeilen und Spalten reichen. Benutzeragenten passen die Zellen an, um in die verfügbaren Zeilen und Spalten zu passen.
 
 Tabellenzellen haben Polsterung. Boxen, die eine Tabelle bilden, haben keine Ränder.
 
 ### Tabellenschichten und Transparenz
 
-Für Styling-Zwecke können die Tabellenelemente als auf sechs übereinanderliegenden Schichten angeordnet betrachtet werden:
+Für Stilzwecke kann man sich die Tabellenelemente auf sechs übereinanderliegenden Schichten vorstellen:
 
-![Tabellenelement-Schichten](table_element_layers.png)
+![Table element layers](table_element_layers.png)
 
-Der auf einem Element in einer Schicht festgelegte Hintergrund ist nur sichtbar, wenn die darüber liegenden Schichten einen transparenten Hintergrund haben. Eine fehlende Zelle wird so gerendert, als ob eine anonyme Tabellenzellenbox diesen Platz einnahm.
+Ein Hintergrund, der auf ein Element in einer Schicht gesetzt wird, ist nur sichtbar, wenn die Schichten darüber einen transparenten Hintergrund haben. Eine fehlende Zelle wird so gerendert, als ob eine anonyme Tabellenzellenbox diesen Platz einnimmt.
 
 ## Barrierefreiheit
 
 ### Beschriftungen
 
-Das Bereitstellen eines {{HTMLElement("caption")}}-Elements, dessen Wert klar und prägnant den Zweck der Tabelle beschreibt, hilft den Menschen zu entscheiden, ob sie den Rest des Tabelleninhalts prüfen oder überspringen sollen.
+Indem man ein {{HTMLElement("caption")}}-Element bereitstellt, dessen Wert klar und prägnant den Zweck der Tabelle beschreibt, hilft es den Leuten zu entscheiden, ob sie den restlichen Tabelleninhalt überprüfen oder überspringen müssen.
 
-Dies hilft Menschen, die mit der Unterstützung von Assistenztechnologie navigieren, wie z.B. einem Bildschirmleser, Menschen, die von Sehbehinderungen betroffen sind, und Menschen mit kognitiven Problemen.
+Dies hilft Menschen, die mit Hilfstechnologie wie Bildschirmlesegeräten navigieren, Menschen mit Sehbehinderungen und Menschen mit kognitiven Bedenken.
 
-- [MDN Hinzufügen einer Beschriftung zu Ihrer Tabelle mit \<caption>](/de/docs/Learn_web_development/Core/Structuring_content/Table_accessibility#adding_a_caption_to_your_table_with_caption)
-- [Beschriftung & Zusammenfassung • Tabellen • W3C WAI Web Accessibility Tutorials](https://www.w3.org/WAI/tutorials/tables/caption-summary/)
+- [MDN Adding a caption to your table with \<caption>](/de/docs/Learn_web_development/Core/Structuring_content/Table_accessibility#adding_a_caption_to_your_table_with_caption)
+- [Caption & Summary • Tables • W3C WAI Web Accessibility Tutorials](https://www.w3.org/WAI/tutorials/tables/caption-summary/)
 
-### Reichweite von Zeilen und Spalten
+### Scoping von Zeilen und Spalten
 
-Das [`scope`](/de/docs/Web/HTML/Reference/Elements/th#scope)-Attribut auf Kopfzellen ({{HTMLElement("th")}}-Elemente) ist in einfachen Kontexten redundant, da der Umfang abgeleitet wird. Einige Assistenztechnologien könnten jedoch keine korrekten Schlüsse ziehen, daher könnte das Angeben des Kopfbereichs die Benutzererfahrungen verbessern. In komplexen Tabellen kann [`scope`](/de/docs/Web/HTML/Reference/Elements/th#scope) angegeben werden, um notwendige Informationen über die mit einem Header verbundenen Zellen bereitzustellen.
+Das [`scope`](/de/docs/Web/HTML/Reference/Elements/th#scope) Attribut bei Kopfzellen ({{HTMLElement("th")}} Elemente) ist in einfachen Kontexten überflüssig, da die Reichweite abgeleitet wird. Einige Hilfstechnologien ziehen jedoch möglicherweise keine korrekten Schlüsse, daher kann die Angabe des Kopfbereichs die Benutzererfahrung verbessern. In komplexen Tabellen kann [`scope`](/de/docs/Web/HTML/Reference/Elements/th#scope) angegeben werden, um notwendige Informationen über die mit einem Header verbundenen Zellen bereitzustellen.
 
-- [MDN Leitfaden zur Tabellen-Barrierefreiheit](/de/docs/Learn_web_development/Core/Structuring_content/Table_accessibility)
-- [Tabellen mit zwei Überschriften • Tabellen • W3C WAI Web Accessibility Tutorials](https://www.w3.org/WAI/tutorials/tables/two-headers/)
-- [Tabellen mit unregelmäßigen Überschriften • Tabellen • W3C WAI Web Accessibility Tutorials](https://www.w3.org/WAI/tutorials/tables/irregular/)
-- [H63: Attribut "scope" verwenden, um Kopfzellen und Datenzellen in Datentabellen zu assoziieren | W3C Techniken für WCAG 2.0](https://www.w3.org/TR/WCAG20-TECHS/H63.html)
+- [MDN table accessibility guide](/de/docs/Learn_web_development/Core/Structuring_content/Table_accessibility)
+- [Tables with two headers • Tables • W3C WAI Web Accessibility Tutorials](https://www.w3.org/WAI/tutorials/tables/two-headers/)
+- [Tables with irregular headers • Tables • W3C WAI Web Accessibility Tutorials](https://www.w3.org/WAI/tutorials/tables/irregular/)
+- [H63: Using the scope attribute to associate header cells and data cells in data tables | W3C Techniques for WCAG 2.0](https://www.w3.org/TR/WCAG20-TECHS/H63.html)
 
-### Komplizierte Tabellen
+### Komplexe Tabellen
 
-Assistive Technologien wie Bildschirmleser können Schwierigkeiten haben, Tabellen zu parsen, die so komplex sind, dass Kopfzellen nicht strikt horizontal oder vertikal zugeordnet werden können. Dies wird typischerweise durch das Vorhandensein der Attribute [`colspan`](/de/docs/Web/HTML/Reference/Elements/td#colspan) und [`rowspan`](/de/docs/Web/HTML/Reference/Elements/td#rowspan) angezeigt.
+Hilfstechnologien wie Bildschirmlesegeräte können Schwierigkeiten haben, Tabellen zu parsen, die so komplex sind, dass Kopfzellen nicht streng horizontal oder vertikal zugeordnet werden können. Dies wird typischerweise durch das Vorhandensein der Attribute [`colspan`](/de/docs/Web/HTML/Reference/Elements/td#colspan) und [`rowspan`](/de/docs/Web/HTML/Reference/Elements/td#rowspan) angezeigt.
 
-Idealerweise sollten alternative Wege in Betracht gezogen werden, um den Inhalt der Tabelle zu präsentieren, einschließlich der Aufteilung in eine Sammlung kleinerer, verwandter Tabellen, die nicht auf die Verwendung der Attribute [`colspan`](/de/docs/Web/HTML/Reference/Elements/td#colspan) und [`rowspan`](/de/docs/Web/HTML/Reference/Elements/td#rowspan) angewiesen sind. Dies könnte nicht nur Menschen helfen, die Assistenztechnologien verwenden, um den Inhalt der Tabelle zu verstehen, sondern auch Menschen mit kognitiven Problemen zugutekommen, die Schwierigkeiten haben könnten, die durch das Tabellendesign beschriebenen Assoziationen zu verstehen.
+Idealerweise sollten alternative Möglichkeiten in Betracht gezogen werden, um den Inhalt der Tabelle darzustellen, darunter das Aufteilen in eine Sammlung kleinerer, verwandter Tabellen, die nicht auf die Verwendung der Attribute [`colspan`](/de/docs/Web/HTML/Reference/Elements/td#colspan) und [`rowspan`](/de/docs/Web/HTML/Reference/Elements/td#rowspan) angewiesen sind. Zusätzlich zur Unterstützung von Personen, die Hilfstechnologien einsetzen, um den Tabelleninhalt zu verstehen, kann dies auch Menschen mit kognitiven Herausforderungen zugutekommen, die Schwierigkeiten haben, die durch die Tabellenlayout beschriebenen Assoziationen zu verstehen.
 
-Wenn die Tabelle nicht aufgeteilt werden kann, verwenden Sie eine Kombination der Attribute [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id) und [`headers`](/de/docs/Web/HTML/Reference/Elements/td#headers), um jede Tabellenzelle programmatisch mit dem oder den Header(s) ({{HTMLElement("th")}}-Elemente) zu assoziieren, mit denen die Zelle verbunden ist.
+Wenn die Tabelle nicht aufgeteilt werden kann, verwenden Sie eine Kombination der Attribute [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id) und [`headers`](/de/docs/Web/HTML/Reference/Elements/td#headers), um programmgesteuert jede Tabellenzelle mit der damit verbundenen(n) Kopfzelle(n) ({{HTMLElement("th")}}-Elemente) zu verknüpfen.
 
-- [MDN Leitfaden zur Tabellen-Barrierefreiheit](/de/docs/Learn_web_development/Core/Structuring_content/Table_accessibility)
-- [Tabellen mit mehrstufigen Überschriften • Tabellen • W3C WAI Web Accessibility Tutorials](https://www.w3.org/WAI/tutorials/tables/multi-level/)
-- [H43: Verwenden von id- und headers-Attributen zur Assoziation von Datenzellen mit Kopfzellen in Datentabellen | Techniken für W3C WCAG 2.0](https://www.w3.org/TR/WCAG20-TECHS/H43.html)
+- [MDN table accessibility guide](/de/docs/Learn_web_development/Core/Structuring_content/Table_accessibility)
+- [Tables with multi-level headers • Tables • W3C WAI Web Accessibility Tutorials](https://www.w3.org/WAI/tutorials/tables/multi-level/)
+- [H43: Using id and headers attributes to associate data cells with header cells in data tables | Techniques for W3C WCAG 2.0](https://www.w3.org/TR/WCAG20-TECHS/H43.html)
 
 ## Beispiele
 
-Die untenstehenden Beispiele beinhalten Tabellen mit zunehmender Komplexität. Siehe auch unseren Anfänger-["Styling tables"](/de/docs/Learn_web_development/Core/Styling_basics/Tables)-Leitfaden für Styling-Informationen über Tabellen, einschließlich gängiger, nützlicher Techniken.
+Die nachfolgenden Beispiele zeigen Tabellen von zunehmender Komplexität. Siehe auch unseren Anfänger-[Leitfaden zum Stylen von Tabellen](/de/docs/Learn_web_development/Core/Styling_basics/Tables) für Styling-Informationen einschließlich nützlicher Techniken.
 
-Da die Struktur einer `<table>` die Verwendung mehrerer tabellenbezogener HTML-Elemente sowie verschiedener zugehöriger Attribute erfordert, sind die folgenden Beispiele dazu gedacht, eine vereinfachte Erklärung zu liefern, die die Grundlagen und gängigen Standards abdeckt. Weitere und detailliertere Informationen finden Sie auf den entsprechenden verlinkten Seiten.
+Da die Struktur eines `<table>` die Verwendung mehrerer tabellenbezogener HTML-Elemente zusammen mit verschiedenen zugehörigen Attributen beinhaltet, sollen die folgenden Beispiele eine vereinfachte Erklärung bieten, die die Grundlagen und gängigen Standards abdeckt. Zusätzliche und detailliertere Informationen finden Sie auf den entsprechenden verlinkten Seiten.
 
-Diese Tabellenbeispiele demonstrieren, wie eine {{Glossary("accessibility", "barrierefreie")}} Tabelle erstellt werden kann, die mit HTML strukturiert und mit [CSS](/de/docs/Web/CSS) gestaltet wurde.
+Diese Tabellenbeispiele zeigen, wie man eine {{Glossary("accessibility", "barrierefreie")}} Tabelle erstellt, die mit HTML strukturiert und mit [CSS](/de/docs/Web/CSS) gestylt ist.
 
-Aufgrund der Struktur von HTML-Tabellen kann das {{Glossary("markup", "Markup")}} schnell wachsen. Daher ist es wichtig, den Zweck und das endgültige Erscheinungsbild der Tabelle klar zu definieren, um die geeignete Struktur zu erstellen. Eine mit {{Glossary("semantics", "semantischem")}} Markup entwickelte logische Struktur ist nicht nur einfacher zu stylen, sondern ermöglicht auch nützliche und barrierefreie Tabellen, die von jedem, einschließlich Suchmaschinen und Benutzern von Assistenztechnologien verstanden und navigiert werden können.
+Aufgrund der Struktur von HTML-Tabellen kann das {{Glossary("markup", "Markup")}} schnell anwachsen. Daher ist es wichtig, den Zweck und das endgültige Erscheinungsbild der Tabelle klar zu definieren, um die geeignete Struktur zu erstellen. Eine mit {{Glossary("semantics", "semantischem")}} Markup entwickelte logische Struktur ist nicht nur einfacher zu stylen, sondern ermöglicht nützliche und barrierefreie Tabellen, die von jedem, einschließlich Suchmaschinen und Nutzern von Hilfstechnologien, verstanden und navigiert werden können.
 
-Das erste Beispiel ist einfach, während die nachfolgenden Beispiele in ihrer Komplexität zunehmen. Zuerst werden wir eine sehr grundlegende HTML-Tabellenstruktur für die Tabelle entwickeln. Die ersten beiden Beispiele enthalten keine Tabellengruppen wie einen definierten Kopf, Körper oder Fuß und beinhalten kein Zellen-Spanning oder explizit definierte Zellbeziehungen. Es wird nicht einmal eine Beschriftung bereitgestellt. Im Verlauf der Beispiele werden sie schrittweise um alle die Tabellen-Features erweitert, die eine komplexe Datentabelle besitzen sollte.
+Das erste Beispiel ist einfach, mit den nachfolgenden Beispielen, die in der Komplexität zunehmen. Zunächst entwickeln wir eine sehr grundlegende HTML-Tabellenstruktur für die Tabelle. Die ersten beiden Beispiele enthalten keine Tabellensektionsgruppen wie einen definierten Kopf, Körper oder Fuß und beinhalten keine Zellspanne oder explizit definierte Zellbeziehungen. Nicht einmal eine Beschriftung ist gegeben. Während wir die Beispiele durcharbeiten, werden sie schrittweise erweitert, um alle Tabelleneigenschaften zu enthalten, die eine komplexe Datentabelle besitzen sollte.
 
 ### Grundlegende Tabelle
 
-Dieses Beispiel enthält eine _sehr_ grundlegende Tabelle mit drei Zeilen und zwei Spalten. Um die Standard-Browser-Tabellenstile zu demonstrieren, wurde in diesem Beispiel kein CSS hinzugefügt.
+Dieses Beispiel zeigt eine _sehr_ grundlegende Tabelle mit drei Zeilen und zwei Spalten. Um die Standard-Browser-Tabellenstile zu demonstrieren, wurde in diesem Beispiel kein CSS hinzugefügt.
 
 #### HTML
 
-Die Tabellenzeilen werden mit {{HTMLElement("tr")}}-Elementen definiert, und die Spalten werden mit Tabellenkopf- und Datenzellen innerhalb dieser definiert. Die erste Zeile enthält die Kopfzellen ({{HTMLElement("th")}}-Elemente), die als Spaltenköpfe für die Datenzellen ({{HTMLElement("td")}}-Elemente) dienen. Jedes Element ({{HTMLElement("th")}} oder {{HTMLElement("td")}}) pro Zeile befindet sich in seiner jeweiligen Spalte, das heißt, das erste Element einer Zeile befindet sich in der ersten Spalte und das zweite Element dieser Zeile in der zweiten Spalte.
+Die Tabellenzeilen werden mit {{HTMLElement("tr")}}-Elementen definiert, und die Spalten werden mit Tabellenkopf- und Datenzellen darin definiert. Die erste Zeile enthält die Kopfzellen ({{HTMLElement("th")}}-Elemente), die als Spaltenköpfe für die Datenzellen ({{HTMLElement("td")}}-Elemente) dienen. Jedes Element ({{HTMLElement("th")}} oder {{HTMLElement("td")}}) pro Zeile befindet sich in ihrer jeweiligen Spalte – das ist, das erste Element einer Zeile befindet sich in der ersten Spalte, und das zweite Element dieser Zeile ist in der zweiten Spalte.
 
 ```html
 <table>
@@ -247,17 +247,17 @@ Die Tabellenzeilen werden mit {{HTMLElement("tr")}}-Elementen definiert, und die
 
 #### Ergebnis
 
-Es gibt kein benutzerdefiniertes [CSS](/de/docs/Web/CSS) oder [Benutzer-Stylesheet](/de/docs/Web/CSS/CSS_cascade/Cascade#author_stylesheets), das auf diese Tabelle angewendet wird. Das Styling ergibt sich ausschließlich aus dem [Benutzer-Agent-Stylesheet](/de/docs/Web/CSS/CSS_cascade/Cascade#user-agent_stylesheets).
+Es gibt kein benutzerdefiniertes [CSS](/de/docs/Web/CSS) oder [Benutzer-St Stylesheet](/de/docs/Web/CSS/CSS_cascade/Cascade#author_stylesheets), das auf diese Tabelle angewendet wird. Das Styling resultiert ausschließlich aus dem [User-Agent-Stylesheet](/de/docs/Web/CSS/CSS_cascade/Cascade#user-agent_stylesheets).
 
 {{EmbedLiveSample('Basic_table', 650, 80)}}
 
 ### Erweiterte Tabelle mit Kopfzellen
 
-Dieses Beispiel erweitert die [grundlegende Tabelle](#grundlegende_tabelle), indem der Inhalt erweitert und grundlegende CSS-Stile hinzugefügt werden.
+Dieses Beispiel erweitert die [grundlegende Tabelle](#grundlegende_tabelle), erweitert den Inhalt und fügt grundlegende CSS-Stile hinzu.
 
 #### HTML
 
-Die Tabelle umfasst jetzt vier Zeilen ({{HTMLElement("tr")}}-Elemente) mit jeweils vier Spalten. Die erste Zeile ist eine Zeile von Kopfzellen (die erste Zeile enthält nur {{HTMLElement("th")}}-Elemente). Nachfolgende Zeilen enthalten eine Kopfspalte ({{HTMLElement("th")}}-Elemente als erste Kindelemente jeder Zeile) und drei Datenspalten ({{HTMLElement("td")}}-Elemente). Da keine Tabellensektionselemente verwendet werden, definiert der Browser automatisch die Inhaltsgruppenstruktur, das heißt, alle Zeilen sind im Körper der Tabelle eines impliziten {{HTMLElement("tbody")}}-Elements eingeschlossen.
+Die Tabelle besteht jetzt aus vier Zeilen ({{HTMLElement("tr")}}-Elementen), jeweils mit vier Spalten. Die erste Zeile ist eine Zeile von Kopfzellen (Die erste Zeile enthält nur {{HTMLElement("th")}}-Elemente). Nachfolgende Zeilen beinhalten eine Kopfspalte ({{HTMLElement("th")}}-Elemente als erste Kindelemente jeder Zeile) und drei Datenspalten ({{HTMLElement("td")}}-Elemente). Da Tabellensektionselemente nicht verwendet werden, definiert der Browser automatisch die Struktur der Inhaltsgruppe, d.h. alle Zeilen sind innerhalb des Körpers der Tabelle eines impliziten {{HTMLElement("tbody")}}-Elements eingeschlossen.
 
 ```html
 <table>
@@ -290,7 +290,7 @@ Die Tabelle umfasst jetzt vier Zeilen ({{HTMLElement("tr")}}-Elemente) mit jewei
 
 #### CSS
 
-Mit CSS bieten wir das grundlegende Styling, um Linien um die Komponenten der Tabelle zu erstellen, um die Datenstruktur klarer zu machen. Das CSS fügt einen soliden Rahmen um das `<table>` und um jede der Tabellenzellen hinzu, einschließlich derjenigen, die mit sowohl {{HTMLElement("th")}}- als auch {{HTMLElement("td")}}-Elementen angegeben sind, und markiert jedes Kopf- und Datenzelle.
+Mit CSS bieten wir das grundlegende Styling, um Linien um die Komponenten der Tabelle herum zu erstellen, um die Datenstruktur klarer zu machen. Das CSS fügt einen soliden Rahmen um die `<table>` und um jede der Tabellenzellen hinzu, einschließlich derer, die mit {{HTMLElement("th")}} und {{HTMLElement("td")}}-Elementen angegeben sind, wodurch jede Kopf- und Datenzelle abgegrenzt wird.
 
 ```css
 table {
@@ -307,13 +307,13 @@ td {
 
 {{EmbedLiveSample("Expanded_table_with_header_cells", 650, 110)}}
 
-### Angeben von Tabellenzellen-Beziehungen
+### Spezifizierung von Tabellenbeziehungen
 
-Bevor Sie fortfahren, um die Tabelle auf fortgeschrittenere Weise zu erweitern, ist es ratsam, die {{Glossary("accessibility", "Barrierefreiheit")}} zu verbessern, indem Beziehungen zwischen den Kopf- und Datenzellen definiert werden ({{HTMLElement("th")}}- und {{HTMLElement("td")}}-Elemente).
+Bevor die Tabelle auf erweiterte Weise erweitert wird, ist es ratsam, die {{Glossary("accessibility", "Barrierefreiheit")}} zu verbessern, indem Beziehungen zwischen den Kopf- und Datenzellen ({{HTMLElement("th")}} und {{HTMLElement("td")}}-Elementen) definiert werden.
 
 #### HTML
 
-Dies wird erreicht, indem das [`scope`](/de/docs/Web/HTML/Reference/Elements/th#scope)-Attribut auf den {{HTMLElement("th")}}-Elementen eingeführt und die Werte auf den entsprechenden `col` (Spalte)- oder `row`-Wert gesetzt werden.
+Dies wird erreicht, indem das [`scope`](/de/docs/Web/HTML/Reference/Elements/th#scope)-Attribut auf den {{HTMLElement("th")}}-Elementen eingeführt und die Werte auf die entsprechenden `col` (Spalte) oder `row` (Zeile) gesetzt werden.
 
 ```html
 <table>
@@ -344,18 +344,18 @@ Dies wird erreicht, indem das [`scope`](/de/docs/Web/HTML/Reference/Elements/th#
 </table>
 ```
 
-Das CSS und das visuelle Ergebnis bleiben unverändert – die Anpassung liefert wertvolle kontextuelle Informationen für Assistenztechnologien wie Bildschirmleser, um zu helfen, zu identifizieren, auf welche Zellen sich die Kopfzellen beziehen.
+Das CSS und das visuelle Ergebnis bleiben unverändert – die Anpassung liefert wertvolle kontextuelle Informationen für Hilfstechnologien wie Screenreader, um zu identifizieren, welche Zellen zu den Kopfzeilen gehören.
 
 > [!NOTE]
-> Wenn die Tabellenstruktur noch komplexer ist, kann die (zusätzliche) Verwendung des [`headers`](/de/docs/Web/HTML/Reference/Elements/th#headers)-Attributs auf den {{HTMLElement("th")}}- und {{HTMLElement("td")}}-Elementen die Accessibility verbessern und Assistenztechnologien helfen, die Beziehungen zwischen Zellen zu identifizieren; siehe [komplizierte Tabellen](#komplizierte_tabellen).
+> Ist die Tabellenstruktur noch komplexer, kann die (zusätzliche) Nutzung des [`headers`](/de/docs/Web/HTML/Reference/Elements/th#headers)-Attributs bei den {{HTMLElement("th")}} und {{HTMLElement("td")}}-Elementen die Zugänglichkeit verbessern und Hilfstechnologien helfen, die Beziehungen zwischen den Zellen zu identifizieren; siehe [Komplizierte Tabellen](#komplexe_tabellen).
 
-### Explizite Angabe von Tabellensektionsgruppen
+### Explizite Spezifizierung von Tabellensektionsgruppen
 
-Zusätzlich zur Verbesserung der Accessibility durch [Angeben von Zellbeziehungen](#angeben_von_tabellenzellen-beziehungen) kann die {{Glossary("semantics", "Semantik")}} der Tabelle verbessert werden, indem Tabellensektionsgruppen eingeführt werden.
+Neben der Verbesserung der Barrierefreiheit durch [Spezifizierung der Zellbeziehungen](#spezifizierung_von_tabellenbeziehungen) können die {{Glossary("semantics", "Semantiken")}} der Tabelle durch Einführung von Tabellensektionsgruppen verbessert werden.
 
 #### HTML
 
-Da die erste Zeile ({{HTMLElement("tr")}}-Element) nur Spaltenkopfzellen enthält und den Kopf für den Rest des Tabelleninhalts bereitstellt, kann sie in das {{HTMLElement("thead")}}-Element eingeschlossen werden, um diese Zeile ausdrücklich als Kopfsektion der Tabelle zu spezifizieren. Darüber hinaus kann das, was automatisch durch den Browser erledigt wird, auch explizit definiert werden – die Körpersektion der Tabelle, die die Hauptdaten der Tabelle enthält, wird spezifiziert, indem die entsprechenden Zeilen in das {{HTMLElement("tbody")}}-Element eingeschlossen werden. Die explizite Verwendung des {{HTMLElement("tbody")}}-Elements hilft dem Browser, die beabsichtigte Tabellenstruktur zu erzeugen, wodurch unerwünschte Ergebnisse vermieden werden.
+Da die erste Zeile ({{HTMLElement("tr")}}-Element) nur Spaltenkopfzellen enthält und den Kopf für den Rest der Tabelleninhalte bietet, kann sie in das {{HTMLElement("thead")}}-Element eingeschlossen werden, um explizit diese Zeile als Kopfsektion der Tabelle anzugeben. Darüber hinaus kann das, was der Browser automatisch erreicht, auch explizit definiert werden – der Körper der Tabelle, der die Hauptdaten der Tabelle enthält, wird durch das Einschließen der entsprechenden Zeilen im {{HTMLElement("tbody")}}-Element spezifiziert. Die explizite Verwendung des {{HTMLElement("tbody")}}-Elements hilft dem Browser, die beabsichtigte Tabellenstruktur zu erstellen und unerwünschte Ergebnisse zu vermeiden.
 
 ```html
 <table>
@@ -390,17 +390,17 @@ Da die erste Zeile ({{HTMLElement("tr")}}-Element) nur Spaltenkopfzellen enthäl
 </table>
 ```
 
-Erneut sind das CSS und das visuelle Ergebnis unverändert — das Spezifizieren solcher Tabellensektionsgruppen liefert wertvolle kontextuelle Informationen für Assistenztechnologien, einschließlich Bildschirmleser und Suchmaschinen, sowie für das Styling im CSS, was in einem späteren Beispiel gezeigt wird.
+Erneut bleiben das CSS und das visuelle Ergebnis unverändert – die Spezifizierung solcher Tabellensektionsgruppen liefert wertvolle kontextuelle Informationen für Hilfstechnologien, einschließlich Screenreadern und Suchmaschinen sowie für das Styling im CSS, das in einem späteren Beispiel gezeigt wird.
 
-### Spalten- und Zeilenspanning
+### Spalten- und Zeilenspannung
 
-In diesem Beispiel erweitern wir die Tabelle noch mehr, indem wir eine Spalte hinzufügen und eine mehrzeilige Kopfsektion einführen.
+In diesem Beispiel erweitern wir die Tabelle noch weiter, indem wir eine Spalte hinzufügen und eine mehrzeilige Kopfsektion einführen.
 
 #### HTML
 
-Der auf der bisherigen Tabelle aufbauend, wird eine neue Spalte für ein "Mitgliedschafts-Enddatum" in jeder Körperzeile mit dem {{HTMLElement("td")}}-Element hinzugefügt. Eine zusätzliche Zeile ({{HTMLElement("tr")}}-Element) wird auch innerhalb der Kopfsektion ({{HTMLElement("thead")}}-Element) hinzugefügt, um eine "Mitgliedschaftsdaten"-Überschrift als Kopfzeile für die "Beigetreten" und "Storniert"-Spalten einzuführen.
+Aufbauend auf der bisher erstellten Tabelle wird eine neue Spalte für ein "Mitgliedschafts-Enddatum" in jeder Körperzeile mit dem {{HTMLElement("td")}}-Element hinzugefügt. Darüber hinaus wird eine Zeile ({{HTMLElement("tr")}}-Element) innerhalb der Kopfsektion ({{HTMLElement("thead")}}-Element) hinzugefügt, um eine "Mitgliedschafts-Daten"-Kopfzeile als Überschrift für die "Beitritts-" und "Abbruch"-Spalten einzuführen.
 
-Die Erstellung der zweiten Kopfzeile umfasst das Hinzufügen der [`colspan`](/de/docs/Web/HTML/Reference/Elements/th#colspan)- und [`rowspan`](/de/docs/Web/HTML/Reference/Elements/th#rowspan)-Attribute zu den {{HTMLElement("th")}}-Elementen, um die Kopfzellen den richtigen Spalten und Zeilen zuzuordnen.
+Das Erstellen der zweiten Kopfzeile beinhaltet das Hinzufügen der Attribute [`colspan`](/de/docs/Web/HTML/Reference/Elements/th#colspan) und [`rowspan`](/de/docs/Web/HTML/Reference/Elements/th#rowspan) zu den {{HTMLElement("th")}}-Elementen, um die Kopfzellen den richtigen Spalten und Reihen zuzuordnen.
 
 ```html
 <table>
@@ -457,21 +457,21 @@ td {
 
 {{EmbedLiveSample("Column_and_row_spanning", 650, 130)}}
 
-Die Kopfsektion hat jetzt zwei Zeilen, eine mit den Kopfzellen ({{HTMLElement("th")}}-Elemente) "Name", "ID", "Mitgliedschaftsdaten" und "Saldo", und eine "Mitgliedschaftsdaten"-Kopfzeile mit zwei Unterüberschriften, die in einer zweiten Zeile stehen: "Beigetreten" und "Storniert". Dies wird erreicht durch:
+Die Kopfsektion hat jetzt zwei Zeilen, eine mit den Kopfzellen ({{HTMLElement("th")}}-Elementen) "Name", "ID", "Mitgliedschafts-Daten" und "Guthaben", und eine "Mitgliedschafts-Daten"-Kopfzeile mit zwei Unterüberschriften, die in einer zweiten Zeile sind: "Beitritt" und "Abbruch". Dies wird erreicht durch:
 
-- Die erste Zeile der Knoten "Name", "ID" und "Saldo"-Kopfzellen erstreckt sich über beide Tabellenkopfzeilen durch Verwendung des [`rowspan`](/de/docs/Web/HTML/Reference/Elements/th#rowspan)-Attributs, wodurch sie jeweils zwei Zeilen hoch sind.
-- Die erste Zeilenkopfzeile "Mitgliedschaftsdaten"-Kopfzeile erstreckt sich über zwei Spalten unter Verwendung des [`colspan`](/de/docs/Web/HTML/Reference/Elements/th#colspan)-Attributs, wodurch sie zwei Spalten breit ist.
-- Die zweite Zeile enthält nur die zwei Kopfzellen "Beigetreten" und "Storniert", da die anderen drei Spalten mit den Zellen in der ersten Zeile, die sich über zwei Zeilen erstrecken, zusammengeführt sind. Die zwei Kopfzellen sind korrekt unter der "Mitgliedschaftsdaten"-Kopfzeile positioniert.
+- Die erste Zeile's "Name", "ID", und "Guthaben" Kopfzellen spannen beide Tabellenkopfzeilen mit dem [`rowspan`](/de/docs/Web/HTML/Reference/Elements/th#rowspan)-Attribut, wodurch sie je zwei Zeilen hoch werden.
+- Die erste Zeile's "Mitgliedschafts-Daten"-Kopfzelle spannt zwei Spalten mit dem [`colspan`](/de/docs/Web/HTML/Reference/Elements/th#colspan)-Attribut, was sie zwei Spalten breit macht.
+- Die zweite Zeile enthält nur die zwei Kopfzellen "Beitritt" und "Abbruch", da die anderen drei Spalten mit den Zellen in der ersten Zeile, die zwei Zeilen spannen, verbunden sind. Die zwei Kopfzellen sind korrekt unter der "Mitgliedschafts-Daten"-Kopfzeile positioniert.
 
-### Tabellenbeschriftung und Spaltenzusammenfassung
+### Tabellenschriftzug und Spaltenübersicht
 
-Es ist eine gängige und empfehlenswerte Praxis, eine Zusammenfassung für den Inhalt der Tabelle bereitzustellen, die es den Benutzern ermöglicht, schnell die Relevanz der Tabelle zu bestimmen. Zudem wird die "Saldo"-Spalte zusammengefasst, indem die Summe der Salden der einzelnen Mitglieder angezeigt wird.
+Es ist eine übliche und empfehlenswerte Praxis, eine Zusammenfassung für den Tabelleninhalt bereitzustellen, damit Benutzer schnell die Relevanz der Tabelle bestimmen können. Darüber hinaus wird die "Guthaben"-Spalte zusammengefasst, indem die Summe der Guthaben der einzelnen Mitglieder angezeigt wird.
 
 #### HTML
 
-Eine Tabellenzusammenfassung wird hinzugefügt, indem eine [caption](#beschriftungen) ({{HTMLElement("caption")}}-Element) als erstes Kindelement der `<table>` verwendet wird. Die Beschriftung liefert die {{Glossary("accessible_description", "barrierefreie Beschreibung")}} für die Tabelle.
+Eine Tabellen-Zusammenfassung wird durch die Verwendung einer Tabellen [caption](#beschriftungen) ({{HTMLElement("caption")}}-Element) als erstes Kindelement der `<table>` hinzugefügt. Die Caption stellt die {{Glossary("accessible_description", "barrierefreie Beschreibung")}} der Tabelle bereit.
 
-Abschließend wird eine Fußsektion ({{HTMLElement("tfoot")}}-Element) unter dem Körper hinzugefügt, mit einer Zeile, die die "Saldo"-Spalte zusammenfasst, indem eine Summe angezeigt wird. Die zuvor eingeführten Elemente und Attribute werden angewendet.
+Schließlich wird ein Tabellenfußbereich ({{HTMLElement("tfoot")}}-Element) unterhalb des Körpers hinzugefügt, mit einer Zeile, die die "Guthaben"-Spalte zusammenfasst, indem eine Summe angezeigt wird. Die zuvor eingeführten Elemente und Attribute werden angewendet.
 
 ```html
 <table>
@@ -537,9 +537,9 @@ td {
 
 {{EmbedLiveSample("Table_caption_and_column_summary", 650, 180)}}
 
-### Grundlegendes Tabellenstyling
+### Grundlegendes Tabelenstyling
 
-Lassen Sie uns einen grundlegenden Stil auf die Tabelle anwenden, um die Schriftart anzupassen und eine {{cssxref("background-color")}} auf den Kopf- und Fußzeilen hinzuzufügen. Der HTML-Code bleibt diesmal unverändert, also lassen Sie uns direkt in das CSS eintauchen.
+Lassen Sie uns einen grundlegenden Stil auf die Tabelle anwenden, um die Schriftart anzupassen und einen {{cssxref("background-color")}} zu den Kopf- und Fußzeilen hinzuzufügen. Das HTML bleibt dieses Mal unverändert, also lassen Sie uns direkt in das CSS eintauchen.
 
 ```html hidden
 <table>
@@ -592,7 +592,7 @@ Lassen Sie uns einen grundlegenden Stil auf die Tabelle anwenden, um die Schrift
 
 #### CSS
 
-Während hier eine {{cssxref("font")}}-Eigenschaft auf das `<table>`-Element angewendet wird, um eine visuell ansprechendere Schriftart (oder eine abscheuliche serifenlose Schriftart, je nach Ihrer persönlichen Meinung) festzulegen, ist der interessante Teil der zweite Stil, bei dem die Elemente {{HTMLElement("tr")}}, sich innerhalb des {{HTMLElement("thead")}}- und {{HTMLElement("tfoot")}}, positionieren und eine hellblaue {{cssxref("background-color")}} hinzugefügt wird. Dies ist eine Möglichkeit, schnell eine Hintergrundfarbe auf alle Zellen in bestimmten Sektionen gleichzeitig anzuwenden.
+Während eine {{cssxref("font")}}-Eigenschaft hier auf das `<table>`-Element angewendet wird, um eine optisch ansprechendere Schriftart (oder eine, je nach persönlicher Meinung, schreckliche serifenlose Schriftart) einzustellen, ist der interessante Teil die zweite Stilregel, bei der die {{HTMLElement("tr")}}-Elemente innerhalb der {{HTMLElement("thead")}} und {{HTMLElement("tfoot")}} durch die hinzugefügte hellblaue {{cssxref("background-color")}} gestylt werden. Dies ist eine Möglichkeit, schnell einen Hintergrundfarbe auf alle Zellen in bestimmten Sektionen gleichzeitig anzuwenden.
 
 ```css
 table {
@@ -621,7 +621,7 @@ td {
 
 ### Fortgeschrittenes Tabellenstyling
 
-Jetzt gehen wir aufs Ganze, mit Stilen auf Zeilen in den Kopf- und Körperbereichen, einschließlich abwechselnder Zeilenfarben, Zellen mit unterschiedlichen Farben je nach Position innerhalb einer Zeile und so weiter. Werfen wir zuerst einen Blick auf das Ergebnis.
+Jetzt gehen wir aufs Ganze, mit Stilen sowohl für die Zeilen im Kopf- als auch im Körperbereich, einschließlich wechselnder Zeilenfarben, Zellen mit unterschiedlichen Farben in Abhängigkeit von deren Position innerhalb einer Zeile, und so weiter. Schauen wir uns zuerst das Ergebnis an.
 
 #### Ergebnis
 
@@ -629,7 +629,7 @@ So wird die endgültige Tabelle aussehen:
 
 {{EmbedLiveSample("Advanced_table_styling", 650, 210)}}
 
-Es gibt erneut keine Änderung im HTML. Sehen Sie, was richtige Vorbereitung der HTML-Struktur bewirken kann?
+Es gibt keine Änderungen am HTML erneut. Sehen Sie, was eine ordnungsgemäße Vorbereitung der HTML-Struktur erreichen kann?
 
 ```html hidden
 <table>
@@ -682,9 +682,9 @@ Es gibt erneut keine Änderung im HTML. Sehen Sie, was richtige Vorbereitung der
 
 #### CSS
 
-Das CSS ist diesmal wesentlich aufwendiger. Es ist nicht kompliziert, aber es passiert eine Menge. Lassen Sie uns das aufschlüsseln.
+Das CSS ist diesmal viel detaillierter. Es ist nicht kompliziert, aber es passiert eine Menge. Lassen Sie es uns aufschlüsseln.
 
-Hier werden die {{CSSxRef("border-collapse")}}- und {{CSSxRef("border-spacing")}}-Eigenschaften hinzugefügt, um den Abstand zwischen den Zellen zu eliminieren und die sich berührenden Rahmen zu einem einzigen Rahmen zusammenzubrechen, anstatt mit doppelten Rahmen zu enden. Darüber hinaus wird der Position der {{HTMLElement("caption")}} mit der {{CSSxRef("caption-side")}}-Eigenschaft am `bottom` der Tabelle positioniert:
+Hier werden die {{CSSxRef("border-collapse")}} und {{CSSxRef("border-spacing")}}-Eigenschaften hinzugefügt, um den Abstand zwischen den Zellen zu beseitigen und sich berührende Rahmen zu einem einzigen Rahmen statt zu doppelten zusammenzufalten. Zusätzlich wird das {{HTMLElement("caption")}} mit der {{CSSxRef("caption-side")}}-Eigenschaft am `bottom` der Tabelle positioniert:
 
 ```css
 table {
@@ -705,7 +705,7 @@ caption {
 }
 ```
 
-Als nächstes wird die {{CSSxRef("padding")}}-Eigenschaft verwendet, um allen Tabellenzellen Raum um ihren Inhalt zu geben. Die {{CSSxRef("vertical-align")}}-Eigenschaft richtet den Inhalt der Kopfzellen am `bottom` der Zelle aus, was bei den Zellen im Kopfbereich zu sehen ist, die sich über zwei Zeilen erstrecken:
+Als nächstes wird die {{CSSxRef("padding")}}-Eigenschaft verwendet, um allen Tabellenzellen Raum um ihren Inhalt zu geben. Die {{CSSxRef("vertical-align")}}-Eigenschaft richtet den Inhalt der Kopfzellen am `bottom` der Zelle aus, was bei den Zellen im Kopfbereich sichtbar wird, die zwei Zeilen spannen:
 
 ```css
 th,
@@ -719,7 +719,7 @@ th {
 }
 ```
 
-Die nächste CSS-Regel legt die {{cssxref("background-color")}} aller {{HTMLElement("tr")}}-Elemente des Tabellenkopfes (wie durch {{HTMLElement("thead")}} spezifiziert) fest. Dann wird der untere Rahmen des Kopfes auf eine zwei Pixel breite Linie gesetzt. Beachten Sie jedoch, dass wir den {{CSSxRef(":nth-of-type")}}-Selektor verwenden, um die {{CSSxRef("border-bottom")}}-Eigenschaft auf die _zweite_ Zeile im Kopf anzuwenden. Warum? Weil der Kopfbereich aus zwei Zeilen besteht, die von einigen Zellen überspannt werden. Das bedeutet, dass dort tatsächlich zwei Zeilen vorhanden sind; das Anwenden des Stils auf die erste Zeile würde nicht das erwartete Ergebnis liefern:
+Die nächste CSS-Regel legt die {{cssxref("background-color")}} aller {{HTMLElement("tr")}}-Elemente im Tabellenkopf fest (wie mit {{HTMLElement("thead")}} angegeben). Dann wird der untere Rand des Kopfs auf eine zwei Pixel breite Linie gesetzt. Beachten Sie jedoch, dass wir den {{CSSxRef(":nth-of-type")}}-Selektor verwenden, um die {{CSSxRef("border-bottom")}}-Eigenschaft auf die _zweiten_ Zeile im Kopf anzuwenden. Warum? Weil der Kopf aus zwei Zeilen besteht, die von einigen der Zellen überspannt werden. Das bedeutet, dass dort tatsächlich zwei Zeilen vorhanden sind; den Stil auf die erste Zeile anzuwenden würde uns nicht das erwartete Ergebnis bringen:
 
 ```css
 thead > tr {
@@ -731,7 +731,7 @@ thead > tr:nth-of-type(2) {
 }
 ```
 
-Lassen Sie uns die beiden Kopfzellen "Beigetreten" und "Storniert" mit grünen und roten Farbtönen stylen, um das "Gute" eines neuen Mitglieds und das "Enttäuschende" einer stornierten Mitgliedschaft zu repräsentieren. Hier tauchen wir mit dem {{CSSxRef(":last-of-type")}}-Selektor in die letzte Zeile der Kopfsektion der Tabelle ein und geben der ersten Kopfzelle darin (der "Beigetreten"-Kopfzeile) eine grünliche Farbe und der zweiten Kopfzelle darin (der "Storniert"-Kopfzeile) einen rötlichen Farbton:
+Lassen Sie uns die beiden Kopfzellen "Beitritt" und "Abbruch" mit grünen und roten Farbtönen stylen, um das "Gute" eines neuen Mitglieds und den "Wermutstropfen" einer gekündigten Mitgliedschaft zu repräsentieren. Hier graben wir in die letzte Zeile des Kopfbereichs der Tabelle mit dem {{CSSxRef(":last-of-type")}}-Selektor und geben die erste Kopfzelle darin (die "Beitritt"-Kopfzeile) eine grünliche Farbe und die zweite Kopfzelle darin (die "Abbruch"-Kopfzeile) einen rötlichen Ton:
 
 ```css
 thead > tr:last-of-type > th:nth-of-type(1) {
@@ -743,7 +743,7 @@ thead > tr:last-of-type > th:nth-of-type(2) {
 }
 ```
 
-Da die erste Spalte ebenfalls hervorgehoben werden soll, wird hier auch ein benutzerdefiniertes Styling hinzugefügt. Diese CSS-Regel stylt die erste Kopfzelle in jeder Reihe der Tabellenkörpersektion mit der {{CSSxRef("text-align")}}-Eigenschaft, um die Mitgliedernamen linksbündig auszurichten, und mit einer etwas anderen {{cssxref("background-color")}}:
+Da die erste Spalte ebenfalls auffallen sollte, wird auch hier ein benutzerdefiniertes Styling hinzugefügt. Diese CSS-Regel stylt die erste Kopfzelle in jeder Reihe des Tabellenteils mit der {{CSSxRef("text-align")}}-Eigenschaft, um die Mitgliedsnamen linksbündig auszurichten, und mit einer etwas anderen {{cssxref("background-color")}}:
 
 ```css
 tbody > tr > th:first-of-type {
@@ -752,7 +752,7 @@ tbody > tr > th:first-of-type {
 }
 ```
 
-Es ist üblich, die Lesbarkeit von Tabellendaten durch abwechselnde Zeilenfarben zu verbessern, was manchmal als "Zebra-Streifen" bezeichnet wird. Lassen Sie uns ein wenig {{cssxref("background-color")}} zu jeder geraden Zeile hinzufügen:
+Es ist üblich, die Lesbarkeit von Tabellendaten durch abwechselnde Zeilenfarben zu verbessern – dies wird manchmal als "Zebramuster" bezeichnet. Lassen Sie uns ein bisschen {{cssxref("background-color")}} auf jede gerade Zeile hinzufügen:
 
 ```css
 tbody > tr:nth-of-type(even) {
@@ -760,7 +760,7 @@ tbody > tr:nth-of-type(even) {
 }
 ```
 
-Da es Standardpraxis ist, Währungswerte in Tabellen rechtsbündig auszurichten, lassen Sie uns dies hier tun. Dies setzt einfach die {{CSSxRef("text-align")}}-Eigenschaft für das letzte {{HTMLElement("td")}} in jeder Körperreihe auf `right`:
+Da es üblich ist, Währungswerte in Tabellen rechtsbündig auszurichten, machen wir das hier. Dies setzt einfach die {{CSSxRef("text-align")}}-Eigenschaft für das letzte {{HTMLElement("td")}} in jeder Körperzeile auf `right`:
 
 ```css
 tbody > tr > td:last-of-type {
@@ -768,7 +768,7 @@ tbody > tr > td:last-of-type {
 }
 ```
 
-Schließlich wird ein ähnliches Styling wie im Kopf auch auf den Fußbereich der Tabelle angewendet, um ihn ebenfalls hervorzuheben:
+Schließlich werden einige Stile ähnlich wie der Kopf auch auf den Fußbereich der Tabelle angewendet, um ihn ebenfalls hervorzuheben:
 
 ```css
 tfoot > tr {
@@ -783,11 +783,11 @@ tfoot td {
 }
 ```
 
-### Anzeigen großer Tabellen in kleinen Räumen
+### Große Tabellen in kleinen Räumen anzeigen
 
-Ein häufiges Problem mit Tabellen im Web ist, dass sie nicht nativ sehr gut auf kleinen Bildschirmen funktionieren, wenn die Menge des Inhalts groß ist, und der Weg, um sie scrollbar zu machen, nicht offensichtlich ist, insbesondere wenn das Markup möglicherweise aus einem CMS stammt und nicht geändert werden kann, um einen Wrapper zu haben.
+Ein häufiges Problem bei Tabellen im Web ist, dass sie in kleinen Bildschirmen nicht sehr gut funktionieren, wenn die Menge an Inhalt groß ist, und die Möglichkeit, sie scrollbar zu machen, nicht offensichtlich ist, insbesondere wenn das Markup möglicherweise aus einem CMS stammt und nicht geändert werden kann, um eine Hülle zu haben.
 
-Dieses Beispiel bietet eine Möglichkeit, Tabellen in kleinen Räumen anzuzeigen. Wir haben den HTML-Inhalt ausgeblendet, da er sehr groß ist, und es an ihm nichts Besonderes gibt. Das CSS ist in diesem Beispiel nützlicher zu inspizieren.
+Dieses Beispiel bietet eine Möglichkeit, Tabellen in kleinen Räumen anzuzeigen. Wir haben den HTML-Inhalt ausgeblendet, da er sehr groß ist, und es gibt nichts Bemerkenswertes daran. Das CSS ist in diesem Beispiel nützlicher, um es zu inspizieren.
 
 ```html hidden
 <table>
@@ -989,11 +989,11 @@ Dieses Beispiel bietet eine Möglichkeit, Tabellen in kleinen Räumen anzuzeigen
 
 #### CSS
 
-Beim Betrachten dieser Styles werden Sie feststellen, dass die {{cssxref("display")}}-Eigenschaft der Tabelle auf `block` gesetzt wurde. Während dies das Scrollen ermöglicht, verliert die Tabelle etwas von ihrer Integrität, und Tabellenzellen versuchen, so klein wie möglich zu werden. Um dieses Problem zu mindern, haben wir das {{cssxref("white-space")}} auf `nowrap` für das {{HTMLElement("tbody")}} gesetzt. Dies jedoch nicht für das {{HTMLElement("thead")}}, um zu vermeiden, dass lange Titel die Spalten breiter machen, als sie zur Darstellung der Daten sein müssen.
+Beim Betrachten dieser Stile werden Sie feststellen, dass die {{cssxref("display")}}-Eigenschaft der Tabelle auf `block` gesetzt wurde. Während dies das Scrollen ermöglicht, verliert die Tabelle ein wenig von ihrer Integrität und die Tabellenzellen versuchen, so klein wie möglich zu werden. Um dieses Problem zu mildern, haben wir {{cssxref("white-space")}} auf `nowrap` auf dem {{HTMLElement("tbody")}} gesetzt. Wir tun dies jedoch nicht für das {{HTMLElement("thead")}}, um zu verhindern, dass lange Titel die Spalten breiter machen, als sie sein müssen, um die Daten anzuzeigen.
 
-Um die Tabellenspaltenüberschriften zu behalten, während nach unten gescrollt wird, haben wir die Position mit dem {{cssxref("position")}}-Wert auf sticky auf den {{HTMLElement("th")}}-Elementen gesetzt. Beachten Sie, dass wir **nicht** {{cssxref("border-collapse")}} auf `collapse` gesetzt haben, da wenn wir es tun, die Kopfzeile nicht korrekt vom Rest der Tabelle getrennt werden kann.
+Um die Tabellenüberschriften auf der Seite zu halten, während Sie nach unten scrollen, haben wir {{cssxref("position")}} auf sticky auf den {{HTMLElement("th")}}-Elementen gesetzt. Beachten Sie, dass wir **nicht** {{cssxref("border-collapse")}} auf `collapse` gesetzt haben, da die Kopfzeile sonst nicht korrekt vom Rest der Tabelle getrennt werden kann.
 
-Angesichts der Tatsache, dass die `<table>` eine feste Größe hat, ist das auf `auto` gesetzte {{cssxref("overflow")}} hier der wichtige Teil, da es die Tabelle scrollbar macht.
+Da das `<table>` eine feste Größe hat, ist das auf `auto` gesetzte {{cssxref("overflow")}} hier der wichtige Teil, da es die Tabelle scrollbar macht.
 
 ```css
 table,
@@ -1056,12 +1056,12 @@ tr:last-child td {
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
-          >Fließender Inhalt</a
+          >Flussinhalt</a
         >
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubter Inhalt</th>
+      <th scope="row">Zulässiger Inhalt</th>
       <td>
         In dieser Reihenfolge:
         <ol>
@@ -1069,7 +1069,7 @@ tr:last-child td {
           <li>null oder mehr {{HTMLElement("colgroup")}}-Elemente,</li>
           <li>ein optionales {{HTMLElement("thead")}}-Element,</li>
           <li>
-            entweder einer der folgenden:
+            eins von Folgendem:
             <ul>
               <li>null oder mehr {{HTMLElement("tbody")}}-Elemente</li>
               <li>eins oder mehr {{HTMLElement("tr")}}-Elemente</li>
@@ -1081,11 +1081,11 @@ tr:last-child td {
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl das Start- als auch das End-Tag sind obligatorisch.</td>
+      <td>Keine, sowohl das Start- als auch das End-Tag sind erforderlich.</td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte Eltern</th>
-      <td>Jedes Element, das fließenden Inhalt akzeptiert</td>
+      <th scope="row">Zulässige Eltern</th>
+      <td>Jedes Element, das Flussinhalt akzeptiert</td>
     </tr>
     <tr>
       <th scope="row">Implizite ARIA-Rolle</th>
@@ -1098,8 +1098,8 @@ tr:last-child td {
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte ARIA-Rollen</th>
-      <td>Jede</td>
+      <th scope="row">Zulässige ARIA-Rollen</th>
+      <td>Beliebig</td>
     </tr>
     <tr>
       <th scope="row">DOM-Schnittstelle</th>
@@ -1118,11 +1118,11 @@ tr:last-child td {
 
 ## Siehe auch
 
-- [Lernen: HTML Tabellen-Grundlagen](/de/docs/Learn_web_development/Core/Structuring_content/HTML_table_basics)
+- [Learn: HTML table basics](/de/docs/Learn_web_development/Core/Structuring_content/HTML_table_basics)
 - {{HTMLElement("caption")}}, {{HTMLElement("col")}}, {{HTMLElement("colgroup")}}, {{HTMLElement("tbody")}}, {{HTMLElement("td")}}, {{HTMLElement("tfoot")}}, {{HTMLElement("th")}}, {{HTMLElement("thead")}}, {{HTMLElement("tr")}}: Andere tabellenbezogene Elemente
-- {{cssxref("background-color")}}: CSS-Eigenschaft, um die Hintergrundfarbe der Tabelle zu setzen
-- {{cssxref("border")}}, {{cssxref("border-collapse")}}, {{cssxref("border-spacing")}}: CSS-Eigenschaften zur Steuerung des Erscheinungsbilds von Zellrahmen, Regeln und Rahmen
-- {{cssxref("margin")}}, {{cssxref("padding")}}: CSS-Eigenschaften zum Ausrichten der Tabelle und zum Festlegen von Abständen zum Zellinhalt
-- {{cssxref("text-align")}}: CSS-Eigenschaft zur horizontalen Ausrichtung des Inhalts von Tabellenzellen
-- {{cssxref("vertical-align")}}: CSS-Eigenschaft zur vertikalen Ausrichtung des Inhalts von Tabellenzellen
-- {{cssxref("width")}}: CSS-Eigenschaft zur Steuerung der Breite der Tabelle
+- {{cssxref("background-color")}}: CSS-Eigenschaft, um die Hintergrundfarbe der Tabelle einzustellen
+- {{cssxref("border")}}, {{cssxref("border-collapse")}}, {{cssxref("border-spacing")}}: CSS-Eigenschaften zur Kontrolle des Aussehens von Zellrahmen, Regeln und Rahmen
+- {{cssxref("margin")}}, {{cssxref("padding")}}: CSS-Eigenschaften zur Ausrichtung der Tabelle und zum Festlegen von Abständen bei Zellinhalten
+- {{cssxref("text-align")}}: CSS-Eigenschaft zur horizontalen Ausrichtung von Tabellenzellinhalten
+- {{cssxref("vertical-align")}}: CSS-Eigenschaft zur vertikalen Ausrichtung von Tabellenzellinhalten
+- {{cssxref("width")}}: CSS-Eigenschaft, um die Breite der Tabelle zu steuern

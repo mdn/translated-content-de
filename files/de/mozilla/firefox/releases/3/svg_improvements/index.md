@@ -2,17 +2,17 @@
 title: SVG-Verbesserungen in Firefox 3
 slug: Mozilla/Firefox/Releases/3/SVG_improvements
 l10n:
-  sourceCommit: e488eba036b2fee56444fd579c3759ef45ff2ca8
+  sourceCommit: 636b90011532e3fd2cf9333aaf1754fdc8de7938
 ---
 
 {{FirefoxSidebar}}
 
-Firefox 3 bietet verbesserte Unterstützung für [Scalable Vector Graphics](/de/docs/Web/SVG) (SVG) im Vergleich zu früheren Versionen von Firefox. Obwohl diese Funktionen an anderer Stelle dokumentiert sind, dient dieser Artikel als praktische Liste, damit Sie leicht feststellen können, welche Funktionen in Firefox 3 hinzugefügt wurden.
+Firefox 3 bietet eine verbesserte Unterstützung für [Scalable Vector Graphics](/de/docs/Web/SVG) (SVG) gegenüber früheren Versionen von Firefox. Auch wenn diese Funktionen an anderer Stelle dokumentiert sind, dient dieser Artikel als praktische Liste, damit Sie leicht feststellen können, welche Funktionen in Firefox 3 hinzugefügt wurden.
 
-- Das `foreignObject`-Element wird jetzt unterstützt ([Firefox-Bug 326966](https://bugzil.la/326966)). Weitere Details finden Sie in der [Spezifikation](https://www.w3.org/TR/SVG11/extend.html#ForeignObjectElement) oder im [Blogeintrag von Robert O'Callahan](https://robert.ocallahan.org/2006/06/future-is-now_20.html).
-- Unterstützung für das `pattern`-Element ([Spezifikation](https://www.w3.org/TR/SVG11/pservers.html#PatternElement))
-- Unterstützung für das `mask`-Element ([Spezifikation](https://www.w3.org/TR/SVG11/masking.html#MaskElement))
-- Unterstützung für alle SVG 1.1-Filter ([Spezifikation](https://www.w3.org/TR/SVG11/filters.html)):
+- Das [`foreignObject`](/de/docs/Web/SVG/Reference/Element/foreignObject)-Element wird jetzt unterstützt ([Firefox-Bug 326966](https://bugzil.la/326966)).
+- Das [`pattern`](/de/docs/Web/SVG/Reference/Element/pattern)-Element wird jetzt unterstützt.
+- Das [`mask`](/de/docs/Web/SVG/Reference/Element/mask)-Element wird jetzt unterstützt.
+- Unterstützung für alle SVG 1.1-[Filter](/de/docs/Web/SVG/Tutorials/SVG_from_scratch/Filter_effects) wurde hinzugefügt:
 
   - `filter`
   - `feDistantLight`
@@ -38,11 +38,11 @@ Firefox 3 bietet verbesserte Unterstützung für [Scalable Vector Graphics](/de/
   - `feTurbulence`
   - `feTile`
 
-- Die Handhabung des `<a>`-Elements in SVG hat mehrere Fehlerkorrekturen erfahren; siehe [Firefox-Bug 267664](https://bugzil.la/267664), [WebKit-Bug 268135](https://bugzil.la/268135), [WebKit-Bug 316248](https://bugzil.la/316248), [WebKit-Bug 317270](https://bugzil.la/317270) und [WebKit-Bug 320724](https://bugzil.la/320724).
+- Die Behandlung des `<a>`-Elements in SVG hat mehrere Fehlerbehebungen erhalten; siehe [Firefox-Bug 267664](https://bugzil.la/267664), [WebKit-Bug 268135](https://bugzil.la/268135), [WebKit-Bug 316248](https://bugzil.la/316248), [WebKit-Bug 317270](https://bugzil.la/317270) und [WebKit-Bug 320724](https://bugzil.la/320724).
 - Die SVG-DOM-Methoden `getNumberOfChars()`, `getComputedTextLength()`, `getSubStringLength()`, `getStartPositionOfChar()`, `getEndPositionOfChar()`, `getRotationOfChar()` und `getCharNumAtPosition()` wurden implementiert.
-- Unterstützung für das `xml:space`-Attribut ([Spezifikation](https://www.w3.org/TR/SVG/text.html#WhiteSpace))
-- Fallback für `fill`/`stroke` wird jetzt unterstützt ([Spezifikation](https://www.w3.org/TR/SVG/painting.html#SpecifyingPaint))
-- `em` und `ex` Einheiten werden jetzt zur Längenangabe unterstützt ([Firefox-Bug 305859](https://bugzil.la/305859)).
+- Das [`xml:space`](/de/docs/Web/SVG/Reference/Attribute/xml:space)-Attribut wird jetzt unterstützt.
+- Fallback-`fill`/`stroke` wird jetzt unterstützt.
+- `em`- und `ex`-Einheiten werden jetzt zur Angabe von Längen unterstützt ([Firefox-Bug 305859](https://bugzil.la/305859)).
 
 ## Siehe auch
 
