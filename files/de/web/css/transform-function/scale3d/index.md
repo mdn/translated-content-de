@@ -2,12 +2,12 @@
 title: scale3d()
 slug: Web/CSS/transform-function/scale3d
 l10n:
-  sourceCommit: 429d45679a29f386af0ddfcf2a64498843c3e1e5
+  sourceCommit: bd131092668ef80a1b6960395341755291543e1c
 ---
 
 {{CSSRef}}
 
-Die **`scale3d()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) definiert eine Transformation, die ein Element im 3D-Raum vergrößert. Da die Skalierung durch einen Vektor [sx, sy, sz] definiert ist, kann sie verschiedene Dimensionen in unterschiedlichen Maßstäben vergrößern. Ihr Ergebnis ist ein {{cssxref("&lt;transform-function&gt;")}} Datentyp.
+Die **`scale3d()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) definiert eine Transformation, die ein Element im 3D-Raum vergrößert oder verkleinert. Da die Menge der Skalierung durch einen Vektor [sx, sy, sz] definiert wird, kann sie verschiedene Dimensionen in unterschiedlichen Maßstäben verändern. Ihr Ergebnis ist ein {{cssxref("&lt;transform-function&gt;")}} Datentyp.
 
 {{InteractiveExample("CSS Demo: scale3d()")}}
 
@@ -97,13 +97,13 @@ transform: scale3d(-1.4, 0.4, 0.7);
 }
 ```
 
-Diese Skalierungstransformation wird durch einen dreidimensionalen Vektor charakterisiert. Dessen Koordinaten definieren, wie viel Skalierung in jeder Richtung vorgenommen wird. Wenn alle drei Koordinaten gleich sind, ist die Skalierung gleichmäßig (_isotrop_) und das {{Glossary("aspect_ratio", "Seitenverhältnis")}} des Elements bleibt erhalten (dies ist eine [homothetische Transformation](https://en.wikipedia.org/wiki/Homothetic_transformation)).
+Diese Skalentransformation ist durch einen dreidimensionalen Vektor gekennzeichnet. Ihre Koordinaten definieren, wie viel Skalierung in jede Richtung erfolgt. Wenn alle drei Koordinaten gleich sind, ist die Skalierung gleichmäßig (_isotropisch_) und das {{Glossary("aspect_ratio", "Seitenverhältnis")}} des Elements bleibt erhalten (dies ist eine [homothetische Transformation](https://en.wikipedia.org/wiki/Homothetic_transformation)).
 
-Wenn ein Koordinatenwert außerhalb des Bereichs \[-1, 1] liegt, wächst das Element entlang dieser Dimension; wenn sie innerhalb liegen, schrumpft es. Wenn der Wert negativ ist, führt dies zu einer [Punktspiegelung](https://en.wikipedia.org/wiki/Point_reflection) in dieser Dimension. Ein Wert von 1 hat keinen Effekt.
+Wenn ein Koordinatenwert außerhalb des Bereichs \[-1, 1] liegt, wächst das Element entlang dieser Dimension; wenn innerhalb, schrumpft es. Ist es negativ, entsteht eine [Punktspiegelung](https://en.wikipedia.org/wiki/Point_reflection) in dieser Dimension. Ein Wert von 1 hat keine Wirkung.
 
 ## Syntax
 
-Die `scale3d()` Funktion wird mit drei Werten angegeben, die die zu verwendende Skalierung in jeder Richtung repräsentieren.
+Die `scale3d()` Funktion wird mit drei Werten angegeben, die die Menge der Skalierung in jeder Richtung repräsentieren.
 
 ```css
 scale3d(sx, sy, sz)
@@ -112,11 +112,11 @@ scale3d(sx, sy, sz)
 ### Werte
 
 - `sx`
-  - : Ist eine {{cssxref("&lt;number&gt;")}}, die die Abszisse (horizontal, x-Komponente) des Skalierungsvektors darstellt.
+  - : Ist ein {{cssxref("&lt;number&gt;")}}, der die Abszisse (horizontale, x-Komponente) des Skalierungsvektors darstellt.
 - `sy`
-  - : Ist eine {{cssxref("&lt;number&gt;")}}, die die Ordinate (vertikal, y-Komponente) des Skalierungsvektors darstellt.
+  - : Ist ein {{cssxref("&lt;number&gt;")}}, der die Ordinate (vertikale, y-Komponente) des Skalierungsvektors darstellt.
 - `sz`
-  - : Ist eine {{cssxref("&lt;number&gt;")}}, die die z-Komponente des Skalierungsvektors darstellt.
+  - : Ist ein {{cssxref("&lt;number&gt;")}}, der die z-Komponente des Skalierungsvektors darstellt.
 
 <table class="standard-table">
   <thead>
@@ -130,7 +130,7 @@ scale3d(sx, sy, sz)
   <tbody>
     <tr>
       <td colspan="2">
-        Diese Transformation wird im 3D-Raum angewandt und kann nicht auf der Ebene dargestellt werden.
+        Diese Transformation gilt für den 3D-Raum und kann nicht auf der Ebene dargestellt werden.
       </td>
       <td>
         <math display="block">

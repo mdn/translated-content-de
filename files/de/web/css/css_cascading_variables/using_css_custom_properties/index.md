@@ -1,34 +1,34 @@
 ---
-title: Verwendung von benutzerdefinierten CSS-Eigenschaften (Variablen)
-short-title: Verwendung von benutzerdefinierten Eigenschaften
+title: Verwendung von CSS-Benutzereigenschaften (Variablen)
+short-title: Verwendung benutzerdefinierter Eigenschaften
 slug: Web/CSS/CSS_cascading_variables/Using_CSS_custom_properties
 l10n:
-  sourceCommit: 0dcad86763896bba7f8e1ddc30c6dfd2aa664c6b
+  sourceCommit: df4d489a68324f1da2469f5f118df8c36c9659d4
 ---
 
 {{CSSRef}}
 
-**Benutzerdefinierte Eigenschaften** (manchmal als **CSS-Variablen** oder **kaskadierende Variablen** bezeichnet) sind Entitäten, die von CSS-Autoren definiert werden und bestimmte Werte darstellen, die in einem Dokument wiederverwendet werden können. Sie werden mit der {{cssxref("@property")}} At-Regel oder durch [Syntax für benutzerdefinierte Eigenschaften](/de/docs/Web/CSS/--*) (z.B. **`--primary-color: blue;`**) gesetzt. Benutzerdefinierte Eigenschaften werden mit der CSS-Funktion {{cssxref("var", "var()")}} aufgerufen (z.B. **`color: var(--primary-color);`**).
+**Benutzereigenschaften** (manchmal auch als **CSS-Variablen** oder **kaskadierende Variablen** bezeichnet) sind von CSS-Autoren definierte Entitäten, die spezifische Werte darstellen, die in einem Dokument wiederverwendet werden sollen. Sie werden mit der {{cssxref("@property")}} At-Regel oder durch die [Syntax für benutzerdefinierte Eigenschaften](/de/docs/Web/CSS/--*) (z. B. **`--primary-color: blue;`**) festgelegt. Benutzerdefinierte Eigenschaften werden mit der CSS {{cssxref("var", "var()")}} Funktion aufgerufen (z. B. **`color: var(--primary-color);`**).
 
-Komplexe Websites haben sehr große Mengen an CSS, was oft zu vielen wiederholten CSS-Werten führt. Zum Beispiel ist es üblich, dieselbe Farbe an hunderten verschiedenen Stellen in Stylesheets zu verwenden. Wenn eine Farbe, die an vielen Stellen dupliziert wurde, geändert werden muss, ist eine Suche und Ersetzung über alle Regeln und CSS-Dateien erforderlich. Benutzerdefinierte Eigenschaften ermöglichen es, einen Wert an einer Stelle zu definieren und dann an mehreren anderen Stellen zu referenzieren, was die Arbeit erleichtert. Ein weiterer Vorteil ist die Lesbarkeit und Semantik. Zum Beispiel ist `--main-text-color` leichter zu verstehen als der hexadezimale Farbwert `#00ff00`, besonders wenn die Farbe in unterschiedlichen Kontexten verwendet wird.
+Komplexe Websites haben sehr große Mengen an CSS, was häufig zu vielen wiederholten CSS-Werten führt. Zum Beispiel ist es üblich, dieselbe Farbe an Hunderten von verschiedenen Stellen in Stylesheets zu sehen. Das Ändern einer Farbe, die an vielen Stellen dupliziert wurde, erfordert eine Suche und Ersetzung über alle Regeln und CSS-Dateien hinweg. Benutzerdefinierte Eigenschaften ermöglichen es, einen Wert an einer Stelle zu definieren und ihn dann an mehreren anderen Stellen zu referenzieren, sodass die Arbeit damit erleichtert wird. Ein weiterer Vorteil ist die Lesbarkeit und Semantik. Zum Beispiel ist `--main-text-color` einfacher zu verstehen als die Hexadezimalfarbe `#00ff00`, besonders wenn die Farbe in unterschiedlichen Kontexten verwendet wird.
 
-Benutzerdefinierte Eigenschaften, die [mit zwei Bindestrichen (`--`)](/de/docs/Web/CSS/--*) definiert werden, unterliegen der [Kaskade](/de/docs/Web/CSS/CSS_cascade/Cascade) und erben ihren Wert von ihrem Elternteil.
-Die {{cssxref("@property")}} At-Regel erlaubt mehr Kontrolle über die benutzerdefinierte Eigenschaft und lässt Sie festlegen, ob sie ihren Wert von einem Elternteil erbt, was der Anfangswert ist und welche Typbeschränkungen gelten sollen.
+Benutzereigenschaften, die [mit zwei Bindestrichen (`--`) definiert werden](/de/docs/Web/CSS/--*), unterliegen der [Kaskade](/de/docs/Web/CSS/CSS_cascade/Cascade) und übernehmen ihren Wert vom Elternteil.
+Die {{cssxref("@property")}} At-Regel ermöglicht mehr Kontrolle über die benutzerdefinierte Eigenschaft und erlaubt es Ihnen zu spezifizieren, ob sie ihren Wert von einem Elternteil erbt, was der initiale Wert ist und welche Typbeschränkungen gelten sollen.
 
 > [!NOTE]
-> Variablen funktionieren nicht innerhalb von Media Queries und Container Queries.
+> Variablen funktionieren nicht in Media Queries und Container Queries.
 > Sie können die {{cssxref("var", "var()")}} Funktion in jedem Teil eines Wertes in jeder Eigenschaft eines Elements verwenden.
-> Sie können {{cssxref("var", "var()")}} nicht für Eigenschaftsnamen, Selektoren oder andere Dinge als Eigenschaftswerte verwenden, was bedeutet, dass Sie sie nicht in einer Media Query oder Container Query verwenden können.
+> Sie können {{cssxref("var", "var()")}} nicht für Eigenschaftsnamen, Selektoren oder irgendetwas anderes als Eigenschaftswerte verwenden, was bedeutet, dass Sie es nicht in einer Media Query oder Container Query verwenden können.
 
-## Deklaration von benutzerdefinierten Eigenschaften
+## Deklaration benutzerdefinierter Eigenschaften
 
-In CSS können Sie eine benutzerdefinierte Eigenschaft entweder durch zwei Bindestriche als Präfix für den Eigenschaftsnamen oder durch Verwendung der {{cssxref("@property")}} At-Regel deklarieren.
+In CSS können Sie eine benutzerdefinierte Eigenschaft mit zwei Bindestrichen als Präfix für den Eigenschaftsnamen oder durch die Verwendung der {{cssxref("@property")}} At-Regel deklarieren.
 Die folgenden Abschnitte beschreiben, wie Sie diese beiden Methoden verwenden.
 
-### Verwendung eines Präfixes von zwei Bindestrichen (`--`)
+### Verwendung eines Präfixes aus zwei Bindestrichen (`--`)
 
-Eine benutzerdefinierte Eigenschaft, die mit zwei Bindestrichen beginnt, wird mit `--` gefolgt von dem Eigenschaftsnamen (z.B. `--my-property`) und einem Eigenschaftswert erstellt, der jeder [gültige CSS-Wert](/de/docs/Learn_web_development/Core/Styling_basics/Values_and_units) sein kann.
-Wie jede andere Eigenschaft wird sie innerhalb eines Regelsatzes geschrieben.
+Eine benutzerdefinierte Eigenschaft mit dem Präfix aus zwei Bindestrichen beginnt mit `--`, gefolgt vom Eigenschaftsnamen (z. B. `--my-property`) und einem Eigenschaftswert, der jeden [gültigen CSS-Wert](/de/docs/Learn_web_development/Core/Styling_basics/Values_and_units) darstellen kann.
+Wie jede andere Eigenschaft wird dies innerhalb eines Regelsets geschrieben.
 Das folgende Beispiel zeigt, wie eine benutzerdefinierte Eigenschaft `--main-bg-color` erstellt wird und einen [`<named-color>`](/de/docs/Web/CSS/named-color) Wert von `brown` verwendet:
 
 ```css
@@ -37,8 +37,8 @@ section {
 }
 ```
 
-Der dem Regelsatz zugegebene Selektor ([`<section>`](/de/docs/Web/HTML/Reference/Elements/section) Elemente im obigen Beispiel) definiert den Geltungsbereich, in dem die benutzerdefinierte Eigenschaft verwendet werden kann.
-Aus diesem Grund ist es gängige Praxis, benutzerdefinierte Eigenschaften auf der {{cssxref(":root")}} Pseudoklasse zu definieren, damit sie global referenziert werden können:
+Der dem Regelset gegebene Selektor (z. B. [`<section>`](/de/docs/Web/HTML/Reference/Elements/section) Elemente im obigen Beispiel) definiert den Bereich, in dem die benutzerdefinierte Eigenschaft verwendet werden kann.
+Aus diesem Grund ist es üblich, benutzerdefinierte Eigenschaften auf der {{cssxref(":root")}} Pseudoklasse zu definieren, sodass sie global referenziert werden können:
 
 ```css
 :root {
@@ -46,15 +46,15 @@ Aus diesem Grund ist es gängige Praxis, benutzerdefinierte Eigenschaften auf de
 }
 ```
 
-Das muss nicht immer der Fall sein: Sie könnten einen guten Grund dafür haben, den Geltungsbereich Ihrer benutzerdefinierten Eigenschaften einzuschränken.
+Das muss jedoch nicht immer der Fall sein: Es gibt möglicherweise gute Gründe, den Bereich Ihrer benutzerdefinierten Eigenschaften zu begrenzen.
 
 > [!NOTE]
-> Namen von benutzerdefinierten Eigenschaften sind groß/klein-schreibungssensitiv — `--my-color` wird als separate benutzerdefinierte Eigenschaft zu `--My-color` behandelt.
+> Namen für benutzerdefinierte Eigenschaften sind case-sensitive — `--my-color` wird als eine separate benutzerdefinierte Eigenschaft zu `--My-color` behandelt.
 
 ### Verwendung der `@property` At-Regel
 
-Die {{cssxref("@property")}} At-Regel erlaubt es Ihnen, bei der Definition einer benutzerdefinierten Eigenschaft ausdrucksstärker zu sein, indem Sie die Möglichkeit haben, einen Typ mit der Eigenschaft zu verknüpfen, Standardwerte festzulegen und die Vererbung zu kontrollieren.
-Das folgende Beispiel erstellt eine benutzerdefinierte Eigenschaft namens `--logo-color`, die erwartet, dass ein [`<color>`](/de/docs/Web/CSS/color_value):
+Die {{cssxref("@property")}} At-Regel ermöglicht es Ihnen, die Definition einer benutzerdefinierten Eigenschaft ausdrucksstärker zu gestalten, indem sie die Möglichkeit bietet, einen Typ mit der Eigenschaft zu verknüpfen, Standardwerte festzulegen und die Vererbung zu steuern.
+Das folgende Beispiel erstellt eine benutzerdefinierte Eigenschaft namens `--logo-color`, die einen [`<color>`](/de/docs/Web/CSS/color_value) erwartet:
 
 ```css
 @property --logo-color {
@@ -64,12 +64,12 @@ Das folgende Beispiel erstellt eine benutzerdefinierte Eigenschaft namens `--log
 }
 ```
 
-Wenn Sie benutzerdefinierte Eigenschaften in JavaScript statt direkt in CSS definieren oder bearbeiten möchten, gibt es eine entsprechende API für diesen Zweck.
-Wie das funktioniert, können Sie auf der Seite [CSS Properties and Values API](/de/docs/Web/API/CSS_Properties_and_Values_API) nachlesen.
+Wenn Sie benutzerdefinierte Eigenschaften in JavaScript statt direkt in CSS definieren oder bearbeiten möchten, gibt es für diesen Zweck eine entsprechende API.
+Wie das funktioniert, erfahren Sie auf der Seite zur [CSS Properties and Values API](/de/docs/Web/API/CSS_Properties_and_Values_API).
 
-### Referenzierung von benutzerdefinierten Eigenschaften mit `var()`
+### Referenzierung benutzerdefinierter Eigenschaften mit `var()`
 
-Unabhängig davon, welche Methode Sie zur Definition einer benutzerdefinierten Eigenschaft wählen, verwenden Sie sie, indem Sie die Eigenschaft in einer {{cssxref("var", "var()")}} Funktion anstelle eines Standardwertes referenzieren:
+Unabhängig davon, welche Methode Sie zur Definition einer benutzerdefinierten Eigenschaft wählen, verwenden Sie sie durch Referenzierung der Eigenschaft in einer {{cssxref("var", "var()")}} Funktion anstelle eines standardmäßigen Eigenschaftswerts:
 
 ```css
 details {
@@ -79,8 +79,8 @@ details {
 
 ## Erste Schritte mit benutzerdefinierten Eigenschaften
 
-Beginnen wir mit etwas HTML, das wir gerne stylen würden.
-Es gibt ein `<div>`, das als Container fungiert und einige untergeordnete Elemente enthält, einige mit verschachtelten Elementen:
+Beginnen wir mit etwas HTML, das wir mit einigen Stilen versehen möchten.
+Es gibt ein `<div>`, das als Container dient und einige Kindelemente umfasst, von denen einige verschachtelte Elemente haben:
 
 ```html
 <div class="container">
@@ -98,12 +98,14 @@ Es gibt ein `<div>`, das als Container fungiert und einige untergeordnete Elemen
 </div>
 ```
 
-Wir werden das folgende CSS verwenden, um einige verschiedene Elemente basierend auf ihren Klassen zu stylen (einige Layout-Regeln sind unten nicht gezeigt, damit wir uns auf Farben konzentrieren können).
-Abhängig von ihren Klassen geben wir den Elementen Hintergrundfarben von `cornflowerblue` oder `aquamarine`:
+Wir verwenden das folgende CSS, um einige verschiedene Elemente basierend auf ihren Klassen zu stylen (einige Layoutregeln werden hier nicht angezeigt, damit wir uns auf die Farben konzentrieren können).
+Je nach ihren Klassen geben wir den Elementen `teal` oder `pink` Hintergrundfarben:
 
 ```css hidden
 /* Set fonts, borders and padding */
-body {
+body,
+textarea,
+::placeholder {
   font-family: sans-serif;
   color: white;
 }
@@ -125,90 +127,95 @@ textarea {
 ```css
 /* For each class, set some colors */
 .one {
-  background-color: cornflowerblue;
+  background-color: teal;
 }
+
 .two {
   color: black;
-  background-color: aquamarine;
+  background-color: pink;
 }
+
 .three {
-  background-color: cornflowerblue;
+  color: white;
+  background-color: teal;
 }
+
 .four {
-  background-color: cornflowerblue;
+  background-color: teal;
 }
+
 .five {
-  background-color: cornflowerblue;
+  background-color: teal;
 }
 ```
 
-Dies führt zu folgendem Ergebnis:
+Dies ergibt folgendes Ergebnis:
 
 {{EmbedLiveSample("First_steps_with_custom_properties",600,360)}}
 
 Es gibt die Möglichkeit, benutzerdefinierte Eigenschaften zu verwenden, um sich wiederholende Werte in diesen Regeln zu ersetzen.
-Nachdem `--main-bg-color` im `.container`-Bereich definiert und sein Wert an mehreren Stellen referenziert wurde, sehen die aktualisierten Stile so aus:
+Nachdem `--main-bg-color` im Bereich der `.container` definiert und dessen Wert an mehreren Stellen referenziert wird, sehen die aktualisierten Stile so aus:
 
 ```css
 /* Define --main-bg-color here */
 .container {
-  --main-bg-color: cornflowerblue;
+  --main-bg-color: teal;
 }
 
 /* For each class, set some colors */
 .one {
   background-color: var(--main-bg-color);
 }
+
 .two {
   color: black;
-  background-color: aquamarine;
+  background-color: pink;
 }
+
 .three {
+  color: white;
   background-color: var(--main-bg-color);
 }
+
 .four {
   background-color: var(--main-bg-color);
 }
+
 .five {
   background-color: var(--main-bg-color);
 }
 ```
 
-## Verwendung der :root-Pseudoklasse
+## Verwendung der :root Pseudoklasse
 
-Für einige CSS-Deklarationen ist es möglich, diese weiter oben in der Kaskade zu deklarieren und die CSS-Vererbung dieses Problem lösen zu lassen. Bei nicht-trivialen Projekten ist dies nicht immer möglich. Durch die Deklaration einer benutzerdefinierten Eigenschaft auf der {{cssxref(":root")}} Pseudoklasse und ihre Verwendung, wo sie im Dokument benötigt wird, kann ein CSS-Autor die Notwendigkeit zur Wiederholung reduzieren:
+Für einige CSS-Deklarationen ist es möglich, dies höher in der Kaskade zu deklarieren und CSS-Vererbung dieses Problem lösen zu lassen. Für nicht-triviale Projekte ist dies nicht immer möglich. Durch die Deklaration einer benutzerdefinierten Eigenschaft auf der {{cssxref(":root")}} Pseudoklasse und deren Verwendung dort, wo sie im Dokument benötigt wird, kann ein CSS-Autor die Notwendigkeit der Wiederholung reduzieren:
 
 ```css
 /* Define --main-bg-color here */
 :root {
-  --main-bg-color: cornflowerblue;
+  --main-bg-color: teal;
 }
 
 /* For each class, set some colors */
-.one {
-  background-color: var(--main-bg-color);
-}
-.two {
-  color: black;
-  background-color: aquamarine;
-}
-.three {
-  background-color: var(--main-bg-color);
-}
-.four {
-  background-color: var(--main-bg-color);
-}
+.one,
+.three,
+.four,
 .five {
   background-color: var(--main-bg-color);
 }
+
+.two {
+  color: black;
+  background-color: pink;
+}
 ```
 
-Dies führt zu demselben Ergebnis wie das vorherige Beispiel, ermöglicht jedoch eine einzige kanonische Deklaration des gewünschten Eigenschaftswerts (`--main-bg-color: cornflowerblue;`), was sehr nützlich ist, wenn Sie den Wert später im gesamten Projekt ändern möchten.
+Dies führt zum gleichen Ergebnis wie das vorhergehende Beispiel, erlaubt jedoch eine kanonische Deklaration des gewünschten Eigenschaftswerts (`--main-bg-color: teal;`), was sehr nützlich ist, wenn Sie den Wert später im gesamten Projekt ändern möchten.
 
 ## Vererbung von benutzerdefinierten Eigenschaften
 
-Eine benutzerdefinierte Eigenschaft, die mit zwei Bindestrichen `--` statt `@property` definiert ist, erbt immer den Wert ihres Elternteils.
-Dies wird im folgenden Beispiel gezeigt:
+Eine benutzerdefinierte Eigenschaft, die mit zwei Bindestrichen `--` anstelle von `@property` definiert wird, erbt immer den Wert ihres Elternteils.
+Dies wird im folgenden Beispiel demonstriert:
 
 ```html live-sample___dash-custom-property-inheritance
 <div class="one">
@@ -241,14 +248,17 @@ p {
 }
 
 .two {
+  color: white;
   height: 80%;
 }
 
 .three {
+  color: black;
   height: 40%;
 }
 
 .four {
+  color: white;
   height: 40%;
 }
 ```
@@ -259,35 +269,36 @@ div {
 }
 
 .two {
-  --box-color: cornflowerblue;
+  --box-color: teal;
 }
 
 .three {
-  --box-color: aquamarine;
+  --box-color: pink;
 }
 ```
 
 {{embedlivesample("dash-custom-property-inheritance", "100%", "280px")}}
 
-Die Ergebnisse von `var(--box-color)` abhängig von der Vererbung sind wie folgt:
+Die Ergebnisse von `var(--box-color)` in Abhängigkeit von der Vererbung sind wie folgt:
 
 - `class="one"`: _ungültiger Wert_, was der Standardwert einer auf diese Weise definierten benutzerdefinierten Eigenschaft ist
-- `class="two"`: `cornflowerblue`
-- `class="three"`: `aquamarine`
-- `class="four"`: `cornflowerblue` (vom Elternteil geerbt)
+- `class="two"`: `teal`
+- `class="three"`: `pink`
+- `class="four"`: `teal` (geerbt von ihrem Elternteil)
 
-Ein Aspekt von benutzerdefinierten Eigenschaften, den die obigen Beispiele demonstrieren, ist, dass sie sich nicht genau wie Variablen in anderen Programmiersprachen verhalten.
-Der Wert wird dort berechnet, wo er benötigt wird, nicht gespeichert und an anderen Stellen eines Stylesheets wiederverwendet.
-Zum Beispiel können Sie nicht den Wert einer Eigenschaft festlegen und erwarten, den Wert in einer Regel eines Geschwisters oder Nachkommen abzurufen.
-Die Eigenschaft wird nur für den passenden Selektor und seine Nachkommen gesetzt.
+Ein Aspekt von benutzerdefinierten Eigenschaften, den die obigen Beispiele zeigen, ist, dass sie sich nicht genau wie Variablen in anderen Programmiersprachen verhalten.
+Der Wert wird dort berechnet, wo er benötigt wird und nicht gespeichert und an anderen Stellen eines Stylesheets wiederverwendet.
+Zum Beispiel können Sie nicht den Wert einer Eigenschaft setzen und erwarten, den Wert in einer Regel eines Geschwisterelements zu erhalten.
+Die Eigenschaft ist nur für den übereinstimmenden Selektor und seine Nachkommen gesetzt.
 
-### Verwendung von `@property` zur Steuerung der Vererbung
+### Verwendung von `@property`, um die Vererbung zu steuern
 
 Die `@property` At-Regel lässt Sie explizit festlegen, ob die Eigenschaft vererbt wird oder nicht.
-Das folgende Beispiel erstellt eine benutzerdefinierte Eigenschaft mit der `@property` At-Regel. Die Vererbung ist deaktiviert, es ist ein [`<color>`](/de/docs/Web/CSS/color_value) Datentyp definiert und ein Anfangswert von `cornflowerblue`.
+Das folgende Beispiel erstellt eine benutzerdefinierte Eigenschaft mit der `@property` At-Regel.
+Die Vererbung ist deaktiviert, ein [`<color>`](/de/docs/Web/CSS/color_value) Datentyp ist definiert und ein Anfangswert von `teal` ist festgelegt.
 
 Das Elternelement setzt `--box-color` auf einen Wert von `green` und verwendet `--box-color` als Wert für seine Hintergrundfarbe.
-Das Kindelement verwendet ebenfalls `background-color: var(--box-color)`, und wir würden erwarten, dass es die Farbe `green` hat, wenn die Vererbung aktiviert wäre (oder wenn es mit der Doppeldash-Syntax definiert worden wäre).
+Das Kindelement verwendet auch `background-color: var(--box-color)`, und man würde erwarten, dass es die Farbe `green` hat, wenn die Vererbung aktiviert ist (oder wenn es mit der Doppelt-Bindestrich-Syntax definiert wird).
 
 ```html live-sample___at-property-inheritance
 <div class="parent">
@@ -315,7 +326,7 @@ div {
 @property --box-color {
   syntax: "<color>";
   inherits: false;
-  initial-value: cornflowerblue;
+  initial-value: teal;
 }
 
 .parent {
@@ -330,24 +341,24 @@ div {
 }
 ```
 
-Da `inherits: false;` in der At-Regel gesetzt ist und ein Wert für die `--box-color`-Eigenschaft innerhalb des `.child` Bereichs nicht deklariert ist, wird der Anfangswert von `cornflowerblue` anstelle von `green` verwendet, der vom Elternteil geerbt worden wäre:
+Weil `inherits: false;` in der At-Regel gesetzt ist und ein Wert für die `--box-color` Eigenschaft nicht im `.child` Bereich deklariert ist, wird der Anfangswert `teal` verwendet statt `green`, das vom Elternteil geerbt worden wäre:
 
 {{embedlivesample("at-property-inheritance", "100%", "250px")}}
 
 ## Fallback-Werte für benutzerdefinierte Eigenschaften
 
-Sie können Fallback-Werte für benutzerdefinierte Eigenschaften mit der `var()` Funktion und dem `initial-value` der `@property`-At-Regel definieren.
+Sie können Fallback-Werte für benutzerdefinierte Eigenschaften mit der `var()` Funktion und dem `initial-value` der `@property` At-Regel definieren.
 
 > [!NOTE]
-> Fallback-Werte werden nicht verwendet, um Kompatibilitätsprobleme zu beheben, wenn CSS-Benutzerdefinierte Eigenschaften nicht unterstützt werden, da der Fallback-Wert in diesem Fall nicht hilft.
-> Fallbacks decken den Fall ab, in dem der Browser CSS-Benutzerdefinierte Eigenschaften unterstützt und in der Lage ist, einen anderen Wert zu verwenden, wenn die gewünschte Variable noch nicht definiert ist oder einen ungültigen Wert hat.
+> Fallback-Werte werden nicht zur Behebung von Kompatibilitätsproblemen verwendet, wenn CSS-Benutzereigenschaften nicht unterstützt werden, da der Fallback-Wert hierbei nicht helfen würde.
+> Fallbacks decken den Fall ab, in dem der Browser CSS-Benutzereigenschaften unterstützt und in der Lage ist, einen anderen Wert zu verwenden, falls die gewünschte Variable noch nicht definiert oder ungültig ist.
 
 ### Definition von Fallbacks in der `var()` Funktion
 
-Mit der [`var()`](/de/docs/Web/CSS/var) Funktion können Sie mehrere **Fallback-Werte** definieren, wenn die gegebene Variable noch nicht definiert ist; dies kann nützlich sein, wenn Sie mit [Custom Elements](/de/docs/Web/API/Web_components/Using_custom_elements) und [Shadow DOM](/de/docs/Web/API/Web_components/Using_shadow_DOM) arbeiten.
+Mit der [`var()`](/de/docs/Web/CSS/var) Funktion können Sie mehrere **Fallback-Werte** definieren, wenn die angegebene Variable noch nicht definiert ist; dies kann nützlich sein, wenn Sie mit [Custom Elements](/de/docs/Web/API/Web_components/Using_custom_elements) und [Shadow DOM](/de/docs/Web/API/Web_components/Using_shadow_DOM) arbeiten.
 
 Das erste Argument der Funktion ist der Name der benutzerdefinierten Eigenschaft. Das zweite Argument der Funktion ist ein optionaler Fallback-Wert, der als Ersatzwert verwendet wird, wenn die referenzierte benutzerdefinierte Eigenschaft ungültig ist.
-Die Funktion akzeptiert zwei Parameter, wobei alles, was dem ersten Komma folgt, als zweiter Parameter zugewiesen wird. Wenn der zweite Parameter ungültig ist, schlägt der Fallback fehl. Zum Beispiel:
+Die Funktion akzeptiert zwei Parameter und weist alles nach dem ersten Komma dem zweiten Parameter zu. Wenn der zweite Parameter ungültig ist, schlägt der Fallback fehl. Zum Beispiel:
 
 ```css
 .one {
@@ -366,38 +377,38 @@ Die Funktion akzeptiert zwei Parameter, wobei alles, was dem ersten Komma folgt,
 }
 ```
 
-Das Einfügen einer benutzerdefinierten Eigenschaft als Fallback, wie im zweiten Beispiel oben (`var(--my-var, var(--my-background, pink))`), ist der richtige Weg, um mehr als einen Fallback mit `var()` bereitzustellen.
-Sie sollten sich jedoch der Auswirkungen auf die Leistung dieses Verfahrens bewusst sein, da es mehr Zeit benötigt, die verschachtelten Variablen zu parsen.
+Die Verwendung einer benutzerdefinierten Eigenschaft als Fallback, wie im zweiten Beispiel oben (`var(--my-var, var(--my-background, pink))`), ist der richtige Weg, um mehr als einen Fallback mit `var()` zu versehen.
+Sie sollten sich jedoch der Leistungsbelastung dieser Methode bewusst sein, da es mehr Zeit in Anspruch nimmt, die verschachtelten Variablen zu parsen.
 
 > [!NOTE]
-> Die Syntax des Fallbacks erlaubt, wie die der benutzerdefinierten Eigenschaften, Kommata. Beispielsweise definiert `var(--foo, red, blue)` einen Fallback von `red, blue` — alles zwischen dem ersten Komma und dem Ende der Funktion wird als Fallback-Wert betrachtet.
+> Die Syntax des Fallbacks erlaubt wie die von benutzerdefinierten Eigenschaften Kommata. Zum Beispiel definiert `var(--foo, red, blue)` einen Fallback von `red, blue` — alles zwischen dem ersten Komma und dem Ende der Funktion wird als Fallback-Wert betrachtet.
 
 ### Fallbacks mit dem `@property` Anfangswert
 
-Neben der Verwendung von `var()` kann der in der `@property` At-Regel definierte `initial-value` als Fallback-Mechanismus verwendet werden.
-Tatsächlich haben wir dies bereits im Abschnitt [`@property`-Vererbung](#using_property_to_control_inheritance) gesehen.
+Abgesehen von der Verwendung von `var()` kann der in der `@property` At-Regel definierte `initial-value` als Fallback-Mechanismus verwendet werden.
+Tatsächlich haben wir dies bereits im Abschnitt [`@property` Vererbung](#using_property_to_control_inheritance) gesehen.
 
-<!-- cSpell:ignore aqumarine -->
+<!-- cSpell:ignore peenk -->
 
-Das folgende Beispiel setzt einen Anfangswert von `--box-color` auf `cornflowerblue` mit der `@property`-At-Regel.
-Im darauf folgenden Regelsatz wollen wir `--box-color` auf `aquamarine` setzen, aber es gibt einen Tippfehler im Wertnamen.
-Dasselbe gilt für die dritte `<div>`, in der wir `2rem` für die benutzerdefinierte Eigenschaft verwendet haben, die einen gültigen [`<color>` Wert](/de/docs/Web/CSS/color_value) erwartet.
-Sowohl `2rem` als auch `aqumarine` sind ungültige Farbwerte, daher wird der Anfangswert von `cornflowerblue` angewendet:
+Das folgende Beispiel setzt einen Anfangswert von `--box-color` auf `teal` mithilfe der `@property` At-Regel.
+Im Regelset, das auf die At-Regel folgt, möchten wir `--box-color` auf `pink` setzen, aber es gibt einen Tippfehler im Wertnamen.
+Dasselbe gilt für das dritte `<div>`, wo wir `2rem` für die benutzerdefinierte Eigenschaft verwendet haben, die einen gültigen [`<color>` Wert](/de/docs/Web/CSS/color_value) erwartet.
+Sowohl `2rem` als auch `peenk` sind ungültige Farbwerte, sodass der Anfangswert `teal` angewendet wird:
 
 ```css live-sample___at-property-initial-value
 @property --box-color {
   syntax: "<color>";
-  initial-value: cornflowerblue;
+  initial-value: teal;
   inherits: false;
 }
 
 .one {
-  --box-color: aquamarine;
+  --box-color: pink;
   background-color: var(--box-color);
 }
 
 .two {
-  --box-color: aqumarine;
+  --box-color: peenk;
   background-color: var(--box-color);
 }
 
@@ -418,6 +429,7 @@ div {
   border: 2px black solid;
   display: inline-block;
 }
+
 .one {
   color: black;
 }
@@ -439,11 +451,11 @@ div {
 
 ## Ungültige benutzerdefinierte Eigenschaften
 
-Jede CSS-Eigenschaft kann einer definierten [Wertebereich](/de/docs/Learn_web_development/Core/Styling_basics/Values_and_units) zugewiesen werden.
-Wenn Sie versuchen, einer Eigenschaft einen Wert zuzuweisen, der außerhalb ihres gültigen Wertebereichs liegt, wird dies als _ungültig_ betrachtet.
+Jedem CSS-Eigenschaft kann eine definierte [Menge von Werten](/de/docs/Learn_web_development/Core/Styling_basics/Values_and_units) zugewiesen werden.
+Wenn Sie versuchen, einer Eigenschaft einen Wert zuzuweisen, der außerhalb der gültigen Werte liegt, wird er als _ungültig_ betrachtet.
 
-Wenn der Browser einen ungültigen Wert für eine reguläre CSS-Eigenschaft (zum Beispiel einen Wert von `16px` für die {{cssxref("color")}}-Eigenschaft) antrifft, verwirft er die Deklaration, und die Elemente erhalten die Werte, die sie gehabt hätten, wenn die Deklaration nicht existierte.
-Im folgenden Beispiel sehen wir, was passiert, wenn eine reguläre CSS-Deklaration ungültig ist; `color: 16px;` wird verworfen und die vorhergehende `color: blue` Regel wird stattdessen angewendet:
+Wenn der Browser einen ungültigen Wert für eine reguläre CSS-Eigenschaft (zum Beispiel einen Wert von `16px` für die {{cssxref("color")}} Eigenschaft) erkennt, verwirft er die Deklaration und Elementen werden die Werte zugewiesen, die sie hätten, wenn die Deklaration nicht existierte.
+Im folgenden Beispiel sehen wir, was passiert, wenn eine reguläre CSS-Deklaration ungültig ist; `color: 16px;` wird verworfen und die vorherige Regel `color: blue` wird stattdessen angewendet:
 
 ```html live-sample___invalid-property
 <p>This paragraph is initially black.</p>
@@ -451,6 +463,7 @@ Im folgenden Beispiel sehen wir, was passiert, wenn eine reguläre CSS-Deklarati
 
 ```css live-sample___invalid-property
 p {
+  font-weight: bold;
   color: blue;
 }
 
@@ -462,18 +475,18 @@ p {
 
 {{EmbedLiveSample('invalid-property', 100, 50)}}
 
-Wenn jedoch die Werte von benutzerdefinierten Eigenschaften geparst werden, weiß der Browser noch nicht, wo sie verwendet werden, daher muss er fast alle Werte als _gültig_ betrachten.
-Leider können diese gültigen Werte in einem Kontext verwendet werden, in dem sie möglicherweise keinen Sinn ergeben, über die `var()` funktionale Notation.
-Eigenschaften und benutzerdefinierte Variablen können zu ungültigen CSS-Angaben führen, was zum Konzept von _gültig zur Berechnungszeit_ führt.
+Wenn jedoch die Werte benutzerdefinierter Eigenschaften analysiert werden, weiß der Browser noch nicht, wo sie verwendet werden, sodass er fast alle Werte als _gültig_ betrachtet.
+Leider können diese gültigen Werte in einem Kontext verwendet werden, in dem sie möglicherweise keinen Sinn ergeben.
+Eigenschaften und benutzerdefinierte Variablen können zu ungültigen CSS-Anweisungen führen, was zum Konzept _dieser gültig zur Berechnungszeit_ führt.
 
-Wenn der Browser auf eine ungültige `var()` Substitution trifft, dann wird der [Anfangswert](/de/docs/Web/CSS/CSS_cascade/Value_processing#initial_value) oder [vererbte](/de/docs/Web/CSS/CSS_cascade/Inheritance) Wert der Eigenschaft verwendet.
+Wenn der Browser eine ungültige `var()` Substitution erkennt, wird der [initiale](/de/docs/Web/CSS/CSS_cascade/Value_processing#initial_value) oder [geerbte](/de/docs/Web/CSS/CSS_cascade/Inheritance) Wert der Eigenschaft verwendet.
 Dieses Beispiel ist genau wie das letzte, außer dass wir eine benutzerdefinierte Eigenschaft verwenden.
 
-Der Browser ersetzt den Wert von `--text-color` anstelle von `var(--text-color)`, aber `16px` ist kein gültiger Eigenschaftswert für {{cssxref("color")}}.
-Nach der Substitution ergibt die Eigenschaft keinen Sinn, daher behandelt der Browser diese Situation in zwei Schritten:
+Der Browser ersetzt den Wert von `--text-color` durch `var(--text-color)`, aber `16px` ist kein gültiger Eigenschaftswert für {{cssxref("color")}}.
+Nach der Substitution ergibt die Eigenschaft keinen Sinn, sodass der Browser diese Situation in zwei Schritten behandelt:
 
-1. Prüfen Sie, ob die Eigenschaft {{cssxref("color")}} vererbbar ist. Sie ist es, aber dieses `<p>` hat keinen Elternteil mit der gesetzten `color` Eigenschaft. Daher gehen wir zum nächsten Schritt über.
-2. Setzen Sie den Wert auf seinen **standardmäßigen Anfangswert**, der schwarz ist.
+1. Überprüfen, ob die Eigenschaft {{cssxref("color")}} vererbbar ist. Sie ist es, aber dieses `<p>` hat keinen Elternteil, bei dem die `color` Eigenschaft gesetzt ist. Also fahren wir mit dem nächsten Schritt fort.
+2. Setzen Sie den Wert auf den **Standard-Anfangswert**, der schwarz ist.
 
 ```html live-sample___invalid-custom-property
 <p>This paragraph is initially black.</p>
@@ -485,6 +498,7 @@ Nach der Substitution ergibt die Eigenschaft keinen Sinn, daher behandelt der Br
 }
 
 p {
+  font-weight: bold;
   color: blue;
 }
 
@@ -495,7 +509,7 @@ p {
 
 {{EmbedLiveSample('invalid-custom-property', 100, 50)}}
 
-Für solche Fälle kann die `@property` At-Regel unerwartete Ergebnisse verhindern, indem sie den Anfangswert der Eigenschaft definiert:
+Für solche Fälle kann die `@property` At-Regel unerwartete Ergebnisse verhindern, indem sie ermöglicht, den Anfangswert der Eigenschaft festzulegen:
 
 ```html live-sample___invalid-custom-property-fallbacks
 <p>This paragraph is initially black.</p>
@@ -505,7 +519,7 @@ Für solche Fälle kann die `@property` At-Regel unerwartete Ergebnisse verhinde
 @property --text-color {
   syntax: "<color>";
   inherits: false;
-  initial-value: cornflowerblue;
+  initial-value: teal;
 }
 
 :root {
@@ -513,6 +527,7 @@ Für solche Fälle kann die `@property` At-Regel unerwartete Ergebnisse verhinde
 }
 
 p {
+  font-weight: bold;
   color: blue;
 }
 
@@ -525,7 +540,7 @@ p {
 
 ## Werte in JavaScript
 
-Um die Werte benutzerdefinierter Eigenschaften in JavaScript zu verwenden, ist es genauso wie bei Standard-Eigenschaften.
+Um die Werte benutzerdefinierter Eigenschaften in JavaScript zu verwenden, ist es genau wie bei standardmäßigen Eigenschaften.
 
 ```js
 // get variable from inline style
@@ -540,8 +555,8 @@ element.style.setProperty("--my-var", jsVar + 4);
 
 ## Siehe auch
 
-- [Syntax für benutzerdefinierte Eigenschaften](/de/docs/Web/CSS/--*)
+- [Syntax für benutzerdefinierte Eigenschaft](/de/docs/Web/CSS/--*)
 - {{cssxref("@property")}} At-Regel
 - [`var()`](/de/docs/Web/CSS/var)
-- [CSS-Properties und Values API](/de/docs/Web/API/CSS_Properties_and_Values_API)
-- [CSS-Benutzerdefinierte Eigenschaften für kaskadierende Variablen](/de/docs/Web/CSS/CSS_cascading_variables) Modul
+- [CSS Properties and Values API](/de/docs/Web/API/CSS_Properties_and_Values_API)
+- [CSS-Benutzereigenschaften für kaskadierende Variablen](/de/docs/Web/CSS/CSS_cascading_variables) Modul
