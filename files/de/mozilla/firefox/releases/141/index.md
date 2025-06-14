@@ -3,10 +3,10 @@ title: Firefox 141 für Entwickler
 short-title: Firefox 141 (Nightly)
 slug: Mozilla/Firefox/Releases/141
 l10n:
-  sourceCommit: 8827bbbc544491e3b0b23a6b2c85b7a8db9b41bb
+  sourceCommit: 20bc4ad52854653fbc9f7842b7664ee8847fc843
 ---
 
-Dieser Artikel bietet Informationen über die Änderungen in Firefox 141, die Entwickler betreffen.
+Dieser Artikel liefert Informationen über die Änderungen in Firefox 141, die Entwickler betreffen.
 Firefox 141 ist die aktuelle [Nightly-Version von Firefox](https://www.mozilla.org/en-US/firefox/channel/desktop/#nightly) und wird am [22. Juli 2025](https://whattrainisitnow.com/release/?version=141) veröffentlicht.
 
 ## Änderungen für Webentwickler
@@ -49,7 +49,7 @@ Firefox 141 ist die aktuelle [Nightly-Version von Firefox](https://www.mozilla.o
 
 #### Entfernungen
 
-### WebDriver-Kompatibilität (WebDriver BiDi, Marionette)
+### WebDriver-Konformität (WebDriver BiDi, Marionette)
 
 #### Allgemein
 
@@ -63,11 +63,11 @@ Firefox 141 ist die aktuelle [Nightly-Version von Firefox](https://www.mozilla.o
 
 ### Sonstiges
 
-## Experimentelle Web-Features
+## Experimentelle Webfunktionen
 
-Diese Features sind in Firefox 141 enthalten, jedoch standardmäßig deaktiviert.
-Um sie auszuprobieren, suchen Sie auf der `about:config`-Seite nach der entsprechenden Einstellung und setzen Sie diese auf `true`.
-Weitere solche Features finden Sie auf der Seite [Experimentelle Features](/de/docs/Mozilla/Firefox/Experimental_features).
+Diese Funktionen sind in Firefox 141 enthalten, aber standardmäßig deaktiviert.
+Um sie auszuprobieren, suchen Sie nach der entsprechenden Einstellung auf der `about:config`-Seite und setzen Sie sie auf `true`.
+Weitere solcher Funktionen finden Sie auf der Seite [Experimentelle Features](/de/docs/Mozilla/Firefox/Experimental_features).
 
 ## Ältere Versionen
 
