@@ -3,18 +3,18 @@ title: "ShadowRoot: getHTML()-Methode"
 short-title: getHTML()
 slug: Web/API/ShadowRoot/getHTML
 l10n:
-  sourceCommit: 9ec0f8b51c464119792fbc36115b8f407939e2bb
+  sourceCommit: aebeb771add7275369094687b4925e6dbd5bf7b5
 ---
 
 {{APIRef("DOM")}}
 
-Die **`getHTML()`**-Methode des [`ShadowRoot`](/de/docs/Web/API/ShadowRoot)-Interfaces wird verwendet, um das DOM eines Shadow-Roots in einen HTML-String zu serialisieren.
+Die **`getHTML()`**-Methode des [`ShadowRoot`](/de/docs/Web/API/ShadowRoot)-Interfaces wird verwendet, um das DOM eines Shadow-Roots zu einem HTML-String zu serialisieren.
 
-Die Methode bietet ein Optionsargument, das die Serialisierung von Kindknoten ermöglicht, die selbst Shadow-Roots sind. Die Optionen können verwendet werden, um verschachtelte Shadow-Roots einzuschließen, die als [`serializable`](/de/docs/Web/API/ShadowRoot/serializable) gesetzt wurden, und/oder ein angegebenes Array von [`ShadowRoot`](/de/docs/Web/API/ShadowRoot)-Objekten, die entweder offen oder geschlossen sein können.
+Die Methode bietet ein Optionsargument, das die Serialisierung von Kindknoten ermöglicht, die Shadow-Roots sind. Die Optionen können verwendet werden, um geschachtelte Shadow-Roots einzuschließen, die als [`serializable`](/de/docs/Web/API/ShadowRoot/serializable) festgelegt sind, und/oder ein bestimmtes Array von [`ShadowRoot`](/de/docs/Web/API/ShadowRoot)-Objekten, die entweder offen oder geschlossen sein können.
 
-Ohne Argumente werden Kindknoten, die Shadow-Roots sind, nicht serialisiert, und diese Methode verhält sich auf die gleiche Weise wie das Lesen des Wertes von [`Element.innerHTML`](/de/docs/Web/API/Element/innerHTML).
+Ohne Argumente werden Kindknoten, die Shadow-Roots sind, nicht serialisiert, und diese Methode verhält sich genauso wie das Lesen des Werts von [`Element.innerHTML`](/de/docs/Web/API/Element/innerHTML).
 
-Beachten Sie, dass einige Browser `<` und `>` in Attributen als `&lt;` und `&gt;` im zurückgegebenen HTML serialisieren (siehe [Browser-Kompatibilität](#browser-kompatibilität)). Dies verhindert bestimmte Exploits, bei denen Code ausführbar wird, wenn er serialisiert und dann in HTML deserialisiert wird.
+Beachten Sie, dass einige Browser die Zeichen `<` und `>` als `&lt;` und `&gt;` serialisieren, wenn sie in Attributwerten vorkommen (siehe [Browser-Kompatibilität](#browser-kompatibilität)). Dies dient zur Vermeidung eines potenziellen Sicherheitsrisikos ([mutation XSS](https://research.securitum.com/dompurify-bypass-using-mxss/)), bei dem ein Angreifer Eingaben erstellen kann, die eine [Sanitierungsfunktion](/de/docs/Web/Security/Attacks/XSS#sanitization) umgehen, was einen Cross-Site-Scripting-Angriff (XSS) ermöglicht.
 
 ## Syntax
 
@@ -33,7 +33,7 @@ getHTML(options)
         Der Standardwert ist `false`.
     - `shadowRoots`
       - : Ein Array von [`ShadowRoot`](/de/docs/Web/API/ShadowRoot)-Objekten, die serialisiert werden sollen.
-        Diese werden unabhängig davon einbezogen, ob sie als `serializable` markiert sind oder ob sie offen oder geschlossen sind.
+        Diese werden unabhängig davon aufgenommen, ob sie als `serializable` markiert sind oder ob sie offen oder geschlossen sind.
         Der Standardwert ist ein leeres Array.
 
 ### Rückgabewert

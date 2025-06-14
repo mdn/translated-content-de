@@ -3,27 +3,27 @@ title: "Testen Sie Ihre Fähigkeiten: Audio und Video"
 short-title: Audio und Video
 slug: Learn_web_development/Core/Structuring_content/Test_your_skills/Audio_and_video
 l10n:
-  sourceCommit: a53950c7d4faad58184e06f0da370e685742a695
+  sourceCommit: 0b8f00bb9ece33c6964eea886b2f7db8711d7b62
 ---
 
-Ziel dieses Fähigkeitstests ist es, zu überprüfen, ob Sie verstehen, wie man [Video- und Audioinhalte in HTML einbettet](/de/docs/Learn_web_development/Core/Structuring_content/HTML_video_and_audio).
+Ziel dieses Fähigkeitentests ist es festzustellen, ob Sie verstehen, wie [Video- und Audioinhalte in HTML eingebettet werden](/de/docs/Learn_web_development/Core/Structuring_content/HTML_video_and_audio).
 
 > [!NOTE]
 > Sie können Lösungen im MDN Playground oder in einem Online-Editor wie [CodePen](https://codepen.io/), [JSFiddle](https://jsfiddle.net/) oder [Glitch](https://glitch.com/) ausprobieren.
 >
-> Wenn Sie nicht weiterkommen, können Sie uns über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) kontaktieren.
+> Wenn Sie nicht weiterkommen, können Sie sich in einem unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) an uns wenden.
 
 ## Aufgabe 1
 
-In dieser Aufgabe möchten wir, dass Sie eine Audiodatei auf der Seite einbetten. Sie müssen:
+In dieser Aufgabe sollen Sie eine Audiodatei auf der Seite einbetten. Sie müssen:
 
-- Den Pfad zur Audiodatei in ein geeignetes Attribut einfügen, um sie auf der Seite einzubetten. Die Audio-Datei heißt `audio.mp3` und ist unter folgendem Pfad verfügbar: `https://github.com/mdn/learning-area/raw/refs/heads/main/html/multimedia-and-embedding/tasks/media-embed/media/audio.mp3`.
-- Ein Attribut hinzufügen, um Browser dazu zu bringen, einige Standardsteuerungen anzuzeigen.
+- Den Pfad zur Audiodatei in ein entsprechendes Attribut einfügen, um sie auf der Seite einzubetten. Das Audio heißt `audio.mp3` und ist unter dem Pfad `https://github.com/mdn/learning-area/raw/refs/heads/main/html/multimedia-and-embedding/tasks/media-embed/media/audio.mp3` verfügbar.
+- Ein Attribut hinzufügen, damit Browser einige Standard-Steuerelemente anzeigen.
 - Einen geeigneten Fallback-Text für Browser hinzufügen, die `<audio>` nicht unterstützen.
 
-Um loszulegen, können Sie auf **"Play"** im Code-Block unten klicken, um das Beispiel im MDN Playground zu bearbeiten, oder [den Ausgangspunkt für diese Aufgabe herunterladen](https://github.com/mdn/learning-area/blob/main/html/multimedia-and-embedding/tasks/media-embed/mediaembed1-download.html) und lokal in Ihrem eigenen Editor arbeiten.
+Um zu beginnen, können Sie **"Play"** im untenstehenden Codeblock klicken, um das Beispiel im MDN Playground zu bearbeiten, oder [den Ausgangspunkt für diese Aufgabe herunterladen](https://github.com/mdn/learning-area/blob/main/html/multimedia-and-embedding/tasks/media-embed/mediaembed1-download.html) und lokal in Ihrem eigenen Editor arbeiten.
 
-Wenn Sie einen Fehler machen, können Sie Ihre Arbeit mit der _Reset_-Taste im MDN Playground löschen. Wenn Sie wirklich feststecken, können Sie die Lösung am Ende des Abschnitts anzeigen.
+Wenn Sie einen Fehler machen, können Sie Ihre Arbeit mit der _Zurücksetzen_-Schaltfläche im MDN Playground löschen. Wenn Sie wirklich nicht weiterkommen, können Sie die Lösung am Ende des Abschnitts ansehen.
 
 ```html live-sample___audio-1
 <h1>Basic audio embed</h1>
@@ -31,7 +31,7 @@ Wenn Sie einen Fehler machen, können Sie Ihre Arbeit mit der _Reset_-Taste im M
 <audio></audio>
 ```
 
-<!-- Gemeinsame Styles -->
+<!-- Gemeinsame Stile -->
 
 ```css hidden live-sample___video-1 live-sample___audio-1
 body {
@@ -48,8 +48,10 @@ body {
 
 * {
   box-sizing: border-box;
+}
 
-audio, video {
+audio,
+video {
   border: 1px solid black;
 }
 ```
@@ -82,22 +84,22 @@ Ihr fertiges HTML sollte so aussehen:
 
 ## Aufgabe 2
 
-In dieser Aufgabe möchten wir, dass Sie einen etwas komplexeren Video-Player markieren, der mehrere Quellen, Untertitel und andere Funktionen enthält. Sie müssen:
+In dieser Aufgabe sollen Sie einen etwas komplexeren Videoplayer markieren, der mehrere Quellen, Untertitel und andere Funktionen enthält. Sie müssen:
 
-- Ein Attribut hinzufügen, um Browser dazu zu bringen, einige Standardsteuerungen anzuzeigen.
+- Ein Attribut hinzufügen, damit Browser einige Standard-Steuerelemente anzeigen.
 - Einen geeigneten Fallback-Text für Browser hinzufügen, die `<video>` nicht unterstützen.
-- Mehrere Quellen hinzufügen, die die Pfade zu den Videodateien enthalten. Die Dateien heißen `video.mp4` und `video.webm` und sind unter den folgenden Pfaden verfügbar:
+- Mehrere Quellen mit den Pfaden zu den Videodateien hinzufügen. Die Dateien heißen `video.mp4` und `video.webm` und sind unter den folgenden Pfaden verfügbar:
   - `https://github.com/mdn/learning-area/raw/refs/heads/main/html/multimedia-and-embedding/tasks/media-embed/media/video.mp4`
   - `https://github.com/mdn/learning-area/raw/refs/heads/main/html/multimedia-and-embedding/tasks/media-embed/media/video.webm`
-- Dem Browser im Voraus mitteilen, auf welche Videoformate die Quellen verweisen, damit er eine fundierte Entscheidung treffen kann, welche heruntergeladen werden sollen.
-- Dem `<video>` eine Breite und Höhe geben, die seiner intrinsischen Größe entspricht (320 mal 240 Pixel).
+- Den Browser im Voraus wissen lassen, auf welche Videoformate die Quellen verweisen, damit er eine fundierte Entscheidung treffen kann, welche er vorab herunterlädt.
+- Dem `<video>` eine Breite und Höhe entsprechend seiner intrinsischen Größe (320 x 240 Pixel) geben.
 - Das Video standardmäßig stumm schalten.
-- Die im `media`-Ordner enthaltenen Textspuren in einer Datei namens `https://raw.githubusercontent.com/mdn/learning-area/refs/heads/main/html/multimedia-and-embedding/tasks/media-embed/media/subtitles_en.vtt` anzeigen, wenn das Video abgespielt wird. Sie müssen den Typ ausdrücklich als Untertitel setzen und die Untertitelsprache auf Englisch einstellen.
-- Sicherstellen, dass die Leser die Untertitelsprache erkennen können, wenn sie die Standardsteuerungen verwenden.
+- Die Textspuren, die sich im `media`-Ordner befinden, in einer Datei namens `https://raw.githubusercontent.com/mdn/learning-area/refs/heads/main/html/multimedia-and-embedding/tasks/media-embed/media/subtitles_en.vtt` anzeigen, wenn das Video abgespielt wird. Sie müssen den Typ explizit als Untertitel festlegen und die Untertitelsprache auf Englisch setzen.
+- Sicherstellen, dass die Leser die Untertitelsprache identifizieren können, wenn sie die Standard-Steuerelemente verwenden.
 
-Um loszulegen, können Sie auf **"Play"** im Code-Block unten klicken, um das Beispiel im MDN Playground zu bearbeiten, oder [den Ausgangspunkt für diese Aufgabe herunterladen](https://github.com/mdn/learning-area/blob/main/html/multimedia-and-embedding/tasks/media-embed/mediaembed2-download.html) und lokal in Ihrem eigenen Editor arbeiten.
+Um zu beginnen, können Sie **"Play"** im untenstehenden Codeblock klicken, um das Beispiel im MDN Playground zu bearbeiten, oder [den Ausgangspunkt für diese Aufgabe herunterladen](https://github.com/mdn/learning-area/blob/main/html/multimedia-and-embedding/tasks/media-embed/mediaembed2-download.html) und lokal in Ihrem eigenen Editor arbeiten.
 
-Wenn Sie einen Fehler machen, können Sie Ihre Arbeit mit der _Reset_-Taste im MDN Playground löschen. Wenn Sie wirklich feststecken, können Sie die Lösung am Ende des Abschnitts anzeigen.
+Wenn Sie einen Fehler machen, können Sie Ihre Arbeit mit der _Zurücksetzen_-Schaltfläche im MDN Playground löschen. Wenn Sie wirklich nicht weiterkommen, können Sie die Lösung am Ende des Abschnitts ansehen.
 
 ```html live-sample___video-1
 <h1>Video embed</h1>

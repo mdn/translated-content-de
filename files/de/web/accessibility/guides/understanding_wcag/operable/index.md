@@ -2,48 +2,63 @@
 title: Bedienbar
 slug: Web/Accessibility/Guides/Understanding_WCAG/Operable
 l10n:
-  sourceCommit: c1564acf160ef4b320fb7b89ab65211b9c50cf1b
+  sourceCommit: 0b8f00bb9ece33c6964eea886b2f7db8711d7b62
 ---
 
-Dieser Artikel bietet praktische Ratschläge, wie Sie Ihren Webinhalt so schreiben, dass er den Erfolgskriterien entspricht, die im Prinzip **Bedienbar** der Web Content Accessibility Guidelines (WCAG) 2.0 und 2.1 festgelegt sind. Bedienbar bedeutet, dass Benutzeroberflächenkomponenten und die Navigation bedienbar sein müssen.
+Dieser Artikel bietet praktische Ratschläge, wie Sie Ihre Webinhalte so schreiben, dass sie den Erfolgskriterien entsprechen, die im **Bedienbar**-Prinzip der Web Content Accessibility Guidelines (WCAG) 2.0 und 2.1 beschrieben sind. Bedienbar besagt, dass Benutzeroberflächenkomponenten und Navigation bedienbar sein müssen.
 
 > [!NOTE]
-> Um die W3C-Definitionen für Bedienbar und seine Richtlinien und Erfolgskriterien zu lesen, sehen Sie [Prinzip 2: Bedienbar — Benutzeroberflächenkomponenten und Navigation müssen bedienbar sein.](https://w3c.github.io/wcag/guidelines/22/#operable)
+> Um die W3C-Definitionen für Bedienbar und deren Richtlinien und Erfolgskriterien zu lesen, siehe [Prinzip 2: Bedienbar — Benutzeroberflächenkomponenten und Navigation müssen bedienbar sein.](https://w3c.github.io/wcag/guidelines/22/#operable)
 
-## Richtlinie 2.1 — Tastaturzugänglich: Stellen Sie sicher, dass alle Funktionen von einer Tastatur aus verfügbar sind
+## Richtlinie 2.1 — Tastaturzugänglich: Machen Sie alle Funktionen von einer Tastatur aus verfügbar
 
-Diese Richtlinie behandelt die Notwendigkeit, die Kernfunktionalität einer Website zusätzlich zu anderen Mitteln (z. B. Maus) über eine Tastatur verfügbar zu machen, damit Benutzer, die auf Tastatursteuerungen angewiesen sind, darauf zugreifen können.
+Diese Richtlinie behandelt die Notwendigkeit, Kernfunktionen einer Website über eine Tastatur zusätzlich zu anderen Mitteln (z. B. Maus) zugänglich zu machen, damit Benutzer, die auf Tastatursteuerung angewiesen sind, darauf zugreifen können.
 
 <table class="standard-table">
   <thead>
     <tr>
       <th scope="col">Erfolgskriterien</th>
-      <th scope="col">Wie man die Kriterien erfüllt</th>
-      <th scope="col">Praktische Ressourcen</th>
+      <th scope="col">So erfüllen Sie die Kriterien</th>
+      <th scope="col">Praktische Ressource</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>2.1.1 Tastatur (A)</td>
       <td>
-        Alle Funktionen sollten über Tastatursteuerungen zugänglich sein, es sei denn, dies ist mit der Tastatur nicht möglich (z. B. Freihandzeichnung). Eingebettete Steuerungen sollten nach Möglichkeit verwendet werden (z. B. durch Tabulatoren durch Formularelemente), und Sie sollten nur dann eigene Funktionen einbauen, wenn es notwendig ist.
+        Alle Funktionen sollten mit Tastatursteuerungen zugänglich sein, es sei
+        denn, dies ist mit der Tastatur nicht möglich (z. B. Freihandzeichnung).
+        Eingebaute Steuerungen sollten nach Möglichkeit verwendet werden (z. B.
+        Tabulatortaste durch Formsteuerungen), und benutzerdefinierte
+        Funktionen sollten nur dort implementiert werden, wo sie benötigt
+        werden.
       </td>
       <td>
         Siehe
-        <a href="/de/docs/Learn_web_development/Core/Accessibility/HTML#use_semantic_ui_controls_where_possible">Verwenden Sie nach Möglichkeit semantische UI-Steuerelemente</a>
+        <a href="/de/docs/Learn_web_development/Core/Accessibility/HTML#use_semantic_ui_controls_where_possible"
+          >Verwenden Sie nach Möglichkeit semantische UI-Steuerungen</a
+        >
         und
-        <a href="/de/docs/Learn_web_development/Core/Accessibility/HTML#building_keyboard_accessibility_back_in">Tastaturzugänglichkeit wiedereinbauen</a>
+        <a
+          href="/de/docs/Learn_web_development/Core/Accessibility/HTML#building_keyboard_accessibility_back_in"
+          >Erneute Implementierung der Tastaturzugänglichkeit</a
+        >
       </td>
     </tr>
     <tr>
       <td>2.1.2 Keine Tastaturfalle (A)</td>
       <td>
         <p>
-          Wenn Sie mit der Tastatur einen Funktionsbereich betreten, sollten Sie diesen Bereich auch nur mit der
-          Tastatur wieder verlassen können. Wenn Sie zum Beispiel <kbd>Enter</kbd>/<kbd>Return</kbd> auf einer fokussierten Schaltfläche drücken, um ein Optionsfenster zu öffnen, sollten Sie dieses Fenster ebenfalls wieder schließen und mit der Tastatur zum Hauptinhalt zurückkehren können.
+          Wenn Sie einen Funktionsbereich mit der Tastatur betreten, sollten Sie
+          diesen Bereich auch nur mit der <em>Tastatur</em> wieder verlassen
+          können. Zum Beispiel, wenn Sie die <kbd>Enter</kbd>/<kbd>Return</kbd>
+          -Taste auf einer fokussierten Schaltfläche drücken, um ein
+          Optionsfenster zu öffnen, sollten Sie dieses Fenster wieder schließen
+          und zur Hauptinhalte mit der Tastatur zurückkehren können.
         </p>
         <p>
-          Dies ist sehr wichtig, damit Tastaturbenutzer nicht auf bestimmten Bereichen Ihrer Apps feststecken.
+          Dies ist sehr wichtig, damit Tastaturbenutzer nicht in bestimmten
+          Bereichen Ihrer Apps gefangen sind.
         </p>
       </td>
       <td></td>
@@ -51,384 +66,520 @@ Diese Richtlinie behandelt die Notwendigkeit, die Kernfunktionalität einer Webs
     <tr>
       <td>2.1.3 Tastatur — alle Funktionen (AAA)</td>
       <td>
-        Dies ist ein Schritt über Kriterium 2.1.1 hinaus. Um AAA-Konformität zu erreichen, sollten alle Funktionen ohne Ausnahmen über Tastatursteuerungen zugänglich sein.
+        Dies ist ein weiterer Schritt über das Kriterium 2.1.1 hinaus. Um die
+        AAA-Konformität zu erreichen, sollten alle Funktionen ohne Ausnahmen
+        mit Tastatursteuerungen zugänglich sein.
       </td>
       <td>
         Siehe
-        <a href="/de/docs/Learn_web_development/Core/Accessibility/HTML#use_semantic_ui_controls_where_possible">Verwenden Sie nach Möglichkeit semantische UI-Steuerelemente</a>
+        <a href="/de/docs/Learn_web_development/Core/Accessibility/HTML#use_semantic_ui_controls_where_possible"
+          >Verwenden Sie nach Möglichkeit semantische UI-Steuerungen</a
+        >
         und
-        <a href="/de/docs/Learn_web_development/Core/Accessibility/HTML#building_keyboard_accessibility_back_in">Tastaturzugänglichkeit wiedereinbauen</a>
+        <a
+          href="/de/docs/Learn_web_development/Core/Accessibility/HTML#building_keyboard_accessibility_back_in"
+          >Erneute Implementierung der Tastaturzugänglichkeit</a
+        >
       </td>
     </tr>
     <tr>
-      <td>2.1.4 Zeichen-Tastenkürzel (A)</td>
       <td>
-        Wenn es ein Tastenkürzel mit einem einzelnen Zeichen gibt, dann muss mindestens eine der folgenden Aussagen zutreffen: Einzel-Zeichen-Tastenkürzel können deaktiviert, neu zugeordnet oder sind nur aktiv, wenn das entsprechende Benutzeroberflächenelement im Fokus ist.
+        2.1.4 Zeichentastenkombinationen (A)
       </td>
       <td>
-        <a href="https://www.w3.org/WAI/WCAG21/Understanding/character-key-shortcuts.html">Verstehen von Zeichen-Tastenkürzeln</a>
+        Wenn eine einzelne Zeichentastenkombination existiert, dann trifft
+        mindestens eines der folgenden Punkte zu: Tastenkombinationen mit einem
+        Zeichen können deaktiviert, neu zugeordnet oder sind nur aktiv, wenn die
+        relevante Benutzeroberflächenkomponente fokussiert ist.
+      </td>
+      <td>
+        <a
+          href="https://www.w3.org/WAI/WCAG21/Understanding/character-key-shortcuts.html"
+          >Verständnis von Zeichentastenkombinationen</a
+        >
       </td>
     </tr>
   </tbody>
 </table>
 
 > [!NOTE]
-> Sehen Sie auch die WCAG-Beschreibung für [Richtlinie 2.1 Tastaturzugänglich: Stellen Sie sicher, dass alle Funktionen von einer Tastatur aus verfügbar sind](https://w3c.github.io/wcag/guidelines/22/#keyboard-accessible).
+> Siehe auch die WCAG-Beschreibung für [Richtlinie 2.1 Tastaturzugänglich: Machen Sie alle Funktionen von einer Tastatur aus verfügbar](https://w3c.github.io/wcag/guidelines/22/#keyboard-accessible).
 
-## Richtlinie 2.2 — Genügend Zeit: Stellen Sie Benutzer ausreichend Zeit zur Verfügung, um Inhalte zu lesen und zu nutzen
+## Richtlinie 2.2 — Genügend Zeit: Benutzern genügend Zeit geben, Inhalte zu lesen und zu nutzen
 
-Diese Richtlinie behandelt Situationen, in denen Funktionen möglicherweise eine Zeitbegrenzung haben. Zum Beispiel müssen Käufe manchmal aus Sicherheitsgründen innerhalb einer bestimmten Zeitspanne abgeschlossen werden.
+Diese Richtlinie behandelt Situationen, in denen Funktionen möglicherweise ein Zeitlimit haben. Zum Beispiel müssen Käufe manchmal innerhalb eines Zeitlimits abgeschlossen werden, aus Sicherheitsgründen.
 
 <table class="standard-table">
   <thead>
     <tr>
       <th scope="col">Erfolgskriterien</th>
-      <th scope="col">Wie man die Kriterien erfüllt</th>
-      <th scope="col">Praktische Ressourcen</th>
+      <th scope="col">So erfüllen Sie die Kriterien</th>
+      <th scope="col">Praktische Ressource</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>2.2.1 Anpassbare Zeit (A)</td>
+      <td>2.2.1 Zeit ist anpassbar (A)</td>
       <td>
         <p>
-          Für Funktionen mit Zeitbegrenzung (z. B. das Abschließen einer Hotel- oder Flugbuchung hat oft eine Zeitvorgabe) sollte dem Benutzer Steuerelemente gegeben werden, die es ihm ermöglichen, die Zeitbegrenzung anzupassen, zu verlängern oder abzuschalten.
+          Für Funktionen mit Zeitlimits (z. B. das Abschließen einer
+          Hotel- oder Flugbuchung hat oft ein Zeitlimit), sollte der Benutzer
+          Steuerungen erhalten, um das Zeitlimit anzupassen, zu verlängern oder
+          zu deaktivieren.
         </p>
         <p>
-          Ausnahmen von dieser Regel sind Aktivitäten mit Zeitbegrenzungen von mehr als 20 Stunden, Echtzeitereignisse (z. B. Live-Multiplayer-Spiele) und jede andere Aktivität, die eine Zeitbegrenzung erfordert und ungültig wäre, wenn sie abgeschaltet würde.
-        </p>
-      </td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>2.2.2 Pausieren, stoppen, ausblenden (A)</td>
-      <td>
-        <p>
-          Für sich bewegende oder blinkende Inhalte, die automatisch starten, länger als 5 Sekunden dauern und neben anderen Inhalten gezeigt werden, sollten Steuerelemente bereitgestellt werden, um sie zu pausieren, zu stoppen oder auszublenden. Dies gilt nicht für sich bewegende oder blinkende Inhalte, die für die Erfahrung wesentlich sind. Beispiele sind scrollender Text und Videos.
-        </p>
-        <p>
-          Für automatisch aktualisierende Informationen, die automatisch starten und neben anderen Inhalten gezeigt werden, sollten Steuerelemente bereitgestellt werden, um sie zu pausieren, zu stoppen oder auszublenden oder um die Häufigkeit der Aktualisierungen zu kontrollieren. Dies gilt nicht für automatisch aktualisierende Inhalte, die für die Erfahrung wesentlich sind. Beispiele sind Karussells oder rotierende Ankündigungen.
+          Ausnahmen hiervon sind Aktivitäten mit Zeitlimits von mehr als 20
+          Stunden, Echtzeitereignisse (z. B. Live-Multiplayer-Spiele), und jede
+          andere Aktivität, die ein Zeitlimit erfordert und ungültig wäre,
+          wenn sie deaktiviert würde.
         </p>
       </td>
       <td></td>
     </tr>
     <tr>
-      <td>2.2.3 Keine Zeitbegrenzungen (AAA)</td>
-      <td>
-        Dies baut auf Kriterium 2.2.1 auf und besagt, dass Inhalte, die die AAA-Konformität erreichen möchten, keine Zeitbegrenzungen haben sollten.
-      </td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>2.2.4 Unterbrechen unterdrücken (AAA)</td>
-      <td>
-        Alle Unterbrechungen wie Warnungen oder überlagerte Werbung sollten Funktionen enthalten, um sie zu unterdrücken oder zu verschieben, es sei denn, es handelt sich um eine Notfallbenachrichtigung.
-      </td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>2.2.5 Wiederautorisierung (AAA)</td>
-      <td>
-        Wenn eine Authentifizierungssitzung während der Nutzung einer Web-App abläuft, sollte der Benutzer sich erneut authentifizieren und seine Nutzung fortsetzen können, ohne Daten zu verlieren.
-      </td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>2.2.6 Laufzeitende (AAA)</td>
+      <td>2.2.2 Anhalten, stoppen, verstecken (A)</td>
       <td>
         <p>
-          Wenn es ein Laufzeitende (verursacht durch Benutzerinaktivität) gibt, sollten Benutzer zu Beginn eines Prozesses gewarnt werden, damit sie nicht überrascht werden, dass ein Laufzeitende existiert (oder nur nach 20 Stunden Inaktivität eintreten).
+          Für sich automatisch bewegende oder blinkende Inhalte, die länger als
+          5 Sekunden dauern und zusammen mit anderem Inhalt gezeigt werden,
+          sollten Steuerungen bereitgestellt werden, um sie anzuhalten, zu
+          stoppen oder zu verstecken. Dies gilt nicht für Inhalte, die
+          essenziell für die Erfahrung sind. Beispiele sind scrollende Texte und
+          Videos.
+        </p>
+        <p>
+          Bei sich automatisch aktualisierenden Informationen, die
+          automatisch starten und zusammen mit anderem Inhalt angezeigt werden,
+          sollten Steuerungen bereitgestellt werden, um sie anzuhalten, zu
+          stoppen oder zu verstecken oder um die Häufigkeit der
+          Aktualisierungen zu steuern. Dies gilt nicht für
+          sich automatisch aktualisierende Inhalte, die essenziell für die
+          Erfahrung sind. Beispiele sind Karussells oder drehende
+          Ankündigungen.
+        </p>
+      </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>2.2.3 Keine Zeitlimits (AAA)</td>
+      <td>
+        Dies baut auf den Kriterien 2.2.1 auf und besagt, dass Inhalte,
+        die die AAA-Konformität erreichen wollen, keine Zeitlimits haben sollten.
+      </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>2.2.4 Unterdrückung von Unterbrechungen (AAA)</td>
+      <td>
+        Alle Unterbrechungen wie Warnungen oder Werbung sollten eine
+        Funktionalität zur Unterdrückung oder Verschiebung haben, es sei denn,
+        es handelt sich um eine Notfallwarnung.
+      </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>2.2.5 Erneute Authentifizierung (AAA)</td>
+      <td>
+        Wenn eine Authentifizierungssitzung während der Benutzung einer Web-App
+        abläuft, kann der Benutzer sich erneut authentifizieren und ihre Nutzung
+        ohne Datenverlust fortsetzen.
+      </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>
+        2.2.6 Timeouts (AAA)
+      </td>
+      <td>
+        <p>
+          Wenn ein Timeout (verursacht durch Benutzerinaktivität) eintritt,
+          warnen Sie die Benutzer zu Beginn eines Prozesses, damit sie nicht
+          überrascht sind, dass ein Timeout existiert (oder erlauben Sie das
+          Timeout nur nach 20 Stunden Inaktivität).
         </p>
       </td>
       <td>
-        <a href="https://www.w3.org/WAI/WCAG21/Understanding/timeouts.html">Verstehen von Laufzeitenden</a>
+        <a href="https://www.w3.org/WAI/WCAG21/Understanding/timeouts.html"
+          >Verständnis der Timeouts</a
+        >
       </td>
     </tr>
   </tbody>
 </table>
 
 > [!NOTE]
-> Sehen Sie auch die WCAG-Beschreibung für [Richtlinie 2.2 Genügend Zeit: Stellen Sie Benutzern ausreichend Zeit zur Verfügung, um Inhalte zu lesen und zu nutzen](https://w3c.github.io/wcag/guidelines/22/#enough-time).
+> Siehe auch die WCAG-Beschreibung für [Richtlinie 2.2 Genügend Zeit: Benutzern genügend Zeit geben, Inhalte zu lesen und zu nutzen](https://w3c.github.io/wcag/guidelines/22/#enough-time).
 
-## Richtlinie 2.3 — Anfälle und physische Reaktionen: Gestalten Sie Inhalte nicht so, dass sie Anfälle oder physische Reaktionen auslösen
+## Richtlinie 2.3 — Anfälle und körperliche Reaktionen: Gestalten Sie Inhalte so, dass sie keine Anfälle oder körperliche Reaktionen verursachen
 
-Dies bezieht sich auf Inhalte, die, wenn sie nicht geändert werden, Anfälle bei Benutzern mit Erkrankungen wie Epilepsie auslösen könnten ODER physische Reaktionen (wie Schwindel) bei Benutzern mit Erkrankungen wie vestibulären Störungen hervorrufen könnten.
+Dies bezieht sich auf Inhalte, die ohne Änderung Anfälle bei Benutzern mit Erkrankungen wie Epilepsie auslösen könnten ODER körperliche Reaktionen (wie Schwindel) bei Benutzern mit Erkrankungen wie vestibulären Störungen verursachen könnten.
 
 <table>
   <thead>
     <tr>
     <th scope="col">Erfolgskriterien</th>
-    <th scope="col">Wie man die Kriterien erfüllt</th>
-    <th scope="col">Praktische Ressourcen</th>
+    <th scope="col">So erfüllen Sie die Kriterien</th>
+    <th scope="col">Praktische Ressource</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>2.3.1 Drei-Blitz-Grenze (A)</td>
-      <td>Der Inhalt enthält keinen Aspekt, der mehr als dreimal pro Sekunde blinkt, oder blinkende Inhalte liegen unter den akzeptablen <a href="https://w3c.github.io/wcag/guidelines/22/#dfn-general-flash-and-red-flash-thresholds">Blitz- und Rot-Blitz-Grenzen</a>.</td>
+      <td>2.3.1 Drei Blitze oder unter Schwelle (A)</td>
+      <td>Der Inhalt enthält keine Aspekte, die mehr als dreimal pro Sekunde blitzen, oder blinkende Inhalte liegen unter den akzeptablen <a href="https://w3c.github.io/wcag/guidelines/22/#dfn-general-flash-and-red-flash-thresholds">Blitz- und Rotblitz-Schwellenwerten</a>.</td>
       <td></td>
     </tr>
     <tr>
       <td>2.3.2 Drei Blitze (AAA)</td>
-      <td>Der Inhalt enthält keinen Aspekt, der mehr als dreimal pro Sekunde blinkt.</td>
+      <td>Der Inhalt enthält keine Aspekte, die mehr als dreimal pro Sekunde blitzen.</td>
       <td></td>
     </tr>
     <tr>
-      <td>2.3.3 Animationen bei Interaktionen (AAA)</em></td>
-      <td>Erlauben Sie Benutzern, Animationen von Interaktionen zu deaktivieren (es sei denn, die Animation ist wesentlich).</td>
-      <td><a href="https://w3c.github.io/wcag/guidelines/22/#animation-from-interactions">Verstehen von Animationen bei Interaktionen</a></td>
+      <td>2.3.3 Animationen aus Interaktionen (AAA)</em></td>
+      <td>Benutzern erlauben, Animationen aus Interaktionen zu deaktivieren (es sei denn, die Animation ist essenziell).</td>
+      <td><a href="https://w3c.github.io/wcag/guidelines/22/#animation-from-interactions">Verständnis von Animationen aus Interaktionen</a></td>
     </tr>
   </tbody>
 </table>
 
 > [!NOTE]
-> Sehen Sie auch die WCAG-Beschreibung für [Richtlinie 2.3 Anfälle und physische Reaktionen: Gestalten Sie Inhalte nicht so, dass sie Anfälle oder physische Reaktionen auslösen](https://w3c.github.io/wcag/guidelines/22/#seizures-and-physical-reactions)
+> Siehe auch die WCAG-Beschreibung für [Richtlinie 2.3 Anfälle und körperliche Reaktionen: Gestalten Sie Inhalte so, dass sie keine Anfälle oder körperliche Reaktionen verursachen.](https://w3c.github.io/wcag/guidelines/22/#seizures-and-physical-reactions)
 
-## Richtlinie 2.4 — Navigierbar: Bieten Sie Möglichkeiten, die Benutzern helfen, zu navigieren, Inhalte zu finden und festzustellen, wo sie sich befinden
+## Richtlinie 2.4 — Navigierbar: Bieten Sie Möglichkeiten, Benutzern zu helfen, zu navigieren, Inhalte zu finden und zu bestimmen, wo sie sich befinden
 
-Die Konformitätskriterien unter dieser Richtlinie beziehen sich auf Möglichkeiten, wie Benutzer erwartet werden können, sich zu orientieren und die Inhalte und Funktionen zu finden, nach denen sie auf der aktuellen Seite oder anderen Seiten der Website suchen.
+Die Konformitätskriterien unter dieser Richtlinie beziehen sich auf Möglichkeiten, Benutzern zu ermöglichen, sich zu orientieren und die Inhalte und Funktionen zu finden, die sie auf der aktuellen Seite oder anderen Seiten der Website suchen.
 
 <table class="standard-table">
   <thead>
     <tr>
       <th scope="col">Erfolgskriterien</th>
-      <th scope="col">Wie man die Kriterien erfüllt</th>
-      <th scope="col">Praktische Ressourcen</th>
+      <th scope="col">So erfüllen Sie die Kriterien</th>
+      <th scope="col">Praktische Ressource</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>2.4.1 Blocke überspringen (A)</td>
+      <td>2.4.1 Blöcke umgehen (A)</td>
       <td>
         <p>
-          Es sollte ein Mechanismus bereitgestellt werden, der es dem Benutzer ermöglicht, direkt zum Hauptinhalt oder zur Hauptfunktionalität auf der Seite zu springen, vorbei an den wiederholten Features (wie dem Firmenlogo oder der Navigation). Dies wird oft durch "Skip-Links" erreicht — Links, die am Anfang des Seitenquellcodes platziert werden, um auf den Hauptinhalt zu verlinken und durch CSS versteckt werden.
+          Es sollte ein Mechanismus bereitgestellt werden, der es dem Benutzer
+          ermöglicht, direkt zum Hauptinhalt oder zur verfügbaren Funktionalität
+          auf der Seite zu springen und die wiederkehrenden Merkmale (wie das
+          Firmenlogo oder die Navigation) zu umgehen. Dies wird oft durch
+          "Skip-Links" erreicht - Links, die oben im Seitenquellcode eingefügt
+          werden, die zum Hauptinhalt führen und durch CSS verborgen werden.
         </p>
         <p>
-          Wenn eine ordentliche Struktur von Überschriften und semantischen Containern bereitgestellt wird, um mit (zum Beispiel {{htmlelement("section")}}, {{htmlelement("aside")}}, etc.) zu navigieren, ist ein zusätzlicher "Skip-Link" nicht erforderlich.
+          Wenn eine richtige Struktur von Überschriften und semantischen
+          Containern bereitgestellt wird, um damit zu navigieren (zum Beispiel
+          {{htmlelement("section")}}, {{htmlelement("aside")}}, etc.),
+          dann ist ein zusätzlicher "Skip-Link" nicht notwendig.
         </p>
       </td>
-      <td><em>Es muss ein Abschnitt zu "Skip-Links" hinzugefügt werden.</em></td>
+      <td><em>Ein Abschnitt zu "Skip-Links" muss hinzugefügt werden.</em></td>
     </tr>
     <tr>
-      <td>2.4.2 Seitentitel einfügen (A)</td>
+      <td>2.4.2 Seitentitel einschließen (A)</td>
       <td>
-        Jede Webseite sollte einen informativen {{htmlelement("title")}} enthalten, dessen Inhalt den Inhalt/Zweck der Seite beschreibt.
+        Jede Webseite sollte einen informativen
+        {{htmlelement("title")}} enthalten, dessen Inhalt den
+        Inhalt/Zweck der Seite beschreibt.
       </td>
       <td>
         Siehe
-        <a href="/de/docs/Learn_web_development/Core/Structuring_content/Webpage_metadata#adding_a_title">Einen Titel hinzufügen</a>.
+        <a
+          href="/de/docs/Learn_web_development/Core/Structuring_content/Webpage_metadata#adding_a_title"
+          >Hinzufügen eines Titels</a
+        >.
       </td>
     </tr>
     <tr>
       <td>2.4.3 Logische Fokusreihenfolge (A)</td>
       <td>
-        Die "Tab-Reihenfolge" von fokussierbaren Seitenelementen (z. B. Links, Schaltflächen, Formulareingaben) sollte logisch sinnvoll sein, sodass die Seite auch für nicht sehende/Tastaturbenutzer bedienbar bleibt.
+        Die "Tab-Reihenfolge" von fokussierbaren Seitenfunktionen (z. B. Links,
+        Schaltflächen, Formulareingaben) ergibt einen logischen Sinn, was
+        bedeutet, dass die Seite auch von sehbehinderten/benutzenden
+        Tastaturbenutzern verwendet werden kann.
       </td>
       <td>
         Siehe
-        <a href="/de/docs/Learn_web_development/Core/Accessibility/HTML#use_semantic_ui_controls_where_possible">Verwenden Sie nach Möglichkeit semantische UI-Steuerelemente</a>
-        für allgemeine Ratschläge zum Tabben zu Steuerelementen. Wenn Sie Elemente in einem ungewöhnlichen Layout platzieren müssen, ist es besser, dafür zu sorgen, dass die Quellreihenfolge sinnvoll ist, und dann CSS-Features wie <a href="/de/docs/Learn_web_development/Core/CSS_layout/Positioning">Positionierung</a> zu verwenden, um das Layout zu steuern.
+        <a href="/de/docs/Learn_web_development/Core/Accessibility/HTML#use_semantic_ui_controls_where_possible"
+          >Verwenden Sie nach Möglichkeit semantische UI-Steuerungen</a
+        >
+        für allgemeine Ratschläge zum Tabben durch Steuerungen. Wenn Sie
+        Elemente in einem ungewöhnlichen Layout platzieren müssen, ist es
+        besser, sicherzustellen, dass die Quellreihenfolge sinnvoll ist, dann
+        nutzen Sie CSS-Funktionen wie
+        <a href="/de/docs/Learn_web_development/Core/CSS_layout/Positioning">Positionierung</a>
+        um das Layout zu handhaben.
       </td>
     </tr>
     <tr>
-      <td>2.4.4 Link-Zweck (im Kontext) (A)</td>
+      <td>2.4.4 Linkzweck (im Kontext) (A)</td>
       <td>
-        Der Zweck/die Zielsetzung eines Links kann aus dem Linktext oder aus seiner Umgebung bestimmt werden (z. B. dem umgebenden Text). Ausnahmen sind, wo der Linkzweck für <em>alle</em> Benutzer mehrdeutig ist (siehe <a href="https://w3c.github.io/wcag/guidelines/22/#dfn-ambiguous-to-users-in-general">mehrdeutig für Benutzer im Allgemeinen</a> für eine nützliche Erklärung dazu).
+        Der Zweck/das Ziel eines Links kann aus dem Linktext oder aus seinem
+        Umfeld (z. B. dem umgebenden Text) bestimmt werden. Ausnahmen sind
+        Links, deren Zweck für <em>alle</em> Benutzer unklar ist (siehe
+        <a href="https://w3c.github.io/wcag/guidelines/22/#dfn-ambiguous-to-users-in-general"
+          >mehrdeutig für Benutzer im Allgemeinen</a
+        >
+        für eine nützliche Erklärung).
       </td>
       <td>
         Siehe
-        <a href="/de/docs/Learn_web_development/Core/Accessibility/HTML#use_meaningful_text_labels">Verwenden Sie aussagekräftige Textbeschriftungen</a>. Beachten Sie auch, dass Sie Instanzen minimieren sollten, bei denen mehrere Kopien desselben Textes zu verschiedenen Orten verlinken. Dies kann Probleme für Bildschirmleser-Benutzer verursachen, die oft eine Liste der Links außerhalb des Kontexts aufrufen — mehrere Links, die alle mit "hier klicken", "hier klicken", "hier klicken" beschriftet sind, wären verwirrend.
+        <a href="/de/docs/Learn_web_development/Core/Accessibility/HTML#use_meaningful_text_labels"
+          >Verwenden Sie sinnvolle Textbeschriftungen</a
+        >. Beachten Sie auch, dass Sie Fälle minimieren sollten, in denen
+        mehrere Kopien desselben Textes auf verschiedene Orte verlinken. Dies
+        kann Probleme für Benutzer von Bildschirmlesegeräten verursachen, die
+        oft eine Liste der Links aus dem Kontext aufrufen - mehrere Links, alle
+        mit "Hier klicken", würden verwirrend sein.
       </td>
     </tr>
     <tr>
       <td>2.4.5 Mehrere Navigationsmechanismen (AA)</td>
       <td>
         <p>
-          Sie sollten mindestens zwei allgemeine Navigationsmechanismen bereitstellen, um Seiten auf Ihrer Website zu finden, beispielsweise Navigationsmenü, Breadcrumb-Trail, Websitesuche, Sitemap, Liste verwandter Links usw.
+          Sie sollten mindestens zwei allgemeine Navigationsmechanismen
+          bereitstellen, um Seiten auf Ihrer Website zu finden, zum Beispiel
+          Navigationsmenü, Breadcrumb-Leiste, Seitensuche, Sitemap, Liste
+          verwandter Links, etc.
         </p>
         <p>
-          Die einzige Ausnahme hierbei ist, wenn eine Seite einen Schritt in einem Prozess darstellt und daher nur logisch Links zu den vorhergehenden und nächsten Schritten haben sollte.
+          Die einzige Ausnahme hiervon ist eine Seite, die ein Schritt in einem
+          Prozess ist, sodass logisch nur Links zu den vorherigen und nächsten
+          Schritten vorhanden sein sollten.
         </p>
       </td>
       <td>
-        Die meisten dieser Mechanismen können mit vollständig unterstützten HTML-Funktionen erstellt werden, siehe zum Beispiel
-        <a href="/de/docs/Learn_web_development/Extensions/Forms/HTML5_input_types#search_field">Suchfeld</a>,
-        <a href="/de/docs/Learn_web_development/Core/Structuring_content/Creating_links#active_learning_creating_a_navigation_menu">Erstellen eines Navigationsmenüs</a>,
-        <a href="/de/docs/Learn_web_development/Core/Text_styling/Styling_links#styling_links_as_buttons">Styling von Links als Schaltflächen</a>.
+        Die meisten dieser Mechanismen können mit vollständig unterstützten
+        HTML-Features erstellt werden, zum Beispiel siehe
+        <a
+          href="/de/docs/Learn_web_development/Extensions/Forms/HTML5_input_types#search_field"
+          >Suchfeld</a
+        >,
+        <a
+          href="/de/docs/Learn_web_development/Core/Structuring_content/Creating_links#creating_a_navigation_menu"
+          >Erstellen eines Navigationsmenüs</a
+        >,
+        <a
+          href="/de/docs/Learn_web_development/Core/Text_styling/Styling_links#styling_links_as_buttons"
+          >Links als Schaltflächen stylen</a
+        >.
       </td>
     </tr>
     <tr>
       <td>2.4.6 Überschriften und Beschriftungen (AA)</td>
       <td>
-        Überschriften (z. B. {{htmlelement("Heading_Elements", "&lt;h2&gt;")}}) und {{htmlelement("label")}}-Elemente beschreiben klar den Zweck der Inhalte und Formularelemente, die sie beschreiben sollen.
+        Überschriftselemente (z. B. {{htmlelement("Heading_Elements", "&lt;h2&gt;")}})
+        und {{htmlelement("label")}} -Elemente beschreiben klar den Zweck
+        der Inhalte und Formularelemente, die sie beschreiben sollen.
       </td>
       <td>
         <p>
           Siehe
-          <a href="/de/docs/Learn_web_development/Core/Accessibility/HTML#use_semantic_ui_controls_where_possible">Verwenden Sie nach Möglichkeit semantische UI-Steuerelemente</a>,
-          <a href="/de/docs/Learn_web_development/Core/Accessibility/HTML#use_meaningful_text_labels">Verwenden Sie aussagekräftige Textbeschriftungen</a>,
-          <a href="/de/docs/Learn_web_development/Core/Structuring_content/Headings_and_paragraphs">Die Grundlagen von Überschriften und Absätzen</a>,
-          <a href="/de/docs/Learn_web_development/Extensions/Forms/How_to_structure_a_web_form#the_label_element">Das &lt;label&gt;-Element</a>.
+          <a href="/de/docs/Learn_web_development/Core/Accessibility/HTML#use_semantic_ui_controls_where_possible"
+            >Verwenden Sie nach Möglichkeit semantische UI-Steuerungen</a
+          >,
+          <a href="/de/docs/Learn_web_development/Core/Accessibility/HTML#use_meaningful_text_labels"
+            >Verwenden Sie sinnvolle Textbeschriftungen</a
+          >,
+          <a
+            href="/de/docs/Learn_web_development/Core/Structuring_content/Headings_and_paragraphs"
+            >Die Grundlagen von Überschriften und Absätzen</a
+          >,
+          <a
+            href="/de/docs/Learn_web_development/Extensions/Forms/How_to_structure_a_web_form#the_label_element"
+            >Das &#x3C;label> -Element</a
+          >.
         </p>
         <p>
-          Beachten Sie, dass Sie die Duplizierung von Überschriften oder Beschriftungen vermeiden sollten (z. B. mehrere Instanzen von "Weitere Informationen"), es sei denn, die Struktur ermöglicht es Ihnen, zwischen ihnen leicht zu unterscheiden.
+          Beachten Sie, dass Sie doppelte Überschriften oder Beschriftungen
+          vermeiden sollten (z. B. mehrere Instanzen von "Weitere
+          Informationen"), es sei denn, die Struktur ermöglicht es Ihnen, sie
+          leicht zu unterscheiden.
         </p>
       </td>
     </tr>
     <tr>
       <td>2.4.7 Sichtbarer Fokus für fokussierbare Elemente (AA)</td>
       <td>
-        Beim Wechsel zwischen fokussierbaren Elementen wie Links oder Formulareingaben sollte es einen visuellen Indikator geben, der anzeigt, welches Element aktuell den Fokus hat. Dies ist normalerweise standardmäßig ein gepunkteter oder blauer Umriss (abhängig vom Browser, der Plattform usw.), kann jedoch durch CSS überschrieben werden.
+        Beim Tabben durch fokussierbare Elemente wie Links oder Formulareingaben
+        sollte es einen visuellen Indikator geben, der zeigt, welches Element
+        derzeit den Fokus hat. Dies ist normalerweise eine gepunktete oder blaue
+        Umrandung (abhängig vom Browser, der Plattform, etc.), dies kann aber
+        durch CSS überschrieben werden.
       </td>
       <td>
         Siehe
-        <a href="/de/docs/Learn_web_development/Core/Accessibility/HTML#use_semantic_ui_controls_where_possible">Verwenden Sie nach Möglichkeit semantische UI-Steuerelemente</a>.
+        <a
+          href="/de/docs/Learn_web_development/Core/Accessibility/HTML#use_semantic_ui_controls_where_possible"
+          >Verwenden Sie nach Möglichkeit semantische UI-Steuerungen</a
+        >.
       </td>
     </tr>
     <tr>
-      <td>2.4.8 Standort innerhalb der Website (AAA)</td>
+      <td>2.4.8 Standort innerhalb der Seite (AAA)</td>
       <td>
-        Wenn sich der Benutzer auf einer Seite innerhalb einer komplexen Website oder eines Schrittsatzes befindet, sollte ihm ein Indikator darüber gegeben werden, wo er sich auf der Website befindet, beispielsweise ein Breadcrumb-Trail, eine Sitemap oder ein Text wie "Formularseite 2 von 10".
+        Wenn Sie sich auf einer Seite innerhalb einer komplexen Website oder
+        eines Schrittsatzes befinden, sollte der Benutzer einen Indikator
+        erhalten, wo er sich auf der Seite befindet, zum Beispiel eine
+        Breadcrumb-Leiste, Sitemap oder ein Text wie "Formularseite 2 von 10".
       </td>
       <td></td>
     </tr>
     <tr>
-      <td>2.4.9 Link-Zweck (nur Link) (AAA)</td>
+      <td>2.4.9 Linkzweck (nur Link) (AAA)</td>
       <td>
-        Dieses Kriterium baut auf 2.4.4 auf und besagt, dass, um AAA-konform zu sein, der Zweck/die Zielsetzung eines Links allein aus dem Linktext bestimmt werden sollte, selbst wenn er aus dem Kontext gerissen ist.
+        Dieses Kriterium baut auf 2.4.4 auf und besagt, dass zur Konformität
+        nach AAA der Zweck/das Ziel eines Links allein aus dem Linktext
+        heraus erkennbar sein sollte, auch wenn er aus dem Kontext gerissen wird.
       </td>
       <td>
         Siehe
-        <a href="/de/docs/Learn_web_development/Core/Accessibility/HTML#use_meaningful_text_labels">Verwenden Sie aussagekräftige Textbeschriftungen</a>. Beachten Sie auch, dass Sie Instanzen minimieren sollten, bei denen mehrere Kopien desselben Textes zu verschiedenen Orten verlinken. Dies kann Probleme für Bildschirmleser-Benutzer verursachen, die oft eine Liste der Links außerhalb des Kontexts aufrufen — mehrere Links, die alle mit "hier klicken", "hier klicken", "hier klicken" beschriftet sind, wären verwirrend.
+        <a href="/de/docs/Learn_web_development/Core/Accessibility/HTML#use_meaningful_text_labels"
+          >Verwenden Sie sinnvolle Textbeschriftungen</a
+        >. Beachten Sie auch, dass Sie Fälle minimieren sollten, in denen
+        mehrere Kopien desselben Textes auf verschiedene Orte verlinken. Dies
+        kann Probleme für Benutzer von Bildschirmlesegeräten verursachen, die
+        oft eine Liste der Links aus dem Kontext aufrufen - mehrere Links, alle
+        mit "Hier klicken", würden verwirrend sein.
       </td>
     </tr>
     <tr>
       <td>2.4.10 Abschnittsüberschriften (AAA)</td>
       <td>
         <p>
-          Überschriften sollten nicht nur eine nützliche Dokumentenstruktur schaffen, sondern auch die Inhalte genau beschreiben und in logische Abschnitte unterteilen.
+          Neben der Erstellung einer nützlichen Dokumentstruktur, sollten
+          Überschriften auch den Inhalt voneinander trennen und logisch in
+          Abschnitte gliedern.
         </p>
         <p>
-          Beachten Sie, dass sich dieses Kriterium auf Überschriften und Titel in allgemeinen Webinhalten bezieht (z.B. Überschriften innerhalb von Textinhalten). Überschriften und Titel für Benutzeroberflächen sind ein spezieller Fall, der in Kriterium 4.1.2 behandelt wird.
+          Beachten Sie, dass sich dieses Kriterium auf Überschriften und Titel
+          im allgemeinen Webinhalt bezieht (z. B. Überschriften innerhalb von
+          Textinhalten). Überschriften und Titel für Benutzeroberflächen sind
+          ein spezieller Fall, der in Kriterium 4.1.2 behandelt wird.
         </p>
       </td>
       <td>
         <p>
           Siehe
-          <a href="/de/docs/Learn_web_development/Core/Structuring_content/Headings_and_paragraphs">Die Grundlagen von Überschriften und Absätzen</a>.
+          <a
+            href="/de/docs/Learn_web_development/Core/Structuring_content/Headings_and_paragraphs"
+            >Die Grundlagen von Überschriften und Absätzen</a
+          >.
         </p>
       </td>
     </tr>
     <tr>
-    <td>2.4.11 Fokus nicht verdeckt (Minimum) (AA)</td>
+    <td> 2.4.11 Fokus nicht verdeckt (Minimum) (AA)</td>
     <td>
-    <p> Wenn eine Benutzeroberflächenkomponente den Tastaturfokus erhält, wird die Komponente nicht vollständig durch autorenerstellte Inhalte verborgen.</p>
-    <p> <strong>Hinweis:</strong> Wenn der Inhalt der Schnittstelle vom Benutzer neu positioniert werden kann, wird für Tests zur Einhaltung dieses Standards nur die anfängliche Position der benutzerbewegbaren Inhalte berücksichtigt. Außerdem können Inhalte, die vom Benutzer geöffnet wurden, die Komponente verdecken, die den Fokus erhält. Weiterhin, wenn der Benutzer die fokussierte Komponente sichtbar machen kann, ohne den Tastaturfokus zu ändern, wird die Komponente mit Fokus nicht als verborgen in Bezug auf Konformität und Tests angesehen.</p>
+    <p> Wenn eine Benutzeroberflächenkomponente den Tastaturfokus erhält, darf die Komponente aufgrund von enthaltenen, vom Autor erstellten Inhalten nicht vollständig verborgen sein.</p>
+    <p> <strong>Hinweis:</strong> Wenn der Inhalt der Benutzeroberfläche vom Benutzer neu positioniert werden kann, wird für die Prüfung der Konformität mit diesem Standard nur die Anfangsposition des benutzerbewegbaren Inhalts berücksichtigt. Auch Inhalte, die vom Benutzer geöffnet werden, können die Komponente verdecken, die den Fokus erhält. Wenn der Benutzer die fokussierte Komponente jedoch ohne Änderung des Tastaturfokus sichtbar machen kann, wird die Komponente mit Fokus nicht als verborgen betrachtet, was Konformitäts- und Prüfungszwecke betrifft.</p>
     </td>
     <td>
-    <p> Sehen Sie sich <a href="https://www.w3.org/WAI/WCAG22/Understanding/focus-not-obscured-minimum">Verständnis von Fokus nicht verdeckt (Minimum)</a> an, um mehr über diesen Standard zu erfahren.</p>
+    <p> Erfahren Sie mehr zu diesem Standard unter <a href="https://www.w3.org/WAI/WCAG22/Understanding/focus-not-obscured-minimum">Verständnis von Fokus nicht verdeckt (Minimum)</a>.</p>
     </td>
     </tr>
     <tr>
-    <td>2.4.12 Fokus nicht verdeckt (Verbessert) (AAA) </td>
+    <td> 2.4.12 Fokus nicht verdeckt (Erweitert) (AAA) </td>
     <td>
-    <p> Folgt den Regeln wie 2.4.11, außer wenn eine Benutzeroberflächenkomponente den Fokus erhält, kann kein Teil der Komponente durch autorenerstellte Inhalte verdeckt werden. Wenn die Oberfläche konfigurierbar ist, werden für Tests und die Einhaltung dieses Standards nur die anfänglichen Positionen von benutzerbewegbaren Inhalten berücksichtigt.</p>
+    <p> Gilt die Regeln wie 2.4.11 außer wenn eine Benutzeroberflächenkomponente den Fokus erhält, darf kein Teil der Komponente durch vom Autor erstellte Inhalte verdeckt werden. Wenn die Benutzeroberfläche konfigurierbar ist, werden nur die ursprünglichen Positionen benutzerbewegbarer Inhalte für die Prüfung und Erfüllung dieses Standards berücksichtigt.</p>
     </td>
     <td>
-    <p> Sehen Sie sich <a href="https://www.w3.org/WAI/WCAG22/Understanding/focus-not-obscured-enhanced">Verständnis von Fokus nicht verdeckt (Verbessert) (Level AAA)</a> an, um mehr über diesen Standard zu erfahren.</p> </td>
+    <p> Erfahren Sie mehr zu diesem Standard unter <a href="https://www.w3.org/WAI/WCAG22/Understanding/focus-not-obscured-enhanced">Verständnis von Fokus nicht verdeckt (Erweitert) (Level AAA)</a>.</p> </td>
     </td>
     </tr>
 <tr>
-  <td>2.4.13 Fokuserscheinung (AAA)</td>
+  <td> 2.4.13 Fokusdarstellung (AAA)</td>
   <td>
-    <p>Wenn der Tastaturfokus-Indikator sichtbar ist, erfüllt der Bereich des Fokus-Indikators alle folgenden Eigenschaften:</p>
+    <p>Wenn der Fokus-Indikator der Tastatur sichtbar ist, erfüllt der Bereich des Fokus-Indikators alle folgenden Bedingungen:</p>
     <ul>
-      <li>Muss mindestens so groß sein wie die Fläche eines <code>2px</code> dicken Umfangs der unscharfen Komponente oder Unterkomponente, die den Inhalt, den Rahmen und den Hintergrund der Komponente umfasst, außer äußeren Schatten- oder Glüheffekten.</li>
-      <li>Muss einen Kontrastverhältnis von mindestens 3:1 zwischen denselben Pixeln in den fokussierten und unscharfen Zuständen haben</li>
+      <li>Muss mindestens so groß sein wie der Bereich eines <code>2px</code> dicken Umfangs der un-fokussierten Komponente oder Unterkomponente, der den Inhalt der Komponente, ihre Grenze und den Hintergrund umfasst, außen vor gelassen verwischte Schatten oder Leuchteffekte.</li>
+      <li>Muss einen Kontrastverhältnis von mindestens 3:1 zwischen denselben Pixeln im fokussierten und un-fokussierten Zustand haben.</li>
     </ul>
-    <p> Die Ausnahmen sind:</p>
+    <p> Die Ausnahmen hiervon sind:</p>
     <ul>
       <li>Der Fokus-Indikator wird vom Benutzer festgelegt und kann vom Autor nicht angepasst werden.</li>
-      <li>Der Fokus-Indikator und die Hintergrundfarbe des Indikators wurden vom Autor nicht verändert.</li>
+      <li>Der Fokus-Indikator und die Hintergrundfarbe des Indikators wurden vom Autor nicht geändert.</li>
     </ul>
   </td>
   <td>
-    <p> Sehen Sie sich <a href="https://www.w3.org/WAI/WCAG22/Understanding/focus-appearance.html">Verständnis der Fokuserscheinung (Level AAA)</a> an, um mehr über diesen Standard zu erfahren.</p>
+    <p> Erfahren Sie mehr zu diesem Standard unter <a href="https://www.w3.org/WAI/WCAG22/Understanding/focus-appearance.html">Verständnis von Fokusdarstellung (Level AAA)</a>.</p>
   </td>
 </tr>
   </tbody>
 </table>
 
 > [!NOTE]
-> Sehen Sie auch die WCAG-Beschreibung für [Richtlinie 2.4 Navigierbar: Bieten Sie Möglichkeiten, die Benutzern helfen, zu navigieren, Inhalte zu finden und festzustellen, wo sie sich befinden.](https://w3c.github.io/wcag/guidelines/22/#navigable)
+> Siehe auch die WCAG-Beschreibung für [Richtlinie 2.4 Navigierbar: Bieten Sie Möglichkeiten, Benutzern zu helfen, zu navigieren, Inhalte zu finden und zu bestimmen, wo sie sich befinden.](https://w3c.github.io/wcag/guidelines/22/#navigable)
 
-## Richtlinie 2.5 Eingabemodalitäten: Erleichtern Sie es Benutzern, Funktionen über verschiedene Eingabemethoden jenseits der Tastatur zu bedienen
+## Richtlinie 2.5 Eingabemodalitäten: Machen Sie es Benutzern einfacher, Funktionen durch verschiedene Eingaben jenseits der Tastatur zu bedienen
 
-Die Konformitätskriterien unter dieser Richtlinie stellen sicher, dass Benutzer in der Lage sind, mit digitaler Technologie mittels verschiedener Eingabemethoden jenseits einer Tastatur oder Maus (einschließlich Touchscreen, Sprachsteuerung, Gerätebewegung oder alternativen Eingabegeräten) zu interagieren.
+Die Konformitätskriterien unter dieser Richtlinie stellen sicher, dass Benutzer in der Lage sind, mit digitaler Technologie über verschiedene Eingabemethoden jenseits von Tastatur oder Maus (einschließlich Touchscreen, Sprache, Gerätesteuerung oder alternativen Eingabegeräten) zu interagieren.
 
 <table>
  <thead>
   <tr>
    <th scope="col">Erfolgskriterien</th>
-   <th scope="col">Wie man die Kriterien erfüllt</th>
-   <th scope="col">Praktische Ressourcen</th>
+   <th scope="col">So erfüllen Sie die Kriterien</th>
+   <th scope="col">Praktische Ressource</th>
   </tr>
  </thead>
  <tbody>
   <tr>
    <td>2.5.1 Zeigergesten (A)</em></td>
-   <td>Alle Funktionen, die mit einem Zeiger bedient werden können, können auch mit Einpunkt-Aktionen bedient werden. Pfadbasierte oder Mehrpunkt-Gesten sind zur Bedienung keiner Funktion erforderlich. Es gibt Ausnahmen.</td>
+   <td>Alle Funktionen, die mit einem Zeiger bedient werden können, können mit Einzelpunktaktionen bedient werden. Pfadbasierte oder mehrpunktige Gesten sind für keine Funktionalität erforderlich. Es existieren Ausnahmen.</td>
    <td><a href="https://www.w3.org/WAI/WCAG21/Understanding/pointer-gestures.html">Verständnis von Zeigergesten</a></td>
   </tr>
   <tr>
-   <td>2.5.2 Zeigerabbruch (A)</em></td>
-   <td>Für Funktionen, die mit einem einzelnen Zeiger bedient werden können, trifft mindestens eine der folgenden Aussagen zu: kein nach unten-Event, Abbruch/Rückgängig, Aufwärtsumkehr oder wesentlich.</td>
-   <td><a href="https://www.w3.org/WAI/WCAG21/Understanding/pointer-cancellation.html">Verständnis von Zeigerabbruch</a></td>
+   <td>2.5.2 Abbrechen von Zeigern (A)</em></td>
+   <td>Bei Funktionen, die mit einem Einzelzeiger bedient werden können, trifft mindestens eines der folgenden Punkte zu: kein Down-Event, Abbruch/Rückgängigmachen, Rückkehr oder essenziell.</td>
+   <td><a href="https://www.w3.org/WAI/WCAG21/Understanding/pointer-cancellation.html">Verständnis von Abbrechen von Zeigern</a></td>
   </tr>
   <tr>
    <td>2.5.3 Beschriftung im Namen (A)</em></td>
-   <td>Für jede Benutzeroberflächenkomponente, die eine sichtbare Textbeschriftung enthält, stellen Sie sicher, dass der zugängliche Name mit dem sichtbaren Text im Beschriftungstext übereinstimmt (oder diesen beinhaltet).</td>
+   <td>Für jede Benutzeroberflächenkomponente, die ein sichtbares Textlabel enthält, stellen Sie sicher, dass der zugängliche Name mit dem sichtbaren Text im Label übereinstimmt (oder ihn einschließt).</td>
    <td><a href="https://www.w3.org/WAI/WCAG21/Understanding/label-in-name.html">Verständnis von Beschriftung im Namen</a></td>
   </tr>
   <tr>
-   <td>2.5.4 Bewegungsaktivierung (A)</em></td>
-   <td>Stellen Sie sicher, dass für Funktionen, die durch a) Gerätebewegung (wie Schütteln, Neigen) oder b) vom Gerät erfasste Benutzerbewegungen ausgelöst werden können (einschließlich einer Kamera), dass beide folgenden Aussagen zutreffen: 1) Bewegungsaktivierung kann deaktiviert werden, und 2) die Funktion kann bedient werden, ohne Gerätebewegung oder Benutzerbewegungen zu verwenden. Es gibt Ausnahmen.</td>
-   <td><a href="https://www.w3.org/WAI/WCAG21/Understanding/motion-actuation.html">Verständnis von Bewegungsaktivierung</a></td>
+   <td>2.5.4 Bewegungsauslösung (A)</em></td>
+   <td>Stellen Sie sicher, dass für Funktionen, die durch a) Gerätestörungen (wie Schütteln, Neigen) oder b) Benutzergesten, die durch Gerätesensoren erkannt werden (einschließlich einer Kamera), beide der folgenden Punkte zutreffen: 1) Bewegungsauslösung kann deaktiviert werden, und 2) die Funktionalität kann ohne Verwendung von Gerätestörungen oder Benutzergesten bedient werden. Ausnahmen existieren.</td>
+   <td><a href="https://www.w3.org/WAI/WCAG21/Understanding/motion-actuation.html">Verständnis der Bewegungsauslösung</a></td>
   </tr>
   <tr>
    <td>2.5.5 Zielgröße (AAA)</td>
-   <td>Die Größe des berührungsempfindlichen Ziels eines bedienbaren Elements muss mindestens 44 CSS-Pixel in Breite und Höhe betragen. Es gibt Ausnahmen.</td>
-   <td><a href="https://www.w3.org/WAI/WCAG21/Understanding/target-size.html">Verständnis von Zielgröße</a></td>
+   <td>Die Größe eines berührbaren Ziels muss mindestens 44 CSS-Pixels in Breite und Höhe betragen. Es existieren Ausnahmen.</td>
+   <td><a href="https://www.w3.org/WAI/WCAG21/Understanding/target-size.html">Verständnis der Zielgröße</a></td>
   </tr>
   <tr>
    <td>2.5.6 Gleichzeitige Eingabemechanismen (AAA)</td>
-   <td>Stellen Sie sicher, dass Personen verschiedene Eingabemodi verwenden und zwischen diesen wechseln können, wenn sie mit digitalen Inhalten interagieren, einschließlich Touchscreen, Tastatur, Maus, Sprachbefehlen oder alternativen Eingabegeräten. Es gibt eine wesentliche Ausnahme. </td>
-   <td><a href="https://www.w3.org/WAI/WCAG21/Understanding/concurrent-input-mechanisms.html">Verständnis von gleichzeitigen Eingabemechanismen</a></td>
+   <td>Stellen Sie sicher, dass Menschen verschiedene Eingabemodi verwenden und zwischen ihnen wechseln können, wenn sie mit digitalen Inhalten, einschließlich Touchscreen, Tastatur, Maus, Sprachbefehlen oder alternativen Eingabegeräten interagieren. Eine essenzielle Ausnahme existiert. </td>
+   <td><a href="https://www.w3.org/WAI/WCAG21/Understanding/concurrent-input-mechanisms.html">Verständnis der gleichzeitigen Eingabemechanismen</a></td>
  </tr>
  <tr>
- <td>2.5.8 Mindestzielgröße (AA)</td>
- <td> Die Zielgröße für Zeigereingaben sollte mindestens <code>24px</code> breit und <code>24px</code> hoch sein, außer in den folgenden Bereichen:
+ <td> 2.5.8 Mindestzielgröße (AA)</td>
+ <td> Die Zielgröße für Zeigereingaben sollte mindestens <code>24px</code> breit und <code>24px</code> hoch sein, außer für die folgenden Bereiche:
  <ul>
-  <li> <strong>Abstände:</strong>Ziele, die weniger als <code>24px x 24px</code> groß sind, sind so positioniert, dass, wenn ein <code>24px</code> großer Kreis im Mittelpunkt jedes Zielrahmens zentriert ist, sich die Kreise nicht mit einem anderen Ziel oder dem Kreis eines anderen untergroßen Ziels schneiden.</li>
-  <li> <strong>Gleichwertig:</strong> Eine separate Steuerung, die denselben Zweck erfüllt und diesen Standard erfüllt, ist auf derselben Seite verfügbar.</li>
-  <li> <strong>Inline:</strong> Das Ziel befindet sich innerhalb einer Textzeile und seine Größe wird durch die Linienhöhe oder den umgebenden Nicht-Zieltext begrenzt.</li>
-  <li> <strong>Nutzeragentenkontrolle:</strong> Die Größe des Ziels wird durch den Nutzeragenten bestimmt und wurde nicht vom Autor verändert.</li>
-  <li> <strong>Wesentlich:</strong> Eine bestimmte Präsentation des Ziels ist wesentlich oder gesetzlich erforderlich, um die übermittelten Informationen darzustellen.</li>
+  <li> <strong>Abstand:</strong>Ziele, die weniger als <code>24px x 24px</code> groß sind, sind so positioniert, dass wenn ein <code>24px</code> Durchmesser-Kreis auf das Zentrum des Boxmodels des Ziels gerichtet wird, sich die Kreise nicht mit einem anderen Ziel überschneiden oder mit dem Kreis anderer untergroßer Ziele.</li>
+  <li> <strong>Äquivalent:</strong> Eine separate Steuerung, die die gleiche Funktion erfüllt, die diesen Standard erfüllt, ist auf derselben Seite verfügbar.</li>
+  <li> <strong>Inline:</strong> Das Ziel befindet sich in einer Textzeile, mit seiner Größe durch die Zeilenhöhe oder den umgebenden Nicht-Zieltext beschränkt ist.</li>
+  <li> <strong>Benutzeragentensteuerung:</strong> Die Größe des Ziels wird durch den Benutzeragenten bestimmt und wurde vom Autor nicht verändert.</li>
+  <li> <strong>Essenziell:</strong> Eine besondere Präsentation des Ziels ist essenziell oder rechtlich erforderlich für die darzustellende Information.</li>
  </ul>
- <td> Sehen Sie sich <a href="https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html">Understanding target size minimum</a> an </td>
+ <td> Erfahren Sie mehr über <a href="https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html">Verständnis der Mindestzielgröße</a> </td>
 </tr>
   </tr>
  </tbody>
 </table>
 
 > [!NOTE]
-> Sehen Sie auch die WCAG-Beschreibung für [Richtlinie 2.5: Eingabemodalitäten: Erleichtern Sie es Benutzern, Funktionen über verschiedene Eingabemethoden jenseits der Tastatur zu bedienen.](https://w3c.github.io/wcag/guidelines/22/#input-modalities)
+> Siehe auch die WCAG-Beschreibung für [Richtlinie 2.5: Eingabemodalitäten: Machen Sie es Benutzern einfacher, Funktionen durch verschiedene Eingaben jenseits der Tastatur zu bedienen.](https://w3c.github.io/wcag/guidelines/22/#input-modalities)
 
 ## Siehe auch
 
 - [WCAG](/de/docs/Web/Accessibility/Guides/Understanding_WCAG)
 
-  1. [Wahrnehmbar](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable)
+  1. [Erfassbar](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable)
   2. Bedienbar
   3. [Verständlich](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Understandable)
   4. [Robust](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Robust)
