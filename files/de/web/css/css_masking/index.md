@@ -1,23 +1,23 @@
 ---
-title: CSS-Maskierung
+title: CSS-Masking
 slug: Web/CSS/CSS_masking
 l10n:
-  sourceCommit: ce1dfc470d18fa6ba694a5b8bd5c657914e57cc3
+  sourceCommit: 1ed73e7c02a9afd99c86719cc850254ffe2f7661
 ---
 
 {{CSSRef}}
 
-Das **CSS-Maskierungs**modul definiert Maskierung und Clipping, zwei verschiedene grafische Operationen, die verwendet werden, um Teile von visuellen Elementen teilweise oder vollständig zu verbergen.
+Das **CSS-Masking**-Modul definiert Maskierung und Clipping, zwei unterschiedliche grafische Operationen, die verwendet werden, um Teile von visuellen Elementen teilweise oder vollständig zu verbergen.
 
-**Clipping** beinhaltet das Definieren eines geschlossenen Vektorpfads, einer Form oder eines Polygons als **Clipping-Pfad**. Alles innerhalb des Clipping-Pfad-Bereichs bleibt sichtbar, während alles außerhalb verborgen wird oder "ausgeschnitten" ist. Die {{cssxref("clip-path")}}-Eigenschaft gibt eine {{cssxref("&lt;basic-shape&gt;")}} an oder verweist auf ein SVG-{{SVGElement("clipPath")}}-Element, das als Clipping-Pfad verwendet werden soll.
+**Clipping** beinhaltet das Definieren eines geschlossenen Vektorpfads, einer Form oder eines Polygons als **Clipping-Pfad**. Alles innerhalb des Clipping-Pfads bleibt sichtbar, während alles außerhalb ausgeblendet oder "ausgeschnitten" wird. Die {{cssxref("clip-path")}}-Eigenschaft gibt eine {{cssxref("&lt;basic-shape&gt;")}} an oder verweist auf ein SVG-Element {{SVGElement("clipPath")}}, das als Clipping-Pfad verwendet werden soll.
 
-CSS-**Maskierung**seigenschaften werden verwendet, um eine Maske auf ein Element oder dessen Rand anzuwenden. Ein grafisches Objekt wird dann auf den Hintergrund oder Rand gezeichnet und maskiert je nach Opazität oder Leuchtkraft der Maske Teile des Elements oder seines Randes vollständig oder teilweise.
+Die **Maskierung**-Eigenschaften von CSS werden verwendet, um einem Element oder seinem Rand eine Maske hinzuzufügen. Ein grafisches Objekt wird dann auf den Hintergrund oder Rand gemalt und verdeckt vollständig oder teilweise Teile des Elements oder seines Randes, abhängig von der Opazität oder Leuchtkraft der Maske.
 
-Das Bild, das als Maske verwendet wird, wird durch die {{cssxref("mask-image")}}- oder {{cssxref("mask-border-source")}}-Eigenschaften angegeben. Die angegebene Maske kann ein {{cssxref("image")}}, ein {{cssxref("gradient")}} oder ein SVG-{{SVGElement("mask")}}-Element sein. Die Maske kann ähnlich wie [Hintergrund- und Randelemente](/de/docs/Web/CSS/CSS_backgrounds_and_borders) skaliert und positioniert werden.
+Das Bild, das als Maske verwendet wird, wird durch die Eigenschaften {{cssxref("mask-image")}} oder {{cssxref("mask-border-source")}} festgelegt. Die angegebene Maske kann ein {{cssxref("image")}}, ein {{cssxref("gradient")}} oder ein SVG-Element {{SVGElement("mask")}} sein. Die Maske kann ähnlich wie [Hintergrund- und Randbilder](/de/docs/Web/CSS/CSS_backgrounds_and_borders) skaliert und positioniert werden.
 
-Clipping und Maskierung in CSS verhalten sich genauso wie bei SVG: Zuerst wird das Element ohne Filtereffekte, Maskierung, Clipping und Opazität gestylt. Dann werden die Effekte in folgender Reihenfolge auf das Element angewendet: [Filtereffekte](/de/docs/Web/CSS/CSS_filter_effects), Clipping, Maskierung und Opazität.
+Das Clipping und die Maskierung in CSS verhalten sich genauso wie bei SVG: Zunächst wird das Element ohne Filtereffekte, Maskierung, Clipping und Opazität gestylt. Dann werden alle Effekte in der folgenden Reihenfolge auf das Element angewendet: [Filtereffekte](/de/docs/Web/CSS/CSS_filter_effects), Clipping, Maskierung und Opazität.
 
-Während Maskierung mehr Kontrolle und Optionen bietet, kann Clipping besser funktionieren, wenn nur eine einfache Form benötigt wird — sie sind einfacher zu interpolieren.
+Während die Maskierung mehr Kontrolle und Optionen bietet, kann das Clipping eine bessere Leistung bieten, wenn nur eine einfache Form erforderlich ist — sie sind leichter zu interpolieren.
 
 ## Referenz
 
@@ -60,13 +60,17 @@ Während Maskierung mehr Kontrolle und Optionen bietet, kann Clipping besser fun
 
 ## Leitfäden
 
-- [Einführung in CSS-Clipping](/de/docs/Web/CSS/CSS_masking/Clipping)
+- [Einführung in das CSS-Clipping](/de/docs/Web/CSS/CSS_masking/Clipping)
 
   - : Einführung in das Clipping in CSS, einschließlich der `clip-path`-Eigenschaft mit Beispielen.
 
-- [Einführung in CSS-Maskierung](/de/docs/Web/CSS/CSS_masking/Masking)
+- [Einführung in die CSS-Maskierung](/de/docs/Web/CSS/CSS_masking/Masking)
 
-  - : Einführung in die CSS-Maskierung, die verschiedenen Maskenbildtypen und die Effekte von Leuchtkraft und Alpha-Transparenz in der Maskierung.
+  - : Einführung in die Maskierung in CSS, die verschiedenen Maskenbildtypen und die Effekte von Leuchtkraft und Alpha-Transparenz bei der Maskierung.
+
+- [Deklarieren mehrerer Masken](/de/docs/Web/CSS/CSS_masking/Multiple_masks)
+
+  - : Einführung in Maskenebenen und wie man mehrere Maskenbilder deklariert.
 
 ## Verwandte Konzepte
 
@@ -75,7 +79,7 @@ Während Maskierung mehr Kontrolle und Optionen bietet, kann Clipping besser fun
 - {{cssxref("&lt;position&gt;")}}
 - {{cssxref("&lt;url&gt;")}}
 
-- [CSS-Hintergründe und -Ränder](/de/docs/Web/CSS/CSS_backgrounds_and_borders) Modul
+- [CSS-Hintergründe und -Ränder](/de/docs/Web/CSS/CSS_backgrounds_and_borders)-Modul
 
   - {{cssxref("background")}} Kurzform
   - {{cssxref("background-origin")}}
@@ -89,7 +93,7 @@ Während Maskierung mehr Kontrolle und Optionen bietet, kann Clipping besser fun
   - {{cssxref("border-image-width")}}
   - [`<repeat-style>`](/de/docs/Web/CSS/background-repeat#values) Datentyp
 
-- [CSS-Formen](/de/docs/Web/CSS/CSS_shapes) Modul
+- [CSS-Formen](/de/docs/Web/CSS/CSS_shapes)-Modul
 
   - {{cssxref("&lt;basic-shape&gt;")}} Datentyp
   - {{cssxref("basic-shape/polygon","polygon()")}} Funktion
@@ -106,4 +110,4 @@ Während Maskierung mehr Kontrolle und Optionen bietet, kann Clipping besser fun
 - [SVG-Tutorial: Clipping und Maskierung](/de/docs/Web/SVG/Tutorials/SVG_from_scratch/Clipping_and_masking)
 - [`CanvasRenderingContext2D.clip()`](/de/docs/Web/API/CanvasRenderingContext2D/clip)
 - [`WebGLRenderingContext.colorMask()`](/de/docs/Web/API/WebGLRenderingContext/colorMask)
-- [PWA-Symbol-Maskierung](/de/docs/Web/Progressive_web_apps/How_to/Define_app_icons#support_masking)
+- [PWA-Symbolmaskierung](/de/docs/Web/Progressive_web_apps/How_to/Define_app_icons#support_masking)

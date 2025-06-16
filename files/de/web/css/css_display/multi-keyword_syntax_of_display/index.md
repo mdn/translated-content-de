@@ -1,21 +1,21 @@
 ---
-title: Verwendung der Multi-Keyword-Syntax mit CSS Display
-short-title: Verwendung der Multi-Keyword-Syntax
+title: Verwendung der Mehrfach-Stichwort-Syntax mit CSS-Display
+short-title: Verwendung der Mehrfach-Stichwort-Syntax
 slug: Web/CSS/CSS_display/multi-keyword_syntax_of_display
 l10n:
-  sourceCommit: 0dcad86763896bba7f8e1ddc30c6dfd2aa664c6b
+  sourceCommit: c9f602a26092661130a031b7148d696a3ac9802e
 ---
 
 {{CSSRef}}
 
-Das [CSS Display-Modul](/de/docs/Web/CSS/CSS_display) definiert eine Multi-Keyword-Syntax für die CSS-Eigenschaft [`display`](/de/docs/Web/CSS/display). Dieser Leitfaden erklärt die Multi-Keyword-Syntax.
+Das [CSS Display-Modul](/de/docs/Web/CSS/CSS_display) definiert eine Mehrfach-Stichwort-Syntax für die CSS-Eigenschaft [`display`](/de/docs/Web/CSS/display). Dieser Leitfaden erklärt die Mehrfach-Stichwort-Syntax.
 
 > [!NOTE]
-> Die Multi-Keyword-Syntax wird auch als "Zwei-Wert-Syntax" oder "Mehr-Wert-Syntax" bezeichnet.
+> Die Mehrfach-Stichwort-Syntax wird auch als „Zwei-Wert-Syntax“ oder „Mehr-Wert-Syntax“ bezeichnet.
 
 ## Was passiert, wenn wir den Wert der Display-Eigenschaft ändern?
 
-Eines der ersten Dinge, die wir über CSS lernen, ist, dass einige Elemente Block- und einige Inline-Elemente sind. Dies sind ihre [outer](/de/docs/Web/CSS/display-outside) Display-Typen. Zum Beispiel sind ein `<h1>` oder ein `<p>` standardmäßig Block-Elemente, und ein `<span>` ist ein Inline-Element. Mit der {{cssxref("display")}}-Eigenschaft können wir zwischen Block und Inline wechseln. Um beispielsweise eine Überschrift inline zu machen, würden wir folgendes CSS verwenden:
+Eine der ersten Dinge, die wir über CSS lernen, ist, dass einige Elemente Block-Elemente und andere Inline-Elemente sind. Dies sind ihre [äußeren](/de/docs/Web/CSS/display-outside) Display-Typen. Zum Beispiel sind ein `<h1>` oder ein `<p>` standardmäßig Block-Elemente, und ein `<span>` ist ein Inline-Element. Mit der {{cssxref("display")}}-Eigenschaft können wir zwischen Block und Inline wechseln. Um beispielsweise eine Überschrift in eine Inline-Überschrift umzuwandeln, würden wir folgendes CSS verwenden:
 
 ```css
 h1 {
@@ -23,13 +23,13 @@ h1 {
 }
 ```
 
-Die `display`-Eigenschaft lässt uns auch [CSS Grid-Layout](/de/docs/Web/CSS/CSS_grid_layout) und [Flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout) verwenden, wenn `display: grid` oder `display: flex` gesetzt ist. Das wichtige Konzept zu verstehen ist, dass die Änderung des `display`-Werts eines Elements den Formatierungskontext seiner direkten Kinder ändern kann. Wenn Sie `display: flex` oder `display: grid` verwenden, werden die Kinder des Elements zu Flex- oder Grid-Items und reagieren auf die Eigenschaften in den Grid- und Flexbox-Spezifikationen.
+Die `display`-Eigenschaft ermöglicht uns auch die Verwendung des [CSS Grid Layouts](/de/docs/Web/CSS/CSS_grid_layout) und von [Flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout), wenn `display: grid` oder `display: flex` gesetzt ist. Das wichtige Konzept hierbei ist, dass die Änderung des `display`-Wertes eines Elements den Formatierungskontext seiner direkten Kinder ändern kann. Wenn Sie `display: flex` oder `display: grid` verwenden, werden die Kinder des Elements zu Flex- oder Grid-Items und reagieren auf die Eigenschaften in Grid- und Flexbox-Spezifikationen.
 
-Was Grid und Flexbox jedoch demonstrieren, ist, dass ein Element sowohl einen **äußeren** als auch einen **inneren** Display-Typ hat. Der äußere Display-Typ beschreibt, ob das Element ein Block- oder Inline-Element ist. Der innere Display-Typ beschreibt, wie die Kinder dieser Box sich verhalten.
+Was Grid und Flexbox jedoch zeigen, ist, dass ein Element sowohl einen **äußeren** als auch einen **inneren** Display-Typ hat. Der äußere Display-Typ beschreibt, ob das Element ein Block- oder Inline-Element ist. Der innere Display-Typ beschreibt, wie die Kinder dieses Kastens sich verhalten.
 
-Ein Beispiel: Wenn wir `display: flex` verwenden, erstellen wir einen Block-Level-Container mit Flex-Kindern. Die Kinder werden beschrieben, als ob sie an einem Flex-Formatierungskontext teilnehmen. Sie können dies sehen, wenn Sie ein `<span>` nehmen — normalerweise ein Inline-Element — und `display: flex` darauf anwenden. Das `<span>` wird zu einem Block-Element. Es verhält sich wie Block-Elemente in Bezug auf andere Boxen im Layout. Es ist, als hätten Sie `display: block` auf das Span angewendet, aber wir erhalten auch das geänderte Verhalten der Kinder.
+Zum Beispiel erstellen wir mit `display: flex` einen Block-Container mit Flex-Kindern. Die Kinder werden als Teilnehmer an einem Flex-Formatierungskontext beschrieben. Dies können Sie sehen, wenn Sie ein `<span>` — normalerweise ein Inline-Element — verwenden und `display: flex` darauf anwenden. Das `<span>` wird zu einem Block-Element. Es verhält sich wie Block-Elemente im Verhältnis zu anderen Boxen im Layout. Es ist, als wenn Sie `display: block` auf das Span angewendet hätten, jedoch erhalten wir auch das veränderte Verhalten der Kinder.
 
-Das folgende Live-Beispiel zeigt ein `<span>` mit `display: flex` angewendet. Es ist zu einer Block-Level-Box geworden, die den gesamten verfügbaren Raum in der Inline-Richtung einnimmt. Sie können nun `justify-content: space-between` verwenden, um diesen Raum zwischen den beiden Flex-Items zu verteilen.
+Das folgende Beispiel zeigt ein `<span>` mit `display: flex` angewendet. Es ist zu einem Block-Level-Element geworden, das den gesamten verfügbaren Platz in der Inline-Richtung einnimmt. Sie können jetzt `justify-content: space-between` verwenden, um diesen Raum zwischen den zwei Flex-Items zu platzieren.
 
 ```html live-sample___span-flex
 <span class="flex"> Some text <em>emphasized text</em> </span>
@@ -48,7 +48,7 @@ body {
 
 {{EmbedLiveSample("span-flex")}}
 
-Es ist auch möglich, Inline-Flex-Container zu erstellen. Wenn Sie den einzelnen Wert `inline-flex` verwenden, haben Sie eine Inline-Level-Box mit Flex-Kindern. Die Kinder verhalten sich genauso wie die Flex-Kinder eines Block-Level-Containers. Der einzige Unterschied ist, dass das Elternteil nun eine Inline-Level-Box ist. Deshalb verhält es sich wie andere Inline-Elemente und nimmt nicht die volle Breite (oder Größe in der Inline-Dimension) ein, die eine Block-Level-Box hat. Das bedeutet, dass nachfolgender Text neben dem Flex-Container stehen könnte.
+Es ist auch möglich, Inline-Flex-Container zu erstellen. Wenn Sie den Einzelwert `inline-flex` verwenden, haben Sie eine Inline-Level-Box mit Flex-Kindern. Die Kinder verhalten sich genauso wie die Flex-Kinder eines Block-Containers. Einzig die Tatsache, dass der übergeordnete Container jetzt eine Inline-Level-Box ist, hat sich geändert. Sie verhält sich daher wie andere Inline-Level-Dinge und nimmt nicht die volle Breite (oder Größe in der Inline-Dimension) ein, die ein Block-Level-Box tut. Das bedeutet, dass einige nachfolgende Texte neben dem Flex-Container erscheinen könnten.
 
 ```html live-sample___inline-flex
 <div class="flex">
@@ -76,13 +76,13 @@ body {
 
 {{EmbedLiveSample("inline-flex")}}
 
-Dasselbe gilt beim Arbeiten mit Grid-Layout. Die Verwendung von `display: grid` gibt Ihnen eine Block-Level-Box, die einen Grid-Formatierungskontext für die direkten Kinder erstellt. Die Verwendung von `display: inline-grid` erstellt eine Inline-Level-Box, die einen Grid-Formatierungskontext für die Kinder erstellt.
+Dasselbe gilt bei der Arbeit mit dem Grid-Layout. Die Verwendung von `display: grid` gibt Ihnen eine Block-Level-Box, die einen Grid-Formatierungskontext für die direkten Kinder erstellt. Die Verwendung von `display: inline-grid` wird eine Inline-Level-Box erstellen, die einen Grid-Formatierungskontext für die Kinder erzeugt.
 
-## Verwendung der Multi-Keyword-Syntax
+## Verwendung der Mehrfach-Stichwort-Syntax
 
-Wie Sie aus der obigen Erklärung sehen können, hat die `display`-Eigenschaft beträchtliche Kräfte. Zusätzlich zu dem Hinweis, ob etwas auf Block- oder Inline-Ebene in Beziehung zu anderen Boxen auf der Seite steht, gibt es auch den Formatierungskontext innerhalb der Box an, auf die es angewendet wird. Um dieses Verhalten besser zu beschreiben, erlaubt die `display`-Eigenschaft, zwei Werte — einen äußeren und einen inneren — darauf zu setzen. Die ursprüngliche Ein-Wert-Syntax ist ebenfalls gültig.
+Wie Sie aus der obigen Erklärung sehen können, hat die `display`-Eigenschaft erhebliche Kräfte. Sie zeigt nicht nur an, ob etwas ein Block- oder Inline-Element im Verhältnis zu anderen Boxen auf der Seite ist, sondern gibt auch den Formatierungskontext innerhalb der Box an, auf die sie angewendet wird. Um dieses Verhalten besser zu beschreiben, erlaubt die `display`-Eigenschaft, dass zwei Werte — ein äußerer und ein innerer Wert — darauf festgelegt werden. Die ursprüngliche Einzelwert-Syntax ist ebenfalls gültig.
 
-Das bedeutet, dass wir anstelle der Einstellung von `display: flex`, um eine Block-Level-Box mit Flex-Kindern zu erstellen, `display: block flex` verwenden. Anstatt `display: inline-flex` zu verwenden, um eine Inline-Level-Box mit Flex-Kindern zu erstellen, verwenden wir `display: inline flex`. Das folgende Beispiel zeigt diese Werte.
+Dies bedeutet, dass wir anstelle von `display: flex`, um eine Block-Box mit Flex-Kindern zu erstellen, `display: block flex` verwenden. Anstelle von `display: inline-flex`, um eine Inline-Box mit Flex-Kindern zu erstellen, verwenden wir `display: inline flex`. Das folgende Beispiel zeigt diese Werte.
 
 ```html live-sample___multi-keyword-flex
 <h1>Multiple values for display</h1>
@@ -129,9 +129,9 @@ body {
 
 {{EmbedLiveSample("multi-keyword-flex", "", "300px")}}
 
-Es gibt Abbildungen für alle bestehenden Werte von `display`; die gebräuchlichsten sind in der Tabelle unten aufgeführt. Um eine vollständige Liste zu sehen, werfen Sie einen Blick auf die Tabelle in der [`display`-Eigenschaften-Spezifikation](https://drafts.csswg.org/css-display/#display-value-summary).
+Es gibt Zuordnungen für alle vorhandenen Werte von `display`; die häufigsten sind in der Tabelle unten aufgeführt. Um eine vollständige Liste zu sehen, werfen Sie einen Blick auf die Tabelle in der [`display`-Eigenschaft-Spezifikation](https://drafts.csswg.org/css-display/#display-value-summary).
 
-| Einzelner Wert | Mehrfachwert       |
+| Einzelwert     | Mehrwert           |
 | -------------- | ------------------ |
 | `block`        | `block flow`       |
 | `flow-root`    | `block flow-root`  |
@@ -142,22 +142,15 @@ Es gibt Abbildungen für alle bestehenden Werte von `display`; die gebräuchlich
 | `grid`         | `block grid`       |
 | `inline-grid`  | `inline grid`      |
 
-## `display: block flow-root` und `display: inline flow-root`
+## display: block flow-root und display: inline flow-root
 
-Um zu verstehen, wie diese Mehrwert-Syntax zur Klärung des CSS-Layouts beiträgt, können wir uns einige Werte in der obigen Tabelle ansehen, die Ihnen möglicherweise weniger bekannt sind. Die Multi-Keyword-Syntax `display: block flow-root` mappt zu einem einzelnen Wert; `display: flow-root`. Der einzige Zweck dieses Wertes besteht darin, einen neuen [Blockformatierungskontext](/de/docs/Web/CSS/CSS_display/Block_formatting_context) (BFC) zu erstellen. Ein BFC sorgt dafür, dass alles innerhalb Ihrer Box bleibt und externe Elemente nicht eindringen können.
+Bezüglich der Frage, wie diese Mehrwert-Syntax zur Klarstellung des CSS-Layouts beiträgt, können wir einige der oben in der Tabelle aufgeführten Werte betrachten, die Ihnen vielleicht weniger bekannt sind. Die Mehrfach-Stichwort-Syntax `display: block flow-root` entspricht einem Einzelwert; `display: flow-root`. Der einzige Zweck dieses Wertes ist es, einen neuen [Blockformatierungskontext](/de/docs/Web/CSS/CSS_display/Block_formatting_context) (BFC) zu erzeugen. Ein BFC sorgt dafür, dass alles in Ihrem Kasten bleibt und Dinge außerhalb des Kastens nicht eindringend hineinragen können.
 
-Im Beispiel unten demonstrieren zwei `<p>`-Elemente, eines innerhalb eines `<div>`, wie Display-Werte Formatierungskontexte beeinflussen.
-Das erste `<div>`-Element mit den Demo-Steuerelementen ist ausgeblendet, damit wir uns auf die folgenden Elemente konzentrieren können.
-Die Elemente, auf die wir uns konzentrieren sollten, sind die "Eltern", "Kind" und "Geschwister" `<div>` und `<p>`-Elemente, die Sie anhand ihrer IDs unterscheiden können.
+Im folgenden Beispiel demonstrieren zwei `<p>`-Elemente, eines innerhalb eines `<div>`, wie sich Display-Werte auf Formatierungskontexte auswirken. Das erste `<div>`-Element mit den Steuerungsoptionen des Demos ist verborgen, damit wir stattdessen die nachfolgenden Elemente fokussieren können. Die Elemente, die wir fokussieren sollten, sind die "Eltern"-, "Kind"- und "Geschwister"-`<div>`- und `<p>`-Elemente, die Sie durch ihre IDs unterscheiden können.
 
-Bemerkenswert an diesem Layout ist, dass sich kein Inhalt zwischen den Eltern- und Kind-Elementen befindet und das Kind-Element eine obere Margin angewendet hat.
-Sie könnten erwarten, dass die obere Margin das Kind-Element innerhalb des Eltern-Elements effektiv nach unten schiebt, aber stattdessen tritt etwas auf, das [_Margin Collapse_](/de/docs/Web/CSS/CSS_box_model/Mastering_margin_collapsing) genannt wird.
-In diesem Fall erstreckt sich die Margin des Kind-Elements weit über die Begrenzungsbox der Eltern und schiebt das Eltern-Element weiter nach unten auf der Seite.
-Dies ist leichter zu erkennen, wenn Sie das Box-Modell des Kind-Elements [in den Entwicklertools Ihres Browsers](/de/docs/Learn_web_development/Core/Styling_basics/Box_model#use_browser_devtools_to_view_the_box_model) inspizieren.
+Bemerkenswert an diesem Layout ist, dass es keinen Inhalt zwischen den Eltern- und Kind-Elementen gibt und dass das Kind-Element einen oberen Rand (margin) hat. Sie könnten erwarten, dass der obere Rand das Kind-Element innerhalb des Eltern-Elements nach unten drückt, aber stattdessen passiert etwas, das [_Rand-Zusammenbruch_](/de/docs/Web/CSS/CSS_box_model/Mastering_margin_collapsing) genannt wird. In diesem Fall erstreckt sich der Rand des Kind-Elements weit über die Begrenzungsbox des Elternteils hinaus und drückt das Eltern-Element weiter nach unten auf der Seite. Dies ist leichter zu sehen, wenn Sie das Box-Modell des Kind-Elements [in den Entwicklerwerkzeugen Ihres Browsers](/de/docs/Learn_web_development/Core/Styling_basics/Box_model#using_browser_devtools_to_view_the_box_model) inspizieren.
 
-Ändern Sie die ausgewählte Option im `<select>`-Element, um die Wirkung verschiedener `display`-Werte zu sehen.
-Sie können jeden Wert mit `flow-root` verwenden, um einen neuen Formatierungskontext für das Elternteil zu erstellen, sodass die Margin des Kind-Elements relativ zum äußeren Rand des Elternteils ist und das Margin Collapse vermieden wird.
-Ein Wechsel zwischen `display: flow-root` und `display: block flow-root` erzielt den gleichen Effekt wie das Einzelwert-Keyword `flow-root`.
+Ändern Sie die ausgewählte Option im `<select>`-Element, um die Wirkung unterschiedlicher `display`-Werte zu sehen. Sie können jeden Wert mit `flow-root` verwenden, um einen neuen Formatierungskontext für das Elternteil zu erstellen, wodurch der Rand des Kind-Elements relativ zur äußeren Kante seiner Eltern wird und Sie den Rand-Zusammenbruch vermeiden. Der Wechsel zwischen `display: flow-root` und `display: block flow-root` wird den gleichen Effekt wie das Einzelwert-Stichwort `flow-root` erzielen.
 
 ```js hidden
 function changeDisplayType() {
@@ -227,11 +220,11 @@ p {
 
 {{EmbedLiveSample("display_block_flow-root_and_display_inline_flow-root", '90%', 380)}}
 
-Der `flow-root`-Wert ergibt Sinn, wenn Sie an Block- und Inline-Layout denken, das manchmal als [normaler Fluss](/de/docs/Learn_web_development/Core/CSS_layout/Introduction#normal_layout_flow) bezeichnet wird. Unsere HTML-Seite erstellt einen neuen Formatierungskontext (Floats und Margins können nicht aus den Begrenzungen hinausgehen) und unser Inhalt wird im normalen Fluss dargestellt, wobei Block- und Inline-Layout verwendet werden, es sei denn, wir ändern den Wert von `display`, um einen anderen Formatierungskontext zu verwenden. Das Erstellen eines Grid- oder Flex-Containers erstellt ebenfalls einen neuen Formatierungskontext (einen Grid- oder Flex-Formatierungskontext, jeweils). Diese enthalten ebenfalls alles innerhalb. Wenn Sie jedoch Floats und Margins enthalten möchten, aber weiterhin Block- und Inline-Layout verwenden möchten, können Sie einen neuen Flow-Root erstellen und mit Block- und Inline-Layout von vorne beginnen. Von diesem Punkt abwärts wird alles innerhalb des neuen Flow-Root enthalten.
+Der `flow-root`-Wert ist sinnvoll, wenn Sie über Block- und Inline-Layout nachdenken, was manchmal als [normaler Fluss](/de/docs/Learn_web_development/Core/CSS_layout/Introduction#normal_layout_flow) bezeichnet wird. Unsere HTML-Seite erstellt einen neuen Formatierungskontext (Floats und Ränder können nicht über die Grenzen hinaus gehen) und unser Inhalt wird im normalen Fluss, unter Verwendung von Block- und Inline-Layout, angezeigt, es sei denn, wir ändern den Wert von `display`, um einen anderen Formatierungskontext zu verwenden. Das Erstellen eines Grid- oder Flex-Containers erstellt ebenfalls einen neuen Formatierungskontext (einen Grid- oder Flex-Formatierungskontext, jeweils). Diese enthalten ebenfalls alles innerhalb ihrer Grenzen. Wenn Sie jedoch Floats und Ränder einschließen, aber weiterhin Block- und Inline-Layout verwenden möchten, können Sie eine neue Fließ-Wurzel erstellen und mit Block- und Inline-Layout von vorne beginnen. Von diesem Punkt an ist alles innerhalb der neuen Fließ-Wurzel enthalten.
 
-Aus diesem Grund kann `display: flow-root` mithilfe der Multi-Keyword-Syntax `display: block flow-root` geschrieben werden. Sie erstellen einen Block-Formatierungskontext mit einer Block-Level-Box und Kindern, die am normalen Fluss teilnehmen. Was aber ist mit dem passenden Paar `display: inline flow-root`? Dies ist die aktuelle Art, `display: inline-block` zu beschreiben.
+Deshalb kann `display: flow-root` mit der Mehrwert-Syntax `display: block flow-root` geschrieben werden. Sie erzeugen einen Blockformatierungskontext mit einer Block-Level-Box und Kindern, die im normalen Fluss teilnehmen. Was ist mit dem passenden Paar `display: inline flow-root`? Dies ist die aktuelle Art, `display: inline-block` zu beschreiben.
 
-Der Wert `display: inline-block` existiert bereits seit den frühen Tagen von CSS. Der Grund, warum wir ihn häufig verwenden, ist, dass er es erlaubt, Padding zu verwenden, um Inline-Elemente von einem Element wegzuschieben, beispielsweise beim Erstellen von Navigationselementen oder beim Hinzufügen eines Hintergrunds mit Padding zu einem Inline-Element, wie im Beispiel unten.
+Der Wert `display: inline-block` ist seit den frühen Tagen von CSS vorhanden. Der Grund, warum wir es oft verwenden, ist, um Polsterungen (padding) zu ermöglichen, die Inline-Elemente von einem Element wegschieben, wenn wir zum Beispiel Navigationspunkte erstellen, oder wenn wir einem Inline-Element wie im Beispiel unten einen Hintergrund mit Polsterung hinzufügen möchten.
 
 ```html live-sample___inline-block
 <p>
@@ -259,22 +252,22 @@ p {
 
 {{EmbedLiveSample("inline-block", "", "200px")}}
 
-Ein Element mit `display: inline-block` enthält jedoch auch Floats. Es enthält alles innerhalb der Inline-Level-Box. Daher macht `display: inline-block` genau das, was `display: flow-root` tut, aber mit einer Inline-Level-, anstatt einer Block-Level-Box. Die Zwei-Wert-Syntax beschreibt genau, was mit diesem Wert passiert. Im obigen Beispiel können Sie `display: inline-block` in `display: inline flow-root` ändern und das gleiche Ergebnis erzielen.
+Ein Element mit `display: inline-block` wird jedoch auch Floats beinhalten. Es enthält alles innerhalb der Inline-Level-Box. Daher tut `display: inline-block` genau das, was `display: flow-root` tut, jedoch mit einer Inline-Level-Box anstelle einer Block-Level-Box. Die Zwei-Wert-Syntax beschreibt genau, was mit diesem Wert geschieht. Im obigen Beispiel können Sie `display: inline-block` in `display: inline flow-root` ändern und das gleiche Ergebnis erzielen.
 
-## Was ist mit den alten Werten von Display?
+## Was ist mit den alten Werten von display?
 
-Die Einzelwerte von `display` werden in der Spezifikation als Legacy-Werte beschrieben, und derzeit haben Sie keinen Vorteil von der Verwendung der Mehrwert-Versionen, da es eine direkte Zuordnung für jede Mehrwert-Version zu einer Legacy-Version gibt, wie in der obigen Tabelle gezeigt.
+Die Einzelwerte von `display` werden in der Spezifikation als veraltete Werte beschrieben, und derzeit haben Sie keinen Vorteil von der Verwendung der Mehrwert-Versionen, da es eine direkte Zuordnung für jede Mehrwert-Version zu einer veralteten Version gibt, wie in der obigen Tabelle gezeigt.
 
-Um mit den Einzelwerten von `display` umzugehen, erklärt [die Spezifikation](https://drafts.csswg.org/css-display/#outer-role), was zu tun ist, wenn nur der äußere Wert von `block` oder `inline` verwendet wird:
+Um mit Einzelwerten von `display` umzugehen, erklärt [die Spezifikation](https://drafts.csswg.org/css-display/#outer-role), was zu tun ist, wenn nur der äußere Wert `block` oder `inline` verwendet wird:
 
-> "Wenn ein `<display-outside>`-Wert spezifiziert ist, aber `<display-inside>` weggelassen wird, ist der innere Display-Typ des Elements standardmäßig flow."
+> „Wenn ein `<display-outside>`-Wert angegeben wird, aber `<display-inside>` weggelassen wird, ist der innere Display-Typ des Elements standardmäßig flow.“
 
-Das bedeutet, dass das Verhalten genau so ist, wie es in einer Einzelwert-Welt ist. Wenn Sie `display: block` oder `display: inline` angeben, ändert das den äußeren Display-Wert der Box, aber alle Kinder setzen ihren Verlauf im normalen Fluss fort.
-Wenn nur ein innerer Wert von `flex`, `grid` oder `flow-root` spezifiziert ist, dann erklärt [die Spezifikation](https://drafts.csswg.org/css-display/#inner-model), dass der äußere Wert auf `block` gesetzt werden sollte:
+Das bedeutet, dass das Verhalten genau so ist, wie es in einer Einzelwert-Welt ist. Wenn Sie `display: block` oder `display: inline` angeben, ändert sich der äußere Display-Wert der Box, aber alle Kinder bleiben im normalen Fluss.
+Wenn nur ein innerer Wert von `flex`, `grid` oder `flow-root` angegeben wird, erklärt [die Spezifikation](https://drafts.csswg.org/css-display/#inner-model), dass der äußere Wert auf `block` gesetzt werden sollte:
 
-> "Wenn ein `<display-inside>`-Wert spezifiziert ist, aber `<display-outside>` weggelassen wird, ist der äußere Display-Typ des Elements standardmäßig block—außer für Ruby, das standardmäßig inline ist."
+> „Wenn ein `<display-inside>`-Wert angegeben wird, aber `<display-outside>` weggelassen wird, ist der äußere Display-Typ des Elements standardmäßig block—außer bei Rubis, die standardmäßig inline sind.“
 
-Schließlich haben wir einige Legacy [vorab komponierte Inline-Level-Werte](https://drafts.csswg.org/css-display/#legacy-display) von:
+Schließlich haben wir einige veraltete [vorab zusammengesetzte Inline-Level-Werte](https://drafts.csswg.org/css-display/#legacy-display) von:
 
 - `inline-block`
 - `inline-table`
@@ -288,4 +281,4 @@ Wenn ein unterstützender Browser auf diese als Einzelwerte stößt, behandelt e
 - `inline flex`
 - `inline grid`
 
-So sind alle aktuellen Situationen gut abgedeckt, was bedeutet, dass wir die Kompatibilität sowohl bestehender als auch neuer Websites beibehalten, die die Einzelwerte verwenden, während die Spezifikation sich weiterentwickeln kann.
+So sind alle aktuellen Situationen übersichtlich abgedeckt, was bedeutet, dass wir die Kompatibilität vorhandener und neuer Seiten, die die Einzelwerte verwenden, beibehalten können, während die Spezifikation sich weiterentwickelt.

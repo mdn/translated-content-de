@@ -3,12 +3,12 @@ title: Bilder, Medien und Formularelemente
 short-title: Bilder, Medien, Formulare
 slug: Learn_web_development/Core/Styling_basics/Images_media_forms
 l10n:
-  sourceCommit: 48d220a8cffdfd5f088f8ca89724a9a92e34d8c0
+  sourceCommit: d2317ab6c4301c3774f1f319fa3a532e94ba82f6
 ---
 
 {{PreviousMenuNext("Learn_web_development/Core/Styling_basics/Overflow", "Learn_web_development/Core/Styling_basics/Tables", "Learn_web_development/Core/Styling_basics")}}
 
-In dieser Lektion werden wir uns ansehen, wie bestimmte spezielle Elemente in CSS behandelt werden. Bilder, andere Medien und Formularelemente verhalten sich in Bezug auf die Möglichkeit, sie mit CSS zu stylen, ein wenig anders als reguläre Boxen. Zu verstehen, was möglich ist und was nicht, kann Frustration vermeiden, und diese Lektion wird einige der Hauptaspekte hervorheben, die Sie wissen müssen.
+In dieser Lektion werden wir uns ansehen, wie bestimmte spezielle Elemente in CSS behandelt werden. Bilder, andere Medien und Formularelemente verhalten sich in Bezug auf Ihre Fähigkeit, sie mit CSS zu stylen, ein wenig anders als reguläre Boxen. Zu verstehen, was möglich ist und was nicht, kann einige Frustrationen ersparen, und diese Lektion wird einige der wichtigsten Dinge hervorheben, die Sie wissen müssen.
 
 <table>
   <tbody>
@@ -18,7 +18,7 @@ In dieser Lektion werden wir uns ansehen, wie bestimmte spezielle Elemente in CS
         HTML <a href="/de/docs/Learn_web_development/Core/Structuring_content/HTML_images"
           >Bilder</a
         >, <a href="/de/docs/Learn_web_development/Core/Structuring_content/HTML_video_and_audio"
-          >Videos</a
+          >Video</a
         > und <a href="/de/docs/Learn_web_development/Core/Structuring_content/HTML_forms"
           >Formulare</a
         >. CSS <a href="/de/docs/Learn_web_development/Core/Styling_basics/Values_and_units">Werte und Einheiten</a> und <a href="/de/docs/Learn_web_development/Core/Styling_basics/Sizing">Größenanpassung</a>.
@@ -30,7 +30,7 @@ In dieser Lektion werden wir uns ansehen, wie bestimmte spezielle Elemente in CS
         <ul>
           <li>Verstehen, wie ersetzte Elemente dimensioniert und angeordnet werden.</li>
           <li>Grundlegendes Styling von einfach zu stylenden Formularelementen, wie Texteingaben.</li>
-          <li>Verwendung eines CSS-Resets als Basis, um schwierige Elemente wie Formulare zu stylen.</li>
+          <li>Verwenden eines CSS-Resets als Basis für das Styling von schwierigen Elementen wie Formularen.</li>
           <li>Verstehen, dass nicht alle Formularelemente einfach zu stylen sind und warum.</li>
         </ul>
       </td>
@@ -40,18 +40,18 @@ In dieser Lektion werden wir uns ansehen, wie bestimmte spezielle Elemente in CS
 
 ## Ersetzte Elemente
 
-Bilder und Videos werden als **{{Glossary("replaced_elements", "ersetzte Elemente")}}** bezeichnet. Das bedeutet, dass CSS das interne Layout dieser Elemente nicht beeinflussen kann — nur ihre Position auf der Seite im Vergleich zu anderen Elementen. Wie wir jedoch sehen werden, kann CSS mit einem Bild verschiedene Dinge tun.
+Bilder und Videos werden als **{{Glossary("replaced_elements", "ersetzte Elemente")}}** bezeichnet. Das bedeutet, dass CSS das interne Layout dieser Elemente nicht beeinflussen kann — nur ihre Position auf der Seite unter anderen Elementen. Wie wir jedoch sehen werden, gibt es verschiedene Dinge, die CSS mit einem Bild tun kann.
 
-Bestimmte ersetzte Elemente wie Bilder und Videos werden auch als Elemente mit einem **{{Glossary("aspect_ratio", "Seitenverhältnis")}}** beschrieben. Das bedeutet, dass sie sowohl in horizontaler (x) als auch in vertikaler (y) Richtung eine Größe haben und standardmäßig mit den intrinsischen Abmessungen der Datei angezeigt werden.
+Bestimmte ersetzte Elemente, wie Bilder und Videos, werden auch als mit einem **{{Glossary("aspect_ratio", "Seitenverhältnis")}}** versehen beschrieben. Das bedeutet, dass es eine Größe sowohl in den horizontalen (x) als auch vertikalen (y) Dimensionen hat und standardmäßig unter Verwendung der intrinsischen Abmessungen der Datei angezeigt wird.
 
-## Größenanpassung von Bildern
+## Bildergrößenanpassung
 
-Wie Sie aus diesen Lektionen bereits wissen, erzeugt alles in CSS eine Box. Wenn Sie ein Bild in eine Box einfügen, die kleiner oder größer ist als die intrinsischen Abmessungen der Bilddatei in einer der Richtungen, wird es entweder kleiner als die Box dargestellt oder läuft über die Box hinaus. Sie müssen entscheiden, was mit dem Überlauf passiert.
+Wie Sie aus diesen Lektionen bereits wissen, erzeugt alles in CSS eine Box. Wenn Sie ein Bild in eine Box platzieren, die in einer Richtung kleiner oder größer als die intrinsischen Abmessungen der Bilddatei ist, wird es entweder kleiner als die Box erscheinen oder aus der Box herausfließen. Sie müssen eine Entscheidung darüber treffen, was mit dem Überlauf passiert.
 
 Im folgenden Beispiel haben wir zwei Boxen, beide 200 Pixel groß:
 
-- Eine enthält ein Bild, das kleiner als 200 Pixel ist — es ist kleiner als die Box und dehnt sich nicht aus, um sie zu füllen.
-- Die andere ist größer als 200 Pixel und läuft über die Box hinaus.
+- Eine enthält ein Bild, das kleiner als 200 Pixel ist — es ist kleiner als die Box und dehnt sich nicht aus, um sie auszufüllen.
+- Das andere ist größer als 200 Pixel und fließt aus der Box heraus.
 
 ```html live-sample___size
 <div class="wrapper">
@@ -89,17 +89,19 @@ img {
 
 {{EmbedLiveSample("size", "", "250px")}}
 
-Was können wir also gegen das Überlaufproblem tun?
+Was können wir gegen das Überlaufproblem tun?
 
-Wie wir in [Größenanpassung von Objekten in CSS](/de/docs/Learn_web_development/Core/Styling_basics/Sizing) gelernt haben, ist es eine gängige Technik, die {{cssxref("max-width")}} eines Bildes auf 100% zu setzen. Dadurch kann das Bild kleiner als die Box werden, aber nicht größer. Diese Technik funktioniert auch mit anderen ersetzten Elementen wie [`<video>`](/de/docs/Web/HTML/Reference/Elements/video)s oder [`<iframe>`](/de/docs/Web/HTML/Reference/Elements/iframe)s.
+Wie wir im [Größenanpassung von Elementen in CSS](/de/docs/Learn_web_development/Core/Styling_basics/Sizing) gelernt haben, ist eine häufige Technik, die {{cssxref("max-width")}} des Bildes auf `100%` zu setzen. Dies ermöglicht es, dass das Bild kleiner als die Box wird, aber nicht größer. Diese Technik funktioniert auch mit anderen ersetzten Elementen wie [`<video>`](/de/docs/Web/HTML/Reference/Elements/video)s oder [`<iframe>`](/de/docs/Web/HTML/Reference/Elements/iframe)s.
 
-Versuchen Sie, `max-width: 100%` zur Regel des `<img>`-Elements im obigen Beispiel hinzuzufügen. Sie werden sehen, dass das kleinere Bild unverändert bleibt, aber das größere kleiner wird, um in die Box zu passen.
+Versuchen Sie, `max-width: 100%` zur `<img>` Elementregel im obigen Beispiel hinzuzufügen. Sie werden sehen, dass das kleinere Bild unverändert bleibt, aber das größere kleiner wird, um in die Box zu passen.
 
-Sie können andere Entscheidungen über Bilder in Containern treffen. Vielleicht möchten Sie beispielsweise ein Bild so dimensionieren, dass es eine Box vollständig abdeckt.
+### Überlauf von Bildern mit `object-fit` handhaben
 
-Die {{cssxref("object-fit")}}-Eigenschaft kann Ihnen hier helfen. Bei der Verwendung von `object-fit` kann das ersetzte Element auf verschiedene Weise dimensioniert werden, um in eine Box zu passen.
+Sie können andere Entscheidungen über Bilder innerhalb von Containern treffen. Zum Beispiel möchten Sie vielleicht ein Bild so dimensionieren, dass es eine Box vollständig abdeckt.
 
-Im Folgenden verwendet das erste Beispiel den Wert `cover`, der das Bild verkleinert und das Seitenverhältnis beibehält, sodass es die Box sauber ausfüllt. Da das Seitenverhältnis beibehalten wird, werden einige Teile des Bildes von der Box abgeschnitten. Das zweite Beispiel verwendet `contain` als Wert: Dies verkleinert das Bild, bis es klein genug ist, um in die Box zu passen. Dies führt zu einem "Letterboxing", da es nicht dasselbe Seitenverhältnis wie die Box hat.
+Die {{cssxref("object-fit")}} Eigenschaft kann Ihnen dabei helfen. Beim Verwenden von `object-fit` kann das ersetzte Element auf verschiedene Weise an eine Box angepasst werden.
+
+Unten verwendet das erste Beispiel den Wert `cover`, der das Bild auf die Größe reduziert und das Seitenverhältnis beibehält, sodass es die Box ordentlich ausfüllt. Da das Seitenverhältnis beibehalten wird, werden einige Teile des Bildes durch die Box abgeschnitten. Das zweite Beispiel verwendet `contain` als Wert: dies skaliert das Bild nach unten, bis es klein genug ist, um in die Box zu passen. Dies führt zu "Letterboxing", da es nicht das gleiche Seitenverhältnis wie die Box hat.
 
 ```html live-sample___object-fit
 <div class="wrapper">
@@ -150,13 +152,13 @@ img {
 
 {{EmbedLiveSample("object-fit", "", "250px")}}
 
-Sie könnten auch den Wert `fill` ausprobieren, der die Box füllt, aber das Seitenverhältnis nicht beibehält.
+Sie könnten auch den Wert `fill` ausprobieren, der die Box ausfüllt, aber das Seitenverhältnis nicht beibehält.
 
 ## Ersetzte Elemente im Layout
 
-Bei der Verwendung verschiedener CSS-Layout-Techniken auf ersetzten Elementen werden Sie möglicherweise feststellen, dass sie sich etwas anders verhalten als andere Elemente. In einem Grid-Layout beispielsweise werden Elemente standardmäßig gedehnt, um ihre gesamten {{Glossary("Grid_Areas", "Grid-Bereiche")}} auszufüllen. Bilder dehnen sich nicht; stattdessen werden sie an den Anfang ihrer Grid-Bereiche ausgerichtet.
+Wenn Sie verschiedene CSS-Layout-Techniken auf ersetzte Elemente anwenden, können Sie feststellen, dass sie sich geringfügig anders verhalten als andere Elemente. In einem Grid-Layout zum Beispiel werden Elemente standardmäßig gestreckt, um ihre gesamten {{Glossary("Grid_Areas", "Gitterbereiche")}} auszufüllen. Bilder werden nicht gestreckt; stattdessen werden sie am Anfang ihrer Gitterbereiche ausgerichtet.
 
-Sie können dieses Verhalten im unteren Beispiel sehen, wo wir einen zweispaltigen, zweireihigen Grid-Container haben, der vier Elemente enthält. Alle `<div>`-Elemente haben eine Hintergrundfarbe und dehnen sich aus, um die Reihen und Spalten auszufüllen. Das Bild jedoch dehnt sich nicht.
+Sie können dies im folgenden Beispiel sehen, wo wir einen Grid-Container mit zwei Spalten und zwei Reihen haben, der vier Elemente enthält. Alle `<div>` Elemente haben eine Hintergrundfarbe und dehnen sich aus, um die Reihe und Spalte auszufüllen. Das Bild jedoch dehnt sich nicht aus.
 
 ```html live-sample___layout
 <div class="wrapper">
@@ -185,21 +187,23 @@ Sie können dieses Verhalten im unteren Beispiel sehen, wo wir einen zweispaltig
 
 {{EmbedLiveSample("layout", "", "220px")}}
 
-Sie werden das Layout erst in einem späteren Modul studieren. Bedenken Sie vorerst, dass ersetzte Elemente, wenn sie Teil eines bestimmten Layoutsystems wie Grid oder Flexbox werden, unterschiedliche Standardverhaltensweisen haben, um zu vermeiden, dass sie vom Layout seltsam gedehnt werden.
+Sie werden sich mit Layouts erst in einem späteren Modul befassen. Für den Moment sollten Sie nur im Hinterkopf behalten, dass ersetzte Elemente, wenn sie Teil eines bestimmten Layoutsystems wie Grid oder Flexbox werden, unterschiedliche Standardverhaltensweisen aufweisen, um zu vermeiden, dass sie vom Layout seltsam gestreckt werden.
 
 ## Formularelemente
 
-Formularelemente können ein schwieriges Thema sein, wenn es darum geht, sie mit CSS zu stylen. Das [Web Forms Extensions Module](/de/docs/Learn_web_development/Extensions/Forms) behandelt die schwierigeren Aspekte des Stylings bestimmter Formulareingabetypen, die wir hier nicht behandeln werden. Es gibt jedoch einige grundlegende Punkte, die in diesem Abschnitt hervorgehoben werden sollten.
+Formularelemente haben Probleme, wenn es darum geht, mit CSS gestylt zu werden. Das [Web Forms Extensions Modul](/de/docs/Learn_web_development/Extensions/Forms) behandelt die schwierigeren Aspekte des Stylens bestimmter Formulareingabetypen, auf die wir hier nicht weiter eingehen werden. Es gibt jedoch einige grundlegende Punkte, die in diesem Abschnitt hervorgehoben werden sollten.
 
-Viele Formularsteuerelemente werden über das [`<input>`](/de/docs/Web/HTML/Reference/Elements/input)-Element zu Ihrer Seite hinzugefügt — dies definiert einfache Formularfelder wie Texteingaben bis hin zu komplexeren Feldern wie Farb- und Datumsauswahlen. Es gibt einige zusätzliche Elemente, wie [`<textarea>`](/de/docs/Web/HTML/Reference/Elements/textarea) für mehrzeiligen Texteingaben und auch Elemente zur Gruppierung und Beschriftung von Formularteilen wie [`<fieldset>`](/de/docs/Web/HTML/Reference/Elements/fieldset) und [`<legend>`](/de/docs/Web/HTML/Reference/Elements/legend).
+Viele Formularelemente werden durch das [`<input>`](/de/docs/Web/HTML/Reference/Elements/input) Element auf Ihrer Seite hinzugefügt — dies definiert einfache Formularfelder wie Texteingaben bis hin zu komplexeren Feldern wie Farbe und Datumsauswahl. Es gibt einige zusätzliche Elemente, wie [`<textarea>`](/de/docs/Web/HTML/Reference/Elements/textarea) für mehrzeiligen Texteingaben und auch Elemente zur Gruppierung und Beschriftung von Teilen von Formularen wie [`<fieldset>`](/de/docs/Web/HTML/Reference/Elements/fieldset) und [`<legend>`](/de/docs/Web/HTML/Reference/Elements/legend).
 
-HTML enthält auch Attribute, die Webentwickler verwenden können, um anzugeben, welche Felder erforderlich sind und sogar welche Art von Inhalt eingegeben werden muss. Wenn der Benutzer etwas Unerwartetes eingibt oder ein erforderliches Feld leer lässt, kann der Browser eine Fehlermeldung anzeigen. Unterschiedliche Browser variieren in ihrer Flexibilität, solche Elemente zu stylen und anzupassen.
+HTML enthält auch Attribute, die es Webentwicklern ermöglichen, anzugeben, welche Felder erforderlich sind und sogar die Art der einzugebenden Inhalte. Wenn der Nutzer etwas Unerwartetes eingibt oder ein erforderliches Feld leer lässt, kann der Browser eine Fehlermeldung anzeigen. Verschiedene Browser unterscheiden sich darin, wie viel Styling und Anpassung sie für solche Elemente zulassen.
 
 ## Styling von Texteingabeelementen
 
-Elemente, die Texteingabe zulassen, wie `<input type="text">`, und die spezifischeren `<input type="email">` und `<textarea>`-Elemente, sind relativ einfach zu stylen und verhalten sich in der Regel wie andere Boxen auf Ihrer Seite. Das Standardstyling dieser Elemente variiert jedoch je nach Betriebssystem und Browser, mit dem der Benutzer die Seite besucht.
+Elemente, die Texteingabe erlauben wie `<input type="text">`, das spezifischere `<input type="email">`, und das `<textarea>` Element, sind relativ einfach zu stylen und verhalten sich in der Regel wie andere Boxen auf Ihrer Seite. Das Standard-Styling dieser Elemente unterscheidet sich jedoch je nach Betriebssystem und Browser, den Ihr Nutzer zur Site besucht.
 
-Im folgenden Beispiel haben wir einige Texteingaben mit CSS gestylt — Sie können sehen, dass Dinge wie Ränder, Abstände und Polsterungen wie erwartet wirken. Wir verwenden Attributselektoren, um die verschiedenen Eingabetypen anzusprechen. Versuchen Sie, das Aussehen dieses Formulars zu ändern, indem Sie die Ränder anpassen, Hintergrundfarben zu den Feldern hinzufügen und Schriftarten und Polsterungen ändern.
+Im folgenden Beispiel haben wir einige Texteingaben mit CSS gestylt. Sie können sehen, dass Dinge wie Rahmen, Ränder und Abstände genauso angewendet werden, wie Sie es erwarten würden. Wir verwenden Attributselektoren, um die verschiedenen Eingabetypen anzusprechen.
+
+Versuchen Sie, das Beispiel zu bearbeiten, um das Erscheinungsbild des Formulars zu ändern, indem Sie die Rahmen anpassen, Hintergrundfarben zu den Feldern hinzufügen und die Schriftarten und Abstände ändern.
 
 ```html live-sample___form
 <form>
@@ -254,17 +258,17 @@ input[type="submit"]:focus {
 {{EmbedLiveSample("form")}}
 
 > [!WARNING]
-> Sie sollten vorsichtig sein, wenn Sie das Styling von Formelements ändern, um sicherzustellen, dass sie für den Benutzer weiterhin als Formularelemente erkennbar sind. Sie könnten ein Formulareingabefeld ohne Ränder und Hintergrund erstellen, das fast nicht von den umliegenden Inhalten unterscheidbar ist, was es jedoch sehr schwer erkennbar und interaktiv machen würde.
+> Sie sollten darauf achten, das Styling von Formularelementen zu ändern, um sicherzustellen, dass es für den Nutzer offensichtlich bleibt, dass sie Formularelemente sind. Sie könnten ein Formularelement ohne Rahmen und Hintergrund erstellen, das fast ununterscheidbar vom umgebenden Inhalt ist, aber dies würde es sehr schwer machen, es zu erkennen und mit ihm zu interagieren.
 
-Viele der komplexeren Eingabetypen werden vom Betriebssystem gerendert und sind für Styling unzugänglich. Sie sollten daher immer davon ausgehen, dass Formulare für unterschiedliche Besucher sehr unterschiedlich aussehen werden und komplexe Formulare in mehreren Browsern testen.
+Viele der komplexeren Eingabetypen werden vom Betriebssystem gerendert und sind für das Styling nicht zugänglich. Sie sollten daher immer davon ausgehen, dass Formulare für verschiedene Besucher unterschiedlich aussehen und komplexe Formulare in mehreren Browsern testen.
 
-## Normierung von Formularverhalten
+## Normalisierung des Formularverhaltens
 
-Formularelemente verhalten sich in verschiedenen Browsern und Betriebssystemen unterschiedlich. In diesem Abschnitt werden einige der häufigsten Probleme behandelt und Strategien zu deren Bewältigung aufgezeigt.
+Formularelemente verhalten sich in verschiedenen Browsern und Betriebssystemen unterschiedlich. Dieser Abschnitt befasst sich mit einigen der häufigsten Probleme und bietet Strategien zu deren Bewältigung.
 
 ### Vererbung und Formularelemente
 
-In einigen Browsern erben Formularelemente die Schriftart-Stil nicht standardmäßig. Wenn Sie also sicherstellen möchten, dass Ihre Formularfelder die auf dem Body oder einem übergeordneten Element definierte Schrift verwenden, sollten Sie diese Regel zu Ihrem CSS hinzufügen.
+In einigen Browsern erben Formularelemente standardmäßig keine Schriftstil-Eigenschaften. Wenn Sie also sicherstellen möchten, dass Ihre Formularfelder die auf dem Body oder einem übergeordneten Element definierte Schrift verwenden, sollten Sie diese Regel zu Ihrem CSS hinzufügen.
 
 ```css
 button,
@@ -278,9 +282,9 @@ textarea {
 
 ### Formularelemente und Box-Sizing
 
-In verschiedenen Browsern verwenden Formularelemente unterschiedliche Box-Sizing-Regeln für verschiedene Widgets. Sie haben die Eigenschaft `box-sizing` in [unserer Lektion zum Box-Modell](/de/docs/Learn_web_development/Core/Styling_basics/Box_model) kennengelernt, und Sie können dieses Wissen beim Stylen von Formularen verwenden, um ein konsistentes Erlebnis beim Festlegen von Breiten und Höhen auf Formularelementen sicherzustellen.
+In verschiedenen Browsern verwenden Formularelemente unterschiedliche Box-Sizing-Regeln für verschiedene Widgets. Sie haben in [unserer Box-Modell-Lektion](/de/docs/Learn_web_development/Core/Styling_basics/Box_model) über die `box-sizing` Eigenschaft gelernt, und Sie können dieses Wissen beim Stylen von Formularen verwenden, um ein konsistentes Erlebnis zu gewährleisten, wenn Sie Breiten und Höhen auf Formularelementen festlegen.
 
-Für einheitliche Ergebnisse ist es eine gute Idee, die Ränder und Polsterungen auf `0` für alle Elemente zu setzen und diese dann beim Stylen bestimmter Steuerelemente wieder hinzuzufügen:
+Für Konsistenz ist es eine gute Idee, Ränder und Abstände auf `0` für alle Elemente zu setzen und diese bei der Gestaltung bestimmter Steuerungen wieder hinzuzufügen:
 
 ```css
 button,
@@ -293,9 +297,9 @@ textarea {
 }
 ```
 
-### Weitere nützliche Einstellungen
+### Andere nützliche Einstellungen
 
-Zusätzlich zu den oben genannten Regeln sollten Sie auch `overflow: auto` auf `<textarea>`-Elementen setzen, um zu verhindern, dass einige ältere Browser einen Scrollbalken anzeigen, wenn er nicht benötigt wird:
+Zusätzlich zu den oben genannten Regeln sollten Sie `overflow: auto` auf `<textarea>` Elementen setzen, um zu verhindern, dass einige ältere Browser eine Scrollleiste anzeigen, wenn sie nicht erforderlich ist:
 
 ```css
 textarea {
@@ -303,9 +307,9 @@ textarea {
 }
 ```
 
-### Alles in einem "Reset" zusammenfassen
+### Alles zusammenfassen in einem "Reset"
 
-Als abschließender Schritt können wir die verschiedenen oben besprochenen Eigenschaften in dem folgenden "Formular-Reset" zusammenfassen, um eine konsistente Basis zu schaffen, von der aus gearbeitet werden kann. Dies schließt alle in den letzten drei Abschnitten erwähnten Elemente ein:
+Als letzten Schritt können wir die verschiedenen oben diskutierten Eigenschaften in den folgenden "Formular-Reset" einpacken, um eine konsistente Basis zu schaffen. Dies umfasst alle in den letzten drei Abschnitten erwähnten Punkte:
 
 ```css
 button,
@@ -325,21 +329,21 @@ textarea {
 ```
 
 > [!NOTE]
-> Normalisierungs-Stylesheets werden von vielen Entwicklern verwendet, um eine Reihe von Basisstilen zu erstellen, die in allen Projekten verwendet werden können. Typischerweise tun diese ähnliche Dinge wie die oben beschriebenen, um sicherzustellen, dass alles, was zwischen Browsern unterschiedlich ist, auf einen konsistenten Standard eingestellt ist, bevor Sie Ihre eigene CSS-Arbeit beginnen. Sie sind nicht mehr so wichtig wie früher, da Browser im Allgemeinen konsistenter sind als in der Vergangenheit. Wenn Sie jedoch ein Beispiel sehen möchten, schauen Sie sich [Normalize.css](https://necolas.github.io/normalize.css/) an, das ein sehr beliebtes Stylesheet ist, das als Basis von vielen Projekten verwendet wird.
+> Normalisierungs-Stylesheets werden von vielen Entwicklern verwendet, um eine Reihe von grundlegenden Stilen für alle Projekte zu erstellen. Typischerweise tun sie ähnliche Dinge wie oben beschrieben und stellen sicher, dass alles, was über verschiedene Browser hinweg unterschiedlich ist, auf einen konsistenten Standard gesetzt ist, bevor Sie Ihre eigene Arbeit am CSS beginnen. Sie sind nicht mehr so wichtig wie früher, da Browser in der Regel konsistenter sind als in der Vergangenheit. Wenn Sie jedoch ein Beispiel ansehen möchten, schauen Sie sich [Normalize.css](https://necolas.github.io/normalize.css/) an, das ein sehr beliebtes Stylesheet ist, das als Basis für viele Projekte verwendet wird.
 
-## Testen Sie Ihre Fähigkeiten!
+## Testen Sie Ihr Wissen!
 
-Sie haben das Ende dieses Artikels erreicht, aber können Sie sich noch an die wichtigsten Informationen erinnern? Sie können einige weitere Tests finden, um zu überprüfen, ob Sie diese Informationen behalten haben, bevor Sie weitermachen — siehe [Testen Sie Ihre Fähigkeiten: Bilder und Formularelemente](/de/docs/Learn_web_development/Core/Styling_basics/Test_your_skills/Images).
+Sie haben das Ende dieses Artikels erreicht, aber können Sie sich die wichtigsten Informationen merken? Sie finden einige weitere Tests, um zu überprüfen, ob Sie diese Informationen gespeichert haben, bevor Sie weitermachen — siehe [Testen Sie Ihr Wissen: Bilder und Formularelemente](/de/docs/Learn_web_development/Core/Styling_basics/Test_your_skills/Images).
 
 ## Zusammenfassung
 
-Diese Lektion hat einige der Unterschiede hervorgehoben, denen Sie bei der Arbeit mit Bildern, Medien und anderen ungewöhnlichen Elementen in CSS begegnen werden.
+Diese Lektion hat einige der Unterschiede hervorgehoben, die Sie bei der Arbeit mit Bildern, Medien und anderen ungewöhnlichen Elementen in CSS begegnen werden.
 
-Im nächsten Artikel lernen wir, wie man HTML-Tabellen stylt.
+Im nächsten Artikel werden wir lernen, wie man HTML-Tabellen stylt.
 
 ## Siehe auch
 
 - [Styling von Webformularen](/de/docs/Learn_web_development/Extensions/Forms/Styling_web_forms)
-- [Erweiterte Formulargestaltung](/de/docs/Learn_web_development/Extensions/Forms/Advanced_form_styling)
+- [Fortgeschrittenes Styling von Formularen](/de/docs/Learn_web_development/Extensions/Forms/Advanced_form_styling)
 
 {{PreviousMenuNext("Learn_web_development/Core/Styling_basics/Overflow", "Learn_web_development/Core/Styling_basics/Tables", "Learn_web_development/Core/Styling_basics")}}
