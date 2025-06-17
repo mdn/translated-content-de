@@ -2,12 +2,12 @@
 title: Object.hasOwn()
 slug: Web/JavaScript/Reference/Global_Objects/Object/hasOwn
 l10n:
-  sourceCommit: 3dbbefa32758e2a1ca9a37c2788370c06aae2738
+  sourceCommit: 996623885e690598cba0799437865217ad89cbe9
 ---
 
 {{JSRef}}
 
-Die **`Object.hasOwn()`** statische Methode gibt `true` zurück, wenn das angegebene Objekt die angegebene Eigenschaft als _eigene_ Eigenschaft besitzt. Wenn die Eigenschaft vererbt wird oder nicht existiert, gibt die Methode `false` zurück.
+Die statische Methode **`Object.hasOwn()`** gibt `true` zurück, wenn das angegebene Objekt die angegebene Eigenschaft als _eigene_ Eigenschaft besitzt. Wenn die Eigenschaft geerbt ist oder nicht existiert, gibt die Methode `false` zurück.
 
 > **Note:** `Object.hasOwn()` ist als Ersatz für {{jsxref("Object.prototype.hasOwnProperty()")}} gedacht.
 
@@ -37,26 +37,25 @@ Object.hasOwn(obj, prop)
 ### Parameter
 
 - `obj`
-  - : Die JavaScript-Objektinstanz, die getestet werden soll.
+  - : Die JavaScript-Objektinstanz, die geprüft werden soll.
 - `prop`
-  - : Der {{jsxref("String")}}-Name oder [Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol) der zu testenden Eigenschaft.
+  - : Der {{jsxref("String")}}-Name oder das [Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol) der zu prüfenden Eigenschaft.
 
 ### Rückgabewert
 
-`true`, wenn das angegebene Objekt die angegebene Eigenschaft direkt definiert hat.
-Andernfalls `false`.
+`true`, wenn das angegebene Objekt die angegebene Eigenschaft direkt definiert hat. Andernfalls `false`.
 
 ## Beschreibung
 
-Die **`Object.hasOwn()`** Methode gibt `true` zurück, wenn die angegebene Eigenschaft eine direkte Eigenschaft des Objekts ist — selbst wenn der Eigenschaftswert `null` oder `undefined` ist. Die Methode gibt `false` zurück, wenn die Eigenschaft vererbt wird oder überhaupt nicht deklariert wurde. Im Gegensatz zum {{jsxref("Operators/in", "in")}}-Operator prüft diese Methode nicht die angegebene Eigenschaft in der Prototypenkette des Objekts.
+Die Methode `Object.hasOwn()` gibt `true` zurück, wenn die angegebene Eigenschaft eine direkte Eigenschaft des Objekts ist — auch wenn der Eigenschaftswert `null` oder `undefined` ist. Die Methode gibt `false` zurück, wenn die Eigenschaft geerbt wurde oder gar nicht deklariert wurde. Im Gegensatz zum {{jsxref("Operators/in", "in")}}-Operator prüft diese Methode nicht die angegebene Eigenschaft in der Prototypenkette des Objekts.
 
-Es wird über {{jsxref("Object.prototype.hasOwnProperty()")}} empfohlen, weil sie für [`null`-Prototyp-Objekte](/de/docs/Web/JavaScript/Reference/Global_Objects/Object#null-prototype_objects) und mit Objekten funktioniert, die die vererbte `hasOwnProperty()` Methode überschrieben haben. Während es möglich ist, diese Probleme durch den Aufruf von `Object.prototype.hasOwnProperty()` auf einem externen Objekt zu umgehen, ist `Object.hasOwn()` intuitiver.
+Sie wird über {{jsxref("Object.prototype.hasOwnProperty()")}} empfohlen, da sie für [`null`-Prototyp-Objekte](/de/docs/Web/JavaScript/Reference/Global_Objects/Object#null-prototype_objects) und mit Objekten funktioniert, die die geerbte `hasOwnProperty()`-Methode überschrieben haben. Obwohl es möglich ist, diese Probleme zu umgehen, indem man `Object.prototype.hasOwnProperty()` auf einem anderen Objekt aufruft (wie `Object.prototype.hasOwnProperty.call(obj, prop)`), ist `Object.hasOwn()` intuitiver und prägnanter.
 
 ## Beispiele
 
-### Verwendung von hasOwn, um das Vorhandensein einer Eigenschaft zu testen
+### Verwendung von Object.hasOwn() zur Prüfung auf Vorhandensein einer Eigenschaft
 
-Der folgende Code zeigt, wie man feststellt, ob das `example` Objekt eine Eigenschaft namens `prop` enthält.
+Der folgende Code zeigt, wie festgestellt werden kann, ob das `example`-Objekt eine Eigenschaft namens `prop` enthält.
 
 ```js
 const example = {};
@@ -72,9 +71,9 @@ example.prop = undefined;
 Object.hasOwn(example, "prop"); // true - own property exists with value of undefined
 ```
 
-### Direkte vs. vererbte Eigenschaften
+### Direkte vs. geerbte Eigenschaften
 
-Das folgende Beispiel unterscheidet zwischen direkten Eigenschaften und Eigenschaften, die durch die Prototypenkette vererbt werden:
+Das folgende Beispiel unterscheidet zwischen direkten Eigenschaften und über die Prototypenkette geerbten Eigenschaften:
 
 ```js
 const example = {};
@@ -91,9 +90,9 @@ Object.hasOwn(example, "hasOwnProperty"); // false
 "hasOwnProperty" in example; // true
 ```
 
-### Über die Eigenschaften eines Objekts iterieren
+### Iterieren über die Eigenschaften eines Objekts
 
-Um über die aufzählbaren Eigenschaften eines Objekts zu iterieren, _sollten_ Sie Folgendes verwenden:
+Um über die aufzählbaren Eigenschaften eines Objekts zu iterieren, _sollten_ Sie verwenden:
 
 ```js
 const example = { foo: true, bar: true };
@@ -102,7 +101,7 @@ for (const name of Object.keys(example)) {
 }
 ```
 
-Aber wenn Sie `for...in` verwenden müssen, können Sie `Object.hasOwn()` nutzen, um die vererbten Eigenschaften zu überspringen:
+Aber wenn Sie `for...in` verwenden müssen, können Sie `Object.hasOwn()` verwenden, um die geerbten Eigenschaften zu überspringen:
 
 ```js
 const example = { foo: true, bar: true };
@@ -113,9 +112,9 @@ for (const name in example) {
 }
 ```
 
-### Überprüfen, ob ein Array-Index existiert
+### Prüfen, ob ein Array-Index existiert
 
-Die Elemente eines {{jsxref("Array")}} werden als direkte Eigenschaften definiert, daher können Sie die `hasOwn()` Methode verwenden, um zu überprüfen, ob ein bestimmter Index existiert:
+Die Elemente eines {{jsxref("Array")}} sind als direkte Eigenschaften definiert, sodass Sie die `hasOwn()`-Methode verwenden können, um zu überprüfen, ob ein bestimmter Index existiert:
 
 ```js
 const fruits = ["Apple", "Banana", "Watermelon", "Orange"];
@@ -123,9 +122,9 @@ Object.hasOwn(fruits, 3); // true ('Orange')
 Object.hasOwn(fruits, 4); // false - not defined
 ```
 
-### Problematische Fälle für hasOwnProperty
+### Problematische Fälle für hasOwnProperty()
 
-Dieser Abschnitt zeigt, dass `hasOwn()` unempfindlich gegenüber den Problemen ist, die `hasOwnProperty` betreffen. Erstens kann es mit Objekten verwendet werden, die `hasOwnProperty()` neu implementiert haben:
+In diesem Abschnitt wird gezeigt, dass `Object.hasOwn()` immun gegen die Probleme ist, die `hasOwnProperty()` beeinflussen. Erstens kann es mit Objekten verwendet werden, die `hasOwnProperty()` neu implementiert haben. Im untenstehenden Beispiel meldet die neu implementierte `hasOwnProperty()`-Methode für jede Eigenschaft `false`, aber das Verhalten von `Object.hasOwn()` bleibt davon unbeeinflusst:
 
 ```js
 const foo = {
@@ -135,19 +134,21 @@ const foo = {
   bar: "The dragons be out of office",
 };
 
-if (Object.hasOwn(foo, "bar")) {
-  console.log(foo.bar); // true - re-implementation of hasOwnProperty() does not affect Object
-}
+console.log(foo.hasOwnProperty("bar")); // false
+
+console.log(Object.hasOwn(foo, "bar")); // true
 ```
 
-Es kann auch mit [`null`-Prototyp-Objekten](/de/docs/Web/JavaScript/Reference/Global_Objects/Object#null-prototype_objects) verwendet werden. Diese erben nicht von `Object.prototype` und daher ist `hasOwnProperty()` unzugänglich.
+Es kann auch mit [`null`-Prototyp-Objekten](/de/docs/Web/JavaScript/Reference/Global_Objects/Object#null-prototype_objects) verwendet werden. Diese erben nicht von `Object.prototype`, und daher ist `hasOwnProperty()` nicht zugänglich.
 
 ```js
 const foo = Object.create(null);
 foo.prop = "exists";
-if (Object.hasOwn(foo, "prop")) {
-  console.log(foo.prop); // true - works irrespective of how the object is created.
-}
+
+console.log(foo.hasOwnProperty("prop"));
+// Uncaught TypeError: foo.hasOwnProperty is not a function
+
+console.log(Object.hasOwn(foo, "prop")); // true
 ```
 
 ## Spezifikationen
@@ -163,7 +164,7 @@ if (Object.hasOwn(foo, "prop")) {
 - [Polyfill von `Object.hasOwn` in `core-js`](https://github.com/zloirock/core-js#ecmascript-object)
 - [es-shims Polyfill von `Object.hasOwn`](https://www.npmjs.com/package/object.hasown)
 - {{jsxref("Object.prototype.hasOwnProperty()")}}
-- [Aufzählbarkeit und Eigentum von Eigenschaften](/de/docs/Web/JavaScript/Guide/Enumerability_and_ownership_of_properties)
+- [Aufzählbarkeit und Besitz von Eigenschaften](/de/docs/Web/JavaScript/Guide/Enumerability_and_ownership_of_properties)
 - {{jsxref("Object.getOwnPropertyNames()")}}
 - {{jsxref("Statements/for...in", "for...in")}}
 - {{jsxref("Operators/in", "in")}}
