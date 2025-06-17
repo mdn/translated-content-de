@@ -2,12 +2,12 @@
 title: Umgang mit Dateien
 slug: Learn_web_development/Getting_started/Environment_setup/Dealing_with_files
 l10n:
-  sourceCommit: be1922d62a0d31e4e3441db0e943aed8df736481
+  sourceCommit: 62ab95d20f246369cfab654c5a7a8727deb21ea6
 ---
 
 {{PreviousMenuNext("Learn_web_development/Getting_started/Environment_setup/Code_editors", "Learn_web_development/Getting_started/Environment_setup/Command_line", "Learn_web_development/Getting_started/Environment_setup")}}
 
-Eine Website besteht aus vielen Dateien: Textinhalte, Code, Stylesheets, Medieninhalte und so weiter. Wenn Sie eine Website erstellen, müssen Sie diese Dateien in einer sinnvollen Struktur auf Ihrem lokalen Computer zusammenfügen, sicherstellen, dass sie miteinander kommunizieren können, und alle Ihre Inhalte richtig darstellen, bevor Sie diese schließlich auf einen Server stellen, damit die Welt sie sehen kann. Dieser Artikel erklärt, wie Sie die Benutzeroberfläche (UI) des Datei-Explorers Ihres Computers verwenden und eine sinnvolle Dateistruktur für eine Website einrichten.
+Eine Website besteht aus vielen Dateien: Textinhalten, Code, Stylesheets, Medieninhalten und so weiter. Wenn Sie eine Website erstellen, müssen Sie diese Dateien auf Ihrem lokalen Computer in eine sinnvolle Struktur zusammenfügen, sicherstellen, dass sie miteinander kommunizieren können, und alle Inhalte richtig gestalten, bevor Sie sie schließlich auf einen Server hochladen, damit die Welt sie sehen kann. Dieser Artikel erklärt, wie Sie die Benutzeroberfläche (UI) des Datei-Explorers Ihres Computers verwenden und eine sinnvolle Dateistruktur für eine Website einrichten.
 
 <table>
   <tbody>
@@ -21,188 +21,182 @@ Eine Website besteht aus vielen Dateien: Textinhalte, Code, Stylesheets, Medieni
       <th scope="row">Lernziele:</th>
       <td>
         <ul>
-          <li>Manipulation von Dateien und Ordnern.</li>
+          <li>Bearbeiten von Dateien und Ordnern.</li>
           <li>Beste Praktiken für die Benennung.</li>
-          <li>Standard-Website-Ordnerstruktur.</li>
-          <li>Umgang mit Dateipfaden.</li>
-          <li>Umgang mit Dateierweiterungen.</li>
+          <li>Standard-Ordnerstruktur für Websites.</li>
+          <li>Umgang mit Datei-Pfaden.</li>
+          <li>Umgang mit Dateiendungen.</li>
         </ul>
       </td>
     </tr>
   </tbody>
 </table>
 
-## Manipulation von Dateien und Ordnern
+## Bearbeiten von Dateien und Ordnern
 
-Es gibt viele verschiedene Möglichkeiten, die auf Ihrem Computer enthaltenen Dateien und Ordner zu erstellen und zu bearbeiten. Sie können dies über die Befehlszeile/das Terminal Ihres Computers mit einer Reihe von Textbefehlen tun, was Sie im nächsten Artikel genauer lernen werden. Viele Menschen finden es jedoch einfacher, visuell über Dateisysteme zu lernen, was wir hier besprechen werden. Moderne Betriebssysteme (OSes) verfügen über eine robuste Dateisystem-Benutzeroberfläche (UI), die Sie verwenden können, um Dateien und Ordner nach Bedarf zu manipulieren.
+Es gibt viele verschiedene Möglichkeiten, die Dateien und Ordner auf Ihrem Computer zu erstellen und zu bearbeiten. Sie können dies über die Kommandozeile/Terminal Ihres Computers mit einer Reihe von Textbefehlen tun, mehr dazu im nächsten Artikel. Viele Menschen finden es jedoch einfacher, zunächst visuell über Dateisysteme zu lernen, was wir hier besprechen werden. Moderne Betriebssysteme (OS) verfügen über eine robuste Benutzeroberfläche für Dateisysteme (UI), die Sie zum Bearbeiten von Dateien und Ordnern nach Bedarf verwenden können.
 
-Unter macOS haben Sie zum Beispiel das Programm Finder:
+Auf macOS gibt es beispielsweise das Finder-Programm:
 
-![Die macOS-Anwendung Finder, die den Inhalt eines typischen Home-Ordners anzeigt](finder.png)
+![Die macOS Finder-Anwendung zeigt den Inhalt eines typischen Home-Ordners](finder.png)
 
 Während Windows den Datei-Explorer hat:
 
-![Die Windows-Datei-Explorer-Anwendung, die den Inhalt eines typischen Home-Ordners anzeigt](file-explorer.png)
+![Die Windows Datei-Explorer-Anwendung zeigt den Inhalt eines typischen Home-Ordners](file-explorer.png)
 
 > [!NOTE]
-> Dieser Leitfaden wurde unter Verwendung von Windows 11 und macOS 15 geschrieben. Sie verwenden möglicherweise eine andere OS-Version oder ein ganz anderes OS, in diesem Fall kann die Erfahrung etwas abweichen. Es gibt zahlreiche Leitfäden im Internet zur grundlegenden Nutzung des Betriebssystems — wir empfehlen Ihnen, im Internet nach Informationen zu Ihrem spezifischen OS zu suchen.
+> Diese Anleitung wurde mit Windows 11 und macOS 15 geschrieben. Möglicherweise verwenden Sie eine andere Version des Betriebssystems oder ein völlig anderes Betriebssystem, in diesem Fall wird das Erlebnis anders sein. Es gibt viele Anleitungen im Internet zur grundlegenden Nutzung des Betriebssystems - wir empfehlen Ihnen, im Internet nach Informationen über Ihr spezifisches Betriebssystem zu suchen.
 
 ### Grundstruktur
 
-Die meisten modernen Betriebssysteme haben einen `Users`-Ordner, der für jedes auf dem System vorhandene Benutzerkonto einen Ordner enthält, auch bekannt als Home-Ordner des Benutzers. Dieser wird normalerweise durch ein Haus-Symbol dargestellt, um ihn leichter zu finden. Im Home-Ordner befinden sich dann andere wichtige Standardordner (und Dateien), die für diesen Benutzer relevant sind, wie _Documents_, _Music_, etc. Es gibt noch viele andere Dateien und Ordner auf Ihrem Computer, aber kümmern Sie sich vorerst nicht darum.
+Die meisten modernen Betriebssysteme haben einen `Users`-Ordner, der einen Ordner für jedes Benutzerkonto auf dem System enthält, auch bekannt als der _Home_-Ordner des Benutzers. Dieser wird normalerweise durch ein Haus-Symbol dargestellt, um ihn leichter zu finden. Im _Home_-Ordner befinden sich weitere wichtige Standardordner (und Dateien), die speziell für diesen Benutzer relevant sind, wie _Documents_, _Music_ usw. Es gibt auch viele andere Dateien und Ordner auf Ihrem Computer, aber machen Sie sich darüber vorerst keine Sorgen.
 
-Der momentan angemeldete Benutzer kann standardmäßig nur auf seinen eigenen Home-Ordner zugreifen.
+Der aktuell angemeldete Benutzer kann standardmäßig nur auf seinen eigenen _Home_-Ordner zugreifen.
 
-Sie sollten Projektdateien, die mit Ihrer Arbeit zusammenhängen, irgendwo in Ihrem Home-Ordner erstellen, vielleicht in _Documents_. Dies ist sinnvoll, da Webseiten-Dateien oft als _Dokumente_ bezeichnet werden.
+Sie sollten Projektdateien, die sich auf Ihre Arbeit beziehen, irgendwo in Ihrem _Home_-Ordner erstellen, möglicherweise im _Documents_-Ordner. Das macht Sinn, da Webseiten-Dateien oft als _Dokumente_ bezeichnet werden.
 
 > [!WARNING]
-> Wenn Sie anfangen, Dateien an anderen Stellen auf Ihrem System zu erstellen und zu bearbeiten (zum Beispiel in Bereichen, die das Betriebssystem oder wichtige Anwendungen steuern), könnten Sie etwas kaputt machen. Im Moment sollten Sie lediglich Dateien in Ihrem Home-Ordner erstellen und bearbeiten.
+> Wenn Sie anfangen, Dateien an anderen Orten auf Ihrem System zu erstellen und zu bearbeiten (z. B. in Bereichen, die das Betriebssystem oder wichtige Anwendungen steuern), könnten Sie etwas kaputt machen. Bleiben Sie vorerst bei der Erstellung und Bearbeitung von Dateien in Ihrem _Home_-Ordner, bis Sie wissen, was Sie tun.
 
-### Einen Ordner erstellen
+### Erstellen eines Ordners
 
-Lassen Sie uns einen neuen Ordner erstellen, um alle unsere Webprojekte zu speichern.
+Erstellen wir einen neuen Ordner, um alle unsere Web-Projekte zu speichern.
 
-1. Klicken Sie in Ihrer Dateisystem-UI auf Ihren Home-Ordner und doppelklicken Sie dann auf Ihren _Documents_-Ordner.
-2. Erstellen Sie in diesem Verzeichnis einen neuen Ordner mit dem Namen `web-projects`:
-   1. Unter Windows kann dies erfolgen, indem Sie die Schaltfläche _New_ im Datei-Explorer-Fenster auswählen und _Folder_ auswählen (oder <kbd>Strg</kbd> + <kbd>Shift</kbd> + <kbd>N</kbd> drücken), `web-projects` als Namen des neuen Ordner-Symbols eingeben und <kbd>Enter</kbd>/<kbd>Return</kbd> drücken.
-   2. Unter macOS kann dies erfolgen, indem Sie im Finder-Menü _File_ > _New Folder_ auswählen (oder <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>N</kbd> drücken) — Sie sehen ein neues Verzeichnis mit dem Namen _untitled folder_. Klicken Sie auf den Ordnernamen, um ihn zu bearbeiten, geben Sie `web-projects` ein und drücken Sie <kbd>Enter</kbd>/<kbd>Return</kbd>.
+1. Klicken Sie in Ihrer Benutzeroberfläche des Dateisystems auf Ihren _Home_-Ordner und dann doppelt auf Ihren _Documents_-Ordner.
+2. Erstellen Sie an diesem Ort einen neuen Ordner namens `web-projects`:
+   1. In Windows können Sie dies tun, indem Sie die Schaltfläche _Neu_ im Datei-Explorer-Fenster auswählen und _Ordner_ auswählen (oder <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>N</kbd> drücken), den Namen des neuen Ordners `web-projects` eingeben und <kbd>Enter</kbd>/<kbd>Return</kbd> drücken.
+   2. In macOS können Sie dies tun, indem Sie im Finder-Menü _Datei_ > _Neuer Ordner_ auswählen (oder <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>N</kbd> drücken) — Sie sehen einen neuen Ordner mit dem Namen _unbenannter Ordner_. Klicken Sie auf den Ordnernamen, um ihn zu bearbeiten, geben Sie `web-projects` ein und drücken Sie <kbd>Enter</kbd>/<kbd>Return</kbd>.
 
-Wenn Ihnen ein Tippfehler unterläuft, können Sie den Ordnernamen bearbeiten, um ihn zu korrigieren (dies funktioniert auch mit Dateien):
+Wenn Sie einen Tippfehler machen, können Sie den Ordnernamen bearbeiten, um ihn zu korrigieren (das funktioniert auch mit Dateien):
 
-- Unter Windows klicken Sie mit der rechten Maustaste auf den Ordner, wählen _Rename_ aus dem Menü und bearbeiten ihn. Einige Windows-Versionen haben ein vereinfachtes Menü, das ursprünglich angezeigt wird — möglicherweise müssen Sie mit der rechten Maustaste klicken, dann _Show more options_ auswählen und dann _Rename_ auswählen!
-- Unter macOS klicken/s wählen Sie auf den Ordnernamen, um ihn zu bearbeiten.
+- In Windows klicken Sie mit der rechten Maustaste auf den Ordner, wählen _Umbenennen_ aus dem Menü und bearbeiten den Namen. Einige Windows-Versionen haben anfangs ein vereinfachtes Menü - Sie müssen möglicherweise mit der rechten Maustaste klicken, dann _Weitere Optionen anzeigen_ auswählen und dann _Umbenennen_ auswählen!
+- In macOS klicken/selektieren Sie den Ordnernamen, um ihn zu bearbeiten.
 
 ### Öffnen eines Projektordners und Erstellen von Dateien in VS Code
 
-Obwohl Sie Textdateien innerhalb der Dateisystem-UI des Betriebssystems erstellen können, ist es im Allgemeinen einfacher und weniger fehleranfällig, sie innerhalb Ihres Code-Editors zu erstellen. Tatsächlich hat VS Code einen eigenen Datei-Explorer, der es Ihnen ermöglicht, alle Ordner und Dateien zu erstellen, die Sie für Ihre Webprojekte benötigen.
+Während Sie Textdateien im Dateisystem-UI des OS erstellen können, ist es in der Regel einfacher und weniger fehleranfällig, diese in Ihrem Code-Editor zu erstellen. Tatsächlich hat VS Code einen eigenen Datei-Explorer, der es Ihnen ermöglicht, alle Ordner und Dateien zu erstellen, die Sie für Ihre Web-Projekte benötigen.
 
-Warum haben wir Sie dazu gebracht, einen Ordner über die Dateisystem-UI des Betriebssystems zu erstellen? Weil VS Code auf einen initialen obersten Ordner hingewiesen werden muss!
+Warum haben wir Sie trotzdem den Ordner mit dem Dateisystem-UI des OS erstellen lassen? Weil VS Code initial auf einen übergeordneten Ordner zeigen muss!
 
-Es ist auch nützlich, ein wenig über die Struktur Ihres OS-Dateisystems zu verstehen. Dies wird nützlicher, wenn Sie später komplexere Werkzeuge verwenden.
+Es ist auch nützlich, ein wenig darüber zu verstehen, wie Ihr Dateisystem des OS strukturiert ist. Dies wird nützlicher, wenn Sie später komplexere Werkzeuge verwenden.
 
-Lassen Sie uns jetzt unseren `web-projects` Ordner in VS Code öffnen:
+Öffnen wir jetzt unseren `web-projects`-Ordner in VS Code:
 
 1. Öffnen Sie VS Code.
-2. Wählen Sie im Menü _File_ > _Open Folder..._.
+2. Wählen Sie _Datei_ > _Ordner öffnen..._ aus dem Menü.
    > [!NOTE]
-   > Wenn Sie Tastaturbefehle nutzen, können Sie den _Open Folder_ Befehl unter Windows ausführen, indem Sie die <kbd>Strg</kbd>-Taste gedrückt halten und <kbd>K</kbd> dann <kbd>O</kbd> drücken. Für macOS-Benutzer ist es am einfachsten, die _Command Palette_ mit <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> zu öffnen, "Open Folder" einzugeben, um die Befehlsliste zu filtern, die Pfeiltasten zu benutzen, um _File: Open Folder_ auszuwählen, und dann <kbd>Enter</kbd> zu drücken.
-3. Es erscheint eine Mini-Version der Dateisystem-UI des OS. Verwenden Sie sie, um Ihren `web-projects` Ordner zu finden, wählen Sie ihn aus und klicken Sie dann auf die Schaltfläche _Select Folder_.
-4. Es wird ein Dialogfeld mit dem Titel _Do you trust the authors of the files in this folder?_ angezeigt. Lesen Sie dies sorgfältig durch, um zu verstehen, worum es geht. Derzeit sind Sie die einzige Person, die in diesem Ordner Dateien erstellen wird, daher können Sie auf _Yes, I trust the authors_ klicken.
+   > Wenn Sie ein Tastaturbenutzer sind, können Sie den Befehl _Ordner öffnen_ in Windows ausführen, indem Sie die <kbd>Strg</kbd>-Taste gedrückt halten und <kbd>K</kbd> und dann <kbd>O</kbd> drücken. Der einfachste Weg für einen macOS-Benutzer ist, die _Befehlspalette_ mit <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> zu öffnen, "Ordner öffnen" einzugeben, um die Befehlsliste zu filtern, die Pfeiltasten zu verwenden, um zu _Datei: Ordner öffnen_ zu wechseln, und dann <kbd>Enter</kbd> zu drücken.
+3. Ein Miniatur-UI des Dateisystems des OS erscheint. Verwenden Sie es, um Ihren `web-projects`-Ordner zu finden, wählen Sie ihn aus und drücken Sie die Schaltfläche _Ordner auswählen_.
+4. Sie werden mit einem Dialogfeld mit dem Titel _Vertrauen Sie den Autoren der Dateien in diesem Ordner?_ konfrontiert. Lesen Sie dies sorgfältig, um zu verstehen, worum es geht. Derzeit sind Sie die einzige Person, die Dateien in diesem Ordner erstellen wird, sodass Sie auf _Ja, ich vertraue den Autoren_ klicken können.
 
-Sie sollten Ihren `web-projects` Ordner im _EXPLORER_ Bereich von VS Code geöffnet sehen, wie unten gezeigt:
+Sie sollten Ihren `web-projects`-Ordner im VS Code _EXPLORER_-Fenster geöffnet sehen, wie unten gezeigt:
 
-![Das VS Code Explorer Panel, das einen leeren Ordner namens web-projects zeigt](vs-code-explorer.png)
+![Das VS Code Explorer-Panel zeigt einen leeren Ordner namens web-projects](vs-code-explorer.png)
 
 > [!WARNING]
-> Vergewissern Sie sich erneut, dass Sie momentan Ihre eigenen Dateien nur innerhalb Ihres Home-Ordners bearbeiten, um Probleme mit Ihrem System zu vermeiden.
+> Achten Sie nochmals darauf, vorerst nur Ihre eigenen Dateien in Ihrem _Home_-Ordner zu bearbeiten, um Probleme mit Ihrem System zu vermeiden.
 
 #### Ein Exkurs zur Navigation mit der Tastatur in VS Code
 
-VS Code bietet zwar keine perfekten, aber dennoch eine umfangreiche Sammlung an Tastenkombinationen. Im Verlauf dieses Artikels haben wir versucht, nützliche davon zu erwähnen, wo immer möglich, aber Sie können umfassendere Listen im [VS Code Keyboard Shortcuts Reference](https://code.visualstudio.com/docs/configure/keybindings) finden.
+VS Code, wenn auch nicht perfekt, verfügt über eine umfangreiche Reihe von Tastenkombinationen. In diesem Artikel haben wir versucht, wo möglich, nützliche Kombinationen einzufügen, aber Sie finden umfassendere Listen im VS Code [Keyboard Shortcuts Reference](https://code.visualstudio.com/docs/configure/keybindings).
 
-Allgemein können Sie mit der <kbd>Tab</kbd>-Taste zwischen verschiedenen Bereichen der VS-Code-Benutzeroberfläche wechseln (<kbd>Shift</kbd> + <kbd>Tab</kbd> bringt Sie zu einer vorherigen Tab-Fokus-Position). Wenn es mehrere Schaltflächen in einer Tab-Fokus-Position gibt, können Sie mit den Pfeiltasten zwischen ihnen bewegen.
+Im Allgemeinen, wenn Sie in VS Code über die Tastatur navigieren möchten, können Sie die <kbd>Tab</kbd>-Taste drücken, um zwischen verschiedenen Bereichen der Benutzeroberfläche zu wechseln (<kbd>Shift</kbd> + <kbd>Tab</kbd>, um zu einer vorherigen Registerkartenfokussierung zu wechseln). Wenn sich mehrere Schaltflächen in einer Registerkartenfokussierung befinden, können Sie mit den Pfeiltasten zwischen ihnen wechseln.
 
-Wenn Sie derzeit eine Datei bearbeiten, navigiert die Tabulatortaste nicht durch die Benutzeroberfläche — sie fügt Tabulatorzeichen in die Datei ein. Um vom Datei-Bereich zum _EXPLORER_-Bereich zu wechseln, können Sie auf macOS <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>E</kbd> drücken, oder auf Windows <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>E</kbd>.
+Wenn Sie gerade eine Datei bearbeiten, navigiert die Tabulatortaste nicht um die Benutzeroberfläche – sie fügt Tabulatorzeichen in die Datei ein. Um von der Datei, die Sie bearbeiten, zum _EXPLORER_-Fenster zu wechseln, können Sie auf macOS <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>E</kbd> drücken oder auf Windows <kbd>Strg</kbd> + <kbd>Shift</kbd> + <kbd>E</kbd>.
 
-Um zum Dateieditor-Bereich zurückzukehren und zwischen verschiedenen Dateien in verschiedenen Registerkarten zu wechseln, halten Sie die <kbd>Strg</kbd>-Taste gedrückt und verwenden Sie <kbd>Tab</kbd> und <kbd>Shift</kbd> + <kbd>Tab</kbd>, um in der Liste der geöffneten Registerkarten nach oben und unten zu wechseln (sowohl auf macOS als auch auf Windows). Sobald Sie die Datei hervorgehoben haben, die Sie bearbeiten möchten, lassen Sie die Tasten los, um zu dieser Registerkarte zu wechseln.
+Um zurück zum Dateibearbeitungsfenster zu wechseln und zwischen den verschiedenen in verschiedenen Registerkarten geöffneten Dateien zu navigieren, halten Sie die <kbd>Strg</kbd>-Taste gedrückt und verwenden <kbd>Tab</kbd> und <kbd>Shift</kbd> + <kbd>Tab</kbd>, um durch die Liste der geöffneten Registerkarten zu navigieren (sowohl auf macOS als auch auf Windows). Wenn Sie die Datei, die Sie bearbeiten möchten, hervorgehoben haben, lassen Sie die Tasten los, um zu dieser Registerkarte zu wechseln.
 
-#### Eine Datei erstellen
+#### Erstellen einer Datei
 
-Von hier aus können Sie neue Dateien und Ordner mit den entsprechenden Schaltflächen oben im _EXPLORER_ Paneel erstellen.
+Von hier aus können Sie neue Dateien und Ordner mit den entsprechenden Schaltflächen oben im _EXPLORER_-Fenster erstellen.
 
-1. Erstellen Sie eine neue Datei, indem Sie auf das _New File..._ Symbol klicken (oder mit <kbd>Tab</kbd> dorthin navigieren und <kbd>Enter</kbd>/<kbd>Return</kbd> drücken).
-2. Geben Sie den Dateinamen "index.html" in das erscheinende Texteingabefeld ein und drücken Sie <kbd>Enter</kbd>/<kbd>Return</kbd>.
+1. Erstellen Sie eine neue Datei, indem Sie auf das _Neue Datei..._-Symbol klicken (oder mit <kbd>Tab</kbd> dahin gehen und <kbd>Enter</kbd>/<kbd>Return</kbd> drücken).
+2. Geben Sie als Dateinamen "index.html" im erscheinenden Texteingabefeld ein und drücken Sie <kbd>Enter</kbd>/<kbd>Return</kbd>.
 
 > [!NOTE]
-> Verwenden Sie nicht die Schaltflächen oben in der _Welcome_ Tab, um Dateien und Ordner zu erstellen, da sie etwas anders funktionieren. Tatsächlich können Sie die _Welcome_ Tab schließen, da Sie sie nicht benötigen. Schließen Sie sie, indem Sie auf das „x“ rechts oben in der Registerkarte klicken oder auf macOS <kbd>Cmd</kbd> + <kbd>W</kbd> drücken (<kbd>Ctrl</kbd> + <kbd>W</kbd> auf Windows).
+> Verwenden Sie nicht die Schaltflächen oben im _Willkommen_-Tab, um Dateien und Ordner zu erstellen, da diese etwas anders funktionieren. Tatsächlich können Sie das _Willkommen_-Tab schließen, da Sie es nicht benötigen. Tun Sie dies, indem Sie auf das "x" auf der rechten Seite der Registerkarte klicken oder indem Sie auf macOS <kbd>Cmd</kbd> + <kbd>W</kbd> drücken (<kbd>Strg</kbd> + <kbd>W</kbd> auf Windows).
 
-An diesem Punkt gehen Sie zurück zu Ihrer Dateisystem-UI des OS, gehen Sie in Ihren `web-projects` Ordner, indem Sie darauf doppelklicken, und Sie sollten dort auch Ihre `index.html` Datei sehen. VS Code verwendet das zugrunde liegende Dateisystem des OS, und nicht ein eigenes, merkwürdiges Dateisystem.
+Gehen Sie jetzt zurück zur Benutzeroberfläche des Dateisystems Ihres OS, gehen Sie in Ihren `web-projects`-Ordner, indem Sie darauf doppelklicken, und Sie sollten Ihre `index.html`-Datei dort ebenfalls sehen. VS Code verwendet das zugrunde liegende Dateisystem des OS, nicht ein eigenes.
 
-### Verschieben der index.html in einen eigenen Unterordner
+### Verschieben von index.html in einen eigenen Unterordner
 
-Sie können Ordner in andere Ordner erstellen (genannt _Sub-Ordner_), so viele Ebenen tief, wie Sie möchten. Sie können auch Dateien (und Ordner) in andere Ordner verschieben, indem Sie sie darauf ziehen und ablegen.
+Sie können Ordner innerhalb anderer Ordner erstellen (genannt _Unterordner_) so tief in der Hierarchie, wie Sie möchten. Sie können auch Dateien (und Ordner) in andere Ordner verschieben, indem Sie sie darauf ziehen und ablegen.
 
-Lassen Sie uns das erkunden und dabei unsere `index.html` Datei in ihren eigenen Unterordner verschieben. Wir möchten sie eigentlich nicht im Hauptordner `web-projects` belassen.
+Lassen Sie uns dies erkunden und dabei unsere `index.html`-Datei in einen eigenen Unterordner verschieben. Wir möchten sie nicht wirklich im Hauptordner `web-projects` haben.
 
-1. Erstellen Sie einen neuen Ordner in `web-projects`, indem Sie die Schaltfläche _New Folder..._ im VS Code _EXPLORER_ Bereich verwenden.
-2. Nennen Sie ihn `test-site`.
-3. Sie sollten jetzt in der Lage sein, die `index.html` Datei zu ziehen und auf dem `test-site` Ordner abzulegen, um die Datei in den Ordner zu verschieben.
+1. Erstellen Sie einen neuen Ordner innerhalb von `web-projects`, indem Sie im _EXPLORER_-Fenster von VS Code auf die Schaltfläche _Neuer Ordner..._ klicken.
+2. Benennen Sie ihn `test-site`.
+3. Jetzt sollten Sie in der Lage sein, die `index.html`-Datei zu ziehen und auf den `test-site`-Ordner abzulegen, um die Datei in diesen Ordner zu verschieben.
    > [!NOTE]
-   > Wenn Sie Tastaturbefehle nutzen, können Sie dies mit folgenden Schritten erreichen:
+   > Wenn Sie ein Tastaturbenutzer sind, können Sie dies mit den folgenden Schritten tun:
    >
-   > 1. Verwenden Sie die Pfeiltasten nach oben und unten, um den Fokusumriss über die `index.html` Datei zu bewegen.
-   > 2. Drücken Sie <kbd>Cmd</kbd> + <kbd>X</kbd> auf macOS (<kbd>Ctrl</kbd> + <kbd>X</kbd> auf Windows), um die Datei zum Verschieben auszuwählen.
-   > 3. Verwenden Sie die Pfeiltasten, um den Fokusumriss über den Ordner zu bewegen.
-   > 4. Drücken Sie <kbd>Cmd</kbd> + <kbd>V</kbd> auf macOS (<kbd>Ctrl</kbd> + <kbd>V</kbd> auf Windows), um die Datei in den Ordner zu verschieben.
+   > 1. Verwenden Sie die Pfeiltasten auf und ab, um den Fokus auf die Datei `index.html` zu legen.
+   > 2. Drücken Sie <kbd>Cmd</kbd> + <kbd>X</kbd> auf macOS (<kbd>Strg</kbd> + <kbd>X</kbd> auf Windows), um die Datei zum Verschieben auszuwählen.
+   > 3. Verwenden Sie die Pfeiltasten, um den Fokus auf den Ordner zu legen.
+   > 4. Drücken Sie <kbd>Cmd</kbd> + <kbd>V</kbd> auf macOS (<kbd>Strg</kbd> + <kbd>V</kbd> auf Windows), um die Datei in diesen Ordner zu verschieben.
 
-Es gibt viel mehr, das wir über die Nutzung der Dateisystem-UI des OS und VS Code einbeziehen könnten, aber wir haben begrenzten Platz, daher belassen wir es für jetzt dabei. Dies hat Ihnen genug Informationen gegeben, um zu beginnen, und wir ermutigen Sie, im Internet nach Informationen zu suchen, wie Sie andere Dinge mit Dateien und Ordnern tun können.
+Es gibt weitaus mehr, was wir über die Bedienung von Dateisystem-UIs des OS und VS Code sagen könnten, aber wir haben begrenzten Platz, daher belassen wir es dabei. Dies hat Ihnen genug Informationen gegeben, um loszulegen, und wir empfehlen Ihnen, im Internet nach Informationen zu suchen, wie man andere Dinge mit Dateien und Ordnern tut.
 
-Lassen Sie uns zu einer kurzen Diskussion der Website-Struktur übergehen.
+Lasst uns jetzt zu einer kurzen Diskussion über die Struktur von Websites übergehen.
 
 ## Welche Struktur sollte eine Website haben?
 
-Wenn Sie an Websites lokal (auf Ihrem Computer) arbeiten, sollten Sie alle zugehörigen Dateien für jede Seite in einem einzigen Ordner aufbewahren. Im Gegenzug sollten Sie alle Ihre Website-Ordner in einem zentralen Ordner aufbewahren, sodass alle leicht zu finden sind.
+Wenn Sie lokal (auf Ihrem Computer) an Websites arbeiten, sollten Sie alle zugehörigen Dateien für jede Website in einem einzigen Ordner aufbewahren. Umgekehrt sollten Sie alle Ihre Website-Ordner in einem zentralen Ordner aufbewahren, damit sie alle leicht zu finden sind.
 
-Zu Beginn des Artikels haben wir Sie dazu angeleitet, einen zentralen Ordner namens `web-projects` zu erstellen, um alle Ihre Website-Projekte zu speichern. Wir haben auch einen Unterordner namens `test-site` mit einer leeren `index.html` Datei darin erstellt.
+Bereits früher im Artikel haben wir Sie angewiesen, einen zentralen Ordner namens `web-projects` zu erstellen, um alle Ihre Website-Projekte zu speichern. Wir haben Sie auch dazu veranlasst, einen Unterordner namens `test-site` mit einer leeren `index.html`-Datei darin zu erstellen.
 
-Lassen Sie uns einige weitere Merkmale innerhalb von `test-site` hinzufügen, um eine typische Website-Struktur zu demonstrieren; im nächsten Modul werden wir Sie dazu anleiten, ein vollständiges Website-Beispiel darin aufzubauen. Die häufigsten Dinge, die jedes Website-Projekt enthält, sind eine index HTML-Datei und Ordner, um Bilder, Style-Dateien und Script-Dateien zu enthalten:
+Lassen Sie uns einige weitere Funktionen zu `test-site` hinzufügen, um eine typische Website-Struktur zu demonstrieren. Im nächsten Modul werden Sie ein vollständiges Website-Beispiel darin aufbauen. Die häufigsten Dinge, die jedes Website-Projekt enthalten wird, sind eine Index-HTML-Datei und Ordner zum Speichern von Bildern, Style-Dateien und Script-Dateien:
 
-1. **`index.html`**: Diese Datei enthält in der Regel Ihre Homepage-Inhalte, d.h. den Text und die Bilder, die Personen sehen, wenn sie das erste Mal auf Ihre Seite gehen.
-2. **`images` Ordner**: Dieser Ordner enthält alle Bilder, die Sie auf Ihrer Seite verwenden.
-3. **`styles` Ordner**: Dieser Ordner enthält den CSS-Code, der verwendet wird, um Ihre Inhalte zu gestalten (zum Beispiel Text- und Hintergrundfarben festlegen).
-4. **`scripts` Ordner**: Dieser Ordner enthält den gesamten JavaScript-Code, der verwendet wird, um Ihrer Seite interaktive Funktionalitäten hinzuzufügen (zum Beispiel definieren, was passiert, wenn auf Schaltflächen geklickt wird).
+1. **`index.html`**: Diese Datei wird im Allgemeinen Ihre Homepage-Inhalte enthalten, das heißt, den Text und die Bilder, die Menschen sehen, wenn sie Ihre Website zum ersten Mal aufrufen.
+2. **`images`-Ordner**: In diesem Ordner werden alle Bilder gespeichert, die Sie auf Ihrer Website verwenden.
+3. **`styles`-Ordner**: In diesem Ordner wird der CSS-Code gespeichert, der zum Stylen Ihrer Inhalte verwendet wird (zum Beispiel das Festlegen von Text- und Hintergrundfarben).
+4. **`scripts`-Ordner**: In diesem Ordner wird der gesamte JavaScript-Code gespeichert, der verwendet wird, um interaktive Funktionalität zu Ihrer Website hinzuzufügen (zum Beispiel das Bestimmen, was passiert, wenn Schaltflächen geklickt werden).
 
-> [!CALLOUT]
->
-> **Probieren Sie es aus**
->
-> Sie sollten bereits eine `index.html` Datei innerhalb von `test-site` haben. Erstellen Sie jetzt die Ordner `images`, `styles` und `scripts` darin.
+Sie sollten bereits eine `index.html`-Datei in `test-site` haben. Erstellen Sie jetzt die Ordner `images`, `styles` und `scripts` darin.
 
 ## Dateinamen
 
-Es gibt im Allgemeinen zwei Teile eines Dateinamens — den **Namen** und die **Erweiterung**. Nehmen Sie die oben erstellte Datei — `index.html`:
+Es gibt in der Regel zwei Teile zu einem Dateinamen — den **Namen** und die **Erweiterung**. Nehmen Sie die Datei, die wir oben erstellt haben — `index.html`:
 
-- Der Name in diesem Fall ist `index`. Dateinamen können im Allgemeinen beliebige Zeichen enthalten, obwohl unterschiedliche Computersysteme verschiedene Einschränkungen für erlaubte Zeichen haben. Es ist besser, sich zu Beginn an Zahlen und Buchstaben zu halten. Außerdem kann Systemen spezielle Bedeutungen für bestimmte Namen oder Teile von Namen geben — wie wir bereits gesagt haben, werden `index`-Dateien häufig als die Hauptdatei der Homepage einer Website erkannt.
-- Die Dateierweiterung identifiziert den Typ der Datei, mit der wir es zu tun haben, und wird von Computersystemen verwendet, um zu erkennen, welche Art von Inhalt die Datei erwartet, welches Programm sie verwenden sollte, um die Datei zu öffnen etc. in diesem Fall ist die Erweiterung `.html`, was bedeutet, dass die Datei einfachen Text enthalten sollte, genauer gesagt HTML-Code. Aufgrund der Erweiterung weiß Ihr Computer, dass er sie mit Ihrem Standard-Texteditor öffnen sollte, was VS Code sein sollte, wenn Sie all unseren Anweisungen bis jetzt gefolgt sind.
+- Der Name in diesem Fall ist `index`. Dateinamen können im Allgemeinen beliebige Zeichen enthalten, obwohl verschiedene Computersysteme unterschiedliche Einschränkungen zu den verwendbaren Zeichen haben. Es ist besser, sich vorerst nur mit Zahlen und Buchstaben zu beschäftigen. Darüber hinaus können Systeme bestimmten Namen oder Namensanteilen eine besondere Bedeutung zuweisen — wie wir bereits gesagt haben, werden `index`-Dateien in der Regel als Hauptstartdatei einer Website erkannt.
+- Die Dateierweiterung identifiziert den Dateityp, mit dem wir arbeiten, und wird von Computersystemen verwendet, um zu identifizieren, welche Art von Inhalt die Datei enthält, welches Programm sie zum Öffnen der Datei verwenden sollen usw. In diesem Fall lautet die Erweiterung `.html`, was bedeutet, dass die Datei einfachen Text und insbesondere HTML-Code enthalten sollte. Aufgrund der Erweiterung weiß Ihr Computer, dass er beim Öffnen der Datei Ihren Standard-Text-Editor verwenden soll, der VS Code sein sollte, wenn Sie alle unsere Anweisungen befolgt haben.
 
-Es ist nicht in allen Fällen wahr, aber die meisten Dateien benötigen eine Erweiterung, um richtig gehandhabt zu werden. Das Entfernen oder Ändern der Dateierweiterung wird wahrscheinlich Fehler verursachen, daher sollten Sie sie nicht ändern, es sei denn, Sie wissen wirklich, was Sie tun.
+Es trifft nicht in allen Fällen zu, aber die meisten Dateien benötigen eine Erweiterung, um ordnungsgemäß behandelt zu werden. Das Entfernen oder Ändern der Dateierweiterung wird wahrscheinlich Fehler verursachen, also sollten Sie sie nicht ändern, es sei denn, Sie wissen wirklich, was Sie tun.
 
 > [!NOTE]
-> Es ist möglich, mehr als einen Punkt in einem Dateinamen zu setzen, zum Beispiel `my.cats.html`. In solchen Fällen wird der letzte Punkt als Beginn der Dateierweiterung angesehen.
+> Es ist möglich, mehr als einen Punkt in einem Dateinamen zu setzen, zum Beispiel `my.cats.html`. In solchen Fällen wird angenommen, dass der letzte Punkt den Beginn der Dateierweiterung kennzeichnet.
 
-Auf Windows-Computern könnten Sie Schwierigkeiten haben, die Erweiterungen einiger Dateien zu sehen, weil Windows standardmäßig eine Option namens **Hide extensions for known file types** aktiviert hat. Sie können dies deaktivieren, indem Sie in den Datei-Explorer gehen, die Option **Folder options…** auswählen, das Kontrollkästchen **Hide extensions for known file types** deaktivieren und dann auf **OK** klicken. Für genauere Informationen, die Ihre Windows-Version betreffen, können Sie im Internet suchen.
+Auf Windows-Computern könnten Sie Schwierigkeiten haben, die Erweiterungen einiger Dateien zu sehen, da Windows standardmäßig eine Option namens **Erweiterungen für bekannte Dateitypen ausblenden** aktiviert hat. Sie können dies deaktivieren, indem Sie den Datei-Explorer öffnen, die Option **Ordneroptionen…** auswählen, das Kontrollkästchen **Erweiterungen für bekannte Dateitypen ausblenden** deaktivieren und dann auf **OK** klicken. Für detailliertere Informationen, die Ihre Windows-Version betreffen, können Sie im Internet nachschlagen.
 
 ### Beste Praktiken für die Benennung von Dateien
 
-Während Sie diesem Kurs folgen, werden Sie bemerken, dass wir immer darauf achten, dass Sie Ordner und Dateien vollständig in Kleinbuchstaben ohne Leerzeichen benennen. Es gibt viele Möglichkeiten, wie die Verwendung von Leerzeichen in Datei- und Ordnernamen Probleme verursachen kann — einige der häufigeren sind die folgenden:
+Im Verlauf dieses Kurses werden Sie feststellen, dass wir Sie immer bitten, Ordner- und Dateinamen vollständig in Kleinbuchstaben ohne Leerzeichen zu schreiben. Es gibt viele Arten, in denen das Ignorieren dieses Rats Probleme verursacht – einige der häufigsten sind:
 
-<!-- cSpell:ignore myimage -->
+1. Viele Computersysteme, einschließlich der meisten Webserver, sind auf Groß- und Kleinschreibung empfindlich. Wenn Sie beispielsweise ein Bild auf Ihrer Website unter `test-site/images/MyImage.jpg` platzieren und dann in einer anderen Datei versuchen, das Bild mit `test-site/images/myimage.jpg` zu referenzieren, funktioniert es möglicherweise nicht.
+2. Bei Kommandos auf der Kommandozeile müssen Sie Anführungszeichen um Dateinamen mit Leerzeichen setzen, sonst werden sie als zwei separate Elemente interpretiert.
+3. Einige Programmiersprachen (zum Beispiel Python) funktionieren in bestimmten Umständen nicht gut mit Leerzeichen in Dateinamen (zum Beispiel, wenn diese Dateien als zu importierende Module verwendet werden sollen).
+4. Dateinamen werden häufig auf Webadressen/URLs abgebildet. Wenn Sie beispielsweise eine Datei namens `my file.html` im Hauptverzeichnis Ihres Servers haben, ist sie im Allgemeinen unter einer URL wie `https://example.com/my%20file.html` erreichbar. Webserver ersetzen in der Regel die Leerzeichen in Dateinamen durch `%20` (weil URLs {{Glossary("Percent-encoding", "percent-codiert")}} sind), was subtile Fehler bei einigen Systemen verursachen kann, wenn sie davon ausgehen, dass Dateinamen und URLs perfekt übereinstimmen.
 
-1. Viele Computersysteme, einschließlich der meisten Webserver, sind nicht „case-sensitive“. Wenn Sie beispielsweise ein Bild auf Ihrer Website unter `test-site/images/MyImage.jpg` haben und in einer anderen Datei versuchen, das Bild mit `test-site/images/myimage.jpg` anzurufen, funktioniert es möglicherweise nicht.
-2. Wenn Sie Befehle in der Befehlszeile aufrufen, müssen Sie Anführungszeichen um Dateinamen mit Leerzeichen setzen, andernfalls werden sie als zwei separate Elemente interpretiert.
-3. Einige Programmiersprachen (zum Beispiel Python) funktionieren nicht gut mit Leerzeichen in Dateinamen unter bestimmten Umständen (zum Beispiel, wenn diese Dateien Module zum Importieren sind).
-4. Dateinamen werden häufig auf Webadressen/URLs abgebildet. Wenn Sie beispielsweise eine Datei namens `my file.html` im Stammverzeichnis Ihres Servers haben, ist sie im Allgemeinen unter einer URL wie `https://example.com/my%20file.html` erreichbar. Web-Server ersetzen normalerweise die Leerzeichen in Dateinamen mit `%20` (da URLs {{Glossary("Percent-encoding", "percent-encoded")}} sind), was subtile Fehler mit einigen Systemen verursachen kann, wenn sie annehmen, dass Dateinamen und URLs perfekt übereinstimmen.
+Anstelle von Leerzeichen verwenden viele Entwickler ein Trennzeichen wie ein Bindestrich (`-`) anstelle eines Leerzeichens — zum Beispiel `my-file.html` statt `my file.html`. Dies ist eine gute Praxis.
 
-Statt Leerzeichen verwenden viele Entwickler ein Trennzeichen wie einen Bindestrich (`-`) anstelle eines Leerzeichens — zum Beispiel `my-file.html` statt `my file.html`. Das ist eine gute Praxis.
-
-Es ist am besten, sich anzugewöhnen, Ihre Ordner- und Dateinamen in Kleinbuchstaben ohne Leerzeichen und mit durch Bindestriche getrennten Wörtern zu schreiben, zumindest so lange, bis Sie wissen, was Sie tun. So begegnen Sie weniger Problemen.
+Es ist am besten, sich anzugewöhnen, Ihre Ordner- und Dateinamen in Kleinbuchstaben ohne Leerzeichen und mit Bindestrichen zwischen den Wörtern zu schreiben, zumindest bis Sie wissen, was Sie tun. Auf diese Weise werden Sie auf weniger Probleme stoßen.
 
 > [!NOTE]
-> Weitere bewährte Verfahren für Dateinamen und URLs finden Sie in [URL structure best practices for Google](https://developers.google.com/search/docs/crawling-indexing/url-structure).
+> Weitere bewährte Methoden für Dateinamen und URLs finden Sie unter [URL-Struktur Best Practices für Google](https://developers.google.com/search/docs/crawling-indexing/url-structure).
 
-## Dateipfade
+## Datei-Pfade
 
-Um von einer Datei auf eine andere zu verweisen, müssen Sie einen Dateipfad angeben — im Grunde eine Route, damit eine Datei weiß, wo sich eine andere befindet. Zum Beispiel muss Ihr Webseitencode, wenn Sie eine Webseite mit einem Bild erstellen, einen Dateipfad enthalten, der den Standort des angezeigten Bildes angibt.
+Um von einer Datei auf eine andere zu verweisen, müssen Sie einen Datei-Pfad angeben — im Wesentlichen eine Route, damit eine Datei weiß, wo sich eine andere befindet. Zum Beispiel, wenn Sie eine Webseite erstellen, die ein Bild enthält, muss Ihr Webseiten-Code einen Datei-Pfad enthalten, der den Speicherort des anzuzeigenden Bildes angibt.
 
-Lassen Sie uns ein einfaches Beispiel dafür durchgehen. Es macht nichts, wenn Sie im Moment noch nicht verstehen, was das alles bedeutet.
+Lassen Sie uns ein einfaches Beispiel dazu durchgehen. Es ist in Ordnung, wenn Sie jetzt nicht alles verstehen.
 
-1. Suchen Sie im Internet nach einem Bild, das Ihnen gefällt (zum Beispiel über einen Dienst wie [Google Images](https://www.google.com/imghp)) und laden Sie es herunter. Alternativ können Sie unser [Firefox-Icon-Bild](https://raw.githubusercontent.com/mdn/beginner-html-site/refs/heads/main/images/firefox-icon.png) nutzen, um dieses Beispiel zu verwenden.
-2. Legen Sie das Bild in Ihrem _images_-Ordner ab.
-3. Stellen Sie sicher, dass die Bilddatei einen kurzen und einfachen Namen hat, ohne Leerzeichen. Zum Beispiel ist `firefox-icon.png` gut und `cat.jpg` ist gut, aber `efregre^%^£$£@%$^&YTJgfbgfdgt54656756_ertgrth-rtgtfghhyj.png` ist nicht gut. Achten Sie auch darauf, dass Sie die Dateierweiterung beibehalten.
+1. Suchen Sie im Internet nach einem Bild, das Ihnen gefällt (zum Beispiel, indem Sie einen Dienst wie [Google Bilder](https://www.google.com/imghp) verwenden), und laden Sie es herunter. Alternativ können Sie einfach unser [Firefox-Logo-Bild](https://raw.githubusercontent.com/mdn/beginner-html-site/refs/heads/main/images/firefox-icon.png) für dieses Beispiel verwenden.
+2. Legen Sie das Bild in Ihren _images_-Ordner.
+3. Stellen Sie sicher, dass die Bilddatei kurz und einfach benannt ist, ohne Leerzeichen. Zum Beispiel ist `firefox-icon.png` gut, und `cat.jpg` ist gut, aber `efregre^%^£$£@%$^&YTJgfbgfdgt54656756_ertgrth-rtgtfghhyj.png` ist nicht gut. Stellen Sie auch sicher, dass Sie die Dateierweiterung beibehalten.
 
-Nun werden wir Inhalte zur `index.html` Datei hinzufügen, die es ihr ermöglicht, die Bilddatei zu lokalisieren und anzuzeigen.
+Nun fügen wir der `index.html`-Datei Inhalt hinzu, damit sie die Bilddatei findet und anzeigt.
 
-1. Öffnen Sie Ihre `index.html` in VS Code und fügen Sie den folgenden Inhalt in die Datei genau so ein, wie unten gezeigt. Dies ist HTML, die Sprache, die wir verwenden, um Webseiteninhalte zu definieren und zu strukturieren. Sie werden bald viel mehr darüber lernen!
+1. Öffnen Sie Ihre `index.html` in VS Code und fügen Sie den folgenden Inhalt genau wie unten gezeigt in die Datei ein. Dies ist HTML, die Sprache, die wir verwenden, um Webseiteninhalte zu definieren und zu strukturieren. Darüber werden Sie bald viel mehr lernen!
 
    ```html
    <!doctype html>
@@ -218,22 +212,22 @@ Nun werden wir Inhalte zur `index.html` Datei hinzufügen, die es ihr ermöglich
    </html>
    ```
 
-2. Die Zeile `<img src="" alt="My test image">` ist der HTML-Code, der ein Bild in die Seite einfügt. Wir müssen dem HTML sagen, wo das Bild ist. Das Bild befindet sich im _images_-Ordner, der im selben Ordner wie `index.html` liegt. Um die Dateistruktur von `index.html` zu unserem Bild zu gehen, lautet der Dateipfad, den wir benötigen, `images/your-image-filename`. Wenn Ihr Bild beispielsweise `firefox-icon.png` heißt, wäre der Dateipfad `images/firefox-icon.png`.
-3. Fügen Sie den Dateipfad in Ihren HTML-Code zwischen die Anführungszeichen von `src=""` ein.
-4. Speichern Sie Ihre HTML-Datei und laden Sie sie dann in Ihrem Webbrowser. Sie können dies tun, indem Sie <kbd>Strg</kbd>/Rechtsklick auf die HTML-Datei durchführen, dann _Open With_ auswählen und einen Webbrowser aus dem erscheinenden Untermenü auswählen. Sie können auch Ihre OS-Datei-UI und ein Webbrowserfenster nebeneinander öffnen und die HTML-Datei über das Webbrowserfenster ziehen und dort ablegen.
+2. Die Zeile `<img src="" alt="My test image">` ist der HTML-Code, der ein Bild in die Seite einfügt. Wir müssen dem HTML sagen, wo sich das Bild befindet. Da sich das Bild im Ordner _images_ befindet, der im selben Ordner wie `index.html` liegt, ist der Datei-Pfad, den wir benötigen, `images/Ihr-Bild-Dateiname`. Wenn Ihr Bild beispielsweise `firefox-icon.png` genannt wird, wäre der Datei-Pfad `images/firefox-icon.png`.
+3. Fügen Sie den Datei-Pfad in Ihren HTML-Code zwischen die doppelten Anführungszeichen von `src=""`.
+4. Speichern Sie Ihre HTML-Datei und laden Sie sie dann in Ihrem Webbrowser. Sie können dies tun, indem Sie mit <kbd>Ctrl</kbd>/Rechtsklick auf die HTML-Datei klicken und dann _Öffnen mit_ auswählen und einen Webbrowser aus dem erscheinenden Untermenü wählen. Sie könnten auch das Datei-Explorer-UI und ein Browserfenster auf demselben Bildschirm öffnen und die HTML-Datei einfach in das Browserfenster ziehen.
 
 Sie sollten eine einfache Webseite sehen, die Ihr Bild anzeigt!
 
-![Ein Screenshot unserer einfachen Website, die nur das Firefox-Logo zeigt - ein flammender Fuchs, der die Welt umarmt](website-screenshot.png)
+![Ein Screenshot unserer einfachen Website, die nur das Firefox-Logo zeigt - ein brennender Fuchs, der sich um die Welt wickelt](website-screenshot.png)
 
-### Allgemeine Regeln für Dateipfade
+### Allgemeine Regeln für Datei-Pfade
 
-- Um auf eine Zieldatei im gleichen Ordner wie die aufrufende HTML-Datei zu verlinken, verwenden Sie einfach den Dateinamen, zum Beispiel `my-image.jpg`.
-- Um auf eine Datei in einem Unterordner zu verweisen, schreiben Sie den Ordnernamen vor den Pfad, plus einen Schrägstrich, zum Beispiel `subfolder/my-image.jpg`.
-- Um auf eine Zieldatei im Ordner **oberhalb** der aufrufenden HTML-Datei zu verlinken, schreiben Sie zwei Punkte. Wenn `index.html` beispielsweise in einem Unterordner von `test-site` wäre und `my-image.jpg` in `test-site` wäre, könnten Sie von `index.html` aus auf `my-image.jpg` mit `../my-image.jpg` verweisen.
-- Sie können diese beliebig kombinieren, zum Beispiel `../subfolder/another-subfolder/my-image.jpg`.
+- Um auf eine Zieldatei im gleichen Ordner wie die aufrufende HTML-Datei zu verweisen, verwenden Sie einfach den Dateinamen, zum Beispiel `my-image.jpg`.
+- Um auf eine Datei in einem Unterordner zu verweisen, schreiben Sie den Ordnernamen vor den Pfad, gefolgt von einem Schrägstrich, zum Beispiel `subfolder/my-image.jpg`.
+- Um auf eine Zieldatei in dem Ordner **über** der aufrufenden HTML-Datei zu verlinken, schreiben Sie zwei Punkte. Wenn `index.html` also in einem Unterordner von `test-site` wäre und `my-image.jpg` in `test-site`, könnten Sie `my-image.jpg` von `index.html` aus mit `../my-image.jpg` referenzieren.
+- Sie können diese Kombinationen so oft verketten, wie Sie möchten, zum Beispiel `../subfolder/another-subfolder/my-image.jpg`.
 
 > [!NOTE]
-> Das Windows-Dateisystem verwendet normalerweise Backslashes, nicht Schrägstriche, z.B. `C:\Windows`. Das spielt bei HTML keine Rolle — selbst wenn Sie Ihre Website unter Windows entwickeln, sollten Sie in Ihrem Code Schrägstriche verwenden.
+> Das Windows-Dateisystem neigt dazu, Backslashes anstelle von Schrägstrichen zu verwenden, z.B. `C:\Windows`. Dies spielt im HTML keine Rolle — auch wenn Sie Ihre Website auf Windows entwickeln, sollten Sie dennoch Schrägstriche in Ihrem Code verwenden.
 
 {{PreviousMenuNext("Learn_web_development/Getting_started/Environment_setup/Code_editors", "Learn_web_development/Getting_started/Environment_setup/Command_line", "Learn_web_development/Getting_started/Environment_setup")}}

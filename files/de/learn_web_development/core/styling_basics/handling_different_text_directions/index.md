@@ -1,14 +1,14 @@
 ---
-title: Umgang mit verschiedenen Textrichtungen
-short-title: Mehrere Textrichtungen
+title: Umgang mit unterschiedlichen Schreibrichtungen
+short-title: Mehrere Schreibrichtungen
 slug: Learn_web_development/Core/Styling_basics/Handling_different_text_directions
 l10n:
-  sourceCommit: 48d220a8cffdfd5f088f8ca89724a9a92e34d8c0
+  sourceCommit: e47ecbb9beee1f7f6b22376686be75b15bb73638
 ---
 
-Viele der Eigenschaften und Werte, die wir bisher in unserem CSS-Lernen kennengelernt haben, sind mit den physischen Abmessungen unseres Bildschirms verbunden. Wir erstellen beispielsweise Ränder oben, rechts, unten und links eines Kastens. Diese physischen Abmessungen passen sehr gut zu Inhalten, die horizontal angezeigt werden, und standardmäßig unterstützt das Web tendenziell Sprachen, die von links nach rechts gelesen werden (z. B. Englisch oder Französisch), besser als Sprachen, die von rechts nach links gelesen werden (wie Arabisch).
+Viele der Eigenschaften und Werte, die wir bisher in unserem CSS-Lernprozess kennengelernt haben, sind an die physikalischen Dimensionen unseres Bildschirms gebunden. Wir erstellen zum Beispiel Ränder oben, rechts, unten und links eines Kastens. Diese physikalischen Dimensionen passen sehr gut zu horizontalem Inhalt, und standardmäßig unterstützt das Web tendenziell Sprachen von links nach rechts (z. B. Englisch oder Französisch) besser als Sprachen von rechts nach links (wie Arabisch).
 
-In den letzten Jahren hat sich CSS jedoch weiterentwickelt, um eine bessere Unterstützung für unterschiedliche Ausrichtungen von Inhalten zu bieten, einschließlich von rechts nach links, aber auch von oben nach unten verlaufender Inhalte (wie Japanisch) – diese unterschiedlichen Ausrichtungen werden als **Schreibmodi** bezeichnet. Wenn Sie in Ihrem Studium voranschreiten und beginnen, mit Layouts zu arbeiten, wird Ihnen ein Verständnis von Schreibmodi sehr hilfreich sein, daher werden wir sie jetzt einführen.
+In den letzten Jahren hat sich CSS jedoch weiterentwickelt, um die unterschiedliche Richtung von Inhalten besser zu unterstützen, einschließlich von rechts nach links, aber auch von oben nach unten (wie Japanisch) — diese unterschiedlichen Richtungen werden als **Schreibmodi** bezeichnet. Wenn Sie sich in Ihrem Studium weiterentwickeln und anfangen, mit Layouts zu arbeiten, wird ein Verständnis der Schreibmodi sehr hilfreich für Sie sein, daher führen wir sie jetzt ein.
 
 <table>
   <tbody>
@@ -18,30 +18,29 @@ In den letzten Jahren hat sich CSS jedoch weiterentwickelt, um eine bessere Unte
         <a
           href="/de/docs/Learn_web_development/Getting_started/Environment_setup/Installing_software"
           >Grundlegende Software installiert</a
-        >, grundlegende Kenntnisse im
+        >, Grundkenntnisse im
         <a
           href="/de/docs/Learn_web_development/Getting_started/Environment_setup/Dealing_with_files"
           >Umgang mit Dateien</a
         >, HTML-Grundlagen (studieren Sie
         <a href="/de/docs/Learn_web_development/Core/Structuring_content"
           >Einführung in HTML</a
-        >), und ein Verständnis davon, wie CSS funktioniert (studieren Sie
-        <a href="/de/docs/Learn_web_development/Core/Styling_basics">CSS-Styling-Grundlagen</a
-        >.)
+        >) und eine Vorstellung davon, wie CSS funktioniert (studieren Sie
+        <a href="/de/docs/Learn_web_development/Core/Styling_basics">CSS-Grundlagen der Gestaltung</a>.)
       </td>
     </tr>
     <tr>
       <th scope="row">Ziel:</th>
-      <td>Die Bedeutung von Schreibmodi in modernem CSS verstehen.</td>
+      <td>Verständnis der Bedeutung von Schreibmodi für modernes CSS.</td>
     </tr>
   </tbody>
 </table>
 
 ## Was sind Schreibmodi?
 
-Ein Schreibmodus in CSS bezieht sich darauf, ob der Text horizontal oder vertikal verläuft. Die {{cssxref("writing-mode")}}-Eigenschaft ermöglicht es uns, von einem Schreibmodus in einen anderen zu wechseln. Sie müssen nicht in einer Sprache arbeiten, die einen vertikalen Schreibmodus verwendet, um dies tun zu wollen – Sie könnten den Schreibmodus von Teilen Ihres Layouts auch zu kreativen Zwecken ändern.
+Ein Schreibmodus in CSS bezieht sich darauf, ob der Text horizontal oder vertikal läuft. Die {{cssxref("writing-mode")}}-Eigenschaft ermöglicht es uns, von einem Schreibmodus zu einem anderen zu wechseln. Sie müssen nicht in einer Sprache arbeiten, die einen vertikalen Schreibmodus verwendet, um dies tun zu wollen — Sie könnten den Schreibmodus auch für kreative Zwecke in Teilen Ihres Layouts ändern.
 
-Im folgenden Beispiel haben wir eine Überschrift, die mit `writing-mode: vertical-rl` angezeigt wird. Der Text verläuft jetzt vertikal. Vertikaler Text ist in der Grafikgestaltung üblich und kann eine Möglichkeit sein, Ihrem Webdesign ein interessanteres Aussehen und Gefühl zu verleihen.
+Im folgenden Beispiel haben wir eine Überschrift mit `writing-mode: vertical-rl` dargestellt. Der Text läuft jetzt vertikal. Vertikaler Text ist im Grafikdesign üblich und kann eine Möglichkeit sein, Ihrem Webdesign einen interessanteren Look zu verleihen.
 
 ```html live-sample___simple-vertical
 <h1>Play with writing modes</h1>
@@ -64,17 +63,17 @@ h1 {
 
 Die drei möglichen Werte für die [`writing-mode`](/de/docs/Web/CSS/writing-mode)-Eigenschaft sind:
 
-- `horizontal-tb`: Blockflussrichtung von oben nach unten. Sätze verlaufen horizontal.
-- `vertical-rl`: Blockflussrichtung von rechts nach links. Sätze verlaufen vertikal.
-- `vertical-lr`: Blockflussrichtung von links nach rechts. Sätze verlaufen vertikal.
+- `horizontal-tb`: Blockfließrichtung von oben nach unten. Sätze laufen horizontal.
+- `vertical-rl`: Blockfließrichtung von rechts nach links. Sätze laufen vertikal.
+- `vertical-lr`: Blockfließrichtung von links nach rechts. Sätze laufen vertikal.
 
-Die `writing-mode`-Eigenschaft legt tatsächlich die Richtung fest, in der Blockelemente auf der Seite angezeigt werden – entweder von oben nach unten, von rechts nach links oder von links nach rechts. Dies bestimmt dann die Richtung, in der der Text in den Sätzen fließt.
+Die `writing-mode`-Eigenschaft legt also in Wirklichkeit die Richtung fest, in der Block-Elemente auf der Seite angezeigt werden — entweder von oben nach unten, von rechts nach links oder von links nach rechts. Dies bestimmt dann die Richtung, in der der Text in Sätzen fließt.
 
 ## Schreibmodi und Block- und Inline-Layout
 
-Wir haben bereits über das [Block- und Inline-Layout](/de/docs/Web/CSS/CSS_display/Block_and_inline_layout_in_normal_flow) gesprochen und darüber, dass einige Dinge als Blockelemente und andere als Inline-Elemente angezeigt werden. Wie oben beschrieben, sind Block- und Inline-Darstellungen an den Schreibmodus des Dokuments gebunden und nicht an den physischen Bildschirm. Blöcke werden nur von oben nach unten angezeigt, wenn Sie einen Schreibmodus verwenden, der Text horizontal anzeigt, wie im Englischen.
+Wir haben bereits das [Block- und Inline-Layout](/de/docs/Web/CSS/CSS_display/Block_and_inline_layout_in_normal_flow) besprochen und die Tatsache, dass einige Dinge als Block-Elemente und andere als Inline-Elemente dargestellt werden. Wie oben beschrieben, sind Block und Inline an den Schreibmodus des Dokuments und nicht an den physischen Bildschirm gebunden. Blöcke werden nur von oben nach unten auf der Seite angezeigt, wenn Sie einen Schreibmodus verwenden, der Text horizontal darstellt, wie Englisch.
 
-Wenn wir uns ein Beispiel ansehen, wird dies deutlicher. Im nächsten Beispiel habe ich zwei Kästchen, die eine Überschrift und einen Absatz enthalten. Das erste verwendet `writing-mode: horizontal-tb`, einen Schreibmodus, der horizontal und von oben nach unten geschrieben wird. Das zweite verwendet `writing-mode: vertical-rl`; dies ist ein Schreibmodus, der vertikal und von rechts nach links geschrieben wird.
+Wenn wir uns ein Beispiel ansehen, wird dies klarer. In diesem nächsten Beispiel habe ich zwei Kästen, die eine Überschrift und einen Absatz enthalten. Der erste verwendet `writing-mode: horizontal-tb`, einen Schreibmodus, der horizontal und von oben auf der Seite nach unten geschrieben wird. Der zweite verwendet `writing-mode: vertical-rl`; dies ist ein Schreibmodus, der vertikal und von rechts nach links geschrieben wird.
 
 ```html live-sample___block-inline
 <div class="wrapper">
@@ -115,27 +114,27 @@ body {
 
 {{EmbedLiveSample("block-inline", "", "350px")}}
 
-Wenn wir den Schreibmodus wechseln, ändern wir, welche Richtung Block und welche Inline ist. In einem `horizontal-tb`-Schreibmodus verläuft die Blockrichtung von oben nach unten; in einem `vertical-rl`-Schreibmodus verläuft die Blockrichtung horizontal von rechts nach links. Die **Blockdimension** ist immer die Richtung, in der Blöcke auf der Seite im verwendeten Schreibmodus angezeigt werden. Die **Inlinedimension** ist immer die Richtung, in der ein Satz fließt.
+Wenn wir den Schreibmodus ändern, ändern wir, welche Richtung Block ist und welche Inline. In einem `horizontal-tb`-Schreibmodus verläuft die Block-Richtung von oben nach unten; in einem `vertical-rl`-Schreibmodus verläuft die Block-Richtung horizontal von rechts nach links. Die **Block-Dimension** ist also immer die Richtung, in der die Blöcke auf der Seite im verwendeten Schreibmodus angezeigt werden. Die **Inline-Dimension** ist immer die Richtung, in der ein Satz fließt.
 
-Diese Abbildung zeigt die beiden Dimensionen in einem horizontalen Schreibmodus.![Die Block- und Inlinachsen in einem horizontalen Schreibmodus.](horizontal-tb.png)
+Diese Abbildung zeigt die beiden Dimensionen in einem horizontalen Schreibmodus.![Visualisierung der Block- und Inline-Achse für einen horizontalen Schreibmodus.](horizontal-tb.png)
 
 Diese Abbildung zeigt die beiden Dimensionen in einem vertikalen Schreibmodus.
 
-![Die Block- und Inlinachsen in einem vertikalen Schreibmodus.](vertical.png)
+![Visualisierung der Block- und Inline-Achse für einen vertikalen Schreibmodus.](vertical.png)
 
-Sobald Sie beginnen, sich mit CSS-Layouts und insbesondere mit den neueren Layoutmethoden zu befassen, wird diese Idee von Block und Inline sehr wichtig. Wir werden später darauf zurückkommen.
+Sobald Sie mit CSS-Layouts beginnen, insbesondere mit den neueren Layoutmethoden, wird dieses Konzept von Block und Inline sehr wichtig. Wir werden es später noch einmal behandeln.
 
 ### Richtung
 
-Zusätzlich zum Schreibmodus haben wir auch die Textrichtung. Wie oben erwähnt, werden einige Sprachen wie Arabisch horizontal, aber von rechts nach links geschrieben. Dies ist nichts, was Sie wahrscheinlich kreativ nutzen werden – wenn Sie etwas rechtsbündig ausrichten möchten, gibt es andere Möglichkeiten, dies zu tun – dennoch ist es wichtig, dies als Teil der Natur von CSS zu verstehen. Das Web ist nicht nur für Sprachen gedacht, die von links nach rechts angezeigt werden!
+Zusätzlich zum Schreibmodus haben wir auch die Textrichtung. Wie oben erwähnt, werden einige Sprachen wie Arabisch horizontal, aber von rechts nach links geschrieben. Dies ist wahrscheinlich nichts, was Sie kreativ nutzen würden — wenn Sie etwas nach rechts ausrichten wollen, gibt es andere Möglichkeiten, dies zu tun — es ist jedoch wichtig, dies als Teil der Natur von CSS zu verstehen. Das Web ist nicht nur für Sprachen, die von links nach rechts dargestellt werden!
 
-Aufgrund der Tatsache, dass der Schreibmodus und die Textrichtung sich ändern können, beziehen sich neuere CSS-Layoutmethoden nicht auf links und rechts, oben und unten. Stattdessen sprechen sie über _Anfang_ und _Ende_ zusammen mit dieser Idee von Inline und Block. Machen Sie sich darüber jetzt noch keine Sorgen, aber behalten Sie diese Ideen im Hinterkopf, wenn Sie beginnen, sich mit Layouts zu beschäftigen; Sie werden wirklich hilfreich sein, um CSS zu verstehen.
+Da sich der Schreibmodus und die Richtung des Textes ändern können, beziehen sich neuere CSS-Layoutmethoden nicht auf links und rechts sowie oben und unten. Stattdessen sprechen sie von _Start_ und _Ende_ zusammen mit der Idee von Inline und Block. Machen Sie sich darüber jetzt nicht zu viele Sorgen, aber behalten Sie diese Ideen im Hinterkopf, wenn Sie anfangen, sich mit Layouts zu befassen; es wird Ihnen sehr helfen, CSS zu verstehen.
 
 ## Logische Eigenschaften und Werte
 
-Der Grund, über Schreibmodi und Richtung zu sprechen, liegt darin, dass wir bereits viele Eigenschaften betrachtet haben, die an die physischen Abmessungen des Bildschirms gebunden sind, und diese machen in einem horizontalen Schreibmodus mehr Sinn.
+Der Grund, warum wir zu diesem Zeitpunkt Ihrer Ausbildung über Schreibmodi und Richtung sprechen, ist, dass wir bereits viele Eigenschaften betrachtet haben, die an die physikalischen Dimensionen des Bildschirms gebunden sind, und diese machen mehr Sinn in einem horizontalen Schreibmodus.
 
-Sehen wir uns unsere beiden Kästchen noch einmal an – eines mit einem `horizontal-tb`-Schreibmodus und eines mit `vertical-rl`. Ich habe beiden Kästchen eine {{cssxref("width")}} zugewiesen. Sie können sehen, dass das Kästchen im vertikalen Schreibmodus immer noch eine Breite hat, was dazu führt, dass der Text überläuft.
+Schauen wir uns unsere beiden Kästen erneut an — einen mit einem `horizontal-tb`-Schreibmodus und einen mit `vertical-rl`. Ich habe beiden Kästen eine {{cssxref("width")}} gegeben. Sie können sehen, dass, wenn der Kasten im vertikalen Schreibmodus ist, er immer noch eine Breite hat, was dazu führt, dass der Text überläuft.
 
 ```html live-sample___width
 <div class="wrapper">
@@ -179,11 +178,11 @@ body {
 
 {{EmbedLiveSample("width", "", "350px")}}
 
-Was wir in diesem Szenario wirklich wollen, ist im Wesentlichen die Höhe mit der Breite im Einklang mit dem Schreibmodus zu tauschen. Wenn wir in einem vertikalen Schreibmodus sind, möchten wir, dass sich das Kästchen in der Blockdimension ausdehnt, genau wie es im horizontalen Modus der Fall ist.
+Was wir in diesem Szenario wirklich wollen, ist im Wesentlichen, die Höhe mit der Breite im Einklang mit dem Schreibmodus zu tauschen. Wenn wir in einem vertikalen Schreibmodus sind, möchten wir, dass sich der Kasten in der Block-Dimension ausdehnt, genau wie er es im horizontalen Modus tut.
 
-Um dies zu erleichtern, hat CSS kürzlich eine Reihe von zugeordneten Eigenschaften entwickelt. Diese ersetzen im Wesentlichen physische Eigenschaften – wie `width` und `height` – durch **logische** oder **flussabhängige** Versionen.
+Um dies zu erleichtern, hat CSS kürzlich eine Reihe von zugeordneten Eigenschaften entwickelt. Diese ersetzen im Wesentlichen physikalische Eigenschaften — Dinge wie `width` und `height` — durch **logische** oder **fluss-relative** Versionen.
 
-Die der `width` zugeordnete Eigenschaft im horizontalen Schreibmodus wird {{cssxref("inline-size")}} genannt – sie bezieht sich auf die Größe in der Inlinedimension. Die Eigenschaft für `height` heißt {{cssxref("block-size")}} und ist die Größe in der Blockdimension. Sie können in dem folgenden Beispiel sehen, wie das funktioniert, wenn wir `width` durch `inline-size` ersetzen.
+Die Eigenschaft, die der `width` im horizontalen Schreibmodus zugeordnet ist, wird {{cssxref("inline-size")}} genannt — sie bezieht sich auf die Größe in der Inline-Dimension. Die Eigenschaft für `height` heißt {{cssxref("block-size")}} und ist die Größe in der Block-Dimension. Sie können sehen, wie dies im folgenden Beispiel funktioniert, in dem wir `width` durch `inline-size` ersetzt haben.
 
 ```html live-sample___inline-size
 <div class="wrapper">
@@ -223,19 +222,19 @@ Die der `width` zugeordnete Eigenschaft im horizontalen Schreibmodus wird {{cssx
 
 {{EmbedLiveSample("inline-size", "", "300px")}}
 
-### Logische Margin-, Border- und Padding-Eigenschaften
+### Logische Rand-, Rahmen- und Polstereigenschaften
 
-In den letzten beiden Lektionen haben wir das CSS-Boxmodell und CSS-Ränder kennengelernt. Bei den Margin-, Border- und Padding-Eigenschaften finden Sie viele Instanzen von physischen Eigenschaften, zum Beispiel {{cssxref("margin-top")}}, {{cssxref("padding-left")}}, und {{cssxref("border-bottom")}}. Auf die gleiche Weise, wie wir Zuordnungen für Breite und Höhe haben, gibt es Zuordnungen für diese Eigenschaften.
+In den letzten beiden Lektionen haben wir das CSS-Boxmodell und CSS-Rahmen kennengelernt. Bei den Rand-, Rahmen- und Polstereigenschaften finden Sie viele Instanzen von physikalischen Eigenschaften, zum Beispiel {{cssxref("margin-top")}}, {{cssxref("padding-left")}} und {{cssxref("border-bottom")}}. Auf die gleiche Weise, wie wir Zuordnungen für Breite und Höhe haben, gibt es Zuordnungen für diese Eigenschaften.
 
-Die `margin-top`-Eigenschaft wird zu {{cssxref("margin-block-start")}} zugeordnet – dies verweist immer auf den Margin am Anfang der Blockdimension.
+Die `margin-top`-Eigenschaft wird zu {{cssxref("margin-block-start")}} zugeordnet — dies bezieht sich immer auf den Rand am Anfang der Block-Dimension.
 
-Die {{cssxref("padding-left")}}-Eigenschaft wird zu {{cssxref("padding-inline-start")}} zugeordnet, dem Padding, das an den Anfang der Inlinerichtung angewendet wird. Dies ist der Punkt, an dem Sätze in diesem Schreibmodus beginnen. Die {{cssxref("border-bottom")}}-Eigenschaft wird zu {{cssxref("border-block-end")}} zugeordnet, welches die Grenze am Ende der Blockdimension ist.
+Die {{cssxref("padding-left")}}-Eigenschaft wird zu {{cssxref("padding-inline-start")}}, dem Polster, das am Anfang der Inline-Richtung angewendet wird. Dies ist der Punkt, an dem Sätze in diesem Schreibmodus beginnen. Die {{cssxref("border-bottom")}}-Eigenschaft wird zu {{cssxref("border-block-end")}}, was den Rahmen am Ende der Block-Dimension darstellt.
 
-Sie können unten einen Vergleich zwischen physischen und logischen Eigenschaften sehen.
+Unten sehen Sie einen Vergleich zwischen physikalischen und logischen Eigenschaften.
 
-Wenn Sie den Schreibmodus der Kästchen ändern, indem Sie die `writing-mode`-Eigenschaft auf `.box` zu `vertical-rl` ändern, werden Sie sehen, dass die physischen Eigenschaften mit ihrer physischen Richtung verbunden bleiben, während die logischen Eigenschaften mit dem Schreibmodus wechseln.
+Wenn Sie den Schreibmodus der Kästchen ändern, indem Sie die `writing-mode`-Eigenschaft auf `.box` zu `vertical-rl` ändern, werden Sie sehen, wie die physikalischen Eigenschaften an ihre physikalische Richtung gebunden bleiben, während die logischen Eigenschaften mit dem Schreibmodus wechseln.
 
-Sie können auch sehen, dass das {{htmlelement("Heading_Elements", "h2")}} eine schwarze `border-bottom` hat. Können Sie herausfinden, wie Sie diese untere Grenze immer unter dem Text in beiden Schreibmodi setzen können?
+Sie können auch sehen, dass die {{htmlelement("Heading_Elements", "h2")}} eine schwarze `border-bottom` hat. Können Sie herausfinden, wie Sie diesen unteren Rahmen immer unter den Text in beiden Schreibmodi verschieben können?
 
 ```html live-sample___logical-mbp
 <div class="wrapper">
@@ -289,15 +288,15 @@ h2 {
 
 {{EmbedLiveSample("logical-mbp", "", "200px")}}
 
-Es gibt eine große Anzahl von Eigenschaften, wenn Sie alle einzelnen Border-Longhands berücksichtigen, und Sie können alle zugeordneten Eigenschaften auf der MDN-Seite für [Logische Eigenschaften und Werte](/de/docs/Web/CSS/CSS_logical_properties_and_values) sehen.
+Es gibt eine große Anzahl von Eigenschaften, wenn Sie alle einzelnen Rahmen-Langhands berücksichtigen, und Sie können alle zugeordneten Eigenschaften auf der MDN-Seite für [Logische Eigenschaften und Werte](/de/docs/Web/CSS/CSS_logical_properties_and_values) sehen.
 
 ### Logische Werte
 
-Wir haben bisher logische Eigenschaftsnamen betrachtet. Es gibt auch einige Eigenschaften, die physische Werte von `top`, `right`, `bottom`, und `left` annehmen. Diese Werte haben auch Zuordnungen zu logischen Werten – `block-start`, `inline-end`, `block-end`, und `inline-start`.
+Bisher haben wir logische Eigenschaftsnamen betrachtet. Es gibt auch einige Eigenschaften, die physikalische Werte von `top`, `right`, `bottom` und `left` nehmen. Diese Werte haben auch Zuordnungen zu logischen Werten — `block-start`, `inline-end`, `block-end` und `inline-start`.
 
-Zum Beispiel können Sie ein Bild nach links floaten lassen, um den Text um das Bild herumlaufen zu lassen. Sie könnten `left` mit `inline-start` ersetzen, wie im folgenden Beispiel gezeigt.
+Zum Beispiel können Sie ein Bild links flottieren lassen, um Text darum herum zu fließen. Sie könnten `left` durch `inline-start` ersetzen, wie im folgenden Beispiel gezeigt.
 
-Ändern Sie den Schreibmodus in diesem Beispiel zu `vertical-rl`, um zu sehen, was mit dem Bild passiert. Ändern Sie `inline-start` zu `inline-end`, um die Float-Richtung zu ändern:
+Ändern Sie den Schreibmodus in diesem Beispiel zu `vertical-rl`, um zu sehen, was mit dem Bild passiert. Ändern Sie `inline-start` zu `inline-end`, um die Float-Änderung zu bewirken:
 
 ```html live-sample___float
 <div class="wrapper">
@@ -335,16 +334,12 @@ img {
 
 {{EmbedLiveSample("float", "", "200px")}}
 
-Hier verwenden wir auch logische Margin-Werte, um sicherzustellen, dass der Margin unabhängig vom Schreibmodus an der richtigen Stelle ist.
+Hier verwenden wir auch logische Randwerte, um sicherzustellen, dass der Rand unabhängig vom Schreibmodus an der richtigen Stelle ist.
 
-### Sollten Sie physische oder logische Eigenschaften verwenden?
+### Sollten Sie physikalische oder logische Eigenschaften verwenden?
 
-Die logischen Eigenschaften und Werte sind neuer als ihre physischen Äquivalente und wurden daher erst kürzlich in Browsern implementiert. Sie können auf jeder Eigenschaftsseite auf MDN nachsehen, wie weit die Browser-Unterstützung zurückreicht. Wenn Sie keine mehreren Schreibmodi verwenden, ziehen Sie es möglicherweise vor, derzeit die physischen Versionen zu verwenden. Letztendlich erwarten wir jedoch, dass die meisten Menschen zu den logischen Versionen wechseln werden, da sie viel Sinn machen, sobald Sie auch mit Layoutmethoden wie Flexbox und Grid arbeiten.
-
-## Testen Sie Ihre Fähigkeiten!
-
-Sie haben das Ende dieses Artikels erreicht, aber können Sie sich das Wichtigste merken? Sie können einige weitere Tests finden, um zu überprüfen, ob Sie diese Informationen behalten haben, bevor Sie weitermachen – siehe [Testen Sie Ihre Fähigkeiten: Schreibmodi und logische Eigenschaften](/de/docs/Learn_web_development/Core/Styling_basics/Test_your_skills/Writing_modes).
+Die logischen Eigenschaften und Werte sind neuer als ihre physikalischen Entsprechungen und wurden daher erst vor kurzem in Browsern implementiert. Sie können auf jeder Eigenschaftsseite auf MDN überprüfen, wie weit die Browser-Unterstützung zurückreicht. Wenn Sie keine mehreren Schreibmodi verwenden, ziehen Sie es möglicherweise vor, für den Moment die physikalischen Versionen zu verwenden. Letztendlich erwarten wir jedoch, dass die Menschen für die meisten Dinge zu den logischen Versionen wechseln, da diese viel Sinn machen, wenn Sie auch anfangen, mit Layoutmethoden wie Flexbox und Grid zu arbeiten.
 
 ## Zusammenfassung
 
-Die in dieser Lektion erklärten Konzepte werden in CSS immer wichtiger. Ein Verständnis der Block- und Inlinerichtung – und wie sich der Textfluss mit einem Schreibmoduswechsel ändert – wird in Zukunft sehr nützlich sein. Es wird Ihnen helfen, CSS zu verstehen, selbst wenn Sie niemals einen anderen Schreibmodus als einen horizontalen verwenden.
+Die in dieser Lektion erklärten Konzepte werden in CSS zunehmend wichtiger. Ein Verständnis der Block- und Inline-Richtung und wie sich der Textfluss mit einer Änderung des Schreibmodus ändert, wird in Zukunft sehr nützlich sein. Es wird Ihnen helfen, CSS zu verstehen, auch wenn Sie niemals einen anderen Schreibmodus als einen horizontalen verwenden.
