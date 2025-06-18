@@ -1,14 +1,14 @@
 ---
-title: "GPUCanvasContext: getCurrentTexture() Methode"
+title: "GPUCanvasContext: Methode getCurrentTexture()"
 short-title: getCurrentTexture()
 slug: Web/API/GPUCanvasContext/getCurrentTexture
 l10n:
-  sourceCommit: 2c0f972d873ea2db5163dbcb12987847124751ad
+  sourceCommit: 5f226b6f08c5cff7f96b7cc49a164fdc43d11a0c
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
+{{APIRef("WebGPU API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`getCurrentTexture()`**-Methode der [`GPUCanvasContext`](/de/docs/Web/API/GPUCanvasContext)-Schnittstelle gibt die nächste [`GPUTexture`](/de/docs/Web/API/GPUTexture) zurück, die vom Canvas-Kontext im Dokument zusammengesetzt werden soll.
+Die **`getCurrentTexture()`**-Methode der [`GPUCanvasContext`](/de/docs/Web/API/GPUCanvasContext)-Schnittstelle gibt die nächste [`GPUTexture`](/de/docs/Web/API/GPUTexture) zurück, die vom Canvas-Kontext mit dem Dokument zusammengesetzt wird.
 
 ## Syntax
 
@@ -22,12 +22,12 @@ Keine.
 
 ### Rückgabewert
 
-Ein [`GPUTexture`](/de/docs/Web/API/GPUTexture)-Objekt-Instanz.
+Eine [`GPUTexture`](/de/docs/Web/API/GPUTexture)-Objektinstanz.
 
 ### Ausnahmen
 
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn `getCurrentTexture()` im Canvas-Kontext aufgerufen wird, bevor er konfiguriert wurde (d.h. bevor [`GPUCanvasContext.configure()`](/de/docs/Web/API/GPUCanvasContext/configure) aufgerufen wurde).
+  - : Wird ausgelöst, wenn `getCurrentTexture()` im Canvas-Kontext aufgerufen wird, bevor dieser konfiguriert wurde (d.h. bevor [`GPUCanvasContext.configure()`](/de/docs/Web/API/GPUCanvasContext/configure) aufgerufen wurde).
 
 ## Beispiele
 

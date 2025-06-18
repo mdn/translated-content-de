@@ -1,14 +1,14 @@
 ---
-title: "URLPattern: exec()-Methode"
+title: "URLPattern: exec() Methode"
 short-title: exec()
 slug: Web/API/URLPattern/exec
 l10n:
-  sourceCommit: 4de6f76bbfd76229db78ffb7d52cf6b4cb9f31f8
+  sourceCommit: 5f226b6f08c5cff7f96b7cc49a164fdc43d11a0c
 ---
 
-{{APIRef("URL Pattern API")}}{{SeeCompatTable}} {{AvailableInWorkers}}
+{{APIRef("URL Pattern API")}} {{AvailableInWorkers}}
 
-Die **`exec()`**-Methode der [`URLPattern`](/de/docs/Web/API/URLPattern)-Schnittstelle nimmt eine URL oder ein Objekt von URL-Teilen und gibt entweder ein Objekt zurück, das die Ergebnisse des Abgleichs der URL mit dem Muster enthält, oder `null`, wenn die URL nicht mit dem Muster übereinstimmt.
+Die **`exec()`** Methode des [`URLPattern`](/de/docs/Web/API/URLPattern)-Interfaces nimmt eine URL oder ein Objekt von URL-Teilen und gibt entweder ein Objekt zurück, das die Ergebnisse des Vergleichs der URL mit dem Muster enthält, oder `null`, wenn die URL nicht mit dem Muster übereinstimmt.
 
 ## Syntax
 
@@ -20,17 +20,17 @@ exec(input, baseURL)
 ### Parameter
 
 - `input`
-  - : Die URL oder die URL-Teile, die verglichen werden sollen. Dies kann entweder ein String oder ein Objekt sein, das die einzelnen URL-Teile bereitstellt. Die Objektmitglieder können `protocol`, `username`, `password`, `hostname`, `port`, `pathname`, `search`, `hash` oder `baseURL` sein. Ausgelassene Teile im Objekt werden als leere Strings behandelt. Wenn die Eingabe nicht geparst werden kann oder eine relative URL ohne Basis angegeben wird, gibt die Methode `null` zurück.
+  - : Die URL oder die URL-Teile, die verglichen werden sollen. Dies kann entweder ein String sein oder ein Objekt, das die individuellen URL-Teile bereitstellt. Die Objektmitglieder können `protocol`, `username`, `password`, `hostname`, `port`, `pathname`, `search`, `hash` oder `baseURL` sein. Nicht angegebene Teile im Objekt werden als leere Strings behandelt. Wenn die Eingabe nicht geparst werden kann oder eine relative URL ohne Basis angegeben wird, gibt die Methode `null` zurück.
 - `baseURL` {{optional_inline}}
-  - : Ein String, der die Basis-URL darstellt, die in Fällen verwendet wird, in denen `input` eine relative URL ist. Wird dieser Wert nicht angegeben, wird er standardmäßig auf `undefined` gesetzt. Wenn dieser Parameter nicht geparst werden kann, gibt die Methode `null` zurück.
+  - : Ein String, der die Basis-URL darstellt, die in Fällen verwendet wird, in denen `input` eine relative URL ist. Wenn nicht angegeben, ist der Standardwert `undefined`. Wenn dieser Parameter nicht geparst werden kann, gibt die Methode `null` zurück.
 
 ### Rückgabewert
 
-Ein {{jsxref("object")}} mit einem `inputs`-Schlüssel, der das Array der an die Funktion übergebenen Argumente enthält, sowie Schlüsseln für jeden der URL-Teile, die die übereinstimmende Eingabe und die übereinstimmenden Gruppen für diesen Teil enthalten.
+Ein {{jsxref("object")}} mit einem `inputs` Schlüssel, der das Array der an die Funktion übergebenen Argumente enthält, sowie Schlüsseln für jeden der URL-Teile, die die übereinstimmende Eingabe und die übereinstimmenden Gruppen für diesen Teil enthalten.
 
 ## Beispiele
 
-Dieses Beispiel zeigt, wie die `exec()`-Methode verwendet wird, um eine URL mit einem Muster abzugleichen. Das Beispiel gibt das Ergebnis der `exec()`-Aufrufe in der Konsole aus.
+Dieses Beispiel zeigt, wie die `exec()` Methode verwendet wird, um eine URL mit einem Muster abzugleichen. Das Beispiel druckt das Ergebnis der `exec()` Aufrufe in die Konsole.
 
 ```js
 const pattern = new URLPattern("http{s}?://*.example.com/books/:id");
@@ -80,4 +80,5 @@ pattern.exec({
 
 ## Siehe auch
 
-- Ein Polyfill von `URLPattern` ist verfügbar [auf GitHub](https://github.com/kenchris/urlpattern-polyfill)
+- Ein Polyfill von `URLPattern` ist verfügbar
+  [auf GitHub](https://github.com/kenchris/urlpattern-polyfill)

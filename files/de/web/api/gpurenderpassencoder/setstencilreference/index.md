@@ -1,14 +1,15 @@
 ---
-title: "GPURenderPassEncoder: setStencilReference()-Methode"
+title: "GPURenderPassEncoder: setStencilReference() Methode"
 short-title: setStencilReference()
 slug: Web/API/GPURenderPassEncoder/setStencilReference
 l10n:
-  sourceCommit: 759102220c07fb140b3e06971cd5981d8f0f134f
+  sourceCommit: 5f226b6f08c5cff7f96b7cc49a164fdc43d11a0c
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
+{{APIRef("WebGPU API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`setStencilReference()`**-Methode der [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder)-Schnittstelle setzt den Stencil-Referenzwert, der während der Stencil-Tests mit der Stencil-Operation `"replace"` verwendet wird (wie im Deskriptor der Methode [`GPUDevice.createRenderPipeline()`](/de/docs/Web/API/GPUDevice/createRenderPipeline) festgelegt, in den Eigenschaften, die die verschiedenen Stencil-Operationen definieren).
+Die **`setStencilReference()`**-Methode der
+[`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder)-Schnittstelle legt den Stencil-Referenzwert fest, der während der Stencil-Tests mit der `"replace"` Stencil-Operation verwendet wird (wie im Deskriptor der [`GPUDevice.createRenderPipeline()`](/de/docs/Web/API/GPUDevice/createRenderPipeline)-Methode festgelegt, in den Eigenschaften, die die verschiedenen Stencil-Operationen definieren).
 
 ## Syntax
 
@@ -19,10 +20,10 @@ setStencilReference(reference)
 ### Parameter
 
 - `reference`
-  - : Eine Zahl, die den neuen Stencil-Referenzwert darstellt, der für den Renderdurchlauf festgelegt wird.
+  - : Eine Zahl, die den neuen Stencil-Referenzwert darstellt, der für den Renderdurchlauf festgelegt werden soll.
 
 > [!NOTE]
-> Wenn kein `setStencilReference()`-Aufruf erfolgt, wird der Stencil-Referenzwert für jeden Renderdurchlauf standardmäßig auf 0 gesetzt.
+> Wenn kein `setStencilReference()`-Aufruf erfolgt, wird der Stencil-Referenzwert standardmäßig auf 0 für jeden Renderdurchlauf gesetzt.
 
 ### Rückgabewert
 

@@ -3,21 +3,21 @@ title: "GPUQueue: onSubmittedWorkDone() Methode"
 short-title: onSubmittedWorkDone()
 slug: Web/API/GPUQueue/onSubmittedWorkDone
 l10n:
-  sourceCommit: 941ade970fd7ebad52af692b6ac27cfd96f94100
+  sourceCommit: 5f226b6f08c5cff7f96b7cc49a164fdc43d11a0c
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
+{{APIRef("WebGPU API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`onSubmittedWorkDone()`**-Methode der [`GPUQueue`](/de/docs/Web/API/GPUQueue)-Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, sobald alle an die GPU über diese `GPUQueue` gesendeten Aufträge zu dem Zeitpunkt, an dem die Methode aufgerufen wird, verarbeitet wurden.
+Die **`onSubmittedWorkDone()`** Methode des [`GPUQueue`](/de/docs/Web/API/GPUQueue) Interface gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, wenn alle Arbeiten, die über diese `GPUQueue` an die GPU übergeben wurden, zu dem Zeitpunkt, an dem die Methode aufgerufen wird, verarbeitet wurden.
 
-Dies schließt den Abschluss aller [`mapAsync()`](/de/docs/Web/API/GPUBuffer/mapAsync)-Aufrufe ein, die mit `GPUBuffer`-Objekten aufgerufen werden, die in Befehlen verwendet werden, die an die Queue gesendet wurden, bevor `onSubmittedWorkDone()` aufgerufen wird.
+Dies schließt den Abschluss aller [`mapAsync()`](/de/docs/Web/API/GPUBuffer/mapAsync) Aufrufe ein, die auf `GPUBuffer`s durchgeführt wurden, die in Befehlen verwendet wurden, die an die Queue übergeben wurden, bevor `onSubmittedWorkDone()` aufgerufen wird.
 
 > [!NOTE]
-> In den meisten Fällen müssen Sie `onSubmittedWorkDone()` _nicht_ aufrufen. Sie müssen es **_nicht_** für das Abbilden eines Puffers aufrufen. `mapAsync` garantiert, dass Aufträge, die vor dem Aufruf von `mapAsync` an die Queue gesendet werden, vor der Rückgabe von `mapAsync` ausgeführt werden (siehe [WebGPU-Spezifikation](https://gpuweb.github.io/gpuweb/#buffer-mapping)).
+> In den meisten Fällen müssen Sie `onSubmittedWorkDone()` _nicht_ aufrufen. Sie müssen es **_nicht_** für das Mapping eines Buffers aufrufen. `mapAsync` garantiert, dass die Arbeit, die vor dem Aufruf von `mapAsync` an die Queue übergeben wurde, bevor `mapAsync` zurückkehrt, abgeschlossen ist (siehe [WebGPU-Spezifikation](https://gpuweb.github.io/gpuweb/#buffer-mapping)).
 
 Die zwei Anwendungsfälle für `onSubmittedWorkDone`
 
-1. Warten auf mehrere Pufferabbildungen (langsam)
+1. Warten auf mehrere Buffer-Mappings (langsam)
 
    ```js
    // good
@@ -42,11 +42,11 @@ Die zwei Anwendungsfälle für `onSubmittedWorkDone`
    data3 = buffer3.getMappedRange();
    ```
 
-   Der Grund, warum die zweite Methode langsam ist, ist, dass die Implementierung möglicherweise die Puffer abbilden kann, bevor alle gesendeten Aufträge abgeschlossen sind. Zum Beispiel, wenn alle Puffer nicht mehr verwendet werden, aber mehr Arbeit (nicht in Bezug auf die Puffer) bereits gesendet wurde, dann werden Sie länger mit der zweiten Methode warten, als mit der ersten.
+   Der Grund, warum die zweite Methode langsam ist, liegt darin, dass die Implementierung möglicherweise in der Lage ist, die Buffer zu mappen, bevor alle eingereichten Arbeiten abgeschlossen sind. Zum Beispiel, wenn alle Buffer beendet sind, aber mehr Arbeit (nicht in Zusammenhang mit den Buffern) bereits eingereicht wurde, dann werden Sie mit der zweiten Methode länger warten als mit der ersten.
 
 2. Drosselung der Arbeit
 
-   Wenn Sie schwere Berechnungsarbeiten ausführen und zu viel Arbeit auf einmal senden, kann der Browser Ihre Arbeit beenden. Sie können die Arbeit drosseln, indem Sie erst dann mehr Arbeit senden, wenn die bereits gesendete Arbeit abgeschlossen ist.
+   Wenn Sie schwere Rechenarbeiten durchführen und zu viel Arbeit auf einmal einreichen, kann der Browser Ihre Arbeit beenden. Sie können die Arbeit drosseln, indem Sie nur dann mehr Arbeit einreichen, wenn die bereits eingereichte Arbeit abgeschlossen ist.
 
 ## Syntax
 

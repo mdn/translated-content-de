@@ -3,12 +3,12 @@ title: "WorkerNavigator: gpu-Eigenschaft"
 short-title: gpu
 slug: Web/API/WorkerNavigator/gpu
 l10n:
-  sourceCommit: 759102220c07fb140b3e06971cd5981d8f0f134f
+  sourceCommit: 5f226b6f08c5cff7f96b7cc49a164fdc43d11a0c
 ---
 
-{{APIRef("Web Workers API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers("worker")}}
+{{APIRef("Web Workers API")}}{{SecureContext_Header}}{{AvailableInWorkers("worker")}}
 
-Die schreibgeschützte **`gpu`**-Eigenschaft des [`WorkerNavigator`](/de/docs/Web/API/WorkerNavigator)-Interfaces gibt das [`GPU`](/de/docs/Web/API/GPU)-Objekt für den aktuellen Worker-Kontext zurück, welcher der Einstiegspunkt für die [WebGPU-API](/de/docs/Web/API/WebGPU_API) ist.
+Die **`gpu`**-Schreibgeschützte Eigenschaft der [`WorkerNavigator`](/de/docs/Web/API/WorkerNavigator)-Schnittstelle gibt das [`GPU`](/de/docs/Web/API/GPU)-Objekt für den aktuellen Worker-Kontext zurück, welches den Einstiegspunkt für die [WebGPU-API](/de/docs/Web/API/WebGPU_API) darstellt.
 
 ## Wert
 
@@ -44,4 +44,4 @@ async function init() {
 
 ## Siehe auch
 
-- [WebGPU API](/de/docs/Web/API/WebGPU_API)
+- [WebGPU-API](/de/docs/Web/API/WebGPU_API)

@@ -3,21 +3,21 @@ title: "GPUTexture: dimension-Eigenschaft"
 short-title: dimension
 slug: Web/API/GPUTexture/dimension
 l10n:
-  sourceCommit: 759102220c07fb140b3e06971cd5981d8f0f134f
+  sourceCommit: 5f226b6f08c5cff7f96b7cc49a164fdc43d11a0c
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
+{{APIRef("WebGPU API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`dimension`** schreibgeschützte Eigenschaft des [`GPUTexture`](/de/docs/Web/API/GPUTexture)-Interfaces repräsentiert die Dimension des Satzes von Texeln für jede `GPUTexture`-Subressource.
+Die schreibgeschützte **`dimension`**-Eigenschaft des [`GPUTexture`](/de/docs/Web/API/GPUTexture)-Interfaces repräsentiert die Dimension des Texel-Satzes für jede `GPUTexture`-Subressource.
 
-Diese wird über die `dimension`-Eigenschaft im Deskriptorobjekt festgelegt, das in den ursprünglichen Aufruf von [`GPUDevice.createTexture()`](/de/docs/Web/API/GPUDevice/createTexture) übergeben wird und standardmäßig auf `"2d"` gesetzt ist, wenn sie weggelassen wird.
+Diese wird über die `dimension`-Eigenschaft im Descriptor-Objekt festgelegt, das in den ursprünglichen Aufruf von [`GPUDevice.createTexture()`](/de/docs/Web/API/GPUDevice/createTexture) übergeben wird. Wenn sie weggelassen wird, ist der Standardwert `"2d"`.
 
 ## Wert
 
-Ein aufgezählter Wert. Mögliche Werte sind:
+Ein enumerierter Wert. Mögliche Werte sind:
 
-- `"1d"`: Eine eindimensionale Textur mit nur einer Dimension, der Breite.
-- `"2d"`: Eine zweidimensionale Textur mit Breite und Höhe, die auch Schichten haben kann. Nur `"2d"` Texturen können Mipmaps haben, multisampled sein, ein komprimiertes oder Tiefen-/Stencil-Format verwenden und als Renderanhang verwendet werden.
+- `"1d"`: Eine eindimensionale Textur mit einer einzigen Dimension, der Breite.
+- `"2d"`: Eine zweidimensionale Textur mit Breite und Höhe, die auch Schichten haben kann. Nur `"2d"`-Texturen können Mipmaps haben, multisampled sein, ein komprimiertes oder Tiefen-/Stencil-Format verwenden und als Render-Anhang genutzt werden.
 - `"3d"`: Eine dreidimensionale Textur mit Breite, Höhe und Tiefe.
 
 ## Beispiele

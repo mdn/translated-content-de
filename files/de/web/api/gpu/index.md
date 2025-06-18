@@ -2,28 +2,28 @@
 title: GPU
 slug: Web/API/GPU
 l10n:
-  sourceCommit: 2c0f972d873ea2db5163dbcb12987847124751ad
+  sourceCommit: 5f226b6f08c5cff7f96b7cc49a164fdc43d11a0c
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
+{{APIRef("WebGPU API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Das **`GPU`**-Interface der [WebGPU API](/de/docs/Web/API/WebGPU_API) ist der Ausgangspunkt für die Verwendung von WebGPU. Es kann verwendet werden, um ein [`GPUAdapter`](/de/docs/Web/API/GPUAdapter) zurückzugeben, von dem aus Sie Geräte anfordern, Funktionen und Grenzen konfigurieren und mehr tun können.
+Das **`GPU`**-Interface der [WebGPU API](/de/docs/Web/API/WebGPU_API) ist der Ausgangspunkt für die Nutzung von WebGPU. Es kann verwendet werden, um einen [`GPUAdapter`](/de/docs/Web/API/GPUAdapter) zurückzugeben, von dem aus Sie Geräte anfordern, Funktionen und Limits konfigurieren und mehr tun können.
 
-Das `GPU`-Objekt für den aktuellen Kontext wird über die Eigenschaften [`Navigator.gpu`](/de/docs/Web/API/Navigator/gpu) oder [`WorkerNavigator.gpu`](/de/docs/Web/API/WorkerNavigator/gpu) abgerufen.
+Das `GPU`-Objekt für den aktuellen Kontext wird über die Eigenschaften [`Navigator.gpu`](/de/docs/Web/API/Navigator/gpu) oder [`WorkerNavigator.gpu`](/de/docs/Web/API/WorkerNavigator/gpu) aufgerufen.
 
 {{InheritanceDiagram}}
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-- [`wgslLanguageFeatures`](/de/docs/Web/API/GPU/wgslLanguageFeatures) {{Experimental_Inline}} {{ReadOnlyInline}}
-  - : Ein [`WGSLLanguageFeatures`](/de/docs/Web/API/WGSLLanguageFeatures)-Objekt, das die [WGSL-Spracherweiterungen](https://gpuweb.github.io/gpuweb/wgsl/#language-extension) berichtet, die von der WebGPU-Implementierung unterstützt werden.
+- [`wgslLanguageFeatures`](/de/docs/Web/API/GPU/wgslLanguageFeatures) {{ReadOnlyInline}}
+  - : Ein [`WGSLLanguageFeatures`](/de/docs/Web/API/WGSLLanguageFeatures)-Objekt, das die von der WebGPU-Implementierung unterstützten [WGSL-Spracherweiterungen](https://gpuweb.github.io/gpuweb/wgsl/#language-extension) meldet.
 
-## Instanz-Methoden
+## Instanzmethoden
 
-- [`requestAdapter()`](/de/docs/Web/API/GPU/requestAdapter) {{Experimental_Inline}}
-  - : Gibt ein {{jsxref("Promise")}} zurück, das mit einer [`GPUAdapter`](/de/docs/Web/API/GPUAdapter)-Objektinstanz erfüllt wird. Von diesem können Sie ein [`GPUDevice`](/de/docs/Web/API/GPUDevice) anfordern, welches die primäre Schnittstelle zur Nutzung der WebGPU-Funktionalität ist.
-- [`getPreferredCanvasFormat()`](/de/docs/Web/API/GPU/getPreferredCanvasFormat) {{Experimental_Inline}}
-  - : Gibt das optimale Canvas-Texturformat für die Darstellung von Inhalten mit 8-Bit-Tiefe und Standard-Dynamikbereich auf dem aktuellen System zurück.
+- [`requestAdapter()`](/de/docs/Web/API/GPU/requestAdapter)
+  - : Gibt ein {{jsxref("Promise")}} zurück, das mit einer [`GPUAdapter`](/de/docs/Web/API/GPUAdapter)-Objektinstanz erfüllt wird. Von diesem aus können Sie ein [`GPUDevice`](/de/docs/Web/API/GPUDevice) anfordern, welches das Hauptinterface für die Nutzung der WebGPU-Funktionalität darstellt.
+- [`getPreferredCanvasFormat()`](/de/docs/Web/API/GPU/getPreferredCanvasFormat)
+  - : Gibt das optimale Canvas-Texturformat für die Anzeige von Inhalten mit 8-Bit-Tiefe und Standarddynamikbereich auf dem aktuellen System zurück.
 
 ## Beispiele
 
@@ -46,7 +46,7 @@ async function init() {
 }
 ```
 
-### Konfigurieren eines GPUCanvasContext mit dem optimalen Texturformat
+### Konfiguration eines GPUCanvasContext mit dem optimalen Texturformat
 
 ```js
 const canvas = document.querySelector("#gpuCanvas");

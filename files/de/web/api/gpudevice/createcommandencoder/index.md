@@ -1,14 +1,14 @@
 ---
-title: "GPUDevice: createCommandEncoder() Methode"
+title: "GPUDevice: createCommandEncoder()-Methode"
 short-title: createCommandEncoder()
 slug: Web/API/GPUDevice/createCommandEncoder
 l10n:
-  sourceCommit: 759102220c07fb140b3e06971cd5981d8f0f134f
+  sourceCommit: 5f226b6f08c5cff7f96b7cc49a164fdc43d11a0c
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
+{{APIRef("WebGPU API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`createCommandEncoder()`** Methode der [`GPUDevice`](/de/docs/Web/API/GPUDevice) Schnittstelle erstellt einen [`GPUCommandEncoder`](/de/docs/Web/API/GPUCommandEncoder), der verwendet wird, um Befehle zu kodieren, die an die GPU gesendet werden sollen.
+Die **`createCommandEncoder()`**-Methode der [`GPUDevice`](/de/docs/Web/API/GPUDevice)-Schnittstelle erstellt einen [`GPUCommandEncoder`](/de/docs/Web/API/GPUCommandEncoder), der verwendet wird, um Befehle zu kodieren, die an die GPU übermittelt werden sollen.
 
 ## Syntax
 
@@ -22,15 +22,15 @@ createCommandEncoder(descriptor)
 - `descriptor` {{optional_inline}}
   - : Ein Objekt, das die folgenden Eigenschaften enthält:
     - `label` {{optional_inline}}
-      - : Ein String, der ein Label bereitstellt, das zum Identifizieren des Objekts verwendet werden kann, zum Beispiel in [`GPUError`](/de/docs/Web/API/GPUError) Meldungen oder Konsolenwarnungen.
+      - : Ein String, der ein Label bereitstellt, das zur Identifizierung des Objekts verwendet werden kann, beispielsweise in [`GPUError`](/de/docs/Web/API/GPUError)-Nachrichten oder Konsolenwarnungen.
 
 ### Rückgabewert
 
-Eine Instanz des [`GPUCommandEncoder`](/de/docs/Web/API/GPUCommandEncoder) Objekts.
+Eine Instanz des [`GPUCommandEncoder`](/de/docs/Web/API/GPUCommandEncoder)-Objekts.
 
 ## Beispiele
 
-In unserem [einfachen Render-Demo](https://mdn.github.io/dom-examples/webgpu-render-demo/) werden mehrere Befehle über einen [`GPUCommandEncoder`](/de/docs/Web/API/GPUCommandEncoder) aufgezeichnet, der über `createCommandEncoder()` erstellt wurde:
+In unserem [Grundlagendemonstrationsprojekt zur Wiedergabe](https://mdn.github.io/dom-examples/webgpu-render-demo/) werden mehrere Befehle über einen [`GPUCommandEncoder`](/de/docs/Web/API/GPUCommandEncoder) aufgezeichnet, der über `createCommandEncoder()` erstellt wurde:
 
 ```js
 // …
@@ -63,14 +63,14 @@ passEncoder.end();
 // …
 ```
 
-Die vom [`GPUCommandEncoder`](/de/docs/Web/API/GPUCommandEncoder) codierten Befehle werden mithilfe der Methode [`GPUCommandEncoder.finish()`](/de/docs/Web/API/GPUCommandEncoder/finish) in ein [`GPUCommandBuffer`](/de/docs/Web/API/GPUCommandBuffer) aufgezeichnet. Der Befehlsbuffer wird dann über einen [`submit()`](/de/docs/Web/API/GPUQueue/submit) Aufruf in die Warteschlange übergeben und ist bereit, von der GPU verarbeitet zu werden.
+Die durch den [`GPUCommandEncoder`](/de/docs/Web/API/GPUCommandEncoder) kodierten Befehle werden mithilfe der [`GPUCommandEncoder.finish()`](/de/docs/Web/API/GPUCommandEncoder/finish)-Methode in einem [`GPUCommandBuffer`](/de/docs/Web/API/GPUCommandBuffer) aufgenommen. Der Befehls-Puffer wird dann mittels eines [`submit()`](/de/docs/Web/API/GPUQueue/submit)-Aufrufs in die Warteschlange übergeben und ist bereit, von der GPU verarbeitet zu werden.
 
 ```js
 device.queue.submit([commandEncoder.finish()]);
 ```
 
 > [!NOTE]
-> Studieren Sie die [WebGPU-Beispiele](https://webgpu.github.io/webgpu-samples/), um weitere Beispiele für die Befehlskodierung zu finden.
+> Studieren Sie die [WebGPU-Beispiele](https://webgpu.github.io/webgpu-samples/), um weitere Beispiele zur Befehlsenkodierung zu finden.
 
 ## Spezifikationen
 

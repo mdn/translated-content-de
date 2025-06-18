@@ -1,18 +1,19 @@
 ---
-title: "GPUDevice: Warteschlangen-Eigenschaft"
+title: "GPUDevice: queue-Eigenschaft"
 short-title: queue
 slug: Web/API/GPUDevice/queue
 l10n:
-  sourceCommit: 759102220c07fb140b3e06971cd5981d8f0f134f
+  sourceCommit: 5f226b6f08c5cff7f96b7cc49a164fdc43d11a0c
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
+{{APIRef("WebGPU API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die schreibgeschützte Eigenschaft **`queue`** der [`GPUDevice`](/de/docs/Web/API/GPUDevice)-Schnittstelle gibt die primäre [`GPUQueue`](/de/docs/Web/API/GPUQueue) für das Gerät zurück.
+Die **`queue`**-Schreibgeschützte Eigenschaft des
+[`GPUDevice`](/de/docs/Web/API/GPUDevice)-Interfaces gibt die primäre [`GPUQueue`](/de/docs/Web/API/GPUQueue) für das Gerät zurück.
 
 ## Wert
 
-Eine Instanz des [`GPUQueue`](/de/docs/Web/API/GPUQueue)-Objekts.
+Ein [`GPUQueue`](/de/docs/Web/API/GPUQueue)-Objektinstanz.
 
 ## Beispiele
 
@@ -43,7 +44,7 @@ async function init() {
 ```
 
 > [!NOTE]
-> Weitere Warteschlangen-Beispiele finden Sie auf den Referenzseiten von [`GPUQueue`](/de/docs/Web/API/GPUQueue).
+> Weitere Beispiel für Queues finden Sie auf den [`GPUQueue`](/de/docs/Web/API/GPUQueue)-Referenzseiten.
 
 ## Spezifikationen
 

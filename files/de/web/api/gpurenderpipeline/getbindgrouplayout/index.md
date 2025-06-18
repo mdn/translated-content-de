@@ -1,14 +1,14 @@
 ---
-title: "GPURenderPipeline: Methode getBindGroupLayout()"
+title: "GPURenderPipeline: getBindGroupLayout()-Methode"
 short-title: getBindGroupLayout()
 slug: Web/API/GPURenderPipeline/getBindGroupLayout
 l10n:
-  sourceCommit: 759102220c07fb140b3e06971cd5981d8f0f134f
+  sourceCommit: 5f226b6f08c5cff7f96b7cc49a164fdc43d11a0c
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
+{{APIRef("WebGPU API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`getBindGroupLayout()`**-Methode des [`GPURenderPipeline`](/de/docs/Web/API/GPURenderPipeline)-Interfaces gibt das [`GPUBindGroupLayout`](/de/docs/Web/API/GPUBindGroupLayout)-Objekt der Pipeline mit dem angegebenen Index zurück (d.h. enthalten im ursprünglichen Aufruf von [`GPUDevice.createRenderPipeline()`](/de/docs/Web/API/GPUDevice/createRenderPipeline) oder [`GPUDevice.createRenderPipelineAsync()`](/de/docs/Web/API/GPUDevice/createRenderPipelineAsync) für das Pipeline-Layout).
+Die **`getBindGroupLayout()`**-Methode der [`GPURenderPipeline`](/de/docs/Web/API/GPURenderPipeline)-Schnittstelle gibt das [`GPUBindGroupLayout`](/de/docs/Web/API/GPUBindGroupLayout)-Objekt der Pipeline mit dem angegebenen Index zurück (d.h. enthalten im ursprünglichen [`GPUDevice.createRenderPipeline()`](/de/docs/Web/API/GPUDevice/createRenderPipeline) oder [`GPUDevice.createRenderPipelineAsync()`](/de/docs/Web/API/GPUDevice/createRenderPipelineAsync)-Aufruf des Pipeline-Layouts).
 
 Wenn die [`GPURenderPipeline`](/de/docs/Web/API/GPURenderPipeline) mit `layout: "auto"` erstellt wurde, ist diese Methode der einzige Weg, um die von der Pipeline generierten [`GPUBindGroupLayout`](/de/docs/Web/API/GPUBindGroupLayout)s abzurufen.
 
@@ -22,11 +22,11 @@ getBindGroupLayout(index)
 
 - `index`
 
-  - : Eine Zahl, die den Index des zurückzugebenden [`GPUBindGroupLayout`](/de/docs/Web/API/GPUBindGroupLayout) repräsentiert.
+  - : Eine Zahl, die den Index des zurückzugebenden [`GPUBindGroupLayout`](/de/docs/Web/API/GPUBindGroupLayout) darstellt.
 
 ### Rückgabewert
 
-Ein Instanzobjekt von [`GPUBindGroupLayout`](/de/docs/Web/API/GPUBindGroupLayout).
+Eine Instanz eines [`GPUBindGroupLayout`](/de/docs/Web/API/GPUBindGroupLayout)-Objekts.
 
 ### Validierung
 
@@ -37,7 +37,7 @@ Die folgenden Kriterien müssen erfüllt sein, wenn **`getBindGroupLayout()`** a
 ## Beispiele
 
 > [!NOTE]
-> Sie können vollständige funktionierende Beispiele mit der Nutzung von `getBindGroupLayout()` in den [WebGPU-Beispielen](https://webgpu.github.io/webgpu-samples/) sehen.
+> Sie können vollständige funktionierende Beispiele mit `getBindGroupLayout()` in Aktion bei den [WebGPU-Beispielen](https://webgpu.github.io/webgpu-samples/) sehen.
 
 ```js
 // …

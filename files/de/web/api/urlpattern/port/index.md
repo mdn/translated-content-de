@@ -3,12 +3,12 @@ title: "URLPattern: port-Eigenschaft"
 short-title: port
 slug: Web/API/URLPattern/port
 l10n:
-  sourceCommit: 4de6f76bbfd76229db78ffb7d52cf6b4cb9f31f8
+  sourceCommit: 5f226b6f08c5cff7f96b7cc49a164fdc43d11a0c
 ---
 
-{{APIRef("URL Pattern API")}}{{SeeCompatTable}} {{AvailableInWorkers}}
+{{APIRef("URL Pattern API")}} {{AvailableInWorkers}}
 
-Die schreibgeschützte **`port`**-Eigenschaft der [`URLPattern`](/de/docs/Web/API/URLPattern)-Schnittstelle ist ein String, der das Muster enthält, das zum Abgleichen des Port-Teils einer URL verwendet wird. Dieser Wert kann sich aufgrund der Normalisierung von der Eingabe zum Konstruktor unterscheiden.
+Die schreibgeschützte **`port`**-Eigenschaft des [`URLPattern`](/de/docs/Web/API/URLPattern)-Interfaces ist ein String, der das Muster enthält, das zur Übereinstimmung des Port-Teils einer URL verwendet wird. Dieser Wert kann sich aufgrund der Normalisierung von der Eingabe des Konstruktors unterscheiden.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein String.
 
 ## Beispiele
 
-Das folgende Beispiel erstellt ein [`URLPattern`](/de/docs/Web/API/URLPattern)-Objekt mit `(80|443|8080)` für den `port`-Teil. Dieses Muster passt zu den Ports `80`, `443` und `8080`.
+Das folgende Beispiel erstellt ein [`URLPattern`](/de/docs/Web/API/URLPattern)-Objekt mit `(80|443|8080)` für den `port`-Teil. Dieses Muster entspricht den Ports `80`, `443` und `8080`.
 
 ```js
 const pattern = new URLPattern({ port: "(80|443|8080)" });

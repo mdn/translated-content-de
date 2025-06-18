@@ -3,20 +3,20 @@ title: "GPUCompilationMessage: offset-Eigenschaft"
 short-title: offset
 slug: Web/API/GPUCompilationMessage/offset
 l10n:
-  sourceCommit: cc41ecd796870c2b6c77ad0b04fcb8d8c7d877d2
+  sourceCommit: 5f226b6f08c5cff7f96b7cc49a164fdc43d11a0c
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
+{{APIRef("WebGPU API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`offset`** schreibgeschützte Eigenschaft der [`GPUCompilationMessage`](/de/docs/Web/API/GPUCompilationMessage) Schnittstelle ist eine Zahl, die den Abstand vom Beginn des Shader-Codes bis zum exakten Punkt oder dem Beginn der relevanten Teilzeichenkette angibt, auf die sich die Nachricht bezieht.
+Die **`offset`**-Schreibgeschützte Eigenschaft des [`GPUCompilationMessage`](/de/docs/Web/API/GPUCompilationMessage)-Interfaces ist eine Zahl, die den Offset vom Anfang des Shadercodes bis zum genauen Punkt oder dem Beginn des relevanten Substrings darstellt, dem die Nachricht entspricht.
 
 ## Wert
 
 Eine Zahl.
 
-Genauer gesagt ist `offset` die Anzahl der UTF-16 Codeeinheiten vom Anfang des Shader-Codes bis zum exakten Punkt oder dem Beginn der relevanten Teilzeichenkette, auf die sich die Nachricht bezieht.
+Genauer gesagt ist `offset` die Anzahl der UTF-16-Codeeinheiten vom Anfang des Shadercodes bis zum genauen Punkt oder Beginn des relevanten Substrings, dem die Nachricht entspricht.
 
-Wenn sich die Nachricht nicht auf eine spezifische Codeposition bezieht (vielleicht gilt sie für den gesamten Shader-Code), wird `offset` 0 sein.
+Falls die Nachricht nicht einer bestimmten Codeposition entspricht (möglicherweise bezieht sie sich auf den gesamten Shadercode), wird `offset` 0 sein.
 
 ## Beispiele
 
@@ -30,7 +30,7 @@ const firstMessage = shaderInfo.messages[0];
 console.log(firstMessage.offset);
 ```
 
-Siehe die Hauptseite [GPUCompilationInfo](/de/docs/Web/API/GPUCompilationInfo#examples) für ein detaillierteres Beispiel.
+Sehen Sie sich die Hauptseite [`GPUCompilationInfo`](/de/docs/Web/API/GPUCompilationInfo#examples) für ein detaillierteres Beispiel an.
 
 ## Spezifikationen
 

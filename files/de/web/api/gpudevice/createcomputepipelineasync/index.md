@@ -1,17 +1,17 @@
 ---
-title: "GPUDevice: createComputePipelineAsync()-Methode"
+title: "GPUDevice: createComputePipelineAsync() Methode"
 short-title: createComputePipelineAsync()
 slug: Web/API/GPUDevice/createComputePipelineAsync
 l10n:
-  sourceCommit: 759102220c07fb140b3e06971cd5981d8f0f134f
+  sourceCommit: 5f226b6f08c5cff7f96b7cc49a164fdc43d11a0c
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
+{{APIRef("WebGPU API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`createComputePipelineAsync()`**-Methode des [`GPUDevice`](/de/docs/Web/API/GPUDevice)-Interfaces gibt ein {{jsxref("Promise")}} zurück, das mit einer [`GPUComputePipeline`](/de/docs/Web/API/GPUComputePipeline) erfüllt wird. Diese kann die Compute Shader-Stufe steuern und in einem [`GPUComputePassEncoder`](/de/docs/Web/API/GPUComputePassEncoder) verwendet werden, sobald die Pipeline ohne Verzögerung genutzt werden kann.
+Die **`createComputePipelineAsync()`** Methode des [`GPUDevice`](/de/docs/Web/API/GPUDevice) Interfaces gibt ein {{jsxref("Promise")}} zurück, das mit einem [`GPUComputePipeline`](/de/docs/Web/API/GPUComputePipeline) erfüllt wird. Diese kann die Compute-Shader-Stufe steuern und in einem [`GPUComputePassEncoder`](/de/docs/Web/API/GPUComputePassEncoder) verwendet werden, sobald die Pipeline ohne Blockierungen einsatzbereit ist.
 
 > [!NOTE]
-> Es ist generell vorzuziehen, diese Methode über [`GPUDevice.createComputePipeline()`](/de/docs/Web/API/GPUDevice/createComputePipeline) zu verwenden, wann immer dies möglich ist, da so die Blockierung der GPU-Operationen während der Pipeline-Kompilierung vermieden wird.
+> Es ist in der Regel vorzuziehen, diese Methode anstelle von [`GPUDevice.createComputePipeline()`](/de/docs/Web/API/GPUDevice/createComputePipeline) zu verwenden, wann immer dies möglich ist, da sie verhindert, dass die Ausführung der GPU-Operationen durch die Pipeline-Kompilierung blockiert wird.
 
 ## Syntax
 
@@ -22,24 +22,24 @@ createComputePipelineAsync(descriptor)
 ### Parameter
 
 - `descriptor`
-  - : Siehe die Definition des Descriptors für die Methode [`GPUDevice.createComputePipeline()`](/de/docs/Web/API/GPUDevice/createComputePipeline#syntax).
+  - : Siehe die Descriptor-Definition für die Methode [`GPUDevice.createComputePipeline()`](/de/docs/Web/API/GPUDevice/createComputePipeline#syntax).
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit einer [`GPUComputePipeline`](/de/docs/Web/API/GPUComputePipeline)-Objektinstanz erfüllt wird, wenn die erstellte Pipeline ohne zusätzliche Verzögerung einsatzbereit ist.
+Ein {{jsxref("Promise")}}, das mit einer [`GPUComputePipeline`](/de/docs/Web/API/GPUComputePipeline) Objektinstanz erfüllt wird, wenn die erstellte Pipeline einsatzbereit ist, ohne zusätzliche Verzögerungen.
 
 ### Validierung
 
-Wenn die Pipeline-Erstellung fehlschlägt und die resultierende Pipeline dadurch ungültig wird, wird das zurückgegebene Promise mit einem [`GPUPipelineError`](/de/docs/Web/API/GPUPipelineError) abgelehnt:
+Wenn die Pipelinenerstellung fehlschlägt und die resultierende Pipeline dadurch ungültig wird, wird das zurückgegebene Promise mit einem [`GPUPipelineError`](/de/docs/Web/API/GPUPipelineError) abgelehnt:
 
-- Wenn dies auf einen internen Fehler zurückzuführen ist, wird der [`GPUPipelineError`](/de/docs/Web/API/GPUPipelineError) ein `reason` von `"internal"` haben.
-- Wenn dies auf einen Validierungsfehler zurückzuführen ist, wird der [`GPUPipelineError`](/de/docs/Web/API/GPUPipelineError) ein `reason` von `"validation"` haben.
+- Wenn dies auf einen internen Fehler zurückzuführen ist, hat der [`GPUPipelineError`](/de/docs/Web/API/GPUPipelineError) einen `reason` von `"internal"`.
+- Wenn dies auf einen Validierungsfehler zurückzuführen ist, hat der [`GPUPipelineError`](/de/docs/Web/API/GPUPipelineError) einen `reason` von `"validation"`.
 
-Ein Validierungsfehler kann auftreten, wenn eine der folgenden Bedingungen nicht erfüllt ist:
+Ein Validierungsfehler kann auftreten, wenn eines der folgenden Dinge nicht zutrifft:
 
-- Die im `module` referenzierte Workgroup-Speichergröße innerhalb der `compute`-Eigenschaft ist kleiner oder gleich dem `maxComputeWorkgroupStorageSize` [Limit](/de/docs/Web/API/GPUSupportedLimits) des [`GPUDevice`](/de/docs/Web/API/GPUDevice).
-- Das `module` verwendet eine Anzahl an Compute-Aufrufen pro Workgroup, die kleiner oder gleich dem `maxComputeInvocationsPerWorkgroup` [Limit](/de/docs/Web/API/GPUSupportedLimits) des [`GPUDevice`](/de/docs/Web/API/GPUDevice) ist.
-- Die Workgroup-Größe des `module` ist kleiner oder gleich dem entsprechenden `maxComputeWorkgroupSizeX`, `maxComputeWorkgroupSizeY`, oder `maxComputeWorkgroupSizeZ` [Limit](/de/docs/Web/API/GPUSupportedLimits) des [`GPUDevice`](/de/docs/Web/API/GPUDevice).
+- Die von dem im `compute`-Eigenschaft referenzierten `module` verwendete Arbeitsgruppenspeichergröße ist kleiner oder gleich dem `maxComputeWorkgroupStorageSize`- [Limit](/de/docs/Web/API/GPUSupportedLimits) des [`GPUDevice`](/de/docs/Web/API/GPUDevice).
+- Das `module` verwendet eine Anzahl von Compute-Aufrufen pro Arbeitsgruppe, die kleiner oder gleich dem `maxComputeInvocationsPerWorkgroup`- [Limit](/de/docs/Web/API/GPUSupportedLimits) des [`GPUDevice`](/de/docs/Web/API/GPUDevice) ist.
+- Die Arbeitsgruppengröße des `module` ist kleiner oder gleich dem entsprechenden `maxComputeWorkgroupSizeX`, `maxComputeWorkgroupSizeY` oder `maxComputeWorkgroupSizeZ`- [Limit](/de/docs/Web/API/GPUSupportedLimits) des [`GPUDevice`](/de/docs/Web/API/GPUDevice).
 - Wenn die `entryPoint`-Eigenschaft weggelassen wird, enthält der Shader-Code eine einzelne Compute-Shader-Einstiegspunktfunktion, die der Browser als Standard-Einstiegspunkt verwenden kann.
 
 ## Beispiele
@@ -51,9 +51,9 @@ Ein Validierungsfehler kann auftreten, wenn eine der folgenden Bedingungen nicht
 
 Das folgende Beispiel zeigt einen Prozess:
 
-- Erstellen eines Bindgroup-Layouts mit [`GPUDevice.createBindGroupLayout()`](/de/docs/Web/API/GPUDevice/createBindGroupLayout).
-- Übergabe des `bindGroupLayout` an [`GPUDevice.createPipelineLayout()`](/de/docs/Web/API/GPUDevice/createPipelineLayout), um ein [`GPUPipelineLayout`](/de/docs/Web/API/GPUPipelineLayout) zu erstellen.
-- Verwendung dieses Werts unmittelbar in einem `createComputePipelineAsync()`-Aufruf, um eine [`GPUComputePipeline`](/de/docs/Web/API/GPUComputePipeline) zu erstellen.
+- Erstellen eines Bind-Gruppen-Layouts mit [`GPUDevice.createBindGroupLayout()`](/de/docs/Web/API/GPUDevice/createBindGroupLayout).
+- Einspeisen des `bindGroupLayout` in [`GPUDevice.createPipelineLayout()`](/de/docs/Web/API/GPUDevice/createPipelineLayout), um ein [`GPUPipelineLayout`](/de/docs/Web/API/GPUPipelineLayout) zu erstellen.
+- Unmittelbare Nutzung dieses Werts in einem `createComputePipelineAsync()` Aufruf, um eine [`GPUComputePipeline`](/de/docs/Web/API/GPUComputePipeline) zu erstellen.
 
 ```js
 async function init() {

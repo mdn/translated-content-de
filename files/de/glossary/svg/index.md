@@ -2,22 +2,26 @@
 title: SVG
 slug: Glossary/SVG
 l10n:
-  sourceCommit: c1564acf160ef4b320fb7b89ab65211b9c50cf1b
+  sourceCommit: 6ea58a1e94b502f6344ee5c96ae3dd38b49cd25c
 ---
 
 {{GlossarySidebar}}
 
-_Scalable Vector Graphics_ (**SVG**) ist ein 2D-Vektorbildformat, das auf einer {{Glossary("XML", "XML")}}-Syntax basiert.
+_Scalable Vector Graphics_ (**SVG**) ist ein 2D-Vektorbildformat basierend auf einer {{Glossary("XML", "XML")}}-Syntax.
 
-Die {{Glossary("W3C", "W3C")}} begann Ende der 1990er Jahre mit der Arbeit an SVG, aber SVG wurde erst populär, als {{Glossary("Microsoft_Internet_Explorer", "Internet Explorer")}} 9 mit SVG-Unterstützung herauskam. Alle großen {{Glossary("browser", "Browser")}} unterstützen jetzt SVG.
+Das {{Glossary("W3C", "W3C")}} begann in den späten 1990er Jahren mit der Arbeit an SVG, aber SVG wurde erst populär, als {{Glossary("Microsoft_Internet_Explorer", "Internet Explorer")}} 9 mit SVG-Unterstützung herauskam. Alle großen {{Glossary("browser", "Browser")}} unterstützen jetzt SVG.
 
-Basierend auf einer {{Glossary("XML", "XML")}}-Syntax kann SVG mit {{Glossary("CSS", "CSS")}} gestaltet und mithilfe von {{Glossary("JavaScript", "JavaScript")}} interaktiv gemacht werden. HTML erlaubt die direkte Einbettung von SVG-{{Glossary("Tag", "Tags")}} in ein {{Glossary("HTML", "HTML")}}-Dokument.
+Basierend auf einer {{Glossary("XML", "XML")}}-Syntax kann SVG mit {{Glossary("CSS", "CSS")}} gestaltet und mit {{Glossary("JavaScript", "JavaScript")}} interaktiv gemacht werden. HTML ermöglicht das direkte Einbetten von SVG-{{Glossary("Tag", "Tags")}} in ein {{Glossary("HTML", "HTML")}}-Dokument.
 
-Als [Vektorbildformat](https://en.wikipedia.org/wiki/Vector_graphics) können SVG-Grafiken unendlich skaliert werden, was sie im {{Glossary("responsive_web_design", "Responsive Design")}} besonders wertvoll macht, da Sie Schnittstellenelemente und Grafiken erstellen können, die sich an jede Bildschirmgröße anpassen. SVG bietet auch eine nützliche Auswahl an Werkzeugen wie Clipping, Maskierung, Filter und Animationen.
+Als [Vektorbildformat](https://en.wikipedia.org/wiki/Vector_graphics) können SVG-Grafiken unendlich skaliert werden, was sie in der {{Glossary("responsive_web_design", "responsiven Gestaltung")}} von unschätzbarem Wert macht, da Sie Schnittstellenelemente und Grafiken erstellen können, die an jede Bildschirmgröße angepasst werden. SVG bietet zudem ein nützliches Set von Werkzeugen, wie Clipping, Maskierung, Filter und Animationen.
 
 ## Siehe auch
 
-- [SVG](https://en.wikipedia.org/wiki/SVG) auf Wikipedia
-- [W3.org's SVG Primer](https://www.w3.org/Graphics/SVG/IG/resources/svgprimer.html)
+- [SVG-Abschnitt im Leitfaden zu Bilddateitypen und -formaten](/de/docs/Web/Media/Guides/Formats/Image_types#svg_scalable_vector_graphics)
 - [SVG-Dokumentation auf MDN](/de/docs/Web/SVG)
-- [Neueste SVG-Spezifikation](https://svgwg.org/svg2-draft/)
+- Andere Bildformate (Glossarbegriffe): {{Glossary("GIF", "GIF")}}, {{Glossary("JPEG", "JPEG")}}, {{Glossary("PNG", "PNG")}}, {{Glossary("WebP", "WebP")}}
+- [HTML-Bilder](/de/docs/Learn_web_development/Core/Structuring_content/HTML_images) (Webentwicklung lernen)
+- [Hinzufügen von benutzerdefinierten Icons zu Ihrer Website](/de/docs/Learn_web_development/Core/Structuring_content/Webpage_metadata#adding_custom_icons_to_your_site)
+- [Einschließen von Vektorgrafiken in HTML](/de/docs/Learn_web_development/Core/Structuring_content/Including_vector_graphics_in_HTML)
+- [SVG](https://en.wikipedia.org/wiki/SVG) auf Wikipedia
+- [SVG Primer](https://www.w3.org/Graphics/SVG/IG/resources/svgprimer.html) auf w3.org

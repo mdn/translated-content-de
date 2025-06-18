@@ -3,25 +3,24 @@ title: "GPUCompilationMessage: linePos-Eigenschaft"
 short-title: linePos
 slug: Web/API/GPUCompilationMessage/linePos
 l10n:
-  sourceCommit: cc41ecd796870c2b6c77ad0b04fcb8d8c7d877d2
+  sourceCommit: 5f226b6f08c5cff7f96b7cc49a164fdc43d11a0c
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
+{{APIRef("WebGPU API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`linePos`**-Eigenschaft der
-[`GPUCompilationMessage`](/de/docs/Web/API/GPUCompilationMessage)-Schnittstelle ist eine Zahl, die die Position in der Codezeile darstellt, auf die sich die Nachricht bezieht. Dies kann ein genauer Punkt oder der Beginn des relevanten Substrings sein.
+Die **`linePos`**-Eigenschaft der [`GPUCompilationMessage`](/de/docs/Web/API/GPUCompilationMessage)-Schnittstelle ist eine schreibgeschützte Eigenschaft, die die Position in der Codezeile darstellt, zu der die Nachricht gehört. Dies könnte ein exakter Punkt oder der Anfang des relevanten Substrings sein.
 
 ## Wert
 
 Eine Zahl.
 
-Genauer gesagt ist `linePos` die Anzahl der UTF-16-Codeeinheiten vom Anfang der Zeile bis zu dem genauen Punkt oder Anfang des relevanten Substrings, auf den sich die Nachricht bezieht.
+Genauer gesagt ist `linePos` die Anzahl der UTF-16-Code-Einheiten vom Beginn der Zeile bis zu dem exakten Punkt oder dem Anfang des relevanten Substrings, zu dem die Nachricht gehört.
 
-Beachten Sie:
+Beachten Sie, dass:
 
-- Wenn die Nachricht sich auf einen Substring bezieht, dann verweist `linePos` auf die erste UTF-16-Codeeinheit des Substrings.
-- Wenn sich die Nachricht nicht auf eine spezifische Codeposition bezieht (möglicherweise bezieht sie sich auf den gesamten Shader-Code), wird `linePos` 0 sein.
-- Werte sind eins-basiert — ein Wert von 1 verweist auf die erste Codeeinheit der Zeile.
+- Wenn die Nachricht zu einem Substring gehört, bezieht sich `linePos` auf die erste UTF-16-Code-Einheit des Substrings.
+- Wenn die Nachricht sich nicht auf eine spezifische Codeposition bezieht (vielleicht bezieht sie sich auf den gesamten Shader-Code), wird `linePos` 0 sein.
+- Werte sind einsbasiert — ein Wert von 1 bezieht sich auf die erste Code-Einheit der Zeile.
 
 ## Beispiele
 
@@ -35,7 +34,7 @@ const firstMessage = shaderInfo.messages[0];
 console.log(firstMessage.linePos);
 ```
 
-Sehen Sie die Hauptseite [`GPUCompilationInfo`](/de/docs/Web/API/GPUCompilationInfo#examples) für ein ausführlicheres Beispiel.
+Sehen Sie sich die Hauptseite [`GPUCompilationInfo`](/de/docs/Web/API/GPUCompilationInfo#examples) für ein detaillierteres Beispiel an.
 
 ## Spezifikationen
 

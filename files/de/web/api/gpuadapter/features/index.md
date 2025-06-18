@@ -3,27 +3,27 @@ title: "GPUAdapter: features-Eigenschaft"
 short-title: features
 slug: Web/API/GPUAdapter/features
 l10n:
-  sourceCommit: 759102220c07fb140b3e06971cd5981d8f0f134f
+  sourceCommit: 5f226b6f08c5cff7f96b7cc49a164fdc43d11a0c
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
+{{APIRef("WebGPU API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`features`**-Eigenschaft (nur lesbar) des [`GPUAdapter`](/de/docs/Web/API/GPUAdapter)-Interfaces gibt ein [`GPUSupportedFeatures`](/de/docs/Web/API/GPUSupportedFeatures)-Objekt zurück, das zusätzliche Funktionalitäten beschreibt, die vom Adapter unterstützt werden.
+Die schreibgeschützte Eigenschaft **`features`** der [`GPUAdapter`](/de/docs/Web/API/GPUAdapter)-Schnittstelle gibt ein [`GPUSupportedFeatures`](/de/docs/Web/API/GPUSupportedFeatures)-Objekt zurück, das zusätzliche Funktionalitäten beschreibt, die vom Adapter unterstützt werden.
 
-Es sollte beachtet werden, dass nicht alle Funktionen in jedem Browser, der WebGPU unterstützt, verfügbar sein werden, selbst wenn die Funktionen von der zugrunde liegenden Hardware unterstützt werden. Dies kann durch Einschränkungen im zugrunde liegenden System, im Browser oder im Adapter verursacht werden. Beispielsweise:
+Bitte beachten Sie, dass nicht alle Funktionen in allen Browsern, die WebGPU unterstützen, verfügbar sein werden, selbst wenn die Funktionen von der zugrunde liegenden Hardware unterstützt werden. Dies könnte an Einschränkungen im zugrunde liegenden System, Browser oder Adapter liegen. Zum Beispiel:
 
-- Das zugrunde liegende System könnte die Bereitstellung einer Funktion nicht in einer Weise garantieren, die mit einem bestimmten Browser kompatibel ist.
-- Der Browser-Anbieter hat möglicherweise keinen sicheren Weg gefunden, um die Unterstützung für diese Funktion zu implementieren, oder hat es einfach noch nicht umgesetzt.
+- Das zugrunde liegende System kann nicht garantieren, dass eine Funktion in einer Weise verfügbar gemacht wird, die mit einem bestimmten Browser kompatibel ist.
+- Der Browseranbieter hat möglicherweise noch keinen sicheren Weg gefunden, um die Unterstützung für diese Funktion zu implementieren, oder hat es einfach noch nicht geschafft.
 
-Wenn Sie hoffen, in einer WebGPU-Anwendung eine bestimmte zusätzliche Funktion zu nutzen, wird eine gründliche Prüfung empfohlen.
+Wenn Sie hoffen, in einer WebGPU-App eine bestimmte zusätzliche Funktion nutzen zu können, wird gründliches Testen empfohlen.
 
 ## Wert
 
-Eine Instanz des [`GPUSupportedFeatures`](/de/docs/Web/API/GPUSupportedFeatures)-Objekts. Dies ist ein [setähnliches](/de/docs/Web/JavaScript/Reference/Global_Objects/Set) Objekt.
+Eine Instanz eines [`GPUSupportedFeatures`](/de/docs/Web/API/GPUSupportedFeatures)-Objekts. Dies ist ein [setlike](/de/docs/Web/JavaScript/Reference/Global_Objects/Set)-Objekt.
 
 ## Beispiele
 
-Im folgenden Code überprüfen wir, ob ein [`GPUAdapter`](/de/docs/Web/API/GPUAdapter) die `texture-compression-astc`-Funktion zur Verfügung hat. Wenn ja, fügen wir sie dem Array der `requiredFeatures` hinzu und fordern ein Gerät mit dieser Funktionsanforderung an, indem wir [`GPUAdapter.requestDevice()`](/de/docs/Web/API/GPUAdapter/requestDevice) verwenden.
+Im folgenden Code prüfen wir, ob ein [`GPUAdapter`](/de/docs/Web/API/GPUAdapter) die Funktion `texture-compression-astc` verfügbar hat. Falls ja, fügen wir sie dem Array `requiredFeatures` hinzu und fordern ein Gerät mit dieser Funktion über [`GPUAdapter.requestDevice()`](/de/docs/Web/API/GPUAdapter/requestDevice) an.
 
 ```js
 async function init() {

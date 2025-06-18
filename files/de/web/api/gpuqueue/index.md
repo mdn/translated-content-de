@@ -2,38 +2,38 @@
 title: GPUQueue
 slug: Web/API/GPUQueue
 l10n:
-  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
+  sourceCommit: 5f226b6f08c5cff7f96b7cc49a164fdc43d11a0c
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
+{{APIRef("WebGPU API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`GPUQueue`**-Schnittstelle der [WebGPU API](/de/docs/Web/API/WebGPU_API) steuert die Ausführung von kodierten Befehlen auf der GPU.
+Das **`GPUQueue`**-Interface der [WebGPU API](/de/docs/Web/API/WebGPU_API) steuert die Ausführung von kodierten Befehlen auf der GPU.
 
-Auf die primäre Warteschlange eines Geräts wird über die [`GPUDevice.queue`](/de/docs/Web/API/GPUDevice/queue)-Eigenschaft zugegriffen.
+Auf die Hauptwarteschlange eines Geräts wird über die Eigenschaft [`GPUDevice.queue`](/de/docs/Web/API/GPUDevice/queue) zugegriffen.
 
 {{InheritanceDiagram}}
 
 ## Instanzeigenschaften
 
-- [`label`](/de/docs/Web/API/GPUQueue/label) {{Experimental_Inline}}
-  - : Ein String, der ein Etikett bereitstellt, das verwendet werden kann, um das Objekt zu identifizieren, zum Beispiel in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen oder Konsolenwarnungen.
+- [`label`](/de/docs/Web/API/GPUQueue/label)
+  - : Ein String, der ein Label bereitstellt, das verwendet werden kann, um das Objekt zu identifizieren, beispielsweise in [`GPUError`](/de/docs/Web/API/GPUError)-Nachrichten oder Konsolenwarnungen.
 
 ## Instanzmethoden
 
-- [`copyExternalImageToTexture()`](/de/docs/Web/API/GPUQueue/copyExternalImageToTexture) {{Experimental_Inline}}
-  - : Kopiert einen Schnappschuss von einem Quellbild, Video oder Canvas in eine gegebene [`GPUTexture`](/de/docs/Web/API/GPUTexture).
-- [`onSubmittedWorkDone()`](/de/docs/Web/API/GPUQueue/onSubmittedWorkDone) {{Experimental_Inline}}
-  - : Gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, wenn alle an die GPU über diese `GPUQueue` gesendeten Arbeiten zum Zeitpunkt des Aufrufs der Methode bearbeitet wurden.
-- [`submit()`](/de/docs/Web/API/GPUQueue/submit) {{Experimental_Inline}}
+- [`copyExternalImageToTexture()`](/de/docs/Web/API/GPUQueue/copyExternalImageToTexture)
+  - : Kopiert eine Momentaufnahme, die von einem Quellbild, Video oder Canvas aufgenommen wurde, in eine gegebene [`GPUTexture`](/de/docs/Web/API/GPUTexture).
+- [`onSubmittedWorkDone()`](/de/docs/Web/API/GPUQueue/onSubmittedWorkDone)
+  - : Gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, wenn alle Arbeiten, die über diese `GPUQueue` zum Zeitpunkt des Aufrufs der Methode an die GPU übergeben wurden, verarbeitet wurden.
+- [`submit()`](/de/docs/Web/API/GPUQueue/submit)
   - : Plant die Ausführung von Befehls-Puffern, die durch ein oder mehrere [`GPUCommandBuffer`](/de/docs/Web/API/GPUCommandBuffer)-Objekte dargestellt werden, durch die GPU.
-- [`writeBuffer()`](/de/docs/Web/API/GPUQueue/writeBuffer) {{Experimental_Inline}}
+- [`writeBuffer()`](/de/docs/Web/API/GPUQueue/writeBuffer)
   - : Schreibt eine bereitgestellte Datenquelle in einen gegebenen [`GPUBuffer`](/de/docs/Web/API/GPUBuffer).
-- [`writeTexture()`](/de/docs/Web/API/GPUQueue/writeTexture) {{Experimental_Inline}}
+- [`writeTexture()`](/de/docs/Web/API/GPUQueue/writeTexture)
   - : Schreibt eine bereitgestellte Datenquelle in eine gegebene [`GPUTexture`](/de/docs/Web/API/GPUTexture).
 
 ## Beispiele
 
-In unserem [Grundlegenden Render-Demo](https://mdn.github.io/dom-examples/webgpu-render-demo/) definieren wir einige Vertex-Daten in einem {{jsxref("Float32Array")}}, das wir verwenden werden, um ein Dreieck zu zeichnen:
+In unserem [grundlegenden Render-Demo](https://mdn.github.io/dom-examples/webgpu-render-demo/) definieren wir einige Vertex-Daten in einem {{jsxref("Float32Array")}}, die wir verwenden werden, um ein Dreieck zu zeichnen:
 
 ```js
 const vertices = new Float32Array([
@@ -42,7 +42,7 @@ const vertices = new Float32Array([
 ]);
 ```
 
-Um diese Daten in einer Render-Pipeline zu verwenden, müssen wir sie in einen [`GPUBuffer`](/de/docs/Web/API/GPUBuffer) einfügen. Zuerst erstellen wir den Puffer:
+Um diese Daten in einer Render-Pipeline zu verwenden, müssen wir sie in einen [`GPUBuffer`](/de/docs/Web/API/GPUBuffer) legen. Zuerst erstellen wir den Puffer:
 
 ```js
 const vertexBuffer = device.createBuffer({
@@ -51,20 +51,20 @@ const vertexBuffer = device.createBuffer({
 });
 ```
 
-Um die Daten in den Puffer zu bekommen, können wir die Funktion [`writeBuffer()`](/de/docs/Web/API/GPUQueue/writeBuffer) verwenden, die dem Benutzeragenten die effizienteste Möglichkeit bietet, die Daten zu kopieren:
+Um die Daten in den Puffer zu bekommen, können wir die Funktion [`writeBuffer()`](/de/docs/Web/API/GPUQueue/writeBuffer) verwenden, die es dem Benutzeragenten ermöglicht, den effizientesten Weg zu bestimmen, um die Daten zu kopieren:
 
 ```js
 device.queue.writeBuffer(vertexBuffer, 0, vertices, 0, vertices.length);
 ```
 
-Später wird eine Reihe von Befehlen mithilfe der Methode [`GPUCommandEncoder.finish()`](/de/docs/Web/API/GPUCommandEncoder/finish) in einen [`GPUCommandBuffer`](/de/docs/Web/API/GPUCommandBuffer) kodiert. Der Befehls-Puffer wird dann über einen [`submit()`](/de/docs/Web/API/GPUQueue/submit)-Aufruf in die Warteschlange weitergeleitet, um von der GPU bearbeitet zu werden.
+Später wird eine Reihe von Befehlen in einem [`GPUCommandBuffer`](/de/docs/Web/API/GPUCommandBuffer) mit der Methode [`GPUCommandEncoder.finish()`](/de/docs/Web/API/GPUCommandEncoder/finish) kodiert. Der Befehls-Puffer wird dann über einen [`submit()`](/de/docs/Web/API/GPUQueue/submit)-Aufruf in die Warteschlange übergeben, bereit zur Verarbeitung durch die GPU.
 
 ```js
 device.queue.submit([commandEncoder.finish()]);
 ```
 
 > [!NOTE]
-> Studieren Sie die [WebGPU-Beispiele](https://webgpu.github.io/webgpu-samples/), um weitere Warteschlangenbeispiele zu finden.
+> Studieren Sie die [WebGPU-Beispiele](https://webgpu.github.io/webgpu-samples/), um weitere Beispiele für Warteschlangen zu finden.
 
 ## Spezifikationen
 

@@ -3,18 +3,18 @@ title: "GPURenderBundle: label-Eigenschaft"
 short-title: label
 slug: Web/API/GPURenderBundle/label
 l10n:
-  sourceCommit: bff3a6a2e6b3c13dd8bb0c80a1eb9da08cce5dc6
+  sourceCommit: 5f226b6f08c5cff7f96b7cc49a164fdc43d11a0c
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
+{{APIRef("WebGPU API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`label`**-Eigenschaft des [`GPURenderBundle`](/de/docs/Web/API/GPURenderBundle)-Interfaces ist ein String, der ein Label zur Verfügung stellt, das zur Identifizierung des Objekts verwendet werden kann, zum Beispiel in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen oder Konsolenwarnungen.
+Die **`label`**-Eigenschaft des [`GPURenderBundle`](/de/docs/Web/API/GPURenderBundle)-Interfaces ist eine schreibgeschützte Zeichenkette, die zur Identifizierung des Objekts verwendet werden kann, beispielsweise in [`GPUError`](/de/docs/Web/API/GPUError)-Nachrichten oder Konsolenwarnungen.
 
-Dies kann durch Bereitstellung einer `label`-Eigenschaft im Deskriptor-Objekt, das an den ursprünglichen Aufruf von [`GPURenderBundleEncoder.finish()`](/de/docs/Web/API/GPURenderBundleEncoder/finish) übergeben wird, festgelegt werden, oder Sie können es direkt auf dem `GPURenderBundle`-Objekt abrufen und festlegen.
+Diese kann festgelegt werden, indem eine `label`-Eigenschaft im Deskriptor-Objekt angegeben wird, das im ursprünglichen Aufruf von [`GPURenderBundleEncoder.finish()`](/de/docs/Web/API/GPURenderBundleEncoder/finish) übergeben wird. Alternativ können Sie es direkt am `GPURenderBundle`-Objekt abrufen und festlegen.
 
 ## Wert
 
-Ein String. Wenn vorher kein Labelwert festgelegt wurde, gibt das Abrufen des Labels einen leeren String zurück.
+Eine Zeichenkette. Wenn zuvor kein Label-Wert festgelegt wurde, gibt das Abrufen des Labels eine leere Zeichenkette zurück.
 
 ## Beispiele
 

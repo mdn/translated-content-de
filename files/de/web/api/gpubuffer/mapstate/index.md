@@ -3,25 +3,25 @@ title: "GPUBuffer: mapState-Eigenschaft"
 short-title: mapState
 slug: Web/API/GPUBuffer/mapState
 l10n:
-  sourceCommit: 759102220c07fb140b3e06971cd5981d8f0f134f
+  sourceCommit: 5f226b6f08c5cff7f96b7cc49a164fdc43d11a0c
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
+{{APIRef("WebGPU API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`mapState`**-Eigenschaft der [`GPUBuffer`](/de/docs/Web/API/GPUBuffer)-Schnittstelle, die nur gelesen werden kann, repräsentiert den zugeordneten Zustand des `GPUBuffer`.
+Die **`mapState`**-Eigenschaft der [`GPUBuffer`](/de/docs/Web/API/GPUBuffer)-Schnittstelle ist eine schreibgeschützte Eigenschaft, die den Zuordnungszustand des `GPUBuffer` darstellt.
 
 ## Wert
 
 Ein enumerierter Wert. Mögliche Werte sind:
 
 - `unmapped`
-  - : Der Buffer ist nicht zugeordnet. [`GPUBuffer.getMappedRange()`](/de/docs/Web/API/GPUBuffer/getMappedRange) kann nicht verwendet werden, um auf den Inhalt des `GPUBuffer` in JavaScript zuzugreifen. Dies könnte folgende Gründe haben:
+  - : Der Puffer ist nicht zugeordnet. [`GPUBuffer.getMappedRange()`](/de/docs/Web/API/GPUBuffer/getMappedRange) kann nicht verwendet werden, um auf den Inhalt des `GPUBuffer` in JavaScript zuzugreifen. Dies könnte daran liegen:
     - [`GPUBuffer.mapAsync()`](/de/docs/Web/API/GPUBuffer/mapAsync) wurde noch nicht aufgerufen.
-    - Der `GPUBuffer` war zuvor zugeordnet und wurde dann mit [`GPUBuffer.unmap()`](/de/docs/Web/API/GPUBuffer/unmap) wieder freigegeben.
+    - Der `GPUBuffer` wurde zuvor zugeordnet und dann mit [`GPUBuffer.unmap()`](/de/docs/Web/API/GPUBuffer/unmap) wieder freigegeben.
 - `pending`
-  - : Der Buffer ist noch nicht zugeordnet. [`GPUBuffer.mapAsync()`](/de/docs/Web/API/GPUBuffer/mapAsync) wurde aufgerufen, aber dessen {{jsxref("Promise")}} ist derzeit noch ausstehend. [`GPUBuffer.getMappedRange()`](/de/docs/Web/API/GPUBuffer/getMappedRange) kann derzeit nicht verwendet werden, um auf den Inhalt des `GPUBuffer` in JavaScript zuzugreifen.
+  - : Der Puffer ist noch nicht zugeordnet. [`GPUBuffer.mapAsync()`](/de/docs/Web/API/GPUBuffer/mapAsync) wurde aufgerufen, aber sein {{jsxref("Promise")}} ist derzeit ausstehend. [`GPUBuffer.getMappedRange()`](/de/docs/Web/API/GPUBuffer/getMappedRange) kann momentan nicht verwendet werden, um auf den Inhalt des `GPUBuffer` in JavaScript zuzugreifen.
 - `mapped`
-  - : Der Buffer ist zugeordnet. Das [`GPUBuffer.mapAsync()`](/de/docs/Web/API/GPUBuffer/mapAsync) {{jsxref("Promise")}} wurde erfüllt, und [`GPUBuffer.getMappedRange()`](/de/docs/Web/API/GPUBuffer/getMappedRange) kann jetzt verwendet werden, um auf den Inhalt des `GPUBuffer` in JavaScript zuzugreifen.
+  - : Der Puffer ist zugeordnet. Das [`GPUBuffer.mapAsync()`](/de/docs/Web/API/GPUBuffer/mapAsync) {{jsxref("Promise")}} wurde erfüllt, und [`GPUBuffer.getMappedRange()`](/de/docs/Web/API/GPUBuffer/getMappedRange) kann jetzt verwendet werden, um auf den Inhalt des `GPUBuffer` in JavaScript zuzugreifen.
 
 ## Beispiele
 

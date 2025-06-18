@@ -3,12 +3,12 @@ title: "CSSPositionTryRule: style-Eigenschaft"
 short-title: style
 slug: Web/API/CSSPositionTryRule/style
 l10n:
-  sourceCommit: 839c5e88a078deead1bcf1b2837d05499cb859b1
+  sourceCommit: 5f226b6f08c5cff7f96b7cc49a164fdc43d11a0c
 ---
 
-{{ APIRef("CSSOM") }}{{SeeCompatTable}}
+{{ APIRef("CSSOM") }}
 
-Die **`style`** schreibgeschützte Eigenschaft der [`CSSPositionTryRule`](/de/docs/Web/API/CSSPositionTryRule)-Schnittstelle gibt ein [`CSSPositionTryDescriptors`](/de/docs/Web/API/CSSPositionTryDescriptors)-Objekt zurück, das die in der Deklaration des `@position-try`-Regelsatzes festgelegten Anweisungen darstellt.
+Die schreibgeschützte **`style`**-Eigenschaft der [`CSSPositionTryRule`](/de/docs/Web/API/CSSPositionTryRule)-Schnittstelle gibt ein [`CSSPositionTryDescriptors`](/de/docs/Web/API/CSSPositionTryDescriptors)-Objekt zurück, das die Deklarationen darstellt, die im Rumpf der `@position-try`-at-Regel festgelegt sind.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein [`CSSPositionTryDescriptors`](/de/docs/Web/API/CSSPositionTryDescriptors)-Ob
 
 ## Beispiele
 
-Das CSS enthält einen `@position-try`-Regelsatz mit dem Namen `--custom-right` und drei Deskriptoren.
+Das CSS enthält eine `@position-try`-at-Regel mit dem Namen `--custom-right` und drei Deskriptoren.
 
 ```css
 @position-try --custom-bottom {
@@ -47,6 +47,6 @@ console.log(tryOption.style.positionArea); // ""; no position-area specified
 - [`CSSPositionTryDescriptors`](/de/docs/Web/API/CSSPositionTryDescriptors)
 - {{cssxref("@position-try")}}
 - {{cssxref("position-try-fallbacks")}}
-- [CSS-Anker-Positionierung](/de/docs/Web/CSS/CSS_anchor_positioning)-Modul
-- [CSS-Anker-Positionierung verwenden](/de/docs/Web/CSS/CSS_anchor_positioning/Using)
-- [Umgang mit Überlauf: Optionen versuchen und bedingtes Verbergen](/de/docs/Web/CSS/CSS_anchor_positioning/Try_options_hiding)
+- [CSS-Ankerpositionierung](/de/docs/Web/CSS/CSS_anchor_positioning)-Modul
+- [Verwendung der CSS-Ankerpositionierung](/de/docs/Web/CSS/CSS_anchor_positioning/Using)
+- [Umgang mit Überlauf: Versuch-Optionen und bedingtes Verstecken](/de/docs/Web/CSS/CSS_anchor_positioning/Try_options_hiding)

@@ -3,22 +3,23 @@ title: "GPUPipelineLayout: label-Eigenschaft"
 short-title: label
 slug: Web/API/GPUPipelineLayout/label
 l10n:
-  sourceCommit: 759102220c07fb140b3e06971cd5981d8f0f134f
+  sourceCommit: 5f226b6f08c5cff7f96b7cc49a164fdc43d11a0c
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
+{{APIRef("WebGPU API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`label`**-Eigenschaft der [`GPUPipelineLayout`](/de/docs/Web/API/GPUPipelineLayout)-Schnittstelle bietet ein Label, das verwendet werden kann, um das Objekt zu identifizieren, beispielsweise in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen oder Konsolenwarnungen.
+Die **`label`**-Eigenschaft des
+[`GPUPipelineLayout`](/de/docs/Web/API/GPUPipelineLayout)-Interfaces bietet ein Label, das verwendet werden kann, um das Objekt zu identifizieren, zum Beispiel in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen oder Konsolenwarnungen.
 
-Dies kann festgelegt werden, indem eine `label`-Eigenschaft im Descriptor-Objekt angegeben wird, das im ursprünglichen Aufruf [`GPUDevice.createPipelineLayout()`](/de/docs/Web/API/GPUDevice/createPipelineLayout) übergeben wird, oder Sie können es direkt auf dem `GPUPipelineLayout`-Objekt abfragen und setzen.
+Dies kann durch das Bereitstellen einer `label`-Eigenschaft im Deskriptorobjekt, das im ursprünglichen Aufruf von [`GPUDevice.createPipelineLayout()`](/de/docs/Web/API/GPUDevice/createPipelineLayout) übergeben wird, eingestellt werden, oder Sie können es direkt auf dem `GPUPipelineLayout`-Objekt abrufen und setzen.
 
 ## Wert
 
-Ein String. Wenn dies nicht wie oben beschrieben zuvor gesetzt wurde, wird es ein leerer String sein.
+Ein String. Wenn dies nicht zuvor wie oben beschrieben gesetzt wurde, wird es ein leerer String sein.
 
 ## Beispiele
 
-Festlegen und Abrufen eines Labels über `GPUPipelineLayout.label`:
+Setzen und Abrufen eines Labels über `GPUPipelineLayout.label`:
 
 ```js
 // …
@@ -32,7 +33,7 @@ pipelineLayout.label = "my_pipeline_layout";
 console.log(pipelineLayout.label); // "my_pipeline_layout"
 ```
 
-Festlegen eines Labels über den ursprünglichen Aufruf [`GPUDevice.createPipelineLayout()`](/de/docs/Web/API/GPUDevice/createPipelineLayout) und dann Abrufen über `GPUPipelineLayout.label`:
+Setzen eines Labels über den ursprünglichen Aufruf von [`GPUDevice.createPipelineLayout()`](/de/docs/Web/API/GPUDevice/createPipelineLayout) und anschließend das Abrufen über `GPUPipelineLayout.label`:
 
 ```js
 // …

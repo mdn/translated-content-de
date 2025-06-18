@@ -2,30 +2,30 @@
 title: GPUBindGroupLayout
 slug: Web/API/GPUBindGroupLayout
 l10n:
-  sourceCommit: 759102220c07fb140b3e06971cd5981d8f0f134f
+  sourceCommit: 5f226b6f08c5cff7f96b7cc49a164fdc43d11a0c
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
+{{APIRef("WebGPU API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`GPUBindGroupLayout`**-Schnittstelle der [WebGPU API](/de/docs/Web/API/WebGPU_API) definiert die Struktur und den Zweck verwandter GPU-Ressourcen, wie z. B. Puffer, die in einer Pipeline verwendet werden, und dient als Vorlage beim Erstellen von [`GPUBindGroup`](/de/docs/Web/API/GPUBindGroup)s.
+Die **`GPUBindGroupLayout`** Schnittstelle der [WebGPU API](/de/docs/Web/API/WebGPU_API) definiert die Struktur und den Zweck von verwandten GPU-Ressourcen wie Buffern, die in einer Pipeline verwendet werden und dient als Vorlage bei der Erstellung von [`GPUBindGroup`](/de/docs/Web/API/GPUBindGroup)s.
 
-Ein `GPUBindGroupLayout`-Objekt wird mit der Methode [`GPUDevice.createBindGroupLayout()`](/de/docs/Web/API/GPUDevice/createBindGroupLayout) erstellt.
+Eine Instanz eines `GPUBindGroupLayout`-Objekts wird mit der Methode [`GPUDevice.createBindGroupLayout()`](/de/docs/Web/API/GPUDevice/createBindGroupLayout) erstellt.
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
-- [`label`](/de/docs/Web/API/GPUBindGroupLayout/label) {{Experimental_Inline}}
-  - : Ein String, der ein Label bereitstellt, das verwendet werden kann, um das Objekt zu identifizieren, beispielsweise in [`GPUError`](/de/docs/Web/API/GPUError)-Nachrichten oder Konsolenwarnungen.
+- [`label`](/de/docs/Web/API/GPUBindGroupLayout/label)
+  - : Ein String, der ein Label bereitstellt, das verwendet werden kann, um das Objekt zu identifizieren, beispielsweise in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen oder Konsolenwarnungen.
 
 ## Beispiele
 
 > [!NOTE]
-> Die [WebGPU-Beispiele](https://webgpu.github.io/webgpu-samples/) enthalten viele weitere Beispiele.
+> Die [WebGPU-Beispiele](https://webgpu.github.io/webgpu-samples/) bieten viele weitere Beispiele.
 
-### Grundlegendes Beispiel
+### Einfaches Beispiel
 
-Unser [Grundlegendes Compute-Demo](https://mdn.github.io/dom-examples/webgpu-compute-demo/) zeigt ein Beispiel dafür, wie man ein Bind-Group-Layout erstellt und dieses dann als Vorlage beim Erstellen einer Bind-Group verwendet.
+Unser [einfaches Compute-Demo](https://mdn.github.io/dom-examples/webgpu-compute-demo/) zeigt ein Beispiel dafür, wie eine Bind-Group-Layout erstellt und dann als Vorlage verwendet wird, wenn eine Bind-Group erstellt wird.
 
 ```js
 // …

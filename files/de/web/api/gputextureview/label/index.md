@@ -3,22 +3,22 @@ title: "GPUTextureView: label-Eigenschaft"
 short-title: label
 slug: Web/API/GPUTextureView/label
 l10n:
-  sourceCommit: 759102220c07fb140b3e06971cd5981d8f0f134f
+  sourceCommit: 5f226b6f08c5cff7f96b7cc49a164fdc43d11a0c
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
+{{APIRef("WebGPU API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`label`**-Eigenschaft der [`GPUTextureView`](/de/docs/Web/API/GPUTextureView)-Schnittstelle bietet ein Label, das verwendet werden kann, um das Objekt zu identifizieren, zum Beispiel in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen oder Konsolenwarnungen.
+Die **`label`**-Eigenschaft der [`GPUTextureView`](/de/docs/Web/API/GPUTextureView)-Schnittstelle bietet ein Etikett, das verwendet werden kann, um das Objekt zu identifizieren, beispielsweise in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen oder Konsolenwarnungen.
 
-Dies kann gesetzt werden, indem eine `label`-Eigenschaft im Descriptor-Objekt angegeben wird, das in den ursprünglichen Aufruf von [`GPUTexture.createView()`](/de/docs/Web/API/GPUTexture/createView) übergeben wird. Alternativ können Sie es direkt auf dem `GPUTextureView`-Objekt lesen und setzen.
+Diese kann gesetzt werden, indem eine `label`-Eigenschaft im Descriptor-Objekt bereitgestellt wird, das im ursprünglichen [`GPUTexture.createView()`](/de/docs/Web/API/GPUTexture/createView)-Aufruf übergeben wird, oder Sie können sie direkt auf dem `GPUTextureView`-Objekt setzen und abrufen.
 
 ## Wert
 
-Ein String. Wenn dies nicht wie oben beschrieben zuvor gesetzt wurde, ist es ein leerer String.
+Ein String. Wenn dies wie oben beschrieben nicht vorher festgelegt wurde, wird es ein leerer String sein.
 
 ## Beispiele
 
-Setzen und Abrufen eines Labels über `GPUTextureView.label`:
+Festlegen und Abrufen eines Etiketts über `GPUTextureView.label`:
 
 ```js
 // …
@@ -36,7 +36,7 @@ view.label = "my_view";
 console.log(view.label); // "my_view"
 ```
 
-Setzen eines Labels über den ursprünglichen Aufruf von [`GPUTexture.createView()`](/de/docs/Web/API/GPUTexture/createView) und anschließendes Abrufen über `GPUTextureView.label`:
+Festlegen eines Etiketts über den ursprünglichen [`GPUTexture.createView()`](/de/docs/Web/API/GPUTexture/createView)-Aufruf und anschließendes Abrufen über `GPUTextureView.label`:
 
 ```js
 // …
@@ -64,4 +64,4 @@ console.log(view.label); // "my_view"
 
 ## Siehe auch
 
-- Die [WebGPU API](/de/docs/Web/API/WebGPU_API)
+- Die [WebGPU-API](/de/docs/Web/API/WebGPU_API)

@@ -1,24 +1,24 @@
 ---
-title: "GPUCommandEncoder: label-Eigenschaft"
+title: "GPUCommandEncoder: Eigentum `label`"
 short-title: label
 slug: Web/API/GPUCommandEncoder/label
 l10n:
-  sourceCommit: bff3a6a2e6b3c13dd8bb0c80a1eb9da08cce5dc6
+  sourceCommit: 5f226b6f08c5cff7f96b7cc49a164fdc43d11a0c
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
+{{APIRef("WebGPU API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`label`**-Schreibgeschützte Eigenschaft der [`GPUCommandEncoder`](/de/docs/Web/API/GPUCommandEncoder)-Schnittstelle ist ein String, der ein Label bereitstellt, das verwendet werden kann, um das Objekt beispielsweise in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen oder Konsolenwarnungen zu identifizieren.
+Die **`label`**-Eigenschaft des [`GPUCommandEncoder`](/de/docs/Web/API/GPUCommandEncoder)-Interfaces ist eine schreibgeschützte Zeichenkette, die eine Bezeichnung bereitstellt, mit der das Objekt identifiziert werden kann, zum Beispiel in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen oder Konsolenwarnungen.
 
-Dies kann durch Bereitstellung einer `label`-Eigenschaft im Descriptor-Objekt, das in den ursprünglichen [`GPUDevice.createCommandEncoder()`](/de/docs/Web/API/GPUDevice/createCommandEncoder)-Aufruf übergeben wird, gesetzt werden, oder Sie können es direkt am `GPUCommandEncoder`-Objekt erhalten und setzen.
+Diese Bezeichnung kann bereitgestellt werden, indem eine `label`-Eigenschaft in das Descriptor-Objekt eingefügt wird, das an den ursprünglichen Aufruf von [`GPUDevice.createCommandEncoder()`](/de/docs/Web/API/GPUDevice/createCommandEncoder) übergeben wird, oder Sie können sie direkt am `GPUCommandEncoder`-Objekt abrufen und setzen.
 
 ## Wert
 
-Ein String. Wenn zuvor kein Labelwert gesetzt wurde, gibt das Abrufen des Labels einen leeren String zurück.
+Eine Zeichenkette. Wenn zuvor kein Labelwert festgelegt wurde, gibt das Abrufen des Labels eine leere Zeichenkette zurück.
 
 ## Beispiele
 
-Setzen und Abrufen eines Labels über `GPUCommandEncoder.label`:
+Ein Label über `GPUCommandEncoder.label` setzen und abrufen:
 
 ```js
 const commandEncoder = device.createCommandEncoder();
@@ -26,7 +26,7 @@ commandEncoder.label = "my_command_encoder";
 console.log(commandEncoder.label); // "my_command_encoder"
 ```
 
-Setzen eines Labels über den ursprünglichen [`GPUDevice.createCommandEncoder()`](/de/docs/Web/API/GPUDevice/createCommandEncoder)-Aufruf und anschließendes Abrufen über `GPUCommandEncoder.label`:
+Ein Label über den ursprünglichen Aufruf von [`GPUDevice.createCommandEncoder()`](/de/docs/Web/API/GPUDevice/createCommandEncoder) setzen und es dann über `GPUCommandEncoder.label` abrufen:
 
 ```js
 const commandEncoder = device.createCommandEncoder({

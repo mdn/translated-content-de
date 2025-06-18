@@ -2,59 +2,57 @@
 title: CSSPageDescriptors
 slug: Web/API/CSSPageDescriptors
 l10n:
-  sourceCommit: b5437b737639d6952d18b95ebd1045ed73e4bfa7
+  sourceCommit: 5f226b6f08c5cff7f96b7cc49a164fdc43d11a0c
 ---
 
-{{APIRef("CSSOM")}}{{SeeCompatTable}}
+{{APIRef("CSSOM")}}
 
-Die **`CSSPageDescriptors`**-Schnittstelle repräsentiert einen CSS-Deklarationsblock für eine {{cssxref("@page")}} [at-rule](/de/docs/Web/CSS/CSS_syntax/At-rule).
+Das **`CSSPageDescriptors`** Interface repräsentiert einen CSS-Deklarationsblock für eine {{cssxref("@page")}} [At-Regel](/de/docs/Web/CSS/CSS_syntax/At-rule).
 
-Die Schnittstelle stellt Stilinformationen sowie verschiedene stilbezogene Methoden und Eigenschaften für die Seite bereit.
-Jede mehrteilige Eigenschaft hat Versionen in Camel- und Snake-Case.
-Das bedeutet beispielsweise, dass Sie auf die `margin-top`-CSS-Eigenschaft mit der Syntax `style["margin-top"]` oder `style.marginTop` zugreifen können (wobei `style` ein `CSSPageDescriptor` ist).
+Das Interface bietet Stilinformationen sowie verschiedene stilbezogene Methoden und Eigenschaften für die Seite. Jede mehrteilige Eigenschaft hat Versionen in Camel- und Snake-Case. Das bedeutet zum Beispiel, dass Sie auf die CSS-Eigenschaft `margin-top` mit der Syntax `style["margin-top"]` oder `style.marginTop` zugreifen können (wobei `style` ein `CSSPageDescriptor` ist).
 
-Ein `CSSPageDescriptors`-Objekt wird über die [`style`](/de/docs/Web/API/CSSPageRule/style)-Eigenschaft der `CSSPageRule`-Schnittstelle aufgerufen, die wiederum mit der [`CSSStyleSheet`](/de/docs/Web/API/CSSStyleSheet)-API gefunden werden kann.
+Ein `CSSPageDescriptors`-Objekt wird über die [`style`](/de/docs/Web/API/CSSPageRule/style) Eigenschaft des `CSSPageRule` Interfaces abgerufen, die wiederum über die [`CSSStyleSheet`](/de/docs/Web/API/CSSStyleSheet) API gefunden werden kann.
 
 {{InheritanceDiagram}}
 
 ## Attribute
 
-_Diese Schnittstelle erbt auch Eigenschaften von ihrem Elternteil, [`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration)._
+_Dieses Interface erbt auch Eigenschaften seines Eltern-Interfaces, [`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration)._
 
-- `margin` {{experimental_inline}}
-  - : Ein String, der die `margin`-Eigenschaft der entsprechenden `@page`-at-rule darstellt.
-- `margin-top` {{experimental_inline}}
-  - : Ein String, der die `margin-top`-Eigenschaft der entsprechenden `@page`-at-rule darstellt.
-- `marginTop` {{experimental_inline}}
-  - : Ein String, der die `margin-top`-Eigenschaft der entsprechenden `@page`-at-rule darstellt.
-- `margin-right` {{experimental_inline}}
-  - : Ein String, der die `margin-right`-Eigenschaft der entsprechenden `@page`-at-rule darstellt.
-- `marginRight` {{experimental_inline}}
-  - : Ein String, der die `margin-right`-Eigenschaft der entsprechenden `@page`-at-rule darstellt.
-- `margin-bottom` {{experimental_inline}}
-  - : Ein String, der die `margin-bottom`-Eigenschaft der entsprechenden `@page`-at-rule darstellt.
-- `marginBottom` {{experimental_inline}}
-  - : Ein String, der die `margin-bottom`-Eigenschaft der entsprechenden `@page`-at-rule darstellt.
-- `margin-left` {{experimental_inline}}
-  - : Ein String, der die `margin-left`-Eigenschaft der entsprechenden `@page`-at-rule darstellt.
-- `marginLeft` {{experimental_inline}}
-  - : Ein String, der die `margin-left`-Eigenschaft der entsprechenden `@page`-at-rule darstellt.
+- `margin`
+  - : Ein String, der die `margin` Eigenschaft der entsprechenden `@page` At-Regel repräsentiert.
+- `margin-top`
+  - : Ein String, der die `margin-top` Eigenschaft der entsprechenden `@page` At-Regel repräsentiert.
+- `marginTop`
+  - : Ein String, der die `margin-top` Eigenschaft der entsprechenden `@page` At-Regel repräsentiert.
+- `margin-right`
+  - : Ein String, der die `margin-right` Eigenschaft der entsprechenden `@page` At-Regel repräsentiert.
+- `marginRight`
+  - : Ein String, der die `margin-right` Eigenschaft der entsprechenden `@page` At-Regel repräsentiert.
+- `margin-bottom`
+  - : Ein String, der die `margin-bottom` Eigenschaft der entsprechenden `@page` At-Regel repräsentiert.
+- `marginBottom`
+  - : Ein String, der die `margin-bottom` Eigenschaft der entsprechenden `@page` At-Regel repräsentiert.
+- `margin-left`
+  - : Ein String, der die `margin-left` Eigenschaft der entsprechenden `@page` At-Regel repräsentiert.
+- `marginLeft`
+  - : Ein String, der die `margin-left` Eigenschaft der entsprechenden `@page` At-Regel repräsentiert.
 - `page-orientation` {{experimental_inline}}
-  - : Ein String, der die `page-orientation`-Eigenschaft der entsprechenden `@page`-at-rule darstellt.
+  - : Ein String, der die `page-orientation` Eigenschaft der entsprechenden `@page` At-Regel repräsentiert.
 - `pageOrientation` {{experimental_inline}}
-  - : Ein String, der die `page-orientation`-Eigenschaft der entsprechenden `@page`-at-rule darstellt.
-- `size` {{experimental_inline}}
-  - : Ein String, der die `size`-Eigenschaft der entsprechenden `@page`-at-rule darstellt.
+  - : Ein String, der die `page-orientation` Eigenschaft der entsprechenden `@page` At-Regel repräsentiert.
+- `size`
+  - : Ein String, der die `size` Eigenschaft der entsprechenden `@page` At-Regel repräsentiert.
 
 ## Instanzmethoden
 
-_Diese Schnittstelle erbt die Methoden ihres Elternteils, [`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration)._
+_Dieses Interface erbt die Methoden seines Eltern-Interfaces, [`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration)._
 
 ## Beispiele
 
-### Untersuchen einer page-at-rule
+### Inspizieren einer Page-At-Regel
 
-Dieses Beispiel erhält die `CSSPageDescriptors` für eine {{cssxref("@page")}}-at-rule, falls das Objekt im Browser unterstützt wird, und protokolliert dann seine Eigenschaften.
+Dieses Beispiel erhält die `CSSPageDescriptors` für eine {{cssxref("@page")}} At-Regel, falls das Objekt im Browser unterstützt wird, und protokolliert dann dessen Eigenschaften.
 
 ```html hidden
 <pre id="log"></pre>
@@ -79,10 +77,7 @@ function log(text) {
 
 #### CSS
 
-Unten definieren wir Stile für die Seite mit einer {{cssxref("@page")}}-at-rule.
-Wir weisen jeder Margin-Eigenschaft unterschiedliche Werte mit der `margin`-Kurzform zu und spezifizieren auch die `size`.
-Wir setzen die `page-orientation` nicht.
-Dies ermöglicht uns zu sehen, wie die Eigenschaften im Web-API-Objekt zugeordnet werden.
+Unten definieren wir Stile für die Seite unter Verwendung einer {{cssxref("@page")}} At-Regel. Wir weisen jedem Margin-Eigenschaft über die Kurzform `margin` verschiedene Werte zu und spezifizieren auch die `size`. Wir setzen die `page-orientation` nicht. Dies ermöglicht es uns zu sehen, wie die Eigenschaften im Web-API-Objekt abgebildet werden.
 
 ```css
 @page {
@@ -94,13 +89,11 @@ Dies ermöglicht uns zu sehen, wie die Eigenschaften im Web-API-Objekt zugeordne
 
 #### JavaScript
 
-Zuerst überprüfen wir, ob `CSSPageDescriptors` im globalen Fensterobjekt definiert ist, und wenn nicht, protokollieren wir, dass die Schnittstelle nicht unterstützt wird.
+Zuerst prüfen wir, ob `CSSPageDescriptors` im globalen Window-Objekt definiert ist, und falls nicht, protokollieren wir, dass das Interface nicht unterstützt wird.
 
-Falls `CSSPageDescriptors` unterstützt wird, erhalten wir das Dokument-Stilesheet an Index `1` und dann die in diesem Stylesheet definierten `cssRules`.
-Wir müssen dieses Stylesheet erhalten, da das Beispiel in einem separaten Rahmen mit eigenem Stylesheet eingebettet ist (Index `0` ist das CSS für diese Seite).
+Falls `CSSPageDescriptors` unterstützt wird, holen wir das Dokumenten-Stylesheet bei Index `1` und dann die in diesem Stylesheet definierten `cssRules`. Wir müssen dieses Stylesheet erhalten, weil das Beispiel in einem separaten Frame mit eigenem Stylesheet eingebettet ist (Index `0` ist das CSS für diese Seite).
 
-Wir durchlaufen die definierten Regeln für das Live-Beispiel und vergleichen alle, die vom Typ `CSSPageRule` sind, da diese den `@page`-Regeln entsprechen.
-Für die passenden Objekte protokollieren wir dann den `style` und alle seine Werte.
+Wir iterieren dann durch die für das Live-Beispiel definierten Regeln und suchen nach denen vom Typ `CSSPageRule`, da diese den `@page` Regeln entsprechen. Für die passenden Objekte protokollieren wir das `style` und alle dessen Werte.
 
 ```js
 if (typeof window.CSSPageDescriptors === "undefined") {
@@ -139,9 +132,7 @@ if (typeof window.CSSPageDescriptors === "undefined") {
 
 #### Ergebnisse
 
-Die Ergebnisse werden unten gezeigt.
-Beachten Sie, dass das `style`-Objekt, das oben im Protokoll angezeigt wird, ein `CSSPageDescriptors` sein sollte, um der aktuellen Spezifikation zu entsprechen, in einigen Browsern jedoch ein `CSSStyleDeclaration` sein kann.
-Beachten Sie auch, dass die entsprechenden Werte für Eigenschaften in Camel- und Snake-Case einander und der `@page`-Deklaration entsprechen und dass `page-orientation` der leere String `""` ist, da es nicht in `@page` definiert ist.
+Die Ergebnisse werden unten angezeigt. Beachten Sie, dass das `style` Objekt, das oben im Protokoll angezeigt wird, ein `CSSPageDescriptors` sein sollte, um der aktuellen Spezifikation zu entsprechen, aber in einigen Browsern ein `CSSStyleDeclaration` sein kann. Beachten Sie auch, dass die entsprechenden Werte für Eigenschaften in Camel- und Snake-Case einander und der `@page` Deklaration entsprechen und dass `page-orientation` die leere Zeichenkette `""` ist, weil es in `@page` nicht definiert ist.
 
 {{EmbedLiveSample("Inspecting a page at-rule", "100%", "350px")}}
 

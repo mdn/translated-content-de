@@ -2,123 +2,123 @@
 title: GPUDevice
 slug: Web/API/GPUDevice
 l10n:
-  sourceCommit: 77d90a23ee0a3b5486a7963f68ad4e56efb06a7b
+  sourceCommit: 5f226b6f08c5cff7f96b7cc49a164fdc43d11a0c
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
+{{APIRef("WebGPU API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Das **`GPUDevice`**-Interface der [WebGPU API](/de/docs/Web/API/WebGPU_API) repräsentiert ein logisches GPU-Gerät. Dies ist das Hauptinterface, über das der Großteil der WebGPU-Funktionalität zugänglich ist.
+Die **`GPUDevice`**-Schnittstelle der [WebGPU API](/de/docs/Web/API/WebGPU_API) repräsentiert ein logisches GPU-Gerät. Dies ist die Hauptschnittstelle, über die die meisten Funktionen von WebGPU zugänglich sind.
 
 Ein `GPUDevice`-Objekt wird über die Methode [`GPUAdapter.requestDevice()`](/de/docs/Web/API/GPUAdapter/requestDevice) angefordert.
 
 {{InheritanceDiagram}}
 
-## Instanzeigenschaften
+## Instanzen Eigenschaften
 
 _Erbt Eigenschaften von seinem Elternteil, [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
 - [`adapterInfo`](/de/docs/Web/API/GPUDevice/adapterInfo) {{Experimental_Inline}} {{ReadOnlyInline}}
 
-  - : Ein [`GPUAdapterInfo`](/de/docs/Web/API/GPUAdapterInfo)-Objekt, das identifizierende Informationen über den Adapter, von dem das Gerät stammt, enthält.
+  - : Ein [`GPUAdapterInfo`](/de/docs/Web/API/GPUAdapterInfo)-Objekt, das Informationen zur Identifizierung über den Adapter des Geräts enthält.
 
-- [`features`](/de/docs/Web/API/GPUDevice/features) {{Experimental_Inline}} {{ReadOnlyInline}}
+- [`features`](/de/docs/Web/API/GPUDevice/features) {{ReadOnlyInline}}
 
   - : Ein [`GPUSupportedFeatures`](/de/docs/Web/API/GPUSupportedFeatures)-Objekt, das zusätzliche Funktionalitäten beschreibt, die vom Gerät unterstützt werden.
 
-- [`label`](/de/docs/Web/API/GPUDevice/label) {{Experimental_Inline}}
+- [`label`](/de/docs/Web/API/GPUDevice/label)
 
-  - : Ein String, der eine Bezeichnung bereitstellt, die zur Identifizierung des Objekts verwendet werden kann, beispielsweise in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen oder Konsolenwarnungen.
+  - : Ein String, der eine Bezeichnung liefert, die verwendet werden kann, um das Objekt zu identifizieren, beispielsweise in [`GPUError`](/de/docs/Web/API/GPUError)-Nachrichten oder Konsolenwarnungen.
 
-- [`limits`](/de/docs/Web/API/GPUDevice/limits) {{Experimental_Inline}} {{ReadOnlyInline}}
+- [`limits`](/de/docs/Web/API/GPUDevice/limits) {{ReadOnlyInline}}
 
-  - : Ein [`GPUSupportedLimits`](/de/docs/Web/API/GPUSupportedLimits)-Objekt, das die vom Gerät unterstützten Limits beschreibt.
+  - : Ein [`GPUSupportedLimits`](/de/docs/Web/API/GPUSupportedLimits)-Objekt, das die vom Gerät unterstützten Grenzen beschreibt.
 
-- [`lost`](/de/docs/Web/API/GPUDevice/lost) {{Experimental_Inline}} {{ReadOnlyInline}}
+- [`lost`](/de/docs/Web/API/GPUDevice/lost) {{ReadOnlyInline}}
 
-  - : Enthält ein {{jsxref("Promise")}}, das während der gesamten Lebensdauer des Geräts ausstehend bleibt und sich mit einem [`GPUDeviceLostInfo`](/de/docs/Web/API/GPUDeviceLostInfo)-Objekt auflöst, wenn das Gerät verloren geht.
+  - : Enthält ein {{jsxref("Promise")}}, das während der gesamten Lebensdauer des Geräts im Schwebezustand bleibt und mit einem [`GPUDeviceLostInfo`](/de/docs/Web/API/GPUDeviceLostInfo)-Objekt aufgelöst wird, wenn das Gerät verloren geht.
 
-- [`queue`](/de/docs/Web/API/GPUDevice/queue) {{Experimental_Inline}} {{ReadOnlyInline}}
+- [`queue`](/de/docs/Web/API/GPUDevice/queue) {{ReadOnlyInline}}
   - : Gibt die primäre [`GPUQueue`](/de/docs/Web/API/GPUQueue) für das Gerät zurück.
 
-## Instanzmethoden
+## Instanzen Methoden
 
 _Erbt Methoden von seinem Elternteil, [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
-- [`createBindGroup()`](/de/docs/Web/API/GPUDevice/createBindGroup) {{Experimental_Inline}}
+- [`createBindGroup()`](/de/docs/Web/API/GPUDevice/createBindGroup)
 
-  - : Erstellt eine [`GPUBindGroup`](/de/docs/Web/API/GPUBindGroup) basierend auf einem [`GPUBindGroupLayout`](/de/docs/Web/API/GPUBindGroupLayout), das einen Satz von Ressourcen definiert, die in einer Gruppe zusammengebunden werden sollen, und wie diese Ressourcen in Shader-Stufen verwendet werden.
+  - : Erstellt eine [`GPUBindGroup`](/de/docs/Web/API/GPUBindGroup) basierend auf einem [`GPUBindGroupLayout`](/de/docs/Web/API/GPUBindGroupLayout), das eine Menge von Ressourcen definiert, die in einer Gruppe gebunden werden und wie diese Ressourcen in Shader-Stufen verwendet werden.
 
-- [`createBindGroupLayout()`](/de/docs/Web/API/GPUDevice/createBindGroupLayout) {{Experimental_Inline}}
+- [`createBindGroupLayout()`](/de/docs/Web/API/GPUDevice/createBindGroupLayout)
 
-  - : Erstellt ein [`GPUBindGroupLayout`](/de/docs/Web/API/GPUBindGroupLayout), das die Struktur und den Zweck zusammenhängender GPU-Ressourcen wie Puffer definiert, die in einer Pipeline verwendet werden sollen, und wird als Vorlage beim Erstellen von [`GPUBindGroup`](/de/docs/Web/API/GPUBindGroup)s verwendet.
+  - : Erstellt ein [`GPUBindGroupLayout`](/de/docs/Web/API/GPUBindGroupLayout), das die Struktur und den Zweck von verwandten GPU-Ressourcen, wie z.B. Puffer, die in einer Pipeline verwendet werden, definiert und als Vorlage beim Erstellen von [`GPUBindGroup`](/de/docs/Web/API/GPUBindGroup)s verwendet wird.
 
-- [`createBuffer()`](/de/docs/Web/API/GPUDevice/createBuffer) {{Experimental_Inline}}
+- [`createBuffer()`](/de/docs/Web/API/GPUDevice/createBuffer)
 
-  - : Erstellt einen [`GPUBuffer`](/de/docs/Web/API/GPUBuffer), um Rohdaten für GPU-Operationen zu speichern.
+  - : Erstellt einen [`GPUBuffer`](/de/docs/Web/API/GPUBuffer), in dem Rohdaten gespeichert werden, um sie in GPU-Operationen zu verwenden.
 
-- [`createCommandEncoder()`](/de/docs/Web/API/GPUDevice/createCommandEncoder) {{Experimental_Inline}}
+- [`createCommandEncoder()`](/de/docs/Web/API/GPUDevice/createCommandEncoder)
 
-  - : Erstellt einen [`GPUCommandEncoder`](/de/docs/Web/API/GPUCommandEncoder), der verwendet wird, um Befehle zu kodieren, die an die GPU übermittelt werden sollen.
+  - : Erstellt einen [`GPUCommandEncoder`](/de/docs/Web/API/GPUCommandEncoder), der zum Codieren von Befehlen verwendet wird, die an die GPU ausgegeben werden sollen.
 
-- [`createComputePipeline()`](/de/docs/Web/API/GPUDevice/createComputePipeline) {{Experimental_Inline}}
+- [`createComputePipeline()`](/de/docs/Web/API/GPUDevice/createComputePipeline)
 
   - : Erstellt eine [`GPUComputePipeline`](/de/docs/Web/API/GPUComputePipeline), die die Compute-Shader-Stufe steuern kann und in einem [`GPUComputePassEncoder`](/de/docs/Web/API/GPUComputePassEncoder) verwendet werden kann.
 
-- [`createComputePipelineAsync()`](/de/docs/Web/API/GPUDevice/createComputePipelineAsync) {{Experimental_Inline}}
+- [`createComputePipelineAsync()`](/de/docs/Web/API/GPUDevice/createComputePipelineAsync)
 
-  - : Gibt ein {{jsxref("Promise")}} zurück, das mit einer [`GPUComputePipeline`](/de/docs/Web/API/GPUComputePipeline), die die Compute-Shader-Stufe steuern kann und in einem [`GPUComputePassEncoder`](/de/docs/Web/API/GPUComputePassEncoder) verwendet werden kann, erfüllt wird, wenn die Pipeline ohne Verzögerung genutzt werden kann.
+  - : Gibt ein {{jsxref("Promise")}} zurück, das mit einer [`GPUComputePipeline`](/de/docs/Web/API/GPUComputePipeline) erfüllt wird, die die Compute-Shader-Stufe steuern kann und in einem [`GPUComputePassEncoder`](/de/docs/Web/API/GPUComputePassEncoder) verwendet werden kann, sobald die Pipeline ohne Verzögerung genutzt werden kann.
 
-- [`createPipelineLayout()`](/de/docs/Web/API/GPUDevice/createPipelineLayout) {{Experimental_Inline}}
+- [`createPipelineLayout()`](/de/docs/Web/API/GPUDevice/createPipelineLayout)
 
-  - : Erstellt ein [`GPUPipelineLayout`](/de/docs/Web/API/GPUPipelineLayout), das die [`GPUBindGroupLayout`](/de/docs/Web/API/GPUBindGroupLayout)s definiert, die von einer Pipeline verwendet werden. Während der Befehlskodierung genutzte [`GPUBindGroup`](/de/docs/Web/API/GPUBindGroup)s müssen kompatible [`GPUBindGroupLayout`](/de/docs/Web/API/GPUBindGroupLayout)s haben.
+  - : Erstellt ein [`GPUPipelineLayout`](/de/docs/Web/API/GPUPipelineLayout), das die von einer Pipeline verwendeten [`GPUBindGroupLayout`](/de/docs/Web/API/GPUBindGroupLayout)s definiert. [`GPUBindGroup`](/de/docs/Web/API/GPUBindGroup)s, die während der Befehlskodierung mit der Pipeline verwendet werden, müssen kompatible [`GPUBindGroupLayout`](/de/docs/Web/API/GPUBindGroupLayout)s haben.
 
-- [`createQuerySet()`](/de/docs/Web/API/GPUDevice/createQuerySet) {{Experimental_Inline}}
+- [`createQuerySet()`](/de/docs/Web/API/GPUDevice/createQuerySet)
 
-  - : Erstellt ein [`GPUQuerySet`](/de/docs/Web/API/GPUQuerySet), das verwendet werden kann, um die Ergebnisse von Abfragen zu Aufträgen aufzuzeichnen, wie zum Beispiel Occlusion- oder Zeitstempelabfragen.
+  - : Erstellt ein [`GPUQuerySet`](/de/docs/Web/API/GPUQuerySet), das verwendet werden kann, um die Ergebnisse von Abfragen zu Pässen, wie z.B. Okklusions- oder Zeitstempelabfragen, aufzuzeichnen.
 
-- [`createRenderBundleEncoder()`](/de/docs/Web/API/GPUDevice/createRenderBundleEncoder) {{Experimental_Inline}}
+- [`createRenderBundleEncoder()`](/de/docs/Web/API/GPUDevice/createRenderBundleEncoder)
 
-  - : Erstellt einen [`GPURenderBundleEncoder`](/de/docs/Web/API/GPURenderBundleEncoder), der verwendet werden kann, um Befehlspakete vorab aufzuzeichnen. Diese können im [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder) mehrmals über die Methode [`executeBundles()`](/de/docs/Web/API/GPURenderPassEncoder/executeBundles) wiederverwendet werden.
+  - : Erstellt einen [`GPURenderBundleEncoder`](/de/docs/Web/API/GPURenderBundleEncoder), der verwendet werden kann, um Bündel von Befehlen vorzuabzeichnen. Diese können in [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder)s über die [`executeBundles()`](/de/docs/Web/API/GPURenderPassEncoder/executeBundles)-Methode wiederverwendet werden, so oft wie erforderlich.
 
-- [`createRenderPipeline()`](/de/docs/Web/API/GPUDevice/createRenderPipeline) {{Experimental_Inline}}
+- [`createRenderPipeline()`](/de/docs/Web/API/GPUDevice/createRenderPipeline)
 
   - : Erstellt eine [`GPURenderPipeline`](/de/docs/Web/API/GPURenderPipeline), die die Vertex- und Fragment-Shader-Stufen steuern kann und in einem [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder) oder [`GPURenderBundleEncoder`](/de/docs/Web/API/GPURenderBundleEncoder) verwendet werden kann.
 
-- [`createRenderPipelineAsync()`](/de/docs/Web/API/GPUDevice/createRenderPipelineAsync) {{Experimental_Inline}}
+- [`createRenderPipelineAsync()`](/de/docs/Web/API/GPUDevice/createRenderPipelineAsync)
 
-  - : Gibt ein {{jsxref("Promise")}} zurück, das mit einer [`GPURenderPipeline`](/de/docs/Web/API/GPURenderPipeline), die die Vertex- und Fragment-Shader-Stufen steuern kann und in einem [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder) oder [`GPURenderBundleEncoder`](/de/docs/Web/API/GPURenderBundleEncoder) verwendet werden kann, erfüllt wird, sobald die Pipeline ohne Verzögerung genutzt werden kann.
+  - : Gibt ein {{jsxref("Promise")}} zurück, das mit einer [`GPURenderPipeline`](/de/docs/Web/API/GPURenderPipeline) erfüllt wird, die die Vertex- und Fragment-Shader-Stufen steuern kann und in einem [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder) oder [`GPURenderBundleEncoder`](/de/docs/Web/API/GPURenderBundleEncoder) verwendet werden kann, sobald die Pipeline ohne Verzögerung genutzt werden kann.
 
-- [`createSampler()`](/de/docs/Web/API/GPUDevice/createSampler) {{Experimental_Inline}}
+- [`createSampler()`](/de/docs/Web/API/GPUDevice/createSampler)
 
-  - : Erstellt einen [`GPUSampler`](/de/docs/Web/API/GPUSampler), der steuert, wie Shader Texturressourcendaten transformieren und filtern.
+  - : Erstellt einen [`GPUSampler`](/de/docs/Web/API/GPUSampler), der steuert, wie Shader Texturressourcen-Daten transformieren und filtern.
 
-- [`createShaderModule()`](/de/docs/Web/API/GPUDevice/createShaderModule) {{Experimental_Inline}}
+- [`createShaderModule()`](/de/docs/Web/API/GPUDevice/createShaderModule)
 
   - : Erstellt ein [`GPUShaderModule`](/de/docs/Web/API/GPUShaderModule) aus einem String von WGSL-Quellcode.
 
-- [`createTexture()`](/de/docs/Web/API/GPUDevice/createTexture) {{Experimental_Inline}}
+- [`createTexture()`](/de/docs/Web/API/GPUDevice/createTexture)
 
-  - : Erstellt eine [`GPUTexture`](/de/docs/Web/API/GPUTexture), in der Texturdaten gespeichert werden, die in GPU-Rendering-Operationen verwendet werden sollen.
+  - : Erstellt eine [`GPUTexture`](/de/docs/Web/API/GPUTexture), in der Texturdaten gespeichert werden, um in GPU-Rendering-Operationen verwendet zu werden.
 
-- [`destroy()`](/de/docs/Web/API/GPUDevice/destroy) {{Experimental_Inline}}
+- [`destroy()`](/de/docs/Web/API/GPUDevice/destroy)
 
   - : Zerstört das Gerät und verhindert weitere Operationen darauf.
 
-- [`importExternalTexture()`](/de/docs/Web/API/GPUDevice/importExternalTexture) {{Experimental_Inline}}
+- [`importExternalTexture()`](/de/docs/Web/API/GPUDevice/importExternalTexture)
 
-  - : Nimmt ein [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement) als Eingabe und gibt ein [`GPUExternalTexture`](/de/docs/Web/API/GPUExternalTexture)-Wrapper-Objekt zurück, das einen Schnappschuss des Videos enthält und in GPU-Rendering-Operationen verwendet werden kann.
+  - : Nimmt ein [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement) als Eingabe und gibt ein [`GPUExternalTexture`](/de/docs/Web/API/GPUExternalTexture)-Wrapper-Objekt zurück, das eine Momentaufnahme des Videos enthält, die in GPU-Rendering-Operationen verwendet werden kann.
 
-- [`popErrorScope()`](/de/docs/Web/API/GPUDevice/popErrorScope) {{Experimental_Inline}}
+- [`popErrorScope()`](/de/docs/Web/API/GPUDevice/popErrorScope)
 
-  - : Entfernt einen bestehenden GPU-Fehlerbereich aus dem Fehlerbereichs-Stack und gibt ein {{jsxref("Promise")}} zurück, das sich zu einem Objekt ([`GPUInternalError`](/de/docs/Web/API/GPUInternalError), [`GPUOutOfMemoryError`](/de/docs/Web/API/GPUOutOfMemoryError) oder [`GPUValidationError`](/de/docs/Web/API/GPUValidationError)) auflöst, das den ersten im Bereich erfassten Fehler beschreibt, oder `null`, wenn kein Fehler aufgetreten ist.
+  - : Hebt einen vorhandenen GPU-Fehlerbereich aus dem Fehlerbereich-Stack und gibt ein {{jsxref("Promise")}} zurück, das sich zu einem Objekt ([`GPUInternalError`](/de/docs/Web/API/GPUInternalError), [`GPUOutOfMemoryError`](/de/docs/Web/API/GPUOutOfMemoryError) oder [`GPUValidationError`](/de/docs/Web/API/GPUValidationError)) auflöst, das den ersten im Bereich erfassten Fehler beschreibt, oder `null`, wenn kein Fehler aufgetreten ist.
 
-- [`pushErrorScope()`](/de/docs/Web/API/GPUDevice/pushErrorScope) {{Experimental_Inline}}
-  - : Fügt einen neuen GPU-Fehlerbereich zum Fehlerbereichs-Stack des Geräts hinzu, sodass Sie Fehler eines bestimmten Typs erfassen können.
+- [`pushErrorScope()`](/de/docs/Web/API/GPUDevice/pushErrorScope)
+  - : Legt einen neuen GPU-Fehlerbereich auf den Fehlerbereich-Stack des Geräts, um Fehler eines bestimmten Typs zu erfassen.
 
 ## Ereignisse
 
 - [`uncapturederror`](/de/docs/Web/API/GPUDevice/uncapturederror_event) {{Experimental_Inline}}
-  - : Wird ausgelöst, wenn ein Fehler geworfen wird, der nicht von einem GPU-Fehlerbereich beobachtet wurde, um eine Möglichkeit zur Berichterstattung über unerwartete Fehler zu bieten. Bekannte Fehlerfälle sollten mit [`pushErrorScope()`](/de/docs/Web/API/GPUDevice/pushErrorScope) und [`popErrorScope()`](/de/docs/Web/API/GPUDevice/popErrorScope) behandelt werden.
+  - : Wird ausgelöst, wenn ein Fehler geworfen wird, der nicht von einem GPU-Fehlerbereich beobachtet wurde, um eine Möglichkeit zu bieten, unerwartete Fehler zu melden. Bekannte Fehlerfälle sollten mit [`pushErrorScope()`](/de/docs/Web/API/GPUDevice/pushErrorScope) und [`popErrorScope()`](/de/docs/Web/API/GPUDevice/popErrorScope) behandelt werden.
 
 ## Beispiele
 
@@ -143,7 +143,7 @@ async function init() {
 }
 ```
 
-Sehen Sie sich die oben aufgeführten individuellen Mitgliedsseiten und die folgenden Demoseiten für viele weitere Beispiele zur Nutzung von `GPUDevice` an:
+Sehen Sie die einzelnen oben aufgelisteten Mitgliederseiten und die folgenden Demoseiten für viele weitere Beispiele zur Verwendung von `GPUDevice`:
 
 - [Grundlegendes Compute-Demo](https://mdn.github.io/dom-examples/webgpu-compute-demo/)
 - [Grundlegendes Render-Demo](https://mdn.github.io/dom-examples/webgpu-render-demo/)

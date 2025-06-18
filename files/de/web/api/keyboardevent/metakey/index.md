@@ -3,15 +3,16 @@ title: "KeyboardEvent: metaKey-Eigenschaft"
 short-title: metaKey
 slug: Web/API/KeyboardEvent/metaKey
 l10n:
-  sourceCommit: 7cd51a73ad94df604db79ccacbbe0513d0967650
+  sourceCommit: ae8bc7a516bbed676b875b6a53203027a0207ec1
 ---
 
 {{APIRef("UI Events")}}
 
-Die schreibgeschützte Eigenschaft **`KeyboardEvent.metaKey`** gibt einen booleschen Wert zurück, der angibt, ob die <kbd>Meta</kbd>-Taste gedrückt war (`true`) oder nicht (`false`), als das Ereignis auftrat. Einige Betriebssysteme können die Taste abfangen, sodass sie nie erkannt wird.
+Die schreibgeschützte Eigenschaft **`KeyboardEvent.metaKey`** gibt einen
+booleschen Wert zurück, der angibt, ob die <kbd>Meta</kbd>-Taste beim Auftreten des Ereignisses gedrückt wurde (`true`) oder nicht (`false`). Einige Betriebssysteme können die Taste abfangen, sodass sie nie erkannt wird.
 
 > [!NOTE]
-> Auf Macintosh-Tastaturen ist dies die <kbd>⌘ Command</kbd>-Taste.
+> Auf Macintosh-Tastaturen ist dies die <kbd>⌘ Befehl</kbd>-Taste.
 
 > [!NOTE]
 > Vor Firefox 118 wurde die <kbd>⊞ Windows</kbd>-Taste als "OS"-Taste und nicht als "Meta"-Taste behandelt. `KeyboardEvent.metaKey` war `false`, wenn die <kbd>⊞ Windows</kbd>-Taste gedrückt wurde.
@@ -29,7 +30,7 @@ Ein boolescher Wert.
 ```
 
 ```js
-document.querySelector("button").addEventListener("click", () => {
+document.querySelector("button").addEventListener("click", (e) => {
   document.querySelector("#output").textContent =
     `metaKey pressed? ${e.metaKey}`;
 });

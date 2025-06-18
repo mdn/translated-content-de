@@ -1,14 +1,14 @@
 ---
-title: "GPUCanvasContext: getConfiguration()-Methode"
+title: "GPUCanvasContext: getConfiguration() Methode"
 short-title: getConfiguration()
 slug: Web/API/GPUCanvasContext/getConfiguration
 l10n:
-  sourceCommit: 2c0f972d873ea2db5163dbcb12987847124751ad
+  sourceCommit: 5f226b6f08c5cff7f96b7cc49a164fdc43d11a0c
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
+{{APIRef("WebGPU API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`getConfiguration()`**-Methode der [`GPUCanvasContext`](/de/docs/Web/API/GPUCanvasContext)-Schnittstelle gibt die aktuelle Konfiguration zurück, die für den Kontext festgelegt wurde.
+Die **`getConfiguration()`** Methode der [`GPUCanvasContext`](/de/docs/Web/API/GPUCanvasContext) Schnittstelle gibt die aktuelle Konfiguration zurück, die für den Kontext eingestellt ist.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein Objekt, das die auf dem Kontext gesetzten Konfigurationsoptionen enthält (d.h. über die [`GPUCanvasContext.configure()`](/de/docs/Web/API/GPUCanvasContext/configure)-Methode festgelegt), oder `null`, wenn keine Konfiguration festgelegt ist (entweder wurde vorher keine Konfiguration festgelegt oder eine Konfiguration wurde festgelegt und dann wurde [`GPUCanvasContext.unconfigure()`](/de/docs/Web/API/GPUCanvasContext/unconfigure) auf dem Kontext aufgerufen).
+Ein Objekt, das die auf den Kontext gesetzten Konfigurationsoptionen enthält (d.h. über die [`GPUCanvasContext.configure()`](/de/docs/Web/API/GPUCanvasContext/configure) Methode), oder `null`, wenn keine Konfiguration eingestellt ist (entweder wurde zuvor keine Konfiguration gesetzt, oder eine Konfiguration wurde gesetzt und dann wurde [`GPUCanvasContext.unconfigure()`](/de/docs/Web/API/GPUCanvasContext/unconfigure) auf den Kontext angewendet).
 
 ## Beispiele
 

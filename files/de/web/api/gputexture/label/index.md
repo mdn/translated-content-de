@@ -3,14 +3,14 @@ title: "GPUTexture: label-Eigenschaft"
 short-title: label
 slug: Web/API/GPUTexture/label
 l10n:
-  sourceCommit: 759102220c07fb140b3e06971cd5981d8f0f134f
+  sourceCommit: 5f226b6f08c5cff7f96b7cc49a164fdc43d11a0c
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
+{{APIRef("WebGPU API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`label`**-Eigenschaft des [`GPUTexture`](/de/docs/Web/API/GPUTexture)-Interfaces bietet ein Label, das verwendet werden kann, um das Objekt zu identifizieren, beispielsweise in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen oder Konsolenwarnungen.
+Die **`label`**-Eigenschaft des [`GPUTexture`](/de/docs/Web/API/GPUTexture)-Interfaces bietet eine Bezeichnung, die zur Identifizierung des Objekts verwendet werden kann, beispielsweise in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen oder Konsolenwarnungen.
 
-Dies kann eingestellt werden, indem eine `label`-Eigenschaft im Deskriptorobjekt angegeben wird, das beim ursprünglichen Aufruf von [`GPUDevice.createTexture()`](/de/docs/Web/API/GPUDevice/createTexture) übergeben wird, oder Sie können es direkt auf dem `GPUTexture`-Objekt abrufen und setzen.
+Diese Bezeichnung kann festgelegt werden, indem eine `label`-Eigenschaft im Deskriptor-Objekt bereitgestellt wird, das beim ursprünglichen Aufruf von [`GPUDevice.createTexture()`](/de/docs/Web/API/GPUDevice/createTexture) übergeben wird. Alternativ können Sie diese direkt am `GPUTexture`-Objekt setzen und abrufen.
 
 ## Wert
 
@@ -18,7 +18,7 @@ Ein String. Wenn dies nicht wie oben beschrieben zuvor festgelegt wurde, wird es
 
 ## Beispiele
 
-Setzen und Abrufen eines Labels über `GPUTexture.label`:
+Setzen und Abrufen einer Bezeichnung über `GPUTexture.label`:
 
 ```js
 // …
@@ -34,7 +34,7 @@ depthTexture.label = "my_texture";
 console.log(depthTexture.label); // "my_texture"
 ```
 
-Setzen eines Labels über den ursprünglichen Aufruf von [`GPUDevice.createTexture()`](/de/docs/Web/API/GPUDevice/createTexture) und dann Abrufen über `GPUTexture.label`:
+Festlegen einer Bezeichnung über den ursprünglichen Aufruf von [`GPUDevice.createTexture()`](/de/docs/Web/API/GPUDevice/createTexture) und anschließendem Abrufen über `GPUTexture.label`:
 
 ```js
 // …
@@ -59,4 +59,4 @@ console.log(depthTexture.label); // "my_texture"
 
 ## Siehe auch
 
-- Die [WebGPU API](/de/docs/Web/API/WebGPU_API)
+- Die [WebGPU-API](/de/docs/Web/API/WebGPU_API)

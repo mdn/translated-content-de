@@ -1,14 +1,14 @@
 ---
-title: "GPUCommandEncoder: copyBufferToBuffer()-Methode"
+title: "GPUCommandEncoder: copyBufferToBuffer() Methode"
 short-title: copyBufferToBuffer()
 slug: Web/API/GPUCommandEncoder/copyBufferToBuffer
 l10n:
-  sourceCommit: 1e1e0c43a7edb8835370e4c9ebc07d60a2372cf3
+  sourceCommit: 5f226b6f08c5cff7f96b7cc49a164fdc43d11a0c
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}
+{{APIRef("WebGPU API")}}{{SecureContext_Header}}
 
-Die **`copyBufferToBuffer()`**-Methode der [`GPUCommandEncoder`](/de/docs/Web/API/GPUCommandEncoder)-Schnittstelle kodiert einen Befehl, der Daten von einem [`GPUBuffer`](/de/docs/Web/API/GPUBuffer) in einen anderen kopiert.
+Die **`copyBufferToBuffer()`**-Methode der [`GPUCommandEncoder`](/de/docs/Web/API/GPUCommandEncoder)-Schnittstelle kodiert einen Befehl, der Daten von einem [`GPUBuffer`](/de/docs/Web/API/GPUBuffer) zu einem anderen kopiert.
 
 ## Syntax
 
@@ -23,16 +23,16 @@ copyBufferToBuffer(source, sourceOffset, destination, destinationOffset, size)
 - `source`
   - : Der [`GPUBuffer`](/de/docs/Web/API/GPUBuffer), von dem kopiert wird.
 - `sourceOffset` {{optional_inline}}
-  - : Der Offset in Bytes in den `source`, ab dem das Kopieren beginnt.
+  - : Der Offset in Bytes im `source`, ab dem mit dem Kopieren begonnen wird.
 - `destination`
   - : Der [`GPUBuffer`](/de/docs/Web/API/GPUBuffer), in den kopiert wird.
 - `destinationOffset` {{optional_inline}}
-  - : Der Offset in Bytes in den `destination`, ab dem das Kopieren beginnt.
+  - : Der Offset in Bytes im `destination`, ab dem in den Buffer kopiert wird.
 - `size` {{optional_inline}}
   - : Die Anzahl der Bytes, die kopiert werden sollen.
 
 > [!NOTE]
-> Der `sourceOffset` und `destinationOffset` können weggelassen werden, wenn ein Teil des Quellpuffers mit einem `0`-Offset in beiden Puffern kopiert wird. `sourceOffset`, `destinationOffset` und `size` können weggelassen werden, wenn der gesamte Quellpuffer in den Zielpuffer kopiert wird.
+> Der `sourceOffset` und `destinationOffset` können weggelassen werden, wenn Sie einen Teil des Quell-Buffers mit einem Offset von `0` in beiden Buffern kopieren. `sourceOffset`, `destinationOffset` und `size` können weggelassen werden, wenn Sie den gesamten Quell-Buffer in den Ziel-Buffer kopieren.
 
 ### Rückgabewert
 
@@ -40,18 +40,18 @@ Keiner ({{jsxref("Undefined")}}).
 
 ### Validierung
 
-Die folgenden Kriterien müssen erfüllt sein, wenn **`copyBufferToBuffer()`** aufgerufen wird, andernfalls wird ein [`GPUValidationError`](/de/docs/Web/API/GPUValidationError) generiert und der [`GPUCommandEncoder`](/de/docs/Web/API/GPUCommandEncoder) wird ungültig:
+Die folgenden Kriterien müssen erfüllt sein, wenn **`copyBufferToBuffer()`** aufgerufen wird, sonst wird ein [`GPUValidationError`](/de/docs/Web/API/GPUValidationError) erzeugt und der [`GPUCommandEncoder`](/de/docs/Web/API/GPUCommandEncoder) wird ungültig:
 
-- Die [`GPUBuffer.usage`](/de/docs/Web/API/GPUBuffer/usage) des `source` enthält das `GPUBufferUsage.COPY_SRC`-Flag.
-- Die [`GPUBuffer.usage`](/de/docs/Web/API/GPUBuffer/usage) des `destination` enthält das `GPUBufferUsage.COPY_DST`-Flag.
-- `size`, `sourceOffset` und `destinationOffset` sind Vielfache von 4.
-- Die [`GPUBuffer.size`](/de/docs/Web/API/GPUBuffer/size) des `source` ist größer als oder gleich `sourceOffset` + `size`.
-- Die [`GPUBuffer.size`](/de/docs/Web/API/GPUBuffer/size) des `destination` ist größer als oder gleich `destinationOffset` + `size`.
-- `source` und `destination` sind unterschiedliche [`GPUBuffer`](/de/docs/Web/API/GPUBuffer)s (man kann nicht von und zu demselben Puffer kopieren).
+- Der `source`'s [`GPUBuffer.usage`](/de/docs/Web/API/GPUBuffer/usage) enthält das `GPUBufferUsage.COPY_SRC`-Flag.
+- Der `destination`'s [`GPUBuffer.usage`](/de/docs/Web/API/GPUBuffer/usage) enthält das `GPUBufferUsage.COPY_DST`-Flag.
+- `size`, `sourceOffset` und `destinationOffset` sind alle Vielfache von 4.
+- Der `source`'s [`GPUBuffer.size`](/de/docs/Web/API/GPUBuffer/size) ist größer oder gleich `sourceOffset` + `size`.
+- Der `destination`'s [`GPUBuffer.size`](/de/docs/Web/API/GPUBuffer/size) ist größer oder gleich `destinationOffset` + `size`.
+- `source` und `destination` sind unterschiedliche [`GPUBuffer`](/de/docs/Web/API/GPUBuffer)s (Sie können nicht vom selben Buffer kopieren und zu diesem zurückkopieren).
 
 ## Beispiele
 
-In unserem [basic compute demo](https://mdn.github.io/dom-examples/webgpu-compute-demo/) verwenden wir `copyBufferToBuffer()`, um den Inhalt unseres `outputBuffer` in den `stagingBuffer` zu kopieren.
+In unserem [einfachen Compute-Demo](https://mdn.github.io/dom-examples/webgpu-compute-demo/) verwenden wir `copyBufferToBuffer()`, um den Inhalt unseres `outputBuffer` in den `stagingBuffer` zu kopieren.
 
 ```js
 // …

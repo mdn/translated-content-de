@@ -3,12 +3,12 @@ title: "GPUDevice: createSampler() Methode"
 short-title: createSampler()
 slug: Web/API/GPUDevice/createSampler
 l10n:
-  sourceCommit: 759102220c07fb140b3e06971cd5981d8f0f134f
+  sourceCommit: 5f226b6f08c5cff7f96b7cc49a164fdc43d11a0c
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
+{{APIRef("WebGPU API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`createSampler()`** Methode der [`GPUDevice`](/de/docs/Web/API/GPUDevice) Schnittstelle erstellt einen [`GPUSampler`](/de/docs/Web/API/GPUSampler), der steuert, wie Shader Texturressourcendaten transformieren und filtern.
+Die **`createSampler()`**-Methode des [`GPUDevice`](/de/docs/Web/API/GPUDevice)-Interfaces erstellt einen [`GPUSampler`](/de/docs/Web/API/GPUSampler), der steuert, wie Shader Texturressourcendaten transformieren und filtern.
 
 ## Syntax
 
@@ -25,25 +25,25 @@ createSampler(descriptor)
 
     - `addressModeU` {{optional_inline}}
 
-      - : Ein enumerierter Wert, der das Verhalten des Samplers spezifiziert, wenn die Abtastfläche die Breite der Textur überschreitet. Mögliche Werte sind:
+      - : Ein enumerierter Wert, der das Verhalten des Samplers angibt, wenn die Sample-Footprint-Breite über die Breite der Textur hinausgeht. Mögliche Werte sind:
 
-        - `"clamp-to-edge"`: Die Texturkoordinaten werden auf den Bereich zwischen 0,0 und 1,0 begrenzt.
-        - `"repeat"`: Die Texturkoordinaten umwickeln auf die andere Seite der Textur.
-        - `"mirror-repeat"`: Die Texturkoordinaten umwickeln auf die andere Seite der Textur, aber die Textur wird gespiegelt, wenn der ganzzahlige Teil der Koordinate ungerade ist.
+        - `"clamp-to-edge"`: Die Texturkoordinaten werden zwischen 0,0 und 1,0 eingeschränkt.
+        - `"repeat"`: Die Texturkoordinaten wickeln sich auf die andere Seite der Textur.
+        - `"mirror-repeat"`: Die Texturkoordinaten wickeln sich auf die andere Seite der Textur, jedoch wird die Textur gespiegelt, wenn der ganzzahlige Teil der Koordinate ungerade ist.
 
-        Wenn weggelassen, ist der Standardwert für `addressModeU` `"clamp-to-edge"`.
+        Wenn weggelassen, ist `addressModeU` standardmäßig auf `"clamp-to-edge"` gesetzt.
 
     - `addressModeV` {{optional_inline}}
-      - : Ein enumerierter Wert, der das Verhalten des Samplers spezifiziert, wenn die Abtastfläche die Höhe der Textur überschreitet. Mögliche und Standardwerte sind dieselben wie für `addressModeU`.
+      - : Ein enumerierter Wert, der das Verhalten des Samplers angibt, wenn die Sample-Footprint-Höhe über die Höhe der Textur hinausgeht. Mögliche und Standardwerte sind die gleichen wie für `addressModeU`.
     - `addressModeW` {{optional_inline}}
 
-      - : Ein enumerierter Wert, der das Verhalten des Samplers spezifiziert, wenn die Abtastfläche die Tiefe der Textur überschreitet. Mögliche und Standardwerte sind dieselben wie für `addressModeU`.
+      - : Ein enumerierter Wert, der das Verhalten des Samplers angibt, wenn die Sample-Footprint-Tiefe über die Tiefe der Textur hinausgeht. Mögliche und Standardwerte sind die gleichen wie für `addressModeU`.
 
     - `compare` {{optional_inline}}
 
-      - : Wenn angegeben, ist der Sampler ein Vergleichs-Sampler des angegebenen Typs. Mögliche (enumerierte) Werte sind:
+      - : Wenn angegeben, wird der Sampler ein Vergleichssampler des angegebenen Typs sein. Mögliche (enumerierte) Werte sind:
 
-        - `"never"`: Vergleichstests schlagen immer fehl.
+        - `"never"`: Vergleichstests bestehen niemals.
         - `"less"`: Ein bereitgestellter Wert besteht den Vergleichstest, wenn er kleiner als der abgetastete Wert ist.
         - `"equal"`: Ein bereitgestellter Wert besteht den Vergleichstest, wenn er gleich dem abgetasteten Wert ist.
         - `"less-equal"`: Ein bereitgestellter Wert besteht den Vergleichstest, wenn er kleiner oder gleich dem abgetasteten Wert ist.
@@ -52,57 +52,57 @@ createSampler(descriptor)
         - `"greater-equal"`: Ein bereitgestellter Wert besteht den Vergleichstest, wenn er größer oder gleich dem abgetasteten Wert ist.
         - `"always"`: Vergleichstests bestehen immer.
 
-        Vergleichs-Sampler können Filtern verwenden, aber die Abtastergebnisse werden implementierungsabhängig sein und können von den normalen Filterregeln abweichen.
+        Vergleichssampler können Filtern verwenden, aber die Abtastergebnisse werden implementierungsabhängig sein und können sich von den normalen Filterregeln unterscheiden.
 
     - `label` {{optional_inline}}
 
-      - : Ein String, der ein Label bereitstellt, das verwendet werden kann, um das Objekt zu identifizieren, zum Beispiel in [`GPUError`](/de/docs/Web/API/GPUError) Nachrichten oder Konsolenwarnungen.
+      - : Ein String, der eine Bezeichnung bereitstellt, welche zur Identifizierung des Objekts verwendet werden kann, zum Beispiel in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen oder Konsolenwarnungen.
 
     - `lodMinClamp` {{optional_inline}}
-      - : Eine Zahl, die die minimale Detailebene spezifiziert, die intern beim Abtasten einer Textur verwendet wird. Wenn weggelassen, ist der Standardwert für `lodMinClamp` 0.
+      - : Eine Zahl, die das minimale interne Detailniveau angibt, das beim Abtasten einer Textur verwendet wird. Wenn weggelassen, ist `lodMinClamp` standardmäßig auf 0 gesetzt.
     - `lodMaxClamp` {{optional_inline}}
 
-      - : Eine Zahl, die die maximale Detailebene spezifiziert, die intern beim Abtasten einer Textur verwendet wird. Wenn weggelassen, ist der Standardwert für `lodMaxClamp` 32.
+      - : Eine Zahl, die das maximale interne Detailniveau angibt, das beim Abtasten einer Textur verwendet wird. Wenn weggelassen, ist `lodMaxClamp` standardmäßig auf 32 gesetzt.
 
     - `maxAnisotropy` {{optional_inline}}
 
-      - : Spezifiziert den maximalen Wert für Anisotropie, der vom Sampler verwendet wird. Wenn weggelassen, beträgt der Standardwert für `maxAnisotropy` 1.
+      - : Gibt den maximalen Anisotropiewert an, der vom Sampler verwendet wird. Wenn weggelassen, ist `maxAnisotropy` standardmäßig auf 1 gesetzt.
 
-        Die meisten Implementierungen unterstützen `maxAnisotropy` Werte in einem Bereich von 1 bis einschließlich 16. Der verwendete Wert wird auf den maximalen Wert, den die zugrunde liegende Plattform unterstützt, begrenzt.
+        Die meisten Implementierungen unterstützen `maxAnisotropy`-Werte in einem Bereich zwischen 1 und 16, inklusive. Der verwendete Wert wird auf den maximalen Wert begrenzt, den die zugrunde liegende Plattform unterstützt.
 
     - `magFilter` {{optional_inline}}
 
-      - : Ein enumerierter Wert, der das Abtastverhalten spezifiziert, wenn die Abtastfläche kleiner oder gleich einem Texel ist. Mögliche Werte sind:
+      - : Ein enumerierter Wert, der das Abtastverhalten angibt, wenn die Sample-Footprint-Größe kleiner oder gleich einem Texel ist. Mögliche Werte sind:
 
-        - `"nearest"`: Gibt den Wert des Texels zurück, der den Texturkoordinaten am nächsten liegt.
+        - `"nearest"`: Gibt den Wert des Texels zurück, der den Texturkoordinaten am nächsten ist.
         - `"linear"`: Wählt zwei Texel in jeder Dimension und gibt eine lineare Interpolation zwischen ihren Werten zurück.
 
-        Wenn weggelassen, ist der Standardwert für `magFilter` `"nearest"`.
+        Wenn weggelassen, ist `magFilter` standardmäßig auf `"nearest"` gesetzt.
 
         > [!NOTE]
-        > Das `float32-filterable` [Feature](/de/docs/Web/API/GPUSupportedFeatures) muss aktiviert sein, damit `r32float`-, `rg32float`- und `rgba32float`-[`format`](/de/docs/Web/API/GPUDevice/createTexture#format) [`GPUTexture`](/de/docs/Web/API/GPUTexture)s filterbar sind.
+        > Das `float32-filterable` [Feature](/de/docs/Web/API/GPUSupportedFeatures) muss aktiviert sein, damit `r32float`-, `rg32float`- und `rgba32float`-[`format`](/de/docs/Web/API/GPUDevice/createTexture#format)-[`GPUTexture`](/de/docs/Web/API/GPUTexture)s filterbar sind.
 
     - `minFilter` {{optional_inline}}
-      - : Ein enumerierter Wert, der das Abtastverhalten spezifiziert, wenn die Abtastfläche größer als ein Texel ist. Mögliche und Standardwerte sind die gleichen wie für `magFilter`.
+      - : Ein enumerierter Wert, der das Abtastverhalten angibt, wenn die Sample-Footprint-Größe größer als ein Texel ist. Mögliche und Standardwerte sind die gleichen wie für `magFilter`.
     - `mipmapFilter` {{optional_inline}}
-      - : Ein enumerierter Wert, der das Verhalten beim Abtasten zwischen Mip-Kartierungsebenen spezifiziert. Mögliche und Standardwerte sind die gleichen wie für `magFilter`.
+      - : Ein enumerierter Wert, der das Verhalten beim Abtasten zwischen Mipmap-Ebenen angibt. Mögliche und Standardwerte sind die gleichen wie für `magFilter`.
 
 ### Rückgabewert
 
-Eine [`GPUSampler`](/de/docs/Web/API/GPUSampler) Objektinstanz.
+Eine [`GPUSampler`](/de/docs/Web/API/GPUSampler)-Objektinstanz.
 
 ### Validierung
 
-Die folgenden Kriterien müssen erfüllt sein, wenn **`createSampler()`** aufgerufen wird, andernfalls wird ein [`GPUValidationError`](/de/docs/Web/API/GPUValidationError) erzeugt und ein ungültiges [`GPUSampler`](/de/docs/Web/API/GPUSampler) Objekt zurückgegeben:
+Die folgenden Kriterien müssen beim Aufruf von **`createSampler()`** erfüllt sein, sonst wird ein [`GPUValidationError`](/de/docs/Web/API/GPUValidationError) generiert und ein ungültiges [`GPUSampler`](/de/docs/Web/API/GPUSampler)-Objekt zurückgegeben:
 
-- `lodMinClamp` ist gleich oder größer als 0.
-- `lodMaxClamp` ist gleich oder größer als `lodMinClamp`.
-- `maxAnisotropy` ist gleich oder größer als 1.
+- `lodMinClamp` ist größer oder gleich 0.
+- `lodMaxClamp` ist größer oder gleich `lodMinClamp`.
+- `maxAnisotropy` ist größer oder gleich 1.
 - Wenn `maxAnisotropy` größer als 1 ist, sind `magFilter`, `minFilter` und `mipmapFilter` `"linear"`.
 
 ## Beispiele
 
-Das folgende Beispiel erstellt einen `GPUSampler`, der trilineares Filtern durchführt und Texturkoordinaten wiederholt:
+Der folgende Codeausschnitt erstellt einen `GPUSampler`, der trilineares Filtern durchführt und Texturkoordinaten wiederholt:
 
 ```js
 // …
@@ -116,7 +116,7 @@ const sampler = device.createSampler({
 });
 ```
 
-Die WebGPU-Beispiele [Schattenmappierung Beispiel](https://webgpu.github.io/webgpu-samples/samples/shadowMapping/) verwenden Vergleichs-Sampler, um aus einer Tiefentextur zu sampeln, um Schatten zu rendern.
+Das WebGPU-Beispiel [Shadow Mapping sample](https://webgpu.github.io/webgpu-samples/samples/shadowMapping/) verwendet Vergleichssampler, um aus einer Tiefentextur Schatten zu rendern.
 
 ## Spezifikationen
 

@@ -3,22 +3,22 @@ title: "GPUComputePipeline: label-Eigenschaft"
 short-title: label
 slug: Web/API/GPUComputePipeline/label
 l10n:
-  sourceCommit: 759102220c07fb140b3e06971cd5981d8f0f134f
+  sourceCommit: 5f226b6f08c5cff7f96b7cc49a164fdc43d11a0c
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
+{{APIRef("WebGPU API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`label`**-Eigenschaft der [`GPUComputePipeline`](/de/docs/Web/API/GPUComputePipeline)-Schnittstelle bietet eine Bezeichnung, die verwendet werden kann, um das Objekt zu identifizieren, beispielsweise in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen oder Konsolenwarnungen.
+Die **`label`**-Eigenschaft des [`GPUComputePipeline`](/de/docs/Web/API/GPUComputePipeline)-Interfaces liefert ein Label, das zur Identifikation des Objekts verwendet werden kann, zum Beispiel in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen oder Konsolenwarnungen.
 
-Diese kann festgelegt werden, indem eine `label`-Eigenschaft im Deskriptor-Objekt angegeben wird, das an den [`GPUDevice.createComputePipeline()`](/de/docs/Web/API/GPUDevice/createComputePipeline)- oder [`GPUDevice.createComputePipelineAsync()`](/de/docs/Web/API/GPUDevice/createComputePipelineAsync)-Aufruf übergeben wird. Alternativ können Sie sie direkt am `GPUComputePipeline`-Objekt abrufen und festlegen.
+Dieses kann durch die Angabe einer `label`-Eigenschaft im Deskriptorobjekt gesetzt werden, das in den ursprünglichen Aufruf von [`GPUDevice.createComputePipeline()`](/de/docs/Web/API/GPUDevice/createComputePipeline) oder [`GPUDevice.createComputePipelineAsync()`](/de/docs/Web/API/GPUDevice/createComputePipelineAsync) übergeben wird. Alternativ können Sie es direkt auf dem `GPUComputePipeline`-Objekt abrufen und setzen.
 
 ## Wert
 
-Ein String. Wenn dies zuvor nicht wie oben beschrieben festgelegt wurde, ist es ein leerer String.
+Ein String. Wenn dieser nicht wie oben beschrieben zuvor gesetzt wurde, wird er als leerer String vorliegen.
 
 ## Beispiele
 
-Festlegen und Abrufen einer Bezeichnung über `GPUComputePipeline.label`:
+Ein Label über `GPUComputePipeline.label` setzen und abrufen:
 
 ```js
 // …
@@ -38,7 +38,7 @@ computePipeline.label = "my_compute_pipeline";
 console.log(computePipeline.label); // "my_compute_pipeline"
 ```
 
-Festlegen einer Bezeichnung über einen [`GPUDevice.createComputePipeline()`](/de/docs/Web/API/GPUDevice/createComputePipeline)-Aufruf und anschließendes Abrufen über `GPUComputePipeline.label`:
+Ein Label über einen [`GPUDevice.createComputePipeline()`](/de/docs/Web/API/GPUDevice/createComputePipeline)-Aufruf setzen und dann über `GPUComputePipeline.label` abrufen:
 
 ```js
 // …

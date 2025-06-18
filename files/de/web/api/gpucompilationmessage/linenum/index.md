@@ -3,12 +3,12 @@ title: "GPUCompilationMessage: lineNum-Eigenschaft"
 short-title: lineNum
 slug: Web/API/GPUCompilationMessage/lineNum
 l10n:
-  sourceCommit: cc41ecd796870c2b6c77ad0b04fcb8d8c7d877d2
+  sourceCommit: 5f226b6f08c5cff7f96b7cc49a164fdc43d11a0c
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
+{{APIRef("WebGPU API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`lineNum`**-Eigenschaft des [`GPUCompilationMessage`](/de/docs/Web/API/GPUCompilationMessage)-Interfaces ist eine Zahl, die die Zeilennummer im Shader-Code repräsentiert, auf die sich die Nachricht bezieht.
+Die **`lineNum`**-Schreibgeschützte Eigenschaft der [`GPUCompilationMessage`](/de/docs/Web/API/GPUCompilationMessage)-Schnittstelle ist eine Zahl, die die Zeilennummer im Shader-Code darstellt, auf die sich die Nachricht bezieht.
 
 ## Wert
 
@@ -16,10 +16,10 @@ Eine Zahl.
 
 Beachten Sie:
 
-- Wenn sich die Nachricht auf ein Teilstück bezieht, steht `lineNum` für die Zeilennummer, an der das Teilstück beginnt.
-- Wenn sich die Nachricht nicht auf eine spezifische Zeile des Codes bezieht (vielleicht bezieht sie sich auf den gesamten Shader-Code), wird `lineNum` 0 sein.
-- Die Werte sind einsbasiert — ein Wert von 1 bezieht sich auf die erste Zeile des Codes.
-- Zeilen werden durch Zeilenumbrüche begrenzt. In WGSL ist eine [spezifische Liste von Zeichen](https://gpuweb.github.io/gpuweb/wgsl/#line-break) als Zeilenumbrüche definiert.
+- Wenn die Nachricht einem Substring entspricht, bezieht sich `lineNum` auf die Zeilennummer, bei der der Substring beginnt.
+- Wenn die Nachricht sich nicht auf eine spezifische Zeile im Code bezieht (möglicherweise bezieht sie sich auf den gesamten Shader-Code), wird `lineNum` 0 sein.
+- Werte sind eins-basiert — ein Wert von 1 bezieht sich auf die erste Zeile des Codes.
+- Zeilen werden durch Zeilenumbrüche begrenzt. In WGSL wird eine [spezifische Liste von Zeichen](https://gpuweb.github.io/gpuweb/wgsl/#line-break) als Zeilenumbrüche definiert.
 
 ## Beispiele
 
@@ -33,7 +33,7 @@ const firstMessage = shaderInfo.messages[0];
 console.log(firstMessage.lineNum);
 ```
 
-Sehen Sie die Hauptseite zu [`GPUCompilationInfo`](/de/docs/Web/API/GPUCompilationInfo#examples) für ein detaillierteres Beispiel.
+Siehe die Hauptseite [`GPUCompilationInfo`](/de/docs/Web/API/GPUCompilationInfo#examples) für ein detaillierteres Beispiel.
 
 ## Spezifikationen
 

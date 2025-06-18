@@ -3,12 +3,12 @@ title: "ScrollTimeline: source-Eigenschaft"
 short-title: source
 slug: Web/API/ScrollTimeline/source
 l10n:
-  sourceCommit: 34bc6ac7c5d03e5891bf94b0d4ebeccb0e7a29e5
+  sourceCommit: 5f226b6f08c5cff7f96b7cc49a164fdc43d11a0c
 ---
 
-{{APIRef("Web Animations")}}{{SeeCompatTable}}
+{{APIRef("Web Animations")}}
 
-Die schreibgeschützte **`source`**-Eigenschaft der [`ScrollTimeline`](/de/docs/Web/API/ScrollTimeline)-Schnittstelle gibt eine Referenz auf das scrollbare Element (_Scroller_) zurück, dessen Scrollposition den Fortschritt der Zeitleiste und damit die Animation steuert.
+Die **`source`**-Eigenschaft der [`ScrollTimeline`](/de/docs/Web/API/ScrollTimeline)-Schnittstelle ist eine schreibgeschützte Eigenschaft und gibt eine Referenz auf das scrollbare Element (_scroller_) zurück, dessen Scrollposition den Fortschritt der Timeline und damit die Animation steuert.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein [`Element`](/de/docs/Web/API/Element).
 
 ## Beispiele
 
-Sehen Sie auf der Hauptseite von [`ScrollTimeline`](/de/docs/Web/API/ScrollTimeline) ein Beispiel.
+Ein Beispiel finden Sie auf der Hauptseite der [`ScrollTimeline`](/de/docs/Web/API/ScrollTimeline).
 
 ## Spezifikationen
 
@@ -29,6 +29,6 @@ Sehen Sie auf der Hauptseite von [`ScrollTimeline`](/de/docs/Web/API/ScrollTimel
 ## Siehe auch
 
 - [Web Animations API](/de/docs/Web/API/Web_Animations_API)
-- [CSS scrollgetriebene Animationen](/de/docs/Web/CSS/CSS_scroll-driven_animations)
+- [CSS scroll-getriebene Animationen](/de/docs/Web/CSS/CSS_scroll-driven_animations)
 - [`ScrollTimeline`](/de/docs/Web/API/ScrollTimeline)
 - [`AnimationTimeline`](/de/docs/Web/API/AnimationTimeline), [`ViewTimeline`](/de/docs/Web/API/ViewTimeline)

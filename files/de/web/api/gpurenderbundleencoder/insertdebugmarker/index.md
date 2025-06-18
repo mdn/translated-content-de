@@ -1,16 +1,16 @@
 ---
-title: "GPURenderBundleEncoder: insertDebugMarker()-Methode"
+title: "GPURenderBundleEncoder: insertDebugMarker() Methode"
 short-title: insertDebugMarker()
 slug: Web/API/GPURenderBundleEncoder/insertDebugMarker
 l10n:
-  sourceCommit: 759102220c07fb140b3e06971cd5981d8f0f134f
+  sourceCommit: 5f226b6f08c5cff7f96b7cc49a164fdc43d11a0c
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
+{{APIRef("WebGPU API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`insertDebugMarker()`**-Methode der [`GPURenderBundleEncoder`](/de/docs/Web/API/GPURenderBundleEncoder)-Schnittstelle markiert einen bestimmten Punkt in einer Reihe von kodierten Render-Bundle-Pass-Befehlen mit einem Label.
+Die **`insertDebugMarker()`**-Methode der [`GPURenderBundleEncoder`](/de/docs/Web/API/GPURenderBundleEncoder)-Schnittstelle markiert einen bestimmten Punkt in einer Serie von kodierten Render-Bundle-Pass-Befehlen mit einem Label.
 
-Dies könnte für Telemetrie verwendet werden oder in Zukunft in [`GPUError`](/de/docs/Web/API/GPUError)-Nachrichten, Entwicklungswerkzeugen des Browsers oder anderen Diensten zur Fehlersuche genutzt werden.
+Dies könnte für Telemetrie verwendet werden oder könnte in Zukunft in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen, Entwicklerwerkzeugen des Browsers oder anderen Diensten genutzt werden, um beim Debugging zu helfen.
 
 > [!NOTE]
 > Diese Methode ist funktional identisch mit ihrem Äquivalent auf [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder) — [`InsertDebugMarker()`](/de/docs/Web/API/GPURenderPassEncoder/insertDebugMarker).
@@ -24,7 +24,7 @@ insertDebugMarker(markerLabel)
 ### Parameter
 
 - `markerLabel`
-  - : Ein String, der das einzufügende Label darstellt.
+  - : Ein String, der das einzufügende Label repräsentiert.
 
 ### Rückgabewert
 

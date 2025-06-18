@@ -2,25 +2,25 @@
 title: GPUSampler
 slug: Web/API/GPUSampler
 l10n:
-  sourceCommit: 759102220c07fb140b3e06971cd5981d8f0f134f
+  sourceCommit: 5f226b6f08c5cff7f96b7cc49a164fdc43d11a0c
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
+{{APIRef("WebGPU API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`GPUSampler`**-Schnittstelle der [WebGPU API](/de/docs/Web/API/WebGPU_API) repräsentiert ein Objekt, das steuern kann, wie Shader Textur-Ressourcendaten transformieren und filtern.
+Die **`GPUSampler`**-Schnittstelle der [WebGPU API](/de/docs/Web/API/WebGPU_API) repräsentiert ein Objekt, das steuern kann, wie Shader Texturressourcendaten transformieren und filtern.
 
-Eine `GPUSampler`-Objektinstanz wird mithilfe der Methode [`GPUDevice.createSampler()`](/de/docs/Web/API/GPUDevice/createSampler) erstellt.
+Eine `GPUSampler`-Objektinstanz wird mit der Methode [`GPUDevice.createSampler()`](/de/docs/Web/API/GPUDevice/createSampler) erstellt.
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
-- [`label`](/de/docs/Web/API/GPUSampler/label) {{Experimental_Inline}}
-  - : Ein String, der ein Label bereitstellt, das verwendet werden kann, um das Objekt zu identifizieren, zum Beispiel in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen oder Konsolenwarnungen.
+- [`label`](/de/docs/Web/API/GPUSampler/label)
+  - : Ein String, der ein Etikett bereitstellt, das verwendet werden kann, um das Objekt zu identifizieren, zum Beispiel in [`GPUError`](/de/docs/Web/API/GPUError)-Nachrichten oder Konsolenwarnungen.
 
 ## Beispiele
 
-Das folgende Beispiel erstellt einen `GPUSampler`, der trilineare Filterung durchführt und Texturkoordinaten wiederholt:
+Der folgende Ausschnitt erstellt ein `GPUSampler`, das trilineare Filterung durchführt und Texturkoordinaten wiederholt:
 
 ```js
 // …

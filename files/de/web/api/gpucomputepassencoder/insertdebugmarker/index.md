@@ -3,15 +3,14 @@ title: "GPUComputePassEncoder: insertDebugMarker()-Methode"
 short-title: insertDebugMarker()
 slug: Web/API/GPUComputePassEncoder/insertDebugMarker
 l10n:
-  sourceCommit: 759102220c07fb140b3e06971cd5981d8f0f134f
+  sourceCommit: 5f226b6f08c5cff7f96b7cc49a164fdc43d11a0c
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
+{{APIRef("WebGPU API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`insertDebugMarker()`**-Methode der
-[`GPUComputePassEncoder`](/de/docs/Web/API/GPUComputePassEncoder)-Schnittstelle markiert einen spezifischen Punkt in einer Serie von enkodierten Compute-Pass-Befehlen mit einem Label.
+Die **`insertDebugMarker()`**-Methode der Schnittstelle [`GPUComputePassEncoder`](/de/docs/Web/API/GPUComputePassEncoder) markiert einen bestimmten Punkt in einer Serie von kodierten Compute-Pass-Befehlen mit einem Label.
 
-Dies könnte für Telemetrie verwendet werden oder in Zukunft in [`GPUError`](/de/docs/Web/API/GPUError)-Nachrichten, Browser-Entwickler-Tools oder anderen Diensten zur Hilfe beim Debugging genutzt werden.
+Dies kann für Telemetriezwecke verwendet werden oder könnte in Zukunft in [`GPUError`](/de/docs/Web/API/GPUError)-Nachrichten, Entwicklungswerkzeugen von Browsern oder anderen Diensten genutzt werden, um beim Debugging zu helfen.
 
 ## Syntax
 
@@ -22,7 +21,7 @@ insertDebugMarker(markerLabel)
 ### Parameter
 
 - `markerLabel`
-  - : Ein String, der das einzufügende Label repräsentiert.
+  - : Ein String, der das einzufügende Label darstellt.
 
 ### Rückgabewert
 

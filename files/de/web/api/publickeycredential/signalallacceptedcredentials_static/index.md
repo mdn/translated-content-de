@@ -1,18 +1,18 @@
 ---
-title: "PublicKeyCredential: signalAllAcceptedCredentials() statische Methode"
+title: "PublicKeyCredential: `signalAllAcceptedCredentials()` statische Methode"
 short-title: signalAllAcceptedCredentials()
 slug: Web/API/PublicKeyCredential/signalAllAcceptedCredentials_static
 l10n:
-  sourceCommit: 759102220c07fb140b3e06971cd5981d8f0f134f
+  sourceCommit: 5f226b6f08c5cff7f96b7cc49a164fdc43d11a0c
 ---
 
-{{APIRef("Web Authentication API")}}{{securecontext_header}}{{seecompattable}}
+{{APIRef("Web Authentication API")}}{{securecontext_header}}
 
-Die statische Methode **`signalAllAcceptedCredentials()`** des [`PublicKeyCredential`](/de/docs/Web/API/PublicKeyCredential)-Interfaces signalisiert dem Authentifikator alle gültigen [Credential-IDs](/de/docs/Web/API/PublicKeyCredentialRequestOptions#id), die der [relying party](https://en.wikipedia.org/wiki/Relying_party) (RP) Server für einen bestimmten Benutzer noch besitzt.
+Die **`signalAllAcceptedCredentials()`** statische Methode der [`PublicKeyCredential`](/de/docs/Web/API/PublicKeyCredential) Schnittstelle signalisiert dem Authenticator alle gültigen [Credential-IDs](/de/docs/Web/API/PublicKeyCredentialRequestOptions#id), die der [Relying Party](https://en.wikipedia.org/wiki/Relying_party) (RP) Server noch für einen bestimmten Benutzer hält.
 
-Dies ermöglicht dem Authentifikator, Anmeldeinformationen zu aktualisieren, indem alle Anmeldeinformationen entfernt werden, die vom RP nicht mehr erkannt werden, wie z.B. die für gelöschte Konten. Die Methode sollte jedes Mal aufgerufen werden, wenn sich ein Benutzer beim RP authentifiziert.
+Dies ermöglicht es dem Authenticator, die Anmeldeinformationen zu aktualisieren und alle Anmeldeinformationen zu entfernen, die von der RP nicht mehr erkannt werden, wie z.B. für gelöschte Konten. Die Methode sollte jedes Mal aufgerufen werden, wenn ein Benutzer sich bei der RP authentifiziert.
 
-`signalAllAcceptedCredentials()` sollte _nur_ aufgerufen werden, wenn der aktuelle Benutzer authentifiziert ist — nach Registrierung oder Anmeldung, oder wenn der Benutzer ein Anmeldedaten-Element löscht — da es sensible Informationen des Benutzers offenlegt.
+`signalAllAcceptedCredentials()` sollte _nur_ aufgerufen werden, wenn der aktuelle Benutzer authentifiziert ist — nach der Anmeldung oder Anmeldung oder wenn der Benutzer eine Anmeldeinformation löscht — da es sensible Informationen des Benutzers offenlegt.
 
 ## Syntax
 
@@ -23,45 +23,45 @@ signalAllAcceptedCredentials(options)
 ### Parameter
 
 - `options`
-  - : Ein Objekt, das die gültigen Anmeldedaten darstellt und die folgenden Eigenschaften enthält:
+  - : Ein Objekt, das die gültigen Anmeldeinformationen darstellt und die folgenden Eigenschaften enthält:
     - `allAcceptedCredentialIds`
-      - : Ein Array von base64url-codierten Strings, die die [`IDs der Anmeldedaten](/de/docs/Web/API/PublicKeyCredentialRequestOptions#id) darstellen, die noch gültig sind.
+      - : Ein Array von base64url-codierten Zeichenfolgen, das die [`id`s der Anmeldeinformationen](/de/docs/Web/API/PublicKeyCredentialRequestOptions#id) repräsentiert, die noch gültig sind.
     - `rpId`
-      - : Ein String, der die [`ID des RP](/de/docs/Web/API/PublicKeyCredentialCreationOptions#id_2) darstellt, das das Signal gesendet hat.
+      - : Eine Zeichenfolge, die die [`id` der RP](/de/docs/Web/API/PublicKeyCredentialCreationOptions#id_2) repräsentiert, die das Signal gesendet hat.
     - `userId`
-      - : Ein base64url-codierter String, der die [`ID des Benutzers](/de/docs/Web/API/PublicKeyCredentialCreationOptions#id_3) darstellt, auf den sich die Anmeldedaten beziehen.
+      - : Eine base64url-codierte Zeichenfolge, die die [`id` des Benutzers](/de/docs/Web/API/PublicKeyCredentialCreationOptions#id_3) repräsentiert, auf die sich die Anmeldeinformationen beziehen.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}} das zu {{jsxref("undefined")}} aufgelöst wird.
+Ein {{jsxref("Promise")}}, das in {{jsxref("undefined")}} aufgelöst wird.
 
 ### Ausnahmen
 
-Das Promise wird mit folgenden Ausnahmen abgelehnt:
+Das Promise wird mit den folgenden Ausnahmen abgelehnt:
 
 - `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Die RP-Domain ist nicht gültig.
 - `TypeError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Die `userId` oder Elemente der `allAcceptedCredentialIds` sind keine gültigen base64url-codierten Strings.
+  - : Die `userId` oder eines der `allAcceptedCredentialIds`-Elemente sind keine gültigen base64url-codierten Zeichenfolgen.
 
 ## Beschreibung
 
-Es ist möglich, dass die im Authentifikator eines Benutzers gespeicherten Informationen über ein [erkennbares Anmeldeinformationen](/de/docs/Web/API/Web_Authentication_API#discoverable_credentials_and_conditional_mediation) (zum Beispiel, [ein Passkey](https://passkeys.dev/)) nicht mit dem Server synchron sind. Dies tritt normalerweise auf, wenn der Benutzer eine Anmeldeinformation aus der RP-Web-App löscht, ohne den Authentifikator zu aktualisieren.
+Es ist möglich, dass die in einem Benutzer-Authenticator gespeicherten Informationen über eine [erkennbare Anmeldeinformation](/de/docs/Web/API/Web_Authentication_API#discoverable_credentials_and_conditional_mediation) (zum Beispiel [ein Passkey](https://passkeys.dev/)) nicht mehr mit dem Server synchron sind. Dies geschieht normalerweise, wenn der Benutzer eine Anmeldeinformation aus der RP-Web-App löscht, ohne den Authenticator zu aktualisieren.
 
-Wenn ein Benutzer versucht, sich mit erkennbaren Anmeldedaten einzuloggen, wird ihm eine Reihe von Anmeldedaten aus dem Authentifikator präsentiert, aus denen er auswählen kann, und die ausgewählte Anmeldedaten wird zur Anmeldung an die RP-Web-App zurückgegeben. Wählt der Benutzer eine Anmeldedaten aus, die vom RP-Server gelöscht wurde, wird sie nicht erkannt und der Login schlägt fehl. Dies ist für den Benutzer eine verwirrende Erfahrung, da er erwartet, nur Anmeldedaten angeboten zu bekommen, die erfolgreich sein sollten.
+Wenn ein Benutzer versucht, sich mit erkennbaren Anmeldeinformationen anzumelden, wird ihm eine Auswahl von Anmeldeinformationen aus dem Authenticator präsentiert, aus denen er wählen kann, und die ausgewählte Anmeldeinformation wird an die RP-Web-App zurückgegeben, um sich damit anzumelden. Wenn der Benutzer eine Anmeldeinformation auswählt, die vom RP-Server gelöscht wurde, wird diese nicht erkannt und die Anmeldung schlägt fehl. Dies ist eine verwirrende Erfahrung für Benutzer, die erwarten, nur Anmeldeinformationen angeboten zu bekommen, die erfolgreich sein sollten.
 
-Um dieses Problem zu mindern, sollte die `signalAllAcceptedCredentials()`-Methode von der RP-Web-App jedes Mal aufgerufen werden, wenn der Benutzer eine Anmeldeinformation löscht oder sich anmeldet, um dem Authentifikator mitzuteilen, welche Anmeldedaten für den gegebenen Benutzer noch gültig sind. Es liegt am Authentifikator, wie er diese Informationen handhabt, aber die Erwartung ist, dass er seine Informationen mit der bereitgestellten Anmeldedatenliste synchronisiert. Anmeldedaten, die nicht in der Liste erscheinen, sollten entfernt werden, sodass der Benutzer keine Anmeldedaten angeboten bekommt, die im Anmelde-UI nicht existieren.
+Um dieses Problem zu entschärfen, sollte `signalAllAcceptedCredentials()` von der RP-Web-App jedes Mal aufgerufen werden, wenn ein Benutzer eine Anmeldeinformation löscht oder sich anmeldet, um dem Authenticator mitzuteilen, welche Anmeldeinformationen für den jeweiligen Benutzer noch gültig sind. Es liegt im Ermessen des Authenticators, wie er mit diesen Informationen umgeht, aber die Erwartung ist, dass er seine Informationen mit der bereitgestellten Anmeldeliste synchronisiert. Anmeldeinformationen, die nicht in der Liste erscheinen, sollten entfernt werden, damit dem Benutzer keine Anmeldeinformationen angezeigt werden, die in der Anmelde-UI nicht existieren.
 
 > [!WARNING]
-> Üben Sie Vorsicht beim Aufrufen von `signalAllAcceptedCredentials()` — jegliche gültige Anmeldedaten, die nicht in der Liste enthalten sind, sollen aus dem Authentifikator entfernt werden, was den Benutzer daran hindern wird, sich damit anzumelden. Das Übergeben einer leeren Liste kann alle Anmeldedaten des Benutzers entfernen. Einige Authenticatoren können das Wiederherstellen von Anmeldedaten über einen nachfolgenden Aufruf von `signalAllAcceptedCredentials()` unterstützen, wenn die zuvor entfernten Credential-IDs in die Liste aufgenommen werden.
+> Seien Sie vorsichtig, wenn Sie `signalAllAcceptedCredentials()` aufrufen — alle gültigen Anmeldeinformationen, die nicht in der Liste enthalten sind, sollen vom Authenticator entfernt werden, was verhindert, dass der Benutzer sich mit ihnen anmeldet. Das Übergeben einer leeren Liste kann alle Anmeldeinformationen des Benutzers entfernen. Einige Authenticator unterstützen möglicherweise das Wiederherstellen von Anmeldeinformationen durch einen nachfolgenden Aufruf von `signalAllAcceptedCredentials()` mit den zuvor entfernten Anmelde-IDs in der Liste.
 
-`signalAllAcceptedCredentials()` sollte _nur_ aufgerufen werden, wenn der aktuelle Benutzer authentifiziert ist, da es sensible Informationen des Benutzers offenlegt. Wenn der Benutzer nicht authentifiziert ist, weil er versucht hat, sich mit einer Anmeldeinformation anzumelden, die auf dem RP-Server nicht existiert, sollten Sie stattdessen [`PublicKeyCredential.signalUnknownCredential()`](/de/docs/Web/API/PublicKeyCredential/signalUnknownCredential_static) mit der nicht erkannten Anmeldeinformation aufrufen, damit der Authenticator sie löschen kann. Siehe [Methoden zur Synchronisierung erkennbarer Anmeldedaten](/de/docs/Web/API/Web_Authentication_API#discoverable_credential_synchronization_methods) für einen detaillierteren Vergleich.
+`signalAllAcceptedCredentials()` sollte _nur_ aufgerufen werden, wenn der aktuelle Benutzer authentifiziert ist, da es sensible Informationen des Benutzers offenlegt. Wenn der Benutzer nicht authentifiziert ist, weil er versucht hat, sich mit einer Anmeldeinformation anzumelden, die auf dem RP-Server nicht existiert, sollten Sie stattdessen [`PublicKeyCredential.signalUnknownCredential()`](/de/docs/Web/API/PublicKeyCredential/signalUnknownCredential_static) mit der nicht erkannten Anmeldeinformation aufrufen, damit der Authenticator sie löschen kann. Siehe [Erkennbare Anmeldeinformationen-Synchronisationsmethoden](/de/docs/Web/API/Web_Authentication_API#discoverable_credential_synchronization_methods) für einen detaillierteren Vergleich.
 
 ## Beispiele
 
-### Signalisieren der akzeptierten Anmeldedaten
+### Signalisieren der akzeptierten Anmeldeinformationen
 
-In diesem Beispiel rufen wir die `signalAllAcceptedCredentials()`-Methode auf und übergeben ihr die Details aller Anmeldedaten, die dem Benutzer gehören, einschließlich derer, mit denen er sich gerade eingeloggt hat. Als Ergebnis sollte der Authenticator seine eigene Kopie der Anmeldedaten aktualisieren, sodass sie mit dem RP synchron bleiben.
+In diesem Beispiel rufen wir die Methode `signalAllAcceptedCredentials()` auf, indem wir ihr die Details aller zum Benutzer gehörenden Anmeldeinformationen übergeben, einschließlich derjenigen, mit denen sie sich gerade angemeldet haben. Infolgedessen sollte der Authenticator seine eigene Kopie der Anmeldeinformationen aktualisieren, damit sie mit der RP synchron bleiben.
 
 ```js
 if (PublicKeyCredential.signalAllAcceptedCredentials) {
@@ -91,4 +91,4 @@ Für ein vollständiges Beispiel siehe [WebAuthn Signal API Demo](https://signal
 
 - [`PublicKeyCredential.signalCurrentUserDetails()`](/de/docs/Web/API/PublicKeyCredential/signalCurrentUserDetails_static)
 - [`PublicKeyCredential.signalUnknownCredential()`](/de/docs/Web/API/PublicKeyCredential/signalUnknownCredential_static)
-- [Keep passkeys consistent with credentials on your server with the Signal API](https://developer.chrome.com/docs/identity/webauthn-signal-api) auf developer.chrome.com (2024)
+- [Halten Sie Passkeys konsistent mit Anmeldeinformationen auf Ihrem Server mit der Signal-API](https://developer.chrome.com/docs/identity/webauthn-signal-api) auf developer.chrome.com (2024)

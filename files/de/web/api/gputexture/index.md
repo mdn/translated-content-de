@@ -2,52 +2,52 @@
 title: GPUTexture
 slug: Web/API/GPUTexture
 l10n:
-  sourceCommit: 77d90a23ee0a3b5486a7963f68ad4e56efb06a7b
+  sourceCommit: 5f226b6f08c5cff7f96b7cc49a164fdc43d11a0c
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
+{{APIRef("WebGPU API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`GPUTexture`**-Schnittstelle der [WebGPU API](/de/docs/Web/API/WebGPU_API) repräsentiert einen Container, der dazu verwendet wird, 1D-, 2D- oder 3D-Datenarrays, wie z.B. Bilder, zu speichern, um sie in GPU-Rendering-Operationen zu verwenden.
+Das **`GPUTexture`**-Interface der [WebGPU-API](/de/docs/Web/API/WebGPU_API) repräsentiert einen Container, der zur Speicherung von 1D-, 2D- oder 3D-Datenarrays, wie z.B. Bildern, verwendet wird, um sie in GPU-Rendering-Operationen zu nutzen.
 
-Eine `GPUTexture`-Objektinstanz wird mit der Methode [`GPUDevice.createTexture()`](/de/docs/Web/API/GPUDevice/createTexture) erstellt.
+Ein `GPUTexture`-Objekt wird mit der Methode [`GPUDevice.createTexture()`](/de/docs/Web/API/GPUDevice/createTexture) erstellt.
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
-- [`depthOrArrayLayers`](/de/docs/Web/API/GPUTexture/depthOrArrayLayers) {{Experimental_Inline}} {{ReadOnlyInline}}
-  - : Eine Zahl, die die Tiefe oder die Anzahl der Schichten der `GPUTexture` angibt (Pixel oder Anzahl der Schichten).
-- [`dimension`](/de/docs/Web/API/GPUTexture/dimension) {{Experimental_Inline}} {{ReadOnlyInline}}
-  - : Ein enumerierter Wert, der die Dimension der Texelgruppe für jede `GPUTexture`-Subressource repräsentiert.
-- [`format`](/de/docs/Web/API/GPUTexture/format) {{Experimental_Inline}} {{ReadOnlyInline}}
-  - : Ein enumerierter Wert, der das Format der `GPUTexture` repräsentiert. Siehe den Abschnitt [Texture formats](https://gpuweb.github.io/gpuweb/#enumdef-gputextureformat) der Spezifikation für alle möglichen Werte.
-- [`height`](/de/docs/Web/API/GPUTexture/height) {{Experimental_Inline}} {{ReadOnlyInline}}
-  - : Eine Zahl, die die Höhe der `GPUTexture` in Pixeln angibt.
-- [`label`](/de/docs/Web/API/GPUTexture/label) {{Experimental_Inline}}
-  - : Ein String, der ein Label bereitstellt, das verwendet werden kann, um das Objekt zu identifizieren, zum Beispiel in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen oder Konsolenwarnungen.
-- [`mipLevelCount`](/de/docs/Web/API/GPUTexture/mipLevelCount) {{Experimental_Inline}} {{ReadOnlyInline}}
-  - : Eine Zahl, die die Anzahl der Mip-Ebenen der `GPUTexture` angibt.
-- [`sampleCount`](/de/docs/Web/API/GPUTexture/sampleCount) {{Experimental_Inline}} {{ReadOnlyInline}}
-  - : Eine Zahl, die die Anzahl der Samples der `GPUTexture` angibt.
-- [`usage`](/de/docs/Web/API/GPUTexture/usage) {{Experimental_Inline}} {{ReadOnlyInline}}
-  - : Die {{Glossary("bitwise_flags", "bitweis gesetzten Flags")}}, die die erlaubten Nutzungen der `GPUTexture` darstellen.
-- [`width`](/de/docs/Web/API/GPUTexture/width) {{Experimental_Inline}} {{ReadOnlyInline}}
-  - : Eine Zahl, die die Breite der `GPUTexture` in Pixeln angibt.
+- [`depthOrArrayLayers`](/de/docs/Web/API/GPUTexture/depthOrArrayLayers) {{ReadOnlyInline}}
+  - : Eine Zahl, die die Tiefe oder die Anzahl der Schichten des `GPUTexture` darstellt (Pixel oder Anzahl der Schichten).
+- [`dimension`](/de/docs/Web/API/GPUTexture/dimension) {{ReadOnlyInline}}
+  - : Ein enumerierter Wert, der die Dimension der Texelmenge für jede `GPUTexture`-Subressource darstellt.
+- [`format`](/de/docs/Web/API/GPUTexture/format) {{ReadOnlyInline}}
+  - : Ein enumerierter Wert, der das Format des `GPUTexture` repräsentiert. Siehe im Abschnitt [Texture formats](https://gpuweb.github.io/gpuweb/#enumdef-gputextureformat) der Spezifikation für alle möglichen Werte.
+- [`height`](/de/docs/Web/API/GPUTexture/height) {{ReadOnlyInline}}
+  - : Eine Zahl, die die Höhe des `GPUTexture` in Pixeln darstellt.
+- [`label`](/de/docs/Web/API/GPUTexture/label)
+  - : Ein String, der ein Label zur Verfügung stellt, das verwendet werden kann, um das Objekt zu identifizieren, beispielsweise in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen oder Konsolenwarnungen.
+- [`mipLevelCount`](/de/docs/Web/API/GPUTexture/mipLevelCount) {{ReadOnlyInline}}
+  - : Eine Zahl, die die Anzahl der Mip-Level des `GPUTexture` darstellt.
+- [`sampleCount`](/de/docs/Web/API/GPUTexture/sampleCount) {{ReadOnlyInline}}
+  - : Eine Zahl, die die Anzahl der Samples des `GPUTexture` darstellt.
+- [`usage`](/de/docs/Web/API/GPUTexture/usage) {{ReadOnlyInline}}
+  - : Die {{Glossary("bitwise_flags", "bitweisen Flags")}}, die die erlaubten Nutzungen des `GPUTexture` darstellen.
+- [`width`](/de/docs/Web/API/GPUTexture/width) {{ReadOnlyInline}}
+  - : Eine Zahl, die die Breite des `GPUTexture` in Pixeln darstellt.
 
 ## Instanz-Methoden
 
-- [`createView()`](/de/docs/Web/API/GPUTexture/createView) {{Experimental_Inline}}
-  - : Erstellt eine [`GPUTextureView`](/de/docs/Web/API/GPUTextureView), die eine spezifische Ansicht der `GPUTexture` darstellt.
-- [`destroy()`](/de/docs/Web/API/GPUTexture/destroy) {{Experimental_Inline}}
-  - : Zerstört die `GPUTexture`.
+- [`createView()`](/de/docs/Web/API/GPUTexture/createView)
+  - : Erstellt eine [`GPUTextureView`](/de/docs/Web/API/GPUTextureView), die eine spezifische Ansicht des `GPUTexture` repräsentiert.
+- [`destroy()`](/de/docs/Web/API/GPUTexture/destroy)
+  - : Zerstört das `GPUTexture`.
 
 ## Beispiele
 
-Im WebGPU-Beispiel [Textured Cube sample](https://webgpu.github.io/webgpu-samples/samples/texturedCube/) wird eine Textur erstellt, um sie auf den Flächen eines Würfels zu verwenden, indem:
+Im WebGPU-Beispiel [Textured Cube sample](https://webgpu.github.io/webgpu-samples/samples/texturedCube/), wird eine Textur, die auf den Flächen eines Würfels verwendet werden soll, durch folgende Schritte erstellt:
 
-- das Bild in ein [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement) geladen und ein Bild-Bitmap mit [`createImageBitmap()`](/de/docs/Web/API/Window/createImageBitmap) erstellt wird.
-- eine neue `GPUTexture` mit `createTexture()` erstellt wird.
-- das Bild-Bitmap mit [`GPUQueue.copyExternalImageToTexture()`](/de/docs/Web/API/GPUQueue/copyExternalImageToTexture) in die Textur kopiert wird.
+- Laden des Bildes in ein [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement) und Erstellen eines Image-Bitmaps mit [`createImageBitmap()`](/de/docs/Web/API/Window/createImageBitmap).
+- Erstellen eines neuen `GPUTexture` mittels `createTexture()`.
+- Kopieren des Image-Bitmaps in die Textur mittels [`GPUQueue.copyExternalImageToTexture()`](/de/docs/Web/API/GPUQueue/copyExternalImageToTexture).
 
 ```js
 // …
@@ -92,4 +92,4 @@ let cubeTexture;
 
 ## Siehe auch
 
-- Die [WebGPU API](/de/docs/Web/API/WebGPU_API)
+- Die [WebGPU-API](/de/docs/Web/API/WebGPU_API)

@@ -3,12 +3,12 @@ title: "CSSPositionTryRule: Eigenschaft name"
 short-title: name
 slug: Web/API/CSSPositionTryRule/name
 l10n:
-  sourceCommit: 696d03175b94752ce0fffa5b11c80f883f44b337
+  sourceCommit: 5f226b6f08c5cff7f96b7cc49a164fdc43d11a0c
 ---
 
-{{APIRef("CSSOM") }}{{SeeCompatTable}}
+{{APIRef("CSSOM") }}
 
-Die **`name`** schreibgeschützte Eigenschaft der [`CSSPositionTryRule`](/de/docs/Web/API/CSSPositionTryRule)-Schnittstelle repräsentiert den Namen der Position-try-Fallback-Option, die durch die `@position-try`-At-Regel im {{cssxref("dashed-ident")}} angegeben wird.
+Die **`name`**-Eigenschaft der [`CSSPositionTryRule`](/de/docs/Web/API/CSSPositionTryRule)-Schnittstelle ist eine schreibgeschützte Eigenschaft, die den Namen der Fallback-Option für Positionsversuche darstellt, die durch die `@position-try`-At-Regel mit der {{cssxref("dashed-ident")}} angegeben ist.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein String.
 
 ## Beispiele
 
-Das CSS enthält eine `@position-try`-At-Regel mit einem Namen `--custom-bottom` und drei Deskriptoren.
+Das CSS beinhaltet eine `@position-try`-At-Regel mit dem Namen `--custom-bottom` und drei Deskriptoren.
 
 ```css
 @position-try --custom-bottom {
@@ -45,6 +45,6 @@ console.log(tryOption.name); // "--custom-bottom"
 - [`CSSPositionTryDescriptors`](/de/docs/Web/API/CSSPositionTryDescriptors)
 - {{cssxref("@position-try")}}
 - {{cssxref("position-try-fallbacks")}}
-- [CSS Ankerpositionierung](/de/docs/Web/CSS/CSS_anchor_positioning) Modul
-- [Verwendung der CSS Ankerpositionierung](/de/docs/Web/CSS/CSS_anchor_positioning/Using)
-- [Umgang mit overflow: try Optionen und bedingtem Verbergen](/de/docs/Web/CSS/CSS_anchor_positioning/Try_options_hiding)
+- [CSS-Ankerpositionierung](/de/docs/Web/CSS/CSS_anchor_positioning)-Modul
+- [Verwendung der CSS-Ankerpositionierung](/de/docs/Web/CSS/CSS_anchor_positioning/Using)
+- [Umgang mit Überlauf: Versuchsoptionen und bedingtes Verstecken](/de/docs/Web/CSS/CSS_anchor_positioning/Try_options_hiding)
