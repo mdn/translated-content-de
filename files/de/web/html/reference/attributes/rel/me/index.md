@@ -2,7 +2,7 @@
 title: rel="me"
 slug: Web/HTML/Reference/Attributes/rel/me
 l10n:
-  sourceCommit: 0389dd29e0827791ad9d2f6b8cda217c121f9c19
+  sourceCommit: fff1b2784f4e079427185b66191bc3cdf541a4d6
 ---
 
 {{HTMLSidebar}}
@@ -13,7 +13,7 @@ Das **`me`** Schlüsselwort für das [`rel`](/de/docs/Web/HTML/Reference/Element
 <link rel="me" href="example.com" />
 ```
 
-Das `rel="me"` Attribut wird in den Spezifikationen [RelMeAuth](https://microformats.org/wiki/RelMeAuth) und [Web sign in](https://microformats.org/wiki/web-sign-in) als Möglichkeit verwendet, damit eine Person sich mit ihrem Domainnamen oder einer bestimmten URL bei einem Webdienst identifizieren kann.
+Das `rel="me"` Attribut wird in den Spezifikationen [RelMeAuth](https://microformats.org/wiki/RelMeAuth) und [Web sign in](https://microformats.org/wiki/web-sign-in) verwendet, um einer Person zu ermöglichen, sich bei einem Webdienst mit ihrem Domainnamen oder einer bestimmten URL zu identifizieren.
 
 ## Spezifikationen
 
@@ -21,4 +21,4 @@ Das `rel="me"` Attribut wird in den Spezifikationen [RelMeAuth](https://microfor
 
 ## Browser-Kompatibilität
 
-{{Compat}}
+Die Browser-Kompatibilität ist irrelevant, da `rel="me"` von Webdiensten und nicht von Browsern verwendet wird.
