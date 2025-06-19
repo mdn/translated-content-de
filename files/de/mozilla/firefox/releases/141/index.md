@@ -3,39 +3,39 @@ title: Firefox 141 für Entwickler
 short-title: Firefox 141 (Nightly)
 slug: Mozilla/Firefox/Releases/141
 l10n:
-  sourceCommit: 20bc4ad52854653fbc9f7842b7664ee8847fc843
+  sourceCommit: 44f564a6c7918d7db234b8e7126472161a407591
 ---
 
-Dieser Artikel liefert Informationen über die Änderungen in Firefox 141, die Entwickler betreffen.
+Dieser Artikel enthält Informationen über die Änderungen in Firefox 141, die Entwickler betreffen.
 Firefox 141 ist die aktuelle [Nightly-Version von Firefox](https://www.mozilla.org/en-US/firefox/channel/desktop/#nightly) und wird am [22. Juli 2025](https://whattrainisitnow.com/release/?version=141) veröffentlicht.
 
 ## Änderungen für Webentwickler
 
-### Entwicklerwerkzeuge
+### Entwicklertools
 
 ### HTML
 
-#### Entfernungen
+#### Entfernt
 
 ### CSS
 
-#### Entfernungen
+#### Entfernt
 
 ### JavaScript
 
-#### Entfernungen
+#### Entfernt
 
 ### SVG
 
-#### Entfernungen
+#### Entfernt
 
 ### HTTP
 
-#### Entfernungen
+#### Entfernt
 
 ### Sicherheit
 
-#### Entfernungen
+#### Entfernt
 
 ### APIs
 
@@ -43,11 +43,11 @@ Firefox 141 ist die aktuelle [Nightly-Version von Firefox](https://www.mozilla.o
 
 #### Medien, WebRTC und Web Audio
 
-#### Entfernungen
+#### Entfernt
 
 ### WebAssembly
 
-#### Entfernungen
+#### Entfernt
 
 ### WebDriver-Konformität (WebDriver BiDi, Marionette)
 
@@ -59,15 +59,17 @@ Firefox 141 ist die aktuelle [Nightly-Version von Firefox](https://www.mozilla.o
 
 ## Änderungen für Add-on-Entwickler
 
-### Entfernungen
+- Fügt die Methode {{WebExtAPIRef('i18n.getPreferredSystemLanguages')}} hinzu, um die bevorzugten Gebietsschemas des Betriebssystems abzurufen. Dies ergänzt {{WebExtAPIRef('i18n.getAcceptLanguages')}}, die Details der im Browser eingestellten Gebietsschemas zurückgibt. ([Firefox-Bug 1888486](https://bugzil.la/1888486))
+
+### Entfernt
 
 ### Sonstiges
 
-## Experimentelle Webfunktionen
+## Experimentelle Web-Funktionen
 
-Diese Funktionen sind in Firefox 141 enthalten, aber standardmäßig deaktiviert.
-Um sie auszuprobieren, suchen Sie nach der entsprechenden Einstellung auf der `about:config`-Seite und setzen Sie sie auf `true`.
-Weitere solcher Funktionen finden Sie auf der Seite [Experimentelle Features](/de/docs/Mozilla/Firefox/Experimental_features).
+Diese Funktionen werden in Firefox 141 ausgeliefert, sind aber standardmäßig deaktiviert.
+Um mit ihnen zu experimentieren, suchen Sie auf der `about:config` Seite nach der entsprechenden Einstellung und setzen Sie diese auf `true`.
+Weitere solcher Funktionen finden Sie auf der Seite [Experimentelle Funktionen](/de/docs/Mozilla/Firefox/Experimental_features).
 
 ## Ältere Versionen
 
