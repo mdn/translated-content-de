@@ -3,7 +3,7 @@ title: "TextFormat: rangeStart-Eigenschaft"
 short-title: rangeStart
 slug: Web/API/TextFormat/rangeStart
 l10n:
-  sourceCommit: c9fe79713a9323e8f1492c3c5b802fc8776a5f6a
+  sourceCommit: 950f04d94b48f259c471175bdafb52933b2b038d
 ---
 
 {{APIRef("EditContext API")}}{{SeeCompatTable}}
@@ -16,12 +16,19 @@ Eine {{jsxref("Number")}}.
 
 ## Beispiele
 
-### Lesen des Bereichs des zu formatierenden Textes
+### Lesen des zu formatierenden Textbereichs
 
-Das folgende Beispiel zeigt, wie die `rangeStart`- und `rangeEnd`-Eigenschaften des `textformatupdate`-Ereignisses verwendet werden, um den Bereich des zu formatierenden Textes zu bestimmen. Beachten Sie, dass der Ereignis-Listener-Callback in diesem Beispiel nur aufgerufen wird, wenn ein IME-Fenster zum Verfassen von Text verwendet wird.
+Das folgende Beispiel zeigt, wie die `textformatupdate`-Ereigniseigenschaften `rangeStart` und `rangeEnd` verwendet werden können, um den Bereich des zu formatierenden Textes zu bestimmen. Beachten Sie, dass der Ereignis-Listener-Callback in diesem Beispiel nur aufgerufen wird, wenn Sie ein IME-Fenster zum Zusammenstellen von Text verwenden.
 
 ```html
-<div id="editor" style="height:200px;background:#eee;"></div>
+<div id="editor"></div>
+```
+
+```css hidden
+#editor {
+  height: 200px;
+  background: #eee;
+}
 ```
 
 ```js

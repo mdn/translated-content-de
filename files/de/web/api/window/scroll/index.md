@@ -1,9 +1,9 @@
 ---
-title: "Window: scroll() Methode"
+title: "Window: scroll()-Methode"
 short-title: scroll()
 slug: Web/API/Window/scroll
 l10n:
-  sourceCommit: 20c51db7895b1b6f41d4fa90e71830f4b6678eea
+  sourceCommit: 950f04d94b48f259c471175bdafb52933b2b038d
 ---
 
 {{APIRef}}
@@ -20,20 +20,20 @@ scroll(options)
 ### Parameter
 
 - `xCoord`
-  - : Das Pixel entlang der horizontalen Achse des Dokuments, das in der oberen linken Ecke angezeigt werden soll.
+  - : Das Pixel entlang der horizontalen Achse des Dokuments, das Sie in der oberen linken Ecke anzeigen möchten.
 - `yCoord`
-  - : Das Pixel entlang der vertikalen Achse des Dokuments, das in der oberen linken Ecke angezeigt werden soll.
+  - : Das Pixel entlang der vertikalen Achse des Dokuments, das Sie in der oberen linken Ecke anzeigen möchten.
 - `options`
-  - : Ein Objekt, das die folgenden Eigenschaften enthält:
+  - : Ein Objekt mit den folgenden Eigenschaften:
     - `top`
       - : Gibt die Anzahl der Pixel entlang der Y-Achse an, um die das Fenster oder Element gescrollt werden soll.
     - `left`
       - : Gibt die Anzahl der Pixel entlang der X-Achse an, um die das Fenster oder Element gescrollt werden soll.
     - `behavior`
-      - : Bestimmt, ob das Scrollen sofort oder sanft animiert erfolgen soll. Diese Option ist ein String, der einen der folgenden Werte annehmen muss:
-        - `smooth`: Das Scrollen sollte sanft animiert erfolgen
-        - `instant`: Das Scrollen sollte sofort in einem einzigen Sprung erfolgen
-        - `auto`: Das Scrollverhalten wird durch den berechneten Wert von {{cssxref("scroll-behavior")}} bestimmt
+      - : Bestimmt, ob das Scrollen sofort oder mit einer sanften Animation erfolgen soll. Diese Option ist ein String, der einen der folgenden Werte annehmen muss:
+        - `smooth`: Scrollen sollte sanft animiert werden
+        - `instant`: Scrollen sollte sofort in einem einzigen Sprung erfolgen
+        - `auto`: Scrollverhalten wird durch den berechneten Wert von {{cssxref("scroll-behavior")}} bestimmt
 
 ### Rückgabewert
 
@@ -41,10 +41,9 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-```html
-<!-- put the 100th vertical pixel at the top of the window -->
-
-<button onclick="scroll(0, 100);">click to scroll to the 100th pixel</button>
+```js
+// Put the 100th vertical pixel at the top of the window
+window.scroll(0, 100);
 ```
 
 Verwendung von `options`:
@@ -57,12 +56,11 @@ window.scroll({
 });
 ```
 
-## Hinweise
+## Anmerkungen
 
-[`Window.scrollTo()`](/de/docs/Web/API/Window/scrollTo) ist im Wesentlichen dasselbe wie diese Methode. Für relatives Scrollen siehe [`Window.scrollBy()`](/de/docs/Web/API/Window/scrollBy), [`Window.scrollByLines()`](/de/docs/Web/API/Window/scrollByLines) und [`Window.scrollByPages()`](/de/docs/Web/API/Window/scrollByPages).
+[`Window.scrollTo()`](/de/docs/Web/API/Window/scrollTo) ist im Wesentlichen dieselbe Methode. Für relatives Scrollen siehe [`Window.scrollBy()`](/de/docs/Web/API/Window/scrollBy), [`Window.scrollByLines()`](/de/docs/Web/API/Window/scrollByLines) und [`Window.scrollByPages()`](/de/docs/Web/API/Window/scrollByPages).
 
-Für das Scrollen von Elementen siehe [`Element.scrollTop`](/de/docs/Web/API/Element/scrollTop) und
-[`Element.scrollLeft`](/de/docs/Web/API/Element/scrollLeft).
+Für das Scrollen von Elementen siehe [`Element.scrollTop`](/de/docs/Web/API/Element/scrollTop) und [`Element.scrollLeft`](/de/docs/Web/API/Element/scrollLeft).
 
 ## Spezifikationen
 

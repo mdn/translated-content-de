@@ -3,12 +3,12 @@ title: "TextFormat: underlineThickness-Eigenschaft"
 short-title: underlineThickness
 slug: Web/API/TextFormat/underlineThickness
 l10n:
-  sourceCommit: c9fe79713a9323e8f1492c3c5b802fc8776a5f6a
+  sourceCommit: 950f04d94b48f259c471175bdafb52933b2b038d
 ---
 
 {{APIRef("EditContext API")}}{{SeeCompatTable}}
 
-Die **`underlineThickness`**-Eigenschaft der [`TextFormat`](/de/docs/Web/API/TextFormat)-Schnittstelle gibt die Dicke der Unterstreichung an, die auf den zu formatierenden Textrahmen angewendet werden muss.
+Die **`underlineThickness`**-Eigenschaft des [`TextFormat`](/de/docs/Web/API/TextFormat)-Interfaces gibt die Dicke der Unterstreichung an, die auf den zu formatierenden Textbereich angewendet werden muss.
 
 ## Wert
 
@@ -20,12 +20,19 @@ Ein {{jsxref("String")}}, der einer der folgenden Werte ist:
 
 ## Beispiele
 
-### Lesen der Unterstreichungsdicke, die angewendet werden muss
+### Die auf den Text anzuwendende Unterstreichungsdicke auslesen
 
-Das folgende Beispiel zeigt, wie die `underlineThickness`-Eigenschaft des `textformatupdate`-Ereignisses verwendet wird, um die anzuwendende Unterstreichungsdicke für den zu formatierenden Text zu bestimmen. Beachten Sie, dass der Event-Listener-Callback in diesem Beispiel nur aufgerufen wird, wenn ein IME-Fenster zur Texteingabe verwendet wird.
+Das folgende Beispiel zeigt, wie die `underlineThickness`-Eigenschaft des `textformatupdate`-Ereignisses verwendet wird, um die Unterstreichungsdicke zu bestimmen, die auf den formatierten Text angewendet werden muss. Beachten Sie, dass der Ereignis-Listener-Callback in diesem Beispiel nur aufgerufen wird, wenn ein IME-Fenster zum Verfassen von Text verwendet wird.
 
 ```html
-<div id="editor" style="height:200px;background:#eee;"></div>
+<div id="editor"></div>
+```
+
+```css hidden
+#editor {
+  height: 200px;
+  background: #eee;
+}
 ```
 
 ```js
@@ -54,4 +61,4 @@ editContext.addEventListener("textformatupdate", (e) => {
 
 ## Siehe auch
 
-- Die [`TextFormat`](/de/docs/Web/API/TextFormat)-Schnittstelle, zu der sie gehört.
+- Das [`TextFormat`](/de/docs/Web/API/TextFormat)-Interface, zu dem es gehört.

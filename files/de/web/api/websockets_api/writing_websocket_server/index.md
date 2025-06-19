@@ -2,21 +2,21 @@
 title: Schreiben eines WebSocket-Servers in C#
 slug: Web/API/WebSockets_API/Writing_WebSocket_server
 l10n:
-  sourceCommit: be1922d62a0d31e4e3441db0e943aed8df736481
+  sourceCommit: 950f04d94b48f259c471175bdafb52933b2b038d
 ---
 
 {{DefaultAPISidebar("WebSockets API")}}
 
-Wenn Sie die WebSocket API verwenden möchten, ist es nützlich, wenn Sie einen Server haben. In diesem Artikel zeige ich Ihnen, wie Sie einen in C# schreiben können. Sie können dies in jeder serverseitigen Sprache tun, aber um die Dinge einfach und verständlich zu halten, habe ich Microsofts Sprache gewählt.
+Wenn Sie die WebSocket API verwenden möchten, ist es nützlich, wenn Sie einen Server haben. In diesem Artikel zeige ich Ihnen, wie Sie einen in C# schreiben können. Sie können es in jeder serverseitigen Sprache tun, aber um die Dinge einfach und verständlich zu halten, habe ich mich für die Sprache von Microsoft entschieden.
 
-Dieser Server entspricht [RFC 6455](https://datatracker.ietf.org/doc/html/rfc6455), sodass er nur Verbindungen ab Chrome Version 16, Firefox 11, IE 10 und höher behandelt.
+Dieser Server entspricht [RFC 6455](https://datatracker.ietf.org/doc/html/rfc6455), daher wird er nur Verbindungen von Chrome Version 16, Firefox 11, IE 10 und höher verarbeiten.
 
 ## Erste Schritte
 
-WebSockets kommunizieren über eine [TCP (Transmission Control Protocol)](https://en.wikipedia.org/wiki/Transmission_Control_Protocol)-Verbindung. Glücklicherweise hat C# eine [TcpListener](https://learn.microsoft.com/en-us/dotnet/api/system.net.sockets.tcplistener?view=net-6.0)-Klasse, die genau das tut, was der Name vermuten lässt. Sie befindet sich im `System.Net.Sockets`-Namespace.
+WebSockets kommunizieren über eine [TCP (Transmission Control Protocol)](https://en.wikipedia.org/wiki/Transmission_Control_Protocol)-Verbindung. Glücklicherweise verfügt C# über eine [TcpListener](https://learn.microsoft.com/en-us/dotnet/api/system.net.sockets.tcplistener?view=net-6.0)-Klasse, die ihren Namen gerecht wird. Sie befindet sich im `System.Net.Sockets`-Namespace.
 
 > [!NOTE]
-> Es ist eine gute Idee, den Namespace mit dem `using`-Schlüsselwort einzubeziehen, um weniger schreiben zu müssen. Dadurch können Klassen eines Namespaces verwendet werden, ohne jedes Mal den vollständigen Namespace anzugeben.
+> Es ist eine gute Idee, den Namespace mit dem `using`-Schlüsselwort einzuschließen, um weniger schreiben zu müssen. Es ermöglicht die Nutzung der Klassen eines Namespaces, ohne jedes Mal den vollständigen Namespace zu schreiben.
 
 ### TcpListener
 
@@ -63,30 +63,30 @@ class Server {
 Methoden:
 
 - `System.Net.Sockets.NetworkStream GetStream()`
-  Erhält den Stream, der den Kommunikationskanal darstellt. Beide Seiten des Kanals haben Lese- und Schreibmöglichkeiten.
+  Holt den Stream, der der Kommunikationskanal ist. Beide Seiten des Kanals verfügen über Lese- und Schreibfunktionen.
 
 Eigenschaften:
 
 - `int Available`
-  Diese Eigenschaft gibt an, wie viele Bytes an Daten gesendet wurden. Der Wert ist null, bis `NetworkStream.DataAvailable` _true_ ist.
+  Diese Eigenschaft zeigt an, wie viele Bytes Daten gesendet wurden. Der Wert ist null, bis `NetworkStream.DataAvailable` _true_ ist.
 
 ### NetworkStream
 
 Methoden:
 
-- Schreibt Bytes aus dem Puffer, `offset` und `size` bestimmen die Länge der Nachricht.
+- Schreibvorgänge von Bytes aus einem Puffer, Offset und Größe bestimmen die Länge der Nachricht.
 
   ```cs
   Write(byte[] buffer, int offset, int size)
   ```
 
-- Liest Bytes in den `buffer`. `offset` und `size` bestimmen die Länge der Nachricht.
+- Lesevorgänge von Bytes in `buffer`. `offset` und `size` bestimmen die Länge der Nachricht.
 
   ```cs
   Read(byte[] buffer, int offset, int size)
   ```
 
-Lassen Sie uns unser Beispiel erweitern.
+Erweitern wir unser Beispiel.
 
 ```cs
 TcpClient client = server.AcceptTcpClient();
@@ -107,9 +107,9 @@ while (true) {
 
 ## Handshaking
 
-Wenn ein Client sich mit einem Server verbindet, sendet er eine GET-Anfrage, um die Verbindung von einer einfachen HTTP-Anfrage auf ein WebSocket zu upgraden. Dies wird als Handshaking bezeichnet.
+Wenn ein Client sich mit einem Server verbindet, sendet er eine GET-Anfrage, um die Verbindung von einer einfachen HTTP-Anfrage zu einem WebSocket aufzuwerten. Dies wird als Handshaking bezeichnet.
 
-Dieses Beispiel kann ein GET vom Client erkennen. Beachten Sie, dass dies blockiert, bis die ersten 3 Bytes einer Nachricht verfügbar sind. Alternative Lösungen sollten für Produktionsumgebungen in Betracht gezogen werden.
+Dieser Beispielcode kann ein GET vom Client erkennen. Beachten Sie, dass dies blockiert, bis die ersten 3 Bytes einer Nachricht verfügbar sind. Für Produktionsumgebungen sollten alternative Lösungen untersucht werden.
 
 ```cs
 using System.Text;
@@ -134,14 +134,14 @@ if (Regex.IsMatch(data, "^GET")) {
 }
 ```
 
-Die Antwort ist einfach zu erstellen, aber könnte ein wenig schwer zu verstehen sein. Die vollständige Erklärung des Server-Handshakes finden Sie in RFC 6455, Abschnitt 4.2.2. Für unsere Zwecke werden wir nur eine einfache Antwort erstellen.
+Die Antwort ist einfach zu erstellen, aber möglicherweise etwas schwierig zu verstehen. Die vollständige Erklärung des Server-Handshakes finden Sie in RFC 6455, Abschnitt 4.2.2. Für unsere Zwecke erstellen wir nur eine einfache Antwort.
 
 Sie müssen:
 
-1. Den Wert des "Sec-WebSocket-Key"-Anforderungs-Headers ohne führende oder nachfolgende Leerzeichen erhalten
-2. Es mit "258EAFA5-E914-47DA-95CA-C5AB0DC85B11" (einem speziellen GUID, das von RFC 6455 angegeben wird) verketten
-3. Den SHA-1- und Base64-Hash des neuen Wertes berechnen
-4. Den Hash als Wert des {{httpheader("Sec-WebSocket-Accept")}} Antwort-Headers in einer HTTP-Antwort zurückschreiben
+1. Den Wert des "Sec-WebSocket-Key"-Anforderungs-Headers ohne führende oder nachfolgende Leerzeichen erhalten.
+2. Ihn mit "258EAFA5-E914-47DA-95CA-C5AB0DC85B11" (ein spezielles GUID, das von RFC 6455 spezifiziert wird) verketten.
+3. SHA-1 und Base64-Hash des neuen Wertes berechnen.
+4. Den Hash als Wert des {{httpheader("Sec-WebSocket-Accept")}}-Antwort-Headers in einer HTTP-Antwort zurückschreiben.
 
 ```cs
 if (new System.Text.RegularExpressions.Regex("^GET").IsMatch(data))
@@ -166,7 +166,7 @@ if (new System.Text.RegularExpressions.Regex("^GET").IsMatch(data))
 
 ## Nachrichten dekodieren
 
-Nach einem erfolgreichen Handshake sendet der Client kodierte Nachrichten an den Server.
+Nach einem erfolgreichen Handshake sendet der Client codierte Nachrichten an den Server.
 
 Wenn wir "MDN" senden, erhalten wir diese Bytes:
 
@@ -174,7 +174,7 @@ Wenn wir "MDN" senden, erhalten wir diese Bytes:
 129 131 61 84 35 6 112 16 109
 ```
 
-Werfen wir einen Blick darauf, was diese Bytes bedeuten.
+Sehen wir uns an, was diese Bytes bedeuten.
 
 Das erste Byte, das derzeit den Wert 129 hat, ist ein Bitfeld, das sich wie folgt aufschlüsselt:
 
@@ -182,31 +182,31 @@ Das erste Byte, das derzeit den Wert 129 hat, ist ein Bitfeld, das sich wie folg
 | ----------- | ------------ | ------------ | ------------ | ---------------- |
 | 1           | 0            | 0            | 0            | 0x1=0001         |
 
-- FIN-Bit: Dieses Bit gibt an, ob die vollständige Nachricht vom Client gesendet wurde. Nachrichten können in Frames gesendet werden, aber für jetzt halten wir die Dinge einfach.
-- RSV1, RSV2, RSV3: Diese Bits müssen 0 sein, es sei denn, eine Erweiterung wird verhandelt, die ihnen einen ungleich null Wert liefert.
-- Opcode: Diese Bits beschreiben den Typ der empfangenen Nachricht. Opcode 0x1 bedeutet, dass dies eine Textnachricht ist. [Vollständige Liste der Opcodes](https://datatracker.ietf.org/doc/html/rfc6455#section-5.2)
+- FIN-Bit: Dieses Bit zeigt an, ob die vollständige Nachricht vom Client gesendet wurde. Nachrichten können in Frames gesendet werden, aber für den Moment halten wir die Dinge einfach.
+- RSV1, RSV2, RSV3: Diese Bits müssen 0 sein, es sei denn, es wird eine Erweiterung ausgehandelt, die einen anderen Wert liefert.
+- Opcode: Diese Bits beschreiben die Art der empfangenen Nachricht. Opcode 0x1 bedeutet, dass es sich um eine Textnachricht handelt. [Vollständige Liste der Opcodes](https://datatracker.ietf.org/doc/html/rfc6455#section-5.2)
 
-Das zweite Byte, das derzeit den Wert 131 hat, ist ein weiteres Bitfeld, das sich wie folgt aufschlüsselt:
+Das zweite Byte, das derzeit den Wert 131 hat, ist ein weiteres Bitfeld, das sich folgendermaßen aufschlüsselt:
 
-| MASK (Bit 0) | Payload Length (Bit 1:7) |
-| ------------ | ------------------------ |
-| 1            | 0x83=0000011             |
+| MASK (Bit 0) | Payload-Länge (Bit 1:7) |
+| ------------ | ----------------------- |
+| 1            | 0x83=0000011            |
 
-- MASK-Bit: Definiert, ob die "Payload-Daten" maskiert sind. Wenn auf 1 gesetzt, ist ein Maskierungsschlüssel in Masking-Key vorhanden, und dieser wird verwendet, um die "Payload-Daten" zu entschlüsseln. Alle Nachrichten vom Client zum Server haben dieses Bit gesetzt.
-- Payload Length: Wenn dieser Wert zwischen 0 und 125 liegt, dann ist es die Länge der Nachricht. Wenn es 126 ist, sind die folgenden 2 Bytes (16-Bit unsigned integer) die Länge. Wenn es 127 ist, sind die folgenden 8 Bytes (64-Bit unsigned integer) die Länge.
+- MASK-Bit: Definiert, ob die "Payload-Daten" maskiert sind. Wenn auf 1 gesetzt, ist ein Masking-Schlüssel im Masking-Key vorhanden, und dieser wird verwendet, um die "Payload-Daten" zu demaskieren. Alle Nachrichten vom Client zum Server haben dieses Bit gesetzt.
+- Payload-Länge: Wenn dieser Wert zwischen 0 und 125 liegt, ist er die Länge der Nachricht. Wenn es 126 ist, sind die folgenden 2 Bytes (16-Bit-unsigned integer) die Länge. Wenn es 127 ist, sind die folgenden 8 Bytes (64-Bit-unsigned integer) die Länge.
 
 > [!NOTE]
-> Da das erste Bit immer 1 für Client-zu-Server-Nachrichten ist, können Sie 128 von diesem Byte abziehen, um das MASK-Bit zu entfernen.
+> Da das erste Bit für Nachrichten von Client zu Server immer 1 ist, können Sie 128 von diesem Byte subtrahieren, um das MASK-Bit zu entfernen.
 
-Beachten Sie, dass das MASK-Bit in unserer Nachricht gesetzt ist. Das bedeutet, dass die nächsten vier Bytes (61, 84, 35 und 6) die Masken-Bytes sind, die verwendet werden, um die Nachricht zu entschlüsseln. Diese Bytes ändern sich mit jeder Nachricht.
+Beachten Sie, dass das MASK-Bit in unserer Nachricht gesetzt ist. Dies bedeutet, dass die nächsten vier Bytes (61, 84, 35 und 6) die Maskenbytes sind, die verwendet werden, um die Nachricht zu dekodieren. Diese Bytes ändern sich mit jeder Nachricht.
 
-Die verbleibenden Bytes sind die kodierte Nachrichtennutzlast.
+Die verbleibenden Bytes sind der kodierte Nachrichteninhalt.
 
 ### Dekodierungsalgorithmus
 
 _D_i_ = _E_i_ XOR _M_\_(_i_ mod 4)
 
-wobei _D_ das dekodierte Nachrichten-Array ist, _E_ das kodierte Nachrichten-Array, _M_ das Masken-Byte-Array ist und _i_ der Index des zu dekodierenden Nachrichten-Bytes ist.
+wo _D_ das dekodierte Nachrichtenarray ist, _E_ das kodierte Nachrichtenarray, _M_ das Maskenbytearray und _i_ der Index des zu dekodierenden Nachrichtenbytes ist.
 
 Beispiel in C#:
 
@@ -220,7 +220,7 @@ for (int i = 0; i < encoded.Length; i++) {
 }
 ```
 
-## Zusammenfügen
+## Zusammensetzen
 
 ### ws-server.cs
 
@@ -325,76 +325,86 @@ class Server {
 ```html
 <!doctype html>
 <html lang="en">
-  <style>
-    textarea {
-      vertical-align: bottom;
-    }
-    #output {
-      overflow: auto;
-    }
-    #output > p {
-      overflow-wrap: break-word;
-    }
-    #output span {
-      color: blue;
-    }
-    #output span.error {
-      color: red;
-    }
-  </style>
+  <head>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="client.js" defer></script>
+  </head>
   <body>
     <h2>WebSocket Test</h2>
     <textarea cols="60" rows="6"></textarea>
     <button>send</button>
     <div id="output"></div>
   </body>
-  <script>
-    // http://www.websocket.org/echo.html
-    const button = document.querySelector("button");
-    const output = document.querySelector("#output");
-    const textarea = document.querySelector("textarea");
-    const wsUri = "ws://127.0.0.1/";
-    const websocket = new WebSocket(wsUri);
-
-    button.addEventListener("click", onClickButton);
-
-    websocket.onopen = (e) => {
-      writeToScreen("CONNECTED");
-      doSend("WebSocket rocks");
-    };
-
-    websocket.onclose = (e) => {
-      writeToScreen("DISCONNECTED");
-    };
-
-    websocket.onmessage = (e) => {
-      writeToScreen(`<span>RESPONSE: ${e.data}</span>`);
-    };
-
-    websocket.onerror = (e) => {
-      writeToScreen(`<span class="error">ERROR:</span> ${e.data}`);
-    };
-
-    function doSend(message) {
-      writeToScreen(`SENT: ${message}`);
-      websocket.send(message);
-    }
-
-    function writeToScreen(message) {
-      output.insertAdjacentHTML("afterbegin", `<p>${message}</p>`);
-    }
-
-    function onClickButton() {
-      const text = textarea.value;
-
-      text && doSend(text);
-      textarea.value = "";
-      textarea.focus();
-    }
-  </script>
 </html>
 ```
 
-## Verwandt
+### styles.css
 
-- [Writing WebSocket servers](/de/docs/Web/API/WebSockets_API/Writing_WebSocket_servers)
+```css
+textarea {
+  vertical-align: bottom;
+}
+#output {
+  overflow: auto;
+}
+#output > p {
+  overflow-wrap: break-word;
+}
+#output span {
+  color: blue;
+}
+#output span.error {
+  color: red;
+}
+```
+
+### client.js
+
+```js
+// http://www.websocket.org/echo.html
+const button = document.querySelector("button");
+const output = document.querySelector("#output");
+const textarea = document.querySelector("textarea");
+const wsUri = "ws://127.0.0.1/";
+const websocket = new WebSocket(wsUri);
+
+button.addEventListener("click", onClickButton);
+
+websocket.onopen = (e) => {
+  writeToScreen("CONNECTED");
+  doSend("WebSocket rocks");
+};
+
+websocket.onclose = (e) => {
+  writeToScreen("DISCONNECTED");
+};
+
+websocket.onmessage = (e) => {
+  writeToScreen(`<span>RESPONSE: ${e.data}</span>`);
+};
+
+websocket.onerror = (e) => {
+  writeToScreen(`<span class="error">ERROR:</span> ${e.data}`);
+};
+
+function doSend(message) {
+  writeToScreen(`SENT: ${message}`);
+  websocket.send(message);
+}
+
+function writeToScreen(message) {
+  output.insertAdjacentHTML("afterbegin", `<p>${message}</p>`);
+}
+
+function onClickButton() {
+  const text = textarea.value;
+
+  text && doSend(text);
+  textarea.value = "";
+  textarea.focus();
+}
+```
+
+## Verwandte Themen
+
+- [Schreiben von WebSocket-Servern](/de/docs/Web/API/WebSockets_API/Writing_WebSocket_servers)

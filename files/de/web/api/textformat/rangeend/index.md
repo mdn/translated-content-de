@@ -3,12 +3,12 @@ title: "TextFormat: rangeEnd-Eigenschaft"
 short-title: rangeEnd
 slug: Web/API/TextFormat/rangeEnd
 l10n:
-  sourceCommit: c9fe79713a9323e8f1492c3c5b802fc8776a5f6a
+  sourceCommit: 950f04d94b48f259c471175bdafb52933b2b038d
 ---
 
 {{APIRef("EditContext API")}}{{SeeCompatTable}}
 
-Die **`rangeEnd`**-Eigenschaft der [`TextFormat`](/de/docs/Web/API/TextFormat)-Schnittstelle gibt die Endposition des Textbereichs an, der mit dem angegebenen Textformat formatiert werden soll.
+Die **`rangeEnd`**-Eigenschaft des [`TextFormat`](/de/docs/Web/API/TextFormat)-Interface gibt die Endposition des Textbereichs an, der mit dem gegebenen Textformat formatiert werden muss.
 
 ## Wert
 
@@ -16,12 +16,19 @@ Eine {{jsxref("Number")}}.
 
 ## Beispiele
 
-### Lesen des Textbereichs, der formatiert werden muss
+### Lesen des Bereichs des zu formatierenden Textes
 
-Das folgende Beispiel zeigt, wie die Eigenschaften `rangeStart` und `rangeEnd` des `textformatupdate`-Ereignisses verwendet werden können, um den Textbereich zu bestimmen, der formatiert werden muss. Beachten Sie, dass der Callback des Ereignis-Listeners in diesem Beispiel nur aufgerufen wird, wenn ein IME-Fenster zum Verfassen von Text verwendet wird.
+Das folgende Beispiel zeigt, wie die Eigenschaften `rangeStart` und `rangeEnd` des `textformatupdate`-Ereignisses verwendet werden, um den Bereich des zu formatierenden Textes zu bestimmen. Beachten Sie, dass der Rückruf des Ereignis-Listeners in diesem Beispiel nur aufgerufen wird, wenn ein IME-Fenster zum Verfassen von Text verwendet wird.
 
 ```html
-<div id="editor" style="height:200px;background:#eee;"></div>
+<div id="editor"></div>
+```
+
+```css hidden
+#editor {
+  height: 200px;
+  background: #eee;
+}
 ```
 
 ```js
@@ -50,4 +57,4 @@ editContext.addEventListener("textformatupdate", (e) => {
 
 ## Siehe auch
 
-- Die [`TextFormat`](/de/docs/Web/API/TextFormat)-Schnittstelle, zu der es gehört.
+- Das [`TextFormat`](/de/docs/Web/API/TextFormat)-Interface, zu dem es gehört.
