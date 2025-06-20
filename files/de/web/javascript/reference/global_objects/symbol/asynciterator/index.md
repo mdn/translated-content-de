@@ -1,13 +1,14 @@
 ---
 title: Symbol.asyncIterator
+short-title: asyncIterator
 slug: Web/JavaScript/Reference/Global_Objects/Symbol/asyncIterator
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Die statische Dateneigenschaft **`Symbol.asyncIterator`** repräsentiert das [wohlbekannte Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#well-known_symbols) `Symbol.asyncIterator`. Das [asynchrone Iterablen-Protokoll](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_async_iterator_and_async_iterable_protocols) verwendet dieses Symbol für die Methode, die den asynchronen Iterator für ein Objekt zurückgibt. Damit ein Objekt asynchron iterierbar ist, muss es einen `[Symbol.asyncIterator]`-Schlüssel besitzen.
+Die statische Dateneigenschaft **`Symbol.asyncIterator`** repräsentiert das [wohlbekannte Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#well-known_symbols) `Symbol.asyncIterator`. Das [asynchrone Iterationsprotokoll](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_async_iterator_and_async_iterable_protocols) verwendet dieses Symbol, um die Methode abzurufen, die den asynchronen Iterator für ein Objekt zurückgibt. Damit ein Objekt asynchron iterierbar ist, muss es einen Schlüssel `[Symbol.asyncIterator]` besitzen.
 
 {{InteractiveExample("JavaScript Demo: Symbol.asyncIterator", "taller")}}
 
@@ -50,7 +51,7 @@ Das wohlbekannte Symbol `Symbol.asyncIterator`.
 
 ### Benutzerdefinierte asynchrone Iterables
 
-Sie können Ihr eigenes asynchrones Iterable definieren, indem Sie die Eigenschaft `[Symbol.asyncIterator]()` auf einem Objekt setzen.
+Sie können Ihr eigenes asynchrones Iterable definieren, indem Sie die Eigenschaft `[Symbol.asyncIterator]()` auf einem Objekt festlegen.
 
 ```js
 const myAsyncIterable = {
@@ -72,11 +73,11 @@ const myAsyncIterable = {
 // "iteration!"
 ```
 
-Wenn Sie eine API erstellen, bedenken Sie, dass asynchrone Iterables dazu gedacht sind, etwas _iterierbares_ zu repräsentieren – wie einen Datenstrom oder eine Liste –, und nicht in den meisten Situationen dazu dienen, Callbacks und Ereignisse vollständig zu ersetzen.
+Beim Erstellen einer API denken Sie daran, dass asynchrone Iterables dazu gedacht sind, etwas _iterierbares_ darzustellen — wie einen Datenstrom oder eine Liste — und nicht dazu, in den meisten Situationen Callbacks und Ereignisse vollständig zu ersetzen.
 
 ### Eingebaute asynchrone Iterables
 
-Es gibt kein Objekt in der Kernsprache JavaScript, das asynchron iterierbar ist. Einige Web-APIs, wie zum Beispiel [`ReadableStream`](/de/docs/Web/API/ReadableStream), haben die Methode `Symbol.asyncIterator` standardmäßig gesetzt.
+Es gibt kein Objekt in der Kern-JavaScript-Sprache, das asynchron iterierbar ist. Einige Web-APIs, wie zum Beispiel [`ReadableStream`](/de/docs/Web/API/ReadableStream), haben die `Symbol.asyncIterator`-Methode standardmäßig gesetzt.
 
 ## Spezifikationen
 

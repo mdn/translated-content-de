@@ -1,13 +1,14 @@
 ---
 title: TypedArray.prototype.with()
+short-title: with()
 slug: Web/JavaScript/Reference/Global_Objects/TypedArray/with
 l10n:
-  sourceCommit: a815a95e4ab4adf391d8a7bc66a3abbce1a686d8
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Die **`with()`**-Methode von {{jsxref("TypedArray")}}-Instanzen ist die [kopierende](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#copying_methods_and_mutating_methods) Version der Verwendung der [Klammernotation](/de/docs/Web/JavaScript/Reference/Operators/Property_accessors#bracket_notation), um den Wert eines gegebenen Indexes zu ändern. Sie gibt ein neues Typed-Array zurück, bei dem das Element am angegebenen Index durch den angegebenen Wert ersetzt wird. Diese Methode folgt dem gleichen Algorithmus wie {{jsxref("Array.prototype.with()")}}.
+Die **`with()`**-Methode von {{jsxref("TypedArray")}}-Instanzen ist die [kopierende](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#copying_methods_and_mutating_methods) Version der Verwendung der [Klammernotation](/de/docs/Web/JavaScript/Reference/Operators/Property_accessors#bracket_notation), um den Wert eines bestimmten Indexes zu ändern. Sie gibt ein neues typisiertes Array zurück, bei dem das Element an dem angegebenen Index durch den angegebenen Wert ersetzt wurde. Diese Methode hat den gleichen Algorithmus wie {{jsxref("Array.prototype.with()")}}.
 
 ## Syntax
 
@@ -18,13 +19,13 @@ arrayInstance.with(index, value)
 ### Parameter
 
 - `index`
-  - : Der nullbasierte Index, an dem das Typed-Array geändert werden soll, [umgewandelt in eine Ganzzahl](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion).
+  - : Der nullbasierte Index, an dem das typisierte Array geändert werden soll, [in eine Ganzzahl konvertiert](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion).
 - `value`
-  - : Jeder Wert, der dem angegebenen Index zugewiesen werden soll.
+  - : Ein beliebiger Wert, der dem angegebenen Index zugewiesen werden soll.
 
 ### Rückgabewert
 
-Ein neues Typed-Array, bei dem das Element an `index` durch `value` ersetzt wird.
+Ein neues typisiertes Array, bei dem das Element an `index` durch `value` ersetzt wurde.
 
 ### Ausnahmen
 
@@ -33,7 +34,7 @@ Ein neues Typed-Array, bei dem das Element an `index` durch `value` ersetzt wird
 
 ## Beschreibung
 
-Siehe {{jsxref("Array.prototype.with()")}} für weitere Details. Diese Methode ist nicht generisch und kann nur auf Typed-Array-Instanzen angewendet werden.
+Weitere Details finden Sie unter {{jsxref("Array.prototype.with()")}}. Diese Methode ist nicht generisch und kann nur auf Instanzen von typisierten Arrays aufgerufen werden.
 
 ## Beispiele
 
@@ -56,7 +57,7 @@ console.log(arr); // Uint8Array [1, 2, 3, 4, 5]
 ## Siehe auch
 
 - [Polyfill von `TypedArray.prototype.with` in `core-js`](https://github.com/zloirock/core-js#change-array-by-copy)
-- [JavaScript Typed Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
+- [Leitfaden zu JavaScript typisierten Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays)
 - {{jsxref("TypedArray.prototype.toReversed()")}}
 - {{jsxref("TypedArray.prototype.toSorted()")}}
 - {{jsxref("TypedArray.prototype.at()")}}

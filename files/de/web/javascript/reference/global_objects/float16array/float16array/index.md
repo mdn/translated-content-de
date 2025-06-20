@@ -1,13 +1,14 @@
 ---
-title: Float16Array() Konstruktor
+title: Float16Array()-Konstruktor
+short-title: Float16Array()
 slug: Web/JavaScript/Reference/Global_Objects/Float16Array/Float16Array
 l10n:
-  sourceCommit: dd339290fa3a42d9a7f079e17a62e1df1206f29d
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Der **`Float16Array()`** Konstruktor erstellt {{jsxref("Float16Array")}}-Objekte. Der Inhalt wird auf `0` initialisiert, es sei denn, es werden explizit Initialisierungsdaten bereitgestellt.
+Der **`Float16Array()`**-Konstruktor erstellt {{jsxref("Float16Array")}}-Objekte. Der Inhalt wird auf `0` initialisiert, es sei denn, Initialisierungsdaten werden explizit bereitgestellt.
 
 ## Syntax
 
@@ -22,7 +23,7 @@ new Float16Array(buffer, byteOffset)
 new Float16Array(buffer, byteOffset, length)
 ```
 
-> **Note:** `Float16Array()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Der Versuch, es ohne `new` aufzurufen, löst einen {{jsxref("TypeError")}} aus.
+> **Note:** `Float16Array()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Der Versuch, es ohne `new` aufzurufen, führt zu einem {{jsxref("TypeError")}}.
 
 ### Parameter
 
@@ -34,7 +35,7 @@ Siehe [`TypedArray`](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray
 
 ## Beispiele
 
-### Verschiedene Möglichkeiten, ein Float16Array zu erstellen
+### Verschiedene Möglichkeiten, einen Float16Array zu erstellen
 
 ```js
 // From a length
@@ -76,7 +77,7 @@ console.log(float16FromIterable);
 
 ## Siehe auch
 
-- [JavaScript Typed Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
+- [Leitfaden zu JavaScript typisierten Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays)
 - {{jsxref("TypedArray")}}
 - {{jsxref("ArrayBuffer")}}
 - {{jsxref("DataView")}}

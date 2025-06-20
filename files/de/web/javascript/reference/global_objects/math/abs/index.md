@@ -1,13 +1,14 @@
 ---
 title: Math.abs()
+short-title: abs()
 slug: Web/JavaScript/Reference/Global_Objects/Math/abs
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Die statische Methode **`Math.abs()`** gibt den Absolutwert einer Zahl zurück.
+Die statische Methode **`Math.abs()`** gibt den absoluten Wert einer Zahl zurück.
 
 {{InteractiveExample("JavaScript Demo: Math.abs()")}}
 
@@ -39,11 +40,11 @@ Math.abs(x)
 
 ### Rückgabewert
 
-Der Absolutwert von `x`. Falls `x` negativ oder `-0` ist, wird die entgegengesetzte Zahl `-x` (die nicht negativ ist) zurückgegeben. Andernfalls wird `x` selbst zurückgegeben. Das Ergebnis ist daher immer eine positive Zahl oder `0`.
+Der absolute Wert von `x`. Wenn `x` negativ oder `-0` ist, wird die entgegengesetzte Zahl `-x` zurückgegeben (die nicht negativ ist). Andernfalls wird `x` selbst zurückgegeben. Das Ergebnis ist daher immer eine positive Zahl oder `0`.
 
 ## Beschreibung
 
-Da `abs()` eine statische Methode von `Math` ist, wird sie immer als `Math.abs()` verwendet, anstatt als Methode eines erstellten `Math`-Objekts (da `Math` kein Konstruktor ist).
+Da `abs()` eine statische Methode von `Math` ist, verwenden Sie sie immer als `Math.abs()`, anstatt als Methode eines erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
 
 ## Beispiele
 

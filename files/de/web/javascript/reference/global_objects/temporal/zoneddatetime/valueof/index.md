@@ -1,13 +1,14 @@
 ---
 title: Temporal.ZonedDateTime.prototype.valueOf()
+short-title: valueOf()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime/valueOf
 l10n:
-  sourceCommit: 3dbbefa32758e2a1ca9a37c2788370c06aae2738
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}{{SeeCompatTable}}
 
-Die **`valueOf()`**-Methode von {{jsxref("Temporal.ZonedDateTime")}}-Instanzen wirft einen {{jsxref("TypeError")}}, was verhindert, dass `Temporal.ZonedDateTime`-Instanzen [implizit in Primitive umgewandelt](/de/docs/Web/JavaScript/Guide/Data_structures#primitive_coercion) werden, wenn sie in arithmetischen oder Vergleichsoperationen verwendet werden.
+Die **`valueOf()`**-Methode von {{jsxref("Temporal.ZonedDateTime")}}-Instanzen wirft einen {{jsxref("TypeError")}}, welcher verhindert, dass `Temporal.ZonedDateTime`-Instanzen [implizit in primitive Werte umgewandelt werden](/de/docs/Web/JavaScript/Guide/Data_structures#primitive_coercion), wenn sie in arithmetischen oder Vergleichsoperationen verwendet werden.
 
 ## Syntax
 
@@ -21,22 +22,22 @@ Keine.
 
 ### Rückgabewert
 
-Keine.
+Keiner.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird immer ausgelöst.
+  - : Wird immer geworfen.
 
 ## Beschreibung
 
-Da sowohl die [primitive Umwandlung](/de/docs/Web/JavaScript/Guide/Data_structures#primitive_coercion) als auch die [Zahlenumwandlung](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion) `valueOf()` vor `toString()` aufrufen, würde, wenn `valueOf()` fehlt, ein Ausdruck wie `yearMonth1 > yearMonth2` sie implizit als Zeichenketten vergleichen, was unerwartete Ergebnisse haben kann. Durch das Auslösen eines `TypeError` verhindern `Temporal.ZonedDateTime`-Instanzen solche impliziten Umwandlungen. Sie müssen sie explizit in Zahlen umwandeln, indem Sie {{jsxref("Temporal/ZonedDateTime/epochNanoseconds", "Temporal.ZonedDateTime.prototype.epochNanoseconds")}} verwenden, oder die statische Methode {{jsxref("Temporal/ZonedDateTime/compare", "Temporal.ZonedDateTime.compare()")}} zur Vergleichsoperation nutzen.
+Da sowohl die [primitive Konvertierung](/de/docs/Web/JavaScript/Guide/Data_structures#primitive_coercion) als auch die [Zahlenkonvertierung](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion) `valueOf()` vor `toString()` aufrufen, würde, falls `valueOf()` fehlt, ein Ausdruck wie `yearMonth1 > yearMonth2` diese implizit als Zeichenfolgen vergleichen, was zu unerwarteten Ergebnissen führen kann. Durch das Werfen eines `TypeError` verhindern `Temporal.ZonedDateTime`-Instanzen solche impliziten Konvertierungen. Sie müssen sie explizit in Zahlen konvertieren, indem Sie {{jsxref("Temporal/ZonedDateTime/epochNanoseconds", "Temporal.ZonedDateTime.prototype.epochNanoseconds")}} verwenden oder die statische Methode {{jsxref("Temporal/ZonedDateTime/compare", "Temporal.ZonedDateTime.compare()")}} verwenden, um sie zu vergleichen.
 
 ## Beispiele
 
 ### Arithmetische und Vergleichsoperationen mit Temporal.ZonedDateTime
 
-Alle arithmetischen und Vergleichsoperationen auf `Temporal.ZonedDateTime`-Instanzen sollten die dedizierten Methoden verwenden oder sie explizit in Primitive umwandeln.
+Alle arithmetischen und Vergleichsoperationen auf `Temporal.ZonedDateTime`-Instanzen sollten die speziellen Methoden verwenden oder sie explizit in primitive Werte umwandeln.
 
 ```js
 const zdt1 = Temporal.ZonedDateTime.from(

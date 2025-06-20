@@ -1,13 +1,14 @@
 ---
 title: Intl.getCanonicalLocales()
+short-title: getCanonicalLocales()
 slug: Web/JavaScript/Reference/Global_Objects/Intl/getCanonicalLocales
 l10n:
-  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Die statische Methode **`Intl.getCanonicalLocales()`** gibt ein Array zurück, das die kanonischen Lokalisierungsnamen enthält. Duplikate werden ausgelassen und die Elemente werden als strukturell gültige Sprach-Tag geprüft.
+Die statische Methode **`Intl.getCanonicalLocales()`** gibt ein Array zurück, das die kanonischen lokalen Namen enthält. Duplikate werden ausgelassen und die Elemente werden als strukturell gültige Sprach-Tags validiert.
 
 {{InteractiveExample("JavaScript Demo: Intl.getCanonicalLocales()")}}
 
@@ -36,11 +37,11 @@ Intl.getCanonicalLocales(locales)
 ### Parameter
 
 - `locales`
-  - : Eine Liste von {{jsxref("String")}}-Werten, für die die kanonischen Lokalisierungsnamen abgerufen werden sollen.
+  - : Eine Liste von {{jsxref("String")}}-Werten, für die die kanonischen lokalen Namen ermittelt werden sollen.
 
 ### Rückgabewert
 
-Ein Array, das die kanonischen Lokalisierungsnamen enthält.
+Ein Array, das die kanonischen lokalen Namen enthält.
 
 ## Beispiele
 

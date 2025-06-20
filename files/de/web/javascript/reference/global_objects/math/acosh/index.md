@@ -1,8 +1,9 @@
 ---
 title: Math.acosh()
+short-title: acosh()
 slug: Web/JavaScript/Reference/Global_Objects/Math/acosh
 l10n:
-  sourceCommit: e8320dfbed49d37589d0fe759ef6506885f340f7
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
@@ -48,7 +49,7 @@ Der inverse hyperbolische Kosinus von `x`. Wenn `x` kleiner als 1 ist, wird {{js
 
 ## Beschreibung
 
-Da `acosh()` eine statische Methode von `Math` ist, wird sie immer als `Math.acosh()` verwendet und nicht als Methode eines erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
+Da `acosh()` eine statische Methode von `Math` ist, verwenden Sie sie immer als `Math.acosh()` und nicht als Methode eines von Ihnen erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
 
 ## Beispiele
 
@@ -72,7 +73,7 @@ Math.acosh(Infinity); // Infinity
 ## Siehe auch
 
 - [Polyfill von `Math.acosh` in `core-js`](https://github.com/zloirock/core-js#ecmascript-math)
-- [es-shims Polyfill von `Math.acosh`](https://www.npmjs.com/package/math.acosh)
+- [es-shims polyfill von `Math.acosh`](https://www.npmjs.com/package/math.acosh)
 - {{jsxref("Math.asinh()")}}
 - {{jsxref("Math.atanh()")}}
 - {{jsxref("Math.cosh()")}}

@@ -1,21 +1,22 @@
 ---
 title: GeneratorFunction() Konstruktor
+short-title: GeneratorFunction()
 slug: Web/JavaScript/Reference/Global_Objects/GeneratorFunction/GeneratorFunction
 l10n:
-  sourceCommit: e01fd6206ce2fad2fe09a485bb2d3ceda53a62de
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Der **`GeneratorFunction()`**-Konstruktor erstellt {{jsxref("GeneratorFunction")}}-Objekte.
+Der **`GeneratorFunction()`** Konstruktor erstellt {{jsxref("GeneratorFunction")}} Objekte.
 
-Beachten Sie, dass `GeneratorFunction` _kein_ globales Objekt ist. Es kann mit dem folgenden Code erhalten werden:
+Beachten Sie, dass `GeneratorFunction` kein globales Objekt ist. Es kann mit dem folgenden Code erhalten werden:
 
 ```js
 const GeneratorFunction = function* () {}.constructor;
 ```
 
-Der `GeneratorFunction()`-Konstruktor ist nicht dazu gedacht, direkt verwendet zu werden, und alle in der Beschreibung von {{jsxref("Function/Function", "Function()")}} erwähnten Warnhinweise gelten auch für `GeneratorFunction()`.
+Der `GeneratorFunction()` Konstruktor ist nicht zur direkten Verwendung vorgesehen, und alle im {{jsxref("Function/Function", "Function()")}} beschriebenen Vorbehalte gelten auch für `GeneratorFunction()`.
 
 ## Syntax
 
@@ -31,7 +32,7 @@ GeneratorFunction(arg1, arg2, functionBody)
 GeneratorFunction(arg1, arg2, /* …, */ argN, functionBody)
 ```
 
-> **Note:** `GeneratorFunction()` kann mit oder ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden. Beide erzeugen eine neue `GeneratorFunction` Instanz.
+> **Note:** `GeneratorFunction()` kann mit oder ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden. Beide Arten erzeugen eine neue `GeneratorFunction` Instanz.
 
 ### Parameter
 
@@ -62,4 +63,4 @@ console.log(iterator.next().value); // 20
 - [`function*` Ausdruck](/de/docs/Web/JavaScript/Reference/Operators/function*)
 - [`Function()` Konstruktor](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/Function)
 - [Iteratoren und Generatoren](/de/docs/Web/JavaScript/Guide/Iterators_and_generators) Leitfaden
-- {{jsxref("Functions", "Funktionen", "", 1)}}
+- {{jsxref("Functions", "Functions", "", 1)}}

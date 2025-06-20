@@ -1,13 +1,14 @@
 ---
 title: Intl.Locale.prototype.toString()
+short-title: toString()
 slug: Web/JavaScript/Reference/Global_Objects/Intl/Locale/toString
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Die **`toString()`**-Methode von {{jsxref("Intl.Locale")}}-Instanzen gibt die vollständige [Locale-Identifier-Zeichenkette](https://www.unicode.org/reports/tr35/#Unicode_locale_identifier) dieses Locales zurück.
+Die **`toString()`**-Methode von {{jsxref("Intl.Locale")}} Instanzen gibt den vollständigen [Locale-Identifier-String](https://www.unicode.org/reports/tr35/#Unicode_locale_identifier) dieser Locale zurück.
 
 {{InteractiveExample("JavaScript Demo: Intl.Locale.prototype.toString()", "taller")}}
 
@@ -40,11 +41,18 @@ Keine.
 
 ### Rückgabewert
 
-Die Unicode-Locale-Identifier-Zeichenkette des _Locale_.
+Der Unicode Locale-Identifier-String der _locale_.
 
 ## Beschreibung
 
-Das `Locale`-Objekt ist eine JavaScript-Darstellung des Konzepts eines Unicode-Locale-Identifiers. Informationen über ein bestimmtes Locale (Sprache, Schrift, Kalenderart usw.) können in einer Locale-Identifier-Zeichenkette kodiert werden. Um die Arbeit mit diesen Locale-Identifiern zu erleichtern, wurde das `Locale`-Objekt in JavaScript eingeführt. Der Aufruf der `toString`-Methode eines Locale-Objekts gibt die Identifier-Zeichenkette für dieses konkrete Locale zurück. Die `toString`-Methode ermöglicht es, `Locale`-Instanzen als Argumente für bestehende `Intl`-Konstruktoren zu verwenden, in JSON zu serialisieren oder in jedem anderen Kontext einzusetzen, in dem eine exakte Zeichenkettenrepräsentation nützlich ist.
+Das `Locale`-Objekt ist eine JavaScript-Repräsentation eines
+Unicode-Locale-Identifier-Konzepts. Informationen über ein bestimmtes Locale (Sprache, Schrift,
+Kalendertyp, etc.) können in einem Locale-Identifier-String kodiert werden. Um die Arbeit
+mit diesen Locale-Identifikatoren zu erleichtern, wurde das `Locale`-Objekt
+in JavaScript eingeführt. Ein Aufruf der Methode `toString` auf einem Locale-Objekt
+gibt den Identifier-String für dieses spezielle Locale zurück. Die
+`toString`-Methode ermöglicht es, `Locale`-Instanzen als Argumente für bestehende `Intl`-Konstruktoren bereitzustellen, in
+JSON zu serialisieren oder in jedem anderen Kontext zu nutzen, in dem eine exakte String-Repräsentation nützlich ist.
 
 ## Beispiele
 

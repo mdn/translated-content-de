@@ -1,16 +1,17 @@
 ---
 title: String.prototype.bold()
+short-title: bold()
 slug: Web/JavaScript/Reference/Global_Objects/String/bold
 l10n:
-  sourceCommit: e8320dfbed49d37589d0fe759ef6506885f340f7
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}} {{Deprecated_Header}}
 
-Die **`bold()`** Methode von {{jsxref("String")}} Werten erstellt einen String, der diesen String in einem {{HTMLElement("b")}} Element (`<b>str</b>`) einbettet, wodurch dieser String fett angezeigt wird.
+Die **`bold()`**-Methode von {{jsxref("String")}}-Werten erstellt einen String, der diesen String in ein {{HTMLElement("b")}}-Element einbettet (`<b>str</b>`), wodurch dieser String fett dargestellt wird.
 
 > [!NOTE]
-> Alle [HTML-Wrapper-Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/String#html_wrapper_methods) sind veraltet und nur aus Kompatibilitätsgründen standardisiert. Verwenden Sie stattdessen [DOM-APIs](/de/docs/Web/API/Document_Object_Model) wie [`document.createElement()`](/de/docs/Web/API/Document/createElement).
+> Alle [HTML-Einrahmungsmethoden](/de/docs/Web/JavaScript/Reference/Global_Objects/String#html_wrapper_methods) sind veraltet und nur aus Kompatibilitätsgründen standardisiert. Verwenden Sie stattdessen [DOM-APIs](/de/docs/Web/API/Document_Object_Model) wie [`document.createElement()`](/de/docs/Web/API/Document/createElement).
 
 ## Syntax
 
@@ -24,13 +25,13 @@ Keine.
 
 ### Rückgabewert
 
-Ein String, der mit einem `<b>` Start-Tag beginnt, gefolgt vom Text `str`, und dann einem `</b>` End-Tag.
+Ein String, der mit einem `<b>` Start-Tag beginnt, gefolgt von dem Text `str` und einem `</b>` End-Tag.
 
 ## Beispiele
 
 ### Verwendung von bold()
 
-Der folgende Code erstellt einen HTML-String und ersetzt dann den Inhalt des Dokuments mit ihm:
+Der folgende Code erstellt einen HTML-String und ersetzt dann den Inhalt des Dokumentenkörpers damit:
 
 ```js
 const contentString = "Hello, world";
@@ -38,13 +39,13 @@ const contentString = "Hello, world";
 document.body.innerHTML = contentString.bold();
 ```
 
-Dies wird das folgende HTML erzeugen:
+Dies erzeugt folgendes HTML:
 
 ```html
 <b>Hello, world</b>
 ```
 
-Statt `bold()` zu verwenden und HTML-Text direkt zu erstellen, sollten Sie DOM-APIs wie [`document.createElement()`](/de/docs/Web/API/Document/createElement) verwenden. Zum Beispiel:
+Anstatt `bold()` zu verwenden und HTML-Text direkt zu erstellen, sollten Sie DOM-APIs wie [`document.createElement()`](/de/docs/Web/API/Document/createElement) verwenden. Zum Beispiel:
 
 ```js
 const contentString = "Hello, world";
@@ -65,5 +66,5 @@ document.body.appendChild(elem);
 
 - [Polyfill von `String.prototype.bold` in `core-js`](https://github.com/zloirock/core-js#ecmascript-string-and-regexp)
 - [es-shims Polyfill von `String.prototype.bold`](https://www.npmjs.com/package/es-string-html-methods)
-- [HTML-Wrapper-Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/String#html_wrapper_methods)
+- [HTML-Einrahmungsmethoden](/de/docs/Web/JavaScript/Reference/Global_Objects/String#html_wrapper_methods)
 - {{HTMLElement("b")}}

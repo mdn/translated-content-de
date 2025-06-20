@@ -1,13 +1,14 @@
 ---
 title: String.prototype.isWellFormed()
+short-title: isWellFormed()
 slug: Web/JavaScript/Reference/Global_Objects/String/isWellFormed
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Die **`isWellFormed()`** Methode von {{jsxref("String")}} Werten gibt einen booleschen Wert zurück, der anzeigt, ob dieser String einsame Surrogatpaare enthält oder nicht. Mehr Informationen zu [einsamen Surrogatpaaren](/de/docs/Web/JavaScript/Reference/Global_Objects/String#utf-16_characters_unicode_code_points_and_grapheme_clusters) finden Sie im verlinkten Abschnitt.
+Die **`isWellFormed()`** Methode von {{jsxref("String")}} Werten gibt einen booleschen Wert zurück, der angibt, ob dieser String einsame Surrogate enthält oder nicht. [Einsame Surrogate](/de/docs/Web/JavaScript/Reference/Global_Objects/String#utf-16_characters_unicode_code_points_and_grapheme_clusters) sind ein wichtiges Konzept in der Textverarbeitung.
 
 ## Syntax
 
@@ -21,13 +22,13 @@ Keine.
 
 ### Rückgabewert
 
-Gibt `true` zurück, wenn dieser String keine einsamen Surrogatpaare enthält, andernfalls `false`.
+Gibt `true` zurück, wenn dieser String keine einsamen Surrogate enthält, andernfalls `false`.
 
 ## Beschreibung
 
-Strings in JavaScript sind UTF-16 kodiert. Die UTF-16 Kodierung enthält das Konzept der _Surrogatpaare_, das im Abschnitt [UTF-16 characters, Unicode code points, and grapheme clusters](/de/docs/Web/JavaScript/Reference/Global_Objects/String#utf-16_characters_unicode_code_points_and_grapheme_clusters) detailliert behandelt wird.
+Strings in JavaScript sind UTF-16 kodiert. Die UTF-16-Kodierung hat das Konzept der _Surrogatpaare_, welches im Abschnitt über [UTF-16 Zeichen, Unicode-Codepunkte und Grapheme-Cluster](/de/docs/Web/JavaScript/Reference/Global_Objects/String#utf-16_characters_unicode_code_points_and_grapheme_clusters) ausführlich beschrieben wird.
 
-Mit `isWellFormed()` können Sie überprüfen, ob ein String gut geformt ist (d.h. keine einsamen Surrogatpaare enthält). Im Vergleich zu einer benutzerdefinierten Implementierung ist `isWellFormed()` effizienter, da Engines direkt auf die interne Repräsentation von Strings zugreifen können. Wenn Sie einen String in einen gut geformten String umwandeln müssen, verwenden Sie die Methode {{jsxref("String/toWellFormed", "toWellFormed()")}}. `isWellFormed()` ermöglicht es Ihnen, schlecht geformte Strings anders zu behandeln als gut geformte, z.B. durch das Auslösen eines Fehlers oder das Markieren als ungültig.
+`isWellFormed()` ermöglicht es Ihnen, zu überprüfen, ob ein String wohlgeformt ist (d.h. ob er keine einsamen Surrogate enthält). Im Vergleich zu einer benutzerdefinierten Implementierung ist `isWellFormed()` effizienter, da Engines direkt auf die interne Darstellung von Strings zugreifen können. Wenn Sie einen String in einen wohlgeformten String umwandeln müssen, verwenden Sie die {{jsxref("String/toWellFormed", "toWellFormed()")}} Methode. `isWellFormed()` ermöglicht es Ihnen, schlecht geformte Strings anders zu behandeln als wohlgeformte, beispielsweise indem Sie einen Fehler auslösen oder ihn als ungültig markieren.
 
 ## Beispiele
 
@@ -58,9 +59,9 @@ for (const str of strings) {
 // true
 ```
 
-### Vermeidung von Fehlern in encodeURI()
+### Fehler bei encodeURI() vermeiden
 
-{{jsxref("encodeURI")}} löst einen Fehler aus, wenn der übergebene String nicht gut geformt ist. Dies kann vermieden werden, indem `isWellFormed()` verwendet wird, um den String zu testen, bevor er an `encodeURI()` übergeben wird.
+{{jsxref("encodeURI")}} wirft einen Fehler, wenn der übergebene String nicht wohlgeformt ist. Dies kann vermieden werden, indem Sie `isWellFormed()` verwenden, um den String zu testen, bevor Sie ihn an `encodeURI()` übergeben.
 
 ```js
 const illFormed = "https://example.com/search?q=\uD800";
@@ -89,6 +90,6 @@ if (illFormed.isWellFormed()) {
 ## Siehe auch
 
 - [Polyfill von `String.prototype.isWellFormed` in `core-js`](https://github.com/zloirock/core-js#well-formed-unicode-strings)
-- [es-shims Polyfill von `String.prototype.isWellFormed`](https://www.npmjs.com/package/string.prototype.iswellformed)
+- [es-shims polyfill von `String.prototype.isWellFormed`](https://www.npmjs.com/package/string.prototype.iswellformed)
 - {{jsxref("String.prototype.toWellFormed()")}}
 - {{jsxref("String.prototype.normalize()")}}

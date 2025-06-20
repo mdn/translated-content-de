@@ -1,27 +1,28 @@
 ---
 title: AsyncGeneratorFunction.prototype.prototype
+short-title: prototype
 slug: Web/JavaScript/Reference/Global_Objects/AsyncGeneratorFunction/prototype
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Die **`prototype`**-Eigenschaft von `AsyncGeneratorFunction.prototype` wird von allen asynchronen Generatorfunktionen gemeinsam genutzt. Ihr Wert ist [`AsyncGenerator.prototype`](/de/docs/Web/JavaScript/Reference/Global_Objects/AsyncGenerator). Jede asynchrone Generatorfunktion, die mit der `async function*`-Syntax oder dem `AsyncGeneratorFunction()`-Konstruktor erstellt wurde, hat ebenfalls ihre eigene `prototype`-Eigenschaft, deren Prototyp `AsyncGeneratorFunction.prototype.prototype` ist. Wenn die asynchrone Generatorfunktion aufgerufen wird, wird ihre `prototype`-Eigenschaft zum Prototyp des zurückgegebenen asynchronen Generatorobjekts.
+Die **`prototype`**-Eigenschaft von `AsyncGeneratorFunction.prototype` wird von allen asynchronen Generatorfunktionen geteilt. Ihr Wert ist [`AsyncGenerator.prototype`](/de/docs/Web/JavaScript/Reference/Global_Objects/AsyncGenerator). Jede asynchrone Generatorfunktion, die mit der Syntax `async function*` oder dem Konstruktor `AsyncGeneratorFunction()` erstellt wird, hat auch ihre eigene `prototype`-Eigenschaft, deren Prototyp `AsyncGeneratorFunction.prototype.prototype` ist. Wenn die asynchrone Generatorfunktion aufgerufen wird, wird ihre `prototype`-Eigenschaft zum Prototyp des zurückgegebenen asynchronen Generatorobjekts.
 
 ## Wert
 
-Dasselbe Objekt wie [`AsyncGenerator.prototype`](/de/docs/Web/JavaScript/Reference/Global_Objects/AsyncGenerator). `AsyncGeneratorFunction.prototype.prototype` ist der technisch exaktere Name, aber `AsyncGenerator.prototype` spricht die Intuition an, dass es sich um den Prototyp von asynchronen Generatorobjekten handelt.
+Das gleiche Objekt wie [`AsyncGenerator.prototype`](/de/docs/Web/JavaScript/Reference/Global_Objects/AsyncGenerator). `AsyncGeneratorFunction.prototype.prototype` ist der technisch genauere Name, aber `AsyncGenerator.prototype` spricht die Intuition an, dass es sich um den Prototyp von asynchronen Generatorobjekten handelt.
 
 {{js_property_attributes(0, 0, 1)}}
 
-Die `prototype`-Eigenschaft jeder `AsyncGeneratorFunction`-Instanz ist ein leeres Objekt ohne Eigenschaften, dessen Prototyp `AsyncGeneratorFunction.prototype.prototype` ist. Sie hat die folgenden Eigenschaften Attribute:
+Die `prototype`-Eigenschaft jeder `AsyncGeneratorFunction`-Instanz ist ein leeres Objekt ohne Eigenschaften, dessen Prototyp `AsyncGeneratorFunction.prototype.prototype` ist. Es hat die folgenden Eigenschaftenattribute:
 
 {{js_property_attributes(1, 0, 0)}}
 
 ## Beschreibung
 
-Eine Instanz einer asynchronen Generatorfunktion hat zwei `prototype`-Eigenschaften. Die erste ist ihre eigene `prototype`-Eigenschaft. Die zweite ist die `prototype`-Eigenschaft in ihrem Prototyp, was `AsyncGeneratorFunction.prototype` ist. (Denken Sie daran, dass jede asynchrone Generatorfunktion eine Instanz von `AsyncGeneratorFunction` ist, sodass sie `AsyncGeneratorFunction.prototype` als ihren Prototyp hat.)
+Eine Instanz einer asynchronen Generatorfunktion hat zwei `prototype`-Eigenschaften. Die erste ist ihre eigene `prototype`-Eigenschaft. Die zweite ist die `prototype`-Eigenschaft ihres Prototyps, der `AsyncGeneratorFunction.prototype` ist. (Denken Sie daran, dass jede asynchrone Generatorfunktion eine Instanz von `AsyncGeneratorFunction` ist, sodass sie `AsyncGeneratorFunction.prototype` als Prototyp hat.)
 
 ```js
 async function* genFunc() {}
@@ -39,9 +40,9 @@ console.log(proto(gen) === genFunc.prototype); // true
 console.log(proto(proto(gen)) === AsyncGeneratorFunctionPrototype.prototype); // true
 ```
 
-Das folgende Diagramm veranschaulicht die Prototypkette einer asynchronen Generatorfunktion und ihrer Instanzen. Jeder hohle Pfeil zeigt eine Vererbungsbeziehung (d.h. einen Prototyp-Link) an, und jeder solide Pfeil zeigt eine Eigenschaften-Beziehung an. Beachten Sie, dass es keine Möglichkeit gibt, von `gen` auf `genFunc` zuzugreifen – sie haben nur eine `instanceof`-Beziehung.
+Das folgende Diagramm veranschaulicht die Prototypenkette einer asynchronen Generatorfunktion und ihrer Instanzen. Jeder hohle Pfeil zeigt eine Vererbungsbeziehung (d.h. eine Prototyp-Verknüpfung) an, und jeder durchgehende Pfeil zeigt eine Eigenschaftsbeziehung an. Beachten Sie, dass es keinen Weg gibt, von `gen` auf `genFunc` zuzugreifen — sie haben nur eine `instanceof`-Beziehung.
 
-![Das Vererbungsdiagramm von asynchronen Generatoren und asynchronen Generatorfunktionen](https://mdn.github.io/shared-assets/images/diagrams/javascript/asyncgeneratorfunction/prototype-chain.svg)
+![Das Vererbungsschema von asynchronen Generatoren und asynchronen Generatorfunktionen](https://mdn.github.io/shared-assets/images/diagrams/javascript/asyncgeneratorfunction/prototype-chain.svg)
 
 ## Spezifikationen
 
@@ -53,5 +54,5 @@ Das folgende Diagramm veranschaulicht die Prototypkette einer asynchronen Genera
 - [`async function*` Ausdruck](/de/docs/Web/JavaScript/Reference/Operators/async_function*)
 - {{jsxref("AsyncGeneratorFunction")}}
 - {{jsxref("GeneratorFunction")}}
-- [Vererbung und die Prototypkette](/de/docs/Web/JavaScript/Guide/Inheritance_and_the_prototype_chain)
+- [Vererbung und die Prototypenkette](/de/docs/Web/JavaScript/Guide/Inheritance_and_the_prototype_chain)
 - [Iteratoren und Generatoren](/de/docs/Web/JavaScript/Guide/Iterators_and_generators)

@@ -1,15 +1,16 @@
 ---
 title: Temporal.PlainDate.prototype.withCalendar()
+short-title: withCalendar()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainDate/withCalendar
 l10n:
-  sourceCommit: 1b77d85af82183b835cf253e885dca26cba93eb5
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}{{SeeCompatTable}}
 
-Die **`withCalendar()`**-Methode von {{jsxref("Temporal.PlainDate")}}-Instanzen gibt ein neues `Temporal.PlainDate`-Objekt zurück, das dieses Datum im neuen Kalendersystem interpretiert. Da alle `Temporal`-Objekte so konzipiert sind, dass sie unveränderlich sind, fungiert diese Methode im Wesentlichen als Setter für die {{jsxref("Temporal/PlainDate/calendarId", "calendarId")}}-Eigenschaft des Datums.
+Die **`withCalendar()`**-Methode von {{jsxref("Temporal.PlainDate")}}-Instanzen gibt ein neues `Temporal.PlainDate`-Objekt zurück, das dieses Datum im neuen Kalendersystem interpretiert darstellt. Da alle `Temporal`-Objekte unveränderlich konzipiert sind, fungiert diese Methode im Wesentlichen als Setter für die {{jsxref("Temporal/PlainDate/calendarId", "calendarId")}}-Eigenschaft des Datums.
 
-Um die Datumsbestandteile zu ersetzen, verwenden Sie stattdessen die {{jsxref("Temporal/PlainDate/with", "with()")}}-Methode.
+Um die Datumskomponenten-Eigenschaften zu ersetzen, verwenden Sie stattdessen die {{jsxref("Temporal/PlainDate/with", "with()")}}-Methode.
 
 ## Syntax
 
@@ -20,11 +21,11 @@ withCalendar(calendar)
 ### Parameter
 
 - `calendar`
-  - : Ein String, der der {{jsxref("Temporal/PlainDate/calendarId", "calendarId")}}-Eigenschaft entspricht. Siehe [`Intl.supportedValuesOf()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/supportedValuesOf#supported_calendar_types) für eine Liste der häufig unterstützten Kalenderarten.
+  - : Ein String, der der {{jsxref("Temporal/PlainDate/calendarId", "calendarId")}}-Eigenschaft entspricht. Siehe [`Intl.supportedValuesOf()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/supportedValuesOf#supported_calendar_types) für eine Liste häufig unterstützter Kalendertypen.
 
 ### Rückgabewert
 
-Ein neues `Temporal.PlainDate`-Objekt, das das Datum repräsentiert, das durch das ursprüngliche `PlainDate` angegeben wird, interpretiert im neuen Kalendersystem.
+Ein neues `Temporal.PlainDate`-Objekt, das das durch den ursprünglichen `PlainDate` angegebene Datum darstellt, interpretiert im neuen Kalendersystem.
 
 ### Ausnahmen
 

@@ -1,13 +1,14 @@
 ---
 title: TypedArray.prototype.reduceRight()
+short-title: reduceRight()
 slug: Web/JavaScript/Reference/Global_Objects/TypedArray/reduceRight
 l10n:
-  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Die **`reduceRight()`** Methode von {{jsxref("TypedArray")}} Instanzen wendet eine Funktion gegen einen Akkumulator und jeden Wert des typisierten Arrays (von rechts nach links) an, um es auf einen einzigen Wert zu reduzieren. Diese Methode folgt demselben Algorithmus wie {{jsxref("Array.prototype.reduceRight()")}}.
+Die **`reduceRight()`** Methode von {{jsxref("TypedArray")}} Instanzen wendet eine Funktion von rechts nach links auf einen Akkumulator und jeden Wert des typisierten Arrays an, um es auf einen einzelnen Wert zu reduzieren. Diese Methode hat denselben Algorithmus wie {{jsxref("Array.prototype.reduceRight()")}}.
 
 {{InteractiveExample("JavaScript Demo: TypedArray.prototype.reduceRight()")}}
 
@@ -32,29 +33,29 @@ reduceRight(callbackFn, initialValue)
 ### Parameter
 
 - `callbackFn`
-  - : Eine Funktion, die für jedes Element im Typenarray ausgeführt wird. Ihr Rückgabewert wird der Wert des `accumulator`-Parameters beim nächsten Aufruf von `callbackFn`. Beim letzten Aufruf wird der Rückgabewert zum Rückgabewert von `reduceRight()`. Die Funktion wird mit den folgenden Argumenten aufgerufen:
+  - : Eine Funktion, die für jedes Element im typisierten Array ausgeführt wird. Ihr Rückgabewert wird zum Wert des `accumulator` Parameters beim nächsten Aufruf von `callbackFn`. Beim letzten Aufruf wird der Rückgabewert zum Rückgabewert von `reduceRight()`. Die Funktion wird mit den folgenden Argumenten aufgerufen:
     - `accumulator`
-      - : Der Wert, der aus dem vorherigen Aufruf von `callbackFn` resultiert. Beim ersten Aufruf ist sein Wert `initialValue`, falls dieses angegeben ist; andernfalls ist es der letzte Wert des Typenarrays.
+      - : Der Wert, der aus dem vorherigen Aufruf von `callbackFn` resultiert. Beim ersten Aufruf ist sein Wert `initialValue`, falls dies angegeben ist; andernfalls ist sein Wert das letzte Element des typisierten Arrays.
     - `currentValue`
-      - : Der Wert des aktuellen Elements. Beim ersten Aufruf ist sein Wert das letzte Element, falls `initialValue` angegeben ist; andernfalls der vorletzte Wert.
+      - : Der Wert des aktuellen Elements. Beim ersten Aufruf ist sein Wert das letzte Element, wenn `initialValue` angegeben ist; andernfalls ist sein Wert das vorletzte Element.
     - `currentIndex`
-      - : Die Indexposition von `currentValue` im Typenarray. Beim ersten Aufruf ist sein Wert `array.length - 1`, falls `initialValue` angegeben ist, andernfalls `array.length - 2`.
+      - : Die Indexposition von `currentValue` im typisierten Array. Beim ersten Aufruf ist sein Wert `array.length - 1`, wenn `initialValue` angegeben ist, andernfalls `array.length - 2`.
     - `array`
-      - : Das Typenarray, auf dem `reduceRight()` aufgerufen wurde.
+      - : Das typisierte Array, auf dem `reduceRight()` aufgerufen wurde.
 - `initialValue` {{optional_inline}}
-  - : Wert, der als Akkumulator beim ersten Aufruf von `callbackFn` verwendet wird. Wenn kein Anfangswert angegeben wird, wird das letzte Element im Typenarray verwendet und übersprungen. Das Aufrufen von `reduceRight()` auf einem leeren Typenarray ohne Anfangswert erzeugt einen `TypeError`.
+  - : Wert, der als Akkumulator beim ersten Aufruf der `callbackFn` verwendet wird. Wenn kein Anfangswert angegeben wird, wird das letzte Element im typisierten Array verwendet und übersprungen. Der Aufruf von `reduceRight()` auf einem leeren typisierten Array ohne Anfangswert erzeugt einen `TypeError`.
 
 ### Rückgabewert
 
-Der Wert, der aus der Reduktion resultiert.
+Der Wert, der aus der Reduzierung resultiert.
 
 ## Beschreibung
 
-Siehe {{jsxref("Array.prototype.reduceRight()")}} für weitere Details. Diese Methode ist nicht generisch und kann nur auf Typenarray-Instanzen aufgerufen werden.
+Weitere Details finden Sie unter {{jsxref("Array.prototype.reduceRight()")}}. Diese Methode ist nicht generisch und kann nur auf typisierten Array-Instanzen aufgerufen werden.
 
 ## Beispiele
 
-### Alle Werte innerhalb eines Arrays aufsummieren
+### Alle Werte in einem Array aufsummieren
 
 ```js
 const total = new Uint8Array([0, 1, 2, 3]).reduceRight((a, b) => a + b);

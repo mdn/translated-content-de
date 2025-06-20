@@ -1,13 +1,14 @@
 ---
 title: DataView.prototype.setInt32()
+short-title: setInt32()
 slug: Web/JavaScript/Reference/Global_Objects/DataView/setInt32
 l10n:
-  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Die **`setInt32()`**-Methode von {{jsxref("DataView")}}-Instanzen nimmt eine Zahl und speichert sie als 32-Bit-Ganzzahl mit Vorzeichen in den 4 Bytes, die am angegebenen Byte-Offset dieses `DataView` beginnen. Es gibt keine Ausrichtungsbeschränkung; Mehrbyte-Werte können an jedem Offset innerhalb der Grenzen gespeichert werden.
+Die **`setInt32()`**-Methode von {{jsxref("DataView")}}-Instanzen nimmt eine Zahl und speichert sie als 32-Bit-Ganzzahl mit Vorzeichen in den 4 Bytes, beginnend beim angegebenen Byte-Offset dieses `DataView`. Es gibt keine Ausrichtungsbeschränkung; Mehrbyte-Werte können an jedem Offset innerhalb der Grenzen gespeichert werden.
 
 {{InteractiveExample("JavaScript Demo: DataView.prototype.setInt32()")}}
 
@@ -32,11 +33,11 @@ setInt32(byteOffset, value, littleEndian)
 ### Parameter
 
 - `byteOffset`
-  - : Der Offset in Bytes vom Beginn der Ansicht, um die Daten zu speichern.
+  - : Der Offset in Bytes vom Beginn der Ansicht, wo die Daten gespeichert werden sollen.
 - `value`
-  - : Der festzulegende Wert. Wie der Wert in Bytes kodiert ist, sehen Sie unter [Wertkodierung und Normalisierung](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray#value_encoding_and_normalization).
+  - : Der Wert, der gesetzt werden soll. Wie der Wert in Bytes kodiert wird, finden Sie unter [Wertkodierung und Normalisierung](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray#value_encoding_and_normalization).
 - `littleEndian` {{optional_inline}}
-  - : Gibt an, ob die Daten im {{Glossary("Endianness", "little- oder big-endian")}} Format gespeichert werden. Wenn `false` oder `undefined`, wird ein big-endian Wert geschrieben.
+  - : Gibt an, ob die Daten im {{Glossary("Endianness", "Little- oder Big-Endian-Format")}} gespeichert sind. Wenn `false` oder `undefined`, wird ein Big-Endian-Wert geschrieben.
 
 ### Rückgabewert
 
@@ -45,7 +46,7 @@ setInt32(byteOffset, value, littleEndian)
 ### Ausnahmen
 
 - {{jsxref("RangeError")}}
-  - : Wird ausgelöst, wenn `byteOffset` so gesetzt ist, dass es über das Ende der Ansicht hinaus speichern würde.
+  - : Wird ausgelöst, wenn der `byteOffset` so gesetzt ist, dass er über das Ende der Ansicht hinaus speichern würde.
 
 ## Beispiele
 
@@ -68,7 +69,7 @@ dataview.getInt32(1); // 768
 
 ## Siehe auch
 
-- [JavaScript-typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
+- [JavaScript typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
 - {{jsxref("DataView")}}
 - {{jsxref("ArrayBuffer")}}
 - {{jsxref("Int32Array")}}

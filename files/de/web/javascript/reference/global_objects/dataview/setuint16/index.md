@@ -1,13 +1,14 @@
 ---
 title: DataView.prototype.setUint16()
+short-title: setUint16()
 slug: Web/JavaScript/Reference/Global_Objects/DataView/setUint16
 l10n:
-  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Die Methode **`setUint16()`** von {{jsxref("DataView")}}-Instanzen nimmt eine Zahl und speichert sie als 16-Bit-Integer ohne Vorzeichen in den 2 Bytes, die beim angegebenen Byte-Offset dieses `DataView` beginnen. Es gibt keine Ausrichtungsbeschränkung; Mehrbyte-Werte können an einer beliebigen Stelle innerhalb der Grenzen gespeichert werden.
+Die **`setUint16()`** Methode von {{jsxref("DataView")}} Instanzen nimmt eine Zahl und speichert sie als 16-Bit-Integer ohne Vorzeichen in den 2 Bytes ab dem angegebenen Byte-Offset dieses `DataView`. Es gibt keine Ausrichtungsbeschränkung; Mehrbyte-Werte können an beliebigen Offsets innerhalb der Grenzen gespeichert werden.
 
 {{InteractiveExample("JavaScript Demo: DataView.prototype.setUint16()")}}
 
@@ -32,11 +33,11 @@ setUint16(byteOffset, value, littleEndian)
 ### Parameter
 
 - `byteOffset`
-  - : Der Offset, in Bytes, ab dem Beginn der Ansicht, um die Daten zu speichern.
+  - : Der Offset in Bytes vom Beginn der Ansicht, an dem die Daten gespeichert werden sollen.
 - `value`
-  - : Der zu setzende Wert. Informationen darüber, wie der Wert in Bytes codiert wird, finden Sie unter [Wertcodierung und Normalisierung](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray#value_encoding_and_normalization).
+  - : Der Wert, der gesetzt werden soll. Für Informationen über die Kodierung des Werts in Bytes siehe [Wertkodierung und Normalisierung](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray#value_encoding_and_normalization).
 - `littleEndian` {{optional_inline}}
-  - : Gibt an, ob die Daten im {{Glossary("Endianness", "Little- oder Big-Endian")}}-Format gespeichert werden. Wenn `false` oder `undefined`, wird ein Big-Endian-Wert geschrieben.
+  - : Gibt an, ob die Daten im {{Glossary("Endianness", "Little- oder Big-Endian")}} Format gespeichert werden. Falls `false` oder `undefined`, wird ein Big-Endian-Wert geschrieben.
 
 ### Rückgabewert
 

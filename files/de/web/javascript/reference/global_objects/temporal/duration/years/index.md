@@ -1,17 +1,18 @@
 ---
 title: Temporal.Duration.prototype.years
+short-title: years
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/Duration/years
 l10n:
-  sourceCommit: 262c13dcbcd394beddd98e07d9c78bc79ce3513c
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}{{SeeCompatTable}}
 
-Die **`years`** Zugriffseigenschaft von {{jsxref("Temporal.Duration")}}-Instanzen gibt eine ganze Zahl zurück, die die Anzahl der Jahre in der Dauer darstellt.
+Die **`years`** Zugriffs-Eigenschaft von {{jsxref("Temporal.Duration")}} Instanzen gibt eine ganze Zahl zurück, die die Anzahl der Jahre in der Dauer repräsentiert.
 
-Sie können das Vorzeichen von `years` herausfinden, indem Sie die [`sign`](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration/sign) Eigenschaft der Dauer überprüfen.
+Sie können das Vorzeichen von `years` durch Überprüfung der [`sign`](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration/sign) Eigenschaft der Dauer ermitteln.
 
-Der Setter von `years` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern. Verwenden Sie die {{jsxref("Temporal/Duration/with", "with()")}}-Methode, um ein neues `Temporal.Duration`-Objekt mit dem gewünschten neuen Wert zu erstellen.
+Der set Accessor von `years` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern. Verwenden Sie die {{jsxref("Temporal/Duration/with", "with()")}} Methode, um ein neues `Temporal.Duration` Objekt mit dem gewünschten neuen Wert zu erstellen.
 
 ## Beispiele
 

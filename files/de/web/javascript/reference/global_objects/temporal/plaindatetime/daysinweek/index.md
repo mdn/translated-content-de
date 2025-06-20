@@ -1,15 +1,16 @@
 ---
 title: Temporal.PlainDateTime.prototype.daysInWeek
+short-title: daysInWeek
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainDateTime/daysInWeek
 l10n:
-  sourceCommit: d0b9cef0713eb263934a98e94202b97c143204a4
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}{{SeeCompatTable}}
 
-Die **`daysInWeek`** Accessor-Eigenschaft von {{jsxref("Temporal.PlainDateTime")}}-Instanzen gibt eine positive ganze Zahl zurück, die die Anzahl der Tage in der Woche dieses Datums darstellt. Sie ist vom [Kalender](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#calendars) abhängig.
+Die Zugriffs-Eigenschaft **`daysInWeek`** von {{jsxref("Temporal.PlainDateTime")}}-Instanzen gibt eine positive ganze Zahl zurück, die die Anzahl der Tage in der Woche dieses Datums darstellt. Sie ist vom [Kalender](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#calendars) abhängig.
 
-Der set Accessor von `daysInWeek` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern.
+Der Set-Accessor von `daysInWeek` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern.
 
 Für allgemeine Informationen und weitere Beispiele siehe {{jsxref("Temporal/PlainDate/daysInWeek", "Temporal.PlainDate.prototype.daysInWeek")}}.
 

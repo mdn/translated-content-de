@@ -1,15 +1,16 @@
 ---
 title: Temporal.PlainYearMonth.prototype.with()
+short-title: with()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainYearMonth/with
 l10n:
-  sourceCommit: 3cecb7942e8b1c5e12b58b2838a2fb8a3f4ef907
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}{{SeeCompatTable}}
 
-Die **`with()`** Methode von {{jsxref("Temporal.PlainYearMonth")}} Instanzen gibt ein neues `Temporal.PlainYearMonth` Objekt zurück, das diesen Jahr-Monat mit einigen durch neue Werte ersetzten Feldern darstellt. Da alle `Temporal` Objekte so konzipiert sind, dass sie unveränderlich sind, fungiert diese Methode im Wesentlichen als Setter für die Felder des Jahr-Monats.
+Die **`with()`** Methode von {{jsxref("Temporal.PlainYearMonth")}} Instanzen gibt ein neues `Temporal.PlainYearMonth` Objekt zurück, das diesen Jahr-Monat mit einigen Feldern darstellt, die durch neue Werte ersetzt wurden. Da alle `Temporal` Objekte so konzipiert sind, dass sie unveränderlich sind, fungiert diese Methode im Wesentlichen als Setter für die Felder des Jahr-Monats.
 
-Es gibt keinen offensichtlichen Weg, ein neues `Temporal.PlainYearMonth` Objekt zu erstellen, das denselben Jahr-Monat in einem anderen Kalender darstellt. Um dessen `calendarId` Eigenschaft zu ersetzen, müssen Sie es zuerst in ein {{jsxref("Temporal.PlainDate")}} Objekt umwandeln, mithilfe von {{jsxref("Temporal/PlainYearMonth/toPlainDate", "toPlainDate()")}}, den Kalender ändern und es dann zurück umwandeln.
+Es gibt keinen offensichtlichen Weg, ein neues `Temporal.PlainYearMonth` Objekt zu erstellen, das denselben Jahr-Monat in einem anderen Kalender darstellt. Um seine `calendarId` Eigenschaft zu ersetzen, müssen Sie es zuerst mithilfe von {{jsxref("Temporal/PlainYearMonth/toPlainDate", "toPlainDate()")}} in ein {{jsxref("Temporal.PlainDate")}} Objekt umwandeln, den Kalender ändern und dann zurück konvertieren.
 
 ## Syntax
 
@@ -21,19 +22,19 @@ with(info, options)
 ### Parameter
 
 - `info`
-  - : Ein Objekt, das mindestens eine der von {{jsxref("Temporal/PlainYearMonth/from", "Temporal.PlainYearMonth.from()")}} anerkannten Eigenschaften (außer `calendar`) enthält: `era` und `eraYear`, `month`, `monthCode`, `year`. Nicht spezifizierte Eigenschaften verwenden die Werte aus dem ursprünglichen Jahr-Monat. Sie müssen nur eine von `month` oder `monthCode` bereitstellen, sowie eine von `era` und `eraYear` oder `year`, und die andere wird entsprechend aktualisiert.
+  - : Ein Objekt, das mindestens eine der Eigenschaften enthält, die von {{jsxref("Temporal/PlainYearMonth/from", "Temporal.PlainYearMonth.from()")}} erkannt werden (außer `calendar`): `era` und `eraYear`, `month`, `monthCode`, `year`. Nicht angegebene Eigenschaften verwenden die Werte des ursprünglichen Jahr-Monats. Sie müssen nur eine der Eigenschaften `month` oder `monthCode` und eine der Eigenschaften `era` und `eraYear` oder `year` angeben, und die andere wird entsprechend aktualisiert.
 - `options` {{optional_inline}}
   - : Ein Objekt, das die folgende Eigenschaft enthält:
     - `overflow` {{optional_inline}}
       - : Ein String, der das Verhalten angibt, wenn eine Datumskomponente außerhalb des Bereichs liegt. Mögliche Werte sind:
         - `"constrain"` (Standard)
-          - : Die Datumskomponente wird auf den gültigen Bereich [begrenzt](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainDate#invalid_date_clamping).
+          - : Die Datumskomponente wird [eingeschränkt](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainDate#invalid_date_clamping) auf den gültigen Bereich.
         - `"reject"`
           - : Ein {{jsxref("RangeError")}} wird ausgelöst, wenn die Datumskomponente außerhalb des Bereichs liegt.
 
 ### Rückgabewert
 
-Ein neues `Temporal.PlainYearMonth` Objekt, wobei die im `info` angegebenen Felder, die nicht `undefined` sind, durch die entsprechenden Werte ersetzt und die restlichen Felder vom ursprünglichen Datum übernommen werden.
+Ein neues `Temporal.PlainYearMonth` Objekt, bei dem die in `info` angegebenen Felder, die nicht `undefined` sind, durch die entsprechenden Werte ersetzt werden und die restlichen Felder vom ursprünglichen Datum übernommen werden.
 
 ### Ausnahmen
 
@@ -44,9 +45,9 @@ Ein neues `Temporal.PlainYearMonth` Objekt, wobei die im `info` angegebenen Feld
 - {{jsxref("RangeError")}}
   - : Wird in einem der folgenden Fälle ausgelöst:
     - Die bereitgestellten Eigenschaften, die dieselbe Komponente spezifizieren, sind inkonsistent.
-    - Die bereitgestellten nicht-numerischen Eigenschaften sind ungültig; zum Beispiel, wenn `monthCode` niemals ein gültiger Monatscode in diesem Kalender ist.
-    - Die bereitgestellten numerischen Eigenschaften sind außerhalb des Bereichs, und `options.overflow` ist auf `"reject"` gesetzt.
-    - Das Ergebnis liegt nicht im [darstellbaren Bereich](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#representable_dates), der ±(10<sup>8</sup> + 1) Tage, oder etwa ±273,972.6 Jahre, ab der Unix-Epoche umfasst.
+    - Die bereitgestellten nicht-numerischen Eigenschaften sind ungültig; zum Beispiel, wenn `monthCode` in diesem Kalender nie ein gültiger Monatscode ist.
+    - Die bereitgestellten numerischen Eigenschaften liegen außerhalb des Bereichs, und `options.overflow` ist auf `"reject"` gesetzt.
+    - Das Ergebnis liegt nicht im [darstellbaren Bereich](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#representable_dates), welcher ±(10<sup>8</sup> + 1) Tage oder etwa ±273.972,6 Jahre ab der Unix-Epoche sind.
 
 ## Beispiele
 
@@ -58,7 +59,7 @@ const newYM = ym.with({ year: 2024 });
 console.log(newYM.toString()); // "2024-07"
 ```
 
-Weitere Beispiele finden Sie in der Dokumentation zu den einzelnen Eigenschaften, die mit `with()` gesetzt werden können.
+Für weitere Beispiele siehe die Dokumentation zu den einzelnen Eigenschaften, die mittels `with()` gesetzt werden können.
 
 ## Spezifikationen
 

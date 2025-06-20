@@ -1,13 +1,14 @@
 ---
 title: Intl.RelativeTimeFormat.prototype.formatToParts()
+short-title: formatToParts()
 slug: Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat/formatToParts
 l10n:
-  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Die **`formatToParts()`**-Methode von {{jsxref("Intl.RelativeTimeFormat")}}-Instanzen gibt ein Array von Objekten zurück, die jeweils einen Teil des formatierten Strings repräsentieren, der von {{jsxref("Intl/RelativeTimeFormat/format", "format()")}} zurückgegeben würde. Dies ist nützlich, um benutzerdefinierte Strings aus den lokalespezifischen Tokens zu erstellen.
+Die **`formatToParts()`**-Methode von {{jsxref("Intl.RelativeTimeFormat")}} Instanzen gibt ein Array von Objekten zurück, die jeweils einen Teil des formatierten Strings darstellen, der von {{jsxref("Intl/RelativeTimeFormat/format", "format()")}} zurückgegeben würde. Sie ist nützlich für den Aufbau benutzerdefinierter Strings aus den lokalspezifischen Tokens.
 
 {{InteractiveExample("JavaScript Demo: Intl.RelativeTimeFormat.prototype.formatToParts()")}}
 
@@ -36,13 +37,13 @@ formatToParts(value, unit)
 - `value`
   - : Numerischer Wert, der in der internationalisierten relativen Zeitnachricht verwendet wird.
 - `unit`
-  - : Einheit, die in der internationalisierten relativen Zeitnachricht verwendet wird. Mögliche Werte sind: `"year"`, `"quarter"`, `"month"`, `"week"`, `"day"`, `"hour"`, `"minute"`, `"second"`. Pluralformen sind ebenfalls zulässig.
+  - : Einheit, die in der internationalisierten relativen Zeitnachricht verwendet wird. Mögliche Werte sind: `"year"`, `"quarter"`, `"month"`, `"week"`, `"day"`, `"hour"`, `"minute"`, `"second"`. Pluralformen sind ebenfalls erlaubt.
 
 ### Rückgabewert
 
-Ein {{jsxref("Array")}} von Objekten, das die formatierte relative Zeit in Teilen enthält. Jedes Objekt hat zwei oder drei Eigenschaften, `type`, `value` und optional `unit`, jeweils mit einem String. Die String-Verkettung von `value` in der angegebenen Reihenfolge ergibt denselben String wie {{jsxref("Intl/RelativeTimeFormat/format", "format()")}}. Die Teile können als direkt aus dem Aufruf von {{jsxref("Intl/NumberFormat/formatToParts", "Intl.NumberFormat.prototype.formatToParts()")}} mit dem numerischen Wert betrachtet werden, indem nur die Option `numberingSystem` übergeben wird und dann zusätzliche `type: "literal"` Tokens hinzugefügt werden, wie `"in "`, `" days ago"`, usw. Alle Tokens, die vom `NumberFormat` erzeugt werden, haben eine zusätzliche `unit`-Eigenschaft, die die Singularform der Eingabe `unit` ist; dies ist für die programmatische Verwendung und ist nicht lokalisiert. Die lokalisierte Einheit wird als Teil eines Literal-Tokens ausgegeben.
+Ein {{jsxref("Array")}} von Objekten, das die formatierte relative Zeit in Teilen enthält. Jedes Objekt hat zwei oder drei Eigenschaften: `type`, `value` und optional `unit`, wobei jede Eigenschaft einen String enthält. Die String-Verkettung von `value`, in der angegebenen Reihenfolge, führt zum gleichen String wie {{jsxref("Intl/RelativeTimeFormat/format", "format()")}}. Die Teile können als direkt aus dem Aufruf von {{jsxref("Intl/NumberFormat/formatToParts", "Intl.NumberFormat.prototype.formatToParts()")}} mit dem numerischen Wert abgeleitet betrachtet werden, wobei nur die `numberingSystem`-Option übergeben wird, und anschließend zusätzliche `type: "literal"` Tokens hinzugefügt werden, wie zum Beispiel `"in "`, `" days ago"`, usw. Alle Tokens, die von `NumberFormat` produziert werden, haben eine zusätzliche `unit` Eigenschaft, die die Singularform der Eingabeeinheit ist; dies ist für die programmgesteuerte Verwendung gedacht und wird nicht lokalisiert. Die lokalisierte Einheit wird als Teil eines literalen Tokens ausgegeben.
 
-Wenn `options.numeric` auf `"auto"` gesetzt ist und es gibt einen speziellen String für den Wert, ist das zurückgegebene Array ein einzelnes Literal-Token.
+Wenn `options.numeric` den Wert `"auto"` hat und es einen speziellen String für den Wert gibt, ist das zurückgegebene Array ein einzelnes literales Token.
 
 ## Beispiele
 

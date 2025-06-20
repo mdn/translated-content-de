@@ -1,13 +1,14 @@
 ---
 title: Int32Array() Konstruktor
+short-title: Int32Array()
 slug: Web/JavaScript/Reference/Global_Objects/Int32Array/Int32Array
 l10n:
-  sourceCommit: dd339290fa3a42d9a7f079e17a62e1df1206f29d
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Der **`Int32Array()`** Konstruktor erstellt {{jsxref("Int32Array")}} Objekte. Der Inhalt wird auf `0` initialisiert, es sei denn, es werden explizit Initialisierungsdaten bereitgestellt.
+Der **`Int32Array()`** Konstruktor erstellt {{jsxref("Int32Array")}} Objekte. Der Inhalt wird auf `0` gesetzt, es sei denn, es werden explizit Initialisierungsdaten bereitgestellt.
 
 ## Syntax
 
@@ -22,7 +23,7 @@ new Int32Array(buffer, byteOffset)
 new Int32Array(buffer, byteOffset, length)
 ```
 
-> **Note:** `Int32Array()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Der Versuch, es ohne `new` aufzurufen, führt zu einem {{jsxref("TypeError")}}.
+> **Note:** `Int32Array()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Ein Versuch, es ohne `new` aufzurufen, wirft einen {{jsxref("TypeError")}}.
 
 ### Parameter
 
@@ -34,7 +35,7 @@ Siehe [`TypedArray`](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray
 
 ## Beispiele
 
-### Verschiedene Wege, um ein Int32Array zu erstellen
+### Verschiedene Arten, ein Int32Array zu erstellen
 
 ```js
 // From a length

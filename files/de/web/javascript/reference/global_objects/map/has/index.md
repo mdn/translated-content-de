@@ -1,13 +1,14 @@
 ---
 title: Map.prototype.has()
+short-title: has()
 slug: Web/JavaScript/Reference/Global_Objects/Map/has
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Die **`has()`**-Methode von {{jsxref("Map")}}-Instanzen gibt einen Boolean zurück, der angibt, ob ein Element mit dem angegebenen Schlüssel in dieser Map vorhanden ist oder nicht.
+Die **`has()`** Methode von {{jsxref("Map")}} Instanzen gibt einen boolean zurück, der angibt, ob ein Element mit dem angegebenen Schlüssel in dieser Map existiert oder nicht.
 
 {{InteractiveExample("JavaScript Demo: Map.prototype.has()")}}
 
@@ -31,11 +32,11 @@ has(key)
 ### Parameter
 
 - `key`
-  - : Der Schlüssel des Elements, dessen Vorhandensein im `Map`-Objekt überprüft werden soll.
+  - : Der Schlüssel des Elements, dessen Vorhandensein im `Map` Objekt geprüft werden soll.
 
 ### Rückgabewert
 
-`true`, wenn ein Element mit dem angegebenen Schlüssel im `Map`-Objekt vorhanden ist; andernfalls `false`.
+`true`, wenn ein Element mit dem angegebenen Schlüssel im `Map` Objekt existiert; andernfalls `false`.
 
 ## Beispiele
 

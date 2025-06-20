@@ -1,13 +1,14 @@
 ---
 title: Math.exp()
+short-title: exp()
 slug: Web/JavaScript/Reference/Global_Objects/Math/exp
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Die statische Methode **`Math.exp()`** gibt [e](/de/docs/Web/JavaScript/Reference/Global_Objects/Math/E) potenziert mit einer gegebenen Zahl zurück. Das heißt:
+Die statische Methode **`Math.exp()`** gibt [e](/de/docs/Web/JavaScript/Reference/Global_Objects/Math/E) potenziert mit einer Zahl zurück. Das bedeutet
 
 <!-- prettier-ignore-start -->
 <math display="block">
@@ -48,9 +49,9 @@ Eine nicht-negative Zahl, die e<sup>x</sup> repräsentiert, wobei e [die Basis d
 
 ## Beschreibung
 
-Da `exp()` eine statische Methode von `Math` ist, verwenden Sie sie immer als `Math.exp()` und nicht als Methode eines von Ihnen erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
+Da `exp()` eine statische Methode von `Math` ist, verwenden Sie sie immer als `Math.exp()` und nicht als Methode eines von Ihnen erstellten `Math` Objekts (`Math` ist kein Konstruktor).
 
-Beachten Sie, dass `e` potenziert mit einer Zahl, die sehr nah an 0 liegt, nahe bei 1 liegt und unter Präzisionsverlust leiden kann. In diesem Fall sollten Sie stattdessen {{jsxref("Math.expm1")}} verwenden, um eine präzisere Nachkommastelle des Ergebnisses zu erhalten.
+Seien Sie vorsichtig, dass `e` potenziert mit einer Zahl, die sehr nahe bei 0 liegt, sehr nahe bei 1 liegen wird und es zu Genauigkeitsverlusten kommen kann. In diesem Fall sollten Sie möglicherweise {{jsxref("Math.expm1")}} verwenden, um einen viel präziseren Bruchteil der Antwort zu erhalten.
 
 ## Beispiele
 

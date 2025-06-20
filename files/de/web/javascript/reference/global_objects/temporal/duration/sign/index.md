@@ -1,13 +1,14 @@
 ---
 title: Temporal.Duration.prototype.sign
+short-title: sign
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/Duration/sign
 l10n:
-  sourceCommit: d0b9cef0713eb263934a98e94202b97c143204a4
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}{{SeeCompatTable}}
 
-Die **`sign`** Accessor-Eigenschaft von {{jsxref("Temporal.Duration")}}-Instanzen gibt `1` zurück, wenn diese Dauer positiv ist, `-1` wenn negativ, und `0` wenn null. Da [eine Dauer nie gemischte Vorzeichen hat](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration#duration_sign), wird das Vorzeichen einer Dauer durch das Vorzeichen eines ihrer nicht-null Felder bestimmt.
+Die **`sign`** Accessor-Eigenschaft von {{jsxref("Temporal.Duration")}} Instanzen gibt `1` zurück, wenn diese Dauer positiv ist, `-1`, wenn sie negativ ist, und `0`, wenn sie null ist. Da [eine Dauer niemals gemischte Vorzeichen hat](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration#duration_sign), wird das Vorzeichen einer Dauer durch das Vorzeichen eines ihrer nicht null Felder bestimmt.
 
 ## Beispiele
 

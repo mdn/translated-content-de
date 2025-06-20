@@ -1,13 +1,14 @@
 ---
 title: WeakSet.prototype.add()
+short-title: add()
 slug: Web/JavaScript/Reference/Global_Objects/WeakSet/add
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Die **`add()`**-Methode von {{jsxref("WeakSet")}}-Instanzen fügt ein neues Objekt am Ende dieses `WeakSet` hinzu.
+Die **`add()`** Methode von {{jsxref("WeakSet")}} Instanzen fügt ein neues Objekt am Ende dieses `WeakSet` hinzu.
 
 {{InteractiveExample("JavaScript Demo: WeakSet.Prototype.add()", "taller")}}
 
@@ -38,7 +39,7 @@ add(value)
 ### Parameter
 
 - `value`
-  - : Muss entweder ein Objekt oder ein [nicht registriertes Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#shared_symbols_in_the_global_symbol_registry) sein. Der Wert, der der `WeakSet`-Sammlung hinzugefügt wird.
+  - : Muss entweder ein Objekt oder ein [nicht registriertes Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#shared_symbols_in_the_global_symbol_registry) sein. Der Wert, der der `WeakSet`-Sammlung hinzugefügt werden soll.
 
 ### Rückgabewert
 
@@ -47,7 +48,7 @@ Das `WeakSet`-Objekt.
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn `value` weder ein Objekt noch ein [nicht registriertes Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#shared_symbols_in_the_global_symbol_registry) ist.
+  - : Wird ausgelöst, wenn `value` kein Objekt oder ein [nicht registriertes Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#shared_symbols_in_the_global_symbol_registry) ist.
 
 ## Beispiele
 

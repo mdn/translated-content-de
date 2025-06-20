@@ -1,13 +1,14 @@
 ---
 title: RegExp.prototype[Symbol.matchAll]()
+short-title: "[Symbol.matchAll]()"
 slug: Web/JavaScript/Reference/Global_Objects/RegExp/Symbol.matchAll
 l10n:
-  sourceCommit: bccce51ad7f3fd5e5ff7e4231b6391a000c8faf6
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Die **`[Symbol.matchAll]()`**-Methode von {{jsxref("RegExp")}}-Instanzen spezifiziert, wie [`String.prototype.matchAll`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/matchAll) funktionieren sollte.
+Die Methode **`[Symbol.matchAll]()`** von {{jsxref("RegExp")}}-Instanzen gibt an, wie [`String.prototype.matchAll`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/matchAll) funktionieren soll.
 
 {{InteractiveExample("JavaScript Demo: RegExp.prototype[Symbol.matchAll]()", "taller")}}
 
@@ -36,15 +37,15 @@ regexp[Symbol.matchAll](str)
 ### Parameter
 
 - `str`
-  - : Ein {{jsxref("String")}}, der das Ziel des Abgleichs ist.
+  - : Ein {{jsxref("String")}}, der das Ziel des Suchvorgangs ist.
 
 ### Rückgabewert
 
-Ein [iterierbares Iterator-Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator) (welches nicht wieder startbar ist) der Übereinstimmungen. Jede Übereinstimmung ist ein Array mit derselben Struktur wie der Rückgabewert von {{jsxref("RegExp.prototype.exec()")}}.
+Ein [iterierbares Iterator-Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator) (welches nicht neu gestartet werden kann) von Treffern. Jeder Treffer ist ein Array mit der gleichen Struktur wie der Rückgabewert von {{jsxref("RegExp.prototype.exec()")}}.
 
 ## Beschreibung
 
-Diese Methode wird intern in {{jsxref("String.prototype.matchAll()")}} aufgerufen. Zum Beispiel ergeben die folgenden beiden Beispiele dasselbe Resultat.
+Diese Methode wird intern in {{jsxref("String.prototype.matchAll()")}} aufgerufen. Zum Beispiel liefern die folgenden beiden Beispiele das gleiche Ergebnis.
 
 ```js
 "abc".matchAll(/a/g);
@@ -52,7 +53,7 @@ Diese Methode wird intern in {{jsxref("String.prototype.matchAll()")}} aufgerufe
 /a/g[Symbol.matchAll]("abc");
 ```
 
-Ähnlich wie [`[Symbol.split]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/Symbol.split) beginnt `[Symbol.matchAll]()` mit der Verwendung von [`[Symbol.species]`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/Symbol.species), um ein neues Regex zu erstellen, wodurch eine Änderung des ursprünglichen Regex vermieden wird. [`lastIndex`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/lastIndex) beginnt mit dem Wert des ursprünglichen Regex.
+Ähnlich wie [`[Symbol.split]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/Symbol.split) beginnt `[Symbol.matchAll]()` mit der Verwendung von [`[Symbol.species]`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/Symbol.species), um ein neues Regex zu erstellen, was eine Veränderung des ursprünglichen Regex in jeglicher Weise vermeidet. [`lastIndex`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/lastIndex) beginnt mit dem Wert des ursprünglichen Regex.
 
 ```js
 const regexp = /[a-c]/g;
@@ -62,16 +63,16 @@ Array.from(str.matchAll(regexp), (m) => `${regexp.lastIndex} ${m[0]}`);
 // [ "1 b", "1 c" ]
 ```
 
-Die Überprüfung, ob der Input ein globaler Regex ist, erfolgt in [`String.prototype.matchAll()`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/matchAll). `[Symbol.matchAll]()` validiert den Input nicht. Ist das Regex nicht global, liefert der zurückgegebene Iterator das [`exec()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/exec)-Ergebnis einmal und gibt dann `undefined` zurück. Ist das Regex global, wird jedes Mal, wenn die `next()`-Methode des zurückgegebenen Iterators aufgerufen wird, das [`exec()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/exec) des Regex aufgerufen und das Ergebnis ausgegeben.
+Die Validierung, dass der Input ein globales Regex ist, erfolgt in [`String.prototype.matchAll()`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/matchAll). `[Symbol.matchAll]()` validiert den Input nicht. Wenn das Regex nicht global ist, liefert der zurückgegebene Iterator das Ergebnis von [`exec()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/exec) einmal und gibt dann `undefined` zurück. Wenn das Regex global ist, wird jedes Mal, wenn die `next()`-Methode des zurückgegebenen Iterators aufgerufen wird, das `exec()`-Ergebnis des Regex aufgerufen und das Ergebnis geliefert.
 
-Wenn das Regex sticky und global ist, werden dennoch Sticky Matches durchgeführt – d.h. es werden keine Vorkommen jenseits des `lastIndex` erfasst.
+Wenn das Regex sticky und global ist, führt es weiterhin sticky Matches durch – das heißt, es werden keine Vorkommen über das `lastIndex` hinaus berücksichtigt.
 
 ```js
 console.log(Array.from("ab-c".matchAll(/[abc]/gy)));
 // [ [ "a" ], [ "b" ] ]
 ```
 
-Wenn die aktuelle Übereinstimmung ein leerer String ist, wird der [`lastIndex`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/lastIndex) dennoch weitergeführt. Hat das Regex das Flag [`u`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicode), wird um einen Unicode-Codepoint erhöht; andernfalls um einen UTF-16-Codepoint.
+Wenn der aktuelle Treffer ein leerer String ist, wird der [`lastIndex`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/lastIndex) trotzdem weitergesetzt. Wenn das Regex das [`u`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicode)-Flag hat, wird es um einen Unicode-Codepunkt weitergesetzt; andernfalls um einen UTF-16-Codepunkt.
 
 ```js
 console.log(Array.from("😄".matchAll(/(?:)/g)));
@@ -87,7 +88,7 @@ Diese Methode existiert, um das Verhalten von `matchAll()` in {{jsxref("RegExp")
 
 ### Direkter Aufruf
 
-Diese Methode kann auf fast die gleiche Weise wie {{jsxref("String.prototype.matchAll()")}} verwendet werden, abgesehen von den unterschiedlichen Werten von `this` und der unterschiedlichen Reihenfolge der Argumente.
+Diese Methode kann fast auf die gleiche Weise verwendet werden wie {{jsxref("String.prototype.matchAll()")}}, mit Ausnahme des unterschiedlichen Werts von `this` und der unterschiedlichen Reihenfolge der Argumente.
 
 ```js
 const re = /\d+/g;

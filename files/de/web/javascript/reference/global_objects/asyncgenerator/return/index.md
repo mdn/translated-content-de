@@ -1,13 +1,14 @@
 ---
 title: AsyncGenerator.prototype.return()
+short-title: return()
 slug: Web/JavaScript/Reference/Global_Objects/AsyncGenerator/return
 l10n:
-  sourceCommit: 5bdcf72ed6ffc7d4fa878060a548869ed6ae149b
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Die **`return()`**-Methode von {{jsxref("AsyncGenerator")}}-Instanzen wirkt so, als ob eine `return`-Anweisung an der aktuellen angehaltenen Position im Körper des Generators eingefügt wird. Dies beendet den Generator und ermöglicht es dem Generator, alle Aufräumarbeiten durchzuführen, wenn sie mit einem [`try...finally`](/de/docs/Web/JavaScript/Reference/Statements/try...catch#the_finally_block)-Block kombiniert wird.
+Die **`return()`** Methode von {{jsxref("AsyncGenerator")}} Instanzen wirkt so, als ob ein `return` Statement an der aktuellen angehaltenen Position im Körper des Generators eingefügt wird, wodurch der Generator beendet wird und es ihm ermöglicht wird, Säuberungsoperationen durchzuführen, wenn sie mit einem [`try...finally`](/de/docs/Web/JavaScript/Reference/Statements/try...catch#the_finally_block) Block kombiniert wird.
 
 ## Syntax
 
@@ -19,28 +20,28 @@ asyncGeneratorInstance.return(value)
 ### Parameter
 
 - `value` {{optional_inline}}
-  - : Der zurückzugebende Wert.
+  - : Der Wert, der zurückgegeben werden soll.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit einem {{jsxref("Object")}} mit zwei Eigenschaften aufgelöst wird:
+Ein {{jsxref("Promise")}}, das mit einem {{jsxref("Object")}} aufgelöst wird, das zwei Eigenschaften enthält:
 
 - `done`
   - : Ein boolescher Wert:
     - `true`, wenn der Kontrollfluss der Generatorfunktion das Ende erreicht hat.
-    - `false`, wenn der Kontrollfluss der Generatorfunktion das Ende nicht erreicht hat und mehr Werte erzeugen kann. Dies kann nur passieren, wenn das `return` in einem [`try...finally`](/de/docs/Web/JavaScript/Reference/Statements/try...catch#the_finally_block) abgefangen wird und es weitere `yield`-Ausdrücke im `finally`-Block gibt.
+    - `false`, wenn der Kontrollfluss der Generatorfunktion das Ende noch nicht erreicht hat und weitere Werte erzeugen kann. Dies kann nur passieren, wenn das `return` in einem [`try...finally`](/de/docs/Web/JavaScript/Reference/Statements/try...catch#the_finally_block) erfasst wird und es mehr `yield` Ausdrücke im `finally` Block gibt.
 - `value`
-  - : Der Wert, der als Argument übergeben wird, oder, wenn der `yield`-Ausdruck in einem [`try...finally`](/de/docs/Web/JavaScript/Reference/Statements/try...catch#the_finally_block) eingefasst ist, der Wert, der aus dem `finally`-Block ge-yielded/zurückgegeben wird.
+  - : Der Wert, der als Argument übergeben wird, oder, wenn der `yield` Ausdruck in einem [`try...finally`](/de/docs/Web/JavaScript/Reference/Statements/try...catch#the_finally_block) eingeschlossen ist, der Wert, der aus dem `finally` Block erzeugt/zurückgegeben wird.
 
 ## Beschreibung
 
-Die `return()`-Methode kann, wenn sie aufgerufen wird, so gesehen werden, als ob eine `return value;`-Anweisung an der aktuellen angehaltenen Position im Körper des Generators eingefügt wird, wobei `value` der Wert ist, der an die `return()`-Methode übergeben wird. Daher wird im typischen Ablauf durch den Aufruf von `return(value)` `{ done: true, value: value }` zurückgegeben. Wird der `yield`-Ausdruck jedoch in einem `try...finally`-Block eingefasst, verlässt der Kontrollfluss nicht den Funktionskörper, sondern geht stattdessen zum `finally`-Block über. In diesem Fall kann der zurückgegebene Wert unterschiedlich sein, und `done` kann sogar `false` sein, wenn es weitere `yield`-Ausdrücke im `finally`-Block gibt.
+Die `return()` Methode, wenn sie aufgerufen wird, kann so gesehen werden, als ob ein `return value;` Statement im Körper des Generators an der aktuellen angehaltenen Position eingefügt wird, wobei `value` der Wert ist, der an die `return()` Methode übergeben wird. Daher wird in einem typischen Ablauf das Aufrufen von `return(value)` zurückgeben `{ done: true, value: value }`. Wenn jedoch der `yield` Ausdruck in einem `try...finally` Block eingeschlossen ist, verlässt der Kontrollfluss den Funktionskörper nicht, sondern geht stattdessen zum `finally` Block über. In diesem Fall kann der zurückgegebene Wert unterschiedlich sein, und `done` kann sogar `false` sein, wenn es mehr `yield` Ausdrücke innerhalb des `finally` Blocks gibt.
 
 ## Beispiele
 
 ### Verwendung von return()
 
-Das folgende Beispiel zeigt einen asynchronen Generator und die `return`-Methode.
+Das folgende Beispiel zeigt einen async Generator und die `return` Methode.
 
 ```js
 // An async task. Pretend it's doing something more useful
@@ -65,9 +66,9 @@ asyncGen.next().then((res) => console.log(res)); // { value: undefined, done: tr
 
 ### Verwendung von return(), nachdem ein Generator abgeschlossen ist
 
-Wenn kein `value`-Argument an die `return()`-Methode übergeben wird, wird das Promise so aufgelöst wie wenn die [next()](/de/docs/Web/JavaScript/Reference/Global_Objects/AsyncGenerator/next)-Methode aufgerufen worden wäre. In diesem Beispiel ist der Generator abgeschlossen, sodass der zurückgegebene Wert `undefined` ist.
+Wenn kein `value` Argument an die `return()` Methode übergeben wird, wird das Versprechen so aufgelöst, als ob die [next()](/de/docs/Web/JavaScript/Reference/Global_Objects/AsyncGenerator/next) Methode aufgerufen wurde. In diesem Beispiel ist der Generator abgeschlossen, sodass der zurückgegebene Wert `undefined` ist.
 
-`return()` kann auch aufgerufen werden, nachdem sich der Generator in einem "abgeschlossenen" Zustand befindet, jedoch bleibt der Generator in diesem Zustand.
+`return()` kann auch noch aufgerufen werden, nachdem der Generator in einem "abgeschlossen" Zustand ist, jedoch bleibt der Generator in diesem Zustand.
 
 ```js
 async function* createAsyncGenerator() {

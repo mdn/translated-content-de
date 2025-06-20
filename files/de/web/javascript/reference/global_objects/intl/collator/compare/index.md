@@ -1,14 +1,15 @@
 ---
 title: Intl.Collator.prototype.compare()
+short-title: compare()
 slug: Web/JavaScript/Reference/Global_Objects/Intl/Collator/compare
 l10n:
-  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Die **`compare()`**-Methode von {{jsxref("Intl.Collator")}}-Instanzen vergleicht zwei
-Zeichenfolgen gemäß der Sortierreihenfolge dieses Collator-Objekts.
+Die Methode **`compare()`** von {{jsxref("Intl.Collator")}} Instanzen vergleicht zwei
+Zeichenfolgen entsprechend der Sortierreihenfolge dieses Collator-Objekts.
 
 {{InteractiveExample("JavaScript Demo: Intl.Collator.prototype.compare()")}}
 
@@ -40,18 +41,18 @@ compare(string1, string2)
 
 ### Rückgabewert
 
-Eine Zahl, die angibt, wie `string1` und `string2` gemäß der Sortierreihenfolge dieses {{jsxref("Intl.Collator")}}-Objekts zueinander stehen:
+Eine Zahl, die angibt, wie `string1` und `string2` im Vergleich zueinander in der Sortierreihenfolge dieses {{jsxref("Intl.Collator")}} Objekts stehen:
 
 - Ein negativer Wert, wenn `string1` vor `string2` kommt;
 - Ein positiver Wert, wenn `string1` nach `string2` kommt;
-- 0, wenn sie als gleich betrachtet werden.
+- 0, wenn sie als gleich angesehen werden.
 
 ## Beispiele
 
-### Verwendung von compare für Array-Sortierung
+### Verwenden von compare für Array-Sortierung
 
 Verwenden Sie die `compare`-Funktion zum Sortieren von Arrays. Beachten Sie, dass die Funktion
-an den Collator gebunden ist, von dem sie erhalten wurde, sodass sie direkt an
+an den Collator gebunden ist, von dem sie abgeleitet wurde, sodass sie direkt an
 {{jsxref("Array.prototype.sort()")}} übergeben werden kann.
 
 ```js
@@ -61,9 +62,9 @@ a.sort(collator.compare);
 console.log(a.join(", ")); // "Odenwald, Österreich, Offenbach"
 ```
 
-### Verwendung von compare für Array-Suche
+### Verwenden von compare für Arraysuche
 
-Verwenden Sie die `compare`-Funktion, um übereinstimmende Zeichenfolgen in Arrays zu finden:
+Verwenden Sie die `compare`-Funktion, um passende Zeichenfolgen in Arrays zu finden:
 
 ```js
 const a = ["Congrès", "congres", "Assemblée", "poisson"];

@@ -1,13 +1,14 @@
 ---
 title: RegExp.prototype.multiline
+short-title: multiline
 slug: Web/JavaScript/Reference/Global_Objects/RegExp/multiline
 l10n:
-  sourceCommit: 2c0f972d873ea2db5163dbcb12987847124751ad
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Die **`multiline`** Zugriffs-Eigenschaft von {{jsxref("RegExp")}} Instanzen gibt zurück, ob das `m`-Flag mit diesem regulären Ausdruck verwendet wird oder nicht.
+Die **`multiline`** Zugriffseigenschaft von {{jsxref("RegExp")}} Instanzen gibt zurück, ob das `m`-Flag mit diesem regulären Ausdruck verwendet wird oder nicht.
 
 {{InteractiveExample("JavaScript Demo: RegExp.prototype.multiline", "taller")}}
 
@@ -30,9 +31,9 @@ console.log(regex2.test("rugby\nfootball"));
 
 ## Beschreibung
 
-`RegExp.prototype.multiline` hat den Wert `true`, wenn das `m`-Flag verwendet wurde; andernfalls `false`. Das `m`-Flag gibt an, dass eine mehrzeilige Eingabezeichenkette als mehrere Zeilen behandelt werden soll. Zum Beispiel ändern sich, wenn `m` verwendet wird, `^` und `$` von einem Abgleich nur am Anfang oder Ende der gesamten Zeichenkette zu einem Abgleich am Anfang oder Ende einer beliebigen Zeile innerhalb der Zeichenkette.
+`RegExp.prototype.multiline` hat den Wert `true`, wenn das `m`-Flag verwendet wurde; andernfalls `false`. Das `m`-Flag zeigt an, dass eine mehrzeilige Eingabezeichenfolge als mehrere Zeilen behandelt werden sollte. Wenn `m` beispielsweise verwendet wird, verändern sich `^` und `$` dahingehend, dass sie nicht nur am Anfang oder Ende der gesamten Zeichenfolge, sondern am Anfang oder Ende jeder Zeile innerhalb der Zeichenfolge übereinstimmen.
 
-Der Set-Accessor von `multiline` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern.
+Der Set-Zugriffsmodifikator von `multiline` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern.
 
 ## Beispiele
 

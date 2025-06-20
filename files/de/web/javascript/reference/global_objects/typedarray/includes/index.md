@@ -1,13 +1,14 @@
 ---
 title: TypedArray.prototype.includes()
+short-title: includes()
 slug: Web/JavaScript/Reference/Global_Objects/TypedArray/includes
 l10n:
-  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Die **`includes()`**-Methode von {{jsxref("TypedArray")}}-Instanzen bestimmt, ob ein typisiertes Array einen bestimmten Wert unter seinen Einträgen enthält und gibt entsprechend `true` oder `false` zurück. Diese Methode verwendet denselben Algorithmus wie {{jsxref("Array.prototype.includes()")}}.
+Die **`includes()`** Methode von {{jsxref("TypedArray")}} Instanzen bestimmt, ob ein typisiertes Array einen bestimmten Wert unter seinen Einträgen enthält und gibt entsprechend `true` oder `false` zurück. Diese Methode hat den gleichen Algorithmus wie {{jsxref("Array.prototype.includes()")}}.
 
 {{InteractiveExample("JavaScript Demo: TypedArray.prototype.includes()")}}
 
@@ -34,11 +35,11 @@ includes(searchElement, fromIndex)
 - `searchElement`
   - : Der zu suchende Wert.
 - `fromIndex` {{optional_inline}}
-  - : Nullbasierter Index, ab dem die Suche beginnt, [in eine Ganzzahl konvertiert](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion).
+  - : Nullbasierter Index, ab dem die Suche beginnen soll, [in eine ganze Zahl umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion).
 
 ### Rückgabewert
 
-Ein boolescher Wert, der `true` ist, wenn der Wert `searchElement` im typisierten Array gefunden wird (oder in dem durch den Index `fromIndex` angegebenen Teil des typisierten Arrays, falls angegeben).
+Ein boolean-Wert, der `true` ist, wenn der Wert `searchElement` im typisierten Array gefunden wird (oder im Teil des typisierten Arrays, der durch den Index `fromIndex` angegeben ist, falls angegeben).
 
 ## Beschreibung
 
@@ -70,7 +71,7 @@ new Float32Array([NaN]).includes(NaN); // true
 ## Siehe auch
 
 - [Polyfill von `TypedArray.prototype.includes` in `core-js`](https://github.com/zloirock/core-js#ecmascript-typed-arrays)
-- [JavaScript-Typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
+- [JavaScript typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
 - {{jsxref("TypedArray")}}
 - {{jsxref("TypedArray.prototype.indexOf()")}}
 - {{jsxref("TypedArray.prototype.find()")}}

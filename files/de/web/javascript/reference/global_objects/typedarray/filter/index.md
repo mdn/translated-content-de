@@ -1,13 +1,14 @@
 ---
 title: TypedArray.prototype.filter()
+short-title: filter()
 slug: Web/JavaScript/Reference/Global_Objects/TypedArray/filter
 l10n:
-  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Die **`filter()`** Methode von {{jsxref("TypedArray")}} Instanzen erstellt eine Kopie eines Teils eines gegebenen typisierten Arrays, gefiltert auf die Elemente aus dem gegebenen typisierten Array, die den Test bestehen, der durch die bereitgestellte Funktion implementiert wurde. Diese Methode verwendet denselben Algorithmus wie {{jsxref("Array.prototype.filter()")}}.
+Die **`filter()`** Methode von {{jsxref("TypedArray")}} Instanzen erstellt eine Kopie eines Teils eines gegebenen typisierten Arrays, das auf die Elemente des angegebenen Arrays gefiltert wird, die den durch die bereitgestellte Funktion implementierten Test bestehen. Diese Methode verwendet denselben Algorithmus wie {{jsxref("Array.prototype.filter()")}}.
 
 {{InteractiveExample("JavaScript Demo: TypedArray.prototype.filter()")}}
 
@@ -39,17 +40,17 @@ filter(callbackFn, thisArg)
     - `index`
       - : Der Index des aktuellen Elements, das im typisierten Array verarbeitet wird.
     - `array`
-      - : Das typisierte Array, auf dem `filter()` aufgerufen wurde.
+      - : Das typisierte Array, auf das `filter()` angewendet wurde.
 - `thisArg` {{optional_inline}}
-  - : Ein Wert, der als `this` verwendet wird, wenn `callbackFn` ausgeführt wird. Siehe [iterative Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods).
+  - : Ein Wert, der als `this` beim Ausführen von `callbackFn` verwendet wird. Siehe [iterative Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods).
 
 ### Rückgabewert
 
-Eine Kopie des gegebenen typisierten Arrays, die nur die Elemente enthält, die den Test bestehen. Wenn keine Elemente den Test bestehen, wird ein leeres typisiertes Array zurückgegeben.
+Eine Kopie des gegebenen typisierten Arrays, die nur die Elemente enthält, die den Test bestehen. Wenn kein Element den Test besteht, wird ein leeres typisiertes Array zurückgegeben.
 
 ## Beschreibung
 
-Siehe {{jsxref("Array.prototype.filter()")}} für weitere Details. Diese Methode ist nicht generisch und kann nur auf typisierten Array-Instanzen angewendet werden.
+Siehe {{jsxref("Array.prototype.filter()")}} für weitere Details. Diese Methode ist nicht generisch und kann nur auf Instanzen von typisierten Arrays aufgerufen werden.
 
 ## Beispiele
 
@@ -76,7 +77,7 @@ new Uint8Array([12, 5, 8, 130, 44]).filter(isBigEnough);
 ## Siehe auch
 
 - [Polyfill von `TypedArray.prototype.filter` in `core-js`](https://github.com/zloirock/core-js#ecmascript-typed-arrays)
-- [JavaScript typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
+- [Leitfaden zu JavaScript typisierten Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays)
 - {{jsxref("TypedArray")}}
 - {{jsxref("TypedArray.prototype.forEach()")}}
 - {{jsxref("TypedArray.prototype.every()")}}

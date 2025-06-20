@@ -1,8 +1,9 @@
 ---
-title: "`String()` Konstruktor"
+title: String() Konstruktor
+short-title: String()
 slug: Web/JavaScript/Reference/Global_Objects/String/String
 l10n:
-  sourceCommit: c16a0ee78e5142b3bfcdaf57d595add3ce825f13
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
@@ -16,27 +17,27 @@ new String(thing)
 String(thing)
 ```
 
-> **Note:** `String()` kann mit oder ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden, hat jedoch unterschiedliche Effekte. Siehe [Rückgabewert](#rückgabewert).
+> **Hinweis:** `String()` kann mit oder ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden, jedoch mit unterschiedlichen Effekten. Siehe [Rückgabewert](#rückgabewert).
 
 ### Parameter
 
 - `thing`
-  - : Alles, was in eine Zeichenkette umgewandelt werden soll.
+  - : Alles, was in einen String konvertiert werden soll.
 
 ### Rückgabewert
 
-Wenn `String()` als Funktion (ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new)) aufgerufen wird, gibt es den `value` [in einen primitiven Zeichenkettentyp gezwungen](/de/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion) zurück. Insbesondere werden [Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol) Werte in `"Symbol(description)"` umgewandelt, wobei `description` die [Beschreibung](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/description) des Symbols ist, anstatt eine Ausnahme zu werfen.
+Wenn `String()` als Funktion (ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new)) aufgerufen wird, gibt es `value` [zum String-Primitive gezwungen](/de/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion) zurück. Besonders werden [Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol)-Werte in `"Symbol(description)"` konvertiert, wobei `description` die [Beschreibung](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/description) des Symbols ist, anstatt einen Fehler zu werfen.
 
-Wenn `String()` als Konstruktor (mit `new`) aufgerufen wird, wird `value` in einen primitiven Zeichenkettentyp gezwungen (ohne spezielle Symbolbehandlung) und ein umhüllendes {{jsxref("String")}} Objekt zurückgegeben, das **kein** primitiver Typ ist.
+Wenn `String()` als Konstruktor (mit `new`) aufgerufen wird, zwingt es `value` zu einem String-Primitive (ohne spezielle Symbolbehandlung) und gibt ein umhüllendes {{jsxref("String")}} Objekt zurück, das **kein** Primitiv ist.
 
 > [!WARNING]
-> Sie sollten selten den `String` als Konstruktor verwenden.
+> Sie sollten selten den `String` Konstruktor verwenden.
 
 ## Beispiele
 
-### String-Konstruktor und String-Funktion
+### String Konstruktor und String Funktion
 
-Die String-Funktion und der String-Konstruktor liefern unterschiedliche Ergebnisse:
+String Funktion und String Konstruktor erzeugen unterschiedliche Ergebnisse:
 
 ```js
 const a = new String("Hello world"); // a === "Hello world" is false
@@ -47,11 +48,13 @@ typeof a; // "object"
 typeof b; // "string"
 ```
 
-Hier produziert die Funktion eine Zeichenkette (den {{Glossary("primitive", "primitiven")}} Typ), wie versprochen. Der Konstruktor dagegen erzeugt eine Instanz vom Typ String (ein Objekt-Wrapper), und deshalb sollten Sie den String-Konstruktor selten verwenden.
+Hier erzeugt die Funktion wie versprochen einen String (den {{Glossary("primitive", "primitiven")}} Typ).
+Der Konstruktor hingegen erzeugt eine Instanz des Typs String (einen Objekt-Wrapper) und
+deshalb sollten Sie den String-Konstruktor selten überhaupt verwenden.
 
-### Verwendung von `String()`, um ein Symbol zu stringifizieren
+### Verwendung von String() zum Stringifizieren eines Symbols
 
-`String()` ist der einzige Fall, bei dem ein Symbol ohne Fehlermeldung in eine Zeichenkette umgewandelt werden kann, da es sehr explizit ist.
+`String()` ist der einzige Fall, in dem ein Symbol in einen String konvertiert werden kann, ohne einen Fehler zu werfen, weil es sehr explizit ist.
 
 ```js example-bad
 const sym = Symbol("example");
@@ -75,4 +78,4 @@ String(sym); // "Symbol(example)"
 
 ## Siehe auch
 
-- [Zahlen und Zeichenketten](/de/docs/Web/JavaScript/Guide/Numbers_and_strings) Leitfaden
+- [Zahlen und Strings](/de/docs/Web/JavaScript/Guide/Numbers_and_strings) Leitfaden

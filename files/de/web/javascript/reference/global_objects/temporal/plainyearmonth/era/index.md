@@ -1,17 +1,18 @@
 ---
 title: Temporal.PlainYearMonth.prototype.era
+short-title: era
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainYearMonth/era
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}{{SeeCompatTable}}
 
-Die Zugriffseigenschaft **`era`** von {{jsxref("Temporal.PlainYearMonth")}}-Instanzen gibt einen kalenderspezifischen, klein geschriebenen String zurück, der die Ära dieses Jahr-Monats darstellt, oder `undefined`, wenn der Kalender keine Ären verwendet (z. B. ISO 8601). `era` und `eraYear` identifizieren zusammen eindeutig ein Jahr in einem Kalender, auf die gleiche Weise wie `year`. Es ist von [Kalendern](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#calendars) abhängig.
+Die **`era`** Accessor-Eigenschaft von Instanzen des Typs {{jsxref("Temporal.PlainYearMonth")}} gibt einen kalenderspezifischen Kleinbuchstaben-String zurück, der die Ära dieses Jahresmonats darstellt, oder `undefined`, wenn der Kalender keine Ären verwendet (z. B. ISO 8601). `era` und `eraYear` identifizieren gemeinsam ein Jahr in einem Kalender eindeutig, auf die gleiche Weise, wie es `year` tut. Diese Eigenschaft ist [kalenderabhängig](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#calendars).
 
-Der Set-Zugriff von `era` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern. Verwenden Sie die {{jsxref("Temporal/PlainYearMonth/with", "with()")}}-Methode, um ein neues `Temporal.PlainYearMonth`-Objekt mit dem gewünschten neuen Wert zu erstellen.
+Der Set-Accessor von `era` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern. Verwenden Sie die Methode {{jsxref("Temporal/PlainYearMonth/with", "with()")}}, um ein neues `Temporal.PlainYearMonth`-Objekt mit dem gewünschten neuen Wert zu erstellen.
 
-Für allgemeine Informationen und mehr Beispiele siehe {{jsxref("Temporal/PlainDate/era", "Temporal.PlainDate.prototype.era")}}.
+Für allgemeine Informationen und weitere Beispiele siehe {{jsxref("Temporal/PlainDate/era", "Temporal.PlainDate.prototype.era")}}.
 
 ## Beispiele
 

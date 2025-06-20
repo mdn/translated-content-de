@@ -1,13 +1,14 @@
 ---
 title: Number.parseInt()
+short-title: parseInt()
 slug: Web/JavaScript/Reference/Global_Objects/Number/parseInt
 l10n:
-  sourceCommit: e8320dfbed49d37589d0fe759ef6506885f340f7
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Die statische Methode **`Number.parseInt()`** analysiert ein Zeichenfolgenargument und gibt eine Ganzzahl der angegebenen Basis oder des angegebenen Radix zurück.
+Die statische Methode **`Number.parseInt()`** analysiert ein String-Argument und gibt eine ganze Zahl im angegebenen Stellenwert oder in der angegebenen Basis zurück.
 
 {{InteractiveExample("JavaScript Demo: Number.parseInt()", "taller")}}
 
@@ -37,18 +38,18 @@ Number.parseInt(string, radix)
 ### Parameter
 
 - `string`
-  - : Der zu analysierende Wert, [in eine Zeichenfolge umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion). Führende Leerzeichen in diesem Argument werden ignoriert.
+  - : Der Wert, der analysiert werden soll, [in einen String umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion). Führende Leerzeichen in diesem Argument werden ignoriert.
 - `radix` {{optional_inline}}
 
-  - : Eine Ganzzahl zwischen `2` und `36`, die den _radix_ (die Basis in mathematischen Zahlensystemen) der `string` darstellt.
+  - : Eine ganze Zahl zwischen `2` und `36`, die die _Basis_ (das Stellenwertsystem in mathematischen Zahlensystemen) des `string` darstellt.
 
-    Wenn `radix` undefiniert oder `0` ist, wird `10` angenommen, es sei denn, die Zahl beginnt mit den Code-Einheitspaaren `0x` oder `0X`, in diesem Fall wird ein Radix von `16` angenommen.
+    Wenn `radix` nicht definiert oder `0` ist, wird angenommen, dass es `10` ist, außer wenn die Zahl mit den Code-Einheiten-Paaren `0x` oder `0X` beginnt, in welchem Fall eine Basis von `16` angenommen wird.
 
 ### Rückgabewert
 
-Eine aus der angegebenen `string` analysierte Ganzzahl.
+Eine ganze Zahl, die aus dem gegebenen `string` analysiert wurde.
 
-Wenn der `radix` kleiner als `2` oder größer als `36` ist oder das erste Nicht-Leerzeichen-Zeichen nicht in eine Zahl umgewandelt werden kann, wird {{jsxref("NaN")}} zurückgegeben.
+Wenn die `radix` kleiner als `2` oder größer als `36` ist oder das erste Nicht-Leerzeichen-Zeichen nicht in eine Zahl umgewandelt werden kann, wird {{jsxref("NaN")}} zurückgegeben.
 
 ## Beispiele
 
@@ -60,7 +61,7 @@ Diese Methode hat die gleiche Funktionalität wie die globale {{jsxref("parseInt
 Number.parseInt === parseInt; // true
 ```
 
-Ihr Zweck ist die Modularisierung von globalen Variablen. Bitte sehen Sie {{jsxref("parseInt()")}} für mehr Details und Beispiele.
+Ihr Zweck ist die Modularisierung von Globals. Bitte siehe {{jsxref("parseInt()")}} für mehr Details und Beispiele.
 
 ## Spezifikationen
 

@@ -1,19 +1,20 @@
 ---
 title: Temporal.ZonedDateTime.prototype.hour
+short-title: hour
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime/hour
 l10n:
-  sourceCommit: d0b9cef0713eb263934a98e94202b97c143204a4
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}{{SeeCompatTable}}
 
-Die **`hour`** Accessor-Eigenschaft von {{jsxref("Temporal.ZonedDateTime")}}-Instanzen gibt eine Ganzzahl von 0 bis 23 zurück, die die Stundenkomponente dieser Zeit darstellt.
+Die **`hour`** Accessor-Eigenschaft von {{jsxref("Temporal.ZonedDateTime")}}-Instanzen gibt eine Ganzzahl von 0 bis 23 zurück, die die Stundenkomponente dieser Zeit repräsentiert.
 
 Der Set-Accessor von `hour` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern. Verwenden Sie die {{jsxref("Temporal/ZonedDateTime/with", "with()")}}-Methode, um ein neues `Temporal.ZonedDateTime`-Objekt mit dem gewünschten neuen Wert zu erstellen.
 
 Für allgemeine Informationen und weitere Beispiele siehe {{jsxref("Temporal/PlainTime/hour", "Temporal.PlainTime.prototype.hour")}}.
 
-Für `ZonedDateTime` kann `hour` aufgrund von Offset-Änderungen wie den Übergängen zur Sommerzeit nicht kontinuierlich sein. In diesem Fall kann die Stunde wiederholt oder übersprungen werden.
+Für `ZonedDateTime` kann `hour` aufgrund von Offset-Änderungen wie Zeitumstellungen bei Sommer- oder Winterzeit nicht kontinuierlich sein. In diesem Fall kann die Stunde wiederholt oder übersprungen werden.
 
 ## Beispiele
 
@@ -28,7 +29,7 @@ console.log(dt.hour); // 12
 
 ### Nicht-kontinuierliche Stunde
 
-Nicht-kontinuierliche Stunde ist aufgrund von Sommerzeitübergängen sehr häufig, was im Abschnitt [Mehrdeutigkeit und Lücken von Ortszeit zu UTC-Zeit](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime#ambiguity_and_gaps_from_local_time_to_utc_time) genauer erklärt wird.
+Nicht-kontinuierliche Stunden sind sehr häufig aufgrund von Zeitumstellungen bei Sommer- oder Winterzeit, was unter [Mehrdeutigkeit und Lücken von lokaler Zeit zu UTC-Zeit](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime#ambiguity_and_gaps_from_local_time_to_utc_time) ausführlicher erklärt wird.
 
 ```js
 const dt = Temporal.ZonedDateTime.from(

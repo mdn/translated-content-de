@@ -1,13 +1,14 @@
 ---
 title: SyntaxError() Konstruktor
+short-title: SyntaxError()
 slug: Web/JavaScript/Reference/Global_Objects/SyntaxError/SyntaxError
 l10n:
-  sourceCommit: f5d6eeec8c270d74f92e59dd915261e8bf1d083f
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Der **`SyntaxError()`**-Konstruktor erstellt {{jsxref("SyntaxError")}}-Objekte.
+Der **`SyntaxError()`** Konstruktor erstellt {{jsxref("SyntaxError")}} Objekte.
 
 ## Syntax
 
@@ -25,17 +26,17 @@ SyntaxError(message, fileName)
 SyntaxError(message, fileName, lineNumber)
 ```
 
-> **Note:** `SyntaxError()` kann mit oder ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden. Beide Varianten erzeugen eine neue `SyntaxError`-Instanz.
+> **Note:** `SyntaxError()` kann mit oder ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden. Beide erzeugen eine neue `SyntaxError` Instanz.
 
 ### Parameter
 
 - `message` {{optional_inline}}
-  - : Eine verständliche Beschreibung des Fehlers
+  - : Menschlich lesbare Beschreibung des Fehlers
 - `options` {{optional_inline}}
-  - : Ein Objekt mit den folgenden Eigenschaften:
+  - : Ein Objekt, das die folgenden Eigenschaften enthält:
     - `cause` {{optional_inline}}
       - : Eine Eigenschaft, die die spezifische Ursache des Fehlers angibt.
-        Bei Auffangen und erneutem Werfen eines Fehlers mit einer spezifischeren oder nützlicheren Fehlermeldung kann diese Eigenschaft verwendet werden, um den ursprünglichen Fehler weiterzugeben.
+        Beim Auffangen und erneuten Werfen eines Fehlers mit einer spezifischeren oder nützlicheren Fehlermeldung kann diese Eigenschaft verwendet werden, um den ursprünglichen Fehler zu übergeben.
 - `fileName` {{optional_inline}} {{non-standard_inline}}
   - : Der Name der Datei, die den Code enthält, der die Ausnahme verursacht hat
 - `lineNumber` {{optional_inline}} {{non-standard_inline}}
@@ -43,7 +44,7 @@ SyntaxError(message, fileName, lineNumber)
 
 ## Beispiele
 
-### Abfangen eines SyntaxError
+### Einen SyntaxError abfangen
 
 ```js
 try {
@@ -56,7 +57,7 @@ try {
 }
 ```
 
-### Erstellen eines SyntaxError
+### Einen SyntaxError erstellen
 
 ```js
 try {

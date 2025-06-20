@@ -1,13 +1,14 @@
 ---
 title: Number.parseFloat()
+short-title: parseFloat()
 slug: Web/JavaScript/Reference/Global_Objects/Number/parseFloat
 l10n:
-  sourceCommit: e8320dfbed49d37589d0fe759ef6506885f340f7
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Die statische Methode **`Number.parseFloat()`** parst ein Argument und gibt eine Fließkommazahl zurück. Wenn keine Zahl aus dem Argument geparst werden kann, gibt sie {{jsxref("NaN")}} zurück.
+Die statische Methode **`Number.parseFloat()`** analysiert ein Argument und gibt eine Fließkommazahl zurück. Wenn eine Zahl nicht aus dem Argument extrahiert werden kann, wird {{jsxref("NaN")}} zurückgegeben.
 
 {{InteractiveExample("JavaScript Demo: Number.parseFloat()")}}
 
@@ -35,11 +36,11 @@ Number.parseFloat(string)
 ### Parameter
 
 - `string`
-  - : Der zu parsende Wert, [in einen String umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion). Führende {{Glossary("whitespace", "Leerzeichen")}} in diesem Argument werden ignoriert.
+  - : Der zu analysierende Wert, [zu einem String konvertiert](/de/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion). Führende {{Glossary("whitespace", "Leerzeichen")}} in diesem Argument werden ignoriert.
 
 ### Rückgabewert
 
-Eine Fließkommazahl, die aus dem gegebenen `string` geparst wurde.
+Eine aus dem gegebenen `string` extrahierte Fließkommazahl.
 
 Oder {{jsxref("NaN")}}, wenn das erste Nicht-Leerzeichen-Zeichen nicht in eine Zahl umgewandelt werden kann.
 
@@ -47,13 +48,13 @@ Oder {{jsxref("NaN")}}, wenn das erste Nicht-Leerzeichen-Zeichen nicht in eine Z
 
 ### Number.parseFloat vs. parseFloat
 
-Diese Methode hat die gleiche Funktionalität wie die globale Funktion {{jsxref("parseFloat()")}}:
+Diese Methode hat dieselbe Funktionalität wie die globale Funktion {{jsxref("parseFloat()")}}:
 
 ```js
 Number.parseFloat === parseFloat; // true
 ```
 
-Ihr Zweck ist die Modularisierung globaler Objekte.
+Ihr Zweck ist die Modularisierung von globalen Funktionen.
 
 Siehe {{jsxref("parseFloat()")}} für mehr Details und Beispiele.
 
@@ -68,6 +69,6 @@ Siehe {{jsxref("parseFloat()")}} für mehr Details und Beispiele.
 ## Siehe auch
 
 - [Polyfill von `Number.parseFloat` in `core-js`](https://github.com/zloirock/core-js#ecmascript-number)
-- [Polyfill von `Number.parseFloat` in es-shims](https://www.npmjs.com/package/number.parsefloat)
+- [es-shims Polyfill von `Number.parseFloat`](https://www.npmjs.com/package/number.parsefloat)
 - {{jsxref("Number")}}
 - {{jsxref("parseFloat()")}}

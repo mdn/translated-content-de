@@ -1,13 +1,14 @@
 ---
 title: Math.sin()
+short-title: sin()
 slug: Web/JavaScript/Reference/Global_Objects/Math/sin
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Die statische Methode **`Math.sin()`** liefert den Sinus einer Zahl in Bogenmaß.
+Die statische Methode **`Math.sin()`** gibt den Sinus einer Zahl in Bogenmaß zurück.
 
 {{InteractiveExample("JavaScript Demo: Math.sin()")}}
 
@@ -39,11 +40,11 @@ Math.sin(x)
 
 ### Rückgabewert
 
-Der Sinus von `x`, im Bereich von -1 bis 1, einschließlich der Grenzen. Falls `x` {{jsxref("Infinity")}}, `-Infinity` oder {{jsxref("NaN")}} ist, wird {{jsxref("NaN")}} zurückgegeben.
+Der Sinus von `x`, zwischen -1 und 1, einschließlich. Wenn `x` {{jsxref("Infinity")}}, `-Infinity` oder {{jsxref("NaN")}} ist, wird {{jsxref("NaN")}} zurückgegeben.
 
 ## Beschreibung
 
-Da `sin()` eine statische Methode von `Math` ist, verwenden Sie sie immer als `Math.sin()` und nicht als Methode eines von Ihnen erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
+Da `sin()` eine statische Methode von `Math` ist, verwenden Sie sie immer als `Math.sin()` und nicht als eine Methode eines erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
 
 ## Beispiele
 

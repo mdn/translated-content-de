@@ -1,13 +1,14 @@
 ---
 title: Temporal.PlainDateTime.prototype.toPlainTime()
+short-title: toPlainTime()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainDateTime/toPlainTime
 l10n:
-  sourceCommit: d0b9cef0713eb263934a98e94202b97c143204a4
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}{{SeeCompatTable}}
 
-Die **`toPlainTime()`**-Methode von {{jsxref("Temporal.PlainDateTime")}}-Instanzen gibt ein neues {{jsxref("Temporal.PlainTime")}}-Objekt zurück, das den Zeitteil (Stunden-, Minuten-, Sekunden- und Subsekundenkomponenten) dieses Datums-Zeit-Werts darstellt.
+Die **`toPlainTime()`**-Methode von {{jsxref("Temporal.PlainDateTime")}}-Instanzen gibt ein neues {{jsxref("Temporal.PlainTime")}}-Objekt zurück, das den Zeitteil (Stunden-, Minuten-, Sekunden- und Subsekundenkomponenten) dieses Datums-Zeitwertes darstellt.
 
 ## Syntax
 
@@ -21,7 +22,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein neues `Temporal.PlainTime`-Objekt, das den Zeitteil (Stunden-, Minuten-, Sekunden- und Subsekundenkomponenten) dieses Datums-Zeit-Werts darstellt.
+Ein neues `Temporal.PlainTime`-Objekt, das den Zeitteil (Stunden-, Minuten-, Sekunden- und Subsekundenkomponenten) dieses Datums-Zeitwertes darstellt.
 
 ## Beispiele
 

@@ -1,13 +1,14 @@
 ---
 title: Reflect.getPrototypeOf()
+short-title: getPrototypeOf()
 slug: Web/JavaScript/Reference/Global_Objects/Reflect/getPrototypeOf
 l10n:
-  sourceCommit: e8320dfbed49d37589d0fe759ef6506885f340f7
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Die statische Methode **`Reflect.getPrototypeOf()`** ist ähnlich wie {{jsxref("Object.getPrototypeOf()")}}. Sie gibt das Prototyp-Objekt des angegebenen Objekts zurück.
+Die statische Methode **`Reflect.getPrototypeOf()`** ähnelt {{jsxref("Object.getPrototypeOf()")}}. Sie gibt das Prototypobjekt des angegebenen Objekts zurück.
 
 {{InteractiveExample("JavaScript Demo: Reflect.getPrototypeOf()")}}
 
@@ -34,11 +35,11 @@ Reflect.getPrototypeOf(target)
 ### Parameter
 
 - `target`
-  - : Das Zielobjekt, dessen Prototyp abgerufen werden soll.
+  - : Das Zielobjekt, von dem der Prototyp abgerufen werden soll.
 
 ### Rückgabewert
 
-Der Prototyp des angegebenen Objekts, der entweder ein Objekt oder `null` sein kann.
+Der Prototyp des gegebenen Objekts, der ein Objekt oder `null` sein kann.
 
 ### Ausnahmen
 
@@ -47,9 +48,9 @@ Der Prototyp des angegebenen Objekts, der entweder ein Objekt oder `null` sein k
 
 ## Beschreibung
 
-`Reflect.getPrototypeOf()` bietet die reflexive Semantik zum Abrufen des Prototyps eines Objekts. Der einzige Unterschied zu {{jsxref("Object.getPrototypeOf()")}} besteht darin, wie nicht-Objekt-Ziele behandelt werden. `Reflect.getPrototypeOf()` löst einen {{jsxref("TypeError")}} aus, wenn das Ziel kein Objekt ist, wohingegen `Object.getPrototypeOf()` es in ein Objekt umwandelt.
+`Reflect.getPrototypeOf()` bietet die reflexive Semantik zum Abrufen des Prototyps eines Objekts. Der einzige Unterschied zu {{jsxref("Object.getPrototypeOf()")}} ist, wie nicht-Objekt-Ziele behandelt werden. `Reflect.getPrototypeOf()` wirft einen {{jsxref("TypeError")}}, wenn das Ziel kein Objekt ist, während `Object.getPrototypeOf()` es in ein Objekt umwandelt.
 
-`Reflect.getPrototypeOf()` ruft die `[[GetPrototypeOf]]` [interne Objektmethode](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods) des `target` ab.
+`Reflect.getPrototypeOf()` ruft die `[[GetPrototypeOf]]` [interne Objektmethode](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods) von `target` auf.
 
 ## Beispiele
 

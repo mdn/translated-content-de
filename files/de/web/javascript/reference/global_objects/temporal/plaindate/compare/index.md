@@ -1,13 +1,14 @@
 ---
 title: Temporal.PlainDate.compare()
+short-title: compare()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainDate/compare
 l10n:
-  sourceCommit: 028c0fe110e66173c3f9ce6c3ab1a3db4b2e8df9
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}{{SeeCompatTable}}
 
-Die statische Methode **`Temporal.PlainDate.compare()`** gibt eine Zahl (-1, 0 oder 1) zurück, die angibt, ob das erste Datum vor, gleich oder nach dem zweiten Datum liegt. Dies entspricht dem Vergleich der Jahr-, Monats- und Tagesfelder der zugrunde liegenden ISO 8601-Daten.
+Die statische Methode **`Temporal.PlainDate.compare()`** gibt eine Zahl (-1, 0 oder 1) zurück, die angibt, ob das erste Datum vor, gleich oder nach dem zweiten Datum liegt. Dies entspricht dem Vergleich der Felder Jahr, Monat und Tag der zugrunde liegenden ISO 8601-Daten.
 
 ## Syntax
 
@@ -24,7 +25,7 @@ Temporal.PlainDate.compare(date1, date2)
 
 ### Rückgabewert
 
-Gibt `-1` zurück, wenn `date1` vor `date2` liegt, `0` wenn sie gleich sind, und `1` wenn `date1` nach `date2` liegt. Sie werden anhand ihrer zugrunde liegenden Datumswerte verglichen, während ihre Kalender ignoriert werden.
+Gibt `-1` zurück, wenn `date1` vor `date2` kommt, `0` wenn sie gleich sind, und `1` wenn `date1` nach `date2` kommt. Sie werden anhand ihrer zugrunde liegenden Datumswerte verglichen, wobei ihre Kalender ignoriert werden.
 
 ## Beispiele
 
@@ -39,7 +40,7 @@ const date3 = Temporal.PlainDate.from("2021-07-31");
 console.log(Temporal.PlainDate.compare(date1, date3)); // 1
 ```
 
-### Vergleich von Daten in unterschiedlichen Kalendern
+### Vergleich von Daten in verschiedenen Kalendern
 
 ```js
 const date1 = Temporal.PlainDate.from({ year: 2021, month: 8, day: 1 });
@@ -64,7 +65,7 @@ console.log(Temporal.PlainDate.compare(date1, date3)); // 1
 
 ### Sortieren eines Arrays von Daten
 
-Der Zweck dieser `compare()`-Funktion besteht darin, als Komparator zu fungieren, der an {{jsxref("Array.prototype.sort()")}} und verwandte Funktionen übergeben werden kann.
+Der Zweck dieser `compare()`-Funktion besteht darin, als Vergleichsfunktion für {{jsxref("Array.prototype.sort()")}} und verwandte Funktionen zu dienen.
 
 ```js
 const dates = [

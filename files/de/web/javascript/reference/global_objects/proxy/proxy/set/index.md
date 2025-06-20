@@ -1,13 +1,14 @@
 ---
 title: handler.set()
+short-title: set()
 slug: Web/JavaScript/Reference/Global_Objects/Proxy/Proxy/set
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Die Methode **`handler.set()`** ist eine Trap für die `[[Set]]` [interne Methode von Objekten](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods), die von Operationen wie der Verwendung von [Property Accessors](/de/docs/Web/JavaScript/Reference/Operators/Property_accessors) genutzt wird, um den Wert einer Eigenschaft festzulegen.
+Die **`handler.set()`**-Methode ist eine Falle für die `[[Set]]` [interne Objektmethode](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods), die von Operationen wie der Verwendung von [Property-Accessors](/de/docs/Web/JavaScript/Reference/Operators/Property_accessors) genutzt wird, um den Wert eines Properties festzulegen.
 
 {{InteractiveExample("JavaScript Demo: handler.set()", "taller")}}
 
@@ -48,30 +49,30 @@ new Proxy(target, {
 
 ### Parameter
 
-Die folgenden Parameter werden der Methode `set()` übergeben. `this` ist an den Handler gebunden.
+Die folgenden Parameter werden an die `set()`-Methode übergeben. `this` ist an den Handler gebunden.
 
 - `target`
   - : Das Zielobjekt.
 - `property`
-  - : Ein String oder ein {{jsxref("Symbol")}}, das den Eigenschaftsnamen darstellt.
+  - : Ein String oder {{jsxref("Symbol")}}, das den Property-Namen repräsentiert.
 - `value`
-  - : Der neue Wert der zu setzenden Eigenschaft.
+  - : Der neue Wert des zu setzenden Properties.
 - `receiver`
-  - : Der `this`-Wert für Setter; siehe {{jsxref("Reflect.set()")}}. Dies ist üblicherweise entweder der Proxy selbst oder ein Objekt, das vom Proxy erbt.
+  - : Der `this`-Wert für Setter; siehe {{jsxref("Reflect.set()")}}. Dies ist normalerweise entweder der Proxy selbst oder ein Objekt, das vom Proxy erbt.
 
 ### Rückgabewert
 
-Die Methode `set()` muss einen {{jsxref("Boolean")}} zurückgeben, der angibt, ob die Zuweisung erfolgreich war. Andere Werte werden [in Boolesche Werte umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Boolean#boolean_coercion).
+Die `set()`-Methode muss ein {{jsxref("Boolean")}} zurückgeben, das anzeigt, ob die Zuweisung erfolgreich war oder nicht. Andere Werte werden [in Booleans umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Boolean#boolean_coercion).
 
-Viele Operationen, darunter die Verwendung von Property Accessors im [Strict Mode](/de/docs/Web/JavaScript/Reference/Strict_mode), werfen einen {{jsxref("TypeError")}}, wenn die interne Methode `[[Set]]` `false` zurückgibt.
+Viele Operationen, einschließlich der Verwendung von Property-Accessors im [Strict Mode](/de/docs/Web/JavaScript/Reference/Strict_mode), werfen einen {{jsxref("TypeError")}}, wenn die `[[Set]]`-interne Methode `false` zurückgibt.
 
 ## Beschreibung
 
-### Interceptionen
+### Interceptions
 
-Diese Trap kann die folgenden Operationen abfangen:
+Diese Falle kann folgende Operationen abfangen:
 
-- Zuweisung von Eigenschaften: `proxy[foo] = bar` und `proxy.foo = bar`
+- Property-Zuweisung: `proxy[foo] = bar` und `proxy.foo = bar`
 - {{jsxref("Reflect.set()")}}
 
 Oder jede andere Operation, die die `[[Set]]` [interne Methode](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods) aufruft.
@@ -80,14 +81,14 @@ Oder jede andere Operation, die die `[[Set]]` [interne Methode](/de/docs/Web/Jav
 
 Die `[[Set]]`-interne Methode des Proxys wirft einen {{jsxref("TypeError")}}, wenn die Handler-Definition eine der folgenden Invarianten verletzt:
 
-- Der Wert einer Eigenschaft kann nicht geändert werden, um sich von dem Wert der entsprechenden Eigenschaft des Zielobjekts zu unterscheiden, wenn die entsprechende Eigenschaft des Zielobjekts eine nicht beschreibbare, nicht konfigurierbare eigene Data-Eigenschaft ist. Das bedeutet, wenn {{jsxref("Reflect.getOwnPropertyDescriptor()")}} für die Eigenschaft in `target` `configurable: false, writable: false` zurückgibt und `value` sich von dem Attribut `value` im Eigenschaftsdescriptor des `target` unterscheidet, muss die Trap einen falsy-Wert zurückgeben.
-- Der Wert einer Eigenschaft kann nicht festgelegt werden, wenn die entsprechende Eigenschaft des Zielobjekts eine nicht konfigurierbare eigene Accessor-Eigenschaft ist, die keinen definierten Setter hat. Das bedeutet, wenn {{jsxref("Reflect.getOwnPropertyDescriptor()")}} für die Eigenschaft in `target` `configurable: false, set: undefined` zurückgibt, muss die Trap einen falsy-Wert zurückgeben.
+- Der Wert eines Properties kann nicht geändert werden, um von dem des entsprechenden Zielobjekt-Properties abzuweichen, wenn das entsprechende Zielobjekt-Property ein nicht beschreibbares, nicht konfigurierbares eigenes Daten-Property ist. Das heißt, wenn {{jsxref("Reflect.getOwnPropertyDescriptor()")}} `configurable: false, writable: false` für das Property auf dem `target` zurückgibt und `value` sich von dem `value`-Attribut im Property-Deskriptor des `target` unterscheidet, dann muss die Falle einen falsy Wert zurückgeben.
+- Der Wert eines Properties kann nicht gesetzt werden, wenn das entsprechende Zielobjekt-Property ein nicht konfigurierbares eigenes Accessor-Property ist, das einen undefinierten Setter hat. Das heißt, wenn {{jsxref("Reflect.getOwnPropertyDescriptor()")}} `configurable: false, set: undefined` für das Property auf dem `target` zurückgibt, dann muss die Falle einen falsy Wert zurückgeben.
 
 ## Beispiele
 
-### Trap für das Setzen eines Eigenschaftswerts
+### Falle zum Setzen eines Property-Wertes
 
-Der folgende Code fängt das Setzen eines Eigenschaftswerts ab.
+Der folgende Code fängt das Setzen eines Property-Wertes ab.
 
 ```js
 const p = new Proxy(
@@ -119,5 +120,5 @@ console.log(p.a); // 10
 ## Siehe auch
 
 - {{jsxref("Proxy")}}
-- [`Proxy()`-Konstruktor](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy)
+- [`Proxy()` Konstruktor](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy)
 - {{jsxref("Reflect.set()")}}

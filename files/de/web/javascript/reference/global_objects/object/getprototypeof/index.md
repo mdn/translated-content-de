@@ -1,15 +1,16 @@
 ---
 title: Object.getPrototypeOf()
+short-title: getPrototypeOf()
 slug: Web/JavaScript/Reference/Global_Objects/Object/getPrototypeOf
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Die statische Methode **`Object.getPrototypeOf()`** gibt das Prototyp-Objekt zurück
-(d.h. den Wert der internen `[[Prototype]]`-Eigenschaft) des angegebenen
-Objekts.
+Die **`Object.getPrototypeOf()`** statische Methode gibt das Prototyp-Objekt
+(z. B. den Wert der internen `[[Prototype]]`-Eigenschaft) des angegebenen
+Objekts zurück.
 
 {{InteractiveExample("JavaScript Demo: Object.getPrototypeOf()", "shorter")}}
 
@@ -34,7 +35,7 @@ Object.getPrototypeOf(obj)
 
 ### Rückgabewert
 
-Der Prototyp des gegebenen Objekts, der möglicherweise [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) ist.
+Der Prototyp des angegebenen Objekts, der möglicherweise [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) ist.
 
 ## Beispiele
 
@@ -46,10 +47,9 @@ const obj = Object.create(proto);
 Object.getPrototypeOf(obj) === proto; // true
 ```
 
-### Zwangsumwandlung bei Nicht-Objekten
+### Erzwingen von Nicht-Objekten
 
-In ES5 wird eine {{jsxref("TypeError")}}-Ausnahme ausgelöst, wenn der `obj`-
-Parameter kein Objekt ist. In ES2015 wird der Parameter in ein
+In ES5 wird eine {{jsxref("TypeError")}}-Ausnahme ausgelöst, wenn der `obj`-Parameter kein Objekt ist. In ES2015 wird der Parameter zu einem
 {{jsxref("Object")}} umgewandelt.
 
 ```js

@@ -1,27 +1,28 @@
 ---
 title: Error.prototype.name
+short-title: name
 slug: Web/JavaScript/Reference/Global_Objects/Error/name
 l10n:
-  sourceCommit: 6b728699f5f38f1070a94673b5e7afdb1102a941
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Die **`name`** Daten-Eigenschaft von `Error.prototype` wird von allen {{jsxref("Error")}} Instanzen geteilt. Sie repräsentiert den Namen des Fehlertyps. Für `Error.prototype.name` ist der Anfangswert `"Error"`. Unterklassen wie {{jsxref("TypeError")}} und {{jsxref("SyntaxError")}} haben ihre eigenen `name`-Eigenschaften.
+Die **`name`** Daten-Eigenschaft von `Error.prototype` wird von allen {{jsxref("Error")}}-Instanzen geteilt. Sie repräsentiert den Namen für den Fehler-Typ. Für `Error.prototype.name` ist der anfängliche Wert `"Error"`. Unterklassen wie {{jsxref("TypeError")}} und {{jsxref("SyntaxError")}} stellen ihre eigenen `name`-Eigenschaften bereit.
 
 ## Wert
 
-Ein String. Für `Error.prototype.name` ist der Anfangswert `"Error"`.
+Ein String. Für `Error.prototype.name` ist der anfängliche Wert `"Error"`.
 
 {{js_property_attributes(1, 0, 1)}}
 
 ## Beschreibung
 
-Standardmäßig erhalten {{jsxref("Error")}} Instanzen den Namen "Error". Die `name`-Eigenschaft wird zusammen mit der {{jsxref("Error/message", "message")}}-Eigenschaft von der {{jsxref("Error.prototype.toString()")}}-Methode verwendet, um eine Zeichenketten-Darstellung des Fehlers zu erstellen.
+Standardmäßig erhalten {{jsxref("Error")}}-Instanzen den Namen "Error". Die `name`-Eigenschaft wird neben der {{jsxref("Error/message", "message")}}-Eigenschaft von der {{jsxref("Error.prototype.toString()")}}-Methode verwendet, um eine String-Darstellung des Fehlers zu erstellen.
 
 ## Beispiele
 
-### Auslösen eines benutzerdefinierten Fehlers
+### Werfen eines benutzerdefinierten Fehlers
 
 ```js
 const e = new Error("Malformed input"); // e.name is 'Error'

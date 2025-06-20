@@ -1,13 +1,14 @@
 ---
 title: RegExp.prototype.flags
+short-title: flags
 slug: Web/JavaScript/Reference/Global_Objects/RegExp/flags
 l10n:
-  sourceCommit: bccce51ad7f3fd5e5ff7e4231b6391a000c8faf6
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Die **`flags`** Zugriffseigenschaft von {{jsxref("RegExp")}} Instanzen gibt die [Flags](/de/docs/Web/JavaScript/Guide/Regular_expressions#advanced_searching_with_flags) dieses regulären Ausdrucks zurück.
+Die **`flags`** Zugriffs-Eigenschaft von {{jsxref("RegExp")}} Instanzen gibt die [Flags](/de/docs/Web/JavaScript/Guide/Regular_expressions#advanced_searching_with_flags) dieses regulären Ausdrucks zurück.
 
 {{InteractiveExample("JavaScript Demo: RegExp.prototype.flags")}}
 
@@ -23,11 +24,11 @@ console.log(/^bar/muy.flags);
 
 ## Beschreibung
 
-`RegExp.prototype.flags` hat einen String als seinen Wert. Flags in der `flags`-Eigenschaft sind alphabetisch sortiert (von links nach rechts, z.B. `"dgimsuvy"`). Es ruft tatsächlich die anderen Flag-Zugriffsmethoden ([`hasIndices`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/hasIndices), [`global`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/global), etc.) nacheinander auf und fügt die Ergebnisse zusammen.
+`RegExp.prototype.flags` hat einen String als Wert. Flags in der `flags`-Eigenschaft sind alphabetisch sortiert (von links nach rechts, z.B. `"dgimsuvy"`). Es ruft tatsächlich die anderen Flag-Zugriffsobjekte ([`hasIndices`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/hasIndices), [`global`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/global), etc.) nacheinander auf und verkettet die Ergebnisse.
 
-Alle eingebauten Funktionen lesen die `flags`-Eigenschaft anstatt die einzelnen Flag-Zugriffsmethoden zu lesen.
+Alle eingebauten Funktionen lesen die `flags`-Eigenschaft, anstatt einzelne Flag-Zugriffsobjekte zu lesen.
 
-Der Set-Accessor von `flags` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern.
+Der Set-Zugriff von `flags` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern.
 
 ## Beispiele
 
@@ -50,5 +51,5 @@ Der Set-Accessor von `flags` ist `undefined`. Sie können diese Eigenschaft nich
 
 - [Polyfill von `RegExp.prototype.flags` in `core-js`](https://github.com/zloirock/core-js#ecmascript-string-and-regexp)
 - [es-shims Polyfill von `RegExp.prototype.flags`](https://www.npmjs.com/package/regexp.prototype.flags)
-- [Erweitertes Suchen mit Flags](/de/docs/Web/JavaScript/Guide/Regular_expressions#advanced_searching_with_flags) im Leitfaden für reguläre Ausdrücke
+- [Erweitertes Suchen mit Flags](/de/docs/Web/JavaScript/Guide/Regular_expressions#advanced_searching_with_flags) im Leitfaden zu regulären Ausdrücken
 - {{jsxref("RegExp.prototype.source")}}

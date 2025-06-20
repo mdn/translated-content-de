@@ -1,13 +1,14 @@
 ---
 title: Date.prototype.setUTCFullYear()
+short-title: setUTCFullYear()
 slug: Web/JavaScript/Reference/Global_Objects/Date/setUTCFullYear
 l10n:
-  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Die Methode **`setUTCFullYear()`** von {{jsxref("Date")}}-Instanzen ändert das Jahr dieses Datums entsprechend der universellen Zeit.
+Die Methode **`setUTCFullYear()`** der {{jsxref("Date")}} Instanzen ändert das Jahr für dieses Datum gemäß der Weltzeit.
 
 {{InteractiveExample("JavaScript Demo: Date.prototype.setUTCFullYear()")}}
 
@@ -37,21 +38,21 @@ setUTCFullYear(yearValue, monthValue, dateValue)
 ### Parameter
 
 - `yearValue`
-  - : Ein ganzzahliger Wert, der das Jahr darstellt. Zum Beispiel 1995.
+  - : Ein ganzzahliger Wert, der das Jahr repräsentiert. Zum Beispiel 1995.
 - `monthValue` {{optional_inline}}
-  - : Ein ganzzahliger Wert, der den Monat repräsentiert: 0 für Januar, 1 für Februar, und so weiter.
+  - : Ein ganzzahliger Wert, der den Monat repräsentiert: 0 für Januar, 1 für Februar usw.
 - `dateValue` {{optional_inline}}
-  - : Ein ganzzahliger Wert zwischen 1 und 31, der den Tag des Monats darstellt. Wenn Sie `dateValue` angeben, müssen Sie auch `monthValue` angeben.
+  - : Eine ganze Zahl zwischen 1 und 31, die den Tag des Monats repräsentiert. Wenn Sie `dateValue` angeben, müssen Sie auch `monthValue` angeben.
 
 ### Rückgabewert
 
-Ändert das {{jsxref("Date")}}-Objekt und gibt dessen neuen [Zeitstempel](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) zurück. Wenn ein Parameter `NaN` ist (oder andere Werte, die zu `NaN` [gewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion) werden, wie `undefined`), wird das Datum auf [Ungültiges Datum](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) gesetzt und `NaN` wird zurückgegeben.
+Verändert das {{jsxref("Date")}} Objekt an Ort und Stelle und gibt dessen neuen [Zeitstempel](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) zurück. Wenn ein Parameter `NaN` ist (oder andere Werte, die zu `NaN` [umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion) werden, wie `undefined`), wird das Datum auf [Invalid Date](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) gesetzt und `NaN` wird zurückgegeben.
 
 ## Beschreibung
 
 Wenn Sie die Parameter `monthValue` und `dateValue` nicht angeben, werden die Werte aus den Methoden {{jsxref("Date/getUTCMonth", "getUTCMonth()")}} und {{jsxref("Date/getUTCDate", "getUTCDate()")}} verwendet.
 
-Wenn ein von Ihnen angegebener Parameter außerhalb des erwarteten Bereichs liegt, versucht `setUTCFullYear()`, die anderen Parameter und die Datumsinformationen im {{jsxref("Date")}}-Objekt entsprechend zu aktualisieren. Wenn Sie beispielsweise 15 für `monthValue` angeben, wird das Jahr um 1 erhöht (`yearValue + 1`), und 3 wird für den Monat verwendet.
+Wenn ein von Ihnen angegebener Parameter außerhalb des erwarteten Bereichs liegt, versucht `setUTCFullYear()`, die anderen Parameter sowie die Datumsinformationen im {{jsxref("Date")}} Objekt entsprechend zu aktualisieren. Wenn Sie zum Beispiel 15 für `monthValue` angeben, wird das Jahr um 1 erhöht (`yearValue + 1`) und 3 wird für den Monat verwendet.
 
 ## Beispiele
 

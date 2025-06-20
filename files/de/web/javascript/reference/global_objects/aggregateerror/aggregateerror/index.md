@@ -1,8 +1,9 @@
 ---
 title: AggregateError() Konstruktor
+short-title: AggregateError()
 slug: Web/JavaScript/Reference/Global_Objects/AggregateError/AggregateError
 l10n:
-  sourceCommit: e8320dfbed49d37589d0fe759ef6506885f340f7
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
@@ -21,19 +22,19 @@ AggregateError(errors, message)
 AggregateError(errors, message, options)
 ```
 
-> **Hinweis:** `AggregateError()` kann mit oder ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden. Beide erzeugen eine neue `AggregateError` Instanz.
+> **Note:** `AggregateError()` kann sowohl mit als auch ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden. Beide rufen eine neue Instanz von `AggregateError` ins Leben.
 
 ### Parameter
 
 - `errors`
-  - : Ein iterierbares Objekt von Fehlern, die möglicherweise nicht wirklich {{jsxref("Error")}} Instanzen sind.
+  - : Ein iterierbares Objekt von Fehlern, die möglicherweise keine tatsächlichen Instanzen von {{jsxref("Error")}} sind.
 - `message` {{optional_inline}}
-  - : Eine optionale, für Menschen lesbare Beschreibung des aggregierten Fehlers.
+  - : Eine optionale, menschenlesbare Beschreibung des Aggregatfehlers.
 - `options` {{optional_inline}}
-  - : Ein Objekt mit folgenden Eigenschaften:
+  - : Ein Objekt, das die folgenden Eigenschaften aufweist:
     - `cause` {{optional_inline}}
       - : Eine Eigenschaft, die die spezifische Ursache des Fehlers angibt.
-        Beim Abfangen und erneuten Auslösen eines Fehlers mit einer spezifischeren oder nützlicheren Fehlermeldung kann diese Eigenschaft verwendet werden, um den ursprünglichen Fehler zu übergeben.
+        Wenn ein Fehler abgefangen und mit einer spezifischeren oder nützlicheren Fehlermeldung neu geworfen wird, kann diese Eigenschaft verwendet werden, um den ursprünglichen Fehler weiterzugeben.
 
 ## Beispiele
 

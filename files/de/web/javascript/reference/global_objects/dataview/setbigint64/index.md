@@ -1,13 +1,14 @@
 ---
 title: DataView.prototype.setBigInt64()
+short-title: setBigInt64()
 slug: Web/JavaScript/Reference/Global_Objects/DataView/setBigInt64
 l10n:
-  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Die Methode **`setBigInt64()`** von {{jsxref("DataView")}}-Instanzen nimmt ein BigInt und speichert es als 64-Bit-Ganzzahl mit Vorzeichen in den 8 Bytes, die beim angegebenen Byte-Offset dieser `DataView` beginnen. Es gibt keine Ausrichtungsbeschränkung; Mehrbytewerte können an jedem Offset innerhalb der Grenzen gespeichert werden.
+Die **`setBigInt64()`**-Methode von {{jsxref("DataView")}}-Instanzen nimmt ein BigInt und speichert es als 64-Bit-Ganzzahl mit Vorzeichen in den 8 Bytes, die beim angegebenen Byte-Offset dieses `DataView` beginnen. Es gibt keine Ausrichtungsbeschränkung; Mehrbyte-Werte können an beliebiger Stelle innerhalb der Grenzen gespeichert werden.
 
 {{InteractiveExample("JavaScript Demo: DataView.prototype.setBigInt64()")}}
 
@@ -35,9 +36,9 @@ setBigInt64(byteOffset, value, littleEndian)
 ### Parameter
 
 - `byteOffset`
-  - : Der Offset in Bytes, vom Anfang der Ansicht, um die Daten darin zu speichern.
+  - : Der Offset in Bytes vom Beginn der Ansicht, um die Daten dort zu speichern.
 - `value`
-  - : Der als {{jsxref("BigInt")}} zu setzende Wert. Wie der Wert in Bytes kodiert wird, finden Sie unter [Wertkodierung und Normalisierung](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray#value_encoding_and_normalization).
+  - : Der Wert, der als {{jsxref("BigInt")}} gesetzt werden soll. Wie der Wert in Bytes codiert wird, finden Sie unter [Wertkodierung und -normalisierung](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray#value_encoding_and_normalization).
 - `littleEndian` {{optional_inline}}
   - : Gibt an, ob die Daten im {{Glossary("Endianness", "Little- oder Big-Endian")}}-Format gespeichert werden. Wenn `false` oder `undefined`, wird ein Big-Endian-Wert geschrieben.
 
@@ -48,7 +49,7 @@ setBigInt64(byteOffset, value, littleEndian)
 ### Ausnahmen
 
 - {{jsxref("RangeError")}}
-  - : Wird ausgelöst, wenn der `byteOffset` so gesetzt ist, dass er über das Ende der Ansicht hinaus speichert.
+  - : Wird ausgelöst, wenn der `byteOffset` so gesetzt ist, dass er über das Ende der Ansicht hinaus speichern würde.
 
 ## Beispiele
 
@@ -71,7 +72,7 @@ dataview.getBigInt64(1); // 768n
 
 ## Siehe auch
 
-- [Leitfaden zu JavaScript typisierten Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays)
+- [JavaScript typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
 - {{jsxref("DataView")}}
 - {{jsxref("ArrayBuffer")}}
 - {{jsxref("BigInt64Array")}}

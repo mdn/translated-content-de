@@ -1,13 +1,14 @@
 ---
 title: Reflect.get()
+short-title: get()
 slug: Web/JavaScript/Reference/Global_Objects/Reflect/get
 l10n:
-  sourceCommit: 6d2000984203c51f1aad49107ebcebe14d3c1238
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Die statische Methode **`Reflect.get()`** ist wie die [Property-Accessor](/de/docs/Web/JavaScript/Reference/Operators/Property_accessors)-Syntax, aber als Funktion.
+Die statische Methode **`Reflect.get()`** ist wie die [Eigenschaftszugriffssyntax](/de/docs/Web/JavaScript/Reference/Operators/Property_accessors), jedoch als Funktion.
 
 {{InteractiveExample("JavaScript Demo: Reflect.get()")}}
 
@@ -36,11 +37,11 @@ Reflect.get(target, propertyKey, receiver)
 ### Parameter
 
 - `target`
-  - : Das Zielobjekt, von dem die Eigenschaft abgerufen werden soll.
+  - : Das Zielobjekt, von dem die Eigenschaft geholt werden soll.
 - `propertyKey`
-  - : Der Name der abzurufenden Eigenschaft.
+  - : Der Name der Eigenschaft, die geholt werden soll.
 - `receiver` {{optional_inline}}
-  - : Der Wert von `this`, der beim Aufruf von `target` bereitgestellt wird, wenn ein Getter aufgerufen wird.
+  - : Der Wert von `this`, der für den Aufruf des `target` bereitgestellt wird, wenn ein Getter angetroffen wird.
 
 ### Rückgabewert
 
@@ -53,13 +54,13 @@ Der Wert der Eigenschaft.
 
 ## Beschreibung
 
-`Reflect.get()` bietet die reflektierende Semantik eines [Property-Zugriffs](/de/docs/Web/JavaScript/Reference/Operators/Property_accessors). Das heißt, `Reflect.get(target, propertyKey, receiver)` ist semantisch gleichwertig mit:
+`Reflect.get()` bietet die reflektierende Semantik eines [Eigenschaftszugriffs](/de/docs/Web/JavaScript/Reference/Operators/Property_accessors). Das heißt, `Reflect.get(target, propertyKey, receiver)` ist semantisch äquivalent zu:
 
 ```js
 target[propertyKey];
 ```
 
-Beachten Sie, dass bei einem normalen Property-Zugriff `target` und `receiver` beobachtbar dasselbe Objekt wären.
+Beachten Sie, dass bei einem normalen Eigenschaftszugriff `target` und `receiver` beobachtbar dasselbe Objekt wären.
 
 `Reflect.get()` ruft die `[[Get]]` [interne Objektmethode](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods) von `target` auf.
 
@@ -110,5 +111,5 @@ Reflect.get(obj3, "foo", { foo: 3 }); // "3bar"
 
 - [Polyfill von `Reflect.get` in `core-js`](https://github.com/zloirock/core-js#ecmascript-reflect)
 - {{jsxref("Reflect")}}
-- [Property-Accessor](/de/docs/Web/JavaScript/Reference/Operators/Property_accessors)
+- [Eigenschaftszugriffs-Syntax](/de/docs/Web/JavaScript/Reference/Operators/Property_accessors)
 - [`handler.get()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy/get)

@@ -1,15 +1,16 @@
 ---
 title: Temporal.PlainTime.prototype.nanosecond
+short-title: nanosecond
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainTime/nanosecond
 l10n:
-  sourceCommit: d0b9cef0713eb263934a98e94202b97c143204a4
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}{{SeeCompatTable}}
 
-Die **`nanosecond`** Zugriffs-Eigenschaft von {{jsxref("Temporal.PlainTime")}} Instanzen gibt eine ganze Zahl von 0 bis 999 zurück, die die Nanosekundenkomponente (10<sup>-9</sup> Sekunden) dieser Zeit darstellt.
+Die **`nanosecond`** Accessor-Eigenschaft von {{jsxref("Temporal.PlainTime")}} Instanzen gibt eine ganze Zahl von 0 bis 999 zurück, welche die Nanosekunde (10<sup>-9</sup> Sekunde) dieser Zeit darstellt.
 
-Der set-Accessor von `nanosecond` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern. Verwenden Sie die {{jsxref("Temporal/PlainTime/with", "with()")}} Methode, um ein neues `Temporal.PlainTime` Objekt mit dem gewünschten neuen Wert zu erstellen.
+Der Set-Accessor von `nanosecond` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern. Verwenden Sie die Methode {{jsxref("Temporal/PlainTime/with", "with()")}}, um ein neues `Temporal.PlainTime` Objekt mit dem gewünschten neuen Wert zu erstellen.
 
 ## Beispiele
 

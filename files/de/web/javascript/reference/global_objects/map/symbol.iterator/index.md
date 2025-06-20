@@ -1,15 +1,16 @@
 ---
 title: Map.prototype[Symbol.iterator]()
+short-title: "[Symbol.iterator]()"
 slug: Web/JavaScript/Reference/Global_Objects/Map/Symbol.iterator
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Die Methode **`[Symbol.iterator]()`** von {{jsxref("Map")}}-Instanzen implementiert das [iterable Protokoll](/de/docs/Web/JavaScript/Reference/Iteration_protocols) und erlaubt es, `Map`-Objekte mit den meisten Syntaxen zu verwenden, die Iterables erwarten, wie z. B. die [Spread-Syntax](/de/docs/Web/JavaScript/Reference/Operators/Spread_syntax) und {{jsxref("Statements/for...of", "for...of")}}-Schleifen. Sie gibt ein [Map-Iterator-Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator) zurück, das die Schlüssel-Wert-Paare der Map in Einfügereihenfolge hervorbringt.
+Die Methode **`[Symbol.iterator]()`** von {{jsxref("Map")}} Instanzen implementiert das [iterable Protokoll](/de/docs/Web/JavaScript/Reference/Iteration_protocols) und ermöglicht `Map`-Objekten, von den meisten Syntaxen, die Iterables erwarten, wie etwa der [Spread-Syntax](/de/docs/Web/JavaScript/Reference/Operators/Spread_syntax) und {{jsxref("Statements/for...of", "for...of")}} Schleifen, genutzt zu werden. Sie gibt ein [Map-Iterator-Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator) zurück, das die Schlüssel-Werte-Paare der Map in Einfügereihenfolge liefert.
 
-Der anfängliche Wert dieser Eigenschaft ist dasselbe Funktionsobjekt wie der anfängliche Wert der {{jsxref("Map.prototype.entries")}}-Eigenschaft.
+Der Anfangswert dieser Eigenschaft ist dasselbe Funktionsobjekt wie der Anfangswert der {{jsxref("Map.prototype.entries")}} Eigenschaft.
 
 {{InteractiveExample("JavaScript Demo: Map.prototype[Symbol.iterator]()")}}
 
@@ -40,13 +41,13 @@ Keine.
 
 ### Rückgabewert
 
-Der gleiche Rückgabewert wie {{jsxref("Map.prototype.entries()")}}: ein neues [iterierbares Iterator-Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator), das die Schlüssel-Wert-Paare der Map liefert.
+Der gleiche Rückgabewert wie {{jsxref("Map.prototype.entries()")}}: ein neues [iterables Iterator-Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator), das die Schlüssel-Werte-Paare der Map liefert.
 
 ## Beispiele
 
-### Iteration mit einer for...of-Schleife
+### Iteration mit der for...of Schleife
 
-Beachten Sie, dass Sie diese Methode selten direkt aufrufen müssen. Die Existenz der `[Symbol.iterator]()`-Methode macht `Map`-Objekte [iterierbar](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterable_protocol), und Iterations-Syntaxen wie die `for...of`-Schleife rufen diese Methode automatisch auf, um den Iterator zu erhalten, der übergangen werden soll.
+Beachten Sie, dass Sie diese Methode selten direkt aufrufen müssen. Die Existenz der `[Symbol.iterator]()` Methode macht `Map`-Objekte [iterierbar](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterable_protocol), und iterierende Syntaxen wie die `for...of` Schleife rufen diese Methode automatisch auf, um den Iterator zum Schleifen zu erhalten.
 
 ```js
 const myMap = new Map();
@@ -69,9 +70,9 @@ for (const [key, value] of myMap) {
 // [Object]: baz
 ```
 
-### Manuelles Iterieren mit einem eigenen Iterator
+### Manuelles Erstellen des Iterators
 
-Es ist dennoch möglich, die `next()`-Methode des zurückgegebenen Iterator-Objekts manuell aufzurufen, um maximale Kontrolle über den Iterationsprozess zu erlangen.
+Sie können dennoch die `next()` Methode des zurückgegebenen Iterator-Objekts manuell aufrufen, um maximale Kontrolle über den Iterationsprozess zu erreichen.
 
 ```js
 const myMap = new Map();
@@ -101,4 +102,4 @@ console.log(mapIter.next().value); // [Object, "baz"]
 - {{jsxref("Map.prototype.keys()")}}
 - {{jsxref("Map.prototype.values()")}}
 - {{jsxref("Symbol.iterator")}}
-- [Iterationsprotokolle](/de/docs/Web/JavaScript/Reference/Iteration_protocols)
+- [Iteration Protocols](/de/docs/Web/JavaScript/Reference/Iteration_protocols)

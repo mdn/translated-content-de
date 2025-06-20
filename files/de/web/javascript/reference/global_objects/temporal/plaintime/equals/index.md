@@ -1,13 +1,14 @@
 ---
 title: Temporal.PlainTime.prototype.equals()
+short-title: equals()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainTime/equals
 l10n:
-  sourceCommit: d0b9cef0713eb263934a98e94202b97c143204a4
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}{{SeeCompatTable}}
 
-Die **`equals()`**-Methode von Instanzen von {{jsxref("Temporal.PlainTime")}} gibt `true` zurück, wenn diese Zeit in ihrem Wert äquivalent zu einer anderen Zeit ist (in einer Form, die durch {{jsxref("Temporal/PlainTime/from", "Temporal.PlainTime.from()")}} konvertierbar ist), und `false` andernfalls. Sie werden anhand ihrer Zeitwerte verglichen. Es ist gleichbedeutend mit `Temporal.PlainTime.compare(this, other) === 0`.
+Die **`equals()`** Methode von {{jsxref("Temporal.PlainTime")}} Instanzen gibt `true` zurück, wenn diese Zeit gleichwertig in Wert zu einer anderen Zeit ist (in einer Form, die durch {{jsxref("Temporal/PlainTime/from", "Temporal.PlainTime.from()")}} konvertierbar ist), und `false` andernfalls. Sie werden anhand ihrer Zeitwerte verglichen. Es ist äquivalent zu `Temporal.PlainTime.compare(this, other) === 0`.
 
 ## Syntax
 
@@ -18,11 +19,11 @@ equals(other)
 ### Parameter
 
 - `other`
-  - : Ein String, ein Objekt oder eine {{jsxref("Temporal.PlainTime")}}-Instanz, die die andere zu vergleichende Zeit darstellt. Es wird mit demselben Algorithmus wie {{jsxref("Temporal/PlainTime/from", "Temporal.PlainTime.from()")}} in ein `Temporal.PlainTime`-Objekt konvertiert.
+  - : Ein String, ein Objekt oder eine {{jsxref("Temporal.PlainTime")}} Instanz, die die andere Zeit, die verglichen werden soll, darstellt. Es wird unter Verwendung desselben Algorithmus zu einem `Temporal.PlainTime` Objekt konvertiert wie {{jsxref("Temporal/PlainTime/from", "Temporal.PlainTime.from()")}}.
 
 ### Rückgabewert
 
-`true`, wenn diese Zeit sowohl in ihrem Zeitwert als auch in ihrem Kalender gleich `other` ist, andernfalls `false`.
+`true`, wenn diese Zeit sowohl in ihrem Zeitwert als auch in ihrem Kalender gleich `other` ist, `false` andernfalls.
 
 ## Beispiele
 

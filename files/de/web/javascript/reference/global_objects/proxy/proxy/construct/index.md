@@ -1,13 +1,14 @@
 ---
 title: handler.construct()
+short-title: construct()
 slug: Web/JavaScript/Reference/Global_Objects/Proxy/Proxy/construct
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Die **`handler.construct()`**-Methode ist eine Trap für die `[[Construct]]` [interne Objektmethode](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods), die von Operationen wie dem {{jsxref("Operators/new", "new")}}-Operator verwendet wird. Damit die `new`-Operation bei dem resultierenden Proxy-Objekt gültig ist, muss das für die Initialisierung des Proxy verwendete `target`-Objekt selbst ein gültiger Konstruktor sein.
+Die **`handler.construct()`** Methode ist ein Trap für die `[[Construct]]` [interne Objekt-Methode](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods), die von Operationen wie dem {{jsxref("Operators/new", "new")}} Operator verwendet wird. Damit die neue Operation am resultierenden Proxy-Objekt gültig ist, muss das zur Initialisierung des Proxys verwendete Ziel selbst ein gültiger Konstruktor sein.
 
 {{InteractiveExample("JavaScript Demo: handler.construct()", "taller")}}
 
@@ -42,42 +43,42 @@ new Proxy(target, {
 
 ### Parameter
 
-Die folgenden Parameter werden an die `construct()`-Methode übergeben. `this` ist an den Handler gebunden.
+Die folgenden Parameter werden an die `construct()` Methode übergeben. `this` ist an den Handler gebunden.
 
 - `target`
-  - : Das Ziel-Konstruktor-Objekt.
+  - : Das Zielkonstruktorobjekt.
 - `argumentsList`
-  - : Ein {{jsxref("Array")}}, das die an den Konstruktor übergebenen Argumente enthält.
+  - : Ein {{jsxref("Array")}} mit den an den Konstruktor übergebenen Argumenten.
 - `newTarget`
-  - : Der Konstruktor, der ursprünglich aufgerufen wurde.
+  - : Der ursprünglich aufgerufene Konstruktor.
 
 ### Rückgabewert
 
-Die `construct()`-Methode muss ein Objekt zurückgeben, das das neu erstellte Objekt darstellt.
+Die `construct()` Methode muss ein Objekt zurückgeben, das das neu erstellte Objekt darstellt.
 
 ## Beschreibung
 
-### Abfangbare Operationen
+### Abfangmöglichkeiten
 
-Diese Trap kann die folgenden Operationen abfangen:
+Dieser Trap kann diese Operationen abfangen:
 
-- Den [`new`](/de/docs/Web/JavaScript/Reference/Operators/new)-Operator: `new myFunction(...args)`
+- Den [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) Operator: `new myFunction(...args)`
 - {{jsxref("Reflect.construct()")}}
 
 Oder jede andere Operation, die die `[[Construct]]` [interne Methode](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods) aufruft.
 
 ### Invarianten
 
-Die `[[Construct]]`-interne Methode des Proxys löst einen {{jsxref("TypeError")}} aus, wenn die Handler-Definition eine der folgenden Invarianten verletzt:
+Die `[[Construct]]` interne Methode des Proxys wirft einen {{jsxref("TypeError")}}, wenn die Handler-Definition eine der folgenden Invarianten verletzt:
 
 - Das `target` muss selbst ein Konstruktor sein.
 - Das Ergebnis muss ein {{jsxref("Object")}} sein.
 
 ## Beispiele
 
-### Abfangen des new-Operators
+### Abfangen des new Operators
 
-Der folgende Code fängt den {{jsxref("Operators/new", "new")}}-Operator ab.
+Der folgende Code fängt den {{jsxref("Operators/new", "new")}} Operator ab.
 
 ```js
 const p = new Proxy(function () {}, {
@@ -103,7 +104,7 @@ const p = new Proxy(function () {}, {
 new p(); // TypeError is thrown
 ```
 
-Der folgende Code initialisiert den Proxy auf fehlerhafte Weise. Das `target` in der Proxy-Initialisierung muss selbst ein gültiger Konstruktor für den {{jsxref("Operators/new", "new")}}-Operator sein.
+Der folgende Code initialisiert den Proxy nicht ordnungsgemäß. Das `target` in der Proxy-Initialisierung muss selbst ein gültiger Konstruktor für den {{jsxref("Operators/new", "new")}} Operator sein.
 
 ```js example-bad
 const p = new Proxy(
@@ -129,6 +130,6 @@ new p(); // TypeError is thrown, "p" is not a constructor
 ## Siehe auch
 
 - {{jsxref("Proxy")}}
-- [`Proxy()`-Konstruktor](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy)
+- [`Proxy()` Konstruktor](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy)
 - {{jsxref("Operators/new", "new")}}
 - {{jsxref("Reflect.construct()")}}

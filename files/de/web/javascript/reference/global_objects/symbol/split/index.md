@@ -1,15 +1,16 @@
 ---
 title: Symbol.split
+short-title: split
 slug: Web/JavaScript/Reference/Global_Objects/Symbol/split
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Die **`Symbol.split`** statische Dateneigenschaft repräsentiert das [bekannte Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#well-known_symbols) `Symbol.split`. Die Methode {{jsxref("String.prototype.split()")}} sucht dieses Symbol im ersten Argument, um die Methode zu finden, die einen String an den Indizes aufteilt, die mit dem aktuellen Objekt übereinstimmen.
+Die statische Dateneigenschaft **`Symbol.split`** repräsentiert das [bekannte Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#well-known_symbols) `Symbol.split`. Die Methode {{jsxref("String.prototype.split()")}} sucht dieses Symbol in ihrem ersten Argument, um die Methode zu finden, die einen String an den Indizes teilt, die mit dem aktuellen Objekt übereinstimmen.
 
-Weitere Informationen finden Sie unter [`RegExp.prototype[Symbol.split]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/Symbol.split) und {{jsxref("String.prototype.split()")}}.
+Für weitere Informationen siehe [`RegExp.prototype[Symbol.split]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/Symbol.split) und {{jsxref("String.prototype.split()")}}.
 
 {{InteractiveExample("JavaScript Demo: Symbol.split", "taller")}}
 
@@ -38,7 +39,7 @@ Das bekannte Symbol `Symbol.split`.
 
 ## Beispiele
 
-### Benutzerdefiniertes reverses Split
+### Benutzerdefinierte Umgekehrte Teilung
 
 ```js
 class ReverseSplit {

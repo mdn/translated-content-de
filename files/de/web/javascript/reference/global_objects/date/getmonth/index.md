@@ -1,13 +1,14 @@
 ---
 title: Date.prototype.getMonth()
+short-title: getMonth()
 slug: Web/JavaScript/Reference/Global_Objects/Date/getMonth
 l10n:
-  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Die **`getMonth()`** Methode von {{jsxref("Date")}} Instanzen gibt den Monat für dieses Datum gemäß der lokalen Zeit als nullbasierter Wert zurück (wobei Null den ersten Monat des Jahres angibt).
+Die **`getMonth()`** Methode von {{jsxref("Date")}} Instanzen gibt den Monat für dieses Datum gemäß der Ortszeit als nullbasierten Wert zurück (wobei null den ersten Monat des Jahres anzeigt).
 
 {{InteractiveExample("JavaScript Demo: Date.prototype.getMonth()", "shorter")}}
 
@@ -30,11 +31,11 @@ Keine.
 
 ### Rückgabewert
 
-Eine ganze Zahl, zwischen 0 und 11, die den Monat für das angegebene Datum gemäß der lokalen Zeit darstellt: 0 für Januar, 1 für Februar, und so weiter. Gibt `NaN` zurück, wenn das Datum [ungültig](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) ist.
+Eine Ganzzahl zwischen 0 und 11, die den Monat für das angegebene Datum gemäß der Ortszeit darstellt: 0 für Januar, 1 für Februar und so weiter. Gibt `NaN` zurück, wenn das Datum [ungültig](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) ist.
 
 ## Beschreibung
 
-Der Rückgabewert von `getMonth()` ist nullbasiert, was nützlich ist, um in Arrays von Monaten zu indizieren, zum Beispiel:
+Der Rückgabewert von `getMonth()` ist nullbasiert, was nützlich ist, um in Arrays von Monaten zu indexieren, zum Beispiel:
 
 ```js
 const valentines = new Date("1995-02-14");
@@ -44,7 +45,7 @@ const monthNames = ["January", "February", "March" /* , … */];
 console.log(monthNames[month]); // "February"
 ```
 
-Für Internationalisierungszwecke sollten Sie jedoch die Verwendung von {{jsxref("Intl.DateTimeFormat")}} mit dem `options` Parameter bevorzugen.
+Für den Zweck der Internationalisierung sollten Sie jedoch bevorzugt {{jsxref("Intl.DateTimeFormat")}} mit dem `options` Parameter verwenden.
 
 ```js
 const options = { month: "long" };

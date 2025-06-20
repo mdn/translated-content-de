@@ -1,13 +1,14 @@
 ---
 title: Date.UTC()
+short-title: UTC()
 slug: Web/JavaScript/Reference/Global_Objects/Date/UTC
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Die statische Methode **`Date.UTC()`** akzeptiert Parameter, die die Datums- und Zeitkomponenten ähnlich wie der {{jsxref("Date")}}-Konstruktor darstellen, behandelt sie jedoch als UTC. Sie gibt die Anzahl der Millisekunden seit dem 1. Januar 1970, 00:00:00 UTC zurück.
+Die statische Methode **`Date.UTC()`** akzeptiert Parameter, die die Datums- und Zeitkomponenten ähnlich wie der {{jsxref("Date")}} Konstruktor repräsentieren, behandelt sie jedoch als UTC. Sie gibt die Anzahl der Millisekunden seit dem 1. Januar 1970, 00:00:00 UTC zurück.
 
 {{InteractiveExample("JavaScript Demo: Date.UTC()")}}
 
@@ -37,43 +38,43 @@ Date.UTC(year, monthIndex, day, hours, minutes, seconds, milliseconds)
 ### Parameter
 
 - `year`
-  - : Ganzzahl, die das Jahr darstellt. Werte von `0` bis `99` entsprechen den Jahren `1900` bis `1999`. Alle anderen Werte sind das tatsächliche Jahr. Siehe das [Beispiel](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#interpretation_of_two-digit_years).
+  - : Ganzzahlwert, der das Jahr darstellt. Werte von `0` bis `99` entsprechen den Jahren `1900` bis `1999`. Alle anderen Werte sind das tatsächliche Jahr. Siehe das [Beispiel](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#interpretation_of_two-digit_years).
 - `monthIndex` {{optional_inline}}
-  - : Ganzzahl, die den Monat darstellt, beginnend bei `0` für Januar bis `11` für Dezember. Standardwert ist `0`.
+  - : Ganzzahlwert, der den Monat darstellt, beginnend mit `0` für Januar bis `11` für Dezember. Standard ist `0`.
 - `day` {{optional_inline}}
-  - : Ganzzahl, die den Tag des Monats darstellt. Standardwert ist `1`.
+  - : Ganzzahlwert, der den Tag des Monats darstellt. Standard ist `1`.
 - `hours` {{optional_inline}}
-  - : Ganzzahl zwischen `0` und `23`, die die Stunde des Tages darstellt. Standardwert ist `0`.
+  - : Ganzzahlwert zwischen `0` und `23`, der die Stunde des Tages darstellt. Standard ist `0`.
 - `minutes` {{optional_inline}}
-  - : Ganzzahl, die den Minutenanteil einer Zeit darstellt. Standardwert ist `0`.
+  - : Ganzzahlwert, der das Minuten-Segment einer Zeit darstellt. Standard ist `0`.
 - `seconds` {{optional_inline}}
-  - : Ganzzahl, die den Sekundenanteil einer Zeit darstellt. Standardwert ist `0`.
+  - : Ganzzahlwert, der das Sekunden-Segment einer Zeit darstellt. Standard ist `0`.
 - `milliseconds` {{optional_inline}}
-  - : Ganzzahl, die den Millisekundenanteil einer Zeit darstellt. Standardwert ist `0`.
+  - : Ganzzahlwert, der das Millisekunden-Segment einer Zeit darstellt. Standard ist `0`.
 
 ### Rückgabewert
 
-Eine Zahl, die den [Zeitstempel](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) des angegebenen Datums darstellt. Gibt `NaN` zurück, wenn das Datum [ungültig](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) ist.
+Eine Zahl, die den [Zeitstempel](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) des angegebenen Datums repräsentiert. Gibt `NaN` zurück, wenn das Datum [ungültig](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) ist.
 
 ## Beschreibung
 
-Jahre zwischen `0` und `99` werden in ein Jahr im 20. Jahrhundert umgewandelt `(1900 + year)`. Beispielsweise wird `95` in das Jahr `1995` umgewandelt.
+Jahre zwischen `0` und `99` werden in ein Jahr des 20. Jahrhunderts umgewandelt `(1900 + year)`. Zum Beispiel wird `95` in das Jahr `1995` umgewandelt.
 
-Die Methode `UTC()` unterscheidet sich vom {{jsxref("Date/Date", "Date()")}}-Konstruktor in drei Punkten:
+Die Methode `UTC()` unterscheidet sich vom {{jsxref("Date/Date", "Date()")}} Konstruktor in drei Punkten:
 
-1. `Date.UTC()` verwendet universelle Zeit (UTC) anstelle der lokalen Zeit.
-2. `Date.UTC()` gibt einen Zeitwert als Zahl zurück, anstelle eines {{jsxref("Date")}}-Objekts.
+1. `Date.UTC()` verwendet die universelle Zeit anstelle der lokalen Zeit.
+2. `Date.UTC()` gibt einen Zeitwert als Zahl zurück, anstatt ein {{jsxref("Date")}} Objekt zu erstellen.
 3. Wenn nur eine Zahl übergeben wird, interpretiert `Date.UTC()` diese als Jahr und nicht als Zeitstempel.
 
-Wenn ein Parameter außerhalb des erwarteten Bereichs liegt, aktualisiert die Methode `UTC()` die anderen Parameter, um den Wert zu berücksichtigen. Wenn beispielsweise `15` für `monthIndex` verwendet wird, wird das Jahr um 1 erhöht `(year + 1)` und `3` wird für den Monat verwendet.
+Wenn ein Parameter außerhalb des erwarteten Bereichs liegt, passt die Methode `UTC()` die anderen Parameter an, um den Wert aufzunehmen. Wenn beispielsweise `15` für `monthIndex` verwendet wird, wird das Jahr (year + 1) erhöht und `3` für den Monat verwendet.
 
-Da `UTC()` eine statische Methode von `Date` ist, wird sie immer als `Date.UTC()` verwendet, anstatt als Methode eines erstellten `Date`-Objekts.
+Da `UTC()` eine statische Methode von `Date` ist, verwenden Sie sie immer als `Date.UTC()`, anstatt sie als Methode eines erstellten `Date`-Objekts zu verwenden.
 
 ## Beispiele
 
 ### Verwendung von Date.UTC()
 
-Die folgende Anweisung erstellt ein {{jsxref("Date")}}-Objekt, wobei die Argumente als UTC anstelle der lokalen Zeit behandelt werden:
+Die folgende Anweisung erstellt ein {{jsxref("Date")}} Objekt, wobei die Argumente als UTC und nicht als lokal behandelt werden:
 
 ```js
 const utcDate = new Date(Date.UTC(2018, 11, 1, 0, 0, 0));
@@ -81,7 +82,7 @@ const utcDate = new Date(Date.UTC(2018, 11, 1, 0, 0, 0));
 
 ### Verhalten von Date.UTC() mit einem Argument
 
-`Date.UTC()` hatte früher bei einem Argument inkonsistentes Verhalten, da Implementierungen nur das Verhalten beibehielten, das mit dem {{jsxref("Date/Date", "Date()")}}-Konstruktor konsistent war. Dieser interpretiert ein einzelnes Argument nicht als Jahr. Implementierungen müssen nun ein weggelassenes `monthIndex` als `0` behandeln, anstatt es in `NaN` zu erzwingen.
+`Date.UTC()`, wenn es mit einem Argument übergeben wird, hatte früher inkonsistentes Verhalten, weil Implementierungen das Verhalten nur im Einklang mit dem {{jsxref("Date/Date", "Date()")}} Konstruktor einhielten, der ein einzelnes Argument nicht als Jahreszahl interpretiert. Implementierungen sind nun verpflichtet, einen ausgelassenen `monthIndex` als `0` zu behandeln, anstatt ihn zu `NaN` zu zwingen.
 
 ```js
 Date.UTC(2017); // 1483228800000

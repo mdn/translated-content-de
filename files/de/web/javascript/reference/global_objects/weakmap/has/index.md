@@ -1,13 +1,14 @@
 ---
 title: WeakMap.prototype.has()
+short-title: has()
 slug: Web/JavaScript/Reference/Global_Objects/WeakMap/has
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Die Methode **`has()`** von {{jsxref("WeakMap")}}-Instanzen gibt einen boolean zurück, der angibt, ob ein Element mit dem angegebenen Schlüssel in diesem `WeakMap` existiert oder nicht.
+Die **`has()`** Methode von {{jsxref("WeakMap")}} Instanzen gibt einen booleschen Wert zurück, der angibt, ob ein Element mit dem angegebenen Schlüssel in diesem `WeakMap` existiert oder nicht.
 
 {{InteractiveExample("JavaScript Demo: WeakMap.prototype.has()")}}
 
@@ -38,11 +39,11 @@ has(key)
 
 ### Rückgabewert
 
-Gibt `true` zurück, wenn ein Element mit dem angegebenen Schlüssel im `WeakMap`-Objekt existiert; ansonsten `false`. Gibt immer `false` zurück, wenn `key` kein Objekt oder ein [nicht registriertes Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#shared_symbols_in_the_global_symbol_registry) ist.
+Gibt `true` zurück, wenn ein Element mit dem angegebenen Schlüssel im `WeakMap`-Objekt existiert; andernfalls `false`. Gibt immer `false` zurück, wenn `key` kein Objekt oder ein [nicht registriertes Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#shared_symbols_in_the_global_symbol_registry) ist.
 
 ## Beispiele
 
-### Verwendung der Methode has
+### Verwendung der has Methode
 
 ```js
 const wm = new WeakMap();

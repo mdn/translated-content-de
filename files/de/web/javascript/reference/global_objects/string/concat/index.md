@@ -1,13 +1,14 @@
 ---
 title: String.prototype.concat()
+short-title: concat()
 slug: Web/JavaScript/Reference/Global_Objects/String/concat
 l10n:
-  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Die **`concat()`**-Methode von {{jsxref("String")}}-Werten verkettet die Zeichenfolgenargumente mit dieser Zeichenfolge und gibt eine neue Zeichenfolge zurück.
+Die **`concat()`** Methode von {{jsxref("String")}} Werten verkettet die String-Argumente mit diesem String und gibt einen neuen String zurück.
 
 {{InteractiveExample("JavaScript Demo: String.prototype.concat()")}}
 
@@ -33,25 +34,25 @@ concat(str1, str2, /* …, */ strN)
 ### Parameter
 
 - `str1`, …, `strN`
-  - : Eine oder mehrere Zeichenfolgen, die an `str` angehängt werden sollen. Obwohl technisch erlaubt, ist das Aufrufen von `String.prototype.concat()` ohne Argumente eine unnötige Operation, da es nicht zu einem beobachtbaren Kopieren führt (wie bei {{jsxref("Array.prototype.concat()")}}), da Zeichenfolgen unveränderlich sind. Dies sollte nur geschehen, wenn Sie ein Array von Zeichenfolgen als Argumente [spreading](/de/docs/Web/JavaScript/Reference/Operators/Spread_syntax) und dieses Array zufällig leer ist.
+  - : Ein oder mehrere Strings, die an `str` angehängt werden sollen. Obwohl technisch erlaubt, ist ein Aufruf von `String.prototype.concat()` ohne Argumente eine nutzlose Operation, da dies nicht zu einer beobachtbaren Kopie führt (wie {{jsxref("Array.prototype.concat()")}}), da Strings unveränderlich sind. Dies sollte nur geschehen, wenn Sie ein Array von Strings als Argumente verbreiten und dieses Array leer ist.
 
 ### Rückgabewert
 
-Eine neue Zeichenfolge, die den kombinierten Text der bereitgestellten Zeichenfolgen enthält.
+Ein neuer String, der den kombinierten Text der bereitgestellten Strings enthält.
 
 ## Beschreibung
 
-Die `concat()`-Funktion verkettet die Zeichenfolgenargumente mit der aufrufenden Zeichenfolge und gibt eine neue Zeichenfolge zurück.
+Die Funktion `concat()` verkettet die String-Argumente mit dem aufrufenden String und gibt einen neuen String zurück.
 
-Wenn die Argumente nicht vom Typ Zeichenfolge sind, werden sie vor dem Verkettungsprozess in Zeichenfolgen umgewandelt.
+Falls die Argumente nicht vom Typ String sind, werden sie vor der Verkettung in String-Werte umgewandelt.
 
-Die `concat()`-Methode ist der Verwendung der [Addition/Zeichenfolgenverkettungsoperatoren](/de/docs/Web/JavaScript/Reference/Operators/Addition) (`+`, `+=`) sehr ähnlich, außer dass `concat()` [ihre Argumente direkt in Zeichenfolgen umwandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion), während die Addition ihre Operanden zuerst in primitive Werte umwandelt. Weitere Informationen finden Sie auf der Referenzseite für den [`+`-Operator](/de/docs/Web/JavaScript/Reference/Operators/Addition).
+Die `concat()` Methode ist dem [Addition/String-Verkettungsoperator](/de/docs/Web/JavaScript/Reference/Operators/Addition) (`+`, `+=`) sehr ähnlich, mit dem Unterschied, dass `concat()` [seine Argumente direkt in Strings umwandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion), während Addition ihre Operanden zunächst in primitive Typen umwandelt. Für weitere Informationen, siehe die Referenzseite für den [`+` Operator](/de/docs/Web/JavaScript/Reference/Operators/Addition).
 
 ## Beispiele
 
 ### Verwendung von concat()
 
-Das folgende Beispiel kombiniert Zeichenfolgen zu einer neuen Zeichenfolge.
+Im folgenden Beispiel werden Strings zu einem neuen String kombiniert.
 
 ```js
 const hello = "Hello, ";

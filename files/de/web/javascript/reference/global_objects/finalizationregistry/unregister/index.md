@@ -1,13 +1,14 @@
 ---
 title: FinalizationRegistry.prototype.unregister()
+short-title: unregister()
 slug: Web/JavaScript/Reference/Global_Objects/FinalizationRegistry/unregister
 l10n:
-  sourceCommit: fb85334ffa4a2c88d209b1074909bee0e0abd57a
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Die **`unregister()`**-Methode von {{jsxref("FinalizationRegistry")}}-Instanzen meldet einen Zielwert von diesem `FinalizationRegistry` ab.
+Die **`unregister()`**-Methode von Instanzen des {{jsxref("FinalizationRegistry")}} entfernt einen Zielwert aus diesem `FinalizationRegistry`.
 
 ## Syntax
 
@@ -18,7 +19,7 @@ unregister(unregisterToken)
 ### Parameter
 
 - `unregisterToken`
-  - : Das Token, das mit der {{jsxref("FinalizationRegistry/register", "register()")}}-Methode beim Registrieren des Zielwerts verwendet wurde. Mehrere Zellen, die mit demselben `unregisterToken` registriert sind, werden zusammen abgemeldet.
+  - : Das Token, das mit der {{jsxref("FinalizationRegistry/register", "register()")}}-Methode beim Registrieren des Zielwerts verwendet wurde. Mehrere Zellen, die mit demselben `unregisterToken` registriert wurden, werden gemeinsam abgemeldet.
 
 ### Rückgabewert
 
@@ -31,13 +32,17 @@ Ein boolescher Wert, der `true` ist, wenn mindestens eine Zelle abgemeldet wurde
 
 ## Beschreibung
 
-Wenn ein Zielwert zurückgewonnen wurde, ist er nicht mehr im Registry registriert. Es ist nicht notwendig, `unregister` in Ihrem Bereinigungs-Callback aufzurufen. Rufen Sie `unregister` nur auf, wenn Sie kein Bereinigungs-Callback erhalten haben und keines mehr benötigen.
+Wenn ein Zielwert zurückgewonnen wurde, ist er im Registry nicht mehr registriert.
+Es ist nicht notwendig, `unregister` in Ihrem Bereinigungs-Callback aufzurufen. Rufen Sie
+`unregister` nur auf, wenn Sie noch kein Bereinigungs-Callback erhalten haben und
+keins mehr benötigen.
 
 ## Beispiele
 
 ### Verwendung von unregister
 
-Dieses Beispiel zeigt, wie ein Zielobjekt registriert wird, indem dasselbe Objekt als Abmeldetoken verwendet wird, und wie es später über `unregister` abgemeldet wird:
+Dieses Beispiel zeigt, wie ein Zielobjekt registriert wird, indem dasselbe Objekt als
+Unregister-Token verwendet wird, und es später über `unregister` abgemeldet wird:
 
 ```js
 class Thingy {
@@ -71,7 +76,8 @@ class Thingy {
 }
 ```
 
-Dieses Beispiel zeigt, wie ein Zielobjekt unter Verwendung eines anderen Objekts als Abmeldetoken registriert wird:
+Dieses Beispiel zeigt, wie ein Zielobjekt registriert wird, indem ein anderes Objekt
+als Unregister-Token verwendet wird:
 
 ```js
 class Thingy {

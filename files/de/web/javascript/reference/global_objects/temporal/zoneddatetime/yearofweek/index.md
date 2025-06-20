@@ -1,17 +1,18 @@
 ---
 title: Temporal.ZonedDateTime.prototype.yearOfWeek
+short-title: yearOfWeek
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime/yearOfWeek
 l10n:
-  sourceCommit: d0b9cef0713eb263934a98e94202b97c143204a4
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}{{SeeCompatTable}}
 
-Die Zugriffsabwehr-Eigenschaft **`yearOfWeek`** von {{jsxref("Temporal.ZonedDateTime")}} Instanzen gibt eine ganze Zahl zurück, die das Jahr repräsentiert, das mit der {{jsxref("Temporal/ZonedDateTime/weekOfYear", "weekOfYear")}} dieses Datums kombiniert werden soll, oder `undefined`, wenn der Kalender kein klar definiertes Wochensystem hat. Sie ist [kalender](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#calendars)-abhängig.
+Die **`yearOfWeek`** Zugriffs-Eigenschaft von {{jsxref("Temporal.ZonedDateTime")}} Instanzen gibt eine ganze Zahl zurück, die das Jahr repräsentiert, das mit der {{jsxref("Temporal/ZonedDateTime/weekOfYear", "weekOfYear")}} dieses Datums gepaart werden soll, oder `undefined`, wenn der Kalender kein eindeutig definiertes Wochensystem hat. Sie ist kalenderabhängig. Weitere Informationen dazu finden Sie [hier](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#calendars).
 
-Der Set-Accessor von `yearOfWeek` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern.
+Der Setzugriff von `yearOfWeek` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern.
 
-Für allgemeine Informationen und mehr Beispiele siehe {{jsxref("Temporal/PlainDate/yearOfWeek", "Temporal.PlainDate.prototype.yearOfWeek")}}.
+Für allgemeine Informationen und weitere Beispiele siehe {{jsxref("Temporal/PlainDate/yearOfWeek", "Temporal.PlainDate.prototype.yearOfWeek")}}.
 
 ## Spezifikationen
 

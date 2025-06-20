@@ -1,13 +1,14 @@
 ---
 title: String.prototype.sup()
+short-title: sup()
 slug: Web/JavaScript/Reference/Global_Objects/String/sup
 l10n:
-  sourceCommit: e8320dfbed49d37589d0fe759ef6506885f340f7
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}} {{Deprecated_Header}}
 
-Die **`sup()`** Methode von {{jsxref("String")}}-Werten erzeugt einen String, der diesen String in ein {{HTMLElement("sup")}}-Element (`<sup>str</sup>`) einbettet, wodurch dieser Text als hochgestellt angezeigt wird.
+Die **`sup()`**-Methode von {{jsxref("String")}}-Werten erstellt einen String, der diesen String in einem {{HTMLElement("sup")}}-Element einbettet (`<sup>str</sup>`), wodurch dieser String als hochgestellt angezeigt wird.
 
 > [!NOTE]
 > Alle [HTML-Wrapper-Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/String#html_wrapper_methods) sind veraltet und nur aus Kompatibilitätsgründen standardisiert. Verwenden Sie stattdessen [DOM-APIs](/de/docs/Web/API/Document_Object_Model) wie [`document.createElement()`](/de/docs/Web/API/Document/createElement).
@@ -30,7 +31,7 @@ Ein String, der mit einem `<sup>`-Start-Tag beginnt, dann den Text `str` enthäl
 
 ### Verwendung von sup()
 
-Der untenstehende Code erstellt einen HTML-String und ersetzt dann den Body des Dokuments damit:
+Der folgende Code erstellt einen HTML-String und ersetzt dann den Dokumentkörper damit:
 
 ```js
 const contentString = "Hello, world";
@@ -44,7 +45,7 @@ Dies erzeugt das folgende HTML:
 <sup>Hello, world</sup>
 ```
 
-Anstatt `sup()` zu verwenden und HTML-Text direkt zu erstellen, sollten Sie DOM-APIs wie [`document.createElement()`](/de/docs/Web/API/Document/createElement) nutzen. Zum Beispiel:
+Anstatt `sup()` zu verwenden und HTML-Text direkt zu erstellen, sollten Sie DOM-APIs wie [`document.createElement()`](/de/docs/Web/API/Document/createElement) verwenden. Zum Beispiel:
 
 ```js
 const contentString = "Hello, world";

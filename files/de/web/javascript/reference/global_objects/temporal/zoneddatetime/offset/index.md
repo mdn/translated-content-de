@@ -1,15 +1,16 @@
 ---
 title: Temporal.ZonedDateTime.prototype.offset
+short-title: offset
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime/offset
 l10n:
-  sourceCommit: d0b9cef0713eb263934a98e94202b97c143204a4
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}{{SeeCompatTable}}
 
-Die **`offset`** Accessor-Eigenschaft von {{jsxref("Temporal.ZonedDateTime")}}-Instanzen gibt eine Zeichenkette zurück, die den [Offset](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime#time_zones_and_offsets) darstellt, der verwendet wird, um den internen Moment zu interpretieren, in der Form `±HH:mm` (oder `±HH:mm:ss.sssssssss` mit so viel Präzision wie nötig unterhalb der Minute). Dieser Offset ist garantiert für den gegebenen Moment und die Zeitzone zur Erstellungszeit gültig.
+Die **`offset`** Zugriffs-Eigenschaft von {{jsxref("Temporal.ZonedDateTime")}} Instanzen gibt einen String zurück, der den [Offset](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime#time_zones_and_offsets) darstellt, der verwendet wird, um das interne Instant zu interpretieren, in der Form `±HH:mm` (oder `±HH:mm:ss.sssssssss` mit so viel subminütiger Präzision wie nötig). Dieser Offset ist garantiert gültig für das gegebene Instant und die Zeitzone zum Zeitpunkt der Erstellung.
 
-Der Set-Accessor von `offset` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern. Verwenden Sie die {{jsxref("Temporal/ZonedDateTime/with", "with()")}}-Methode, um ein neues `Temporal.ZonedDateTime` Objekt mit dem gewünschten neuen Wert zu erstellen (in der Regel auch mit Änderung von Datum/Uhrzeit), oder verwenden Sie die {{jsxref("Temporal/ZonedDateTime/withTimeZone", "withTimeZone()")}}-Methode, um ein neues `Temporal.ZonedDateTime` Objekt in einer anderen Zeitzone zu erstellen.
+Der Set-Zugriff von `offset` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern. Verwenden Sie die {{jsxref("Temporal/ZonedDateTime/with", "with()")}} Methode, um ein neues `Temporal.ZonedDateTime` Objekt mit dem gewünschten neuen Wert (normalerweise auch unter Änderung des Datums/Zeit) zu erstellen, oder verwenden Sie die {{jsxref("Temporal/ZonedDateTime/withTimeZone", "withTimeZone()")}} Methode, um ein neues `Temporal.ZonedDateTime` Objekt in einer anderen Zeitzone zu erstellen.
 
 ## Beispiele
 
@@ -33,9 +34,9 @@ const dt4 = Temporal.ZonedDateTime.from("2021-07-01T12:00:00Z[Asia/Shanghai]");
 console.log(dt4.offset); // "+08:00"
 ```
 
-### Offset ändern
+### Ändern des Offsets
 
-Falls die lokale Zeit zufällig zwei gültige Offsets hat, wie innerhalb einer Sommerzeitumstellung, können Sie den Offset ändern, ohne etwas anderes zu ändern:
+Wenn die Ortszeit zufällig zwei gültige Offsets hat, wie z.B. bei einem Wechsel zur Sommerzeit, können Sie den Offset ändern, ohne etwas anderes zu verändern:
 
 ```js
 const zdt = Temporal.ZonedDateTime.from(
@@ -58,5 +59,5 @@ console.log(newZDT.toString()); // "2024-11-03T01:05:00-05:00[America/New_York]"
 - {{jsxref("Temporal.ZonedDateTime")}}
 - {{jsxref("Temporal/ZonedDateTime/with", "Temporal.ZonedDateTime.prototype.with()")}}
 - {{jsxref("Temporal/ZonedDateTime/withTimeZone", "Temporal.ZonedDateTime.prototype.withTimeZone()")}}
-- {{jsxref("Temporal/ZonedDateTime/timeZoneId", "Temporal.ZonedDateTime.prototype.timeZoneId")}}
-- {{jsxref("Temporal/ZonedDateTime/offsetNanoseconds", "Temporal.ZonedDateTime.prototype.offsetNanoseconds")}}
+- {{jsxref("Temporal.ZonedDateTime/timeZoneId", "Temporal.ZonedDateTime.prototype.timeZoneId")}}
+- {{jsxref("Temporal.ZonedDateTime/offsetNanoseconds", "Temporal.ZonedDateTime.prototype.offsetNanoseconds")}}

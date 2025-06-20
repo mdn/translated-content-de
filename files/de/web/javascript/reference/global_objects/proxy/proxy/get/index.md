@@ -1,13 +1,14 @@
 ---
 title: handler.get()
+short-title: get()
 slug: Web/JavaScript/Reference/Global_Objects/Proxy/Proxy/get
 l10n:
-  sourceCommit: 2c0f972d873ea2db5163dbcb12987847124751ad
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Die **`handler.get()`**-Methode ist eine Falle für die `[[Get]]` [interne Objektmethode](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods), die von Operationen wie [Property-Accessoren](/de/docs/Web/JavaScript/Reference/Operators/Property_accessors) verwendet wird.
+Die Methode **`handler.get()`** ist eine Trap für die `[[Get]]` [interne Objektmethode](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods), die von Operationen wie [Property-Accessoren](/de/docs/Web/JavaScript/Reference/Operators/Property_accessors) verwendet wird.
 
 {{InteractiveExample("JavaScript Demo: handler.get()", "taller")}}
 
@@ -51,7 +52,7 @@ Die folgenden Parameter werden an die `get()`-Methode übergeben. `this` ist an 
 - `target`
   - : Das Zielobjekt.
 - `property`
-  - : Ein String oder ein {{jsxref("Symbol")}}, der den Eigenschaftsnamen darstellt.
+  - : Ein String oder ein {{jsxref("Symbol")}}, das den Property-Namen darstellt.
 - `receiver`
   - : Der `this`-Wert für Getter; siehe {{jsxref("Reflect.get()")}}. Dies ist normalerweise entweder der Proxy selbst oder ein Objekt, das vom Proxy erbt.
 
@@ -61,27 +62,27 @@ Die `get()`-Methode kann einen beliebigen Wert zurückgeben, der den Eigenschaft
 
 ## Beschreibung
 
-### Abfangmöglichkeiten
+### Abfangaktionen
 
-Diese Falle kann folgende Operationen abfangen:
+Diese Trap kann die folgenden Operationen abfangen:
 
-- Eigenschaftszugriff: `proxy[foo]` und `proxy.bar`
+- Property-Zugriff: `proxy[foo]` und `proxy.bar`
 - {{jsxref("Reflect.get()")}}
 
 Oder jede andere Operation, die die `[[Get]]` [interne Methode](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods) aufruft.
 
 ### Invarianten
 
-Die `[[Get]]` interne Methode des Proxys gibt einen {{jsxref("TypeError")}} aus, wenn die Handlerdefinition eine der folgenden Invarianten verletzt:
+Die `[[Get]]`-interne Methode des Proxys wirft einen {{jsxref("TypeError")}}, wenn die Handler-Definition eine der folgenden Invarianten verletzt:
 
-- Der für eine Eigenschaft gemeldete Wert muss derselbe sein wie der Wert der entsprechenden Zielobjekteigenschaft, wenn die Zielobjekteigenschaft eine nicht beschreibbare, nicht konfigurierbare eigene Dateneigenschaft ist. Das heißt, wenn {{jsxref("Reflect.getOwnPropertyDescriptor()")}} für die Eigenschaft auf `target` zurückgibt `configurable: false, writable: false`, dann muss die Falle denselben Wert wie das `value`-Attribut im Eigenschaftsdescriptor des `target` zurückgeben.
-- Der für eine Eigenschaft gemeldete Wert muss `undefined` sein, wenn die entsprechende Zielobjekteigenschaft eine nicht konfigurierbare eigene Accessor-Eigenschaft ist, die einen undefinierten Getter hat. Das heißt, wenn {{jsxref("Reflect.getOwnPropertyDescriptor()")}} für die Eigenschaft auf `target` zurückgibt `configurable: false, get: undefined`, dann muss die Falle `undefined` zurückgeben.
+- Der für eine Eigenschaft gemeldete Wert muss identisch mit dem Wert der entsprechenden Zielobjekteigenschaft sein, wenn die Zielobjekteigenschaft eine nicht veränderbare, nicht konfigurierbare eigene Daten-Eigenschaft ist. Das heißt, wenn {{jsxref("Reflect.getOwnPropertyDescriptor()")}} `configurable: false, writable: false` für die Eigenschaft auf `target` zurückgibt, muss die Trap denselben Wert wie das `value`-Attribut im Eigenschafts-Deskriptor des `target` zurückgeben.
+- Der für eine Eigenschaft gemeldete Wert muss `undefined` sein, wenn die entsprechende Zielobjekteigenschaft eine nicht konfigurierbare eigene Accessor-Eigenschaft ist, die einen undefinierten Getter hat. Das heißt, wenn {{jsxref("Reflect.getOwnPropertyDescriptor()")}} `configurable: false, get: undefined` für die Eigenschaft auf `target` zurückgibt, muss die Trap `undefined` zurückgeben.
 
 ## Beispiele
 
-### Falle für den Zugriff auf einen Eigenschaftswert
+### Trap zum Abrufen eines Eigenschaftswertes
 
-Der folgende Code fängt den Zugriff auf einen Eigenschaftswert ab.
+Der folgende Code fängt den Abruf eines Eigenschaftswertes ab.
 
 ```js
 const p = new Proxy(

@@ -1,13 +1,14 @@
 ---
 title: Array.prototype.at()
+short-title: at()
 slug: Web/JavaScript/Reference/Global_Objects/Array/at
 l10n:
-  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Die **`at()`**-Methode von {{jsxref("Array")}}-Instanzen nimmt einen ganzzahligen Wert und gibt das Element an diesem Index zurück, wodurch positive und negative Ganzzahlen ermöglicht werden. Negative Ganzzahlen zählen rückwärts ab dem letzten Element im Array.
+Die **`at()`**-Methode von {{jsxref("Array")}}-Instanzen übernimmt einen ganzzahligen Wert und gibt das Element an diesem Index zurück, wobei sowohl positive als auch negative Ganzzahlen erlaubt sind. Negative Ganzzahlen zählen rückwärts vom letzten Element des Arrays.
 
 {{InteractiveExample("JavaScript Demo: Array.prototype.at()")}}
 
@@ -34,27 +35,27 @@ at(index)
 ### Parameter
 
 - `index`
-  - : Nullbasierter Index des zurückzugebenden Array-Elements, [in eine Ganzzahl konvertiert](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion). Der negative Index zählt rückwärts vom Ende des Arrays — wenn `index < 0`, wird `index + array.length` aufgerufen.
+  - : Der nullbasierte Index des Array-Elements, das zurückgegeben werden soll, [umgewandelt in eine Ganzzahl](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion). Ein negativer Index zählt rückwärts vom Ende des Arrays — wenn `index < 0`, wird `index + array.length` aufgerufen.
 
 ### Rückgabewert
 
-Das Element im Array, das mit dem angegebenen Index übereinstimmt. Gibt immer {{jsxref("undefined")}} zurück, wenn `index < -array.length` oder `index >= array.length` ist, ohne zu versuchen, auf die entsprechende Eigenschaft zuzugreifen.
+Das Element im Array am gegebenen Index. Gibt immer {{jsxref("undefined")}} zurück, wenn `index < -array.length` oder `index >= array.length`, ohne zu versuchen, auf die entsprechende Eigenschaft zuzugreifen.
 
 ## Beschreibung
 
-Die `at()`-Methode ist gleichbedeutend mit der Klammernotation, wenn `index` eine nicht negative Ganzzahl ist. Zum Beispiel geben sowohl `array[0]` als auch `array.at(0)` das erste Element zurück. Wenn jedoch Elemente vom Ende des Arrays gezählt werden, können Sie `array[-1]` nicht wie in Python oder R verwenden, da alle Werte innerhalb der eckigen Klammern buchstäblich als String-Eigenschaften behandelt werden. Dadurch lesen Sie `array["-1"]`, was eine normale String-Eigenschaft anstelle eines Array-Index ist.
+Die `at()`-Methode entspricht der Klammernotation, wenn `index` eine nicht-negative Ganzzahl ist. Zum Beispiel geben sowohl `array[0]` als auch `array.at(0)` das erste Element zurück. Wenn Sie jedoch Elemente vom Ende des Arrays aus zählen, können Sie `array[-1]` nicht verwenden, wie es in Python oder R möglich wäre, da alle Werte innerhalb der eckigen Klammern wörtlich als Zeichenfolgeneigenschaften behandelt werden, sodass Sie am Ende `array["-1"]` lesen würden, was einfach eine normale Zeichenfolgeneigenschaft statt eines Array-Index ist.
 
-Die übliche Vorgehensweise ist, auf die {{jsxref("Array/length", "length")}} zuzugreifen und den Index daraus zu berechnen — zum Beispiel `array[array.length - 1]`. Die `at()`-Methode ermöglicht relatives Indexieren, sodass dies auf `array.at(-1)` verkürzt werden kann.
+Die übliche Praxis ist es, auf {{jsxref("Array/length", "length")}} zuzugreifen und den Index davon zu berechnen — zum Beispiel `array[array.length - 1]`. Die `at()`-Methode ermöglicht eine relative Indizierung, sodass dies auf `array.at(-1)` verkürzt werden kann.
 
-Durch die Kombination von `at()` mit {{jsxref("Array/with", "with()")}} können Sie sowohl lesen als auch schreiben (jeweils) eines Arrays mithilfe negativer Indizes.
+Durch die Kombination von `at()` mit {{jsxref("Array/with", "with()")}}, können Sie ein Array sowohl lesen als auch schreiben (jeweils) mit negativen Indizes.
 
-Die `at()`-Methode ist [generisch](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#generic_array_methods). Sie erwartet nur, dass der `this`-Wert eine `length`-Eigenschaft und integer-indexierte Eigenschaften hat.
+Die `at()`-Methode ist [generisch](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#generic_array_methods). Sie erwartet nur, dass der `this`-Wert eine `length`-Eigenschaft und ganzzahlige, schlüsselbasierte Eigenschaften hat.
 
 ## Beispiele
 
 ### Den letzten Wert eines Arrays zurückgeben
 
-Das folgende Beispiel bietet eine Funktion, die das letzte Element eines angegebenen Arrays zurückgibt.
+Das folgende Beispiel bietet eine Funktion, die das letzte Element in einem angegebenen Array zurückgibt.
 
 ```js
 // Our array with items
@@ -75,9 +76,9 @@ const item2 = returnLast(cart);
 console.log(item2); // 'orange'
 ```
 
-### Methoden vergleichen
+### Vergleich von Methoden
 
-Dieses Beispiel vergleicht verschiedene Methoden, um das vorletzte Element eines {{jsxref("Array")}} auszuwählen. Während alle unten gezeigten Methoden gültig sind, hebt dieses Beispiel die Kürze und Lesbarkeit der `at()`-Methode hervor.
+Dieses Beispiel vergleicht verschiedene Methoden zur Auswahl des vorletzten Elements eines {{jsxref("Array")}}. Während alle gezeigten Methoden gültig sind, hebt dieses Beispiel die Prägnanz und Lesbarkeit der `at()`-Methode hervor.
 
 ```js
 // Our array with items
@@ -96,9 +97,9 @@ const atWay = colors.at(-2);
 console.log(atWay); // 'green'
 ```
 
-### `at()` auf nicht-Array-Objekte anwenden
+### Aufrufen von at() bei Nicht-Array-Objekten
 
-Die `at()`-Methode liest die `length`-Eigenschaft von `this` und berechnet den Index für den Zugriff.
+Die `at()`-Methode liest die `length`-Eigenschaft von `this` und berechnet den zuzugreifenden Index.
 
 ```js
 const arrayLike = {
@@ -122,8 +123,8 @@ console.log(Array.prototype.at.call(arrayLike, 2)); // undefined
 ## Siehe auch
 
 - [Polyfill von `Array.prototype.at` in `core-js`](https://github.com/zloirock/core-js#relative-indexing-method)
-- [es-shims polyfill von `Array.prototype.at`](https://www.npmjs.com/package/array.prototype.at)
-- [Leitfaden zu indizierten Sammlungen](/de/docs/Web/JavaScript/Guide/Indexed_collections)
+- [es-shims Polyfill von `Array.prototype.at`](https://www.npmjs.com/package/array.prototype.at)
+- [Indizierte Sammlungen](/de/docs/Web/JavaScript/Guide/Indexed_collections) Leitfaden
 - {{jsxref("Array")}}
 - {{jsxref("Array.prototype.findIndex()")}}
 - {{jsxref("Array.prototype.indexOf()")}}

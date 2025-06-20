@@ -1,15 +1,16 @@
 ---
 title: Temporal.ZonedDateTime.prototype.withCalendar()
+short-title: withCalendar()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime/withCalendar
 l10n:
-  sourceCommit: 1b77d85af82183b835cf253e885dca26cba93eb5
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}{{SeeCompatTable}}
 
-Die **`withCalendar()`** Methode von {{jsxref("Temporal.ZonedDateTime")}} Instanzen gibt ein neues `Temporal.ZonedDateTime` Objekt zurück, das dieses Datum-Uhrzeit im neuen Kalendersystem interpretiert darstellt. Da alle `Temporal` Objekte darauf ausgelegt sind, unveränderlich zu sein, fungiert diese Methode im Wesentlichen als Setter für die {{jsxref("Temporal/ZonedDateTime/calendarId", "calendarId")}} Eigenschaft der Datum-Uhrzeit.
+Die **`withCalendar()`**-Methode von Instanzen von {{jsxref("Temporal.ZonedDateTime")}} gibt ein neues `Temporal.ZonedDateTime`-Objekt zurück, das dieses Datum-Uhrzeit im neuen Kalendersystem darstellt. Da alle `Temporal`-Objekte so konzipiert sind, dass sie unveränderlich sind, fungiert diese Methode im Wesentlichen als Setter für die {{jsxref("Temporal/ZonedDateTime/calendarId", "calendarId")}}-Eigenschaft des Datum-Uhrzeit-Objekts.
 
-Um die Datumskomponenteneigenschaften zu ersetzen, verwenden Sie die {{jsxref("Temporal/ZonedDateTime/with", "with()")}} Methode. Um die Zeitzone zu ersetzen, verwenden Sie die {{jsxref("Temporal/ZonedDateTime/withTimeZone", "withTimeZone()")}} Methode.
+Um die Datumskomponenten-Eigenschaften zu ersetzen, verwenden Sie die {{jsxref("Temporal/ZonedDateTime/with", "with()")}}-Methode. Um die Zeitzone zu ersetzen, verwenden Sie die {{jsxref("Temporal/ZonedDateTime/withTimeZone", "withTimeZone()")}}-Methode.
 
 ## Syntax
 
@@ -20,18 +21,18 @@ withCalendar(calendar)
 ### Parameter
 
 - `calendar`
-  - : Ein String, der der {{jsxref("Temporal/ZonedDateTime/calendarId", "calendarId")}} Eigenschaft entspricht. Siehe [`Intl.supportedValuesOf()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/supportedValuesOf#supported_calendar_types) für eine Liste häufig unterstützter Kalendertypen.
+  - : Ein String, der der {{jsxref("Temporal/ZonedDateTime/calendarId", "calendarId")}}-Eigenschaft entspricht. Siehe [`Intl.supportedValuesOf()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/supportedValuesOf#supported_calendar_types) für eine Liste der häufig unterstützten Kalendertypen.
 
 ### Rückgabewert
 
-Ein neues `Temporal.ZonedDateTime` Objekt, das die Datum-Uhrzeit darstellt, die durch das ursprüngliche `ZonedDateTime` spezifiziert wird, interpretiert im neuen Kalendersystem.
+Ein neues `Temporal.ZonedDateTime`-Objekt, das die vom ursprünglichen `ZonedDateTime` angegebene Datum-Uhrzeit darstellt, interpretiert im neuen Kalendersystem.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
   - : Wird ausgelöst, wenn `calendar` kein String ist.
 - {{jsxref("RangeError")}}
-  - : Wird ausgelöst, wenn `calendar` kein gültiger Kalenderidentifikator ist.
+  - : Wird ausgelöst, wenn `calendar` kein gültiger Kalenderbezeichner ist.
 
 ## Beispiele
 
@@ -58,7 +59,7 @@ console.log(newZDT.toLocaleString("en-US", { calendar: "islamic-umalqura" }));
 
 - {{jsxref("Temporal.ZonedDateTime")}}
 - {{jsxref("Temporal.ZonedDateTime/with", "Temporal.ZonedDateTime.prototype.with()")}}
-- {{jsxref("Temporal.ZonedDateTime/withTimeZone", "Temporal.ZonedDateTime.prototype.withTimeZone()")}}
-- {{jsxref("Temporal.ZonedDateTime/withPlainTime", "Temporal.ZonedDateTime.prototype.withPlainTime()")}}
-- {{jsxref("Temporal.ZonedDateTime/from", "Temporal.ZonedDateTime.from()")}}
-- {{jsxref("Temporal.ZonedDateTime/calendarId", "Temporal.ZonedDateTime.prototype.calendarId")}}
+- {{jsxref("Temporal/ZonedDateTime/withTimeZone", "Temporal.ZonedDateTime.prototype.withTimeZone()")}}
+- {{jsxref("Temporal/ZonedDateTime/withPlainTime", "Temporal.ZonedDateTime.prototype.withPlainTime()")}}
+- {{jsxref("Temporal/ZonedDateTime/from", "Temporal.ZonedDateTime.from()")}}
+- {{jsxref("Temporal/ZonedDateTime/calendarId", "Temporal.ZonedDateTime.prototype.calendarId")}}

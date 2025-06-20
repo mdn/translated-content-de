@@ -1,20 +1,21 @@
 ---
 title: Temporal.PlainDate.prototype.month
+short-title: month
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainDate/month
 l10n:
-  sourceCommit: b4696c099a33202f1ce2063f14648de398703774
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}{{SeeCompatTable}}
 
-Die **`month`** Zugriffseigenschaft von {{jsxref("Temporal.PlainDate")}} Instanzen gibt eine positive Ganzzahl zurück, die den 1-basierten Monatsindex im Jahr dieses Datums darstellt. Der erste Monat des Jahres ist `1`, und der letzte Monat ist der {{jsxref("Temporal/PlainDate/monthsInYear", "monthsInYear")}}. Es ist [kalender](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#calendars)-abhängig.
+Die **`month`** Zugriffseigenschaft von {{jsxref("Temporal.PlainDate")}}-Instanzen gibt eine positive Ganzzahl zurück, die den 1-basierten Monatsindex im Jahr dieses Datums darstellt. Der erste Monat dieses Jahres ist `1`, und der letzte Monat ist der {{jsxref("Temporal/PlainDate/monthsInYear", "monthsInYear")}}. Es ist kalenderabhängig ([calendar](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#calendars)).
 
-Beachten Sie, dass im Gegensatz zu {{jsxref("Date.prototype.getMonth()")}} der Index 1-basiert ist. Wenn der Kalender Schaltmonate hat, kann der Monat mit demselben {{jsxref("Temporal/PlainDate/monthCode", "monthCode")}} unterschiedliche `month` Indizes für verschiedene Jahre haben.
+Beachten Sie, dass im Gegensatz zu {{jsxref("Date.prototype.getMonth()")}} der Index 1-basiert ist. Wenn der Kalender Schaltmonate hat, kann der Monat mit demselben {{jsxref("Temporal/PlainDate/monthCode", "monthCode")}} unterschiedliche `month`-Indizes für verschiedene Jahre haben.
 
 > [!NOTE]
-> Verwenden Sie diese Eigenschaft nicht, um den tatsächlichen Monat, einschließlich seines Namens, zu identifizieren. Verwenden Sie dafür {{jsxref("Temporal/PlainDate/monthCode", "monthCode")}}. Verwenden Sie `month` nur, um Monate im Kontext eines Jahres zu identifizieren oder ihre Reihenfolge zu bestimmen.
+> Verwenden Sie diese Eigenschaft nicht, um den tatsächlichen Monat, einschließlich seines Namens, zu identifizieren. Verwenden Sie dafür {{jsxref("Temporal/PlainDate/monthCode", "monthCode")}}. Verwenden Sie `month` nur, um Monate im Kontext eines Jahres zu identifizieren oder um deren Reihenfolge zu bestimmen.
 
-Der Setzugriff von `month` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern. Verwenden Sie die {{jsxref("Temporal/PlainDate/with", "with()")}} Methode, um ein neues `Temporal.PlainDate` Objekt mit dem gewünschten neuen Wert zu erstellen.
+Der Set-Accessor von `month` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern. Verwenden Sie die {{jsxref("Temporal/PlainDate/with", "with()")}}-Methode, um ein neues `Temporal.PlainDate`-Objekt mit dem gewünschten neuen Wert zu erstellen.
 
 ## Beispiele
 
@@ -38,7 +39,7 @@ console.log(date4.monthCode); // "M02L"
 console.log(date4.month); // 3, this month is a leap month, i.e. a duplicate February
 ```
 
-### Durchlaufen aller Monate eines Jahres
+### Schleife durch alle Monate eines Jahres
 
 ```js
 const year = Temporal.PlainDate.from("2021-07-14"); // An arbitrary date in the year
@@ -51,7 +52,7 @@ for (
 }
 ```
 
-Alternativ ist dies auch ein sicherer Weg (im Gegensatz zum [Beispiel für den Tag](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainDate/day#looping_through_all_days_in_a_month)):
+Alternativ ist dies auch eine sichere Methode (im Gegensatz zum [Tagbeispiel](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainDate/day#looping_through_all_days_in_a_month)):
 
 ```js
 for (let month = 1; month <= year.monthsInYear; month++) {
@@ -59,7 +60,7 @@ for (let month = 1; month <= year.monthsInYear; month++) {
 }
 ```
 
-### Monat ändern
+### Ändern des Monats
 
 ```js
 const date = Temporal.PlainDate.from("2021-07-01");
@@ -67,7 +68,7 @@ const newDate = date.with({ month: 2 });
 console.log(newDate.toString()); // 2021-02-01
 ```
 
-Sie können auch {{jsxref("Temporal/PlainDate/add", "add()")}} oder {{jsxref("Temporal/PlainDate/subtract", "subtract()")}} verwenden, um eine bestimmte Anzahl von Monaten vom aktuellen Datum aus zu verschieben.
+Sie können auch {{jsxref("Temporal/PlainDate/add", "add()")}} oder {{jsxref("Temporal/PlainDate/subtract", "subtract()")}} verwenden, um eine bestimmte Anzahl von Monaten ab dem aktuellen Datum zu verschieben.
 
 ```js
 const date = Temporal.PlainDate.from("2021-07-01");
@@ -75,7 +76,7 @@ const newDate = date.add({ months: 3 });
 console.log(newDate.toString()); // 2021-10-01
 ```
 
-Standardmäßig beschränkt `with()` den Tag auf den Bereich der gültigen Werte. Beide der folgenden setzen den Monat auf den letzten Monat des Jahres:
+Standardmäßig beschränkt `with()` den Tag auf den Bereich gültiger Werte. Beide der folgenden Beispiele setzen den Monat auf den letzten Monat des Jahres:
 
 ```js
 const date = Temporal.PlainDate.from("2021-07-01");

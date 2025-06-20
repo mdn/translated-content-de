@@ -1,8 +1,9 @@
 ---
 title: TypeError() Konstruktor
+short-title: TypeError()
 slug: Web/JavaScript/Reference/Global_Objects/TypeError/TypeError
 l10n:
-  sourceCommit: 6558de67a347fee30c303da8a0b262a9270a6885
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
@@ -25,17 +26,16 @@ TypeError(message, fileName)
 TypeError(message, fileName, lineNumber)
 ```
 
-> **Note:** `TypeError()` kann mit oder ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden. Beide erzeugen eine neue `TypeError` Instanz.
+> **Note:** `TypeError()` kann sowohl mit als auch ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden. Beide Varianten erstellen eine neue `TypeError` Instanz.
 
 ### Parameter
 
 - `message` {{optional_inline}}
   - : Menschlich lesbare Beschreibung des Fehlers
 - `options` {{optional_inline}}
-  - : Ein Objekt, das folgende Eigenschaften hat:
+  - : Ein Objekt mit folgenden Eigenschaften:
     - `cause` {{optional_inline}}
-      - : Eine Eigenschaft, die die spezifische Ursache des Fehlers angibt.
-        Wenn ein Fehler abgefangen und mit einer spezifischeren oder nützlicheren Fehlermeldung erneut ausgelöst wird, kann diese Eigenschaft verwendet werden, um den ursprünglichen Fehler weiterzugeben.
+      - : Eine Eigenschaft, die die spezifische Ursache des Fehlers angibt. Beim Abfangen und erneuten Auslösen eines Fehlers mit einer spezifischeren oder nützlicheren Fehlermeldung kann diese Eigenschaft verwendet werden, um den ursprünglichen Fehler weiterzugeben.
 - `fileName` {{optional_inline}} {{non-standard_inline}}
   - : Der Name der Datei, die den Code enthält, der die Ausnahme verursacht hat
 - `lineNumber` {{optional_inline}} {{non-standard_inline}}

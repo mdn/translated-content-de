@@ -1,13 +1,14 @@
 ---
-title: WeakMap() Konstruktor
+title: WeakMap()-Konstruktor
+short-title: WeakMap()
 slug: Web/JavaScript/Reference/Global_Objects/WeakMap/WeakMap
 l10n:
-  sourceCommit: 14acf1aa7885157debdf1b6111f4bd10c064ec60
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Der **`WeakMap()`** Konstruktor erstellt {{jsxref("WeakMap")}} Objekte.
+Der **`WeakMap()`**-Konstruktor erstellt {{jsxref("WeakMap")}}-Objekte.
 
 ## Syntax
 
@@ -16,12 +17,12 @@ new WeakMap()
 new WeakMap(iterable)
 ```
 
-> **Note:** `WeakMap()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Der Versuch, ihn ohne `new` aufzurufen, führt zu einem {{jsxref("TypeError")}}.
+> **Hinweis:** `WeakMap()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Der Versuch, es ohne `new` aufzurufen, führt zu einem {{jsxref("TypeError")}}.
 
 ### Parameter
 
 - `iterable`
-  - : Ein [`Array`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array) oder ein anderes [iterierbares Objekt](/de/docs/Web/JavaScript/Reference/Iteration_protocols), das ein zwei-Elemente Array-ähnliches Objekt erzeugt, dessen erstes Element als `WeakMap` Schlüssel verwendet wird und dessen zweites Element der Wert ist, der diesem Schlüssel zugeordnet wird. Jedes Schlüssel-Wert-Paar wird der neuen `WeakMap` hinzugefügt. `null` wird als `undefined` behandelt.
+  - : Ein [`Array`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array) oder ein anderes [iterierbares Objekt](/de/docs/Web/JavaScript/Reference/Iteration_protocols), das ein zweielementiges array-ähnliches Objekt erzeugt, dessen erstes Element ein Wert ist, der als `WeakMap`-Schlüssel verwendet wird, und dessen zweites Element der Wert ist, der mit diesem Schlüssel verknüpft wird. Jedes Schlüssel-Wert-Paar wird der neuen `WeakMap` hinzugefügt. `null` wird als `undefined` behandelt.
 
 ## Beispiele
 

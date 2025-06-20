@@ -1,13 +1,14 @@
 ---
 title: String.prototype.big()
+short-title: big()
 slug: Web/JavaScript/Reference/Global_Objects/String/big
 l10n:
-  sourceCommit: e8320dfbed49d37589d0fe759ef6506885f340f7
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}} {{Deprecated_Header}}
 
-Die **`big()`**-Methode von {{jsxref("String")}}-Werten erstellt einen String, der diesen String in einem {{HTMLElement("big")}}-Element (`<big>str</big>`) einbettet, wodurch dieser String in einer großen Schriftart angezeigt wird.
+Die **`big()`**-Methode von {{jsxref("String")}}-Werten erstellt einen String, der diesen String in einem {{HTMLElement("big")}}-Element einbettet (`<big>str</big>`), wodurch dieser String in einer großen Schrift angezeigt wird.
 
 > [!NOTE]
 > Alle [HTML-Wrapper-Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/String#html_wrapper_methods) sind veraltet und nur aus Kompatibilitätsgründen standardisiert. Im Fall von `big()` wurde das `<big>`-Element selbst aus der HTML-Spezifikation entfernt und sollte nicht mehr verwendet werden. Webentwickler sollten stattdessen [CSS](/de/docs/Web/CSS)-Eigenschaften verwenden.
@@ -38,7 +39,7 @@ const contentString = "Hello, world";
 document.body.innerHTML = contentString.big();
 ```
 
-Dies wird das folgende HTML erzeugen:
+Dies erzeugt das folgende HTML:
 
 ```html
 <big>Hello, world</big>
@@ -47,7 +48,7 @@ Dies wird das folgende HTML erzeugen:
 > [!WARNING]
 > Dieses Markup ist ungültig, da `big` kein gültiges Element mehr ist.
 
-Anstatt `big()` zu verwenden und direkt HTML-Text zu erstellen, sollten Sie CSS verwenden, um Schriftarten zu manipulieren. Zum Beispiel können Sie {{cssxref("font-size")}} über das [`element.style`](/de/docs/Web/API/HTMLElement/style)-Attribut manipulieren:
+Anstatt `big()` zu verwenden und HTML-Text direkt zu erstellen, sollten Sie CSS verwenden, um Schriftarten zu manipulieren. Zum Beispiel können Sie die {{cssxref("font-size")}}-Eigenschaft über das [`element.style`](/de/docs/Web/API/HTMLElement/style)-Attribut manipulieren:
 
 ```js
 document.getElementById("yourElemId").style.fontSize = "2em";

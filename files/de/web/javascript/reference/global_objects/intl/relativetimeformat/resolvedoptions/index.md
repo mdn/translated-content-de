@@ -1,13 +1,14 @@
 ---
 title: Intl.RelativeTimeFormat.prototype.resolvedOptions()
+short-title: resolvedOptions()
 slug: Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat/resolvedOptions
 l10n:
-  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Die Methode **`resolvedOptions()`** von {{jsxref("Intl.RelativeTimeFormat")}}-Instanzen gibt ein neues Objekt zurück, das die Optionen widerspiegelt, die bei der Initialisierung dieses `RelativeTimeFormat`-Objekts berechnet wurden.
+Die **`resolvedOptions()`** Methode von Instanzen des Objekts {{jsxref("Intl.RelativeTimeFormat")}} gibt ein neues Objekt zurück, das die während der Initialisierung dieses `RelativeTimeFormat`-Objekts berechneten Optionen widerspiegelt.
 
 {{InteractiveExample("JavaScript Demo: Intl.RelativeTimeFormat.prototype.resolvedOptions()")}}
 
@@ -37,20 +38,20 @@ Keine.
 
 ### Rückgabewert
 
-Ein neues Objekt mit Eigenschaften, die die Optionen widerspiegeln, die bei der Initialisierung dieses `RelativeTimeFormat`-Objekts berechnet wurden. Das Objekt hat die folgenden Eigenschaften, in der Reihenfolge, in der sie aufgelistet sind:
+Ein neues Objekt mit Eigenschaften, die die während der Initialisierung dieses `RelativeTimeFormat`-Objekts berechneten Optionen widerspiegeln. Das Objekt hat die folgenden Eigenschaften, in der Reihenfolge wie sie aufgeführt sind:
 
 - `locale`
-  - : Das BCP-47-Sprach-Tag für die tatsächlich verwendete Locale, ermittelt durch den [Locale-Aushandlungsprozess](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locale_identification_and_negotiation). Nur der `nu`-Unicode-Erweiterungsschlüssel, falls angefordert, kann im Output enthalten sein.
+  - : Der BCP 47-Sprachcode für die tatsächlich verwendete Locale, bestimmt durch den [Locale-Verhandlungsprozess](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locale_identification_and_negotiation). Nur der `nu` Unicode-Erweiterungsschlüssel kann in die Ausgabe aufgenommen werden, wenn er angefordert wird.
 - `style`
-  - : Der in dem `options`-Argument angegebene Wert für diese Eigenschaft, mit Standardwerten ausgefüllt, falls erforderlich. Er ist entweder `"long"`, `"short"` oder `"narrow"`. Der Standardwert ist `"long"`.
+  - : Der für diese Eigenschaft im `options` Argument angegebene Wert, mit Standardwerten, die bei Bedarf ausgefüllt werden. Es ist entweder `"long"`, `"short"` oder `"narrow"`. Der Standardwert ist `"long"`.
 - `numeric`
-  - : Der in dem `options`-Argument angegebene Wert für diese Eigenschaft, mit Standardwerten ausgefüllt, falls erforderlich. Er ist entweder `"always"` oder `"auto"`. Der Standardwert ist `"always"`.
+  - : Der für diese Eigenschaft im `options` Argument angegebene Wert, mit Standardwerten, die bei Bedarf ausgefüllt werden. Es ist entweder `"always"` oder `"auto"`. Der Standardwert ist `"always"`.
 - `numberingSystem`
-  - : Der in dem `options`-Argument angegebene Wert für diese Eigenschaft oder unter Verwendung des Unicode-Erweiterungsschlüssels `"nu"`, mit Standardwerten ausgefüllt, falls erforderlich. Es ist ein unterstütztes [Nummerierungssystem](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/supportedValuesOf#supported_numbering_system_types) für diese Locale. Der Standardwert ist vom Locale abhängig.
+  - : Der im `options` Argument oder über den Unicode-Erweiterungsschlüssel `"nu"` angegebene Wert, mit Standardwerten, die bei Bedarf ausgefüllt werden. Es handelt sich um ein unterstütztes [Nummerierungssystem](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/supportedValuesOf#supported_numbering_system_types) für diese Locale. Der Standardwert ist abhängig von der Locale.
 
 ## Beispiele
 
-### Verwendung der resolvedOptions()-Methode
+### Verwendung der resolvedOptions() Methode
 
 ```js
 const de = new Intl.RelativeTimeFormat("de-DE");

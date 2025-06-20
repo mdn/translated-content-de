@@ -1,15 +1,16 @@
 ---
 title: Temporal.PlainMonthDay.prototype.day
+short-title: day
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainMonthDay/day
 l10n:
-  sourceCommit: d0b9cef0713eb263934a98e94202b97c143204a4
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}{{SeeCompatTable}}
 
-Die **`day`** Zugriffs-Eigenschaft von {{jsxref("Temporal.PlainMonthDay")}} Instanzen gibt eine positive Ganzzahl zurück, die den 1-basierten Tag im Monat dieses Datums repräsentiert. Dies ist dieselbe Tageszahl, die Sie auf einem Kalender sehen würden. Sie ist [kalender](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#calendars)-abhängig.
+Die **`day`** Zugriffs-Eigenschaft von {{jsxref("Temporal.PlainMonthDay")}} Instanzen gibt eine positive ganze Zahl zurück, die den basierten Tag-Index in dem Monat dieses Datums darstellt, das ist dieselbe Tagesnummer, die Sie auf einem Kalender sehen würden. Sie ist von dem [Kalender](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#calendars) abhängig.
 
-Die Set-Zugriffsmethode von `day` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern. Verwenden Sie die {{jsxref("Temporal/PlainMonthDay/with", "with()")}} Methode, um ein neues `Temporal.PlainMonthDay` Objekt mit dem gewünschten neuen Wert zu erstellen.
+Der Set-Zugriff von `day` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern. Verwenden Sie die {{jsxref("Temporal/PlainMonthDay/with", "with()")}} Methode, um ein neues `Temporal.PlainMonthDay` Objekt mit dem gewünschten neuen Wert zu erstellen.
 
 Für allgemeine Informationen und weitere Beispiele siehe {{jsxref("Temporal/PlainDate/day", "Temporal.PlainDate.prototype.day")}}.
 
@@ -33,14 +34,14 @@ const newMD = md.with({ day: 15 });
 console.log(newMD.toString()); // 07-15
 ```
 
-Standardmäßig beschränkt `with()` den Tag auf den Bereich gültiger Werte. Sie können also `{ day: 1 }` verwenden, um den Tag auf den ersten Tag des Monats zu setzen, selbst wenn der erste Tag nicht die Nummer `1` hat. Ebenso wird Folgendes den Tag auf den letzten Tag des Monats setzen:
+Standardmäßig beschränkt `with()` den Tag auf den Bereich gültiger Werte. So können Sie `{ day: 1 }` verwenden, um den Tag auf den ersten Tag des Monats zu setzen, selbst wenn der erste Tag nicht die Nummer `1` hat. Ebenso wird das Folgende den Tag auf den letzten Tag des Monats setzen:
 
 ```js
 const md = Temporal.PlainMonthDay.from("07-01");
 const lastMD = md.with({ day: Number.MAX_VALUE }); // 07-31
 ```
 
-Für den Zweck von `PlainMonthDay` wird der Februar immer als 29 Tage umfassend betrachtet.
+Für `PlainMonthDay` wird Februar immer als 29 Tage umfassend betrachtet.
 
 ```js
 const md = Temporal.PlainMonthDay.from("02-01");
@@ -48,7 +49,7 @@ const lastMD = md.with({ day: Number.MAX_VALUE }); // 02-29
 console.log(lastMD.day); // 29
 ```
 
-Für andere Kalender gilt: Solange es ein Jahr gibt, in dem der Monatstag gültig ist, wird der Monatstag als gültig betrachtet, und das zugrunde liegende Bezugsjahr kann sich daher ändern. Zum Beispiel:
+Für andere Kalender gilt, solange ein Jahr existiert, in dem die Monat-Tag-Kombination gültig ist, wird der Monat-Tag als gültig angesehen, und das zugrunde liegende Referenzjahr kann sich daher ändern. Zum Beispiel:
 
 ```js
 const md = Temporal.PlainMonthDay.from({

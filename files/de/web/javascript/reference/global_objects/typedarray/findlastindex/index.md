@@ -1,13 +1,14 @@
 ---
 title: TypedArray.prototype.findLastIndex()
+short-title: findLastIndex()
 slug: Web/JavaScript/Reference/Global_Objects/TypedArray/findLastIndex
 l10n:
-  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Die **`findLastIndex()`** Methode von {{jsxref("TypedArray")}} Instanzen durchläuft das typisierte Array in umgekehrter Reihenfolge und gibt den Index des ersten Elements zurück, das die bereitgestellte Testfunktion erfüllt. Wenn kein Element die Testfunktion erfüllt, wird -1 zurückgegeben. Diese Methode hat denselben Algorithmus wie {{jsxref("Array.prototype.findLastIndex()")}}.
+Die **`findLastIndex()`** Methode von {{jsxref("TypedArray")}} Instanzen iteriert das typisierte Array in umgekehrter Reihenfolge und gibt den Index des ersten Elements zurück, das die bereitgestellte Testfunktion erfüllt. Wenn kein Element die Testfunktion erfüllt, wird -1 zurückgegeben. Diese Methode verwendet denselben Algorithmus wie {{jsxref("Array.prototype.findLastIndex()")}}.
 
 {{InteractiveExample("JavaScript Demo: TypedArray.prototype.findLastIndex()")}}
 
@@ -32,7 +33,7 @@ findLastIndex(callbackFn, thisArg)
 ### Parameter
 
 - `callbackFn`
-  - : Eine Funktion, die für jedes Element im typisierten Array ausgeführt wird. Sie sollte einen {{Glossary("Truthy", "truthy")}} Wert zurückgeben, um anzuzeigen, dass ein übereinstimmendes Element gefunden wurde, und einen {{Glossary("Falsy", "falsy")}} Wert, wenn nicht. Die Funktion wird mit den folgenden Argumenten aufgerufen:
+  - : Eine Funktion, die für jedes Element im typisierten Array ausgeführt wird. Sie sollte einen {{Glossary("Truthy", "truthy")}} Wert zurückgeben, um anzuzeigen, dass ein übereinstimmendes Element gefunden wurde, und einen {{Glossary("Falsy", "falsy")}} Wert andernfalls. Die Funktion wird mit den folgenden Argumenten aufgerufen:
     - `element`
       - : Das aktuelle Element, das im typisierten Array verarbeitet wird.
     - `index`
@@ -44,16 +45,16 @@ findLastIndex(callbackFn, thisArg)
 
 ### Rückgabewert
 
-Der Index des letzten (höchstindexierten) Elements im typisierten Array, das den Test besteht.
-Ansonsten `-1`, wenn kein übereinstimmendes Element gefunden wird.
+Der Index des letzten (mit dem höchsten Index) Elements im typisierten Array, das den Test besteht.
+Andernfalls `-1`, wenn kein übereinstimmendes Element gefunden wird.
 
 ## Beschreibung
 
-Siehe {{jsxref("Array.prototype.findLastIndex()")}} für mehr Details. Diese Methode ist nicht generisch und kann nur auf typisierten Array-Instanzen aufgerufen werden.
+Weitere Einzelheiten finden Sie unter {{jsxref("Array.prototype.findLastIndex()")}}. Diese Methode ist nicht generisch und kann nur auf typisierten Array-Instanzen aufgerufen werden.
 
 ## Beispiele
 
-### Den Index der letzten Primzahl in einem typisierten Array finden
+### Finden Sie den Index der letzten Primzahl in einem typisierten Array
 
 Das folgende Beispiel gibt den Index des letzten Elements im typisierten Array zurück, das eine Primzahl ist, oder `-1`, wenn keine Primzahl vorhanden ist.
 
@@ -89,7 +90,7 @@ console.log(uint8.findLastIndex(isPrime));
 ## Siehe auch
 
 - [Polyfill von `TypedArray.prototype.findLastIndex` in `core-js`](https://github.com/zloirock/core-js#array-find-from-last)
-- [Leitfaden zu JavaScript-typisierten Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays)
+- [JavaScript typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
 - {{jsxref("TypedArray")}}
 - {{jsxref("TypedArray.prototype.find()")}}
 - {{jsxref("TypedArray.prototype.findIndex()")}}

@@ -1,15 +1,16 @@
 ---
 title: String.prototype.charCodeAt()
+short-title: charCodeAt()
 slug: Web/JavaScript/Reference/Global_Objects/String/charCodeAt
 l10n:
-  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Die **`charCodeAt()`** Methode von {{jsxref("String")}} Werten gibt ein ganzzahliges Ergebnis zwischen `0` und `65535` zurück, das die UTF-16 Code-Einheit am angegebenen Index darstellt.
+Die **`charCodeAt()`**-Methode von {{jsxref("String")}}-Werten gibt eine ganze Zahl zwischen `0` und `65535` zurück, die die UTF-16-Code-Einheit am angegebenen Index darstellt.
 
-`charCodeAt()` indiziert den String immer als eine Sequenz von [UTF-16 Code-Einheiten](/de/docs/Web/JavaScript/Reference/Global_Objects/String#utf-16_characters_unicode_code_points_and_grapheme_clusters), sodass es einzelne Surrogate zurückgeben kann. Um den vollständigen Unicode-Codepunkt am angegebenen Index zu erhalten, verwenden Sie {{jsxref("String.prototype.codePointAt()")}}.
+`charCodeAt()` durchsucht die Zeichenfolge immer als eine Sequenz von [UTF-16 Code-Einheiten](/de/docs/Web/JavaScript/Reference/Global_Objects/String#utf-16_characters_unicode_code_points_and_grapheme_clusters), sodass es möglicherweise einsame Surrogate zurückgibt. Um den vollständigen Unicode-Codepunkt am angegebenen Index zu erhalten, verwenden Sie {{jsxref("String.prototype.codePointAt()")}}.
 
 {{InteractiveExample("JavaScript Demo: String.prototype.charCodeAt()", "shorter")}}
 
@@ -35,17 +36,17 @@ charCodeAt(index)
 ### Parameter
 
 - `index`
-  - : Der nullbasierte Index des zu retournierenden Zeichens. [Zu einer Ganzzahl konvertiert](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion) — `undefined` wird in 0 konvertiert.
+  - : Nullbasierter Index des zurückzugebenden Zeichens. [In eine ganze Zahl konvertiert](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion) — `undefined` wird in 0 umgewandelt.
 
 ### Rückgabewert
 
-Ein ganzzahliger Wert zwischen `0` und `65535`, der den UTF-16 Code-Einheitenwert des Zeichens am angegebenen `index` repräsentiert. Wenn `index` außerhalb des Bereichs von `0` bis `str.length - 1` liegt, gibt `charCodeAt()` {{jsxref("NaN")}} zurück.
+Eine ganze Zahl zwischen `0` und `65535`, die den UTF-16-Code-Einheitswert des Zeichens am angegebenen `index` darstellt. Wenn `index` außerhalb des Bereichs von `0` – `str.length - 1` liegt, gibt `charCodeAt()` {{jsxref("NaN")}} zurück.
 
 ## Beschreibung
 
-Zeichen in einem String werden von links nach rechts indiziert. Der Index des ersten Zeichens ist `0`, und der Index des letzten Zeichens in einem String namens `str` ist `str.length - 1`.
+Zeichen in einer Zeichenfolge werden von links nach rechts indiziert. Der Index des ersten Zeichens ist `0`, und der Index des letzten Zeichens in einer Zeichenfolge, die `str` genannt wird, ist `str.length - 1`.
 
-Unicode-Codepunkte reichen von `0` bis `1114111` (`0x10FFFF`). `charCodeAt()` gibt immer einen Wert zurück, der kleiner als `65536` ist, da höhere Codepunkte durch _ein Paar_ von 16-Bit Surrogat-Pseudo-Zeichen dargestellt werden. Daher ist es notwendig, nicht nur `charCodeAt(i)`, sondern auch `charCodeAt(i + 1)` abzurufen (als ob man einen String mit zwei Zeichen manipuliert), oder statt dessen {{jsxref("String/codePointAt", "codePointAt(i)")}} zu verwenden. Für Informationen zu Unicode, siehe [UTF-16-Zeichen, Unicode-Code-Punkte und Graphem-Cluster](/de/docs/Web/JavaScript/Reference/Global_Objects/String#utf-16_characters_unicode_code_points_and_grapheme_clusters).
+Unicode-Codepunkte liegen im Bereich von `0` bis `1114111` (`0x10FFFF`). `charCodeAt()` gibt immer einen Wert kleiner als `65536` zurück, da die höheren Codepunkte durch _ein Paar_ 16-Bit-Surrogat-Pseudozellen dargestellt werden. Daher ist es notwendig, um ein vollständiges Zeichen mit einem Wert größer als `65535` zu erhalten, nicht nur `charCodeAt(i)`, sondern auch `charCodeAt(i + 1)` abzurufen (als ob eine Zeichenfolge mit zwei Zeichen manipuliert würde), oder {{jsxref("String/codePointAt", "codePointAt(i)")}} stattdessen zu verwenden. Für Informationen über Unicode siehe [UTF-16-Zeichen, Unicode-Codepunkte und Graphemtreffer](/de/docs/Web/JavaScript/Reference/Global_Objects/String#utf-16_characters_unicode_code_points_and_grapheme_clusters).
 
 ## Beispiele
 
@@ -73,9 +74,9 @@ console.log(str.codePointAt(0)); // 134071
 ```
 
 > [!NOTE]
-> Vermeiden Sie, `codePointAt()` mit `charCodeAt()` neu zu implementieren. Die Übersetzung von UTF-16 Surrogaten zu Unicode-Codepunkten ist komplex, und `codePointAt()` kann effizienter sein, da es direkt die interne Darstellung des Strings verwendet. Installieren Sie ein Polyfill für `codePointAt()`, falls nötig.
+> Vermeiden Sie es, `codePointAt()` durch `charCodeAt()` neu zu implementieren. Die Übersetzung von UTF-16-Surrogaten zu Unicode-Codepunkten ist komplex, und `codePointAt()` kann performanter sein, da es direkt die interne Darstellung der Zeichenfolge verwendet. Installieren Sie bei Bedarf ein Polyfill für `codePointAt()`.
 
-Unten ist ein mögliches Algorithmus dargestellt, um ein Paar von UTF-16 Code-Einheiten in einen Unicode-Codepunkt zu konvertieren, adaptiert von den [Unicode FAQ](https://unicode.org/faq/utf_bom.html#utf16-3):
+Unten ist ein möglicher Algorithmus zur Umwandlung eines Paares von UTF-16-Code-Einheiten in einen Unicode-Codepunkt, adaptiert aus der [Unicode FAQ](https://unicode.org/faq/utf_bom.html#utf16-3):
 
 ```js
 // constants

@@ -1,15 +1,16 @@
 ---
 title: arguments[Symbol.iterator]()
+short-title: "[Symbol.iterator]()"
 slug: Web/JavaScript/Reference/Functions/arguments/Symbol.iterator
 l10n:
-  sourceCommit: 6fbdb78c1362fae31fbd545f4b2d9c51987a6bca
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{jsSidebar("Functions")}}
 
-Die **`[Symbol.iterator]()`**-Methode von {{jsxref("Functions/arguments", "arguments")}}-Objekten implementiert das [iterable Protokoll](/de/docs/Web/JavaScript/Reference/Iteration_protocols) und ermöglicht es `arguments`-Objekten, von den meisten Syntaxen, die Iterables erwarten, konsumiert zu werden, wie etwa der [Spread-Syntax](/de/docs/Web/JavaScript/Reference/Operators/Spread_syntax) und {{jsxref("Statements/for...of", "for...of")}}-Schleifen. Sie gibt ein [Array-Iterator-Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator) zurück, das den Wert jedes Index im `arguments`-Objekt liefert.
+Die **`[Symbol.iterator]()`** Methode von {{jsxref("Functions/arguments", "arguments")}} Objekten implementiert das [iterable Protokoll](/de/docs/Web/JavaScript/Reference/Iteration_protocols) und ermöglicht es `arguments` Objekten, durch die meisten Syntaxen, die Iterables erwarten, konsumiert zu werden, wie z.B. der [Spread-Syntax](/de/docs/Web/JavaScript/Reference/Operators/Spread_syntax) und {{jsxref("Statements/for...of", "for...of")}} Schleifen. Sie gibt ein [Array-Iterator-Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator) zurück, das den Wert jedes Indexes im `arguments` Objekt liefert.
 
-Der Anfangswert dieser Eigenschaft ist dasselbe Funktionsobjekt wie der Anfangswert der {{jsxref("Array.prototype.values")}}-Eigenschaft (und auch dasselbe wie [`Array.prototype[Symbol.iterator]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/Symbol.iterator)).
+Der anfängliche Wert dieser Eigenschaft ist dasselbe Funktionsobjekt wie der anfängliche Wert der {{jsxref("Array.prototype.values")}} Eigenschaft (und auch dasselbe wie [`Array.prototype[Symbol.iterator]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/Symbol.iterator)).
 
 ## Syntax
 
@@ -23,13 +24,13 @@ Keine.
 
 ### Rückgabewert
 
-Derselbe Rückgabewert wie {{jsxref("Array.prototype.values()")}}: ein neues [iterables Iterator-Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator), das den Wert jedes Index im `arguments`-Objekt liefert.
+Der gleiche Rückgabewert wie {{jsxref("Array.prototype.values()")}}: ein neues [iterierbares Iterator-Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator), das den Wert jedes Indexes im `arguments` Objekt liefert.
 
 ## Beispiele
 
-### Iteration mittels for...of-Schleife
+### Iteration mit der for...of Schleife
 
-Beachten Sie, dass Sie diese Methode selten direkt aufrufen müssen. Die Existenz der `[Symbol.iterator]()`-Methode macht `arguments`-Objekte [iterierbar](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterable_protocol), und iterierende Syntaxen wie die `for...of`-Schleife rufen diese Methode automatisch auf, um den Iterator zum Durchlaufen zu erhalten.
+Beachten Sie, dass Sie diese Methode selten direkt aufrufen müssen. Das Vorhandensein der `[Symbol.iterator]()` Methode macht `arguments` Objekte [iterierbar](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterable_protocol), und Iterations-Syntaxen wie die `for...of` Schleife rufen diese Methode automatisch auf, um den Iterator zu erhalten, über den iteriert werden soll.
 
 ```js
 function f() {
@@ -40,9 +41,9 @@ function f() {
 f("w", "y", "k", "o", "p");
 ```
 
-### Manuelles Durchgehen des Iterators
+### Manuelles Erstellen des Iterators
 
-Sie können immer noch die `next()`-Methode des zurückgegebenen Iterator-Objekts manuell aufrufen, um maximale Kontrolle über den Iterationsprozess zu erhalten.
+Sie können dennoch die `next()` Methode des zurückgegebenen Iterator-Objekts manuell aufrufen, um maximale Kontrolle über den Iterationsprozess zu erhalten.
 
 ```js
 function f() {
@@ -66,7 +67,7 @@ f("w", "y", "k", "o", "p");
 
 ## Siehe auch
 
-- [Leitfaden zu Funktionen](/de/docs/Web/JavaScript/Guide/Functions)
+- [Funktionen](/de/docs/Web/JavaScript/Guide/Functions) Leitfaden
 - [Funktionen](/de/docs/Web/JavaScript/Reference/Functions)
 - {{jsxref("Functions/arguments", "arguments")}}
 - {{jsxref("Array.prototype.values()")}}

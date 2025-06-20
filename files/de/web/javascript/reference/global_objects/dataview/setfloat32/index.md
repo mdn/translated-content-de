@@ -1,13 +1,14 @@
 ---
 title: DataView.prototype.setFloat32()
+short-title: setFloat32()
 slug: Web/JavaScript/Reference/Global_Objects/DataView/setFloat32
 l10n:
-  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Die **`setFloat32()`**-Methode von {{jsxref("DataView")}}-Instanzen nimmt eine Zahl und speichert sie als 32-Bit-Gleitkommazahl in den 4 Bytes, die am angegebenen Byte-Offset dieser `DataView` beginnen. Es gibt keine Ausrichtungsbeschränkung; Mehrbyte-Werte können bei jedem Offset innerhalb der Grenzen gespeichert werden.
+Die **`setFloat32()`** Methode von {{jsxref("DataView")}}-Instanzen nimmt eine Zahl und speichert sie als 32-Bit Gleitkommazahl in den 4 Bytes, beginnend beim angegebenen Byte-Offset dieses `DataView`. Es gibt keine Ausrichtungsbeschränkung; Mehr-Byte-Werte können an jedem beliebigen Offset innerhalb der Grenzen gespeichert werden.
 
 {{InteractiveExample("JavaScript Demo: DataView.prototype.setFloat32()")}}
 
@@ -32,11 +33,11 @@ setFloat32(byteOffset, value, littleEndian)
 ### Parameter
 
 - `byteOffset`
-  - : Der Offset in Bytes vom Beginn des View, um die Daten zu speichern.
+  - : Der Offset in Bytes, ab dem Beginn der Ansicht, um die Daten zu speichern.
 - `value`
-  - : Der Wert, der gesetzt werden soll. Informationen darüber, wie der Wert in Bytes enkodiert wird, finden Sie unter [Wertkodierung und Normalisierung](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray#value_encoding_and_normalization).
+  - : Der zu setzende Wert. Wie der Wert in Bytes kodiert wird, siehe [Wertkodierung und Normalisierung](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray#value_encoding_and_normalization).
 - `littleEndian` {{optional_inline}}
-  - : Gibt an, ob die Daten im {{Glossary("Endianness", "Little- oder Big-Endian")}}-Format gespeichert werden. Wenn `false` oder `undefined`, wird ein Big-Endian-Wert geschrieben.
+  - : Gibt an, ob die Daten im {{Glossary("Endianness", "Little- oder Big-Endian")}} Format gespeichert werden. Wenn `false` oder `undefined`, wird ein Big-Endian-Wert geschrieben.
 
 ### Rückgabewert
 
@@ -45,7 +46,7 @@ setFloat32(byteOffset, value, littleEndian)
 ### Ausnahmen
 
 - {{jsxref("RangeError")}}
-  - : Wird ausgelöst, wenn `byteOffset` so gesetzt wird, dass es über das Ende des View hinaus speichern würde.
+  - : Wird ausgelöst, wenn der `byteOffset` so gesetzt ist, dass er über das Ende der Ansicht hinaus gespeichert würde.
 
 ## Beispiele
 

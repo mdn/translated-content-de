@@ -1,13 +1,14 @@
 ---
 title: Date.prototype.setTime()
+short-title: setTime()
 slug: Web/JavaScript/Reference/Global_Objects/Date/setTime
 l10n:
-  sourceCommit: be1922d62a0d31e4e3441db0e943aed8df736481
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Die Methode **`setTime()`** von {{jsxref("Date")}}-Instanzen ändert den [Zeitstempel](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) für dieses Datum. Der Zeitstempel ist die Anzahl der Millisekunden seit der [Epoche](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date), die als Mitternacht zu Beginn des 1. Januar 1970 UTC definiert ist.
+Die **`setTime()`** Methode von {{jsxref("Date")}} Instanzen ändert den [Zeitstempel](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) für dieses Datum, welcher die Anzahl der Millisekunden seit der [Epoche](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) ist, die als Mitternacht zu Beginn des 1. Januar 1970, UTC, definiert ist.
 
 {{InteractiveExample("JavaScript Demo: Date.prototype.setTime()", "taller")}}
 
@@ -36,11 +37,11 @@ setTime(timeValue)
 ### Parameter
 
 - `timeValue`
-  - : Ein Integer, der den neuen Zeitstempel darstellt — die Anzahl der Millisekunden seit Mitternacht zu Beginn des 1. Januar 1970 UTC.
+  - : Ein Integer, der den neuen Zeitstempel darstellt — die Anzahl der Millisekunden seit Mitternacht zu Beginn des 1. Januar 1970, UTC.
 
 ### Rückgabewert
 
-Ändert das {{jsxref("Date")}}-Objekt direkt und gibt seinen neuen [Zeitstempel](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) zurück. Wenn `timeValue` `NaN` ist (oder andere Werte, die zu `NaN` [konvertiert](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion) werden, wie `undefined`), wird das Datum auf [Ungültiges Datum](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) gesetzt und `NaN` wird zurückgegeben.
+Ändert das {{jsxref("Date")}}-Objekt und gibt seinen neuen [Zeitstempel](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) zurück. Wenn `timeValue` `NaN` ist (oder andere Werte, die zu `NaN` [konvertiert](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion) werden, wie `undefined`), wird das Datum auf [Invalid Date](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) gesetzt und `NaN` zurückgegeben.
 
 ## Beispiele
 

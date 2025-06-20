@@ -1,13 +1,14 @@
 ---
-title: BigUint64Array() Konstruktor
+title: BigUint64Array()-Konstruktor
+short-title: BigUint64Array()
 slug: Web/JavaScript/Reference/Global_Objects/BigUint64Array/BigUint64Array
 l10n:
-  sourceCommit: dd339290fa3a42d9a7f079e17a62e1df1206f29d
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Der **`BigUint64Array()`** Konstruktor erstellt {{jsxref("BigUint64Array")}} Objekte. Der Inhalt wird auf `0n` initialisiert, es sei denn, es werden explizit Initialisierungsdaten bereitgestellt.
+Der **`BigUint64Array()`**-Konstruktor erstellt {{jsxref("BigUint64Array")}}-Objekte. Der Inhalt wird auf `0n` initialisiert, es sei denn, es werden explizit Initialisierungsdaten bereitgestellt.
 
 ## Syntax
 
@@ -22,7 +23,7 @@ new BigUint64Array(buffer, byteOffset)
 new BigUint64Array(buffer, byteOffset, length)
 ```
 
-> **Note:** `BigUint64Array()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Der Versuch, es ohne `new` aufzurufen, löst einen {{jsxref("TypeError")}} aus.
+> **Note:** `BigUint64Array()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Ein Versuch, es ohne `new` aufzurufen, löst einen {{jsxref("TypeError")}} aus.
 
 ### Parameter
 
@@ -34,7 +35,7 @@ Siehe [`TypedArray`](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray
 
 ## Beispiele
 
-### Verschiedene Möglichkeiten, ein BigUint64Array zu erstellen
+### Verschiedene Wege, um ein BigUint64Array zu erstellen
 
 ```js
 // From a length
@@ -76,7 +77,7 @@ console.log(biguint64FromIterable);
 
 ## Siehe auch
 
-- ["JavaScript typed arrays" Leitfaden](/de/docs/Web/JavaScript/Guide/Typed_arrays)
+- [JavaScript Typed Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays)-Leitfaden
 - {{jsxref("TypedArray")}}
 - {{jsxref("ArrayBuffer")}}
 - {{jsxref("DataView")}}

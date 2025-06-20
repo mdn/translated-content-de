@@ -1,26 +1,27 @@
 ---
 title: Function.prototype.arguments
+short-title: arguments
 slug: Web/JavaScript/Reference/Global_Objects/Function/arguments
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}{{Deprecated_Header}}{{Non-standard_Header}}
 
 > [!NOTE]
-> Die `arguments`-Eigenschaft von {{jsxref("Function")}}-Objekten ist veraltet. Der empfohlene Weg, um auf das `arguments`-Objekt zuzugreifen, ist die Verwendung der innerhalb von Funktionen verfügbaren Variablen {{jsxref("Functions/arguments", "arguments")}}.
+> Die Eigenschaft `arguments` von {{jsxref("Function")}}-Objekten ist veraltet. Die empfohlene Methode zum Zugriff auf das `arguments`-Objekt besteht darin, auf die innerhalb von Funktionen verfügbare Variable {{jsxref("Functions/arguments", "arguments")}} zu verweisen.
 
-Die **`arguments`**-Zugriffseigenschaft von {{jsxref("Function")}}-Instanzen gibt die an diese Funktion übergebenen Argumente zurück. Für [strict](/de/docs/Web/JavaScript/Reference/Strict_mode)-, Pfeil-, asynchrone und Generator-Funktionen wirft der Zugriff auf die `arguments`-Eigenschaft einen {{jsxref("TypeError")}}.
+Die **`arguments`**-Zugriffseigenschaft von {{jsxref("Function")}}-Instanzen gibt die an diese Funktion übergebenen Argumente zurück. Bei [strict](/de/docs/Web/JavaScript/Reference/Strict_mode)-, Arrow-, Async- und Generatorfunktionen führt der Zugriff auf die `arguments`-Eigenschaft zu einem {{jsxref("TypeError")}}.
 
 ## Beschreibung
 
 Der Wert von `arguments` ist ein array-ähnliches Objekt, das den an eine Funktion übergebenen Argumenten entspricht.
 
-Im Falle einer Rekursion, das heißt, wenn die Funktion `f` mehrmals auf dem Aufruf-Stack erscheint, repräsentiert der Wert von `f.arguments` die Argumente, die dem aktuellsten Aufruf der Funktion entsprechen.
+Im Falle von Rekursion, d.h. wenn die Funktion `f` mehrmals im Aufruf-Stack erscheint, repräsentiert der Wert von `f.arguments` die Argumente, die dem letzten Aufruf der Funktion entsprechen.
 
-Der Wert der `arguments`-Eigenschaft ist normalerweise {{jsxref("Operators/null", "null")}}, wenn keine ausstehende Ausführung der Funktion im Gange ist (das heißt, die Funktion wurde aufgerufen, aber noch nicht abgeschlossen).
+Der Wert der `arguments`-Eigenschaft ist normalerweise {{jsxref("Operators/null", "null")}}, wenn kein derzeitiger Aufruf der Funktion im Gange ist (d.h. die Funktion wurde aufgerufen, hat aber noch nicht zurückgegeben).
 
-Beachten Sie, dass das einzige Verhalten, das durch die ECMAScript-Spezifikation festgelegt ist, darin besteht, dass `Function.prototype` einen anfänglichen `arguments`-Zugriffsmechanismus hat, der bedingungslos für jeden `get`- oder `set`-Zugriff eine {{jsxref("TypeError")}} auslöst (bekannt als "poison pill accessor"), und dass Implementierungen nicht erlaubt sind, diese Semantik für Funktionen außer Nicht-strict-Plaine-Funktionen zu ändern. Das tatsächliche Verhalten der `arguments`-Eigenschaft, wenn es etwas anderes als das Auslösen eines Fehlers ist, ist implementierungsdefiniert. Zum Beispiel definiert Chrome es als eigene Daten-Eigenschaft, während Firefox und Safari den anfänglichen "poison pill"-`Function.prototype.arguments`-Accessor erweitern, um speziell `this`-Werte zu behandeln, die Nicht-strict-Funktionen sind.
+Beachten Sie, dass das einzige Verhalten, das durch die ECMAScript-Spezifikation festgelegt ist, darin besteht, dass `Function.prototype` einen anfänglichen `arguments`-Zugriff hat, der bei jedem `get`- oder `set`-Antrag bedingungslos einen {{jsxref("TypeError")}} auslöst (ein sogenannter "poison pill accessor"), und dass Implementierungen nicht in der Lage sind, diese Semantik für Funktionen außer nicht-strikten einfachen Funktionen zu ändern. Das tatsächliche Verhalten der `arguments`-Eigenschaft, falls es etwas anderes als das Auslösen eines Fehlers ist, ist implementierungsdefiniert. Beispielsweise definiert Chrome es als eigene Dateneigenschaft, während Firefox und Safari den anfänglichen poison-pill `Function.prototype.arguments`-Zugriff erweitern, um `this`-Werte, die nicht-strikte Funktionen sind, speziell zu behandeln.
 
 ```js
 (function f() {
@@ -81,7 +82,7 @@ console.log(`returned: ${g.arguments}`);
 
 ## Spezifikationen
 
-Teil keines Standards.
+Nicht Teil eines Standards.
 
 ## Browser-Kompatibilität
 

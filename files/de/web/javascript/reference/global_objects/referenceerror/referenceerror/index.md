@@ -1,8 +1,9 @@
 ---
 title: ReferenceError() Konstruktor
+short-title: ReferenceError()
 slug: Web/JavaScript/Reference/Global_Objects/ReferenceError/ReferenceError
 l10n:
-  sourceCommit: 6558de67a347fee30c303da8a0b262a9270a6885
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
@@ -25,17 +26,17 @@ ReferenceError(message, fileName)
 ReferenceError(message, fileName, lineNumber)
 ```
 
-> **Note:** `ReferenceError()` kann mit oder ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden. Beide Aufrufe erzeugen eine neue `ReferenceError` Instanz.
+> **Hinweis:** `ReferenceError()` kann mit oder ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden. Beide Möglichkeiten erzeugen eine neue `ReferenceError` Instanz.
 
 ### Parameter
 
 - `message` {{optional_inline}}
   - : Menschlich lesbare Beschreibung des Fehlers.
 - `options` {{optional_inline}}
-  - : Ein Objekt, das die folgenden Eigenschaften enthält:
+  - : Ein Objekt, das die folgenden Eigenschaften hat:
     - `cause` {{optional_inline}}
       - : Eine Eigenschaft, die die spezifische Ursache des Fehlers angibt.
-        Diese Eigenschaft kann verwendet werden, um den ursprünglichen Fehler zu übergeben, wenn ein Fehler mit einer spezifischeren oder nützlicheren Fehlermeldung abgefangen und erneut ausgelöst wird.
+        Wenn ein Fehler mit einer spezifischeren oder nützlicheren Fehlermeldung abgefangen und erneut ausgelöst wird, kann diese Eigenschaft verwendet werden, um den ursprünglichen Fehler weiterzugeben.
 - `fileName` {{optional_inline}} {{non-standard_inline}}
   - : Der Name der Datei, die den Code enthält, der die Ausnahme verursacht hat.
 - `lineNumber` {{optional_inline}} {{non-standard_inline}}
@@ -43,7 +44,7 @@ ReferenceError(message, fileName, lineNumber)
 
 ## Beispiele
 
-### Abfangen eines ReferenceError
+### Einen ReferenceError abfangen
 
 ```js
 try {
@@ -56,7 +57,7 @@ try {
 }
 ```
 
-### Erstellen eines ReferenceError
+### Einen ReferenceError erstellen
 
 ```js
 try {

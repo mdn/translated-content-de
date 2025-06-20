@@ -1,14 +1,14 @@
 ---
 title: Object.isFrozen()
+short-title: isFrozen()
 slug: Web/JavaScript/Reference/Global_Objects/Object/isFrozen
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Die statische Methode **`Object.isFrozen()`** bestimmt, ob ein Objekt
-{{jsxref("Object/freeze", "eingefroren", "", 1)}} ist.
+Die statische Methode **`Object.isFrozen()`** bestimmt, ob ein Objekt {{jsxref("Object/freeze", "eingefroren", "", 1)}} ist.
 
 {{InteractiveExample("JavaScript Demo: Object.isFrozen()")}}
 
@@ -39,11 +39,11 @@ Object.isFrozen(obj)
 
 ### Rückgabewert
 
-Ein {{jsxref("Boolean")}}, der angibt, ob das angegebene Objekt eingefroren ist oder nicht.
+Ein {{jsxref("Boolean")}}, der angibt, ob das gegebene Objekt eingefroren ist oder nicht.
 
 ## Beschreibung
 
-Ein Objekt ist genau dann eingefroren, wenn es nicht [erweiterbar](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/isExtensible) ist, alle seine Eigenschaften nicht konfigurierbar sind und alle seine Dateneigenschaften (d.h. Eigenschaften, die keine Accessor-Eigenschaften mit Getter- oder Setter-Komponenten sind) nicht beschreibbar sind.
+Ein Objekt ist eingefroren, wenn es nicht [erweiterbar](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/isExtensible) ist, alle seine Eigenschaften nicht konfigurierbar sind und alle seine Dateneigenschaften (das heißt, Eigenschaften, die keine Accessoreigenschaften mit Getter oder Setter sind) nicht beschreibbar sind.
 
 ## Beispiele
 
@@ -135,9 +135,9 @@ Object.isExtensible(frozen); // false
 Object.isSealed(frozen); // true
 ```
 
-### Nicht-Objekt-Argument
+### Argument ist kein Objekt
 
-In ES5 führt die Übergabe eines Arguments, das kein Objekt ist (ein primitiver Wert), zu einem {{jsxref("TypeError")}}. In ES2015 gibt diese Methode jedoch `true` ohne Fehler zurück, wenn ein nicht-objektbezogenes Argument übergeben wird, da primitive Werte definitionsgemäß unveränderlich sind.
+In ES5, wenn das Argument dieser Methode kein Objekt ist (ein primitiver Wert), wird ein {{jsxref("TypeError")}} verursacht. In ES2015 wird `true` zurückgegeben, ohne dass ein Fehler auftritt, falls ein Argument übergeben wird, das kein Objekt ist, da primitive Werte per Definition unveränderlich sind.
 
 ```js
 Object.isFrozen(1);

@@ -1,16 +1,17 @@
 ---
 title: String.prototype.sub()
+short-title: sub()
 slug: Web/JavaScript/Reference/Global_Objects/String/sub
 l10n:
-  sourceCommit: e8320dfbed49d37589d0fe759ef6506885f340f7
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}} {{Deprecated_Header}}
 
-Die **`sub()`** Methode von {{jsxref("String")}}-Werten erzeugt einen String, der diesen String in einem {{HTMLElement("sub")}}-Element (`<sub>str</sub>`) einbettet, wodurch dieser String als Tiefgestellt angezeigt wird.
+Die **`sub()`** Methode von {{jsxref("String")}}-Werten erstellt einen String, der diesen String in ein {{HTMLElement("sub")}}-Element (`<sub>str</sub>`) einbettet, wodurch dieser String als tiefgestellter Text angezeigt wird.
 
 > [!NOTE]
-> Alle [HTML-Wrapper-Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/String#html_wrapper_methods) sind veraltet und nur aus Kompatibilitätsgründen standardisiert. Verwenden Sie stattdessen [DOM-APIs](/de/docs/Web/API/Document_Object_Model) wie [`document.createElement()`](/de/docs/Web/API/Document/createElement).
+> Alle [HTML-Einfassungsmethoden](/de/docs/Web/JavaScript/Reference/Global_Objects/String#html_wrapper_methods) sind veraltet und nur aus Kompatibilitätsgründen standardisiert. Verwenden Sie stattdessen [DOM-APIs](/de/docs/Web/API/Document_Object_Model) wie [`document.createElement()`](/de/docs/Web/API/Document/createElement).
 
 ## Syntax
 
@@ -24,7 +25,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein String, der mit einem `<sub>`-Start-Tag beginnt, dann den Text `str` enthält und mit einem `</sub>`-End-Tag endet.
+Ein String, der mit einem `<sub>`-Start-Tag beginnt, dann den Text `str`, und dann ein `</sub>`-End-Tag hat.
 
 ## Beispiele
 
@@ -38,13 +39,13 @@ const contentString = "Hello, world";
 document.body.innerHTML = contentString.sub();
 ```
 
-Dies erzeugt folgenden HTML-Code:
+Dies wird das folgende HTML erstellen:
 
 ```html
 <sub>Hello, world</sub>
 ```
 
-Anstatt `sub()` zu verwenden und HTML-Text direkt zu erstellen, sollten Sie DOM-APIs wie [`document.createElement()`](/de/docs/Web/API/Document/createElement) verwenden. Zum Beispiel:
+Statt `sub()` zu verwenden und HTML-Text direkt zu erstellen, sollten Sie DOM-APIs wie [`document.createElement()`](/de/docs/Web/API/Document/createElement) verwenden. Zum Beispiel:
 
 ```js
 const contentString = "Hello, world";
@@ -65,5 +66,5 @@ document.body.appendChild(elem);
 
 - [Polyfill von `String.prototype.sub` in `core-js`](https://github.com/zloirock/core-js#ecmascript-string-and-regexp)
 - [es-shims Polyfill von `String.prototype.sub`](https://www.npmjs.com/package/es-string-html-methods)
-- [HTML-Wrapper-Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/String#html_wrapper_methods)
+- [HTML-Einfassungsmethoden](/de/docs/Web/JavaScript/Reference/Global_Objects/String#html_wrapper_methods)
 - {{HTMLElement("sub")}}

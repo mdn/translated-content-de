@@ -1,13 +1,14 @@
 ---
 title: TypedArray.prototype.values()
+short-title: values()
 slug: Web/JavaScript/Reference/Global_Objects/TypedArray/values
 l10n:
-  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Die **`values()`** Methode von {{jsxref("TypedArray")}} Instanzen gibt ein neues _[Array-Iterator-Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator)_ zurück, das den Wert jedes Elements im getypten Array durchläuft. Diese Methode verwendet denselben Algorithmus wie {{jsxref("Array.prototype.values()")}}.
+Die **`values()`** Methode von {{jsxref("TypedArray")}} Instanzen gibt ein neues _[Array-Iterator-Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator)_ zurück, das die Werte jedes Elements im Typed Array durchläuft. Diese Methode hat denselben Algorithmus wie {{jsxref("Array.prototype.values()")}}.
 
 {{InteractiveExample("JavaScript Demo: TypedArray.prototype.values()")}}
 
@@ -38,11 +39,11 @@ Ein neues [iterierbares Iterator-Objekt](/de/docs/Web/JavaScript/Reference/Globa
 
 ## Beschreibung
 
-Siehe {{jsxref("Array.prototype.values()")}} für weitere Details. Diese Methode ist nicht generisch und kann nur bei Instanzen von getypten Arrays aufgerufen werden.
+Sehen Sie sich {{jsxref("Array.prototype.values()")}} für mehr Details an. Diese Methode ist nicht generisch und kann nur auf Instanzen von Typed Arrays aufgerufen werden.
 
 ## Beispiele
 
-### Iteration mit for...of Schleife
+### Iteration mit der for...of Schleife
 
 ```js
 const arr = new Uint8Array([10, 20, 30, 40, 50]);
@@ -75,7 +76,7 @@ console.log(values.next().value); // 50
 ## Siehe auch
 
 - [Polyfill von `TypedArray.prototype.values` in `core-js`](https://github.com/zloirock/core-js#ecmascript-typed-arrays)
-- [JavaScript-Typed-Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
+- [JavaScript Typed Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
 - {{jsxref("TypedArray")}}
 - {{jsxref("TypedArray.prototype.entries()")}}
 - {{jsxref("TypedArray.prototype.keys()")}}

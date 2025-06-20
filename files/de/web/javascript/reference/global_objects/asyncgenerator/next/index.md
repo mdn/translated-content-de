@@ -1,13 +1,14 @@
 ---
 title: AsyncGenerator.prototype.next()
+short-title: next()
 slug: Web/JavaScript/Reference/Global_Objects/AsyncGenerator/next
 l10n:
-  sourceCommit: 5bdcf72ed6ffc7d4fa878060a548869ed6ae149b
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Die **`next()`** Methode von {{jsxref("AsyncGenerator")}} Instanzen gibt den nächsten Wert in der Sequenz zurück.
+Die **`next()`**-Methode von {{jsxref("AsyncGenerator")}}-Instanzen gibt den nächsten Wert in der Sequenz zurück.
 
 ## Syntax
 
@@ -19,24 +20,24 @@ next(value)
 ### Parameter
 
 - `value` {{optional_inline}}
-  - : Ein optionaler Wert, der verwendet wird, um den internen Zustand des Generators zu ändern. Ein Wert, der an die `next()` Methode übergeben wird, wird von `yield` empfangen
+  - : Ein optionaler Wert, der verwendet wird, um den internen Zustand des Generators zu ändern. Ein an die `next()`-Methode übergebener Wert wird durch `yield` empfangen
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, der, wenn aufgelöst, ein {{jsxref("Object")}} mit zwei Eigenschaften zurückgibt:
+Ein {{jsxref("Promise")}}, der, wenn er aufgelöst wird, ein {{jsxref("Object")}} mit zwei Eigenschaften zurückgibt:
 
 - `done`
   - : Ein boolescher Wert:
-    - `true`, wenn der Generator das Ende seines Kontrollflusses erreicht hat. In diesem Fall gibt `value` den _Rückgabewert_ des Generators an (der undefiniert sein kann).
+    - `true`, wenn der Generator über das Ende seines Kontrollflusses hinaus ist. In diesem Fall gibt `value` den _Rückgabewert_ des Generators an (was undefiniert sein kann).
     - `false`, wenn der Generator in der Lage ist, weitere Werte zu erzeugen.
 - `value`
-  - : Jeder beliebige JavaScript-Wert, der vom Generator erzeugt oder zurückgegeben wurde.
+  - : Jeder JavaScript-Wert, der vom Generator durch `yield` oder `return` bereitgestellt wird.
 
 ## Beispiele
 
 ### Verwendung von next()
 
-Das folgende Beispiel zeigt einen Generator und das Objekt, das die `next` Methode zurückgibt:
+Das folgende Beispiel zeigt einen Generator und das Objekt, das die `next`-Methode zurückgibt:
 
 ```js
 // An async task. Pretend it's doing something more useful
@@ -60,12 +61,12 @@ asyncGen.next().then((res) => console.log(res)); // { value: 3, done: false }
 asyncGen.next().then((res) => console.log(res)); // { value: undefined, done: true }
 ```
 
-### Senden von Werten an den Generator
+### Werte an den Generator senden
 
 In diesem Beispiel wird `next` mit einem Wert aufgerufen.
 
 > [!NOTE]
-> Der erste Aufruf protokolliert nichts, weil der Generator anfänglich nichts erzeugte.
+> Der erste Aufruf gibt nichts aus, weil der Generator zunächst nichts yieldete.
 
 ```js
 // An async task. Pretend it's doing something more useful
@@ -106,4 +107,4 @@ main();
 ## Siehe auch
 
 - {{jsxref("Statements/async_function*", "async function*")}}
-- [Iteratoren und Generatoren](/de/docs/Web/JavaScript/Guide/Iterators_and_generators) Leitfaden
+- [Iterators und Generators](/de/docs/Web/JavaScript/Guide/Iterators_and_generators) Leitfaden

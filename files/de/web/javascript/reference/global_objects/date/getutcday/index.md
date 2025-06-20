@@ -1,8 +1,9 @@
 ---
 title: Date.prototype.getUTCDay()
+short-title: getUTCDay()
 slug: Web/JavaScript/Reference/Global_Objects/Date/getUTCDay
 l10n:
-  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
@@ -36,7 +37,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein ganzzahliger Wert, der dem Wochentag für das angegebene Datum gemäß der Weltzeit entspricht: 0 für Sonntag, 1 für Montag, 2 für Dienstag und so weiter. Gibt `NaN` zurück, wenn das Datum [ungültig](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) ist.
+Eine ganze Zahl, die dem Wochentag des angegebenen Datums gemäß der Weltzeit entspricht: 0 für Sonntag, 1 für Montag, 2 für Dienstag und so weiter. Gibt `NaN` zurück, wenn das Datum [ungültig](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) ist.
 
 ## Beispiele
 

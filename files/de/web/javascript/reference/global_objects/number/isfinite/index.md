@@ -1,13 +1,14 @@
 ---
 title: Number.isFinite()
+short-title: isFinite()
 slug: Web/JavaScript/Reference/Global_Objects/Number/isFinite
 l10n:
-  sourceCommit: e8320dfbed49d37589d0fe759ef6506885f340f7
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Die statische Methode **`Number.isFinite()`** bestimmt, ob der übergebene Wert eine endliche Zahl ist — das heißt, sie überprüft, ob ein gegebener Wert eine Zahl ist und die Zahl weder positiv {{jsxref("Infinity")}}, negativ `Infinity` noch {{jsxref("NaN")}} ist.
+Die statische Methode **`Number.isFinite()`** bestimmt, ob der übergebene Wert eine endliche Zahl ist — das heißt, sie überprüft, ob ein gegebener Wert eine Zahl ist und die Zahl weder positiv noch negativ {{jsxref("Infinity")}} noch {{jsxref("NaN")}} ist.
 
 {{InteractiveExample("JavaScript Demo: Number.isFinite()")}}
 
@@ -52,7 +53,7 @@ Number.isFinite(2e64); // true
 
 ### Unterschied zwischen Number.isFinite() und global isFinite()
 
-Im Vergleich zur globalen Funktion {{jsxref("isFinite()")}} konvertiert diese Methode den Parameter nicht zuerst in eine Zahl. Dies bedeutet, dass nur Werte des Typs Zahl _und_ die endlich sind, `true` zurückgeben, und Nicht-Zahlen immer `false` zurückgeben.
+Im Vergleich zur globalen Funktion {{jsxref("isFinite()")}} konvertiert diese Methode den Parameter nicht zuerst in eine Zahl. Das bedeutet, dass nur Werte des Typs Zahl _und_ endlich als `true` zurückgegeben werden, und Nicht-Zahlen immer `false` zurückgeben.
 
 ```js
 isFinite("0"); // true; coerced to number 0

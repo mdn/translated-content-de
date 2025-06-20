@@ -1,17 +1,18 @@
 ---
 title: TypedArray.prototype.byteOffset
+short-title: byteOffset
 slug: Web/JavaScript/Reference/Global_Objects/TypedArray/byteOffset
 l10n:
-  sourceCommit: e01fd6206ce2fad2fe09a485bb2d3ceda53a62de
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Die **`byteOffset`**-Zugriffseigenschaft von {{jsxref("TypedArray")}}-Instanzen gibt den Offset (in Bytes) dieses typisierten Arrays vom Anfang seines {{jsxref("ArrayBuffer")}} oder {{jsxref("SharedArrayBuffer")}} zurück.
+Die **`byteOffset`** Zugriffseigenschaft von {{jsxref("TypedArray")}}-Instanzen gibt den Versatz (in Bytes) dieses typisierten Arrays vom Beginn seines {{jsxref("ArrayBuffer")}} oder {{jsxref("SharedArrayBuffer")}} zurück.
 
 ## Beschreibung
 
-Die `byteOffset`-Eigenschaft ist eine Zugriffseigenschaft, deren Set-Accessor-Funktion `undefined` ist, was bedeutet, dass Sie diese Eigenschaft nur lesen können. Der Wert wird festgelegt, wenn ein _TypedArray_ erstellt wird und kann nicht geändert werden. _TypedArray_ ist eines der [TypedArray-Objekte](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray#typedarray_objects).
+Die Eigenschaft `byteOffset` ist eine Zugriffseigenschaft, deren Set-Accessor-Funktion `undefined` ist. Das bedeutet, dass Sie diese Eigenschaft nur lesen können. Der Wert wird festgelegt, wenn ein _TypedArray_ erstellt wird und kann nicht geändert werden. _TypedArray_ ist eines der [TypedArray-Objekte](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray#typedarray_objects).
 
 ## Beispiele
 
@@ -37,5 +38,5 @@ uint8array2.byteOffset; // 3 (as specified when constructing Uint8Array)
 
 ## Siehe auch
 
-- [JavaScript typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
+- [Leitfaden zu JavaScript typisierten Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays)
 - {{jsxref("TypedArray")}}

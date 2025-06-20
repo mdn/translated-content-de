@@ -1,8 +1,9 @@
 ---
 title: ArrayBuffer()-Konstruktor
+short-title: ArrayBuffer()
 slug: Web/JavaScript/Reference/Global_Objects/ArrayBuffer/ArrayBuffer
 l10n:
-  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
@@ -26,20 +27,20 @@ new ArrayBuffer(length)
 new ArrayBuffer(length, options)
 ```
 
-> **Hinweis:** `ArrayBuffer()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Der Versuch, ihn ohne `new` aufzurufen, führt zu einem {{jsxref("TypeError")}}.
+> **Note:** `ArrayBuffer()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Ein Aufruf ohne `new` führt zu einem {{jsxref("TypeError")}}.
 
 ### Parameter
 
 - `length`
-  - : Die Größe in Bytes des zu erstellenden Array-Buffers.
+  - : Die Größe des zu erstellenden Arraypuffers in Bytes.
 - `options` {{optional_inline}}
-  - : Ein Objekt, das die folgenden Eigenschaften enthalten kann:
+  - : Ein Objekt, das folgende Eigenschaften enthalten kann:
     - `maxByteLength` {{optional_inline}}
-      - : Die maximale Größe in Bytes, auf die der Array-Buffer vergrößert werden kann.
+      - : Die maximale Größe in Bytes, auf die der Arraypuffer resized werden kann.
 
 ### Rückgabewert
 
-Ein neues `ArrayBuffer`-Objekt der angegebenen Größe, wobei seine {{jsxref("ArrayBuffer/maxByteLength", "maxByteLength")}}-Eigenschaft auf den angegebenen `maxByteLength` gesetzt ist, falls einer angegeben wurde. Sein Inhalt wird auf 0 initialisiert.
+Ein neues `ArrayBuffer`-Objekt der angegebenen Größe, mit seinem {{jsxref("ArrayBuffer/maxByteLength", "maxByteLength")}}-Eigenschaft, gesetzt auf den angegebenen `maxByteLength`, falls einer definiert wurde. Der Inhalt ist auf 0 initialisiert.
 
 ### Ausnahmen
 
@@ -50,18 +51,18 @@ Ein neues `ArrayBuffer`-Objekt der angegebenen Größe, wobei seine {{jsxref("Ar
 
 ## Beispiele
 
-### Erstellen eines ArrayBuffers
+### Erstellen eines ArrayBuffer
 
-In diesem Beispiel erstellen wir einen 8-Byte-Puffer mit einer {{jsxref("Int32Array")}}-Sicht, die sich auf den Puffer bezieht:
+In diesem Beispiel erstellen wir einen 8-Byte-Puffer mit einer {{jsxref("Int32Array")}}-Ansicht, die auf den Puffer verweist:
 
 ```js
 const buffer = new ArrayBuffer(8);
 const view = new Int32Array(buffer);
 ```
 
-### Erstellen eines anpassbaren ArrayBuffers
+### Erstellen eines resizable ArrayBuffer
 
-In diesem Beispiel erstellen wir einen 8-Byte-Puffer, der auf eine maximale Länge von 16 Bytes vergrößert werden kann, und {{jsxref("ArrayBuffer/resize", "resize()")}} ihn dann auf 12 Bytes:
+In diesem Beispiel erstellen wir einen 8-Byte-Puffer, der auf eine maximale Länge von 16 Bytes vergrößert werden kann, und dann mit {{jsxref("ArrayBuffer/resize", "resize()")}} auf 12 Bytes resized wird:
 
 ```js
 const buffer = new ArrayBuffer(8, { maxByteLength: 16 });
@@ -70,7 +71,7 @@ buffer.resize(12);
 ```
 
 > [!NOTE]
-> Es wird empfohlen, dass `maxByteLength` auf den kleinsten möglichen Wert für Ihren Anwendungsfall festgelegt wird. Es sollte niemals `1073741824` (1GB) überschreiten, um das Risiko von Speicherüberlauffehlern zu verringern.
+> Es wird empfohlen, `maxByteLength` auf den kleinstmöglichen Wert für Ihren Anwendungsfall zu setzen. Er sollte niemals `1073741824` (1GB) überschreiten, um das Risiko von Speichermangel-Fehlern zu minimieren.
 
 ## Spezifikationen
 

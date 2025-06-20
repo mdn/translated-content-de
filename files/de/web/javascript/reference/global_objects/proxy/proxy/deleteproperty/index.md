@@ -1,13 +1,14 @@
 ---
 title: handler.deleteProperty()
+short-title: deleteProperty()
 slug: Web/JavaScript/Reference/Global_Objects/Proxy/Proxy/deleteProperty
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Die Methode **`handler.deleteProperty()`** ist eine Trap für die `[[Delete]]` [interne Objektmethode](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods), die von Operationen wie dem {{jsxref("Operators/delete", "delete")}}-Operator verwendet wird.
+Die Methode **`handler.deleteProperty()`** ist eine Falle für die `[[Delete]]` [interne Objektsmethode](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods), die von Operationen wie dem {{jsxref("Operators/delete", "delete")}}-Operator verwendet wird.
 
 {{InteractiveExample("JavaScript Demo: handler.deleteProperty()", "taller")}}
 
@@ -52,21 +53,21 @@ Die folgenden Parameter werden an die Methode `deleteProperty()` übergeben. `th
 - `target`
   - : Das Zielobjekt.
 - `property`
-  - : Ein String oder ein {{jsxref("Symbol")}}, das den Eigenschaftsnamen repräsentiert.
+  - : Ein String oder ein {{jsxref("Symbol")}}, das den Eigenschaftsnamen darstellt.
 
 ### Rückgabewert
 
-Die Methode `deleteProperty()` muss ein {{jsxref("Boolean")}} zurückgeben, das angibt, ob die Eigenschaft erfolgreich gelöscht wurde oder nicht. Andere Werte werden [in Booleans umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Boolean#boolean_coercion).
+Die Methode `deleteProperty()` muss einen {{jsxref("Boolean")}} zurückgeben, der angibt, ob die Eigenschaft erfolgreich gelöscht wurde oder nicht. Andere Werte werden zu Booleans [gezwungen](/de/docs/Web/JavaScript/Reference/Global_Objects/Boolean#boolean_coercion).
 
-Viele Operationen, einschließlich des {{jsxref("Operators/delete", "delete")}}-Operators im [Strict-Modus](/de/docs/Web/JavaScript/Reference/Strict_mode), lösen einen {{jsxref("TypeError")}} aus, wenn die interne Methode `[[Delete]]` `false` zurückgibt.
+Viele Operationen, einschließlich des {{jsxref("Operators/delete", "delete")}}-Operators im [Strict-Modus](/de/docs/Web/JavaScript/Reference/Strict_mode), werfen einen {{jsxref("TypeError")}}, wenn die interne Methode `[[Delete]]` `false` zurückgibt.
 
 ## Beschreibung
 
-### Interceptions
+### Abfangvorgänge
 
-Diese Trap kann folgende Operationen abfangen:
+Diese Falle kann folgende Operationen abfangen:
 
-- Den [`delete`](/de/docs/Web/JavaScript/Reference/Operators/delete)-Operator: `delete proxy[foo]` und
+- Der [`delete`](/de/docs/Web/JavaScript/Reference/Operators/delete)-Operator: `delete proxy[foo]` und
   `delete proxy.foo`
 - {{jsxref("Reflect.deleteProperty()")}}
 
@@ -74,14 +75,14 @@ Oder jede andere Operation, die die `[[Delete]]` [interne Methode](/de/docs/Web/
 
 ### Invarianten
 
-Die interne Methode `[[Delete]]` des Proxys wirft einen {{jsxref("TypeError")}}, wenn die Handler-Deklaration eine der folgenden Invarianten verletzt:
+Die `[[Delete]]`-Methode des Proxys wirft einen {{jsxref("TypeError")}}, wenn die Handler-Definition eine der folgenden Invarianten verletzt:
 
-- Eine Eigenschaft kann nicht als gelöscht gemeldet werden, wenn sie als nicht-konfigurierbare eigene Eigenschaft des Zielobjekts existiert. Das heißt, wenn {{jsxref("Reflect.getOwnPropertyDescriptor()")}} für die Eigenschaft auf `target` `configurable: false` zurückgibt, muss die Trap einen falsy-Wert zurückgeben.
-- Eine Eigenschaft kann nicht als gelöscht gemeldet werden, wenn sie als eigene Eigenschaft des Zielobjekts existiert und das Zielobjekt nicht erweiterbar ist. Das heißt, wenn {{jsxref("Reflect.isExtensible()")}} auf `target` `false` zurückgibt und {{jsxref("Reflect.getOwnPropertyDescriptor()")}} einen Eigenschaftsdeskriptor für die Eigenschaft auf `target` zurückgibt, muss die Trap einen falsy-Wert zurückgeben.
+- Eine Eigenschaft kann nicht als gelöscht gemeldet werden, wenn sie als nicht konfigurierbare eigene Eigenschaft des Zielobjekts existiert. Das heißt, wenn {{jsxref("Reflect.getOwnPropertyDescriptor()")}} für die Eigenschaft auf `target` `configurable: false` zurückgibt, dann muss die Falle einen falsy-Wert zurückgeben.
+- Eine Eigenschaft kann nicht als gelöscht gemeldet werden, wenn sie als eigene Eigenschaft des Zielobjekts existiert und das Zielobjekt nicht erweiterbar ist. Das heißt, wenn {{jsxref("Reflect.isExtensible()")}} auf `target` `false` zurückgibt und {{jsxref("Reflect.getOwnPropertyDescriptor()")}} einen Eigenschaftsdeskriptor für die Eigenschaft auf `target` zurückgibt, dann muss die Falle einen falsy-Wert zurückgeben.
 
 ## Beispiele
 
-### Löschen-Operator abfangen
+### Abfangen des delete-Operators
 
 Der folgende Code fängt den {{jsxref("Operators/delete", "delete")}}-Operator ab.
 
@@ -123,6 +124,6 @@ console.log(result2); // false
 ## Siehe auch
 
 - {{jsxref("Proxy")}}
-- [`Proxy()`-Konstruktor](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy)
+- [`Proxy()` Konstruktor](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy)
 - {{jsxref("Operators/delete", "delete")}}
 - {{jsxref("Reflect.deleteProperty()")}}

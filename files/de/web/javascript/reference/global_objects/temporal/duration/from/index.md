@@ -1,8 +1,9 @@
 ---
 title: Temporal.Duration.from()
+short-title: from()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/Duration/from
 l10n:
-  sourceCommit: d0b9cef0713eb263934a98e94202b97c143204a4
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}{{SeeCompatTable}}
@@ -21,8 +22,8 @@ Temporal.Duration.from(info)
 
   - : Eines der folgenden:
 
-    - Eine {{jsxref("Temporal.Duration")}} Instanz, die eine Kopie der Instanz erstellt.
-    - Ein [ISO 8601](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration#iso_8601_duration_format)-String, der eine Dauer darstellt.
+    - Eine {{jsxref("Temporal.Duration")}}-Instanz, die eine Kopie der Instanz erstellt.
+    - Ein [ISO 8601](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration#iso_8601_duration_format)-String, der eine Dauer repräsentiert.
     - Ein Objekt, das mindestens eine der folgenden Eigenschaften enthält (in der Reihenfolge, in der sie abgerufen und validiert werden):
 
       - {{jsxref("Temporal/Duration/days", "days")}}
@@ -36,7 +37,7 @@ Temporal.Duration.from(info)
       - {{jsxref("Temporal/Duration/weeks", "weeks")}}
       - {{jsxref("Temporal/Duration/years", "years")}}
 
-      Jede Eigenschaft sollte einen ganzzahligen Zahlenwert enthalten. Die resultierende Dauer darf keine [gemischten Vorzeichen](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration#duration_sign) haben, daher müssen alle diese Eigenschaften das gleiche Vorzeichen (oder Null) aufweisen. Fehlende Eigenschaften werden als Null behandelt.
+      Jede Eigenschaft sollte einen ganzzahligen Zahlenwert enthalten. Die resultierende Dauer darf keine [gemischten Vorzeichen](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration#duration_sign) haben, daher müssen alle diese Eigenschaften dasselbe Vorzeichen (oder null) haben. Fehlende Eigenschaften werden als null behandelt.
 
 ### Rückgabewert
 
@@ -46,13 +47,13 @@ Ein neues `Temporal.Duration`-Objekt, möglicherweise [unausgeglichen](/de/docs/
 
 - {{jsxref("RangeError")}}
   - : Wird in einem der folgenden Fälle ausgelöst:
-    - Eine der erkannten Eigenschaften im `info` Objekt ist keine ganze Zahl (einschließlich nicht-endlicher Werte).
+    - Eine der anerkannten Eigenschaften im `info`-Objekt ist keine ganze Zahl (einschließlich unendlicher Werte).
     - Eine [Kalendereinheit](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration#calendar_durations) (Jahre, Monate, Wochen) hat einen absoluten Wert ≥ 2<sup>32</sup>.
-    - Der nicht-kalenderische Teil der Dauer (Tage und darunter), ausgedrückt in Sekunden, hat einen absoluten Wert ≥ 2<sup>53</sup>.
+    - Der nicht-kalendergebundene Teil der Dauer (Tage und darunter), wenn in Sekunden ausgedrückt, hat einen absoluten Wert ≥ 2<sup>53</sup>.
 - {{jsxref("TypeError")}}
   - : Wird in einem der folgenden Fälle ausgelöst:
     - `info` ist kein Objekt oder String.
-    - Alle anerkannten Eigenschaften im `info` Objekt sind `undefined`.
+    - Alle anerkannten Eigenschaften im `info`-Objekt sind `undefined`.
 
 ## Beispiele
 

@@ -1,13 +1,14 @@
 ---
-title: Iterator() Konstruktor
+title: Iterator()-Konstruktor
+short-title: Iterator()
 slug: Web/JavaScript/Reference/Global_Objects/Iterator/Iterator
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Der **`Iterator()`** Konstruktor ist dazu gedacht, als [Superklasse](/de/docs/Web/JavaScript/Reference/Classes/extends) anderer Klassen verwendet zu werden, die Iteratoren erstellen. Er wirft einen Fehler, wenn er selbst konstruiert wird.
+Der **`Iterator()`**-Konstruktor ist dafür vorgesehen, als [Superklasse](/de/docs/Web/JavaScript/Reference/Classes/extends) anderer Klassen verwendet zu werden, die Iteratoren erstellen. Er erzeugt einen Fehler, wenn er selbst konstruiert wird.
 
 ## Syntax
 
@@ -15,7 +16,7 @@ Der **`Iterator()`** Konstruktor ist dazu gedacht, als [Superklasse](/de/docs/We
 new Iterator()
 ```
 
-> **Hinweis:** `Iterator()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Ein Versuch, ihn ohne `new` aufzurufen, wirft einen {{jsxref("TypeError")}}. Darüber hinaus kann `Iterator()` nicht tatsächlich selbst konstruiert werden — er wird in der Regel implizit durch [`super()`](/de/docs/Web/JavaScript/Reference/Operators/super)-Aufrufe im Konstruktor einer Unterklasse konstruiert.
+> **Hinweis:** `Iterator()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Der Versuch, ihn ohne `new` aufzurufen, führt zu einem {{jsxref("TypeError")}}. Darüber hinaus kann `Iterator()` nicht tatsächlich selbst konstruiert werden – er wird normalerweise implizit durch Aufrufe von [`super()`](/de/docs/Web/JavaScript/Reference/Operators/super) innerhalb des Konstruktors einer Unterklasse konstruiert.
 
 ### Parameter
 
@@ -23,22 +24,22 @@ Keine.
 
 ### Rückgabewert
 
-Ein neues {{jsxref("Iterator")}} Objekt.
+Ein neues {{jsxref("Iterator")}}-Objekt.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wenn [`new.target`](/de/docs/Web/JavaScript/Reference/Operators/new.target) die `Iterator` Funktion selbst ist, d.h. wenn der `Iterator` Konstruktor selbst konstruiert wird.
+  - : Wenn [`new.target`](/de/docs/Web/JavaScript/Reference/Operators/new.target) die `Iterator`-Funktion selbst ist, d.h. wenn der `Iterator`-Konstruktor selbst konstruiert wird.
 
 ## Beschreibung
 
-`Iterator` repräsentiert eine _abstrakte Klasse_ — eine Klasse, die gemeinsame Dienstprogramme für ihre Unterklassen bereitstellt, aber nicht dazu gedacht ist, selbst instanziiert zu werden. Es ist die Superklasse aller anderen Iterator-Klassen und wird verwendet, um Unterklassen zu erstellen, die spezifische Iterationsalgorithmen implementieren — nämlich müssen alle Unterklassen von `Iterator` eine `next()` Methode implementieren, wie es das [Iterator-Protokoll](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterator_protocol) erfordert. Da `Iterator` die `next()` Methode tatsächlich nicht bereitstellt, macht es keinen Sinn, einen `Iterator` direkt zu konstruieren.
+`Iterator` repräsentiert eine _abstrakte Klasse_ — eine Klasse, die allgemeine Utilities für ihre Unterklassen bereitstellt, aber nicht selbst instanziiert werden soll. Es ist die Superklasse aller anderen Iterator-Klassen und wird verwendet, um Unterklassen zu erstellen, die spezifische Iterationsalgorithmen implementieren – nämlich müssen alle Unterklassen von `Iterator` eine `next()`-Methode implementieren, wie es das [Iterator-Protokoll](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterator_protocol) erfordert. Da `Iterator` die `next()`-Methode nicht tatsächlich bereitstellt, macht es keinen Sinn, einen `Iterator` direkt zu konstruieren.
 
-Sie können auch {{jsxref("Iterator.from()")}} verwenden, um eine `Iterator` Instanz aus einem vorhandenen iterierbaren oder Iterator-Objekt zu erstellen.
+Sie können auch {{jsxref("Iterator.from()")}} verwenden, um eine `Iterator`-Instanz aus einem bereits vorhandenen iterierbaren oder Iterator-Objekt zu erstellen.
 
 ## Beispiele
 
-### Iterator unterklassen
+### Subclassing von Iterator
 
 Das folgende Beispiel definiert eine benutzerdefinierte Datenstruktur, `Range`, die Iteration ermöglicht. Um ein Objekt iterierbar zu machen, können wir eine [`[Symbol.iterator]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/iterator)-Methode in Form einer Generatorfunktion bereitstellen:
 
@@ -67,12 +68,12 @@ for (const num of range) {
 }
 ```
 
-Dies funktioniert, aber es ist nicht so schön wie bei eingebauten Iteratoren. Es gibt zwei Probleme:
+Das funktioniert, ist aber nicht so elegant wie bei eingebauten Iteratoren. Es gibt zwei Probleme:
 
-- Der zurückgegebene Iterator erbt von {{jsxref("Generator")}}, was bedeutet, dass Änderungen an `Generator.prototype` den zurückgegebenen Iterator beeinflussen, was eine Abstraktionsleckage darstellt.
-- Der zurückgegebene Iterator erbt nicht von einem benutzerdefinierten Prototypen, was es schwieriger macht, wenn wir beabsichtigen, zusätzliche Methoden zum Iterator hinzuzufügen.
+- Der zurückgegebene Iterator erbt von {{jsxref("Generator")}}, was bedeutet, dass Änderungen an `Generator.prototype` den zurückgegebenen Iterator beeinflussen, was ein Abstraktionsleck darstellt.
+- Der zurückgegebene Iterator erbt nicht von einem benutzerdefinierten Prototyp, was es erschwert, wenn wir beabsichtigen, dem Iterator zusätzliche Methoden hinzuzufügen.
 
-Wir können die Implementierung von eingebauten Iteratoren nachahmen, wie etwa [Map-Iteratoren](/de/docs/Web/JavaScript/Reference/Global_Objects/Map/Symbol.iterator), indem wir `Iterator` unterklassen. Dies ermöglicht es uns, zusätzliche Eigenschaften zu definieren, wie zum Beispiel [`[Symbol.toStringTag]`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toStringTag), während die Iterator-Hilfsmethoden auf dem zurückgegebenen Iterator verfügbar gemacht werden.
+Wir können die Implementierung eingebauter Iteratoren, wie [map iterators](/de/docs/Web/JavaScript/Reference/Global_Objects/Map/Symbol.iterator), nachahmen, indem wir `Iterator` unterklassen. Dies ermöglicht es uns, zusätzliche Eigenschaften zu definieren, wie [`[Symbol.toStringTag]`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toStringTag), wobei die Iterator-Hilfsmethoden für den zurückgegebenen Iterator verfügbar gemacht werden.
 
 ```js
 class Range {
@@ -128,7 +129,7 @@ for (const num of range) {
 }
 ```
 
-Das Unterklassen-Muster ist nützlich, wenn Sie viele benutzerdefinierte Iteratoren erstellen möchten. Wenn Sie ein vorhandenes iterierbares oder Iterator-Objekt haben, das nicht von `Iterator` erbt und Sie nur Iterator-Hilfsmethoden darauf aufrufen möchten, können Sie {{jsxref("Iterator.from()")}} verwenden, um eine einmalige `Iterator` Instanz zu erstellen.
+Das Subclassing-Muster ist nützlich, wenn Sie viele benutzerdefinierte Iteratoren erstellen möchten. Wenn Sie ein vorhandenes iterierbares oder Iterator-Objekt haben, das nicht von `Iterator` erbt und Sie nur Iterator-Hilfsmethoden darauf aufrufen möchten, können Sie {{jsxref("Iterator.from()")}} verwenden, um eine einmalige `Iterator`-Instanz zu erstellen.
 
 ## Spezifikationen
 
@@ -141,6 +142,6 @@ Das Unterklassen-Muster ist nützlich, wenn Sie viele benutzerdefinierte Iterato
 ## Siehe auch
 
 - [Polyfill von `Iterator` in `core-js`](https://github.com/zloirock/core-js#iterator-helpers)
-- [es-shims polyfill von `Iterator` und zugehörige Helfer](https://www.npmjs.com/package/es-iterator-helpers)
+- [es-shims Polyfill von `Iterator` und zugehörigen Hilfsmethoden](https://www.npmjs.com/package/es-iterator-helpers)
 - {{jsxref("Iterator")}}
 - {{jsxref("Iterator.from()")}}

@@ -1,13 +1,14 @@
 ---
 title: TypedArray.BYTES_PER_ELEMENT
+short-title: BYTES_PER_ELEMENT
 slug: Web/JavaScript/Reference/Global_Objects/TypedArray/BYTES_PER_ELEMENT
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Die **`TypedArray.BYTES_PER_ELEMENT`** statische Dateneigenschaft stellt die Größe in Bytes jedes Elements in einem Typed Array dar.
+Die statische Dateneigenschaft **`TypedArray.BYTES_PER_ELEMENT`** repräsentiert die Größe in Bytes jedes Elements in einem typisierten Array.
 
 {{InteractiveExample("JavaScript Demo: TypedArray.BYTES_PER_ELEMENT", "shorter")}}
 
@@ -27,11 +28,11 @@ Eine Zahl, deren Wert vom Typ des `TypedArray` abhängt.
 
 ## Beschreibung
 
-`TypedArray`-Objekte unterscheiden sich in der Anzahl der Bytes pro Element und in der Art und Weise, wie die Bytes interpretiert werden. Die Konstante `BYTES_PER_ELEMENT` enthält die Anzahl der Bytes, die jedes Element im gegebenen `TypedArray` besitzt.
+`TypedArray`-Objekte unterscheiden sich in der Anzahl der Bytes pro Element und in der Art und Weise, wie die Bytes interpretiert werden. Die Konstante `BYTES_PER_ELEMENT` enthält die Anzahl der Bytes, die jedes Element im gegebenen `TypedArray` hat.
 
-Die Eigenschaft `BYTES_PER_ELEMENT` ist sowohl eine _Instanzeigenschaft_ als auch eine _statische Eigenschaft_. Sie ist sowohl auf den Unterklassenkonstruktoren von `TypedArray` als auch auf Instanzen dieser Konstruktoren verfügbar.
+Die Eigenschaft `BYTES_PER_ELEMENT` ist sowohl eine _Instanz-Eigenschaft_ als auch eine _statische Eigenschaft_. Sie ist sowohl in den Unterklassenkonstruktoren von `TypedArray` als auch in Instanzen dieser Konstruktoren verfügbar.
 
-Als Instanzeigenschaft ist `BYTES_PER_ELEMENT` auf dem `prototype` des Konstruktors definiert.
+Als Instanz-Eigenschaft ist `BYTES_PER_ELEMENT` im `prototype` des Konstruktors definiert.
 
 ```js
 console.log(Object.hasOwn(Int8Array.prototype, "BYTES_PER_ELEMENT")); // true
@@ -58,7 +59,7 @@ BigInt64Array.BYTES_PER_ELEMENT; // 8
 BigUint64Array.BYTES_PER_ELEMENT; // 8
 ```
 
-Als Instanzeigenschaft:
+Als Instanz-Eigenschaft:
 
 ```js
 new Int8Array([]).BYTES_PER_ELEMENT; // 1
@@ -85,5 +86,5 @@ new BigUint64Array([]).BYTES_PER_ELEMENT; // 8
 
 ## Siehe auch
 
-- [JavaScript Typed Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
+- [Leitfaden zu JavaScript-Typed-Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays)
 - {{jsxref("TypedArray")}}

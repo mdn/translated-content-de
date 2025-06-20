@@ -1,13 +1,14 @@
 ---
 title: ArrayBuffer.prototype.byteLength
+short-title: byteLength
 slug: Web/JavaScript/Reference/Global_Objects/ArrayBuffer/byteLength
 l10n:
-  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Die **`byteLength`** Zugriffseigenschaft von {{jsxref("ArrayBuffer")}}-Instanzen gibt die Länge (in Bytes) dieses Arraybuffers zurück.
+Die **`byteLength`** Accessor-Eigenschaft von {{jsxref("ArrayBuffer")}} Instanzen gibt die Länge (in Bytes) dieses ArrayBuffers zurück.
 
 {{InteractiveExample("JavaScript Demo: ArrayBuffer.prototype.byteLength")}}
 
@@ -24,7 +25,7 @@ console.log(bytes);
 
 ## Beschreibung
 
-Die `byteLength`-Eigenschaft ist eine Zugriffseigenschaft, deren Set-Accessor-Funktion `undefined` ist, was bedeutet, dass Sie diese Eigenschaft nur lesen können. Der Wert wird festgelegt, wenn der Array erstellt wird und kann nicht geändert werden. Diese Eigenschaft gibt 0 zurück, wenn dieser `ArrayBuffer` getrennt wurde.
+Die `byteLength` Eigenschaft ist eine Accessor-Eigenschaft, deren Set-Accessor-Funktion `undefined` ist, was bedeutet, dass Sie diese Eigenschaft nur lesen können. Der Wert wird festgelegt, wenn das Array erstellt wird und kann nicht geändert werden. Diese Eigenschaft gibt 0 zurück, wenn dieser `ArrayBuffer` gelöst wurde.
 
 ## Beispiele
 

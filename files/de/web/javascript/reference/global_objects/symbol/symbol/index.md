@@ -1,15 +1,16 @@
 ---
 title: Symbol() Konstruktor
+short-title: Symbol()
 slug: Web/JavaScript/Reference/Global_Objects/Symbol/Symbol
 l10n:
-  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Die **`Symbol()`** Funktion gibt primitive Werte des Typs Symbol zurück.
+Die **`Symbol()`** Funktion gibt primitive Werte vom Typ Symbol zurück.
 
-{{InteractiveExample("JavaScript Demo: Symbol() constructor", "taller")}}
+{{InteractiveExample("JavaScript Demo: Symbol() Konstruktor", "taller")}}
 
 ```js interactive-example
 const symbol1 = Symbol();
@@ -36,16 +37,16 @@ Symbol()
 Symbol(description)
 ```
 
-> **Note:** `Symbol()` kann nur ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden. Der Versuch, es mit `new` zu konstruieren, löst einen {{jsxref("TypeError")}} aus.
+> **Note:** `Symbol()` kann nur ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden. Ein Versuch, es mit `new` zu konstruieren, wirft einen {{jsxref("TypeError")}}.
 
 ### Parameter
 
 - `description` {{optional_inline}}
-  - : Ein String. Eine Beschreibung des Symbols, die für das Debuggen verwendet werden kann, aber nicht, um das Symbol selbst zuzugreifen.
+  - : Ein String. Eine Beschreibung des Symbols, die zum Debuggen verwendet werden kann, jedoch nicht, um auf das Symbol selbst zuzugreifen.
 
 ## Beispiele
 
-### Symbole erstellen
+### Erstellen von Symbolen
 
 Um ein neues primitives Symbol zu erstellen, schreiben Sie `Symbol()` mit einem optionalen
 String als Beschreibung:
@@ -64,16 +65,17 @@ Symbol("foo") === Symbol("foo"); // false
 
 ### new Symbol()
 
-Der folgende Syntax mit dem {{jsxref("Operators/new", "new")}} Operator wird einen
-{{jsxref("TypeError")}} auslösen:
+Die folgende Syntax mit dem {{jsxref("Operators/new", "new")}} Operator wird einen
+{{jsxref("TypeError")}} werfen:
 
 ```js example-bad
 const sym = new Symbol(); // TypeError
 ```
 
-Dies verhindert, dass Autoren ein explizites `Symbol` Wrapper-Objekt anstelle eines neuen Symbolwerts erstellen, was überraschend sein könnte, da das Erstellen expliziter Wrapper-Objekte um primitive Datentypen im Allgemeinen möglich ist (zum Beispiel, `new Boolean`, `new String` und `new Number`).
+Dies verhindert, dass Autoren ein explizites `Symbol`-Wrapper-Objekt erstellen, anstelle eines neuen Symbolwerts, und könnte überraschen, da das Erstellen expliziter Wrapper-Objekte um primitive Datentypen im Allgemeinen möglich ist (zum Beispiel,
+`new Boolean`, `new String` und `new Number`).
 
-Wenn Sie wirklich ein `Symbol` Wrapper-Objekt erstellen möchten, können Sie die
+Wenn Sie wirklich ein `Symbol`-Wrapper-Objekt erstellen möchten, können Sie die
 `Object()` Funktion verwenden:
 
 ```js

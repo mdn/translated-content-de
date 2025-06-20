@@ -1,13 +1,14 @@
 ---
 title: Date.prototype.getDay()
+short-title: getDay()
 slug: Web/JavaScript/Reference/Global_Objects/Date/getDay
 l10n:
-  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Die **`getDay()`** Methode von {{jsxref("Date")}} Instanzen gibt den Wochentag für dieses Datum zurück, basierend auf der lokalen Zeit, wobei 0 für Sonntag steht. Für den Tag des Monats siehe {{jsxref("Date.prototype.getDate()")}}.
+Die **`getDay()`** Methode von {{jsxref("Date")}} Instanzen gibt den Wochentag dieses Datums gemäß der Ortszeit zurück, wobei 0 für Sonntag steht. Für den Tag des Monats siehe {{jsxref("Date.prototype.getDate()")}}.
 
 {{InteractiveExample("JavaScript Demo: Date.prototype.getDay()", "shorter")}}
 
@@ -32,11 +33,11 @@ Keine.
 
 ### Rückgabewert
 
-Eine ganze Zahl zwischen 0 und 6, die den Wochentag für das angegebene Datum gemäß der lokalen Zeit darstellt: 0 für Sonntag, 1 für Montag, 2 für Dienstag, und so weiter. Gibt `NaN` zurück, wenn das Datum [ungültig](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) ist.
+Eine Ganzzahl zwischen 0 und 6, die den Wochentag für das angegebene Datum gemäß der Ortszeit darstellt: 0 für Sonntag, 1 für Montag, 2 für Dienstag usw. Gibt `NaN` zurück, wenn das Datum [ungültig](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) ist.
 
 ## Beschreibung
 
-Der Rückgabewert von `getDay()` ist nullbasiert, was nützlich für das Indizieren von Arrays mit Tagen ist, zum Beispiel:
+Der Rückgabewert von `getDay()` ist nullbasiert, was nützlich ist, um in Arrays von Wochentagen zu indizieren, zum Beispiel:
 
 ```js
 const valentines = new Date("1995-02-14");
@@ -46,7 +47,7 @@ const dayNames = ["Sunday", "Monday", "Tuesday" /* , … */];
 console.log(dayNames[day]); // "Monday"
 ```
 
-Allerdings sollten Sie für Internationalisierungszwecke stattdessen {{jsxref("Intl.DateTimeFormat")}} mit dem `options`-Parameter bevorzugen.
+Für Internationalisierungszwecke sollten Sie jedoch lieber {{jsxref("Intl.DateTimeFormat")}} mit dem `options`-Parameter verwenden.
 
 ```js
 const options = { weekday: "long" };

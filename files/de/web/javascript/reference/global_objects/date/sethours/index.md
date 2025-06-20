@@ -1,13 +1,14 @@
 ---
 title: Date.prototype.setHours()
+short-title: setHours()
 slug: Web/JavaScript/Reference/Global_Objects/Date/setHours
 l10n:
-  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Die **`setHours()`**-Methode von {{jsxref("Date")}}-Instanzen ändert die Stunden, Minuten, Sekunden und/oder Millisekunden für dieses Datum gemäß der lokalen Zeit.
+Die **`setHours()`** Methode von {{jsxref("Date")}} Instanzen ändert die Stunden, Minuten, Sekunden und/oder Millisekunden für dieses Datum entsprechend der lokalen Zeit.
 
 {{InteractiveExample("JavaScript Demo: Date.prototype.setHours()")}}
 
@@ -37,23 +38,23 @@ setHours(hoursValue, minutesValue, secondsValue, msValue)
 ### Parameter
 
 - `hoursValue`
-  - : Eine ganze Zahl zwischen 0 und 23, die die Stunden repräsentiert.
+  - : Eine ganze Zahl zwischen 0 und 23, die die Stunden darstellt.
 - `minutesValue` {{optional_inline}}
-  - : Eine ganze Zahl zwischen 0 und 59, die die Minuten repräsentiert.
+  - : Eine ganze Zahl zwischen 0 und 59, die die Minuten darstellt.
 - `secondsValue` {{optional_inline}}
-  - : Eine ganze Zahl zwischen 0 und 59, die die Sekunden repräsentiert. Wenn Sie `secondsValue` angeben, müssen Sie auch `minutesValue` angeben.
+  - : Eine ganze Zahl zwischen 0 und 59, die die Sekunden darstellt. Wenn Sie `secondsValue` angeben, müssen Sie auch `minutesValue` angeben.
 - `msValue` {{optional_inline}}
-  - : Eine ganze Zahl zwischen 0 und 999, die die Millisekunden repräsentiert. Wenn Sie `msValue` angeben, müssen Sie auch `minutesValue` und `secondsValue` angeben.
+  - : Eine ganze Zahl zwischen 0 und 999, die die Millisekunden darstellt. Wenn Sie `msValue` angeben, müssen Sie auch `minutesValue` und `secondsValue` angeben.
 
 ### Rückgabewert
 
-Ändert das {{jsxref("Date")}}-Objekt direkt und gibt dessen neuen [Timestamp](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) zurück. Wenn ein Parameter `NaN` ist (oder andere Werte, die zu `NaN` [gezwungen](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion) werden, wie `undefined`), wird das Datum auf [Invalid Date](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) gesetzt und `NaN` wird zurückgegeben.
+Ändert das {{jsxref("Date")}} Objekt in-place und gibt seinen neuen [Zeitstempel](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) zurück. Wenn ein Parameter `NaN` ist (oder andere Werte, die in `NaN` umgewandelt werden, wie `undefined`), wird das Datum auf [Invalid Date](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) gesetzt und `NaN` zurückgegeben.
 
 ## Beschreibung
 
-Wenn Sie die Parameter `minutesValue`, `secondsValue` und `msValue` nicht angeben, werden die gleichen Werte wie die durch {{jsxref("Date/getMinutes", "getMinutes()")}}, {{jsxref("Date/getSeconds", "getSeconds()")}} und {{jsxref("Date/getMilliseconds", "getMilliseconds()")}} zurückgegebenen verwendet.
+Wenn Sie die Parameter `minutesValue`, `secondsValue` und `msValue` nicht angeben, werden die gleichen Werte verwendet, die von {{jsxref("Date/getMinutes", "getMinutes()")}}, {{jsxref("Date/getSeconds", "getSeconds()")}} und {{jsxref("Date/getMilliseconds", "getMilliseconds()")}} zurückgegeben werden.
 
-Wenn ein von Ihnen angegebener Parameter außerhalb des erwarteten Bereichs liegt, werden andere Parameter und die Datumsinformationen im {{jsxref("Date")}}-Objekt entsprechend aktualisiert. Zum Beispiel, wenn Sie 100 für `secondsValue` angeben, werden die Minuten um 1 erhöht (`minutesValue + 1`), und 40 wird für die Sekunden verwendet.
+Wenn ein angegebener Parameter außerhalb des erwarteten Bereichs liegt, werden andere Parameter und die Datumsinformationen im {{jsxref("Date")}} Objekt entsprechend aktualisiert. Zum Beispiel, wenn Sie 100 für `secondsValue` angeben, werden die Minuten um 1 erhöht (`minutesValue + 1`) und 40 wird für Sekunden verwendet.
 
 ## Beispiele
 

@@ -1,13 +1,14 @@
 ---
 title: WeakMap.prototype.set()
+short-title: set()
 slug: Web/JavaScript/Reference/Global_Objects/WeakMap/set
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Die **`set()`**-Methode von {{jsxref("WeakMap")}}-Instanzen fügt diesem `WeakMap` ein neues Element mit einem angegebenen Schlüssel und Wert hinzu.
+Die **`set()`** Methode von {{jsxref("WeakMap")}} Instanzen fügt ein neues Element mit einem angegebenen Schlüssel und Wert zu diesem `WeakMap` hinzu.
 
 {{InteractiveExample("JavaScript Demo: WeakMap.prototype.set()")}}
 
@@ -35,13 +36,13 @@ set(key, value)
 ### Parameter
 
 - `key`
-  - : Muss entweder ein Objekt oder ein [nicht registriertes Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#shared_symbols_in_the_global_symbol_registry) sein. Der Schlüssel des Eintrags, der dem `WeakMap`-Objekt hinzugefügt werden soll.
+  - : Muss entweder ein Objekt oder ein [nicht registriertes Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#shared_symbols_in_the_global_symbol_registry) sein. Der Schlüssel des Eintrags, der zum `WeakMap` Objekt hinzugefügt werden soll.
 - `value`
-  - : Jeder Wert, der den Wert des Eintrags darstellt, der dem `WeakMap`-Objekt hinzugefügt wird.
+  - : Beliebiger Wert, der den Wert des Eintrags darstellt, der zum `WeakMap` Objekt hinzugefügt werden soll.
 
 ### Rückgabewert
 
-Das `WeakMap`-Objekt.
+Das `WeakMap` Objekt.
 
 ### Ausnahmen
 
@@ -50,7 +51,7 @@ Das `WeakMap`-Objekt.
 
 ## Beispiele
 
-### Verwendung der Methode set()
+### Verwendung der set() Methode
 
 ```js
 const wm = new WeakMap();

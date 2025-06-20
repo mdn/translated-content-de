@@ -1,13 +1,14 @@
 ---
 title: Set.prototype.isSubsetOf()
+short-title: isSubsetOf()
 slug: Web/JavaScript/Reference/Global_Objects/Set/isSubsetOf
 l10n:
-  sourceCommit: e8320dfbed49d37589d0fe759ef6506885f340f7
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Die **`isSubsetOf()`**-Methode von {{jsxref("Set")}}-Instanzen nimmt eine Menge und gibt einen booleschen Wert zurück, der anzeigt, ob alle Elemente dieser Menge in der gegebenen Menge enthalten sind.
+Die Methode **`isSubsetOf()`** von {{jsxref("Set")}} Instanzen nimmt eine Menge und gibt einen booleschen Wert zurück, der angibt, ob alle Elemente dieser Menge in der angegebenen Menge vorhanden sind.
 
 ## Syntax
 
@@ -18,15 +19,15 @@ isSubsetOf(other)
 ### Parameter
 
 - `other`
-  - : Ein {{jsxref("Set")}}-Objekt oder ein [set-ähnliches](/de/docs/Web/JavaScript/Reference/Global_Objects/Set#set-like_objects) Objekt.
+  - : Ein {{jsxref("Set")}}-Objekt oder ein [set-ähnliches Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Set#set-like_objects).
 
 ### Rückgabewert
 
-`true`, wenn alle Elemente in dieser Menge auch in der `other`-Menge sind, und `false` andernfalls.
+`true`, wenn alle Elemente in dieser Menge auch in der `other` Menge sind, und `false` andernfalls.
 
 ## Beschreibung
 
-In mathematischer Notation wird _subset_ definiert als:
+In mathematischer Notation wird die _Teilmenge_ wie folgt definiert:
 
 <!-- prettier-ignore-start -->
 <math display="block">
@@ -34,17 +35,17 @@ In mathematischer Notation wird _subset_ definiert als:
 </math>
 <!-- prettier-ignore-end -->
 
-Und anhand eines Venn-Diagramms:
+Und unter Verwendung eines Venn-Diagramms:
 
-![Ein Venn-Diagramm mit zwei Kreisen. A ist ein Teilmenge von B, weil A vollständig in B enthalten ist.](diagram.svg)
+![Ein Venn-Diagramm mit zwei Kreisen. A ist eine Teilmenge von B, weil A vollständig in B enthalten ist.](diagram.svg)
 
 > [!NOTE]
-> Die _subset_-Beziehung ist kein _proper subset_, was bedeutet, dass `isSubsetOf()` `true` zurückgibt, wenn `this` und `other` die gleichen Elemente enthalten.
+> Die _Teilmenge_-Beziehung ist keine _echte Teilmenge_, was bedeutet, dass `isSubsetOf()` `true` zurückgibt, wenn `this` und `other` die gleichen Elemente enthalten.
 
-`isSubsetOf()` akzeptiert [set-ähnliche](/de/docs/Web/JavaScript/Reference/Global_Objects/Set#set-like_objects) Objekte als `other`-Parameter. Es erfordert, dass {{jsxref("Operators/this", "this")}} eine tatsächliche {{jsxref("Set")}}-Instanz ist, da es direkt auf die zugrunde liegenden Daten in `this` zugreift, ohne benutzerdefinierten Code auszuführen. Danach hängt das Verhalten von den Größen von `this` und `other` ab:
+`isSubsetOf()` akzeptiert [set-ähnliche Objekte](/de/docs/Web/JavaScript/Reference/Global_Objects/Set#set-like_objects) als den `other` Parameter. Es erfordert, dass {{jsxref("Operators/this", "this")}} eine tatsächliche {{jsxref("Set")}} Instanz ist, da es direkt die darunterliegenden Daten in `this` abruft, ohne benutzerdefinierten Code aufzurufen. Dann hängt das Verhalten von der Größe von `this` und `other` ab:
 
-- Wenn es in `this` mehr Elemente gibt als `other.size`, wird direkt `false` zurückgegeben.
-- Andernfalls wird über die Elemente in `this` iteriert, und es wird `false` zurückgegeben, wenn irgendein Element `e` in `this` `other.has(e)` dazu bringt, einen {{Glossary("Falsy", "falsy")}}-Wert zurückzugeben. Andernfalls wird `true` zurückgegeben.
+- Wenn es mehr Elemente in `this` als `other.size` gibt, wird direkt `false` zurückgegeben.
+- Andernfalls iteriert es über die Elemente in `this` und gibt `false` zurück, wenn irgendein Element `e` in `this` dazu führt, dass `other.has(e)` einen {{Glossary("Falsy", "falsy")}} Wert zurückgibt. Andernfalls wird `true` zurückgegeben.
 
 ## Beispiele
 
@@ -86,7 +87,7 @@ console.log(set2.isSubsetOf(set1)); // true
 ## Siehe auch
 
 - [Polyfill von `Set.prototype.isSubsetOf` in `core-js`](https://github.com/zloirock/core-js#new-set-methods)
-- [es-shims polyfill von `Set.prototype.isSubsetOf`](https://www.npmjs.com/package/set.prototype.issubsetof)
+- [es-shims Polyfill von `Set.prototype.isSubsetOf`](https://www.npmjs.com/package/set.prototype.issubsetof)
 - {{jsxref("Set.prototype.difference()")}}
 - {{jsxref("Set.prototype.intersection()")}}
 - {{jsxref("Set.prototype.isDisjointFrom()")}}

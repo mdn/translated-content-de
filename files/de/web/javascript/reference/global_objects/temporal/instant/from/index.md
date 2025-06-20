@@ -1,13 +1,14 @@
 ---
 title: Temporal.Instant.from()
+short-title: from()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/Instant/from
 l10n:
-  sourceCommit: b95bad7e9e8efb07b40d367c3d3cf6e8bfc66b2b
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}{{SeeCompatTable}}
 
-Die **`Temporal.Instant.from()`** statische Methode erstellt ein neues `Temporal.Instant`-Objekt aus einem anderen `Temporal.Instant`-Objekt oder einem [RFC 9557](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Instant#rfc_9557_format) String.
+Die statische Methode **`Temporal.Instant.from()`** erstellt ein neues `Temporal.Instant`-Objekt aus einem anderen `Temporal.Instant`-Objekt oder aus einem [RFC 9557](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Instant#rfc_9557_format)-String.
 
 ## Syntax
 
@@ -19,21 +20,21 @@ Temporal.Instant.from(info)
 
 - `info`
   - : Eines der folgenden:
-    - Eine {{jsxref("Temporal.Instant")}} Instanz, die eine Kopie der Instanz erstellt.
-    - Ein [RFC 9557](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Instant#rfc_9557_format) String, der ein Datum, eine Uhrzeit und einen Zeitzonenversatz enthält. Der Zeitzonenname wird ignoriert; nur der Versatz wird verwendet.
+    - Eine {{jsxref("Temporal.Instant")}}-Instanz, welche eine Kopie der Instanz erstellt.
+    - Ein [RFC 9557](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Instant#rfc_9557_format)-String, der ein Datum, eine Uhrzeit und einen Zeitzonenversatz enthält. Der Name der Zeitzone wird ignoriert; nur der Versatz wird verwendet.
 
 ### Rückgabewert
 
-Ein neues `Temporal.Instant`-Objekt, das den durch `info` angegebenen Zeitpunkt repräsentiert.
+Ein neues `Temporal.Instant`-Objekt, das den im `info` angegebenen Zeitpunkt darstellt.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn `info` weder eine `Temporal.Instant` Instanz noch ein String ist.
+  - : Wird ausgelöst, wenn `info` keine `Temporal.Instant`-Instanz oder ein String ist.
 - {{jsxref("RangeError")}}
   - : Wird in einem der folgenden Fälle ausgelöst:
-    - Der String ist kein gültiger RFC 9557 String.
-    - Die Informationen liegen nicht im [darstellbaren Bereich](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#representable_dates), der ±10<sup>8</sup> Tage oder etwa ±273,972.6 Jahre vom Unix-Epoch umfasst.
+    - Der String ist kein gültiger RFC 9557-String.
+    - Die Info befindet sich nicht im [darstellbaren Bereich](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#representable_dates), welcher ±10<sup>8</sup> Tage, oder etwa ±273.972,6 Jahre vom Unix-Epoch umfasst.
 
 ## Beispiele
 

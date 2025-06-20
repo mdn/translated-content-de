@@ -1,13 +1,14 @@
 ---
 title: Temporal.PlainYearMonth.from()
+short-title: from()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainYearMonth/from
 l10n:
-  sourceCommit: 1b77d85af82183b835cf253e885dca26cba93eb5
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}{{SeeCompatTable}}
 
-Die **`Temporal.PlainYearMonth.from()`** statische Methode erstellt ein neues `Temporal.PlainYearMonth`-Objekt aus einem anderen `Temporal.PlainYearMonth`-Objekt, einem Objekt mit Jahr- und Monatseigenschaften oder einem [RFC 9557](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainYearMonth#rfc_9557_format)-String.
+Die statische Methode **`Temporal.PlainYearMonth.from()`** erstellt ein neues `Temporal.PlainYearMonth` Objekt aus einem anderen `Temporal.PlainYearMonth` Objekt, einem Objekt mit Jahr- und Monatseigenschaften oder einem [RFC 9557](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainYearMonth#rfc_9557_format) String.
 
 ## Syntax
 
@@ -22,50 +23,50 @@ Temporal.PlainYearMonth.from(info, options)
 
   - : Einer der folgenden:
 
-    - Eine Instanz von {{jsxref("Temporal.PlainYearMonth")}}, die eine Kopie der Instanz erstellt.
-    - Ein [RFC 9557](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainYearMonth#rfc_9557_format)-String, der ein Datum und optional einen Kalender enthält. Wenn der Kalender nicht `iso8601` ist, ist ein Tag erforderlich.
-    - Ein Objekt, das die folgenden Eigenschaften enthält (in der Reihenfolge, in der sie abgerufen und validiert werden):
+    - Eine {{jsxref("Temporal.PlainYearMonth")}} Instanz, was eine Kopie der Instanz erstellt.
+    - Ein [RFC 9557](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainYearMonth#rfc_9557_format) String, der ein Datum enthält und optional einen Kalender. Wenn der Kalender nicht `iso8601` ist, ist ein Tag erforderlich.
+    - Ein Objekt, das folgende Eigenschaften enthält (in der Reihenfolge, in der sie abgerufen und validiert werden):
       - `calendar` {{optional_inline}}
-        - : Ein String, der der {{jsxref("Temporal/PlainYearMonth/calendarId", "calendarId")}} Eigenschaft entspricht. Siehe [`Intl.supportedValuesOf()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/supportedValuesOf#supported_calendar_types) für eine Liste gängiger unterstützter Kalendertypen. Standardmäßig `"iso8601"`. Alle anderen Eigenschaften werden in diesem Kalendersystem interpretiert (im Gegensatz zum {{jsxref("Temporal/PlainYearMonth/PlainYearMonth", "Temporal.PlainYearMonth()")}} Konstruktor, der die Werte im ISO-Kalendersystem interpretiert).
+        - : Ein String, der der {{jsxref("Temporal/PlainYearMonth/calendarId", "calendarId")}} Eigenschaft entspricht. Siehe [`Intl.supportedValuesOf()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/supportedValuesOf#supported_calendar_types) für eine Liste der häufig unterstützten Kalendertypen. Standard ist `"iso8601"`. Alle anderen Eigenschaften werden in diesem Kalendersystem interpretiert (im Gegensatz zum {{jsxref("Temporal/PlainYearMonth/PlainYearMonth", "Temporal.PlainYearMonth()")}} Konstruktor, der die Werte im ISO-Kalendersystem interpretiert).
       - `era` und `eraYear`
-        - : Ein String und eine Ganzzahl, die den Eigenschaften {{jsxref("Temporal/PlainYearMonth/era", "era")}} und {{jsxref("Temporal/PlainYearMonth/eraYear", "eraYear")}} entsprechen. Werden nur verwendet, wenn das Kalendersystem Epochen hat. `era` und `eraYear` müssen gleichzeitig bereitgestellt werden. Wenn sie nicht bereitgestellt werden, muss `year` bereitgestellt werden. Wenn alle `era`, `eraYear` und `year` bereitgestellt werden, müssen sie konsistent sein.
+        - : Ein String und eine Ganzzahl, die den {{jsxref("Temporal/PlainYearMonth/era", "era")}} und {{jsxref("Temporal/PlainYearMonth/eraYear", "eraYear")}} Eigenschaften entsprechen. Werden nur verwendet, wenn das Kalendersystem Epochen hat. `era` und `eraYear` müssen gleichzeitig bereitgestellt werden. Wenn sie nicht bereitgestellt werden, muss `year` angegeben werden. Wenn alle `era`, `eraYear` und `year` angegeben sind, müssen sie konsistent sein.
       - `month`
-        - : Entspricht der {{jsxref("Temporal/PlainYearMonth/month", "month")}} Eigenschaft. Muss unabhängig von der `overflow`-Option positiv sein.
+        - : Entspricht der {{jsxref("Temporal/PlainYearMonth/month", "month")}} Eigenschaft. Muss positiv sein, unabhängig von der `overflow` Option.
       - `monthCode`
-        - : Entspricht der {{jsxref("Temporal/PlainYearMonth/monthCode", "monthCode")}} Eigenschaft. Wenn sie nicht bereitgestellt wird, muss `month` bereitgestellt werden. Wenn sowohl `month` als auch `monthCode` bereitgestellt werden, müssen sie konsistent sein.
+        - : Entspricht der {{jsxref("Temporal/PlainYearMonth/monthCode", "monthCode")}} Eigenschaft. Wenn es nicht angegeben ist, muss `month` bereitgestellt werden. Wenn sowohl `month` als auch `monthCode` bereitgestellt werden, müssen sie konsistent sein.
       - `year`
         - : Entspricht der {{jsxref("Temporal/PlainYearMonth/year", "year")}} Eigenschaft.
 
 - `options` {{optional_inline}}
   - : Ein Objekt, das die folgende Eigenschaft enthält:
     - `overflow` {{optional_inline}}
-      - : Ein String, der das Verhalten angibt, wenn eine Datumskomponente außerhalb des Bereichs liegt (bei Verwendung der Objekt-`info`). Mögliche Werte sind:
+      - : Ein String, der das Verhalten angibt, wenn eine Datenkomponente außerhalb des Bereichs liegt (bei Verwendung des Objekts `info`). Mögliche Werte sind:
         - `"constrain"` (Standard)
-          - : Die Datumskomponente wird auf den gültigen Bereich [eingeklemmt](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainDate#invalid_date_clamping).
+          - : Die Datenkomponente wird auf den gültigen Bereich [begrenzt](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainDate#invalid_date_clamping).
         - `"reject"`
-          - : Ein {{jsxref("RangeError")}} wird ausgelöst, wenn die Datumskomponente außerhalb des Bereichs liegt.
+          - : Ein {{jsxref("RangeError")}} wird ausgelöst, wenn die Datenkomponente außerhalb des Bereichs liegt.
 
 ### Rückgabewert
 
-Ein neues `Temporal.PlainYearMonth`-Objekt, das das durch `info` im angegebenen `calendar` spezifizierte Jahr und den Monat darstellt.
+Ein neues `Temporal.PlainYearMonth` Objekt, das das Jahr und den Monat repräsentiert, die von `info` im angegebenen `calendar` angegeben sind.
 
-Jedes `PlainYearMonth` speichert intern ein vollständiges ISO 8601-Datum, das im Zielkalender dieselbe Jahr-Monat-Kombination hat wie die angezeigte. Der Referenztag ist sichtbar, wenn er mit {{jsxref("Temporal/PlainYearMonth/toString", "toString()")}} in einen String konvertiert wird, was ein ISO-Datum ausgibt. Der Referenztag wird willkürlich, aber konsistent gewählt, das heißt, jedes `(year, month)`-Paar wird immer dem gleichen ISO-Referenztag zugeordnet. Es wird nicht der im Eingang angegebene Tag verwendet. Stattdessen wird der Referenztag immer als der erste gültige Tag des Monats gewählt.
+Jedes `PlainYearMonth` speichert intern ein vollständiges ISO 8601 Datum, das dasselbe Jahr-Monat im Zielkalender hat wie das, was angezeigt wird. Der Referenztag ist sichtbar, wenn er mit {{jsxref("Temporal/PlainYearMonth/toString", "toString()")}} in einen String umgewandelt wird, der ein ISO-Datum ausgibt. Der Referenztag wird willkürlich, aber konsistent gewählt; das heißt, jedes `(year, month)` Paar wird immer demselben ISO-Referenztag zugeordnet. Der in der Eingabe angegebene Tag wird nicht verwendet. Stattdessen wird der Referenztag immer als der erste gültige Tag des Monats gewählt.
 
-Diese Referenztag-Kanalisierung stellt sicher, dass {{jsxref("Temporal/PlainYearMonth/equals", "equals()")}} die zugrunde liegenden ISO-Daten direkt ohne zusätzliche Berechnung vergleichen kann.
+Diese Referenztage-Kanonisierung stellt sicher, dass {{jsxref("Temporal/PlainYearMonth/equals", "equals()")}} die zugrunde liegenden ISO-Daten ohne zusätzliche Berechnungen direkt vergleichen kann.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
   - : Wird in einem der folgenden Fälle ausgelöst:
-    - `info` ist kein Objekt oder String.
+    - `info` ist kein Objekt oder kein String.
     - `options` ist kein Objekt oder `undefined`.
-    - Die bereitgestellten Eigenschaften sind unzureichend, um ein Datum eindeutig zu bestimmen. Üblicherweise müssen Sie ein `year` (oder `era` und `eraYear`) und ein `month` (oder ein `monthCode`) angeben.
+    - Die bereitgestellten Eigenschaften sind nicht ausreichend, um ein Datum eindeutig zu bestimmen. Normalerweise müssen `year` (oder `era` und `eraYear`) und `month` (oder ein `monthCode`) bereitgestellt werden.
 - {{jsxref("RangeError")}}
   - : Wird in einem der folgenden Fälle ausgelöst:
-    - Die bereitgestellten Eigenschaften, die dieselbe Komponente angeben, sind inkonsistent.
-    - Die bereitgestellten nicht-numerischen Eigenschaften sind ungültig; zum Beispiel, wenn `monthCode` in diesem Kalendercode niemals ein gültiger Monatscode ist.
-    - Die bereitgestellten numerischen Eigenschaften liegen außerhalb des Bereichs und `options.overflow` ist auf `"reject"` gesetzt.
-    - Die Info liegt nicht im [darstellbaren Bereich](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#representable_dates), der ±(10<sup>8</sup> + 1) Tage oder etwa ±273.972,6 Jahre ab der Unix-Epoche umfasst.
+    - Die bereitgestellten Eigenschaften, die dieselbe Komponente spezifizieren, sind inkonsistent.
+    - Die bereitgestellten nicht-zahlreichen Eigenschaften sind ungültig; zum Beispiel, wenn `monthCode` nie ein gültiger Monatscode in diesem Kalender ist.
+    - Die bereitgestellten zahlreichen Eigenschaften sind außerhalb des Bereichs, und `options.overflow` ist auf `"reject"` gesetzt.
+    - Die Information liegt nicht im [darstellbaren Bereich](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#representable_dates), der ±(10<sup>8</sup> + 1) Tage oder ungefähr ±273.972,6 Jahre ab dem Unix-Epoch umfasst.
 
 ## Beispiele
 
@@ -97,9 +98,9 @@ const ym4 = Temporal.PlainYearMonth.from({
 console.log(ym4.toString()); // 1970-02-07[u-ca=hebrew]
 ```
 
-### Kontrollieren des Überlaufverhaltens
+### Steuerung des Überlaufverhaltens
 
-Standardmäßig werden Werte außerhalb des Bereichs auf den gültigen Bereich eingeklemmt.
+Standardmäßig werden Werte außerhalb des Bereichs auf den gültigen Bereich begrenzt.
 
 ```js
 const ym1 = Temporal.PlainYearMonth.from({ year: 2021, month: 13 });

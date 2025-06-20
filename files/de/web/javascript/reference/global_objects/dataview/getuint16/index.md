@@ -1,13 +1,14 @@
 ---
 title: DataView.prototype.getUint16()
+short-title: getUint16()
 slug: Web/JavaScript/Reference/Global_Objects/DataView/getUint16
 l10n:
-  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Die **`getUint16()`**-Methode von {{jsxref("DataView")}}-Instanzen liest 2 Bytes ab dem angegebenen Byte-Offset dieses `DataView` und interpretiert sie als 16-Bit-Ganzzahl ohne Vorzeichen. Es gibt keine Ausrichtungsbeschränkung; Mehrbyte-Werte können von jedem Offset innerhalb der Grenzen abgerufen werden.
+Die **`getUint16()`** Methode der {{jsxref("DataView")}} Instanzen liest 2 Bytes beginnend bei dem angegebenen Byte-Offset dieses `DataView` und interpretiert sie als ein 16-Bit vorzeichenloses Ganzzahl. Es gibt keine Ausrichtungsbeschränkung; Mehrbyte-Werte können von jedem Offset innerhalb der Grenzen abgerufen werden.
 
 {{InteractiveExample("JavaScript Demo: DataView.prototype.getUint16()")}}
 
@@ -32,9 +33,9 @@ getUint16(byteOffset, littleEndian)
 ### Parameter
 
 - `byteOffset`
-  - : Der Offset in Bytes vom Beginn der Ansicht, ab dem die Daten gelesen werden.
+  - : Der Offset, in Bytes, vom Beginn der Ansicht, ab dem die Daten gelesen werden.
 - `littleEndian` {{optional_inline}}
-  - : Gibt an, ob die Daten im {{Glossary("Endianness", "Little- oder Big-Endian")}}-Format gespeichert sind. Wenn `false` oder `undefined`, wird ein Big-Endian-Wert gelesen.
+  - : Gibt an, ob die Daten im {{Glossary("Endianness", "Little- oder Big-Endian")}} Format gespeichert sind. Wenn `false` oder `undefined`, wird ein Big-Endian-Wert gelesen.
 
 ### Rückgabewert
 
@@ -43,7 +44,7 @@ Eine Ganzzahl von 0 bis 65535, einschließlich.
 ### Ausnahmen
 
 - {{jsxref("RangeError")}}
-  - : Wird ausgelöst, wenn der `byteOffset` so gesetzt ist, dass er über das Ende der Ansicht hinaus lesen würde.
+  - : Wird ausgelöst, wenn der `byteOffset` so gesetzt wird, dass er über das Ende der Ansicht hinauslesen würde.
 
 ## Beispiele
 
@@ -65,7 +66,7 @@ console.log(dataview.getUint16(1)); // 258
 
 ## Siehe auch
 
-- [Leitfaden zu JavaScript-Typed-Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays)
+- [JavaScript typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
 - {{jsxref("DataView")}}
 - {{jsxref("ArrayBuffer")}}
 - {{jsxref("Uint16Array")}}

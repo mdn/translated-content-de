@@ -1,8 +1,9 @@
 ---
 title: WeakMap.prototype.delete()
+short-title: delete()
 slug: Web/JavaScript/Reference/Global_Objects/WeakMap/delete
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
@@ -33,15 +34,15 @@ weakMapInstance.delete(key)
 ### Parameter
 
 - `key`
-  - : Der Schlüssel des zu entfernenden Elements aus dem `WeakMap`-Objekt.
+  - : Der Schlüssel des Elements, das aus dem `WeakMap`-Objekt entfernt werden soll.
 
 ### Rückgabewert
 
-`true`, wenn ein Element im `WeakMap`-Objekt erfolgreich entfernt wurde. `false`, wenn der Schlüssel nicht im `WeakMap` gefunden wird. Liefert immer `false`, wenn `key` kein Objekt oder ein [nicht registriertes Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#shared_symbols_in_the_global_symbol_registry) ist.
+`true`, wenn ein Element im `WeakMap`-Objekt erfolgreich entfernt wurde. `false`, wenn der Schlüssel im `WeakMap` nicht gefunden wird. Gibt immer `false` zurück, wenn `key` kein Objekt oder ein [nicht registriertes Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#shared_symbols_in_the_global_symbol_registry) ist.
 
 ## Beispiele
 
-### Verwendung der delete()-Methode
+### Verwendung der Methode delete()
 
 ```js
 const wm = new WeakMap();

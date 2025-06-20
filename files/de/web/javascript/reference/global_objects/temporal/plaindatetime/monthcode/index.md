@@ -1,17 +1,18 @@
 ---
 title: Temporal.PlainDateTime.prototype.monthCode
+short-title: monthCode
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainDateTime/monthCode
 l10n:
-  sourceCommit: d0b9cef0713eb263934a98e94202b97c143204a4
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}{{SeeCompatTable}}
 
-Die Eigenschaft **`monthCode`** von {{jsxref("Temporal.PlainDateTime")}} Instanzen liefert einen kalender-spezifischen String, der den Monat dieses Datums darstellt. Sie ist [kalender](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#calendars)-abhängig.
+Die **`monthCode`**-Zugriffseigenschaft von {{jsxref("Temporal.PlainDateTime")}}-Instanzen gibt einen kalender-spezifischen String zurück, der den Monat dieses Datums repräsentiert. Es ist abhängig vom [Kalender](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#calendars).
 
-Normalerweise ist es `M` plus eine zweistellige Monatszahl. Für Schaltmonate ist es der Code des vorherigen Monats gefolgt von `L` (selbst wenn es konzeptionell ein Derivat des folgenden Monats ist; zum Beispiel hat im hebräischen Kalender Adar I den Code `M05L`, aber Adar II hat den Code `M06`). Ist der Schaltmonat der erste Monat des Jahres, ist der Code `M00L`.
+Normalerweise besteht er aus `M` plus einer zweistelligen Monatsnummer. Bei Schaltmonaten ist es der Code des vorhergehenden Monats gefolgt von `L` (selbst wenn es konzeptionell ein Abkömmling des folgenden Monats ist; zum Beispiel hat im hebräischen Kalender Adar I den Code `M05L`, aber Adar II hat den Code `M06`). Wenn der Schaltmonat der erste Monat des Jahres ist, ist der Code `M00L`.
 
-Der Setter von `monthCode` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern. Verwenden Sie die Methode {{jsxref("Temporal/PlainDateTime/with", "with()")}}, um ein neues `Temporal.PlainDateTime`-Objekt mit dem gewünschten neuen Wert zu erstellen.
+Der Set-Accessor von `monthCode` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern. Verwenden Sie die Methode {{jsxref("Temporal/PlainDateTime/with", "with()")}}, um ein neues `Temporal.PlainDateTime`-Objekt mit dem gewünschten neuen Wert zu erstellen.
 
 Für allgemeine Informationen und weitere Beispiele siehe {{jsxref("Temporal/PlainDate/monthCode", "Temporal.PlainDate.prototype.monthCode")}}.
 

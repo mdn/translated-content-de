@@ -1,17 +1,18 @@
 ---
 title: Temporal.Duration.prototype.hours
+short-title: hours
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/Duration/hours
 l10n:
-  sourceCommit: 262c13dcbcd394beddd98e07d9c78bc79ce3513c
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}{{SeeCompatTable}}
 
-Die **`hours`** Accessor-Eigenschaft von {{jsxref("Temporal.Duration")}}-Instanzen gibt eine Ganzzahl zurück, die die Anzahl der Stunden in der Dauer repräsentiert.
+Die **`hours`** Zugriffseigenschaft von {{jsxref("Temporal.Duration")}} Instanzen gibt eine ganze Zahl zurück, die die Anzahl der Stunden in der Dauer darstellt.
 
-Sofern die Dauer nicht [ausgeglichen](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration#duration_balancing) ist, können Sie den Wertebereich dieser Eigenschaft nicht annehmen. Sie können jedoch ihr Vorzeichen ermitteln, indem Sie die [`sign`](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration/sign)-Eigenschaft der Dauer überprüfen. Wenn sie auf eine Einheit oberhalb von Stunden ausbalanciert ist, liegt der absolute Wert von `hours` im Bereich von 0 bis 23, einschließlich.
+Sofern die Dauer nicht [ausbalanciert](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration#duration_balancing) ist, können Sie den Bereich dieses Wertes nicht annehmen, aber Sie können dessen Vorzeichen feststellen, indem Sie die [`sign`](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration/sign) Eigenschaft der Dauer überprüfen. Wenn sie auf eine Einheit oberhalb von Stunden ausbalanciert ist, liegt der absolute Wert von `hours` zwischen 0 und 23, einschließlich.
 
-Der set-Accessor von `hours` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern. Verwenden Sie die Methode {{jsxref("Temporal/Duration/with", "with()")}}, um ein neues `Temporal.Duration`-Objekt mit dem gewünschten neuen Wert zu erstellen.
+Der set Accessor von `hours` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern. Verwenden Sie die {{jsxref("Temporal/Duration/with", "with()")}} Methode, um ein neues `Temporal.Duration` Objekt mit dem gewünschten neuen Wert zu erstellen.
 
 ## Beispiele
 

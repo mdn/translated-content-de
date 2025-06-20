@@ -1,14 +1,14 @@
 ---
 title: Boolean.prototype.valueOf()
+short-title: valueOf()
 slug: Web/JavaScript/Reference/Global_Objects/Boolean/valueOf
 l10n:
-  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Die **`valueOf()`**-Methode von {{jsxref("Boolean")}}-Werten gibt den primitiven Wert eines
-{{jsxref("Boolean")}}-Objekts zurück.
+Die **`valueOf()`** Methode von {{jsxref("Boolean")}}-Werten gibt den primitiven Wert eines {{jsxref("Boolean")}}-Objekts zurück.
 
 {{InteractiveExample("JavaScript Demo: Boolean.prototype.valueOf()")}}
 
@@ -41,7 +41,7 @@ Der primitive Wert des angegebenen {{jsxref("Boolean")}}-Objekts.
 ## Beschreibung
 
 Die `valueOf()`-Methode von {{jsxref("Boolean")}} gibt den primitiven Wert
-eines `Boolean`-Objekts oder literalen `Boolean` als Boolean-Datentyp zurück.
+eines `Boolean`-Objekts oder eines literalen `Boolean` als Boolean-Datentyp zurück.
 
 Diese Methode wird normalerweise intern von JavaScript aufgerufen und nicht explizit im Code.
 

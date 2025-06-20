@@ -1,13 +1,14 @@
 ---
 title: TypedArray.prototype.byteLength
+short-title: byteLength
 slug: Web/JavaScript/Reference/Global_Objects/TypedArray/byteLength
 l10n:
-  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Die Zugriffseigenschaft **`byteLength`** von {{jsxref("TypedArray")}}-Instanzen gibt die Länge (in Bytes) dieses typisierten Arrays zurück.
+Die **`byteLength`** Zugriffs-Eigenschaft von {{jsxref("TypedArray")}} Instanzen gibt die Länge (in Bytes) dieses typisierten Arrays zurück.
 
 {{InteractiveExample("JavaScript Demo: TypedArray.prototype.byteLength", "shorter")}}
 
@@ -22,7 +23,7 @@ console.log(uint8.byteLength);
 
 ## Beschreibung
 
-Die Eigenschaft `byteLength` ist eine Zugriffseigenschaft, deren Set-Accessor-Funktion `undefined` ist, was bedeutet, dass Sie diese Eigenschaft nur lesen können. Der Wert wird festgelegt, wenn ein _TypedArray_ konstruiert wird und kann nicht geändert werden. Wenn das _TypedArray_ keinen `byteOffset` oder eine `length` angibt, wird die `length` des referenzierten `ArrayBuffer` zurückgegeben. _TypedArray_ ist eines der [TypedArray-Objekte](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray#typedarray_objects).
+Die `byteLength` Eigenschaft ist eine Zugriffs-Eigenschaft, deren Set-Accessor-Funktion `undefined` ist, was bedeutet, dass Sie diese Eigenschaft nur lesen können. Der Wert wird festgelegt, wenn ein _TypedArray_ konstruiert wird und kann nicht geändert werden. Wenn das _TypedArray_ keinen `byteOffset` oder eine `length` angibt, wird die `length` des referenzierten `ArrayBuffer` zurückgegeben. _TypedArray_ ist eines der [TypedArray objects](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray#typedarray_objects).
 
 ## Beispiele
 
@@ -51,5 +52,5 @@ uint8offSet.byteLength; // 6 (due to the offset of the constructed Uint8Array)
 
 ## Siehe auch
 
-- Leitfaden zu [JavaScript-typisierten Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays)
+- [Leitfaden für JavaScript typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays)
 - {{jsxref("TypedArray")}}

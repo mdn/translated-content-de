@@ -1,13 +1,14 @@
 ---
 title: Symbol.prototype.description
+short-title: description
 slug: Web/JavaScript/Reference/Global_Objects/Symbol/description
 l10n:
-  sourceCommit: e8320dfbed49d37589d0fe759ef6506885f340f7
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Die **`description`** Zugriffs-Eigenschaft von {{jsxref("Symbol")}}-Werten gibt einen String zurück, der die Beschreibung dieses Symbols enthält, oder `undefined`, wenn das Symbol keine Beschreibung hat.
+Die **`description`**-Zugriffseigenschaft von {{jsxref("Symbol")}}-Werten gibt eine Zeichenkette zurück, die die Beschreibung dieses Symbols enthält, oder `undefined`, wenn das Symbol keine Beschreibung hat.
 
 {{InteractiveExample("JavaScript Demo: Symbol.prototype.description")}}
 
@@ -27,11 +28,11 @@ console.log(`${Symbol("foo").description}bar`);
 
 ## Beschreibung
 
-{{jsxref("Symbol")}}-Objekte können mit einer optionalen Beschreibung erstellt werden, die zum Debugging genutzt werden kann, aber nicht, um auf das Symbol selbst zuzugreifen. Die `Symbol.prototype.description`-Eigenschaft kann verwendet werden, um diese Beschreibung auszulesen. Sie unterscheidet sich von `Symbol.prototype.toString()`, da sie nicht den umschließenden `"Symbol()"`-String enthält. Siehe die Beispiele.
+{{jsxref("Symbol")}}-Objekte können mit einer optionalen Beschreibung erstellt werden, die zum Debuggen verwendet werden kann, aber nicht, um auf das Symbol selbst zuzugreifen. Die `Symbol.prototype.description`-Eigenschaft kann verwendet werden, um diese Beschreibung auszulesen. Sie unterscheidet sich von `Symbol.prototype.toString()`, da sie nicht die umschließende Zeichenkette `"Symbol()"` enthält. Siehe die Beispiele.
 
 ## Beispiele
 
-### Verwendung von description
+### Verwendung der Beschreibung
 
 ```js
 Symbol("desc").toString(); // "Symbol(desc)"

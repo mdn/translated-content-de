@@ -1,21 +1,22 @@
 ---
 title: Temporal.Duration.prototype.minutes
+short-title: minutes
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/Duration/minutes
 l10n:
-  sourceCommit: 262c13dcbcd394beddd98e07d9c78bc79ce3513c
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}{{SeeCompatTable}}
 
-Die **`minutes`**-Zugriffseigenschaft von {{jsxref("Temporal.Duration")}}-Instanzen gibt eine Ganzzahl zurück, die die Anzahl der Minuten in der Dauer repräsentiert.
+Die **`minutes`**-Zugriffseigenschaft von {{jsxref("Temporal.Duration")}}-Instanzen gibt eine ganze Zahl zurück, die die Anzahl der Minuten in der Dauer darstellt.
 
-Sofern die Dauer nicht [ausgeglichen](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration#duration_balancing) ist, können Sie den Bereich dieses Werts nicht vorhersagen, aber Sie können das Vorzeichen ermitteln, indem Sie die [`sign`](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration/sign)-Eigenschaft der Dauer überprüfen. Wenn die Dauer zu einer Einheit über Minuten ausgeglichen ist, liegt der absolute Wert von `minutes` zwischen 0 und 59, einschließlich.
+Sofern die Dauer nicht [ausgeglichen](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration#duration_balancing) ist, können Sie den Bereich dieses Wertes nicht annehmen, aber Sie können das Vorzeichen bestimmen, indem Sie die [`sign`](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration/sign)-Eigenschaft der Dauer überprüfen. Wenn sie zu einer Einheit oberhalb der Minuten ausgeglichen ist, liegt der absolute Wert von `minutes` zwischen 0 und 59, einschließlich.
 
 Der Set-Accessor von `minutes` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern. Verwenden Sie die {{jsxref("Temporal/Duration/with", "with()")}}-Methode, um ein neues `Temporal.Duration`-Objekt mit dem gewünschten neuen Wert zu erstellen.
 
 ## Beispiele
 
-### Verwendung von minutes
+### Verwendung von Minuten
 
 ```js
 const d1 = Temporal.Duration.from({ hours: 1, minutes: 30 });

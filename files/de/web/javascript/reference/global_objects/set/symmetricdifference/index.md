@@ -1,13 +1,14 @@
 ---
 title: Set.prototype.symmetricDifference()
+short-title: symmetricDifference()
 slug: Web/JavaScript/Reference/Global_Objects/Set/symmetricDifference
 l10n:
-  sourceCommit: e8320dfbed49d37589d0fe759ef6506885f340f7
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Die **`symmetricDifference()`**-Methode von {{jsxref("Set")}}-Instanzen nimmt eine Menge und gibt eine neue Menge zurück, die Elemente enthält, die entweder in dieser Menge oder in der angegebenen Menge, aber nicht in beiden enthalten sind.
+Die **`symmetricDifference()`**-Methode von {{jsxref("Set")}}-Instanzen nimmt eine Menge und gibt eine neue Menge zurück, die Elemente enthält, die entweder in dieser Menge oder in der gegebenen Menge sind, aber nicht in beiden.
 
 ## Syntax
 
@@ -18,15 +19,15 @@ symmetricDifference(other)
 ### Parameter
 
 - `other`
-  - : Ein {{jsxref("Set")}}-Objekt oder [mengenähnliches Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Set#set-like_objects).
+  - : Ein {{jsxref("Set")}}-Objekt oder ein [set-ähnliches](/de/docs/Web/JavaScript/Reference/Global_Objects/Set#set-like_objects) Objekt.
 
 ### Rückgabewert
 
-Ein neues {{jsxref("Set")}}-Objekt, das Elemente enthält, die entweder in dieser Menge oder in der `other`-Menge, aber nicht in beiden enthalten sind.
+Ein neues {{jsxref("Set")}}-Objekt, das Elemente enthält, die entweder in dieser Menge oder in der `other`-Menge sind, aber nicht in beiden.
 
 ## Beschreibung
 
-In mathematischer Notation wird die _symmetrische Differenz_ definiert als:
+In der mathematischen Notation ist die _symmetrische Differenz_ definiert als:
 
 <!-- prettier-ignore-start -->
 <math display="block">
@@ -34,11 +35,11 @@ In mathematischer Notation wird die _symmetrische Differenz_ definiert als:
 </math>
 <!-- prettier-ignore-end -->
 
-Und unter Verwendung eines Venn-Diagramms:
+Und mithilfe von Venn-Diagrammen:
 
-![Ein Venn-Diagramm, bei dem sich zwei Kreise überschneiden. Die symmetrische Differenz von A und B ist der Bereich, der von einem der beiden Kreise, aber nicht von beiden enthalten wird.](diagram.svg)
+![Ein Venn-Diagramm, bei dem sich zwei Kreise überlappen. Die symmetrische Differenz von A und B ist der Bereich, der entweder von einem der beiden Kreise, aber nicht von beiden, eingenommen wird.](diagram.svg)
 
-`symmetricDifference()` akzeptiert [mengenähnliche Objekte](/de/docs/Web/JavaScript/Reference/Global_Objects/Set#set-like_objects) als `other`-Parameter. Es erfordert, dass {{jsxref("Operators/this", "this")}} eine tatsächliche {{jsxref("Set")}}-Instanz ist, da es die zugrundeliegenden Daten direkt aus `this` abruft, ohne benutzerdefinierten Code auszuführen. Anschließend iteriert es über `other`, indem es dessen `keys()`-Methode aufruft, und konstruierte eine neue Menge mit allen Elementen in `this`, die nicht in `other` gesehen werden, und allen Elementen in `other`, die nicht in `this` gesehen werden.
+`symmetricDifference()` akzeptiert [set-ähnliche](/de/docs/Web/JavaScript/Reference/Global_Objects/Set#set-like_objects) Objekte als `other`-Parameter. Es erfordert, dass {{jsxref("Operators/this", "this")}} eine tatsächliche {{jsxref("Set")}}-Instanz ist, da es die zugrunde liegenden Daten direkt aus `this` abruft, ohne benutzerdefinierten Code aufzurufen. Anschließend wird über `other` iteriert, indem die `keys()`-Methode aufgerufen wird, und es wird eine neue Menge mit allen Elementen in `this` erstellt, die in `other` nicht vorhanden sind, und allen Elementen in `other`, die in `this` nicht vorhanden sind.
 
 Die Reihenfolge der Elemente in der zurückgegebenen Menge ist zuerst die in `this`, gefolgt von denen in `other`.
 
@@ -46,7 +47,7 @@ Die Reihenfolge der Elemente in der zurückgegebenen Menge ist zuerst die in `th
 
 ### Verwendung von symmetricDifference()
 
-Im folgenden Beispiel wird die symmetrische Differenz zwischen der Menge der geraden Zahlen (<10) und der Menge der perfekten Quadrate (<10) berechnet. Das Ergebnis ist die Menge von Zahlen, die entweder gerade oder ein perfektes Quadrat sind, aber nicht beides.
+Das folgende Beispiel berechnet die symmetrische Differenz zwischen der Menge der geraden Zahlen (<10) und der Menge der perfekten Quadrate (<10). Das Ergebnis ist die Menge der Zahlen, die entweder gerade oder ein perfektes Quadrat sind, aber nicht beides.
 
 ```js
 const evens = new Set([2, 4, 6, 8]);

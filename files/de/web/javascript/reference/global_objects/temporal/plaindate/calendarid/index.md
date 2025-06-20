@@ -1,17 +1,18 @@
 ---
 title: Temporal.PlainDate.prototype.calendarId
+short-title: calendarId
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainDate/calendarId
 l10n:
-  sourceCommit: 1b77d85af82183b835cf253e885dca26cba93eb5
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}{{SeeCompatTable}}
 
-Die **`calendarId`** Zugriffseigenschaft von {{jsxref("Temporal.PlainDate")}} Instanzen gibt einen String zurück, der den [Kalender](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#calendars) darstellt, der verwendet wird, um das interne ISO 8601-Datum zu interpretieren.
+Die **`calendarId`** Zugriffs-Property von Instanzen von {{jsxref("Temporal.PlainDate")}} gibt einen String zurück, der den [Kalender](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#calendars) darstellt, der zur Interpretation des internen ISO 8601 Datums verwendet wird.
 
-Siehe [`Intl.supportedValuesOf()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/supportedValuesOf#supported_calendar_types) für eine Liste von häufig unterstützten Kalendertypen.
+Sehen Sie sich [`Intl.supportedValuesOf()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/supportedValuesOf#supported_calendar_types) für eine Liste häufig unterstützter Kalendertypen an.
 
-Der Set-Zugriffsmerkmal von `calendarId` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern. Verwenden Sie die Methode {{jsxref("Temporal/PlainDate/withCalendar", "withCalendar()")}}, um ein neues `Temporal.PlainDate` Objekt mit dem gewünschten neuen Wert zu erstellen.
+Der Set-Accessor von `calendarId` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern. Verwenden Sie die {{jsxref("Temporal/PlainDate/withCalendar", "withCalendar()")}} Methode, um ein neues `Temporal.PlainDate` Objekt mit dem gewünschten neuen Wert zu erstellen.
 
 ## Beispiele
 

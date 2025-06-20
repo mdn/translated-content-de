@@ -1,13 +1,14 @@
 ---
 title: Set.prototype.has()
+short-title: has()
 slug: Web/JavaScript/Reference/Global_Objects/Set/has
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Die **`has()`**-Methode von {{jsxref("Set")}}-Instanzen gibt einen booleschen Wert zurück, der angibt, ob ein Element mit dem angegebenen Wert in diesem Set existiert oder nicht.
+Die **`has()`**-Methode von {{jsxref("Set")}}-Instanzen gibt ein boolean zurück, das angibt, ob ein Element mit dem angegebenen Wert in diesem Set existiert oder nicht.
 
 {{InteractiveExample("JavaScript Demo: Set.prototype.has()")}}
 
@@ -33,15 +34,15 @@ has(value)
 ### Parameter
 
 - `value`
-  - : Der Wert, dessen Vorhandensein im `Set`-Objekt überprüft werden soll.
+  - : Der Wert, dessen Vorhandensein im `Set`-Objekt getestet werden soll.
 
 ### Rückgabewert
 
-Gibt `true` zurück, wenn ein Element mit dem angegebenen Wert im `Set`-Objekt existiert; ansonsten `false`.
+Gibt `true` zurück, wenn ein Element mit dem angegebenen Wert im `Set`-Objekt existiert; andernfalls `false`.
 
 ## Beispiele
 
-### Verwendung der Methode has()
+### Verwendung der has()-Methode
 
 ```js
 const mySet = new Set();

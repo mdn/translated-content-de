@@ -1,8 +1,9 @@
 ---
 title: Symbol.prototype.valueOf()
+short-title: valueOf()
 slug: Web/JavaScript/Reference/Global_Objects/Symbol/valueOf
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
@@ -39,7 +40,7 @@ Der primitive Wert des angegebenen {{jsxref("Symbol")}}-Objekts.
 
 Die `valueOf()`-Methode von {{jsxref("Symbol")}} gibt den primitiven Wert eines Symbol-Objekts als Symbol-Datentyp zurück.
 
-JavaScript ruft die `valueOf()`-Methode auf, um ein Objekt in einen primitiven Wert zu konvertieren. Es ist selten notwendig, dass Sie die `valueOf()`-Methode selbst aufrufen; JavaScript ruft sie automatisch auf, wenn es auf ein Objekt trifft, wo ein primitiver Wert erwartet wird.
+JavaScript ruft die `valueOf()`-Methode auf, um ein Objekt in einen primitiven Wert zu konvertieren. In der Regel müssen Sie die `valueOf()`-Methode nicht selbst aufrufen; JavaScript ruft sie automatisch auf, wenn ein Objekt auftritt, bei dem ein primitiver Wert erwartet wird.
 
 ## Beispiele
 

@@ -1,13 +1,14 @@
 ---
 title: Set.prototype.forEach()
+short-title: forEach()
 slug: Web/JavaScript/Reference/Global_Objects/Set/forEach
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Die **`forEach()`**-Methode von {{jsxref("Set")}}-Instanzen führt eine angegebene Funktion einmal für jeden Wert in diesem Set in Einfügereihenfolge aus.
+Die **`forEach()`**-Methode von {{jsxref("Set")}}-Instanzen führt eine bereitgestellte Funktion für jeden Wert in diesem Set in Einfügereihenfolge aus.
 
 {{InteractiveExample("JavaScript Demo: Set.prototype.forEach()")}}
 
@@ -35,9 +36,9 @@ forEach(callbackFn, thisArg)
 - `callback`
   - : Eine Funktion, die für jeden Eintrag im Set ausgeführt wird. Die Funktion wird mit den folgenden Argumenten aufgerufen:
     - `value`
-      - : Der Wert jeder Iteration.
+      - : Wert jeder Iteration.
     - `key`
-      - : Der Schlüssel jeder Iteration. Dies ist immer derselbe wie `value`.
+      - : Schlüssel jeder Iteration. Dieser ist immer identisch mit `value`.
     - `set`
       - : Das Set, das durchlaufen wird.
 - `thisArg` {{optional_inline}}
@@ -49,36 +50,38 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beschreibung
 
-Die Methode `forEach()` führt die angegebene
-`callback`-Funktion einmal für jeden Wert aus, der tatsächlich im
-`Set`-Objekt existiert. Sie wird nicht für Werte aufgerufen, die gelöscht wurden. Sie wird jedoch für Werte ausgeführt, die vorhanden sind, aber den Wert `undefined` haben.
+Die `forEach()`-Methode führt die bereitgestellte
+`callback` einmal für jeden Wert aus, der tatsächlich im
+`Set`-Objekt existiert. Sie wird nicht für Werte aufgerufen, die gelöscht wurden. Allerdings
+wird sie für Werte ausgeführt, die vorhanden sind, aber den Wert `undefined` haben.
 
 `callback` wird mit **drei Argumenten** aufgerufen:
 
-- dem **Elementwert**
-- dem **Elementschlüssel**
-- dem **`Set`-Objekt, das durchlaufen wird**
+- der **Elementwert**
+- der **Elemtschlüssel**
+- das **`Set`-Objekt, das durchlaufen wird**
 
-In `Set`-Objekten gibt es keine Schlüssel, daher sind die ersten beiden Argumente
-beide **Werte**, die im {{jsxref("Set")}} enthalten sind. Dies dient dazu, die Konsistenz mit anderen `forEach()`-Methoden, wie etwa {{jsxref("Map/foreach", "Map")}} und {{jsxref("Array/forEach", "Array")}} zu gewährleisten.
+Es gibt keine Schlüssel in `Set`-Objekten, daher sind die ersten beiden Argumente
+beide **Werte**, die im {{jsxref("Set")}} enthalten sind. Dies soll es
+konsistent mit anderen `forEach()`-Methoden für {{jsxref("Map/foreach", "Map")}} und {{jsxref("Array/forEach", "Array")}} machen.
 
 Wenn ein `thisArg`-Parameter an `forEach()` übergeben wird,
-wird er bei der Ausführung an `callback` übergeben, um als
-`this`-Wert verwendet zu werden. Andernfalls wird der Wert `undefined` übergeben, um
-als `this`-Wert verwendet zu werden. Der letztlich von
-`callback` wahrgenommene `this`-Wert wird gemäß
-[den üblichen Regeln zur Ermittlung des von einer Funktion wahrgenommenen `this`](/de/docs/Web/JavaScript/Reference/Operators/this) bestimmt.
+wird er beim Aufruf an `callback` weitergegeben und als
+dessen `this`-Wert verwendet. Andernfalls wird der Wert `undefined` für
+dessen `this`-Wert verwendet. Der letztendlich durch
+`callback` beobachtbare `this`-Wert wird gemäß
+[den üblichen Regeln zur Bestimmung des durch eine Funktion sichtbaren `this`](/de/docs/Web/JavaScript/Reference/Operators/this) bestimmt.
 
-Jeder Wert wird einmal besucht, außer in dem Fall, dass er gelöscht und erneut hinzugefügt wurde, bevor
-`forEach()` abgeschlossen ist. `callback` wird nicht für
-Werte aufgerufen, die vor deren Besuch gelöscht wurden. Neue Werte, die hinzugefügt werden, bevor `forEach()` abgeschlossen ist, werden besucht.
+Jeder Wert wird einmal besucht, außer wenn er gelöscht und erneut hinzugefügt wurde, bevor
+`forEach()` beendet ist. `callback` wird nicht für
+Werte aufgerufen, die gelöscht wurden, bevor sie besucht wurden. Neue Werte, die hinzugefügt wurden, bevor `forEach()` beendet ist, werden besucht.
 
 `forEach()` führt die `callback`-Funktion einmal für
 jedes Element im `Set`-Objekt aus; sie gibt keinen Wert zurück.
 
 ## Beispiele
 
-### Inhalte eines Set-Objekts protokollieren
+### Protokollieren des Inhalts eines Set-Objekts
 
 Der folgende Code protokolliert eine Zeile für jedes Element in einem `Set`-Objekt:
 

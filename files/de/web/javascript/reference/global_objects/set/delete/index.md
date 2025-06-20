@@ -1,8 +1,9 @@
 ---
 title: Set.prototype.delete()
+short-title: delete()
 slug: Web/JavaScript/Reference/Global_Objects/Set/delete
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
@@ -35,16 +36,16 @@ setInstance.delete(value)
 ### Parameter
 
 - `value`
-  - : Der Wert, der aus dem `Set` entfernt werden soll.
+  - : Der Wert, der aus `Set` entfernt werden soll.
 
 ### Rückgabewert
 
-Gibt `true` zurück, wenn `value` bereits im
-`Set` war; andernfalls `false`.
+Gibt `true` zurück, wenn `value` bereits in
+`Set` enthalten war; andernfalls `false`.
 
 ## Beispiele
 
-### Verwendung der delete()-Methode
+### Verwenden der Methode delete()
 
 ```js
 const mySet = new Set();
@@ -56,9 +57,9 @@ console.log(mySet.delete("foo")); // true; successfully removed.
 console.log(mySet.has("foo")); // false; the "foo" element is no longer present.
 ```
 
-### Löschen eines Objekts aus einem Set
+### Ein Objekt aus einem Set löschen
 
-Da Objekte durch Referenz verglichen werden, müssen Sie sie löschen, indem Sie deren einzelne Eigenschaften prüfen, wenn Sie keine Referenz auf das ursprüngliche Objekt haben.
+Da Objekte durch Referenz verglichen werden, müssen Sie sie durch Überprüfen einzelner Eigenschaften löschen, falls Sie keinen Verweis auf das ursprüngliche Objekt haben.
 
 ```js
 const setObj = new Set(); // Create a new set.

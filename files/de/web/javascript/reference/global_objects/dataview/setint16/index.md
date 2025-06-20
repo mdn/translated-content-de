@@ -1,13 +1,14 @@
 ---
 title: DataView.prototype.setInt16()
+short-title: setInt16()
 slug: Web/JavaScript/Reference/Global_Objects/DataView/setInt16
 l10n:
-  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Die **`setInt16()`**-Methode von {{jsxref("DataView")}}-Instanzen nimmt eine Zahl und speichert sie als 16-Bit-Ganzzahl mit Vorzeichen in den 2 Bytes, beginnend bei dem angegebenen Byte-Offset dieses `DataView`. Es gibt keine Ausrichtungsbeschränkung; Multi-Byte-Werte können an jedem Versatz innerhalb der Grenzen gespeichert werden.
+Die **`setInt16()`** Methode von {{jsxref("DataView")}} Instanzen nimmt eine Zahl und speichert sie als 16-Bit-Ganzzahl mit Vorzeichen in den 2 Bytes, beginnend bei dem angegebenen Byte-Offset dieses `DataView`. Es gibt keine Ausrichtungsbeschränkung; Mehrbyte-Werte können an jedem Offset innerhalb der Grenzen gespeichert werden.
 
 {{InteractiveExample("JavaScript Demo: DataView.prototype.setInt16()")}}
 
@@ -32,9 +33,9 @@ setInt16(byteOffset, value, littleEndian)
 ### Parameter
 
 - `byteOffset`
-  - : Der Offset, in Bytes, vom Beginn der Ansicht, wo die Daten gespeichert werden sollen.
+  - : Der Offset, in Bytes, vom Beginn der Ansicht, um die Daten dort zu speichern.
 - `value`
-  - : Der Wert, der gesetzt werden soll. Wie der Wert in Bytes codiert wird, finden Sie unter [Wertkodierung und Normalisierung](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray#value_encoding_and_normalization).
+  - : Der Wert, der gesetzt werden soll. Für die Kodierung des Wertes in Bytes siehe [Wertkodierung und -normalisierung](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray#value_encoding_and_normalization).
 - `littleEndian` {{optional_inline}}
   - : Gibt an, ob die Daten im {{Glossary("Endianness", "Little- oder Big-Endian")}} Format gespeichert werden. Wenn `false` oder `undefined`, wird ein Big-Endian-Wert geschrieben.
 
@@ -45,7 +46,7 @@ setInt16(byteOffset, value, littleEndian)
 ### Ausnahmen
 
 - {{jsxref("RangeError")}}
-  - : Wird ausgelöst, wenn `byteOffset` so gesetzt ist, dass es über das Ende der Ansicht hinaus gespeichert würde.
+  - : Wird ausgelöst, wenn der `byteOffset` so gesetzt wird, dass er über das Ende der Ansicht hinaus speichern würde.
 
 ## Beispiele
 
@@ -68,7 +69,7 @@ dataview.getInt16(1); // 768
 
 ## Siehe auch
 
-- [JavaScript typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
+- [Leitfaden für JavaScript typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays)
 - {{jsxref("DataView")}}
 - {{jsxref("ArrayBuffer")}}
 - {{jsxref("Int16Array")}}

@@ -1,8 +1,9 @@
 ---
 title: Error.isError()
+short-title: isError()
 slug: Web/JavaScript/Reference/Global_Objects/Error/isError
 l10n:
-  sourceCommit: 6607de0bd57056125e4ae227c4d54402286a423f
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
@@ -22,18 +23,18 @@ Error.isError(value)
 
 ### Rückgabewert
 
-`true`, wenn `value` ein {{jsxref("Error")}} ist; andernfalls `false`.
+`true` wenn `value` ein {{jsxref("Error")}} ist; andernfalls `false`.
 
 ## Beschreibung
 
-`Error.isError()` überprüft, ob der übergebene Wert ein {{jsxref("Error")}} ist. Es erfolgt ein _branded check_ für eine private Eigenschaft, die durch den {{jsxref("Error/Error", "Error()")}}-Konstruktor initialisiert wird. Dies ist derselbe Mechanismus, der von {{jsxref("Array.isArray()")}} verwendet wird, was wiederum dem Mechanismus des [`in`](/de/docs/Web/JavaScript/Reference/Operators/in)-Operators ähnelt.
+`Error.isError()` prüft, ob der übergebene Wert ein {{jsxref("Error")}} ist. Dies wird durch eine _branded check_ für eine private Eigenschaft erreicht, die vom {{jsxref("Error/Error", "Error()")}} Konstruktor initialisiert wird. Dies ist derselbe Mechanismus, der von {{jsxref("Array.isArray()")}} verwendet wird, welcher wiederum dem Mechanismus ähnlich ist, der vom [`in`](/de/docs/Web/JavaScript/Reference/Operators/in) Operator verwendet wird.
 
-Es ist eine robustere Alternative zu [`instanceof Error`](/de/docs/Web/JavaScript/Reference/Operators/instanceof), da es falsche Positiv- und Negativmeldungen vermeidet:
+Es ist eine robustere Alternative zu [`instanceof Error`](/de/docs/Web/JavaScript/Reference/Operators/instanceof), da es falsch-positive und falsch-negative Ergebnisse vermeidet:
 
-- `Error.isError()` lehnt Werte ab, die keine echten `Error`-Instanzen sind, selbst wenn sie `Error.prototype` in ihrer Prototypkette haben — `instanceof Error` würde diese akzeptieren, da es die Prototypkette überprüft.
-- `Error.isError()` akzeptiert `Error`-Objekte, die in einem anderen Realm konstruiert wurden — `instanceof Error` gibt für diese `false` aus, da die Identität des `Error`-Konstruktors über Realms hinweg unterschiedlich ist.
+- `Error.isError()` lehnt Werte ab, die keine echten `Error`-Instanzen sind, selbst wenn sie `Error.prototype` in ihrer Prototypenkette haben — `instanceof Error` würde diese akzeptieren, da es die Prototypenkette überprüft.
+- `Error.isError()` akzeptiert `Error`-Objekte, die in einem anderen Bereich konstruiert wurden — `instanceof Error` gibt für diese `false` zurück, da die Identität des `Error`-Konstruktors in verschiedenen Bereichen unterschiedlich ist.
 
-`Error.isError()` gibt `true` für [`DOMException`](/de/docs/Web/API/DOMException)-Instanzen aus. Dies liegt daran, dass, obwohl `DOMException` nicht als echte Unterklasse von `Error` spezifiziert ist (der `Error`-Konstruktor ist nicht das Prototyp des `DOMException`-Konstruktors), `DOMException` für alle Zwecke der Branded-Überprüfung wie `Error` funktioniert.
+`Error.isError()` gibt `true` für [`DOMException`](/de/docs/Web/API/DOMException) Instanzen zurück. Dies liegt daran, dass `DOMException` zwar nicht als echte Unterklasse von `Error` spezifiziert ist (der `Error`-Konstruktor ist nicht das Prototyp des `DOMException`-Konstruktors), `DOMException` sich aber trotzdem für alle Zwecke des branded checking wie `Error` verhält.
 
 ## Beispiele
 
@@ -66,7 +67,7 @@ Error.isError({ __proto__: Error.prototype });
 
 ### instanceof vs. Error.isError()
 
-Beim Überprüfen auf `Error`-Instanzen wird `Error.isError()` gegenüber `instanceof` bevorzugt, da es über Realms hinweg funktioniert.
+Beim Überprüfen von `Error`-Instanzen wird `Error.isError()` gegenüber `instanceof` bevorzugt, da es über Bereiche hinweg funktioniert.
 
 ```js
 const iframe = document.createElement("iframe");
@@ -81,9 +82,9 @@ Error.isError(error); // true
 error instanceof Error; // false
 ```
 
-### Normalisieren abgefangener Fehler
+### Normalisierung gefangener Fehler
 
-Sie können `Error.isError()` verwenden, um zu erkennen, ob der abgefangene Wert ein Fehler ist und ihn zu einem Error-Objekt zu normalisieren.
+Sie können `Error.isError()` verwenden, um zu erkennen, ob der gefangene Wert ein Fehler ist, und ihn in ein Fehlerobjekt normalisieren.
 
 ```js
 try {

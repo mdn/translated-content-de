@@ -1,15 +1,16 @@
 ---
 title: Temporal.PlainDate.prototype.dayOfYear
+short-title: dayOfYear
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainDate/dayOfYear
 l10n:
-  sourceCommit: d0b9cef0713eb263934a98e94202b97c143204a4
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}{{SeeCompatTable}}
 
-Die Zugriffs-Eigenschaft **`dayOfYear`** von {{jsxref("Temporal.PlainDate")}}-Instanzen gibt eine positive ganze Zahl zurück, die den 1-basierten Tagesindex im Jahr dieses Datums darstellt. Der erste Tag dieses Jahres ist `1`, und der letzte Tag ist die {{jsxref("Temporal/PlainDate/daysInYear", "daysInYear")}}. Es ist kalenderabhängig ([calendar](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#calendars)).
+Die **`dayOfYear`** Eigenschaft von Instanzen von {{jsxref("Temporal.PlainDate")}} gibt eine positive Ganzzahl zurück, die den 1-basierten Tagesindex im Jahr dieses Datums darstellt. Der erste Tag dieses Jahres ist `1`, und der letzte Tag ist die {{jsxref("Temporal/PlainDate/daysInYear", "daysInYear")}}. Es hängt vom [Kalender](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#calendars) ab.
 
-Der Set-Zugriff von `dayOfYear` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern. Um ein neues `Temporal.PlainDate`-Objekt mit dem gewünschten neuen `dayOfYear`-Wert zu erstellen, verwenden Sie die {{jsxref("Temporal/PlainDate/add", "add()")}}- oder {{jsxref("Temporal/PlainDate/subtract", "subtract()")}}-Methode mit der entsprechenden Anzahl von `days`.
+Der set Accessor von `dayOfYear` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern. Um ein neues `Temporal.PlainDate`-Objekt mit dem gewünschten neuen Wert für `dayOfYear` zu erstellen, verwenden Sie die {{jsxref("Temporal/PlainDate/add", "add()")}} oder {{jsxref("Temporal/PlainDate/subtract", "subtract()")}} Methode mit der entsprechenden Anzahl von `days`.
 
 ## Beispiele
 
@@ -28,7 +29,7 @@ console.log(date3.dayOfYear); // 183; 2020 is a leap year
 
 ### Änderung von dayOfYear
 
-`PlainDate` unterstützt nicht die direkte Änderung von `dayOfYear`. Um den Tag des Jahres zu ändern, müssen Sie zunächst den Unterschied in Tagen zu Ihrem gewünschten Tag des Jahres herausfinden und dann `add` oder `subtract` verwenden, um das Datum entsprechend anzupassen. Zum Beispiel, um auf den 100. Tag dieses Jahres zu ändern (egal ob davor oder danach):
+`PlainDate` unterstützt die direkte Änderung von `dayOfYear` nicht. Um den Tag des Jahres zu ändern, müssen Sie zuerst die Differenz in Tagen zu Ihrem gewünschten Tag des Jahres ermitteln und dann `add` oder `subtract` verwenden, um das Datum entsprechend anzupassen. Möchten Sie beispielsweise den 100. Tag dieses Jahres ändern (ob davor oder danach):
 
 ```js
 function getDayInSameYear(date, destDayOfYear) {
@@ -46,7 +47,7 @@ console.log(
 ); // 2020-04-09
 ```
 
-Standardmäßig beschränkt `with()` den Tag auf den Bereich der gültigen Werte. So können Sie immer `{ month: 1, day: 1 }` verwenden, um den Tag auf den ersten Tag des Jahres zu setzen, auch wenn der erste Tag nicht die Nummer `1` hat. Ebenso wird Folgendes den Tag auf den letzten Tag des Jahres setzen, unabhängig davon, wie viele Tage im letzten Monat oder Jahr sind:
+Standardmäßig schränkt `with()` den Tag auf den Bereich gültiger Werte ein. Sie können also immer `{ month: 1, day: 1 }` verwenden, um den Tag auf den ersten Tag des Jahres zu setzen, selbst wenn der erste Tag nicht die Nummer `1` hat. Ebenso wird das Folgende den Tag auf den letzten Tag des Jahres setzen, unabhängig davon, wie viele Tage im letzten Monat oder Jahr sind:
 
 ```js
 const date = Temporal.PlainDate.from("2021-07-01");

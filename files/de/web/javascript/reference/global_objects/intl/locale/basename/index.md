@@ -1,19 +1,20 @@
 ---
 title: Intl.Locale.prototype.baseName
+short-title: baseName
 slug: Web/JavaScript/Reference/Global_Objects/Intl/Locale/baseName
 l10n:
-  sourceCommit: b68d6456477c19b1fed8fc6bc99eff8972b1af29
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Die **`baseName`** Zugriffseigenschaft von {{jsxref("Intl.Locale")}} Instanzen gibt einen Teilstring der Zeichenfolgenrepräsentation dieser Lokalisierung zurück, der grundlegende Informationen über diese Lokalisierung enthält, einschließlich der Sprache sowie des Skripts und der Region, falls verfügbar.
+Die **`baseName`** Zugriffs-Eigenschaft von {{jsxref("Intl.Locale")}}-Instanzen gibt einen Teilstring der Zeichenketten-Darstellung dieser Lokalität zurück, der grundlegende Informationen über diese Lokalität enthält, einschließlich der Sprache sowie das Skript und die Region, falls verfügbar.
 
 ## Beschreibung
 
-`baseName` gibt die `language ["-" script] ["-" region] *("-" variant)` Untersequenz der [unicode_language_id Grammatik](https://www.unicode.org/reports/tr35/#Identifiers) zurück. Es enthält nur Informationen, die explizit im Konstruktor angegeben wurden, entweder durch die Lokalisierungsbezeichner-Zeichenfolge oder das Optionen-Objekt.
+`baseName` gibt die `language ["-" script] ["-" region] *("-" variant)` Teilfolge der [unicode_language_id-Grammatik](https://www.unicode.org/reports/tr35/#Identifiers) zurück. Es enthält nur Informationen, die explizit im Konstruktor angegeben wurden, entweder durch die Locale-Identifier-Zeichenkette oder das Options-Objekt.
 
-Der Set-Accessor von `baseName` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern.
+Der Set-Zugriffsbegrenzer von `baseName` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern.
 
 ## Beispiele
 
@@ -25,7 +26,7 @@ console.log(myLoc.toString()); // Prints out "fr-Latn-CA-u-ca-gregory"
 console.log(myLoc.baseName); // Prints out "fr-Latn-CA"
 ```
 
-### Beispiel mit Optionen in der Eingabezeichenfolge
+### Beispiel mit Optionen in der Eingabezeichenkette
 
 ```js
 // Sets language to Japanese, region to Japan,
@@ -36,7 +37,7 @@ console.log(japan.toString()); // Prints out "ja-JP-u-ca-gregory-hc-h24"
 console.log(japan.baseName); // Prints out "ja-JP"
 ```
 
-### Beispiel mit Optionen, die die Eingabezeichenfolge überschreiben
+### Beispiel mit Optionen, die die Eingabezeichenkette überschreiben
 
 ```js
 // Input string indicates language as Dutch and region as Belgium,

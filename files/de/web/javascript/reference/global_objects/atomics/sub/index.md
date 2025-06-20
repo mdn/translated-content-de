@@ -1,13 +1,14 @@
 ---
 title: Atomics.sub()
+short-title: sub()
 slug: Web/JavaScript/Reference/Global_Objects/Atomics/sub
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Die statische Methode **`Atomics.sub()`** subtrahiert einen gegebenen Wert an einer bestimmten Position im Array und gibt den alten Wert an dieser Position zurück. Diese atomare Operation garantiert, dass keine anderen Schreibvorgänge stattfinden, bis der modifizierte Wert zurückgeschrieben wurde.
+Die statische Methode **`Atomics.sub()`** zieht einen gegebenen Wert von einer bestimmten Position im Array ab und gibt den alten Wert an dieser Position zurück. Diese atomare Operation garantiert, dass keine anderen Schreibvorgänge stattfinden, bis der geänderte Wert zurückgeschrieben wurde.
 
 {{InteractiveExample("JavaScript Demo: Atomics.sub()")}}
 
@@ -34,31 +35,26 @@ Atomics.sub(typedArray, index, value)
 ### Parameter
 
 - `typedArray`
-  - : Ein Integer-Typ-Array. Eines von {{jsxref("Int8Array")}}, {{jsxref("Uint8Array")}},
-    {{jsxref("Int16Array")}}, {{jsxref("Uint16Array")}}, {{jsxref("Int32Array")}},
-    {{jsxref("Uint32Array")}}, {{jsxref("BigInt64Array")}} oder
-    {{jsxref("BigUint64Array")}}.
+  - : Ein Ganzzahlen-Typ-Array. Eines von {{jsxref("Int8Array")}}, {{jsxref("Uint8Array")}}, {{jsxref("Int16Array")}}, {{jsxref("Uint16Array")}}, {{jsxref("Int32Array")}}, {{jsxref("Uint32Array")}}, {{jsxref("BigInt64Array")}} oder {{jsxref("BigUint64Array")}}.
 - `index`
-  - : Die Position im `typedArray`, von der ein
-    `value` subtrahiert wird.
+  - : Die Position im `typedArray`, von der ein `value` abgezogen wird.
 - `value`
   - : Die Zahl, die subtrahiert werden soll.
 
 ### Rückgabewert
 
-Der alte Wert an der angegebenen Position
-(`typedArray[index]`).
+Der alte Wert an der angegebenen Position (`typedArray[index]`).
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn `typedArray` nicht einer der erlaubten Integer-Typen ist.
+  - : Wird ausgelöst, wenn `typedArray` nicht einer der erlaubten Ganzzahltypen ist.
 - {{jsxref("RangeError")}}
-  - : Wird ausgelöst, wenn `index` außerhalb der Grenzen von `typedArray` liegt.
+  - : Wird ausgelöst, wenn `index` außerhalb der Grenzen im `typedArray` liegt.
 
 ## Beispiele
 
-### Sub verwenden
+### Verwendung von sub
 
 ```js
 const sab = new SharedArrayBuffer(1024);

@@ -1,17 +1,18 @@
 ---
 title: "AggregateError: errors"
+short-title: errors
 slug: Web/JavaScript/Reference/Global_Objects/AggregateError/errors
 l10n:
-  sourceCommit: e01fd6206ce2fad2fe09a485bb2d3ceda53a62de
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Die **`errors`** Daten-Eigenschaft einer {{jsxref("AggregateError")}}-Instanz enthält ein Array, das die aggregierten Fehler darstellt.
+Die **`errors`** Dateneigenschaft einer {{jsxref("AggregateError")}} Instanz enthält ein Array, das die aggregierten Fehler darstellt.
 
 ## Wert
 
-Ein {{jsxref("Array")}}, das Werte in der gleichen Reihenfolge enthält wie das Iterable, das als erstes Argument des {{jsxref("AggregateError/AggregateError", "AggregateError()")}} Konstruktors übergeben wurde.
+Ein {{jsxref("Array")}}, das Werte in der gleichen Reihenfolge enthält wie das Iterable, das als erstes Argument an den {{jsxref("AggregateError/AggregateError", "AggregateError()")}} Konstruktor übergeben wurde.
 
 {{js_property_attributes(1, 0, 1)}}
 
@@ -45,6 +46,6 @@ try {
 
 ## Siehe auch
 
-- [Steuerfluss und Fehlerbehandlung](/de/docs/Web/JavaScript/Guide/Control_flow_and_error_handling) Leitfaden
+- [Kontrollfluss und Fehlerbehandlung](/de/docs/Web/JavaScript/Guide/Control_flow_and_error_handling) Leitfaden
 - {{jsxref("AggregateError")}}
 - [`Error`: `cause`](/de/docs/Web/JavaScript/Reference/Global_Objects/Error/cause)

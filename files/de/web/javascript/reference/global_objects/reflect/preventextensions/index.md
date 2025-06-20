@@ -1,13 +1,14 @@
 ---
 title: Reflect.preventExtensions()
+short-title: preventExtensions()
 slug: Web/JavaScript/Reference/Global_Objects/Reflect/preventExtensions
 l10n:
-  sourceCommit: 759102220c07fb140b3e06971cd5981d8f0f134f
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Die statische Methode **`Reflect.preventExtensions()`** ähnelt {{jsxref("Object.preventExtensions()")}}. Sie verhindert, dass neue Eigenschaften zu einem Objekt hinzugefügt werden können (d.h. sie verhindert zukünftige Erweiterungen des Objekts).
+Die **`Reflect.preventExtensions()`** statische Methode ist vergleichbar mit {{jsxref("Object.preventExtensions()")}}. Sie verhindert, dass jemals neue Eigenschaften zu einem Objekt hinzugefügt werden (d.h. sie verhindert zukünftige Erweiterungen des Objekts).
 
 {{InteractiveExample("JavaScript Demo: Reflect.preventExtensions()")}}
 
@@ -32,11 +33,11 @@ Reflect.preventExtensions(target)
 ### Parameter
 
 - `target`
-  - : Das Zielobjekt, bei dem Erweiterungen verhindert werden sollen.
+  - : Das Zielobjekt, bei dem die Erweiterungen verhindert werden sollen.
 
 ### Rückgabewert
 
-Ein {{jsxref("Boolean")}}, der angibt, ob das Ziel erfolgreich so eingestellt wurde, dass Erweiterungen verhindert werden.
+Ein {{jsxref("Boolean")}}, der angibt, ob es erfolgreich verhindert wurde, dass das Ziel erweitert wird.
 
 ### Ausnahmen
 
@@ -45,10 +46,10 @@ Ein {{jsxref("Boolean")}}, der angibt, ob das Ziel erfolgreich so eingestellt wu
 
 ## Beschreibung
 
-`Reflect.preventExtensions()` bietet die reflektierende Semantik, um Erweiterungen eines Objekts zu verhindern. Die Unterschiede zu {{jsxref("Object.preventExtensions()")}} sind:
+`Reflect.preventExtensions()` bietet die reflexive Semantik des Verhinderns von Erweiterungen eines Objekts. Die Unterschiede zu {{jsxref("Object.preventExtensions()")}} sind:
 
-- `Reflect.preventExtensions()` wirft einen {{jsxref("TypeError")}}, wenn das Ziel kein Objekt ist, während `Object.preventExtensions()` immer nicht-objektartige Ziele unverändert zurückgibt.
-- `Reflect.preventExtensions()` gibt einen {{jsxref("Boolean")}} zurück, der angibt, ob das Ziel erfolgreich eingestellt wurde, um Erweiterungen zu verhindern, während `Object.preventExtensions()` das Zielobjekt zurückgibt.
+- `Reflect.preventExtensions()` löst einen {{jsxref("TypeError")}} aus, wenn das Ziel kein Objekt ist, während `Object.preventExtensions()` immer nicht-Objekt-Ziele unverändert zurückgibt.
+- `Reflect.preventExtensions()` gibt einen {{jsxref("Boolean")}} zurück, der angibt, ob es erfolgreich verhindert wurde, dass das Ziel erweitert wird, während `Object.preventExtensions()` das Zielobjekt zurückgibt.
 
 `Reflect.preventExtensions()` ruft die `[[PreventExtensions]]` [interne Objektmethode](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods) von `target` auf.
 
@@ -70,7 +71,7 @@ Reflect.isExtensible(empty); // false
 
 ### Unterschied zu Object.preventExtensions()
 
-Wenn das `target`-Argument dieser Methode kein Objekt ist (ein primitiver Datentyp), wird ein {{jsxref("TypeError")}} verursacht. Bei {{jsxref("Object.preventExtensions()")}} wird ein nicht-objektartiges `target` ohne Fehler unverändert zurückgegeben.
+Wenn das `target`-Argument dieser Methode kein Objekt (ein primitiver Wert) ist, wird ein {{jsxref("TypeError")}} ausgelöst. Mit {{jsxref("Object.preventExtensions()")}} wird ein Nicht-Objekt-`target` unverändert und ohne Fehler zurückgegeben.
 
 ```js
 Reflect.preventExtensions(1);

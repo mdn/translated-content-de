@@ -1,15 +1,16 @@
 ---
 title: RegExp.escape()
+short-title: escape()
 slug: Web/JavaScript/Reference/Global_Objects/RegExp/escape
 l10n:
-  sourceCommit: e8320dfbed49d37589d0fe759ef6506885f340f7
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Die **`RegExp.escape()`** statische Methode [escaped](/de/docs/Web/JavaScript/Reference/Regular_expressions#escape_sequences) alle potenziellen RegEx-Syntaxzeichen in einem String und gibt einen neuen String zurück, der sicher als [literales](/de/docs/Web/JavaScript/Reference/Regular_expressions/Literal_character) Muster für den {{jsxref("RegExp/RegExp", "RegExp()")}} Konstruktor verwendet werden kann.
+Die statische Methode **`RegExp.escape()`** [maskiert](/de/docs/Web/JavaScript/Reference/Regular_expressions#escape_sequences) alle potenziellen regulären Ausdruck-Syntaxzeichen in einem String und gibt einen neuen String zurück, der sicher als [literales](/de/docs/Web/JavaScript/Reference/Regular_expressions/Literal_character) Muster für den {{jsxref("RegExp/RegExp", "RegExp()")}}-Konstruktor verwendet werden kann.
 
-Wenn Sie dynamisch einen {{jsxref("RegExp")}} mit benutzerdefiniertem Inhalt erstellen, sollten Sie diese Funktion in Betracht ziehen, um die Eingabe zu bereinigen (es sei denn, die Eingabe soll tatsächlich RegEx-Syntax enthalten). Versuchen Sie außerdem nicht, deren Funktionalität durch den Einsatz von {{jsxref("String.prototype.replaceAll()")}} nachzubilden, um einen `\` vor alle Syntaxzeichen einzufügen. `RegExp.escape()` ist darauf ausgelegt, Escape-Sequenzen zu verwenden, die in viel mehr Randfällen/Kontexten funktionieren als durch Handarbeit erstellter Code wahrscheinlich erreicht.
+Wenn Sie einen {{jsxref("RegExp")}} dynamisch mit benutzerdefinierten Inhalten erstellen, sollten Sie diese Funktion in Betracht ziehen, um die Eingabe zu bereinigen (es sei denn, die Eingabe soll tatsächlich reguläre Ausdruck-Syntax enthalten). Darüber hinaus sollten Sie nicht versuchen, deren Funktionalität neu zu implementieren, indem Sie beispielsweise {{jsxref("String.prototype.replaceAll()")}} verwenden, um ein `\` vor alle Syntaxzeichen einzufügen. `RegExp.escape()` ist darauf ausgelegt, Escape-Sequenzen zu verwenden, die in weit mehr Randfällen und Kontexten funktionieren, als dies mit selbst erstelltem Code wahrscheinlich erreicht werden kann.
 
 ## Syntax
 
@@ -20,19 +21,19 @@ RegExp.escape(string)
 ### Parameter
 
 - `string`
-  - : Der zu escapende String.
+  - : Der zu maskierende String.
 
 ### Rückgabewert
 
-Ein neuer String, der sicher als literales Muster für den {{jsxref("RegExp/RegExp", "RegExp()")}} Konstruktor verwendet werden kann. Insbesondere werden folgende Dinge im Eingabestring ersetzt:
+Ein neuer String, der sicher als literales Muster für den {{jsxref("RegExp/RegExp", "RegExp()")}}-Konstruktor verwendet werden kann. Insbesondere werden die folgenden Dinge im Eingabestring ersetzt:
 
-- Das erste Zeichen des Strings, falls es sich um eine dezimale Ziffer (0–9) oder einen ASCII-Buchstaben (a–z, A–Z) handelt, wird mit der `\x` [Zeichen-Escape](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_escape) Syntax escaped. Zum Beispiel gibt `RegExp.escape("foo")` `"\\x66oo"` zurück (hier und im Folgenden bezeichnen die zwei Backslashes in einem Stringliteral ein einzelnes Backslash-Zeichen). Dieser Schritt stellt sicher, dass, wenn dieser escaped String in ein größeres Muster eingebettet ist, wo es unmittelbar von `\1`, `\x0`, `\u000` usw. gefolgt wird, das führende Zeichen nicht als Teil der Escape-Sequenz interpretiert wird.
-- RegEx [Syntaxzeichen](/de/docs/Web/JavaScript/Reference/Regular_expressions/Literal_character#description), einschließlich `^`, `$`, `\`, `.`, `*`, `+`, `?`, `(`, `)`, `[`, `]`, `{`, `}`, und `|`, sowie der `/`-Begrenzer, werden escapet, indem ein `\` Zeichen vor ihnen eingefügt wird. Zum Beispiel gibt `RegExp.escape("foo.bar")` `"\\x66oo\\.bar"` zurück und `RegExp.escape("(foo)")` gibt `"\\(foo\\)"` zurück.
-- Andere Interpunktionszeichen, einschließlich `,`, `-`, `=`, `<`, `>`, `#`, `&`, `!`, `%`, `:`, `;`, `@`, `~`, `'`, `` ` `` und `"`, werden mit der `\x` Syntax escapet. Zum Beispiel gibt `RegExp.escape("foo-bar")` `"\\x66oo\\x2dbar"` zurück. Diese Zeichen können nicht durch Voranstellen eines `\` escapet werden, da zum Beispiel `/foo\-bar/u` ein Syntaxfehler ist.
-- Die Zeichen mit ihren eigenen [Zeichen-Escape](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_escape) Sequenzen: `\f` (U+000C FORM FEED), `\n` (U+000A LINE FEED), `\r` (U+000D CARRIAGE RETURN), `\t` (U+0009 CHARACTER TABULATION), und `\v` (U+000B LINE TABULATION), werden mit ihren Escape-Sequenzen ersetzt. Zum Beispiel gibt `RegExp.escape("foo\nbar")` `"\\x66oo\\nbar"` zurück.
-- Das Leerzeichen wird als `"\\x20"` escaped.
-- Andere nicht-ASCII [Zeilenumbrüche und Leerraumzeichen](/de/docs/Web/JavaScript/Reference/Lexical_grammar#white_space) werden durch ein oder zwei `\uXXXX` Escape-Sequenzen ersetzt, die ihre UTF-16-Codeeinheiten darstellen. Zum Beispiel gibt `RegExp.escape("foo\u2028bar")` `"\\x66oo\\u2028bar"` zurück.
-- [Einsame Surrogate](/de/docs/Web/JavaScript/Reference/Global_Objects/String#utf-16_characters_unicode_code_points_and_grapheme_clusters) werden durch ihre `\uXXXX` Escape-Sequenzen ersetzt. Zum Beispiel gibt `RegExp.escape("foo\uD800bar")` `"\\x66oo\\ud800bar"` zurück.
+- Das erste Zeichen des Strings, wenn es entweder eine Dezimalziffer (0–9) oder ein ASCII-Buchstabe (a–z, A–Z) ist, wird mit der `\x` [Zeichen-Escape](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_escape)-Syntax maskiert. Zum Beispiel gibt `RegExp.escape("foo")` `"\\x66oo"` zurück (hier und im Folgenden bezeichnen die zwei Backslashes in einem String-Literal ein einzelnes Backslash-Zeichen). Dieser Schritt stellt sicher, dass, wenn dieser maskierte String in ein größeres Muster eingebettet wird, wo es unmittelbar mit `\1`, `\x0`, `\u000` usw. vorangestellt wird, das führende Zeichen nicht als Teil der Escape-Sequenz interpretiert wird.
+- Regex-[Syntaxzeichen](/de/docs/Web/JavaScript/Reference/Regular_expressions/Literal_character#description), einschließlich `^`, `$`, `\`, `.`, `*`, `+`, `?`, `(`, `)`, `[`, `]`, `{`, `}`, und `|`, sowie das `/`-Delimiter, werden maskiert, indem ein `\`-Zeichen vor ihnen eingefügt wird. Zum Beispiel gibt `RegExp.escape("foo.bar")` `"\\x66oo\\.bar"` zurück, und `RegExp.escape("(foo)")` gibt `"\\(foo\\)"` zurück.
+- Andere Satzzeichen, einschließlich `,`, `-`, `=`, `<`, `>`, `#`, `&`, `!`, `%`, `:`, `;`, `@`, `~`, `'`, `` ` ``, und `"`, werden mit der `\x`-Syntax maskiert. Zum Beispiel gibt `RegExp.escape("foo-bar")` `"\\x66oo\\x2dbar"` zurück. Diese Zeichen können nicht durch Voranstellen von `\` maskiert werden, da z.B. `/foo\-bar/u` ein Syntaxfehler ist.
+- Die Zeichen mit ihren eigenen [Zeichen-Escape](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_escape)-Sequenzen: `\f` (U+000C FORM FEED), `\n` (U+000A LINE FEED), `\r` (U+000D CARRIAGE RETURN), `\t` (U+0009 CHARACTER TABULATION), und `\v` (U+000B LINE TABULATION), werden durch ihre Escape-Sequenzen ersetzt. Zum Beispiel gibt `RegExp.escape("foo\nbar")` `"\\x66oo\\nbar"` zurück.
+- Das Leerzeichen wird als `"\\x20"` maskiert.
+- Andere nicht-ASCII-[Zeilenumbrüche und Leerzeichen](/de/docs/Web/JavaScript/Reference/Lexical_grammar#white_space) werden durch eine oder zwei `\uXXXX`-Escape-Sequenzen ersetzt, die ihre UTF-16-Codeeinheiten darstellen. Zum Beispiel gibt `RegExp.escape("foo\u2028bar")` `"\\x66oo\\u2028bar"` zurück.
+- [Einsame Surrogate](/de/docs/Web/JavaScript/Reference/Global_Objects/String#utf-16_characters_unicode_code_points_and_grapheme_clusters) werden durch ihre `\uXXXX`-Escape-Sequenzen ersetzt. Zum Beispiel gibt `RegExp.escape("foo\uD800bar")` `"\\x66oo\\ud800bar"` zurück.
 
 ### Ausnahmen
 
@@ -43,7 +44,7 @@ Ein neuer String, der sicher als literales Muster für den {{jsxref("RegExp/RegE
 
 ### Verwendung von RegExp.escape()
 
-Die folgenden Beispiele zeigen verschiedene Eingaben und Ausgaben für die `RegExp.escape()` Methode.
+Die folgenden Beispiele demonstrieren verschiedene Eingaben und Ausgaben der `RegExp.escape()`-Methode.
 
 ```js
 RegExp.escape("Buy it. use it. break it. fix it.");
@@ -57,7 +58,7 @@ RegExp.escape("foo\u2028bar"); // "\\x66oo\\u2028bar"
 
 ### Verwendung von RegExp.escape() mit dem RegExp-Konstruktor
 
-Der Hauptanwendungsfall von `RegExp.escape()` ist, wenn Sie einen String in ein größeres RegEx-Muster einbetten möchten und sicherstellen wollen, dass der String als literales Muster behandelt wird, nicht als RegEx-Syntax. Betrachten Sie das folgende naive Beispiel, das URLs ersetzt:
+Der Hauptanwendungsfall von `RegExp.escape()` ist, wenn Sie einen String in ein größeres Regex-Muster einbetten möchten und sicherstellen möchten, dass der String als literales Muster behandelt wird, nicht als Regex-Syntax. Betrachten Sie das folgende naive Beispiel, das URLs ersetzt:
 
 ```js
 function removeDomain(text, domain) {
@@ -71,7 +72,7 @@ console.log(removeDomain(input, domain));
 // Consider using [RegExp.escape()](/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/escape) to escape special characters in a string.
 ```
 
-Das Einfügen der oben genannten `domain` führt zu dem regulären Ausdruckspender `https?://developer.mozilla.org(?=/)`, wobei das "." Zeichen ein RegEx [Wildcard](/de/docs/Web/JavaScript/Reference/Regular_expressions/Wildcard) Zeichen ist. Das bedeutet, dass der String mit jedem Zeichen anstelle des "." übereinstimmen wird, wie zum Beispiel `developer-mozilla-org`. Daher würde es fälschlicherweise auch den folgenden Text ändern:
+Das Einfügen des `domain` ergibt den regulären Ausdrucksliteral `https?://developer.mozilla.org(?=/)`, wobei das "."-Zeichen ein Regex-[Wildcard](/de/docs/Web/JavaScript/Reference/Regular_expressions/Wildcard)-Zeichen ist. Dies bedeutet, dass der String mit jedem Zeichen anstelle des "." übereinstimmt, wie `developer-mozilla-org`. Daher würde es fälschlicherweise auch den folgenden Text ändern:
 
 ```js
 const input =
@@ -92,7 +93,7 @@ function removeDomain(text, domain) {
 }
 ```
 
-Jetzt wird diese Funktion genau das tun, was wir beabsichtigen, und wird keine `developer-mozilla.org` URLs transformieren.
+Jetzt wird diese Funktion genau das tun, was wir beabsichtigen, und keine `developer-mozilla.org` URLs verändern.
 
 ## Spezifikationen
 
@@ -105,5 +106,5 @@ Jetzt wird diese Funktion genau das tun, was wir beabsichtigen, und wird keine `
 ## Siehe auch
 
 - [Polyfill von `RegExp.escape` in `core-js`](https://github.com/zloirock/core-js#regexp-escaping)
-- [es-shims polyfill von `Reflect.escape`](https://www.npmjs.com/package/regexp.escape)
+- [es-shims Polyfill von `Reflect.escape`](https://www.npmjs.com/package/regexp.escape)
 - {{jsxref("RegExp")}}

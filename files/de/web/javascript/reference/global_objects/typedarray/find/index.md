@@ -1,13 +1,14 @@
 ---
 title: TypedArray.prototype.find()
+short-title: find()
 slug: Web/JavaScript/Reference/Global_Objects/TypedArray/find
 l10n:
-  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Die **`find()`** Methode von {{jsxref("TypedArray")}} Instanzen gibt das erste Element im angegebenen typisierten Array zurück, das die angegebene Testfunktion erfüllt. Wenn kein Wert die Testfunktion erfüllt, wird {{jsxref("undefined")}} zurückgegeben. Diese Methode verwendet denselben Algorithmus wie {{jsxref("Array.prototype.find()")}}.
+Die **`find()`** Methode von {{jsxref("TypedArray")}} Instanzen gibt das erste Element im angegebenen typisierten Array zurück, das die bereitgestellte Testfunktion erfüllt. Wenn kein Wert die Testfunktion erfüllt, wird {{jsxref("undefined")}} zurückgegeben. Diese Methode hat denselben Algorithmus wie {{jsxref("Array.prototype.find()")}}.
 
 {{InteractiveExample("JavaScript Demo: TypedArray.prototype.find()")}}
 
@@ -32,7 +33,7 @@ find(callbackFn, thisArg)
 ### Parameter
 
 - `callbackFn`
-  - : Eine Funktion, die für jedes Element im typisierten Array ausgeführt wird. Sie sollte einen {{Glossary("Truthy", "truthy")}} Wert zurückgeben, um darauf hinzuweisen, dass ein passendes Element gefunden wurde, und einen {{Glossary("Falsy", "falsy")}} Wert andernfalls. Die Funktion wird mit den folgenden Argumenten aufgerufen:
+  - : Eine Funktion, die für jedes Element im typisierten Array ausgeführt wird. Sie sollte einen {{Glossary("Truthy", "truthy")}} Wert zurückgeben, um anzuzeigen, dass ein entsprechendes Element gefunden wurde, und einen {{Glossary("Falsy", "falsy")}} Wert andernfalls. Die Funktion wird mit den folgenden Argumenten aufgerufen:
     - `element`
       - : Das aktuelle Element, das im typisierten Array verarbeitet wird.
     - `index`
@@ -44,18 +45,17 @@ find(callbackFn, thisArg)
 
 ### Rückgabewert
 
-Das erste Element im typisierten Array, das die angegebene Testfunktion erfüllt.
-Andernfalls wird {{jsxref("undefined")}} zurückgegeben.
+Das erste Element im typisierten Array, das die bereitgestellte Testfunktion erfüllt. Andernfalls wird {{jsxref("undefined")}} zurückgegeben.
 
 ## Beschreibung
 
-Siehe {{jsxref("Array.prototype.find()")}} für weitere Details. Diese Methode ist nicht generisch und kann nur auf typisierten Array-Instanzen aufgerufen werden.
+Siehe {{jsxref("Array.prototype.find()")}} für weitere Details. Diese Methode ist nicht generisch und kann nur auf typisierten Array-Instanzen angewendet werden.
 
 ## Beispiele
 
-### Finden Sie die erste Primzahl in einem typisierten Array
+### Finden der ersten Primzahl in einem typisierten Array
 
-Das folgende Beispiel gibt das erste Element im typisierten Array zurück, das eine Primzahl ist, oder {{jsxref("undefined")}}, wenn es keine Primzahl gibt.
+Das folgende Beispiel gibt das erste Element im typisierten Array zurück, das eine Primzahl ist, oder {{jsxref("undefined")}}, wenn es keine Primzahlen gibt.
 
 ```js
 function isPrime(element, index, array) {
@@ -83,7 +83,7 @@ console.log(uint8.find(isPrime)); // 5
 ## Siehe auch
 
 - [Polyfill von `TypedArray.prototype.find` in `core-js`](https://github.com/zloirock/core-js#ecmascript-typed-arrays)
-- [JavaScript typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
+- [Leitfaden zu JavaScript typisierten Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays)
 - {{jsxref("TypedArray")}}
 - {{jsxref("TypedArray.prototype.findIndex()")}}
 - {{jsxref("TypedArray.prototype.findLast()")}}

@@ -1,13 +1,14 @@
 ---
 title: Temporal.Instant.prototype.toZonedDateTimeISO()
+short-title: toZonedDateTimeISO()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/Instant/toZonedDateTimeISO
 l10n:
-  sourceCommit: d0b9cef0713eb263934a98e94202b97c143204a4
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}{{SeeCompatTable}}
 
-Die **`toZonedDateTimeISO()`**-Methode von Instanzen des {{jsxref("Temporal.Instant")}} gibt ein neues {{jsxref("Temporal.ZonedDateTime")}}-Objekt zurück, das diesen Moment in der angegebenen Zeitzone unter Verwendung des ISO 8601-Kalendersystems darstellt.
+Die Methode **`toZonedDateTimeISO()`** von {{jsxref("Temporal.Instant")}} Instanzen gibt ein neues {{jsxref("Temporal.ZonedDateTime")}} Objekt zurück, das diesen Moment in der angegebenen Zeitzone unter Verwendung des ISO 8601 Kalendersystems darstellt.
 
 ## Syntax
 
@@ -18,18 +19,18 @@ toZonedDateTimeISO(timeZone)
 ### Parameter
 
 - `timeZone`
-  - : Entweder ein String oder eine {{jsxref("Temporal.ZonedDateTime")}}-Instanz, die die zu verwendende Zeitzone darstellt. Wenn es sich um eine `Temporal.ZonedDateTime`-Instanz handelt, wird deren Zeitzone verwendet. Wenn es ein String ist, kann es sich um einen benannten Zeitzonenbezeichner, einen Offset-Zeitzonenbezeichner oder einen Datums-Zeit-String mit einem Zeitzonenbezeichner oder einem Offset handeln (siehe [Zeitzonen und Offsets](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime#time_zones_and_offsets) für mehr Informationen).
+  - : Entweder ein String oder eine {{jsxref("Temporal.ZonedDateTime")}} Instanz, die die zu verwendende Zeitzone darstellt. Wenn eine `Temporal.ZonedDateTime` Instanz, wird deren Zeitzone verwendet. Wenn ein String, kann es sich um einen benannten Zeitzonenbezeichner, einen Offset-Zeitzonenbezeichner oder einen Datums- und Zeit-String handeln, der einen Zeitzonenbezeichner oder einen Offset enthält (siehe [Zeitzonen und Offsets](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime#time_zones_and_offsets) für weitere Informationen).
 
 ### Rückgabewert
 
-Ein neues {{jsxref("Temporal.ZonedDateTime")}}-Objekt, das diesen Moment in der angegebenen Zeitzone unter Verwendung des ISO 8601-Kalendersystems darstellt.
+Ein neues {{jsxref("Temporal.ZonedDateTime")}} Objekt, das diesen Moment in der angegebenen Zeitzone unter Verwendung des ISO 8601 Kalendersystems darstellt.
 
 ### Ausnahmen
 
 - {{jsxref("RangeError")}}
   - : Wird ausgelöst, wenn der Zeitzonenname ungültig ist.
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn `timeZone` weder ein String noch eine `Temporal.ZonedDateTime`-Instanz ist.
+  - : Wird ausgelöst, wenn `timeZone` weder ein String noch eine `Temporal.ZonedDateTime` Instanz ist.
 
 ## Beispiele
 

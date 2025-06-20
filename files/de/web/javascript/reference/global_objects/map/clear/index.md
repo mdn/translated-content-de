@@ -1,13 +1,14 @@
 ---
 title: Map.prototype.clear()
+short-title: clear()
 slug: Web/JavaScript/Reference/Global_Objects/Map/clear
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Die **`clear()`**-Methode von {{jsxref("Map")}}-Instanzen entfernt alle Elemente aus dieser Map.
+Die **`clear()`** Methode von {{jsxref("Map")}}-Instanzen entfernt alle Elemente aus dieser Map.
 
 {{InteractiveExample("JavaScript Demo: Map.prototype.clear()")}}
 
@@ -38,7 +39,7 @@ Keine.
 
 ### Rückgabewert
 
-Keine ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 

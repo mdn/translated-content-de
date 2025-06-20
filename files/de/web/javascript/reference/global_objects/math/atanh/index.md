@@ -1,13 +1,14 @@
 ---
 title: Math.atanh()
+short-title: atanh()
 slug: Web/JavaScript/Reference/Global_Objects/Math/atanh
 l10n:
-  sourceCommit: e8320dfbed49d37589d0fe759ef6506885f340f7
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Die **`Math.atanh()`** statische Methode gibt den inversen hyperbolischen Tangens einer Zahl zurück. Das bedeutet:
+Die statische Methode **`Math.atanh()`** gibt den inversen hyperbolischen Tangens einer Zahl zurück. Das bedeutet,
 
 <!-- prettier-ignore-start -->
 <math display="block">
@@ -40,15 +41,15 @@ Math.atanh(x)
 ### Parameter
 
 - `x`
-  - : Eine Zahl zwischen -1 und 1, inklusive.
+  - : Eine Zahl zwischen -1 und 1, einschließlich.
 
 ### Rückgabewert
 
-Der inverse hyperbolische Tangens von `x`. Wenn `x` 1 ist, wird {{jsxref("Infinity")}} zurückgegeben. Wenn `x` -1 ist, wird `-Infinity` zurückgegeben. Wenn `x` kleiner als -1 oder größer als 1 ist, wird {{jsxref("NaN")}} zurückgegeben.
+Der inverse hyperbolische Tangens von `x`. Wenn `x` 1 ist, gibt {{jsxref("Infinity")}} zurück. Wenn `x` -1 ist, gibt `-Infinity` zurück. Wenn `x` kleiner als -1 oder größer als 1 ist, gibt {{jsxref("NaN")}} zurück.
 
 ## Beschreibung
 
-Da `atanh()` eine statische Methode von `Math` ist, verwenden Sie sie immer als `Math.atanh()` und nicht als Methode eines von Ihnen erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
+Da `atanh()` eine statische Methode von `Math` ist, verwenden Sie sie immer als `Math.atanh()` und nicht als Methode eines selbst erstellten `Math`-Objekts (denn `Math` ist kein Konstruktor).
 
 ## Beispiele
 

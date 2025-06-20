@@ -1,13 +1,14 @@
 ---
 title: Date.prototype.setFullYear()
+short-title: setFullYear()
 slug: Web/JavaScript/Reference/Global_Objects/Date/setFullYear
 l10n:
-  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Die **`setFullYear()`** Methode von {{jsxref("Date")}} Instanzen ändert das Jahr, den Monat und/oder den Tag des Monats dieses Datums gemäß der lokalen Zeit.
+Die **`setFullYear()`** Methode von {{jsxref("Date")}} Instanzen ändert das Jahr, den Monat und/oder den Tag des Monats für dieses Datum basierend auf Ortszeit.
 
 {{InteractiveExample("JavaScript Demo: Date.prototype.setFullYear()")}}
 
@@ -36,21 +37,21 @@ setFullYear(yearValue, monthValue, dateValue)
 ### Parameter
 
 - `yearValue`
-  - : Ein ganzzahliger Wert, der das Jahr repräsentiert. Zum Beispiel, 1995.
+  - : Ein ganzzahliger Wert, der das Jahr darstellt. Zum Beispiel 1995.
 - `monthValue` {{optional_inline}}
-  - : Ein ganzzahliger Wert, der den Monat repräsentiert: 0 für Januar, 1 für Februar, und so weiter.
+  - : Ein ganzzahliger Wert, der den Monat darstellt: 0 für Januar, 1 für Februar und so weiter.
 - `dateValue` {{optional_inline}}
-  - : Eine ganze Zahl zwischen 1 und 31, die den Tag des Monats repräsentiert. Wenn Sie `dateValue` angeben, müssen Sie auch `monthValue` angeben.
+  - : Eine Ganzzahl zwischen 1 und 31, die den Tag des Monats darstellt. Wenn Sie `dateValue` angeben, müssen Sie auch `monthValue` angeben.
 
 ### Rückgabewert
 
-Ändert das {{jsxref("Date")}} Objekt direkt und gibt dessen neuen [Zeitstempel](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) zurück. Wenn ein Parameter `NaN` ist (oder andere Werte, die zu `NaN` [konvertiert](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion) werden, wie `undefined`), wird das Datum auf [Invalid Date](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) gesetzt und `NaN` wird zurückgegeben.
+Ändert das {{jsxref("Date")}} Objekt direkt und gibt seinen neuen [Zeitstempel](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) zurück. Wenn ein Parameter `NaN` ist (oder andere Werte, die zu `NaN` [gezwungen werden](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion), wie `undefined`), wird das Datum auf [Ungültiges Datum](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) gesetzt und `NaN` wird zurückgegeben.
 
 ## Beschreibung
 
-Wenn Sie die Parameter `monthValue` und `dateValue` nicht angeben, werden dieselben Werte verwendet, die von {{jsxref("Date/getMonth", "getMonth()")}} und {{jsxref("Date/getDate", "getDate()")}} zurückgegeben werden.
+Wenn Sie die Parameter `monthValue` und `dateValue` nicht angeben, werden die gleichen Werte verwendet, wie sie von {{jsxref("Date/getMonth", "getMonth()")}} und {{jsxref("Date/getDate", "getDate()")}} zurückgegeben werden.
 
-Wenn ein von Ihnen angegebener Parameter außerhalb des erwarteten Bereichs liegt, werden andere Parameter und die Datumsinformationen im {{jsxref("Date")}} Objekt entsprechend aktualisiert. Wenn Sie zum Beispiel 15 für `monthValue` angeben, wird das Jahr um 1 erhöht (`yearValue + 1`), und 3 wird für den Monat verwendet.
+Wenn ein von Ihnen angegebener Parameter außerhalb des erwarteten Bereichs liegt, werden andere Parameter und die Datumsinformationen im {{jsxref("Date")}} Objekt entsprechend aktualisiert. Beispielsweise wird, wenn Sie 15 für `monthValue` angeben, das Jahr um 1 erhöht (`yearValue + 1`) und 3 als Monat verwendet.
 
 ## Beispiele
 

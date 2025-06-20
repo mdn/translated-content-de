@@ -1,13 +1,14 @@
 ---
 title: Intl.DateTimeFormat.prototype.resolvedOptions()
+short-title: resolvedOptions()
 slug: Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/resolvedOptions
 l10n:
-  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Die **`resolvedOptions()`** Methode von {{jsxref("Intl.DateTimeFormat")}} Instanzen gibt ein neues Objekt mit Eigenschaften zurück, die die während der Initialisierung dieses `DateTimeFormat` Objekts berechneten Optionen widerspiegeln.
+Die Methode **`resolvedOptions()`** von {{jsxref("Intl.DateTimeFormat")}}-Instanzen gibt ein neues Objekt mit Eigenschaften zurück, die die während der Initialisierung dieses `DateTimeFormat`-Objekts berechneten Optionen widerspiegeln.
 
 {{InteractiveExample("JavaScript Demo: Intl.DateTimeFormat.prototype.resolvedOptions()")}}
 
@@ -37,43 +38,43 @@ Keine.
 
 ### Rückgabewert
 
-Ein neues Objekt mit Eigenschaften, die die während der Initialisierung dieses `DateTimeFormat` Objekts berechneten Optionen widerspiegeln. Das Objekt hat die folgenden Eigenschaften in der Reihenfolge, in der sie aufgelistet sind:
+Ein neues Objekt mit Eigenschaften, die die während der Initialisierung dieses `DateTimeFormat`-Objekts berechneten Optionen widerspiegeln. Das Objekt hat die folgenden Eigenschaften, in der Reihenfolge, wie sie aufgelistet sind:
 
 - `locale`
-  - : Der BCP 47-Sprachcode für die tatsächlich verwendete Sprache, bestimmt durch den [Verhandlungsprozess der Sprache](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locale_identification_and_negotiation). Nur die `ca`, `hc` und `nu` Unicode-Erweiterungsschlüssel können in der Ausgabe enthalten sein, wenn sie angefordert wurden.
+  - : Das BCP 47 Sprach-Tag für die tatsächlich verwendete Sprache, bestimmt durch den [Sprachverhandlungsprozess](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locale_identification_and_negotiation). Nur die `ca`, `hc` und `nu` Unicode-Erweiterungsschlüssel, falls angefordert, können in der Ausgabe enthalten sein.
 - `calendar`
-  - : Der Wert, der für diese Eigenschaft im `options` Argument oder unter Verwendung des Unicode-Erweiterungsschlüssels `"ca"` bereitgestellt wurde, mit Standardwerten, die bei Bedarf ausgefüllt werden. Es ist ein unterstützter [Kalendertyp](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/supportedValuesOf#supported_calendar_types) für diese Sprachregion. Der Standard hängt von der Sprachregion ab.
+  - : Der Wert, der für diese Eigenschaft im `options`-Argument bereitgestellt wurde, oder unter Verwendung des Unicode-Erweiterungsschlüssels `"ca"`, mit Standardeinstellung, wo nötig. Es handelt sich um einen unterstützten [Kalendertyp](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/supportedValuesOf#supported_calendar_types) für diese Sprache. Die Standardeinstellung ist sprachabhängig.
 - `numberingSystem`
-  - : Der Wert, der für diese Eigenschaft im `options` Argument oder unter Verwendung des Unicode-Erweiterungsschlüssels `"nu"` bereitgestellt wurde, mit Standardwerten, die bei Bedarf ausgefüllt werden. Es ist ein unterstütztes [Nummerierungssystem](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/supportedValuesOf#supported_numbering_system_types) für diese Sprachregion. Der Standard hängt von der Sprachregion ab.
+  - : Der Wert, der für diese Eigenschaft im `options`-Argument bereitgestellt wurde, oder unter Verwendung des Unicode-Erweiterungsschlüssels `"nu"`, mit Standardeinstellung, wo nötig. Es handelt sich um ein unterstütztes [Zahlensystem](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/supportedValuesOf#supported_numbering_system_types) für diese Sprache. Die Standardeinstellung ist sprachabhängig.
 - `timeZone`
 
-  - : Der Wert, der für diese Eigenschaft im `options` Argument bereitgestellt wurde, mit Standardwerten, die bei Bedarf ausgefüllt werden. Es ist ein [IANA-Zeitzonenname](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime#time_zones_and_offsets). Der Standard ist die Standardzeitzone der Laufzeitumgebung.
+  - : Der Wert, der für diese Eigenschaft im `options`-Argument bereitgestellt wurde, mit Standardeinstellung, wo nötig. Es handelt sich um einen [IANA-Zeitzonennamen](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime#time_zones_and_offsets). Die Standardeinstellung ist die Standardzeitzone der Laufzeitumgebung.
 
     > [!NOTE]
-    > Die Standardisierung von `Temporal` erfordert, dass Browser denselben Bezeichner verwenden, wie ursprünglich spezifiziert, ohne Kanonisierung zu einem anderen Alias. Siehe [Zeitzonen und Offsets](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime#time_zones_and_offsets) für weitere Informationen.
+    > Die Standardisierung von `Temporal` erfordert von den Browsern, denselben Bezeichner wie ursprünglich angegeben zu verwenden, ohne Kanonisierung zu einem anderen Alias. Siehe [Zeitzonen und Offsets](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime#time_zones_and_offsets) für weitere Informationen.
 
 - `hourCycle` {{optional_inline}}
-  - : Der Wert, der für diese Eigenschaft im `options` Argument oder unter Verwendung des Unicode-Erweiterungsschlüssels `"hc"` bereitgestellt wurde, mit Standardwerten, die bei Bedarf ausgefüllt werden. Wenn `hour12` im `options` bereitgestellt wurde, wird dies andere `hourCycle` Einstellungen überschreiben. Es ist nur vorhanden, wenn die aufgelösten Optionen auch `hour` oder `timeStyle` beinhalten. Es kann `"h11"`, `"h12"`, `"h23"` oder `"h24"` sein. Der Standard hängt von der Sprachregion ab, obwohl `"h24"` nie ein Standard ist.
+  - : Der Wert, der für diese Eigenschaft im `options`-Argument bereitgestellt wurde, oder unter Verwendung des Unicode-Erweiterungsschlüssels `"hc"`, mit Standardeinstellung, wo nötig. Falls `hour12` im `options`-Argument angegeben wurde, überschreibt dies andere `hourCycle`-Einstellungen. Es ist nur vorhanden, wenn die aufgelösten Optionen auch `hour` oder `timeStyle` enthalten. Es ist entweder `"h11"`, `"h12"`, `"h23"` oder `"h24"`. Die Standardeinstellung ist sprachabhängig, jedoch ist `"h24"` niemals eine Standardeinstellung.
 - `hour12` {{optional_inline}}
-  - : Berechnet aus `hourCycle`. Es ist nur vorhanden, wenn die aufgelösten Optionen auch `hour` oder `timeStyle` beinhalten. Es ist `true`, wenn `hourCycle` `"h11"` oder `"h12"` ist, und `false`, wenn `hourCycle` `"h23"` oder `"h24"` ist.
+  - : Ermittelt aus `hourCycle`. Es ist nur vorhanden, wenn die aufgelösten Optionen auch `hour` oder `timeStyle` enthalten. Es ist `true`, wenn `hourCycle` `"h11"` oder `"h12"` ist, und `false`, wenn `hourCycle` `"h23"` oder `"h24"` ist.
 - `weekday`, `era`, `year`, `month`, `day`, `dayPeriod`, `hour`, `minute`, `second`, `fractionalSecondDigits`, `timeZoneName` {{optional_inline}}
 
-  - : Die Werte, die aus dem Formatabgleich zwischen den entsprechenden Eigenschaften im `options` Argument und den verfügbaren Kombinationen und Darstellungen für Datums- und Uhrzeitformatierung in der ausgewählten Sprachregion resultieren. Einige dieser Eigenschaften können fehlen, was darauf hinweist, dass die entsprechenden Komponenten in der formatierten Ausgabe nicht dargestellt werden. `weekday`, `era` und `dayPeriod` sind entweder `"narrow"`, `"short"` oder `"long"`; `year`, `day`, `hour`, `minute` und `second` sind entweder `"numeric"`, `"2-digit"` oder `"narrow"`; `month` ist entweder `"numeric"`, `"2-digit"`, `"narrow"`, `"short"` oder `"long"`; `fractionalSecondDigits` ist entweder `1`, `2` oder `3`; `timeZoneName` ist entweder `"short"`, `"long"`, `"shortOffset"`, `"longOffset"`, `"shortGeneric"` oder `"longGeneric"`.
+  - : Die Werte, die sich aus der Formatabstimmung zwischen den entsprechenden Eigenschaften im `options`-Argument und den verfügbaren Kombinationen und Darstellungen für das Datum-Uhrzeit-Format in der ausgewählten Sprache ergeben. Einige dieser Eigenschaften sind möglicherweise nicht vorhanden, was darauf hinweist, dass die entsprechenden Komponenten nicht in der formatierten Ausgabe dargestellt werden. `weekday`, `era` und `dayPeriod` sind entweder `"narrow"`, `"short"` oder `"long"`; `year`, `day`, `hour`, `minute` und `second` sind entweder `"numeric"`, `"2-digit"` oder `"narrow"`; `month` ist entweder `"numeric"`, `"2-digit"`, `"narrow"`, `"short"` oder `"long"`; `fractionalSecondDigits` ist entweder `1`, `2` oder `3`; `timeZoneName` ist entweder `"short"`, `"long"`, `"shortOffset"`, `"longOffset"`, `"shortGeneric"` oder `"longGeneric"`.
 
-    Wenn diese Eigenschaften in `options` angefordert wurden, verhindert der Konstruktor, dass `dateStyle` und `timeStyle` angegeben werden, so dass die untenstehende Gruppe niemals vorhanden sein wird.
+    Wenn diese Eigenschaften im `options` angegeben wurden, verhindert der Konstruktor, dass `dateStyle` und `timeStyle` spezifiziert werden, daher wird die unten stehende Gruppe niemals vorhanden sein.
 
 - `dateStyle`, `timeStyle` {{optional_inline}}
 
-  - : Die Werte, die für diese Eigenschaften im `options` Argument bereitgestellt wurden. Sie sind entweder `"full"`, `"long"`, `"medium"`, `"short"` oder `"none"`. Einige dieser Eigenschaften können fehlen, was darauf hinweist, dass die entsprechenden Komponenten in der formatierten Ausgabe nicht dargestellt werden.
+  - : Die im `options`-Argument bereitgestellten Werte. Sie sind entweder `"full"`, `"long"`, `"medium"`, `"short"` oder `"none"`. Einige dieser Eigenschaften sind möglicherweise nicht vorhanden, was darauf hinweist, dass die entsprechenden Komponenten nicht in der formatierten Ausgabe dargestellt werden.
 
-    Wenn diese Eigenschaften in `options` angefordert wurden, verhindert der Konstruktor, dass individuelle Datums- und Zeitkomponentenoptionen angegeben werden, so dass die obenstehende Gruppe niemals vorhanden sein wird.
+    Wenn diese Eigenschaften im `options` angegeben wurden, verhindert der Konstruktor, dass individuelle Datums- und Zeitkomponentenoptionen spezifiziert werden, daher wird die obige Gruppe niemals vorhanden sein.
 
     > [!NOTE]
-    > Obwohl `dateStyle` und `timeStyle` Abkürzungen für individuelle Datums- und Zeitkomponentenstile sind, sind die genauen (sprachregionsabhängigen) Komponentenstile, zu denen sie aufgelöst werden, nicht in den aufgelösten Optionen enthalten. Dies stellt sicher, dass das Ergebnis von `resolvedOptions()` direkt dem `Intl.DateTimeFormat()` Konstruktor übergeben werden kann (da ein `options` Objekt mit sowohl `dateStyle` oder `timeStyle` als auch individuellen Datums- oder Zeitkomponentenstilen nicht gültig ist).
+    > Obwohl `dateStyle` und `timeStyle` Abkürzungen für individuelle Datums- und Zeitkomponentenstile sind, sind die genauen (sprachabhängigen) Komponentenstile, zu denen sie aufgelöst werden, nicht in den aufgelösten Optionen enthalten. Dies stellt sicher, dass das Ergebnis von `resolvedOptions()` direkt an den `Intl.DateTimeFormat()`-Konstruktor übergeben werden kann (da ein `options`-Objekt mit sowohl `dateStyle` oder `timeStyle` als auch individuellen Datums- oder Zeitkomponentenstilen nicht gültig ist).
 
 ## Beispiele
 
-### Verwendung der Methode resolvedOptions
+### Verwendung der resolvedOptions-Methode
 
 ```js
 const germanFakeRegion = new Intl.DateTimeFormat("de-XX", { timeZone: "UTC" });
@@ -86,9 +87,9 @@ usedOptions.timeZone; // "UTC"
 usedOptions.month; // "numeric"
 ```
 
-### Abrufen der Zeitzonen- und Spracheinstellungen des Benutzers
+### Ermitteln der Zeitzonen- und Spracheinstellungen des Benutzers
 
-Der `Intl.DateTimeFormat` Konstruktor ohne Optionen verwendet die aktuellen Systemeinstellungen. Sie können `resolvedOptions()` verwenden, um die aktuelle Zeitzone des Benutzers und die bevorzugten Kalender- und Nummerierungssysteme der Sprachregion zu erhalten:
+Der `Intl.DateTimeFormat`-Konstruktor ohne jegliche Optionen verwendet die aktuellen Systemeinstellungen. Sie können `resolvedOptions()` verwenden, um die aktuelle Zeitzone und das bevorzugte Kalendersystem und Zahlensystem des Benutzers zu ermitteln:
 
 ```js
 const systemOptions = new Intl.DateTimeFormat().resolvedOptions();

@@ -1,13 +1,14 @@
 ---
 title: Object.seal()
+short-title: seal()
 slug: Web/JavaScript/Reference/Global_Objects/Object/seal
 l10n:
-  sourceCommit: 759102220c07fb140b3e06971cd5981d8f0f134f
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Die **`Object.seal()`** statische Methode _versiegelt_ ein Objekt. Das Versiegeln eines Objekts [verhindert Erweiterungen](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/preventExtensions) und macht bestehende Eigenschaften nicht konfigurierbar. Ein versiegeltes Objekt hat einen festen Satz an Eigenschaften: Neue Eigenschaften können nicht hinzugefügt werden, bestehende Eigenschaften können nicht entfernt werden, ihre Aufzählbarkeit und Konfigurierbarkeit können nicht geändert werden, und ihr Prototyp kann nicht neu zugewiesen werden. Die Werte bestehender Eigenschaften können weiterhin geändert werden, solange sie beschreibbar sind. `seal()` gibt dasselbe Objekt zurück, das übergeben wurde.
+Die statische Methode **`Object.seal()`** _versiegelt_ ein Objekt. Das Versiegeln eines Objekts [verhindert Erweiterungen](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/preventExtensions) und macht bestehende Eigenschaften nicht konfigurierbar. Ein versiegeltes Objekt hat eine feste Menge an Eigenschaften: Neue Eigenschaften können nicht hinzugefügt werden, bestehende Eigenschaften können nicht entfernt werden, ihre Aufzählbarkeit und Konfigurierbarkeit können nicht geändert werden und ihr Prototyp kann nicht neu zugewiesen werden. Die Werte bestehender Eigenschaften können weiterhin geändert werden, solange sie schreibbar sind. `seal()` gibt das gleiche Objekt zurück, das übergeben wurde.
 
 {{InteractiveExample("JavaScript Demo: Object.seal()")}}
 
@@ -43,13 +44,13 @@ Das versiegelte Objekt.
 
 ## Beschreibung
 
-Das Versiegeln eines Objekts entspricht dem [Verhindern von Erweiterungen](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/preventExtensions) und dem Ändern aller bestehenden [Property-Deskriptoren](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty#description) zu `configurable: false`. Dies hat zur Folge, dass der Satz von Eigenschaften auf dem Objekt fest ist. Das Nicht-Konfigurierbar-Machen aller Eigenschaften verhindert auch, dass sie von Dateneigenschaften in Zugriffseigenschaften umgewandelt werden und umgekehrt, es verhindert jedoch nicht, dass die Werte von Dateneigenschaften geändert werden. Der Versuch, Eigenschaften bei einem versiegelten Objekt zu löschen oder hinzuzufügen oder eine Dateneigenschaft in eine Zugriffseigenschaft umzuwandeln oder umgekehrt, wird scheitern, entweder stillschweigend oder durch Werfen eines {{jsxref("TypeError")}} (meistens, aber nicht ausschließlich, im {{jsxref("Strict_mode", "strict mode", "", 1)}}-Code).
+Das Versiegeln eines Objekts entspricht dem [Verhindern von Erweiterungen](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/preventExtensions) und dem anschließenden Ändern aller vorhandenen [Eigenschafts-Deskriptoren](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty#description) zu `configurable: false`. Dies hat den Effekt, dass die Menge der Eigenschaften des Objekts festgelegt wird. Alle Eigenschaften nicht konfigurierbar zu machen, verhindert auch, dass sie von Dateneigenschaften in Zugriffseigenschaften und umgekehrt umgewandelt werden, aber es verhindert nicht, dass die Werte von Dateneigenschaften geändert werden können. Der Versuch, Eigenschaften zu löschen oder hinzuzufügen oder eine Dateneigenschaft in eine Zugriffseigenschaft oder umgekehrt umzuwandeln, wird fehlschlagen, entweder stillschweigend oder indem ein {{jsxref("TypeError")}} ausgelöst wird (meistens, aber nicht ausschließlich, im {{jsxref("Strict_mode", "Strict Mode", "", 1)}}-Code).
 
-[Private Eigenschaften](/de/docs/Web/JavaScript/Reference/Classes/Private_properties) besitzen nicht das Konzept von Property-Deskriptoren. Private Eigenschaften können weder hinzugefügt noch entfernt werden, unabhängig davon, ob das Objekt versiegelt ist oder nicht.
+[Private Eigenschaften](/de/docs/Web/JavaScript/Reference/Classes/Private_properties) haben nicht das Konzept von Eigenschafts-Deskriptoren. Private Eigenschaften können nicht zum Objekt hinzugefügt oder daraus entfernt werden, unabhängig davon, ob das Objekt versiegelt ist oder nicht.
 
-Die Prototypkette bleibt unberührt. Aufgrund der Wirkung des [Verhinderns von Erweiterungen](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/preventExtensions) kann jedoch das `[[Prototype]]` nicht neu zugewiesen werden.
+Die Prototyp-Kette bleibt unberührt. Aufgrund des Effekts des [Verhinderns von Erweiterungen](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/preventExtensions) kann jedoch der `[[Prototype]]` nicht neu zugewiesen werden.
 
-Im Gegensatz zu {{jsxref("Object.freeze()")}} können Objekte, die mit `Object.seal()` versiegelt wurden, ihre bestehenden Eigenschaften ändern, solange diese beschreibbar sind.
+Im Gegensatz zu {{jsxref("Object.freeze()")}} können bei mit `Object.seal()` versiegelten Objekten bestehende Eigenschaften geändert werden, solange diese schreibbar sind.
 
 ## Beispiele
 
@@ -112,7 +113,7 @@ Object.defineProperty(obj, "foo", {
 
 ### Nicht-Objekt-Argument
 
-In ES5 wird, wenn das Argument dieser Methode kein Objekt (ein primitiver Wert) ist, ein {{jsxref("TypeError")}} ausgelöst. In ES2015 wird ein Nicht-Objekt-Argument unverändert ohne Fehler zurückgegeben, da primitive Werte definitionsgemäß bereits unveränderlich sind.
+In ES5 führt das Übergeben eines Nicht-Objekts (einer primitiven Wert) an diese Methode zu einem {{jsxref("TypeError")}}. In ES2015 wird ein Nicht-Objekt-Argument unverändert zurückgegeben, ohne dass Fehler geworfen werden, da primitive Werte per Definition bereits unveränderlich sind.
 
 ```js
 Object.seal(1);

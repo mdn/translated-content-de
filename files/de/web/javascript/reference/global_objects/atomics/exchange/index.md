@@ -1,13 +1,14 @@
 ---
 title: Atomics.exchange()
+short-title: exchange()
 slug: Web/JavaScript/Reference/Global_Objects/Atomics/exchange
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Die statische Methode **`Atomics.exchange()`** tauscht einen angegebenen Wert an einer bestimmten Position im Array aus und gibt den alten Wert an dieser Position zurück. Diese atomare Operation garantiert, dass zwischen dem Lesen des alten Wertes und dem Schreiben des neuen Wertes keine anderen Schreibvorgänge stattfinden.
+Die statische Methode **`Atomics.exchange()`** tauscht einen gegebenen Wert an einer bestimmten Position im Array aus und gibt den alten Wert an dieser Position zurück. Dieser atomare Vorgang stellt sicher, dass keine andere Schreiboperation zwischen dem Lesen des alten Werts und dem Schreiben des neuen Werts erfolgt.
 
 {{InteractiveExample("JavaScript Demo: Atomics.exchange()")}}
 
@@ -36,7 +37,7 @@ Atomics.exchange(typedArray, index, value)
 - `typedArray`
   - : Ein ganzzahliger typisierter Array. Einer von {{jsxref("Int8Array")}}, {{jsxref("Uint8Array")}}, {{jsxref("Int16Array")}}, {{jsxref("Uint16Array")}}, {{jsxref("Int32Array")}}, {{jsxref("Uint32Array")}}, {{jsxref("BigInt64Array")}} oder {{jsxref("BigUint64Array")}}.
 - `index`
-  - : Die Position im `typedArray`, an der ein `value` ausgetauscht wird.
+  - : Die Position im `typedArray`, an der ein `value` ausgetauscht werden soll.
 - `value`
   - : Die Zahl, die ausgetauscht werden soll.
 
@@ -49,7 +50,7 @@ Der alte Wert an der angegebenen Position (`typedArray[index]`).
 - {{jsxref("TypeError")}}
   - : Wird ausgelöst, wenn `typedArray` nicht einer der erlaubten ganzzahligen Typen ist.
 - {{jsxref("RangeError")}}
-  - : Wird ausgelöst, wenn `index` außerhalb der Grenzen von `typedArray` liegt.
+  - : Wird ausgelöst, wenn `index` außerhalb des gültigen Bereichs im `typedArray` liegt.
 
 ## Beispiele
 

@@ -1,13 +1,14 @@
 ---
 title: Math.round()
+short-title: round()
 slug: Web/JavaScript/Reference/Global_Objects/Math/round
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Die **`Math.round()`** statische Methode gibt den Wert einer Zahl zurück, gerundet auf die nächste ganze Zahl.
+Die **`Math.round()`** statische Methode gibt den Wert einer Zahl zurück, der auf die nächste ganze Zahl gerundet ist.
 
 {{InteractiveExample("JavaScript Demo: Math.round()")}}
 
@@ -39,14 +40,14 @@ Der Wert von `x`, gerundet auf die nächste ganze Zahl.
 
 ## Beschreibung
 
-Wenn der Bruchteil des Arguments größer als 0,5 ist, wird das Argument auf die ganze Zahl mit dem nächsthöheren absoluten Wert gerundet. Wenn der Bruchteil kleiner als 0,5 ist, wird das Argument auf die ganze Zahl mit dem niedrigeren absoluten Wert gerundet. Wenn der Bruchteil genau 0,5 beträgt, wird das Argument auf die nächste ganze Zahl in Richtung +∞ gerundet.
+Wenn der Bruchteil des Arguments größer als 0,5 ist, wird das Argument auf die ganze Zahl mit dem nächsthöheren absoluten Wert gerundet. Wenn er kleiner als 0,5 ist, wird das Argument auf die ganze Zahl mit dem nächstniedrigeren absoluten Wert gerundet. Wenn der Bruchteil genau 0,5 beträgt, wird das Argument auf die nächste ganze Zahl in Richtung +∞ gerundet.
 
 > [!NOTE]
-> Dies unterscheidet sich von den `round()`-Funktionen vieler anderer Sprachen, die halbe Werte oft _vom Nullpunkt weg_ runden und bei negativen Zahlen mit einem Bruchteil von genau 0,5 ein anderes Ergebnis liefern.
+> Dies unterscheidet sich von den `round()`-Funktionen vieler anderer Sprachen, die Halb-Inkremente oft _von null weg_ runden, was bei negativen Zahlen mit einem Bruchteil von genau 0,5 zu einem anderen Ergebnis führt.
 
-`Math.round(x)` ist nicht exakt gleich wie [`Math.floor(x + 0.5)`](/de/docs/Web/JavaScript/Reference/Global_Objects/Math/floor). Wenn `x` -0 oder -0.5 ≤ x < 0 ist, gibt `Math.round(x)` -0 zurück, während `Math.floor(x + 0.5)` 0 zurückgibt. Abgesehen von diesem Unterschied und möglichen Präzisionsfehlern sind `Math.round(x)` und `Math.floor(x + 0.5)` im Allgemeinen gleichwertig.
+`Math.round(x)` ist nicht genau dasselbe wie [`Math.floor(x + 0.5)`](/de/docs/Web/JavaScript/Reference/Global_Objects/Math/floor). Wenn `x` -0 ist oder -0.5 ≤ x < 0, gibt `Math.round(x)` -0 zurück, während `Math.floor(x + 0.5)` 0 zurückgibt. Abgesehen von diesem Unterschied und möglichen Präzisionsfehlern sind `Math.round(x)` und `Math.floor(x + 0.5)` im Allgemeinen äquivalent.
 
-Da `round()` eine statische Methode von `Math` ist, wird sie immer als `Math.round()` verwendet und nicht als Methode eines von Ihnen erstellten `Math`-Objekts (`Math` hat keinen Konstruktor).
+Da `round()` eine statische Methode von `Math` ist, wird sie immer als `Math.round()` verwendet und nicht als eine Methode eines erstellten `Math`-Objekts (`Math` hat keinen Konstruktor).
 
 ## Beispiele
 

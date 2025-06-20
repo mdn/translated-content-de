@@ -1,13 +1,14 @@
 ---
 title: Date.prototype.setUTCMilliseconds()
+short-title: setUTCMilliseconds()
 slug: Web/JavaScript/Reference/Global_Objects/Date/setUTCMilliseconds
 l10n:
-  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Die Methode **`setUTCMilliseconds()`** von {{jsxref("Date")}}-Instanzen ändert die Millisekunden für dieses Datum gemäß der koordinierten Weltzeit.
+Die **`setUTCMilliseconds()`**-Methode von {{jsxref("Date")}}-Instanzen ändert die Millisekunden für dieses Datum gemäß der Weltzeit.
 
 {{InteractiveExample("JavaScript Demo: Date.prototype.setUTCMilliseconds()")}}
 
@@ -32,15 +33,15 @@ setUTCMilliseconds(millisecondsValue)
 ### Parameter
 
 - `millisecondsValue`
-  - : Ein ganzzahliger Wert zwischen 0 und 999, der die Millisekunden darstellt.
+  - : Eine ganze Zahl zwischen 0 und 999, die die Millisekunden darstellt.
 
 ### Rückgabewert
 
-Ändert das {{jsxref("Date")}}-Objekt vor Ort und gibt seinen neuen [Zeitstempel](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) zurück. Wenn `millisecondsValue` `NaN` ist (oder andere Werte, die zu `NaN` [gezwungen](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion) werden, wie z. B. `undefined`), wird das Datum auf [Invalid Date](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) gesetzt und `NaN` wird zurückgegeben.
+Ändert das {{jsxref("Date")}}-Objekt an Ort und Stelle und gibt dessen neuen [Zeitstempel](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) zurück. Wenn `millisecondsValue` `NaN` ist (oder andere Werte, die zu `NaN` [gezwungen](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion) werden, wie `undefined`), wird das Datum auf [Invalid Date](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) gesetzt und `NaN` wird zurückgegeben.
 
 ## Beschreibung
 
-Wenn ein von Ihnen angegebener Parameter außerhalb des erwarteten Bereichs liegt, versucht `setUTCMilliseconds()`, die Datumsinformationen im {{jsxref("Date")}}-Objekt entsprechend zu aktualisieren. Wenn Sie beispielsweise 1100 für `millisecondsValue` verwenden, werden die Sekunden im {{jsxref("Date")}}-Objekt um 1 erhöht, und 100 wird für die Millisekunden verwendet.
+Wenn ein angegebener Parameter außerhalb des erwarteten Bereichs liegt, versucht `setUTCMilliseconds()`, die Datumsinformationen im {{jsxref("Date")}}-Objekt entsprechend zu aktualisieren. Wenn Sie beispielsweise 1100 für `millisecondsValue` verwenden, werden die im {{jsxref("Date")}}-Objekt gespeicherten Sekunden um 1 erhöht, und 100 wird für die Millisekunden verwendet.
 
 ## Beispiele
 

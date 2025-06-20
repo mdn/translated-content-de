@@ -1,13 +1,14 @@
 ---
 title: Temporal.ZonedDateTime.prototype.startOfDay()
+short-title: startOfDay()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime/startOfDay
 l10n:
-  sourceCommit: d0b9cef0713eb263934a98e94202b97c143204a4
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}{{SeeCompatTable}}
 
-Die **`startOfDay()`**-Methode von {{jsxref("Temporal.ZonedDateTime")}}-Instanzen gibt ein {{jsxref("Temporal.ZonedDateTime")}}-Objekt zurück, das den ersten Moment dieses Datums in der Zeitzone darstellt. Es hat normalerweise eine Uhrzeit von `00:00:00`, kann aber abweichen, wenn Mitternacht aufgrund von Offset-Änderungen nicht existiert. In diesem Fall wird der erste existierende Zeitpunkt zurückgegeben.
+Die **`startOfDay()`**-Methode von {{jsxref("Temporal.ZonedDateTime")}}-Instanzen gibt ein {{jsxref("Temporal.ZonedDateTime")}}-Objekt zurück, das den ersten Moment dieses Datums in der Zeitzone darstellt. Es hat normalerweise die Uhrzeit `00:00:00`, kann aber unterschiedlich sein, wenn Mitternacht aufgrund von Offset-Änderungen nicht existiert. In diesem Fall wird die erste existente Uhrzeit zurückgegeben.
 
 Es ist äquivalent zu einem Aufruf von {{jsxref("Temporal/ZonedDateTime/withPlainTime", "withPlainTime()")}} ohne Argumente.
 
@@ -23,10 +24,10 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("Temporal.ZonedDateTime")}}-Objekt mit dem Zeitpunkt `t`, so dass:
+Ein {{jsxref("Temporal.ZonedDateTime")}}-Objekt mit dem Zeitpunkt `t`, sodass:
 
-- Das Datum bei `t` von dem Datum eine Nanosekunde vor `t` abweicht.
-- Das Datum bei `t` mit dem Datum von `this` identisch ist.
+- Das Datum zu `t` ist unterschiedlich vom Datum eine Nanosekunde vor `t`.
+- Das Datum zu `t` ist dasselbe wie das Datum von `this`.
 
 ## Beispiele
 
@@ -57,10 +58,10 @@ console.log(dt2.startOfDay().toString()); // "2015-10-18T01:00:00-02:00[America/
 ## Siehe auch
 
 - {{jsxref("Temporal.ZonedDateTime")}}
-- {{jsxref("Temporal.ZonedDateTime/with", "Temporal.ZonedDateTime.prototype.with()")}}
-- {{jsxref("Temporal.ZonedDateTime/add", "Temporal.ZonedDateTime.prototype.add()")}}
-- {{jsxref("Temporal.ZonedDateTime/subtract", "Temporal.ZonedDateTime.prototype.subtract()")}}
-- {{jsxref("Temporal.ZonedDateTime/hour", "Temporal.ZonedDateTime.prototype.hour")}}
-- {{jsxref("Temporal.ZonedDateTime/hoursInDay", "Temporal.ZonedDateTime.prototype.hoursInDay")}}
-- {{jsxref("Temporal.ZonedDateTime/timeZoneId", "Temporal.ZonedDateTime.prototype.timeZoneId")}}
-- {{jsxref("Temporal.ZonedDateTime/getTimeZoneTransition", "Temporal.ZonedDateTime.prototype.getTimeZoneTransition()")}}
+- {{jsxref("Temporal/ZonedDateTime/with", "Temporal.ZonedDateTime.prototype.with()")}}
+- {{jsxref("Temporal/ZonedDateTime/add", "Temporal.ZonedDateTime.prototype.add()")}}
+- {{jsxref("Temporal/ZonedDateTime/subtract", "Temporal.ZonedDateTime.prototype.subtract()")}}
+- {{jsxref("Temporal/ZonedDateTime/hour", "Temporal.ZonedDateTime.prototype.hour")}}
+- {{jsxref("Temporal/ZonedDateTime/hoursInDay", "Temporal.ZonedDateTime.prototype.hoursInDay")}}
+- {{jsxref("Temporal/ZonedDateTime/timeZoneId", "Temporal.ZonedDateTime.prototype.timeZoneId")}}
+- {{jsxref("Temporal/ZonedDateTime/getTimeZoneTransition", "Temporal.ZonedDateTime.prototype.getTimeZoneTransition()")}}

@@ -1,15 +1,16 @@
 ---
 title: Temporal.PlainDate.prototype.toPlainMonthDay()
+short-title: toPlainMonthDay()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainDate/toPlainMonthDay
 l10n:
-  sourceCommit: d0b9cef0713eb263934a98e94202b97c143204a4
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}{{SeeCompatTable}}
 
-Die **`toPlainMonthDay()`**-Methode von {{jsxref("Temporal.PlainDate")}} Instanzen gibt ein neues {{jsxref("Temporal.PlainMonthDay")}} Objekt zurück, das den {{jsxref("Temporal/PlainDate/monthCode", "monthCode")}} und {{jsxref("Temporal/PlainDate/day", "day")}} dieses Datums im selben Kalendersystem darstellt.
+Die Methode **`toPlainMonthDay()`** von {{jsxref("Temporal.PlainDate")}} Instanzen gibt ein neues {{jsxref("Temporal.PlainMonthDay")}} Objekt zurück, das den {{jsxref("Temporal/PlainDate/monthCode", "monthCode")}} und {{jsxref("Temporal/PlainDate/day", "day")}} dieses Datums im selben Kalendersystem darstellt.
 
-Beachten Sie, dass `PlainMonthDay`-Objekte keine `month`-Komponente haben, da Monate mit demselben Namen in verschiedenen Jahren aufgrund von Schaltmonaten unterschiedliche `month`-Indizes haben können.
+Bitte beachten Sie, dass `PlainMonthDay` Objekte keine `month` Komponente haben, da Monate mit demselben Namen in verschiedenen Jahren aufgrund von Schaltmonaten unterschiedliche `month` Indizes haben können.
 
 ## Syntax
 
@@ -23,7 +24,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein neues `Temporal.PlainMonthDay`-Objekt, das den {{jsxref("Temporal/PlainDate/monthCode", "monthCode")}} und {{jsxref("Temporal/PlainDate/day", "day")}} dieses Datums im selben Kalendersystem darstellt.
+Ein neues `Temporal.PlainMonthDay` Objekt, das den {{jsxref("Temporal/PlainDate/monthCode", "monthCode")}} und {{jsxref("Temporal/PlainDate/day", "day")}} dieses Datums im selben Kalendersystem darstellt.
 
 ## Beispiele
 

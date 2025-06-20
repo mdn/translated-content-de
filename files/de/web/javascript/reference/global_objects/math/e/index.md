@@ -1,13 +1,14 @@
 ---
 title: Math.E
+short-title: E
 slug: Web/JavaScript/Reference/Global_Objects/Math/E
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Die statische Dateneigenschaft **`Math.E`** repräsentiert die Eulersche Zahl, die Basis des natürlichen Logarithmus, `e`, welche ungefähr 2.718 beträgt.
+Die statische Daten-Eigenschaft **`Math.E`** repräsentiert die eulersche Zahl, die Basis der natürlichen Logarithmen, e, die ungefähr 2.718 beträgt.
 
 {{InteractiveExample("JavaScript Demo: Math.E")}}
 
@@ -38,13 +39,13 @@ console.log(compoundOneYear(0.05, 100));
 
 ## Beschreibung
 
-Da `E` eine statische Eigenschaft von `Math` ist, wird sie immer als `Math.E` verwendet und nicht als eine Eigenschaft eines von Ihnen erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
+Da `E` eine statische Eigenschaft von `Math` ist, wird sie immer als `Math.E` verwendet, anstatt als Eigenschaft eines erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
 
 ## Beispiele
 
 ### Verwendung von Math.E
 
-Die folgende Funktion gibt `e` zurück:
+Die folgende Funktion gibt e zurück:
 
 ```js
 function getNapier() {

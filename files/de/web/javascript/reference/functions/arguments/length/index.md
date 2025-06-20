@@ -1,23 +1,24 @@
 ---
 title: arguments.length
+short-title: length
 slug: Web/JavaScript/Reference/Functions/arguments/length
 l10n:
-  sourceCommit: c6f0f106b9083984dbf597678def6561729bb459
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{jsSidebar("Functions")}}
 
-Die Daten-Eigenschaft **`arguments.length`** enthält die Anzahl der an die Funktion übergebenen Argumente.
+Die **`arguments.length`** Eigenschaften-Daten enthalten die Anzahl der an die Funktion übergebenen Argumente.
 
 ## Wert
 
-Eine nicht-negative ganze Zahl.
+Eine nicht-negative Ganzzahl.
 
 {{js_property_attributes(1, 0, 1)}}
 
 ## Beschreibung
 
-Die Eigenschaft `arguments.length` gibt die Anzahl der tatsächlich an eine Funktion übergebenen Argumente an. Diese kann mehr oder weniger als die Anzahl der definierten Parameter sein (siehe {{jsxref("Function.prototype.length")}}). Zum Beispiel, für die folgende Funktion:
+Die Eigenschaft `arguments.length` gibt die Anzahl der Argumente an, die tatsächlich an eine Funktion übergeben wurden. Diese kann mehr oder weniger als die Anzahl der definierten Parameter sein (siehe {{jsxref("Function.prototype.length")}}). Zum Beispiel für die folgende Funktion:
 
 ```js
 function func1(a, b, c) {
@@ -25,7 +26,7 @@ function func1(a, b, c) {
 }
 ```
 
-`func1.length` gibt `3` zurück, weil `func1` drei formale Parameter deklariert. Wenn jedoch `func1(1, 2, 3, 4, 5)` aufgerufen wird, wird `5` protokolliert, weil `func1` mit fünf Argumenten aufgerufen wurde. Ähnlich wird bei `func1(1)` `1` protokolliert, weil `func1` mit einem Argument aufgerufen wurde.
+`func1.length` gibt `3` zurück, weil `func1` drei formale Parameter deklariert. Allerdings protokolliert `func1(1, 2, 3, 4, 5)` `5`, weil `func1` mit fünf Argumenten aufgerufen wurde. In ähnlicher Weise protokolliert `func1(1)` `1`, weil `func1` mit einem Argument aufgerufen wurde.
 
 ## Beispiele
 
@@ -53,7 +54,7 @@ function adder(base /*, num1, …, numN */) {
 
 ## Siehe auch
 
-- [Funktionen](/de/docs/Web/JavaScript/Guide/Functions) Leitfaden
+- [Leitfaden für Funktionen](/de/docs/Web/JavaScript/Guide/Functions)
 - [Funktionen](/de/docs/Web/JavaScript/Reference/Functions)
 - {{jsxref("Functions/arguments", "arguments")}}
 - [`Function`: `length`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/length)

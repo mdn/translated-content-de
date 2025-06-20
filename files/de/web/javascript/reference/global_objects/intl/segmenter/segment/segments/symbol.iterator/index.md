@@ -1,13 +1,14 @@
 ---
 title: Segments.prototype[Symbol.iterator]()
+short-title: "[Symbol.iterator]()"
 slug: Web/JavaScript/Reference/Global_Objects/Intl/Segmenter/segment/Segments/Symbol.iterator
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Die Methode **`[Symbol.iterator]()`** von [`Segments`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/Segmenter/segment/Segments)-Instanzen implementiert das [iterable Protokoll](/de/docs/Web/JavaScript/Reference/Iteration_protocols) und ermöglicht es, dass `Segments`-Objekte von den meisten Syntaxen genutzt werden können, die Iterables erwarten, wie beispielsweise der [Spread-Syntax](/de/docs/Web/JavaScript/Reference/Operators/Spread_syntax) und {{jsxref("Statements/for...of", "for...of")}}-Schleifen. Sie gibt ein [Segmentiterator-Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator) zurück, das Daten über jedes Segment bereitstellt.
+Die **`[Symbol.iterator]()`** Methode von [`Segments`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/Segmenter/segment/Segments)-Instanzen implementiert das [iterable Protokoll](/de/docs/Web/JavaScript/Reference/Iteration_protocols) und ermöglicht es, `Segments`-Objekte mit den meisten Syntaxen zu verwenden, die Iterables erwarten, wie z. B. der [Spread-Syntax](/de/docs/Web/JavaScript/Reference/Operators/Spread_syntax) und {{jsxref("Statements/for...of", "for...of")}} Schleifen. Sie gibt ein [Segment-Iterator-Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator) zurück, das Daten über jedes Segment liefert.
 
 {{InteractiveExample("JavaScript Demo: Segments.prototype[Symbol.iterator]()")}}
 
@@ -38,13 +39,13 @@ Keine.
 
 ### Rückgabewert
 
-Ein neues [iterables Iterator-Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator), das Daten über jedes Segment liefert. Jedes zurückgegebene Objekt hat die gleichen Eigenschaften wie das Objekt, das von der Methode [`containing()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/Segmenter/segment/Segments/containing) zurückgegeben wird.
+Ein neues [iterierbares Iterator-Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator), das Daten über jedes Segment liefert. Jedes ausgegebene Objekt hat dieselben Eigenschaften wie das Objekt, das von der [`containing()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/Segmenter/segment/Segments/containing)-Methode zurückgegeben wird.
 
 ## Beispiele
 
-### Iteration mit der for...of-Schleife
+### Iteration mit for...of Schleife
 
-Beachten Sie, dass Sie diese Methode selten direkt aufrufen müssen. Die Existenz der `[Symbol.iterator]()`-Methode macht `Segments`-Objekte [iterabel](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterable_protocol), und iterierbare Syntaxen wie die `for...of`-Schleife rufen diese Methode automatisch auf, um den Iterator für die Schleife zu erhalten.
+Beachten Sie, dass Sie diese Methode selten direkt aufrufen müssen. Die Existenz der `[Symbol.iterator]()` Methode macht `Segments`-Objekte [iterierbar](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterable_protocol), und iterierende Syntaxen wie die `for...of` Schleife rufen diese Methode automatisch auf, um den Iterator für die Schleife zu erhalten.
 
 ```js
 const segmenter = new Intl.Segmenter("zh-CN", { granularity: "word" });
@@ -67,9 +68,9 @@ for (const value of segmenter.segment(input)) {
 */
 ```
 
-### Manuelles Durchlaufen des Iterators
+### Manuelles Erstellen des Iterators
 
-Sie können die Methode `next()` des zurückgegebenen Iterator-Objekts weiterhin manuell aufrufen, um die Iteration maximal zu kontrollieren.
+Sie können die `next()` Methode des zurückgegebenen Iterator-Objekts weiterhin manuell aufrufen, um maximale Kontrolle über den Iterationsprozess zu erlangen.
 
 ```js
 const segmenter = new Intl.Segmenter("fr", { granularity: "word" });
@@ -112,4 +113,4 @@ while (!result.done) {
 - [`Intl.Segmenter`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/Segmenter)
 - [`Intl.Segmenter.prototype.segment()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/Segmenter/segment)
 - {{jsxref("Symbol.iterator")}}
-- [Iterative Protokolle](/de/docs/Web/JavaScript/Reference/Iteration_protocols)
+- [Iterationsprotokolle](/de/docs/Web/JavaScript/Reference/Iteration_protocols)

@@ -1,8 +1,9 @@
 ---
 title: Iterator.prototype.toArray()
+short-title: toArray()
 slug: Web/JavaScript/Reference/Global_Objects/Iterator/toArray
 l10n:
-  sourceCommit: e8320dfbed49d37589d0fe759ef6506885f340f7
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
@@ -21,13 +22,13 @@ Keine.
 
 ### Rückgabewert
 
-Eine neue {{jsxref("Array")}}-Instanz, die die Elemente aus dem Iterator in der Reihenfolge enthält, in der sie produziert wurden.
+Eine neue {{jsxref("Array")}}-Instanz, die die Elemente aus dem Iterator in der Reihenfolge enthält, in der sie erzeugt wurden.
 
 ## Beispiele
 
 ### Verwendung von toArray()
 
-`iterator.toArray()` entspricht `Array.from(iterator)` und `[...iterator]`, außer dass es einfacher ist, zu verketteten Aufrufen zu verwenden, wenn mehrere Iterator-Hilfsmethoden involviert sind. Im folgenden Beispiel wird ein Iterator erstellt, der Terme der Fibonacci-Sequenz liefert, die ersten 10 Terme nimmt, die ungeraden Zahlen herausfiltert und das Ergebnis in ein Array umwandelt:
+`iterator.toArray()` entspricht `Array.from(iterator)` und `[...iterator]`, außer dass es einfacher ist zu verketten, wenn mehrere Iterator-Hilfsmethoden beteiligt sind. Das folgende Beispiel erstellt einen Iterator, der Begriffe in der Fibonacci-Folge liefert, nimmt die ersten 10 Begriffe, filtert die ungeraden Zahlen heraus und konvertiert das Ergebnis in ein Array:
 
 ```js
 function* fibonacci() {
@@ -47,7 +48,7 @@ const array = fibonacci()
 console.log(array); // [2, 8, 34]
 ```
 
-Es ist ratsam, `toArray()` als letzten Schritt Ihrer Verarbeitung aufzurufen. Zum Beispiel ist `fibonacci().take(10).toArray().filter(...)` weniger effizient, da Iterator-Helfer faul sind und die Erstellung eines temporären Arrays vermeiden.
+Beachten Sie, dass es eine gute Idee ist, `toArray()` als letzten Schritt Ihrer Verarbeitung zu verwenden. Zum Beispiel ist `fibonacci().take(10).toArray().filter(...)` weniger effizient, da Iterator-Hilfsmethoden faul sind und die Erstellung eines temporären Arrays vermeiden.
 
 ## Spezifikationen
 
@@ -60,6 +61,6 @@ Es ist ratsam, `toArray()` als letzten Schritt Ihrer Verarbeitung aufzurufen. Zu
 ## Siehe auch
 
 - [Polyfill von `Iterator.prototype.toArray` in `core-js`](https://github.com/zloirock/core-js#iterator-helpers)
-- [ES-Shims Polyfill von `Iterator.prototype.toArray`](https://www.npmjs.com/package/es-iterator-helpers)
+- [es-shims polyfill von `Iterator.prototype.toArray`](https://www.npmjs.com/package/es-iterator-helpers)
 - {{jsxref("Iterator")}}
 - {{jsxref("Array.from()")}}

@@ -1,17 +1,18 @@
 ---
 title: Temporal.PlainDate.prototype.dayOfWeek
+short-title: dayOfWeek
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainDate/dayOfWeek
 l10n:
-  sourceCommit: d0b9cef0713eb263934a98e94202b97c143204a4
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}{{SeeCompatTable}}
 
-Die **`dayOfWeek`** Accessor-Eigenschaft von {{jsxref("Temporal.PlainDate")}} Instanzen gibt eine positive ganze Zahl zurück, die den 1-basierten Tagesindex in der Woche dieses Datums darstellt. Tage in einer Woche sind fortlaufend von `1` bis {{jsxref("Temporal/PlainDate/daysInWeek", "daysInWeek")}} nummeriert, wobei jede Zahl ihrem Namen zugeordnet ist. Es ist [kalender](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#calendars)-abhängig. Normalerweise repräsentiert 1 den Montag im Kalender, auch wenn in den Kalender verwendenden Lokalen ein anderer Tag als erster Wochentag angesehen werden kann (siehe {{jsxref("Intl/Locale/getWeekInfo", "Intl.Locale.prototype.getWeekInfo()")}}).
+Die **`dayOfWeek`** Zugriffseigenschaft von {{jsxref("Temporal.PlainDate")}}-Instanzen gibt eine positive Ganzzahl zurück, die den 1-basierten Tagesindex in der Woche dieses Datums darstellt. Tage in einer Woche sind fortlaufend von `1` bis {{jsxref("Temporal/PlainDate/daysInWeek", "daysInWeek")}} nummeriert, wobei jede Zahl ihrem Namen zugeordnet ist. Es ist abhängig vom [Kalender](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#calendars). Im Kalender repräsentiert 1 normalerweise Montag, auch wenn die diesen Kalender verwendenden Regionen möglicherweise einen anderen Tag als ersten Wochentag betrachten (siehe {{jsxref("Intl/Locale/getWeekInfo", "Intl.Locale.prototype.getWeekInfo()")}}).
 
-Alle allgemein unterstützten Kalender verwenden 7-Tage-Wochen, und Sie können im Allgemeinen erwarten, dass diese Eigenschaft denselben Wert für dasselbe Datum über verschiedene Kalender hinweg zurückgibt.
+Alle allgemein unterstützten Kalender verwenden 7-Tage-Wochen, und Sie können im Allgemeinen erwarten, dass diese Eigenschaft für dasselbe Datum über verschiedene Kalender hinweg denselben Wert zurückgibt.
 
-Der Set-Accessor von `dayOfWeek` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern. Um ein neues `Temporal.PlainDate`-Objekt mit dem gewünschten neuen `dayOfWeek`-Wert zu erstellen, verwenden Sie die {{jsxref("Temporal/PlainDate/add", "add()")}} oder {{jsxref("Temporal/PlainDate/subtract", "subtract()")}} Methode mit der entsprechenden Anzahl an `days`.
+Der set-Accessor von `dayOfWeek` ist `undefined`. Diese Eigenschaft kann nicht direkt geändert werden. Um ein neues `Temporal.PlainDate`-Objekt mit dem gewünschten neuen `dayOfWeek`-Wert zu erstellen, verwenden Sie die {{jsxref("Temporal/PlainDate/add", "add()")}}- oder {{jsxref("Temporal/PlainDate/subtract", "subtract()")}}-Methode mit der entsprechenden Anzahl von `days`.
 
 ## Beispiele
 
@@ -25,9 +26,9 @@ const date2 = Temporal.PlainDate.from("2021-07-01[u-ca=chinese]");
 console.log(date2.dayOfWeek); // 4
 ```
 
-### Ändern von dayOfWeek
+### Änderung von dayOfWeek
 
-`PlainDate` unterstützt das direkte Ändern von `dayOfWeek` nicht. Um den Tag der Woche zu ändern, müssen Sie zuerst den Unterschied in Tagen zu Ihrem gewünschten Tag der Woche ermitteln und dann `add` oder `subtract` verwenden, um das Datum entsprechend anzupassen. Zum Beispiel, um auf den Freitag dieser Woche zu wechseln (egal ob vorher oder nachher):
+`PlainDate` unterstützt keine direkte Änderung von `dayOfWeek`. Um den Wochentag zu ändern, müssen Sie zunächst den Unterschied in Tagen zum gewünschten Wochentag ermitteln und dann `add` oder `subtract` verwenden, um das Datum entsprechend anzupassen. Zum Beispiel, um zum Freitag dieser Woche zu wechseln (egal ob davor oder danach):
 
 ```js
 function getDayInSameWeek(date, destDayOfWeek) {
@@ -42,7 +43,7 @@ console.log(
 ); // 2021-07-02
 ```
 
-Um auf den nächsten Freitag zu wechseln:
+Um zum nächsten Freitag zu wechseln:
 
 ```js
 function getNextDayInWeek(date, destDayOfWeek) {
@@ -60,7 +61,7 @@ console.log(
 ); // 2021-07-09
 ```
 
-Um auf den vorhergehenden Freitag zu wechseln:
+Um zum vorherigen Freitag zu wechseln:
 
 ```js
 function getPreviousDayInWeek(date, destDayOfWeek) {

@@ -1,13 +1,14 @@
 ---
 title: Temporal.ZonedDateTime.prototype.with()
+short-title: with()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime/with
 l10n:
-  sourceCommit: b4696c099a33202f1ce2063f14648de398703774
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}{{SeeCompatTable}}
 
-Die **`with()`**-Methode von {{jsxref("Temporal.ZonedDateTime")}}-Instanzen gibt ein neues `Temporal.ZonedDateTime`-Objekt zurück, welches diese Datums-Uhrzeit mit einigen Feldern darstellt, die durch neue Werte ersetzt wurden. Da alle `Temporal`-Objekte so gestaltet sind, dass sie unveränderlich sind, fungiert diese Methode im Wesentlichen als Setter für die Felder der Datums-Uhrzeit.
+Die **`with()`**-Methode von {{jsxref("Temporal.ZonedDateTime")}}-Instanzen gibt ein neues `Temporal.ZonedDateTime`-Objekt zurück, das dieses Datum-Uhrzeit darstellt, wobei einige Felder durch neue Werte ersetzt werden. Da alle `Temporal`-Objekte darauf ausgelegt sind, unveränderlich zu sein, fungiert diese Methode im Wesentlichen als Setter für die Felder des Datum-Uhrzeits.
 
 Um die Eigenschaft {{jsxref("Temporal/ZonedDateTime/calendarId", "calendarId")}} zu ersetzen, verwenden Sie die Methode {{jsxref("Temporal/ZonedDateTime/withCalendar", "withCalendar()")}}. Um die Eigenschaft {{jsxref("Temporal/ZonedDateTime/timeZoneId", "timeZoneId")}} zu ersetzen, verwenden Sie die Methode {{jsxref("Temporal/ZonedDateTime/withTimeZone", "withTimeZone()")}}.
 
@@ -21,23 +22,23 @@ with(info, options)
 ### Parameter
 
 - `info`
-  - : Ein Objekt, das mindestens eine der Eigenschaften enthält, die von {{jsxref("Temporal/ZonedDateTime/from", "Temporal.ZonedDateTime.from()")}} erkannt werden (außer `calendar` und `timeZone`): `day`, `era` und `eraYear`, `hour`, `microsecond`, `millisecond`, `minute`, `month`, `monthCode`, `nanosecond`, `offset`, `second`, `year`. Nicht angegebene Eigenschaften verwenden die Werte der ursprünglichen Datums-Uhrzeit. Sie müssen nur eines von `month` oder `monthCode` sowie eines von `era` und `eraYear` oder `year` angeben, und die andere Eigenschaft wird entsprechend aktualisiert.
+  - : Ein Objekt, das mindestens eine der von {{jsxref("Temporal/ZonedDateTime/from", "Temporal.ZonedDateTime.from()")}} anerkannten Eigenschaften enthält (außer `calendar` und `timeZone`): `day`, `era` und `eraYear`, `hour`, `microsecond`, `millisecond`, `minute`, `month`, `monthCode`, `nanosecond`, `offset`, `second`, `year`. Nicht angegebene Eigenschaften verwenden die Werte aus der ursprünglichen Datum-Uhrzeit. Sie müssen nur eines von `month` oder `monthCode`, sowie eines von `era` und `eraYear` oder `year` angeben, und das andere wird entsprechend aktualisiert.
 - `options` {{optional_inline}}
   - : Ein Objekt, das einige oder alle der folgenden Eigenschaften enthält (in der Reihenfolge, in der sie abgerufen und validiert werden):
     - `disambiguation` {{optional_inline}}
-      - : Was zu tun ist, wenn die lokale Datums-Uhrzeit in der angegebenen Zeitzone mehrdeutig ist (es gibt mehr als einen Zeitpunkt mit dieser lokalen Zeit, oder die lokale Zeit existiert nicht). Mögliche Werte sind `"compatible"`, `"earlier"`, `"later"` und `"reject"`. Standardwert ist `"compatible"`. Weitere Informationen zu diesen Werten finden Sie unter [Ambiguität und Lücken von lokaler Zeit zu UTC-Zeit](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime#ambiguity_and_gaps_from_local_time_to_utc_time).
+      - : Was zu tun ist, wenn die lokale Datum-Uhrzeit in der angegebenen Zeitzone mehrdeutig ist (es gibt mehr als einen Moment mit einer solchen lokalen Zeit oder die lokale Zeit existiert nicht). Mögliche Werte sind `"compatible"`, `"earlier"`, `"later"` und `"reject"`. Standardmäßig ist `"compatible"`. Weitere Informationen zu diesen Werten finden Sie unter [Mehrdeutigkeit und Lücken von lokaler Zeit zu UTC-Zeit](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime#ambiguity_and_gaps_from_local_time_to_utc_time).
     - `offset` {{optional_inline}}
-      - : Was zu tun ist, wenn der Offset explizit in `info` angegeben wird, aber für die angegebene Zeitzone in der angegebenen lokalen Zeit ungültig ist. Mögliche Werte sind `"use"`, `"ignore"`, `"reject"` und `"prefer"`. Standardwert ist `"prefer"`. Weitere Informationen zu diesen Werten finden Sie unter [Offset-Mehrdeutigkeit](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime#offset_ambiguity).
+      - : Was zu tun ist, wenn der Offset in `info` explizit angegeben wird, aber der Offset für die gegebene Zeitzone zu der gegebenen lokalen Zeit ungültig ist. Mögliche Werte sind `"use"`, `"ignore"`, `"reject"` und `"prefer"`. Standardmäßig ist `"prefer"`. Weitere Informationen zu diesen Werten finden Sie unter [Offset-Mehrdeutigkeit](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime#offset_ambiguity).
     - `overflow` {{optional_inline}}
-      - : Eine Zeichenkette, die das Verhalten angibt, wenn eine Datumskomponente außerhalb des gültigen Bereichs liegt (bei der Verwendung des Objekts `info`). Mögliche Werte sind:
+      - : Ein String, der das Verhalten angibt, wenn eine Datumskomponente außerhalb des zulässigen Bereichs liegt (wenn das Objekt `info` verwendet wird). Mögliche Werte sind:
         - `"constrain"` (Standard)
-          - : Die Datumskomponente wird in den gültigen Bereich [eingeschränkt](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainDate#invalid_date_clamping).
+          - : Die Datumskomponente wird auf den gültigen Bereich [eingeschränkt](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainDate#invalid_date_clamping).
         - `"reject"`
-          - : Ein {{jsxref("RangeError")}} wird ausgelöst, wenn die Datumskomponente außerhalb des gültigen Bereichs liegt.
+          - : Ein {{jsxref("RangeError")}} wird ausgelöst, wenn die Datumskomponente außerhalb des Bereichs liegt.
 
 ### Rückgabewert
 
-Ein neues `Temporal.ZonedDateTime`-Objekt, bei dem die in `info` angegebenen Felder, die nicht `undefined` sind, durch die entsprechenden Werte ersetzt werden und der Rest der Felder von der ursprünglichen Datums-Uhrzeit übernommen wird.
+Ein neues `Temporal.ZonedDateTime`-Objekt, bei dem die in `info` angegebenen Felder, die nicht `undefined` sind, durch die entsprechenden Werte ersetzt werden, und der Rest der Felder von der ursprünglichen Datum-Uhrzeit kopiert wird.
 
 ### Ausnahmen
 
@@ -47,11 +48,11 @@ Ein neues `Temporal.ZonedDateTime`-Objekt, bei dem die in `info` angegebenen Fel
     - `options` ist kein Objekt oder `undefined`.
 - {{jsxref("RangeError")}}
   - : Wird in einem der folgenden Fälle ausgelöst:
-    - Die angegebenen Eigenschaften, die dieselbe Komponente spezifizieren, sind inkonsistent.
-    - Die angegebenen nicht-numerischen Eigenschaften sind ungültig; zum Beispiel, wenn `monthCode` kein gültiger Monatscode in diesem Kalender ist.
-    - Die angegebenen numerischen Eigenschaften liegen außerhalb des zulässigen Bereichs, und `options.overflow` ist auf `"reject"` gesetzt.
-    - Die durch die angegebenen Eigenschaften dargestellte Wanduhrzeit ist in der Zeitzone mehrdeutig, und `options.disambiguation` ist auf `"reject"` gesetzt.
-    - Das Ergebnis liegt nicht im [darstellbaren Bereich](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#representable_dates), der ±10<sup>8</sup> Tage oder etwa ±273.972,6 Jahre vom Unix-Epoch umfasst.
+    - Die bereitgestellten Eigenschaften, die dieselbe Komponente angeben, sind inkonsistent.
+    - Die bereitgestellten nicht-numerischen Eigenschaften sind ungültig; zum Beispiel, wenn `monthCode` in diesem Kalender niemals ein gültiger Monatscode ist.
+    - Die bereitgestellten numerischen Eigenschaften liegen außerhalb des Bereichs und `options.overflow` ist auf `"reject"` gesetzt.
+    - Die durch die bereitgestellten Eigenschaften dargestellte Uhrzeit ist in der Zeitzone mehrdeutig und `options.disambiguation` ist auf `"reject"` gesetzt.
+    - Das Ergebnis liegt nicht im [darstellbaren Bereich](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#representable_dates), was ±10<sup>8</sup> Tage oder etwa ±273.972,6 Jahre vom Unix-Epoch bedeutet.
 
 ## Beispiele
 
@@ -65,11 +66,11 @@ const newZDT = zdt.with({ hour: 13 });
 console.log(newZDT.toString()); // "2021-07-01T13:34:56-04:00[America/New_York]"
 ```
 
-Weitere Beispiele finden Sie in der Dokumentation zu den einzelnen Eigenschaften, die mit `with()` gesetzt werden können.
+Für weitere Beispiele siehe die Dokumentation zu den einzelnen Eigenschaften, die mit `with()` gesetzt werden können.
 
 ### Offset während Datumsänderungen
 
-Standardmäßig wird die `offset`-Option auf `"prefer"` gesetzt, was bedeutet, dass wir den ursprünglichen Offset (oder den in `info` angegebenen) verwenden, wenn er gültig ist, und ansonsten neu berechnen. Das bedeutet, wenn Sie ein anderes Datum einstellen, das aufgrund einer DST-Übergangs einen anderen Offset hat, wird der Offset neu berechnet:
+Standardmäßig ist die `offset`-Option auf `"prefer"` gesetzt, was bedeutet, dass wir den ursprünglichen Offset (oder den in `info` angegebenen) verwenden, wenn er gültig ist, und andernfalls neu berechnen. Das bedeutet, wenn Sie auf ein anderes Datum setzen, das aufgrund eines Sommerzeitsübergangs einen anderen Offset hat, wird der Offset neu berechnet:
 
 ```js
 const zdt = Temporal.ZonedDateTime.from(
@@ -80,7 +81,7 @@ const newZDT = zdt.with({ month: 12 });
 console.log(newZDT.toString()); // "2021-12-01T12:00:00-05:00[America/New_York]"
 ```
 
-Und wenn Sie die Uhrzeit während des DST-Übergangs einstellen, wird der Offset verwendet, um die Mehrdeutigkeit zu lösen:
+Und wenn Sie die Uhrzeit auf einen Zeitpunkt innerhalb des Sommerzeitsübergangs setzen, wird der Offset zur Klärung der Mehrdeutigkeit verwendet:
 
 ```js
 const zdt = Temporal.ZonedDateTime.from(
@@ -96,7 +97,7 @@ const newZDT2 = zdt2.with({ day: 3 });
 console.log(newZDT2.toString()); // "2024-11-03T01:05:00-05:00[America/New_York]"
 ```
 
-Wenn Sie `offset: "use"` verwenden, dann wird der Offset unverändert verwendet, um die genaue Zeit zuerst zu ermitteln, und _dann_ wird der Offset neu berechnet:
+Wenn Sie `offset: "use"` verwenden, wird der Offset zuerst unverändert verwendet, um die genaue Uhrzeit zu erhalten, und _dann_ wird der Offset neu berechnet:
 
 ```js
 const zdt = Temporal.ZonedDateTime.from(
@@ -107,7 +108,7 @@ const newZDT = zdt.with({ month: 12 }, { offset: "use" });
 console.log(newZDT.toString()); // "2021-12-01T11:00:00-05:00[America/New_York]"
 ```
 
-Sie können auch `offset: "reject"` einstellen, um einen Fehler auszulösen, wenn der ursprüngliche Offset ungültig ist, wodurch ein neuer Offset explizit angegeben werden muss:
+Sie können auch `offset: "reject"` setzen, um einen Fehler auszulösen, wenn der ursprüngliche Offset ungültig ist, und so einen expliziten neuen Offset erfordern:
 
 ```js
 const zdt = Temporal.ZonedDateTime.from(

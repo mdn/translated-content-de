@@ -1,13 +1,14 @@
 ---
 title: TypedArray.prototype.buffer
+short-title: buffer
 slug: Web/JavaScript/Reference/Global_Objects/TypedArray/buffer
 l10n:
-  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Die **`buffer`** Zugriffseigenschaft von {{jsxref("TypedArray")}} Instanzen gibt den {{jsxref("ArrayBuffer")}} oder {{jsxref("SharedArrayBuffer")}} zurück, auf den bei der Konstruktion dieses typisierten Arrays verwiesen wird.
+Die **`buffer`**-Zugriffs-Eigenschaft von {{jsxref("TypedArray")}}-Instanzen gibt den durch diesen Typ-Array beim Erstellen referenzierten {{jsxref("ArrayBuffer")}} oder {{jsxref("SharedArrayBuffer")}} zurück.
 
 {{InteractiveExample("JavaScript Demo: TypedArray.prototype.buffer", "shorter")}}
 
@@ -22,9 +23,9 @@ console.log(uint16.buffer.byteLength);
 
 ## Beschreibung
 
-Die `buffer`-Eigenschaft ist eine Zugriffseigenschaft, deren Set-Accessor-Funktion `undefined` ist, was bedeutet, dass Sie diese Eigenschaft nur lesen können. Der Wert wird festgelegt, wenn das _TypedArray_ konstruiert wird und kann nicht geändert werden. _TypedArray_ ist eines der [TypedArray-Objekte](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray#typedarray_objects).
+Die `buffer`-Eigenschaft ist eine Zugriffs-Eigenschaft, deren Set-Accessor-Funktion `undefined` ist, was bedeutet, dass Sie diese Eigenschaft nur lesen können. Der Wert wird festgelegt, wenn das _TypedArray_ erstellt wird und kann nicht geändert werden. _TypedArray_ ist eines der [TypedArray-Objekte](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray#typedarray_objects).
 
-Da ein typisiertes Array eine _Ansicht_ eines Buffers ist, kann der zugrunde liegende Buffer länger sein als das typisierte Array selbst.
+Da ein Typ-Array eine _Ansicht_ eines Buffers ist, kann der zugrunde liegende Buffer länger sein als das Typ-Array selbst.
 
 ## Beispiele
 
@@ -36,7 +37,7 @@ const uint16 = new Uint16Array(buffer);
 uint16.buffer; // ArrayBuffer { byteLength: 8 }
 ```
 
-### Zugriff auf den zugrunde liegenden Buffer aus einer geschnittenen Array-Ansicht
+### Zugriff auf den zugrunde liegenden Buffer von einer geschnittenen Array-Ansicht
 
 ```js
 const buffer = new ArrayBuffer(1024);

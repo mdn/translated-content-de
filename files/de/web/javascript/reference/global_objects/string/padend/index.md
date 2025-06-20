@@ -1,13 +1,14 @@
 ---
 title: String.prototype.padEnd()
+short-title: padEnd()
 slug: Web/JavaScript/Reference/Global_Objects/String/padEnd
 l10n:
-  sourceCommit: 317ebb3f4a08f541def39c8052d04478ee556b83
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Die **`padEnd()`**-Methode von {{jsxref("String")}}-Werten füllt diesen String mit einem angegebenen String auf (wiederholt und/oder gekürzt, falls nötig), sodass der resultierende String eine bestimmte Länge hat. Die Auffüllung erfolgt vom Ende dieses Strings aus.
+Die **`padEnd()`**-Methode von {{jsxref("String")}}-Werten füllt diesen String mit einem angegebenen String (wiederholt und/oder gekürzt, falls nötig) auf, sodass der resultierende String eine bestimmte Länge hat. Das Auffüllen erfolgt vom Ende dieses Strings.
 
 {{InteractiveExample("JavaScript Demo: String.prototype.padEnd()")}}
 
@@ -35,11 +36,11 @@ padEnd(targetLength, padString)
 - `targetLength`
   - : Die Länge des resultierenden Strings, nachdem der aktuelle `str` aufgefüllt wurde. Wenn der Wert kleiner oder gleich `str.length` ist, wird `str` unverändert zurückgegeben.
 - `padString` {{optional_inline}}
-  - : Der String, mit dem der aktuelle `str` aufgefüllt werden soll. Wenn `padString` zu lang ist, um innerhalb der `targetLength` zu bleiben, wird er am Ende gekürzt. Der Standardwert ist das Leerzeichen (U+0020).
+  - : Der String, mit dem der aktuelle `str` aufgefüllt wird. Wenn `padString` zu lang ist, um innerhalb der `targetLength` zu bleiben, wird er am Ende abgeschnitten. Der Standardwert ist das Leerzeichen (U+0020).
 
 ### Rückgabewert
 
-Ein {{jsxref("String")}} der angegebenen `targetLength` mit `padString`, das am Ende angewendet wurde.
+Ein {{jsxref("String")}} der angegebenen `targetLength`, mit `padString` am Ende angewendet.
 
 ## Beispiele
 

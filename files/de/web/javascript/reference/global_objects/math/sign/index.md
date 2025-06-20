@@ -1,13 +1,14 @@
 ---
 title: Math.sign()
+short-title: sign()
 slug: Web/JavaScript/Reference/Global_Objects/Math/sign
 l10n:
-  sourceCommit: e8320dfbed49d37589d0fe759ef6506885f340f7
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Die statische Methode **`Math.sign()`** gibt 1 oder -1 zurück und zeigt damit das Vorzeichen der als Argument übergebenen Zahl an. Wenn die Eingabe 0 oder -0 ist, wird sie unverändert zurückgegeben.
+Die statische Methode **`Math.sign()`** gibt 1 oder -1 zurück, was das Vorzeichen der übergebenen Zahl angibt. Wenn die Eingabe 0 oder -0 ist, wird sie unverändert zurückgegeben.
 
 {{InteractiveExample("JavaScript Demo: Math.sign()")}}
 
@@ -42,13 +43,13 @@ Eine Zahl, die das Vorzeichen von `x` darstellt:
 
 - Wenn `x` positiv ist, wird `1` zurückgegeben.
 - Wenn `x` negativ ist, wird `-1` zurückgegeben.
-- Wenn `x` positiv null ist, wird `0` zurückgegeben.
-- Wenn `x` negativ null ist, wird `-0` zurückgegeben.
+- Wenn `x` positive Null ist, wird `0` zurückgegeben.
+- Wenn `x` negative Null ist, wird `-0` zurückgegeben.
 - Andernfalls wird {{jsxref("NaN")}} zurückgegeben.
 
 ## Beschreibung
 
-Da `sign()` eine statische Methode von `Math` ist, verwenden Sie sie immer als `Math.sign()` und nicht als Methode eines von Ihnen erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
+Da `sign()` eine statische Methode von `Math` ist, verwenden Sie sie immer als `Math.sign()`, und nicht als eine Methode eines erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
 
 ## Beispiele
 

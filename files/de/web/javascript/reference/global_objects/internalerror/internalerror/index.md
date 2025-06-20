@@ -1,8 +1,9 @@
 ---
 title: InternalError() Konstruktor
+short-title: InternalError()
 slug: Web/JavaScript/Reference/Global_Objects/InternalError/InternalError
 l10n:
-  sourceCommit: 5c3c25fd4f2fbd7a5f01727a65c2f70d73f1880a
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}{{Non-standard_Header}}
@@ -25,7 +26,7 @@ InternalError(message, fileName)
 InternalError(message, fileName, lineNumber)
 ```
 
-> **Note:** `InternalError()` kann mit oder ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden. Beide Aufrufe erzeugen eine neue `InternalError` Instanz.
+> **Hinweis:** `InternalError()` kann mit oder ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden. Beide Varianten erzeugen eine neue Instanz von `InternalError`.
 
 ### Parameter
 
@@ -34,8 +35,8 @@ InternalError(message, fileName, lineNumber)
 - `options` {{optional_inline}}
   - : Ein Objekt mit den folgenden Eigenschaften:
     - `cause` {{optional_inline}}
-      - : Eine Eigenschaft, die die spezifische Ursache des Fehlers angibt.
-        Wenn ein Fehler abgefangen und mit einer spezifischeren oder nützlicheren Fehlermeldung erneut ausgelöst wird, kann diese Eigenschaft verwendet werden, um den ursprünglichen Fehler zu übergeben.
+      - : Eine Eigenschaft, die den spezifischen Grund des Fehlers angibt.
+        Beim Abfangen und erneuten Werfen eines Fehlers mit einer spezifischeren oder nützlicheren Fehlermeldung kann diese Eigenschaft verwendet werden, um den ursprünglichen Fehler zu übergeben.
 - `fileName` {{optional_inline}} {{non-standard_inline}}
   - : Der Name der Datei, die den Code enthält, der die Ausnahme verursacht hat.
 - `lineNumber` {{optional_inline}} {{non-standard_inline}}

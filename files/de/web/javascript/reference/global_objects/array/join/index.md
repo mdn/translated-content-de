@@ -1,13 +1,14 @@
 ---
 title: Array.prototype.join()
+short-title: join()
 slug: Web/JavaScript/Reference/Global_Objects/Array/join
 l10n:
-  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Die **`join()`**-Methode von {{jsxref("Array")}}-Instanzen erstellt und gibt eine neue Zeichenkette zurück, indem alle Elemente in diesem Array durch Kommas oder eine angegebene Trennzeichen-Zeichenkette verbunden werden. Wenn das Array nur ein Element hat, wird dieses Element ohne Verwendung des Trennzeichens zurückgegeben.
+Die **`join()`**-Methode von {{jsxref("Array")}}-Instanzen erstellt und gibt eine neue Zeichenkette zurück, indem alle Elemente in diesem Array verkettet werden, getrennt durch Kommas oder ein angegebenes Trennzeichen. Wenn das Array nur ein Element hat, wird dieses Element ohne das Trennzeichen zurückgegeben.
 
 {{InteractiveExample("JavaScript Demo: Array.prototype.join()")}}
 
@@ -34,19 +35,19 @@ join(separator)
 ### Parameter
 
 - `separator` {{optional_inline}}
-  - : Eine Zeichenkette, um jedes Paar benachbarter Elemente des Arrays zu trennen. Wenn nicht angegeben, werden die Array-Elemente mit einem Komma (",") getrennt.
+  - : Eine Zeichenkette, die jedes Paar angrenzender Elemente des Arrays trennt. Wenn sie weggelassen wird, werden die Array-Elemente mit einem Komma (",") getrennt.
 
 ### Rückgabewert
 
-Eine Zeichenkette, die alle Array-Elemente verbindet. Wenn `array.length` `0` ist, wird die leere Zeichenkette zurückgegeben.
+Eine Zeichenkette mit allen verbundenen Array-Elementen. Wenn `array.length` `0` ist, wird die leere Zeichenkette zurückgegeben.
 
 ## Beschreibung
 
-Die Zeichenkettenkonvertierungen aller Array-Elemente werden zu einer Zeichenkette verbunden. Wenn ein Element `undefined` oder `null` ist, wird es in eine leere Zeichenkette anstelle der Zeichenkette `"null"` oder `"undefined"` konvertiert.
+Die Zeichenketten-Konvertierungen aller Array-Elemente werden in eine Zeichenkette zusammengeführt. Wenn ein Element `undefined` oder `null` ist, wird es in eine leere Zeichenkette umgewandelt, anstatt in die Zeichenketten `"null"` oder `"undefined"`.
 
-Die `join`-Methode wird intern von [`Array.prototype.toString()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/toString) ohne Argumente aufgerufen. Das Überschreiben von `join` einer Array-Instanz wird auch ihr `toString`-Verhalten überschreiben.
+Die `join`-Methode wird intern von [`Array.prototype.toString()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/toString) ohne Argumente aufgerufen. Das Überschreiben von `join` einer Array-Instanz wird auch das Verhalten von `toString` überschreiben.
 
-`Array.prototype.join` konvertiert rekursiv jedes Element, einschließlich anderer Arrays, zu Zeichenketten. Da die von `Array.prototype.toString` zurückgegebene Zeichenkette (die der Aufruf von `join()` entspricht) keine Trennzeichen hat, wirken verschachtelte Arrays wie flach. Sie können nur das Trennzeichen der ersten Ebene steuern, während tiefere Ebenen immer das Standardkomma verwenden.
+`Array.prototype.join` konvertiert rekursiv jedes Element, einschließlich anderer Arrays, in Zeichenketten. Da die von `Array.prototype.toString` zurückgegebene Zeichenkette (die dasselbe ist wie ein Aufruf von `join()`) keine Trennzeichen besitzt, sehen geschachtelte Arrays so aus, als wären sie flach. Sie können nur das Trennzeichen der ersten Ebene steuern, während tiefere Ebenen immer das Standardkomma verwenden.
 
 ```js
 const matrix = [
@@ -59,7 +60,7 @@ console.log(matrix.join()); // 1,2,3,4,5,6,7,8,9
 console.log(matrix.join(";")); // 1,2,3;4,5,6;7,8,9
 ```
 
-Wenn ein Array zyklisch ist (es enthält ein Element, das es selbst ist), vermeiden Browser eine unendliche Rekursion, indem sie die zyklische Referenz ignorieren.
+Wenn ein Array zyklisch ist (es enthält ein Element, das es selbst ist), vermeiden Browser eine unendliche Rekursion, indem sie den zyklischen Verweis ignorieren.
 
 ```js
 const arr = [];
@@ -67,15 +68,15 @@ arr.push(1, [3, arr, 4], 2);
 console.log(arr.join(";")); // 1;3,,4;2
 ```
 
-Wenn die Methode bei [sparsamen Arrays](/de/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays) verwendet wird, iteriert die `join()`-Methode leere Slots, als ob sie den Wert `undefined` hätten.
+Wenn die Methode bei [spärlichen Arrays](/de/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays) angewendet wird, iteriert die `join()`-Methode über leere Plätze, als hätten sie den Wert `undefined`.
 
-Die `join()`-Methode ist [generisch](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#generic_array_methods). Sie erwartet nur, dass der `this`-Wert eine `length`-Eigenschaft und ganzzahlige Schlüssel-Eigenschaften hat.
+Die `join()`-Methode ist [generisch](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#generic_array_methods). Sie erwartet nur, dass der `this`-Wert eine `length`-Eigenschaft und Integer-Schlüsseleigenschaften besitzt.
 
 ## Beispiele
 
-### Ein Array auf vier verschiedene Weisen verbinden
+### Vier verschiedene Weisen, ein Array zu verbinden
 
-Das folgende Beispiel erstellt ein Array `a` mit drei Elementen und verbindet es dann viermal: einmal mit dem Standardtrennzeichen, dann mit einem Komma und einem Leerzeichen, dann mit einem Pluszeichen und einer leeren Zeichenkette.
+Das folgende Beispiel erstellt ein Array `a` mit drei Elementen und verbindet dann das Array viermal: Mit dem Standardtrennzeichen, dann mit einem Komma und einem Leerzeichen, dann mit einem Plus und einer leeren Zeichenkette.
 
 ```js
 const a = ["Wind", "Water", "Fire"];
@@ -85,18 +86,18 @@ a.join(" + "); // 'Wind + Water + Fire'
 a.join(""); // 'WindWaterFire'
 ```
 
-### Verwenden von join() bei sparsamen Arrays
+### Verwenden von join() bei spärlichen Arrays
 
-`join()` behandelt leere Slots genauso wie `undefined` und erzeugt ein zusätzliches Trennzeichen:
+`join()` behandelt leere Plätze genauso wie `undefined` und erzeugt ein zusätzliches Trennzeichen:
 
 ```js
 console.log([1, , 3].join()); // '1,,3'
 console.log([1, undefined, 3].join()); // '1,,3'
 ```
 
-### Aufrufen von join() auf Nicht-Array-Objekten
+### Aufruf von join() auf Nicht-Array-Objekten
 
-Die `join()`-Methode liest die `length`-Eigenschaft von `this` und greift dann auf jede Eigenschaft zu, deren Schlüssel eine nicht-negative Ganzzahl kleiner als `length` ist.
+Die `join()`-Methode liest die `length`-Eigenschaft von `this` und greift dann auf jede Eigenschaft zu, deren Schlüssel eine nichtnegative ganze Zahl kleiner als `length` ist.
 
 ```js
 const arrayLike = {
@@ -124,7 +125,7 @@ console.log(Array.prototype.join.call(arrayLike, "."));
 
 - [Polyfill von `Array.prototype.join` in `core-js`](https://github.com/zloirock/core-js#ecmascript-array)
 - [es-shims Polyfill von `Array.prototype.join`](https://www.npmjs.com/package/array.prototype.join)
-- [Anleitung zu indizierten Sammlungen](/de/docs/Web/JavaScript/Guide/Indexed_collections)
+- [Leitfaden für indizierte Sammlungen](/de/docs/Web/JavaScript/Guide/Indexed_collections)
 - {{jsxref("Array")}}
 - {{jsxref("Array.prototype.toString()")}}
 - {{jsxref("TypedArray.prototype.join()")}}

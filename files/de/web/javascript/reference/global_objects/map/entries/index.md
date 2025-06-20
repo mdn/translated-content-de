@@ -1,13 +1,14 @@
 ---
 title: Map.prototype.entries()
+short-title: entries()
 slug: Web/JavaScript/Reference/Global_Objects/Map/entries
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Die **`entries()`**-Methode von {{jsxref("Map")}}-Instanzen gibt ein neues _[Map-Iterator-Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator)_ zurück, das die `[key, value]`-Paare für jedes Element in dieser Map in der Einfügereihenfolge enthält.
+Die **`entries()`** Methode von {{jsxref("Map")}} Instanzen gibt ein neues _[Map-Iterator-Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator)_ zurück, das die `[key, value]` Paare für jedes Element in dieser Map in Einfügereihenfolge enthält.
 
 {{InteractiveExample("JavaScript Demo: Map.prototype.entries()")}}
 

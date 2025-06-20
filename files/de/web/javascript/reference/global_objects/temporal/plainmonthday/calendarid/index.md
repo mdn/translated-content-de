@@ -1,17 +1,18 @@
 ---
 title: Temporal.PlainMonthDay.prototype.calendarId
+short-title: calendarId
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainMonthDay/calendarId
 l10n:
-  sourceCommit: 1b77d85af82183b835cf253e885dca26cba93eb5
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}{{SeeCompatTable}}
 
-Die Zugriffseigenschaft **`calendarId`** von Instanzen von {{jsxref("Temporal.PlainMonthDay")}} gibt einen String zurück, der den [Kalender](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#calendars) darstellt, der zur Interpretation des internen ISO 8601-Datums verwendet wird.
+Die **`calendarId`** Zugriffs-Eigenschaft von {{jsxref("Temporal.PlainMonthDay")}} Instanzen gibt einen String zurück, der den [Kalender](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#calendars) darstellt, der zur Interpretation des internen ISO 8601-Datums verwendet wird.
 
-Siehe [`Intl.supportedValuesOf()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/supportedValuesOf#supported_calendar_types) für eine Liste der häufig unterstützten Kalendertypen.
+Siehe [`Intl.supportedValuesOf()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/supportedValuesOf#supported_calendar_types) für eine Liste der üblicherweise unterstützten Kalendertypen.
 
-Der Set-Accessor von `calendarId` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern. Es gibt keinen offensichtlichen Weg, ein neues `Temporal.PlainMonthDay`-Objekt mit einem anderen Kalender zu erstellen, das denselben Monat-Tag darstellt, daher müssen Sie es zunächst in ein {{jsxref("Temporal.PlainDate")}}-Objekt mit {{jsxref("Temporal/PlainMonthDay/toPlainDate", "toPlainDate()")}} umwandeln, den Kalender ändern und es dann zurück konvertieren.
+Der Setz-Zugriff von `calendarId` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern. Es gibt keinen offensichtlichen Weg, ein neues `Temporal.PlainMonthDay` Objekt mit einem anderen Kalender zu erstellen, das denselben Monat-Tag darstellt. Daher müssen Sie es zuerst in ein {{jsxref("Temporal.PlainDate")}} Objekt umwandeln, den Kalender ändern und dann wieder zurück konvertieren, indem Sie {{jsxref("Temporal/PlainMonthDay/toPlainDate", "toPlainDate()")}} verwenden.
 
 ## Beispiele
 

@@ -1,15 +1,16 @@
 ---
 title: Temporal.PlainTime.prototype.since()
+short-title: since()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainTime/since
 l10n:
-  sourceCommit: 262c13dcbcd394beddd98e07d9c78bc79ce3513c
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}{{SeeCompatTable}}
 
-Die Methode **`since()`** von {{jsxref("Temporal.PlainTime")}}-Instanzen gibt ein neues {{jsxref("Temporal.Duration")}}-Objekt zurück, das die Dauer von einer anderen Zeit (in einer Form, die durch {{jsxref("Temporal/PlainTime/from", "Temporal.PlainTime.from()")}} konvertierbar ist) bis zu dieser Zeit darstellt. Die Dauer ist positiv, wenn die andere Zeit vor dieser Zeit liegt, und negativ, wenn sie danach liegt.
+Die **`since()`**-Methode der {{jsxref("Temporal.PlainTime")}}-Instanzen gibt ein neues {{jsxref("Temporal.Duration")}}-Objekt zurück, das die Dauer von einer anderen Zeit (in einer Form, die mit {{jsxref("Temporal/PlainTime/from", "Temporal.PlainTime.from()")}} konvertierbar ist) bis zu dieser Zeit darstellt. Die Dauer ist positiv, wenn die andere Zeit vor dieser Zeit liegt, und negativ, wenn sie danach liegt.
 
-Diese Methode führt `this - other` aus. Um `other - this` auszuführen, verwenden Sie die Methode {{jsxref("Temporal/PlainTime/until", "until()")}}.
+Diese Methode führt `this - other` aus. Um `other - this` auszuführen, verwenden Sie die {{jsxref("Temporal/PlainTime/until", "until()")}}-Methode.
 
 ## Syntax
 
@@ -21,13 +22,13 @@ since(other, options)
 ### Parameter
 
 - `other`
-  - : Ein String, ein Objekt oder eine {{jsxref("Temporal.PlainTime")}}-Instanz, die eine Zeit darstellt, die von dieser Zeit subtrahiert werden soll. Es wird mit demselben Algorithmus in ein `Temporal.PlainTime`-Objekt konvertiert wie {{jsxref("Temporal/PlainTime/from", "Temporal.PlainTime.from()")}}.
+  - : Ein String, ein Objekt oder eine {{jsxref("Temporal.PlainTime")}}-Instanz, die eine Zeit darstellt, die von dieser Zeit subtrahiert wird. Es wird mit derselben Algorithmus wie {{jsxref("Temporal/PlainTime/from", "Temporal.PlainTime.from()")}} in ein `Temporal.PlainTime`-Objekt konvertiert.
 - `options` {{optional_inline}}
-  - : Ein Objekt, das die Optionen für {{jsxref("Temporal/Duration/round", "Temporal.Duration.prototype.round()")}} enthält. Dazu gehören `largestUnit`, `roundingIncrement`, `roundingMode` und `smallestUnit`. `largestUnit` und `smallestUnit` akzeptieren nur die Einheiten: `"hours"`, `"minutes"`, `"seconds"`, `"milliseconds"`, `"microseconds"`, `"nanoseconds"` oder deren Singularformen. Für `largestUnit` bedeutet der Standardwert `"auto"` `"hours"`. Für `smallestUnit` ist der Standardwert `"nanoseconds"`.
+  - : Ein Objekt, das die Optionen für {{jsxref("Temporal/Duration/round", "Temporal.Duration.prototype.round()")}} enthält, darunter `largestUnit`, `roundingIncrement`, `roundingMode` und `smallestUnit`. `largestUnit` und `smallestUnit` akzeptieren nur die Einheiten: `"hours"`, `"minutes"`, `"seconds"`, `"milliseconds"`, `"microseconds"`, `"nanoseconds"` oder deren Singularformen. Für `largestUnit` bedeutet der Standardwert `"auto"` `"hours"`. Für `smallestUnit` ist der Standardwert `"nanoseconds"`.
 
 ### Rückgabewert
 
-Ein neues {{jsxref("Temporal.Duration")}}-Objekt, das die Dauer _seit_ `other` bis zu dieser Zeit darstellt. Die Dauer ist positiv, wenn `other` vor dieser Zeit liegt, und negativ, wenn `other` danach liegt.
+Ein neues {{jsxref("Temporal.Duration")}}-Objekt, das die Dauer _seit_ `other` bis zu dieser Zeit darstellt. Die Dauer ist positiv, wenn `other` vor dieser Zeit liegt, und negativ, wenn sie danach liegt.
 
 ### Ausnahmen
 
@@ -57,9 +58,9 @@ console.log(`You had lunch ${duration3.toLocaleString("en-US")} ago`);
 // Example output: "You had lunch 222 min ago"
 ```
 
-### Runden des Ergebnisses
+### Abrunden des Ergebnisses
 
-Standardmäßig wird der Bruchteil der `smallestUnit` abgeschnitten. Sie können ihn mithilfe der `roundingIncrement`- und `roundingMode`-Optionen aufrunden.
+Standardmäßig wird der Bruchteil der `smallestUnit` abgeschnitten. Sie können ihn mit den Optionen `roundingIncrement` und `roundingMode` aufrunden.
 
 ```js
 const time1 = Temporal.PlainTime.from("12:30:00");

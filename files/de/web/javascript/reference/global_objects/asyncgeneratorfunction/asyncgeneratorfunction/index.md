@@ -1,21 +1,22 @@
 ---
 title: AsyncGeneratorFunction() Konstruktor
+short-title: AsyncGeneratorFunction()
 slug: Web/JavaScript/Reference/Global_Objects/AsyncGeneratorFunction/AsyncGeneratorFunction
 l10n:
-  sourceCommit: e01fd6206ce2fad2fe09a485bb2d3ceda53a62de
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
 Der **`AsyncGeneratorFunction()`** Konstruktor erstellt {{jsxref("AsyncGeneratorFunction")}} Objekte.
 
-Beachten Sie, dass `AsyncGeneratorFunction` kein globales Objekt ist. Es kann erhalten werden, indem der folgende Code ausgewertet wird.
+Beachten Sie, dass `AsyncGeneratorFunction` kein globales Objekt ist. Es kann durch die Auswertung des folgenden Codes erhalten werden.
 
 ```js
 const AsyncGeneratorFunction = async function* () {}.constructor;
 ```
 
-Der `AsyncGeneratorFunction()` Konstruktor ist nicht zur direkten Verwendung gedacht, und alle in der Beschreibung von {{jsxref("Function/Function", "Function()")}} erwähnten Vorbehalte gelten auch für `AsyncGeneratorFunction()`.
+Der `AsyncGeneratorFunction()` Konstruktor ist nicht zur direkten Verwendung vorgesehen, und alle in der Beschreibung von {{jsxref("Function/Function", "Function()")}} genannten Vorbehalte gelten auch für `AsyncGeneratorFunction()`.
 
 ## Syntax
 
@@ -31,7 +32,7 @@ AsyncGeneratorFunction(arg1, arg2, functionBody)
 AsyncGeneratorFunction(arg1, arg2, /* …, */ argN, functionBody)
 ```
 
-> **Hinweis:** `AsyncGeneratorFunction()` kann mit oder ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden. Beide erzeugen eine neue Instanz von `AsyncGeneratorFunction`.
+> **Note:** `AsyncGeneratorFunction()` kann mit oder ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden. Beide erstellen eine neue Instanz von `AsyncGeneratorFunction`.
 
 ### Parameter
 

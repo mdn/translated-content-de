@@ -1,13 +1,14 @@
 ---
-title: Map()-Konstruktor
+title: Map() Konstruktor
+short-title: Map()
 slug: Web/JavaScript/Reference/Global_Objects/Map/Map
 l10n:
-  sourceCommit: e8320dfbed49d37589d0fe759ef6506885f340f7
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Der **`Map()`**-Konstruktor erstellt {{jsxref("Map")}}-Objekte.
+Der **`Map()`** Konstruktor erstellt {{jsxref("Map")}} Objekte.
 
 ## Syntax
 
@@ -16,13 +17,13 @@ new Map()
 new Map(iterable)
 ```
 
-> **Hinweis:** `Map()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Der Versuch, es ohne `new` aufzurufen, führt zu einem {{jsxref("TypeError")}}.
+> **Note:** `Map()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Der Versuch, es ohne `new` aufzurufen, löst einen {{jsxref("TypeError")}} aus.
 
 ### Parameter
 
 - `iterable` {{optional_inline}}
   - : Ein {{jsxref("Array")}} oder ein anderes
-    [iterierbares](/de/docs/Web/JavaScript/Reference/Iteration_protocols) Objekt,
+    [iterierbares Objekt](/de/docs/Web/JavaScript/Reference/Iteration_protocols),
     dessen Elemente Schlüssel-Wert-Paare sind. (Zum Beispiel Arrays mit zwei Elementen,
     wie `[[ 1, 'one' ],[ 2, 'two' ]]`.) Jedes Schlüssel-Wert-Paar wird der
     neuen `Map` hinzugefügt.

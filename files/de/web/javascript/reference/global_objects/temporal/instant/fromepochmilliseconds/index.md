@@ -1,13 +1,14 @@
 ---
 title: Temporal.Instant.fromEpochMilliseconds()
+short-title: fromEpochMilliseconds()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/Instant/fromEpochMilliseconds
 l10n:
-  sourceCommit: b1392b60ee71b9f09c0123694a494a71d0dbbb8a
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}{{SeeCompatTable}}
 
-Die statische Methode **`Temporal.Instant.fromEpochMilliseconds()`** erstellt ein neues `Temporal.Instant`-Objekt aus der Anzahl der Millisekunden seit der Unix-Epoche (Mitternacht zu Beginn des 1. Januars 1970, UTC).
+Die statische Methode **`Temporal.Instant.fromEpochMilliseconds()`** erstellt ein neues `Temporal.Instant`-Objekt aus der Anzahl der Millisekunden seit dem Unix-Epoch (Mitternacht zu Beginn des 1. Januar 1970, UTC).
 
 Um ein {{jsxref("Date")}}-Objekt in ein `Temporal.Instant`-Objekt zu konvertieren, verwenden Sie stattdessen {{jsxref("Date.prototype.toTemporalInstant()")}}.
 
@@ -20,18 +21,18 @@ Temporal.Instant.fromEpochMilliseconds(epochMilliseconds)
 ### Parameter
 
 - `epochMilliseconds`
-  - : Eine Zahl, die die Anzahl der Millisekunden seit der Unix-Epoche darstellt. Intern wird sie in ein BigInt umgewandelt und mit `1e6` multipliziert, um die Anzahl der Nanosekunden zu erhalten.
+  - : Eine Zahl, die die Anzahl der Millisekunden seit dem Unix-Epoch darstellt. Intern wird sie in einen BigInt konvertiert und mit `1e6` multipliziert, um die Anzahl der Nanosekunden zu erhalten.
 
 ### Rückgabewert
 
-Ein neues `Temporal.Instant`-Objekt, das den durch `epochMilliseconds` angegebenen Zeitpunkt repräsentiert.
+Ein neues `Temporal.Instant`-Objekt, das den in `epochMilliseconds` angegebenen Zeitpunkt repräsentiert.
 
 ### Ausnahmen
 
 - {{jsxref("RangeError")}}
   - : Wird in einem der folgenden Fälle ausgelöst:
-    - `epochMilliseconds` kann nicht in ein BigInt umgewandelt werden (z. B. ist es keine ganze Zahl).
-    - `epochMilliseconds` liegt nicht im [darstellbaren Bereich](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#representable_dates), der ±10<sup>8</sup> Tage (etwa ±273.972,6 Jahre) von der Unix-Epoche entfernt ist.
+    - `epochMilliseconds` kann nicht in einen BigInt konvertiert werden (z.B. ist kein Integer).
+    - `epochMilliseconds` liegt nicht im [darstellbaren Bereich](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#representable_dates), welcher ±10<sup>8</sup> Tage oder etwa ±273.972,6 Jahre vom Unix-Epoch umfasst.
 
 ## Beispiele
 

@@ -1,17 +1,18 @@
 ---
 title: Temporal.PlainDateTime.prototype.day
+short-title: day
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainDateTime/day
 l10n:
-  sourceCommit: d0b9cef0713eb263934a98e94202b97c143204a4
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}{{SeeCompatTable}}
 
-Die **`day`** Zugriffseigenschaft von {{jsxref("Temporal.PlainDateTime")}} Instanzen gibt eine positive Ganzzahl zurück, die den 1-basierten Tagesindex im Monat dieses Datums darstellt, welcher der gleiche Tag ist, den Sie im Kalender sehen würden. Sie ist vom [Kalender](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#calendars) abhängig.
+Die **`day`** Zugriffs-Eigenschaft von {{jsxref("Temporal.PlainDateTime")}} Instanzen gibt eine positive Ganzzahl zurück, die den 1-basierten Tag-Index im Monat dieses Datums darstellt, was der gleiche Tag ist, den Sie auf einem Kalender sehen würden. Sie ist kalenderabhängig ([Kalender](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#calendars)).
 
-Der Set-Accessor von `day` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern. Verwenden Sie die {{jsxref("Temporal/PlainDateTime/with", "with()")}} Methode, um ein neues `Temporal.PlainDateTime` Objekt mit dem gewünschten neuen Wert zu erstellen.
+Der Set-Zugriff von `day` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern. Verwenden Sie die Methode {{jsxref("Temporal/PlainDateTime/with", "with()")}}, um ein neues `Temporal.PlainDateTime` Objekt mit dem gewünschten neuen Wert zu erstellen.
 
-Für allgemeine Informationen und weitere Beispiele, siehe {{jsxref("Temporal/PlainDate/day", "Temporal.PlainDate.prototype.day")}}.
+Für allgemeine Informationen und weitere Beispiele siehe {{jsxref("Temporal/PlainDate/day", "Temporal.PlainDate.prototype.day")}}.
 
 ## Beispiele
 

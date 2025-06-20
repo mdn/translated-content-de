@@ -1,18 +1,19 @@
 ---
 title: String.prototype.anchor()
+short-title: anchor()
 slug: Web/JavaScript/Reference/Global_Objects/String/anchor
 l10n:
-  sourceCommit: e8320dfbed49d37589d0fe759ef6506885f340f7
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}} {{Deprecated_Header}}
 
-Die **`anchor()`**-Methode von {{jsxref("String")}}-Werten erstellt einen String, der diesen String in einem {{HTMLElement("a")}}-Element mit einem Namen (`<a name="...">str</a>`) einbettet.
+Die **`anchor()`**-Methode von {{jsxref("String")}}-Werten erstellt einen String, der diesen String in einem {{HTMLElement("a")}}-Element mit einem Namen einbettet (`<a name="...">str</a>`).
 
 > [!NOTE]
-> Alle [HTML-Wrapper-Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/String#html_wrapper_methods) sind veraltet und nur für Kompatibilitätszwecke standardisiert. Verwenden Sie stattdessen [DOM-APIs](/de/docs/Web/API/Document_Object_Model) wie [`document.createElement()`](/de/docs/Web/API/Document/createElement).
+> Alle [HTML-Einbettungsmethoden](/de/docs/Web/JavaScript/Reference/Global_Objects/String#html_wrapper_methods) sind veraltet und nur aus Kompatibilitätsgründen standardisiert. Verwenden Sie stattdessen [DOM-APIs](/de/docs/Web/API/Document_Object_Model) wie [`document.createElement()`](/de/docs/Web/API/Document/createElement).
 >
-> Die HTML-Spezifikation erlaubt es dem {{HTMLElement("a")}}-Element nicht mehr, ein `name`-Attribut zu haben, sodass diese Methode nicht einmal gültiges Markup erzeugt.
+> Die HTML-Spezifikation erlaubt es nicht mehr, dass das {{HTMLElement("a")}}-Element ein `name`-Attribut hat; daher erstellt diese Methode nicht einmal gültiges Markup.
 
 ## Syntax
 
@@ -27,13 +28,13 @@ anchor(name)
 
 ### Rückgabewert
 
-Ein String, der mit einem `<a name="name">`-Start-Tag beginnt (doppelte Anführungszeichen in `name` werden durch `&quot;` ersetzt), gefolgt von dem Text `str` und dann einem `</a>`-End-Tag.
+Ein String, der mit einem `<a name="name">`-Start-Tag beginnt (doppelte Anführungszeichen in `name` werden durch `&quot;` ersetzt), gefolgt vom Text `str` und dann einem `</a>`-End-Tag.
 
 ## Beispiele
 
 ### Verwendung von anchor()
 
-Der untenstehende Code erstellt einen HTML-String und ersetzt dann den Inhalt des Dokuments mit diesem:
+Der folgende Code erstellt einen HTML-String und ersetzt dann den Body des Dokuments damit:
 
 ```js
 const contentString = "Hello, world";
@@ -41,7 +42,7 @@ const contentString = "Hello, world";
 document.body.innerHTML = contentString.anchor("hello");
 ```
 
-Dies wird das folgende HTML erzeugen:
+Dies wird das folgende HTML erstellen:
 
 ```html
 <a name="hello">Hello, world</a>
@@ -50,7 +51,7 @@ Dies wird das folgende HTML erzeugen:
 > [!WARNING]
 > Dieses Markup ist ungültig, da `name` kein gültiges Attribut des {{HTMLElement("a")}}-Elements mehr ist.
 
-Anstatt `anchor()` zu verwenden und HTML-Text direkt zu erstellen, sollten Sie DOM-APIs wie [`document.createElement()`](/de/docs/Web/API/Document/createElement) nutzen. Zum Beispiel:
+Anstatt `anchor()` zu verwenden und HTML-Text direkt zu erstellen, sollten Sie DOM-APIs wie [`document.createElement()`](/de/docs/Web/API/Document/createElement) verwenden. Zum Beispiel:
 
 ```js
 const contentString = "Hello, world";
@@ -71,5 +72,5 @@ document.body.appendChild(elem);
 
 - [Polyfill von `String.prototype.anchor` in `core-js`](https://github.com/zloirock/core-js#ecmascript-string-and-regexp)
 - [es-shims Polyfill von `String.prototype.anchor`](https://www.npmjs.com/package/es-string-html-methods)
-- [HTML-Wrapper-Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/String#html_wrapper_methods)
+- [HTML-Einbettungsmethoden](/de/docs/Web/JavaScript/Reference/Global_Objects/String#html_wrapper_methods)
 - {{HTMLElement("a")}}

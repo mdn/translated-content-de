@@ -1,13 +1,14 @@
 ---
 title: handler.apply()
+short-title: apply()
 slug: Web/JavaScript/Reference/Global_Objects/Proxy/Proxy/apply
 l10n:
-  sourceCommit: 2c0f972d873ea2db5163dbcb12987847124751ad
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Die **`handler.apply()`** Methode ist eine Falle für die `[[Call]]` [interne Objektmethode](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods), welche von Operationen wie Funktionsaufrufen verwendet wird.
+Die Methode **`handler.apply()`** ist eine Falle für die `[[Call]]` [objektinterne Methode](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods), welche von Operationen wie Funktionsaufrufen verwendet wird.
 
 {{InteractiveExample("JavaScript Demo: handler.apply()", "taller")}}
 
@@ -44,24 +45,24 @@ new Proxy(target, {
 
 ### Parameter
 
-Die folgenden Parameter werden an die `apply()` Methode übergeben. `this` ist an den Handler gebunden.
+Die folgenden Parameter werden an die `apply()`-Methode übergeben. `this` ist an den Handler gebunden.
 
 - `target`
   - : Das aufrufbare Zielobjekt.
 - `thisArg`
-  - : Das `this` Argument für den Aufruf.
+  - : Das `this`-Argument für den Aufruf.
 - `argumentsList`
   - : Ein {{jsxref("Array")}}, das die an die Funktion übergebenen Argumente enthält.
 
 ### Rückgabewert
 
-Die `apply()` Methode kann jeden Wert zurückgeben, der den Rückgabewert des Funktionsaufrufs darstellt.
+Die `apply()`-Methode kann jeden Wert zurückgeben, welcher den Rückgabewert des Funktionsaufrufs darstellt.
 
 ## Beschreibung
 
-### Abfangmöglichkeiten
+### Abfänge
 
-Diese Falle kann folgende Operationen abfangen:
+Diese Falle kann die folgenden Operationen abfangen:
 
 - Funktionsaufruf: `proxy(...args)`
 - {{jsxref("Function.prototype.apply()")}} und {{jsxref("Function.prototype.call()")}}
@@ -71,13 +72,13 @@ Oder jede andere Operation, die die `[[Call]]` [interne Methode](/de/docs/Web/Ja
 
 ### Invarianten
 
-Die `[[Call]]` interne Methode des Proxys wirft einen {{jsxref("TypeError")}}, wenn die Handler-Definition eine der folgenden Invarianten verletzt:
+Die `[[Call]]`-interne Methode des Proxys wirft einen {{jsxref("TypeError")}}, wenn die Handler-Definition eine der folgenden Invarianten verletzt:
 
-- Das `target` muss selbst aufrufbar sein. Das heißt, es muss ein Funktionsobjekt sein.
+- Der `target` muss selbst aufrufbar sein. Das bedeutet, er muss ein Funktionsobjekt sein.
 
 ## Beispiele
 
-### Abfangen eines Funktionsaufrufs
+### Ein Funktionsaufruf abfangen
 
 Der folgende Code fängt einen Funktionsaufruf ab.
 
@@ -104,7 +105,7 @@ console.log(p(1, 2, 3)); // "called: 1,2,3"
 ## Siehe auch
 
 - {{jsxref("Proxy")}}
-- [`Proxy()` Konstruktor](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy)
+- [`Proxy()`-Konstruktor](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy)
 - {{jsxref("Function.prototype.apply()")}}
 - {{jsxref("Function.prototype.call()")}}
 - {{jsxref("Reflect.apply()")}}

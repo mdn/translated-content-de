@@ -1,13 +1,14 @@
 ---
 title: Temporal.Duration.prototype.negated()
+short-title: negated()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/Duration/negated
 l10n:
-  sourceCommit: d0b9cef0713eb263934a98e94202b97c143204a4
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}{{SeeCompatTable}}
 
-Die **`negated()`** Methode von {{jsxref("Temporal.Duration")}} Instanzen gibt ein neues `Temporal.Duration` Objekt mit dem negierten Wert dieser Dauer zurück (alle Felder behalten die gleiche Größe, jedoch mit umgekehrtem Vorzeichen).
+Die **`negated()`** Methode von {{jsxref("Temporal.Duration")}} Instanzen gibt ein neues `Temporal.Duration` Objekt zurück, das den negierten Wert dieser Dauer enthält (alle Felder behalten den gleichen Betrag, aber das Vorzeichen wird umgekehrt).
 
 ## Syntax
 
@@ -21,7 +22,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein neues `Temporal.Duration` Objekt, bei dem alle Felder die gleiche Größe wie diese Dauer haben, das Vorzeichen jedoch umgekehrt ist (positive Felder werden negativ und umgekehrt).
+Ein neues `Temporal.Duration` Objekt, bei dem alle Felder den gleichen Betrag wie diese Dauer haben, jedoch das Vorzeichen umgekehrt ist (positive Felder werden negativ und umgekehrt).
 
 ## Beispiele
 

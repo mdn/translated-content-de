@@ -1,13 +1,14 @@
 ---
 title: DataView.prototype.setUint8()
+short-title: setUint8()
 slug: Web/JavaScript/Reference/Global_Objects/DataView/setUint8
 l10n:
-  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Die **`setUint8()`**-Methode von {{jsxref("DataView")}}-Instanzen nimmt eine Zahl und speichert sie als 8-Bit-Integer ohne Vorzeichen im Byte an dem angegebenen Byte-Offset dieses `DataView`.
+Die **`setUint8()`**-Methode von {{jsxref("DataView")}}-Instanzen nimmt eine Zahl und speichert sie als 8-Bit-Unsigned-Integer im Byte an dem angegebenen Byte-Offset dieses `DataView`.
 
 {{InteractiveExample("JavaScript Demo: DataView.prototype.setUint8()")}}
 
@@ -31,9 +32,9 @@ setUint8(byteOffset, value)
 ### Parameter
 
 - `byteOffset`
-  - : Der Offset in Bytes vom Anfang der Ansicht, in dem die Daten gespeichert werden sollen.
+  - : Der Offset in Bytes, ab dem Beginn der Ansicht, um die Daten zu speichern.
 - `value`
-  - : Der Wert, der gesetzt werden soll. Für die Kodierung des Wertes in Bytes siehe [Wertkodierung und Normalisierung](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray#value_encoding_and_normalization).
+  - : Der Wert, der gesetzt werden soll. Für Informationen darüber, wie der Wert in Bytes kodiert wird, siehe [Wertkodierung und Normalisierung](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray#value_encoding_and_normalization).
 
 ### Rückgabewert
 
@@ -42,7 +43,7 @@ setUint8(byteOffset, value)
 ### Ausnahmen
 
 - {{jsxref("RangeError")}}
-  - : Wird ausgelöst, wenn der `byteOffset` so gesetzt wird, dass er über das Ende der Ansicht hinaus speichern würde.
+  - : Wird ausgelöst, wenn `byteOffset` so gesetzt ist, dass es über das Ende der Ansicht hinaus speichern würde.
 
 ## Beispiele
 

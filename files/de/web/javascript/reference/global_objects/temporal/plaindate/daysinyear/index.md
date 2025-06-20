@@ -1,17 +1,18 @@
 ---
 title: Temporal.PlainDate.prototype.daysInYear
+short-title: daysInYear
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainDate/daysInYear
 l10n:
-  sourceCommit: d0b9cef0713eb263934a98e94202b97c143204a4
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}{{SeeCompatTable}}
 
-Die **`daysInYear`** Zugriffsobjekteigenschaft von {{jsxref("Temporal.PlainDate")}} Instanzen gibt eine positive ganze Zahl zurück, die die Anzahl der Tage im Jahr dieses Datums darstellt. Sie ist abhängig vom [Kalender](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#calendars).
+Die **`daysInYear`** Zugriffseigenschaft von {{jsxref("Temporal.PlainDate")}} Instanzen gibt eine positive ganze Zahl zurück, die die Anzahl der Tage im Jahr dieses Datums darstellt. Sie ist kalenderabhängig (siehe [calendar](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#calendars)).
 
-Für den ISO 8601 Kalender sind dies 365 oder 366 in einem Schaltjahr. In anderen Kalendersystemen unterscheidet sich die Anzahl der Tage wahrscheinlich, insbesondere in nicht-solaren Kalendern.
+Für den ISO 8601-Kalender sind dies 365 Tage, bzw. 366 in einem Schaltjahr. In anderen Kalendersystemen unterscheidet sich dies wahrscheinlich, insbesondere in nicht solaren Kalendern.
 
-Der Set-Zugriff von `daysInWeek` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern.
+Der Set-Accessor von `daysInWeek` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern.
 
 ## Beispiele
 

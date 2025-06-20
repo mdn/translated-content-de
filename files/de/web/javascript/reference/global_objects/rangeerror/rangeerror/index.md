@@ -1,13 +1,14 @@
 ---
 title: RangeError() Konstruktor
+short-title: RangeError()
 slug: Web/JavaScript/Reference/Global_Objects/RangeError/RangeError
 l10n:
-  sourceCommit: 84aaeee9a64e1bfe002837468eb798e5d5eb2bbe
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Der **`RangeError()`** Konstruktor erzeugt {{jsxref("RangeError")}} Objekte.
+Der **`RangeError()`** Konstruktor erstellt {{jsxref("RangeError")}} Objekte.
 
 ## Syntax
 
@@ -25,7 +26,7 @@ RangeError(message, fileName)
 RangeError(message, fileName, lineNumber)
 ```
 
-> **Note:** `RangeError()` kann mit oder ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden. Beide Aufrufe erstellen eine neue `RangeError` Instanz.
+> **Note:** `RangeError()` kann mit oder ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden. Beide Methoden erzeugen eine neue `RangeError` Instanz.
 
 ### Parameter
 
@@ -34,8 +35,7 @@ RangeError(message, fileName, lineNumber)
 - `options` {{optional_inline}}
   - : Ein Objekt mit den folgenden Eigenschaften:
     - `cause` {{optional_inline}}
-      - : Eine Eigenschaft, die die spezifische Ursache des Fehlers angibt.
-        Beim Abfangen und erneuten Auslösen eines Fehlers mit einer spezifischeren oder nützlicheren Fehlermeldung kann diese Eigenschaft verwendet werden, um den ursprünglichen Fehler zu übergeben.
+      - : Eine Eigenschaft, die die spezifische Ursache des Fehlers angibt. Beim Abfangen und erneuten Auslösen eines Fehlers mit einer spezifischeren oder nützlicheren Fehlermeldung kann diese Eigenschaft verwendet werden, um den ursprünglichen Fehler weiterzugeben.
 - `fileName` {{optional_inline}} {{non-standard_inline}}
   - : Der Name der Datei, die den Code enthält, der die Ausnahme verursacht hat.
 - `lineNumber` {{optional_inline}} {{non-standard_inline}}

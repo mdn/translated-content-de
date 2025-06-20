@@ -1,15 +1,16 @@
 ---
 title: Temporal.ZonedDateTime.prototype.since()
+short-title: since()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime/since
 l10n:
-  sourceCommit: 262c13dcbcd394beddd98e07d9c78bc79ce3513c
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}{{SeeCompatTable}}
 
-Die Methode **`since()`** von {{jsxref("Temporal.ZonedDateTime")}}-Instanzen gibt ein neues {{jsxref("Temporal.Duration")}}-Objekt zurück, das die Dauer von einem anderen Datum-Zeit-Wert (in einer Form, die durch {{jsxref("Temporal/ZonedDateTime/from", "Temporal.ZonedDateTime.from()")}} konvertierbar ist) zu diesem Datum-Zeit-Wert darstellt. Die Dauer ist positiv, wenn der andere Datum-Zeit-Wert vor diesem liegt, und negativ, wenn er danach liegt.
+Die **`since()`**-Methode von {{jsxref("Temporal.ZonedDateTime")}} Instanzen gibt ein neues {{jsxref("Temporal.Duration")}} Objekt zurück, das die Dauer von einem anderen Datum-Zeit-Punkt (in einer umwandelbaren Form durch {{jsxref("Temporal/ZonedDateTime/from", "Temporal.ZonedDateTime.from()")}}) bis zu diesem Datum-Zeit-Punkt darstellt. Die Dauer ist positiv, wenn der andere Datum-Zeit-Punkt vor diesem liegt, und negativ, wenn er danach liegt.
 
-Diese Methode führt `this - other` aus. Um `other - this` auszuführen, verwenden Sie die Methode {{jsxref("Temporal/ZonedDateTime/until", "until()")}}.
+Diese Methode entspricht `this - other`. Um `other - this` zu berechnen, verwenden Sie die {{jsxref("Temporal/ZonedDateTime/until", "until()")}}-Methode.
 
 ## Syntax
 
@@ -21,13 +22,13 @@ since(other, options)
 ### Parameter
 
 - `other`
-  - : Ein String, ein Objekt oder eine {{jsxref("Temporal.ZonedDateTime")}}-Instanz, die einen Datum-Zeit-Wert darstellt und von diesem Datum-Zeit-Wert subtrahiert wird. Es wird mit dem gleichen Algorithmus wie {{jsxref("Temporal/ZonedDateTime/from", "Temporal.ZonedDateTime.from()")}} in ein `Temporal.ZonedDateTime`-Objekt konvertiert. Es muss denselben Kalender wie `this` haben.
+  - : Ein String, ein Objekt oder eine {{jsxref("Temporal.ZonedDateTime")}} Instanz, die ein von diesem Datum-Zeit-Punkt zu subtrahierendes Datum-Zeit-Punkt darstellt. Es wird mit dem gleichen Algorithmus, der in {{jsxref("Temporal/ZonedDateTime/from", "Temporal.ZonedDateTime.from()")}} verwendet wird, in ein `Temporal.ZonedDateTime` Objekt umgewandelt. Es muss den gleichen Kalender wie `this` haben.
 - `options` {{optional_inline}}
-  - : Ein Objekt, das die Optionen für {{jsxref("Temporal/Duration/round", "Temporal.Duration.prototype.round()")}} enthält, darunter `largestUnit`, `roundingIncrement`, `roundingMode` und `smallestUnit`. `largestUnit` und `smallestUnit` akzeptieren alle möglichen Einheiten. Für `largestUnit` bedeutet der Standardwert `"auto"` `"hours"` oder `smallestUnit`, je nachdem, welcher größer ist. Für `smallestUnit` ist der Standardwert `"nanoseconds"`. Das aktuelle Datum wird als `relativeTo`-Option verwendet. Beachten Sie, dass die Verwendung von [Einheiten größer als `"hours"`](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration#calendar_durations) die Dauer möglicherweise nicht portierbar zu anderen Kalendern, Daten oder Zeitzonen macht.
+  - : Ein Objekt, das die Optionen für {{jsxref("Temporal/Duration/round", "Temporal.Duration.prototype.round()")}} enthält, einschließlich `largestUnit`, `roundingIncrement`, `roundingMode` und `smallestUnit`. `largestUnit` und `smallestUnit` akzeptieren alle möglichen Einheiten. Für `largestUnit` bedeutet der Standardwert `"auto"` entweder `"hours"` oder `smallestUnit`, je nachdem, welches größer ist. Für `smallestUnit` ist der Standardwert `"nanoseconds"`. Das aktuelle Datum wird als `relativeTo` Option verwendet. Beachten Sie, dass die Verwendung von [Einheiten größer als `"hours"`](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration#calendar_durations) die Dauer möglicherweise für andere Kalender, Daten oder Zeitzonen nicht portabel macht.
 
 ### Rückgabewert
 
-Ein neues {{jsxref("Temporal.Duration")}}-Objekt, das die Dauer _seit_ `other` bis zu diesem Datum-Zeit-Wert darstellt. Die Dauer ist positiv, wenn `other` vor diesem Datum-Zeit-Wert liegt, und negativ, wenn er danach liegt.
+Ein neues {{jsxref("Temporal.Duration")}} Objekt, das die Dauer _seit_ `other` zu diesem Datum-Zeit-Punkt darstellt. Die Dauer ist positiv, wenn `other` vor diesem Datum-Zeit-Punkt liegt, und negativ, wenn er danach liegt.
 
 ### Ausnahmen
 
@@ -39,11 +40,11 @@ Ein neues {{jsxref("Temporal.Duration")}}-Objekt, das die Dauer _seit_ `other` b
 
 ## Beschreibung
 
-Die zurückgegebene Dauer ist eine "hybride" Dauer. Das bedeutet, dass der Datumsanteil der Dauer volle Kalendertage repräsentiert, wie es {{jsxref("Temporal/PlainDateTime/since", "Temporal.PlainDateTime.prototype.since()")}} zurückgeben würde, während der Zeitanteil die tatsächlich verstrichene Zeit darstellt, wie es {{jsxref("Temporal/Instant/since", "Temporal.Instant.prototype.since()")}} zurückgeben würde. Dieser Ansatz der "hybriden Dauer" passt sich automatisch an Sommerzeitumstellungen an und entspricht weit verbreiteten Industriestandards wie [RFC 5545 (iCalendar)](https://datatracker.ietf.org/doc/html/rfc5545). Siehe unten für Beispiele.
+Die zurückgegebene Dauer ist eine "hybride" Dauer. Das bedeutet, dass der Datumsanteil der Dauer ganze Kalendertage repräsentiert, wie es {{jsxref("Temporal/PlainDateTime/since", "Temporal.PlainDateTime.prototype.since()")}} zurückgeben würde, während der Zeitanteil die tatsächlich vergangene Zeit repräsentiert, wie es {{jsxref("Temporal/Instant/since", "Temporal.Instant.prototype.since()")}} tun würde. Dieser "hybrider Dauer"-Ansatz passt sich automatisch der Sommerzeit an und entspricht weithin anerkannten Industriestandards wie [RFC 5545 (iCalendar)](https://datatracker.ietf.org/doc/html/rfc5545). Siehe unten für Beispiele.
 
 ## Beispiele
 
-### Offset-Übergänge
+### Offsets-Übergänge
 
 Wenn Übergänge stattfinden, kann ein Tag nicht genau 24 Stunden haben.
 
@@ -67,11 +68,11 @@ console.log(end2.since(start2).toString()); // PT23H
 console.log(end2.since(start2, { largestUnit: "days" }).toString()); // PT1D
 ```
 
-Aus diesem Grund ist die zurückgegebene Dauer standardmäßig rein zeitbasiert und enthält keinen Datumsanteil, um eindeutig zu bleiben.
+Aus diesem Grund ist die zurückgegebene Dauer standardmäßig rein zeitbasiert ohne Datumsanteil, damit sie unmissverständlich bleibt.
 
 ### Unterschiedliche Zeitzonen
 
-Der Zeitanteil der zurückgegebenen Dauer basiert ausschließlich auf Instanzen und wird nicht von Zeitzonen beeinflusst. Wenn Sie jedoch Datumsbestandteile wie `day` einbeziehen möchten, müssen der Start und das Ende in der gleichen Zeitzone liegen.
+Der Zeitanteil der zurückgegebenen Dauer basiert rein auf Instanzen und wird nicht von Zeitzonen beeinflusst. Wenn Sie jedoch Datumseinheiten wie `day` einbeziehen möchten, müssen der Anfang und das Ende in der gleichen Zeitzone liegen.
 
 ```js
 const start = Temporal.ZonedDateTime.from(
@@ -89,7 +90,7 @@ end.withTimeZone("America/New_York").since(start, { largestUnit: "days" }); // P
 end.since(start.withTimeZone("America/Lima"), { largestUnit: "days" }); // P1D1H
 ```
 
-Weitere Beispiele zur Verwendung von `since()`, insbesondere mit Rundung, finden Sie unter {{jsxref("Temporal/PlainDate/since", "Temporal.PlainDate.prototype.since()")}} und {{jsxref("Temporal/PlainTime/since", "Temporal.PlainTime.prototype.since()")}}.
+Für weitere Beispiele zur Verwendung von `since()`, insbesondere mit Rundung, siehe {{jsxref("Temporal/PlainDate/since", "Temporal.PlainDate.prototype.since()")}} und {{jsxref("Temporal/PlainTime/since", "Temporal.PlainTime.prototype.since()")}}.
 
 ## Spezifikationen
 

@@ -1,13 +1,14 @@
 ---
 title: Math.sinh()
+short-title: sinh()
 slug: Web/JavaScript/Reference/Global_Objects/Math/sinh
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Die statische Methode **`Math.sinh()`** gibt den hyperbolischen Sinus einer Zahl zurück. Das heißt,
+Die statische Methode **`Math.sinh()`** gibt den hyperbolischen Sinus einer Zahl zurück. Das bedeutet,
 
 <!-- prettier-ignore-start -->
 <math display="block">
@@ -48,7 +49,7 @@ Der hyperbolische Sinus von `x`.
 
 ## Beschreibung
 
-Da `sinh()` eine statische Methode von `Math` ist, wird sie immer als `Math.sinh()` verwendet und nicht als Methode eines selbst erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
+Da `sinh()` eine statische Methode von `Math` ist, verwenden Sie sie immer als `Math.sinh()` und nicht als Methode eines erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
 
 ## Beispiele
 

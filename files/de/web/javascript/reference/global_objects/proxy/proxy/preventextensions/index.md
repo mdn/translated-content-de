@@ -1,13 +1,14 @@
 ---
 title: handler.preventExtensions()
+short-title: preventExtensions()
 slug: Web/JavaScript/Reference/Global_Objects/Proxy/Proxy/preventExtensions
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Die Methode **`handler.preventExtensions()`** ist eine Trap für die `[[PreventExtensions]]` [interne Objektmethode](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods), die von Operationen wie {{jsxref("Object.preventExtensions()")}} verwendet wird.
+Die Methode **`handler.preventExtensions()`** ist eine Trap für die `[[PreventExtensions]]` [interne Methode eines Objekts](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods), die von Operationen wie {{jsxref("Object.preventExtensions()")}} verwendet wird.
 
 {{InteractiveExample("JavaScript Demo: handler.preventExtensions()", "taller")}}
 
@@ -53,34 +54,34 @@ Der folgende Parameter wird an die Methode `preventExtensions()` übergeben. `th
 
 ### Rückgabewert
 
-Die Methode `preventExtensions()` muss einen {{jsxref("Boolean")}} zurückgeben, der angibt, ob die Operation erfolgreich war oder nicht. Andere Werte werden [zu Booleans konvertiert](/de/docs/Web/JavaScript/Reference/Global_Objects/Boolean#boolean_coercion).
+Die Methode `preventExtensions()` muss einen {{jsxref("Boolean")}} zurückgeben, der angibt, ob die Operation erfolgreich war oder nicht. Andere Werte werden [zu Booleans umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Boolean#boolean_coercion).
 
-Viele Operationen, einschließlich {{jsxref("Object.preventExtensions()")}}, werfen eine {{jsxref("TypeError")}}, wenn die interne Methode `[[PreventExtensions]]` `false` zurückgibt.
+Viele Operationen, einschließlich {{jsxref("Object.preventExtensions()")}}, werfen einen {{jsxref("TypeError")}}, wenn die interne Methode `[[PreventExtensions]]` `false` zurückgibt.
 
 ## Beschreibung
 
-### Abfangbare Operationen
+### Abfangmöglichkeiten
 
-Diese Trap kann folgende Operationen abfangen:
+Diese Trap kann die folgenden Operationen abfangen:
 
 - {{jsxref("Object.preventExtensions()")}}
 - {{jsxref("Reflect.preventExtensions()")}}
 - {{jsxref("Object.seal()")}}
 - {{jsxref("Object.freeze()")}}
 
-Oder jede andere Operation, die die interne Methode `[[PreventExtensions]]` [aufruft](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods).
+Oder jede andere Operation, die die `[[PreventExtensions]]` [interne Methode](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods) aufruft.
 
 ### Invarianten
 
-Die interne Methode `[[PreventExtensions]]` des Proxys wirft eine {{jsxref("TypeError")}}, wenn die Handler-Definition eine der folgenden Invarianten verletzt:
+Die `[[PreventExtensions]]` interne Methode des Proxys wirft einen {{jsxref("TypeError")}}, wenn die Handler-Definition eine der folgenden Invarianten verletzt:
 
-- Das Ergebnis ist nur dann `true`, wenn {{jsxref("Reflect.isExtensible()")}} auf dem Zielobjekt nach dem Aufruf von `handler.preventExtensions()` `false` zurückgibt.
+- Das Ergebnis ist nur dann `true`, wenn {{jsxref("Reflect.isExtensible()")}} beim Zielobjekt `false` zurückgibt, nachdem `handler.preventExtensions()` aufgerufen wurde.
 
 ## Beispiele
 
 ### Abfangen von preventExtensions
 
-Das folgende Beispiel fängt {{jsxref("Object.preventExtensions()")}} ab.
+Der folgende Code fängt {{jsxref("Object.preventExtensions()")}} ab.
 
 ```js
 const p = new Proxy(
@@ -99,7 +100,7 @@ console.log(Object.preventExtensions(p));
 // false
 ```
 
-Das folgende Beispiel verletzt die Invariante.
+Der folgende Code verletzt die Invariante.
 
 ```js example-bad
 const p = new Proxy(
@@ -125,6 +126,6 @@ Object.preventExtensions(p); // TypeError is thrown
 ## Siehe auch
 
 - {{jsxref("Proxy")}}
-- [`Proxy()`-Konstruktor](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy)
+- [`Proxy()` Konstruktor](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy)
 - {{jsxref("Object.preventExtensions()")}}
 - {{jsxref("Reflect.preventExtensions()")}}

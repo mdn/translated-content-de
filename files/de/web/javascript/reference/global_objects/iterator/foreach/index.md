@@ -1,13 +1,14 @@
 ---
 title: Iterator.prototype.forEach()
+short-title: forEach()
 slug: Web/JavaScript/Reference/Global_Objects/Iterator/forEach
 l10n:
-  sourceCommit: e8320dfbed49d37589d0fe759ef6506885f340f7
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Die **`forEach()`** Methode von {{jsxref("Iterator")}} Instanzen ist ähnlich wie {{jsxref("Array.prototype.forEach()")}}: Sie führt eine bereitgestellte Funktion einmal für jedes vom Iterator erzeugte Element aus.
+Die **`forEach()`**-Methode von {{jsxref("Iterator")}}-Instanzen ähnelt {{jsxref("Array.prototype.forEach()")}}: Sie führt eine bereitgestellte Funktion einmal für jedes vom Iterator erzeugte Element aus.
 
 ## Syntax
 
@@ -18,11 +19,11 @@ forEach(callbackFn)
 ### Parameter
 
 - `callbackFn`
-  - : Eine Funktion, die für jedes vom Iterator erzeugte Element ausgeführt wird. Der Rückgabewert wird verworfen. Die Funktion wird mit den folgenden Argumenten aufgerufen:
+  - : Eine Funktion, die für jedes vom Iterator erzeugte Element ausgeführt wird. Ihr Rückgabewert wird verworfen. Die Funktion wird mit den folgenden Argumenten aufgerufen:
     - `element`
-      - : Das aktuelle Element, das verarbeitet wird.
+      - : Das aktuell verarbeitete Element.
     - `index`
-      - : Der Index des aktuellen Elements, das verarbeitet wird.
+      - : Der Index des aktuell verarbeiteten Elements.
 
 ### Rückgabewert
 
@@ -30,7 +31,7 @@ forEach(callbackFn)
 
 ## Beschreibung
 
-`forEach()` durchläuft den Iterator und ruft die Funktion `callbackFn` einmal für jedes Element auf. Im Gegensatz zu den meisten anderen Hilfsmethoden für Iteratoren arbeitet sie nicht mit unendlichen Iteratoren, da sie nicht lazy ist.
+`forEach()` durchläuft den Iterator und ruft die `callbackFn`-Funktion einmal für jedes Element auf. Im Gegensatz zu den meisten anderen Iterator-Hilfsmethoden funktioniert es nicht mit unendlichen Iteratoren, da es nicht faul ist.
 
 ## Beispiele
 
@@ -45,7 +46,7 @@ new Set([1, 2, 3]).values().forEach((v) => console.log(v));
 // 3
 ```
 
-Dies ist äquivalent zu:
+Dies ist gleichbedeutend mit:
 
 ```js
 for (const v of new Set([1, 2, 3]).values()) {

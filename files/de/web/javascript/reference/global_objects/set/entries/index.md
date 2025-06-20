@@ -1,13 +1,14 @@
 ---
 title: Set.prototype.entries()
+short-title: entries()
 slug: Web/JavaScript/Reference/Global_Objects/Set/entries
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Die Methode **`entries()`** von {{jsxref("Set")}}-Instanzen gibt ein neues _[Set-Iterator](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator)_-Objekt zurück. Dieses Objekt enthält **ein Array von `[value, value]`** für jedes Element in diesem Set, in Eingabereihenfolge. Bei `Set`-Objekten gibt es keinen `key` wie bei `Map`-Objekten. Um die API jedoch ähnlich zur `Map`-API zu gestalten, hat jeder _Eintrag_ hier denselben Wert für _key_ und _value_, sodass ein Array `[value, value]` zurückgegeben wird.
+Die **`entries()`** Methode von {{jsxref("Set")}} Instanzen gibt ein neues _[set iterator](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator)_ Objekt zurück, das ein **Array von `[value, value]`** für jedes Element in diesem Set enthält, in Einfügereihenfolge. Für `Set`-Objekte gibt es keinen `key` wie in `Map`-Objekten. Um die API jedoch ähnlich dem `Map`-Objekt zu gestalten, hat jeder _Eintrag_ hier denselben Wert für seinen _Schlüssel_ und _Wert_, sodass ein Array `[value, value]` zurückgegeben wird.
 
 {{InteractiveExample("JavaScript Demo: Set.prototype.entries()")}}
 
@@ -37,7 +38,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein neues [iterierbares Iterator-Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator).
+Ein neues [iterable iterator object](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator).
 
 ## Beispiele
 

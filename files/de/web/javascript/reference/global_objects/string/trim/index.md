@@ -1,15 +1,16 @@
 ---
 title: String.prototype.trim()
+short-title: trim()
 slug: Web/JavaScript/Reference/Global_Objects/String/trim
 l10n:
-  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Die **`trim()`** Methode von {{jsxref("String")}}-Werten entfernt Leerzeichen von beiden Enden des Strings und gibt einen neuen String zurück, ohne den ursprünglichen String zu ändern.
+Die **`trim()`**-Methode von {{jsxref("String")}}-Werten entfernt Leerzeichen von beiden Enden dieser Zeichenkette und gibt eine neue Zeichenkette zurück, ohne die ursprüngliche Zeichenkette zu ändern.
 
-Um einen neuen String mit Beschnitt der Leerzeichen nur an einem Ende zu erhalten, verwenden Sie {{jsxref("String/trimStart", "trimStart()")}} oder {{jsxref("String/trimEnd", "trimEnd()")}}.
+Um eine neue Zeichenkette zurückzugeben, bei der Leerzeichen nur von einem Ende entfernt werden, verwenden Sie {{jsxref("String/trimStart", "trimStart()")}} oder {{jsxref("String/trimEnd", "trimEnd()")}}.
 
 {{InteractiveExample("JavaScript Demo: String.prototype.trim()")}}
 
@@ -35,9 +36,9 @@ Keine.
 
 ### Rückgabewert
 
-Ein neuer String, der `str` darstellt, bei dem die Leerzeichen von beiden Enden entfernt wurden. Leerzeichen sind definiert als [white space](/de/docs/Web/JavaScript/Reference/Lexical_grammar#white_space)-Zeichen plus [line terminators](/de/docs/Web/JavaScript/Reference/Lexical_grammar#line_terminators).
+Eine neue Zeichenkette, die `str` darstellt, bei der Leerzeichen sowohl am Anfang als auch am Ende entfernt wurden. Leerzeichen sind definiert als [Leerzeichen](/de/docs/Web/JavaScript/Reference/Lexical_grammar#white_space)-Zeichen plus [Zeilenendzeichen](/de/docs/Web/JavaScript/Reference/Lexical_grammar#line_terminators).
 
-Wenn weder der Anfang noch das Ende von `str` Leerzeichen enthält, wird dennoch ein neuer String zurückgegeben (im Wesentlichen eine Kopie von `str`).
+Wenn weder der Anfang noch das Ende von `str` Leerzeichen haben, wird trotzdem eine neue Zeichenkette zurückgegeben (im Wesentlichen eine Kopie von `str`).
 
 ## Beispiele
 

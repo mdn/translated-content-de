@@ -1,8 +1,9 @@
 ---
 title: Reflect.apply()
+short-title: apply()
 slug: Web/JavaScript/Reference/Global_Objects/Reflect/apply
 l10n:
-  sourceCommit: e8320dfbed49d37589d0fe759ef6506885f340f7
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
@@ -42,11 +43,11 @@ Reflect.apply(target, thisArgument, argumentsList)
 - `thisArgument`
   - : Der Wert von `this`, der für den Aufruf von `target` bereitgestellt wird.
 - `argumentsList`
-  - : Ein [array-ähnliches Objekt](/de/docs/Web/JavaScript/Guide/Indexed_collections#working_with_array-like_objects), das die Argumente angibt, mit denen `target` aufgerufen werden soll.
+  - : Ein [array-ähnliches Objekt](/de/docs/Web/JavaScript/Guide/Indexed_collections#working_with_array-like_objects), das die Argumente spezifiziert, mit denen `target` aufgerufen werden soll.
 
 ### Rückgabewert
 
-Das Ergebnis des Aufrufs der angegebenen `target`-Funktion mit dem angegebenen `this`-Wert und den Argumenten.
+Das Ergebnis des Aufrufs der gegebenen `target`-Funktion mit dem angegebenen `this`-Wert und den Argumenten.
 
 ### Ausnahmen
 
@@ -55,7 +56,7 @@ Das Ergebnis des Aufrufs der angegebenen `target`-Funktion mit dem angegebenen `
 
 ## Beschreibung
 
-`Reflect.apply()` bietet die reflektive Semantik eines Funktionsaufrufs. Das heißt, `Reflect.apply(target, thisArgument, argumentsList)` ist semantisch gleichbedeutend mit:
+`Reflect.apply()` bietet die reflektive Semantik eines Funktionsaufrufs. Das heißt, `Reflect.apply(target, thisArgument, argumentsList)` ist semantisch äquivalent zu:
 
 ```js
 Math.floor.apply(null, [1.75]);
@@ -65,9 +66,9 @@ Reflect.apply(Math.floor, null, [1.75]);
 Die einzigen Unterschiede sind:
 
 - `Reflect.apply()` nimmt die aufzurufende Funktion als `target`-Parameter anstelle des `this`-Kontexts.
-- `Reflect.apply()` löst einen Fehler aus, wenn `argumentsList` weggelassen wird, anstatt standardmäßig ohne Parameter aufzurufen.
+- `Reflect.apply()` wirft einen Fehler, wenn `argumentsList` weggelassen wird, anstatt standardmäßig ohne Parameter aufzurufen.
 
-`Reflect.apply()` ruft die `[[Call]]` [interne Objekt-Methode](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods) von `target` auf.
+`Reflect.apply()` ruft die `[[Call]]` [interne Methode des Objekts](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods) von `target` auf.
 
 ## Beispiele
 

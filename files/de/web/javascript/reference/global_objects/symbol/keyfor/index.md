@@ -1,13 +1,14 @@
 ---
 title: Symbol.keyFor()
+short-title: keyFor()
 slug: Web/JavaScript/Reference/Global_Objects/Symbol/keyFor
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Die statische Methode **`Symbol.keyFor()`** ruft einen gemeinsamen `Symbol`-Schlüssel aus dem globalen Symbol-Register für das angegebene Symbol ab.
+Die statische Methode **`Symbol.keyFor()`** ruft einen gemeinsamen Symbolschlüssel aus dem globalen Symbolregister für das angegebene Symbol ab.
 
 {{InteractiveExample("JavaScript Demo: Symbol.keyFor()")}}
 
@@ -35,11 +36,11 @@ Symbol.keyFor(sym)
 ### Parameter
 
 - `sym`
-  - : Symbol, erforderlich. Das Symbol, für das ein Schlüssel gefunden werden soll.
+  - : Symbol, erforderlich. Das Symbol, für das ein Schlüssel gesucht werden soll.
 
 ### Rückgabewert
 
-Ein String, der den Schlüssel des angegebenen Symbols im [globalen Register](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#shared_symbols_in_the_global_symbol_registry) darstellt, falls dieser vorhanden ist; andernfalls {{jsxref("undefined")}}.
+Ein String, der den Schlüssel für das angegebene Symbol darstellt, wenn einer im [globalen Register](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#shared_symbols_in_the_global_symbol_registry) gefunden wird; andernfalls {{jsxref("undefined")}}.
 
 ## Beispiele
 

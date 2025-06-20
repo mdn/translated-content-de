@@ -1,13 +1,14 @@
 ---
 title: String.prototype.trimStart()
+short-title: trimStart()
 slug: Web/JavaScript/Reference/Global_Objects/String/trimStart
 l10n:
-  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Die **`trimStart()`**-Methode von {{jsxref("String")}}-Werten entfernt Leerzeichen vom Anfang dieses Strings und gibt einen neuen String zurück, ohne den ursprünglichen String zu ändern. `trimLeft()` ist ein Alias für diese Methode.
+Die **`trimStart()`**-Methode von {{jsxref("String")}}-Werten entfernt Leerzeichen vom Anfang dieser Zeichenfolge und gibt eine neue Zeichenfolge zurück, ohne die ursprüngliche Zeichenfolge zu ändern. `trimLeft()` ist ein Alias dieser Methode.
 
 {{InteractiveExample("JavaScript Demo: String.prototype.trimStart()")}}
 
@@ -35,13 +36,13 @@ Keine.
 
 ### Rückgabewert
 
-Ein neuer String, der `str` ohne Leerzeichen am Anfang (linke Seite) repräsentiert. Leerzeichen sind definiert als [white space](/de/docs/Web/JavaScript/Reference/Lexical_grammar#white_space)-Zeichen plus [line terminators](/de/docs/Web/JavaScript/Reference/Lexical_grammar#line_terminators).
+Eine neue Zeichenfolge, die `str` darstellt und von Leerzeichen am Anfang (linke Seite) befreit ist. Leerzeichen sind definiert als [white space](/de/docs/Web/JavaScript/Reference/Lexical_grammar#white_space)-Zeichen plus [line terminators](/de/docs/Web/JavaScript/Reference/Lexical_grammar#line_terminators).
 
-Wenn der Anfang von `str` keine Leerzeichen enthält, wird trotzdem ein neuer String zurückgegeben (im Wesentlichen eine Kopie von `str`).
+Wenn der Anfang von `str` keine Leerzeichen hat, wird trotzdem eine neue Zeichenfolge zurückgegeben (im Wesentlichen eine Kopie von `str`).
 
 ### Aliasing
 
-Nachdem {{jsxref("String/trim", "trim()")}} standardisiert wurde, haben Engines auch die nicht standardisierte Methode `trimLeft` implementiert. Für Konsistenz mit {{jsxref("String/padStart", "padStart()")}} wurde bei der Standardisierung der Name `trimStart` gewählt. Aus Gründen der Webkompatibilität bleibt `trimLeft` als Alias für `trimStart` erhalten und sie beziehen sich auf dasselbe Funktionsobjekt. In einigen Engines bedeutet dies:
+Nachdem {{jsxref("String/trim", "trim()")}} standardisiert wurde, haben Engines auch die nicht standardisierte Methode `trimLeft` implementiert. Allerdings wurde für die Konsistenz mit {{jsxref("String/padStart", "padStart()")}}, als die Methode standardisiert wurde, deren Name als `trimStart` gewählt. Aus Gründen der Web-Kompatibilität bleibt `trimLeft` als ein Alias für `trimStart` erhalten, und sie beziehen sich auf dasselbe Funktionsobjekt. In einigen Engines bedeutet dies:
 
 ```js
 String.prototype.trimLeft.name === "trimStart";
@@ -51,7 +52,7 @@ String.prototype.trimLeft.name === "trimStart";
 
 ### Verwendung von trimStart()
 
-Das folgende Beispiel entfernt Leerzeichen vom Anfang von `str`, jedoch nicht von seinem Ende.
+Das folgende Beispiel entfernt Leerzeichen vom Anfang von `str`, aber nicht von seinem Ende.
 
 ```js
 let str = "   foo  ";
@@ -74,6 +75,6 @@ console.log(str); // 'foo  '
 ## Siehe auch
 
 - [Polyfill von `String.prototype.trimStart` in `core-js`](https://github.com/zloirock/core-js#ecmascript-string-and-regexp)
-- [es-shims polyfill von `String.prototype.trimStart`](https://www.npmjs.com/package/string.prototype.trimstart)
+- [es-shims Polyfill von `String.prototype.trimStart`](https://www.npmjs.com/package/string.prototype.trimstart)
 - {{jsxref("String.prototype.trim()")}}
 - {{jsxref("String.prototype.trimEnd()")}}

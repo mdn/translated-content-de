@@ -1,29 +1,30 @@
 ---
 title: Object.prototype.constructor
+short-title: constructor
 slug: Web/JavaScript/Reference/Global_Objects/Object/constructor
 l10n:
-  sourceCommit: 3dbbefa32758e2a1ca9a37c2788370c06aae2738
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Die **`constructor`** Dateneigenschaft einer {{jsxref("Object")}}-Instanz gibt eine Referenz auf die Konstrukturfunktion zurück, die das Instanzobjekt erstellt hat. Beachten Sie, dass der Wert dieser Eigenschaft eine Referenz auf _die Funktion selbst_ ist, nicht ein String, der den Namen der Funktion enthält.
+Die **`constructor`** Daten-Eigenschaft einer {{jsxref("Object")}}-Instanz gibt eine Referenz auf die Konstruktorfunktion zurück, die das Instanzobjekt erstellt hat. Beachten Sie, dass der Wert dieser Eigenschaft eine Referenz auf _die Funktion selbst_ ist und nicht ein String, der den Namen der Funktion enthält.
 
 > [!NOTE]
-> Dies ist eine Eigenschaft von JavaScript-Objekten. Informationen zur `constructor`-Methode in Klassen finden Sie auf [ihrer eigenen Referenzseite](/de/docs/Web/JavaScript/Reference/Classes/constructor).
+> Dies ist eine Eigenschaft von JavaScript-Objekten. Für die `constructor`-Methode in Klassen siehe [ihre eigene Referenzseite](/de/docs/Web/JavaScript/Reference/Classes/constructor).
 
 ## Wert
 
-Eine Referenz auf die Konstrukturfunktion, die das Instanzobjekt erstellt hat.
+Eine Referenz auf die Konstruktorfunktion, die das Instanzobjekt erstellt hat.
 
 {{js_property_attributes(1, 0, 1)}}
 
 > [!NOTE]
-> Diese Eigenschaft wird standardmäßig auf der [`prototype`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/prototype)-Eigenschaft jeder Konstrukturfunktion erstellt und wird von allen Objekten geerbt, die durch diesen Konstruktor erstellt wurden.
+> Diese Eigenschaft wird standardmäßig auf der [`prototype`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/prototype)-Eigenschaft jeder Konstruktorfunktion erstellt und wird von allen Objekten geerbt, die durch diesen Konstruktor erstellt werden.
 
 ## Beschreibung
 
-Jedes Objekt (mit Ausnahme von Objekten mit [`null`-Prototyp](/de/docs/Web/JavaScript/Reference/Global_Objects/Object#null-prototype_objects)) wird eine `constructor`-Eigenschaft auf seinem `[[Prototype]]` haben. Objekte, die mit Literalen erstellt werden, haben ebenfalls eine `constructor`-Eigenschaft, die auf den Konstruktionstyp für dieses Objekt verweist — zum Beispiel erstellen Array-Literale {{jsxref("Array")}}-Objekte und [Objekt-Literale](/de/docs/Web/JavaScript/Reference/Operators/Object_initializer) erstellen einfache Objekte.
+Jedes Objekt (mit Ausnahme von [Objekten mit dem Prototyp `null`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object#null-prototype_objects)) verfügt über eine `constructor`-Eigenschaft auf ihrem `[[Prototype]]`. Objekte, die mit Literalen erstellt werden, haben ebenfalls eine `constructor`-Eigenschaft, die auf den Konstruktor-Typ für dieses Objekt verweist – zum Beispiel erzeugen Array-Literale {{jsxref("Array")}} Objekte, und [Objekt-Literale](/de/docs/Web/JavaScript/Reference/Operators/Object_initializer) erzeugen einfache Objekte.
 
 ```js
 const o1 = {};
@@ -42,7 +43,7 @@ const n = 3;
 n.constructor === Number; // true
 ```
 
-Beachten Sie, dass `constructor` normalerweise von der [`prototype`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/prototype)-Eigenschaft des Konstruktors kommt. Wenn Sie eine längere Prototypenkette haben, können Sie normalerweise erwarten, dass jedes Objekt in der Kette eine `constructor`-Eigenschaft hat.
+Beachten Sie, dass `constructor` normalerweise von der [`prototype`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/prototype)-Eigenschaft des Konstruktors stammt. Wenn Sie eine längere Prototyp-Kette haben, können Sie normalerweise erwarten, dass jedes Objekt in der Kette eine `constructor`-Eigenschaft hat.
 
 ```js
 const o = new TypeError(); // Inheritance: TypeError -> Error -> Object
@@ -58,7 +59,7 @@ proto(proto(proto(o))).constructor === Object; // true
 
 ### Den Konstruktor eines Objekts anzeigen
 
-Das folgende Beispiel erstellt einen Konstruktor (`Tree`) und ein Objekt dieses Typs (`theTree`). Das Beispiel zeigt dann die `constructor`-Eigenschaft für das Objekt `theTree` an.
+Das folgende Beispiel erstellt einen Konstruktor (`Tree`) und ein Objekt dieses Typs (`theTree`). Das Beispiel zeigt dann die `constructor`-Eigenschaft für das Objekt `theTree`.
 
 ```js
 function Tree(name) {
@@ -95,7 +96,7 @@ foo.constructor === "bar"; // true
 // etc.
 ```
 
-Dies überschreibt die alte `constructor`-Eigenschaft nicht — sie war ursprünglich auf dem `[[Prototype]]` der Instanz vorhanden, nicht als eigene Eigenschaft.
+Dies überschreibt die alte `constructor`-Eigenschaft nicht – sie war ursprünglich auf dem `[[Prototype]]` der Instanz vorhanden, nicht als eigene Eigenschaft.
 
 ```js
 const arr = [];
@@ -106,7 +107,7 @@ arr.constructor = String;
 Object.hasOwn(arr, "constructor"); // true — the instance property shadows the one on its prototype
 ```
 
-Aber selbst wenn `Object.getPrototypeOf(a).constructor` neu zugewiesen wird, ändert es nicht andere Verhaltensweisen des Objekts. Zum Beispiel wird das Verhalten von `instanceof` durch [`Symbol.hasInstance`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/hasInstance) kontrolliert, nicht durch `constructor`:
+Aber selbst wenn `Object.getPrototypeOf(a).constructor` neu zugewiesen wird, ändert es nicht das andere Verhalten des Objekts. Zum Beispiel wird das Verhalten von `instanceof` von [`Symbol.hasInstance`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/hasInstance) und nicht von `constructor` gesteuert:
 
 ```js
 const arr = [];
@@ -115,13 +116,13 @@ arr instanceof String; // false
 arr instanceof Array; // true
 ```
 
-Es gibt nichts, was die `constructor`-Eigenschaft davor schützt, neu zugewiesen oder überschattet zu werden, daher sollte man sich normalerweise darauf verzichten, sie zu verwenden, um den Typ einer Variablen zu erkennen. Stattdessen sind weniger fragile Methoden wie `instanceof` und [`Symbol.toStringTag`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toStringTag) für Objekte vorzuziehen, oder [`typeof`](/de/docs/Web/JavaScript/Reference/Operators/typeof) für Primitive.
+Es gibt nichts, das die `constructor`-Eigenschaft davor schützt, neu zugewiesen oder überschattet zu werden, daher sollte sie in der Regel vermieden werden, um den Typ einer Variablen zu erkennen, zugunsten weniger anfälliger Methoden wie `instanceof` und [`Symbol.toStringTag`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toStringTag) für Objekte oder [`typeof`](/de/docs/Web/JavaScript/Reference/Operators/typeof) für Primitive.
 
-### Den Konstruktor des Prototyps einer Konstrukturfunktion ändern
+### Den Konstruktor des Prototyps einer Konstruktorfunktion ändern
 
-Jeder Konstruktor hat eine [`prototype`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/prototype)-Eigenschaft, die bei Aufruf über den [`new`](/de/docs/Web/JavaScript/Reference/Operators/new)-Operator zum `[[Prototype]]` der Instanz wird. `ConstructorFunction.prototype.constructor` wird daher, wie zuvor demonstriert, zu einer Eigenschaft auf dem `[[Prototype]]` der Instanz.
+Jeder Konstruktor hat eine [`prototype`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/prototype)-Eigenschaft, die beim Aufruf über den [`new`](/de/docs/Web/JavaScript/Reference/Operators/new)-Operator zum `[[Prototype]]` der Instanz wird. `ConstructorFunction.prototype.constructor` wird daher, wie zuvor gezeigt, eine Eigenschaft auf dem `[[Prototype]]` der Instanz.
 
-Wenn jedoch `ConstructorFunction.prototype` neu zugewiesen wird, geht die `constructor`-Eigenschaft verloren. Zum Beispiel ist das folgende eine gebräuchliche Methode, um ein Vererbungsmuster zu erstellen:
+Wenn jedoch `ConstructorFunction.prototype` neu zugewiesen wird, geht die `constructor`-Eigenschaft verloren. Zum Beispiel ist dies eine häufige Methode, um ein Vererbungsmuster zu erstellen:
 
 ```js
 function Parent() {
@@ -138,9 +139,9 @@ Child.prototype = Object.create(Parent.prototype);
 
 Der `constructor` von Instanzen von `Child` wird `Parent` sein, da `Child.prototype` neu zugewiesen wurde.
 
-Normalerweise ist dies kein großes Problem — die Sprache greift fast nie auf die `constructor`-Eigenschaft eines Objekts zu. Die einzige Ausnahme ist die Verwendung von [`[Symbol.species]`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/species), um neue Instanzen einer Klasse zu erstellen, aber solche Fälle sind selten, und Sie sollten ohnehin die [`extends`](/de/docs/Web/JavaScript/Reference/Classes/extends)-Syntax verwenden, um eingebaute Klassen zu unterklassifizieren.
+Dies ist normalerweise kein großes Problem – die Sprache liest fast nie die `constructor`-Eigenschaft eines Objekts. Die einzige Ausnahme ist, wenn [`[Symbol.species]`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/species) verwendet wird, um neue Instanzen einer Klasse zu erstellen, aber solche Fälle sind selten und Sie sollten ohnehin die [`extends`](/de/docs/Web/JavaScript/Reference/Classes/extends)-Syntax verwenden, um eingebaute Klassen zu erweitern.
 
-Es ist jedoch wichtig sicherzustellen, dass `Child.prototype.constructor` immer auf `Child` selbst zeigt, wenn ein Anrufer `constructor` verwendet, um von einer Instanz auf die ursprüngliche Klasse zuzugreifen. Betrachten Sie folgenden Fall: das Objekt hat die Methode `create()`, um sich selbst zu erstellen.
+Es ist jedoch entscheidend sicherzustellen, dass `Child.prototype.constructor` immer auf `Child` selbst zeigt, wenn ein Aufrufer `constructor` verwendet, um aus einer Instanz auf die ursprüngliche Klasse zuzugreifen. Erstellen Sie den folgenden Fall: das Objekt hat die Methode `create()`, um sich selbst zu erstellen.
 
 ```js
 function Parent() {
@@ -159,7 +160,7 @@ CreatedConstructor.prototype.create = function () {
 new CreatedConstructor().create().create(); // TypeError: new CreatedConstructor().create().create is undefined, since constructor === Parent
 ```
 
-Im obigen Beispiel wird eine Ausnahme ausgelöst, da der `constructor` auf `Parent` verweist. Um dies zu vermeiden, weisen Sie einfach den benötigten Konstruktor zu, den Sie verwenden wollen.
+Im obigen Beispiel wird eine Ausnahme ausgelöst, da der `constructor` auf `Parent` verweist. Um dies zu vermeiden, weisen Sie einfach den erforderlichen Konstruktor zu, den Sie verwenden wollen.
 
 ```js
 function Parent() {
@@ -186,9 +187,9 @@ CreatedConstructor.prototype.create = function () {
 new CreatedConstructor().create().create(); // it's pretty fine
 ```
 
-Beachten Sie, dass es wichtig ist, die `constructor`-Eigenschaft beim manuellen Hinzufügen auf [nicht aufzählbar](/de/docs/Web/JavaScript/Guide/Enumerability_and_ownership_of_properties) zu setzen, damit `constructor` in [`for...in`](/de/docs/Web/JavaScript/Reference/Statements/for...in)-Schleifen nicht besucht wird — wie es normalerweise nicht der Fall ist.
+Beachten Sie, dass es beim manuellen Hinzufügen der `constructor`-Eigenschaft wichtig ist, die Eigenschaft [nicht aufgezählt werden](/de/docs/Web/JavaScript/Guide/Enumerability_and_ownership_of_properties) zu lassen, sodass `constructor` in [`for...in`](/de/docs/Web/JavaScript/Reference/Statements/for...in)-Schleifen nicht besucht wird – wie es normalerweise der Fall ist.
 
-Wenn der obige Code wie zu viel Boilerplate aussieht, könnten Sie auch in Betracht ziehen, [`Object.setPrototypeOf()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/setPrototypeOf) zu verwenden, um die Prototypenkette zu manipulieren.
+Wenn Ihnen der obige Code zu viel Boilerplate erscheint, können Sie auch [`Object.setPrototypeOf()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/setPrototypeOf) verwenden, um die Prototyp-Kette zu manipulieren.
 
 ```js
 function Parent() {
@@ -207,9 +208,9 @@ CreatedConstructor.prototype.create = function () {
 new CreatedConstructor().create().create(); // still works without re-creating constructor property
 ```
 
-`Object.setPrototypeOf()` hat potenzielle Leistungsnachteile, da alle zuvor erstellten Objekte in der Prototypenkette neu kompiliert werden müssen; aber wenn der obige Initialisierungscode passiert, bevor `Parent` oder `CreatedConstructor` erstellt werden, sollte der Effekt minimal sein.
+`Object.setPrototypeOf()` kommt mit möglichen Leistungseinbußen, da alle zuvor erstellten Objekte, die an der Prototyp-Kette beteiligt sind, neu kompiliert werden müssen; aber wenn der obige Initialisierungscode vor der Konstruktion von `Parent` oder `CreatedConstructor` ausgeführt wird, sollte der Effekt minimal sein.
 
-Betrachten wir einen weiteren komplizierten Fall.
+Betrachten wir einen noch komplexeren Fall.
 
 ```js
 function ParentWithStatic() {}
@@ -249,7 +250,7 @@ new Child(1, 1).getOffsetByInitialPosition();
 // constructor is Child, which doesn't have the getStartPosition static method
 ```
 
-Damit dieses Beispiel richtig funktioniert, können wir die statischen Eigenschaften von `Parent` an `Child` neu zuweisen:
+Damit dieses Beispiel ordnungsgemäß funktioniert, können wir die statischen Eigenschaften von `Parent` neu `Child` zuweisen:
 
 ```js
 // …
@@ -266,7 +267,7 @@ Child.prototype = Object.create(ParentWithStatic.prototype, {
 // …
 ```
 
-Aber noch besser ist es, die Konstruktionsfunktionen selbst so zu erweitern, wie es Klassen mit [`extends`](/de/docs/Web/JavaScript/Reference/Classes/extends) tun.
+Aber noch besser ist es, wenn sich die Konstruktorfunktionen selbst, wie es Klassen mit [`extends`](/de/docs/Web/JavaScript/Reference/Classes/extends) tun, gegenseitig erweitern.
 
 ```js
 function ParentWithStatic() {}
@@ -297,10 +298,10 @@ Child.prototype.getOffsetByInitialPosition = function () {
 console.log(new Child(1, 1).getOffsetByInitialPosition()); // { offsetX: -1, offsetY: -1 }
 ```
 
-Erneut, die Verwendung von `Object.setPrototypeOf()` kann negative Leistungseffekte haben, also stellen Sie sicher, dass es unmittelbar nach der Konstruktordeklaration und vor der Erstellung von Instanzen passiert — um zu vermeiden, dass Objekte "verunreinigt" werden.
+Auch hier kann die Verwendung von `Object.setPrototypeOf()` negative Leistungseffekte haben, also stellen Sie sicher, dass sie direkt nach der Konstruktorerklärung und bevor Instanzen erstellt werden, erfolgt — um zu vermeiden, dass Objekte "verunreinigt" werden.
 
 > [!NOTE]
-> Ein manuelles Aktualisieren oder Setzen des Konstruktors kann zu unterschiedlichen und manchmal verwirrenden Konsequenzen führen. Um dies zu verhindern, definieren Sie einfach die Rolle von `constructor` in jedem spezifischen Fall. In den meisten Fällen wird `constructor` nicht verwendet und muss nicht neu zugewiesen werden.
+> Das manuelle Aktualisieren oder Setzen des Konstruktors kann zu unterschiedlichen und manchmal verwirrenden Konsequenzen führen. Um dem entgegenzuwirken, definieren Sie einfach die Rolle von `constructor` in jedem spezifischen Fall. In den meisten Fällen wird `constructor` nicht verwendet und eine Neuzuweisung ist nicht erforderlich.
 
 ## Spezifikationen
 

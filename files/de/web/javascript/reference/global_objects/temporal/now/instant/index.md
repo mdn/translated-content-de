@@ -1,13 +1,14 @@
 ---
 title: Temporal.Now.instant()
+short-title: instant()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/Now/instant
 l10n:
-  sourceCommit: d0b9cef0713eb263934a98e94202b97c143204a4
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}{{SeeCompatTable}}
 
-Die statische Methode **`Temporal.Now.instant()`** gibt die aktuelle Zeit als ein {{jsxref("Temporal.Instant")}}-Objekt zurück.
+Die **`Temporal.Now.instant()`** statische Methode gibt die aktuelle Zeit als ein {{jsxref("Temporal.Instant")}} Objekt zurück.
 
 ## Syntax
 
@@ -21,11 +22,11 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("Temporal.Instant")}}-Objekt, das die aktuelle Zeit repräsentiert, mit möglicherweise [reduzierter Präzision](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Now#reduced_time_precision).
+Ein {{jsxref("Temporal.Instant")}} Objekt, das die aktuelle Zeit darstellt, mit möglicherweise [reduzierter Präzision](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Now#reduced_time_precision).
 
 ## Beispiele
 
-### Zeitverlauf messen
+### Verstrichene Zeit messen
 
 Das folgende Beispiel misst zwei Zeitpunkte und berechnet die [Dauer](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration) zwischen ihnen und erhält die Gesamtdauer in Millisekunden:
 

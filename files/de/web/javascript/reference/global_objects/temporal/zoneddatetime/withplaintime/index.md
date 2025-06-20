@@ -1,15 +1,16 @@
 ---
 title: Temporal.ZonedDateTime.prototype.withPlainTime()
+short-title: withPlainTime()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime/withPlainTime
 l10n:
-  sourceCommit: d0b9cef0713eb263934a98e94202b97c143204a4
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}{{SeeCompatTable}}
 
-Die **`withPlainTime()`** Methode von {{jsxref("Temporal.ZonedDateTime")}} Instanzen gibt ein neues `Temporal.ZonedDateTime` Objekt zurück, das dieses Datum-Uhrzeit-Paar mit dem Zeitanteil, der vollständig durch die neue Zeit ersetzt wird (in einer Form, die durch {{jsxref("Temporal/PlainTime/from", "Temporal.PlainTime.from()")}} konvertierbar ist), darstellt.
+Die **`withPlainTime()`** Methode von {{jsxref("Temporal.ZonedDateTime")}} Instanzen gibt ein neues `Temporal.ZonedDateTime` Objekt zurück, das dieses Datum-Uhrzeit mit dem Zeitteil vollständig durch die neue Zeit ersetzt darstellt (in einer Form, die durch {{jsxref("Temporal/PlainTime/from", "Temporal.PlainTime.from()")}} konvertierbar ist).
 
-Diese Methode ersetzt alle Zeiteigenschaften und setzt sie auf `0`, wo Eigenschaften nicht spezifiziert sind. Wenn Sie nur einige der Zeiteigenschaften ersetzen möchten, verwenden Sie stattdessen die {{jsxref("Temporal/ZonedDateTime/with", "with()")}} Methode.
+Diese Methode wird alle Zeit-Eigenschaften ersetzen, wobei bei nicht spezifizierten Eigenschaften standardmäßig `0` verwendet wird. Wenn Sie nur einige der Zeit-Eigenschaften ersetzen möchten, verwenden Sie stattdessen die {{jsxref("Temporal/ZonedDateTime/with", "with()")}} Methode.
 
 ## Syntax
 
@@ -21,11 +22,11 @@ withPlainTime(plainTime)
 ### Parameter
 
 - `plainTime` {{optional_inline}}
-  - : Ein String, ein Objekt oder eine {{jsxref("Temporal.PlainTime")}} Instanz, die die neue Zeit darstellt. Sie wird mit demselben Algorithmus wie {{jsxref("Temporal/PlainTime/from", "Temporal.PlainTime.from()")}} in ein `Temporal.PlainTime` Objekt umgewandelt. Wenn nicht angegeben, wird der Zeitanteil auf den [Beginn des Tages](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime/startOfDay) gesetzt (was gewöhnlich `00:00:00` ist, es sei denn, es fehlt aufgrund von Versatzübergängen). [Disambiguierung](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime#time_zones_and_offsets) erfolgt immer im Modus `"compatible"`; wenn Sie einen anderen Modus verwenden möchten, verwenden Sie die {{jsxref("Temporal/ZonedDateTime/with", "with()")}} Methode.
+  - : Ein String, ein Objekt oder eine {{jsxref("Temporal.PlainTime")}} Instanz, die die neue Zeit repräsentiert. Sie wird zu einem `Temporal.PlainTime` Objekt konvertiert, wobei derselbe Algorithmus wie bei {{jsxref("Temporal/PlainTime/from", "Temporal.PlainTime.from()")}} verwendet wird. Falls nicht angegeben, wird der Zeitteil auf den [Beginn des Tages](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime/startOfDay) gesetzt (der normalerweise `00:00:00` ist, es sei denn, er existiert nicht aufgrund von Versatzübergängen). Die [Disambiguation](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime#time_zones_and_offsets) erfolgt immer im Modus `"compatible"`; möchten Sie einen anderen Modus verwenden, verwenden Sie stattdessen die {{jsxref("Temporal/ZonedDateTime/with", "with()")}} Methode.
 
 ### Rückgabewert
 
-Ein neues `Temporal.ZonedDateTime` Objekt, bei dem der Datumsanteil und die Zeitzone von der ursprünglichen Datum-Uhrzeit übernommen werden und der Zeitanteil durch die neue Zeit ersetzt wird.
+Ein neues `Temporal.ZonedDateTime` Objekt, mit dem Datumsteil und der Zeitzone vom ursprünglichen Datum-Uhrzeit kopiert und dem Zeitteil durch die neue Zeit ersetzt.
 
 ## Beispiele
 

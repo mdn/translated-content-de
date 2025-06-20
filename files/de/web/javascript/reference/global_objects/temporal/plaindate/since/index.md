@@ -1,8 +1,9 @@
 ---
 title: Temporal.PlainDate.prototype.since()
+short-title: since()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainDate/since
 l10n:
-  sourceCommit: 262c13dcbcd394beddd98e07d9c78bc79ce3513c
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}{{SeeCompatTable}}
@@ -21,13 +22,13 @@ since(other, options)
 ### Parameter
 
 - `other`
-  - : Ein String, ein Objekt oder eine {{jsxref("Temporal.PlainDate")}}-Instanz, die ein Datum darstellt, das von diesem Datum abgezogen werden soll. Es wird unter Verwendung desselben Algorithmus wie in {{jsxref("Temporal/PlainDate/from", "Temporal.PlainDate.from()")}} in ein `Temporal.PlainDate`-Objekt konvertiert. Es muss denselben Kalender haben wie `this`.
+  - : Ein String, ein Objekt oder eine {{jsxref("Temporal.PlainDate")}}-Instanz, die ein Datum darstellt, das von diesem Datum subtrahiert werden soll. Es wird mit demselben Algorithmus wie {{jsxref("Temporal/PlainDate/from", "Temporal.PlainDate.from()")}} in ein `Temporal.PlainDate`-Objekt konvertiert. Es muss den gleichen Kalender wie `this` haben.
 - `options` {{optional_inline}}
-  - : Ein Objekt, das die Optionen für {{jsxref("Temporal/Duration/round", "Temporal.Duration.prototype.round()")}} enthält, darunter `largestUnit`, `roundingIncrement`, `roundingMode` und `smallestUnit`. `largestUnit` und `smallestUnit` akzeptieren nur die Einheiten: `"years"`, `"months"`, `"weeks"`, `"days"` oder deren Singularformen. Für `largestUnit` bedeutet der Standardwert `"auto"`, dass entweder `"days"` oder `smallestUnit` verwendet wird, je nachdem, welche größer ist. Für `smallestUnit` ist der Standardwert `"days"`. Das aktuelle Datum wird als `relativeTo`-Option verwendet. Beachten Sie, dass die Verwendung von [Einheiten größer als `"days"`](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration#calendar_durations) dazu führen kann, dass die Dauer in anderen Kalendern oder für andere Daten nicht portabel ist.
+  - : Ein Objekt, das die Optionen für {{jsxref("Temporal/Duration/round", "Temporal.Duration.prototype.round()")}} enthält, welche `largestUnit`, `roundingIncrement`, `roundingMode` und `smallestUnit` beinhalten. `largestUnit` und `smallestUnit` akzeptieren nur die Einheiten: `"years"`, `"months"`, `"weeks"`, `"days"` oder deren Einzahlformen. Für `largestUnit` bedeutet der Standardwert `"auto"` entweder `"days"` oder `smallestUnit`, je nachdem, welcher größer ist. Für `smallestUnit` ist der Standardwert `"days"`. Das aktuelle Datum wird als die Option `relativeTo` verwendet. Beachten Sie, dass die Verwendung von [Einheiten größer als `"days"`](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration#calendar_durations) die Dauer möglicherweise nicht portierbar für andere Kalender oder Daten macht.
 
 ### Rückgabewert
 
-Ein neues {{jsxref("Temporal.Duration")}}-Objekt, das die Dauer _seit_ `other` bis zu diesem Datum darstellt. Die Dauer ist positiv, wenn `other` vor diesem Datum liegt, und negativ, wenn es danach liegt.
+Ein neues {{jsxref("Temporal.Duration")}}-Objekt, das die Dauer _seit_ `other` bis zu diesem Datum darstellt. Die Dauer ist positiv, wenn `other` vor diesem Datum liegt, und negativ, wenn danach.
 
 ### Ausnahmen
 
@@ -60,9 +61,9 @@ console.log(`It's been ${formatter.format(duration3)} since that Christmas...`);
 // Expected output: "It's been [number] years, [number] months since that Christmas..."
 ```
 
-### Abrunden des Ergebnisses
+### Das Ergebnis runden
 
-Standardmäßig wird der Bruchteil der `smallestUnit` abgeschnitten. Sie können ihn mithilfe der Optionen `roundingIncrement` und `roundingMode` aufrunden.
+Standardmäßig wird der Bruchteil von `smallestUnit` abgeschnitten. Sie können ihn mithilfe der Optionen `roundingIncrement` und `roundingMode` aufrunden.
 
 ```js
 const date1 = Temporal.PlainDate.from("2022-01-01");
@@ -75,9 +76,9 @@ const duration = date2.since(date1, {
 console.log(duration.toString()); // "P30D"
 ```
 
-### Vergleich unterschiedlicher Kalender
+### Vergleich verschiedener Kalender
 
-Standardmäßig müssen die beiden Daten denselben Kalender haben. Dies dient dazu, Mehrdeutigkeiten in der Bedeutung von Monaten und Jahren zu vermeiden. Wenn Sie Daten aus unterschiedlichen Kalendern vergleichen möchten, können Sie sie zunächst in denselben Kalender konvertieren.
+Standardmäßig müssen die beiden Daten denselben Kalender haben. Dies dient dazu, Mehrdeutigkeiten in der Bedeutung von Monaten und Jahren zu vermeiden. Wenn Sie Daten aus verschiedenen Kalendern vergleichen möchten, können Sie diese zuerst in denselben Kalender konvertieren.
 
 ```js
 const date1 = Temporal.PlainDate.from("2022-01-01");

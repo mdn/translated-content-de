@@ -1,13 +1,14 @@
 ---
 title: TypedArray.prototype.findLast()
+short-title: findLast()
 slug: Web/JavaScript/Reference/Global_Objects/TypedArray/findLast
 l10n:
-  sourceCommit: ffa6f5871f50856c60983a125cef7de267be7aeb
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Die **`findLast()`** Methode der {{jsxref("TypedArray")}} Instanzen iteriert den typisierten Array in umgekehrter Reihenfolge und gibt den Wert des ersten Elements zurück, das die bereitgestellte Testfunktion erfüllt. Wenn kein Element die Testfunktion erfüllt, wird {{jsxref("undefined")}} zurückgegeben. Diese Methode hat denselben Algorithmus wie {{jsxref("Array.prototype.findLast()")}}.
+Die **`findLast()`**-Methode von {{jsxref("TypedArray")}}-Instanzen durchläuft das typisierte Array in umgekehrter Reihenfolge und gibt den Wert des ersten Elements zurück, das die bereitgestellte Testfunktion erfüllt. Wenn kein Element die Testfunktion erfüllt, wird {{jsxref("undefined")}} zurückgegeben. Diese Methode hat den gleichen Algorithmus wie {{jsxref("Array.prototype.findLast()")}}.
 
 {{InteractiveExample("JavaScript Demo: TypedArray.prototype.findLast()")}}
 
@@ -32,7 +33,7 @@ findLast(callbackFn, thisArg)
 ### Parameter
 
 - `callbackFn`
-  - : Eine Funktion, die für jedes Element im typisierten Array ausgeführt wird. Sie sollte einen {{Glossary("Truthy", "truthy")}} Wert zurückgeben, um anzuzeigen, dass ein übereinstimmendes Element gefunden wurde, und einen {{Glossary("Falsy", "falsy")}} Wert andernfalls. Die Funktion wird mit den folgenden Argumenten aufgerufen:
+  - : Eine Funktion, die für jedes Element im typisierten Array ausgeführt wird. Sie sollte einen {{Glossary("Truthy", "truthy")}}-Wert zurückgeben, um anzuzeigen, dass ein passendes Element gefunden wurde, und andernfalls einen {{Glossary("Falsy", "falsy")}}-Wert. Die Funktion wird mit den folgenden Argumenten aufgerufen:
     - `element`
       - : Das aktuelle Element, das im typisierten Array verarbeitet wird.
     - `index`
@@ -44,17 +45,17 @@ findLast(callbackFn, thisArg)
 
 ### Rückgabewert
 
-Das letzte (höchste Index) Element im typisierten Array, das die bereitgestellte Testfunktion erfüllt; {{jsxref("undefined")}}, wenn kein übereinstimmendes Element gefunden wird.
+Das letzte (element mit dem höchsten Index) Element im typisierten Array, das die bereitgestellte Testfunktion erfüllt; {{jsxref("undefined")}}, wenn kein passendes Element gefunden wird.
 
 ## Beschreibung
 
-Siehe {{jsxref("Array.prototype.findLast()")}} für mehr Details. Diese Methode ist nicht generisch und kann nur auf Instanzen von typisierten Arrays aufgerufen werden.
+Siehe {{jsxref("Array.prototype.findLast()")}} für mehr Details. Diese Methode ist nicht generisch und kann nur auf typisierte Array-Instanzen aufgerufen werden.
 
 ## Beispiele
 
-### Finde die letzte Primzahl in einem typisierten Array
+### Das letzte Primzahl im typisierten Array finden
 
-Das folgende Beispiel gibt das letzte Element im typisierten Array zurück, das eine Primzahl ist, oder {{jsxref("undefined")}}, wenn es keine Primzahl gibt.
+Im folgenden Beispiel wird das letzte Element im typisierten Array zurückgegeben, das eine Primzahl ist, oder {{jsxref("undefined")}} wenn es keine Primzahl gibt.
 
 ```js
 function isPrime(element) {
@@ -86,7 +87,7 @@ console.log(uint8.findLast(isPrime)); // 11
 ## Siehe auch
 
 - [Polyfill von `TypedArray.prototype.findLast` in `core-js`](https://github.com/zloirock/core-js#array-find-from-last)
-- [Leitfaden zu JavaScript typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays)
+- [JavaScript typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
 - {{jsxref("TypedArray")}}
 - {{jsxref("TypedArray.prototype.find()")}}
 - {{jsxref("TypedArray.prototype.findIndex()")}}

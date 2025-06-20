@@ -1,15 +1,16 @@
 ---
 title: RegExp.prototype.test()
+short-title: test()
 slug: Web/JavaScript/Reference/Global_Objects/RegExp/test
 l10n:
-  sourceCommit: 2c0f972d873ea2db5163dbcb12987847124751ad
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Die **`test()`** Methode von {{jsxref("RegExp")}} Instanzen führt eine Suche mit diesem regulären Ausdruck nach einer Übereinstimmung zwischen einem regulären Ausdruck und einem angegebenen String aus. Gibt `true` zurück, wenn eine Übereinstimmung vorliegt; andernfalls `false`.
+Die **`test()`** Methode von Instanzen des {{jsxref("RegExp")}} führt eine Suche mit diesem regulären Ausdruck durch, um eine Übereinstimmung zwischen einem regulären Ausdruck und einem angegebenen String zu finden. Gibt `true` zurück, wenn es eine Übereinstimmung gibt, andernfalls `false`.
 
-JavaScript {{jsxref("RegExp")}}-Objekte sind **zustandsbehaftet**, wenn sie die {{jsxref("RegExp/global", "global")}} oder {{jsxref("RegExp/sticky", "sticky")}} Flags gesetzt haben (z. B. `/foo/g` oder `/foo/y`). Sie speichern einen {{jsxref("RegExp/lastIndex", "lastIndex")}} vom vorherigen Treffer. Mithilfe dieser internen Speicherfunktion kann `test()` verwendet werden, um über mehrere Übereinstimmungen in einem Textstring zu iterieren (mit Erfassungsgruppen).
+JavaScript {{jsxref("RegExp")}} Objekte sind **zustandsbehaftet**, wenn die {{jsxref("RegExp/global", "global")}} oder {{jsxref("RegExp/sticky", "sticky")}} Flags gesetzt sind (z.B. `/foo/g` oder `/foo/y`). Sie speichern einen {{jsxref("RegExp/lastIndex", "lastIndex")}} vom vorherigen Treffer. Mit dieser internen Verwendung kann `test()` verwendet werden, um über mehrere Treffer in einem Textstring zu iterieren (mit Erfassungsgruppen).
 
 {{InteractiveExample("JavaScript Demo: RegExp.prototype.test()", "taller")}}
 
@@ -44,7 +45,7 @@ test(str)
 ### Parameter
 
 - `str`
-  - : Der String, gegen den der reguläre Ausdruck abgeglichen werden soll. Alle Werte werden [in Strings umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion), daher führt das Weglassen oder Übergeben von `undefined` dazu, dass `test()` nach dem String `"undefined"` sucht, was selten erwünscht ist.
+  - : Der String, gegen den der reguläre Ausdruck abgeglichen werden soll. Alle Werte werden [in Strings umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion), daher verursacht das Weglassen oder Übergeben von `undefined`, dass `test()` nach dem String `"undefined"` sucht, was selten gewünscht ist.
 
 ### Rückgabewert
 
@@ -52,17 +53,17 @@ test(str)
 
 ## Beschreibung
 
-Verwenden Sie `test()`, wenn Sie wissen möchten, ob ein Muster in einem String gefunden wird. `test()` gibt einen Boolean zurück, im Gegensatz zur {{jsxref("String.prototype.search()")}} Methode (die den Index eines Treffers zurückgibt, oder `-1`, wenn nicht gefunden).
+Verwenden Sie `test()`, wann immer Sie wissen möchten, ob ein Muster in einem String gefunden wird. `test()` gibt einen Booleschen Wert zurück, im Gegensatz zur {{jsxref("String.prototype.search()")}} Methode (die den Index eines Treffers zurückgibt, oder `-1`, wenn nicht gefunden).
 
-Um mehr Informationen zu erhalten (jedoch mit langsamerer Ausführung), verwenden Sie die {{jsxref("RegExp/exec", "exec()")}} Methode. (Dies ist ähnlich zur {{jsxref("String.prototype.match()")}} Methode.)
+Um mehr Informationen zu erhalten (aber mit langsamerer Ausführung), verwenden Sie die {{jsxref("RegExp/exec", "exec()")}} Methode. (Dies ist ähnlich der {{jsxref("String.prototype.match()")}} Methode.)
 
-Wie bei `exec()` (oder in Kombination damit) wird `test()`, wenn es mehrmals auf derselben globalen regulären Ausdrucksinstanz aufgerufen wird, über den vorherigen Treffer hinausgehen.
+Wie bei `exec()` (oder in Kombination mit dieser) wird `test()`, wenn es mehrmals auf der gleichen Instanz eines globalen regulären Ausdrucks aufgerufen wird, über den vorherigen Treffer hinausgehen.
 
 ## Beispiele
 
 ### Verwendung von test()
 
-Dieses Beispiel testet, ob `"hello"` am Anfang eines Strings enthalten ist und gibt einen booleschen Wert zurück.
+Dieses Beispiel testet, ob `"hello"` ganz am Anfang eines Strings enthalten ist, und gibt ein boolesches Ergebnis zurück.
 
 ```js
 const str = "hello world!";
@@ -80,17 +81,17 @@ function testInput(re, str) {
 }
 ```
 
-### Verwendung von test() bei einem Regex mit dem "global" Flag
+### Verwendung von test() bei einem Regex mit dem "global"-Flag
 
-Wenn ein Regex das [globale Flag](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/global) gesetzt hat, wird `test()` den {{jsxref("RegExp/lastIndex", "lastIndex")}} des Regex erweitern. (Auch {{jsxref("RegExp.prototype.exec()")}} erweitert die `lastIndex`-Eigenschaft.)
+Wenn ein Regex das [global-Flag](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/global) gesetzt hat, wird `test()` den {{jsxref("RegExp/lastIndex", "lastIndex")}} des Regex voranschreiten. ({{jsxref("RegExp.prototype.exec()")}} schreitet auch die `lastIndex` Eigenschaft voran.)
 
-Weitere Aufrufe von `test(str)` werden die Suche in `str` ab `lastIndex` fortsetzen. Die `lastIndex`-Eigenschaft wird jedes Mal, wenn `test()` `true` zurückgibt, weiter erhöht.
+Weitere Aufrufe von `test(str)` setzen die Suche in `str` von `lastIndex` aus fort. Die `lastIndex` Eigenschaft wird weiter ansteigen, jedes Mal wenn `test()` `true` zurückgibt.
 
 > [!NOTE]
 > Solange `test()` `true` zurückgibt,
-> wird `lastIndex` _nicht_ zurückgesetzt — selbst wenn ein anderer String getestet wird!
+> wird `lastIndex` _nicht_ zurückgesetzt—auch nicht, wenn ein anderer String getestet wird!
 
-Wenn `test()` `false` zurückgibt, wird die `lastIndex`-Eigenschaft des aufrufenden Regex auf `0` zurückgesetzt.
+Wenn `test()` `false` zurückgibt, wird die `lastIndex` Eigenschaft des aufrufenden Regex auf `0` zurückgesetzt.
 
 Das folgende Beispiel zeigt dieses Verhalten:
 
@@ -132,5 +133,5 @@ regex.test("foobarfoo"); // false
 
 ## Siehe auch
 
-- [Leitfaden für reguläre Ausdrücke](/de/docs/Web/JavaScript/Guide/Regular_expressions)
+- [Leitfaden zu regulären Ausdrücken](/de/docs/Web/JavaScript/Guide/Regular_expressions)
 - {{jsxref("RegExp")}}

@@ -1,15 +1,16 @@
 ---
 title: Temporal.PlainDateTime.prototype.withPlainTime()
+short-title: withPlainTime()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainDateTime/withPlainTime
 l10n:
-  sourceCommit: d0b9cef0713eb263934a98e94202b97c143204a4
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}{{SeeCompatTable}}
 
-Die **`withPlainTime()`** Methode der {{jsxref("Temporal.PlainDateTime")}} Instanzen gibt ein neues `Temporal.PlainDateTime` Objekt zurück, das diesen Datum-Zeit-Wert darstellt, wobei der Zeitanteil vollständig durch die neue Zeit ersetzt wird (in einer Form, die durch {{jsxref("Temporal/PlainTime/from", "Temporal.PlainTime.from()")}} konvertierbar ist).
+Die **`withPlainTime()`** Methode von Instanzen des {{jsxref("Temporal.PlainDateTime")}} gibt ein neues `Temporal.PlainDateTime`-Objekt zurück, das diesen Datum-Uhrzeit-Wert darstellt, wobei der Uhrzeit-Teil vollständig durch die neue Uhrzeit ersetzt wird (in einer Form, die durch {{jsxref("Temporal/PlainTime/from", "Temporal.PlainTime.from()")}} umgewandelt werden kann).
 
-Diese Methode wird alle Zeiteigenschaften ersetzen und standardmäßig auf `0` setzen, wenn Eigenschaften nicht angegeben sind. Wenn Sie nur einige der Zeiteigenschaften ersetzen möchten, verwenden Sie stattdessen die {{jsxref("Temporal/PlainDateTime/with", "with()")}} Methode.
+Diese Methode wird alle Uhrzeiteigenschaften ersetzen und standardmäßig `0` verwenden, wenn Eigenschaften nicht angegeben sind. Wenn Sie nur einige der Uhrzeiteigenschaften ersetzen möchten, verwenden Sie stattdessen die {{jsxref("Temporal/PlainDateTime/with", "with()")}} Methode.
 
 ## Syntax
 
@@ -21,11 +22,11 @@ withPlainTime(plainTime)
 ### Parameter
 
 - `plainTime` {{optional_inline}}
-  - : Ein String, ein Objekt oder eine {{jsxref("Temporal.PlainTime")}} Instanz, die die neue Zeit darstellt. Es wird mit demselben Algorithmus wie {{jsxref("Temporal/PlainTime/from", "Temporal.PlainTime.from()")}} in ein `Temporal.PlainTime` Objekt konvertiert. Wenn nicht angegeben, wird der Zeitanteil auf `00:00:00` gesetzt.
+  - : Ein String, ein Objekt oder eine {{jsxref("Temporal.PlainTime")}}-Instanz, die die neue Uhrzeit darstellt. Es wird mit demselben Algorithmus in ein `Temporal.PlainTime`-Objekt umgewandelt wie {{jsxref("Temporal/PlainTime/from", "Temporal.PlainTime.from()")}}. Wenn nicht angegeben, wird der Uhrzeit-Teil auf `00:00:00` gesetzt.
 
 ### Rückgabewert
 
-Ein neues `Temporal.PlainDateTime` Objekt, bei dem der Datumsanteil aus dem ursprünglichen Datum-Zeit-Wert kopiert und der Zeitanteil durch die neue Zeit ersetzt wird.
+Ein neues `Temporal.PlainDateTime`-Objekt, mit dem Datumsanteil vom ursprünglichen Datum-Uhrzeit-Wert kopiert und dem Uhrzeit-Teil durch die neue Uhrzeit ersetzt.
 
 ## Beispiele
 

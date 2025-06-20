@@ -1,16 +1,17 @@
 ---
 title: ArrayBuffer[Symbol.species]
+short-title: "[Symbol.species]"
 slug: Web/JavaScript/Reference/Global_Objects/ArrayBuffer/Symbol.species
 l10n:
-  sourceCommit: 8421c0cd94fa5aa237c833ac6d24885edbc7d721
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Die statische Accessor-Eigenschaft **`ArrayBuffer[Symbol.species]`** gibt den Konstruktor zurück, der verwendet wird, um Rückgabewerte aus Array-Puffer-Methoden zu erstellen.
+Die statische Accessor-Eigenschaft **`ArrayBuffer[Symbol.species]`** gibt den Konstruktor zurück, der verwendet wird, um Rückgabewerte aus Array-Buffer-Methoden zu konstruieren.
 
 > [!WARNING]
-> Das Vorhandensein von `[Symbol.species]` ermöglicht die Ausführung von beliebigem Code und kann Sicherheitslücken schaffen. Es erschwert auch bestimmte Optimierungen erheblich. Implementatoren von Engines [untersuchen, ob dieses Feature entfernt werden soll](https://github.com/tc39/proposal-rm-builtin-subclassing). Vermeiden Sie es nach Möglichkeit, sich darauf zu verlassen.
+> Die Existenz von `[Symbol.species]` ermöglicht die Ausführung von beliebigem Code und kann Sicherheitslücken schaffen. Sie erschwert auch bestimmte Optimierungen erheblich. Entwickler untersuchen [ob dieses Feature entfernt werden sollte](https://github.com/tc39/proposal-rm-builtin-subclassing). Vermeiden Sie, wenn möglich, die Abhängigkeit davon.
 
 ## Syntax
 
@@ -20,11 +21,11 @@ ArrayBuffer[Symbol.species]
 
 ### Rückgabewert
 
-Der Wert des Konstruktors (`this`), auf dem `get [Symbol.species]` aufgerufen wurde. Der Rückgabewert wird verwendet, um Rückgabewerte aus Array-Puffer-Methoden zu konstruieren, die neue Array-Puffer erstellen.
+Der Wert des Konstruktors (`this`), auf dem `get [Symbol.species]` aufgerufen wurde. Der Rückgabewert wird verwendet, um Rückgabewerte aus Array-Buffer-Methoden zu konstruieren, die neue Array-Buffer erstellen.
 
 ## Beschreibung
 
-Die Accessor-Eigenschaft `[Symbol.species]` gibt den Standardkonstruktor für `ArrayBuffer`-Objekte zurück. Unterklassen-Konstruktoren können diese überschreiben, um die Konstruktorzuweisung zu ändern. Die Standardimplementierung ist im Wesentlichen:
+Die `[Symbol.species]` Accessor-Eigenschaft gibt den Standardkonstruktor für `ArrayBuffer`-Objekte zurück. Konstruktoren von Unterklassen können ihn überschreiben, um die Zuweisung des Konstruktors zu ändern. Die Standardimplementierung ist im Wesentlichen:
 
 ```js
 // Hypothetical underlying implementation for illustration
@@ -42,13 +43,13 @@ class SubArrayBuffer extends ArrayBuffer {}
 SubArrayBuffer[Symbol.species] === SubArrayBuffer; // true
 ```
 
-Beim Aufrufen von Array-Puffer-Methoden, die das vorhandene Objekt nicht ändern, sondern eine neue Array-Puffer-Instanz zurückgeben (zum Beispiel [`slice()`](/de/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer/slice)), wird der `constructor[Symbol.species]` des Objekts aufgerufen. Der zurückgegebene Konstruktor wird verwendet, um den Rückgabewert der Array-Puffer-Methode zu konstruieren.
+Beim Aufrufen von Array-Buffer-Methoden, die das bestehende Objekt nicht ändern, sondern eine neue Array-Buffer-Instanz zurückgeben (zum Beispiel [`slice()`](/de/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer/slice)), wird `constructor[Symbol.species]` des Objekts aufgerufen. Der zurückgegebene Konstruktor wird verwendet, um den Rückgabewert der Array-Buffer-Methode zu konstruieren.
 
 ## Beispiele
 
 ### Species in gewöhnlichen Objekten
 
-Die `[Symbol.species]`-Eigenschaft gibt die Standardkonstruktorfunktion zurück, die der `ArrayBuffer`-Konstruktor für `ArrayBuffer` ist.
+Die `[Symbol.species]`-Eigenschaft gibt die Standard-Konstruktorfunktion zurück, die für `ArrayBuffer` der `ArrayBuffer`-Konstruktor ist.
 
 ```js
 ArrayBuffer[Symbol.species]; // function ArrayBuffer()
@@ -56,7 +57,7 @@ ArrayBuffer[Symbol.species]; // function ArrayBuffer()
 
 ### Species in abgeleiteten Objekten
 
-In einer Instanz einer benutzerdefinierten `ArrayBuffer`-Unterklasse, wie `MyArrayBuffer`, ist die `MyArrayBuffer`-Species der `MyArrayBuffer`-Konstruktor. Sie möchten jedoch möglicherweise dies überschreiben, um in Ihren abgeleiteten Klassenmethoden übergeordnete `ArrayBuffer`-Objekte zurückzugeben:
+In einer Instanz einer benutzerdefinierten `ArrayBuffer`-Unterklasse, wie `MyArrayBuffer`, ist die `MyArrayBuffer`-Species der `MyArrayBuffer`-Konstruktor. Es könnte jedoch gewünscht sein, dies zu überschreiben, um in abgeleiteten Klassenmethoden Eltern-`ArrayBuffer`-Objekte zurückzugeben:
 
 ```js
 class MyArrayBuffer extends ArrayBuffer {

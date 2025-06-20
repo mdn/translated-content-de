@@ -1,13 +1,14 @@
 ---
 title: Date.prototype.getDate()
+short-title: getDate()
 slug: Web/JavaScript/Reference/Global_Objects/Date/getDate
 l10n:
-  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Die **`getDate()`**-Methode von {{jsxref("Date")}}-Instanzen gibt den Tag des Monats für dieses Datum gemäß Ortszeit zurück.
+Die **`getDate()`**-Methode von {{jsxref("Date")}} Instanzen gibt den Tag des Monats für dieses Datum entsprechend der lokalen Zeit zurück.
 
 {{InteractiveExample("JavaScript Demo: Date.prototype.getDate()", "shorter")}}
 
@@ -31,13 +32,13 @@ Keine.
 
 ### Rückgabewert
 
-Eine ganze Zahl zwischen 1 und 31, die den Tag des Monats für das angegebene Datum gemäß Ortszeit darstellt. Gibt `NaN` zurück, wenn das Datum [ungültig](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) ist.
+Eine ganze Zahl zwischen 1 und 31, die den Tag des Monats für das gegebene Datum entsprechend der lokalen Zeit darstellt. Gibt `NaN` zurück, wenn das Datum [ungültig](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) ist.
 
 ## Beispiele
 
 ### Verwendung von getDate()
 
-Die Variable `day` hat den Wert `25`, basierend auf dem Wert des {{jsxref("Date")}}-Objekts `xmas95`.
+Die Variable `day` hat den Wert `25`, basierend auf dem Wert des {{jsxref("Date")}} Objekts `xmas95`.
 
 ```js
 const xmas95 = new Date("1995-12-25T23:15:30");

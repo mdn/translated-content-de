@@ -1,17 +1,18 @@
 ---
 title: Temporal.ZonedDateTime.prototype.nanosecond
+short-title: nanosecond
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime/nanosecond
 l10n:
-  sourceCommit: d0b9cef0713eb263934a98e94202b97c143204a4
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}{{SeeCompatTable}}
 
-Die **`nanosecond`** Zugriffs-Eigenschaft von Instanzen des {{jsxref("Temporal.ZonedDateTime")}} gibt eine ganze Zahl von 0 bis 999 zurück, welche die Nanosekundenkomponente (10<sup>-9</sup> Sekunden) dieser Zeit darstellt.
+Die **`nanosecond`** Zugriffseigenschaft der {{jsxref("Temporal.ZonedDateTime")}} Instanzen gibt eine ganze Zahl von 0 bis 999 zurück, die die Nanosekunde (10<sup>-9</sup> Sekunde) dieser Zeit darstellt.
 
-Der set-Accessor von `nanosecond` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern. Verwenden Sie die {{jsxref("Temporal/ZonedDateTime/with", "with()")}}-Methode, um ein neues `Temporal.ZonedDateTime`-Objekt mit dem gewünschten neuen Wert zu erstellen.
+Der set-Accessor von `nanosecond` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern. Verwenden Sie die {{jsxref("Temporal/ZonedDateTime/with", "with()")}} Methode, um ein neues `Temporal.ZonedDateTime` Objekt mit dem gewünschten neuen Wert zu erstellen.
 
-Für allgemeine Informationen und weitere Beispiele siehe {{jsxref("Temporal/PlainTime/nanosecond", "Temporal.PlainTime.prototype.nanosecond")}}.
+Für allgemeine Informationen und weitere Beispiele, siehe {{jsxref("Temporal/PlainTime/nanosecond", "Temporal.PlainTime.prototype.nanosecond")}}.
 
 ## Beispiele
 

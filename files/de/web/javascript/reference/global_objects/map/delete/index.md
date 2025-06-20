@@ -1,13 +1,14 @@
 ---
 title: Map.prototype.delete()
+short-title: delete()
 slug: Web/JavaScript/Reference/Global_Objects/Map/delete
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Die **`delete()`**-Methode von {{jsxref("Map")}}-Instanzen entfernt das angegebene Element aus dieser Map anhand des Schlüssels.
+Die **`delete()`** Methode von {{jsxref("Map")}}-Instanzen entfernt das angegebene Element aus dieser Map mithilfe des Schlüssels.
 
 {{InteractiveExample("JavaScript Demo: Map.prototype.delete()")}}
 
@@ -32,7 +33,7 @@ mapInstance.delete(key)
 ### Parameter
 
 - `key`
-  - : Der Schlüssel des Elements, das aus dem `Map`-Objekt entfernt werden soll.
+  - : Der Schlüssel des zu entfernenden Elements aus dem `Map`-Objekt.
 
 ### Rückgabewert
 

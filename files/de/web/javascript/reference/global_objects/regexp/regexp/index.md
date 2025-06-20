@@ -1,15 +1,16 @@
 ---
 title: RegExp() Konstruktor
+short-title: RegExp()
 slug: Web/JavaScript/Reference/Global_Objects/RegExp/RegExp
 l10n:
-  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Der **`RegExp()`**-Konstruktor erstellt {{jsxref("RegExp")}}-Objekte.
+Der **`RegExp()`** Konstruktor erstellt {{jsxref("RegExp")}} Objekte.
 
-Für eine Einführung in reguläre Ausdrücke lesen Sie das Kapitel über [Reguläre Ausdrücke](/de/docs/Web/JavaScript/Guide/Regular_expressions) im [JavaScript-Leitfaden](/de/docs/Web/JavaScript/Guide).
+Für eine Einführung in reguläre Ausdrücke lesen Sie das Kapitel [Reguläre Ausdrücke](/de/docs/Web/JavaScript/Guide/Regular_expressions) im [JavaScript-Leitfaden](/de/docs/Web/JavaScript/Guide).
 
 {{InteractiveExample("JavaScript Demo: RegExp() constructor")}}
 
@@ -36,65 +37,65 @@ RegExp(pattern)
 RegExp(pattern, flags)
 ```
 
-> **Note:** `RegExp()` kann mit oder ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden, manchmal jedoch mit unterschiedlichen Effekten. Siehe [Rückgabewert](#rückgabewert).
+> **Note:** `RegExp()` kann mit oder ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden, jedoch manchmal mit unterschiedlichen Effekten. Siehe [Rückgabewert](#rückgabewert).
 
 ### Parameter
 
 - `pattern`
 
-  - : Der Text des regulären Ausdrucks. Dies kann auch ein anderes `RegExp`-Objekt sein.
+  - : Der Text des regulären Ausdrucks. Dies kann auch ein anderes `RegExp` Objekt sein.
 
 - `flags` {{optional_inline}}
 
-  - : Falls angegeben, ist `flags` ein String, der die hinzuzufügenden Flags enthält. Alternativ, wenn ein `RegExp`-Objekt für das `pattern` bereitgestellt wird, ersetzt der `flags`-String die Flags dieses Objekts (und `lastIndex` wird auf `0` zurückgesetzt).
+  - : Wenn angegeben, ist `flags` ein String, der die hinzuzufügenden Flags enthält. Alternativ, wenn ein `RegExp` Objekt für das `pattern` bereitgestellt wird, ersetzt der `flags`-String alle Flags dieses Objekts (und `lastIndex` wird auf `0` zurückgesetzt).
 
     `flags` kann jede Kombination der folgenden Zeichen enthalten:
 
     - [`d` (indices)](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/hasIndices)
-      - : Generieren Sie Indizes für Übereinstimmungen von Unterstrings.
+      - : Indizes für Teilzeichenfolgen-Matches erzeugen.
     - [`g` (global)](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/global)
-      - : Finden Sie alle Übereinstimmungen, anstatt nach der ersten Übereinstimmung zu stoppen.
+      - : Alle Übereinstimmungen finden anstatt beim ersten Treffer zu stoppen.
     - [`i` (ignore case)](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/ignoreCase)
       - : Beim Abgleich werden Unterschiede in der Groß- und Kleinschreibung ignoriert.
     - [`m` (multiline)](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/multiline)
-      - : Behandeln Sie Anfangs- und Ende-Annahmen (`^` und `$`) als über mehrere Zeilen arbeitend. Mit anderen Worten, treffen Sie den Anfang oder das Ende _jeder_ Zeile (abgegrenzt durch `\n` oder `\r`), nicht nur den ganz Anfang oder das Ende des gesamten Eingabestrings.
+      - : Behandle Anfangs- und Endaussagen (`^` und `$`) als über mehrere Zeilen arbeitend. Mit anderen Worten, den Anfang oder das Ende _jeder_ Zeile (durch `\n` oder `\r` begrenzt) abgleichen, nicht nur den sehr Anfang oder das Ende der gesamten Eingabezeichenfolge.
     - [`s` (dotAll)](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/dotAll)
-      - : Erlaubt `.` das Matchen von Zeilenumbrüchen.
+      - : Ermöglicht es, dass `.` auch Zeilenumbrüche abgleicht.
     - [`u` (unicode)](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicode)
-      - : Behandeln Sie `pattern` als eine Sequenz von Unicode-Codepunkten.
+      - : Behandle `pattern` als eine Folge von Unicode-Codepunkten.
     - [`v` (unicodeSets)](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicodeSets)
-      - : Ein Upgrade für das `u`-Flag, das Set-Notation in Zeichenklassen sowie Eigenschaften von Zeichenfolgen ermöglicht.
+      - : Ein Upgrade des `u`-Flags, das Set-Notation in Zeichenklassen sowie Eigenschaften von Zeichenfolgen ermöglicht.
     - [`y` (sticky)](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/sticky)
-      - : Übereinstimmung nur ab dem durch die `lastIndex`-Eigenschaft dieses regulären Ausdrucks angegebenen Index im Zielstring. Es wird nicht versucht, von späteren Indizes zu matchen.
+      - : Vergleicht nur ab dem Index, der durch die `lastIndex`-Eigenschaft dieses regulären Ausdrucks in der Zielzeichenfolge angegeben ist. Versucht nicht, aus späteren Indizes abzugleichen.
 
 ### Rückgabewert
 
-`RegExp(pattern)` gibt `pattern` direkt zurück, wenn alle folgenden Bedingungen erfüllt sind:
+`RegExp(pattern)` gibt `pattern` direkt zurück, wenn alle der folgenden Bedingungen zutreffen:
 
 - `RegExp()` wird ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen;
-- [`pattern` ist ein RegEx](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp#special_handling_for_regexes);
-- `pattern.constructor === RegExp` (meistens bedeutet das, es ist keine Unterklasse);
+- [`pattern` ist ein Regex](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp#special_handling_for_regexes);
+- `pattern.constructor === RegExp` (bedeutet in der Regel, dass es keine Unterklasse ist);
 - `flags` ist `undefined`.
 
-In allen anderen Fällen erstellt der Aufruf von `RegExp()` mit oder ohne `new` ein neues `RegExp`-Objekt. Wenn `pattern` ein RegEx ist, ist die neue [Quelle](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/source) des Objekts `pattern.source`; andernfalls ist ihre Quelle `pattern` [gezwungen zu einem String](/de/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion). Wenn der `flags`-Parameter nicht `undefined` ist, sind die neuen [Flags](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/flags) des Objekts der Wert des Parameters; andernfalls sind seine `flags` `pattern.flags` (wenn `pattern` ein RegEx ist).
+In allen anderen Fällen erzeugt der Aufruf von `RegExp()` mit oder ohne `new` ein neues `RegExp`-Objekt. Wenn `pattern` ein Regex ist, ist die [source](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/source) des neuen Objekts `pattern.source`; andernfalls ist seine Quelle `pattern` [in einen String umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion). Wenn der `flags`-Parameter nicht `undefined` ist, ist das neue Objekt [`flags`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/flags) der Wert des Parameters; andernfalls sind seine `flags` `pattern.flags` (wenn `pattern` ein Regex ist).
 
 ### Ausnahmen
 
 - {{jsxref("SyntaxError")}}
   - : Wird in einem der folgenden Fälle ausgelöst:
     - `pattern` kann nicht als gültiger regulärer Ausdruck geparst werden.
-    - `flags` enthält wiederholte Zeichen oder ein außerhalb der erlaubten Zeichen liegendes Zeichen.
+    - `flags` enthält wiederholte Zeichen oder ein Zeichen außerhalb der erlaubten.
 
 ## Beispiele
 
 ### Literale Notation und Konstruktor
 
-Es gibt zwei Möglichkeiten, ein `RegExp`-Objekt zu erstellen: eine _literale Notation_ und ein _Konstruktor_.
+Es gibt zwei Möglichkeiten, ein `RegExp`-Objekt zu erstellen: eine _literale Notation_ und einen _Konstruktor_.
 
-- Die _literale Notation_ nimmt ein Muster zwischen zwei Schrägstrichen, gefolgt von optionalen Flags, nach dem zweiten Schrägstrich.
-- Die _Konstrukturfunktion_ nimmt entweder einen String oder ein `RegExp`-Objekt als ersten Parameter und einen String aus optionalen Flags als zweiten Parameter.
+- Die _literale Notation_ nimmt ein Muster zwischen zwei Schrägstrichen, gefolgt von optionalen Flags nach dem zweiten Schrägstrich.
+- Die _Konstruktorfunktion_ nimmt entweder einen String oder ein `RegExp`-Objekt als ersten Parameter und einen String von optionalen Flags als zweiten Parameter.
 
-Die folgenden drei Ausdrücke erstellen denselben regulären Ausdruck:
+Die folgenden drei Ausdrücke erzeugen denselben regulären Ausdruck:
 
 ```js
 /ab+c/i;
@@ -102,13 +103,13 @@ new RegExp(/ab+c/, "i"); // literal notation
 new RegExp("ab+c", "i"); // constructor
 ```
 
-Bevor reguläre Ausdrücke verwendet werden können, müssen sie kompiliert werden. Dieser Vorgang ermöglicht es ihnen, Übereinstimmungen effizienter durchzuführen. Es gibt zwei Möglichkeiten, einen `RegExp`-Objekt zu kompilieren und zu erhalten.
+Bevor reguläre Ausdrücke verwendet werden können, müssen sie kompiliert werden. Dieser Prozess ermöglicht es ihnen, Übereinstimmungen effizienter durchzuführen. Es gibt zwei Möglichkeiten, einen `RegExp`-Objekt zu kompilieren und zu erhalten.
 
-Die literale Notation führt zur Kompilierung des regulären Ausdrucks, wenn der Ausdruck ausgewertet wird. Andererseits führt der Konstruktor des `RegExp`-Objekts, `new RegExp('ab+c')`, zur Laufzeitkompilierung des regulären Ausdrucks.
+Die literale Notation führt zur Kompilierung des regulären Ausdrucks, wenn der Ausdruck ausgewertet wird. Andererseits führt der Konstruktor des `RegExp`-Objekts, `new RegExp('ab+c')`, zu einer Laufzeitkompilierung des regulären Ausdrucks.
 
-Verwenden Sie einen String als das erste Argument des `RegExp()`-Konstruktors, wenn Sie den [regulären Ausdruck aus dynamischer Eingabe erstellen möchten](#erstellen_eines_regulären_ausdrucks_aus_dynamischen_eingaben).
+Verwenden Sie einen String als erstes Argument des `RegExp()` Konstruktors, wenn Sie den [regulären Ausdruck aus dynamischen Eingaben erstellen](#regulären_ausdruck_aus_dynamischen_eingaben_erstellen) möchten.
 
-### Erstellen eines regulären Ausdrucks aus dynamischen Eingaben
+### Regulären Ausdruck aus dynamischen Eingaben erstellen
 
 ```js
 const breakfasts = ["bacon", "eggs", "oatmeal", "toast", "cereal"];
@@ -128,7 +129,7 @@ order.match(new RegExp(`\\b(${breakfasts.join("|")})\\b`, "g"));
 
 ## Siehe auch
 
-- [Polyfill vieler moderner `RegExp`-Funktionen (`dotAll`, `sticky`-Flags, benannte Erfassungsgruppen usw.) in `core-js`](https://github.com/zloirock/core-js#ecmascript-string-and-regexp)
+- [Polyfill von vielen modernen `RegExp`-Funktionen (`dotAll`, `sticky` Flags, benannte Erfassungsgruppen usw.) in `core-js`](https://github.com/zloirock/core-js#ecmascript-string-and-regexp)
 - [Leitfaden zu regulären Ausdrücken](/de/docs/Web/JavaScript/Guide/Regular_expressions)
 - {{jsxref("String.prototype.match()")}}
 - {{jsxref("String.prototype.replace()")}}

@@ -1,13 +1,14 @@
 ---
 title: Atomics.and()
+short-title: and()
 slug: Web/JavaScript/Reference/Global_Objects/Atomics/and
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Die **`Atomics.and()`** statische Methode führt eine bitweise UND-Operation mit einem angegebenen Wert an einer angegebenen Position im Array aus und gibt den alten Wert an dieser Position zurück. Diese atomare Operation garantiert, dass keine anderen Schreibvorgänge stattfinden, bis der geänderte Wert zurückgeschrieben wird.
+Die statische Methode **`Atomics.and()`** berechnet einen bitweisen UND mit einem gegebenen Wert an einer bestimmten Position im Array und gibt den alten Wert an dieser Position zurück. Diese atomare Operation garantiert, dass keine andere Schreiboperation stattfindet, bis der modifizierte Wert zurückgeschrieben wird.
 
 {{InteractiveExample("JavaScript Demo: Atomics.and()")}}
 
@@ -34,18 +35,19 @@ Atomics.and(typedArray, index, value)
 ### Parameter
 
 - `typedArray`
-  - : Ein Integer-Typed-Array. Einer der folgenden Typen: {{jsxref("Int8Array")}}, {{jsxref("Uint8Array")}},
+  - : Ein Integer-typisiertes Array. Eines von {{jsxref("Int8Array")}}, {{jsxref("Uint8Array")}},
     {{jsxref("Int16Array")}}, {{jsxref("Uint16Array")}}, {{jsxref("Int32Array")}},
     {{jsxref("Uint32Array")}}, {{jsxref("BigInt64Array")}} oder
     {{jsxref("BigUint64Array")}}.
 - `index`
-  - : Die Position im `typedArray`, an der das bitweise UND berechnet wird.
+  - : Die Position im `typedArray`, an der der bitweise UND berechnet werden soll.
 - `value`
-  - : Die Zahl, mit der das bitweise UND berechnet wird.
+  - : Die Zahl, mit der der bitweise UND berechnet werden soll.
 
 ### Rückgabewert
 
-Der alte Wert an der angegebenen Position (`typedArray[index]`).
+Der alte Wert an der angegebenen Position
+(`typedArray[index]`).
 
 ### Ausnahmen
 
@@ -56,7 +58,7 @@ Der alte Wert an der angegebenen Position (`typedArray[index]`).
 
 ## Beschreibung
 
-Die bitweise UND-Operation ergibt nur 1, wenn sowohl `a` als auch `b` gleich 1 sind. Die Wahrheitstabelle für die UND-Operation lautet:
+Der bitweise UND-Operator ergibt nur dann 1, wenn sowohl `a` als auch `b` 1 sind. Die Wahrheitstabelle für die UND-Operation ist:
 
 | `a` | `b` | `a & b` |
 | --- | --- | ------- |
@@ -65,7 +67,7 @@ Die bitweise UND-Operation ergibt nur 1, wenn sowohl `a` als auch `b` gleich 1 s
 | 1   | 0   | 0       |
 | 1   | 1   | 1       |
 
-Ein Beispiel: Ein bitweises UND von `5 & 1` ergibt `0001`, was in Dezimal 1 entspricht.
+Zum Beispiel ergibt ein bitweises UND von `5 & 1` das Ergebnis `0001`, was dezimal 1 ist.
 
 ```plain
 5  0101
@@ -76,7 +78,7 @@ Ein Beispiel: Ein bitweises UND von `5 & 1` ergibt `0001`, was in Dezimal 1 ents
 
 ## Beispiele
 
-### Verwendung von and()
+### Nutzung von and()
 
 ```js
 const sab = new SharedArrayBuffer(1024);

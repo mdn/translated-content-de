@@ -1,13 +1,14 @@
 ---
 title: Array.prototype.entries()
+short-title: entries()
 slug: Web/JavaScript/Reference/Global_Objects/Array/entries
 l10n:
-  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Die **`entries()`** Methode von {{jsxref("Array")}} Instanzen gibt ein neues _[Array-Iterator](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator)_-Objekt zurück, das die Schlüssel/Wert-Paare für jeden Index im Array enthält.
+Die **`entries()`**-Methode von {{jsxref("Array")}} Instanzen gibt ein neues _[Array-Iterator](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator)_ Objekt zurück, das die Schlüssel/Wert-Paare für jeden Index im Array enthält.
 
 {{InteractiveExample("JavaScript Demo: Array.prototype.entries()")}}
 
@@ -39,9 +40,9 @@ Ein neues [iterierbares Iterator-Objekt](/de/docs/Web/JavaScript/Reference/Globa
 
 ## Beschreibung
 
-Wenn die Methode für [lückenhafte Arrays](/de/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays) verwendet wird, iteriert die Methode `entries()` über leere Slots, als hätten sie den Wert `undefined`.
+Bei der Verwendung auf [sparsely besetzen Arrays](/de/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays) durchläuft die `entries()`-Methode leere Slots, als hätten sie den Wert `undefined`.
 
-Die Methode `entries()` ist [generisch](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#generic_array_methods). Sie erwartet nur, dass der `this`-Wert eine `length`-Eigenschaft und ganzzahlschlüsselige Eigenschaften hat.
+Die `entries()`-Methode ist [generisch](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#generic_array_methods). Sie erwartet lediglich, dass der `this`-Wert eine `length`-Eigenschaft und integer-indizierte Eigenschaften hat.
 
 ## Beispiele
 
@@ -74,9 +75,9 @@ for (const element of arrayEntries) {
 // [2, 'c']
 ```
 
-### Iterieren über lückenhafte Arrays
+### Iterieren von sparsen Arrays
 
-`entries()` behandelt leere Slots, als wären sie `undefined`.
+`entries()` wird leere Slots besuchen, als wären sie `undefined`.
 
 ```js
 for (const element of [, "a"].entries()) {
@@ -86,9 +87,9 @@ for (const element of [, "a"].entries()) {
 // [1, 'a']
 ```
 
-### Aufruf von entries() bei Nicht-Array-Objekten
+### Aufrufen von entries() auf Nicht-Array-Objekten
 
-Die Methode `entries()` liest die `length`-Eigenschaft von `this` und greift dann auf jede Eigenschaft zu, deren Schlüssel eine nicht negative Ganzzahl kleiner als `length` ist.
+Die `entries()`-Methode liest die `length`-Eigenschaft von `this` und greift dann auf jede Eigenschaft zu, deren Schlüssel eine nicht-negative Ganzzahl kleiner als `length` ist.
 
 ```js
 const arrayLike = {
@@ -118,7 +119,7 @@ for (const entry of Array.prototype.entries.call(arrayLike)) {
 
 - [Polyfill von `Array.prototype.entries` in `core-js`](https://github.com/zloirock/core-js#ecmascript-array)
 - [es-shims Polyfill von `Array.prototype.entries`](https://www.npmjs.com/package/array.prototype.entries)
-- [Leitfaden zu indizierten Sammlungen](/de/docs/Web/JavaScript/Guide/Indexed_collections)
+- [Leitfaden für indizierte Sammlungen (Indexed collections)](/de/docs/Web/JavaScript/Guide/Indexed_collections)
 - {{jsxref("Array")}}
 - {{jsxref("Array.prototype.keys()")}}
 - {{jsxref("Array.prototype.values()")}}

@@ -1,13 +1,14 @@
 ---
 title: Date.now()
+short-title: now()
 slug: Web/JavaScript/Reference/Global_Objects/Date/now
 l10n:
-  sourceCommit: be1922d62a0d31e4e3441db0e943aed8df736481
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Die statische Methode **`Date.now()`** gibt die Anzahl der Millisekunden zurück, die seit dem [Epoch](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) vergangen sind. Dieser ist definiert als Mitternacht zu Beginn des 1. Januar 1970, UTC.
+Die statische Methode **`Date.now()`** gibt die Anzahl der Millisekunden zurück, die seit dem [Epoch](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) vergangen sind. Diese ist als Mitternacht zu Beginn des 1. Januar 1970, UTC, definiert.
 
 {{InteractiveExample("JavaScript Demo: Date.now()")}}
 
@@ -38,15 +39,15 @@ Keine.
 
 ### Rückgabewert
 
-Eine Zahl, die den [Zeitstempel](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) der aktuellen Zeit in Millisekunden darstellt.
+Eine Zahl, die den [Zeitstempel](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date), in Millisekunden, der aktuellen Uhrzeit darstellt.
 
 ## Beschreibung
 
 ### Reduzierte Zeitpräzision
 
-Um Schutz vor Timing-Angriffen und {{Glossary("Fingerprinting", "Fingerabdruckerstellung")}} zu bieten, kann die Präzision von `Date.now()` abhängig von den Browsereinstellungen gerundet werden. In Firefox ist die Einstellung `privacy.reduceTimerPrecision` standardmäßig aktiviert und beträgt standardmäßig 2 ms. Sie können auch `privacy.resistFingerprinting` aktivieren, in diesem Fall beträgt die Präzision 100 ms oder den Wert von `privacy.resistFingerprinting.reduceTimerPrecision.microseconds`, je nachdem, welcher größer ist.
+Um Schutz gegen Timing-Angriffe und {{Glossary("Fingerprinting", "Fingerprinting")}} zu bieten, kann die Präzision von `Date.now()` je nach Browsereinstellungen gerundet werden. In Firefox ist die Einstellung `privacy.reduceTimerPrecision` standardmäßig aktiviert und beträgt standardmäßig 2 ms. Sie können auch `privacy.resistFingerprinting` aktivieren; in diesem Fall beträgt die Präzision 100 ms oder der Wert von `privacy.resistFingerprinting.reduceTimerPrecision.microseconds`, je nachdem, welcher größer ist.
 
-Zum Beispiel ist das Ergebnis von `Date.now()` bei reduzierter Zeitpräzision immer ein Vielfaches von 2, oder ein Vielfaches von 100 (oder `privacy.resistFingerprinting.reduceTimerPrecision.microseconds`) wenn `privacy.resistFingerprinting` aktiviert ist.
+Zum Beispiel wird das Ergebnis von `Date.now()` bei reduzierter Zeitpräzision immer ein Vielfaches von 2 sein oder ein Vielfaches von 100 (oder `privacy.resistFingerprinting.reduceTimerPrecision.microseconds`) mit aktiviertem `privacy.resistFingerprinting`.
 
 ```js
 // reduced time precision (2ms) in Firefox 60
@@ -70,7 +71,7 @@ Date.now();
 
 ### Messung der verstrichenen Zeit
 
-Sie können `Date.now()` verwenden, um die aktuelle Zeit in Millisekunden zu erhalten und dann eine vorherige Zeit subtrahieren, um herauszufinden, wie viel Zeit zwischen den beiden Aufrufen vergangen ist.
+Sie können `Date.now()` verwenden, um die aktuelle Zeit in Millisekunden zu erhalten, und dann eine frühere Zeit subtrahieren, um herauszufinden, wie viel Zeit zwischen den beiden Aufrufen vergangen ist.
 
 ```js
 const start = Date.now();
@@ -78,7 +79,7 @@ doSomeLongRunningProcess();
 console.log(`Time elapsed: ${Date.now() - start} ms`);
 ```
 
-Für komplexere Szenarien sollten Sie stattdessen möglicherweise die [Performance-API](/de/docs/Web/API/Performance_API/High_precision_timing) verwenden.
+Für komplexere Szenarien sollten Sie stattdessen die [Performance API](/de/docs/Web/API/Performance_API/High_precision_timing) verwenden.
 
 ## Spezifikationen
 

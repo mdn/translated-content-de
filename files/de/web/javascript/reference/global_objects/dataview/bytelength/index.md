@@ -1,13 +1,14 @@
 ---
 title: DataView.prototype.byteLength
+short-title: byteLength
 slug: Web/JavaScript/Reference/Global_Objects/DataView/byteLength
 l10n:
-  sourceCommit: 9645d14f12d9b93da98daaf25a443bb6cac3f2a6
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Die **`byteLength`** Zugriffseigenschaft von {{jsxref("DataView")}} Instanzen gibt die Länge (in Bytes) dieser Ansicht zurück.
+Die **`byteLength`** Zugriffs-Eigenschaft von {{jsxref("DataView")}} Instanzen gibt die Länge (in Bytes) dieser Ansicht zurück.
 
 {{InteractiveExample("JavaScript Demo: DataView.prototype.byteLength")}}
 
@@ -24,7 +25,7 @@ console.log(view1.byteLength + view2.byteLength); // 16 + 4
 
 ## Beschreibung
 
-Die `byteLength`-Eigenschaft ist eine Zugriffseigenschaft, deren set-Zugriffsfunktionswert `undefined` ist, was bedeutet, dass Sie diese Eigenschaft nur lesen können. Der Wert wird bei der Konstruktion eines `DataView` festgelegt und kann nicht geändert werden. Wenn der `DataView` keinen Offset oder eine `byteLength` angibt, wird die `byteLength` des referenzierten `ArrayBuffer` oder `SharedArrayBuffer` zurückgegeben.
+Die Eigenschaft `byteLength` ist eine Zugriffs-Eigenschaft, deren set-Zugriffs-Funktion `undefined` ist. Das bedeutet, dass Sie diese Eigenschaft nur lesen können. Der Wert wird festgelegt, wenn ein `DataView` konstruiert wird und kann nicht geändert werden. Falls der `DataView` keinen Offset oder keine `byteLength` angibt, wird die `byteLength` des referenzierten `ArrayBuffer` oder `SharedArrayBuffer` zurückgegeben.
 
 ## Beispiele
 

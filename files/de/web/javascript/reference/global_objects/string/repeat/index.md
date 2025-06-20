@@ -1,13 +1,15 @@
 ---
 title: String.prototype.repeat()
+short-title: repeat()
 slug: Web/JavaScript/Reference/Global_Objects/String/repeat
 l10n:
-  sourceCommit: 6d2000984203c51f1aad49107ebcebe14d3c1238
+  sourceCommit: b6cab42cf7baf925f2ef6a2c98db0778d9c2ec46
 ---
 
 {{JSRef}}
 
-Die **`repeat()`** Methode von {{jsxref("String")}}-Werten erstellt und gibt einen neuen String zurück, welcher die angegebene Anzahl von Kopien dieses Strings enthält, die miteinander verkettet sind.
+Die **`repeat()`**-Methode von {{jsxref("String")}}-Werten konstruiert und gibt einen neuen String zurück,
+der die angegebene Anzahl von Kopien dieses Strings enthält, zusammengefügt.
 
 {{InteractiveExample("JavaScript Demo: String.prototype.repeat()", "shorter")}}
 
@@ -65,5 +67,5 @@ Ein neuer String, der die angegebene Anzahl von Kopien des gegebenen Strings ent
 ## Siehe auch
 
 - [Polyfill von `String.prototype.repeat` in `core-js`](https://github.com/zloirock/core-js#ecmascript-string-and-regexp)
-- [es-shims Polyfill von `String.prototype.repeat`](https://www.npmjs.com/package/string.prototype.repeat)
+- [Polyfill von `String.prototype.repeat` in es-shims](https://www.npmjs.com/package/string.prototype.repeat)
 - {{jsxref("String.prototype.concat()")}}
