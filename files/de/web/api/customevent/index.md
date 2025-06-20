@@ -2,15 +2,17 @@
 title: CustomEvent
 slug: Web/API/CustomEvent
 l10n:
-  sourceCommit: c7edf2734fccb185c5e93ee114ea3d5edc0177b5
+  sourceCommit: 67e109a23d67c4138e36bd03abe7f9a6500eb5c3
 ---
 
 {{APIRef("DOM")}}{{AvailableInWorkers}}
 
-Die **`CustomEvent`**-Schnittstelle repräsentiert Ereignisse, die von einer Anwendung zu beliebigen Zwecken initialisiert werden.
+Die **`CustomEvent`**-Schnittstelle kann verwendet werden, um benutzerdefinierte Daten zu einem von einer Anwendung generierten Ereignis hinzuzufügen.
+
+Als Alternative zu `CustomEvent` können Sie die [`Event`-Schnittstelle unterklassen](/de/docs/Web/Events/Creating_and_triggering_events#adding_custom_data_–_subclassing_event), um benutzerdefinierte Daten und Verhalten hinzuzufügen.
 
 > [!NOTE]
-> Wenn Sie versuchen, zwischen einem Web Extension-Content-Skript und einem Webseitenskript zu kommunizieren, wirft eine nicht-string `detail`-Eigenschaft in Firefox den Fehler "Permission denied to access property". Um dieses Problem zu vermeiden, klonen Sie das Objekt. Weitere Informationen finden Sie unter [Share objects with page scripts](/de/docs/Mozilla/Add-ons/WebExtensions/Sharing_objects_with_page_scripts).
+> Wenn versucht wird, zwischen einem Web-Erweiterungs-Content-Skript und einem Webseitenskript zu kommunizieren, löst eine nicht-String `detail`-Eigenschaft in Firefox "Permission denied to access property" aus. Um dieses Problem zu vermeiden, klonen Sie das Objekt. Weitere Informationen finden Sie unter [Share objects with page scripts](/de/docs/Mozilla/Add-ons/WebExtensions/Sharing_objects_with_page_scripts).
 
 {{InheritanceDiagram}}
 
@@ -31,7 +33,7 @@ _Diese Schnittstelle erbt Eigenschaften von ihrem Elternteil, [`Event`](/de/docs
 _Diese Schnittstelle erbt Methoden von ihrem Elternteil, [`Event`](/de/docs/Web/API/Event)._
 
 - [`CustomEvent.initCustomEvent()`](/de/docs/Web/API/CustomEvent/initCustomEvent) {{deprecated_inline}}
-  - : Initialisiert ein `CustomEvent`-Objekt. Wenn das Ereignis bereits gesendet wurde, tut diese Methode nichts.
+  - : Initialisiert ein `CustomEvent`-Objekt. Wenn das Ereignis bereits ausgelöst wurde, tut diese Methode nichts.
 
 ## Spezifikationen
 
@@ -44,4 +46,4 @@ _Diese Schnittstelle erbt Methoden von ihrem Elternteil, [`Event`](/de/docs/Web/
 ## Siehe auch
 
 - [`Window.postMessage()`](/de/docs/Web/API/Window/postMessage)
-- [Ereignisse erstellen und auslösen](/de/docs/Web/Events/Creating_and_triggering_events)
+- [Erstellen und Auslösen von Ereignissen](/de/docs/Web/Events/Creating_and_triggering_events)
