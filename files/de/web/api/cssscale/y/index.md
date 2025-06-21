@@ -1,22 +1,23 @@
 ---
-title: "CSSScale: y Eigenschaft"
+title: "CSSScale: y-Eigenschaft"
 short-title: y
 slug: Web/API/CSSScale/y
 l10n:
-  sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
+  sourceCommit: e1f6592bf96c5614a81ccb5dbd65e301b734b0e7
 ---
 
 {{APIRef("CSS Typed OM")}}
 
-Die **`y`**-Eigenschaft der [`CSSScale`](/de/docs/Web/API/CSSScale)-Schnittstelle gibt den Ordinaten- oder y-Achsenwert des Übersetzungsvektors zurück oder legt diesen fest.
+Die **`y`**-Eigenschaft des
+[`CSSScale`](/de/docs/Web/API/CSSScale)-Interfaces ruft die Ordinate oder y-Achse des Translationsvektors ab und setzt sie.
 
 ## Wert
 
-Ein Gleitkommawert oder ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)
+Ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue). Kann auf eine Zahl gesetzt werden, die in einem [`CSSUnitValue`](/de/docs/Web/API/CSSUnitValue) mit `unit: "number"` eingeschlossen ist.
 
 ## Beispiele
 
-Noch ausstehend
+To Do
 
 ## Spezifikationen
 
