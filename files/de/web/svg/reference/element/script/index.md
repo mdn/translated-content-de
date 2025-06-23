@@ -2,13 +2,13 @@
 title: <script>
 slug: Web/SVG/Reference/Element/script
 l10n:
-  sourceCommit: e14e73ce1a40a41ff096ead9c364e057f815adff
+  sourceCommit: 9bb1d5338fa4f9074a18a14c34396f6aa3d53532
 ---
 
-Das **`<script>`** [SVG](/de/docs/Web/SVG)-Element ermöglicht es, Skripte zu einem SVG-Dokument hinzuzufügen.
+Das **`<script>`**-[SVG](/de/docs/Web/SVG)-Element ermöglicht es, Skripte in ein SVG-Dokument einzufügen.
 
 > [!NOTE]
-> Während das `script`-Element von SVG dem HTML-{{HTMLElement('script')}}-Element entspricht, gibt es einige Unterschiede, wie zum Beispiel die Verwendung des {{SVGAttr('href')}}-Attributs anstelle von [`src`](/de/docs/Web/HTML/Reference/Elements/script#src) und es unterstützt bisher keine ECMAScript-Module (siehe unten für Details zur Browser-Kompatibilität).
+> Während das `script`-Element von SVG dem HTML-{{HTMLElement('script')}}-Element entspricht, gibt es einige Unterschiede, wie z.B. die Verwendung des {{SVGAttr('href')}}-Attributs anstelle von [`src`](/de/docs/Web/HTML/Reference/Elements/script#src). Zudem unterstützt es bisher keine ECMAScript-Module (siehe unten bei der Browser-Kompatibilität für Details).
 
 ## Verwendungskontext
 
@@ -19,26 +19,26 @@ Das **`<script>`** [SVG](/de/docs/Web/SVG)-Element ermöglicht es, Skripte zu ei
 - [`crossorigin`](/de/docs/Web/HTML/Reference/Elements/script#crossorigin)
   - : Dieses Attribut definiert die [CORS-Einstellungen](/de/docs/Web/HTML/Reference/Attributes/crossorigin), wie sie für das HTML-{{HTMLElement('script')}}-Element definiert sind.
     _Wertetyp_: [**[ anonymous | use-credentials ]?**](/de/docs/Web/CSS/string); _Standardwert_: `?`; _Animierbar_: **ja**
-- {{SVGAttr("fetchpriority")}}
-  - : Gibt einen Hinweis auf die relative Priorität beim Abrufen eines externen Skripts.
+- {{SVGAttr("fetchpriority")}} {{experimental_inline}}
+  - : Gibt einen Hinweis auf die relative Priorität, die beim Abrufen eines externen Skripts verwendet werden soll.
     Erlaubte Werte:
     - `high`
       - : Ruft das externe Skript mit hoher Priorität im Vergleich zu anderen externen Skripten ab.
     - `low`
       - : Ruft das externe Skript mit niedriger Priorität im Vergleich zu anderen externen Skripten ab.
     - `auto`
-      - : Setzt keine Präferenz für die Abrufpriorität.
+      - : Setzt keine Präferenz für die Priorität des Abrufs.
         Wird verwendet, wenn kein Wert oder ein ungültiger Wert gesetzt ist.
-        Dies ist der Standardwert.
+        Dies ist der Standard.
 - {{SVGAttr("href")}}
-  - : Die {{Glossary("URL", "URL")}} zu dem zu ladenden Skript.
-    _Wertetyp_: **[\<URL>](/de/docs/Web/SVG/Guides/Content_type#url)**; _Standardwert_: _none_; _Animierbar_: **nein**
+  - : Die {{Glossary("URL", "URL")}} zum zu ladenden Skript.
+    _Wertetyp_: **[\<URL>](/de/docs/Web/SVG/Guides/Content_type#url)**; _Standardwert_: _keiner_; _Animierbar_: **nein**
 - {{SVGAttr("type")}}
-  - : Dieses Attribut definiert den Typ der zu verwendenden Skriptsprache.
+  - : Dieses Attribut definiert den Skriptsprachentyp, der verwendet werden soll.
     _Wertetyp_: {{Glossary("MIME_type", "**`<media-type>`**")}}; _Standardwert_: `application/ecmascript`; _Animierbar_: **nein**
 - {{SVGAttr("xlink:href")}} {{deprecated_inline}}
-  - : Die {{Glossary("URL", "URL")}} zu dem zu ladenden Skript.
-    _Wertetyp_: **[\<URL>](/de/docs/Web/SVG/Guides/Content_type#url)**; _Standardwert_: _none_; _Animierbar_: **nein**
+  - : Die {{Glossary("URL", "URL")}} zum zu ladenden Skript.
+    _Wertetyp_: **[\<URL>](/de/docs/Web/SVG/Guides/Content_type#url)**; _Standardwert_: _keiner_; _Animierbar_: **nein**
 
 ## DOM-Schnittstelle
 

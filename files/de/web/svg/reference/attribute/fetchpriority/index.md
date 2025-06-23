@@ -2,10 +2,10 @@
 title: fetchpriority
 slug: Web/SVG/Reference/Attribute/fetchpriority
 l10n:
-  sourceCommit: e14e73ce1a40a41ff096ead9c364e057f815adff
+  sourceCommit: f92f270abb764f5238b32ab98b33f2b92713a176
 ---
 
-Das `fetchpriority` Attribut gibt dem Browser einen Hinweis auf die relative Priorität beim Abrufen einer externen Ressource. Dies funktioniert auf die gleiche Weise wie das `fetchpriority` Attribut für die HTML {{HTMLElement("img", "", "#fetchpriority")}} und {{HTMLElement("script", "", "#fetchpriority")}} Elemente.
+Das `fetchpriority`-Attribut bietet dem Browser einen Hinweis auf die relative Priorität beim Abrufen einer externen Ressource. Dies funktioniert genauso wie das `fetchpriority`-Attribut für die HTML-Elemente {{HTMLElement("img", "", "#fetchpriority")}} und {{HTMLElement("script", "", "#fetchpriority")}}.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -34,12 +34,12 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
   - : Ruft die externe Ressource mit niedriger Priorität im Vergleich zu anderen externen Ressourcen ab.
 - `auto`
   - : Setzt keine Präferenz für die Abrufpriorität.
-    Wird verwendet, wenn kein Wert oder ein ungültiger Wert gesetzt ist.
+    Es wird verwendet, wenn kein Wert oder ein ungültiger Wert gesetzt ist.
     Dies ist der Standard.
 
 ## Beispiele
 
-Dieses Beispiel zeigt, wie einem SVG {{SVGelement("script")}} Element die Priorität `high` zugewiesen wird.
+Dieses Beispiel zeigt, wie man die Priorität eines SVG-{{SVGelement("script")}}-Elements auf `high` setzt.
 
 ```html
 <svg
@@ -58,5 +58,5 @@ Dieses Beispiel zeigt, wie einem SVG {{SVGelement("script")}} Element die Priori
 
 ## Siehe auch
 
-- SVG {{SVGelement("script")}} Element
-- HTML `<script>` Element-Attribut [`fetchpriority`](/de/docs/Web/HTML/Reference/Elements/script#fetchpriority)
+- SVG-{{SVGelement("script")}}-Element
+- `fetchpriority`-Attribut des HTML-`<script>`-Elements [`fetchpriority`](/de/docs/Web/HTML/Reference/Elements/script#fetchpriority)

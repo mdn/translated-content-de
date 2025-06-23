@@ -3,25 +3,25 @@ title: "ShadowRoot: innerHTML-Eigenschaft"
 short-title: innerHTML
 slug: Web/API/ShadowRoot/innerHTML
 l10n:
-  sourceCommit: aebeb771add7275369094687b4925e6dbd5bf7b5
+  sourceCommit: 4289d2dc8e2f64cc37541cde41894e7d0aee1424
 ---
 
 {{APIRef("Shadow DOM")}}
 
-Die **`innerHTML`**-Eigenschaft der [`ShadowRoot`](/de/docs/Web/API/ShadowRoot)-Schnittstelle liest oder setzt das HTML-Markup im DOM-Baum innerhalb der `ShadowRoot`.
+Die **`innerHTML`**-Eigenschaft des [`ShadowRoot`](/de/docs/Web/API/ShadowRoot)-Interfaces liest oder setzt das HTML-Markup des DOM-Baums innerhalb des `ShadowRoot`.
 
 Beachten Sie, dass einige Browser die Zeichen `<` und `>` als `&lt;` und `&gt;` serialisieren, wenn sie in Attributwerten erscheinen (siehe [Browser-Kompatibilität](#browser-kompatibilität)).
-Dies dient dazu, eine potenzielle Sicherheitslücke ([mutation XSS](https://research.securitum.com/dompurify-bypass-using-mxss/)) zu verhindern, bei der ein Angreifer Eingaben erstellen kann, die eine [Sanitisierungsfunktion](/de/docs/Web/Security/Attacks/XSS#sanitization) umgehen, wodurch ein Cross-Site-Scripting (XSS)-Angriff ermöglicht wird.
+Dies dient dazu, eine potenzielle Sicherheitslücke ([mutation XSS](https://research.securitum.com/dompurify-bypass-using-mxss/)) zu verhindern, bei der ein Angreifer Eingaben erstellen kann, die eine [Säuberungsfunktion](/de/docs/Web/Security/Attacks/XSS#sanitization) umgehen und einen Cross-Site-Scripting-(XSS)-Angriff ermöglichen.
 
 ## Wert
 
 Ein String.
 
-Wenn auf den Wert `null` gesetzt, wird dieser `null`-Wert in den leeren String (`""`) umgewandelt, sodass `sr.innerHTML = null` äquivalent zu `sr.innerHTML = ""` ist.
+Wenn auf den Wert `null` gesetzt, wird dieser `null`-Wert in den leeren String (`""`) umgewandelt. Daher ist `sr.innerHTML = null` gleichbedeutend mit `sr.innerHTML = ""`.
 
 ## Beispiele
 
-### Das innerHTML einer Shadow-Root setzen
+### Setzen des innerHTML eines Shadow-Root
 
 ```js
 let customElem = document.querySelector("my-shadow-dom-element");

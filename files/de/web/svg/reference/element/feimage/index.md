@@ -2,10 +2,10 @@
 title: <feImage>
 slug: Web/SVG/Reference/Element/feImage
 l10n:
-  sourceCommit: e14e73ce1a40a41ff096ead9c364e057f815adff
+  sourceCommit: 9bb1d5338fa4f9074a18a14c34396f6aa3d53532
 ---
 
-Der **`<feImage>`** [SVG](/de/docs/Web/SVG)-Filterprimitive ruft Bilddaten aus einer externen Quelle ab und gibt die Pixeldaten als Ausgabe zurück (was bedeutet, dass, wenn die externe Quelle ein SVG-Bild ist, es rasterisiert wird).
+Das **`<feImage>`** [SVG](/de/docs/Web/SVG) Filter-Primitive ruft Bilddaten aus einer externen Quelle ab und stellt die Pixel-Daten als Ausgabe bereit (das bedeutet, wenn die externe Quelle ein SVG-Bild ist, wird es gerastert).
 
 ## Verwendungskontext
 
@@ -14,23 +14,23 @@ Der **`<feImage>`** [SVG](/de/docs/Web/SVG)-Filterprimitive ruft Bilddaten aus e
 ## Attribute
 
 - {{SVGAttr("crossorigin")}}
-- {{SVGAttr("fetchpriority")}}
+- {{SVGAttr("fetchpriority")}} {{experimental_inline}}
   - : Gibt einen Hinweis auf die relative Priorität beim Abrufen eines externen Bildes.
     Erlaubte Werte:
     - `high`
-      - : Abrufen des externen Bildes mit hoher Priorität relativ zu anderen externen Ressourcen.
+      - : Ruft das externe Bild mit hoher Priorität im Vergleich zu anderen externen Ressourcen ab.
     - `low`
-      - : Abrufen des externen Bildes mit niedriger Priorität relativ zu anderen externen Ressourcen.
+      - : Ruft das externe Bild mit niedriger Priorität im Vergleich zu anderen externen Ressourcen ab.
     - `auto`
       - : Setzt keine Präferenz für die Abrufpriorität.
-        Es wird verwendet, wenn kein Wert oder ein ungültiger Wert gesetzt ist.
-        Dies ist der Standard.
+        Wird verwendet, wenn kein Wert oder ein ungültiger Wert gesetzt wird.
+        Dies ist der Standardwert.
 - {{SVGAttr("preserveAspectRatio")}}
 - {{SVGAttr("xlink:href")}} {{deprecated_inline}}
 
 ## DOM-Schnittstelle
 
-Dieses Element implementiert die [`SVGFEImageElement`](/de/docs/Web/API/SVGFEImageElement)-Schnittstelle.
+Dieses Element implementiert die [`SVGFEImageElement`](/de/docs/Web/API/SVGFEImageElement) Schnittstelle.
 
 ## Beispiel
 
@@ -67,7 +67,7 @@ Dieses Element implementiert die [`SVGFEImageElement`](/de/docs/Web/API/SVGFEIma
 
 ## Siehe auch
 
-- [SVG Filterprimitiven-Attribute](/de/docs/Web/SVG/Reference/Attribute#filters_attributes)
+- [SVG Filter-Primitive-Attribute](/de/docs/Web/SVG/Reference/Attribute#filters_attributes)
 - {{SVGAttr("flood-color")}} Attribut
 - {{SVGAttr("flood-opacity")}} Attribut
 - {{SVGElement("filter")}}
@@ -90,4 +90,4 @@ Dieses Element implementiert die [`SVGFEImageElement`](/de/docs/Web/API/SVGFEIma
 - {{SVGElement("feTile")}}
 - {{SVGElement("feTurbulence")}}
 - {{SVGAttr("fetchpriority")}} Attribut
-- [SVG-Anleitung: Filtereffekte](/de/docs/Web/SVG/Tutorials/SVG_from_scratch/Filter_effects)
+- [SVG-Tutorial: Filtereffekte](/de/docs/Web/SVG/Tutorials/SVG_from_scratch/Filter_effects)
